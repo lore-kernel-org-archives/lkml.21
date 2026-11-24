@@ -1,55 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.209.128.97
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=79.135.106.120
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795528952;
-	b=expfQGBkKU75RjH01aujwyoWCA4E1FPahveGboJj0nEaCyjdkNsGx2O05sc3kr0lEFvy
-	 YjKOP/TZPQfIW5qZowCIRo206paXJ73I4rs6AXwpOuLcyho31QD6od5GpjTCHjJfIIasI
-	 UKiidhg3WdhbxBsBSC83cM78EGk4niJGcWVC2kc/iwj12XJBM9UFDPKf/TUsClLoFcmsS
-	 /33roUXgb/3RccBThi16zyhLnkHd7uUYB3FiiNB8UBSA7Y44vLxCQrwCVlk067mQLSJOu
-	 FsLlAifLu/o++tcWHKBl8odPltO8j5BAvswo8tThs68biF2bJYxR/ui2lBBFk1eQK/g==
+	t=1795528953;
+	b=tuqM0vaMojQC8C1trzzVypxF3PHzvxbSlkv2nCSohIbA2/Wl6xIAlbkaWmheUaUdC6JV
+	 X0IC0k8QESLlQRmRruyYuybH3I/m6kK9xHB1dsnSTXZF1aomwgYnra859MESxocX44aG0
+	 HyvU5XLq9bUYpMFtMsPRt31skR5BK4aiV6yAtiDS3LH0ZFZx8BiqxBWMzwQ+lfgs9Lvpi
+	 tSyslBx6atrBjhMV9J8sLQ2omw2YX0ocIoGlK5fOBhey4uS4ITjQqjqCNWiKK5UQsuw7N
+	 z71zIrT7yA//1bd0mS1OHLzVjRd9ZD6luw2RHL5ShnQQI7hHKKb4ipzUC8skMXjaW3Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795528952;
-	h=DMARC-Filter:Content-Type:Content-Transfer-Encoding:Message-ID:To:Cc:
-	 Subject:X-Priority:X-Mailer:X-Originating-IP:In-Reply-To:References:
-	 MIME-Version:Received:From:Date:X-HM-Tid:X-HM-MType:X-HM-NTES-SC:
-	 X-HM-Spam-Status:DKIM-Signature;
-	bh=REyYCHII5zl2ktIr6tyS55yQByRi0q6PrgyxBmSDkHg=;
-	b=NSHf0jTGRvHrkPx+5dRfjt0Ro+vg9lexNXY8KDmTW5YyW+IF464T7DXhGLYHXGEwCwZT
-	 kLAuJiFUmbX0AUDAgkikjoX69W6HmSkI7HMqzHs8oEdIwEQ6TguYOPlT7B8ibuWCDa1HE
-	 r8fShpNcL94J1gds2w/LzO954l5el6kE0nfpWQLoBEcOFHVA9Qv7rXESIf3BKIXZTTQVc
-	 TjCwE2IybBZiGBcaUY6o6NdQDyUCP/iAU/02BBcH7xIcTWiJIyYY+p7Te0nRZGq7N9iVt
-	 GLUH4e9plNnR/JAkUx36efBC3TCsmU7iQkNO8ql+fSPExmu1G9/5K1bw5ZCaMhwdb0w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795528953;
+	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
+	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=YHCmLTKmEasxfYX06jpTd6R6RxkzpBNrTXuYzZya3zc=;
+	b=JaeE0q2YYRtb/2+91Xg5SxzhQHaxPGni/OY9AjGCHwdCO3n+2j8L5PZg1Qj08qqtk663
+	 KlvxKOAHRYSJuRW7MRxBr87z6+3gZjLNxxjaj4itc+u6h06YglMD+heYGwaofsyC9gp6m
+	 reYZ5hK2P11YMXLz3RiR2V3NZ+648CWjXRicUdxoo5Xt2PlY+ci1bz0VaxypDK+jLjKQc
+	 pZ8rO+Tcj4vOZfQJu2dC7Sb2E066/J2Y6AeTtimc/NyOebkHy8kv/lksvD5KbSXXo+WCl
+	 gSEgmJ3eQroglaJxfKIqtBLNgCNnM6ct82brK+c+aEN3I0w1nyHEehelisZn33ssyLA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=mail.sdu.edu.cn;
-	spf=pass smtp.mailfrom=mail.sdu.edu.cn;
-	dkim=pass header.d=mail.sdu.edu.cn header.i=@mail.sdu.edu.cn header.a=rsa-sha256 header.s=default header.b=PuL87Djb;
-	arc=none smtp.remote-ip=103.209.128.97
-Received: from mail-m12897.netease.com (mail-m12897.netease.com [103.209.128.97])
+	dmarc=pass header.from=proton.me;
+	spf=pass smtp.mailfrom=proton.me;
+	dkim=pass header.d=proton.me header.i=@proton.me header.a=rsa-sha256 header.s=protonmail2 header.b=MGKLw4UV;
+	arc=none smtp.remote-ip=79.135.106.120
+Received: from mail-106120.protonmail.ch (mail-106120.protonmail.ch [79.135.106.120])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 55E1860A2620;
-	Tue, 24 Nov 2026 14:02:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 55E1860A2620
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=mail.sdu.edu.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mail.sdu.edu.cn
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 05961606A33F
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 14:02:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 05961606A33F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=proton.me
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=proton.me
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=mail.sdu.edu.cn header.i=@mail.sdu.edu.cn header.a=rsa-sha256 header.s=default header.b=PuL87Djb
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: base64
-Message-ID: <AFIAnACwLNbQUd1pcUL4gqo0.3.1795528942002.Hmail.202321181@mail.sdu.edu.cn>
-To: Frank Li <Frank.li@oss.nxp.com>
-Cc: Philipp Zabel <p.zabel@pengutronix.de>, 
-	Mauro Carvalho Chehab <mchehab@kernel.org>, 
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, linux-media@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Subject: =?UTF-8?B?UmU6UmU6IFtQQVRDSF0gbWVkaWE6IGNvZGE6IEZpeCBwb3RlbnRpYWwgdXNlLWFmdGVyLWZyZWUgYWZ0ZXIgVkRPQSByZW1vdmFs?=
-X-Priority: 3
-X-Mailer: HMail Webmail Server V2.0 Copyright (c) 2016-163.com web
-In-Reply-To: <av9mwwAmlRoDdU0d@lizhi-Precision-Tower-5810>
-References: <20261107-0d0c29e10a-media-coda-1@mail.sdu.edu.cn> <av9mwwAmlRoDdU0d@lizhi-Precision-Tower-5810>
+	dkim=pass (2048-bit key, unprotected) header.d=proton.me header.i=@proton.me header.a=rsa-sha256 header.s=protonmail2 header.b=MGKLw4UV
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=proton.me;
+	s=protonmail2; t=1795528948; x=1795788148;
+	bh=YHCmLTKmEasxfYX06jpTd6R6RxkzpBNrTXuYzZya3zc=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=MGKLw4UVxUH2XEWjmT9L09/QDw0Xzt2Ni3yhfj1yR/gEMmqKQOPIf/sQZ6pMsVHm2
+	 dj58+cY+teFbNnP7RrTMQ9cm1cr2fL01AjkUtkSNxO0UJWmUNfZT8j/twW7CNA6CnU
+	 ZBK2TK7mpN3ql7kw+zz1Y7l/YOrpohIcr50gK9b+36+qwOVqswkYeNkYP8kJEyTARz
+	 hamkDcdJWpWLZlwXG7moSF9szuds3s60uK43k0De4Wy08z6a0hxuLdd4XD0dD1ZD1P
+	 260O6XEns0leZHReG2fxAALnFlKwOWAQHkUorWDVnV5qEDTxesBSu+UpTaacNc2GKB
+	 16q81HaGX7H+w==
+Date: Tue, 24 Nov 2026 14:02:26 +0000
+To: linux-bluetooth@vger.kernel.org
+From: Kyle Pepper <cochcoder@proton.me>
+Cc: luiz.dentz@gmail.com, marcel@holtmann.org, linux-kernel@vger.kernel.org
+Subject: [PATCH v13 2/2] Bluetooth: L2CAP: Keep credits from completing security upgrades
+Message-ID: <ebb3db4a4beaf30b6ec94771c89209b9c7880279.1795528595.git.github.filter194@slmail.me>
+In-Reply-To: <4278a9caf4dc8e949092452c141a5be465ec77e1.1794617024.git.github.filter194@slmail.me>
+References: <20261113030556.75484-1-cochcoder@proton.me> <4278a9caf4dc8e949092452c141a5be465ec77e1.1794550328.git.github.filter194@slmail.me> <4278a9caf4dc8e949092452c141a5be465ec77e1.1794617024.git.github.filter194@slmail.me>
+Feedback-ID: 97716137:user:proton
+X-Pm-Message-ID: e70ae44d5ea45aaa702666e695b50417174a4e18
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,229 +64,963 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Received: from 202321181@mail.sdu.edu.cn( [101.76.249.61] ) by ajax-webmail ( [127.0.0.1] ) ; Tue, 24 Nov 2026 22:02:22 +0800 (GMT+08:00)
-From: =?UTF-8?B?5p2O5bm/56GV?= <liguangshuo@mail.sdu.edu.cn>
-Date: Tue, 24 Nov 2026 22:02:22 +0800 (GMT+08:00)
-X-HM-Tid: 0aa20ddd14bad0cdkusy74eb9888248c4
-X-HM-MType: 1
-X-HM-NTES-SC: AL0_4z5B86Wr4Tz9jdMF+bhXMVHpP02bZAKsMEiErRSAekjx+ys+KNZNl0PLwl
-	f2MeqR5lbiqKsoq8sm3hZVy9q3VetZ+Wq0Te/EdHEVk+2W3XygE0t2b+veD5v+x2w+urvHSdPueh
-	Bwyos/nR5+LvezQQMuIMggoyp4Zyj6fgfP8i8=
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkZHx9IVkJKQ0xDHkxLSUwfHVYVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlKS0pVTE1VSU9CVU1KWVdZFhoPEhUdFFlBWU9LSFVCQk
-	lOS1VKS0tVSkJLQlkG
-DKIM-Signature: a=rsa-sha256;
-	b=PuL87DjbLBoSmzI1EwLUXTD0w3aFAGqjyOL9LWhyErR3n/yP6TFlB/+giGny3drlF5wM2QmOlTHlwONo1O2Js7KgjHIJ9izE/UWj6s9cXsOENVdlspzYcmcqRXlyoz9I5GmnNkAa72Qc7tIrSjN/C1YW2DVyziKOIissJQHMJeU=; c=relaxed/relaxed; s=default; d=mail.sdu.edu.cn; v=1;
-	bh=REyYCHII5zl2ktIr6tyS55yQByRi0q6PrgyxBmSDkHg=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-SGkgRnJhbmssCgpUaGFua3MgZm9yIHRoZSByZXZpZXcuCgpGcm9tOiBGcmFuayBMaSA8RnJhbmsu
-bGlAb3NzLm54cC5jb20+CkRhdGU6IDIwMjYtMTEtMjAgMDU6MTQ6NDMKVG86ICBHdWFuZ3NodW8g
-TGkgPGxpZ3VhbmdzaHVvQG1haWwuc2R1LmVkdS5jbj4KQ2M6ICBQaGlsaXBwIFphYmVsIDxwLnph
-YmVsQHBlbmd1dHJvbml4LmRlPixNYXVybyBDYXJ2YWxobyBDaGVoYWIgPG1jaGVoYWJAa2VybmVs
-Lm9yZz4sRnJhbmsgTGkgPEZyYW5rLkxpQG54cC5jb20+LFNhc2NoYSBIYXVlciA8cy5oYXVlckBw
-ZW5ndXRyb25peC5kZT4sUGVuZ3V0cm9uaXggS2VybmVsIFRlYW0gPGtlcm5lbEBwZW5ndXRyb25p
-eC5kZT4sRmFiaW8gRXN0ZXZhbSA8ZmVzdGV2YW1AZ21haWwuY29tPixsaW51eC1tZWRpYUB2Z2Vy
-Lmtlcm5lbC5vcmcsbGludXgta2VybmVsQHZnZXIua2VybmVsLm9yZyxpbXhAbGlzdHMubGludXgu
-ZGV2LGxpbnV4LWFybS1rZXJuZWxAbGlzdHMuaW5mcmFkZWFkLm9yZwpTdWJqZWN0OiBSZTogW1BB
-VENIXSBtZWRpYTogY29kYTogRml4IHBvdGVudGlhbCB1c2UtYWZ0ZXItZnJlZSBhZnRlciBWRE9B
-IHJlbW92YWw+T24gU2F0LCBOb3YgMDcsIDIwMjYgYXQgMDI6NTQ6MzBQTSArMDgwMCwgR3Vhbmdz
-aHVvIExpIHdyb3RlOgo+PiBWRE9BIGNhbiBiZSB1bmJvdW5kIHdoaWxlIENPREEgc3RpbGwgaG9s
-ZHMgaXRzIGRyaXZlciBkYXRhIGFuZCBvcGVuCj4+IGNvbnRleHRzLiBUaGVpciBuZXh0IHRyYW5z
-ZmVyIG9yIGNsb3NlIHRoZW4gYWNjZXNzZXMgcmVsZWFzZWQgc3RhdGUKPj4gYW5kIGRldmljZS1t
-YW5hZ2VkIHJlc291cmNlcy4KPj4KPj4gUmV0YWluIHRoZSBWRE9BIHN0YXRlIGZvciBpdHMgY29u
-c3VtZXJzIGFuZCBjb250ZXh0cy4gU2VyaWFsaXplIGhhcmR3YXJlCj4+IGFjY2VzcyB3aXRoIHJl
-bW92YWwsIHN0b3Agb3V0c3RhbmRpbmcgdHJhbnNmZXJzIGFuZCBiYWxhbmNlIHRoZSBjbG9jawo+
-PiByZWZlcmVuY2VzIGJlZm9yZSBkaXNjb25uZWN0aW5nIHRoZSByZXRhaW5lZCBjb250ZXh0cy4g
-QWxzbyByZWxlYXNlIGEKPj4gVkRPQSBjb250ZXh0IHdoZW4gb3BlbmluZyBDT0RBIGZhaWxzLgo+
-Pgo+PiBUaGlzIGlzc3VlIHdhcyBmb3VuZCBieSBvdXIgc3RhdGljIGFuYWx5c2lzIHRvb2wgdW5k
-ZXIgZGV2ZWxvcG1lbnQuCj4+Cj4+IEZpeGVzOiBlN2YzYzU0ODEwMzUgKCJbbWVkaWFdIGNvZGE6
-IHVzZSBWRE9BIGZvciB1bi10aWxpbmcgY3VzdG9tIG1hY3JvYmxvY2sgZm9ybWF0IikKPj4gU2ln
-bmVkLW9mZi1ieTogR3VhbmdzaHVvIExpIDxsaWd1YW5nc2h1b0BtYWlsLnNkdS5lZHUuY24+Cj4+
-IC0tLQo+PiBWYWxpZGF0aW9uOiB4ODYtNjQgR0NDIFc9MSBjaGFuZ2VkLW9iamVjdCBjb21waWxh
-dGlvbiBwYXNzZWQuIEFuCj4+IGV4dHJhY3RlZC1jb2RlIHRlc3Qgd2l0aCBtb2NrZWQgc2Vydmlj
-ZXMgcmVwb3J0cyBhbiBBU2FuIGZhaWx1cmUgYmVmb3JlCj4+IHRoZSBmaXggYW5kIHBhc3NlcyBh
-ZnRlciBpdDsgdGhpcyBpcyBub3QgYSBrZXJuZWwgcmVwcm9kdWNlci4gTm8KPj4gaGFyZHdhcmUg
-dGVzdCwgQVJNNjQgYnVpbGQgb3IgZnVsbCBsaW5rZWQta2VybmVsIGJ1aWxkLgo+PiBPcGVuQUkg
-Q29kZXggYXNzaXN0ZWQgd2l0aCBzb3VyY2UgcmV2aWV3LCBwYXRjaCBpbXBsZW1lbnRhdGlvbiBh
-bmQKPj4gY29tbWl0LW1lc3NhZ2UgZHJhZnRpbmcuIFRoZSBzdWJtaXR0ZXIgaGFzIHJldmlld2Vk
-IHRoZSBjaGFuZ2VzLgo+Pgo+PiAgLi4uL3BsYXRmb3JtL2NoaXBzLW1lZGlhL2NvZGEvY29kYS1j
-b21tb24uYyAgIHwgIDE0ICstCj4+ICAuLi4vcGxhdGZvcm0vY2hpcHMtbWVkaWEvY29kYS9pbXgt
-dmRvYS5jICAgICAgfCAxMzMgKysrKysrKysrKysrKysrKy0tCj4+ICAuLi4vcGxhdGZvcm0vY2hp
-cHMtbWVkaWEvY29kYS9pbXgtdmRvYS5oICAgICAgfCAgIDggKysKPj4gIDMgZmlsZXMgY2hhbmdl
-ZCwgMTM0IGluc2VydGlvbnMoKyksIDIxIGRlbGV0aW9ucygtKQo+Pgo+PiBkaWZmIC0tZ2l0IGEv
-ZHJpdmVycy9tZWRpYS9wbGF0Zm9ybS9jaGlwcy1tZWRpYS9jb2RhL2NvZGEtY29tbW9uLmMgYi9k
-cml2ZXJzL21lZGlhL3BsYXRmb3JtL2NoaXBzLW1lZGlhL2NvZGEvY29kYS1jb21tb24uYwo+PiBp
-bmRleCBiZTM3ZWE1NjhiZmUuLmI1MTljZjg1NDFkZSAxMDA2NDQKPj4gLS0tIGEvZHJpdmVycy9t
-ZWRpYS9wbGF0Zm9ybS9jaGlwcy1tZWRpYS9jb2RhL2NvZGEtY29tbW9uLmMKPj4gKysrIGIvZHJp
-dmVycy9tZWRpYS9wbGF0Zm9ybS9jaGlwcy1tZWRpYS9jb2RhL2NvZGEtY29tbW9uLmMKPj4gQEAg
-LTM5Niw3ICszOTYsNyBAQCBjb25zdCBjaGFyICpjb2RhX3Byb2R1Y3RfbmFtZShpbnQgcHJvZHVj
-dCkKPj4gIAl9Cj4+ICB9Cj4+Cj4+IC1zdGF0aWMgc3RydWN0IHZkb2FfZGF0YSAqY29kYV9nZXRf
-dmRvYV9kYXRhKHZvaWQpCj4+ICtzdGF0aWMgc3RydWN0IHZkb2FfZGF0YSAqY29kYV9nZXRfdmRv
-YV9kYXRhKHN0cnVjdCBkZXZpY2UgKmRldikKPj4gIHsKPj4gIAlzdHJ1Y3QgZGV2aWNlX25vZGUg
-KnZkb2Ffbm9kZTsKPj4gIAlzdHJ1Y3QgcGxhdGZvcm1fZGV2aWNlICp2ZG9hX3BkZXY7Cj4+IEBA
-IC00MTAsOSArNDEwLDcgQEAgc3RhdGljIHN0cnVjdCB2ZG9hX2RhdGEgKmNvZGFfZ2V0X3Zkb2Ff
-ZGF0YSh2b2lkKQo+PiAgCWlmICghdmRvYV9wZGV2KQo+PiAgCQlnb3RvIG91dDsKPj4KPj4gLQl2
-ZG9hX2RhdGEgPSBwbGF0Zm9ybV9nZXRfZHJ2ZGF0YSh2ZG9hX3BkZXYpOwo+PiAtCWlmICghdmRv
-YV9kYXRhKQo+PiAtCQl2ZG9hX2RhdGEgPSBFUlJfUFRSKC1FUFJPQkVfREVGRVIpOwo+PiArCXZk
-b2FfZGF0YSA9IGRldm1fdmRvYV9nZXQoZGV2LCAmdmRvYV9wZGV2LT5kZXYpOwo+Pgo+PiAgCXB1
-dF9kZXZpY2UoJnZkb2FfcGRldi0+ZGV2KTsKPj4gIG91dDoKPj4gQEAgLTI3MjEsNiArMjcxOSw4
-IEBAIHN0YXRpYyBpbnQgY29kYV9vcGVuKHN0cnVjdCBmaWxlICpmaWxlKQo+PiAgZXJyX2Nsa19l
-bmFibGU6Cj4+ICAJcG1fcnVudGltZV9wdXRfc3luYyhkZXYtPmRldik7Cj4+ICBlcnJfcG1fZ2V0
-Ogo+PiArCWlmIChjdHgtPnZkb2EpCj4+ICsJCXZkb2FfY29udGV4dF9kZXN0cm95KGN0eC0+dmRv
-YSk7Cj4+ICAJdjRsMl9maF9kZWwoJmN0eC0+ZmgsIGZpbGUpOwo+PiAgCXY0bDJfZmhfZXhpdCgm
-Y3R4LT5maCk7Cj4+ICBlcnJfY29kYV9uYW1lX2luaXQ6Cj4+IEBAIC0zMjIwLDkgKzMyMjAsOSBA
-QCBzdGF0aWMgaW50IGNvZGFfcHJvYmUoc3RydWN0IHBsYXRmb3JtX2RldmljZSAqcGRldikKPj4g
-IAlkZXYtPmlyYW1fcG9vbCA9IHBvb2w7Cj4+Cj4+ICAJLyogR2V0IHZkb2FfZGF0YSBpZiBzdXBw
-b3J0ZWQgYnkgdGhlIHBsYXRmb3JtICovCj4+IC0JZGV2LT52ZG9hID0gY29kYV9nZXRfdmRvYV9k
-YXRhKCk7Cj4+IC0JaWYgKFBUUl9FUlIoZGV2LT52ZG9hKSA9PSAtRVBST0JFX0RFRkVSKQo+PiAt
-CQlyZXR1cm4gLUVQUk9CRV9ERUZFUjsKPj4gKwlkZXYtPnZkb2EgPSBjb2RhX2dldF92ZG9hX2Rh
-dGEoJnBkZXYtPmRldik7Cj4+ICsJaWYgKElTX0VSUihkZXYtPnZkb2EpKQo+PiArCQlyZXR1cm4g
-UFRSX0VSUihkZXYtPnZkb2EpOwo+Pgo+PiAgCXJldCA9IHY0bDJfZGV2aWNlX3JlZ2lzdGVyKCZw
-ZGV2LT5kZXYsICZkZXYtPnY0bDJfZGV2KTsKPj4gIAlpZiAocmV0KQo+PiBkaWZmIC0tZ2l0IGEv
-ZHJpdmVycy9tZWRpYS9wbGF0Zm9ybS9jaGlwcy1tZWRpYS9jb2RhL2lteC12ZG9hLmMgYi9kcml2
-ZXJzL21lZGlhL3BsYXRmb3JtL2NoaXBzLW1lZGlhL2NvZGEvaW14LXZkb2EuYwo+PiBpbmRleCBj
-ZDA4NWMxYzczZjQuLmQ5MjQ5Yzk0M2RmYSAxMDA2NDQKPj4gLS0tIGEvZHJpdmVycy9tZWRpYS9w
-bGF0Zm9ybS9jaGlwcy1tZWRpYS9jb2RhL2lteC12ZG9hLmMKPj4gKysrIGIvZHJpdmVycy9tZWRp
-YS9wbGF0Zm9ybS9jaGlwcy1tZWRpYS9jb2RhL2lteC12ZG9hLmMKPj4gQEAgLTksNyArOSw5IEBA
-Cj4+ICAjaW5jbHVkZSA8bGludXgvY2xrLmg+Cj4+ICAjaW5jbHVkZSA8bGludXgvZGV2aWNlLmg+
-Cj4+ICAjaW5jbHVkZSA8bGludXgvaW50ZXJydXB0Lmg+Cj4+ICsjaW5jbHVkZSA8bGludXgva3Jl
-Zi5oPgo+PiAgI2luY2x1ZGUgPGxpbnV4L21vZHVsZS5oPgo+PiArI2luY2x1ZGUgPGxpbnV4L211
-dGV4Lmg+Cj4+ICAjaW5jbHVkZSA8bGludXgvZG1hLW1hcHBpbmcuaD4KPj4gICNpbmNsdWRlIDxs
-aW51eC9wbGF0Zm9ybV9kZXZpY2UuaD4KPj4gICNpbmNsdWRlIDxsaW51eC92aWRlb2RldjIuaD4K
-Pj4gQEAgLTc0LDYgKzc2LDEyIEBAIGVudW0gewo+PiAgfTsKPj4KPj4gIHN0cnVjdCB2ZG9hX2Rh
-dGEgewo+PiArCXN0cnVjdCBrcmVmCQlyZWY7Cj4+ICsJLyogU2VyaWFsaXplcyBjb250ZXh0IGhh
-cmR3YXJlIGFjY2VzcyB3aXRoIHJlbW92YWwuICovCj4+ICsJc3RydWN0IG11dGV4CQlsb2NrOwo+
-PiArCXVuc2lnbmVkIGludAkJbnVtX2NvbnRleHRzOwo+PiArCWJvb2wJCQlyZW1vdmVkOwo+PiAr
-CWludAkJCWlycTsKPj4gIAlzdHJ1Y3QgdmRvYV9jdHgJCSpjdXJyX2N0eDsKPj4gIAlzdHJ1Y3Qg
-ZGV2aWNlCQkqZGV2Owo+PiAgCXN0cnVjdCBjbGsJCSp2ZG9hX2NsazsKPj4gQEAgLTEyNiw3ICsx
-MzQsNyBAQCBzdGF0aWMgaXJxcmV0dXJuX3QgdmRvYV9pcnFfaGFuZGxlcihpbnQgaXJxLCB2b2lk
-ICpkYXRhKQo+PiAgCXJldHVybiBJUlFfSEFORExFRDsKPj4gIH0KPj4KPj4gLWludCB2ZG9hX3dh
-aXRfZm9yX2NvbXBsZXRpb24oc3RydWN0IHZkb2FfY3R4ICpjdHgpCj4+ICtzdGF0aWMgaW50IHZk
-b2Ffd2FpdChzdHJ1Y3QgdmRvYV9jdHggKmN0eCkKPj4gIHsKPj4gIAlzdHJ1Y3QgdmRvYV9kYXRh
-ICp2ZG9hID0gY3R4LT52ZG9hOwo+Pgo+PiBAQCAtMTQyLDE3ICsxNTAsNDMgQEAgaW50IHZkb2Ff
-d2FpdF9mb3JfY29tcGxldGlvbihzdHJ1Y3QgdmRvYV9jdHggKmN0eCkKPj4KPj4gIAlyZXR1cm4g
-MDsKPj4gIH0KPj4gKwo+PiAraW50IHZkb2Ffd2FpdF9mb3JfY29tcGxldGlvbihzdHJ1Y3QgdmRv
-YV9jdHggKmN0eCkKPj4gK3sKPj4gKwlzdHJ1Y3QgdmRvYV9kYXRhICp2ZG9hID0gY3R4LT52ZG9h
-Owo+PiArCWludCByZXQ7Cj4+ICsKPj4gKwltdXRleF9sb2NrKCZ2ZG9hLT5sb2NrKTsKPj4gKwly
-ZXQgPSB2ZG9hLT5yZW1vdmVkID8gLUVOT0RFViA6IHZkb2Ffd2FpdChjdHgpOwo+PiArCW11dGV4
-X3VubG9jaygmdmRvYS0+bG9jayk7Cj4+ICsKPj4gKwlyZXR1cm4gcmV0Owo+PiArfQo+PiAgRVhQ
-T1JUX1NZTUJPTCh2ZG9hX3dhaXRfZm9yX2NvbXBsZXRpb24pOwo+Pgo+PiArc3RhdGljIHZvaWQg
-dmRvYV9zdG9wKHN0cnVjdCB2ZG9hX2RhdGEgKnZkb2EpCj4+ICt7Cj4+ICsJaWYgKCF2ZG9hLT5j
-dXJyX2N0eCkKPj4gKwkJcmV0dXJuOwo+PiArCj4+ICsJaWYgKHZkb2Ffd2FpdCh2ZG9hLT5jdXJy
-X2N0eCkpCj4+ICsJCXdyaXRlbChWRE9BU1JSX1NXUlNULCB2ZG9hLT5yZWdzICsgVkRPQVNSUik7
-Cj4+ICsJd3JpdGVsKDAsIHZkb2EtPnJlZ3MgKyBWRE9BSUUpOwo+PiArCXN5bmNocm9uaXplX2ly
-cSh2ZG9hLT5pcnEpOwo+PiArCXZkb2EtPmN1cnJfY3R4ID0gTlVMTDsKPj4gK30KPj4gKwo+PiAg
-dm9pZCB2ZG9hX2RldmljZV9ydW4oc3RydWN0IHZkb2FfY3R4ICpjdHgsIGRtYV9hZGRyX3QgZHN0
-LCBkbWFfYWRkcl90IHNyYykKPj4gIHsKPj4gIAlzdHJ1Y3QgdmRvYV9xX2RhdGEgKnNyY19xX2Rh
-dGEsICpkc3RfcV9kYXRhOwo+PiAgCXN0cnVjdCB2ZG9hX2RhdGEgKnZkb2EgPSBjdHgtPnZkb2E7
-Cj4+ICAJdTMyIHZhbDsKPj4KPj4gLQlpZiAodmRvYS0+Y3Vycl9jdHgpCj4+IC0JCXZkb2Ffd2Fp
-dF9mb3JfY29tcGxldGlvbih2ZG9hLT5jdXJyX2N0eCk7Cj4+ICsJbXV0ZXhfbG9jaygmdmRvYS0+
-bG9jayk7Cj4KPnVzZSBjbGVhbnVwIGd1YXJkKCkKPgo+PiArCWlmICh2ZG9hLT5yZW1vdmVkKQo+
-PiArCQlnb3RvIG91dF91bmxvY2s7Cj4+Cj4+ICsJdmRvYV9zdG9wKHZkb2EpOwo+PiAgCXZkb2Et
-PmN1cnJfY3R4ID0gY3R4Owo+Pgo+PiAgCXJlaW5pdF9jb21wbGV0aW9uKCZjdHgtPmNvbXBsZXRp
-b24pOwo+PiBAQCAtMTkyLDkgKzIyNiw0NCBAQCB2b2lkIHZkb2FfZGV2aWNlX3J1bihzdHJ1Y3Qg
-dmRvYV9jdHggKmN0eCwgZG1hX2FkZHJfdCBkc3QsIGRtYV9hZGRyX3Qgc3JjKQo+PiAgCS8qIEVu
-YWJsZSBpbnRlcnJ1cHRzIGFuZCBzdGFydCB0cmFuc2ZlciAqLwo+PiAgCXdyaXRlbChWRE9BSUVf
-RUlURVJSIHwgVkRPQUlFX0VJRU9ULCB2ZG9hLT5yZWdzICsgVkRPQUlFKTsKPj4gIAl3cml0ZWwo
-VkRPQVNSUl9TVEFSVCwgdmRvYS0+cmVncyArIFZET0FTUlIpOwo+PiArb3V0X3VubG9jazoKPj4g
-KwltdXRleF91bmxvY2soJnZkb2EtPmxvY2spOwo+PiAgfQo+PiAgRVhQT1JUX1NZTUJPTCh2ZG9h
-X2RldmljZV9ydW4pOwo+Pgo+PiArc3RhdGljIHZvaWQgdmRvYV9yZWxlYXNlKHN0cnVjdCBrcmVm
-ICpyZWYpCj4+ICt7Cj4+ICsJc3RydWN0IHZkb2FfZGF0YSAqdmRvYSA9IGNvbnRhaW5lcl9vZihy
-ZWYsIHN0cnVjdCB2ZG9hX2RhdGEsIHJlZik7Cj4+ICsKPj4gKwlwdXRfZGV2aWNlKHZkb2EtPmRl
-dik7Cj4+ICsJa2ZyZWUodmRvYSk7Cj4+ICt9Cj4+ICsKPj4gK3N0YXRpYyB2b2lkIHZkb2FfcHV0
-KHZvaWQgKmRhdGEpCj4+ICt7Cj4+ICsJc3RydWN0IHZkb2FfZGF0YSAqdmRvYSA9IGRhdGE7Cj4+
-ICsKPj4gKwlrcmVmX3B1dCgmdmRvYS0+cmVmLCB2ZG9hX3JlbGVhc2UpOwo+PiArfQo+PiArCj4+
-ICtzdHJ1Y3QgdmRvYV9kYXRhICpkZXZtX3Zkb2FfZ2V0KHN0cnVjdCBkZXZpY2UgKmRldiwgc3Ry
-dWN0IGRldmljZSAqc3VwcGxpZXIpCj4+ICt7Cj4+ICsJc3RydWN0IHZkb2FfZGF0YSAqdmRvYTsK
-Pj4gKwlpbnQgcmV0Owo+PiArCj4+ICsJZGV2aWNlX2xvY2soc3VwcGxpZXIpOwo+Cj53aHkgbm90
-IHVzZSBkZXZpY2UgbGluayA/Cj4KPj4gKwl2ZG9hID0gZGV2X2dldF9kcnZkYXRhKHN1cHBsaWVy
-KTsKPj4gKwlpZiAodmRvYSkKPj4gKwkJa3JlZl9nZXQoJnZkb2EtPnJlZik7Cj4+ICsJZGV2aWNl
-X3VubG9jayhzdXBwbGllcik7Cj4+ICsJaWYgKCF2ZG9hKQo+PiArCQlyZXR1cm4gRVJSX1BUUigt
-RVBST0JFX0RFRkVSKTsKPj4gKwo+PiArCXJldCA9IGRldm1fYWRkX2FjdGlvbl9vcl9yZXNldChk
-ZXYsIHZkb2FfcHV0LCB2ZG9hKTsKPj4gKwlyZXR1cm4gcmV0ID8gRVJSX1BUUihyZXQpIDogdmRv
-YTsKPj4gK30KPj4gK0VYUE9SVF9TWU1CT0woZGV2bV92ZG9hX2dldCk7Cj4+ICsKPj4gIHN0cnVj
-dCB2ZG9hX2N0eCAqdmRvYV9jb250ZXh0X2NyZWF0ZShzdHJ1Y3QgdmRvYV9kYXRhICp2ZG9hKQo+
-PiAgewo+PiAgCXN0cnVjdCB2ZG9hX2N0eCAqY3R4Owo+PiBAQCAtMjA0LDE2ICsyNzMsMjYgQEAg
-c3RydWN0IHZkb2FfY3R4ICp2ZG9hX2NvbnRleHRfY3JlYXRlKHN0cnVjdCB2ZG9hX2RhdGEgKnZk
-b2EpCj4+ICAJaWYgKCFjdHgpCj4+ICAJCXJldHVybiBOVUxMOwo+Pgo+PiArCW11dGV4X2xvY2so
-JnZkb2EtPmxvY2spOwo+PiArCWlmICh2ZG9hLT5yZW1vdmVkKQo+PiArCQlnb3RvIGVycl91bmxv
-Y2s7Cj4+ICsKPj4gIAllcnIgPSBjbGtfcHJlcGFyZV9lbmFibGUodmRvYS0+dmRvYV9jbGspOwo+
-PiAtCWlmIChlcnIpIHsKPj4gLQkJa2ZyZWUoY3R4KTsKPj4gLQkJcmV0dXJuIE5VTEw7Cj4+IC0J
-fQo+PiArCWlmIChlcnIpCj4+ICsJCWdvdG8gZXJyX3VubG9jazsKPj4KPj4gKwlrcmVmX2dldCgm
-dmRvYS0+cmVmKTsKPj4gKwl2ZG9hLT5udW1fY29udGV4dHMrKzsKPj4gIAlpbml0X2NvbXBsZXRp
-b24oJmN0eC0+Y29tcGxldGlvbik7Cj4+ICAJY3R4LT52ZG9hID0gdmRvYTsKPj4gKwltdXRleF91
-bmxvY2soJnZkb2EtPmxvY2spOwo+Pgo+PiAgCXJldHVybiBjdHg7Cj4+ICsKPj4gK2Vycl91bmxv
-Y2s6Cj4+ICsJbXV0ZXhfdW5sb2NrKCZ2ZG9hLT5sb2NrKTsKPj4gKwlrZnJlZShjdHgpOwo+PiAr
-CXJldHVybiBOVUxMOwo+PiAgfQo+PiAgRVhQT1JUX1NZTUJPTCh2ZG9hX2NvbnRleHRfY3JlYXRl
-KTsKPj4KPj4gQEAgLTIyMSwxMiArMzAwLDE1IEBAIHZvaWQgdmRvYV9jb250ZXh0X2Rlc3Ryb3ko
-c3RydWN0IHZkb2FfY3R4ICpjdHgpCj4+ICB7Cj4+ICAJc3RydWN0IHZkb2FfZGF0YSAqdmRvYSA9
-IGN0eC0+dmRvYTsKPj4KPj4gLQlpZiAodmRvYS0+Y3Vycl9jdHggPT0gY3R4KSB7Cj4+IC0JCXZk
-b2Ffd2FpdF9mb3JfY29tcGxldGlvbih2ZG9hLT5jdXJyX2N0eCk7Cj4+IC0JCXZkb2EtPmN1cnJf
-Y3R4ID0gTlVMTDsKPj4gKwltdXRleF9sb2NrKCZ2ZG9hLT5sb2NrKTsKPj4gKwlpZiAoIXZkb2Et
-PnJlbW92ZWQpIHsKPj4gKwkJaWYgKHZkb2EtPmN1cnJfY3R4ID09IGN0eCkKPj4gKwkJCXZkb2Ff
-c3RvcCh2ZG9hKTsKPj4gKwkJY2xrX2Rpc2FibGVfdW5wcmVwYXJlKHZkb2EtPnZkb2FfY2xrKTsK
-Pj4gKwkJdmRvYS0+bnVtX2NvbnRleHRzLS07Cj4+ICAJfQo+PiAtCj4+IC0JY2xrX2Rpc2FibGVf
-dW5wcmVwYXJlKHZkb2EtPnZkb2FfY2xrKTsKPj4gKwltdXRleF91bmxvY2soJnZkb2EtPmxvY2sp
-Owo+PiArCXZkb2FfcHV0KHZkb2EpOwo+PiAgCWtmcmVlKGN0eCk7Cj4+ICB9Cj4+ICBFWFBPUlRf
-U1lNQk9MKHZkb2FfY29udGV4dF9kZXN0cm95KTsKPj4gQEAgLTI5MSwxMSArMzczLDE2IEBAIHN0
-YXRpYyBpbnQgdmRvYV9wcm9iZShzdHJ1Y3QgcGxhdGZvcm1fZGV2aWNlICpwZGV2KQo+PiAgCQly
-ZXR1cm4gcmV0Owo+PiAgCX0KPj4KPj4gLQl2ZG9hID0gZGV2bV9remFsbG9jKCZwZGV2LT5kZXYs
-IHNpemVvZigqdmRvYSksIEdGUF9LRVJORUwpOwo+PiArCXZkb2EgPSBremFsbG9jX29iaigqdmRv
-YSk7Cj4+ICAJaWYgKCF2ZG9hKQo+PiAgCQlyZXR1cm4gLUVOT01FTTsKPj4KPj4gLQl2ZG9hLT5k
-ZXYgPSAmcGRldi0+ZGV2Owo+PiArCXZkb2EtPmRldiA9IGdldF9kZXZpY2UoJnBkZXYtPmRldik7
-Cj4+ICsJa3JlZl9pbml0KCZ2ZG9hLT5yZWYpOwo+PiArCW11dGV4X2luaXQoJnZkb2EtPmxvY2sp
-Owo+Cj5kZXZtX211dGV4X2luaXQoKTsKPgo+RnJhbmsKPj4gKwlyZXQgPSBkZXZtX2FkZF9hY3Rp
-b25fb3JfcmVzZXQoJnBkZXYtPmRldiwgdmRvYV9wdXQsIHZkb2EpOwo+PiArCWlmIChyZXQpCj4+
-ICsJCXJldHVybiByZXQ7Cj4+Cj4+ICAJdmRvYS0+dmRvYV9jbGsgPSBkZXZtX2Nsa19nZXQodmRv
-YS0+ZGV2LCBOVUxMKTsKPj4gIAlpZiAoSVNfRVJSKHZkb2EtPnZkb2FfY2xrKSkgewo+PiBAQCAt
-MzEwLDYgKzM5Nyw3IEBAIHN0YXRpYyBpbnQgdmRvYV9wcm9iZShzdHJ1Y3QgcGxhdGZvcm1fZGV2
-aWNlICpwZGV2KQo+PiAgCXJldCA9IHBsYXRmb3JtX2dldF9pcnEocGRldiwgMCk7Cj4+ICAJaWYg
-KHJldCA8IDApCj4+ICAJCXJldHVybiByZXQ7Cj4+ICsJdmRvYS0+aXJxID0gcmV0Owo+PiAgCXJl
-dCA9IGRldm1fcmVxdWVzdF90aHJlYWRlZF9pcnEoJnBkZXYtPmRldiwgcmV0LCBOVUxMLAo+PiAg
-CQkJCQl2ZG9hX2lycV9oYW5kbGVyLCBJUlFGX09ORVNIT1QsCj4+ICAJCQkJCSJ2ZG9hIiwgdmRv
-YSk7Cj4+IEBAIC0zMjMsNiArNDExLDIyIEBAIHN0YXRpYyBpbnQgdmRvYV9wcm9iZShzdHJ1Y3Qg
-cGxhdGZvcm1fZGV2aWNlICpwZGV2KQo+PiAgCXJldHVybiAwOwo+PiAgfQo+Pgo+PiArc3RhdGlj
-IHZvaWQgdmRvYV9yZW1vdmUoc3RydWN0IHBsYXRmb3JtX2RldmljZSAqcGRldikKPj4gK3sKPj4g
-KwlzdHJ1Y3QgdmRvYV9kYXRhICp2ZG9hID0gcGxhdGZvcm1fZ2V0X2RydmRhdGEocGRldik7Cj4+
-ICsKPj4gKwlwbGF0Zm9ybV9zZXRfZHJ2ZGF0YShwZGV2LCBOVUxMKTsKPj4gKwltdXRleF9sb2Nr
-KCZ2ZG9hLT5sb2NrKTsKPj4gKwl2ZG9hX3N0b3AodmRvYSk7Cj4+ICsJZGlzYWJsZV9pcnEodmRv
-YS0+aXJxKTsKPj4gKwl3aGlsZSAodmRvYS0+bnVtX2NvbnRleHRzKSB7Cj4+ICsJCWNsa19kaXNh
-YmxlX3VucHJlcGFyZSh2ZG9hLT52ZG9hX2Nsayk7Cj4+ICsJCXZkb2EtPm51bV9jb250ZXh0cy0t
-Owo+PiArCX0KPj4gKwl2ZG9hLT5yZW1vdmVkID0gdHJ1ZTsKPj4gKwltdXRleF91bmxvY2soJnZk
-b2EtPmxvY2spOwo+PiArfQo+PiArCj4+ICBzdGF0aWMgY29uc3Qgc3RydWN0IG9mX2RldmljZV9p
-ZCB2ZG9hX2R0X2lkc1tdID0gewo+PiAgCXsgLmNvbXBhdGlibGUgPSAiZnNsLGlteDZxLXZkb2Ei
-IH0sCj4+ICAJe30KPj4gQEAgLTMzMSw2ICs0MzUsNyBAQCBNT0RVTEVfREVWSUNFX1RBQkxFKG9m
-LCB2ZG9hX2R0X2lkcyk7Cj4+Cj4+ICBzdGF0aWMgc3RydWN0IHBsYXRmb3JtX2RyaXZlciB2ZG9h
-X2RyaXZlciA9IHsKPj4gIAkucHJvYmUJCT0gdmRvYV9wcm9iZSwKPj4gKwkucmVtb3ZlCQk9IHZk
-b2FfcmVtb3ZlLAo+PiAgCS5kcml2ZXIJCT0gewo+PiAgCQkubmFtZQk9IFZET0FfTkFNRSwKPj4g
-IAkJLm9mX21hdGNoX3RhYmxlID0gdmRvYV9kdF9pZHMsCj4+IGRpZmYgLS1naXQgYS9kcml2ZXJz
-L21lZGlhL3BsYXRmb3JtL2NoaXBzLW1lZGlhL2NvZGEvaW14LXZkb2EuaCBiL2RyaXZlcnMvbWVk
-aWEvcGxhdGZvcm0vY2hpcHMtbWVkaWEvY29kYS9pbXgtdmRvYS5oCj4+IGluZGV4IGE2MmVhYjQ3
-NmQ1OC4uZTBhYjQxNGRkZjVhIDEwMDY0NAo+PiAtLS0gYS9kcml2ZXJzL21lZGlhL3BsYXRmb3Jt
-L2NoaXBzLW1lZGlhL2NvZGEvaW14LXZkb2EuaAo+PiArKysgYi9kcml2ZXJzL21lZGlhL3BsYXRm
-b3JtL2NoaXBzLW1lZGlhL2NvZGEvaW14LXZkb2EuaAo+PiBAQCAtNiwxMSArNiwxMyBAQAo+PiAg
-I2lmbmRlZiBJTVhfVkRPQV9ICj4+ICAjZGVmaW5lIElNWF9WRE9BX0gKPj4KPj4gK3N0cnVjdCBk
-ZXZpY2U7Cj4+ICBzdHJ1Y3QgdmRvYV9kYXRhOwo+PiAgc3RydWN0IHZkb2FfY3R4Owo+Pgo+PiAg
-I2lmIChkZWZpbmVkIENPTkZJR19WSURFT19JTVhfVkRPQSB8fCBkZWZpbmVkIENPTkZJR19WSURF
-T19JTVhfVkRPQV9NT0RVTEUpCj4+Cj4+ICtzdHJ1Y3QgdmRvYV9kYXRhICpkZXZtX3Zkb2FfZ2V0
-KHN0cnVjdCBkZXZpY2UgKmRldiwgc3RydWN0IGRldmljZSAqc3VwcGxpZXIpOwo+PiAgc3RydWN0
-IHZkb2FfY3R4ICp2ZG9hX2NvbnRleHRfY3JlYXRlKHN0cnVjdCB2ZG9hX2RhdGEgKnZkb2EpOwo+
-PiAgaW50IHZkb2FfY29udGV4dF9jb25maWd1cmUoc3RydWN0IHZkb2FfY3R4ICpjdHgsCj4+ICAJ
-CQkgICB1bnNpZ25lZCBpbnQgd2lkdGgsIHVuc2lnbmVkIGludCBoZWlnaHQsCj4+IEBAIC0yMiw2
-ICsyNCwxMiBAQCBpbnQgdmRvYV93YWl0X2Zvcl9jb21wbGV0aW9uKHN0cnVjdCB2ZG9hX2N0eCAq
-Y3R4KTsKPj4KPj4gICNlbHNlCj4+Cj4+ICtzdGF0aWMgaW5saW5lIHN0cnVjdCB2ZG9hX2RhdGEg
-KmRldm1fdmRvYV9nZXQoc3RydWN0IGRldmljZSAqZGV2LAo+PiArCQkJCQkgICAgICBzdHJ1Y3Qg
-ZGV2aWNlICpzdXBwbGllcikKPj4gK3sKPj4gKwlyZXR1cm4gTlVMTDsKPj4gK30KPj4gKwo+PiAg
-c3RhdGljIGlubGluZSBzdHJ1Y3QgdmRvYV9jdHggKnZkb2FfY29udGV4dF9jcmVhdGUoc3RydWN0
-IHZkb2FfZGF0YSAqdmRvYSkKPj4gIHsKPj4gIAlyZXR1cm4gTlVMTDsKPj4KPj4gYmFzZS1jb21t
-aXQ6IDA1NDQxZDY5N2Y3ZjlhOTI3MjY0ZjQwNThjYmJjNmEwM2RmY2FjOWQKPgoKCkEgZGV2aWNl
-IGxpbmsgd291bGQgdW5iaW5kIENPREEgYmVmb3JlIFZET0EuIEhvd2V2ZXIsIGNvZGFfcmVtb3Zl
-KCkgZG9lcwpub3QgZHJhaW4gb3BlbiBmaWxlIGhhbmRsZXMsIHNvIHRoZWlyIFZET0EgY29udGV4
-dHMgY2FuIG91dGxpdmUgdGhhdAp1bmJpbmQuIFRob3NlIGNvbnRleHRzIHN0aWxsIG5lZWQgdGhl
-IHJldGFpbmVkIFZET0Egc3RhdGUgYW5kIGl0cyBsb2NrOwphIGRldm0gbXV0ZXggd291bGQgYmUg
-ZGVzdHJveWVkIHRvbyBlYXJseS4KCldvdWxkIGl0IGJlIHJlYXNvbmFibGUgdG8ga2VlcCB0aGF0
-IGxpZmV0aW1lIGhhbmRsaW5nLCB1c2UgZ3VhcmQoKSBmb3IKbG9ja2luZywgYW5kIGRlc3Ryb3kg
-dGhlIG11dGV4IHdpdGggdGhlIGxhc3QgVkRPQSByZWZlcmVuY2UgaW4gdjI/CgpUaGFua3MsCkd1
-YW5nc2h1bw==
+A credit indication can drain queued CoC data and clear socket suspension
+while BT_SECURITY is waiting for stronger security. Keep the request
+pending until the required encryption, level, key size and MIC are met.
+
+Finish requests on the existing HCI workqueue, outside the confirmation
+list walk. Hold selected channels before callbacks can remove siblings.
+Latch SMP failure before admitting a fresh request, clear pending flags on
+close, and recheck channel state before processing deferred confirmations.
+Use the existing pairing and HCI timeouts without a new request deadline.
+
+Reject overlapping requests with EBUSY while pairing, key distribution or
+encryption is in progress. This includes repeated and lowered requests;
+applications can retry after the current procedure completes. Return
+EACCES when SMP starts no procedure and the requirements remain unmet,
+restoring the channel requirements and both pending link requirements.
+Preserve each CoC's requested level across shared-link confirmations.
+
+Keep deferred reads pending during an upgrade. Send an ECRED response
+before releasing accepted children's data, let rejection override pending
+siblings, and close every deleted child. Return the batch's security error
+to a deferred reader while preserving ordinary accept/close behavior.
+Purge retained CoC data even if deferred acceptance left configuration
+incomplete. Acquire the SMP channel lock without holding the socket lock,
+and suspend pending ATT sockets until their confirmation resumes them.
+
+Reject an incoming deferred ECRED batch when an accepted child closes
+before the connection response, so its siblings cannot stay suspended.
+
+Keep deferred ECRED identifiers and flags until the response is queued,
+then release accepted children under their own channel locks. Clear
+those fields on rejection too. Exclude outgoing authentication retries
+from incoming batches even when their signaling identifiers collide.
+
+If another shared-link encryption procedure starts after a confirmation
+was queued, keep security pending until its confirmation arrives rather
+than closing a channel whose requirements may still be satisfied.
+
+Fixes: fad5fc89594d ("Bluetooth: Add LE flow control discipline")
+Assisted-by: LLM
+Signed-off-by: Kyle Pepper <cochcoder@proton.me>
+---
+ include/net/bluetooth/l2cap.h |   9 +-
+ net/bluetooth/l2cap_core.c    | 378 +++++++++++++++++++++++++++++++---
+ net/bluetooth/l2cap_sock.c    | 181 ++++++++++------
+ net/bluetooth/smp.c           |   1 +
+ 4 files changed, 470 insertions(+), 99 deletions(-)
+
+diff --git a/include/net/bluetooth/l2cap.h b/include/net/bluetooth/l2cap.h
+index 72d9d56c6..8519099c0 100644
+--- a/include/net/bluetooth/l2cap.h
++++ b/include/net/bluetooth/l2cap.h
+@@ -609,6 +609,7 @@ struct l2cap_chan {
+ =09__u32=09=09remote_flush_to;
+=20
+ =09struct delayed_work=09chan_timer;
++=09struct list_head=09security_list;
+ =09struct delayed_work=09retrans_timer;
+ =09struct delayed_work=09monitor_timer;
+ =09struct delayed_work=09ack_timer;
+@@ -649,6 +650,8 @@ struct l2cap_conn {
+=20
+ =09struct sk_buff_head=09pending_rx;
+ =09struct work_struct=09pending_rx_work;
++=09struct work_struct=09security_work;
++=09atomic_t=09=09security_failure;
+ =09bool=09=09=09pending_rx_blocked __guarded_by(&lock);
+=20
+ =09struct delayed_work=09id_addr_timer;
+@@ -772,6 +775,8 @@ enum {
+ =09FLAG_ECRED_CONN_REQ_SENT,
+ =09FLAG_ECRED_RECONF_REQ_SENT,
+ =09FLAG_PENDING_SECURITY,
++=09FLAG_SECURITY_CFM,
++=09FLAG_SECURITY_FAILED,
+ =09FLAG_HOLD_HCI_CONN,
+ =09FLAG_DEL,
+ };
+@@ -979,7 +984,7 @@ void l2cap_cleanup_sockets(void);
+ bool l2cap_is_socket(struct socket *sock);
+=20
+ void __l2cap_le_connect_rsp_defer(struct l2cap_chan *chan);
+-void __l2cap_ecred_conn_rsp_defer(struct l2cap_chan *chan)
++int __l2cap_ecred_conn_rsp_defer(struct l2cap_chan *chan)
+ =09__must_hold(&chan->lock) __must_hold(&chan->conn->lock);
+ void __l2cap_connect_rsp_defer(struct l2cap_chan *chan);
+=20
+@@ -998,6 +1003,8 @@ void l2cap_chan_busy(struct l2cap_chan *chan, int busy=
+);
+ void l2cap_chan_rx_avail(struct l2cap_chan *chan, ssize_t rx_avail);
+ void l2cap_chan_req_mic_len(struct l2cap_chan *chan, struct hci_conn *hcon=
+);
+ int l2cap_chan_check_security(struct l2cap_chan *chan, bool initiator);
++int l2cap_chan_set_security(struct l2cap_chan *chan, u8 level, u8 mic_len)=
+;
++void l2cap_security_failure(struct l2cap_conn *conn);
+ void l2cap_chan_set_defaults(struct l2cap_chan *chan, struct l2cap_chan *p=
+chan);
+ int l2cap_ertm_init(struct l2cap_chan *chan);
+ void l2cap_chan_add(struct l2cap_conn *conn, struct l2cap_chan *chan);
+diff --git a/net/bluetooth/l2cap_core.c b/net/bluetooth/l2cap_core.c
+index 8229bddca..29fbe6de9 100644
+--- a/net/bluetooth/l2cap_core.c
++++ b/net/bluetooth/l2cap_core.c
+@@ -59,6 +59,8 @@ static void l2cap_tx(struct l2cap_chan *chan, struct l2ca=
+p_ctrl *control,
+ static void l2cap_retrans_timeout(struct work_struct *work);
+ static void l2cap_monitor_timeout(struct work_struct *work);
+ static void l2cap_ack_timeout(struct work_struct *work);
++static void l2cap_security_work(struct work_struct *work);
++static bool l2cap_chan_ecred_rsp_pending(struct l2cap_chan *chan);
+ static void __l2cap_chan_close(struct l2cap_chan *chan, int reason)
+ =09__must_hold(&chan->lock) __must_hold(&chan->conn->lock);
+=20
+@@ -479,6 +481,7 @@ struct l2cap_chan *l2cap_chan_create(void)
+ =09write_unlock(&chan_list_lock);
+=20
+ =09INIT_DELAYED_WORK(&chan->chan_timer, l2cap_chan_timeout);
++=09INIT_LIST_HEAD(&chan->security_list);
+ =09INIT_DELAYED_WORK(&chan->retrans_timer, l2cap_retrans_timeout);
+ =09INIT_DELAYED_WORK(&chan->monitor_timer, l2cap_monitor_timeout);
+ =09INIT_DELAYED_WORK(&chan->ack_timer, l2cap_ack_timeout);
+@@ -709,7 +712,10 @@ void l2cap_chan_del(struct l2cap_chan *chan, int err)
+ =09BT_DBG("chan %p, err %d, state %s", chan, err,
+ =09       state_to_string(chan->state));
+=20
++=09clear_bit(FLAG_PENDING_SECURITY, &chan->flags);
++=09clear_bit(FLAG_SECURITY_CFM, &chan->flags);
+ =09chan->ops->teardown(chan, err);
++=09clear_bit(FLAG_SECURITY_FAILED, &chan->flags);
+=20
+ =09if (!test_and_set_bit(FLAG_DEL, &chan->flags)) {
+ =09=09/* Delete from channel list */
+@@ -726,6 +732,12 @@ void l2cap_chan_del(struct l2cap_chan *chan, int err)
+ =09=09=09hci_conn_drop(chan->conn->hcon);
+ =09}
+=20
++=09if (chan->mode =3D=3D L2CAP_MODE_LE_FLOWCTL ||
++=09    chan->mode =3D=3D L2CAP_MODE_EXT_FLOWCTL) {
++=09=09skb_queue_purge(&chan->tx_q);
++=09=09return;
++=09}
++
+ =09if (test_bit(CONF_NOT_COMPLETE, &chan->conf_state))
+ =09=09return;
+=20
+@@ -733,11 +745,6 @@ void l2cap_chan_del(struct l2cap_chan *chan, int err)
+ =09case L2CAP_MODE_BASIC:
+ =09=09break;
+=20
+-=09case L2CAP_MODE_LE_FLOWCTL:
+-=09case L2CAP_MODE_EXT_FLOWCTL:
+-=09=09skb_queue_purge(&chan->tx_q);
+-=09=09break;
+-
+ =09case L2CAP_MODE_ERTM:
+ =09=09__clear_retrans_timer(chan);
+ =09=09__clear_monitor_timer(chan);
+@@ -870,6 +877,9 @@ static void __l2cap_chan_close(struct l2cap_chan *chan,=
+ int reason)
+=20
+ =09BT_DBG("chan %p state %s", chan, state_to_string(chan->state));
+=20
++=09clear_bit(FLAG_PENDING_SECURITY, &chan->flags);
++=09clear_bit(FLAG_SECURITY_CFM, &chan->flags);
++
+ =09switch (chan->state) {
+ =09case BT_LISTEN:
+ =09=09chan->ops->teardown(chan, 0);
+@@ -877,6 +887,11 @@ static void __l2cap_chan_close(struct l2cap_chan *chan=
+, int reason)
+=20
+ =09case BT_CONNECTED:
+ =09case BT_CONFIG:
++=09=09if (l2cap_chan_ecred_rsp_pending(chan)) {
++=09=09=09l2cap_chan_ecred_connect_reject(chan);
++=09=09=09return;
++=09=09}
++
+ =09=09if (chan->chan_type =3D=3D L2CAP_CHAN_CONN_ORIENTED) {
+ =09=09=09__set_chan_timer(chan, chan->ops->get_sndtimeo(chan));
+ =09=09=09l2cap_send_disconn_req(chan, reason);
+@@ -2707,12 +2722,37 @@ static int l2cap_segment_le_sdu(struct l2cap_chan *=
+chan,
+ =09return 0;
+ }
+=20
+-static void l2cap_le_flowctl_send(struct l2cap_chan *chan)
++/* True for an incoming deferred ECRED channel whose L2CAP_ECRED_CONN_RSP =
+has
++ * not been queued yet. FLAG_DEFER_SETUP and ident stay set until the resp=
+onse
++ * is queued, so data cannot overtake it.
++ *
++ * Local and remote idents share one number space, and a bound socket with
++ * BT_DEFER_SETUP can later connect out. l2cap_ecred_conn_rsp() clears
++ * FLAG_ECRED_CONN_REQ_SENT and keeps ident while such a channel retries a=
+fter
++ * an authentication error, always in BT_CONNECT, a state an incoming chan=
+nel
++ * never has. Exclude it so it cannot match an incoming batch.
++ */
++static bool l2cap_chan_ecred_rsp_pending(struct l2cap_chan *chan)
++{
++=09return chan->mode =3D=3D L2CAP_MODE_EXT_FLOWCTL && chan->ident &&
++=09       chan->state !=3D BT_CONNECT &&
++=09       test_bit(FLAG_DEFER_SETUP, &chan->flags) &&
++=09       !test_bit(FLAG_ECRED_CONN_REQ_SENT, &chan->flags);
++}
++
++static bool l2cap_le_flowctl_send(struct l2cap_chan *chan)
+ {
+ =09int sent =3D 0;
+=20
+ =09BT_DBG("chan %p", chan);
+=20
++=09if (chan->state !=3D BT_CONNECTED ||
++=09    test_bit(FLAG_DEL, &chan->flags) ||
++=09    test_bit(FLAG_PENDING_SECURITY, &chan->flags) ||
++=09    test_bit(FLAG_SECURITY_FAILED, &chan->flags) ||
++=09    l2cap_chan_ecred_rsp_pending(chan))
++=09=09return false;
++
+ =09while (chan->tx_credits && !skb_queue_empty(&chan->tx_q)) {
+ =09=09l2cap_do_send(chan, skb_dequeue(&chan->tx_q));
+ =09=09chan->tx_credits--;
+@@ -2721,6 +2761,205 @@ static void l2cap_le_flowctl_send(struct l2cap_chan=
+ *chan)
+=20
+ =09BT_DBG("Sent %d credits %u queued %u", sent, chan->tx_credits,
+ =09       skb_queue_len(&chan->tx_q));
++
++=09return true;
++}
++
++static void l2cap_le_flowctl_resume(struct l2cap_chan *chan)
++=09__must_hold(&chan->lock)
++{
++=09if (l2cap_le_flowctl_send(chan) && chan->tx_credits)
++=09=09chan->ops->resume(chan);
++=09else
++=09=09chan->ops->suspend(chan);
++}
++
++static bool l2cap_chan_security_sufficient(struct l2cap_chan *chan)
++{
++=09struct hci_conn *hcon =3D chan->conn->hcon;
++
++=09lockdep_assert_held(&hcon->hdev->lock);
++=09lockdep_assert_held(&chan->lock);
++
++=09return smp_sufficient_security(hcon, chan->sec_level, SMP_ALLOW_STK) &&
++=09       (chan->sec_level =3D=3D BT_SECURITY_LOW ||
++=09=09test_bit(HCI_CONN_ENCRYPT, hcon->flags)) &&
++=09       l2cap_check_enc_key_size(hcon, chan) &&
++=09       l2cap_check_mic_len(hcon, chan);
++}
++
++static bool l2cap_chan_security_ready(struct l2cap_chan *chan)
++{
++=09return !test_bit(HCI_CONN_ENCRYPT_PEND, chan->conn->hcon->flags) &&
++=09       l2cap_chan_security_sufficient(chan);
++}
++
++static void l2cap_chan_security_complete(struct l2cap_chan *chan)
++=09__must_hold(&chan->lock) __must_hold(&chan->conn->lock)
++{
++=09clear_bit(FLAG_PENDING_SECURITY, &chan->flags);
++=09clear_bit(FLAG_SECURITY_CFM, &chan->flags);
++
++=09if (chan->state =3D=3D BT_CONNECT2) {
++=09=09chan->ops->resume(chan);
++=09=09return;
++=09}
++
++=09if (chan->mode =3D=3D L2CAP_MODE_EXT_FLOWCTL)
++=09=09__l2cap_ecred_conn_rsp_defer(chan);
++=09if (!test_bit(FLAG_DEL, &chan->flags))
++=09=09l2cap_le_flowctl_resume(chan);
++}
++
++static void l2cap_queue_security_work(struct l2cap_conn *conn)
++{
++=09struct hci_dev *hdev =3D conn->hcon->hdev;
++
++=09/* Pair with the RCU grace period before hci_dev_close_sync() drains
++=09 * this queue. No security work may be added after that drain.
++=09 */
++=09rcu_read_lock();
++=09if (test_bit(HCI_UP, &hdev->flags)) {
++=09=09l2cap_conn_get(conn);
++=09=09if (!queue_work(hdev->workqueue, &conn->security_work))
++=09=09=09l2cap_conn_put(conn);
++=09}
++=09rcu_read_unlock();
++}
++
++void l2cap_security_failure(struct l2cap_conn *conn)
++{
++=09/* SMP receive holds conn->lock; management and encryption hold hdev. *=
+/
++=09lockdep_assert(lockdep_is_held(&conn->lock) ||
++=09=09       lockdep_is_held(&conn->hcon->hdev->lock));
++=09if (conn->hcon->type !=3D LE_LINK)
++=09=09return;
++
++=09atomic_set(&conn->security_failure, 1);
++=09l2cap_queue_security_work(conn);
++}
++
++static void l2cap_security_work(struct work_struct *work)
++{
++=09struct l2cap_conn *conn =3D container_of(work, struct l2cap_conn,
++=09=09=09=09=09       security_work);
++=09struct l2cap_chan *chan, *next;
++=09LIST_HEAD(pending);
++
++=09hci_dev_lock(conn->hcon->hdev);
++=09mutex_lock(&conn->lock);
++=09if (!test_bit(HCI_UP, &conn->hcon->hdev->flags) ||
++=09    conn->hcon->l2cap_data !=3D conn)
++=09=09goto done;
++
++=09if (atomic_xchg(&conn->security_failure, 0)) {
++=09=09list_for_each_entry(chan, &conn->chan_l, list) {
++=09=09=09l2cap_chan_lock(chan);
++=09=09=09if ((chan->state =3D=3D BT_CONNECTED ||
++=09=09=09     chan->state =3D=3D BT_CONNECT2) &&
++=09=09=09    (chan->mode =3D=3D L2CAP_MODE_LE_FLOWCTL ||
++=09=09=09     chan->mode =3D=3D L2CAP_MODE_EXT_FLOWCTL) &&
++=09=09=09    test_bit(FLAG_PENDING_SECURITY, &chan->flags)) {
++=09=09=09=09set_bit(FLAG_SECURITY_FAILED, &chan->flags);
++=09=09=09=09set_bit(FLAG_SECURITY_CFM, &chan->flags);
++=09=09=09}
++=09=09=09l2cap_chan_unlock(chan);
++=09=09}
++=09}
++
++=09/* Hold all selected channels before a callback can remove siblings. */
++=09list_for_each_entry(chan, &conn->chan_l, list) {
++=09=09l2cap_chan_lock(chan);
++=09=09if (test_and_clear_bit(FLAG_SECURITY_CFM, &chan->flags) &&
++=09=09    (chan->state =3D=3D BT_CONNECTED || chan->state =3D=3D BT_CONNEC=
+T2)) {
++=09=09=09l2cap_chan_hold(chan);
++=09=09=09list_add_tail(&chan->security_list, &pending);
++=09=09}
++=09=09l2cap_chan_unlock(chan);
++=09}
++
++=09list_for_each_entry_safe(chan, next, &pending, security_list) {
++=09=09list_del_init(&chan->security_list);
++=09=09l2cap_chan_lock(chan);
++=09=09lockdep_assert_held(&chan->conn->lock);
++=09=09if ((chan->state =3D=3D BT_CONNECTED || chan->state =3D=3D BT_CONNEC=
+T2) &&
++=09=09    test_bit(FLAG_PENDING_SECURITY, &chan->flags)) {
++=09=09=09bool failed =3D test_bit(FLAG_SECURITY_FAILED, &chan->flags);
++=09=09=09bool encrypting =3D test_bit(HCI_CONN_ENCRYPT_PEND,
++=09=09=09=09=09=09   chan->conn->hcon->flags);
++
++=09=09=09if (!failed && encrypting) {
++=09=09=09=09/* Another procedure started on the shared link
++=09=09=09=09 * after the confirmation was queued. Stay
++=09=09=09=09 * pending: its confirmation sets
++=09=09=09=09 * FLAG_SECURITY_CFM and queues this work again.
++=09=09=09=09 */
++=09=09=09} else if (!failed &&
++=09=09=09=09   l2cap_chan_security_sufficient(chan)) {
++=09=09=09=09l2cap_chan_security_complete(chan);
++=09=09=09} else {
++=09=09=09=09set_bit(FLAG_SECURITY_FAILED, &chan->flags);
++=09=09=09=09if (l2cap_chan_ecred_rsp_pending(chan))
++=09=09=09=09=09l2cap_chan_ecred_connect_reject(chan);
++=09=09=09=09else
++=09=09=09=09=09__l2cap_chan_close(chan, ECONNREFUSED);
++=09=09=09=09chan->ops->close(chan);
++=09=09=09}
++=09=09}
++=09=09l2cap_chan_unlock(chan);
++=09=09l2cap_chan_put(chan);
++=09}
++done:
++=09mutex_unlock(&conn->lock);
++=09hci_dev_unlock(conn->hcon->hdev);
++=09l2cap_conn_put(conn);
++}
++
++int l2cap_chan_set_security(struct l2cap_chan *chan, u8 level, u8 mic_len)
++{
++=09struct hci_conn *hcon =3D chan->conn->hcon;
++=09u8 old_level =3D chan->sec_level, old_mic =3D chan->mic_len;
++=09u8 old_req_mic =3D hcon->req_mic_len;
++=09u8 old_pending =3D hcon->pending_sec_level;
++=09int err =3D 0;
++
++=09lockdep_assert_held(&hcon->hdev->lock);
++=09lockdep_assert_held(&chan->conn->lock);
++=09lockdep_assert_held(&chan->lock);
++
++=09if (test_bit(FLAG_SECURITY_FAILED, &chan->flags))
++=09=09return -ECONNREFUSED;
++=09/* Do not admit a new request before an old SMP failure is dispatched. =
+*/
++=09if (atomic_read(&chan->conn->security_failure))
++=09=09return -EBUSY;
++=09/* Do not change the requirements of a procedure already in progress. *=
+/
++=09if (test_bit(FLAG_PENDING_SECURITY, &chan->flags) ||
++=09    test_bit(HCI_CONN_ENCRYPT_PEND, hcon->flags) ||
++=09    smp_pairing_in_progress(hcon))
++=09=09return -EBUSY;
++
++=09chan->sec_level =3D level;
++=09chan->mic_len =3D mic_len;
++=09if (!l2cap_chan_check_security(chan, true) ||
++=09    test_bit(HCI_CONN_ENCRYPT_PEND, hcon->flags)) {
++=09=09set_bit(FLAG_PENDING_SECURITY, &chan->flags);
++=09=09clear_bit(FLAG_SECURITY_CFM, &chan->flags);
++=09=09chan->ops->suspend(chan);
++=09=09return 0;
++=09} else if (!l2cap_chan_security_ready(chan)) {
++=09=09/* SMP did not start a procedure that could meet this request. */
++=09=09err =3D -EACCES;
++=09=09goto restore;
++=09}
++
++=09l2cap_chan_security_complete(chan);
++=09return 0;
++restore:
++=09chan->sec_level =3D old_level;
++=09chan->mic_len =3D old_mic;
++=09hcon->req_mic_len =3D old_req_mic;
++=09hcon->pending_sec_level =3D old_pending;
++=09return err;
+ }
+=20
+ static void l2cap_tx_timestamp(struct sk_buff *skb,
+@@ -2793,9 +3032,7 @@ int l2cap_chan_send(struct l2cap_chan *chan, struct m=
+sghdr *msg, size_t len,
+=20
+ =09=09skb_queue_splice_tail_init(&seg_queue, &chan->tx_q);
+=20
+-=09=09l2cap_le_flowctl_send(chan);
+-
+-=09=09if (!chan->tx_credits)
++=09=09if (!l2cap_le_flowctl_send(chan) || !chan->tx_credits)
+ =09=09=09chan->ops->suspend(chan);
+=20
+ =09=09err =3D len;
+@@ -4048,7 +4285,13 @@ static void l2cap_ecred_list_defer(struct l2cap_chan=
+ *chan, void *data)
+ {
+ =09int *result =3D data;
+=20
+-=09if (*result || test_bit(FLAG_ECRED_CONN_REQ_SENT, &chan->flags))
++=09if (!l2cap_chan_ecred_rsp_pending(chan))
++=09=09return;
++=09if (test_bit(FLAG_SECURITY_FAILED, &chan->flags)) {
++=09=09*result =3D -ECONNREFUSED;
++=09=09return;
++=09}
++=09if (*result < 0)
+ =09=09return;
+=20
+ =09switch (chan->state) {
+@@ -4057,6 +4300,8 @@ static void l2cap_ecred_list_defer(struct l2cap_chan =
+*chan, void *data)
+ =09=09(*result)++;
+ =09=09return;
+ =09case BT_CONNECTED:
++=09=09if (test_bit(FLAG_PENDING_SECURITY, &chan->flags))
++=09=09=09(*result)++;
+ =09=09return;
+ =09default:
+ =09=09/* If not connected or pending accept it has been refused */
+@@ -4067,6 +4312,8 @@ static void l2cap_ecred_list_defer(struct l2cap_chan =
+*chan, void *data)
+=20
+ struct l2cap_ecred_rsp_data {
+ =09struct l2cap_chan *locked_chan;
++=09struct l2cap_chan *accepted[L2CAP_ECRED_MAX_CID];
++=09bool security_failed;
+ =09struct {
+ =09=09struct l2cap_ecred_conn_rsp_hdr rsp;
+ =09=09__le16 scid[L2CAP_ECRED_MAX_CID];
+@@ -4111,14 +4358,12 @@ static void l2cap_ecred_rsp_defer(struct l2cap_chan=
+ *chan, void *data)
+ =09=09container_of(&rsp->pdu.rsp, struct l2cap_ecred_conn_rsp, hdr);
+ =09bool locked;
+=20
+-=09if (chan->mode !=3D L2CAP_MODE_EXT_FLOWCTL)
+-=09=09return;
+-
+-=09/* Check if channel for outgoing connection or if it wasn't deferred
+-=09 * since in those cases it must be skipped.
++=09/* Skip channels for outgoing connections and channels that were not
++=09 * deferred. FLAG_DEFER_SETUP and ident are cleared only after the
++=09 * response is queued (see __l2cap_ecred_conn_rsp_defer()), so that a
++=09 * concurrent l2cap_chan_send() cannot transmit ahead of it.
+ =09 */
+-=09if (test_bit(FLAG_ECRED_CONN_REQ_SENT, &chan->flags) ||
+-=09    !test_and_clear_bit(FLAG_DEFER_SETUP, &chan->flags))
++=09if (!l2cap_chan_ecred_rsp_pending(chan))
+ =09=09return;
+=20
+ =09lockdep_assert_held(&rsp->locked_chan->lock);
+@@ -4137,18 +4382,24 @@ static void l2cap_ecred_rsp_defer(struct l2cap_chan=
+ *chan, void *data)
+ =09lockdep_assert_held(&chan->lock);
+ =09lockdep_assert_held(&chan->conn->lock);
+=20
+-=09/* Reset ident so only one response is sent */
+-=09chan->ident =3D 0;
+-
+ =09/* Unreachable, check in l2cap_ecred_conn_req. If reached, drop rest */
+ =09if (WARN_ON_ONCE(rsp->count >=3D ARRAY_SIZE(rsp->pdu.scid)))
+ =09=09rsp->pdu.rsp.result =3D cpu_to_le16(L2CAP_CR_LE_NO_MEM);
+=20
+ =09/* Include all channels pending with the same ident */
+-=09if (!rsp->pdu.rsp.result)
++=09if (!rsp->pdu.rsp.result) {
++=09=09rsp->accepted[rsp->count] =3D chan;
++=09=09l2cap_chan_hold(chan);
+ =09=09rsp_flex->dcid[rsp->count++] =3D cpu_to_le16(chan->scid);
+-=09else
+-=09=09l2cap_chan_del(chan, ECONNRESET);
++=09} else {
++=09=09clear_bit(FLAG_DEFER_SETUP, &chan->flags);
++=09=09chan->ident =3D 0;
++=09=09if (rsp->security_failed)
++=09=09=09set_bit(FLAG_SECURITY_FAILED, &chan->flags);
++=09=09l2cap_chan_del(chan, rsp->security_failed ?
++=09=09=09      ECONNREFUSED : ECONNRESET);
++=09=09chan->ops->close(chan);
++=09}
+=20
+ done:
+ =09if (locked)
+@@ -4157,23 +4408,31 @@ static void l2cap_ecred_rsp_defer(struct l2cap_chan=
+ *chan, void *data)
+ =09l2cap_chan_put(chan);
+ }
+=20
+-void __l2cap_ecred_conn_rsp_defer(struct l2cap_chan *chan)
++int __l2cap_ecred_conn_rsp_defer(struct l2cap_chan *chan)
+ {
+ =09struct l2cap_conn *conn =3D chan->conn;
+ =09struct l2cap_ecred_rsp_data data;
++=09struct l2cap_chan *sibling;
+ =09u16 id =3D chan->ident;
+ =09int result =3D 0;
++=09int i;
+=20
+ =09if (!id)
+-=09=09return;
++=09=09return 0;
+ =09if (!test_bit(FLAG_DEFER_SETUP, &chan->flags))
+-=09=09return;
++=09=09return 0;
+=20
+ =09BT_DBG("chan %p id %d", chan, id);
+=20
+ =09memset(&data, 0, sizeof(data));
+=20
+ =09data.locked_chan =3D chan;
++=09list_for_each_entry(sibling, &conn->chan_l, list) {
++=09=09if (sibling->ident =3D=3D id &&
++=09=09    l2cap_chan_ecred_rsp_pending(sibling) &&
++=09=09    test_bit(FLAG_SECURITY_FAILED, &sibling->flags))
++=09=09=09data.security_failed =3D true;
++=09}
+=20
+ =09data.pdu.rsp.mtu     =3D cpu_to_le16(chan->imtu);
+ =09data.pdu.rsp.mps     =3D cpu_to_le16(chan->mps);
+@@ -4184,7 +4443,7 @@ void __l2cap_ecred_conn_rsp_defer(struct l2cap_chan *=
+chan)
+ =09__l2cap_chan_list_id(conn, id, l2cap_ecred_list_defer, &result);
+=20
+ =09if (result > 0)
+-=09=09return;
++=09=09return 0;
+=20
+ =09if (result < 0)
+ =09=09data.pdu.rsp.result =3D cpu_to_le16(L2CAP_CR_LE_AUTHORIZATION);
+@@ -4195,6 +4454,32 @@ void __l2cap_ecred_conn_rsp_defer(struct l2cap_chan =
+*chan)
+ =09l2cap_send_cmd(conn, id, L2CAP_ECRED_CONN_RSP,
+ =09=09       sizeof(data.pdu.rsp) + (data.count * sizeof(__le16)),
+ =09=09       &data.pdu);
++
++=09/* Data must follow the connection response on the wire. */
++=09for (i =3D 0; i < data.count; i++) {
++=09=09struct l2cap_chan *accepted =3D data.accepted[i];
++=09=09bool locked =3D l2cap_chan_try_sibling_lock(accepted, chan);
++
++=09=09/* The response is queued: open the data gate and make later
++=09=09 * calls for this batch return early. Both are done under the
++=09=09 * channel lock, so no sender sees one without the other.
++=09=09 */
++=09=09if (locked) {
++=09=09=09clear_bit(FLAG_DEFER_SETUP, &accepted->flags);
++=09=09=09accepted->ident =3D 0;
++=09=09=09if (!test_bit(FLAG_DEL, &accepted->flags))
++=09=09=09=09l2cap_le_flowctl_resume(accepted);
++=09=09=09l2cap_chan_unlock(accepted);
++=09=09} else if (accepted =3D=3D chan) {
++=09=09=09clear_bit(FLAG_DEFER_SETUP, &chan->flags);
++=09=09=09chan->ident =3D 0;
++=09=09=09if (!test_bit(FLAG_DEL, &chan->flags))
++=09=09=09=09l2cap_le_flowctl_resume(chan);
++=09=09}
++=09=09l2cap_chan_put(accepted);
++=09}
++
++=09return data.security_failed ? -ECONNREFUSED : 0;
+ }
+=20
+ void __l2cap_connect_rsp_defer(struct l2cap_chan *chan)
+@@ -5488,10 +5773,7 @@ static inline int l2cap_le_credits(struct l2cap_conn=
+ *conn,
+ =09chan->tx_credits +=3D credits;
+=20
+ =09/* Resume sending */
+-=09l2cap_le_flowctl_send(chan);
+-
+-=09if (chan->tx_credits)
+-=09=09chan->ops->resume(chan);
++=09l2cap_le_flowctl_resume(chan);
+=20
+ unlock:
+ =09l2cap_chan_unlock(chan);
+@@ -7648,6 +7930,8 @@ static struct l2cap_conn *l2cap_conn_add(struct hci_c=
+onn *hcon)
+=20
+ =09skb_queue_head_init(&conn->pending_rx);
+ =09INIT_WORK(&conn->pending_rx_work, process_pending_rx);
++=09INIT_WORK(&conn->security_work, l2cap_security_work);
++=09atomic_set(&conn->security_failure, 0);
+ =09INIT_DELAYED_WORK(&conn->id_addr_timer, l2cap_conn_update_id_addr);
+=20
+ =09conn->disc_reason =3D HCI_ERROR_REMOTE_USER_TERM;
+@@ -8114,6 +8398,8 @@ static void l2cap_security_cfm(struct hci_conn *hcon,=
+ u8 status, u8 encrypt)
+ =09mutex_lock(&conn->lock);
+=20
+ =09list_for_each_entry(chan, &conn->chan_l, list) {
++=09=09bool le_flowctl;
++
+ =09=09l2cap_chan_lock(chan);
+=20
+ =09=09lockdep_assert_held(&chan->conn->lock);
+@@ -8121,7 +8407,10 @@ static void l2cap_security_cfm(struct hci_conn *hcon=
+, u8 status, u8 encrypt)
+ =09=09BT_DBG("chan %p scid 0x%4.4x state %s", chan, chan->scid,
+ =09=09       state_to_string(chan->state));
+=20
+-=09=09if (!status && encrypt)
++=09=09le_flowctl =3D hcon->type =3D=3D LE_LINK &&
++=09=09=09     (chan->mode =3D=3D L2CAP_MODE_LE_FLOWCTL ||
++=09=09=09      chan->mode =3D=3D L2CAP_MODE_EXT_FLOWCTL);
++=09=09if (!status && encrypt && !le_flowctl)
+ =09=09=09chan->sec_level =3D hcon->sec_level;
+=20
+ =09=09if (!__l2cap_no_conn_pending(chan)) {
+@@ -8129,6 +8418,31 @@ static void l2cap_security_cfm(struct hci_conn *hcon=
+, u8 status, u8 encrypt)
+ =09=09=09continue;
+ =09=09}
+=20
++=09=09if (le_flowctl && (chan->state =3D=3D BT_CONNECTED ||
++=09=09=09=09   chan->state =3D=3D BT_CONNECT2)) {
++=09=09=09bool pending =3D test_bit(FLAG_PENDING_SECURITY, &chan->flags);
++
++=09=09=09/* An authentication event may precede encryption completion. */
++=09=09=09if (pending && !status &&
++=09=09=09    test_bit(HCI_CONN_ENCRYPT_PEND, hcon->flags)) {
++=09=09=09=09l2cap_chan_unlock(chan);
++=09=09=09=09continue;
++=09=09=09}
++=09=09=09if ((status && pending) ||
++=09=09=09    !l2cap_chan_security_sufficient(chan)) {
++=09=09=09=09set_bit(FLAG_PENDING_SECURITY, &chan->flags);
++=09=09=09=09set_bit(FLAG_SECURITY_FAILED, &chan->flags);
++=09=09=09}
++=09=09=09if (test_bit(FLAG_PENDING_SECURITY, &chan->flags)) {
++=09=09=09=09set_bit(FLAG_SECURITY_CFM, &chan->flags);
++=09=09=09=09l2cap_queue_security_work(conn);
++=09=09=09} else if (!status && chan->state =3D=3D BT_CONNECTED) {
++=09=09=09=09l2cap_le_flowctl_resume(chan);
++=09=09=09}
++=09=09=09l2cap_chan_unlock(chan);
++=09=09=09continue;
++=09=09}
++
+ =09=09if (!status && (chan->state =3D=3D BT_CONNECTED ||
+ =09=09=09=09chan->state =3D=3D BT_CONFIG)) {
+ =09=09=09chan->ops->resume(chan);
+diff --git a/net/bluetooth/l2cap_sock.c b/net/bluetooth/l2cap_sock.c
+index d5663a464..4db1e9f5d 100644
+--- a/net/bluetooth/l2cap_sock.c
++++ b/net/bluetooth/l2cap_sock.c
+@@ -929,12 +929,65 @@ static int l2cap_set_mode(struct l2cap_chan *chan, u8=
+ mode)
+ =09return 0;
+ }
+=20
++static int l2cap_sock_set_security(struct sock *sk, struct l2cap_chan *cha=
+n,
++=09=09=09=09   const struct bt_security *sec)
++{
++=09struct l2cap_conn *conn =3D l2cap_chan_conn(chan);
++=09int err =3D 0;
++
++=09lock_sock(sk);
++=09if (conn && conn->hcon->type =3D=3D LE_LINK &&
++=09    (chan->mode =3D=3D L2CAP_MODE_LE_FLOWCTL ||
++=09     chan->mode =3D=3D L2CAP_MODE_EXT_FLOWCTL)) {
++=09=09if (sk->sk_state !=3D BT_CONNECTED &&
++=09=09    !(sk->sk_state =3D=3D BT_CONNECT2 &&
++=09=09      test_bit(BT_SK_DEFER_SETUP, &bt_sk(sk)->flags))) {
++=09=09=09release_sock(sk);
++=09=09=09return -EINVAL;
++=09=09}
++=09=09release_sock(sk);
++=09=09return l2cap_chan_set_security(chan, sec->level, sec->mic_len);
++=09}
++
++=09chan->sec_level =3D sec->level;
++=09chan->mic_len =3D sec->mic_len;
++=09if (!conn)
++=09=09goto done;
++=09if (chan->scid =3D=3D L2CAP_CID_ATT) {
++=09=09release_sock(sk);
++=09=09l2cap_chan_req_mic_len(chan, conn->hcon);
++=09=09if (smp_conn_security(conn->hcon, sec->level))
++=09=09=09return -EINVAL;
++=09=09lock_sock(sk);
++=09=09set_bit(FLAG_PENDING_SECURITY, &chan->flags);
++=09=09set_bit(BT_SK_SUSPEND, &bt_sk(sk)->flags);
++=09=09sk->sk_state =3D BT_CONFIG;
++=09=09chan->state =3D BT_CONFIG;
++=09} else if ((sk->sk_state =3D=3D BT_CONNECT2 &&
++=09=09    test_bit(BT_SK_DEFER_SETUP, &bt_sk(sk)->flags)) ||
++=09=09   sk->sk_state =3D=3D BT_CONNECTED) {
++=09=09bool ready;
++
++=09=09release_sock(sk);
++=09=09ready =3D l2cap_chan_check_security(chan, true);
++=09=09lock_sock(sk);
++=09=09if (!ready)
++=09=09=09set_bit(BT_SK_SUSPEND, &bt_sk(sk)->flags);
++=09=09else
++=09=09=09sk->sk_state_change(sk);
++=09} else {
++=09=09err =3D -EINVAL;
++=09}
++done:
++=09release_sock(sk);
++=09return err;
++}
++
+ static int l2cap_sock_setsockopt(struct socket *sock, int level, int optna=
+me,
+ =09=09=09=09 sockptr_t optval, unsigned int optlen)
+ {
+ =09struct sock *sk =3D sock->sk;
+ =09struct l2cap_chan *chan =3D l2cap_pi(sk)->chan;
+-=09struct bt_security sec;
+ =09struct bt_power pwr;
+ =09struct l2cap_conn *conn;
+ =09int err =3D 0;
+@@ -950,78 +1003,59 @@ static int l2cap_sock_setsockopt(struct socket *sock=
+, int level, int optname,
+ =09if (level !=3D SOL_BLUETOOTH)
+ =09=09return -ENOPROTOOPT;
+=20
+-=09l2cap_chan_lock(chan);
+-=09lock_sock(sk);
++=09if (optname =3D=3D BT_SECURITY) {
++=09=09struct bt_security sec =3D { .level =3D BT_SECURITY_LOW };
++=09=09bool have_conn;
+=20
+-=09switch (optname) {
+-=09case BT_SECURITY:
+-=09=09if (chan->chan_type !=3D L2CAP_CHAN_CONN_ORIENTED &&
+-=09=09    chan->chan_type !=3D L2CAP_CHAN_FIXED &&
+-=09=09    chan->chan_type !=3D L2CAP_CHAN_RAW) {
+-=09=09=09err =3D -EINVAL;
+-=09=09=09break;
+-=09=09}
+-
+-=09=09/* mic_len was added at the end of struct bt_security, so
+-=09=09 * accept the shorter struct as well, leaving mic_len unset.
+-=09=09 */
+-=09=09if (optlen < offsetofend(struct bt_security, key_size)) {
+-=09=09=09err =3D -EINVAL;
+-=09=09=09break;
+-=09=09}
++=09=09/* Keep accepting the struct size used before mic_len was added. */
++=09=09if (optlen < offsetofend(struct bt_security, key_size))
++=09=09=09return -EINVAL;
+=20
+-=09=09err =3D copy_struct_from_sockptr(&sec, sizeof(sec), optval,
+-=09=09=09=09=09       optlen);
++=09=09err =3D copy_struct_from_sockptr(&sec, sizeof(sec), optval, optlen);
+ =09=09if (err)
+-=09=09=09break;
+-
+-=09=09if (sec.level < BT_SECURITY_LOW ||
+-=09=09    sec.level > BT_SECURITY_FIPS) {
+-=09=09=09err =3D -EINVAL;
+-=09=09=09break;
+-=09=09}
++=09=09=09return err;
+=20
+-=09=09/* BLUETOOTH CORE SPECIFICATION Version 7.0 | Vol 4,
+-=09=09 * Part E, Section 7.7.8: MIC_Length 0x00 is 32 bits,
+-=09=09 * 0x01 is 64 bits and 0x02 is 128 bits; all other
+-=09=09 * values are reserved for future use.
+-=09=09 */
+-=09=09if (sec.mic_len > 0x02) {
+-=09=09=09err =3D -EINVAL;
+-=09=09=09break;
+-=09=09}
++=09=09if (sec.level < BT_SECURITY_LOW || sec.level > BT_SECURITY_FIPS)
++=09=09=09return -EINVAL;
+=20
+-=09=09chan->sec_level =3D sec.level;
+-=09=09chan->mic_len =3D sec.mic_len;
++=09=09/* MIC length encodings 0, 1 and 2 mean 32, 64 and 128 bits. */
++=09=09if (sec.mic_len > 0x02)
++=09=09=09return -EINVAL;
+=20
++=09=09l2cap_chan_lock(chan);
++=09=09if (chan->chan_type !=3D L2CAP_CHAN_CONN_ORIENTED &&
++=09=09    chan->chan_type !=3D L2CAP_CHAN_FIXED &&
++=09=09    chan->chan_type !=3D L2CAP_CHAN_RAW) {
++=09=09=09l2cap_chan_unlock(chan);
++=09=09=09return -EINVAL;
++=09=09}
+ =09=09conn =3D l2cap_chan_conn(chan);
+-=09=09if (!conn)
+-=09=09=09break;
++=09=09if (!conn) {
++=09=09=09err =3D l2cap_sock_set_security(sk, chan, &sec);
++=09=09=09l2cap_chan_unlock(chan);
++=09=09=09return err;
++=09=09}
++=09=09l2cap_conn_get(conn);
++=09=09l2cap_chan_unlock(chan);
+=20
+-=09=09/* change security for LE channels */
+-=09=09if (chan->scid =3D=3D L2CAP_CID_ATT) {
+-=09=09=09l2cap_chan_req_mic_len(chan, conn->hcon);
+-=09=09=09if (smp_conn_security(conn->hcon, sec.level)) {
+-=09=09=09=09err =3D -EINVAL;
+-=09=09=09=09break;
+-=09=09=09}
++=09=09/* SMP receive holds conn->lock; management holds hdev->lock. */
++=09=09hci_dev_lock(conn->hcon->hdev);
++=09=09have_conn =3D l2cap_chan_lock_conn(chan);
+=20
+-=09=09=09set_bit(FLAG_PENDING_SECURITY, &chan->flags);
+-=09=09=09sk->sk_state =3D BT_CONFIG;
+-=09=09=09chan->state =3D BT_CONFIG;
++=09=09if (l2cap_chan_conn(chan) !=3D conn)
++=09=09=09err =3D -ENOTCONN;
++=09=09else
++=09=09=09err =3D l2cap_sock_set_security(sk, chan, &sec);
++=09=09l2cap_chan_unlock_conn(chan, have_conn);
++=09=09hci_dev_unlock(conn->hcon->hdev);
++=09=09l2cap_conn_put(conn);
++=09=09return err;
++=09}
+=20
+-=09=09/* or for ACL link */
+-=09=09} else if ((sk->sk_state =3D=3D BT_CONNECT2 &&
+-=09=09=09    test_bit(BT_SK_DEFER_SETUP, &bt_sk(sk)->flags)) ||
+-=09=09=09   sk->sk_state =3D=3D BT_CONNECTED) {
+-=09=09=09if (!l2cap_chan_check_security(chan, true))
+-=09=09=09=09set_bit(BT_SK_SUSPEND, &bt_sk(sk)->flags);
+-=09=09=09else
+-=09=09=09=09sk->sk_state_change(sk);
+-=09=09} else {
+-=09=09=09err =3D -EINVAL;
+-=09=09}
+-=09=09break;
++=09l2cap_chan_lock(chan);
++=09lock_sock(sk);
++
++=09switch (optname) {
+=20
+ =09case BT_DEFER_SETUP:
+ =09=09if (sk->sk_state !=3D BT_BOUND && sk->sk_state !=3D BT_LISTEN) {
+@@ -1284,11 +1318,20 @@ static int l2cap_sock_defer(struct sock *sk)
+ =09=09if (!have_conn) {
+ =09=09=09release_sock(sk);
+ =09=09=09err =3D -ENOTCONN;
++=09=09} else if ((chan->mode =3D=3D L2CAP_MODE_LE_FLOWCTL ||
++=09=09=09    chan->mode =3D=3D L2CAP_MODE_EXT_FLOWCTL) &&
++=09=09=09   test_bit(FLAG_PENDING_SECURITY, &chan->flags)) {
++=09=09=09release_sock(sk);
++=09=09=09err =3D -EAGAIN;
+ =09=09} else if (chan->mode =3D=3D L2CAP_MODE_EXT_FLOWCTL) {
++=09=09=09int result;
++
+ =09=09=09sk->sk_state =3D BT_CONNECTED;
+ =09=09=09chan->state =3D BT_CONNECTED;
+ =09=09=09release_sock(sk);
+-=09=09=09__l2cap_ecred_conn_rsp_defer(chan);
++=09=09=09result =3D __l2cap_ecred_conn_rsp_defer(chan);
++=09=09=09if (result)
++=09=09=09=09err =3D result;
+ =09=09} else if (bdaddr_type_is_le(chan->src_type)) {
+ =09=09=09sk->sk_state =3D BT_CONNECTED;
+ =09=09=09chan->state =3D BT_CONNECTED;
+@@ -1778,7 +1821,10 @@ static void l2cap_sock_teardown_cb(struct l2cap_chan=
+ *chan, int err)
+ =09=09sk->sk_state =3D BT_CLOSED;
+ =09=09chan->state =3D BT_CLOSED;
+=20
+-=09=09sk->sk_err =3D err;
++=09=09if (!test_bit(FLAG_SECURITY_FAILED, &chan->flags) ||
++=09=09    READ_ONCE(sk->sk_err) !=3D ECONNREFUSED)
++=09=09=09sk->sk_err =3D err;
++=09=09clear_bit(BT_SK_SUSPEND, &bt_sk(sk)->flags);
+=20
+ =09=09if (parent) {
+ =09=09=09/*
+@@ -1814,8 +1860,11 @@ static void l2cap_sock_state_change_cb(struct l2cap_=
+chan *chan, int state,
+=20
+ =09sk->sk_state =3D state;
+=20
+-=09if (err)
++=09if (err) {
+ =09=09sk->sk_err =3D err;
++=09=09clear_bit(BT_SK_SUSPEND, &bt_sk(sk)->flags);
++=09=09sk->sk_state_change(sk);
++=09}
+=20
+ =09release_sock(sk);
+ }
+diff --git a/net/bluetooth/smp.c b/net/bluetooth/smp.c
+index 62a6b1e8f..bc54e0e65 100644
+--- a/net/bluetooth/smp.c
++++ b/net/bluetooth/smp.c
+@@ -785,6 +785,7 @@ static void smp_failure(struct l2cap_conn *conn, u8 rea=
+son)
+ =09=09=09     &reason);
+=20
+ =09mgmt_auth_failed(hcon, HCI_ERROR_AUTH_FAILURE);
++=09l2cap_security_failure(conn);
+=20
+ =09if (chan->data)
+ =09=09smp_chan_destroy(conn);
+
