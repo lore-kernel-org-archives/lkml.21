@@ -1,71 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.220
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795505953;
-	b=aNcFOA87th0NADw+BAaa+NcGnaOI4LzpFWBl1PuxdZATMe4C1uismwJLJUj4h6tf5YEM
-	 v2xIM/qtuKmX5pe5nMXb2B9eYJp/5ddMhI5GPFFguhj/QpsGD3eSor1xWm4vhobteKJeq
-	 aLLHPYoF/RFkTYZFialtZd26iXdtDeTq5kFv/C/qSDPHPDtJ0ejZ+K2Aynr78SYIOEX1Z
-	 bGGDGCvuvnwmtQWIei09EWLSNqn06tCYHKWm1LM5222clAXBNYEmWgb0Yp7p9cINvKVuF
-	 d2lOdlxEAoauNlDeooSPt92OSMst6yC9Fs6YwEqglkjlzffRDqp1QJfsd08j3BFIFew==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795505953;
-	h=DMARC-Filter:dkim-signature:Received:Received:Received:Subject:To:CC:
-	 References:From:Message-ID:Date:User-Agent:MIME-Version:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-Originating-IP:
-	 X-ClientProxiedBy;
-	bh=zcwYIX9noGJ34U9bJlk+mPUn4i8ykxi3zI14C+8G2qg=;
-	b=TiNF9ak4WH/c1ilr+9wzoxWx5YslCSHchB1pnberIgTCWwDwNjaN58tVS6gOWSKCwYGz
-	 cTg/vEDyTm6R+wBZFX2n/HcMbZNDsxDBKOMhBq44RSsDFzsZ805eZkLh5zxbM5pLx8XCr
-	 5wUoxe9mGDxZ39zUui4R92MsyE1sN47RQ2fg3nWIObis/4temsXpZv0jcpIpa9xOMT2k+
-	 /fVkwgddNlxyXXfs8w2FZsnJ6rrfv7e7BVbbcnddlnBlMMeN/RyBzQB+a+Ig2SgQb1v28
-	 4MMM79PYa5n32Yvb+zLpxIC1qZryi7MRy8kP1QkUFyQ3dqE2WzF+h+clqPsuIybhxow==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=huawei.com;
-	spf=pass smtp.mailfrom=huawei.com;
-	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=Fw07X7In;
-	arc=none smtp.remote-ip=113.46.200.220
-Received: from canpmsgout05.his.huawei.com (canpmsgout05.his.huawei.com [113.46.200.220])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.41
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795506038;
+	b=nhRZZUI2Lv2xhXBc9GD8A3JPUl1iRUd21+ODwo1AOd2wLipaBKlqUUdF6qsHSQFoetSx
+	 zRvtS6XXma2AIgpwmM4CwQy80Xy+n6maRqErj9gLURe2BNYrs+BIlEiW/bRbwGP9Xc+xy
+	 dP0hL7oG+3POVSd7dTgUEXgOm8VtWiUYbWxBmNzdDS88XAp++H7QJ+Ajml1QPQlI1jLNG
+	 vNKm5UTNz7bmQQDXWPwckvhQxR93ckToy0h2c2VcJs7IjwnnAQDjL616vRLwX9t08Ry36
+	 jhxfX39JCzLW9C8X+R2yvHMzBOjf6VvOIHieD5bA7Nkm3K+yybWvztUiS3Z0YQ+XoVw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795506038;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=4CXeOR2kr0QWxwXVJ8kgxv8jpZ3ULeKkBDrgo80WNA8=;
+	b=hZ+59t/7VAg+gWY3aMJ0hjhend3EI9bqNpSLq/Odz3I05hBSDoCle+AR02pZBYv8lYnq
+	 9Sk0gdEIccges0C9CHVk9FmxQSlsRcfEwZ44m3IVnWSYh6RSVQk3GbmNTQZpTUX4sVIgn
+	 tqqzbWYB5JXTPoa+xzWxkC5LaZ0Ee56KfOiiLHTBKcQyszJDfUq2TMwl3+1AHY8Bdzh/T
+	 schvWodQw+X1646Wp71UPWwR4BH0qMmz73bq5MdHjSC1RdAm8/9A3xjsKW8SfO6n2UfXK
+	 Ud+N79ADIkgZfD1Avi2LPufYhQ+MT4hD/IcSqsMeEJWWx+ZQNX1uiRnNXYrLbzW13Xw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=oxkH3z6S;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.41
+Received: from mail-ed1-f41.google.com (mail-ed1-f41.google.com [209.85.208.41])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 14484606A31E;
-	Tue, 24 Nov 2026 07:39:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 14484606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0B97A606A32A
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 07:40:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0B97A606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=Fw07X7In
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=zcwYIX9noGJ34U9bJlk+mPUn4i8ykxi3zI14C+8G2qg=;
-	b=Fw07X7Inkjc4jnSDcQlOaorq3qgBitF0sj4wTow7JidAYA8rJPCNq/FblkRNLW02UhfruEaob
-	afsO+IMGeFzV/7pPXEMEyrMmVNZtn5YYCLWi+jOs/sa8xk8MNapETZ1vPoJXUCrXkei+jHp9s2b
-	RZaPODL8ZPhhWseScDY49jE=
-Received: from mail.maildlp.com (unknown [172.19.162.223])
-	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4jYZRV4t7Tz12LCv;
-	Tue, 24 Nov 2026 15:38:14 +0800 (CST)
-Received: from whupemk100014.china.huawei.com (unknown [7.152.184.20])
-	by mail.maildlp.com (Postfix) with ESMTPS id 70DF640575;
-	Tue, 24 Nov 2026 15:39:03 +0800 (CST)
-Received: from [10.67.121.110] (10.67.121.110) by
- whupemk100014.china.huawei.com (7.152.184.20) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Tue, 24 Nov 2026 15:39:02 +0800
-Subject: Re: [PATCH 05/10] crypto: hisilicon/hpre - Fix buffer overflow on odd
- ECDH input size
-To: Lee Jones <lee@kernel.org>, Zhiqi Song <songzhiqi1@huawei.com>, Herbert Xu
-	<herbert@gondor.apana.org.au>, "David S. Miller" <davem@davemloft.net>, Weili
- Qian <qianweili@huawei.com>, Zaibo Xu <xuzaibo@huawei.com>, Meng Yu
-	<yumeng18@huawei.com>, <linux-crypto@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>
-CC: <stable@vger.kernel.org>
-References: <20261123151055.2533735-1-lee@kernel.org>
- <20261123151055.2533735-6-lee@kernel.org>
-From: liulongfang <liulongfang@huawei.com>
-Message-ID: <c468acae-dca2-f132-ced8-fe9911ccc6ee@huawei.com>
-Date: Tue, 24 Nov 2026 15:39:01 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:60.0) Gecko/20100101
- Thunderbird/60.8.0
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=oxkH3z6S
+Received: by mail-ed1-f41.google.com with SMTP id 4fb4d7f45d1cf-6ba12b00c76so4304296a12.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 23:40:37 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795506036; cv=none;
+        d=google.com; s=arc-20260327;
+        b=jHDes0Luu7kQFBZIYSOMzwbHcSk6mKtJ6R8cXH+UaxuLD2Im+Q2NN4HW6WJFRFamM7
+         63UuKN52qmkiSOGPdkMRpA0DAqTqPw2MiFbwunhkCMhJUcT4UU4nuh2SM6RZgcGPUnp0
+         dm37bD5YzIlhyjAXaBL8i7wyXikMIkMLh+TpmEHDWWf+DGPK43oHrFsRCnj3K8Q/80iw
+         bhzmJfKUaLlfq6jguIDFuHAdeyoagLWih0CXpYqMfrVwcgZhuEJz4RX99DdrSm+DbpC2
+         m/jd9TtKsj9yPP1yByS7H5WXUZKPfm3IvLBv784KAC2B14Tf2j2u6IOwb7dfAXQPKHQn
+         QqVg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=4CXeOR2kr0QWxwXVJ8kgxv8jpZ3ULeKkBDrgo80WNA8=;
+        fh=LTXH8A6MGzuGQHx1qsvUYY3oLkfPLLo4fvicmwHe3ls=;
+        b=Zv1YOF5GvtU0gActiRo6oy50TMHFjHPh4H71mQLBwTymP7wAlSsy9HcbLyi0oEbvaG
+         j3yresdiNJRgWHOmQpb1Wef9RJiqoSoKJHpHczUj6f8MeAEZToGLtM8Hs9/TlITrMdDk
+         HTxQ5qS3x9uvo3n7Tr2+hVbgZcIaGOLYxVeheKHwJMti+wH1Ri0v42H3waNbbiffG6/f
+         AARvfgnMwNVknhqyadhHksodbbacaLBz+pZXRRcBNItlCpmaICtd0AIgyzrB68U32gvT
+         w1rBEwN7Qyss4u2Cal5CKO7SRT9e2IF8rGEF1PSdTN1yrcnKEvMv0RR0HDBjwFZR4uyu
+         X0Jw==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795506036; x=1796110836; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=4CXeOR2kr0QWxwXVJ8kgxv8jpZ3ULeKkBDrgo80WNA8=;
+        b=oxkH3z6S5oobQJgtcXfQH0GuAqd/cenjkfGF1tqjc2+bcqwAyKj8T7knhO8Wa1HZ8J
+         uHfRO40Eae11V11jsAbdsmulEYbPqQhxYRMLo1h9iaHOAO4jYvm0wj0QlDzhsxzvvxSN
+         I5pFOem1W3Se5Tbtt8oQA1wjRqxkCkU2/v1La2JpxDv/tFUTE0O5Ws3eaBWAJZrqe8a3
+         ARZvrho7IB/gJodkTfuzAUlT5BqaCnVdmjMEHe1Ys8XmrqZFl8aqpXNQcqzLj4N24S/w
+         9ueWzbVdR8tQh8YGttAdCgtLjPNNCKA2Z1Uosr8S569Tg7/c3OBwQfq4sovDsqeJ3hXl
+         B69g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795506036; x=1796110836;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=4CXeOR2kr0QWxwXVJ8kgxv8jpZ3ULeKkBDrgo80WNA8=;
+        b=syQh6/PAu7DDQzkQ1IyvH8H/D2neryj3eS+tvCi2q8bpSUe0R8S26Mri0aW3/O+iL1
+         lAHKGVhtfgI0OTmTxc4dsklzRnXRiH2WTxPDz8HBidD1twDu0RielMI89skMz8FMK45Z
+         tc4jlRdqKzqGjlZZqG9qHBlG7nZvOPZcJRuXSR4klZeh+TxoZgVJFY/YWiUy9uIGLCpa
+         2Iez+QS30yz1mJaAn7lv/g1DCsvklbmoI6eMdYncLA1sN5HkkjtMWW6i/TXeTGRK4b48
+         m/UGOoCA6KRdfWGUMMTUfojW0GzDiahJDm1hP52H5dwVkMyVWr5WpIAFiCx4zCFtwj3n
+         +kUw==
+X-Forwarded-Encrypted: i=1; AL+hErEVOR1bx7temES2HKUiY98ZZGG0GtWysmTkVk8JFuF4QZhONbD7jD6dIdaoHtLhZqkQTSHg0xE0OnyxQcI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z82ErsyZHS5a5x1x8YCbTM6r9vWJUD9OW2g9hJUBFmzTX4znMaG
+	o+lPm8nL09iNGNPUcw8z5SSF0cmaOe1s3tAh5BI8nBFvRbp2rS8YZ3N/qxJzUMV0lHICQfyM1xa
+	SwE5MXrba/zpATDejdoS8xNdgUn05CtM=
+X-Gm-Gg: AZFdTZeOm/nzwQuEVjMw3dnJ3LP9ASYGxtuaOwDgkq0vKSwM3YrhK6rQhO/htoxITOE
+	LAWOxiUVf+cWrusLmzR5gxuIzf9MdXy1krNKJasOY/EoN1syz0c01aTp3T8643/pIf1qf94mWtF
+	mP2Lx73OKd5nkFsectAG1bxPt/a79rl+NwwJonb1vBXpeWvIcSMd6xNqlle1NCTVu1DwDqlqrS7
+	9sqcVTFV+IJD7fEOSiq4jdlL8j7DFZu09txspG79II72TJkM3KwUg7rCvdoWDFmwY24F3PKG2q5
+	wXP/n1TvyXz3XXAXq7GGXTKfGV6lk5snT6UIRAmfUThFuXIDoM00lPJWoHd15H7Cwc4y3syiU6b
+	avi/v+ZkbrWHIud24gPs2Tlfo1aBU51o3P/nWeG1WlDHvN9HzinXDpb8TdJI2Cg/cYW82wqA=
+X-Received: by 2002:a05:6402:90d:b0:6ba:6654:6a6f with SMTP id
+ 4fb4d7f45d1cf-6ba66546ba7mr5596605a12.10.1795506036198; Mon, 23 Nov 2026
+ 23:40:36 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,57 +104,58 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-In-Reply-To: <20261123151055.2533735-6-lee@kernel.org>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- whupemk100014.china.huawei.com (7.152.184.20)
+References: <20261123-delegts-fixes-v2-0-960ce0fb2fed@kernel.org> <20261123-delegts-fixes-v2-4-960ce0fb2fed@kernel.org>
+In-Reply-To: <20261123-delegts-fixes-v2-4-960ce0fb2fed@kernel.org>
+From: =?UTF-8?Q?Aur=C3=A9lien_Couderc?= <aurelien.couderc2002@gmail.com>
+Date: Tue, 24 Nov 2026 08:39:00 +0100
+X-Gm-Features: Aa3M54pDAnp4nzuVx3_sk6ZGaLciZePtabVFiusFMvgfv9iLGaYf856NyG1jvWs
+Message-ID: <CA+1jF5rbGGB3iqc5FObbTYLyhT_gN18f1QfHRCuuOuBeJXLitw@mail.gmail.com>
+Subject: Re: [PATCH v2 04/11] nfsd: don't grant write delegations to NFSv4.0
+ clients on CLAIM_PREVIOUS
+To: Jeff Layton <jlayton@kernel.org>
+Cc: Chuck Lever <cel@kernel.org>, NeilBrown <neil@brown.name>, 
+	Olga Kornievskaia <okorniev@redhat.com>, Dai Ngo <Dai.Ngo@oracle.com>, Tom Talpey <tom@talpey.com>, 
+	Christian Brauner <brauner@kernel.org>, linux-nfs@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On 2026/11/23 23:09, Lee Jones wrote:
-> hpre_ecdh_src_data_init() validates the input public key length using
-> ctx->key_sz - (len >> 1) < 0 before copying len bytes into the upper
-> half (offset ctx->key_sz << 1) of a (ctx->key_sz << 2)-byte coherent
-> DMA buffer.
-> 
-> Because len >> 1 truncates the least significant bit, an odd input
-> length of (ctx->key_sz << 1) + 1 (such as 65 bytes for NIST P-256)
-> evaluates shift to 0, bypasses the bounds check, and writes one byte
-> past the end of the coherent DMA allocation in
-> scatterwalk_map_and_copy().  A zero length when ctx->key_sz is unset
-> similarly bypasses the check.
-> 
-> Reject zero, odd, or oversized lengths explicitly before computing the
-> coordinate offset.
-> 
-> Fixes: 05e7b906aa7c ("crypto: hisilicon/hpre - add 'ECDH' algorithm")
-> Closes: https://sashiko.dev/#/bug/linux-42c6cdd1-7f7e-4071-bb2f-a4db5935267e
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Lee Jones <lee@kernel.org>
-> ---
->  drivers/crypto/hisilicon/hpre/hpre_crypto.c | 5 +++--
->  1 file changed, 3 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/crypto/hisilicon/hpre/hpre_crypto.c b/drivers/crypto/hisilicon/hpre/hpre_crypto.c
-> index 66a276786a7d..78ae987d338a 100644
-> --- a/drivers/crypto/hisilicon/hpre/hpre_crypto.c
-> +++ b/drivers/crypto/hisilicon/hpre/hpre_crypto.c
-> @@ -1484,9 +1484,10 @@ static int hpre_ecdh_src_data_init(struct hpre_asym_request *hpre_req,
->  	int shift;
->  
->  	/* Src_data include gx and gy. */
-> +	if (unlikely(!len || (len & 1) || len > (ctx->key_sz << 1)))
-> +		return -EINVAL;
-> +
->  	shift = ctx->key_sz - (len >> 1);
-> -	if (unlikely(shift < 0))
-> -		return -EINVAL;
+On Mon, Nov 23, 2026 at 1:59=E2=80=AFPM Jeff Layton <jlayton@kernel.org> wr=
+ote:
 >
+> nfs4_open_delegation() refuses delegations for NFSv4.0 write opens on
+> CLAIM_NULL and CLAIM_FH, as its comment explains, but CLAIM_PREVIOUS
+> skips the check. An NFSv4.0 client reclaiming a write open during grace
+> can therefore get a write delegation, and NFSD can never complete a
+> GETATTR that the client sends before DELEGRETURN in the same compound.
+>
+> Apply the same check to CLAIM_PREVIOUS.
+>
+> Fixes: 1d3dd1d56ce8 ("NFSD: Enable write delegation support")
+> Signed-off-by: Jeff Layton <jlayton@kernel.org>
+> ---
+>  fs/nfsd/nfs4state.c | 3 +++
+>  1 file changed, 3 insertions(+)
+>
+> diff --git a/fs/nfsd/nfs4state.c b/fs/nfsd/nfs4state.c
+> index 5c2151b329c4..4b28553efc8d 100644
+> --- a/fs/nfsd/nfs4state.c
+> +++ b/fs/nfsd/nfs4state.c
+> @@ -7533,6 +7533,9 @@ nfs4_open_delegation(struct svc_rqst *rqstp, struct=
+ nfsd4_open *open,
+>         open->op_recall =3D false;
+>         switch (open->op_claim_type) {
+>                 case NFS4_OPEN_CLAIM_PREVIOUS:
+> +                       if (open->op_share_access & NFS4_SHARE_ACCESS_WRI=
+TE &&
+> +                           clp->cl_minorversion =3D=3D 0).
 
-Reviewed-by: Longfang Liu <liulongfang@huawei.com>
+Thank you.
 
-Thanks!
-Longfang.
+You can add a Reviewed-By: Aur=C3=A9lien Couderc
+<aurelien.couderc2002@gmail.com>, please
 
->  	ptr = dma_alloc_coherent(dev, ctx->key_sz << 2, &dma, gfp);
->  	if (unlikely(!ptr))
-> 
+Aur=C3=A9lien
+--=20
+Aur=C3=A9lien Couderc <aurelien.couderc2002@gmail.com>
+Big Data/Data mining expert, chess enthusiast
