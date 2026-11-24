@@ -1,120 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.238.174.39
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795527977;
-	b=gU0p8HrbMsWjM/BFkTUhR93to3TISl45FdOxAZy/20IWaLxHg8kZz/U7nLiSTAVHxroW
-	 RhZo2A2QdKQ18QUasrBP3+niti6l17THFsxmJXvv9ti5p9EqRZB/S/TK4/hJYSIqELrMh
-	 0q9cIapjs2O6lJFK368nGU9K/QNdggDjLOhb/rhNof3urf4qAkXMkGcT/zumcJofxTPAK
-	 nNNJ2D0KrdcyHtmluH79PZ342zpurPQJnLE7xKzPL1qrHOa+t3EIJ0gRxyxqtanBoSCoC
-	 hOgZIYRPAObg1+VMjqOG+kO3iFxGCRE461q1t+znHKXm1HyavyHc6enjwSsRNzcNxyQ==
+	t=1795527991;
+	b=P/nOZV0ZBg6XL9n5BQL+/RPCc+DQZxvi4R+FZN8CLbU5qJc7zMoi8AM4Vq+cIHvwohFc
+	 Pse81k5GCuBJ896jvCojVUJ3bRHsPwAa20v71wz6hWXwb9sr+QOL8wU1eTdtR8YIh7Piu
+	 2+oveB9I2+2NFqu8cfV2Ta3xxQonPTkAOtxdaKggNdTQ4wCMbqpAmsY1/xPRtzOuhTbnV
+	 5KF6BvlddlEnaRWvUL5PXvaIswDOHq7Q40aOaH3eLQMlrSsMeHR+I/f2XKRc8dnT06kwz
+	 VKLZ9Q2kMRQbu+SDufH9x2C75nqIMmjZEKMdX2hGJUEXHgBZ7XUp6M0C8W5wlKwGYmw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795527977;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Date:From:
-	 To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=zPbiw4ZB1gHphClGjdjeA4UlOcJJr69dzbBrC67QfsM=;
-	b=wSdE6OGQZ4lmb0X9z1dW97HGv04+VXWM1aa5tj6P4QN3tFMIhjAusZD5x8m6vKCnWD12
-	 Wa6duJEVdWCBoERLXL5s3uUCoC2iTdBuMQv9dDjdZp3yyVQ8Y6iPQjW0W8cX6JegKqMPZ
-	 FYewUzZUCrzSTcXzZ/iQ+0A7itzxmmaquZySu8huiDZ+3OYMdHrn3qu21dqHRpUYOWmpD
-	 /Y1BSAGff6GBYjaALXR2VA5mKPKJpJ4/kwuKW5/7lTQQvZmQ3lXtJLknnVLMpUDKExjwT
-	 KU+v65n+SuQOj/aIMbw1L9bVl6XZFwI9BcgYwFRfL5V3hvbpdPAswf7I/2iMmKVh0aA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795527991;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:Date:
+	 From:To:cc:Subject:In-Reply-To:Message-ID:References:MIME-Version:
+	 Content-Type;
+	bh=ZiUQPSPqBbX0yaOGXpiqmIhuEj+1E9hKrqAwIjuoBrI=;
+	b=BQT4vCNm1nMFzzHf4rIvfM+P/NL2AKz1SybqW2QYM1t9sHwOw+9/zYFy2/9m9FiEBPr1
+	 EbvaIdhzUtInsN1FmgLVXPBslnWf4ezjSM1NGlO3IcZoQoGZn85IkKgwZuEf1MMXaQwDO
+	 BNqJoU4AIUhLmtUCiBmQv9aUnnNi9FPZhVs7Qrcq4M00TM0xU7sDMfOh8BeelnHsZwnLr
+	 hmJYoHCH2hBGweNxBrnpngqLDHZfVJju8UIld/32zxadbKRX2OetXAw8/xbp6AeDihUe8
+	 HDodNFeLCAoinTgdX1XI+Yarde+z0Yn/FQ8Ud/xdhr1PgJQ6OdktuYFncEPnfh4A7/w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=hJrGOuW5;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=HBsIl43z;
-	arc=none smtp.remote-ip=205.220.180.131
-Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
+	dmarc=pass header.from=ssi.bg;
+	spf=pass smtp.mailfrom=ssi.bg;
+	dkim=pass header.d=ssi.bg header.i=@ssi.bg header.a=rsa-sha256 header.s=ssi header.b=5ZIn1CK9;
+	arc=none smtp.remote-ip=193.238.174.39
+Received: from mx.ssi.bg (mx.ssi.bg [193.238.174.39])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6ED76606A322
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:46:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6ED76606A322
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 53687606A334;
+	Tue, 24 Nov 2026 13:46:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 53687606A334
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=ssi.bg
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ssi.bg
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=hJrGOuW5;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=HBsIl43z
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AOAuVF61736766
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:46:15 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=zPbiw4ZB1gHphClGjdjeA4Ul
-	OcJJr69dzbBrC67QfsM=; b=hJrGOuW5YBaVut9iXn7lGp7xYi/OmdTQQ8JEOixM
-	kwf4pcVmkssjx8VSeXYLKSSYgKMPwoNJvSGG8jOQNbhFQqV2/FcJwyzxyZStABas
-	MF6J2mZswzBqX0MaeCj4Wg2/ktASqG+2r73J1Rr7+Ju7FKudyffLz994scEuTGU8
-	YB89zZfCFMrbGOm+KqQbzzeS4BQVxVjCQM7Dl3oFv0+WvGgE2ULnDitpxER9lIWI
-	go/tXT+iY3pw99H22AN7oOGmx+ELK6c9BDX1vSLYDaPRJnz3gjjSws3lO+nFGqsJ
-	Zyc8vYxyqMU1MFQ7/oWEz6pILy5a3SuQ4QmE+DB0jLn/sg==
-Received: from mail-dy1-f199.google.com (mail-dy1-f199.google.com [74.125.82.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j4yvd33mr-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:46:15 +0000 (GMT)
-Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-386177b0516so11957492eec.1
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 05:46:15 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795527974; x=1796132774; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=zPbiw4ZB1gHphClGjdjeA4UlOcJJr69dzbBrC67QfsM=;
-        b=HBsIl43zc2eV5m7cmOVSTp8zWSm9HRvgiqyLBmR2iFgSWKAsdlWxNPLXAUNR2yYTtL
-         04XJgKLC9Bmz/YXOYlbUOSwAE4ldrzaRna2xLWXZSiYb6fBpF5xmQNtb0nJcqa3RwdFX
-         khoLe4M6qcsZhYy1g8sM4BzA9iTtyIO8GAh7ArsyuMXZoBTiA942WnDCZZNjPDeIh5ff
-         pkfe2y5fQcUI3En2h/OA4a3h9xMd6IKnqJ8oKzSBdQyeTn0/1UXUS3+KZwDjz2FP0EhB
-         zyPCU4wiyRk7EMttNKhf2G5r2RypNtvcILw2gxvg9f2DDYaxg7RJpUG3rxEA3e5yVQmd
-         c+eA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795527974; x=1796132774;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=zPbiw4ZB1gHphClGjdjeA4UlOcJJr69dzbBrC67QfsM=;
-        b=f+Msbx0vKL2BDFcVSxv/yoMR4VsRXG/Ceg9MdlYpHuvE+E2hv02BEcGtk+Mn4lLf9q
-         kJMw4g+w4QOt9TcGjX5yBjjOaHKEVmdnY6sf3utj6ADWjMBfEzzGlaHLAA3bYXnh2ZOs
-         R1l4VI9IcBJFJgOct60YcRw+e8NVwmen9giNOSonKOXRWDW1DgDYlL8EX/utAtUyAk7q
-         mLnvP8zVyUPkj+8xvtYHkTjP/V6k2N/IH9BrsoDGUWmIKr8doYHCLmwW2A8hpoJmAewJ
-         DIyvvaBwDBugOP+D7aEM1Uoku8RSqK4VPV4ZzD7omHKfGs8KplHikL7+2Xb+AvnrjZmU
-         vW4A==
-X-Forwarded-Encrypted: i=1; AL+hErGUqnmJcpdMnrqUSc7UMTzmVfyHgWACSFpZdy2I6X5cxcFRY0weY0VexXQSvFcw+btduvZQ/IweSuHvuTU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9dRe3YwwrzcpmXJQ2eWoH0iNmBOMafpMAXWEg9z06O4T2uPbdP
-	7uh8h2cZo7msDpbT1tOGntgESTyViP7ZZ3Iz9JP8mFL8jqp3sFZbQTy7zo78ZfDD+ge5+hK59II
-	utlIPAJmHNrydu3lh+tNzT7oK+k53eucbxRzrrQdTphuWMYm6dVn0MYgicW8JkYdiUsE=
-X-Gm-Gg: AZFdTZfvMt9GyohnvWDqsWJUraRvuou8pGCmSEyb1gRdMhZg0kH0L50TKne9Z/AKYQM
-	YWYteDEPintwsmy2yswpQ2wAdA+ekKTmeNMyjd7DgDjqjkl+EcLZK5vwQb2Ru/1KHyDlAHYkJU6
-	sMfowwuzyRrwZzLf9IlwLeOuSKo91nlydDXAndUt2mOIodiVFs0dKa9QWFYUS+MM4u8G9JLMr0K
-	ZkQkDdz2FvVSm7BV8eTwh7cnqxM6cVw64ahRk0Gs5wrN1PiOdsjUA8sy5G/brSQ3ySjWHI/gkLX
-	R2Gag3feHPbKpCNIJW0S81A7b3coShVZFVhLOGc/Z7yuM98ki+bFlwlszXAJuVhhJTDFPShxxI9
-	eL5DQz85R3hjeMHHorAFZlHHvmzYq9aA8tkkJtXha3Lz+V9SUVd6erbg2x2N2NXJU8/0db9GVdT
-	Qmx8CI3/Qs9RsopZHR
-X-Received: by 2002:a05:693c:805a:b0:376:a6d7:8f51 with SMTP id 5a478bee46e88-3856e63bbe9mr18149369eec.12.1795527973960;
-        Tue, 24 Nov 2026 05:46:13 -0800 (PST)
-X-Received: by 2002:a05:693c:805a:b0:376:a6d7:8f51 with SMTP id 5a478bee46e88-3856e63bbe9mr18149346eec.12.1795527973410;
-        Tue, 24 Nov 2026 05:46:13 -0800 (PST)
-Received: from QCOM-aGQu4IUr3Y (i-global052.qualcomm.com. [199.106.103.52])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386992b404bsm33790831eec.1.2026.11.24.05.46.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 05:46:13 -0800 (PST)
-Date: Tue, 24 Nov 2026 21:46:08 +0800
-From: Shawn Guo <shengchao.guo@oss.qualcomm.com>
-To: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
-Cc: Bjorn Helgaas <bhelgaas@google.com>,
-        Manivannan Sadhasivam <mani@kernel.org>,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-        Rob Herring <robh@kernel.org>, linux-pci@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] PCI: qcom: Mask PARF_INT_ALL_3 events on Nord
-Message-ID: <awWVIGmkGzyVL89N@QCOM-aGQu4IUr3Y>
-References: <20261114084700.907031-1-shengchao.guo@oss.qualcomm.com>
- <179492110006.194330.16578214355369868159.b4-reply@b4>
+	dkim=pass (4096-bit key, unprotected) header.d=ssi.bg header.i=@ssi.bg header.a=rsa-sha256 header.s=ssi header.b=5ZIn1CK9
+Received: from mx.ssi.bg (localhost [127.0.0.1])
+	by mx.ssi.bg (Potsfix) with ESMTP id 2778121FCE;
+	Tue, 24 Nov 2026 15:46:22 +0200 (EET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ssi.bg; h=cc:cc
+	:content-type:content-type:date:from:from:in-reply-to:message-id
+	:mime-version:references:reply-to:subject:subject:to:to; s=ssi;
+	 bh=ZiUQPSPqBbX0yaOGXpiqmIhuEj+1E9hKrqAwIjuoBrI=; b=5ZIn1CK9CYAS
+	d/9rC8lAoBrYNO4WMJjFjxnwwGPvQF7lY7znmMUbTYktV+F84r/SbN+dEH6Bna1k
+	MTpyrI9ojg+NbBu7yuPFo8F4slpSZKkGKSlsHIyfsaeK3zpVAKdbQrhHHXQfjv7v
+	BqdgaPEcMPmnKDotIxKJiDvV6UYJhz7a8kIAUJd+Aji7DY+QI2dJ3mTrPd3UDsfT
+	Bwg574hJ8bZ++YF+GD/OrbI/RyLXp4w7vsh5fcWYpX61eFmM6E6PszKJTpyDyi+w
+	P3Z3QZ5uUTRfgK4FeUixhZrLz9EvVDIHDYRbxLoMtsw3d8M4mClQsD1ImfUhKD3e
+	SjRQsKMTlmrXzu01tcO/6JksJip20g9TFWAJaG56c/DIXX1mTSruahkbVGmyYx8N
+	eYCcirsK8+RxfPMZiyEEtEoYA35yYX7Nepke9I3kG2/cPp57nuwlE7dMtY6/q1A3
+	QFqp/gxJSwEH4iQqof0LiUeh13mdhuPFLbY0i+n3zQsPjhLFLXgBX4T8qhUHofiJ
+	t61n31ev+ex9vjM4sXgJ3Q6La1I4KUiRUePPMUvWKwtbyjKtq1ZGu9MPpaIfgrVd
+	Rpi6DQCTIQKbWVK3dktAgJoWZJeyCq6sNLNTJMdKwnR0hDgwWjrIPBsoMXXQ+r2r
+	0BjWDZOoLmUIyupMMHnpxxmV0fscNMA=
+Received: from box.ssi.bg (box.ssi.bg [193.238.174.46])
+	by mx.ssi.bg (Potsfix) with ESMTPS;
+	Tue, 24 Nov 2026 15:46:21 +0200 (EET)
+Received: from ja.ssi.bg (unknown [213.16.62.126])
+	by box.ssi.bg (Potsfix) with ESMTPSA id AD65360E20;
+	Tue, 24 Nov 2026 15:46:21 +0200 (EET)
+Received: from localhost.localdomain (localhost.localdomain [127.0.0.1])
+	by ja.ssi.bg (8.18.2/8.18.2) with ESMTP id 6AODkCPe076447;
+	Tue, 24 Nov 2026 15:46:12 +0200
+Date: Tue, 24 Nov 2026 15:46:12 +0200 (EET)
+From: Julian Anastasov <ja@ssi.bg>
+To: Star Chang <starchang@google.com>
+cc: "David S . Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>, Willem de Bruijn <willemb@google.com>,
+        Simon Horman <horms@kernel.org>, David Ahern <dsahern@kernel.org>,
+        Ido Schimmel <idosch@nvidia.com>,
+        Johannes Berg <johannes@sipsolutions.net>,
+        Jonathan Corbet <corbet@lwn.net>,
+        Shuah Khan <skhan@linuxfoundation.org>,
+        Randy Dunlap <rdunlap@infradead.org>, netdev@vger.kernel.org,
+        linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+        wangroger@google.com
+Subject: Re: [PATCH net v7] arp: Do not update neighbours from ARP in L2
+ multicast/broadcast frames
+In-Reply-To: <20261123144535.155300-1-starchang@google.com>
+Message-ID: <dba6db1a-7a30-97a8-f610-132cc7544d2f@ssi.bg>
+References: <20261123144535.155300-1-starchang@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -124,189 +88,167 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <179492110006.194330.16578214355369868159.b4-reply@b4>
-X-Authority-Analysis: v=2.4 cv=ZYeIpcVA c=1 sm=1 tr=0 ts=6b059527 cx=c_pps
- a=cFYjgdjTJScbgFmBucgdfQ==:117 a=b9+bayejhc3NMeqCNyeLQQ==:17
- a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
- a=EUspDBNiAAAA:8 a=GkseLWfAocwtZgMctr0A:9 a=CjuIK1q_8ugA:10
- a=scEy_gLbYbu1JhEsrz4S:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI0MDA1MyBTYWx0ZWRfXzqNfLt+i5g1p
- pMHfapnqBmtZs/93vMEqTgMCRoNo4c4CoAmI3Yqcxb9TJc87GxpUB2+qgpKYGw65TA7lSLuPzQz
- Qry065skWNfRVzFB4gxe2p/egtz62EEjdsL7UJiXq0oqcUFTH/SrOQUNxiJ+SCTXRvjw96Kmrmy
- EJ1QWN1Pywnmdki7htTJ7rvuiG/6doZYh59Dc6djCbGAyM9sQG92PSzSPH+cnU/vcnMeNGhrQMp
- sjDXRdL2ImKhGAhqQ8i9moFHD4H1esm2pDwQy2wQ8eEDSRQa9YxSyXoKr4fcq58pMShLOovBGhS
- 3SRFZGq0M/bt23bt7bmdZvAZ4HYoLj3BUDUAgIvRqqtf6Q5udtd8yz/BNa1duQd6d5KgbiB5Rw9
- EUn8ZjFXoW9Y0B/VrGbgDr6MZAw40VbNiJs+v/obTeAnGk7H1QfU7tB5qclw7+RNFaPkeFLNZzP
- HB965QzbdmHbsOMfDpw==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI0MDA1MyBTYWx0ZWRfXy2HXNTHe00R6
- hjSarJLYuDP0zGR+vcOP5ku8FpwYyl608QUv/SDFjIL++p6h8cZqsSxwsFP7VZ98xqHA6FQ9Ayd
- WJ5l3nm5xmi/6LdyCskyWyBuXmJ9dEE=
-X-Proofpoint-ORIG-GUID: tAzNSrOcbdYoF6nGFEikqN48935dVAPo
-X-Proofpoint-GUID: tAzNSrOcbdYoF6nGFEikqN48935dVAPo
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-24_02,2026-11-23_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 malwarescore=0 suspectscore=0 adultscore=0 priorityscore=1501
- lowpriorityscore=0 bulkscore=0 impostorscore=0 phishscore=0 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611240053
+Content-Type: text/plain; charset=US-ASCII
 
-On Tue, Nov 17, 2026 at 02:11:40PM +0100, Manivannan Sadhasivam wrote:
-> On 2026-11-14 16:47 +0800, Shawn Guo wrote:
-> > On Nord, the PARF_INT_ALL_3 interrupt group is unmasked out of reset
-> > (PARF_INT_ALL_3_MASK reads 0x43fff), and its events are routed to the
-> > same 'global' IRQ as PARF_INT_ALL. The driver neither handles nor clears
-> > any of them, and the global IRQ handler only looks at
-> > PARF_INT_ALL_STATUS.
-> > 
-> > Some endpoints send a Device Readiness Status (DRS) message after link
-> > up, e.g. the SK hynix HFS001TFM9X186N NVMe drive (1c5c:1069). This
-> > latches DRS_MSG_RECEIVED (bit 12) in PARF_INT_ALL_3_STATUS and keeps
-> > the level triggered global IRQ asserted. The threaded handler then runs
-> > in a tight loop with PARF_INT_ALL_STATUS reading 0, starving other work
-> > and stalling the boot (RCU/SRCU stall warnings).
-> > 
-> > Mask all PARF_INT_ALL_3 events and clear any latched status on Nord,
-> > before the global IRQ is requested in probe and again in
-> > qcom_pcie_reset_root_port(), since the register is reset together with
-> > PARF_INT_ALL_MASK. To keep the two writes together, move the
-> > PARF_INT_ALL_MASK programming in probe into the same helper, which now
-> > runs right before devm_request_threaded_irq() instead of after it.
-> > 
-> > Signed-off-by: Shawn Guo <shengchao.guo@oss.qualcomm.com>
+
+	Hello,
+
+On Mon, 23 Nov 2026, Star Chang wrote:
+
+> The drop_unicast_in_l2_multicast sysctl drops unicast IP packets that
+> are received in link-layer multicast or broadcast frames. On Wi-Fi this
+> protects against the "Hole-196" attack, where any station that knows
+> the group key injects frames as group-addressed traffic.
 > 
-> Missing Fixes tag.
-
-Will add:
-
-Fixes: f75d2d64fff1 ("PCI: qcom: Add Nord PCIe controller support")
-
+> ARP is not covered. A broadcast ARP request or reply with sip set to
+> the gateway address and sha set to the attacker MAC still creates or
+> updates the gateway neighbour entry, so the attacker can poison the
+> ARP cache of other stations. ARP requests are legitimately broadcast
+> and cannot be dropped, and drop_gratuitous_arp only catches sip == tip.
 > 
-> > ---
-> >  drivers/pci/controller/dwc/pcie-qcom.c | 30 +++++++++++++++++++++-----
-> >  1 file changed, 25 insertions(+), 5 deletions(-)
-> > 
-> > diff --git a/drivers/pci/controller/dwc/pcie-qcom.c b/drivers/pci/controller/dwc/pcie-qcom.c
-> > index eba1b2cb30f0..03b2e61fc20f 100644
-> > --- a/drivers/pci/controller/dwc/pcie-qcom.c
-> > +++ b/drivers/pci/controller/dwc/pcie-qcom.c
-> > @@ -73,6 +73,8 @@
-> >  #define PARF_DEVICE_TYPE			0x1000
-> >  #define PARF_BDF_TO_SID_TABLE_N			0x2000
-> >  #define PARF_BDF_TO_SID_CFG			0x2c00
-> > +#define PARF_INT_ALL_3_MASK			0x2d8c
-> > +#define PARF_INT_ALL_3_CLEAR			0x2d90
-> >  
-> >  /*
-> >   * Outbound blocker range registers. The blocked range has a write pair
-> > @@ -294,6 +296,8 @@ struct qcom_pcie_ops {
-> >    * @override_no_snoop: Override NO_SNOOP attribute in TLP to enable cache
-> >    * snooping
-> >    * @firmware_managed: Set if the Root Complex is firmware managed
-> > +  * @mask_int_all_3: Mask PARF_INT_ALL_3 events, which are unmasked by default
-> > +  * and would otherwise keep the 'global' IRQ asserted
+> This was found in an internal security review and reproduced in a lab
+> on a WPA2-PSK network: a group-addressed ARP reply injected by another
+> station changed the victim's gateway neighbour entry to the attacker
+> MAC. There are no kernel messages, only the wrong neighbour entry.
 > 
-> Reword the last line to 'and are not handled by the driver'.
-
-Ack.
-
+> When drop_unicast_in_l2_multicast is set, do not pass ARP packets
+> received in L2 multicast/broadcast frames to neigh_event_ns() or
+> neigh_update(), so they can neither create nor change neighbour
+> entries. Requests for local and proxied addresses are still answered;
+> neighbours are learned from unicast replies to our own requests.
 > 
-> >    */
-> >  struct qcom_pcie_cfg {
-> >  	const struct qcom_pcie_ops *ops;
-> > @@ -301,6 +305,7 @@ struct qcom_pcie_cfg {
-> >  	bool firmware_managed;
-> >  	bool no_l0s;
-> >  	bool disable_cgc;
-> > +	bool mask_int_all_3;
-> >  };
-> >  
-> >  struct qcom_pcie_perst {
-> > @@ -1738,6 +1743,7 @@ static const struct qcom_pcie_cfg cfg_nord = {
-> >  	.override_no_snoop = true,
-> >  	.no_l0s = true,
-> >  	.disable_cgc = true,
-> > +	.mask_int_all_3 = true,
-> >  };
-> >  
-> >  static const struct qcom_pcie_cfg cfg_sc8280xp = {
-> > @@ -1871,6 +1877,22 @@ static int qcom_pcie_set_max_opp(struct device *dev)
-> >  	return ret;
-> >  }
-> >  
-> > +static void qcom_pcie_enable_global_irq_events(struct qcom_pcie *pcie)
-> > +{
-> > +	/*
-> > +	 * The PARF_INT_ALL_3 events (e.g. DRS_MSG_RECEIVED) are unmasked by
-> > +	 * default, but not handled by the driver. Once latched, they keep the
-> > +	 * level triggered 'global' IRQ asserted, so mask and clear them.
-> > +	 */
+> Fixes: 12b74dfadb5a ("ipv4: add option to drop unicast encapsulated in L2 multicast")
+> Suggested-by: Julian Anastasov <ja@ssi.bg>
+> Signed-off-by: Star Chang <starchang@google.com>
+
+	The patch looks good to me, thanks!
+
+Reviewed-by: Julian Anastasov <ja@ssi.bg>
+
+> ---
+> v7:
+>  - Rebase on net, arp_process() changed (Julian)
+>  - Add an empty line before out_free_skb (Julian)
+>  - Mention how the issue was found in the commit message
+> v6: https://lore.kernel.org/netdev/20261123063608.3665186-1-starchang@google.com/
+>  - Instead of dropping L2 BMC ARP replies, skip neigh_event_ns() and
+>    neigh_update() for any ARP received in L2 BMC frames, which also
+>    covers broadcast requests with sip = gateway (Julian)
+>  - Drop the frame and release reply_dst on that path (Julian)
+> v5: https://lore.kernel.org/netdev/20261030031136.607720-1-starchang@google.com/
+> v4: https://lore.kernel.org/netdev/20261027015619.1745984-1-starchang@google.com/
+> v3: https://lore.kernel.org/netdev/20261026150539.1357037-1-starchang@google.com/
 > 
-> This comment can be dropped.
+>  Documentation/networking/ip-sysctl.rst |  4 ++-
+>  net/ipv4/arp.c                         | 39 +++++++++++++++++++-------
+>  2 files changed, 32 insertions(+), 11 deletions(-)
 > 
-> > +	if (pcie->cfg->mask_int_all_3) {
-> > +		writel_relaxed(0, pcie->parf + PARF_INT_ALL_3_MASK);
-> > +		writel_relaxed(~0U, pcie->parf + PARF_INT_ALL_3_CLEAR);
-> > +	}
-> > +
-> > +	writel_relaxed(PARF_INT_ALL_LINK_DOWN | PARF_INT_MSI_DEV_0_7,
-> > +		       pcie->parf + PARF_INT_ALL_MASK);
-> > +}
-> > +
-> >  /*
-> >   * Qcom PCIe controllers only support one Root Port per controller instance. So
-> >   * this function ignores the 'pci_dev' associated with the Root Port and just
-> > @@ -1928,8 +1950,7 @@ static int qcom_pcie_reset_root_port(struct pci_host_bridge *bridge,
-> >  	 * non-sticky.
-> >  	 */
-> >  	if (pcie->global_irq)
-> > -		writel_relaxed(PARF_INT_ALL_LINK_DOWN | PARF_INT_MSI_DEV_0_7,
-> > -				pcie->parf + PARF_INT_ALL_MASK);
-> > +		qcom_pcie_enable_global_irq_events(pcie);
-> >  
-> >  	qcom_pcie_start_link(pci);
-> >  
-> > @@ -2429,6 +2450,8 @@ static int qcom_pcie_probe(struct platform_device *pdev)
-> >  			goto err_host_deinit;
-> >  		}
-> >  
-> > +		qcom_pcie_enable_global_irq_events(pcie);
-> 
-> You should not enable interrupts before registering handler. So you'd have to
-> mask and clear here and keep the enable where it was. This means, you don't need
-> a helper at all.
+> diff --git a/Documentation/networking/ip-sysctl.rst b/Documentation/networking/ip-sysctl.rst
+> index d3523c9064a2..fd2ffb2d2812 100644
+> --- a/Documentation/networking/ip-sysctl.rst
+> +++ b/Documentation/networking/ip-sysctl.rst
+> @@ -2302,7 +2302,9 @@ promote_secondaries - BOOLEAN
+>  
+>  drop_unicast_in_l2_multicast - BOOLEAN
+>  	Drop any unicast IP packets that are received in link-layer
+> -	multicast (or broadcast) frames.
+> +	multicast (or broadcast) frames. ARP packets received in such
+> +	frames are not used to create or update neighbour entries,
+> +	but ARP requests for local addresses are still answered.
+>  
+>  	This behavior (for multicast) is actually a SHOULD in RFC
+>  	1122, but is disabled by default for compatibility reasons.
+> diff --git a/net/ipv4/arp.c b/net/ipv4/arp.c
+> index 3bc8db6ccd68..cc69ea07fc2d 100644
+> --- a/net/ipv4/arp.c
+> +++ b/net/ipv4/arp.c
+> @@ -715,6 +715,7 @@ static int arp_process(struct net *net, struct sock *sk, struct sk_buff *skb)
+>  	struct neighbour *n;
+>  	struct arphdr *arp;
+>  	struct rtable *rt;
+> +	bool bmc_no_learn;
+>  	__be32 sip, tip;
+>  	int addr_type;
+>  
+> @@ -794,6 +795,10 @@ static int arp_process(struct net *net, struct sock *sk, struct sk_buff *skb)
+>  	    (!IN_DEV_ROUTE_LOCALNET(in_dev) && ipv4_is_loopback(tip)))
+>  		goto out_free_skb;
+>  
+> +	bmc_no_learn = (skb->pkt_type == PACKET_BROADCAST ||
+> +			skb->pkt_type == PACKET_MULTICAST) &&
+> +		       IN_DEV_ORCONF(in_dev, DROP_UNICAST_IN_L2_MULTICAST);
+> +
+>   /*
+>    *	For some 802.11 wireless deployments (and possibly other networks),
+>    *	there will be an ARP proxy and gratuitous ARP frames are attacks
+> @@ -853,14 +858,19 @@ static int arp_process(struct net *net, struct sock *sk, struct sk_buff *skb)
+>  			if (!dont_send && IN_DEV_ARPFILTER(in_dev))
+>  				dont_send = arp_filter(sip, tip, dev);
+>  			if (!dont_send) {
+> -				n = neigh_event_ns(tbl, sha, &sip, dev);
+> -				if (n) {
+> -					arp_send_dst(ARPOP_REPLY, ETH_P_ARP,
+> -						     sip, dev, tip, sha,
+> -						     dev->dev_addr, sha,
+> -						     reply_dst);
+> -					neigh_release(n);
+> +				n = NULL;
+> +				/* Do not learn the sender from a BMC frame */
+> +				if (!bmc_no_learn) {
+> +					n = neigh_event_ns(tbl, sha, &sip, dev);
+> +					if (!n)
+> +						goto out_consume_skb;
+>  				}
+> +				arp_send_dst(ARPOP_REPLY, ETH_P_ARP,
+> +					     sip, dev, tip, sha,
+> +					     dev->dev_addr, sha,
+> +					     reply_dst);
+> +				if (n)
+> +					neigh_release(n);
+>  			}
+>  			goto out_consume_skb;
+>  		} else if (IN_DEV_FORWARD(in_dev)) {
+> @@ -869,9 +879,11 @@ static int arp_process(struct net *net, struct sock *sk, struct sk_buff *skb)
+>  			     arp_fwd_pvlan(in_dev, dev, rt, sip, tip) ||
+>  			     (rt->dst.dev != dev &&
+>  			      pneigh_lookup(tbl, &tip, dev)))) {
+> -				n = neigh_event_ns(tbl, sha, &sip, dev);
+> -				if (n)
+> -					neigh_release(n);
+> +				if (!bmc_no_learn) {
+> +					n = neigh_event_ns(tbl, sha, &sip, dev);
+> +					if (n)
+> +						neigh_release(n);
+> +				}
+>  
+>  				if (NEIGH_CB(skb)->flags & LOCALLY_ENQUEUED ||
+>  				    skb->pkt_type == PACKET_HOST ||
+> @@ -890,6 +902,10 @@ static int arp_process(struct net *net, struct sock *sk, struct sk_buff *skb)
+>  		}
+>  	}
+>  
+> +	/* ARP received in L2 BMC frames must not change the neighbour table */
+> +	if (bmc_no_learn)
+> +		goto out_drop_dst;
+> +
+>  	/* Update our ARP tables */
+>  
+>  	n = ipv4_neigh_lookup(dev, &sip);
+> @@ -953,6 +969,9 @@ static int arp_process(struct net *net, struct sock *sk, struct sk_buff *skb)
+>  	dst_release(reply_dst);
+>  	return NET_RX_SUCCESS;
+>  
+> +out_drop_dst:
+> +	dst_release(reply_dst);
+> +
+>  out_free_skb:
+>  	kfree_skb(skb);
+>  	return NET_RX_DROP;
+> -- 
+> 2.56.1.750.gf70dc682cf-goog
 
-Right, unmasking PARF_INT_ALL_MASK before devm_request_threaded_irq() is
-wrong. Will drop the helper and leave both PARF_INT_ALL_MASK writes as
-they are today.
+Regards
 
-Before I send v2, I'd like to check where the PARF_INT_ALL_3 masking
-should go. Masking only in probe and qcom_pcie_reset_root_port() misses
-system resume. When the controller is powered down in suspend,
-qcom_pcie_resume_noirq() goes through dw_pcie_resume_noirq() ->
-qcom_pcie_host_init(), which resets the core just as
-qcom_pcie_reset_root_port() does. I checked this on Nord RRD:
-PARF_INT_ALL_3_MASK reads 0 after probe, and reads 0x43fff (the reset
-value) after an s2idle cycle in which the link went through L2 and was
-re-trained. A DRS message after that would wedge the global IRQ again.
+--
+Julian Anastasov <ja@ssi.bg>
 
-So I'd rather mask and clear PARF_INT_ALL_3 in qcom_pcie_host_init(),
-right after ops->post_init():
-
-        if (pcie->cfg->mask_int_all_3) {
-                writel_relaxed(0, pcie->parf + PARF_INT_ALL_3_MASK);
-                writel_relaxed(~0U, pcie->parf + PARF_INT_ALL_3_CLEAR);
-        }
-
-That one place covers probe (dw_pcie_host_init() runs before the global
-IRQ is requested), qcom_pcie_reset_root_port() and resume. It also runs
-before PERST# deassert, so the mask is in place before the endpoint can
-send DRS, and no helper is needed.
-
-Does that work for you?
-
-Shawn
