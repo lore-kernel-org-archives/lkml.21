@@ -1,94 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.153
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.182
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795525717;
-	b=mgLE5GRSTVQIMcLP9vvoB6vTFCm07NJc80YBdWBozViXzdGUfjcIkjOffttkDf7oKz/y
-	 RhHFURxE6NcX7wVCevypgfTYkRwk5Z/G524UCCN30tihjmbLxQM6Sw1zocQglL+wNBfsg
-	 qZOsPVC86xjhPvY/6aC1sd+Bo3EtO1fopPpaaY+zTsJE4+t/dpS/+IRIYHKTYJCByiquo
-	 WInFP2+4ltg+M3gG/iZX4Y09dOMU49wpsgyuIKwD3/7cPVH2g1BlF75NM7dxXBb9mRLid
-	 3DO8887KaBFmd3YSYkh4Y63n7n9HD5Y1fNYH5FnMuocti8mrnQvnrhKTUkx8cnBahxA==
+	t=1795525723;
+	b=ncxNF+qjogMFWEmqy0Bu3ND6LIvK9w04PYoY9NWUIflGxhEVrwtFX7fRsT1y7k49Tws1
+	 xW1S1U+XogQ0JHfrxQU/h23PssvX/LhHIcYV5wXLXnUe3h3+1htkKIRW6Nt1trWFkcHm0
+	 gzxbVt0aadP0hUrOiAmmNI53u4e6ItwiMBKMRP3c1GQHTD4R7VA0jeUKGXT+EcRcXv27r
+	 oigvipmzYJOZrkZe5/CYbBkMujLgRY0Hj+8O6wtYNUGoKQF6rUnlAfzewakfuamuZ3zFs
+	 Cu6lyE5XHRgBfAWLQA4ImrFP+48e6fVZH/qQZi/0jsKwIAUAI28hRn0Enw4rHGS71Ug==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795525717;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=RQ3YF1RfEqs94cp9dLMIze3uhjn7zFoDvRCz3CbVmv8=;
-	b=aUiZGHhPJ+SMBXl9BR1ofm2wo5kjy2vJLxd/vtT+9rIq0Te9GWjFRiX8yPo55WjjgWjt
-	 9Wq94FqFyOhpCcMKZX37rGjMcFg16r0wlW35y2SkmxsoyazVD46hHZR6Nq5MibURFtf5m
-	 HlUrRR/glnq67YbC40sHzufwo5+JSkhhWtzusEr2pC4dLs7aDtMlTzTpBxAyV7I0fhCj3
-	 pHUJWHiezGDZqy7MWe4cd9MBNddiPUbyF4pcs7KSJoBWOxf5gquRkRwJojZkpwqf0jaD0
-	 NbIVT7rZNeVMmFb4/9x4lfjGE4Cln1tPsIDA7N0AMFVAGLOGu6EbYpnoZRgPRhcvlzQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795525723;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:CC:Subject:User-Agent:In-Reply-To:References:Message-ID:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=XbztJIKjfD6YyhkVTo/7hoojOtoaJPqi9RVN75qyzg4=;
+	b=gsEkIoaVFPCrl/UAm7xhRGfF/qygqkr77zgryI3zRYDAFzpJjf5Ro3kP0dOYcpItlEvV
+	 vA32BP4csb4K//Y4tbC9auZ/QPNuqacJz2Jc7+zuDC9cxaXrnqMjsOcwsDJ7HC7wUiqTZ
+	 AsWAsAGBRTp1t2nTBPwUher4No4Bh4NLWARb8o0fQ7wDPNL33SdTpOhKAN3uty1GyEY3w
+	 +cT7ThkqoHrH2t0b4H8xPAYSENsTUysH/KJ/qxfkNrnaYylTIdlkYCdB47b5g77Xo2Jyr
+	 yk+xMrgPEzBZdNtZbdNPuqA2nIAnREGZOe+D0tr70LM2fCMh+cYoy4jE32NQL0BIf2A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=oR3lIa81;
-	arc=none smtp.remote-ip=91.218.175.153
-Received: from mta0.migadu.com (out-153.mta0.migadu.com [91.218.175.153])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=EjjR24l8;
+	arc=none smtp.remote-ip=209.85.221.182
+Received: from mail-vk1-f182.google.com (mail-vk1-f182.google.com [209.85.221.182])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 80B7A606A321
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:08:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 80B7A606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 260F4606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:08:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 260F4606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=oR3lIa81
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=nji5A2XjSCYxW4EpPuWPD3nn2/76/ynnUfE5sAmbOEw=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795525714; v=1; x=1796130514;
- b=oR3lIa81Ip6PgF7APxT9LAO91m++WqKzt8FAV2PFHux+GWJn04KEwKULNkCkbO+SjUnrH6Ac
- b+9CG0eR2VzYoOVDPZ6FWxv6C1Lj6dsW2yofWpoK+7RrYo2ZcJy0F8HB8M52dtmh9aqxu+plSDk
- YNWLOB3qKCp23btyNMsBDFFQ=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 052fed434da67c83;
-	Tue, 24 Nov 2026 13:08:34 +0000
-X-Mizu-Trace-ID: 052fed434da67c83
-X-Migadu-Flow: FLOW_OUT
-From: Xuanqiang Luo <xuanqiang.luo@linux.dev>
-To: netdev@vger.kernel.org
-Cc: "David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	John Fastabend <john.fastabend@gmail.com>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Song Liu <song@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Emil Tsalapatis <emil@etsalapatis.com>,
-	Ihor Solodrai <ihor.solodrai@linux.dev>,
-	Matthieu Baerts <matttbe@kernel.org>,
-	Mat Martineau <martineau@kernel.org>,
-	Geliang Tang <geliang@kernel.org>,
-	David Ahern <dsahern@kernel.org>,
-	Ido Schimmel <idosch@nvidia.com>,
-	Stanislav Fomichev <sdf@fomichev.me>,
-	Neal Cardwell <ncardwell@google.com>,
-	Kuniyuki Iwashima <kuniyu@google.com>,
-	Pablo Neira Ayuso <pablo@netfilter.org>,
-	Florian Westphal <fw@strlen.de>,
-	Phil Sutter <phil@nwl.cc>,
-	bpf@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	mptcp@lists.linux.dev,
-	netfilter-devel@vger.kernel.org,
-	coreteam@netfilter.org,
-	Xuanqiang Luo <luoxuanqiang@kylinos.cn>
-Subject: [PATCH net-next v1 5/6] tcp: avoid a stack canary in tcp_rcv_established()
-Date: Tue, 24 Nov 2026 22:06:30 +0900
-Message-ID: <20261124130631.1886963-6-xuanqiang.luo@linux.dev>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261124130631.1886963-1-xuanqiang.luo@linux.dev>
-References: <20261124130631.1886963-1-xuanqiang.luo@linux.dev>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=EjjR24l8
+Received: by mail-vk1-f182.google.com with SMTP id 71dfb90a1353d-5eae1276409so1616141e0c.3
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 05:08:42 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795525722; x=1796130522; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:message-id
+         :references:in-reply-to:user-agent:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=XbztJIKjfD6YyhkVTo/7hoojOtoaJPqi9RVN75qyzg4=;
+        b=EjjR24l8tyjGxfcccZbqX7quytW7SFdJYQyO6rZONUcSUO9C4k+jCQjSusu6M9VipL
+         G3hbrmZKHckR2eMy4VqKEs6M5xr6ATRVK8mY0bnAAapB97kmTZvZPJGRmKWbp6ytHXbV
+         kb0SmVRaxtvh0IRiKCx2zk1nY+7KSaITTsANXIvkB/HkIt28ogg7MY4WwNzkhoiksR0w
+         hYjoHxPAs1mBxOiwjzNPidp+JWyYC8nMzVV9GlyF4Lu7nSUBc25kRnk/gaDRQav1l1ZK
+         epZdP5XBVFFBiJrkEgvRd39vLMGSfMPXBx8ibPijE/rMhUS0qhPCIePYcVgSr8MFl45x
+         yB0Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795525722; x=1796130522;
+        h=content-transfer-encoding:content-type:mime-version:message-id
+         :references:in-reply-to:user-agent:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=XbztJIKjfD6YyhkVTo/7hoojOtoaJPqi9RVN75qyzg4=;
+        b=sUhff+qSM0BF12EguTsujeWtEnpcwe5Yce4MbzkXhOa92XTu7UFef9hI8VKyNvvAg+
+         fmnJVb6/gT8tJNRrIud6R5ko1jM3FTHFJDXoJd6dk7dRL7u1oEqnorCEZym8mYXNnfdp
+         ba/nQFVlOQUEXNq6QBXD3mM7TVbjM1Yv9Nt/UBuQxj1NYJkoySADzyig7K5vC9EG6qsu
+         6L+/zyIJBa03oiG4CyJTpliwqYj6T+P24W4jWJiF0J75pAio0GmeKZKnLAktCEhRNy0z
+         UpJZ1kGpnCA8Op3BJJsJ3dWN610Dtt2Z31PdvdfMOsIZqkgV3PjfzEg+nC+EECpJtAL4
+         l5MA==
+X-Forwarded-Encrypted: i=1; AL+hErG1XtU3bzh10moHRTKdbXwww5JhwIo4By3g44HU3bEZERUdrBHX+g2BZfhfDy8gEqH52LeZP/UWhh3I8FA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+kyFN0VjJKnkduoWdbVKmDtpOqD62WGfWmWlJE5yUYN/Hwe673
+	S7xdE8X5ueVPE8cftVUvXM1x72UFNvzZR6G5Bp+7X7EOP+VoKkJ6AzEK
+X-Gm-Gg: AZFdTZf/3wTznogNh1PXDoVrQCJqwri6QnHIzWY4ZkIZjiQqaWnyv5embayD2lrw0lO
+	3nLWquV0dXFPA7p1fTSr14S3Sds632pQOsMdeB9wGB4r6knAOJ6RvXrPMubWbfp6kG6gqatCxUH
+	vx3XQMya4zCTyB4E5HiLD3E7MqmPzu+u/eSnv8usXYUIloAvjv6roo8kOEY00SdPoITSCaTMUni
+	iokth9wPp3aECVAgBHCupm3kERwuNi5usvK67qQfYN0UxIwcNJETbxrWSYQ5a2A/vXYqB4OjbCE
+	On1xI3UJK3wJAFnzHGahU57ZIjuG9K+7pFZbimpYyneA+Ke9ZbCm1udh8iP75yvXnjIX5RJ4Wfd
+	1bFutOdZh07DiwwvKnQhanl+E6O8aCZdu0VWNaHOECc7vbeUc7OumH3M93lqTYM3EdBLdA+b8QE
+	SNfnw7PdsGKFwhzn/KFNFH4NBXCHxkCC3G3li7nk+5puTcrPMTHbnt1V34KYjj2F3GIVQXBt2/M
+	mLG+Y1cSoa81fDBLHI7WXwmKR4EWuPpyt2e3ShQp6qTeZajXNaRb/EBRMNKE2LtpvRi8i89RcKI
+	rdr3cBXcppmhF2XXOXgG2Tc5l3b9Ka7RXW7bSZJBrs69MA==
+X-Received: by 2002:a05:6122:208f:b0:5ec:c3ed:7d99 with SMTP id 71dfb90a1353d-5ee8aea67b8mr6786741e0c.6.1795525721797;
+        Tue, 24 Nov 2026 05:08:41 -0800 (PST)
+Received: from ehlo.thunderbird.net ([2804:2bf0:60e7:ae00:4750:f903:b503:f985])
+        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-99e6e033aafsm14849601241.7.2026.11.24.05.08.40
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 24 Nov 2026 05:08:40 -0800 (PST)
+Date: Tue, 24 Nov 2026 10:08:31 -0300
+From: Arnaldo Melo <arnaldo.melo@gmail.com>
+To: James Clark <james.clark@linaro.org>, Namhyung Kim <namhyung@kernel.org>,
+ Ian Rogers <irogers@google.com>
+CC: linux-perf-users@vger.kernel.org, Peter Zijlstra <peterz@infradead.org>,
+ Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Jiri Olsa <jolsa@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>,
+ linux-kernel@vger.kernel.org
+Subject: =?US-ASCII?Q?Re=3A_=5BPATCH=5D_perf_build=3A_Only_enable_c?=
+ =?US-ASCII?Q?ontext_analysis_with_Clang_23_or_later?=
+User-Agent: Thunderbird for Android
+In-Reply-To: <46a896ba-cd45-4747-837d-50ea4b4dbed9@linaro.org>
+References: <20261123-james-perf-late-parse-attr-v1-1-cfebcd81a962@linaro.org> <CAP-5=fXuQWTt1F6BvKSXqgSkEtBQPKvKg6gmAe-ngyr4VGyGig@mail.gmail.com> <EC27692D-9692-4976-B7EA-4C3A91173CE3@gmail.com> <awSu48pUIh942Zm4@google.com> <46a896ba-cd45-4747-837d-50ea4b4dbed9@linaro.org>
+Message-ID: <0E9F372C-C100-41EC-B5B3-46FEDC813E01@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -98,299 +102,93 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain;
+ charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-From: Xuanqiang Luo <luoxuanqiang@kylinos.cn>
 
-tcp_rcv_established() passes the address of a local boolean to
-tcp_queue_rcv(), to know if skb->head was stolen while coalescing.
 
-With CONFIG_STACKPROTECTOR_STRONG=y, this forces a stack canary in
-tcp_rcv_established(), which is paid for every received packet,
-including pure ACKs. tcp_data_queue() has the same issue.
+On November 24, 2026 8:24:37 AM GMT-03:00, James Clark <james=2Eclark@lina=
+ro=2Eorg> wrote:
 
-Change tcp_try_coalesce(), tcp_ooo_try_coalesce() and tcp_queue_rcv()
-to return this information by value, in a new enum tcp_eaten.
+>Looks like __guarded_by() has also been around since at least clang 18, s=
+o that wasn't the issue=2E The problem is that it's not supported on struct=
+ _members_ specifically until clang 19=2E
 
-$ scripts/bloat-o-meter -t vmlinux.old vmlinux.new
-add/remove: 0/0 grow/shrink: 1/5 up/down: 16/-215 (-199)
-Function                                     old     new   delta
-tcp_validate_incoming                       2487    2503     +16
-tcp_send_rcvq                                502     490     -12
-tcp_try_coalesce                             359     336     -23
-tcp_queue_rcv                                752     723     -29
-tcp_data_queue                              4425    4350     -75
-tcp_rcv_established                         3287    3211     -76
-Total: Before=24067604, After=24067405, chg -0.00%
+>I sent another version that stubs it out for < 19 which works=2E The comm=
+it summary changed to "perf build: Stub out __guarded_by() on older Clang v=
+ersions"=2E
 
-Signed-off-by: Xuanqiang Luo <luoxuanqiang@kylinos.cn>
----
- net/ipv4/tcp_input.c | 99 +++++++++++++++++++++++---------------------
- 1 file changed, 52 insertions(+), 47 deletions(-)
+>The header diverges from the kernel one which isn't great, but I suppose =
+that's better
 
-diff --git a/net/ipv4/tcp_input.c b/net/ipv4/tcp_input.c
-index 801c76744ed8..3d0a8b7e883e 100644
---- a/net/ipv4/tcp_input.c
-+++ b/net/ipv4/tcp_input.c
-@@ -5276,41 +5276,47 @@ static void tcp_sack_remove(struct tcp_sock *tp)
- 	tp->rx_opt.num_sacks = num_sacks;
- }
- 
-+/* Result of an attempt to merge an skb to a prior one. */
-+enum tcp_eaten {
-+	TCP_NOT_EATEN,
-+	TCP_EATEN,
-+	TCP_EATEN_STOLEN,	/* skb->head was stolen */
-+};
-+
- /**
-  * tcp_try_coalesce - try to merge skb to prior one
-  * @sk: socket
-  * @to: prior buffer
-  * @from: buffer to add in queue
-- * @fragstolen: pointer to boolean
-  *
-  * Before queueing skb @from after @to, try to merge them
-  * to reduce overall memory use and queue lengths, if cost is small.
-  * Packets in ofo or receive queues can stay a long time.
-  * Better try to coalesce them right now to avoid future collapses.
-- * Returns true if caller should free @from instead of queueing it
-+ *
-+ * Return: TCP_NOT_EATEN if @from has to be queued. Otherwise the caller
-+ * should free @from with kfree_skb_partial().
-  */
--static bool tcp_try_coalesce(struct sock *sk,
--			     struct sk_buff *to,
--			     struct sk_buff *from,
--			     bool *fragstolen)
-+static enum tcp_eaten tcp_try_coalesce(struct sock *sk,
-+				       struct sk_buff *to,
-+				       struct sk_buff *from)
- {
-+	bool fragstolen;
- 	int delta;
- 
--	*fragstolen = false;
--
- 	/* Its possible this segment overlaps with prior segment in queue */
- 	if (TCP_SKB_CB(from)->seq != TCP_SKB_CB(to)->end_seq)
--		return false;
-+		return TCP_NOT_EATEN;
- 
- 	if (!tcp_skb_can_collapse_rx(to, from))
--		return false;
-+		return TCP_NOT_EATEN;
- 
- 	/* Nothing follows a FIN. */
- 	if (unlikely(TCP_SKB_CB(to)->tcp_flags & TCPHDR_FIN))
--		return false;
-+		return TCP_NOT_EATEN;
- 
--	if (!skb_try_coalesce(to, from, fragstolen, &delta))
--		return false;
-+	if (!skb_try_coalesce(to, from, &fragstolen, &delta))
-+		return TCP_NOT_EATEN;
- 
- 	atomic_add(delta, &sk->sk_rmem_alloc);
- 	sk_mem_charge(sk, delta);
-@@ -5325,15 +5331,14 @@ static bool tcp_try_coalesce(struct sock *sk,
- 		skb_hwtstamps(to)->hwtstamp = skb_hwtstamps(from)->hwtstamp;
- 	}
- 
--	return true;
-+	return fragstolen ? TCP_EATEN_STOLEN : TCP_EATEN;
- }
- 
--static bool tcp_ooo_try_coalesce(struct sock *sk,
--			     struct sk_buff *to,
--			     struct sk_buff *from,
--			     bool *fragstolen)
-+static enum tcp_eaten tcp_ooo_try_coalesce(struct sock *sk,
-+					   struct sk_buff *to,
-+					   struct sk_buff *from)
- {
--	bool res = tcp_try_coalesce(sk, to, from, fragstolen);
-+	enum tcp_eaten res = tcp_try_coalesce(sk, to, from);
- 
- 	/* In case tcp_drop_reason() is called later, update to->gso_segs */
- 	if (res) {
-@@ -5359,9 +5364,10 @@ static void tcp_ofo_queue(struct sock *sk)
- {
- 	struct tcp_sock *tp = tcp_sk(sk);
- 	__u32 dsack_high = tp->rcv_nxt;
--	bool fin, fragstolen, eaten;
- 	struct sk_buff *skb, *tail;
-+	enum tcp_eaten eaten;
- 	struct rb_node *p;
-+	bool fin;
- 
- 	p = rb_first(&tp->out_of_order_queue);
- 	while (p) {
-@@ -5387,13 +5393,13 @@ static void tcp_ofo_queue(struct sock *sk)
- 		bpf_tcp_ops_call_flag(enqueue_rcvq, RCVQ, sk, skb);
- 
- 		tail = skb_peek_tail(&sk->sk_receive_queue);
--		eaten = tail && tcp_try_coalesce(sk, tail, skb, &fragstolen);
-+		eaten = tail ? tcp_try_coalesce(sk, tail, skb) : TCP_NOT_EATEN;
- 		tcp_rcv_nxt_update(tp, TCP_SKB_CB(skb)->end_seq);
- 		fin = TCP_SKB_CB(skb)->tcp_flags & TCPHDR_FIN;
- 		if (!eaten)
- 			tcp_add_receive_queue(sk, skb);
- 		else
--			kfree_skb_partial(skb, fragstolen);
-+			kfree_skb_partial(skb, eaten == TCP_EATEN_STOLEN);
- 
- 		if (unlikely(fin)) {
- 			tcp_fin(sk);
-@@ -5460,8 +5466,8 @@ static void tcp_data_queue_ofo(struct sock *sk, struct sk_buff *skb)
- 	enum skb_drop_reason reason;
- 	struct rb_node **p, *parent;
- 	struct sk_buff *skb1;
-+	enum tcp_eaten eaten;
- 	u32 seq, end_seq;
--	bool fragstolen;
- 	int rmem;
- 
- 	tcp_save_lrcv_flowlabel(sk, skb);
-@@ -5504,15 +5510,15 @@ static void tcp_data_queue_ofo(struct sock *sk, struct sk_buff *skb)
- 	/* In the typical case, we are adding an skb to the end of the list.
- 	 * Use of ooo_last_skb avoids the O(Log(N)) rbtree lookup.
- 	 */
--	if (tcp_ooo_try_coalesce(sk, tp->ooo_last_skb,
--				 skb, &fragstolen)) {
-+	eaten = tcp_ooo_try_coalesce(sk, tp->ooo_last_skb, skb);
-+	if (eaten) {
- coalesce_done:
- 		/* For non sack flows, do not grow window to force DUPACK
- 		 * and trigger fast retransmit.
- 		 */
- 		if (tcp_is_sack(tp))
- 			tcp_grow_window(sk, skb, true);
--		kfree_skb_partial(skb, fragstolen);
-+		kfree_skb_partial(skb, eaten == TCP_EATEN_STOLEN);
- 		skb = NULL;
- 		goto add_sack;
- 	}
-@@ -5561,9 +5567,10 @@ static void tcp_data_queue_ofo(struct sock *sk, struct sk_buff *skb)
- 						SKB_DROP_REASON_TCP_OFOMERGE);
- 				goto merge_right;
- 			}
--		} else if (tcp_ooo_try_coalesce(sk, skb1,
--						skb, &fragstolen)) {
--			goto coalesce_done;
-+		} else {
-+			eaten = tcp_ooo_try_coalesce(sk, skb1, skb);
-+			if (eaten)
-+				goto coalesce_done;
- 		}
- 		p = &parent->rb_right;
- 	}
-@@ -5614,18 +5621,16 @@ static void tcp_data_queue_ofo(struct sock *sk, struct sk_buff *skb)
- 		tcp_rcvbuf_grow(sk, tp->rcvq_space.space);
- }
- 
--static int __must_check tcp_queue_rcv(struct sock *sk, struct sk_buff *skb,
--				      bool *fragstolen)
-+static enum tcp_eaten __must_check tcp_queue_rcv(struct sock *sk,
-+						 struct sk_buff *skb)
- {
- 	int rmem = atomic_read(&sk->sk_rmem_alloc);
- 	struct sk_buff *tail = skb_peek_tail(&sk->sk_receive_queue);
--	int eaten;
-+	enum tcp_eaten eaten;
- 
- 	bpf_tcp_ops_call_flag(enqueue_rcvq, RCVQ, sk, skb);
- 
--	eaten = (tail &&
--		 tcp_try_coalesce(sk, tail,
--				  skb, fragstolen)) ? 1 : 0;
-+	eaten = tail ? tcp_try_coalesce(sk, tail, skb) : TCP_NOT_EATEN;
- 	tcp_rcv_nxt_update(tcp_sk(sk), TCP_SKB_CB(skb)->end_seq);
- 	if (!eaten) {
- 		tcp_add_receive_queue(sk, skb);
-@@ -5637,10 +5642,10 @@ static int __must_check tcp_queue_rcv(struct sock *sk, struct sk_buff *skb,
- 
- int tcp_send_rcvq(struct sock *sk, struct msghdr *msg, size_t size)
- {
-+	enum tcp_eaten eaten;
- 	struct sk_buff *skb;
- 	int err = -ENOMEM;
- 	int data_len = 0;
--	bool fragstolen;
- 
- 	if (size == 0)
- 		return 0;
-@@ -5674,8 +5679,9 @@ int tcp_send_rcvq(struct sock *sk, struct msghdr *msg, size_t size)
- 	TCP_SKB_CB(skb)->end_seq = TCP_SKB_CB(skb)->seq + size;
- 	TCP_SKB_CB(skb)->ack_seq = tcp_sk(sk)->snd_una - 1;
- 
--	if (tcp_queue_rcv(sk, skb, &fragstolen)) {
--		WARN_ON_ONCE(fragstolen); /* should not happen */
-+	eaten = tcp_queue_rcv(sk, skb);
-+	if (eaten) {
-+		WARN_ON_ONCE(eaten == TCP_EATEN_STOLEN); /* should not happen */
- 		__kfree_skb(skb);
- 	}
- 	return size;
-@@ -5697,8 +5703,7 @@ static void tcp_data_queue(struct sock *sk, struct sk_buff *skb)
- {
- 	struct tcp_sock *tp = tcp_sk(sk);
- 	enum skb_drop_reason reason;
--	bool fragstolen;
--	int eaten;
-+	enum tcp_eaten eaten;
- 
- 	/* If a subflow has been reset, the packet should not continue
- 	 * to be processed, drop the packet.
-@@ -5756,7 +5761,7 @@ static void tcp_data_queue(struct sock *sk, struct sk_buff *skb)
- 			sk_forced_mem_schedule(sk, skb->truesize);
- 		}
- 
--		eaten = tcp_queue_rcv(sk, skb, &fragstolen);
-+		eaten = tcp_queue_rcv(sk, skb);
- 		if (skb->len)
- 			tcp_event_data_recv(sk, skb);
- 		if (TCP_SKB_CB(skb)->tcp_flags & TCPHDR_FIN)
-@@ -5777,8 +5782,8 @@ static void tcp_data_queue(struct sock *sk, struct sk_buff *skb)
- 
- 		tcp_fast_path_check(sk);
- 
--		if (eaten > 0)
--			kfree_skb_partial(skb, fragstolen);
-+		if (eaten)
-+			kfree_skb_partial(skb, eaten == TCP_EATEN_STOLEN);
- 		if (!sock_flag(sk, SOCK_DEAD))
- 			tcp_data_ready(sk);
- 		return;
-@@ -6815,8 +6820,7 @@ void tcp_rcv_established(struct sock *sk, struct sk_buff *skb)
- 				goto discard;
- 			}
- 		} else {
--			int eaten = 0;
--			bool fragstolen = false;
-+			enum tcp_eaten eaten;
- 
- 			if (tcp_checksum_complete(skb))
- 				goto csum_error;
-@@ -6847,7 +6851,7 @@ void tcp_rcv_established(struct sock *sk, struct sk_buff *skb)
- 			__skb_pull(skb, tcp_header_len);
- 			tcp_ecn_received_counters(sk, skb,
- 						  len - tcp_header_len);
--			eaten = tcp_queue_rcv(sk, skb, &fragstolen);
-+			eaten = tcp_queue_rcv(sk, skb);
- 
- 			tcp_event_data_recv(sk, skb);
- 
-@@ -6864,7 +6868,8 @@ void tcp_rcv_established(struct sock *sk, struct sk_buff *skb)
- 			__tcp_ack_snd_check(sk, 0);
- no_ack:
- 			if (eaten)
--				kfree_skb_partial(skb, fragstolen);
-+				kfree_skb_partial(skb,
-+						  eaten == TCP_EATEN_STOLEN);
- 			tcp_data_ready(sk);
- 			return;
- 		}
--- 
-2.43.0
+Right, but you changed how check-headers=2Esh treats it to cope with the d=
+ifference and I'll make sure that tools/perf/scripts/sync-headers=2Esh hand=
+les this case as well, namely if check-headers=2Esh detects drift, sync-hea=
+ders=2Esh will update the tools copy while keeping the tools specific parts=
+=2E=20
 
+acme@number:~/git/perf-tools-next$ make -C tools/perf help | grep headers
+  check-headers         - check which header copies are out of sync with t=
+he kernel
+  sync-headers          - sync those header copies with the kernel, creati=
+ng commits
+acme@number:~/git/perf-tools-next$ tools/perf/scripts/sync-headers=2Esh --=
+helpUsage: sync-headers=2Esh [OPTIONS]
+
+Sync tools/ header copies with the kernel sources and create commits=2E
+
+Options:
+  -n, --dry-run       Show what would be done without making changes
+  -N, --no-build      Skip the perf build verification step
+  -C, --no-commit     Copy files but do not create git commits
+  -f, --filter PAT    Only process headers matching PAT (substring match
+                      against the kernel-side path)
+  -F, --force         Sync also when both copies have content the other
+                      lacks, after manual investigation; tools/ additions
+                      dropped are recorded in the commit
+  -o, --output DIR    Build output directory (default: /tmp/build/perf-too=
+ls-1000)
+  -v, --verbose       Show more details
+  -h, --help          Show this help
+
+Environment:
+  SIGN_OFF_NAME       Override git user=2Ename for Signed-off-by
+  SIGN_OFF_EMAIL      Override git user=2Eemail for Signed-off-by
+  OUTPUT_DIR          Build output directory
+
+Through make:
+  SYNC_HEADERS_ARGS   Options to pass to this script, e=2Eg=2E:
+                      make -C tools/perf sync-headers SYNC_HEADERS_ARGS=3D=
+'-n'
+
+The script:
+  1=2E Runs 'make -C tools/perf check-headers' to find stale copies=2E
+  2=2E For each stale header, identifies the kernel commits that changed i=
+t,
+     including the merges that brought content of their own=2E
+  3=2E Copies the kernel header into the tools/ tree, skipping it when onl=
+y
+     the tools/ copy changed (it is ahead) or when it carries intentional
+     edits, and stopping for manual investigation when both sides have
+     content the other lacks=2E
+  4=2E For beauty headers, runs the relevant beauty script(s) before and
+     after, showing new/changed string table entries=2E
+  5=2E Builds perf and the other consumers of the header to verify nothing
+     breaks=2E
+  6=2E Creates a git commit per header (or group) with the standard commit
+     message format=2E
+
+acme@number:~/git/perf-tools-next$
+
+I=2Ee=2E the limitation in point number three, about intentional edits, ne=
+eds to be lifted=2E
+
+- Arnaldo
+
+> than someone on clang 17 or 18 missing out on all of the lock analysis=
+=2E
+
+Right=2E=20
+
+- Arnaldo 
