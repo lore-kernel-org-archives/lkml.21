@@ -1,55 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.227.201
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795537916;
-	b=lGr06xzUvR7WvMciE/67zVssGlnFJTrvSEcRbqp1GCD+oWrvqzLbb5QcFw4nxw1Ted/6
-	 yBa5CrNrwXEfIEWlB6Pm5icf1RepIFbAhYm/t1vho8sbmJ8JoeJH+w68As0VS44lwnOkN
-	 bWBjJs7R42N3+Oo+soqCz/k8DPusGIh0q8jvWv2NBli+lWWMIzByk7bM7FmPZPhjW1M0h
-	 iV/PTlxsM7WJ0ugJ1RsOutBCjg6y39JYh3XWJlw3nTsTt5DNUsAJgzat+RYixls28uWyQ
-	 RHWgHekBFmw5qhqYI+cQM0uv2SLV3VdsuEGIdRx9vmU++JSaeDzEP7R9J21Fx0e38Rw==
+	t=1795537945;
+	b=kBofJk40QMLQ6R8uzZko1SW/IuONPg1VaYKyPo/ywUIiW4F05GzuI/jyDBhPUWpo/ZxR
+	 28bFrocsQtU1RR17nornekO634O9foLB/hA4ABaFikR6b8xbFpDk8pgwoBBhYkqwDAAhz
+	 lpx2ieW/13LKhy16Rk6pKvYbRmtcsFX784iL8hszrANnhgzc2pIdyYBIMTdLcv7H42a1G
+	 sDIfMRsXofSD6kLNvoi/OvPRLWE6aLI4P5A4czvvEe7wLd6iyKZz4S9HvawiDYmdCrsbo
+	 ZFc8ag4gTLFPfMn1jBQ0wiRR/OOOwNSI53qBiSHfaJ7pvuem04pCEX+m7eb/5KIqp1w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795537916;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 Reply-To:From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=RlA5T19+Xby5RXh8fxBQUVReBBVqPdfurbWwd/XBWms=;
-	b=QfnuGX66kWOFR5rTv0hgjD/4wBIgcxdkW8lIvFWqmTnADZdSKMlq8m8WE3a0L1r0U98X
-	 90OtcJBr0ncGggIPNSzXVwtKb9tyTpXS63YHXM0LeXJVW50xsSRd+WHRD2aQnQO5UuAqE
-	 AfFE7hKikg7bFIx6XzedqXL1I9c/E/dh8H6tfky1G5Q2oPgZfIgozxWqbu2xsfyvSkyvw
-	 5IKOrxrySSH0qY4hdjjRgQfhVLKG9qwbO9kfcf7jrm4pUehEl/em1jK+NNSjB1XKI0/E2
-	 uH3WIYdxVIxrlge7k5EIyNz4Lrj6PapgaF43zAKovA5qFi8rPyBRbNz0oDIWUqQXJDw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795537945;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=FQQ6X5r63jXO8YunPQTlae6cep++8XOz+K/i9Cf6hkE=;
+	b=MwcsqoivJHA7ysemGOii4ANo3X8ieTx9KxzztVhOWZwi2H0ifLiH4V7+swcBmvzUN70W
+	 esYXVr9/CVTBuW1c3bZYTByrwYP8HcjFviCtfyJCfby1YFSQc1Jg9HlmbKGVc4MRhzpmr
+	 /WeosEXwjNMYc9nT1zORIiXoCT+PJLmz226+tYSw2AciTO+kABgGXShu+tEgkMpVIWxi7
+	 BaMkj++1MaNiBpanvrnesQQnJ2n9M26rbPK3JD3KQZu4nfF1SrgxcPnBi+9YByXdAaZSE
+	 bRAe+v+ciLx4asFvFd1CKA50Y8F5PtvJuLM4uaE6i4mxbwZEnBViUQ7uEsmhXyn+sew==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Rk+hCXid;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=DQKiu+yx;
+	arc=none smtp.remote-ip=74.125.227.201
+Received: from mail-pi2-f9.google.com (mail-pi2-f9.google.com [74.125.227.201])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 10E7F606A321
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 16:31:55 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AEB24606A326
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 16:32:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AEB24606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Rk+hCXid
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0316F1F000C6
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 16:31:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795537915;
-	bh=RlA5T19+Xby5RXh8fxBQUVReBBVqPdfurbWwd/XBWms=;
-	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc;
-	b=Rk+hCXidLJ54hOz5TyxtnZIYMNIHHSSpyv4Mria4pl6hJ9i881a30w2+ru+YkCG2X
-	 1ymT6l9nvuuNcsgxf7OnWgvj9hwSPSEBjO/U7dGvEI0jejGJS2EO7CyWmvy1+i/c3H
-	 41LlRVq/ec+kMM6KZ2r05sCZBIP6FPCU2Q+wTKME0XEKjXzDGXk5ZoMK7xAMk6Pw8j
-	 kEro7W68HqEoUt40FX4eLkA4IZYbS3O07b0uUm8q8jQ2x8YFLDf4pBUnTlU6Cpa0/O
-	 77+jiKXqF0NuLHoKbq+K3IE4jXomlQvAI5AlCKr8eFwKgjMrW28zGQQFZ+ned/etiQ
-	 sOth4y5lvdYrQ==
-Received: by mail-lj1-f176.google.com with SMTP id 38308e7fff4ca-3adff684a52so39139831fa.1
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 08:31:54 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErHCxkVizubM4T3h1nIcMFnMpJGlfKldAlWgRJdHL6TzS6yZ9LJvBzu4AnAHmBTWg0M78ZD2QmMLwcqLzww=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+Ev4IuV1T686xzfof/ZFEoT9rsmM3tiXj/jmKzoJLwNR2MUjKI
-	53gvJOsCv5Q+xnQTwHvO6ZR956uO3Or2GA6cdwDIIE27xhL9oDELjxSyzfVh/4uR5FDFJAJt/NM
-	8djnVsZVGsrIqQuNIOcnkmZ/h90f5k0o=
-X-Received: by 2002:a05:651c:160c:b0:3ad:ff5d:19b1 with SMTP id
- 38308e7fff4ca-3ae7b7fbe41mr35855301fa.20.1795537913373; Tue, 24 Nov 2026
- 08:31:53 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=DQKiu+yx
+Received: by mail-pi2-f9.google.com with SMTP id 41be03b00d2f7-cdd9779aac8so840110a12.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 08:32:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795537944; x=1796142744; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=FQQ6X5r63jXO8YunPQTlae6cep++8XOz+K/i9Cf6hkE=;
+        b=DQKiu+yxVXXlA8xe7F6AX9KlflZua+DI/i9U8/DY75CKlIpDPs4p0rxRxZs+hm+O2k
+         B2remIrW5FBDZjkSmphDdTYNdnPfwGLJsmzLA1meIBzr45LqEes/ZmYTF8p6jPbeeJep
+         aa8W5H5RF6zpoy/YetCJoE4vOttaq2/PlFbpiWl4mbq6LWdB6GUFG5LQ+aHXvUMRmPCV
+         LtSiT6aLahVIFSqqc38MCnDTgeMF0URl/oA8uyAm6VJseE9BOsq4Pt0GmIlX96RZbVRa
+         Xwu3CwPYEl3mBssIh4/ZAOLA6BpbO4PIe51Ku3ye6s8UyKvFIY2GP373kWtaeF9kwxvd
+         2MWA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795537944; x=1796142744;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=FQQ6X5r63jXO8YunPQTlae6cep++8XOz+K/i9Cf6hkE=;
+        b=VD1x/dTY/BmY9O6i0lMn4ylb3hjsj3qFHTWAsJhd22bdilztjf0J7TM4DjIEJdan6Q
+         ixlTdhWV8MJzLx+FGIFPyb5Wj21/zvrVENNvE5PEniIN2oSG4jGo2Bg2i5JOCZMoiDxW
+         CXdo2ZThvWFJkYAPbVuqX6+mK3YIpisnV3TVI8eixEwNM6wXl/mORbvcsGxSt4u2ILPu
+         e1Wnewbvj7XlGBeAaaKUrZ/weUfxTaJ3MkIfaPwcy9Nvn+LsuMcqdI/OKpszOH+a/mn8
+         JqWBgQPhhamNFvcQqowlsJMENJ94SFQW8XHLHNyTAfSz8mO+uOG39r4vGtsj0Z78bejZ
+         vyDQ==
+X-Forwarded-Encrypted: i=1; AL+hErGwudbFpg8zkiG6flIpP9NLCJALKotY7ZWTbLUqGBUAqiO5MsMYywL71QPL/UKod8gjq+jfj8ZKu0H3TpI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+Zd9mqCBlAbtiug+ExOQAFkH7JA03GWUXr3IJxE6h1dFiux+uE
+	zoZL1AVe2zl089l6AY0yZgdS6kPXPXeDx1r613MyxqbzFmoFV159txLG
+X-Gm-Gg: AZFdTZcbGbtSJBPVthzFJKtmI3qVpk26On4qzUH0OPS6crjhbUsYoP0yhYwKP/ABsOj
+	LEzGxcLEphf5rMAzAdZv4RX5MIgnvLJDLI0aEjB792iKtOM4fJDs9MI9mWZnrCt+JcVzpoCn0PC
+	Ezk1wbF+DX2Izpo/tk5145i1f1F9iyJa4q381o+v80fzhKEEsva75ndzYZaGciqgG8146ChhsRz
+	QXqaj1pwV0DzvClPPZoggNYg/KdSsauKM4m1XPRSSWfEzOp8lNiUBSiV38jKOVBgjfgfFPHWUgL
+	xPqppsxkhvGPJ4rxsMVHtk4G1cNmiuYSwjXb2nhriwIb1ZPGXgSeVZ7KB8H4EBgLXX3KJfRKqCl
+	c1iBK5LhPYFw3WhFa2E0wO7+y6OlG9GpkQ30WAzoQvR5aUyuRIcS4caLLm7fYTqVvS5DGkaxF21
+	f8eF0ToouWc9SkcEqtOEoqX0URURCjGFAbR+fbteBqmqKm0ol9ErYlUrQDab4JY/dgNjKKbIjV7
+	cUTi1E7E/ElwlixnNNfCb/1ZQkaHk64JNKY50dMejySn7zRzMKf5ltnCJYk6K8C3WboEB/qRLop
+	34ISwSZ88hYMJRntn8uq8FfArl6l/Q67flhAjGVqHKDA
+X-Received: by 2002:a05:6a00:23cb:b0:88d:20ff:15c9 with SMTP id d2e1a72fcca58-8c87bdb54f4mr14339476b3a.17.1795537943820;
+        Tue, 24 Nov 2026 08:32:23 -0800 (PST)
+Received: from nixos ([60.186.16.156])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87285c14fsm7441328b3a.15.2026.11.24.08.32.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 08:32:23 -0800 (PST)
+From: Zixin Wang <w1355457260@gmail.com>
+To: linux-doc@vger.kernel.org
+Cc: linux-rt-devel@lists.linux.dev,
+	bigeasy@linutronix.de,
+	frederic@kernel.org,
+	darwi@linutronix.de,
+	john.ogness@linutronix.de,
+	clrkwllms@kernel.org,
+	rostedt@goodmis.org,
+	corbet@lwn.net,
+	wagi@monom.org,
+	atomlin@atomlin.com,
+	linux-kernel@vger.kernel.org,
+	Zixin Wang <w1355457260@gmail.com>
+Subject: [PATCH v5] Documentation: real-time: Add boot parameters and task isolation section
+Date: Tue, 24 Nov 2026 16:32:02 +0000
+Message-ID: <20261124163202.56921-1-w1355457260@gmail.com>
+X-Mailer: git-send-email 2.54.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,517 +104,208 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261121-a733-cubie-a7s-dt-v5-0@gmail.com> <20261121-a733-cubie-a7s-dt-v5-3@gmail.com>
-In-Reply-To: <20261121-a733-cubie-a7s-dt-v5-3@gmail.com>
-Reply-To: wens@kernel.org
-From: Chen-Yu Tsai <wens@kernel.org>
-Date: Wed, 25 Nov 2026 00:31:40 +0800
-X-Gmail-Original-Message-ID: <CAGb2v64p4GvDMDKzDLfedDQCexD+=gu3+YxMAt=ARj4bZxR_eA@mail.gmail.com>
-X-Gm-Features: Aa3M54r7lXB_mKHdPc87JTNzzlkdZlyoashA_S1I3V-H5P997JVbiiv9Wvw0TFg
-Message-ID: <CAGb2v64p4GvDMDKzDLfedDQCexD+=gu3+YxMAt=ARj4bZxR_eA@mail.gmail.com>
-Subject: Re: [PATCH v5 3/3] arm64: dts: allwinner: add Radxa Cubie A7S board
-To: Enzo Adriano <enzo.adriano.code@gmail.com>
-Cc: andre.przywara@arm.com, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, jernej.skrabec@gmail.com, samuel@sholland.org, 
-	Maxime Ripard <mripard@kernel.org>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, Junhui Liu <junhui.liu@pigmoral.tech>, 
-	Jerome Brunet <jbrunet@baylibre.com>, Pablo Mazzini <pmazzini@gmail.com>, 
-	Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>, Alexander Sverdlin <alex@sverdlin.org>, 
-	Jun Yan <jerrysteve1101@gmail.com>, Lukas Schmid <lukas.schmid@netcube.li>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-On Tue, Nov 24, 2026 at 1:42=E2=80=AFAM Enzo Adriano
-<enzo.adriano.code@gmail.com> wrote:
->
-> Enable the serial console, PMIC and microSD slot for initial Cubie A7S
-> bring-up with vendor firmware. Describe the oscillator inputs and the
-> power tree using the Radxa A7S v1.10 schematic, sheets 4, 7 and 8. Keep
-> the boot-critical supplies enabled. Use the Radxa 5.15 BSP CPU and
-> GPU OPP envelopes for DCDC3/5 and DCDC4. Use its regulator readback
-> for DCDC2, BLDO1, DLDO1 and ELDO6, consistent with sheets 4 and 8
-> and the VCC-MCSI entry in the A733 datasheet.
->
-> Allow 0.50-0.60 V on DCDC6, covering the 0.50 V LPDDR5 and 0.60 V
-> LPDDR4X VDDQ options on sheet 5. Allow 1.05-1.10 V on DCDC7,
-> covering LPDDR5 VDD2H at 1.05 V and the 1.10 V DRAM rail shown on
-> sheets 4 and 5. The BSP readback was 0.56 V and 1.08 V, respectively.
-> Both fall inside the bounds, so those selector values can be kept
-> after DRAM training. Set the LVDS0 supply to 1.8 V per the A733
-> Datasheet v1.00, table 5-2, and leave its enable under consumer control.
-> Omit the unused UFS and codec regulator nodes (schematic sheets 4 and 6).
->
-> Use SWOUT2 for the card and the Port F VCC-IO path (sheets 4, 7 and 13).
-> Firmware must select the 3.3 V PF path for use with MMC0. CLDO5
-> supplies the separate 1.8 V input. The controller uses fixed signalling
-> with no VQMMC regulator and advertises no UHS modes. Describe the
-> active-high card-detect line on PF6 and its pull-down.
->
-> Add the PM2 power and PJ26 status LEDs, and the BL24C16F on I2C0 as
-> shown on sheets 7 and 16. The EEPROM is at 0x50 in Radxa's 5.15 DT.
-> PC7 drives an inverter that pulls the EEPROM's write-protect pin low.
->
-> Keep ALDO1 always on for Port L, which powers the PMIC's own bus.
-> Omit the Port L supply phandle, as on the Cubie A5E: requesting
-> it would require the PMIC regulator before the PMIC can be reached.
-> The A733 pinctrl voltage-mode fix is required for the bank supply
-> connections.
->
-> Link: https://dl.radxa.com/cubie/a7s/hw/radxa_cubie_a7s_schematic_v1.10.p=
-df
-> Link: https://github.com/radxa/allwinner-device/blob/6d911d1582dcccdb5a4c=
-38be8d3c1ee851019795/configs/cubie_a7s/linux-5.15/board.dts#L372-L384
-> Signed-off-by: Enzo Adriano <enzo.adriano.code@gmail.com>
-> ---
->
-> v4 -> v5: Add GPIO LEDs and the I2C0 EEPROM. Drop the MMC alias,
-> 50 MHz cap and vqmmc-supply, and describe MMC/SDIO high-speed and IRQ
-> capabilities. Describe the 3.3 V PF supply. Name and order the fixed
-> regulators, remove the UFS and codec rails, and document the
-> remaining always-on supplies. Add the DCDC2-7, BLDO1/2, DLDO1
-> and ELDO6 voltage constraints.
->
-> Untested on v5: physical rail voltages, visible LED operation, EEPROM
-> contents, writes and write protection, early and repeatable MMC reads,
-> MMC ios, SD writes, hotplug and 1.8 V switching, stimulated PMIC/NMI
-> interrupts, suspend, power-off and other boards.
+Document the boot parameters and runtime tunables that affect the
+worst-case latency of a real-time system, alongside the existing
+kernel configuration guidance.
 
-Please actually test them. Otherwise you should mark your patches as RFT.
-And then we wait for someone's Tested-by.
+Cover CPU isolation, nohz_full, RCU callback offloading, interrupt
+affinity, and C-state limits, with references to the relevant
+documentation.  Keep the C-state parameters next to CONFIG_CPU_IDLE
+and the tickless trade-off next to CONFIG_NO_HZ, so each option stays
+with its configuration guidance.
 
->  arch/arm64/boot/dts/allwinner/Makefile            |   1 +
->  .../boot/dts/allwinner/sun60i-a733-cubie-a7s.dts  | 331 ++++++++++++++++=
-++++
->  2 files changed, 332 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/allwinner/sun60i-a733-cubie-a7s.d=
-ts
->
-> diff --git a/arch/arm64/boot/dts/allwinner/Makefile b/arch/arm64/boot/dts=
-/allwinner/Makefile
-> index da39f02252d4..9d1e740ff19e 100644
-> --- a/arch/arm64/boot/dts/allwinner/Makefile
-> +++ b/arch/arm64/boot/dts/allwinner/Makefile
-> @@ -69,3 +69,4 @@ dtb-$(CONFIG_ARCH_SUNXI) +=3D sun55i-a527-cubie-a5e.dtb
->  dtb-$(CONFIG_ARCH_SUNXI) +=3D sun55i-h728-x96qpro+.dtb
->  dtb-$(CONFIG_ARCH_SUNXI) +=3D sun55i-t527-avaota-a1.dtb
->  dtb-$(CONFIG_ARCH_SUNXI) +=3D sun55i-t527-orangepi-4a.dtb
-> +dtb-$(CONFIG_ARCH_SUNXI) +=3D sun60i-a733-cubie-a7s.dtb
-> diff --git a/arch/arm64/boot/dts/allwinner/sun60i-a733-cubie-a7s.dts b/ar=
-ch/arm64/boot/dts/allwinner/sun60i-a733-cubie-a7s.dts
-> new file mode 100644
-> index 000000000000..7451c00570fb
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/allwinner/sun60i-a733-cubie-a7s.dts
-> @@ -0,0 +1,331 @@
-> +// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
-> +/dts-v1/;
-> +
-> +#include "sun60i-a733.dtsi"
-> +
-> +#include <dt-bindings/gpio/gpio.h>
-> +#include <dt-bindings/leds/common.h>
-> +
-> +/ {
-> +       model =3D "Radxa Cubie A7S";
-> +       compatible =3D "radxa,cubie-a7s", "allwinner,sun60i-a733";
-> +
-> +       aliases {
-> +               serial0 =3D &uart0;
-> +       };
-> +
-> +       chosen {
-> +               stdout-path =3D "serial0:115200n8";
-> +       };
-> +
-> +       leds {
-> +               compatible =3D "gpio-leds";
-> +
-> +               power-led {
-> +                       function =3D LED_FUNCTION_POWER;
-> +                       color =3D <LED_COLOR_ID_GREEN>;
-> +                       gpios =3D <&r_pio 1 2 GPIO_ACTIVE_HIGH>; /* PM2 *=
-/
-> +                       default-state =3D "on";
-> +               };
-> +
-> +               status-led {
-> +                       function =3D LED_FUNCTION_STATUS;
-> +                       color =3D <LED_COLOR_ID_BLUE>;
-> +                       gpios =3D <&pio 9 26 GPIO_ACTIVE_HIGH>; /* PJ26 *=
-/
-> +                       linux,default-trigger =3D "heartbeat";
-> +               };
-> +       };
-> +
-> +       osc32k: osc32k-clk {
+Link: https://bugzilla.kernel.org/show_bug.cgi?id=220633
+Link: https://github.com/elisa-tech/wg-aerospace/issues/222
+Signed-off-by: Zixin Wang <w1355457260@gmail.com>
+---
+Thanks Sebastian for the review.
 
-This still needs to be changed to clock-osc32k. Then it needs to be moved
-above "chosen" to be in the correct order.
+v4 -> v5:
+  - Drop the fixed 1-9 range for intel_idle.max_cstate; the maximum
+    C-state depth is platform dependent.
+  - Move the residual 1 Hz tick and workqueue details to the
+    isolcpus=nohz description, matching kernel-parameters.rst, and
+    document that the global workqueue runs on all CPUs by default
+    and needs manual affinity or the domain flag.
+  - Shorten the nohz_full= entry accordingly.
+  - Clarify the rcu_nocbs= and CONFIG_RCU_NOCB_CPU_DEFAULT_ALL
+    interaction.
 
-> +               compatible =3D "fixed-clock";
-> +               #clock-cells =3D <0>;
-> +               clock-frequency =3D <32768>;
-> +       };
-> +
-> +       /* board wide 5V supply from the USB-C connector */
-> +       reg_ps: regulator-5v {
-> +               compatible =3D "regulator-fixed";
-> +               regulator-name =3D "ps";
+Testing:
+  make SPHINXDIRS="core-api" htmldocs and checkpatch.pl pass.
 
-No. This is vcc5v0, or vcc5v0-sys, as fed from the type-c connector
-through an over-current protection IC. It could also be back fed from
-the GPIO connector. This matters later when we actually have switches
-fed from vcc5v0-sys, not PS.
+  The host boot, latency, and QEMU C-state observations from v4 are
+  unchanged.
+---
+ .../real-time/kernel-configuration.rst        | 132 ++++++++++++++++++
+ 1 file changed, 132 insertions(+)
 
-"PS" is a separate output from the PMIC's "PS" pins. It is fed from
-the "DCIN" pins and has some internal resistance and a zener diode (if
-the block diagram is to be believed) for some poor regulation. In
-practice I would expect at least a little bit of voltage drop here.
+diff --git a/Documentation/core-api/real-time/kernel-configuration.rst b/Documentation/core-api/real-time/kernel-configuration.rst
+index d7f08e7..5ce10d0 100644
+--- a/Documentation/core-api/real-time/kernel-configuration.rst
++++ b/Documentation/core-api/real-time/kernel-configuration.rst
+@@ -98,6 +98,11 @@ can be achieved by using the boot parameter [1]_::
+ 
+   processor.max_cstate=1
+ 
++On x86 systems using ``intel_idle``, the ``intel_idle.max_cstate=`` boot
++parameter sets the maximum C-state depth.  A value of 0 disables
++``intel_idle`` and falls back to ``acpi_idle``; it does not disable
++C-states.
++
+ Higher C-states can be acceptable depending on the user workload's latency
+ requirements.  For ACPI-based platforms, use the ``cpupower idle-info``
+ command to inspect the available idle states.
+@@ -179,6 +184,9 @@ the extra accounting and state book-keeping.
+   ``NO_HZ_FULL`` may be beneficial.  In such cases, users should offload the
+   kernel housekeeping to dedicated CPUs and isolate compute cores.
+ 
++``nohz_full=`` enables tickless operation for a set of CPUs; see
++:ref:`real_time_boot_parameters` for its interaction with ``isolcpus=``.
++
+ See also Documentation/timers/no_hz.rst
+ 
+ ``CONFIG_PREEMPT_RT``
+@@ -190,6 +198,39 @@ See also Documentation/timers/no_hz.rst
+ This option must be enabled, or the resulting kernel will not be fully
+ preemptible and real-time capable.
+ 
++``CONFIG_RCU_NOCB_CPU``
++-------------------------
++
++:Expectation: allowed
++:Severity: *info*
++
++Enable support for offloading RCU callback invocation from selected CPUs
++to per-CPU ``rcuo`` kthreads.  The offload is selected with ``rcu_nocbs=``,
++implied by ``nohz_full=``, or enabled for all CPUs by
++``CONFIG_RCU_NOCB_CPU_DEFAULT_ALL`` when neither parameter is given.
++Enabling this option alone does not change callback placement.  Use it
++when RCU callback processing causes jitter on CPUs dedicated to
++latency-sensitive tasks.  See Documentation/admin-guide/cpu-isolation.rst.
++
++``rcu_nocbs[=cpu-list]``
++  Offload RCU callback invocation from the listed CPUs to the
++  corresponding ``rcuo`` kthread, which can run on a housekeeping CPU.
++  This reduces callback-processing jitter on the CPU that enqueued them.
++  On a non-real-time kernel this also moves invocation out of softirq
++  context; with PREEMPT_RT, callbacks already run in kthread context
++  because ``rcutree.use_softirq`` is false, and the offload only changes
++  where they run.  If the parameter is given without a CPU list, no CPU
++  is offloaded at boot; the mode can still be toggled at runtime through
++  cpusets.  The parameter takes precedence over
++  ``CONFIG_RCU_NOCB_CPU_DEFAULT_ALL``.
++
++``rcu_nocb_poll``
++  Make the ``rcuo`` kthreads poll for callbacks instead of requiring the
++  offloaded CPUs to wake them.  This improves the real-time response at
++  the cost of higher power consumption, because the kthreads wake up
++  periodically to do the polling.  Consider this option only when wakeup
++  latency matters more than power.
++
+ ``CONFIG_TRACING`` (and tracing options)
+ ----------------------------------------
+ 
+@@ -216,6 +257,97 @@ just by being enabled.
+ These tracers do incur measurable latency overhead even when tracing is not
+ currently active.
+ 
++.. _real_time_boot_parameters:
++
++Boot parameters and task isolation
++==================================
++
++Kernel configuration options alone do not determine a real-time system's
++worst-case latency.  Integrators commonly rely on boot parameters and
++runtime tunables as well, to keep kernel housekeeping work away from
++latency-sensitive tasks.  The parameters below complement the options
++described above.  Some of them correspond to a configuration option and
++are referenced from that option's section, so the configuration and
++runtime guidance stay together.  Each one is documented in detail in
++Documentation/admin-guide/kernel-parameters.rst; the notes here focus on
++the aspects that matter for real-time latency.  Consider these options
++only when the workload suffers from the corresponding interference;
++leave them disabled otherwise, as each of them trades flexibility or
++power for a lower worst-case latency.  The notes below follow the
++decisions an integrator has to make: whether to keep tasks off a CPU,
++whether to stop its tick, and where interrupts should run.  Idle state
++limits are discussed with ``CONFIG_CPU_IDLE`` above, and RCU callback
++offloading with ``CONFIG_RCU_NOCB_CPU`` above.
++For the full CPU isolation model and its limitations, see
++Documentation/admin-guide/cpu-isolation.rst.
++
++.. caution::
++
++  CPU isolation is best effort.  Work that is explicitly bound to an
++  isolated CPU, such as per-CPU kernel threads, bound workqueues, and
++  interrupts, may still run there unless it is steered away.  Measure
++  the resulting latency with tools such as ``osnoise``, ``timerlat``,
++  and ``rtla`` rather than assuming that an isolated CPU is free of
++  kernel noise.  See Documentation/timers/no_hz.rst and
++  Documentation/tools/rtla/index.rst.
++
++CPU isolation
++-------------
++
++``isolcpus=``
++  Format: ``[flag-list,]<cpu-list>``.  Isolates the listed CPUs from the
++  disturbances selected by the flag list (default: ``domain``):
++
++  ``domain``
++    Remove the CPUs from the scheduler domains.  This is the default
++    when no flag is given.  Domain isolation cannot be undone at
++    runtime; use cpusets when the isolated CPU set must change
++    dynamically.  Isolated CPUs remain usable through CPU affinity or
++    cpusets.  Unbound workqueues and unbound kernel threads are
++    confined to the housekeeping CPUs as a side effect.  Consider it
++    for CPUs dedicated to a latency-sensitive workload.
++
++  ``nohz``
++    Equivalent to ``nohz_full=``; see below.  The residual 1 Hz tick is
++    offloaded to workqueues, which must be affine to the housekeeping
++    CPUs through the global workqueue ``cpumask``
++    (/sys/devices/virtual/workqueue/cpumask).  By default the global
++    workqueue runs on all CPUs; configure this cpumask manually after
++    boot, or use the ``domain`` flag to confine unbound workqueues.
++
++  A practical configuration therefore combines ``isolcpus=`` with
++  ``nohz_full=``, ``rcu_nocbs=``, an interrupt affinity mask, and, on
++  x86 systems, a C-state limit.
++
++  Timer placement follows the same choice.  By default a migratable
++  timer expires on the CPU that armed it; with ``nohz`` (or
++  ``nohz_full=``), timers and hrtimers armed on the isolated CPUs are
++  migrated to housekeeping CPUs.
++
++``nohz_full=``
++  Format: ``<cpu-list>``.  Requires ``CONFIG_NO_HZ_FULL=y``.  Stops the
++  scheduler tick on the listed CPUs whenever possible.  The boot CPU is
++  forced outside the range to maintain timekeeping, and the RCU
++  callbacks of the listed CPUs are offloaded as if they had been
++  passed to ``rcu_nocbs=``; see the ``CONFIG_RCU_NOCB_CPU`` section
++  above.  This parameter takes precedence over
++  ``CONFIG_RCU_NOCB_CPU_DEFAULT_ALL``.
++
++  The trade-off between tickless operation and the kernel-to-userspace
++  transition latency is described in the ``CONFIG_NO_HZ`` /
++  ``CONFIG_NO_HZ_FULL`` section above.
++
++Interrupt affinity
++------------------
++
++``irqaffinity=``
++  Format: ``<cpu-list>``.  Sets the default affinity mask for
++  interrupts that do not have an explicit affinity, steering them to
++  the housekeeping CPUs.  Managed interrupts are not affected by this
++  setting and cannot be redirected through ``/proc/irq/*``.  Verify
++  the resulting placement in ``/proc/interrupts``.  See
++  Documentation/core-api/irq/managed_irq.rst.
++
+ Kernel Debug Options
+ ====================
+ 
+-- 
+2.54.0
 
-And please name the regulator nodes the same way as the rail name. So
-regulator-vcc5v0. Sure the preferred name is "-5v0", but it doesn't help
-when there are three regulators/switches that give 5V. And using the name
-from the schematics helps when people need to search for the name.
-
-> +               regulator-min-microvolt =3D <5000000>;
-> +               regulator-max-microvolt =3D <5000000>;
-> +               regulator-always-on;
-> +       };
-> +
-> +       /* discrete ETA3521 DC/DC step-down regulator */
-> +       reg_ldo_input: regulator-2v4 {
-
-I know Andre asked for this to be second, but dts style says nodes without
-addresses should be sorted alphabetically.
-
-> +               compatible =3D "regulator-fixed";
-> +               regulator-name =3D "ldo-input";
-
-Please use the name from the schematics when the name at least makes sense.
-That makes it easier to find / grep for.
-
-> +               /* Hardwired BLDO/CLDO input: 0.6 V * (1 + RP298 / RP299)=
-. */
-
-Drop the comment. "regulator-fixed" says it all. But you could comment that
-this is actually named "LDO2V5-INPUT" in the schematic. Who botched the
-name...
-
-> +               regulator-min-microvolt =3D <2400000>;
-> +               regulator-max-microvolt =3D <2400000>;
-> +               regulator-always-on;
-> +               vin-supply =3D <&reg_ps>;
-> +       };
-> +};
-> +
-> +&cpu0 {
-> +       cpu-supply =3D <&reg_dcdc5>;
-> +};
-> +
-> +&cpu1 {
-> +       cpu-supply =3D <&reg_dcdc5>;
-> +};
-> +
-> +&cpu2 {
-> +       cpu-supply =3D <&reg_dcdc5>;
-> +};
-> +
-> +&cpu3 {
-> +       cpu-supply =3D <&reg_dcdc5>;
-> +};
-> +
-> +&cpu4 {
-> +       cpu-supply =3D <&reg_dcdc5>;
-> +};
-> +
-> +&cpu5 {
-> +       cpu-supply =3D <&reg_dcdc5>;
-> +};
-> +
-> +&cpu6 {
-> +       cpu-supply =3D <&reg_dcdc3>;
-> +};
-> +
-> +&cpu7 {
-> +       cpu-supply =3D <&reg_dcdc3>;
-> +};
-> +
-> +&hosc {
-> +       clock-frequency =3D <26000000>;
-> +};
-> +
-> +&i2c0 {
-> +       pinctrl-names =3D "default";
-> +       pinctrl-0 =3D <&i2c0_pg_pins>;
-> +
-
-Drop the empty line.
-
-> +       status =3D "okay";
-> +
-> +       eeprom@50 {
-> +               compatible =3D "belling,bl24c16f", "atmel,24c16";
-> +               reg =3D <0x50>;
-> +               pagesize =3D <16>;
-> +               vcc-supply =3D <&reg_aldo1>;
-> +               wp-gpios =3D <&pio 2 7 GPIO_ACTIVE_LOW>; /* PC7 via Q2 */
-> +       };
-> +};
-> +
-> +&mmc0 {
-> +       bus-width =3D <4>;
-> +       cap-mmc-highspeed;
-> +       cap-sd-highspeed;
-> +       cap-sdio-irq;
-
-There's probably no SDIO happening on this controller...
-
-> +       cd-gpios =3D <&pio 5 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
-
-Please actually test this.
-
-> +       disable-wp;
-> +       no-1-8-v;
-> +       vmmc-supply =3D <&reg_swout2>;
-> +
-
-Drop the empty line.
-
-> +       status =3D "okay";
-> +};
-> +
-> +&pio {
-> +       vcc-pb-supply =3D <&reg_swout2>;  /* via VCC-IO */
-> +       vcc-pc-supply =3D <&reg_cldo5>;
-> +       vcc-pd-supply =3D <&reg_swout1>;
-> +       vcc-pe-supply =3D <&reg_bldo1>;
-> +       /* PF uses VCC-IO at 3.3 V, with CLDO5 as the 1.8 V input. */
-> +       vcc-pf-supply =3D <&reg_swout2>;
-> +       vcc-pg-supply =3D <&reg_aldo1>;
-> +       vcc-ph-supply =3D <&reg_swout2>;
-> +       vcc-pj-supply =3D <&reg_swout1>;
-> +       vcc-pk-supply =3D <&reg_bldo1>;
-> +};
-> +
-> +&r_i2c0 {
-> +       pinctrl-names =3D "default";
-> +       pinctrl-0 =3D <&r_i2c0_pl_pins>;
-> +
-
-Drop the empty line.
-
-> +       status =3D "okay";
-> +
-> +       axp318w: pmic@36 {
-> +               compatible =3D "x-powers,axp318w";
-
-The series for this hasn't been merged yet. We will need to wait for it
-before I can take this.
-
-> +               reg =3D <0x36>;
-> +               interrupt-parent =3D <&nmi_intc>;
-> +               interrupts =3D <0 IRQ_TYPE_LEVEL_LOW>;
-> +               interrupt-controller;
-> +               #interrupt-cells =3D <1>;
-> +
-> +               aldo156in-supply =3D <&reg_ps>;
-> +               aldo234in-supply =3D <&reg_aldo1>;
-> +               bldoin-supply =3D <&reg_ldo_input>;
-> +               cldoin-supply =3D <&reg_ldo_input>;
-> +               dldoin-supply =3D <&reg_ps>;
-> +               eldoin-supply =3D <&reg_dcdc9>;
-> +               ips-supply =3D <&reg_ps>;
-> +               vin19-supply =3D <&reg_ps>;
-> +               vin23-supply =3D <&reg_ps>;
-> +               vin45-supply =3D <&reg_ps>;
-> +               vin678-supply =3D <&reg_ps>;
-> +
-> +               regulators {
-> +                       reg_dcdc1: dcdc1 {
-> +                               /* Board 3.3 V loads and the SWOUT1/2 inp=
-ut. */
-> +                               regulator-name =3D "vcc-3v3";
-> +                               regulator-min-microvolt =3D <3300000>;
-> +                               regulator-max-microvolt =3D <3300000>;
-> +                               regulator-always-on;
-> +                       };
-> +
-> +                       reg_dcdc2: dcdc2 {
-> +                               /* System and DRAM core/PHY supply. */
-> +                               regulator-name =3D "vdd-sys";
-> +                               regulator-min-microvolt =3D <800000>;
-> +                               regulator-max-microvolt =3D <800000>;
-> +                               regulator-always-on;
-> +                       };
-> +
-> +                       reg_dcdc3: dcdc3 {
-> +                               /* Powers the running Cortex-A76 CPUs. */
-> +                               regulator-name =3D "vdd-cpub";
-> +                               regulator-min-microvolt =3D <800000>;
-> +                               regulator-max-microvolt =3D <1050000>;
-> +                               regulator-always-on;
-> +                       };
-> +
-> +                       reg_dcdc4: dcdc4 {
-> +                               regulator-name =3D "vdd-gpu";
-> +                               regulator-min-microvolt =3D <800000>;
-> +                               regulator-max-microvolt =3D <960000>;
-> +                       };
-> +
-> +                       reg_dcdc5: dcdc5 {
-> +                               /* Powers the running Cortex-A55 CPUs. */
-> +                               regulator-name =3D "vdd-cpul";
-> +                               regulator-min-microvolt =3D <800000>;
-> +                               regulator-max-microvolt =3D <1050000>;
-> +                               regulator-always-on;
-> +                       };
-> +
-> +                       reg_dcdc6: dcdc6 {
-> +                               /* DRAM PHY and LPDDR4X/LPDDR5 VDDQ (via =
-RP15). */
-> +                               regulator-name =3D "vcc-draml";
-> +                               regulator-min-microvolt =3D <500000>;
-> +                               regulator-max-microvolt =3D <600000>;
-> +                               regulator-always-on;
-> +                       };
-> +
-> +                       reg_dcdc7: dcdc7 {
-> +                               /* DRAM PHY and LPDDR5 VDD2H (VCC-DRAM). =
-*/
-> +                               regulator-name =3D "vcc-dram";
-> +                               regulator-min-microvolt =3D <1050000>;
-> +                               regulator-max-microvolt =3D <1100000>;
-> +                               regulator-always-on;
-> +                       };
-> +
-> +                       reg_dcdc9: dcdc9 {
-> +                               regulator-name =3D "eldo-input";
-
-Missing voltage range.
-
-> +                       };
-> +
-> +                       reg_swout1: swout1 {
-> +                               regulator-name =3D "vcc33-lcd";
-> +                       };
-> +
-> +                       reg_swout2: swout2 {
-> +                               /* VCC-IO to the console and microSD. */
-> +                               regulator-name =3D "vcc-io-card";
-> +                               regulator-always-on;
-> +                       };
-> +
-> +                       reg_aldo1: aldo1 {
-> +                               /* Port L powers the PMIC's own I2C bus. =
-*/
-> +                               regulator-name =3D "vcc-pl";
-> +                               regulator-min-microvolt =3D <3300000>;
-> +                               regulator-max-microvolt =3D <3300000>;
-> +                               regulator-always-on;
-> +                       };
-> +
-> +                       reg_bldo1: bldo1 {
-> +                               regulator-name =3D "vcc-pe-pk-mcsi";
-> +                               regulator-min-microvolt =3D <1800000>;
-> +                               regulator-max-microvolt =3D <1800000>;
-> +                       };
-> +
-> +                       reg_bldo2: bldo2 {
-> +                               regulator-name =3D "vcc-lvds0";
-> +                               regulator-min-microvolt =3D <1800000>;
-> +                               regulator-max-microvolt =3D <1800000>;
-> +                       };
-> +
-> +                       reg_cldo1: cldo1 {
-> +                               regulator-name =3D "vdd18-lpddr";
-> +                               regulator-min-microvolt =3D <1800000>;
-> +                               regulator-max-microvolt =3D <1800000>;
-> +                               regulator-always-on;
-> +                       };
-> +
-> +                       reg_cldo2: cldo2 {
-> +                               regulator-name =3D "vcc18-hdmi";
-> +                               regulator-min-microvolt =3D <1800000>;
-> +                               regulator-max-microvolt =3D <1800000>;
-> +                       };
-> +
-> +                       reg_cldo3: cldo3 {
-> +                               regulator-name =3D "vcc-pll-dram";
-> +                               regulator-min-microvolt =3D <1800000>;
-> +                               regulator-max-microvolt =3D <1800000>;
-> +                               regulator-always-on;
-> +                       };
-> +
-> +                       reg_cldo5: cldo5 {
-> +                               regulator-name =3D "vcc18-pc-comb0";
-> +                               regulator-min-microvolt =3D <1800000>;
-> +                               regulator-max-microvolt =3D <1800000>;
-> +                       };
-> +
-> +                       reg_dldo1: dldo1 {
-> +                               /* SoC eFuse supply has no SID regulator =
-consumer. */
-> +                               regulator-name =3D "vcc-efuse";
-> +                               regulator-min-microvolt =3D <1800000>;
-> +                               regulator-max-microvolt =3D <1800000>;
-> +                               regulator-always-on;
-> +                       };
-> +
-> +                       reg_eldo1: eldo1 {
-> +                               regulator-name =3D "vdd2l-lpddr";
-
-Missing voltage range.
-
-> +                               regulator-always-on;
-> +                       };
-> +
-> +                       reg_eldo6: eldo6 {
-> +                               /* Standby CPU and USB supply. */
-> +                               regulator-name =3D "vdd-cpus";
-> +                               regulator-min-microvolt =3D <800000>;
-> +                               regulator-max-microvolt =3D <800000>;
-> +                               regulator-always-on;
-> +                       };
-> +
-> +                       reg_rtc_ldo: rtc-ldo {
-> +                               regulator-name =3D "vcc-rtc";
-> +                               regulator-min-microvolt =3D <1800000>;
-> +                               regulator-max-microvolt =3D <1800000>;
-> +                               regulator-always-on;
-> +                       };
-
-Sort the regulator child nodes alphabetically. Yes I know we followed
-the order for previous boards.
-
-> +               };
-> +       };
-> +};
-> +
-> +&r_pio {
-> +       /* PL powers the PMIC bus itself; firmware must keep ALDO1 enable=
-d. */
-> +       vcc-pm-supply =3D <&reg_aldo1>;
-> +};
-> +
-> +&rtc {
-> +       clocks =3D <&r_ccu CLK_BUS_R_RTC>, <&hosc>, <&r_ccu CLK_R_AHB>,
-> +                <&osc32k>;
-> +       clock-names =3D "bus", "hosc", "ahb", "ext-osc32k";
-> +};
-> +
-> +&uart0 {
-> +       pinctrl-names =3D "default";
-> +       pinctrl-0 =3D <&uart0_pb_pins>;
-> +
-
-Drop the empty line.
-
-
-
-> +       status =3D "okay";
-> +};
-> --
-> 2.53.0
->
->
