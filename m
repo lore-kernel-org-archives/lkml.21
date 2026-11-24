@@ -1,82 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=211.75.126.72
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795481974;
-	b=FIFQYaREOdgoYXyR6xljM6oH3WYyN/pvMBO02EbZ8XEIIRaOjrauTQTPD0eKd4wDlPFz
-	 Zp2GC0Mm3hstAtmGmBKbRZWWgSZT4nHXAdLhMIblRfGkrJh9rqhuY6xH/z6nslwPYpOMl
-	 KjTi2pPoqVB5OhSfsQd6f/3OYmVz+q3lvrNS0F3f+EAkF1fMuUpEWo4+zhUZMc5jtQrcj
-	 J/d6KZz1o0QBZE4MwUbVtno+pK9SrcstOxrYA1ikROzIemT13e7PenHly3eyeksQSV/So
-	 5Ch1tpPzzc27LZ2T9DAk5tB4Ow3unBArdZrXQ+N76uYOWjRUrAuBpOqt1EDIbj3kPIw==
+	t=1795481981;
+	b=HnwPWtQ1ZEZ1xskwTWfj5U/zXHZeT4+VqUFtJvtUSUA+eXcWfEp22pcgN5f7kCDdEO/F
+	 Xfj3wXHFEWGFCi9HebwBIp+mb9s2hTBby/qVro9rxBXpOPmP7+JIyKHtelBd3BwqyuGD5
+	 yFHV7ubxJoh5sGX48IViw+OIFmbs+OmEZaNF6tWDCUHQ52WzfvDRWrySiFfgUrXrrZ3yY
+	 ucgigAKJLzixVTVWnme3Ib8zdLOVIp8/dQ+UpvyjG+ESU7L7BQuFXXG85pnQwCWs9LJmF
+	 08EMH3xF5CVeopGL0CVdokGR4xcOaizPrgV5Ww1rvQEqJ2tm4cXWRKjfwWf7+TMnTWQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795481974;
-	h=DMARC-Filter:X-SpamFilter-By:DKIM-Signature:Received:Received:
-	 Received:From:To:CC:Subject:Thread-Topic:Thread-Index:Date:Message-ID:
-	 References:In-Reply-To:Accept-Language:Content-Language:
-	 x-originating-ip:Content-Type:Content-Transfer-Encoding:MIME-Version;
-	bh=Ps2a4yXQ6v0aDzJqOiT29JQza2CMXX0hUfnQDpPA8Yk=;
-	b=uZRIF+jeCAfZWQ5Yr79fA/CZ9t2jKVNtbp32rTTwFMSrH2MA3RzLgx/3muCNtEf0Wwow
-	 XtVGf1TsoEzDvGmO3/LvQK3OvcEM8/WDyE/Jg2+7l44TVw15hsmQFxxecveBZBrTQ8F2d
-	 NDXA/kjvGMyz992SquIW2t8dIzZWB+FHqmL7VtA+mZVUA2FoWtJzUjNX5Vsjrc/Jrqr4x
-	 qRCqnbojEZAccLDCD+QkySSkDJY6tJL6MidivclVEVHvWVSuqarxXJA6HTiDIW0qHwJg2
-	 ERH0mlIIz0Z2s5DEH9swImr205pgRM2p0iYcfAk8mtkeDbb5ZtTnCXwHl40kLLVydOA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795481981;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=CQ0ywlob12oatuyVpHVVygHWAZ6j+SXjJPArn5ZAhIw=;
+	b=RUBbvr2rWePS6nCXMvj7msYFLkh5HT1ksEbM1H7wUKqOWiUQlnhIqeIMAQDKbXrPHWgE
+	 Us1TFlt+vdxY3w1XsWQYcUXI/v46dst0c58uCul21Fg5jTfFKgfB/IUirBIDfhC6S6IQL
+	 wMOMprYYRtnUgCAdAcwWCfPMk4YLN3TYLU4etT9mKxu7Vf40Ko6faVHf3ZdsCofCY2jZC
+	 x5i51ibBTtRLMyesvyQ9DndeiImsrhsefKx0QXEamhDml/x09JnrC2sqt7xWEAKrEfK88
+	 j7qHq5pKNJnL4ooiSFJyU5w3YpT9nuwzem0XV4FBNFSijtaisrs3G6rchn647N/jAgw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=realtek.com;
-	spf=pass smtp.mailfrom=realtek.com;
-	dkim=pass header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=DizKmyLy;
-	arc=none smtp.remote-ip=211.75.126.72
-Received: from rtits2.realtek.com.tw (rtits2.realtek.com [211.75.126.72])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lFP6Sxa2;
+	arc=none smtp.remote-ip=209.85.216.43
+Received: from mail-pj1-f43.google.com (mail-pj1-f43.google.com [209.85.216.43])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 16D00606A31E;
-	Tue, 24 Nov 2026 00:59:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 16D00606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=realtek.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=realtek.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 36772606A321
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 00:59:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 36772606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=DizKmyLy
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6AO0xSPp92089809, This message is accepted by code: ctloc85258
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1795481968; bh=Ps2a4yXQ6v0aDzJqOiT29JQza2CMXX0hUfnQDpPA8Yk=;
-	h=From:To:CC:Subject:Date:Message-ID:References:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:MIME-Version;
-	b=DizKmyLy1ZHvw/FseclJiM5UCnJ2UMmTyqmIubLQWHgYYck1E9qeKU+XdkXg7hamO
-	 fxkxzB1s6HfhBAPz228+DiR790nxGJutxJ9wq0o5zqguANg1QhfH7SE+0YAUNkQYVS
-	 n5QeO1DvR3B9MTISthOzSyuRyNKACaODYbE7pNpIgIsHUAdVH2jKIjOY4TILNbd9g7
-	 Pwe4xz8dNDwbbMkidKAFkfjDgGRxo9Ixf4GWrXpA6hZ4n64HFuktT01J0XBYtZUGko
-	 Je9jqLyK7vBeAcbW/jFhF02nLFVgEIGZ+QO7ygTP76ZMW3DKKX6VkpqduVrRuAA+T6
-	 wYfKj0qlOaCmQ==
-Received: from mail.realtek.com (rtkexhmbs04.realtek.com.tw[10.21.1.54])
-	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 6AO0xSPp92089809
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Tue, 24 Nov 2026 08:59:28 +0800
-Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
- RTKEXHMBS04.realtek.com.tw (10.21.1.54) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Tue, 24 Nov 2026 08:59:28 +0800
-Received: from RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef]) by
- RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef%10]) with mapi id
- 15.02.2562.056; Tue, 24 Nov 2026 08:59:28 +0800
-From: Ping-Ke Shih <pkshih@realtek.com>
-To: Jie Feng <hjf3108@gmail.com>
-CC: "linux-wireless@vger.kernel.org" <linux-wireless@vger.kernel.org>,
-	Bitterblue Smith <rtl8821cerfe2@gmail.com>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH rtw-next v3 1/5] wifi: rtlwifi: rc: start no BA session
- for QoS null frames
-Thread-Topic: [PATCH rtw-next v3 1/5] wifi: rtlwifi: rc: start no BA session
- for QoS null frames
-Thread-Index: AQHdeOKzoeDEYzUTwEarjPoSRqZFqLc5b/EAgAHyyQCAAQk2AA==
-Date: Tue, 24 Nov 2026 00:59:28 +0000
-Message-ID: <ecad59dfc02941058452cad1889523ce@realtek.com>
-References: <20261120113116.153232-1-hjf3108@gmail.com>
- <20261120113116.153232-2-hjf3108@gmail.com>
- <1f9ad0fcc61446fb8ce49ef98d5292e8@realtek.com>
- <CABOQOSV-vbUazUTwb_Lt11Wv3-47P91OswOsH6r2=ngxOUcAKA@mail.gmail.com>
-In-Reply-To: <CABOQOSV-vbUazUTwb_Lt11Wv3-47P91OswOsH6r2=ngxOUcAKA@mail.gmail.com>
-Accept-Language: en-US, zh-TW
-Content-Language: zh-TW
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lFP6Sxa2
+Received: by mail-pj1-f43.google.com with SMTP id 98e67ed59e1d1-3b3fff0d993so521702a91.2
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 16:59:41 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795481981; x=1796086781; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=CQ0ywlob12oatuyVpHVVygHWAZ6j+SXjJPArn5ZAhIw=;
+        b=lFP6Sxa2S4wDs/9G4Nz63q0Hq87wYPI8Ig1MkrL+7mJVSLjn1KUnGyCeelX46auegl
+         dwg7sjemuJPrNWnbSOHvyGdNrHKLFa4I7/liZR0AxURxgXuSdUARcPttMFIIUqY3sArr
+         KXz4KMNkIdWKj9RnCzMQSrASKimjC7eQtWySDNXCGuGP7sfRNYu55noNgoNe7wLjM4sr
+         dvEqMRnwK+/IS5HpDKfB7rdKjfy5r12nXTe5iv2PduDHxFpWOURPfgJDPEO4Yec3qx5d
+         lbmY1GO08d8x1rzhD9/30rjmqqbsowwSbYlxNNhjLF798ZslrvuUFmfkIaptcafOUG8t
+         ZdxQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795481981; x=1796086781;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=CQ0ywlob12oatuyVpHVVygHWAZ6j+SXjJPArn5ZAhIw=;
+        b=JT+D6MLh+l6E88NZCHtxj39gMjoiweVAwNiXOklGINAPuBZizAAlDyAZ+1Fd/ok8BA
+         1WJgbPL8+1ziYQpbAMwhO9cZ082ULyj/Fn2WDXwF/JR0O0V/tHya6TZDLk8p08QPiE9R
+         LozeTPDxsQHlJ3laU9PfTn4jLdOgLxjVTrwLg6JMO0+WxJB0uuRCn31ISbPVcQxiqP4I
+         DPF5ijIDBG2wLVUxgSSmekKW6v2+sHFklgKYWU4+O88NGWyuwhyrwYwb0v3n3zajA9Q5
+         851jEKnIOfN8wAPz4EQPYrwucjQ0qXfgK2EMuPLeiZIs/3u4KV+eedA4HL+MAe7LfpMz
+         XOeg==
+X-Forwarded-Encrypted: i=1; AL+hErHtSH4u+73b5MptmIBbx6LsEZclHjbtQXlZcwBMVqg+gsY0qsi15usUmcgRsNxSDqtXW40a7clRuGxHpZE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z83VZsJjktwEqcF53xfJS2zcp0w7Mq9no9xoby63j27kjJuLGez
+	qYT5WPT6FsJbWyYl7Mdzekvc+44AldsRPqH/wTXqpUQ9GKBv5lagspgZ
+X-Gm-Gg: AZFdTZeBSKt8nTj1y4flkSp8W3yTFHgnrJNBXArYosOUMy7bgU9q0lHuFMYLmalAbLP
+	BGswlsOEcdZ7ZCd5QbNKO3ycaaVvIr4Aapf6r8rthh96KG/Vhkikju9bKL8pbSQhsZA2LpcdPjn
+	WQD7N4/iPZNFxcuzv9Nek7Luk8NDLqyhBYuD/McxoLwHzl28qOBifjwyNDVcw4If6POdxjtJ0IZ
+	E8AwhiGxjmg9ckHIqRWmza1jm8o1ocnRmCy7zXKFAHPqB4QfZeQuCH7VWdht36VNmpY+Y45E0TY
+	ceLbI5mYryQ8VCT4LscTJaWWET9h5nc1DyhfpSE5klI+DnNA2vBghmSJ+k8iRhvT5CV3kbk2Npl
+	cJl2dAMVCkYA25jRsGPbN916b6dkESUMgH30NfO7PUmR1SHEkBDy0H0TGNlNLg+2/2HNQEJDD/B
+	4MSM7YVaWX+NPjrMZ/WoKEkmRHaQT14cVSKP/CBJfU5rSCp8mujKZBPYHk0sBcpHmjyI8klDkbK
+	pCb2iSFLHXkHIaMhnwKy8VQBoxoy1LyOnbkTcLHRy6tI6B8IJ2qniCAvtaKhLFm7HTmH/fl6Kp8
+	z0kRFVR4bt1MuVgkhiTvTBYyUSTjceMggHiuUiyb/ZOWniOrjLqKaQhdEwQnUjQSylnXucdKQjt
+	0XHjnD5hGmNvaUoBXxdrXEqBM5bie62RlljOs/Jr5AAW6Bt+3EPPhuT1W/il/LLi2wSpbmM6t/C
+	UiJLGyglAnra0=
+X-Received: by 2002:a17:90b:442d:b0:3b0:d0be:f02c with SMTP id 98e67ed59e1d1-3b41c98a095mr19699757a91.6.1795481980585;
+        Mon, 23 Nov 2026 16:59:40 -0800 (PST)
+Received: from esteban.lan ([2001:f71:5160:2b00:ae2a:b9d5:71b7:3bb9])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b40578d771sm22990964a91.1.2026.11.23.16.59.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 16:59:40 -0800 (PST)
+From: Antoine Pichot <antoine.pichot@gmail.com>
+To: Brian Norris <briannorris@chromium.org>,
+	Francesco Dolcini <francesco@dolcini.it>
+Cc: Antoine Pichot <antoine.pichot@gmail.com>,
+	linux-wireless@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Andreas Kemnade <andreas@kemnade.info>,
+	stable@vger.kernel.org
+Subject: [PATCH wireless 1/2] wifi: mwifiex: pcie: stop the card work before tearing down the adapter
+Date: Tue, 24 Nov 2026 09:59:31 +0900
+Message-ID: <20261124005935.290010-2-antoine.pichot@gmail.com>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261124005935.290010-1-antoine.pichot@gmail.com>
+References: <20261124005935.290010-1-antoine.pichot@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,18 +103,112 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-SmllIEZlbmcgPGhqZjMxMDhAZ21haWwuY29tPiB3cm90ZToNCj4gT24gU3VuLCAyMiBOb3YgMjAy
-NiBhdCAxMToyOCwgUGluZy1LZSBTaGloIDxwa3NoaWhAcmVhbHRlay5jb20+IHdyb3RlOg0KPiA+
-DQo+ID4NCj4gPiBIbyBKaWUgRmVuZyA8aGpmMzEwOEBnbWFpbC5jb20+IHdyb3RlOg0KPiA+ID4g
-cnRsX3R4X3N0YXR1cygpIHN0YXJ0cyBhIFRYIEJBIHNlc3Npb24gZm9yIGFueSBRb1MgbnVsbCBk
-YXRhIGZyYW1lcywNCj4gPiA+IHNvIHRoZXNlIHBvbGxzIHN0YXJ0IGEgc2Vzc2lvbiBldmVuIHRo
-b3VnaCB0aGV5IGRvIG5vdCBjYXJyeSBkYXRhLg0KPiA+ID4gVGhhdCBjb3N0cyBhbiBBRERCQSBl
-eGNoYW5nZS4NCj4gPg0KPiA+IFdpbGwgaWVlZTgwMjExX2lzX2RhdGFfcW9zKCkgYmUgbW9yZSBz
-dWl0YWJsZT8NCj4gDQo+IGllZWU4MDIxMV9pc19kYXRhX3FvcygpIG9ubHkgdGVzdHMgdGhlIFFv
-UyBiaXQgKDB4ODApLCB3aGljaCBpcyBhbHNvIHNldA0KPiBmb3IgUW9TIG51bGwgKDB4QzApLCBz
-byB0aGUgQkEgc2Vzc2lvbiB3b3VsZCBzdGlsbCBiZSBzdGFydGVkLg0KDQpIb3cgYWJvdXQgaWVl
-ZTgwMjExX2lzX2RhdGFfcW9zKCkgJiYgaWVlZTgwMjExX2lzX2RhdGFfcHJlc2VudCgpID8NCg0K
-PiANCj4gPiA+DQo+ID4gPiBDaGVjayBpZWVlODAyMTFfaXNfZGF0YV9wcmVzZW50KCkgaW5zdGVh
-ZCwgc28gb25seSBmcmFtZXMgdGhhdCBjYXJyeQ0KPiA+ID4gZGF0YSBzdGFydCBhIEJBIHNlc3Np
-b24uDQo+ID4NCj4gPg0K
+If the firmware does not answer the shutdown command sent by
+mwifiex_pcie_remove(), mwifiex_cmd_timeout_func() queues a firmware dump
+and a card reset on card->work. remove() continues into
+mwifiex_remove_card(), which clears card->adapter and frees the
+interfaces while the dump runs. When the dump ends, the work reads
+card->adapter for the reset and dereferences NULL:
+
+  mwifiex_pcie 0000:01:00.0: mwifiex_cmd_timeout_func: Timeout cmd id = 0xaa, act = 0x0
+  mwifiex_pcie 0000:01:00.0: info: shutdown mwifiex...
+  mwifiex_pcie 0000:01:00.0: == mwifiex firmware dump start ==
+  BUG: kernel NULL pointer dereference, address: 0000000000000088
+  Workqueue: events mwifiex_pcie_work [mwifiex_pcie]
+  RIP: 0010:mwifiex_pcie_work+0x87/0xc0 [mwifiex_pcie]
+
+This crashed a Surface Book 2 (88W8897) at shutdown four times in about
+400 reboots; the three crashes with a full log went through
+mwifiex_pcie_shutdown().
+
+The teardown waits for the work in mwifiex_cleanup_pcie(), but only
+after card->adapter is cleared. Commit b713bbf1471b ("mwifiex: cancel
+pcie/sdio work in remove/shutdown handler") cancelled the work earlier
+in remove() for this crash. Commit 7e34c0d2f631 ("Revert "mwifiex:
+cancel pcie/sdio work in remove/shutdown handler"") reverted it, saying
+that since commit b014e96d1abb ("PCI: Protect
+pci_error_handlers->reset_notify() usage with device_lock()") a reset
+cannot run during remove(), and that the work then waited in
+pci_reset_function() for the device lock that remove() holds. The device
+lock does not cover the dump, nor the read of card->adapter before the
+reset. Since commit a64e7a79dd60 ("mwifiex: resolve reset vs.
+remove()/shutdown() deadlocks"), the work only tries to take that lock,
+so remove() can wait for it before the teardown again.
+
+Use disable_work_sync() rather than cancel_work_sync(), so that a
+timeout or a debugfs reset request during the teardown cannot queue the
+work again. The card is allocated at probe, so a later bind starts with
+a new work. When the firmware does not answer the shutdown command,
+remove() already waited for the dump that the timeout starts (about 46 s
+on the 88W8897), in mwifiex_cleanup_pcie(); it now waits before the
+teardown instead. A dump still waiting in the queue is cancelled.
+
+remove() also returns early when a failed reset or a failed probe left
+no adapter. The work can still be queued then: a failed reset queues it
+again from inside it, and the teardown of a failed probe stops the
+command timer only after waiting for the work. Wait for it there too,
+before the card is freed.
+
+Tested on the Surface Book 2 with a debug change that queues the dump
+and the reset in remove() right after the shutdown command. Without this
+patch (kernel 7.2.15) the work found card->adapter NULL in 3 runs out of
+3. With it (kernel 7.3.4, before the wait on the early return was added;
+the main path is unchanged), and a 200 ms pause so that the dump was
+already running when remove() reached the wait, remove() waited for the
+dump (about 46 s) and the teardown completed cleanly in 5 runs out of 5.
+With patch 2 also applied, a debug change that makes a reset fail (it
+drops one command during firmware initialisation, so that the command
+timeout queues the work again and the initialisation fails), and a 5 s
+pause in the work when it finds no adapter, remove() took the early
+return while that work was running, and returned only after it.
+
+Found, written and tested with an AI coding assistant (Claude Code with
+Claude Opus 5.5) under my direction; I reviewed the patch and the test
+results.
+
+Fixes: 7e34c0d2f631 ("Revert "mwifiex: cancel pcie/sdio work in remove/shutdown handler"")
+Cc: stable@vger.kernel.org # 6.10+
+Signed-off-by: Antoine Pichot <antoine.pichot@gmail.com>
+---
+ drivers/net/wireless/marvell/mwifiex/pcie.c | 15 ++++++++++++++-
+ 1 file changed, 14 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/net/wireless/marvell/mwifiex/pcie.c b/drivers/net/wireless/marvell/mwifiex/pcie.c
+index ecbe864b0797..b63e6ac6e582 100644
+--- a/drivers/net/wireless/marvell/mwifiex/pcie.c
++++ b/drivers/net/wireless/marvell/mwifiex/pcie.c
+@@ -437,8 +437,14 @@ static void mwifiex_pcie_remove(struct pci_dev *pdev)
+ 	wait_for_completion(&card->fw_done);
+ 
+ 	adapter = card->adapter;
+-	if (!adapter || !adapter->priv_num)
++	if (!adapter || !adapter->priv_num) {
++		/* The adapter is gone, but a failed reset or probe can have
++		 * queued the work again, and the card it runs on is freed
++		 * when remove() returns.
++		 */
++		disable_work_sync(&card->work);
+ 		return;
++	}
+ 
+ 	reg = card->pcie.reg;
+ 	if (reg)
+@@ -456,6 +462,13 @@ static void mwifiex_pcie_remove(struct pci_dev *pdev)
+ 		mwifiex_init_shutdown_fw(priv, MWIFIEX_FUNC_SHUTDOWN);
+ 	}
+ 
++	/* A timeout of the commands above queues a firmware dump and a card
++	 * reset on card->work. Wait for it and keep it from being queued
++	 * again before the teardown clears card->adapter and frees the
++	 * interfaces the dump reads.
++	 */
++	disable_work_sync(&card->work);
++
+ 	mwifiex_remove_card(adapter);
+ }
+ 
+-- 
+2.56.1
+
