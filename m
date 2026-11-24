@@ -1,54 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.108
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795502075;
-	b=HIDHTZggXitShVJ+pNn6K6vK2fYlKNLH6ee6bSjXU3U9xBXtSW/2lSL7RJgKkUVZBLS0
-	 6mlbAfiWhCX+pFrF4dumcFD6zWIDCOvOTXel/L35at2xYpM6VpzWFnRqh4BLZeKO/c5t5
-	 BqD7XHVMmguELKTCDKkRvRduU4DuC2lu/uo/yPfoFIs45qns5Euv+8Cxbm2QCrBNC2w1i
-	 Oc4pnsUgSATvnI8XWqtuu9ZRoQmvUETDk8B97nutfy2wfqAdCP0ghCNYK/SqHnNPc8ppC
-	 +RvoAWOZCaJFtOGuqqyNzrDamRZzdF2HKCL+OnMGnnfJAvBo199LsMNMcADtd5v6fxg==
+	t=1795502144;
+	b=Xo28MaHvHo0YkkVcnevPTQWzp8jaXjoj6mbXXy4xjBOQMrL+JOAhQclN5hOxOvJI0w/K
+	 87PDRGeE/zbEkoAXvq82SsHFaB52id6XApxanNy9syR+wktL2Tad4yoeHMGvev1Tlw36Q
+	 5EMf2XV3lr31ZSMB7XO6PJYAIXjle4Vjhdar0V3vP7mu0KpR6u3HBL6KQhuBRhiZ9nq3a
+	 cLfHQJsJJQ7TRf9Ftt/VEMMRrqUgJLGADW96zSpCWoIXufUj34WehOmRsUd1nKsr2c5Ab
+	 aFIX/Plvkz4zt6GeMKBKvBYjG0VgvX5LoCWNKQXoeOcuQB/KJUB42f0ZUAuGF+FvX+g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795502075;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Content-Type:Mime-Version:Subject:From:
-	 In-Reply-To:Date:Cc:Content-Transfer-Encoding:Message-Id:References:
-	 To:X-Mailer;
-	bh=NXbi9yNhidHwh55GelyFmLkRwoKv3QmTo7vFxn6GgFE=;
-	b=ynWA/bkcUzuC56vBjOS3DtHKyf5eMJP/toUIzzFvE0zewMka4oVC0Ee9grbpYLTB08Fu
-	 9HL1Kkq8u7SrxfYMtWcrwzCcaRwmMJ50G7hi+CM0rDVOfwvofZyWyw0iKuBULri3VtOo4
-	 L+9HCWzh1HzOnh9RuHGTjs3juu9KtyZmKOcqnHpa743hCH26n138MzJpalOKcfh0lxFQ9
-	 /jyeqkZl35OFnJLxfHf3uFjCWGnyvKXklsNDHcJTUUB5YcqccagoBs/QaRrahOcu1EpAa
-	 govwuc+wt2ngcuRz/ugz+qUFs5YgYpENc6L7N3qKV2lEtP2CqjQLhAjt9mXcx5MyZ0A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795502144;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=1Tuf3FrJ8YKV4M3Z2kJ5/MbNrnt873qpvQEYkqFLu6E=;
+	b=uM5tq2NxMFEUx3TtIOnr8qy0QQpkEx10Emkb2W01c9j0Ti4iHlH38EKBbhtmO5/5AHwa
+	 NvcH9U0LL07U6YglmiCZk1DkQSuKX7wGqkUf1ZeuK/uW5iAr6PHPr9bEHAXEuheKHPi6h
+	 VxvSIPvdqa2rd59gmP9S0llXLCVWBl5Xpwhdt8F3UCOHui7NwSKG4EPjz4aVNEUYgNvaH
+	 uCQh2RC9FMPS9c3pnW1PvLWB3R4bMzswCBt2DZTFLimV54YSoSUK3eLonLDEMgW7UavUa
+	 YgBejxVw8O1qBF4Nc58UopllUBtR2ZC65VVzrrxxKkNdUuLPUUUxdCEnx0B6SED/3sg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=pn5hlMQ1;
-	arc=none smtp.remote-ip=95.215.58.108
-Received: from mta1.migadu.com (out-108.mta1.migadu.com [95.215.58.108])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=P2dc6oBK;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3C521606A321
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 06:34:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3C521606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5982C606A31E;
+	Tue, 24 Nov 2026 06:35:44 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=pn5hlMQ1
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=NXbi9yNhidHwh55GelyFmLkRwoKv3QmTo7vFxn6GgFE=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795502073; v=1; x=1796106873;
- b=pn5hlMQ1435ibB7vGL17lTJywWV1OMBli3vks0P/9aPI/NQGQH9MCfI1TTZnymEUdL3qTsJX
- e3csdSHtE0ulpNSUeTGPoZOmkGwODmJ+rHgaIHP8KOCPoXMrvUZcGRPlUXANNBPh87dNuhsfehS
- cOtFlBlRGSjfDbr1SpUsaESo=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 80c8d8955432b0c9;
-	Tue, 24 Nov 2026 06:34:33 +0000
-X-Mizu-Trace-ID: 80c8d8955432b0c9
-X-Migadu-Flow: FLOW_OUT
-Content-Type: text/plain;
-	charset=us-ascii
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=P2dc6oBK
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A62151F000C6;
+	Tue, 24 Nov 2026 06:35:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795502143;
+	bh=1Tuf3FrJ8YKV4M3Z2kJ5/MbNrnt873qpvQEYkqFLu6E=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=P2dc6oBKHDhpP5Z+800UpTyu3P7EbUuAaCi4VO0mxyLLHeaJL7VWuIMh0U6ez9bha
+	 NXb4zf+f9jPE4+mUjLWBtLwOAbBMA/1UUNHou9ff9mxzz+yh7pFNWe/TAj+46VplEa
+	 MmqkBUaohx1ZhaKBuJmuMx1dxkBD9JMJAuOMZY6uDsIEqf/JKET785pK3AK/TNQjLb
+	 ptdWhGjEqbvN3FDZYffnUV0SB1MnTTpt2loe3Z3PAYvW5VvQCYmpTQr4kYYts6wU5T
+	 zAe+6CNbr7KTDZSp+E8H0+i+jKPHXD54vC64XaCG0SI+HHNC04F2x2VjNjEYdU8Eb3
+	 q8u/ZP/9KsSWw==
+Message-ID: <c084d07b-9ea7-4d03-bebb-da6547b71d80@kernel.org>
+Date: Tue, 24 Nov 2026 07:35:37 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,109 +50,74 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3901.200.71.1.16\))
-Subject: Re: [PATCH] memcg: free the private ID of a memcg that never comes
- online
-From: Muchun Song <muchun.song@linux.dev>
-In-Reply-To: <20261124052054.GC555944@shakeel.butt@linux.dev>
-Date: Tue, 24 Nov 2026 14:34:18 +0800
-Cc: Muchun Song <muchun.song@linux.dev>,
- Andrew Morton <akpm@linux-foundation.org>,
- Tejun Heo <tj@kernel.org>,
- Johannes Weiner <hannes@cmpxchg.org>,
- Michal Koutny <mkoutny@suse.com>,
- Michal Hocko <mhocko@kernel.org>,
- Roman Gushchin <roman.gushchin@linux.dev>,
- Meta kernel team <kernel-team@meta.com>,
- cgroups@vger.kernel.org,
- linux-mm@kvack.org,
- linux-kernel@vger.kernel.org,
- stable@vger.kernel.org
-Content-Transfer-Encoding: quoted-printable
-Message-Id: <67C04BF9-9F11-41D8-AC98-1D6465FEE36F@linux.dev>
-References: <20261124000439.967403-1-shakeel.butt@linux.dev>
- <F39B4A81-BB17-4C5D-851E-2740EBBBBA8B@linux.dev> <awUTKy9tx8nWJgXf@linux.dev>
- <2FE2D209-FB57-4191-A324-F179B2394DB1@linux.dev>
- <20261124052054.GC555944@shakeel.butt@linux.dev>
-To: Shakeel Butt <shakeel.butt@linux.dev>
-X-Mailer: Apple Mail (2.3901.200.71.1.16)
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 10/12] dt-bindings: memory: xlnx,versal-net-ddrmc5: Add
+ amd,num-ctrl property
+To: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
+ linux-edac@vger.kernel.org
+Cc: git@amd.com, shubhrajyoti.datta@gmail.com, michal.simek@amd.com,
+ Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
+ Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Borislav Petkov <bp@alien8.de>, Tony Luck <tony.luck@intel.com>,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+References: <20261118142213.100581-1-shubhrajyoti.datta@amd.com>
+ <20261118142213.100581-11-shubhrajyoti.datta@amd.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20261118142213.100581-11-shubhrajyoti.datta@amd.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
+On 18/11/2026 15:20, Shubhrajyoti Datta wrote:
+> Add the amd,num-ctrl property to describe the number of DDR memory
+> controllers enabled in the design. Valid range is 1 to 8.
+> The driver then can enumerate only the enabled controllers.
+You still fail to explain why this is needed in the first place, IOW,
+why this is not deducible from the compatible.
 
-
-> On Nov 24, 2026, at 13:24, Shakeel Butt <shakeel.butt@linux.dev> =
-wrote:
->=20
-> On Tue, Nov 24, 2026 at 12:52:41PM +0800, Muchun Song wrote:
->>=20
->>=20
->>> On Nov 24, 2026, at 12:33, Shakeel Butt <shakeel.butt@linux.dev> =
-wrote:
->>>=20
->>> On Tue, Nov 24, 2026 at 10:50:00AM +0800, Muchun Song wrote:
->>>>=20
->>>>=20
->>>>> On Nov 24, 2026, at 08:04, Shakeel Butt <shakeel.butt@linux.dev> =
-wrote:
->>>>>=20
->>> [...]
->>>>=20
->>>> The leak analysis and the fix look correct to me. However, using
->>>> CSS_RELEASED here makes the private ID cleanup depend on a generic =
-CSS
->>>> teardown state, and adds an accessor solely for this failure path.
->>>>=20
->>>> The private ID is not needed until mem_cgroup_css_online(), so =
-could we
->>>> instead reserve it at the beginning of that callback? Failures in
->>>> css_create() before ->css_online() would then never own a private =
-ID,
->>>> while failures after the reservation would continue to use the =
-existing
->>>> mem_cgroup_private_id_remove() cleanup.
->>>>=20
->>>> This would also make the private ID lifecycle more explicit: =
-reserve and
->>>> publish it during online, then drop the initial reference during =
-offline.
->>>> It would avoid both the new css_is_released() helper and special =
-handling
->>>> in mem_cgroup_css_free().
->>>=20
->>> Thanks Muchun. Nothing needs the private ID before ->css_online(), =
-so
->>> reserving it there would work. But it moves the out-of-IDs failure =
-from
->>> ->css_alloc() to ->css_online(). By then css_create() has linked the
->>> css into the parent's children list and css_idr, so =
-mem_cgroup_iter()
->>> can css_tryget() it and cache it in iter->position. A css that fails
->>> online is freed without ->css_released(), so
->>> invalidate_reclaim_iterators() never runs, and the free does not =
-wait
->>> for those references. Today memcg's ->css_online() fails only when a
->>> small allocation fails. With the move, every mkdir on a system that =
-is
->>> out of IDs would take that path. I would rather keep failing in
->>> ->css_alloc(), before anything is visible.
->>>=20
->>> To drop the CSS_RELEASED dependency, I can test the ID's own state:
->>> !memcg->private_id_objcg means the ID was never published and the =
-memcg
->>> still owns the reservation. Let me know if that works for you.
->>=20
->> You're right. I missed that the css is visible to mem_cgroup_iter()
->> before ->css_online() completes. Using private_id_objcg to track =
-whether
->> the reservation was published makes sense to me. Thanks Shakeel!
->>=20
->=20
-> Oh I just noticed that private_id_objcg is introduced in 7.4, so to
-> backport the fix to previous stable kernels, we will still need to use
-> CSS_RELEASED or something else there.
-
-Agreed. Keeping CSS_RELEASED in the fix makes sense for backporting.
-
-So:
-
-Acked-by: Muchun Song (ByteDance) <muchun.song@linux.dev>
-
+Best regards,
+Krzysztof
