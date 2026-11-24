@@ -1,94 +1,117 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795526942;
-	b=Ur+BS8KJ+tRXrarV0zPApOVerMLvl5AKYtAMWxPyIPpLbFXRW1TmbvUcAtClqhQkO3U9
-	 KApbE6a2/zdzjOYt8RW1hPV8ZtV63ODm/mqsr5an/NXl8Uh4nKRzhleX6hgV/abCF7YvT
-	 QsmZKRoJsSpQJYhBkHPHsP0THBSRDQMHQCDpX2CcOk1YLASoH0pL067lLLxoBB2SRo5W2
-	 ip3Pq91+8IwHTcN7rZVeSh4TI1E8DaN1K9/BhtPLoEQE13EGv+1VA1yg7r1fTz+ABnh7w
-	 c56LQgQC8ZdbY6MSlVoIEbjXwoa4ulV2yWi2iUeFQJxTa5aQxxlgYsX5lbUSV4nK7rA==
+	t=1795527001;
+	b=2rZeSUiM52kWGib5Zw/GrhRmGjRTbXlMxR4tcqMnc69CZQgqdxICYSMzXnp1T879oOEw
+	 AkMD7Gps/U28b/SxQ9FdHB7ToLX9lVs6whs7bGbC1f2JvOUgX6VBWHiETJctNXO8hbeeG
+	 Fixf5U1orRyJc3Bny2AM2QvHaruoeVDQtMB+LH9fC+SAbb9rG+0U5mpCar3Al9W+LgLEt
+	 q33GCCqeoHcWrgb6ibz/IobQ9osNS4zw8kKcysn1AcwIrK3SFTj5xgBJ/emjuO/3QqsPP
+	 MArqd/Y1QUk/KjWTUWtdKPyI6JDLzu337CuN54gP9KaQ7Sdu/4ea4Kec+RE4qc+N+Yw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795526942;
-	h=Received:DKIM-Signature:Received:Date:Message-ID:From:To:Cc:Subject:
-	 In-Reply-To:References:User-Agent:MIME-Version:Content-Type:
-	 X-SA-Exim-Connect-IP:X-SA-Exim-Rcpt-To:X-SA-Exim-Mail-From:
-	 X-SA-Exim-Scanned;
-	bh=/HRoKuntgt7z4Sw/zF+HWikpndrv0Kbgyj8m5F8gu7w=;
-	b=YUl64Zrs2ajQSkaC7fr1VU3Zg2e6x3iHff5yRT0BJz2suDYXGZjNEixDeLYB3hn/aDCQ
-	 uu/hKII6bR1Rgli3Ze5yinrYlYQXneXDmyOfHq0pSiSR8UPIGDs8mJweX15hgdXhAHgFm
-	 NLByqbHbipgarY27wjC0T4kAE8//su+PuCDdHFkY6XhC3WAcA2rn6fId+vQuVDN1fAoSq
-	 l23wLzDT4M2/585EjWa8BoQDq7AF/H5xde4JznYii3THemSEtUUPSMqWZZa/kFtzmmtS9
-	 R/kT8ecwEoyFDeO38uNUygcGKMlzgo7P91Cj5WF/MKdOb3NTJVtS1nZd68RsS2awWAA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795527001;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:From:To:Cc:Subject:Date:Message-Id:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
+	bh=HbHpUlOb1f43/quJqropjm+88ksUSksI9CVMWl4Gkh0=;
+	b=EfF8WNyhhHqsY6zrpg4sFigEBaKpDNl0WFFo2SLiVS6Vz/0x7LZe80nKsRVmIKSQryax
+	 rLFFN/I3RbM9SUj6uIiRJeBAVtyvVDp4V6gMfceZFNafwQzgKOizaqMOGkikhyUtYIWkp
+	 NlRKKJwHrNxB+sVV6r7hb8tcyPwfN4IUxC9rWQcDBI24ib0/KZNqJgPTTaZcOEkTB9Ph7
+	 t4l3YvH0RYDAoGNxp+Ltbclv2+DAaTkZ9FLEH/1+Ye0Bym7JPt5qErPdFN9+zac8TLBhv
+	 tK7p7LYXH78o8f/o3cE44vypu5o53fyet1UvMKLKDBzjc25ZzRj6LkBY85y/D8q6rtQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fr0PCH40;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b="Bgv8oiC/";
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=NIDesLzg;
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CC496606A321;
-	Tue, 24 Nov 2026 13:29:02 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3D3F5606A326
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:29:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3D3F5606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fr0PCH40
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C7F81F000C4;
-	Tue, 24 Nov 2026 13:29:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795526942;
-	bh=/HRoKuntgt7z4Sw/zF+HWikpndrv0Kbgyj8m5F8gu7w=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=fr0PCH40STXrlXHmQtkXH7r5TNp4huoMmo+7xg4o5Lka8RyRtO/2FlVVDUTXB7rZ5
-	 3rNYkvEsNxCBdcxdMqFUA8CHg+v2BtNrWx25wVkut8r75xGUq+9Xyz+V0Vwk4LA5O1
-	 Zybhp83eX37Sm64PZ4Fc59w2p3zDy9S+X2vWa/j0aSh6FSKk43g73Qz257JK3n+mN8
-	 AyTAqeMK3bgbGfwcpleBjxDknkYCFOF7vxte4R3WCmnbeovSIB/dAf0U033DcfPKVx
-	 uHs22+iNIVbbGQqesGS+0m+J6rLeNS5/O4UVG2ge9usloyARrq0XRsfcboCkxedlOI
-	 0fzTE+XVrevZg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1xVqZv-00000002atd-32ML;
-	Tue, 24 Nov 2026 13:28:59 +0000
-Date: Tue, 24 Nov 2026 13:28:59 +0000
-Message-ID: <865wxmz7c4.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Justin He <Justin.He@arm.com>
-Cc: Oliver Upton <oupton@kernel.org>,
-	Fuad Tabba <fuad.tabba@linux.dev>,
-	Joey
- Gouly <Joey.Gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki
- Poulose <Suzuki.Poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin
- Marinas <Catalin.Marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark
- Rutland <Mark.Rutland@arm.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Sean
- Christopherson <seanjc@google.com>,
-	Shuah Khan <shuah@kernel.org>,
-	Sascha
- Bischoff <Sascha.Bischoff@arm.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>,
-	"kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>,
-	"linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>,
-	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
-	"linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>,
-	Lorenzo
- Stoakes <ljs@kernel.org>
-Subject: Re: [PATCH 1/3] KVM: arm64: Don't load hardware vCPU state before first run
-In-Reply-To: <AS2PR08MB97865A914C46DA0CE54F9197F7442@AS2PR08MB9786.eurprd08.prod.outlook.com>
-References: <20261123150917.2679600-1-justin.he@arm.com>
-	<20261123150917.2679600-2-justin.he@arm.com>
-	<86eccbzcqh.wl-maz@kernel.org>
-	<AS2PR08MB97865A914C46DA0CE54F9197F7442@AS2PR08MB9786.eurprd08.prod.outlook.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Bgv8oiC/;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=NIDesLzg
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795526999;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=HbHpUlOb1f43/quJqropjm+88ksUSksI9CVMWl4Gkh0=;
+	b=Bgv8oiC/wOGGzdLg3HSuOJpsgnTPXhS74tBAb2d78Bjr4BrKACFjG+xyR9SxW5vwbYJBLE
+	Fo4Mfig4tEqqkUarXmWK4OOklf2q176AXofMpDILZTSeCf2iPvlPE4RERP5tb1AUyRGwkZ
+	p7MFwLDui8OgJcp/7flaWC0s/RRW2N8=
+Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com
+ [209.85.222.199]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-586-i4xCBph4PI-yWnYLu9csSw-1; Tue, 24 Nov 2026 13:29:56 +0000
+X-MC-Unique: i4xCBph4PI-yWnYLu9csSw-1
+X-Mimecast-MFC-AGG-ID: i4xCBph4PI-yWnYLu9csSw_1795526996
+Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-949b0d322fbso654956385a.3
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 05:29:56 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=redhat.com; s=google; t=1795526996; x=1796131796; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=HbHpUlOb1f43/quJqropjm+88ksUSksI9CVMWl4Gkh0=;
+        b=NIDesLzgePeW1RI0l9jKnJHf2IhnwUfrUG2lBF5y+GZLhZ8Z3Ie7UpBf6SP23F4iYV
+         x2qvOckOntfNSX1HuCJ0VQoFYumN6u7TV8xuc40J42HiLZk/fq1i9FTtDmjBd2oau2LY
+         PGHK8eItVm68NPPY+LdgsqeEgv2Sb4wQ7am7tALLiq3Bfjsg72hnAkEsD7NvRKDAGQa9
+         A6WVvroMc+D7Tjo741ZXl4KdViQW8l3aAOD2YfJlq7hT1RbgByrpYDzs9hi0tUD7AJnO
+         OqN4vluVGic+u3umCBsMQ2KT+1vD3Wgpd1xXw43e9B0EFg85cQ0i1uewBw4wW2w9EvFB
+         tceg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795526996; x=1796131796;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=HbHpUlOb1f43/quJqropjm+88ksUSksI9CVMWl4Gkh0=;
+        b=OvKNSLDRSbUF2y1t3xJlwwA5yI87TfQOxeFQTUpAFoUi/GL4J3a5ioT2Jsc+N+iDJ0
+         sudGoCdtRUXC9kDUrH/J8udYMArofPdvODsGIzevEhWOfdDy3qljqfQ4Rc931w9mCYiW
+         6sWIBXzCGS8zR7DcGCC5A8HSNsyWx7htBBNwRIbQwchy3bspzsNM1IaBNgRCgPvwxSYH
+         lP99VghwwjCcEaY+Pq3o3JUcIXqR7HX4Rq8GOklyj9czsSyqXaRZ9muxhnQOw46mIRmX
+         0X03mXLFuSYdT3DFCtEzLTDMn3Pk4lU2gJ1vttYiXLT3BI3vF2Ax+gC0Tk8oM6q/vTN6
+         20OA==
+X-Forwarded-Encrypted: i=1; AL+hErEgdJ+yM3kFZWpsuIkdW92IsBRZA5f7ZX3OyyiZLoKkM2DYUGpRHBRInpebHmPBvIWF1rNPJynr0OeaaVo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8VApCnCnmRJ8CTbVQ/8QWknG+9WoPvhZejTCrcAkTj3mnH0tQb
+	eV8YbvE1gWkUJRamLVbdSyO1ObC/gl3GN8IxmhetsmbgYNh+gJJjCsrzd8PTLlT4W3fA/zxkBqH
+	YInAOcgmcz9DCvoSay6SWgKBsBvim4D9jaV+bNJQEaKScCOi7k+VP8KGu7TPCRJqOgw==
+X-Gm-Gg: AZFdTZcaxIB/N9KJRvC3lpst+00rHCovvvLd++kx9y1O307r2N88PoKHNV5KWUrV+Qh
+	ffq1t1DnY6TKARPM9ErCX+Mhlt//IAjL2o23REgUBKBjiaKlLbE06U8r94ducknvXX5xhn26lt4
+	kweFzhn+UJOmJe8O/PKGTgvaK7KNfscrIu4uIvjtFbc4/AoDQzA8D57U/AG6qNXqCCnFFEc8nZq
+	UYwCkIOQ13D3mnDReh4apKlNg7MscIDAPopbiuVrO3p0GeJ/qteHe4giRNNJvs/c3yBv13j3MlM
+	r2zkmHxFyDRdgOz5h2flCpA73xRTrzBUMxVOpa937ZgQsqAfIXVr1zhLCtvrYp2YLVbJWfrHNyb
+	aSA13XkWRp8vg3e1Cx053lE31RATTqKfaMI4alrMYcd9NfF/MiEc2zZrTSt++jjwhYr8e4z+csa
+	uMUcODNGZCGeH4Vd0bxT856as1uLaUHarMCDdFkbktZLuq95YQjmh16/WsMKWXG1yJ4V0wmmdeu
+	Z8Tana1G0Ghoppj0kuOlX6k3KZwwKsi7E9LPSw2Gz0Z/G+U1bL/
+X-Received: by 2002:a05:620a:4004:b0:949:7920:9d06 with SMTP id af79cd13be357-949bab0e640mr2535561185a.68.1795526995954;
+        Tue, 24 Nov 2026 05:29:55 -0800 (PST)
+X-Received: by 2002:a05:620a:4004:b0:949:7920:9d06 with SMTP id af79cd13be357-949bab0e640mr2535555885a.68.1795526995359;
+        Tue, 24 Nov 2026 05:29:55 -0800 (PST)
+Received: from cluster.. (4f.55.790d.ip4.static.sl-reverse.com. [13.121.85.79])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-949bb3f1ee7sm1033930385a.28.2026.11.24.05.29.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 05:29:55 -0800 (PST)
+From: Alex Markuze <amarkuze@redhat.com>
+To: Daolong Zhang <dlzhangak@isoftstone.com>
+Cc: Ilya Dryomov <idryomov@gmail.com>,
+	Viacheslav Dubeyko <slava@dubeyko.com>,
+	ceph-devel@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v2] ceph: fix inode and i_filelock_ref leak on file lock rollback
+Date: Tue, 24 Nov 2026 13:29:52 +0000
+Message-Id: <20261124132952.2186886-1-amarkuze@redhat.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <1795396934.6B039543.003.4jXp835gJkz40Rf@fangwg01>
+References: <20261122193828.1324376-1-amarkuze@redhat.com> <1795396934.6B039543.003.4jXp835gJkz40Rf@fangwg01>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -97,44 +120,15 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: Justin.He@arm.com, oupton@kernel.org, fuad.tabba@linux.dev, Joey.Gouly@arm.com, seiden@linux.ibm.com, Suzuki.Poulose@arm.com, yuzenghui@huawei.com, Catalin.Marinas@arm.com, will@kernel.org, Mark.Rutland@arm.com, pbonzini@redhat.com, seanjc@google.com, shuah@kernel.org, Sascha.Bischoff@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, ljs@kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-On Tue, 24 Nov 2026 09:06:32 +0000,
-Justin He <Justin.He@arm.com> wrote:
-> 
-> 
-> 
-> > -----Original Message-----
-> [...]
-> > On Mon, 23 Nov 2026 15:09:15 +0000,
-> > Jia He <justin.he@arm.com> wrote:
-> > >
-> > > KVM_PRE_FAULT_MEMORY calls vcpu_load() as soon as
-> > KVM_ARM_VCPU_INIT has
-> > > completed. On arm64, however, kvm->arch.sysreg_masks, the trap
-> > > configuration, vncr_tlb and nested vGIC state are only set up on the
-> > > first KVM_RUN in kvm_arch_vcpu_run_pid_change().
-> > 
-> > I think I'm going to queue a patch disabling prefaulting immediately,
-> > and then we can fix this crap.
-> 
-> I can still reproduce the same vncr_tlb NULL dereference with prefaulting
-> disabled. On kvmarm/fixes, commit 5651590be08a ("KVM: arm64: Load the vcpu
-> in KVM_SET_VCPU_EVENTS") added a vcpu_load() call to KVM_SET_VCPU_EVENTS.
-> A single KVM_SET_VCPU_EVENTS with an all-zero struct kvm_vcpu_events,
-> issued before the first KVM_RUN, is enough to trigger it.
-> For v2, I'll build on your patch and use vcpu_has_run_once() to gate the
-> arch load/put paths for both ioctls.
+Hi Daolong,
 
-Ah, you spotted that one already. I should have checked the full
-thread before replying...
+Thanks for the patch.
 
-	M.
+Reviewed-by: Alex Markuze <amarkuze@redhat.com>
 
 -- 
-Without deviation from the norm, progress is not possible.
+Alex Markuze
+
