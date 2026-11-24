@@ -1,66 +1,66 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.9
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795557213;
-	b=RJdHY7OHLcYVMU72rM1n5TTHwZbv/PwaY1hWifuHkCjvZA18bzOPu1G1tTSWhkEvBdVC
-	 X6Sdk4FdiXDDVnOuwk+OXmTDsFdIIncWaemwMloEz8JFYY5mCxbqYYOxao8v0HoPMGfku
-	 xqXcX4f18ZDBjIDJ8EKuRMy7W2Ad1HXv8nADe7AIWjdBBMH+y4uU96h7c9HZ/d4cUF7OY
-	 i/DlRaD6Xqe7iGk4SqVFc7chhlYyLwAuxou9D8To7zFw5ocEk6ShAvibCDpa8ANT/3pc/
-	 mZjol0rDNjBOmCtY0hpzxxbHE8BGzHBRCRaENOpL3fmmnpYpCY2goGPRxLkkimlWbMA==
+	t=1795557210;
+	b=viL7xaCkIukHkI3zuCT4+wwXsKJcrVQ9egnqL3OXxFQCHeUW+Zfd75HAeLnOgnqlG9jW
+	 UrM2QTG1mzRzgohSYYiNuDi1MELav2BVdaGqT8JLxoIFvwxvd4KYJSaEfGE6fP1zdSqmk
+	 k7tm40npJd9n900JVi+LCSuio4M+G3LrO/n/xusec7P5c0TCUQngHKsbHsFgilSzSmBYz
+	 7B1zhgyhYGXpdN45cCNBsEYcNHF2etfNjgqHufwbKlVShL1dNGPiIYXEp6mlRlicrptIz
+	 X3hxKAMwiwrSqyvCr/0IsX5eRFczNCrRUPj/bxG/jdxNioLV5LbKwfDKap7JVoZF+tg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795557213;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795557210;
 	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
 	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
 	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=eFi/MCHFV/iGEqwhrZ93u4CFOTXFTwBlyg8ehkDYwO4=;
-	b=BnDtmu9T4rY7fJxrrewZOitDua/aFzEbd60BmTGCqv+fxn2bydtjOfmq/dFEcVM43/fo
-	 qJyTKFTwi9C9k9lDGmijcnOPf7VPIm7WQGTcKdW140eiLUplgde2H5lobDKRK2rtIsAJk
-	 fo0vxg8XHJE3rX6uUx2ihKkwSDS2VKpQ+h9UnJ0FjosBP0abPnQ0p0rJwDS2G8P78DBkt
-	 PyN2cOg09ktR9e6mRlF1t/xP060oVqfuqAVSAEI6OY8PYWmHNZJviPGIMkMeYIMhvlbLb
-	 m3Xz/E71zr10Jh908/yJ689jjU2Z4w0MyDSfwoVKxfERmTEXlk7/SapKnC9GcJkTSrQ==
+	bh=0Nk2x3r1jR/s7mP470s13lG9JN9QWTS5IipzGrQzB5s=;
+	b=JwgzFTylxW8lu2bdpfyxqBOoVPYSVZcng6+5c4JUCw314RZFW36F+xw+aPzrqlMEVHRJ
+	 UCzihs7RLC6nwEMU4eAzA0tu3ZITtUVSaDHF8s+sylvQBLaPamOq6amrWZ2GKTf3tCEvh
+	 IbOebk9S5c2DjH+sOEVHTCQ+PydkeJSDf9fYWAlcFJmnvoo/+xhRUUFY5/CqeJucenxYL
+	 uWMGiRUfbp81h68V1AQ49VodgZCYX/UiEo5u7SVfI7kdyYjtiteU41lIepDPwfF3cj6Gg
+	 iIgVxz3+duBvr4bmk2gyt9mB7hSyxZrh95hdQqh/4RphLTS7C2S1cgM7KaKALYZ3dTQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=intel.com;
 	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=RFsqs4Oh;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Rr1DeZzG;
 	arc=none smtp.remote-ip=192.198.163.9
 Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.9])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3918960A383D;
-	Tue, 24 Nov 2026 21:53:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3918960A383D
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EBADF60A263D;
+	Tue, 24 Nov 2026 21:53:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EBADF60A263D
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=RFsqs4Oh
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Rr1DeZzG
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795557212; x=1827093212;
+  t=1795557210; x=1827093210;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=/+ZSyOWAz/BtXstavY7FHTBo6Fnj6JVhip7iyipZZAg=;
-  b=RFsqs4Ohku74Aanwf9erO5l3foviz7p3K01J7WVFRo8srQLM6UOCfxLN
-   Pnvjc0CfC6BfL6y7bXzXi0qd7xLZFjlUUYK+7OC2cd7QJ3H5moChQ1nHL
-   Xw4smxwtp6lT239372QY8C4wlvl5V0NdCTfYRY6gkgdTIBIiRMwSxG5Ud
-   FvY/4eAZ7mxL7FI102th0D8xljQ1TvU5992rXmratBifn4GPRt3DuClko
-   23KsF2+2I50j60152kuS5fyF9Y4bM09tvSAD/9Hn9AaWcT05tWxivUPyG
-   k4xD2o1HuPIxBqCX1lfxziYJ6G2Pr9IVFxDrYibrptH+NjJUz4TIzjcTK
+  bh=aBEYUfLsJKxWZX9MXk82xLxJhn7lEfFUXCe5ZT9YYMM=;
+  b=Rr1DeZzGWMhi54fcdGdWCjGwDZKXL9UNKc7AH3yMn+hpyimSHD2BdIUX
+   GUrxFv+iRe/uKcg5LYqLiMb5smDuGF6r4R08I+zieP4dN/43YbhnFIIMc
+   SEdoF0/pejaH00rvJsT7KxEo+LJhfmi2lPMNhu74F9m48dabW7ETMG/uy
+   9WYADqpilshXT0bPNGSLy9pfBE+QZmOnY2uRgu8XJveZKcOtPEPhO3WfQ
+   TbNBv9UM3sThq5zc4ZmPIjY3sfxu+g44CF3te5gXCnbApI/+AJ9HMXzaZ
+   AboDnZHtU+H/ATY1C21c91loRLbkl3Bwiy63DRGlt2mRl8NcRI2m/5+2L
    g==;
-X-CSE-ConnectionGUID: Fgta1JTbS4ySkAH72ieI/g==
-X-CSE-MsgGUID: 1ankINOsRFOOxuQWW0aXKQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11976"; a="4306076"
+X-CSE-ConnectionGUID: 1xpWGBO3RRCIc2pEprpkSA==
+X-CSE-MsgGUID: quE+cn+TR2KZcJRtfFLypA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11976"; a="4306050"
 X-IronPort-AV: E=Sophos;i="6.27,231,1787036400"; 
-   d="scan'208";a="4306076"
+   d="scan'208";a="4306050"
 Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 13:53:31 -0800
-X-CSE-ConnectionGUID: dEKhub/UTlKh/0eC4tVQgA==
-X-CSE-MsgGUID: XnYnzxnVTqWi7vp+hbveeg==
+  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 13:53:29 -0800
+X-CSE-ConnectionGUID: lHkwMRxfRmaX1hl6TmWm4A==
+X-CSE-MsgGUID: GqI5IQqdQY6komanlupWHw==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.27,231,1787036400"; 
-   d="scan'208";a="12271959"
+   d="scan'208";a="12271936"
 Received: from 9cc2c43eec6b.jf.intel.com ([10.54.77.29])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 13:53:30 -0800
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 13:53:28 -0800
 From: Zide Chen <zide.chen@intel.com>
 To: Sean Christopherson <seanjc@google.com>,
 	Paolo Bonzini <pbonzini@redhat.com>,
@@ -77,9 +77,9 @@ Cc: kvm@vger.kernel.org,
 	Shukla Manali <Manali.Shukla@amd.com>,
 	Dapeng Mi <dapeng1.mi@linux.intel.com>,
 	Xudong Hao <xudong.hao@intel.com>
-Subject: [PATCH v10 15/18] KVM: x86/pmu: Support RDPMC Metrics Clear Mode
-Date: Tue, 24 Nov 2026 14:38:58 -0700
-Message-ID: <20261124213901.120572-16-zide.chen@intel.com>
+Subject: [PATCH v10 11/18] KVM: x86/pmu: Support Intel fixed counter 3 on mediated vPMU
+Date: Tue, 24 Nov 2026 14:38:54 -0700
+Message-ID: <20261124213901.120572-12-zide.chen@intel.com>
 X-Mailer: git-send-email 2.56.1
 In-Reply-To: <20261124213901.120572-1-zide.chen@intel.com>
 References: <20261124213901.120572-1-zide.chen@intel.com>
@@ -94,113 +94,145 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Add PERF_CAP_RDPMC_METRICS_CLEAR (IA32_PERF_CAPABILITIES bit 19)
-support. When set, and IA32_FIXED_CTR_CTRL.METRICS_CLEAR_EN (bit 14)
-is also set, RDPMC of PERF_METRICS clears both PERF_METRICS and fixed
-counter 3 (SLOTS) after the read.
+From: Dapeng Mi <dapeng1.mi@linux.intel.com>
 
-Advertise the capability to guests only when the mediated vPMU is
-enabled and the host reports it, and allow the guest to set
-METRICS_CLEAR_EN for fixed counter 3 when PERF_METRICS,
-RDPMC_METRICS_CLEAR, and fixed counter 3 are all exposed to the guest.
+Starting with Ice Lake, Intel introduced fixed counter 3, which counts
+TOPDOWN.SLOTS - the number of available slots for an unhalted logical
+processor.  It serves as the denominator for top-level metrics in the
+Topdown Microarchitecture Analysis method.
 
-For the mediated vPMU, METRICS_CLEAR_EN takes effect natively via
-passthrough. However, RDPMC can still be intercepted for unrelated
-reasons, so also emulate the clear-on-read behavior for consistency.
+Emulating this counter on legacy vPMU would require introducing a new
+generic perf encoding for the Intel-specific TOPDOWN.SLOTS event in
+order to call perf_get_hw_event_config().  This is undesirable as it
+would pollute the generic perf event encoding.
 
+Moreover, KVM does not intend to emulate IA32_PERF_METRICS in the
+legacy vPMU model, and without IA32_PERF_METRICS, emulating this
+counter has little practical value.  Therefore, expose fixed counter
+3 to guests only when mediated vPMU is enabled.
+
+On PMU v5+, clamp num_counters_fixed to the number of contiguous fixed
+counters enumerated in CPUID.0xA:EDX[4:0] to prevent exposing non-
+contiguous counter holes that KVM cannot emulate.
+
+Signed-off-by: Dapeng Mi <dapeng1.mi@linux.intel.com>
+Co-developed-by: Zide Chen <zide.chen@intel.com>
 Signed-off-by: Zide Chen <zide.chen@intel.com>
+Reviewed-by: Jim Mattson <jmattson@google.com>
 ---
 v10:
-- Gate METRICS_CLEAR_EN unmasking on both perf_metrics and FC3.
-- Check for valid fixed counter 3 PMC before clearing it in
-  intel_emulate_rdpmc().
-- Drop check in vmx_set_msr() requiring PERF_CAP_PERF_METRICS. (Jim)
-- Split event filter mask fix into a separate patch ("KVM: x86/pmu: Mask
-  only OS/USR bits when filtering fixed counters").
-v9: new patch.
+- Rename INTEL_FIXED_SLOTS_IDX to KVM_FIXED_SLOTS_IDX to match naming
+  convention in pmu.h.
+- Add explanatory comment for non-mediated PMU fixed counter capping.
 ---
- arch/x86/include/asm/msr-index.h |  1 +
- arch/x86/kvm/vmx/pmu_intel.c     | 26 ++++++++++++++++++++++++++
- arch/x86/kvm/vmx/vmx.c           |  3 ++-
- 3 files changed, 29 insertions(+), 1 deletion(-)
+ arch/x86/include/asm/kvm_host.h |  2 +-
+ arch/x86/kvm/msrs.c             |  4 ++--
+ arch/x86/kvm/pmu.c              | 23 ++++++++++++++++++++++-
+ arch/x86/kvm/pmu.h              |  1 +
+ 4 files changed, 26 insertions(+), 4 deletions(-)
 
-diff --git a/arch/x86/include/asm/msr-index.h b/arch/x86/include/asm/msr-index.h
-index 8fad944197fb..5851edcdda05 100644
---- a/arch/x86/include/asm/msr-index.h
-+++ b/arch/x86/include/asm/msr-index.h
-@@ -333,6 +333,7 @@
- #define PERF_CAP_PEBS_BASELINE		BIT_ULL(14)
- #define PERF_CAP_PERF_METRICS		BIT_ULL(15)
- #define PERF_CAP_PEBS_TIMING_INFO	BIT_ULL(17)
-+#define PERF_CAP_RDPMC_METRICS_CLEAR	BIT_ULL(19)
- #define PERF_CAP_PEBS_MASK		(PERF_CAP_PEBS_TRAP | PERF_CAP_ARCH_REG | \
- 					 PERF_CAP_PEBS_FORMAT | PERF_CAP_PEBS_BASELINE | \
- 					 PERF_CAP_PEBS_TIMING_INFO)
-diff --git a/arch/x86/kvm/vmx/pmu_intel.c b/arch/x86/kvm/vmx/pmu_intel.c
-index da6dae261514..0861c65bee95 100644
---- a/arch/x86/kvm/vmx/pmu_intel.c
-+++ b/arch/x86/kvm/vmx/pmu_intel.c
-@@ -86,6 +86,12 @@ static void reprogram_fixed_counters(struct kvm_pmu *pmu, u64 data)
- 	}
- }
+diff --git a/arch/x86/include/asm/kvm_host.h b/arch/x86/include/asm/kvm_host.h
+index e2eef7057bd3..aad835338759 100644
+--- a/arch/x86/include/asm/kvm_host.h
++++ b/arch/x86/include/asm/kvm_host.h
+@@ -563,7 +563,7 @@ struct kvm_pmc {
+ #define KVM_MAX_NR_GP_COUNTERS		KVM_MAX(KVM_MAX_NR_INTEL_GP_COUNTERS, \
+ 						KVM_MAX_NR_AMD_GP_COUNTERS)
  
-+static bool intel_pmu_metrics_clear_enabled(struct kvm_pmu *pmu)
-+{
-+	return fixed_ctrl_field(pmu->fixed_ctr_ctrl, KVM_FIXED_SLOTS_IDX) &
-+	       INTEL_FIXED_3_METRICS_CLEAR;
-+}
-+
- static int intel_emulate_rdpmc(struct kvm_vcpu *vcpu, unsigned int idx,
- 			       u64 *data)
+-#define KVM_MAX_NR_INTEL_FIXED_COUNTERS	3
++#define KVM_MAX_NR_INTEL_FIXED_COUNTERS	4
+ #define KVM_MAX_NR_AMD_FIXED_COUNTERS	0
+ #define KVM_MAX_NR_FIXED_COUNTERS	KVM_MAX(KVM_MAX_NR_INTEL_FIXED_COUNTERS, \
+ 						KVM_MAX_NR_AMD_FIXED_COUNTERS)
+diff --git a/arch/x86/kvm/msrs.c b/arch/x86/kvm/msrs.c
+index e91650af44c2..1ccea561f2e0 100644
+--- a/arch/x86/kvm/msrs.c
++++ b/arch/x86/kvm/msrs.c
+@@ -217,7 +217,7 @@ static const u32 msrs_to_save_base[] = {
+ 
+ static const u32 msrs_to_save_pmu[] = {
+ 	MSR_ARCH_PERFMON_FIXED_CTR0, MSR_ARCH_PERFMON_FIXED_CTR1,
+-	MSR_ARCH_PERFMON_FIXED_CTR0 + 2,
++	MSR_ARCH_PERFMON_FIXED_CTR2, MSR_ARCH_PERFMON_FIXED_CTR3,
+ 	MSR_CORE_PERF_FIXED_CTR_CTRL, MSR_CORE_PERF_GLOBAL_STATUS,
+ 	MSR_CORE_PERF_GLOBAL_CTRL,
+ 	MSR_IA32_PEBS_ENABLE, MSR_IA32_DS_AREA, MSR_PEBS_DATA_CFG,
+@@ -2682,7 +2682,7 @@ void kvm_init_msr_lists(void)
  {
-@@ -140,6 +146,20 @@ static int intel_emulate_rdpmc(struct kvm_vcpu *vcpu, unsigned int idx,
- 			return 1;
+ 	unsigned i;
  
- 		*data = pmu->perf_metrics;
-+
-+		/*
-+		 * Per the SDM, RDPMC of PERF_METRICS clears both PERF_METRICS
-+		 * and the SLOTS fixed counter when Metrics Clear Mode is
-+		 * enabled via INTEL_FIXED_3_METRICS_CLEAR in FIXED_CTR_CTRL.
-+		 */
-+		if (intel_pmu_metrics_clear_enabled(pmu)) {
-+			pmc = kvm_pmc_idx_to_pmc(pmu, INTEL_PMC_IDX_FIXED_SLOTS);
-+
-+			pmu->perf_metrics = 0;
-+			if (pmc)
-+				pmc_write_counter(pmc, 0);
-+		}
-+
- 		return 0;
- 	default:
- 		return 1;
-@@ -552,6 +572,12 @@ static void intel_pmu_refresh_perf_metrics(struct kvm_vcpu *vcpu)
- 			~GENMASK_ULL(kvm_pmu_cap.num_topdown_events *
- 				     INTEL_TD_METRIC_FIELD_BITS - 1, 0);
- 	}
-+
-+	if (kvm_vcpu_get_perf_caps(vcpu) & PERF_CAP_RDPMC_METRICS_CLEAR) {
-+		pmu->fixed_ctr_ctrl_rsvd &=
-+			~intel_fixed_bits_by_idx(KVM_FIXED_SLOTS_IDX,
-+						 INTEL_FIXED_3_METRICS_CLEAR);
+-	BUILD_BUG_ON_MSG(KVM_MAX_NR_FIXED_COUNTERS != 3,
++	BUILD_BUG_ON_MSG(KVM_MAX_NR_FIXED_COUNTERS != 4,
+ 			 "Please update the fixed PMCs in msrs_to_save_pmu[]");
+ 
+ 	num_msrs_to_save = 0;
+diff --git a/arch/x86/kvm/pmu.c b/arch/x86/kvm/pmu.c
+index 4574cac5f148..45721c6fa92b 100644
+--- a/arch/x86/kvm/pmu.c
++++ b/arch/x86/kvm/pmu.c
+@@ -19,6 +19,7 @@
+ #include <linux/moduleparam.h>
+ #include <asm/perf_event.h>
+ #include <asm/cpu_device_id.h>
++#include <asm/cpuid/api.h>
+ #include "x86.h"
+ #include "cpuid.h"
+ #include "lapic.h"
+@@ -99,7 +100,8 @@ static const struct x86_cpu_id vmx_pebs_pdist_cpu[] = {
+  *        all perf counters (both gp and fixed). The mapping relationship
+  *        between pmc and perf counters is as the following:
+  *        * Intel: [0 .. KVM_MAX_NR_INTEL_GP_COUNTERS-1] <=> gp counters
+- *                 [KVM_FIXED_PMC_BASE_IDX .. KVM_FIXED_PMC_BASE_IDX + 2] <=> fixed
++ *                 [KVM_FIXED_PMC_BASE_IDX .. KVM_FIXED_PMC_BASE_IDX +
++ *                  KVM_MAX_NR_INTEL_FIXED_COUNTERS - 1] <=> fixed
+  *        * AMD:   [0 .. AMD64_NUM_COUNTERS-1] and, for families 15H
+  *          and later, [0 .. AMD64_NUM_COUNTERS_CORE-1] <=> gp counters
+  */
+@@ -134,6 +136,8 @@ void kvm_init_pmu_capability(struct kvm_pmu_ops *pmu_ops)
+ {
+ 	bool is_intel = boot_cpu_data.x86_vendor == X86_VENDOR_INTEL;
+ 	int min_nr_gp_ctrs = pmu_ops->MIN_NR_GP_COUNTERS;
++	union cpuid10_edx edx;
++	u32 eax, ebx, ecx;
+ 
+ 	/*
+ 	 * Hybrid PMUs don't play nice with virtualization without careful
+@@ -181,6 +185,23 @@ void kvm_init_pmu_capability(struct kvm_pmu_ops *pmu_ops)
+ 	kvm_pmu_cap.num_counters_fixed = min(kvm_pmu_cap.num_counters_fixed,
+ 					     KVM_MAX_NR_FIXED_COUNTERS);
+ 
++	/*
++	 * Currently, KVM doesn't support non-contiguous fixed counters; make
++	 * sure only contiguous ones are retained in kvm_pmu_cap.
++	 */
++	if (kvm_host_pmu.version >= 5) {
++		cpuid(0xa, &eax, &ebx, &ecx, &edx.full);
++		if (kvm_pmu_cap.num_counters_fixed > edx.split.num_counters_fixed)
++			kvm_pmu_cap.num_counters_fixed = edx.split.num_counters_fixed;
 +	}
- }
++
++	/*
++	 * Fixed counters >= KVM_FIXED_SLOTS_IDX (counter 3) do not map to
++	 * generic perf events and cannot be emulated without mediated PMU.
++	 */
++	if (!enable_mediated_pmu && kvm_pmu_cap.num_counters_fixed > KVM_FIXED_SLOTS_IDX)
++		kvm_pmu_cap.num_counters_fixed = KVM_FIXED_SLOTS_IDX;
++
+ 	kvm_pmu_eventsel.INSTRUCTIONS_RETIRED =
+ 		perf_get_hw_event_config(PERF_COUNT_HW_INSTRUCTIONS);
+ 	kvm_pmu_eventsel.BRANCH_INSTRUCTIONS_RETIRED =
+diff --git a/arch/x86/kvm/pmu.h b/arch/x86/kvm/pmu.h
+index ae1e6545df40..1d7cbe89fa95 100644
+--- a/arch/x86/kvm/pmu.h
++++ b/arch/x86/kvm/pmu.h
+@@ -24,6 +24,7 @@
+ #define VMWARE_BACKDOOR_PMC_APPARENT_TIME	0x10002
  
- static void intel_pmu_refresh(struct kvm_vcpu *vcpu)
-diff --git a/arch/x86/kvm/vmx/vmx.c b/arch/x86/kvm/vmx/vmx.c
-index 7441808be049..d977fc3a31d8 100644
---- a/arch/x86/kvm/vmx/vmx.c
-+++ b/arch/x86/kvm/vmx/vmx.c
-@@ -7944,7 +7944,8 @@ static __init u64 vmx_get_perf_capabilities(void)
- 	 */
- 	if (enable_mediated_pmu && kvm_pmu_cap.num_topdown_events &&
- 	    kvm_pmu_cap.num_counters_fixed > KVM_FIXED_SLOTS_IDX)
--		perf_cap |= kvm_pmu_cap.perf_capabilities & PERF_CAP_PERF_METRICS;
-+		perf_cap |= kvm_pmu_cap.perf_capabilities &
-+			    (PERF_CAP_PERF_METRICS | PERF_CAP_RDPMC_METRICS_CLEAR);
+ #define KVM_FIXED_PMC_BASE_IDX INTEL_PMC_IDX_FIXED
++#define KVM_FIXED_SLOTS_IDX    (INTEL_PMC_IDX_FIXED_SLOTS - INTEL_PMC_IDX_FIXED)
  
- 	return perf_cap;
- }
+ struct kvm_pmu_ops {
+ 	struct kvm_pmc *(*rdpmc_ecx_to_pmc)(struct kvm_vcpu *vcpu,
 -- 
 2.56.1
 
