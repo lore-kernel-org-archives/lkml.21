@@ -1,60 +1,124 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795531270;
-	b=UYLnMCGiGy8J+y2adlSqi7Afik3+xdHEv/w7r/FYPesyLu0IXSHZ0OTAEtMg0p04kCyl
-	 8TYREEOir60zq1/5fIwhubItAm1YWyInsR8GFshFgC4AGJa46BN3urbQyUScmvx8Oqrf0
-	 aO7YUIUcTaNoF7UzYN9cM9MiDldgAi7nprBZi+uRJm2Wo/VtbJbqVGPFgJHVZrxB9Cd+k
-	 SiG7jAuoNWMKIOGRDM0cqBGvbSB+uoFOV05tZbzBfX0K7yJQrvDhhnXv+LVpk21lEpuBc
-	 2XP72ibr/f8WTmnG8ZfWQC0xFV439/TMxQ0fJmci8sKxsOQCQ0N1VHXRVemv2sy979A==
+	t=1795531288;
+	b=mbf6jc0bxefTm1IpmoqShNggJOCZu5o1S0sImJuFExM/aU1q+nW2wbF7TLKULgRF/gg1
+	 0bdC8NlsLx8qWQw5lJRQFYP+1c7jnNIDjRSuDm8Sc5yqwCaOnlBLg3spp7xDOQBRuc1pu
+	 5x+D+L0JG5pqzDQXfQp78dPw7wVOvb8JzeJYY1G35Qz5/MoQc6bQ5YBsbsO4oLT57YpuU
+	 oGg5aKJrGhwY6htH08zIFauD4w55ldv8I5VDIUYLKEGOx8SxhycP+VoUFBsw3r5Hu/vz1
+	 5vVOucRa78OSScJ5z/WEXtNtruKhhjmWLD1FgtupjlIw/YQ9UdstQ/r4C01Mh/WgOnA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795531270;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=q4aixxSA4YbX+AKyocTUx+s1rBXdCvRgd5mhuqNcLf4=;
-	b=CbHEqS+Gn+kV+kp+/5bMcE/jeWPXC1pTTl7wNxHmbTng6aysVTCEjIhkm3tI5vNppbS9
-	 +ecRkTjkq6gmdnzXQf1AtsD5RoiqSxEURO8AlIoobdQHgdcUt3y+pJxNX6P1BP3iJtEUD
-	 qG/JW623HlyIiL6Qphym8UYw3qXb7k8Lm7yzzDlVBZK85ubWxiKorCV+dz/iafJjmqSVh
-	 WZq+llokntOSasm59nnuT1vSWqCrMc94kKsvm8H1xB9X6ihrBVSB5swYv78PD9u5xB0du
-	 WgCxIH38/34+tBd50ri8Y7EIznfr5vYVT2axZeCPOvC7PzC6lFNXO7P5K21ZSnGLWHw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795531288;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:To:Cc:
+	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-Proofpoint-Spam-Info:
+	 X-Authority-Analysis:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=gMaNu0XBKBvpaweoggrsqRVklH2m30swHb0SwRHlLqU=;
+	b=DdgaHhGkH1eL8zIhcn0edRJsARRMBT6QMOArZ4Ys6CJne9dp0GK2SQsVp2q7D+ZNBWxZ
+	 4+XUI7RCo8a05/+SIdVWR41idjDlJ2qi5xrvEeRLmovLJ932hPTH/rENPvI74aUKXCm5v
+	 4XUpvnLqn78rMeOQsxv+rq3Ua+NrPiIbquhbQF2Wrq9vy5Q8JwJq+aSURvq4QpzfbkMiA
+	 TyiWyIwuIf5VY0wRQ/FI7G4wzCqRUfFUlmnmuTyzXrMoQ+XiBWvu/96f4BF7OywsHzVRt
+	 uovxZfJjXqtV8Ma6gpmI1qqywzp6pMLT0212A9S+LQQIkrCw9Uv0xPjqOeBQPuGnx9w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=h0NnDrGy;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=U3goSmAI;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=A2GEcFeQ;
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 87335606A31E;
-	Tue, 24 Nov 2026 14:41:10 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A2840606A321
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 14:41:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A2840606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=h0NnDrGy
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 27BAF1F000C0;
-	Tue, 24 Nov 2026 14:41:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795531269;
-	bh=q4aixxSA4YbX+AKyocTUx+s1rBXdCvRgd5mhuqNcLf4=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=h0NnDrGyCWmdpe+8fZjohb5qyZj9Ta5CecJ4+LBfz7rH2vlFnB7IlpQosDH14XyE9
-	 IMtsi20dEaEhEst/d6Pfm7p63Vddhxr0ZnWPfoiJfS6iOHmPQV0tg6Yxi3he28oYn5
-	 bs6VtNWo27+jYXN/VifsGmf9pzl90O2zc4INw2tutIWxQ5+FMMyY/2SApVEEg7tgKZ
-	 Q+X4bDbHtimFiiJadVW+ZWVrx+VxfW6f/ww5zEbxleehpuxpxVl1pVnDQi8Ntpchkj
-	 ud/hp5PGJl1jrjiFfOOU+DcbkbN7uUOezhC7kEvkZL9pTuZ3esn9t5Ug449hNCA1nV
-	 dWFwcXbVnkJAg==
-Subject: Re: [PATCH net] can: j1939: do not pass a NULL session skb to the
- socket layer
-From: netdev-bot+sashiko@kernel.org
-To: piyus@iiitd.ac.in
-Cc: robin@protonic.nl, o.rempel@pengutronix.de, socketcan@hartkopp.net,
- mkl@pengutronix.de, linux-can@vger.kernel.org, netdev@vger.kernel.org,
- kernel@pengutronix.de, linux-kernel@vger.kernel.org, kapil@presceralabs.ai,
- stable@vger.kernel.org, kuba@kernel.org
-Date: Tue, 24 Nov 2026 14:41:08 +0000
-Message-ID: <179553126874.3135.14817947057284289051@kernel.org>
-In-Reply-To: <20261123143625.4021586-2-piyus@iiitd.ac.in>
-References: <20261123143625.4021586-2-piyus@iiitd.ac.in>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=U3goSmAI;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=A2GEcFeQ
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AOEcQ7E3171249
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 14:41:26 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	gMaNu0XBKBvpaweoggrsqRVklH2m30swHb0SwRHlLqU=; b=U3goSmAI+KeeYxCJ
+	n4yMkRsXUQG4j/6OI//Tl7ryrJI5nb342/sMxyjrZSCwvx4afORm4NgrNXAZzks/
+	RV1Y3i0OtDcEqu8dUC2Q3U2sm7dUkCuU7gTVLfPt8RzrNL/tLNUzSxuROHZm2UVA
+	1lQgHyUShBPgj56i2d8/W4vVKCqkodttNy28NpxmAMkd3ZOFVzl26Z4sjuPlaSH7
+	ZdItJo/xOVODKoLjCFGB6TqVhGzCYtX7P2XGzNHqOBJhhk3ToBisHUQd08qY6mKP
+	sZ+p71cVss8bm0gSNv6tzQSD+ZLoG6aFJI9d0GsCh/E9xAttlyC3qUvU8PGQGntn
+	FbQ1UQ==
+Received: from mail-yw1-f197.google.com (mail-yw1-f197.google.com [209.85.128.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j5ad7rpcg-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 14:41:26 +0000 (GMT)
+Received: by mail-yw1-f197.google.com with SMTP id 00721157ae682-869553205a7so62427207b3.1
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 06:41:26 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795531286; x=1796136086; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=gMaNu0XBKBvpaweoggrsqRVklH2m30swHb0SwRHlLqU=;
+        b=A2GEcFeQIajoLnXrKkaSScnWlLkleXW/JTC6BMdxmek9ICYC5VsZcAVNfYwUrETBwx
+         OxEuPnuDidysbPzE8D8oe0cnQ7HCg1ZUnxQThYg5H9MFikJTtUKHpn7lArSnzLUj0lCZ
+         owIBHAB4fqDobn/SN0PiG5AQdSauEBe2RFy9MW7UTKNr538u4zFSNu/OwhJjDQvGRTJS
+         c1sjUIAbP3NtnkGb6FS6vasOkd8N2pjEPMkSPLku2py7boP+TLmpUVhZKQClHAvEH4Qc
+         L7GPGXAvW6QJm4+ZKsgiXp+eHK7a9I/wVql4fSY8baxwAB8T78wv+c1jVGGzfwZ0Nl7l
+         00Gw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795531286; x=1796136086;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=gMaNu0XBKBvpaweoggrsqRVklH2m30swHb0SwRHlLqU=;
+        b=m+dISGLVZ7VtXxvzKOFT+6BbmgtqzpMCUpfH5L2zchIThA/ZwlsZkSrtxxkX2LpswH
+         AGjIGiB2xEACIqdtvG9439Gz0NeQ2AktQrH+uNexoryzH+vyAJSSxXAYZgbA/DqopTKS
+         UD9mF9M2cXPmuBpBYeCd1im9nS2EovbHTsohCe+NFsrt87Z9Y3jwUW0t0OaWVV/Sli5K
+         Wyjm3/kpulr+mzzlf8BH7KP/8eUFrehLsBNZ9fkNUAGn8cKWAbUA5vSJZjoEUM9cFhQE
+         LqouGn5Y1XL0v/IorTCnqxKaFh4TeWu/OjwALC39Bw3iapXg+nMF/CuMRGvV6KHfE6vi
+         vVTg==
+X-Forwarded-Encrypted: i=1; AL+hErGy5kxSioXCj6iO0xi4ZuTzg2Xb73uvCVuCTqEqTHenPWKeCSZRt2MQESW2YELiVtxCm2ElIOJ0BQuWcEk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9nGhvMb+k3x6+fr8B3PlOVFWULnD6oh5hpuO2eNkbTpcxv1Uqh
+	KwM7jOQXy9BpQx1ubrbpbrBkcksqihu2NKwSEKOdJq7Q2/8C1Q7yg2JT6eRQRZoEboC+Xb7WAp/
+	h4tSRh4U8BxC/sjgMpBzf+aW8CsmyoffDq5gZ88rrZ8btcVwLFXOuhfr2YnMDiGAUGDY=
+X-Gm-Gg: AZFdTZelnxfIhAaZBrODWinT6psag2/F43xz2GeapjR0c7hS7rHFYqalSnB+Ter3/vM
+	k0ATJqcyLeeZKyyAQuHlnW8ryAovvWQ0ke5S8X/8rmr6Yf3NHDBBIY04w34Y4CEtzw36M++yksw
+	1UK44MjFBZE/AQ5BUQtQOPoIMNeqv+Hx2BjbwHHE9rBL6T8//qmlYnA2/AwnBTI4y33FSo4BhfE
+	6S9yOrUQp7wiv/SDleQzJfabjjwFtXhPhMYzJXn6eJ5uum/254N8CT9ocKqbQ4lIyMZxgsHX7ng
+	J8cGXng1+sDTgyW/bor/Gl7eEaTKe3mhL4N4ycXgRlZSsoOy+0qHrACUsUx+8QF3W7PTdea7C63
+	ONPWL8rqmezFZl/t1cszE1AMjcKs6hnQtf39+M1MtkyRINKLr8lfBahaTzOkSfdJ6M2MGb3myUj
+	GQtLIFlrMwDb6zDa+df86BsrTz1yZLGyhIrJnWaLAgZjjhiRnbgr5Ou9Sto9UGXw==
+X-Received: by 2002:a05:690c:6887:b0:8b4:f3a1:aa65 with SMTP id 00721157ae682-8b52043ee35mr56155867b3.23.1795531285975;
+        Tue, 24 Nov 2026 06:41:25 -0800 (PST)
+X-Received: by 2002:a05:690c:6887:b0:8b4:f3a1:aa65 with SMTP id 00721157ae682-8b52043ee35mr56155657b3.23.1795531285430;
+        Tue, 24 Nov 2026 06:41:25 -0800 (PST)
+Received: from brgl-qcom.home (2a01cb1d00dc7e0089167b9b97a26c96.ipv6.abo.wanadoo.fr. [2a01:cb1d:dc:7e00:8916:7b9b:97a2:6c96])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab65cb4341sm28701571f8f.4.2026.11.24.06.41.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 06:41:24 -0800 (PST)
+From: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+To: Bartosz Golaszewski <brgl@kernel.org>, Linus Walleij <linusw@kernel.org>,
+        Adrian Ambrozewicz <aambrozewicz@nvidia.com>
+Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+        Kent Gibson <warthog618@gmail.com>,
+        "Paul E. McKenney" <paulmck@kernel.org>,
+        Herve Codina <herve.codina@bootlin.com>,
+        Jia Jia <physicalmtea@gmail.com>,
+        Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+        linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v8 0/8] gpiolib: fix chip removal with lines still requested from user space
+Date: Tue, 24 Nov 2026 15:41:22 +0100
+Message-ID: <179553128045.30278.93325260808484684.b4-ty@oss.qualcomm.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261124-gpiolib-chip-removal-v8-0-aambrozewicz@nvidia.com>
+References: <20261124-gpiolib-chip-removal-v8-0-aambrozewicz@nvidia.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,151 +128,67 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI0MDA1NyBTYWx0ZWRfX7SzjEXrV2a8M
+ FkDV89Z8kWh49PHBt78emRh54wyG5gbn7IfhRP43PzDNF3w9FSSUesDFMl3fFXvwajGzJ7IQ5vG
+ mlZ09XaR+QYJsPuQk2webbcA5lqeBUA=
+X-Authority-Analysis: v=2.4 cv=cI51IVeN c=1 sm=1 tr=0 ts=6b05a216 cx=c_pps
+ a=0mLRTIufkjop4KoA/9S1MA==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
+ a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22 a=VwQbUJbxAAAA:8
+ a=EUspDBNiAAAA:8 a=NrOanRE69mB2D77-yfwA:9 a=QEXdDO2ut3YA:10
+ a=WgItmB6HBUc_1uVUp3mg:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI0MDA1NyBTYWx0ZWRfX+YL7GtcQ/1ta
+ xsV0/p87qrWCzMuK0peNi1iBx3cB0bhaxbVnhCsM1wbeFnL6FOIe+NvBbTgWTB2J2KIoqM3XepJ
+ klyyWyyGiehRu3Ny1sQyBuyM3ddgUWtIQc91urPvbHQ03kt+KbvZmOxMlFHxE09v5wCpOkpite8
+ RgW015NP8q3rb7gIPlGk+uFE2M9XznywUHggDisxz8N4PbfQtGEokIFxQwE8wtQf97GCxNEOaAD
+ JClm5ByBffhJJB4AfBvyNKaYwA6iJDANwZmeu8Ztnyn14Y1P3lJ6WsZbP3Sc/vxKR3rTsmifFgd
+ GZotYYFy5xmX+o7I8QozUG+E6btopvW2Y1SY63YrxkA6PQujcYqPh7yrnz7O+l43sjrLQkRIfVL
+ p9Cz3gJ/zskEyVSLsZubXWUYKZOdQS4nDM+cn0oHlouqyJ9wXLUuVWB8IFcziR66hDwoGKalchh
+ BnDzdpHpxmyVIFr1pXg==
+X-Proofpoint-ORIG-GUID: 6v6NDo8QIQN_66BQRPD3H67Fp7s8urZi
+X-Proofpoint-GUID: 6v6NDo8QIQN_66BQRPD3H67Fp7s8urZi
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-24_03,2026-11-23_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 lowpriorityscore=0 bulkscore=0 suspectscore=0
+ clxscore=1015 impostorscore=0 spamscore=0 adultscore=0 malwarescore=0
+ phishscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
+ definitions=main-2611240057
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 1
+On Tue, 24 Nov 2026 11:20:31 +0200, Adrian Ambrozewicz wrote:
+> Removing a GPIO chip while user space holds a line request, as when a
+> hot-pluggable GPIO controller goes away, leaks the line labels (patch 2)
+> and IRQ names (patch 5), frees IRQs twice (patches 3, 7 and 8) and lets
+> a blocked read() stall the removal (patch 4). Patch 1 makes
+> gpiodev_release() wait for pending label frees; without it,
+> cleanup_srcu_struct() can warn, more often with patch 2.
+> 
+> [...]
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Applied, thanks!
 
-- [Medium] The commit message gives the wrong cause for the NULL, and the
-  real cause is not fixed.
-- [Low] When se_skb is NULL, the new branch in j1939_session_completed()
-  still ends the receive session as a success.
+[1/8] gpiolib: wait for pending label frees before cleaning up desc_srcu
+      https://git.kernel.org/brgl/c/803a7711476580a9ec74dceab90bb3f8ff1b90cd
+[2/8] gpiolib: free the label of lines released after their chip was removed
+      https://git.kernel.org/brgl/c/1e63be74fad7990efd58e3221de9a060f2d6f53b
+[3/8] gpiolib: cdev: do not free line IRQs again after the chip is removed
+      https://git.kernel.org/brgl/c/e275c654269a4372b93b67243135cb2e78ba2afb
+[4/8] gpiolib: cdev: don't sleep in the SRCU read section in read()
+      https://git.kernel.org/brgl/c/1641cbc799d04da692c01d07abc5cae269b62504
+[5/8] gpiolib: cdev: don't leak the IRQ name when the chip is removed
+      https://git.kernel.org/brgl/c/de364634c5a2aa50505c41cea0d27e2209d3a058
+[6/8] gpiolib: cdev: don't report a failed line read as an edge
+      https://git.kernel.org/brgl/c/6a59150a97aa414efca1acf77800647ce9921735
+[7/8] gpiolib: let the character device free its IRQs first on chip removal
+      https://git.kernel.org/brgl/c/8fe46885e513cbf6127694f12a39f3e4ff4a6ea2
+[8/8] gpiolib: remove the shared GPIO proxies before freeing the remaining IRQs
+      https://git.kernel.org/brgl/c/88f18f606f18796851674af74c286e55159618ed
 
---
-
-can: j1939: do not pass a NULL session skb to the socket layer
-
-This patch adds a NULL check on the skb returned by
-j1939_session_skb_get() in j1939_session_completed(). A receive session
-that completes without a matching skb no longer passes NULL to
-j1939_sk_recv(). The session is still deactivated as before.
-
-> j1939_session_skb_get() returns the skb covering the session's current
-> offset, or NULL when the queue holds none, and j1939_sk_recv_one() then
-> dereferences it on its first statement:
-
-[ ... ]
-
-> A peer reaches this by completing a transport session that has no data
-> queued - an EOMA for a connection whose data packets never arrived:
-
-[ ... ]
-
-> Test the skb before using it, as the two other callers of the getter in
-> this file already do (j1939_session_tx_dat() returns -ENOBUFS, and
-> j1939_xtp_rx_dat_one() warns and cancels the session).
-
-[Severity: Medium]
-Is this the actual trigger?  For a receive session, the queue does not
-seem able to be empty while the session is alive.
-
-j1939_xtp_rx_rts_session_new()->j1939_session_fresh_new()->
-j1939_session_new() queues one skb:
-
-net/can/j1939/transport.c:j1939_session_new() {
-    ...
-	skb_queue_head_init(&session->skb_queue);
-	skb_queue_tail(&session->skb_queue, skb_get(skb));
-    ...
-}
-
-j1939_session_fresh_new() then sizes that skb to the full message:
-
-	/* alloc data area */
-	skb_put_zero(skb, size);
-
-Only j1939_session_skb_drop_old() and j1939_session_destroy() remove skbs
-from the queue. drop_old() returns early when fewer than two are queued.
-
-j1939_session_skb_get() looks up the skb by the DPO window, not by
-offset 0:
-
-	offset_start = session->pkt.dpo * 7;
-	return j1939_session_skb_get_by_offset(session, offset_start);
-
-So for a receive session it returns NULL only when pkt.dpo * 7 is at or
-past total_message_size.
-
-For a receive session, pkt.dpo is only written in j1939_xtp_rx_dpo_one().
-That function stores the 24-bit value from the peer without checking it
-against pkt.total:
-
-	/* transmitted without problems */
-	session->pkt.dpo = j1939_etp_ctl_to_packet(skb->data);
-
-j1939_xtp_rx_dat_one() does reject packet > session->pkt.total before it
-does its lookup.
-
-That means the splat needs an ETP RTS, then an ETP DPO with an
-out-of-range offset, then an EOMA. An EOMA alone with dpo == 0 finds the
-zero-filled skb. It then delivers zero or partly filled data to the
-matching sockets, both before and after this patch.
-
-Could the commit message describe the DPO trigger instead?
-
-Would it also make sense to fix the cause? j1939_xtp_rx_dpo_one() could
-reject or cancel the session when the DPO is >= pkt.total. Another option
-is to fetch the RX message at offset 0 in j1939_session_completed(). The
-NULL check would then stay as a second guard.
-
-One more point: j1939_session_tx_dat() and j1939_xtp_rx_dat_one() both
-call j1939_session_skb_get_by_offset(), not j1939_session_skb_get(). The
-only other caller of j1939_session_skb_get() appears to be
-j1939_simple_txnext().
-
-> diff --git a/net/can/j1939/transport.c b/net/can/j1939/transport.c
-> index 8fcfd13e5e6f8..af54e6a6bd714 100644
-> --- a/net/can/j1939/transport.c
-> +++ b/net/can/j1939/transport.c
-> @@ -1243,9 +1243,11 @@ static void j1939_session_completed(struct j1939_session *session)
->  
->  	if (!session->transmission) {
->  		se_skb = j1939_session_skb_get(session);
-> -		/* distribute among j1939 receivers */
-> -		j1939_sk_recv(session->priv, se_skb);
-> -		consume_skb(se_skb);
-> +		if (se_skb) {
-> +			/* distribute among j1939 receivers */
-> +			j1939_sk_recv(session->priv, se_skb);
-> +			consume_skb(se_skb);
-> +		}
->  	}
->  
->  	j1939_session_deactivate_activate_next(session);
-
-[Severity: Low]
-When se_skb is NULL, the receive session still ends as a success. Is
-user space told anything at all?
-
-j1939_session_deactivate_locked() sets session->state to
-J1939_SESSION_DONE and leaves session->err at 0. j1939_session_destroy()
-only queues an abort for a receive session when err is set:
-
-	} else if (session->err) {
-			j1939_sk_errqueue(session, J1939_ERRQUEUE_RX_ABORT);
-	}
-
-Sockets using the error queue have already seen J1939_ERRQUEUE_RX_RTS and
-J1939_ERRQUEUE_RX_DPO for this session. After that they get neither the
-data nor J1939_ERRQUEUE_RX_ABORT.
-
-The peer gets no abort frame either, because j1939_session_cancel() is
-never called on this path.
-
-j1939_xtp_rx_dat_one() handles a NULL lookup differently. It jumps to
-out_session_cancel, which sets err, sends an abort, and later queues
-RX_ABORT.
-
-The commit message says cancelling was left out on purpose. Could it also
-mention that error-queue users are left with a transfer that never
-completes or aborts?
-
+Best regards,
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261123143625.4021586-2-piyus%40iiitd.ac.in
+Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
