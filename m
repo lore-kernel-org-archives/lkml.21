@@ -1,75 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.71
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.182.83.82
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795546470;
-	b=hY/PINAomoBS0zraRVNx025xixtklw2HITXWiQ+cNgsZ/7BhBidrMgnft7y5POL6TFw0
-	 +UuyyT8+1EkpaGegJbOdCMPyfyp4ppekzgJlwAxzkFkHCHIbxv5IFhew2V4hMzqDTiFPv
-	 XTx9LUifbXpo7hpy6mYuZCDlVbW69Zo2Z7+cyYWcfO0l/HhB4fO6RnyMDUW68KG3N363w
-	 +9cz52l87vC6zmkw4a2mFz6//GDuo8Yd0gFmAR41yJ/cv0DFl5IkbaB9LqvFIwtJNBv92
-	 WQlJpVzt3R81zQ6kcA3sDIx/om/ZwkZTbS32jAg4ltrPGuDamfJlgocPh0CfGoB1xLQ==
+	t=1795546495;
+	b=wKLnjc9g8anTyPBbCRvD3UQ/Bj/7RCbXR//D8lVOxnTXpddij9ya2fuflhE5DkcWdyrm
+	 K/xv0CUJLd7eIyUEYSXTT/hQ8E+gEsuZmzyAx9z7xkExalskdKtoO/14T+wOMm7DHx2Np
+	 djUwjpc/X2IjyZSAbVMW6HP2oXriKdv20h2NcXC2A2/FUzM1s308E5bOLppOPxWk3HnGg
+	 YuojCMcHgIjYUV6y/04jYFauEI0P9FOO/HN2rpHEFKnO6tNdVnrfG+uokLl7vImcwAqQn
+	 Ze++znYpeMNGkHJaz6zkgfsY8lpfLeQ1jY6a4+H7fhzHWgJcCOTyzVtqKNQ4Sgmxe+Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795546470;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
-	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
-	 Content-Type;
-	bh=JlXoPCsikAIAHDol8QyOvxuGmdfr1LiWSUW7tFYnhrg=;
-	b=wnKH8XJNeiipP0SBNGRH3NNC0ikWl4Mb0jBEhJfJuxVoEujHgBaVOi3CedytD3vf7iXh
-	 tg57H2VZ2WTnN4J51J9Gdb84fYKXSOcwDB2HMmwmME0QUuzxo9Q3K5PHxCVaCV4EH74Ck
-	 9ESjMLEqEukwVTEhbbjax+GCH97wzAvoHt6QIIBOp9f07kJONBYmE8astlHZtnNojmqva
-	 cmSrBAmkRVHWJYHJZyvW+4mKI+lKuDPI4v3Dh4qVU17bgTHeYrhqXe8DECXtIpaWQoLZ1
-	 VrWe9MR6gy3ekK34u58HDN/zPffUYUq6qkA+S0e91VArOPmmKHRjpXOZk5jqiphuIEw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795546495;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Subject:Date:User-Agent:
+	 Cc:References:In-Reply-To:X-KMail-QuotePrefix:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Content-Disposition:
+	 Message-Id;
+	bh=xWx07hQAQEf3GH573CNjQAbUU2ZkD7rXxcgYXnJXHeU=;
+	b=fvK0OECkjGKP+LU3ZC/I5srFpDBYhzuBPv9Vz21iFZjR9O3KKYALXuWYtVyAfkexGuy6
+	 tssmWGqXFFDkS6ZWdL0B0u1Noj19ZWnufAzznh0m2vuLuAfaBWwDQA1man9Vu4NS5CSY+
+	 QxhyLNEAc/4i24NDbMFQ6eN588WclG5y4k8klhNr8SHafLHvN0tQ35CSKoK1jewn6BPhf
+	 T78dHS1lnwS1lUJnShKmDS8keSXY0h35XMAW1Dd4NcquOo6DpZaDo1EtSXk3/lzwhnyJ3
+	 tE/ADUvoKoyOKtGXMVdgUafDLhE5qHCIaBrzutAPII85rGNmWVb3mznA1CyATghJnAw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=cs25wCsA;
-	arc=none smtp.remote-ip=209.85.128.71
-Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com [209.85.128.71])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=zary.sk;
+	spf=pass smtp.mailfrom=zary.sk;
+	dkim=pass header.d=zary.sk header.i=@zary.sk header.a=rsa-sha256 header.s=key1 header.b="KW8/1dKI";
+	arc=none smtp.remote-ip=194.182.83.82
+Received: from mail.zary.sk (mail.zary.sk [194.182.83.82])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 046FA606A33A
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 18:54:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 046FA606A33A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 77751606A31E;
+	Tue, 24 Nov 2026 18:54:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 77751606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=zary.sk
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=zary.sk
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=cs25wCsA
-Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-4a009f82bedso34923885e9.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 10:54:29 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795546468; x=1796151268; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=JlXoPCsikAIAHDol8QyOvxuGmdfr1LiWSUW7tFYnhrg=;
-        b=cs25wCsAxCYY1cJ6Eg6HcinqoZc4Ui95SsWD9SLhzVgU9u/mUxznVWamPkE2XUy9im
-         X/HlL+u7UcI3aNc3FzmSU76n3MgItgzvA6DYEWvBqbHJ89HkiI/ifBOIPcmQsbvm5d4L
-         25i7cMtrd5kDP3pE06QF6T/9Zwhqyv55lSL8mQHH/Pcn6HKj3j/D8ReXSupuP0dBhD8n
-         jSEJ3wxGu3hy9nNNnai4mTjQzEn5MZceDId9G2WpRaDBJMdBQFG97YOhdsxgPoBif4m6
-         Bod4+sfeFwg1WgTpD12YLxcsBTgou/BIqJ74NmyXFx1KPGFl09D/8ejYplf7reCdI7F/
-         +5QQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795546468; x=1796151268;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=JlXoPCsikAIAHDol8QyOvxuGmdfr1LiWSUW7tFYnhrg=;
-        b=Q8kk3tqkNLQvzB/hdlLQHkGBPT9PB02vgzG18hnro/9qSXpQDGH+MIRFEWetdujFAj
-         d41WUPJLTFCA6yK6QX6iDjIr5qIjFRwnNkMtL6uy8Vdox6wTHIROog/+qUqT22Aw/7SG
-         GPg/ZnDUlpkLBVrwAAZZLbPVrTqy2679+rUqUfZNEVaL8JLE2oJiFub25EqMwqWZFi0F
-         eSCLWTgwZPFNxstWFKWGvcqv5XRPGZqmhtsKRSkFxugGcVjvTBr5PzeeNJmuUovh2YFf
-         Chy6lr7U4cGPq+K7kXFJdZb8GrUITGlonqRaNpweDyBThK/rMFTMUEC2AQvp0O4zghTw
-         TbYw==
-X-Forwarded-Encrypted: i=1; AL+hErEVkzV9PWc5k0ZS1ZkeeqPAp7eL8Tbpw4sYzmVcTA6vds7OXuoVQ6WEdSlodWMlsiuUXs152PI6Qti06Ew=@vger.kernel.org
-X-Gm-Message-State: APuU4Z91HW29tOnazTdiCXVEQn+qCeaXGsGjhhAeY/e3LtWDA/1Jal64
-	sp2HFOx3rRzH1dJxgb1ccZcHNSNRItL04k7V/M3mmcHoJLlgg/H0iegft8P3ByvDxUfE46drRGE
-	qck9Ku2yWglnWHNZDlg==
-X-Received: from wmbje17.prod.google.com ([2002:a05:600c:1f91:b0:4bb:5e69:8177])
- (user=aliceryhl job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600d:82d0:b0:4bb:818d:8d8f with SMTP id 5b1f17b1804b1-4bb88818955mr377886255e9.23.1795546468273;
- Tue, 24 Nov 2026 10:54:28 -0800 (PST)
-Date: Tue, 24 Nov 2026 18:54:27 +0000
-In-Reply-To: <20261119-fix-drm-rust-fdinfo-v1-1-c10f4134488d@gmail.com>
+	dkim=pass (2048-bit key) header.d=zary.sk header.i=@zary.sk header.a=rsa-sha256 header.s=key1 header.b=KW8/1dKI
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=zary.sk; s=key1;
+	t=1795546492; bh=cYqA6cEcJMdxRSJY9c06GS8iKc9wLCGMPd6HmnWHN74=;
+	h=From:To:Subject:Date:Cc:References:In-Reply-To:From;
+	b=KW8/1dKISn5LQH+t8L01KTkGlQAbsNn9yrttgOOezqERH1tvgYEQh9gD+zagJtG5w
+	 0oCX2V4cCt5Qk92sEdDHWx488ZdqbJKmy1XFPXuRuYl5tQJhpOMhsHmuC0V4Ke+exW
+	 iLng/OqFfVUw6ZWxbXpW99oiKTaiRgwMasixylJjbxELW4pmiwQKqLnT4D6VZOY2/C
+	 5cAlRF7LggwC9G9hcaYc+l+aED/nl9rSy9mHU8jK5RpQgJAYwEDpuCZmTy/lN/SvXx
+	 5gf0xk15YKbKbnxitQ//RUc1f5UdhAmituOH/fZblFMYeyToGQos28hJaXwvW7Sr+Q
+	 f4HO5jKyDNtJA==
+Received: from [192.168.0.2] (188-167-58-127.dynamic.chello.sk [188.167.58.127])
+	by mail.zary.sk (Postfix) with ESMTPSA id 514A8BED91;
+	Tue, 24 Nov 2026 19:54:52 +0100 (CET)
+From: Ondrej Zary <linux@zary.sk>
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Subject: Re: [PATCH v3] Introduce Synology x86 NAS LEDs driver
+Date: Tue, 24 Nov 2026 19:54:47 +0100
+User-Agent: KMail/1.9.10
+Cc: Hans de Goede <hansg@kernel.org>,
+ Ilpo =?iso-8859-1?q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+ platform-driver-x86@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20261124125616.1168560-1-linux@zary.sk> <awXDRNPad3iWtwdp@ashevche-desk.local>
+In-Reply-To: <awXDRNPad3iWtwdp@ashevche-desk.local>
+X-KMail-QuotePrefix: > 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,39 +66,80 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-References: <20261119-fix-drm-rust-fdinfo-v1-1-c10f4134488d@gmail.com>
-X-Mailer: git-send-email 2.56.1.831.g720f3f5937-goog
-Message-ID: <20261124185427.3821700-1-aliceryhl@google.com>
-Subject: Re: [PATCH] rust: drm: enable standard fdinfo for Rust drivers
-From: Alice Ryhl <aliceryhl@google.com>
-To: Peder Bergan <peder.bergan@gmail.com>
-Cc: Alice Ryhl <aliceryhl@google.com>, Danilo Krummrich <dakr@kernel.org>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Miguel Ojeda <ojeda@kernel.org>, 
-	Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, 
-	"=?UTF-8?q?Bj=C3=B6rn=20Roy=20Baron?=" <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>, 
-	Andreas Hindborg <a.hindborg@kernel.org>, Trevor Gross <tmgross@umich.edu>, 
-	Daniel Almeida <daniel.almeida@collabora.com>, Tamir Duberstein <tamird@kernel.org>, 
-	Alexandre Courbot <acourbot@nvidia.com>, "=?UTF-8?q?Onur=20=C3=96zkan?=" <work@onurozkan.dev>, 
-	Asahi Lina <lina+kernel@asahilina.net>, Lyude Paul <lyude@redhat.com>, 
-	Janne Grunau <j@jannau.net>, dri-devel@lists.freedesktop.org, 
-	rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-api@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Content-Type: Text/Plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+Message-Id: <202611241954.47791.linux@zary.sk>
 
-On Thu, Nov 19, 2026 at 10:48:47AM +0100, Peder Bergan wrote:
-> DRM monitoring tools use drm-driver and drm-client-id in procfs fdinfo
-> to identify DRM clients. The common Rust DRM file operations leave
-> show_fdinfo unset, so these entries are missing for those clients.
->
-> Set show_fdinfo to drm_show_fdinfo. The DRM core helper emits the
-> standard client information and calls the separate driver statistics
-> hook if the driver provides one.
->
-> Fixes: c284d3e42338 ("rust: drm: gem: Add GEM object abstraction")
-> Closes: https://github.com/Rust-for-Linux/linux/issues/1266
-> Signed-off-by: Peder Bergan <peder.bergan@gmail.com>
+On Tuesday 24 November 2026 18:03:00 Andy Shevchenko wrote:
+> On Tue, Nov 24, 2026 at 01:45:46PM +0100, Ondrej Zary wrote:
+> > Add platform driver for Synology x86-based NAS devices to support HDD LEDs
+> > controlled by ICH9 GPIO pins.
+> > 
+> > Only DS411+II is supported for now (DS411+ should be the same except CPU).
+> > 
+> > Unfortunately, the DMI data in BIOS is not very helpful to identify the
+> > device as almost all strings are "To be filled by O.E.M.". Match also the
+> > BIOS date and then check presence of PCI devices (host bridge, LPC bridge,
+> > onboard SiI3531 SATA controller and i82574L ethernet controller) to avoid
+> > activation on other systems.
+> > 
+> > Buttons and other LEDs are not supported by this driver because they're
+> > controlled by a PIC MCU (connected through serial port).
+> 
+> ...
+> 
+> > +struct synology_pci_dev {
+> > +	unsigned int bus;
+> > +	unsigned int devfn;
+> > +	struct pci_device_id id;
+> > +};
+> > +
+> > +/* onboard PCI devices found in DS411+ to confirm the machine type (after DMI match) */
+> > +static const struct synology_pci_dev ds411plus_pci_devices[] __initconst = {
+> > +	/* 00:00.0 Host bridge: Intel Corporation Atom Processor D4xx/D5xx/N4xx/N5xx DMI Bridge */
+> > +	{ 0, PCI_DEVFN(0, 0), { PCI_DEVICE_SUB(PCI_VENDOR_ID_INTEL, 0xa000,
+> > +					       PCI_VENDOR_ID_INTEL, 0xa000) } },
+> > +	/* 00:1f.0 ISA bridge: Intel Corporation 82801IR (ICH9R) LPC Interface Controller */
+> > +	{ 0, PCI_DEVFN(0x1f, 0), { PCI_DEVICE_SUB(PCI_VENDOR_ID_INTEL, 0x2916,
+> > +						  PCI_VENDOR_ID_INTEL, 0x2916) } },
+> 
+> > +	/* 02:00.0 Mass storage controller: Silicon Image, Inc. SiI 3531 Serial ATA Controller */
+> > +	{ 2, PCI_DEVFN(0x00, 0), { PCI_DEVICE_SUB(PCI_VENDOR_ID_CMD, 0x3531,
+> > +						  PCI_VENDOR_ID_CMD, 0x3531) } },
+> > +	/* 03:00.0 Ethernet controller: Intel Corporation 82574L Gigabit Network Connection */
+> > +	{ 3, PCI_DEVFN(0x00, 0), { PCI_DEVICE_SUB(PCI_VENDOR_ID_INTEL, 0x10d3,
+> > +						  PCI_VENDOR_ID_INTEL, 0x0000) } },
+> > +	{}
+> 
+> > +};
+> 
+> > +/* check if all PCI devices in the list are present at specified locations */
+> > +static bool __init synology_pci_devices_present(const struct synology_pci_dev *list)
+> > +{
+> > +	const struct synology_pci_dev *d;
+> > +
+> > +	for (d = list; d->id.vendor; d++) {
+> > +		struct pci_dev *pdev = pci_get_domain_bus_and_slot(0, d->bus, d->devfn);
+> > +
+> > +		if (!pdev)
+> > +			return false;
+> 
+> > +		bool matched = d->id.vendor == pdev->vendor &&
+> > +			       d->id.device == pdev->device &&
+> > +			       d->id.subvendor == pdev->subsystem_vendor &&
+> > +			       d->id.subdevice == pdev->subsystem_device;
+> 
+> Don't mix variable definitions with the code (it's exceptionally possible
+> for a couple of cases, none of which is this one). Can't it use
+> pci_match_id() approach with driver_data? (If we ever need this check.)
 
-Reviewed-by: Alice Ryhl <aliceryhl@google.com>
-
-Alice
+I don't see how can pci_match_id() be used here. I can merge pci bus and
+devfun into driver_data to fit into pci_device_id table but there's no
+pci_dev which could be matched against that table (and walking all PCI
+devices does not seem to be an improvement).
+ 
+-- 
+Ondrej Zary
