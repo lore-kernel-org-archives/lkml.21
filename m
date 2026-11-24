@@ -1,57 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795534514;
-	b=Ja1GFctDefJrulHJJEXzReU3Ze5jHYeTPVTenha72J0zYTEnejRM43sJTLaiw0CmXQjh
-	 qiL/GbMMNBuUjhsRm36/KYV6ifjdohRIKikAXN/ht/bDqG83hMXUJzEHWU9eRP4fMUkk/
-	 s1aSMTSnZjPb3e4ZQ+/An1i4e071Pgr/3jTKuRgEyMw7yJJPlIRj1Pl4pQfionjh8jTvC
-	 xFiT4DdhiYbMkh1QObDACGzuyNOXI+HriZcrVMC2z8MlDJfeCvJGzPEC5ui4WXB4FY4oY
-	 BA4OzjllCBbnGcDijt71dEFaGDrWOyJ6Y5fgyLQFLaKlosUvuCyKBOBcwr6/KV6b2cg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795534514;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=Vhmq86eX3c8OctvVjT3o+A7beFwqEkoLPX8Yx106nEg=;
-	b=xhF6rMb2c22YJ7I3InflVfoZi3pgoX8+hutwCI5VXeChPJjKLXzWZfvkTorEo8mujMyX
-	 CIHWuG2T/Um3cq1nBYolWu6Uvs7UCzMQaJUN4n2Olrhc7g5mzAluMNg7P8Ep6+8xRZRAq
-	 0Jzl1vy35RKsbrk9HCsXmmrCsniRGjAzi8Bd565tMmFrtl2xOfT2ttOi9JYywp0mEJH5p
-	 AjR2Y0+kewPyjP/tD09k+tqIGDphRsBOmo/4kD34Ut2MpeAsmQInZ74o0usReUXpjJrko
-	 G2KbxvdS5c4bLZPIHd6thOWoXJJVVC+36chfKaQ2Q3h1ARCz+E39L6tkk33989FmkIg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YhWvM9JW;
-	arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795534510;
+	b=j6lqX7VP7bUzk/PYnv/doeNzQubTugMUiobuWSZLyUCySKyhcEECQigNhFVjYqU526bb
+	 EXfbQUWU+qWWGjSZNUeLHWUZMSPB+KWWJ1dRuj0gwhxgFtlQNNmxv2p9S7OLEuSFmLVWE
+	 gPseoJz3wPpeGn3gNIkbjo/2Jjc+DuVM3zeo5URHUcOcC94RrJwsdcfdvGkPE8giC4IYs
+	 UiQIkU4xBIpN+pkIn76lmJeK47YuwwB4GvNlOM+2xYq1ntPftu2liJjIMumaU5PM5oyzJ
+	 VPQmtj4smUowJpqy1Mss6vcAqPxdUiJE22hpekq8LdLoDoORhxo712C5V89hSVZvhiQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795534510;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=VygsRWMu19YlnfF9gsoqmfWMLGEp1qEBqKlVHOIN/xU=;
+	b=diSiq04Ojgbw1mD4MSlMdpryie45R3eUtiftyY7kg19oAX64cID3qFzvqV3SzVIJO5u+
+	 h8hjYO22n/rSbzwV0zSC5m0QFGNOucXdQUuqTpgD3Dhs4r2iEWM59kPVwiQrm/FknGKWy
+	 iADLw34U3ZX/GYSu4UqIa4V0pR/HOzQYv/RYy0jVkf90PLV+PSw8GVBXmkUriUiUlPERy
+	 FpsplhA/EjE8bu0PDshzxXWX/3aYX15JH3Qem+GyM8BdxMJSr4UBrUGaMxWMb7HaItZ8N
+	 mnTqpgTs7OiWaqxykiZaRGLPJNmVZ0DcTTyYm8zLj1Tto8aZNSOQj7eqKSZFFI7faDA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QUtEQeZ1;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F1C2A606A68E;
-	Tue, 24 Nov 2026 15:35:13 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 889BE606A31E;
+	Tue, 24 Nov 2026 15:35:10 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YhWvM9JW
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E85501F000F0;
-	Tue, 24 Nov 2026 15:35:12 +0000 (UTC)
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QUtEQeZ1
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795534510;
+	b=ch+grGCzaA7+W860joylvOkpu3NzySLFIqyQTIu0tdlK+bzBEBAL2Uu3zEUnYTliVwwB
+	 30zEq/HxEpgllaVmE42n0d79JifeeJOpPmaqqxM1ff+dC2LXtZZ207Xcq58pUGzUKgu3t
+	 oUuqdB/Zkv/qC8EArTEln6O7VMk13Ff3khO4AIPj1gJduZEyODP3Icsw6ARUJYbvx2BQY
+	 X93Xj7fD/wxMk6r/D8zJnb1E03fV1KetVOjX/QAjdznmwT1lLz+FZBWgsK+AUMh9dxgCb
+	 HSCT1Hq0zm/vHdmzdvvXdd/B//KQ2Y6uzK8ZkkzFYYFyKrRAiy6Yy1bTW9eqx/g+2Pw==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795534510;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=VygsRWMu19YlnfF9gsoqmfWMLGEp1qEBqKlVHOIN/xU=;
+	b=Iz2OUy5p7pozazxY4aHsPJJTcWZX5j87iK7uMhPNjTavi+a3Y1z0gh4h8qEZjB2KnAn6
+	 BKMdy/VfFCdjnEXTwfzJZa5LG/HLkMCQiGZz6HhYUpT/JLzayN16tIAGYd8bZmNPfXtYj
+	 62qUlu1/LBt/uJffKzAJo438w3mwjFoF3LzHUQnYL7SXbBqNLAL+GsH4ahxrs82cUxBhw
+	 LOtdriLtKxYJ7O0dHDEHD5Ft6B6HXmtw9qJNXLAyT6PnhX94kxAg0kx/U/7AR79GYezQw
+	 SZu9r73uuOfWaAynHMt51vfBid3GjRIq1l/BUr8Uy1g0vhq08P9jyUMYfUA7tENpOVA==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id 3A4801F000C4;
+	Tue, 24 Nov 2026 15:35:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795534513;
-	bh=Vhmq86eX3c8OctvVjT3o+A7beFwqEkoLPX8Yx106nEg=;
-	h=From:To:Cc:Subject:Date;
-	b=YhWvM9JWVNrIVndy+9xoEA4B31S4NsBTpYXEhHM/8EMHKzrgWtZgmt23qI64afdO7
-	 08jZnGO6n8iwPCA/1TJLYNw6F4QDcgx3NVlFz+aMeV+lCp24FYvfTj+SrqmzC9L5i+
-	 DRkIZnuJ33Wixtepgo+ag0zg68OgyoWgrgUi7e0K5pA5cqR/xaAwaQ9N6TTk2wG4sa
-	 nKSTCOv3ahFTfR2Y3e1xharpAvSlBjLnc+05nm8t82v8i0QUNCAtjG7+E5+SKnDAef
-	 TfF2TFB38Umqt7TQ/Q8lddN/Bi9Wby537Z8ZCqsL51tOCab5jp+v1MJkiq+NX7Z/lS
-	 SSAIae0YOey9A==
-From: Sasha Levin <sashal@kernel.org>
-To: Jiri Kosina <jikos@kernel.org>,
-	Benjamin Tissoires <bentiss@kernel.org>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
-	Joshua Leivenzon <hacker1024@users.sourceforge.net>,
-	Mark Brown <broonie@kernel.org>,
-	linux-input@vger.kernel.org,
-	linux-pm@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] HID: asus: Check CONFIG_PLATFORM_PROFILE for the profile key
-Date: Tue, 24 Nov 2026 10:35:11 -0500
-Message-ID: <20261124153511.702197-1-sashal@kernel.org>
-X-Mailer: git-send-email 2.53.0
+	s=k20260515; t=1795534510;
+	bh=VygsRWMu19YlnfF9gsoqmfWMLGEp1qEBqKlVHOIN/xU=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=QUtEQeZ11At2SHkKODXc3ehg8VTB2gD7XK+9cZ0J4PvlLPQH6tAb4ghmclzzbO+7K
+	 ND9RczOrG+N6kKuhO5gFtyPYpBO2EkVMG2lwI12thT/ZnmhhDN4YaFl4ZtdJzKExP4
+	 BfubRtGskGeUdV9JqklBdTpVHBGRaf+RGZRUA0SGcSlBQJi8G0+bLmyAmHzjmXkx65
+	 4Uwjgp5C6zErSCvQcWSUsR/mRuNUom28PBPjkoYm2k2LV03T8r8p+zp1s5WzVpv6iL
+	 /rZSRqhNo30xSEkzuma94ZMThAqXAzvyFzoFBBssOPzsmu6lvK9X98YQCmM7fo2AYP
+	 kzF8Kj1+W7vFg==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id B505A4CA91;
+	Tue, 24 Nov 2026 15:35:04 +0000 (UTC)
+From: Binoy Ravindran via B4 Relay <devnull+binoy.vt.edu@kernel.org>
+Date: Tue, 24 Nov 2026 10:34:27 -0500
+Subject: [PATCH v2 1/3] rcu-tasks: Add helpers to visit tasks on the exit
+ lists
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -61,53 +83,203 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261124-klp-series-v3-v2-1-50d20829a337@vt.edu>
+References: <20261124-klp-series-v3-v2-0-50d20829a337@vt.edu>
+In-Reply-To: <20261124-klp-series-v3-v2-0-50d20829a337@vt.edu>
+To: "Paul E. McKenney" <paulmck@kernel.org>, 
+ Frederic Weisbecker <frederic@kernel.org>, 
+ Neeraj Upadhyay <neeraj.upadhyay@kernel.org>, 
+ Joel Fernandes <joelagnelf@nvidia.com>, 
+ Josh Triplett <josh@joshtriplett.org>, Boqun Feng <boqun@kernel.org>, 
+ Uladzislau Rezki <urezki@gmail.com>, Steven Rostedt <rostedt@goodmis.org>, 
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
+ Lai Jiangshan <jiangshanlai@gmail.com>, Zqiang <qiang.zhang@linux.dev>, 
+ Josh Poimboeuf <jpoimboe@kernel.org>, Miroslav Benes <mbenes@suse.cz>, 
+ Petr Mladek <pmladek@suse.com>, Joe Lawrence <joe.lawrence@redhat.com>, 
+ Song Liu <song@kernel.org>, Ingo Molnar <mingo@kernel.org>, 
+ Jiri Kosina <jikos@kernel.org>
+Cc: rcu@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ live-patching@vger.kernel.org, Yafang Shao <laoar.shao@gmail.com>, 
+ Jaidev Shastri <jaidevshastri@vt.edu>, Binoy Ravindran <binoy@vt.edu>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795534504; l=6595;
+ i=binoy@vt.edu; s=20261123; h=from:subject:message-id;
+ bh=yjPjOhb/Atfnqas8UHt57mA11woD8FJQKXxBGP8uW1s=;
+ b=7WcIg3Wwxbq5Yevy5gZVbhcOeh+DZ9PovUAb89nhWdankZEKYOPYKAwetTscRwZ1fkd6W/2+v
+ 1rSTlm8R9SjCFws/5anKENY5Hxjnom0XisyZZMAcOAySXSSgnE0t2cz
+X-Developer-Key: i=binoy@vt.edu; a=ed25519;
+ pk=4cNdKPHP0InmhK/9bb7Tm2ZMUXUvLGfw1pmVt5b98fA=
+X-Endpoint-Received: by B4 Relay for binoy@vt.edu/20261123 with
+ auth_id=1622
+X-Original-From: Binoy Ravindran <binoy@vt.edu>
+Reply-To: binoy@vt.edu
+Content-Transfer-Encoding: 7bit
 
-Commit 699041135f75 ("platform profile: Extract the core from ACPI")
-renamed ACPI_PLATFORM_PROFILE to PLATFORM_PROFILE. hid-asus.c still checks
-IS_REACHABLE(CONFIG_ACPI_PLATFORM_PROFILE), which is now always false,
-so the Zenbook Duo profile key no longer cycles the platform profile.
+From: Binoy Ravindran <binoy@vt.edu>
 
-Check the new symbol.
+A task joins its CPU's RCU-tasks exit list in exit_tasks_rcu_start(),
+before exit_notify() unhashes it from the task list, and leaves it in
+exit_tasks_rcu_finish(), after do_exit() has disabled preemption for the
+final switch. Once exit_notify() has unhashed it, the task is no longer
+found by for_each_process_thread(), but it still runs do_exit() and may
+sleep there. Code that must reach every task that can still be
+descheduled, such as the livepatch transition, has no way to find it.
 
-Link: https://lore.kernel.org/all/20261120194507.593601-1-sashal@kernel.org/
-Signed-off-by: Sasha Levin <sashal@kernel.org>
+Add two helpers. rcu_tasks_visit_exiting() calls a function on each
+task on the exit lists under the list locks, without allocating.
+rcu_tasks_snapshot_exiting() copies the tasks into a caller-supplied
+array with a reference held on each, for callers that must sleep or take
+other locks while examining them. Without CONFIG_TASKS_RCU there are no
+exit lists, and the helpers do nothing.
+
+rcu_tasks_postscan() keeps its place in an exit list with a bare
+list_head while it drops the lock to reschedule, relying on nobody else
+traversing the list. Move that cursor into struct rcu_tasks_percpu,
+next to the list it marks, so that the new helpers can recognize and
+skip it. Only the grace-period kthread runs postscan, one CPU's list at
+a time, so one cursor per CPU suffices.
+
+Assisted-by: Claude:claude-opus-5-5
+Signed-off-by: Binoy Ravindran <binoy@vt.edu>
 ---
+ include/linux/rcupdate.h |  9 +++++++
+ kernel/rcu/tasks.h       | 69 +++++++++++++++++++++++++++++++++++++++++++-----
+ 2 files changed, 72 insertions(+), 6 deletions(-)
 
-This needs Rafael's immutable acpi-platform-profile branch in the hid
-tree first:
-
-  git://git.kernel.org/pub/scm/linux/kernel/git/rafael/linux-pm.git acpi-platform-profile
-
-With the hid and pm trees both merged, hid-asus.o calls
-platform_profile_cycle() again with this patch; without it the call is
-compiled out.
-
- drivers/hid/hid-asus.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/hid/hid-asus.c b/drivers/hid/hid-asus.c
-index 342a97df44c89..0b9cb5e92dcd6 100644
---- a/drivers/hid/hid-asus.c
-+++ b/drivers/hid/hid-asus.c
-@@ -438,7 +438,7 @@ static int asus_platform_profile_cycle(struct asus_drvdata *drvdata)
- 	struct asus_worker *worker = drvdata->worker;
- 	struct asus_work_action *action, *pending;
+diff --git a/include/linux/rcupdate.h b/include/linux/rcupdate.h
+index 3f74ae6d6e1f..55b8b4a0fa94 100644
+--- a/include/linux/rcupdate.h
++++ b/include/linux/rcupdate.h
+@@ -214,6 +214,15 @@ static inline void exit_tasks_rcu_start(void) { }
+ static inline void exit_tasks_rcu_finish(void) { }
+ #endif /* #else #ifdef CONFIG_TASKS_RCU_GENERIC */
  
--	if (!IS_REACHABLE(CONFIG_ACPI_PLATFORM_PROFILE))
-+	if (!IS_REACHABLE(CONFIG_PLATFORM_PROFILE))
- 		return 0;
++typedef void (*rcu_tasks_exiting_fn_t)(struct task_struct *t, void *arg);
++#ifdef CONFIG_TASKS_RCU
++void rcu_tasks_visit_exiting(rcu_tasks_exiting_fn_t fn, void *arg);
++int rcu_tasks_snapshot_exiting(struct task_struct **buf, int max);
++#else
++static inline void rcu_tasks_visit_exiting(rcu_tasks_exiting_fn_t fn, void *arg) { }
++static inline int rcu_tasks_snapshot_exiting(struct task_struct **buf, int max) { return 0; }
++#endif
++
+ /**
+  * cond_resched_tasks_rcu_qs - Report potential quiescent states to RCU
+  *
+diff --git a/kernel/rcu/tasks.h b/kernel/rcu/tasks.h
+index fcac7361ec51..b5fa5a3a8503 100644
+--- a/kernel/rcu/tasks.h
++++ b/kernel/rcu/tasks.h
+@@ -33,6 +33,8 @@ typedef void (*postgp_func_t)(struct rcu_tasks *rtp);
+  * @barrier_q_head: RCU callback for barrier operation.
+  * @rtp_blkd_tasks: List of tasks blocked as readers.
+  * @rtp_exit_list: List of tasks in the latter portion of do_exit().
++ * @rtp_exit_cursor: Placeholder that rcu_tasks_postscan() parks on @rtp_exit_list
++ *	while it drops the lock, so that exit-list walkers can skip it.
+  * @cpu: CPU number corresponding to this entry.
+  * @index: Index of this CPU in rtpcp_array of the rcu_tasks structure.
+  * @rtpp: Pointer to the rcu_tasks structure.
+@@ -49,6 +51,7 @@ struct rcu_tasks_percpu {
+ 	struct rcu_head barrier_q_head;
+ 	struct list_head rtp_blkd_tasks;
+ 	struct list_head rtp_exit_list;
++	struct list_head rtp_exit_cursor;
+ 	int cpu;
+ 	int index;
+ 	struct rcu_tasks *rtpp;
+@@ -1068,7 +1071,6 @@ static void rcu_tasks_postscan(struct list_head *hop)
+ 		struct rcu_tasks_percpu *rtpcp = per_cpu_ptr(rcu_tasks.rtpcpu, cpu);
+ 		struct task_struct *t;
+ 		struct task_struct *t1;
+-		struct list_head tmp;
  
- 	guard(spinlock_irqsave)(&worker->lock);
-@@ -870,7 +870,7 @@ static void asus_work(struct work_struct *work)
- 		asus_kbd_wmi_fan(worker->hdev, &action->data.fan_hid_data);
- 		break;
- 	case PLATFORM_PROFILE_CYCLE:
--		if (!IS_REACHABLE(CONFIG_ACPI_PLATFORM_PROFILE))
-+		if (!IS_REACHABLE(CONFIG_PLATFORM_PROFILE))
- 			break;
- 		ret = platform_profile_cycle();
- 		if (ret)
+ 		raw_spin_lock_irq_rcu_node(rtpcp);
+ 		list_for_each_entry_safe(t, t1, &rtpcp->rtp_exit_list, rcu_tasks_exit_list) {
+@@ -1081,14 +1083,15 @@ static void rcu_tasks_postscan(struct list_head *hop)
+ 				continue;
+ 
+ 			// Keep our place in the list while pausing.
+-			// Nothing else traverses this list, so adding a
+-			// bare list_head is OK.
+-			list_add(&tmp, &t->rcu_tasks_exit_list);
++			// The cursor lives in rtpcp so that the exit-list
++			// visitors can recognize and skip it.
++			list_add(&rtpcp->rtp_exit_cursor, &t->rcu_tasks_exit_list);
+ 			raw_spin_unlock_irq_rcu_node(rtpcp);
+ 			cond_resched(); // For CONFIG_PREEMPT=n kernels
+ 			raw_spin_lock_irq_rcu_node(rtpcp);
+-			t1 = list_entry(tmp.next, struct task_struct, rcu_tasks_exit_list);
+-			list_del(&tmp);
++			t1 = list_entry(rtpcp->rtp_exit_cursor.next, struct task_struct,
++					rcu_tasks_exit_list);
++			list_del(&rtpcp->rtp_exit_cursor);
+ 			j = jiffies + 1;
+ 		}
+ 		raw_spin_unlock_irq_rcu_node(rtpcp);
+@@ -1332,6 +1335,60 @@ void exit_tasks_rcu_finish(void)
+ 	raw_spin_unlock_irqrestore_rcu_node(rtpcp, flags);
+ }
+ 
++/*
++ * Call fn on every task on the exit lists, in place, with the per-CPU list
++ * lock held and interrupts disabled. fn must not sleep. Does not allocate.
++ * These are the tasks that have passed exit_tasks_rcu_start() but not
++ * exit_tasks_rcu_finish(). Once exit_notify() has run they are no longer on
++ * the task list, but they still run do_exit() and may sleep there.
++ */
++void rcu_tasks_visit_exiting(rcu_tasks_exiting_fn_t fn, void *arg)
++{
++	int cpu;
++	unsigned long flags;
++	struct task_struct *t;
++
++	for_each_possible_cpu(cpu) {
++		struct rcu_tasks_percpu *rtpcp = per_cpu_ptr(rcu_tasks.rtpcpu, cpu);
++
++		raw_spin_lock_irqsave_rcu_node(rtpcp, flags);
++		list_for_each_entry(t, &rtpcp->rtp_exit_list, rcu_tasks_exit_list) {
++			if (&t->rcu_tasks_exit_list == &rtpcp->rtp_exit_cursor)
++				continue;
++			fn(t, arg);
++		}
++		raw_spin_unlock_irqrestore_rcu_node(rtpcp, flags);
++	}
++}
++
++/*
++ * Copy up to max tasks on the exit lists into buf, taking a reference on
++ * each. Returns the number of tasks on the lists, which may exceed max.
++ */
++int rcu_tasks_snapshot_exiting(struct task_struct **buf, int max)
++{
++	int cpu, n = 0;
++	unsigned long flags;
++	struct task_struct *t;
++
++	for_each_possible_cpu(cpu) {
++		struct rcu_tasks_percpu *rtpcp = per_cpu_ptr(rcu_tasks.rtpcpu, cpu);
++
++		raw_spin_lock_irqsave_rcu_node(rtpcp, flags);
++		list_for_each_entry(t, &rtpcp->rtp_exit_list, rcu_tasks_exit_list) {
++			if (&t->rcu_tasks_exit_list == &rtpcp->rtp_exit_cursor)
++				continue;
++			if (n < max) {
++				get_task_struct(t);
++				buf[n] = t;
++			}
++			n++;
++		}
++		raw_spin_unlock_irqrestore_rcu_node(rtpcp, flags);
++	}
++	return n;
++}
++
+ #else /* #ifdef CONFIG_TASKS_RCU */
+ void exit_tasks_rcu_start(void) { }
+ void exit_tasks_rcu_finish(void) { }
+
 -- 
-2.53.0
+2.39.5
+
 
