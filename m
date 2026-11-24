@@ -1,62 +1,62 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=210.118.77.11
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795535651;
-	b=Hw9SmKzsevBbuPrAyTuPMl98aVWj/W4d0Pmwtrf74h5gmEQtTR1ameiJzyKDRqa81hXL
-	 5Sp/n+NWlQKJd9whMxvhdApcKsWR3euwY5xWX0fBkmMd8baqikoAjPfFcRncnSMoMoQDz
-	 4I6ZHdrGdSf0MzfPX2RM+qcE1ifI7Zyr209pgtlqc4Jc3QjyW5KP1TxPzcUZZlcXJw7cT
-	 VLCqBkoPPgAZVJh4xKrmvAr1rkPE03DunvPz+M0cxGy/STcHsj18tpdhr44czl2SI6krM
-	 rMMnGmjiD25TJCjKJwW3jmhx66DyzFQKzqXTE7OyAokiXUxHPoTmqNLHyqlkL7z58GQ==
+	t=1795535658;
+	b=PWhZaBtMCgbwVNVwKnXp6u9z417UPPG4dUHyb1c3qMwX8LU3VtHgV4zmxZdv7pUTE8I0
+	 hGvrDLkCvc+eqE2DZ4DXiYnq5ELvkzbBVsO1597jxGe4cpHRZzJV548sXusZwKxa9goK/
+	 tL8Hy/pCc0jwQUR8p6c+EJPMlIHv+QzrFmpNayE4L4sOf2kn/M7Wh5rmSy7gtoH4KkcxQ
+	 67MixX/UFjUqNLao6ZHbgBXwu4nwa+Qz8svfYCn+iJ8LNJqbruZ1loNhkmQQ40qDV9xUp
+	 8AXoGsqzkPPCM5NmKxbgtHdEMArQFTH+7+Fc4Jypp6FmV/FxSRDm9k7MOp9VhkV/juQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795535651;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795535658;
 	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Received:Received:
 	 From:Date:Subject:MIME-Version:Content-Transfer-Encoding:Message-Id:
 	 In-Reply-To:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
 	 X-CMS-MailID:X-Msg-Generator:Content-Type:X-RootMTR:X-EPHeader:
 	 X-CMS-RootMailID:References;
-	bh=L4+kx50Yc4T0yCDoRUpYz1zoQnaZm52p9pwh+JogV7M=;
-	b=2Y17BILp9vD+0gA9QSRPpVu3deaYbXgoenlzOTpReEsfRNIiU+MwyvweAFGvWivOC/Ew
-	 BtS1uOT2yC/b9HiIc7JFBzXhbBNMU+t4J0Cv6w95FDFWw5RxGzyupKFwdHvYsW4Wf8Rqr
-	 DikiEe/FDCSW6tC+8C98EHbquAQob0rLekiM6Bm407u1SnI18qZBvwunR71ZHE+CwlKRL
-	 gbiZJeIeHHtn6xoHUbCrw992AjdigDiw9wcr44iNWtnL8WYggI/ROj75Bnd4ZCcd+mgsv
-	 nrQs7hFoMfH19vJT8WXpahqx0hy8iGBO4MNTXqRIInHc/hljElGu1DrxnBgHXOMItsQ==
+	bh=XV6NmS9EmrcHVtreIgJw5LSGDxATIuU+dhkRn9xbhqE=;
+	b=Wt5423WsWeSq9DKa9HAnYngf8z0Su+KKUGrvKbIQs3U9KUPg29lwMI2PoMMnGb8erNCW
+	 zptherJITs9PN3JX7IVh1GxUpvCPEsyIIzhPwwWqv9U4sVL91n5Y5Fd+krKvJC8Mm/8Jn
+	 4+OWpYWHvMatKLQfVowTEho1dAfzfLV1C+2/mJoHlXqDmAvuzDSp5itvPQ7kUOgECFzj4
+	 wgMLHYoGGTlTMcuEy7yJaCiyXYHOZZYu4HJsuscQwnj2+N1V1JioB4VB26UpoYugNV+uj
+	 vBWNf9KoZDSArO0AZv4sMd7vighBx/gt+FQ89K2GQ9psRjzD+ylhbxOgFV63Lx0kj+g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=samsung.com;
 	spf=pass smtp.mailfrom=samsung.com;
-	dkim=pass header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=qNqW2onG;
+	dkim=pass header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=aKIYgZpi;
 	arc=none smtp.remote-ip=210.118.77.11
 Received: from mailout1.w1.samsung.com (mailout1.w1.samsung.com [210.118.77.11])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1CC6E606A6AB;
-	Tue, 24 Nov 2026 15:54:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1CC6E606A6AB
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0F8DD606A6A8;
+	Tue, 24 Nov 2026 15:54:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0F8DD606A6A8
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=samsung.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=samsung.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=qNqW2onG
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20261124155409euoutp0115dd4b784b83c26480159369f887c045~rBijgrkOC1661616616euoutp01h;
-	Tue, 24 Nov 2026 15:54:09 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20261124155409euoutp0115dd4b784b83c26480159369f887c045~rBijgrkOC1661616616euoutp01h
+	dkim=pass (1024-bit key) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=aKIYgZpi
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20261124155416euoutp013bb5dbc3d8c52bee54208221adf27297~rBiqaIdFI1661616616euoutp01l;
+	Tue, 24 Nov 2026 15:54:16 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20261124155416euoutp013bb5dbc3d8c52bee54208221adf27297~rBiqaIdFI1661616616euoutp01l
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1795535649;
-	bh=L4+kx50Yc4T0yCDoRUpYz1zoQnaZm52p9pwh+JogV7M=;
+	s=mail20170921; t=1795535656;
+	bh=XV6NmS9EmrcHVtreIgJw5LSGDxATIuU+dhkRn9xbhqE=;
 	h=From:Date:Subject:In-Reply-To:To:Cc:References:From;
-	b=qNqW2onGKL1h7vqNJ3xTyk4JV+Dq96xMAq2etjAdwUPfT9cXwCz1Sb/sx7UCdLDtq
-	 AMqVT3qI/UwTPIDbNXgLDImJxYz7sozYO25znwVVR97V6F7t9+/vj+7q8T7hPlazny
-	 PXznFfi6ziuSKCCrmuYn8AkQ/bOvKlUkcdkIoXO8=
+	b=aKIYgZpiyaeoS/ztV+oPfEMl5+1n3SOWJRPVWRS3+3uT34NZwdnr7AbjDMZddbO1w
+	 kiKDRyJl2sP5EsiLbZp4sUsoxuaHLlen+hrvo19hFxDlLbIhlMMdLB0kEeXqtevMMl
+	 D7dPyral7kRL8BmbV5RsLslIRyAGw6KA1SxNiIkk=
 Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20261124155408eucas1p205755e13b741cc44224d944e46575e28~rBijL-s3h0317003170eucas1p2G;
-	Tue, 24 Nov 2026 15:54:08 +0000 (GMT)
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20261124155416eucas1p1d074766d9b700f0f829cf9bdc700bea5~rBiqEHdiV1676716767eucas1p1s;
+	Tue, 24 Nov 2026 15:54:16 +0000 (GMT)
 Received: from AMDC4942.eu.corp.samsungelectronics.net (unknown
 	[106.210.136.40]) by eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20261124155406eusmtip17e07464be1acaa26cdc0aa668b45efa9~rBihiVo470174001740eusmtip1T;
-	Tue, 24 Nov 2026 15:54:06 +0000 (GMT)
+	20261124155414eusmtip1c4d4f08e383392d36919b67f26ee9e5d~rBioaCYR62899328993eusmtip1N;
+	Tue, 24 Nov 2026 15:54:14 +0000 (GMT)
 From: Michal Wilczynski <m.wilczynski@samsung.com>
-Date: Tue, 24 Nov 2026 16:52:41 +0100
-Subject: [PATCH v8 05/18] dt-bindings: soc: starfive: Add
- starfive,jh7110-vout-syscon
+Date: Tue, 24 Nov 2026 16:52:45 +0100
+Subject: [PATCH v8 09/18] drm/bridge: inno-hdmi: Add .disable platform
+ operation
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,7 +67,7 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261124-jh7110-clean-send-v8-5-de92635dd857@samsung.com>
+Message-Id: <20261124-jh7110-clean-send-v8-9-de92635dd857@samsung.com>
 In-Reply-To: <20261124-jh7110-clean-send-v8-0-de92635dd857@samsung.com>
 To: Neil Armstrong <neil.armstrong@linaro.org>,  Rob Herring
 	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,  Robert Foss
@@ -95,52 +95,76 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
 	Zheng <zhengxingda@iscas.ac.cn>,  Chaoyi Chen <chaoyi.chen@rock-chips.com>, 
 	Joshua Peisach <jpeisach@ubuntu.com>,  =?utf-8?q?Uwe_Kleine-K=C3=B6nig?=
 	<u.kleine-koenig@baylibre.com>,  Cristian Ciocaltea
-	<cristian.ciocaltea@collabora.com>,  Krzysztof Kozlowski
-	<krzysztof.kozlowski@oss.qualcomm.com>,  Conor Dooley
-	<conor.dooley@microchip.com>
+	<cristian.ciocaltea@collabora.com>,  Byron Stanoszek <gandalf@winds.org>,
+	Owen O'Hehir <oo.hehir@gmail.com>
 X-Mailer: b4 0.15-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1209;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2093;
 	i=m.wilczynski@samsung.com; h=from:subject:message-id;
-	bh=Chyv4ZadRgB9O0cDMv2nCKKdOMuhURVPdmM716Hfnu4=;
-	b=owGbwMvMwCGWumv6zndzRCIZT6slMWSzbhZVTree6Ct9QLaGcZ/ORd5VO7U3zL72zG9t+Cb/q
-	o87/LU/dZSyMIhxMMiKKbKc3RhtJPmP4Wn58ce/YOawMoEMYeDiFICJNNQzMiyvu1Y1+f7KC4tK
-	MwyUc756XdLduzlZS8/B5rxs4LqLvxoY/go2b734OtzymNOcE5U/dtvsCZOu//q4Qm42x8dvd34
-	3GPEAAA==
+	bh=/knjP6UiwZdKsnCrvrX2Kb51jzLnQ1cNNiICHKtW6ws=;
+	b=owGbwMvMwCGWumv6zndzRCIZT6slMWSzbhaNddW663J+lvVy3Y/p0a/VFL48eSTevZ2Ta3WC5
+	tHHrrIZHaUsDGIcDLJiiixnN0YbSf5jeFp+/PEvmDmsTCBDGLg4BWAiKU6MDG91UjbOOBV2yUMq
+	301//yqLbT1ZKUquXdvXejW89X71cCsjw1PPBJYEbYktcRJl+kybbs3nc6+xmST6Z/vDnzOfnxf
+	6xQAA
 X-Developer-Key: i=m.wilczynski@samsung.com; a=openpgp;
 	fpr=CDB15B3219FE00E577C7E3FA65BA97B9EE9C1459
-X-CMS-MailID: 20261124155408eucas1p205755e13b741cc44224d944e46575e28
+X-CMS-MailID: 20261124155416eucas1p1d074766d9b700f0f829cf9bdc700bea5
 X-Msg-Generator: CA
 Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20261124155408eucas1p205755e13b741cc44224d944e46575e28
+X-RootMTR: 20261124155416eucas1p1d074766d9b700f0f829cf9bdc700bea5
 X-EPHeader: CA
-X-CMS-RootMailID: 20261124155408eucas1p205755e13b741cc44224d944e46575e28
+X-CMS-RootMailID: 20261124155416eucas1p1d074766d9b700f0f829cf9bdc700bea5
 References: <20261124-jh7110-clean-send-v8-0-de92635dd857@samsung.com>
-	<CGME20261124155408eucas1p205755e13b741cc44224d944e46575e28@eucas1p2.samsung.com>
+	<CGME20261124155416eucas1p1d074766d9b700f0f829cf9bdc700bea5@eucas1p1.samsung.com>
 
-The video output subsystem has its own system controller, documented as
-dom_vout_syscon. Among other things it holds the mux that selects which
-DC8200 output drives the HDMI transmitter, so the HDMI controller needs
-to reach it.
+The Innosilicon HDMI driver supports platform-specific behavior through
+the `inno_hdmi_plat_ops`. While it provides an `.enable` hook for
+platform-specific power up sequences (like enabling PHYs), it lacks a
+corresponding hook for power down.
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
+This patch adds a new `.disable` op to the `inno_hdmi_plat_ops` struct
+and calls it at the beginning of `inno_hdmi_bridge_atomic_disable()`.
+
+This allows platform specific drivers, such as the StarFive JH7110,
+to implement their own power down sequence (e.g., calling
+phy_power_off() and clk_disable_unprepare()).
+
+Reviewed-by: Joshua Peisach <jpeisach@ubuntu.com>
+Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+Tested-by: Byron Stanoszek <gandalf@winds.org>
+Tested-by: Owen O'Hehir <oo.hehir@gmail.com>
 Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
 ---
- .../devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml         | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/gpu/drm/bridge/inno-hdmi.c | 4 ++++
+ include/drm/bridge/inno_hdmi.h     | 1 +
+ 2 files changed, 5 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml b/Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml
-index 0039319e91fe6e6aadc4300114626348e4dfb7ce..cf9b657d0e8a3ed5c5688336fee4123e14a2ac58 100644
---- a/Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml
-+++ b/Documentation/devicetree/bindings/soc/starfive/starfive,jh7110-syscon.yaml
-@@ -24,6 +24,7 @@ properties:
-           - enum:
-               - starfive,jh7110-aon-syscon
-               - starfive,jh7110-stg-syscon
-+              - starfive,jh7110-vout-syscon
-           - const: syscon
+diff --git a/drivers/gpu/drm/bridge/inno-hdmi.c b/drivers/gpu/drm/bridge/inno-hdmi.c
+index 9b90a37bf29d164b6500ddd119bcf8ca094a1735..2b1e2d61e4433ead684b9de41610000fb11e07e9 100644
+--- a/drivers/gpu/drm/bridge/inno-hdmi.c
++++ b/drivers/gpu/drm/bridge/inno-hdmi.c
+@@ -881,6 +881,10 @@ static void inno_hdmi_bridge_atomic_disable(struct drm_bridge *bridge,
+ 					    struct drm_atomic_commit *state)
+ {
+ 	struct inno_hdmi *hdmi = bridge_to_inno_hdmi(bridge);
++	const struct inno_hdmi_plat_ops *plat_ops = hdmi->plat_data->ops;
++
++	if (plat_ops && plat_ops->disable)
++		plat_ops->disable(hdmi->dev);
  
-   reg:
+ 	inno_hdmi_standby(hdmi);
+ }
+diff --git a/include/drm/bridge/inno_hdmi.h b/include/drm/bridge/inno_hdmi.h
+index 507d5e999183ca02e7dcbe4ce7568acc21426a89..0864f0d8862a4325821a84db6d04f14011d9aa78 100644
+--- a/include/drm/bridge/inno_hdmi.h
++++ b/include/drm/bridge/inno_hdmi.h
+@@ -16,6 +16,7 @@ struct platform_device;
+ 
+ struct inno_hdmi_plat_ops {
+ 	void (*enable)(struct device *pdev, struct drm_display_mode *mode);
++	void (*disable)(struct device *pdev);
+ };
+ 
+ struct inno_hdmi_phy_config {
 
 -- 
 2.34.1
