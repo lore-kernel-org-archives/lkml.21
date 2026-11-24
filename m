@@ -1,69 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.15
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795539812;
-	b=biCpU+t80bOrcxKl9XsAolQddwpdgNfdEDsA4xjAiwJj9GT9tfTqNnDSFFkLZac3BOt8
-	 kvWn72nKMh7Kl8atwPLwMuihDlyMVahUTvAQet4nK/wL9WLrYTBOG9iqKfRdYKr6mW9/g
-	 xzljKpFoza+LIJoi6DszdEAXBio/eQXRpEZ4Ew3Xuri4VVld5CBrq2qDLCrAXpKb+igtz
-	 GQLKugSJqDR7D5eyJe3xw48tqWY17P4EuUMVFlPLJTQiIWPDSbK4hu4CGhAfyP8upEdbR
-	 37n7IbxLSUPvFgO56LrbOExLtM3PkeJt+fOeke43tQeuDHP9q1rbhL2oOXxWTK8in9g==
+	t=1795539834;
+	b=GB0xvhf28S137g3wnuHFrMfeA2o6ttVR6EHz7M/TTe1YXcORz4pjnPRERLc7qZMMClZr
+	 cCMjCovyR/aWNm8BnYwUnZs5Y1S3CwhpIvXXPFdnZO/wnWxZYBFYDjg253K9d2fP4OsXS
+	 IJTbqqvdB2FpXYySZKmdlGjEFZftALflK8t8EpgLtwlWrJmg3rnMoH29vhr4YoX6jS59h
+	 TQBNT0TAXmKUqDbUB842Zm/zT+QV2xVNt5Qw7EhKQWD2bs5bOG+/ZbrZUjrnHcAxSDkA3
+	 guPk9DUFHgeINhyAmwLosu2rN5OE4jpZNzB8HbUJpU3eAtiOQcHb1sAMbOcBrImQNsA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795539812;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:Autocrypt:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=jHHJEpclenvhL4xmnZUmc9+yes2wNXZb3V1dO29rWao=;
-	b=mMwAF3TTZ2xGCHamxnpyzgGBqi/9z6xIXaBT31VH6iyk4jSGM5kERk6dPGSznKzjqGrw
-	 4mkztR+3NsmO9zfzC20Po+/YVe3XKxHjCV5LEaCmsUPJK84ccdlnpIRn1ZGMY7LWoY35L
-	 wN0zSij60+mRYb0KneWKAFg0AtOoCUbU0+z7E6LFW5Fsf3l/brkHMHaLWKai+uH54pU62
-	 WheD5CZ6v9MovqYNRmZVb+vHGoskRyRECKxdlmgNV+l+sf5qq1Sod6GhQnamKvy3N7Zjx
-	 Z1Mrr71zmNHcDF1y+sJmHLJVy4AtytTyvwx0+4c5SDA9j57B4U4W+KbWA8AuB7KH/zw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795539834;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 MIME-Version:Content-Type:Content-Disposition;
+	bh=8c3SVXy/YOkewOINVuavbgfgaH6XagVfj0N1NEcNvNs=;
+	b=wk8rsosFWpEWmDjeilqbMLTns2sfYfnXD4QU/e6kSkDfkqBxPi/mCNe81kjs70qg8Qny
+	 PvkdWtmeYwLUXJr/gjwYuH5yNtCWFVa13l18sbq1rA8XMm5M8rk2PyM8HVeOclzCX/p99
+	 cCNvmrnU88mWW8U02BxF1cOHIGt6HNkRXD/Nm5jiCTPVnAelxto8vtGZjwq+34SLWPdEV
+	 NWvTNrM9/O/bn6aEjETafEuF3cnC/93WNI2zfWQMkJZDMcrynVBB1IdOXKHx39Cvg+yPf
+	 C9/IeXMoTh+5iDLVo+Qa0Ko0q4XhweYgYIQMcHJTiWoYoOZDBlyNyveipbmcZW3Kv8w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=UMMbX9EK;
-	arc=none smtp.remote-ip=198.175.65.15
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.15])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ad2b2OgV;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3CED4606A31E;
-	Tue, 24 Nov 2026 17:03:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3CED4606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AD5DD606A321;
+	Tue, 24 Nov 2026 17:03:54 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=UMMbX9EK
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795539810; x=1827075810;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=jHHJEpclenvhL4xmnZUmc9+yes2wNXZb3V1dO29rWao=;
-  b=UMMbX9EK9jbQYYPb8r/35ohmo2fWt1FkpumJ/OowGNn7IHucoqrIChg4
-   7bws4W4aLiIsNrzE8/pBsA0VraPIExMsHddbFTuA9jbz6zKgU8zkSByIz
-   qYqvTWQeZCO2ei06AI3JRr644vApnpjQyIQRil5cUZTTYVbHkGDOrmCj7
-   yBYr9XQVRa5QVca2BU6zYSmtp9QF3JxZvVJqUpYg1sTgRA2rtP3vzjgQR
-   RUTyEuP40TjhlA7LrhMdXnGdw3CrYZcJg5cm+CaArXePcyHbTYM2GD9u9
-   M7S9+4qrmIFrh+eon4yMrEx39irMrzM7k3cmOiAXdr+S/P8EdC1o5cmU2
-   Q==;
-X-CSE-ConnectionGUID: jLG9789PSJa2QavSdOiq8Q==
-X-CSE-MsgGUID: dg28UWHARDiu0siuAPMEtw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11976"; a="4393394"
-X-IronPort-AV: E=Sophos;i="6.27,231,1787036400"; 
-   d="scan'208";a="4393394"
-Received: from fmviesa005.fm.intel.com ([10.60.135.145])
-  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 08:41:15 -0800
-X-CSE-ConnectionGUID: 4POPJdNPSY+//fLB9GhGBw==
-X-CSE-MsgGUID: q4Y3RdbdT9SCvGtwj9x0Qg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,231,1787036400"; 
-   d="scan'208";a="11727878"
-Received: from sghuge-mobl2.amr.corp.intel.com (HELO [10.125.110.20]) ([10.125.110.20])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 08:32:04 -0800
-Message-ID: <96be8f5a-8f65-48ff-8263-1d5d5f706354@intel.com>
-Date: Tue, 24 Nov 2026 08:32:03 -0800
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ad2b2OgV
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D6D751F000C4;
+	Tue, 24 Nov 2026 17:03:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795539834;
+	bh=8c3SVXy/YOkewOINVuavbgfgaH6XagVfj0N1NEcNvNs=;
+	h=Date:From:To:Cc:Subject;
+	b=Ad2b2OgV8d6slhOmDkQ0NlgU/We9GsFnVY5e5Afm3xSFM6I9bpaECNpW0/H+eiyvO
+	 xrlkDoHU51ZUCoAsfs55UMkC0d0kUYlxrf3Lv1X9LLCGmkOWlrA6c7m98X9VaJjJeT
+	 4YGQ5Y24B6FxtoABsAKIXi8uKe2aYbbhPydIHkc91CHInS+tQ68X0yGlt+5FoKlo4b
+	 G9J/Xuie6C2saCrxw0Z+bVIHdJASAqoRC+CMAdF4bJkVlNHP02sHnhxv3saLexPMGC
+	 d9ducNrNM4VM/AuSx0xQ4mwdYPe0yUQRzDitF/T59Kt9gQO8IBHzrXkoeXGGbQ+1a4
+	 IyQ06XaRFIdFQ==
+Date: Tue, 24 Nov 2026 17:03:50 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Oliver Upton <oupton@kernel.org>, Marc Zyngier <maz@kernel.org>
+Cc: Fuad Tabba <fuad.tabba@linux.dev>,
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+	Linux Next Mailing List <linux-next@vger.kernel.org>,
+	Vincent Donnefort <vdonnefort@google.com>
+Subject: linux-next: manual merge of the kvm-arm tree with the kvm-arm-fixes
+ tree
+Message-ID: <awXDdoe3z5nyb2u-@sirena.org.uk>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -73,81 +58,107 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC 0/3] x86/e820: Ignore memmap= and mem= in confidential
- guests
-To: Ard Biesheuvel <ardb@kernel.org>, Mike Rapoport <rppt@kernel.org>
-Cc: Pankaj Gupta <pankaj.gupta@amd.com>, Thomas Gleixner <tglx@kernel.org>,
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
- Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
- "H . Peter Anvin" <hpa@zytor.com>, Tom Lendacky <thomas.lendacky@amd.com>,
- "Kiryl Shutsemau (Meta)" <kas@kernel.org>,
- Ilias Apalodimas <ilias.apalodimas@linaro.org>,
- linux-kernel@vger.kernel.org, linux-mm@kvack.org, linux-efi@vger.kernel.org,
- Pankaj.gupta.linux@gmail.com
-References: <20261124133241.221719-1-pankaj.gupta@amd.com>
- <e08f2321-749e-40f6-9ed4-3dba8e1625ba@intel.com>
- <awWzrkLxfQ2_ODKe@kernel.org>
- <2dd40d0d-2e1f-4a7f-ba65-2cceccd82028@intel.com>
- <awW31hUpXuujSAXA@kernel.org>
- <c0e82936-9436-45e4-a8b6-07bdaa9680df@app.fastmail.com>
-From: Dave Hansen <dave.hansen@intel.com>
-Content-Language: en-US
-Autocrypt: addr=dave.hansen@intel.com; keydata=
- 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
-In-Reply-To: <c0e82936-9436-45e4-a8b6-07bdaa9680df@app.fastmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="2NMAQIVW8NCprxWt"
+Content-Disposition: inline
 
-On 11/24/26 08:26, Ard Biesheuvel wrote:
->> They shouldn't but you can't guarantee that.
->>
->> But I don't mind letting them crash if they do 🙂
->>
-> I'm fine with either approach (i.e. disallowing it or doing nothing
-> at all), as long as we don't pretend that this is something that is
-> expected to work.
 
-Yeah, it's not supposed to work. I'd rather document "don't poke the
-sharp stick in your eye" versus trying to make the stick less sharp.
+--2NMAQIVW8NCprxWt
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+Hi all,
+
+Today's linux-next merge of the kvm-arm tree got a conflict in:
+
+  arch/arm64/kvm/mmu.c
+
+between commit:
+
+  fb92b5981ae3c ("KVM: arm64: Fix THP block mapping when the PMD level is f=
+olded")
+
+=66rom the kvm-arm-fixes tree and commit:
+
+  9da9b26ce1aca ("KVM: arm64: Fast fail transparent_hugepage_adjust() for n=
+on-PMD folios")
+
+=66rom the kvm-arm tree.
+
+I fixed it up (see below) and can carry the fix as necessary. This
+is now fixed as far as linux-next is concerned, but any non trivial
+conflicts should be mentioned to your upstream maintainer when your tree
+is submitted for merging.  You may also want to consider cooperating
+with the maintainer of the conflicting tree to minimise any particularly
+complex conflicts.
+
+diff --cc arch/arm64/kvm/mmu.c
+index a0d4981ebb998,042dc53267cb3..0000000000000
+--- a/arch/arm64/kvm/mmu.c
++++ b/arch/arm64/kvm/mmu.c
+@@@ -1564,25 -1566,31 +1566,31 @@@ transparent_hugepage_adjust(const struc
+  	 * sure that the HVA and IPA are sufficiently aligned and that the
+  	 * block map is contained within the memslot.
+  	 */
+- 	if (fault_supports_stage2_huge_mapping(s2fd, PMD_SIZE)) {
+- 		int sz =3D get_user_mapping_size(kvm, s2fd->hva);
++ 	if (!fault_supports_stage2_huge_mapping(s2fd, PMD_SIZE))
++ 		return PAGE_SIZE;
+ =20
+- 		if (sz < 0)
+- 			return sz;
++ 	/*
++ 	 * If the allocated folio isn't at least PMD_SIZE, there is no way a
++ 	 * stage-1 PMD level was installed.
++ 	 */
++ 	if (s2vi->page && !folio_test_pmd_mappable(page_folio(s2vi->page)))
++ 		return PAGE_SIZE;
+ =20
+- 		if (sz < PMD_SIZE)
+- 			return PAGE_SIZE;
++ 	/*
++ 	 * Even though the folio size is big enough, the stage-1 mapping might
++ 	 * have been split. Verify it.
++ 	 */
++ 	sz =3D get_user_mapping_size(kvm, s2fd->hva);
++ 	if (sz < 0)
++ 		return sz;
+ =20
+- 		gfn =3D ALIGN_DOWN(gfn, PMD_SIZE >> PAGE_SHIFT);
+- 		*gfnp =3D gfn;
+- 		pfn =3D ALIGN_DOWN(pfn, PMD_SIZE >> PAGE_SHIFT);
+- 		*pfnp =3D pfn;
++ 	if (sz < PMD_SIZE)
++ 		return PAGE_SIZE;
+ =20
+- 		return PMD_SIZE;
+- 	}
+ -	*gfnp &=3D ~(PTRS_PER_PMD - 1);
+ -	*pfnp &=3D ~(PTRS_PER_PMD - 1);
+++	*gfnp =3D ALIGN_DOWN(*gfnp, PMD_SIZE >> PAGE_SHIFT);
+++	*pfnp =3D ALIGN_DOWN(*pfnp, PMD_SIZE >> PAGE_SHIFT);
+ =20
+- 	/* Use page mapping if we cannot use block mapping. */
+- 	return PAGE_SIZE;
++ 	return PMD_SIZE;
+  }
+ =20
+  static int get_vma_page_shift(struct vm_area_struct *vma)
+
+--2NMAQIVW8NCprxWt
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmsFw3UACgkQJNaLcl1U
+h9BIeQf+KfnvBxvYx1YROBz4Vs5t/IzsLPsFavYCJLiZ5Qz7de1UVUw8nMWOPTk7
+JcOib34DyxmcGXHa2zY3fH0NoqFI2W4oJgC2qCeisDxyE/Hi32m1+KFl4tFhEt+H
+lxvLY2JjLcxUco6HoU+w/HMdFsIdSCoylUfgSPbZIYEa8mBODAVkkO94b4A1Pafz
+B/Hp6pHKL8zB8MnqieN5ttO4L052cEnA6XRPCM5yMpJS9q8Sd7/ldquGmlkmZg5x
+9UeXTBFy29i+aW38ndzbHaSS4K8r2Wt8P6Ky8dVnYvZWdkDmNrpwoFr9HVUbneD6
+A3gEfkHot+astiLwVs6Y4JhVZsbKmw==
+=fkfa
+-----END PGP SIGNATURE-----
+
+--2NMAQIVW8NCprxWt--
