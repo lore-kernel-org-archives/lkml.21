@@ -1,74 +1,93 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.44
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795520188;
-	b=ybhaSdEAr1jPioIqSchUGMvlkkGeTbywwh59Sn6/ceuqWoi9d8DYG3iQ/Ev4L6eSsmOj
-	 /5h76fFwXd57KS91r4fvboYxdz0YPBtQurxji0wC2AucJDm8hOMf0T8RpQoismB/VVMqP
-	 DnA8M3ou7Nm3YKOgTuyoWtg5ydwd+tGcHXWff8ZWnxhDxh778EwYh9DKhqcYYRgvh/99o
-	 rt7WRCifQKZani2qAfN3f+2kJeq8EfbYHGwJxKIMo1znjKyu07Dz2RVZz4qFlHIfFUf+r
-	 2sDCWQroe7oweTDdU4VNIYcQVFNmGaOs1A34zyUVNnORs8mtteet0xBCFYmeNqKW1gA==
+	t=1795520248;
+	b=w4B5cWXdrFuVtftKG4I6QGFbwjt+hm2MwygxXV2ml8nfa4PCcZVvYavPEDq2SCF6RS9h
+	 7NeJMt3DB/xcxnuzT0xfFdzyZk0e71Pug1P6K4c/qWSpiAjZhDFIHBFQ22eRO1FEGIxLA
+	 fpXhqqzFpOuUS1LdCbp1Do6Kk1oNSRIweuk4KANezFLImwx57SE+4v+kWrQ7X+p5Ko4gp
+	 Wiool4wzVPxI5lqcbOsW8/+I617WcQ8xoAxS1RE39hu+ofGZ2x3AxalcJsFU4Ae5523N2
+	 iwC5Psqx5Ua7tBhcOueNgjMI0uV3Dt7SP0ZewHuQ4xRZmghBcGVSRn8KkRuJCaD8bVw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795520188;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795520248;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=yjkaFmMB/EOjRsxFRMCL6eH/Ahn9j6F0qkTMZyl7g/4=;
-	b=yfDKx9Keexhf5aX8QC0/8plfIX5ScpmHL1j4xhTF4cMDwR/wmnV6Vpn3Fxjb2HrR1C0F
-	 uKRlazqe4054VNi5uXuUUCF9tH6ob+GCMI8hEgDyGr64Mu0HA8w66qffRc9wSDcU68kZP
-	 wMYIu4t4cvjMseYV0R0pq6CLFroMwJ4/NMSzxKhN/qyqopcA+9vwaFy9vZlp+6I5cu1OL
-	 VI6q8z+1EK4XtGsowEHz2YBfD9MuUcrw+dhgmQQWtkqVdiuiVSJ9hjfw3yPi+fBmD3kDE
-	 Rs2qXLnuU0WGiQzCKLTEJo5SToxF3W5/bRYsGzg8WyMd+W25rWkDO5D7kMRgA6DQh/A==
+	bh=VQGclKgAQnib41pezV4NU0Ap/XBFbTepIY8+BriRXdE=;
+	b=e/20i/1OuLPlLgqdGWk8/4eszGA9BmRKMoKYxiFe5FM7TzNT0VsG4eFBbvOBDOTbVvkq
+	 fdylOVn/bK7c4J7Qibx4NGEMnm6hyS/EeeUAjQwNDTihTihOgAdYyd+DVG6ZJmF/K6MAY
+	 Z/Gb26lRHoq1YyEX3H4HPpnLwRyA+vknYOTT962gsUrYp/AWymgDrH4XuQGJm+zBPNVbT
+	 fz9+NSR1Sf0RPSG8tv7cxPBqBEfNkxLWIlv5Ple1K8iDyxXuOE/tLO+zk9Fp65da0Qbvd
+	 A8CnGKqRnyYx+T7uzrIGpnc1xWZmDf4MGxYiZZbGGvEXvPoRmHGNodXsdgVBQHVyHKA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=oPfsPL9p;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id C75BA606A330;
-	Tue, 24 Nov 2026 11:36:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C75BA606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="IWzg/v//";
+	arc=none smtp.remote-ip=209.85.221.44
+Received: from mail-wr1-f44.google.com (mail-wr1-f44.google.com [209.85.221.44])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 59EE4606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 11:37:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 59EE4606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=oPfsPL9p
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4ABAE1595;
-	Tue, 24 Nov 2026 03:36:24 -0800 (PST)
-Received: from e143943.arm.com (unknown [10.57.70.100])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id A02013F86F;
-	Tue, 24 Nov 2026 03:36:22 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795520187; bh=TeduYDtsc0fp7HuojRA+mdJj2cMUWG0JMpMHLy/kQ7Q=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=oPfsPL9p/qYKOAZaE0L25gRUd/9OIvj3/4MdCMTcIxuBesHWFAVwa9EdOwVDw+eg0
-	 EcSNCeBrg6J8/NMYFabYou7K030Xhfiw3xVYyhdjun6PzKEWgm7jaNShuakYw4LFgU
-	 NlHQE8zZFoJR8txbVQPEGYtTRmGm4MMjhxgwC1ZQ=
-From: Beata Michalska <beata.michalska@arm.com>
-To: ojeda@kernel.org,
-	dakr@kernel.org,
-	gregkh@linuxfoundation.org,
-	rafael@kernel.org,
-	aliceryhl@google.com
-Cc: boqun@kernel.org,
-	gary@garyguo.net,
-	bjorn3_gh@protonmail.com,
-	lossin@kernel.org,
-	a.hindborg@kernel.org,
-	tmgross@umich.edu,
-	daniel.almeida@collabora.com,
-	boris.brezillon@collabora.com,
-	work@onurozkan.dev,
-	samitolvanen@google.com,
-	acourbot@nvidia.com,
-	rust-for-linux@vger.kernel.org,
-	driver-core@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-pm@vger.kernel.org
-Subject: [PATCH v6 3/3 DO NOT MERGE] drm/tyr: enable runtime PM
-Date: Tue, 24 Nov 2026 12:34:14 +0100
-Message-ID: <20261124113555.2480381-4-beata.michalska@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261124113555.2480381-1-beata.michalska@arm.com>
-References: <20261124113555.2480381-1-beata.michalska@arm.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=IWzg/v//
+Received: by mail-wr1-f44.google.com with SMTP id ffacd0b85a97d-4ad6219f7d8so3738463f8f.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 03:37:28 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795520247; x=1796125047; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=VQGclKgAQnib41pezV4NU0Ap/XBFbTepIY8+BriRXdE=;
+        b=IWzg/v//d/etPgDgdmukjX1yxEjPbSPqtiGrWWDoJuxLEFNbqBa1jM7vsQo9RBZ+tr
+         YbnTYElZfesLeHBye5yfZm4OpKoI029ZvuEsb5Er5df2Dr47NNyon02VIGdYKNXnnig+
+         tuaMkHTHrH7QB0mCN8V/Glna72tcizgHfvomDJ2TT8u9r5aw/UGXc1bbjgiLYaUd6cc7
+         XCBdGUZ16aAAN48+oE+kvW4p8+vTzA/pa6QmdFm08MUmAjbM9TaINwzggXyQaZmFGMiv
+         gmXvL0IVcWC24nz35AKXo05oo8+mTl8y0d3VgOs15xtWCOIUqKQXOuIxkAIODanq7ZJk
+         sz6Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795520247; x=1796125047;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=VQGclKgAQnib41pezV4NU0Ap/XBFbTepIY8+BriRXdE=;
+        b=nfn7F5L0azdLsdIhxWnjBjQdVc/tpWShtp1Xo+6fAhi6j79PIrtmtcm0jLczWRB/e+
+         Zx489Ce1lyyLKOC3ILLsxnrYQEgwr6pX3y7LPvIKIdsE5hcRLHwiIEvSukffXjejr4I8
+         ArH2OcUaUoCXhojRK/w/WtrVGx/0AoQvogES3l8zt0OdYPtVQndw0NaAPAPmU8ZvFHkF
+         G0bYN6Goxez9yi13n18K7KOgAMSgKTEI98KrDDFxdNFLsuUF3CeTVvGmZ/1H/TOg24pz
+         FC1mdx8AOePO9qRtAzxeOkOzt1evfx1ijV/fA0AJ/d29ZLH+IdyB2jvfKff2XPXIyt/M
+         VSCQ==
+X-Forwarded-Encrypted: i=1; AL+hErGfGXb5uLZYmvsMJ6xszohb4bmnp7y00k2ijiveKSyxNBIUodcIQEnI7FmTm0pYv58c9NKQwlARomBttRQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+rzxpBGCPT4cl0/OLpI4nYErWHDcxKhQneNRFPMwo6Nt9oCWmb
+	Rwt+UE3owmHif/uG/Mch43WkPs/C/DVnNdJTZZyiQRLOZSuh/QNDBIkl
+X-Gm-Gg: AZFdTZcv6M7jPs+LUrVUuRIAZWXPVXjDN6o/dL/+O/0L85zqxOVJzJrgwmbit7e7FB0
+	sNSuvHqRJ+lf0qJMJYEgu2GZqAtAao5+QVLzJ6r0CgiW09GQR0g1j9EtOW/uOYQACuQBwONk38a
+	zFt3zfsELEvP6F4Sbzj1KV/LPM6LFbBwP/ssAlcGl0vJlfeRrjqlOpEuezAIpISnHEHLRabZ0nn
+	8yKI6kVixmk6GWRCPtSABLkA5/2II+D77xXn0aJQHhaZcRaKsqxu/1s0rzqB6qL9T6vfPRZeMbe
+	hkoL82yxwaeziZUHJ6UqWB0D6ji2ZHnwJwEhO2Ne7jsiHmY4pqFcmM2cCpEWqN61Hb91K+E24GJ
+	uwG9I+qssH1q6d7YtQPi+r1CtfImsJn8CatjEMcM5WqcIa1mOKeXj/QHwBI5Y3Jgefz1J9fuO5k
+	qRjKrOl9XpkGVdJ2deO/67vV8y1WAYfrJBw6FjmQ+ZKDSrTr9jZpkDy5unmqz6Paa46K1iIpPag
+	3321Xi3qAodbWseB/sDCYXRrWMgCsD5BZ3v2fMPYAGiC+MWeOQ8QYQCUu72IwdRA4rlCm2DS/fA
+	CA6TEPs3GIdL7tloQPw/hGQ=
+X-Received: by 2002:a05:600c:4e0e:b0:4a1:da58:1ee with SMTP id 5b1f17b1804b1-4bb88938dc9mr303753705e9.31.1795520246518;
+        Tue, 24 Nov 2026 03:37:26 -0800 (PST)
+Received: from thinkpad ([92.36.54.136])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884a3a3dsm415634765e9.10.2026.11.24.03.37.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 03:37:25 -0800 (PST)
+From: Andrey Zakharov <dedemorow@gmail.com>
+To: simont@opensource.cirrus.com,
+	ckeepax@opensource.cirrus.com,
+	rf@opensource.cirrus.com
+Cc: broonie@kernel.org,
+	patches@opensource.cirrus.com,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] firmware: cs_dsp: Replace strlcat() with seq_buf in KUnit tests
+Date: Tue, 24 Nov 2026 14:36:55 +0300
+Message-ID: <20261124113655.610791-1-dedemorow@gmail.com>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -80,343 +99,96 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Add runtime PM support to the Tyr platform driver. Move the clocks
-and regulators used by runtime suspend and resume into the PM
-payload, register the PM callbacks, configure autosuspend,
-and let DRM paths take a PM usage reference while querying
-device state.
+strlcat() is being removed from the kernel. It runs an unbounded
+strlen() on the destination, and its size argument is not tied to
+the real buffer, see the issue below.
 
-Signed-off-by: Beata Michalska <beata.michalska@arm.com>
+The bin and wmfw tests fill a 512 byte buffer with a repeated string
+by calling strlcat() in a loop, and use the return value to detect
+that the buffer is full. Use seq_buf_init() and seq_buf_puts() and
+stop when seq_buf_has_overflowed() is true. kunit_kzalloc() returns
+a zeroed buffer, so seq_buf_init() is enough here.
+
+Tested: built with gcc 16.2.1 and ran the cs_dsp KUnit suites under
+QEMU (x86_64, kunit.py, REGMAP_BUILD): 5829 of 5829 tests pass, the
+same as without the patch. The tests do not look at the contents of
+the buffer, so I also checked it with a temporary assertion after the
+loop: strlen(infobuf) is 511 with the old strlcat() loop and with the
+new code, and the assertion fails if 510 is expected.
+
+Not tested: other architectures and any real hardware.
+
+Link: https://github.com/KSPP/linux/issues/370
+Signed-off-by: Andrey Zakharov <dedemorow@gmail.com>
 ---
- drivers/gpu/drm/tyr/driver.rs | 220 +++++++++++++++++++++++++---------
- drivers/gpu/drm/tyr/file.rs   |   7 +-
- 2 files changed, 169 insertions(+), 58 deletions(-)
+ drivers/firmware/cirrus/test/cs_dsp_test_bin.c  | 7 +++++--
+ drivers/firmware/cirrus/test/cs_dsp_test_wmfw.c | 7 +++++--
+ 2 files changed, 10 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/gpu/drm/tyr/driver.rs b/drivers/gpu/drm/tyr/driver.rs
-index c2b99d67369f..c82f31e2d2b4 100644
---- a/drivers/gpu/drm/tyr/driver.rs
-+++ b/drivers/gpu/drm/tyr/driver.rs
-@@ -9,7 +9,11 @@
-         Bound,
-         Core,
-         Device,
--        DeviceContext, //
-+        DeviceContext,
-+        pm:: {
-+            self,
-+            *,
-+        }, //
-     },
-     dma::{
-         Device as DmaDevice,
-@@ -21,17 +25,13 @@
-         poll,
-         Io, //
-     },
--    new_mutex,
-     of,
-     platform,
-     prelude::*,
-     regulator,
-     regulator::Regulator,
-     sizes::SZ_2M,
--    sync::{
--        Arc,
--        Mutex, //
--    },
-+    sync::Arc,
-     time, //
- };
+diff --git a/drivers/firmware/cirrus/test/cs_dsp_test_bin.c b/drivers/firmware/cirrus/test/cs_dsp_test_bin.c
+index 63416838f865..2f44b7a6e637 100644
+--- a/drivers/firmware/cirrus/test/cs_dsp_test_bin.c
++++ b/drivers/firmware/cirrus/test/cs_dsp_test_bin.c
+@@ -17,6 +17,7 @@
+ #include <linux/math.h>
+ #include <linux/random.h>
+ #include <linux/regmap.h>
++#include <linux/seq_buf.h>
  
-@@ -55,35 +55,59 @@
+ #include "../cs_dsp.h"
  
- pub(crate) struct TyrPlatformDriver;
+@@ -2109,6 +2110,7 @@ static void bin_patch_name_and_info(struct kunit *test)
+ 	unsigned int reg_inc_per_word = cs_dsp_mock_reg_addr_inc_per_unpacked_word(priv);
+ 	u32 reg_val, payload_data;
+ 	char *infobuf;
++	struct seq_buf sb;
+ 	unsigned int alg_base_words, reg_addr;
+ 	struct firmware *fw;
  
-+#[pin_data]
-+pub(crate) struct TyrHW<'bound> {
-+    /// Firmware sections.
-+    pub(crate) fw: Firmware<'bound>,
-+
-+    /// GPU MMIO register mapping.
-+    pub(crate) iomem: Arc<IoMem<'bound>>,
-+
-+     /// GPU information read from hardware during probe.
-+    pub(crate) gpu_info: GpuInfo,
-+}
-+
-+
- #[pin_data(PinnedDrop)]
- pub(crate) struct TyrPlatformDriverData<'bound> {
-     #[pin]
--    _reg: drm::Registration<'bound, TyrDrmDriver>,
-+    #[uses('pm: invariant, 'hw)]
-+    _reg: drm::Registration<'pm, TyrDrmDriver>,
-+    // This needs to be dropped after drm::Registration as that one
-+    // borrows PMContext.
-+    #[pin]
-+    #[uses('hw: invariant)]
-+    pub(crate) pm: pm::Registration<'hw, TyrPlatformDriver>,
-+    #[pin]
-+    hw: TyrHW<'bound>,
-+}
-+
-+#[pin_data]
-+pub(crate) struct TyrPMRegistrationData<'pm>
-+where
-+    exists<'bound>: 'pm,
-+{
-+    #[uses('bound: invariant)]
-+    pub(crate) hw: &'pm TyrHW<'bound>,
- }
+@@ -2126,8 +2128,9 @@ static void bin_patch_name_and_info(struct kunit *test)
+ 	infobuf = kunit_kzalloc(test, 512, GFP_KERNEL);
+ 	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, infobuf);
  
-+
- /// Data owned by the DRM [`Registration`].
- ///
- /// This data can have references tied to the parent platform device binding scope
- /// and is accessible only while the DRM device is registered with userspace.
- #[pin_data]
--pub(crate) struct TyrDrmRegistrationData<'drm> {
-+pub(crate) struct TyrDrmRegistrationData<'drm>
-+where
-+    exists<'bound>: 'drm,
-+{
-     /// Parent platform device.
-     pub(crate) pdev: &'drm platform::Device<Bound>,
+-	for (; strlcat(infobuf, "Waffle{Blah}\n", 512) < 512; )
+-		;
++	seq_buf_init(&sb, infobuf, 512);
++	while (!seq_buf_has_overflowed(&sb))
++		seq_buf_puts(&sb, "Waffle{Blah}\n");
  
--    /// Firmware sections.
--    pub(crate) fw: Firmware<'drm>,
--
--    #[pin]
--    clks: Mutex<Clocks>,
--
--    #[pin]
--    regulators: Mutex<Regulators>,
--
--    /// GPU MMIO register mapping.
--    pub(crate) iomem: Arc<IoMem<'drm>>,
--
--    /// GPU information read from hardware during probe.
--    pub(crate) gpu_info: GpuInfo,
-+    /// Runtime PM context owned by the PM Registration
-+    pub(crate) pm: PMContext<'drm, 'drm, TyrPlatformDriver>,
-+    #[uses('bound: invariant)]
-+    pub(crate) hw: &'drm TyrHW<'bound>,
- }
+ 	cs_dsp_mock_bin_add_info(priv->local->bin_builder, infobuf);
  
- fn issue_soft_reset(dev: &Device, iomem: &IoMem<'_>) -> Result {
-@@ -113,6 +137,7 @@ impl platform::Driver for TyrPlatformDriver {
-     type IdInfo = ();
-     type Data<'bound> = TyrPlatformDriverData<'bound>;
-     const OF_ID_TABLE: Option<of::IdTable<Self::IdInfo>> = Some(&OF_TABLE);
-+    const DEV_PM_OPS: Option<pm::OpsRef<Self>> = Some(TYR_PM_OPS.pm_ops());
+diff --git a/drivers/firmware/cirrus/test/cs_dsp_test_wmfw.c b/drivers/firmware/cirrus/test/cs_dsp_test_wmfw.c
+index 1de70e81a868..464a0cc79415 100644
+--- a/drivers/firmware/cirrus/test/cs_dsp_test_wmfw.c
++++ b/drivers/firmware/cirrus/test/cs_dsp_test_wmfw.c
+@@ -16,6 +16,7 @@
+ #include <linux/firmware/cirrus/wmfw.h>
+ #include <linux/random.h>
+ #include <linux/regmap.h>
++#include <linux/seq_buf.h>
+ #include <linux/string.h>
+ #include <linux/vmalloc.h>
  
-     fn probe<'bound>(
-         pdev: &'bound platform::Device<Core<'_>>,
-@@ -130,6 +155,22 @@ fn probe<'bound>(
-             let mali_regulator = Regulator::<regulator::Enabled>::get(pdev.as_ref(), c"mali")?;
-             let sram_regulator = Regulator::<regulator::Enabled>::get(pdev.as_ref(), c"sram")?;
+@@ -1722,6 +1723,7 @@ static void wmfw_load_with_info(struct kunit *test)
+ 	unsigned int reg_addr;
+ 	u8 *payload_data, *readback;
+ 	char *infobuf;
++	struct seq_buf sb;
+ 	const unsigned int payload_size_bytes = 48;
+ 	int ret;
  
-+            let runtime_payload = TyrRuntimePMPayload {
-+                clks: Clocks {
-+                    core: core_clk,
-+                    stacks: stacks_clk,
-+                    coregroup: coregroup_clk,
-+                },
-+                _regulators: Regulators {
-+                    _mali: mali_regulator,
-+                    _sram: sram_regulator,
-+                },
-+            };
-+
-+            let mut pm_configs = KVec::<PMConfig>::with_capacity(2, GFP_KERNEL)?;
-+            pm_configs.push(PMConfig::AutoSuspend(true), GFP_KERNEL)?;
-+            pm_configs.push(PMConfig::AutoSuspendDelay(300), GFP_KERNEL)?;
-+
-             let request = pdev.io_request_by_index(0).ok_or(ENODEV)?;
+@@ -1745,8 +1747,9 @@ static void wmfw_load_with_info(struct kunit *test)
+ 	infobuf = kunit_kzalloc(test, 512, GFP_KERNEL);
+ 	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, infobuf);
  
-             let iomem = Arc::new(request.iomap_sized::<SZ_2M>()?, GFP_KERNEL)?;
-@@ -150,41 +191,59 @@ fn probe<'bound>(
+-	for (; strlcat(infobuf, "Waffle{Blah}\n", 512) < 512;)
+-		;
++	seq_buf_init(&sb, infobuf, 512);
++	while (!seq_buf_has_overflowed(&sb))
++		seq_buf_puts(&sb, "Waffle{Blah}\n");
  
-             let unreg_dev = drm::UnregisteredDevice::<TyrDrmDriver>::new(pdev, Ok(()))?;
- 
--            let mmu = Mmu::new(pdev.as_ref(), iomem.as_arc_borrow(), &gpu_info)?;
--
--            let firmware = Firmware::new(
--                pdev.as_ref(),
--                iomem.clone(),
--                &unreg_dev,
--                mmu.as_arc_borrow(),
--                &gpu_info,
--            )?;
--
--            firmware.boot()?;
--
-             Ok(try_pin_init!(TyrPlatformDriverData {
--                // SAFETY: `_reg` is stored in `TyrPlatformDriverData` and dropped when the
--                // driver is unbound; it is never forgotten.
--                _reg <- unsafe { drm::Registration::new(
--                    pdev.as_ref(),
--                    unreg_dev,
--                    pin_init!(TyrDrmRegistrationData {
--                        pdev,
--                        fw: firmware,
--                        clks <- new_mutex!(Clocks {
--                            core: core_clk,
--                            stacks: stacks_clk,
--                            coregroup: coregroup_clk,
--                        }),
--                        regulators <- new_mutex!(Regulators {
--                            _mali: mali_regulator,
--                            _sram: sram_regulator,
--                        }),
--                        iomem,
--                        gpu_info,
--                    }),
--                )},
--                _: { dev_dbg!(pdev, "Tyr initialized correctly.") },
-+                    hw <- {
-+                        let mmu = Mmu::new(pdev.as_ref(), iomem.as_arc_borrow(), &gpu_info)?;
-+
-+                        let firmware = Firmware::new(
-+                            pdev.as_ref(),
-+                            iomem.clone(),
-+                            &unreg_dev,
-+                            mmu.as_arc_borrow(),
-+                            &gpu_info,
-+                        )?;
-+
-+                        firmware.boot()?;
-+
-+                        pin_init!(TyrHW {
-+                            fw: firmware,
-+                            iomem,
-+                            gpu_info
-+                        })
-+                },
-+                pm <- {
-+                    // SAFETY: `pm` is owned by the driver data and remains accounted for
-+                    unsafe {
-+                        pm::Registration::new(
-+                            pdev.as_ref(),
-+                            &TYR_PM_OPS,
-+                            None,
-+                            Some(pm_configs),
-+                            pin_init!(TyrPMRegistrationData{hw: hw.get_ref()}),
-+                            pm::RuntimeStatePayload::Active(runtime_payload)
-+                        )
-+                    }
-+                },
-+
-+                _reg <- {
-+                    // SAFETY: `_reg` is owned by the driver data and is not forgotten.
-+                    unsafe {
-+                        drm::Registration::new(
-+                            pdev.as_ref(),
-+                            unreg_dev,
-+                            pin_init!(TyrDrmRegistrationData {
-+                                pdev,
-+                                pm: pm.get_ref().get_ctx(),
-+                                hw: hw.get_ref(),
-+                            }),
-+                        )
-+                    }
-+                },
-+
-+                _: {
-+                    pm.get_ctx().enable(RuntimePMState::Active)?;
-+                    dev_dbg!(pdev, "Tyr initialized correctly.");
-+                },
-             }))
-         })
-     }
-@@ -239,3 +298,52 @@ struct Regulators {
-     _mali: Regulator<regulator::Enabled>,
-     _sram: Regulator<regulator::Enabled>,
- }
-+
-+pub(crate) struct TyrRuntimePMPayload {
-+    clks: Clocks,
-+    _regulators: Regulators,
-+}
-+
-+static TYR_PM_OPS: pm::Ops<TyrPlatformDriver> = pm::Ops::new();
-+
-+#[vtable]
-+impl PMOps for TyrPlatformDriver {
-+    type Adapter = platform::Adapter<TyrPlatformDriver>;
-+    type DeviceType = platform::Device<kernel::device::Bound>;
-+    type RegistrationData<'a> = TyrPMRegistrationData<'a>;
-+    type ActivePayload<'a> = TyrRuntimePMPayload;
-+    type SuspendedPayload<'a> = TyrRuntimePMPayload;
-+
-+    fn runtime_suspend<'a>(
-+        _dev: &'a Self::DeviceType,
-+        _reg_data: &'a Self::RegistrationData<'a>,
-+        payload: Self::ActivePayload<'a>,
-+    ) -> Result<Self::SuspendedPayload<'a>, (Self::ActivePayload<'a>, Error)> {
-+        payload.clks.coregroup.disable_unprepare();
-+        payload.clks.stacks.disable_unprepare();
-+        payload.clks.core.disable_unprepare();
-+        Ok(payload)
-+    }
-+    fn runtime_resume<'a>(
-+        _dev: &'a Self::DeviceType,
-+        _reg_data: &'a Self::RegistrationData<'a>,
-+        payload: Self::SuspendedPayload<'a>,
-+    ) -> Result<Self::ActivePayload<'a>, (Self::SuspendedPayload<'a>, Error)> {
-+        if let Err(e) = payload.clks.core.prepare_enable() {
-+            return Err((payload, e));
-+        }
-+
-+        if let Err(e) = payload.clks.stacks.prepare_enable() {
-+            payload.clks.core.disable_unprepare();
-+            return Err((payload, e));
-+        }
-+
-+        if let Err(e) = payload.clks.coregroup.prepare_enable() {
-+            payload.clks.stacks.disable_unprepare();
-+            payload.clks.core.disable_unprepare();
-+            return Err((payload, e));
-+        }
-+
-+        Ok(payload)
-+    }
-+}
-diff --git a/drivers/gpu/drm/tyr/file.rs b/drivers/gpu/drm/tyr/file.rs
-index 9f60a90d4948..28a78ed17e5a 100644
---- a/drivers/gpu/drm/tyr/file.rs
-+++ b/drivers/gpu/drm/tyr/file.rs
-@@ -1,6 +1,7 @@
- // SPDX-License-Identifier: GPL-2.0 or MIT
- 
- use kernel::{
-+    device::pm::PMProfile,
-     drm::{
-         self,
-         Registered, //
-@@ -37,10 +38,12 @@ pub(crate) fn dev_query(
-         devquery: &mut uapi::drm_panthor_dev_query,
-         _file: &TyrDrmFile,
-     ) -> Result<u32> {
-+        // Runtime suspend called when pm_scope gets dropped
-+        let _pm_scope = reg_data.pm.get(PMProfile::new())?;
-         if devquery.pointer == 0 {
-             match devquery.type_ {
-                 uapi::drm_panthor_dev_query_type_DRM_PANTHOR_DEV_QUERY_GPU_INFO => {
--                    devquery.size = core::mem::size_of_val(&reg_data.gpu_info) as u32;
-+                    devquery.size = core::mem::size_of_val(&reg_data.with_hw(|hw| hw.gpu_info)) as u32;
-                     Ok(0)
-                 }
-                 _ => Err(EINVAL),
-@@ -54,7 +57,7 @@ pub(crate) fn dev_query(
-                     )
-                     .writer();
- 
--                    writer.write(&reg_data.gpu_info)?;
-+                    writer.write(&reg_data.with_hw(|hw| hw.gpu_info))?;
- 
-                     Ok(0)
-                 }
+ 	cs_dsp_mock_wmfw_add_info(local->wmfw_builder, infobuf);
+ 	cs_dsp_mock_wmfw_add_info(local->wmfw_builder, "Another block of info");
 -- 
-2.43.0
+2.56.1
 
