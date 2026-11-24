@@ -1,61 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.30.133
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795521274;
-	b=rzUQhwHkcxXeLHJZjkMbdknY+UgtCQchJzttAYFCj8g5u9OENQQYRiyf4JPguGynD6EM
-	 xLuBHZSJWFTdrUo6uFj3lfLTmpJXA1sh3PEEb6Ydij57vd8qEBYKA6X7b8OpX895GAV1D
-	 IOM/8xHuavIC/DksWdj1u/MI+Nh+EjdCNfe3mMCPzq0HjQ/I5Isb2Z/RJgnfIeWqFQpVM
-	 OmKUjjnweg0qJG9axVHPaj6yjjLl7jcmaDu0q3JEZo/Cu+uE6h27r08cBZ+rvcn4yz3op
-	 TXI2w1sWhKXFkOqjyH38OSibfGzx7wzJYcpRZFk8MqGhBlCiX3YmqSTAIi0OcrBfpWw==
+	t=1795521279;
+	b=03PQ8SG5JhPqoeKWf/V9KYjrcqKUWPRPP83BYlcFJS7yrare2eDu42gez7Ks1Pwt+13D
+	 mgCLB/tA+ZW5nu4+6/p2Bbspldxku4dZMPSpiOCKAd/pkbzK6jqY7K+rASmbi2QWU8R0b
+	 lRwBwfJeS8vQF39k3CX93tKqflCv4jp+NclPrMfD3Wy8AF2SaD8ECEI3RBzs9fS2tDZsZ
+	 rWAGWK5OqTNiisc5XeWkXzbeR2Q8FveJMeKZbZXHl4lk+EEvK7MMn3e77Xb2y/YcNB2fD
+	 7JVyB7CbtP7cNln/fJGax3OwFKiu3Az4ctOiYFAsDT4L99/KUu7gwYfigsKwwlQtcQw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795521274;
-	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:From:To:Cc:
-	 Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=n+bbDitwFOC5zeuyG/CW8fmalYtQ3G5tL/oxdvJcz8M=;
-	b=xcNt9sZ/JlSZfSfLwxXI/hemFNTakvnF+HzwORwjXokVBbqKpJ5zef4PXj2EvMbYDAOe
-	 aapzNvkA5C+kPXG5ihp15WwhyaH787zPcHQ7y+FaAWOleyVV+E9/p6yuHjO4Ovws58vuV
-	 EngIjPxUlf4T0FBXmVwSlqkKNSn181Y8wzGQX+PMaAnCMNPVPs+A6LrjgeTBOANrS/W/u
-	 D5pfzI5GFiDIov5T+unkIv7WunuQwAouqIfhLX6+LK1b3Xg59XKWY0iDljqIP0nfYuZ56
-	 ZYlUU3OJITEnGKzW85OSzGpFZ8Ef5yf7LMm56VegpD/3L+9XbNfBgh9Vs8H+t8LcPUQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795521279;
+	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
+	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Mailer;
+	bh=HAmhaTwlq0ql9vpEfF30JAvsIWV3GCSiNAxons2m7lE=;
+	b=NHuwWWaYiWDn4RzsWBsBqzgRp6vVoZF5Dqm+GjRPYcR5MkcS2oC4mf5k86ioND0WTlvT
+	 y9zUpoHczghLzO1ZpdXVT+kWo+k+JeplvytLWIKwBFlO8JxVML8VlTtb//UHwIDXGZA4u
+	 bu25yd2tBvPICyhoCivDu6U4MNhaLzHMulMcVBNe8tySdhGknMOakZX4qI/IW06KUeKtJ
+	 lX0vr8VebLD/43COGxwVTcUsayk/n8eVdNT3nSV1H3AwtPnEA0JHNyCK2HP67//0tsnXG
+	 6CkqPh+kgjd7emjrIKL+EHI7Vl/6WKVAnqpdQ6lo6IOthXnZvUvem00/wiHXz7+xWTw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.alibaba.com;
-	spf=pass smtp.mailfrom=linux.alibaba.com;
-	dkim=pass header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=SNn2JYWy;
-	arc=none smtp.remote-ip=115.124.30.133
-Received: from out30-133.freemail.mail.aliyun.com (out30-133.freemail.mail.aliyun.com [115.124.30.133])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=klNlh1sd;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 97E86606A685
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 11:54:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 97E86606A685
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.alibaba.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.alibaba.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B3AB0606A327;
+	Tue, 24 Nov 2026 11:54:39 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=SNn2JYWy
-DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1795521265; h=From:To:Subject:Date:Message-Id:MIME-Version;
-	bh=n+bbDitwFOC5zeuyG/CW8fmalYtQ3G5tL/oxdvJcz8M=;
-	b=SNn2JYWyfNmpKMBKYEg0KMdMiqDb5BurCtBbd7Rsblp6ao4aldxHxDEKkgzYZ6xCqaDvVIJFZqTwfll28u7ni7qUtLROFVp7D0g+dc5GIIE8Bbu+Yfw2Qf2T6EmzpSGRQYXdAth5oNgs9+f9uorAOAMe4NdUldQGx1Xb74IV+YM=
-X-Alimail-AntiSpam:AC=PASS;BC=-1|-1;BR=01201311R431e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037033178;MF=joseph.qi@linux.alibaba.com;NM=1;PH=DS;RN=7;SR=0;TI=SMTPD_---0XFOMddf_1795521264;
-Received: from localhost(mailfrom:joseph.qi@linux.alibaba.com fp:SMTPD_---0XFOMddf_1795521264 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Tue, 24 Nov 2026 19:54:25 +0800
-From: Joseph Qi <joseph.qi@linux.alibaba.com>
-To: Andrew Morton <akpm@linux-foundation.org>,
-	Heming Zhao <heming.zhao@suse.com>
-Cc: Mark Fasheh <mark@fasheh.com>,
-	Joel Becker <jlbec@evilplan.org>,
-	ocfs2-devel@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Joseph Qi <joseph.qi@linux.alibaba.com>
-Subject: [PATCH 2/3] ocfs2: validate chain allocator clusters per group
-Date: Tue, 24 Nov 2026 19:54:03 +0800
-Message-Id: <20261124115404.2937581-2-joseph.qi@linux.alibaba.com>
-X-Mailer: git-send-email 2.39.3
-In-Reply-To: <20261124115404.2937581-1-joseph.qi@linux.alibaba.com>
-References: <20261124115404.2937581-1-joseph.qi@linux.alibaba.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=klNlh1sd
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E9A321F000D2;
+	Tue, 24 Nov 2026 11:54:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795521279;
+	bh=HAmhaTwlq0ql9vpEfF30JAvsIWV3GCSiNAxons2m7lE=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=klNlh1sdr91oxUGKW9agsfOzeuWO6an+iHiQdLW3AI0IpE0482b+mUMmEy4k0dZeh
+	 2HIJmzpgS8IlGlE104nDfQycIN2ucAQCHK5yqWpFoJdAB5Nhzexvhe2P/YJr0W+fnC
+	 59y+dJSjUTIKv8eJ4Lx+eoCL8sqt25dhjg1lYzYeytGtcrD5geuOvC2UWZfJsfewFT
+	 YPkUfcx2UOvqiNkIE6ijkELonEnRCPGtksMq1+rRRy68XJ6Ef0OSDc0qx68jl7bNrD
+	 bgXWNNBQl65CxQWnbAcc1M+U7dBKWRaNW0YaFFJUFTekUWjpW+uS5Ai4Vtas73rnKh
+	 rrKERPyHvpUMw==
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: frank.li@oss.nxp.com, jingoohan1@gmail.com, l.stach@pengutronix.de, 
+ lpieralisi@kernel.org, kwilczynski@kernel.org, robh@kernel.org, 
+ bhelgaas@google.com, s.hauer@pengutronix.de, kernel@pengutronix.de, 
+ festevam@gmail.com, hongxing.zhu@oss.nxp.com
+Cc: linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ imx@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ Richard Zhu <hongxing.zhu@nxp.com>
+In-Reply-To: <20261109022139.3226052-1-hongxing.zhu@oss.nxp.com>
+References: <20261109022139.3226052-1-hongxing.zhu@oss.nxp.com>
+Subject: Re: [PATCH v2] PCI: imx6: Enable L1SS support when supports_clkreq
+ is true
+Message-Id: <179552127457.34411.18338691732347833133.b4-ty@b4>
+Date: Tue, 24 Nov 2026 12:54:34 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,87 +63,32 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-Mailer: b4 0.16.0
 
-ocfs2_validate_inode_block() checks cl_count, cl_next_free_rec and
-cl_bpc on a chain allocator dinode, but never cl_cpg, even though the
-suballocator reads it straight off disk to size every new block group.
-A crafted value therefore survives all of the read time checks.
 
-cl_cpg of 0 makes ocfs2_bits_per_group() return 0.  The cluster
-reservation then succeeds with ac_bits_wanted of 0, and
-__ocfs2_claim_clusters() trips BUG_ON(ac->ac_bits_given >=
-ac->ac_bits_wanted) on the same open(O_CREAT) path that extends a
-metadata allocator.
+On Mon, 09 Nov 2026 10:21:39 +0800, hongxing.zhu@oss.nxp.com wrote:
+> Enable L1SS for the i.MX6 PCIe controller when the `supports_clkreq` flag
+> is set. This ensures that the PCIe endpoint can enter low-power states
+> efficiently when the link is not in use.
+> 
+> The commit a00bba406b5a ("PCI: dwc: Advertise L1 PM Substates only if
+> driver requests it") clears L1SS capabilities by default. However, the
+> i.MX PCIe controller supports L1SS as indicated by the settings in the L1SS
+> capabilities register. By setting `dw_pcie.l1ss_support` to true when
+> `supports_clkreq` is true, enable proper utilization of L1SS for i.MX6 PCIe
+> configurations.
+> 
+> [...]
 
-Reject a bits_per_group outside [2, U16_MAX] on every chain allocator
-but the global bitmap, which is exempted exactly as in
-ocfs2_dinode_has_bad_chain_bpc().  The lower bound is the invariant
-the group extend relies on: bit 0 of a new group is its own
-descriptor, so a group of fewer than two bits has nothing to hand
-out.  The upper bound catches the product being truncated when
-ocfs2_block_group_fill() stores it through cpu_to_le16() into the u16
-bg_bits, which otherwise updates i_total, i_used and
-bg_free_bits_count with a count that does not match the group
-actually built.
+Applied, thanks!
 
-No valid volume is affected.  mkfs writes the same cl_cpg into the
-initial groups it creates, and geometry that either did not fit the
-u16 bg_bits or left no allocatable bit would have made the allocator
-unusable from the start.
+[1/1] PCI: imx6: Enable L1SS support when supports_clkreq is true
+      commit: adf478a1cc9985ca1e7143fc185f2a4c59da7a30
 
-The dinode is now rejected at read time, so iget fails and the
-operation returns an error instead of reaching the suballocator.
-
-Signed-off-by: Joseph Qi <joseph.qi@linux.alibaba.com>
----
- fs/ocfs2/inode.c | 26 ++++++++++++++++++++++++++
- 1 file changed, 26 insertions(+)
-
-diff --git a/fs/ocfs2/inode.c b/fs/ocfs2/inode.c
-index 8e5f7a240381..e6f89d1e3091 100644
---- a/fs/ocfs2/inode.c
-+++ b/fs/ocfs2/inode.c
-@@ -254,6 +254,26 @@ static bool ocfs2_dinode_has_bad_chain_bpc(struct super_block *sb,
- 		le16_to_cpu(di->id2.i_chain.cl_bpc) != bpc;
- }
- 
-+static bool ocfs2_dinode_has_bad_chain_cpg(struct super_block *sb,
-+					   struct ocfs2_dinode *di)
-+{
-+	u32 bits_per_group = (u32)le16_to_cpu(di->id2.i_chain.cl_cpg) *
-+		(u32)le16_to_cpu(di->id2.i_chain.cl_bpc);
-+
-+	/*
-+	 * A block group holds cl_cpg * cl_bpc bits, the first of which is its
-+	 * own descriptor, and records that count in the u16 bg_bits.  Outside
-+	 * [2, U16_MAX] the group either has no allocatable bit at all or
-+	 * silently truncates the allocator accounting.  The global bitmap is
-+	 * exempt as in the bits-per-cluster check above: it never grows, and
-+	 * its group size comes from ocfs2_group_bitmap_size() rather than
-+	 * from cl_cpg.
-+	 */
-+	return OCFS2_SB(sb)->bitmap_blkno &&
-+		OCFS2_SB(sb)->bitmap_blkno != le64_to_cpu(di->i_blkno) &&
-+		(bits_per_group < 2 || bits_per_group > U16_MAX);
-+}
-+
- static bool ocfs2_dinode_has_refcount_without_loc(struct ocfs2_dinode *di)
- {
- 	return (le16_to_cpu(di->i_dyn_features) & OCFS2_HAS_REFCOUNT_FL) &&
-@@ -1919,6 +1939,12 @@ int ocfs2_validate_inode_block(struct super_block *sb,
- 					 le16_to_cpu(cl->cl_bpc));
- 			goto bail;
- 		}
-+		if (ocfs2_dinode_has_bad_chain_cpg(sb, di)) {
-+			rc = ocfs2_error(sb, "Invalid dinode %llu: clusters per group %u\n",
-+					 (unsigned long long)bh->b_blocknr,
-+					 le16_to_cpu(cl->cl_cpg));
-+			goto bail;
-+		}
- 	}
- 
- 	if (ocfs2_dinode_has_refcount_without_loc(di)) {
+Best regards,
 -- 
-2.39.3
+மணிவண்ணன் சதாசிவம்
+
 
