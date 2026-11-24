@@ -1,111 +1,119 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.173
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795553672;
-	b=rd6ootDvWvLpzssSJdHkII2iyveJdfYWfJoJDQIYFtAw0fTOdy0/jL+CVRny2hci5hmf
-	 Ar4X+tFuNP3R5KodUvWutvc3ULShTk7JnIAHCmikMAsVdx4xinpz384SgRJ8XfEq/EDH4
-	 VmLpYDGWpsFH9sw1m4Bk+TQUb2AE6jAYOuVEd/9aVSKwUJRXtKxa3Io307AqLd1zJE68N
-	 UYrtCRIJXJAgn4FLt55fbGXSqDuunQRw1naN6T8raOZ/MWP0tZesXpNpAg3V6UpG+bNWx
-	 M7H9Bctfb+380rmv/hjVHYnjqBQW3sve6suBsQiCt9hE/DU06WBmphbBqVDEpe427aA==
+	t=1795553709;
+	b=44hoyfXLT/U0bXYMaWZB5iXH0BGQAma/R0kFQ2vHN9ZHZ1pjkT5Eo0fg8dvXmhuYOQg8
+	 YqOw19NhtM1J+fFUa2p2ib5EflowAEIVp63EbXcX8Xvw7lQzprA96QbVbUw/Lzcl94kV4
+	 Z5dJnfLbUeIKibACFfag2Ezsfi5jB/GzrWHWhtnRjrhZSGi/x6rBci5AFav7YtFTocOtW
+	 D2p2Iulskr7QC25SWyXgsggEmDXG2rKl1Ciuxjh4JpzXlrIMJnzDzFgnPCs2yA6e7ztTl
+	 +ESDf3m+BoNqZk527WJk4tkzXQdv6i2rBSDTezeUGv7U0zE2v6LEukLWKveryGeDKbA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795553672;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-GUID:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=zGHtBxAPYsJ50s7xgldA7nxDdVzLshBLi9zRXsaND/k=;
-	b=QyjTIze+lnf/76d1S84V3wjM0mOJWfYRek868LWDHXWERvv8gpCie0XbTql+YBMwJ9Mr
-	 GiOuwEThr7BLCiNO4AgdIiCY8k0DYfd3dCnOn9Svu/ZPqRUcAR++fTkiimpS0v5gxphF0
-	 uMyAlcziZqHEGY71Qn58Lkt+fHi0dlUTnsi/saKIR1vB5oOKg5Kfdh/tO386R6kJxBLQF
-	 9lw/WpO366k9W8I7HxMqvUFvxK7A53gwlAFWyj32cKZo6oP2rtxEzKPGFO1dVvHKx3fOC
-	 EqK1RVb6zaEy6QXBNnFoxRthKyC/GaR+RWJGDdvIqLzs5SgQjiNF/p2YUemdGc/+xsg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795553709;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Subject:From:To:Cc:Date:In-Reply-To:References:Autocrypt:
+	 Content-Type:User-Agent:MIME-Version;
+	bh=OT57QIIbgw1mNoCmc4Nd4ViyD4coW8RXoU/BWL17AVc=;
+	b=Jr/JM+64/ZRtlYNZGtyaoVeswIm6kT5pyg7kdiw5E5kWYpzdzdNquqnRLgsvAb2Bz+UM
+	 xNjK7z8zXjly3JI+ZgYJ9BW62Ok2SYRWg/Fiwled/DFdPTIIxG+7d59VgYmo3b1i1vMw+
+	 FWsQ+CnYHyNbN8QMZg3m5BfoF5OyVdPACO42s12KRtlbIFCbxA57yvpowa+uj20lOdww1
+	 JeB4UMRwjYUmmRpg3TmPzcolIb7VA4O5quESVMgxoEEQ6k4A5sttOGF47EMuTVL5nqwWI
+	 mqU+KN7gmtu/HiloItUqmBeIIxvjlnZ4rqLsLvGpI/QEAUSNY7ayzL7wSNFfr37HCBg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=odAzipFZ;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=PHO5kgD+;
-	arc=none smtp.remote-ip=205.220.180.131
-Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=ndufresne.ca;
+	spf=pass smtp.mailfrom=ndufresne.ca;
+	dkim=pass header.d=ndufresne-ca.20260707.gappssmtp.com header.i=@ndufresne-ca.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=AsXqa2X0;
+	arc=none smtp.remote-ip=209.85.222.173
+Received: from mail-qk1-f173.google.com (mail-qk1-f173.google.com [209.85.222.173])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9E15E606A321
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 20:54:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9E15E606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AE762606A321
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 20:55:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AE762606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ndufresne.ca
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ndufresne.ca
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=odAzipFZ;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=PHO5kgD+
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AOIY56w1651257
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 20:54:30 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	zGHtBxAPYsJ50s7xgldA7nxDdVzLshBLi9zRXsaND/k=; b=odAzipFZyiXyd9F5
-	CbUqOf+lpvMImhKFQC8Z9QoAWbLGMP3XPPkb7uD+hbGw//MmaUr7Kle8rvxRugv0
-	P0eGzh8p89GneitxX4Dmn88enhlk374oPqx5fHBtkCV7u+zzzk61JKUzeff9dAQt
-	WuiU1/hbgjM6t01Y0wPsOH3b+dO/navUE951FFXwsPt45S8B/GVYq5CkkJszmJc8
-	6vKoRcCkeFGTol1ryyaUDgyL0ubAjxw+l4k6XwvpvdL5QZENJzhYN8uex8GdBz4A
-	fAtuFHvZbS6I+TKBkSttYLNjfzBYXR04YO5aYV4nTZNYnupdG9KII52+Qh5wohSB
-	Xozlow==
-Received: from mail-dy1-f200.google.com (mail-dy1-f200.google.com [74.125.82.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j54rpkxr6-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 20:54:30 +0000 (GMT)
-Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-38355b03cb8so4897558eec.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 12:54:30 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=ndufresne-ca.20260707.gappssmtp.com header.i=@ndufresne-ca.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=AsXqa2X0
+Received: by mail-qk1-f173.google.com with SMTP id af79cd13be357-9495e8ae239so565051385a.2
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 12:55:08 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795553669; x=1796158469; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=zGHtBxAPYsJ50s7xgldA7nxDdVzLshBLi9zRXsaND/k=;
-        b=PHO5kgD++8d6PMzt4Xf0fz0VP0QFrN/RDKzZ7AEDlkdNfCFlGadmEsHO36t+dNDUoy
-         KqEWenDiyta0updIfp3ylfeONYtjiEP1BkY/9oOCQG4NG/6YNgM6Nw0uuhcK6vjzJv/n
-         n/vPgWwDIGi3mVUucGVQuMaGAMS3M02K8Gf20Z/zmRcJC20MRTF/fqXTRJLqKke3mr0u
-         4DZQBdxpB5wOjDa+59h0nzyV3+6VWQ91GWV6QL35Ni61TxA65x9OrSLO7LU0Kf7ae9nC
-         MwegbgyKH3loT0QdP3zTZzAfiO6KhXIfFU0+rWzymzPtL2QWvDsGTKxvBU0J7PWAPRrH
-         iClg==
+        d=ndufresne-ca.20260707.gappssmtp.com; s=20260707; t=1795553707; x=1796158507; darn=vger.kernel.org;
+        h=mime-version:user-agent:content-type:autocrypt:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=OT57QIIbgw1mNoCmc4Nd4ViyD4coW8RXoU/BWL17AVc=;
+        b=AsXqa2X0Z8akbnIHJrtz2Q6snRX27AvTTIVWMqTUgURfZupv5nUqNVaFzMUx71RpEs
+         ce78DjKAo2WX9CSUA0sIkT+RvNLvSIqy4hdoem2ri03GmWOCely4FmIpsAHOmIXhFhJ7
+         xZ93F2eiV9QgVj34qW3bB+fTFXBOsXnjQ6cea8uG5F32xAcGN4sUmP+nVocjMvH4pstX
+         bPOnuZSDLr4whb/kvDIUAW4M2CqnNLxm4TdFqyrT+Tej1Td4gLO8AypvwodVbQz90tkL
+         QHSZZIeXPBUCkpC5mUQXnhcp0qjvW0jLtetelEKmDDnZwg1XQlxwyj0lj3WOd/7uG+v2
+         ZOkQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795553669; x=1796158469;
-        h=content-transfer-encoding:content-type:in-reply-to:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=zGHtBxAPYsJ50s7xgldA7nxDdVzLshBLi9zRXsaND/k=;
-        b=m6AYrvGEFYEMrNpxE4EYA4bOszSDdjtjTQ4SstYf+xNzK8xBJeEu1KXgkM7dq7yLnZ
-         FiWIDCctAzYl+UdyUURdFvxWBGV4BcNMNnE19qGJXjD6fiXarpu70iYNbBjCtn2gBf6K
-         SHDw5Arwb3OwOLQOpZMlp2MXYqGv37MVbIFOW1LgJQv0YQhp6E+aNk+wfdhe9qDvUpYN
-         NbJ/4PSPXpwP49BRdkyM4Ft9K2AD0dJd27wX8ykv36vIiN9f5nw5uzj9gSY2pJol1ruM
-         0fjcTF0uhipkWsbeMyrNLMinSfNnnElyBioKzc3/cCnafdN8k9k0+14tVHZ4HkkaCjab
-         z5Rg==
-X-Forwarded-Encrypted: i=1; AL+hErHJwn9Jlzo7WaVWTvrDWXdDtO5dvo7iUC7cFdzPosxa6o61BSkxYANhBoDFe38rTjuUeUlRODvP7RR5KjU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+ou7/7NnxuMzV18KPCC6yTazFEPKfkwNGT2rYIHgN1jF9EY+gF
-	Ha6lagPqnqfh44nevoVW8NnSuyWZ15wgPdTZIOTDSxJ2NpUG7bbEAQmBLk3fFfEitc3tP39XtOV
-	0iQVwBmTwvJQilVjWxkED+SrSvmEkXm9wWvCjuexSuUwL1e7jGN6Fpq7CNGAEiLxj1rUgKxlmEc
-	c=
-X-Gm-Gg: AZFdTZf1JnJMkw5J0fsunopOq/ucm31YuIWEde2ZLHgUHFHknlM86m/e7gEnzwWiDHe
-	sM8O1URx3rVt5gDM9ueIjQYEMh5XE4XqDhGkdxRh1msJ8iGWvQK0HFWcqOYU6Vwn2wkqk9+vjpv
-	M9r3TLaK3oypPV833qTBCkG1Wc5qs4Eyx5eS4e/0T9HZP2PWoIiFeqSm1Grvw3i0RmwcOTCWkqv
-	kWJ5pcPc+oZ2XdCRcL105UXfsqWGyca+GagDqRCIzJcbA/oweJ1DJsuQBdBXhE0yZB8mtAcm9bs
-	tLtmS7zdJgS5IlIsd7fiBzAFvEA0BogxgAen9ufnb5j+32aNo85L1UJFMbnRP8awiShlz1yElUp
-	bSIjMq9+WHcxn3pdIWubdwrGCorCTbG2lf7UxXNDeQoK/s/zBJTa5wd0WbLz1688WPkLpvMGiDQ
-	gOXq4MXRAsy48QYawI
-X-Received: by 2002:a05:693c:8641:20b0:383:50b7:1d78 with SMTP id 5a478bee46e88-38571223ee7mr17921593eec.40.1795553669003;
-        Tue, 24 Nov 2026 12:54:29 -0800 (PST)
-X-Received: by 2002:a05:693c:8641:20b0:383:50b7:1d78 with SMTP id 5a478bee46e88-38571223ee7mr17921568eec.40.1795553668440;
-        Tue, 24 Nov 2026 12:54:28 -0800 (PST)
-Received: from [192.168.11.103] ([124.123.81.254])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385672c6f31sm46139437eec.15.2026.11.24.12.54.26
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 24 Nov 2026 12:54:27 -0800 (PST)
-Message-ID: <d10c7d75-2113-454d-bffb-a71b826ccff6@oss.qualcomm.com>
-Date: Wed, 25 Nov 2026 02:24:24 +0530
+        d=1e100.net; s=20260707; t=1795553707; x=1796158507;
+        h=mime-version:user-agent:content-type:autocrypt:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=OT57QIIbgw1mNoCmc4Nd4ViyD4coW8RXoU/BWL17AVc=;
+        b=p6dLSe1rLZ3YJ9/CnAWyZTgQKIsM2lLf+aLKSYc/eY7D3YZZI4FgjChA50cZYIeZ20
+         0VgJkluDqgBbSJcbqIAklCk6qtQGHuS0bIYFpL5ZJ52VOtE75ZbDFuyAQ22ssQdML/vZ
+         inN8KaSdn0sQyVR63c9U5CSbW6X/RAUVH1hZYkuxIJgPkx/whNE4lEkcVu09DJ8w3fm8
+         lH0XDF6TkSLluYmu8MBjxbGJ0K1WD2kSMGxBCXKl+haRneFOgA7e6KkFo2z1hvGhhfbC
+         BYdXCUUlBf/v7/waKqEx15FFkVVekzGBS/DOyvqk1xQ92/gJi86yTGsrVZj+Ke37O91w
+         09dw==
+X-Forwarded-Encrypted: i=1; AL+hErGSzq3nCqEg8isAvIgYCD0sQSgf1YL+2q8jqlkAdncT2wm/mgWex8fVbWGOQd4FO3KhHXX0NfmeZY7IOOw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z83Ps744RkGCTYO8wEifvrFOJwgwMcLNZhRdN5X1sXd2lqkV9Bt
+	+f9qlVX04vPXYmoRnF1R9lvCHVD7iDBMVidu3AYMdz7YiLh40xTsbqFWPACGRV4BbrQ0n3el7ey
+	quod9
+X-Gm-Gg: AZFdTZe5YFsMQuMi1/fskVQE6qmek7umEi+ZRW/YbyJAFp2z1sCKOzq3uhoBR4zVhd0
+	6FEc/pPC7GVgtgBpMXz/YsQZ4h727DJ3aLGIw2c91KNV4mwSm/1+7VNehpojopYy4SdoJbbRcLl
+	IrzFLX1a+O5dOZBhyQXcQkDWSf/tY5naHoQJzKNcWsXpGYn3n/jLyq5/SIR5ICfVxYXkir9o6cl
+	k/UsjXuEDJ4RSIcACYdEPgtCD2wL7mQIv2OvxrnQ2i2DSc2kHOjpHH3NBA7XgLjAWp7XQEeX8Dl
+	sWba+xtSHGpuiDlvbhBLtV6B4/1/OyRgJyocB/fYkbgQZZUfbmJzs2xZkeVHX/qhmINnKgaOVya
+	le7t41wFy6SBG0CbNZRxQKYs7EkZT0jPA365OLiFZlwvUuw3hHHXMIXFvCZO29R0QfSU03qLIg4
+	H1TJjazI7tfsUgBaZPKKBpOaQp+z1AFU0RBp01802OPn93UY6K9HC//JhYrtp0zuDWWCbm9LjTM
+	Vi/r28kKgyFH7JbkkzJFoFIfad9Y7DJdZwBhFu5FCE5O8voBHx9dqjy7EEw+dJK7tOe7NTvKX++
+	IctvuNYvkL6SLqxH0iROaHbQgB6H3HIdFO5lYBqYP7mhAEIr27/9BYE=
+X-Received: by 2002:a05:620a:6f02:b0:93b:bc51:b40 with SMTP id af79cd13be357-949ba84ac50mr2649854985a.2.1795553707568;
+        Tue, 24 Nov 2026 12:55:07 -0800 (PST)
+Received: from ?IPv6:2606:6d00:11:8ec9::c41? ([2606:6d00:11:8ec9::c41])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-949bb40ea12sm1141447585a.35.2026.11.24.12.55.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 12:55:06 -0800 (PST)
+Message-ID: <82a6933335048ca8f9969481cde8340dac19ccb1.camel@ndufresne.ca>
+Subject: Re: [PATCH v2 06/17] media: v4l2-mem2mem: drop curr_ctx member from
+ v4l2_m2m_dev struct
+From: Nicolas Dufresne <nicolas@ndufresne.ca>
+To: Sven =?ISO-8859-1?Q?P=FCschel?= <s.pueschel@pengutronix.de>, Jacob Chen
+	 <jacob-chen@iotwrt.com>, Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, 
+ Mauro Carvalho Chehab
+	 <mchehab@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Philipp Zabel
+	 <p.zabel@pengutronix.de>
+Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	kernel@pengutronix.de, Detlev Casanova <detlev.casanova@collabora.com>, 
+ Michael Tretter <m.tretter@pengutronix.de>, Guangshuo Li
+ <lgs201920130244@gmail.com>
+Date: Tue, 24 Nov 2026 15:55:05 -0500
+In-Reply-To: <20260916-spu-rga3multicore-v2-6-23aa2cb74e61@pengutronix.de>
+References: <20260916-spu-rga3multicore-v2-0-23aa2cb74e61@pengutronix.de>
+	 <20260916-spu-rga3multicore-v2-6-23aa2cb74e61@pengutronix.de>
+Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-qDFQbRP8sfMUezyW9fo/"
+User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -115,431 +123,211 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH ath-next 7/7] wifi: ath12k: handle MLO active link updates
-To: Miaoqing Pan <miaoqing.pan@oss.qualcomm.com>, jjohnson@kernel.org
-Cc: ath12k@lists.infradead.org, linux-wireless@vger.kernel.org,
-        linux-kernel@vger.kernel.org
-References: <20261118025520.39269-1-miaoqing.pan@oss.qualcomm.com>
- <20261118025520.39269-8-miaoqing.pan@oss.qualcomm.com>
-From: Rameshkumar Sundaram <rameshkumar.sundaram@oss.qualcomm.com>
-Content-Language: en-US
-In-Reply-To: <20261118025520.39269-8-miaoqing.pan@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI0MDA4MiBTYWx0ZWRfXyuysXK37kf64
- oycG5P1S8Mw+3VVyZCXa57YOZmoaQOTdIy0T/xWls4aXfO/E0aaeLmLryLiyf0+I/rzvfFBubKB
- Y4/N8A+RhA5IlYg27LbFnPHzJKR7NkZvjGNrqvVZQ1PwjntQzcphsA4eGAqR+U+gTFDzP5bpxn3
- 6wK4nfMkGPOy9ec5FXGcg37L0cTaQ/nTV9uaERHeBjnw0zIRjmbOUdS0+LmsoHMx6KXcu0c225E
- jnBGv9dPAhfZGr2CGaOFo4myQ3LXPHyG/X43Onpd+WVbDFZ0GXUeaJpOtNxq3dlPbVkkIWYwkyz
- fUeeBGGQyhtAMtvKUYxlEsCr2uZE3CTnY3NCNVZaZala9slADuE4ZlpfpkfhoN2kOPtH7iMwrRH
- TvEVsSSmbDEebk+zxNOnHthrONbQrqHaGz4LzdGaYfK3gJ5vuwmo6DUpYO25dFoxZRTTnAfJWqm
- 4Z+LbXg2kJR0ieyx7Dw==
-X-Proofpoint-GUID: 5BNPgUy5Vlwx024yI4OucXgznKSePNW6
-X-Authority-Analysis: v=2.4 cv=MvbHeGae c=1 sm=1 tr=0 ts=6b05f986 cx=c_pps
- a=PfFC4Oe2JQzmKTvty2cRDw==:117 a=WcLwt0pvHDAIUQ3iVSLIEw==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22
- a=EUspDBNiAAAA:8 a=lZnIY_QNQNzb0u9bTJAA:9 a=zlulEwOhvs9ORIPW:21
- a=QEXdDO2ut3YA:10 a=6Ab_bkdmUrQuMsNx7PHu:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI0MDA4MiBTYWx0ZWRfX7Moe9AZZwd3t
- or4w5N3MSmryaXKGwI1e2kvosPuYmGZq8KtknFOilNkDQVdMEHcNqilg0Wisp5Vm5KLxInocRm3
- uKAlDExB5uS2QWV34ZbErC6LErrW7kQ=
-X-Proofpoint-ORIG-GUID: 5BNPgUy5Vlwx024yI4OucXgznKSePNW6
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-24_05,2026-11-23_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 phishscore=0 lowpriorityscore=0 bulkscore=0 adultscore=0
- clxscore=1015 impostorscore=0 suspectscore=0 malwarescore=0 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611240082
 
-On 11/18/2026 8:25 AM, Miaoqing Pan wrote:
-> ath12k_mac_op_change_sta_links() handles both valid-link and active-link
-> changes from mac80211. For an active-link change, old_links and new_links
-> are the active sets. The callback returned early whenever new_links was
-> smaller than old_links, and outside connect nothing sends an active-link
-> command to firmware. So when an associated MLO STA deactivates a link,
-> e.g. active links 0x5 -> 0x1, firmware keeps link 2 active while
-> mac80211 has already released its channel context.
-> 
-> Sync the active links to firmware from the callback once the STA is
-> AUTHORIZED:
-> 
-> - Create link STAs for sta->valid_links instead of new_links. Firmware
->    cannot remove a single link sta, so removals are only logged and are
->    left to STA removal.
-> - Take the active set from channel contexts: a link with a link STA and
->    a link vif is active if it holds a chanctx, inactive otherwise.
->    mac80211 releases the chanctx of a deactivated link and assigns one to
->    a newly activated link before it calls the callback.
-> - Send WMI_MLO_LINK_SET_ACTIVE only when this set differs from the one
->    last programmed, cached per vif. Send it to each device that holds
->    vdevs of the STA, with that device's links, and wait up to 5 seconds
->    for each response. Two active links on the same MAC use
->    INACTIVE_LINK_NUM, as at connect, and that command is not waited for.
->    Update the cache only if all devices succeed, so a failed sync is
->    retried on the next callback.
-> - Reset the cache on ASSOC -> AUTHORIZED, so the first sync after each
->    (re)connect is always sent. This also covers hw restart, where
->    mac80211 replays the station state transitions.
-> 
-> If the device crashes while a request is pending, the waiter still holds
-> the wiphy lock. ath12k_core_pre_reconfigure_recovery() therefore releases
-> the waiter before it takes the lock, otherwise recovery stalls until the
-> timeout expires.
-> 
-> Tested-on: QCC2072 hw1.0 PCI WLAN.COL.1.0.c2-00277-QCACOLSWPL_V1_TO_SILICONZ-1
-> Tested-on: WCN7850 hw2.0 PCI WLAN.HMT.1.1.c7-00108-QCAHMTSWPL_V1.0_V2.0_SILICONZ_UPSTREAM-3
-> 
-> Signed-off-by: Miaoqing Pan <miaoqing.pan@oss.qualcomm.com>
+--=-qDFQbRP8sfMUezyW9fo/
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Le mercredi 16 septembre 2026 =C3=A0 17:09 +0200, Sven P=C3=BCschel a =C3=
+=A9crit=C2=A0:
+> Drop the curr_ctx member from the v4l2_m2m_dev struct in preparation of
+> adding support for running multiple jobs in parallel.
+>=20
+> The curr_ctx member of a v4l2_m2m_dev was used to track the
+> currently running context. But the currently running context will always
+> be at the top of the job_queue. As the TRANS_RUNNING flag can be used to
+> check if the queue head is already running, the curr_ctx member can be
+> completely dropped.
+>=20
+> By eliminating the struct member the code is mostly agnostic whenever
+> only one job is running at a time or multiple run at the same time. The
+> main exception is the v4l2_m2m_get_curr_priv function, which is by it's
+> design incompatible with running multiple jobs in parallel.
+>=20
+> Signed-off-by: Sven P=C3=BCschel <s.pueschel@pengutronix.de>
+>=20
 > ---
->   drivers/net/wireless/ath/ath12k/core.c |  15 ++
->   drivers/net/wireless/ath/ath12k/core.h |  20 ++
->   drivers/net/wireless/ath/ath12k/mac.c  | 241 +++++++++++++++++++++++--
->   drivers/net/wireless/ath/ath12k/wmi.c  |   9 +-
->   drivers/net/wireless/ath/ath12k/wmi.h  |   1 +
->   5 files changed, 271 insertions(+), 15 deletions(-)
-> 
-> diff --git a/drivers/net/wireless/ath/ath12k/core.c b/drivers/net/wireless/ath/ath12k/core.c
-> index 42a9cd28c652..183da4cb5e64 100644
-> --- a/drivers/net/wireless/ath/ath12k/core.c
-> +++ b/drivers/net/wireless/ath/ath12k/core.c
-> @@ -1524,6 +1524,19 @@ void ath12k_core_halt(struct ath12k *ar)
->   	idr_init(&ar->txmgmt_idr);
->   }
->   
-> +static void ath12k_core_abort_mlo_link_set_active(struct ath12k_base *ab)
-> +{
-> +	struct ath12k_mlo_link_set_active_req *req;
+> v2:
+> - split curr_ctx removal into a separate commit
+> - add WARN_ON to _v4l2_m2m_job_finish to prevent mismatching context to
+>   device (and an unused m2m_dev argument)
+> - rewrite v4l2_m2m_get_curr_priv to get private data inside the spinlock
+>   (https://sashiko.dev/#/patchset/20260606-spu-rga3multicore-v1-0-3ec2b15=
+675f7%40pengutronix.de?part=3D5)
+> ---
+>  drivers/media/v4l2-core/v4l2-mem2mem.c | 61 ++++++++++++++++++----------=
+------
+>  1 file changed, 33 insertions(+), 28 deletions(-)
+>=20
+> diff --git a/drivers/media/v4l2-core/v4l2-mem2mem.c b/drivers/media/v4l2-=
+core/v4l2-mem2mem.c
+> index a65cbb124cfe0..60cca94195166 100644
+> --- a/drivers/media/v4l2-core/v4l2-mem2mem.c
+> +++ b/drivers/media/v4l2-core/v4l2-mem2mem.c
+> @@ -84,7 +84,6 @@ static const char * const m2m_entity_name[] =3D {
+>   *=09=09=09v4l2_m2m_unregister_media_controller().
+>   * @intf_devnode:=09&struct media_intf devnode pointer with the interfac=
+e
+>   *=09=09=09with controls the M2M device.
+> - * @curr_ctx:=09=09currently running instance
+>   * @job_queue:=09=09instances queued to run
+>   * @job_spinlock:=09protects job_queue
+>   * @job_work:=09=09worker to run queued jobs.
+> @@ -93,7 +92,6 @@ static const char * const m2m_entity_name[] =3D {
+>   * @kref:=09=09device reference count
+>   */
+>  struct v4l2_m2m_dev {
+> -=09struct v4l2_m2m_ctx=09*curr_ctx;
+>  #ifdef CONFIG_MEDIA_CONTROLLER
+>  =09struct media_entity=09*source;
+>  =09struct media_pad=09source_pad;
+> @@ -232,8 +230,14 @@ void *v4l2_m2m_get_curr_priv(struct v4l2_m2m_dev *m2=
+m_dev)
+>  =09void *ret =3D NULL;
+> =20
+>  =09spin_lock_irqsave(&m2m_dev->job_spinlock, flags);
+> -=09if (m2m_dev->curr_ctx)
+> -=09=09ret =3D m2m_dev->curr_ctx->priv;
+> +=09if (!list_empty(&m2m_dev->job_queue)) {
+> +=09=09struct v4l2_m2m_ctx *first_ctx =3D
+> +=09=09=09list_first_entry(&m2m_dev->job_queue,
+> +=09=09=09=09=09 struct v4l2_m2m_ctx, queue);
 > +
-> +	rcu_read_lock();
-> +	req = rcu_dereference(ab->mlo_link_set_active_req);
-> +	if (req) {
-> +		req->status = -ESHUTDOWN;
-> +		complete(&req->done);
-> +	}
-> +	rcu_read_unlock();
-> +}
+> +=09=09if (first_ctx->job_flags & TRANS_RUNNING)
+> +=09=09=09ret =3D first_ctx->priv;
+> +=09}
+>  =09spin_unlock_irqrestore(&m2m_dev->job_spinlock, flags);
+> =20
+>  =09return ret;
+> @@ -252,14 +256,9 @@ EXPORT_SYMBOL(v4l2_m2m_get_curr_priv);
+>  static void v4l2_m2m_try_run(struct v4l2_m2m_dev *m2m_dev)
+>  {
+>  =09unsigned long flags;
+> +=09struct v4l2_m2m_ctx *chosen_ctx;
+> =20
+>  =09spin_lock_irqsave(&m2m_dev->job_spinlock, flags);
+> -=09if (NULL !=3D m2m_dev->curr_ctx) {
+> -=09=09spin_unlock_irqrestore(&m2m_dev->job_spinlock, flags);
+> -=09=09dprintk("Another instance is running, won't run now\n");
+> -=09=09return;
+> -=09}
+> -
+>  =09if (list_empty(&m2m_dev->job_queue)) {
+>  =09=09spin_unlock_irqrestore(&m2m_dev->job_spinlock, flags);
+>  =09=09dprintk("No job pending\n");
+> @@ -272,13 +271,18 @@ static void v4l2_m2m_try_run(struct v4l2_m2m_dev *m=
+2m_dev)
+>  =09=09return;
+>  =09}
+> =20
+> -=09m2m_dev->curr_ctx =3D list_first_entry(&m2m_dev->job_queue,
+> -=09=09=09=09   struct v4l2_m2m_ctx, queue);
+> -=09m2m_dev->curr_ctx->job_flags |=3D TRANS_RUNNING;
+> +=09chosen_ctx =3D list_first_entry(&m2m_dev->job_queue, struct v4l2_m2m_=
+ctx, queue);
+> +=09if (chosen_ctx->job_flags & TRANS_RUNNING) {
+> +=09=09spin_unlock_irqrestore(&m2m_dev->job_spinlock, flags);
+> +=09=09dprintk("Another instance is running, won't run now\n");
+> +=09=09return;
+> +=09}
 > +
->   static void ath12k_core_pre_reconfigure_recovery(struct ath12k_base *ab)
->   {
->   	struct ath12k_hw_group *ag = ab->ag;
-> @@ -1538,6 +1551,8 @@ static void ath12k_core_pre_reconfigure_recovery(struct ath12k_base *ab)
->   	if (ab->is_reset)
->   		set_bit(ATH12K_FLAG_CRASH_FLUSH, &ab->dev_flags);
->   
-> +	ath12k_core_abort_mlo_link_set_active(ab);
+> +=09chosen_ctx->job_flags |=3D TRANS_RUNNING;
+>  =09spin_unlock_irqrestore(&m2m_dev->job_spinlock, flags);
+> =20
+> -=09dprintk("Running job on m2m_ctx: %p\n", m2m_dev->curr_ctx);
+> -=09m2m_dev->m2m_ops->device_run(m2m_dev->curr_ctx->priv);
+> +=09dprintk("Running job on m2m_ctx: %p\n", chosen_ctx);
+> +=09m2m_dev->m2m_ops->device_run(chosen_ctx->priv);
+>  }
+> =20
+>  /*
+> @@ -469,15 +473,16 @@ static void v4l2_m2m_schedule_next_job(struct v4l2_=
+m2m_dev *m2m_dev,
+>  static bool _v4l2_m2m_job_finish(struct v4l2_m2m_dev *m2m_dev,
+>  =09=09=09=09 struct v4l2_m2m_ctx *m2m_ctx)
+>  {
+> -=09if (!m2m_dev->curr_ctx || m2m_dev->curr_ctx !=3D m2m_ctx) {
+> +=09if (!m2m_ctx || !(m2m_ctx->job_flags & TRANS_RUNNING)) {
+>  =09=09dprintk("Called by an instance not currently running\n");
+>  =09=09return false;
+>  =09}
+> =20
+> -=09list_del(&m2m_dev->curr_ctx->queue);
+> -=09m2m_dev->curr_ctx->job_flags &=3D ~(TRANS_QUEUED | TRANS_RUNNING);
+> -=09wake_up(&m2m_dev->curr_ctx->finished);
+> -=09m2m_dev->curr_ctx =3D NULL;
+> +=09WARN_ON(m2m_dev !=3D m2m_ctx->m2m_dev);
 > +
->   	for (i = 0; i < ag->num_hw; i++) {
->   		ah = ath12k_ag_to_ah(ag, i);
->   		if (!ah || ah->state == ATH12K_HW_STATE_OFF ||
-> diff --git a/drivers/net/wireless/ath/ath12k/core.h b/drivers/net/wireless/ath/ath12k/core.h
-> index 7c7057468916..74f184d283b7 100644
-> --- a/drivers/net/wireless/ath/ath12k/core.h
-> +++ b/drivers/net/wireless/ath/ath12k/core.h
-> @@ -401,6 +401,12 @@ struct ath12k_vif {
->   	struct ath12k_link_vif deflink;
->   	struct ath12k_link_vif __rcu *link[ATH12K_NUM_MAX_LINKS];
->   	struct ath12k_vif_cache *cache[IEEE80211_MLD_MAX_NUM_LINKS];
-> +	/*
-> +	 * Last active/inactive link state programmed to firmware via
-> +	 * WMI_MLO_LINK_SET_ACTIVE. Zero means unknown: forces a resend.
-> +	 */
-> +	u16 fw_active_links;
-> +	u16 fw_inactive_links;
->   	/* indicates bitmap of link vif created in FW */
->   	u32 links_map;
->   	/* Must be last - ends in a flexible-array member.
-> @@ -797,6 +803,12 @@ struct ath12k {
->   	} incumbent_signal_interference;
->   };
->   
-> +struct ath12k_mlo_link_set_active_req {
-> +	struct completion done;
-> +	int status;
-> +	struct rcu_head rcu_head;
-> +};
+> +=09list_del(&m2m_ctx->queue);
+> +=09m2m_ctx->job_flags &=3D ~(TRANS_QUEUED | TRANS_RUNNING);
+> +=09wake_up(&m2m_ctx->finished);
+>  =09return true;
+>  }
+> =20
+> @@ -548,12 +553,15 @@ void v4l2_m2m_suspend(struct v4l2_m2m_dev *m2m_dev)
+> =20
+>  =09spin_lock_irqsave(&m2m_dev->job_spinlock, flags);
+>  =09m2m_dev->job_queue_flags |=3D QUEUE_PAUSED;
+> -=09curr_ctx =3D m2m_dev->curr_ctx;
+> +=09if (list_empty(&m2m_dev->job_queue)) {
+> +=09=09spin_unlock_irqrestore(&m2m_dev->job_spinlock, flags);
+> +=09=09return;
+> +=09}
 > +
->   struct ath12k_hw {
->   	struct ieee80211_hw *hw;
->   	struct device *dev;
-> @@ -1153,6 +1165,14 @@ struct ath12k_base {
->   #endif /* CONFIG_ACPI */
->   
->   	struct ath12k_hw_group *ag;
-> +
-> +	/*
-> +	 * Set-active request in flight to this device, NULL when idle. Freed
-> +	 * via kfree_rcu(). The links of an MLO STA can be on several devices,
-> +	 * and each device is programmed separately, so at most one request is
-> +	 * outstanding per device.
-> +	 */
-> +	struct ath12k_mlo_link_set_active_req __rcu *mlo_link_set_active_req;
->   	struct ath12k_wsi_info wsi_info;
->   	enum ath12k_qmi_firmware_mode fw_mode;
->   	struct ath12k_ftm_event_obj ftm_event_obj;
-> diff --git a/drivers/net/wireless/ath/ath12k/mac.c b/drivers/net/wireless/ath/ath12k/mac.c
-> index dfb0f6e678ac..885eedbbdd67 100644
-> --- a/drivers/net/wireless/ath/ath12k/mac.c
-> +++ b/drivers/net/wireless/ath/ath12k/mac.c
-> @@ -7667,6 +7667,8 @@ static int ath12k_mac_mlo_sta_update_link_active(struct ath12k_base *ab,
->   	u8 num_mlo_vdev = 0;
->   	u8 link_id;
->   
-> +	lockdep_assert_wiphy(hw->wiphy);
-> +
->   	for_each_set_bit(link_id, &links, IEEE80211_MLD_MAX_NUM_LINKS) {
->   		arvif = wiphy_dereference(hw->wiphy, ahvif->link[link_id]);
->   		/* make sure vdev is created on this device */
-> @@ -7982,6 +7984,14 @@ int ath12k_mac_op_sta_state(struct ieee80211_hw *hw,
->   
->   	if (ieee80211_vif_is_mld(vif) && vif->type == NL80211_IFTYPE_STATION &&
->   	    old_state == IEEE80211_STA_ASSOC && new_state == IEEE80211_STA_AUTHORIZED) {
-> +		/*
-> +		 * The cached active link state is only updated while AUTHORIZED,
-> +		 * so reset it on each ASSOC -> AUTHORIZED. The next active-link
-> +		 * sync then sends the state to firmware.
-> +		 */
-> +		ahvif->fw_active_links = 0;
-> +		ahvif->fw_inactive_links = 0;
-> +
->   		for_each_ar(ah, ar, i) {
->   			ab = ar->ab;
->   			if (prev_ab == ab)
-> @@ -8243,6 +8253,194 @@ static struct ath12k_link_sta *ath12k_mac_alloc_assign_link_sta(struct ath12k_hw
->   	return arsta;
->   }
->   
-> +static struct ieee80211_chanctx_conf *
-> +ath12k_mac_link_chanctx(struct ieee80211_hw *hw, struct ieee80211_vif *vif,
-> +			u8 link_id)
-> +{
-> +	struct ieee80211_bss_conf *link_conf;
-> +
-> +	link_conf = wiphy_dereference(hw->wiphy, vif->link_conf[link_id]);
-> +	if (!link_conf)
-> +		return NULL;
-> +
-> +	return wiphy_dereference(hw->wiphy, link_conf->chanctx_conf);
-> +}
-> +
-> +struct ath12k_mlo_dev_links {
-> +	u8 active_vdev[IEEE80211_MLD_MAX_NUM_LINKS];
-> +	u8 inactive_vdev[IEEE80211_MLD_MAX_NUM_LINKS];
-> +	u32 active_freq[IEEE80211_MLD_MAX_NUM_LINKS];
-> +	unsigned int num_active;
-> +	unsigned int num_inactive;
-> +};
-> +
-> +static u16 ath12k_mac_mlo_vif_active_links(struct ieee80211_hw *hw,
-> +					   struct ieee80211_vif *vif,
-> +					   unsigned long links)
-> +{
-> +	u16 active = 0;
-> +	u8 link_id;
-> +
-> +	for_each_set_bit(link_id, &links, IEEE80211_MLD_MAX_NUM_LINKS) {
-> +		if (ath12k_mac_link_chanctx(hw, vif, link_id))
-> +			active |= BIT(link_id);
-> +	}
-> +
-> +	return active;
-> +}
-> +
-> +static void ath12k_mac_mlo_sta_collect_dev_links(struct ieee80211_hw *hw,
-> +						 struct ath12k_vif *ahvif,
-> +						 struct ath12k_base *ab,
-> +						 unsigned long links,
-> +						 struct ath12k_mlo_dev_links *dl)
-> +{
-> +	struct ieee80211_chanctx_conf *conf;
-> +	struct ath12k_link_vif *arvif;
-> +	u8 link_id;
-> +
-> +	dl->num_active = 0;
-> +	dl->num_inactive = 0;
-> +
-> +	for_each_set_bit(link_id, &links, IEEE80211_MLD_MAX_NUM_LINKS) {
-> +		arvif = wiphy_dereference(hw->wiphy, ahvif->link[link_id]);
-> +		if (!arvif || !arvif->is_created || arvif->ar->ab != ab)
-> +			continue;
-> +
-> +		conf = ath12k_mac_link_chanctx(hw, ahvif->vif, link_id);
-> +		if (!conf) {
-> +			dl->inactive_vdev[dl->num_inactive++] = arvif->vdev_id;
-> +			continue;
-> +		}
-> +
-> +		dl->active_freq[dl->num_active] = conf->def.chan->center_freq;
-> +		dl->active_vdev[dl->num_active++] = arvif->vdev_id;
-> +	}
-> +}
-> +
-> +static bool ath12k_mac_mlo_dev_same_mac(struct ath12k_base *ab,
-> +					const struct ath12k_mlo_dev_links *dl)
-> +{
-> +	return dl->num_active == 2 &&
-> +	       ath12k_mac_freqs_on_same_mac(ab, dl->active_freq[0],
-> +					    dl->active_freq[1]);
-> +}
-> +
-> +static int ath12k_mac_mlo_sta_send_inactive_link_num(struct ath12k_base *ab,
-> +						     struct ath12k_mlo_dev_links *dl)
-> +{
-> +	return ath12k_mac_mlo_sta_set_link_active(ab,
-> +						  WMI_MLO_LINK_FORCE_REASON_NEW_CONNECT,
-> +						  WMI_MLO_LINK_FORCE_MODE_INACTIVE_LINK_NUM,
-> +						  NULL, dl->active_vdev, dl->num_active,
-> +						  NULL, 0);
-> +}
-> +
-> +static int ath12k_mac_mlo_sta_send_set_active(struct ath12k_base *ab,
-> +					      struct ieee80211_vif *vif,
-> +					      struct ath12k_mlo_dev_links *dl)
-> +{
-> +	struct ath12k_mlo_link_set_active_req *req;
-> +	enum wmi_mlo_link_force_mode mode;
-> +	int ret;
-> +
-> +	req = kzalloc_obj(*req);
-> +	if (!req)
-> +		return -ENOMEM;
-> +
-> +	init_completion(&req->done);
-> +	rcu_assign_pointer(ab->mlo_link_set_active_req, req);
-> +
-> +	mode = dl->num_inactive ? WMI_MLO_LINK_FORCE_MODE_ACTIVE_INACTIVE :
-> +				  WMI_MLO_LINK_FORCE_MODE_ACTIVE;
-> +
-> +	ret = ath12k_mac_mlo_sta_set_link_active(ab,
-> +						 WMI_MLO_LINK_FORCE_REASON_NEW_CONNECT,
-> +						 mode, vif->cfg.ap_addr,
-> +						 dl->active_vdev, dl->num_active,
-> +						 dl->inactive_vdev, dl->num_inactive);
-> +
-> +	if (!ret && !wait_for_completion_timeout(&req->done,
-> +						 ATH12K_MLO_LINK_SET_ACTIVE_TIMEOUT_HZ)) {
-> +		ath12k_warn(ab, "timeout waiting for mlo set active links resp\n");
-> +		ret = -ETIMEDOUT;
-> +	}
-> +
-> +	if (!ret && req->status)
-> +		ret = -EIO;
-> +
-> +	rcu_assign_pointer(ab->mlo_link_set_active_req, NULL);
-> +	kfree_rcu(req, rcu_head);
-> +
-> +	return ret;
-> +}
-> +
-> +static int ath12k_mac_mlo_sta_sync_active_links(struct ath12k_hw *ah,
-> +						struct ath12k_vif *ahvif,
-> +						struct ath12k_sta *ahsta,
-> +						struct ieee80211_sta *sta)
-> +{
-> +	struct ath12k_base *ab, *prev_ab = NULL;
-> +	struct ieee80211_hw *hw = ah->hw;
-> +	struct ath12k_mlo_dev_links dl;
-> +	unsigned long links;
-> +	u16 active, inactive;
-> +	struct ath12k *ar;
-> +	int ret;
-> +	int i;
-> +
-> +	lockdep_assert_wiphy(hw->wiphy);
-> +
-> +	links = ahsta->links_map & ahvif->links_map;
-> +
-> +	/*
-> +	 * A link holding a channel context is active. The links of an MLO STA
-> +	 * can be on different devices, so the active set is derived over all
-> +	 * links and each device is then programmed with the links it holds.
-> +	 */
-> +	active = ath12k_mac_mlo_vif_active_links(hw, ahvif->vif, links);
-> +	inactive = links & ~active;
-> +
-> +	if (!active) {
-> +		ath12k_hw_warn(ah, "no active link for sta %pM\n", sta->addr);
-> +		return -EINVAL;
-> +	}
-> +
-> +	if (active == ahvif->fw_active_links &&
-> +	    inactive == ahvif->fw_inactive_links)
-> +		return 0;
-> +
-> +	for_each_ar(ah, ar, i) {
-> +		ab = ar->ab;
-> +		if (ab == prev_ab)
-> +			continue;
-> +		prev_ab = ab;
-> +
-> +		ath12k_mac_mlo_sta_collect_dev_links(hw, ahvif, ab, links, &dl);
-> +
-> +		if (!dl.num_active && !dl.num_inactive)
-> +			continue;
-> +
-> +		if (!dl.num_active) {
-> +			ath12k_hw_warn(ah,
-> +				       "cannot deactivate all STA links on a device\n");
-> +			return -EOPNOTSUPP;
-> +		}
-> +
+> +=09curr_ctx =3D list_first_entry(&m2m_dev->job_queue, struct v4l2_m2m_ct=
+x, queue);
+>  =09spin_unlock_irqrestore(&m2m_dev->job_spinlock, flags);
+> =20
+> -=09if (curr_ctx)
+> -=09=09wait_event(curr_ctx->finished,
+> -=09=09=09   !(curr_ctx->job_flags & TRANS_RUNNING));
+> +=09wait_event(curr_ctx->finished, !(curr_ctx->job_flags & TRANS_RUNNING)=
+);
+>  }
+>  EXPORT_SYMBOL(v4l2_m2m_suspend);
+> =20
+> @@ -896,10 +904,8 @@ int v4l2_m2m_streamoff(struct file *file, struct v4l=
+2_m2m_ctx *m2m_ctx,
+>  =09q_ctx->num_rdy =3D 0;
+>  =09spin_unlock_irqrestore(&q_ctx->rdy_spinlock, flags);
+> =20
+> -=09if (m2m_dev->curr_ctx =3D=3D m2m_ctx) {
+> -=09=09m2m_dev->curr_ctx =3D NULL;
+> +=09if (m2m_ctx->job_flags & TRANS_RUNNING)
+>  =09=09wake_up(&m2m_ctx->finished);
 
-for a configuration where more than one QCN9274 is combined in a hw 
-group and advertised under one wiphy, the only link can be deactivated on ab
+Sashiko report that wake_up() is unreachable, that job_flags have been clea=
+r
+previously.
 
-ah->radio[0] -- ab-1 QCN9274 5GHz
-ah->radio[1] -- ab-2 QCN9274 6GHz
+If that is correct, its not a big issue:
 
-This setup can associate as 5+6GHz ML STA and if mac80211 deactivates 
-one link say 5GHz, ath12k_mac_mlo_sta_collect_dev_links() will report 
-dl.num_active as 0 and dl.num_inactive as 1 which is still valid.
+Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 
-I tested this with such a setup and when AP removes one link i get below 
-errors,
+> -=09}
+>  =09spin_unlock_irqrestore(&m2m_dev->job_spinlock, flags_job);
+> =20
+>  =09return 0;
+> @@ -1194,7 +1200,6 @@ struct v4l2_m2m_dev *v4l2_m2m_init(const struct v4l=
+2_m2m_ops *m2m_ops)
+>  =09if (!m2m_dev)
+>  =09=09return ERR_PTR(-ENOMEM);
+> =20
+> -=09m2m_dev->curr_ctx =3D NULL;
+>  =09m2m_dev->m2m_ops =3D m2m_ops;
+>  =09INIT_LIST_HEAD(&m2m_dev->job_queue);
+>  =09spin_lock_init(&m2m_dev->job_spinlock);
 
-root@buildroot:~# [  208.620233] wlan0: authenticate with 
-00:03:7f:01:57:45 (local address=32:43:40:d5:13:f0)
-[  208.620278] wlan0: send auth to 00:03:7f:01:57:45 (try 1/3)
-[  208.646676] wlan0: authenticate with 00:03:7f:01:57:45 (local 
-address=32:43:40:d5:13:f0)
-[  208.646705] wlan0: send auth to 00:03:7f:01:57:45 (try 1/3)
-[  208.656809] wlan0: authenticated
-[  208.662463] wlan0: associate with 00:03:7f:01:57:45 (try 1/3)
-[  208.681771] wlan0: RX AssocResp from 00:03:7f:01:57:45 (capab=0x111 
-status=0 aid=1)
-[  208.706457] wlan0: [link 0] local address 32:43:40:d5:13:f0, AP link 
-address 00:03:7f:01:57:45 (assoc)
-[  208.707397] wlan0: [link 1] local address 4a:cd:9a:9c:d5:a5, AP link 
-address 00:03:7f:01:56:84
-[  209.128875] wlan0: associated
+--=-qDFQbRP8sfMUezyW9fo/
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
 
+-----BEGIN PGP SIGNATURE-----
 
-root@buildroot:~# [  278.858680] wlan0: MLO Reconfiguration: work: 
-valid=0x3, removed=0x2
-[  278.860079] ath12k_wifi7_pci 0000:01:00.0: cannot deactivate all STA 
-links on a device
-[  278.864245] ath12k_wifi7_pci 0000:01:00.0: failed to sync mlo active 
-links for sta 00:03:7f:01:57:45: -95
-[  278.871936] ------------[ cut here ]------------
-[  278.881468] WARNING: net/mac80211/link.c:650 at 
-_ieee80211_set_active_links+0x398/0x3c8 [mac80211], CPU#0: kworker/u17:0/39
-[  279.021054] Call trace:
-[  279.028167]  _ieee80211_set_active_links+0x398/0x3c8 [mac80211] (P)
-[  279.030428]  ieee80211_set_active_links+0x88/0x138 [mac80211]
-[  279.036677]  ieee80211_ml_reconf_work+0xc8/0x13c [mac80211]
-[  279.042579]  cfg80211_wiphy_work+0x94/0xcc [cfg80211]
-[  279.047961]  process_one_work+0x178/0x2b0
-[  279.053168]  worker_thread+0x180/0x2f4
-[  279.057160]  kthread+0xf8/0x118
-[  279.060806]  ret_from_fork+0x10/0x20
-[  279.063845] ---[ end trace 0000000000000000 ]---
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCawX5qQAKCRDZQZRRKWBy
+9AHWAQCmqcFAQMkugv7AJiaX/VEcrfFOq0yeQoHoehSg1I0udQEAkDiuFPHBWI6B
+ZlpYRZjVAmYDkdC/FdAGAE99MAig2ww=
+=f+mj
+-----END PGP SIGNATURE-----
 
-
-
-[Apologies for not catching this earlier :(]
-
--- 
-Ramesh
+--=-qDFQbRP8sfMUezyW9fo/--
