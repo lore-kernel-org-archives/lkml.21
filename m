@@ -1,110 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.156
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795545795;
-	b=hTXWF8ADwmG+TUd8vFYu7LyrEMTb+TCjqHVYSLbibDn/5A3qDyGsKwxETzpNvASN6DUy
-	 sMPF6CFWEzRrU0hbWxANidUuZl0XueEGbL4QuunCHgrPUmgyTZYAsAHDqRRyOqoqx2QVt
-	 ZvJT8Br5+9cl07QO4hfoWMHUXNblH3G2p897WSE/jceGFagYkO3v9GLNIkvwu/csp54+9
-	 MZ1Pyfoaj07DD2dV7w3FGOQDnW8q1ZTfJD7ccnqJVDQuXesjOz+lXahIBeUwfR2wImHkm
-	 AFIKgYFldTdE6rE33Y16vPC6ofnNQ3CTqMRDTqsMavgsh0x+vs7G1WEkKFpwWEl+00w==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795545795;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Subject:From:To:Cc:Date:
-	 In-Reply-To:References:Autocrypt:Content-Type:User-Agent:
-	 MIME-Version;
-	bh=YRvD7z4EffwvXQ7xYuj6kjc72d3348yfJqLbeT6xobQ=;
-	b=VzkAgtZacNZxbBEWcEf+Dv9L2X0m91rIJVsjdoZLB4/KQOQRE2mD+WAgEzWPK2UnD6ca
-	 OEgNokNm+++Tff8kq/I3IYZ/BYUr/wbFv/tynGJFpYOBfjKC7MHcl2gTibMBMOzUe/2dh
-	 BPwzyE7Kwhu+Urrk2yVBwWedv2c72h/CS5E4MUbPblbxshwUnly8vWxIR7O1Eno5LLodp
-	 HJqU5uTmqSoxyog8sCY7klHFxnE4Cqi7xC3N5x2nXWNYRbDPRWRJo11EtZIZB2HQLGH2F
-	 MhRTJeit80EaNXNNnb6zQ3zWzGrThrPnMFrSc5dk0DqaSvlwHtyEI+s+d0iDvN5SwqQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=F2YIWW0m;
-	arc=none smtp.remote-ip=91.218.175.156
-Received: from mta0.migadu.com (out-156.mta0.migadu.com [91.218.175.156])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.45
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795545912;
+	b=fq+PYl44gGqyn9Roi8HLgKgaao0b9PsIZVRe3JhWX35gVJH8dxgF+K1G8YC4ytxofI02
+	 enOdoc+D1ZWIEMGyYgT923CRT4qKPfPiOYQ2DUfjt/mkRsJzB5gN7ax7bJGOIhprz+5vZ
+	 PjsUfX3/jOs7YhRC3gxUl1CRz2WOh3Y8ROQLdpnoKF4xPngdeOJo0vqo22b4qIKSs1Np9
+	 YWTU/W1NWhY2v3WpzXlA4OGYd2DbyaSA7zpwW0DLvE4P/5LRxJN8wwtVu5xv7lh13V4aP
+	 2LdWcw1VbOxG5/NtatWWz4XLOw5g1O8Z/CIsgPPNSQbmgkO6xIZJjWqq3Ct1ZmGrj5g==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795545912;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=eVt63sFAXFALqIi2TYrbUsERABkXRLEjuN5CXIXLcg8=;
+	b=Pi5uGXeb6Az7bwQ6w9LGX/JdBeW6vRgUwCt9HZSDJfTlpcbwjA1y4/gUQBqM/ge2QrZa
+	 QI77tidAQVIzLMLEBIjCordQZI3M5g9+5vAMzH7eWHOOb0EZYPakEhk3Sj/WSdK0f6+DZ
+	 v6vBCVdiL3mwQsQGAQPzbtnrd3mTZsOfqj04MXQDsg5/SDJJFWp/8yCJt1p5B7gEXHvkR
+	 eEv02RDJyKqkFyNeYerohIsZZDZkDMV4Jt5VzTYJhheSCa5RErPm+W9173H2D8mzjZgK9
+	 mcPOiWc2LN1MtVYQWaWJtviONO4v+FNZA0i0sbkTb02mKYSoRHTIoxyA9h3i/9lpqew==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=EX5Ip8Vy;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.45
+Received: from mail-wm1-f45.google.com (mail-wm1-f45.google.com [209.85.128.45])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 32776606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 18:43:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 32776606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 139E5606A32A
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 18:45:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 139E5606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=F2YIWW0m
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=Cr46827WCtKim+mG3QIW/z610jvuzUyK5XGWs6EBH0k=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795545791; v=1; x=1796150591;
- b=F2YIWW0mrkI6Js/uRiHWXxGxsc5OogCFbJ3u8Gl9b1fXXc1knNkbp3sW2dAFmXjbwKzI7dBV
- l6wiR+MQK1Zr6r893rsoVWCADHcm9YuZuS8MMTaCmpODKyinZF1Ddk8Svu9Nv91fPBdTvr5bE+Y
- 4aicVYL518PNmn2ZQMASMES4=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id ec72b3c1cde0bcde;
-	Tue, 24 Nov 2026 18:43:11 +0000
-X-Mizu-Trace-ID: ec72b3c1cde0bcde
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <06ab3827afd9515e5cfa4821b0a744c7ac94baec.camel@linux.dev>
-Subject: Re: [PATCH RESEND v4] drm/gud: move format init from gud_probe()
-From: Ruben Wauters <ruben.wauters@linux.dev>
-To: Thomas Zimmermann <tzimmermann@suse.de>, Maarten Lankhorst
-	 <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org
-Date: Tue, 24 Nov 2026 18:43:00 +0000
-In-Reply-To: <d9212a46-b5ea-4bee-a1b3-052549cc4ed6@suse.de>
-References: <20261123154638.2298-1-ruben.wauters@linux.dev>
-	 <d9212a46-b5ea-4bee-a1b3-052549cc4ed6@suse.de>
-Autocrypt: addr=ruben.wauters@linux.dev; prefer-encrypt=mutual;
- keydata=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
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-5PbnTEj0Rgma3qAKiMVd"
-User-Agent: Evolution 3.60.2 
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=EX5Ip8Vy
+Received: by mail-wm1-f45.google.com with SMTP id 5b1f17b1804b1-4a018493d57so193915e9.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 10:45:11 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795545910; cv=none;
+        d=google.com; s=arc-20260327;
+        b=LlO1vqn4rbphEVT6rOSWFjLmqzhu+PzxNLusOm1QOE84T4bctxuztNp1fpA6i+pSfO
+         nnn2bCwPLPWn46Qs2tQZRPOm+AiAxPq+THVXQv6OizP6NkCisMYnO7Riq6ljJO8kOCtw
+         4M58co0jXxnWhunlVvQBPoyttBfX9UmPC/X15LZI0wnlb1Hm1y0NkBtWKjAhumfhUMg4
+         I7+uPtEratUIaJGUAKmwC2Kv5vZe6Fjdd4+P0CTbl7i3Fmuyhquw/CoCJrjCKWm6wiKS
+         AakJe8FyOL8wwjRdEQpeaEFNW9dITHDztxtLgoUx7mgMZ0y9apoyrjTFY75OXJgrPgfn
+         q/QA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=eVt63sFAXFALqIi2TYrbUsERABkXRLEjuN5CXIXLcg8=;
+        fh=KxjpM/98b2zCvMVgKYaWrvzR55R969cic5X/K1qnVtI=;
+        b=nO5y5pyU1rxDKcRgussH4V2cRcgwqCViXdSbPaxgkgrB/YM91cL0ADfKnP2oVoVb/E
+         VNvGB+D9x1XXSXli/Y1WH4Ep8t7JDRkHYRARPtisxA/3j5KJDEi5SqdBQ3srDAuNdwCE
+         vfeyksm9j95rYv7JLWizqwqFhnT/9ZoGwxMX5o+P47aRowVTYxbyP5fwq2rX85LQL6R2
+         uNQcFjlEcZfJoPpKm3k6tteC9j6+3efeBf55/jUUs4jNDFM0UUva1P1ytFUJgNrL2OKN
+         KP5GmnkGXHqRDch7jZW+ST2X0TgnFFL4fm3hqmOGuW9FlICjR6fg2ZCoEpT2raeL1F4H
+         6n5g==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795545910; x=1796150710; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=eVt63sFAXFALqIi2TYrbUsERABkXRLEjuN5CXIXLcg8=;
+        b=EX5Ip8Vy8G2bSo/ueWGnhESIlAs0mrbqdtxZuoA9LwMy/GlKMShQ1UAI4/cv+GFurL
+         +I0ZkpTeWfSYy6CugwTvmvx82ZOqEt2YK6jHg503nlno9cTCNMqoon8un66aypMAtIpY
+         Je7VBF1+Bk1ABJ9z+SAkTdSy6ezf5Gi3LSIMWvaj6MPTyhZXFdF3jOFaaGUxSwKp8wVB
+         4oBAZcisTHpzOeoHX195Wfv8XGFRIXx6fkUHieNJRuiiUhXl+Kl/RSF/R7bQar3C2amW
+         PgGYsAMlXhlLSR6w4RbKQxbXRp2Nsuv0otkolUSSmje/nt4dJdwI/XYhLX2PleA6wFXk
+         AKoQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795545910; x=1796150710;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=eVt63sFAXFALqIi2TYrbUsERABkXRLEjuN5CXIXLcg8=;
+        b=RzDugjEXi2qX26Ox7MIUaLP2B6szy/NSiSxEh1LTGVtgDv60NArG/T1VZm/hsaldO9
+         HVB81es3dANxekOoY8cGR9MFSjxUqMNv47rd9He7sEhe7wOXOiDzVtX1PO6fxbq5ZJwi
+         Jztc8HZtkw/u9Q8Z6mT8+od8X1PRYMEy5Z0c25oZ1hRbI3+vJ50YyBqOa8MuA0kkNmYE
+         Po7MDVZk4CTqgMfpbwBn6XOB7dbBLAi96WvQ+bk7I5ovWBenJMs4QavAMuJAcKYv+iC8
+         RVMmy22SDeMxfMxKUMHXdvZYNCQO1atMiF9Phf6gjl3mLl4s94z28/Wa1r8flS2NraEL
+         IopA==
+X-Forwarded-Encrypted: i=1; AL+hErEZpDxXshH0rvuNKvO9INEuWdhO22j4AHsF4Bre1JlRY4vFTbYShlyay0TqnpnmO4MVv99brrL/bI7ESvQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+mQi9xYE0HDpodaEBPPYaXWb3b1KYJy0PLD6XgH/Y2P/+KGJjS
+	NF5vVJqK7EtwhWVm+/kxUH63n7H4BW7xD7LHS9SdOyHA/YqcYGF6jsHjVVMs8bt7gA86gpWVZOL
+	0+4PzABwSJjBBHx0chjE+O9Nt6atX2qQs93H+jwT1
+X-Gm-Gg: AZFdTZd/Egk8oGxYEzByd6AtKBRwCUJ7o5UBEU48ZD4AvZkwADj1aFmAUE7Qom6wlir
+	dri1zgbMmOEghfQG9DVy/S3VyWAqbVjGMaHmlVZ6oFgNsjXO1ifbfrHE0Vv1DI6yHbEhDS3fuJd
+	tF1fh6CeBs9CA2DbdaPiobZdgqjECjwBD2Oacwfl5ObW+2MoohzUd2rgsHM8HGZvEvP/2tWpjED
+	BlUABQ2ARiJ2tftMui0GwbAaTNkR6th+ZkZfRmFdfbbUz+ESXWred+9+BsFVSeETbd2KKVpLqRf
+	PLw0cl2Pm6vHKVYwNyLnoSZR/DH9YGOeFiE6Z3hAwFVl96+p2R7tLzy4T1d8VkNOzfB0VhxON4n
+	2lvk7pc78aIKH+ZaC9Dq+0syUDUHdW5tSTc1tHhfRFhsg9EpYRmn5Lz5+kAe/wKzoW450puDkZA
+	DGgrIkm8wEw0HK85jYtI4Ikuw=
+X-Received: by 2002:a05:600c:5346:b0:4b6:7744:f4d with SMTP id
+ 5b1f17b1804b1-4bb916bdf08mr2257135e9.15.1795545910040; Tue, 24 Nov 2026
+ 10:45:10 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -114,333 +105,45 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-
-
---=-5PbnTEj0Rgma3qAKiMVd
+References: <20261117-huge-pfnmap-fault-races-v2-0-276007e73bcb@kernel.org> <20261117-huge-pfnmap-fault-races-v2-1-276007e73bcb@kernel.org>
+In-Reply-To: <20261117-huge-pfnmap-fault-races-v2-1-276007e73bcb@kernel.org>
+From: "T.J. Mercier" <tjmercier@google.com>
+Date: Tue, 24 Nov 2026 10:44:58 -0800
+X-Gm-Features: Aa3M54p26FbeOYUnrfBkiQh43qYkPRTQzVHFI8sjfXLSBe0jiLLjZbk3gYWYOKo
+Message-ID: <CABdmKX2PQu7VvJ_Xs9NpkFo-wD8LWxO+FNqmdTEZBt0iAd=w4g@mail.gmail.com>
+Subject: Re: [PATCH v2 1/4] mm: update walk_to_pmd() to explicitly return an error
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>, David Hildenbrand <david@kernel.org>, 
+	"Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>, 
+	Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, Alex Williamson <alex@shazbot.org>, 
+	Peter Xu <peterx@redhat.com>, Zi Yan <ziy@nvidia.com>, 
+	Baolin Wang <baolin.wang@linux.alibaba.com>, Nico Pache <nico.pache@linux.dev>, 
+	Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>, 
+	Lance Yang <lance.yang@linux.dev>, Usama Arif <usama.arif@linux.dev>, 
+	Kiryl Shutsemau <kas@kernel.org>, Wei Liu <wei.liu@kernel.org>, 
+	Roman Kisel <romank@linux.microsoft.com>, Saurabh Sengar <ssengar@linux.microsoft.com>, 
+	Naman Jain <namjain@linux.microsoft.com>, Michael Kelley <mhklinux@outlook.com>, linux-mm@kvack.org, 
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-On Tue, 2026-11-24 at 09:46 +0100, Thomas Zimmermann wrote:
-> Hi
->=20
-> Am 23.11.26 um 16:46 schrieb Ruben Wauters:
-> > As part of the cleanup of gud_probe(), this patch splits off format ini=
-t
-> > code from gud_probe into it's own function. This makes the code more
-> > compartmentalised and easier to follow, and makes gud_probe() smaller
-> > and also easier to read.
-> >=20
-> > Signed-off-by: Ruben Wauters <ruben.wauters@linux.dev>
->=20
-> Reviewed-by: Thomas Zimmermann <tzimmermann@suse.de>
->=20
-> I have two minor comments for you to consider.
->=20
-> Best regards
-> Thomas
->=20
-> > ---
-> > V1 -> V2:
-> > - Removed output parameters for gud_get_formats()
-> > - Added gud_get_max_buffer_size() helper function
-> >=20
-> > Apologies this v2 took so long
-> >=20
-> > V2 -> V3:
-> > - Fix potential num_formats underflow
-> > - Skip XRGB8888 in size calculations if emulated
-> > - Remove redundant r1 and XRGB1111 size calculations
-> >=20
-> > V3 -> V4
-> > - Take XRGB8888 emulated format into account when calculating
-> >    max_buffer_size
-> > ---
-> >   drivers/gpu/drm/gud/gud_drv.c | 185 ++++++++++++++++++++-------------=
--
-> >   1 file changed, 111 insertions(+), 74 deletions(-)
-> >=20
-> > diff --git a/drivers/gpu/drm/gud/gud_drv.c b/drivers/gpu/drm/gud/gud_dr=
-v.c
-> > index 680447f426f3..1ffb2a4fc901 100644
-> > --- a/drivers/gpu/drm/gud/gud_drv.c
-> > +++ b/drivers/gpu/drm/gud/gud_drv.c
-> > @@ -435,11 +435,115 @@ static void gud_free_buffers_and_mutex(void *dat=
-a)
-> >   	mutex_destroy(&gdrm->ctrl_lock);
-> >   }
-> >  =20
-> > -static int gud_probe(struct usb_interface *intf, const struct usb_devi=
-ce_id *id)
-> > +static size_t gud_get_max_buffer_size(struct gud_device *gdrm, u32 *fo=
-rmats, u32 num_formats)
-> > +{
-> > +	struct drm_device *drm =3D &gdrm->drm;
-> > +	size_t max_buffer_size =3D 0;
-> > +	size_t fmt_buf_size;
-> > +	int i;
->=20
-> Small detail: num_format, which you're comparing to is unsigned. So=20
-> using unsigned for i is preferable.
->=20
-> > +
-> > +	for (i =3D 0; i < num_formats; i++) {
-> > +		const struct drm_format_info *info =3D drm_format_info(formats[i]);
-> > +
-> > +		/* Substitute emulated XRGB8888 for proper format */
-> > +		if (formats[i] =3D=3D DRM_FORMAT_XRGB8888 && gdrm->xrgb8888_emulatio=
-n_format)
-> > +			info =3D gdrm->xrgb8888_emulation_format;
-> > +
-> > +		fmt_buf_size =3D drm_format_info_min_pitch(info, 0, drm->mode_config=
-.max_width) *
-> > +							 drm->mode_config.max_height;
-> > +		max_buffer_size =3D max(max_buffer_size, fmt_buf_size);
-> > +	}
-> > +
-> > +	return max_buffer_size;
-> > +}
-> > +
-> > +static int gud_get_formats(struct gud_device *gdrm, u32 *formats)
-> >   {
-> >   	const struct drm_format_info *xrgb8888_emulation_format =3D NULL;
-> >   	bool rgb565_supported =3D false, xrgb8888_supported =3D false;
-> >   	unsigned int num_formats_dev, num_formats =3D 0;
-> > +	u8 *formats_dev;
-> > +	struct drm_device *drm =3D &gdrm->drm;
-> > +	struct device *usb_device =3D gdrm->drm.dev;
-> > +	int ret, i;
->=20
-> Same comment here about i being signed.
+On Tue, Nov 17, 2026 at 10:32=E2=80=AFAM Lorenzo Stoakes (ARM) <ljs@kernel.=
+org> wrote:
+>
+> Rather than callers inferring an error from a NULL pmd return, explicitly
+> return error codes.
+>
+> This allows different error codes to be returned for different failure
+> conditions.
+>
+> No functional change intended.
+>
+> This is a prerequisite for the fix to insert_pfn() which follows, as that
+> needs to be able to tell a failure to allocate a page table apart from a
+> race with a huge fault, so mark it for stable alongside that fix.
+>
+> Fixes: f9e54c3a2f5b ("vfio/pci: implement huge_fault support")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
 
-Hi,
-
-If you would like I can send a v5 fixing these, or I can just add them
-when I push to drm-misc-next, up to you
-
-Ruben
->=20
-> > +
-> > +	formats_dev =3D devm_kmalloc(usb_device, GUD_FORMATS_MAX_NUM, GFP_KER=
-NEL);
-> > +	if (!formats_dev)
-> > +		return -ENOMEM;
-> > +
-> > +	ret =3D gud_usb_get(gdrm, GUD_REQ_GET_FORMATS, 0, formats_dev, GUD_FO=
-RMATS_MAX_NUM);
-> > +	if (ret < 0)
-> > +		return ret;
-> > +
-> > +	num_formats_dev =3D ret;
-> > +	for (i =3D 0; i < num_formats_dev; i++) {
-> > +		const struct drm_format_info *info;
-> > +		u32 format;
-> > +
-> > +		format =3D gud_to_fourcc(formats_dev[i]);
-> > +		if (!format) {
-> > +			drm_dbg(drm, "Unsupported format: 0x%02x\n", formats_dev[i]);
-> > +			continue;
-> > +		}
-> > +
-> > +		if (format =3D=3D GUD_DRM_FORMAT_R1)
-> > +			info =3D &gud_drm_format_r1;
-> > +		else if (format =3D=3D GUD_DRM_FORMAT_XRGB1111)
-> > +			info =3D &gud_drm_format_xrgb1111;
-> > +		else
-> > +			info =3D drm_format_info(format);
-> > +
-> > +		switch (format) {
-> > +		case GUD_DRM_FORMAT_R1:
-> > +			fallthrough;
-> > +		case DRM_FORMAT_R8:
-> > +			fallthrough;
-> > +		case GUD_DRM_FORMAT_XRGB1111:
-> > +			fallthrough;
-> > +		case DRM_FORMAT_RGB332:
-> > +			fallthrough;
-> > +		case DRM_FORMAT_RGB888:
-> > +			if (!xrgb8888_emulation_format)
-> > +				xrgb8888_emulation_format =3D info;
-> > +			break;
-> > +		case DRM_FORMAT_RGB565:
-> > +			rgb565_supported =3D true;
-> > +			if (!xrgb8888_emulation_format)
-> > +				xrgb8888_emulation_format =3D info;
-> > +			break;
-> > +		case DRM_FORMAT_XRGB8888:
-> > +			xrgb8888_supported =3D true;
-> > +			break;
-> > +		}
-> > +
-> > +		if (format =3D=3D GUD_DRM_FORMAT_R1 || format =3D=3D GUD_DRM_FORMAT_=
-XRGB1111)
-> > +			continue; /* Internal not for userspace */
-> > +
-> > +		formats[num_formats++] =3D format;
-> > +	}
-> > +
-> > +	if (!num_formats && !xrgb8888_emulation_format) {
-> > +		dev_err(usb_device, "No supported pixel formats found\n");
-> > +		return -EINVAL;
-> > +	}
-> > +
-> > +	/* Prefer speed over color depth */
-> > +	if (rgb565_supported)
-> > +		drm->mode_config.preferred_depth =3D 16;
-> > +
-> > +	if (!xrgb8888_supported && xrgb8888_emulation_format) {
-> > +		gdrm->xrgb8888_emulation_format =3D xrgb8888_emulation_format;
-> > +		formats[num_formats++] =3D DRM_FORMAT_XRGB8888;
-> > +	}
-> > +
-> > +	devm_kfree(usb_device, formats_dev);
-> > +
-> > +	return num_formats;
-> > +}
-> > +
-> > +static int gud_probe(struct usb_interface *intf, const struct usb_devi=
-ce_id *id)
-> > +{
-> > +	int num_formats =3D 0;
-> >   	struct usb_endpoint_descriptor *bulk_out;
-> >   	struct gud_display_descriptor_req desc;
-> >   	struct device *dev =3D &intf->dev;
-> > @@ -447,9 +551,8 @@ static int gud_probe(struct usb_interface *intf, co=
-nst struct usb_device_id *id)
-> >   	struct gud_device *gdrm;
-> >   	struct drm_device *drm;
-> >   	struct device *dma_dev;
-> > -	u8 *formats_dev;
-> >   	u32 *formats;
-> > -	int ret, i;
-> > +	int ret;
-> >  =20
-> >   	ret =3D usb_find_bulk_out_endpoint(intf->cur_altsetting, &bulk_out);
-> >   	if (ret)
-> > @@ -510,81 +613,16 @@ static int gud_probe(struct usb_interface *intf, =
-const struct usb_device_id *id)
-> >   	drm->mode_config.helper_private =3D &gud_mode_config_helpers;
-> >  =20
-> >   	/* Format init */
-> > -	formats_dev =3D devm_kmalloc(dev, GUD_FORMATS_MAX_NUM, GFP_KERNEL);
-> >   	/* Add room for emulated XRGB8888 */
-> >   	formats =3D devm_kmalloc_array(dev, GUD_FORMATS_MAX_NUM + 1, sizeof(=
-*formats), GFP_KERNEL);
-> > -	if (!formats_dev || !formats)
-> > +	if (!formats)
-> >   		return -ENOMEM;
-> >  =20
-> > -	ret =3D gud_usb_get(gdrm, GUD_REQ_GET_FORMATS, 0, formats_dev, GUD_FO=
-RMATS_MAX_NUM);
-> > -	if (ret < 0)
-> > -		return ret;
-> > -
-> > -	num_formats_dev =3D ret;
-> > -	for (i =3D 0; i < num_formats_dev; i++) {
-> > -		const struct drm_format_info *info;
-> > -		size_t fmt_buf_size;
-> > -		u32 format;
-> > -
-> > -		format =3D gud_to_fourcc(formats_dev[i]);
-> > -		if (!format) {
-> > -			drm_dbg(drm, "Unsupported format: 0x%02x\n", formats_dev[i]);
-> > -			continue;
-> > -		}
-> > -
-> > -		if (format =3D=3D GUD_DRM_FORMAT_R1)
-> > -			info =3D &gud_drm_format_r1;
-> > -		else if (format =3D=3D GUD_DRM_FORMAT_XRGB1111)
-> > -			info =3D &gud_drm_format_xrgb1111;
-> > -		else
-> > -			info =3D drm_format_info(format);
-> > -
-> > -		switch (format) {
-> > -		case GUD_DRM_FORMAT_R1:
-> > -			fallthrough;
-> > -		case DRM_FORMAT_R8:
-> > -			fallthrough;
-> > -		case GUD_DRM_FORMAT_XRGB1111:
-> > -			fallthrough;
-> > -		case DRM_FORMAT_RGB332:
-> > -			fallthrough;
-> > -		case DRM_FORMAT_RGB888:
-> > -			if (!xrgb8888_emulation_format)
-> > -				xrgb8888_emulation_format =3D info;
-> > -			break;
-> > -		case DRM_FORMAT_RGB565:
-> > -			rgb565_supported =3D true;
-> > -			if (!xrgb8888_emulation_format)
-> > -				xrgb8888_emulation_format =3D info;
-> > -			break;
-> > -		case DRM_FORMAT_XRGB8888:
-> > -			xrgb8888_supported =3D true;
-> > -			break;
-> > -		}
-> > -
-> > -		fmt_buf_size =3D drm_format_info_min_pitch(info, 0, drm->mode_config=
-.max_width) *
-> > -			       drm->mode_config.max_height;
-> > -		max_buffer_size =3D max(max_buffer_size, fmt_buf_size);
-> > -
-> > -		if (format =3D=3D GUD_DRM_FORMAT_R1 || format =3D=3D GUD_DRM_FORMAT_=
-XRGB1111)
-> > -			continue; /* Internal not for userspace */
-> > -
-> > -		formats[num_formats++] =3D format;
-> > -	}
-> > +	num_formats =3D gud_get_formats(gdrm, formats);
-> > +	if (num_formats <=3D 0)
-> > +		return num_formats;
-> >  =20
-> > -	if (!num_formats && !xrgb8888_emulation_format) {
-> > -		dev_err(dev, "No supported pixel formats found\n");
-> > -		return -EINVAL;
-> > -	}
-> > -
-> > -	/* Prefer speed over color depth */
-> > -	if (rgb565_supported)
-> > -		drm->mode_config.preferred_depth =3D 16;
-> > -
-> > -	if (!xrgb8888_supported && xrgb8888_emulation_format) {
-> > -		gdrm->xrgb8888_emulation_format =3D xrgb8888_emulation_format;
-> > -		formats[num_formats++] =3D DRM_FORMAT_XRGB8888;
-> > -	}
-> > +	max_buffer_size =3D gud_get_max_buffer_size(gdrm, formats, num_format=
-s);
-> >  =20
-> >   	if (desc.max_buffer_size)
-> >   		max_buffer_size =3D le32_to_cpu(desc.max_buffer_size);
-> > @@ -650,7 +688,6 @@ static int gud_probe(struct usb_interface *intf, co=
-nst struct usb_device_id *id)
-> >   		return ret;
-> >  =20
-> >   	devm_kfree(dev, formats);
-> > -	devm_kfree(dev, formats_dev);
-> >  =20
-> >   	drm_client_setup(drm, NULL);
-> >  =20
-
---=-5PbnTEj0Rgma3qAKiMVd
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-
------BEGIN PGP SIGNATURE-----
-
-iQLIBAABCgCyFiEE3obNNdPQ9V5CQi2Y0n5QwFCuDOEFAmsF2rQbFIAAAAAABAAO
-bWFudTIsMi41KzEuMTIsMiwyXxSAAAAAAC4AKGlzc3Vlci1mcHJAbm90YXRpb25z
-Lm9wZW5wZ3AuZmlmdGhob3JzZW1hbi5uZXRERTg2Q0QzNUQzRDBGNTVFNDI0MjJE
-OThEMjdFNTBDMDUwQUUwQ0UxGBxydWJlbi53YXV0ZXJzQGxpbnV4LmRldgAKCRDS
-flDAUK4M4QLSEACSVerrQa80/n8yxqRFxixNWmr4j56wK6dLPKPYRlbFNixmLxP4
-IAnOz8AH4nU9DklVstMn6JgxOMVvcrIRZULh+RQEqs63b+ni5/LHs3rkSVL0W6JL
-EMJR7Xuj7S4ljnRMYz7FyMcRQIkD/ecQG5y3zhgugiLhj7rbbZ66/ELxndP9NIGm
-NsLV+WLEEdQBWIZClWFAXRVQowk4QX1W4EvPdNJu6soGx1rSo0FOLBjPs4IHl35W
-Wwq5NtYoGhSO3ziYyIf9V87uBbC88NlmgK7mxyybCW/ivx2VW5gcYgMInR2AgWym
-Ts2BfHSqxt3Cd3ZqpYD+KJqRTvbF4ErXtHRBLtyzNhz7r0ta9J+Rn4n3CKFSrT54
-dZkL0JRmcav09fiKnU0iYN5ifzAFbxaoeESfbIBQ4A7g6KAmqexTO2wEPSOyfmeV
-nQIezOl51oUNQdKpocyicM7Egs4S2D8tvh3fQHxDnG7OqCSapumr6s6y1hgWi5xN
-vhMxcTD+oblC7geG9NdyNjoxKw3Yy2noejA9c75sMwt0+BybC/OjOGv2kANgqQW3
-df1ogbIew1onryMB8WZcWLCjpQq+HjFMqgaemrjmfef9jBzvUg173bfC1tXiEH48
-vahqVgyMFfJFlK+sB1/SCUpDC1BrlN0LojKgof+E1npdmQ0BwpetTR73Yw==
-=vspv
------END PGP SIGNATURE-----
-
---=-5PbnTEj0Rgma3qAKiMVd--
+Reviewed-by: T.J. Mercier <tjmercier@google.com>
