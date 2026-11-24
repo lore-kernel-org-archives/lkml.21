@@ -1,95 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795535187;
-	b=llNTTaDrLuUP1cVWndbl2+fMnAJhCSQ6f5zcekmBZICm/uREAafAnHDjF8TQyg+GNo8+
-	 Xykoq6abaVXZd1JJzMcI3/KGWzC2spcrIKRqu7YCr5Z+4vT7glQg9pOX5O/bZMqqHV8EO
-	 AiUkSD/mELusADIiwlYAAbLk188haAjc9RJx+BDqcxGe66UuUI9P+AmSGueloeOxep+wf
-	 Z6eZ2Li8Q/bkGUeZSaXQztSgOLhauAbCVzLo/dvFSYfjFbl1Uh29ItzKNYJfcmO+QPEkm
-	 IF/HN3109ZsiW+P5VxAFOn8dRRvsTgm1rHgj4vZ9s7z5+Ama+SCvNDSrwy5OXIXqJOw==
+	t=1795535265;
+	b=BRbH+eznvf0MPsoHnS6mY03kXalcr+FD67xCpiP0bTH5drePt+Cb7xNQrXRHlYsyxlid
+	 DnoYTwtYYRe/Y5aEx+ZMUst+7lHzzZXtMWr+JLTbYa6Sn8JcTf0LrQ8DXXi0io5Gzb/Y4
+	 SGfEM5thuAVvFl/a4uG/T6GHCDKReGG9OSIdgiY4fCCNKKts40R0eqd/HyL/MO9QTtJYL
+	 KqqwmYxIMicsTL7CPlMys6tcRygvbQJBE8F/Uu60OeVoBC/IvC3I/3mmJvqMvEY33OFM4
+	 CzoljAK+QDsfct2ifMpTXN3BngVHh/A2xaedD49pl9d7LXLOKADqnBPltN+kSFpOmgw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795535187;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=TGbZUVyB/p7B87G7D24DxnnI40WatEQY2ar/09q3cHo=;
-	b=QgZfBA502Wj1GrlTjkCX4rDV4aG0gs5PTMAedXZXapB0r8h19zAT6eNHEvMsAC+FNx6D
-	 W/liLyvnCCsIGlAqW+fS/R7rwgiNX2Pgfj+ltziq3qiOsqzBEVmZo+qpPvDut6TG8/N24
-	 PGirqo3KcrKYhJfvAtEN25WUtUX76qH8QNEjKiTe3hY7QWPnxQrIHkEqqXauX073OctB8
-	 7loSAgG7ar1dRQZ0Ma0AsP1hw2XN36TudeuMVLkm3ivarNaqhi3mejI4Lh4zSBBSqC4jL
-	 2TlygdC2JhD1/2I+5Iqj2VXGt6/+zB9qKSI/c/0UOs/lEDOdD1ZxGd4VkeX4VtjIDXg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795535265;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=mXsA4BwXFC/CAXPGp3KhRXJ2vAYXrltBol6Hhl9EReg=;
+	b=y9rBHuHWDy+PdZtcccm/+eNejSuCY3ksCgOHUf/92xC96wJpQfMEIiz6KklBN/GDBZZc
+	 bxA63S9GcxBxojXGMT/g7Y8DFrXvM269D6IuAw6nkpohOt3DkjvQxTWk7e9O6APyqaRNF
+	 TL3EFwxPYp+P+sTfDmleKyCwj2U+bkTdthu/b2fTAHxdFDMqC6uw/sRS40hThBRxNP6aJ
+	 +2EIPbEgOlZDXiulAtfEafmhld6aHbtUtbqqAv8y/SUIfkctDFZOCXS+DVgZEn43+u8QN
+	 WvzQUQ2ZpuA4S1kqkVRTju/08Z/Wqs1dPc4gGbRXhL6XhCSWv1GpjO1rBnsLBQG7f8w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=p8O0iMrx;
-	arc=none smtp.remote-ip=209.85.160.42
-Received: from mail-oa1-f42.google.com (mail-oa1-f42.google.com [209.85.160.42])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=alilFHhR;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3615D606A321
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 15:46:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3615D606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 40C32606A321;
+	Tue, 24 Nov 2026 15:47:44 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=p8O0iMrx
-Received: by mail-oa1-f42.google.com with SMTP id 586e51a60fabf-483d290f398so2565396fac.2
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 07:46:27 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795535186; x=1796139986; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=TGbZUVyB/p7B87G7D24DxnnI40WatEQY2ar/09q3cHo=;
-        b=p8O0iMrxNQdgG4GBFZ9mtOtkuKcgiukJPtXP5Vv9QvmEXFw9wJufMOn+1FS90ZH8y1
-         l5GSAZS0xnWW/Dicn8nTabX2yMC+DZT5Av68Ym8SnB8ye7OkVs5xYdHJRf9CMSn0Gu+h
-         rWVIKT7b0N2sGZd3c1V3FU0XaDDDUBt+NQpewrXNJw/v3z67RmJExMhtOPJVzfKECX1U
-         /xnIKFPPyRFq2d8OGdFxCBPT8TRUMsRtWW7IrDI6Nl+D98VCOcD/MfAKkjnknJJkTfP7
-         3DrfwLhqr8QoaPudw+dBwQXAbXj70Yf9yU/sA/7ToNHp9p2yVK6gys1GknOh3KjIIGEC
-         xU/A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795535186; x=1796139986;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=TGbZUVyB/p7B87G7D24DxnnI40WatEQY2ar/09q3cHo=;
-        b=NnoLpScdShCIPWaEAb9Zd/tIFjquB0GxiAVvew/1N4ncd8cr5sUk++UPaJHtGrqd32
-         lJu1wS68zA7oNhTpsZ4ZRYjTBqWcSZ04Jzjc74/ErO1hiUpOF7+RtYCRW7PaiyCX0iw7
-         hLZaWeO7dkKBxog/IE3qghvT/9NJkdzfbdFBiSpOmFrs+1L40BXgF8s7jZ1gdHehQlR3
-         HrUmlGkzb04TCs7UNEd5XB154EZuJP5Pa9wRy28Rd4g2pECuc8dDY05w+8JuGQj2k8qW
-         CpJ6qIQ3/RlUvoI+qOgrB7iQH5944GVPDSJiU3MiQeDKZ8FyZrUpBipyNL6h7bjOrQjF
-         avng==
-X-Forwarded-Encrypted: i=1; AL+hErEEpCh0mgQDOoK8efSTHrLq3HIEa9Fh+oAXz48ICTPbtPGoMMWlyD8MYVjwVoch8DJIhzl7qoMhFboGGjo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8ujgLHGyDTCd2KUeX0pFBCwM1h5gitMpoDh7F0WheFc+FbEz6N
-	IrClYWyzpHWwrXy1TNETP2zj5y2bBzo++V8CBUSWL0gWE1QuN3tg4RIn
-X-Gm-Gg: AZFdTZcxqq+F4cCm/XETiXJydtcOe7WxQJGImLCuQ34b3usZOQtJ7wPB4/NTI6m96+S
-	pGnW6s9ZMVOl6CfquGTIenXOYNcYVVNVmrHxhe3n1xocLrHTR3MewbTdLn6ublww1NKvrbFll2V
-	ZRJZFSkLWBF8+5Q5AlMNI7tOX0k4TdhgwLJX1lVzuB48pcTGiKKq+2LFFvnTYwyKuQjs3hsamTn
-	70eN9R0/2tUWVJSCf2Hk9NepGRXf9TndhypHRYlUd17leiseFZjbv6K4+izeoOCf+nEphoxvgWb
-	sVfLbu8nKzDpBRuCUmAu2IFVli+tAnbHob2uu9Yx2iKWA1o0/0HbHL9HxYtZFusVgBK4Se01xu6
-	DqC8BYLuwGls8GLd2JLJK046p3PpmzgnJ3+F/p/hBJ62ePF2Rkk0WJJR2oC7HptRRfgnPCv41Rd
-	zDzqWuRwQoT411deTQ/mefjl4KRuKACdx2RrJdz+tH3oWgla9xyKBt6276et6ROIMr+23CwDjs+
-	ZIsDv6zXolHeuZiU799yJ7zx3fgnsjLc2+SliGyeFxoUcY93I9s1UmatXSNh8N7QOmI3fi5gRHj
-	PW3eLHwGEWQMAzyXwTWl/qzBkk4rwE1mrVGE+dVaKCTgmFyi99tnp5qYdUpmMNzCNshi+ETW9d0
-	cnN1fchkwmu+vIp9eL3wzqfvSZC1YoO+4pxvi3qPaZAuTBddUHmFesyu7m9vw9n9uni4=
-X-Received: by 2002:a05:6871:7bc7:b0:4a7:2bbe:4601 with SMTP id 586e51a60fabf-4bc85af4396mr12338931fac.57.1795535185954;
-        Tue, 24 Nov 2026 07:46:25 -0800 (PST)
-Received: from tempest-testimage-cc-centos9-stream-server-1191361818 (chi-dyn-129-114-108-164.tacc.chameleoncloud.org. [129.114.108.164])
-        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-4bd044fc4besm12324129fac.7.2026.11.24.07.46.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 07:46:25 -0800 (PST)
-From: Yuho Choi <oss.patchbox@gmail.com>
-To: Nishanth Menon <nm@ti.com>,
-	Santosh Shilimkar <ssantosh@kernel.org>
-Cc: Russell King <linux@armlinux.org.uk>,
-	Kevin Hilman <khilman@baylibre.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Yuho Choi <oss.patchbox@gmail.com>
-Subject: [PATCH] ARM: keystone: Fix OF node reference leak in keystone_pm_runtime_init()
-Date: Tue, 24 Nov 2026 15:46:21 +0000
-Message-ID: <20261124154623.340362-2-oss.patchbox@gmail.com>
-X-Mailer: git-send-email 2.56.1
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=alilFHhR
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 766A81F000D2;
+	Tue, 24 Nov 2026 15:47:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795535264;
+	bh=mXsA4BwXFC/CAXPGp3KhRXJ2vAYXrltBol6Hhl9EReg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=alilFHhRd6N+H/ISj1kGZk4LRVrgAmykt6qQcmrhtJkF+PI7iizSbjVy8zXBkL2bK
+	 PGzx1J3KJJdldqSg6vieAKnJQAe/MypYj0vwotQe3YZaCUxvU4HQAO1/YCWYvlarhF
+	 AKdaJHYvy1obes/pPprBf24yr7AFZo+RL3aklDe4obRdbg6KCda6BuKuvJXM7FyhtS
+	 +FTK9Zvm17clc0dACamNyigBU40CftywSSgKZyKdlOgr7nUaE/sp1hvpCxd2ZlxrqT
+	 Bx1YqD1rgKJV4DuOP2N58vCdWLmNH21DqrWho/haSJnkHRhBYj5f4Q/A/EZmijlKkW
+	 7k6tM3OcxcLKA==
+Message-ID: <e07f2f6a-31e8-4d7f-a533-c55c51237868@kernel.org>
+Date: Tue, 24 Nov 2026 16:47:39 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,46 +51,76 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/3] dt-bindings: arm: qcom: Add Seca Ride board
+To: Yadu M G <yadu.mg@oss.qualcomm.com>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>, Abel Vesa <abelvesa@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <cover.1795517711.git.yadu.mg@oss.qualcomm.com>
+ <845a24c91ea424ff30faa8e1d357c326eda2e5ba.1795517711.git.yadu.mg@oss.qualcomm.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <845a24c91ea424ff30faa8e1d357c326eda2e5ba.1795517711.git.yadu.mg@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-keystone_pm_runtime_init() calls of_find_matching_node() only to check
-whether it runs on a K2HK, K2E or K2L SoC. The node it finds is
-returned with its reference count raised, but the function only tests
-the pointer and never drops that reference. keystone_init() calls it
-once at boot, so a single reference is leaked.
+On 24/11/2026 11:55, Yadu M G wrote:
+> Seca is a Qualcomm automotive SoC. Document the Seca Ride reference
+> board, which is built on the SecaAU GearVM variant of the SoC where
+> platform resources are managed by firmware through SCMI. The board
+> compatible therefore uses the "secaau" prefix, with "qcom,seca" as the
+> SoC fallback.
+> 
+> Signed-off-by: Yadu M G <yadu.mg@oss.qualcomm.com>
 
-The compatibles in of_keystone_table are only used on the root node,
-so use of_machine_device_match(), which checks the root node without
-leaving a reference behind.
+Incomplete, missing seca SoC in naming bindings.
 
-Fixes: 8620d2c536dc ("ARM: keystone: fix PM domain initcall to be keystone only")
-Signed-off-by: Yuho Choi <oss.patchbox@gmail.com>
----
-Compile-tested only (ARM multi_v7_defconfig, W=1). I have no Keystone
-board to test it on. All uses of the "ti,k2hk", "ti,k2e" and "ti,k2l"
-compatibles in arch/arm/boot/dts are on the root node.
-
- arch/arm/mach-keystone/keystone.c | 5 +----
- 1 file changed, 1 insertion(+), 4 deletions(-)
-
-diff --git a/arch/arm/mach-keystone/keystone.c b/arch/arm/mach-keystone/keystone.c
-index f63671a3024c..4e1f02a73887 100644
---- a/arch/arm/mach-keystone/keystone.c
-+++ b/arch/arm/mach-keystone/keystone.c
-@@ -53,10 +53,7 @@ static const struct of_device_id of_keystone_table[] = {
- 
- static int __init keystone_pm_runtime_init(void)
- {
--	struct device_node *np;
--
--	np = of_find_matching_node(NULL, of_keystone_table);
--	if (!np)
-+	if (!of_machine_device_match(of_keystone_table))
- 		return 0;
- 
- 	pm_clk_add_notifier(&platform_bus_type, &platform_domain_notifier);
-
-base-commit: 8dac6df92a2e66e2098bbc69061964cfe7e8375b
--- 
-2.56.1
-
+Best regards,
+Krzysztof
