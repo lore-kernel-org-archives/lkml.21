@@ -1,106 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.196.57
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795554749;
-	b=AX9saEb/QPh5itPF0XTP85C6Hmwm9HTwuXvJoy2qK20SX3FqL7OHwRtLurPtzI7VVkHF
-	 rYBKoHzt+sS1sCT+3hFijqHKQhyo6w8fpGPdRkenhN0i6RfwDwwalEghK/sEBxSi8QDIU
-	 ul2FsT9i8eJ58aybUpGMlcBNvtO6yMqnLEWwCa+9QSYdIpiXReN5pQqOe27TvxAxr56fG
-	 zb3E44nU3sjqzJoHAQEUuJLvqFAleTitytpm0q3c4CWG3s9rsFeTjseFhQLt0okQH8pV2
-	 XL4tRU7pu0hKMFN1B+QBgD0sjP8RZzSG7LBDac9Grnja3kHoQvWUDikoEIVUy0hUsTA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795554749;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 Content-Transfer-Encoding:Content-Type:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=L6pQMYki7sS+ddqocnsqWk+9Da2cF7VilW12M3TX02k=;
-	b=f9L+laUB5VAerl5Ocg/TqI7VSkbf+gh7fXUQuRh99WRlD3geQKxEN+NUuQvGJNqIBi6k
-	 HBEV8wkL4YBaCCYE3f4SVJGhY3jyjiv6pV0czajrGJB8gN25SS+A6UTVV7bbY2Ie5O6ue
-	 vSGhYpoxP4OU8WQnWmAk2fGDu648l2ZrAbtY+hcwgaRR6Y7Ovx75cNhJFQJWefgnkbaSd
-	 IaERKdqiI6OpTiZfmYWKTecmEOHAYmdRNk3glXa4f92KlKC4hm1/qIzLDViN/2IhgfDM9
-	 iRRbDK91Pt4g388eP8uKgbqczSWHn8HWtulrfYjr+wEEPGBoNueVShrDJ6J2fccxgdw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=KpRIyljk;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.196.57
-Received: from SA9PR02CU001.outbound.protection.outlook.com (mail-southcentralusazon11013057.outbound.protection.outlook.com [40.93.196.57])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.179
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795554760;
+	b=i4qUBsWVdJprQo6JdddSmWMlda2Av8y0DMGG+D5yHgMCf3MG6pAMjYfBlzoJ/4R7b9g3
+	 D9KG94ePSa0xawenAH3GmKVFw05ONcln3BdQsFFQmiue89i5RRoJvvoqXrc9BhomMizUY
+	 Xm/Y6yIAkr5tySyMz+Al8ZbK+/jhHbuxBeT+ipJttwCmT6XY256fV1J7BmNY5aEu9cgtB
+	 RuVLdqf7723Vp7/9/tD0fMllKY9QyuWsXY7Kpm0vUvhOMtM63D4+KiT7gjHqQGug/cl+6
+	 SHTDwaHJ0lKR0w+Kx0wsh51Ok0UXpboTzdgNeJSSDqHwuHDe5s+3ZHOclQnwR/K3jwg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795554760;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=F8rYSABrKPlESdcxDAuXs4pRX0vk4JfNgBSWMnneRLY=;
+	b=4lHMNj91QuLNHolaZPoKRbyUVf2pFfohx6PsoMKmfgGW9uZBGom8TW14zRvTPxUA4mxe
+	 Q+qr3BCkvzL7+GT1FUTL6XDpiLWcrbCpGUthsoZLlfdTmFXfbFO7dcfckokxaeM8qDug9
+	 h0u1H0nn+IXdgW8eJJxBefzx6ZXvDvZfAjwMrnsolSLDcpdVsghVANjN3ZMHHlvVRJC9Y
+	 OeK7IIYOU0ordHgAd2D9JBkVc95bfv1Q5lfVTQOJK5uxR4i7IycNB70nOyrX4+m9mOQoV
+	 sOy/CDCNEpejZ8cJNGduo3Te3Xh8a8Y2/KkZ0eVTB1Nh/tR/pouW//O+D4aRlG/9d0w==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GN5MkXZC;
+	arc=none smtp.remote-ip=74.125.82.179
+Received: from mail-dy1-f179.google.com (mail-dy1-f179.google.com [74.125.82.179])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 52D13606A33C
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 21:12:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 52D13606A33C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 282A2606A32A
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 21:12:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 282A2606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=KpRIyljk
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=A6aGRfH/vC8ebfxtDrbhyjR2PvBkfa2dTe27gU0/4tnsufbCZVFcRPK96U4bEMaGYUTzxMOiadarf8HTk1nSpcwPdq9iTbmdTmfRWjL9FpVnqLtmgapozpSN1eKVjz/qdA9fvtbhHSLIwB8PbQWNFnm1ue8bE/Hvjrdefb9mkdnDDAtL6Jq9nmHFBhZec9sKEs19E24Rfyon4XBIseCXJsxkT7+kd+fNxmqPsa2krYisGDd1KV66VJyLYDBUEd1sV91yGAt6Q+zDmFtgFeJ7vWyYDVUWGzAgiMqCL2oDtLkQ0k0A0YWbRALPIBYo8Bfcc3+NRNAR6IblJIvQ+HUrhw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=L6pQMYki7sS+ddqocnsqWk+9Da2cF7VilW12M3TX02k=;
- b=lbeyCvIu+NGZm1NMm7FYMlFZGIEP3Wh+du8yuaUut8U4dat1VWCwUYDDJmZzoENjClJQLRp9t2Oxm05py6NaqRtLKZA4gf9JCqcP6VgNBomM5vWltRNAGY21RdFXjsIj8YDDKg7rmpEBQkO/VauWisG2GJQulj6jnFzj8fti40gWk0ztKfOFDUqG1U5ypymkz3jBei9ppFPt7fVus8QBNgqFFsWGDaQ0rNrSINO6/D0+2ow3Ic70EBuMNb1oh2+kHtL0JksN0whZoRBMqwEAgyUTCotX20lrVZTxhHQ/kFsBa3Q803ebe5WhrLF65p1k/OJIrvdlI1V/HT8rcXq+6g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=L6pQMYki7sS+ddqocnsqWk+9Da2cF7VilW12M3TX02k=;
- b=KpRIyljk4CKlQpRQgoaxyTKfneJ4oPISIp7lXl/vtQHpEmvruey1fngw3qG6XWUY68eKo4UOzOEPaS50aArMA+lsbTHmXmFShv0iFrmlAb8/TSjZ0abcQooewYbLEYeKHcddaB1nfkfTJ7IedKVXr6EE99np+TWfOyvDGEUbYTCxNs/RwU17NR6hNhsIUq1L8n+Zc/5EIkHfqWkOjXsjTEcZK/EWDdAqXVrMLAERn0I1SG1Zu6X1xRmCjVUBVqI4Uz6r0rgekBw+m+JZJHwYES0OALEvnFMy7kHRsG3FLM0llRLkLmTlqpONeurIHuzRel8pwp2j9OkmEOJgMdHxSA==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from DM4PR12MB5390.namprd12.prod.outlook.com (2603:10b6:5:389::15)
- by LV9PR12MB9784.namprd12.prod.outlook.com (2603:10b6:408:2ed::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Tue, 24 Nov
- 2026 21:12:25 +0000
-Received: from DM4PR12MB5390.namprd12.prod.outlook.com
- ([fe80::2815:c27e:a0a:2720]) by DM4PR12MB5390.namprd12.prod.outlook.com
- ([fe80::2815:c27e:a0a:2720%3]) with mapi id 15.21.0662.001; Tue, 24 Nov 2026
- 21:12:25 +0000
-From: Nathan Chen <nathanc@nvidia.com>
-To: linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GN5MkXZC
+Received: by mail-dy1-f179.google.com with SMTP id 5a478bee46e88-3866a784546so6622331eec.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:12:40 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795554759; x=1796159559; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=F8rYSABrKPlESdcxDAuXs4pRX0vk4JfNgBSWMnneRLY=;
+        b=GN5MkXZCErMf6dk+btCaHgEKpXVzYUucT2PFwX2t+/tNrjV/cF/U5N19NBBskDejOK
+         /X6fzSUtPGQlmlYHqX6ANopqE/wg0voxmqvEsznbkqudFn37VRE3G9EIpQCAZZPA3UDw
+         qJ3eo05Kx5mchxy/46qSlgH3QLfQHg3rIpXpD8lN1Z3hQXLfzSbEkDppnC3emxM/rjp+
+         P0EZXQiOkwBhk6jJ3Pn9AvdzPJ2g9ROj6DT7ToprpcuQQU7KEZ9EM+quDZgsqlPEq487
+         0lEEDuluBkKLwJQsKig7ezsX1gOZOcSvaauArGbPTt2IgORbOlCD2DMU0GYZN/jHHnfI
+         7opQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795554759; x=1796159559;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=F8rYSABrKPlESdcxDAuXs4pRX0vk4JfNgBSWMnneRLY=;
+        b=BiXi+dbXLWWO4qgqAMex2N5+ttCr9C+mUBrhnmtEDPWkZJzxHsLAWHnwQUtdYzo0kI
+         DQoR9A7B1j7vXk4m8aCIpR9JKkY0RzeojBYWWGlGxwyLgHBbLq3CsGmynNCKXqdCXTVN
+         Hc0dvP37yx2emh2Vc+9SwBmipQaISQlSQHqR2ErWE8YOV6jiyu4LgO/gxgOHugUvlQ+U
+         Z+dD/3BepUi7nMoHAhTMGiAGJRnNXn6kKjvrKRUGvMl/c3+CElTKkQg1T5ThsR7+Li12
+         d2Yi8EGIMefahmPWWWgX7yEojKw0QMFvXioMfanqgfPZ3ocQghfuInfal0W/Ah7kmrpw
+         vsvg==
+X-Forwarded-Encrypted: i=1; AL+hErFHzgT+/wCWubuavviAS+ys2RNyQr/rtbELf3qnFE3aWM4U1uu872SCrnq76CrS9vWxUelfliOqv8VIpJg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/pUXKizuzMfl8K2KLu3kPeCP0LxaIToYZQS4M6gBJ3IbfgZSY2
+	OLnN1ED9jKus7ZCAUKdWGyZlocSgaUrpTR5GSS4aWS3YbjQdw8u4mgDi
+X-Gm-Gg: AZFdTZdjQcxQ/JH1JfBTRYL68DPa6LzQnFCCA4Oezu3FnV6txGydpRtJrNOerfOj8gc
+	WYfwWkE5DmKyMPgdY/5G8Jg0bpVDLxj7HEik9HZLwvis+2onqcai2lmtCOlQikHkkc3kzZhNevW
+	YPvt8TQq6P2tBcFSRukbbl6+ym/+J4ftwihUb3wfBl5nXRCK0/942TIXSYe9bm6BS0iUu1JitCR
+	J5XcrZUmE9J4T3g3zM5+7RhfiRG7U7Xg7KFrMMnC1TyzdHwQSktEFK24wCEY6WrE9RjAxxoLcde
+	RH8RTqxRwG05AgfElrAxaqvlGOIa6KXQt5W9+OmqK8alAJz66IKi7Hv/BYOOJ5sy/i/NZ8jw+VD
+	58jTFNDhKnHjZ/oDOD/aEy91kyL+zb6NWDIn4mTy9f5lXrultP+X1ILGRIXA8lzVE0tNNXdAH/L
+	Fjx34qVD+dVCbaq9JSo3O3hudztvP2JFWbLJwGrKcWXo1NP7hhY7AEcE5394YtXJXc6o0242j34
+	3gCU5S9DnAorQUtZPndxOxh2l4Cdx66WFQHwss8rpm+js1ZllLbBCc9xVN7lXchQapY0ow9iCIF
+	Bq5RrseLyypO1MJTEfrod7w85ZMqb+xUq8J3flDjT5wHvyJdZPY5eA==
+X-Received: by 2002:a05:7300:1c17:b0:386:a105:fa66 with SMTP id 5a478bee46e88-386a105fd17mr10963340eec.7.1795554759056;
+        Tue, 24 Nov 2026 13:12:39 -0800 (PST)
+Received: from shine.local ([168.196.221.52])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386aaae4960sm22124445eec.18.2026.11.24.13.12.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 13:12:38 -0800 (PST)
+From: "Andrei A. Bykov" <andreiab9019@gmail.com>
+To: linux-bluetooth@vger.kernel.org
+Cc: marcel@holtmann.org,
+	luiz.dentz@gmail.com,
 	linux-kernel@vger.kernel.org
-Cc: Mark Rutland <mark.rutland@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Fuad Tabba <fuad.tabba@linux.dev>,
-	Oliver Upton <oupton@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Tom Matthias <tmatthias@nvidia.com>,
-	Shameer Kolothum Thodi <skolothumtho@nvidia.com>,
-	Jason Gunthorpe <jgg@nvidia.com>,
-	Julian Miller <julianmiller@nvidia.com>
-Subject: [RFC PATCH 3/6] KVM: arm64: Add kvm_arm_vmid_nr_usable()
-Date: Tue, 24 Nov 2026 13:12:15 -0800
-Message-ID: <20261124211218.2751086-4-nathanc@nvidia.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261124211218.2751086-1-nathanc@nvidia.com>
-References: <20261124211218.2751086-1-nathanc@nvidia.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: MW4PR04CA0244.namprd04.prod.outlook.com
- (2603:10b6:303:88::9) To DM4PR12MB5390.namprd12.prod.outlook.com
- (2603:10b6:5:389::15)
+Subject: [PATCH v3 0/2] Bluetooth: fix bonded LE peripheral reconnect completion and holds
+Date: Tue, 24 Nov 2026 18:11:25 -0300
+Message-ID: <20261124211127.41609-1-andreiab9019@gmail.com>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -110,111 +95,55 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM4PR12MB5390:EE_|LV9PR12MB9784:EE_
-X-MS-Office365-Filtering-Correlation-Id: a57099b9-d843-48a0-bd3b-08df4a6fa34d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|366016|376014|7416014|23010399003|1800799024|10067099003|11063799006|260925021311599003|260925021911599003|260925022911599003|56012099006|261021121427099003|261009223027099003|261102123227099003|261026121527099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info:
-	61eE1qXaRJSrZK+iTjKwGLLzsdcPJ4B2fn19hRcQlPFlyN6kleIsl1Om94hZN3QrzHQYKWj+lKWyHpn0dG++eWHN/zDJE1ifmDVdRkwiOL85yu77esHzYwhag9yxJqAhpTPKqmI8rI5F61blmtFQS2I1RdMhx2jJhBIwAc0qGkyfflK7CyhZOuTmHwZWKNvAjCQAYhB9c+e/Z6PyILYXElto7v+2oI7dj52O2+cd5IQB2VNIVYboASoE429/i4aYn5Tm0ZvcjD7o9gHDuolECGlpyTaSKfui7ZCOsmD3PRgoVnj3IsCINCgW+1F3wSiyh3HUhA6jfduDphNxN83CDDZgNphDlwLQVH6svPkL2AgmkI5E9nmhq2X/qVBz69DY2H40iRux1Dbx1qU9ncqfYK1DJrnVKYH1geoWruE+XlLQZp6mApu83HWHkU4+qir4mOOXt0jadNxholI+L0arr3nozabNycVjJXV1YSEwbuelJzVbpJxraMpGDJL3Ie91DTHhqilzUf0RFQabecazQQ/3gCwAamhy96ZXu7qp3p2lkvNXhBLSFumIoLUADejGOZQwulZj5/S8zqbKvJm6RWW264cLPeMHNytPcB2Mf5Z1hmfhtbNeI6P+7OesyHjIhukkvwz5jyKJiU+BcatJnlxag27U/aDHu3a5ynrespY=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR12MB5390.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(23010399003)(1800799024)(10067099003)(11063799006)(260925021311599003)(260925021911599003)(260925022911599003)(56012099006)(261021121427099003)(261009223027099003)(261102123227099003)(261026121527099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?uHtKeipQ0UKu5XOR+2NbXiIuc+JzZ3s1cObolOi5EDNfgciz/eBdtVpC2fpj?=
- =?us-ascii?Q?ty6XCUzCPSX6hfsC4f+OFQXE9Yky/yS8awl8Pn1NJv/ps7kcBfHmUNyI8LyL?=
- =?us-ascii?Q?/U1gHmIHhPb/ZeE3N0iahLLBaUQjj1BLhDnRqN7KVQW10xLYQTSC3efZwJNd?=
- =?us-ascii?Q?EAlc2N0QjBwuEc/AVJD9fj6SeOIi7kaxsg556BMLYtuN2+C+EYjo4oi00gr0?=
- =?us-ascii?Q?D+U57lb6vatUpHsYmTPKDmlBemwpp2dHzp2zr54MB9kPX8hqmtuYtPNNM+Bs?=
- =?us-ascii?Q?jMUSLmV4J/TweSArKswK1Myr7DTOaVr+XUwTZPI2eYUTxpXALk0vdGfhKbXK?=
- =?us-ascii?Q?YABy/rYZ+ZZ6Ero9K89oAR3eJq3+rhGaNqynE/GVGTkQaKY738ydBeNinSdt?=
- =?us-ascii?Q?WEDcTv1XH/zfrpslp0KPP+hcRhfwEjT3F+vUGKvluShijCO2Z3iAsJ1MYoSD?=
- =?us-ascii?Q?6WeHNnF0KR5lIZeknhd1J2TyH8e4dAkwq7QXLS5hoW5wsZZ04ryUiwqcMPLL?=
- =?us-ascii?Q?/UPSibA7UzxLE82J6hmeY8krBrMBS3goSWXv1RHIRZ65zHtAmnVYXp6gJ2Me?=
- =?us-ascii?Q?OTF7OCUSj27hZ3FlakcmRwLB+TlaAwhDeFPdjyMV/Dp7tUxEt2Igjy3RGdDW?=
- =?us-ascii?Q?qVo5vtqtI0xZ0hIJoX/LHNWZd8xj+qW8F0f+uaSGQlh2rfn5sP7ax5VhBfZR?=
- =?us-ascii?Q?r0xh2b81j+5bix3HlO6Wdfa1T8MsyhEL/gWBSOp9kscb3VwdfUt+yCBZIbUQ?=
- =?us-ascii?Q?hpLeC4oGXNDubg+2xAQ7T2zNG+CoUzKss3Ru8glrYYf+fLwzDfCAIy3J4prM?=
- =?us-ascii?Q?wMLyDFJzPOi7vG4SkJ9L46+49BTKX4ZMTAYjfQuPqzK432APA6SjWumdWobd?=
- =?us-ascii?Q?UqlJo1IlGkzMK+oY6EBJ+nq+RskAaDdGMp+RG+RH/hXRNDUIBE/aDu3qm6fA?=
- =?us-ascii?Q?/LJ6DXZ1wph74FQiJ8UNhaikHiyq00hXYQsaF6oxnI3gxirNDURAKHbkhq8l?=
- =?us-ascii?Q?E4WhglOM/XFpbyylb/dc9T9JLh6SjrJtzM613QJhYLFBTeHwX0k0tT3ivgdd?=
- =?us-ascii?Q?+k9W3UDC6Uy2QQoCK4dBwQZEAyI3oS0kCNDT0LL63bLDKBBLfEBX7v2oZbuQ?=
- =?us-ascii?Q?owCDhorfoGeQ0Yise3jGchwjxF+B5zSNr0tQzpv/ykYZMoSiDWknX7p4dvR0?=
- =?us-ascii?Q?vVuPHgSTY7p06KVoQZqoMFHBUjZbKCWCoi2vBU2W1i61IzXGWrYxb5mwAR5m?=
- =?us-ascii?Q?e+zeKG3buNIw0N85ChhAcx4VlJYD8UxA4yPyPCWKoEimomH1e//CuRMssY/h?=
- =?us-ascii?Q?UQEDbIAX6zU0d7oZWsAcGXdxdsFSMinLtlFu1VkCulCoTzWLNfX5h1w45bXb?=
- =?us-ascii?Q?3icuwAkAXp03FzE9/f2gb+fJ4k42poBaIByVV9k/v1QjB3RMEoQsWgnQa/4U?=
- =?us-ascii?Q?ndIpDd22uY9OnTG57JZRGxsFCG1zaKudfUfytTAOJtCU/e+XOetBN66yP34s?=
- =?us-ascii?Q?K0ix5RPL/ibHazCyO/Hi7nIfqncgwaiPLDtlkRGMnQaapV1E3aoPzDbHHySA?=
- =?us-ascii?Q?udRmNnqK/Td+EhpAcPAEdW7ZBvEzMWp1gIh3356XR5v9IEGsOQwKnFHgBKRa?=
- =?us-ascii?Q?nFZx1PP4DsQEqy4QjgVDCNK+EKUmZR5/v36Y63vvn2joXPkj47Q0tc6wO5AC?=
- =?us-ascii?Q?Rccu8ZUDL3sDKsyKQMm4mcmchtHcak2OJN3Mee3qsBuRoXSBaNQFy2HtXlsb?=
- =?us-ascii?Q?9OoJD+E57g=3D=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a57099b9-d843-48a0-bd3b-08df4a6fa34d
-X-MS-Exchange-CrossTenant-AuthSource: DM4PR12MB5390.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 21:12:25.3468
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: MTMl7DrTAEHrTNU3Ugk23bcMe97Z/dGRyPWoUn/spUcsaINDRedKIlWY38RbKzb1uUa0MT3K5dXAkdwmh5FWvw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV9PR12MB9784
+Content-Transfer-Encoding: 8bit
 
-Growing the shadow stage-2 MMU pool of nested VMs needs a host-wide
-limit derived from how many VMIDs the allocator can hand out within a
-generation, before a rollover.
+This series fixes two issues in the Bluetooth HCI layer seen when a
+bonded Windows central reconnects to a Linux LE HID peripheral.
 
-That is fewer than NUM_USER_VMIDS: VMID #0 is never allocated, and a
-rollover can keep one VMID reserved per CPU for the VMID active on it.
-Add kvm_arm_vmid_nr_usable() to return that number, so that the limit
-is computed next to the allocator that sets it.
+Changes since v2:
+- Rebase onto bluetooth-next at 6a40daae69b0. The Bluetooth CI bot
+  could not apply v2 because the key-refresh configuration code moved
+  into hci_conn_refresh_key(). Update that shared helper in patch 2 so
+  both Key Refresh Complete event formats use the same path.
+- Preserve the LE setup abort checks in both feature-complete handlers
+  on the new base. Patch 1 has no functional changes.
 
-Signed-off-by: Nathan Chen <nathanc@nvidia.com>
----
- arch/arm64/include/asm/kvm_host.h |  1 +
- arch/arm64/kvm/vmid.c             | 12 ++++++++++++
- 2 files changed, 13 insertions(+)
+Changes since v1:
+- Refresh the saved synchronous request after timeout or cancellation,
+  preserving socket references across controller reset resends.
+- Keep the LE feature hold across encryption and key refresh. Explicitly
+  abort failed setup and prevent later events from reporting success.
 
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index c7133999296f..6ae86bc96600 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -1431,6 +1431,7 @@ int __init kvm_arm_vmid_alloc_init(void);
- void __init kvm_arm_vmid_alloc_free(void);
- void kvm_arm_vmid_update(struct kvm_vmid *kvm_vmid);
- void kvm_arm_vmid_clear_active(void);
-+unsigned int kvm_arm_vmid_nr_usable(void);
- 
- static inline void kvm_arm_pvtime_vcpu_init(struct kvm_vcpu_arch *vcpu_arch)
- {
-diff --git a/arch/arm64/kvm/vmid.c b/arch/arm64/kvm/vmid.c
-index 7fe8ba1a2851..cf044f434531 100644
---- a/arch/arm64/kvm/vmid.c
-+++ b/arch/arm64/kvm/vmid.c
-@@ -129,6 +129,18 @@ static u64 new_vmid(struct kvm_vmid *kvm_vmid)
- 	return vmid;
- }
- 
-+/*
-+ * Number of VMIDs that can be handed out within a generation: VMID #0
-+ * is never allocated, and a rollover can keep one VMID reserved per CPU.
-+ */
-+unsigned int kvm_arm_vmid_nr_usable(void)
-+{
-+	if (NUM_USER_VMIDS - 1 <= num_possible_cpus())
-+		return 0;
-+
-+	return NUM_USER_VMIDS - 1 - num_possible_cpus();
-+}
-+
- /* Called from vCPU sched out with preemption disabled */
- void kvm_arm_vmid_clear_active(void)
- {
+Both v3 patches apply in order with git am on the pinned bluetooth-next
+base and the GitHub workflow branch used by Bluetooth CI. Local model
+tests pass 152 command-dispatch checks and 62 connection-lifetime checks
+with GCC, Clang and ASan/UBSan.
+
+The v2 backport to Linux 7.3.5 passed repeated bonded reconnects,
+approximately seven hours without observed connection loss, and Windows
+Bluetooth off/on. Those hardware results are from v2. In separate
+Windows suspend/resume attempts, the test HID application could still
+wait for an HID subscription after BlueZ reported a connection.
+
+OpenAI Codex assisted with analysis, patch preparation and tests.
+Sashiko provided the findings addressed in v2.
+
+v1: https://lore.kernel.org/r/20261121033104.441146-1-andreiab9019@gmail.com
+v2: https://lore.kernel.org/r/20261124140956.15296-1-andreiab9019@gmail.com
+v2 CI: https://patchwork.kernel.org/comment/27404265/
+
+Andrei A. Bykov (2):
+  Bluetooth: hci_sync: keep unrelated replies away from event waiters
+  Bluetooth: hci_core: preserve LE feature holds across encryption
+    events
+
+ include/net/bluetooth/hci_core.h |  9 +++++++-
+ net/bluetooth/hci_core.c         | 16 +++++++++++++-
+ net/bluetooth/hci_event.c        | 36 +++++++++++++++++++++++++-------
+ 3 files changed, 52 insertions(+), 9 deletions(-)
+
+
+base-commit: 6a40daae69b0c45d4f8b6aa247fca165b8534f60
 -- 
-2.43.0
+2.56.1
 
