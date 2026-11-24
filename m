@@ -1,101 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.182
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795535516;
-	b=Q6IeFb2VkJ58Zr+QQqT7hR32ll4jV5s5E8xZIVXSz2mbEhTZkJgBQFXX3RN1A+kISe25
-	 EIbZNSXaWeewR+IvxUXBQBQu24Aqet5gPNTJKvahBP2nq5W5mOzbK4taC9hBq5DJntpOz
-	 IaswuU1M26ZIdzSccFrwlyPIEf9LjwUKKpCKa+CVywHDi8liNe6O4D/jqlZxxzed+tluX
-	 ZyPi3bhsPbHs/ZbEplUA7gjoH/+wQbhIc4cfWHeQrR1NIIiCsGNnqWQ+HKEIh9kU1lg+e
-	 iJwFfU8kCXGuimRP+NrDBbCzXMEZPmVM00RnylI5gXfOcTKF84jtHiZV8KFScCWKKIQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795535516;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=7151zgqNmppt1FWLTyRdRTu2s96pKFEly/RuS9gjWeY=;
-	b=biE3qNIq/cCCOq/GjxE3B8BPURzWAadSq3DKNuxbTgVGc0xV+CgOLvb5orlKPnla1mr2
-	 S3wN8PzecdsTp5OHA3pxOtZmJFAaZZ3UjV1FjOPJ3g4/ruxiHvxjj9MInJKmj4hLF/AEz
-	 zGesxXWE4P01iiKADBQ+swFvwp8joAdnkqx9poighHC70F27ec5E3wWSREAxWujm7VSZ6
-	 X296s+5Rvc3N8qykatVKxOw2WQhO6BUX4oY1IF2E9tUSoHIGLO40t1Qh/vx8GACEux9qF
-	 G0nU4/TTc0syYogYy+5waQqFvXmWLc1jFQwUK3Xd19d6vDyFoxwgfbU2d40Mcu5Q/DA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=gYnNBYPL;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.182
-Received: from mail-qt1-f182.google.com (mail-qt1-f182.google.com [209.85.160.182])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.8
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795535560;
+	b=zei1kHmmxjZ/HHX9qxoby59cc02f4rKlnzohCqMXe3QaTbIDaqo0u6YRU0I3zO1zsNHi
+	 d6j+G36A26/wTRmiZbCdNdn23CGGbW4CP9Etgr2Y0szLvo7MJU9V4R+qwJOtDgwDyL9/0
+	 s5QrZi8gCuZUxYZeOTAubIve/y+VENZ/sqGjQSrj1yV+NW9Wi8wqIkLFHrsd3oo4bCLX/
+	 1GnWRUxQLfH5pA92gJOsN0rYxAnFz8JzYFCkL9MOcH7HhD7Df4LT1VP6h/kDf+yfISMkz
+	 roj63ZYd5Y/6edhmxxbsY9jNP9PQ8cqflqUElLyhZKRwG8myDkCQjl5VTy8RePR21JQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795535560;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 Content-Language:Autocrypt:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=gm5fNwlJqcFuxqPjO1B/q3/csBij+DiO8h1pGLel3/o=;
+	b=bZNIfMCPZkJWRfVBXnMlHITTicTYY/y8hulRPaw6BeYJ5e/pudbJY74RY0h6iGlXEYe/
+	 zgbRT8hoJDBmVYFLNE7YGx0nCZVWXsKdtbiJoYwlJsfeaoYbOsUYxI+1HoSC9rgaeO77o
+	 nqVJWqD6kZCDWekW7B/dIHcM1lo+jl9UXIvxWE6iSNp46ORW/pLh+36jHPTIZTz/2/NdG
+	 f8TT3jZUv6iTkOsVFmPeHpHLKAGrtc3/uA49XoQQgdKyClgzFLRcoCDnAqMNCVBe/FXvv
+	 XYYV5sk461FRB7Ehko7uyA2niHtH7QeeSBUv4xlJtN8x7B2frtwyFi0Bng1puNJGhqw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=fUp0w4Wy;
+	arc=none smtp.remote-ip=192.198.163.8
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.8])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E0737606A33A
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 15:51:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E0737606A33A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 33951606A31E;
+	Tue, 24 Nov 2026 15:52:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 33951606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=gYnNBYPL
-Received: by mail-qt1-f182.google.com with SMTP id d75a77b69052e-55c7445cf85so844571cf.1
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 07:51:55 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795535515; cv=none;
-        d=google.com; s=arc-20260327;
-        b=ScBphjWnnz3y+2XLnD/Z2Je1TLfz35q2kwqJ7nTnBLybgZpwrA0c2rm2AdqF6yZNin
-         rK1Y4PuB7zZAOwtEoWWwQw1xXua30+wJyeITe5/gZsez5HZoqpFUsJAZoVSnB3oCkxsK
-         KbKZvvoyV3QwP2BBbLwS7tFxdXQSKiZt88n12XegT7dbAInQuNzsVWYX0sCuwTYwED4W
-         x1Mr2jtsGgCdHvg/LNgxget3hZHcIwheUJO84cqZxPGUwSsBMT0OrPeHdebNCrDLQTUp
-         R7CLNIuq7muizqVabgOsJMk2BleFzFKtmkQR1km1m7962NjV9BC50vWAQUdKem81cN4Y
-         R+pw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=7151zgqNmppt1FWLTyRdRTu2s96pKFEly/RuS9gjWeY=;
-        fh=+stnpNXbiMsxtxbLre0qCp2gcu3OhWIrG92VBaHLQaU=;
-        b=RDcOqlBqL1o8oiK8qODbR0KuhpUjOaVjlEhaFnyAlRDlduLtZrStftT4w/aDtNhqPn
-         lFF1QSXVJEs0wQTkVJo76NwZf8iT4y2b/LqgdsCMNrzHg02pNIj9nTGcDYLs7JVTwYOe
-         EZQTe4TInQbgY9dbO6zKusMgUtFbdjKwBOqZuLX7tUceJ2MpfXAEvCcsRaf3We1YMyiU
-         4RUT5DK1mcGWzZoXk+8fegOOn8Fmtzo1vxPJm7EyHRn/B9PAdArReSzEYm/fq+T820h5
-         QuMod7m0R487i1nbIyCltL6bkwv7/X3RrRawnZHdwVV0IpoB3klK8I+SGWAaiGCygthW
-         cdOg==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795535515; x=1796140315; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=7151zgqNmppt1FWLTyRdRTu2s96pKFEly/RuS9gjWeY=;
-        b=gYnNBYPL7+Vso9fth4O30mUOQnoyOn3TOxaH9pHwo3lJTeahoBTFFJ5Q4/9eecco3H
-         Ei5saRYpH5syTy8Ucfen49s3IrZ6ufTDp7Jou0Th3k2HyFxIJKuquydsppJKH4SGMEjF
-         HTZubH7A6s2bHrdMaC4HirlYiCHKQcI902r4H/ZRXJY6fz8xJvDKDtYJePSACZsBHv14
-         bMjd8WVjudy7rk63YHILKKkSr7ncJl9G/Xme/p6omTSsGdT9GmVnoeXf25YlOiog8Woe
-         rWBB4pd/bzw+HjhbkCcGqhITw0ZbFKeDkdfijEEYca3CYnWtfdJte6D3j1fC27fTgu9B
-         zdFQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795535515; x=1796140315;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=7151zgqNmppt1FWLTyRdRTu2s96pKFEly/RuS9gjWeY=;
-        b=vv6+5fy4uc5B1gaJ08/erecRfp31FcpZc5Iuw7EUBM5DbpQ3bWcR+gPkK2uSt4E4zJ
-         /btpJOpexWrxRHg3gd6caJqM1BU8t1N4ZNAOFrAI6mGYsBQ40hq1pl+O2WGGpRY2AIxC
-         Y7+Tyo3u+YA7iPYx5fPl5xln6q3eDu+FxCkfKiogaRq0NTtpmjUdmiDgCLMzhR16VfK+
-         3NM037VdbUk3B3RxZA0NgLw5ImX5K8V93JPHh9XtMixzCOKis2u16QN2i0mFT61xFxJo
-         rDuLa9j6fL2uZQX2dpu1JrtZCNXda3cMrEfHWzFGLy5ljBnilyA7xtmmNdi26sLiBBkR
-         X3NA==
-X-Forwarded-Encrypted: i=1; AL+hErEDJ7vIUCsOfHGINqru3KmI+kg+3JHnGbg9penVsRCFup8jCtVM6UIWCaccDqvVuTh5VnLi+uA+SyZRURg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9SFxYn0ao2kKhkDQOgwppf4RlhyDtUOJlQqOhKrpAJxd9i+mPk
-	meJpZ81CpoHHNNr3DL5dEKbdcwURyLkiMQ/pha/1OYkJjJUhfNcMO/FyT2P5WCM4OMu1a48zbz1
-	5wv4SLq0NQMImkHb51UmRVyNulx3nMa8+rdmRX0LK
-X-Gm-Gg: AZFdTZc+rAoxyeQ41BLCgaLPOoreMTl4X+NkyuejfvvBn+QU7iwbofNTtUK7XWqHoqH
-	HxA7pUy0jL4KrVEnaAU3d28OOQyzrCbcnE7P7QKVE6gZA3SBCypVdE/RjDXUGgAe9n67puMPo1C
-	J+hnt4hrxyjF8apNytEa9ZvGE9LSlGjbVFCTszsNGuqAyUM/hIzfq9DwTAE/SpVfTu0aq4gRKLb
-	818Lsn9r2Z7DxoQYj3fn0hZfr4s1UyLPbcyiICXXYMDezHh+pOUMkeS/MlWUZVCOzp/bt/v8vj3
-	QxT6hnkllpfGn4K9hA2yGL3amQhsdfVs15MvGHaBt3aNsXjNJ/M2p8ApTUW9NobI4FrrW1jWUX1
-	5VPx5JqXxgYqyxf+Wp9bg9/P8/lw/Auqrg1ruemSvEexEAqEU5xQB4/C43CrIfWO3xyTaF9OZWA
-	0ev6aPTN8uwhM7xoVip+GidpfeEHQ=
-X-Received: by 2002:a05:622a:4819:b0:54b:648d:9ab5 with SMTP id
- d75a77b69052e-55d8903863bmr55786151cf.11.1795535514050; Tue, 24 Nov 2026
- 07:51:54 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=fUp0w4Wy
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795535561; x=1827071561;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=gm5fNwlJqcFuxqPjO1B/q3/csBij+DiO8h1pGLel3/o=;
+  b=fUp0w4WyrTXlKJb5rUQRijDyRdGwN6cHEGNIEC/nJLn74haGoONyzM6w
+   i7F3CMjWpqgYD4C8+tsQeVI8TlepuS0Pxxls/lvtf8NlqsbwAevf/3zgI
+   obIlFx29V+qdZbsLViR30/IyO8mYSn45amZfgwOsEwx06Oo+sLSooJjRA
+   F58GhwaGDFtysYOeC6oPT8u0iVg2wfEu+0vR8kJI456Q1L1j2AYL+whGX
+   YnYY0u0PBd4UftbLL4llH3qtcUp878W5+dnj3BhVN7/vPsAiltVcKlOZL
+   SNxSOevJJly8/1Thm5M66q+hhTWUY21Cqvm5DVBELPO9itAPBOhwfFZ0i
+   g==;
+X-CSE-ConnectionGUID: suPQF6awRmSqjk/e57gt5Q==
+X-CSE-MsgGUID: yTdmCumpTpKWkgUF6lV29w==
+X-IronPort-AV: E=McAfee;i="6800,10657,11976"; a="4275741"
+X-IronPort-AV: E=Sophos;i="6.27,231,1787036400"; 
+   d="scan'208";a="4275741"
+Received: from orviesa004.jf.intel.com ([10.64.159.144])
+  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 07:52:08 -0800
+X-CSE-ConnectionGUID: tTyNjdacS4qMa2p2hLUkXg==
+X-CSE-MsgGUID: IMYDL46zStyvFFaZzSY0WA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,231,1787036400"; 
+   d="scan'208";a="11474866"
+Received: from sghuge-mobl2.amr.corp.intel.com (HELO [10.125.110.20]) ([10.125.110.20])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 07:52:04 -0800
+Message-ID: <a4b33822-25a6-450f-a2cd-5931d015f484@intel.com>
+Date: Tue, 24 Nov 2026 07:52:03 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,133 +73,83 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261124-vma-read-lock-mmdrop-async-v1-1-257f99f551de@kernel.org>
- <awWLCZ-jBjSD7V3M@pedro-suse.tail5790ac.ts.net> <CAJuCfpGk6eYK43Unxo+O4ML5=GM_siZ9owp6oa9fO0ipZXVg-g@mail.gmail.com>
-In-Reply-To: <CAJuCfpGk6eYK43Unxo+O4ML5=GM_siZ9owp6oa9fO0ipZXVg-g@mail.gmail.com>
-From: Suren Baghdasaryan <surenb@google.com>
-Date: Tue, 24 Nov 2026 07:51:42 -0800
-X-Gm-Features: Aa3M54qQPEWg8Xv6M1FeAv2Yk0G2ClZoOWgLEIXc3iRWC6ZsNwo9TmRawceulIU
-Message-ID: <CAJuCfpEd1rz3P7fB7W_mHkyzbpq9TscRE+QNwvHdYME=WJj6cw@mail.gmail.com>
-Subject: Re: [PATCH] mm/vma: drop mm asynchronously in vma_start_read()
-To: Pedro Falcato <pfalcato@suse.de>
-Cc: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
-	Peter Zijlstra <peterz@infradead.org>, Juri Lelli <juri.lelli@redhat.com>, 
-	Vincent Guittot <vincent.guittot@linaro.org>, Dietmar Eggemann <dietmar.eggemann@arm.com>, 
-	Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>, 
-	Valentin Schneider <vschneid@redhat.com>, K Prateek Nayak <kprateek.nayak@amd.com>, 
-	Kees Cook <kees@kernel.org>, David Hildenbrand <david@kernel.org>, 
-	"Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>, 
-	Michal Hocko <mhocko@suse.com>, Andrew Morton <akpm@linux-foundation.org>, 
-	Shakeel Butt <shakeel.butt@linux.dev>, Jann Horn <jannh@google.com>, 
-	Puranjay Mohan <puranjay@kernel.org>, Alexei Starovoitov <ast@kernel.org>, linux-mm@kvack.org, 
-	linux-kernel@vger.kernel.org, bpf@vger.kernel.org, 
-	Chris Mason <mason@kernel.org>, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] x86/fred: Add this_cpu_fred_sp() and export it for KVM
+To: Sohil Mehta <sohil.mehta@intel.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>, Borislav Petkov <bp@alien8.de>
+Cc: Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+ x86@kernel.org, "H . Peter Anvin" <hpa@zytor.com>, Xin Li <xin@zytor.com>,
+ Andy Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
+ Binbin Wu <binbin.wu@linux.intel.com>, Tom Lendacky
+ <thomas.lendacky@amd.com>, "Chang S . Bae" <chang.seok.bae@intel.com>,
+ Chao Gao <chao.gao@intel.com>, Sean Christopherson <seanjc@google.com>,
+ Paolo Bonzini <pbonzini@redhat.com>, kvm@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20261124015840.2673975-1-sohil.mehta@intel.com>
+From: Dave Hansen <dave.hansen@intel.com>
+Content-Language: en-US
+Autocrypt: addr=dave.hansen@intel.com; keydata=
+ xsFNBE6HMP0BEADIMA3XYkQfF3dwHlj58Yjsc4E5y5G67cfbt8dvaUq2fx1lR0K9h1bOI6fC
+ oAiUXvGAOxPDsB/P6UEOISPpLl5IuYsSwAeZGkdQ5g6m1xq7AlDJQZddhr/1DC/nMVa/2BoY
+ 2UnKuZuSBu7lgOE193+7Uks3416N2hTkyKUSNkduyoZ9F5twiBhxPJwPtn/wnch6n5RsoXsb
+ ygOEDxLEsSk/7eyFycjE+btUtAWZtx+HseyaGfqkZK0Z9bT1lsaHecmB203xShwCPT49Blxz
+ VOab8668QpaEOdLGhtvrVYVK7x4skyT3nGWcgDCl5/Vp3TWA4K+IofwvXzX2ON/Mj7aQwf5W
+ iC+3nWC7q0uxKwwsddJ0Nu+dpA/UORQWa1NiAftEoSpk5+nUUi0WE+5DRm0H+TXKBWMGNCFn
+ c6+EKg5zQaa8KqymHcOrSXNPmzJuXvDQ8uj2J8XuzCZfK4uy1+YdIr0yyEMI7mdh4KX50LO1
+ pmowEqDh7dLShTOif/7UtQYrzYq9cPnjU2ZW4qd5Qz2joSGTG9eCXLz5PRe5SqHxv6ljk8mb
+ ApNuY7bOXO/A7T2j5RwXIlcmssqIjBcxsRRoIbpCwWWGjkYjzYCjgsNFL6rt4OL11OUF37wL
+ QcTl7fbCGv53KfKPdYD5hcbguLKi/aCccJK18ZwNjFhqr4MliQARAQABzUVEYXZpZCBDaHJp
+ c3RvcGhlciBIYW5zZW4gKEludGVsIFdvcmsgQWRkcmVzcykgPGRhdmUuaGFuc2VuQGludGVs
+ LmNvbT7CwXgEEwECACIFAlQ+9J0CGwMGCwkIBwMCBhUIAgkKCwQWAgMBAh4BAheAAAoJEGg1
+ lTBwyZKwLZUP/0dnbhDc229u2u6WtK1s1cSd9WsflGXGagkR6liJ4um3XCfYWDHvIdkHYC1t
+ MNcVHFBwmQkawxsYvgO8kXT3SaFZe4ISfB4K4CL2qp4JO+nJdlFUbZI7cz/Td9z8nHjMcWYF
+ IQuTsWOLs/LBMTs+ANumibtw6UkiGVD3dfHJAOPNApjVr+M0P/lVmTeP8w0uVcd2syiaU5jB
+ aht9CYATn+ytFGWZnBEEQFnqcibIaOrmoBLu2b3fKJEd8Jp7NHDSIdrvrMjYynmc6sZKUqH2
+ I1qOevaa8jUg7wlLJAWGfIqnu85kkqrVOkbNbk4TPub7VOqA6qG5GCNEIv6ZY7HLYd/vAkVY
+ E8Plzq/NwLAuOWxvGrOl7OPuwVeR4hBDfcrNb990MFPpjGgACzAZyjdmYoMu8j3/MAEW4P0z
+ F5+EYJAOZ+z212y1pchNNauehORXgjrNKsZwxwKpPY9qb84E3O9KYpwfATsqOoQ6tTgr+1BR
+ CCwP712H+E9U5HJ0iibN/CDZFVPL1bRerHziuwuQuvE0qWg0+0SChFe9oq0KAwEkVs6ZDMB2
+ P16MieEEQ6StQRlvy2YBv80L1TMl3T90Bo1UUn6ARXEpcbFE0/aORH/jEXcRteb+vuik5UGY
+ 5TsyLYdPur3TXm7XDBdmmyQVJjnJKYK9AQxj95KlXLVO38lczsFNBFRjzmoBEACyAxbvUEhd
+ GDGNg0JhDdezyTdN8C9BFsdxyTLnSH31NRiyp1QtuxvcqGZjb2trDVuCbIzRrgMZLVgo3upr
+ MIOx1CXEgmn23Zhh0EpdVHM8IKx9Z7V0r+rrpRWFE8/wQZngKYVi49PGoZj50ZEifEJ5qn/H
+ Nsp2+Y+bTUjDdgWMATg9DiFMyv8fvoqgNsNyrrZTnSgoLzdxr89FGHZCoSoAK8gfgFHuO54B
+ lI8QOfPDG9WDPJ66HCodjTlBEr/Cwq6GruxS5i2Y33YVqxvFvDa1tUtl+iJ2SWKS9kCai2DR
+ 3BwVONJEYSDQaven/EHMlY1q8Vln3lGPsS11vSUK3QcNJjmrgYxH5KsVsf6PNRj9mp8Z1kIG
+ qjRx08+nnyStWC0gZH6NrYyS9rpqH3j+hA2WcI7De51L4Rv9pFwzp161mvtc6eC/GxaiUGuH
+ BNAVP0PY0fqvIC68p3rLIAW3f97uv4ce2RSQ7LbsPsimOeCo/5vgS6YQsj83E+AipPr09Caj
+ 0hloj+hFoqiticNpmsxdWKoOsV0PftcQvBCCYuhKbZV9s5hjt9qn8CE86A5g5KqDf83Fxqm/
+ vXKgHNFHE5zgXGZnrmaf6resQzbvJHO0Fb0CcIohzrpPaL3YepcLDoCCgElGMGQjdCcSQ+Ci
+ FCRl0Bvyj1YZUql+ZkptgGjikQARAQABwsFfBBgBAgAJBQJUY85qAhsMAAoJEGg1lTBwyZKw
+ l4IQAIKHs/9po4spZDFyfDjunimEhVHqlUt7ggR1Hsl/tkvTSze8pI1P6dGp2XW6AnH1iayn
+ yRcoyT0ZJ+Zmm4xAH1zqKjWplzqdb/dO28qk0bPso8+1oPO8oDhLm1+tY+cOvufXkBTm+whm
+ +AyNTjaCRt6aSMnA/QHVGSJ8grrTJCoACVNhnXg/R0g90g8iV8Q+IBZyDkG0tBThaDdw1B2l
+ asInUTeb9EiVfL/Zjdg5VWiF9LL7iS+9hTeVdR09vThQ/DhVbCNxVk+DtyBHsjOKifrVsYep
+ WpRGBIAu3bK8eXtyvrw1igWTNs2wazJ71+0z2jMzbclKAyRHKU9JdN6Hkkgr2nPb561yjcB8
+ sIq1pFXKyO+nKy6SZYxOvHxCcjk2fkw6UmPU6/j/nQlj2lfOAgNVKuDLothIxzi8pndB8Jju
+ KktE5HJqUUMXePkAYIxEQ0mMc8Po7tuXdejgPMwgP7x65xtfEqI0RuzbUioFltsp1jUaRwQZ
+ MTsCeQDdjpgHsj+P2ZDeEKCbma4m6Ez/YWs4+zDm1X8uZDkZcfQlD9NldbKDJEXLIjYWo1PH
+ hYepSffIWPyvBMBTW2W5FRjJ4vLRrJSUoEfJuPQ3vW9Y73foyo/qFoURHO48AinGPZ7PC7TF
+ vUaNOTjKedrqHkaOcqB185ahG2had0xnFsDPlx5y
+In-Reply-To: <20261124015840.2673975-1-sohil.mehta@intel.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-On Tue, Nov 24, 2026 at 7:46=E2=80=AFAM Suren Baghdasaryan <surenb@google.c=
-om> wrote:
->
-> On Tue, Nov 24, 2026 at 5:04=E2=80=AFAM Pedro Falcato <pfalcato@suse.de> =
-wrote:
-> >
-> > On Tue, Nov 24, 2026 at 12:26:19PM +0000, Lorenzo Stoakes (ARM) wrote:
-> > > Commit bee9ef4a40a2 ("bpf: switch task_vma iterator from mmap_lock to
-> > > per-VMA locks") open-codes a lock_next_vma() implementation that does
-> > > roughly the same thing in bpf_iter_task_vma_find_next(), only without
-> > > fallback to an mmap_lock.
-> > >
-> > > This is because bpf_iter_task_vma_find_next() can be called from
-> > > non-sleepable contexts.
-> > >
-> > > However, lock_vma_under_rcu() gave no guarantee as to which contexts =
-it is
-> > > safe to be called from, and indeed it turns out this assumption is un=
-safe.
-> > >
-> > > Since commit 9bbffee67ffd ("mm: fix a UAF when vma->mm is freed after
-> > > vma->vm_refcnt got dropped"), this call chain is possible on x86:
-> > >
-> > > lock_vma_under_rcu()
-> > >   -> vma_start_read()
-> > >     -> mmdrop()
-> > >       -> __mmdrop()
-> > >         -> mm_free_pgd()
-> > >           -> pgd_free()
-> > >             -> pgd_dtor()
-> > >               -> spin_lock(&pgd_lock)
-> > >
-> > > Thus, a plain spin_lock() can occur when lock_vma_under_rcu() is
-> > > called. Since bpf_iter_task_vma_find_next() can be called in softirq
-> > > context, this can deadlock, for example:
-> > >
-> > > pgd_alloc()
-> > >   -> spin_lock(&pgd_lock)
-> > >     <softirq>
-> > >     bpf_iter_task_vma_next()
-> > >       -> lock_vma_under_rcu()
-> > >         ...
-> > >         -> spin_lock(&pgd_lock) [ DEADLOCK ]
-> > >
-> > > Alexei Starovoitov also pointed out that a BPF program attached to
-> > > trace_contention_end() can similarly cause a deadlock:
-> > >
-> > >   pgd_alloc()
-> > >     spin_lock(&pgd_lock)
-> > >       queued_spin_lock_slowpath()
-> > >         trace_contention_end()          <- pgd_lock is held
-> > >           tp_btf/contention_end prog
-> > >             bpf_iter_task_vma_next()
-> > >               lock_vma_under_rcu()
-> > >                 vma_start_read()
-> > >                   mmdrop(other_mm)      <- last put takes pgd_lock ag=
-ain
-> > >
-> > > Resolve the issue by having vma_start_read() use mmdrop_async() inste=
-ad of
-> > > mmdrop() so the work is deferred to a work queue.
-> > >
-> > > Make mmdrop_async() an internal mm function, defined in mm/internal.h=
-, to
-> > > avoid abuse elsewhere (kernel/fork.c includes this header, so still r=
-etains
-> > > access).
-> > >
-> > > Commit 0b16f8bed19c ("mm: change vma_start_read() to drop RCU lock on
-> > > failure") accounted for the fact that the RCU lock had to be dropped =
-for
-> > > this operation, which is no longer applicable.
-> > >
-> > > For the sake of a backported fix, retain this behaviour, however drop=
- the
-> > > RCU lock last and remove the now irrelevant comment.
-> >
-> > Is there any particular reason for unlocking the RCU comment last? afte=
-r the mmdrop_async().
->
-> Yeah, I think moving the RCU unlocking was unnecessary (unlock as soon
-> as possible is in general advisable) and we could just remove the
-> comment. Both versions however seem correct to me.
+On 11/23/26 17:58, Sohil Mehta wrote:
+> FRED adds fields to the VMCS host-state area for the stack pointers of
+> stack levels 1 to 3. The CPU loads these pointers on every VM exit to
+> ensure a valid FRED event delivery context is established immediately.
+> These values are per CPU, so KVM has to refresh them each time a vCPU is
+> loaded onto a CPU.
 
-Actually, VMAs are allocated from a SLAB_TYPESAFE_BY_RCU slub. With
-that RCU unlocking move you don't need other_mm copy and the comment
-that comes with it. VMA won't be freed until RCU lock is dropped.
+Sohil,
 
->
-> >
-> > >
-> > > Reported-by: Chris Mason <mason@kernel.org>
-> > > Fixes: bee9ef4a40a2 ("bpf: switch task_vma iterator from mmap_lock to=
- per-VMA locks")
-> > > Cc: stable@vger.kernel.org
-> > > Link: https://lore.kernel.org/all/DN267JUKDRNS.2VMV07CQ58R4X@gmail.co=
-m/
-> > > Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
-> >
-> > Acked-by: Pedro Falcato <pfalcato@suse.de>
->
-> Reviewed-by: Suren Baghdasaryan <surenb@google.com>
->
-> >
-> > --
-> > Pedro
+We can take cleanups that both make sense for non-KVM FRED code and are
+_described_ that way. We can't add dead code, or take things that have
+changelogs for code that's not in the tree.
+
+In other words, please write a changelog and send code that has nothing
+immediate to do with KVM. If that's not possible for a given patch,
+that's a pretty good clue it's not a cleanup and can't be merged early.
+
+Anything going in early has to stand on its own, please.
