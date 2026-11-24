@@ -1,77 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.16
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.171
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795562786;
-	b=CKOY/2yUWZMHo/eYFluHv2OF2mmwx/2Oxa2/tbDtMUmmx+6kaYhIU38MVPGaSQRVZYa9
-	 LaOToN5ilrs8930Wg26rpDgaPdjveNEINdMM4KMVXkGfG4dlw4Eg9jn3sNDZVjKGVDXl7
-	 gZFXLuBsYWv8951fvzHnuxlRnsjfmRhRyN6S0mx8inlq3lDyQKSyFqnhNogsrzO41jC7F
-	 uI/G3FqmALVZpOv4Bn//I/t7Qil+Hdh+jI1W1oeqemlDekTF2vOGWCQDE03Ij1ZXLAn2/
-	 5a4S3WoxIA1eAJglDXLYt7wNTGGW7txgSz0uWGNAujbC1f5Pl4BxC4Ema4g9+DS2lSw==
+	t=1795562883;
+	b=kk9zQF2kUdBCyT5ITTAQ+az4EERXTJPgIq8yLF0ZakB1XJzOcT0EOlamm/tLB9KnYj7q
+	 vFiopNzmrTd688am9qo7rtnmnC+K0bf7ETdzQkX0DgsPnC7iPCQh2r76ZudnsskUC4Z1e
+	 rOyA2fYNah/BnEYxXOYd0dN6mJzZ7YBDfhkA7/Ti06lmxYwJR/HxqUbgnWw+SsBSPSyEt
+	 lTjmdAhQER6+JR78Qaab7R6TZo9bgrN1PO/arnCeL3DekgA234OfLpoeeffoJuHpf3hdp
+	 qFoH7vK0BLGld2hUeGDINn4PQjnxMhNS4UMW+3Hu6uRiJ2aA6pKCGJmeOGcJhXurEgg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795562786;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=1aMYR07iulX/q2HjmPhnjor6ImYvEJ4db7QZjz9vL2k=;
-	b=rr4dOm3S2gcicPMg61gc3ONRWETbiUOmoVkLJ14KnW97I1BHeB65YHmaOBHgt/lxuaX2
-	 7eunZgbivr0QYeEqJ8ajdmoIr1E2rPKRcodtdaut64AUMUy33/dFL4t0DzSal/4KxkKHS
-	 wFmN4OHZEyjoUWlNkQTsAeftLufUs324KHLnR668KFZ6KybWEOuIjVL80TlzdW9ylIkGK
-	 BX7l4cQIBVk9yYyBLWT9u2jkeLbM8pK4uZaP0Bm8uR70woO0GkSGdL/f5/ytS6JHwPxQB
-	 SxZCHHmwY9dtBdoALhZE82MnSuervwWcHHjOiJCij0nZlvtZSTZFAZG+gm7ZI/Mo35A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795562883;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Content-Type:Date:Message-Id:Cc:Subject:From:To:In-Reply-To:
+	 References:Content-Transfer-Encoding:MIME-Version;
+	bh=FdD8nsrRzbhjr4E3zr0vV9y7hTxHd4p7KVaJoR4GPPc=;
+	b=UnUPLH071fQgYcAk5JVyLlNN2txoZXxwTGEFRazp5KUbGcAPd1kLXEP5Q0QhNlXJTi0V
+	 kCOeAGVNDPWPlbvs2pGKW6lDHg1trjdqHVs1tgm8YL9k6VXnp7yogvzm9pTMufXKXzfmg
+	 918JsohY1MSupmeGr2SVKjn8Rs7KxoWxLABS9GzYOSy3v8iWQURUTkY6y8OH7eYphRDWr
+	 VJ1NYxdv0wXpKezsgyvRnHTNrEkdVLuWLwWWZVvca2Mkn2Z5bJLkVOhzWLPgWBuY1H22D
+	 DTJNrpifaOAa2DBm4DSmknqUjmfgB1CyYlQup/54biZ1J+V5Rrh6vZ7Hx3vK+SDDdFw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=YVVx8dDG;
-	arc=none smtp.remote-ip=198.175.65.16
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.16])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=z+nyoquG;
+	arc=none smtp.remote-ip=209.85.214.171
+Received: from mail-pl1-f171.google.com (mail-pl1-f171.google.com [209.85.214.171])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 07A70606A32C;
-	Tue, 24 Nov 2026 23:26:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 07A70606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0DFCB606A321
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 23:28:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0DFCB606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=YVVx8dDG
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795562785; x=1827098785;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=XudFIJ4qjIRGp+5BoEx7/NsN5wwOqLkOlqRH3VosJIw=;
-  b=YVVx8dDGC9viDI7gbw5t6znw1lkktI81dwMVa1902zVS+v/+dCz/0XoK
-   jes49YdigeEdcMWJo2y7p6XUzbP/gClcHE7PLZi4RLAbj/ZBohqAffHSJ
-   66Cs0lnIKqt5nvB2oLZMH1dyyGAKxOSwOhYD4F8V6dRKtyOyZRI2wEIgX
-   t8Q9vUGl0CfXkl3gQsGlbgHSTDHSBzkGO3mpWKt8+TMPGRkMh6HRlTM98
-   ExwGCZnG2Pl3qGJWXnxBD+2uYAlE8XbDZOa1aWBUWOd7XtJWrQaeqGi6G
-   wnhNeYPGfUQ2IAfs5Fs541uTF2Rvsjqx6dRcFZUkFfJorU8eEZTRD8waN
-   g==;
-X-CSE-ConnectionGUID: iqjE76xiTwClah/Clf41Rw==
-X-CSE-MsgGUID: 2Of5lzrpQdix7yNx3ARNLA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11976"; a="4351824"
-X-IronPort-AV: E=Sophos;i="6.27,231,1787036400"; 
-   d="scan'208";a="4351824"
-Received: from fmviesa011.fm.intel.com ([10.60.135.151])
-  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 15:26:25 -0800
-X-CSE-ConnectionGUID: /cz2aPxkQE6eN2WNsqR0tg==
-X-CSE-MsgGUID: GJsUReGxSiqXGLo7vrAdfQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,231,1787036400"; 
-   d="scan'208";a="13483793"
-Received: from guptapa-desk.jf.intel.com (HELO desk) ([10.165.239.46])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 15:26:24 -0800
-Date: Tue, 24 Nov 2026 15:26:16 -0800
-From: Pawan Gupta <pawan.kumar.gupta@linux.intel.com>
-To: Amirmohammad Eftekhar <amirmohammad.eftekhar@cispa.de>
-Cc: seanjc@google.com, pbonzini@redhat.com, brendan.jackman@linux.dev, 
-	tglx@kernel.org, mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com, 
-	x86@kernel.org, hpa@zytor.com, kvm@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	amirmohammadeftekhar@gmail.com
-Subject: Re: [PATCH] KVM: VMX: Don't disable FB_CLEAR when doing the MMIO
- Stale Data VERW
-Message-ID: <5mzyxsk3mwmalhaf4ep563cirvdjiu5g6phuz7l4k5p4z4qjok@36kzwzaumhzn>
-References: <20261124180613.1693632-1-amirmohammad.eftekhar@cispa.de>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=z+nyoquG
+Received: by mail-pl1-f171.google.com with SMTP id d9443c01a7336-2f05b465cd1so26355305ad.3
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 15:28:02 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795562882; x=1796167682; darn=vger.kernel.org;
+        h=mime-version:content-transfer-encoding:references:in-reply-to:to
+         :from:subject:cc:message-id:date:content-type:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=FdD8nsrRzbhjr4E3zr0vV9y7hTxHd4p7KVaJoR4GPPc=;
+        b=z+nyoquGn02pafXKCrdr3Klc70j/V2CGP1tfLUWX99+u6+I8AQM4rTPVVJOLTTCqk4
+         KZq3fqF7MnYuoS/E5OP6DCEl1dNF2FXUNQKnCa33epliUESnZbONB1veRdgYsTmHe2lG
+         qm4cU0xVdcxJwS6PQUHUUNTde92u1yhhObcq0W1n4ACHAnWrNPptnbyY0ad9VsEOHoKy
+         AtTyAxOfPBTuljEBcmxOk/ue26foe2Q7q86H+e/qn3BI/gKKw3zPsE5y3xWA/AVWZeI1
+         7GKaH9yyK+uUPZbcKAOEJYMmzScNmB8t36p8LCSrpUFg7Z78wnS29XN3esVKd9VllLeP
+         /pyw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795562882; x=1796167682;
+        h=mime-version:content-transfer-encoding:references:in-reply-to:to
+         :from:subject:cc:message-id:date:content-type:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=FdD8nsrRzbhjr4E3zr0vV9y7hTxHd4p7KVaJoR4GPPc=;
+        b=u/VlOjCBy2DfCrZwozMcTxafPmsUFZqiQV7sQPlhiMOts4LuODI6INurknNxM2Ycj7
+         Xq53SVCykBwn7408X1YfyBrfvx2NDwLL71h4eHyE5ayyofGWAIsh4ZTszowMfFxMGFfY
+         LLhcdY5ol7ChJeGJqsgK8zCT0/ZkWQzgCnfNK7XX+Uw6UW1N+5McL15oCMpd9Sr0cGPC
+         Tu8+iVN6ruv6BdkOaUF0uvSnh2Q17NacYLZPUnVg4eHXWFRBXjVddaxPO8fyRMYzvKOH
+         Z1/OIfzi5+WgAeK3wqWTyfC/tGAfRfAHoyAktUm0In6jDqA9f3HRSvWMDCUwnTOo4MG/
+         ObDw==
+X-Forwarded-Encrypted: i=1; AL+hErGIxzRtmw/owF+Je4OlnEHmq7nCKPB1RpNDk3aU1cn25f4wukRtAi2MWRr+olJoVBkKG5dUXmPhSfAEV2A=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8ALWPH9FnPvqemrTN17Z8zg7mImN1igZSnWzB8MRYcj/Sh+R7O
+	QwGArKstehYyM0pfjEbPbixm1p1Io2/wGBJjbwpZ+SQUjR9ExPIQD+Xo
+X-Gm-Gg: AZFdTZfxtfzVYQBooeC+6aREjKBfZvD4zh8rRBTV+OE25KfGdmuM7nHhT4QgE8ZyD3G
+	LaCCxBSSvapQ3hCSmwWMt2t0aYIyNKEQhWUqUAir/Ru0zbViL0AaycnzMeM/b4Jw4fO+415cNQX
+	uixKTFGM96ceihQfOF0+RYi9GEXQLCJAwU6AkqYGaUdrCOfVO9eSzcNCoELOgPUM+fIhPKYTRkA
+	CJdqStKLsevj4ydIMPSzmIdmtvUMSPJPAUlbfkgQSMNOEPwabHPweYfDlDhs1QHmdTobmmkhwOU
+	D0bG8yGgkhXXhgNJNVcRaphS7WWQFdBnHwskrn5uz/XEFnGzK1xrGXG8sPIuzK6qOCWL9tjt3XI
+	8M/zzxhPhOATW2TMx6mElp0BbGPj5MWoWxd7KpysAFJJRKQV5CK1SepSSM4Qv4vdpVBAmeBvQYY
+	eSIsJfQqP18Q01wBShXO1ayg97+lZHJgoYLyaSzBZSr6psiCA/4VDhlWrXt2YEmBvKKdjmJIohD
+	Rvn6Os1+hyDishMqUFp8GSZKdncF8D5Mq4fQ997QmaKDiqF5K8OZZW9v/M10gzCPM4cGuwT82BR
+	YcGTZtoU46PR3hRHHBdqWdpDmIal1+mZmFqszpZbU2OJO6PDnM+7q9GZqi77FPqi5JKyAk0Kb0p
+	5AGfhu6zeA4RpwG3NKbt8rRch34ngsau+Cg==
+X-Received: by 2002:a17:902:e80b:b0:2ed:ef1:f78 with SMTP id d9443c01a7336-2f03f11824amr157910985ad.21.1795562882035;
+        Tue, 24 Nov 2026 15:28:02 -0800 (PST)
+Received: from localhost ([153.61.198.244])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f105b66sm76166185ad.51.2026.11.24.15.28.01
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 24 Nov 2026 15:28:01 -0800 (PST)
+Content-Type: text/plain; charset=UTF-8
+Date: Tue, 24 Nov 2026 23:28:01 +0000
+Message-Id: <DN3TX43KWXO5.JWLJ9HO1C9K7@gmail.com>
+Cc: "Gwanhyun Lee" <gwanhyunlee@gmail.com>, "Kuniyuki Iwashima"
+ <kuniyu@google.com>, "David S. Miller" <davem@davemloft.net>, "Jakub
+ Kicinski" <kuba@kernel.org>, "Paolo Abeni" <pabeni@redhat.com>, "Simon
+ Horman" <horms@kernel.org>, "John Fastabend" <john.fastabend@gmail.com>,
+ "Jakub Sitnicki" <jakub@cloudflare.com>, "Jiayuan Chen"
+ <jiayuan.chen@linux.dev>, <netdev@vger.kernel.org>, <bpf@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH net] tcp: avoid NULL skb dereference in zerocopy receive
+ with sockmap
+From: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>
+To: "Junyoung Jang" <graypanda.inzag@gmail.com>, "Eric Dumazet"
+ <edumazet@kernel.org>, "Neal Cardwell" <ncardwell@google.com>
+In-Reply-To: <20261124230228.3868519-1-graypanda.inzag@gmail.com>
+References: <20261124230228.3868519-1-graypanda.inzag@gmail.com>
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -81,61 +107,20 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261124180613.1693632-1-amirmohammad.eftekhar@cispa.de>
 
-On Tue, Nov 24, 2026 at 07:06:13PM +0100, Amirmohammad Eftekhar wrote:
-> Don't set FB_CLEAR_DIS for a VM-Enter that does the MMIO Stale Data VERW.
-> VERW doesn't overwrite the fill buffers while FB_CLEAR_DIS is set, so the
-> buffer clear that is meant to protect the host from a guest with access
-> to host MMIO currently does nothing.  Keep using FB_CLEAR_DIS for vCPUs
-> that can't access host MMIO, which are the guests it was added for.
+On Tue, Nov 24, 2026 at 03:02 PM Junyoung Jang <graypanda.inzag@gmail.com> wrote:
+> Check tcp_recv_skb() before using its result in both paths. Also stop
+> before advancing beyond the last skb in sk_receive_queue. Neither
+> check consumes data in the sockmap ingress queue.
 
-Thanks for the patch, the problem is real. I believe the affected use case
-is a guest with MMIO device on ICX, and none of MDS_NO/TAA_NO/FB_CLEAR
-exported to guest.
+This should be fixed on bpf side. Other readers trust copied_seq too:
 
-...
-> diff --git a/arch/x86/kvm/vmx/vmx.c b/arch/x86/kvm/vmx/vmx.c
-> index 68fa251dda60..490cad070c13 100644
-> --- a/arch/x86/kvm/vmx/vmx.c
-> +++ b/arch/x86/kvm/vmx/vmx.c
-> @@ -482,11 +482,24 @@ static const struct kernel_param_ops vmentry_l1d_flush_ops = {
->  };
->  module_param_cb(vmentry_l1d_flush, &vmentry_l1d_flush_ops, NULL, 0644);
->  
-> -static __always_inline void vmx_disable_fb_clear(struct vcpu_vmx *vmx)
-> +/*
-> + * VERW doesn't overwrite the fill buffers if FB_CLEAR_DIS is set, so leave
-> + * FB_CLEAR enabled for a VM-Enter that does the MMIO Stale Data VERW.  The
-> + * unconditional VERW is already handled by vmx_update_fb_clear_dis().
-> + */
-> +static __always_inline bool vmx_should_disable_fb_clear(struct vcpu_vmx *vmx,
-> +							unsigned int flags)
-> +{
-> +	return vmx->disable_fb_clear &&
-> +	       !(flags & KVM_ENTER_CLEAR_CPU_BUFFERS_FOR_MMIO);
+  reader                             with stale copied_seq
+  ---------------------------------  ----------------------------
+  tcp_recvmsg_locked()               WARN "TCP recvmsg seq # bug"
+  tcp_read_sock()                    frees new skbs
+  tcp_collapse()                     BUG_ON(offset < 0)
+  tls_strp_load_anchor_with_queue()  WARN_ON_ONCE(!first)
 
-This doesn't seem right, FB_CLEAR_DIS's main use case is FOR_MMIO.
 
-The ideal fix would be to set FB_CLEAR_DIS after VERW in KVM-entry. But,
-thats quite late in the entry path, moving the MSR-write past that is
-non-trivial.
-
-I believe it is best to restore the earlier order just for the MMIO case,
-i.e. do VERW for CLEAR_CPU_BUFFERS_FOR_MMIO before setting FB_CLEAR_DIS
-like:
-
-vmx_disable_fb_clear()
-{
-	if (!vmx->disable_fb_clear)
-		return;
-
-	if (flags & KVM_ENTER_CLEAR_CPU_BUFFERS_FOR_MMIO)
-		x86_clear_cpu_buffers();                    <-------- here
-
-	msr = native_rdmsrq(MSR_IA32_MCU_OPT_CTRL);
-	...
-
-Sean, would you agree?
+pw-bot: cr
