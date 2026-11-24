@@ -1,95 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.48
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795491928;
-	b=reXGnQYcIHt3G+J1VfFeUlRG+wZdqJ9sg+oqeAV3afEcbLUMuKlnnUcZfzKT0E2Luq7f
-	 jpLVLlWDvZETLrV9kJF91I8CX0JMt8Cj2zQL2kbgYO4CtUaKoSJDT06d7edLz/DxAEG1h
-	 uNt5Zl4TNUntD7vTXg4j7ifG08ap5a/oCxaD4+6FyDo/5BqEj8CCEizXCY5XrqRHGFDrS
-	 oU59B2QTQE1BjkTAiO9tpOH1vS11qPirfCmAYHybl1YLlztFBzo56mMjDHzFLklQNIaXv
-	 YAbMQeZlzlUtF25bA/3xx12dmAMWSV4YIDI/oaR1ePw86aWhdlni1u0IfScDVBf+wCQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795491928;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:MIME-Version:References:
-	 In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
-	 Content-Type;
-	bh=qUctoQrzdfE5LseLd3ifkcwY8pow6PXXGWGTUDShPZ0=;
-	b=nIbSCebK84t7xlAGmtb4askF5Xwjq8zCr3/L4Xcze5rAZi4CN/oYSWPlbGNlCveOCbwZ
-	 v9doeDix7oVeQ1sPni86kHkHr+NxZjvJnG53xPCzqG+tXMu0+mYfHYI+XnzJURF21bgYZ
-	 krjz6jFaK2JDpeH9QRvot0n27AnL4xWQgbEio4ki20qxSF2S79zsKF/3GqQQQLg1ZYqRU
-	 LqaubceNORBj7sEWP03THBKPTT1UHkKRFmxhLmgYTNjhSaWbfzhBm6wCrNOv8nb0T4RlY
-	 cNVa3pfUOxh5wcYxwkUaK7oadaOB2kyS583opfSDKRpA9dniLyIFaEx8EUCHWs4xbkA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=0x0f.com;
-	spf=pass smtp.mailfrom=0x0f.com;
-	dkim=pass header.d=0x0f.com header.i=@0x0f.com header.a=rsa-sha256 header.s=google header.b=mL6KHw4b;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.48
-Received: from mail-dl1-f48.google.com (mail-dl1-f48.google.com [74.125.82.48])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795492065;
+	b=EKRo1QGkWGewMh8edcpG5WYeWGhSaH1Q1qG+8BS9K6XMWBFgboy5sCelqQX1yhcNZoXx
+	 CeHcVl1sV06o4zuSsg+iuu6Q3m6v473cxYwQ1U9NJD0Oc0rmLATbcJDrFCOoNRrPDpQeF
+	 MjUDPsyS/LeAsWbPDFNGHXRS7NnKJnsTHruwHLAL+V/eGFwmAY1a+YRdQsYjJcEi+ckya
+	 XtOlh5LOPU1GkhXlbdGKWUl7BDoDQ/YmvnhN0RlU41/vIj5Jkzkesatkk0ICy15rIifyp
+	 GJIZMq40RDspSwbqJEsMV0XkuH8OHxx8griIwev4D0D8PKVowebay+04VtF0YRDzNbw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795492065;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
+	 Date:In-Reply-To:References:Autocrypt:Organization:Content-Type:
+	 User-Agent:MIME-Version;
+	bh=H+3HlGDl0jWhkQoLDJvtkNrFV/RdM1LfAUEpDa6mtKQ=;
+	b=D/TAVGrpD20Cfnlf+Dv4RbzN0cb0gXBdV+dOeuAKg9l7LiqDTursxnPlAceMLf6V12Zg
+	 n54+M5WMQNHHArWqa8gZS1dPNxS/x+gtSkHcoI5WUwZmP/usfV0mGFAPbzMKgUOpJOpXz
+	 mDguavMeDS0u3MtIza9eDYzsohqIhWmUWuFXx/RLYcOhyZR61mXWL+UZ7sRsd5ux1PgY/
+	 rXEgRen6xZ2U636NDO8cwsPOeZ4AyDGKBk/k+kSYWwVcnLx7FoPHz4GWs/ripO3H+kmZ/
+	 LxY5joDEfEj0j7UAzdV0hzLYdu9MZpxeLem6aA2w/DjmMw6u3Avr4E4sNb5+PE7z22g==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=Z435zaMX;
+	arc=none smtp.remote-ip=148.251.105.195
+Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0B163606A321
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 03:45:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0B163606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=0x0f.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=0x0f.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7F14A606A31E;
+	Tue, 24 Nov 2026 03:47:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7F14A606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=0x0f.com header.i=@0x0f.com header.a=rsa-sha256 header.s=google header.b=mL6KHw4b
-Received: by mail-dl1-f48.google.com with SMTP id a92af1059eb24-170135e43c7so5814132c88.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 19:45:27 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795491927; cv=none;
-        d=google.com; s=arc-20260327;
-        b=soH3fu2bNFwKcXOUP/oAYEn/jbOZe3wJeE3QrGmGo3hMhyEjMMezIxWZ82N4Ib5Hnw
-         WU34sVfc2qKqjZtwitTbpQN0Nj8tVi+NetrwdUb1juRgPr+HM68oI6PULgPjB+fuFBTU
-         5OvKEtJcWYywfBz8ArxtSycCkMQYLtvaTk6cBf3z9NMuzB+t6BJlf20VqU4LX34Ayq7v
-         XwddQdVlULBZZV3gvlTab02f3g1Bh/4qgQ5YCLJp52sZ63N7OIugsZqqVjEUx4d2B8qI
-         /Ce+d+Og9ypwHVIytuD1q/YhDi91Jx5WnzJxZputwkTrIrjCUCCfllNnCXgOJDpt+8qC
-         M0/Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=qUctoQrzdfE5LseLd3ifkcwY8pow6PXXGWGTUDShPZ0=;
-        fh=5dOuAv4SBCavqL2890mXKPJ/2/sq38SsgRkdtQWq4Ak=;
-        b=TTNeG4ByF0BH/EDIKYffMo7Gb3Oas2UxUY6ygZM6+1BB5OoyQvcis/0XgLUjAY4DDT
-         mLYfs7JMkQISY5RT0E6QDjcTMJ7Stz7AOojpcdIqnW9gJDYK2yb3NBc7j29Nxv10aufr
-         +O4LcF7wXN4vw3dvsMibGi6xR2PC1AuJ7qS9xFaD4J16vwuN7U6D+NuWDtRMYnyBuGY7
-         ztv6KK14A2+xBY/jUfQe/qHP9KYx1+rNLFXoV2Y3LDuXX1xo9Y3Th+vQfkoLRc6ZXg0d
-         sF/thlG6kWHg/xHc80oRcXwPwLH5Ap9kXRFQzwD2x48lCI/ozVPyRus3em1P271LNUsX
-         oYzQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=0x0f.com; s=google; t=1795491927; x=1796096727; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=qUctoQrzdfE5LseLd3ifkcwY8pow6PXXGWGTUDShPZ0=;
-        b=mL6KHw4b0KLimydjfHoPp53Yxar0dSnFLxK17BJz+GuI4raQi3w+QD1RjR7nfxFcqN
-         AzmBcMGaKJuDc9v5uZm7+EsVcsJMNU0QgUjTouIp8ojnqKjfKj3JX+wXKaNo4IvhMpKH
-         E2Wt+4IBKjIFGYOMSso6qvzQ0Wh9Q6/bw8Huw=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795491927; x=1796096727;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=qUctoQrzdfE5LseLd3ifkcwY8pow6PXXGWGTUDShPZ0=;
-        b=PRrrxVxCXW1tdsc154Y1SizjXIrkMsYBPsRxKsm6vShOiI1G/0lxUhn1nuh2FUhQaX
-         2y/LK8UFXAUCKyMlc7jfsaL9/yDEtIQq0W4QNtM69aAx9ZbhxLBs0RNXqDg/MmgKptuI
-         TclQMNnAqZ9zl8gcZ4q1h+BLA9Dq3m7KvPQPyTr83LHUpYmQQlKVDeUc3vgB2d2U7P5M
-         ZL7Q1WY+PCocoGxP4RAWy1Q1qKAU0UY/tvzZJBMmRp6PV2jWDCb1OF2fJg+He5S7mBVY
-         o1VNFaE+BHL/8RB9tAqWBu0PHI0UbvPWtzIpXPwBmT7VCJnWiHmRlDbdP6dNSfAZm7Nk
-         fT5Q==
-X-Gm-Message-State: APuU4Z/H+Zv3+aZkfuzFrTkmwovry+EN9iy6BF27/Tp9IMKIwAF7Q3qJ
-	89IKu6IET+q8XJnIjhrq8wq39bRY1b0rOVuqlOmp5ZoMuV5CganKgjV4hJixab72lKYayF3k0Rs
-	vOhldcyS2OCjKTIWQOYDpy4TfodL5mkWhSuuNhvhXgw==
-X-Gm-Gg: AZFdTZdAKx9COxZxFSF6THyyZmYfE8KKM2covTSQtoiR7YnfT8wx0+bUodUR0TLa4J4
-	mgFkJJ/ZjuSYezNx+vtLnFMEcBxhn8bE6AYsOEny31CoI5eJgbBSmLU5GVIs//1FcxAQSluJZaf
-	O8alEprG5SunmCVZhleTK6V0Pu+mP5PUkNSGxqFYS05bt+0SM3pILN0ryhbxJiWVzphYdQ6KLBo
-	XbkyS9S7F2LkmD+g+0xjCbtZr0kC0U+x1d/MNqUC4bBQkP1Zd+gGcyLIOMZeZE3AmmzowdMv5mj
-	cvBLEI47vNYSQsO6sk8zTduoUjOXoCn+gIvX10Lwy08xo0aShLTnn9ikPGcYp+JEO39JKXBmDKG
-	ExVjvA6kWKk9KLqizha01x8gJmyhMn6gn/TVApL9a14aVwkNzKW7ehRHob2LX
-X-Received: by 2002:a05:701b:21cd:b0:1b5:e9d:c641 with SMTP id
- a92af1059eb24-1b5568bc08amr13417093c88.18.1795491926992; Mon, 23 Nov 2026
- 19:45:26 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=Z435zaMX
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1795492062;
+	bh=WugA1Xe6UFchQyqrR/baOIOB+aIVWuHq2eVJHKMBAII=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=Z435zaMXqZi+mNCGq7FMDiwNkztASb7kCOR1vOP8q6L2/TSfBCHSHBzaklBXgzP/M
+	 /vPV9bVtqmwpxr2iqrJSx2M+kezCkKDzNIW77smXJlte/9K4WtkYRK+TOMoNjFwFB4
+	 MtYtsYMEU5dWbNOQrSc5HfOkYeyhbf26We46lWLHdrU7MxMxvbtWfH4h6nJyCJpY03
+	 mKI9DQ22deF5g3cfH+sZn9bgyhcjrf8wnzS/kujaAi3ZIra1qaGoWriTeskmaGReVk
+	 OqplmhnEVOYsDGMMYvpmtUeWDha2SXYCyR1Y3A7L7dw6Ucod8yPG0Sgrlec7yTkG1d
+	 9OIfqTKZxuFdA==
+Received: from [100.64.0.214] (unknown [100.64.0.214])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6050C17E00B2;
+	Tue, 24 Nov 2026 04:47:41 +0100 (CET)
+Message-ID: <afb9f3dd7efebeadcfd04621d57e72374313fcc8.camel@collabora.com>
+Subject: Re: [PATCH v7 3/3] media: verisilicon: Create AV1 helper library
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Benjamin Gaignard <benjamin.gaignard@collabora.com>, 
+	p.zabel@pengutronix.de, mchehab@kernel.org, heiko@sntech.de,
+ hverkuil@kernel.org
+Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
+	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+Date: Mon, 23 Nov 2026 22:47:39 -0500
+In-Reply-To: <20261120143135.71134-4-benjamin.gaignard@collabora.com>
+References: <20261120143135.71134-1-benjamin.gaignard@collabora.com>
+	 <20261120143135.71134-4-benjamin.gaignard@collabora.com>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-rIlrM5CQacjfgEh5f7QL"
+User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,41 +88,108 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261124025555.2348580-1-daniel@0x0f.com>
-In-Reply-To: <20261124025555.2348580-1-daniel@0x0f.com>
-From: Daniel Palmer <daniel@0x0f.com>
-Date: Tue, 24 Nov 2026 12:45:15 +0900
-X-Gm-Features: Aa3M54rZ51tZkUYoAXWOn99Dz7MpcsEFJ1pC9mQcihsDmDqKlxmxIqXJBljv_DU
-Message-ID: <CAFr9PXnVV=HtAEeCO69-iw0=byRweauT+KqRYmMsq1Y6S6mfuw@mail.gmail.com>
-Subject: Re: [PATCH] m68k: Define the m68k-specific syscalls with SYSCALL_DEFINE
-To: geert@linux-m68k.org, gerg@linux-m68k.org, linux-m68k@lists.linux-m68k.org
-Cc: linux-kernel@vger.kernel.org, arnd@arndb.de
+
+--=-rIlrM5CQacjfgEh5f7QL
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Replying to myself..
+Le vendredi 20 novembre 2026 =C3=A0 15:31 +0100, Benjamin Gaignard a =C3=A9=
+crit=C2=A0:
+> Regroup all none hardware related AV1 functions into a helper library.
+> The goal is to avoid code duplication for future AV1 codecs.
+>=20
+> Tested on rock 5b board Fluster score remains the same 204/241.
+>=20
+> Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+> Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+> ---
+> change in v7:
+> - rebase the series on v7.4-rc3 tag
+>=20
+> change in v6:
+> - include b84f6533a8ed ("media: verisilicon: rockchip: guard VPU981 AV1 d=
+ivisor and tile buffer")
+>   and 367db8b23c26 ("media: verisilicon: rockchip: reject AV1 frames exce=
+eding the tile capacity")
+>   fixes into the patch to not losing these improvements.
+>=20
+>  drivers/media/platform/verisilicon/Makefile   |    7 +-
+>  .../media/platform/verisilicon/hantro_av1.c   |  816 ++++++++++++
+>  .../media/platform/verisilicon/hantro_av1.h   |   64 +
+>  ...entropymode.c =3D> hantro_av1_entropymode.c} |   18 +-
+>  ...entropymode.h =3D> hantro_av1_entropymode.h} |   18 +-
+>  ...av1_filmgrain.c =3D> hantro_av1_filmgrain.c} |  125 +-
+>  .../verisilicon/hantro_av1_filmgrain.h        |   48 +
+>  .../media/platform/verisilicon/hantro_hw.h    |    7 +-
+>  .../verisilicon/rockchip_av1_filmgrain.h      |   36 -
+>  .../verisilicon/rockchip_vpu981_hw_av1_dec.c  | 1091 ++---------------
+>  .../platform/verisilicon/rockchip_vpu_hw.c    |    7 +-
+>  11 files changed, 1140 insertions(+), 1097 deletions(-)
+>  create mode 100644 drivers/media/platform/verisilicon/hantro_av1.c
+>  create mode 100644 drivers/media/platform/verisilicon/hantro_av1.h
+>  rename drivers/media/platform/verisilicon/{rockchip_av1_entropymode.c =
+=3D> hantro_av1_entropymode.c} (99%)
+>  rename drivers/media/platform/verisilicon/{rockchip_av1_entropymode.h =
+=3D> hantro_av1_entropymode.h} (95%)
+>  rename drivers/media/platform/verisilicon/{rockchip_av1_filmgrain.c =3D>=
+ hantro_av1_filmgrain.c} (85%)
+>  create mode 100644 drivers/media/platform/verisilicon/hantro_av1_filmgra=
+in.h
+>  delete mode 100644 drivers/media/platform/verisilicon/rockchip_av1_filmg=
+rain.h
+>=20
+> diff --git a/drivers/media/platform/verisilicon/Makefile b/drivers/media/=
+platform/verisilicon/Makefile
+> index f6f019d04ff0..a1dd6c2d29be 100644
+> --- a/drivers/media/platform/verisilicon/Makefile
+> +++ b/drivers/media/platform/verisilicon/Makefile
+> @@ -19,7 +19,10 @@ hantro-vpu-y +=3D \
+>  =09=09hantro_hevc.o \
+>  =09=09hantro_mpeg2.o \
+>  =09=09hantro_vp8.o \
+> -=09=09hantro_vp9.o
+> +=09=09hantro_vp9.o \
+> +=09=09hantro_av1.o \
+> +=09=09hantro_av1_filmgrain.o \
+> +=09=09hantro_av1_entropymode.o
+> =20
+>  hantro-vpu-$(CONFIG_VIDEO_HANTRO_IMX8M) +=3D \
+>  =09=09imx8m_vpu_hw.o
+> @@ -33,8 +36,6 @@ hantro-vpu-$(CONFIG_VIDEO_HANTRO_ROCKCHIP) +=3D \
+>  =09=09rockchip_vpu2_hw_mpeg2_dec.o \
+>  =09=09rockchip_vpu2_hw_vp8_dec.o \
+>  =09=09rockchip_vpu981_hw_av1_dec.o \
+> -=09=09rockchip_av1_filmgrain.o \
+> -=09=09rockchip_av1_entropymode.o \
+>  =09=09rockchip_vpu_hw.o
+> =20
+>  hantro-vpu-$(CONFIG_VIDEO_HANTRO_SUNXI) +=3D \
+> diff --git a/drivers/media/platform/verisilicon/hantro_av1.c b/drivers/me=
+dia/platform/verisilicon/hantro_av1.c
+> new file mode 100644
+> index 000000000000..2cde32f0e935
+> --- /dev/null
+> +++ b/drivers/media/platform/verisilicon/hantro_av1.c
+> @@ -0,0 +1,816 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Copyright (c) 2026, Collabora
 
-On Tue, 24 Nov 2026 at 11:56, Daniel Palmer <daniel@0x0f.com> wrote:
->sys_atomic_cmpxchg_32()
+To be accurate:
 
-Sashiko reports that this got broken because it can't use its trick
-for getting pt_regs now that it's wrapped.
-I'll send a v2 with this fix at some point:
++ * Copyright (c) 2023-2026, Collabora
 
---- a/arch/m68k/kernel/sys_m68k.c
-+++ b/arch/m68k/kernel/sys_m68k.c
-@@ -514,12 +514,8 @@ SYSCALL_DEFINE6(atomic_cmpxchg_32, unsigned long,
-newval, int, oldval,
-                   Make the kernel do the necessary page stuff, then re-iterate.
-                   Simulate a write access fault to do that.  */
-                {
--                       /* The first argument of the function corresponds to
--                          D1, which is the first field of struct pt_regs.  */
--                       struct pt_regs *fp = (struct pt_regs *)&newval;
--
-                        /* '3' is an RMW flag.  */
--                       if (do_page_fault(fp, (unsigned long)mem, 3))
-+                       if (do_page_fault(current_pt_regs(), (unsigned
-long)mem, 3))
-                                /* If the do_page_fault() failed, we don't
-                                   have anything meaningful to return.
-                                   There should be a SIGSEGV pending for
+--=-rIlrM5CQacjfgEh5f7QL
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCawUI2wAKCRDZQZRRKWBy
+9IsJAQDzPkOm075MMWXCcLeu5KEwD4phFMCdQJprCIwoqnSh/AD+JXWa/422lgSo
+mr69aLQM+/vfddhCSMK0pGiFDSIpzgs=
+=rDF1
+-----END PGP SIGNATURE-----
+
+--=-rIlrM5CQacjfgEh5f7QL--
