@@ -1,100 +1,112 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.45
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795507674;
-	b=5TvfOI0v2FJ0WcDHwUlQ5XdqgWJtDvGqyc8gwGul82kSDXQR6Jrkl986kCw0ZfwsMAS9
-	 3H4TNqCbigoGp6rtXMXXqlGfXhMQJ3E5yQIK6ZPZbxq3ZifejsdWrTKzGzD46uuY3I/ua
-	 0KbOZicxwqycQkkdLUAu1opVV4VVYaC5aIt8PN8f6z3mEs2PGmCZDfF+i9j349h5X5mrD
-	 OSYtI5nS/a1vo1g8X0fotk5I+aRo0e1Ii9EgLZ/otRrZxrpeiaNfIuj5r3I/AZTOLn6Pr
-	 SpPvmLLwiRCqrFGzO1kktnG9fKNuWJ0vJ1iInuobK3UbOPmewmYjCSqyJR1paC9UM+A==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795507674;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=OOD5TK3jDZSV0gxKAkHVgIM6aEdA8CEYNdRPZbFoBkE=;
-	b=EaRelqJH98H69YW5CPZzVfBRE6hkIbW5UXcCCfwy45GzGN9kVwxZvOaYqrRjtVS0wL5Y
-	 IgA6GhlqrRXrIBqLWo7w6K3Hq5B1F8arJIcL0bu0Tmptr2UuSpHFhnNhSsPHPklF1hOQo
-	 ypToA97HRccIM59G7IvYvI62cJL0iPEewaRWVKSL78mK6ju4dx1+7m+mO7wxiLioDAfG+
-	 450gZKI85+UY9U+HO+r0LTT1cVyB4rHL74JzfZxDX/zWZBfy7hpzB0N/SqfgDitv4QfZZ
-	 D/tCFSi38goBHdLqOF125yDsfBzGNXtlWAEvo+vwOSnOBMQsT4wS6+8X1G35PCT8/sg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bytedance.com;
-	spf=pass smtp.mailfrom=bytedance.com;
-	dkim=pass header.d=bytedance.com header.i=@bytedance.com header.a=rsa-sha256 header.s=google header.b=PfTLfnnP;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.45
-Received: from mail-yx1-f45.google.com (mail-yx1-f45.google.com [74.125.224.45])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795507678;
+	b=fqrXX0E5eW5cTb+8MWc5ifuJv6Xc+JhAKnL42I+D8nqTDzLArStSUPF8dj4K7wr0xEcA
+	 Xfa8frsA7MXkBVeONTipLQpFcMkWKr+P4MC7wJkQDzI34iOmY48Beh8tBiFFKrVA+NDqh
+	 0kZk8TThUMy42NJmhoXep5RsH5szLt2YQE4544VGIrXHaUqUahEO2cAvdcTppl/URulTK
+	 STWoibMPIdPo4OWahZPtlcZYQTdYUfvY9joa58V4QpEJMG3BxC5Lg6euTbGOfqh3GsnNS
+	 dl8UvB7mw9sQAKWjWyDkck9CL5nrGn+uiW8BhePh/H/FxZGTNRtc9sOow4KR2BKHtdA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795507678;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Proofpoint-GUID:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
+	 X-Authority-Analysis:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=84yhX3202Hm26D3ZONtukb3c97ZAJn5NF6Z/NQzpluo=;
+	b=EFrXdLvId++4zEupcw7IyO03W7oMUK3kQafXShu/ZkyxP1hpNiirkkcQV4idX5ppFxSG
+	 Lx+KTbb1ItxZMyZ+wZmg4ZW1dMNvow5ARLbrmQbbqIjSDHS6dK1brtV1zHPVzwbKn3u4j
+	 v/McqIYJzGDJa5MSoO3CZI9Y9A6+U0o+cnC43qFt9ANWSME5/y9pVTpw5CduCYV0AzYUA
+	 vSA5E+ZE0+UAdHVF2Ikr0dC4bDF2JlvEolOD+mg1WYWns4PhtD10PQQ1Dh1DfyE36okNl
+	 Wum12qW/HX0O+0vfFRLVYmwcjE/qLzJzwnMU65HZwOflfR9ujtc33Uq+gJK0hvZ7FKg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=HLMGCQ7q;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=TahY9ZXD;
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 19AAE606A321
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 08:07:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 19AAE606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=bytedance.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bytedance.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 85217606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 08:07:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 85217606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=bytedance.com header.i=@bytedance.com header.a=rsa-sha256 header.s=google header.b=PfTLfnnP
-Received: by mail-yx1-f45.google.com with SMTP id 956f58d0204a3-67be1e468a8so3902438d50.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 00:07:53 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795507673; cv=none;
-        d=google.com; s=arc-20260327;
-        b=Gjx2XqaYnmSi6NoMBMldC/qxvn4X2k/jGKmaD+WEkcfCBnAwj/RsHEZ/hDOx4fYWyG
-         C3XU6VSRX4466Ei812wc5OpxLX78aZHkhQF/m3SMtNpDCF+6P4T/gK2JasIovXmuLm4I
-         B8PBRJJeriRV9zrb5YgmGfObL1jnAXWzUF1itSdBa8kxKudJukSq7+qxG4Nuw6BsBe7b
-         W6kdiPYv9UnPz2QHTSLkngS9HTcw1SGgZLXLawvtRCSVZ7sJXdHKJV6oUvdKbYSsiCGk
-         WmzRVBJgsv2M/XBvM55uT5o2dRatLfi0tD+B8kxGCKMcgx5JaOLhspZYuNdXWNewgNMt
-         fPTg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=OOD5TK3jDZSV0gxKAkHVgIM6aEdA8CEYNdRPZbFoBkE=;
-        fh=Py6ep44pv25yw5eQ/PYNkHf41AYCWzU7pGZGH1P0c+I=;
-        b=EZczDNKSXn3u7lCjAcKdFmwqxaVuYuK0vdEewhBpL9iDRqWPaBhji1TBGIiuQAdPU3
-         Amz//mIGr4XFvJ+BxraVF49q5bpMqRIzJsqb/lWobelRNYrklGr8xO5fhSlF+UPo1omv
-         T2FcySGv9wGR2UXUbJUty+sIwoh2F3/A/JFJcQBZOekMeX9x13rEbknlCSktZiQ2uphA
-         seq6aYSkNflTJVBAaG0GimTOZ/xQIwdbEe3xIVByPfgaLztNmqNaxTRuioYO65JLLVHa
-         nGo+sKDiLclgbt12dKHQHMosgFEjUINnOzaA5mvqgN/IdFNeciFRlAwfljMnpcRx0YJL
-         nf4Q==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=HLMGCQ7q;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=TahY9ZXD
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AO2k6rM901973
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 08:07:58 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	84yhX3202Hm26D3ZONtukb3c97ZAJn5NF6Z/NQzpluo=; b=HLMGCQ7qLSGC+CT7
+	y3fCqbZTy3Hy7+rV0pTyyNja6XcXe5eljYzos8gItlAtsNnoRS6OBIiOhV1L75DQ
+	EQa8KCz+nH1w7JNCqB7VVo71xpgqMX7Ru7Kvab7xDVWGdqdikObqIM/WPgb6nXjk
+	QHXunjwoEzz4FtrahC20fEFUGLX+b39e17WnAqTCm2/36DwCiUuDgWZn88rirlyh
+	Ym8fCz24R/4E7PqsprfTDpY7VZ+Ar1MN3Zc1lbGJMCIa1pcVPr/vbN+t0bIxjuhK
+	Feh/6NvPkhwPgD3pRm/FIzjcsqwYqMcsNFSYbTWh5w8L9YSu2wL/XJPKeAEhEuSN
+	oxdSpQ==
+Received: from mail-pj1-f72.google.com (mail-pj1-f72.google.com [209.85.216.72])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j4w6st4wa-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 08:07:57 +0000 (GMT)
+Received: by mail-pj1-f72.google.com with SMTP id 98e67ed59e1d1-3b49dd1e77cso1543678a91.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 00:07:57 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1795507673; x=1796112473; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=OOD5TK3jDZSV0gxKAkHVgIM6aEdA8CEYNdRPZbFoBkE=;
-        b=PfTLfnnPyZwEWZM4MA3KtYJMXmk0EJEE5TYL/eG9Bxh6WZ2t1/QJrFOlnVbC/L8+iX
-         uZEzzqcmJ1vcvblADZruL0jqRnv0yKrixSF43Qak7MVMT4EgcvwSBd8vYFO2hE/UZpP7
-         JKzzOuhK1jdXmoRTm1Ade5ckip2TwyPN76BRC8FOc3WDWRktp6a+0tNQQI81WDgwqbwA
-         MyJLoNg3rRaD6YwUky3ik7Uj1Smv241Kl8AX4ETvugn95AJbUurJlxITqzx1kz+xvj6g
-         v2bcy3MLjXvr6dpbP78GD/OT9xSvZuLeo/W0OPnfzQcjWss4B1CDCIY8fpgmHA/VVrFm
-         QglQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795507673; x=1796112473;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=oss.qualcomm.com; s=google; t=1795507677; x=1796112477; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=OOD5TK3jDZSV0gxKAkHVgIM6aEdA8CEYNdRPZbFoBkE=;
-        b=ZELgL80uitSwCYLM0dklLxFnOiL944YW+RDlOec4nHesdVJX32sDpHSvfG9e2jyShK
-         N/eT2dgCNrzMXoqWi1H/PLh+5zIh2REQden7D+2qcEcgaUMhO3Y2mMNB6lc+o+8y6Tl3
-         jezpKToqTG0CkH4U64uGHIK7Ope3Ai9I2ArC6Gzlb14fLXYmNtHILVgL35UpgT4k1gSo
-         HFi6vJW3zMZdqD+woh7T3hUZxlo6lDm9pC2RpuI89onp4O08H7r1YHHjhujYVXKcbNNz
-         2rT201HmsMqmVsgSX9anc6Bv+l9sooseQnmNxl4QYH8ve5Az7Hb8ma1Zm94i2Xsjg3R2
-         EMzg==
-X-Forwarded-Encrypted: i=1; AL+hErFocnTqvu809mIWvvsOpaKgF/REs+XmknzKx/e39dtLSLvuDvhU57OCJeuSjIZWIRqoP+hMub5NLwtTEQk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/a9hbIbYNOEi0QmMg/gDhikLG0VX/nfstv4Ns0soTwvoe/A3Zq
-	CdiT/HKBCtPR/8pacpcyFLqKWFbqBlwg0ZEpj7hW9uc8ZQQbfE23CY+FECCxQiWczVknHxCnUqa
-	sbGlvifaUpC2CsYJLMx1yknsKvypZq9rzAKZJE4V8Sw==
-X-Gm-Gg: AZFdTZccGFZzhw8evUXnnIPSsudFlq1OjmJyvdgsrtjPfi6rZmDVlIRtwg+aU1uabyI
-	NAhp+kPJEhlr6UPJ6OHto2+e+vOWsQ1OA/CUAaKvA7lOsDjkpWMrAcgOSfIlwbXQBX+imC1usLT
-	4WxoW1F4HH/fy9du7jYwjonKD3HRKGhHj0FYsGRiUVV0BfW5AVNEgwfzTgKZqWYRSpisS/UBBR7
-	TJoV6mB8EDaJg6+F4wGWxPiY9WMyketXLpBNhf6u4/fh0t3Dn/vdJUBDh3UQsY4HOyRHbGo3em4
-	eA7WugkhbxpCEgweUHC4pYbGU8rfZIKjXLaJqkO3/5vTjJn0SC1m4rsf8V8l9bxPj484NQowUZs
-	mH8e5hTAlS9nDZX67O0ZyX0MmiCuag8boULao
-X-Received: by 2002:a05:690e:150e:b0:67d:eb12:7327 with SMTP id
- 956f58d0204a3-67df44790c9mr5429914d50.91.1795507672913; Tue, 24 Nov 2026
- 00:07:52 -0800 (PST)
+        bh=84yhX3202Hm26D3ZONtukb3c97ZAJn5NF6Z/NQzpluo=;
+        b=TahY9ZXDLYi8ptClYdysF51135EDa+hz+KYLpXODZx1x6X7z75AWzy4Gfg5mMxLWrf
+         M49QHQ5yvSE+Mx7IZZktzZTeCqBJd41izDPx3gtwJ4oG/SOqyk9git17UbqmsKM1DCG8
+         xG0B8N7EKorhP3F9xD3psMCDq5A5DuI3QJzTLvf01QNY9+4rf+dj5j1GvI+d+xmVcfEx
+         TTavpVslLvD/gEa7pb88MEc2farTDHt7Rm9K1KIA+k785r3qf4+8+YS6XnBJDclVTHl4
+         1VoNd1vDTD497jM9Ox7zjyxuYBzlCN4eIlXcpr7C4IBn3khP5ndirxDSVcihsusrvJuv
+         jcFg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795507677; x=1796112477;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=84yhX3202Hm26D3ZONtukb3c97ZAJn5NF6Z/NQzpluo=;
+        b=U6dozTRG5Iina9Wgnef63fZqQrQ+9HNMFPDcPPo89KSbiHEPwrZWyomor0cZxNcunx
+         HpN0FwJQr9c2ZojLFELgee01w7YwM7wVgz00u6go0xozbbAqNRWvQM5sg3tMFGLTBQm5
+         LSjM09xhyEJSeIuuy31nxY2vnibNJTksQkgQ66zlYbSERw634RamVhSzmswWDZvMByPv
+         GgzKmzlStfF7E6eVVvWPNn/OthWFyxiBKVo2NSEUQYjplcK64xvSKipATql6tAZXoIHe
+         wNvGCujjtBSc8s6dXYiQfNMdLop4BFu7dX4Q5BIYSdkQwzYFK4kk6iFrX9r34K3PYkMe
+         rfFA==
+X-Forwarded-Encrypted: i=1; AL+hErFj8MZdVIzzCrDqA+dDYm1LHyjyVASMNNKMSbiPJSLa6gJAmQ3bCsOGrlcw8vc/zctZ1nCGzflMKbp2pqw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+zTmtTvEfq15VhC2F0yaPbMBRI9N0PTtP6EpxRWDXXRAst+CLc
+	RPybWCuPukrCJpuzRgN2Z3ptOO0hTv5i6Nt97/iNr7l16FdnUCsOHq8NuoEn45uBLssQyfWhQFx
+	PieZ+FE8VCf5j6FpvI2Dx5bAaZJnlh1VJuI29+jQ+VynNY9OeV0P+GhyJnEEnvVweOvY=
+X-Gm-Gg: AZFdTZfdoM5mbg+z4U3oDVFBIVgoJop6L6MbcNvZrtYVN7Mz0YFWCo8yI5tG12RDXT0
+	hG1vyXByNFO4byf0HJk83tofdNK3ofreNvMIfnqryqfhrfViqQKyzkgUJ2rU5sQORUbUhI5Ggcn
+	m6bSZY6uekc7MIvMwr5+y6eorINBpLUTC1miq1vFHIaG+azOG8F1APnSCVId+uGNWiYfOgU664i
+	kmGih3T9h+IYiG9mpp74iqSnbXCj+LIcFyApZmUGcogb3YR5PtzWS6ZMdbd/Ye37aNt7+jjtuR9
+	8emN+QvMSMWhLYRVAPS1iwjVQzfippVwFO4Ob4wvFi7o1727i+TVnMW4XIlupVM8gVRYXl8AqQl
+	Hy5MnnJOASb8VjNzNtMnUIaF64HwfVtfcY2/DbtYbWPdtkptvhZTKwvTHINe+pAfi+dP8pyic+c
+	nvNg==
+X-Received: by 2002:a17:90b:390b:b0:3b4:1220:36fa with SMTP id 98e67ed59e1d1-3b41c7c27e9mr13197129a91.5.1795507677036;
+        Tue, 24 Nov 2026 00:07:57 -0800 (PST)
+X-Received: by 2002:a17:90b:390b:b0:3b4:1220:36fa with SMTP id 98e67ed59e1d1-3b41c7c27e9mr13197107a91.5.1795507676577;
+        Tue, 24 Nov 2026 00:07:56 -0800 (PST)
+Received: from [10.218.7.34] ([202.46.22.19])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde6d026d6fsm6563865a12.19.2026.11.24.00.07.51
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 24 Nov 2026 00:07:55 -0800 (PST)
+Message-ID: <d4e405ee-0e3b-453d-93df-dc216bdf6852@oss.qualcomm.com>
+Date: Tue, 24 Nov 2026 13:37:49 +0530
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,250 +116,84 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <202611240743.6AO7homY042860@mse-db.zte.com.cn>
-In-Reply-To: <202611240743.6AO7homY042860@mse-db.zte.com.cn>
-From: Muchun Song <songmuchun@bytedance.com>
-Date: Tue, 24 Nov 2026 16:07:17 +0800
-X-Gm-Features: Aa3M54qVy_ZTjDekbWEQZL4rKpZRExSUgAWOCJOur9_RjV78JSMUFlskTD39pac
-Message-ID: <CAMZfGtX4E96XN7suB9=0=xg8k9=S9Qe9otWYjH02oDtKPyXbkA@mail.gmail.com>
-Subject: Re: [PATCH v3] riscv: mm: Fix split linear map page table allocation
-To: li.hanting@zte.com.cn
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, linux-riscv@lists.infradead.org, 
-	LKML <linux-kernel@vger.kernel.org>, 
-	Linux Memory Management List <linux-mm@kvack.org>, Andrew Morton <akpm@linux-foundation.org>, 
-	Mike Rapoport <rppt@kernel.org>, Muchun Song <muchun.song@linux.dev>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 4/4] regulator: qcom-rpmh: Add debounce delay before
+ disabling regulator
+To: Mark Brown <broonie@kernel.org>
+Cc: Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+ <conor+dt@kernel.org>, linux-kernel@vger.kernel.org,
+        devicetree@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>,
+        Kamal Wadhwa <kamal.wadhwa@oss.qualcomm.com>,
+        Saikiran <bjsaikiran@gmail.com>
+References: <20261027-regulator-off-on-delay-v5-0-f9c3b128c6d0@oss.qualcomm.com>
+ <20261027-regulator-off-on-delay-v5-4-f9c3b128c6d0@oss.qualcomm.com>
+ <179460940931.590303.9395310796576570677.b4-review@b4>
+Content-Language: en-US
+From: Jishnu Prakash <jishnu.prakash@oss.qualcomm.com>
+In-Reply-To: <179460940931.590303.9395310796576570677.b4-review@b4>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-GUID: vqyPh9JtuViWdDWauesZE_DZ4aXg4_N6
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI0MDAzMiBTYWx0ZWRfXzcMLS5P4oE1m
+ yLsmnqHfVM/gaPPruYBVYmcHdGeJUUq4qGBvcHXg+dsquCmowv7kLUJQg6FrB4FtR1+Tqhy3bmQ
+ zSAJhCeANXFrqhdU51eWxSHnCnSfuIw=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI0MDAzMiBTYWx0ZWRfX8hebrONmhfMj
+ k/fkkHVwGVnOWyXEcNO7IpcJozFeP02UWi0zBdrtkSNmTQivb80cNaKQsx4jI+nO+FIb7fxe8Jp
+ yaMyg5tDs4V2kYycs7yztSnt3fTxwyE81CXVtpQkQJrBbEe6uaDDKm2fDl+pJbpRwqC0ktciYPI
+ M5TlPOiUAy2ZGvRMOQD3QDwYiPsX/6njxFlyn2WLugafSHeY9WC3eRZ021kaFe50hjmEHx+ai6K
+ 9lo+1XSkM38SmWh4OzuTiD8MlRy+0o47OP+Ma+AAMv4A5qwiKHN9QxQRZKdTr4wU4txY48ze+HU
+ b9PSks+n8L/P1WMnHEUHX9FUMcWyiUcs4n/UgrzNc9yBRu1p9ziGsTHliSMZJuyWZTRlueKeeEX
+ Uu5QhQTbaT/9O3fJjvA/pHOCEO2iowYeadl09xJgYAwjhIAt0y07SsmZdEQ8zCjnkw4YzqeoDtf
+ OqyiCW/7lmHFqHEkLGw==
+X-Proofpoint-ORIG-GUID: vqyPh9JtuViWdDWauesZE_DZ4aXg4_N6
+X-Authority-Analysis: v=2.4 cv=V8DoQuni c=1 sm=1 tr=0 ts=6b0545dd cx=c_pps
+ a=RP+M6JBNLl+fLTcSJhASfg==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22
+ a=2fnjfD3pYKcczP1kFF8A:9 a=QEXdDO2ut3YA:10 a=iS9zxrgQBfv6-_F4QbHw:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-24_01,2026-11-23_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 suspectscore=0 bulkscore=0 spamscore=0 impostorscore=0
+ lowpriorityscore=0 adultscore=0 priorityscore=1501 phishscore=0
+ malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
+ definitions=main-2611240032
 
-On Tue, Nov 24, 2026 at 3:44=E2=80=AFPM <li.hanting@zte.com.cn> wrote:
->
-> Commit 9e4a3ec3411b ("x86/mm/pat: Allocate split page tables as kernel
-> page tables") recently fixed a latent inconsistency in the x86 CPA code
-> (assigned CVE-2026-97525): __split_large_page() allocated the new PTE
-> page with a bare pagetable_alloc(), bypassing pte_alloc_one_kernel(), so
-> the page table constructor never ran and the resulting page was neither
-> flagged PG_table, nor accounted in NR_PAGETABLE, nor marked as a kernel
-> page table.
->
-> RISC-V open-codes the same pattern when splitting the linear mapping on
-> behalf of set_memory_*(): __split_linear_mapping_{pmd,pud,p4d}()
-> allocate the new page table pages with bare alloc_page(GFP_KERNEL) -
-> three call sites in arch/riscv/mm/pageattr.c, introduced by
-> commit 311cd2f6e253 ("riscv: Fix set_memory_XX() and set_direct_map_XX()
-> by splitting huge linear mappings").
->
-> As on pre-fix x86, the resulting pages live in init_mm without the
-> PG_table flag, without NR_PAGETABLE accounting and without the kernel
-> ptdesc marking. Under CONFIG_MEMORY_HOTPLUG, hot-removing memory tears
-> down the linear mapping of the removed range via arch_remove_memory()
-> -> remove_linear_mapping() -> free_p*d_table(), which releases these
-> page tables through pagetable_dtor() even though the constructor never
-> ran, underflowing NR_PAGETABLE on current mainline. Muchun Song's
-> series "mm: Fix page-table teardown during memory hot-remove" [1]
-> fixes the freeing side by skipping the destructor for pages without
-> the PG_table flag, but the root cause remains: the allocation side
-> still bypasses the page-table constructors, so these tables are
-> unflagged and unaccounted for their entire lifetime.
->
-> Align the three sites with the standard page-table allocation and
-> population helpers:
->
->  - the PTE level switches to pte_alloc_one_kernel(&init_mm), exactly
->    like the x86 fix, and installs the new table into the parent entry
->    with pmd_populate_kernel();
->
->  - the PMD and PUD levels switch to the generic pmd_alloc_one() and
->    pud_alloc_one(), which already handle the init_mm case by selecting
->    GFP_PGTABLE_KERNEL, running the level constructors and marking the
->    ptdesc as a kernel page table, and install the new tables with
->    pud_populate() and p4d_populate().
->
-> No change to the resulting linear mappings is intended; the observable
-> difference is that split linear mapping page tables are now properly
-> flagged and accounted, so /proc/vmstat:nr_page_table_pages no longer
-> under-counts.
->
-> Fixes: 311cd2f6e253 ("riscv: Fix set_memory_XX() and set_direct_map_XX() =
-by splitting huge linear mappings")
-> Signed-off-by: Hanting Li <li.hanting@zte.com.cn>
+Hi Mark,
 
-It's annoying that you didn't cc my linux.dev mail, because I used this ema=
-il
-in v2.
+On 11/14/2026 4:06 AM, Mark Brown wrote:
+>> Some consumers rapidly toggle a regulator off and back on, e.g. a
+>> driver that disables its supply on -EPROBE_DEFER and re-enables it on
+>> the next probe attempt. Sending the disable to RPMh immediately causes
+>> needless power cycling of the rail.
+> 
+> Looking at the code here this doesn't really seem at all driver specific
+> - we could implement this in the core around any disable and enable
+> operation.  Is there anything that really ties this to the driver code,
+> or could it be factored out and available to everything?
+> 
 
-The changes looks good to me.
+I think you're right, looking at all the comments now, it makes more sense
+to implement this in the core than in the driver alone and there is nothing
+tying it to our RPMh regulator driver specifically. I'll make the
+changes to implement this feature in the core in the next patch series.
 
-Reviewed-by: Muchun Song (ByteDance) <muchun.song@linux.dev>
+Thanks,
+Jishnu
 
->
-> ---
-> Changes since v2 [2]:
->
-> - Install the new page tables with pmd_populate_kernel(),
->   pud_populate() and p4d_populate() instead of open-coding the
->   virtual-address-to-PFN conversion, as suggested by Muchun Song.
->
-> - Reword the intended-behaviour statement: the accounting, PG_table
->   state and hot-remove destructor behavior are intentional functional
->   changes, so "no functional change" was misleading; it now states
->   that no change to the resulting linear mappings is intended. Also
->   suggested by Muchun Song.
->
-> - Shorten the subject and drop the greeting from the commit message.
->
-> [1] https://lore.kernel.org/r/20261008073021.2512665-3-songmuchun@bytedan=
-ce.com
-> [2] https://lore.kernel.org/r/<202611230851.6AN8pFDD065900@mse-fl1.zte.co=
-m.cn>
->
-> Hello,
->
-> Thank you for the review, Muchun. All four suggestions are
-> incorporated in this version.
->
-> One detail worth spelling out about p4d_populate(): unlike the
-> previous open-coded set_p4d(), which falls back to writing through
-> the pud alias when 4-level paging is disabled, p4d_populate() is a
-> no-op in that case. The difference is not reachable here: with
-> 3-level paging, best_map_size() caps the linear mapping at PMD_SIZE,
-> so a leaf p4d entry can only exist when 4-level paging is enabled,
-> where p4d_populate() matches the open-coded write exactly.
->
-> The discussion about deferring this change until free-path work
-> lands is now settled by Muchun's series [1] being queued for
-> mainline: this patch fixes the allocation side of the same lifetime
-> mismatch.
->
-> (Note: the generic CPA rework series "[PATCH RFC 00/18] arch, mm:
-> create a generic set_memory/change_page_attr core" would eventually
-> replace this code entirely; this patch is intended as a small fix in
-> the meantime.)
->
-> Comments welcome.
->
->  arch/riscv/mm/pageattr.c | 38 +++++++++++++++++---------------------
->  1 file changed, 17 insertions(+), 21 deletions(-)
->
-> diff --git a/arch/riscv/mm/pageattr.c b/arch/riscv/mm/pageattr.c
-> --- a/arch/riscv/mm/pageattr.c
-> +++ b/arch/riscv/mm/pageattr.c
-> @@ -3,9 +3,11 @@
->   * Copyright (C) 2019 SiFive
->   */
->
-> +#include <linux/mm.h>
->  #include <linux/pagewalk.h>
->  #include <linux/pgtable.h>
->  #include <linux/vmalloc.h>
-> +#include <asm/pgalloc.h>
->  #include <asm/tlbflush.h>
->  #include <asm/bitops.h>
->  #include <asm/set_memory.h>
-> @@ -109,23 +111,21 @@
->                         continue;
->
->                 if (pmd_leaf(pmdp_get(pmdp))) {
-> -                       struct page *pte_page;
->                         unsigned long pfn =3D _pmd_pfn(pmdp_get(pmdp));
->                         pgprot_t prot =3D __pgprot(pmd_val(pmdp_get(pmdp)=
-) & ~_PAGE_PFN_MASK);
->                         pte_t *ptep_new;
->                         int i;
->
-> -                       pte_page =3D alloc_page(GFP_KERNEL);
-> -                       if (!pte_page)
-> +                       ptep_new =3D pte_alloc_one_kernel(&init_mm);
-> +                       if (!ptep_new)
->                                 return -ENOMEM;
->
-> -                       ptep_new =3D (pte_t *)page_address(pte_page);
-> -                       for (i =3D 0; i < PTRS_PER_PTE; ++i, ++ptep_new)
-> -                               set_pte(ptep_new, pfn_pte(pfn + i, prot))=
-;
-> +                       for (i =3D 0; i < PTRS_PER_PTE; ++i)
-> +                               set_pte(ptep_new + i, pfn_pte(pfn + i, pr=
-ot));
->
->                         smp_wmb();
->
-> -                       set_pmd(pmdp, pfn_pmd(page_to_pfn(pte_page), PAGE=
-_TABLE));
-> +                       pmd_populate_kernel(&init_mm, pmdp, ptep_new);
->                 }
->         } while (pmdp++, vaddr =3D next, vaddr !=3D end);
->
-> @@ -149,24 +149,22 @@
->                         continue;
->
->                 if (pud_leaf(pudp_get(pudp))) {
-> -                       struct page *pmd_page;
->                         unsigned long pfn =3D _pud_pfn(pudp_get(pudp));
->                         pgprot_t prot =3D __pgprot(pud_val(pudp_get(pudp)=
-) & ~_PAGE_PFN_MASK);
->                         pmd_t *pmdp_new;
->                         int i;
->
-> -                       pmd_page =3D alloc_page(GFP_KERNEL);
-> -                       if (!pmd_page)
-> +                       pmdp_new =3D pmd_alloc_one(&init_mm, vaddr);
-> +                       if (!pmdp_new)
->                                 return -ENOMEM;
->
-> -                       pmdp_new =3D (pmd_t *)page_address(pmd_page);
-> -                       for (i =3D 0; i < PTRS_PER_PMD; ++i, ++pmdp_new)
-> -                               set_pmd(pmdp_new,
-> +                       for (i =3D 0; i < PTRS_PER_PMD; ++i)
-> +                               set_pmd(pmdp_new + i,
->                                         pfn_pmd(pfn + ((i * PMD_SIZE) >> =
-PAGE_SHIFT), prot));
->
->                         smp_wmb();
->
-> -                       set_pud(pudp, pfn_pud(page_to_pfn(pmd_page), PAGE=
-_TABLE));
-> +                       pud_populate(&init_mm, pudp, pmdp_new);
->                 }
->
->                 ret =3D __split_linear_mapping_pmd(pudp, vaddr, next);
-> @@ -198,23 +196,21 @@
->                         continue;
->
->                 if (p4d_leaf(p4dp_get(p4dp))) {
-> -                       struct page *pud_page;
->                         unsigned long pfn =3D _p4d_pfn(p4dp_get(p4dp));
->                         pgprot_t prot =3D __pgprot(p4d_val(p4dp_get(p4dp)=
-) & ~_PAGE_PFN_MASK);
->                         pud_t *pudp_new;
->                         int i;
->
-> -                       pud_page =3D alloc_page(GFP_KERNEL);
-> -                       if (!pud_page)
-> +                       pudp_new =3D pud_alloc_one(&init_mm, vaddr);
-> +                       if (!pudp_new)
->                                 return -ENOMEM;
->
->                         /*
->                          * Fill the pud level with leaf puds that have th=
-e same
->                          * protections as the leaf p4d.
->                          */
-> -                       pudp_new =3D (pud_t *)page_address(pud_page);
-> -                       for (i =3D 0; i < PTRS_PER_PUD; ++i, ++pudp_new)
-> -                               set_pud(pudp_new,
-> +                       for (i =3D 0; i < PTRS_PER_PUD; ++i)
-> +                               set_pud(pudp_new + i,
->                                         pfn_pud(pfn + ((i * PUD_SIZE) >> =
-PAGE_SHIFT), prot));
->
->                         /*
-> @@ -224,7 +220,7 @@
->                          */
->                         smp_wmb();
->
-> -                       set_p4d(p4dp, pfn_p4d(page_to_pfn(pud_page), PAGE=
-_TABLE));
-> +                       p4d_populate(&init_mm, p4dp, pudp_new);
->                 }
->
->                 ret =3D __split_linear_mapping_pud(p4dp, vaddr, next);
+> There's also a bunch of stuff from Sashiko a lot of which looks valid
+> but I didn't check it carefully.
+> 
+>> + * @lock:			Serializes disable() against the teardown
+>> + *				action, since both make a read-then-act decision
+>> + *				on @debounce_delay that must be atomic to avoid
+>> + *				queuing @delayed_off_work after teardown has
+>> + *				swept it.  enable() needs no lock: its only
+>> + *				shared-state access is cancel_delayed_work_sync(),
+>> + *				which already serializes against
+>> + *				@delayed_off_work.  @enabled and @rdev are also
