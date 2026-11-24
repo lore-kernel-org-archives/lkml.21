@@ -1,85 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.43
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795481981;
-	b=HnwPWtQ1ZEZ1xskwTWfj5U/zXHZeT4+VqUFtJvtUSUA+eXcWfEp22pcgN5f7kCDdEO/F
-	 Xfj3wXHFEWGFCi9HebwBIp+mb9s2hTBby/qVro9rxBXpOPmP7+JIyKHtelBd3BwqyuGD5
-	 yFHV7ubxJoh5sGX48IViw+OIFmbs+OmEZaNF6tWDCUHQ52WzfvDRWrySiFfgUrXrrZ3yY
-	 ucgigAKJLzixVTVWnme3Ib8zdLOVIp8/dQ+UpvyjG+ESU7L7BQuFXXG85pnQwCWs9LJmF
-	 08EMH3xF5CVeopGL0CVdokGR4xcOaizPrgV5Ww1rvQEqJ2tm4cXWRKjfwWf7+TMnTWQ==
+	t=1795481983;
+	b=PFlhXm4kMj1sWfIlsNYbHMqbOVkw2uGCDefQT/DwGv01gIiJTJDWt0ElJ4Rh2g3qjPci
+	 RahZNMUbxGAOMbmKogIgnhm6/oM9rYV1+JhRGIQc/gKlukG3PhzZZ9EAqwequ7EXLpA1m
+	 uBL6z/piLkHq5HCRvHR1KUDPDRJ5dhfDMbTIgWPw93IeSsQssoOc7ososJq3H8db0t8Kw
+	 a20H+J/9ML93Ha+23MnB5Gqe/6md9LtF9n7MEt7+bkDr6o9XkVB9vy5/43/uBa7eV269L
+	 KoJa/ZIToqNC3yXrQNo7OhDRIgXZgGTzzMSftRsFnOKVVV+Y9XILicazbbu2Q521kZA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795481981;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795481983;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=CQ0ywlob12oatuyVpHVVygHWAZ6j+SXjJPArn5ZAhIw=;
-	b=RUBbvr2rWePS6nCXMvj7msYFLkh5HT1ksEbM1H7wUKqOWiUQlnhIqeIMAQDKbXrPHWgE
-	 Us1TFlt+vdxY3w1XsWQYcUXI/v46dst0c58uCul21Fg5jTfFKgfB/IUirBIDfhC6S6IQL
-	 wMOMprYYRtnUgCAdAcwWCfPMk4YLN3TYLU4etT9mKxu7Vf40Ko6faVHf3ZdsCofCY2jZC
-	 x5i51ibBTtRLMyesvyQ9DndeiImsrhsefKx0QXEamhDml/x09JnrC2sqt7xWEAKrEfK88
-	 j7qHq5pKNJnL4ooiSFJyU5w3YpT9nuwzem0XV4FBNFSijtaisrs3G6rchn647N/jAgw==
+	bh=tb+J4grrziNRGAo5T7DYul9U5wujwe9VyddWPwEAkYY=;
+	b=3lr+iVkXeGF277N5vwQgBP+iWclc0XydlKm3iUg1KZ+6ZR84BgXFDdzVI5ViIJQ0iXyG
+	 zvmQEE9iebwAZhtRvb8oHIwpDKrHql4T29Yjpc6OM8fpObvGl695BaIa4EFncpuhlSeDB
+	 Woms/TWPdeq8p5WtxuHfsU0OyJ/IP7NiyZvfPlk+urNY0095Nr8PCBDYlc7W1nkYTFdP6
+	 cw6jtA36Ed6mkSe1OhCNkpzQtW4xS/4EaxlEAyIHGqtHSmEjb6VkgPJYKNWjQ2qP/hZIq
+	 OwcjULGjLj91TiB/ndefla8z/gnc7NDq3mEIf95380zEtAVzZM7Rx3f2O0nxyFc0RXA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lFP6Sxa2;
-	arc=none smtp.remote-ip=209.85.216.43
-Received: from mail-pj1-f43.google.com (mail-pj1-f43.google.com [209.85.216.43])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Wek8TN7k;
+	arc=none smtp.remote-ip=209.85.214.172
+Received: from mail-pl1-f172.google.com (mail-pl1-f172.google.com [209.85.214.172])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 36772606A321
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 00:59:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 36772606A321
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0AE63606A33B
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 00:59:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0AE63606A33B
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lFP6Sxa2
-Received: by mail-pj1-f43.google.com with SMTP id 98e67ed59e1d1-3b3fff0d993so521702a91.2
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 16:59:41 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Wek8TN7k
+Received: by mail-pl1-f172.google.com with SMTP id d9443c01a7336-2ee20b82356so4246915ad.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 16:59:42 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795481981; x=1796086781; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795481982; x=1796086782; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=CQ0ywlob12oatuyVpHVVygHWAZ6j+SXjJPArn5ZAhIw=;
-        b=lFP6Sxa2S4wDs/9G4Nz63q0Hq87wYPI8Ig1MkrL+7mJVSLjn1KUnGyCeelX46auegl
-         dwg7sjemuJPrNWnbSOHvyGdNrHKLFa4I7/liZR0AxURxgXuSdUARcPttMFIIUqY3sArr
-         KXz4KMNkIdWKj9RnCzMQSrASKimjC7eQtWySDNXCGuGP7sfRNYu55noNgoNe7wLjM4sr
-         dvEqMRnwK+/IS5HpDKfB7rdKjfy5r12nXTe5iv2PduDHxFpWOURPfgJDPEO4Yec3qx5d
-         lbmY1GO08d8x1rzhD9/30rjmqqbsowwSbYlxNNhjLF798ZslrvuUFmfkIaptcafOUG8t
-         ZdxQ==
+        bh=tb+J4grrziNRGAo5T7DYul9U5wujwe9VyddWPwEAkYY=;
+        b=Wek8TN7k5mzTTV1daBakIMoT6MI2Kiu4AGlfuzfehdioXNylj9hkrVTsl2I+KQ1u56
+         wRS7P6IEcExGQxa0lXr2D4tGxM9ATqOUVaNrD3aB09lH8zyP5p/oxqzOyO12S+tMnp2E
+         aI6iv8FvgkNWDdHzSr5BQenJg03x2Vk4rygPy9gRdJQTWH87ziEAgf/hiI6NtnPq7yKX
+         q+wKskvSy5EO/mOomofYM7ms75ewbnBLJkdZ+rliqX1EFwOjJeW83h38/7wvumewBFjA
+         hfVCepPElvo+9Ws0UgQTyV2kox2aotuwDdzweCQyLpS0WcJfaoOCFTUPXfGM5cL/sgRr
+         YWnQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795481981; x=1796086781;
+        d=1e100.net; s=20260707; t=1795481982; x=1796086782;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=CQ0ywlob12oatuyVpHVVygHWAZ6j+SXjJPArn5ZAhIw=;
-        b=JT+D6MLh+l6E88NZCHtxj39gMjoiweVAwNiXOklGINAPuBZizAAlDyAZ+1Fd/ok8BA
-         1WJgbPL8+1ziYQpbAMwhO9cZ082ULyj/Fn2WDXwF/JR0O0V/tHya6TZDLk8p08QPiE9R
-         LozeTPDxsQHlJ3laU9PfTn4jLdOgLxjVTrwLg6JMO0+WxJB0uuRCn31ISbPVcQxiqP4I
-         DPF5ijIDBG2wLVUxgSSmekKW6v2+sHFklgKYWU4+O88NGWyuwhyrwYwb0v3n3zajA9Q5
-         851jEKnIOfN8wAPz4EQPYrwucjQ0qXfgK2EMuPLeiZIs/3u4KV+eedA4HL+MAe7LfpMz
-         XOeg==
-X-Forwarded-Encrypted: i=1; AL+hErHtSH4u+73b5MptmIBbx6LsEZclHjbtQXlZcwBMVqg+gsY0qsi15usUmcgRsNxSDqtXW40a7clRuGxHpZE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z83VZsJjktwEqcF53xfJS2zcp0w7Mq9no9xoby63j27kjJuLGez
-	qYT5WPT6FsJbWyYl7Mdzekvc+44AldsRPqH/wTXqpUQ9GKBv5lagspgZ
-X-Gm-Gg: AZFdTZeBSKt8nTj1y4flkSp8W3yTFHgnrJNBXArYosOUMy7bgU9q0lHuFMYLmalAbLP
-	BGswlsOEcdZ7ZCd5QbNKO3ycaaVvIr4Aapf6r8rthh96KG/Vhkikju9bKL8pbSQhsZA2LpcdPjn
-	WQD7N4/iPZNFxcuzv9Nek7Luk8NDLqyhBYuD/McxoLwHzl28qOBifjwyNDVcw4If6POdxjtJ0IZ
-	E8AwhiGxjmg9ckHIqRWmza1jm8o1ocnRmCy7zXKFAHPqB4QfZeQuCH7VWdht36VNmpY+Y45E0TY
-	ceLbI5mYryQ8VCT4LscTJaWWET9h5nc1DyhfpSE5klI+DnNA2vBghmSJ+k8iRhvT5CV3kbk2Npl
-	cJl2dAMVCkYA25jRsGPbN916b6dkESUMgH30NfO7PUmR1SHEkBDy0H0TGNlNLg+2/2HNQEJDD/B
-	4MSM7YVaWX+NPjrMZ/WoKEkmRHaQT14cVSKP/CBJfU5rSCp8mujKZBPYHk0sBcpHmjyI8klDkbK
-	pCb2iSFLHXkHIaMhnwKy8VQBoxoy1LyOnbkTcLHRy6tI6B8IJ2qniCAvtaKhLFm7HTmH/fl6Kp8
-	z0kRFVR4bt1MuVgkhiTvTBYyUSTjceMggHiuUiyb/ZOWniOrjLqKaQhdEwQnUjQSylnXucdKQjt
-	0XHjnD5hGmNvaUoBXxdrXEqBM5bie62RlljOs/Jr5AAW6Bt+3EPPhuT1W/il/LLi2wSpbmM6t/C
-	UiJLGyglAnra0=
-X-Received: by 2002:a17:90b:442d:b0:3b0:d0be:f02c with SMTP id 98e67ed59e1d1-3b41c98a095mr19699757a91.6.1795481980585;
-        Mon, 23 Nov 2026 16:59:40 -0800 (PST)
+        bh=tb+J4grrziNRGAo5T7DYul9U5wujwe9VyddWPwEAkYY=;
+        b=V0Gfn65f7PTNY+tDcQD8YhERppuyoF7Jf1hpm/Nawwk9/VMlS7J6YykMMdGNBiwQd0
+         UHIQ3PljTCR4jJJWHI3ygPOi3VJ6zNjdaDyIGw3sjmKi8K2UR5JU2tQw50dYmy2Do5wa
+         5JHNzSKqsryp+WbJLWKn4oELFXpLTyJafCV9M/3pXAFXbJaiEemxbwxrEoMcKM63R3MO
+         nTQj1PzYiBcCZvDgxc6H39HR5ueCN1ymFBiP+vhsbt5h7ObPY2Ewp98pxuubDypBfSLm
+         OdvYROhlvAMYMuHWGZZBD/qsg2EaYWMx3b+LdrjVcHx5HqDvzSt7ivx/Tpqaz2+CsDZ9
+         g+mw==
+X-Forwarded-Encrypted: i=1; AL+hErH/2msj7avJ/Vxnm86elNiC/HnzIH/MrDsjt85F3F4ZusaAf91jm58+N+R9QI3xtxGfASHJQXqYMOkEiYY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8ZwoLFwrnq721iMJnhDwLfLbKBJnFNHVyEycG9hRmf6TEnLM73
+	ScK4HMtjPbBguL1BoJPv/lRsV5vY2//VKRcv10QuOHVc9Sc+lNWGcEt0
+X-Gm-Gg: AZFdTZdpzoTeHYb7qGUGoTXWyI9K2hcvbxmq1/OM4ZgYO01VWM2o3+2uJdalYBkgYIP
+	lhYCn0bRoy2Tswue+OCfGfi17IYmy+GC+RMQJTz81WJIn+9fMufOyUHq3D9p0CUoYJP7jNJ9cXc
+	zDcRBgYuqakrs1Pw0mwDnGM2FLFwWgXZww42IYjBJ8yr3ms2LKQRwBojU0vhLOL22/6VoyY6Qfj
+	HDscvWr8nVorBtDCUd3oRD9XI8pMDHdvdbn2HASxLuslHTTYV78rGFFMO52sVq7e+/8z+h1mBEn
+	0AdjKbhjULwxQVP2m8bEeXjH2yuRKIX8MrQsPkuGUQGEIqkX1DJ96Sc0ynxYr7cqqu9C5XcbbCn
+	HIPTaPb63yW1IvLm1rQhBcod3THPjc4zes9vAhWlVE0bT1JNHMl/5EhpUb9rfHdd9ybdSh8p49A
+	WJklnrTHlN4vranzX2VEKKH4Kf0W2IgGDxLTjFYvMwsOLVCBtbgrOIXcbclGVLpf4sHWgQB80vP
+	qXHhO59qjwcfnyUnP7zW1S4yW4q0evSHabU8Soz1FT++K43iPusYV2a59PEMjJWmLPX5zNkyK5U
+	mIX4Y/xHg81ygAui5GY6EF8Vc2VuELHZIr5GsJnsj/eZNhww8vvCj/Yyy4QuhDI4ZPQ+M3MkLO5
+	pkiKLfiTpK8Sf+YhV7CiuVzLR+jHrN5ENogDNOgj8HF3HAuGGiNFI8F+NVQh9rjbj96PAxBSMy1
+	d2VB0uQkamjJQ=
+X-Received: by 2002:a17:90b:180b:b0:3ac:a7ee:6785 with SMTP id 98e67ed59e1d1-3b41c7d0dcdmr20444551a91.1.1795481982478;
+        Mon, 23 Nov 2026 16:59:42 -0800 (PST)
 Received: from esteban.lan ([2001:f71:5160:2b00:ae2a:b9d5:71b7:3bb9])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b40578d771sm22990964a91.1.2026.11.23.16.59.38
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b40578d771sm22990964a91.1.2026.11.23.16.59.40
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 16:59:40 -0800 (PST)
+        Mon, 23 Nov 2026 16:59:42 -0800 (PST)
 From: Antoine Pichot <antoine.pichot@gmail.com>
 To: Brian Norris <briannorris@chromium.org>,
 	Francesco Dolcini <francesco@dolcini.it>
@@ -88,9 +88,9 @@ Cc: Antoine Pichot <antoine.pichot@gmail.com>,
 	linux-kernel@vger.kernel.org,
 	Andreas Kemnade <andreas@kemnade.info>,
 	stable@vger.kernel.org
-Subject: [PATCH wireless 1/2] wifi: mwifiex: pcie: stop the card work before tearing down the adapter
-Date: Tue, 24 Nov 2026 09:59:31 +0900
-Message-ID: <20261124005935.290010-2-antoine.pichot@gmail.com>
+Subject: [PATCH wireless 2/2] wifi: mwifiex: pcie: skip the card work once the adapter is gone
+Date: Tue, 24 Nov 2026 09:59:32 +0900
+Message-ID: <20261124005935.290010-3-antoine.pichot@gmail.com>
 X-Mailer: git-send-email 2.56.1
 In-Reply-To: <20261124005935.290010-1-antoine.pichot@gmail.com>
 References: <20261124005935.290010-1-antoine.pichot@gmail.com>
@@ -105,110 +105,107 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-If the firmware does not answer the shutdown command sent by
-mwifiex_pcie_remove(), mwifiex_cmd_timeout_func() queues a firmware dump
-and a card reset on card->work. remove() continues into
-mwifiex_remove_card(), which clears card->adapter and frees the
-interfaces while the dump runs. When the dump ends, the work reads
-card->adapter for the reset and dereferences NULL:
+The work can also find card->adapter NULL without remove(), when
+firmware initialisation fails at probe or after a reset. Both paths end
+in the failure path of _mwifiex_fw_dpc(), which clears card->adapter and
+frees the adapter:
 
-  mwifiex_pcie 0000:01:00.0: mwifiex_cmd_timeout_func: Timeout cmd id = 0xaa, act = 0x0
-  mwifiex_pcie 0000:01:00.0: info: shutdown mwifiex...
-  mwifiex_pcie 0000:01:00.0: == mwifiex firmware dump start ==
-  BUG: kernel NULL pointer dereference, address: 0000000000000088
-  Workqueue: events mwifiex_pcie_work [mwifiex_pcie]
-  RIP: 0010:mwifiex_pcie_work+0x87/0xc0 [mwifiex_pcie]
+- At probe, a command timeout during the initialisation queues a dump
+  and a reset. The failure path clears card->adapter during the dump and
+  waits for the work in mwifiex_cleanup_pcie(). The work then reads NULL
+  for the reset.
 
-This crashed a Surface Book 2 (88W8897) at shutdown four times in about
-400 reboots; the three crashes with a full log went through
-mwifiex_pcie_shutdown().
+- After a reset started by the work, the failure path runs inside the
+  work, and it skips cancel_work_sync() while a PCI reset is ongoing
+  since commit 4add4d988f95 ("mwifiex: pcie: skip cancel_work_sync() on
+  reset failure path"). A timeout during the failed initialisation
+  queues the work again, and it runs after the adapter is freed, with
+  card->adapter NULL.
 
-The teardown waits for the work in mwifiex_cleanup_pcie(), but only
-after card->adapter is cleared. Commit b713bbf1471b ("mwifiex: cancel
-pcie/sdio work in remove/shutdown handler") cancelled the work earlier
-in remove() for this crash. Commit 7e34c0d2f631 ("Revert "mwifiex:
-cancel pcie/sdio work in remove/shutdown handler"") reverted it, saying
-that since commit b014e96d1abb ("PCI: Protect
-pci_error_handlers->reset_notify() usage with device_lock()") a reset
-cannot run during remove(), and that the work then waited in
-pci_reset_function() for the device lock that remove() holds. The device
-lock does not cover the dump, nor the read of card->adapter before the
-reset. Since commit a64e7a79dd60 ("mwifiex: resolve reset vs.
-remove()/shutdown() deadlocks"), the work only tries to take that lock,
-so remove() can wait for it before the teardown again.
+[1] reports four crashes in the card work on a Surface Pro 3 after the
+driver's recovery from a firmware failure. In the reporter's kernel
+build, all four are the work dereferencing a NULL card->adapter: three
+in the reset branch and one at the start of the dump. This patch was not
+tested on that machine. On a Surface Book 2 the unpatched driver crashed
+on the probe path.
 
-Use disable_work_sync() rather than cancel_work_sync(), so that a
-timeout or a debugfs reset request during the teardown cannot queue the
-work again. The card is allocated at probe, so a later bind starts with
-a new work. When the firmware does not answer the shutdown command,
-remove() already waited for the dump that the timeout starts (about 46 s
-on the 88W8897), in mwifiex_cleanup_pcie(); it now waits before the
-teardown instead. A dump still waiting in the queue is cancelled.
+Read card->adapter when the work starts and return if it is NULL.
+When remove() or the probe failure path tears the driver down, the
+pointer stays valid while the work runs, since both wait for the work
+before freeing the adapter. Skip the reset if card->adapter was cleared
+during the dump: a teardown is then in progress. Pair it with
+WRITE_ONCE() where card->adapter is set and cleared.
 
-remove() also returns early when a failed reset or a failed probe left
-no adapter. The work can still be queued then: a failed reset queues it
-again from inside it, and the teardown of a failed probe stops the
-command timer only after waiting for the work. Wait for it there too,
-before the card is freed.
-
-Tested on the Surface Book 2 with a debug change that queues the dump
-and the reset in remove() right after the shutdown command. Without this
-patch (kernel 7.2.15) the work found card->adapter NULL in 3 runs out of
-3. With it (kernel 7.3.4, before the wait on the early return was added;
-the main path is unchanged), and a 200 ms pause so that the dump was
-already running when remove() reached the wait, remove() waited for the
-dump (about 46 s) and the teardown completed cleanly in 5 runs out of 5.
-With patch 2 also applied, a debug change that makes a reset fail (it
+Tested on the Surface Book 2 (kernel 7.3.4) with a debug change that
 drops one command during firmware initialisation, so that the command
-timeout queues the work again and the initialisation fails), and a 5 s
-pause in the work when it finds no adapter, remove() took the early
-return while that work was running, and returned only after it.
+timeout queues a dump and a reset and the initialisation fails. After a
+failed runtime reset, the work queued again by the timeout found
+card->adapter NULL and returned. At probe, the failure path cleared
+card->adapter during the dump and the work skipped the reset. No crash
+or warning in either case.
 
 Found, written and tested with an AI coding assistant (Claude Code with
 Claude Opus 5.5) under my direction; I reviewed the patch and the test
 results.
 
-Fixes: 7e34c0d2f631 ("Revert "mwifiex: cancel pcie/sdio work in remove/shutdown handler"")
-Cc: stable@vger.kernel.org # 6.10+
+Link: https://github.com/linux-surface/linux-surface/issues/2350 [1]
+Fixes: 3860e5e39532 ("mwifiex: move pcie_work and related variables inside card")
+Cc: stable@vger.kernel.org
 Signed-off-by: Antoine Pichot <antoine.pichot@gmail.com>
 ---
- drivers/net/wireless/marvell/mwifiex/pcie.c | 15 ++++++++++++++-
- 1 file changed, 14 insertions(+), 1 deletion(-)
+ drivers/net/wireless/marvell/mwifiex/pcie.c | 21 ++++++++++++++++-----
+ 1 file changed, 16 insertions(+), 5 deletions(-)
 
 diff --git a/drivers/net/wireless/marvell/mwifiex/pcie.c b/drivers/net/wireless/marvell/mwifiex/pcie.c
-index ecbe864b0797..b63e6ac6e582 100644
+index b63e6ac6e582..c4837102f0cd 100644
 --- a/drivers/net/wireless/marvell/mwifiex/pcie.c
 +++ b/drivers/net/wireless/marvell/mwifiex/pcie.c
-@@ -437,8 +437,14 @@ static void mwifiex_pcie_remove(struct pci_dev *pdev)
- 	wait_for_completion(&card->fw_done);
- 
- 	adapter = card->adapter;
--	if (!adapter || !adapter->priv_num)
-+	if (!adapter || !adapter->priv_num) {
-+		/* The adapter is gone, but a failed reset or probe can have
-+		 * queued the work again, and the card it runs on is freed
-+		 * when remove() returns.
-+		 */
-+		disable_work_sync(&card->work);
- 		return;
-+	}
- 
- 	reg = card->pcie.reg;
- 	if (reg)
-@@ -456,6 +462,13 @@ static void mwifiex_pcie_remove(struct pci_dev *pdev)
- 		mwifiex_init_shutdown_fw(priv, MWIFIEX_FUNC_SHUTDOWN);
- 	}
- 
-+	/* A timeout of the commands above queues a firmware dump and a card
-+	 * reset on card->work. Wait for it and keep it from being queued
-+	 * again before the teardown clears card->adapter and frees the
-+	 * interfaces the dump reads.
-+	 */
-+	disable_work_sync(&card->work);
+@@ -2842,13 +2842,24 @@ static void mwifiex_pcie_work(struct work_struct *work)
+ {
+ 	struct pcie_service_card *card =
+ 		container_of(work, struct pcie_service_card, work);
++	struct mwifiex_adapter *adapter = READ_ONCE(card->adapter);
 +
- 	mwifiex_remove_card(adapter);
++	/* The adapter is gone if a failed reset or probe has torn it
++	 * down.
++	 */
++	if (!adapter)
++		return;
+ 
+ 	if (test_and_clear_bit(MWIFIEX_IFACE_WORK_DEVICE_DUMP,
+ 			       &card->work_flags))
+-		mwifiex_pcie_device_dump_work(card->adapter);
++		mwifiex_pcie_device_dump_work(adapter);
++	/* A teardown that started during the dump has cleared
++	 * card->adapter. Skip the reset, which would run into that
++	 * teardown.
++	 */
+ 	if (test_and_clear_bit(MWIFIEX_IFACE_WORK_CARD_RESET,
+-			       &card->work_flags))
+-		mwifiex_pcie_card_reset_work(card->adapter);
++			       &card->work_flags) && READ_ONCE(card->adapter))
++		mwifiex_pcie_card_reset_work(adapter);
  }
  
+ /* This function dumps FW information */
+@@ -3171,7 +3182,7 @@ static int mwifiex_register_dev(struct mwifiex_adapter *adapter)
+ 	struct pcie_service_card *card = adapter->card;
+ 
+ 	/* save adapter pointer in card */
+-	card->adapter = adapter;
++	WRITE_ONCE(card->adapter, adapter);
+ 
+ 	if (mwifiex_pcie_request_irq(adapter))
+ 		return -1;
+@@ -3215,7 +3226,7 @@ static void mwifiex_unregister_dev(struct mwifiex_adapter *adapter)
+ 		if (card->msi_enable)
+ 			pci_disable_msi(pdev);
+ 	}
+-	card->adapter = NULL;
++	WRITE_ONCE(card->adapter, NULL);
+ }
+ 
+ /*
 -- 
 2.56.1
 
