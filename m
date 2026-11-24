@@ -1,74 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.199
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.197
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795559477;
-	b=cc+Gpssf9gx18PCDXjNBoztS2m8ls6/luJX5+2/+Bkr7XagSHyW5N95dh5CSH2Ik39l5
-	 YbhEo6zlMrjVLL+E53EWzAJ/xue0fFhEPjYeQrqEt+3qi6H2nu8bJoUFRJV+hh6yvh2Ne
-	 ps/aaiAZVSuufTkkgJR2GnlpOwcusaySGD/RD4Y1YH8KPTNm2i1HvXNgpE+YlAEKm38to
-	 qi9WhaKUGa6rv00orUUmyJBnI/YSVu/4qJ3L+sxb5x6HdJOuVXQgZxpzabfTa2rlawPL6
-	 qb2+kDxMoLRb7yE3ynR7KH5/E9X5gI4HvoAeVgUHURDChWESEjOXcv/6uTDosrmI1Dw==
+	t=1795559482;
+	b=X85GNzmjgP9EUNBIJPkqiUq2HI4O9ZlF6BZaXWS5YcEaQiK1Z9C+ApMuVN4erOxlWCYx
+	 VRFPJKoOYzyFPOw328Mscm0PbwWJ3FWiD+OBApeEArHbTx7HY4A+54pm0jxO/BTBqWAs1
+	 QS8r3frFXKpE9jPJojy5pkFKwJMd8IrqxnZcUDd5EGGI8LwU2l+Ar0aC56XqS2/CizPp+
+	 wN3DeR3D3ozMPla9kjHaIK5LfgGEbO2NzFDioJHtO6p8BJmTQWy7btbbPrSVpD46QSb/7
+	 sS8UKTea3NsLOWKEWoX6ar2TQayb6oMSO8RpZTl+Rn82CBuZP7oJegObUkh4CQkaYmA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795559477;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795559482;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
 	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
 	 Content-Type;
-	bh=c536sWW2rimx1N1MpOLJFvt+7kCYzuGmbKYiaW7Fjw0=;
-	b=xHdXvYyM/D+HshXDvnJaWWCv/51w3r4Ya+Tsgm1tlf7iZPwhtK6POgPt09GakqRuhzsM
-	 q+p/SU644VqIS2EUciwiUWmwOUL9okfyQZpwhIPlanoR9bhOyvBADr1BSGMyVq6xD7yin
-	 GAlmUy8AFYO+rcMhA9i95Mz16NjBYSYRTnOcyDRbTLPd9pwhVhPWqSk7NAvV1ZdTHVNjs
-	 CmOR78vKqsxaG2Sa8l2Vt7PsQaBE9Td9Kv3cIIwk22Svh79ZDIpghDHW49AjtZ3OQkRGp
-	 JeSvg2xJpavhKswysezuGjKmH9SZTUW+deKzqsNf4dWsOFi6gylN8lwi9hs1b+FiQpw==
+	bh=txtyNdYOM/Q99nFTCthhb/YlwqzBWOP7dJbGVojxyNQ=;
+	b=dlFHJs5zIYx8xdsnitqEmiTAiyMsFRl4iF2Hb9IDuvPw3Cri3dvjm1dL3ZHogCn1Dcbb
+	 CCp9JDZb+Ty0YlvcmPta+8KHcaipQozZLBJGMmmzye7xX9zaHmYRjrVG4HhMAAuKWzuPz
+	 Qk/qftHbV5aGHQ7XfFaVIdahperOCxpnMmPLgkSy+WUru+bHCgeCVixMLVT+9uu63Y6Js
+	 D10S5p00Jd9SyTPpb4tGBYD7c2/RZHCTWUagaeg+e0iDHusMc0Fdr/u+bop9wt7oi/ylq
+	 OxejjCgvAJdxoFEaeTPUOpaEOF13pW3tiwKeyeqcRdKB5cvWlQDlSarqLiS0sPMlrtQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=bZoflTbI;
-	arc=none smtp.remote-ip=74.125.82.199
-Received: from mail-dy1-f199.google.com (mail-dy1-f199.google.com [74.125.82.199])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Ib6YCXww;
+	arc=none smtp.remote-ip=74.125.82.197
+Received: from mail-dy1-f197.google.com (mail-dy1-f197.google.com [74.125.82.197])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 79336606A329
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 22:31:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 79336606A329
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C5E07606A336
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 22:31:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C5E07606A336
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=bZoflTbI
-Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-38355b03cb8so4965308eec.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 14:31:17 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Ib6YCXww
+Received: by mail-dy1-f197.google.com with SMTP id 5a478bee46e88-30bcb065bfdso5560462eec.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 14:31:21 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795559477; x=1796164277; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795559481; x=1796164281; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=c536sWW2rimx1N1MpOLJFvt+7kCYzuGmbKYiaW7Fjw0=;
-        b=bZoflTbIG9KGzDVh3fB+LgkBJiw7692oPF0NQ+UCTmTiXJSW4aaFbjtd4sxccGP06Y
-         wm55ZlrCJuidSCK8cblLvfPnyo3bf9pjRcfWehsgafUB6gYGOB/3gFVZrNzbeYA3xqFU
-         LUjDAVK0zUldwt/H9PTlw9bcxbNJCchuIF/ZFV/BehIrud0btHSHT6itLVf5riZv9Ivv
-         fa8733fiFQRQtiu5e7JhRARxy5bjd2ax4BxPqo16x2/uJE8YzeUUYl+zdxpiVL8R4V1a
-         x6ZmcPMuk26N2MTvoe439A06RVHk0qIoVcVi7GlNv4r8joJ57ZwwLKmMaTTelnEspK/a
-         lI2w==
+        bh=txtyNdYOM/Q99nFTCthhb/YlwqzBWOP7dJbGVojxyNQ=;
+        b=Ib6YCXwwt7aqM6j3yHOTgF4frLZgdn6z8F0NfSZmdO8psoCsoYExhIzkiBfZhVWiIS
+         cAG3ieQXiKyMJYuCFrgBAhCSZNs0nRdRZ+sS7aEUQrEBIf5lGNat5yw+/CQ3fEIIT6AV
+         3HgaFdljKPlpTel3fmSebmmbhOPb7FyQ/ys/EzvyfY/DiTlT7xjQ5TyZ1gY9yG8pIMx2
+         G1KQprLhp6wzsGNxXEKZgl2i5ypj1kD4N6TsaIR55jTqi7ev7BKZMjuemXGs9R3Y9sDM
+         SG4FlJHYtRmktaAiB1NwCdk7u9+WvTmaiP0tjhIomyHfgkTntSiTFqaSo/nKXzfHQ0Iz
+         S95g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795559477; x=1796164277;
+        d=1e100.net; s=20260707; t=1795559481; x=1796164281;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=c536sWW2rimx1N1MpOLJFvt+7kCYzuGmbKYiaW7Fjw0=;
-        b=H+vcHqzUtJoklbzqNVpWdIKNj6aDep8mFiOTf3tcRt4hVZ7Jg+T4w7uqEO0gBW63gl
-         j/TlXl7k5yo82mo3zOQtIeAt3K86hhimBOptaf5wIeKculo2jBm5MxPrtwog6smBqXGO
-         Z6mEi9eB8uRUUDhgCSpZBxJ1osrk0qawOBQaZ1fm/VUFFLCN2L/ytN4DjKvIAJWXM/K7
-         fP2VVHScVLUEQ3Fw9jc0Q1p0Vx8/Cd3NNnNmmqgNmseIbs3CDjY6j3+SU5Kth5LnDUss
-         NsITVrCSoEOm8EWOGIs5WzYOjaH4/VDC3ASolj5Qlb9Sv91LJlgc7OX8OoQJcobPkSLb
-         MLrw==
-X-Forwarded-Encrypted: i=1; AL+hErHvEOzMH3QoLRT6TaIbcNFLTOsnV/bguZRyrU9P4/MQWw5FW4al/f9xs52LmIjWgpfsG5gtGw38Bcrz4dw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+isFsqRpvJe99/OFmv4LE594pMc7yMsD0WrNU58cKq+xRO6PPS
-	Ko36jqfa+atuR7q0UppdVuk98N/aqUO6SwmXiNIQw+KOE7PlC7JhnFUTGqPy4EtP1nX/m4Rm11Q
-	84Ytlc2HVRw==
-X-Received: from dycnh14.prod.google.com ([2002:a05:7300:ce8e:b0:36a:17c6:6824])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:693c:65ca:b0:386:b826:407
- with SMTP id 5a478bee46e88-386b826061cmr6154460eec.20.1795559476114; Tue, 24
- Nov 2026 14:31:16 -0800 (PST)
-Date: Tue, 24 Nov 2026 14:30:59 -0800
+        bh=txtyNdYOM/Q99nFTCthhb/YlwqzBWOP7dJbGVojxyNQ=;
+        b=HKgv35vmS8Wdp8cgFxGgNXcw5wJQFcPmTzhBz6A1EhP9H3ttR1Wgzz41n3blBJl3OR
+         o5ZUUqb/qINd69mwUhcY+AsvkjRGI1upKly5Yq0y7+KMFugb4vSWZabiRN63wtGcvqE1
+         kFnXRk1eZYIAGAQE6i7X+KssyAG8bSN1GY0dXhRl20jjPzEhIlqF6BID4KDeNsHg1q2P
+         JnjB8vQvGFqX1p3jlYsmqIhsHxSrOcih3wKKx9xE5I58V+7B5mEu7gOkxXuNVuyp+0LG
+         Le455Qk9e4haLh6vMGiq2LwgJKuvJSDA4PzPTsGDse/aqM7PfONno/Bqx6bNHTIrHFqQ
+         wq7g==
+X-Forwarded-Encrypted: i=1; AL+hErHU3hMam1CxCBcYIqPJWgEf5DOPUqxHvogTqd+6/aKfk7N3Cj19es7SgJXquOWXSIjL6rvFRfqP155rLb4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8uZnZKeEYQDCqMVvZr6ionOtoJurT2TH43rQCW6B57UpnpMHgO
+	aQrILP7MmQkqIlsoiOhj0/D8Oc5LNKSPVK4K7Id7w24nLv7CR41/jlar0QBrHZXBwM8tRZoDoJG
+	+VL6m9ZAtVA==
+X-Received: from dycnm14.prod.google.com ([2002:a05:7300:d18e:b0:386:2134:b328])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7300:6da7:b0:384:5885:2f81
+ with SMTP id 5a478bee46e88-3856c0c7c05mr22893777eec.5.1795559480226; Tue, 24
+ Nov 2026 14:31:20 -0800 (PST)
+Date: Tue, 24 Nov 2026 14:31:01 -0800
 In-Reply-To: <20261124223109.820609-1-irogers@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -81,9 +81,8 @@ Precedence: list
 Mime-Version: 1.0
 References: <20261124223109.820609-1-irogers@google.com>
 X-Mailer: git-send-email 2.56.1.831.g720f3f5937-goog
-Message-ID: <20261124223109.820609-3-irogers@google.com>
-Subject: [PATCH v10 02/12] perf symbol: Drop num_by_name and sorted_by_name
- from struct symbols
+Message-ID: <20261124223109.820609-5-irogers@google.com>
+Subject: [PATCH v10 04/12] perf symbol: Add secondary sorted run for dso__insert_symbol()
 From: Ian Rogers <irogers@google.com>
 To: Namhyung Kim <namhyung@kernel.org>, Arnaldo Carvalho de Melo <acme@kernel.org>, 
 	Alireza Haghdoost <haghdoost@uber.com>, Ian Rogers <irogers@google.com>
@@ -92,248 +91,405 @@ Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, Jiri 
 	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 
-Every mutation to symbols->symbols frees symbols->symbols_by_name, and
-symbols__sort_by_name_locked() copies all symbols->cnt pointers verbatim
-before sorting by name. As a result:
-- symbols->num_by_name always equals symbols->cnt whenever
-  symbols->symbols_by_name is non-NULL (and 0 otherwise).
-- symbols->sorted_by_name is equivalent to
-  (symbols->symbols_by_name != NULL || symbols->cnt == 0). Treating
-  cnt == 0 as trivially sorted by name also avoids an unnecessary
-  read-to-write lock upgrade on empty DSOs in
-  symbols__sort_by_name_read_lock() and dso__sort_by_name().
+Dynamic symbol resolution via dso__insert_symbol() can insert symbols
+out of order (with sym->start < symbols[sorted_cnt - 1]->start) into an
+already-sorted DSO symbol table. Binary-inserting directly into the
+primary sorted run memmoves O(N) pointers on every insertion.
 
-Remove num_by_name and sorted_by_name from struct symbols and clarify
-the @symbols_by_name kernel-doc.
+Add @sorted_tail_cnt to struct symbols tracking an optional secondary
+start-address-sorted run at
+symbols[sorted_cnt .. sorted_cnt + sorted_tail_cnt) (keeping
+sizeof(struct symbols) unchanged at 88 bytes on 64-bit) and expand the
+struct symbols kernel-doc to document the three array regions:
+- Append ascending symbols in O(1) (advancing @sorted_cnt) and
+  binary-insert in place for small tables (cnt < 64).
+- For larger out-of-order dynamic insertions when no unsorted bulk
+  entries are pending, insert into the secondary sorted run with an
+  amortized sqrt(N) merge threshold (sorted_tail_cnt >= 256 and
+  sorted_tail_cnt^2 >= sorted_cnt).
+- Search both sorted runs under a read lock in symbols__find() while
+  preserving single-array highest start <= ip lookup semantics, and
+  merge into a single sorted run in symbols__sort_read_lock().
+
+Using 'perf bench internals symbols':
+
+  Default (10,000 symbols, 200 appends):
+    Before:
+      Average append + lookup: 150.333 usec (+- 0.273 usec)
+    After (-71.4%):
+      Average append + lookup: 43.000 usec (+- 0.311 usec)
+
+  Large DSO (-n 100000 -a 500):
+    Before:
+      Average append + lookup: 3315.200 usec (+- 12.532 usec)
+    After (-91.1%):
+      Average append + lookup: 294.000 usec (+- 11.574 usec)
 
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- tools/perf/util/dso.c    |  2 +-
- tools/perf/util/symbol.c | 44 ++++++++--------------------------------
- tools/perf/util/symbol.h | 16 +++++----------
- 3 files changed, 14 insertions(+), 48 deletions(-)
+ tools/perf/util/symbol.c | 151 ++++++++++++++++++++++++++++++++++++---
+ tools/perf/util/symbol.h |  38 +++++++---
+ 2 files changed, 172 insertions(+), 17 deletions(-)
 
-diff --git a/tools/perf/util/dso.c b/tools/perf/util/dso.c
-index 287f6812139c..ab0c87d0595e 100644
---- a/tools/perf/util/dso.c
-+++ b/tools/perf/util/dso.c
-@@ -1809,7 +1809,7 @@ bool dso__sorted_by_name(const struct dso *dso)
- 	bool res;
- 
- 	down_read(&symbols->lock);
--	res = symbols->sorted_by_name;
-+	res = symbols->symbols_by_name != NULL || symbols->cnt == 0;
- 	up_read(&symbols->lock);
- 	return res;
- }
 diff --git a/tools/perf/util/symbol.c b/tools/perf/util/symbol.c
-index 920951aaa5be..6dce0f44fb4b 100644
+index cf8c8e5cbd2b..10b6c847d5e9 100644
 --- a/tools/perf/util/symbol.c
 +++ b/tools/perf/util/symbol.c
-@@ -221,9 +221,7 @@ void symbols__init(struct symbols *symbols)
+@@ -221,6 +221,7 @@ void symbols__init(struct symbols *symbols)
  	symbols->symbols_by_name = NULL;
  	symbols->cnt = 0;
+ 	symbols->sorted_cnt = 0;
++	symbols->sorted_tail_cnt = 0;
  	symbols->allocated = 0;
--	symbols->num_by_name = 0;
- 	symbols->sorted = true;
--	symbols->sorted_by_name = false;
  }
  
- static void symbols__delete_locked(struct symbols *symbols)
-@@ -236,9 +234,7 @@ static void symbols__delete_locked(struct symbols *symbols)
+@@ -234,6 +235,7 @@ static void symbols__delete_locked(struct symbols *symbols)
  	zfree(&symbols->symbols_by_name);
  	symbols->cnt = 0;
+ 	symbols->sorted_cnt = 0;
++	symbols->sorted_tail_cnt = 0;
  	symbols->allocated = 0;
--	symbols->num_by_name = 0;
- 	symbols->sorted = true;
--	symbols->sorted_by_name = false;
  }
  
- void symbols__delete(struct symbols *symbols)
-@@ -510,8 +506,6 @@ void symbols__fixup_duplicate(struct symbols *symbols)
+@@ -435,12 +437,16 @@ static void symbols__sort_locked(struct symbols *symbols)
+ 	__must_hold(&symbols->lock)
+ {
+ 	unsigned int m = symbols->sorted_cnt;
++	unsigned int t = symbols->sorted_tail_cnt;
+ 	unsigned int k;
+ 
+ 	if (m >= symbols->cnt) {
+ 		symbols->sorted_cnt = symbols->cnt;
++		symbols->sorted_tail_cnt = 0;
+ 		return;
  	}
- 	symbols->cnt = write_idx + 1;
- 	zfree(&symbols->symbols_by_name);
--	symbols->num_by_name = 0;
--	symbols->sorted_by_name = false;
- 	up_write(&symbols->lock);
++	if (t > symbols->cnt - m)
++		t = 0;
+ 	k = symbols->cnt - m;
+ 
+ 	/*
+@@ -451,10 +457,24 @@ static void symbols__sort_locked(struct symbols *symbols)
+ 	if (k <= 8 || symbols->cnt <= 64) {
+ 		symbols__insertion_sort_range(symbols->symbols, 0, m, symbols->cnt);
+ 		symbols->sorted_cnt = symbols->cnt;
++		symbols->sorted_tail_cnt = 0;
+ 		return;
+ 	}
+ 
+-	if (m <= 1) {
++	if (m + t == symbols->cnt) {
++		/*
++		 * Both [0 .. m) and the secondary run [m .. cnt) are already
++		 * sorted; merge them into a single sorted run.
++		 */
++		struct symbol **tmp = malloc(min(m, k) * sizeof(struct symbol *));
++
++		if (tmp) {
++			symbols__merge_runs(symbols->symbols, 0, m, symbols->cnt, tmp);
++			free(tmp);
++		} else {
++			symbols__insertion_sort_range(symbols->symbols, 0, m, symbols->cnt);
++		}
++	} else if (m <= 1) {
+ 		struct symbol **tmp = malloc(((symbols->cnt + 1) / 2) * sizeof(struct symbol *));
+ 
+ 		if (tmp) {
+@@ -476,11 +496,12 @@ static void symbols__sort_locked(struct symbols *symbols)
+ 	}
+ 
+ 	symbols->sorted_cnt = symbols->cnt;
++	symbols->sorted_tail_cnt = 0;
  }
  
-@@ -701,8 +695,6 @@ static int __symbols__insert(struct symbols *symbols, struct symbol *sym)
+ /*
+  * Acquire @symbols->lock for reading after ensuring @symbols->symbols is
+- * sorted.
++ * fully sorted into a single contiguous run.
+  */
+ void symbols__sort_read_lock(struct symbols *symbols)
+ {
+@@ -721,14 +742,81 @@ static int __symbols__insert(struct symbols *symbols, struct symbol *sym)
+ 
+ 	if (symbols->sorted_cnt == symbols->cnt &&
+ 	    (symbols->cnt == 0 ||
+-	     symbol__less_or_equal(symbols->symbols[symbols->cnt - 1], sym)))
++	     symbol__less_or_equal(symbols->symbols[symbols->cnt - 1], sym))) {
+ 		symbols->sorted_cnt = symbols->cnt + 1;
++	} else if (symbols->sorted_tail_cnt > 0 &&
++		   symbols->sorted_cnt + symbols->sorted_tail_cnt == symbols->cnt &&
++		   symbol__less_or_equal(symbols->symbols[symbols->cnt - 1], sym)) {
++		symbols->sorted_tail_cnt++;
++	}
  
  	symbols->symbols[symbols->cnt++] = sym;
  	zfree(&symbols->symbols_by_name);
--	symbols->num_by_name = 0;
--	symbols->sorted_by_name = false;
  	return 0;
  }
  
-@@ -805,17 +797,9 @@ static int symbols__sort_by_name_locked(struct symbols *symbols)
- 	struct symbol **result;
- 	unsigned int size = symbols->cnt;
- 
--	if (symbols->sorted_by_name)
-+	if (symbols->symbols_by_name || size == 0)
- 		return 0;
- 
--	zfree(&symbols->symbols_by_name);
--	symbols->num_by_name = 0;
--
--	if (size == 0) {
--		symbols->sorted_by_name = true;
--		return 0;
--	}
--
- 	result = malloc(sizeof(*result) * size);
- 	if (!result)
- 		return -ENOMEM;
-@@ -823,8 +807,6 @@ static int symbols__sort_by_name_locked(struct symbols *symbols)
- 	memcpy(result, symbols->symbols, sizeof(*result) * size);
- 	qsort(result, size, sizeof(*result), symbols__sort_name_cmp);
- 	symbols->symbols_by_name = result;
--	symbols->num_by_name = size;
--	symbols->sorted_by_name = true;
- 	return 0;
++static int __symbols__insert_sorted(struct symbols *symbols, struct symbol *sym)
++	__must_hold(&symbols->lock)
++{
++	unsigned int idx;
++
++	if (symbols->sorted_cnt + symbols->sorted_tail_cnt < symbols->cnt)
++		return __symbols__insert(symbols, sym);
++
++	if (symbols->cnt == symbols->allocated) {
++		unsigned int to_allocate = symbols->allocated ? symbols->allocated * 2 : 32;
++		struct symbol **temp = realloc(symbols->symbols,
++					       sizeof(struct symbol *) * to_allocate);
++
++		if (!temp) {
++			symbol__delete(sym);
++			return -ENOMEM;
++		}
++		symbols->symbols = temp;
++		symbols->allocated = to_allocate;
++	}
++
++	if (symbols->sorted_tail_cnt == 0) {
++		if (symbols->cnt == 0 ||
++		    symbol__less_or_equal(symbols->symbols[symbols->cnt - 1], sym)) {
++			symbols->symbols[symbols->cnt++] = sym;
++			symbols->sorted_cnt = symbols->cnt;
++		} else if (symbols->cnt < 64) {
++			idx = symbols__upper_bound(symbols->symbols, symbols->cnt, sym);
++			memmove(&symbols->symbols[idx + 1], &symbols->symbols[idx],
++				(symbols->cnt - idx) * sizeof(struct symbol *));
++			symbols->symbols[idx] = sym;
++			symbols->cnt++;
++			symbols->sorted_cnt = symbols->cnt;
++		} else {
++			/*
++			 * Start a secondary sorted run at symbols[sorted_cnt]
++			 * so out-of-order insertions do not memmove the entire
++			 * primary sorted run on every call.
++			 */
++			symbols->symbols[symbols->cnt++] = sym;
++			symbols->sorted_tail_cnt = 1;
++		}
++	} else {
++		idx = symbols->sorted_cnt +
++		      symbols__upper_bound(&symbols->symbols[symbols->sorted_cnt],
++					   symbols->sorted_tail_cnt, sym);
++		memmove(&symbols->symbols[idx + 1], &symbols->symbols[idx],
++			(symbols->cnt - idx) * sizeof(struct symbol *));
++		symbols->symbols[idx] = sym;
++		symbols->cnt++;
++		symbols->sorted_tail_cnt++;
++
++		if (symbols->sorted_tail_cnt >= 256 &&
++		    (size_t)symbols->sorted_tail_cnt * symbols->sorted_tail_cnt >=
++		    symbols->sorted_cnt)
++			symbols__sort_locked(symbols);
++	}
++
++	zfree(&symbols->symbols_by_name);
++	return 0;
++}
++
+ int symbols__insert(struct symbols *symbols, struct symbol *sym)
+ {
+ 	int ret;
+@@ -747,7 +835,9 @@ static inline bool symbol__covers(const struct symbol *s, u64 ip)
+ 	return ip >= start && (ip < end || (ip == end && ip == start));
  }
  
-@@ -834,7 +816,7 @@ static int symbols__sort_by_name_read_lock(struct symbols *symbols)
- 	int err = 0;
- 
- 	down_read(&symbols->lock);
--	while (!symbols->sorted_by_name) {
-+	while (!symbols->symbols_by_name && symbols->cnt > 0) {
- 		up_read(&symbols->lock);
- 		down_write(&symbols->lock);
- 		err = symbols__sort_by_name_locked(symbols);
-@@ -843,7 +825,7 @@ static int symbols__sort_by_name_read_lock(struct symbols *symbols)
- 		if (err)
- 			break;
+-static struct symbol *symbols__find_range(struct symbol **arr, unsigned int cnt, u64 ip)
++static struct symbol *symbols__find_range(struct symbol **arr, unsigned int cnt,
++					  u64 ip, bool *has_candidate,
++					  u64 *candidate_start)
+ {
+ 	unsigned int low = 0, high = cnt, idx;
+ 	u64 start;
+@@ -760,8 +850,10 @@ static struct symbol *symbols__find_range(struct symbol **arr, unsigned int cnt,
+ 		else
+ 			high = mid;
  	}
--	return symbols->sorted_by_name ? 0 : err;
-+	return (symbols->symbols_by_name || symbols->cnt == 0) ? 0 : err;
+-	if (low == 0)
++	if (low == 0) {
++		*has_candidate = false;
+ 		return NULL;
++	}
+ 
+ 	/*
+ 	 * Rewind across any equal-start group so a trailing zero-length or
+@@ -770,6 +862,8 @@ static struct symbol *symbols__find_range(struct symbol **arr, unsigned int cnt,
+ 	 */
+ 	idx = low - 1;
+ 	start = arr[idx]->start;
++	*has_candidate = true;
++	*candidate_start = start;
+ 	while (idx > 0 && arr[idx - 1]->start == start)
+ 		idx--;
+ 	for (; idx < low; idx++) {
+@@ -781,17 +875,43 @@ static struct symbol *symbols__find_range(struct symbol **arr, unsigned int cnt,
+ 
+ /*
+  * Binary search @symbols->symbols for a symbol covering @ip. Lazily sorts
+- * @symbols under @symbols->lock if unsorted.
++ * @symbols under @symbols->lock if unsorted entries are present.
+  */
+ static struct symbol *symbols__find(struct symbols *symbols, u64 ip)
+ {
+ 	struct symbol *res;
++	bool has_prefix;
++	u64 prefix_start = 0;
+ 
+ 	if (symbols == NULL)
+ 		return NULL;
+ 
+-	symbols__sort_read_lock(symbols);
+-	res = symbols__find_range(symbols->symbols, symbols->cnt, ip);
++	down_read(&symbols->lock);
++	while (symbols->sorted_cnt + symbols->sorted_tail_cnt < symbols->cnt) {
++		up_read(&symbols->lock);
++		down_write(&symbols->lock);
++		symbols__sort_locked(symbols);
++		up_write(&symbols->lock);
++		down_read(&symbols->lock);
++	}
++
++	res = symbols__find_range(symbols->symbols, symbols->sorted_cnt, ip,
++				  &has_prefix, &prefix_start);
++	if (symbols->sorted_tail_cnt > 0) {
++		struct symbol *tail_res;
++		bool has_tail;
++		u64 tail_start = 0;
++
++		tail_res = symbols__find_range(&symbols->symbols[symbols->sorted_cnt],
++					       symbols->sorted_tail_cnt, ip,
++					       &has_tail, &tail_start);
++		if (has_tail) {
++			if (!has_prefix || tail_start > prefix_start)
++				res = tail_res;
++			else if (tail_start == prefix_start && !res)
++				res = tail_res;
++		}
++	}
+ 	up_read(&symbols->lock);
+ 
+ 	return res;
+@@ -927,7 +1047,13 @@ static struct symbol *symbols__find_by_name(struct symbol *symbols[],
+ 
+ int dso__insert_symbol(struct dso *dso, struct symbol *sym)
+ {
+-	return symbols__insert(dso__symbols(dso), sym);
++	struct symbols *symbols = dso__symbols(dso);
++	int ret;
++
++	down_write(&symbols->lock);
++	ret = __symbols__insert_sorted(symbols, sym);
++	up_write(&symbols->lock);
++	return ret;
  }
  
- int symbol__match_symbol_name(const char *name, const char *str,
-@@ -928,8 +910,6 @@ void dso__delete_symbol(struct dso *dso, struct symbol *sym)
- 				(symbols->cnt - i - 1) * sizeof(struct symbol *));
+ void dso__delete_symbol(struct dso *dso, struct symbol *sym)
+@@ -942,6 +1068,8 @@ void dso__delete_symbol(struct dso *dso, struct symbol *sym)
  			symbols->cnt--;
+ 			if (i < symbols->sorted_cnt)
+ 				symbols->sorted_cnt--;
++			else if (i < symbols->sorted_cnt + symbols->sorted_tail_cnt)
++				symbols->sorted_tail_cnt--;
  			zfree(&symbols->symbols_by_name);
--			symbols->num_by_name = 0;
--			symbols->sorted_by_name = false;
  			symbol__delete(sym);
  			break;
- 		}
-@@ -957,7 +937,7 @@ struct symbol *dso__next_symbol_by_name(struct dso *dso, size_t *idx)
- 
- 	symbols = dso__symbols(dso);
- 	if (!symbols__sort_by_name_read_lock(symbols) &&
--	    *idx + 1 < symbols->num_by_name) {
-+	    *idx + 1 < symbols->cnt) {
- 		++*idx;
- 		res = symbols->symbols_by_name[*idx];
- 	}
-@@ -981,10 +961,10 @@ struct symbol *dso__find_symbol_by_name(struct dso *dso, const char *name, size_
- 	symbols = dso__symbols(dso);
- 	if (!symbols__sort_by_name_read_lock(symbols)) {
- 		s = symbols__find_by_name(symbols->symbols_by_name,
--					  symbols->num_by_name,
-+					  symbols->cnt,
- 					  name, SYMBOL_TAG_INCLUDE__NONE, idx);
- 		if (!s) {
--			s = symbols__find_by_name(symbols->symbols_by_name, symbols->num_by_name,
-+			s = symbols__find_by_name(symbols->symbols_by_name, symbols->cnt,
- 						  name, SYMBOL_TAG_INCLUDE__DEFAULT_ONLY, idx);
- 		}
- 	}
-@@ -997,7 +977,7 @@ void dso__sort_by_name(struct dso *dso)
- 	struct symbols *symbols = dso__symbols(dso);
- 
- 	down_read(&symbols->lock);
--	if (!symbols->sorted_by_name) {
-+	if (!symbols->symbols_by_name && symbols->cnt > 0) {
- 		up_read(&symbols->lock);
- 		down_write(&symbols->lock);
- 		symbols__sort_by_name_locked(symbols);
-@@ -1014,7 +994,7 @@ int symbols__visit_by_name(struct symbols *symbols,
- 	int err = symbols__sort_by_name_read_lock(symbols);
- 
- 	if (!err) {
--		for (size_t i = 0; i < symbols->num_by_name; i++) {
-+		for (size_t i = 0; i < symbols->cnt; i++) {
- 			err = cb(symbols->symbols_by_name[i], data);
- 			if (err)
- 				break;
-@@ -1276,8 +1256,6 @@ static int maps__split_kallsyms_for_kcore(struct maps *kmaps, struct dso *dso)
+@@ -1287,6 +1415,7 @@ static int maps__split_kallsyms_for_kcore(struct maps *kmaps, struct dso *dso)
+ 	root->symbols = NULL;
+ 	root->cnt = 0;
+ 	root->sorted_cnt = 0;
++	root->sorted_tail_cnt = 0;
  	root->allocated = 0;
- 	root->sorted = true;
  	zfree(&root->symbols_by_name);
--	root->num_by_name = 0;
--	root->sorted_by_name = false;
  	up_write(&root->lock);
- 
- 	for (unsigned int i = 0; i < old_cnt; i++) {
-@@ -1350,8 +1328,6 @@ static int maps__split_kallsyms(struct maps *kmaps, struct dso *dso, u64 delta,
+@@ -1359,6 +1488,7 @@ static int maps__split_kallsyms(struct maps *kmaps, struct dso *dso, u64 delta,
+ 	root->symbols = NULL;
+ 	root->cnt = 0;
+ 	root->sorted_cnt = 0;
++	root->sorted_tail_cnt = 0;
  	root->allocated = 0;
- 	root->sorted = true;
  	zfree(&root->symbols_by_name);
--	root->num_by_name = 0;
--	root->sorted_by_name = false;
  	up_write(&root->lock);
- 
- 	for (i = 0; i < old_cnt; i++) {
-@@ -1505,8 +1481,6 @@ static int maps__split_kallsyms(struct maps *kmaps, struct dso *dso, u64 delta,
+@@ -1507,6 +1637,7 @@ static int maps__split_kallsyms(struct maps *kmaps, struct dso *dso, u64 delta,
+ 		root->symbols = old_symbols;
+ 		root->cnt = write_idx;
+ 		root->sorted_cnt = write_idx;
++		root->sorted_tail_cnt = 0;
+ 		root->allocated = old_allocated;
+ 		old_symbols = NULL;
+ 	} else {
+@@ -1534,12 +1665,14 @@ static int maps__split_kallsyms(struct maps *kmaps, struct dso *dso, u64 delta,
+ 		root->symbols = old_symbols;
+ 		root->cnt = write_idx;
+ 		root->sorted_cnt = (delta == 0) ? write_idx : min(write_idx, 1U);
++		root->sorted_tail_cnt = 0;
+ 		root->allocated = old_allocated;
+ 		old_symbols = NULL;
+ 	} else {
+ 		for (unsigned int j = 0; j < write_idx; j++)
  			__symbols__insert(root, old_symbols[j]);
+ 		root->sorted_cnt = min(root->cnt, 1U);
++		root->sorted_tail_cnt = 0;
  	}
  	zfree(&root->symbols_by_name);
--	root->num_by_name = 0;
--	root->sorted_by_name = false;
  	up_write(&root->lock);
- 	free(old_symbols);
- 
-@@ -1535,8 +1509,6 @@ static int maps__split_kallsyms(struct maps *kmaps, struct dso *dso, u64 delta,
- 		root->sorted = false;
- 	}
- 	zfree(&root->symbols_by_name);
--	root->num_by_name = 0;
--	root->sorted_by_name = false;
- 	up_write(&root->lock);
- 	free(old_symbols);
- 	return -1;
 diff --git a/tools/perf/util/symbol.h b/tools/perf/util/symbol.h
-index 8b8ab7e1e148..629f6b2fcd0a 100644
+index 2b20bfb22fd1..1aa54c1f1680 100644
 --- a/tools/perf/util/symbol.h
 +++ b/tools/perf/util/symbol.h
-@@ -102,26 +102,20 @@ struct symbols {
+@@ -99,11 +99,31 @@ struct symbol {
+  * struct symbols - A locked collection of symbols stored in a sorted array.
+  *
+  * The @symbols array of @cnt pointers (within an allocation of @allocated
+- * slots) keeps a start-address-sorted prefix @symbols[0 .. @sorted_cnt)
+- * followed by an optional unsorted tail @symbols[@sorted_cnt .. @cnt) from
+- * bulk symbols__insert() appends. When @sorted_cnt == @cnt, the entire array
+- * is sorted; otherwise the unsorted tail is lazily sorted and merged into the
+- * prefix on lookup or iteration.
++ * slots) is partitioned into up to three contiguous regions:
++ *
++ *   [0 .. @sorted_cnt)
++ *       Primary run, sorted by ascending symbol start address.
++ *   [@sorted_cnt .. @sorted_cnt + @sorted_tail_cnt)
++ *       Optional secondary sorted run holding out-of-order dynamic insertions
++ *       from dso__insert_symbol() whose start addresses precede
++ *       @symbols[@sorted_cnt - 1]->start (so the two runs overlap in address
++ *       range rather than forming one ascending sequence). Keeping @sorted_cnt
++ *       at the boundary between the two runs avoids memmoving the primary run
++ *       on every insertion while allowing O(log N) binary search across both
++ *       runs under a read lock; once the secondary run reaches
++ *       O(sqrt(@sorted_cnt)) entries (or a single contiguous run is required),
++ *       the two runs are merged and @sorted_cnt advances to @cnt.
++ *   [@sorted_cnt + @sorted_tail_cnt .. @cnt)
++ *       Optional unsorted tail from bulk symbols__insert() appends, lazily
++ *       sorted and merged into the primary run on lookup or iteration.
++ *
++ * Invariants:
++ * - @sorted_cnt == @cnt: all entries form a single sorted run
++ *   (@sorted_tail_cnt is 0).
++ * - @sorted_cnt + @sorted_tail_cnt == @cnt: all entries reside in the two
++ *   sorted runs and can be binary-searched without sorting.
++ * - @sorted_cnt + @sorted_tail_cnt < @cnt: unsorted entries are present and
++ *   must be sorted under @lock for writing before searching.
+  */
+ struct symbols {
  	/** @lock: Read/write semaphore synchronizing access to the arrays. */
- 	struct rw_semaphore lock;
- 	/**
--	 * @symbols: Dynamically allocated array of symbol pointers, sorted by
--	 * address range [start, end) when @sorted is true.
-+	 * @symbols: Dynamically allocated array of @allocated symbol pointers,
-+	 * sorted by start address when @sorted is true.
- 	 */
- 	struct symbol **symbols __guarded_by(&lock);
- 	/**
--	 * @symbols_by_name: Optional dynamically allocated array of symbol
--	 * pointers sorted lexicographically by sym->name.
-+	 * @symbols_by_name: Optional lazily built array of @cnt symbol pointers
-+	 * sorted lexicographically by sym->name; NULL when unbuilt, when @cnt
-+	 * is 0, or when invalidated by a symbol-table mutation.
- 	 */
+@@ -118,11 +138,13 @@ struct symbols {
  	struct symbol **symbols_by_name __guarded_by(&lock);
- 	/** @cnt: Number of valid entries in @symbols. */
+ 	/** @cnt: Total number of valid symbol pointers in @symbols. */
  	unsigned int cnt __guarded_by(&lock);
++	/** @sorted_cnt: Length of the primary start-address-sorted prefix. */
++	unsigned int sorted_cnt __guarded_by(&lock);
+ 	/**
+-	 * @sorted_cnt: Length of the leading start-address-sorted prefix in
+-	 * @symbols. The entire @symbols array is sorted iff @sorted_cnt == @cnt.
++	 * @sorted_tail_cnt: Length of the secondary start-address-sorted run
++	 * immediately following @sorted_cnt (0 when absent).
+ 	 */
+-	unsigned int sorted_cnt __guarded_by(&lock);
++	unsigned int sorted_tail_cnt __guarded_by(&lock);
  	/** @allocated: Capacity (in entries) of the @symbols allocation. */
  	unsigned int allocated __guarded_by(&lock);
--	/** @num_by_name: Number of valid entries in @symbols_by_name. */
--	unsigned int num_by_name __guarded_by(&lock);
--	/**
--	 * @sorted_by_name: True when @symbols_by_name is populated and sorted
--	 * by name.
--	 */
--	bool sorted_by_name __guarded_by(&lock);
- 	/** @sorted: True when @symbols is sorted by address range. */
- 	bool sorted __guarded_by(&lock);
  };
 -- 
 2.56.1.831.g720f3f5937-goog
