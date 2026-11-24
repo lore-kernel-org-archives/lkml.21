@@ -1,75 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.72
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.71
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795516166;
-	b=j+TJnNTX92rsO+xtmNnhvoooM1I1qfNilzXYPy45vQfnZkPTTlVPMOZlgTTtIsthH344
-	 oi+SHUgSpGkJ6gnXDh49mDRHMUS+u1qAqC9Zbl+s/CdMqbujHbrsNKIFUN0uemmaQEE0a
-	 qpHvdUfj6iUanB88bO3Bw4ANuHGzCKwO9Hf7GRJvCqb+O3hLHCQIwslsV/6H99OGbQp2J
-	 qJR81JrROVWzcIna18Cza+HFlQNbvNJiuYKHf6+chuNPqMNl3hpSPowh2G5Nzvf2YdIzQ
-	 4h+e/SkjMGCWnp9LigXh5fG/T6Ursd6w00uH/dd5dkcUbyK2tqGUhd5HzT9kYGuPM6Q==
+	t=1795516167;
+	b=JPqQkHeRJnQk7MMIU+KC+eaFfDTS4M8aQ4/4JQFMpWE9HPIyFp0Lt1QBWXb/9XWQQ5Id
+	 G8XUp4IxNtDzs8OMckblCXQmv2wJ3PJoyW9A8TOeN9ZLCDK4+VQrDp27RDTs+ZiXmHkse
+	 qDILbXOUJfYX/ETKVO+XkUb5lJk3xLKrJOMQ3viIyXkVq81Z6aMaNPWux+U/nE0FlCwPR
+	 YVG3o8ir8xVsdGAr/aDt/rUYRMnER9kNDfIqljVYdeUm/O+UWq47pUAYKnWe11nWW/fFm
+	 DB2psozIvZZwQxQ79SXYHho0zLhPYcGFWn2O3NKczAtBUKxn9LRRL1DgjftqYgoesWA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795516166;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795516167;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
 	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
 	 Content-Type;
-	bh=8DPto8EVmQeRqjuegAdBfODKwtsnd0yVddUJOx12zys=;
-	b=wI5orln3lGRx2nnTTyMfkhlST26+ijD/p/SaEuegN2LrBrmaoU49TaUZPrONvnUE6PcR
-	 IRiOsCImb/o71ABXYfUq7n5OA2lxrQbmjoxD8mIeIVaxsaq9QT3C/kDbJLurndNdLlCca
-	 yVlq1Q8hbVws839uV1so83UYm/oIsGD1VcFOnwhHwDO0suvblGEgH7WiHgx6DW+Smec2Z
-	 GciqlYjnouXkpGmt2E/qJ6K+2dgqsa9WOWtJxWTXQ7TQLp/Xz4ihiPSDTDj7mof/E5m67
-	 VpY+xUHS96cBumNtQB/QLLg63qS6/DxWqxvo8hZkhkXEUiK5JXj7OkE3nYXEPbBlTZQ==
+	bh=NgR3m63+SnytcglSpFEsTa+pIxMIxJNpneEFbxbVTZ0=;
+	b=2oOW0In/Cmgoy2jWvm3vPjpZJSY+4Hj072VsoJ+EtTURf53u4CoSU9vRkXCo5FgziYXE
+	 k5QJ3yNlQZ5hLFJHuTcGg2oFR5C8oM4dK7lfLwbgh5KmqQVnjyQDdUGs7//WxmVVTjGAj
+	 0WEGwqsF5272oFaKWlwLB9Flz2+6LNbdZMB0UZbPsnvNcad63iTBjm5WoOklARDq50CmG
+	 uZx63upx9cgpX4PAqK3nBQTQk/+qJHCjvJ6puY/+vXVKGDVunmvnU/EJK7XTsvH+qv35E
+	 FrYT++vKQWB577g8NkIKVEtzDA9SuW6cFmu4BYDTqskWMqPiodWTwFu1T67bV2A5ePg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--jpiecuch.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=CVUxB6TB;
-	arc=none smtp.remote-ip=209.85.221.72
-Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com [209.85.221.72])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b="R5Qi1nr/";
+	arc=none smtp.remote-ip=209.85.218.71
+Received: from mail-ej1-f71.google.com (mail-ej1-f71.google.com [209.85.218.71])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 223D1606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 10:29:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 223D1606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 59C34606A32C
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 10:29:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 59C34606A32C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--jpiecuch.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=CVUxB6TB
-Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-48e4d1e29f3so3676919f8f.3
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 02:29:25 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=R5Qi1nr/
+Received: by mail-ej1-f71.google.com with SMTP id a640c23a62f3a-c40bbd26f74so330615066b.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 02:29:27 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795516164; x=1796120964; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795516166; x=1796120966; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=8DPto8EVmQeRqjuegAdBfODKwtsnd0yVddUJOx12zys=;
-        b=CVUxB6TBI3VFeP5A7odhU2OAl6Shf4ODREou+6/TCMRgCvQ+YxOWNzGgO7ElxpOz+j
-         aInJTmQ7ETCb5tcIntf46ki1Zhd+oaqy6+ZOXbJs+BFaWOW2S40T6z8KqTO9VCurBzrL
-         TvpYQ8C538fX1XpsRiOoAGbyObiHawarA0LI2/mQo5zTx24ZBxzhaynESg9xU+4VctRB
-         tPmsx4buh4dfriERuV016btKGzT99pVKpKQtTqbVjAAzcBbinm1qGCo28qzgDQ5UrhUi
-         060MnJcNKb868Ydcop1om4swftLw9zTdf+KzbbKRFWaAL/LwktwLcrlM99x5iWHzBNP9
-         XGcQ==
+        bh=NgR3m63+SnytcglSpFEsTa+pIxMIxJNpneEFbxbVTZ0=;
+        b=R5Qi1nr/JXeODXucQ4klzURYLoMLDmfF7Zbk289gvCje1WPqSx0UYKEGwxU3BECOE/
+         JIpjuXV7BoLKy285p+1XgCrEUTgHR1zkmQJcu3azTvT3MSantV689ZN1p5fRkIoLI4gG
+         i1qM9a+kBRU29v1zgCcMrzZ01dR97runSOuzRKIVDNWffsVO07Rx1u/9wax9quvqzb+D
+         f9Eh2dxUMy6CF/Sigc1Mfsa0ZRmFau14rizk+D6sdlTrmOix4bQQqUdBria2iZu3SEGW
+         DZGnVQjdSS7eoE7iVLCZPrVZypFFRVVx0IIunGNsd6nysz4hNrG5lqDFSWaGSgbij/SA
+         3S2g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795516164; x=1796120964;
+        d=1e100.net; s=20260707; t=1795516166; x=1796120966;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=8DPto8EVmQeRqjuegAdBfODKwtsnd0yVddUJOx12zys=;
-        b=Y4+nsTrgfEwNRh0Bqd3j3Ghm7c9aJH8v7bF1C/GeYmNnh/9g1ySlhgVF+CB0N3011w
-         A3GM/+VdulKLsEHa6j7FnymCh1o7IxzyFooNhaXJsyOVIQzbinF5lmRJCq3gq3B0LdzU
-         Edq0WwSdMK8cRP8ra2lCStTkA7k4oea4JVZ2lCpB9nuZebgQKpHEW+EITtkmj57QUFad
-         +qnGPdAiXdEj/ra/Rda2avWQgB8tTTNFE3Ge6EWLXy2EbCAgGPhTDEn0eIveK6Hhkodg
-         4TQHFZUYEhpspyPJtCILYFT4V89lo9YnCc8EmAbynpHdXH+srmnU2Qt+8Sq3QWXLx88/
-         EP5Q==
-X-Forwarded-Encrypted: i=1; AL+hErEss2fwEFR/IEJnft0Fd1HjczDDgCIKf0979bFwm6nE/veuqJHH7Zk4ePfz+o+XheIB0Ej9a6FKfFdA6CY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8rv5xZWheSp2NUOJc5qcT9AH2qkYQNn1i64dYwXOgH6U2ihJsZ
-	hN4wdRb6Rln/n+eDVj/FlxCt3/oMsFHdSnk9R2WDNelItYOxagUHlyA96ZONwLDKDv+nXw0+3AG
-	9KeOZanhMdFFTOQ==
-X-Received: from wrqn16.prod.google.com ([2002:a5d:4210:0:b0:4a7:5aab:c222])
+        bh=NgR3m63+SnytcglSpFEsTa+pIxMIxJNpneEFbxbVTZ0=;
+        b=iICuPHwlsrSV0nYd8aX1Y1FF46q7ZsVn1sO9iz/hbhUVVIfOGec2jPNWYy/qcgsozW
+         HdBzmI5rF1KrTh7kvN7/D5MRBUzHOJXyplL6NeMqV9MH8zMiDGNWHuHb0WgI9IXo1G25
+         JJGfxwMmsJQr2nr8+HndbpOFVsZ6J0SPlNPBuuJ2/ImcFP+/K0wp15qAGPswHJHM3Uk2
+         LBR7JzLtjUwlEoNOhJhjK3xTn0okSI+VvKEnlvFQxllERIAI2qgnT32LVubDqsC8wrTl
+         HIXiK4BJOxiAr7YN1Eur0faVVAZOodPz5S7QRwqJ07RbfJyPi3lbsJLNIAmhMLl/vLgc
+         E4Ag==
+X-Forwarded-Encrypted: i=1; AL+hErFG/46RS5hqt4CX1uABw64xN2db8S1Cqbpi9l7EYCiGgFc8bckasPkZHPwmTKeM5BWeDPWXvZbt4J2mw6Y=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8jdpixaLPGKBbtUfHrqYeTUiy0NIXjdHpkkz/mOPrfL42WC/nn
+	7truTAp21CCdet7qV6GqlzSx/N/h++TmbKyOE4+JCt/yNpSmxyIqOU7PQ8dNHeWSlboahqmgklj
+	ag4WxGt/+0mUlyg==
+X-Received: from ejex11.prod.google.com ([2002:a17:906:298b:b0:c50:7d13:f19a])
  (user=jpiecuch job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6000:40c9:b0:4aa:f8a3:3cf6 with SMTP id ffacd0b85a97d-4abb3955aa0mr28954373f8f.30.1795516164147;
- Tue, 24 Nov 2026 02:29:24 -0800 (PST)
-Date: Tue, 24 Nov 2026 10:29:22 +0000
-In-Reply-To: <awVEFDoGl0ZqiHN_@gpd4>
+ 2002:a17:907:b053:20b0:c49:8fa2:4a22 with SMTP id a640c23a62f3a-c513acaefdfmr762232966b.41.1795516165548;
+ Tue, 24 Nov 2026 02:29:25 -0800 (PST)
+Date: Tue, 24 Nov 2026 10:29:23 +0000
+In-Reply-To: <awVEqEZdHReap399@gpd4>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -79,12 +79,11 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 Mime-Version: 1.0
-References: <20261123145927.577162-1-jpiecuch@google.com> <20261123145927.577162-2-jpiecuch@google.com>
- <awVEFDoGl0ZqiHN_@gpd4>
+References: <20261123145927.577162-1-jpiecuch@google.com> <20261123145927.577162-3-jpiecuch@google.com>
+ <awVEqEZdHReap399@gpd4>
 X-Mailer: git-send-email 2.56.1.831.g720f3f5937-goog
-Message-ID: <20261124102813.217423-1-jpiecuch@google.com>
-Subject: Re: [PATCH 1/2] sched_ext: Fix suspicious RCU usage in
- KF_RCU_PROTECTED kfuncs
+Message-ID: <20261124102813.217423-2-jpiecuch@google.com>
+Subject: Re: [PATCH 2/2] sched_ext: Take rcu_read_lock() explicitly in sub-cap kfuncs
 From: Kuba Piecuch <jpiecuch@google.com>
 To: Andrea Righi <arighi@nvidia.com>
 Cc: Tejun Heo <tj@kernel.org>, David Vernet <void@manifault.com>, 
@@ -94,30 +93,18 @@ Content-Type: text/plain; charset="UTF-8"
 
 Hi Andrea,
 
-On Tue, 24 Nov 2026 08:00, Andrea Righi wrote:
-> Can we express the existing protection in the dereference checks instead
-> of adding an RCU lock/unlock pair to every call?
-...
-> Can we use rcu_dereference_all(dsq->first_task) for the return instead?
+On Tue, 24 Nov 2026 08:02, Andrea Righi wrote:
+> I'd drop this patch. The IRQ-disabled region already provides the
+> required lifetime protection and the existing checks recognize it.
 >
-> That accepts explicit RCU readers and the implicit protection provided
-> by disabled preemption, softirqs or interrupts, while retaining the
-> pointer-access ordering and lockdep checking.
+> If a future change introduces another dereference here, it should use
+> the check appropriate to that protection, such as rcu_dereference_all().
 >
->> @@ -11957,6 +11959,8 @@ __bpf_kfunc struct task_struct *scx_bpf_tid_to_task(u64 tid)
->>  {
->>  	struct sched_ext_entity *scx;
->>  
->> +	guard(rcu)();
->> +
->>  	if (!scx_tid_to_task_enabled()) {
->>  		struct scx_sched *sch = rcu_dereference(scx_root);
->
-> Likewise, changing this to rcu_dereference_all(scx_root) should be
-> enough.
+> I think we don't want to introduce additional RCU read-side bookkeeping
+> on every call to accommodate that possibility.
 
-Agreed, will switch both to rcu_dereference_all() in v2, and convert
-scx_bpf_cpu_curr() and scx_bpf_cid_curr() to match.
+Makes sense, especially with patch 1 switching to rcu_dereference_all()
+as well. Will drop this patch in v2.
 
 Thanks,
 Kuba
