@@ -1,90 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=67.231.145.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795480688;
-	b=ZKrUNm90SbRYbyeR8ARk6Yx6puqbWpullSL3O5knZym8ItVOvOW0/xWXN1D34Ewnbzb/
-	 qn2In8dP/lbtoxKfJ6iXbk+eUPO1gQDJ/A1HmOQKveQrODyFfzd9TpN+tRNVvZrdxBc+H
-	 t8mMZwd3Y43eMxdKv/W2JX/qH+fTR5oyKdI6Zi2HxBHV+lKP4qeICEy7q16GWz6VDfXQC
-	 1mIsa+CZ03o3YFMcSfFwHG/Tb7pw/75jAGiIO68F36QfH3Nfk5gXZr//5KachCmm3owhl
-	 WBwN7G7PtP4rJ9pG/m5GuUuu+3x+iszXmrFz5QtYr98Cbr4QxvR0l8+KDFI4vfa2Nzg==
+	t=1795480799;
+	b=5MsCfkBrhO7jHcArhCntYX+9VFS5l7ZlWdOD3ZgbXXN/vML0xY3uFVoccWoB/kCfztiy
+	 0L6Tinmr7F2t5Ip5FAi5cIJYQkKaepykRcsBMQdw5MnwHbht20Pg+Mg3DwrcqH/JKp7oz
+	 jFHjhUJnbizHqw1OOLAeOk6lb3pqx8R8r8jl0RopH6WVI59cuBcLYMI98rXARrouhceo2
+	 ZPtbX8q+J1ZeOXinXwArwQjph+ZnwaNpZ1SKJrc+h7A18SVPB64QmuhxDloE7i7ORClzk
+	 AB4TsLjFoFmjpZ2mMxY+sQhC6/hDbltoPgUGyF4+2StXsUuKRM4g9Hjuihe4uaPuvfA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795480688;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Received:X-Forwarded-Encrypted:X-Received:MIME-Version:References:
-	 In-Reply-To:From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=Rr1csZ7oaM/i1Y8jv4N4Uoe336yHoqWQoxkbuSqpTlk=;
-	b=pHGPJmJDAiZazzk4glNc0r2rOV11crqIzHgpqfK12McE7eihvyBZvBJAhXhhCM6/GOLH
-	 NZ4VG3/5ByMsiObQS+TvtJz1885rCUDmTC56c+Z9RaC3z5cdOsTEDuNU88qFBnuabfOTz
-	 sv5b2Fb8/RFGhwebbcwi3Sl3DVgduiC1Um1r03BMxQAqlDoTr4mUQ+oqNoTxMznUadQt6
-	 8i9WkwU9pUxiv3GiBkCbQMkAsMdcbddCMVvmmYaJ4q4vsHv68r7I8f8ZOdIcoTIDeTpeI
-	 lQoXA3Q7S/JnbchoWJUchI/ZkKtkAD9jFm2dTJJMy5o/FApOwD3Y6Ur9UNz0VrVpDVQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795480799;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Date:From:To:
+	 CC:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:X-Originating-IP:X-Authority-Analysis:
+	 X-Proofpoint-GUID:X-Proofpoint-Spam-Info:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version;
+	bh=efALRy5JehNWwR5fNw4avw3lMC0wfy+UAUaAyAGBkW8=;
+	b=DkkTpXxE38m88Eo6ZLr9x1/vQgZ5ghYv/bmJRxKKBT5js2PZppIRZorrlropdqy2KAAs
+	 fPpAJaa+jLVjdYUuIseOkWA24hrlK235VBggjZPl6WvERBaqFKfwPhwnidBWUqq6EH8zl
+	 jZgZfrR6O5VbN0jPX1Feh/zy+PwWGmrC6WWf6DZTxJ7mEdXJRvVK/HhKnLLSG2mm+bPJk
+	 k9LeZdkEmhF69uPmIoF5oWDTmmSb6ID4VkyL+ZPWQKnTtghHOnvvdF4WrhkWaLqkMn8St
+	 l17OoGxqcK9Icbr+FSrFictllsVlF6Izq1cVWQFLAXUrCZWmLFb/5ONDa+rA3W+mz/Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=chromium.org;
-	spf=pass smtp.mailfrom=chromium.org;
-	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=Y9dkko4s;
-	arc=none smtp.remote-ip=209.85.128.53
-Received: from mail-wm1-f53.google.com (mail-wm1-f53.google.com [209.85.128.53])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=meta.com;
+	spf=pass smtp.mailfrom=meta.com;
+	dkim=pass header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=MQ8d7z+H;
+	arc=none smtp.remote-ip=67.231.145.42
+Received: from mx0a-00082601.pphosted.com (mx0a-00082601.pphosted.com [67.231.145.42])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BE35A606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 00:38:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BE35A606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chromium.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chromium.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DF618606A31E;
+	Tue, 24 Nov 2026 00:39:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DF618606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=meta.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=meta.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=Y9dkko4s
-Received: by mail-wm1-f53.google.com with SMTP id 5b1f17b1804b1-4b79502c27aso37708545e9.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 16:38:07 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1795480686; x=1796085486; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=Rr1csZ7oaM/i1Y8jv4N4Uoe336yHoqWQoxkbuSqpTlk=;
-        b=Y9dkko4s9o4UwhwIlkojWLa10glXl2Zu9oT61abwt6s/fEKwiMoUCMILJurwqgOek5
-         73jyCWA6bI2eMmSGnVVAnaemqD5Uj3n5Sz+YobddsPXTam2b6ZGswPblVFaJDNzUmzc+
-         UoRithvF5NJILNEYRCEfKxzNFDkfVv/w4jRXQ=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795480686; x=1796085486;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Rr1csZ7oaM/i1Y8jv4N4Uoe336yHoqWQoxkbuSqpTlk=;
-        b=a235m1KvxNh03q0cKTDpkWwm/VRPWMz49USOZyxirmfBuxONvYwdxFoyOzhQU4NmkV
-         K2UZ6UjuLZSZi4v7vI7+IRpv/6Sv3j03kwZgVjdex1/jWg7B3jsUAbLqmVkUo3NGzmg2
-         h9f9zddGjADNCxumdXHkBTYwXUTv0XXNdHexkeEHedvsqVNjbeiQVHHaqSrMel+TEyWX
-         fhmMc1jsxV6X8MwcIdFjAgOHCew7w4nfeTgl5OnqAw7odQXahDDEJ//KTj8jkKeCHf0z
-         RcleCQj9SQG/H5jYI8brK4pS+FM+tF/oQricOnjF+Q1tmvdp8WIdCHw/EykReJnKD3Yy
-         Qk3Q==
-X-Forwarded-Encrypted: i=1; AL+hErEqj2nnS+tThaeWzpQssdLelTredBFed4UoGxdNeBb7IFIhYp9bOJqxBRr5/9zyEg+ShJeitPPIoKgU6SA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8DAxhB3UaItzgfJFdo6OmNGgoM/7+9TpI9qGTd92Cb9AuU2/gT
-	883e3p7tacJMb8StcQDisqv/hop1j6esrZpjl2uTSGuZA6SshDfOUaUrqXjSuU7KBBUcZrhCsXV
-	KjxAQXOUz
-X-Gm-Gg: AZFdTZcPs+uyU4ffqM5uy/aChUhOf5hdBSCNlcVBKdeV2xP14oeQXNMZgEj5E2a5aVa
-	ZL+3yDfk9eo2yswbfCho08OrRElihEeyXeGoALNIkX9J8ISurpdXnpcXox6z+OPSqMZOYGACIsD
-	mu3zOLCafqgAe3AHcsgrUHy7219JNAq+G18Gt02JB9dXnxmVEjgtDsbGLpcrrEO3wYLy6DKZqzt
-	ZwIih14pSixhcdtveCEfvwRh1ftgPoP85NAu5Na2uq5XS9X6/O7HjeK7jDfBMj5xrmeukukesGu
-	6RgaKe5AYejVYUDBvlKa8ihGAIw2elkjXeEYpQsr1hzhNkTc5ccsx6pgJxLA6Fqf2anintuh7ls
-	soKWa5CFV0+dHFP/jlnllyfV2ckHwov5UJY7Gfii7A1tZPZmsHpVinaHbG0DebRCE92KwD8MdX4
-	yxYzd4bcHChHMI/nYrOVrQ9iY87vDvt8ItoY1udEdGqWZD/l4frSrMON5f7DMGur9jneT6DRUt7
-	n0cfjnuUOxPddPaeRSHjwjTi95rM+7T8pLjvCbOoN5DBwCnUAjQgBR0Zlwmla/FROEygsL/DHtk
-	ALDrByAgnI1n1jEhaigzvfh8LvGzUz+fA0AWn3GEIjxeiT/lcYlpabER6iYw/ge4w/wR4Q==
-X-Received: by 2002:a05:600c:4f16:b0:4a2:47:b79c with SMTP id 5b1f17b1804b1-4bb8882a66emr301228815e9.32.1795480685910;
-        Mon, 23 Nov 2026 16:38:05 -0800 (PST)
-Received: from mail-wr1-f47.google.com (mail-wr1-f47.google.com. [209.85.221.47])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6a67fe75sm28257633f8f.24.2026.11.23.16.38.04
-        for <linux-kernel@vger.kernel.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 23 Nov 2026 16:38:04 -0800 (PST)
-Received: by mail-wr1-f47.google.com with SMTP id ffacd0b85a97d-48e3b22e971so2041022f8f.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 16:38:04 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErGFny0MBRTP3CrnMbE8bFZOuKH1cRTUFrVXlxlweOGx9fB1/XJ5lLnnMFPUGWOCdQy5obwxssANQO/u82o=@vger.kernel.org
-X-Received: by 2002:a5d:5887:0:b0:4ac:84c:70df with SMTP id
- ffacd0b85a97d-4ac085bb48dmr24443427f8f.45.1795480683352; Mon, 23 Nov 2026
- 16:38:03 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=MQ8d7z+H
+Received: from pps.filterd (m0109334.ppops.net [127.0.0.1])
+	by mx0a-00082601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ANJw71x2854679;
+	Mon, 23 Nov 2026 16:39:54 -0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=meta.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pps82601-s2048-2026-q3; bh=efALRy5JehN
+	WwR5fNw4avw3lMC0wfy+UAUaAyAGBkW8=; b=MQ8d7z+HPPVzwqqHYCFi8TAuGwm
+	B9aeFtqef2e09TvZfP65mSE4FZYADxTllsLWaz7gzGazpDqtMiS7J9D2QPeGr+3Z
+	1/sCV+dRKUxpaqEv0XjThiTEAtUmFlH+5dTw1nYaUH+LHv0CuITIWrSelt8lpyu0
+	Fr4atcCmSUBbDE3oI9X6dF/715epjh8k3wuKHB64EkdOVdZqqfTtoSxAP9WncO+1
+	dtVsfdxyJKAChQe8b8LMhMoYCTqUShqttQQOd8UzZJVYQbdy6pktGNbmrFTsEA8f
+	JWZAfjwSDDSdNY3jLutjx8se6BA55cBr1eJNMpF8UDhg+4lZYqItkvgKOHw==
+Received: from maileast.thefacebook.com ([163.114.135.16])
+	by mx0a-00082601.pphosted.com (PPS) with ESMTPS id 4j3bfmwfvk-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
+	Mon, 23 Nov 2026 16:39:54 -0800 (PST)
+Received: from localhost (2620:10d:c0a8:1b::2d) by mail.thefacebook.com
+ (2620:10d:c0a9:6f::8fd4) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.56; Tue, 24 Nov
+ 2026 00:39:37 +0000
+Date: Mon, 23 Nov 2026 16:39:36 -0800
+From: Bobby Eshleman <bobbyeshleman@meta.com>
+To: Nguyen Dinh Phi <phind.uet@gmail.com>
+CC: "Michael S. Tsirkin" <mst@redhat.com>,
+        Stefan Hajnoczi
+	<stefanha@redhat.com>,
+        Stefano Garzarella <sgarzare@redhat.com>,
+        Jason Wang
+	<jasowangio@gmail.com>,
+        Eugenio =?iso-8859-1?Q?P=E9rez?=
+	<eperezma@redhat.com>,
+        Asias He <asias@redhat.com>, <kvm@vger.kernel.org>,
+        <virtualization@lists.linux.dev>, <netdev@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH net] vhost/vsock: annotate lockless accesses to guest_cid
+Message-ID: <awTcyKKYa8R7s6h1@devvm29614.prn0.facebook.com>
+References: <20261117164916.2332953-1-phind.uet@gmail.com>
+ <20261118012321-mutt-send-email-mst@kernel.org>
+ <a7752192-b417-4e70-8f39-a3cdc983f447@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,55 +83,123 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261116205320.1621386-1-dianders@chromium.org>
- <20261116205320.1621386-9-dianders@chromium.org> <20261118095418.51d30ee8@pumpkin>
- <CAD=FV=XZP5ZD8J8k5wD5XgQP-sF1SEoZNkRkXyYL1ZeuU187_A@mail.gmail.com>
- <av6J47fOAYxejSgr@gractus.seuss> <CAD=FV=UQ-LSqJ0m4h3nvatYOV6Jc_gezOb+SHTzUcx2twytEaA@mail.gmail.com>
- <awTZn8m02pE-wz29@gractus.seuss>
-In-Reply-To: <awTZn8m02pE-wz29@gractus.seuss>
-From: Doug Anderson <dianders@chromium.org>
-Date: Mon, 23 Nov 2026 16:37:51 -0800
-X-Gmail-Original-Message-ID: <CAD=FV=URVKrCKFte_2ratzViiEshYMO-9ZxiuMFbyqW9=apYLQ@mail.gmail.com>
-X-Gm-Features: Aa3M54o-Sw7CoGQi9w7uLhHvV-4sdG4fKsa0NEwuzeGRk65fdVb-36i953nWGi0
-Message-ID: <CAD=FV=URVKrCKFte_2ratzViiEshYMO-9ZxiuMFbyqW9=apYLQ@mail.gmail.com>
-Subject: Re: [PATCH v4 08/14] libfdt: Speed up fdt_find_string_len_() with memchr()
-To: David Gibson <david@gibson.dropbear.id.au>
-Cc: David Laight <david.laight.linux@gmail.com>, Devicetree-compiler@vger.kernel.org, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Konrad Dybcio <konradybcio@kernel.org>, Devicetree@vger.kernel.org, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, Chen-Yu Tsai <wenst@chromium.org>, 
-	Saravana Kannan <saravanak@kernel.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
-	Simon Glass <sjg@chromium.org>, linux-kernel@vger.kernel.org, 
-	Brian Norris <briannorris@chromium.org>, Peter Griffin <peter.griffin@linaro.org>, 
-	Julius Werner <jwerner@chromium.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <a7752192-b417-4e70-8f39-a3cdc983f447@gmail.com>
+X-Authority-Analysis: v=2.4 cv=DqvDa2/+ c=1 sm=1 tr=0 ts=6b04dcda cx=c_pps
+ a=MfjaFnPeirRr97d5FC5oHw==:117 a=MfjaFnPeirRr97d5FC5oHw==:17
+ a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=7x6HtfJdh03M6CCDgxCd:22 a=crHB47gyY4rKiduisYu9:22 a=pGLkceISAAAA:8
+ a=BpIEGQ5VxnvoCYnNX3YA:9 a=CjuIK1q_8ugA:10
+X-Proofpoint-GUID: WMQG2mlDY79KFTZ1_j5ltsmJFe1zfpH_
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI0MDAwMSBTYWx0ZWRfX8MBqf1PahJTV
+ FDRNyD2aYRuxT+r4naWLGIQoRkN0jFDLil2xAoygo3uc7S/Cof8sxQFNA23fvlZnw+3OGMEt/Wx
+ 6rw+rltyDJmixWNnylpfTrLyJOSPOPc=
+X-Proofpoint-ORIG-GUID: WMQG2mlDY79KFTZ1_j5ltsmJFe1zfpH_
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI0MDAwMSBTYWx0ZWRfXwWTiFaotObcB
+ EM1sufzoe0pFQ9Iuoyiae5qj2SfvlTIJiMtUGa3Cvjp+XSRn3UA4ySp924cMHBISYGzVRN3MMAZ
+ trfJI3QknuOBkpRSMLJNdXZs/UbgTBJSyRFgAyExEnzbEx/YhSOqLQM2aOVBhIG1EYvp/kAVAyC
+ FgV7rVO+S5LlNDgJZBgeSezY2wUN7+1XAa1T/My0nw4mv5VQGVTzQI2VJD5znETK/6lXzfj/gsn
+ f3TdSb6AgP8bHXZKLyam0VTPOyVpK6huf2JRc2xUkd95us/vf5ZolIh8PLafbDV7Mz1q4RgPFkN
+ wjJqqnriWaEZnwJnBvXGh2uCA8V2FrfeKrYvs/YI/J9yTkSfxKt80fKID8VA3zNvLs9q3/I+JJB
+ Dft5gKkA+AzF6KBeq+RVFW62db3n2iJZG9aV0maXlxNCx1SVPVJp4jw93J6Tqw+tO9PXjvQ5b9R
+ PtDJoMA1C1HEISAYJew==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-23_05,2026-11-23_01,2025-10-01_01
 
-David,
-
-On Mon, Nov 23, 2026 at 4:27=E2=80=AFPM David Gibson
-<david@gibson.dropbear.id.au> wrote:
->
-> > > Fwiw, since this further optimization is essentially free in terms of
-> > > code complexity, I'm certainly happy to apply it.  I am absolutely no=
-t
-> > > keen on further micro-optimization of this.
+On Tue, Nov 24, 2026 at 12:48:34AM +0800, Nguyen Dinh Phi wrote:
+> On 11/18/2026 2:33 PM, Michael S. Tsirkin wrote:
+> > On Wed, Nov 18, 2026 at 12:48:43AM +0800, Nguyen Dinh Phi wrote:
+> >> vhost_vsock.guest_cid is written by vhost_vsock_set_cid() under
+> >> vhost_vsock_mutex, but It is also read without that mutex in
+> >> vhost_vsock_handle_tx_kick(), and vhost_vsock_get().
+> >>
+> >> KCSAN will report data-race if we issue VHOST_VSOCK_SET_GUEST_CID
+> >> ioctl while the device has TX traffic. For example:
+> >>
+> >>  write to 0xffff88810f1596ac of 4 bytes by task 7914 on cpu 1:
+> >>    vhost_vsock_dev_ioctl+0x25f/0x720
+> >>    __x64_sys_ioctl+0xc2/0x110
+> >>    x64_sys_call+0x299/0x20a0
+> >>    do_syscall_64+0xc9/0x510
+> >>    entry_SYSCALL_64_after_hwframe+0x76/0x7e
+> >>
+> >>   read to 0xffff88810f1596ac of 4 bytes by task 7910 on cpu 3:
+> >>    vhost_vsock_handle_tx_kick+0x41b/0x740
+> >>    vhost_run_work_list+0x97/0xc0
+> >>    vhost_task_fn+0x98/0x1f0
+> >>    ret_from_fork+0x2e2/0x3c0
+> >>    ret_from_fork_asm+0x1a/0x30
+> >>
+> >>   value changed: 0x0000004d -> 0x00000032
+> >>
+> >> Both readers load the CID once and works correctly with either the
+> >> old or the new value.
+> >>
+> >> Mark the store with WRITE_ONCE() and the two lockless loads with
+> >> READ_ONCE(), so KCSAN knows the race is intentional.
+> > 
+> > You make it sounds like it is just KCSAN false positive.
+> > Is it?
+> > if yes, this should be data_race. If no, document why.
 > >
-> > OK, fair. Do you want me to drop the 1-line patch from my v5 draft
-> > then? It's basically this:
-> >
-> > -               if (memcmp(p, s, slen) =3D=3D 0 && p[slen] =3D=3D '\0')
-> > +               if (p[slen] =3D=3D '\0' && memcmp(p, s, slen) =3D=3D 0)
-> >
-> > While it is a micro-optimization, the code is no harder to read so it
-> > feels like a nice free speedup. ...but fine to drop it, too. ;-)
->
-> Sorry, I was a bit unclear.  Keep that change (though fold rather than
-> a separate patch, I'd suggest). As you say it doesn't hurt readability
-> at all.
+> 
+> This is an actual data race, not a false positive. The value of guest_cid
+> can change while the TX worker or lookup path reads it with plain accesses.
+> Because each check loads the CID once and either value is valid, the result
+> is equivalent to the read running just before or just after the ioctl.
+> Even so, plain concurrent accesses are a data race under the Linux kernel
+> memory model, and using READ_ONCE()/WRITE_ONCE() also prevents
+> compiler re-fetching or tearing rather than just silencing KCSAN.
+> 
+> >>
+> >> Fixes: 433fc58e6bf2 ("VSOCK: Introduce vhost_vsock.ko")
+> >> Signed-off-by: Nguyen Dinh Phi <phind.uet@gmail.com>
+> >> ---
+> >>  drivers/vhost/vsock.c | 6 +++---
+> >>  1 file changed, 3 insertions(+), 3 deletions(-)
+> >>
+> >> diff --git a/drivers/vhost/vsock.c b/drivers/vhost/vsock.c
+> >> index 88a310390eb0..f26c59013075 100644
+> >> --- a/drivers/vhost/vsock.c
+> >> +++ b/drivers/vhost/vsock.c
+> >> @@ -78,7 +78,7 @@ static struct vhost_vsock *vhost_vsock_get(u32 guest_cid, struct net *net)
+> >>  
+> >>  	hash_for_each_possible_rcu(vhost_vsock_hash, vsock, hash, guest_cid,
+> >>  				   lockdep_is_held(&vhost_vsock_mutex)) {
+> >> -		u32 other_cid = vsock->guest_cid;
+> >> +		u32 other_cid = READ_ONCE(vsock->guest_cid);
+> >>  
+> >>  		/* Skip instances that have no CID yet */
+> >>  		if (other_cid == 0)
+> >> @@ -572,7 +572,7 @@ static void vhost_vsock_handle_tx_kick(struct vhost_work *work)
+> >>  		hdr = virtio_vsock_hdr(skb);
+> >>  
+> >>  		/* Only accept correctly addressed packets */
+> >> -		if (le64_to_cpu(hdr->src_cid) == vsock->guest_cid &&
+> >> +		if (le64_to_cpu(hdr->src_cid) == READ_ONCE(vsock->guest_cid) &&
+> >>  		    le64_to_cpu(hdr->dst_cid) ==
+> >>  		    vhost_transport_get_local_cid())
+> >>  			virtio_transport_recv_pkt(&vhost_transport, skb,
+> > 
+> > Will prevent compiler from hoisting the reads out of the loops.
+> > Does it matter?
+> > 
+> 
+> Not much in practice: because the loop body calls non-inline functions, the
+> field needs to be reloaded across calls anyway (and in `vhost_vsock_get()`,
+> the `vsock` pointer changes on every iteration). I checked with gcc 16.2 and
+> clang 21, and the compiler does not hoist the load out of the loop even
+> without the patch.
 
-I don't think I can "fold" because you (the correct "you" this time!)
-already applied the patch I'd fold it into. I think it has to be a
-separate patch at this point, doesn't it?
+I do appreciate actually looking at compiler output, but I would advise
+taking it with a grain of salt. My now-very-rusty reading of
+memory-barriers.txt is that we do not expect memory ordering
+optimizations to be consistent over time.
 
--Doug
+I think the code looks okay. I do second Michael's ask for clarifying
+its not just a false positive, as that was initial reading as well.
+
+Best,
+Bobby
