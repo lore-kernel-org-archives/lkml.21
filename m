@@ -1,105 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.83.53
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795490975;
-	b=VCCcmFJCGlMa0IZWNShqMWVLl8qLK0CyQmrOc9RJTUcaJLff3ShEfOBRyTdjtDVqWq1O
-	 MxuzlzIr73GLvBEhtX89Z9h3EG+RYWV8k5vb2jkGrMKnEHNAEKk1iontF8HVWxT866auN
-	 p5HrtWELgvT3OfTAjZs+PhB5OSYGcYGvcEBtYcd11Nbtma64bjs3LkDW+zV5/CQRImkL4
-	 H6YgKLMMTkhZnumnS6NFDzH2YJAhXrcPnTtGOy9AXKusc75nwXmi8nEE4sQA1IzKocb7C
-	 MvqPlunLGwBStE99OEnSFBPAkEtvafYuWhGTV1l65xizVL4pJA7ewrGX3rasZBeTwiQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795490975;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 Content-Transfer-Encoding:Content-Type:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=9u58MWnUPBv+wpIoHoqA+g4jSEnmA4T+QSzu9v1QMbk=;
-	b=iERW4IJkFCsj35OwmH4z+EzxsGh3NusTGh+kE5gqRxZmYGPysA/ynNts+U5uJ8KwSDuC
-	 RS/7OWGTv7PnHyZLiT/m95O5KdSm3FMb+gV9JrqvceZCdZ8yEfRfDZnc0d6kFH8HT+N6Z
-	 LA8Qb9A3Vx4qY/solvDc1iyLW0W6nQ9Sd2AS8Gw3me63wUlpIrwgNDoIVb6nT7kF9FPtD
-	 421KVMU0z+Qb7rFcitlR5aK+wAaiv8iYT26KidlBZDiJJOm3DIzKsO/3BAy8WG3awMo9c
-	 IFC/WLwy82+d+PG9ysOgOPUEq0wfUxCZZz6uHAeyNutff6ArLB+fq6RZ4YeWrzIHJWw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.nxp.com;
-	spf=pass smtp.mailfrom=oss.nxp.com;
-	dkim=pass header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b="hZRf/p/X";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.83.53
-Received: from GVXPR05CU001.outbound.protection.outlook.com (mail-swedencentralazon11013053.outbound.protection.outlook.com [52.101.83.53])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.200
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795490983;
+	b=zG60uKCUhCSCHJnME46qdqPQkIqjjWrnY2G3l2pQrXW5DOD52g/wnxxnMiKo8cs1Ak/n
+	 86DDfBBLB4qe6maQO/XPuUp7aaM5yXSEhTy3Re4wvZAe49rJxGv910z8muD2NYgB20CPO
+	 4qr0ENdQ1jQa19+z8dxlKXbotLQl6+ZJBvJmw/gPf1pJ9Q09lRkFxzJ8u48m6VxEgCh37
+	 WLnuNwQVYEklDNzgqb7CNm1U4tfJQPUPvtvmzZjcjOBJZdQy7erNu3bXwBMCDPkVYSK+x
+	 AWVt6nD1np9+Xm/SBkcrLjISMYX+yzIi0T/eRSpnLqRikDIIFNmC3HrV1ojAbRjfn8w==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795490983;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
+	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
+	 Content-Type;
+	bh=RC+AB1O9VAsGYWgvn7uFvsnrABTphbVpW5Y+d70Dgm0=;
+	b=MmTv2mqBUSp3alJ1glKol5D2zJXDqGubs4J7uK4yH/+Hi0y1Sc5oCkvQKueec3B/3qko
+	 2pjtL8Qy4bIEYmoFE2rnH1KYTXYRBzo0E/61V9WwGT6FrVkkdQa/Rs8HOr7bfTCVWqV49
+	 6uRJ2zuYgIJBtxPKD6y2zTnajS8LrYfJfqstN3wLg9W/FmVcC4i/bsu1NjHDkt4PAx0zj
+	 8bH/3Mds26vRIzlsKVyrKvy/3fuVsQcKGh+WxNV/+HIvMoeDUcYsJv7BXJ3R6n8p2GYc0
+	 sfciZRZshbSKEJianBstzzCddqFS+YlZWfj+KZ8yOFezBeROjWvnlaF31iMN7fqrjOQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Crcl1aDR;
+	arc=none smtp.remote-ip=74.125.82.200
+Received: from mail-dy1-f200.google.com (mail-dy1-f200.google.com [74.125.82.200])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4247E606A32A;
-	Tue, 24 Nov 2026 03:29:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4247E606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.nxp.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.nxp.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 141AC606A333
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 03:29:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 141AC606A333
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=hZRf/p/X
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=EZQwMZZxb3pR6mqN1dRiIqUcpmhTPPJcHyziSxP6Mfh4c0LRmdftinG7FeDwsxHROjcR+T3s0vyvHS00WhZm3nd5hSxPLJkhos9aBRV0ZcVYFH5pQVaTNJJ0DEHUdSJM2k+Ro2QVIQmISs5Y63w3Hz4I1OwlU725XVT6cFmFESpZ1Mrr49+UW8FgBWDr/3W2myofC13bHCkbs+9gjW1EbGVNZtsD2lFcgEyMBqzcj2dHp+dVQJzmR7ZW7VUDRXSVtyPFH6aNCUN2om1wjRyXiAzeqdjfBFj5eW2qmz1U7aOdzdEXcLlMVO/Vx08VopyI7JJ683SqQYqXxXkxVOTrww==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=9u58MWnUPBv+wpIoHoqA+g4jSEnmA4T+QSzu9v1QMbk=;
- b=MZmbMCqvRZTUcscY4DaNHuQ1phI8HAJNVonjmO7kBx4XMypZbztHEOs3slaBf5pC5LWNBQrpCRmHyYMckJFT1iGRYELwBmyjPMPnq8zgsyX3JEcDZVkdHkVlIsoSPuKxucDGUhb51uswL8eq548aqTbm3NM1oZMZeMtifVDz7Liz/wk6UsQ21YvwjzEkCBXSKgv54yuD2//gVW2x1ULA4BzGpGZO2p3zYnn5Li9A7c8F2CXe7Yxjy9el6a6EhFqMfCrJ6uRbA6ugiRRat4Cp0TPEtbTXcyhlZkI7h+q040FNhg1a1fCtnEFihy6JvEHSXnMeE/byfMSQ+9YpyTMmnw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=9u58MWnUPBv+wpIoHoqA+g4jSEnmA4T+QSzu9v1QMbk=;
- b=hZRf/p/X2FvcxyHiuwVf4aOF9F9gWXSKoBc5xqi7tyUkyfYRLg+DXaugUaQG1k0YaUq0nj4INLGfA3ZBsWwgKZmXCrQHVihgNqg9F9yuqDa3r8+Y3di08OXkyyLAR8xI5qOwuNJK5euqmyjWbbM5OJUwLa5OERLRC6MKvstCIYRl/JHDOyrcCAS3602rM4EqqW3exgfKgkIBnyfbPJzwS0LGsO1kPdBChrVLGTFBWBohyrBP3l2J3W0xhNIGEQU6kvJxkXvRVd1Y/Hwc4AeWadR6Ov0isFHJIHrZ3nPSQ7mtwRhUCucL55NgNrbZt4NNLu8lifOkIsQJsIoGaThJrA==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
- by DB9PR04MB8393.eurprd04.prod.outlook.com (2603:10a6:10:25f::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Tue, 24 Nov
- 2026 03:29:32 +0000
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9]) by AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9%5]) with mapi id 15.21.0639.012; Tue, 24 Nov 2026
- 03:29:32 +0000
-From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-To: Lee Jones <lee@kernel.org>
-Cc: Peng Fan <peng.fan@oss.nxp.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Shengjiu Wang <shengjiu.wang@nxp.com>,
-	Iuliana Prodan <iuliana.prodan@nxp.com>,
-	linux-remoteproc@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH 10/10] remoteproc: imx_dsp_rproc: Fix off-by-one bitmask for trailing bytes
-Date: Tue, 24 Nov 2026 11:26:34 +0800
-Message-ID: <20261124032636.5382-1-peng.fan@oss.nxp.com>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20261123172140.3547896-11-lee@kernel.org>
-References:
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI6PR03CA0005.apcprd03.prod.outlook.com
- (2603:1096:4:285::21) To AM8PR04MB7874.eurprd04.prod.outlook.com
- (2603:10a6:20b:24d::9)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Crcl1aDR
+Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-383ec96a7deso4580665eec.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 19:29:43 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795490982; x=1796095782; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=RC+AB1O9VAsGYWgvn7uFvsnrABTphbVpW5Y+d70Dgm0=;
+        b=Crcl1aDR9pSf1cGXXszRl1+K00LhwKmkzhpxiGsLjo4LqmarP7RmJlUNh2epO1ip+b
+         VVPxVmYx2HFGSGux2+YX14zevdxjVefedB3ladQPJ+0piaF9rgj3vnYhN29WZ2sOC+zh
+         UeEbJfGisgjXICCLCqMO2MJFuDIMuPtTwlg+BwjCuEwby2PPDmuJI4D5ORqtx+MIEYhH
+         hrjyabUYJt+iufpQ1jk4/cjJbxImGFRBAsICnFDmMt0zdlguK5+6bfjwuZqdBQNF2Oez
+         I+0RxDoAaC7FA5DCjO9yOju7C1XC/3lOaC61GSeVwauEr9GgyGs1o+Gjd2GuA21lsh7Y
+         9nVA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795490982; x=1796095782;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=RC+AB1O9VAsGYWgvn7uFvsnrABTphbVpW5Y+d70Dgm0=;
+        b=UXocjwJFlRYp09e8lIKIGCyw1RR0nHAJ4Ctw9rccKCxojVwbUNi0YpeqaQaDoJ0pG+
+         axPddVGs0tacWinf21YFzViN1IBhmvsCQpDEyrtF9INfN6MANcf1XvZz+haq60eCKHVX
+         D/3pd2JTPGcmNQ02XBwOqm1JvluRjKwU9Ek29EQnBZREB4/7Srs6bz2Fd7Q+PhUOFTBX
+         fW3sdF0XxPOn7qJdmjW7Uq3vBwyef71yHZwKXnbFDgoFoPZv6C1KvL6QFCmIaanvyL/3
+         wkoA2K6xVnJrfQtRMnaIeAnB65Akr56pPk7VIkhzXWqLGWiDT/owu5cez5AM8m0pD3ro
+         /cXA==
+X-Forwarded-Encrypted: i=1; AL+hErECRw+82MM4pekwniHi0KmAwfIRt6Z3mX7/Ij+p9gm03uV5HSOHbQq+Toz0dejZY8DDV85wxPsz5utMRKI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9PpJr9UQe13SxlsSCq2rXxWZ8nZ5vkYWywBLhpS5PIs3hABOCD
+	eeq/Lssr3KUumZ/tSUJC5EHYWJUpl1AfEtz1NWHA172TlJnokofoCBDsh750+3GdvYK7HoFVZob
+	lCFICflL5vA==
+X-Received: from dybgk2.prod.google.com ([2002:a05:7301:182:b0:385:e49a:dd09])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7301:4301:b0:386:548e:e533
+ with SMTP id 5a478bee46e88-386548ee6c3mr12731053eec.18.1795490981904; Mon, 23
+ Nov 2026 19:29:41 -0800 (PST)
+Date: Mon, 23 Nov 2026 19:28:59 -0800
+In-Reply-To: <20261124032902.3859564-1-irogers@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -108,76 +78,189 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM8PR04MB7874:EE_|DB9PR04MB8393:EE_
-X-MS-Office365-Filtering-Correlation-Id: b111646f-c19d-41f5-558c-08df49db27c3
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|19092799006|1800799024|376014|7416014|366016|261026135527099003|261022115727099003|261102123227099003|261026121527099003|261022113327099003|261022075727099003|261022105027099003|261026130827099003|261026140227099003|261028144727099003|261021121427099003|261021123027099003|261021130227099003|261021133027099003|261021135927099003|10067099003|11063799006|56012099006|261009223027099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info:
-	BRBXsAu5QPjhmYmu6Lvt3fuxJQTSACJf3C+vmnjXA+yuozGAi8Szd8SQmDIBzWMmlDBjsEnGDXw/ZaXWp+mIF4zcgZisijBi41IPJyWP6rXnUfRQhq9tiJTx31ST4IYmZndPEDiaPgUzcZNsDIcQynD3c6xguREH7BCcomwxPBDMTi14ddHpYUBylvbtuY0BmMSwHm5AOjlxe6R0XIo4JIoLexjett02GdnrMEycj5wfUZLiON8qvFaHFop+Hmi9gS13E0Zn8lUnj/Os8pt/ZSFtp8BIG4d3AvPbfIBfYTNVdStK48YdnGe+uaBfRiOCaOmVpSUAA8UVLqd+QnmgwQi4M/6N4lIXwCRroR1psWyQ3G8+tsRMbBU6nM+eO76uLBN8YMRyXRRGUUZtMerB5+4f4EH8cc30Is1GAbsQsHc8AusYbwDxZRfFL1E3PuD2UxPvlVzzcmU5LRjNkAuzHgvrdBufUv2UwWAzBI6S3SM/2jzxB52WyUzbgrZSP6FNF9OF04SDQe21HI20xs/DCd6DBCssaGhsMyjgGJldSbHQiNQ0rou6JgKvBFRZWegW/TWqazNou3jgriFsyFaKLpPWtc6ABmTU8qyY/lpKj78=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(19092799006)(1800799024)(376014)(7416014)(366016)(261026135527099003)(261022115727099003)(261102123227099003)(261026121527099003)(261022113327099003)(261022075727099003)(261022105027099003)(261026130827099003)(261026140227099003)(261028144727099003)(261021121427099003)(261021123027099003)(261021130227099003)(261021133027099003)(261021135927099003)(10067099003)(11063799006)(56012099006)(261009223027099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?SFTqWOkvjHdhboCUqPGtVgzjcJxAaW8UA4fjt3RsO2wIZCBSLd1cR5i3MLoo?=
- =?us-ascii?Q?WpcfnwIi1XzW4gvChyT3cccCJHdeUU6fYg8J8szZDk/By2riIGSu/1jg+pVY?=
- =?us-ascii?Q?M8cttzFIYEEbIIxYje2lUwYcWVJDE72IiaxOkxH3NJcHZ2hSDx7EqME/8Tb8?=
- =?us-ascii?Q?Pnbl3mkR3uhWPNR6G923XJ8UB53kqJoX3jhgbTiHb53LMMvMpTPzVe5ZnP2Q?=
- =?us-ascii?Q?K95euG6z/tzCbBQpD6u/BP42CS7Fq9fDQxHG+cI/DDW6O/ZDkmShkbJRumxA?=
- =?us-ascii?Q?u1fLLSWBXOn1ohyIoTzUHAhIW8cOI/Lh0ZjLJBN0+ZEgKwwqxZaSGPW/IJUS?=
- =?us-ascii?Q?kEQXpROPp9KqzxfszOmmxOhLJpZgMC0JnYmoghwKYTN8rrCJn8v67qv7GC9a?=
- =?us-ascii?Q?RDc8iK60kJjXfpQueqpDgNhcKOlmZaFsd1erT4cdj1t5aRjW3rOrnbDJZwYl?=
- =?us-ascii?Q?0e9haTSh3Qie3RgZUrM9nNftiVwuNF+hEGTww+TP4A4vrcm2Ewdx8qai3gT+?=
- =?us-ascii?Q?Z73JRtj2lxK5ApLJdOMqgo1pbKCj8RiB2QWAD81BL/Mi+Fv0Eg4NaI3hFUr8?=
- =?us-ascii?Q?eIXFjLUgPhou9f8EoOZE+DGZXdPpZRE1tU9fpYir//RGM3ZSluMDouv5loQO?=
- =?us-ascii?Q?yFReXqQX7Qwdv9tVBx50eEAILWxxeNtYklHBDF+NQvbUqfj5dX+FS4K834mL?=
- =?us-ascii?Q?jJqcbOPjH5nfareJZU1w2rACt5ciuy6OzfRvpQnv9mwbFiOp3BHoFkAvvr3z?=
- =?us-ascii?Q?uxaY+FoHWUQ2G88yWbefSNzjPcQSvt5kosx/nWFDggrMUGni6Oy+XYPp6sR+?=
- =?us-ascii?Q?xJWSksneoF5MDyQBczqIj/tzoaXUWq7JHniAmXNnEmDHBmAy0PeDDpnM1Wy2?=
- =?us-ascii?Q?sMx/LBATsdIcbZkirOFAetJooXSRZSwmDoiRi69NHwgsGULCuc105YYWezKN?=
- =?us-ascii?Q?ilHDEcpM/4jDAFvicQ0WfYhG1Dp8SSrDGyHXENbZe6IXVUFO7WGVxVqr4g2M?=
- =?us-ascii?Q?RrHuuNAyOiCc/iRn8AUZeNmRUoaluBlKU7scAxprqXG3L7P4JsEx6Xc7r1q/?=
- =?us-ascii?Q?SS4UvIe2LRftc3saaqKNRKatap6BxVpgCsbOoxxWGEytkIZwcz+fODjXL0LH?=
- =?us-ascii?Q?SUBVB3T5roTwetT+R2F4vxyyiFUjBe5sYnTlFLMfv1CwiB4QhluS3KKrPWRJ?=
- =?us-ascii?Q?1C9BxRCSaWGYm1xMeEcJ1nUpy5SIB0WbhBBdINNHf2rgOVi6HJHdtWC2z2b2?=
- =?us-ascii?Q?uD9ck8E9TRcoilsUgRMyvi+Tb3psGKK/jTHt6l+iLMW9GYc+xTfOJj7fvxTz?=
- =?us-ascii?Q?v5kevKiUWCpzhC3XdMZqNJsvrjlfqi5sx8spw6Y11jcylSm9v1NtfVKUC6RD?=
- =?us-ascii?Q?G+KNekjUcs4Szh2VUjCGfVsctcLuBknpL6Mq2npfiCT79AR88Un5RhAn+GED?=
- =?us-ascii?Q?hbU8fAE/PkmmqKdNZ4EIyKAh+Op8MRhv1qV/iAwyhRS6xAx4PsWMA4J29XLw?=
- =?us-ascii?Q?YvLlXsdxaKpr3tAMBgm/ghWDmPOnp2wRs1bPrdvWdMW4h4MxHUjvirejUZRo?=
- =?us-ascii?Q?bg70zYUpjYjLkcNoMGpU3nkkoAdVgyKSoB/fDMC7cT1VzKADNLfXmZCsy69N?=
- =?us-ascii?Q?unRceADVsqbME1jVbqs9MRzcmdq9FaPMG+L457mUN7VlVaIsUrmSOtJmeGP4?=
- =?us-ascii?Q?FmvVh1Ij1nlhz8z7nlTNcKnmRzpA4MvrktgM1EEkgmi7xqZMQoQWzRW7lf91?=
- =?us-ascii?Q?+hyS6OABFTGBWe5w/VO6g1/H7OoMY4nghNZylyckAenhURf/ZznB?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b111646f-c19d-41f5-558c-08df49db27c3
-X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7874.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 03:29:32.4990
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: UhhHm3opsYnSehmAoOvYkWHVENShG/0Fta6OaZt72nP0GwTaYw7Zpt559bdeyx9XXL8GGl6J7ePhjhHjcKEFHun23i8Z6dRTvLPY2ZAevXGGQODdCP0NEpZZe1RUSYGw
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB8393
+Mime-Version: 1.0
+References: <20261124032902.3859564-1-irogers@google.com>
+X-Mailer: git-send-email 2.56.1.809.ga0b61035b5-goog
+Message-ID: <20261124032902.3859564-9-irogers@google.com>
+Subject: [PATCH v9 08/11] perf session: Add dsos, machine, and perf_session shrinking
+From: Ian Rogers <irogers@google.com>
+To: Namhyung Kim <namhyung@kernel.org>, Arnaldo Carvalho de Melo <acme@kernel.org>, 
+	Alireza Haghdoost <haghdoost@uber.com>, Ian Rogers <irogers@google.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, Jiri Olsa <jolsa@kernel.org>, 
+	Adrian Hunter <adrian.hunter@intel.com>, James Clark <james.clark@linaro.org>, 
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-On Mon, 23 Nov 2026 17:20:54 +0000 Lee Jones <lee@kernel.org> wrote:
+Add container-level shrinking helpers walking DSOs across a session's host
+and guest machines:
+- dsos__shrink(): Calls dso__shrink() and dso__try_evict() across all DSOs
+  under dsos->lock, compacts the array when unreferenced DSOs are evicted,
+  and calls malloc_trim(0) on glibc when memory was reclaimed.
+- machine__shrink(), machines__shrink(), and perf_session__shrink():
+  Shrink host and guest machine DSO collections.
 
-> When size is not a multiple of 4, both imx_dsp_rproc_memcpy() and
-> imx_dsp_rproc_memset() compute affected_mask as GENMASK(8 * r, 0) for
-> the remaining r bytes (1 <= r <= 3).  Because GENMASK(h, l) is inclusive
-> of bit h, GENMASK(8 * r, 0) sets 8 * r + 1 bits and clears or overwrites
-> the least-significant bit of the first byte past the end of the target
-> region during the 32-bit read-modify-write.
-> 
-> Use GENMASK(8 * r - 1, 0) to mask exclusively the r trailing bytes.
-> 
-> Fixes: 408ec1ff0caa ("remoteproc: imx_dsp_rproc: Add custom memory copy implementation for i.MX DSP Cores")
-> Closes: https://sashiko.dev/#/bug/linux-2e407b68-a7e9-42ff-a613-e61b47a4461b
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Lee Jones <lee@kernel.org>
+Signed-off-by: Ian Rogers <irogers@google.com>
+---
+ tools/perf/util/dsos.c    | 50 +++++++++++++++++++++++++++++++++++++++
+ tools/perf/util/dsos.h    |  2 ++
+ tools/perf/util/machine.c | 29 +++++++++++++++++++++++
+ tools/perf/util/machine.h |  3 +++
+ tools/perf/util/session.c |  8 +++++++
+ tools/perf/util/session.h |  2 ++
+ 6 files changed, 94 insertions(+)
 
-Reviewed-by: Peng Fan <peng.fan@nxp.com>
+diff --git a/tools/perf/util/dsos.c b/tools/perf/util/dsos.c
+index 7a56577f4ec8..77f668d7557c 100644
+--- a/tools/perf/util/dsos.c
++++ b/tools/perf/util/dsos.c
+@@ -6,6 +6,9 @@
+ #include "vdso.h"
+ #include "namespaces.h"
+ #include <errno.h>
++#ifdef __GLIBC__
++#include <malloc.h>
++#endif
+ #include <stdlib.h>
+ #include <string.h>
+ #include <symbol.h> // filename__read_build_id
+@@ -517,3 +520,50 @@ int dsos__for_each_dso(struct dsos *dsos, int (*cb)(struct dso *dso, void *data)
+ 	up_read(&dsos->lock);
+ 	return err;
+ }
++
++size_t dsos__shrink(struct dsos *dsos)
++{
++	unsigned int write_idx = 0;
++	size_t freed = 0;
++	bool any_removed = false;
++
++	down_write(&dsos->lock);
++
++	for (unsigned int read_idx = 0; read_idx < dsos->cnt; read_idx++) {
++		struct dso *dso = dsos->dsos[read_idx];
++
++		freed += dso__shrink(dso);
++
++		if (dso__try_evict(dso)) {
++			any_removed = true;
++			freed++;
++			continue;
++		}
++		dsos->dsos[write_idx++] = dso;
++	}
++
++	dsos->cnt = write_idx;
++	if (any_removed) {
++		if (write_idx == 0) {
++			zfree(&dsos->dsos);
++			dsos->allocated = 0;
++			dsos->sorted = true;
++		} else if (write_idx < dsos->allocated / 2) {
++			struct dso **shrunk = realloc(dsos->dsos,
++						      write_idx * sizeof(struct dso *));
++			if (shrunk) {
++				dsos->dsos = shrunk;
++				dsos->allocated = write_idx;
++			}
++		}
++	}
++
++	up_write(&dsos->lock);
++
++#ifdef __GLIBC__
++	if (freed > 0)
++		malloc_trim(0);
++#endif
++
++	return freed;
++}
+diff --git a/tools/perf/util/dsos.h b/tools/perf/util/dsos.h
+index cc7e3a42f9cb..de10a10de777 100644
+--- a/tools/perf/util/dsos.h
++++ b/tools/perf/util/dsos.h
+@@ -51,4 +51,6 @@ struct dso *dsos__find_kernel_dso(struct dsos *dsos);
+ 
+ int dsos__for_each_dso(struct dsos *dsos, int (*cb)(struct dso *dso, void *data), void *data);
+ 
++size_t dsos__shrink(struct dsos *dsos);
++
+ #endif /* __PERF_DSOS */
+diff --git a/tools/perf/util/machine.c b/tools/perf/util/machine.c
+index 3c206c26bd62..f4108cc725fc 100644
+--- a/tools/perf/util/machine.c
++++ b/tools/perf/util/machine.c
+@@ -3438,3 +3438,32 @@ int machine__hit_all_dsos(struct machine *machine)
+ {
+ 	return dsos__hit_all(&machine->dsos);
+ }
++
++size_t machine__shrink(struct machine *machine)
++{
++	if (!machine)
++		return 0;
++
++	return dsos__shrink(&machine->dsos);
++}
++
++size_t machines__shrink(struct machines *machines)
++{
++	struct rb_node *nd;
++	size_t freed;
++
++	if (!machines)
++		return 0;
++
++	freed = machine__shrink(&machines->host);
++
++	down_read(&machines->lock);
++	for (nd = rb_first_cached(&machines->guests); nd; nd = rb_next(nd)) {
++		struct machine *pos = rb_entry(nd, struct machine, rb_node);
++
++		freed += machine__shrink(pos);
++	}
++	up_read(&machines->lock);
++
++	return freed;
++}
+diff --git a/tools/perf/util/machine.h b/tools/perf/util/machine.h
+index 67d517742fb6..b42c363723c9 100644
+--- a/tools/perf/util/machine.h
++++ b/tools/perf/util/machine.h
+@@ -339,4 +339,7 @@ int machine__resolve(struct machine *machine, struct addr_location *al,
+ 
+ int machine__hit_all_dsos(struct machine *machine);
+ 
++size_t machine__shrink(struct machine *machine);
++size_t machines__shrink(struct machines *machines);
++
+ #endif /* __PERF_MACHINE_H */
+diff --git a/tools/perf/util/session.c b/tools/perf/util/session.c
+index 4e11eabbbe6f..9f16bff1b72f 100644
+--- a/tools/perf/util/session.c
++++ b/tools/perf/util/session.c
+@@ -4270,3 +4270,11 @@ uint16_t perf_session__e_machine(struct perf_session *session, uint32_t *e_flags
+ 	 */
+ 	return perf_env__e_machine_nocache(env, e_flags);
+ }
++
++size_t perf_session__shrink(struct perf_session *session)
++{
++	if (!session)
++		return 0;
++
++	return machines__shrink(&session->machines);
++}
+diff --git a/tools/perf/util/session.h b/tools/perf/util/session.h
+index 05ea2c1ee8c9..cbea6792a008 100644
+--- a/tools/perf/util/session.h
++++ b/tools/perf/util/session.h
+@@ -211,4 +211,6 @@ int perf_event__process_finished_round(const struct perf_tool *tool,
+ struct perf_env *perf_session__env(struct perf_session *session);
+ uint16_t perf_session__e_machine(struct perf_session *session, uint32_t *e_flags);
+ 
++size_t perf_session__shrink(struct perf_session *session);
++
+ #endif /* __PERF_SESSION_H */
+-- 
+2.56.1.809.ga0b61035b5-goog
+
