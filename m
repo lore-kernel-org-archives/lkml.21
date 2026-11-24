@@ -1,117 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795521976;
-	b=yJwNFMWoFs6Bq3XWtRNgwsZYyn35jBHquorjCT/es9x0qcHMyQahGEG6OX+iN+m+FbQE
-	 LF/kf/X8RBEvN4EaoNcoHyfm+4ZQeRIQEme5O82TdAQkOEfpgNlA3bLAst9KFBJTb3dyF
-	 XXi5XzEBoJdfjm9V0GARR3rRBYZAbeQZthskHYC+Hre90TMGjZ2vyLEazfP0YYWOGmOcv
-	 HWgCk7EpKhFRdiMOAS6qv3Urs9CHCz4h2ABt0kenbYQiOG9YW6mu9JoWeTfpUzdmF0b3T
-	 c969NJ7J8Y9N/bt5JEb+MVDhUTuKbTdI2ZW/4/6gbR6zwa5+WJ4IRE36/vMHGipXtTw==
+	t=1795522113;
+	b=f6GB62UiRTPPEU+jSpqTo9myjSYnaOHDvlIIHotnhRspSImZqhyvC+wS/nFndH+cuvUW
+	 rTe6PKMonV8M+3Du1pwOGWQhB1RU5Fu66MVnIk4hrAh9NxNeNcaMR7Ku+YbXt5kLafG3T
+	 S5okpi2fF0bAkE03W/EmhNq2NeXLf21nE7UDOTyTUbnexFILGvXUHHiL6SjC3c1VEUgue
+	 Sd7AO7AfwWydPH7X2MouMbwbzuEi26PEH1wm8fwmZFFBFE/AYFqTNZzSXGW0D/FzSag4V
+	 YmS44YZkrjSjAULZdWx9NY3Oow+BNtp6fzm9fvmnsswWqDVn+DYCYfmK5siyUr+DyPQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795521976;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:To:Cc:
-	 Subject:Date:Message-Id:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding:X-Proofpoint-Spam-Info:X-Authority-Analysis:
-	 X-Proofpoint-GUID:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=56h/egVfcl+cbXmvG3NjDJ9z3RzJgimP+ytjMSOP2PM=;
-	b=hriZtjs075G031ek7NWP2MwkQrLfxnDCH2voS6PLtIYSLDZsuxczJZjmv4OU7v4aulYl
-	 zmrmkASKSdVcLNRikV2Rvqeki3g9po7wTWE/HKLztnJuSYYPZiNpSber0TINU40ldVSXl
-	 0eTx3WTql+6nMDWgYjOGrbtCzGsV3GDl0nymAQ9CJx2siEiTaRFQxBOsTaDWxnBr5yuX6
-	 cG++b0G1YgJFf3ms9oIZCOY89P/iXPyuwLbx7MziJYD3kt/qNDW2hDlz3MUPnlZKw8gf/
-	 8Ns8SxebP8/Jl2CIzQZju5DmHOqiJXjGG2w3Fz1GhJb3Cvv1LX4uCotAcMbofs1OeKQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795522113;
+	h=DMARC-Filter:Date:DKIM-Signature:DKIM-Signature:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=VqJ96x7irDA25tpkuaj/0vDZJhWuEo9c3bEZALNqSGo=;
+	b=BDN4P+Isk3n5rMDQoAH8NtnBywLzDlTpgXH3623GeY9JfIybVY9XnOKzMB3YYuNQP3O0
+	 HInNcz4SvdMb5PFekl941w05wdyAWMDmQZbik0IknyKnOj0CNfgHSQ6YMlqlk/y7/p6D+
+	 X9VpAPK72ycJI9ROqhPiEjIdL5lGdTawyQdO3Vj0/nbNhYqFNS22wWlFuzy0kq1ZMseWa
+	 254S8k4sWpfFj9KMwgfbV38gnAne0IGARhAhXCg0+5R2hJDL9NbHVOt6a4lNYJSccPyQo
+	 RXv4x0e2nrzIqfmoxBLnMNuFt+cN4b3HkH1mt6cgbOS4en389z+WNIRbI5IpTuRukGw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=XNMNiiHl;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=YkSX6mel;
-	arc=none smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+	dmarc=pass header.from=linutronix.de;
+	spf=pass smtp.mailfrom=linutronix.de;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=gn5MVccG;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=BnOOc09t;
+	arc=none smtp.remote-ip=193.142.43.55
+Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9C4C6606A32A
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 12:06:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9C4C6606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8FD54606A326;
+	Tue, 24 Nov 2026 12:08:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8FD54606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=XNMNiiHl;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=YkSX6mel
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AOAuTxK120275
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 12:06:15 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:message-id:mime-version
-	:subject:to; s=qcppdkim1; bh=56h/egVfcl+cbXmvG3NjDJ9z3RzJgimP+yt
-	jMSOP2PM=; b=XNMNiiHlMTXeslx/kRuMtNkrIHTgCc03XcAwd2MSCOmybDiKhXs
-	piLIJJdjfbuq0klZr/VXs7N8BIfRXGhkryz4iUHAX1izE4Fu76G/9FK1ErN524Tj
-	aSGeSSLHlm2Nd1Q7Wl9upyp0JMo1rtbHewE0C2bjyaBQX2ldVWu4ro1mNlIR47Ma
-	1OfRtHLF1uN138yCDxvIOFcJpMTUCpY9hjxzpQelVwx1qg/tzIDBjpz3GuXLm/A+
-	UKCSlRLCDuIs9U59Lby2JN1pCW8ekvIwJAlOFgviDTQi/ikTRDp0Nh/8/6XgPwrh
-	a6CIKtUBnBNpeVSZkOy3GdiilMEQtDYFj0g==
-Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com [209.85.216.70])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j4x8f2xap-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 12:06:14 +0000 (GMT)
-Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-3b3a74ee77fso2786449a91.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 04:06:14 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795521974; x=1796126774; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=56h/egVfcl+cbXmvG3NjDJ9z3RzJgimP+ytjMSOP2PM=;
-        b=YkSX6melncjeSur68WgjvWjwM3y7RZKQirSIHzUO6ufAl/ztejyHgJzw+v6uGxyHPC
-         ZM00cetwhG6OlGOK9C3o25QP8ZsVFjeJLBDLG+ZScnOxydX2145zR55OpVk13ufkCl2Z
-         oFL1Fpj6FkTv+Wkc3XYC/93dwJ9GmG+R2yoEgOmB6KjJkhNm/oaYMBR5KthgQQkw4ov+
-         DDhljEoYFuagVn7Y7BupwrRFUKFlOmcpzdMDAANByizzPOVfHY4K6qNl4zrL8WM1PASQ
-         Vkim0XczKqMIaW/j1Ejta4rQTtVsjr9HxJ9DskUDEol0JinjxtbC0RuDpt8a0Ag9P3SF
-         fjaQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795521974; x=1796126774;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=56h/egVfcl+cbXmvG3NjDJ9z3RzJgimP+ytjMSOP2PM=;
-        b=Jb9DIq8SvB8GiPQX9yMy6FyeZrTiQb30Z6vh916M9AIlpxiGmaVmBbPjGDSosEyh59
-         pa4C4Cd+YqwPjVeXBf+2Y1oOzKFNT3UuzMoUVrDddS1gBnvZvj3B0Xu/CWVxyFml3cSp
-         zuO0LZA9EbBBv14dm/kD6f5RRComLdRUe68ky4RB7b9ooaqbc3wI9K8Ygx38ud3OYcJs
-         JwUQ/XQlT76bwKXPx7pI6pcFkjoPoGkb4WFD3A5lWWFO9SQW57DivOu2BI4WRKHrG061
-         vRCpH8h8bIONO2/6eoYNQ178PGioDcKwI0L0CkhOCAX9wP7W4LZ5KyqwYfjY6+ijfACQ
-         fh7w==
-X-Forwarded-Encrypted: i=1; AL+hErHru89YdMgqoKgoTKAf0qLjy7e93IuLnjVOa2+2U62d+o83PFGodnZDzHfz5rxDWryEKoOqt+Bodb0CfSY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+v13udQxOXTEdAwGEjoyKpD4ALvIhlYEXfxhrywEX69UoM1p0u
-	9Ro9l+ScCpwnAwFm0nbIoP0Pl+geZAMSjHvSqhVvCrEr16bS/iD8uLX5QWwK1GdjlgLC0gN5riE
-	1JXzgTPKsPxlFydwo+zLPF2OQW/uwtackUqkO51BHVspX0a0nW+opT/jQRcK2V7FAE6RplTnsEL
-	s=
-X-Gm-Gg: AZFdTZco7XZAx9rX41UNblyP1oqnNxEFq+F4yja8uVbk6GLvL0BuASzZ4ShG6dRKDea
-	iWJBqdx0duQlUhEryo/tDpBZiJT/9VHqSiFWcVcbpecCIxwWkMVnlBAiF2heX07SPVQRlHy9sQT
-	bPg8iW2E7TUM79k/StK6Q/N0SGJ1aIrQZIq8a2Opc9XW6db5i7gjOAQ6tXNhES6izaKvmZ/YVVY
-	ZZtFqZGct8x6cBQLa/i2X326SvcOhWXC5xUXhxHtNtAJDayEffhWsYPTCyrOD/iIpthsaJPzbd5
-	yMiYeyz2cZA2xqOl0TL6B1jMMhFyAPBCERoAiow9FwPA7YdnDtobdmrgSM21P4SUf0vzh+IzmoC
-	emlp6bUnS4xPl62KgcEBCpC0VyHaJ0xKPH59crIQHBE25trGfTKWWioljkNbG4Lf54wfaii9+An
-	SSmW0/i85q
-X-Received: by 2002:a17:90b:39a7:b0:3ac:8897:7baa with SMTP id 98e67ed59e1d1-3b41c9638b9mr12375877a91.40.1795521973807;
-        Tue, 24 Nov 2026 04:06:13 -0800 (PST)
-X-Received: by 2002:a17:90b:39a7:b0:3ac:8897:7baa with SMTP id 98e67ed59e1d1-3b41c9638b9mr12375844a91.40.1795521973248;
-        Tue, 24 Nov 2026 04:06:13 -0800 (PST)
-Received: from hu-parihar-hyd.qualcomm.com ([202.46.22.19])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad0a34asm22324533a91.3.2026.11.24.04.06.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 04:06:12 -0800 (PST)
-From: Abhinav Parihar <abhinav.parihar@oss.qualcomm.com>
-To: srinivas.kandagatla@linaro.org, linux-arm-msm@vger.kernel.org
-Cc: Abhinav Parihar <abhinav.parihar@oss.qualcomm.com>,
-        gregkh@linuxfoundation.org, quic_bkumar@quicinc.com,
-        ekansh.gupta@oss.qualcomm.com, linux-kernel@vger.kernel.org,
-        quic_chennak@quicinc.com, dri-devel@lists.freedesktop.org,
-        arnd@arndb.de
-Subject: [PATCH v3] misc: fastrpc: Add cache maintenance for non-coherent platforms
-Date: Tue, 24 Nov 2026 17:36:04 +0530
-Message-Id: <20261124120604.2640046-1-abhinav.parihar@oss.qualcomm.com>
-X-Mailer: git-send-email 2.34.1
+	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=gn5MVccG;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=BnOOc09t
+Date: Tue, 24 Nov 2026 13:08:29 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1795522111;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=VqJ96x7irDA25tpkuaj/0vDZJhWuEo9c3bEZALNqSGo=;
+	b=gn5MVccGImMymK0cGWAo2vuYbwr5w2XyJbSq20Mv/pjr9t70Ey7iKWFukb/aaqa12yDTrf
+	VxTHiFBFBz+LqOQqruBdbbbLlId0Izo4Ps9bx45WOmDZWkoRpgGLIqHlQQ4eT+SsxiDPsz
+	MuoXxYgMIiefFRh1G/Y5mBxv6/iL+s46ogDCgrHNf50TuTZNc57/mEgcExK2HtSsWVq1pI
+	KVYDM2jmbacQwGgTqrTe+WsdNii45TwlcmkkV7r4a+YXJ0RGPyWCazz/qpT04cdL8ctEBm
+	FKgwokg7dfNMLkvQ45jeH/GXfDQOVCrtdEGRe9/85P6UMDj8pw0fUUlROA1L5g==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1795522111;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=VqJ96x7irDA25tpkuaj/0vDZJhWuEo9c3bEZALNqSGo=;
+	b=BnOOc09tUwiZGYNo3KQCsEaSmxM9WTuSQkf5+SyCFWU0GdmrCWuW30ZGSVuHrUlZ9GgZou
+	BsSLQorvdNLiJ+Bw==
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+To: Chaosheng Qu <chaosheng.qu.linux@gmail.com>
+Cc: Steven Rostedt <rostedt@goodmis.org>, Martin King <martin3kx@gmail.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Juri Lelli <juri.lelli@redhat.com>,
+	Thorsten Leemhuis <regressions@leemhuis.info>,
+	regressions@lists.linux.dev, linux-kernel@vger.kernel.org,
+	linux-rt-users@vger.kernel.org
+Subject: Re: [PATCH] sched/rt: push a queued task when its priority is boosted
+Message-ID: <20261124120829.53F8ppqc@linutronix.de>
+References: <CAEB5A_91hob8ddOhW=PrO1=O7GrFmSxY3r1-_Ard6x8KHHuJGA@mail.gmail.com>
+ <20260814183652.611e7ecf@gandalf.local.home>
+ <6db9c47f-a1f8-49dd-9e80-f9014d75f9e8@leemhuis.info>
+ <20260903092037.5b739980@gandalf.local.home>
+ <20261015061915.126442-1-chaosheng.qu.linux@gmail.com>
+ <20261015084615.05957ae3@gandalf.local.home>
+ <179526068763.97100.12205093734161349836@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -121,239 +81,94 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI0MDA0NyBTYWx0ZWRfX2tKO4lzdy4or
- 0/51jAzdMlixSqdt0fEtFVk5Ex1BSzEguarnDf9MDtrPaGHR4uBr3hltXoVp7GGVAeG9XAVyguj
- rHc/M68lkEHPq5zybgTydBBmbf2+Ig0=
-X-Authority-Analysis: v=2.4 cv=JbgpPkKV c=1 sm=1 tr=0 ts=6b057db6 cx=c_pps
- a=0uOsjrqzRL749jD1oC5vDA==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
- a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22 a=VwQbUJbxAAAA:8
- a=EUspDBNiAAAA:8 a=3CrWDfm47Yt55cqVd9cA:9 a=mQ_c8vxmzFEMiUWkPHU9:22
-X-Proofpoint-GUID: kruKnt2R6JbUuwbtkT3kTxKSzF04Ns5o
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI0MDA0NyBTYWx0ZWRfX/HpBpfKfYiG/
- ziERMo7nIrarxCXYuxP8cMntZJALpPWuf1xpW4WtdoIiJF7w+0pAhLvFmLe9bqPDVvajLBC06os
- ZLTXt4mGwi0zXu3OhLkieoWrq2CiuZ+LvSGVmOkPFQ8evbGt/DlhTlWjUyL8eg8wHt3xq3N6mcp
- cIAH7j5//Vs7H7WshP4ZTOqoFnZAvx3ybSt2C+WIw9A9OJ/lDBpN2VsWTpptMWiGF2jEgSo5EKY
- vKtq2tEjKbkvTstFxffjiQNbU8kAN4PD9MlVkoBlAnvstIkAxj1E5tMvViOph761nSyCIPQ6Cnj
- d088VbVmU5Qnk21AbTtVaW/5MmE8kr7jJlFP0PrkIvIsZ0EutbpDl1LgSZfy3NBScJ8zaQWTjgN
- UTzimgdwR9bv8eZqqGnkeYrrcarNV2+dSo9Pl1hCTI/djURrx5AyF7MDo4HAqQl/sBqdaD2YWta
- 5lCVITnWcP4b3NXHhPw==
-X-Proofpoint-ORIG-GUID: kruKnt2R6JbUuwbtkT3kTxKSzF04Ns5o
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-24_02,2026-11-23_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 bulkscore=0 lowpriorityscore=0 malwarescore=0 spamscore=0
- impostorscore=0 suspectscore=0 clxscore=1015 priorityscore=1501 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611240047
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <179526068763.97100.12205093734161349836@gmail.com>
 
-Some platforms using fastrpc do not support DMA coherency on
-HLOS. On such systems, explicit cache maintenance is
-required to ensure data consistency for RPC argument buffers.
+Martin, can you check if this solves your problem?
 
-Add cache maintenance for argument buffers when operating on
-non-coherent platforms:
-- Flush input buffers before invoking RPC to ensure CPU writes are
-  visible to the DSP
-- Invalidate output buffers after RPC completion to ensure DSP
-  writes are visible to the CPU
+On 2026-11-21 19:31:27 [+0800], Chaosheng Qu wrote:
+> A PI boost can raise a queued task above everything that is runnable on
+> other CPUs while it still cannot run on its own rq, because the task
+> currently running there has equal or higher priority.  prio_changed_rt()
+> only calls resched_curr() in that case.  The task then waits for the
+> current task to schedule out.
 
-Introduce helper functions fastrpc_flush_args() and
-fastrpc_inv_args() to perform the required dma-buf cache
-operations. These are invoked only when the device is not marked
-as DMA coherent.
+It only calls resched_curr() if the boosted task has a higher priority
+and is not running. Then it will force a scheduling event by calling
+resched_curr().
 
-The coherency capability is determined using the "dma-coherent"
-device tree property and stored per session context.
+If it has a lower priority than the currently running task will remain
+on CPU and the boosted will remain waiting.
 
-This ensures correct data synchronization on platforms lacking
-DMA coherency, while avoiding unnecessary overhead on coherent
-systems.
+> The pull side does not necessarily rescue it: pull_rt_task() only picks a
+> task whose affinity includes the pulling CPU, so a task whose mask
+> excludes the CPUs that just became idle is unreachable until the running
+> task leaves on its own.  With RT_PUSH_IPI off this is the difference
+> between a millisecond migration and a wait for the hog to finish.
 
-Signed-off-by: Abhinav Parihar <abhinav.parihar@oss.qualcomm.com>
----
+While browsing through the code, the task should be added to the
+pushable_tasks list once blocked. A PI-boost seems not to do anything if
+it did not become highest priority on the local CPU.
+A push as suggested below will try to move it to another CPU if
+possible. What I don't get why does it work with RT_PUSH_IPI enabled?
 
- Patch [v2]: https://lore.kernel.org/all/20260916185850.3686010-1-abhinav.parihar@oss.qualcomm.com/
+This means there is a scheduling event (or something else) doing
+pull_rt_task() and the IPI feature causes to iterate over all CPUs und
+find the boosted task on a matching CPU.
+Without RT_PUSH_IPI, it is limited to a CPU which might not to be suited
+for the task (due to different affinity). Did I get it right?
 
-  Changes in v3:
-  - Fix missing max_raix update causes incorrect do_cmo evaluation.
-  - Use of_dma_is_coherent() to determine device coherency.
-  - Simplify input/output buffer classification and overlap checks for cache maintenance.
+> Queue a push when the priority of a queued, non-current RT task goes up.
+> push_rt_task() already declines to move a task that is not pushable and
+> skips the reschedule path when the task is higher priority than the
+> current one, so the extra callback only acts when a migration target
+> exists.
+> 
+> Signed-off-by: Chaosheng Qu <chaosheng.qu.linux@gmail.com>
+> ---
+> Steve,
+> 
+> This is the fix we discussed in October.  The case that matters is the
+> queued task that the pull side cannot reach because its mask excludes the
+> CPUs that just became idle.
+> 
+> Numbers from a 4-vCPU QEMU guest (TCG; KVM is not available here), non-RT
+> kernel, RT_PUSH_IPI off.  L is FIFO 10 with mask {cpu1,cpu3}, X is FIFO 99
+> hogging cpu1, W is FIFO 90 on cpu2 and blocks on L's PI mutex, R is FIFO 60
+> on cpu3:
+> 
+>    baseline: 1/5 rescued, 802.8 / 1161.0 / 1311.8 / 30.2 / 1280.0 ms
+>    patched:  5/5 rescued,  13.8 / 1.1 / 0.2 / 0.2 / 0.8 ms
+> 
+> The reproducer is a small static C program; I can post it if useful.
+> 
+>  kernel/sched/rt.c | 13 +++++++++++++
+>  1 file changed, 13 insertions(+)
+> 
+> diff --git a/kernel/sched/rt.c b/kernel/sched/rt.c
+> index 85303add7..db93bfff7 100644
+> --- a/kernel/sched/rt.c
+> +++ b/kernel/sched/rt.c
+> @@ -2499,6 +2499,19 @@ prio_changed_rt(struct rq *rq, struct task_struct *p, u64 oldprio)
+>  		 */
+>  		if (p->prio < rq->donor->prio)
+>  			resched_curr(rq);
+> +
+> +		/*
+> +		 * A (PI) boost can make @p the highest priority
+> +		 * pushable task on this rq while it still cannot run
+> +		 * here, because the running task is of equal or higher
+> +		 * priority. If @p's affinity excludes the CPUs that
+> +		 * become idle, the pull side cannot pick it and it may
+> +		 * stay queued until the current task schedules out.
+> +		 * Trigger a push for the new priority.
+> +		 */
+> +		if (oldprio > p->prio && p->nr_cpus_allowed > 1 &&
+> +		    p->prio >= rq->donor->prio)
+> +			rt_queue_push_tasks(rq);
+>  	}
+>  }
+>  
 
-  Changes in v2:
-  - Fix buffer overlap handling to ensure cache maintenance is performed
-    when input and output buffers overlap and the overlap calculation
-    suppresses the buffer's mstart/mend range.
-  - Add a do_cmo flag to track buffers that require cache maintenance
-    even when their overlap range is clipped.
-  - Invalidate output buffers before sending the RPC request, preventing
-    stale CPU cache lines from being written back while the DSP updates
-    the buffers.
-  - Use DMA_FROM_DEVICE consistently for both begin_cpu_access() and
-    end_cpu_access() when invalidating output buffers.
-
- drivers/misc/fastrpc.c | 67 +++++++++++++++++++++++++++++++++++++++++-
- 1 file changed, 66 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/misc/fastrpc.c b/drivers/misc/fastrpc.c
-index 9e760f68bcaf..39ad0ab88aec 100644
---- a/drivers/misc/fastrpc.c
-+++ b/drivers/misc/fastrpc.c
-@@ -222,6 +222,7 @@ struct fastrpc_buf_overlap {
- 	u64 mstart;
- 	u64 mend;
- 	u64 offset;
-+	bool do_cmo;
- };
- 
- struct fastrpc_buf {
-@@ -297,6 +298,7 @@ struct fastrpc_session_ctx {
- 	int sid;
- 	bool used;
- 	bool valid;
-+	bool coherent;
- };
- 
- struct fastrpc_soc_data {
-@@ -666,7 +668,9 @@ static int olaps_cmp(const void *a, const void *b)
- static void fastrpc_get_buff_overlaps(struct fastrpc_invoke_ctx *ctx)
- {
- 	u64 max_end = 0;
-+	int max_raix = -1;
- 	int i;
-+	int inbufs = REMOTE_SCALARS_INBUFS(ctx->sc);
- 
- 	for (i = 0; i < ctx->nbufs; ++i) {
- 		ctx->olaps[i].start = ctx->args[i].ptr;
-@@ -685,7 +689,10 @@ static void fastrpc_get_buff_overlaps(struct fastrpc_invoke_ctx *ctx)
- 
- 			if (ctx->olaps[i].end > max_end) {
- 				max_end = ctx->olaps[i].end;
-+				max_raix = ctx->olaps[i].raix;
- 			} else {
-+				if ((max_raix < inbufs) != (ctx->olaps[i].raix < inbufs))
-+					ctx->olaps[i].do_cmo = true;
- 				ctx->olaps[i].mend = 0;
- 				ctx->olaps[i].mstart = 0;
- 			}
-@@ -695,6 +702,7 @@ static void fastrpc_get_buff_overlaps(struct fastrpc_invoke_ctx *ctx)
- 			ctx->olaps[i].mstart = ctx->olaps[i].start;
- 			ctx->olaps[i].offset = 0;
- 			max_end = ctx->olaps[i].end;
-+			max_raix = ctx->olaps[i].raix;
- 		}
- 	}
- }
-@@ -714,6 +722,7 @@ static struct fastrpc_invoke_ctx *fastrpc_context_alloc(
- 
- 	INIT_LIST_HEAD(&ctx->node);
- 	ctx->fl = user;
-+	ctx->sc = sc;
- 	ctx->nscalars = REMOTE_SCALARS_LENGTH(sc);
- 	ctx->nbufs = REMOTE_SCALARS_INBUFS(sc) +
- 		     REMOTE_SCALARS_OUTBUFS(sc);
-@@ -739,7 +748,6 @@ static struct fastrpc_invoke_ctx *fastrpc_context_alloc(
- 	/* Take a reference to user, released in fastrpc_context_free() */
- 	fastrpc_user_get(user);
- 
--	ctx->sc = sc;
- 	ctx->retval = -1;
- 	ctx->pid = current->pid;
- 	ctx->client_id = user->client_id;
-@@ -1078,6 +1086,54 @@ static int fastrpc_create_maps(struct fastrpc_invoke_ctx *ctx)
- 	return 0;
- }
- 
-+static void fastrpc_flush_args(struct fastrpc_invoke_ctx *ctx)
-+{
-+	union fastrpc_remote_arg *rpra = ctx->rpra;
-+	int i, inbufs;
-+
-+	inbufs = REMOTE_SCALARS_INBUFS(ctx->sc);
-+
-+	for (i = 0; i < ctx->nbufs; ++i) {
-+		int raix = ctx->olaps[i].raix;
-+		struct fastrpc_map *map = ctx->maps[raix];
-+
-+		if (raix + 1 > inbufs)
-+			continue;
-+		if (!map || !map->buf)
-+			continue;
-+
-+		if (rpra[raix].buf.len && (ctx->olaps[i].mstart || ctx->olaps[i].do_cmo)) {
-+			dma_buf_begin_cpu_access(map->buf, DMA_TO_DEVICE);
-+			dma_buf_end_cpu_access(map->buf, DMA_TO_DEVICE);
-+		}
-+	}
-+}
-+
-+static void fastrpc_inv_args(struct fastrpc_invoke_ctx *ctx)
-+{
-+	union fastrpc_remote_arg *rpra = ctx->rpra;
-+	int i, inbufs;
-+
-+	inbufs = REMOTE_SCALARS_INBUFS(ctx->sc);
-+
-+	for (i = 0; i < ctx->nbufs; ++i) {
-+		int raix = ctx->olaps[i].raix;
-+		struct fastrpc_map *map = ctx->maps[raix];
-+
-+		if (raix + 1 <= inbufs)
-+			continue;
-+		if (!rpra[raix].buf.len)
-+			continue;
-+		if (!map || !map->buf)
-+			continue;
-+
-+		if (ctx->olaps[i].mstart || ctx->olaps[i].do_cmo) {
-+			dma_buf_begin_cpu_access(map->buf, DMA_FROM_DEVICE);
-+			dma_buf_end_cpu_access(map->buf, DMA_FROM_DEVICE);
-+		}
-+	}
-+}
-+
- static struct fastrpc_invoke_buf *fastrpc_invoke_buf_start(union fastrpc_remote_arg *pra, int len)
- {
- 	return (struct fastrpc_invoke_buf *)(&pra[len]);
-@@ -1202,6 +1258,9 @@ static int fastrpc_get_args(u32 kernel, struct fastrpc_invoke_ctx *ctx)
- 		}
- 	}
- 
-+	if (!ctx->fl->sctx->coherent)
-+		fastrpc_flush_args(ctx);
-+
- 	for (i = ctx->nbufs; i < ctx->nscalars; ++i) {
- 		list[i].num = ctx->args[i].length ? 1 : 0;
- 		list[i].pgidx = i;
-@@ -1387,6 +1446,8 @@ static int fastrpc_internal_invoke(struct fastrpc_user *fl,  u32 kernel,
- 	if (err)
- 		goto bail;
- 
-+	if (!fl->sctx->coherent)
-+		fastrpc_inv_args(ctx);
- 	/* make sure that all CPU memory writes are seen by DSP */
- 	dma_wmb();
- 	/* Send invoke buffer to remote dsp */
-@@ -1407,6 +1468,9 @@ static int fastrpc_internal_invoke(struct fastrpc_user *fl,  u32 kernel,
- 
- 	/* make sure that all memory writes by DSP are seen by CPU */
- 	dma_rmb();
-+	if (!fl->sctx->coherent)
-+		fastrpc_inv_args(ctx);
-+
- 	/* populate all the output buffers with results */
- 	err = fastrpc_put_args(ctx, kernel);
- 	if (err)
-@@ -2370,6 +2434,7 @@ static int fastrpc_cb_init(struct platform_device *pdev)
- 	sess->used = false;
- 	sess->valid = true;
- 	sess->dev = dev;
-+	sess->coherent = of_dma_is_coherent(dev->of_node);
- 	sess->sid = sid;
- 
- 	if (cctx->domain_id == CDSP_DOMAIN_ID)
--- 
-2.34.1
-
+Sebastian
