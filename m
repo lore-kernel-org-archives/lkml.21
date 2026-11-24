@@ -1,199 +1,53 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=210.61.82.184
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795487489;
-	b=QgBYwaTAVT8NOQlCa4/akIrJ+xrkxv5wON7NPMEaGB3RKSGohO0QWYWB5f8ZjViHMQF+
-	 VhcZ+aRuVRsAvT+7tJW/NWhOUhCHKNwOWrxmpZ4WuW9+ylq/MEy8KDlUPDXirf+S2Q7na
-	 iYu9hcV3O0iQpw2LGf7swnJTYsiRvXK3v59uBRGGKXhnBcXc9R9Xy/baiHEqaFoWLsu7Y
-	 KvgwrbOg+ANJq13k6KvCeZj7uaVpFwzzKQgNrXg54oucrxC1dA0IxtgTOypVJU38qoBQ4
-	 6rpDgDT0Rae9oHj6kQMTadrhyXyp1c/JJSaZA5Igf+QxkZyTlDwRwQ2rGF6J6Wl1PUQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795487489;
-	h=DMARC-Filter:X-UUID:DKIM-Signature:X-CID-P-RULE:X-CID-O-INFO:
-	 X-CID-META:X-CID-BVR:X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:Received:
-	 Received:Received:DKIM-Signature:Received:Received:From:To:CC:Subject:
-	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
-	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
-	 user-agent:x-ms-publictraffictype:x-ms-traffictypediagnostic:
-	 x-ms-office365-filtering-correlation-id:x-ld-processed:
-	 x-ms-exchange-senderadcheck:x-ms-exchange-antispam-relay:
-	 x-microsoft-antispam:x-microsoft-antispam-message-info:
-	 x-forefront-antispam-report:
-	 x-ms-exchange-antispam-messagedata-chunkcount:
-	 x-ms-exchange-antispam-messagedata-0:Content-Type:Content-ID:
-	 Content-Transfer-Encoding:MIME-Version:
-	 X-Exchange-RoutingPolicyChecked:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-AuthSource:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-originalarrivaltime:
-	 X-MS-Exchange-CrossTenant-fromentityheader:
-	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
-	 X-MS-Exchange-CrossTenant-userprincipalname:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-MTK;
-	bh=k7/Td9BIRq9/tQEwZkr2bar8Jaioor79U/uNYdFTFgw=;
-	b=RUgld42qSQULlFy4cw/gFApSSn+bSMMRx7knXN6ygowaAyxOblGTiA6GEHoBl0lwFe+a
-	 e/WFzo8FsgrlHoCdW6dBw1cfkvh+vbx+2PuN9SEsbwwR/C1DbYXYYgKmHd1CaDArFbsJL
-	 BstFfnXsTUihF13SYVv5G0sIZDID68Z7/t/UhOWMSkeek3Im5JtXZwRkdljFhZzbNhR4A
-	 in6tZI6KLnTgIk4wBy+IychHbMK31ancBNeZE8kPTfCgt0D+UWSC+Xx+EOA9vENPjLtSi
-	 lK8Efutp6sQvideC/cO+Fqz9O5yxTW8WbQy9nNsrHg0uEcqc/LIimQbg0mIAFZUdJYg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=mediatek.com;
-	spf=pass smtp.mailfrom=mediatek.com;
-	dkim=pass header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b="CFD/bb2d";
-	dkim=pass header.d=mediateko365.onmicrosoft.com header.i=@mediateko365.onmicrosoft.com header.a=rsa-sha256 header.s=selector2-mediateko365-onmicrosoft-com header.b=pasWkBAs;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=210.61.82.184
-Received: from mailgw02.mediatek.com (unknown [210.61.82.184])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=216.40.44.14
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795487577;
+	b=UCiyr2JP5Eg5IH3eh7E4nCZJqUtmV/TXXjmiTWyjhYsp8WtD+2y+ULytijm4Xl+fRMfl
+	 /NJYzmq66ScHrnnq9m0b3CZU2mi+sgvAGWelCBt1fQsf+O6PqW3PU+Kj/WFUn4YymcqsB
+	 EH8Lno3xfcU+AgjKTvA9cgkrSE6geg5LHtlU+xNles7/iAL008zBoKzZ3EMV4dyMdz0j/
+	 C47ofOy1Vsp2WLZNnx/5Y2udm661WrH8/31X/8/Rr5nL+mE6fBBWEq58C41v3C4N6tU0N
+	 Obr4v65nGL+n8va+gZlr5Nug6m/sHOhcBIBaDK3R1De38OqPyc6jZidWFScvjeuZThg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795487577;
+	h=DMARC-Filter:Received:Received:Date:From:To:Cc:Subject:Message-ID:
+	 X-Mailer:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Rspamd-Queue-Id:X-Stat-Signature:X-Spam-Status:X-Rspamd-Server:
+	 X-Session-Marker:X-Session-ID:DKIM-Signature:X-HE-Tag:X-HE-Meta;
+	bh=LYw5dB/kREf5FV+MEWHuvwi1aZyoz5YEQ3sJCgGLW58=;
+	b=q/PSuWKuBUXh2xHwy6TZm1wcCQxMtX+g09cK6+V4XmJUxyaCPuCFMjYWrxyDOPVt8v+C
+	 U8rnuMWRDA7x0lb+Hx0R/zbJ6xYHOBi7GNxuJ9BHNDbJeilCoUyFt96dFS0bOoqcFJ+xt
+	 3i4ZjReUf2Qcou07238W1G8bv/meXtXnUVnhZ0k0FhwAPgkYIJCM0hqnc3zHYU8TURljo
+	 ix3OVnTvVmoH+JPdUyM0yssaD5ajHcTD1Ha/RB6Y1jty05er3idPg2ppdsh6k+LlHPyOg
+	 fOH5ioEXN/r5YrMm2r5eyjxRbmYQDmyDz62bAUetOk73d19IFrEkd4tBo8T74wutIsA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=goodmis.org;
+	spf=pass smtp.mailfrom=goodmis.org;
+	dkim=pass header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=1eQV8KQd;
+	arc=none smtp.remote-ip=216.40.44.14
+Received: from relay.hostedemail.com (smtprelay0014.hostedemail.com [216.40.44.14])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5E5AC606A326;
-	Tue, 24 Nov 2026 02:31:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5E5AC606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mediatek.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mediatek.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 623F2606A31E;
+	Tue, 24 Nov 2026 02:32:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 623F2606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=goodmis.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=goodmis.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=CFD/bb2d;
-	dkim=pass (1024-bit key, unprotected) header.d=mediateko365.onmicrosoft.com header.i=@mediateko365.onmicrosoft.com header.a=rsa-sha256 header.s=selector2-mediateko365-onmicrosoft-com header.b=pasWkBAs
-X-UUID: 24fd11d8e7af11f18dc8c9802ae25ab1-20261124
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=k7/Td9BIRq9/tQEwZkr2bar8Jaioor79U/uNYdFTFgw=;
-	b=CFD/bb2dzSmF1sP52wdGzMV0mbz0sFyUXPOOSf44cZGaFxjt37/MdPpo4XR/E2sPEawTZBAaBQRH7lZo5boIn2Nj0R3a2sQXnWkCif75349ql9ZSHYV4r+MnAPpCK8i1ELc//w9xm4Mzyhl20CTrVHMVQ9oMVnyYtsRDsU5SOSc=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.21,REQID:bbdfbb55-7f55-4209-b1c6-9b3aa2d853d1,IP:0,U
-	RL:12,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:12
-X-CID-META: VersionHash:b0318ac,CLOUDID:9fd54231-f289-4656-bb36-27baf4489f11,B
-	ulkID:nil,BulkQuantity:0,SF:80|81|82|83|102|110|111|836|865|888|898,TC:-5,
-	Content:0|15|50|99,EDM:-3,IP:nil,URL:99|11|97|93|83|106|80|1,File:130,RT:0
-	,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,B
-	RR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULN
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 24fd11d8e7af11f18dc8c9802ae25ab1-20261124
-Received: from mtkmbs10n1.mediatek.inc [(172.21.101.34)] by mailgw02.mediatek.com
-	(envelope-from <ck.hu@mediatek.com>)
-	(Generic MTA with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 271574964; Tue, 24 Nov 2026 10:31:25 +0800
-Received: from mtkmbs10n1.mediatek.inc (172.21.101.34) by
- mtkmbs13n1.mediatek.inc (172.21.101.193) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Tue, 24 Nov 2026 10:31:23 +0800
-Received: from SG2PR04CU010.outbound.protection.outlook.com (172.21.101.237)
- by mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server id
- 15.2.2562.56 via Frontend Transport; Tue, 24 Nov 2026 10:31:23 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=GFjQSHC40xShTVQiQjx2BLzWQhTcL9B2fXemY5Z+OaTTRHoxZC4ybDaBCQmSWDd4zlnk2M6AfbWU2MFKIE/aoCzJ3CSjm/L5xb72+ahVIbOSnHYO6mB5qUDzor5x8NM3xwQKJJw53shyw+xF8Mi3bVRlwACmLXRV/zsKnOUC2Ra50ajDoviYcSwhpj2TijbP8G6mdKsvcgMdR2+fVasAsSh9FVt5uCwWYxjrjIzaQLi0uHXyPTeRpxpz9BVzSBfW0reKDoJLVAUrlpKbX9hgxztZs6DUZu9HN1U3okB5qE0IXyXYRON9PpLCiMuYf3mh437BiiAje0nYHjQrsWkrHA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=k7/Td9BIRq9/tQEwZkr2bar8Jaioor79U/uNYdFTFgw=;
- b=F6jkvSCMewBSm1SKzJpUMEGcI3JiRYJIhtzso5fyX7VKBjscMIWy+fXNIC55ZurZzhgjJPXYKmF69llnJQirPCrwqhJze45hhMTQjL+7EUZI0ZSmodnMDZAirCuKCmPwHsW/cCzS1XUD/yelV/r8vEjJE5gmAkQzGW56+fPhp8dEYfLb51HNHFC4Qvug32QOW5Rk9gSYo7Li2C6gLtD6k2zB8h/45g2PEC2lwd7B0iuoRhU/J2XY2Fjs/1P+52muwsMfoa2a0mubFxtPmiUcSUXzF4tVZkGwaIi9Xi3NdWcZNnn8dtDw+G+3813P7o1vHf41SBO5dWMdF33k3J40FA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
- dkim=pass header.d=mediatek.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=k7/Td9BIRq9/tQEwZkr2bar8Jaioor79U/uNYdFTFgw=;
- b=pasWkBAsKfMj/TCSGoROAcRwchmCPdby2OWFXDOXw9pzHKrNVZ67bBaFoogj8YqkFMp4ryMhtqrhTBu4l2GOAnRjOCHsOlXQPRKm7/aar5ruvQMHCunoiSC5efsoyWXZ/NChZeckDdA3S4Xw60Zl82y4XINxEu6w9IYPAMfuZuU=
-Received: from KUYPR03MB9902.apcprd03.prod.outlook.com (2603:1096:d10:91::20)
- by SE1PPFFD46BE63E.apcprd03.prod.outlook.com (2603:1096:108:1::873) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Tue, 24 Nov
- 2026 02:31:19 +0000
-Received: from KUYPR03MB9902.apcprd03.prod.outlook.com
- ([fe80::9598:2e59:20dd:960b]) by KUYPR03MB9902.apcprd03.prod.outlook.com
- ([fe80::9598:2e59:20dd:960b%5]) with mapi id 15.21.0639.012; Tue, 24 Nov 2026
- 02:31:19 +0000
-From: =?utf-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	"chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>
-CC: "robh@kernel.org" <robh@kernel.org>, "tzimmermann@suse.de"
-	<tzimmermann@suse.de>, "simona@ffwll.ch" <simona@ffwll.ch>,
-	"mripard@kernel.org" <mripard@kernel.org>, "kernel@collabora.com"
-	<kernel@collabora.com>, "linux-mediatek@lists.infradead.org"
-	<linux-mediatek@lists.infradead.org>, "maarten.lankhorst@linux.intel.com"
-	<maarten.lankhorst@linux.intel.com>, "dri-devel@lists.freedesktop.org"
-	<dri-devel@lists.freedesktop.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>, "p.zabel@pengutronix.de"
-	<p.zabel@pengutronix.de>, "airlied@gmail.com" <airlied@gmail.com>,
-	=?utf-8?B?SnVzdGluIFllaCAo6JGJ6Iux6IyCKQ==?= <Justin.Yeh@mediatek.com>,
-	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>,
-	=?utf-8?B?SmFzb24tSkggTGluICjmnpfnnb/npaUp?= <Jason-JH.Lin@mediatek.com>
-Subject: Re: [PATCH v2 30/46] dt-bindings: display: mediatek: Introduce MT8196
- Layer Blender
-Thread-Topic: [PATCH v2 30/46] dt-bindings: display: mediatek: Introduce
- MT8196 Layer Blender
-Thread-Index: AQHdE4ZnDez1KIL5zEeH3wHu886ZGLc9ULmA
-Date: Tue, 24 Nov 2026 02:31:19 +0000
-Message-ID: <70ed0b351afc640bb297d33582a20825460d9c11.camel@mediatek.com>
-References: <20260714114414.184512-1-angelogioacchino.delregno@collabora.com>
-	 <20260714114414.184512-31-angelogioacchino.delregno@collabora.com>
-In-Reply-To: <20260714114414.184512-31-angelogioacchino.delregno@collabora.com>
-Accept-Language: zh-TW, en-US
-Content-Language: en-US
-X-MS-Has-Attach:
-X-MS-TNEF-Correlator:
-user-agent: Evolution 3.52.3-0ubuntu1.1 
-authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=mediatek.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: KUYPR03MB9902:EE_|SE1PPFFD46BE63E:EE_
-x-ms-office365-filtering-correlation-id: 85dc2138-c1b3-41d5-7db0-08df49d305e6
-x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|42112799006|23010399003|1800799024|366016|376014|7416014|261102123227099003|261022115727099003|261022105027099003|261022113327099003|261022075727099003|261021121427099003|261021130227099003|261028144727099003|261021123027099003|261021133027099003|261021135927099003|261026140227099003|261026121527099003|261026130827099003|38070700021|4143699003|11063799006|56012099006|261026135527099003|10067099003|18002099003|22082099003|6133799003|261009223027099003|4133799003|3023799007;
-x-microsoft-antispam-message-info: A6Q6OzaX4NZOrtAbexIiclY0wEr1MPD5IBHYfqY8GA3Sgef8Fc8KlvC8w4ZuMIKuEtwBOtPqrIp6lpwtTIyN3IQBmbB565FMn4s8ac4tGSChvXx5desleAOrr4abP/Uu9I1hvNAErLne7dNMDDpc79pzro7upG/3ShDeEjoJkoVZQwB1CZwcuDnYr4PCwNpPQ2Un8dpRLqHQDhxlQMtI9GgY4kI++N97gd9BLV4MnlbTX0him9qhkztDSb3zE6fE2ClO12wZlScq3cKvVZAHQchEtP5S9RcSQiGnqb0Bb6deszXVzJ5MUbmTiFAn51UjjtZiwX6CRS37GoT7uUsBa+fzu5Xic8lhOqwxoiiZoA6tqOwGNu0ZC7I9XMCHlwZGEFFLKcQAxhg+jBUMOlCPTztTXsZZuIkh68V7N2pfhNIfMyZyunF6/0gtbXOqgHsth5XiZCDAlFGBxyrR3Yzc76b20Fty3TJNN2YlNZL3qHjWbMNrYZL2bIyZyttSGqPpzb4ay0ovC5SODSkW2Cftzj+AUGxn+nfv5Xb9ufwCrRtH2HW5J9o1sOJuvBcck1sZQagjVINVbmgjcuK+vSKc2q24yxA2v7bW72hax2jpMna07OCYgIhf4wlJxqbkwuHolbqm6wDsAQcQxqImuXAPb1l5jRw/dDIK4L7NdhnkRJ4=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KUYPR03MB9902.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(42112799006)(23010399003)(1800799024)(366016)(376014)(7416014)(261102123227099003)(261022115727099003)(261022105027099003)(261022113327099003)(261022075727099003)(261021121427099003)(261021130227099003)(261028144727099003)(261021123027099003)(261021133027099003)(261021135927099003)(261026140227099003)(261026121527099003)(261026130827099003)(38070700021)(4143699003)(11063799006)(56012099006)(261026135527099003)(10067099003)(18002099003)(22082099003)(6133799003)(261009223027099003)(4133799003)(3023799007);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?b2JqY2JUNldjeXdJa0p2cFREYUF3RStsTk1QbEVNZ1haQzFpdjhxVEpPTWk2?=
- =?utf-8?B?TnhkR1Y0MjVad2RBRVkrbUJlUDFOUitzTzIzQm04K3hlNlhiNy9MNHJhUENz?=
- =?utf-8?B?L09aZGNCTi9ZUUZaZ00yL0tlTHhqbGR3cW1WVVFVUmtpLzQvQkNiL1Z3YkNZ?=
- =?utf-8?B?TTJxeG05V0JheC9BVVVSam9PQzhnVU9DTUQ1bnZPYURGRFZySEpzZzliSHFl?=
- =?utf-8?B?Q1JpYmZvTit0L0ExWi9mSHZRcXdXR1VZbU9WTTdjT1M4TjZ4bVI4YlYvL1NS?=
- =?utf-8?B?c0dzd01KYWpRdjFFVGxETm9VaVNjd010WG42TXhtOEZudXZ6d1l6WFdMSFF6?=
- =?utf-8?B?bWFMbEs3MGgxdWhvZlJmUlFyQTdUbVNLUG55WlFGTGEvZXR3Qll4SHBScm1I?=
- =?utf-8?B?UGl1dmcyREozQW9tV0g1MmFBam8rUkZhN2trbnlRR0JTdk5oVzA0V0oyaTFZ?=
- =?utf-8?B?OHBMREhUSDl2Z1ZEMFhqWGxMTm1ZS21vNFg5eXJYSmIza2cyeGgzV21yNmdC?=
- =?utf-8?B?d3lMYkV1ZTBLemlMUFNDWU00Ym51cDFFUW10a1ozUThPV2J5c3ZQYklNT05M?=
- =?utf-8?B?TzRTT1Q2RTU2YTN2aXRpTXpURWFxVlBGems2QzFvL1FxQ2Y5cEY2cFhVYUJB?=
- =?utf-8?B?N2p3bkxBbG5ZZDdkVDRpUGhSKzNOZDNlbTllUHNIckFZbVJTZjFEN0E4aDRq?=
- =?utf-8?B?NU1EQVJhTEd5NVpjU3pycWMwZUdxWGVXbW91QjhxQTREOHRqdERqV3o2WFlG?=
- =?utf-8?B?UFRtSXh3N2JCK1lTRkdYUkFhWWdGM0xZOUg1TzJDZUFzT0lmMlBnckJ3clVU?=
- =?utf-8?B?RFZzUGErR2JETnFBdzBOYkpXN29pS0pNYUd5MmtVQ1M3cHpoWDRPUUI2R0FB?=
- =?utf-8?B?aEUvRm1rV09wYkJjcGFMYW81ODRiS1lzMEQzTTFPVDR2ME5XY1FLL2VqOTYy?=
- =?utf-8?B?MzNSOWdQTU0xcEMrU0dmT2lZaUUyWEFibHdkTFdBTlkwUStDYTcxbVQ3a3RS?=
- =?utf-8?B?YVUxcjMzeWlPRXhNN1Vkbk84dDZmN0dGUDUycWtnWC8va0NZamVwNmtJMmFZ?=
- =?utf-8?B?ZTNDTzg1QzNqbHJLd1ZuYm1qQzV3THBiSVFsYU5tVGI3b3I1MDh5R1lmMUdZ?=
- =?utf-8?B?Y3FCcG15Y0hhUjdJTFVuLzNndng4cndTSitsZ2s1Y1N5QWVLMCt5dWhPamE5?=
- =?utf-8?B?dmtZSG44dlVPM1RxSTU0MWZQZi8xSGV4Z0hYRFFnQTAzeG12WU9vV3dFSStJ?=
- =?utf-8?B?OW5nbVZzSGI5aElkVlQ5aTI4OGhvS3RhbjJXTXV4d0JaUWtwRmsrWWxRVE5Z?=
- =?utf-8?B?Q3J2Y21YaWduWU15aXh5L3l1Zko3N1dESjFWUWkvQ0VxUnZDWVh2bXNNS2hK?=
- =?utf-8?B?NDhyM3ZPeFRYeWlyRjBoOW1Na2xJL2dUQVcwbnVHRGJEZ05yWmpveU55U2w4?=
- =?utf-8?B?REhBaGZqbjZ5dXpseG8xNTkvai9teDJmaHFON1IwMmRZcFV4S1h4Nm9OOTQ5?=
- =?utf-8?B?V0Z4M3ZreFhMZ1puWjFaRzFDV1pCNjRlQVZ3aXNZenphc045eS9vWGQvckVr?=
- =?utf-8?B?MVJ3eGZydEp2Qm9WbVZ0cXNxU0xtbU8xclB6U2s0N0hBTzJVbWlDTGQvWEl6?=
- =?utf-8?B?b2dvWFh4Y2dwUndoSHlTeGlRQnY0ekdyS3ZORDhZZVNVdEZNbUV0TEx4R0pj?=
- =?utf-8?B?S3VUSmFLZzZtcVQwMFpNYjhvQXV3Tm9LdWIrc0Z5MC9jRkZSbmhxTTZ2SXA2?=
- =?utf-8?B?SEp1RTZkaWkxd2diSW5tb0xFMDZTaU5xQmE3bkx5OTVpTEpDaENRL213Rlg3?=
- =?utf-8?B?KzIwTmN1Y2lybDI1TVFxMXAySFdkajBSdHc0L01qN0JRSWJIK1pqT21QQjND?=
- =?utf-8?B?YXhlbVNwOFM2dzdMWUVieTlFMWtvR0NuWWtKVC8rQVVkVUNjSlJvb2VaeXUw?=
- =?utf-8?B?RDhLOW1HRHFxK2d4VndiSmlmczJoaG0rcURnVURjaWZTUEhJRFpETFFYTXBQ?=
- =?utf-8?B?YTRZZkI4bFE4b3pBeFRDVE44QXo1eVFoWENEck9OWTR6a3V3ZjZhYVdZdlZ1?=
- =?utf-8?B?alExR0lEb1IvOE00aDBFSlFFbU4waEVUbUhwZk5qSWRJbDBHaXpqbzZGTVhs?=
- =?utf-8?B?THl1aEZvNEJMeXVlZTk0dXk1V2lMN3lNc1BaUWNxY2ZsLzRNQXN4UVJjdnAv?=
- =?utf-8?B?cFhzdTV4a2ZQRzl1MGxYZGVxcjcvSTRQMnpWcktCZHlnVEZ5UjhZamJwaHZa?=
- =?utf-8?B?RVR4cVF6UVdQLzRPN1NueFZjc0krdDBsK1NsdXkyY2xlZWd2U0NQSEw0bEtU?=
- =?utf-8?B?Z3hTcXEvVHRWbUVVcmNjRTFXZUlZZTUvN2llOGVTTm9KWndEYWZnZz09?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <5C3889780E181348ACF90C5984357278@apcprd03.prod.outlook.com>
-Content-Transfer-Encoding: base64
+	dkim=pass (1024-bit key) header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=1eQV8KQd
+Received: from omf01.hostedemail.com (lb01a-stub [10.200.18.249])
+	by unirelay08.hostedemail.com (Postfix) with ESMTP id 8F0731409F2;
+	Tue, 24 Nov 2026 02:32:49 +0000 (UTC)
+Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf01.hostedemail.com (Postfix) with ESMTPA id F1B176000F;
+	Tue, 24 Nov 2026 02:32:47 +0000 (UTC)
+Date: Mon, 23 Nov 2026 21:32:46 -0500
+From: Steven Rostedt <rostedt@goodmis.org>
+To: LKML <linux-kernel@vger.kernel.org>, Linux Trace Kernel
+ <linux-trace-kernel@vger.kernel.org>
+Cc: Masami Hiramatsu <mhiramat@kernel.org>, Mathieu Desnoyers
+ <mathieu.desnoyers@efficios.com>
+Subject: [PATCH v7] tracing/probes: Zero out faulted dereferenced fields
+Message-ID: <20261123213246.00440bfc@gandalf.local.home>
+X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -203,61 +57,279 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Exchange-RoutingPolicyChecked: ZVbzxZU9StUD+nHGepZb9TZRHhEfrKeuCHvE4Sf1lyhtlYQfui1BKCjtCqfIx7eAKIXCvK/Az6R9GoAW1ns1dQZxCxX2/7Gu7cQCvqg60c+ujj08+IHa16hlSVBzVehXIZESK8adW6yKImEPpnfQZ363z6lHTyNTIpRQRARzPEhOhKSF/4FZMdaJueyxmakQT3eDiGbDFY9o9blM62VYqNXw/FTBO/0+fg/DMiW1deoB77SZ0B6VVj4+HM92bdOSvbHK057eDM1qFG6X7uLXmVWB2ldCjuGV5+ttegRY6KMqrBeMskhM6d+qEc17xWwFyL0Gy+s9jDNCFZzh4R+7Kg==
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: KUYPR03MB9902.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 85dc2138-c1b3-41d5-7db0-08df49d305e6
-X-MS-Exchange-CrossTenant-originalarrivaltime: 24 Nov 2026 02:31:19.5626
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: JCSzA1C8uykcC/K4/Ib9kAoidEzon7RTxyfU8++xEUmIrZbtSFibgnaH1whjqhK5wTRFiUp+G6QUsluxpy/7nA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SE1PPFFD46BE63E
-X-MTK: N
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-Rspamd-Queue-Id: F1B176000F
+X-Stat-Signature: 9r45zioifipcm9kk857sbbojg66kuuq8
+X-Rspamd-Server: rspamout06
+X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
+X-Session-ID: U2FsdGVkX18hj0naVw6/xHxtvdB42V4cNkH8U8m1NXw=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=goodmis.org; h=date:from:to:cc:subject:message-id:mime-version:content-type:content-transfer-encoding; s=dkim1; bh=LYw5dB/kREf5FV+MEWHuvwi1aZyoz5YEQ3sJCgGLW58=; b=1eQV8KQdsc27tLdGI48CXTYzYjOcnzsOgzNrWyQHlp34QpMKFNs3XyKeqfx1yL63RMJtV0bWjfRTNT5I7gbmLQ2VYxSNqYGv1mnnbLPCzZRSSCbqY3kCkL2Ucu5E4b9ZWWn1+Ei5GCrit3ZBlsGczP8XLERb/c9PpgRu4A2Ns50=
+X-HE-Tag: 1795487567-803411
+X-HE-Meta: U2FsdGVkX19BPvbydimWVarY/tGCsLPGR4cGLHcRYA21c5NDQ0gfcFZ3R6KKlIZNuo68gt/Qx2HJmVkVz6Oh/4w60hCtFgyeuJ/dA0EL+xxEgJuF3VsPYxNtjoSDXxrOQZaR3YgyXszEoJQRC9zPIUyRmnVQfbhSjG116r41RvCf6RNgdbzA/6UmLnajgypoefsmPE+MYwkjoMPXtVSKPuim6w1JLLT7OWQ3YrDT67iyhzZhPpIvRDE9NIGHQOa3Ns5yL6bc578tjPi/bTVkfGAF5Jpd0aUcQJF3Zi/tYyYvK6musXqDpzN/MypGp2mx6Fn/W26R5X5pXZrmOqFQvCHEb4Y4bXUrYjhF3JN5M6TgUq4qFrlHXKkteIvedpAOWVig5EK50wi1HzUH1ePoVv499SWPYNCfwysh1CSJsQlYMg8CUkn6T/MFSZmZzJTI6vPk+V5Ep42DBWo5SQNhwa5uGsZ7luXZuXL8grYuHNI=
 
-T24gVHVlLCAyMDI2LTA3LTE0IGF0IDEzOjQzICswMjAwLCBBbmdlbG9HaW9hY2NoaW5vIERlbCBS
-ZWdubyB3cm90ZToNCj4gQWRkIGRvY3VtZW50YXRpb24gZm9yIHRoZSBPdmVybGF5IExheWVyIEJs
-ZW5kZXIgSVAgZm91bmQgaW4gdGhlDQo+IG5ld2VyIGdlbmVyYXRpb24gU29DcyBsaWtlIE1UODE5
-NiwgTVQ4ODk0LCBNVDY5OTEsIGFuZCB0aGVpcg0KPiB2YXJpYW50cy4NCj4gDQo+IFNpZ25lZC1v
-ZmYtYnk6IEFuZ2Vsb0dpb2FjY2hpbm8gRGVsIFJlZ25vIDxhbmdlbG9naW9hY2NoaW5vLmRlbHJl
-Z25vQGNvbGxhYm9yYS5jb20+DQo+IC0tLQ0KPiAgLi4uL21lZGlhdGVrL21lZGlhdGVrLG10ODE5
-Ni1ibGVuZGVyLnlhbWwgICAgIHwgOTcgKysrKysrKysrKysrKysrKysrKw0KPiAgMSBmaWxlIGNo
-YW5nZWQsIDk3IGluc2VydGlvbnMoKykNCj4gIGNyZWF0ZSBtb2RlIDEwMDY0NCBEb2N1bWVudGF0
-aW9uL2RldmljZXRyZWUvYmluZGluZ3MvZGlzcGxheS9tZWRpYXRlay9tZWRpYXRlayxtdDgxOTYt
-YmxlbmRlci55YW1sDQo+IA0KPiBkaWZmIC0tZ2l0IGEvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVl
-L2JpbmRpbmdzL2Rpc3BsYXkvbWVkaWF0ZWsvbWVkaWF0ZWssbXQ4MTk2LWJsZW5kZXIueWFtbCBi
-L0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9kaXNwbGF5L21lZGlhdGVrL21lZGlh
-dGVrLG10ODE5Ni1ibGVuZGVyLnlhbWwNCj4gbmV3IGZpbGUgbW9kZSAxMDA2NDQNCj4gaW5kZXgg
-MDAwMDAwMDAwMDAwLi40MDJlY2NiNWZkNzANCj4gLS0tIC9kZXYvbnVsbA0KPiArKysgYi9Eb2N1
-bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvZGlzcGxheS9tZWRpYXRlay9tZWRpYXRlayxt
-dDgxOTYtYmxlbmRlci55YW1sDQo+IEBAIC0wLDAgKzEsOTcgQEANCj4gKyMgU1BEWC1MaWNlbnNl
-LUlkZW50aWZpZXI6IChHUEwtMi4wLW9ubHkgT1IgQlNELTItQ2xhdXNlKQ0KPiArJVlBTUwgMS4y
-DQo+ICstLS0NCj4gKyRpZDogaHR0cHM6Ly91cmxkZWZlbnNlLmNvbS92My9fX2h0dHA6Ly9kZXZp
-Y2V0cmVlLm9yZy9zY2hlbWFzL2Rpc3BsYXkvbWVkaWF0ZWsvbWVkaWF0ZWssbXQ4MTk2LWJsZW5k
-ZXIueWFtbCpfXztJdyEhQ1RSTktBOXdNZzBBUmJ3IWdmSWRleFJBSnFJa25MU1U4Ny1SeXZLUFlt
-Q2d0TFAxNkNXc3Rva0NwTHlEN3h3c2ZJWThYbi1hM2RQek5jbjhkSGxERWlUb05wUGtQdEkybkh6
-U01GeUZBX29jJCANCj4gKyRzY2hlbWE6IGh0dHBzOi8vdXJsZGVmZW5zZS5jb20vdjMvX19odHRw
-Oi8vZGV2aWNldHJlZS5vcmcvbWV0YS1zY2hlbWFzL2NvcmUueWFtbCpfXztJdyEhQ1RSTktBOXdN
-ZzBBUmJ3IWdmSWRleFJBSnFJa25MU1U4Ny1SeXZLUFltQ2d0TFAxNkNXc3Rva0NwTHlEN3h3c2ZJ
-WThYbi1hM2RQek5jbjhkSGxERWlUb05wUGtQdEkybkh6U01KSVRXVlVfJCANCj4gKw0KPiArdGl0
-bGU6IE1lZGlhVGVrIERpc3BsYXkgT3ZlcmxheSBMYXllciBCbGVuZGVyDQo+ICsNCj4gK21haW50
-YWluZXJzOg0KPiArICAtIEFuZ2Vsb0dpb2FjY2hpbm8gRGVsIFJlZ25vIDxhbmdlbG9naW9hY2No
-aW5vLmRlbHJlZ25vQGNvbGxhYm9yYS5jb20+DQo+ICsNCj4gK2Rlc2NyaXB0aW9uOg0KPiArICBU
-aGUgTWVkaWFUZWsgRGlzcGxheSBPdmVybGF5IExheWVyIEJsZW5kZXIgaGFyZHdhcmUgaXMgcmVz
-cG9uc2libGUNCj4gKyAgZm9yIHBlcmZvcm1pbmcgdGhlIGFscGhhIGJsZW5kaW5nIG9wZXJhdGlv
-biBmb3Igb3ZlcmxhcHBpbmcgbGF5ZXJzDQo+ICsgIGZyb20gdmFyaW91cyBzb3VyY2VzLg0KPiAr
-DQo+ICtwcm9wZXJ0aWVzOg0KPiArICBjb21wYXRpYmxlOg0KPiArICAgIGNvbnN0OiBtZWRpYXRl
-ayxtdDgxOTYtZGlzcC1ibGVuZGVyDQo+ICsNCj4gKyAgcmVnOg0KPiArICAgIG1heEl0ZW1zOiAx
-DQo+ICsNCj4gKyAgY2xvY2tzOg0KPiArICAgIG1heEl0ZW1zOiAxDQo+ICsNCj4gKyAgcG93ZXIt
-ZG9tYWluczoNCj4gKyAgICBtYXhJdGVtczogMQ0KPiArDQo+ICsgIHBvcnRzOg0KPiArICAgICRy
-ZWY6IC9zY2hlbWFzL2dyYXBoLnlhbWwjL3Byb3BlcnRpZXMvcG9ydHMNCj4gKw0KPiArICAgIHBy
-b3BlcnRpZXM6DQo+ICsgICAgICBwb3J0QDA6DQo+ICsgICAgICAgICRyZWY6IC9zY2hlbWFzL2dy
-YXBoLnlhbWwjL3Byb3BlcnRpZXMvcG9ydA0KPiArDQo+ICsgICAgICBwb3J0QDE6DQo+ICsgICAg
-ICAgICRyZWY6IC9zY2hlbWFzL2dyYXBoLnlhbWwjL3Byb3BlcnRpZXMvcG9ydA0KPiArDQo+ICsg
-ICAgcmVxdWlyZWQ6DQo+ICsgICAgICAtIHBvcnRAMA0KPiArICAgICAgLSBwb3J0QDENCj4gKw0K
-PiArICB0cmlnZ2VyLXNvdXJjZXM6DQo+ICsgICAgbWF4SXRlbXM6IDENCj4gKw0KPiArcmVxdWly
-ZWQ6DQo+ICsgIC0gY29tcGF0aWJsZQ0KPiArICAtIHJlZw0KPiArICAtIGNsb2Nrcw0KPiArICAt
-IGNsb2NrLW5hbWVzDQoNCmNsb2NrLW5hbWVzIGlzIHJlcXVpcmVkLCBidXQgaXQncyBub3QgbGlz
-dGVkIGluIHByb3BlcnRpZXMuDQoNClJlZ2FyZHMsDQpDSw0KDQo+ICsgIC0gcG9ydHMNCj4gKw0K
-PiArYWRkaXRpb25hbFByb3BlcnRpZXM6IGZhbHNlDQo+ICsNCg==
+From: Steven Rostedt <rostedt@goodmis.org>
+
+While looking at tasks global descriptor tables, I discovered the
+following anomaly:
+
+~# echo 't:sched sched_switch prev=prev mm=(task_struct)prev->mm ppgd=(task_struct)prev->mm->pgd' > /sys/kernel/tracing/dynamic_events
+
+The above creates a tprobe on the sched_switch tracepoint and records the
+previous task_struct pointer, it's mm_struct and the pgd the mm_struct
+points to.
+
+~# trace-cmd start -e tracepoints:sched
+
+            bash-1050    [000] d..3.    90.829478: sched: (__probestub_sched_switch+0x0/0x10) prev=0xffff88d30b623600 mm=0xffff88d30108c600 ppgd=0xffff88d33352b000
+          <idle>-0       [002] d..3.    90.836024: sched: (__probestub_sched_switch+0x0/0x10) prev=0xffff88d301870000 mm=0x0 ppgd=0x0
+     rcu_preempt-15      [002] d..3.    90.836031: sched: (__probestub_sched_switch+0x0/0x10) prev=0xffff88d3013ad100 mm=0x0 ppgd=0xffff88d33352b000
+
+The first event has is a user task that has both a valid mm_struct and a pgd.
+The second event is a kernel task where the mm_struct is NULL and so is the
+dereferenced pgd pointer.
+
+The third event is where things looked strange. The mm_struct is NULL but
+the dereferenced pgd has a value! That is: NULL->pgd produced something
+other than zero.
+
+The reason for this is that the probe_mem_read() and probe_mem_read_user()
+do not write to the destination on failure. The process_fetch_insn_bottom()
+loop does not check the return value of the dereference (as it is the last
+one), and does not update the event. That leaves the value for that failed
+field to be whatever was in the ring buffer at that time.
+
+Have both probe_mem_read() and probe_mem_read_user() set the destination to
+zero on failure to read the address.
+
+Now all pgd are zero when mm is zero.
+
+Also update the stage 2 of process_fetch_insn_bottom() to not return on
+fault but to just set the value to zero and also do not even bother
+dereferencing the address if the value is already zero. This allows the
+code to continue and fill in the zero into the memory location on the
+ring buffer.
+
+Cc: stable@vger.kernel.org
+Fixes: 533059281ee59 ("tracing: probeevent: Introduce new argument fetching code")
+Signed-off-by: Steven Rostedt <rostedt@goodmis.org>
+---
+v6 was supposed to be this patch but a broken version was sent out by mistake.
+
+Changes since v5: https://patch.msgid.link/20261120152432.0dc2bdf0@gandalf.local.home
+
+- Handle fetch_store_string*() when val is NULL (Sashiko)
+
+ kernel/trace/trace_probe_tmpl.h | 110 ++++++++++++++++++++++++++------
+ 1 file changed, 89 insertions(+), 21 deletions(-)
+
+diff --git a/kernel/trace/trace_probe_tmpl.h b/kernel/trace/trace_probe_tmpl.h
+index 8acc0f0ebd7a..9672474b067b 100644
+--- a/kernel/trace/trace_probe_tmpl.h
++++ b/kernel/trace/trace_probe_tmpl.h
+@@ -90,13 +90,15 @@ fetch_store_symstring(unsigned long addr, void *dest, void *base)
+ 	char namebuf[KSYM_SYMBOL_LEN];
+ 	int maxlen = get_loc_len(*(u32 *)dest);
+ 	void *__dest;
+-	int len;
++	int len = -1;
+ 
+ 	if (unlikely(!maxlen))
+ 		return -ENOMEM;
+ 
+ 	__dest = get_loc_data(dest, base);
+-	len = sprint_symbol(namebuf, addr);
++	/* Do not dereference NULL pointers */
++	if (addr)
++		len = sprint_symbol(namebuf, addr);
+ 	if (len < 0) {
+ 		*(u32 *)dest = make_data_loc(0, __dest - base);
+ 		return 0;
+@@ -133,13 +135,63 @@ process_common_fetch_insn(struct fetch_insn *code, unsigned long *val)
+ 	return 0;
+ }
+ 
++/* On failure, zero out the destination */
++static nokprobe_inline int
++do_probe_mem_read_user(void *dest, void *src, size_t size)
++{
++	int ret;
++
++	ret = probe_mem_read_user(dest, src, size);
++	if (ret < 0)
++		memset(dest, 0, size);
++	return ret;
++}
++
++/* On failure, zero out the destination */
++static nokprobe_inline int
++do_probe_mem_read(void *dest, void *src, size_t size)
++{
++	int ret;
++
++	ret = probe_mem_read(dest, src, size);
++	if (ret < 0)
++		memset(dest, 0, size);
++	return ret;
++}
++
++static nokprobe_inline int
++do_fetch_store_string(unsigned long addr, void *dest, void *base)
++{
++	/* NULL addr gets zero size string */
++	if (!addr) {
++		void *__dest = get_loc_data(dest, base);
++
++		*(u32 *)dest = make_data_loc(0, __dest - base);
++		return 0;
++	}
++	return fetch_store_string(addr, dest, base);
++}
++
++static nokprobe_inline int
++do_fetch_store_string_user(unsigned long addr, void *dest, void *base)
++{
++	/* NULL addr gets zero size string */
++	if (!addr) {
++		void *__dest = get_loc_data(dest, base);
++
++		*(u32 *)dest = make_data_loc(0, __dest - base);
++		return 0;
++	}
++	return fetch_store_string_user(addr, dest, base);
++}
++
+ /* From the 2nd stage, routine is same */
+ static nokprobe_inline int
+ process_fetch_insn_bottom(struct fetch_insn *code, unsigned long val,
+ 			   void *dest, void *base)
+ {
+ 	struct fetch_insn *s3 = NULL;
+-	int total = 0, ret = 0, i = 0;
++	int total = 0, ret = 0, i = 0, offset;
+ 	u32 loc = 0;
+ 	unsigned long lval, llval = val;
+ 
+@@ -147,25 +199,30 @@ process_fetch_insn_bottom(struct fetch_insn *code, unsigned long val,
+ 	/* 2nd stage: dereference memory if needed */
+ 	do {
+ 		lval = val;
++		/* Prevent dereferencing NULL val pointer */
++		offset = val ? code->offset : 0;
+ 		switch (code->op) {
+ 		case FETCH_OP_DEREF:
+-			ret = probe_mem_read(&val, (void *)val + code->offset,
+-					     sizeof(val));
++			/* Do not dereference NULL pointers */
++			if (val)
++				do_probe_mem_read(&val, (void *)val + offset,
++						  sizeof(val));
+ 			break;
+ 		case FETCH_OP_UDEREF:
+-			ret = probe_mem_read_user(&val,
+-				 (void *)val + code->offset, sizeof(val));
++			/* Do not dereference NULL pointers */
++			if (val)
++				do_probe_mem_read_user(&val, (void *)val + offset,
++						       sizeof(val));
+ 			break;
+ 		case FETCH_OP_CPU_PTR:
+-			val = (unsigned long)this_cpu_ptr((void __percpu *)val);
+-			ret = 0;
++			/* Do not dereference NULL pointers */
++			if (val)
++				val = (unsigned long)this_cpu_ptr((void __percpu *)val);
+ 			break;
+ 		default:
+ 			lval = llval;
+ 			goto out;
+ 		}
+-		if (ret)
+-			return ret;
+ 		llval = lval;
+ 		code++;
+ 	} while (1);
+@@ -173,19 +230,25 @@ process_fetch_insn_bottom(struct fetch_insn *code, unsigned long val,
+ 
+ 	s3 = code;
+ stage3:
++	/*
++	 * Once val is zero, it is pointing to NULL. Any new dereference is
++	 * also treated as a NULL pointer.
++	 */
++	offset = val ? code->offset : 0;
++
+ 	/* 3rd stage: store value to buffer */
+ 	if (unlikely(!dest)) {
+ 		switch (code->op) {
+ 		case FETCH_OP_ST_STRING:
+-			ret = fetch_store_strlen(val + code->offset);
++			ret = val ? fetch_store_strlen(val + offset) : 0;
+ 			code++;
+ 			goto array;
+ 		case FETCH_OP_ST_USTRING:
+-			ret = fetch_store_strlen_user(val + code->offset);
++			ret = val ? fetch_store_strlen_user(val + offset) : 0;
+ 			code++;
+ 			goto array;
+ 		case FETCH_OP_ST_SYMSTR:
+-			ret = fetch_store_symstrlen(val + code->offset);
++			ret = val ? fetch_store_symstrlen(val + offset) : 0;
+ 			code++;
+ 			goto array;
+ 		default:
+@@ -193,27 +256,30 @@ process_fetch_insn_bottom(struct fetch_insn *code, unsigned long val,
+ 		}
+ 	}
+ 
++	/* When val is NULL, so should the val + offset */
++	offset = val ? code->offset : 0;
++
+ 	switch (code->op) {
+ 	case FETCH_OP_ST_RAW:
+ 		fetch_store_raw(val, code, dest);
+ 		break;
+ 	case FETCH_OP_ST_MEM:
+-		probe_mem_read(dest, (void *)val + code->offset, code->size);
++		do_probe_mem_read(dest, (void *)val + offset, code->size);
+ 		break;
+ 	case FETCH_OP_ST_UMEM:
+-		probe_mem_read_user(dest, (void *)val + code->offset, code->size);
++		do_probe_mem_read_user(dest, (void *)val + offset, code->size);
+ 		break;
+ 	case FETCH_OP_ST_STRING:
+ 		loc = *(u32 *)dest;
+-		ret = fetch_store_string(val + code->offset, dest, base);
++		ret = do_fetch_store_string(val + offset, dest, base);
+ 		break;
+ 	case FETCH_OP_ST_USTRING:
+ 		loc = *(u32 *)dest;
+-		ret = fetch_store_string_user(val + code->offset, dest, base);
++		ret = do_fetch_store_string_user(val + offset, dest, base);
+ 		break;
+ 	case FETCH_OP_ST_SYMSTR:
+ 		loc = *(u32 *)dest;
+-		ret = fetch_store_symstring(val + code->offset, dest, base);
++		ret = fetch_store_symstring(val + offset, dest, base);
+ 		break;
+ 	default:
+ 		return -EILSEQ;
+@@ -237,11 +303,13 @@ process_fetch_insn_bottom(struct fetch_insn *code, unsigned long val,
+ 			if (s3->op != FETCH_OP_ST_STRING &&
+ 			    s3->op != FETCH_OP_ST_USTRING) {
+ 				dest += s3->size;
+-				val += s3->size;
++				/* Only update a non NULL val */
++				if (val)
++					val += s3->size;
+ 				goto stage3;
+ 			}
+ 			code--;
+-			val = lval + sizeof(char *);
++			val = lval ? lval + sizeof(char *) : 0;
+ 			if (dest) {
+ 				dest += sizeof(u32);
+ 				*(u32 *)dest = update_data_loc(loc, ret);
+-- 
+2.53.0
+
