@@ -1,81 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=124.126.103.232
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795498396;
-	b=Ki71ZKGeo9l2RvSrY1NgTQa9yWUvvGk84q6wDecv+np1BbdykBQ7J1TX3whj79YdsbcB
-	 s01qiZui0v9jkDSpEM6PmDrBR+WBWg+yF3I2/HopRNWYKlnBwS/vy8OyS7+gnQ4zg3Rzj
-	 pSy16yQFSyhFr0yPyetgWmw/RWYfHTq2RRCr6H9Ra0DELjTtzbl/yOwMmDaUr61JwtyLI
-	 vv/ORrbX79ZWZg9w5doLdyEvMoPZcaSuYPOmJ8oJIIdYwTF28nLTm6Of68gyA3N2+MOFZ
-	 uYaCNwrYclrSWQ2k7FvzE6a3heCPixNbaTsFbQEuPAzKV74f/GfNuoHuDsYiIHz/aBQ==
+	t=1795498738;
+	b=SvgmPHRKKJ8MU9XKMF7ZlBLFOUixH2XOCUec0IeVsmUrlO/tkm6y22C4JixwX1eC+CGJ
+	 IoNUAbPIgdGbPtGtiJIzzz4Sf4/PeM0l68PBXZpgRSY4MWavQa8OgAuOJiAC6QPHzusP5
+	 OKAnpEFFEfG4CHla+XI8Z3vGHX9PAPkkJo82vadRf4qq8zcRh660f4TNCKqlQW6TejcBs
+	 GPxfx7uPtbUx1h0Tqu66VquMzjbAxIr4rFpAaAVycAoCYhkH0hbvrm/upbrg7qk1vbUkp
+	 IYjri4iHTlCCaivyQbe1AuEylErryMT/7xPsn0ggKK2v+0V7chlOa5EPBGoUqo7hA/A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795498396;
-	h=DMARC-Filter:X-UUID:X-CTIC-Tags:X-CID-P-RULE:X-CID-O-INFO:X-CID-INFO:
-	 X-CID-META:X-CID-BVR:X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:X-User:
-	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=CnFsYe8laaCsWo8gqpr+IQVdVBo4MQAceNgwRTBc9us=;
-	b=dc0X3GlO6RMsqmjWArohDB621Mb0ZNkRotIFsv07vwhN9RCTSd0QrasM7ENF2B1+egVF
-	 ulR4hjsQLaUfG3yFsk7vhHsaCJoPBNeciUCP8/kOxdQ7wJP2khQIL2oM8mMC26NDlNZCE
-	 L9En4wLFJRKQi88wFLn7uTTTGZ7MteB4XsD188S84oSISOqld2a3N7sZzPvjYTX0RN53+
-	 7/T7bUKJqN9dJE47j2agpTJZetQXt2lUs/N04bvlZijZ0rn20oouLN0UrqHBRHacsVHVh
-	 Ic6F6MZeqKQ6XxJxeLjtx1Aq1EPJs0NJZ6ZWuC+gGjzOx1+O00/4m+4MV6DNNv33lXQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795498738;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=lUhyx8LQWnjIInAaRIg9z9hjcTi/e66UaFQJ4bM0G+o=;
+	b=plDGwa6TtUHLJ9EhAMmvr9Meadb62at6F7Vyi0/lhJwM8ohHHPwk1huhkVXkJUE+Asru
+	 EMeRwbEWR7ty3rCuZgKhQIbjIQhl29Lgf5DfSHG/J+hYEs25WDY0cthFu7Bsyl+wLYTZw
+	 iFXzn8m5W7Hq5teLYY1uOqhUbFCtuWoDI47is0i3XH1/EFhaLpEPMjSEjTgyLqLnlFetl
+	 6J5dPC21jKln+Vsb+ohRdLUPFZ0ho9Y/CadQL8U8Xjt3uGkfuUsMctMGUb3Ok7UlxCYWH
+	 0lCasTNbIkhVygpI0Z4i0DxDMyqwQYz17DdH+UMCvQlpF2HjqjLn/HvWPryB42isKng==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=kylinos.cn;
-	spf=pass smtp.mailfrom=kylinos.cn;
-	arc=none smtp.remote-ip=124.126.103.232
-Received: from mailgw.kylinos.cn (mailgw.kylinos.cn [124.126.103.232])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jzRAwNko;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5BCA3606A31E;
-	Tue, 24 Nov 2026 05:33:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5BCA3606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kylinos.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kylinos.cn
-X-UUID: 868fcc1ae7c811f19a56ed5b684f684d-20261124
-X-CTIC-Tags:
-	HR_CC_COUNT, HR_CC_DOMAIN_COUNT, HR_CC_NAME, HR_CC_NO_NAME, HR_CTE_8B
-	HR_CTT_MISS, HR_DATE_H, HR_DATE_WKD, HR_DATE_ZONE, HR_FROM_NAME
-	HR_SJ_LANG, HR_SJ_LEN, HR_SJ_LETTER, HR_SJ_NOR_SYM, HR_SJ_PHRASE
-	HR_SJ_PHRASE_LEN, HR_SJ_WS, HR_TO_COUNT, HR_TO_DOMAIN_COUNT, HR_TO_NAME
-	SA_EXISTED, SN_EXISTED, SPF_NOPASS, DKIM_NOPASS, DMARC_NOPASS
-	CIE_BAD, CIE_GOOD, CIE_GOOD_SPF, GTI_FG_BS, GTI_RG_INFO
-	GTI_C_BU, AMN_GOOD, ABX_MISS_RDNS
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.19,REQID:8d96ac46-4457-4771-b2c4-4ef09193619a,IP:10,
-	URL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:10
-X-CID-INFO: VERSION:1.3.19,REQID:8d96ac46-4457-4771-b2c4-4ef09193619a,IP:10,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:10
-X-CID-META: VersionHash:7db8b62,CLOUDID:3c603099da2a35e6db3e2fd92c955295,BulkI
-	D:261124133309JDDKGXM7,BulkQuantity:0,SF:17|19|38|66|78|102|127|153|850|86
-	5|898|915,TC:nil,Content:0|15|50|99,EDM:-3,IP:-2,URL:0,File:nil,RT:nil,Bul
-	k:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0
-	,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_FAS,TF_CID_SPAM_FSD,TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 868fcc1ae7c811f19a56ed5b684f684d-20261124
-X-User: maguicai@kylinos.cn
-Received: from localhost.localdomain [(36.106.123.207)] by mailgw.kylinos.cn
-	(envelope-from <maguicai@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 928427159; Tue, 24 Nov 2026 13:33:06 +0800
-From: Guicai Ma <maguicai@kylinos.cn>
-To: David Howells <dhowells@redhat.com>,
-	Jarkko Sakkinen <jarkko@kernel.org>
-Cc: keyrings@vger.kernel.org,
-	linux-security-module@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Paul Moore <paul@paul-moore.com>,
-	James Morris <jmorris@namei.org>,
-	"Serge E . Hallyn" <serge@hallyn.com>,
-	Guicai Ma <maguicai@kylinos.cn>
-Subject: [PATCH] KEYS: Protect the instantiate method against type removal
-Date: Tue, 24 Nov 2026 00:33:03 -0500
-Message-ID: <20261124053303.940216-1-maguicai@kylinos.cn>
-X-Mailer: git-send-email 2.47.3
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D958C606A31E;
+	Tue, 24 Nov 2026 05:38:58 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jzRAwNko
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D68B81F000C4;
+	Tue, 24 Nov 2026 05:38:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795498738;
+	bh=lUhyx8LQWnjIInAaRIg9z9hjcTi/e66UaFQJ4bM0G+o=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=jzRAwNko4mj0T6asS7q+9Ckw7Psi1CrpRaX/blwRL9JhtR+YBRaiSemGE1qqIo1G1
+	 Ys0iHWI6e3ux6LUA8+GdJ0SvVy7Q6dNSW3Xrh6M2kBksF2ZojqNPjtrk4q4CkB/Sel
+	 V7/0Iocjh/r2colmuTYIX1EC/57iNaPuIYpEgzeovAd65NndegVgNqXqWtG2oL+W70
+	 TRLeoM+znDuoGGqJ3hczR6ypxF/+JozyNtr2JFaoQTEuASy2Ur6EqDrQ5tLvW3w2hj
+	 BPds43ZDbgv56S9HA6tZID+gnSWac6yel6rOccZadxnrOo3mE/b3E3wrUhV3kCuTnN
+	 jAz4E8ymhIWWA==
+Subject: Re: [PATCH net-next v4 1/4] net: phy: Map C45 probe read errors to
+ -ENODEV during bus scan
+From: netdev-bot+sashiko@kernel.org
+To: florian.fainelli@broadcom.com
+Cc: netdev@vger.kernel.org, carlos.soto@broadcom.com, justin.chen@broadcom.com,
+ opendmb@gmail.com, nb@tipi-net.de, bcm-kernel-feedback-list@broadcom.com,
+ andrew@lunn.ch, hkallweit1@gmail.com, linux@armlinux.org.uk,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ linux-kernel@vger.kernel.org, kudzo51@gmail.com
+Date: Tue, 24 Nov 2026 05:38:57 +0000
+Message-ID: <179549873735.3135.6221350265873603736@kernel.org>
+In-Reply-To: <20261120051653.1433677-2-florian.fainelli@broadcom.com>
+References: <20261120051653.1433677-2-florian.fainelli@broadcom.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -85,177 +65,251 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-key_instantiate_and_link() reads key->type->def_datalen and ->preparse
-and calls ->instantiate without holding key->sem. A reference on the
-key keeps it alive, but does not pin the module that provides its type.
+Thank you for your contribution! Sashiko AI review found 5 potential
+issue(s) to consider.
 
-unregister_key_type() waits for the key GC to process every remaining
-key of the type. For each such key the GC takes key->sem for writing,
-switches key->type to key_type_dead and destroys the payload. A key
-that is still under construction is retyped as well: it stays in
-KEY_IS_UNINSTANTIATED and its authorisation key remains valid, so
-KEYCTL_INSTANTIATE from the upcall helper reaches
-__key_instantiate_and_link() and calls key_type_dead.instantiate,
-which is NULL:
+Critical: 0 · High: 0 · Medium: 2 · Low: 3
 
-  Unable to handle kernel NULL pointer dereference at
-  virtual address 0000000000000000
-  Internal error: Oops: 0000000086000006 [#1] SMP
-  pc : 0x0
-  lr : __key_instantiate_and_link+0xb8/0x2f8
-  Call trace:
-   0x0 (P)
-   key_instantiate_and_link+0x2e8/0x36c
-   keyctl_instantiate_key_common+0x1cc/0x338
-   keyctl_instantiate_key+0xbc/0x120
-   __arm64_sys_keyctl+0x218/0x3f0
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-If the module is unloaded while ->preparse or ->instantiate is running,
-execution can also return into freed module text, or skip
-->free_preparse after the key is retyped and leak the preparsed
-payload. While the request_key() syscall holds key_types_sem across the
-upcall, in-kernel request_key() callers such as dns_query() do not, so
-unregister_key_type() can run before KEYCTL_INSTANTIATE.
+- [Medium] When a C45 package does not answer on the first MMD it probes,
+  get_phy_c45_ids() stops probing (drivers/net/phy/phy_device.c:860-873).
+- [Medium] phy_get_c45_ids() is exported.
+- [Low] The subject ("... during bus scan") and the body describe only
+  the mdiobus_scan_bus_c45()/__mdiobus_register() path.
+- [Low] The kernel-doc rewritten for get_phy_c45_ids()
+  (phy_device.c:826-828) and phy_get_c45_ids() (around 1104-1110) says…
+- [Low] get_phy_c45_devs_in_pkg() (phy_device.c:785-801) issues
+  MDIO_DEVS2 and then MDIO_DEVS1 to the same MMD, and now returns the…
 
-Hold key->sem for reading across key_instantiate_and_link() and return
--EOPNOTSUPP if the type has no ->instantiate method. Since
-keyring_alloc() links a new keyring into a destination keyring with the
-new keyring's semaphore held at subclass 0, take the destination
-keyring's semaphore at subclass 1 in __key_link_lock(), matching the
-0 -> 1 order in __key_move_lock().
+--
 
-Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
-Cc: stable@vger.kernel.org
-Signed-off-by: Guicai Ma <maguicai@kylinos.cn>
----
-Tested on 7.4.0-rc3 arm64 in QEMU with KASAN and lockdep enabled by
-unloading a test key-type module between an in-kernel request_key()
-upcall and KEYCTL_INSTANTIATE. Unpatched Oopses at pc=0 on the first
-round; patched returns -EOPNOTSUPP and passes 20 concurrent
-instantiate-vs-unload rounds and nested keyring creation cleanly.
+net: phy: Map C45 probe read errors to -ENODEV during bus scan
 
- security/keys/key.c     | 39 +++++++++++++++++++++++++++++----------
- security/keys/keyring.c |  9 ++++++++-
- 2 files changed, 37 insertions(+), 11 deletions(-)
+This patch makes get_phy_c45_devs_in_pkg() return the raw bus error. In
+get_phy_c45_ids() it maps -EIO and -ENODEV to -ENODEV, both in the MMD loop
+and in the MMD 0 fallback, so that mdiobus_scan_bus_c45() keeps scanning
+past empty addresses. A failed devices-in-package read in the MMD loop now
+skips the remaining MMDs and goes straight to the MMD 0 probe.
 
-diff --git a/security/keys/key.c b/security/keys/key.c
-index 3f1f0fc13710..12cbca31824c 100644
---- a/security/keys/key.c
-+++ b/security/keys/key.c
-@@ -422,9 +422,10 @@ static void mark_key_instantiated(struct key *key, int reject_error)
- 
- /*
-  * Instantiate a key and link it into the target keyring atomically.  Must be
-- * called with the target keyring's semaphore writelocked.  The target key's
-- * semaphore need not be locked as instantiation is serialised by
-- * key_construction_mutex.
-+ * called with the target keyring's semaphore writelocked.  Either the target
-+ * key's semaphore or key_types_sem must be held for reading so that the
-+ * garbage collector cannot retype the key to key_type_dead while the type's
-+ * methods are in use.
-  */
- static int __key_instantiate_and_link(struct key *key,
- 				      struct key_preparsed_payload *prep,
-@@ -496,7 +497,8 @@ static int __key_instantiate_and_link(struct key *key,
-  *
-  * If successful, 0 is returned, the authorisation token is revoked and anyone
-  * waiting for the key is woken up.  If the key was already instantiated,
-- * -EBUSY will be returned.
-+ * -EBUSY will be returned.  If the key type no longer provides an instantiate
-+ * method, -EOPNOTSUPP will be returned.
-  */
- int key_instantiate_and_link(struct key *key,
- 			     const void *data,
-@@ -509,6 +511,20 @@ int key_instantiate_and_link(struct key *key,
- 	int ret;
- 
- 	memset(&prep, 0, sizeof(prep));
-+
-+	/*
-+	 * A reference on the key does not pin the module that provides its
-+	 * type.  unregister_key_type() waits for the garbage collector to
-+	 * retype every remaining key of the type to key_type_dead, whose
-+	 * ->instantiate is NULL, so the type must not change from here to the
-+	 * instantiate call.
-+	 */
-+	down_read(&key->sem);
-+
-+	ret = -EOPNOTSUPP;
-+	if (!key->type->instantiate)
-+		goto out;
-+
- 	prep.orig_description = key->description;
- 	prep.data = data;
- 	prep.datalen = datalen;
-@@ -517,17 +533,17 @@ int key_instantiate_and_link(struct key *key,
- 	if (key->type->preparse) {
- 		ret = key->type->preparse(&prep);
- 		if (ret < 0)
--			goto error;
-+			goto out_free_preparse;
- 	}
- 
- 	if (keyring) {
- 		ret = __key_link_lock(keyring, &key->index_key);
- 		if (ret < 0)
--			goto error;
-+			goto out_free_preparse;
- 
- 		ret = __key_link_begin(keyring, &key->index_key, &edit);
- 		if (ret < 0)
--			goto error_link_end;
-+			goto out_link_end;
- 
- 		if (keyring->restrict_link && keyring->restrict_link->check) {
- 			struct key_restriction *keyres = keyring->restrict_link;
-@@ -535,19 +551,22 @@ int key_instantiate_and_link(struct key *key,
- 			ret = keyres->check(keyring, key->type, &prep.payload,
- 					    keyres->key);
- 			if (ret < 0)
--				goto error_link_end;
-+				goto out_link_end;
- 		}
- 	}
- 
- 	ret = __key_instantiate_and_link(key, &prep, keyring, authkey, &edit);
- 
--error_link_end:
-+out_link_end:
- 	if (keyring)
- 		__key_link_end(keyring, &key->index_key, edit);
- 
--error:
-+out_free_preparse:
- 	if (key->type->preparse)
- 		key->type->free_preparse(&prep);
-+
-+out:
-+	up_read(&key->sem);
- 	return ret;
- }
- 
-diff --git a/security/keys/keyring.c b/security/keys/keyring.c
-index 357f56360810..f545f56c84e7 100644
---- a/security/keys/keyring.c
-+++ b/security/keys/keyring.c
-@@ -1262,7 +1262,14 @@ int __key_link_lock(struct key *keyring,
- 	if (keyring->type != &key_type_keyring)
- 		return -ENOTDIR;
- 
--	down_write(&keyring->sem);
-+	/*
-+	 * key_instantiate_and_link() links a newly allocated keyring into this
-+	 * one while holding the new keyring's semaphore for reading as
-+	 * subclass 0, so take the destination keyring at subclass 1 to keep
-+	 * the same 0 -> 1 order that __key_move_lock() uses.  None of the
-+	 * other callers of this function hold a key semaphore.
-+	 */
-+	down_write_nested(&keyring->sem, 1);
- 
- 	/* Serialise link/link calls to prevent parallel calls causing a cycle
- 	 * when linking two keyring in opposite orders.
+> net: phy: Map C45 probe read errors to -ENODEV during bus scan
+
+[Severity: Low]
+The subject and the body only describe the mdiobus_scan_bus_c45() and
+__mdiobus_register() path. get_phy_c45_ids() is also reached outside the bus
+scan.
+
+fwnode_mdiobus_register_phy() calls get_phy_device(bus, addr, true) for
+"ethernet-phy-ieee802.3-c45" nodes, and of_mdiobus_register_phy() goes
+through it. Before this patch, an -EIO from a devices-in-package read made
+__of_mdiobus_parse_phys() take the goto exit path, and the bus was
+unregistered. Now it gets -ENODEV, which is only logged:
+
+drivers/net/mdio/of_mdio.c:__of_mdiobus_parse_phys() {
+    ...
+		if (rc == -ENODEV)
+			dev_err(&mdio->dev,
+				"MDIO device at address %d is missing.\n",
+				addr);
+		else if (rc)
+			goto exit;
+    ...
+}
+
+As a result the bus registers without the PHY. The exported
+phy_get_c45_ids() changes too, so gpy_probe() now fails with -ENODEV
+instead of -EIO.
+
+The patch carries a Fixes: tag. Could the commit message mention these
+non-scan behaviour changes?
+
+> diff --git a/drivers/net/phy/phy_device.c b/drivers/net/phy/phy_device.c
+> index b39e945cebd73..79f3fa1e9a036 100644
+> --- a/drivers/net/phy/phy_device.c
+> +++ b/drivers/net/phy/phy_device.c
+
+[ ... ]
+
+> @@ -789,17 +789,30 @@ static int get_phy_c45_devs_in_pkg(struct mii_bus *bus, int addr, int dev_addr,
+>  
+>  	phy_reg = mdiobus_c45_read(bus, addr, dev_addr, MDIO_DEVS2);
+>  	if (phy_reg < 0)
+> -		return -EIO;
+> +		return phy_reg;
+>  	*devices_in_package = phy_reg << 16;
+>  
+>  	phy_reg = mdiobus_c45_read(bus, addr, dev_addr, MDIO_DEVS1);
+>  	if (phy_reg < 0)
+> -		return -EIO;
+> +		return phy_reg;
+
+[Severity: Low]
+Suppose the MDIO_DEVS2 read above succeeds and this MDIO_DEVS1 read then
+fails with -EIO. get_phy_c45_ids() passes the error through
+get_phy_c45_probe_err() in the same way as a failure on the first contact.
+Should that count as "nothing answered at this address"?
+
+The successful DEVS2 read already shows that a device at this port address
+and MMD drove the bus. With the new code, the loop breaks with devs_in_pkg
+forced to all Fs. The MMD 0 read will usually fail the turnaround as well,
+and get_phy_c45_ids() returns -ENODEV. mdiobus_scan_bus_c45() then skips
+the address without logging anything:
+
+			phydev = mdiobus_scan_c45(bus, i);
+			if (IS_ERR(phydev) && (PTR_ERR(phydev) != -ENODEV))
+				return PTR_ERR(phydev);
+
+In gpy_probe(), the same path turns a real bus error into a rejected match.
+
+Before this patch, the same case made the whole bus registration fail.
+get_phy_c22_id() also handles a PHYSID2 failure after a successful PHYSID1
+read this way. So the main cost here is lost diagnostics.
+
+>  	*devices_in_package |= phy_reg;
+
+[ ... ]
+
+> @@ -810,8 +823,9 @@ static int get_phy_c45_devs_in_pkg(struct mii_bus *bus, int addr, int dev_addr,
+>   * the PHY identifiers for each device. Return the "devices in package"
+>   * and identifiers in @c45_ids.
+>   *
+> - * Returns zero on success, %-EIO on bus access error, or %-ENODEV if
+> - * the "devices in package" is invalid or no device responds.
+> + * Returns zero on success, %-ENODEV if the "devices in package" is invalid or
+> + * if no MMD responds (including when the bus reports -EIO or -ENODEV for the
+> + * reads that look for a device), or %-EIO on any other bus access error.
+
+[Severity: Low]
+Is the "%-EIO on any other bus access error" part accurate? Further down in
+get_phy_c45_ids(), the identifier loop still returns the raw error from
+phy_c45_probe_present() for the vendor MMDs:
+
+		if (i == MDIO_MMD_VEND1 || i == MDIO_MMD_VEND2) {
+			...
+			ret = phy_c45_probe_present(bus, addr, i);
+			if (ret < 0)
+				return ret;
+
+phy_c45_probe_present() returns whatever mdiobus_c45_read() returned. That
+means -ETIMEDOUT, -EBUSY or a raw -ENODEV can reach callers of
+get_phy_device() and phy_get_c45_ids().
+
+If a raw -ENODEV arrives here, a device has already answered, yet
+mdiobus_scan_bus_c45() ignores it silently.
+
+The commit message says something similar: errors from the per-MMD
+identifier reads "are still reported as -EIO". The phy_get_c45_ids()
+kernel-doc repeats the same wording.
+
+>   */
+>  static int get_phy_c45_ids(struct mii_bus *bus, int addr,
+>  			   struct phy_c45_device_ids *c45_ids)
+> @@ -844,8 +858,20 @@ static int get_phy_c45_ids(struct mii_bus *bus, int addr,
+>  				continue;
+>  		}
+>  		phy_reg = get_phy_c45_devs_in_pkg(bus, addr, i, &devs_in_pkg);
+> -		if (phy_reg < 0)
+> -			return -EIO;
+> +		if (phy_reg < 0) {
+> +			ret = get_phy_c45_probe_err(phy_reg);
+> +			if (ret != -ENODEV)
+> +				return ret;
+> +
+> +			/* The MMD did not answer: treat it like a read of all
+> +			 * Fs, which is what controllers that do not check the
+> +			 * turnaround return, and go straight to the MMD 0
+> +			 * probe below. Do not probe the remaining MMDs, each
+> +			 * one costs two bus reads on a slow bus.
+> +			 */
+> +			devs_in_pkg = 0xffffffff;
+> +			break;
+
+[Severity: Medium]
+The comment says a failed read is treated "like a read of all Fs". Do the
+two cases behave the same?
+
+After an all-Fs read, the loop condition still holds, so the loop moves on
+to MMD 2..29 and to the vendor MMDs after their presence check. This break
+ends the search at the first MMD that fails. The only probe left is the
+MMD 0 fallback, and most C45 PHYs do not implement MMD 0.
+
+Take a controller whose read_c45 returns -EIO on a turnaround failure, such
+as cavium_mdiobus_read_c45() today, or UniMAC once read_c45 is added later
+in the series. Would these packages now come back as -ENODEV and be skipped
+silently by mdiobus_scan_bus_c45()?
+
+  - packages without MMD 1, whose lowest MMD is PCS, PHY XS, DTE XS, AN
+    and so on
+
+  - packages where MMD 1 answers with Devices-In-Package = 0 (the loop
+    already allows for this with devs_in_pkg == 0) and the next MMD, for
+    example WIS (MMD 2), is not implemented
+
+In the second case, the device has already answered at this address.
+
+A controller that does not check the turnaround would find both kinds of
+package. So whether the PHY is found now depends on the controller.
+
+Before this patch, these cases made the bus registration fail. This is a
+gap in the fix, not a regression from the old behaviour.
+
+> +		}
+>  	}
+
+[ ... ]
+
+> @@ -1077,8 +1104,9 @@ EXPORT_SYMBOL(phy_device_remove);
+>   * phy_get_c45_ids - Read 802.3-c45 IDs for phy device.
+>   * @phydev: phy_device structure to read 802.3-c45 IDs
+>   *
+> - * Returns zero on success, %-EIO on bus access error, or %-ENODEV if
+> - * the "devices in package" is invalid.
+> + * Returns zero on success, %-ENODEV if the "devices in package" is invalid or
+> + * no MMD responds (this includes a bus read failing with -EIO or -ENODEV while
+> + * looking for a device), or %-EIO on any other bus access error.
+>   */
+>  int phy_get_c45_ids(struct phy_device *phydev)
+
+[Severity: Medium]
+phy_get_c45_ids() is exported and is used outside bus scanning. Is -ENODEV
+the right result for a bus read error here?
+
+Its only in-tree caller, gpy_probe() in drivers/net/phy/mxl-gpy.c, returns
+the value directly from its probe callback:
+
+	if (!phydev->is_c45) {
+		ret = phy_get_c45_ids(phydev);
+		if (ret < 0)
+			return ret;
+	}
+
+This phydev was already found over C22, so a C45 read failure is a real
+fault, not an empty address. Take a read_c45 that returns -EIO on a
+turnaround failure. The MMD 1 read fails and the loop breaks. The MMD 0
+read then fails too, and get_phy_c45_probe_err() returns -ENODEV.
+
+call_driver_probe() in drivers/base/dd.c treats that as a rejected match
+and logs it only at debug level:
+
+	case -ENODEV:
+	case -ENXIO:
+		dev_dbg(dev, "probe with driver %s rejects match %d\n",
+			drv->name, ret);
+		break;
+	default:
+		/* driver matched but the probe failed */
+		dev_err(dev, "probe with driver %s failed with error %d\n",
+			drv->name, ret);
+
+Before this patch, the -EIO produced the dev_err() line. The PHY still ends
+up on genphy at attach time, but nothing visible says why.
+
+Could the -ENODEV mapping be limited to the scan path?
+
 -- 
-2.47.3
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261120051653.1433677-1-florian.fainelli%40broadcom.com
