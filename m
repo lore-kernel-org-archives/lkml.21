@@ -1,84 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.170
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795525772;
-	b=b+fUEYJRW7chkpvV/I5AaB5NP+xDccUSbv3L/lrS64VKARpadRC/g1+jE3IG1/f/+sWq
-	 MN0vbOQiW5m9JZeO6GsrgWHWFigi1Iu5j4TJywfoEyP66/loQNHbY6cMAdlcAHKIyPhSA
-	 MbSyQGNZBxRV+gwW4cxxYFEZ5aHzmzWmHJ2w7VFiJXpb7kZgmN6uhQ95qTV9u/MggkoI0
-	 fqyeFhVFynozrmPA8n2kRG/hrE7h7gVT42V5UzSk2I335jrlYeZLJtbHJF5JGekKbauAs
-	 adtLN/FM5pbAgLjw5z/XjF5zTQCSBf8XbJVWC57JAbJx4ZWWqmXM0j3r8jCFtB6YBaA==
+	t=1795525807;
+	b=yYsSTAkPnjG7ZxRaJqoprsEpC2FxwuuCYepL8wLCcsaXkh1I0bxMBWzWpO4jiKMSs+OV
+	 6FBqsPXWVezPYK/BL9PcHqmTFPWC9aU6nDij7O5vRh4Q9kgUqyh98QxtyPFXMgx2/2osR
+	 HYeGtQ9BsP7Y5IvyTmMtNVe9byYyzuh36YapxVqg0NoQgZe8WglR+CIuzXIqrYGk+BEXL
+	 raZxhmRuSOikEUeILuVxiotgXhZy5Zbz1d+P934PuMWcGKUMaoK88O3riZ4rhMuUyd9Nx
+	 VU4GTSvslLGPSU90AoYEFDr/wDaaL+idfhAMeOaNolbxRtR97zZ8z3788ESdHbK63Ig==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795525772;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:Subject:From:To:
-	 Cc:In-Reply-To:References:Date:Message-Id:X-Mailer;
-	bh=8yG0hkfIb2fB7h6z4Ui2DUaPUWV2P+Yav+jRqgNw3xY=;
-	b=wzJWxBACkzBv6AymOd2qCWr1XtOsHqj2WhtMnLG9bQq028+o8lIZ1G+oRIGLpm77B2Ge
-	 9L6be+4rKeFBfxqgSzFj69o/ThhAflQn0NGN4WEpYmgmOlyXLmJCGwaQiBNYHs82irHli
-	 k+e0OvdndG6FGEF4WGn/8hJC2yJGzvIhnfMR3nJSHMlgTWq7v3gIOUcDw4ZPo2C9AXfa6
-	 HUR1atHwSnZJOMwzEtrvcBzgWKpIOrCQVN0Z3k9h2F/kfLuVQyqQzu4PwMKcH9fqQzeMZ
-	 mKVhpVVM+Tzm0qBqHDsx4a+/mra3cIs0eEPUbVz549Nuj2enLmIZnJ/t5rHax3kMizg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795525807;
+	h=Received:DKIM-Signature:Received:Date:Message-ID:From:To:Cc:Subject:
+	 In-Reply-To:References:User-Agent:MIME-Version:Content-Type:
+	 X-SA-Exim-Connect-IP:X-SA-Exim-Rcpt-To:X-SA-Exim-Mail-From:
+	 X-SA-Exim-Scanned;
+	bh=Z3NWK5cLOijzuItkhwXkwNPbHwJin1fTuYBbbki6ORI=;
+	b=PAU9V0fWjy2Mqq5P5VPW+TpCOhtqSKZHuXDYcXAjLauRaDDUljVqnUXphDTFP33hagA0
+	 5fIT3PAo3mmCKCVORnM6agWtKUenhO3O6yHT4hAZ+tzgcRcAYcKE5bGwsP+BQtyNZUBY9
+	 CJ/a2DfMolvx3hlhTNDhLoSdk8eC1fH3+POF53rNkZBNuEWtr5Qi5kPrxDhFpt22p0pwF
+	 rkpd8v4nSm1Ow3mKre3pJdREdceWy1xs8ykC7lgXxjGfF4Ilk9MCWL2j/Pe7Iel/jkry+
+	 4omZCsmj2v4vVLFKkPXL47+iKZSLA9gAjeA28U/a/VYeUZhAeDIN3qMXfDx9gcYW5QQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MqA5yQ3T;
-	arc=none smtp.remote-ip=74.125.82.170
-Received: from mail-dy1-f170.google.com (mail-dy1-f170.google.com [74.125.82.170])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=X0QNvToG;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2F13E606A322
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:09:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2F13E606A322
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B3976606A31E;
+	Tue, 24 Nov 2026 13:10:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MqA5yQ3T
-Received: by mail-dy1-f170.google.com with SMTP id 5a478bee46e88-38699cf08dfso4912840eec.1
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 05:09:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795525771; x=1796130571; darn=vger.kernel.org;
-        h=message-id:date:references:in-reply-to:cc:to:from:subject
-         :content-transfer-encoding:content-type:mime-version:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=8yG0hkfIb2fB7h6z4Ui2DUaPUWV2P+Yav+jRqgNw3xY=;
-        b=MqA5yQ3TI8mmHn2+b38HkEvtgqQzyHR0LW8DcJXTREDuHsnh+pcBCLS5qcgW9iqHV2
-         412CSNfvFaovfq9i+tuCfj/aIt8L8dhNQEdrOr7k0LFjsU2tLUqdjRWnMhZDN3K0bI1r
-         p3ZHytCZYvFZEmINQuTqy0a5Y7avToQ9MQN5o/QoJXXH0VXe5B23SQCz1TH21u0sQ9Hg
-         luUfv8AFh9z9SpGarPSf97dpEHiPxoqqMfB6PHb+pSEpI3f3BC5X8G9UmN8mvOv3khf5
-         Cfc4H336Fuyrp4h76AoH70AcMo6GMNVAa13ncgHSzoeYrbHc4kGPR3+GMO6RswgNB/cu
-         iPFw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795525771; x=1796130571;
-        h=message-id:date:references:in-reply-to:cc:to:from:subject
-         :content-transfer-encoding:content-type:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=8yG0hkfIb2fB7h6z4Ui2DUaPUWV2P+Yav+jRqgNw3xY=;
-        b=iGEuMTAciVWQAtzrlbhX3eESOj1MFXwAZvCAZhn9A1RJp1QfAdC4CJ4BfgzDUcyzpB
-         NiT45kjNF3R2CbBlWIpSwKImDTXx3OpzBwXyMlFeUtEd7hTSj9LvMfPrSN+63H2AR6H7
-         7dd9XkGhzp/+X13M5bnyc16ttVy0e5RNaiOI3RjNTEoiU2f8YhDiPmxn/pY5FAroNGrn
-         TwOVrdxMTcmaCWpcD3KAkwsvnA9vukFEdwyDo0sz0Gm+s1JoilQQ7X9Nkp1VMowm+OzN
-         17QCriuyxoFxW8QPJzvfwI1m2QkaxueiJg4T3l7o4vl7xfUddwSrmkX5i44y6E/oTnm7
-         zyqg==
-X-Forwarded-Encrypted: i=1; AL+hErEtzuvtca/cvX3crlGjQuYkOPMOHlfDfzSdOXYrKsOeHmsK2VQeF3a/n44ZBnOKD/mngGH1AwaaidSAOhE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z96drHbHPk+SSm2J1DTiYmZTC5qznySn9CICMtaI0swFwta1Ij5
-	ExtceOO/z2ym9+JkG+vre4lbx2kWfohXadfVRh0hvKOsvONV5EYtTen8KikKvzzh
-X-Gm-Gg: AZFdTZf5Gn1Mh2bkbp/r2YPMl2WTqUX5TLtooTg3y97f6sXtPou5SOD02uMrF/V+sDK
-	aFUv41CNL3DZ4FmcwvV3NnChAX3YQEeXkPe8icB0dAPKRfgtG/c0LaAf31+eIvMKaS/Ihnl3CO8
-	NZyHnqjHNJHvRpwhijgsJ/06mbNe05XOJmUatqeeaIME2PnNpR0bRIbTx5YjaFTGHkPJZhXRIRl
-	dGR7j6aWEXugWVQ6Z9DI5FZTzyK06kySBIO8AxvM6z1pQn7nNsp6in4c1O5DVrthDDDyx+qDuoO
-	z8etdBmFQZIjaksGE6lHpyObmZq7MRIibK2QYg9AZp6tffBhILCB1lsqH8oWrzO+j/qy03EBqVh
-	9tUsrKhcwemnZxp/xuGbiBwUGK8jGbGeWCM3p+da07hRiGAuGti1E9T2aE8I5UjjvDbWb3dWa3f
-	GM9YLh60jZgq7WC3OcAZwcAkAzMvwP18jamrquj83gkZiE39p+PuNUaPM5f/vcipaEYOKcecTMP
-	cNGkct0JRuJI8eQpFVFPgHFWG/lgYVlw6H5gQGfnN42D7lf+f7xXcCmINEBIv2tm72O91Mrp4pY
-	uZmE3Uli7XqCpYTyE8lR8fiGww9E8qKk9TkZiQ==
-X-Received: by 2002:a05:7301:6083:b0:386:a01f:a36b with SMTP id 5a478bee46e88-386a01fa8d8mr15606324eec.35.1795525771011;
-        Tue, 24 Nov 2026 05:09:31 -0800 (PST)
-Received: from [192.168.29.85] ([2405:201:8026:213e:1412:77ad:61f2:79f2])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385d2b93dd9sm50659886eec.24.2026.11.24.05.09.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 05:09:30 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=X0QNvToG
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0D851F000C0;
+	Tue, 24 Nov 2026 13:10:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795525807;
+	bh=Z3NWK5cLOijzuItkhwXkwNPbHwJin1fTuYBbbki6ORI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=X0QNvToGXtckZFbW+UoARbViFoCfBnXhVDDwI1XkbcWrUksYFrngLCyTtTIWGQpsk
+	 0BQnnXr6ZkOsAVYrbETr1rus/d1lTaP5rV+4gAwivLWSscyewP5X2zeBtjJWtjJkCo
+	 FEDWLwCynU6pD7wQDBtu2QsYMNcuhvEdFh2IoosoP1mG9SqZUTiyH7ceumcWZVEpCI
+	 7reSYgJq/P13bLyt9pTNx356QSA2Hjw60m3NJgdg3425aNSw7qRTpifjo0d0GJszaz
+	 dDyvlyeq62OUngXQI0oG2S80VBVIFeVItu6x3L+iG3u//4Od2x1r6JxbVsNIOZjKZO
+	 mmqLk4B5CutYA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1xVqHc-00000002aNR-3azu;
+	Tue, 24 Nov 2026 13:10:04 +0000
+Date: Tue, 24 Nov 2026 13:10:04 +0000
+Message-ID: <867bi2z87n.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Colton Lewis <coltonlewis@google.com>
+Cc: Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Fuad Tabba <fuad.tabba@linux.dev>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Wei-Lin Chang <weilin.chang@arm.com>,
+	Dan Carpenter <dan@pereq.eu>,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/2] KVM: arm64: nv: Discard undersized TTL hints in compute_tlb_inval_range()
+In-Reply-To: <20261123232647.3733149-2-coltonlewis@google.com>
+References: <20261123232647.3733149-1-coltonlewis@google.com>
+	<20261123232647.3733149-2-coltonlewis@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -87,59 +81,42 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH v2] NFS: idmap: handle zero return from
- nfs_idmap_get_key()
-From: mdshahid03@gmail.com
-To: mdshahid03@gmail.com
-Cc: trondmy@kernel.org, anna@kernel.org, linux-nfs@vger.kernel.org, 
- linux-kernel@vger.kernel.org
-In-Reply-To: <20261112162938.14329-1-mdshahid03@gmail.com>
-References: <20261112162938.14329-1-mdshahid03@gmail.com>
-Date: Tue, 24 Nov 2026 18:39:12 +0530
-Message-Id: <179552575292.187304.16298525842648413199.b4-reply@b4>
-X-Mailer: b4 0.16.0
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: coltonlewis@google.com, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, fuad.tabba@linux.dev, seiden@linux.ibm.com, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, weilin.chang@arm.com, dan@pereq.eu, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 
-Hi ,
+On Mon, 23 Nov 2026 23:26:46 +0000,
+Colton Lewis <coltonlewis@google.com> wrote:
+> 
+> When an L1 guest issues TLBI IPAS2E1 with a non-zero TTL hint,
+> compute_tlb_inval_range() takes it at face value. If the hinted size is
+> smaller than the actual mapping (for example, a 4kB L3 hint on a 2MB
+> block), kvm_pgtable_stage2_unmap() clears the entire block while
+> kvm_remove_guest_s2_mappings() leaves its stale tracking entry behind in
+> guest_s2_mappings. On 16kB or 64kB hosts, a 4kB hint also triggers
+> WARN_ON(size & ~PAGE_MASK) in kvm_stage2_unmap_range().
+> 
+> A TTL hint smaller than PAGE_SIZE or the mapped entry is wrong. Check
+> it against PAGE_SIZE, the shadow stage-2 leaf size, and the guest block
+> size encoded in KVM_NV_GUEST_MAP_SZ. If it is too small, ignore the hint
+> and fall through to the unhinted invalidation path.
+> 
+> When falling back to the maximum mapping extent with stage-2 disabled,
+> size it from PAGE_SIZE rather than VTCR_EL2.TG0 so 1:1 shadow blocks are
+> still covered.
+> 
+> Fixes: d1de1576dc21 ("KVM: arm64: nv: Handle FEAT_TTL hinted TLB operations")
+> Signed-off-by: Colton Lewis <coltonlewis@google.com>
 
-Could you please check and give your feedback ? when time permits.
+What's the advantage doing all this dance over the patch proposed at
+[1]?
 
-Thanks
-Shahid.
+	M.
 
-On 2026-11-12 21:59 +0530, mdshahid03@gmail.com wrote:
-> From: Mohammad Shahid <mdshahid03@gmail.com>
-> 
-> nfs_idmap_get_key() can return zero, but nfs_idmap_lookup_name()
-> treats only negative values as errors.
-> 
-> Treat zero as an error to avoid reporting an unsuccessful lookup
-> as successful.
-> 
-> Signed-off-by: Mohammad Shahid <mdshahid03@gmail.com>
-> ---
->  fs/nfs/nfs4idmap.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/fs/nfs/nfs4idmap.c b/fs/nfs/nfs4idmap.c
-> index 06b193722660..8f5f0abf804d 100644
-> --- a/fs/nfs/nfs4idmap.c
-> +++ b/fs/nfs/nfs4idmap.c
-> @@ -353,7 +353,7 @@ static ssize_t nfs_idmap_lookup_name(__u32 id, const char *type, char *buf,
->  
->  	id_len = nfs_map_numeric_to_string(id, id_str, sizeof(id_str));
->  	ret = nfs_idmap_get_key(id_str, id_len, type, buf, buflen, idmap);
-> -	if (ret < 0)
-> +	if (ret <= 0)
->  		return -EINVAL;
->  	return ret;
->  }
-> -- 
-> 2.43.0
-> 
-> 
-> 
+[1] https://lore.kernel.org/all/20261123182312.4842-1-maz@kernel.org/
 
-
+-- 
+Without deviation from the norm, progress is not possible.
