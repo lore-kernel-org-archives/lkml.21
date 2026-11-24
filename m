@@ -1,73 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795494989;
-	b=wufCEMdDvd7z1p8bkcpLClXOTd477T456XwcaJUQwvM4p07s6Pzb/WPSo2kDbaao6E0m
-	 +aq9ntc5VEanw1twCn4dRVJAX1WYHUOae8eFN0zyOxUHlKOtO1XWMiEMnpo0iNCjNXDtN
-	 9jF/PJymxgYOQaVyk4+s1WQCM7Y8ycFo5pJ96UE+g7D8117ysW/mvcj4s4tJAOEYy95JY
-	 LGDEapduRR4VSLat1UVs4Za/gl9uZ80rdXYtsWTPWcG12cM6SN4e3NDM7uXLjgooZOBiQ
-	 g26VvNy0IYfvImY6TUbRdIIGfaBzjivSno/b8PFIy4XHelCJzrLVCD1wfkk9tB8MCYg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795494989;
-	h=DMARC-Filter:Date:DKIM-Signature:DKIM-Signature:From:Sender:Reply-to:
-	 To:Subject:Cc:In-Reply-To:References:MIME-Version:Message-ID:Robot-ID:
-	 Robot-Unsubscribe:Precedence:Content-Type:Content-Transfer-Encoding;
-	bh=Jr2PylojzwrT5dYqT245g/FbbD9XqR0v6wBWXpTeV08=;
-	b=w7Lf711WkdrxqgZUcLHR5Rl/iZ2cJPxb6uHAK2XE/iR/CN5UwDhRdubbBMjg4a/bILcd
-	 bzRxpJOgTvELytpJrL0sw71jcjVdrYs5Oc5Kpv2hXzQHTppmaXVbDA/X8K/2fiah7tiz9
-	 agYC6XGbyDuZUfNb52MlzvUJX4aDDanLjUnJiEXBk3dUSYXN6x5lRRRQWHQYC+GpNSQhp
-	 ndfvI0IdrNZMt0PNnJFNOMedgP6ByKC6FBgGGOKPHvskTcvkQGktIjZFTcjMt2lMdvTep
-	 10ZDIpL1nkKWBdenvO08buLAhbE60kQ9OTYoYPrVf5l8aXWLA0kvLkgK70bStg8oRZQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linutronix.de;
-	spf=pass smtp.mailfrom=linutronix.de;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=nKY3mTKA;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=56JnJMMj;
-	arc=none smtp.remote-ip=193.142.43.55
-Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795495160;
+	b=fyoPisFjR2pFyW3wuF3zWVIw2DLKAh2MPWLFP4g9wwwoN45LFpwwKYNqByUPA38xc9fK
+	 AzQ/nV7uR0aH6T1BYzTAB/7tdFMginl3pHqCGVWxngNNLUSoYZzB3izIytz0GEN3aD6V8
+	 AZsA+wGel9KVTNppyK9bKj9SS+tJuEyc3RdtxfGfzFLxWQefuYiFJRN3LMPa4J3c8u972
+	 8o8Mym22qpqPlK5M0SyWGDsXPVbm5iDPY7QdAR6+gDmS9PvHTfXiy0aqGnqYX5nsQil0Y
+	 syJRaQ9dQhzr2Tdt79xFmLx5BlcQajmq+h/kLN4RGy0MQvPcv9myV6yi9y9QPk/7j9Q==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795495160;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
+	 X-Endpoint-Received:X-Original-From:Reply-To;
+	bh=i3Pcf/y1fK5W0mKl2UYdbwNbl15Wboo4OxSctTetQzc=;
+	b=ujmHAD97oIuZvXWy5R2XFqGVlTrGFqIaNrCvYVKrnEoNUHAH2+OjlMIkhucyW07AAbNW
+	 bJWphltDSuSi+ca8o0zBWJKNoMhtd16jlQxNcxWgm8jn+GK6cSxpaLcJwoOSTj2YkNNwo
+	 LkcV2KOzNM/KeTjKvsdmidQqL6ZWNyg4uN6PUWqlnO/zeM4BENcW7822oh0PWRPcAuoUb
+	 fM6RDCNb25QHCQ5ND0z52XbY74LIucbIaVGgUKHI7Pndufs6aOjcTi46Hg4zPRaonhMOy
+	 DsSLOg4Y4HT9miNMgCMYxwNHdAu0FwOpNDQEXYXDZ7Vfsglo/63RJC4KiQxqNZOxwgw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PMcxJDft;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EA58F606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 04:39:19 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PMcxJDft
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795495159;
+	b=wzP3SXuiTrvBV4eqKVx7ZJxwQg6D0wUkDk9zyElcVAp1CzpszW3exRLr/7TyUltjUCLI
+	 PYSXbGY5KO0QHqyKyKl+fd5LH2/sJHni3U1Ddqsk20F7WWGcu4yC4olVT23eZ3xQFDd+R
+	 obnW9NG3h1OiXuF7RuI9GdETHdFnb4MOyO8S3VCGVIuvsxdJ/IyWkDfPxTILuRQCAJO8q
+	 bg9Q99NCJe7TEt3J4UmNEh70VMCIamdoRLGRprWAk1Ch8wkB3dX/sWl9RtvBRNjUiKll2
+	 bAIM2ew+WHgqvqTqsIBw4avnUwr7gmV2vz8vnMwRqkA0GxjVRPYGBPc8zr290AxYogA==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795495159;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=i3Pcf/y1fK5W0mKl2UYdbwNbl15Wboo4OxSctTetQzc=;
+	b=favzY2uEULONvXtvaDQaW5oo/GyqQW/svq7nn0jeAmd57yvzx4vTnxIDuLNTJZma+IQf
+	 8j6NNWXZ5zZourx/EWyWSxDbi/wGbMBo5w3quhjqa3TivfquZ1IYoFbzz0jOl4Qfq9uEY
+	 JW1QUnmnSTFTEbOk+MN3GlnIH7AskKgGnEUD9n2BE/3Ny/7rqYywE6lLQFeytuq3+DI+b
+	 f6d+Xob701GVMa1DzEAzb1jfA5ciWmodTnzjilXVElmHp9VCaAXN2bwNiBG4mUaZ7jypb
+	 jvtOGJfGqiHH6bY9rZze427zuecgrXCv99a4Yp3A+qvf6hbrPco3wC8fZUIM8LsMRKg==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 228BB606A31E;
-	Tue, 24 Nov 2026 04:36:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 228BB606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=nKY3mTKA;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=56JnJMMj
-Date: Tue, 24 Nov 2026 04:36:25 -0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1795494987;
-	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
-	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
-	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Jr2PylojzwrT5dYqT245g/FbbD9XqR0v6wBWXpTeV08=;
-	b=nKY3mTKAklE7JXlCDnmicaNifn94bmSNf62W75HV74ZZuLZh4MiOWesxaNXVSdQup6B+Z7
-	Z6CpdgEqr6V2K27TKfC+cUKmWqgTDmoxjHU+xtwXAKtbCQEzzTlN9JfTrIKJC+OErQe4Z5
-	t43tV1hzlfhBJjsCX1WRlYBbzrkUn4hrjxKkOqFTAFt44MfRt8V/WxqQ/HDHuGcFFlxqmX
-	YCq1T7O+fk6adCLFYjV7/6TQ/yNf3SyXxxpMUSHXTSXGgkzGnYs40iVCz9nW9C/a0dd+Uj
-	du+xnlHF5G8IXkgCYVgtbTkAaUW7QXspARuYujbU1iuWpW7eyx+KXvQpEgMeWw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1795494987;
-	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
-	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
-	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Jr2PylojzwrT5dYqT245g/FbbD9XqR0v6wBWXpTeV08=;
-	b=56JnJMMjyPKAuLAl0m6F/Kv+h6EECWsGfaXxcj1Onimq+Nc1XwciIop/kw1V2oYqhb/taM
-	DtbiPZBNIJMAHDBA==
-From: "tip-bot2 for Shance Luo" <tip-bot2@linutronix.de>
-Sender: tip-bot2@linutronix.de
-Reply-to: linux-kernel@vger.kernel.org
-To: linux-tip-commits@vger.kernel.org
-Subject: [tip: x86/urgent] x86/CPU: Fix FPDSS on Hygon
-Cc: Shance Luo <luoshance@hygon.cn>, "Borislav Petkov (AMD)" <bp@alien8.de>,
-  <stable@kernel.org>, x86@kernel.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20261119075330.961-1-luoshance@hygon.cn>
-References: <20261119075330.961-1-luoshance@hygon.cn>
+	by smtp.kernel.org (Postfix) with ESMTPS id B324A1F000C6;
+	Tue, 24 Nov 2026 04:39:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795495159;
+	bh=i3Pcf/y1fK5W0mKl2UYdbwNbl15Wboo4OxSctTetQzc=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=PMcxJDftYIfYCIVkISyTO55gv4qQACXorDdROD9NHAydOGkMtBMVnz2N3HBtT8n5s
+	 up6iPO2WPQFPIvxH+9+kfyMHRWT1MKlofl7Va6lsBrSsZCnFhc2VIjscHtAABHQ2pI
+	 sihKFtV8bAIfRTVoG65bziPGBwUFDjA/I7iduZKYqsqukRhafrVQ9/bNlF981WKmP0
+	 AHpnUMnEI6wdm7er+hPb25Jne9s88o7b/JGchoWw0+Bayim0QZsUrq/YsNkFFqYKGJ
+	 grnTQQ+jQeeo3Dru5FIR6E/x0q8i8ATxPqzPeKOjR5aUp3+dAoUFYKD2FVs6B3BEVs
+	 Slw/UXkM7RPDg==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 19C9B4C89D;
+	Tue, 24 Nov 2026 04:39:16 +0000 (UTC)
+From: Suyuan Wang via B4 Relay <devnull+shyckless.gmail.com@kernel.org>
+Date: Tue, 24 Nov 2026 04:39:15 +0000
+Subject: [PATCH] drm/lima: Drop the BO references if drm_sched_job_init()
+ fails
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,51 +83,80 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Message-ID: <179549498501.92412.5064902066325113758.tip-bot2@tip-bot2>
-Robot-ID: <tip-bot2@linutronix.de>
-Robot-Unsubscribe:
- Contact <mailto:tglx@kernel.org> to get blacklisted from these emails
-Precedence: bulk
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261124-lima-task-init-v1-1-2f6129257703@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAPIUBWsC/yXMQQ6CMBBG4auQWTuJbaSJXoWwaOFXB6SYTjEmh
+ LtbcPkt3ltJkQRKt2qlhI+ozLHAnCrqnj4+wNIXkz1bZ4y98Esmz9nryBIlc+1wdQGhhwWV6J1
+ wl+8xbNq/dQkDurxfaNt+W2MAHHIAAAA=
+X-Change-ID: 20261124-lima-task-init-56e96bebde2e
+To: mripard@kernel.org, maarten.lankhorst@linux.intel.com, 
+ airlied@gmail.com, tzimmermann@suse.de, simona@ffwll.ch, yuq825@gmail.com
+Cc: linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+ lima@lists.freedesktop.org
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795495155; l=1654;
+ i=shyckless@gmail.com; s=default; h=from:subject:message-id;
+ bh=/psVm8KZ+NeNNkX1NAHNJo3pQfX2J9S1jdpWT36nW1c=;
+ b=D9Y+EJAIZAEfI2n5DQLlisXJ/b+PO18rZa6q9Leh9qSy6G8ULP9bTgAOY81dFvUWiZWyL/8Qs
+ 2Ghk91cvyYIBUoUlVlSz+vCuekbT2Sw5o2rL8LdZZ2qaGZOPtxGGYlA
+X-Developer-Key: i=shyckless@gmail.com; a=ed25519;
+ pk=pMtccVGiWES3bV+7YBFuBclkvq2n2HBHQ5azaBrK2lY=
+X-Endpoint-Received: by B4 Relay for shyckless@gmail.com/default with
+ auth_id=1498
+X-Original-From: Suyuan Wang <shyckless@gmail.com>
+Reply-To: shyckless@gmail.com
 
-The following commit has been merged into the x86/urgent branch of tip:
+From: Suyuan Wang <stevewong@hust.edu.cn>
 
-Commit-ID:     4c2abd86d10720ce4a2330c2ca01cca39bd727ab
-Gitweb:        https://git.kernel.org/tip/4c2abd86d10720ce4a2330c2ca01cca39bd=
-727ab
-Author:        Shance Luo <luoshance@hygon.cn>
-AuthorDate:    Thu, 19 Nov 2026 15:53:30 +08:00
-Committer:     Borislav Petkov (AMD) <bp@alien8.de>
-CommitterDate: Mon, 23 Nov 2026 20:18:05 -08:00
+lima_sched_task_init() takes a reference on every BO of the task before
+it calls drm_sched_job_init():
 
-x86/CPU: Fix FPDSS on Hygon
+	for (i = 0; i < num_bos; i++)
+		drm_gem_object_get(&bos[i]->base.base);
 
-Hygon family 0x18 CPUs are affected by the same floating-point divider issue
-as AMD Zen1: the divider can leave partial results of previous operations
-behind, which another attacker thread can sample.
+	err = drm_sched_job_init(&task->base, &context->base, 1, vm,
+				 drm_client_id);
+	if (err) {
+		kfree(task->bos);
+		return err;
+	}
 
-Enable the mitigation.
+If drm_sched_job_init() fails (it can return -ENOMEM), only the array is
+freed. lima_gem_submit() then goes to err_out1, which does not call
+lima_sched_task_fini(), so these extra references are never dropped and
+the BOs are not freed even after all other references are gone. This
+can happen on every submit ioctl.
 
-Signed-off-by: Shance Luo <luoshance@hygon.cn>
-Signed-off-by: Borislav Petkov (AMD) <bp@alien8.de>
-Cc: <stable@kernel.org>
-Link: https://patch.msgid.link/20261119075330.961-1-luoshance@hygon.cn
+Put the references before freeing the array.
+
+Found with a static analysis tool and checked by hand.
+
+Fixes: a1d2a6339961 ("drm/lima: driver for ARM Mali4xx GPUs")
+Cc: stable@vger.kernel.org
+Co-developed-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
+Signed-off-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
+Signed-off-by: Suyuan Wang <stevewong@hust.edu.cn>
 ---
- arch/x86/kernel/cpu/hygon.c | 3 +++
- 1 file changed, 3 insertions(+)
+Compile tested on arm64 (W=1). I don't have the hardware.
+---
+ drivers/gpu/drm/lima/lima_sched.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/arch/x86/kernel/cpu/hygon.c b/arch/x86/kernel/cpu/hygon.c
-index ec51c2b..0bccb93 100644
---- a/arch/x86/kernel/cpu/hygon.c
-+++ b/arch/x86/kernel/cpu/hygon.c
-@@ -228,6 +228,9 @@ static void init_hygon(struct cpuinfo_x86 *c)
-=20
- 	/* Hygon CPUs don't need fencing after x2APIC/TSC_DEADLINE MSR writes. */
- 	clear_cpu_cap(c, X86_FEATURE_APIC_MSRS_FENCE);
-+
-+	pr_notice_once("Hygon FPDSS bug detected, enabling mitigation.\n");
-+	msr_set_bit(MSR_AMD64_FP_CFG, MSR_AMD64_FP_CFG_ZEN1_DENORM_FIX_BIT);
- }
-=20
- static void cpu_detect_tlb_hygon(struct cpuinfo_x86 *c)
+diff --git a/drivers/gpu/drm/lima/lima_sched.c b/drivers/gpu/drm/lima/lima_sched.c
+index fee595b9629a..53d597850782 100644
+--- a/drivers/gpu/drm/lima/lima_sched.c
++++ b/drivers/gpu/drm/lima/lima_sched.c
+@@ -130,6 +130,8 @@ int lima_sched_task_init(struct lima_sched_task *task,
+ 	err = drm_sched_job_init(&task->base, &context->base, 1, vm,
+ 				 drm_client_id);
+ 	if (err) {
++		for (i = 0; i < num_bos; i++)
++			drm_gem_object_put(&bos[i]->base.base);
+ 		kfree(task->bos);
+ 		return err;
+ 	}
+
+
+
+
