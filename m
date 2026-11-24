@@ -1,62 +1,51 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.243.164.118
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795508835;
-	b=ycm3ReEnsWm2HS4fSFxsD2t7a0Azue72U4Q4wvn0SkuJTsRI+s2P2s6or3w/W7twNj8W
-	 cE3k8DxWGP9bQOnLuDppof996TIRE1H6H+9nOAjoJ84R9vwxKY5B51ybrrqbIhseMT8rP
-	 ivgXxhj3IYGt7T71HR48ZYi8F87y/k1Q3OLd5qFU+hVITSkCPSTNeXXuraePrWintC2/d
-	 LLbFH3Z4vzUwe52hEpygGNL4UAOf9k63jxFGMsqXrqeymzL8D9ikDlhCQtWGqKywo9GkH
-	 Felv9WykYIYV5rfTiZd4Dy0H3fkILavIDcFrckNLQFHsuI7OSuQtlbOT4bb2mNZw+UA==
+	t=1795508840;
+	b=AT2a7yrdV257eygwl1VpNeMegskZTeVD1lgiGG5cb7k9koaDgTWJvSELPc3K195Hzuny
+	 YDO6gBzmsRDqFIPTfPpj3jfvOwRs2mMYrksY9z3PSrasjPQCA+MgZsDA/VP3yGavRznSu
+	 tShNWcBWDYx516QeNbIVdZ7V/EkKE9YEqiNOcRlYVsC4qYEkf/aIlsprmtvBy3azYdl1h
+	 xs5bIPk+CXeoJZRfgodbntALRFGrxvMbTCZC+Z8SBgMWaRB8vg/HFquYqo43KSXTwlvz1
+	 B+EdHo/jAoClxBPufcLIvCeyEmY+C1ZcTmZpMESXxRG4OT9Q0PTQNmrNaZM/m9nKHhQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795508835;
-	h=Received:DKIM-Signature:From:To:In-Reply-To:References:Subject:
-	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Mailer;
-	bh=hQcy+J0Q27okHFSIG61ZS/kukvTSiukLlG4lterpEAo=;
-	b=Io70yjBE9oI38g7xHLFdgmkEqCP8lK+Ydc06gt5AhZkyzLzttNfRgPXg1Lf2kbgk+JHE
-	 qlS9p5euTmCCY4lGU5fetgBfn3hspgd0L15M/p2pQYHcSUwLMyq6WpHIK6T0QXrAIHLxb
-	 OsKClCTQLTSzGzh/nJoMT51l+73WxEyiPe1Oh1ae4v9lG8I0cSmJy43f23f0HhHehkMB6
-	 dSkghkOru848UDikz3/zC/010i5A9o1douCm3hF48NJoqPEYgGzKjg+ld8pkMt3T4ozEr
-	 ebhk5Geb7ynQR6smJEWLikIb8trjo5Fy+276A4xc9sQi18DoLnmojZSD0heXy6KoIXQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795508840;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
+	bh=ZWW4JoTl6P7PwiqYC1DkrQQs0nLQlzJs5F139zXifZc=;
+	b=o8aI9SM+MT/dkfdzPGzEmCIfW6+08CnpttE5IaMycpwCA88/p5zzHMEBJUBf3M1j9h8T
+	 ER1OSYD5cjHdIMJ+k1otOVqQSVqsLOlRjwml0ktNOV6jH3D5+Cu0rSaPlXNcZDYg61I/z
+	 FpWi8D8wyHoKFraHrBckDnK1eCEDV19RP5RHtf8MBvVZYzypO4WcBQ8b84GBiJq2Fnb+2
+	 NkaH4zSmIsqF3DeKlFdaoLa/th6YbfD+HI4AXfWTLoU5w7+Dyx3C3j2bFp2Xa69gKkI5a
+	 Ic4GXxkSmSpWzkOfD1CFh04e18h5xkenLyrMf9EsetXKqpi7RxfK0D4IGhEq1Btn8fg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=boqD8Jr5;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5026A606A322;
-	Tue, 24 Nov 2026 08:27:15 +0000 (UTC)
+	dmarc=pass header.from=mail.zgclab.edu.cn;
+	spf=pass smtp.mailfrom=mail.zgclab.edu.cn;
+	dkim=pass header.d=mail.zgclab.edu.cn header.i=@mail.zgclab.edu.cn header.a=rsa-sha256 header.s=dkim header.b=JKHq5xUU;
+	arc=none smtp.remote-ip=162.243.164.118
+Received: from zg8tmtyylji0my4xnjqumte4.icoremail.net (zg8tmtyylji0my4xnjqumte4.icoremail.net [162.243.164.118])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id E3DB2606A338;
+	Tue, 24 Nov 2026 08:27:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E3DB2606A338
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mail.zgclab.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mail.zgclab.edu.cn
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=boqD8Jr5
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13DAC1F000C4;
-	Tue, 24 Nov 2026 08:27:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795508835;
-	bh=hQcy+J0Q27okHFSIG61ZS/kukvTSiukLlG4lterpEAo=;
-	h=From:To:In-Reply-To:References:Subject:Date;
-	b=boqD8Jr5nch2TD31AiMaSKkiNroCZ7mGESH2QHNH1pMQIBTB7IjBLEY0KHG5M1pxB
-	 eU6QsNYc8kyUeB5Txid6WdGM9bfbY7YrwX1vOsQ4mg4OQGzL7qgcMiVrW1ngX8kCSV
-	 leaVcrqdGsQg659aCaZeKyEtIpztAqu1sTbUTNUo8gR8mfYPcLVv+J+UluoHqUe0eP
-	 duvXvnyVzMsIoGa3zV+fYRHXjii9S1nF+xAJ9lInKZxuAqBk1u0jxP9TjEK0pIkCqS
-	 nJZbIHMb6ROINwVN6glswsVpjyH6Osi6shRQYbpggQFa/8xTljk9JhGIqh/aT9/CZj
-	 VVhUksjBT1e9g==
-From: David Hildenbrand <david@kernel.org>
-To: Andrew Morton <akpm@linux-foundation.org>, apopple@nvidia.com, 
- byungchul@sk.com, david@kernel.org, gourry@gourry.net, jannh@google.com, 
- joshua.hahnjy@gmail.com, liam@infradead.org, linux-fsdevel@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-mm@kvack.org, ljs@kernel.org, 
- matthew.brost@intel.com, mhocko@suse.com, pfalcato@suse.de, rppt@kernel.org, 
- surenb@google.com, vbabka@kernel.org, ying.huang@linux.alibaba.com, 
- ziy@nvidia.com, kas@kernel.org, hannes@cmpxchg.org, riel@surriel.com, 
- shakeel.butt@linux.dev, kernel-team@meta.com, baolin.wang@linux.alibaba.com, 
- Nico Pache <nico.pache@linux.dev>, ryan.roberts@arm.com, dev.jain@arm.com, 
- baohua@kernel.org, lance.yang@linux.dev, Usama Arif <usama.arif@linux.dev>
-In-Reply-To: <20261123163301.1568240-1-usama.arif@linux.dev>
-References: <20261123163301.1568240-1-usama.arif@linux.dev>
-Subject: Re: (subset) [PATCH v3 0/5] mm: fixes for THP migration, swap-in
- and device-private smaps
-Message-Id: <179550882470.7632.15364862356979603217.b4-ty@b4>
-Date: Tue, 24 Nov 2026 09:27:04 +0100
+	dkim=pass (1024-bit key) header.d=mail.zgclab.edu.cn header.i=@mail.zgclab.edu.cn header.a=rsa-sha256 header.s=dkim header.b=JKHq5xUU
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=mail.zgclab.edu.cn; s=dkim; h=Received:From:To:Cc:Subject:Date:
+	Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=ZWW4JoTl6P7PwiqYC1DkrQQs0nLQlzJs5F139zXifZc=; b=JKHq5xUU9sdS8
+	Zp70roUs3cHHhASnmFbYI2V7Cyl/6QIU82WmpEDivRnXAiaSXpXClXVRZHO07X/g
+	7b+EiTztWHoVpToBXOy+hHoF5aNDLbWW6JSgLMIc0zRDnviSND/Qx+rSxv7m7sEx
+	F30AMkl2lBHiHOPQVzMoG1JyjYwskA=
+Received: from mt7530_series_00.eml (unknown [58.206.202.11])
+	by web2 (Coremail) with SMTP id yQQGZQAXRGg4SgVrg7NjAQ--.65249S2;
+	Tue, 24 Nov 2026 16:26:33 +0800 (CST)
+From: Haoran Wang <wanghr2026@mail.zgclab.edu.cn>
+To: chester.a.unal@arinc9.com, daniel@makrotopia.org, andrew@lunn.ch, olteanv@gmail.com
+Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: [PATCH net 0/5] net: dsa: mt7530: fix regulator disable on teardown and error paths
+Date: Tue, 24 Nov 2026 16:25:57 +0800
+Message-ID: <179550875789.4156.361477684651496992@mail.zgclab.edu.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,44 +55,61 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.16.0
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:yQQGZQAXRGg4SgVrg7NjAQ--.65249S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7Kr4DZFy5tr4xKF47ur1rWFg_yoW8Xw4Dpr
+	y7Wasayr4DWFyI9a9xC3WIvFW5XrZ3CrWfJwn7K3yDtw1YyF18tr1vya48ua47GrZ7Aw4S
+	yF4kAry8uFsrZaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUBlb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwV
+	C2z280aVCY1x0267AKxVW8Jr0_Cr1UM2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq
+	07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r
+	18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41l
+	FIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFylc2xSY4AK67AK6r43Mx
+	AIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_
+	Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwI
+	xGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWx
+	JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcV
+	C2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU5pVbJUUUUU==
+X-CM-SenderInfo: pzdqwxbusqjlo62juzldeovvfxof0/1tbiAgIBD2sFSC8EeAAAs7
 
-On Mon, 23 Nov 2026 08:32:06 -0800, Usama Arif wrote:
-> This series contains four fixes for existing THP migration, PTE swap-in
-> and smaps paths, plus one cleanup. They were extracted from the work on
-> PMD swap entries for anonymous THPs [1] and can be merged independently.
-> 
-> 1. Avoid a folio reference leak when concurrent MADV_DONTNEED clears
->    or splits a migration PMD before the device migration split helper
->    acquires the PMD lock.
-> 
-> [...]
+mt7530_setup() enables the core and io regulators, but they were not
+always disabled again:
 
-Applied, thanks!
+ - the disable lived in the driver's remove() callback instead of the
+   matching teardown callback, so a switch whose sibling failed to set
+   up was torn down without reaching remove() and kept its regulators
+   enabled, and
 
-tree: mm/core.git
-branch: core-7.5.misc
+ - the error paths in mt7530_setup() and mt753x_setup() returned without
+   disabling the regulators, leaving the rails enabled and making the
+   regulator core warn when devres later put an enabled regulator. The
+   common case is mt7530_setup_irq() returning -EPROBE_DEFER, which
+   re-enabled the rails on every re-probe.
 
-Applied patches will appear soon in mm-next, followed by linux-next.
+This series splits the original patch into five small, independently
+obvious changes, as requested by Andrew Lunn:
 
-Please report any outstanding bugs that were missed during review, so we
-can either drop the patch series or decide how to fix it up.
+  1. Move the disable from remove() to teardown().
+  2. Factor the disable into mt7530_disable_pwrs().
+  3. Register the GPIO controller last so it is not published across a
+     failed setup.
+  4. Disable the regulators on every mt7530_setup() error path.
+  5. Do the same for mt753x_setup(), moving the mdio irq teardown to the
+     end.
 
-It is encouraged to provide Acked-bys, Reviewed-bys, and Tested-bys even
-though the patches have already been applied. If possible, patch trailers
-will be updated.
 
-Note that commit hashes shown below are subject to change due to rebase,
-trailer updates or similar. Further, this is not a guarantee that the
-patches will go upstream. If in doubt, please check the listed branch.
+Haoran Wang (5):
+  net: dsa: mt7530: disable regulators on switch teardown
+  net: dsa: mt7530: factor out mt7530_disable_pwrs()
+  net: dsa: mt7530: register the GPIO controller last in setup
+  net: dsa: mt7530: disable regulators on setup failure
+  net: dsa: mt7530: disable regulators on mt753x_setup() failure
 
-[2/5] mm: don't PTE-batch a swap-in of a folio with a hardware-poisoned page
-      https://git.kernel.org/mm/core/c/37d4eb7d
-
--- 
-Cheers,
-
-David
+ drivers/net/dsa/mt7530-mdio.c | 14 +-------
+ drivers/net/dsa/mt7530.c      | 60 +++++++++++++++++++++++++----------
+ 2 files changed, 45 insertions(+), 29 deletions(-)
 
