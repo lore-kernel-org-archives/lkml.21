@@ -1,49 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=13.77.154.182
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795479288;
-	b=0eKQ6vLM2CaADTuP9UmZvb33J+itAUNINAmMYB87d4RsRGqFtDNY3g/LmV+9AL/y/OCC
-	 GxWJyXVZ0stcPQtXKtBwvwb13TFWLCZFhYfUnCWJUXvWZiiDeUy7YsxHcxy3qiiHs57Jq
-	 c6ZmSqUcYgd5KUOz6CAEyIRxCrcaqGZVTHKJTUuiDlQCkaznRRINyS52Mdhw2kUo4juwg
-	 5Y13eGxMNKvdBeuZqwwZAPRI+oU1L/9HH3Vsli+JBLrvPq9OdqRYdhNnytYixVAMUY2OF
-	 HH2ETbnnCEtMkbp8i0kKkzSqB91HbpKuBaJ6D27ulDO2lv/hXpAXmeVEBacr31JGDHg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795479288;
-	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:Content-Language:To:Cc:References:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding:X-Spam-Status:
-	 X-Spam-Checker-Version;
-	bh=3XFbWifyBU5khbl2Ryt+dhFDWzuS1Llo+vphOBcguoA=;
-	b=wqaVOuQjC6iTpSibtjp6tH2loHmkOeCus7vQZ/h02bT7zH9rbFeTts4hr8Smu6ho0yJ8
-	 P0PsuFKu2liD86VYa5YawTRi7CtrCQgUSPGAYY7kfGqGYZ1UD/6i3DqMpjVFkXNgBDfxu
-	 mqOZtLuA8KmJxpWEOZ+HaY1U4tFF+VdZsOPBEW8/yU4sCc1/6sL0w+XXiPXR49W7GJds0
-	 5z/W1x3zM3K97SCMLka9oCKdTR4atvspOQB4Op4gS2W7dyf3vtQCjZ9bks0YueV5VjNRD
-	 1qInwSPwmDGg81xWOdEdMkWF+/n/V5LUwlVW9ePvNtF1BjrKP0KUzyqlzobHeesDX2Q==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.microsoft.com;
-	spf=pass smtp.mailfrom=linux.microsoft.com;
-	dkim=pass header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=iwtA74NQ;
-	arc=none smtp.remote-ip=13.77.154.182
-Received: from linux.microsoft.com (linux.microsoft.com [13.77.154.182])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 172ED606A322;
-	Tue, 24 Nov 2026 00:14:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 172ED606A322
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.microsoft.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.microsoft.com
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.219.51
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795479292;
+	b=wgisDG1/Jniz8NbzpQAA+YCnNqfchcOFKaEhy8NAJcNciz6wINlOVLNcCOsUgVKvNTRS
+	 TzaUSJuNjyIZ4qWjtt8xfecaPho/o+kbYRmQdPs1GtpcAhgvqZJSbL7KhdUOM9tIz8lge
+	 yF3n/SATLKm9jhNdMkSN9jmrHV2oq5W+nA16yCK4Bhi0ssIlPb5onjmkpeQhvZdHUxImj
+	 7H/Sl3tpFRzKYlPjOE55pLeozrCdIwlIoTxujwAdZnQz1RVacUao6zn+Q74a4YjEKkv44
+	 BKizCDMN6gAezAS2W8Bu3ZVAU3rqjsvZjw0YWT5/t/Fxr2qTy0CDOxJADXuSYEUuZ2A==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795479292;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=6XVZ2NiwhlknfYaEdDrlA5ehy0/PYDAe60GW8QDF+Jg=;
+	b=BQizbgKVqlMSAOfBRq1A6ltd4/xICZPfSE98yHwdY/J8RuC131uiUEm1JnICU/DD6WhJ
+	 +OdlVIpF6rQ+NLothV+xoBJC7btqMT4AQZYZAFpXJyxlTUlVVVOoAR81gE/ucdeXQp2pY
+	 1WILCpnRWUDegtltjv2mDx/QOmojx5NJJk2biVVdNmyvk3JiGjiP4uU9flfUF3dOC0R2g
+	 qRa8FLyaADOVDf9pbObpnWJL9Tv27PYw0I3HoT4fO7lZJTX4o36Gq4LYv6JwqW4WT3t61
+	 TAybPnE8r56V1GihUj+NpxV5E9HyTbRMzyazihDeWU6NYSxzkvGsrCyr4vVQ1EjQpGA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=none header.from=stellman-greene.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=stellman-greene-com.20260707.gappssmtp.com header.i=@stellman-greene-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=A4QlAUdg;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.219.51
+Received: from mail-qv1-f51.google.com (mail-qv1-f51.google.com [209.85.219.51])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D5719606A321
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 00:14:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D5719606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=stellman-greene.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=iwtA74NQ
-Received: from [192.168.0.88] (192-184-212-33.fiber.dynamic.sonic.net [192.184.212.33])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 604BB20B7167;
-	Mon, 23 Nov 2026 16:14:43 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 604BB20B7167
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1795479283;
-	bh=3XFbWifyBU5khbl2Ryt+dhFDWzuS1Llo+vphOBcguoA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=iwtA74NQDirqnCLIfhw/a62L6Yxz4IUMDQEDAJ8mP1opicW1YME1eaKBzrkWhoA75
-	 1atrI8MvvqOXbMSLZp33W4ii3EB2XL/zUcJb7ubz+KNIp2Z4wJc5rbpygwRHluRI/K
-	 gYeSOwOJ7DKzoc1JlMW/KSd14NJEgQUZ32JgxJB4=
-Message-ID: <f22d1af1-35b7-482b-7927-be7e9dc0b2c9@linux.microsoft.com>
-Date: Mon, 23 Nov 2026 16:14:46 -0800
+	dkim=pass (2048-bit key) header.d=stellman-greene-com.20260707.gappssmtp.com header.i=@stellman-greene-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=A4QlAUdg
+Received: by mail-qv1-f51.google.com with SMTP id 6a1803df08f44-92130d3ee15so40256996d6.3
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 16:14:51 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795479291; cv=none;
+        d=google.com; s=arc-20260327;
+        b=dW0X+J6n8TTLhcur6FuQNBsAqGYnLo7Kyp3GCPJb0y6/9JmL+FIDdZLg6OO0nwzZht
+         Jk5yEXSXCuEHByNZmJP6+2JDVsho/S+2y+iH+EdXW095m8ZfbW+0b9S2YQ/KLZZ7lld9
+         8C4QixAknXMyBZhcxtWfGfs1AgE1KAAx+dzBedHXaGCXGNyiuZ5zp29uk2iUYaBJZEhF
+         8PcI/odqyXIaV2tGk4x/fxGqemvWOEqojEdHoBvDL1jQKnDqAuAYCJpRgupTUOTU0rW7
+         hAFuslzySlrc99a0LLMjJftoXIybQMb5MBc9PNOKDczZ+98qHYA4eQYgvcBngdGgMLl1
+         jQMQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=6XVZ2NiwhlknfYaEdDrlA5ehy0/PYDAe60GW8QDF+Jg=;
+        fh=TqCqUOLdG3eOZF+uuJjhaavct1Na1xeispnxB+skh1U=;
+        b=ie7v8Ob1aF0ypSv3V06WZCwlzA+aFq7BBCOpQr3fH1sN32Oc0l2vaGWpSIiBxKsdD+
+         Ckf1O9tiogqJJeQMEw1bkSPnwwGHput4llzYsDY6z8GaQBt6HGQ2WRyMPyXzX+9R7461
+         gHGMtKHkqdIMd6G3FCREauVw0LBYlmAIt6wRmLZqEM21TgdBexnV6+1Vfs9L8TAOCQLM
+         eBwRdllQFV9BCjcDmzg+9wq1H3qwoRu/EvWETsh7SqvcFJ2LQU3T0KddAL8PMCOY05Og
+         ntlSSTSi5nEMuU7mBxIfus8rGYo8Zq7qG77KTuVRwaAY2P6BkR7Krlw22cbg+8PB8c8z
+         6BAg==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=stellman-greene-com.20260707.gappssmtp.com; s=20260707; t=1795479291; x=1796084091; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=6XVZ2NiwhlknfYaEdDrlA5ehy0/PYDAe60GW8QDF+Jg=;
+        b=A4QlAUdgzcP4QQMusPEGIU7gYufXHiTJ8so/+IqtSIsFx9qdWKy+wWPDSyd2xBim7O
+         em9Hzsbp4eF2QgZ4E/ZOCukj+tpJjX+cmpgVdlWHIUjhj1jAlb1OeGkCeyVNS4DDCAX/
+         BYFeDw8AXnCxqpICZ+V6oLllWqiAs5S/z5inSGFNlLzh11DcYuyxugkaJJCXppU809jS
+         Eva34bxzf2Ia5lO7ZiS8JMaQuPY3f6nhf4Vcby57ik8Usmh4IlaDvHJ9FU5rTZ4sczsN
+         C37xoJWsTpyn/8InYUPjfzMV3kamioT6+DwmuyZ0CLYB8W4zZfAq5/uvoamQOrjYcfV4
+         c0Wg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795479291; x=1796084091;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=6XVZ2NiwhlknfYaEdDrlA5ehy0/PYDAe60GW8QDF+Jg=;
+        b=Oqp+iwxxcf56tGC44cIXOiaXkntWCWCKO83yMGizHZ+KxoKmoOQ6PvSfr8AxzeoJgc
+         vFkb13phnYrvLQ8wwOf5ywnET4rtm5U6sLRSBowNzwg0QI5601zluNl1rJQ+Szq2VHgD
+         j0KWpMPD4ay18JdYY77pJ4zPEz8IuUKOLbak/i3ln05MLfG5mLpuW34W67j2qSdk8r/X
+         scGVMr9Yii5hLaFqIhwdPciKq51dQrvywGouSzy2k5TmVBNt239WGygqZKVhS8G+fYkD
+         OnDvB1iXB4Qbg70Rgg6d3Sjohn2bXDtFl6pJQZefSoGajESs6WhfPX55lmOntEKuLxET
+         G9ug==
+X-Forwarded-Encrypted: i=1; AL+hErHMLX9ybgrrLZiF4/PDfEPjVd0gd0eUPTp9hSnOCZEgvqCwt58T5EFFHcHbtaMDcJfYvCQL8nI5DfpYLoo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9yYXy5+5EtlYXx5bu89Py2bBu9JSyxpKYW8SVELIUhJo5EUjQO
+	ucggOJmUdw7ZsdtgKm3Iym6o+YSlUJx/DkANLqkH85RN0bcI854Cf+iySSkxsLQQPinhzJcrA6z
+	2ixQVJONtqYUb64+vi/Zt9vEl/hJe4Xw=
+X-Gm-Gg: AZFdTZfCQbraSpx7JrYATnEccoic3zFTz7OzObrn813WspP262OGFtamrP5PxWHJ1o3
+	7ZoJpMTG+P/7rHT6A0gA422riun/WuNnK5q58wFNY/oQJL3Gp+n2qd9cI7iz+h7XZrTDWaAMq06
+	GhxiSGia2grgDNIWy12VHfHRhgXy+AdFjFPFcfs/4KUtEr9v6AfjjcPk67va5xh+dFbdyD5OhNJ
+	W2fb1jPEM6DBpf07M6/PaL11mcHlGjDAgxV1eYvvVMD9pZAdlIHRFaBJ2JnOYMQwbZLRsx3rBo0
+	+7Dfwn8Vn/AfGy52tF986wOUZoUqcf5fNVy0WdUizUZ0V5cOJq3JAqroQar7W7vckV71gAtuQ+C
+	SoTcOrL7xEmfKl1oQEkxNzM8ollN59aGiBiA96Q8UF2vkAcJJfmmQs0o9c9d72uay3fHgkxmcyQ
+	7b8SzJQ93I/BXtIe7NV9l0Ey18po712uaWM4GDl1Azc0qP8wpywX4K8eCqZ3r/kdVvyvauE+593
+	PrJaw4vMIFTWzPF/A==
+X-Received: by 2002:a05:6214:85d4:10b0:921:2397:15c0 with SMTP id
+ 6a1803df08f44-92134aae88amr174798896d6.9.1795479290741; Mon, 23 Nov 2026
+ 16:14:50 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,186 +106,136 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.13.1
-Subject: Re: [PATCH] mshv: Do pre-commit before mapping a guest VM GPA
-Content-Language: en-US
-To: Michael Kelley <mhklinux@outlook.com>,
- "linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Cc: "haiyangz@microsoft.com" <haiyangz@microsoft.com>,
- "wei.liu@kernel.org" <wei.liu@kernel.org>,
- "decui@microsoft.com" <decui@microsoft.com>
-References: <20261107024842.3929415-1-mrathor@linux.microsoft.com>
- <MN2PR02MB6863E6A55A9C64B4C30CAA2CD4462@MN2PR02MB6863.namprd02.prod.outlook.com>
-From: Mukesh R <mrathor@linux.microsoft.com>
-In-Reply-To: <MN2PR02MB6863E6A55A9C64B4C30CAA2CD4462@MN2PR02MB6863.namprd02.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20261122233958.10462-1-astellman@stellman-greene.com> <179547862919.3135.6087887655063297728@kernel.org>
+In-Reply-To: <179547862919.3135.6087887655063297728@kernel.org>
+From: Andrew Stellman <astellman@stellman-greene.com>
+Date: Mon, 23 Nov 2026 19:14:39 -0500
+X-Gm-Features: Aa3M54r8LqYwCwZHSInNPFAsZl3pmCroukwtjzOFoNnEUp-H2sQ6lvQOIHcivKs
+Message-ID: <CAChPuV88P4Uf8BBxAhrM044ozX21ZCiPqn4J3-vLc-x_Gz_wiA@mail.gmail.com>
+Subject: Re: [PATCH net] tipc: free the tunnel packets when failover
+ tunnelling stops early
+To: netdev-bot+sashiko@kernel.org
+Cc: jmaloy@redhat.com, tung.quang.nguyen@est.tech, davem@davemloft.net, 
+	edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, 
+	tuong.t.lien@dektech.com.au, ying.xue@windriver.com, netdev@vger.kernel.org, 
+	tipc-discussion@lists.sourceforge.net, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On 11/21/26 20:24, Michael Kelley wrote:
-> From: Mukesh R <mrathor@linux.microsoft.com> Sent: Friday, November 6, 2026 6:49 PM
->>
->> Pre commit reduces TLB flush overheads in the hypervisor. On systems
->> with large number of CPUs, there is signficant advantage to doing
->> this. Pre-commit allows the hypervisor to build all data structs needed
->> in anticipation of the map gpa hypercall, thus reducing or eliminating
->> deposit page returns from the map gpa hypercall, and as a result reducing
->> TLB flushes. In some performance benchmarks, it made the maps of large
->> ranges almost 30% faster.
->>
->> Signed-off-by: Mukesh R <mrathor@linux.microsoft.com>
->> ---
->>   drivers/hv/mshv_root_hv_call.c | 52 ++++++++++++++++++++++++++++++++++
->>   include/asm-generic/mshyperv.h |  3 ++
->>   include/hyperv/hvgdk_mini.h    |  1 +
->>   include/hyperv/hvhdk.h         |  7 +++++
->>   4 files changed, 63 insertions(+)
->>
->> diff --git a/drivers/hv/mshv_root_hv_call.c b/drivers/hv/mshv_root_hv_call.c
->> index bf0f90515dad..5c44ba8f72b0 100644
->> --- a/drivers/hv/mshv_root_hv_call.c
->> +++ b/drivers/hv/mshv_root_hv_call.c
->> @@ -181,6 +181,54 @@ int hv_call_delete_partition(u64 partition_id)
->>   	return hv_result_to_errno(status);
->>   }
->>
->> +/*
->> + * Pre commit to reduce TLB flush overheads in the hypervisor. On systems with
->> + * large CPUs, there is signficant advantage to doing this. Pre-commit allows
->> + * the hypervisor to build all data structs needed in anticipation of the map
->> + * gpa hypercall, thus reducing or eliminating deposit page returns from the
->> + * map gpa hypercall, and as a result reducing TLB flushes.
->> + */
->> +static int hv_pre_commit_gpa(u64 pt_id, u64 gfn, u64 num_pages)
->> +{
->> +	ulong irq_flags;
->> +	struct hv_input_precommit_gpa_pages *input_page;
->> +	int rc = 0;
->> +	u64 status, done = 0;
->> +
->> +	while (done < num_pages) {
->> +		u16 rep_count = min(num_pages - done, HV_REP_COUNT_MAX);
->> +
->> +		local_irq_save(irq_flags);
->> +		input_page = *this_cpu_ptr(hyperv_pcpu_input_arg);
->> +		memset(input_page, 0, sizeof(*input_page));
->> +
->> +		input_page->partition_id = pt_id;
->> +		input_page->target_gpa_base = gfn;
->> +
->> +		status = hv_do_rep_hypercall(HVCALL_PRECOMMIT_GPA_PAGES,
->> +					     rep_count, 0, input_page, NULL);
->> +		local_irq_restore(irq_flags);
->> +
->> +		done += hv_repcomp(status);
->> +		gfn += hv_repcomp(status);
->> +
->> +		if (hv_result_needs_memory(status)) {
->> +			rc = hv_deposit_memory(pt_id, status);
->> +			if (rc)
->> +				break;
->> +
->> +		} else if (!hv_result_success(status)) {
->> +			pr_err("%s: failed to pre commit for gfn %#llx done %llu/%llu, status=%#llx (%s)\n",
->> +			       __func__, gfn, done, num_pages, status,
->> +			       hv_result_to_string(hv_result(status)));
->> +			rc = hv_result_to_errno(status);
->> +			break;
->> +		}
->> +	}
->> +
->> +	return rc;
->> +}
->> +
->>   /* Ask the hypervisor to map guest ram pages or the guest mmio space */
->>   static int hv_do_map_gpa_hcall(u64 partition_id, u64 gfn, u64 page_struct_count,
->>   			       u32 flags, struct page **pages, u64 mmio_spa)
->> @@ -205,6 +253,10 @@ static int hv_do_map_gpa_hcall(u64 partition_id, u64 gfn, u64 page_struct_count,
->>   		page_count >>= large_shift;
->>   	}
->>
->> +	ret = hv_pre_commit_gpa(partition_id, gfn, page_struct_count);
->> +	if (ret)
->> +		return ret;
->> +
-> 
-> The pre-commit call uses the original GFN and page struct count, so
-> evidently the pre-commit functionality in the hypervisor does not need
-> to know if the follow-on MAP_GPA_PAGES hypercall will be specifying
-> large pages. I don't know anything about the pre-commit functionality,
-> but my guess would have been that it is allocating page table pages, and
-> that the large page flag would let it know that only PMD level is needed.
-> Do you know those details?  Just curious ....
+Agreed: that return also skips the FAILOVER_MSG hand-over, and goto
+out is safe there since tnlq is already initialised and empty. I'll
+include it in v2.
 
-Yeah, the memory requirement is same whether the follow up map call
-uses large flag or not. The memory is not just the slat, but I guess
-other data structs. Also, for live migration, the granularity falls
-down to 4k level, so I am guessing they account ram for that upfront.
+pw-bot: cr
 
-In any case, I confirmed that pre-commit does not change based on
-whether the follow up map call uses large page flag or not.
-
-Lastly, there is one issue here that was brought up. The pre-commit
-is done on every map, it only needs to be done once. Meaning, in this
-patch it will happen during NO_ACCESS map, then during actual page
-map... So I'll send updated patch.
-
-Thanks,
--Mukesh
-
-
->>   	while (done < page_count) {
->>   		ulong i, completed, remain = page_count - done;
->>   		int rep_count = min(remain, HV_MAP_GPA_BATCH_SIZE);
->> diff --git a/include/asm-generic/mshyperv.h b/include/asm-generic/mshyperv.h
->> index 4c9f3353074a..a3d497d99b0b 100644
->> --- a/include/asm-generic/mshyperv.h
->> +++ b/include/asm-generic/mshyperv.h
->> @@ -28,6 +28,9 @@
->>
->>   #define VTPM_BASE_ADDRESS 0xfed40000
->>
->> +#define HV_REP_COUNT_MAX        \
->> +	(HV_HYPERCALL_REP_COMP_MASK >> HV_HYPERCALL_REP_COMP_OFFSET)
->> +
->>   enum hv_partition_type {
->>   	HV_PARTITION_TYPE_GUEST,
->>   	HV_PARTITION_TYPE_ROOT,
->> diff --git a/include/hyperv/hvgdk_mini.h b/include/hyperv/hvgdk_mini.h
->> index 966945f0504f..16c41ee5079a 100644
->> --- a/include/hyperv/hvgdk_mini.h
->> +++ b/include/hyperv/hvgdk_mini.h
->> @@ -489,6 +489,7 @@ union hv_vp_assist_msr_contents {	 /*
->> HV_REGISTER_VP_ASSIST_PAGE */
->>   #define HVCALL_FLUSH_GUEST_PHYSICAL_ADDRESS_LIST	0x00b0
->>   #define HVCALL_CREATE_DEVICE_DOMAIN			0x00b1
->>   #define HVCALL_ATTACH_DEVICE_DOMAIN			0x00b2
->> +#define HVCALL_PRECOMMIT_GPA_PAGES			0x00be
->>   #define HVCALL_SIGNAL_EVENT_DIRECT			0x00c0
->>   #define HVCALL_POST_MESSAGE_DIRECT			0x00c1
->>   #define HVCALL_DISPATCH_VP				0x00c2
->> diff --git a/include/hyperv/hvhdk.h b/include/hyperv/hvhdk.h
->> index 0c89c62c9706..3944e51d0a2d 100644
->> --- a/include/hyperv/hvhdk.h
->> +++ b/include/hyperv/hvhdk.h
->> @@ -953,4 +953,11 @@ struct hv_input_modify_sparse_spa_page_host_access {
->>   #define HV_MODIFY_SPA_PAGE_HOST_ACCESS_LARGE_PAGE      0x4
->>   #define HV_MODIFY_SPA_PAGE_HOST_ACCESS_HUGE_PAGE       0x8
->>
->> +struct hv_input_precommit_gpa_pages {	/*
->> HV_INPUT_PRECOMMIT_GPA_PAGES */
->> +	u64 partition_id;
->> +	u32 flags;
->> +	u32 reserved;
->> +	u64 target_gpa_base;
->> +} __packed;
-> 
-> Does Windows put this struct in hvhdk.h? Its close relative from
-> a functional standpoint, struct hv_input_map_gpa_pages, is in
-> hvhdk_mini.h, so that would seem to be a more natural place for
-> this. But I never have understood the criteria for being in one vs.
-> the other.
-> 
-> Michael
-
+On Mon, Nov 23, 2026 at 7:03=E2=80=AFPM <netdev-bot+sashiko@kernel.org> wro=
+te:
+>
+> Thank you for your contribution! Sashiko AI review found 1 potential
+> issue(s) to consider.
+>
+> Critical: 0 =C2=B7 High: 0 =C2=B7 Medium: 1 =C2=B7 Low: 0
+>
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwor=
+k
+> know by including "pw-bot: cr" as a separate line at the end of your repl=
+y
+> (one such reply per series is enough).
+>
+> - [Medium] The patch leaves one early exit in tipc_link_tnl_prepare()
+>   (net/tipc/link.c) that still skips the FAILOVER_MSG receive-side hand-=
+=E2=80=A6
+>
+> --
+>
+> tipc: free the tunnel packets when failover tunnelling stops early
+>
+> The three early returns inside the tunnelling loop of
+> tipc_link_tnl_prepare() now jump to a new out: label. That label purges
+> any tunnel packets left on tnlq. It then runs the FAILOVER_MSG receive
+> side hand-over (drop_point, failover_reasm_skb, deferdq).
+>
+> > diff --git a/net/tipc/link.c b/net/tipc/link.c
+> > index 6427c69f89294..2fead2f4ed0fa 100644
+> > --- a/net/tipc/link.c
+> > +++ b/net/tipc/link.c
+>
+> [ ... ]
+>
+> > @@ -2073,6 +2073,9 @@ void tipc_link_tnl_prepare(struct tipc_link *l, s=
+truct tipc_link *tnl,
+> >               }
+> >
+> >       tipc_link_xmit(tnl, &tnlq, xmitq);
+> > +out:
+> > +     /* Empty unless tunnelling stopped early */
+> > +     __skb_queue_purge(&tnlq);
+> >
+> >       if (mtyp =3D=3D FAILOVER_MSG) {
+> >               struct sk_buff_head *fdefq =3D &tnl->failover_deferdq;
+>
+> [Severity: Medium]
+> The commit message says the fix is to "go on with the hand-over" when
+> tunnelling stops early. Should the earlier exit, taken when the dummy
+> packet can't be allocated, also jump to out?
+>
+> That path in tipc_link_tnl_prepare() still returns directly:
+>
+> net/tipc/link.c:tipc_link_tnl_prepare() {
+>     ...
+>         skb =3D tipc_msg_create(TIPC_LOW_IMPORTANCE, TIPC_DIRECT_MSG,
+>                               BASIC_H_SIZE, 0, l->addr, tipc_own_addr(l->=
+net),
+>                               0, 0, TIPC_ERR_NO_PORT);
+>         if (!skb) {
+>                 pr_warn("%sunable to create tunnel packet\n", link_co_err=
+);
+>                 return;
+>         }
+>     ...
+> }
+>
+> tipc_msg_create() allocates with tipc_buf_acquire(..., GFP_ATOMIC), so it
+> can fail under memory pressure. If it fails for FAILOVER_MSG, this code
+> never runs:
+>
+>     tnl->drop_point =3D l->rcv_nxt;
+>     tnl->failover_reasm_skb =3D l->reasm_buf;
+>     skb_queue_splice_init(&l->deferdq, fdefq);
+>
+> The caller goes into failover anyway:
+>
+> __tipc_node_link_down()
+>     tipc_link_tnl_prepare(l, tnl, FAILOVER_MSG, xmitq);
+>     tipc_link_reset(l);    <- frees l->reasm_buf, purges l->deferdq
+>     tipc_link_fsm_evt(l, LINK_RESET_EVT);
+>     tipc_link_fsm_evt(l, LINK_FAILOVER_BEGIN_EVT);
+>     tipc_node_fsm_evt(n, NODE_FAILOVER_BEGIN_EVT);
+>
+> tnl->drop_point then keeps a stale value. That is 0 from link creation,
+> 1 from tipc_link_failover_prepare(), or whatever an earlier failover left=
+.
+> tipc_link_failover_rcv() then does this:
+>
+>         if (unlikely(less(seqno, l->drop_point))) {
+>                 kfree_skb(iskb);
+>                 continue;
+>         }
+>         if (unlikely(seqno !=3D l->drop_point)) {
+>                 __tipc_skb_queue_sorted(fdefq, seqno, iskb);
+>                 continue;
+>         }
+>
+> Could this drop the peer's tunnelled messages? Could it also leave them
+> in failover_deferdq for good, since drop_point only moves forward on an
+> exact match?
+>
+> tnlq is already initialised and empty at that point, and the out: block
+> only touches tnlq, l and tnl. So changing that return to goto out looks
+> safe.
+>
+> --
+> Sashiko AI review =C2=B7 https://netdev-ai.bots.linux.dev/sashiko/#/patch=
+set/20261122233958.10462-1-astellman%40stellman-greene.com
