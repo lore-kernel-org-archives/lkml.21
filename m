@@ -1,119 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.130
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795524257;
-	b=bmsoAr88y7cpCl+tvPt1Xa6/2Ci6A1EJU7dxidHWJqzqqThZUMhPgMBaU2Qe/S4QN8Si
-	 ynSD52YnP2wPjzje7RxjxpmSISldtIz0oaa+F6XeT04tt5ptBSMfHKuN+YzCAwoXo2SRx
-	 LlNPGYtgwXvs+QjWt9EtOHVSeT5q866CDq/e4VMugn5S3+2UCu6kzxyQm/0Ew7/qoUhqU
-	 08+xnzAVMWDdT0ySXk/3t5xv86UO8z4SS7OjiuT0Nd/QVd+hLMgIk41+9DmfwsbzT7SaL
-	 qDWak7wunPFUo04VKKe9PF/BMh2qHo4uGsJLcEv4yFOA/vnRTXujpM6O4QKO3Ti0yNA==
+	t=1795524269;
+	b=1Hf1Md1yaYCCjvw1q12jFAqJjGmwd/MTp38/eEzgv6Gw2DzsGsmUcteuJywvXg/9yaPf
+	 zQx0rmS8a3HmnhMao0kZx1u04i1ygAwiDpy2Ej9x0fcs2PvWxrqyETjOIvK1/vpzUUIKb
+	 qdHUXSbH87o4+Xf7w8lWIi1Qtw58bl6VhgmaGKWzISkyBwx4aFhrLgR7xhRRs2W1x+4gq
+	 93llxtR2lbBuacrqC5TgIp4Q3UznN/Vk0FlwqTDO5L4ZMMBmd2q5vn/dXBb7+qehTB/FH
+	 fCKp0dy6vWZv6gO8Fv1Ha7nzB7QIPErJ97dv0zr4HznklurR+v3cYtXesM4G3YxxnTA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795524257;
-	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
-	 DKIM-Signature:Received:Received:Date:Message-ID:From:To:Cc:Subject:
-	 In-Reply-To:References:User-Agent:MIME-Version:Content-Type:
-	 X-Spamd-Result:X-Rspamd-Server:X-Rspamd-Action:X-Spam-Flag:
-	 X-Spam-Score:X-Spam-Level:X-Rspamd-Queue-Id;
-	bh=Pi9W+SnUbuME95dbO6kC+pZvkmFqMfmgqlTyjXruwiU=;
-	b=fma5NPqne+INW3tM7VA/DSmnO7Nl8jKXOkCmZtXASQDHYqs1NHOxNJhxKSGcR7/x0FI3
-	 oHn19JPj5FerapneMNL9L+qeJgfcP3HP63z9fVaMXyD7MhNhithHM+G9UtPajSZF9XqjS
-	 Ov2trSqeNbO0D7C/XtLK/mJrbNdZfr56MnQueUjNVGQxpTwwk3EuLYCEELjtuFhnU4g57
-	 VFf0f95QMiUh/WgjvbgfaWX0uKHn2XGj6jZpom1ABB5BxiJPBPRiqefpnQjn8ZKOgMeIR
-	 b1+v35vXyutPyeq3KZDz0AwTWkGRHyhUMB9XOGGzQQ+RYTetz4F8tUeVnuFJ+3E/PMw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795524269;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
+	 X-CM-SenderInfo;
+	bh=N3NTmfX35b2vV6UrMxA0DBPxvecP96wM7O5DoxJIPqY=;
+	b=KSmXBV53Uf9G767ZWNJnZjcDohs2vv1NEjx82vTfmVtzD/iPkW7yWx8oxhF7lQDLBz31
+	 PxPWckxVCyBZBKY9D/U9XKHptel46idOMn6KC10YyDLmLfdGqOkKpCIK0ufGDp3NVU6bw
+	 OhnhVJOmQHVGZf71XhFQV6yDsC57kgFjX9a1hu/ttvbHrmsoWf76A2phV04x7tLLlUvtJ
+	 0vVr1AGVHhjk1cVsUifeB5pYLuFoVEfGVIo4GqLt5UWBCsf9jkQ0Bo9TMNQof8Emh2Co0
+	 cjTTOCMjON2j3zG3g3nxUxyEXub3DvPe1eS4+o7rRsrZU9vXU+rTGfh3MHCM9tfJbYw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.de;
-	spf=pass smtp.mailfrom=suse.de;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=QkOHIVZX;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=GVg5tcBy;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=QkOHIVZX;
-	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=GVg5tcBy;
-	arc=none smtp.remote-ip=195.135.223.130
-Received: from smtp-out1.suse.de (smtp-out1.suse.de [195.135.223.130])
+	dmarc=pass header.from=163.com;
+	spf=pass smtp.mailfrom=163.com;
+	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=l4dtxQ4R;
+	arc=none smtp.remote-ip=117.135.210.4
+Received: from m16.mail.163.com (m16.mail.163.com [117.135.210.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3B672606A322;
-	Tue, 24 Nov 2026 12:44:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3B672606A322
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=suse.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E5CA0606A321;
+	Tue, 24 Nov 2026 12:44:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E5CA0606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=QkOHIVZX;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=GVg5tcBy;
-	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=QkOHIVZX;
-	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=GVg5tcBy
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 1E97522033;
-	Tue, 24 Nov 2026 12:44:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1795524255; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Pi9W+SnUbuME95dbO6kC+pZvkmFqMfmgqlTyjXruwiU=;
-	b=QkOHIVZXhSD8KwFDyjeilmchuvxo2cMmW6NjN5QQqSs9e2KfN2Ikkt9GI16v7zaJXd8XFG
-	9Hw+Ze+txFU+ADcajTYiWOyWBfvoUc7uMKqs0skBcA+gThuzXrR2kyfykDF6iPGHYDSlce
-	MG7DZenNK8CGBMdYudKZsbBaycgWT+4=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1795524255;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Pi9W+SnUbuME95dbO6kC+pZvkmFqMfmgqlTyjXruwiU=;
-	b=GVg5tcByOGKz+yfnWng6l0RnHOTdGdvAtiEkeA0LZfig20EgSs/jnUxehg9wc84S1jgivQ
-	mZ/0AL0gNWQG44CA==
-Authentication-Results: smtp-out1.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=QkOHIVZX;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=GVg5tcBy
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1795524255; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Pi9W+SnUbuME95dbO6kC+pZvkmFqMfmgqlTyjXruwiU=;
-	b=QkOHIVZXhSD8KwFDyjeilmchuvxo2cMmW6NjN5QQqSs9e2KfN2Ikkt9GI16v7zaJXd8XFG
-	9Hw+Ze+txFU+ADcajTYiWOyWBfvoUc7uMKqs0skBcA+gThuzXrR2kyfykDF6iPGHYDSlce
-	MG7DZenNK8CGBMdYudKZsbBaycgWT+4=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1795524255;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Pi9W+SnUbuME95dbO6kC+pZvkmFqMfmgqlTyjXruwiU=;
-	b=GVg5tcByOGKz+yfnWng6l0RnHOTdGdvAtiEkeA0LZfig20EgSs/jnUxehg9wc84S1jgivQ
-	mZ/0AL0gNWQG44CA==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 9C0D01339F;
-	Tue, 24 Nov 2026 12:44:14 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id zf/5Fp6GBWt/FAAAD6G6ig
-	(envelope-from <tiwai@suse.de>); Tue, 24 Nov 2026 12:44:14 +0000
-Date: Tue, 24 Nov 2026 13:44:10 +0100
-Message-ID: <8733sqbdr9.wl-tiwai@suse.de>
-From: Takashi Iwai <tiwai@suse.de>
-To: mynameisjune111@gmail.com,
-	Joonho Lee via B4 Relay <devnull+mynameisjune111.gmail.com@kernel.org>
-Cc: linux-sound@vger.kernel.org,
-	Anton Yakovlev <anton.yakovlev@opensynergy.com>,
-	Matias Ezequiel Vara Larsen <mvaralar@redhat.com>,
-	tiwai@suse.com,
-	perex@perex.cz,
-	mst@redhat.com,
-	virtualization@lists.linux.dev,
+	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=l4dtxQ4R
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=N3
+	NTmfX35b2vV6UrMxA0DBPxvecP96wM7O5DoxJIPqY=; b=l4dtxQ4RqQ/yceEb/K
+	yIFCu72UhYrVxChs+mcZUOBVlFkrMejN174rUcGCMo7ToULhdap9F8BqnwlhmmUU
+	KbHIe8nnYA8RfTxV4RnPGFb+XjsBI3RQ8Q1mCsWEZRVe0gNKePSXsxd4qf1q7iM7
+	m92EUFefLeW6uxYikp8THgYyg=
+Received: from localhost.localdomain (unknown [])
+	by gzga-smtp-mtada-g1-2 (Coremail) with SMTP id _____wDXH4WDhgVrkSAEKA--.1379S2;
+	Tue, 24 Nov 2026 20:43:51 +0800 (CST)
+From: Hongxing Xu <xing1989093@163.com>
+To: Jeff Hugo <jeff.hugo@oss.qualcomm.com>
+Cc: Manivannan Sadhasivam <mani@kernel.org>,
+	mhi@lists.linux.dev,
+	linux-arm-msm@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	corbet@lwn.net,
-	skhan@linuxfoundation.org,
-	rdunlap@infradead.org,
-	linux-doc@vger.kernel.org,
-	Takashi Iwai <tiwai@suse.de>
-Subject: Re: [PATCH v33 00/18] ALSA: virtio: preserve PCM progress
-In-Reply-To: <20261113-fix-virtio-snd-recovery-final-v33-0-13a934ad5ece@gmail.com>
-References: <20261113-fix-virtio-snd-recovery-final-v33-0-13a934ad5ece@gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) Emacs/30.2 Mule/6.0
+	xing1989093@163.com
+Subject: Re: [PATCH 1/2] bus: mhi: host: Add debug port personality switching
+Date: Tue, 24 Nov 2026 20:43:18 +0800
+Message-Id: <20261124124319.2316-1-xing1989093@163.com>
+X-Mailer: git-send-email 2.40.0.windows.1
+In-Reply-To: <6b3fbc60-34ec-4b7e-bbc7-84a0ec5d496e@oss.qualcomm.com>
+References: <6b3fbc60-34ec-4b7e-bbc7-84a0ec5d496e@oss.qualcomm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -122,132 +64,95 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-Spamd-Result: default: False [-11.01 / 50.00];
-	SUSE_INTERNAL_BYPASS(-9.00)[];
-	BAYES_HAM(-3.00)[100.00%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	MID_CONTAINS_FROM(1.00)[];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	RCPT_COUNT_TWELVE(0.00)[15];
-	FREEMAIL_TO(0.00)[gmail.com,kernel.org];
-	MIME_TRACE(0.00)[0:+];
-	ARC_NA(0.00)[];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	RCVD_TLS_ALL(0.00)[];
-	DKIM_TRACE(0.00)[suse.de:+];
-	RCVD_COUNT_TWO(0.00)[2];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	TO_DN_SOME(0.00)[];
-	DNSWL_BLOCKED(0.00)[2a07:de40:b281:104:10:150:64:97:from,2a07:de40:b281:106:10:150:64:167:received];
-	TAGGED_RCPT(0.00)[mynameisjune111.gmail.com];
-	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,suse.de:dkim]
-X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
-X-Rspamd-Action: no action
-X-Spam-Flag: NO
-X-Spam-Score: -11.01
-X-Spam-Level: 
-X-Rspamd-Queue-Id: 1E97522033
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:_____wDXH4WDhgVrkSAEKA--.1379S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxCF45Ww1rZFyfur1kJryftFb_yoWrXw4Dpa
+	nxGFZrJw4kJF4Skryv9F48GFWS9FZ7GF43GryDC345C398G34Svr1FqayYva47CryIqryj
+	vrZ8JF9xua4DZaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0pRYg4-UUUUU=
+X-CM-SenderInfo: 50lqwiqzyzimqt6rljoofrz/xtbC3wjfnGsFhoipFwAA3K
 
-On Fri, 13 Nov 2026 10:21:24 +0100,
-Joonho Lee via B4 Relay wrote:
-> 
-> This series is based on sound.git commit
->  a4311e9447bbb219044db38897f95be112f46a8a.
-> 
-> Previous revision:
-> https://lore.kernel.org/linux-sound/20261113-fix-virtio-snd-recovery-final-v32-0-4e95979e312c@gmail.com/T/
-> 
-> Changes since v32:
-> 
-> - Keep a replacement capture stream in DRAINING intact when an older
->   sync_stop callback arrives. The active-state check now covers capture
->   and playback, with the teardown marker retained for later cleanup.
-> - Check the settled device state while holding the queue and stream locks
->   before rolling back a failed PAUSE. A late successful STOP keeps the
->   queue closed and does not restore the old capture quiet sequence.
-> - Give each uncertain control incident one additional window of four
->   msg_timeout_ms intervals. Sleepable callbacks share the remaining time.
-> - Close transfer admission and quiesce period work before waiting for a
->   late control reply. Preserve the stop marker on failure and resample
->   teardown state after the reply settles.
-> 
-> These changes are folded into patches 12 and 18. The other sixteen
-> retained patches have unchanged diffs.
-> 
-> Automatic device reset from v32 patch 20 is deferred. Its review exposed
-> an ALSA link/open lock cycle and unresolved ordering with transport reset
-> and power management. The supporting CONFIG_PM-independent suspension
-> change from v32 patch 19 is also omitted. Their review findings remain
-> open for a separate recovery design.
-> 
-> A permanently unanswered PCM control request still requires an explicit
-> driver rebind. Late control replies remain supported by patch 18.
-> 
-> Validation:
-> 
-> - ARM64 virtio-snd module build with W=1: no warnings. The review-fix diff
->   passes checkpatch without errors or warnings.
-> - Eight QEMU KASAN/lockdep cases cover RW/MMAP capture, RESET/DRAIN,
->   reopen, and playback. All passed with the loaded module hash checked.
-> - A test-only sync_stop gate forced an old DROP to resume after a new
->   capture reached DRAINING. The original first-eighteen-patch baseline lost
->   the readable tail with -EBADFD; the candidate preserved it and returned
->   32 frames. Both used the same fixture.
-> - A 1500 ms delayed STOP reply smoke test passed on v32 and this candidate.
-> - Scarlett 2i2 input 1, macOS VZ, 48 kHz: v32 and the candidate each
->   passed twelve captures totalling 170 seconds, including 70-second RW
->   and MMAP captures and repeated reopen. The candidate passed four more
->   short captures after a fresh VM boot. All three VMs shut down normally.
-> 
-> The physical tests used the existing ABI-matched 7.3.0-rc7 KASAN kernel
-> with rebuilt driver modules, capture_packed_status=1 and
-> capture_pause_restart=0. Other host recorder processes remained running.
-> Expected frame counts and nonzero signal windows were checked; no known
-> waveform oracle was available to prove exact sample continuity.
-> 
-> The delayed STOP smoke test does not force the exact late-reply/PAUSE
-> rollback interleaving. No fresh KCSAN run or full-kernel rebuild is claimed
-> for this revision. Automatic transport reset and PM recovery are outside
-> this reduced series.
-> 
-> Assisted-by: LLM
-> 
-> ---
-> Joonho Lee (18):
->       ALSA: pcm: mark stop-threshold accesses for capture policy sampling
->       ALSA: pcm: report partial progress under the stream lock
->       ALSA: pcm: add an optional reset operation under the stream lock
->       ALSA: pcm: notify drivers after linked prepare completes
->       ALSA: pcm: serialize linked buffer actions
->       ALSA: virtio: propagate playback send failures through ACK
->       ALSA: virtio: Recover PCM state after a failed start
->       ALSA: virtio: Retain queued messages through device reset
->       ALSA: virtio: bound PCM transfers and retain DMA buffers
->       ALSA: virtio: Keep control payloads alive through DMA completion
->       ALSA: virtio: wait through signals for PCM teardown
->       ALSA: virtio: use request-owned capture and serialize recovery
->       ALSA: virtio: prioritize capture period work
->       docs: describe virtio-sound capture options
->       ALSA: virtio: reject invalid playback completions
->       ALSA: pcm: add an explicit application pointer to indirect playback transfer
->       ALSA: virtio: preserve playback progress across pause and buffer access
->       ALSA: virtio: settle PCM control state from late replies
+Two questions, both pointing into this patch, so answering them together.
 
-So v33 is supposed to be the final one?  Or any newer is planned?
+> > +What:           /sys/bus/mhi/devices/.../debug_ports
+>
+> Why sysfs and not debugfs?
 
+Because this is not a debugging aid. It is a documented ABI that end
+users and provisioning tools drive on a shipped system, and it has to
+remain available there.
 
-thanks,
+What userspace gains is the ability to bring up, on demand, a group of
+ports that a given firmware product configuration does not enable by
+default: the diagnostic interface, and the same applies to the ADB and
+AT ports. A single switch that creates or destroys that whole group is
+what is needed; poking channels one at a time is not. That is why it is
+described alongside the other controller attributes in
+Documentation/ABI/stable/sysfs-bus-mhi.
 
-Takashi
+debugfs cannot serve this, for two concrete reasons.
+
+The first is availability. CONFIG_MHI_BUS_DEBUG is a bool with no
+default, so it is off in the configurations product kernels ship, and
+it is a compile-time switch: with it disabled, debugfs.c is not built
+and the calls in mhi_register_controller() resolve to empty stubs. A
+user who needs these ports would have to rebuild the kernel to get at
+the control, which is not a usable interface.
+
+The second is capability. MHI's debugfs already exposes states, events,
+channels and devices, and all of them are read-only listings. There is
+no debugfs entry in MHI that can create or destroy an MHI device, so
+this is not a choice between two equivalent interfaces.
+
+There is also a security reason to keep these ports off unless they are
+wanted. The diagnostic and ADB ports on a WWAN module are a meaningful
+attack surface, and a module that does not need them should not be
+exposing them. Hiding that decision behind an interface that is absent
+on production kernels would defeat the point.
+
+> > + * @debug_ports: Whether the debug port personality is active, ...
+> > + * @debug_ports_pending: Latest personality requested from userspace,
+> > + *		 applied by debug_ports_work
+> > + * @debug_ports_work: Applies @debug_ports_pending from the ordered
+> > + *		      high priority workqueue, ...
+>
+> Are these optional?
+
+None of the three can be dropped for this feature to work, though none
+of them is populated by a driver either.
+
+debug_ports records the personality that is currently applied. It is
+read by mhi_chan_is_available() on every enumeration, which is what
+keeps a debug-only channel hidden while the commercial personality is
+active, and it backs the sysfs attribute so userspace can read back
+what is in effect. It belongs to the controller because the setting
+covers the controller as a whole.
+
+debug_ports_pending carries the value userspace has just written. The
+create and destroy work cannot run in the store function itself:
+channel devices are created and destroyed by the state transitions on
+the ordered hiprio_wq, and pm_mutex does not exclude those transitions,
+because a transition releases it before calling
+device_for_each_child(). So the work has to be queued on that same
+ordered workqueue, and by the time it runs it needs somewhere to read
+the request from. Keeping it separate from debug_ports also keeps
+"requested" and "applied" distinct while a switch is in flight.
+
+debug_ports_work is that work item. It is initialised in
+mhi_register_controller() next to the other work items, queued on the
+ordered workqueue, and flushed by the store so the write returns only
+once the ports exist.
+
+All three are zero-initialised, so a controller that declares no
+debug-only channel starts in the commercial personality and behaves
+exactly as before. I am happy to say so explicitly in the kernel-doc.
+
+Could I ask what you have in mind here? If the concern is that the docs
+should mark driver-populated fields as optional, these are not
+driver-populated and I can word it that way. If you would rather this
+state lived somewhere other than struct mhi_controller, I would like to
+know your preference before reworking it.
+
+Thanks
+
