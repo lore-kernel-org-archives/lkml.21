@@ -1,89 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795509716;
-	b=MaEkqB/QigMeQtgSFK7NV6xr6DTQIPZ4AY9SeqTzPTAw/AjzWgy5PVQdoImqk2lcxLcE
-	 +6hvNSG10Pui4vM0TDpu22y81uPOPEpTJ2KRkA2jY/VTUL79jkefoiTuPUWaYXWQ0svp5
-	 I6mcTUkiDrVqLpO4S2PT4icty5QMWTRUOwUMdC207G4hHqQaM/0FfJ6cY2FVqPboyTbMX
-	 jLr3TBtUdVGGgqP/j27HGnVZqVF2ZJ/Sen/vdCKhlqx1Mgc7grGcmaxP+E8Ol9WVkcopK
-	 +egOCj9uVlN78YHxge6+W7oTjnGavAlTGsEi7eblKTjGHqJTDBLgrlzqunjOkH9CuMw==
+	t=1795509731;
+	b=hvGWWDisMJC5ZaF98oTJHqr+C4zBwz5qna5/ixZMnjAd44s5BItovLQCuSmWe7VbooTH
+	 VpYT5aN4X4EIoCQP4izo8Mo1HQ+7+CkbXbgYvHe3DHvRBoX7bISsc0vPGGFJ0DTqsXISb
+	 AUqyE03U7Rr1L3qoBB7I26POXguyOIKq+MoyOaYv77kJEfNbJQjb+gp9l7HfcHrkWBtjb
+	 0ccGjTcAB9XPsgsoFn27phb7GkXaJ0KKxvOS3Ko2l3cLzxnEQAoGml/wRPxrrIkre8jiY
+	 Ucun0RYKj1ONNHOMEbZDQJi/arsmgNyGz6DqCWXD1phpMYDz+179sHSr4dPYnUk+CYA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795509716;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795509731;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:Content-Language:To:
+	 Cc:References:From:In-Reply-To:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=miq8lHAk9j+ldEOiiht4iRcOG6aLFpZt8I9oVYIzhag=;
-	b=Y/1WC1uOV5wERqWxJHy8xNE/gEPEKJNgm15MZDLNa8wPafQuGxZFgLzYAeVNQv36KKjg
-	 C5OkVfZdHc1UmtaKbcvoyxg3V1VntW9nCesD/8SS9reZ938tOE6bKJKC3lLJM3xPuLmIq
-	 +PNrZCe1qRrTqvS8ZKPsBcnDa/xkXhigQwZ4NoQwLq/RY2AZdVoxhN+bOkgC2aX+Ky2dH
-	 I80J4wzgMYmklqwi0cZTWvxPzb0FSLngj4/8bPbUtiUaiT4lZH+vYsZ0S0IRpVDODi+md
-	 Lnx9tcqxNrT0HutA45S5axPghBakvqmPGH1nh0kzq5iuG4/h8ZO6/c0xO3LhbwoLBiA==
+	bh=L2EgBNT48xGjvZX2/RhS0gWPDCHaepO1c5iBj7UXWkU=;
+	b=cXqdpiE6AQE9BS6XL3Z+R/AAi4gGn1RXeAihTHW24Umf+3NUZD7cIGkVvzvhkZio63OD
+	 bPpiZBAlZEdg12skXv3Cbg2r3jE7iwAMlc/tN+nGmkQYZO6FmMtN+XpQl3wAHfuJTYBiZ
+	 /WqYJarl6WUpsT1SHcY5FUPhZ13oHB4kEWdJ4iKvEJUczUDvJiwQW9aUGgs9y6kA+qSWI
+	 GT4wf8DzlIuUzqW95x3MVh+pA+0yonoplDzJk5jsD7VFxrKczy7MK5bXH95lcZ73MACja
+	 PIOF/7iK9tyTNmB49i4hNaCoFfdAjzqIG6Xie37kTXmnGcX8RkI95OaEjgnfXWtIq5A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=EpuxjjND;
-	arc=none smtp.remote-ip=209.85.216.49
-Received: from mail-pj1-f49.google.com (mail-pj1-f49.google.com [209.85.216.49])
+	dmarc=none header.from=blackwall.org;
+	spf=none smtp.mailfrom=blackwall.org;
+	dkim=pass header.d=blackwall.org header.i=@blackwall.org header.a=rsa-sha256 header.s=google header.b=Kpz9b0CG;
+	arc=none smtp.remote-ip=209.85.221.43
+Received: from mail-wr1-f43.google.com (mail-wr1-f43.google.com [209.85.221.43])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 18BDC606A326
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 08:41:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 18BDC606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 82E54606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 08:42:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 82E54606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=blackwall.org
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=blackwall.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=EpuxjjND
-Received: by mail-pj1-f49.google.com with SMTP id 98e67ed59e1d1-3b40470fdd8so2065266a91.1
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 00:41:55 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=blackwall.org header.i=@blackwall.org header.a=rsa-sha256 header.s=google header.b=Kpz9b0CG
+Received: by mail-wr1-f43.google.com with SMTP id ffacd0b85a97d-4a42b34e930so3696006f8f.2
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 00:42:11 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795509715; x=1796114515; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=miq8lHAk9j+ldEOiiht4iRcOG6aLFpZt8I9oVYIzhag=;
-        b=EpuxjjNDpv8P/TaKIGvDrghu6h29YD9v/Ow2khz3TFEhVVUlhELGmYhcihYvRqSTOB
-         ucOI6LuN+ktO6hQJa82SHMUX9PK3Rw97/65XpXoHq615v6hnbDp3EHh4difyb5PpWlMZ
-         sc5dH/3DeTkKDzXWTfEp156NQwATS3O5P2lchbyPU7ZO4wMLz+1X4Ky/QnfGpNdiCdrh
-         Ui9OR+4YellgZy878gCtG+p2x7RyZwrBbQgrbLoX5EgzNJoAuVvSOTqDSXObriVLf5dB
-         lS1RUgpH273WxkYJ9LOxbmhzL8BPmYapKqA6W8kd5Y8JsBoGfAHq4cIZyQ8ru04hgMQ4
-         BYag==
+        d=blackwall.org; s=google; t=1795509730; x=1796114530; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from:references
+         :cc:to:content-language:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=L2EgBNT48xGjvZX2/RhS0gWPDCHaepO1c5iBj7UXWkU=;
+        b=Kpz9b0CGaR/tKGI+QLsZwJui5ZH0UGsl55OBqHSIyVbfwnp76QqFKUykB+3jXq97na
+         fQfO4W/4Rqmbl6hCM66BWO+Gt2XKy+CK1wNhKIvvI37LkVE//ZPYb9R8nvW+4pS6vApu
+         2XPS13L0+hiCIe/eNHxfklkS9k/Znqq8H4CNxxciFHl3YDNKvodHZXIjWl8jQjRpgcn4
+         iqxmDkN4LWYyhpBzUr3SKqLjcjUu9vRiQtpJn3uETKS9eRE/i1kPTyj7Vdj9/+lDaOKF
+         AVVudaiYgF+IYTHxEXU3dVZ44raI7pjRrEXJtgmx8QkIvF33E7x6OuWywSJrzFHxfDF4
+         iDtw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795509715; x=1796114515;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20260707; t=1795509730; x=1796114530;
+        h=content-transfer-encoding:content-type:in-reply-to:from:references
+         :cc:to:content-language:subject:user-agent:mime-version:date
+         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=miq8lHAk9j+ldEOiiht4iRcOG6aLFpZt8I9oVYIzhag=;
-        b=pcdQD1TJHoN4JkjZmUZhqlbtTUJgXk125mNjJqLwXcbxfF3d0W3O4TcmEZGDPINFh4
-         btbgpgtrSwIP0e68VDyz6iZ79Xt7qFWcribOikNm5WB9LqFfaAAWfe1W9/9girFiSvA8
-         N6lFFuYE4z6tS4NWkJx7k5j2xcFpfR/kvT/8oYEWlU6SRckgr2PbFpWZRbk8mxPZlKx/
-         MC+zVbKDaRFhixsJY8r7TtrwbhhnxS1lolZ/wxw8qrO+X+Q2xo9kkaG1VNCioxUcMZnX
-         6ZlXAubkBEQ2PQHIBIFHa6w7GH2dHPNg2UiGh8UjJjAgzhsf3PaqCeev8VSKKcqEiPjN
-         hpcQ==
-X-Forwarded-Encrypted: i=1; AL+hErF4dN3btzkq6nbftlOUvvMz8Hbx52Uy45j1bafsxMYexIcUnma/ZJzl8qWZbsf4ZymtL1cKUmD3utc/vnY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/WJpGpPmJIbCZSvZ9woU8ZOj//B78Sh8MlOoVba41O0Ak9kdk2
-	HoDOZR3nh4R89hsMpCbd27QBSVnEWeF86v/Sglo1tVJQkbRwvzaawLDL
-X-Gm-Gg: AZFdTZdgMhEh0DiOnb3oyQi7WERa3BTFDLD8Ky3MTGj1IbCXJjH9H32b9TQyxT/u1w7
-	f7IKYMRmJMUnFN8G601xmcNtyoWbk3c4HNFDRC1oGrwMI8FbcYCZ3dOLq5kwpyW4394oB1Ep9xT
-	2fa6wU6FVFeByTyLli9ha8Up29C8bZbOOHhKeSTRZ/q7RhzVVR7QvFZph+9YQW4cxGX+OF+n65t
-	PZm6on71D+b3UlJ18EtVnsni9RBk+G/ns34LHYOfhyqXv9AkhqutSROeLY/c0Ko/rFD+CLqT52K
-	yZRZWxAqi9Dy3TF+yNrHj7IodkACcUAvnYTOMxfC2lCYOcLbED2ePNnLWNyZjP1KMHnPA3H+vue
-	2kCBqNOy8IF0sLSCWebkvMwe0H5bc7fSFaXeDg/TRec8qIJ6YRqCw04WmHUe809Y/AMt7MdRnd3
-	gQbWGzQFWolD7b64WKY/wBkNaWPmJnh+uEV5D/dzU9UpL9JWVaDLpc/anGaZwZRTtDdQPsRH8Al
-	ma1ISZ24zRGZj80yswqRqjITBi4tcXpYNyChcxcJE7lVqlXRlJdYpIxjELbRV+hSKoHkXQJBoW/
-	8on4Mr3azgbuK46B6ttu7MMLGKwQ+BJANA5Tv28QE0yEXb+kRmOkQ9Sh54Gd9R1c53W3B50BokN
-	JoeoUYA==
-X-Received: by 2002:a17:90b:1644:b0:3ac:c98e:345e with SMTP id 98e67ed59e1d1-3b41caef685mr10503851a91.45.1795509715146;
-        Tue, 24 Nov 2026 00:41:55 -0800 (PST)
-Received: from [172.19.1.42] (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405d135e9sm24432973a91.4.2026.11.24.00.41.52
+        bh=L2EgBNT48xGjvZX2/RhS0gWPDCHaepO1c5iBj7UXWkU=;
+        b=nDLdiNsb2mMMghC+aX1VMW39J9qWoRLCmlV4PYUmB3aYZrT/HmyKGU/eJ14YvQZTwU
+         28SuoK5qRvmn8KjTlYvMocYwYBBpJw7JZAypbN1KcCiy2RATBkLQH8aOeNIkFO2Ix4QD
+         vYgzN2IZ8yOOcHyXX1W2W1a7rbnub7XfyXbXPsJPExS/0ryJ9VJqrRP7KXW+GXQlwsn8
+         c0kZhUE5/fZZNRS/kd1m7nMMMVwkZb0siLJASACbGmkU4ZeEgxGRWB3zcHltr/vxrSXr
+         tY6z+cNpnj7Eqg98SkLcMDV/REObxhgwXkb/PRssOWySCUYy8a6jJzmBF0A713tOnRi9
+         QVNg==
+X-Forwarded-Encrypted: i=1; AL+hErHbmUs5m2NWdMrj9Z00WPfv8fhMqw4I1rfADgIj9ICd5uUl9vQqWO2hkF2DwtfHHB66tVLmUChoU02uWTw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+xqLR82qhR6iKQEHgvsuBNhqdr5tgs5a1Q9FoAUrhJhmj159xj
+	K3xu6lcX1hCget+1TyeOmstSyOmWCvLUEwDkF2cORsMCWrxXuYNd7XWgkuInDn+LVl8=
+X-Gm-Gg: AZFdTZdJmZ2wROSFJwV9FUamOTetyt35qy9UHI2+K9sAXFesbuNP0tt0Dh0N3NqPAsG
+	4IFR4WNdFhMIDn/7skIOsZfCQ38ZDtADdVz9nc/zilNCHZZU/L7evUt5kdnNFeuWnVtBqDbH+j2
+	6D199g93pCYvQ77+ueu/2ISM/KJ0ezXsq12SXpL1U1bMFzb2nkVy4Nq/gvixHNJzeg1Td6RnSWw
+	69h03fxZc3xT44qdKwg1k51acAyCLgWlp79oNahS3QeE/tW6wFR/w0r/+ddEOw6zLGZ16JFFq7k
+	xcGV8Bu4kvzZ+QjopaHhxE2mUZclF5qi5J9e5WFRhOHFV6YeOf4zUzbo2X0NATPhu369uT2sTuO
+	a22dgVXB/NeG11tUOutK7hHjuIWvNlsDguDOxduLSyf5bxzTHJtiGOPP371uhTV9ohXpTdvYcm0
+	RRiF0FCWFCRLcGV4YB5j0kZ0AfIozxuK0uru8syeo1lPPdernzZjezE/UtoJz0SkkOgaveqJaX5
+	36YUXn1MOajN2oON1glr8Z3Dh1RqSc5Aob8QlB4FKf89t6jMpkt8EMPPmUn1y7woPrD5lAKuspN
+	luGCPqpUmGwBqPJ0ut1yEp9PCIsTsTJuytrosuv3d3gFeq2PowMqdMF0pNHU
+X-Received: by 2002:a5d:6f07:0:b0:4af:7577:65c0 with SMTP id ffacd0b85a97d-4af75776767mr17039494f8f.5.1795509729871;
+        Tue, 24 Nov 2026 00:42:09 -0800 (PST)
+Received: from [192.168.0.161] (78-154-14-127.ip.btc-net.bg. [78.154.14.127])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b10b2c9sm27622547f8f.31.2026.11.24.00.42.08
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 24 Nov 2026 00:41:54 -0800 (PST)
-Message-ID: <c88fd429-025a-406d-ad80-ec464db7d1cd@gmail.com>
-Date: Tue, 24 Nov 2026 16:41:51 +0800
+        Tue, 24 Nov 2026 00:42:09 -0800 (PST)
+Message-ID: <90e0bb95-6751-4ebb-8ee1-f5e97e811621@blackwall.org>
+Date: Tue, 24 Nov 2026 10:42:08 +0200
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,77 +92,59 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 3/3] iio: adc: Add Nuvoton MA35D1 EADC driver
-To: Jonathan Cameron <jic23@kernel.org>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- dlechner@baylibre.com, nuno.sa@analog.com, andy@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- chernyakin.victor.j@outlook.com, cwweng@nuvoton.com
-References: <20261117082832.1551574-1-cwweng.linux@gmail.com>
- <20261117082832.1551574-4-cwweng.linux@gmail.com>
- <20261122030647.70b41b61@jic23-hlaptop>
-Content-Language: en-US
-From: Chi-Wen Weng <cwweng.linux@gmail.com>
-In-Reply-To: <20261122030647.70b41b61@jic23-hlaptop>
+Subject: Re: [PATCH net-next v4 1/1] bonding: keep non-Ethernet slaves out of
+ 802.3ad bonds
+Content-Language: en-US, bg
+To: Kyuwon Cho <kyuwoncho18@gmail.com>, netdev@vger.kernel.org
+Cc: Jay Vosburgh <jv@jvosburgh.net>, Hangbin Liu <hangbin.liu@linux.dev>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ linux-kernel@vger.kernel.org
+References: <179549697473.218888.8044828119056769556@gmail.com>
+ <179549697473.218888.6814133305133689781@gmail.com>
+From: Nikolay Aleksandrov <razor@blackwall.org>
+In-Reply-To: <179549697473.218888.6814133305133689781@gmail.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 
-On Sun, Nov 22, 2026 at 03:06:47AM +0000, Jonathan Cameron wrote:
- > > +	/*
- > > +	 * pollfunc->irq is not initialized until the pollfunc is first
- > > +	 * attached to a trigger, so only suspend and resume triggering
- > > +	 * while the buffer is enabled.
- > > +	 */
- >
- > True enough but isn't it also guarded by if indio_dev->pollfunc
- > inside the iio_device_suspend_triggering()?
- >
- > I think in the case you are avoiding it is a noop anyway.
- >
- > disable_irq() nests fine so it shouldn't even matter if anyone turned
- > it on yet.
+On 24/11/2026 07:13, Kyuwon Cho wrote:
+> bond_open() adds the 8-byte lacpdu_mcast_addr to every slave of an
+> 802.3ad bond with dev_mc_add(), which copies the slave's addr_len bytes.
+> A slave with a 16-byte address, such as an ip6tnl device, makes it read
+> past the array:
+> 
+>    BUG: KASAN: global-out-of-bounds in __hw_addr_add_ex (net/core/dev_addr_lists.c:102 net/core/dev_addr_lists.c:157)
+>    Read of size 16 at addr ffffffff878a2940 by task test/114
+>    Call Trace:
+>     <TASK>
+>     __hw_addr_add_ex (net/core/dev_addr_lists.c:102 net/core/dev_addr_lists.c:157)
+>     dev_mc_add (net/core/dev_addr_lists.c:1036 net/core/dev_addr_lists.c:1054)
+>     bond_open (drivers/net/bonding/bond_main.c:4405)
+>     __dev_open (net/core/dev.c:1762)
+>     __dev_change_flags (net/core/dev.c:10022)
+>     netif_change_flags (net/core/dev.c:10087)
+>     do_setlink.isra.0 (net/core/rtnetlink.c:3294)
+>     rtnl_setlink (net/core/rtnetlink.c:3633)
+> 
+> Commit c84fcb79e5db ("bonding: limit BOND_MODE_8023AD to Ethernet
+> devices") rejects such a slave only when enslaving it changes the
+> bond's type. A bond keeps the type of its last slave after that slave
+> is released, so a bond that once had an ARPHRD_TUNNEL6 slave can be set
+> to 802.3ad and take another TUNNEL6 device. A slave that is itself a
+> bond can also change its type after it was enslaved, when a
+> non-Ethernet device is enslaved to it.
+> 
+> Check that an 802.3ad slave is an Ethernet device before the type
+> handling, for every slave, and refuse NETDEV_PRE_TYPE_CHANGE for a
+> slave of an 802.3ad bond, as team does for its ports. Other modes still
+> allow the type change, as bond-eth-type-change.sh expects.
+> 
+> Fixes: c84fcb79e5db ("bonding: limit BOND_MODE_8023AD to Ethernet devices")
+> Suggested-by: Jay Vosburgh <jv@jvosburgh.net>
+> Signed-off-by: Kyuwon Cho <kyuwoncho18@gmail.com>
+> ---
 
-I checked this again on v7.4-rc4 (b6a9fa34ce41).
+LGTM,
+Reviewed-by: Nikolay Aleksandrov <razor@blackwall.org>
 
-iio_alloc_pollfunc() uses kmalloc_obj() without initializing pf->irq, 
-while iio_triggered_buffer_setup_ext() allocates the pollfunc before the 
-buffer is enabled.
-
-The PM helpers check whether pollfunc is non-NULL and pf->irq > 0. If 
-the uninitialized IRQ value happens to be positive, disable_irq() could 
-be called with an invalid or unrelated IRQ number.
-
-This is why I added the iio_buffer_enabled() check for the 
-inactive-buffer case.
-
- > > +	if (!iio_buffer_enabled(indio_dev))
- > > +		return 0;
- >
- > As above, I'm missing why we need to protect the call
- > to resume_triggering. The pollfunc can't change between
- > suspend and resume so there is either one there or not
- > in both cases and the guards inside that call should take care
- > of the rest. If I'm missing something we should look to
- > fix it in those calls!
-
-Agreed. The same uninitialized IRQ concern applies to the resume helper.
-
-I also noticed that iio_trigger_attach_poll_func() does not clear 
-pf->irq on its error paths. If request_threaded_irq() or 
-set_trigger_state() fails, pf->irq can retain a stale positive IRQ 
-number after the resources have been released. The normal detach path 
-explicitly resets it to 0.
-
-The error propagation from iio_trigger_get_irq() was fixed by 
-dff701806ab6, but these two IRQ state issues remain in v7.4-rc4.
-
-Would it make sense to initialize pf->irq to 0 in iio_alloc_pollfunc() 
-and clear it on the attach error paths?
-
-I agree that fixing this in the IIO core would be preferable to relying 
-on driver-specific checks. I haven't reproduced an IRQ failure at 
-runtime; these findings are based on source inspection.
-
-Thanks,
-Chi-Wen
