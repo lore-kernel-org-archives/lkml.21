@@ -1,96 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.201.59
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.50
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795557833;
-	b=DIW1aE0/l7aNV4o6bxL+AL1w9t4l8zGkPEGlMgFWFGB9KbpcFGM3/EAWMzClnlQvSlUh
-	 tip6U5/UaftJkNEcfPCG3MP5qR/yerTvTUqLgM9XWfDx4x1kYfbFXJjLPFEX6u2D7zn00
-	 FFc9E+8eGTmS3KrNkFSKj9An7jMO2CV1iVGwzPWX47D9BYmOi418ju/2lStxueeR/l/sj
-	 TUCOZPLdqRa8KZEFDeftoGpb1Z7z1jgxfxHJnFSbieG73VFKgTHKbM+7KPHmiIkUR0Sc5
-	 SPDSLkAWkViaTwneW9VNk+bYVg9Fx/zeqBKywa8YiHRgIpDe0qsJ9ouEzScK+brJaQw==
+	t=1795557905;
+	b=B1EfSyPuonH09e1+h2fH3VK+sB412Ku3Q1lLDmdydhMlovQKIurIrN9Hd+5dMU8y9eTf
+	 oqtMz9bKhw7VbRsYlFuqE2RXuerAU+jq/3ygvoNsbE1NOGanCuUAELP7NV0cvIBBs2F6V
+	 JLuM+8TogBCNnAlKLmQz0LjdmiT+gENOLJ796bXdWZNOYWbHjMnFcjsXMSD9OVy0H8RRN
+	 oOGQd+1iVz7b4n1d4d3cjcX96SBaPgq8Xscm/skV2+7sLGOyIKB4NeGQl4sIYJLgB2yb3
+	 a7jxjRalGUgoFxkxx9KQe6S16ACx/R0z6y+J4ICYTzLua+WGYDEy1DE6nH6D0Nv7OrA==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795557833;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:In-Reply-To:References:Content-Type:
-	 Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=xeb5VSrynavhPflR5N3IlZZRKSWyy9MZtjc/R0aQhys=;
-	b=JmT1lObXP6v3DwEQ+szZfFKYyetOFDGSHsBUJMV4jCNLSYeMjQTJJbCDafYowUXF7/qq
-	 lEc7eceqq/Hg/O68OgEKFxGvp+zUzmcqLPy+1GPolXtenfFNAbhh5QKZ42MVSioKaPn2k
-	 8YE9KJeTU36atXhSCgVKWCflh2Octq+qInTCnGtqGhfkufCkFSgFjVd/LB+ami4+N/wNO
-	 opl3sMP4CuOCS2jbVq88gyxYTcbsF/POvKca1+3IeImgLnRrnycmhCyUDG81lyy8uKScC
-	 /fBYV6SLwiMzerX2zFBSfmcnmBHVgdxk3G5TOCHBQ741ui9+/UCL84TzJHi8w+wpSDw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795557905;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=X7EgV7M1nlTNeVW/LvjD4DDHSsWIZ29WUt41R4QNBZE=;
+	b=cOF9AbAyNBkR+RohBb9vZoxOxqnwcG7O2E+Km5G8r5hbRxsO4CDgiDEzHjcUsJ8csIfA
+	 LLl4QTYoP4D545aE9XiMf0nX8K4g8jOwtdwgcZ5eP3jAvlkg8U6rM6rXpoikoGnaRgiBp
+	 SMlpD7HpYG10iGH0c5LEneMr0XZ+75hVQKFPDNwxUDmxtCmw+X57H6oXdpDYC9bq07EBr
+	 swXninBGheeY+PZfM9x983GAiglF/tARxrDmNCM6jNgOj50JBV+eCC86+ES5XUrkSHr0H
+	 e5BqOhqTGsiw7tWGsMANN83ExE//cX905DzmguCOzG+ZZjhAz9iWETAw6wbxOhsR2DA==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=B9wEWtQt;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.201.59
-Received: from CH4PR04CU002.outbound.protection.outlook.com (mail-northcentralusazon11013059.outbound.protection.outlook.com [40.107.201.59])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ElIVNTJ3;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.50
+Received: from mail-wm1-f50.google.com (mail-wm1-f50.google.com [209.85.128.50])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EB436606A31E;
-	Tue, 24 Nov 2026 22:03:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EB436606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B4745606A326
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 22:05:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B4745606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=B9wEWtQt
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=sZlXGk9e9c4QF9ZLb7CKpXq80UaBJPo6lCQyfwpuigNycppKQtXCb6UCl8f7gAtK/0nEf0ot3BdgmGy1WfrYnSu5WuS4fsq5EmdokkX5aoO0FYHYc3RCIcnhnzSdK2fN1TjwgwXhlgSNaLokOAzpGhcpD4Htepi8UHEIuvAIfPMEJ8kUbCo/ic2Qvk5/o0GCT2saIeWviJpQZpD+mfrIccd4eTni+aZhOFqjsG8T3v+I0WbSnecTlZqG9/SLzGHuwf67vA2qtUnogX8SpZem7nqKgJVYBJpM/+KtsIWmrut8dIVcdNeUlN1UCM3verV9vCA2ptNJrqRLHOHEihHcJQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=xeb5VSrynavhPflR5N3IlZZRKSWyy9MZtjc/R0aQhys=;
- b=pQo54GAo1x5y79rOyqF7gM+BjpWTB6IyOYBMeFYkYCD/8m8tcd2MsWDJpiTOQMNzqGYATs5rZ8RMpBa8YJ4p5OD5uJ69H8rzlyHkBc+ptieRvcOtYk9QNTJw8Le1cnkYXWOSqOfoRpizkEUmu2AJN3ZwvRRzUpdyEzxfEnbZ2edzFChn3aD4oHHiMo2krKpfjyNQHPql6N85CLd/rYsDbhWKg0c8WD5Qq/F/6ZYpLQB0opwQQipz9GWqLlIYy0QabXCjcMKP7aGfpueX8zUAz8fsY1ocBCNxO1Yr2tetwwI0ZjtuLrdFDtxWzVl0TCjOO1dIveoah7XbxTWCt0suWw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=xeb5VSrynavhPflR5N3IlZZRKSWyy9MZtjc/R0aQhys=;
- b=B9wEWtQtcenG8ruBFT6F2Q7e7Ar/wVxD99T6dIbNr5B88OT8UsAdZXNfN0rcPYCepNbBFmk/i39S7oAP1JXh3Fg99P3P2mVCvbf2SUG6627JxjbEuH/ECx1oflp9iZAsbmysHHRiU8M4K74f0+ALYySEP/8pM2hZPFC2a3VS27kzsadcg62ieGAzYrCPFS6es42IU9oUv9F9dxlbZtD7HuiYyNPS+0LIn4QkWq/T62hTdiPqZE7dzsrJYfsQdkeIajikX0yTnue9q+uKipL9a0qfN58HlphYHqvz6vJ/OC2JZ8+EEGGDZmMPmjWyp1+CtDkRkOcJJc9tjvMZc3yuAA==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV3PR12MB9411.namprd12.prod.outlook.com (2603:10b6:408:215::20)
- by SN7PR12MB6768.namprd12.prod.outlook.com (2603:10b6:806:268::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Tue, 24 Nov
- 2026 22:03:49 +0000
-Received: from LV3PR12MB9411.namprd12.prod.outlook.com
- ([fe80::98b7:86de:b69:2a15]) by LV3PR12MB9411.namprd12.prod.outlook.com
- ([fe80::98b7:86de:b69:2a15%5]) with mapi id 15.21.0639.012; Tue, 24 Nov 2026
- 22:03:49 +0000
-Date: Tue, 24 Nov 2026 15:03:46 -0700
-From: Alex Williamson <alex.williamson@nvidia.com>
-To: Samiullah Khawaja <skhawaja@google.com>
-Cc: Bjorn Helgaas <bhelgaas@google.com>, Kevin Tian <kevin.tian@intel.com>,
- Jason Gunthorpe <jgg@nvidia.com>, Anthony Pighin
- <anthony.pighin@nokia.com>, Dave Jiang <dave.jiang@intel.com>, Dan Williams
- <djbw@kernel.org>, Ionut Nechita <ionut.nechita@windriver.com>,
- kvm@vger.kernel.org, linux-pci@vger.kernel.org,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH v2] vfio/pci: Only lock the upstream bridge if the reset
- may need it
-Message-ID: <20261124150346.6bd3e909@nvidia.com>
-In-Reply-To: <20261124212842.1934651-1-skhawaja@google.com>
-References: <20261124212842.1934651-1-skhawaja@google.com>
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: CH5PR02CA0004.namprd02.prod.outlook.com
- (2603:10b6:610:1ed::21) To LV3PR12MB9411.namprd12.prod.outlook.com
- (2603:10b6:408:215::20)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ElIVNTJ3
+Received: by mail-wm1-f50.google.com with SMTP id 5b1f17b1804b1-4a2000d5fb1so29495025e9.1
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 14:05:04 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795557903; cv=none;
+        d=google.com; s=arc-20260327;
+        b=JUeTXn+QMIgK27Wk2UHRqGdB978pf+LJi2krWoYhYKqJFVDnH9R/Evd/vLHd1MRc0Q
+         6CmlHa9hNILe1q6Yh3Mu4oN5nQFQZ+8ZO7K8Vt5XbggZi1dAToT8F1LgPuRtl0MmpUyA
+         ozC82SlgP6nnsToliza7JThsgk3UY8LjfnZPi48XHO+y1cVjglRZoUXL849I53yIWzf6
+         qtgeuoW56CWoqwpERmCzREQP+fXomy3aIECuN6EprH0rUxr8fIVoQuUuW8saNEIlU+oD
+         cJvV5CNgc2szf9aCpM1KyJFK2uYCk27+EUT5u2wm24kp01mZFjgvnXHN9joiMqvp7l4G
+         oY/A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=X7EgV7M1nlTNeVW/LvjD4DDHSsWIZ29WUt41R4QNBZE=;
+        fh=yW0EfELX22lZvF84SN118ja67gMbsHV0lapGhSfbaqk=;
+        b=mNfiSPQSniuL2fxPkNxfgkOIDgfOMKjkP6Ndj1wK3vfnewihlrNGGqb9sG2uwOemBl
+         AvQWnEmkSsOswfuVePVCHvnbgT2vZTdF9amr//Cjzxjy9dJKfd4yf+Z+DrrWS5mS8rDS
+         J8DGlk8tYrBe21lX5U3zY/7VRAM80yGnMXS4XqQ/pjhqoRYj7ZPZ6PJu/0cOeekfnbAp
+         9sCMGcr7MgWenuu58kAMOCK0T/Wt50wB1qT1dgRSVXbI6GjVZ+cXQ1iqpbhCcdAxs/Iq
+         WYpPD2DM9sbzlUich73DROafC932QLxtWkmcERdYcqrIByAUzatUA9s9dFgXZ/0irid8
+         cK0A==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795557903; x=1796162703; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=X7EgV7M1nlTNeVW/LvjD4DDHSsWIZ29WUt41R4QNBZE=;
+        b=ElIVNTJ3Z0lJHLzxGGNRGUDG3fMREP3weOXpxP7riSQbYRymGdX8MF4U0ZyTwsJ78X
+         voW4RsziPy/qG5ChssYqqdUvUIFjMuTt2/mbRQCKF2pkvn6ccVZqvJmJPEPkxqy7LznS
+         wVPawdroBX3v5Vyg+VxN7H63rX5JTYo7PAFyBYfq7J0CPQeU4R4wgmDrsLFjdbbUGipL
+         ORuvjyxKulExAZxWywOfRgkehc5Lnm4sJc16WpGnw71G68xAIORr20LKlAL4P2RciqxI
+         Frnd0lnV8ayLYyuzQlKDbclqv5BWyvrwkCV8AaQbYmSM2k7ILQzqR4k5pguT93ZQONTd
+         dYfQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795557903; x=1796162703;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=X7EgV7M1nlTNeVW/LvjD4DDHSsWIZ29WUt41R4QNBZE=;
+        b=LlQjQh3UEM6sShQ6h3mD4V/m3wdNPfcGRap/nzrIPOcjQ73+BqCRvYY6r+8qxlEYkl
+         Uh+ZLQRM1Rc6mdCGi4ACz0ssaYqmv3EF9H8KQNVPaFW/RajbsT7gm056+OpKfhdnB4l8
+         iOcDe78fB3Icyzzf0/dNn1AxdSBc/fKKElwyC2GA1Erw4AFpJR/aaQ2elwRhf5lVbGhQ
+         NigiqvMdGlinJeIGnkQHuIkHBpZNZN+851cv1lGegypyQ+7uTE+NSFINYTyuy/ItRarf
+         6yBJ0TzIdLjwLZSS/Gu44XLu6IXhB4uN1Xh2hdz7xLDQMJfgM2yhV6H25Y+IEtlEz6Q9
+         LKtw==
+X-Forwarded-Encrypted: i=1; AL+hErGL2Tj1k3Q74mmyvD/atPm16AfzoHufkK/K0etsPmGlCah3RGKjZ/MF/Cwc2sDGeCmONSx9pARaGANeeUc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+3th0S7NwUNQEW8KyQSusgtYNhdcIjK04h2IR2fz/tmGbTOwAZ
+	Iw7ca9LYYeiIQjYQjdl9NukK4+NzHwzyp0cKzvTx75fIv3ryjshHrfsvvKK3TYaCMapc6P4Y9MF
+	hAWNDp0qtWU6rBDTt49S83GQyFentVR+pZQ==
+X-Gm-Gg: AZFdTZelOKMVNU/HKUguRgzWN7KbatPna1xS0d61p4hb0QE/E8EFnDuWEmDY+AdqXA7
+	+2AFQJFxXAnujOC3ghLZrjsYKuYwF/I+GGuJmN0X0lBMWzztokPfbTed6coUdLCBdnPWPpUw5Yx
+	WV0ykhNgtalDtICDdezGrmNoqgZxZGtfVZ3EneFasJBm/8AmGO5BMVIrS96YuyhzRQmkk01DkDn
+	sDfBBlK60dYDgq+pNZAr6VdSkXOu7cPW7aaL8V7jex4Q+MozfLec5A0qseE3dzUZMnNg3++JMMJ
+	gm+U6fdOWSjtcLharU9zvn8PXubXaxluY/ttoTHtB6lzLH8QIEmX9hUYe2j29u4R25ThCdzBvQU
+	UXAkiax/i3ZO96FHU9w6zVfEmtGe+/+k/Tox4GnPE7I7x/GnuQctioskd9V5eR3QcdOu3PmDc2C
+	3ucXCQB2e3QxueegpP3Q==
+X-Received: by 2002:a05:600c:4ec9:b0:4bb:6a5a:782d with SMTP id
+ 5b1f17b1804b1-4bb88925fcdmr332120265e9.17.1795557902961; Tue, 24 Nov 2026
+ 14:05:02 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,167 +105,215 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV3PR12MB9411:EE_|SN7PR12MB6768:EE_
-X-MS-Office365-Filtering-Correlation-Id: 56fb8360-9896-4a22-1f8d-08df4a76d18a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|7416014|376014|366016|1800799024|23010399003|6133799003|18002099003|22082099003|11063799006|261026121527099003|56012099006|261021123027099003|261026140227099003|261102130727099003|261028144727099003|261022075727099003|261021121427099003|261102123227099003|261009223027099003|261022105027099003|10067099003;
-X-Microsoft-Antispam-Message-Info:
-	HKqolz50Eq5Vtona0Ts9usW5othwdibJP3+g4v5vqQJNMX9baKTnWN8saiEG53wjrFOkQWmAeo8IyqqCHh/L8Um04MYTjZ/zqhJo3xGe6raMMrL3hgX1/4dEw/nj0GkXZcl9d7wAAle1+Uw24xbEVggFwAiMpEcyKEr7QU8joE94AKW/eQcBmKy/ezbrQnJnFxiCS2GL25Qk80kK69nCjxARCoyaZC87m0iWhnLkTVn0KdyRA3/MbN6Z31Ps+Jp/xrBr1xOPeeWlskF70f/DMAssOPmtSvX/bVxNJukE379pLopbvbWxi6W9UaYpFsEyknaYJL6Q4RMFsun2j/1av5CYi/SqTs2CJIdVUJ9g9tHD3J5BM5XFVrAKk1TNCKF9YU74lGc7U22l61qhX3worrlO+wx9yur9kMkUjzZvN6xHCB2JXtJgmHKQ1G5kuVosZ0OAX+M1ZvCyttx7EsoP+/oyjeYdVpiSXC68dUlsf2q9BhUbNRowAOXIm7XuOuz12o8NacEoJdoMLmFsfld8+aTD7AE3p8bH0x/OYPXJe4FtXYYgKtKD9Uoi5gwqZGjVAzQkQ+RDKmaxEmQjvkVzw642aEPqZdMp7rdhJp+hfIsjeN78efZcalf5Dz2N7llTRS8svymfvKTYTIOtxd/r8aJltjnVTH9gsbUuznE11+4=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV3PR12MB9411.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(23010399003)(6133799003)(18002099003)(22082099003)(11063799006)(261026121527099003)(56012099006)(261021123027099003)(261026140227099003)(261102130727099003)(261028144727099003)(261022075727099003)(261021121427099003)(261102123227099003)(261009223027099003)(261022105027099003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?B7vdDv0synvoyic7fr+ijswHkzB1Hf8HAidL47oiaQXLj1Jull3ZY4wptP7F?=
- =?us-ascii?Q?Vzac3jRomNExhmm7xmBRrE/bm31R60fvRmwplX5u4XF1RPCizUJ0zstaTCjm?=
- =?us-ascii?Q?JefJL1bXyuD7sj1n8sXsNYNkQin2g2Zcvay2YjIc8UzLDo9qnggt4t0pIZUb?=
- =?us-ascii?Q?h2of+NcBZqVct4P45TUZyxssK3MxFE2CB7FjCaO56NMT/KRvxjD+5lqTdQUz?=
- =?us-ascii?Q?y4s3+7OCDeG6Bit8P1g1xAHKCCES8Xe21TLQRJ72amukNZbeIkXZ+XYm6z6h?=
- =?us-ascii?Q?+kwDlWsI5woOOWQMl0bFLjWfRo74Qs3TwlFIUImZcmdzws5xS/j2psz2UXN1?=
- =?us-ascii?Q?eFjPCkX5M8qRXraiZlbsCUPEqnd9wzz6iGQemX/Q9UaNh88n384mVc12iC9G?=
- =?us-ascii?Q?mtE/Bs0cIXpUM5gtNx/1WZuCrCFtkEltF7ibFwi9cjngVVkhXYseuTMaFbO7?=
- =?us-ascii?Q?yTHWGSZNrVqr2B0EBuXRXhLuGDRj5hBA40M8Uxn436p4Rf89B7ZbYFZOSKin?=
- =?us-ascii?Q?+pCcT6Pc4Ul4RB5kxnavTaBqPVOnNhwQWfm9dpjGtEgB0wUUAPpwaMN1pFcF?=
- =?us-ascii?Q?8PyZ7dHvM5vXukZPujmV3HbG7gVPsyyLrBcIPiusn7aNgDD7Zf2rv33ZiYVp?=
- =?us-ascii?Q?YiLAo9uDzD39CGVH+0nK4ZRvInHEwoKddQNYw/OJth9sNCsxMDK3keywQD1P?=
- =?us-ascii?Q?xgIzlBPTMNat0m4uPl0XVw4ZyqQlfE9ontFJiN7ZXYHjKOOlNelo/5i5yrVj?=
- =?us-ascii?Q?Di6Q2BvvJOxTJguSeFvEmZoX+L11ZGNqlue+GQwzcRTRT45vPeKY72C/vaVC?=
- =?us-ascii?Q?pgpCgfnjfKQPDzmzZoNFB1D0rqGb3QKKSFxJ++QTAbQV4N8Vp53vbx56KUMT?=
- =?us-ascii?Q?TkdpRHh8hPFDgmGw4m7l+hRtP0JmI3bRSYdPv7hpzqAyFmG8Xb+FhHIl1Pe/?=
- =?us-ascii?Q?6J5OI17LuY1dV4oOsJmIhLnB0VX8jEC4Rrnw6WzNZuZbLE68bf7JHmD/9pSY?=
- =?us-ascii?Q?lXj1FfwGxmJu6VE9pR8NO+hkL/BBkcjJbc20mWbVHbCdCYwLkJVZJ1X9mtjq?=
- =?us-ascii?Q?f0uQY4ksuocRr/9aRF9quC7ZxSi9+nJrqW5iryeGa6CvgJUrBM74FUgv9alJ?=
- =?us-ascii?Q?SiyRx+pChd9ysqs0EE4TolD99Ro56828lOIiodIK8F1EYBKYvfRzRT7xRw9F?=
- =?us-ascii?Q?62Q7e3sr1hsWV/ESq69rjqtBkM52jDMVe+YLg2Uest0rSGLfbx3CjTtkbBoZ?=
- =?us-ascii?Q?VP7o8J91+j7WIHoulLqrOK+Ekf/8lIpM4WfyvuVWS2ESyhdRVk6QX+qy6ir9?=
- =?us-ascii?Q?FAuxQNWsDILhHtdsDU9foymHJNhoDQORympXyAKXXNeJozWdIVQc+mS4aYTD?=
- =?us-ascii?Q?/m8gVbdIf6tpyVM0BokCt2UXprqhSfw7psTwl1g0Nx0jqSJRAODCtKsmrEGj?=
- =?us-ascii?Q?jynI6WhV+opzfCyL5GEQmsvEkOI6PzTp87ltuSTHvn+ljZxIJGuuZXzXcKhr?=
- =?us-ascii?Q?lKtA8QB1s7q8UnqqLq0oGy0DDMj1lWSqXiHeNtlJrILbqMk8mxt4bzToWKqx?=
- =?us-ascii?Q?MPe+8Sd61WQvuppV7ikIiIIKpK8F2/w+3gn7UvpIw0vPYrMtUd5yvW/Ez7lv?=
- =?us-ascii?Q?kh8XSl3OJMiHg/2+p1mCSodHqe/Zez4eKaBF8JFbBtvE8JiBemmCkkk8yUxB?=
- =?us-ascii?Q?FydgFT2JzYZqpZoPBVIVUSzyXLE+RSKUXmjyS0C/QvnyHzFqkW/duT54KpKI?=
- =?us-ascii?Q?8w6ikLBflg=3D=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 56fb8360-9896-4a22-1f8d-08df4a76d18a
-X-MS-Exchange-CrossTenant-AuthSource: LV3PR12MB9411.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 22:03:49.3720
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: GYOpRoEWRT6ElT+WwUd9HTPxYBSYPRl+HmfgdCNFNd39nuDdHCBCuLIxPZrahAoR+D+BlZ7+Uhslj/hlV0Gm7Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB6768
+References: <20261117-bpf-preempt-v2-r2-v3-0-586376ec3672@sentinelone.com> <20261117-bpf-preempt-v2-r2-v3-3-586376ec3672@sentinelone.com>
+In-Reply-To: <20261117-bpf-preempt-v2-r2-v3-3-586376ec3672@sentinelone.com>
+From: Andrii Nakryiko <andrii.nakryiko@gmail.com>
+Date: Tue, 24 Nov 2026 14:04:50 -0800
+X-Gm-Features: Aa3M54rWyEOiWn9N3xPgi9IskIYemCYvuFKzmc7MjXfVq_1zxdSl20HVcikpyTo
+Message-ID: <CAEf4Bzb6sq6g7jq715fqAAaL=PNSvuVWn6u3o+76w52gsT+bJQ@mail.gmail.com>
+Subject: Re: [PATCH bpf-next v3 3/4] bpf: Check program recursion per task via bpf_ctx
+To: mikeba@sentinelone.com
+Cc: bpf@vger.kernel.org, Alexei Starovoitov <ast@kernel.org>, 
+	Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
+	Martin KaFai Lau <martin.lau@linux.dev>, Eduard Zingerman <eddyz87@gmail.com>, 
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>, Song Liu <song@kernel.org>, 
+	Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>, 
+	John Fastabend <john.fastabend@gmail.com>, Emil Tsalapatis <emil@etsalapatis.com>, 
+	Ihor Solodrai <ihor.solodrai@linux.dev>, Steven Rostedt <rostedt@goodmis.org>, 
+	Masami Hiramatsu <mhiramat@kernel.org>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
+	JP Kobryn <jp.kobryn@linux.dev>, linux-trace-kernel@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On Tue, 24 Nov 2026 21:28:42 +0000
-Samiullah Khawaja <skhawaja@google.com> wrote:
-
-> Commit 962ae6892d8b ("vfio/pci: Lock upstream bridge for
-> vfio_pci_core_disable()") makes vfio_pci_core_disable() trylock the
-> upstream bridge before resetting the device, and skips the reset if the
-> trylock fails.
-> 
-> All VFs of a PF have the same upstream bridge. Take a device with two
-> VFs, both used by one process. When the process is killed, both VFs can
-> be released at the same time. The first one takes the bridge lock and
-> does its FLR, the second one fails the trylock and is never reset.
-> 
-> The bridge lock is only needed for a bus reset, which is done through
-> the bridge. Add pci_reset_function_needs_bridge_lock(), which returns
-> false if there is no upstream bridge, if bus resets are disabled for the
-> device, or if the device is a VF. Use it in vfio_pci_core_disable() and
-> pci_reset_function() to only lock the bridge when it is needed.
-> 
-> Fixes: 962ae6892d8b ("vfio/pci: Lock upstream bridge for vfio_pci_core_disable()")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Samiullah Khawaja <skhawaja@google.com>
+On Tue, Nov 17, 2026 at 3:29=E2=80=AFAM Mike Bazov via B4 Relay
+<devnull+mikeba.sentinelone.com@kernel.org> wrote:
+>
+> From: Mike Bazov <mikeba@sentinelone.com>
+>
+> Trampoline programs (fentry, fexit, fsession, fmod_ret and their
+> sleepable variants), raw tracepoint programs (raw_tp, raw_tp.s, tp_btf)
+> and tracepoint programs on syscall tracepoints run preemptibly, but
+> their recursion check is a per-CPU, per-program counter. When a task is
+> preempted inside a program, the counter stays raised, and every other
+> task that enters the program on that CPU is dropped and counted as a
+> recursion miss, although nothing recursed. A program can't avoid that:
+> the counter is checked before its first insn.
+>
+> Since commit 7dadeaa6e851 ("sched: Further restrict the preemption
+> modes") x86 and arm64 have only lazy and full preemption, so this
+> happens in normal operation. A security agent that pairs fentry and
+> fexit programs on inet_sendmsg() and inet_recvmsg() loses one half of a
+> pair with every drop. With 200,000 HTTP requests and four CPU-bound
+> tasks on a 4-CPU VM, 9,254 of 7,966,760 runs of these programs were
+> dropped on bpf-next, and none of 7,975,426 with this series.
+>
+> Check recursion per task instead. The runners already link a
+> stack-allocated bpf_run_ctx into current->bpf_ctx. Move saved_run_ctx
+> into struct bpf_run_ctx, so every frame links to the outer one, and
+> record in each frame the program it runs. A program is recursing if a
+> frame in the current task's chain already runs it. Interrupts and NMIs
+> run on top of the interrupted task's chain, so recursion through them
+> is still caught.
+>
+> bpf_prog_enter_run_ctx() and bpf_prog_exit_run_ctx() do the check for
+> all runners. The syscall tracepoint runner linked one frame around its
+> program array and now links one per program. bpf_set_run_ctx() accepts
+> a NULL ctx, which io_uring passes to hide the BPF context; the frames
+> below are not walked while it is hidden.
+>
+> Programs marked by the previous patch keep the per-CPU counter and
+> behave exactly as before, so no counted drop is traded for corrupted
+> per-CPU data or a renewed may_goto budget. An extension (freplace) runs
+> under the check of its target, so a marked one can't be attached to a
+> target that is checked per task.
+>
+> Trade-offs:
+>
+> - An unmarked program that keeps per-CPU slots of its own, see the
+>   previous patch, can have two runs use one slot, and nothing counts
+>   that.
+> - Marked programs lose runs to preemption as before.
+> - bench trig-rawtp is about 2% slower: 42.6 and 42.1 M/s on bpf-next,
+>   41.3 and 41.5 M/s with the series. trig-fentry and trig-fexit are
+>   not slower.
+> - Attaching a marked extension to an unmarked raw_tp, tp_btf or
+>   tracepoint program now fails with -EINVAL.
+>
+> Signed-off-by: Mike Bazov <mikeba@sentinelone.com>
 > ---
-> v2:
-> - Replace pci_reset_needs_bridge_lock() with
->   pci_reset_function_needs_bridge_lock() as suggested by Alex, and use it
->   in pci_reset_function() too.
-> ---
->  drivers/pci/pci.c                | 25 ++++++++++++++++++++++---
->  drivers/vfio/pci/vfio_pci_core.c |  3 ++-
->  include/linux/pci.h              |  1 +
->  3 files changed, 25 insertions(+), 4 deletions(-)
-
-
-Reviewed-by: Alex Williamson <alex.williamson@nvidia.com>
-
-
-> diff --git a/drivers/pci/pci.c b/drivers/pci/pci.c
-> index 7c6f2aba8144..cc6647d091f7 100644
-> --- a/drivers/pci/pci.c
-> +++ b/drivers/pci/pci.c
-> @@ -5256,6 +5256,24 @@ int __pci_reset_function_locked(struct pci_dev *dev)
->  }
->  EXPORT_SYMBOL_GPL(__pci_reset_function_locked);
->  
-> +/**
-> + * pci_reset_function_needs_bridge_lock - check whether a function reset of
-> + * @dev may need the upstream bridge to be locked
-> + * @dev: PCI device to check
-> + *
-> + * A bus reset of @dev is done through its upstream bridge, so the caller must
-> + * hold the bridge lock. The bridge doesn't need to be locked if there is no
-> + * upstream bridge, if bus resets are disabled for @dev, or if @dev is a VF.
-> + *
-> + * Return: true if a function reset of @dev may be a bus reset.
+>  include/linux/bpf.h          | 95 ++++++++++++++++++++++++++++++++++++++=
+------
+>  include/linux/bpf_verifier.h | 19 +++++++++
+>  kernel/bpf/syscall.c         | 10 +++++
+>  kernel/bpf/trampoline.c      | 26 +++++-------
+>  kernel/trace/bpf_trace.c     | 11 ++---
+>  net/bpf/test_run.c           |  9 +----
+>  net/ipv4/bpf_tcp_ops.c       |  6 +--
+>  7 files changed, 129 insertions(+), 47 deletions(-)
+>
+> diff --git a/include/linux/bpf.h b/include/linux/bpf.h
+> index 7873f0ef2817..97cbcd4b0d67 100644
+> --- a/include/linux/bpf.h
+> +++ b/include/linux/bpf.h
+> @@ -2783,7 +2783,16 @@ int bpf_prog_array_copy(struct bpf_prog_array *old=
+_array,
+>                         struct bpf_prog_array **new_array);
+>  struct bpf_prog *bpf_prog_dummy(void);
+>
+> -struct bpf_run_ctx {};
+> +/*
+> + * A frame in the chain of the programs that a task is running, from
+> + * current->bpf_ctx to the outermost one.
 > + */
-> +bool pci_reset_function_needs_bridge_lock(struct pci_dev *dev)
-> +{
-> +	return pci_upstream_bridge(dev) &&
-> +	       !(dev->dev_flags & PCI_DEV_FLAGS_NO_BUS_RESET) && !dev->is_virtfn;
-> +}
-> +EXPORT_SYMBOL_GPL(pci_reset_function_needs_bridge_lock);
-> +
->  /**
->   * pci_init_reset_methods - check whether device can be safely reset
->   * and store supported reset mechanisms.
-> @@ -5313,10 +5331,11 @@ int pci_reset_function(struct pci_dev *dev)
->  		return -ENOTTY;
->  
->  	/*
-> -	 * If there's no upstream bridge, no locking is needed since there is
-> -	 * no upstream bridge configuration to hold consistent.
-> +	 * The upstream bridge only needs to be locked if the reset may be a
-> +	 * bus reset, which is done through the bridge.
->  	 */
-> -	bridge = pci_upstream_bridge(dev);
-> +	bridge = pci_reset_function_needs_bridge_lock(dev) ?
-> +		 pci_upstream_bridge(dev) : NULL;
->  	if (bridge)
->  		pci_dev_lock(bridge);
->  
-> diff --git a/drivers/vfio/pci/vfio_pci_core.c b/drivers/vfio/pci/vfio_pci_core.c
-> index fcbb2da860e2..5dcbefd2eba4 100644
-> --- a/drivers/vfio/pci/vfio_pci_core.c
-> +++ b/drivers/vfio/pci/vfio_pci_core.c
-> @@ -777,7 +777,8 @@ void vfio_pci_core_disable(struct vfio_pci_core_device *vdev)
->  	 * overwrite the previously restored configuration information.
->  	 */
->  	if (vdev->reset_works) {
-> -		bridge = pci_upstream_bridge(pdev);
-> +		bridge = pci_reset_function_needs_bridge_lock(pdev) ?
-> +			 pci_upstream_bridge(pdev) : NULL;
->  		if (bridge && !pci_dev_trylock(bridge))
->  			goto out_restore_state;
->  		if (pci_dev_trylock(pdev)) {
-> diff --git a/include/linux/pci.h b/include/linux/pci.h
-> index aa3765a20a96..aee6a178a535 100644
-> --- a/include/linux/pci.h
-> +++ b/include/linux/pci.h
-> @@ -1486,6 +1486,7 @@ void pcie_print_link_status(struct pci_dev *dev);
->  int pcie_reset_flr(struct pci_dev *dev, bool probe);
->  int pcie_flr(struct pci_dev *dev);
->  int __pci_reset_function_locked(struct pci_dev *dev);
-> +bool pci_reset_function_needs_bridge_lock(struct pci_dev *dev);
->  int pci_reset_function(struct pci_dev *dev);
->  int pci_reset_function_locked(struct pci_dev *dev);
->  int pci_try_reset_function(struct pci_dev *dev);
-> 
-> base-commit: 7475ea8b58616b33c04afb976cf0fbaad9dd63fb
+> +struct bpf_run_ctx {
+> +       /* The next outer frame, NULL in the outermost one */
+> +       struct bpf_run_ctx *saved_run_ctx;
+> +       /* Set while a program whose recursion is checked per task runs i=
+n the frame */
+> +       const struct bpf_prog *prog;
+> +};
+>
+>  struct bpf_cg_run_ctx {
+>         struct bpf_run_ctx run_ctx;
+> @@ -2801,7 +2810,6 @@ struct bpf_tramp_run_ctx {
+>         struct bpf_run_ctx run_ctx;
+>         u64 bpf_cookie;
+>         int retval;
+> -       struct bpf_run_ctx *saved_run_ctx;
+>  };
+>
+>  static inline struct bpf_run_ctx *bpf_set_run_ctx(struct bpf_run_ctx *ne=
+w_ctx)
+> @@ -2809,8 +2817,17 @@ static inline struct bpf_run_ctx *bpf_set_run_ctx(=
+struct bpf_run_ctx *new_ctx)
+>         struct bpf_run_ctx *old_ctx =3D NULL;
+>
+>  #ifdef CONFIG_BPF_SYSCALL
+> -       old_ctx =3D current->bpf_ctx;
+> -       current->bpf_ctx =3D new_ctx;
+> +       old_ctx =3D READ_ONCE(current->bpf_ctx);
+> +       if (new_ctx) {
+> +               new_ctx->saved_run_ctx =3D old_ctx;
+> +               new_ctx->prog =3D NULL;
+> +       }
+
+[...]
+
+>  /* BPF program asks to bypass CAP_NET_BIND_SERVICE in bind. */
+> @@ -3492,7 +3565,6 @@ bpf_prog_run_array_sleepable(const struct bpf_prog_=
+array *array,
+>  {
+>         const struct bpf_prog_array_item *item;
+>         struct bpf_prog *prog;
+> -       struct bpf_run_ctx *old_run_ctx;
+>         struct bpf_trace_run_ctx run_ctx;
+>         u32 ret =3D 1;
+>
+> @@ -3503,7 +3575,6 @@ bpf_prog_run_array_sleepable(const struct bpf_prog_=
+array *array,
+>
+>         run_ctx.is_uprobe =3D false;
+>
+> -       old_run_ctx =3D bpf_set_run_ctx(&run_ctx.run_ctx);
+>         item =3D &array->items[0];
+>         while ((prog =3D READ_ONCE(item->prog))) {
+>                 /* Skip dummy_bpf_prog placeholder (len =3D=3D 0) */
+> @@ -3512,15 +3583,14 @@ bpf_prog_run_array_sleepable(const struct bpf_pro=
+g_array *array,
+>                         continue;
+>                 }
+>
+> -               if (unlikely(!bpf_prog_get_recursion_context(prog))) {
+> +               run_ctx.bpf_cookie =3D item->bpf_cookie;
+> +               if (unlikely(!bpf_prog_enter_run_ctx(prog, &run_ctx.run_c=
+tx))) {
+
+it feels like bpf_prog_enter_run_ctx() is doing too much and the logic
+becomes convoluted... we had old_run_ctx above after setting current
+run_ctx, why can't we pass that *old* run_ctx and our prog pointer
+into bpf_prog_enter_run_ctx() to check that our prog is not already
+running (and do that recursion context accounting). And before that
+you already optimistically set run_ctx.bpf_cookie, you can just as
+much set program pointer.
+
+So in short, bpf_set_run_ctx() sets up chain of run_ctx, and then in
+the inner loop we set up bpf_cookie + current prog (sort of
+speculatively), and then bpf_prog_enter_run_cxt() checks if we can run
+prog or not.
+
+Am I missing some complications that would prevent that separation of conce=
+rns?
+
+>                         bpf_prog_inc_misses_counter(prog);
+> -                       bpf_prog_put_recursion_context(prog);
+> +                       bpf_prog_exit_run_ctx(prog, &run_ctx.run_ctx);
+>                         item++;
+>                         continue;
+>                 }
+>
+> -               run_ctx.bpf_cookie =3D item->bpf_cookie;
+> -
+>                 if (!prog->sleepable) {
+>                         guard(rcu)();
+>                         ret &=3D run_prog(prog, ctx);
+> @@ -3528,10 +3598,9 @@ bpf_prog_run_array_sleepable(const struct bpf_prog=
+_array *array,
+>                         ret &=3D run_prog(prog, ctx);
+>                 }
+>
+> -               bpf_prog_put_recursion_context(prog);
+> +               bpf_prog_exit_run_ctx(prog, &run_ctx.run_ctx);
+>                 item++;
+>         }
+> -       bpf_reset_run_ctx(old_run_ctx);
+
+same here, what's wrong with doing reset just once, all we really need
+is to update bpf_cookie and prog pointer inside that while() loop over
+bpf_prog_array items, right? the chaining itself doesn't really change
+and shouldn't be done for each item separately.
+
+>         migrate_enable();
+>         return ret;
+
+[...]
