@@ -1,93 +1,112 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.158.5
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795518127;
-	b=mBX46aQQjMRpoqTpRM96idUQWnmdR3B1mV11BAwqR2RsNGb88P+zDrxOWWikUe2af2Jw
-	 FlAOECIFGNeQ6iFyuKHSUtaRipXuxDdybVQoMM3RLiijSXMrPLilc9TOxvXWCiEnp8iav
-	 rBJrAtJrgUHrNPFKhTilkNNq7bmtg6G/x5GlvZ5jeQOlXrXyjcOe5gxhCtJhLlCDt9GBS
-	 0Jgewz9tjNK/kY7q0DdbIiO6H8Ln7Cp32AAfQnBFSrGg6NiGuRxpU/wwOq1QvTd0bcq07
-	 5AOojUtMY+80T3G1cD+4RmcEJMku7mPf0QYJIS/pHXIv4sE8aQNcMRnzFiZGft9SpCQ==
+	t=1795518141;
+	b=q86uJj9rEQou4tecewfRO4xdhTiiWUH9bl83Xz1Jbb+32bwZsfKbViqAtJ9oXYU0NjBs
+	 SaSvtThmBTiadiQKgNqyJ8bHh7C3LZr89Jrljlr2Y3wGs+tvTqiSiGcMFHklVXYjLqDfW
+	 GdPQoABpt7/U3BKHDTHKUVjo8T03uwCUg6puE3A4xiBgWxPOylYiwWGl+pTHVPVGzDPC8
+	 bFkfmqeFGaAfBjXGOzkgshzhBKJBME2uc2OOwNtdbeZtHfx7TgtprKwdMTofkmSQMk5sB
+	 raOX5N/mYgyfQExeEegY5p8QpS94PZtsBqVRFc/raO7RH35CG6vWZZY3PIYA7MAMHoQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795518127;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:Received:Received:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To:X-TM-AS-GCONF:X-Proofpoint-Spam-Info:X-Proofpoint-GUID:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
-	 X-Authority-Analysis:X-Proofpoint-Virus-Version:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795518141;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:To:Cc:
+	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding:X-Proofpoint-Spam-Info:X-Authority-Analysis:
+	 X-Proofpoint-GUID:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Virus-Version:
 	 X-Proofpoint-Spam-Details;
-	bh=3ftNlEVqvZWGVx20k+ZMzr1PN5Nc7kI54sOOrnbpJQw=;
-	b=yJE26hRSsmvQ5b30b4PnReTaWXGaVoHDWZNwEd7AcBGepSrI2yeDZ0/eUw58xZS7mNMy
-	 SeCQb7AnBQOF7EdEuA6lbyo01E6Uh+XsLUC90phpqPimrNTAoL6n9DLPbbI/LcRMmfKIy
-	 YR0VAvTLYGch6lB9xR6UpfCifGsy57yKZIO6AwzjNSKMX6d4iQJz1s4cOsPdudjsuwgbB
-	 ZRw8xNJapon5oRvZWS1KqKPff8iRoPa0b7SZ2UDrlqNW4VQJZcEogJyBj8uoE9Xb/MHPA
-	 3jpK8uhgUV+f4ZwKK8Q1Hcb15kIguV63xsULlOhX0/GF2zhg7tNCXVMaD+B4IJo4FaQ==
+	bh=3lGA1OPjnX3GJpn28fjuGpkD9i66CpvhssS74bIfiRE=;
+	b=G0YWmpvtZlVY8tet4O4LAKNZ0GLoa8Absf4eADJJ9S6Sn3IzyhuCgadgXZodTJBFMY6q
+	 +l1QcAVfSsZLXtapzbiX1tPj0+lRD+w3caiva8Ll3dGGcv/1H/sn0CSa2p+HSs4nSiv0b
+	 Pr29joQ74aGd+V20cJy1TnB6isXq2uqqu3tnWpHwIxhv+1mCsWwQedU1NUjNNBKHC6HHr
+	 beZkPeLW82+fy6VSJ1fIkREbRF+79ctPIZV1H+NpdVZ7O61kLCHI5k6dM5YDjfkTfrhOz
+	 fQ3pf5+qnOAjomZbmSj2VnCELlGqLEKV3PEda2BC+9lXNR0xdF1E57oBEIprL7XRTww==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.ibm.com;
-	spf=pass smtp.mailfrom=linux.ibm.com;
-	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=W1crwuEw;
-	arc=none smtp.remote-ip=148.163.158.5
-Received: from mx0b-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com [148.163.158.5])
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=L4ayqnk4;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=NaoBtRb6;
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 41AC3606A31E;
-	Tue, 24 Nov 2026 11:02:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 41AC3606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B54DC606A321
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 11:02:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B54DC606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=W1crwuEw
-Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AO34haC001811;
-	Tue, 24 Nov 2026 11:02:01 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=3ftNlEVqvZWGVx20k+ZMzr1PN5Nc7k
-	I54sOOrnbpJQw=; b=W1crwuEwyJOICbIHwyUi1zY5Ia/gBXD4sm8f0ERp/CQMcX
-	PWpIA9eZSN2N8dB2/VV94VoeWRO/xjIVoFH71BHwrukMmCy4dBL9tVmNIPl9frqe
-	kdsni8SgZOfNpdXreIJo1DfdN618qZxWJxaR11VxwDV8kAMokWjTS52SO6MGCTyb
-	m2t/UxhelFfrSv7rSBo8bzBB+oeSGdBbrf2yDUDUjewboSjd/XZVhORia0EfwbSe
-	svTrcC/E+KRokkYN2j1cB0uSzH56WpXGc74KrnbHgv/2CjQqkoLcqZ+rbLdBEiqL
-	j0p1C2hlh1xEJTFGsYmxg9tw6+TvSxhFkWhN1M9g==
-Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j34p4et3r-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Tue, 24 Nov 2026 11:02:01 +0000 (GMT)
-Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma21.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AO90O73021873;
-	Tue, 24 Nov 2026 11:02:01 GMT
-Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
-	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4j3pmk2a71-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 24 Nov 2026 11:02:01 +0000 (GMT)
-Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
-	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AOB1vEX47972686
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 24 Nov 2026 11:01:57 GMT
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 20DF52004F;
-	Tue, 24 Nov 2026 11:01:57 +0000 (GMT)
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id AB93520040;
-	Tue, 24 Nov 2026 11:01:56 +0000 (GMT)
-Received: from osiris (unknown [9.111.55.141])
-	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Tue, 24 Nov 2026 11:01:56 +0000 (GMT)
-Date: Tue, 24 Nov 2026 12:01:55 +0100
-From: Heiko Carstens <hca@linux.ibm.com>
-To: Stephen Brennan <stephen.s.brennan@oracle.com>
-Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
-        Vasily Gorbik <gor@linux.ibm.com>,
-        Janosch Frank <frankja@linux.ibm.com>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Sven Schnelle <svens@linux.ibm.com>,
-        Claudio Imbrenda <imbrenda@linux.ibm.com>,
-        Andrew Donnellan <andrew+kernel@donnellan.id.au>,
-        linux-s390@vger.kernel.org, linux-debuggers@vger.kernel.org,
-        linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] s390: add CFI directives for call_on_stack
-Message-ID: <20261124110155.32552B6a-hca@linux.ibm.com>
-References: <20261030231714.1319773-1-stephen.s.brennan@oracle.com>
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=L4ayqnk4;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=NaoBtRb6
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AOAuUSQ120292
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 11:02:20 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=qcppdkim1; bh=3lGA1OPjnX3GJpn28fjuGpkD9i66CpvhssS
+	74bIfiRE=; b=L4ayqnk4m5TxgGBfWewM72R9ZOlKRwQXVF0UjAOpY53ZaI3EO8e
+	cTgDzy6UVynL5QDqEDLuYXdufir8MkjrBJcgtdtQWAUJM029LMoAqHgiJ8Eq2Ia7
+	83FZgroMijiQ0T+uQLqWLFoEIZLKvvVsACLo1Nf22aqsAVkem6aaLWXDwzhIjyNy
+	UGF9Mj0YQVNdxPu2+sifzJz7rSh1cShl7LvHTzKx1ZT2qs4MO20U10oTP4EUxqd5
+	Mp8QVIUfqqY7CERv19ByeYYZ3SoiLajM6QVdHw9smr6ZEUK1QrVkqW0k+qb0J7SB
+	Z5hEqlTVQ10IXKTzVm1WLPbV2uJ9TBxtPtQ==
+Received: from mail-pf1-f200.google.com (mail-pf1-f200.google.com [209.85.210.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j4x8f2phr-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 11:02:19 +0000 (GMT)
+Received: by mail-pf1-f200.google.com with SMTP id d2e1a72fcca58-8b8cef34b43so4694470b3a.2
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 03:02:19 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795518139; x=1796122939; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=3lGA1OPjnX3GJpn28fjuGpkD9i66CpvhssS74bIfiRE=;
+        b=NaoBtRb6TjGt/5+4DskJTyhP5MJGwsUTlx1u9KtXZLv4EgYpegeg0uPXSmlW2X7jIA
+         +VJlcbcsEW0fqvxcWFd08VEJT8klopMdDC7qlBrCp8UJQwClOo1EVIoXHRHRHrJ+2rai
+         IRu1XulCM1U8Dq25ickT2JGGTI2LdQkD8dfgWlDWqPi45UEve61+IzB3hg+vJN/pOXd7
+         N1UpxfFz0cyqLFcHpOW7Zfiw55nO3cuRZngDx5sCCJhiuIUQKvVXujVEXixgj6UAVKIY
+         SZrCezILNVESZoyJ+r2ECk8zNfREC9vAd5wy61NTrW1AZX5HaGhbCfs27tL3yjIxPBQ9
+         QR/g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795518139; x=1796122939;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=3lGA1OPjnX3GJpn28fjuGpkD9i66CpvhssS74bIfiRE=;
+        b=Db17uykNd8xk4cZIvadyg6RlkfTxW7sTtBBH2Uhb9BgDOUK7BI+ZKgeUgBYlN4iE/k
+         fdhJPpZsYbsp5RvhdIoAtIlNcudYbo2jAyLuaGpWAfd6bc/KCSJhGg219gK8UM4Xdct/
+         XbctcTuVeG+vONcM4QCHHfAipkLe3Xpd8JQLs2tbsm5znV6iNn12w6lOjXMKzksbrweo
+         K7kdoqTziSlaRU3nXPdUKd2bgJeFzQtA6+QtXSCvrTRx65BeJAXfrpkxmOk2Ffm5PgPW
+         V/W2n1wpvfsxWj87TGXYgN+c/g1li0RItdzX+7/e6AHHJs5BCF/gR1VCDnukSILrJZnj
+         BDdA==
+X-Forwarded-Encrypted: i=1; AL+hErG2yZDibhndgUbgd3+XTJeuIB4NNsC7ODfbM9np6CVestyMHx7MdqdpzVZksL3RSRD4Kkm0jzbB8CKhDeI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+CDp0Hm0fuGfdAVBdQqKwwzWDguWckf0VqF+cqg0W5a4n80B3t
+	kRn/FQUV3TjtWMd7NegK3f3LpqOydbvxs7KEhIh79tV4QrWZW6uJzK2pIgGrCGHD6f3SFbOGI+9
+	IgWT9zVqB6CG7Prf2DAiglI9EREAo0sT6NrdiEHhSRmOtFs/iCHTzno6U+Qv98ZV9eV0=
+X-Gm-Gg: AZFdTZf3rxrxOKGVlgsDYvOdZUyD5lvyb0u1OtezHQZUimQR/VhbtLKW6AUgBzz9LuE
+	fCKXW+K8U2Soy4zLOVhnJ8FEDqChJszRHH0GYj6w2IUtVV+844PgXPPcEHEEf3/oQibUgMKwgsJ
+	qUjNUblpZ2v4Le6BzIybAtJrXny4Aq1LSOzWhM/S0CmFgnPYX3gDA2FqqyKWfcgBQh33mhoosm9
+	66+qpmGe03cUTxzw4yTvjByd8pYhuQLI4v959VLvPRQFhbA4YwQlQrynAi8upK2APQ51gk1xCkr
+	2koHuPcDWGTekYRLEzTNZl5pmZefQhiYBgAZStBbAhl1Dvqlm/hekgSFeI6vkDaAsNEF/+USDFS
+	NtirpPexP63QZ1eomq9D+YdV1Ma7HEdpm/EKEaXNKX7rancgPxc/lEhS3GZuUvhc1bMOEImCKbI
+	w0QVZqD1MTmNHu3h59c/pVplyx20+5f+P798FcrkvibE1QGBnUER6EBwgT
+X-Received: by 2002:a05:6a00:244e:b0:899:13ee:1bd7 with SMTP id d2e1a72fcca58-8c87c481647mr12818935b3a.35.1795518139146;
+        Tue, 24 Nov 2026 03:02:19 -0800 (PST)
+X-Received: by 2002:a05:6a00:244e:b0:899:13ee:1bd7 with SMTP id d2e1a72fcca58-8c87c481647mr12818897b3a.35.1795518138604;
+        Tue, 24 Nov 2026 03:02:18 -0800 (PST)
+Received: from hu-ymg-blr.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com. [103.229.18.19])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87285c05fsm7087035b3a.17.2026.11.24.03.02.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 03:02:18 -0800 (PST)
+From: Yadu M G <yadu.mg@oss.qualcomm.com>
+To: Jeff Johnson <jeff.johnson@oss.qualcomm.com>
+Cc: ath12k@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: [PATCH] mailmap: add entry for Yadu M G
+Date: Tue, 24 Nov 2026 16:32:14 +0530
+Message-ID: <20261124110214.594423-1-yadu.mg@oss.qualcomm.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -97,114 +116,58 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261030231714.1319773-1-stephen.s.brennan@oracle.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI0MDA0MSBTYWx0ZWRfX8VEIlEH8RAr+
- rm+X20F6w4STTqiIhbyYWRTpiOZKaD2xdxgjQYIR3Fhh1npXF0XPsdx/bSzrnACvvIOZbuuwHUa
- Xcf0GwON4iwOq1Gb5sWp1DPNVb1ZnWY=
-X-Proofpoint-GUID: 2IEv-Udvn0Zklz1cQlPhRZc1S8ynq5y4
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI0MDA0MSBTYWx0ZWRfX7Eg2MbSpaQY+
- Rsl57X4FYn+ePaTAqvUQJydC7Xp5a0Pk/SsWONTpE9KwnoWGIardnGmfP1umlZasB+PWz+mdhk7
- olrjvVntydoV2T1X1fWSsnRND0tMRjz4q529Lba28s+q3QTaDv25QO+6h1oSCVMGFKRWMxDL7fp
- VsVvpB9feIOdw/7n77M1OWEZFwemSarnT3PpLGV7ARHbDFM8w9K4DhfIHjDOMRjxLzb/CgsJsJJ
- gsETER73eyZe0RoN+myJxo+TmJ7pXRQyqoyBodVOM0JhYKuTEwNUAVD9tSYKWXi7LOUvTTE7QbB
- 0kQC7DqFkEQsYdrR8pDPFCh4PjFW8Vj11Q5gzMS5I51rOKgLQZqt0O3U/tTaeAcC797hfeLV8TE
- ImUl0ieHEVveGZN3vObghag3+hkDF45ZodItdZSpTxgBjU1ctuhu2nfnYC91VGcb8/BBWgVcPSY
- z2y9yCKyb1x2UNE8g3A==
-X-Proofpoint-ORIG-GUID: 2IEv-Udvn0Zklz1cQlPhRZc1S8ynq5y4
-X-Authority-Analysis: v=2.4 cv=QabzLcbv c=1 sm=1 tr=0 ts=6b056ea9 cx=c_pps
- a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
- a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=V8glGbnc2Ofi9Qvn3v5h:22 a=17FYL03jAAAA:20
- a=yPCof4ZbAAAA:8 a=4y6ffcx9BbnVZogFFskA:9 a=CjuIK1q_8ugA:10
- a=bA3UWDv6hWIuX7UZL3qL:22
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI0MDA0MiBTYWx0ZWRfX1wRObZGeBN6j
+ X75tWjMxwuJ4rvVj7vXc0PC5KuczDRk1SxaQ0KeUOLqVE5/mz0uQm7+q7orExSotNZ2mCXuKnL7
+ Sdowwcjc3pGg/eIqjgObjhz0V/U04ds=
+X-Authority-Analysis: v=2.4 cv=JbgpPkKV c=1 sm=1 tr=0 ts=6b056ebb cx=c_pps
+ a=mDZGXZTwRPZaeRUbqKGCBw==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
+ a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22 a=COk6AnOGAAAA:8
+ a=EUspDBNiAAAA:8 a=VwQbUJbxAAAA:8 a=1RTuLK3dAAAA:8 a=pGLkceISAAAA:8
+ a=s8YR1HE3AAAA:8 a=QyXUC8HyAAAA:8 a=V_36NvZ-483JdQGStUMA:9
+ a=zc0IvFSfCIW2DFIPzwfm:22 a=TjNXssC_j7lpFel5tvFf:22 a=kRpfLKi8w9umh8uBmg1i:22
+ a=jGH_LyMDp9YhSvY-UuyI:22
+X-Proofpoint-GUID: I9CZZFUYxUuUkCgzEEVf5uB1eQbeDd50
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI0MDA0MiBTYWx0ZWRfX0+NqJShfzrdR
+ 81OD1+Ex1Ow0Nia2WsZ2nKAGFPY8SHcK/J6HD5PE2RyzJLARHTsAc/FJwB0LjPUTFzNGFs+9NlY
+ 4kVhY5n9/ymx7KiEENCc0i++/cygZ+yrBEE61gkzKf0NuWLylA8SXvlngHdnXypaTag9r31tu+/
+ YfKbNgwyUYNLmHaO/GKW1NgGPOZFolLBenNxSyO7zW87PWls0ulLgG2rCXQep9mOnQujPKwTZV7
+ p+JxQcvSzPQw4r4QkTPCZGgEVwpNoGUTzcGR+U1gzes0cdJtDog42Ve5E3LMoCXTxSMYQDIyyFM
+ /OwF/3/1uLY/S050lU1cof2brVc1MqTeZOwrop6FZ28WvICDst1ZZ11r5/phUuv2cj7DXcpgjur
+ bm8g19fe6gkzTdqyLi1wvVzhrwtnXWMCos7s7cLV+rh4M1Huo1ObF3gr3RMb7/4DmFGe+zI1nNW
+ 0AcFLEhNfXG4ytnAUaQ==
+X-Proofpoint-ORIG-GUID: I9CZZFUYxUuUkCgzEEVf5uB1eQbeDd50
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-24_01,2026-11-23_01,2025-10-01_01
+ definitions=2026-11-24_02,2026-11-23_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 phishscore=0 lowpriorityscore=0 suspectscore=0 adultscore=0
- bulkscore=0 priorityscore=1501 clxscore=1015 malwarescore=0 impostorscore=0
+ adultscore=0 bulkscore=0 lowpriorityscore=0 malwarescore=0 spamscore=0
+ impostorscore=0 suspectscore=0 clxscore=1015 priorityscore=1501 phishscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611240041
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611240042
 
-Hi Stephen,
+Map my old quic_ymg@quicinc.com address to my current
+yadu.mg@oss.qualcomm.com address, since the quicinc.com mailbox is
+no longer accessible.
 
-again, sorry for taking way too long to look into this!
+Signed-off-by: Yadu M G <yadu.mg@oss.qualcomm.com>
+---
+ .mailmap | 1 +
+ 1 file changed, 1 insertion(+)
 
-On Fri, Oct 30, 2026 at 04:17:10PM -0700, Stephen Brennan wrote:
-> When debugging s390 on drgn, we experience two issues. First, when a
-> panic is triggered on CPU 0, drgn is unable to unwind past a stack
-> switching event[1,2]. Second, drgn is unable to unwind through an
-> interrupt exception frame.
-> 
-> It turns out that the reason for both is the generated call_on_stack()
-> assembly. It modifies %r15 (the stack pointer) without any CFI
-> directives describing this change. Thus, the compiler-generated CFI is
-> wrong, and drgn tries to unwind using rules based on the wrong SP value.
-> 
-> To resolve this, use %r10 (a callee-saved register) to store the CFA in
-> a temporary register. Then, emit a CFI directive describing the change.
-> So long as DWARF CFI is used to unwind all leaf functions, the value of
-> %r10 should be recoverable, and unwinders will be able to use it to
-> determine the CFA and continue to the new stack.
-> 
-> I've tested this only in a QEMU VM using drgn's vmtest framework.
-> With the patch, drgn is able to unwind through two stack changes: the
-> change to the IRQ stack, and the change to the CPU0 nodat_stack during a
-> panic on CPU 0.
-> 
-> [1]: https://github.com/osandov/drgn/blob/97b613c23bd4d100a61b3b06fb1b5097fcef9f61/vmtest/enter_kdump.py#L69-L74
-> [2]: https://github.com/osandov/drgn/blob/97b613c23bd4d100a61b3b06fb1b5097fcef9f61/tests/linux_kernel/vmcore/test_vmcore.py#L19-L25
-> 
-> Signed-off-by: Stephen Brennan <stephen.s.brennan@oracle.com>
-> ---
->  arch/s390/include/asm/stacktrace.h | 18 +++++++++++++++++-
->  1 file changed, 17 insertions(+), 1 deletion(-)
+diff --git a/.mailmap b/.mailmap
+index cda17fa320dd..a0b5c8ae1313 100644
+--- a/.mailmap
++++ b/.mailmap
+@@ -1058,6 +1058,7 @@ Wolfram Sang <wsa@kernel.org> <w.sang@pengutronix.de>
+ Wolfram Sang <wsa@kernel.org> <wsa@the-dreams.de>
+ Xu Xin <xu.xin@linux.dev> <xu.xin16@zte.com.cn>
+ Xu Xin <xu.xin@linux.dev> xu xin <cgel.zte@gmail.com>
++Yadu M G <yadu.mg@oss.qualcomm.com> <quic_ymg@quicinc.com>
+ Yakir Yang <kuankuan.y@gmail.com> <ykk@rock-chips.com>
+ Yanteng Si <si.yanteng@linux.dev> <siyanteng@loongson.cn>
+ Ying Huang <huang.ying.caritas@gmail.com> <ying.huang@intel.com>
+-- 
+2.43.0
 
-...
-
-> +	register unsigned long cfa asm("10") =				\
-> +		frame + STACK_FRAME_OVERHEAD;				\
-
-...
-
-> @@ -196,15 +208,19 @@ static __always_inline unsigned long get_stack_pointer(struct task_struct *task,
->  									\
->  	CALL_TYPECHECK_##nr(__VA_ARGS__);				\
->  	asm volatile(							\
-> +		CALL_ON_STACK_CFI(".cfi_remember_state\n")		\
->  		"	lgr	%[_prev],15\n"				\
-> +		CALL_ON_STACK_CFI(".cfi_def_cfa %[_cfa],0\n")	\
->  		"	lg	15,%[_stack]\n"				\
->  		"	stg	%[_frame],%[_bc](15)\n"			\
->  		"	brasl	14,%[_fn]\n"				\
-> -		"	lgr	15,%[_prev]"				\
-> +		"	lgr	15,%[_prev]\n"				\
-> +		CALL_ON_STACK_CFI(".cfi_restore_state\n")		\
->  		: [_prev] "=&d" (prev), CALL_FMT_##nr			\
->  		: [_stack] "R" (__stack),				\
->  		  [_bc] "i" (offsetof(struct stack_frame, back_chain)),	\
->  		  [_frame] "d" (frame),					\
-> +		  [_cfa] "d" (cfa),					\
->  		  [_fn] "X" (__fn) : CALL_CLOBBER_##nr);		\
-
-The patch is fine, however this should also work without explicitly specifying
-to use register 10. Any other free register should work as well, since the
-inline assembly is sort of emulating a function call to a different stack -
-and therefore all non-callee saved registers are already clobbered, either
-early clobbered, or explicitly clobbered.
-
-The compiler can only chose between r6 to r13; all of them are callee-saved.
-
-Or in other words: I'd prefer this
-
-> +	register unsigned long cfa asm("10") =				\
-> +		frame + STACK_FRAME_OVERHEAD;				\
-
-to be changed to
-
-> +	unsigned long cfa = frame + STACK_FRAME_OVERHEAD;		\
-
-..unless I am missing something, but "_prev" also relies on this already.
