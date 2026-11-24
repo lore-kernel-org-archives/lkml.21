@@ -1,78 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795542213;
-	b=pn2oci0yYCRHI3Is77CG+YjHVyStOpTNBR/n8wZg9AeVBASmcTXAaHDLSUUWfhHOaeoz
-	 q2P52VBn9yp8gajer5I3d4wfQcSVswEfXv5cwalPlJVY+k4GrAk6YNzMrL0OYua6Ub+BZ
-	 Zm1VxsINSoYl5FSCvs++WsPZJNtScdEN2o93VsjRVWX5xm+eVjTwheC/2yNaTZ52TRD6F
-	 5OHnp5dU2QogBk8psPEL8HFPHOf1gLz18FRd9vvWQcJ91Uhaq04gP200XFFqUHr+0t0tR
-	 rGc26LiBDWjm/DRkUm9ZV3DnlpslQvk9GVGKua9tBT7UhNGVJXvqud+uipxzmt6qoAQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795542213;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=AvAtdQ9JzgRGhEaJ9kUoTUCtxq5S9HTZEZpJk4MbDN4=;
-	b=3bOTU8NimJg/NixA9J+c9LPlGJf9iUV9vUMLicuMftvNYtgsaCeulTfBSvI0FZ4GLmD2
-	 ltiNaui5aFdKGl5XHwgQknojQUvLljTqqqjaMys8IWo0yKzOBJIUUNVC931AeFdPKwWqv
-	 dmgmS7o1fiq2192YWAn4F0N53ftrTn7GiwKBkmaFxVfgGfghVJhPmfcQvJIfFBsudPvnm
-	 F9qg4virmgJ1qc5b4dIR8AG3ORyczDam9QbG4xgoGKaCpBEzD96AC8N7lbTf5du+02RNC
-	 5BEtHxL9WlK0734q0XbGBXWpA4/Pr7tAQPQIRn52HtOphZAelqYIXWLBR4YTn3O4EPA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=E70rX1Q2;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795542240;
+	b=jAFPONI5XWBzQv85vZSnBDFW+6amtUPiR4/YitjOapdLBdkwZAEJ5SKNmQO6FNL5tLga
+	 rARu4qXVuaChBVLCh1o3Og7N27VXILMcgU4nXUH9u5MmbBLwKVt7XPlPMEa2wb+9lJm11
+	 mLmWJj+AfdDa4WYm+4HdAsUoMo1zQiaef4gdDi3dbyCgI4w0aPjESmaQMuyMcJi8wC3vl
+	 PT5xHnFbk6ZwIR3mpMw6gkcPOU5GEDB4AB928e0P+iq/J4OdJQen3XXmfXfXq+6uvjsp+
+	 hieMrYXGxb36E3Dtkt5EYf8oyPFKWO77IL8lvf/0YCFVt4MbQ0c6WMGVmcF882oKd5w==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795542240;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=mEF01XSutK6OiYIL5GsOD9Pg+N69x5w2z8F66Ac8pew=;
+	b=lG0mvsdE4BtU9Zh/ZKP5jKwam6x2dMTrfr/d8lzC4z1/ZAS+XPKOvQ8f5EiBK33mD8l6
+	 MYmfMNwd7AD5KRS4V6pTmBjEmdQBmHrXMDdqDm90E2u+WCkDaUSSnJYWz+PaOOjuraNU8
+	 9kev/Nbj7Ge88E28AuHz2aPGQ6a0HlHsS7LKEm+1SS1buE0KQsDnz2leZM6oDO7UnT2tq
+	 7BQskhkkR1l5h2wJ2giwbTuLYIy3RgVH6GAP8O8uvEEhcJcnsdT7BvWMfOx8s4Ba1s6ar
+	 ZRBysEi2XZmHX3lLvUYBBuSDoWXYTu4TtmdwEeyG5+b5heCamcs13SrjhmEUBzG265g==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=X8Sg+5Q4;
+	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5021A606A681;
-	Tue, 24 Nov 2026 17:43:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6E503606A323;
+	Tue, 24 Nov 2026 17:44:00 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=E70rX1Q2
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795542212;
-	b=JNCQgOWeCZnPjrPbpNgaCaCXjmT8FXJOc9q8Xrq2g0dLFrC+bM/6aQ+wYYEjxBoP+Tlk
-	 MRk0c0p2c4F3aAARVjBRc38iqtlqHTaaYpzl2dWxiVqbvGrZUcUbp/KwmGYTFLbWE5kgN
-	 DCKOQEcBURxLBLovMxnrfLMkGBCwKOIRmZ1KVhVPP6Pm0lH+JfWqg6ywTErrWDzr4UnWB
-	 FnNkOsWOg9UtkIulV+8Im6uHh4m4AZ2wigAoLU2a2hLNw3+U3J6fpK6FV6915ESyTO2D0
-	 63kZ4lqygo/C/noXCWfI32CoJR2LTiDLV6LaVnbgCDQretwYdkIj7nC9JXy0c7utXRQ==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795542212;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=AvAtdQ9JzgRGhEaJ9kUoTUCtxq5S9HTZEZpJk4MbDN4=;
-	b=Za0yt7k9IOjbUGaLVJ3WOVlO3L4DaR9YdjJo+pO53k5A56rj7FXeEgx68G9U3nPzswmn
-	 HuF4YmI9utqIQS7k6UNjd9ElqMZ+N7DaVtok6G9q7ejRfOLBdoW5SeH8UlytN0WdJpU89
-	 SKAKA3N8+DjiI6Ohz/Ama++56wBVXr2eskpbu8+Jsa2Cq+EcTsrfjVz2/93aZJD1TgH7q
-	 3Ce9/OX3QZm8VUd6OZxA87gbKs4GgtjcVD76QWJE3asJ/vLe+cLOI4ixsSpMxTFt582+7
-	 ZEMrpny5B75P1fUIsHBLXAyDOOyoLgK3+kB/o1iwAWn+Fg7C+fn81gw/+phJSUjesPA==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 4C0931F00A01;
-	Tue, 24 Nov 2026 17:43:21 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=X8Sg+5Q4
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7AB5F1F000C0;
+	Tue, 24 Nov 2026 17:43:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795542212;
-	bh=AvAtdQ9JzgRGhEaJ9kUoTUCtxq5S9HTZEZpJk4MbDN4=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=E70rX1Q2m2zgFps7m2W25Lm/q9NuBLUHxi0frO3VPPd/uU1wysWnDl1RnJo0V0sKT
-	 OQjQt9ZC0qUnXhYf/jJ5nh9P1j6n5g/N/SGYlPYxjtmlcOm1P+2WrS+P2Kn+8mxHdN
-	 R7TOq2ZJ2EyoEgUDkbCik1u5R8TorAOMBH48uxXzhTI/9bcQyUDhcqSnlfmj61+Ww5
-	 UvSRHxl4Amm35aREy3qLk8uQRRk6rEwe7ziQHuqEtEjI1M9w6POfo8pGxjW7gkIVQ/
-	 gqw99ScOaxPjPN7kfHyZfG11Kvj4VJLZfU3HqLZICB+qv6CwoNmn2cmbQtk+sDyUUj
-	 HN+Ao1FaRFWgw==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id D4C8E4CB28;
-	Tue, 24 Nov 2026 17:43:20 +0000 (UTC)
-From: Armandas Kvietkus via B4 Relay <devnull+armandas.kvietkus.proton.me@kernel.org>
-Date: Tue, 24 Nov 2026 18:43:20 +0100
-Subject: [PATCH 1/2] dt-bindings: power: supply: Add Maxim DS28E16
+	s=k20260515; t=1795542240;
+	bh=mEF01XSutK6OiYIL5GsOD9Pg+N69x5w2z8F66Ac8pew=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=X8Sg+5Q4w0OgIkgoYP1iLUxnrkOSOp3EiF1ix0p4gWRW8d8IsoyyNw5Ny600vVwov
+	 WmmQCLuRIvQHRMh2ihos5HyJ6WWlgQdutDRmZtgQ1GwrHbiSIguI2KOd4x5wbcoSk9
+	 j1T4muALCA3oxAYZVwPb2/Ga/37lz2PdoeOR36sdL0BIqUucAsOFmii6Ppcjuub7PG
+	 khasVElNqnAIcoKwkHsNMcMohBqp5agj8aDngpSXHvcJ1Li5FAdNDv5Q5jHVNR89yl
+	 AsKgYB9VeNZ5tYw4opqq5zVLU24zCEHkSTg/6VC2BiZZSCgk9w6DsyvmS5DB0rASk/
+	 DnHRcal1dhHQQ==
+Date: Tue, 24 Nov 2026 18:43:54 +0100
+From: Thorsten Blum <blum@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Kees Cook <kees@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-hardening@vger.kernel.org
+Subject: Re: [PATCH RESEND] arm64: patching: Annotate text_addrs, new_insns
+ with __counted_by_ptr()
+Message-ID: <awXM2h0A4UsEQ3go@kernel.org>
+References: <20261111164515.77988-2-blum@kernel.org>
+ <awV_Wn0PivLnU2wp@arm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,87 +61,36 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261124-ds28e16-v1-1-bed431df0578@proton.me>
-References: <20261124-ds28e16-v1-0-bed431df0578@proton.me>
-In-Reply-To: <20261124-ds28e16-v1-0-bed431df0578@proton.me>
-To: Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, 
- Armandas Kvietkus <armandas.kvietkus@proton.me>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795542200; l=1712;
- i=armandas.kvietkus@proton.me; h=from:subject:message-id;
- bh=cPg7Cg+cHTWnzByN+nzFNB6aPtM09Gw/8/P3zoDCNl8=;
- b=kzZxpgDdA7EeVTVwXiwOhTzYrMG9nPBDB/huvJe0pBDOzoz0qpBa6HQCPgvg+VAoEt8CgfwQC
- pJVyeqjVCCKADeJZ7xft72XZ3Vw9vtlqcvtBXoqoSLTfn2E563Lteq8
-X-Developer-Key: i=armandas.kvietkus@proton.me; a=ed25519;
- pk=wuqmImJ9sKlDVcwALOvfGhjj7G8EBjjM4TpCdmlrAf8=
-X-Endpoint-Received: by B4 Relay for armandas.kvietkus@proton.me/default
- with auth_id=974
-X-Original-From: Armandas Kvietkus <armandas.kvietkus@proton.me>
-Reply-To: armandas.kvietkus@proton.me
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <awV_Wn0PivLnU2wp@arm.com>
 
-From: Armandas Kvietkus <armandas.kvietkus@proton.me>
+On Tue, Nov 24, 2026 at 12:13:14PM +0000, Catalin Marinas wrote:
+> On Wed, Nov 11, 2026 at 05:45:14PM +0100, Thorsten Blum wrote:
+> > Add __counted_by_ptr() to aarch64_insn_patch::text_addrs and
+> > aarch64_insn_patch::new_insns to enable access bounds checking via
+> > CONFIG_UBSAN_BOUNDS and CONFIG_FORTIFY_SOURCE.
+> [...]
+> >  struct aarch64_insn_patch {
+> > -	void		**text_addrs;
+> > -	u32		*new_insns;
+> > +	void		**text_addrs __counted_by_ptr(insn_cnt);
+> > +	u32		*new_insns __counted_by_ptr(insn_cnt);
+> 
+> I'm not sure it buys us anything. The only accesses to these arrays are
+> in aarch64_insn_patch_text_cb() in a loop already bounded by
+> pp->insn_cnt. UBSAN just repeats the loop condition. There's no
+> mem*/str* use of these pointers either, so FORTIFY_SOURCE doesn't
+> matter.
+> 
+> The annotation can't catch a wrong count from the caller since insn_cnt
+> is taken directly from the cnt argument of aarch64_insn_patch_text().
+> 
+> So, I don't think this patch is needed.
 
-The DS28E16 is a 1-Wire secure authenticator found in some battery
-packs. Its decrement counter page holds the cycle count of the pack.
+Fair points. It was meant as a hardening change to prevent future errors
+and document the relationship, but since nothing is gained today, I'm
+happy to drop it.
 
-Signed-off-by: Armandas Kvietkus <armandas.kvietkus@proton.me>
----
- .../bindings/power/supply/maxim,ds28e16.yaml       | 39 ++++++++++++++++++++++
- 1 file changed, 39 insertions(+)
-
-diff --git a/Documentation/devicetree/bindings/power/supply/maxim,ds28e16.yaml b/Documentation/devicetree/bindings/power/supply/maxim,ds28e16.yaml
-new file mode 100644
-index 000000000000..b381bdf68239
---- /dev/null
-+++ b/Documentation/devicetree/bindings/power/supply/maxim,ds28e16.yaml
-@@ -0,0 +1,39 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/power/supply/maxim,ds28e16.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Maxim DS28E16 battery pack authenticator
-+
-+maintainers:
-+  - Armandas Kvietkus <armandas.kvietkus@proton.me>
-+
-+description:
-+  The DS28E16 is a secure authenticator inside some battery packs, for
-+  example in Xiaomi SM8250 phones. It is connected to a GPIO that is used as
-+  a 1-Wire data line. Page 2 of its memory holds a one way decrement counter
-+  that stores the charge cycle count of the pack.
-+
-+properties:
-+  compatible:
-+    const: maxim,ds28e16
-+
-+  onewire-gpios:
-+    maxItems: 1
-+    description: GPIO used as the 1-Wire data line.
-+
-+required:
-+  - compatible
-+  - onewire-gpios
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/gpio/gpio.h>
-+
-+    battery-id {
-+        compatible = "maxim,ds28e16";
-+        onewire-gpios = <&tlmm 25 GPIO_ACTIVE_HIGH>;
-+    };
-
--- 
-2.56.0
-
-
+Thanks,
+Thorsten
