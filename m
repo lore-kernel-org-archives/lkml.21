@@ -1,54 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.71
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.149
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795494748;
-	b=wCslMt2QwqxpJYKLhDAyuouyJ2dK3dW0fiyVwIamPix09AhRwLFSDSP4+MR1GXC3UY1Y
-	 ea28gYlWIZEmb2u2x+Gf8wDKeZQOWWM0ysLVBqcSp8N7+rEfqaFABi+vdpSqqMB2U5VOe
-	 YS5RybaLaKmAiaOsbQtr91fhuYZOqJ/9YSEgaXZwf6sCLN3WbKKTEcFKmY2dV7RGDBMgz
-	 ffh3xV9ASef0yV33EtPdvTokM7hbhW9aMGiGbCEIF+4PMlv6LhOnjDoe4VU8yZoQAydiQ
-	 PbXLrKAa3qh623YMIo6XPMa4jXQPEO3uL9SJXfPAfL2d3WJoJc+bt/Ps6Jv+zSztZLg==
+	t=1795494818;
+	b=3c3XRiAe+a9o27fdvaIsZUOP3R6BMXXLZPZByksC9o/v3O9To5qtA6JEvDMpi4DALuzc
+	 4IordvoJoTY0/8fjxQrStZPPUH6XmdFFymhC1FxgPxCqCiKy+4K8hJfLlWJWXCZeRTSXE
+	 VDrzO3uENrkxklO8pIPkNfQFmmo1dY8GnSl1Uneau8avLTtZlqZ3ZFZYfsxYDRL4m46MS
+	 m3WXFlhSg7fN2o/NLfP3K9udf+jPtis1TTUIORvssRHTFquM+LZL/6TG5sRmz4S7d7X1F
+	 Mza9vD5aw8Nx526LPr4V156Xcz7rH2fGkk4ZRc8lC6GMcbyDxMIiPOCg+gpoF2TkmFA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795494748;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:MIME-Version:X-Received:Date:In-Reply-To:
-	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
-	 Subject:From:To:Content-Type;
-	bh=f4tXd6JwbEV+PY45SHAcOw2QQtqiosg/oxeaDPLz+6M=;
-	b=oxySsPoWXuOYu15iYvUkx31TD8oXF+N2fZD+x3SjqdEB9pp8owZMwJ9VNE/cpuyBcwhd
-	 OOjKl6AZfzRQui0B7XAhnqRXPOHMdtquGMx/DsQ/HLMccv71qTzTmENGFySvvvq+IQpsw
-	 X9pmCtE/EAHJxN4AWjTi4q6+hqi2nEZDvkECSaeHcfrUoDmMs48WUAM2M7JMsRl88tucq
-	 imn6AK+qw12oj0SnBjACjMWv2lRXaKLtUsW6SKZ6nyp0IFgXJrELHj7XUAHAMdkroT1KH
-	 MByp1bc71FrtfkIBJUORNE5+07zd7GkkOkm/f4cAKG2Bun7//8qERsK+9fqnEFzo6OQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795494818;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=qeS+Wqldyca7IlFeTqWB+yHVGIRNOofJMih/xkJzWH0=;
+	b=yWl4TJdILkXzUEgkGyeVnJP6/D1728JVmil538fremcaQgpiMrtxA/TlVdXWaFoFEmXy
+	 kQRTJsDd9/xqfcpUX4UR/w8m2TQa9yuFFr5BvPRq7+gd4jzeTeZgJsnRdjvU+nicqdfJQ
+	 QoAgIJlMHvxRbYxi+nwKkUKcejIb8H5p9S+isYFogJ03koJNjDvjJuKnU97mg5Zui/M65
+	 mDi4Fiv5N7iJTLIuU7/7losuPW94Ba2liwnrMxjAwMAN6WVhIGXSURkrqqz4J+Csp5y8O
+	 QHmKUAXjTySiMKAVdVwfGgICNUv3c8zS/JTDDGTaVDWkkvEqk+5i0wTpWqwxD5RQx6g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=syzkaller.appspotmail.com;
-	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
-	arc=none smtp.remote-ip=209.85.210.71
-Received: from mail-ot1-f71.google.com (mail-ot1-f71.google.com [209.85.210.71])
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=EChO5xkU;
+	arc=none smtp.remote-ip=95.215.58.149
+Received: from mta1.migadu.com (out-149.mta1.migadu.com [95.215.58.149])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D03D0606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 04:32:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D03D0606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
-Received: by mail-ot1-f71.google.com with SMTP id 46e09a7af769-86287b38a31so4141596a34.3
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 20:32:27 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795494747; x=1796099547;
-        h=content-type:to:from:subject:message-id:in-reply-to:date
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=f4tXd6JwbEV+PY45SHAcOw2QQtqiosg/oxeaDPLz+6M=;
-        b=BpWhozB8W3JoRrUR0UR9+RVxmv25UoT4m+ukcrcX85weSN/ZqZAksY67Yd/zSNYypM
-         3cK0CVJ7pIdpeTP5qJkReTHSBYxTDGxKW2jUxD55Zgv0e4KIibQPrApQb6q8tjzQr/dx
-         Jxg/9hmUDzj8dcOgoRPpxB3Q1WJ8ZgzyprZu4Aswej1Sl2hvmXExkswIKgosVUHIRiXI
-         UYk/8mlUmIEWyQzxGtEFa9FLIPs8Y9ihz+/OsI19CFKx6bZdlQeUOW23prJqCQcK7CB6
-         7XeT9L3lfMeesQ0qXHkMehJr9pvHWR+QY36bN31gded57D/CP/Igb/D5htmJox7hCyZn
-         pE3Q==
-X-Forwarded-Encrypted: i=1; AL+hErHQN6r8+iVagC2wEX5JdIe0aD5QcAjSHFmjM4HUm71UURw+0v9oTQzBO2zOVlvg8cesiHw+FsxVts9MZhk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8UGL/ecBKTtyTCbhL/Tq8fbCfLU6T111qf0GAa9DALOsZ2l4z+
-	Mmks1UCj8Jya72KrvCs4W4UnJiTpJt+CBWD+cHJdk+vhzNwDaGX/xg+uxPwUL2XZYoXQcplDFmm
-	u4aOLbMWZq+doMDrPDr7Y+/pwv92VL7NycyzdVXVidcsfMrZQRB5inqZ1ty0=
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 33970606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 04:33:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 33970606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=EChO5xkU
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=XrJqniAxtYnOjs6qtgcphsG7K6LdaIDb/mHKEP/nTBc=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795494815; v=1; x=1796099615;
+ b=EChO5xkUCstUOXGGiv9FCZ+/EkSHyKCcChaKP++g+zGEeyhOUnEGUMZvsDHJpcs2y2dHouLE
+ b0RxfeAV6fIkbBQc0izTiZA/u8hLON+4WUir1N5L37zz0r5EwLjvahELnjzlOaM76zpU9suNOdu
+ JLzoHdnuzLhmAShdbG7m3ZKE=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 40e2dd995e1bde24;
+	Tue, 24 Nov 2026 04:33:34 +0000
+X-Mizu-Trace-ID: 40e2dd995e1bde24
+X-Migadu-Flow: FLOW_OUT
+Date: Mon, 23 Nov 2026 20:33:33 -0800
+From: Shakeel Butt <shakeel.butt@linux.dev>
+To: Muchun Song <muchun.song@linux.dev>
+Cc: Andrew Morton <akpm@linux-foundation.org>, Tejun Heo <tj@kernel.org>, 
+	Johannes Weiner <hannes@cmpxchg.org>, Michal Koutny <mkoutny@suse.com>, 
+	Michal Hocko <mhocko@kernel.org>, Roman Gushchin <roman.gushchin@linux.dev>, 
+	Meta kernel team <kernel-team@meta.com>, cgroups@vger.kernel.org, linux-mm@kvack.org, 
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH] memcg: free the private ID of a memcg that never comes
+ online
+Message-ID: <awUTKy9tx8nWJgXf@linux.dev>
+References: <20261124000439.967403-1-shakeel.butt@linux.dev>
+ <F39B4A81-BB17-4C5D-851E-2740EBBBBA8B@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,119 +68,45 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Received: by 2002:a05:6808:f13:b0:4e9:df3c:c45c with SMTP id
- 5614622812f47-57a09c0f808mr13733212b6e.19.1795494746847; Mon, 23 Nov 2026
- 20:32:26 -0800 (PST)
-Date: Mon, 23 Nov 2026 20:32:26 -0800
-In-Reply-To: <6b045301.58b41460.7037.058a.GAE@google.com>
-X-Google-Appengine-App-Id: s~syzkaller
-X-Google-Appengine-App-Id-Alias: syzkaller
-Message-ID: <6b05135a.71deaa98.2984e6.0014.GAE@google.com>
-Subject: Re: [syzbot] [dm?] kernel BUG in lookup
-From: syzbot <syzbot+dbad68398c8646e5a382@syzkaller.appspotmail.com>
-To: agk@redhat.com, bmarzins@redhat.com, dm-devel@lists.linux.dev, 
-	ejt@redhat.com, linux-kernel@vger.kernel.org, mpatocka@redhat.com, 
-	snitzer@kernel.org, snitzer@redhat.com, syzkaller-bugs@googlegroups.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <F39B4A81-BB17-4C5D-851E-2740EBBBBA8B@linux.dev>
 
-syzbot has found a reproducer for the following issue on:
+On Tue, Nov 24, 2026 at 10:50:00AM +0800, Muchun Song wrote:
+> 
+> 
+> > On Nov 24, 2026, at 08:04, Shakeel Butt <shakeel.butt@linux.dev> wrote:
+> > 
+[...]
+> 
+> The leak analysis and the fix look correct to me. However, using
+> CSS_RELEASED here makes the private ID cleanup depend on a generic CSS
+> teardown state, and adds an accessor solely for this failure path.
+> 
+> The private ID is not needed until mem_cgroup_css_online(), so could we
+> instead reserve it at the beginning of that callback? Failures in
+> css_create() before ->css_online() would then never own a private ID,
+> while failures after the reservation would continue to use the existing
+> mem_cgroup_private_id_remove() cleanup.
+> 
+> This would also make the private ID lifecycle more explicit: reserve and
+> publish it during online, then drop the initial reference during offline.
+> It would avoid both the new css_is_released() helper and special handling
+> in mem_cgroup_css_free().
 
-HEAD commit:    8d7fe9885c62 Merge tag 'hid-for-linus-2026112301' of git:/..
-git tree:       git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
-console output: https://syzkaller.appspot.com/x/log.txt?x=114e6b4d580000
-kernel config:  https://syzkaller.appspot.com/x/.config?x=1cf189394a856f11
-dashboard link: https://syzkaller.appspot.com/bug?extid=dbad68398c8646e5a382
-compiler:       gcc (Debian 14.2.0-19) 14.2.0, GNU ld (GNU Binutils for Debian) 2.44
-C reproducer:   https://syzkaller.appspot.com/x/repro.c?x=154e6b4d580000
+Thanks Muchun. Nothing needs the private ID before ->css_online(), so
+reserving it there would work. But it moves the out-of-IDs failure from
+->css_alloc() to ->css_online(). By then css_create() has linked the
+css into the parent's children list and css_idr, so mem_cgroup_iter()
+can css_tryget() it and cache it in iter->position. A css that fails
+online is freed without ->css_released(), so
+invalidate_reclaim_iterators() never runs, and the free does not wait
+for those references. Today memcg's ->css_online() fails only when a
+small allocation fails. With the move, every mkdir on a system that is
+out of IDs would take that path. I would rather keep failing in
+->css_alloc(), before anything is visible.
 
-The issue was bisected by AI to:
+To drop the CSS_RELEASED dependency, I can test the ID's own state:
+!memcg->private_id_objcg means the ID was never published and the memcg
+still owns the reservation. Let me know if that works for you.
 
-commit 9b1cc9f251affdd27f29fe46d0989ba76c33faf6
-Author: Joe Thornber <ejt@redhat.com>
-Date:   Fri Jan 23 10:00:07 2015 +0000
-
-    dm cache: share cache-metadata object across inactive and active DM tables
-
-AI reasoning:   https://syzkaller.appspot.com/ai_job?id=62801fe8-a5e6-46c1-82e8-ca23918ed904
-
-AI-generated root cause summary:
-In drivers/md/dm-cache-metadata.c, dm_cache_metadata_close() checks if the
-reference count drops to zero using refcount_dec_and_test() outside table_lock
-before acquiring table_lock to unlink the entry from the global table list. When
-a concurrent thread invokes dm_cache_metadata_open() -> lookup_or_open() for the
-same block device, it acquires table_lock while the entry remains on the list
-with a refcount of 0, causing lookup() to invoke refcount_inc() on a zero
-reference count and triggering a refcount saturation BUG/warning. When the
-closing thread subsequently frees the object, the lookup caller is left holding
-a pointer to freed memory, causing a use-after-free.
-
-full analysis:  https://syzkaller.appspot.com/x/ai_root_cause?x=dbad68398c8646e5a382
-
-IMPORTANT: if you fix the issue, please add the following tag to the commit:
-Reported-by: syzbot+dbad68398c8646e5a382@syzkaller.appspotmail.com
-
-The cause commit was identified by AI and may be wrong.
-If you agree with it, please also add:
-Fixes: 9b1cc9f251af ("dm cache: share cache-metadata object across inactive and active DM tables")
-
-refcount_t: addition on 0; use-after-free.
-------------[ cut here ]------------
-kernel BUG at lib/refcount.c:34!
-Oops: invalid opcode: 0000 [#1] SMP KASAN NOPTI
-CPU: 1 UID: 0 PID: 6093 Comm: syz-executor381 Not tainted syzkaller #0 PREEMPT(full) 
-Hardware name: QEMU Standard PC (Q35 + ICH9, 2009), BIOS 1.16.3-debian-1.16.3-2 04/01/2014
-RIP: 0010:refcount_warn_saturate.cold+0x12/0x14 lib/refcount.c:34
-Code: 89 ea be 01 00 00 00 48 c7 c7 e0 08 c4 90 e8 0b 5a 01 00 e9 e3 43 05 04 e8 f1 c9 d7 00 48 c7 c7 00 53 81 8c e8 35 98 eb ff 90 <0f> 0b e8 dd c9 d7 00 48 c7 c7 a0 53 81 8c e8 21 98 eb ff 90 0f 0b
-RSP: 0018:ffffc900039a77e0 EFLAGS: 00010286
-RAX: 000000000000002a RBX: ffff88801ef92000 RCX: 0000000000000000
-RDX: 000000000000002a RSI: ffffffff81ec4dd9 RDI: fffff52000734eed
-RBP: 0000000000000002 R08: 0000000000000000 R09: 0000000000000000
-R10: ffffc900039a75a7 R11: 0000000000000001 R12: ffff888021af6780
-R13: ffff888021af6780 R14: 0000000000000000 R15: ffff88802dbe1000
-FS:  00007f79d04be6c0(0000) GS:ffff8880d4561000(0000) knlGS:0000000000000000
-CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
-CR2: 00007f79d0cbeff8 CR3: 000000002ed19000 CR4: 0000000000352ef0
-Call Trace:
- <TASK>
- __refcount_add include/linux/refcount.h:289 [inline]
- __refcount_inc include/linux/refcount.h:366 [inline]
- refcount_inc include/linux/refcount.h:383 [inline]
- lookup+0x105/0x120 drivers/md/dm-cache-metadata.c:809
- lookup_or_open drivers/md/dm-cache-metadata.c:835 [inline]
- dm_cache_metadata_open+0x5a9/0x900 drivers/md/dm-cache-metadata.c:867
- cache_create drivers/md/dm-cache-target.c:2491 [inline]
- cache_ctr+0x180e/0x3ab0 drivers/md/dm-cache-target.c:2656
- dm_table_add_target+0x58b/0xee0 drivers/md/dm-table.c:765
- populate_table drivers/md/dm-ioctl.c:1602 [inline]
- table_load+0x3b9/0x7b0 drivers/md/dm-ioctl.c:1645
- ctl_ioctl+0x4d2/0xcc0 drivers/md/dm-ioctl.c:2221
- dm_ctl_ioctl+0x22/0x30 drivers/md/dm-ioctl.c:2243
- vfs_ioctl fs/ioctl.c:52 [inline]
- __do_sys_ioctl fs/ioctl.c:598 [inline]
- __se_sys_ioctl fs/ioctl.c:584 [inline]
- __x64_sys_ioctl+0x18e/0x210 fs/ioctl.c:584
- do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
- do_syscall_64+0x123/0x7b0 arch/x86/entry/syscall_64.c:89
- entry_SYSCALL_64_after_hwframe+0x77/0x7f
-RIP: 0033:0x7f79d14f7fcb
-Code: 00 48 89 44 24 18 31 c0 48 8d 44 24 60 c7 04 24 10 00 00 00 48 89 44 24 08 48 8d 44 24 20 48 89 44 24 10 b8 10 00 00 00 0f 05 <89> c2 3d 00 f0 ff ff 77 1c 48 8b 44 24 18 64 48 2b 04 25 28 00 00
-RSP: 002b:00007f79d04bdae0 EFLAGS: 00000246 ORIG_RAX: 0000000000000010
-RAX: ffffffffffffffda RBX: 000000000000000d RCX: 00007f79d14f7fcb
-RDX: 00007f79d04bdb40 RSI: 00000000c138fd09 RDI: 000000000000000d
-RBP: 000000000000000d R08: 0000000000000000 R09: 0000000000000000
-R10: 0000000000000000 R11: 0000000000000246 R12: 00007f79d04bdfa0
-R13: 00007f79d04bdca0 R14: 0001000000000000 R15: 00007f79d04be0a0
- </TASK>
-Modules linked in:
----[ end trace 0000000000000000 ]---
-RIP: 0010:refcount_warn_saturate.cold+0x12/0x14 lib/refcount.c:34
-Code: 89 ea be 01 00 00 00 48 c7 c7 e0 08 c4 90 e8 0b 5a 01 00 e9 e3 43 05 04 e8 f1 c9 d7 00 48 c7 c7 00 53 81 8c e8 35 98 eb ff 90 <0f> 0b e8 dd c9 d7 00 48 c7 c7 a0 53 81 8c e8 21 98 eb ff 90 0f 0b
-RSP: 0018:ffffc900039a77e0 EFLAGS: 00010286
-RAX: 000000000000002a RBX: ffff88801ef92000 RCX: 0000000000000000
-RDX: 000000000000002a RSI: ffffffff81ec4dd9 RDI: fffff52000734eed
-RBP: 0000000000000002 R08: 0000000000000000 R09: 0000000000000000
-R10: ffffc900039a75a7 R11: 0000000000000001 R12: ffff888021af6780
-R13: ffff888021af6780 R14: 0000000000000000 R15: ffff88802dbe1000
-FS:  00007f79d04be6c0(0000) GS:ffff8880d4461000(0000) knlGS:0000000000000000
-CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
-CR2: 00007f79d04bdff8 CR3: 000000002ed19000 CR4: 0000000000352ef0
