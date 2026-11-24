@@ -1,79 +1,80 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
 	t=1795558208;
-	b=kCJDd76kEHXoms3KBkQlQkal2EA90B2aY/i19z0U01hPz8KLC07ILT7aw3eg32L2AIql
-	 FUl1Ox1mbAHt8eM8fgttVZAj1La3W7H+KEmj+Rre1CmHOhZoBDvdo47YWPn/Ll4IHDFaa
-	 VfRiqMdmUi5OznlTyGJKWYMhnv+C4HJY545hQECFiZxtWAvixT642RGpVjZLbqoTAV/Nv
-	 pBPPPO4x3+MXVoRsLpdFgEd+D9XtGUj3AkqYyzV71IC9AfQ+hQGRj2wocp+3DkJqH0A6O
-	 7Su4I6h8Z/ubY83gqzNrDL3NbuQFN6jkv1bI8FHaAGV/e4Eo23mMDX8ati4K9DcVeGQ==
+	b=4epCgfr7ypkyQ6nP3pMdpOfXJGhRlfMdodKNdLMKq9sJC+BaksZ+TKND+PDfwhdzcrmE
+	 J4uUugkThdULrqJ09Tsh8WSAibzXRmMGdxJEslkxc8o8NxvHxdSNkum9h69di/i1S5uyK
+	 hNyq7mHAIElQzWOsTMswn2Ootf6T2nYIoU6lOHb1i16wnz+lh3IQSjBjK9BuvhEZL5S2M
+	 eLdSGFgmZ7dKnfsq+BPdfvrZ2GTkzzT7QSAbYiK82TbnXBkUSv4ne1cV+HG0nrTgAteGq
+	 T8Xyh8qNukV1ClpzjO+UZrl/AUWtADEy0uh4w+9nU1MJkug5ErImkmGoTAUCPAzJS4w==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795558208;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=6dmOP6aQ6aqkfzJN8FKFivLq7QwU/1I8ZYZIqVNe2vE=;
-	b=XFdBbSkiyYAmFl+1qc41D/j3v32mkW8QQD7V1UuwfZwJXRhJIZf+Fe22LG8+wchb6/zu
-	 gVBogT+kaUXrD98ctYYAZgvE1bhfqgjAhEsKHTu2OgFLpXzKQ9wKwZiNvCbr+H/MQKypP
-	 v7UkKvgDDve3NFGW2f6YPWL2AqoptrQ37UZdC741Idlg5kQBVHgTMlWVBIPUf4FNRtYFU
-	 3DBj+2yNwwRVmuSq4PIAnNDiTu4xkKe4MiaxapFRUBf4w3ILVXuRc3X3jLgzK7rbA2cjd
-	 43PZ5Hq7Y5sLiE4XJ+xQfvOOaK3Vv+MAM8OIHT38liSl4tYtf6aGH1bc5xrJc4DudjQ==
+	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:To:
+	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=rZR39T6vUctQJt+jvmmxxuiQjIpyuC7WI9wKFJW19d0=;
+	b=XWBAgupuUoOkwYTidli/XeLfexbYhxvMjiYB3Pk2mP87HPy067H96E7Lekqa25Hi+66Q
+	 lfG5XuIMQPfOW7S7JnxOfwNi5PZpeP8YJ74aJCRkPI9AAF7gm6CSpdFa1ZSuOUxLd5NdJ
+	 AqOpbqzgICleh1Siso7zQSjX1WvS3pa7Wdey/ZF87y2OwPFi1KAEttbWmAVEGp6oN+fbi
+	 cO7bnGpPi89JnD0XbxHdiipalvAa42VuTc4mm9o+ytErQvl8A1A4liY+LhwZtRA8SBNRe
+	 EmVM8PC52MY8oIjG63LrSWeDr4xSB2x01bB0rAApuZis0PXaSv6XEksiUnawHSBVccg==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dl8qm5l1;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HCbJyAtm;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E3F9F606A329;
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E3EC7606A321;
 	Tue, 24 Nov 2026 22:10:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dl8qm5l1
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HCbJyAtm
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
 	t=1795558207;
-	b=Na79PzDphFEKa4oOb68Qhr2YF9f7gMNISY5oVvuH8wcz6XIkkZ1UD9tXMEBjqIViED2s
-	 WL9pej9Fju/LdQWcODfhDrYgtWwEq/vp0U5HLk2rbiRJiDckm9BVYBsakMTWpcrvOXRkw
-	 O0ZsNhVZNlKJOfZ6TmJuboTGZVeFltxRMkT3Md37w1oUadYpcwxIkNngzrjcR67S86ZJL
-	 tgwKE+36GW9HN+Wmh32UV3959lerDuspyYYETGEIYCpsj7Ck1vdzgBJ3xNNVbF9KXgCwy
-	 RmFTjVCjkjyoF8MPASn0NjuuxSW0iwBc+tGiRV6NhUk8+y4RspGW34XfHuyipg5BbeQ==
+	b=MX9ocsrntlHKfwWqsK8FC6CCU8t1AAnxNvZj5LBG35AB0SM9zb7zd/OJ5Zh8Z3xfcPQQ
+	 88RGLSwiFfufm5uyafeSIgL92+EAwPGdir3Vo2DOTkauL1jabGQyVYLQHHyXESWFnpBft
+	 P1WQd9fXv7Os0FLWDy7NKfmC66JMAPecdR9v51M1I4vpMuVkX5uRxUaofHV1IDkKDMvn1
+	 knindIwWBh/35KEYxzPoJIagHLt25AK2jW26UEu8eGt30OiMEOe7gMlfnXFUYFR9inzEr
+	 Uvsi+zZwzSGWNoIVm4f+SrYb7ke8kXFYm0h2zdO4PgHDjXceexLMyfO6eYLAr/lQRDQ==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
 	c=relaxed/relaxed; t=1795558207;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=6dmOP6aQ6aqkfzJN8FKFivLq7QwU/1I8ZYZIqVNe2vE=;
-	b=lWujGYIn1yhzMEHXNFls0kgCnUkRP030rCaidSs1ZR23RZqLqUVwWJnz8qneSCBiOWku
-	 GfCS39jquJXf0iPPHo0p4kPxMPOIBtpZrasslgnfhf4iWJm1vQAtRzv6NGEaETbXizamM
-	 liNpdBuGQTcqvK3+aOkx3qf2+PTlhlgtZMmWLI/nmY62+LEMWBLJx1Z5iw7DLozun/3Zv
-	 LDZ4WhHhn4ifs22fuh6f3qyWaT8Hp0DYPMLTf47u2+JgVyIqXREE0EavNUQCCdUpiDUzs
-	 LGl62HN4zOLarzDR1DwiTCBSHVjD9oLf2h/w1Flb8bzacHhNbjBXieRxip+xiQP+TIw==
+	 X-Original-From:Reply-To;
+	bh=rZR39T6vUctQJt+jvmmxxuiQjIpyuC7WI9wKFJW19d0=;
+	b=zMzkdSRbaVkAhPwWxtD1ZSxuUbVNESF1VvVoPMYeaPbA4AvShGAgdnfXk6RfAVXVUj/H
+	 on5l/B9XATIHrfMarL3R90h/abldLHzElg2mShbvzqckibtIYh5A6wfPKlCrH+rPMv/oT
+	 lHRSjsNWFxRMAA1jpMRJiauFBVk+K+LjPuEmQD5HaUa45bpyLjpwNNx5CjGKfjtlyHtjj
+	 nsHmYgHpHGKp/aQQGTKDozfXCElF3NvU2E8h/APN4YS7NaetJocyKKj9dLD/DzCElasaL
+	 +vWy4V3OucUzeRzJLAr2ss7++74jS853nU1GAFrV3olTAIj2P/X1RMuU/GBLzwn7BDQ==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 32CD81F000D1;
+	by smtp.kernel.org (Postfix) with ESMTPS id 186B01F000D0;
 	Tue, 24 Nov 2026 22:09:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
 	s=k20260515; t=1795558207;
-	bh=6dmOP6aQ6aqkfzJN8FKFivLq7QwU/1I8ZYZIqVNe2vE=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=dl8qm5l1XIEa8HMyaT8ydnMIKCBYS3umbFUPp4eZSvGLJIObId4TfWL3WGnX3LF2T
-	 Pb1HhZNTstCBg7rrdRgYCsI24Y+AtT7DKB8suxle15TUpbAvK2EkU0ipVPDsIOiUQq
-	 meHWI5BDw7utmQxvnx3JTzBMCUXyh19e1J/LT8BrveBYdJ6Q4ZbkDGPJ9khpReuLEd
-	 e/gCn85736jIDgRnQvEhAAS+xNkkgMKwAs8DoUkn/gb1RCffFpnSoXPRFTOq7jWEFH
-	 /DeDl8fFluDBtfHyEZzZ9Z90m9V+akEwY7m2SmmN5ZVJDh9YL77A1Pi3xrKK6Cvrvr
-	 WNUioCtYWJxZQ==
+	bh=rZR39T6vUctQJt+jvmmxxuiQjIpyuC7WI9wKFJW19d0=;
+	h=From:Subject:Date:To:Cc:Reply-To;
+	b=HCbJyAtmvBtIfGbg6pxdvt9yoYqceKkYEHEwHKQ6fq0SZzkwk9XBEHSvqep47tutQ
+	 I59P1pWUQLczQJlTUCeoXcPukmYl3UPhOXx17HIngzfk2hSaJ5irzW4h1OMdbYq4+8
+	 v0UIo/iw9r5x4kDm+bkFtGM/FM+63ivsI8+jjbYzXMt7RWUGSZ46EIColqZURvOVUv
+	 T+Iguq/ZDQnTCu/kml1/FH9h+L+V2Fc6Sundfx0xz8j5YvZvecJ4f8oyqHbR05I/n+
+	 clLDpRWYYvCEDD0IN6TwuzknUODlKZY+HvuBOgVXe3fbUAKBCGLrTxF5PXR+gqLcEQ
+	 eRweJ8foIUGvA==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id B758A4CBCA;
+	by lkml.kernel.org (Postfix) with ESMTP id 6EEE54CBC6;
 	Tue, 24 Nov 2026 22:09:56 +0000 (UTC)
 From: Selvamani Rajagopal via B4 Relay <devnull+Selvamani.Rajagopal.onsemi.com@kernel.org>
-Date: Tue, 24 Nov 2026 14:09:50 -0800
-Subject: [PATCH net-next v12 02/15] Documentation: networking: Add
- timestamp related APIs to OA TC6 framework
+Subject: [PATCH net-next v12 00/15] Support for onsemi's S2500 10BASE-T1S
+ MAC-PHY
+Date: Tue, 24 Nov 2026 14:09:48 -0800
+Message-Id: <20261124-s2500-mac-phy-support-v12-0-3575855d99f9@onsemi.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,9 +85,13 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261124-s2500-mac-phy-support-v12-2-3575855d99f9@onsemi.com>
-References: <20261124-s2500-mac-phy-support-v12-0-3575855d99f9@onsemi.com>
-In-Reply-To: <20261124-s2500-mac-phy-support-v12-0-3575855d99f9@onsemi.com>
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAC0LBmsC/3XRS27DIBAG4KtUrEs1A+bVVe9RdQF43FAptmUcK
+ 1GUuxe7VZPKYgnDfD8DV5ZpSpTZ69OVTbSknIa+LFA8P7F48P0n8dSWDSZAaNCAPAsFwI8+8vF
+ w4fk0jsM086aTnpyALhjJSu84UZfOG/zOepp5T+eZffxU8il8UZxXdj17SHkepst2h6XZOn7TV
+ CVtaTjwlkpaRBl1a9+GPtMxvcThuIUs6oHBpsaowlhnTROM6IxQO0Y/MMLVGF0YtJGMK2VpcMe
+ YO2PA1hhTmMbYaI3xHr3bMfbOOFFlbGEMAaL3MUrYM+6PQYDqUG594kgdYQuhg3bHINwdBF1zE
+ AokMSivXbAqmD2EDxDKKoTrYB5t+VB0SsR/0O12+wYfcqeHzQIAAA==
 To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, 
  Russell King <linux@armlinux.org.uk>, 
  "David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, 
@@ -104,159 +109,229 @@ Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
  devicetree@vger.kernel.org, linux-doc@vger.kernel.org, 
  Jerry Ray <jerry.ray@microchip.com>, 
  Ciprian Regus <ciprian.regus@analog.com>, 
- Selvamani Rajagopal <Selvamani.Rajagopal@onsemi.com>
+ Selvamani Rajagopal <Selvamani.Rajagopal@onsemi.com>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795558193; l=5833;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795558193; l=10232;
  i=Selvamani.Rajagopal@onsemi.com; s=20260531; h=from:subject:message-id;
- bh=e1D6w+f4ICdcIKoxkxfKUPKsEbTykb38slj0b2WqgHM=;
- b=cwaJZXaWuvCMlHNJzofacuUvmYVqlMiZjvVxM2w4Wpwqigg0B58lyr+d2v3HrGMe6DjQz4HZc
- EOgLCFv9d8VCryRvyyrpk07u1SLf21JspCsyXU6OifmDB8HkCljcC5B
+ bh=Xsdx3629A/Jol/9s0osfmNOcTlbJxOJ8u7SwaA3F1LE=;
+ b=UR/3qePJUR729WLijzQ1jW+RapkA/21f7sdgTnhyAF4pFEyIpA7MTKZBhtSp65IystGC2BQjN
+ +4FDvmh7kowCw9bh9dZzgpzvUN0k1f+tVCi/1MFnjNBqo8gualKxrzh
 X-Developer-Key: i=Selvamani.Rajagopal@onsemi.com; a=ed25519;
  pk=5QRdM0HS/LGWWcUZZ9hVfZ+qbPQGZCumcTXOiN7Fyug=
 X-Endpoint-Received: by B4 Relay for
  Selvamani.Rajagopal@onsemi.com/20260531 with auth_id=803
 X-Original-From: Selvamani Rajagopal <Selvamani.Rajagopal@onsemi.com>
 Reply-To: Selvamani.Rajagopal@onsemi.com
-Content-Transfer-Encoding: 7bit
 
-From: Selvamani Rajagopal <Selvamani.Rajagopal@onsemi.com>
+This patch series brings support for onsemi's S2500, an
+IEEE 802.3cg compliant 10BASE-T1S Ethernet transceiver with an
+integrated Media Access Controller (MAC-PHY).
 
-Add new APIs to support hardware timestamp feature as defined in
-OPEN Alliance 10BASE-T1x MAC-PHY serial interface specification.
+The driver works with the OA TC6 framework that is already
+present, and supports hardware timestamping. The framework gets
+hardware timestamp support, a quirk to map MDIO_MMD_VEND1 to a
+vendor MMS, an API to set the TX credit threshold, an RX
+cut-through quirk and handling of the frame drop (FD) bit. It
+also moves to its own directory. A device tree binding is added
+and the framework documentation is updated.
 
-Add the newer read/write APIs that take MMS as one of its parameters
-as these were not documented so far.
+Through ethtool, the driver provides a register dump, MAC, PHY
+and RMON statistics, timestamp statistics and self-test,
+including PHY loopback.
 
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+As S2500 has an internal PHY, onsemi's PHY driver is extended to
+support it. A new PHY core helper, genphy_loopback_no_speed(), is
+added for its loopback and is also used by the dp83867 driver.
+
+Changes to the current behavior:
+- NCN26000: enhanced noise immunity (ENI) is now enabled and
+  disabled together with PLCA.
+- OA TC6 framework users: frames flagged with FD are dropped,
+  received frames shorter than an Ethernet header are dropped,
+  and drivers selecting OA_TC6 now depend on PTP_1588_CLOCK_OPTIONAL
+
 Signed-off-by: Selvamani Rajagopal <Selvamani.Rajagopal@onsemi.com>
+---
+Changes in v12:
+- Map MDIO_MMD_VEND1 to vendor MMS through a quirk parameter in oa_tc6_init
+- Do not drop a TX frame when no timestamp capture register is free, send
+  it without a timestamp and count an error
+- Fix races in timestamp configuration and in interface down handling
+- Link to v11: https://lore.kernel.org/r/20261113-s2500-mac-phy-support-v11-0-7a186141952c@onsemi.com
+
+Changes in v11:
+- Create new patches to move vendor changes to its own patch
+- Improve commit message to be more informative of the changes
+- Add clarity to kernel documentation in oa-tc6-framework.rst
+- Fix issues potential Oops issue in S2500 driver.
+- Add logic to take care of frame drop bit from MAC-PHY 
+- Link to v10: https://lore.kernel.org/r/20261106-s2500-mac-phy-support-v10-0-31b5a69b85b7@onsemi.com
+
+Changes in v10:
+ - Removed config_intr callback in S2500 PHY driver
+ - Removed writing status0/config0 from s2500 driver
+ - Implemented API to set tx credit threshold and 
+   to enable RX cut-through mode
+ - Drop the frame when frame drop bit in footer is set
+ - Module name restored back to oa_tc6.ko from oa_tc6_mod.ko
+- Link to v9: https://lore.kernel.org/r/20261009-s2500-mac-phy-support-v9-0-dcefe1d0bf0d@onsemi.com
+
+Changes in v9:
+- Renamed the new phy API from having "fixed_speed" to "no_speed"
+- Fixed compilation issue due to having changes in the wrong patch
+- Added the MAINTAINERS changes to where files were introduced.
+- Fixed coding style issues reported.
+- Moved the order of patches so that selftest changes goes after
+  s2500 support.
+- Made Pier's email ID consistent across to be consistent across 
+  the codebase.
+
+- Link to v8: https://lore.kernel.org/r/20260928-s2500-mac-phy-support-v8-0-7e011aacc309@onsemi.com
+
+Changes in v8:
+- Modified to use newer MMD based read/write APIs
+- clean up by removing unused definitions/initializations
+- Better handling of timestamp capture events by using
+  bit fields so that we don't lose any event
+- timestamp skb queue is protected with spinlock
+- added reset-gpio in YAML file as support is recently added
+- removed ioctl from OA TC6 framework as it is not needed.
+
+- Link to v7: https://lore.kernel.org/all/20260708-s2500-mac-phy-support-v7-0-478c877aa1a9@onsemi.com
+
+Changes in v7:
+- Fixed compiler warning due to prototype mismatch
+- Moved the order of patches to ensure dt-bindings comes first
+  before it is being used
+- Added missing review tag
+- Added missing MODULE_DEVICE_TABLE
+- OA_TC6 framework enables 64 bit timestamping mode by default.
+
+- Compiler related warnings fixed.
+- Link to v6: https://lore.kernel.org/r/20260629-s2500-mac-phy-support-v6-0-18ce79500371@onsemi.com
+
+Changes in v6:
+- Changes to ensure onsemi code stay within 80 columns.
+- Fixed the error of "not described in comments section"
+  in comments section.
+
+- Fixed compiler warnings.
+- Link to v5: https://patch.msgid.link/20260614-s2500-mac-phy-support-v5-0-89874b72f725@onsemi.com
+
+Changes in v5:
+ - kernel doc related changes in oa_tc.c, onsemi driver files and
+  oa tc6 rst file
+- Link to v4: https://lore.kernel.org/r/20260605-s2500-mac-phy-support-v4-0-de0fbc13c6d8@onsemi.com
+
+Changes in v4:
+ - Added return value comment for genphy_read/write_phy_mmd functions
+ - Added genphy_loopback_fixed_speed helper function to be used in
+   set_loopback callbacks
+ - Updated networking documentation for OA TC6 framework to elaborate
+   on what is expected in the ptp_clock_info structure for registration.
+ - added spi-max-frequency in YAML file based on alert from sashiko-bot
+ - Removed model/version from the onsemi driver's private structure as
+   they were useful as "information-only" data.
+ - Replaced the non-standard selftest with Linux's standard selftest
+   and made it as a separate patch
+ - Changed bit manipulation, shift operations to use macros so that
+   it is clean and readable.
+ - added new read_register and write_register apis with _mms postfix
+   so that MMS (memory map selector) can be given as a parameter.
+ - Fixed the wrong condition check with NETIF_F_RXFCS to subtract
+   FCS size from the length of the frame.
+ - Link to v3: https://lore.kernel.org/r/CY8PR02MB92499C9080614FA3CEB8CD0483162@CY8PR02MB9249.namprd02.prod.outlook.com
+
+Changes in v3:
+ - Moved OA TC6 framework to its own directory.
+ - Split changes to smaller patches based on feedback.
+ - Added PHY loopback support as a separate patch.
+ - New, read and write register APIs with extra parameter MMS
+ - Link to v2: https://lore.kernel.org/r/CY8PR02MB924920C8825C7AE5D22EFA4483382@CY8PR02MB9249.namprd02.prod.outlook.com
+
+Changes in v2:
+ - API to add vendor specific MMS to mdio device map.
+ - Link to v1: https://lore.kernel.org/r/CY8PR02MB9249D083B637477C254F9B0583322@CY8PR02MB9249.namprd02.prod.outlook.com
+
+To: Selva Rajagopal <selvamani.rajagopal@onsemi.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>
+To: David S. Miller <davem@davemloft.net>
+To: Eric Dumazet <edumazet@google.com>
+To: Jakub Kicinski <kuba@kernel.org>
+To: Paolo Abeni <pabeni@redhat.com>
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Parthiban Veerasooran <parthiban.veerasooran@microchip.com>
+To: Simon Horman <horms@kernel.org>
+To: Jonathan Corbet <corbet@lwn.net>
+To: Shuah Khan <skhan@linuxfoundation.org>
+To: Randy Dunlap <rdunlap@infradead.org>
+To: Richard Cochran <richardcochran@gmail.com>
+To: Andrew Lunn <andrew@lunn.ch>
+To: Heiner Kallweit <hkallweit1@gmail.com>
+To: Russell King <linux@armlinux.org.uk>
+To: Eric Dumazet <edumazet@kernel.org>
+To: Piergiorgio Beruto <piergiorgio.beruto@gmail.com>
+Cc: Selva Rajagopal <Selvamani.Rajagopal@onsemi.com>
+Cc: netdev@vger.kernel.org
+Cc: devicetree@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-doc@vger.kernel.org
 
 ---
-changes in v12
-  - Updated rx_filter behavior and return codes for oa_tc6_hwtstamp_set()
-changes in v11
-  - Changed the wording of timestamp support to make it more clear
-changes in v10
-  - Added new API oa_tc6_tx_credit_threshold_set
-  - Vendor introduced APIs to vendor support patch
-changes in v9
-  - Added Reviewed tag
-changes in v8
-  - Updated the order of the parameters in oa_tc6_read_register_mms
-    and oa_tc6_write_register_mms apis.
-  - Removed the reference to ioctl
-changes in v7
-  - No change
-changes in v6
-  - No change
-changes in v5
-  - Fixed "no blank line" issues in four places
-changes in v4
-  - Added information for new APIs in OA TC6 framework
-changes in v3
-  - Added more information for documentation
-changes in v2
-  - Removed the changes to the existing API
-  - Updated information about newly added APIs
-changes in v1
-  - Added changes to an existing API
-  - Added documentation to new hardware timestamp related APIs
+Selvamani Rajagopal (15):
+      dt-bindings: net: add onsemi's S2500
+      Documentation: networking: Add timestamp related APIs to OA TC6 framework
+      net: ethernet: oa_tc6: Move oa_tc6.c to its own directory
+      net: ethernet: oa_tc6: Move constant definitions to header file
+      net: ethernet: microchip: lan865x: Depends on PTP_1588_CLOCK_OPTIONAL
+      net: ethernet: adi: adin1140: Depends on PTP_1588_CLOCK_OPTIONAL
+      net: ethernet: oa_tc6: Support for hardware timestamp
+      net: ethernet: oa_tc6: Drop frames if footer has FD bit set
+      net: ethernet: oa_tc6: Support for vendor specific MMS
+      net: ethernet: oa_tc6: APIs to customize CONFIG0 settings
+      net: phy: ncn26000: Enable enhanced noise immunity
+      net: phy: Add helper to modify only the PHY loopback bit
+      net: phy: ncn26000: Support for onsemi's S2500 internal phy
+      net: phy: dp83867: Use genphy_loopback_no_speed()
+      net: ethernet: onsemi: s2500: Add driver support for S2500
+
+ .../devicetree/bindings/net/onnn,s2500.yaml        |  71 +++
+ Documentation/networking/oa-tc6-framework.rst      | 113 ++++-
+ MAINTAINERS                                        |  11 +-
+ drivers/net/ethernet/Kconfig                       |  13 +-
+ drivers/net/ethernet/Makefile                      |   3 +-
+ drivers/net/ethernet/adi/Kconfig                   |   1 +
+ drivers/net/ethernet/microchip/lan865x/Kconfig     |   1 +
+ drivers/net/ethernet/oa_tc6/Kconfig                |  16 +
+ drivers/net/ethernet/oa_tc6/Makefile               |   7 +
+ .../ethernet/{oa_tc6.c => oa_tc6/oa_tc6_main.c}    | 561 ++++++++++++++++-----
+ drivers/net/ethernet/oa_tc6/oa_tc6_ptp.c           |  68 +++
+ drivers/net/ethernet/oa_tc6/oa_tc6_std_def.h       | 186 +++++++
+ drivers/net/ethernet/oa_tc6/oa_tc6_tstamp.c        | 304 +++++++++++
+ drivers/net/ethernet/onsemi/Kconfig                |  21 +
+ drivers/net/ethernet/onsemi/Makefile               |   6 +
+ drivers/net/ethernet/onsemi/s2500/Kconfig          |  20 +
+ drivers/net/ethernet/onsemi/s2500/Makefile         |   6 +
+ drivers/net/ethernet/onsemi/s2500/s2500_ethtool.c  | 389 ++++++++++++++
+ drivers/net/ethernet/onsemi/s2500/s2500_hw_def.h   | 165 ++++++
+ drivers/net/ethernet/onsemi/s2500/s2500_main.c     | 496 ++++++++++++++++++
+ drivers/net/ethernet/onsemi/s2500/s2500_ptp.c      | 156 ++++++
+ drivers/net/phy/Kconfig                            |   2 +-
+ drivers/net/phy/dp83867.c                          |  11 +-
+ drivers/net/phy/ncn26000.c                         |  68 ++-
+ drivers/net/phy/phy_device.c                       |  24 +
+ include/linux/oa_tc6.h                             |  33 ++
+ include/linux/phy.h                                |   2 +
+ 27 files changed, 2602 insertions(+), 152 deletions(-)
 ---
- Documentation/networking/oa-tc6-framework.rst | 76 +++++++++++++++++++++++++++
- 1 file changed, 76 insertions(+)
+base-commit: c2621b518b38ed38e280e008aa33e6c2d302f8cc
+change-id: 20260601-s2500-mac-phy-support-4f3ae920fb73
 
-diff --git a/Documentation/networking/oa-tc6-framework.rst b/Documentation/networking/oa-tc6-framework.rst
-index 2545ef694016..2df8455bf3ba 100644
---- a/Documentation/networking/oa-tc6-framework.rst
-+++ b/Documentation/networking/oa-tc6-framework.rst
-@@ -153,6 +153,13 @@ OPEN Alliance TC6 Framework
- - Forwards the received Ethernet frame from 10Base-T1x MAC-PHY to n/w
-   subsystem.
- 
-+- If supported and enabled, timestamps are stored in the skb. Transmit
-+  timestamps are requested via the TSC header field and read from
-+  timestamp capture register A, B or C. If the next capture register is busy,
-+  the frame is transmitted without requesting a timestamp and the TX
-+  timestamp error counter is incremented. Receive timestamps are
-+  prepended to the frame when the RTSA footer bit is set.
-+
- Data Transaction
- ~~~~~~~~~~~~~~~~
- 
-@@ -496,3 +503,72 @@ the MAC-PHY.
- Zero align receive frame feature can be enabled to align all receive ethernet
- frames data to start at the beginning of any receive data chunk payload with a
- start word offset (SWO) of zero.
-+
-+.. c:function:: int oa_tc6_ptp_register(struct oa_tc6 *tc6, \
-+                                        struct ptp_clock_info *info)
-+
-+Registers the PTP hardware clock (PHC) with the kernel. Returns 0 immediately
-+when the MAC-PHY does not support hardware timestamp. Otherwise it sets the
-+name field of ptp_clock_info and registers the clock. Initialization of the
-+other fields in the ptp_clock_info structure is left to the vendor as the
-+PHC registers and their programming are vendor specific. The fields max_adj,
-+owner, and all the functions for the clock operations, like adjfine,
-+gettimex64, settime64, adjtime are expected to be initialized in the
-+structure before registering the hardware clock.
-+
-+.. c:function:: void oa_tc6_ptp_unregister(struct oa_tc6 *tc6)
-+
-+Unregisters the PTP hardware clock.
-+
-+.. c:function:: int oa_tc6_get_ts_info(struct oa_tc6 *tc6, \
-+                                       struct kernel_ethtool_ts_info *info)
-+
-+Reports the hardware timestamping capabilities and PHC index in info when
-+a PTP hardware clock is registered. Otherwise, info is left unchanged.
-+Returns 0 (success) in both cases.
-+
-+.. c:function:: void oa_tc6_hwtstamp_get(struct oa_tc6 *tc6, \
-+                                         struct kernel_hwtstamp_config *cfg)
-+
-+Returns hardware timestamp configuration. Part of net_device_ops callbacks.
-+
-+.. c:function:: void oa_tc6_get_ts_stats(struct oa_tc6 *tc6, \
-+                                         struct ethtool_ts_stats *stats)
-+
-+Provides hardware timestamp related traffic statistics for ethtool.
-+An unexpected TX capture for a frame still being transferred counts as a
-+timestamp error, not a lost timestamp. A request abandoned after its frame
-+was transmitted, without a capture, counts as lost; a late TTSC event for
-+that request does not count as an error.
-+
-+.. c:function:: int oa_tc6_hwtstamp_set(struct oa_tc6 *tc6, \
-+                                        struct kernel_hwtstamp_config *cfg)
-+
-+Helper to set hardware timestamp configuration. Part of net_device_ops
-+callbacks.
-+
-+The MAC-PHY timestamps all received frames, so any rx_filter other than
-+HWTSTAMP_FILTER_NONE, or tx_type HWTSTAMP_TX_ON, results in
-+HWTSTAMP_FILTER_ALL. The rx_filter field of cfg is updated with the
-+filter that was programmed.
-+
-+Returns 0 on success, otherwise:
-+
-+- -EOPNOTSUPP: no PTP hardware clock is registered.
-+- -EIO: the interface is down, or the framework has stopped handling
-+  traffic after an error.
-+- -ERANGE: tx_type or rx_filter is not supported.
-+- -ETIMEDOUT: the request was not picked up within 100 ms.
-+- A negative error code from the register access.
-+
-+.. c:function:: int oa_tc6_write_register_mms(struct oa_tc6 *tc6, \
-+                                              u8 mms, u16 address, \
-+                                              u32 value)
-+
-+Write a single register addressed by @mms and @address in the MAC-PHY.
-+
-+.. c:function:: int oa_tc6_read_register_mms(struct oa_tc6 *tc6, \
-+                                             u8 mms, u16 address, \
-+                                             u32 *value)
-+
-+Read a single register addressed by @mms and @address in the MAC-PHY.
-
+Best regards,
 -- 
-2.43.0
+Selvamani Rajagopal <Selvamani.Rajagopal@onsemi.com>
 
 
