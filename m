@@ -1,145 +1,203 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=fail smtp.remote-ip=198.175.65.19
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=fail;
-	t=1795554527;
-	b=ZgPuCAnmuaqhNLAQNfHeROYWC0kfnpoZ/kjr8/apT7x+sGNxNPlE6rwzciacITxuFtDs
-	 y6mVUr1i73ZRqCoEayR6mzRUmkbTiie3CcfBDDMLINUTDwg7QIEfzquAncuD1DZ0IpQw/
-	 tJrq9WLMnkNUssLerluGfmcbl5WUvknhE2yWmWFe2+qzHcMZuRx9yY2XAjDpa+oPmHbpG
-	 g7n0/p4VvTy+hN+Xq3ErObNkCjwL+bQsoTNqvmmQk773bFe0xeN91Hh6dovp3KCEZyYtW
-	 yC2A1Y1H0IWKovMjMp14haIjl86EWUPGsm1tPViyTGx7tw7x/ktJ3GzGAvZdsXnD4uQ==
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=198.175.65.19
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795554680;
+	b=gAZ4xaTiyC+8tT6PieBFiXt4MenHJ/qTSljOGNxDAZd9TXeAlrDKm6qUHMo1/lwkXLjy
+	 PdS6pa9jgy32BeLXDmfSH3iT45PV/M0RP/dE+N4d+GGAio75lCYpXUJ0HtsPTAab80rNP
+	 tAoko8SjkkeWDD6cJr/g34eQUSI9ixXikj3ry+iCjH3fybyTIxMf9qOOe7ZaLol9s/fpa
+	 dce6SsS/il1KTuflMrbBc5vtigMTVAfc1FdW0VAV/GBPi5R0OxgnCFE0X3TT0ssekLpDv
+	 2d+E6hEDdIJTedXdRsWrXTg0S57/GFau8dXfgq7qASBzLvf8Fj630OEXcnWeXUSuyuQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795554527;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795554680;
 	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
 	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
 	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Received:
-	 Received:DKIM-Signature:Received:Received:Date:From:To:CC:Subject:
-	 Message-ID:References:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-LD-Processed:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-Exchange-RoutingPolicyChecked:
+	 Received:DKIM-Signature:Received:Received:From:To:CC:Subject:
+	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
+	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
+	 user-agent:x-ms-publictraffictype:x-ms-traffictypediagnostic:
+	 x-ms-office365-filtering-correlation-id:x-ms-exchange-senderadcheck:
+	 x-ms-exchange-antispam-relay:x-microsoft-antispam:
+	 x-microsoft-antispam-message-info:x-forefront-antispam-report:
+	 x-ms-exchange-antispam-messagedata-chunkcount:
+	 x-ms-exchange-antispam-messagedata-0:Content-Type:Content-ID:
+	 Content-Transfer-Encoding:MIME-Version:
+	 X-Exchange-RoutingPolicyChecked:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-AuthSource:
 	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-CrossTenant-originalarrivaltime:
+	 X-MS-Exchange-CrossTenant-fromentityheader:
+	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
+	 X-MS-Exchange-CrossTenant-userprincipalname:
 	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-OriginatorOrg;
-	bh=Za6o2b7fIMf8kJ0kQHLB8aZRyFp0t4+kuttyxvEbjUU=;
-	b=lhR7mcUljsoqpyvWjYt63cIfidQKcr8TI9S5kHjR42EdP+WzWyJC+pMb1MMBztBDZe4r
-	 /IgdiYB0kS1+xCJ3uPwXwcyS5snxutf9NIJsGTuzydNr5gnLH+rSydSbtYt2W4B+bcOX1
-	 hyoRhvl08INQiO5PG9TtxTynRkxnQAPTvUgGxDMe0M0gDmFfmFr/6nxpDQsHjUTsLMb73
-	 eRVU17STrW7+Vesc53bJl/O2TrzWexbrHzNR9aZDhA6pKk4oITOPQfxY7GCqO1VY1PEHu
-	 K2h2Ky4HrJwRBUA+lJi2ZQkS2g8iXuopkEh2fJ43oNc0QJpKLW5NX3zOrQXGe47Ts8w==
+	bh=1rcewsM2UzlqGH+QdwntIGJUYvniBAAGQc3FXzQJ+Xg=;
+	b=c2QMdXOB59q6MJ8eRl+QG8qyK+kc2DT3MMnYdOaa4qbwt0jWrpXgDtGlwCkJ/P3dq6ny
+	 9AVxVISmLjhuZQDbvA/xvwyKWo+rCTlxl4m6hTah9rHPyXQCs1vmQiuke7tN0rse+LDLy
+	 vfkkWBU5LlKni7B5vYVOhLoObtbt3nxkUFi8jZn+lXLlfuv+b4Nzdpk0cd2E0GIqStU4s
+	 iiCvkGAmHCX7u7qIB4cWSJJIDjduv0AtM34lV6Hfd7xq8QUCVXJixRqhd1CuhQyZPJ1gR
+	 6J/XHKOC0MLq0x+nNjf+DLgsBySueL2LZj6twtsXGCj9QM3MRW8Jz/z40hS/2XvdRxg==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=intel.com;
 	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=lWzcDFxP;
-	dkim=fail reason="signature verification failed" header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=Mmt+dI4y;
-	arc=fail smtp.remote-ip=198.175.65.19
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=kmZ4p099;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=F4Tq4bUa;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=198.175.65.19
 Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.19])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2C82E606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 21:08:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2C82E606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F0709606A327;
+	Tue, 24 Nov 2026 21:11:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F0709606A327
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=lWzcDFxP;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=Mmt+dI4y
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=kmZ4p099;
+	dkim=pass (1024-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=F4Tq4bUa
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795554527; x=1827090527;
-  h=date:from:to:cc:subject:message-id:references:
-   content-transfer-encoding:in-reply-to:mime-version;
-  bh=fI6sSCexMYUBVnrvnF+PnHHgoKNQzpQCyjQml4Klmb8=;
-  b=lWzcDFxP3Mz9GK3uuzvrnUYr/rbYmLnPRd81dWCynGtWG5gzcRGZfeOv
-   tPDXJxJ/iHlDC19Yaq9ihPWF9A8d7OSzxF3PHHHv0zO8lOl0zBeIV3S/l
-   6jDyxA5fjmpAzwCGASBLlRKMBb4MvjwB5biYjtgqMczi/3FEPa/5N7tkg
-   VVNdYJnQHNOos6WlwEC1Tqyp9tPDI+Bjier+TGwgUtw3G/YKDu2mUjStw
-   v/nMa+JyiyQmtyVST/ZncyFIS/IHgWSMErCxiEfDywhuljKJTk6pCz8ZX
-   If0LTmkayl1JyhIPQ4rVSWnBpu/f9JlrrWL2+lzc6YbUPzeVeMtc46YGS
+  t=1795554680; x=1827090680;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-id:content-transfer-encoding:
+   mime-version;
+  bh=1rcewsM2UzlqGH+QdwntIGJUYvniBAAGQc3FXzQJ+Xg=;
+  b=kmZ4p0998FPtF5GvX5Q5Xc5pYTmZPcGnVUJKs2SJkWzeU9DkybvylfH2
+   hpyv9EiOHnaWUxW5E8LQL5tLVaVLyc4KHlck3z1dnFCjtD/ahtg1iemuz
+   1HGYWQkoEh2zGz1t+Y7p+8dGGUkUZ8Ukvb61TUjvO1blRfkFdp0wjMken
+   N+tKBDycCAJv1FNzgE+fSP7l/Y0yq3x5vgrFOTh3h8ysZ1r3H0dYZ4q5f
+   SXYkIE7NNI9jg4qTZ6dFnf/Q957H6jlrEb6wNib2uptDm0WP3Vx2YMW9C
+   rnO6H2w39qhR7ICnx69/SR42gVLKkJbzAzk+0EuKwujxCw4LnM+M1TFa/
    g==;
-X-CSE-ConnectionGUID: Mq8JbDwWScuf3trwHaqLTQ==
-X-CSE-MsgGUID: aheROc0VQNebT9aOMfXlcw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11976"; a="4471153"
+X-CSE-ConnectionGUID: DOfhA9oTSKCRhT9DR3P5kA==
+X-CSE-MsgGUID: pcHxk7qYTDyGDl5oIWLYzw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11976"; a="4471489"
 X-IronPort-AV: E=Sophos;i="6.27,231,1787036400"; 
-   d="scan'208";a="4471153"
-Received: from fmviesa009.fm.intel.com ([10.60.135.149])
-  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 13:08:47 -0800
-X-CSE-ConnectionGUID: ppWaxRefQfKyzBbTUDnmvQ==
-X-CSE-MsgGUID: yBt76Lt6TEiKBubVGuDbPw==
+   d="scan'208";a="4471489"
+Received: from fmviesa002.fm.intel.com ([10.60.135.142])
+  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 13:11:20 -0800
+X-CSE-ConnectionGUID: BVgBHqrzTr6Nli3g72HEog==
+X-CSE-MsgGUID: +FiF4ssaSaSncSSzBVjZFw==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.27,231,1787036400"; 
-   d="scan'208";a="12096264"
-Received: from orsmsx903.amr.corp.intel.com ([10.22.229.25])
-  by fmviesa009.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 13:08:46 -0800
+   d="scan'208";a="11873835"
+Received: from orsmsx902.amr.corp.intel.com ([10.22.229.24])
+  by fmviesa002.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 13:11:19 -0800
 Received: from ORSMSX902.amr.corp.intel.com (10.22.229.24) by
- ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57; Tue, 24 Nov 2026 13:08:45 -0800
-Received: from ORSEDG903.ED.cps.intel.com (10.7.248.13) by
  ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57 via Frontend Transport; Tue, 24 Nov 2026 13:08:45 -0800
-Received: from BN8PR05CU002.outbound.protection.outlook.com (52.101.57.54) by
- edgegateway.intel.com (134.134.137.113) with Microsoft SMTP Server
+ 15.2.2562.57; Tue, 24 Nov 2026 13:11:18 -0800
+Received: from ORSEDG902.ED.cps.intel.com (10.7.248.12) by
+ ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57; Tue, 24 Nov 2026 13:08:45 -0800
+ 15.2.2562.57 via Frontend Transport; Tue, 24 Nov 2026 13:11:18 -0800
+Received: from BN8PR05CU002.outbound.protection.outlook.com (52.101.57.54) by
+ edgegateway.intel.com (134.134.137.112) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.57; Tue, 24 Nov 2026 13:11:18 -0800
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=TAUfOB6S7h38Qd2Z2zzC5GUYjSQEDA9L96x/XmxYAQ1AtnKjBHWJQYGOIOkxpBmRQCfuxLRY/Vke+mZKqF/nCU4vgrACSbeU04QC9y5pz9z4RAGdhA6shf6v56tYH14+cyvzqdKjeOgNQikZkLKQGc0HXOnJd4lH/yEqOVOlVS2XC32JPw+GMiT0RZq57CjQUvxxiVuBoyStRyI9bpWsyR2v0kOFEGc6nuYTSxwPwIVxWKxKZmM+7j0F4CkAyKMMVZCsOZxl+uiBIJLe0n31xr0l61VLGk6vGVH1qR40zunqcvSdl/Fw5TgkpT2CdUCNa2Od4ig/MClYhxcK4XV3zw==
+ b=fLn0ezj11jeRLALjSukPtRyo+51sFR9Ja3xmKoR3JRfai5rA1Q1X45W0VZMWAWTYN5BJhmtziOsicQbEFH7cqdmM4vTY7Zy/mQIhIdcWP2m/LmV6UA7ckSaH4VselFI6jW61i5qrLgAkN2T2aL1RIboPFfVTTqRYejXRzzQF9jJ0V77tw70HIW1uhdP37+G1L/iGoadvYLyI7QF6PZBuPcEz4DadMHaItbUNR8ZugzyjJt7kv98g+TUtONSqv0zDfjNH0QW8w5ZNE0Vo1gvg7Iw33cj+wcT6Cnm89tz1eG9js84w8gevCPoxZIppSCTxSa7nuczzae84N0mWvsJzjg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=M7OF+zZZX+PosgMJIEANiHWv0WtQsBwnqqyZhkdnmnY=;
- b=TcECNv5DtcYDBEyPDxbK/MTqnXdvYI9TVre63YtEQP5WkhVfrxKtnqgSR4AWYHjhSyqWgbqeHFXoxOIL4hKlSZA8irMcH16T45jUc722/CSqgBJGFEjdQP0TIcUd0OEQy7s4xbW5OO2PgEvqhZCPGilXo+uLCKQPFmZfT3IAlyzyekyyuceL6ZTmrsnil+n600M7SaXByvpQyvi0fX+DsfHA7YQk4srfR775fowHQZmCU4G1dmUNLyA0z/z7rp/Q77DMeaHqvd8reXfU15Sp35DqZKrHOaMCtixNZERVY4gV0iPDrtTYkN9NxDwm1CxCWzq1Dpuojia/LquE/gTbGA==
+ bh=1rcewsM2UzlqGH+QdwntIGJUYvniBAAGQc3FXzQJ+Xg=;
+ b=FhRFD/fWV6P2sL4erePFpsZu+uZPtFAHSHAx054wb1+YYi38UH+syKfX7NBum5LpxAGkqNQeus9tGv4pctxR7+BWE2YkOjn4G4LrNNBJxDdobbc+3epkcSyYaYfkPHcY276CUBa9t4aQ8AUeZDgUOOz7LHt+AjIXIXiEeNQc02Oi1FgkdKV7xsaszdSamqWvlQP86WTL1wayWLsrlvf1O7y5+KQBkhTDQn9zkO7ScEj9cFIbmmp7rosB/jrpqSgW5/s3K3qyE6h21zatw2DESgKMpwwRmnEoeYfEeqS7/6wEeujY9Z7ePXeRIAqVDdJwaGd1yIHkgSmVj3USgodSCw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
  dkim=pass header.d=intel.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=intel.com;
  s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=M7OF+zZZX+PosgMJIEANiHWv0WtQsBwnqqyZhkdnmnY=;
- b=Mmt+dI4y4UPOavT+2mWQ6Cm03HxjVEJ+FgAOcLuPsUkWACG787rPJLXNJdfmmZkaMPy+m+SWAeYE3Q6rVhoAPMA+QgOUiBI8XgjWGkIv4X69yaWc3BgHcwcHTNVVxhDjdFylPTvxAVuxGYcebtbQUUMZyYiK/HyyOxy2slfVEHw=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from CO1PR11MB4787.namprd11.prod.outlook.com (2603:10b6:303:95::23)
- by MW6PR11MB8310.namprd11.prod.outlook.com (2603:10b6:303:249::16) with
- Microsoft SMTP Server (version=TLS1_2,
+ bh=1rcewsM2UzlqGH+QdwntIGJUYvniBAAGQc3FXzQJ+Xg=;
+ b=F4Tq4bUaDVcI87HSfPD9W/0/wVeu1iv1u4pTuCsGzYzJxTqbBOu/2ZD+ucrJHDQc7Q1zUbXoF4/Ym0iqv80+z8mW8/6i7h+cgm6YE9yGtI68DIZoxpz14r7l2pvOtiTCr08Kd+/nLaPdEg7NKc+8fWyppvcVfPfgiZwLCSAYaHs=
+Received: from IA3PR11MB634048.namprd11.prod.outlook.com
+ (2603:10b6:208:549::23) by SA1PR11MB529852.namprd11.prod.outlook.com
+ (2603:10b6:806:51a::11) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Tue, 24 Nov
- 2026 21:08:40 +0000
-Received: from CO1PR11MB4787.namprd11.prod.outlook.com
- ([fe80::e7eb:a872:53d1:21fd]) by CO1PR11MB4787.namprd11.prod.outlook.com
- ([fe80::e7eb:a872:53d1:21fd%4]) with mapi id 15.21.0639.012; Tue, 24 Nov 2026
- 21:08:40 +0000
-Date: Tue, 24 Nov 2026 13:08:37 -0800
-From: Matthew Brost <matthew.brost@intel.com>
-To: Niranjana Vishwanathapura <niranjana.vishwanathapura@intel.com>
-CC: <intel-xe@lists.freedesktop.org>, <dri-devel@lists.freedesktop.org>,
-	Carlos Santa <carlos.santa@intel.com>, Ryan Neph <ryanneph@google.com>,
-	Christian Koenig <christian.koenig@amd.com>, Huang Rui <ray.huang@amd.com>,
-	Matthew Auld <matthew.auld@intel.com>, Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>, <linux-kernel@vger.kernel.org>, Thomas
- =?iso-8859-1?Q?Hellstr=F6m?= <thomas.hellstrom@linux.intel.com>
-Subject: Re: [PATCH v3 32/33] drm/xe: Finalize defrag-IOVA moves with
- post-copy job
-Message-ID: <awX81cww2IB7Vf8b@gsse-cloud1.jf.intel.com>
-References: <20260711025619.2540575-1-matthew.brost@intel.com>
- <20260711025619.2540575-33-matthew.brost@intel.com>
- <avfBNLDPLhl8_mkb@nvishwa1-desk>
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <avfBNLDPLhl8_mkb@nvishwa1-desk>
-X-ClientProxiedBy: BYAPR05CA0040.namprd05.prod.outlook.com
- (2603:10b6:a03:c0::44) To CO1PR11MB4787.namprd11.prod.outlook.com
- (2603:10b6:303:95::23)
+ 2026 21:11:10 +0000
+Received: from IA3PR11MB634048.namprd11.prod.outlook.com
+ ([fe80::760f:f0a4:7417:6e57]) by IA3PR11MB634048.namprd11.prod.outlook.com
+ ([fe80::760f:f0a4:7417:6e57%5]) with mapi id 15.21.0639.011; Tue, 24 Nov 2026
+ 21:11:10 +0000
+From: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>
+To: "Gao, Chao" <chao.gao@intel.com>
+CC: "hpa@zytor.com" <hpa@zytor.com>, "Xu, Yilun" <yilun.xu@intel.com>,
+	"bp@alien8.de" <bp@alien8.de>, "baolu.lu@linux.intel.com"
+	<baolu.lu@linux.intel.com>, "Peng, Chao P" <chao.p.peng@intel.com>,
+	"dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"mingo@redhat.com" <mingo@redhat.com>, "x86@kernel.org" <x86@kernel.org>,
+	"kvm@vger.kernel.org" <kvm@vger.kernel.org>, "linux-coco@lists.linux.dev"
+	<linux-coco@lists.linux.dev>, "Tian, Kevin" <kevin.tian@intel.com>,
+	"tglx@kernel.org" <tglx@kernel.org>, "kas@kernel.org" <kas@kernel.org>
+Subject: Re: [RFC PATCH 2/7] coco/tdx-host: Establish an SPDM session with the
+ device
+Thread-Topic: [RFC PATCH 2/7] coco/tdx-host: Establish an SPDM session with
+ the device
+Thread-Index: AQHddbsMp5EiD4IiPE+yzoiB4hQRbrc8V7wAgADkLACAAIlIgA==
+Date: Tue, 24 Nov 2026 21:11:10 +0000
+Message-ID: <30852ad50fb3085de04145342aaf1caf145488fe.camel@intel.com>
+References: <20261116111037.3478844-1-chao.gao@intel.com>
+	 <20261116111037.3478844-3-chao.gao@intel.com>
+	 <ac7befe5081a489172d87402e55355852a9e62ac.camel@intel.com>
+	 <awWKRJQ3_rIgxJVC@intel.com>
+In-Reply-To: <awWKRJQ3_rIgxJVC@intel.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+user-agent: Evolution 3.44.4-0ubuntu2.1 
+authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: IA3PR11MB634048:EE_|SA1PR11MB529852:EE_
+x-ms-office365-filtering-correlation-id: 8e537530-084c-46ae-8048-08df4a6f76dd
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|23010399003|7416014|376014|1800799024|366016|38070700021|261026121527099003|10067099003|4143699003|261022105027099003|11063799006|5023799004|56012099006|261026140227099003|261021123027099003|261021121427099003|261022115727099003|261022075727099003|261028144727099003|261102123227099003|18002099003|22082099003|6133799003|3023799007;
+x-microsoft-antispam-message-info: dOnFK34SQlzt+fp5Bq9IsnY0m7kskhwnk/DWfvdC1nMRhwodor91C0A5HcsNnnpsepwstZY2gYfj8rlv1FRY1VpFA6rVp6iXUUgWN/t6XEGXe3OWlEGtJS1m3XZkuZKqZF8Dfu59aoZk3E+7k4/g8WrgLgxwoqoaQ2jbMBhW45GpqKVnuZ2AMK8zLOrPnh1Td3ub01ALBjh+EIzrflVCtqMLN1/r0PQPhrzcRvNLXwH2mu1zfo7pPjn5Flg0Nbjzt4uBwgR4b9dUXxRyX40AhHsuXVgji/fAnufTQXHcoUU9SjNU4gDX9D6S5CLPs1Oc8IZgDNqJOUa5maC3FrbcxISiRHQ1S7PwKl51qYL6iWi4SQvRTWCAEnOQGZM4iVZg4d6JzyzHggxfFL92TAAwPAPgHJExfy/JiWB9BBnWJDyEk763pHmtPtBe/YA9UTqq5XmPuW5jbz5326lZ2+RuxetDEwkFIkXcJWoHkfE/RVl0k+z47m83LUVpLDS0YdP1U7vtakXKdSaEwp4wfX6puLvd5AJrbpDhwqz/xzNc9krrCvOA9FAQlDU2J8kFPWJ8iHyc656ioR2TgibzlOtOtri1vINUz6VavLmKj9LMu9GhCrW5aAa7gXp2j+FqpV+CjU5TFLbkvEj9sGnO0E4iVo03qgJMRsm1k5Kca1CmvRUByn1p1zpTSOTy3iI5gnkc3YRr7hcsYfV32S1yeQlJyMLOW9243/OzRb5LRV9gdRo=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA3PR11MB634048.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(1800799024)(366016)(38070700021)(261026121527099003)(10067099003)(4143699003)(261022105027099003)(11063799006)(5023799004)(56012099006)(261026140227099003)(261021123027099003)(261021121427099003)(261022115727099003)(261022075727099003)(261028144727099003)(261102123227099003)(18002099003)(22082099003)(6133799003)(3023799007);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?WHhWazBlWnhIY01lMlZ3TjlGakVTWUNvdHpmRkZXWEw0UGdSbTNJR1lrT1Np?=
+ =?utf-8?B?RENZUk43N3ZIeVNkUWV4SUJGUUR1MHZBMHo2dG5FS1JkTWhZekFxMThpVTZC?=
+ =?utf-8?B?UXJRNHR3cmFEZ0ZYNzNEbEtweTJ5cWF1MGt4dzI3OU13Y2R2dVZpUjdQWkdu?=
+ =?utf-8?B?UnJMbnlZdlo1RVdHWDVDTVhPeTF6U1lia1FZUURBNURXbUJzaXd3L2U3WjlX?=
+ =?utf-8?B?VDJKc3lETGpqZGJEaFBJc3BtSkI0eWFnMFp1ZnVUWkkxZ0padDkzMWNFUHJL?=
+ =?utf-8?B?c3pUU3NTWFFaOVptaUtVTTF1bGdpWkozM2p3WVhKWktFa095bnNJSE9sQ0Qr?=
+ =?utf-8?B?ME1jNktncVV2U1NORWJIVHo0eDBIQmF6SGNiczNBaVdHS2w4alpteTZNOEpU?=
+ =?utf-8?B?eFBCQ0l4VUt4SStCMFYyMDZqM201TEhPTmtBdmplWEJ0VG1LeWZueFNXM2pw?=
+ =?utf-8?B?aFBDQkhCVnc3b0M2ZjlSQklMb3BwNmsrOElIdDZnK0xDNUw1TnRjK09iUHd6?=
+ =?utf-8?B?bzFhL3NTbGs1VjkvVUhxWG5tTU13OXdPZnFYTy9QY1FCOVBiZ1EybXpXMlpP?=
+ =?utf-8?B?WFRrRmtiVHROTDNqR3BGRFdRMVk3Y0ZIQ3NmS2djd1NPMXdlbDdhMUZQZ3BE?=
+ =?utf-8?B?SldXVDdNK0h1TVFZSzZucWd0dDlCdWV1WWlGejhxZkZoTEZ4cVl2N2pEcUJt?=
+ =?utf-8?B?WWQyUlV5a0xzVkRtRmg5T0p0bEJ0QzdsdUV4aHhjL1htREJFU1B6bEE2VG5Q?=
+ =?utf-8?B?WjVzN3RzSVE1S0dIclZDSXNTY2NKU3dWdXJERWx3VUFTV3JHTnUvWlpPcXEx?=
+ =?utf-8?B?QTU5dExINzloZjJTR0FJMnR5SGtpYXVVQklUN0RaV3NSSmNVbGtGbkNuNVJC?=
+ =?utf-8?B?L3RkVGxJSWZnUHg4MUNlbkhNdGU0c1Y1VXowRzBVRjJ2cFZ0SFNvWTduclBF?=
+ =?utf-8?B?anFIYWZrczdaSW5LbndWVE93MmxpcXF4Y2txVFpwQVhTYUM1Z3ArRWVydnJu?=
+ =?utf-8?B?aDVJT2NsSnBKVFF2bTk0OUtwRXRDZXVpdGFVYkRYMTQ3VmtyVXQ1MjE0Njgw?=
+ =?utf-8?B?WDRlRHRxbTlGN0lHQWpsQW1NdTdUWVY0Y2lUZzMyV0ZHeVlmdk5MRlRGR1lr?=
+ =?utf-8?B?QnY2K1dWMTJwcWFLWGRSallTUXEwMzFHMGNoOEpVUkhlTzJ3SDFSdHk5bkg3?=
+ =?utf-8?B?d1F2SE1IL3hrYTVwOHVYUDlEOXdnd3BGKzg3NHVFZHZsMko4cjVBQWdkYml3?=
+ =?utf-8?B?NVd1NlpGZTEvbUdLY2xTYXNldHNvU0xZejNLQjA5STA2ZWxXZ0dnakNQaWRW?=
+ =?utf-8?B?OXp3cXFvdUlWMWJ2NjJuYmllZnBhNkxiU0s0WjJLMGhvWERNVFd6V1NQZG5h?=
+ =?utf-8?B?VTNYR1pJaThOUTRLVHAvQmpqZ2h6a2VqZUtQbVFta3ZTVFZGMlhkYU90elZ6?=
+ =?utf-8?B?cm5SY1RwS25VL1hPc0p1THZYcjA2WDVNU2QwK1hrTWFTUFlwWnlUd1JYc1RX?=
+ =?utf-8?B?TmRQc3lFYXJNaDFpUmhDNE16d0RtVElMbnNWNk9PUWdmcjljRzBVQjl1N0dU?=
+ =?utf-8?B?eitPeVE0aVRQNU9iVGY3czE1OXFmbEd1SE9VMWpQVDVkNitHRytWRWs0dWky?=
+ =?utf-8?B?YVUxekk0U1p1YkMzTEhhbHVmQzJKV1dxbzhDZmVDTiszY3lIeTUvTkJQZ05x?=
+ =?utf-8?B?cHpIZ2JBR2I4RW0reGtDYlQ1d0N5MW9RY1NURGZmWEY1dlpucFRYbDIzUm9K?=
+ =?utf-8?B?ZW9EL2w4WUdMd3U3Q3NaQ0dlREt3b3NJNGE5K09LQ085TkxUUU55RVZtREMv?=
+ =?utf-8?B?WHduZmhPUnJUcGNhRElDZjU3Yk8wQlVNaHpDaXk5S0cwUVpYN0M1QXlXU052?=
+ =?utf-8?B?N0FFejB5Q0FEZG41cjZaVlZIbEppbzR3SHpoc0NxazFaeURreCtvdlc2UzVk?=
+ =?utf-8?B?RFZodEg3TFA2UVl3Z2xlaG5RNE1iSXJhcTZSeS8zdTFKZWdmSkpQeXhYZCtp?=
+ =?utf-8?B?RWJ2VExHOU15SmZZdElMcjdPeWdISDFVSlMyS254cFdkK2JOWTFFMkc1RDBW?=
+ =?utf-8?B?a0xtU0FYYzNQL3VCQy8zSUt1MFhNY2s5UWd0YjdlYnN6TWphdDF4MzVWZmV1?=
+ =?utf-8?B?aVdBS0VSKzRqNG44Z2dnYWV0b0FuNTcwaEljL0RIdW9GSzdkSDExcFNZeDgw?=
+ =?utf-8?B?Ynl2K1NSQUVYL08wc1liaHdaZDVQZysza0tWU2xrRFVvNDBJYTZ1MVFZcHRR?=
+ =?utf-8?B?OXg2aVFOd0sydzVHUGJDTkJrc0pOQm80U3ZEY1p3ZzJPbFZOdUR2NGxYQkE3?=
+ =?utf-8?B?MjFWSjkxTFczVTFVMS9hS3NMQVAyc1NkaTlRSXpWRGRXa2wvTnhLNEhXaDBR?=
+ =?utf-8?Q?+ebAcZRzBuQBSmZo=3D?=
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <1887C744F3EA494590A68697047C5C45@namprd11.prod.outlook.com>
+Content-Transfer-Encoding: base64
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -149,607 +207,126 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO1PR11MB4787:EE_|MW6PR11MB8310:EE_
-X-MS-Office365-Filtering-Correlation-Id: b9299ef3-0929-403e-e2ac-08df4a6f1d80
-X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|23010399003|10067099003|261102123227099003|261021121427099003|5023799004|11063799006|56012099006|4143699003|261022075727099003|261009223027099003|261026121527099003|261022105027099003|261021123027099003|261026140227099003|261028144727099003|18002099003|6133799003|22082099003;
-X-Microsoft-Antispam-Message-Info: X9yuYdPcxY43t8eRt1vGMzwUp4SbX4QgYGfXc0a0by8nDF3lVZdoYAD2adp/oInNCJyyxVKc+Joh1iE7GFdYtJWcxuwn7SfqmCALcFgbzgNfNPlQswLQuwzUWHdoFQnsUNFkcTog+tIU5KOZG/ttotEb+noi1mDMhBOb94BO6bIRGiCTIXphA6zaKpyY91Cp8xGRE0uE1FywR/87bQjmpEo7s+hEt0GZyfcYlndTLL4Qt0a+fF+3RT/5CMBuaeKV/7lX5ZXdxIzkhISdNdbCBk4U+V6czOp/x8ymcWkkiLr1Bv+KInbZRw6wg36p4Iqije9SoApCbwb+aQt5uH3Ylaf9kqM4Ov7RcqietOB3cYKLaxM7H9r4J3ZgNs1Cv7M9oNZsNjT+N6Ua2R+t4+HEVlTdBPVZzGrhQIZXemuYt3hRIgWMM60+dkx1Bp+YyipkHNtdV9lnaznp6vJbDfydTrErh3Uhv5naxQgsOFU1jOQeuEqqHZpdlBWN5ZHrsW5XJrfDi9oWgX08gd0huT/wHXVWUUsLj5b0eN6sjhVUroVK+CLs1P25/KdsdQ4T0xvea8FcoJLNqYHluTBWttNCDbATPl2IDd/SMfgzlRsEZh+ZZ3IRZn7KP2YGFcnKbsWIOgJxnbsIddbk2JGTcrbqU5YS6WeXSfpN7/y8U/WBtkM=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB4787.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(23010399003)(10067099003)(261102123227099003)(261021121427099003)(5023799004)(11063799006)(56012099006)(4143699003)(261022075727099003)(261009223027099003)(261026121527099003)(261022105027099003)(261021123027099003)(261026140227099003)(261028144727099003)(18002099003)(6133799003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?ic5p442mY1jszAnrQeqCfih0CWEBtCw+7YG0PZPgzHulZxKXlXxbrUUHuk?=
- =?iso-8859-1?Q?RnuoBErx4VM/Ln2YjIlHJz/GxwnlTisflddiYKlGFsEex/TnUv6fVyzyYK?=
- =?iso-8859-1?Q?uCigD0OXBLDnefDX4mERC49TQC6YZMLaQiN9bNUPxDAzIYbW9l0/Q45DiJ?=
- =?iso-8859-1?Q?mr/6X+Jju2CHPC+zc79xz22X43neJfFbT7nn5tC7yHJjI/QYXtAskY/Eyj?=
- =?iso-8859-1?Q?dnhsQ20YEtQa2BKjDFnfRFMTb9+5Aev6Ok40nC3L+HkRoUpgM/y1TGpoNE?=
- =?iso-8859-1?Q?h4qJ2clLOzeBDC570ffLUMcnoWcSlYAO6RC42QizRN1Iw9mfqZL+N1aVm8?=
- =?iso-8859-1?Q?HARrBhgv86WZ5voKK/Y4n2T5EuXjO2UKxCv2fNkw9CWhdKw9h8kGQ0xe71?=
- =?iso-8859-1?Q?tL24iE30L8/Yhyt2mLjs67sO2ibwpoXlkiAj4IE/s/PttOsXM/LyeyNQRu?=
- =?iso-8859-1?Q?qCP3ohr2QuE2pPmw0w5Ckrci69gPHLgCJoDCN1GzManpz5Tp0y4iULjCBc?=
- =?iso-8859-1?Q?9seZJiB9QWiqQSZ1MoNWnylk9iQ7gf2hPyYQ2eXSuxi4tFpNUf5/ty2NGy?=
- =?iso-8859-1?Q?snl/kbhNf+Nw5pTAexVOI1Nl2IxYxaovJLFn7b0EscyJ/0ynggdRaJYkux?=
- =?iso-8859-1?Q?ss7T9s0tccB4f+qZYgcsaw9+QyfY36N0cY0lIfKuMWbd2SyPMuOgW7qLFS?=
- =?iso-8859-1?Q?Vm2XA7IFdmlMUsBRUVLW99m1m9KxPACpTb0lP2M42HJHG1rJZIPGN6llSq?=
- =?iso-8859-1?Q?VQfAwsU4P75xNiG3XobyqbR+igW99Z3chLTIKZvuayeaSQatx8f9SwINz/?=
- =?iso-8859-1?Q?8NM+yBd16g4hIMBuRp5e+qjoiQZPh4yBY+gnn/rJDhlc7AIVBq3TwfXYxn?=
- =?iso-8859-1?Q?IuwS3+1w9P1ianwCOsaG/mfBnqlOu7lVp0294ADWa+j3edrc1U94As+k8z?=
- =?iso-8859-1?Q?kx8U8iHjicqigqYppAI2ra8Of6MuU+ndtUfgHaMIOEJqaJe9TbrYz5g7Db?=
- =?iso-8859-1?Q?VqwyLiAPI5q98BOY7oQ5A+OUSpPHnD0IgJozCtPKyP3K6rq3LkvwfdYity?=
- =?iso-8859-1?Q?uEGS7DUTi4kFMxjB7n+lc2ColBVTrFT2BiOCyR+yn28hZejdmJQUEkjvup?=
- =?iso-8859-1?Q?4h7BYNZhgPIFtrLDaAC7s85do0ga2qDSKSO89jDf4KuVVXSuVaekNFNrdI?=
- =?iso-8859-1?Q?/Vw8AU05fDF+5nafHwXlNz3d1GR8b+R1IFH+yQ6fxHo/j/yPC03a4Zt8Lb?=
- =?iso-8859-1?Q?1qqtT/oVHuqvENRfVM+oaNCm92YB1i4jDIQ7CAYK8XLSMfY5IeCp56qSAC?=
- =?iso-8859-1?Q?9/C94M8aFZsfaeB6QiNfE4wZKcWAdXsXrZLoqhf2Y9wVrRm+T+yAoDqXXS?=
- =?iso-8859-1?Q?YM0jg3UAXzct8drSShWhXo3AdVIThRboU8MKDxaxRIqz0uXOBeHw8KmJKE?=
- =?iso-8859-1?Q?3CyUKLmY+rA/eX8QH1GQ7Si617HTM3QyyDDPqyfKrb1ks8LdGQKvv31HPE?=
- =?iso-8859-1?Q?IXmBaUYhMV5R7mIH78YTRo83Q0NTf8+JHKcBIg5mgs2wl2KXzPpXuhjY6A?=
- =?iso-8859-1?Q?hmlDSQ352GcILQypRydkt4pcPDFi29ryOH/A3gu4pgl/r3ZmhUUelKYZRe?=
- =?iso-8859-1?Q?8Kl8OJMT9hD7ZW9TffpR57zAtG9eWh+Uwk5U0fzdjYUW+1+k15XsJbf46Q?=
- =?iso-8859-1?Q?EneBwEqYQJUKdTM8H3QNkoiXIO9ZGcgP7BB45dHYeBoeo6a0P+/494dmJ7?=
- =?iso-8859-1?Q?xGv4ueLkFu2AvcPKWmaeBbKZowfncV7+06eK7hhA2hhVc5HM7RNx43fFTG?=
- =?iso-8859-1?Q?CPTgyKUL3P9vzZF81CKg/lHORbVrYH0=3D?=
-X-Exchange-RoutingPolicyChecked: jKJTUnEVdCw4ebINgANn3n+e8dpKj7tgV2AfI233gsSmREf7dP7rBPEqhw+MU0DArePMkdHLmo4YxbnCk6ETK/QCD4XrESWH5tdQpRfOwWbqF1+schdcQR0uzTVGITTEn2ut6VNvKy5YPI16G4Rtf+lajb3d1Tl7DHgxBuqVUpWXkRN+qLGZSI15GTpNVQLPNw7Mt7L2814qhN5tUIyUSQU7Sjw9WtAATtMlsl2Dul0/BFxNIuqrEDYECn1CuxrN2a2tZ8xStLwcKr2fEj9NOo8CnFOC6Su8lVHCSgqdz031veR+pF1A/JhF0kKCLqYmglL6xy9+YGiXvYGFtqLRpA==
-X-MS-Exchange-CrossTenant-Network-Message-Id: b9299ef3-0929-403e-e2ac-08df4a6f1d80
-X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB4787.namprd11.prod.outlook.com
+X-Exchange-RoutingPolicyChecked: RVXLkXakz2BXSTdWKa+CKt131SdncUsCg+/bBMMS8DpI0Y1I12FigVsXPVZUZI9NQSxHgqS1XkSnBNrFMWRx9/GjKcOOzTqTVKgr9TExYsN0I+M5XQF7Bg2bzRFvXuhxlOhzSAB5q0YEuU6k04euxB65tJiF5NE1u316G4QT2G5uPUOLJovvoPP7psGGSWNMY3Kye5QH/7IoRnI+hHe4HXnfpFQ8Bu9ZOtnK0zpoIegD5qboxhHgjgx2ng/y/8vpYqzgr7G277jOwCm69qz9cq97GVMEIN/NqRWo6oVeODfwYfP4bwM2YqOz0IuMK2IR34HVZNBfCj8As77uDutT0g==
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 21:08:40.7865
+X-MS-Exchange-CrossTenant-AuthSource: IA3PR11MB634048.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8e537530-084c-46ae-8048-08df4a6f76dd
+X-MS-Exchange-CrossTenant-originalarrivaltime: 24 Nov 2026 21:11:10.5761
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: DHuNns0RLGte1JLfLpJPQy6qJGAQ/8OLDoZayaodOVprYasSGssK8dDsaPCfoESUChuEPqclv2jUzSw9fYeTTQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW6PR11MB8310
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 0IkktAp/VLbal5b067bVZvyZ9AuGqodJDkBpWLP14AymDT2xnfE5p2JryM0vJrnRT1b4RjA2Xf6zMHcwYg2iYYflYkomQ4IX4Fq1LQA0MP8=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR11MB529852
 X-OriginatorOrg: intel.com
 
-On Fri, Nov 13, 2026 at 06:02:28PM -0800, Niranjana Vishwanathapura wrote:
-> On Fri, Jul 10, 2026 at 07:56:18PM -0700, Matthew Brost wrote:
-> > Wire up end-to-end defrag for IOVA-mapped BOs. A defrag move
-> > is eligible whenever the destination TT is IOVA mapped. The
-> > packed-copy step moves only changed pages; the IOVA reservation
-> > is transferred to the new backing so device-visible addresses
-> > are preserved, avoiding GPU rebind overhead.
-> > 
-> > Add xe_bo_defrag_use_iova() to select the IOVA defrag path.
-> > Add xe_bo_defrag_iova_copy() to drive the move: diff new vs
-> > stashed old TT, link changed pages packed, blit them, then
-> > queue a post-copy finalize job.
-> > 
-> > The finalize job tears down the temporary packed mapping,
-> > transfers the full old TT reservation to the new one, and
-> > relinks the copied pages at natural offsets.
-> > 
-> > Borrowed pages skip the copy and simply adopt the old
-> > reservation.
-> > 
-> > Since reservation transfer preserves device-visible addresses,
-> > xe_bo_trigger_rebind() skips drm_gpuvm_bo_evict() marking;
-> > GPU PTEs stay valid.
-> > 
-> > Cc: Carlos Santa <carlos.santa@intel.com>
-> > Cc: Ryan Neph <ryanneph@google.com>
-> > Cc: Christian Koenig <christian.koenig@amd.com>
-> > Cc: Huang Rui <ray.huang@amd.com>
-> > Cc: Matthew Auld <matthew.auld@intel.com>
-> > Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
-> > Cc: Maxime Ripard <mripard@kernel.org>
-> > Cc: Thomas Zimmermann <tzimmermann@suse.de>
-> > Cc: David Airlie <airlied@gmail.com>
-> > Cc: Simona Vetter <simona@ffwll.ch>
-> > Cc: dri-devel@lists.freedesktop.org
-> > Cc: linux-kernel@vger.kernel.org
-> > Cc: Thomas Hellström <thomas.hellstrom@linux.intel.com>
-> > Assisted-by: GitHub_Copilot:claude-opus-4.8
-> > Signed-off-by: Matthew Brost <matthew.brost@intel.com>
-> > 
-> > ---
-> > 
-> > v3:
-> > - Check dma_iova_sync(), wait the copy fence before unlink on error,
-> >   and gate the fast path on old_tt->use_iova (Sashiko)
-> > ---
-> > drivers/gpu/drm/xe/xe_bo.c | 325 +++++++++++++++++++++++++++++++++++--
-> > 1 file changed, 311 insertions(+), 14 deletions(-)
-> > 
-> > diff --git a/drivers/gpu/drm/xe/xe_bo.c b/drivers/gpu/drm/xe/xe_bo.c
-> > index c087f17ad6db..36290f58ccc1 100644
-> > --- a/drivers/gpu/drm/xe/xe_bo.c
-> > +++ b/drivers/gpu/drm/xe/xe_bo.c
-> > @@ -13,6 +13,7 @@
-> > #include <drm/drm_dumb_buffers.h>
-> > #include <drm/drm_gem_ttm_helper.h>
-> > #include <drm/drm_managed.h>
-> > +#include <drm/gpu_scheduler.h>
-> > #include <drm/ttm/ttm_backup.h>
-> > #include <drm/ttm/ttm_device.h>
-> > #include <drm/ttm/ttm_placement.h>
-> > @@ -25,6 +26,7 @@
-> > #include <trace/events/gpu_mem.h>
-> > 
-> > #include "xe_device.h"
-> > +#include "xe_dep_job_types.h"
-> > #include "xe_dep_scheduler.h"
-> > #include "xe_dma_buf.h"
-> > #include "xe_drm_client.h"
-> > @@ -542,7 +544,6 @@ static void xe_tt_unaccount_iova(struct xe_device *xe,
-> >  * @xe_tt->iova_dma_pages[]. Used to (re)derive accounting that exactly matches
-> >  * the pages a tt is actually mapped with.
-> >  */
-> > -__maybe_unused
-> > static void xe_tt_account_iova_pages(struct xe_device *xe,
-> > 				     struct xe_ttm_tt *xe_tt)
-> > {
-> > @@ -567,7 +568,6 @@ static void xe_tt_unaccount_iova(struct xe_device *xe,
-> > {
-> > }
-> > 
-> > -__maybe_unused
-> > static void xe_tt_account_iova_pages(struct xe_device *xe,
-> > 				     struct xe_ttm_tt *xe_tt)
-> > {
-> > @@ -806,7 +806,6 @@ struct xe_tt_iova_copy {
-> >  * differ. Coalesce contiguous changed folios into runs and, for each run,
-> >  * invoke @fn. Returns the total number of changed pages.
-> >  */
-> > -__maybe_unused
-> > static pgoff_t xe_tt_iova_walk_changed(struct ttm_tt *new_tt,
-> > 				       struct ttm_tt *old_tt,
-> > 				       void (*fn)(pgoff_t start, pgoff_t count,
-> > @@ -855,7 +854,6 @@ struct xe_tt_iova_run_collect {
-> > };
-> > 
-> > /* Geometrically grow @arr (element size @elem) to hold at least @need slots. */
-> > -__maybe_unused
-> > static int xe_tt_iova_grow(void **arr, unsigned int *cap, unsigned int need,
-> > 			   size_t elem)
-> > {
-> > @@ -878,7 +876,6 @@ static int xe_tt_iova_grow(void **arr, unsigned int *cap, unsigned int need,
-> > 	return 0;
-> > }
-> > 
-> > -__maybe_unused
-> > static void xe_tt_iova_store_run(pgoff_t start, pgoff_t count, void *arg)
-> > {
-> > 	struct xe_tt_iova_run_collect *c = arg;
-> > @@ -933,7 +930,6 @@ static void xe_tt_iova_store_run(pgoff_t start, pgoff_t count, void *arg)
-> >  *
-> >  * Return: 0 on success, -ENOMEM on allocation failure.
-> >  */
-> > -__maybe_unused
-> > static int xe_tt_iova_copy_init(struct ttm_tt *new_tt, struct ttm_tt *old_tt,
-> > 				struct xe_tt_iova_copy *copy)
-> > {
-> > @@ -969,7 +965,6 @@ static int xe_tt_iova_copy_init(struct ttm_tt *new_tt, struct ttm_tt *old_tt,
-> >  * xe_tt_iova_copy_fini() - Release a struct xe_tt_iova_copy
-> >  * @copy: The copy description to release.
-> >  */
-> > -__maybe_unused
-> > static void xe_tt_iova_copy_fini(struct xe_tt_iova_copy *copy)
-> > {
-> > 	kfree(copy->runs);
-> > @@ -1000,7 +995,6 @@ static void xe_tt_iova_copy_fini(struct xe_tt_iova_copy *copy)
-> >  * Return: 0 on success, negative error code on failure (any partial linkage is
-> >  * unwound).
-> >  */
-> > -__maybe_unused
-> > static int xe_tt_map_iova_copy(struct xe_device *xe, struct ttm_tt *new_tt,
-> > 			       const struct xe_tt_iova_copy *copy)
-> > {
-> > @@ -1047,6 +1041,133 @@ static int xe_tt_map_iova_copy(struct xe_device *xe, struct ttm_tt *new_tt,
-> > 	return ret;
-> > }
-> > 
-> > +/**
-> > + * struct xe_iova_defrag_job - Post-copy finalize job for an IOVA defrag move.
-> > + *
-> > + * After the GPU defrag copy into the packed copy-step mapping completes, this
-> > + * dependency job runs the CPU-side IOMMU fixups at the point of no failure:
-> > + * tear down the temporary packed mapping, then per changed run unlink the old
-> > + * pages and link the new pages into the (transferred) reservation at their
-> > + * natural offset.
-> > + */
-> > +struct xe_iova_defrag_job {
-> > +	/** @dep: base generic dependency Xe job. */
-> > +	struct xe_dep_job dep;
-> > +	/** @xe: The xe device. */
-> > +	struct xe_device *xe;
-> > +	/** @new_tt: The destination tt being finalized (owns the reservation). */
-> > +	struct ttm_tt *new_tt;
-> > +	/**
-> > +	 * @copy_iova: Snapshot of the new tt's original IOVA reservation that
-> > +	 * held the temporary packed copy-step mapping. Destroyed by the job
-> > +	 * (the new tt itself adopts the old tt's reservation at job creation).
-> > +	 */
-> > +	struct dma_iova_state copy_iova;
-> > +	/** @copy_bytes: Byte length of the packed copy-step mapping. */
-> > +	size_t copy_bytes;
-> > +	/** @copy: Changed-page description; the job owns and frees @copy.runs. */
-> > +	struct xe_tt_iova_copy copy;
-> > +};
-> > +
-> > +static struct dma_fence *xe_iova_defrag_job_run(struct xe_dep_job *dep_job)
-> > +{
-> > +	struct xe_iova_defrag_job *job =
-> > +		container_of(dep_job, typeof(*job), dep);
-> > +	struct xe_device *xe = job->xe;
-> > +	struct device *dev = xe->drm.dev;
-> > +	struct xe_ttm_tt *xe_tt =
-> > +		container_of(job->new_tt, struct xe_ttm_tt, ttm);
-> > +	unsigned int r, l;
-> > +
-> > +	/*
-> > +	 * Tear down the temporary packed copy-step mapping and free its
-> > +	 * reservation. The new tt has already adopted the old tt's full
-> > +	 * reservation (transferred at job creation), so this only touches the
-> > +	 * snapshot taken before the transfer.
-> > +	 *
-> > +	 * This mapping was the GPU blit's write destination, so tear it down
-> > +	 * with attrs 0 (not DMA_ATTR_SKIP_CPU_SYNC): for non-coherent or
-> > +	 * bounced (SWIOTLB) mappings the device->CPU copy-back / cache sync of
-> > +	 * the freshly copied data happens during unlink, exactly as
-> > +	 * xe_tt_unmap_iova() does. Skipping it would silently drop the
-> > +	 * defragmented data on those configs.
-> > +	 */
-> > +	if (job->copy_bytes)
-> > +		dma_iova_destroy(dev, &job->copy_iova, job->copy_bytes,
-> > +				 DMA_BIDIRECTIONAL, 0);
-> > +	else
-> > +		dma_iova_free(dev, &job->copy_iova);
-> > +
-> > +	/*
-> > +	 * For each changed run, unlink the old pages (still linked from the
-> > +	 * adopted reservation).
-> > +	 */
-> > +	for (r = 0; r < job->copy.nr_runs; r++) {
-> > +		size_t off = (size_t)job->copy.runs[r].start << PAGE_SHIFT;
-> > +		size_t len = (size_t)job->copy.runs[r].count << PAGE_SHIFT;
-> > +
-> > +		dma_iova_unlink(dev, &xe_tt->iova, off, len,
-> > +				DMA_BIDIRECTIONAL, DMA_ATTR_SKIP_CPU_SYNC);
-> > +	}
-> > +
-> > +	/*
-> > +	 * Relink the freshly copied new pages from the snapshot captured at job
-> > +	 * creation. The destination tt's page array may have been mutated (or
-> > +	 * torn down) by TTM since then, so it is never dereferenced here.
-> > +	 * Borrowed pages are shared with the old tt and stay correctly linked
-> > +	 * for free, so the snapshot only covers the changed runs.
-> > +	 */
-> > +	for (l = 0; l < job->copy.nr_links; l++) {
-> > +		int ret = dma_iova_link(dev, &xe_tt->iova,
-> > +					job->copy.links[l].phys,
-> > +					job->copy.links[l].offset,
-> > +					job->copy.links[l].len,
-> > +					DMA_BIDIRECTIONAL,
-> > +					DMA_ATTR_SKIP_CPU_SYNC);
-> > +		/*
-> > +		 * Point of no failure: the data is already copied and the
-> > +		 * reservation ownership has been transferred. A relink failure
-> > +		 * leaves a hole in the mapping; there is no safe recovery, so
-> > +		 * just warn.
-> > +		 */
-> > +		drm_WARN_ON(&xe->drm, ret);
-> > +	}
-> > +
-> > +	/* Sync the relinked changed runs into the device's view. */
-> > +	for (r = 0; r < job->copy.nr_runs; r++) {
-> > +		size_t off = (size_t)job->copy.runs[r].start << PAGE_SHIFT;
-> > +		size_t len = (size_t)job->copy.runs[r].count << PAGE_SHIFT;
-> > +
-> > +		/*
-> > +		 * Point of no failure (as with the relink above): warn on a
-> > +		 * sync error so a stale IOMMU cache does not fail silently.
-> > +		 */
-> > +		drm_WARN_ON(&xe->drm, dma_iova_sync(dev, &xe_tt->iova, off, len));
-> > +	}
-> > +
-> > +	/*
-> > +	 * All work is synchronous CPU-side IOMMU fixup, so there is no hardware
-> > +	 * fence to wait on; returning NULL makes the scheduler signal the job's
-> > +	 * finished fence immediately.
-> > +	 */
-> > +	return NULL;
-> > +}
-> > +
-> > +static void xe_iova_defrag_job_free(struct xe_dep_job *dep_job)
-> > +{
-> > +	struct xe_iova_defrag_job *job =
-> > +		container_of(dep_job, typeof(*job), dep);
-> > +
-> > +	xe_tt_iova_copy_fini(&job->copy);
-> > +	drm_sched_job_cleanup(&job->dep.drm);
-> > +	kfree(job);
-> > +}
-> > +
-> > +static const struct xe_dep_job_ops xe_iova_defrag_job_ops = {
-> > +	.run_job = xe_iova_defrag_job_run,
-> > +	.free_job = xe_iova_defrag_job_free,
-> > +};
-> > +
-> > /*
-> >  * xe_tt_iova_transfer - Transfer a full IOVA reservation old_tt -> new_tt.
-> >  *
-> > @@ -1063,7 +1184,6 @@ static int xe_tt_map_iova_copy(struct xe_device *xe, struct ttm_tt *new_tt,
-> >  * folio walk of the new tt keeps xe->mem.dma_mapped_pages[] exact while the new
-> >  * mapping lives, rather than carrying the old tt's stale distribution.
-> >  */
-> > -__maybe_unused
-> > static void xe_tt_iova_transfer(struct xe_device *xe,
-> > 				struct xe_ttm_tt *new_tt,
-> > 				struct xe_ttm_tt *old_tt)
-> > @@ -1078,6 +1198,154 @@ static void xe_tt_iova_transfer(struct xe_device *xe,
-> > 	old_tt->use_iova = false;
-> > }
-> > 
-> > +/*
-> > + * xe_bo_defrag_iova_copy - Run an IOVA defrag move with a packed copy mapping.
-> > + *
-> > + * Only the changed (non-borrowed) pages of @new_tt are DMA mapped, packed
-> > + * contiguously into the front of its reservation, the GPU copy blits them from
-> > + * the old tt at natural offsets, and a post-copy finalize job adopts the old
-> > + * tt's full reservation and relinks the changed runs. Returns the finalize
-> > + * job's finished fence (the fence the move waits on), or an ERR_PTR on failure
-> > + * with all partial state unwound.
-> > + */
-> > +static struct dma_fence *
-> > +xe_bo_defrag_iova_copy(struct xe_device *xe, struct xe_migrate *migrate,
-> > +		       struct xe_bo *bo, struct ttm_resource *old_mem,
-> > +		       struct ttm_resource *new_mem, struct ttm_tt *old_tt,
-> > +		       bool handle_system_ccs)
-> > +{
-> > +	struct ttm_tt *new_tt = bo->ttm.ttm;
-> > +	struct xe_ttm_tt *new_xe_tt = container_of(new_tt, struct xe_ttm_tt, ttm);
-> > +	struct xe_ttm_tt *old_xe_tt = container_of(old_tt, struct xe_ttm_tt, ttm);
-> > +	struct drm_sched_entity *entity =
-> > +		xe_dep_scheduler_entity(xe->mem.defrag.iova_sched);
-> > +	struct xe_iova_defrag_job *job;
-> > +	struct dma_fence *copy_fence;
-> > +	struct dma_fence *fence;
-> > +	struct xe_tt_iova_copy copy;
-> > +	bool packed = false;
-> > +	int err;
-> > +
-> > +	xe_assert(xe, new_xe_tt->use_iova && !new_xe_tt->iova_linked);
-> > +	xe_assert(xe, old_xe_tt->use_iova && old_xe_tt->iova_linked);
-> > +
-> > +	err = xe_tt_iova_copy_init(new_tt, old_tt, &copy);
-> > +	if (err)
-> > +		return ERR_PTR(err);
-> > +
-> > +	if (copy.nr_changed) {
-> > +		err = xe_tt_map_iova_copy(xe, new_tt, &copy);
-> > +		if (err)
-> > +			goto err_copy;
-> > +		packed = true;
-> > +
-> > +		copy_fence = xe_migrate_copy_defrag_iova(migrate, bo, old_mem,
-> > +							 new_mem, old_tt,
-> > +							 copy.nr_changed,
-> > +							 handle_system_ccs);
-> > +	} else {
-> > +		copy_fence = dma_fence_get_stub();
-> > +	}
-> > +	if (IS_ERR(copy_fence)) {
-> > +		err = PTR_ERR(copy_fence);
-> > +		goto err_unmap;
-> > +	}
-> > +
-> > +	job = kzalloc(sizeof(*job), GFP_KERNEL);
-> > +	if (!job) {
-> > +		err = -ENOMEM;
-> > +		goto err_fence;
-> > +	}
-> > +
-> > +	job->dep.ops = &xe_iova_defrag_job_ops;
-> > +	job->xe = xe;
-> > +	job->new_tt = new_tt;
-> > +	job->copy_iova = new_xe_tt->iova;
-> > +	job->copy_bytes = (size_t)copy.nr_changed << PAGE_SHIFT;
-> > +	job->copy = copy;
-> > +
-> > +	err = drm_sched_job_init(&job->dep.drm, entity, 1, NULL, 0);
-> > +	if (err)
-> > +		goto err_job;
-> > +
-> > +	err = drm_sched_job_add_dependency(&job->dep.drm,
-> > +					   dma_fence_get(copy_fence));
-> > +	if (err)
-> > +		goto err_job_init;
-> > +
-> > +	/*
-> > +	 * Point of no failure: transfer the old tt's full reservation to the
-> > +	 * new tt. The finalize job (already armed below) destroys the packed
-> > +	 * copy mapping snapshot and relinks the changed runs.
-> > +	 */
-> > +	xe_tt_iova_transfer(xe, new_xe_tt, old_xe_tt);
-> 
-> Assisted-by: LLM
-> 
-> We transfer the ownership here without waiting for blit to complete.
-> Probbly we should wait for copy fence to complete?
-> 
-
-Most definitely not. This is an async pipeline, we don't block on
-anything by design - blocking anywhere would break the entire design as
-we'd miss page flips.
-
-Here once we can't fail, we update the bookkeeping of the TTs so we can
-immediately issue another async job behind this will the current one is
-in flight.
-
-> Niranjana
-> 
-> > +	memset(&copy, 0, sizeof(copy)); /* ownership moved to the job */
-> > +
-> > +	drm_sched_job_arm(&job->dep.drm);
-> > +	fence = dma_fence_get(&job->dep.drm.s_fence->finished);
-> > +	drm_sched_entity_push_job(&job->dep.drm);
-> > +
-> > +	dma_fence_put(copy_fence);
-> > +
-> > +	return fence;
-> > +
-> > +err_job_init:
-> > +	drm_sched_job_cleanup(&job->dep.drm);
-> > +err_job:
-> > +	kfree(job);
-> > +err_fence:
-> > +	/*
-> > +	 * The GPU copy into the packed destination mapping was already
-> > +	 * submitted; it must finish before we tear that mapping down below,
-> > +	 * otherwise the blit would fault or scribble on unmapped IOVA. (Reached
-> > +	 * only with a valid, submitted copy_fence; the IS_ERR(copy_fence) case
-> > +	 * jumps straight to err_unmap with no GPU work in flight.)
-> > +	 */
-> > +	if (packed)
-> > +		dma_fence_wait(copy_fence, false);
-> > +	dma_fence_put(copy_fence);
-> > +err_unmap:
-> > +	if (packed)
-> > +		dma_iova_unlink(xe->drm.dev, &new_xe_tt->iova, 0,
-> > +				(size_t)copy.nr_changed << PAGE_SHIFT,
-> > +				DMA_BIDIRECTIONAL, DMA_ATTR_SKIP_CPU_SYNC);
-> > +err_copy:
-> > +	xe_tt_iova_copy_fini(&copy);
-> > +	return ERR_PTR(err);
-> > +}
-> > +
-> > +/*
-> > + * xe_bo_defrag_use_iova - Whether a defrag move should use the packed IOVA path.
-> > + *
-> > + * Eligible when the move is a defrag (stashed old tt) and the destination tt is
-> > + * IOVA mapped. The IOVA reservation is transferred to the new backing, so the
-> > + * device-visible addresses are preserved and no GPU rebind is needed (see
-> > + * xe_bo_trigger_rebind()); this makes the path worthwhile regardless of BO
-> > + * size. A flat-CCS aux pass, if needed, is migrated packed alongside the data
-> > + * (changed pages only), so it does not disqualify the path. Otherwise the
-> > + * full-mapping defrag path is used.
-> > + */
-> > +static bool xe_bo_defrag_use_iova(struct ttm_buffer_object *ttm_bo)
-> > +{
-> > +	struct xe_ttm_tt *xe_tt, *old_xe_tt;
-> > +
-> > +	if (!ttm_bo->defrag_old_tt || !ttm_bo->ttm)
-> > +		return false;
-> > +
-> > +	xe_tt = container_of(ttm_bo->ttm, struct xe_ttm_tt, ttm);
-> > +	old_xe_tt = container_of(ttm_bo->defrag_old_tt, struct xe_ttm_tt, ttm);
-> > +
-> > +	/*
-> > +	 * Both tts must be IOVA mapped: the packed copy reads the old tt's IOVA
-> > +	 * and the finalize job transfers the old tt's reservation to the new
-> > +	 * one. use_iova is a deterministic per-device decision taken at tt
-> > +	 * creation, so for a given BO the old and new tt always agree; the
-> > +	 * explicit old-tt check guards against ever routing a sg-fallback old
-> > +	 * tt into xe_tt_iova_transfer() (which would copy an invalid iova).
-> > +	 */
-> > +	return xe_tt->use_iova && old_xe_tt->use_iova;
-> > +}
-> > +
-> > /*
-> >  * Account ttm pages against the device shrinker's shrinkable and
-> >  * purgeable counts.
-> > @@ -1357,6 +1625,7 @@ static int xe_bo_trigger_rebind(struct xe_device *xe, struct xe_bo *bo,
-> > 	struct drm_gem_object *obj = &bo->ttm.base;
-> > 	struct drm_gpuvm_bo *vm_bo;
-> > 	bool idle = false;
-> > +	bool defrag_iova;
-> > 	int ret = 0;
-> > 
-> > 	dma_resv_assert_held(bo->ttm.base.resv);
-> > @@ -1369,12 +1638,25 @@ static int xe_bo_trigger_rebind(struct xe_device *xe, struct xe_bo *bo,
-> > 		dma_resv_iter_end(&cursor);
-> > 	}
-> > 
-> > +	/*
-> > +	 * A defrag move that reallocates IOVA-mapped backing preserves the
-> > +	 * device-visible addresses: the IOVA reservation is transferred from
-> > +	 * the old to the new tt, so the existing GPU PTEs stay valid and the
-> > +	 * BO must not be marked evicted (the rebind paths in xe_exec_ioctl()
-> > +	 * and preempt_rebind_work_func() would otherwise needlessly rebind).
-> > +	 * Preempt fences still need to be triggered, and fault-mode / L2
-> > +	 * flush-optimized configs still need a TLB invalidation below, so only
-> > +	 * the eviction marking is skipped.
-> > +	 */
-> 
-> The commit is bit confusing compared to the code below. Eviction marking is
-> not completely skipped, it is only skipped when it is not needed. May be
-> update the comment?
-> 
-
-I've read this a few times and it pretty clear to me.
-
-Do you have different suggestion?
-
-Matt
-
-> Niranjana
-> 
-> > +	defrag_iova = xe_bo_defrag_use_iova(&bo->ttm);
-> > +
-> > 	drm_gem_for_each_gpuvm_bo(vm_bo, obj) {
-> > 		struct xe_vm *vm = gpuvm_to_vm(vm_bo->vm);
-> > 		struct drm_gpuva *gpuva;
-> > 
-> > 		if (!xe_vm_in_fault_mode(vm)) {
-> > -			drm_gpuvm_bo_evict(vm_bo, true);
-> > +			if (!defrag_iova)
-> > +				drm_gpuvm_bo_evict(vm_bo, true);
-> > 			/*
-> > 			 * L2 cache may not be flushed, so ensure that is done in
-> > 			 * xe_vm_invalidate_vma() below
-> > @@ -1394,6 +1676,8 @@ static int xe_bo_trigger_rebind(struct xe_device *xe, struct xe_bo *bo,
-> > 			if (!ctx->no_wait_gpu &&
-> > 			    !xe_vm_flush_vm_bo_tlb_async(vm, bo, vm_bo))
-> > 				continue;
-> > +			else if (defrag_iova)
-> > +				drm_gpuvm_bo_evict(vm_bo, true);
-> > 		}
-> > 
-> > 		if (!idle) {
-> > @@ -2120,6 +2404,7 @@ static int xe_bo_move(struct ttm_buffer_object *ttm_bo, bool evict,
-> > 	bool needs_clear;
-> > 	bool handle_system_ccs = (!IS_DGFX(xe) && xe_bo_needs_ccs_pages(bo) &&
-> > 				  ttm && ttm_tt_is_populated(ttm)) ? true : false;
-> > +	bool defrag_iova = xe_bo_defrag_use_iova(ttm_bo);
-> > 	int ret = 0;
-> > 
-> > 	/*
-> > @@ -2168,7 +2453,12 @@ static int xe_bo_move(struct ttm_buffer_object *ttm_bo, bool evict,
-> > 	needs_clear = (ttm && ttm->page_flags & TTM_TT_FLAG_ZERO_ALLOC) ||
-> > 		(!ttm && ttm_bo->type == ttm_bo_type_device);
-> > 
-> > -	if (new_mem->mem_type == XE_PL_TT) {
-> > +	/*
-> > +	 * For a defrag move using the packed IOVA path the destination tt is
-> > +	 * not fully mapped here; only the changed pages are mapped (packed) for
-> > +	 * the copy, and the finalize job establishes the full mapping.
-> > +	 */
-> > +	if (new_mem->mem_type == XE_PL_TT && !defrag_iova) {
-> > 		ret = xe_tt_map(xe, ttm);
-> > 		if (ret)
-> > 			goto out;
-> > @@ -2278,9 +2568,16 @@ static int xe_bo_move(struct ttm_buffer_object *ttm_bo, bool evict,
-> > 
-> > 		fence = xe_migrate_clear(migrate, bo, new_mem, flags);
-> > 	} else if (ttm_bo->defrag_old_tt) {
-> > -		fence = xe_migrate_copy_defrag(migrate, bo, old_mem, new_mem,
-> > -					       ttm_bo->defrag_old_tt,
-> > -					       handle_system_ccs);
-> > +		if (defrag_iova)
-> > +			fence = xe_bo_defrag_iova_copy(xe, migrate, bo, old_mem,
-> > +						       new_mem,
-> > +						       ttm_bo->defrag_old_tt,
-> > +						       handle_system_ccs);
-> > +		else
-> > +			fence = xe_migrate_copy_defrag(migrate, bo, old_mem,
-> > +						       new_mem,
-> > +						       ttm_bo->defrag_old_tt,
-> > +						       handle_system_ccs);
-> > 	} else {
-> > 		fence = xe_migrate_copy(migrate, bo, bo, old_mem, new_mem,
-> > 					handle_system_ccs);
-> > -- 
-> > 2.34.1
-> > 
+T24gVHVlLCAyMDI2LTExLTI0IGF0IDIwOjU5ICswODAwLCBDaGFvIEdhbyB3cm90ZToNCj4gT24g
+VHVlLCBOb3YgMjQsIDIwMjYgYXQgMDc6MjM6MDlBTSArMDgwMCwgRWRnZWNvbWJlLCBSaWNrIFAg
+d3JvdGU6DQo+ID4gT24gTW9uLCAyMDI2LTExLTE2IGF0IDAzOjEwIC0wODAwLCBDaGFvIEdhbyB3
+cm90ZToNCj4gPiA+IFNldHRpbmcgdXAgUENJZSBsaW5rIGVuY3J5cHRpb24gcmVxdWlyZXMgYSBz
+ZWN1cmUgY2hhbm5lbCB0byB0aGUgZGV2aWNlDQo+ID4gPiB0byBleGNoYW5nZSBrZXlzLiBUaGlz
+IGNoYW5uZWwgaXMgYW4gU1BETSBzZXNzaW9uIG92ZXIgdGhlIGRldmljZSdzIFBDSQ0KPiA+ID4g
+RE9FIG1haWxib3guDQo+ID4gDQo+ID4gUHJvYmFibHkgU1BETSBhbmQgRE9FIG1haWxib3ggbmVl
+ZCBzb21lIDEwLDAwMGZ0IHN1bW1hcnkuDQo+IA0KPiBEb2VzIHRoaXMgc291bmQgYmV0dGVyPw0K
+PiANCj4gICBTUERNIGlzIGFuIGluZHVzdHJ5LXN0YW5kYXJkIHByb3RvY29sIGZvciBlc3RhYmxp
+c2hpbmcgdHJ1c3QgYmV0d2Vlbg0KPiAgIGNvbXBvbmVudHMuIEZvciBURFggdHJ1c3RlZCBJL08s
+IHRoZSBURFggbW9kdWxlIHVzZXMgaXQgdG8NCj4gICBhdXRoZW50aWNhdGUgdGhlIGRldmljZSwg
+Y29sbGVjdCBpdHMgbWVhc3VyZW1lbnRzIGFuZCBleGNoYW5nZSBJREUNCj4gICBrZXlzIHdpdGgg
+aXQuDQoNClllYS4NCg0KPiANCj4gICBET0UgaXMgYSBtYWlsYm94IGluIHRoZSBkZXZpY2UncyBj
+b25maWd1cmF0aW9uIHNwYWNlLCB0aHJvdWdoIHdoaWNoDQo+ICAgc29mdHdhcmUgZXhjaGFuZ2Vz
+IG1lc3NhZ2VzIHdpdGggdGhlIGRldmljZS4gRE9FIGlzIG9ubHkgYSB0cmFuc3BvcnQNCj4gICBh
+bmQgY2FuIGNhcnJ5IGRpZmZlcmVudCBwcm90b2NvbHMuIFNQRE0gaXMgb25lIG9mIHRoZW0uDQoN
+CkNhbiB3ZSBleHBsYWluIHRoYXQgaXQgaXMgYSBQQ0llIHRoaW5nIHRvbz8NCg0KPiANCj4gPiA+
+IFdoZW5ldmVyIHRoZSBURFggbW9kdWxlIGhhcyBhIG1lc3NhZ2UgZm9yIHRoZSBkZXZpY2UsIHRo
+ZSBTRUFNQ0FMTA0KPiA+ID4gcmV0dXJucyB3aXRoIGEgZGVkaWNhdGVkIHN0YXR1cyBjb2RlLiBU
+aGUgaG9zdCBzZW5kcyB0aGUgbWVzc2FnZSB0byB0aGUNCj4gPiA+IGRldmljZSBhbmQgY2FsbHMg
+dGhlIFNFQU1DQUxMIGFnYWluIHdpdGggdGhlIGRldmljZSdzIHJlc3BvbnNlLCB1bnRpbA0KPiA+
+ID4gdGhlIFNFQU1DQUxMIGNvbXBsZXRlcy4NCj4gPiANCj4gPiBTRUFNQ0FMTCBjb21wbGV0ZXM/
+IENvdWxkIG1lYW4gdGhlIGZ1bGwgZXh0ZW5zaW9uIG9wZXJhdGlvbiBvciBhIHNpbmdsZSBzZWFt
+Y2FsbA0KPiA+IGV4ZWN1dGlvbi4NCj4gDQo+IEkgbWVhbnQgdGhlIHdob2xlIG9wZXJhdGlvbiwg
+aS5lLiBzZXR0aW5nIHVwIG9yIHRlYXJpbmcgZG93biB0aGUgU1BETQ0KPiBzZXNzaW9uLiBXaWxs
+IHJld29yZCB0byBtYWtlIHRoaXMgY2xlYXIuDQoNCkxldHMgbWFrZSBpdCBjbGVhciB0aGVuLg0K
+DQo+IA0KPiA+ID4gQ2FsbCBib3RoIFNFQU1DQUxMcyBpbiBzdWNoIGEgbG9vcC4gVGhlIERPRSB0
+cmFuc2ZlciBpdHNlbGYgaXMgYSBzdHViDQo+ID4gPiBmb3Igbm93Lg0KPiA+IA0KPiA+IEknZCBw
+dXQgc29tZXRoaW5nIGhpZ2hlciB1cCBleHBsYWluaW5nIHRoaXMgaXMgbGF5aW5nIHRoZSBncm91
+bmQgd29yaywgcmF0aGVyDQo+ID4gdGhhbiBhbm5vdW5jaW5nIHRoZSBnYXBzIGF0IHRoZSBlbmQu
+DQo+IA0KPiBPSy4gV2lsbCBhZGQgb25lIHNlbnRlbmNlIHJpZ2h0IGFmdGVyIHRoZSBiYWNrZ3Jv
+dW5kIHRvIHNheSB0aGF0IHRoaXMNCj4gcGF0Y2ggbGF5cyB0aGUgZ3JvdW5kd29yay4NCj4gDQo+
+ID4gPiBQYXNzIHRoZSBtZXNzYWdlcyB0aHJvdWdoIHR3byBwYWdlcyBwZXIgZGV2aWNlLCBvbmUg
+Zm9yIGVhY2ggZGlyZWN0aW9uLg0KPiA+ID4gT25lIHBhaXIgaXMgZW5vdWdoIGJlY2F1c2UgUENJ
+L1RTTSBzZXJpYWxpemVzIG9wZXJhdGlvbnMgb24gYSBkZXZpY2UuDQo+ID4gDQo+ID4gVGhpcyBw
+cm9iYWJseSBuZWVkcyBtb3JlIGV4cGxhbmF0aW9uLg0KPiANCj4gU2V2ZXJhbCBmdW5jdGlvbnMg
+b2YgYSBkZXZpY2UgbWF5IHdhbnQgdG8gdGFsayB0byB0aGUgVERYIG1vZHVsZSBhdA0KPiB0aGUg
+c2FtZSB0aW1lLCBhbmQgZWFjaCBvZiB0aGVtIG1heSBuZWVkIFNQRE0gbWVzc2FnZSBleGNoYW5n
+ZXMuIEJ1dA0KPiBQQ0kvVFNNIHNlcmlhbGl6ZXMgYWxsIG9wZXJhdGlvbnMgb24gYSBkZXZpY2Us
+IHNvIHRoZSBwYWdlcyBhcmUNCj4gYWxsb2NhdGVkIG9uY2UgcGVyIGRldmljZSBhbmQgbm90IG9u
+Y2UgcGVyIGZ1bmN0aW9uLg0KDQpJIG1lYW4gdGhlcmUgaXMgYSBidWZmZXIgZm9yIHJlcXVlc3Qg
+YW5kIGEgc2VwYXJhdGUgYnVmZmVyIGZvciB0aGUgcmVzcG9uc2UuDQpPbmNlIHRoZSByZXF1ZXN0
+IGlzIHNlbnQsIHdoeSBjYW4ndCB0aGUgc2FtZSBidWZmZXIgYmUgdXNlZCB0byByZWFkIGJhY2sg
+dGhlDQpyZXNwb25zZT8gVGhpcyBtYXkgYmUgYSBsYWNrIG9mIHVuZGVyc3RhbmRpbmcgYnkgbWUg
+b2YgRE9FLg0KDQo+IA0KPiBAWWlsdW4sIGxldCBtZSBrbm93IGlmIHRoaXMgdW5kZXJzdGFuZGlu
+ZyBpcyB3cm9uZy4NCj4gDQo+ID4gPiArI2RlZmluZSBTUERNX0NBUF9IQkVBVAkJQklUKDEzKQ0K
+PiA+ID4gKyNkZWZpbmUgU1BETV9DQVBfS0VZX1VQRAlCSVQoMTQpDQo+ID4gPiArDQo+ID4gPiAr
+c3RydWN0IHNwZG1fY29uZmlnX2luZm9fdCB7DQo+ID4gPiArCXUzMiB2bW1fc3BkbV9jYXA7DQo+
+ID4gPiArCXU4IHNwZG1fc2Vzc2lvbl9wb2xpY3k7DQo+ID4gPiArCXU4IGNlcnRpZmljYXRlX3Ns
+b3RfbWFzazsNCj4gPiA+ICsJdTggcmF3X2JpdHN0cmVhbV9yZXF1ZXN0ZWQ7DQo+ID4gPiArCXU4
+IHJlc2VydmVkWzQwODldOw0KPiA+ID4gK30gX19wYWNrZWQ7DQo+ID4gDQo+ID4gVGhpcyBsb29r
+cyBsaWtlIG1vcmUgU1BETSBzcGVjaWZpYyBzdHVmZiBpbiBURFguIERvIHJlYWxseSBrbm93IG90
+aGVyIHZlbmRvcnMNCj4gPiBuZWVkIGl0PyBXZSBzaG91bGQgYXQgbGVhc3QgZ3JvdXAgaXQgaW4g
+YSBoZWFkZXIgc3VjaCB0aGF0IGl0IGlzIGNsZWFyIHdoaWNoDQo+ID4gdGhpbmdzIGFyZSBTUERN
+IHNwZWMgYW5kIHdoaWNoIGFyZSBURFguDQo+IA0KPiBUaGlzIHN0cnVjdHVyZSBpcyBub3QgZnJv
+bSB0aGUgU1BETSBzcGVjLiBJdCBpcyBhbiBBQkkgc3RydWN0dXJlDQo+IGRlZmluZWQgYnkgdGhl
+IFREWCBtb2R1bGUsIGFuZCBpdCBpcyBwYXNzZWQgdG8gVERILlNQRE0uQ09OTkVDVC4NCg0KQWgg
+b2ssIGxldCdzIG5hbWUgaXQgdGR4IHNvbWV0aGluZyB0aGVuLg0KDQo+IA0KPiBCdXQgeWVzLCB0
+aGVyZSBpcyBzb21lIFNQRE0tc3BlY2lmaWMgc3R1ZmYgaW4gdGhpcyBzZXJpZXMuIEkgd2lsbCB0
+cnkNCj4gdG8gc2VwYXJhdGUgaXQgZnJvbSB0aGUgVERYIHN0dWZmLg0KPiANCj4gPiA+ICsJc3Ry
+dWN0IHBhZ2UgKmluX21zZzsNCj4gPiA+ICsJc3RydWN0IHBhZ2UgKm91dF9tc2c7DQo+ID4gDQo+
+ID4gU05QIGFuZCBURFggYm90aCBoYXZlIHRoZSBET0UgbWFpbGJveCBzaHVmZmxpbmcgZG9uZSBi
+eSB0aGUgaG9zdCwgcmlnaHQ/IFNvIHdoeQ0KPiA+IGRvZXNuJ3QgVFNNIGFsbG9jYXRlIGFuZCBw
+cm92aWRlIHRoZXNlIGJ1ZmZlcnM/DQo+ID4gDQo+ID4gT2ggbG9va2luZyBhdCB0aGUgY29kZSBJ
+J20gbm93IHZlcnkgY29uZnVzZWQuIFRoZSByZXF1ZXN0IGZvciBTTlAgaXMgaW4gcHJpdmF0ZQ0K
+PiA+IG1lbW9yeT8gVGhlIFNOUCBjb21taXQgaGFzIHZlcnkgbGl0dGxlIGluZm8gdG8gZXhwbGFp
+biB3aGF0IGlzIGdvaW5nIG9uIHRoZXJlLg0KPiANCj4gVERYIGFuZCBTTlAgaGF2ZSBkaWZmZXJl
+bnQgcmVxdWlyZW1lbnRzIGZvciB0aGUgYnVmZmVycy4gVERYIG5lZWRzIG5vDQo+IHNwZWNpYWwg
+aGFuZGxpbmcsIGFuZCBib3RoIHBhZ2VzIGFyZSBub3JtYWwgaG9zdCBtZW1vcnkuIEFzIGZhciBh
+cyBJDQo+IGNhbiB0ZWxsIGZyb20gdGhlIGNvZGUsIFNOUCBtYWtlcyBpdHMgcmVxdWVzdCBidWZm
+ZXIgYSBmaXJtd2FyZS1vd25lZA0KPiBwYWdlLiBTbyBpdCBpcyBub3QgZ3Vlc3QgcHJpdmF0ZSBt
+ZW1vcnksIGJ1dCBpdCBpcyBub3QgYSBub3JtYWwgaG9zdA0KPiBwYWdlIGVpdGhlci4gSSBndWVz
+cyB0aGF0IGlzIHBhcnQgb2YgdGhlIHJlYXNvbiB3aHkgZWFjaCBUU00gZHJpdmVyDQo+IGFsbG9j
+YXRlcyBpdHMgb3duIGJ1ZmZlcnMuDQoNClllYSB0aGF0IGlzIGhvdyBpdCBsb29rZWQgdG8gbWUg
+dG9vLg0KDQo+IA0KPiA+ID4gKwlzcGRtX2NvbmYtPmNlcnRpZmljYXRlX3Nsb3RfbWFzayA9IDB4
+ZmY7DQo+ID4gDQo+ID4gQ2FuIHdlIG5vdCBoYXZlIHRoZSBtYWdpYyBudW1iZXI/IEkgZ3Vlc3Mg
+aXQgbWVhbnMgYW55Pw0KPiANCj4gU3VyZSwgd2lsbCByZW1vdmUgdGhlIG1hZ2ljIG51bWJlci4g
+MHhmZiBtZWFucyBnZXR0aW5nIHRoZQ0KPiBjZXJ0aWZpY2F0ZXMgaW4gYWxsIHNsb3RzICgwLTcp
+IG9mIHRoZSBkZXZpY2UuDQo+IA0KPiBBcyBhIGhlYWRzLXVwLCB0aGlzIGNvZGUgd2lsbCBnbyBh
+d2F5IGFueXdheSB3aGVuIHdlIHN3aXRjaCB0byB0aGUgbmV3DQo+IENUTFYgYXR0ZXN0YXRpb24g
+ZnJhbWV3b3JrLg0KPiANCj4gPiA+ICsJZG8gew0KPiA+ID4gKwkJbXV0ZXhfbG9jaygmdGR4X3Nw
+ZG1fbG9jayk7DQo+ID4gDQo+ID4gVGhlIGZhY3QgdGhhdCBUU00gcHJvdGVjdHMgdXMgZnJvbSB0
+aGUgYnVmZmVycyBnZXR0aW5nIGNsb2JiZXJlZCBieSBhbm90aGVyDQo+ID4gcmVxdWVzdCwgYnV0
+IHdlIHN0aWxsIG5lZWQgdGhlIG11dGV4IG9ubHkgYXJvdW5kIHRoZSBjYWxsIGlzIGEgYml0IGhp
+ZGRlbi4gSSdkDQo+ID4gdGhpbmsgaXQgYXQgbGVhc3QgbmVlZHMgYSBjb21tZW50LiBCdXQgc2lu
+Y2UgdGhlIHRkeF9zcGRtX2xvY2sgaXMgcmVhbGx5IGEgVERYDQo+ID4gbW9kdWxlIHNwZWNpZmlj
+IGxpbWl0YXRpb24sIHdoeSBub3QgcHV0IGl0IGluc2lkZSB0aGUgU0VBTUNBTEwgd3JhcHBlcnM/
+IEl0DQo+ID4gc2VlbXMgbW9yZSByZWxhdGVkIHRvIGNvcmUgVERYIG1vZHVsZSBzZXR1cCB0eXBl
+IHRoaW5ncy4NCj4gDQo+IEkgbGlrZSB0aGlzIGlkZWEuIFRoZSBjb25jdXJyZW5jeSBsaW1pdCBp
+cyBvbiB0aGUgU0VBTUNBTExzDQo+IHRoZW1zZWx2ZXMsIG5vdCBvbiB0aGUgU1BETSBzZXR1cC90
+ZWFyZG93biBmbG93LCBzbyB0aGUgbG9jayBmaXRzDQo+IGJldHRlciBpbiB0aGUgU0VBTUNBTEwg
+d3JhcHBlcnMuDQo+IA0KPiA+ID4gKwlyZXQgPSAtRU5PTUVNOw0KPiA+ID4gKwlpbl9tc2dfcGFn
+ZSA9IGFsbG9jX3BhZ2UoR0ZQX0tFUk5FTCB8IF9fR0ZQX1pFUk8pOw0KPiA+ID4gKwlpZiAoIWlu
+X21zZ19wYWdlKQ0KPiA+ID4gKwkJcmV0dXJuIHJldDsNCj4gPiA+ICsNCj4gPiA+ICsJb3V0X21z
+Z19wYWdlID0gYWxsb2NfcGFnZShHRlBfS0VSTkVMIHwgX19HRlBfWkVSTyk7DQo+ID4gPiArCWlm
+ICghb3V0X21zZ19wYWdlKQ0KPiA+ID4gKwkJZ290byBvdXRfZnJlZV9pbl9tc2c7DQo+ID4gDQo+
+ID4gTWF5YmUgZHVtYiBxdWVzdGlvbiwgYnV0IHdoeSBkbyB3ZSBuZWVkIHR3byBidWZmZXJzIGZv
+ciB0aGlzPyBBZnRlciB3ZSBwb3N0IHRoZQ0KPiA+IHJlcXVlc3QgY2FuJ3Qgd2UganVzdCByZWFk
+IGl0IGJhY2sgdGhlIHJlc3BvbnNlIHRvIHRoZSBzYW1lIGJ1ZmZlcj8gSXQgZG9lc24ndA0KPiA+
+IHNlZW0gRE9FIGNvZGUgaXMgc2V0dXAgZm9yIHRoYXQgdGhvdWdoLg0KPiANCj4gcGNpX2RvZSgp
+IHRha2VzIHNlcGFyYXRlIGJ1ZmZlcnMgZm9yIHRoZSByZXF1ZXN0IGFuZCB0aGUgcmVzcG9uc2Us
+IGFuZA0KPiBzbyBkb2VzIFRESC5TUERNLkNPTk5FQ1QuDQo+IA0KPiA+ID4gK291dF9zcGRtX2Rl
+bGV0ZToNCj4gPiA+ICsJdGR4X3NwZG1fZGVsZXRlKHRsaW5rKTsNCj4gPiANCj4gPiBXZSBtaWdo
+dCBzb21lIGJhc2ljcyBleHBsYW5hdGlvbiBvZiB0aGUgU1BETSBvcGVyYXRpb25zIGFyZS4gY3Jl
+YXRlLCBkaXNjb25uZWN0LA0KPiA+IGRlbGV0ZSwgZXRjLiBXaGF0IGFib3V0IGFkZGluZyBzb21l
+IGNvbW1lbnRzIGFjcm9zcyB0aGUgcGF0Y2hlcyB0aGF0IG1ha2UgaXQNCj4gPiBjbGVhciB3aGVu
+IGFuZCB3aGVyZSBlYWNoIG5lZWRzIHRvIGJlIGNhbGxlZD8NCj4gDQo+IFllcy4gV2lsbCBhZGQg
+YSBoaWdoLWxldmVsIGRlc2NyaXB0aW9uIG9mIHRoZSBTUERNIG9wZXJhdGlvbnMgdG8gdGhlDQo+
+IGNoYW5nZWxvZywgYW5kIGNvbW1lbnRzIGFib3ZlIHRoZSBmdW5jdGlvbnMgd2hlcmUgbmVlZGVk
+Lg0KDQo=
