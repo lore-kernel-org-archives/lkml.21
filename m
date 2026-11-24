@@ -1,124 +1,107 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=148.163.139.77
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795519591;
-	b=eoYenTz+D3Dj7hN+Q0Lvv43xAKEuQWovlqzBQKoyntYLniVOoqMdr1aLtUBmnArcWltF
-	 wuALu9rDEMTCw6FYNq+SrRfiTWbnx6dky5/tjwVzNjahLsIhqRaAPEXcWc0Nit6/9nMdv
-	 BidkEYtI8eZvw8Dep6uFjyG+4vx0H1lKbCCPnKroR3BGzNIUmec5yIEfn+DO9/p5C1ngu
-	 P6CoAHqrPjhYoYRdnMYSkODZ2YL+kxmkYTRp/uP9uXc+yPW/l+Oitas41wINchxbi5/Tv
-	 J+kBer+UduhFQMtZmtu36entz0LPHP11m5+8by+uHcFNgf18sQX9a/sLODS1LrGf45w==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795519591;
-	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:Received:
-	 Received:Received:Date:From:To:Cc:Subject:Message-ID:References:
-	 Content-Type:Content-Disposition:Content-Transfer-Encoding:
-	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-LD-Processed:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-Exchange-RoutingPolicyChecked:
-	 X-OriginatorOrg:X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-GUID:X-Authority-Analysis:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=dGVSUhAKABda7G8ygqy/SjraxGh07QmCWGUMWMWh4fw=;
-	b=bopqmjG5Q1pu7nY6J1VZxIXuevnvNbfuzCKRJeKctgyvwpljJMFFuqUf/oGVeUcjXcFu
-	 zqNNXLnVPjauROStOsoBWiRtH1KE2Npf1N/9il/gwyzxtgH7xedin1qa6UEJqTjANT3z5
-	 MMyBzHq5QHs677sbGHNlWUPqzR7/L9k2WwAgfMZI8DU4vTJaYbxcWa1d8wOUBbKWqE3oM
-	 vwP20bS66JNIbzBZslYVx87C7xzPvTPm19K0sR4qrm+6hPQn4lwIPIv1uTYlHqQAE+vYy
-	 7qJLVm1L0cHTgS0TzNz1NmCfOUcPBuJ7qjIaBIF7lwK/tUU51nDLASOYKvRqpqpJOnw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=analog.com;
-	spf=pass smtp.mailfrom=analog.com;
-	dkim=pass header.d=vtelectron.com header.i=@vtelectron.com header.a=rsa-sha256 header.s=DKIM header.b=lvVzLDfa;
-	dkim=pass header.d=analog.com header.i=@analog.com header.a=rsa-sha256 header.s=DKIM header.b=x8U6Vuth;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=148.163.139.77
-Received: from mx0b-00128a01.pphosted.com (mx0b-00128a01.pphosted.com [148.163.139.77])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795519643;
+	b=ecPrUNPv9OxGPQizr0YVsbN5FxEvoVrivYNmfs2Qdb9hobehrV3IyQNoqH47RVDZXHBG
+	 4g7zhdCZFUJpc1Ovl7Ras7K56KYbBwrPgcTtWrl2sv204YpmILoOFahOi8qsBL6Csugjf
+	 +dUk1ebS8Qq6hSdMSDXbvA9k20qQ9ys+u2Jui6NY3xb4eeuC0OH10ikxDI75xWXrYYDen
+	 sey4ADo2ntKcvhNd567JYh+XryXSbmqySvZglHjNkVNo84wN3yiUBEPnjEkRVivdnwIyN
+	 oWvE6ozmTOcnqipB/jV3Lbw6SBKXx97eF3z2xJNPOOA1j3z/YEAUyWdoELbXI6u9KmQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795519643;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=Et7sZ8dv2zeyM25guzv+Yh3/dpdKAKmHp9Nx1fkWc5c=;
+	b=gEMlFzJV0011ani6QOTDHI6gxulpCLkIRcPvAMvWN8rIBVdQYodTPPGwWkQHvIz5M/CJ
+	 gZistLlTxhfyXdCIO8FcRjdPtD/jQcJrQgY4RwtHQEO3iDg7w8AsyQHya/M5jCEKhTjdB
+	 FzX9eoMJRcG4p9n7xhm8o3QrtpMSOFo2Ilhx/qesaaeKHfL8JFunAoEaXw2OWpst9qQIE
+	 yPfgDG7Lies3Z4rbtMeu6PpaCkbHEkcNOadoe56d/LbxfaozHjt0w9dgU6UonrwM5wo3k
+	 GGJE8XhMKvnjX8LuVXWAJSxnrQTOO+7aFHhNUElYslkwD8S3zuWkjLJtJ/ZiIScU3CA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HDYfBtZu;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B7EBC606A31E;
-	Tue, 24 Nov 2026 11:26:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B7EBC606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=analog.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=analog.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 76584606A31E;
+	Tue, 24 Nov 2026 11:27:23 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=vtelectron.com header.i=@vtelectron.com header.a=rsa-sha256 header.s=DKIM header.b=lvVzLDfa;
-	dkim=pass (2048-bit key, unprotected) header.d=analog.com header.i=@analog.com header.a=rsa-sha256 header.s=DKIM header.b=x8U6Vuth
-Received: from pps.filterd (m0167090.ppops.net [127.0.0.1])
-	by mx0b-00128a01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AOAuKXe3504129;
-	Tue, 24 Nov 2026 06:26:18 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=vtelectron.com;
-	 h=cc:content-transfer-encoding:content-type:date:from
-	:in-reply-to:message-id:mime-version:references:subject:to; s=
-	DKIM; bh=dGVSUhAKABda7G8ygqy/SjraxGh07QmCWGUMWMWh4fw=; b=lvVzLDf
-	aZt2gBMZb53wtvrqCve219frsQBFp/D3NoxmvLL0uMg5Pb4n1ZxKxBSxARZZg2OG
-	ClZF6dSKhIJ7rUdMAfZgwx6iZH++F/r3xC4YpcCi6DDTV/V5OOu0uCR3N4zFsu0t
-	uSyeKAome9bZf9o7JGMRTGMV659FYmzkIDWOqMFxmb8Za5hLygN4H0CeHbO/XKDr
-	XisLeApFztIWyGB1lkFPn6QFe0eYrNBecXnKms3BaKBFUMd3+p0pvSJ0xDwx+BTx
-	OCizhya2rgs9B5EtGYpJiSlPDmj5QO8cLz/BPeNcUJXHzU6m7gEd2jILiRgGpLfJ
-	k5ioQjvyBN4x4rw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=analog.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=DKIM; bh=dGVSU
-	hAKABda7G8ygqy/SjraxGh07QmCWGUMWMWh4fw=; b=x8U6VuthDeebIgcZe0Z0X
-	VwgcmAF42qGE702KR2s5W6944Aeqn7s7spM9/1MEvFp+lGjkopXqokrQQIWPZrsW
-	15h3Qae2JjrmgZP5PRD3CR+xerM6EsRlXmo9t+3eSaNwHMcekHPcS9y7jL9BWVj0
-	IDK9XbUGa/VXtC9lsHD2/SeSU/JXJ7RwYf6wxOpklx4CyvXgW/cEkSWoaduyFX+E
-	lvZadr+EUb7xubdPurSYSaNZ+D6FsJV1nTpLlczKPH9eghVI91WL5chn8ZGwLk6O
-	SVrkEWvw7TxVWA32h+4xR89XIlPQ/FNYcOPQ+tGSXanmaCGTHzLXm+s4guOnQnvn
-	g==
-Received: from ph7pr06cu001.outbound.protection.outlook.com (mail-westus3azon11010038.outbound.protection.outlook.com [52.101.201.38])
-	by mx0b-00128a01.pphosted.com (PPS) with ESMTPS id 4j4df4yffs-2
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Tue, 24 Nov 2026 06:26:18 -0500 (EST)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=LaSA8KPgRiWtfyDQ4QlVgEmo35ObC1+HU98qSqWrZicBE90VH0ogYxl3M74tq4kgITgUWlNjVM6TkH5jzoE/zlAJ1j6CBSMPUOJGDofTY09w+IyG21yVFzosHz/74D2rdHTaYrl+vts2j987I4WOZHAe9fRp6X58ev3KCGWRZmHeBliy760pMPqKttOAgfF+qLBaF9Sf34us5Ffc+pD9ewy2A9YXXcGHYim17N0/28u4tkDMCxAUBfVatyTwgpLWulqyQEfHe6cmZ94163SkIU5BlCGDk9KdUYYTrBaKwPjm5LIRkQbAjgELZZ/3n53GGTdtr50XN1oraqBQrjz//g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=dGVSUhAKABda7G8ygqy/SjraxGh07QmCWGUMWMWh4fw=;
- b=SVaQleI1PPdHfYq8kLZ/u3IyNsuX0qy+TbQYFKqTD1KIh9B1jxD2JifdGBXuT0T3uvxrsFciCKLgEZ9+0NaeeepqkJVeln/cHsXrc1b0uSfFUKcmyigktSvWVKEz6cmiVUxyEJ/UAZO67/6Z3bqrwMcIhpDC+LP3MZP1UiRghUlnLXdSfNa1iB10r7QwfDdQwDtCbE3wfP6DmIW1lq1f13A/ZeJfLKsddPcNAQosNmdsHxMFvIlFZY0mELj3/7sRNZNJpRbZMdJiKxO7nOxM4JIHnBQuq1m0+rDM19Q+X/04g1IIKIJHJvuzDyKOTT9jeN7aKpg2ACYuFM2ziVTleQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=analog.com; dmarc=pass action=none header.from=analog.com;
- dkim=pass header.d=analog.com; arc=none
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=analog.com;
-Received: from SJ0PR03MB5469.namprd03.prod.outlook.com (2603:10b6:a03:28a::17)
- by SA6PR03MB7949.namprd03.prod.outlook.com (2603:10b6:806:430::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Tue, 24 Nov
- 2026 11:26:15 +0000
-Received: from SJ0PR03MB5469.namprd03.prod.outlook.com
- ([fe80::2a19:76b2:e731:8c5a]) by SJ0PR03MB5469.namprd03.prod.outlook.com
- ([fe80::2a19:76b2:e731:8c5a%5]) with mapi id 15.21.0639.011; Tue, 24 Nov 2026
- 11:26:14 +0000
-Date: Tue, 24 Nov 2026 11:26:10 +0000
-From: Nuno =?utf-8?B?U8Oh?= <nuno.sa@analog.com>
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>,
-        linux-kernel@vger.kernel.org, linux-iio@vger.kernel.org,
-        Jonathan Cameron <jic23@kernel.org>,
-        David Lechner <dlechner@baylibre.com>,
-        Andy Shevchenko <andy@kernel.org>,
-        Rupesh Majhi <zoone.rupert@gmail.com>
-Subject: Re: [PATCH v1 1/1] iio: core: Split debugfs routines
-Message-ID: <awVz_NIDb01OZL3y@nsa>
-References: <20261124094502.557175-1-andriy.shevchenko@linux.intel.com>
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20261124094502.557175-1-andriy.shevchenko@linux.intel.com>
-X-ClientProxiedBy: MR1P264CA0180.FRAP264.PROD.OUTLOOK.COM
- (2603:10a6:501:58::13) To SJ0PR03MB5469.namprd03.prod.outlook.com
- (2603:10b6:a03:28a::17)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HDYfBtZu
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91EFC1F000C0;
+	Tue, 24 Nov 2026 11:27:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795519642;
+	bh=Et7sZ8dv2zeyM25guzv+Yh3/dpdKAKmHp9Nx1fkWc5c=;
+	h=From:To:Cc:Subject:Date;
+	b=HDYfBtZub9CaSMaaqFArylWiUXUOoDX0cLljIODzKOyb0usLvdA+gjUhriD7a50QK
+	 /JHSAwtR9xKc6qEevrT+XbQZEl9bLsyFHADbGJhg2WREIug0494kZizNRg9CXw5hmO
+	 /Fn5VlyJGg+tRJy8Y4wSea8j/SUj3cflFM/4sBw9P9GztRcof78fv1UdoDk4ePIlH0
+	 Y6G7oYHqeQFR34He6HnV0PAKou9b+3/hq54+ibbKYiVBLMXWmxHHMFGGozZZfbmUBx
+	 8PHVEw29bi6skdRKo3XZwKxNZZDLNUgpdnw/ne58RuQILhsJEJ8So+4iwofoom9TXL
+	 OsgZmYYy8cPHw==
+From: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>
+To: Magnus Karlsson <magnus.karlsson@intel.com>,
+	Maciej Fijalkowski <maciej.fijalkowski@intel.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Jesper Dangaard Brouer <hawk@kernel.org>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	Ilias Apalodimas <ilias.apalodimas@linaro.org>,
+	Alexander Duyck <alexanderduyck@fb.com>,
+	Saeed Mahameed <saeedm@nvidia.com>,
+	Tariq Toukan <tariqt@nvidia.com>,
+	Mark Bloch <mbloch@nvidia.com>,
+	Leon Romanovsky <leon@kernel.org>,
+	Michael Chan <michael.chan@broadcom.com>,
+	Pavan Chebbi <pavan.chebbi@broadcom.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <shuah@kernel.org>,
+	bpf@vger.kernel.org,
+	netdev@vger.kernel.org
+Cc: Stuart Clark <stuclar@meta.com>,
+	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
+	Stanislav Fomichev <sdf@fomichev.me>,
+	Simon Horman <horms@kernel.org>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Mina Almasry <almasrymina@google.com>,
+	Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Emil Tsalapatis <emil@etsalapatis.com>,
+	Ihor Solodrai <ihor.solodrai@linux.dev>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	kernel-team@meta.com,
+	Dimitri Daskalakis <dimitri.daskalakis1@gmail.com>,
+	Bobby Eshleman <bobbyeshleman@meta.com>,
+	Mohsin Bashir <mohsin.bashr@gmail.com>,
+	Kees Cook <kees@kernel.org>,
+	Breno Leitao <leitao@debian.org>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Tao Cui <cuitao@kylinos.cn>,
+	Vadim Fedorenko <vadim.fedorenko@linux.dev>,
+	"Mike Marciniszyn (Meta)" <mike.marciniszyn@gmail.com>,
+	Kuniyuki Iwashima <kuniyu@google.com>,
+	Jiayuan Chen <jiayuan.chen@linux.dev>,
+	Martin Karsten <mkarsten@uwaterloo.ca>,
+	Nikolay Aleksandrov <razor@blackwall.org>,
+	David Wei <dw@davidwei.uk>,
+	Pavel Begunkov <asml.silence@gmail.com>,
+	linux-rdma@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net-next 00/15] xsk: Receive in the device's buffer layout
+Date: Tue, 24 Nov 2026 12:26:48 +0100
+Message-ID: <20261124112707.118678-1-bjorn@kernel.org>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -128,525 +111,589 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ0PR03MB5469:EE_|SA6PR03MB7949:EE_
-X-MS-Office365-Filtering-Correlation-Id: c55e5ad5-b9cc-4d7e-6f98-08df4a1dbff6
-X-LD-Processed: eaa689b4-8f87-40e0-9c6f-7228de4d754a,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
- BCL:0;ARA:13230040|366016|1800799024|376014|23010399003|10067099003|261102130727099003|261028144727099003|261021123027099003|11063799006|261021121427099003|261022075727099003|261026140227099003|261009223027099003|261022105027099003|261026121527099003|56012099006|261102123227099003|22082099003|18002099003|6133799003;
-X-Microsoft-Antispam-Message-Info:
- RWDC57NB9tqw9mXqxOco6LswhvVjhEvNCKgWM+eFbgqmbHWzW1FKED1tdf/C/Drh8dfHfKaBlUp/BkCLEpqk8ZR1bdzQzVuu2I8N/nzK4lN7zO0fYvPyv7TWa4FZGi4Dghf+PP/EU9gm5uohtXzt9oCzj00zOCFFZXtlbhkmQohhWsPg/cP3SNVeak4YxNYBmTPO+qUFlcvH/+29WYSM9fySI2ykJB9r1MXrB3iRgR9EwEhc+l8tjMq2Tg4a/dQRq7FLp8bynxpDLNuJ6m4btaNDCdbDsUuEhP514fWgovC2+/Ta1LjMPsK/RFDdDz+k6AKF4v+TOSjIvg9v181CJYovzCosDyfz7n0bp0fFqbS8greoRfRP+2LuvwKI6LjO1/KFenetKLjNg98Hx2d1dVUhGe5VjyUHRc15//Bjco/rPuXNkmEDhNtHif9zASp7pdU4Z0Ydn62PaWQjPq1cvjnkXZMQuz+7RIRzgbo+b1qiGBDTm0BiEIbC1+rw2OrSINQchMw+4wEyDqAIPtzA9t8Mhu+dm/Fi2cyX8p/ZiP95MC6m+S2RlZyNg5b2AddUROBcmxNueg+efKuLpK9LNgnTRx5POoVyw7G1qxFdZn6QIGr0o1QjKIkjV/NQTiIkLaVUWBtJyr3Gwb6wDymJ0omei/HgqtoPsWifvAzCg+Y=
-X-Forefront-Antispam-Report:
- CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ0PR03MB5469.namprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(23010399003)(10067099003)(261102130727099003)(261028144727099003)(261021123027099003)(11063799006)(261021121427099003)(261022075727099003)(261026140227099003)(261009223027099003)(261022105027099003)(261026121527099003)(56012099006)(261102123227099003)(22082099003)(18002099003)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
- =?utf-8?B?RWVLQWUyaktjUUt5REo4d2NSbVRDekV1S1gzL1pXbjMzTEY0M0Q4cDluS1Vl?=
- =?utf-8?B?RG5mNWRjZ1ptM291bEcwR3QrSHFVaUFIR0NLQU1GdjFZdkFHdXh1QVhNNEgv?=
- =?utf-8?B?OFI2cEN0QkZZaCtQQ3pwYWxNZ1J4d2ZndlpxSGlwU3hGTzRVMnNiRURHaFJs?=
- =?utf-8?B?RkJkZ1M5eFNOMjVqQ2VzUzdSYmVpSHk4a0ExaWF5WnpYUTdvOXQzMkYrVlQr?=
- =?utf-8?B?ZHRvZGMzb21zeFZBYURkN2ZGdHRKc255R2hPTXg2YzA2ZWMwaHBmS0JGeURW?=
- =?utf-8?B?d3BNbGlGeDJmOTkxaHlPRmoxc0pFY3BTcUQvQW1XSFBqaFU0QXFVSVVtWnll?=
- =?utf-8?B?c1VOV0xhT21KSm1Ydjd1cm4xLzFTZVJNSW9GaVFhaG5NQ2NPOGVhMmxTb1Jl?=
- =?utf-8?B?N2lweWJQUTZsK0QyUCt0QzVNbnVoUWIvYitXV25EUHI1RFZWbXFGcWcrejY3?=
- =?utf-8?B?N2pEVGpYZ01Zb0NkTHV0YjhuaXBRS3BnRSt5amxvd0hsb0NmUzZVNjVURW8x?=
- =?utf-8?B?K0dIUUF2UFIvcVJKQ2x4aUVqaTVQNFVZYWt0N0FvNTJWQnZWMW1EUWNrNjdp?=
- =?utf-8?B?b0ZZMUc2OG1QTUltTnFDcTdNeEZralo5MkpQV0dZdEoyQjJrSWRGUHJWTmZq?=
- =?utf-8?B?UXNUeXZ2QWxyek93dnJ2THNROWdzb3NJWlgvcGd3N2FxWTRCcDJobzNZTGNZ?=
- =?utf-8?B?OEZFcXhIMzJIOUo2cHVLU0FEMmhLYUE3ZXUydENSWlZOdlcyS01XK2puc21s?=
- =?utf-8?B?aXZDRE5VMUtRbHBZaDhScXF5MTZML2ZkbFdsV0p3dVFJSjZUV1ZpalN1V0pG?=
- =?utf-8?B?OTJ2K2RQSzJJTXZGYiszT0wzak91YUhHb1p3a3VvQzA5WFJ3WEo4MERVSTE5?=
- =?utf-8?B?QUkwMWhQMkNERTUzK0U1SFZzbk1TamFIbWNRUzlJdEUzNGNTd21BeTIyNTlp?=
- =?utf-8?B?YzI4ZnZRa1BPODczYzZrSHQyNDd6TEt0bHNMOHFaVkpxWnVaNkt6dm9nTENR?=
- =?utf-8?B?MDJTVjlWVnkvUi9uWDNYMlpLb2Uva09PcUV2dEVhaFM1Rmd5cTE4MWJRVFVs?=
- =?utf-8?B?S0cwd0t3bHlPRmpqYmJWbFc2eTNXMHVrc0tKcjVOVTFxWC9wTVNYZ2U2Y08r?=
- =?utf-8?B?VkhyZ2hQTjZCbVk1dm9hMlZVdk1UdXJUMVdDYTQzSklUZ0g4WFd0VG5meFl5?=
- =?utf-8?B?WVJVeHQvTFhQWndWS2JEMjVkR0dURXpRVHU1VFhkekcwRjh2R3JaS2NTWVNU?=
- =?utf-8?B?QmkrUjRIbkZia3VzMTg5ZVF1ZWh2OXp1anMvQ2xRTWhrTUI5M2pSNVF6eFZX?=
- =?utf-8?B?QnRpN0Z3OWpTK1ZJb29Bdk9yODJWZTk1ZEw4K0ZOZERsSFdKZ21CVGdwNG9u?=
- =?utf-8?B?NzJ5MVl1dHJSeEVCMVFyVXZ1Q3dvWTE3S00za0pQWUF2a2dvdTBSRXpFc3dy?=
- =?utf-8?B?azN6TmFCbjFOY2dyU2I5eDBOTXBOV3doK1VzOFhtRVN6N1c2WWRoOTkzVDNO?=
- =?utf-8?B?UmpCMm5hZEJQb2xjVkhzbTdwRjhadk1rUlNQMXR2cFdhQnZGZXprYy81NGJH?=
- =?utf-8?B?ZHlMR2lrNnJGekhQWVl4TGdQTURNNFE2Kzd1blZLS3ZrczkxcGdLNytDcnlo?=
- =?utf-8?B?V3QzV1Y1dUJXd0I0STh3UHo3eEFaYmZyNXNEeGhyVWdnMTdFejlRcXhaeUFy?=
- =?utf-8?B?YktrY3FCVERaVmdaYWtyYUs2NWVsUnZjSkdOaWltYU16amlQYXplZVpuU0VQ?=
- =?utf-8?B?dGNQTHBrN0FPcjdwaE1SZXRUU2J6QmJ3RXFrcXpzS2RwbnZwN3JNQlBTTGda?=
- =?utf-8?B?aWRqcU5DaE9WaFZvSzlldVY0NUJRYkFWMkQ1a0lIWExmZ2NXZjRQRzJxbU5v?=
- =?utf-8?B?YlozZHZpK0FJdE83b3U1ZUJpMEtYaEE5bnVKQm9kLzVSVVZSdjVDTHBZMjVi?=
- =?utf-8?B?ZktRR29tM0NBczJKV0JlRlZHb2p5VG9CbUM0bzE1VEVKRVA5VjJCMStQS2gw?=
- =?utf-8?B?OXBEL015UWlHQ2pOOFdCcUp4eDB4MG41cHR5d1FKMG85UTRBeWN1M3RqREhO?=
- =?utf-8?B?Q09LaHFPZWMxY3RSYlllNlE0TGZPYWxoSmQ1ZjR0YUc2a0ZVSy9ZeEQvM0Q3?=
- =?utf-8?B?eUtPUmltUFZSQ1BVNzF6TERhVDlyVG8xRVR0dnM2N2lqMDZVY1d1VndoaUJs?=
- =?utf-8?B?SXFYcnlQNXpKQ0h3YmRMTUQ0R1p6eWIwUGpRYXhjUEE5NXh0TlpPRmFiVXhl?=
- =?utf-8?B?bnRpQnMwSllsVWFuRk5WbWNYTFltN1o5bVBuQ1hZKzFXRTVQTmllUGhrbU5N?=
- =?utf-8?B?UXhDOWE1V1NDZEI3Y29RQTFFNkthWjhkSEtqNW5iZXBoWXpQa2J0dz09?=
-X-Exchange-RoutingPolicyChecked:
-	FfkKisl5Pb3N2THYFBWD4rfPXCnIGtsCWhzmPcJWnH8bTRrMoSJ7tfMPjHiETw3xe2vzV90hBwDwcphoebiT7zRzf70Na+2pOHccvP9G+xc/9rP8Bn9DREXCZDF0oVc4j7yIfDs8QkQY7lExS3XlJ/PMjMwEiGQcFZVmRUgNtosmdANFj0JEgwcAkmtS3e/ZlO8LF2qRNovohGWHLnef1/ubZdVKG4ZArcr7Qo3jDj033RwWccjm403iPEZZaaa4mY8Yx4PNUxjD3nP7GEleZfeJyxKUqxjLksqxApvXe1rqjZQwtatmnNFW4jQW9smqOcS1UEbiUXBvg5C3Gbm2Pg==
-X-OriginatorOrg: analog.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c55e5ad5-b9cc-4d7e-6f98-08df4a1dbff6
-X-MS-Exchange-CrossTenant-AuthSource: SJ0PR03MB5469.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 11:26:14.6184
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: eaa689b4-8f87-40e0-9c6f-7228de4d754a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: cyn0NEjkrXvLJ3tXNZ4D9bM+lsIuqCarPfF8D3s9wfqaWcVPfcnpeKyIOcbsarKfIqglmpdgp5kx+jjrvdsLrA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA6PR03MB7949
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI0MDA0NCBTYWx0ZWRfX8+rbLvfllUxZ
- YCTCXoDeZrSxlNSQDUbCWpXertkdrYSZxsGL+nsqeXJHvVgfB8kTuf8AGMiWG+FQcGgvkehYypj
- Hr8ofofheRcEugZX+GXh+05wJ1PTDInTVH8j+KfTWuenCggZX7xM
-X-Proofpoint-ORIG-GUID: EUqnDzmUdXbiRqvloXu_Tkoz5QN_mCXI
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI0MDA0NCBTYWx0ZWRfX1uZlWgJ2P04w
- NuA23DK8AutizCiPfumACwcoEJM8EMekbRSwJcM90tqBjhbXmJlk2JiGdASFSzf0eklSpZVAWbJ
- FbqfSMre2ex7FNp3oAy43GG7ctG+dtbcW5E/9KmNSuqPg9nMw1f3FuA9wuByjM5WalYgcumvSXl
- yLlt3NkyJTQ8t88Xac2ghePEwd5LQ6S7kmxHXMxVSnushHu9I3cJBMS5TuItNfakaHBUFCAgQGQ
- nqoZd73eRVll4kdSCC5F9RoP+gt/sRR283Jl1NvtezXLmrXFLOAPdoehp5FfDAXP5y35S8qE4qu
- D89wD5YY1a6+GVNokQmll1azMpX+E771Cqd5Gu2zEy/Tmw8Wzvk4z7k/VswKwG8vK35gw2tJco7
- jQ5a1ZUNe9yLufCCf+5oxpu/yyEcH/JBRnRLUgjM6cMXpjcqMxasDXJYhsWKls3VpqlDgyZNhtq
- XniqVkKRLIhHyVqQlaA==
-X-Proofpoint-GUID: EUqnDzmUdXbiRqvloXu_Tkoz5QN_mCXI
-X-Authority-Analysis: v=2.4 cv=YJIKWhGx c=1 sm=1 tr=0 ts=6b05745a cx=c_pps
- a=iUWcX4Zb67NrYBHNvjZ/UQ==:117 a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19
- a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19 a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19
- a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=M51BFTxLslgA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=0sLvza09kfJOxVLZPwjg:22 a=_jAD5XSDOtq9-5Nde2OG:22
- a=QyXUC8HyAAAA:8 a=gAnH3GRIAAAA:8 a=FvSWL99rPpPUQIIn-FsA:9 a=3ZKOabzyN94A:10
- a=QEXdDO2ut3YA:10
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-24_02,2026-11-23_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1011 phishscore=0 bulkscore=0 priorityscore=1501 malwarescore=0
- suspectscore=0 adultscore=0 impostorscore=0 lowpriorityscore=0 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611240044
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-On Tue, Nov 24, 2026 at 10:44:10AM +0100, Andy Shevchenko wrote:
-> Split debugfs routines into a separate file for easier maintenance.
-> No functional changes intended.
-> 
-> Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-> ---
+AF_XDP zero copy makes the device fill one UMEM chunk per buffer, at
+the UMEM headroom. Each driver carries a second RX path for this, and
+bends its RX geometry to fit. Packets that the device would split over
+several buffers, or pack several to a page, cannot be received without
+a copy. fbnic and bnxt have no AF_XDP zero copy at all.
 
-Looks good! With the compilation fix in v2:
+This series lets an AF_XDP socket receive in the layout that the
+driver already uses for its page pool. The UMEM backs the page pools
+of the bound queue through a memory provider, which the socket
+installs with the queue management API, as devmem and io_uring zcrx
+install theirs. The device places buffers in UMEM chunks as it places
+them in pages: several buffers may share a chunk, a packet may span
+chunks, and the device picks the offsets. The XDP program redirects
+each packet to the socket through an XSKMAP, and each buffer becomes
+one RX descriptor. A FILL entry lends a whole chunk, and an RX
+descriptor with the new XDP_RX_CHUNK_FREE gives it back. This extends
+the AF_XDP uAPI, see the documentation patch (15):
 
-Reviewed-by: Nuno Sá <nuno.sa@analog.com>
+- XDP_UMEM_DRV_LAYOUT, a UMEM registration flag, selects the device's
+  buffer layout: aligned PAGE_SIZE chunks, no headroom.
+- XDP_RX_CHUNK_FREE, an RX descriptor option, gives a chunk back. An
+  empty descriptor (len 0) at a chunk gives it back when the device
+  let go of the chunk after its last buffer reached the socket.
+- FILL lends whole chunks, and RX descriptors may point anywhere in a
+  chunk.
+- A bind in the device's buffer layout requires XDP_USE_NEED_WAKEUP
+  and fails with EINVAL without it, as only the wakeup restarts a
+  queue that ran out of buffers.
+- The bind needs a native XDP program, one socket per queue receives,
+  and XDP_COPY fails.
 
-> 
-> Rupesh, feel free to include this patch into your series as the first one.
-> 
-> Fun fact: This patch was written with zero AI assistance.
-> 
->  drivers/iio/Makefile               |   1 +
->  drivers/iio/iio_core.h             |  14 +++
->  drivers/iio/industrialio-core.c    | 152 +-------------------------
->  drivers/iio/industrialio-debugfs.c | 165 +++++++++++++++++++++++++++++
->  4 files changed, 182 insertions(+), 150 deletions(-)
->  create mode 100644 drivers/iio/industrialio-debugfs.c
-> 
-> diff --git a/drivers/iio/Makefile b/drivers/iio/Makefile
-> index 8a897b6729d2..5fd81b20da22 100644
-> --- a/drivers/iio/Makefile
-> +++ b/drivers/iio/Makefile
-> @@ -8,6 +8,7 @@ industrialio-y := industrialio-core.o industrialio-event.o inkern.o
->  industrialio-$(CONFIG_IIO_BUFFER) += industrialio-buffer.o
->  industrialio-$(CONFIG_IIO_TRIGGER) += industrialio-trigger.o
->  industrialio-$(CONFIG_ACPI) += industrialio-acpi.o
-> +industrialio-$(CONFIG_DEBUG_FS) += industrialio-debugfs.o
->  
->  obj-$(CONFIG_IIO_CONFIGFS) += industrialio-configfs.o
->  obj-$(CONFIG_IIO_GTS_HELPER) += industrialio-gts-helper.o
-> diff --git a/drivers/iio/iio_core.h b/drivers/iio/iio_core.h
-> index 59fa1bd9924b..985ac82a37f9 100644
-> --- a/drivers/iio/iio_core.h
-> +++ b/drivers/iio/iio_core.h
-> @@ -16,6 +16,20 @@ struct iio_buffer;
->  struct iio_chan_spec;
->  struct iio_dev;
->  
-> +#if defined(CONFIG_DEBUG_FS)
-> +void iio_debugfs_create(void);
-> +void iio_debugfs_remove(void);
-> +
-> +void iio_device_unregister_debugfs(struct iio_dev *indio_dev);
-> +void iio_device_register_debugfs(struct iio_dev *indio_dev);
-> +#else
-> +static inline void iio_debugfs_create(void) {}
-> +static inline void iio_debugfs_remove(void) {}
-> +
-> +static void iio_device_register_debugfs(struct iio_dev *indio_dev) {}
-> +static void iio_device_unregister_debugfs(struct iio_dev *indio_dev) {}
-> +#endif /* CONFIG_DEBUG_FS */
-> +
->  extern const struct device_type iio_device_type;
->  
->  struct iio_dev_buffer_pair {
-> diff --git a/drivers/iio/industrialio-core.c b/drivers/iio/industrialio-core.c
-> index 792c2d28835b..3b66d7b765d5 100644
-> --- a/drivers/iio/industrialio-core.c
-> +++ b/drivers/iio/industrialio-core.c
-> @@ -14,7 +14,6 @@
->  #include <linux/anon_inodes.h>
->  #include <linux/cdev.h>
->  #include <linux/cleanup.h>
-> -#include <linux/debugfs.h>
->  #include <linux/device.h>
->  #include <linux/err.h>
->  #include <linux/export.h>
-> @@ -54,8 +53,6 @@ const struct bus_type iio_bus_type = {
->  };
->  EXPORT_SYMBOL(iio_bus_type);
->  
-> -static struct dentry *iio_debugfs_dentry;
-> -
->  static const char * const iio_direction[] = {
->  	[0] = "in",
->  	[1] = "out",
-> @@ -293,20 +290,6 @@ bool iio_buffer_enabled(struct iio_dev *indio_dev)
->  }
->  EXPORT_SYMBOL_GPL(iio_buffer_enabled);
->  
-> -#if defined(CONFIG_DEBUG_FS)
-> -/*
-> - * There's also a CONFIG_DEBUG_FS guard in include/linux/iio/iio.h for
-> - * iio_get_debugfs_dentry() to make it inline if CONFIG_DEBUG_FS is undefined
-> - */
-> -struct dentry *iio_get_debugfs_dentry(struct iio_dev *indio_dev)
-> -{
-> -	struct iio_dev_opaque *iio_dev_opaque = to_iio_dev_opaque(indio_dev);
-> -
-> -	return iio_dev_opaque->debugfs_dentry;
-> -}
-> -EXPORT_SYMBOL_GPL(iio_get_debugfs_dentry);
-> -#endif
-> -
->  /**
->   * iio_find_channel_from_si() - get channel from its scan index
->   * @indio_dev:		device
-> @@ -427,7 +410,7 @@ static int __init iio_init(void)
->  		goto error_unregister_bus_type;
->  	}
->  
-> -	iio_debugfs_dentry = debugfs_create_dir("iio", NULL);
-> +	iio_debugfs_create();
->  
->  	return 0;
->  
-> @@ -442,140 +425,9 @@ static void __exit iio_exit(void)
->  	if (iio_devt)
->  		unregister_chrdev_region(iio_devt, IIO_DEV_MAX);
->  	bus_unregister(&iio_bus_type);
-> -	debugfs_remove(iio_debugfs_dentry);
-> +	iio_debugfs_remove();
->  }
->  
-> -#if defined(CONFIG_DEBUG_FS)
-> -static ssize_t iio_debugfs_read_reg(struct file *file, char __user *userbuf,
-> -			      size_t count, loff_t *ppos)
-> -{
-> -	struct iio_dev *indio_dev = file->private_data;
-> -	struct iio_dev_opaque *iio_dev_opaque = to_iio_dev_opaque(indio_dev);
-> -	unsigned int val = 0;
-> -	u64 val64 = 0;
-> -	int ret;
-> -
-> -	if (*ppos > 0)
-> -		return simple_read_from_buffer(userbuf, count, ppos,
-> -					       iio_dev_opaque->read_buf,
-> -					       iio_dev_opaque->read_buf_len);
-> -
-> -	if (indio_dev->info->debugfs_reg64_access) {
-> -		ret = indio_dev->info->debugfs_reg64_access(indio_dev,
-> -							    iio_dev_opaque->cached_reg_addr,
-> -							    0, &val64);
-> -	} else {
-> -		ret = indio_dev->info->debugfs_reg_access(indio_dev,
-> -							  iio_dev_opaque->cached_reg_addr,
-> -							  0, &val);
-> -		val64 = val;
-> -	}
-> -
-> -	if (ret) {
-> -		dev_err(indio_dev->dev.parent, "%s: read failed\n", __func__);
-> -		return ret;
-> -	}
-> -
-> -	iio_dev_opaque->read_buf_len = snprintf(iio_dev_opaque->read_buf,
-> -						sizeof(iio_dev_opaque->read_buf),
-> -						"0x%llX\n", val64);
-> -
-> -	return simple_read_from_buffer(userbuf, count, ppos,
-> -				       iio_dev_opaque->read_buf,
-> -				       iio_dev_opaque->read_buf_len);
-> -}
-> -
-> -static ssize_t iio_debugfs_write_reg(struct file *file,
-> -		     const char __user *userbuf, size_t count, loff_t *ppos)
-> -{
-> -	struct iio_dev *indio_dev = file->private_data;
-> -	struct iio_dev_opaque *iio_dev_opaque = to_iio_dev_opaque(indio_dev);
-> -	unsigned int reg;
-> -	char buf[80];
-> -	u64 val64;
-> -	int ret;
-> -
-> -	if (*ppos != 0 || count >= sizeof(buf))
-> -		return -EINVAL;
-> -
-> -	ret = simple_write_to_buffer(buf, sizeof(buf) - 1, ppos, userbuf,
-> -				     count);
-> -	if (ret < 0)
-> -		return ret;
-> -
-> -	buf[ret] = '\0';
-> -
-> -	ret = sscanf(buf, "%i %lli", &reg, &val64);
-> -
-> -	switch (ret) {
-> -	case 1:
-> -		iio_dev_opaque->cached_reg_addr = reg;
-> -		break;
-> -	case 2:
-> -		iio_dev_opaque->cached_reg_addr = reg;
-> -		if (indio_dev->info->debugfs_reg64_access)
-> -			ret = indio_dev->info->debugfs_reg64_access(indio_dev, reg,
-> -								    val64, NULL);
-> -		else
-> -			ret = indio_dev->info->debugfs_reg_access(indio_dev, reg,
-> -								  val64, NULL);
-> -		if (ret) {
-> -			dev_err(indio_dev->dev.parent, "%s: write failed\n",
-> -				__func__);
-> -			return ret;
-> -		}
-> -		break;
-> -	default:
-> -		return -EINVAL;
-> -	}
-> -
-> -	return count;
-> -}
-> -
-> -static const struct file_operations iio_debugfs_reg_fops = {
-> -	.open = simple_open,
-> -	.read = iio_debugfs_read_reg,
-> -	.write = iio_debugfs_write_reg,
-> -};
-> -
-> -static void iio_device_unregister_debugfs(struct iio_dev *indio_dev)
-> -{
-> -	struct iio_dev_opaque *iio_dev_opaque = to_iio_dev_opaque(indio_dev);
-> -
-> -	debugfs_remove_recursive(iio_dev_opaque->debugfs_dentry);
-> -}
-> -
-> -static void iio_device_register_debugfs(struct iio_dev *indio_dev)
-> -{
-> -	struct iio_dev_opaque *iio_dev_opaque;
-> -
-> -	if (!indio_dev->info->debugfs_reg_access &&
-> -	    !indio_dev->info->debugfs_reg64_access)
-> -		return;
-> -
-> -	if (!iio_debugfs_dentry)
-> -		return;
-> -
-> -	iio_dev_opaque = to_iio_dev_opaque(indio_dev);
-> -
-> -	iio_dev_opaque->debugfs_dentry =
-> -		debugfs_create_dir(dev_name(&indio_dev->dev),
-> -				   iio_debugfs_dentry);
-> -
-> -	debugfs_create_file("direct_reg_access", 0644,
-> -			    iio_dev_opaque->debugfs_dentry, indio_dev,
-> -			    &iio_debugfs_reg_fops);
-> -}
-> -#else
-> -static void iio_device_register_debugfs(struct iio_dev *indio_dev)
-> -{
-> -}
-> -
-> -static void iio_device_unregister_debugfs(struct iio_dev *indio_dev)
-> -{
-> -}
-> -#endif /* CONFIG_DEBUG_FS */
-> -
->  static ssize_t iio_read_channel_ext_info(struct device *dev,
->  				     struct device_attribute *attr,
->  				     char *buf)
-> diff --git a/drivers/iio/industrialio-debugfs.c b/drivers/iio/industrialio-debugfs.c
-> new file mode 100644
-> index 000000000000..7ceeb88f9276
-> --- /dev/null
-> +++ b/drivers/iio/industrialio-debugfs.c
-> @@ -0,0 +1,165 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Industrial I/O debugfs bits
-> + */
-> +
-> +#include <linux/cdev.h>
-> +#include <linux/debugfs.h>
-> +#include <linux/dev_printk.h>
-> +#include <linux/errno.h>
-> +#include <linux/export.h>
-> +#include <linux/fs.h>
-> +#include <linux/init.h>
-> +#include <linux/sprintf.h>
-> +#include <linux/sysfs.h>
-> +#include <linux/types.h>
-> +
-> +#include <linux/iio/iio.h>
-> +#include <linux/iio/iio-opaque.h>
-> +
-> +#include "iio_core.h"
-> +
-> +static struct dentry *iio_debugfs_dentry;
-> +
-> +/*
-> + * There's also a CONFIG_DEBUG_FS guard in include/linux/iio/iio.h for
-> + * iio_get_debugfs_dentry() to make it inline if CONFIG_DEBUG_FS is undefined
-> + */
-> +struct dentry *iio_get_debugfs_dentry(struct iio_dev *indio_dev)
-> +{
-> +	struct iio_dev_opaque *iio_dev_opaque = to_iio_dev_opaque(indio_dev);
-> +
-> +	return iio_dev_opaque->debugfs_dentry;
-> +}
-> +EXPORT_SYMBOL_GPL(iio_get_debugfs_dentry);
-> +
-> +void __init iio_debugfs_create(void)
-> +{
-> +	iio_debugfs_dentry = debugfs_create_dir("iio", NULL);
-> +}
-> +
-> +void __exit iio_debugfs_remove(void)
-> +{
-> +	debugfs_remove(iio_debugfs_dentry);
-> +}
-> +
-> +static ssize_t iio_debugfs_read_reg(struct file *file, char __user *userbuf,
-> +			      size_t count, loff_t *ppos)
-> +{
-> +	struct iio_dev *indio_dev = file->private_data;
-> +	struct iio_dev_opaque *iio_dev_opaque = to_iio_dev_opaque(indio_dev);
-> +	unsigned int val = 0;
-> +	u64 val64 = 0;
-> +	int ret;
-> +
-> +	if (*ppos > 0)
-> +		return simple_read_from_buffer(userbuf, count, ppos,
-> +					       iio_dev_opaque->read_buf,
-> +					       iio_dev_opaque->read_buf_len);
-> +
-> +	if (indio_dev->info->debugfs_reg64_access) {
-> +		ret = indio_dev->info->debugfs_reg64_access(indio_dev,
-> +							    iio_dev_opaque->cached_reg_addr,
-> +							    0, &val64);
-> +	} else {
-> +		ret = indio_dev->info->debugfs_reg_access(indio_dev,
-> +							  iio_dev_opaque->cached_reg_addr,
-> +							  0, &val);
-> +		val64 = val;
-> +	}
-> +
-> +	if (ret) {
-> +		dev_err(indio_dev->dev.parent, "%s: read failed\n", __func__);
-> +		return ret;
-> +	}
-> +
-> +	iio_dev_opaque->read_buf_len = snprintf(iio_dev_opaque->read_buf,
-> +						sizeof(iio_dev_opaque->read_buf),
-> +						"0x%llX\n", val64);
-> +
-> +	return simple_read_from_buffer(userbuf, count, ppos,
-> +				       iio_dev_opaque->read_buf,
-> +				       iio_dev_opaque->read_buf_len);
-> +}
-> +
-> +static ssize_t iio_debugfs_write_reg(struct file *file,
-> +		     const char __user *userbuf, size_t count, loff_t *ppos)
-> +{
-> +	struct iio_dev *indio_dev = file->private_data;
-> +	struct iio_dev_opaque *iio_dev_opaque = to_iio_dev_opaque(indio_dev);
-> +	unsigned int reg;
-> +	char buf[80];
-> +	u64 val64;
-> +	int ret;
-> +
-> +	if (*ppos != 0 || count >= sizeof(buf))
-> +		return -EINVAL;
-> +
-> +	ret = simple_write_to_buffer(buf, sizeof(buf) - 1, ppos, userbuf,
-> +				     count);
-> +	if (ret < 0)
-> +		return ret;
-> +
-> +	buf[ret] = '\0';
-> +
-> +	ret = sscanf(buf, "%i %lli", &reg, &val64);
-> +
-> +	switch (ret) {
-> +	case 1:
-> +		iio_dev_opaque->cached_reg_addr = reg;
-> +		break;
-> +	case 2:
-> +		iio_dev_opaque->cached_reg_addr = reg;
-> +		if (indio_dev->info->debugfs_reg64_access)
-> +			ret = indio_dev->info->debugfs_reg64_access(indio_dev, reg,
-> +								    val64, NULL);
-> +		else
-> +			ret = indio_dev->info->debugfs_reg_access(indio_dev, reg,
-> +								  val64, NULL);
-> +		if (ret) {
-> +			dev_err(indio_dev->dev.parent, "%s: write failed\n",
-> +				__func__);
-> +			return ret;
-> +		}
-> +		break;
-> +	default:
-> +		return -EINVAL;
-> +	}
-> +
-> +	return count;
-> +}
-> +
-> +static const struct file_operations iio_debugfs_reg_fops = {
-> +	.open = simple_open,
-> +	.read = iio_debugfs_read_reg,
-> +	.write = iio_debugfs_write_reg,
-> +};
-> +
-> +static void iio_device_unregister_debugfs(struct iio_dev *indio_dev)
-> +{
-> +	struct iio_dev_opaque *iio_dev_opaque = to_iio_dev_opaque(indio_dev);
-> +
-> +	debugfs_remove_recursive(iio_dev_opaque->debugfs_dentry);
-> +}
-> +
-> +static void iio_device_register_debugfs(struct iio_dev *indio_dev)
-> +{
-> +	struct iio_dev_opaque *iio_dev_opaque;
-> +
-> +	if (!indio_dev->info->debugfs_reg_access &&
-> +	    !indio_dev->info->debugfs_reg64_access)
-> +		return;
-> +
-> +	if (!iio_debugfs_dentry)
-> +		return;
-> +
-> +	iio_dev_opaque = to_iio_dev_opaque(indio_dev);
-> +
-> +	iio_dev_opaque->debugfs_dentry =
-> +		debugfs_create_dir(dev_name(&indio_dev->dev),
-> +				   iio_debugfs_dentry);
-> +
-> +	debugfs_create_file("direct_reg_access", 0644,
-> +			    iio_dev_opaque->debugfs_dentry, indio_dev,
-> +			    &iio_debugfs_reg_fops);
-> +}
-> -- 
-> 2.50.1
-> 
+This series replaces "xsk: Zero copy through page-pool memory
+providers" [1], see "The earlier series" below.
+
+net_iovs stay unreadable
+------------------------
+
+For the core and the stack, UMEM chunks are net_iovs like any other.
+netmem_address() and skb_frag_address() give NULL for them, every
+net_iov frag still sets skb->unreadable, and page_pool_is_unreadable()
+is true for every provider, as in mainline. The series marks no
+provider readable and adds no readable capability.
+
+Only XDP code reads the chunks, through an opt-in view (patch 1):
+
+- A provider may give its net_iov area an XDP view: an address for
+  each of its net_iovs. XDP code reads a net_iov only through
+  xdp_netmem_address() and xdp_frag_address(), and only if its
+  provider offers a view. The BPF helpers that read and write XDP
+  buffers use them.
+
+- Buffers with a view never become skb frags or xdp_frames. A reader
+  that does not use the two helpers gets NULL, so it fails closed.
+
+- dmabuf and io_uring zcrx offer no view, so nothing changes for them.
+
+One check differs from mainline, and only for XDP-only providers
+(patch 3): netif_rxq_has_unreadable_mp() leaves them out. Drivers use
+it to turn on header split, but an XDP-only provider backs the headers
+too, and with header split each packet would take more buffers.
+page_pool_is_unreadable() is still true for such a provider, so bnxt
+sets up its separate head pool for the queue. Page mode never
+allocates from that pool, so it holds no pages.
+
+The chunks are net_iovs and not pages because the UMEM is user memory,
+pinned with GUP:
+
+- mm owns the struct page fields that page_pool takes over: lru, where
+  pp_magic and pp live, and mapping.
+- A chunk larger than a page, in a follow-up, lies inside a hugetlb
+  folio and is not a page of its own.
+- The provider keeps state per chunk, in the net_iov.
+
+io_uring zcrx wraps pinned user pages in net_iovs for the same
+reasons.
+
+Kernel structures stay out of UMEM
+----------------------------------
+
+Userspace may write the UMEM at any time, also while the kernel reads
+it, so the kernel puts none of its own structures there:
+
+- The shared info of a multi-buffer packet lives in one buffer per RX
+  queue, in kernel memory (patch 2). XDP_FLAGS_SINFO_EXT selects it.
+  Whoever prepares the buffer sets the flag before adding fragments.
+
+- No xdp_frame and no skb is built in a provider buffer (patch 5).
+  The buffers go only to the AF_XDP socket of their queue. The core
+  turns XDP_TX and XDP_PASS into XDP_DROP. Later patches add both:
+  the copy for XDP_PASS is in the full series, and XDP_TX from the
+  buffer in place is later work, see Follow-ups. This series leaves
+  them out to stay small. XDP_ABORTED and invalid verdicts reach the
+  driver, which traces them and drops the packet. Frame conversion
+  and skb construction refuse the buffers, so devmap and cpumap drop
+  them.
+
+- The kernel takes bounds only from its own fields, and only the program
+  and its helpers read the bytes. A helper that checks bytes and reads
+  them again must check a copy, as the syncookie helpers will, with a
+  fix that goes to bpf separately.
+
+Within these rules, XDP programs read and write the packet in place,
+fragments included. A one-buffer packet is a normal linear buffer on
+all three drivers, so programs without xdp.frags work.
+
+How this extends memory providers
+---------------------------------
+
+The provider is a page_pool memory provider like devmem and io_uring
+zcrx: alloc_netmems(), release_netmem(), init() and destroy(),
+installed per queue with the queue management API, and uninstalled
+when the socket unbinds or the device goes away. Drivers get zero copy
+from their page pool path, the path that they use for the stack and
+for XDP. They opt in with one page pool flag, take the address of an
+XDP head with xdp_netmem_address(), and put heads back by netmem.
+Driver code does not name AF_XDP.
+
+The provider interface gains three things, each in its own patch:
+
+- The XDP view (patch 1), see above.
+
+- XDP-only providers (patch 3): MP_XDP_ONLY for a provider whose
+  buffers go only to XDP. It backs every RX page pool of the queue,
+  needs no header split, and native XDP may run next to it. A driver
+  gets such memory only if it sets PP_FLAG_ALLOW_XDP_ONLY_NETMEM.
+
+- hand_off() (patch 4): the last put of a net_iov that the provider
+  marked goes to the provider instead of the pool cache, and the
+  net_iov stays charged to the pool. AF_XDP gives a chunk back only
+  once both the device and the socket are done with it.
+
+The providers take page pool fragments: drivers split chunks as they
+split pages, and the hand-off also covers the fragment allocator.
+
+Most of the size is AF_XDP's own contract, not provider plumbing:
+chunk ownership through FILL, refill, delivery, give-back and
+teardown, in net/xdp/xsk_sink.c.
+
+Code size
+---------
+
+The series adds 1793 lines and removes 139:
+
+  net/xdp/xsk_sink.[ch]     +793       (185 of them comments, 99
+                                        blank; 26 functions)
+  rest of AF_XDP            +139/-20   (xsk.c, xsk_buff_pool.c,
+                                        xdp_umem.c, headers)
+  XDP core, BPF helpers     +228/-13   (xdp.h, xdp.c, netmem.h,
+                                        filter.c)
+  page_pool, providers      +110/-14
+  netdev core                +56/-3    (dev.c, netdevice.h,
+                                        ethtool rings.c)
+  uAPI                       +30       (if_xdp.h and its tools copy)
+  fbnic                      +34/-17   (15 of the added for
+                                        XDP_REDIRECT, which fbnic
+                                        lacked)
+  mlx5                       +17/-7
+  bnxt                       +23/-37
+  selftests                 +250/-27
+  documentation             +113/-1
+
+The sink takes no lock on delivery, as only the queue NAPI writes to
+the RX ring, and a queue restart stops the old NAPI before the new one
+runs.
+
+Classic zero copy is a separate RX and TX path in each driver:
+ice_xsk.c has 956 lines, mlx5's en/xsk/ 1019 (plus hooks in the rest
+of the driver), i40e_xsk.c 807, ixgbe_xsk.c 566, and idpf's xsk.c 641
+(plus 272 in libeth).
+
+We also wrote classic zero copy for fbnic, without this series. The
+first version added 1239 lines to fbnic and removed 163. A trimmed
+version adds 565 and removes 97 (TX is +156/-28 of that), plus 32
+lines in xdp_sock_drv.h. This series changes fbnic by +19/-16 for RX,
+plus +15/-1 for XDP_REDIRECT, which classic zero copy needs too.
+Zero-copy TX, a follow-up, adds +65/-3 to fbnic. On the same host, on
+another day, the trimmed classic driver received 28.3 Mpps at 66
+bytes; this series receives 27.6 Mpps, and 31.4 Mpps with the speed
+follow-ups.
+
+The follow-ups, 26 patches in the full series, see Follow-ups:
+
+  xskxceiver timeout, 1         +29/-3
+  speed, 4 patches             +154/-22   core only
+  XDP_PASS copy, 3             +157/-16   bnxt +56/-2 of it
+  zero-copy TX, 6              +555/-57   fbnic +65/-3, mlx5 +126/-6,
+                                          bnxt +100/-2
+  bnxt TX batching, 2           +38/-11
+  larger chunks, 5             +167/-84   fbnic +21/-6, mlx5 +12/-5,
+                                          bnxt +23/-15
+  mlx5 performance, 4          +121/-22
+  bnxt RX loop, 1               +13/-3
+
+Unlike RX, TX needs code in each driver: the driver turns the
+socket's TX descriptors into device descriptors and completes them.
+
+Generic pieces, and who else gains
+----------------------------------
+
+Patches 1-4 and 11 name no AF_XDP:
+
+- Patch 1, the XDP view, works for any provider. io_uring zcrx, for
+  example, could let XDP read its memory, while the stack keeps
+  treating it as unreadable.
+
+- Patch 2, shared info in kernel memory, works for any buffer.
+  Classic zero copy keeps the shared info of a multi-buffer packet in
+  the tail of the head's UMEM frame today, where userspace can change
+  it while the kernel walks the fragments. It can move it out of UMEM
+  with this flag, in a separate series. Buffers with the flag may also
+  use the 320 bytes that the shared info took. No driver in this
+  series packs its buffers tighter for that yet.
+
+- Patches 3 and 11 serve any XDP-only provider, and patch 4 any
+  provider that needs the last put of a net_iov.
+
+Driver changes that help other users:
+
+- fbnic supports XDP_REDIRECT (patch 9). Any native XDP program on
+  fbnic can redirect to devmap, to cpumap and to AF_XDP sockets in
+  copy mode. Before, the verdict was invalid and dropped the packet.
+
+- mlx5 restarts a queue with an XDP program attached (patch 12), for
+  any user of the queue management API. In the tree today only memory
+  providers restart queues, and all but XDP-only ones refuse XDP, so
+  nobody else gains yet.
+
+- In the follow-ups, bnxt reports the VLAN tag of XDP buffers to any
+  XDP program, and its inlined RX loop makes native XDP_DROP 3.6 %
+  faster. Classic zero-copy TX counts its completions in the kernel,
+  so userspace that writes the completion producer cannot change the
+  kernel's count of descriptors in flight. The high-order
+  page patches for mlx5, fbnic and bnxt work for any provider, but
+  XDP-only ones are their only users in the tree today.
+
+The bnxt fixes below help today's users, every busy-poll user and every
+queue restart with XDP attached, and a separate syncookie fix for bpf
+protects XDP programs on classic zero-copy queues.
+
+Why a second zero-copy model
+----------------------------
+
+Classic zero copy hands the driver one UMEM chunk per RX buffer. The
+driver fills it at the UMEM headroom, through an AF_XDP RX path of its
+own: ice, i40e, idpf and others have one, and mlx5 has a separate XSK
+RQ for it. The buffer size is the chunk size, so the driver cannot
+pack several packets into a page or split one packet the way it does
+for the stack. Teaching classic zero copy the device's layout would
+mean rewriting that RX path in every driver, and changing what a
+descriptor owns.
+
+Here the device keeps its own layout, and the driver keeps its own RX
+path. Ownership moves from the buffer to the chunk: FILL lends a
+chunk, and the kernel gives it back with XDP_RX_CHUNK_FREE.
+
+The two models serve different users. With classic zero copy, the
+application decides where each frame lands, one frame per chunk at a
+headroom it picks, or at any address with unaligned chunks. Applications
+that need that control keep it, and each driver pays for it with an
+AF_XDP RX path of its own. With the device's layout, the application
+gives up that control. The device decides where packets land and how
+many share a chunk, and the driver needs a few dozen lines on top of its
+existing RX path.
+
+Classic zero copy stays as it is. A UMEM chooses the model when it is
+registered, with XDP_UMEM_DRV_LAYOUT, and nothing changes for UMEMs
+without the flag or for drivers with classic zero copy. Both models
+share the rings, the descriptors and the XSKMAP, and zero-copy TX in
+the device's layout, a follow-up, reuses the classic TX helpers.
+
+On mlx5, which has both, classic zero copy is faster at MTU 1500:
+24.5 Mpps at 66 bytes against 16.4 Mpps for this series, and 20.7
+Mpps with the follow-ups, see Performance. With 16 KiB chunks, a
+follow-up, the device's layout passes it (25.9 Mpps). At MTU 5000,
+classic zero copy cannot bind, as the XSK RQ needs a linear RQ and has
+no multi-buffer. This series receives multi-buffer packets at any
+MTU.
+
+uAPI
+----
+
+- XDP_UMEM_DRV_LAYOUT, a UMEM flag: aligned PAGE_SIZE chunks, no
+  headroom. Binding needs a native XDP program, attached through
+  netlink, and the program cannot be detached while the UMEM backs
+  the queue. That ends when the receiving socket closes, even if a
+  TX-only socket stays bound. One socket per queue receives; a second
+  socket with an RX ring gets -EBUSY. Sockets that share the UMEM may
+  transmit, in copy mode. XDP_COPY fails.
+
+- A bind in the device's buffer layout requires XDP_USE_NEED_WAKEUP
+  and fails with EINVAL without it. The drivers do not poll FILL: once
+  FILL ran dry and the device used its posted buffers, only the wakeup
+  from recvmsg() or poll() restarts the queue.
+  The kernel also asks for a wakeup while chunks wait for room in the
+  RX ring, as only the queue NAPI gives them back.
+
+- FILL lends whole chunks.
+
+- RX descriptors point at the buffers that the device filled.
+  XDP_PKT_CONTD chains the buffers of a packet. Metadata that the
+  program wrote is in front of the first buffer.
+
+- XDP_RX_CHUNK_FREE, a descriptor option: the kernel is done with the
+  chunk of the descriptor, and the chunk is the application's again.
+  If the device lets go of a chunk after its last buffer reached the
+  socket, an empty descriptor (len 0) at the chunk carries the flag.
+
+Ownership stays per chunk, as in classic AF_XDP. The application
+never returns single buffers, and a chunk that it got back can go on
+the TX ring. A held packet keeps its whole chunk.
+
+Patches
+-------
+
+1     xdp: the XDP view of net_iovs, and the helpers that use it.
+2     xdp: the shared info of a buffer in kernel memory.
+3     XDP-only memory providers.
+4     page_pool: hand_off() for the last put of a marked net_iov.
+5     xdp: programs on buffers that must not hold kernel structures.
+6     xsk: chunks lent to the page pools of a queue.
+7     xsk: delivery to the socket, and chunks given back.
+8     xsk: the uAPI. Nothing in 6 and 7 is reachable before this
+      patch.
+9-10  fbnic: XDP_REDIRECT, then RX.
+11    netif_rxq_has_xdp_only_mp(), for drivers that lay out a queue
+      before they create its page pools.
+12-13 mlx5, bnxt.
+14    A mode for xskxceiver.
+15    Documentation.
+
+Performance
+-----------
+
+Machines, one per NIC, all of one platform type:
+
+  CPU       AMD EPYC 9D64, 88 cores, one socket, SMT on, DDR5-4800.
+            The test core ran at 2.95 GHz; acpi-cpufreq, performance
+            governor, boost on.
+  Kernel    mitigations=off, iommu=pt.
+  fbnic     Meta fbnic, firmware 26.01.07-006, 50 Gb/s, PCIe 4.0 x4.
+  mlx5      NVIDIA ConnectX-7 (MT2910), firmware 28.48.1000,
+            50 Gb/s, PCIe 4.0 x4.
+  bnxt      Broadcom BCM57504, firmware 232.0.159.4 (package
+            232.1.136.4), 50 Gb/s, PCIe 4.0 x4.
+
+Traffic comes from a second machine of the same type with
+xdp-trafficgen. One UDP flow lands on the measured queue.
+
+One RX queue. The application, its NAPI and the IRQ share one core,
+with preferred busy polling (socket timeout 100 us, budget 256, batch
+256). The UMEM has 16,384 chunks. The program redirects through an
+XSKMAP. Mpps and cycles per packet on that core, 66-byte frames,
+medians over two rounds of alternating boots:
+
+               XDP_DROP     AF_XDP, busy poll   AF_XDP, epoll
+  fbnic        38.8  (76)   27.6 (106)          26.6
+  mlx5         31.6  (93)   16.4 (179)          16.2
+  bnxt [2]     24.3         18.1 (162)          17.9
+
+XDP_DROP is native XDP on the same kernel, without a provider. The
+rows ran on builds of this series on an older base. The sink has
+since lost its reserve stack and backlog; A/B
+runs of that change measured level on all three NICs, with equal or
+fewer instructions per packet. At MTU 1500, mlx5 puts one packet in
+each 4 KiB chunk, as its strides keep room for the shared info of an
+skb, so every packet costs a FILL entry, a refill and a give-back.
+
+On mlx5, classic zero copy through the XSK RQ receives 24.5 Mpps
+(120) on the same host.
+
+fbnic, bnxt and mlx5 run at line rate with 9000-byte frames, which XDP
+multi-buffer receives as three 4 KiB chunks. The UMEM must hold more
+chunks than the queue keeps posted: at MTU 9000, mlx5 posts four pages
+per RX ring entry, up to 16,384 pages, so the 9000-byte runs used 65,536
+chunks against 16,384 elsewhere.
+
+[2] With "eth: bnxt: Ring the NQ doorbell during busy poll" and "eth:
+    bnxt: Do not reset TX queue 0 BQL for XDP rings", see
+    Dependencies.
+
+Programs that use no provider see no measurable change in packet rate
+with native XDP_DROP, as the variation stays within the 3 % that code
+layout alone causes. The series adds about 6 instructions per packet on
+fbnic, and under 3 on mlx5 and bnxt, for the net_iov test in
+xdp_netmem_address() and the static key of the sink verdict.
+
+What the follow-ups do to the AF_XDP busy-poll test above, measured
+one part at a time on top of this series, as a share of native
+XDP_DROP on the same kernel:
+
+                                fbnic          mlx5          bnxt
+  this series                   27.6 (71 %)    16.4 (52 %)   18.0 (73 %)
+  + speed                       31.4 (83 %)    16.7 (53 %)   18.9 (77 %)
+  + mlx5 performance            -              20.8 (67 %)   -
+  whole series, 4 KiB chunks    31.0 (85 %)    20.7 (68 %)   18.6 (76 %)
+  whole series, 16 KiB chunks   35.9 (99 %)    25.9 (86 %)   20.6 (83 %)
+  whole series, 32 KiB chunks   -              -             21.0 (85 %)
+  whole series, 128 KiB chunks  37.4 (103 %)   27.1 (90 %)   -
+
+The XDP_PASS copy and TX do not change the redirect path. Larger chunks
+need huge-page UMEM. With 16 KiB chunks and more, fbnic receives into an
+AF_XDP socket at the rate of native XDP_DROP. On bnxt the sink stays
+about 18 cycles per packet above native: native XDP_DROP reuses the RX
+buffer in place, and the sink takes a new buffer for every packet.
+
+At MTU 5000, with the follow-ups and 16 KiB chunks, on one RX queue,
+medians over two boots. At 300, 1500 and 5000 bytes, cycles per
+packet on interrupts; at 66 bytes, Mpps with busy poll:
+
+                         300 B   1500 B   5000 B    66 B
+  fbnic  AF_XDP            354      322      565    35.9
+         XDP_DROP          204      184      447    36.8
+  mlx5   AF_XDP            323      374      418    22.9
+         XDP_DROP          165      211      381    36.6
+  bnxt   AF_XDP            380      336      802    20.5
+         XDP_DROP          116      197      534    26.2
+
+At 1500 and 5000 bytes both receive at line rate, so the table gives
+the work per packet of the receiving core, with RX interrupt
+coalescing of 33 us or 88 frames. That cost depends on the
+coalescing, and with busy poll the core spins whatever the rate. At
+300 bytes the AF_XDP column counts two cores, NAPI and the
+application. fbnic ran on another pair of machines, with firmware
+25.08.05-004 and an AF_XDP generator in copy mode.
+
+With 4 KiB chunks at this MTU, mlx5 keeps a nonlinear RQ and costs 700
+cycles at 5000 bytes, as does this series alone (699). Classic mlx5
+zero copy cannot bind at MTU 5000.
+
+Zero-copy TX, a follow-up, at 66 bytes on one core: fbnic 35.3 Mpps,
+mlx5 29.5, bnxt 35.8, against 1.0 to 2.4 Mpps in copy mode.
+
+Dependencies
+------------
+
+These fixes go separately:
+
+- "eth: bnxt: Ring the NQ doorbell during busy poll", for net.
+  Without it, a busy-polled bnxt queue stalls.
+
+- "eth: bnxt: Do not reset TX queue 0 BQL for XDP rings", for net.
+  With TPH, every RX queue restart with XDP attached resets BQL of TX
+  queue 0, and the next completion there hits the BUG in
+  dql_completed(). Binding and unbinding an AF_XDP socket in this
+  mode restarts the queue with XDP attached.
+
+Follow-ups
+----------
+
+The full series, 42 patches with the syncookie fix, is at
+https://github.com/fb-bjorn/linux/tree/xsk-device-v1. Each part
+comes with its own numbers, see Performance.
+
+- Speed: a kfunc that redirects to the queue's socket without an
+  XSKMAP, batched reference drops, a path for one-buffer packets, and
+  a prefetch of FILL chunks.
+
+- XDP_PASS: the stack gets a copy instead of a drop. bnxt first
+  reports the VLAN tag of XDP buffers, and offers XDP-only providers
+  only in legacy eswitch mode, as the copy would otherwise reach the
+  PF instead of the representor.
+
+- Zero-copy TX in the device's buffer layout for fbnic, mlx5 and bnxt,
+  with no uAPI change, and one completion per TX batch on bnxt.
+
+- Larger chunks: 16 KiB to 128 KiB chunks in huge pages, through the
+  rx_page_size of the queue.
+
+- mlx5: keep XDP-only RQs linear above a page-sized MTU, so that
+  larger chunks hold several packets at MTU 5000, flush redirects
+  after reposting WQEs, let go of a page after its last stride, and
+  skip head prefetches.
+
+- bnxt: inline RX packets into the completion loop.
+
+Later work, not in the full series:
+
+- Small MTUs on mlx5: leave the shared info out of the strides of
+  XDP-only RQs, two packets per 4 KiB chunk at MTU 1500. It takes this
+  series from 16.4 to 19.6 Mpps on mlx5, but cannot act above MTU
+  1770.
+
+- XDP_TX for these buffers, sent from the buffer in place.
+
+- Classic zero copy with its shared info in kernel memory, with the
+  flag from patch 2.
+
+The earlier series
+------------------
+
+"[PATCH net-next v1 00/11] xsk: Zero copy through page-pool memory
+providers" [1], posted on 10 Nov 2026, kept the application's buffer
+layout, one UMEM chunk per buffer at the UMEM headroom, behind a
+memory provider that the core could read. This series is new rather
+than a version of it, and answers the review there:
+
+- The device's buffer layout instead of the application's. The device
+  places buffers in chunks as it places them in pages, and ownership
+  moves from the buffer to the chunk.
+
+- Providers stay unreadable to the core and the stack. There is no
+  readable capability: XDP alone reads provider memory, through an
+  opt-in view. The providers take page pool fragments.
+
+- Smaller driver changes, and no AF_XDP code in drivers. The earlier
+  series changed 651 lines of fbnic, its only driver. This one changes
+  51 lines of fbnic, 24 of mlx5 and 60 of bnxt for RX.
+
+Open questions
+--------------
+
+- Shared info outside the buffer: one per RX queue behind a flag, as
+  here, or a pointer in struct xdp_buff that classic zero copy can
+  use as well?
+
+- Provider buffers are told by their address in xdp_prepare_buff(),
+  with one range check under a static key. Is that fine, or should
+  drivers mark them?
+
+- MAINTAINERS needs an entry for net/xdp/xsk_sink.c.
+
+[1] https://lore.kernel.org/netdev/20261110102039.1002605-1-bjorn@kernel.org/
+
+Björn Töpel (15):
+  xdp: Let memory providers offer XDP a view of their net_iovs
+  xdp: Keep the shared info of a buffer in kernel memory
+  net: Add memory providers that only feed XDP
+  page_pool: Let memory providers take back net_iovs
+  xdp: Run programs on buffers that must not hold kernel structures
+  xsk: Lend UMEM chunks to the page pools of a queue
+  xsk: Deliver to the socket in the device's buffer layout
+  xsk: Receive in the device's buffer layout
+  eth: fbnic: Support XDP redirect
+  eth: fbnic: Receive into XDP-only memory providers
+  net: Add netif_rxq_has_xdp_only_mp()
+  eth: mlx5e: Receive into XDP-only memory providers
+  eth: bnxt: Receive into XDP-only memory providers
+  selftests: net: xsk: Test the device's RX buffer layout
+  Documentation: networking: Describe AF_XDP RX in the device's layout
+
+ Documentation/networking/af_xdp.rst           | 114 ++-
+ drivers/net/ethernet/broadcom/bnxt/bnxt.c     |  39 +-
+ drivers/net/ethernet/broadcom/bnxt/bnxt_xdp.c |  19 +-
+ drivers/net/ethernet/broadcom/bnxt/bnxt_xdp.h |   2 +-
+ .../net/ethernet/mellanox/mlx5/core/en_main.c |  14 +-
+ .../net/ethernet/mellanox/mlx5/core/en_rx.c   |  10 +-
+ .../net/ethernet/meta/fbnic/fbnic_netdev.c    |   3 +-
+ drivers/net/ethernet/meta/fbnic/fbnic_txrx.c  |  45 +-
+ drivers/net/ethernet/meta/fbnic/fbnic_txrx.h  |   3 +
+ include/linux/netdevice.h                     |   3 +
+ include/net/netdev_queues.h                   |   1 +
+ include/net/netmem.h                          |  21 +-
+ include/net/page_pool/memory_provider.h       |  21 +
+ include/net/page_pool/types.h                 |  15 +-
+ include/net/xdp.h                             | 131 ++-
+ include/net/xdp_sock.h                        |   8 +
+ include/net/xsk_buff_pool.h                   |   3 +
+ include/uapi/linux/if_xdp.h                   |  15 +
+ net/core/dev.c                                |  51 +-
+ net/core/filter.c                             |  17 +-
+ net/core/netdev_rx_queue.c                    |  51 +-
+ net/core/page_pool.c                          |  36 +-
+ net/core/xdp.c                                |  72 +-
+ net/ethtool/rings.c                           |   5 +-
+ net/xdp/Kconfig                               |   1 +
+ net/xdp/Makefile                              |   2 +-
+ net/xdp/xdp_umem.c                            |   5 +
+ net/xdp/xsk.c                                 | 110 ++-
+ net/xdp/xsk_buff_pool.c                       |  30 +-
+ net/xdp/xsk_sink.c                            | 773 ++++++++++++++++++
+ net/xdp/xsk_sink.h                            |  20 +
+ tools/include/uapi/linux/if_xdp.h             |  15 +
+ .../testing/selftests/net/lib/xsk/test_xsk.c  | 248 +++++-
+ .../testing/selftests/net/lib/xsk/test_xsk.h  |   4 +
+ .../selftests/net/lib/xsk/xskxceiver.c        |  25 +-
+ 35 files changed, 1793 insertions(+), 139 deletions(-)
+ create mode 100644 net/xdp/xsk_sink.c
+ create mode 100644 net/xdp/xsk_sink.h
+
+
+base-commit: 57f165ff2f30491bc3511d24a52ca516751a268b
+-- 
+2.56.1
