@@ -1,47 +1,104 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795514963;
-	b=hx4I/SwqtEoXskNQ3t2aWxWdeGFgTD6tdVmyWHctcIuEmKQuVuIvQQYMFMsw1srDqNcm
-	 GetTIib1dWMvvgrB/1TyR8uR6Ey9FUSKzBo5F4e8cnEBHFsVO+MOisyaAk3VNQZ/o5pT+
-	 7t06NeX5XIb1wfGIO+H6h4ALjNz0uAqGKJnxsKjRQoWEpVztU81KSfZpPb1di2+o2cyac
-	 fWHZKFTmUHJLfHkmgAf5ZqBkKw2VGoq3jHe1zhaWaz55eam/8qqkS9Vlm1YWpl78WjeQA
-	 KFs7Z+UpbT0fLMQ6mX4sHHIjnNDsszHbc0rtsvatAC2k6MizrpEs5HCP7E623jpcy6g==
+	t=1795514982;
+	b=Wi4lZr6+kJ4wifSQrRo0y7Y8Q6bIlY/l11eQ+FUsFCkdyGLTh+dRVFP/TQ/XaJF4Cyyz
+	 Ooq8kbtuyHhtDgEBAC/sovM62rHjoseQ48kJPEelIOd3cc7cN2F5ny1QGfAU58K3Gv3tk
+	 L8fgl2ZRDBMAg1jeZSnqEYuOhBH6s6yGynnSBnwD0mVby2p9gvlFdVDGPDRUTAdThwC/D
+	 kbn78Iy7SclspTInwAmAaPwlLI14jNCCpgm1PHqnT6E2xFbNqWwPLSrwD0wNI0WQLRNR3
+	 gJkW8nYUs4UecAGx4YEK/6YpL8s3Nx7LuhZv1Tqb195YnLozJP5hVY/7BvB8h2QDyYQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795514963;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=dx8vxjZWnsbgG4OyU71SoxYLOY9RohQX5HPkxRRCWVA=;
-	b=Tbf6RJJ5dDxhEy+eiphoL/eNImaC1KNn4/zSmTyO2FumTPEFLZQ/zGcE0VOCRgW+geZI
-	 t3HG9I2+HV21oHy2Ksaj12WcDmHovQOE+KmxZdv4nvGN8zBqrxxYTr0j2MsqixtHTRLUG
-	 OhSNjj8YDmrKpbVXxZ85WaGF/OcpitMlggB3FXXlffcwr7i0mYpL+Sro1uXzq4VINtPwd
-	 Au1PoefEZuYneWbjhjtzCa4ahpCI/Pml7dxf7zkIyED66JzqwWeX53hXzNd4LMl7YCqZp
-	 8gmJUyHSXVBTvJtSiExDCTZsRU8jLxF4rGDBMbwOe3qt3ErsydOs8wDVJRk1/cSpN8A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795514982;
+	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
+	 DKIM-Signature:Received:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-Rspamd-Queue-Id:X-Spam-Level:
+	 X-Rspamd-Server:X-Rspamd-Action:X-Spam-Flag:X-Spamd-Result:
+	 X-Spam-Score;
+	bh=FoH+HnMKY1OyhcxViZQNcp66Y4tDpPSKEgZ8SD+Muo8=;
+	b=DP1nnnlxg/PkgpY//+cxbyn5Tc/WgnswAtHlQZREsSg8yULVmaETJFa7JsKmqjqPEj6f
+	 y/WnTiTPDMzXuXwt95yyzMwngGU11NQ6S4WLNBxkjrZi6Obj/uanmsl9UHgXGTGeBNhof
+	 AbarT0cRZPKbOwmz7kg7FF6g5KPnH6KLjth2tYNo8xqlgPYCE1OajjtBCP4IbM6sfWlRN
+	 36UfrK/AC9uTPCatbapZ3tK57dlFbTFkRwNpJivqja6sxi7Vc7TFCki+c5Qj/Sd4w1LWi
+	 ldFB0QbGVQPcMKf4gqoPYOopfGrbXl5ngFZWi8MJfGDPaO2dTXmrXKu1gmpriFmkv0w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LbBpEqZn;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=suse.de;
+	spf=pass smtp.mailfrom=suse.de;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=fhP8ddEB;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b="9Kr6M/Mc";
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=fhP8ddEB;
+	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b="9Kr6M/Mc";
+	arc=none smtp.remote-ip=195.135.223.131
+Received: from smtp-out2.suse.de (smtp-out2.suse.de [195.135.223.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6449B606A31E;
-	Tue, 24 Nov 2026 10:09:23 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4F2BF606A31E;
+	Tue, 24 Nov 2026 10:09:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4F2BF606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=suse.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LbBpEqZn
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B42351F000EC;
-	Tue, 24 Nov 2026 10:09:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795514963;
-	bh=dx8vxjZWnsbgG4OyU71SoxYLOY9RohQX5HPkxRRCWVA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=LbBpEqZn4ATZ6jR5EsC8SmmBjUHvtTB7Kd5I+NvWOx7M62+9l/6Oxti8PYjdh6jup
-	 lmn7yrJFlNsuZ81NpNimni0jBI22tXnbFHGtEHF48XbdLzXrYBnp/MYIONXoPsGym3
-	 LY1LP4rGYRHEKeOSR5DY87sI/bsHSJoB/4I8/PjRMCyEHRjWOFYCTTSankPAmS4yVy
-	 RERm8e07IUJprSXCNPtXVwQeq6hL/zZuGX8SKrD/NY7ynhp7yoiaf2o9POMbZXVYyo
-	 r2gkv6+s7uDIVidyl7mfX8egIGkYWnZhYFWS3yOxzeL3b8tGzRCQ84k3epons8Fkom
-	 D62DbvAKcO9tw==
-Message-ID: <58550e8a-481a-470e-bea4-93c39c8d736a@kernel.org>
-Date: Tue, 24 Nov 2026 11:09:18 +0100
+	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=fhP8ddEB;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=9Kr6M/Mc;
+	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=fhP8ddEB;
+	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=9Kr6M/Mc
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id 2B6291F388;
+	Tue, 24 Nov 2026 10:09:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1795514974; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=FoH+HnMKY1OyhcxViZQNcp66Y4tDpPSKEgZ8SD+Muo8=;
+	b=fhP8ddEBhmpvsSVU29zqCyS7ocOLUWM/r3cqwbMCAa2oolWLNS2yHX3MaEh6m2tyfWIAge
+	L9bGN0FH0+5yLsaf+OXTmJbRpJSiv7kkKfi7iQ0/qNgrnN9+CJyXh2AawAE4o+PpTrHys0
+	qlazJz/764U5IAo53ndRN9isJZh7+uc=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1795514974;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=FoH+HnMKY1OyhcxViZQNcp66Y4tDpPSKEgZ8SD+Muo8=;
+	b=9Kr6M/Mc1uklFdTIVjQsf5tQ2M4if+BlMj1/GYZ1+lnJRBZiPzD7e6yhpsMp/ctmqvfqUc
+	bEehWeG8IlUro3Cg==
+Authentication-Results: smtp-out2.suse.de;
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=fhP8ddEB;
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b="9Kr6M/Mc"
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1795514974; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=FoH+HnMKY1OyhcxViZQNcp66Y4tDpPSKEgZ8SD+Muo8=;
+	b=fhP8ddEBhmpvsSVU29zqCyS7ocOLUWM/r3cqwbMCAa2oolWLNS2yHX3MaEh6m2tyfWIAge
+	L9bGN0FH0+5yLsaf+OXTmJbRpJSiv7kkKfi7iQ0/qNgrnN9+CJyXh2AawAE4o+PpTrHys0
+	qlazJz/764U5IAo53ndRN9isJZh7+uc=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1795514974;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=FoH+HnMKY1OyhcxViZQNcp66Y4tDpPSKEgZ8SD+Muo8=;
+	b=9Kr6M/Mc1uklFdTIVjQsf5tQ2M4if+BlMj1/GYZ1+lnJRBZiPzD7e6yhpsMp/ctmqvfqUc
+	bEehWeG8IlUro3Cg==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 93E871339F;
+	Tue, 24 Nov 2026 10:09:33 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id gOqUGV1iBWsLcgAAD6G6ig
+	(envelope-from <fmancera@suse.de>); Tue, 24 Nov 2026 10:09:33 +0000
+Message-ID: <79156f22-a378-487e-8a52-0013367ef293@suse.de>
+Date: Tue, 24 Nov 2026 11:08:07 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -52,87 +109,80 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/5] dt-bindings: soc: qcom: eud: add the QCM2290 EUD
-To: Igor Opaniuk <igor.opaniuk@oss.qualcomm.com>,
- Souradeep Chowdhury <quic_schowdhu@quicinc.com>,
- Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>, Abel Vesa <abelvesa@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org,
- Elson Serrao <elson.serrao@oss.qualcomm.com>
-References: <20261123-qcm2290-eud-v2-0-9bfc432dee07@oss.qualcomm.com>
- <20261123-qcm2290-eud-v2-2-9bfc432dee07@oss.qualcomm.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH nf] netfilter: bpf: reject a repeated
+ bpf_ct_set_nat_info()
+To: Andrey Misiurov <amisiurov@cloudlinux.com>,
+ Pablo Neira Ayuso <pablo@netfilter.org>, Florian Westphal <fw@strlen.de>
+Cc: Jozsef Kadlecsik <kadlec@netfilter.org>, Phil Sutter <phil@nwl.cc>,
+ netfilter-devel@vger.kernel.org, coreteam@netfilter.org,
+ linux-kernel@vger.kernel.org
+References: <20261120171325.2721546-1-amisiurov@cloudlinux.com>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20261123-qcm2290-eud-v2-2-9bfc432dee07@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
+From: Fernando Fernandez Mancera <fmancera@suse.de>
+In-Reply-To: <20261120171325.2721546-1-amisiurov@cloudlinux.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-Rspamd-Queue-Id: 2B6291F388
+X-Spam-Level: 
+X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
+X-Rspamd-Action: no action
+X-Spam-Flag: NO
+X-Spamd-Result: default: False [-13.50 / 50.00];
+	SUSE_INTERNAL_BYPASS(-9.00)[];
+	BAYES_HAM(-3.00)[100.00%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	XM_UA_NO_VERSION(0.01)[];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	ARC_NA(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	DKIM_TRACE(0.00)[suse.de:+];
+	TO_DN_SOME(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	FROM_EQ_ENVFROM(0.00)[];
+	RCVD_TLS_ALL(0.00)[];
+	MID_RHS_MATCH_FROM(0.00)[];
+	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
+	RCPT_COUNT_SEVEN(0.00)[8];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,suse.de:dkim,suse.de:email]
+X-Spam-Score: -13.50
 
-On 23/11/2026 17:42, Igor Opaniuk wrote:
-> The QCM2290 has the same Embedded USB Debugger as the SC7280: the EUD
-> CSRs and the mode manager register that the secure world writes on
-> behalf of the driver.
+On 11/20/26 6:13 PM, Andrey Misiurov wrote:
+> bpf_ct_set_nat_info() checks the l3 protocol and the manip type and then
+> calls nf_nat_setup_info(). It does not check whether NAT for that manip was
+> already set up.
 > 
-> On QCM2290 the mode manager additionally ignores the enable unless the
-> TCSR register TCSR_APSS_SPARE_REG1 is set first. The boot firmware does
-> the same before it enables the EUD, and the register is written through
-> the same secure IO service.
+> A BPF program holding an unconfirmed nf_conn___init can call it twice with
+> the same manip. The first call sets IPS_SRC_NAT_DONE (or IPS_DST_NAT_DONE).
+> On the second call nf_nat_setup_info() hits WARN_ON(nf_nat_initialized()):
 > 
-> Add the compatible and a "qcom,tcsr-reg" property that points to that
-> register in the TCSR syscon. It is required on QCM2290 and not allowed
-> on the other EUDs.
+>    WARNING: CPU: 1 PID: 21673 at net/netfilter/nf_nat_core.c:674 nf_nat_setup_info+0x251/0x2b0 [nf_nat]
+>    CPU: 1 PID: 21673 Comm: loader
+>    RIP: 0010:nf_nat_setup_info+0x251/0x2b0 [nf_nat]
+>    Call Trace:
+>     bpf_ct_set_nat_info+0x81/0xb0 [nf_nat]
+>     bpf_prog_e4b00ba35d2f7a6b_nf_skb_ct_nat_twice+0x110/0x13f
+>     bpf_test_run+0x172/0x2e0
+>     bpf_prog_test_run_skb+0x2e5/0x4f0
+>     __sys_bpf+0x7f8/0xe90
+>     __x64_sys_bpf+0x1a/0x30
+>     do_syscall_64+0x5f/0xe0
+>     entry_SYSCALL_64_after_hwframe+0x76/0x7e
 > 
-> Signed-off-by: Igor Opaniuk <igor.opaniuk@oss.qualcomm.com>
+> With panic_on_warn this is a DoS.
+> 
+> Reject the call with -EEXIST when NAT for that manip is already initialised,
+> before nf_nat_setup_info() is reached.
+> 
+> Fixes: 0fabd2aa199f ("net: netfilter: add bpf_ct_set_nat_info kfunc helper")
+> Signed-off-by: Andrey Misiurov <amisiurov@cloudlinux.com>
+Reviewed-by: Fernando Fernandez Mancera <fmancera@suse.de>
 
-
-
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-
-Best regards,
-Krzysztof
+Thanks!
