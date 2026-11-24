@@ -1,63 +1,65 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795536802;
-	b=33DaIeK3fBjVYgj9G//TFsapdWBWWVeUnpHLyeZgO/PyjJLSjZGbROy/apwIk3z9e+0P
-	 4yIQBlEaHgsK2LJI/dHwNQsQh3Xao2dmzm30xDuw9QvoW7oCKrU4YHgaWz81JtRG79H0w
-	 ELXFlIvel/4vauhOGPfMMaU3uyx8IuHAkm9AA5Xi2UyaC+QQIzrSPJJjtKRsWkiWqRQSl
-	 xMUBMCO2qVRlaye3o6cUGTb5k71SFPaUMuHQrbATB6L9ns9OIT9MwKoM448YLkXiWQSXR
-	 tADhbyMoh+o8L9AiBO0crQ4/MiiMC7m4Gqjj0B3suU3a1t4xjnEmeB8FhOBdXGeTIMQ==
+	t=1795536807;
+	b=vKi9u67Rm0lv+S6LQ0N+lVxZrSGI0cW+NK6crIOaPntRY+B54hGv1IrbxX9zRUy9o1QW
+	 q9rG5bxngtd4Eru+K+Py0FXRcCXJckP3KcTFCjv3efYWX5XsmjnytIE+cPiW21mY8+o58
+	 aS3BP94Jqez6kDTSky1Wr1IyRAx3nHVQEpP6a5FvAmZ8QgANIKhDAUPbcxjQtMUDU8gFQ
+	 22PkPCnlmt+BbIL9+mBVp+4UfNUDi5F/lguG2hp3Izv7kpW+fjixfjdonZ9a9OynMhyYA
+	 wYQMkLnp3K3VAkDitfURcU56Y2LqFhOCSA8QSYK+4ZBdPQwSmOl2wChqD1WSNDr6q7w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795536802;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795536807;
 	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
 	 X-Mimecast-MFC-AGG-ID:Received:Received:From:To:Cc:Subject:Date:
-	 Message-ID:MIME-Version:Content-Transfer-Encoding:X-Scanned-By;
-	bh=koLHkLyvb1uNvdms1z77Rp26vuaer6/1EvoCHN0e7Rk=;
-	b=ZVUWSfRVzOQW0Hjc8c1L7dVetzgC4ItRs05IyakzsE/mjldL6Ctzs7Bgf33A1AYCK7kg
-	 UqoQe4d6/vH2ZWDVsk8bY3vb/AMORmOK9qCBT4PlOg2mlKxmXq//FuzRVzkdNEFzAWg6f
-	 Kf3fkarU6NC45ariQD3ElffY8JFsybW+j4igFwkqVP5hNE1YVGwWLoKJmcCkhgHzHfxHp
-	 VG4PPqNYq3kwpvvTjtu3s9YnHamti+3juqxNKZRDDQdTFfA07vIAimEGn69qXLcl9ur9w
-	 22t16PhJ5SHXatK1RmfTE+xk4nA6v0lKkc9+hTQpogexNJGhD8b+JyvJlkayO4DE8LA==
+	 Message-ID:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-Scanned-By;
+	bh=ygmh6x4s8y4UYUbIDkaJBgv4POTnvtCO/UnLp5JA/pk=;
+	b=suOO8qHNhV853m6aGBsaYGcTAU4yWU78KJ/dGf/D2E+fz4Ap64BGmxdUoLcA18C5GpGw
+	 ZhGd78r5v5tvccQj1Ar+JV2GBkCd/v/QDMP9k3i8jd69Tcew3fPWpxlRpGx9wC24k6joV
+	 JoDkrBnFuwfeGessdeoMsLAamqlODYXZU0nxR6Q8xV2YVEW1fyprHI2zpKXL7p89YdGGv
+	 tzgNDNbhTfdHoA/S+BcBvStPgPGwMwasN+nYgiRGWdXcgcQLksi8oL5u6yLVHGcJtDxaK
+	 r92TRAdMLVENZKB3xM5SpA3vne5DIQFYJmTTPiz/uH2o4pM+Lvt4nAlRcGMDRxABibQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=redhat.com;
 	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=K48LZHw7;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=DiRL8Gbg;
 	arc=none smtp.remote-ip=170.10.133.124
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 855C4606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 16:13:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 855C4606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 03E71606A32C
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 16:13:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 03E71606A32C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=K48LZHw7
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=DiRL8Gbg
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795536800;
+	s=mimecast20190719; t=1795536806;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=koLHkLyvb1uNvdms1z77Rp26vuaer6/1EvoCHN0e7Rk=;
-	b=K48LZHw7hCrJDtmQtI9jiKw1BYVJRIV4bvpkcYhympHvOxTfF1bCA+OQXmMV0c4MwtiKYV
-	4t2T4RyNxvNnvQN60hIOtyL0MK5OrWknLoE0N/EG+7rnm5QDZPOO0kkwzDdsKNS4QJtjjU
-	OEbQQSfpxqw9Vsu/N11jWEJwGiPd6g0=
-Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ygmh6x4s8y4UYUbIDkaJBgv4POTnvtCO/UnLp5JA/pk=;
+	b=DiRL8Gbg+5MQx4+FxIRA306AtOBeLQ6zwkf6tcr6w/EogEkDE4y2fCfcb/QcjsSiNyHFsB
+	GPsiHyY60y2+4f7w8Hkzyn4HGJ3blltHRYG6ttl7i0qUe222jvEFlZnGoe/Lg+nyEOJmaP
+	ujMXA8SW5sxFBl60Ol9o1ACYh8CTJu4=
+Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-644-Vpg0b3G3O2Oy7t5Xyi3_UQ-1; Tue,
- 24 Nov 2026 16:13:16 +0000
-X-MC-Unique: Vpg0b3G3O2Oy7t5Xyi3_UQ-1
-X-Mimecast-MFC-AGG-ID: Vpg0b3G3O2Oy7t5Xyi3_UQ_1795536794
-Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-136-xNhmy4lbObiLCKS_W3atDg-1; Tue,
+ 24 Nov 2026 16:13:24 +0000
+X-MC-Unique: xNhmy4lbObiLCKS_W3atDg-1
+X-Mimecast-MFC-AGG-ID: xNhmy4lbObiLCKS_W3atDg_1795536802
+Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id DA39B1801343;
-	Tue, 24 Nov 2026 16:13:13 +0000 (UTC)
+	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 94B9B1955F38;
+	Tue, 24 Nov 2026 16:13:22 +0000 (UTC)
 Received: from dhowells-thinkpadp1gen8.rmtgb.csb (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
-	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 4740C18011DC;
-	Tue, 24 Nov 2026 16:13:11 +0000 (UTC)
+	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id BC6411801A60;
+	Tue, 24 Nov 2026 16:13:19 +0000 (UTC)
 From: David Howells <dhowells@redhat.com>
 To: netdev@vger.kernel.org
 Cc: David Howells <dhowells@redhat.com>,
@@ -68,10 +70,14 @@ Cc: David Howells <dhowells@redhat.com>,
 	Paolo Abeni <pabeni@redhat.com>,
 	Simon Horman <horms@kernel.org>,
 	linux-afs@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net v3 00/10] rxrpc: RACK-TLP fixes
-Date: Tue, 24 Nov 2026 16:12:48 +0000
-Message-ID: <20261124161302.4044422-1-dhowells@redhat.com>
+	linux-kernel@vger.kernel.org,
+	Jeffrey Altman <jaltman@auristor.com>,
+	stable@vger.kernel.org
+Subject: [PATCH net v3 02/10] rxrpc: Fix time unit conversion truncation
+Date: Tue, 24 Nov 2026 16:12:50 +0000
+Message-ID: <20261124161302.4044422-3-dhowells@redhat.com>
+In-Reply-To: <20261124161302.4044422-1-dhowells@redhat.com>
+References: <20261124161302.4044422-1-dhowells@redhat.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,133 +88,70 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
 
-Here are some fixes for AF_RXRPC's RACK-TLP implementation.  It's split
-into a number of patches:
+Fix three integer truncations on 32-bit arches in which a time unit
+conversion is performed that multiplies a 32-bit microsecond value by a
+largish number without first casting it to a 64-bit number.
 
- (1) Fix a case of incorrect time unit mixing.
+One of these bugs was found by Sashiko and the other two by Claude-opus-5-5
+run locally.
 
- (2) Fix three cases of integer truncation in time unit conversion.
+Fixes: 7c482665931b ("rxrpc: Implement RACK/TLP to deal with transmission stalls [RFC8985]")
+Link: https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261020201258.290827-1-dhowells%40redhat.com
+Signed-off-by: David Howells <dhowells@redhat.com>
+cc: Marc Dionne <marc.dionne@auristor.com>
+cc: Jeffrey Altman <jaltman@auristor.com>
+cc: Eric Dumazet <edumazet@google.com>
+cc: "David S. Miller" <davem@davemloft.net>
+cc: Jakub Kicinski <kuba@kernel.org>
+cc: Paolo Abeni <pabeni@redhat.com>
+cc: Simon Horman <horms@kernel.org>
+cc: linux-afs@lists.infradead.org
+cc: stable@vger.kernel.org
+---
+ net/rxrpc/call_event.c | 2 +-
+ net/rxrpc/input.c      | 2 +-
+ net/rxrpc/input_rack.c | 2 +-
+ 3 files changed, 3 insertions(+), 3 deletions(-)
 
- (3) Don't carry the in_flight value across (re-)transmission in
-     rxrpc_tlp_send_probe().
-
- (4) Mark reneged ACKs (ie. soft ACK->NAK transition) as lost so that they
-     get retransmitted more quickly.
-
- (5) Fix the RTT calculation for an ACK that's marked lost and then gets
-     ACK'd anyway.
-
- (6) Do the congestion control retransmission timeout procedure when the
-     RACK-TLP RTO triggers.  This bit got lost when RACK-TLP was
-     implemented.  RXRPC_CALL_RETRANS_TIMEOUT is reduced to providing info
-     in the rxrpc_congest tracepoint.
-
- (7) Fix shadowed limit variable in rxrpc_transmit_fresh_data(), thus
-     restricting TLP probes to the number of (sub)packets specified.
-
- (8) Fix detection of TLP probe responses in a couple of ways: don't detect
-     a probe by sequence number if one isn't in flight and check dismissed
-     out-of-order ACKs to see if they're TLP probe responses.
-
- (9) Count in-flight packets directly by tracking them in the rxrpc_txqueue
-     structure rather than trying to derive the quantity from values that
-     change at different times.  Special handling for TLP probe
-     retransmission of an already-ACK'd packet is added (the ACK parse
-     ignores re-ACKs of already ACK'd packets) as is TLP probe loss
-     handling on RTO expiry.
-
-(10) Fix a number of things in the RACK-TLP code:
-
-     - Make the "in fast recovery" flag available to RACK-TLP code after
-       the Reorder timer expires.
-
-     - Arm the RTO timer if no other timer is running and there is unacked
-       data and update it if already running and new data ACK'd.
-
-     - Initialise the TLP state in the correct place.
-
-     - Don't reset the xmit timestamp in rxrpc_rack_mark_lost(), but rather
-       in the callers where appropriate.
-
-     - Correctly check the flight size.
-
-David
-
-The patches can be found here also:
-
-	http://git.kernel.org/cgit/linux/kernel/git/dhowells/linux-fs.git/log/?h=rxrpc-fixes-2
-
-Changes
-=======
-ver #3)
-- Rebased on latest net/main.
-- Dropped Reviewed-by/Tested-by tags.
-- Sent the RFC number fix separately (to net-next) and dropped from this set.
-- Fixed Sashiko-reported bugs[2]:
-  - Fixed a time unit mixing bug (comparing us and ns).
-  - Fixed a time unit conversion integer overflow bug.
-  - Mark reneged ACKs as lost.
-  - In rxrpc_tlp_send_probe(), don't carry old tx_in_flight value across
-    (re-)transmission.
-  - Move the decrementing of tx_in_flight for newly acked packets to
-    rxrpc_input_soft_ack_tq().
-  - Made RTO timeout notify the congestion algo and cause that to change
-    state if appropriate.
-  - In rxrpc_rack_update(), handle a packet being marked lost and having
-    its xmit_ts reset followed by an ACK arriving anyway.
-  - Update the RTO timer if some data is newly acked.
-- Fixed other issues (found by eye and also raised by Claude-opus-5-5 run
-  locally):
-  - Fixed more time unit conversion integer overflow bugs.
-  - In rxrpc_transmit_fresh_data(), fixed shadowed limit.
-  - Pass TLP probe indication down to packet transmission so that all the
-    call->tlp_* bits are set in the same place and so that members aren't
-    left unset.
-  - Don't consider matching packets (by seq) as TLP probe responses if
-    there's no probe in progress.
-  - Add a function to end TLP probing, and make that decrement tx_in_flight
-    for the TLP probe if it involved a forced retransmission of an already
-    acked packet.
-  - Added TLP probe/probe response loss detection on RTO expiry and made it
-    reset the probe state.
-  - Account the in-flight-ness of a TLP probe separately if it's a
-    retransmission of an already ACK'd packet.
-  - Removed call->tx_nr_sent, ->tx_nr_resent and ->tx_last_serial.
-
-ver #2)
-- Rebased on latest net-next/main.
-- Fixed Sashiko-reported bugs[1]:
-  - When performing TLP_send_probe() [rfc8985 7.3], don't do backoff.  Note
-    that backoff may already have been done by rxrpc_resend().
-  - In rxrpc_tlp_calc_pto(), clamp call->peer->pmtud_jumbo to be at least
-    1.
-  - Added a patch to replace the way in which the number of in-flight
-    packets is tracked to avoid estimating using values which aren't all
-    updated at the same time.
-
-[1] https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260925191520.2206700-1-dhowells%40redhat.com
-[2] https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261020201258.290827-1-dhowells%40redhat.com
-
-David Howells (10):
-  rxrpc: Fix incorrect unit conversion
-  rxrpc: Fix time unit conversion truncation
-  rxrpc: Fix carrying of in-flight calc over retransmission
-  rxrpc: Fix ack parsing to mark reneged ACKs as lost for RACK-TLP
-  rxrpc: Fix RTT processing for a presumed lost packet getting ACK'd
-  rxrpc: Fix lost driving of congestion management retransmission
-    timeout
-  rxrpc: Fix limit on packets to be transmitted in one go
-  rxrpc: Fix detection of TLP probe response
-  rxrpc: Fix counting of in-flight transmitted packets
-  rxrpc: Fix RACK-TLP implementation
-
- include/trace/events/rxrpc.h |  11 ++-
- net/rxrpc/ar-internal.h      |  42 +++++------
- net/rxrpc/call_event.c       |  54 ++++++++++----
- net/rxrpc/input.c            |  83 ++++++++++++++-------
- net/rxrpc/input_rack.c       | 136 +++++++++++++++++++++++++++--------
- net/rxrpc/output.c           |  22 ++++--
- 6 files changed, 246 insertions(+), 102 deletions(-)
+diff --git a/net/rxrpc/call_event.c b/net/rxrpc/call_event.c
+index 21be9c86d7a7..b102a055c2e0 100644
+--- a/net/rxrpc/call_event.c
++++ b/net/rxrpc/call_event.c
+@@ -45,7 +45,7 @@ void rxrpc_propose_delay_ACK(struct rxrpc_call *call, rxrpc_serial_t serial,
+ 	trace_rxrpc_propose_ack(call, why, RXRPC_ACK_DELAY, serial);
+ 
+ 	if (call->srtt_us)
+-		delay = (call->srtt_us >> 3) * NSEC_PER_USEC;
++		delay = ns_to_ktime((u64)call->srtt_us * (NSEC_PER_USEC / 8));
+ 	else
+ 		delay = ms_to_ktime(READ_ONCE(rxrpc_soft_ack_delay));
+ 	ktime_add_ms(delay, call->tx_backoff);
+diff --git a/net/rxrpc/input.c b/net/rxrpc/input.c
+index 73cafe6bfa9f..bda6e7d77013 100644
+--- a/net/rxrpc/input.c
++++ b/net/rxrpc/input.c
+@@ -185,7 +185,7 @@ void rxrpc_congestion_degrade(struct rxrpc_call *call)
+ 	    __rxrpc_call_state(call) == RXRPC_CALL_CLIENT_AWAIT_REPLY)
+ 		return;
+ 
+-	rtt = ns_to_ktime(call->srtt_us * (NSEC_PER_USEC / 8));
++	rtt = ns_to_ktime((u64)call->srtt_us * (NSEC_PER_USEC / 8));
+ 	now = ktime_get_real();
+ 	time_since = ktime_sub(now, call->tx_last_sent);
+ 	if (ktime_before(time_since, rtt))
+diff --git a/net/rxrpc/input_rack.c b/net/rxrpc/input_rack.c
+index edd0dee8ac32..24903eb722b9 100644
+--- a/net/rxrpc/input_rack.c
++++ b/net/rxrpc/input_rack.c
+@@ -296,7 +296,7 @@ ktime_t rxrpc_tlp_calc_pto(struct rxrpc_call *call, ktime_t now)
+ 
+ 	if (call->rtt_count > 0) {
+ 		/* Use 2*SRTT as the timeout. */
+-		pto = ns_to_ktime(call->srtt_us * NSEC_PER_USEC / 4);
++		pto = ns_to_ktime((u64)call->srtt_us * (NSEC_PER_USEC / 4));
+ 		if (flight_size)
+ 			pto = ktime_add(pto, call->tlp_max_ack_delay);
+ 	} else {
 
