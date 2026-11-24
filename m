@@ -1,49 +1,56 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795529033;
-	b=bAnnjPAiQaUwu3mk+pCiuJdInPQbji6IhYVWsZXgVUFFY2iuWvxYclE0p6/CijZMrlnQ
-	 99T2zO56j7tL4qGuxaq5MdHZG7f0id5kEa/VSBeqM98WgJYshPB8f6dNZ7NrhjPbhx3QV
-	 0OSPurW9cqWRdf7qAgqdH6tNleke+IpykPkLNc2KfL9PjxM8+ePjSybil62AiGYPwHr2J
-	 23VSpcdPmb7RMgQQQEGVZKiNFl2R6BsZHCu9l/rfDedPfEBEkxGPivp08VfYx4XNsMvrU
-	 68u8BpM5lDCitNtL91zHzvfgFKc5Z4B/nHmbUWov1vKpp14JeecrYNQ+rgyIBdouQ4Q==
+	t=1795529036;
+	b=oKheHemO/uA6zz9ArdH2h5uBS8GGzn6+7sFkYC88VWzt49VePMlEUrAlMFcG+fgxkmHI
+	 +H5D/iaqWhOEJgwUz3AH2YA7fcBvc92ZUPjFFLNL2UJBVgQ9wVSQ6t9tOu1MQwB4fgPz1
+	 tC08RmVwDbi7w8S1/ijcD8RmyKUAyglJND616Bq9XYdcd3HJCj2yyavgXzK33emQFZuaO
+	 vQ7liJOkjEs/rlHKuE6ACGuJQybn7sP5yYidzIwX4660O4vwd5soof8dIW9LZDwV/1Bk5
+	 5HqdoDPGfJW2bL/ZMlfiHLYEICSsufUVUJ5QlcNmvI5KWxwMgTgznqO4Nc+KgKK+Nbg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795529033;
-	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=vJUBuFI/X4ybR5TQJo0mpuZGpnhQ+Y28O/2YwIAeUl0=;
-	b=Bd4i7h8xyJPLtnBr9OFYsicaUBfo6pL+YPwngkIOFzeZ90ts5JJN9xV4Bflb3Gs2gLQs
-	 U66k6t9SWdvE8lurDrj+ltnd+x+nFW2TuocDwagloM1KKGEqbFe2fhum7g47zNJ+xTp8G
-	 d9IRBIqDQ094H0PKV6TjvkHved9u6i/Cvn9PKxf06BPMChWdr0Tjx1xemz5sJVQDSSEEr
-	 l0dLnO3fORNd2kDg28wQQvwkpv6Zgt/toywiN0Cc9jdWidgRAKAtrwnUqMfeVQnyzakYe
-	 ph/VBMtsfjoXmYQrFfrDolGSsmKkY+/6SGfKwhmqbJvqXBMYJDMUYi04wcrnSj6155A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795529036;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=bkLudn8EEzSHMhO0F01BZTmQZgjW7v0oOiCRElBg6Iw=;
+	b=Ki/34guw79BAWRWz/LAUHhFtMQV9gnbCHlwDpN9w2Z/+R8AKQSl2yk/TxMTUR+84k0Re
+	 QD1NUyT+ShSkepUK/QnzalIdKHf9mO72hLAUQvzO3lUlfpqHehEjm8DKcfKRgnOTSoSUC
+	 RcYwcoKPa+thrlEKMsQ0pmvLUSWFYKwL5bYngTe3l4tpqvIpEeRr6CcFLr0KHQbPzig0a
+	 6xM4tvTgJ/B2crzLOxKYuGaKguWXcfS/scUAm6cnTIYT3ql7FvCrnaNm6EEDxOftVXVIu
+	 84g0nk+1yDc9TuQTj5brDIeVLmzTZRQm7xYrctfp5fZOMqz/hoI+Bi6KXSf7L5GEIuw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iHtmG7Cj;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZpJqzqJY;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B6837606A6A9;
-	Tue, 24 Nov 2026 14:03:53 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 80F2060A260B;
+	Tue, 24 Nov 2026 14:03:56 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iHtmG7Cj
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 388EC1F00AE3;
-	Tue, 24 Nov 2026 14:03:38 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZpJqzqJY
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 69FEC1F01574;
+	Tue, 24 Nov 2026 14:03:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795529033;
-	bh=vJUBuFI/X4ybR5TQJo0mpuZGpnhQ+Y28O/2YwIAeUl0=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=iHtmG7CjTvXPz3lA7PVVVfcohJ6emKtmjQ2NVdO2YLbIRwOCJfD95zg5jaPopSYaS
-	 gj5YZqmFSdMCB9FUDQv5kkAhrEJtfG0JXoItpXFghN79meSem8VIAhQgIUFZSzsgAY
-	 r4LSrjk7SnXCqTh4BUkrSrsjPXB067ziolwbz+SPR2Ltp0YGJdQcNB/fTa+3srse0H
-	 /GlPyBuULOvYPhH5W1j1efHQ11GpECImbgYnAOTpdtXBpeseeeo4Fqv9cOfTrOTpvy
-	 kwrbQFsHkQGnl4n4jy0umpUo8SNKV+PrXpeTfoo5qbg7WgAkB1/06qMvPYru+IuxNi
-	 f+p2tfqpbV87w==
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Date: Tue, 24 Nov 2026 14:02:45 +0000
-Subject: [PATCH v2 02/13] KVM: PPC: Book3S: convert spapr TCE mmap hook to
- mmap_prepare
+	s=k20260515; t=1795529036;
+	bh=bkLudn8EEzSHMhO0F01BZTmQZgjW7v0oOiCRElBg6Iw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=ZpJqzqJYrizluRKYd/hddZP+5v/ndgracb5FJtSgJVzFcMp7KVd1N7/Jvq1ufUpbw
+	 ld8DegojXpRpEfg5TxlfKdzptlcbJJIVlsEHa6L9Bo3vSQ2qdIZlJHJT73okpJPGXH
+	 fMcKu3dV2PqrD4oIsi3D95o8zNwIw3AdCiOLhHY8/9gIF6HSnKsiINS5WLJJmlliXk
+	 AEcKHitTy6aQt+/i4b/QIuFDHokbZX7CwSTsnOgK2+2+nhb4PnX0XuqceKPJwrq9x5
+	 oe6XKzFWT3zOVORWK2mh+bTyvhOtOn9HdpmYycL3eKDZoiKqqMqhkj2t9A9TgoF6wh
+	 U5FaIjtkePoRw==
+Date: Tue, 24 Nov 2026 15:03:52 +0100
+From: Bartosz Golaszewski <brgl@kernel.org>
+To: CL Wang <cl634@andestech.com>
+Cc: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
+	Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, linux-gpio@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, tim609@andestech.com
+Subject: Re: [PATCH 2/3] gpio: atcgpio100: Add ATCGPIO100 GPIO driver
+Message-ID: <ejqigbfjg4kkm7nsp2xuji2u33ccbfxl6na2e6y2n645cub72a@ibivk5sb2dt7>
+References: <20261116040914.368298-3-cl634@andestech.com>
+ <22ifazqg6afr6rcybqg6foah3v554xu4px2c4et35y5xzpg74h@kesthgcvnlgk>
+ <20261124094127.1988037-1-cl634@andestech.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,98 +60,87 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261124-late-2026-mmap_prepare-v2-2-0b0d99d655f9@kernel.org>
-References: <20261124-late-2026-mmap_prepare-v2-0-0b0d99d655f9@kernel.org>
-In-Reply-To: <20261124-late-2026-mmap_prepare-v2-0-0b0d99d655f9@kernel.org>
-To: Andrew Morton <akpm@linux-foundation.org>, 
- Juergen Gross <jgross@suse.com>, 
- Stefano Stabellini <sstabellini@kernel.org>, 
- Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>, 
- Madhavan Srinivasan <maddy@linux.ibm.com>, 
- Nicholas Piggin <npiggin@gmail.com>, Michael Ellerman <mpe@ellerman.id.au>, 
- "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
- "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>, 
- Shrikanth Hegde <sshegde@linux.ibm.com>, 
- Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>, 
- Dexuan Cui <decui@microsoft.com>, "Michael S. Tsirkin" <mst@redhat.com>, 
- Jason Wang <jasowangio@gmail.com>, 
- =?utf-8?q?Eugenio_P=C3=A9rez?= <eperezma@redhat.com>, 
- Xuan Zhuo <xuanzhuo@linux.alibaba.com>, Jarkko Sakkinen <jarkko@kernel.org>, 
- Dave Hansen <dave.hansen@linux.intel.com>, 
- Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
- Borislav Petkov <bp@alien8.de>, x86@kernel.org, 
- "H. Peter Anvin" <hpa@zytor.com>, Jan Kara <jack@suse.com>, 
- Paul Moore <paul@paul-moore.com>, 
- Stephen Smalley <stephen.smalley.work@gmail.com>, 
- =?utf-8?q?Ondrej_Mosn=C3=A1=C4=8Dek?= <omosnacek@gmail.com>, 
- Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, 
- Ryan Chen <ryan_chen@aspeedtech.com>, 
- Billy Tsai <billy_tsai@aspeedtech.com>, 
- Bjorn Andersson <andersson@kernel.org>, 
- Konrad Dybcio <konradybcio@kernel.org>, Abel Vesa <abelvesa@kernel.org>, 
- Jens Wiklander <jenswi@kernel.org>, Sumit Garg <sumit.garg@kernel.org>, 
- Scott Branden <scott.branden@broadcom.com>, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
- Arnd Bergmann <arnd@arndb.de>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Richard Cochran <richardcochran@gmail.com>, 
- David Woodhouse <dwmw2@infradead.org>, Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: ljs@kernel.org, xen-devel@lists.xenproject.org, 
- linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
- kvm@vger.kernel.org, linux-hyperv@vger.kernel.org, 
- virtualization@lists.linux.dev, linux-sgx@vger.kernel.org, 
- selinux@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-aspeed@lists.ozlabs.org, linux-arm-msm@vger.kernel.org, 
- op-tee@lists.trustedfirmware.org, netdev@vger.kernel.org, 
- linux-mm@kvack.org
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1158; i=ljs@kernel.org;
- h=from:subject:message-id; bh=gtiaF6eQ5l4kQG69nvAkqE3NZUUEizPFbGQry23tGvI=;
- b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLJZZ4oFbmu5VXls3dYr8f7eMuEO344nPNsfMWXNVf7Dq
- qZ7i657dpSyMIhxMciKKbI8/yK+P0gkbF7nBX83mDmsTCBDGLg4BWAiU0IYGTbVO6rNXJEyv+mV
- +9vcNeFPj7t/YJz3RnHNZ8l9hdoHV+1h+O8ze3Ji1SVFpXAe612GQm+U5O/yPeIyeLxitpextfz
- t+xwA
-X-Developer-Key: i=ljs@kernel.org; a=openpgp;
- fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261124094127.1988037-1-cl634@andestech.com>
 
-Move from the deprecated mmap hook to the new mmap_prepare hook. The hook
-only sets the VMA operations.
+On Tue, Nov 24, 2026 at 05:41:27PM +0800, CL Wang wrote:
+> Hi Bartosz,
+> 
+> Thanks for the review.
+> 
+> On Tue, Nov 17, 2026 at 02:54:06PM +0100, Bartosz Golaszewski wrote:
+> > > +#include <linux/mod_devicetable.h>
+> >
+> > Uwe would probably say you should only pull in the individual headers
+> > that you require from include/linux/device-id/.
+> 
+> As Uwe pointed out, <linux/platform_device.h> already provides
+> of_device_id, so I will drop <linux/mod_devicetable.h> in v2.
+> 
+> > > +	config = (struct gpio_generic_chip_config) {
+> > > +		.dev = &priv->pdev->dev,
+> > > +		.sz = 4,
+> > > +		.dat = priv->base + REG_DATA_IN,
+> > > +		.set = priv->base + REG_DATA_OUT,
+> > > +		.dirout = priv->base + REG_CHAN_DIR,
+> > > +		.flags = GPIO_GENERIC_READ_OUTPUT_REG_SET,
+> > > +	};
+> >
+> > I think you could save even more code by using the gpio-regmap helper
+> > here instead. Could you see if that's possible here?
+> 
+> I tried it. The conversion is doable, but the driver grows from 641 to
+> 721 lines. The extra code comes from:
 
-Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
----
- arch/powerpc/kvm/book3s_64_vio.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+Why do I feel like this paragraph is LLM-made? No human ever provides
+the number of lines a driver *potentially* grows in a response...
 
-diff --git a/arch/powerpc/kvm/book3s_64_vio.c b/arch/powerpc/kvm/book3s_64_vio.c
-index c5f3f5b29d89..05f6f2c9a432 100644
---- a/arch/powerpc/kvm/book3s_64_vio.c
-+++ b/arch/powerpc/kvm/book3s_64_vio.c
-@@ -247,9 +247,9 @@ static const struct vm_operations_struct kvm_spapr_tce_vm_ops = {
- 	.fault = kvm_spapr_tce_fault,
- };
- 
--static int kvm_spapr_tce_mmap(struct file *file, struct vm_area_struct *vma)
-+static int kvm_spapr_tce_mmap_prepare(struct vm_area_desc *desc)
- {
--	vma->vm_ops = &kvm_spapr_tce_vm_ops;
-+	desc->vm_ops = &kvm_spapr_tce_vm_ops;
- 	return 0;
- }
- 
-@@ -282,7 +282,7 @@ static int kvm_spapr_tce_release(struct inode *inode, struct file *filp)
- }
- 
- static const struct file_operations kvm_spapr_tce_fops = {
--	.mmap           = kvm_spapr_tce_mmap,
-+	.mmap_prepare	= kvm_spapr_tce_mmap_prepare,
- 	.release	= kvm_spapr_tce_release,
- };
- 
+> 
+>  - IRQ handling: gpio-regmap only accepts an external irq_domain, so the
+>    driver has to create the domain and duplicate what GPIOLIB_IRQCHIP
+>    provides today (map/xlate ops, lockdep classes, resource
+>    request/release callbacks, and removing the chained handler and
+>    disposing of the mappings on unbind). This accounts for most of the
+>    growth. Using regmap-irq instead would turn the chained hardirq
+>    handler into a threaded one, and the 3-bit trigger mode fields (one
+>    per line, spread across four registers) would still need a custom
+>    set_type_config() callback.
+> 
+>  - Output readback: the datasheet documents DATA_IN for input lines
+>    only, so output lines are read back from DATA_OUT. With gpio-mmio
+>    this is handled by GPIO_GENERIC_READ_OUTPUT_REG_SET; with gpio-regmap
+>    it requires a reg_mask_xlate() callback that reads the direction
+>    register on every get.
+> 
+>  - Shared debounce cleanup: the debounce period is shared by all lines,
+>    and the driver clears a line's debounce enable bit in .free() so that
+>    a released line does not block a different period on another line.
+>    gpio-regmap does not let the driver provide .free(), so the enable
+>    bit stays set after release and the conflict check has to skip lines
+>    that are no longer requested.
+> 
+> Given that, I would prefer to keep gpio-mmio for v2. If you still
+> prefer gpio-regmap, I can send that version instead.
+> 
+Ok, let's keep it gpio-mmio.
 
--- 
-2.56.1
+> > > +	if (priv->chan_num > ATCGPIO_CHAN_NUM_MAX || !priv->chan_num) {
+> > > +		dev_warn(&priv->pdev->dev,
+> >
+> > Use a local variable to store the adress of dev for better readability.
+> 
+> Will do in v2, both here in atcgpio_init_controller() and in
+> atcgpio_init_resources().
+> 
+> > > +	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
+> >
+> > Use devm_kzalloc_obj(). Same elsewhere.
+> 
+> Will do in v2. I will also convert the parents array to
+> devm_kzalloc_objs().
+> 
+> Thanks,
+> CL
 
+Bart
