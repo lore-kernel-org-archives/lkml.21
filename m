@@ -1,96 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.43
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.156.1
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795544553;
-	b=M1U8LB6Tj+aEvA/l/ZC0gYFkt+qd9zqylUEGgeDjbxwNmPfYrBTkvEagyj+nZO4KW48A
-	 APOAX+noMMHN2UbbwSHesgw0n53FaVJjnk1KR+7QyiDzF+vDSJyx1f7Q2qP00Y8dhkwN7
-	 iKWw+D8Y0CU4ONQ8rsjRfxhtNDugTSC4+jwDW7AY9cSnzgigf+nZXYfuLDvr0Fc3Mfx8s
-	 lXhzYTxJdPWCpRAxdrB3rtaT8WYt/q+NmyhR3iKeJg+6JXlt6qmYG3bChzOq/AGYt7Eea
-	 JbTZr+Rr9ulZeYhQmXuzWB6IdmEvS156Y5Bff3r6qAeHyIUa05LZ9HhOisVEmGCxzkg==
+	t=1795544747;
+	b=G1xbJD2B0mToodR4iTsyvWeKegvZrDvmhsVmTUZBb7/dXUj1ae4c604KSAGSfsEmeZeq
+	 o0CKMdaBrC3kSpAozlKOVZcNTiotieCyIWJRH1MMGl6A4eJSu+hArVQcwnfzRIjxW+Eku
+	 STZF8S6FT8LMBJikRyApI2IMIBXp9s/opv7OyfxaKzAodTN0tlRk1Fv0eKjw/Wbe3Rmwu
+	 lCj3XfkoBCrGMWmcotdYRZlFtefilxq+C6rE8huuGowDW4VfU7g5MKyNZXuVGlR73bjBW
+	 yVRk9CiOKdApq8zoEssxu28eWjXBrdSr5h2/LMmlAnIiXa3QHBuL1l17DmpwlJSlgDA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795544553;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=lp2V1CD3UzTfS8SfEqnuM0AkFNXDFtv8aXVUJV8xgrM=;
-	b=mhcJhp+cwQZzdetI97mABDzmLoYV3fNTFWX76i+AradEYS61HThEso50Qf0+e8niD3RP
-	 uy/BMDMVmynKO2Yt54KHzPL15I0wKutky7ZPnW1YwKLEj/ndvwyYU2ABzpQ62Qe2GM8ZY
-	 LchuUbTCBKdoYAMeoa7528m0Xj2v5zFwxb1PEjL3XQtdsXnxCFmhBO+kr4E6EuuICtqAJ
-	 xpaMEVZrdgsBlaIwNPk199Jes3ypLBnPQMZRiZlRQIRhYSo/t63BDkAx8n8+B78JrzX3B
-	 GpTMbVkpD1z3VWiQc8p0LaEBwKk6iht1x3AlU5v8yNDWLPT8x7FNqVmQjAPNWl47qCA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795544747;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
+	 Received:Received:Received:Received:Date:From:To:Cc:Subject:
+	 Message-ID:In-Reply-To:References:Organization:X-Mailer:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-TM-AS-GCONF:
+	 X-Authority-Analysis:X-Proofpoint-Spam-Info:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-GUID:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=FK7TF6nx2QGJoGLIPvxemsgkQEfTOokIWX/H1B1mYyY=;
+	b=u0I63JwrgZn6Fgg2S06ibclAScq0Ge9SHCttcBaErQWZeYMD4Z62L8nK+9GrkmE/+xSM
+	 A+2erq1cLolCMm8ca8yxfeYDERaVeNxaRl9Yo0UUECJjFnpfklU44b6wC7+5ifkVBOjxA
+	 jkNNzkAcufYlQ2BOyj/0E6NNigzbEYD3BtMDsVpejD+iDazhBIlSc8ewuGrpoVlIoMb8F
+	 NZ8ZNECrYZtghDXsAd/q9GzrMYZdZWNNrCYssm/i0iA8M/sS5hCi08d2iXISidLLJVtNc
+	 e0VAchMPlnKprMryxaHA3cEBQ2MN+WJ/CHIMOQUYViL9HwV0NpBbhBfYfwp4nzn0HdA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="DNLYG8o/";
-	arc=none smtp.remote-ip=74.125.82.43
-Received: from mail-dl1-f43.google.com (mail-dl1-f43.google.com [74.125.82.43])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=linux.ibm.com;
+	spf=pass smtp.mailfrom=linux.ibm.com;
+	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=bUSrjmZO;
+	arc=none smtp.remote-ip=148.163.156.1
+Received: from mx0a-001b2d01.pphosted.com (mx0a-001b2d01.pphosted.com [148.163.156.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 24056606A339
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 18:22:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 24056606A339
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BD4CC606A336;
+	Tue, 24 Nov 2026 18:25:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BD4CC606A336
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=DNLYG8o/
-Received: by mail-dl1-f43.google.com with SMTP id a92af1059eb24-1b563e32936so1114267c88.1
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 10:22:30 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795544550; x=1796149350; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=lp2V1CD3UzTfS8SfEqnuM0AkFNXDFtv8aXVUJV8xgrM=;
-        b=DNLYG8o/Q8J5WqPu8p+NIGocgHhg9M/LFdO8BOGqgl1n/72wXjyZnjaLhhCU8ExAz1
-         KeYhD+Twn0WgTQj27WqyG9OIX4vixtNxcf2dJcr+OzSbSWdq9LQothnAIqyoE562KWN/
-         8S5gHRbSkcCXHq4OVuddS4r1yu3OLRBNcALHpu1u8VehpsDAJkQaaC+Bvf4rnqg5yIVj
-         Mo5+pWPeEgpg0khVaV/Jp+97+MenSYsgHYRZjkV2akYETyq4EQTynIl+zAe/F5vzGX0T
-         8chHQs7BFv8I5KdJ2JWzpBjR9M42ghq5QrkOxWwikZwEOZ6Kj4k7asjiyd6eyvuX4vnj
-         LGYQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795544550; x=1796149350;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=lp2V1CD3UzTfS8SfEqnuM0AkFNXDFtv8aXVUJV8xgrM=;
-        b=C785bTkx6xQvKLzeQ5dSpNk+smXTqLTlezeGakDqKU9fnuKZ1YIGWfLPWQKS8W+CHh
-         4rf3udcNN5a55IIUnq9cTULU5UvVOq3Xln/wnCWn+XnjJIpb2/mfFnd2IWwCd2/4n+gn
-         EiPZCdcV0xfcoln6+0K5NH8HgyIegBQ2YznQMAoBdPVAFsjRYrXm8aQVsHtMpP41pxZ7
-         ChOaTX2JrXBmBek7QslkZMUDwvAPUYjQUyQ+iWOWqgX4jzIPglR67mvwWq8WpyqRGmCf
-         Tt8XyCnXcwbuNc2N4rs8JxcYu5d74RGgaXoaCG3LGdQRxc+qHxyy2YPrMfYx1LhBbrO2
-         XqoQ==
-X-Forwarded-Encrypted: i=1; AL+hErGepTtXEmkbAywJzaM0JYAchGpf+rStSTZGPIksup+/a14xLPvYJ+i2V+7g2e1zmYzgHV2FTclNHLnfbQI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z91BhvDrAfk2LEvfZk7xkpHr9+9D5mK9yxz11f6TaLxMs0XvXBy
-	VEWW+49d2LaNhHD9M+J0KtdVwpdfylyhZCQYTWbpwOT0VjLqx0zgMRxl
-X-Gm-Gg: AZFdTZfuHv1gviun9+jh0bJMq+rZiEtSXJlNYB2OI8tt4RSR0BLhBxiXX1JzwAOtkpF
-	7I0Rz0irhGFO8v9y0cYWbVI9oZJfwdq5NCqlbO/za8XmL9p0wWVM2hktUh+AFcC+e4GHsuo5Vs0
-	JdXJBT9o+JL2Vq5nX9XTrAl6GsiNVCuGglRjEepad0BhfQhm2/ZNshbkIpma3ey5p0EnJdtFRfe
-	Wl4axmpE8OTlWwUK38U8KVlYhlUa4QL1uYgGOO2tiySyDMmvbaP1Zt8HnphuKJWHlqFjcvVv42y
-	fSdYEZbDHddbGpOx6UDdgAVtD258taGEcIlokHib1VGP35B8OB51BFPKHr9giYbVG6ASSGaytaY
-	tGCvz3FEtlfEvOSvFQVWo+jbdWL6FhyOm9M+8R/JS775EIF/reRVDwwJMzBWAeWjAPA+ZfjFbSE
-	PpDQaxxHTo1SD/3PHuFg+Z4Fnyr4qu8BALuSznWle7HnayBcc+JsGVMOq8UgxhfybjsyXRYGMNl
-	FMOnVC47XD+8p2w3AMIrQgdAzoqcd2MpvntYd6E5Mgi8nDnYg76sSe62qb6uaG2qMc1IudTuFGs
-	Q4zBzgxJMlbCCw9i5eLhyQH85mZPlxUPISazAXwPPyHq5mPjShxWzOjgEor7DcLEOY0wIfFaYd4
-	9k+gE6qu+GX6t3/oeyg==
-X-Received: by 2002:a05:7022:3a83:b0:184:992:c9ec with SMTP id a92af1059eb24-1b55693aaabmr20326331c88.38.1795544549929;
-        Tue, 24 Nov 2026 10:22:29 -0800 (PST)
-Received: from google.com ([2a00:79e0:2ebe:8:ee3b:b892:771b:3bc7])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5567ff27bsm40472836c88.6.2026.11.24.10.22.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 10:22:27 -0800 (PST)
-Date: Tue, 24 Nov 2026 10:22:24 -0800
-From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-To: Luca Leonardo Scorcia <l.scorcia@gmail.com>
-Cc: linux-mediatek@lists.infradead.org, Hans de Goede <hansg@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-input@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2] Input: goodix - sync the irq controller while
- starting firmware
-Message-ID: <awXV3Y080rMLw_VO@google.com>
-References: <20261124085058.128173-1-l.scorcia@gmail.com>
+	dkim=pass (2048-bit key, unprotected) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=bUSrjmZO
+Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AOFa2bQ1235269;
+	Tue, 24 Nov 2026 18:25:44 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=FK7TF6
+	nx2QGJoGLIPvxemsgkQEfTOokIWX/H1B1mYyY=; b=bUSrjmZOTCRqeBVQaTx7uL
+	IYyIPI89Wk/p+bINEx1u6w9afTKnUHT4rOsdehl6zrv6lXBtpapY101ocZ6DBoWc
+	1YEAPP7jS7GufE+9Uf0XPhkgeA0dUKnMAv5bZvo6Q/ckwxPePA2qxU89y211K8tj
+	85HKQ2h2eVRMAHyrPVSiUHNYH3X9GaJsM72L4f1rY9ZhSbHfA0RQUOvLrp4JdfZU
+	pAWZuieb7ouTV+6Um6Ksf6vwcmCytE9K9o0+zLt8bKAvLxDiHF+RbXt50r3fv4nT
+	nAiX0U3f3CxI8jyMGLTyadlkA4ApfY6dKoDADcKBd2TyEbzOiAlw425713wFnJgw
+	==
+Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j34g3947x-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Tue, 24 Nov 2026 18:25:43 +0000 (GMT)
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma22.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AOFJZBY2883662;
+	Tue, 24 Nov 2026 18:25:42 GMT
+Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4j3p0vks67-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 24 Nov 2026 18:25:42 +0000 (GMT)
+Received: from smtpav01.fra02v.mail.ibm.com (smtpav01.fra02v.mail.ibm.com [10.20.54.100])
+	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AOIPcSx17629610
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 24 Nov 2026 18:25:38 GMT
+Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id A4F6C2004B;
+	Tue, 24 Nov 2026 18:25:38 +0000 (GMT)
+Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id C4E7420043;
+	Tue, 24 Nov 2026 18:25:37 +0000 (GMT)
+Received: from p-imbrenda (unknown [9.111.42.244])
+	by smtpav01.fra02v.mail.ibm.com (Postfix) with SMTP;
+	Tue, 24 Nov 2026 18:25:37 +0000 (GMT)
+Date: Tue, 24 Nov 2026 18:00:30 +0100
+From: Claudio Imbrenda <imbrenda@linux.ibm.com>
+To: Heiko Carstens <hca@linux.ibm.com>
+Cc: Janosch Frank <frankja@linux.ibm.com>,
+        Alexander Gordeev
+ <agordeev@linux.ibm.com>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Vasily
+ Gorbik <gor@linux.ibm.com>,
+        Christian Borntraeger
+ <borntraeger@linux.ibm.com>,
+        Gerald Schaefer
+ <gerald.schaefer@linux.ibm.com>,
+        linux-s390@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/5] s390/mm: Deduplicate machine_has_tlb_guest() usage
+Message-ID: <20261124180030.35caca96@p-imbrenda>
+In-Reply-To: <20261124135948.1295745-1-hca@linux.ibm.com>
+References: <20261124135948.1295745-1-hca@linux.ibm.com>
+Organization: IBM
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-redhat-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,23 +103,77 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261124085058.128173-1-l.scorcia@gmail.com>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-TM-AS-GCONF: 00
+X-Authority-Analysis: v=2.4 cv=SoQFe/O0 c=1 sm=1 tr=0 ts=6b05d6a7 cx=c_pps
+ a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
+ a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=uAbxVGIbfxUO_5tXvNgY:22 a=VnNF1IyMAAAA:8
+ a=AFcVWVyc7PIXRdJLRLYA:9 a=CjuIK1q_8ugA:10
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI0MDA3MSBTYWx0ZWRfXwZINeO7443JA
+ 0xGG1PfSn2V0xGqliKde7IINiLTajJhS4l/VuzzQCIVeKXCCyeNqSqsL9dQT8aGPUU+71hHfObw
+ YNfxPo/0Sdj68464xOlFKf44MSiocPo=
+X-Proofpoint-ORIG-GUID: pp6-d4SXmXIrjJvrj7IxW8mtxWVftiPX
+X-Proofpoint-GUID: pp6-d4SXmXIrjJvrj7IxW8mtxWVftiPX
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI0MDA3MSBTYWx0ZWRfX4Y0MnG1hgbua
+ Q6LyH41aPZFXBhrrdkjQOxUK0cRcr8+OZAhVWMdWPfv2OFzwcoxGDUV+WHxf9HBoIKdZibNiRLT
+ Vc5gZCOSKj86qesGJCfHv92NzU9Y/aHMS+JnyHHBbgzT+690xydYv86cGfPBCFu7L5OkqvpfaSU
+ bAM5NXsDLxkBNJWuRAUisOV68zkb/Tl90sETHJvIm67Lz8uFl+cSWDWLk28IzLUsEuBa6hI45l2
+ Ke58NRQQmOWa7z5lNxAhZU84mQJarmhla+tFLzmOIKmdMOjtopwm74/4bxFm2xRxRTwwfP4MGVV
+ dY2E5fLBAZ/CPIYB1TnsxQFPPnyy1oq12FygKQNqBGt9V+KpOo5iGbx6QNpGF9I5ZTSn9AqW0Gp
+ dUynZNRXisjberEqZgh9wqzcEN49gqEYkKEYWypsAC1zz7e7NSZuTE2Xu8FNcyn1KoL/GhL6fFe
+ YIEah8i2oUbvC9OLWYA==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-24_04,2026-11-23_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 suspectscore=0 spamscore=0 bulkscore=0 adultscore=0
+ lowpriorityscore=0 clxscore=1015 malwarescore=0 impostorscore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611240071
 
-On Tue, Nov 24, 2026 at 09:46:22AM +0100, Luca Leonardo Scorcia wrote:
-> On the Lenovo Tab E7 (TB-7104F), which has a Goodix GT-912 touch screen,
-> the touch screen fails to come online after loading firmware, printing
-> the error "Error reading 1 bytes from 0x8041: -6".
+On Tue, 24 Nov 2026 14:59:43 +0100
+Heiko Carstens <hca@linux.ibm.com> wrote:
+
+> While working on something different there was the need to add yet
+> another machine_has_tlb_guest() check. The machine_has_tlb_guest() check
+> pattern is duplicated all over the place. It seems to make sense to add
+> common helpers instead of duplicating the code again.
 > 
-> Comparing the upstream code with the Android stock sources, the existing
-> call to goodix_int_sync should be moved between the upload of the firmware
-> and the watchdog restart. With this change the touchscreen is correctly
-> detected and working.
+> This also revealed that the gmap_asce member in mm_context_t is always
+> zero since Claudio's gmap rework. Removing it allows to simplify quite a
+> bit of code.
 > 
-> Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+> Code applies on top of linux-next 20261123.
 
-Applied, thank you.
+Moving the checks inside the helper is the cleanest way. I was already
+working to do this for KVM too.
 
--- 
-Dmitry
+
+Whole series:
+
+Reviewed-by: Claudio Imbrenda <imbrenda@linux.ibm.com>
+
+> 
+> Thanks,
+> Heiko
+> 
+> Heiko Carstens (5):
+>   s390/mm: Remove gmap_asce from mm_context_t
+>   s390/mm: Remove unused nodat parameter from ptep flush helpers
+>   s390/mm: Add ptep_ipte() helper
+>   s390/mm: Add pmdp_idte() helper
+>   s390/mm: Add pudp_idte() helper
+> 
+>  arch/s390/include/asm/mmu.h         |  1 -
+>  arch/s390/include/asm/mmu_context.h |  1 -
+>  arch/s390/include/asm/pgtable.h     | 31 ++++++++++
+>  arch/s390/include/asm/tlbflush.h    | 12 +---
+>  arch/s390/kvm/gmap/dat.c            |  5 +-
+>  arch/s390/mm/pgtable.c              | 94 ++++++-----------------------
+>  6 files changed, 53 insertions(+), 91 deletions(-)
+> 
+> 
+> base-commit: 3191063649dbf7c0d0b768e1f3655e4c5fc6edb5
+
