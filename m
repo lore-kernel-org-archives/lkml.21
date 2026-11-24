@@ -1,123 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=205.220.168.131
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795620286;
-	b=TbF+gG7lf1Wx/uYIldGWlESzOlo3ICWBo8BJstlFAFeaVVO95qbO4JTOwMUVumE4LlS+
-	 1w0zlkzSOuJSJSvT2JFM7mKFnzAeyUXdHuk89cJozu2vXUAp/T+SeeqddDL7rF+JqU045
-	 Hb7gteHHxuYKG3ZgFaIk2OcNF4LP45RYm+aVu475AC7lNuunO/acspFoIOn2U7OIbwNlu
-	 bLkhrlPOdWzEwNaYTTJ5jIn0+GjhFZSMqrapx4vQXqnyKHTV7l72Bnv4A3ER0kWy5ZjUf
-	 8rCmpy+sUvHLpH/I2CFIN1YYtmUxLrhrzOOBVP6Ou8Ya+JRc46gcWsW10KJA3LuuU5Q==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795620286;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:MIME-Version:
-	 References:In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:
-	 Cc:Content-Type:Content-Transfer-Encoding:X-Proofpoint-GUID:
-	 X-Proofpoint-ORIG-GUID:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=QIYZYd3o/tNv9e79fiRmovS4XRBJcwrqybTUeeJB7F4=;
-	b=oUHBjG6hPvhB7d5ojEv+sFSysNHhRozYOikn3j5yxBDgjbhNwwiTQmdJg1psjysumtOZ
-	 PPO8VOtUbTZ8TAyENn0iEV+9A1tVJssE2sW2T2DhcQL0B7mPCudxXfBnAamg3fk7pSpZF
-	 OBCrZjLgal3jra6EiXRMilzIl3QwJSRImueaA+ZIrckqoT+eHbvz7Vy4sub2mdu6xIWdR
-	 /+b5Amk4rhvZvGlqyfWFpxIJYTJgciyJMOv1EBgIsJd36F3ETkofusru5D4iMVCgeIliZ
-	 yKx17wSJVWXC89CZaB5ygEBJKlqkEtgOniZuTddyWwIx9O54/rUaIViH2sf5Tzfwxsw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=MveGXrNU;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b="Y+/coxbT";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795620297;
+	b=Iwko7wZgATYLanYcBr2VUzz+EAWNePGAFELUC93cPjixmSLu5LMXgM1ux1PwwkYrV0eB
+	 PMR9yzI72DNBInZqE6FEnfHNtsDaZidgZQw2o0SF+SKJOxxiR6utuCrGR8LlB/CsFTAO2
+	 b2ZU9miuKYAxm7EQB8E91T+wbbBFEbpBy/JYdrY5uXBjKHxX6vwhh15bBMwEoBuOsmnWr
+	 DKx14jhPkOo6Pp/pVmuLKMJC9Hc2+ZDhFqK0ggaqhPQB+YneYWRb/nJ0Ya7t6GyEXXE5Y
+	 1sfIO9UoQmdkYdiLq7syJQGji41jG2n/c/8Z2Eqk2sTEznArWWUnSUGP6S9LFW8D2Qg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795620297;
+	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
+	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=khCQZr+lZ5ps02/NBTrpcyjkpLu9gA2+Gk1GsRmHCXA=;
+	b=KVa3JzAkvrbikL3iv5LqV9mOoxM9vbuU8AXKC62y88wtBmEcCGJGiWsjBfg8y5Sge4LL
+	 GpdkVZ/i7dl8YwEpgWBm3zdKDYsroOuMX36dc/UlmK0GCXv+tE3UXcCQKUCIjJ6O3AEk0
+	 vwulUhup3oPu3awBl34lfkLzjdNzupkTENjgH5xzO3SNSAedqOAoEZt4ynB5iVP5p8RQm
+	 tACgu9H2W0lvmxzTB87aoN81PsGwsG/MWL1c5nhdfip9h3W/gE2Y4dsCJjpaZ4W51kpYZ
+	 ih7vN8SM1uS6FGAT6AgVYCiVdhM+Vh3zaKn8lXEw5lOfnJMph4R0+nyPwBYzD7Phcig==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mQm7XMoj;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2A8A7606A334
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:24:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2A8A7606A334
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4802E606A31E;
+	Wed, 25 Nov 2026 15:24:57 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=MveGXrNU;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=Y+/coxbT
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6APEM3pZ724468
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:24:45 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	QIYZYd3o/tNv9e79fiRmovS4XRBJcwrqybTUeeJB7F4=; b=MveGXrNU9rvAmn6V
-	xyXMLjH+LeWkmnYw5sO0/5LIzFGhJKO6bnj+DlEI27vePJbVd0hXi74Bktgvxg/7
-	qTXu93gmDfo1mniLpECQMDNfQAraAs2gSciu6wtyvKkg5MYR5NR1xIuon3fFcysa
-	vweMynCEphOviJ2FslE5q5pFdHKX8Vs7EQnRWvJuSHd11zkB/LMkPjB7+cJb0Jub
-	X0GKLuGzzobTNolJ/29eZLg5253HUI1rBQHw6o8FEoIQO4X6XyRIjozhWIYI+OOA
-	IDrSIbUznKwH2Byn5AsoGh7SuEsRWGvb4b832YXkS3/gvvFl3idyej/aVE7siMXh
-	XdEvLA==
-Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j5yaxrs5p-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:24:45 +0000 (GMT)
-Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-2f08196b148so35034705ad.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 07:24:45 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795620285; cv=none;
-        d=google.com; s=arc-20260327;
-        b=e5FpHJEHVRJK79eo07lAyyMzLK6+pbD8zhSQBTW6YHPnt9EJNGEZr81+D2aGRcd+vW
-         L1AqWO5BAFlw0edKSH0nF1yLKocXFGUODdNAQG2fvuDHrqG4bhFFjWWqbJ2KNGv89gp9
-         rZ+3f6gWOowagiSl87yLWAOM+Z8oGMQknKrQ3nUPOv9WR5vJjeyst3fQk9kmTdKwRGxG
-         qut6UTDZr40fFv9P6IkMHrQm5ZIvL7dSHS0tiFpZP5KyDjcnpVtj6Lh0/OgyaMowjdFW
-         OGMyXBm8q6Yy5rnMomZv5zK7KTvwX1NqgkhBVwElcBRdndVo0bK38IDCXMtbTFxy1mtH
-         T9fQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=QIYZYd3o/tNv9e79fiRmovS4XRBJcwrqybTUeeJB7F4=;
-        fh=gqbnDZ7zfJUM+v58eOzJLTHjhGvEudiSRaDeSN1lKgs=;
-        b=OFRuNlJafXSUdHY9fCoAXjOgYwWqo8XxNFCsTlTrwCY/UBdvHNBlB/kNqAUuIsfe1c
-         zY4BGtmzZCzHVwO4JEaBro1Ug0BV0M0B+bs+uHSqaexSJ8q+Lfw/jg6ui5PmxrYbToHK
-         987dzVVYyC9Kn1T1bypUA0HZpD5InbHFdV+FirULuNPcC1xHEjdda5cT0BXMVhGqzkVx
-         00JwWT2Z8sNpi2QaA5pk77bD9RheDRj2tZmos0v7io2PQlCYmejXXeTG1opPxBGHqJsf
-         5T5OcXfNQIQ5icCL1gelgxf12bHcE7wMeSmoqSvAaF+QD/n+apLJANZAAXztVyD86K46
-         ZH+Q==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795620285; x=1796225085; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=QIYZYd3o/tNv9e79fiRmovS4XRBJcwrqybTUeeJB7F4=;
-        b=Y+/coxbTTf86QvmULyqkEetF+xOyp04cBNyBoCd/s6pyn0P/6c4+21HeRW97n2/lSe
-         qGLQjUw+F2Cr2ogsBf7IZLBmXXo5VVzyMBLrNB1u82Icgj30lzQQKcF1Rq1M+WJ91wrb
-         ++W6HqYag5jYOwaVB19+DEtTKiMCErSJ2njb137OjxOVgF6bQunawDxWPU/zE6lQhZ+9
-         66qT9K8pMWDGucNfaBMcaeQMFe7AwWHayu/bXZC8fYYrCCG90LATaBz7pBdqoLlyDRJ9
-         W/NgM6YP3NOYqR/8lfVfhND8e+/pTfK8+wRIUlcfIjh0AH6radXSlpb07vYvxJnlnKhr
-         PO9g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795620285; x=1796225085;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=QIYZYd3o/tNv9e79fiRmovS4XRBJcwrqybTUeeJB7F4=;
-        b=hflJZaCkEQtJLtQ4i409yE6bk4V5u7hFTelfrgsMFCMz2OZYTg4oqxUVMOwNI8y+7o
-         hzg/lhXVPxZMzaZ//XZVwYKrpj3m8UZ7ahUBnoqCiR2f4cs9varZC7sTDAgho1s5ZPfE
-         jRQViQMR73TDhtZ/ix3QeSgzkwFWTfgppE253W4nSENdVz77IPgMobME1FuMgDIxdA5d
-         zYc6sFPRNHKKTF3ck605/jp96tGTt+iIQkwo51/ANx+rAq5qlyX5/oKRixbwvVpZHNom
-         Wyze2iS6VsiaT2FKqbpfi/WVazPpOJDPVBSlOK7iuZyD9V16wy+w2rMYFgtqWXhGoyQV
-         f/Jw==
-X-Forwarded-Encrypted: i=1; AL+hErE30RUEtv0YtfVw985+6nDOUa2oCj6jPNDT3b12vygtZ46wnPdTqi9vZHqLUgr25g/TRexp4Ds29yyX7Ek=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9eKwRBSTekHSutUhPm8W6HDfBxwlG397Ie0tb40I/jM5JLGz6i
-	v26z+xLNJYV7AZjt0doyYm8fRTPZEjPU9vg9iIxoXOANM0OQxGsHk2DHzOjgh3PU8JinFlgS5Ew
-	z/vjEU7R5F6Lpy7q2QHva+FYT26vj0XRvvu3e/BfflIS7bEXiA2mx8rrGzx5UXvG7qB+qp6MvDt
-	J0CzfbTkahc8IhLlvApjeWVOJOJ8ys1KMSF7rNgWs3Mw==
-X-Gm-Gg: AZFdTZf/VfLYD/Ug6IJ/XN707lLOz899UB0V5foLAVks6GS458bo/t6XQYI+RMYGOwb
-	NC8Vep3OxlEytwu0fJhkyG3bLk+M2GSOyRTX38u00evSNOxAAiuXLSbdiQB/J7fOcvm3Stl8YVI
-	DVof1r2moFkc2K7OWBIdz2i2OkSNyz1HqOnQbUOOiLcdyrE4e7hcfd3OekMw==
-X-Received: by 2002:a17:903:4b07:b0:2ef:de9a:e59 with SMTP id d9443c01a7336-2f03f1a1767mr166368865ad.23.1795620284599;
-        Wed, 25 Nov 2026 07:24:44 -0800 (PST)
-X-Received: by 2002:a17:903:4b07:b0:2ef:de9a:e59 with SMTP id
- d9443c01a7336-2f03f1a1767mr166368535ad.23.1795620283988; Wed, 25 Nov 2026
- 07:24:43 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mQm7XMoj
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5BF131F000D0;
+	Wed, 25 Nov 2026 15:24:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795620296;
+	bh=khCQZr+lZ5ps02/NBTrpcyjkpLu9gA2+Gk1GsRmHCXA=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=mQm7XMojXDRKOjTVodJNFQw5rj41uOgx2Mnln3HRo0PzjmMed2JfzKJ4FSUkvsVXt
+	 bBbPcQULhAUyAqs1aDbNPwhYKrDNl4sDrwjT46YKkJTUwxXKHUO8qYHc3qAWBwIu4T
+	 j7Mq8hB6jzxwbHseQbdKWyEJ3+6TGzHPhxmGD+4xuTo3Y6L1ReOZMV0yMp/hL7wNOa
+	 30pwxz6cQIqbfRO4vQA14NsZOYRAV4Dv4wZJXVkw5B8kBbR+PtOHb6FGjXA5lmGDuI
+	 Ql6bd44lZXfV9SttRxiD/OvxMbZzVHwp11N5Ftssz6QLaFAvnZHoqxDK8We/qXLwZ8
+	 hE2iY0G2Q3ggg==
+From: Mark Brown <broonie@kernel.org>
+To: Richard Weinberger <richard@nod.at>, 
+ Vignesh Raghavendra <vigneshr@ti.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Pratyush Yadav <pratyush@kernel.org>, 
+ Michael Walle <mwalle@kernel.org>, 
+ Takahiro Kuwano <takahiro.kuwano@infineon.com>, 
+ Miquel Raynal <miquel.raynal@bootlin.com>
+Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, praneeth@ti.com, 
+ u-kumar1@ti.com, p-mantena@ti.com, a-dutta@ti.com, s-k6@ti.com, 
+ linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-mtd@lists.infradead.org, devicetree@vger.kernel.org
+In-Reply-To: <20261124-winbond-nand-next-phy-tuning-v5-0-261e0e712857@bootlin.com>
+References: <20261124-winbond-nand-next-phy-tuning-v5-0-261e0e712857@bootlin.com>
+Subject: Re: [PATCH v5 0/6] mtd/spi-mem: Enable DQS control
+Message-Id: <179554764437.947306.7383226666322227871.b4-ty@b4>
+Date: Tue, 24 Nov 2026 19:14:04 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -127,155 +66,63 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261118-04-k3-pm-support-v5-0-42394acdf3e3@kernel.org>
-In-Reply-To: <20261118-04-k3-pm-support-v5-0-42394acdf3e3@kernel.org>
-From: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
-Date: Wed, 25 Nov 2026 16:24:32 +0100
-X-Gm-Features: Aa3M54olEAoYIpHYojNK94sf0JF_SRHhMMcIhjtuJGmTJ5tnlyfF1zWJRLUcNAA
-Message-ID: <CAPx+jO-TqhmF=vwSveSQk0ayUKf9M9fSDBYygTx3uTdQ5QHSHw@mail.gmail.com>
-Subject: Re: [PATCH v5 0/2] PM: spacemit: Add power domain support
-To: Yixun Lan <dlan@kernel.org>
-Cc: Ulf Hansson <ulfh@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-        Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
-        Alexandre Ghiti <alex@ghiti.fr>, Icenowy Zheng <uwu@icenowy.me>,
-        Iker Pedrosa <ikerpedrosam@gmail.com>, devicetree@vger.kernel.org,
-        linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-        linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
-        Conor Dooley <conor.dooley@microchip.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-Proofpoint-GUID: Iy250Z6CeQi1svf59rr11_5REnt35Vsg
-X-Proofpoint-ORIG-GUID: Iy250Z6CeQi1svf59rr11_5REnt35Vsg
-X-Authority-Analysis: v=2.4 cv=ULpIjyfy c=1 sm=1 tr=0 ts=6b06fdbd cx=c_pps
- a=JL+w9abYAAE89/QcEU+0QA==:117 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
- a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
- a=Um2Pa8k9VHT-vaBCBUpS:22 a=VwQbUJbxAAAA:8 a=bC-a23v3AAAA:8
- a=CDiEhUVfAZlwq9Ebo7kA:9 a=QEXdDO2ut3YA:10 a=324X-CrmTo6CU4MGRt3R:22
- a=FO4_E8m0qiDe52t0p3_H:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI1MDA2MSBTYWx0ZWRfX/z6QJdcrsi+G
- KK7r4Y2+/zkfgKWh/d/hJZeyazX2Rng/QAbkj21bs3b7N0gGa+nPQKhia+zBT1NUIVCqCyfRTl2
- 34SVFdFBRW6dLlVmcGQ+38EkHdn9Ro21mW9IG/J3hSQJ+hW9My1k9lAHzCG3LZsqdJvDuk9QBbb
- 7FlH1ZiWsy0+I90HBsDtD8blsxvit5Zy1E15HLn4z31WgoiWEW9iUhH6KS7Yua2CWvrtq83owEO
- cUOBG5iRq+hKcMcWk9isF5ijujYjDUZXoeZQgaqk93seLIk6DE8hVmV+XNNCQM16rgJwhch+udn
- v4bezU7c+CIVCPga34yEDNSmGA6HgMdN9GfWrVpu8Bf0eOr6RyuK2i3KetabEUNZRVoRIUq6mwV
- oobOshAqwRe9XTmMWVLoexj8Syqne8oHD6q0Wjzb13ql6Z+fOSnQtZ6ezFl/kJDlmgg51ZZ2ZZY
- OqUWHA7HpK6bZlzZTCw==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI1MDA2MSBTYWx0ZWRfX4+uRZsLOC9ic
- q/PF3YT7uEZ2MBM422uaaAcIa+x8U2ph8j/2I+cCGjWfv6MVC8Edvq+ACBONOWLSCeUvIVyCpuX
- iekKtSwxyodQnwxeez/amQ2g8Rnq5Q8=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-25_04,2026-11-23_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 clxscore=1015 priorityscore=1501 malwarescore=0 impostorscore=0
- bulkscore=0 spamscore=0 suspectscore=0 adultscore=0 lowpriorityscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611250061
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1947; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=hiFMYrNelLS4EF+eSytAriGzVrBmGJlkNeuhF2BICI0=;
+ b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLLZ/h7W4P6zcq1usKFgc8PuvLOp75/Ofv7cfm22YoHnX
+ XWLl6xXO0pZGMS4GGTFFFnisrhf1pe8XsN3cGEbzBxWJpAhDFycAjCRPCtGhk+ilrcqyliK9VSu
+ nj3Pn5zY8uH3uSePaq33zhZm+bCXdxMjwxT9jPZHookW34u2rPTiUGTfvehhur5Tnclq2c2zHVS
+ E2AE=
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 
-On Thu, Nov 19, 2026 at 12:13=E2=80=AFAM Yixun Lan <dlan@kernel.org> wrote:
->
-> In this series, we try to add a Power Domain driver support for SpacemiT
-> K1/K3 SoCs, the driver implement the power-switch functionaly which suppo=
-rt
-> power on/off, and it's based on Linux Generic PM Domain framework and
-> similiar to vendor K1's implementation, but unlike the K3's vendor
-> version which is more complicated.
->
->   The DT documentation for Power Domain already exist in below file,
-> and APMU already has #power-domain-cells property.
-> Documentation/devicetree/bindings/soc/spacemit/spacemit,k1-syscon.yaml
->
->   The previous DTS patch is obsolete, so I dropped it. For devices requir=
-ed
-> PM feature, it need to add a "power-domains" property, and should send in
-> a separate patch.
->
->   In order to test this series, a prerequisite CCU patches are needed,
-> which can be found here [1].
->
-> Hi Ulf,
->  Would you be ok to take this version? only minor change updated.
-> I think the sudden removal of pmdomain supplier is kind of an
-> independent common issue (exist in other platfroms too), I do not
-> want to addresse it in this series, see a possible solution in separate
-> patch here [2], or Icenowy's preference in comment[3], or whatever
-> way to take. Just let me know what you think..
+On Tue, 24 Nov 2026 15:43:01 +0100, Miquel Raynal wrote:
+> mtd/spi-mem: Enable DQS control
+> 
+> For his PHY tuning series on the Cadence QSPI controller embedded in TI
+> SoCs, Santhosh initially needed to access the availability of the DQS
+> (data strobe) signal. This is a chip dependent capability, which may
+> sometimes be enabled.
+> 
+> [...]
 
-I made a comment on that as well, but I am fine with this as is.
-Please make a fix for the unbind/remove problem on top.
+Applied to
 
-The v5 series applied for next, thanks!
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-7.5
 
-Kind
-Uffe
+Thanks!
 
+[1/6] spi: spi-mem: Rename the DQS setter and pin field
+      https://git.kernel.org/broonie/spi/c/fab01b136dfe
+[2/6] spi: spi-mem: Clarify the conditions upon which DQS is usable
+      https://git.kernel.org/broonie/spi/c/5520745c6e30
+[3/6] dt-bindings: spi: Document the spi-dqs-not-wired property
+      https://git.kernel.org/broonie/spi/c/2bc362dc8074
+[4/6] spi: spi-mem: Take the DQS wiring into account
+      https://git.kernel.org/broonie/spi/c/4c9572bc7052
+[5/6] spi: spi-mem: Take the controller DQS support into account
+      https://git.kernel.org/broonie/spi/c/828d25f820a5
+[6/6] spi: cadence-quadspi: Advertise DQS support
+      https://git.kernel.org/broonie/spi/c/dd1f49bd2c44
 
->
-> Link: https://lore.kernel.org/spacemit/20261008-04-k3-clk-pm-aux-v1-0-837=
-2d7307694@kernel.org/ [1]
-> Link: https://lore.kernel.org/spacemit/20261112-01-pm-device-link-v1-1-89=
-32e0862378@kernel.org/ [2]
-> Link: https://lore.kernel.org/spacemit/b7d7ac2eee0e64aa7c267def5c2a8a022c=
-7da425.camel@icenowy.me [3]
-> Signed-off-by: Yixun Lan <dlan@kernel.org>
-> ---
-> Changes in v5:
-> - drop pm_index
-> - fix dev_err() to return error code
-> - Link to v4: https://patch.msgid.link/20261112-04-k3-pm-support-v4-0-de3=
-931aa5153@kernel.org
->
-> Changes in v4:
-> - adjust Kconfig help message
-> - drop unused include header
-> - propagate regmap_read_x() error code
-> - simplify spacemit_pm_is_off_state()
-> - Link to v3: https://patch.msgid.link/20261108-04-k3-pm-support-v3-0-b9d=
-c0857039b@kernel.org
->
-> Changes in v3:
-> - collect tags
-> - rename spacemit_pm_is_off_state()
-> - implement a remove() function
-> - use proper type in struct spacemit_pm_domain_param
-> - refactor struct spacemit_pmu
-> - Link to v2: https://patch.msgid.link/20261008-04-k3-pm-support-v2-0-6f7=
-78a53dd2d@kernel.org
->
-> Changes in v2:
-> - convert to auxilary driver
-> - no need dt-binding doc, drop it
-> - drop dts patch
-> - support to build as module
-> - set always on for K3 audio pm
-> - no global variable for struct spacemit_pmu
-> - no force to do power-off in spacemit_pd_power_on()
-> - check return value of pm_genpd_init()
-> - adjust license header format
-> - Link to v1: https://patch.msgid.link/20260918-04-k3-pm-support-v1-0-0ac=
-d2b36b96f@kernel.org
->
-> ---
-> Yixun Lan (2):
->       dt-bindings: power: spacemit: Add power domain controller IDs
->       pmdomain: spacemit: Add power domain driver
->
->  drivers/pmdomain/Kconfig                        |   1 +
->  drivers/pmdomain/Makefile                       |   1 +
->  drivers/pmdomain/spacemit/Kconfig               |  21 ++
->  drivers/pmdomain/spacemit/Makefile              |   1 +
->  drivers/pmdomain/spacemit/spacemit-pm-domains.c | 422 ++++++++++++++++++=
-++++++
->  include/dt-bindings/power/spacemit,k1-power.h   |  14 +
->  include/dt-bindings/power/spacemit,k3-power.h   |  12 +
->  7 files changed, 472 insertions(+)
-> ---
-> base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
-> change-id: 20260909-04-k3-pm-support-0bef40e87fd7
->
-> Best regards,
-> --
-> Yixun Lan <dlan@kernel.org>
->
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
+
