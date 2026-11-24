@@ -1,142 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.30.119
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795518274;
-	b=oWLhlyNcFHOm/w0VvzvViZNj4KPTEkJniOTPPui5wdRYpc3jFeEmYcevHDwW5ulFPLAL
-	 +uBu9ZzL0pMfEuSbS4c9ogA+QrxPbDKPFJkSU13CDYK4eOZSO/BJlpsn+rrNELcHw8X3F
-	 MutvXnwngmJPWuZz0GyxSRjop9iXxnJka6GR0h9XIwPTR0iOc/M1UEUTEmlP7tJP2QNjG
-	 Kpglxl1aJG2kTZu1ssOnK7lc0Y/aeOCpx/JfVMFsl/Dkm/fUtaDkPbuHPsqFV4siOJ5fv
-	 0Ujo5BUZchGUhd7TpgIozwsbCaTRVXR0e61NapDyBYZSx9TtRJTLfzIFZ1H/U48SQMw==
+	t=1795518289;
+	b=3jsL/yXq1Acz7E+DgTtZJoroncsUh8qAI1/wGvfGjMj3cOARrl/xZqE30mHyzxnetM3M
+	 MuhxpNpC6zOXNoon3VaDWjOMhx+JIpnS8nyPvX7Tk76VWTKZ+KiLaEuFBFYk+h83K30n4
+	 qvz9PaC5W3fGlyEc63KNB9arVqh/Kf5nwMSsJdtotX30Mq8V+88Wlov0mvxYow3wl43sq
+	 OMo1gKay+W9KuTdYjmtm75nkEZv+QEAc3KXgKcRtat4EcRmjsvOYNeYNHe1P4RKd0Mna6
+	 EH/OS8lQ+hDNTexmTD8ym0sBkHgOjz3+O8lM9JrMm96HEwDRdr9Uorpg4hclJEGfi/A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795518274;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Date:From:
-	 To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=TTlOMlop88MYRf1Y2eOatTSKCEHNu2LBs6PIdGIA3ts=;
-	b=lQlApkoohyY/VrY33Ngm3RLCfSW3NedwtcF2SZsSA7nxDa6iXu7MRM9GvPLaGBSb4IB3
-	 66JKaVInE9+LLHJ5xyRRW+KQc/pqK6wKrE9rjHzLQTWfTByna4s49+j1uhgwLbRV77BVI
-	 xsqFnwqSHDTCTQkejkznAZ3FIJ+lo6yowzstyfxNR3jO3s5T0vnh4wwLN2zUJmzLsPq/i
-	 h2nXUH9OBBATjV2rSHbBy7YMXTSKoZQQ8Rz4hH3w+E2CEBGJezYGt4iUuNsp6ij83Heqh
-	 TiDPcXW+Mm/46Cg1hUDfd0JQJCQu7/a5kerbAL+o1URmWijETNl8WxcE7UREPE59fiw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795518289;
+	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=BymQS6GK987uNfZbDCjncL57Qqv9/djtgx0zK7uytsg=;
+	b=uCczzqmyaKFCac0PkJ3xJhIiyR7uY5XGlf9j6sKCFU6NX5az72lG2vt+XeRUF5N+Bg22
+	 6JNZzOie3egXADd+THR0zXwKjyXE/Au0Hx1qIJ8vQQTZQ2q5bbtoDGMXw8TjZga97EJie
+	 Chps9sOFYZdu14ZHe5m0vC4IZDZJ2WCFHopWEqCHexi38RZQMByn+1oAs0sESHqPYzoB0
+	 nhsfkYDmSdamGHAPZWoD5ZUEaH6OWGp3Rm+Z7cKFXeC+Ne5EyPYiodmSZeiGceup9ATr0
+	 gmETsFkvRNwMRAt4i/WF4rK0TStN4VxejVXi1JvKkRsDF4WXAB/jrOSYe8ATFQYUtRQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Gx0jwKic;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=cI8cddPG;
-	arc=none smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	dmarc=pass header.from=linux.alibaba.com;
+	spf=pass smtp.mailfrom=linux.alibaba.com;
+	dkim=pass header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b="h+S/qozl";
+	arc=none smtp.remote-ip=115.124.30.119
+Received: from out30-119.freemail.mail.aliyun.com (out30-119.freemail.mail.aliyun.com [115.124.30.119])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 75760606A326
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 11:04:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 75760606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 194B1606A321
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 11:04:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 194B1606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.alibaba.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.alibaba.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Gx0jwKic;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=cI8cddPG
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795518272;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=TTlOMlop88MYRf1Y2eOatTSKCEHNu2LBs6PIdGIA3ts=;
-	b=Gx0jwKicO6PYN0KjC0d1hd5uBlP1rWdYMXJMVgWllSqFONNKSmOaPMhq4XAJ8o/lVwllkb
-	K3iiKZ+DB1KLOpGclifctS0oNLhHl4Rg0FACq9N7FMNFyI1W0QSgwFLdP0pD64d/jYHsB8
-	CYitJQprsGT+V5d9qDPt//h4zwf2AnE=
-Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
- [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-481-sB4RCCHnNZG24KHF2Ib6pg-1; Tue, 24 Nov 2026 11:04:30 +0000
-X-MC-Unique: sB4RCCHnNZG24KHF2Ib6pg-1
-X-Mimecast-MFC-AGG-ID: sB4RCCHnNZG24KHF2Ib6pg_1795518269
-Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-4a7c864000eso2527441f8f.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 03:04:30 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795518269; x=1796123069; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=TTlOMlop88MYRf1Y2eOatTSKCEHNu2LBs6PIdGIA3ts=;
-        b=cI8cddPGERKUW1Hg1Xcj05XFux6gB6hsbwlfhHILhMVjH9xrBGWddA61SymLnf3vvk
-         C0tuSKGgbr2dUZIk9Wdpm3CGFt0IFCzHLVS7tkSm8XJz094j24tIY0OEM8H16oIibybs
-         L6S6/HrZ7T+MuXhJ4d1Enx5nvErwS5A+8ZqQVnHiIz0urEhlteHDoVWhk52WZq4mHYdV
-         GTiRFrZmM13sdHQTtcXes5r11rSIVhpxzxG9bY9jXmNft1UFUV2A6zR6lcQaOW1thk1t
-         LLtRL0UMZ/LMPh7F9fE4E3Ou7b8MdKOT/vQ38s4yYnTSNJ8QUmZHPkzC56kf1ber0Vqn
-         EP4g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795518269; x=1796123069;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=TTlOMlop88MYRf1Y2eOatTSKCEHNu2LBs6PIdGIA3ts=;
-        b=HLh+/yPystqA72As6dB409kyiMwspVDnHB2nDkGTjfZToe2qzm9wdjF3kpIOjNwmTv
-         /V7Fuv+5Uki0Hp/9SfBlUIPY3e0E/KK9FCshNLFxXo+bSUNyA4Lut8bsvAtqyKwPgQ5z
-         skd2Rh/9wERYfcWY61CKFLXLRhyowxQuGVuxIFdzsIb4kVQF6gG05q/7kak12WGsotUz
-         /8/oiF11fgF10TTd2TfVjqShLI1oRpUkzKiud6/ZDqHsrW3v2sNQAIdgejj1zMVsSKHn
-         VXzHRCBf4jf0/VLuiM0BcIQTkOKr0qKTmGHriAmg73qXh0rGAOkeOpZY72nIqIBg3l8v
-         V6ug==
-X-Gm-Message-State: APuU4Z+MKuSecZ9yXq0MxYyWLD9a66p9zR0hwOtRIB89NDz7wh0gGWTb
-	BN7fc1n/Fw3+5BIg3jMxusblR2X+oZzIEeQ1VDTmTVuX0rOdKSrAJv8j3bKnodcQzuSBfjqDsOW
-	dK+i/TAlNqRWTrbvIML7R0GZZDShIfnmamPABuaL3Mxc2v46ycpCSiZxUEtRUr+WOCg==
-X-Gm-Gg: AZFdTZfaLcgQGq67di4PT9WDW2DzoMlOb409eD+4/CEu16eds7N/D2a0eWzeKEk05o6
-	mzLBgUYWqDuKNl4hBc86A+Bs57mYPpadJLjPDp/f3aBoLwnhXHi9vz8RExgyA9OvI3Jr6rBNdId
-	AWIKcotINe97le0/IhuhsXx9e/F1JnouNJdoThsYBxJ7fQo8wS1aRO+QZgvzs8uBOg9eNk9jqAf
-	iNZPUyVxzA7wpTSwKJ04hAvm7rSOTT/Uykl9xu9YyeC+x+RloSGjDJR6/TOZQCLX3yHFDFUGtCA
-	essXJuhiY9HstyhQ6MlIXxDsRyEFFVU6Usa9cF+/UdUYK6lMDT2ztN/8u5FnbBiD5aPuF2Xgvrf
-	QardsE0qAfTSBzuESZ2TuGj4wOLa3nrLuMULH0fRl+RGJUhZ3c4/Ybjxi0WbTjkKBtRHT2pblkI
-	VcM+Q=
-X-Received: by 2002:a05:6000:184d:b0:48c:7386:af18 with SMTP id ffacd0b85a97d-4abacfea55cmr29663629f8f.8.1795518268987;
-        Tue, 24 Nov 2026 03:04:28 -0800 (PST)
-X-Received: by 2002:a05:6000:184d:b0:48c:7386:af18 with SMTP id ffacd0b85a97d-4abacfea55cmr29663561f8f.8.1795518268563;
-        Tue, 24 Nov 2026 03:04:28 -0800 (PST)
-Received: from jlelli-thinkpadt14gen4.remote.csb ([151.29.158.90])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4b34e9c3ffesm10976795f8f.19.2026.11.24.03.04.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 03:04:27 -0800 (PST)
-Date: Tue, 24 Nov 2026 12:04:24 +0100
-From: Juri Lelli <juri.lelli@redhat.com>
-To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Cc: linux-kernel@vger.kernel.org, cgroups@vger.kernel.org,
-	rcu@vger.kernel.org, linux-doc@vger.kernel.org,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
-	Valentin Schneider <vschneid@redhat.com>,
-	K Prateek Nayak <kprateek.nayak@amd.com>,
-	luca abeni <luca.abeni@santannapisa.it>,
-	Yuri Andriaccio <yurand2000@gmail.com>,
-	Yuri Andriaccio <yuri.andriaccio@santannapisa.it>,
-	"Paul E. McKenney" <paulmck@kernel.org>,
-	Frederic Weisbecker <frederic@kernel.org>,
-	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
-	Joel Fernandes <joelagnelf@nvidia.com>,
-	Josh Triplett <josh@joshtriplett.org>,
-	Boqun Feng <boqun@kernel.org>, Uladzislau Rezki <urezki@gmail.com>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Lai Jiangshan <jiangshanlai@gmail.com>,
-	Zqiang <qiang.zhang@linux.dev>, Davidlohr Bueso <dave@stgolabs.net>,
-	Tejun Heo <tj@kernel.org>, Johannes Weiner <hannes@cmpxchg.org>,
-	Michal =?iso-8859-1?Q?Koutn=FD?= <mkoutny@suse.com>,
-	Qais Yousef <qyousef@layalina.io>,
-	John Ogness <john.ogness@linutronix.de>
-Subject: Re: [PATCH v4 2/6] sched: Move DL's admission control to sysfs
-Message-ID: <awVvOGe-RwmLCqDv@jlelli-thinkpadt14gen4.remote.csb>
-References: <20261123-sched_dl-v4-0-d523e4d960d3@linutronix.de>
- <20261123-sched_dl-v4-2-d523e4d960d3@linutronix.de>
- <awU9KmFsbiyvbcOr@jlelli-thinkpadt14gen4.remote.csb>
- <20261124075332.nZysJRfS@linutronix.de>
- <awVfotZsGc8S_aB0@jlelli-thinkpadt14gen4.remote.csb>
- <20261124103507.4u5Sz_bU@linutronix.de>
+	dkim=pass (1024-bit key) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=h+S/qozl
+DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1795518279; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
+	bh=BymQS6GK987uNfZbDCjncL57Qqv9/djtgx0zK7uytsg=;
+	b=h+S/qozlqfgAVbRVx/bVx7+RMQtbh7Odl1UXNGa4zCP5gPWUbUCKbFJ23Qy3ZVYiyjzhdSrabKoUMmRfbNe7cNTGfD+hc9ijgS4Mo885Zu0lJy+XRVeLaJYPacaSdgJHCOw33QElQELb3yRb8c89GvUrFaEScJiiILVfhndG13I=
+X-Alimail-AntiSpam:AC=PASS;BC=-1|-1;BR=01201311R121e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045133197;MF=joseph.qi@linux.alibaba.com;NM=1;PH=DS;RN=6;SR=0;TI=SMTPD_---0XFOMQtm_1795518278;
+Received: from 30.221.129.142(mailfrom:joseph.qi@linux.alibaba.com fp:SMTPD_---0XFOMQtm_1795518278 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Tue, 24 Nov 2026 19:04:38 +0800
+Message-ID: <98371fed-7bd3-4dd4-8142-bb59edec135a@linux.alibaba.com>
+Date: Tue, 24 Nov 2026 19:04:37 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -146,48 +53,153 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261124103507.4u5Sz_bU@linutronix.de>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v10 3/3] ocfs2: switch dio write path from buffer_head
+ to iomap
+To: Heming Zhao <heming.zhao@suse.com>, mark@fasheh.com, jlbec@evilplan.org,
+ hch@lst.de
+Cc: ocfs2-devel@lists.linux.dev, linux-kernel@vger.kernel.org
+References: <20261124045501.10281-1-heming.zhao@suse.com>
+ <20261124045501.10281-4-heming.zhao@suse.com>
+From: Joseph Qi <joseph.qi@linux.alibaba.com>
+In-Reply-To: <20261124045501.10281-4-heming.zhao@suse.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-On 24/11/26 11:35, Sebastian Andrzej Siewior wrote:
-> On 2026-11-24 10:57:54 [+0100], Juri Lelli wrote:
 
-...
 
-> > > I assumed you use the proc interface because you don't know better. The
-> > > warning makes you aware that the throttling knobs and DL knobs moved to
-> > > sysfs. The DL bits are mirror to the sysfs interface in case you ignore
-> > > the warning and keep using proc.
-> > > If you move to using sysfs then everything is fine. From here, going
-> > > back to proc looks odd.
-> > 
-> > Odd indeed, but I wondered if it might happen that a sysadmin configures
-> > things properly using the new interface and some time later, say, an old
-> > application that hasn't switched yet to the new interface resets/tweaks
-> > using the old interface?
+On 11/24/26 12:54 PM, Heming Zhao wrote:
+> Converts OCFS2's DIO write path from the legacy buffer_head
+> infrastructure to the modern iomap framework.
 > 
-> Therefore I wanted to remove the old interface. The legitime users would
-> want to change the default DL attributes. I am more afraid of those that
-> intend to disable RT throttling and are failing to do so.
+> The buffer_head based ocfs2_dio_wr_get_block() is replaced by
+> ocfs2_dio_wr_map_blocks(). Instead of one cluster per call, it now
+> hands iomap a mapping of as many clusters as can be described by a
+> single struct iomap: up to 16MB, stopped at the first cluster that is
+> not of the same kind as the first one (hole, unwritten, written).
+> 
+> Implement ocfs2_dio_end_io() and ocfs2_dio_end_io_write() to handle IO
+> completion. They convert UNWRITTEN extents, updates inode size (EOF).
+> 
+> In the buffer_head path, ocfs2_dio_wr_get_block() stores dwc in
+> bh->b_private, enabling it to detect the first call for an IO chunk and
+> invoke ocfs2_add_inode_to_orphan() to protect the extent allocation.
+> However, iomap doesn't provide a similar private field. Therefore, moves
+> ocfs2_add_inode_to_orphan() from ocfs2_dio_wr_map_blocks(the buffer_head
+> counterpart to ocfs2_dio_wr_get_block()) to ocfs2_file_write_iter().
+> 
+> It is also impossible t pass The dwc to iomap_dio_ops.end_io, the iomap
+> ->end_io callback cannot effectively distinguish between I/Os initiated
+> by different threads concurrently. For example, when multiple DIO write
+> threads operate on the same inode concurrently, the end_io callback
+> without the dwc context may incorrectly delete an orphan inode created
+> by another thread, leading to a crash. The fix is to move the orphan
+> inode deletion from end_io into ocfs2_file_write_iter(). In
+> ocfs2_file_write_iter(), inode_lock() serializes the write threads,
+> and IOMAP_DIO_FORCE_WAIT ensures that the function only returns after
+> the bio completes. This guarantees that i_size has already been
+> updated when ocfs2_dio_del_orphan() is called.
+> 
+> iomap calls ->iomap_begin() once per mapping but ->end_io() once per io,
+> and the latter only gets the kiocb, so the kiocb is used as the identity
+> of the io: ocfs2_file_write_iter() passes it in iomap_iter.private,
+> ocfs2_iomap_next() forwards it to ocfs2_dio_wr_map_blocks(), and each
+> unwritten record stores it in ue_owner with the cluster range it covers.
+> 
+> Doesn't like ocfs2_dio_wr_get_block(), move the zero operations from
+> ocfs2_dio_wr_map_blocks() to ocfs2_file_write_iter(). If do the zeroing
+> in ocfs2_dio_wr_map_blocks() would zero blocks that earlier mappings of
+> this same dio have already written, as i_size is only updated at dio
+> completion. this will makes xfstests generic/538 failure.
+> 
+> Assisted-by: LLM
+> Co-developed-by: Joseph Qi <joseph.qi@linux.alibaba.com>
+> Signed-off-by: Joseph Qi <joseph.qi@linux.alibaba.com>
+> Signed-off-by: Heming Zhao <heming.zhao@suse.com>
+> ---
+>  fs/ocfs2/Kconfig      |    1 -
+>  fs/ocfs2/aops.c       | 1600 +++++++++++++++++++++++++++++++----------
+>  fs/ocfs2/aops.h       |   36 +-
+>  fs/ocfs2/extent_map.c |   34 +-
+>  fs/ocfs2/extent_map.h |    3 +
+>  fs/ocfs2/file.c       |  282 +++++++-
+>  fs/ocfs2/inode.h      |    9 +
+>  fs/ocfs2/mmap.c       |    2 +-
+>  fs/ocfs2/super.c      |    3 +
+>  9 files changed, 1509 insertions(+), 461 deletions(-)
+> 
+...
+> +/*
+> + * Prepare the area between i_size and a direct write that starts or ends
+> + * beyond it. Must be called once per dio, before any io is issued, with
+> + * i_rwsem and the rw lock held.
+> + */
+> +int ocfs2_dio_zero_eof(struct inode *inode, loff_t pos, size_t count)
+>  {
+> -	struct ocfs2_dio_write_ctxt *dwc = NULL;
+> +	struct ocfs2_inode_info *oi = OCFS2_I(inode);
+> +	struct buffer_head *di_bh = NULL;
+> +	int ret;
+>  
+> -	if (bh->b_private)
+> -		return bh->b_private;
+> +	if (pos + count <= i_size_read(inode))
+> +		return 0;
+>  
 
-Agreed, that's the group to worry about, but they never touch sysfs, so
-an error after sysfs was used wouldn't reach them; the warning and the
-docs do.
+On a sparse volume ocfs2_zero_tail() only acts when pos > i_size, so an
+extending write starting at or before i_size locks around a no-op and
+then immediately re-locks in ocfs2_dio_wr_map_blocks().
+We can return early in this case.
 
-> We could also make the proc interface return -EINVAL on read/ write once
-> the sysfs was used. What about it?
+	loff_t isize = i_size_read(inode);
+	...
 
-Hummm, I'm not convinced. Whether old tools work would then depend on whether
-somebody wrote to sysfs since boot, which isn't visible anywhere: LTP's
-proc_sched_rt01 would fail again, just only sometimes?
+	if (pos + count <= isize)
+		return 0;
 
-Earlier you actually offered:
+	/*
+	 * ocfs2_zero_tail() only zeroes a gap past i_size, so on a sparse
+	 * volume there is nothing to do here and no need to take the cluster
+	 * lock.  The non-sparse path below always has allocation work left.
+	 */
+	if (ocfs2_sparse_alloc(OCFS2_SB(inode->i_sb)) && pos <= isize)
+                return 0;
+	...
 
-> I could look into making the sysfs values appear in proc, too.
+Thanks,
+Joseph
 
-This might be simpler. For !RT_GROUP_SCHED, procfs could become a view
-of the sysfs_dl_* state, with no second copy. sysctl_sched_rt_* would
-only be needed for RT_GROUP_SCHED (which is marked BROKEN anyway, and
-what we end up with depends on the HCBS discussion).
+> -	dwc = kmalloc_obj(struct ocfs2_dio_write_ctxt, GFP_NOFS);
+> -	if (dwc == NULL)
+> -		return NULL;
+> -	INIT_LIST_HEAD(&dwc->dw_zero_list);
+> -	dwc->dw_zero_count = 0;
+> -	dwc->dw_orphaned = 0;
+> -	dwc->dw_writer_pid = task_pid_nr(current);
+> -	bh->b_private = dwc;
+> -	*alloc = 1;
+> +	ret = ocfs2_inode_lock(inode, &di_bh, 1);
+> +	if (ret) {
+> +		mlog_errno(ret);
+> +		return ret;
+> +	}
+>  
+> -	return dwc;
+> +	down_write(&oi->ip_alloc_sem);
+> +	if (ocfs2_sparse_alloc(OCFS2_SB(inode->i_sb)))
+> +		ret = ocfs2_zero_tail(inode, di_bh, pos);
+> +	else
+> +		ret = ocfs2_expand_nonsparse_inode(inode, di_bh, pos, count,
+> +						   NULL);
+> +	if (ret < 0)
+> +		mlog_errno(ret);
+> +	up_write(&oi->ip_alloc_sem);
+> +
+> +	ocfs2_inode_unlock(inode, 1);
+> +	brelse(di_bh);
+> +	return ret;
+>  }
+>  
+...
 
