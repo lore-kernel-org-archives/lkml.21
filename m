@@ -1,54 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.11
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795536941;
-	b=4zwu7wtJQ3kUvFiFXKLuBj27zLLytcYD2n+UQb0fYuG15YsSBSqFjbDzvccbx1BYanJg
-	 ig6JW23s9tQABlwmHyDuQrZr6VdPSuMGRCAqO/wrIaMYuqjYaNO39U2AiIvICyF9lTVng
-	 gLNr7CQ3UD4JyGtQvUsBk1EGowPxDu8Tj/KkrvLv+Rv1jDQhzkfxQrG//uqR592s8Cj4c
-	 rE9rpGCjXvPE9t6MEyJ+IGMbSSSuWolJEcEnIMtOHB/hQWqGEzFWQ8Ue4EUKEbM8qgUWt
-	 IxSXUwvEr8iImAcbam3pgWT60ENo3+pWGsLKtkZHxkkPFNJ2hqVlyOW5sc3rUf38aTA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795536941;
-	h=DMARC-Filter:DKIM-Signature:Received:Content-Type:Mime-Version:
-	 Subject:From:In-Reply-To:Date:Cc:Content-Transfer-Encoding:Message-Id:
-	 References:To:X-Mailer:X-ZohoMailClient;
-	bh=4fGpYbzHzZNSVAKKRu+qV1BoInElsP1inCjMVMQpepY=;
-	b=eftmHZUxYPtgyMVNFZ9G0Xu9LcGaOhbEUkZMZhhj/LrC+gqsezNB/Yzt4rz2xWbVloA6
-	 f2VMT+xoXo6QaMGj32Drzxy1u0ij5YCdIxjpQkqeQIf/hRfnWSmXlHZYoNZelTqJTmmNX
-	 wmroSMu3QU+eo4WEKjvEQk/6qiN1byBwYlJwl4vWCGNaV7GmHf0OvydZy3lzqTpkQ1YZz
-	 rbCdU0oowYfMdmjrsO9w7ZtOu+MgctHW1qqDyRV+CG8RGDBD5zIkXJ/HYAR61g3nLW1u1
-	 Id5n/OeLCaJ9F9fz7z8aCz++kqiSJip0jeW7upjEXM3Flc6ZOi2/q1w83VQuIVIfYiA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=collabora.com;
-	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=HovdU7dc;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.11
-Received: from sender6-op-o11.zoho.com (sender6-op-o11.zoho.com [165.173.180.11])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.44
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795536956;
+	b=xFCplmwxh3dDpfk9Lg73Zd8W5cOp/Y0ObaPI+25RoilADRFXzSYtuNKcnkMMVlKC9hfE
+	 /50TChDX5sDT4tNLx984dhx8r0mzkKqeBLDXWPUWZMpNUd13hRlNnjkIKkxRE1dGECC8l
+	 Y2Qr2Gv2I3ZiascJhbbo3ERPffKWfP3Y3gQLp8us6NW70RMgFGMDy9cFQs+8UOk/M50hn
+	 AkYJ9KkoTNwBgL82NlByT1ZwLT+2W8gfUocY+e1yLXRxcDB1X1w3ahYV6z0QD1rsx+nq+
+	 m6wq80ujJaornQYyhVpE6uO4JpwME5um0B0r+wDBJxCf1qOEnR0N23rB2Btafq5eVJg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795536956;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=hjuDGJo5FvaUieIpfh9C53hty/r27xIyrOja0aNCv4s=;
+	b=O5D3p5l6uwclZyypXCx0xhIRCsXT8ZfyfxKMBOyw9l75cz6yvDmJEINMMRrWRyYXqEdo
+	 IWh39SNlgifhYfH46WXEyZoUXRMKOWEz1tG+m2X/V87B7hEQ5EX2mnEfRzMKqmZdZ2cLL
+	 J7lrsZOXCk7ksFckZRDs9LKYRfyoFuzwzruc2zFZzsjl01QChk5fRWC3lAibNA1g/0Guy
+	 aToDx5AChO1E7KOSM6qNzmlkuqfUeKh7IzreL/em+xz8voEOfrfu+1ys8zQGTq/rqh145
+	 BYQONN8QyWO9Jsx0+WU6P5ZFYsL3ZAwLqmDs736hlzHLZAw5FMDx9Ru3TWkTgm8MhDQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=HAcR+Bkp;
+	arc=none smtp.remote-ip=74.125.82.44
+Received: from mail-dl1-f44.google.com (mail-dl1-f44.google.com [74.125.82.44])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0C919606A31E;
-	Tue, 24 Nov 2026 16:15:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0C919606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 59EB6606A323
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 16:15:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 59EB6606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=HovdU7dc
-ARC-Seal: i=1; a=rsa-sha256; t=1795536906; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=G2PlnvjTUwXd7E9dnf/I6lFDa/5qm3ncnhDdOFXeTnw540btq5oL0bRm/TIFOrAYgcUazPrj6edoo8ED3BlfXkWXqAnYY0R2ksshicp9tidVntXM9WecXdo6YBx5lTm+Ltmo1NcHyJUrAtzESdyiDHgzj2BXBuyZrzqvJAENNTA=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1795536906; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=4fGpYbzHzZNSVAKKRu+qV1BoInElsP1inCjMVMQpepY=; 
-	b=Rt5JvPswW+19sA4CtfQHF/iDKlpEEbhmSv2M/TSU1Fh4jsQhuB8tyOi3X/T5JE9fl9fflYOSS3W8PIk2+Mb5E25hdAiTDKmEPTQsgbszoZsbxYCr37GDGgqfzYxnv5kgD+S8yKQSKTn2TLg0IgFJTD/d93meP7ZDHHEZ4+QZxuE=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=daniel.almeida@collabora.com;
-	dmarc=pass header.from=<daniel.almeida@collabora.com>
-DKIM-Signature: a=rsa-sha256; b=HovdU7dcdTXIZ6HeAAy2m/e/+hq8u9Xrb1jUeMma8ynh/tPa4eFZuKuX8lefdLRI1CdzTmaxOSQ1jo7VF24gIcPj3OrDvcExjzfaU95MxA3LyUnVQgWKCLnvpRe2WeAJolCXIFaVux+/kJhlggy3h5K9Iug7xo4ind3hWH4eEc8=; c=relaxed/relaxed; s=zohomail; d=collabora.com; v=1; bh=4fGpYbzHzZNSVAKKRu+qV1BoInElsP1inCjMVMQpepY=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 1795536904772150.76233120905488;
-	Tue, 24 Nov 2026 08:15:04 -0800 (PST)
-Content-Type: text/plain;
-	charset=utf-8
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=HAcR+Bkp
+Received: by mail-dl1-f44.google.com with SMTP id a92af1059eb24-1b5786e099cso2623343c88.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 08:15:56 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795536955; x=1796141755; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=hjuDGJo5FvaUieIpfh9C53hty/r27xIyrOja0aNCv4s=;
+        b=HAcR+Bkpa004HxRUfTJY3WEFugk4DrMtqa4cSyLAfM4p20HtROZ10+oEpJurO0468w
+         oSARFv4ld0uL/WKYDQ1ysOlDze241XKkxnVxXWoj5+M0jnXXv+CeubUShIpVtJrjga38
+         Lenmmko9r2krGUix85QfzV046IYDBbFSjPmfXgE3p9sZA6L14XSKas4ArpMKhJAhDR53
+         K27odIoV/iuzpUtMIKkU2ncWlF+ha4o7UFsKNV3Kmq4PjltFKMGvFHi4jjdnZsTCOHbD
+         vsgv6yewbqIY78yB/S7gkHTbmxQSfuSYljIuChlNNIAXkjC/3zjPifr6DO5hT17NXw83
+         /I2A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795536955; x=1796141755;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=hjuDGJo5FvaUieIpfh9C53hty/r27xIyrOja0aNCv4s=;
+        b=lpXl7QdANHOE1+hMXu7uOXgUCw9bcOwuVY0WttYrKfF9PYHOBnFxN3FCxgUcGEQ1cO
+         EA/cF/LU8BKNROCf3kKyratyjQ8xT/cIejzKtg2r4lcLPy7DMNQaLxL7s4teoabCTYGA
+         OKLLOFTxjSyWgsLZdQkQpikp8v+zXeIBiiQbbfv75S4O7nuUl06ix2vp3fzYvxyeOpkg
+         wkw6hIkn0cn4wg5Krrfgc3R3i511evn466TYrkpl8rykvWQBCkaNHpeGRXntCf4ZoriZ
+         WN936DH0TX5qkG4qd75nZpqvFriHxx+oMXAuDG9HUIy+VGGL/MaBOBWOabBKf0Iua+oY
+         2Miw==
+X-Forwarded-Encrypted: i=1; AL+hErEO6C22/F2ewogUhvNsx/HNYb9EcP0OOthLKrc0ox5qcGEaa6MKv9nl7Cpv4ad028cR0aNYBx3MX3pW7/o=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/xzFbCHuVU+qO4Oi/Z6HD5GM/dwtaEMIH+OtwxtuX0QpntiiJr
+	TRUwS51oYnGnk1IQphj9SP6TjxVhX1XLLkfXXJsW3L4Ji0CsqRA2c5RI
+X-Gm-Gg: AZFdTZcoqMhYwYoK6a0zH/3DXuc8Y2Dm/V+sD3gVXzKT8td7GzGk5jHsNB3fQKUvO+w
+	M+0+lqNuLeiFbfnpPmszsol6qCyCU3qOQr+iQ8U3ObU7m/hoVWrkIhFF1OZoheJIzJPCzT3pR4Q
+	YmbEnLaz0/oPfa63ZxHvQCRI8hpEhcuyyzfG4u1JnW1H+SnaIvx00zvecJ8/pCzQwUaA911zecK
+	6VZPyGxq4S5eBUsJUU0j/C2dhTXu8xlHJfAONVI9ebH0kDWRZk3IvH48dmAq+jbhnxIJRCW5oBE
+	/QIOVVc2Tg0e1cTbSON1VZgSWbrQdknXQwMptUO3AM/4Zt/xiSjdcbWSpOa06qkO0J7SNoBHZ0p
+	hv8bkxRj2Uj7hOxH9k0JIqD5DvjDEOxSQYzN7gRMMHwTIPyvuJwpSgEPu3qGdqq6CpT6OArUpS2
+	e6S/4X+43UcXcayCibVsoRPEDxpMhZIM2Aw61divz1qnndoldOErQehP4/Qjg7SJu9D0o/2IU5S
+	VUNKMEZXTS3iM7l7IBnZ+IjJ4NRkxNeooFiKgNw1q4LhbS/6DNqLfhLQiNcGyScW/oR06OBQyPh
+	anL2v3A8TO/urEyWhevsbaYdtlJsBIY3qxl5QiWQJ8cZsrrK1u4gKslnO0RYqsqTnNYk5ZpeWyL
+	fDCH2TY8hYA==
+X-Received: by 2002:a05:701b:250c:b0:1b2:557a:aa12 with SMTP id a92af1059eb24-1b5568b35b5mr13133875c88.15.1795536955278;
+        Tue, 24 Nov 2026 08:15:55 -0800 (PST)
+Received: from cps-manycore-1 ([147.46.174.222])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38566fdce48sm49454679eec.14.2026.11.24.08.15.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 08:15:54 -0800 (PST)
+From: Sechang Lim <rhkrqnwk98@gmail.com>
+To: Tejun Heo <tj@kernel.org>
+Cc: David Vernet <void@manifault.com>,
+	Andrea Righi <arighi@nvidia.com>,
+	Changwoo Min <changwoo@igalia.com>,
+	sched-ext@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] sched_ext: reject oversized exit_dump_len
+Date: Tue, 24 Nov 2026 16:15:39 +0000
+Message-ID: <20261124161543.1225966-1-rhkrqnwk98@gmail.com>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,73 +97,52 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3901.200.71.1.16\))
-Subject: Re: [PATCH v2] samples: rust_dma: add missing newline in dev_info!
- call
-From: Daniel Almeida <daniel.almeida@collabora.com>
-In-Reply-To: <DN3II6MGM5KW.364GAZDJSKNMU@garyguo.net>
-Date: Tue, 24 Nov 2026 13:14:49 -0300
-Cc: Ivan Borovyk <saref012@gmail.com>,
- dakr@kernel.org,
- ojeda@kernel.org,
- abdiel.janulgue@gmail.com,
- robin.murphy@arm.com,
- a.hindborg@kernel.org,
- boqun@kernel.org,
- bjorn3_gh@protonmail.com,
- lossin@kernel.org,
- aliceryhl@google.com,
- tmgross@umich.edu,
- tamird@kernel.org,
- acourbot@nvidia.com,
- work@onurozkan.dev,
- driver-core@lists.linux.dev,
- rust-for-linux@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Content-Transfer-Encoding: quoted-printable
-Message-Id: <6D2642C7-8293-4E9F-9DB4-3199A20B0CF2@collabora.com>
-References: <20261123010430.365536-1-saref012@gmail.com>
- <20261123230618.375172-1-saref012@gmail.com>
- <DN3II6MGM5KW.364GAZDJSKNMU@garyguo.net>
-To: Gary Guo <gary@garyguo.net>
-X-Mailer: Apple Mail (2.3901.200.71.1.16)
-X-ZohoMailClient: External
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
+When a BPF scheduler is enabled, alloc_exit_info() allocates the exit
+dump buffer with kvzalloc(ops->exit_dump_len). bpf_scx_init_member()
+stores exit_dump_len from the struct_ops map value without an upper
+bound, so a length above INT_MAX reaches kvzalloc(), which warns and
+fails, and the enable fails with -ENOMEM.
 
+bpf_scx_init_member() already rejects oversized dispatch_max_batch and
+timeout_ms values with -E2BIG. Reject an exit_dump_len above INT_MAX in
+the same way, so that the map update fails before the value is used.
 
-> On 24 Nov 2026, at 11:31, Gary Guo <gary@garyguo.net> wrote:
->=20
-> On Mon Nov 23, 2026 at 11:06 PM GMT, Ivan Borovyk wrote:
->> The dev_info! call in PinnedDrop::drop() lacks a trailing newline in =
-its
->> format string, unlike the other dev_info!() calls in the file. End =
-the
->> format string with '\n' for consistency with the dev_*!() and pr_*!()
->> macro conventions.
->>=20
->> Fixes: 5444799d701c ("samples: rust: dma: add sample code for =
-SGTable")
->> Suggested-by: Miguel Ojeda <ojeda@kernel.org>
->> Link: https://github.com/Rust-for-Linux/linux/issues/1139
->> Signed-off-by: Ivan Borovyk <saref012@gmail.com>
->=20
-> FWIW I have a series that would make trailing newline optional =
-(although I've
-> not got any feedbacks about whether people would like that):
->=20
-> =
-https://lore.kernel.org/rust-for-linux/20260728-printk-v1-5-855606634d70@g=
-aryguo.net/
->=20
-> Best,
-> Gary
+Fixes: 07814a9439a3 ("sched_ext: Print debug dump after an error exit")
+Signed-off-by: Sechang Lim <rhkrqnwk98@gmail.com>
+---
+v2:
+- Read exit_dump_len once into a local (Tejun)
 
-IIRC, there were some discussions about this, where people asked the =
-Rust side
-to not deviate from the C side in this regard. It=E2=80=99s been a while =
-though, so take it
-with a grain of salt.
+v1: https://lore.kernel.org/all/20261124100508.1060692-1-rhkrqnwk98@gmail.com/
 
-=E2=80=94 Daniel
+ kernel/sched/ext/ext.c | 10 +++++++---
+ 1 file changed, 7 insertions(+), 3 deletions(-)
 
+diff --git a/kernel/sched/ext/ext.c b/kernel/sched/ext/ext.c
+index 10de6bd865e8..18bfb1815a4a 100644
+--- a/kernel/sched/ext/ext.c
++++ b/kernel/sched/ext/ext.c
+@@ -9220,10 +9220,14 @@ static int bpf_scx_init_member(const struct btf_type *t,
+ 			return -E2BIG;
+ 		ops->timeout_ms = *(u32 *)(udata + moff);
+ 		return 1;
+-	case offsetof(struct sched_ext_ops, exit_dump_len):
+-		ops->exit_dump_len =
+-			*(u32 *)(udata + moff) ?: SCX_EXIT_DUMP_DFL_LEN;
++	case offsetof(struct sched_ext_ops, exit_dump_len): {
++		u32 dump_len = *(u32 *)(udata + moff);
++
++		if (dump_len > INT_MAX)
++			return -E2BIG;
++		ops->exit_dump_len = dump_len ?: SCX_EXIT_DUMP_DFL_LEN;
+ 		return 1;
++	}
+ 	case offsetof(struct sched_ext_ops, hotplug_seq):
+ 		ops->hotplug_seq = *(u64 *)(udata + moff);
+ 		return 1;
+-- 
+2.56.1
 
