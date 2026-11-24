@@ -1,61 +1,57 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795533725;
-	b=qDjygwhb1Xd0FDhk+f+ArMfRZYtss69HrHZEyy8a1TUe9hly5btKSPUhG2jV94QAODx5
-	 zkCLDAMKjgYpshD0WjymkqJtLSVpBM+X7V97wPTma0be8PLx1Sb/SOsNa8iB67KrfEGx/
-	 xjXftlrj6IaTGbGJmtPl3Qjwx5pa62zrMhNTll3HqDdQpilrhklU+8N5h0cjl+yYNuhGm
-	 OtD5jC9d0U/E2+SWJb1QR+NwKclvwhk2kDLrOffakX/TDgsW5J6biLET0GJogviQxvTVo
-	 CUR5bdSmlZRc3x9KrdQQEJFiZX9+Qd50mLQHGBo3Cm+qngJiwnSY+E3tOe3btzNp5rQ==
+	t=1795533744;
+	b=SBO7QQ/pBWlAxH8Ju0dRysrfKrrhC70uYdnnUOYAtM6r9GfuxJog1kxuh4ExEkNKPhsm
+	 N9NqQYg9D+AOzi4Pcw/pTPknbVVEyesn3retIKM81bCojS4LOwaBUwd4QvEheQjj+WH9Z
+	 7UPc7GBGM2aDqR2NaCigAWtAZe0CP0c2gIx07I17HddKTZXxaIBIl5Ie4TVq6vN/Lozkm
+	 KEPc7xMDSQzaWK9UvzbxywWfQmmzRq5cl0fqpcTl1vccMf9NSP5YZauZCEMMSEP7y5haA
+	 Og9C52X7efA9gKtUhcU+ogGJVRGAZWl8xC+PoZ26aoY/JykwyvVegEVk3yJ54/dgR9A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795533725;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=uxyciXMxH0bTMNJV4EPthVww46cAkYziyxYSA313rWY=;
-	b=R5llkq+MBI6N+A8sG5IJ0frmUd/Kl0tTpN3jOINRrmI29y1KOoU+2BsPF3nDICRouy2/
-	 uSPnkEkl/ToocNI81b0uxqhgoqfuORCn2gFbYnuRcaUIzzw5TrS/e4EpPPZWyx3XiV2ab
-	 qf6Zobj8dPrWGSe0hb3O3VH6ymtWmqbAcYPcC7VMkWV00KGDODsV+QQ6rpb9PRAci9UgU
-	 vFiQuxoOL0wVkR/a9a1vKvM7xN4KdbBPHYxxo4twdERZFBlld9JSfH/Jz0dUQSkREFH77
-	 4wmmX22Kqey8rBSNrpkZhW6uQcytLgAtIvGpvzwIbuRndWAGxctcGhR0LNGUkbsXbCA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795533744;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 MIME-Version:Content-Type:Content-Disposition;
+	bh=pITt0jAJhJgGc+5GscgBEuzJHxVCeUfkxDUlktCliDM=;
+	b=O/DdmoDctA50bKmwe98lCSX6n3GlgFQLl+aUsof3a1NeOFO6MP4PbCtDEA1HSi24tXZm
+	 4+Tj8GEqFNGOwLv6yh6ubJBg4JudV+bHGfvdDnE1FFdGHrXG7/7yet/yJe/hwRG0DLc9a
+	 8gu8keffClZvVX6dPlXpX8HFtA4gOq2Ih1N9vgHQ4U6jXyRZ4KZxQE8OnEhbOEx771T/2
+	 XchTgXQFwa2rttK5S5v8ZUim8RIiFawf8Mb/0Bt5zxZbatOgUnmphd3+ILEZAdm0vJQNX
+	 90x05maGMj/v2/6q2nf186Bd6Qk01h9C+7OGme8G6qhHftOU8Viv2ja2nUAGnO38CaQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WKdj8jzQ;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=L2fSPo39;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7A8C3606A31E;
-	Tue, 24 Nov 2026 15:22:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E8474606A31E;
+	Tue, 24 Nov 2026 15:22:23 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WKdj8jzQ
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7799E1F000D4;
-	Tue, 24 Nov 2026 15:22:01 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=L2fSPo39
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1AC391F000D8;
+	Tue, 24 Nov 2026 15:22:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795533724;
-	bh=uxyciXMxH0bTMNJV4EPthVww46cAkYziyxYSA313rWY=;
-	h=From:To:Cc:Subject:Date;
-	b=WKdj8jzQmCBC24JLo+G90apuiKpN807k7os1v9Bul5WBYH5JXyCZCK2FIItF7Wa1q
-	 DLYnPBFJSqgmtJB7nLSN+8nHozkG8r8TfZhZORPwov91A3S8ocKcy6qt7bczUaDHP/
-	 ZmdMTB2InQX0Kb1z9MRlBIHo/bG1WSj2wLT3sT+nDcNKDo8mSzBl4ZS8I5r9RCIe4q
-	 whgKmmIQYEsF0IbVEGfzB5yfpqSos635oOWEry2XVyd3IXlf2LDfxw4putBtYt5tcC
-	 4WXWss88E5bqO1WzmeP33H8YHZ5SKvpxl6e/W6J3vMeq+hiJy26v93vAVbxalW8qpo
-	 EyMOOZqMRhAGA==
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Russell King <rmk+kernel@armlinux.org.uk>
-Cc: netdev@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net v2] net: stmmac: fix uninitialized axi_blen array
-Date: Tue, 24 Nov 2026 23:01:44 +0800
-Message-ID: <20261124150144.7505-1-jszhang@kernel.org>
-X-Mailer: git-send-email 2.55.0
+	s=k20260515; t=1795533743;
+	bh=pITt0jAJhJgGc+5GscgBEuzJHxVCeUfkxDUlktCliDM=;
+	h=Date:From:To:Cc:Subject;
+	b=L2fSPo39+j57jkfkqSvC1ilzYNtCtCB9Ktc/F2S/a/gbWpsHkvf7HNK9J3Zm4O2U7
+	 uKW3PqKwy/16WCEkpR/OMPX+zaT3ynCPr07HHW4vu1/O6cOIJ3ZpVT8eo0KqKAZ5JC
+	 jFKBuWE1gz5jDiBEgRLno3Rl8JZmYN//C4yGHha3z3HO7x3ogyP+RTsFLZjZwPn4Pa
+	 VV3zn7ClOCke0/ghWT6cut7z5AH/bmR122+DqzZEe0ipJbpztzoBP0d/0YwNly4Ulm
+	 1mc3t7UhtfmMb68Vu0H7EflwiwvIUh19wPi0+FXgF2MzKZDenaorCnxSMbY1M1n0Xt
+	 p4/cXeQVARVMA==
+Date: Tue, 24 Nov 2026 15:22:18 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
+	Marcel Holtmann <marcel@holtmann.org>,
+	Johan Hedberg <johan.hedberg@gmail.com>
+Cc: Jakub Kicinski <kuba@kernel.org>, Kees Cook <kees@kernel.org>,
+	Kees Cook <kees+treewide@kernel.org>,
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+	Linux Next Mailing List <linux-next@vger.kernel.org>,
+	Loic Poulain <loic.poulain@oss.qualcomm.com>,
+	Luiz Augusto von Dentz <luiz.von.dentz@intel.com>
+Subject: linux-next: manual merge of the bluetooth tree with the origin tree
+Message-ID: <awWrqsgnnavR_Uq2@sirena.org.uk>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,35 +61,74 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="WFdl5MNK9fW7/LdH"
+Content-Disposition: inline
 
-If platform doesn't provide "snps,blen" property, the axi_blen[] array
-will contain random value from stack, then the array will be converted
-to mask which will be written to DMA_AXI_BUS_MODE reg later. Fix it by
-initializing the array.
 
-Fixes: efd3c8cc52bb ("net: stmmac: remove axi_blen array")
-Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
----
-since v1:
- - fix subject title
+--WFdl5MNK9fW7/LdH
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
- drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Hi all,
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-index b3e06aa58fe5..29ead405f449 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-@@ -96,7 +96,7 @@ static struct stmmac_axi *stmmac_axi_setup(struct platform_device *pdev)
- {
- 	struct device_node *np;
- 	struct stmmac_axi *axi;
--	u32 axi_blen[AXI_BLEN];
-+	u32 axi_blen[AXI_BLEN] = {};
- 
- 	np = of_parse_phandle(pdev->dev.of_node, "snps,axi-config", 0);
- 	if (!np)
--- 
-2.55.0
+Today's linux-next merge of the bluetooth tree got a conflict in:
 
+  drivers/bluetooth/hci_qca.c
+
+between commits:
+
+  4dd10fbbeb9c3 ("treewide: Convert devm_kmalloc() family to the devm_kmall=
+oc_obj() family")
+  7a4e97161014d ("Merge tag 'for-net-2026-11-17' of git://git.kernel.org/pu=
+b/scm/linux/kernel/git/bluetooth/bluetooth")
+
+=66rom the origin tree and commits:
+
+  a482935cee71d ("Bluetooth: hci_qca: Embed bt_power in struct qca_serdev")
+  ca2e671a82f00 ("Bluetooth: hci_qca: Flatten struct qca_power into struct =
+qca_serdev")
+
+=66rom the bluetooth tree.
+
+I fixed it up (see below) and can carry the fix as necessary. This
+is now fixed as far as linux-next is concerned, but any non trivial
+conflicts should be mentioned to your upstream maintainer when your tree
+is submitted for merging.  You may also want to consider cooperating
+with the maintainer of the conflicting tree to minimise any particularly
+complex conflicts.
+
+diff --cc drivers/bluetooth/hci_qca.c
+index 158f294c18902,d51db761f5a6d..0000000000000
+--- a/drivers/bluetooth/hci_qca.c
++++ b/drivers/bluetooth/hci_qca.c
+@@@ -2436,9 -2476,9 +2476,9 @@@ static int qca_serdev_probe(struct serd
+  	struct hci_dev *hdev;
+  	const struct qca_device_data *data;
+  	int err;
+- 	bool power_ctrl_enabled =3D true;
++ 	bool bt_en_available =3D true;
+ =20
+ -	qcadev =3D devm_kzalloc(&serdev->dev, sizeof(*qcadev), GFP_KERNEL);
+ +	qcadev =3D devm_kzalloc_obj(&serdev->dev, *qcadev);
+  	if (!qcadev)
+  		return -ENOMEM;
+ =20
+
+--WFdl5MNK9fW7/LdH
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmsFq6kACgkQJNaLcl1U
+h9CWdgf+N2q7YMxIs0hrRHSm0SK3ngRjMou8s5ho81qYxJ69mSbn5UwXhLJ2DNjg
+5NxARsdIHV5eUt9hi6T0gCEVsxc7U3hrbAnFf37HlU3MA5nLXSC5lWTZ5WsuPooZ
+kY93dbW5YqIxkaw9X9hmjnx1hufW5FpiF79DkfK4kdfNQ3bho/LGEAqKqEaSmKBQ
+NyPLNYQ5yvTw5APqaVolHgLe9Sd+Q5vXsi617K67xNRlrPo27fgynEZUIFZLIftM
+7HKmmNsE45VXWLAzkUbMnjL8zZbiiO6rA2pCefiZbqgXgrFvSytjnqKnU1OaC0ZX
+M5wF+7bR9Ctv/UH7z8uUSiPfNWcsHQ==
+=vGv1
+-----END PGP SIGNATURE-----
+
+--WFdl5MNK9fW7/LdH--
