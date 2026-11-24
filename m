@@ -1,55 +1,59 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795553981;
-	b=3eZbgRBOona5GqtWKo+BfooS0MxmxB7nWVIOey1CuCuLXYcIZMCN+VSp/qx8PtcdT6az
-	 ZIBvRRZZSk2UHkl+2LUajxRfvhwboaxI7QhvAy8gU+L9QLm1nzJ7BKTNwb6GmagRr2gar
-	 OtqcXeHsoI+OJyLEzNJMNPF+FN2frwLQG9GG0SEThkOT9sfIaMPhLtpS9a6USm3jd8yZJ
-	 dOAtipcAamicQLTaOK7dkH/7PFtO9RvNitf2yKxfWuB7KC9OF80CnV8ZxOXoZbqWDen7I
-	 7fIXggYiRrs7xS/zO5rRFvwGz+DxhtA/tBsXth9ZpEh7jRg/WOfe1oQJ/S2zOfFXEXA==
+	t=1795553983;
+	b=z6bgRYZbGrKDkpKfwFXlV0Q4CfUSZcoJz7UrDruiE9OuEc+ZwqiqMzPakx//19jQkVIi
+	 Wk2LTGkgESXMS4BI7jRvs3U96CmomqrbGFBr+5PwLsbPeXcDsA4jwgm0E2z1UlJBZ3oYP
+	 kWLv+ifzd7luBBKYekeo/cgr6DAfMA6D9qylnZK0zWUqCuWJG5596uVu1rW1u0ogtn3CJ
+	 nvQHGFzw6GynLaaofCYW4GEottPF1DZzpmqMYkHLevjaoZURW3ZmnqOmaCH/2FYusCmSj
+	 p05mc+4vcrhyBSu9ttO4qC+4dY6mlqiVPZ1msYmRPE60B3nKR/7LZXLkWKZ5ABbWwsQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795553981;
-	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795553983;
+	h=Received:DKIM-Signature:From:To:In-Reply-To:References:Subject:
 	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 X-Mailer;
-	bh=+ZtaVEhsUXlRsNyIwiphIXnchhtdpp3YjJsqRluXe68=;
-	b=OoxqNQHm9Vi9K/XIDjZgmVkpkE5W5v9QFJRzgcu1gE1P8S6Bf3BBpmQjvVEnLxwhQPuj
-	 DHkeNaHJhQZtE0WCUoXvhiHwrP9aHSZWSORNf2VPK1VTqzh3/KjPnyPl0N1PrZOhQGtKG
-	 CHDQueMfSKujA4j8d7Yh+ZE6urOS5KMaOtFOPAaM65b0l7xJL+CmWVls1cF9XWOkPedjf
-	 E0GL/lAblEphIy2JJrsDa/mZNUGOrhb4lf93Xlr0uCMUIi80wr7CCliYh9frQru37vLiZ
-	 hnWBZkYH4Gy2ngYwna7a/3bOeEtexzV0K7GAYmhmKbKoxthg6uAEMhKZDtNIE0cstAw==
+	bh=BJEqOvG82zIOAOWDYZgYE+qdtWC5v670ijVSd2L32yc=;
+	b=EsDu42Tj4HrnLXE9GG0BZoIf9q/k+v757gUzfXnmQTxN81YODlQKeOAEIjg2LYTx4Wur
+	 Efi4NktWK30XlVDgPxfxu7xdPogRKvpT3eH0jWP6rx8VbsDOvQAZzt9RW1nZ67uhtTtMF
+	 ji3OkMOHPoraUPLbYTXfnLjoWx8WjmHqJRajbxvMh5SaAQDwYvDFsSNY+mjYZUFsi8kLc
+	 vya7aHIIT7KJNzbSRYPSaehn4MQxlm7Oz2HdVWaMTBn1U+dwM1LHWv0gjhFKAoWJv0iqP
+	 YiJxvaaeaTPeWzK5reDg//fTVJWPQFcZgF4uNPHzjsDRU6rMMDm/TTjsiqtqPXdaliw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="bJD/njvi";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IF0RnWq8;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 71103606A327;
-	Tue, 24 Nov 2026 20:59:41 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C519A606A697;
+	Tue, 24 Nov 2026 20:59:43 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bJD/njvi
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 157AE1F000C0;
-	Tue, 24 Nov 2026 20:59:41 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IF0RnWq8
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 29C761F000C6;
+	Tue, 24 Nov 2026 20:59:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795553981;
-	bh=+ZtaVEhsUXlRsNyIwiphIXnchhtdpp3YjJsqRluXe68=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=bJD/njviPHUXlB131KD74p14HpbNXGZmY7TrmfUguyoMmBrPXS8PS+YzYCrskmjtE
-	 XpS8oclmaFsBuDeDmrWDKVraxq1p1vg1bzolAteLUxT0WBR8nLULGr6ojM52Zu1+aS
-	 I8C6emwa2gOMGTa9Vi+n5PMMSNDwJY6bqV4vNZ0k6mfTJvYPFSmf8l6TayGxx79Cka
-	 q8yFM50Tg3rec2lFSr/PSyCwC/vJdZVkDCnppdhp2XLYi7cO3OaGLaJRHABQ3qAc1u
-	 q9Ygwxc0XaaBymfmFRdQmkpZYqJWkUjaPGVG9M+8DwnIWG6BKz7Fa8fjEPWLCNUQzL
-	 Nv3z7Je9PtIjQ==
+	s=k20260515; t=1795553983;
+	bh=BJEqOvG82zIOAOWDYZgYE+qdtWC5v670ijVSd2L32yc=;
+	h=From:To:In-Reply-To:References:Subject:Date;
+	b=IF0RnWq8BBLQ9et1rN8mENnvCd163YM0m60w6kMbOjPhE3sCR06Z6M7WtpEHU4nTw
+	 xDha1YkKL2mhZ0plNlWZB502jtXx6wRBDoOA3KwbtFrdSP7xUlA2ap5HNs5gJVZ4q7
+	 IbjT2PF3GWKuJnmbN27mEiE6wn/K1lw4YnScKISGxKf77iyJtriXTShBucWLHJTyqX
+	 JMt6aBF1c4SUwQB6DtVZOL95/JbYVnfcdm//8duQCau9Q2xwPbvYwQ1uu+nhu0BFXB
+	 wx8WXiLXsFBO/kA70ZZ6MwH4Jang/XgmL7pty5Dle0V4ptNXIow1jJg9XmZAqeyuz0
+	 PiQHtTRbMpXKw==
 From: Namhyung Kim <namhyung@kernel.org>
-To: acme@kernel.org, Letian Jiang <letian.jiang@outlook.com>
-Cc: jolsa@kernel.org, irogers@google.com, eranian@google.com, 
- linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
-In-Reply-To: <CYXPR84MB34769BAF18918C609FCD3327827C2@CYXPR84MB3476.NAMPRD84.PROD.OUTLOOK.COM>
-References: <CYXPR84MB34769BAF18918C609FCD3327827C2@CYXPR84MB3476.NAMPRD84.PROD.OUTLOOK.COM>
-Subject: Re: [PATCH v3] perf docs: Correct JIT_CODE_UNWINDING_INFO
- specification
-Message-Id: <179555398029.1562760.15096971463772223894.b4-ty@b4>
-Date: Tue, 24 Nov 2026 12:59:40 -0800
+To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+ Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ Mark Rutland <mark.rutland@arm.com>, Jiri Olsa <jolsa@kernel.org>, 
+ Adrian Hunter <adrian.hunter@intel.com>, 
+ James Clark <james.clark@linaro.org>, Rob Herring <robh@kernel.org>, 
+ linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Ian Rogers <irogers@google.com>
+In-Reply-To: <20261118200057.2134362-1-irogers@google.com>
+References: <20261118200057.2134362-1-irogers@google.com>
+Subject: Re: [PATCH v1] libperf mmap: Arm64: fix transposed reads of
+ counters 12 and 13
+Message-Id: <179555398238.1562760.9579469813393708281.b4-ty@b4>
+Date: Tue, 24 Nov 2026 12:59:42 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,18 +67,9 @@ Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.15.2
 
-On Mon, 16 Nov 2026 22:15:38 +0800, Letian Jiang wrote:
-> The JIT_CODE_UNWINDING_INFO description places the EH Frame Header before
-> the EH Frame. However, jit_add_eh_frame_info() uses the beginning of the
-> unwinding data for .eh_frame and the trailing eh_frame_hdr_size bytes for
-> .eh_frame_hdr.
-> 
-> Correct the unwinding_data description and the eh_frame_hdr_size field
-> description to match the layout consumed by perf. Clarify that
-> unwind_data_size includes both sections. perf subtracts
-> eh_frame_hdr_size from unwind_data_size to obtain the .eh_frame size.
-> 
-> [...]
+On Wed, 18 Nov 2026 12:00:57 -0800, Ian Rogers wrote:
+> Reported in Sashiko bug linux-3291a858-209c-483a-b4dc-eeb57abdaee6,
+> the 2 counter read functions for counters 12 and 13 are transposed.
 
 Applied to perf-tools-next, thanks!
 
