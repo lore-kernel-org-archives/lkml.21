@@ -1,64 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795532215;
-	b=I4G82NHCGFLKytFDFiZCRwGnjfBsUGfdapGhNPAVpCC13Ez9CnY5Ln1tcub+arQoaxoH
-	 U91+jF8jzzGJSx+dXhnX5OpVr8l97Iawwce6+9x8ChHsOyPuTd7v5HQGWrwalIQnDnz85
-	 VNhOsBKyBsy17xzdy0JjLsMkU48DsnmOdW75q6M+vxUKoLwrakbfVXN8m4Y4pIYtHL27s
-	 floErSVwBc+/gjBQ0rywiybl4ONn0s++tUKmDtmrRiiSKZDal/6arDVKj3O8ufn/SEB7f
-	 fK+vaRdqLzV1empekS9k1V6VjfY3HcEAz5KUXu0oXixJiK+vFBvX+yfSNWDlet4gE3A==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795532215;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=6ljZQd+A8hlRvztSzlA4/q0WCsIDb1/JrAE0c3c4d8k=;
-	b=ENkZQu+cfG9Y99W9A0MBOpbYYS2YYhdVYc/hBMZD+xZa+77uyQBqouKCBn+eh3VclJzL
-	 5ixzXmPNON8QG26/5jqbpeMiBnI0EgBxIi2yARptLoGPscOiwS7khyF41FNEIKESa29LM
-	 5+QaJreMhAfG0PiGbIYiHqLQCh2x56XR6CfFMTa8+dUuttMZT/eHksg+ZcjK2ZBqPBZwX
-	 ysgh20rr7Y7+91sb7g/rLqxGEpz8SzlmNJzOZbmfY4QVGL7mP0xyRB+7JR7bGdQuL5gmS
-	 UyZayS4/Ql9iiFmfrQQhn1l7rrVHnVt0eKfc9DTcprBEB/DJzBs8dL7LOZi3kDBYeAw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SzPep4VP;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=81.169.146.178
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795532206;
+	b=iBQ3rlU9XVNooQzJKwFlZhIS6iP2tz/2omvb0+HIa4cUgAkFG/01Uz4XkH4HTtZVLeIa
+	 O2+J6MyCBJH8J97ZagfSIjGYQaejNoeRhiokcc7U0b0ehcxpDoWM2BZ3Q/xLJmHC5WL9u
+	 kHUiMy1nBV0kg7y3TrC3JbhoOmOMvPylRUafmNeK0sHgq+mqIpJmAR6vqMsGdMw88tUtj
+	 OJzR+DWhPMP0p2ugQnA/KzgNkMFRysze+HlWc+EZ5F9vr+MTYS3nKC/3oxAcMkKHYiU/i
+	 ItO2jDMmVfXxYvboWXBgchk7MMVrIky5I1DsPf6c9wczlkdyk5TtFUvzKVj4dSv+LdA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795532206;
+	h=DMARC-Filter:X-RZG-CLASS-ID:DKIM-Signature:DKIM-Signature:X-RZG-AUTH:
+	 Received:Content-Type:Mime-Version:Subject:From:In-Reply-To:Date:Cc:
+	 Content-Transfer-Encoding:Message-Id:References:To:X-Mailer;
+	bh=kD1GNiqGMLXsLwN0Ufm7bvf0nYrTqG7Gyun272V+FBQ=;
+	b=v9z+0Zhd+k4+LCilwozNjyrZeF3skfzKdWy6Dro387RVtimsRP+l/LQL/DPO6sGK0Q9q
+	 qzLvsjy2Vwk0McvLV5uqxoFIW3Dmz13e1cHthSMTLaJtTr+3sSlPB4m1KeYdeeXYmlYGN
+	 dYdFNFPMx3PiUOhGlSlRoDODh6SGDQWbKDWg0B8ymICuidiId4Fr8twnXFWAJumMmLMhU
+	 XYkh0ygyGyvsq9p+wYEYB/c4abICYNQRUI3mHcN1FuBxZkmdMV/Z7wHlb43Q40hIDsUDE
+	 89V65wVD1nvzx7N2636XEuErCUWHTvfIi1vuBJ17RYFAVtti5c7EEGN//jXXr0N0uQQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=goldelico.com;
+	spf=pass smtp.mailfrom=goldelico.com;
+	dkim=pass header.d=goldelico.com header.i=@goldelico.com header.a=rsa-sha256 header.s=strato-dkim-0002 header.b=g78qi7dm;
+	dkim=pass header.d=goldelico.com header.i=@goldelico.com header.a=ed25519-sha256 header.s=strato-dkim-0003 header.b=b3NjsCJW;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=81.169.146.178
+Received: from mo4-p04-ob.smtp.rzone.de (mo4-p04-ob.smtp.rzone.de [81.169.146.178])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5F6AF606A33D;
-	Tue, 24 Nov 2026 14:56:55 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 171B3606A31E;
+	Tue, 24 Nov 2026 14:56:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 171B3606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=goldelico.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=goldelico.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SzPep4VP
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82F3C1F00AD4;
-	Tue, 24 Nov 2026 14:56:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795532215;
-	bh=6ljZQd+A8hlRvztSzlA4/q0WCsIDb1/JrAE0c3c4d8k=;
-	h=From:To:Cc:Subject:Date;
-	b=SzPep4VPN8Sy0XElS+PRpLcSrLY94bccshHxN0x0U0IoOntw/c6kHDYYq32aQQM04
-	 QF9Q8mgTGTslsQDXQZWfcR/oKmoXxTSXXG5thr6SKqwgGOYWQaX6Drc9xNqZZ7sdjZ
-	 W8xywf85qO4XMdg5sY/Mcp0UrGXvDm8Eh8tWMoMPtwNBg5+ZMTkDTRpAwUssklgTqa
-	 aci/67iepvEVnrgjMNe4ai2dHRktRczm1tWHTkjGsXWY49Bm0pr6pD+KKSXBuy0EQ2
-	 oISVd1pCU3DSZiWHnl5Eg4tEvSJLYYOJGOsDAGKVUvgPiiS8qp/kruQQEXj8zuoHVo
-	 KKzloYXbCO0Wg==
-From: Sasha Levin <sashal@kernel.org>
-To: Mark Brown <broonie@kernel.org>
-Cc: =?UTF-8?q?Christian=20K=C3=B6nig?= <christian.koenig@amd.com>,
-	Jason Gunthorpe <jgg@nvidia.com>,
-	Alistair Popple <apopple@nvidia.com>,
-	Sumit Semwal <sumit.semwal@linaro.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Dave Stevenson <dave.stevenson@raspberrypi.com>,
-	Jai Luthra <jai.luthra@ideasonboard.com>,
-	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
-	dri-devel@lists.freedesktop.org,
-	linux-media@vger.kernel.org,
-	linaro-mm-sig@lists.linaro.org,
-	linux-rpi-kernel@lists.infradead.org,
-	Linux Next Mailing List <linux-next@vger.kernel.org>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
-Subject: linux-next: semantic conflict between the drm-misc and broadcom trees
-Date: Tue, 24 Nov 2026 09:56:52 -0500
-Message-ID: <20261124145652.3657102-1-sashal@kernel.org>
-X-Mailer: git-send-email 2.53.0
+	dkim=pass (2048-bit key, unprotected) header.d=goldelico.com header.i=@goldelico.com header.a=rsa-sha256 header.s=strato-dkim-0002 header.b=g78qi7dm;
+	dkim=pass header.d=goldelico.com header.i=@goldelico.com header.a=ed25519-sha256 header.s=strato-dkim-0003 header.b=b3NjsCJW
+ARC-Seal: i=1; a=rsa-sha256; t=1795532163; cv=none;
+    d=strato.com; s=strato-dkim-0002;
+    b=mXrrTdkIxFBikSs2buuExLGImnsss5asFyDblSFa7hvcQpzrTygM97Mmtkp/+JfIIg
+    lPtNgIbXi6iNJHfbxDM2tGPrvNob4kg59IUcaqNoHOxEcaGJovd+Q8ah6gRwS+tjATHR
+    J3F6sQwarR0yWNKI82jo+GLPppvMqdXu3NTffBIO0m6vpZPYB4PqyAsib2GMmAmcvCLc
+    /YfumcPpcPU5K/fwK7kcsCPn1eyLGpwLn/iKFuWjsd2TcglmHak2Re0ijjZWIridB/am
+    yBxH+fc0vGn7iidGwE47kY6yo86pOua8y4isPOgWFuw8s5XQmO8ZOBSxkoO9SHuOVeu3
+    8ByA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; t=1795532163;
+    s=strato-dkim-0002; d=strato.com;
+    h=To:References:Message-Id:Cc:Date:In-Reply-To:From:Subject:Cc:Date:
+    From:Subject:Sender;
+    bh=kD1GNiqGMLXsLwN0Ufm7bvf0nYrTqG7Gyun272V+FBQ=;
+    b=ZM5w3Jfk9ANqD0Ti5o+IA0ULSYlRb9etAC/UedIyafx7XEVA5d2Vwgy8rW+f/KRMLu
+    U6lew/Roh2InlnuduzLJoGupp9DeJs790mJ9rThUGdLHQbibdwVVD0QTBjrJYbweBCSK
+    /TJzULbiP+IItbBhNwoDjFrHC5uqXyyZcfV9qui8rmpN729XZShEg9RCC3EyhVXk727V
+    vQvVbkoIKSXWnAx4WSTrcjlilWu9Ztpsqict22NaYpsnUCtCXOMf11Ua+SwUBi1c0JfC
+    CO662K5J6akvKzdRJzdzqupOl+qc11DOuudWqIElvQOXxWeND+vX4xpLcFTAwJH3rfbB
+    0Qkw==
+ARC-Authentication-Results: i=1; strato.com;
+    arc=none;
+    dkim=none
+X-RZG-CLASS-ID: mo04
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; t=1795532163;
+    s=strato-dkim-0002; d=goldelico.com;
+    h=To:References:Message-Id:Cc:Date:In-Reply-To:From:Subject:Cc:Date:
+    From:Subject:Sender;
+    bh=kD1GNiqGMLXsLwN0Ufm7bvf0nYrTqG7Gyun272V+FBQ=;
+    b=g78qi7dmmOKb50cPH/PtIvPHRVAKJ5YEB0z6uIoMX4OFugwvpdjjpdIVAGsex5nEf2
+    +WpReOFlNGHjZgArPnEtlF0u8GuMMd//SD2AwxcVCQkb6Yhf2izb2FvgJX4HQrg7LPKZ
+    vg0h91GAJ5dM40C2WYH/fzAlpMKyaz2pye7aSMZz1PrhDPOz5jncJCkb535i2oDzZKg1
+    Co+6i1vMtP1U+lmZBJUZqEbJ+VZPje5+thfAkN6GhlxiOpoWh04i91Svi4+SElcEmBmk
+    1MACSgbbn3Fh23YAbr3ZKxF072Fkqt8FHodVGyN14Hf5WYNCFv0gKSuTBJb2nrsDYC5P
+    /X+A==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; t=1795532163;
+    s=strato-dkim-0003; d=goldelico.com;
+    h=To:References:Message-Id:Cc:Date:In-Reply-To:From:Subject:Cc:Date:
+    From:Subject:Sender;
+    bh=kD1GNiqGMLXsLwN0Ufm7bvf0nYrTqG7Gyun272V+FBQ=;
+    b=b3NjsCJWVhfoMdjRGQC49ub7BeVSemOzYBPiCh/kZv/VLtpY/Mk0kV8s8RDbMvlWrA
+    HZJa8lp54imBSto8izBg==
+X-RZG-AUTH: ":JGIXVUS7cutRB/49FwqZ7WcJeFKiMhflhwDubTJ9qVpwcQVkPW4I1HrV3poLlciNVWUgMvoVkTTR2P7jtjQyY2AeEP/F"
+Received: from smtpclient.apple
+    by smtp.strato.de (RZmta 55.6.3 AUTH)
+    with ESMTPSA id Qb56a22AOEu13hT
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (curve X9_62_prime256v1 with 256 ECDH bits, eq. 3072 bits RSA))
+	(Client did not present a certificate);
+    Tue, 24 Nov 2026 15:56:01 +0100 (CET)
+Content-Type: text/plain;
+	charset=us-ascii
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,60 +93,78 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3826.700.81.1.11\))
+Subject: Re: [PATCH v2 07/20] ASoC: ti: omap3pandora: Convert sound card to DT
+From: "H. Nikolaus Schaller" <hns@goldelico.com>
+In-Reply-To: <179553168323.264265.7045861860225672057.b4-review@b4>
+Date: Tue, 24 Nov 2026 15:55:30 +0100
+Cc: Linus Walleij <linus.walleij@linaro.org>,
+ Bartosz Golaszewski <brgl@kernel.org>,
+ Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Lee Jones <lee@kernel.org>,
+ Daniel Thompson <danielt@kernel.org>,
+ Jingoo Han <jingoohan1@gmail.com>,
+ Pavel Machek <pavel@kernel.org>,
+ Liam Girdwood <lgirdwood@gmail.com>,
+ Aaro Koskinen <aaro.koskinen@iki.fi>,
+ Andreas Kemnade <andreas@kemnade.info>,
+ Kevin Hilman <khilman@baylibre.com>,
+ Roger Quadros <rogerq@kernel.org>,
+ Tony Lindgren <tony@atomide.com>,
+ Russell King <linux@armlinux.org.uk>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>,
+ Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>,
+ =?utf-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
+ Helge Deller <deller@gmx.de>,
+ Jaroslav Kysela <perex@perex.cz>,
+ Takashi Iwai <tiwai@suse.com>,
+ Peter Ujfalusi <peter.ujfalusi@gmail.com>,
+ Jarkko Nikula <jarkko.nikula@bitmer.com>,
+ Jessica Zhang <jessica.zhang@oss.qualcomm.com>,
+ linux-gpio@vger.kernel.org,
+ devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org,
+ dri-devel@lists.freedesktop.org,
+ linux-leds@vger.kernel.org,
+ linux-sound@vger.kernel.org,
+ linux-omap@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ linux-pwm@vger.kernel.org,
+ linux-fbdev@vger.kernel.org,
+ letux-kernel@openphoenux.org,
+ kernel@pyra-handheld.com,
+ Stefan Leichter <sle85276@gmx.de>,
+ Grond <grond66@riseup.net>
+Content-Transfer-Encoding: 7bit
+Message-Id: <F6716339-FDD9-4F23-B4BB-9C99A13C8875@goldelico.com>
+References: <cover.1795505160.git.hns@goldelico.com>
+ <57d9a8b26bd2282deb9188d6913976cfee41aee9.1795505160.git.hns@goldelico.com>
+ <179553168323.264265.7045861860225672057.b4-review@b4>
+To: Mark Brown <broonie@kernel.org>
+X-Mailer: Apple Mail (2.3826.700.81.1.11)
 
-Hi Mark,
 
-The current drm-misc tree has a semantic conflict with the broadcom
-tree that breaks the build:
 
-  drivers/platform/raspberrypi/vc-sm-cma/vc_sm.c:217:3: error: call to undeclared function 'dma_buf_unmap_attachment_unlocked'
-  drivers/platform/raspberrypi/vc-sm-cma/vc_sm.c:438:8: error: call to undeclared function 'dma_buf_map_attachment_unlocked'
+> Am 24.11.2026 um 15:48 schrieb Mark Brown <broonie@kernel.org>:
+> 
+>> Convert the OpenPandora ASoC machine driver to bind through a Device
+>> Tree sound-card node instead of creating a platform device from board-
+>> specific setup code. Describe the CPU and codec DAIs and audio routes
+>> through DT, including the external PCM1773 playback DAC.
+> 
+>> + DAILINK_COMP_ARRAY(COMP_CODEC("pcm1773-codec", "pcm1773")),
+> 
+> You've added the external CODEC but not updated the Kconfig dependencies
+> for that.
 
-77e0b2d2f4f3 ("treewide: Rename dma_buf_(un)map_attachment() to
-dma_buf_(un)map_sgt()") in the drm-misc tree renames the functions, and
-6e0a8f1a8347 ("platform/raspberrypi: Add VideoCore shared memory
-support") in the broadcom tree adds a new user of the old names. It is
-the only caller in next-20261123 that the rename doesn't cover.
+Yes, I remember it was discussed but slipped through.
 
-The fix for the merge:
+BR and thanks,
+Nikolaus
 
-diff --git a/drivers/platform/raspberrypi/vc-sm-cma/vc_sm.c b/drivers/platform/raspberrypi/vc-sm-cma/vc_sm.c
---- a/drivers/platform/raspberrypi/vc-sm-cma/vc_sm.c
-+++ b/drivers/platform/raspberrypi/vc-sm-cma/vc_sm.c
-@@ -214,9 +214,8 @@ static void vc_sm_clean_up_dmabuf(struct vc_sm_buffer *buffer)
- {
- 	/* Handle cleaning up imported dmabufs */
- 	if (buffer->sgt) {
--		dma_buf_unmap_attachment_unlocked(buffer->attach,
--						  buffer->sgt,
--						  DMA_BIDIRECTIONAL);
-+		dma_buf_unmap_sgt_unlocked(buffer->attach, buffer->sgt,
-+					   DMA_BIDIRECTIONAL);
- 		buffer->sgt = NULL;
- 	}
- 	if (buffer->attach) {
-@@ -435,7 +434,7 @@ vc_sm_cma_import_dmabuf_internal(struct dma_buf *dma_buf,
- 		goto error;
- 	}
-
--	sgt = dma_buf_map_attachment_unlocked(attach, DMA_BIDIRECTIONAL);
-+	sgt = dma_buf_map_sgt_unlocked(attach, DMA_BIDIRECTIONAL);
- 	if (IS_ERR(sgt)) {
- 		ret = PTR_ERR(sgt);
- 		goto error;
-@@ -550,8 +549,7 @@ vc_sm_cma_import_dmabuf_internal(struct dma_buf *dma_buf,
- 		free_kernel_id(import.kernel_id);
- 	kfree(buffer);
- 	if (sgt)
--		dma_buf_unmap_attachment_unlocked(attach, sgt,
--						  DMA_BIDIRECTIONAL);
-+		dma_buf_unmap_sgt_unlocked(attach, sgt, DMA_BIDIRECTIONAL);
- 	if (attach)
- 		dma_buf_detach(dma_buf, attach);
- 	dma_buf_put(dma_buf);
-
--- 
-Thanks,
-Sasha
