@@ -1,79 +1,79 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795560586;
-	b=JqCTdzV2TzjMJnBa+pSFLBG0rcmCRaZMqK/57KmuTRNjJ+XiD2J2PU3xPRatfsZ8qdPO
-	 32SB+X9zIDhm/m4lo7ksXceh8H+qu98zqJyqUXrbDQWSuDOs63jlFYm9bbbV9f3SqvYC2
-	 vjZMFMhAItRLkofA426VbQ3KDo3RZXDuRCoteVxA6wwJC0k5ihdaYHT21fREHCQDk5aGu
-	 4DC5L1tYFBH/vKibPNDKpgQgNjU2KcJnVCCctgQcDX94d8nDQd/oULCSwI5e88TjIO0ob
-	 AM5wZrijxWWPevNlGUfucEbYoJr181LcMHAEK9NzNk9x1P/UQL3y5XPfmVsJvzoEjXA==
+	t=1795560592;
+	b=SEIs4ZnXahdxtzxNz+cLyiPmiZarwIgFuHXI8MUhdMZc1HpJyBYmWUBRzuSxT2nJI9kf
+	 W1T2Tn98HQ+xx5gDSzk+dNh9d1KJxtfMBkcTBlP3P03J0pfzsp81MjlIZmqkUjGLRiDZL
+	 f773RWS35MaI6o6JXL7XwJuaMUTdK/iv6ukA2ueqVi55eA4lOvRZDAsKn8RdHD2vtGe26
+	 YjIAMAZY3wR1j8JhJxKwQ+jQjMCoG9zrTUOAMvc9MvMvYt+e0OCUQKbL+f5K6rdWx3wnr
+	 9/MUXvgLjJ2jJKb/43s/SPHGp1wxK35oFcrpqE4G4u/ppbvBO9Cl/gMVKBOsmhw6yZg==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795560586;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795560592;
 	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
 	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=7oQB3/O/c4dFGNnygzjgJHN8nXWsiGK/1pYzsrZRsWo=;
-	b=WQJB9kx8NZrT/LXWBqcBOoyV8eyq1QLS6Dj6KuKWn8YjgSZi8ZlOLd+D8wwOy2vbOhdu
-	 3SMKLkaYdNveNssn7SPlMS0w/U4rIgj5zafnbQsWueoTGr+v+C3XPsc/AzwfWALJsvCws
-	 z43gF+z1M5ooaNsea7w4PJzm1HtsFnPhnZAU5KsqezAWb/GXwuTvEtmAJ7sDHQvcJ/8hs
-	 m3xTcZjiM9lNjUioS9A/mT4XRWmkK48U6kSPIW6TviyTjb0K521lRfsnCWSKH0h5vGOtE
-	 NSGld1ebtmX7gTKtSROOAhFXqSm7jPTGOvJw49yeXjpqOstWprcpSSx7ljJp435dHng==
+	bh=EphYM5YX2ywO0IH8QDdpTxin5RnMZrccGvDw7pxP6I8=;
+	b=TUg/MOgI0BhEUnspqxrNe69T2JU5Kjf5HPvhXe6+n6SASkBhHAzgGHGf758Ey3S6FRt3
+	 8YzQ6LAQbCuC34PIFGDgokWkkrulfbmOb2ZIwbcJ/2zHJIRECDWqediMsw/JowDRa4vJ1
+	 oawg1D9w15Wm4AuFSxOZeOAhtP85VWnfTxe4C5DZ6mzmThQuxX7+0ubzhIH5kd6neP2vY
+	 GeDcYoiVKyddqTGRNcRnHfuDQ70ygqewBgtCvFuH/XdNo70OoPbriebbyIl8xqdHXpv7i
+	 MUFvQ4NZpllUNDTpukxhj+T33oh7iqIXrRZTMl+p5NLEHbwlZSTwJRrwBG0tr4TyGqg==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DJAzHGn+;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Kg8Aq6cH;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7C2A8606A321;
-	Tue, 24 Nov 2026 22:49:46 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C9A1C606A321;
+	Tue, 24 Nov 2026 22:49:52 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DJAzHGn+
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Kg8Aq6cH
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795560586;
-	b=YEZCBs00IYOxHSU+s6B3F8pUYKPzOlQMzG7xWE7+6ibgMbQYQiOV9OFlx8Ziq3Z1usID
-	 cKNbU+s2m16ZG/4xfZvS9+BktXDt8EZT1TLb8o4EAQkYnpw3/7K6IRh6ZEQFCiEuTOWo8
-	 ynkwBtGXsMC9Wc/QyzL05khvcgOY2mHsWfHgrtCYHq7li8jaej9reEZnijIFwTY4AQnzD
-	 mVL0FZHCl9Dc14Qpek5q7I0C4w7i977MD20nZ+Q2T4/uI66gbHo1ZgYAfap/QhxO1k9ZL
-	 ZSQupsBtrsBKRsX5sc6yGozUXodTW5KqI9qTHvhkJdHM0yo/KYouKF3pPCOlfd1PdiA==
+	t=1795560592;
+	b=2GQ3e+7lY8QBnup6yeSII1gWQ4EBEOdl9IeWI87sk0EAkApUFrUZDt8mkWW0sOtHpXSK
+	 9h/YrRTcFvQuWtXp5k+4KLYZGcsa5UIvCwhWffLG5bgsOQU8YYdHZtF/4lwH9iBp1aVvu
+	 E5yHPTV42Q4aMNiJdOYw57ITB3YknqJI0gCM4XMrI9/BjYi1aa7COfxS8vyKSG0A5+KNw
+	 qNIk3oLHR/SglC3h6AsAefuadDWf9K8Ogjv6GLVTYt4HLfXx2PoBGHeBFPNGWhyaM+9fz
+	 F/2DPCayIMWKzsNOx8BJTFu39FkoDl8fjf2j25Q7RPm22QI1RO3ty8Fu1WfaNf/gX9Q==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795560586;
+	c=relaxed/relaxed; t=1795560592;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=7oQB3/O/c4dFGNnygzjgJHN8nXWsiGK/1pYzsrZRsWo=;
-	b=FvMH6zuh0KKgKuAxRKmVuWoc9OMrlsinPuu1S4MPknfXfxFIdtxoLE86KmW7g+vjztJw
-	 EbvCfWnHpi4l0iDWjnK/YI9uRdqS0OAnciCN8vaNnDlRphisoy4/jnwgOL0DEJOlZKmFi
-	 GGhPv27f6dZIT+R47pHjDpKrcrJiex9ELdtMVDaI0pFR1aj0ppcgUO/dFhj3w7Nx2IMlO
-	 6LotvGiyqzP1LnVLtCn5BsHE/US79NNTL/QRushNx+rJzEIv3OpheFeJ756dJIEiUovv5
-	 5CRxY9/0f+FtdDt3+pOYuXX/YDm0K9XLhwnLGgKH1U8SFIdC8ke7ZR13sV3Hl3YojpQ==
+	bh=EphYM5YX2ywO0IH8QDdpTxin5RnMZrccGvDw7pxP6I8=;
+	b=E3Lw9NXqo3uhtKwMJX5svoXRYjR15fyHmwtYw43xogE/xunDjVag7AoZA1i4po/g0172
+	 znkELaj/Sn1G9452OhWXb89TouVrc8tvnvnvyzu0KqLFnSxjg96wwkzSaXN0Obp1ksvhM
+	 TxYGij3Iw7MmuxMlzLX5eO6fBg8g92ZBZWsvgEpE0d/sBvSdtaWSy8qLSMtumcovMQEJr
+	 RkOXpsp9pLRlIwNtq4IkswTM2hil2hMkGQw/SVSc3xZh4IAg3X6oDJTGZr9J3zVa4hrji
+	 bXTj5RIwj9O18Ybz7JSgdA2ghi3gQHIFUbIJzpsp3/yIzh5bLk0RkHTfr0Q9xjPYgzw==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 9C8A11F000D0;
+	by smtp.kernel.org (Postfix) with ESMTPS id 630801F000D8;
 	Tue, 24 Nov 2026 22:49:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795560586;
-	bh=7oQB3/O/c4dFGNnygzjgJHN8nXWsiGK/1pYzsrZRsWo=;
+	s=k20260515; t=1795560592;
+	bh=EphYM5YX2ywO0IH8QDdpTxin5RnMZrccGvDw7pxP6I8=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=DJAzHGn+eGaZLPlzq3dgNnxfJP7ZBiBS8a2MoTtnzXr/YmmQIifOt+taW6egoDb4C
-	 uPwTW1qxhSfiJR9aQ9aiidjEyninddP/DcC/m1ZSR3IkwDj/r2vUhC0NMRIVhjqm4D
-	 w39vrZx+N/xJyN8mgJaSiYv85eKR5mIQ7cep900B8ePTK4CKHphMMdFqVCda/KydTc
-	 9+H7CTmQeMOsb6UMOpV7tBZNzEv+AbqzEjtIQFE1HoZOzm+QGiWOy+swT77zaR9bYw
-	 L57tOQaATBFX4IZyT1Io+bJNExSs8VqEQMoTHG8uDLSbuQ9Zhrfd5d2mxtfJQX0QEv
-	 JuJlC9YADnuLA==
+	b=Kg8Aq6cHHw2pmPe06y1i1rnG1VDFu7wE0RTeBAsibf/NFzN0cnABt0YgYUGYoK9m+
+	 dPRli9hLXT5+P6GU7IYG5Nx4fdmYB/grR8jMxWdBHru7GNqXAa1DHYIBERvwPSNGdN
+	 OEpSBAyNbKXFX6jn7Ll5aNKs+tuBj4uRJHHP4hC8twOXb+Rx71q+girYPeO9lDc6Ui
+	 z0gCTSpN8n4WoZk86Ui/K2Uptki7WTiaY6y24GOSQQkwspQqp61c/k7QLXiTedpHq3
+	 Dw7AQkKk8f7a1aG7qOLPI0IkxWEBFNFgts64UWMoWUUKc0W/dzntUSW3IYujeLzOoo
+	 z5qStQkBQdAvw==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 2E1F84CC1C;
-	Tue, 24 Nov 2026 22:49:38 +0000 (UTC)
+	by lkml.kernel.org (Postfix) with ESMTP id E7B5C4CC18;
+	Tue, 24 Nov 2026 22:49:37 +0000 (UTC)
 From: Ernest Borowski via B4 Relay <devnull+ernest.borowski.git.proton.me@kernel.org>
-Date: Tue, 24 Nov 2026 23:49:37 +0100
-Subject: [PATCH v2 03/11] ntfs: release delalloc reservations cut off by
- truncate
+Date: Tue, 24 Nov 2026 23:49:35 +0100
+Subject: [PATCH v2 01/11] iomap: punch out a run of clean blocks in one
+ call
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,7 +84,7 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261124-b4-ntfs-delalloc-fixes-v2-3-f394c800ec03@proton.me>
+Message-Id: <20261124-b4-ntfs-delalloc-fixes-v2-1-f394c800ec03@proton.me>
 References: <20261124-b4-ntfs-delalloc-fixes-v2-0-f394c800ec03@proton.me>
 In-Reply-To: <20261124-b4-ntfs-delalloc-fixes-v2-0-f394c800ec03@proton.me>
 To: Namjae Jeon <linkinjeon@kernel.org>, Hyunchul Lee <hyc.lee@gmail.com>, 
@@ -95,13 +95,13 @@ Cc: Christian Brauner <brauner@kernel.org>, Christoph Hellwig <hch@lst.de>,
  linux-kernel@vger.kernel.org, Zhan Xusheng <zhanxusheng1024@gmail.com>, 
  stable@vger.kernel.org, Ernest Borowski <ernest.borowski.git@proton.me>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3407;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2172;
  i=ernest.borowski.git@proton.me; s=default; h=from:subject:message-id;
- bh=3nT+zUonqfx2kvoDVZIlPQfmCvPmSP51Ad2wiF9F3AM=;
- b=owGbwMvMwCVWzJ65uCpJ5D/jabUkhmw2kXr90o281beWvL0Zy2Jz4uZy84q5HW7FkZwrn2YHN
- rheWXqqo5SFQYyLQVZMkaXj/40Qn5Bvn5bFafXBzGFlAhnCwMUpABM5+4+R4QRjZI9L2GqlM+vP
- rEpPW+rqtv/E89/MZm0F09/zcqXFJjMyLBSrDVT4uqiuSHpr0+OiuP/Cm5lTJkzVyhGLchHZV2D
- EBAA=
+ bh=QlRHNgKKZw1I17ErZyU+XJVQumdcF0YH4l4Xvps8Y4o=;
+ b=owGbwMvMwCVWzJ65uCpJ5D/jabUkhmw2kXrbcEuZj8WTn5SXF3TU3fhumjPpeBfHAf7Fsy/Mr
+ p6W6XWho5SFQYyLQVZMkaXj/40Qn5Bvn5bFafXBzGFlAhnCwMUpABPpncrwP3WTxrEsYwPOb+9W
+ t005uONeCXPV+6b5s13tZjkaFUrMeM7I0Ls75ffh+7mzPCR1N+UreArvq7b/Fs/FluHCdu117tM
+ aXgA=
 X-Developer-Key: i=ernest.borowski.git@proton.me; a=openpgp;
  fpr=88FFD8544C54F6F2A65E2A8E730769A37A6214FF
 X-Endpoint-Received: by B4 Relay for ernest.borowski.git@proton.me/default
@@ -112,87 +112,56 @@ Content-Transfer-Encoding: 7bit
 
 From: Ernest Borowski <ernest.borowski.git@proton.me>
 
-A buffered write into a hole turns the hole into an LCN_DELALLOC run and
-reserves its clusters in vol->dirty_clusters
-(ntfs_write_simple_iomap_begin_non_resident()).  Writeback hands the
-reservation back when ntfs_cluster_alloc() allocates the run.
+iomap_write_delalloc_ifs_punch() calls ->punch() once for every clean
+block of a dirty folio.  A file system that reserves delayed allocation
+space in units larger than a block can release a unit only when one call
+covers it whole.  ntfs reserves whole clusters and uses 512 byte blocks,
+so with 1 KiB clusters a buffered write into a hole that fails after
+zeroing the first cluster of a 4 KiB folio leaves the other three
+clusters of that folio reserved, and writeback later allocates them.
 
-A truncate that cuts off delalloc runs before writeback drops their
-dirty folios, frees the clusters of the attribute with
-ntfs_cluster_free(), which skips everything that is not a real cluster,
-and removes the runs with ntfs_rl_truncate_nolock().  Nothing gives the
-reservation back, so the free space reported by statfs() and used by
-ntfs_available_clusters_count() shrinks by that many clusters until the
-volume is unmounted.  $Bitmap is not affected.
+Pass each run of contiguous clean blocks to ->punch() in one call.  XFS
+and ext4 punch any range they are given, so for them this only means
+fewer calls.
 
-Workloads that rewrite files (open(O_TRUNC) + write) or truncate freshly
-written data lose free space quickly: a test that writes, truncates and
-punches holes in six 400 KiB files on a 128 MiB volume sees statfs()
-free space drop from 79 MB to zero in 80 seconds, after which writes
-fail with ENOSPC or come back short.  A 1 MiB buffered write followed by
-ftruncate(fd, 0) and sync leaves 256 (4 KiB) clusters reserved.
+"ntfs: punch out the delalloc reservation of a failed buffered write"
+later in this series needs this, so it goes to stable with it.
 
-Release the reservation of the delalloc runs that the shrink cuts off,
-before the runlist is truncated.
-
-Fixes: 495e90fa3348 ("ntfs: update attrib operations")
 Cc: stable@vger.kernel.org
 Signed-off-by: Ernest Borowski <ernest.borowski.git@proton.me>
 ---
- fs/ntfs/attrib.c | 33 +++++++++++++++++++++++++++++++++
- 1 file changed, 33 insertions(+)
+ fs/iomap/buffered-io.c | 10 ++++++++--
+ 1 file changed, 8 insertions(+), 2 deletions(-)
 
-diff --git a/fs/ntfs/attrib.c b/fs/ntfs/attrib.c
-index 6ee6b6bcac..4028c310fc 100644
---- a/fs/ntfs/attrib.c
-+++ b/fs/ntfs/attrib.c
-@@ -4383,6 +4383,37 @@ static int ntfs_attr_make_resident(struct ntfs_inode *ni, struct ntfs_attr_searc
- 	return 0;
+diff --git a/fs/iomap/buffered-io.c b/fs/iomap/buffered-io.c
+index 6d843b168d..2eb8070e34 100644
+--- a/fs/iomap/buffered-io.c
++++ b/fs/iomap/buffered-io.c
+@@ -1364,6 +1364,9 @@ static void iomap_write_delalloc_ifs_punch(struct inode *inode,
+ 	 * blocks within a folio which are marked uptodate
+ 	 * but not dirty. In that case it is necessary to punch
+ 	 * out such blocks to avoid leaking any delalloc blocks.
++	 * Pass each run of clean blocks in one call: a file system
++	 * that reserves space in units larger than a block can only
++	 * release a unit that it sees whole.
+ 	 */
+ 	ifs = folio->private;
+ 	if (!ifs)
+@@ -1374,9 +1377,12 @@ static void iomap_write_delalloc_ifs_punch(struct inode *inode,
+ 	last_blk = offset_in_folio(folio, last_byte) >> blkbits;
+ 	while ((first_blk = ifs_next_clean_block(folio, first_blk, last_blk))
+ 		       <= last_blk) {
++		unsigned int next_blk = ifs_next_dirty_block(folio,
++				first_blk + 1, last_blk);
++
+ 		punch(inode, folio_pos(folio) + (first_blk << blkbits),
+-				1 << blkbits, iomap);
+-		first_blk++;
++				(loff_t)(next_blk - first_blk) << blkbits, iomap);
++		first_blk = next_blk;
+ 	}
  }
  
-+/*
-+ * ntfs_release_delalloc_from - give back the reservation of delalloc runs
-+ * @ni:		non-resident ntfs attribute whose runlist is about to be truncated
-+ * @start_vcn:	first vcn that is cut off
-+ *
-+ * Delayed allocation reserves vol->dirty_clusters for every LCN_DELALLOC
-+ * cluster when the buffered write is done and only gives it back when
-+ * writeback allocates the clusters.  Runs cut off by a truncate never reach
-+ * writeback (their dirty folios are dropped from the page cache), so their
-+ * reservation has to be released here or it is lost until unmount.
-+ *
-+ * The runlist must be mapped completely and locked for writing.
-+ */
-+static void ntfs_release_delalloc_from(struct ntfs_inode *ni, s64 start_vcn)
-+{
-+	struct runlist_element *rl = ni->runlist.rl;
-+	s64 nr = 0;
-+
-+	lockdep_assert_held_write(&ni->runlist.lock);
-+
-+	for (; rl && rl->length; rl++) {
-+		if (rl->lcn != LCN_DELALLOC || rl->vcn + rl->length <= start_vcn)
-+			continue;
-+		nr += rl->vcn + rl->length - max(rl->vcn, start_vcn);
-+	}
-+	if (!nr)
-+		return;
-+	ntfs_release_dirty_clusters(ni->vol, nr);
-+	ni->i_dealloc_clusters -= min_t(s64, nr, ni->i_dealloc_clusters);
-+}
-+
- /*
-  * ntfs_non_resident_attr_shrink - shrink a non-resident, open ntfs attribute
-  * @ni:		non-resident ntfs attribute to shrink
-@@ -4479,6 +4510,8 @@ static int ntfs_non_resident_attr_shrink(struct ntfs_inode *ni,
- 		}
- 		ntfs_attr_put_search_ctx(ctx);
- 
-+		ntfs_release_delalloc_from(ni, first_free_vcn);
-+
- 		/* Truncate the runlist itself. */
- 		if (ntfs_rl_truncate_nolock(vol, &ni->runlist, first_free_vcn)) {
- 			/*
 
 -- 
 2.56.1
