@@ -1,85 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.13
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795516857;
-	b=VnPfmhTykEUn9Czn9Ff9xib7ZK/3FO9s61IH3AtcSzU9n4fTe4rhQPWvOtwYslRUeLxV
-	 5YMs4GIDwttGzRkxPLZUGylOJBAnVSDa4BF87wZVjQZT6jSgG9yRADdICPU511Ig3PpFk
-	 MMcUpUgexcL4QfvBxVUtjG+QvOsb5eJTCYoupXGgPpf1zlC0qDa7UU21CKZL97G6sLIc8
-	 JMR2kObSF/k/3Mlsbjao3hYnPxLifoQmjgab/HkcrdX4HVsPlnVqyFJOzWMq/aA1r2Yw1
-	 ixGSGNQ/JhJBDrLkKcSYbjT/6NOciLqzmzU7XYHgI0DwKOYTUGSczGXnIP0A/JvjYww==
+	t=1795516915;
+	b=VXH3Ic0HTfpoJnUWW3TAIAKaYODoErk34QpvAuZaVl7SjgI6xQQOvav/YECuzRrkMznh
+	 hIh7r/MjHcR9uPf3XzX1/lwjIaUqhOlI8yBgr9KymyBZ9CcrQ5epBE6ibJcd3xAW8JuFt
+	 SbsX0INxDwN0FlJIuHjM6qlTt2MMUvk4NGfSKb+kGVQjlbbdVaSnTWv7/kkrd/ZcBr2uJ
+	 4FoR3oAaxerpdhgjT9NXFEmZvNZAEbAl8hv1I5VE3D/OZIZXVN2jZSBab2+8YTXKqHGEM
+	 02cUpPkAXJ+dxvkkum306b2sLdm1y5DGttIhQoaf4FAZNygZJNAVZdhNo2c0o2SZXPQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795516857;
-	h=DMARC-Filter:Message-ID:DKIM-Signature:DKIM-Signature:Subject:From:
-	 To:Cc:Date:In-Reply-To:References:Organization:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=Rb9J0hSRc+mSsT0T6DiOfhg76UjavfvENEi0jQslYHY=;
-	b=ym9jD7Z/UlIajMLDO7Ly0fvDB/fizCZKDRCg+KxVIvhc/aVp3mvGwJSlIjESjKCh5rqP
-	 QXIBvj4EA7VHHd03SJIqT/4zmHy4v+sh5tsi0X/+FpY5JX/owUeoHk05rfdMR2A95GZ8l
-	 QyMRrAJ9tKLQbcOeTsdun3mIeVhxlPFBTm8GI1viM+MTDo2iUEEQf3EsXMzNjSpxpSEJW
-	 r352RuYvKxcKarYuI8pQzHFWWOKSUNyUpZQd8W1+fpFPHhbKlxD+k+4OClYd5nUK3sZhW
-	 qufnze2B+Lufnmtxcbz8gPVCopAO1YinrMZVXUCwPr96iiI5N74oz/BLkdeSTFrza8Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795516915;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:Organization;
+	bh=j4tAGzTcAIo+qwi62PnHbYBMkqWMEXmDctAPkjTk5rY=;
+	b=AQP3lRmOrHD5o3Zw+AJY7t0twp3m60A+1U4VA7l/4hCLBQJaAyT2IoXhsfsXkMVhcY3I
+	 JR5wZzZ5THEDT3wJa9SJNNybQ5jdKZ4Vpvh0cxm/3Yxg9xBGoX6bZt76U1NnkkjBpxiQR
+	 5wNooD+PbG92AmNTfQAQeQmHrjFVfti7Vguluvt0aXSq9kKZt3U0zX9W/LQ4wSs6W6AMj
+	 LW/zpdU4XOOFG6xBziBQZ1v0ayQkDUoPj4H+5EcGripQ0FaULZCW1SFvV2/6shsG9tFOr
+	 R59NgZ1rYuwBbq198+tX4ZbQ81XfuGLuYvfIYJkF3vx8EnZeYW2GLaYak6pk8n1LhPg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linutronix.de;
-	spf=pass smtp.mailfrom=linutronix.de;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=HfngUNTA;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=Axiv8UFE;
-	arc=none smtp.remote-ip=193.142.43.55
-Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=WDHQkeI+;
+	arc=none smtp.remote-ip=198.175.65.13
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.13])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 61C61606A321;
-	Tue, 24 Nov 2026 10:40:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 61C61606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 638B6606A33C
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 10:41:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 638B6606A33C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=HfngUNTA;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=Axiv8UFE
-Message-ID: <fd998850d10838b97a3627ac7f9eafea6752846e.camel@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1795516855;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Rb9J0hSRc+mSsT0T6DiOfhg76UjavfvENEi0jQslYHY=;
-	b=HfngUNTA+8qnIMWJ74QOqK1c2HJEfoD/qO4IzC3JDW/2tIHlXQXhHOgTqN+xXYJIvM3c5/
-	4O1NvveekJqzqBU/Y06WKA+o9dw8gcCfej164dJNWyHfYgwBUD+b52FStHhdPrz9xUWGZ+
-	y9Ou/CsqameWQnrbnhD1lfFPp1Jg+93juKOK50jwSuaW4nesCGt5zwq5QSAPI/v1Myz0Nt
-	PwbDEEQ7smN6VCih1I9mvDg/a3d0c9FYeGaC+iUCi6Q+EUGM+eVW/YbLRcMttrf8T7o1ze
-	8c50gZwaIIRlYK32XpWisI6AkSvaegWtgKplSLm8bhz9EaNxkjj5060qE6SUWw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1795516855;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Rb9J0hSRc+mSsT0T6DiOfhg76UjavfvENEi0jQslYHY=;
-	b=Axiv8UFEAkx0LUy5zK8nNlC5Fu/MLL+V2QMS0NLB7kh/BQL16vXNMFOw55zcFMXv5wWH72
-	9qys7gGcmKmUOYAA==
-Subject: Re: [PATCH net-next v5 3/9] dt-bindings: net: dsa: Add SoC-e SWIP
- switch function
-From: Vasilij Strassheim <v.strassheim@linutronix.de>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-  Conor Dooley <conor+dt@kernel.org>, Andrew Lunn <andrew@lunn.ch>, Vladimir
- Oltean <olteanv@gmail.com>,  "David S. Miller" <davem@davemloft.net>, Jakub
- Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman
- <horms@kernel.org>, Russell King <linux@armlinux.org.uk>, Andrew Lunn
- <andrew+netdev@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, Eric
- Dumazet <edumazet@kernel.org>, Lee Jones <lee@kernel.org>,
- devicetree@vger.kernel.org,  linux-kernel@vger.kernel.org,
- netdev@vger.kernel.org, mfd@lists.linux.dev,  Martin Kaistra
- <martin.kaistra@linutronix.de>, Benedikt Spranger <b.spranger@linutronix.de>
-Date: Tue, 24 Nov 2026 11:40:52 +0100
-In-Reply-To: <20261122-camouflaged-pretty-camel-79f370@quoll>
-References: 
-	<20261120-devel-vstrassheim-soce-dsa-ml-v5-0-5de9225715e6@linutronix.de>
-	 <20261120-devel-vstrassheim-soce-dsa-ml-v5-3-5de9225715e6@linutronix.de>
-	 <20261122-camouflaged-pretty-camel-79f370@quoll>
-Organization: Linutronix GmbH
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=WDHQkeI+
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795516916; x=1827052916;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=A/nB+vVye4yDkj/xDltliE3Ys2sjtI6KmTsgS58y4C4=;
+  b=WDHQkeI+GNgTqPS91sfaFQLODzjVI2mEW25mn6voMPtGePfp0MToAgF1
+   /w7PH7/VyUKuHzz2LxLw/uUAeWe3PnpEwWySYsoye5Joy2aJHFvViXzg1
+   GkBjZEP/nvOWhkqav5XYU/FKMu2Ndzhiw7CcfQ6D4iTg1TPFlsbb9FwtS
+   3svg9usGTWM6fqzl6vRzqPrKYTtWLrbMli8N+YsUvWYqkwgKRpsIYmAkP
+   FRli9ey4ZHrnr05X++6rpEfAAQhkovEuFCXbgoue57BBL+3+5MRaFrAY2
+   vRatcDBn+cm1wkmKir70EpI6bamOEUEXgDwn41RbA0oX9F8ceBzWT5tkJ
+   w==;
+X-CSE-ConnectionGUID: i9uKR7BqQpmxapskABqw8A==
+X-CSE-MsgGUID: DJpIpyDgQ7qSze2Lbqjn6Q==
+X-IronPort-AV: E=McAfee;i="6800,10657,11975"; a="4248967"
+X-IronPort-AV: E=Sophos;i="6.27,230,1787036400"; 
+   d="scan'208";a="4248967"
+Received: from fmviesa005.fm.intel.com ([10.60.135.145])
+  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 02:41:55 -0800
+X-CSE-ConnectionGUID: cv2A3idzQySV4WhxWbuFHQ==
+X-CSE-MsgGUID: vQdS5BUiRMGzN1bqin+XJA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,230,1787036400"; 
+   d="scan'208";a="11651521"
+Received: from hrotuna-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.245.125])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 02:41:53 -0800
+Date: Tue, 24 Nov 2026 12:41:50 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Petr Mladek <pmladek@suse.com>
+Cc: Avi Weiss <thnkslprpt@gmail.com>, Chris Down <chris@chrisdown.name>,
+	John Ogness <john.ogness@linutronix.de>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Sergey Senozhatsky <senozhatsky@chromium.org>,
+	printk@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] printk: Fix skipped entries after index iterator restart
+Message-ID: <awVp7h8mZakQy03y@ashevche-desk.local>
+References: <20261116085609.476250-2-thnkslprpt@gmail.com>
+ <avrJl4lYirh_7oQ-@ashevche-desk.local>
+ <awVmsdsIa9niLarO@pathway.suse.cz>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -89,53 +83,36 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <awVmsdsIa9niLarO@pathway.suse.cz>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 
-On Sun, 2026-11-22 at 15:54 +0100, Krzysztof Kozlowski wrote:
-> On Fri, Nov 20, 2026 at 03:52:20PM +0100, Vasilij Strassheim wrote:
-> > +$ref: dsa.yaml#/$defs/ethernet-ports
-> > +
-> > +properties:
-> > +  compatible:
-> > +    const: soce,swip-switch-00-04-0c-10
-> > +    description:
-> > +      This compatible identifies the register layout; its suffix gives
-> > +      the offsets of the core version and feature identification
-> > +      registers (0x00, 0x04, 0x0c, and 0x10). Port counts and optional
-> > +      features depend on the FPGA synthesis configuration and are
-> > +      detected at runtime using this register layout.
-> > +
-> > +  reg:
-> > +    description:
-> > +      Register window of the IP core. Switch register blocks are locat=
-ed at
-> > +      offsets defined by the compatible. The MDIO controller and bus
-> > +      multiplexer occupy separate subregions described by sibling node=
-s.
-> > +    maxItems: 1
-> > +
-> > +  ethernet-ports:
-> > +    type: object
->=20
-> I guess this should follow:
-> https://lore.kernel.org/r/20261120002549.1908299-7-prabhakar.mahadev-lad.=
-rj@bp.renesas.com/
->=20
-> so: additionalProperties: true
->=20
-> > +    patternProperties:
-> > +      '^ethernet-port@[0-9a-f]+$':
->=20
-> and:
-> '^ethernet-port@':
->=20
-> > +        type: object
->=20
+On Tue, Nov 24, 2026 at 11:28:01AM +0100, Petr Mladek wrote:
+> On Mon 2026-11-16 11:15:03, Andy Shevchenko wrote:
+> > On Mon, Nov 16, 2026 at 10:56:10AM +0200, Avi Weiss wrote:
 
-Yes, that looks good. I will do that.
+...
 
-> Best regards,
-> Krzysztof
->=20
-Thanks for the tip!
-Vasilij
+> > > -	return pi_next(s, NULL, pos);
+> > > +	return pi_get_entry(s->file->f_inode->i_private, *pos - 1);
+> > 
+> > Side note (because it seems used more in the same form), we have file_inode()
+> > helper and this should idiomatically look as
+> > 
+> > 	return pi_get_entry(file_inode(s->file)->i_private, *pos - 1);
+> >
+> > But I haven't checked if the file_inode() is recommended or deprecated API.
+> 
+> Good to know. But honestly, the variant with file_inode(s->file) looks
+> less readable to me. IMHO, it is not worth it.
+
+I agree, but I have checked treewide and that's why I put word 'idiomatically'.
+All questions to VFS folks :-)
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
 
