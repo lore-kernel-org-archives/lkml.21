@@ -1,54 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.130
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.200
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795481226;
-	b=fI/oGdSyuKc3C8ci6MPXd/zynQSrCVBHckpWubj+KRZZJlt5KBxXZn5k9zz72Qi/qwvm
-	 xIrYxgQOQJtj8lIuBF6IsQI/ztTixhoqFSrR7Pj/c59Rqa5/f1BohcoH4k5wLlP691zop
-	 RYcg/WgHntV9N/K+seKwYhpeC55T+tzbc5hL1pB6iMt50K64dRXCMZGA41PrSfuSvL8ax
-	 azQTcI9bUFzd4zhxfHj4HFtcKsxUMaDWf4gg/aE3+ZXkr2GTxUTuj9FsJa5OBUU+CCoQh
-	 HE7oxb3jJdogHcicYGwk8pZPefromteOL1AT7AeWdHykvlzuTNAAwiygUc0XVIkgbIw==
+	t=1795481265;
+	b=paPwRcjmEytUVYF7KQPwjARYYjThb4iLl4eOBC8YhfTJkoHKxs69w8gELXgHq6ctbpps
+	 NCRfqp4xaJhtlMD13ZBU6PAL7NP5yPrkfruEIW9rmA4w+y+mX9jWwCpc72vDplip9Qmow
+	 rN3G50bK9+6zpboT5+P8wiWzjnz23RvVsX3Xziv0pi8B7Kkx+VaJuC7zwIteRT2x+dDm4
+	 xVQ2fl6SMGIYScY44/H+I65jKrluhFLH97GDMdvR/EMAc0BgAngZ0FSj1MJnOPrjf42J+
+	 ADw768hNk4KM1tYyVldDROwUqXHoKyMHeRcSGwHNvus9JvY/l20o2yOamlHXP2L8BEQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795481226;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Cc:Subject:To:References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=hfDkcdScjmR5OnQwyx+CpjuQq1u0r+eD4cqfOWBR8QE=;
-	b=zIFXf4hcPLczh+D+4YzfpGPdA/yUPvJYwpzqCrUe+BKEsY+E9dATw49f1qrD18xnH6uB
-	 QuBc5TG5NwNIHyRiJldUG/VDA615PJ/1D7NBirh7KDCgnC4Q2uHcnivDgY4x86suP8MDg
-	 f3Kz02xhwQLKL+10sMnOjdZZyPTP9dr0h51Qg2f38CFZCUElHoNLnAKiDcCsSio5vhOad
-	 r99o72YFq2liX/AtXBYLc/OyHSmH0s6Gd/ebwOfvBa+f7oo62OJeTmFdkEtRtr2ixpIQp
-	 yiLGVck2KZDNjDXteE5DC8nyssw4TQf8DZYnTM0cRuL5ToS0aQb+E5N+zq4+0ZnzlRA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795481265;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
+	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
+	 Content-Type;
+	bh=tDMwizw/fxrX9EdkfSy3P0m+iIcym6dxr577RysOy0w=;
+	b=zRrHpd/JE51rZYQk3nmSttf6Yer9idilVvC+2R3SwwC2F+AVYAskhfsowQb+lFvhx0M5
+	 3/LIJwDa82OJbJV/1tGxnSOr4ggn02bksdtT010i3G98UzYdLgxgmFtEANoSrC4rU9fL0
+	 03iDBoodpb6tWmggfjZtdWzCXIutueHkjNg6e9A3NzR32cnywBDVVz96htjKmWRYCfdRr
+	 Qwv2tk+xbktk3RLjSaaLyzr+U18SQIcHXhiPEFRYNizY5pzwMZiKtpWrs2od4gq7straN
+	 2zDqB58qlh39a0JX5ZTGIsCOoj6qaMJTLsacJEvF988DBlIAPOuV47EPO6+X4PPNFNg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=YHZQBJ2B;
-	arc=none smtp.remote-ip=95.215.58.130
-Received: from mta1.migadu.com (out-130.mta1.migadu.com [95.215.58.130])
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--penghuang.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=OsGOJYRU;
+	arc=none smtp.remote-ip=74.125.82.200
+Received: from mail-dy1-f200.google.com (mail-dy1-f200.google.com [74.125.82.200])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 09A67606A321
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 00:47:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 09A67606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A51EB606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 00:47:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A51EB606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--penghuang.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=YHZQBJ2B
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=Fyp8l6hfFUyYTD25zBLjTNsYVAuS307sWVF/ZXXhM68=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795481223; v=1; x=1796086023;
- b=YHZQBJ2B4OnRpgHRTKuX43+D6otYMSD57MWSw+kpv1VJzhWLmCET//wcMKL4Cf6L82AQBkRX
- pLD4/nkPoS3XS2uu+VJ19rrrBfNWDb60hvSnpvAAH0+lP3pN39HowaJtVZ+aHY1iiGYqPMXEYce
- 1Pw3Qvi6RpNg6lJORToDRIko=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 4e2199bc710f91b8;
-	Tue, 24 Nov 2026 00:47:02 +0000
-X-Mizu-Trace-ID: 4e2199bc710f91b8
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <5b7318ff-b41e-45f6-8127-d42eab0dcb67@linux.dev>
-Date: Tue, 24 Nov 2026 08:46:54 +0800
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=OsGOJYRU
+Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-386a65fca25so2585340eec.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 16:47:44 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795481264; x=1796086064; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=tDMwizw/fxrX9EdkfSy3P0m+iIcym6dxr577RysOy0w=;
+        b=OsGOJYRUqVqvOsCYltNyjiIiNYG1UOsKPnxnIX3m/SqeQGY+o95ng7enZMqus1W6u+
+         3Yc/xJsOzOV1WbHGdHUCvvHXRaqNeye+tzqwa94IEp7Ra+n9OANUgkvt2NXoZBDwyzlu
+         sO8zw+w9tKSXMgZHvI37iz7jvzQujLBvAb658wWtQ+Mh5UYA/xMtX0rrUzg6SqUbyBC3
+         ZWhWNGeWNAjSpi+RA4kmbt/8ASg1mDwXHJhdD2G5w+8rH5E3xwCqxyw8eslKA7MXgzau
+         tI7exSrdOLkHpAruRIriwhQHg8etbcYdhGit+94vetyiFTuj9iuo1QIY+tMJLKgq/LNf
+         W0KA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795481264; x=1796086064;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=tDMwizw/fxrX9EdkfSy3P0m+iIcym6dxr577RysOy0w=;
+        b=zz1hyxx4YbEvkGwBSqWjpJuMtK0MmynbHBh7VYi5cKzAyO+N1j7AL1sj7l4xseN4ZX
+         +/Xu+Ul+6j613MngY4WchsXepsEKXtZsxFtL/Ug7TeR2nuz95XGfl6jQtS8LMApiHm0w
+         vPC9LW650YS/tmNuIMWSqXQs5OqXgi1NJE/ACivqpfTeTy+0wpMygXgyfdad6ZTbzDRu
+         MMRCiQJw13Bphnkj/qg6YMpojYLYkwgGewxQAzCby3WJ9dE1SPQXiTUgqArPoH/8QWf2
+         hDXoImwRrABmrm7SA8qxdaHOFKHSmU2jur3KwQGSvz2RklgjhPfnDyY0+sCO3c1tnEY3
+         xZ3Q==
+X-Forwarded-Encrypted: i=1; AL+hErHahD0pAjAIJ3ed7BuhaGd7fOT5Xg6NaYlasB0bapgmo9y72o73GyHlDV5kW0EVaMu9Lo/kRxXBa2mCB3A=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9kSOBnp3Kdi0ZQVkQvbxWvJn0uSA+A7yzjR0Szvm0NzXwOSAhN
+	nmuD/ExczoJyCbJZ+65ai7iH5U8P7KRpHeYPJdWgKc6ZzomS2bGfdzmBWz27QwLcBTIHyNlzPSO
+	KuPBEC9QiH/KWlj+tBQ==
+X-Received: from dycnb22.prod.google.com ([2002:a05:7301:b16:b0:386:af9c:96b6])
+ (user=penghuang job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:7301:2108:b0:386:b99:8ff9 with SMTP id 5a478bee46e88-3860b999354mr11840342eec.40.1795481263233;
+ Mon, 23 Nov 2026 16:47:43 -0800 (PST)
+Date: Mon, 23 Nov 2026 16:47:42 -0800
+In-Reply-To: <861e8b931f99acf9c44cff722d5e94e7@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,57 +78,56 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: shawn.lin@linux.dev, Ulf Hansson <ulfh@kernel.org>,
- Jaehoon Chung <jh80.chung@samsung.com>,
- Marek Szyprowski <m.szyprowski@samsung.com>, linux-mmc@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/4] mmc: dw_mmc: add central watchdog and convert CTO
- onto it
-To: Sebastian Reichel <sebastian.reichel@collabora.com>,
- Shawn Lin <shawn.lin@rock-chips.com>
-References: <1787817486-137277-1-git-send-email-shawn.lin@rock-chips.com>
- <1787817486-137277-2-git-send-email-shawn.lin@rock-chips.com>
- <awRdY6Xw5scc5V7-@venus>
-From: Shawn Lin <shawn.lin@linux.dev>
-In-Reply-To: <awRdY6Xw5scc5V7-@venus>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Mime-Version: 1.0
+References: <20261122015729.2512645-1-penghuang@google.com>
+ <CAKfTPtCQpVhtVT7Mhqe1=Ukcmc1pX8Jgn9ypb64--8cJ-7G4BQ@mail.gmail.com>
+ <20261123160934.2289260-1-penghuang@google.com> <861e8b931f99acf9c44cff722d5e94e7@kernel.org>
+X-Mailer: git-send-email 2.56.1.831.g720f3f5937-goog
+Message-ID: <20261124004742.1248371-1-penghuang@google.com>
+Subject: Re: [PATCH] sched/pelt: Skip dormant cfs util_sum under scx_switched_all
+From: Peng Huang <penghuang@google.com>
+To: Tejun Heo <tj@kernel.org>
+Cc: Peng Huang <penghuang@google.com>, Vincent Guittot <vincent.guittot@linaro.org>, 
+	Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>, 
+	Juri Lelli <juri.lelli@redhat.com>, Dietmar Eggemann <dietmar.eggemann@arm.com>, 
+	Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>, 
+	Valentin Schneider <vschneid@redhat.com>, K Prateek Nayak <kprateek.nayak@amd.com>, 
+	David Vernet <void@manifault.com>, Andrea Righi <arighi@nvidia.com>, 
+	Changwoo Min <changwoo@igalia.com>, linux-kernel@vger.kernel.org, 
+	sched-ext@lists.linux.dev, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-Hi Sebastian
+Hi Tejun,
 
-在 2026/11/23 星期一 23:57, Sebastian Reichel 写道:
-> Hello Shawn,
-> 
-> On Thu, Aug 27, 2026 at 03:58:03PM +0800, Shawn Lin wrote:
->> +	if (host->wd_events == DW_MCI_WD_DATA_EVENTS) {
->> +		dev_warn(host->dev,
->> +			 "Data timeout, state %d\n", host->state);
-> 
-> This new warning is now printed during boot on RK3588 and RK3576
-> (the other message from here are printed at info level):
-> 
-> Sige 5 (RK3576):
-> [   17.801623] mmc_host mmc2: Bus speed = 198000000Hz (req 200000000Hz, actual 198000000HZ div = 0)
-> [   17.820103] dwmmc_rockchip 2a320000.mmc: Data timeout, state 3
-> [   17.853679] dwmmc_rockchip 2a320000.mmc: Data timeout, state 3
-> [   17.854003] dwmmc_rockchip 2a320000.mmc: Successfully tuned phase to 228
-> 
-> Rock 5B (RK3588):
-> [    3.956249] mmc_host mmc1: Bus speed = 198000000Hz (req 200000000Hz, actual 198000000HZ div = 0)
-> [    4.049033] dwmmc_rockchip fe2c0000.mmc: Data timeout, state 3
-> [    4.086338] dwmmc_rockchip fe2c0000.mmc: Data timeout, state 3
-> [    4.093284] dwmmc_rockchip fe2c0000.mmc: Successfully tuned phase to 102
-> 
+On Mon, Nov 23, 2026 at 01:48:44PM -1000, Tejun Heo wrote:
+> I'm not familiar with this code, so I may be missing something, but
+> doesn't __update_blocked_fair() already do most of this? It walks
+> leaf_cfs_rq_list bottom-up, flushes cfs_rq->removed and propagates the
+> result to the parent. It just stops running once scx_switched_all() is
+> set. Maybe the helper can run the blocked load update once on each rq
+> from that loop instead of open-coding the clearing? If I'm reading it
+> right, one pass after all the tasks have switched would take care of #1.
 
-This's a normal case on Rockchip platform that no interrupt happens
-during tuning. Because the driver is seeking valid sample phases,
-however, some phases could make the controller hung. So watchdog fires
-here. Keeping it as dev_warn() only adds noise to every boot.
-Alternatively we could downgrade the message to dev_dbg().
+Yes, Vincent suggested the same thing, and I sent v2 earlier today doing
+that one-pass drain via __sched_balance_update_blocked_averages(rq) in
+scx_enable():
 
-> Greetings,
-> 
-> -- Sebastian
+  https://lore.kernel.org/r/cover.1795462673.git.penghuang@google.com
 
+> As for #2, are the leftover sums big enough to matter for
+> update_idle_rq_clock_pelt()? It looks like fair can leave similar
+> leftovers behind once the avgs reach zero.
+
+You're right -- for update_idle_rq_clock_pelt(), #2 on its own is tiny
+(< divider, i.e. < 1/1024 capacity per recently-decayed group) and is
+not nearly enough to cause an issue once #1 is drained. #1 was the real
+culprit in our reproduction.
+
+I only split #2 out as patch 1/2 in v2 per Vincent's suggestion to clean
+up the util_sum != 0 residual in update_tg_cfs_*() when _avg == 0 (which
+otherwise keeps cfs_rq_is_decayed() false and leaves empty parent
+cfs_rqs on leaf_cfs_rq_list in fair). Patch 2/2 alone already resolves
+the sched_ext issue.
+
+Thanks,
+Peng
