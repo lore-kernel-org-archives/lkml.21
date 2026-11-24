@@ -1,118 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.219.51
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795555764;
-	b=VC4FKZfFRXx3VUOS+3E/5WAv7qrkzUQMC9jJq8mDAYVLeeXQVOrol1c3wJR9zS6PiFdU
-	 gI3wkNPZQLEi7+Jt30nHIwdCFBBKFYB/MahF6RVu7gONK4fL1IltUrKfmmWK7cwg0oeVr
-	 9x7idkPoXY4qplaek9iMGqnAR2xRVFXwvqNaNA0xdjCzCi8y+Lr0NUIeWBDiZU7nDRitx
-	 9y9EJU1oJdzYfokA+luwmvunNvdN4NZ5te9umCChb+jb0b98eXc/BZSc3BiCxRMtE7zdC
-	 WDUINApzgQVjdQpP/3/PKZkemNRtz50m/Vms9JL1Na85sp2OMAcNYU7g5Z4E8MZU/MA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795555764;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.170
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795555783;
+	b=A6on7+PKLoL4SUsAFcephPPYDQskrcQnzD2zLnHFjcSMAyHbrVbW7dMSOSuX3ibnPPs1
+	 P+HvL1NSYBboz1LzCwyqWp5XMrCVro3vucJ1h8q6XYSg7nffoDQBA3DaLxp5Uw1YLUFjR
+	 zf8IOeAZGra4xOgTOCjQhK4wfpRC5A6eYPvbGZGU3H0y0O9d58ZX+BmdMghvtTfUkV27i
+	 Wr7q9dV0J6Gq3gilXlf0ECqvkJFAs8xHYYQtvNeZYECvn/wbLn7d1e9a4/Ai7ZtNzH+7r
+	 eooC8jI0eArElqMMJAuZAAr3sk8IhvQrwQzn+G4W3eC/yreyDTUA/wxBwylcowq/5qw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795555783;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Subject:From:To:Cc:Date:In-Reply-To:References:Autocrypt:
-	 Content-Type:User-Agent:MIME-Version;
-	bh=ZYHfzvW40ag+3dRlo03Cpx3dIllkxfDQ5o5/y16Uh0I=;
-	b=tUeSiGThRuxJS0j4wSOJH8nKq8HTee8udiJ3Ss38Y/ETbH3NEWBfMDQOwWht17DFpSNF
-	 lVE5FMdqtLw+bDcHyi0Vu24/MZEKR688TC6o9hofuwSXuW9fmJ1sF1DCeC3UOvOur28/H
-	 38PbHasxMoZsrA5L+VUVIr8MbMlo0p/GttHwhJe85bO0GmGiIrW8/sMn7/I0Q0k9cfl+g
-	 azYeBICePZbB5/8nQbMyUsg2dc2csyVJVKDuODIigHej6Sz6YVqC27rRYvXzUDJzeBdna
-	 lDwvudH8ph8m33ypX4YbayjtPEWVD0i+syEykc/cpTC9HRN+Vr8QrKlMqPKPp1Pd2aw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ndufresne.ca;
-	spf=pass smtp.mailfrom=ndufresne.ca;
-	dkim=pass header.d=ndufresne-ca.20260707.gappssmtp.com header.i=@ndufresne-ca.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=ErlSQlsu;
-	arc=none smtp.remote-ip=209.85.219.51
-Received: from mail-qv1-f51.google.com (mail-qv1-f51.google.com [209.85.219.51])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=sLqKQwqU70K4uqrptByEo8Nwpl734HDILHTVZM1D/eA=;
+	b=tkDjWENxC9x9n+xL4j3zgJfedrBXeN4kudH+UaUhfG9rMZZu3swz4rfSxg/NQnnFAl+M
+	 fZbtb1jujCRReCFi25S+aZOlpQtbhQknDmcAX25AdJSocZ2GH3p8p4tN/+Zzq9ZS2fWtm
+	 03NdiSpFQNt960s7XtagH4KDWEng3HMxhxLYpMIh1DECuA70q5QSV8qxS2Tgql0sdeQY6
+	 jfGd4vkWw2Ti4384jzwVqultHNvkTA1+NDaxJ5ZOurFI5p6wK/Zah3pEzcccX6UHyrJNh
+	 6U8lVSm+WSyeji/OyDSjssHWY46glRId15qYvq+yBqpOysQiIID5AKQtDf0w/ZAs2sQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=csdtwl6y;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.170
+Received: from mail-qt1-f170.google.com (mail-qt1-f170.google.com [209.85.160.170])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BE81D606A321
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 21:29:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BE81D606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ndufresne.ca
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ndufresne.ca
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 21F70606A69B
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 21:29:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 21F70606A69B
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ndufresne-ca.20260707.gappssmtp.com header.i=@ndufresne-ca.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=ErlSQlsu
-Received: by mail-qv1-f51.google.com with SMTP id 6a1803df08f44-91e7fc8265aso59874756d6.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:29:23 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=csdtwl6y
+Received: by mail-qt1-f170.google.com with SMTP id d75a77b69052e-55be673e029so957661cf.1
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:29:33 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795555773; cv=none;
+        d=google.com; s=arc-20260327;
+        b=H/3bqZ6MjvR12B3aaDds7bY+gL6XuQGKxpUQn+r6mBWhGvB0m35/QKxCw8D7IUDS15
+         q1bpH1i0lLYZRSeaU0hzwicNDIaZBvXVUsZtxF+7+NbAmXglZrdZ3yaRsBQoeMQBCobg
+         EazjKCjuDzGpn1c19puzj0mkjses827wDZf1NpdkUjD1mqj24AScVyKNB3UIIB5r52/T
+         8hmB0gQfxAEFjDbchagx2Ezj1yIRGWFcUvAXeDEaRQrwgqLCUc9lTHnmYUJoc084R4Cf
+         F9wt5nYWGLCHOwAWqU8Kb+OOwruu7tZ+9njjbG+1mPdJTcwuoB8Z3tjQM5cSrGwgNVXt
+         ezYw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=sLqKQwqU70K4uqrptByEo8Nwpl734HDILHTVZM1D/eA=;
+        fh=xjVeq9G5IQTeA0ojX4Ywcg084aErI2ObLRJYd2LH3CU=;
+        b=XPy/dqtbrDiqZYGf+iGD1dPlJXjR/KoEPvxnLdBp2W0iFMJmNM2BcEVlG0DaqL6EGv
+         FjHYZ9PM+v8RsovzEztTR95bcDPt5Dg+D3B80tgKgDgDmeZOLTKXPNXhfyXS7b9ZzDCt
+         XYLNoDM61lVmFMXWFaswUQf21F6BMxnjYNDBUaOalvqshfYG5T1pl2v4vPGq3qbJazqc
+         0G59WGutED44aS+cr3uMLfh2you2LNGasdRwof8F6Wmoz0ghkT2pEh3QZlGjyKXp7W5n
+         pMWIfuqVKujgNF4alA61sJHTrGeCQgFejnHWgzHhVRPvQtpqqccqgSVz7zHLDlbUSzgR
+         muxw==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ndufresne-ca.20260707.gappssmtp.com; s=20260707; t=1795555762; x=1796160562; darn=vger.kernel.org;
-        h=mime-version:user-agent:content-type:autocrypt:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+        d=google.com; s=20260707; t=1795555773; x=1796160573; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=ZYHfzvW40ag+3dRlo03Cpx3dIllkxfDQ5o5/y16Uh0I=;
-        b=ErlSQlsuCkRde9ECHhlfqe+iW3EuO9lzrMvLH19iND40oqMetn/9kST4sNKQ1RjhYd
-         I0I7oCx1RO8ljS0Yy053sc6no+NNWZEMC3Et3XHIU3UTteW51P7yK2Lxiq4nqSY+r2Z1
-         C8q8zZpMl8wv98eXOHNPhXKrSJpK2OZ/sL31qCnN5UXCZOVa2gzKqLXyS0VFdf5VV87K
-         Ssyvu61D+qetQEoc/9c1oGiqj41bV1zVxAUb8OvOrWwPTmfN60ffbP7hyO24wi4FoSdA
-         XaL3L9MeUujWXQ3oItNjPVdZIZ3+cwHc7hzlGU06blP5BaWH4APT07VzEyM8su1Htxj4
-         ssTA==
+        bh=sLqKQwqU70K4uqrptByEo8Nwpl734HDILHTVZM1D/eA=;
+        b=csdtwl6yY64Qr+3oucDcj9vHi29lgcd45PzMVLlTsIe1bTNkJs6RBjn1S1Dw58QdT7
+         PxGvUgeQSKuIFXQ+rVuekPcX0QHY0paBk9jI11O6eTthHDrZmC7e+QiRN+QZxMUWk0CH
+         roA/FP+cLwqq06QZXRxFvz1ej0HIPGngxNedAOWxkbXUJNGWHewuP4GMeu+DAEUBRpMj
+         TFImdJtKoFhe0DQ1YcJrClDMzp5daghUIiJV+QUJVx6oJGsuR15xf6mZ4OKX0l7sGd6g
+         jpo5o1Jiwfc5pMGCd20U18Fa2/IYla1Kt9AvB6L6l00coRci7K1+PIeCqjmAKN7Q/OyK
+         3mUQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795555762; x=1796160562;
-        h=mime-version:user-agent:content-type:autocrypt:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
+        d=1e100.net; s=20260707; t=1795555773; x=1796160573;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=ZYHfzvW40ag+3dRlo03Cpx3dIllkxfDQ5o5/y16Uh0I=;
-        b=mbsD4TTT2tnhlILNI7a0JpOEH5gx4LtZtZzS4IEiBtO41IP25K6GA6vLPwwJ/bZKrv
-         H7ttkOA9E9HVf74E0H0mKZGsS01YrpeMn+Ey8zuguxglF7eLh+LADZ51TVpjln2Cu0vK
-         rkKtWj4RWNHbnHMbYI/fUqa1u59oNUa1K7jH0b8wsrhrYg1FEqner8I2ERR6zyRbpWSr
-         ZmkeG1yL0mrBq2fd2UmJSTQ1A6SdwutTxdOI+4Fty6Zx5rY5+Cvn2iGkUr2pN+s1RtsA
-         5HWjx2vqwOJif1WkFPPy2g9+0OFt0mm2itB535VRTfpANXcVj95RHW72YSy6+jx7aaor
-         VATA==
-X-Forwarded-Encrypted: i=1; AL+hErGKp+gSWcjJtPFBDxFuQD7PHvL4JzROlnkiqr716MHev0n/Xr3BtZdo5nRjzR4C8R7Em9vCcatgaC1B6Jw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+9pnQJqrgtzOk9NLq/TNATCP+daUX7DisDR0v9ajcwzErC1lbN
-	z9nuGwFTBu70MAYP7JEWQOOLhrKpjo48z5lZoztSNjFXDzYwV8dbOLW9BnF22P4SrxM=
-X-Gm-Gg: AZFdTZfYPKRid7jUe9Sei/3dHNTZK50TECLYJnlfrBnkGWa+FUefZXDWcbdMJaqeqfu
-	agxVaKyHxSwSWDanzBPMLxbhvvrNmxegdQbTvA6hWFiqqA7r5vjzrWaCscQ0hKrYqt7HOhqYGRa
-	CXkrekIKdB/Hy7NzhybHmR3ZNzolu8gAS7/efb21G66/s0G0WE17x/vIV63pthmJjxRJELvyoCF
-	nDu49x6dg4SJIu1kvbqvQe7IGj4N8vCKme+PLi3pix9e1ic/AFsLjMXpc+LIWe5y2yRmGqLwn/m
-	fB7hCyPbWcgxJItUcYgF13WiMB/GVdgFSyHmTCd2Bl3EWQPek/paGs31iqrShM16qvTzTAG3y5F
-	yXnzvk+XlVQsvWqu1Qq/hZ8eTNc7J33bDwRyTmFMjozVy1w6pirqGe3r/dqGoAsMkAZh6YLkUJH
-	Fi8Y4LfsLO3F3EPyjbnjFL/OCA5+en1HM6dq0D6AB5PjhPSUl3qMmH2YRqHUUKvBqaDD3hoAZXR
-	pdjfGu5dxaPayb/THMlkJ08qn4BjoYyITcdoCWfErEP4i5LhVlPjJwJfJ6xgCid7foVYuHm3hRi
-	4qJrl0v4+6/uuyKmsPyynG6ezSJ3m6uFXm10STYVlT5Pzwj54kMn8AA=
-X-Received: by 2002:a05:6214:8507:10b0:921:1e1b:1e18 with SMTP id 6a1803df08f44-92134b0e51cmr220893876d6.39.1795555762340;
-        Tue, 24 Nov 2026 13:29:22 -0800 (PST)
-Received: from ?IPv6:2606:6d00:11:8ec9::c41? ([2606:6d00:11:8ec9::c41])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-921349b456csm147238306d6.13.2026.11.24.13.29.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 13:29:21 -0800 (PST)
-Message-ID: <42e8fa9d09b2f773b4b46fd95e3b499163d81267.camel@ndufresne.ca>
-Subject: Re: [PATCH v2 11/17] media: rockchip: rga: use components to manage
- multiple cores
-From: Nicolas Dufresne <nicolas@ndufresne.ca>
-To: Sven =?ISO-8859-1?Q?P=FCschel?= <s.pueschel@pengutronix.de>, Jacob Chen
-	 <jacob-chen@iotwrt.com>, Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, 
- Mauro Carvalho Chehab
-	 <mchehab@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Philipp Zabel
-	 <p.zabel@pengutronix.de>
-Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	kernel@pengutronix.de, Detlev Casanova <detlev.casanova@collabora.com>, 
- Michael Tretter <m.tretter@pengutronix.de>, Guangshuo Li
- <lgs201920130244@gmail.com>
-Date: Tue, 24 Nov 2026 16:29:20 -0500
-In-Reply-To: <20260916-spu-rga3multicore-v2-11-23aa2cb74e61@pengutronix.de>
-References: <20260916-spu-rga3multicore-v2-0-23aa2cb74e61@pengutronix.de>
-	 <20260916-spu-rga3multicore-v2-11-23aa2cb74e61@pengutronix.de>
-Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-YumGT0JQ7SArZD4eF1gq"
-User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
+        bh=sLqKQwqU70K4uqrptByEo8Nwpl734HDILHTVZM1D/eA=;
+        b=VWDjWg6Zxl2IH88aFLn5CPWp3bN+SG6p4Ad54sDAWV8j8ubk6EyrYj8HRxPTD+x2v6
+         zHXThtGfaCw9W7cY03yOrt0zItd38Wvw0xcpknYXmVAmSQIviAKs5BbI/27NKHBcRlhN
+         yty2xRrBCV1ofsB0ylzpUX+uHVdYB3W6iAxJeAQX/D5y5BfzrnegVPgvhhdMcmCYXv7l
+         Rb8oLv3el1VnI0A6ns7YeVCdfXVxA5SJJ68+3L+BxXGzR4JX4YQBLD2MGKjqxPjWTwK7
+         h2A9zG9YyQHW6CsuXYFgz/ownXuQ1kFC7Kg7LU4klt4z2tbewrqVVMs8RA/Nup3Nc4EJ
+         JPZQ==
+X-Forwarded-Encrypted: i=1; AL+hErGFK9GntNthe6CuUnLWvZCz1pfI2vVua11DJeVhhrBLfmhfr+aGgujetevCJXyV2FBEqDxmgOYw2stKapk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+RD1JhitYU06oCkVfpf4zPXLqTJjWzUz/Au+36VqOcm/H/JI49
+	S4WkxNYHBa+28Zv4jSOnEle/RR5Sbc48HSPKF2fBAhIzPzd+ksWXBFUEf6X1oxiWRIwSw1O28Xu
+	T3K+iFH4c/m5gFFEjNLS5HptkNOVLhZgI/K7UfMxo
+X-Gm-Gg: AZFdTZdgpVWq4pkcnEHNXHARaC6YHTEEaTEL4mZsBDobNI0iPyB6c2mqVQAPrAG5eqx
+	TCynpVe3EyObPl5STpntcNQkELcuaE69nksH0tdDHdTWjA5UI5y2o1QUWIWKDgbPkiTV6LBP1ys
+	dm4ERWYi2Ie6e0enjFG7LKJHGB6ooEIX/mDTqcnWY85wDqopBSEToh4uPri8XBMuu0MDX6Vmr/+
+	xhvQ69vkv7kP2S/Gx/Ak2qBGK+KT+iM5cRqHKtsTfyBghMmUgvYVp2gWHAyUsjMq2ZTpLrhjWUp
+	+nsHvP+ubMcS/YZGyZecR4cPt9bLgWoj7xZ4gv9v7OhZyVx85agGTkEBYyQmh2hU1hJQQEuf1yP
+	F4g357rtH8Xsb5gjIGj+eVhIaOahDEIQkP9PSSSoXJ3bdeesvWoB1zdwRQMypQz7kAIM=
+X-Received: by 2002:ac8:6f05:0:b0:55d:74e6:e03 with SMTP id
+ d75a77b69052e-55d87eb573emr70805061cf.0.1795555772309; Tue, 24 Nov 2026
+ 13:29:32 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -122,414 +104,421 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-
---=-YumGT0JQ7SArZD4eF1gq
+References: <20261116074414.3174737-1-irogers@google.com> <20261116074414.3174737-6-irogers@google.com>
+ <27B92301-D708-4527-9988-3B39973558AE@linux.ibm.com>
+In-Reply-To: <27B92301-D708-4527-9988-3B39973558AE@linux.ibm.com>
+From: Ian Rogers <irogers@google.com>
+Date: Tue, 24 Nov 2026 13:29:19 -0800
+X-Gm-Features: Aa3M54qJrZKt8VCbfYDtV2TirrlwmLQqLzTB13cHeJwX60qZQKN5i7hypJN19-0
+Message-ID: <CAP-5=fXzbPSJpTnuiBtMbs06-4Yq63f6e2U4G=Pn6Q2WmEGOPw@mail.gmail.com>
+Subject: Re: [PATCH v3 05/19] perf/core: Implement BUILD_ID_OFFSET and
+ CALLCHAIN_BUILD_ID_OFFSET sample types
+To: Athira Rajeev <atrajeev@linux.ibm.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
+	Adrian Hunter <adrian.hunter@intel.com>, James Clark <james.clark@linaro.org>, 
+	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
+	Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau <martin.lau@linux.dev>, 
+	Eduard Zingerman <eddyz87@gmail.com>, Song Liu <song@kernel.org>, 
+	Yonghong Song <yonghong.song@linux.dev>, Ihor Solodrai <ihor.solodrai@linux.dev>, 
+	Leo Yan <leo.yan@linux.dev>, Dmitry Vyukov <dvyukov@google.com>, 
+	"Steinar H . Gunderson" <sesse@google.com>, Stephen Brennan <stephen.s.brennan@oracle.com>, 
+	Thomas Falcon <thomas.falcon@intel.com>, linux-perf-users@vger.kernel.org, 
+	bpf@vger.kernel.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-Le mercredi 16 septembre 2026 =C3=A0 17:09 +0200, Sven P=C3=BCschel a =C3=
-=A9crit=C2=A0:
-> Use component helpers to manage multiple cores and aggregate them into a
-> central master device. This gives us a dedicated master device and
-> ensures that all cores (components) are properly set up before creating
-> the video device.
->=20
-> This commit only sets up a basic component device. Instead of the
-> rga_disable_multicore function only the first core is added to the
-> master device. To avoid the secondary core creating an additional video
-> device the whole core probe implementation is moved to the bind method,
-> which is only called when the core is bound to a master device.
->=20
-> As we use devres (devm_*) functions for resource cleanup in the probe,
-> it is technically incorrect to use them in a component bind function.
-> It'll be properly split out again in the follow-up commits to avoid
-> having one big migration commit.
->=20
-> The implementation is based on the etnaviv gpu driver, which also groups
-> multiple gpu cores under a single etnaviv master device.
->=20
-> Signed-off-by: Sven P=C3=BCschel <s.pueschel@pengutronix.de>
->=20
-> ---
-> v2
-> - clarify that devres in component bind functions is technically
->   incorrect and only done to keep the commits split up
-> - use dev_err_probe instead of dev_err + return for a failed
->   component_add
-> - remove if (!match) check in rga_probe, as it's only called when we
->   have found at least one dt entry (and sashiko pointed out that it's
->   an err ptr)
-> - add platform_device_id table to avoid a manual binding
-> ---
->  drivers/media/platform/rockchip/rga/rga.c | 263 ++++++++++++++++++++++++=
-------
->  1 file changed, 209 insertions(+), 54 deletions(-)
->=20
-> diff --git a/drivers/media/platform/rockchip/rga/rga.c b/drivers/media/pl=
-atform/rockchip/rga/rga.c
-> index bcfc19d29af74..367df0ee7b02f 100644
-> --- a/drivers/media/platform/rockchip/rga/rga.c
-> +++ b/drivers/media/platform/rockchip/rga/rga.c
-> @@ -5,6 +5,7 @@
->   */
-> =20
->  #include <linux/clk.h>
-> +#include <linux/component.h>
->  #include <linux/debugfs.h>
->  #include <linux/delay.h>
->  #include <linux/fs.h>
-> @@ -737,51 +738,9 @@ static int rga_parse_dt(struct rga_core *core)
->  =09return 0;
->  }
-> =20
-> -/*
-> - * Some SoCs, like RK3588 have multiple identical RGA3 cores, but the
-> - * kernel is currently missing support for multi-core handling. Exposing
-> - * separate devices for each core to userspace is bad, since that does
-> - * not allow scheduling tasks properly (and creates ABI). With this work=
-around
-> - * the driver will only probe for the first core and early exit for the =
-other
-> - * cores. Once the driver gains multi-core support, the same technique
-> - * for detecting the main core can be used to cluster all cores together=
-.
-> - */
-> -static int rga_disable_multicore(struct device *dev)
-> -{
-> -=09struct device_node *node =3D NULL;
-> -=09const char *compatible;
-> -=09bool is_main_core;
-> -=09int ret;
-> -
-> -=09/* Intentionally ignores the fallback strings */
-> -=09ret =3D of_property_read_string(dev->of_node, "compatible", &compatib=
-le);
-> -=09if (ret)
-> -=09=09return ret;
-> -
-> -=09/* The first compatible and available node found is considered the ma=
-in core */
-> -=09do {
-> -=09=09node =3D of_find_compatible_node(node, NULL, compatible);
-> -=09=09if (of_device_is_available(node))
-> -=09=09=09break;
-> -=09} while (node);
-> -
-> -=09if (!node)
-> -=09=09return -EINVAL;
-> -
-> -=09is_main_core =3D (dev->of_node =3D=3D node);
-> -
-> -=09of_node_put(node);
-> -
-> -=09if (!is_main_core) {
-> -=09=09dev_info(dev, "missing multi-core support, ignoring this instance\=
-n");
-> -=09=09return -ENODEV;
-> -=09}
-> -
-> -=09return 0;
-> -}
-> -
-> -static int rga_probe(struct platform_device *pdev)
-> +static int rga_core_bind(struct device *dev, struct device *master, void=
- *data)
->  {
-> +=09struct platform_device *pdev =3D to_platform_device(dev);
->  =09struct rockchip_rga *rga;
->  =09struct rga_core *core;
->  =09struct video_device *vfd;
-> @@ -791,10 +750,6 @@ static int rga_probe(struct platform_device *pdev)
->  =09if (!pdev->dev.of_node)
->  =09=09return -ENODEV;
-> =20
-> -=09ret =3D rga_disable_multicore(&pdev->dev);
-> -=09if (ret)
-> -=09=09return ret;
-> -
->  =09rga =3D devm_kzalloc(&pdev->dev, sizeof(*rga) + 1 * sizeof(*rga->core=
-s), GFP_KERNEL);
->  =09if (!rga)
->  =09=09return -ENOMEM;
-> @@ -900,9 +855,10 @@ static int rga_probe(struct platform_device *pdev)
->  =09return ret;
->  }
-> =20
-> -static void rga_remove(struct platform_device *pdev)
-> +static void rga_core_unbind(struct device *dev, struct device *master,
-> +=09=09=09    void *data)
->  {
-> -=09struct rga_core *core =3D platform_get_drvdata(pdev);
-> +=09struct rga_core *core =3D dev_get_drvdata(dev);
->  =09struct rockchip_rga *rga =3D core->rga;
-> =20
->  =09v4l2_info(&rga->v4l2_dev, "Removing\n");
-> @@ -912,6 +868,27 @@ static void rga_remove(struct platform_device *pdev)
->  =09v4l2_device_unregister(&rga->v4l2_dev);
->  }
-> =20
-> +static const struct component_ops rga_core_ops =3D {
-> +=09.bind =3D rga_core_bind,
-> +=09.unbind =3D rga_core_unbind,
-> +};
-> +
-> +static int rga_core_probe(struct platform_device *pdev)
-> +{
-> +=09int ret =3D 0;
-> +
-> +=09ret =3D component_add(&pdev->dev, &rga_core_ops);
-> +=09if (ret < 0)
-> +=09=09return dev_err_probe(&pdev->dev, ret, "failed to register componen=
-t\n");
-> +
-> +=09return 0;
-> +}
-> +
-> +static void rga_core_remove(struct platform_device *pdev)
-> +{
-> +=09component_del(&pdev->dev, &rga_core_ops);
-> +}
-> +
->  static int __maybe_unused rga_runtime_suspend(struct device *dev)
->  {
->  =09struct rga_core *core =3D dev_get_drvdata(dev);
-> @@ -928,11 +905,12 @@ static int __maybe_unused rga_runtime_resume(struct=
- device *dev)
->  =09return clk_bulk_prepare_enable(core->num_clks, core->clks);
->  }
-> =20
-> -static const struct dev_pm_ops rga_pm =3D {
-> +static const struct dev_pm_ops rga_core_pm =3D {
->  =09SET_RUNTIME_PM_OPS(rga_runtime_suspend,
->  =09=09=09   rga_runtime_resume, NULL)
->  };
-> =20
-> +/* add new compatibles also to the rga_ids struct */
->  static const struct of_device_id rockchip_rga_match[] =3D {
->  =09{
->  =09=09.compatible =3D "rockchip,rk3288-rga",
-> @@ -951,17 +929,194 @@ static const struct of_device_id rockchip_rga_matc=
-h[] =3D {
-> =20
->  MODULE_DEVICE_TABLE(of, rockchip_rga_match);
-> =20
-> +static struct platform_driver rga_core_pdrv =3D {
-> +=09.probe =3D rga_core_probe,
-> +=09.remove =3D rga_core_remove,
-> +=09.driver =3D {
-> +=09=09.name =3D RGA_NAME "-core",
-> +=09=09.pm =3D &rga_core_pm,
-> +=09=09.of_match_table =3D rockchip_rga_match,
-> +=09},
-> +};
-> +
-> +static int rga_bind(struct device *dev)
-> +{
-> +=09int ret;
-> +
-> +=09ret =3D component_bind_all(dev, NULL);
-> +=09if (ret) {
-> +=09=09dev_err(dev, "component bind failed\n");
-> +=09=09return ret;
-> +=09}
-> +
-> +=09return 0;
-> +}
-> +
-> +static void rga_unbind(struct device *dev)
-> +{
-> +=09component_unbind_all(dev, NULL);
-> +}
-> +
-> +struct component_master_ops rga_master_ops =3D {
-> +=09.bind =3D rga_bind,
-> +=09.unbind =3D rga_unbind,
-> +};
-> +
-> +static int rga_probe(struct platform_device *pdev)
-> +{
-> +=09const struct of_device_id *match_desc =3D pdev->dev.platform_data;
-> +=09struct device *dev =3D &pdev->dev;
-> +=09struct component_match *match =3D NULL;
-> +=09struct device_node *core_node;
-> +
-> +=09if (!match_desc)
-> +=09=09return dev_err_probe(dev, -ENODEV, "missing platform data\n");
-> +
-> +=09for_each_compatible_node(core_node, NULL, match_desc->compatible) {
-> +=09=09if (!of_device_is_available(core_node))
-> +=09=09=09continue;
-> +
-> +=09=09of_node_get(core_node);
-> +=09=09component_match_add_release(dev, &match, component_release_of,
-> +=09=09=09=09=09    component_compare_of, core_node);
+On Tue, Nov 24, 2026 at 9:33=E2=80=AFAM Athira Rajeev <atrajeev@linux.ibm.c=
+om> wrote:
+>
+> > On 16 Nov 2026, at 1:14=E2=80=AFPM, Ian Rogers <irogers@google.com> wro=
+te:
+> >
+> > Implement synchronous PERF_SAMPLE_BUILD_ID_OFFSET and
+> > PERF_SAMPLE_CALLCHAIN_BUILD_ID_OFFSET payload writing in the perf event
+> > core using stack_map_get_build_id_offset(..., may_fault=3Dfalse).
+> >
+> > For callchains, extend the per-CPU callchain buffers in
+> > kernel/events/callchain.c to provide scratch space to deduplicate build
+> > IDs and encode the compressed build ID table and tagged 64-bit offsets
+> > (with the top 8 bits storing the 1-based build ID index).
+> >
+> > Suggested-by: Namhyung Kim <namhyung@kernel.org>
+> > Signed-off-by: Ian Rogers <irogers@google.com>
+>
+> Hi Ian
+>
+> I have few queries and adding them below
 
-I believe sashiko strange report will go away with the added missing return=
-.
+[snip]
 
-Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+> > diff --git a/kernel/events/callchain.c b/kernel/events/callchain.c
+> > index 9d24b6e0c91f..935b34d2dd33 100644
+> > --- a/kernel/events/callchain.c
+> > +++ b/kernel/events/callchain.c
+> > @@ -9,6 +9,7 @@
+> >  */
+> >
+> > #include <linux/perf_event.h>
+> > +#include <linux/bpf.h>
+> > #include <linux/slab.h>
+> > #include <linux/sched/task_stack.h>
+> > #include <linux/uprobes.h>
+> > @@ -31,6 +32,26 @@ static inline size_t perf_callchain_entry__sizeof(vo=
+id)
+> > sysctl_perf_event_max_contexts_per_stack));
+> > }
+> >
+> > +static inline size_t perf_callchain_build_id_entry__sizeof(void)
+> > +{
+> > + return (sizeof(struct perf_callchain_build_id_entry) +
+> > + sizeof(__u64) * (sysctl_perf_event_max_stack +
+> > + sysctl_perf_event_max_contexts_per_stack));
+> > +}
+> > +
+> > +static inline size_t perf_callchain_bpf_build_id__sizeof(void)
+> > +{
+> > + return sizeof(struct bpf_stack_build_id) *
+> > +       (sysctl_perf_event_max_stack + 1);
+> > +}
+> > +
+> > +static inline size_t perf_callchain_context__sizeof(void)
+> > +{
+> > + return perf_callchain_entry__sizeof() +
+> > +       perf_callchain_build_id_entry__sizeof() +
+> > +       perf_callchain_bpf_build_id__sizeof();
+> > +}
+> > +
+> > static DEFINE_PER_CPU(u8, callchain_recursion[PERF_NR_CONTEXTS]);
+> > static atomic_t nr_callchain_events;
+> > static DEFINE_MUTEX(callchain_mutex);
+> > @@ -86,7 +107,7 @@ static int alloc_callchain_buffers(void)
+> > if (!entries)
+> > return -ENOMEM;
+> >
+> > - size =3D perf_callchain_entry__sizeof() * PERF_NR_CONTEXTS;
+> > + size =3D perf_callchain_context__sizeof() * PERF_NR_CONTEXTS;
+>
+>
+>  in alloc_callchain_buffers(), we are changing size unconditionally to :
+>
+> size =3D perf_callchain_context__sizeof() * PERF_NR_CONTEXTS;
+>
+> Even if PERF_SAMPLE_CALLCHAIN_BUILD_ID_OFFSET is not set,
+> still the size grows for every case.
+>
+> This grows each per-CPU, per-context slot by the build ID table and the
+> bpf_stack_build_id scratch area, and it is not conditional on the new
+> sample types. get_callchain_buffers() is called for plain
+> PERF_SAMPLE_CALLCHAIN too, so as I read it, a plain "perf record -g"
+> (or any BPF tool using callchains) would also pay the extra memory on
+> every possible CPU, without --buildid-offset.
+>
+> Is that the intent? If not, could the extra scratch space be allocated
+> only when an event with PERF_SAMPLE_BUILD_ID_OFFSET or
+> PERF_SAMPLE_CALLCHAIN_BUILD_ID_OFFSET exists? It would also be good to
+> state the per-CPU memory cost in the commit message.
 
-> +
-> +=09=09/*
-> +=09=09 * As multi core is not implemented yet,
-> +=09=09 * break out of the loop to only have one core per rockchip_rga st=
-ruct.
-> +=09=09 * Also put the node, which otherwise would've been done by the lo=
-op iteration.
-> +=09=09 */
-> +=09=09of_node_put(core_node);
-> +=09=09break;
-> +=09}
-> +
-> +=09return component_master_add_with_match(dev, &rga_master_ops, match);
-> +}
-> +
-> +static void rga_remove(struct platform_device *pdev)
-> +{
-> +=09component_master_del(&pdev->dev, &rga_master_ops);
-> +}
-> +
-> +/*
-> + * Keep in sync with the compatible names of rockchip_rga_match, as we n=
-ame the
-> + * virtual component master platform device (allocating the /dev/video d=
-evice)
-> + * based on the compatible value.
-> + */
-> +static struct platform_device_id rga_ids[] =3D {
-> +=09{
-> +=09=09.name =3D "rockchip,rk3288-rga",
-> +=09},
-> +=09{
-> +=09=09.name =3D "rockchip,rk3399-rga",
-> +=09},
-> +=09{
-> +=09=09.name =3D "rockchip,rk3588-rga3",
-> +=09},
-> +=09{},
-> +};
-> +
->  static struct platform_driver rga_pdrv =3D {
->  =09.probe =3D rga_probe,
->  =09.remove =3D rga_remove,
->  =09.driver =3D {
->  =09=09.name =3D RGA_NAME,
-> -=09=09.pm =3D &rga_pm,
-> -=09=09.of_match_table =3D rockchip_rga_match,
->  =09},
-> +=09.id_table =3D rga_ids,
->  };
-> =20
-> -module_platform_driver(rga_pdrv);
-> +static bool rga_of_has_available_node(const char *compat)
-> +{
-> +=09struct device_node *node;
-> +
-> +=09for_each_compatible_node(node, NULL, compat) {
-> +=09=09if (of_device_is_available(node)) {
-> +=09=09=09of_node_put(node);
-> +=09=09=09return true;
-> +=09=09}
-> +=09}
-> +
-> +=09return false;
-> +}
-> +
-> +static int rga_create_platform_device(struct platform_device **ppdev,
-> +=09=09=09=09      const struct of_device_id *match)
-> +{
-> +=09struct platform_device *pdev;
-> +=09int ret;
-> +
-> +=09pdev =3D platform_device_alloc(match->compatible, PLATFORM_DEVID_NONE=
-);
-> +=09if (!pdev)
-> +=09=09return -ENOMEM;
-> +
-> +=09ret =3D platform_device_add_data(pdev, match, sizeof(*match));
-> +=09if (ret)
-> +=09=09goto free_platform_device;
-> +
-> +=09ret =3D platform_device_add(pdev);
-> +=09if (ret)
-> +=09=09goto free_platform_device;
-> +
-> +=09*ppdev =3D pdev;
-> +
-> +=09return 0;
-> +
-> +free_platform_device:
-> +=09platform_device_put(pdev);
-> +=09return ret;
-> +}
-> +
-> +static struct platform_device *master_pdevs[ARRAY_SIZE(rockchip_rga_matc=
-h) - 1];
-> +
-> +static int __init rga_init(void)
-> +{
-> +=09int ret;
-> +=09unsigned int i;
-> +
-> +=09ret =3D platform_driver_register(&rga_core_pdrv);
-> +=09if (ret !=3D 0)
-> +=09=09return ret;
-> +
-> +=09ret =3D platform_driver_register(&rga_pdrv);
-> +=09if (ret !=3D 0)
-> +=09=09goto unregister_core_driver;
-> +
-> +=09for (i =3D 0; i < ARRAY_SIZE(master_pdevs); i++) {
-> +=09=09if (!rga_of_has_available_node(
-> +=09=09=09    rockchip_rga_match[i].compatible))
-> +=09=09=09continue;
-> +
-> +=09=09ret =3D rga_create_platform_device(&master_pdevs[i],
-> +=09=09=09=09=09=09 &rockchip_rga_match[i]);
-> +=09=09if (ret)
-> +=09=09=09goto unregister_platform_devices;
-> +=09}
-> +
-> +=09return 0;
-> +
-> +unregister_platform_devices:
-> +=09for (i =3D 0; i < ARRAY_SIZE(master_pdevs); i++) {
-> +=09=09platform_device_unregister(master_pdevs[i]);
-> +=09=09master_pdevs[i] =3D NULL;
-> +=09}
-> +=09platform_driver_unregister(&rga_pdrv);
-> +unregister_core_driver:
-> +=09platform_driver_unregister(&rga_core_pdrv);
-> +=09return ret;
-> +}
-> +module_init(rga_init);
-> +
-> +static void __exit rga_exit(void)
-> +{
-> +=09unsigned int i;
-> +
-> +=09for (i =3D 0; i < ARRAY_SIZE(master_pdevs); i++) {
-> +=09=09platform_device_unregister(master_pdevs[i]);
-> +=09=09master_pdevs[i] =3D NULL;
-> +=09}
-> +=09platform_driver_unregister(&rga_pdrv);
-> +=09platform_driver_unregister(&rga_core_pdrv);
-> +}
-> +module_exit(rga_exit);
-> =20
->  MODULE_AUTHOR("Jacob Chen <jacob-chen@iotwrt.com>");
->  MODULE_DESCRIPTION("Rockchip Raster 2d Graphic Acceleration Unit");
+Agreed, plain PERF_SAMPLE_CALLCHAIN shouldn't pay that extra per-CPU
+memory cost. Note that single-IP PERF_SAMPLE_BUILD_ID_OFFSET resolves
+on the stack when not combined with
+PERF_SAMPLE_CALLCHAIN_BUILD_ID_OFFSET, so only
+PERF_SAMPLE_CALLCHAIN_BUILD_ID_OFFSET needs the per-CPU scratch
+buffers.
 
---=-YumGT0JQ7SArZD4eF1gq
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
+In v4 I've split the build-ID callchain scratch buffers into a
+separate refcounted allocation (get_callchain_build_id_buffers() /
+put_callchain_build_id_buffers(), tracked via
+PERF_ATTACH_CALLCHAIN_BUILD_ID) that is only allocated while at least
+one PERF_SAMPLE_CALLCHAIN_BUILD_ID_OFFSET event is active. Plain
+PERF_SAMPLE_CALLCHAIN events now incur zero extra memory overhead.
+I've also documented the exact per-CPU memory cost in the commit
+message (10,560 bytes per recursion slot, or 42,240 bytes / 41.25 KiB
+per possible CPU across PERF_NR_CONTEXTS=3D4 at the default
+perf_event_max_stack=3D127).
 
------BEGIN PGP SIGNATURE-----
+> >
+> > for_each_possible_cpu(cpu) {
+> > entries->cpu_entries[cpu] =3D kmalloc_node(size, GFP_KERNEL,
+> > @@ -169,7 +190,22 @@ struct perf_callchain_entry *get_callchain_entry(i=
+nt *rctx)
+> > cpu =3D smp_processor_id();
+> >
+> > return (((void *)entries->cpu_entries[cpu]) +
+> > - (*rctx * perf_callchain_entry__sizeof()));
+> > + (*rctx * perf_callchain_context__sizeof()));
+> > +}
+> > +
+> > +struct perf_callchain_build_id_entry *
+> > +get_callchain_build_id_entry(int *rctx, struct bpf_stack_build_id **bp=
+f_bids)
+> > +{
+> > + void *base =3D get_callchain_entry(rctx);
+> > +
+> > + if (!base)
+> > + return NULL;
+> > +
+> > + base +=3D perf_callchain_entry__sizeof();
+> > + if (bpf_bids)
+> > + *bpf_bids =3D base + perf_callchain_build_id_entry__sizeof();
+> > +
+> > + return base;
+> > }
+> >
+> > void
+> > @@ -178,6 +214,172 @@ put_callchain_entry(int rctx)
+> > put_recursion_context(this_cpu_ptr(callchain_recursion), rctx);
+> > }
+> >
+> > +void perf_callchain_encode_build_ids(struct perf_callchain_build_id_en=
+try *entry,
+> > +     const u64 *ips, u32 nr, u32 user_start,
+> > +     const struct bpf_stack_build_id *bpf_bids,
+> > +     u32 nr_bpf_bids, u32 max_size)
+> > +{
+> > + u32 nr_build_ids =3D 0, nr_offsets =3D 0;
+> > + u32 raw_bids_len =3D 0, aligned_bids_len =3D 0;
+> > +
+> > + static_assert(BUILD_ID_SIZE_MAX =3D=3D PERF_CALLCHAIN_BUILD_ID_MAX_SI=
+ZE);
+> > +
+> > + for (u32 i =3D 0; i < nr; i++) {
+> > + u64 ip =3D ips[i];
+> > + u64 encoded_offset;
+> > + const struct bpf_stack_build_id *bpf_bid =3D NULL;
+> > +
+> > + if (i >=3D user_start && i - user_start < nr_bpf_bids)
+> > + bpf_bid =3D &bpf_bids[i - user_start];
+> > +
+> > + if (bpf_bid && bpf_bid->status =3D=3D BPF_STACK_BUILD_ID_VALID) {
+> > + u32 pos =3D 0, found_idx =3D 0;
+> > +
+> > + for (u32 b =3D 0; b < nr_build_ids; b++) {
+> > + u8 sz =3D entry->build_ids[pos];
+> > +
+> > + if (sz =3D=3D BUILD_ID_SIZE_MAX &&
+> > +    !memcmp(&entry->build_ids[pos + 1],
+> > +    bpf_bid->build_id,
+> > +    BUILD_ID_SIZE_MAX)) {
+> > + found_idx =3D b + 1;
+> > + break;
+> > + }
+> > + pos +=3D 1 + sz;
+> > + }
+> > +
+> > + if (!found_idx &&
+> > +    nr_build_ids < PERF_CALLCHAIN_BUILD_ID_MAX_NRS) {
+> > + u32 next_raw_len =3D raw_bids_len + 1 + BUILD_ID_SIZE_MAX;
+> > + u32 next_aligned_len =3D ALIGN(next_raw_len, sizeof(u64));
+> > +
+> > + if (next_aligned_len + (i + 1) * sizeof(u64) > max_size)
+> > + break;
+> > + entry->build_ids[raw_bids_len] =3D BUILD_ID_SIZE_MAX;
+> > + memcpy(&entry->build_ids[raw_bids_len + 1],
+> > +       bpf_bid->build_id, BUILD_ID_SIZE_MAX);
+> > + nr_build_ids++;
+> > + raw_bids_len =3D next_raw_len;
+> > + aligned_bids_len =3D next_aligned_len;
+> > + found_idx =3D nr_build_ids;
+> > + }
+> > +
+> > + if (aligned_bids_len + (i + 1) * sizeof(u64) > max_size)
+> > + break;
+> > +
+> > + if (found_idx) {
+> > + encoded_offset =3D ((u64)found_idx << 56) |
+> > + (bpf_bid->offset & GENMASK_ULL(55, 0));
+> > + } else {
+> > + encoded_offset =3D ip & GENMASK_ULL(55, 0);
+> > + }
+> > + } else {
+> > + if (aligned_bids_len + (i + 1) * sizeof(u64) > max_size)
+> > + break;
+> > + if (i >=3D user_start && ip < PERF_CONTEXT_MAX)
+> > + encoded_offset =3D ip & GENMASK_ULL(55, 0);
+> > + else
+> > + encoded_offset =3D ip;
+> > + }
+> > +
+> > + entry->offsets[i] =3D encoded_offset;
+> > + nr_offsets =3D i + 1;
+> > + }
+> > +
+> > + if (nr_offsets > 0 && nr_offsets <=3D user_start &&
+> > +    entry->offsets[nr_offsets - 1] =3D=3D PERF_CONTEXT_USER_DEFERRED &=
+&
+> > +    (nr_offsets < 2 ||
+> > +     entry->offsets[nr_offsets - 2] !=3D PERF_CONTEXT_USER_DEFERRED))
+> > + nr_offsets--;
+> > +
+> > + if (aligned_bids_len > raw_bids_len) {
+> > + memset(&entry->build_ids[raw_bids_len], 0,
+> > +       aligned_bids_len - raw_bids_len);
+> > + }
+> > + entry->nr_build_ids =3D nr_build_ids;
+> > + entry->nr_offsets =3D nr_offsets;
+> > + entry->build_ids_len =3D aligned_bids_len;
+> > +}
+> > +
+> > +static struct perf_callchain_build_id_entry __empty_callchain_build_id=
+ =3D {};
+> > +
+> > +struct perf_callchain_build_id_entry *
+> > +perf_callchain_build_id(struct perf_event *event,
+> > + struct perf_callchain_entry *callchain,
+> > + u64 ip, bool resolve_ip, u32 max_size)
+> > +{
+> > + bool crosstask =3D event->ctx->task && event->ctx->task !=3D current;
+> > + bool has_user_ctx =3D is_user_task(current) && current->mm && !crosst=
+ask;
+> > + struct perf_callchain_build_id_entry *entry;
+> > + struct bpf_stack_build_id *bpf_bids;
+> > + u32 nr, user_start, nr_bpf_bids =3D 0, ip_slot =3D 0;
+> > + int rctx;
+> > +
+> > + if (!callchain || !callchain->nr || max_size < sizeof(u64))
+> > + return &__empty_callchain_build_id;
+> > +
+> > + entry =3D get_callchain_build_id_entry(&rctx, &bpf_bids);
+> > + if (!entry)
+> > + return &__empty_callchain_build_id;
+> > +
+> > + entry->has_ip_bid =3D false;
+> > + nr =3D min_t(u64, callchain->nr,
+> > +   sysctl_perf_event_max_stack +
+> > +   sysctl_perf_event_max_contexts_per_stack);
+> > + user_start =3D nr;
+> > + if (has_user_ctx) {
+> > + for (u32 i =3D 0; i < nr; i++) {
+> > + if (callchain->ip[i] =3D=3D PERF_CONTEXT_USER) {
+> > + user_start =3D i + 1;
+> > + break;
+> > + }
+> > + }
+> > + if (user_start < nr) {
+> > + nr_bpf_bids =3D min_t(u32, nr - user_start,
+> > +    sysctl_perf_event_max_stack);
+> > + nr_bpf_bids =3D min_t(u32, nr_bpf_bids,
+> > +    max_size / sizeof(u64));
+> > + }
+> > + if (nr_bpf_bids > 0) {
+> > + if (resolve_ip) {
+> > + bpf_bids[0].ip =3D ip;
+> > + ip_slot =3D 1;
+> > + }
+> > + for (u32 i =3D 0; i < nr_bpf_bids; i++) {
+> > + bpf_bids[ip_slot + i].ip =3D
+> > + callchain->ip[user_start + i];
+> > + }
+> > + stack_map_get_build_id_offset(bpf_bids,
+> > +      ip_slot + nr_bpf_bids,
+> > +      true, false);
+> > + if (resolve_ip) {
+> > + memset(&entry->ip_bid, 0,
+> > +       sizeof(entry->ip_bid));
+> > + if (bpf_bids[0].status =3D=3D
+> > +    BPF_STACK_BUILD_ID_VALID) {
+> > + entry->ip_bid.size =3D
+> > + BUILD_ID_SIZE_MAX;
+> > + memcpy(entry->ip_bid.build_id,
+> > +       bpf_bids[0].build_id,
+> > +       BUILD_ID_SIZE_MAX);
+> > + entry->ip_bid.offset =3D
+> > + bpf_bids[0].offset;
+> > + } else {
+> > + entry->ip_bid.offset =3D ip;
+> > + }
+> > + entry->has_ip_bid =3D true;
+> > + }
+> > + }
+> > + }
+> > +
+> > + perf_callchain_encode_build_ids(entry, callchain->ip, nr, user_start,
+> > + bpf_bids + ip_slot, nr_bpf_bids,
+> > + max_size);
+> > + put_callchain_entry(rctx);
+> > +
+> > + return entry;
+> > +}
+> > +
+> > static void fixup_uretprobe_trampoline_entries(struct perf_callchain_en=
+try *entry,
+> >       int start_entry_idx)
+> > {
+> > diff --git a/kernel/events/core.c b/kernel/events/core.c
+> > index fd9f654de269..d38ffe52c301 100644
+> > --- a/kernel/events/core.c
+> > +++ b/kernel/events/core.c
+> > @@ -2096,6 +2096,9 @@ static void __perf_event_header_size(struct perf_=
+event *event, u64 sample_type)
+> > if (sample_type & PERF_SAMPLE_CODE_PAGE_SIZE)
+> > size +=3D sizeof(data->code_page_size);
+> >
+> > + if (sample_type & PERF_SAMPLE_BUILD_ID_OFFSET)
+> > + size +=3D sizeof(struct perf_sample_build_id_offset);
+> > +
+> > event->header_size =3D size;
+> > }
+> >
+> > @@ -8396,6 +8399,78 @@ static void perf_output_read(struct perf_output_=
+handle *handle,
+> > perf_output_read_one(handle, event, enabled, running);
+> > }
+> >
+> > +static void perf_bpf_to_sample_bid_offset(struct bpf_stack_build_id *b=
+pf_bid)
+> > +{
+> > + struct perf_sample_build_id_offset *bid =3D (void *)bpf_bid;
+> > + u8 size =3D 0;
+> > +
+> > + static_assert(sizeof(*bid) =3D=3D sizeof(*bpf_bid));
+> > + static_assert(offsetof(struct perf_sample_build_id_offset, build_id) =
+=3D=3D
+> > +      offsetof(struct bpf_stack_build_id, build_id));
+> > + static_assert(offsetof(struct perf_sample_build_id_offset, offset) =
+=3D=3D
+> > +      offsetof(struct bpf_stack_build_id, offset));
+> > +
+> > + if (bpf_bid->status =3D=3D BPF_STACK_BUILD_ID_VALID)
+> > + size =3D BUILD_ID_SIZE_MAX;
+>
+> perf_bpf_to_sample_bid_offset() and perf_callchain_encode_build_ids() onl=
+y ever
+> write size =3D BUILD_ID_SIZE_MAX for a resolved build ID, and size =3D 0 =
+for the unresolved case.
+> As far as I can see the table in PERF_SAMPLE_CALLCHAIN_BUILD_ID_OFFSET,
+> therefore always contains BUILD_ID_SIZE_MAX-byte entries, although patch =
+03 documents it
+> as variable-length {u8 size; u8 data[size]}.
+>
+> Is there a case where size can be anything other than 0 or 20? If not,
+> could the UAPI comment in patch 03 say so?
 
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCawYBsAAKCRDZQZRRKWBy
-9CXrAP9p8J3PfxEU1BcmlcPUVCSyirXeW04S1YI+I1IelGesTQEAgequSTj6lZL3
-T3Dtx/C1iOZc7EdcwIUwbbCvoXV9Tgs=
-=UMnL
------END PGP SIGNATURE-----
+ELF build IDs can have lengths other than 20 bytes (e.g. 8-byte xxhash
+/ --build-id=3D0x... or 16-byte MD5/UUID, alongside 20-byte SHA-1),
+matching struct perf_build_id::size (1..20) in PERF_RECORD_MMAP2.
 
---=-YumGT0JQ7SArZD4eF1gq--
+In the kernel, stack_map_get_build_id_offset() currently uses struct
+bpf_stack_build_id which doesn't carry the parsed note length and
+zero-pads shorter build IDs to BUILD_ID_SIZE_MAX (20), so
+kernel-emitted table entries currently have size =3D=3D 20. However,
+user-space tools such as "perf inject --sample-buildids" write the
+exact DSO build ID length (1 <=3D size <=3D 20), and keeping size in the
+UAPI format also allows the kernel to emit unpadded lengths in the
+future without an ABI break. Note that table entries in
+PERF_SAMPLE_CALLCHAIN_BUILD_ID_OFFSET never have size =3D=3D 0 (unresolved
+frames are encoded via index 0x00 in offsets[] without adding a table
+entry).
+
+I've updated the UAPI comment in Patch 03 for v4 to explain this
+explicitly (1 <=3D size <=3D 20, with the kernel currently zero-padding to
+20 bytes via bpf_stack_build_id while user-space tools may emit the
+exact unpadded length).
+
+Thanks!
+Ian
+
+> Thanks
+> Athira
