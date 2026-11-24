@@ -1,74 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.69
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.70
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795538718;
-	b=nzy2rd4vsTOxHiKW+wWyoJeJ7moLPtyPKx3hipwMT642E1uQ+PqQEJiPEldTrsH/41xm
-	 3Vq7DUBoS1qpx3dHqfQlUNKxXjsDY5lIKPadkMpX1LBGqT7fhPFPZgtUcV+sorTt1TIlj
-	 2ea3O4TnUa+MoCYOpcUEuuRo9nAee4bd/grKxKyFCyOxmgOJT3fEsWUBO6RHF9Ppee5oK
-	 isknMssW4g+wu09u2H3vrirAIIYKXciooFiFnHGxq69oNPhKn+t6T0RseSiN/qtx8USxO
-	 rZvUVsfwwT6qLnBJ4cXn4cfR3deAmapKuqMpKc9U4u4mQ+lSPb0wh35DFeDOK/n/FMA==
+	b=tB2iSqXqbbvGnm7tOp8nRzHI+Da0m/7ozrAvOurGNHAqaD3Pbq57TaHPWC/4YwEY/xsi
+	 amVoDrwCQkLdYigy5pd+4WWt5uUNwv4jOsGyChks2NKgQW4+VNeK8u5pCpHM/gshA0Dat
+	 kgmPgDJ24flGD1r2nhh1+dhGWitgZh9BkrMLdDCFbT4QP9hMyJYG6cRMl2+cjZQ1x2Etf
+	 DTk7IfUDHEpHE98lFX5L5GalMvG3tfNb/VUmSa67+juZrJ+dEOhePQTlg5lX9G3PF1fkE
+	 yGTy8oaNLyGsy/J5YL5Ki1ZY4c1H05jCDL7kLPtyW7iR28PHnu0LUr5qFzGY5Vd17Cw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795538718;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
 	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
 	 Content-Type;
-	bh=by0iiR0FmpORjCFtMsoAirkpYQWXRnrV8zvJq/f2IKQ=;
-	b=w1DcSeI7hsr55dGQJn6ct1pP7eCvP0yxhAx7sSSktwkkeUjFsM8+rsLCVwCYC/mcGwSc
-	 Z4d1Jcmt3pwjyCKuOT/dpcmwx74H2f/DZmngqFdD8ji4pcUYUOfzh6tv9t/b7PLcW0/ZC
-	 bmCg3CbeSXgRxIJBPKwipVPjldHm9qF0j6c0jIAJRMrLg/oJR0bNFO+nvTmKL9s9XMn/2
-	 7ZTf6EKnxGOhxXoKWDNaKkrJc31li0KMUrKznvrCIR0bRDD1ckcC+Rt9E+yKWS4EAofqx
-	 C4gweaqpSWOXMQbk/UAstikVA8Pm7HBneeZbx2rDHYNp/eV+xoMRK7uoEkfpsHoTYow==
+	bh=x0W0lUunYQLyHPu4wXiSZmeJeLTYoziWTsHAR672YTA=;
+	b=FfYJzi+FeYlWUxlZm/RtKIh/f6WiN5enBap+UMs9/QZvkQk9gG3zciri6PhGfigflEj7
+	 mFGBQtACb2JPHX1H/lOFGqHT4sx96XTPMkmcZKcykEYwS5uzIqnkJVvwWzRnjH4RbHasD
+	 6KL4l7y9jutK7ytjX6xwaYWUgK9fnWtPFzjtGn/ofHDPhtbuwF6+EH1CaPXNKM38zkp1x
+	 gQ+ZNleGV6JEPbFktgSnT+iLekUB2PmS7TMXEJBsHhGqEnPcba2mf7SCwKJpLv8K+vbqr
+	 oJkkejkh9+nHlxM4RaSaidLWkI4LZisXaIpOURoQCSIHu6YczckkHiltYy4jZoXGzQw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--vdonnefort.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=AstgbQEg;
-	arc=none smtp.remote-ip=209.85.221.69
-Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com [209.85.221.69])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=YXzTgQ2z;
+	arc=none smtp.remote-ip=209.85.221.70
+Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com [209.85.221.70])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BA729606A682
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C6978606A333
 	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 16:45:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BA729606A682
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C6978606A333
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--vdonnefort.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=AstgbQEg
-Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-4a9be7586ccso2431986f8f.0
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=YXzTgQ2z
+Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-4915ba023d4so3008806f8f.0
         for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 08:45:17 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=google.com; s=20260707; t=1795538716; x=1796143516; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=by0iiR0FmpORjCFtMsoAirkpYQWXRnrV8zvJq/f2IKQ=;
-        b=AstgbQEgkgLFZmT5E4GnR2Ref2G0RkUaXmgwQZeG8sLSInYBW2IFwYVhv3aK/scFlr
-         MbcKGDjZoTyxeTW2RC3FgJNjbnve5cbCDd3UiMXE65gFjk6epP9rH2vaS9TY6ndK3q4d
-         VtmNfQj6uIt2a1e9HiFfYH3wrocby/uht6FBK/3Kd2g/ihdUh356m4WSDTcB1VWI2iJQ
-         C8I+0AyaMgCPe+6vrohAJhdS9J9JHnO8Iv8zGD4UlffjBmoHRZc9Lkse9EnuqSAQhLbm
-         OcNmkrmApWEcWJfRgD7DUMB+O5kjuA3GhAxFxFtQ72OPTVvOBBnWXx2a+BegwpEq1Dml
-         J5lA==
+        bh=x0W0lUunYQLyHPu4wXiSZmeJeLTYoziWTsHAR672YTA=;
+        b=YXzTgQ2zkyGWm0MYqrEYBKRuwO1JbbfQba/sWrFLt0v6aNhPFc3Y5+dPru5ZupW0pJ
+         Vq8Jpq4lc6OjmnBSQ8vIDwnEn6h4hd44aGuKkiRmwSnh6tRVX0IGKPFio1mQEWJeOQCZ
+         0X7uuAzUjrsw7uYd+zzjHlvbn33+YeYqza2LL9a0+DlGWo8mWAyvTuWM9xoDnZxh+L3t
+         yof93HlBuErO6Mrn1+JE4Sr0hRElk9qEMVMWENZPdHJ/vEwR2i2Zs4sgi+jAO6O1yu6a
+         ws0Try+3KQpWe/7O0XTQIRGSsKpB9TIxrqQZZm28+8Xudox8t8gOns/Ei9f7YRYcQwOU
+         RuUQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20260707; t=1795538716; x=1796143516;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=by0iiR0FmpORjCFtMsoAirkpYQWXRnrV8zvJq/f2IKQ=;
-        b=ygvZUidnLaSTwC1hqA08QvoUWyA+2GCDKzwEMhedlrkVJbkLVjEkWUxTeD1CXMHR3Q
-         epBtQmecyGCWlQXTObX3IfJzOGJO/EWjDtuJmc0JJGjXCAXAuFw8EiG5yIeG1/XgM9dN
-         Z9st/p80m/yCgDXnRgidILICOIzee3s+AiITimAGpkcRteeKkInxF6QuG+lAVLat1vKy
-         xTbKL2TXdu2y0RuVLSYKGtOitbkJv2Nxd8aEtTserSF68TZMI3xl+NHkcp5KaniHjq7n
-         MsXANFnI/SMBrFRSF2RvZrlkDRonU+SdwhYXN2l242AIRVcBOO/wYoFcSKbIp1SlKE70
-         wpUA==
-X-Forwarded-Encrypted: i=1; AL+hErFVUcLYeD7gg3JH8wyOxyN0b60l+RdtKe8dtGaFs60cJSMOZnWlI/xDy3qQHYV9uwCCjhTA72B2NhJg9Ds=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8HYX0A6SX2AGGQhfaxe6wfkmZ6rFdSMH5Y3ewJ24Av3ILaC8y/
-	qYXjLd+4d2CNeHLp8lp1jw6nCA7ehCYIu3+GIq7wHelSBidid0e2DbRvEZY+A5tLsIRQZgRCt9K
-	ZEi+8+exNYJcZG9Jdq2aFoA==
-X-Received: from wrty9.prod.google.com ([2002:a5d:6149:0:b0:48d:ee00:f39d])
+        bh=x0W0lUunYQLyHPu4wXiSZmeJeLTYoziWTsHAR672YTA=;
+        b=Ix8xQ9wrC3ZWEOq4sldydoW24hllUQ5545rdTDQXzjUulsIYftufFjxhFBdK2vBF/k
+         fJ/AaZHJSuKqV1eFC4RQmBBsmVEkfV7vZPJSl1ujcVYGwDJa8/v2E2qDf8QfrzpY/gus
+         Sk+WeSKATZfiPHF+7gkDUe6iSQCRkLNt8n0Eq7HZGcsjHKGtcWcMU+g9xf1lyOQdT9qP
+         UOAv5PQtyEe2qoLWfsMrnwCp7LgBg4srUeXlFscozhkAz3kBLGOdNuw2/P69AXJUN56D
+         opWXsvY8JqhfMdO2mxmPnxl22M00qZHg0/HDlbmYlSOhZXbL/FT3y9+vMmknmANcrHO0
+         byBg==
+X-Forwarded-Encrypted: i=1; AL+hErGpXPItpNqGDj2xQ+ryEk3wBLTRjAHONz16fAAgTccf0g6ZX8qzstTBslUtP6kYYlPWQDieSMYvYh27Zb0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8chYrYLCPZ0slVQ2adJ1KiNBYTIonPPuLqeGqVr0SwGM7m4WBj
+	Qrbw6ecu2poLwE15rEFTwlRCUaLrvK4nYH5v4cArzWuEvY+e7cyg3FLOfTZmueFvdDG5wYIYizS
+	lH3SP/zZLwUwQJcP5VP/6hQ==
+X-Received: from wrme1.prod.google.com ([2002:adf:e381:0:b0:48e:5d2f:1d09])
  (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6000:2681:b0:4a7:dcc2:a36f with SMTP id ffacd0b85a97d-4aa5a2dc7bfmr42491230f8f.26.1795538713310;
- Tue, 24 Nov 2026 08:45:13 -0800 (PST)
-Date: Tue, 24 Nov 2026 16:44:44 +0000
+ 2002:a05:6000:1841:b0:48e:6f76:de9d with SMTP id ffacd0b85a97d-4abb4c7ac1dmr34108812f8f.46.1795538715741;
+ Tue, 24 Nov 2026 08:45:15 -0800 (PST)
+Date: Tue, 24 Nov 2026 16:44:45 +0000
 In-Reply-To: <20261124164446.2371939-1-vdonnefort@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -81,9 +81,9 @@ Precedence: list
 Mime-Version: 1.0
 References: <20261124164446.2371939-1-vdonnefort@google.com>
 X-Mailer: git-send-email 2.56.1.809.ga0b61035b5-goog
-Message-ID: <20261124164446.2371939-4-vdonnefort@google.com>
-Subject: [PATCH v2 3/5] drivers/virt: pkvm: Handle a granule larger than
- PAGE_SIZE for MEM_SHARE
+Message-ID: <20261124164446.2371939-5-vdonnefort@google.com>
+Subject: [PATCH v2 4/5] drivers/virt: pkvm: Handle a granule larger than
+ PAGE_SIZE for MMIO_GUARD
 From: Vincent Donnefort <vdonnefort@google.com>
 To: catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com
 Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
@@ -91,107 +91,106 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
 	Vincent Donnefort <vdonnefort@google.com>
 Content-Type: text/plain; charset="UTF-8"
 
-From: Fuad Tabba <fuad.tabba@linux.dev>
-
 In preparation for allowing protected VMs to run on a system where the
-granule is bigger than their PAGE_SIZE, allow the encryption/decryption
-callbacks to work with the hypervisor granule increment instead of
-PAGE_SIZE.
+granule is bigger than their PAGE_SIZE, allow MMIO_GUARD requests to
+overshoot.
 
-Reject requests which are not aligned with the granule.
+Validate the memory regions are aligned with the hypervisor granule
+before enabling the MMIO_GUARD support. If aligned, then the MMIO
+regions are aligned and overshooting is safe as MMIO_GUARD is solely
+here to indicate to the hypervisor where the MMIO regions are.
 
-Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
-Co-developed-by: Vincent Donnefort <vdonnefort@google.com>
+It is possible to add new memory regions with memory hotplug later.
+However the alignment requirement is way more conservative than the
+maximum granule size of 64K. Nonetheless, add a check to document the
+limitation.
+
+Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
 Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 ---
- drivers/virt/coco/pkvm-guest/arm-pkvm-guest.c | 42 +++++++------------
- 1 file changed, 15 insertions(+), 27 deletions(-)
+ drivers/virt/coco/pkvm-guest/arm-pkvm-guest.c | 51 ++++++++++++++++---
+ 1 file changed, 43 insertions(+), 8 deletions(-)
 
 diff --git a/drivers/virt/coco/pkvm-guest/arm-pkvm-guest.c b/drivers/virt/coco/pkvm-guest/arm-pkvm-guest.c
-index fbcb57c31186..98b1026cf68b 100644
+index 98b1026cf68b..3852be6bd16b 100644
 --- a/drivers/virt/coco/pkvm-guest/arm-pkvm-guest.c
 +++ b/drivers/virt/coco/pkvm-guest/arm-pkvm-guest.c
-@@ -20,35 +20,19 @@
- static size_t __ro_after_init pkvm_granule;
- DEFINE_STATIC_KEY_FALSE_RO(pkvm_guest);
+@@ -12,6 +12,8 @@
+ #include <linux/init.h>
+ #include <linux/io.h>
+ #include <linux/mem_encrypt.h>
++#include <linux/memblock.h>
++#include <linux/memory.h>
+ #include <linux/mm.h>
+ #include <linux/pgtable.h>
  
--static int arm_smccc_do_one_page(u32 func_id, phys_addr_t phys)
-+static int arm_smccc_do_range(u32 func_id, phys_addr_t phys, size_t size)
- {
--	phys_addr_t end = phys + PAGE_SIZE;
-+	phys_addr_t end = phys + size;
+@@ -70,17 +72,50 @@ static int mmio_guard_ioremap_hook(phys_addr_t phys, size_t size,
+ 	if (protval != PROT_DEVICE_nGnRE && protval != PROT_DEVICE_nGnRnE)
+ 		return 0;
+ 
+-	end = PAGE_ALIGN(phys + size);
+-	phys = PAGE_ALIGN_DOWN(phys);
++	/*
++	 * It is fine to overshoot MMIO_GUARD requests. Its sole purpose is to
++	 * indicate to the hypervisor where the MMIO regions are and we have
++	 * validated the alignment of the memory regions beforehand.
++	 */
++	end = ALIGN(phys + size, max(pkvm_granule, PAGE_SIZE));
++	phys = ALIGN_DOWN(phys, max(pkvm_granule, PAGE_SIZE));
  
 -	while (phys < end) {
-+	if (!IS_ALIGNED(phys | size, pkvm_granule))
-+		return -EINVAL;
+-		const int func_id = ARM_SMCCC_VENDOR_HYP_KVM_MMIO_GUARD_FUNC_ID;
++	WARN_ON_ONCE(arm_smccc_do_range(ARM_SMCCC_VENDOR_HYP_KVM_MMIO_GUARD_FUNC_ID,
++					phys, end - phys));
++	return 0;
++}
+ 
+-		WARN_ON_ONCE(arm_smccc_do_range(func_id, phys, PAGE_SIZE));
+-		phys += PAGE_SIZE;
++/*
++ * Return true if the MMIO_GUARD service is available and if overshooting is
++ * safe, which it is if the memory regions are aligned with pkvm_granule.
++ */
++static bool __init mmio_guard_available(void)
++{
++	struct memblock_region *region;
++	phys_addr_t prev_end = 0;
 +
-+	for (; phys < end; phys += pkvm_granule) {
- 		struct arm_smccc_res res;
++	if (!kvm_arm_hyp_service_available(ARM_SMCCC_KVM_FUNC_MMIO_GUARD))
++		return false;
++
++	if (pkvm_granule <= PAGE_SIZE)
++		return true;
++
++	if (IS_ENABLED(CONFIG_MEMORY_HOTPLUG) &&
++	    pkvm_granule > memory_block_size_bytes())
++		return false;
++
++	for_each_mem_region(region) {
++		if (prev_end == region->base)
++			goto contiguous;
++
++		if (!IS_ALIGNED(prev_end | region->base, pkvm_granule))
++			return false;
++
++contiguous:
++		prev_end = region->base + region->size;
+ 	}
  
- 		arm_smccc_1_1_invoke(func_id, phys, 0, 0, &res);
- 		if (res.a0 != SMCCC_RET_SUCCESS)
- 			return -EPERM;
--
--		phys += pkvm_granule;
--	}
--
 -	return 0;
--}
--
--static int __set_memory_range(u32 func_id, unsigned long start, int numpages)
--{
--	void *addr = (void *)start, *end = addr + numpages * PAGE_SIZE;
--
--	while (addr < end) {
--		int err;
--
--		err = arm_smccc_do_one_page(func_id, virt_to_phys(addr));
--		if (err)
--			return err;
--
--		addr += PAGE_SIZE;
- 	}
- 
- 	return 0;
-@@ -56,14 +40,16 @@ static int __set_memory_range(u32 func_id, unsigned long start, int numpages)
- 
- static int pkvm_set_memory_encrypted(unsigned long addr, int numpages)
- {
--	return __set_memory_range(ARM_SMCCC_VENDOR_HYP_KVM_MEM_UNSHARE_FUNC_ID,
--				  addr, numpages);
-+	return arm_smccc_do_range(ARM_SMCCC_VENDOR_HYP_KVM_MEM_UNSHARE_FUNC_ID,
-+				  virt_to_phys((void *)addr),
-+				  numpages * PAGE_SIZE);
++	return IS_ALIGNED(prev_end, pkvm_granule);
  }
  
- static int pkvm_set_memory_decrypted(unsigned long addr, int numpages)
- {
--	return __set_memory_range(ARM_SMCCC_VENDOR_HYP_KVM_MEM_SHARE_FUNC_ID,
--				  addr, numpages);
-+	return arm_smccc_do_range(ARM_SMCCC_VENDOR_HYP_KVM_MEM_SHARE_FUNC_ID,
-+				  virt_to_phys((void *)addr),
-+				  numpages * PAGE_SIZE);
- }
- 
- static const struct arm64_mem_crypt_ops pkvm_crypt_ops = {
-@@ -90,7 +76,7 @@ static int mmio_guard_ioremap_hook(phys_addr_t phys, size_t size,
- 	while (phys < end) {
- 		const int func_id = ARM_SMCCC_VENDOR_HYP_KVM_MMIO_GUARD_FUNC_ID;
- 
--		WARN_ON_ONCE(arm_smccc_do_one_page(func_id, phys));
-+		WARN_ON_ONCE(arm_smccc_do_range(func_id, phys, PAGE_SIZE));
- 		phys += PAGE_SIZE;
- 	}
- 
-@@ -118,6 +104,8 @@ void __init pkvm_init_hyp_services(void)
- 		return;
- 
- 	pkvm_granule = res.a0;
-+	if (pkvm_granule > PAGE_SIZE)
-+		pr_info("pKVM: sharing memory in %zu-byte granules\n", pkvm_granule);
+ void __init pkvm_init_hyp_services(void)
+@@ -108,7 +143,7 @@ void __init pkvm_init_hyp_services(void)
+ 		pr_info("pKVM: sharing memory in %zu-byte granules\n", pkvm_granule);
  	arm64_mem_crypt_ops_register(&pkvm_crypt_ops);
  
- 	if (kvm_arm_hyp_service_available(ARM_SMCCC_KVM_FUNC_MMIO_GUARD))
+-	if (kvm_arm_hyp_service_available(ARM_SMCCC_KVM_FUNC_MMIO_GUARD))
++	if (mmio_guard_available())
+ 		arm64_ioremap_prot_hook_register(&mmio_guard_ioremap_hook);
+ 
+ 	static_branch_enable(&pkvm_guest);
 -- 
 2.56.1.809.ga0b61035b5-goog
 
