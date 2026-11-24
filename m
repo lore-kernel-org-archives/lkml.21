@@ -1,101 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.46
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795486960;
-	b=TFgTGMABYfGXDixYO0P+wOgkL3Gdt09q2g0GY1q8U9ASLuQBoy2DoHpBr9SMHlzvgeYr
-	 LZ4CweOGCLmb9DvWcUCsOXjNClywZUwtGQfIMfxJE2u8S467JsS3vvBzTQOIPFQTm4Cl1
-	 IVQQqoSwh/15Vac9bw6JXO8gaHxoAtOlTUq0UTfUsCW9Hy8r+wHK5acTxeXOvtwrI1IqJ
-	 /kbUCk7cr927gRjga4AGvRtOePoNPSHtOeWdj1zqx0Y+Ci+xWvndUvKDLtTgl6L3KLGYP
-	 Pi0Aaze2sR/wbZkroEpEkCF76r0sPoV/FOd3M277wjBPDjdh4Fw3N3nlWLDAq44+ozw==
+	t=1795486970;
+	b=RSyP1tlObxilIiyrF84nrNyvXHP3/VVmazC08/VNAkaaGh80f628JpgCaNnNeDZroBlO
+	 dsTiyAolUfwMBlICONHqe+Bk7pPZGx4ZiReC/OBAfo7QEEc2+Th0g/MJq4Q51x92++M0Y
+	 cou2Eb8OtqEjw1MDiNOARl3KAMvC3deJRl2kKMO+L5MLN80pGkOWdwfKWd2aFwq7b8Cnz
+	 A4pDVEKvhjWFfwBE+EcOCeB0X8bNksYLSVbCWu8NEcO1jHbiiL0UbgPCgHspIim6Iir/j
+	 Jrlz+xBUx1r2jkxfHvLHZOgtguJ+8AcLGbglkSqL5a+jTQbYhIGxJKJ2m+2hq4IIrOg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795486960;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795486970;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:
 	 Content-Type:Content-Transfer-Encoding:MIME-Version;
-	bh=Al/HgAlWfQ6iceuFxEpzqibnoieoIm43yof5XL41sFg=;
-	b=D7lBqZKo9MystSrhnwD2Rj+Xs+a2qnBfBvH+wTmoSARylJFdC8qu8L3fkGHgQYbg4Ey8
-	 fSd0Wl//Ut9PLtQV59HVfrC5cz7IAOnzV1aG/50vX2prCmQ2pghp3NarxGPxsKe5lENqi
-	 vR19cjkEM75McBO/k5KG6BEmQr8VjAt/7Ce6qsTaUmOaMi3w++RaSDsjc/Jai0BE5NoKB
-	 Beh/s38gyZeauGKXRs9n01uHfxfIHnBwCyu6p/jEupyFr5VvJzHsG6OklnxvN8BgH5v+t
-	 dCJZLPLbQYFlK7woUjN03cl70+92KlfzLmwuXqnIsvXkhsg8iieqI7+5WQTSV9t2qEA==
+	bh=WvgO7pqnsYsS4en6wj3vVV2RD6XhcMibM3J3Ihuie2c=;
+	b=w+KeetF+jIvHTERTEpSORR8R89DalAnUDWGPvPU5FIvsjhN7sbbeRqcdTxoj2QBsogOm
+	 Lrj4uRtJoD0l1/rslVNZ8JGUxx4uEBuAz4S9ZGavUvLky2ZLVCCOIvUKjOa29ZCqRXB/i
+	 Q+uXtM8O0ND946QQ8Ma7NSKHYDyd42uyOSDr58vea5WbDMQj4nYNVsT0onDhQz4LXTcWD
+	 UzrKbCohKoLOXviwRGJO6mFUSiY+muUhQKm64cr5czpob11fggSNoMr/ERy8C6ppDE1kv
+	 LOvZ3J17TJbKV/TVY1DVwXvqwQS6zgOLsV4evekoSlV2UE55RwXjVCXGyk3w+sBikJA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="WevY/F63";
-	arc=none smtp.remote-ip=209.85.216.46
-Received: from mail-pj1-f46.google.com (mail-pj1-f46.google.com [209.85.216.46])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=pxUXIRv3;
+	arc=none smtp.remote-ip=209.85.214.172
+Received: from mail-pl1-f172.google.com (mail-pl1-f172.google.com [209.85.214.172])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D54CE606A322
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 02:22:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D54CE606A322
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BA384606A321
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 02:22:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BA384606A321
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WevY/F63
-Received: by mail-pj1-f46.google.com with SMTP id 98e67ed59e1d1-3b4a93d0814so767291a91.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 18:22:39 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=pxUXIRv3
+Received: by mail-pl1-f172.google.com with SMTP id d9443c01a7336-2f04ad2c46dso21966975ad.2
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 18:22:49 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795486959; x=1796091759; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795486969; x=1796091769; darn=vger.kernel.org;
         h=mime-version:content-transfer-encoding:content-type:references
          :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=Al/HgAlWfQ6iceuFxEpzqibnoieoIm43yof5XL41sFg=;
-        b=WevY/F63WgcrmmjbcFRa0wU3f79Y++u2Ms6yFCScdMmM3rFtSjM15hePh42gU2Avph
-         xJ5Mz1CVB0BGai1lMtqC6gRZV4JEt+dDqS11BQBys5KQUPH6Up+/mRAZnQ6au55fd/iT
-         uEDLwUJmYPXXLxnO0OPF+UKd6OXxunLK6kmj/YiQf0u//WJgwjd78uMDME2hZjjJUL8Y
-         gxKqgqlrpv7aoN2JgLa4V7KyM0FZviXfW3B+gzhkLTvcUHwSjRLKsPHcaQtpIlYBwO7G
-         PkpxGDFWGDZ5ux9WV7vK7FfbLHN5gGbucVGahYfKpdVU9CEhSNKBNT9cr3CbCa/ir0N1
-         WFwA==
+        bh=WvgO7pqnsYsS4en6wj3vVV2RD6XhcMibM3J3Ihuie2c=;
+        b=pxUXIRv3cNSB2fqhDzEq++taJVOXNxAsvpFFq4Z3FNDeR5u30E+syPLebzg1eYZKLf
+         YGgYq1IXu1w62prUSCJ9yS3sMns40V8A436JulB0ngMbk7ECtZfjPaqS/vTAJ1sE8S51
+         sVrMvuqoDds7otX+oYwC6TJv923S32/I76VkOCJBgwbFe/L1yxQAcMY61cAmzBhRGo/U
+         YZr9wQjKfOZ8b/L89E+4OMPvLd/igSbCy7sTLVtW6mP35fFVc1ocWwc/K0ljHipxMWYF
+         74mZC4tK5qHo+jk+yhL2WqLBVAWy4aP3Ne2q2m9DU8bVoKabcH75oBlkAeKApk2cgDam
+         UigQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795486959; x=1796091759;
+        d=1e100.net; s=20260707; t=1795486969; x=1796091769;
         h=mime-version:content-transfer-encoding:content-type:references
          :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=Al/HgAlWfQ6iceuFxEpzqibnoieoIm43yof5XL41sFg=;
-        b=BcCuMO7g9wA36YFi+lB3E44g58/xd/a9bpslNfwHr6aH3NCXxEhEjPjizp+LBfDjfH
-         Q4rr+gLoPQDwchjGzTcfJEq0qQyVIwuoOXm3OViqsG7HXOCUphlcUJqWp2ZKvHxkd6TE
-         P8Uo0DaoVEQcJn8ryWL47Y6BegKyDWfg592/m5umBg/x8lA58HHsDmpq/6u9iIMUPbht
-         6i+dAPmZ8wtxMcdDNyTADTQPr4OmeYT29uFRNPd8dmNUoWhndY8RGzITlLUapv3REJLZ
-         kSdVkAj0xRU8y93hJgvcwo2EkuBSk+pZx7fOOlyxY4HeSgMErGnzCR40X841uzZf9vlF
-         czYQ==
-X-Forwarded-Encrypted: i=1; AL+hErHT5bfWv/Wzuj57Y4CtDTtCGXzUXXbfmzPFGYktziLWH1+Mc2jdmBa75utZrXA05BXobC02PFklNnIGmDk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+X8rKq41aP6eW9pU/muJ43Lc+k2ytZ/x42QQ1k/flSWGs8yZen
-	mJphrKDYtoTQNkVpGnPy05Ug1TpVeyqDw25gW3rzegl1Tr8JhOaNkQdO
-X-Gm-Gg: AZFdTZeVEv0rWNyF6ETtSdzx56OZJxAHmeALGScAFc7hx+gtz6+4l2lznH+54YIS+Yq
-	f3XfkqKhIl0pBVnNLy8as+AEahCWVCNhveFuqB+VG2Hg7ta/2LbWVWA+FWQtmOuaaHfmYlQKjLl
-	R1qjShZP340dcyqmulvB024s8koOtgEFxEdC19VN/+76pOfnvU2IKM8pxGK+6E7TgYQnQX5d/CN
-	zX56Ae3sd9Otxomvz1Hbnhpa+gSsWBxhhUBgCxGVyUL2ogC4wSylHSFVGcRM2IiJjuadb7DYI5B
-	xr9L2dBZ19q3I9SKab1fYLZ+ZIPdb7bnUPZsbaOnpDkdbNRO7BmIWRAEcCyEkZexHF2jKY9iru+
-	dvjZFUMB7xRF47I3JVCfShWQxpxQR6MKByWNIibubRlks0uXmsSIGUtnuxgjZaBhN66kwT6t9rx
-	NhCdVm/fVj+RDXq21iqqsz99iWNwKqEPnwynMyQ/pRs1tgccVXOOQy1a6N7Xdd6qfMOdFjm/wks
-	Sl7fBN1YDN0FGRh0RGp/Q1jE6cxgdK+wA/BOL7f6omOb07uDfOQTvnzJoZeP0rVBQ+XJ+reSdJu
-	XF/l5PSbLEp/Y8kBYn1trmhgFCBe7Xvz1qL7FNEyVsUMRR/QM2gLpRJOhFkMCyagLQSt1jO87L8
-	bKXdDNNBxjp5gkW/EUbJX5CDN
-X-Received: by 2002:a17:90b:1c08:b0:3b3:b632:7f2b with SMTP id 98e67ed59e1d1-3b41c98a3fdmr10861646a91.51.1795486959115;
-        Mon, 23 Nov 2026 18:22:39 -0800 (PST)
+        bh=WvgO7pqnsYsS4en6wj3vVV2RD6XhcMibM3J3Ihuie2c=;
+        b=t6BkMhtJcWjgSKjVRGqsGqRB+oG5tEO1bLEDVQZYOwvG+ikyYFFnWFzDmQGT/LXaR5
+         RQUsX/xPnSMuXXxi4AQDo8VWIuEWJIMCoKx2VyEgdNKo6HW0MrxncZNWmSl2t4M5HZpy
+         q1Gp5kxWsuTJzEg1q1JANIKIgW+WsNTRk3XqdfL7gej1RngpQiA0WEnvRZ16q5CCjOk7
+         hR/c00wzt1WoQ2nPbE7+K4hKbhT/kSXM54H+hBo1w3LVQaqfmR7+KW3C4QSofD23G8zs
+         BSw72btxhBjgjUPShMqPjMde9cN/57RWxc75Pezc6077R1D2bOHWSPORmEQ0bLF+R+GA
+         y+eA==
+X-Forwarded-Encrypted: i=1; AL+hErGxO42kPpvHoJvwb9QaKczi7cmMSeAP9HzPKzFMfqEVjIFS4myQEuqpcFtIxUHRu62dDtbhSzvKEf1qvOc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/nlqn6lvDJT/TdDQsBUw2xUqX/4FZGQd5iOZkM5r5am02KnjjA
+	CoBLVfgk84FveshI5VLC69QVhA2j7ozcSsMAQFDDiYFgImw9RF5Ytwwq
+X-Gm-Gg: AZFdTZc6nxp3SnQvrS7+NE1I5xOKB6nhoCY6GQLdDef574VrSmUIU8V+WFpN7kdugeN
+	XcQoIoQtmW02mHjwafbzBARuEvLRIKqTpUMSWtghXmJ1A5DvqpgYjfy5wpg2KCaWzuTW6SkQc9m
+	ZucanUkFvL7V05Cgh1d8MxoQ9ir0hz5Bz0Ijm3N5TsKcEKUW2/Gq8TlwmcfRawEZJ6GrXKdRy+O
+	c6TLMe0tqv/eQJ0rmrARVaqlq+2SSp0hJVPcdZGv3sa7VJIZJYi94jYgjjOi+Ggg2L0My8cYQNp
+	FDGN7TzKit8cqHN6FkFZxFD356ltQw7+B1LENRQBKV6NraQYnIA0CRj03EuZlHKOkXalzHr0jtZ
+	NDJW/qU5Y2vETri3UZNZpRkjbK1EyQcQjAYv3pxkntyhnjQwWv/HNToO95yJOubjpYIm4XBeMTg
+	7lfoz4R6dOFDnmmE308QuFc3cW9RFZxiXutMfsyNyn7rYp6pK+7IGM1UqopKO++F0Rb934Rr6qV
+	b1pVD7wBFZyn19s4/6U5ia0v/13wlY4wKZy/RtDAoPCXgNm02SHLMJJUIboZ7RZvYk/gOdwTR1l
+	1O/OcLeVJF5Fd8uAEziphe9FlklQGHlWEr/G9RCJqOTYG0t4sok/c1la7BpM6CG3lTfseUhv6UU
+	vmq4ZTnKupBQ/Kj4ckVlfFa3/
+X-Received: by 2002:a17:902:e845:b0:2ed:3eeb:b0db with SMTP id d9443c01a7336-2f03f17d16fmr137924885ad.17.1795486968838;
+        Mon, 23 Nov 2026 18:22:48 -0800 (PST)
 Received: from [127.0.1.1] ([74.176.208.23])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b44b6fe711sm8425496a91.1.2026.11.23.18.22.33
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f04f6049dfsm51794725ad.19.2026.11.23.18.22.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 18:22:37 -0800 (PST)
+        Mon, 23 Nov 2026 18:22:47 -0800 (PST)
 From: Yaohan Li <shunsheng1218@gmail.com>
-To: Niklas =?utf-8?q?S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>
-Cc: Rafael J. Wysocki <rafael@kernel.org>,
- Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>,
- Lukasz Luba <lukasz.luba@arm.com>, Magnus Damm <magnus.damm@gmail.com>,
- linux-renesas-soc@vger.kernel.org, linux-pm@vger.kernel.org,
+To: Mika Westerberg <westeri@kernel.org>
+Cc: Mika Westerberg <mika.westerberg@linux.intel.com>,
+ Andreas Noever <andreas.noever@gmail.com>,
+ Yehezkel Bernat <YehezkelShB@gmail.com>, linux-usb@vger.kernel.org,
  linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] thermal: rcar_gen3: release the IRQ handlers before
- the zones are freed
-Date: Tue, 24 Nov 2026 10:22:31 +0800
-Message-ID: <179548695107.1834709.12105107414276177799@gmail.com>
-In-Reply-To: <20261123064745.GD3898744@ragnatech.se>
-References: <20261117145348.1092528-1-shunsheng1218@gmail.com>
- <20261119022926.1493582-1-shunsheng1218@gmail.com>
- <20261122144813.GB3898744@ragnatech.se>
- <20261123064745.GD3898744@ragnatech.se>
+Subject: Re: [RFC PATCH v3] thunderbolt: cancel the queued control requests on
+ teardown
+Date: Tue, 24 Nov 2026 10:22:42 +0800
+Message-ID: <179548696261.1834925.3608072470968351391@gmail.com>
+In-Reply-To: <20261123055240.GN229695@black.igk.intel.com>
+References: <20261119075557.3399335-1-shunsheng1218@gmail.com>
+ <20261119111907.3616041-1-shunsheng1218@gmail.com>
+ <20261120042721.420468-1-shunsheng1218@gmail.com>
+ <20261123055240.GN229695@black.igk.intel.com>
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailing-List: linux-kernel@vger.kernel.org
@@ -108,26 +107,16 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Hi Niklas,
+Hi Mika,
 
-Yes, I agree.  I have reworked the probe to look up the IRQs first,
-initialize the sensors with IRQEN cleared, and request the handlers after
-all the thermal zones have been registered.  A devres action disables the
-interrupt sources before the handlers are freed, so ->remove() is no
-longer needed.
+Thanks for the feedback.
 
-Since the thermal core copies the zone operations during registration,
-set_trips() still has to be selected beforehand.
+I don't have access to Thunderbolt or USB4 hardware at the moment, so I
+cannot provide the hardware reproduction or the regression testing you
+asked for.  I will put both RFCs on hold until I have that evidence.
 
-The current version retains the no-IRQ fallback for -ENXIO and propagates
--EPROBE_DEFER and other lookup errors.  However, if IRQ lookup succeeds
-but requesting a handler fails, probe now fails instead of falling back
-to polling.
-
-Would you be happy with that change, or would you prefer to retain the
-original fallback on IRQ request failure as well?
-
-The reworked patch builds on arm64, but I have not tested it on hardware.
+I also take your points about keeping the fixes small and writing the
+changelogs myself.
 
 Thanks,
 Yaohan
