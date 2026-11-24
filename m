@@ -1,99 +1,71 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795542474;
-	b=CzSF+Gks9As2gFjWkbKC7f39QKNNsJJIk3gReZd37SEULvblWYsctpxvDj3Qq14B0Itb
-	 P7K5fB14IZR7nF9VLUqxaT/ySKkudjpWC2jc7xTU/Kq3TUvt8bzoTTW7Z4emtz0NJtSIN
-	 WOGQCIgKL0pKNVkku/LPvyktF93xcQ9sj3F27BFyTUGVLubOeXhmouCwLhlAkVH9sFfMa
-	 lzjB82sZDAl1j+qsubQa+ZtJKjCox7N2b39I5XVqMXz6sQ/KpjLol2d+r5rQiKSmenqBR
-	 UBMYpZXkxhAztWHR9VPHyFLgxwW14+znoMNvw7+fBtLPSKNEkUhHMav8+8OfUC1/sFg==
+	t=1795542522;
+	b=tfwRNfiZ2mYuSpavG9tGu7QF9ZiZIeWfneQvaQOgOz3xgiKKK0VrvgOrdkflmqvquuVe
+	 e2Pk28ClBlOSyPoJUL1Kbc+1im9dZi9UTUO4bl5zMGTTg99+LZbnp2xK7ovKOqv2bwkIi
+	 665A15Cxt2cq22HVCbw1hfbdKybmOOjS1cRb2Ki4rG2Bb6kUA3zs1jj6K5nKXSgiOFtxH
+	 ammPhwG+hWYf0QVR8C8q29tvnXxDmGQEpDsdHYwga0IykhjR4PwxIVL7kGdpD50nJ/+IA
+	 Uz8Pe9hSIB5+UIZnnyvyKg/5QZh/dpDcAqr8MgsP/y8fhHvor16BCcCzmBqFhwjkXJQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795542474;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Received:X-Forwarded-Encrypted:X-Received:Received:From:In-Reply-To:
-	 References:MIME-Version:Date:X-Gmail-Original-Message-ID:
-	 X-Gm-Features:Message-ID:Subject:To:Cc:Content-Type;
-	bh=H7ztE50hZokGuEnZu7uhKJFIAPGf1iIgqAITsfIe0uA=;
-	b=0i6LjYUOxTZpY1zqH+swcwuZ5X4mSF8BxsJW5VQkzceW1cU/kaVTtU43X6yynXBgn4Fa
-	 RXtA58/W6DaXWsvEcboX0Vr47yYqX1Ec1qUQ8zIErhS6aSndYbpT344JCMzGfhOMuB7g5
-	 Bz8cZiVF8XsQ+ljqnHQ5v5BVNZqs6ZugE5Flhjz6LbxkotJeY7FYmj+hOD1AGN1+zQLTB
-	 sea4lJMoTiuTRqsTNdFAU8WwmWmiE6WDl+9gOl7FQwYL0DbyXKES+8mzDtJPJPp35RCk5
-	 eboWFpJswUS9GwU32m7dTKwgYbvCe0zzNcTlEM3u60DxMSSYmXo4cB89gfpPVToYlGA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795542522;
+	h=DMARC-Filter:Date:DKIM-Signature:DKIM-Signature:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=iAxXNBw21OAhqAVbpLzIkcF+I6WgYNRYnju4tgLuhNo=;
+	b=ogoV68Y6/UurZKUIZAO50ODyOnlNdqcGJ/sb0dzlD15bv/D5mltA3WRzWEfZqHs+BoUi
+	 ux8TnBKmiqKi7pZH9vDxnYrja8B2zAbaW25ZjRLHnUtTXCQKJNH43TzQzMHwWqx8dMdnS
+	 0WTfE1vlL9LO3SwAcMhP2Kxl5O4LGacUT5JuyGoN+kc0/nDZqVaqjPdPucWHZ8YMDlGyB
+	 B5bOYm+S3whXgyJVc3A4KnakKWgxsTogK24ZOmUA6uAWN6jBwrP6u2M6k3GMqlxGmaben
+	 5khyg+C30sHLY6QKvQVh+OvY0v/gutIyGwijdjkwQ5dntWqzYVPMTI0HypJ3bjv4B9w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=linux-foundation.org;
-	spf=pass smtp.mailfrom=linuxfoundation.org;
-	dkim=pass header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=google header.b=BItKy6yl;
-	arc=none smtp.remote-ip=209.85.218.51
-Received: from mail-ej1-f51.google.com (mail-ej1-f51.google.com [209.85.218.51])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=linutronix.de;
+	spf=pass smtp.mailfrom=linutronix.de;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=o9oSUpqr;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b="378Q0/Lt";
+	arc=none smtp.remote-ip=193.142.43.55
+Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9E1F0606A321
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 17:47:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9E1F0606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=linux-foundation.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linuxfoundation.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 21D6B606A31E;
+	Tue, 24 Nov 2026 17:48:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 21D6B606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=google header.b=BItKy6yl
-Received: by mail-ej1-f51.google.com with SMTP id a640c23a62f3a-c50cc7540b7so672344966b.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:47:53 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linux-foundation.org; s=google; t=1795542472; x=1796147272; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:mime-version:references
-         :in-reply-to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=H7ztE50hZokGuEnZu7uhKJFIAPGf1iIgqAITsfIe0uA=;
-        b=BItKy6ylqxo/WGtHCOnn+vsM/6jVBxwZRbHtjPi8BCdVu0Adc1SaGbQoZSTwCEu07l
-         U4ujjG6s/0/fuseoaS3Ko4ZeHlRy9A3sfQrYyj1YQx+8IcFQHy+if5ETXoHgM1qv4B/2
-         A0qtYbZ8J8VR+nxAHDhwPiiwEuhToGrWe2t7c=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795542472; x=1796147272;
-        h=content-type:cc:to:subject:message-id:date:mime-version:references
-         :in-reply-to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=H7ztE50hZokGuEnZu7uhKJFIAPGf1iIgqAITsfIe0uA=;
-        b=KSdH0ATkwvrRSOecc7EpaoBwlGtjUUYVu1FYaa44417m7f9ByRrtHQ36PzXclLNmYn
-         mo6Gqq5oU2x5b9FmRg/AbW6U1IGkhi8j2Pt5mpsDWlkrKzS56bqgXPzeHjKNvnBr2uJm
-         LXWZ2pXK05+RCeKvJM+oNnLowjH3p2WOYXldjiBkxyaq26XEFQYR9DqiXdGHPSK4wsSW
-         XsrPdFwXeWno79KNPxHg4VBnyote89//l+SoCC06DvE2tVQz5OSoC05mS2qIiW/JIK+8
-         9WpSIjTvGxn8r+C6VbohwAFrOWVEQ40Yzqp0z3yymIxnmkNtF3ueuMke+U8En18DY5gi
-         zsXQ==
-X-Forwarded-Encrypted: i=1; AL+hErFve1m2P40WCcqNtILWGHmD7A6yD63K+HCGqoNa7XB73Cs+Mn9xKTz6Bp6TK7K4aIivZVR/IvdXraFQhrk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+8piAAXAmnz1NMYqeOY288d0BqfxF7qZLpJ2QxcNIq9zQiqhZ5
-	uU9CJQntGlwiZexpLOOvr+x1Td4mCszGxrPpDMKSMAGWwdBJy6X/0W+1e3rmhXU5ZQ+9JsCvN5l
-	kfK76Lo7IDA==
-X-Gm-Gg: AZFdTZfbChzwIH+RxUzrkIzg29llRv4s1FJ6/DjqETSNNtO/Ih8Bg9ms5AopH4+lKpg
-	FE4xXM8VFeziM85EPvYnhwIdNrOvm/Ujwd0J1ts43IEcrLrEOzX+F48eM0/QoFVXeRZ1yboybmq
-	Vdx21yT3qNujl8QYcuyiAsw4kbuQp+54qQLWgxw50HQo2YidYfVt981Js7GUrURn5J9jDDWsr0S
-	Uy6mZNCwe+ShEaGMqcSkv269CQcgckYR2tV1/7kyCq++lTzy4d0ekGZncKVINy8lalFjE6Pv9XE
-	3UvAmHqVATc2LJJvVtMVAWSvUjxWFkXi5UFCD+oSMy1P9l9tODm173eaPOv+goZuExT+NrAJdAN
-	qZiARl7BcDydqfuNcUNxV4hQL9lACzxOICFvUD6gwNOkHb67lYFADO/nXQphROJNHjJWoJRLzKG
-	xxUqOSFsAEg9u4dl5AHPOONPQYbhdopjq5vpuNmzX4baLb7x8R2o4Zoa3hiW3dbg7wzRhz9nC68
-	1P3xARqoOMwvRANfOI7kpdfV987nB4Gkp4v00ldHk10nUsvDuEND1qzxzD72twQLKeLxkWoISvB
-	he5jZ6wsBQW8cw55iLJ/3IY3488fgllNiL0OlVrc48ioEkrFa6q2SYJCbC/XtKorbtSJmc8TlMw
-	wmVg=
-X-Received: by 2002:a17:906:1b15:b0:c51:1e51:6e5a with SMTP id a640c23a62f3a-c513a5e2100mr1027788066b.15.1795542472028;
-        Tue, 24 Nov 2026 09:47:52 -0800 (PST)
-Received: from mail-ej1-f51.google.com (mail-ej1-f51.google.com. [209.85.218.51])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513aeabdcbsm538876066b.46.2026.11.24.09.47.51
-        for <linux-kernel@vger.kernel.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 24 Nov 2026 09:47:51 -0800 (PST)
-Received: by mail-ej1-f51.google.com with SMTP id a640c23a62f3a-c50cc7540b7so672339866b.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:47:51 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErG8lyX4vqaQWkc4kiGgqWyKsvcNqGSc/QkCLh3RU1F04iGSyns0irrUdTBUI1qZprFU9zAFjPXOSIyBn44=@vger.kernel.org
-X-Received: by 2002:a17:907:940a:b0:c50:94be:22ab with SMTP id
- a640c23a62f3a-c513a805245mr1446646966b.18.1795542470849; Tue, 24 Nov 2026
- 09:47:50 -0800 (PST)
-Received: from 425495914135 named unknown by gmailapi.google.com with
- HTTPREST; Tue, 24 Nov 2026 09:47:48 -0800
-From: Linus Torvalds <torvalds@linux-foundation.org>
-In-Reply-To: <CAHk-=wgYc9vFEmyV0Ch_e49j6GOhUCMQMnMV4f1FLLvumZOmRw@mail.gmail.com>
-References: <20261122-b4-sched-wait-intr-head-v2-0-4a764b64e8ce@columbia.edu>
- <20261122-b4-sched-wait-intr-head-v2-1-4a764b64e8ce@columbia.edu>
- <CAHk-=wj_eqNh+gNhCQh3exrL5Pmo5hbZBcL0W-4Ah_Nw0Kegzw@mail.gmail.com>
- <awWSwmvaTwBxfU-r@redhat.com> <CAHk-=wj3GCXZohdFWWPAOkC_LHno4X0oQW+0sQFJzRMvjpODUg@mail.gmail.com>
- <CAHk-=wgYc9vFEmyV0Ch_e49j6GOhUCMQMnMV4f1FLLvumZOmRw@mail.gmail.com>
+	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=o9oSUpqr;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=378Q0/Lt
+Date: Tue, 24 Nov 2026 18:48:37 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1795542519;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=iAxXNBw21OAhqAVbpLzIkcF+I6WgYNRYnju4tgLuhNo=;
+	b=o9oSUpqr51DMerEkCYl2Zk2l2Yc1flM2MDtCTpSw3Fp3rz6kv9jCmEQF/Xh36oYu9ipRJa
+	xnY4510j0DppTsblJJYCGpHsEWNSIl5QOriw6dUmjNmKi6hzDY+bDT0Tjnj7s2EE6O/fUC
+	NRcydLhv89OUUus/gL1Dn3Z3cs4im9+ODQNggFVfLLxQ3rePiIHM5d4XS5twp4e2PBaF6T
+	aRw3GUTuTVF9o0cByks8lQeo0UFuQDZEJz1L3P+EwtzuPi6eeng76L+IuSFXmOmgRWbSk2
+	UUxpGbb/D4p1v74nmozvZzCCrDTbQaHC1QTB00ELu9azBAYaEmWaAhuJ+DWulg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1795542519;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=iAxXNBw21OAhqAVbpLzIkcF+I6WgYNRYnju4tgLuhNo=;
+	b=378Q0/LtFoKLUUPTs/BLM0vx6CsDeF1MrAPHTV3ZaSQ7qkB4ECH4qbg9fkhUIkcF8mhdvO
+	nhcGsdqsXtub47DA==
+From: "Ahmed S. Darwish" <darwi@linutronix.de>
+To: Zixin Wang <w1355457260@gmail.com>
+Cc: linux-doc@vger.kernel.org, linux-rt-devel@lists.linux.dev,
+	bigeasy@linutronix.de, frederic@kernel.org,
+	john.ogness@linutronix.de, clrkwllms@kernel.org,
+	rostedt@goodmis.org, corbet@lwn.net, wagi@monom.org,
+	atomlin@atomlin.com, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5] Documentation: real-time: Add boot parameters and
+ task isolation section
+Message-ID: <awXN9RY3x5xEGFe4@lx-t490>
+References: <20261124163202.56921-1-w1355457260@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,133 +75,153 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Date: Tue, 24 Nov 2026 09:47:48 -0800
-X-Gmail-Original-Message-ID: <CAHk-=wgvd5odMS8560FgZUnVLKmSwfBZRbX074S1a3xr02RBGQ@mail.gmail.com>
-X-Gm-Features: Aa3M54qOt4-7HBDAcgu5xUlq8oQzhcFZHk2EabxzMar5L5v32hBVGAZZneRFhHM
-Message-ID: <CAHk-=wgvd5odMS8560FgZUnVLKmSwfBZRbX074S1a3xr02RBGQ@mail.gmail.com>
-Subject: [PATCH 7/7] sched/wait: remove the __add_wait_queue_*exclusive() helpers
-To: Oleg Nesterov <oleg@redhat.com>
-Cc: mt4022@columbia.edu, Jens Axboe <axboe@kernel.dk>, 
-	Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Christian Brauner <brauner@kernel.org>, Michal Nazarewicz <mina86@mina86.com>, Wen Yang <wen.yang@linux.dev>, 
-	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	tz2294@columbia.edu, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261124163202.56921-1-w1355457260@gmail.com>
 
-From: Linus Torvalds <torvalds@linux-foundation.org>
-Date: Mon, 23 Nov 2026 17:04:33 -0800
-Subject: [PATCH 7/7] sched/wait: remove the __add_wait_queue_*exclusive()
- helpers
+Hi Zixin,
 
-Each has one or two special-case users.  Open-code them there: set
-WQ_FLAG_EXCLUSIVE and queue the entry directly, with a note on why the
-caller doesn't use add_wait_queue_exclusive().
+On Tue, 24 Nov 2026, Zixin Wang wrote:
+> +
+> +``rcu_nocbs[=cpu-list]``
+> +  Offload RCU callback invocation from the listed CPUs to the
+> +  corresponding ``rcuo`` kthread, which can run on a housekeeping CPU.
+> +  This reduces callback-processing jitter on the CPU that enqueued them.
+> +  On a non-real-time kernel this also moves invocation out of softirq
+> +  context; with PREEMPT_RT, callbacks already run in kthread context
+> +  because ``rcutree.use_softirq`` is false, and the offload only changes
+> +  where they run.  If the parameter is given without a CPU list, no CPU
+> +  is offloaded at boot; the mode can still be toggled at runtime through
+> +  cpusets.  The parameter takes precedence over
+> +  ``CONFIG_RCU_NOCB_CPU_DEFAULT_ALL``.
+> +
+> +``rcu_nocb_poll``
+> +  Make the ``rcuo`` kthreads poll for callbacks instead of requiring the
+> +  offloaded CPUs to wake them.  This improves the real-time response at
+> +  the cost of higher power consumption, because the kthreads wake up
+> +  periodically to do the polling.  Consider this option only when wakeup
+> +  latency matters more than power.
+> +
+...
+> +.. _real_time_boot_parameters:
+> +
+> +Boot parameters and task isolation
+> +==================================
+> +
+> +Kernel configuration options alone do not determine a real-time system's
+> +worst-case latency.  Integrators commonly rely on boot parameters and
+> +runtime tunables as well, to keep kernel housekeeping work away from
+> +latency-sensitive tasks.  The parameters below complement the options
+> +described above.  Some of them correspond to a configuration option and
+> +are referenced from that option's section, so the configuration and
+> +runtime guidance stay together.  Each one is documented in detail in
+> +Documentation/admin-guide/kernel-parameters.rst; the notes here focus on
+> +the aspects that matter for real-time latency.  Consider these options
+> +only when the workload suffers from the corresponding interference;
+> +leave them disabled otherwise, as each of them trades flexibility or
+> +power for a lower worst-case latency.  The notes below follow the
+> +decisions an integrator has to make: whether to keep tasks off a CPU,
+> +whether to stop its tick, and where interrupts should run.  Idle state
+> +limits are discussed with ``CONFIG_CPU_IDLE`` above, and RCU callback
+> +offloading with ``CONFIG_RCU_NOCB_CPU`` above.
+> +For the full CPU isolation model and its limitations, see
+> +Documentation/admin-guide/cpu-isolation.rst.
+> +
+> +.. caution::
+> +
+> +  CPU isolation is best effort.  Work that is explicitly bound to an
+> +  isolated CPU, such as per-CPU kernel threads, bound workqueues, and
+> +  interrupts, may still run there unless it is steered away.  Measure
+> +  the resulting latency with tools such as ``osnoise``, ``timerlat``,
+> +  and ``rtla`` rather than assuming that an isolated CPU is free of
+> +  kernel noise.  See Documentation/timers/no_hz.rst and
+> +  Documentation/tools/rtla/index.rst.
+> +
+> +CPU isolation
+> +-------------
+> +
+> +``isolcpus=``
+> +  Format: ``[flag-list,]<cpu-list>``.  Isolates the listed CPUs from the
+> +  disturbances selected by the flag list (default: ``domain``):
+> +
+> +  ``domain``
+> +    Remove the CPUs from the scheduler domains.  This is the default
+> +    when no flag is given.  Domain isolation cannot be undone at
+> +    runtime; use cpusets when the isolated CPU set must change
+> +    dynamically.  Isolated CPUs remain usable through CPU affinity or
+> +    cpusets.  Unbound workqueues and unbound kernel threads are
+> +    confined to the housekeeping CPUs as a side effect.  Consider it
+> +    for CPUs dedicated to a latency-sensitive workload.
+> +
+> +  ``nohz``
+> +    Equivalent to ``nohz_full=``; see below.  The residual 1 Hz tick is
+> +    offloaded to workqueues, which must be affine to the housekeeping
+> +    CPUs through the global workqueue ``cpumask``
+> +    (/sys/devices/virtual/workqueue/cpumask).  By default the global
+> +    workqueue runs on all CPUs; configure this cpumask manually after
+> +    boot, or use the ``domain`` flag to confine unbound workqueues.
+> +
+> +  A practical configuration therefore combines ``isolcpus=`` with
+> +  ``nohz_full=``, ``rcu_nocbs=``, an interrupt affinity mask, and, on
+> +  x86 systems, a C-state limit.
+> +
+> +  Timer placement follows the same choice.  By default a migratable
+> +  timer expires on the CPU that armed it; with ``nohz`` (or
+> +  ``nohz_full=``), timers and hrtimers armed on the isolated CPUs are
+> +  migrated to housekeeping CPUs.
+> +
+> +``nohz_full=``
+> +  Format: ``<cpu-list>``.  Requires ``CONFIG_NO_HZ_FULL=y``.  Stops the
+> +  scheduler tick on the listed CPUs whenever possible.  The boot CPU is
+> +  forced outside the range to maintain timekeeping, and the RCU
+> +  callbacks of the listed CPUs are offloaded as if they had been
+> +  passed to ``rcu_nocbs=``; see the ``CONFIG_RCU_NOCB_CPU`` section
+> +  above.  This parameter takes precedence over
+> +  ``CONFIG_RCU_NOCB_CPU_DEFAULT_ALL``.
+> +
+> +  The trade-off between tickless operation and the kernel-to-userspace
+> +  transition latency is described in the ``CONFIG_NO_HZ`` /
+> +  ``CONFIG_NO_HZ_FULL`` section above.
+> +
+> +Interrupt affinity
+> +------------------
+> +
+> +``irqaffinity=``
+> +  Format: ``<cpu-list>``.  Sets the default affinity mask for
+> +  interrupts that do not have an explicit affinity, steering them to
+> +  the housekeeping CPUs.  Managed interrupts are not affected by this
+> +  setting and cannot be redirected through ``/proc/irq/*``.  Verify
+> +  the resulting placement in ``/proc/interrupts``.  See
+> +  Documentation/core-api/irq/managed_irq.rst.
+> +
+>
 
-I think all cases (eventpoll, orangefs and ubifs) are unnecessary and
-could just use the regular ordering, but I'll leave that to those
-maintainers to sort out.
+Thanks for the write-up above.
 
-Cc: Oleg Nesterov <oleg@redhat.com>
-Cc: Ingo Molnar <mingo@redhat.com>
-Cc: Peter Zijlstra <peterz@infradead.org>
-Cc: Juri Lelli <juri.lelli@redhat.com>
-Cc: Vincent Guittot <vincent.guittot@linaro.org>
-Cc: Alexander Viro <viro@zeniv.linux.org.uk>	# eventpoll
-Cc: Christian Brauner <brauner@kernel.org>	# eventpoll
-Cc: Jan Kara <jack@suse.cz>			# eventpoll
-Cc: Mike Marshall <hubcap@omnibond.com>		# orangefs
-Cc: Richard Weinberger <richard@nod.at>		# ubifs
-Signed-off-by: Linus Torvalds <torvalds@linux-foundation.org>
----
- fs/eventpoll.c                |  7 +++++--
- fs/orangefs/orangefs-bufmap.c |  7 +++++--
- fs/ubifs/journal.c            |  4 +++-
- include/linux/wait.h          | 17 -----------------
- 4 files changed, 13 insertions(+), 22 deletions(-)
+I wrote the RT configuration guide some time ago, where "configuration"
+here implied kconfig build-time .config generation.
 
-diff --git a/fs/eventpoll.c b/fs/eventpoll.c
-index 58c0cb845dc7..14095cd5f7cf 100644
---- a/fs/eventpoll.c
-+++ b/fs/eventpoll.c
-@@ -2351,8 +2351,11 @@ static int ep_poll(struct eventpoll *ep, struct
-epoll_event __user *events,
- 		 * important.
- 		 */
- 		eavail = ep_events_available(ep);
--		if (!eavail)
--			__add_wait_queue_exclusive(&ep->wq, &wait);
-+		if (!eavail) {
-+			/* Head, for LIFO wakeups; ep->lock serializes ep->wq */
-+			wait.flags |= WQ_FLAG_EXCLUSIVE;
-+			list_add(&wait.entry, &ep->wq.head);
-+		}
+It is true, of course, that "kernel configuration options alone do not
+determine a real-time system's worst-case latency".  But this does not mean
+that all the RT optimization tricks above must be squeezed together into
+the kernel RT /configuration/ guide.
 
- 		spin_unlock_irq(&ep->lock);
+There's also a kernel configuration checker that produces lots of links to
+this guide:
 
-diff --git a/fs/orangefs/orangefs-bufmap.c b/fs/orangefs/orangefs-bufmap.c
-index 34195f2cd845..bc0abc050934 100644
---- a/fs/orangefs/orangefs-bufmap.c
-+++ b/fs/orangefs/orangefs-bufmap.c
-@@ -85,8 +85,11 @@ static int wait_for_free(struct slot_map *m)
+    https://msgid.link/20261106091922.7560-1-darwi@linutronix.de
 
- 	do {
- 		long n = left, t;
--		if (likely(list_empty(&wait.entry)))
--			__add_wait_queue_entry_tail_exclusive(&m->q, &wait);
-+		if (likely(list_empty(&wait.entry))) {
-+			/* m->q.lock is held */
-+			wait.flags |= WQ_FLAG_EXCLUSIVE;
-+			__add_wait_queue(&m->q, &wait);
-+		}
- 		set_current_state(TASK_INTERRUPTIBLE);
+So I don't think that expanding the scope of this document into overall RT
+optimizations tricks will help.
 
- 		if (m->c > 0)
-diff --git a/fs/ubifs/journal.c b/fs/ubifs/journal.c
-index 40a95a2fad50..a8a6c9b01b9b 100644
---- a/fs/ubifs/journal.c
-+++ b/fs/ubifs/journal.c
-@@ -303,7 +303,9 @@ static void __queue_and_wait(struct ubifs_info *c)
- {
- 	DEFINE_WAIT(wait);
+Since the whole of Documentation/real-time/ is dedicated to PREEMPT_RT, why
+not integrate these RT-optimization information into a proper guide there?
 
--	__add_wait_queue_entry_tail_exclusive(&c->reserve_space_wq, &wait);
-+	/* c->reserve_space_wq.lock is held */
-+	wait.flags |= WQ_FLAG_EXCLUSIVE;
-+	__add_wait_queue(&c->reserve_space_wq, &wait);
- 	set_current_state(TASK_UNINTERRUPTIBLE);
- 	spin_unlock(&c->reserve_space_wq.lock);
+Then, let this configuration guide link to the relevant sections only when
+necessary.  This way, scope creep is avoided.
 
-diff --git a/include/linux/wait.h b/include/linux/wait.h
-index 4f87ad870f51..bc2ad10a00b2 100644
---- a/include/linux/wait.h
-+++ b/include/linux/wait.h
-@@ -174,23 +174,6 @@ static inline void __add_wait_queue(struct
-wait_queue_head *wq_head, struct wait
- 	list_add_tail(&wq_entry->entry, &wq_head->head);
- }
+Thanks!
 
--/*
-- * Adds at the head, for epoll's LIFO wakeup of its epoll_wait()ers.
-- */
--static inline void
--__add_wait_queue_exclusive(struct wait_queue_head *wq_head, struct
-wait_queue_entry *wq_entry)
--{
--	wq_entry->flags |= WQ_FLAG_EXCLUSIVE;
--	list_add(&wq_entry->entry, &wq_head->head);
--}
--
--static inline void
--__add_wait_queue_entry_tail_exclusive(struct wait_queue_head
-*wq_head, struct wait_queue_entry *wq_entry)
--{
--	wq_entry->flags |= WQ_FLAG_EXCLUSIVE;
--	__add_wait_queue(wq_head, wq_entry);
--}
--
- static inline void
- __remove_wait_queue(struct wait_queue_head *wq_head, struct
-wait_queue_entry *wq_entry)
- {
--- 
-2.56.0.313.g975a75ca90
+--
+Ahmed S. Darwish
+Linutronix GmbH
