@@ -1,97 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.130.28
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795553026;
-	b=GSLBj3jTj3PhzD9yeFqSB6Cyk41AnP7VP0ygvHuwYeihhYFjXb8g0uH9J5+Tbn+nbqMp
-	 Js0VuuEb4PLtZmJHagoVv9ntzn2eo85+vooAN7WGvPzLPsnUsm6HjqGcU1ug27qXW3kUs
-	 hAHUe11kZ7cmAUCzEcROahi2zop+GO0bjQ+za0YDA3aooSH9v2ndWIxAh/eLIB00eQRHs
-	 99sLNk33X4CD7Vqzq0RBRQDIL8fc1HKKlGlrXdD1aKBa1ZKsUds5Of8LJnweG57T3D/8L
-	 bKdblD4UHN2AHRlInkL79wa0MI9CY2+C1t3AAxRhxp2AgTrTDgCDTCgoKSwoYXVIcyg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795553026;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:Content-Type:Content-Disposition:
-	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=daKaTJKTCDupfb+oz62CP7fxi7hPT4L6Mh1U9/Dqh/k=;
-	b=jTcqfeeGcXMCPofd461Wf+NrmPL9T8/vLBkJ6aXHI48KdLtrvlFp/NVYxqy1xHBcRY0J
-	 kGvALGJoeBDh43UAxKu2su6ADdtqblYxxjaT2FFKR3cKFSx62eWAK8IKB785Y4+NPRKst
-	 O4PnSpYzhv7n4CcEYwMLGLD0XdCacx10KJnl2MhFK0U4pgTZWXneVDbL89E/2U6vhv/MW
-	 monI25F2f13p+j044QyWiQKjf0dvETUBi07yvSgJVpvH6jiTzXsILKn2AEouO5C0nY/z/
-	 GY5zaE/1W6CEb1uPV4Fqiz/t4SThe5n+1ydoHPRrG5MSCQEt9YuimdGHcmYlY5p8cvg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.nxp.com;
-	spf=pass smtp.mailfrom=oss.nxp.com;
-	dkim=pass header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b="Xdk5s/xj";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.130.28
-Received: from MRWPR03CU001.outbound.protection.outlook.com (mail-francesouthazon11011028.outbound.protection.outlook.com [40.107.130.28])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795553061;
+	b=md67cB7EhgSrjBlQJGUtogqtv43FxDq5mf6aCygciYBRCMk55MGqDujCQ7sFx2gvBZTE
+	 o6T1jxzAl9EgiFEOtVBst8BQKtKTC0x6W5TVCIwVPObx9wlwt4eEWOVBiewQmrU25gQ77
+	 4qZR5rgLToaAehNdDqU8gI/gFfCZGc1FdiQZAfkP5+ZXTTxOSGBnenYQBDWTW5kAF+ys/
+	 pHvgw93Nlvk2tka6jjV5O5ZM/t2jTKxSe+gkWXsFV2Njq4q419d/GE72InWD90tkJ26xZ
+	 d+JYngAJlolQRtbqsMWJfqpUspQzSolRjOpDiChYyDJ5jJ1+FKVbtvxGoZ8UkZv5Rrw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795553061;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=NOMDX+SrFCix11i50UBTLaofa2/mZWPlY7sj1KfLMfQ=;
+	b=KlH/0gv/Q3tDSzlpd3GrTcE/0MotigVybGXcwVftAYkk/7ByqHMqOKRX5mVgqWIlOIzd
+	 0yq1wHWgh4mwiFuXltalCXlt7i5Xhz4GRrV8IoYPIAjUl+7XR5euaAT+9ScsaGTjY3I7C
+	 t7fSAHeAcb14v7LTYX0ndrPHX2Wh73AXgLI74RfaPGL0RIamPv7wgweDUeF+ZzuJ1RV92
+	 risO3uWYxprYwmb/vWnue1jGdGMkZbnhNDjm2kbmNScHhkRzAfq4uZQgj9Cf7n/18M/fO
+	 RcmJLCyyQtRevmLSEm1KiBoVjAZ6iXhuPZweo40dMjRkSHxaRVPfLlX3og7qcNtz+GQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HuAcZvjd;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C8CAA606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 20:43:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C8CAA606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.nxp.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.nxp.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DDC08606A31E;
+	Tue, 24 Nov 2026 20:44:21 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=Xdk5s/xj
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=LM4I3CncEY8l11bChkpktfDfeCq1UOFHEWZQe9GVnMCBcqbpXC7ixFssz5azgWpMyXA8pSD+qSkmdNVkUTNM9qTBD7HtyPQdUvcUeB6E/cky4puR954TdhW7AAjWkbb0cR0A9rlbsKbUHSMPpEAzjIRM4ZnHzYth5GptbevFstlxzGYx2Q5wDtkhgiuIosoI2SqS2i2Qpdd0KzixJpiJ6pFQAncKiA28zOc/HF1UtXZaPLZV3EaZNqCY/5YHF99NKpek/9iFAez34Gzqp4Xo2iREuln4DwqljEv1rCNUxfdMKsgfxpBqShNSLfY8SC2SQ4g5gseOpQsH56kDUPGbSg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=daKaTJKTCDupfb+oz62CP7fxi7hPT4L6Mh1U9/Dqh/k=;
- b=I0dQbq9c+WsqkGe0FqwDBO0jlRjxyyzriuFB9Tv/wybIHzNQ2la4ysQVfJqUPs0ikI/C9xJIzUQ5OyUOeQsIhnkDvrWPVC/714TLwQhvQvOStV91K0/15bPxwItkG0zkOgxHUAF7rbkWBeYeGtcoH58bv834M6WjL0p+IKtdgXo9rYZSW2uyGuLikQMxN5sD6WR/J7rwmKn7dG1qt/ioSHyQr3ddsxUigwpn8k2VeIBFWkYdGWKYDSablKLe6nM+spBJrsMNt+CwDEMm9qrNVIb7uGTAO/KIUB28sq0CiKQlPlQbS1WGytX1HtxaKrouB1d8dI6U3rNsRcm8lz8CjQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=daKaTJKTCDupfb+oz62CP7fxi7hPT4L6Mh1U9/Dqh/k=;
- b=Xdk5s/xj9k+b13Fxg8KX1gCimTsSFfBY+knTCjD86S2usClEnRzX1Xb7yMYQAro+bbU0syoIYA300yV/Tn94qesQn+n5PXRXycHYUb1eazAV3PA2haN7TJOmwOPBGzU+FfcAnzNz7hNVSvm8hEWZW/s1cdlrWsm1vjAuigWgvni7ZZtuFHWsqq1T8HrpUlYcbY1JUA9cFxsf6ljfVt6q/wSOzSWWXu4TE9NEuTU7l0mEhbN3pB6QlFoT1cUI4Xh1eYrK9R0KFgNoIO8vK/RK6xtog30BbK9jBs2jiNAqs9v+aeFHYmVdPyU7k3YdjVtQnVEF8OgyT0coCt8ySsKTpw==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
- by GV1PR04MB10275.eurprd04.prod.outlook.com (2603:10a6:150:1ad::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.5; Tue, 24 Nov
- 2026 20:43:42 +0000
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b%4]) with mapi id 15.21.0662.004; Tue, 24 Nov 2026
- 20:43:42 +0000
-Date: Tue, 24 Nov 2026 15:43:35 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Dineshkumar Parameswaran <Dineshkumar.Parameswaran@synopsys.com>
-Cc: "Frank.Li@nxp.com" <Frank.Li@nxp.com>,
-	"alexandre.belloni@bootlin.com" <alexandre.belloni@bootlin.com>,
-	"linux-i3c@lists.infradead.org" <linux-i3c@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v4] i3c: master: dw-i3c-master: Add HDR-DDR support to
- Designware Controller.
-Message-ID: <awX299zNo7DKYPs4@lizhi-Precision-Tower-5810>
-References: <20261111021151.58380-1-parame@synopsys.com>
- <20261119135703.22729-1-parame@synopsys.com>
- <awSg5WQFw6NktkEi@lizhi-Precision-Tower-5810>
- <DM6PR12MB4074F28613C2DBF99889D2DDBD442@DM6PR12MB4074.namprd12.prod.outlook.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <DM6PR12MB4074F28613C2DBF99889D2DDBD442@DM6PR12MB4074.namprd12.prod.outlook.com>
-X-ClientProxiedBy: PH5P220CA0002.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:510:34a::17) To MI3PR04MB12438.eurprd04.prod.outlook.com
- (2603:10a6:290:76::14)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HuAcZvjd
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 008ED1F000C0;
+	Tue, 24 Nov 2026 20:44:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795553061;
+	bh=NOMDX+SrFCix11i50UBTLaofa2/mZWPlY7sj1KfLMfQ=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=HuAcZvjdM0g0SAE/O6GBrkEaBODYvFrfmi5zQqTw54y7BXsYD5Y/wVrhLOaBRB97v
+	 rihISntxI0Agecil4uLA4blcjQ7q57lK4ei7wRcNjv+gY3cLCuZk85U/r3P2HQVMgU
+	 kHBHUfVP4qTIEubMq6RrLcDCzqR8nssGCgSPPuQ07iRayM2s09LEajjOxHLzaufxoh
+	 ZXgvUoMR9aMOAQIziI741d5EtBZX42vXTusqHVMXxHKHe53AaNSczLot8s2K/WICKg
+	 XZMqBNUYPmkmPQaw4Nstkwk3Vog/64/0U//R8p1ZYBitXshwYX12Ik8aZrKJ8iSBY4
+	 t+Or9de3ipKVA==
+Subject:
+ Re: [PATCH net-next v1 1/2] mlxbf_gige: protect against MAC disable during TX
+From: netdev-bot+sashiko@kernel.org
+To: cbabroski@nvidia.com
+Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, davthompson@nvidia.com
+Date: Tue, 24 Nov 2026 20:44:20 +0000
+Message-ID: <179555306048.3135.18299984453276873378@kernel.org>
+In-Reply-To: <7742d597c5321d5cb587180c1d29eccffa9d51bc.1795206150.git.cbabroski@nvidia.com>
+References: <7742d597c5321d5cb587180c1d29eccffa9d51bc.1795206150.git.cbabroski@nvidia.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,73 +63,230 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|GV1PR04MB10275:EE_
-X-MS-Office365-Filtering-Correlation-Id: 889ee6de-ba5f-4963-d4c3-08df4a6ba04e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|366016|376014|23010399003|1800799024|19092799006|4143699003|56012099006|10067099003|11063799006|261021121427099003|261022105027099003|261026140227099003|261028144727099003|261102123227099003|22082099003|18002099003|6133799003;
-X-Microsoft-Antispam-Message-Info:
-	9Mg3tDx9/OUPKBHED/qQCwLn4+vHhhx25pFFeRtcZVCu0C/EYshbP2NxBim+1O74Z4QCNTJefYvEBZdMHrxRZgOFI+Z6aRTkhu5XIf1GTCxoIzEI8Ab05c+1mGLjV4zHmuIFDjbhRTLdG7ap2ioxkk6B3HdKzEtMyKl11280RxQH0OpP8rP62OSF5RKtnmaQkiMZGFiNp/APJK7Xu+1KT+mdALMSA7byI0KmwdeKlY357Ep0YRYLjhgyNHqBwdLBTtA+u0NFSoiH66rDY9hN3Jq4+J8ihG3JIffV+n1AhkTUUwBWAhRWWtG/XsKjktI4cWH2486SLPZD8RDedwv1Xm+V+N8NZ/6JffMOuxTOGGA3Olm8rxebUp8xAAwLXBXcf8GrOugnfjqNf2eJOoV0/lA8sfk+Pz/2T6IdZ/CiAU3BOmFo3yZ4v1luye4MSGYtce3ap0Qcoe1xKSer3bOuhyDkIf9sVOSTi5t9ohXcCZlAsVKXUSo0K8UwFPpDJFkaHS5h66We7A7aTrKAo6E7/tSmZoOE5oZGC7k5TiJG7ENSufkW+BPRkzAB0TFiWA9pySARBOwAN4XFhFGTxIl8VgpR4CSRRFs0Ez+hAfAvXU5n0eHDsl/mzY4+k7Sy5RgEFPGna0FohdQDII+IsKHvWdqBQH2R+hpUcyicLEE/DQs=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(23010399003)(1800799024)(19092799006)(4143699003)(56012099006)(10067099003)(11063799006)(261021121427099003)(261022105027099003)(261026140227099003)(261028144727099003)(261102123227099003)(22082099003)(18002099003)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?6JfM9+W3gyhB/lyP7sN/CQEKZTrnuv1qrpxn/3MdlD98QhM9a538t4bFKkTX?=
- =?us-ascii?Q?d66keYT67mxvyRPGNSipfayzkivp03VEbgKq9ItX4nNLxlfOhr1KhRqjCZdi?=
- =?us-ascii?Q?T4G8aiTPwXfr5kRbx+6IzD+ktkDbING6lE8JArP0qYrgELnVQg2rqIrl7X3q?=
- =?us-ascii?Q?j6STdY6yM099ozbbsKcd4YgLVP2bl4JQa6pweh4ySz5M/hgLkd0qbZ0C1RHi?=
- =?us-ascii?Q?YLfzTWYVwaUo38edVgTIkoSApIKmnWZoKHjqtjIwO+efWKY73PleYMg57xth?=
- =?us-ascii?Q?ezBkqsX6fiDoo/VmiMH9CYFc5CUCF+uEtmujW/wNKYBDC5N7GBLfQAfkxo0/?=
- =?us-ascii?Q?6IrLNQ0RW27msyh1qvUATM+YYlEJEqvswLStMfHHTn3cAFAUJEF+YEkYK+qj?=
- =?us-ascii?Q?HOpfBW8NyaDbNZH3CAQjRDGoUg6JWL0ioT63lhXtQJiGjoA0nSMVyQUapMvl?=
- =?us-ascii?Q?Ho0JM+QpZTjQBFUxcQE/LJiKW+t87vMX1/FccR80cDhi29SLVLEhebeJPAoj?=
- =?us-ascii?Q?lv0mRDIyMy+ovUfW3YTVzwcCwZLanWYNgIxYhp6MQSvmIb0ctBZCouge5CNg?=
- =?us-ascii?Q?oJiMvuLAGgWsiExwptZL53v39n+jPTRQklEzBTwJslS+MoLa2zIFxadEIU4l?=
- =?us-ascii?Q?SkzyUkEC4ObiqOs/mcrRBLlEZwXdKLRIGsLa+qHR0ftQ1LPvSN8Kf8bviBgI?=
- =?us-ascii?Q?WFExzXZZG7yIldyUvgjwGNw4nkpCYC82G3Fc3WMYxSumvClmRQMqHQhV39rs?=
- =?us-ascii?Q?NURysQtZPP4YEsdswyYECYwYQCcuLIhA5KTUNcynREoPrsFP154xlQwbh9Bv?=
- =?us-ascii?Q?bLjFATZ0ikgDfRpWVmpfGCGcV4RzqDg5Yj1HoCGUmGl8TX+OYDKYXWgVEWLd?=
- =?us-ascii?Q?k6cQ85pbhDArhl/4Hr3kDqVZy8c5WQ1U0spwOeemI/sTavxFRs6hyFdl1MXE?=
- =?us-ascii?Q?GTK5JZb6tzysms+8PpWUtfF5FQ4oyFoRUd2Doqr2kSF3Z5T4XZuwV19V/8E8?=
- =?us-ascii?Q?EtcX8WGpabKLszK2t4OGR8ZCtTVxl3Z+lTz+WaHeT94v30nmyOK7Uu3SOQYF?=
- =?us-ascii?Q?oY9Lxnsw/j5oQ7XDhrYQFyNg8tA6VKy0mA576bdxthB7uwi5m0gqWlQRWfNS?=
- =?us-ascii?Q?ypzB3w+cvolFN6X+qmFjZkWXTICWT22+rvFTjivzFlbPxw7WVVLgIfu9waTK?=
- =?us-ascii?Q?xYncniyLH/1okTfly1S+vXPL7f0HO+/VShqeRA8dTvMs8IuBlwCvZ/hIMIxi?=
- =?us-ascii?Q?F8dmcFAkF5JgfTtcgR6y7JuZv13SvkOcS3vsNUH+xu4xlcn1QcXb4n5Bej9i?=
- =?us-ascii?Q?sXNcx2JexieYFzGY/M303GaL6GmSwhEnWSCRR7eP8ih98V9OBr3g5jZU04Cj?=
- =?us-ascii?Q?SlNJOXwpMUkh8F6LnH/sPVl+L3G7s7Q7b7WKyoJKZr38qmKzgwcEMdOze/qZ?=
- =?us-ascii?Q?dP1UEx5ggWRuPaaXLIHfwGqtOBfuHQylqyxRqgq9H7noCCjzoiJtFXw6OAtv?=
- =?us-ascii?Q?+mYph09wUdNHYepW0BtvaNPxgvEDnjpWr/AyhRp3zXQNxO0zUtixgxcRGEN+?=
- =?us-ascii?Q?XYQiJCCQnQrumoMVdBtbpYqr2zup87HNHHd00YD+BCFw2TaYwt2ZtnG9uxKP?=
- =?us-ascii?Q?apcCvLtwEFFm3PomTuXGPjb8aXL1jtvFW/qVD8bK1hlKBZlrkE/UM8LkFhly?=
- =?us-ascii?Q?r8svXX9ewN40xUQo06n6FxVvAIOyTxWvoqyGmG9VoNIkg/0THQWtKIITuE1E?=
- =?us-ascii?Q?Whjx6lRfERG8s3+reGOBiYhtBNFTsFjTmvH1zKu5Y1MojvtkrLMw?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 889ee6de-ba5f-4963-d4c3-08df4a6ba04e
-X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 20:43:42.2102
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: HIVeMJ3JL5LGd61QyKZEuCTqQjMyjaZLHVq2fFJR1IfMwWVzkDnx0M4M0O9yr5/SJcy7Rs1YzBbMhrpt4Hx1LyDpuKuI2ndXWhbpn5Gk4AzVe39KEdHos17zXbB3CzkX
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10275
 
-On Tue, Nov 24, 2026 at 02:59:50AM +0000, Dineshkumar Parameswaran wrote:
-> Hi Frank Li,
->
-> This is not the new patch or feature. For the same feature addressing the comments. That's why created in the same thread. Are you willing to create new thread for this patch and ignore the old thread.
+Thank you for your contribution! Sashiko AI review found 5 potential
+issue(s) to consider.
 
-Avoid top post. that is kernel community email conversion. and wrap your
-message.
+Critical: 0 · High: 0 · Medium: 3 · Low: 2
 
-Alway create new thread for new version.  Post to old thread will cause
-problem for some tools. The b4 can auto detect old thread and put old
-thread link in new post.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Please follow linux patch submit conversion.
+- [Medium] The patch resyncs only the consumer side (`priv->prev_tx_ci =
+  tx_ci`, mlxbf_gige_tx.c:174) and leaves `priv->tx_pi` unchanged.
+- [Medium] When the HW consumer index goes backwards (e.g.
+  prev_tx_ci=500, tx_pi=510, CI reads 0), `(u16)(tx_ci - prev_tx_ci)`…
+- [Medium] In the desync case the new loop bound lets the NAPI completion
+  walk all `tx_q_entries` slots starting at prev_tx_ci.
+- [Low] This commit fixes a NULL pointer dereference (oops in
+  NAPI/softirq context) in mlxbf_gige_handle_tx_complete() that a…
+- [Low] The comment above the TX completion loop in
+  mlxbf_gige_handle_tx_complete() (lines 140-146) still says the logic…
 
-Frank
+--
+
+mlxbf_gige: protect against MAC disable during TX
+
+This patch limits the TX completion loop in mlxbf_gige_handle_tx_complete()
+to tx_q_entries iterations and skips NULL tx_skb[] slots. After the loop it
+sets prev_tx_ci to the HW consumer index. The goal is to fix a NULL pointer
+dereference seen when firmware disables and resets the OOB MAC while TX is
+in flight.
+
+> Previously, mlxbf_gige_handle_tx_complete() would continue to loop
+> around the TX queue, counting packets and freeing their memory, until
+> the two indices were equal. If entries were already freed the first time
+> through the queue, then a second attempt could cause a NULL pointer
+> dereference.
+
+[Severity: Low]
+This fixes a NULL pointer dereference in NAPI context, so should it carry
+a Fixes: tag? The unbounded loop and the unconditional
+priv->tx_skb[tx_wqe_index]->len dereference both come from:
+
+Fixes: f92e1869d74e ("Add Mellanox BlueField Gigabit Ethernet driver")
+
+> diff --git a/drivers/net/ethernet/mellanox/mlxbf_gige/mlxbf_gige_tx.c b/drivers/net/ethernet/mellanox/mlxbf_gige/mlxbf_gige_tx.c
+> index 04982e888c635..73c3033591d59 100644
+> --- a/drivers/net/ethernet/mellanox/mlxbf_gige/mlxbf_gige_tx.c
+> +++ b/drivers/net/ethernet/mellanox/mlxbf_gige/mlxbf_gige_tx.c
+
+[ ... ]
+
+> @@ -143,7 +144,8 @@ bool mlxbf_gige_handle_tx_complete(struct mlxbf_gige *priv)
+>  	 * to be supported, that is TX consumer index wrapped from 0xFFFF
+>  	 * to 0 while TX completion index is still < 0xFFFF.
+>  	 */
+> -	for (; priv->prev_tx_ci != tx_ci; priv->prev_tx_ci++) {
+> +	for (entry = 0; priv->prev_tx_ci != tx_ci && entry < priv->tx_q_entries;
+> +	     priv->prev_tx_ci++, entry++) {
+
+[Severity: Medium]
+When the indices are out of sync, can this loop run past tx_pi into slots
+that mlxbf_gige_start_xmit() owns?
+
+mlxbf_gige_handle_tx_complete() runs from mlxbf_gige_poll(), which
+mlxbf_gige_rx_intr() can schedule. It holds neither priv->lock nor the
+netdev TX lock.
+
+Take prev_tx_ci = 1000, tx_pi = 1005 and a CI reset to 0. The loop visits
+ring positions 1000 through 1127, and positions 1005 onward are free slots
+that another CPU may be filling at the same time:
+
+CPU1 mlxbf_gige_start_xmit()
+    *tx_wqe_addr = tx_buf_dma;    /* outside priv->lock */
+    ...
+    spin_lock_irqsave(&priv->lock, flags);
+    priv->tx_skb[priv->tx_pi % priv->tx_q_entries] = tx_skb;
+    priv->tx_pi++;
+
+CPU2 mlxbf_gige_handle_tx_complete()
+    if (priv->tx_skb[tx_wqe_index]) {
+        ...
+        dma_unmap_single(priv->dev, *tx_wqe_addr, ...);
+        dev_consume_skb_any(priv->tx_skb[tx_wqe_index]);
+
+Could CPU2 free an skb that CPU1 has just queued?
+
+The plain NULL check also doesn't order the *tx_wqe_addr load after the
+tx_skb[] load. On the producer side, nothing orders the WQE store before
+the tx_skb[] store. On arm64, could CPU2 see the new skb together with the
+old, already unmapped DMA address? That would unmap a stale address a
+second time and leak the new mapping.
+
+Would bounding the walk by tx_pi - prev_tx_ci, sampled under priv->lock,
+keep it out of producer-owned slots?
+
+[Severity: Low]
+This isn't a bug, but the comment above this loop still says the
+completion logic "needs to loop until the completion index (in SW) equals
+TX consumer index (from HW)". With the new tx_q_entries bound, the loop can
+exit with prev_tx_ci != tx_ci. Should the comment be updated?
+
+>  		tx_wqe_index = priv->prev_tx_ci % priv->tx_q_entries;
+>  		/* Each TX WQE is 16 bytes. The 8 MSB store the 2KB TX
+>  		 * buffer address and the 8 LSB contain information
+> @@ -152,18 +154,25 @@ bool mlxbf_gige_handle_tx_complete(struct mlxbf_gige *priv)
+>  		tx_wqe_addr = priv->tx_wqe_base +
+>  			       (tx_wqe_index * MLXBF_GIGE_TX_WQE_SZ_QWORDS);
+>  
+> -		stats->tx_packets++;
+> -		stats->tx_bytes += MLXBF_GIGE_TX_WQE_PKT_LEN(tx_wqe_addr);
+> -
+> -		dma_unmap_single(priv->dev, *tx_wqe_addr,
+> -				 priv->tx_skb[tx_wqe_index]->len, DMA_TO_DEVICE);
+> -		dev_consume_skb_any(priv->tx_skb[tx_wqe_index]);
+> -		priv->tx_skb[tx_wqe_index] = NULL;
+> +		if (priv->tx_skb[tx_wqe_index]) {
+> +			stats->tx_packets++;
+> +			stats->tx_bytes += MLXBF_GIGE_TX_WQE_PKT_LEN(tx_wqe_addr);
+> +			dma_unmap_single(priv->dev, *tx_wqe_addr,
+> +					 priv->tx_skb[tx_wqe_index]->len, DMA_TO_DEVICE);
+> +			dev_consume_skb_any(priv->tx_skb[tx_wqe_index]);
+
+[Severity: Medium]
+Suppose the HW consumer index goes backwards, for example prev_tx_ci = 500,
+tx_pi = 510 and CI reads 0. Then (u16)(tx_ci - prev_tx_ci) looks like
+almost a full wrap, and this loop runs all tx_q_entries iterations.
+
+Every non-NULL slot is unmapped, freed and counted in tx_packets/tx_bytes.
+That includes the in-flight descriptors between prev_tx_ci and tx_pi,
+which the hardware never completed.
+
+The coherent WQE ring still holds the bus addresses of those freed
+buffers. mlxbf_gige_start_xmit() also keeps writing a tx_pi that is far
+ahead of the HW CI:
+
+	writeq(priv->tx_pi, priv->base + MLXBF_GIGE_TX_PRODUCER_INDEX);
+
+The only thing stopping the device from DMAing out of these buffers is the
+commit message's statement that firmware has disabled the MAC. Nothing here
+checks MAC or DMA enable state.
+
+If TX DMA is still active when CI is seen going backwards, or if firmware
+re-enables the MAC later, can the device read freed and possibly
+reallocated pages?
+
+Before this patch the kernel oopsed in this path, so those pages were not
+reused while the system kept running.
+
+> +			priv->tx_skb[tx_wqe_index] = NULL;
+>  
+> -		/* Ensure completion of updates across all cores */
+> -		mb();
+> +			/* Ensure completion of updates across all cores */
+> +			mb();
+> +		}
+>  	}
+>  
+> +	/* At this point the completion index should be equal to the
+> +	 * consumer index. If they aren't then the driver is out of sync
+> +	 * from the HW's state and needs to be adjusted.
+> +	 */
+> +	priv->prev_tx_ci = tx_ci;
+
+[Severity: Medium]
+Only the consumer side is resynced here, and priv->tx_pi stays where it
+was. mlxbf_gige_tx_buffs_avail() assumes prev_tx_ci trails tx_pi by less
+than tx_q_entries. Does this break that assumption?
+
+mlxbf_gige_tx_buffs_avail() computes:
+
+	avail = ((priv->tx_q_entries + priv->prev_tx_ci - priv->tx_pi)
+		  % priv->tx_q_entries) - 1;
+
+The u16 operands are promoted to int. With tx_q_entries = 128, tx_pi = 1000
+and the HW CI reset to 0, the numerator is negative. avail comes out as
+-105 and is returned as the u16 value 65431. Once tx_pi - prev_tx_ci is
+larger than tx_q_entries, avail can never be 0.
+
+If the queue was stopped because the ring was full, the code right after
+this resync wakes it:
+
+	if (netif_queue_stopped(priv->netdev) &&
+	    mlxbf_gige_tx_buffs_avail(priv))
+		netif_wake_queue(priv->netdev);
+
+After that, this check in mlxbf_gige_start_xmit() never fires again:
+
+	if (!mlxbf_gige_tx_buffs_avail(priv)) {
+		/* TX ring is full, inform stack */
+		netif_stop_queue(netdev);
+
+With the MAC disabled nothing completes, because every poll sees
+prev_tx_ci == tx_ci. After tx_q_entries more packets,
+mlxbf_gige_start_xmit() starts overwriting slots that still hold
+DMA-mapped skbs:
+
+	priv->tx_skb[priv->tx_pi % priv->tx_q_entries] = tx_skb;
+
+Does each overwrite leak the old skb, its DMA mapping and its socket wmem
+charge? In the example above that continues until tx_pi wraps the 16 bits,
+roughly 64K packets. The driver has no ndo_tx_timeout and doesn't log the
+desync, so nothing else stops it.
+
+A related case: the walk is bounded by tx_q_entries, not by the posted
+window tx_pi - prev_tx_ci. A CI reset that lands within tx_q_entries of
+prev_tx_ci, for example prev_tx_ci = 65500, tx_pi = 65505 and CI = 0, is
+handled as a normal completion and ends up in the same state.
+
+Packets the disabled MAC never sent are also counted in tx_packets/tx_bytes
+and released with dev_consume_skb_any(), rather than counted as drops.
+
+The commit message says:
+
+    TX is not recovered after a sudden MAC disable.
+
+Should it also say that the driver keeps accepting packets and leaking them
+in this state? Alternatively, should the queue be stopped once the desync
+is detected?
+
+>  	/* Since the TX ring was likely just drained, check if TX queue
+>  	 * had previously been stopped and now that there are TX buffers
+>  	 * available the TX queue can be awakened.
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/cover.1795206150.git.cbabroski%40nvidia.com
