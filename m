@@ -1,101 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.43
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795562208;
-	b=C5/ABL6HXJE2uwpl6shUFTxiaYJzu74OD30QI/7AG0NXQpaC04iTgaOnW0LIj6CW2rYc
-	 JLL7E7P81fH+f+yE2ZAbckmzRoQHMoqEUt60UizbHBRKkp0alRPiMoX8WKI5VWJq+wviZ
-	 JqdcTAj13dma3ptbeMU71aFIn/bFLwvEgGhNJH+OdP0yvxrOt5Wspvzpk/jXw4c3yaBVv
-	 oel18pXsGosQLdLoDgsZ6Mw3oC+lZAAe+/J10Rg8ks3QknrsL8xz1V4xNaZb0a49yrc8u
-	 wxZokUNUJTSaIzmx1bJVucukHPJhynivu29h4Igz3qSO0dNM2PMEZAvB4Son35N5P/g==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795562208;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.42
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795562302;
+	b=0xKqOmZpI5Ot6496CAZGOCxlGGgxuJZJ+Df3OVOLgr62INTaEmZGifO8jhWa4TyIAeLF
+	 kUbLXZphcro3wySDU3ZN0ThTqWes7cShFvu3JvIqJSxqnIbN2rYwmRM1ExZr8IdVZp0tz
+	 0xtfYpDNfer27Q9xhJqtq9dQAGTksm8ctg0MfWYhtruwoucjV2NPl0JTiNrRv3jYsrQNi
+	 mgQQfxFKsI4++c8jDb6qJUNakEhcNwUCAGuyZr1BWAuZx1LvJbhoyi7wBW9ltqPKS3252
+	 cZQOcHLLIKjIJ5H4Muq+pGbbxQSt/cl/nGZh/44qvuQY+l9fJSXcMvNjAyBXwOAbLjw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795562302;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=ZoFyEnud89IUcB6sarqMzo8JRRy8dWijZef5NdeWRGU=;
-	b=AfGo5yPZ25DiQpNrBriuPAbWm47VPpqKcCO8Ai6h7KDhkaDNTdIOkq0APp4dDGd04XCR
-	 2WZrgMWG5DJXcS1KwV6+v59svi6fIsS64mfvr5DgsC1/jJH98MNRRHrJLiHztUXAapRqg
-	 IVyzdA8ZaFJxR08UKur/xSSWYlfjZ1F7FE5i0XbNFNnMoqYF+h5VDsJbDdFU69IZJ4R5v
-	 b+EVhV+7yrjBHVnFSyJFoOLip5OD5x4QTxFw9Vic2gIZNnJ4CbRVG1hjjMGT2wRcDUCJN
-	 UUeMtpncWngFin8Y2Ip8HpM5328qgLwEI4LNgH/BtbPcdwSPcRz+5zJJ9QlVqQ4A2Og==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=iWZIDWFZDrgdj+iFZJoNVu3+9PRbzvVq6QXzZKzwxgM=;
+	b=3cJm5WoEnqPSAvrrmhql3wqSbWtwgZeL6lTxIbOzrOD06XFGOxSjUmnojcKxj+Q3Wr8t
+	 ouj2hhbZCWbrdrAoKtTJVkgnuOV2IT9kD96YDpNrYGf4gq2s9z/4tURqcwKedjOYMZYoo
+	 dq8SS55l+VoCTQ12qUj6jDNnkYLTfqioKwQPgn5SWPuIrbH4HIY/q0avsDH16+WKXT4cl
+	 eT3tmMPwnSt7mzNWX2WQW/I5fnH0YX8O6iBSTogtiEB29FM0/GDFPjsiM36Q0+jXv9QlA
+	 mjZbfMUDivy3HK27PM7NPkkYWS4Z0ZJcG4qZJ/K4wBJYnb+hcbWMoMTtPWEI38pk1JA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jTeDWynZ;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.43
-Received: from mail-wr1-f43.google.com (mail-wr1-f43.google.com [209.85.221.43])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=DOgQ3NpE;
+	arc=none smtp.remote-ip=209.85.128.42
+Received: from mail-wm1-f42.google.com (mail-wm1-f42.google.com [209.85.128.42])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 718FC606A321
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 23:16:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 718FC606A321
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D47DC606A327
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 23:18:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D47DC606A327
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jTeDWynZ
-Received: by mail-wr1-f43.google.com with SMTP id ffacd0b85a97d-491846221ffso4346918f8f.3
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 15:16:48 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795562207; cv=none;
-        d=google.com; s=arc-20260327;
-        b=nHhX5sDNvUspjbOC3f6GdEvtiJwf6DCn7hnxF+Y62tMYVZFgTY0xUJE0SJzn85To/S
-         rgqaONuq8jz6N3ovc7oMSaBsyeIV+FZbxCf90qM0gsmqUZZG2Lwqu11vg1LwVhfMh2e/
-         jTPpRQMdpMgMiS/cbwz/HhNurv5oL69QkDQDxbiJa+DwQ/b6ds++3WqNve80fJ3V7Nx8
-         v6/KDiTaOuhAbnZW6grx/YG/SLvrLBT/pqY+7YRhQswf1YR8JgZv8a+fhNIFNjxrQEu1
-         FjmWr145L/XphK9GWi8jIYDVeW/2Vo0Y/Z/1Ptyp6uhFNo0QvaHIhpq/kdfnbCzzhk2H
-         4fkQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=ZoFyEnud89IUcB6sarqMzo8JRRy8dWijZef5NdeWRGU=;
-        fh=lDdlFbvoqL2haoYQISUbdvk/O2g8pHT04o17qcgdwBY=;
-        b=i+buN1JCg1P5P+LtzyKCzSuHSz8oLxBDnhztcdqZF+DY8rnaWSm6RIFmmOaxxqVTtC
-         p5VJ20qahQGB1Yrv7KcUmqV0wnggQVybRuKiW+Nw+bZzImN32xFUjxJNLSqE6UX5/zsu
-         OsEJE25aTWkfnRS6WjArIEmF38xrEm818pO+Tm8UIcZvg66P9oajKihEKIjyaK4v02J7
-         T70i3I6uHEwAmQ8R5vIC7tR2beYd/LKEyb522SFbl58zRKNMCxRMcOTAgx9dRQ4riZqC
-         FWFAc2N5Tb/8WTA7Cje8/Sr/Izexl43yIBSiJyFA0WnIDEH8jj2LO1hDbtGg57kv7jA6
-         +dpg==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=DOgQ3NpE
+Received: by mail-wm1-f42.google.com with SMTP id 5b1f17b1804b1-4bb9d8e8e90so22891745e9.3
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 15:18:21 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795562207; x=1796167007; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=ZoFyEnud89IUcB6sarqMzo8JRRy8dWijZef5NdeWRGU=;
-        b=jTeDWynZO3vHIqs2S2mBHa2gfaQygVXW8WCpN3BC3BNkQhL1zK3M4r1dq7ew6LnH8u
-         4uFz90Y6pY4MEFd1w3n/bj0+LeDZl/wmm5tB9VsPIR8v4bd82NQbYoXglCtdLsWaTG8z
-         P01vZ5ffmDgw0P/rdva2bS7RTOcZCHm3qnAw8YC5BZn3rf8fCemRb98hovE+UrSmL6pB
-         tQ0EL7D9z5lAA1Gcgt2H+ElGKRVtVefcYcPXFXbdL4MF/yVs7CTY9nXo0YMGTsLhsR2o
-         4fcXxWP6DODx7NVZ9zaKQsVDCltulVr5TPGRZpgN1vCzEAX9UPT+/EJxDWlBA5Y9leUB
-         BB1g==
+        d=gmail.com; s=20260707; t=1795562300; x=1796167100; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=iWZIDWFZDrgdj+iFZJoNVu3+9PRbzvVq6QXzZKzwxgM=;
+        b=DOgQ3NpEzCbCZHBNopzI9L4pY6W1mIKYTtDbgTvdg+TVgzmSA9nd4ObNa3ZiqOV9SJ
+         6w1rHmZRwxLzH+KM41443RQQ2wSunBU0GbTxCcvaj7+SgGbiMwtRSj+ZRkZkDuq8JcdJ
+         uMH5ojswndafo4c6Y9JAaCF0q5L1HSNw5GDUAyznzzLTEmVuARW/wPPdvYqxcTTXt3uw
+         nF8OrGFmBosbYbD6VyeRcoExSMFBlh8aY9U9Zh56iucC8OizvRPtcDe5FKje0zDZZI2h
+         6XstjlFN4cycHu1LVRs8S4issiFBHhup+vqmXxkpcbAPZVtvrq20b3vfweZjMEVCmbfB
+         U2aA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795562207; x=1796167007;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=ZoFyEnud89IUcB6sarqMzo8JRRy8dWijZef5NdeWRGU=;
-        b=GS5VlgvA8yRTPdAaVn/C+M4FzyNVqbHd7zoSNET0Na/lLyz3O52Hv9DAjqJEFt/t1r
-         ES7ZTX1yYwPGmWcv3KaE+xjzDjcFKtLRpA4djJTIDpWowiJAlygz4ofP6htk7zN1Jp3X
-         WxPUk6diYVaNh7i3YUzgp/X0EHNEAlWFj4PlotbNMJjAJDjEKl3UODc5pjQfHH9l+i9h
-         lPvnj+ifKzt4f1H33YE4HrD0E7l1u3s49K1eg4nBqXY8wWmGJaoTz+TMgBG+3RCiHuIu
-         ltPlVzLfhpOcTZbXen01D8vGzN0eyioaXwjBaI/zpubrVGvLwsh+4VE3e1y/KB54JAjH
-         GSxA==
-X-Forwarded-Encrypted: i=1; AL+hErHjQg4dAE5k+8zO6AXu8sG1VAkaYQNNBOwotXjOEI+S5vfwb7RrxoD/B4HD8hQYRr6nwfRFxFmYbMtH1tA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/l28Vzk5aMXAadU8a4kESYsisJB/4lLO4W0+AGpW63I9WFqv3X
-	vkYiTQdzJq0WHPCabxuix4t2YYT7+7lcOlsuJu623mSKR7tIT+q1J0/01Yz7OpBSEO3T/Pk/c2q
-	tRoNWvVzDi97odShfnFh3GwYYvsEpHpg=
-X-Gm-Gg: AZFdTZdJ9RFU5ig+bEX3dhIsuWV9omRD54GfeeBevmHFAI7z9POzjU9oWBeFMtG8JKR
-	OW77EqpuDGfB7F6yQai9n3fUIEIcBTwQ+rEVLKAfeIJz0ZgFy/xpsm1pN84TvhHB384jwcDjp7O
-	8jhpLow04klkyx0XpI588yv0sHEWxezJKpvFq8SN98BG9QALZp+U49jpxuHO6g3ua7pXlgU+Ueb
-	mav8LDJmUAlnZap/a9Z5VBzncLXDFf9LYR0OP8kGGJ1p9AiWyL3UlBy9TyfbyGKVvEBvEb7UDEd
-	Cc8v2X3VR8TMzW8yIKmMKe5lR/BqEf926Zin4Y6foetoickE11tiBvVcxtINqBjf1qXA+uX8Sbl
-	1siK20/PSCZWOrztrPjWd2exC1iEbh/i93P8N/iPyfg+JRS9GGwQsE77qIZzVr3G7o89Xj0F95i
-	lwp09D7sXrFIhaRRb9VqGTBmKmdIjNbQSaW2/rwM/Brpzl86BnjAx0
-X-Received: by 2002:a05:6000:290b:b0:4b7:8363:682 with SMTP id
- ffacd0b85a97d-4b7836306d3mr6416284f8f.16.1795562206537; Tue, 24 Nov 2026
- 15:16:46 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795562300; x=1796167100;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=iWZIDWFZDrgdj+iFZJoNVu3+9PRbzvVq6QXzZKzwxgM=;
+        b=OoIgQzzkfWhRoaTt8ZccnmjXtl6DrFlCVaCGoNZtKI42CndDUcsblVp9O6VHycGPG6
+         e9Tw5lC+jvT50SUMjnt7+NyJCDelLst/WAwHziOixCs2aN+pt62W34DNDk2TazBTgdNS
+         sk8MflY794t6vqj63wgPrDrQM9icPie8JhSYf66lb9ivpGbxdYM1Abm9B0xeFgFhNGcM
+         Otz2/L+h/8K7s0TKtk8DbtDSwoPjI9/62x9fS8Xa2oddVjUugaWStq4e1lECKaKBG0r7
+         RO23mog1YZuuKo5ZYYOAYsLn0ifNO5tm1EHmiM5dNgYrCplcRP6AcrdsEabw5nptA8j6
+         OrpQ==
+X-Forwarded-Encrypted: i=1; AL+hErGzMIgpv5yC/8dUE4HZ1XuesLZYL7W3P+5goIAMw7TbVnWwdjXijgvfh+eiHuGTRBT8VSrt7HduPlbDWEk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8CybdgsZ5kyyO37nda44lc5ZpL/MLbtzC+ZoGkWG4jrv/RU/RR
+	9oE+W+oUiad62xrgvgBVNAov3YdDS1V9eOQzf1CoNIju/fXDC5B2nzLB
+X-Gm-Gg: AZFdTZdw/E2pq0GIHiVfLBtOg2gm7t0TEwIOTGMiN2682B+nYch6f1JdjnUXK5GjO3T
+	dLJV1nGS/iE3vU6ZEo4lxbBdlz4NtEX0mqoTABKLrFyLL7p3kplhduFsIgZXE33rUfgdnuQVbIb
+	/ZKyEpMZMD0fAMP8BA057MGi+nBFecjbSs+kDjTF/xE70I8iih/fPAvs3/SxrZVYxxdWbFZaHcU
+	Nmvz7cn0vL4gmO1FxjiV13GMePAVVGOOp3gQQ1aghCYxsCM2Nz1e9a/qhiHZj5JYxxJLL7XqLmh
+	e5bp8EbMpe5Sws5pqJSgFiuqFkYhIkEFuGaVLc2LmDf/RRt5XzVHhVZvtNDxhbxJZHyopK5SC1i
+	J1ZlKz7c9TqvdOkRFsCe1L4rQIp/Dw3V8hNf2xLjJHWydKxfBwtX4azDCEIori+vS4wyTyvLLWV
+	1W5zuL2SLL3UQLm3CouDgA/PM2m7qdUTaKfRBmGqCi9WbbA0w1lZFZxio3a4AfimiXzWtoulSF1
+	qqibzSauwQJgaW8pwn3CzmBLIlvuH7H2rflBCHBG4fKK8+Uhb2cmd5J1kSks32AVZMdlM0+B5fp
+	hFODPANyADvAuH26hO/eh0UZ1E/bTZhpzb9CdA+3+aP7CHWt8sNlZ22ehpQE0tS6RudLWH+V
+X-Received: by 2002:a05:600c:4755:b0:4bb:7033:de79 with SMTP id 5b1f17b1804b1-4bb8881dd02mr336047105e9.35.1795562300065;
+        Tue, 24 Nov 2026 15:18:20 -0800 (PST)
+Received: from localhost-live.home.vlan10 (053d9243.dynamic.tele-ag.de. [5.61.146.67])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853a9846sm554400825e9.11.2026.11.24.15.18.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 15:18:19 -0800 (PST)
+From: Joshua Covington <joshuacov@gmail.com>
+To: Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <masneyb@kernel.org>
+Cc: Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Andrea della Porta <andrea.porta@suse.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Sylwester Nawrocki <s.nawrocki@samsung.com>,
+	linux-clk@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Joshua Covington <joshuacov@gmail.com>
+Subject: [PATCH v3 0/3] clk: allow a clk_hw to be registered again after unregistering it
+Date: Tue, 24 Nov 2026 23:17:48 +0000
+Message-ID: <20261124231751.83938-1-joshuacov@gmail.com>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,71 +102,73 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <a74aca7a3d27333972782b29786c7b33861a56f1.1795412161.git.senozhatsky@chromium.org>
-In-Reply-To: <a74aca7a3d27333972782b29786c7b33861a56f1.1795412161.git.senozhatsky@chromium.org>
-From: Nhat Pham <nphamcs@gmail.com>
-Date: Tue, 24 Nov 2026 16:16:34 -0700
-X-Gm-Features: Aa3M54rNAfJPEtIYBNS8z0FncYPJyb1XKCgONajpLzKwfERL2NRMGTo5_-rczOI
-Message-ID: <CAKEwX=MJJVBfdE+LL-j+jwfkNP=OHaV21XLJxEOBv4XwsBLiiw@mail.gmail.com>
-Subject: Re: [PATCH v2 1/2] zsmalloc: free a zspage's pages in one batch
-To: Sergey Senozhatsky <senozhatsky@chromium.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>, Yosry Ahmed <yosry@kernel.org>, 
-	Hongfeng Chen <hongfengchen@xiaomi.com>, Brian Geffon <bgeffon@google.com>, 
-	Minchan Kim <minchan@kernel.org>, linux-kernel@vger.kernel.org, 
-	linux-block@vger.kernel.org, linux-mm@kvack.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-On Sun, Nov 22, 2026 at 10:36=E2=80=AFPM Sergey Senozhatsky
-<senozhatsky@chromium.org> wrote:
->
-> __free_frozen_pages() and dec_zone_page_state() take about 22% of the
-> profile [1].
->
-> Collect the pages of a multi-page zspage in a folio_batch and free
-> them with folios_put(), which takes the pcp lock once per run of
-> same-zone pages, and update NR_ZSPAGES once per such run as well
-> A zspage never has more pages than a folio_batch holds.
->
-> Single-page zspages, incompressible or power of 2 size classes, use
-> the current inline path.  There is nothing to batch there, and
-> folio_batch is not free, hence the batch path lives in its own
-> noinline function.
->
-> munmap() test:
->                     next-20261119      v7.4-rc3
->   256 MiB           -2.0% .. -4.1%     -4.4%
->   1 GiB             -2.8% .. -4.4%     -3.8%
->
-> [1] https://lore.kernel.org/20261109105957.2577351-1-chenhongfeng0212@gma=
-il.com
->
-> Reported-by: Hongfeng Chen <hongfengchen@xiaomi.com>
-> Signed-off-by: Sergey Senozhatsky <senozhatsky@chromium.org>
+Drivers with statically allocated clk_hw structures cannot register
+their clocks again once they have been unregistered, e.g. when the
+device is unbound and bound again. __clk_register() sets hw->init to
+NULL, so the second registration has no init data and oopses, and
+clk_unregister() leaves hw->core and hw->clk pointing to the clk_core
+and clk it releases. On the Raspberry Pi 5 / CM5 this is hit by
+unbinding and binding the RP1 southbridge, whose clk-rp1 driver uses
+static descriptors.
 
-That's nice!
+v2 worked around this in clk-rp1 alone. Following Brian's review, v3
+fixes it in the clk core instead, so that the other drivers with
+static clk_hw structures benefit as well:
 
-Reviewed-by: Nhat Pham <nphamcs@gmail.com>
+1/3 keeps the init pointer in the clk_core and puts it back into the
+    clk_hw when the registration fails and when the clock is
+    unregistered, and clears hw->core and hw->clk on unregistration.
+    Init data on the stack of the registering function is not handed
+    back. This is decided at registration, as object_is_on_stack()
+    only looks at the stack of the current task.
+2/3 adds KUnit tests for this.
+3/3 resets the cached rates of the clk-rp1 descriptors on probe, which
+    is the part of the v2 fix that is still needed in the driver.
 
-[...]
+Testing:
+- CM5 hardware (arm64), 6.18.64 backport: the new KUnit tests pass, and
+  repeated RP1 unbind/bind with all RP1 drivers loaded runs without an
+  oops.
+- x86_64 QEMU with KASAN: the clk KUnit suites pass (138 tests,
+  134 passed, 4 skipped as before), no KASAN reports. Without 1/3 all
+  four new tests fail and KASAN reports a slab-use-after-free in
+  __clk_register(). With init data on the stack handed back on
+  unregistration, the stack test fails.
+- arm64 defconfig with CLK_KUNIT_TEST, MISC_RP1 and COMMON_CLK_RP1,
+  W=1, GCC and clang: no new warnings. checkpatch --strict and
+  kernel-doc are clean.
 
-> ---
-> +       zpdesc =3D get_first_zpdesc(zspage);
-> +       if (get_next_zpdesc(zpdesc)) {
-> +               free_page_chain(zpdesc);
-> +       } else {
-> +               /* Single-page zspage, e.g. a huge object: nothing to bat=
-ch */
+Claude Opus 5.5 (Anthropic) was used to help write the tests, the
+changelogs and the clk-rp1 change, and to run the testing above apart
+from the CM5 runs. I have reviewed all of it and tested it on CM5
+hardware.
 
-I wonder if it's worth keeping the old logic for incompressible case.
+Changes in v3:
+- Fix this in the clk core (Brian Masney), with Brian as
+  Co-developed-by
+- Do not hand back init data that was on the stack
+- Add KUnit tests
+- Reduce the clk-rp1 change to resetting the cached rates
+- Add Fixes: and Cc: stable tags
 
->                 VM_BUG_ON_PAGE(!zpdesc_is_locked(zpdesc), zpdesc_page(zpd=
-esc));
-> -               next =3D get_next_zpdesc(zpdesc);
->                 reset_zpdesc(zpdesc);
->                 zpdesc_unlock(zpdesc);
->                 zpdesc_dec_zone_page_state(zpdesc);
->                 zpdesc_put(zpdesc);
-> -               zpdesc =3D next;
-> -       } while (zpdesc !=3D NULL);
-> +       }
+v2: https://lore.kernel.org/all/20261121181650.143474-1-joshuacov@gmail.com/
+v1: https://lore.kernel.org/all/20261121163915.86681-1-joshuacov@gmail.com/
+
+Joshua Covington (3):
+  clk: allow a clk_hw to be registered again after unregistering it
+  clk: tests: add tests for registering a clk_hw again
+  clk: rp1: reset cached rates on probe
+
+ drivers/clk/clk-rp1.c        |   6 ++
+ drivers/clk/clk.c            |  23 +++++
+ drivers/clk/clk_test.c       | 191 +++++++++++++++++++++++++++++++++++
+ include/linux/clk-provider.h |   5 +-
+ 4 files changed, 224 insertions(+), 1 deletion(-)
+
+
+base-commit: 8d7fe9885c62fc9a95bf55d9db244d9672a8aadc
+-- 
+2.56.0
+
