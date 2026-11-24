@@ -1,115 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.171
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795561347;
-	b=rsAElK31VEKufaYHsZpVN2KicWEnck69pQvmnaGKCgZXUW0eS8P1QdbvcutaiMmVrxID
-	 CiF/4F5OH6fTdMniPUCXQvxWjrxf5syXVFlsQPzT3ie0/BtSm/Olm7+2HsAtFNwyRPL+Q
-	 VgMRFReYHMu2dnRhs+Yd2AiCNV1TBPGIvongCPU+5sphMGFCZ6NQm/bIbNMZH8DvKQkGn
-	 W3pY31zzUfVnwsiall+oyN0p9dOoGes2saYiiquJ54YPpW7a4h0QcWurUOo7GrXOvcbpv
-	 zMa7DpDozWprglec5lC6aZb/Py91tCnch3sg/eh1ABDW2bTLdaaUAtpP/O883qMt09g==
+	t=1795561356;
+	b=ppc8D+Bqc8Jv9idUuo61cf2V7fGb2fRdnN1f10sm1RJvT3U8Wd9hqOZhAoNeWpe1WmQq
+	 XfVkf/rmF4g/4KrKH+Fqwb6e/698q/Vc2g2P86Su44P3MejjS/E0IjihEbfoK2ZDYskZy
+	 m93uYDl08DRkt4Dx2xWSgcb0s4AKyLWQVS8AdXwA6SIm8at0gosBUvZ/eO7P22VdBdDbp
+	 Bs53izLSokGmpJAxqpKkMza9614mnEpO5zNV/gYTOFqxyf8Y4IgQeiQI5IKzp+UO9BsWl
+	 Yv3KpEHA3EmeYgc304fWkxXVGYGrcadHXrT7zX5jG7S51KOEA2xVusr+NSUxYQa1YQg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795561347;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
-	 Subject:From:To:Cc:Date:In-Reply-To:References:Content-Type:
-	 Content-Transfer-Encoding:User-Agent:MIME-Version;
-	bh=lVlaaAsq67HaSInDi3IQqUKqJIz/RKf/oDeO9AktRqs=;
-	b=TNA4fTjwsAi0JqLl9hhRA7Iuh1wYvXPBDFp1RArPviWdxSJ2kA/X9a18sd5lSAZ2tjLf
-	 1HrLMlJdcjXQ3ctyoSKTDBZITVaau8XIlwKyJQq8PWPvYGQ3J0WnfJg0tp5VYQKbPSWUq
-	 rHateGlk58ICifLOluplFbgrFavwA4terqVwyy1X+tVC60yh1OB+e4svaeo+35ujr4YbK
-	 8DhvXttkMzounZBX/XODYtdDaxlpSj1uQ86TGonZ33jGqdhyxcODzaoUNxUe16IPC1YcV
-	 JlUMsfqZg5h1oa5c0mD50cN56pn6KXVtF1GZb3mk2gvJC9r0Gkp0cURiKpeedG/ypTA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795561356;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=D5BPfe091LT3dmDUExK7fHms4x6j0arLEPQECwd2AVo=;
+	b=zML0ZBp7YSglbHg79Ad95+jc1UTLo4dlOXPOJAEOuBMI9KtcH34tN1E4AluZ0wDT6s4+
+	 UwJH5Svy0ZU9LmKRHg8DwYdJyp070Ns+e6Hm8f4YJeAY+Yoxr9izbss7GoWhyQupJF/CC
+	 4q8sUDjXaXV597NkHb/NUx77PljZHvb5ujmqq/RZ8KSMgMZfplG+N+i+Kx23DYKcW0XUD
+	 FpaS2RdKjc2hR8N2nqMpddBztXcsXS8zn7a+N1VQzAbIGlu7VfN5cvc3SecTRX8Exg9UQ
+	 4OE960BpRktL4JB0uANPdPTJnSMRpxb0+3FhVKprIOGG4xlCcdR3f/5J4pZ1Mmv+haw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Z1MknK44;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=C2oNYAJk;
-	arc=none smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="Xyip/I4C";
+	arc=none smtp.remote-ip=74.125.82.171
+Received: from mail-dy1-f171.google.com (mail-dy1-f171.google.com [74.125.82.171])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 124FD606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 23:02:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 124FD606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 470AE606A329
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 23:02:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 470AE606A329
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Z1MknK44;
-	dkim=pass (2048-bit key, unprotected) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=C2oNYAJk
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795561346;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=lVlaaAsq67HaSInDi3IQqUKqJIz/RKf/oDeO9AktRqs=;
-	b=Z1MknK44IfDjQGRRuf7+QPIO3gHJYlO88Ka0sieHfAM2XlPJc4LnFntT8JJUCggshnfF5H
-	MPiuTU3nXaLFqxRhjtM6ouwJBsdSTB1g9zWD3IXrcOIjASNfx3tWJFqZ7LcUEfzr/wKMfV
-	G93hk+G2xleWzNRsKU1AcsZylvO8WDs=
-Received: from mail-vs1-f72.google.com (mail-vs1-f72.google.com
- [209.85.217.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-107-SXHyvl5GN0WtZGxt61jy6w-1; Tue, 24 Nov 2026 23:02:23 +0000
-X-MC-Unique: SXHyvl5GN0WtZGxt61jy6w-1
-X-Mimecast-MFC-AGG-ID: SXHyvl5GN0WtZGxt61jy6w_1795561343
-Received: by mail-vs1-f72.google.com with SMTP id ada2fe7eead31-7d2f2df81bbso2917127137.3
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 15:02:23 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Xyip/I4C
+Received: by mail-dy1-f171.google.com with SMTP id 5a478bee46e88-38644aedba1so7830774eec.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 15:02:36 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795561343; x=1796166143; darn=vger.kernel.org;
-        h=mime-version:user-agent:content-transfer-encoding:content-type
-         :references:in-reply-to:date:cc:to:from:subject:message-id:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=lVlaaAsq67HaSInDi3IQqUKqJIz/RKf/oDeO9AktRqs=;
-        b=C2oNYAJkQDVZQjl+r6m1PVwF3yAfDSEd94Yeqy0OP+2Q8Z+sqKzReUjkENOVekxVdB
-         dZ4isSA8hmnTo+E2J67hC0ET29g4Y9TaY0kNgzI2yNT9vVk/RypsZ9v1hz8MlOuGlk/w
-         0w2atOFL56h1bLro+o2Z4lr0tI67rAzkz38gdsENMAWOJnMpQdhn1cDstap5KqF2vifX
-         WCxXUL98cJME6HuSH9jS7+bB1ZV+FywEGwM+4yoC0sTmD8hhp2I2tT7qG3udZ0quahSb
-         UT7X7GNuaJCJYn54uNSlqTn9y0x2+M+rWqur6uQtxFu5DRhZVIFG8XLoJYK9tZStuZ9s
-         IjWQ==
+        d=gmail.com; s=20260707; t=1795561355; x=1796166155; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=D5BPfe091LT3dmDUExK7fHms4x6j0arLEPQECwd2AVo=;
+        b=Xyip/I4CJjOX79oknp9xnxqH8tk7ypjlRD+iGVEGJhXc1Q78Z0uyTgA7aine8/XIdk
+         u4cGGtKJxpG5CHBu0FUISUpWRuMSTxqFwiGqnMOgB0J5J282mZWz3MYJpKm6Ui2AnnZn
+         QsHovNmRZs6jMvcBr9BQ+uyJ2GWtF1yryusczyPgenGxiO/SScygAAcq0Dq0imjZ7Jce
+         wx/x5AVqjyhbNuFwTTKv0J3MYajKHMAo1Z513kotdbsU7rnQX2upFbTYZ+IbRdyVeVMM
+         DNDwT1z0nSrpBU9SnaVwzwXSaQNTHxkD/TNtoQvDCWXB1oogCnpD0WKIvTp1zLBPyvYL
+         4WxQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795561343; x=1796166143;
-        h=mime-version:user-agent:content-transfer-encoding:content-type
-         :references:in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=lVlaaAsq67HaSInDi3IQqUKqJIz/RKf/oDeO9AktRqs=;
-        b=kPG/WoL9SYla42a3sg0MUKHNJN7HfozisyjwtGXh5wnjRp3yJBNFliRdJsQGpGEMqh
-         c6iiBy4t/pRxi8Etp/YWRRsBBCNl/eHIrMMNt367sR1VQHP6s44NfA5Yy5o3DXzxW8UH
-         IdXUMDVTi/z3xVnAmB88w7aT1lkwNehloNGeNrrh0nMZ5JJt/9KZS9NF5snELOcKsx9m
-         EMRmx5uq0GVJI/sxMvJCXK6wj0CvAJpTWqGghKrgBVIHc+1ykp9TjVPWPj09LWmLrtEf
-         oBrdj2YGO/IAa6MOoLRwXuOJLmISlVsO6Dhns/h/UJXzEMukQueuvC2ctcqe7g9EpgIP
-         BGJQ==
-X-Gm-Message-State: APuU4Z9/Wwr7Se3Unfq3mTUYmMFBiYgGcrOhWXz9VXX2WXmPOtwVn8uq
-	B7EmsFGiDtnelD/sqA4l5oKnQ2ZbCLaInVWhrSK47by/sFXE9KKtHVB4FlMqaCeZ35JAKcZkaR6
-	YplAIk/X6WTETuXioqxMNpTruuQRdzTkPpc/s7KsqbD4YwsKxWai5ZDhNG+12AZ4qxg==
-X-Gm-Gg: AZFdTZdjQR8JL1uI1QOS1w7mufAp1QQMWoUIXp0SLw7j1WDROty6jmWJaF3UHaXGVdQ
-	AFAtmzbTmGBHHcso9VO8puf3qExUOSsimWydpoCdZv4d5L6bejfpu5jZPQhi6AOEYqfxhEMQeA3
-	j3QSu1Q7fAMsaKex1eypH81o0kNZekppe35nhTtaaH9/zexhUDmtmL1U/+SOdfZBgDagoplLMBW
-	jhijuZ0RwaNufb4AXtjV4HfDoQOgvChLx79O45v0aAm35vxFCBQ+ZIFzpjumT5SGML8kcPuEUV8
-	EonyzS/gQ+RibwL0hObfR+2TpVZDMh8cZwt97+Om3RRORjrTbZh1G6fhF76NSeFXEtODSY15Ftv
-	dRjuLwK5kTRkeUDg/OeNFE8zN8SfKJXVQtCf4EWx09Emx9ZLqV+MscT4x6BabCCEjuZxs1s0hEH
-	VJXk4QQYi7Tvu0aQ==
-X-Received: by 2002:a05:6102:26d4:b0:7d6:83ea:1183 with SMTP id ada2fe7eead31-7d7395b6140mr9305363137.23.1795561343349;
-        Tue, 24 Nov 2026 15:02:23 -0800 (PST)
-X-Received: by 2002:a05:6102:26d4:b0:7d6:83ea:1183 with SMTP id ada2fe7eead31-7d7395b6140mr9305309137.23.1795561342760;
-        Tue, 24 Nov 2026 15:02:22 -0800 (PST)
-Received: from [192.168.5.11] (pool-108-49-8-79.bstnma.east.verizon.net. [108.49.8.79])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-92134bf848dsm147522066d6.44.2026.11.24.15.02.21
+        d=1e100.net; s=20260707; t=1795561355; x=1796166155;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=D5BPfe091LT3dmDUExK7fHms4x6j0arLEPQECwd2AVo=;
+        b=12EnxIVCsIR2HUdqKio2DhNwVONWtU5wuNWYyJO7W/LJPWjusACcKWJgtaS+3eV4IZ
+         Fwqf5MuRgPc9zJtO1vwKLarDjHXWE8LN5XSrlP+HN0Gl+KbuF1KUcOJVOaC4VkqLaG0w
+         sRMHXva97GwH+jTqn5qOYGcf245I67v54fiI/blP2nwKySH2FP0I8jHdAPzgQptcFuz5
+         5WoPieUzkQoYN+dOV39tGLOGkKzGiWh3ycM6sBZ7Qs98aLHMz4/Sdn7xzXq/4vnxyn8o
+         PKwovvveQcF34ppQdeMAP2UDuQ28AtHjXeVn9tQzF5t3V4wWi4jB9HOdrzX8ShatnuIJ
+         oPcw==
+X-Forwarded-Encrypted: i=1; AL+hErGdrew4PJcuzdIaJ8I9K1XMT8t43Voa+hpV4v58pAnpggV/eTiqwq3EiOLdwx0jjKxmIxWjAmGyaTxFKk0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8l1tcPqjOF29GiTOXIdbrYFRkZw15PRycanxBfFwwIRip4h5ML
+	C1pV6L/5iDrvWZn9dE7Cz2V6dZt01sAC0/sLyTGKIpMfJ/TlETgqdcUW
+X-Gm-Gg: AZFdTZdA/eWctrRctlnxdg0jBY0IcRBagV6JaDypaHLH2oxtqr/xZzv+g1rj8HXi/IM
+	YnPwLDobtNzmLjQmZj4ZB59OEAIEkJS/xKLtTvFNLbYrVsOPTKsyZo6JrMKbDOvvI5VFaiNuSmM
+	EyaPPR6f1R2VHCzqGpjdY1O1O7XCWzg3wkBrhe1d39BVHN6tfqxxlkUfR7Fro1UlN6WlSyopjm1
+	p//bNOFwShAvkdqgwqW6/3HW2xVyvq+JHe7PI1oQ6Dc18igPhtO0nybT9f1E3PQlLMXFfsnrpu8
+	9/K97+QGUF7dEI9zzy2sR7fE5lWD0/M1NBU4tBb8htooYGSQPoTblHreVQn9ATkLs/o2X9/wR5x
+	/Y/G0ztyL8Ujs0jXeVtaw6nHB2a02Hg0hvyGHzQe651SfhTafIcfgvLw+J8kOwuqGcjMRXamftr
+	Xz8uHA1zb96l2X2yf+JFi0AkssPMg+m7N/f/Q0g/Mfeo8pJ8ag+4pBlQZbtMDJ+OtccmbXEe0bD
+	LnpWkPJOWAQfc/lAYWVFLox5VRTK8p30r/ncYtl6A6/+zTflFyBX2z5Cc7e/nx80Mibvf7sY1eQ
+	P2wCuvyTUApUzSEB132LcCt2kRcxMPE+P4CjKyCUIGuTVZprAw==
+X-Received: by 2002:a05:7300:7316:b0:386:c5d3:7300 with SMTP id 5a478bee46e88-386c5d37603mr3417710eec.12.1795561355161;
+        Tue, 24 Nov 2026 15:02:35 -0800 (PST)
+Received: from localhost.localdomain ([112.170.44.210])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385666e99fdsm59747187eec.5.2026.11.24.15.02.31
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 15:02:22 -0800 (PST)
-Message-ID: <8d952f5fa8d93c5d5f92292b5af203e83e5de3ae.camel@redhat.com>
-Subject: Re: REGRESSION - 2652aca460dc ("drm/nouveau/kms/nv50-: Enable
- atomic modesetting by default")
-From: lyude@redhat.com
-To: Mike Galbraith <efault@gmx.de>
-Cc: lkml <linux-kernel@vger.kernel.org>, Dave Airlie <airlied@redhat.com>
-Date: Tue, 24 Nov 2026 18:02:21 -0500
-In-Reply-To: <96444f8e0155d34c7a07fd5cc67ed87784bedd38.camel@gmx.de>
-References: <96444f8e0155d34c7a07fd5cc67ed87784bedd38.camel@gmx.de>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.58.3 (3.58.3-2.fc43) 
+        Tue, 24 Nov 2026 15:02:34 -0800 (PST)
+From: Junyoung Jang <graypanda.inzag@gmail.com>
+To: Eric Dumazet <edumazet@kernel.org>,
+	Neal Cardwell <ncardwell@google.com>
+Cc: Junyoung Jang <graypanda.inzag@gmail.com>,
+	Gwanhyun Lee <gwanhyunlee@gmail.com>,
+	Kuniyuki Iwashima <kuniyu@google.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Jakub Sitnicki <jakub@cloudflare.com>,
+	Jiayuan Chen <jiayuan.chen@linux.dev>,
+	netdev@vger.kernel.org,
+	bpf@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net] tcp: avoid NULL skb dereference in zerocopy receive with sockmap
+Date: Wed, 25 Nov 2026 08:02:27 +0900
+Message-ID: <20261124230228.3868519-1-graypanda.inzag@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -119,65 +106,70 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-On Tue, 2026-11-24 at 14:16 +0100, Mike Galbraith wrote:
->=20
-> In said commit, you say...
->=20
-> =C2=A0=C2=A0=C2=A0 Now that we've protected against breaking things for c=
-hipsets
-> where atomic
-> =C2=A0=C2=A0=C2=A0 isn't supported (<nv50) - let's enable it by default o=
-n
-> generations of
-> =C2=A0=C2=A0=C2=A0 hardware that support it. We'll leave the module param=
-eter around
-> for the
-> =C2=A0=C2=A0=C2=A0 time being, as turning it off may be helpful in the po=
-ssibility
-> that we hit
-> =C2=A0=C2=A0=C2=A0 regressions.
->=20
-> My now a tad long in the tooth desktop box regressed, symptom being
-> an
-> apparently bricked GTX980.=C2=A0 It bricks instantly at login when
-> starting
-> a plasma6 wayland session.=C2=A0 Plasma6 X11 or iceWM (et al?) sessions
-> work
-> fine.=C2=A0 nouveau.atomic=3D0 makes GTX980 wayland agnostic again.
->=20
-> [=C2=A0=C2=A0=C2=A0 2.846347] nouveau 0000:01:00.0: NVIDIA GM204 (124000a=
-1)
-> [=C2=A0=C2=A0=C2=A0 2.928383] nouveau 0000:01:00.0: bios: version 84.04.1=
-f.00.02
-> [=C2=A0=C2=A0=C2=A0 2.930480] nouveau 0000:01:00.0: pmu: firmware unavail=
-able
-> [=C2=A0=C2=A0=C2=A0 2.935007] nouveau 0000:01:00.0: vgaarb: deactivate vg=
-a console
-> [=C2=A0=C2=A0=C2=A0 2.935270] nouveau 0000:01:00.0: fb: 4096 MiB GDDR5
-> [=C2=A0=C2=A0=C2=A0 2.935288] nouveau 0000:01:00.0: bus: MMIO write of 80=
-00017d
-> FAULT at 10eb14 [ PRIVRING ]
-> [=C2=A0=C2=A0=C2=A0 3.002282] nouveau 0000:01:00.0: drm: VRAM: 4096 MiB
-> [=C2=A0=C2=A0=C2=A0 3.002287] nouveau 0000:01:00.0: drm: GART: 1048576 Mi=
-B
-> [=C2=A0=C2=A0=C2=A0 3.002291] nouveau 0000:01:00.0: drm: TMDS table versi=
-on 2.0
-> [=C2=A0=C2=A0=C2=A0 3.003475] nouveau 0000:01:00.0: drm: MM: using COPY f=
-or buffer
-> copies
-> [=C2=A0=C2=A0=C2=A0 3.069569] [drm] Initialized nouveau 1.4.3 for 0000:01=
-:00.0 on
-> minor 0
-> [=C2=A0=C2=A0=C2=A0 3.104139] fbcon: nouveaudrmfb (fb0) is primary device
-> [=C2=A0=C2=A0=C2=A0 3.155613] nouveau 0000:01:00.0: [drm] fb0: nouveaudrm=
-fb frame
-> buffer device
->=20
+A sockmap SK_SKB verdict can remove receive skbs through tcp_read_skb()
+without advancing tp->copied_seq. tcp_inq() then reports unread bytes
+while sk_receive_queue is empty. Deleting the socket's sockmap entry
+does not repair the sequence mismatch.
 
-Hi - do you think you could paste the entire dmesg from after when the
-bug happens? There aren't really errors here besides the MMIO write
-(which isn't unexpected)
+TCP_ZEROCOPY_RECEIVE uses tcp_inq() before inspecting the native receive
+queue. A small request enters tcp_zc_handle_leftover(), where
+tcp_recv_skb() can return NULL. A page-sized request can reach the
+mapping loop with the same empty queue and dereference a NULL skb.
 
-> 	-Mike
+Check tcp_recv_skb() before using its result in both paths. Also stop
+before advancing beyond the last skb in sk_receive_queue. Neither
+check consumes data in the sockmap ingress queue.
+
+A custom LLM agent developed by the author found this issue. The author
+manually reviewed the root cause and tested the reproducer and fix.
+On net/main with KASAN, a privileged SOCKMAP SK_PASS reproducer
+triggered NULL dereferences with both small and page-sized requests.
+A map-delete variant also triggered the small-request fault. All
+completed without a KASAN report after this change. A non-sockmap TCP
+baseline still copied one byte. An adapted tcp_mmap -z selftest, with
+only its transfer size reduced from 32 GiB to 64 MiB, passed before
+and after the fix.
+
+Fixes: e5c6de5fa025 ("bpf, sockmap: Incorrectly handling copied_seq")
+Co-developed-by: Gwanhyun Lee <gwanhyunlee@gmail.com>
+Signed-off-by: Gwanhyun Lee <gwanhyunlee@gmail.com>
+Signed-off-by: Junyoung Jang <graypanda.inzag@gmail.com>
+---
+ net/ipv4/tcp.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/net/ipv4/tcp.c b/net/ipv4/tcp.c
+index 418842a2dfd9..fa3b4bcbc726 100644
+--- a/net/ipv4/tcp.c
++++ b/net/ipv4/tcp.c
+@@ -2072,6 +2072,8 @@ static int tcp_zc_handle_leftover(struct tcp_zerocopy_receive *zc,
+ 		offset = *seq - TCP_SKB_CB(skb)->seq;
+ 	} else {
+ 		skb = tcp_recv_skb(sk, *seq, &offset);
++		if (!skb)
++			return 0;
+ 		if (TCP_SKB_CB(skb)->has_rxtstamp) {
+ 			tcp_update_recv_tstamps(skb, tss);
+ 			zc->msg_flags |= TCP_CMSG_TS;
+@@ -2274,10 +2276,14 @@ static int tcp_zerocopy_receive(struct sock *sk,
+ 			if (skb) {
+ 				if (zc->recv_skip_hint > 0)
+ 					break;
++				if (skb_queue_is_last(&sk->sk_receive_queue, skb))
++					break;
+ 				skb = skb->next;
+ 				offset = seq - TCP_SKB_CB(skb)->seq;
+ 			} else {
+ 				skb = tcp_recv_skb(sk, seq, &offset);
++				if (!skb)
++					break;
+ 			}
+ 
+ 			if (!skb_frags_readable(skb))
+
+base-commit: 37fa509e43ba59d7c329025436e8ea64bdf089d7
+-- 
+2.43.0
 
