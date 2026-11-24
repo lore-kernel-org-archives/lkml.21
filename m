@@ -1,124 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=205.220.168.131
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.180
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795515722;
-	b=a5nxvPTObrukzZzIHQ5rBnoeqQINiQELY9REBvfTME0ETCqGnGmEsxNgeffTuBskCTKw
-	 vh4WQf5N2EZ+x+FSyQ1Y+gVnIeIlIRp3H4aQmvaTnRidsv9woCVUoip+1C+keD+ygQrXZ
-	 lqUuOm4cBIa560NH7y8WoezxfTJC00EAROp+4zR66yZx/8McRDJRx1Jq9J4DfogulKFH9
-	 OMmFoyBeB11RAAIwUUE2ADpaSuPAsDY8mOLHifn4zYJWMjF++HqjWJGr7ZoTzx3RgVztp
-	 ZzZV3eh5xRjsSjpyEmf6Enr/tocf349MUik4Sj6GNDtIO7GqqQwW1/uA/FJqv1sK21Q==
+	t=1795515769;
+	b=NUW9L5C0A7v/N8rP5O90k05RH3EoGi/QcefBNXgy1vFCox1q/PWFHhrNafJiNPqU7sKY
+	 Big3hYgNZjQuKsvKREN56TItTcLBR/ANBwQMGiPxOtpBneqUzChjsVF/jNdNQ7lG0y26D
+	 2r+VJQAONm6NdpE2Ccwf4epi16ocMbA+Jpa3/deMBHclLvfRWHZwRUUHOnBaCe+irWij+
+	 S79ZrMI4t24skPLvyL9l+yNhDz1421BJaAT7A4pXCuc4CLsfAdkpzK7US9Ez5E0/wJnZ2
+	 aUFCe5FhHfIEQDg7G1ayYwYJPnoBKEiHTebEZ59HiwKrW89DqIW5agDVVxnJvB5cjcg==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795515722;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:MIME-Version:
-	 References:In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:
-	 Cc:Content-Type:Content-Transfer-Encoding:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-GUID:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=rnfFR39jOljSCKlXU0eh7YNFyxUldaQ73vrFAVXf6mc=;
-	b=mUJm1A7FvrZOwDAau1jH1oCSX0ncYpKpzpQ/lh20JNkgLUjXD52uvCQZ2JWbT0aovrEU
-	 jOIwqxgGmhOLFCVuuwiM3kz34y7r4aX0g2v4vxahR7swioORxagMDTyP1ez/4NqxoAoRh
-	 fsNK85TzzevIyr/XsVItx7n9G2tkryJaN1IttxR4MPB7MgEegUrs3gIZ0Ix6yu8qrgKoq
-	 QLtwWsjvDkIVpVKhqIuXIsLwkeoPlV7aNf7/yhqQH8LXjfDOlAsSI1plDyXgicHj8XvPu
-	 69QxJqEpMmENBSy0JxlRBu318/OoRnFs/YrqpNu2sqZ+acPkJJJHo4PuQ1LqdsfksXw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795515769;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=ejx0Vx6mlT/oh5f9iEeflN8sMqKcxSOCTfvOWvcm4hc=;
+	b=I35IQ7LTatxTH9OFrv151IKLbo24lKXPjRARwmk3uvFD96ktUThguWGHzW4HQyLpDiij
+	 Mcn1dmyiEXIwRMJv0q//qyXvkpw0sB88eGGldDa+jWTvXZRyiciplyrwe2a890jeT6z4H
+	 xdv16554qh9aeqnTxdXSg/ytV2ncfxW0rlDbz8o0kg5GaGG2bJN2xTflxw1UG6RJr6Mv4
+	 xNca2oBixewW1gyYy9yh72tQ8wa09JMTB6hWBvIV7/D5CWDHVcSFF0DOxi5BW39mCm5Fm
+	 /ieegRwZViC5PP8aWPa01/a67gwFN5D/bS7ku73N2JtmeKZNCmDHaf8zteXa/jjNuCw==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=Maeno0M7;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=arXcqM4P;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=chromium.org;
+	spf=pass smtp.mailfrom=chromium.org;
+	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=Bm9BA46j;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.180
+Received: from mail-yw1-f180.google.com (mail-yw1-f180.google.com [209.85.128.180])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7FBE0606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 10:22:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7FBE0606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 29A42606A322
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 10:22:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 29A42606A322
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chromium.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chromium.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=Maeno0M7;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=arXcqM4P
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AO5lpqM2848086
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 10:22:01 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	rnfFR39jOljSCKlXU0eh7YNFyxUldaQ73vrFAVXf6mc=; b=Maeno0M7egfWc/gw
-	YJfKWrbbwE0V0jXsr/jkC/8aUibpWhpQV2aMDJxgLrFUmzmfwQJQLLrCzHiIzBFK
-	OutSQg0eNIlM8+1E3WoC4zNXv0xCDpqXiGtJV8WBZPxm7pq5j+gYVBGkBVRH2Pya
-	pHyS6TD8fyoIvoRMXE583yh3cbG7Y6hxySkKD7x7+DRnIfU+PhzCq6eNkK3hwMnp
-	CSIyRU+3O7aEswruaGLX/T9GjHKCT26p7sqpxRYwjdmGt4VE537MGUgZgii+rWwJ
-	kc+6gSG5rGYKu9rkwdntxNd9Dtlypd4pEOwnuw2VAErv2EQG/S+96DX2dF2i1Md7
-	D/qv/A==
-Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j54rh945m-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 10:22:00 +0000 (GMT)
-Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-947a607ec40so413731985a.3
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 02:22:00 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795515719; cv=none;
+	dkim=pass (1024-bit key) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=Bm9BA46j
+Received: by mail-yw1-f180.google.com with SMTP id 00721157ae682-8b4d86f5328so28450727b3.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 02:22:49 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795515768; cv=none;
         d=google.com; s=arc-20260327;
-        b=KVq/1HdCufxbLK9mqvKbo1kduVpDNMKfut68FLLrpASSXXE0wvwAiK7OkIdTNHot8l
-         VHGZqhJaQcQ1cFo3Xb9ZIDEbDeIgiWOTOA15j3Jo2BY89KPX4wIU4vo/4yQk5EZsa7fx
-         JrTDP/oKpNEs7WOWv16eicuv5eqYyO3DsoG0J9Oa/Bkdhv1gE7MSPzsl10oPLumeRRMB
-         nRfZy1eZ4oHyEtLuuEed+4DaO4qxh0kBFl2S6T2yV2uf8CbKpXro9dHFHQNSWurYyFJz
-         CF5lQDo1cYjm8oWCEfhCbJOFx2sUT+bbwSO48MK+rIMg+yc04ckDfkjG0MjDNkLpu/Dn
-         aK7A==
+        b=bsElgBjzL+YWYltf5nXirXWvRFDWFfmFr33pbjreMwlxWHY96FE1yGhQ9IkK4WJyam
+         cLl6QlgFGJ99ABe5sf6EHSK123upYYcszYR52pLyU39r/ABzwxW6CuxIIUQbGbQRqCww
+         /bnbjZwk5KSzc0bAqwYBil0g8hcmfmLi1PLjcFvMHoYk91UEqNYedl67qLd+WPv/daD4
+         gKT11iU8/ykQnvh3px0GkE2hUi3mcx+H3P+W7dkMQdYekIkS+s4NJ1JABd8QpJi/GsxO
+         Fk34WAko+gGkEGg4i9Xb07YOSavf87ORsneklie2SgJQkkPhxynREPxvwd0PSQmsU1Su
+         UL/g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=rnfFR39jOljSCKlXU0eh7YNFyxUldaQ73vrFAVXf6mc=;
-        fh=STU5DZIN4TJWnXxpRZzIzGUXG1SVIK0g9JoUkNwsuPI=;
-        b=qI70GVQ1/N/p0Zdnd3eVN/7D7WwiFtz9gR/kfUkjMSmMQoq+cI2Xwi6l7SOxSxS9pi
-         dLJy2X+UQHixl3hJY65eU5hkMIVo1omprFskWAWJXtdRP99+jXOMNVyt7Yd0xRirGZPt
-         YbkdB1nFrifVeqx+nc/ZbdNT/Hw/gJEvRBzBTt1g/+l0hQT2nJJuHmTxc5F1yFeNLvdh
-         9FjFfk3j3NzIfb/jWM9V5tzrqxYmPVmfXlFy/k6VmewB4nXjsBdT90OwkYcJ+ap+LXij
-         xC8vfaoLX77qXebjR7YoIv4tGpFz8yxqfNcvdyymFuDF3cqgj79bh9fURealO7PPN8Ka
-         8wPg==;
+        bh=ejx0Vx6mlT/oh5f9iEeflN8sMqKcxSOCTfvOWvcm4hc=;
+        fh=vRRjeS7SNHLII97YZhn6Azv56L7vGkr6XXEK0rGH27k=;
+        b=ndyLr2y5P1+fgO5OjsZ1RPEAo6RlPeiUP0TqT2MUr6Oq2vrFxmQTnHQl2IYFZMHcKc
+         Pl8A0mVIL7p5mVaVMFIFg7RE7mM2zyBmFZHZi3qYpEO+IB+VulznfAZE9Gji5KEcVf8r
+         UmSiqY/ctH/5/0Q1ns/aiTKGWYwDhHUT+V4Kd1lFP8XYSwdoUdrmw05ddCqU3pbxuG3s
+         SLQKPOipCtktC5teI5TSxZkIIfB2tQMr6oCbgstNCYUGLjZHZoLVeeS3y6+j1R9hg02p
+         mC/yCZ8dyzUKWB48308SfluuzLwe4GXY+BdZmKnWPAVxfacv1RIZXCaSqQpvispiwyU9
+         PHwg==;
         darn=vger.kernel.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795515719; x=1796120519; darn=vger.kernel.org;
+        d=chromium.org; s=google; t=1795515768; x=1796120568; darn=vger.kernel.org;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=rnfFR39jOljSCKlXU0eh7YNFyxUldaQ73vrFAVXf6mc=;
-        b=arXcqM4PtvqJMToAas3UnkQL5ZycL7YiJRLd0pJfixRD7XK8Upevc8m1QNug/s/qC1
-         qYqMUg9eFJJT6PkCDWIfn1XZP0t6A2O9pWVoW9Z1u0gW2fQhTXkI+QZ4w/H3dSmPOtSl
-         Cr4IfRhDvTY697j/bGQG5GZrsMT2WO1C4c2ZrJ1GsLtc+4HlLY8TYyEtUPrtfW065jOA
-         UynBNduUScoPHAo+AWH7riu6MmZEd/Yk2SewAI9V82rqvHuA5R06DLHKP5WllgM3FxOM
-         iWnvWSMPc13WGIo1YzzyjGrF2lOAO4PGVWK5Sug5QJsHYAZ6v+kbN0k6U7imv1kaMb9Q
-         U8XQ==
+        bh=ejx0Vx6mlT/oh5f9iEeflN8sMqKcxSOCTfvOWvcm4hc=;
+        b=Bm9BA46jg0az0SQSgSx6vZdjy/b9Gb3NDHMH9kCWaawFTBeRUTP5Q97RgijmT4chfE
+         5q/7h1CwDlDX9jRehZ2/Vvd28U6TvZvSdu1ak7T0KwtrQgGPjyHWRGYgfFVROXgzVjOH
+         Nolqbt68eY3TDImPYngjsV/+G5qRlGqk8FC0U=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795515719; x=1796120519;
+        d=1e100.net; s=20260707; t=1795515768; x=1796120568;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=rnfFR39jOljSCKlXU0eh7YNFyxUldaQ73vrFAVXf6mc=;
-        b=zUv8qMKN43mtPDG6witI7ZmU30HsNXE9CLqnxjyvA/oa+3cdpJjUdSbLn+LQXiNp1U
-         Zj2uGuxq6HLWyMm0eJ8WPcWsP9ESjFSAAUkLvnofYRsEnV2emxTwFmzpVw9wLoWnSz/6
-         vROINDu0Fkvp+HjQZJ9Ym1zAYLEY4dpzFZblwxSmrU0Yjg6bSHjb9QGuJWInudy6TKkI
-         JgIjyAMSDTt+pytZGEWWAlpVhknwjcY6Y4Fl8qpynyIAC6wdxnx08raNc07PadxbzElX
-         eMhACsG9+ITvYsuw5cMcaDxuhoWQ7w6HQKEI509y/SLNQI0Jkmdp8Zv5HGNrq0VBCsUo
-         uLSQ==
-X-Forwarded-Encrypted: i=1; AL+hErEtbpZZiofRSVx+xIYfTenUNOrF0e/h2912amlJ7E6uWfPbIKwVR5kxr5Y/WTf8RIL5PkDHlml+8QNGnYc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z99bS26qJh0z+cXTlFj3gU+g1+ncq9EkU/qb9y11nOVxsKvjesc
-	gqSOZ2FTWB8I3J5Wm4z5kTpbmuNlz2dWqeHwYHiVJ8J0RXvFODwV7K6QRENT1/HgG0Z5as8HzF0
-	v2InJRjIhXAMCZBDSDuqx927TtjKqAYd6nrOldjjNwoI/mxVDOEszQfk+xdXY84hf589C/YK+79
-	4ZQ8QGF01myc4uoBOmSO90JUZgCLGayEqIUYJSjc5Vsg==
-X-Gm-Gg: AZFdTZekP5ixbncNBNoJht+8M6n4VSTa4TWcLH0sDZ6dYvxQDkwgHOwOgrYqDOprOPz
-	/cK7W9jcWKSz1B5apE7T4z7m4u2q3Qepef6xYKeoZt8tL6Dbm4YEt4nln8jTurLP56nz6zELqLo
-	d7vmXijx0wO8xYqD8cp/9+LjLZa94/MdjhBsfd140qUE8BuA+YFE+wm2QFJ4kPrP5u7g6TA9uLy
-	BwD5kkPJnxUYZWyI7VKgvGmGj3yDWfT3btZKL5sIX8wT35kEty4cc1NgY9pHXc58CgVkYzizPM=
-X-Received: by 2002:a05:620a:4012:b0:949:3365:7402 with SMTP id af79cd13be357-949ba9b8ee1mr2412736485a.17.1795515719385;
-        Tue, 24 Nov 2026 02:21:59 -0800 (PST)
-X-Received: by 2002:a05:620a:4012:b0:949:3365:7402 with SMTP id
- af79cd13be357-949ba9b8ee1mr2412733485a.17.1795515718861; Tue, 24 Nov 2026
- 02:21:58 -0800 (PST)
+        bh=ejx0Vx6mlT/oh5f9iEeflN8sMqKcxSOCTfvOWvcm4hc=;
+        b=CglD+JHeVy2qP+rAOXI3Qwj85JDB27sMYULIOh86UVW8QSyxITy9ZeSAB8G1FIojRF
+         4PGLPa4Mx5b20Xp1vQmZTavP/WapYyx7jpfmOqocoU61wQgQAa7USHsBuEV5Woon7BBQ
+         nnPzbOCQDiac79nhg/iC4sbX+hT1Cg9hDgin+QG0muYmYOI2R4NlkSnGCOxzEs1C5DZg
+         EORo1XUC645ELWNpIeE9kGmuwuOzsfRx+7f9CagMuTvyIPAGNzl7q8dfu6u43IEWlRFo
+         6Kzw16nYfDl0FMuL4jstqRSMGmhCmVDACMrxMssxcTJKE+qKnqicHNld1bVaev4zJoW5
+         O3OA==
+X-Forwarded-Encrypted: i=1; AL+hErEGzn7EkWsMx9Vv6nBKbflkwhB6W9sI44S7Y1xkvs6Z/Y0G1IomnDlrMlPB1PhP5p3SdNr9Q7q0ylzMZBQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8t3hcoMA9aK0Cit3LR8rOck/fz1P+xuC7Pi6kSo/NKQ6Qo+SAE
+	FQ11BFlJMV/kXbrVPWPzN4UuHSD/JAJ9xe29RZz6ozrjHDKsuESmoku853vVv3A1aEVwOae2ZMs
+	O5p4lhc2eb0YnzmohIHXzM1Mz3TXiPNNNAkoawyMq
+X-Gm-Gg: AZFdTZcSz0rB2lJf3iMXZFVcomp571opkUW26ZDxc3JH3iSYtkQQ5QgsOKKdxZyThu9
+	VWs8W+c6ObHKQEyHPD03ueOequQ0gBiWKDVF8dvAB1K3zXcyY/EsNFIFjhnmmNXvHapmnZt1u22
+	MWvQ39HajMws3dQgE3r08lMVvfz0XRCWVbLuZ3M9h+RROrTMl/DlFf9JRtCdsjKVqOJ02JDhaiW
+	v6n6gB+wuqc5haJh8ErZcsu88LyWwtFxBolNZWQnEmwDadEc4++usLLGS3VwKDd6U4XVOs7/Y/B
+	xnh0BiSpftdL3qPeKHmSvx4aBWBrEDO5q0PeukY4FcwtEBs3UhJAtcoiCvgc2RX3Fc4zk+dMPeN
+	fgdZLxHR/W3F6ntCBiExo8po+JawrOeAam0NGklewKp5UUKbh4Q0CQ7Uk4+YmS6gLV+Y=
+X-Received: by 2002:a05:690c:6e8c:b0:8a8:7e5a:dc2f with SMTP id
+ 00721157ae682-8b5204440fdmr67264947b3.12.1795515768163; Tue, 24 Nov 2026
+ 02:22:48 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -128,97 +101,173 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261123-camss-hw-ts-v1-0-7b62dda6d7a9@oss.qualcomm.com> <68bf8d15-8ebe-4d19-8f77-f49ca0cb5488@linaro.org>
-In-Reply-To: <68bf8d15-8ebe-4d19-8f77-f49ca0cb5488@linaro.org>
-From: Loic Poulain <loic.poulain@oss.qualcomm.com>
-Date: Tue, 24 Nov 2026 11:21:48 +0100
-X-Gm-Features: Aa3M54qBladabWaKAiUVgu7mNQ_hH4u1R6Ts0EudGSzaq5ubVgXuNh7aq7E1tyM
-Message-ID: <CAFEp6-3U+X3gE_AMqn5G0MFFsdqxRGHV+u04iiBJ0RLA_Sb8Mg@mail.gmail.com>
-Subject: Re: [PATCH 0/6] media: qcom: camss: Report the hardware SOF timestamp
-To: "Bryan O'Donoghue" <bryan.odonoghue@linaro.org>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
-        Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
-        linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org
+References: <20261124074041.115251-1-wenst@chromium.org> <20261124074041.115251-3-wenst@chromium.org>
+ <19cd5949-05dc-4107-bd2b-d8ad1e2332eb@suse.de>
+In-Reply-To: <19cd5949-05dc-4107-bd2b-d8ad1e2332eb@suse.de>
+From: Chen-Yu Tsai <wenst@chromium.org>
+Date: Tue, 24 Nov 2026 18:22:37 +0800
+X-Gm-Features: Aa3M54pNfcesZWo4EiEVJfs9QKzf9OEio3h9s-Qk4g3wBzB4RP2yK5vRHxNLzEQ
+Message-ID: <CAGXv+5HSV7MJ96qTcOp+JaKWtmmYYWAmDROrT18pZ9PztNCJ-g@mail.gmail.com>
+Subject: Re: [PATCH RFT v3 2/5] drm/fb-dma-helper: Add drm_fb_dma_get_gem_clipped_addr()
+To: Thomas Zimmermann <tzimmermann@suse.de>
+Cc: Liu Ying <victor.liu@nxp.com>, Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>, 
+	Lucas Stach <l.stach@pengutronix.de>, Chen-Yu Tsai <wens@kernel.org>, 
+	Jernej Skrabec <jernej@kernel.org>, Samuel Holland <samuel@sholland.org>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, linux-sunxi@lists.linux.dev, 
+	imx@lists.linux.dev, dri-devel@lists.freedesktop.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	stable@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-X-Authority-Analysis: v=2.4 cv=BKkmP1QG c=1 sm=1 tr=0 ts=6b056548 cx=c_pps
- a=HLyN3IcIa5EE8TELMZ618Q==:117 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
- a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
- a=DJpcGTmdVt4CTyJn9g5Z:22 a=KKAkSRfTAAAA:8 a=EUspDBNiAAAA:8
- a=NSeZ0p6lN-NMaJu6_AAA:9 a=QEXdDO2ut3YA:10 a=bTQJ7kPSJx9SKPbeHEYW:22
- a=cvBusfyB2V15izCimMoJ:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI0MDA0MCBTYWx0ZWRfXzaXFgpq1bSVu
- 5KsU9cEg4ueZKbOanwOhGNhd9cOMyy6C7rH2GC9RyQz5BbWvyVtkBPKoa2H49k+bJi2ZKm11JRL
- p8VPby8cqWxe24CYoL96udvg4qHSBdI=
-X-Proofpoint-GUID: dTlDUaxFCUzvVG7N--qvKGwSZjicq7zP
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI0MDA0MCBTYWx0ZWRfXzWegpwkSBkeX
- omJqNk7INMuppKWsg3wWM/V3FjLKz2PW0516lOWeH6aYGo3Mzs95keoiG+4u7vXIsTXQhlJIbRP
- 2e+oxBDVy0ul+j5xYroXrn2pMrfaNmqF3Jj8KqQ6lVaNzxB6nehOjTK6u4aRK3lLQzT3hTcxL+S
- nEHMQCSi0DooV5wqZvQRgxFFqJOZa5guV2zWnOiQWYYAKmGSTFZ1jMAcfGYvwj25jkmuC6pJ1Cs
- BUTJMmlNsqgmda18+B8GIxwgr9ZxhSjRrsSDsCZ1APndT5iz1fYVsEySiipoFk6JpJeTVFa8xAV
- R4qreYjQz/as9TbQlJTz7QIxB1mO94Wy0qTKebg/rVBnzivdjGvCuKZYdztqmns04nkCIIA6rb5
- 9gsZqRS1F+s3NATwrXy57h6jeoX5mEqsnZ3haVoZLCPiJjGd407a3hZcnbjQzr2djgype7Xu8sD
- GNXPA9XJuusZi0bf55w==
-X-Proofpoint-ORIG-GUID: dTlDUaxFCUzvVG7N--qvKGwSZjicq7zP
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-24_01,2026-11-23_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 malwarescore=0 clxscore=1015 bulkscore=0 adultscore=0
- phishscore=0 spamscore=0 lowpriorityscore=0 impostorscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611240040
 
-On Tue, Nov 24, 2026 at 10:59=E2=80=AFAM Bryan O'Donoghue
-<bryan.odonoghue@linaro.org> wrote:
+On Tue, Nov 24, 2026 at 3:57=E2=80=AFPM Thomas Zimmermann <tzimmermann@suse=
+.de> wrote:
 >
-> On 23/11/2026 17:16, Loic Poulain wrote:
-> > The CAMSS CSID latches the ARM architected counter on every start of
-> > frame. This series exposes that time to userspace, both through the
-> > V4L2_EVENT_FRAME_SYNC event and as the buffer timestamp.
+> Hi
+>
+> Am 24.11.26 um 08:39 schrieb Chen-Yu Tsai:
+> > drm_fb_dma_get_gem_addr() returns the DMA address to the "unclipped"
+> > framebuffer. However some display drivers want the "clipped" framebuffe=
+r
+> > instead, as they are also using the clipped coordinates to program the
+> > hardware.
 > >
-> > Until now both were taken when the interrupt was handled, or worse, whe=
-n
-> > the frame had finished being written out to memory, which is about a
-> > frame period late. The hardware value is free of interrupt latency and
-> > is directly comparable with CLOCK_MONOTONIC, so it can be correlated
-> > with other timestamped data such as IMU samples.
+> > Some of these drivers are open-coding drm_fb_dma_get_gem_addr() with
+> > the source coordinates replaced, while others have been incorrectly
+> > converted to using drm_fb_dma_get_gem_addr(), which would end up
+> > causing incorrect parts of the framebuffer to be displayed if it were
+> > somehow clipped.
 > >
-> > Patch 1 lets a driver fill in the timestamp of a V4L2 event instead of
-> > having the core take it. Patch 2 passes the SOF time down to the common
-> > CSID event helper and adds the counter to CLOCK_MONOTONIC conversion.
-> > Patches 3 to 5 read the registers on csid-340 and csid-gen2. Patch 6
-> > uses the same time to stamp the captured buffers.
+> > Add drm_fb_dma_get_gem_clipped_addr(), a "clipped" version of
+> > drm_fb_dma_get_gem_addr() for these drivers to use.
 > >
-> > Patches 4 and 5 are picked from the timestamp support Bryan shared
-> > earlier, with patch 5 adapted to use the conversion helper added in
-> > patch 2 rather than its own.
-> >
-> > Tested on QCM2290 (Arduino UNO Q) with an IMX219 sensor.
-> >
-> > Signed-off-by: Loic Poulain <loic.poulain@oss.qualcomm.com>
+> > Cc: <stable@vger.kernel.org> # dependency for next patch
+> > Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
 > > ---
-> > Bryan O'Donoghue (2):
-> >        media: camss: Define timestamp registers for csid-gen2
-> >        media: camss: csid-gen2: Report the hardware SOF timestamp
+> > Changes since v1:
+> > - Use new drm_framebuffer_get_block_offset() helper
+> > ---
+> >   drivers/gpu/drm/drm_fb_dma_helper.c | 37 +++++++++++++++++++++++++---=
+-
+> >   include/drm/drm_fb_dma_helper.h     |  4 ++++
+> >   2 files changed, 37 insertions(+), 4 deletions(-)
 > >
-> > Loic Poulain (4):
-> >        media: v4l2-event: Allow drivers to provide the event timestamp
-> >        media: qcom: camss: csid: Pass the SOF time to csid_sof_event()
-> >        media: qcom: camss: csid-340: Report the hardware SOF timestamp
-> >        media: qcom: camss: Timestamp buffers at start of frame
-> So I was offlining this change and kind of left it at comments I
-> received to make the type of timestamp selectable on a per-buffer basis.
+> > diff --git a/drivers/gpu/drm/drm_fb_dma_helper.c b/drivers/gpu/drm/drm_=
+fb_dma_helper.c
+> > index ab0f37d8a5ff..0aaf4926db4e 100644
+> > --- a/drivers/gpu/drm/drm_fb_dma_helper.c
+> > +++ b/drivers/gpu/drm/drm_fb_dma_helper.c
+> > @@ -60,15 +60,16 @@ struct drm_gem_dma_object *drm_fb_dma_get_gem_obj(s=
+truct drm_framebuffer *fb,
+> >   EXPORT_SYMBOL_GPL(drm_fb_dma_get_gem_obj);
+> >
+> >   /**
+> > - * drm_fb_dma_get_gem_addr() - Get DMA (bus) address for framebuffer, =
+for pixel
+> > - * formats where values are grouped in blocks this will get you the be=
+ginning of
+> > - * the block
+> > + * drm_fb_dma_get_gem_addr() - Get DMA (bus) address for unclipped fra=
+mebuffer,
+> > + * for pixel formats where values are grouped in blocks this will get =
+you the
+> > + * beginning of the block
+> >    * @fb: The framebuffer
+> >    * @state: Which state of drm plane
+> >    * @plane: Which plane
+> > - * Return the DMA GEM address for given framebuffer.
+> >    *
+> >    * This function will usually be called from the PLANE callback funct=
+ions.
+> > + *
+> > + * Return: GEM DMA address for given framebuffer, unclipped.
+> >    */
+> >   dma_addr_t drm_fb_dma_get_gem_addr(struct drm_framebuffer *fb,
+> >                                  struct drm_plane_state *state,
+> > @@ -86,6 +87,34 @@ dma_addr_t drm_fb_dma_get_gem_addr(struct drm_frameb=
+uffer *fb,
+> >   }
+> >   EXPORT_SYMBOL_GPL(drm_fb_dma_get_gem_addr);
+> >
+> > +/**
+> > + * drm_fb_dma_get_gem_clipped_addr() - Get DMA (bus) address for clipp=
+ed
+> > + * framebuffer, for pixel formats where values are grouped in blocks t=
+his
+> > + * will get you the beginning of the block
+> > + * @fb: The framebuffer
+> > + * @state: Which state of drm plane
+> > + * @plane: Which plane
+> > + *
+> > + * This function will usually be called from the PLANE callback functi=
+ons.
 >
-> IDK if that's really required for a first pass but, its where my own
-> reviews were left at that time.
+> You should mention what clipping means in this context. It's not obvious
+> what it's clipping against. Or maybe point to other docs that explain it.
 
-I can imagine this being useful in some scenarios, but today the
-timestamp source is configured per queue, and there is no userspace
-API to select or switch between timestamp source flags AFIK. So I
-would consider support for that to be out of scope for this series.
+What about:
 
+/**
+ * drm_fb_dma_get_gem_clipped_addr() - Get DMA (bus) address for the start
+ * of the visible (CRTC-clipped) part of the framebuffer
+ * @fb: The framebuffer
+ * @state: Which state of drm plane
+ * @plane: Which plane
+ *
+ * A plane may be positioned partially off-screen, in which case it gets
+ * clipped to the visible CRTC area by drm_atomic_helper_check_plane_state(=
+)
+ * (populating the clipped coordinates in &drm_plane_state.src and
+ * &drm_plane_state.dst). For example, if a plane extends past the left or
+ * top edge of the screen, only its right and/or bottom portion is visible.
+ * Drivers whose hardware cannot clip by itself (i.e. accept negative
+ * destination coordinates) should use this helper instead of
+ * drm_fb_dma_get_gem_addr() so scanout starts from the visible portion of
+ * the framebuffer.
+ *
+ * For pixel formats where values are grouped in blocks, this returns the
+ * beginning of the block.
+ *
+ * This function will usually be called from the PLANE callback functions.
+ *
+ * Return: GEM DMA address for the visible part of the framebuffer.
+ */
+
+> > + *
+> > + * Return: GEM DMA address for given framebuffer, clipped.
+> > + */
+> > +dma_addr_t drm_fb_dma_get_gem_clipped_addr(struct drm_framebuffer *fb,
+> > +                                        struct drm_plane_state *state,
+> > +                                        unsigned int plane)
+> > +{
+> > +     struct drm_gem_dma_object *obj;
+> > +
+> > +     obj =3D drm_fb_dma_get_gem_obj(fb, plane);
+> > +     if (!obj)
+> > +             return 0;
+> > +
+> > +     return obj->dma_addr + drm_framebuffer_get_block_offset(fb, plane=
+,
+> > +                                                             state->sr=
+c.x1 >> 16,
+> > +                                                             state->sr=
+c.y1 >> 16);
 >
-> ---
-> bod
+> I had to look several times to spot the difference to the regular
+
+I suppose I should add a comment to make the difference more visible:
+
+    /* Use clipped source coordinates state->src.[xy]1 instead ->src_[xy] *=
+/
+
+> helper. In any case
+>
+> Reviewed-by: Thomas Zimmermann <tzimmermann@suse.de>
+
+If the changes above are acceptable to you I'll send out a new version
+with your tag kept.
+
+
+Thanks
+ChenYu
