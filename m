@@ -1,111 +1,137 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.152
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795515548;
-	b=aCCbSHxERlPwZeWnoUHRNE3U1Hn3z40cieG4giTQHKj2TatIXq//vAVzSUCca/1YK4t/
-	 5MJWYPkousjT2igvrKdLeEFSGk1Xv3NugUsU9vJjuxrN13iBC0NOdvRzllf67I4d0G5mK
-	 YDdMc+1ix4LoZon9ATtM/xuppVLcDQARtKN5eUQEY5Octo9MAXl5Bogo6tXarobNzpe6d
-	 x12Wk+8axuaVNsNNSkSFE3dM3UQ4DtOhNy8HEDkQ4dSqruqj2A1UeQ6FnzJhK8PLm3x5G
-	 dA7NergAe5WdLvXOPYrRvluKqgBIAEh3Gv7XBBwxE6aICvFuoV5qgdmpOgQOY9H/hAw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795515548;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
-	 MIME-Version:X-ThreadId:Date:From:To:Cc:Message-Id:In-Reply-To:
-	 References:Subject:Content-Type:Content-Transfer-Encoding;
-	bh=7gjY4lDtLDfFEG5jJ5KcBJdaWkzeeLrZAoxzAjd597Y=;
-	b=F+SLGC1LKXeOha+xAc/134RvEBR6vDvksMtNdZgQ52EBVEPXc/rMPd4T0MMzsIbOPvl+
-	 /dCt3J37/PWC6pXddImx2J+JqniXi4x22z2Y+kXTxQvARtko9pAPyreTMbPeg7OE36Ipr
-	 FXYIvubT1aJWoGIZVheO6zzlQt5ewuJ7/gagCRqi3Nn5Cnf1X5w4w5y7YNxYuA2kcDScO
-	 VjJC7PhSgYagfai3ejOGXeS5Mm5R7FrB9nXbfbHUTkajFdG9gzdRGHAohH8gAOXX89yWd
-	 UOp6DmtxaoS/DIvrrs1a6cqU2VIKtfyBgJ6tO2UJ8Jsm5ArXkNScYYxS6YZnOGd/y6w==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arndb.de;
-	spf=pass smtp.mailfrom=arndb.de;
-	dkim=pass header.d=arndb.de header.i=@arndb.de header.a=rsa-sha256 header.s=fm2 header.b=NUQP8SMT;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=WVtOEF13;
-	arc=none smtp.remote-ip=202.12.124.152
-Received: from fhigh-b1-smtp.messagingengine.com (fhigh-b1-smtp.messagingengine.com [202.12.124.152])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=148.163.154.28
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795515577;
+	b=geWMNKtrspSuSmKPzfUw2L365aQJzt4D6vRx3IqmqIsglQO5VB2z62+bTQz/JYYZTtVK
+	 iK7oJbHg16FFw3AQ81iwcOvIif71D9TxniMD4h62dujAvwuQ59fD9xrNR2Kmg4eL4b+Av
+	 mbrR0ICcvq7UoTXxtFiXpEdwHZC+fdyYAcUYp/E2UfCxQjlyDwLezbkIMnNnBBCD52Vif
+	 GfW0NJ45+8MP83rjT9OOyEC8x1Y6oezaOo315kOVj9Zlq3z3mjI+sNmeXL4Zxwv1V2zxB
+	 LD+KzT4Q4pssZkpay2H5SI6mHxFHr2fjHvYvTWmz/mQ6AiJqbefgaP1T1ZvUUSO/KWQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795515577;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:DKIM-Signature:
+	 Received:Received:X-MS-Exchange-Authentication-Results:Received-SPF:
+	 Received:Received:Received:Received:Received:From:To:CC:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 Content-Type:X-EOPAttributedMessage:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-LD-Processed:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-Exchange-RoutingPolicyChecked:
+	 X-OriginatorOrg:X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-GUID:X-Authority-Analysis:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=gncfHiimR2IeqC5k9EUHNhd8zaf3y3f8uVWykSzfxbM=;
+	b=nqmauFBFJAtXO5HeF+wsP02BhnvOrWV+wYvScO6sNTNqo16h2T5PF0R/oqSZipKBT6/4
+	 EEzMyya32uS0ncLf2HwfHDP+qSxg1bRvllys5E3Bv19FUHtgoVzuWpuUE+W+85SNsKPnz
+	 jme6DdrzxBxFoEDxhY1GbrUzxkaQTGVVy7fSoKBXAWS5Qsft4EC4op6LvLuo9zNFsIcGQ
+	 3XUxRPJugEc8NHUDV0OYAYvl9VQdptOfNGaSjJfB9IPAFfcCkMgHIspjSPWLbawP1FtLS
+	 5ldy9xgyqsZRRz5/512sEMQPfyBuABnQqiE7WCmUlOIirR133ugj39qMMYIU/ivIN2g==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=ti.com;
+	spf=pass smtp.mailfrom=ti.com;
+	dkim=pass header.d=ti.com header.i=@ti.com header.a=rsa-sha256 header.s=proofpoint-05-2026 header.b=im2Efrb1;
+	dkim=pass header.d=ticloud.onmicrosoft.com header.i=@ticloud.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-ticloud-onmicrosoft-com header.b=VdHE+f5s;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=148.163.154.28
+Received: from mx0b-0002e601.pphosted.com (mx0b-0002e601.pphosted.com [148.163.154.28])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B7F54606A321
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 10:19:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B7F54606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arndb.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arndb.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 69DA8606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 10:19:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 69DA8606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=ti.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ti.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=arndb.de header.i=@arndb.de header.a=rsa-sha256 header.s=fm2 header.b=NUQP8SMT;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=WVtOEF13
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id 154707A051A
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 05:19:06 -0500 (EST)
-Received: from ams-imap-03 ([10.64.2.23])
-  by ams-compute-02.internal (MEProxy); Tue, 24 Nov 2026 05:19:07 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1795515540;
-	 x=1795601940; bh=7gjY4lDtLDfFEG5jJ5KcBJdaWkzeeLrZAoxzAjd597Y=; b=
-	NUQP8SMTJJO2xYrI7tEgPVG5raOGrS5KJO/y1UVzLLDu++nNkEPWcYYIpHFz5CHH
-	Bt06yni1WxTSSj8M9iC7u6QRMoX39AGxyk48nCNCotTqNb1hYQ20IZ2FZWgPg6sE
-	ce8pyABeVwGBzJaePWfQnm6N5QoROCoLuD0a0ix+cieFQt5rVfCsmyJuvKdQ2TGM
-	5gkFzMOw2BzMdFQRPg2p/yQLQlOv13whwIafgnqBhwQjwgRKYkkckZqe/uEDosMv
-	/tiWfi5+A1osgfTCTGXA5L9C4okJGA4Pq0x1fZkzKvPRe9a61hRUDt2nn4GSZHpl
-	6RbrEVDJka3GNJUBvgccbA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795515540; x=
-	1795601940; bh=7gjY4lDtLDfFEG5jJ5KcBJdaWkzeeLrZAoxzAjd597Y=; b=W
-	VtOEF132H5uWki6l2Ru28rRWg4vWi0XKaGCDnGOLFJcIHoiqjPSDbGIxfJwcVUka
-	Sb7w4L5K9gf8qAb9Xf/kOvCvFU6fSptTAHbvRRLxCWZFNC1sM5IK5ksLACM/aXuH
-	cKFWihJ4zPYTLUu+SVE4XkevJQUPZw1RfOPDWZ+iyZp7BStaBoxJSAJQGUrDRHYE
-	UMlX1OIZXn2sVVPdA8z6gixM3R0uzu0TNTzYPgpXL6QtjzZe3BLO9nk5HS35PhMR
-	CXkosoGvZDkGIeikhiar3PZXBhdT7coTol6DHTs8IYk746XdPwGSJpuBTtxYnj37
-	+AzTKqxsICbcHbCIQkgCA==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=arndb.de a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795515540; d=arndb.de;
-	mf=PGFybmRAYXJuZGIuZGU+;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm2:rsa-sha256:ZIKaA8qZnot4PIOvtwZiGaB8QhFInhRGivTczV+d8zxz9SQ
-	DuFfiXPUNCYdI0sBFG+DE7MrwDfjC5fPul3COoSa53SeyUdhNcZkLPRzk/wSUkSZ
-	HOYoR5m3fRvfZyzCFYAUgmVaLN+7ta4GW+Q1f4lJiLdHwzzGHM6z2CCtdKvwiQJl
-	fE+IJOWjeTD2xG0XiD4jgn5xMw+An78waBdZ65lLL3iKioWyJMeqF9kWmkHTOTrA
-	sKQkXrRW5A5G30px034N4VQxIFqnSAKL29qr8Pv7e4aHqNP/hdZeNnYR/mghHuxT
-	nSQPudvPXtQyi8ppeY8N3udu2fVhvOy3ErZkJlw==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=12;
-	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
-	from,in-reply-to,message-id,mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:evu2coAKmqt10MejIF/MF6J1JUOAfzXa2aFUsNMHDfo=:8EAuTrDt+pUZRs4Ox1H9GsvUkNKrKWTAO4Nvlr7LLpo=;
-X-ME-Sender: <xms:j2QFa-exXqcv-ie1Eimjrwaj3K2VLfOJ28HYUmgmezGh2SWOHvlbUw>
-    <xme:j2QFazAdqoUPfL43hGoH9E92CyAXFQSJ40mqWfGWOwnkXSAlG7k0X2bkjIkkimcZp
-    l4Fd_qZ4UhXYYQLmcAaevSo7CaKr2fzDPRB2wD-dVgPzRdCow1RX6I>
-X-ME-Proxy-Cause: dmFkZTEqiB9KxNkD/hivQQxMU5DgBt1slxhzcdhbvgIORfhac26QuPWf63hf1/R++71Pim
-    5azqrwqBfB1py4LmV722M7QD6PFyEk6Ixdjn/QflFqoqWipQwW6kJN4sYp01yaYHgVD7K6
-    Xa8a+ILm7gJWEFw40WRO+GG/s3KSd1yb6wOgkmPcZLKldWLvmGbR6dDuEO3odqVSlY8rpv
-    uVclCjY4Ti51XLLxmrS+jT4f9qoQVpsHdcT/zSSmTOvLCzuCV50WMc+fnUN3yi+I3Epgns
-    qZvq9gjumcathY/Wuxt4dhuKutl4hLM3BWabseitw6P2tKQ29LSg1T2ecr0wTFj8pwXQsx
-    mZP+RrPvqUwdWJNTNuO+8Krq2Ye4nXZJYIHXvuEc+bHS2TP4nOCbAevlcWHCUnYdaADXjv
-    l8W0iLhHlw7/RtaXn4jV/6HqWU9wwyrLVBSv1lItvQiNTf5plD5XQzy+0nAMHax3hb3VPB
-    BIeMiefIrH5uy73Wvqa6I+2ruS9stNLKqfP4nB6fEX7jnoZePsLhCGOx0JPF6RUlU11s24
-    6UvHB27mJhLSI+o2DNgX0jsF/L5dbO9PM2z4RdnwL243/jwf5yOmyb9H6rT3dbvXoLXYOW
-    4Ni/txbPBGcG4ll3RckBUwURTeDt09Jeh9s1sFBDz4WPubRKbEEU0mcqUAVA
-X-ME-Proxy: <xmx:kWQFa6kHDoQWVP4PWHxgWE7-q7WRBbD-YxNoJPOfbqaps0O0Pvacvw>
-    <xmx:kWQFa9qD2C-KW7tWeGWQUtxUPdNfZiHGNlXAZi_t7X9D9eXKrRArwg>
-    <xmx:kWQFa0A570bfVYCqGLpqhN-CnVqxfxBwu6TKpYeYqGNpjrireVhrAA>
-    <xmx:kWQFa4Ed-ZoKV6-E_N3e60gxeNDoN2mgf1QxlUxncg191eicvwEJRQ>
-    <xmx:lGQFa3W64BKTLBDlmNJ3Yj1c2IRnuCSE2pi3dSgENWny66Cks7aEu6y3>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id 2BF9232A009F; Tue, 24 Nov 2026 05:18:55 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	dkim=pass (2048-bit key, unprotected) header.d=ti.com header.i=@ti.com header.a=rsa-sha256 header.s=proofpoint-05-2026 header.b=im2Efrb1;
+	dkim=pass (1024-bit key, unprotected) header.d=ticloud.onmicrosoft.com header.i=@ticloud.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-ticloud-onmicrosoft-com header.b=VdHE+f5s
+Received: from pps.filterd (m0374956.ppops.net [127.0.0.1])
+	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AO83QUE718768;
+	Tue, 24 Nov 2026 04:18:34 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
+	:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=proofpoint-05-2026; bh=gncfHiimR2Ieq
+	C5k9EUHNhd8zaf3y3f8uVWykSzfxbM=; b=im2Efrb173fCDcG1r5wOymFZRZB6A
+	oPWDBL8GVCDR14CQKYj/sYIu59A6D3rJViNBA7K3E/E+nT5zyYetmGi0Thw5qfNY
+	W53ZZ7bjFm48Rzz/s/I8AnBZFpAJ6qFht8o8dg1SRDyRqcIPUk9Q+h8AXV6lqD0c
+	pxDGd3fvECMabchbgGcw6+v8PmEcgucVhn5AIqzgKtXdTgYnK53hl0RtAsszhkhy
+	gb4MDgmfpQR3kwje8qawZ3m5mOwvEihU0b+EolaXBZrPkYH15pWCiv+eOs06DFSO
+	xBX75gJiJ808BfbDk8sTgyfZeXbYi6+TpWFQGyIVW9bke82cDwcYfreDw==
+Received: from bn8pr05cu002.outbound.protection.outlook.com (mail-eastus2azon11011004.outbound.protection.outlook.com [52.101.57.4])
+	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4j4v8qbx7d-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Tue, 24 Nov 2026 04:18:34 -0600 (CST)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=o83xmlxpurLESblVPOO71Bh9PkhojQprEb9dV3ztto0Xc84ZffjS9yueQ/b55wzes6xZKtYlxyqr4kiebIsQPta722Vfd+f/z8GohkWf0fGbxiFEjm6TCeDseCkvzHXdQsnfJh/JRlDhZQpoURjQ4Ah+6IsEinaLZMGCy22kBTm660OJULnE2WxwFgepkRmhpkKxVtWpY/ZHgMP7TrG2/xxIGpr0MgLoKooyYzaLc58qH7rnu1GPLZFzjBtXlmVc9ZFSaxFpnLnr25ODoDIDK2TbBWMDiDRTROhes9LTXjvQLnLrdqN5NgNClEe5lOmomStDBUHMll31EuwudEdWbA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=gncfHiimR2IeqC5k9EUHNhd8zaf3y3f8uVWykSzfxbM=;
+ b=zRnUrQcm6ma1Jb4dA9HXbsjmj1L1oRIjcEOG7KjMX7+iU5dzXAu3RW+B7GWwSoEjL3aNDN+fcy0Q8Frdxm0wye/ZJY+vdsAoOkXgL6XkRnQDYbMw2HtBYSBt6DWC0Yo+ZID+P+Vbrw81UMiRJvdfm/Ib2dDZP9VzzPqWC9XyFcMc0We2L3RmcClLhK9t5ePrgJYsjZCMENJhpX6TPcV0EJJWf7/l8X0IACek/HOW3qNac+B8pks5iDPn4MYhSJ4PpIeZvpH6lafG2IzXTkxnsfbiTiSyHyhuOvRig3WYyZNYekFE0I/mYMjnbw4sozGvKCXgHGAqPtokmddJsLJOhg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.194) smtp.rcpttodomain=bootlin.com smtp.mailfrom=ti.com; dmarc=pass
+ (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
+ (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=ticloud.onmicrosoft.com; s=selector1-ticloud-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=gncfHiimR2IeqC5k9EUHNhd8zaf3y3f8uVWykSzfxbM=;
+ b=VdHE+f5sCTIkKcDInnvF40W8eB69POn5U5wVpv14W84TBiZvX22qxqT/Xld//Aaepd97JDozMWyNWlFN0e5xfUIgMZ0cRGqMBD5AQigDJsinur6eCYDHOtYLs77Gg4mxhzBAqP2BI+KbvPmooKjf/BbQHKIfdrvSOcFiIV8wu6c=
+Received: from MN2PR01CA0040.prod.exchangelabs.com (2603:10b6:208:23f::9) by
+ CO1PR10MB4707.namprd10.prod.outlook.com (2603:10b6:303:92::8) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.639.13; Tue, 24 Nov 2026 10:18:31 +0000
+Received: from IA0PEPF0000003A.namprd03.prod.outlook.com
+ (2603:10b6:208:23f:cafe::31) by MN2PR01CA0040.outlook.office365.com
+ (2603:10b6:208:23f::9) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.13 via Frontend Transport; Tue,
+ 24 Nov 2026 10:18:31 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 198.47.23.194) smtp.mailfrom=ti.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
+Received: from lewvzet200.ext.ti.com (198.47.23.194) by
+ IA0PEPF0000003A.mail.protection.outlook.com (10.167.249.71) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.662.3 via Frontend Transport; Tue, 24 Nov 2026 10:18:30 +0000
+Received: from DLEE212.ent.ti.com (157.170.170.114) by lewvzet200.ext.ti.com
+ (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Tue, 24 Nov
+ 2026 04:18:11 -0600
+Received: from DLEE200.ent.ti.com (157.170.170.75) by DLEE212.ent.ti.com
+ (157.170.170.114) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Tue, 24 Nov
+ 2026 04:18:11 -0600
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE200.ent.ti.com
+ (157.170.170.75) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
+ Transport; Tue, 24 Nov 2026 04:18:11 -0600
+Received: from uda0543015.dhcp.ti.com (uda0543015.dhcp.ti.com [10.24.50.243])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 6AOAI5A61414766;
+	Tue, 24 Nov 2026 04:18:06 -0600
+From: Abhash Kumar Jha <a-kumar2@ti.com>
+To: <andrzej.hajda@intel.com>, <neil.armstrong@linaro.org>, <rfoss@kernel.org>,
+        <mripard@kernel.org>, <tzimmermann@suse.de>, <airlied@gmail.com>,
+        <simona@ffwll.ch>, <devarsht@ti.com>, <u-kumar1@ti.com>,
+        <sjakhade@cadence.com>
+CC: <linux-kernel@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
+        <Laurent.pinchart@ideasonboard.com>, <jonas@kwiboo.se>,
+        <jernej.skrabec@gmail.com>, <s-jain1@ti.com>, <y-d@ti.com>,
+        <tomi.valkeinen@ideasonboard.com>, <benjamin.robin@bootlin.com>
+Subject: [PATCH] drm/bridge: cdns-mhdp8546: Power on/off the PHY in probe/remove
+Date: Tue, 24 Nov 2026 15:47:47 +0530
+Message-ID: <20261124101747.2432344-1-a-kumar2@ti.com>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -115,133 +141,120 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-ThreadId: AzzadY2dYG8o
-Date: Tue, 24 Nov 2026 11:18:19 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Finn Thain" <fthain@linux-m68k.org>,
- "Bart Van Assche" <bvanassche@acm.org>
-Cc: "Geert Uytterhoeven" <geert@linux-m68k.org>,
- "kernel test robot" <lkp@intel.com>, oe-kbuild-all@lists.linux.dev,
- linux-kernel@vger.kernel.org, "Andrew Morton" <akpm@linux-foundation.org>,
- "Linux Memory Management List" <linux-mm@kvack.org>,
- "James E . J . Bottomley" <James.Bottomley@hansenpartnership.com>,
- "Martin K. Petersen" <mkp@kernel.org>, scsi <linux-scsi@vger.kernel.org>
-Message-Id: <f0ec2845-245d-43ac-9c96-242e0d1d11ea@app.fastmail.com>
-In-Reply-To: <85e103fe-acca-0880-1be3-cb1e7f79f9a4@linux-m68k.org>
-References: <20261121034304.2dPxVKzk-lkp@intel.com>
- <0b947a72-7a68-9bde-8b0b-adb539f09a8c@linux-m68k.org>
- <CAMuHMdUxYwD2t8zrqs4QBCtATOtf9xE83Djo0g7qbNFGSCWAQA@mail.gmail.com>
- <669b9ce8-bb33-f7ee-1087-88c1e9d3b610@linux-m68k.org>
- <8a0f78e3-5483-42a2-ae27-473bbb6de915@acm.org>
- <85e103fe-acca-0880-1be3-cb1e7f79f9a4@linux-m68k.org>
-Subject: Re: include/linux/compiler_types.h:631:45: error: call to
- '__compiletime_assert_433' declared with attribute error: BUILD_BUG_ON
- failed: offsetof(struct qla_tgt_sess_op, atio) + sizeof(u->atio) !=
- sizeof(*u)
+Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA0PEPF0000003A:EE_|CO1PR10MB4707:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8393fda5-93c2-48c4-b694-08df4a1449cd
+X-LD-Processed: e5b49634-450b-4709-8abb-1e2b19b982b7,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|36860700016|376014|7416014|1800799024|82310400026|921020|10067099003|56012099006|261021123027099003|261022105027099003|261021121427099003|261009223027099003|261028144727099003|261102123227099003|261026140227099003|18002099003;
+X-Microsoft-Antispam-Message-Info:
+	S+sPREEKzFPPW+Ef/35CcBiMceVN4TkYFms//KXjg8ClU6zlxg3mMNHwKm9tDAL9xKyBuMwl1OpUjhW08R2AKJhKG+Zldbl4Zdli+QycdIth3U0Tgn9unIQS95WRoSmRv0slDfERWH3U0224KujN8rps9ZxE/R38IbosIT5MQuBk3NEYRIrTuC+fOyPmVfnfkzJhl/zZqiGjv9KO5juls8zzLdK4+FAlAofihGn5TXErYIAIKfBOgA85Q15a/8iuAiVbKApkfWkxSYpaGUVwm2RHruN7ktM+xv15NDG5svJWk6lrQKMRD7qC0HX+pFuYqi4O38wm468P23uvagklW2Cs0AlthQxOWuEqrjGshkQy/s6wuai1xMmI1Jd3VD6BNUfnCshc8XAyL1GQ0H8Jrj6BzH+E5OOo5hhPaGCyT0sCpgEYvFWE44INJeCM/1wpoNR1bkZHwEN+nDDkNYc6qvUUVZPh59+EPSl0k7fXDRcFkIGK8NGwuc7d8DiiuI0naFLeWkMF77K0RBzWKBB05XZK1b9l+P5WBRC9AwOENQ6dKQDzNeM4q0s2FkoMfjbAXw7ssT0DIp6rcviyyuIb0Yzsfy1hBBeUHNGNLtgJB+J3G578Z+umexoTGolbEBDotV1Gj7VdiWtfICh5sXMytpbZf4WuwCRH/uu8YKdNNcpXNg9pfKsxBvbI+T9kQPDLMg5oFwS3sHUKoQmprvxyr9k07VLlv44CmZ9WmjzB39p6nYRjboDIRqXZNdTxmSXW
+X-Forefront-Antispam-Report:
+	CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(376014)(7416014)(1800799024)(82310400026)(921020)(10067099003)(56012099006)(261021123027099003)(261022105027099003)(261021121427099003)(261009223027099003)(261028144727099003)(261102123227099003)(261026140227099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	HSe8XPkKKtr6JhFG5RRsSylvJLLD5uKWewVqlXBslXQHm7PdhSKCiM0HiJ/Ig0Fk7G8YkheYSbO0azCIgA7yJGEPvmtKLM4jiF9d7A5uLVwDkY2AHzhErK9m4h4I5oSp6axvZfnK1WSo6fFlTxt3Mqk+8RrQjcJQW9TnTHagTMVEA9wDdGJUCiw4lFSxy5o7w2wEAof7cOGslnl2ld1WCCmm2aRfknW7+UoGCu1MQ9kf5THuas9PcQ+Kl30QaPGzWVP6QYS5AKk+cv6FoLpWDtBN15kViRJrXTvjPDA508uxxQVFYdhaNyiGSdcKzwXIU4gvxHZMQ8TZ8Gc/L2WLdRAIZm0dQW6lickuy+B8SSh7Ih3VPUfL+yzi7P8rscBET1trRTpAI8SIhHkjG44ihqm8TNp8+GguStRiBJoBK6+oewQ8tchHxAHLSFcuoaW5
+X-Exchange-RoutingPolicyChecked:
+	kMN23ull6ow2d2G8TVafNDeBmASyjyx4SCz0yjOHJ/6t4KeKwu2TsKsRXhbLS/RTF+6k1gijvxJKb6hqMhYGQ36Zb3BrWkU04nJWoMwc0BIxV6j9h4xTBucNmDUKjOrK2gTX3DvwQ+51UP5JvKANNSf6COue4V4ceUy9bqk8K5Nz8ZW9XciENXbhkg6TrVzsvoEbaujq9OvPHhxEQ3tF1m1AGcKpSiiA7sG//pAimXcnHOKMjqvbIpplGEiazTCGK9E0ADu4qMVu4uwaxfBoAM5ykF2/taJCSuWvi/5oBJmpOgzsMLCdhkpxjpa6NCRZS8j/jsmrrENko9THldxF+w==
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 10:18:30.6677
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8393fda5-93c2-48c4-b694-08df4a1449cd
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	IA0PEPF0000003A.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO1PR10MB4707
+X-Proofpoint-ORIG-GUID: yQkkW0h2tZpgIq3Ksw-HbKtrdvqmt2Sm
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI0MDAzOSBTYWx0ZWRfX9qI1MentR/14
+ agDJm8fJrsSBIbZAzON9HvXqbtYmEz/Ac5TRHDv3tVmGo+eK62NCh+IR4Gmm0xG2gOd0Mo8o0vC
+ oZXwhgmfrMK6YndvMKM0GwPNgjHLAqbhyNluzAbn0NBVeMw/HyJYxyJXzkOOKNp3f+rtIGGQDg5
+ Bmm6lXBJ2R1oRcrZtXKPZxjYqXf+Sgj7kb7opt+GTkqqAWbDe5MSv3qlLDEoI0cyKp2z2EQGW4T
+ Q/aHCVriEmoB94Snx4vXjNMVSyoYY017YbNT9RyAAXbeMYB3NUEUWb2rtVF+AkQyaGtio0xeMBz
+ ECQdB+7Qi1Av8I8OUkNNbigUS4x7j4f+cTOiukZ0rzLRuq8kw+dxgx5QQC1RZkmr3NkxnQuLgEZ
+ 8TatKsuLQQASkbEzxT60pIvFmHyqNWXq6I8dkCTm8vfbf2644vIHMLaQElyrWnayQyMtSHevovq
+ ZOJGBkoujYqkHBRI+aw==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI0MDAzOSBTYWx0ZWRfX5sfLbvSjIrV5
+ bCvEL6DlkYmDWB3cWUs0GiMGL8u9/nlHcCR+EiYv9SYB7xo2pLYH2VkVHSNXkH1AVIJEbYakE8w
+ kLH+cj3H/pEdl++nnEfnpI9HhTQTWas=
+X-Proofpoint-GUID: yQkkW0h2tZpgIq3Ksw-HbKtrdvqmt2Sm
+X-Authority-Analysis: v=2.4 cv=CNe/zhrD c=1 sm=1 tr=0 ts=6b05647a cx=c_pps
+ a=NhzRQjsTkbCjHKaZ4k3NFQ==:117 a=WotqVVQAdb04rnGuttW3Kw==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=zJRp6_cAMcgA:10 a=s63m1ICgrNkA:10
+ a=AlMIdn_sM9wA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
+ a=jwouBfj2j3NM8CExmVVE:22 a=sozttTNsAAAA:8 a=eBZGQTtviXP9TzdQMdMA:9
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-24_01,2026-11-23_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 spamscore=0 impostorscore=0 malwarescore=0 adultscore=0
+ priorityscore=1501 suspectscore=0 clxscore=1011 phishscore=0
+ lowpriorityscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
+ definitions=main-2611240039
 
-On Tue, Nov 24, 2026, at 04:31, Finn Thain wrote:
-> On Mon, 23 Nov 2026, Bart Van Assche wrote:
->
->> On 11/23/26 3:05 PM, Finn Thain wrote:
->> > Yes, two alternative solutions were submitted in March (either remove the
->> > assertion or rework it). The build bot reported the problem again in
->> > September so I resubmitted the "rework" alternative. Sashiko-bot didn't
->> > have much praise for that*, so now I'm leaning towards the "remove"
->> > alternative. I have been advised to keep re-submitting, and I will do so
->> > after a suitable back-off in retry rate i.e. 2027 or 2028.
->> > 
->> > *
->> > https://lore.kernel.org/r/93e35f60-e465-7f76-0043-f997fe2ec8c7@linux-m68k.org
->> 
->> What an LLM came up with after I asked it to fix 
->> https://lore.kernel.org/lkml/202603030747.VX0v4otS-lkp@intel.com/ can be 
->> found below. One of the comments of the LLM is "This is essentially Finn 
->> Thain's "Rework BUILD_BUG_ON() assertion" patch with your two review 
->> comments from this morning applied". Sashiko reports "No issues found" 
->> for the patch below. No Signed-off-by from me because I think Finn 
->> should be credited for his work instead of I.
->> 
->
-> Thanks, Bart. I'll take that as a vote for "rework". There is an 
-> associated risk though: I can't test the patch as I don't have access to 
-> suitable hardware. (Perhaps someone with such access will volunteer.) 
->
-> Whereas, the "remove" alternative doesn't require testing as it doesn't 
-> risk a regression.
->
-> I have a question for your LLM. Sashiko-bot said, in response to my patch:
->
->     Similarly, get_datalen_for_atio() accesses the array out-of-bounds 
->     when len > 0:
->
->     drivers/scsi/qla2xxx/qla_target.h:get_datalen_for_atio() {
->     ...
->         return get_unaligned_be32(&atio->u.isp24.fcp_cmnd.add_cdb[len * 4]);
->     ...
->     }
->
-> I don't understand why the patch from your LLM did not raise the same OOB 
-> access concerns.
+The driver currently calls phy_init()/phy_exit() but never
+phy_power_on()/phy_power_off().
 
-I suspect that is just from Bart specifically calling it out in the changelog
-already as a known limitation "Do not modify the memcpy() call in
-qlt_queue_unknown_atio(), which still writes past the end of the 'atio'
-member.".
+Follow the PHY API guide's recommendation to call phy_power_on and
+phy_power_off along with phy_init and phy_exit respectively to be
+compatible with different PHYs.
 
-> Adding a flex array to struct qla_tgt_sess_op can prevent new struct 
-> members being added in the wrong spot in that struct but can't prevent new 
-> struct members being added to struct atio7_fcp_cmnd. Neither does the 
-> assertion. So the "remove" alternative doesn't have all the disadvantages 
-> that you might expect.
+Signed-off-by: Abhash Kumar Jha <a-kumar2@ti.com>
+---
+ drivers/gpu/drm/bridge/cadence/cdns-mhdp8546-core.c | 11 ++++++++++-
+ 1 file changed, 10 insertions(+), 1 deletion(-)
 
-This is probably just a difference in perception: atio_from_isp and
-everything inside is clearly marked as a hardware structure that is
-meant to align exactly to the 64 byte cacheline, so it would not
-make any sense to change its layout and add more members here.
-qla_tgt_sess_op on the other hand is clearly not a hardware structure
-but an in-kernel one, so it is quite unexpected that one of its members
-extends past the end, especially when the other three instances of
-atio_from_isp in data structures don't seem to do that.
+diff --git a/drivers/gpu/drm/bridge/cadence/cdns-mhdp8546-core.c b/drivers/gpu/drm/bridge/cadence/cdns-mhdp8546-core.c
+index f47717bd10798..86e850a4752dc 100644
+--- a/drivers/gpu/drm/bridge/cadence/cdns-mhdp8546-core.c
++++ b/drivers/gpu/drm/bridge/cadence/cdns-mhdp8546-core.c
+@@ -2369,6 +2369,12 @@ static int cdns_mhdp_probe(struct platform_device *pdev)
+ 		goto plat_fini;
+ 	}
+ 
++	ret = phy_power_on(mhdp->phy);
++	if (ret < 0) {
++		dev_err(mhdp->dev, "Failed to power on PHY: %d\n", ret);
++		goto phy_exit;
++	}
++
+ 	/* Initialize the work for modeset in case of link train failure */
+ 	INIT_WORK(&mhdp->modeset_retry_work, cdns_mhdp_modeset_retry_fn);
+ 	INIT_WORK(&mhdp->hpd_work, cdns_mhdp_hpd_work);
+@@ -2378,7 +2384,7 @@ static int cdns_mhdp_probe(struct platform_device *pdev)
+ 
+ 	ret = cdns_mhdp_load_firmware(mhdp);
+ 	if (ret)
+-		goto phy_exit;
++		goto power_off;
+ 
+ 	if (mhdp->hdcp_supported)
+ 		cdns_mhdp_hdcp_init(mhdp);
+@@ -2387,6 +2393,8 @@ static int cdns_mhdp_probe(struct platform_device *pdev)
+ 
+ 	return 0;
+ 
++power_off:
++	phy_power_off(mhdp->phy);
+ phy_exit:
+ 	phy_exit(mhdp->phy);
+ plat_fini:
+@@ -2424,6 +2432,7 @@ static void cdns_mhdp_remove(struct platform_device *pdev)
+ 				ERR_PTR(ret));
+ 	}
+ 
++	phy_power_off(mhdp->phy);
+ 	phy_exit(mhdp->phy);
+ 
+ 	if (mhdp->info && mhdp->info->ops && mhdp->info->ops->exit)
+-- 
+2.34.1
 
->> @@ -227,7 +224,7 @@ static void qlt_queue_unknown_atio(scsi_qla_host_t *vha,
->>   		add_cdb_len =
->>   			((unsigned int) atio->u.isp24.fcp_cmnd.add_cdb_len) * 4;
->> 
->> -	u = kzalloc(sizeof(*u) + add_cdb_len, GFP_ATOMIC);
->> +	u = kzalloc_flex(*u, extra_cdb, add_cdb_len, GFP_ATOMIC);
->>   	if (u == NULL)
->>  		goto out_term;
-
-While this does make the current implementation more correct by having
-the correct length, I'm worried that it just ends up establishing
-the complexity more in the sense that extra_cdb extends both into
-the padding and beyond qla_tgt_sess_op.
-
-If the driver is still actively maintained, it would be nice to
-reduce the complexity instead, in one of two ways:
-
-a) make atio_from_isp naturally aligned by dropping the bogus
-   __packed attribute, so it is actually at the end of qla_tgt_sess_op
-   as the driver was written to expect. Note that having the
-   outer structure as __packed but the union and the inner
-   structs as aligned is itself problematic and can lead to
-   undefined behavior, if some code ever takes a pointer to
-   one of the inner aggregates and expects it to be aligned.
-   The only effect that I see from the __packed annotation is
-   that it forces expensive byte access on dma-coherent memory
-   despite it being fully aligned.
-
-b) rework the driver more broadly to never actually do any
-   accesses beyond a struct boundary and make it work with
-   sanitizers enabled. One way to do this would be to
-   have a separate isp24 atio structure that is not in the
-   union but that encloses the actual maximum length.
-   Not sure how this would actually be done, but it appears
-   that the current design keeps causing problems, see e.g.
-   091719c21d5a ("scsi: qla2xxx: target: Fix invalid memory
-   access with big CDBs") which adds more complexity around
-   keeping an extra copy for it.
-
-      Arnd
