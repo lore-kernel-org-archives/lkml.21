@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795508281;
-	b=wxzF8rWBIfQNcKb23+gU0LDIiFXck95vzdZKdoGEeqfDwKxN1zwifxtboZBnLw7xaXmt
-	 RRbI57v9YgXaIpglYZlJ3eO6ayp2MncXTw/ma/saH2P9xqMG6Nz3+xdVOs22AW7b3/jAw
-	 VBg+OKF6KmsemKCnJyDsoMrY1M50TzJlwneJAD2989LgDl2GSY1oc2Qz+j5yZp/suBN9j
-	 0zQmRfINc+LVhhj1vCP3VzT4hmm9vrTdlK1Q0nUzsEwFhDY/1PFvkNT4izkAvq9Cjx75L
-	 /bLvBVJmKpO5JUULfiI34Xxn47rcPxVWi5kVBTIXlJ5rSP7tKWdJhJHKWK2+D+0iz4Q==
+	t=1795508366;
+	b=KQk9Gh8432YOL1g4zZn0wbGwqT7r4zUb4M5X0CT3O27hq2Mb5PQ2H6BaUU+jQbDJaFmD
+	 VjCtCgLzNYvNusBmpc9Qv1EGcyvmULeRItbhPwYlGtXPoKpv5pfxh5TjhF5k3kbNwuaab
+	 k5B+O6BuAzqHvrLDTpYbXv7LBlQayFSLKAd15IiT0i2Yg4dm53k/ZSIid6Vr3irgZ3pMP
+	 /MDp5Lnn8MnWNSH4qtoBS8DDsfWY1CZb3SvR+SCsEp0XJUqlxyliai7jMrkLTF9wknW7k
+	 foAwIX+7qS3hlAI4vvKKS5B2yeUzjBa17v+qRtubmFPkhYjn9qF4nVmJ8ybh7HAmUYQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795508281;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795508366;
 	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
 	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
 	 Content-Type:Content-Transfer-Encoding;
-	bh=FXF3amYK4zVK9HrsHP25oSXQsLclmm6eVoNLKiPVVAk=;
-	b=HfNqKeHrkc+mBMFEIncsPl9GCSFFcP+jzZb5aAxPDlh2r2Ydn3SC74RDoFS7vqp3pN8o
-	 f8y0rZ/FcJ5ZKkbaDsFNIdw5gV/zP0fYRX5KEFj61hFHhdsNaNiRJRJF+1Zq5WPbd138t
-	 qxohk3xqmv+IB1ZOyIzmR+5SYp2aUGenz2Gh0GbJwtgHmSVceCNaMKeVwt+Pw6fLuPrHg
-	 KujlLkD30qOXyfFmsQq4RZN/6BgSEOfQZRcyfsoLfzEEclL4T3lmaqVJiVDkTUsS71LgS
-	 7Z2Z2MlT8EHvJJpWepNaL0L52LQSDq94lhNnMkEdIpJkgKSWeFoDMOVyd+6BOBuieeA==
+	bh=7t46GtfKYZs2wgNzk1b5xHB67t1z4sEYiK0JuNv6pys=;
+	b=jTewrIvKeMXRXLoMYZ8G7zvEC36+ezahpwnFr9tdgG4AxCEXD2bZySjtpCJO1t8Kav26
+	 o4d8bZ+jSRYZP+rVSpfPsKDY2ACR3hK3E6DRilx7dlsb7L060SR7PrILHQaETL46N8B3+
+	 9h/mIRIP08yYtHal2VUOAq7iyq5wvoiNQ3Rqxm7SxssgqHpBQpV/bTHrKPSQK1aM6ultJ
+	 ShD+XFhXMC5T9hktmpcnAA7SeN31HvsJYnjlvlMTE4yNkW8F0bVYMahr0A+WmgZ/zq03P
+	 26vr4tVmkmAKGeQOZzqzNR+0Dsdyf3P4YoCYMQ9etqd5cRWw0UppZVgFXtCDq/U61aQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jDfksFj9;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dQ4HpzP5;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 613FE606A31E;
-	Tue, 24 Nov 2026 08:18:01 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 877F3606A31E;
+	Tue, 24 Nov 2026 08:19:26 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jDfksFj9
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B505E1F000C4;
-	Tue, 24 Nov 2026 08:17:48 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dQ4HpzP5
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E67431F000E0;
+	Tue, 24 Nov 2026 08:19:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795508281;
-	bh=FXF3amYK4zVK9HrsHP25oSXQsLclmm6eVoNLKiPVVAk=;
+	s=k20260515; t=1795508365;
+	bh=7t46GtfKYZs2wgNzk1b5xHB67t1z4sEYiK0JuNv6pys=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=jDfksFj90RJuUYMvQl/D3DcouK7J4WV7mZz3xt4Ni+IJnZVhJeicGKcJbs7h1ClSc
-	 umDt4lfTGeLUThRvmvaMVMkyL8DZ1vNmwfedc0zwkDaEcBb4yw3Np6ZLJ35arCmyW9
-	 A5ZgWhVN6lINi9/7peguLU5acV7966donpMgCZXSUxFIYAQTH8GwsoiEg5phANvA8P
-	 YrQzrNCR8FajQyg8aCkJ4ufXQMkJeC+OfUeruoDxyo8N45lFVUks5DGI9X0RGYp3H+
-	 I2vgTRhcthwLELfGV7udxRMB5gHre/OVC9exQklOIYSZxpUkrtjtwlBPTHbkrzxi/B
-	 6d73Z4BcdjGqQ==
-Message-ID: <74dd67a2-eaff-4bbb-8105-4481fbbdd016@kernel.org>
-Date: Tue, 24 Nov 2026 09:17:45 +0100
+	b=dQ4HpzP5ss/BkmY1lgajd6O3tC4evTSFEHoMJeRIfTep1a6UGDkcE4cXVSypPbqM8
+	 uFB+NFcTZzy4uFbRwizrG/3PVyHmCAWaPInmYgg+env3LCr7A8MCo4zvRXHqjuTw6U
+	 wwAb4HIT8GXewLyiRDAdULX9puLybQqkt3snnvg1CwRncf4lcwSpSpvEcJzOc/+/+j
+	 85FKwE3UFDw8fNvhfjtzoOM+l1oQOw/CzMYz8a/wzJm+D8TdklcE2kg6TucqwRP13o
+	 JBi+Tfl4f2WzjP1aGneHbxukSMjX9x7pjoNEIWF2JD1C+HK98alOiF165GbBz16A7/
+	 HO3lqBHcPLKSg==
+Message-ID: <a85333a6-761c-47bd-9d79-e1309acd8c00@kernel.org>
+Date: Tue, 24 Nov 2026 09:19:18 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -52,40 +52,19 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] mm/kasan/kunit: add page_alloc_skip_kasan test
-To: Jeff Xu <jeffxu@chromium.org>, Andrew Morton <akpm@linux-foundation.org>,
- Vlastimil Babka <vbabka@kernel.org>, Johannes Weiner <hannes@cmpxchg.org>,
- Andrey Ryabinin <ryabinin.a.a@gmail.com>
-Cc: Lorenzo Stoakes <ljs@kernel.org>, "Liam R . Howlett"
- <liam@infradead.org>, Mike Rapoport <rppt@kernel.org>,
- Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>,
- Brendan Jackman <brendan.jackman@linux.dev>, Zi Yan <ziy@nvidia.com>,
- Alexander Potapenko <glider@google.com>,
- Andrey Konovalov <andreyknvl@gmail.com>, Dmitry Vyukov <dvyukov@google.com>,
- Vincenzo Frascino <vincenzo.frascino@arm.com>, Marco Elver
- <elver@google.com>, Boris Brezillon <boris.brezillon@collabora.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Chia-I Wu <olvaffe@gmail.com>,
- Dev Jain <dev.jain@arm.com>, Ian Rickards <ian.rickards@arm.com>,
- Jann Horn <jannh@google.com>, Jeff Vander Stoep <jeffv@google.com>,
- Jeff Xu <jeffxu@google.com>, Kees Cook <kees@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Peter Collingbourne <peter@pcc.me.uk>,
- =?UTF-8?Q?Pierre-Cl=C3=A9ment_Tosi?= <ptosi@google.com>,
- Ryan Roberts <ryan.roberts@arm.com>, Tomasz Figa <tfiga@chromium.org>,
- Will Deacon <will@kernel.org>, Alexander Viro <viro@zeniv.linux.org.uk>,
- Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
- Miklos Szeredi <miklos@szeredi.hu>, Baoquan He <baoquan.he@linux.dev>,
- Pasha Tatashin <pasha.tatashin@soleen.com>,
- Pratyush Yadav <pratyush@kernel.org>, Allison Henderson
- <achender@kernel.org>, "David S . Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
- linux-mm@kvack.org, kasan-dev@googlegroups.com,
- linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org,
- fuse-devel@lists.linux.dev, kexec@lists.infradead.org,
- netdev@vger.kernel.org, linux-rdma@vger.kernel.org,
- rds-devel@oss.oracle.com, linux-kernel@vger.kernel.org
-References: <20261123033111.2349160-1-jeffxu@chromium.org>
- <20261123033111.2349160-3-jeffxu@chromium.org>
+Subject: Re: [PATCH v2] Docs/mm: fix stale split page table lock references
+To: zhaozhengzhuo <zhaozhengzhuo@uniontech.com>, linux-mm@kvack.org,
+ linux-doc@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org, "Lorenzo Stoakes (ARM)" <ljs@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Suren Baghdasaryan <surenb@google.com>, "Liam R. Howlett"
+ <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>,
+ Shakeel Butt <shakeel.butt@linux.dev>, Mike Rapoport <rppt@kernel.org>,
+ Michal Hocko <mhocko@suse.com>, Jonathan Corbet <corbet@lwn.net>,
+ Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
+ <rdunlap@infradead.org>, Qi Zheng <qi.zheng@linux.dev>,
+ "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+References: <6E11B4A6A6E0DCF9+20261123030904.57369-1-zhaozhengzhuo@uniontech.com>
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -132,110 +111,25 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <20261123033111.2349160-3-jeffxu@chromium.org>
+In-Reply-To: <6E11B4A6A6E0DCF9+20261123030904.57369-1-zhaozhengzhuo@uniontech.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 
-On 11/23/26 04:31, Jeff Xu wrote:
-> Add a KUnit test (page_alloc_skip_kasan) to verify that page allocations
-> using __GFP_SKIP_KASAN (GFP_KERNEL | __GFP_SKIP_KASAN, GFP_HIGHUSER, and
-> GFP_HIGHUSER_MOVABLE) under CONFIG_KASAN_HW_TAGS:
+On 11/23/26 04:09, zhaozhengzhuo wrote:
+> The USE_SPLIT_PTE_PTLOCKS and USE_SPLIT_PMD_PTLOCKS macros were turned
+> into Kconfig options, and CONFIG_SPLIT_PTLOCK_CPUS was replaced, but two
+> Documentation/mm files still refer to the old names.
 > 
-> 1. Reset page_kasan_tag() to KASAN_TAG_KERNEL (0xff) across all sub-pages
->    of a high-order allocation, and
-> 2. Return a match-all (0xff) linear-map pointer from page_address() that
->    does not trigger a KASAN fault even when the underlying physical
->    granules carry a mismatched tag (such as KASAN_TAG_INVALID or
->    restored userspace PROT_MTE tags).
+> Update both references.  Point readers to mm/Kconfig for the dependencies
+> instead of restating information that can become stale.
 > 
-> Tested on arm64 with CONFIG_KASAN_HW_TAGS under QEMU (virt,mte=on) with
-> kasan.mode=sync, async and asymm.
-> 
-> Signed-off-by: Jeff Xu <jeffxu@chromium.org>
+> Fixes: 394290cba966 ("mm: turn USE_SPLIT_PTE_PTLOCKS / USE_SPLIT_PTE_PTLOCKS into Kconfig options")
+> Suggested-by: David Hildenbrand (Arm) <david@kernel.org>
+> Reviewed-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+> Signed-off-by: zhaozhengzhuo <zhaozhengzhuo@uniontech.com>
 > ---
->  mm/kasan/kasan_test_c.c | 44 +++++++++++++++++++++++++++++++++++++++++
->  1 file changed, 44 insertions(+)
-> 
-> diff --git a/mm/kasan/kasan_test_c.c b/mm/kasan/kasan_test_c.c
-> index f34163e19bd6..72342137bb18 100644
-> --- a/mm/kasan/kasan_test_c.c
-> +++ b/mm/kasan/kasan_test_c.c
-> @@ -380,6 +380,49 @@ static void page_alloc_uaf(struct kunit *test)
->  	KUNIT_EXPECT_KASAN_FAIL_READ(test, ((volatile char *)ptr)[0]);
->  }
->  
-> +static void page_alloc_skip_kasan_helper(struct kunit *test, gfp_t gfp)
-> +{
-> +	struct page *pages;
-> +	size_t order = 2;
 
-Why magic value two?
-
-Should be const.
-
-> +	char *ptr;
-> +	size_t i;
-> +
-> +	pages = alloc_pages(gfp, order);
-> +	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, pages);
-> +
-> +	for (i = 0; i < (1UL << order); i++) {
-
-"1 << order" is sufficient.
-
-> +		/*
-> +		 * __GFP_SKIP_KASAN allocations must carry the match-all tag
-> +		 * in page->flags, and so in page_address(), not a random tag.
-> +		 */
-> +		KUNIT_EXPECT_EQ(test, page_kasan_tag(pages + i),
-> +				(u8)KASAN_TAG_KERNEL);
-
-Squeeze this into a single line.
-
-> +
-> +		ptr = page_address(pages + i);
-> +		KUNIT_EXPECT_EQ(test, (u8)get_tag(ptr), (u8)KASAN_TAG_KERNEL);
-> +
-> +		/*
-> +		 * The memory tags of such pages are arbitrary: stale poison,
-> +		 * or tags set by userspace through PROT_MTE. Accesses via
-> +		 * page_address() must not fault regardless.
-> +		 */
-> +		kasan_poison(ptr, PAGE_SIZE, KASAN_TAG_INVALID, false);
-> +		KUNIT_EXPECT_KASAN_RESULT(test, WRITE_ONCE(*ptr, 0),
-> +					  "WRITE_ONCE(*ptr, 0)", false);
-
-Why do we care about checking HW behavior? (match-all working)
-
-> +	}
-> +
-> +	__free_pages(pages, order);
-> +}
-> +
-> +static void page_alloc_skip_kasan(struct kunit *test)
-> +{
-> +	KASAN_TEST_NEEDS_CONFIG_ON(test, CONFIG_KASAN_HW_TAGS);
-> +
-> +	page_alloc_skip_kasan_helper(test, GFP_KERNEL | __GFP_SKIP_KASAN);
-> +	page_alloc_skip_kasan_helper(test, GFP_HIGHUSER);
-> +	page_alloc_skip_kasan_helper(test, GFP_HIGHUSER_MOVABLE);
-> +}
-> +
->  static void krealloc_more_oob_helper(struct kunit *test,
->  					size_t size1, size_t size2)
->  {
-> @@ -2369,6 +2412,7 @@ static struct kunit_case kasan_kunit_test_cases[] = {
->  	KUNIT_CASE(kmalloc_large_invalid_free),
->  	KUNIT_CASE(page_alloc_oob_right),
->  	KUNIT_CASE(page_alloc_uaf),
-> +	KUNIT_CASE(page_alloc_skip_kasan),
-
-Don't we have to limit this case to having actual MTE-capable HW etc?
-
->  	KUNIT_CASE(krealloc_more_oob),
->  	KUNIT_CASE(krealloc_less_oob),
->  	KUNIT_CASE(krealloc_large_more_oob),
-
+Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
 
 -- 
 Cheers,
