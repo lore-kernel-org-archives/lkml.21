@@ -1,57 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.13
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795541166;
-	b=xOA2cX1xQZC2iu3T1vuxffvAwHA0IciwZ65GJ4PmYZNeq6bB8Xb7+wpS51gZUYCLJFle
-	 HnNB6srFlZ6asmeVAkbXe7ME4mgz6Pu8NPnWAe4K2qMZf4hjUsdzptXbi16mhq5p8ZrRj
-	 EewQn5qTIAT0kyDj5xL4chqbhogW+W4C1USEtDXmwUF2dVsgeIgnGs1apRaw/PpDWrY1M
-	 PcltrAhvHKmaO2UkhPCFmX/ztp9nSg/gMwa7gGFouI7k3GKCaDdJFJ3bbdb47wXlk7715
-	 Jp4E7xVbHn0r3jujMDkyzXaLw19u8rpUJV6pw8OoysP+Tu0MK4rs4Tnd5/AZxFQkDUg==
+	t=1795541173;
+	b=OTevO35PhraOei9mr6PYaP0S6tKB0FiVXjqZqUMiXhVqbddbP45lsc7krm8v8P1tZWf8
+	 f2/N6I9Iz7ZQFEV1qWefJe89K2b1bLRXrPScIySrXOBXswN/JxiUBwcg5b+C8xAhBBedG
+	 3PkvKQluJn3dprXmAJNqx1By1FW6fQOkrGmK9skA6XhshK2KInhFJ1bU4u1SoyfRntvtH
+	 OFO/eDJjpFXn6LlU59Z1tRZfo13l+xX7FDMtcAy4IZP8YL7etC/hOxa/MLSSolskVg6+G
+	 3FfH1YbIbXP20HvLpPuEQ1vTVOhAAM8Wc+XyTZ/oyMeHzL0+we1Z5DBu8RIlB1njnuA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795541166;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=pB0hPyMKD+vhgJUDCKouLHukFV8UEhyvi3gGX1fNKGI=;
-	b=sRbjzXnBnQIJaXSR/F+y9HUFHtj3vdogwHgMFraHjg/rPlDyCOcZSHrIMUlp8vd9m+wI
-	 y5D0KGJTXRdrRGzAGLUj+lyWtmfMIFD448dpBgTRUO9zdi4ULMYufB43WyiS8nafgthfh
-	 flTDBGKnxO7iJVaxA/EvxC0cJTHkktHYqRkPvOBBeBv09JM+SQpptN5AZOfC9NH6KjW11
-	 lBJozZRSLwA0FqJZKepoC0sHOuBtFDQlkCzUC3nQ/7q7wIKVbq6ZOBSFaiJct/NnjVDmc
-	 yOaAx4bAd3TBNdAtHru0N1XnFQFuBGjkvtm6YVxcyRx+A6q+1fhvIV9b2MTUMwcXUFg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795541173;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:Organization;
+	bh=6VZrzcsQi8k3zpdbfofVMybmQDhK3GqBlZKfamS3780=;
+	b=UG7Vu4sIF8iNE9KtjZNiwOdNNGqgQFtYHHcxqSDqUz0qshojpXazr7AOU71Rr583pYuM
+	 Gkdku135Nok83BrKaizpETqQX1m9FJGP06jK9RLYW3ZCrGaQT79Q63qVpT0Ss1vciKBvI
+	 ZE08nozqGHqlFqzKNvWSMS3nJFltT4CdN6ylKIh8qhwRc0mdmjsena+CFUFlof8bEzQ08
+	 c/qnIXmJcBGB0dgzstTDuTHfOEhYUXKp9kBSzeoX//jTJSFh1MZnRZwKYIyDShBYsie81
+	 3zmk3kHGQ7SkJk2601x95c18P+GePBxLU8WdD8LCEeVQ3p5W4N14pmbIRLOHP6ZxkVw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Y8zCkc0+;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=jiekmIRP;
+	arc=none smtp.remote-ip=198.175.65.13
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.13])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8C069606A31E;
-	Tue, 24 Nov 2026 17:26:06 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 27FA2606A332;
+	Tue, 24 Nov 2026 17:26:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 27FA2606A332
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Y8zCkc0+
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F5031F000C0;
-	Tue, 24 Nov 2026 17:26:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795541166;
-	bh=pB0hPyMKD+vhgJUDCKouLHukFV8UEhyvi3gGX1fNKGI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Y8zCkc0+9DGyKOLaZmgiI/zvuJpIqGArGooiio8dDQ8y0ZQMzzF6+WSFDgEvoEi/I
-	 tvKFVBR+9P8UZLZuzz4+PON5jL1tUEB8UgA8ZMNtbJ9XdZPS20a/JVrIaSRIPRH7r/
-	 aQqS7FXBR36BwXPAQrkI9plVuB0zVwYPqzzEOUCAZBWSZVCSVrsarp0Fy4v/x39AJk
-	 ci7/IOPmZZKkP8haGJfpEEQ97Agfnqu9KDDpVR3M8DOVqJ2Ec5eLTjhunyxtWyPQGf
-	 Ci7JHCiz3jniJf95hTT1gd1WWx69Pcq2Gy/BPjo0fn0X8qvFzARV0AA2YdhURM5Nqa
-	 9CDmXB4t+yAxQ==
-Date: Tue, 24 Nov 2026 17:25:59 +0000
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Jason Gunthorpe <jgg@ziepe.ca>
-Cc: Guanghui Feng <guanghuifeng@linux.alibaba.com>, linux-mm@kvack.org, 
-	alex@shazbot.org, alifm@linux.ibm.com, ankita@nvidia.com, dakr@kernel.org, 
-	fengchengwen@huawei.com, kevin.tian@intel.com, kvm@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, mattev@meta.com, ritesh.list@gmail.com, xinmengs@nvidia.com
-Subject: Re: [PATCH v2 2/2] vfio/pci: Align BAR mappings for huge page support
-Message-ID: <awXIcSgV_YOke9yW@gremlin>
-References: <20261124073048.268988-1-guanghuifeng@linux.alibaba.com>
- <20261124124004.457441-1-guanghuifeng@linux.alibaba.com>
- <20261124124004.457441-3-guanghuifeng@linux.alibaba.com>
- <20261124135258.GK9566@ziepe.ca>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=jiekmIRP
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795541173; x=1827077173;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=SzT0csSgnqvDnoV3RleMeqvxldVFfB4PdCbmLd/qpxc=;
+  b=jiekmIRPvdaD0DuN7/76CVDFb3UBCqyn47WV+bTHiN8o/ceUGe/r0H8l
+   GyX5l1c39sZ/zr4OY7+RqmmanVSlSiWEBVDZW0bEGZ9bxzzeoSUvMbcW3
+   xzpm/ML0s8SZDijLilERgCJLe+Elf6GmopP6XFymNtKeFqtsgoU9kyaTg
+   uFZF8obo4S+liWFG2guPxu0HCtoL47/rIqJEWS7a8HUUeW1O4IHUdE8hj
+   uMqp62/UY3Wd7C/QW47sSlhPsK/phSCBcQyjkmsqWvUYjRMthwsuFBez9
+   Lq62aKQTEw+zMLfNmXoo10ALc87nttbi2lc3t5K0Rx5NIxtAgP1Fyyq+1
+   Q==;
+X-CSE-ConnectionGUID: GI5PixiRSl+5nYAm9AeoGQ==
+X-CSE-MsgGUID: qi+2SmJISraCRkeOx6VQXw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11976"; a="4289538"
+X-IronPort-AV: E=Sophos;i="6.27,231,1787036400"; 
+   d="scan'208";a="4289538"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 09:24:11 -0800
+X-CSE-ConnectionGUID: UfVXggqrSuWpspkfSqBQIw==
+X-CSE-MsgGUID: rIT4lxKyQdyAT/3W9GUPrA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,231,1787036400"; 
+   d="scan'208";a="12034050"
+Received: from hrotuna-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.245.125])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 09:24:07 -0800
+Date: Tue, 24 Nov 2026 19:24:05 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: "Nagavarapu, Dileep Kumar" <dnagavar@amd.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>,
+	Michal Simek <michal.simek@amd.com>,
+	Conall O'Griofa <conall.ogriofa@amd.com>, linux-iio@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	git@amd.com, Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
+Subject: Re: [PATCH v5 12/16] iio: adc: xilinx-xadc: Refine Zynq read/write
+ error handling on timeout/interrupt
+Message-ID: <awXINQWDns96Ngwi@ashevche-desk.local>
+References: <20261110050201.1850399-1-dileepkumar.nagavarapu@amd.com>
+ <20261110050201.1850399-13-dileepkumar.nagavarapu@amd.com>
+ <avNEpH6KGJkeI7dX@ashevche-desk.local>
+ <c3a7df9c-e337-47ac-9a6d-6bb81177affa@amd.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,91 +90,61 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261124135258.GK9566@ziepe.ca>
+In-Reply-To: <c3a7df9c-e337-47ac-9a6d-6bb81177affa@amd.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 
-On Tue, Nov 24, 2026 at 09:52:58AM -0400, Jason Gunthorpe wrote:
-> On Tue, Nov 24, 2026 at 08:40:04PM +0800, Guanghui Feng wrote:
-> > +unsigned long vfio_pci_core_get_unmapped_area(struct vfio_device *core_vdev,
-> > +					      struct file *filp,
-> > +					      unsigned long addr,
-> > +					      unsigned long len,
-> > +					      unsigned long pgoff,
-> > +					      unsigned long flags)
-> > +{
-> > +	struct vfio_pci_core_device *vdev =
-> > +		container_of(core_vdev, struct vfio_pci_core_device, vdev);
-> > +	struct pci_dev *pdev = vdev->pdev;
-> > +	unsigned long align, off, off_end, off_align, len_align, addr_align;
-> > +	unsigned int index;
-> > +	u64 bar_len;
-> > +
-> > +	/* Don't interfere with explicit address requests or fixed mappings */
-> > +	if (addr || (flags & (MAP_FIXED | MAP_FIXED_NOREPLACE)))
-> > +		goto out;
-> > +
-> > +	index = pgoff >> (VFIO_PCI_OFFSET_SHIFT - PAGE_SHIFT);
-> > +	if (index >= VFIO_PCI_ROM_REGION_INDEX || !vdev->bar_mmap_supported[index])
-> > +		goto out;
-> > +
-> > +	bar_len = pci_resource_len(pdev, index);
-> > +	if (!bar_len)
-> > +		goto out;
-> > +
-> > +	/*
-> > +	 * Select the largest huge page size that the BAR physical alignment,
-> > +	 * mapping length, and arch support can all satisfy.  Only PMD and PUD
-> > +	 * orders are supported by vfio_pci_vmf_insert_pfn().
-> > +	 */
-> > +	if (IS_ENABLED(CONFIG_ARCH_SUPPORTS_PUD_PFNMAP) &&
-> > +	    bar_len >= PUD_SIZE && len >= PUD_SIZE)
-> > +		align = PUD_SIZE;
-> > +	else if (bar_len >= PMD_SIZE && len >= PMD_SIZE)
-> > +		align = PMD_SIZE;
-> > +	else
-> > +		goto out;
-> > +
-> > +	off = pgoff << PAGE_SHIFT;
-> > +	off_end = off + len;
-> > +	if (off_end < off)
-> > +		goto out;
-> > +	off_align = round_up(off, align);
-> > +
-> > +	/* The mapping has to span at least one fully aligned huge page */
-> > +	if (off_end <= off_align || off_end - off_align < align)
-> > +		goto out;
-> > +
-> > +	len_align = len + align;
-> > +	if (len_align < len)
-> > +		goto out;
-> > +
-> > +	/*
-> > +	 * Find an area that can hold the mapping plus the slack needed to
-> > +	 * shift it up to the next aligned address, then apply that shift.
-> > +	 * The shift preserves the relative alignment of the file offset,
-> > +	 * which is what makes the pfn alignment work out.
-> > +	 */
-> > +	addr_align = mm_get_unmapped_area(filp, addr, len_align, pgoff, flags);
-> > +	if (!IS_ERR_VALUE(addr_align)) {
-> > +		addr_align += (off - addr_align) & (align - 1);
-> > +		return addr_align;
->
->
-> PeterX was working on this previously and last time I was not excited
-> to see all this mm logic open coded in drivers.
->
-> I was hoping to see that the core mm could provide some helper scheme
-> for drivers that already know what they want to map to get a vma
-> alignment that is optimal for the architecutre.
->
-> Peter had a design that seemed like a good exploration at least..
+On Tue, Nov 24, 2026 at 10:24:59PM +0530, Nagavarapu, Dileep Kumar wrote:
+> On 11/10/2026 9:51 PM, Andy Shevchenko wrote:
+> > On Tue, Nov 10, 2026 at 10:31:57AM +0530, Dileep Kumar Nagavarapu wrote:
 
-Well you and Matthew and I were discussing something similar previously also?
+...
 
-The AI fixgeddon is delaying any nice-to-haves of late, but in spirit yes, it's
-appalling to have this mm code duplicated and it clearly shows a gap in the API.
+> > >        ret = wait_for_completion_interruptible_timeout(&xadc->completion, HZ);
+> > > -     if (ret == 0)
+> > > -             ret = -EIO;
+> > > -     else
+> > > -             ret = 0;
+> > > 
+> > >        xadc_read_reg(xadc, XADC_ZYNQ_REG_DFIFO, &tmp);
+> > > 
+> > > -     return ret;
+> > > +     if (ret == 0)
+> > > +             return -ETIMEDOUT;
+> > > +
+> > > +     if (ret < 0)
+> > > +             return ret;
+> > 
+> > First check for generic errors, then for exclusive conditions ( == 0).
+> > 
+> > > +     return 0;
 
->
-> Jason
+...
 
---
-Cheers, Lorenzo
+> > >        ret = wait_for_completion_interruptible_timeout(&xadc->completion, HZ);
+> > >        if (ret == 0)
+> > > -             ret = -EIO;
+> > > +             return -ETIMEDOUT;
+> > > +
+> > >        if (ret < 0)
+> > >                return ret;
+> > 
+> > Ditto.
+> 
+> This patch does not fix any behavioural issue; it only changes the
+> error codes.
+
+Yes, it changes potential behaviour of the callers (which probably none) but my
+comment is tighten to the code that is being changed.
+
+> Sashiko suggested adding a Fixes tag. Is it OK to ignore this comment, or do
+> you have any other suggestions?
+
+If comment is okay to ignore it would mean the comment has no value. I don't
+think so. Otherwise, please justify that.
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
