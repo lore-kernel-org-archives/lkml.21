@@ -1,80 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.175
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795506077;
-	b=XCJNhW7kQcjXw8BSJYhtZrovW0ru666h4l7WvaYwlPAMsm2F3o48dl6SZ2zSGA+rMpJP
-	 1IjcxFbPZOI+4LvgdZ8zqX2Wcd9qhBOZI/G3lmG5TQUW/LSnpOpUPpGGPaD54Z0C8olNY
-	 xbcaGGCR/d1scixCejK8OT/JmwkCt4nlpC8xZC9eROM+BwsgkeU2Dl/vQ9ZpP+nFG8H3n
-	 OEdeV4iLn494owfLNjbbyrA+bB3lGuPO9qOSypGHC8B8ni8mOiWSyUW1yWyOSWIGlS0Zn
-	 fIIy+noEEmQKLWRAgQhGregvTcJY6PZFjA0anx59Xwb7c5kbXzgnyMJh7RPF85rIu2g==
+	t=1795506084;
+	b=ST7HwZ7JOQwBgrfLW4hOr62vhpPqhJ/WEYlmSuKGImUJZh30L90ALiWuTTZFm5yuGkoP
+	 IK5nWEz6WflPioT/gs2A+ZzBJ3QeQxfhUZyA9gZorEwwcYIDUSMNyM/T9qqz0xRGhVFvT
+	 6RLwBejwMwVN5O5m3WF/kBAXwN+GOicpjCRtLFssExPdXZGZse1tQkZHOdJOEUKKrXhp4
+	 ZDdu6Xmk0BZ0EtTqXoO7WPqRXLuUCbXQsrOQjVosjKhYc2e4vD93lIp6AMoCMV8C5WV2B
+	 vDF4w2F57Ut3SjkY8/owggVGA744d831VF2IVv1mkD6y2fv7f8nCzCFWbDEbNtmN9sQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795506077;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795506084;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=74TXVSiLNJEh4EdaGe7nzkm4UiqpR2QLi5goWWiHysE=;
-	b=WLzymU5XUaZYSw+aqEheUND+0wVbQqa+LBrUwRX8JCarufxPPRoMl8+1nC4224YoyK6a
-	 RDhfjjoc2eM5+NKqh/RdrCmcmnK5xnQiBLL+qmX9uBGbCdgQYsavadTBYTKPNEiTWCiGR
-	 ps5Ob1jyp3PkeQDL6umuRjCnPlzo3HvPSQe+0Gy779Mf2eX5dUIrwzHKcIiNU5C+oai/A
-	 /rlbISyvHXPFrbVUIpUVQu8KOvsxq1GC6cj58ncLMPTgg4IyFT9qrc0f1THz73UG3suAn
-	 QaAFXD9QPrFLOqY/DQjE1rn6bvFevNrr8E6DZIzezATXaEMgS7TQh0I+Me0G7HnBf+g==
+	bh=h3c2lWC29hGMhiXznbuXjidfPs4Wpjz3u2lyu3ifusU=;
+	b=FO989z/7oXOrdxsxxY0Q090sKfW9/RO+NWBDlZPlcIHa1YRS72/mwD+BT87bG2/xRKx0
+	 GZ5Ww5s+r5mUeRfcQnGHP07bqbUQcZOb8xUTbokkabuGiLKa5AUqDpAQkgsPDooY5GVCv
+	 SCHPz9maCWR9gLHnqjQeGPxOabbM0DXe+EAwckXdY7QBOJRn6lU5AFcG0n9ERHQvEdk+D
+	 vkLlUj/XHp8KohQ1ox8FKh4Lb4lOPQbVl9ZJmLmQiLv3s/Zd2VCAh8wwluteqJu2IR2LS
+	 zfBdNjICyFhX70cLcRogS/oQdU2lAcvG8VzeW1iTsoc14Po0L9Don+ehCD5bitjSZmA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=chromium.org;
 	spf=pass smtp.mailfrom=chromium.org;
-	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=CN9Vv02r;
-	arc=none smtp.remote-ip=209.85.216.53
-Received: from mail-pj1-f53.google.com (mail-pj1-f53.google.com [209.85.216.53])
+	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=BrsbclA3;
+	arc=none smtp.remote-ip=209.85.214.175
+Received: from mail-pl1-f175.google.com (mail-pl1-f175.google.com [209.85.214.175])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 75C36606A326
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 07:41:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 75C36606A326
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 24C11606A322
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 07:41:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 24C11606A322
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chromium.org
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chromium.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=CN9Vv02r
-Received: by mail-pj1-f53.google.com with SMTP id 98e67ed59e1d1-3ae7626d14aso2015532a91.2
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 23:41:17 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=BrsbclA3
+Received: by mail-pl1-f175.google.com with SMTP id d9443c01a7336-2f04b676219so22116125ad.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 23:41:22 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1795506077; x=1796110877; darn=vger.kernel.org;
+        d=chromium.org; s=google; t=1795506082; x=1796110882; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=74TXVSiLNJEh4EdaGe7nzkm4UiqpR2QLi5goWWiHysE=;
-        b=CN9Vv02r05Mz/TSWqNI7Oyvwf0XCyVFM5ONbC4kPbLVaFolWLbn3Jft+H+eaVG2Pau
-         H/dn7qS23EnetP+fSAD8D+TS7oR+cwN4mRDyxuKJVnLbY9tiZMprtJc03PGuAa1oJgzQ
-         rwSTReb4JRcF9sDjwcnB/iSjmppfa2Bgogbgk=
+        bh=h3c2lWC29hGMhiXznbuXjidfPs4Wpjz3u2lyu3ifusU=;
+        b=BrsbclA35y0a7HfK/8PlvEImvA518RJ+ikk3XR9xaYy9vLRhojBptQZNnm+BaP9RWv
+         1n5YPUfugbaV+9X8S/DTa0CF1tdAcLQpW61YtTWk9bHS+CpZxzZ6A133z30hr0XuZG4P
+         RiMm/QwoZaWQ46Bb24DCNLc1yP+AO7zS5h3ys=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795506077; x=1796110877;
+        d=1e100.net; s=20260707; t=1795506082; x=1796110882;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=74TXVSiLNJEh4EdaGe7nzkm4UiqpR2QLi5goWWiHysE=;
-        b=mzhyx77e+fu8twlG0tQYHB0NrO0rU5dyAo0nNW00h1WySio3pppOQC/09WG4Pe43t4
-         KG9Fnf5GCkITfXugfvcyVCLrmzOU0/0A8i8TNuT+dooLEHAyAAq0rSYGwcwVXUlgiJTv
-         B9fqhOGkKg+TVrqIKYjFQVyj0kKk1LnJWFSzeDHSORgLLk6GXG7cJb2Y1QTMW652gnxj
-         mAuQ1XJULwG/q7wMZG9M4or81QUVNRVZ1ZfqeZjG8Wqwn7zknAOANru+inHhYLAohp2g
-         QXrp1nxMO5GZXmGU5U+7s6EqkCOlAr/vaxQfXV5g//JUQWfT4j73L9rscezvtwebT30Q
-         nNGg==
-X-Forwarded-Encrypted: i=1; AL+hErEZpfmUIIj66U8OBjUtx2tLh6HDBXrmqgPq1ylD/ZDw4LudvO8MzEvKskgPZEC1BA/95fseRADAoBdZw1M=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/lPGLfTjFGM6/+EnQVzSWf+uIKVobCA80jr2i7ltohOzbEmZ0R
-	CcY47kDJKHJvz8p75OTUnRLC4ud663WQGtXa8ANd2XdMBMHww/tk1QKPhSt95jUPoQ==
-X-Gm-Gg: AZFdTZfXxt5M6RhnjdPDQkJnsWrP+4rE+EQIUk156K55MfrEPQBx33BTfchWg/So9mR
-	GJPwgpjU5oac+2VdTDpTufG/U2d9VHw6L+MIKbQOTg8iuaw6+mt5VmjA9c7MJZ/rgjJyXmAhCWg
-	0IiihKKyf85OJOAwTM40Foi8JfcQQhgzBTJy5bY3IyeIXkYHOzpGrQobKJ1SSJeTKlbzUnPmhHm
-	DnbI6JRUjKwk0TG0AoPysnwXCfjGLl7FLC9DYhE2H0XuqenNyJDETH+I/5EKvXVoW115Q3ur3rI
-	ZfBAep6rEgbJZe0E7y1e4p98S9y18doTlN9wPkHScbO9GGfqvcV/WcaBZL9+AhB7+w74XLtQde2
-	+nDl6E+tJvHMz/RGVrphLqlJNj8SQGm0Iqi8MKIBPqNILNeJFRKVPli03CiYzhSeJ/qLrQfbfrr
-	/lcUqhfzb9LxuVk5VsLlYxnYlHARB7kXcvjQX8Y4IxsUjz9Q4YqHzXemEzbtuy52cHsrf1R2RJx
-	u+EcGWrQ+v49sIQCN/BFO3JVM3oc9Ozz8h80yCVb+NPlv5MZgmRFAZSm4WrQFp2uxsjowQv1J/9
-	aD2aaQODWja0ai2A3Fj+JKv6JmWfh6fIJSMRClIRLsbHJX/CerQcmIRbvdYy
-X-Received: by 2002:a17:90b:3d90:b0:3b3:ff70:4d0d with SMTP id 98e67ed59e1d1-3b41c8d49b7mr11902997a91.14.1795506076825;
-        Mon, 23 Nov 2026 23:41:16 -0800 (PST)
+        bh=h3c2lWC29hGMhiXznbuXjidfPs4Wpjz3u2lyu3ifusU=;
+        b=zkjRbCsgFBJUye+sY/FVcPewgCdAnH+y73us6xXogjXsqINEf3PsH/pm6vhqEH7gpR
+         8Pyp7Htegj7tLWwOAas8VuHfFPHOFXMaix7XiEzofDetzjQIeBDllVe8jopGgRQ53fQQ
+         gnMcyJhE8+tWmStRbEdoRu6V44xgihWlFEhWnZuG9f82T1bcAgspD/Z4uQWt9To35Coe
+         hprDIOabwjs0qpkQyzQsDm5q3OnG7gqX2gWPgqcZuDzDLM34IE0RFJ6aimX2sVAkPAmb
+         7TTOSG+EHCXVmfwyB3GXt3FIxYs8s/tfPq2EffJtFk7zPRYgUyMyHvtJ0UpJlaQUPohe
+         Dp7A==
+X-Forwarded-Encrypted: i=1; AL+hErHoSMR/pt/QUwsMmTfrQj/T9h2Qb6EPDm3Qb3IIPW0Q4wNHXTM/zr9mifCy5RfMof7e126ODEHjur72zjg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+R6dZ5cP0Ljf90kvSYRGNNMg56D7zqwRtYRqDKzRqzZonoVate
+	4kB8UvenjrBzNGAkGRyiFUvWN8GKavVjdRzzYCXdZm+2Hh+2xw2AiKpiwujktEv8iQ==
+X-Gm-Gg: AZFdTZcgU7KUN/VMBb3cNCFdX/UVxhSXZa04NDkRgY8kxQoBlDikwokdy2SU/IXTsSz
+	18K2WYKg1A50pJGFgwCnOCr23pWyr8JUcwj0QNS1SCD0NWWWFBG776DZw7XAiKRlM5viTZm6jlI
+	ATr2JwwQfc/KvPXJvgOaEpXrOw5cwxbelLLY2ZYPrnx7T6xCTftrm7PbpK3z5zYbcIkzn54JVAI
+	C59I/Ee50WO+CeHOOqhUgALPt1HOIN6GPp3HWCrWyDhi3Vt7U47bLrhgelKz/Nx9JM/gwRug4hN
+	3oSMT5jcNXX32DKQVNdfEI1ZUhTXewWUyJkOElsapAeNpfuNcCxvd0R3hLEHtV1DowaP81gtQmv
+	IyJnlBK+scdU/cvA58Db6CEWthvDSoKOfAfL5+MMhSewE1A3ZgTz0aut3lLc+7SUQiAGrh2RRGJ
+	15+btXFeT9XqDJLjFZmKDXTnm9K79LGeYSls8AKzlOJFPS0MnrudHFLIQu6uwMVnbEu7IVJw6d7
+	duBFXxL0j8CWlwXsARxdNbJNps1PSg2O7imydSY3Dtbg/kQBHd1cHToerAea8AeoLxvTbgC+R2f
+	pOGXzTYmo1mAj7+QI5lFIeaqM90sDJdCL3iAToDUuVgyCRrnxEzxq/q8g3mr
+X-Received: by 2002:a17:903:19e7:b0:2ed:b7e4:f5b with SMTP id d9443c01a7336-2f03f18a7d9mr127037815ad.40.1795506082519;
+        Mon, 23 Nov 2026 23:41:22 -0800 (PST)
 Received: from localhost ([2a00:79e0:203d:7:8f32:8910:4727:ea03])
-        by smtp.gmail.com with UTF8SMTPSA id 98e67ed59e1d1-3b44b7a8c64sm9100767a91.3.2026.11.23.23.41.12
+        by smtp.gmail.com with UTF8SMTPSA id d9443c01a7336-2f03f120830sm64742695ad.61.2026.11.23.23.41.18
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 23 Nov 2026 23:41:16 -0800 (PST)
+        Mon, 23 Nov 2026 23:41:22 -0800 (PST)
 From: Chen-Yu Tsai <wenst@chromium.org>
 To: Liu Ying <victor.liu@nxp.com>,
 	Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>,
@@ -92,11 +92,10 @@ Cc: Chen-Yu Tsai <wenst@chromium.org>,
 	imx@lists.linux.dev,
 	dri-devel@lists.freedesktop.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH RFT v3 4/5] drm/imx/dc: plane: Switch to drm_fb_dma_get_gem_clipped_addr()
-Date: Tue, 24 Nov 2026 15:39:32 +0800
-Message-ID: <20261124074041.115251-5-wenst@chromium.org>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH RFT v3 5/5] drm/imx/dcss: plane: Switch to drm_fb_dma_get_gem_clipped_addr()
+Date: Tue, 24 Nov 2026 15:39:33 +0800
+Message-ID: <20261124074041.115251-6-wenst@chromium.org>
 X-Mailer: git-send-email 2.56.1.809.ga0b61035b5-goog
 In-Reply-To: <20261124074041.115251-1-wenst@chromium.org>
 References: <20261124074041.115251-1-wenst@chromium.org>
@@ -111,43 +110,69 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The hardware is programmed with clipped source and destination dimensions,
-but the framebuffer address is calculated using drm_fb_dma_get_gem_addr(),
-which uses the full source dimensions. This will not match the source
-offset if the top and/or left sides are clipped.
+The i.MX DCSS driver is open coding drm_fb_dma_get_gem_clipped_addr(),
+with only a slight difference of rounding down the X offset for the
+first plane if the format is packed, sub-sampled YUV. This is likely
+to correct the buffer address to the first pixel of the 2-pixel group.
+Otherwise the hardware will start the scan-out from the second pixel,
+which leads to the U/V components getting swapped around, and the
+chroma component of the next pixel group being used.
 
-Switch to the new drm_fb_dma_get_gem_clipped_addr(), which provides the
-buffer address starting at the clipped boundary.
+Switch to drm_fb_dma_get_gem_clipped_addr(), and offset the address by
+a pixel if the X offset is odd.
 
-Fixes: 711a3b878366 ("drm/imx: Add i.MX8qxp Display Controller KMS")
-Cc: <stable@vger.kernel.org> # Needs drm_fb_dma_get_gem_clipped_addr()
 Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
 ---
- drivers/gpu/drm/imx/dc/dc-plane.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ drivers/gpu/drm/imx/dcss/dcss-plane.c | 34 +++++++++++----------------
+ 1 file changed, 14 insertions(+), 20 deletions(-)
 
-diff --git a/drivers/gpu/drm/imx/dc/dc-plane.c b/drivers/gpu/drm/imx/dc/dc-plane.c
-index 62dd0576fadc..35eb5039f5ac 100644
---- a/drivers/gpu/drm/imx/dc/dc-plane.c
-+++ b/drivers/gpu/drm/imx/dc/dc-plane.c
-@@ -65,7 +65,7 @@ static int dc_plane_check_max_source_resolution(struct drm_plane_state *state)
- static int dc_plane_check_fb(struct drm_plane_state *state)
- {
+diff --git a/drivers/gpu/drm/imx/dcss/dcss-plane.c b/drivers/gpu/drm/imx/dcss/dcss-plane.c
+index 303e93fd036c..580d9cfb4053 100644
+--- a/drivers/gpu/drm/imx/dcss/dcss-plane.c
++++ b/drivers/gpu/drm/imx/dcss/dcss-plane.c
+@@ -219,28 +219,22 @@ static void dcss_plane_atomic_set_base(struct dcss_plane *dcss_plane)
+ 	struct dcss_dev *dcss = plane->dev->dev_private;
  	struct drm_framebuffer *fb = state->fb;
--	dma_addr_t baseaddr = drm_fb_dma_get_gem_addr(fb, state, 0);
-+	dma_addr_t baseaddr = drm_fb_dma_get_gem_clipped_addr(fb, state, 0);
+ 	const struct drm_format_info *format = fb->format;
+-	struct drm_gem_dma_object *dma_obj = drm_fb_dma_get_gem_obj(fb, 0);
+ 	unsigned long p1_ba = 0, p2_ba = 0;
  
- 	/* base address alignment */
- 	if (baseaddr & 0x3) {
-@@ -146,7 +146,7 @@ dc_plane_atomic_update(struct drm_plane *plane, struct drm_atomic_commit *state)
- 	src_w = drm_rect_width(&new_state->src) >> 16;
- 	src_h = drm_rect_height(&new_state->src) >> 16;
+-	if (!format->is_yuv ||
+-	    format->format == DRM_FORMAT_NV12 ||
+-	    format->format == DRM_FORMAT_NV21)
+-		p1_ba = dma_obj->dma_addr + fb->offsets[0] +
+-			fb->pitches[0] * (state->src.y1 >> 16) +
+-			format->char_per_block[0] * (state->src.x1 >> 16);
+-	else if (format->format == DRM_FORMAT_UYVY ||
+-		 format->format == DRM_FORMAT_VYUY ||
+-		 format->format == DRM_FORMAT_YUYV ||
+-		 format->format == DRM_FORMAT_YVYU)
+-		p1_ba = dma_obj->dma_addr + fb->offsets[0] +
+-			fb->pitches[0] * (state->src.y1 >> 16) +
+-			2 * format->char_per_block[0] * (state->src.x1 >> 17);
+-
+-	if (format->format == DRM_FORMAT_NV12 ||
+-	    format->format == DRM_FORMAT_NV21)
+-		p2_ba = dma_obj->dma_addr + fb->offsets[1] +
+-			(((fb->pitches[1] >> 1) * (state->src.y1 >> 17) +
+-			(state->src.x1 >> 17)) << 1);
++	p1_ba = drm_fb_dma_get_gem_clipped_addr(fb, state, 0);
++
++	/*
++	 * TODO fix address until helpers know packed, sub-sampled YUV format block size
++	 *
++	 * The buffer address for packed, sub-sampled YUV formats such as DRM_FORMAT_UYVY
++	 * need to be on the first pixel of each pixel group or block. Otherwise the first
++	 * pixel of the next pixel group is read and the U/V values get swapped around.
++	 */
++	if (drm_format_info_is_yuv_packed(format))
++		p1_ba -= ((state->src.x1 >> 16) & 1) * format->cpp[0];
++
++	if (format->num_planes > 1)
++		p2_ba = drm_fb_dma_get_gem_clipped_addr(fb, state, 1);
  
--	baseaddr = drm_fb_dma_get_gem_addr(fb, new_state, 0);
-+	baseaddr = drm_fb_dma_get_gem_clipped_addr(fb, new_state, 0);
- 
- 	fu_ops = dc_fu_get_ops(dplane->fu);
- 
+ 	dcss_dpr_addr_set(dcss->dpr, dcss_plane->ch_num, p1_ba, p2_ba,
+ 			  fb->pitches[0]);
 -- 
 2.56.1.809.ga0b61035b5-goog
 
