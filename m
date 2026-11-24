@@ -1,79 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795489529;
-	b=EBE61dq0/2vXBfKqoeQZP35/umojVvPufU5CGi39WgGHeRwBWANs3QD6WG5Z4/DbEze+
-	 QClzkTAUnaISBjVHcsYsvtU+w9EeiQOpqitIYESVBaxy8yZnQzn5fHce7vYJ6dmao+L8u
-	 cBM6I5tKeb/7Bd/AJakQH/PgTnim0ALyzjLgGqb94lK2GJ40XFBOeJrB2R9vGMa+sKYl5
-	 ypIrwfHnXztaRWL8YJxGcujxNrifxT2aCkipVe1oPHbOC1qZQ5QIH0XcuSUAupumv44Q7
-	 ztZco87LvsPbScUr72HXmBHPaZtkMqCk2xRRmeFxwONp5690CADSLeB3w3g3f6cYtAg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795489529;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=5UtVNDy3703XnlAZ+7W2/WQ6dpIQQzv6TBWFjI9UL0Y=;
-	b=RmPqwqRpazo/GV7kxNtqa4AxBxJUpzV5GK4lg16nPZz2YFuTk2Eg0O8hwkvdCk3ze1+Q
-	 pv8P5pWgtn+fQVCG4EQjbnHK/MmDySZ/P0ao0150YdeqibGVffj9Z4JQt5r86YBFrxlXZ
-	 AlsptuzxB14b6sXL9F/ENDLyv4a8vQYNhNyWcJK0vyf+zSc+B4KnuJ63f3cn6+OCBeY8E
-	 hh4X64T67EnrIjQToXQN7OJZufFiGgAoCqKJNuOQSFKJj8eY8GzAee9asv3XxLfE2O9Ix
-	 0Q65m5oea/VnhY37rPgguHtfNc4WO7jL4cGs29hbv+ojNW6hqAu939Kp3BqgPR8y8Mg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WxULXwHy;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795489606;
+	b=MSuMKxod6XNVvC6ffM1P1/DFk12cVuVak00akswHPEuBormv+BhqpgxF6gwHdugCTI4u
+	 KuIWra28Iy3Rj1M1AX1uTkIZzm1YYlpOk9HXmLE+cS/laj16XLs2wj9h5eQQ7znq+Ey1u
+	 sBjSC8JwG7/1B4xwzI/ovw+Xt9e6JfjEYK1snv3nRRxzmdqY+T+U+3DW0QDX97rgI2BSm
+	 GLF91EcXa7dwmpTxyXM3kvX9wP1aedG0aBC/ZdG46yOpEj7LMXIsvw+fbktgVJ9i9U5OL
+	 ICzSpKaWTwspKsRW5+Vz8JPdy5dxUkSpbX/pr4XC+0y+EynuwZ6gjoCRU6kMfryjJDg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795489606;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=yu7XWjdcB3FrFp5fh4tNhmpBZj491YNS8CW9/bACFIQ=;
+	b=XciTYepjj8j21tqod6UtYULdfs+dxCcq1/9KMs4E/mPgDTtA/cK87u7Ahf3NVl2Jr69l
+	 lNWdqiPz3BRsIHQlAh7iAfs+jUlftqVwwr5v7hJu6b3Kw6yLfaQrGYIn01mie9Yl+2izQ
+	 SEIfiVy3Aq4bDRL7bxYtn0KXLQsq6Xf6gNGjTQd6GB7dAmZboH52SSO2QYoI/zTYhCrtv
+	 LYJbWCeNyxWX09MdAtscK0sFePgF2xbvWKwIZK7i39+NEVnJErDXgV9BtJWZHgMkdZKqK
+	 3TqmlGIEcqL3Ma7nmXT1gWLWIBLYh40GskMHzapE+ttkkXeBVkUHMCwKl9Y8/jhop0w==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Xsc75njp;
+	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8E2E0606A6B8;
-	Tue, 24 Nov 2026 03:05:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9D1FF606A31E;
+	Tue, 24 Nov 2026 03:06:46 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WxULXwHy
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795489529;
-	b=kcN4ISuHwaxQjZVzp5IzlLtmwWGnnANwE84wyLjRhNEQsD1sUFL4vWBORQm2mckieeOP
-	 94UOHv+vybpkNTJT15nCi9v2LFcCSshvZPPJIh+g6ppQaNmu5xDLqel1gvelqOKnDugZD
-	 lf4LHa8/OsjP7DCT2xJV/huSxVlIEvr9+Naedbv9bKMZS7a/KOww73/lDToJLELR4rDsW
-	 z2hM8nhD85RnN1F1UotuRiZkGtcmiTk0xU3y/c+ntzhthp8JqaSWmbuGT8hOuAjCGOWss
-	 ir16m25OyrNpq67o/fyhDPu3bpQg20VZIvM6e1S2ZwjUt7W8hRZf+lkJ1Ny9angyl/Q==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795489529;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=5UtVNDy3703XnlAZ+7W2/WQ6dpIQQzv6TBWFjI9UL0Y=;
-	b=A+YPUC2TZFp9y9yZnU3PGhL4RHbzcVqb6f0CfmgciGuBDkKxw5mVbJRgLoluYG7/KP30
-	 3t9gwYSN/mm6cZrl6h7e+jVymKo5jA0v5qBitld+EBOagQzWiOfV0Kh80o3iJ515bMF3T
-	 9owS+Tjkx7U6nQdjxQYJ6y2s5XjQF5b/r95xYh9/wd0v3Qu65iwsDZIkGplUBHSdAz2QD
-	 +QJT1AVTskMFEG06TzwoQ6ZHItVukheXlcuCiCYPrc4PlGlRLY8PCy9fB2EqdaZp9BjXk
-	 Jf/d8Yoar0XfKntB5x8Fixbu2qtvdEF/yVEUJ8sHFq9ZllS45rEsVuYVMCvHTWShmoA==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 2B0C31F0093C;
-	Tue, 24 Nov 2026 03:05:19 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Xsc75njp
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 719DE1F000C6;
+	Tue, 24 Nov 2026 03:06:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795489529;
-	bh=5UtVNDy3703XnlAZ+7W2/WQ6dpIQQzv6TBWFjI9UL0Y=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=WxULXwHyuwJS+/u3ZD/3LE+vGJvg4wORPMaTCq93qqZS32D7XHAnsqB3NMm49AUFB
-	 9DsC1Z+STR/930WMz/9f+78G9auIqVduA6bJ8WZ9W+bEudNj5648XfMKxcTXo6wBoV
-	 u7t22Q3hjDaenK6w5W2of7QZCSfsVwYAx1Im7sZKPPfRIw1Nlzs96QBmKZGJHd7Tra
-	 mYa64+nxIUTR8yPsLUuJtJwfCjfNOWUPweV7utjgOEp4i2kJdr0cnzU1QHbnfWYc8O
-	 TrKe7thIj9gcvtoH6lDMlAl1JlVagcHiEtrZdraIvfcTK/JWa13lD4E4Gb2WXxiooK
-	 9uTD84JUIlomQ==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 635074C873;
-	Tue, 24 Nov 2026 03:05:09 +0000 (UTC)
-From: Hermes Wu via B4 Relay <devnull+Hermes.wu.ite.com.tw@kernel.org>
-Date: Tue, 24 Nov 2026 11:04:44 +0800
-Subject: [PATCH v2 7/9] media: i2c: it6625: capture compressed and HBR
- audio, not just LPCM
+	s=k20260515; t=1795489605;
+	bh=yu7XWjdcB3FrFp5fh4tNhmpBZj491YNS8CW9/bACFIQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Xsc75njpAB6rLKxIN0opjTCCX3m2uWghW2tDvRKQD8zv7l+qQz9uSd5N0YrmLJIeg
+	 WKsvkwx2ZeXqAfvCsC7bX7q44O42jKZwcrIHfiqsBXxpNFztkM3/2VYFVsW8k10sib
+	 RhLKV8t3xpvTlkO3Y24LxzPDmVtHtWLm91FKuMWXI3XNRoXJ0Y+A0iUl8ejGgoBkGI
+	 Jqt1dDeuiqnz9YSY1IcGMEEGN/OfH466wZ+klrV4qWtcQgfeO94MUz0ao7crYT34xF
+	 M7YObgDHk7AcpHtarCoCFyjEK0H2/sTFcCoXvuRLCdnagsmgcNTp+FwqmGe0TLS5Pk
+	 hKDB8DgRO2rjg==
+Date: Mon, 23 Nov 2026 20:06:41 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: Sasha Levin <sashal@kernel.org>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Abel Vesa <abelvesa@kernel.org>,
+	Julian Braha <julianbraha@gmail.com>, Arnd Bergmann <arnd@arndb.de>,
+	Sumit Garg <sumit.garg@oss.qualcomm.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] firmware: qcom: Build the TrustZone memory allocator
+ into qcom-scm
+Message-ID: <20261124030641.GA2738970@ax162>
+References: <20261122152843.1113882-1-sashal@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,284 +63,84 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261124-upstream-it6625-alsa-i2s-v2-7-a154685f6989@ite.com.tw>
-References: <20261124-upstream-it6625-alsa-i2s-v2-0-a154685f6989@ite.com.tw>
-In-Reply-To: <20261124-upstream-it6625-alsa-i2s-v2-0-a154685f6989@ite.com.tw>
-To: Hermes Wu <Hermes.Wu@ite.com.tw>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Hans Verkuil <hverkuil+cisco@kernel.org>, 
- Hans Verkuil <hverkuil@kernel.org>
-Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Mark Brown <broonie@kernel.org>, 
- Liam Girdwood <lgirdwood@gmail.com>, linux-sound@vger.kernel.org, 
- linux-api@vger.kernel.org, Hermes Wu <Hermes.wu@ite.com.tw>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795489507; l=9188;
- i=Hermes.wu@ite.com.tw; s=20241230; h=from:subject:message-id;
- bh=vfR3wi4Sj1lgyTacMXk/A4Np+NZCoiTxtEXqzw0T+4M=;
- b=t8K2v2/jH0kt0GseN/BD2sfsEl+Uq44WEFLpZL9V3xx9Hme8s2uEMj+EjydapPwnW/oaGwkBU
- j9XFq4CpwueDnCaRpBtOoF0/ibPJGbdKZF3s/f8oFpPJTHjBHNPGJkq
-X-Developer-Key: i=Hermes.wu@ite.com.tw; a=ed25519;
- pk=qho5Dawp2WWj9CGyjtJ6/Y10xH8odjRdS6SXDaDAerU=
-X-Endpoint-Received: by B4 Relay for Hermes.wu@ite.com.tw/20241230 with
- auth_id=310
-X-Original-From: Hermes Wu <Hermes.wu@ite.com.tw>
-Reply-To: Hermes.wu@ite.com.tw
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261122152843.1113882-1-sashal@kernel.org>
 
-From: Hermes Wu <Hermes.wu@ite.com.tw>
+On Sun, Nov 22, 2026 at 10:28:43AM -0500, Sasha Levin wrote:
+> With QCOM_TZMEM_MODE_SHMBRIDGE=y, qcom_tzmem.ko calls
+> qcom_scm_shm_bridge_enable(), qcom_scm_shm_bridge_create() and
+> qcom_scm_shm_bridge_delete() in qcom-scm.ko, and qcom-scm.ko calls
+> qcom_tzmem_alloc() and friends. With QCOM_SCM=m the two modules depend
+> on each other, neither can be loaded first, and modules_install fails:
+> 
+>   depmod: ERROR: Cycle detected: qcom_scm -> qcom_tzmem -> qcom_scm
+>   depmod: ERROR: Found 2 modules in dependency cycles!
+> 
+> This has been possible since SHM Bridge mode was added. Since commit
+> 35abc3cd8ab6 ("tee: remove TZMEM_MODE_GENERIC") it also happens for
+> every QCOMTEE=m build with QCOM_SCM=m, because QCOMTEE's select of
+> QCOM_TZMEM_MODE_SHMBRIDGE now takes effect.
+> 
+> QCOM_TZMEM is selected only by QCOM_SCM, so the two always have the
+> same value. Build qcom_tzmem.o into qcom-scm.ko, and drop the
+> MODULE_DESCRIPTION() and MODULE_LICENSE() that qcom-scm already has.
+> 
+> Fixes: f86c61498a57 ("firmware: qcom: tzmem: enable SHM Bridge support")
+> Reported-by: Nathan Chancellor <nathan@kernel.org>
+> Closes: https://lore.kernel.org/all/20261122051636.GA2630332@ax162/
+> Signed-off-by: Sasha Levin <sashal@kernel.org>
+> ---
+> 
+> Tested on arm64 with allnoconfig plus: Nathan's fragment; ARCH_QCOM=y
+> QCOM_SCM=m SHMBRIDGE=y; ARCH_QCOM=y QCOM_SCM=m QCOMTEE=m; QCOM_SCM=y
+> QCOMTEE=m; QCOM_SCM=m SHMBRIDGE=n. All build without warnings and pass
+> modules_install. Without the patch, Nathan's fragment and the QCOMTEE=m
+> QCOM_SCM=m config fail depmod with the cycle above.
+> 
+>  drivers/firmware/qcom/Makefile     | 3 +--
+>  drivers/firmware/qcom/qcom_tzmem.c | 2 --
+>  2 files changed, 1 insertion(+), 4 deletions(-)
+> 
+> diff --git a/drivers/firmware/qcom/Makefile b/drivers/firmware/qcom/Makefile
+> index 88ce74d74c3e2..74c655856b0c2 100644
+> --- a/drivers/firmware/qcom/Makefile
+> +++ b/drivers/firmware/qcom/Makefile
+> @@ -4,9 +4,8 @@
+>  #
+>  
+>  obj-$(CONFIG_QCOM_SCM)		+= qcom-scm.o
+> -qcom-scm-objs += qcom_scm.o qcom_scm-smc.o qcom_scm-legacy.o
+> +qcom-scm-objs += qcom_scm.o qcom_scm-smc.o qcom_scm-legacy.o qcom_tzmem.o
+>  CFLAGS_qcom_scm-smc.o := -I$(src)
+> -obj-$(CONFIG_QCOM_TZMEM)	+= qcom_tzmem.o
 
-The capture DAI accepts only LPCM. The bridge also outputs compressed
-IEC 61937 streams (AC-3, DTS, ...) and high bit rate (HBR) streams
-(Dolby TrueHD/MAT, DTS-HD Master Audio) on the same I2S interface, but
-these are rejected.
+This basically makes CONFIG_QCOM_TZMEM pointless, it should probably
+just be collapsed into CONFIG_QCOM_SCM formally.
 
-Add it6625_audio_xport(), which derives the I2S frame rate and slot
-count from the stream's coding type and sampling rate. LPCM is
-unchanged. A compressed stream is carried in 2 slots at its own
-sampling rate, except at the HBR rates of 768 kHz and 705.6 kHz, where
-one IEC 61937 stream is spread over 8 slots on 4 data lines at a quarter
-of that rate. The bridge firmware also reports the HBR coding type for
-some compressed streams at ordinary rates, such as 48 kHz DTS, so the
-sampling rate, not the coding type, selects the layout. A compressed
-stream at 768 kHz or 705.6 kHz is rejected when fewer than 4 data lines
-are connected.
-
-Use the derived rate and channel count in the eligibility check, the
-startup constraints and the hw_params comparison. DSD is still
-rejected. The driver does not parse the compressed data: userspace
-receives the IEC 61937 words as they are.
-
-Report the stream's type through the standard V4L2_CID_DV_RX_AUDIO_TYPE
-control, so that userspace can tell LPCM, compressed, HBR and one-bit
-streams apart without parsing the audio InfoFrame.
-
-Signed-off-by: Hermes Wu <Hermes.wu@ite.com.tw>
----
- drivers/media/i2c/it6625.c | 109 ++++++++++++++++++++++++++++++++++++++-------
- 1 file changed, 93 insertions(+), 16 deletions(-)
-
-diff --git a/drivers/media/i2c/it6625.c b/drivers/media/i2c/it6625.c
-index 4a6ab00f04013b874e9af13f26e88f90fcbc3989..72ca1d4ecdc932609f1a38129bfa1e188a024ddf 100644
---- a/drivers/media/i2c/it6625.c
-+++ b/drivers/media/i2c/it6625.c
-@@ -101,6 +101,9 @@ MODULE_PARM_DESC(debug, "debug level (0-3)");
- #define REG_HDMI_AUDIO_INFO3 0x6D
- #define M_AUD_TYPE  GENMASK(1, 0)
- #define AUD_TYPE_LPCM 0
-+#define AUD_TYPE_NLPCM 1
-+#define AUD_TYPE_HBR 2
-+#define AUD_TYPE_DSD 3
- #define B_AUD_MS  BIT(2)
- #define B_AUD_3D  BIT(3)
- 
-@@ -119,6 +122,9 @@ MODULE_PARM_DESC(debug, "debug level (0-3)");
- #define IT6625_AUDIO_MAX_LANES 8
- #define IT6625_AUDIO_MAX_CHANNELS 8
- #define IT6625_AUDIO_MAX_RATE 192000
-+/* HBR: one IEC 61937 stream spread over 4 lanes (8 slots) per frame */
-+#define IT6625_AUDIO_HBR_LANES 4
-+#define IT6625_AUDIO_HBR_CHANNELS 8
- /* status re-check period while a capture stream is open */
- #define IT6625_AUDIO_REFRESH_MS 200
- /* re-checks after an event that left present audio without a valid rate */
-@@ -327,6 +333,7 @@ struct it6625 {
- 	struct v4l2_ctrl *ctrl_5v_detect;
- 	struct v4l2_ctrl *ctrl_audio_sampling_rate;
- 	struct v4l2_ctrl *ctrl_audio_present;
-+	struct v4l2_ctrl *ctrl_audio_type;
- 	struct v4l2_ctrl *ctrl_link_freq;
- 
- 	struct delayed_work hpd_delayed_work;
-@@ -1065,6 +1072,14 @@ static void it6625_audio_refresh(struct it6625 *it6625)
- 	spin_unlock_irqrestore(&it6625->audio_lock, flags);
- }
- 
-+/* AUD_TYPE (2 bits) to V4L2_CID_DV_RX_AUDIO_TYPE */
-+static const u8 it6625_audio_type_to_v4l2[] = {
-+	[AUD_TYPE_LPCM] = V4L2_DV_RX_AUDIO_TYPE_LPCM,
-+	[AUD_TYPE_NLPCM] = V4L2_DV_RX_AUDIO_TYPE_IEC61937,
-+	[AUD_TYPE_HBR] = V4L2_DV_RX_AUDIO_TYPE_HBR,
-+	[AUD_TYPE_DSD] = V4L2_DV_RX_AUDIO_TYPE_ONE_BIT,
-+};
-+
- /*
-  * Selecting the published sample and writing both controls happen under
-  * the control handler lock, so a stale sample never overwrites a newer one.
-@@ -1086,6 +1101,9 @@ static int it6625_audio_update_ctrls(struct it6625 *it6625)
- 	if (!ret)
- 		ret = __v4l2_ctrl_s_ctrl(it6625->ctrl_audio_present,
- 					 info.present);
-+	if (!ret)
-+		ret = __v4l2_ctrl_s_ctrl(it6625->ctrl_audio_type,
-+					 it6625_audio_type_to_v4l2[info.stream.type]);
- 
- 	v4l2_ctrl_unlock(it6625->ctrl_audio_present);
- 
-@@ -2138,7 +2156,7 @@ static int it6625_v4l2_init_controls(struct v4l2_subdev *sd)
- 	bool cphy_3trio = it6625->bus_type == V4L2_MBUS_CSI2_CPHY &&
- 			   it6625->csi_lanes == 3;
- 
--	v4l2_ctrl_handler_init(hdl, 4);
-+	v4l2_ctrl_handler_init(hdl, 5);
- 
- 	it6625->ctrl_5v_detect =
- 		v4l2_ctrl_new_std(hdl, NULL, V4L2_CID_DV_RX_POWER_PRESENT,
-@@ -2150,6 +2168,10 @@ static int it6625_v4l2_init_controls(struct v4l2_subdev *sd)
- 				     NULL);
- 	it6625->ctrl_audio_present =
- 		v4l2_ctrl_new_custom(hdl, &it6625_ctrl_audio_present, NULL);
-+	it6625->ctrl_audio_type =
-+		v4l2_ctrl_new_std_menu(hdl, NULL, V4L2_CID_DV_RX_AUDIO_TYPE,
-+				       V4L2_DV_RX_AUDIO_TYPE_ONE_BIT, 0,
-+				       V4L2_DV_RX_AUDIO_TYPE_LPCM);
- 	it6625->ctrl_link_freq =
- 		v4l2_ctrl_new_int_menu(hdl, NULL, V4L2_CID_LINK_FREQ, 0, 0,
- 				       cphy_3trio ? it6626_cphy_3trio_link_freq :
-@@ -2193,26 +2215,74 @@ static unsigned int it6625_audio_max_channels(const struct it6625 *it6625)
- 	return min(2U * it6625->audio_lanes, IT6625_AUDIO_MAX_CHANNELS);
- }
- 
-+/*
-+ * I2S frame rate and slot count that carry this stream. Pure, callable in
-+ * atomic context; returns -ENODEV for a stream the I2S output can't carry.
-+ *
-+ * LPCM goes out as is. A compressed IEC 61937 stream at up to 192 kHz
-+ * takes 2 slots at its own sampling rate, whatever channel count the
-+ * source signals. An HBR stream (AUD_FS 768 or 705.6 kHz) is one IEC 61937
-+ * stream at 4x the frame rate spread over 4 lanes: 8 slots at a quarter of
-+ * that rate.
-+ *
-+ * The firmware doesn't keep AUD_TYPE to its documented meaning: it reports
-+ * HBR for a plain 48 kHz DTS stream too. So the rate, not NLPCM vs. HBR,
-+ * selects the layout of a compressed stream.
-+ */
-+static int it6625_audio_xport(const struct it6625 *it6625,
-+			      const struct it6625_audio_stream *s,
-+			      u32 *rate, unsigned int *channels)
-+{
-+	u32 fs = it6625_audio_fs_to_rate(s->fs_code);
-+
-+	if (!fs)
-+		return -ENODEV;
-+
-+	switch (s->type) {
-+	case AUD_TYPE_LPCM:
-+		*rate = fs;
-+		*channels = s->channels;
-+		break;
-+	case AUD_TYPE_NLPCM:
-+	case AUD_TYPE_HBR:
-+		if (fs == 768000 || fs == 705600) {
-+			*rate = fs / IT6625_AUDIO_HBR_LANES;
-+			*channels = IT6625_AUDIO_HBR_CHANNELS;
-+		} else {
-+			*rate = fs;
-+			*channels = 2;
-+		}
-+		break;
-+	default:
-+		return -ENODEV;
-+	}
-+
-+	if (*rate > IT6625_AUDIO_MAX_RATE)
-+		return -ENODEV;
-+
-+	if (*channels < 2 || *channels % 2 ||
-+	    *channels > it6625_audio_max_channels(it6625))
-+		return -ENODEV;
-+
-+	return 0;
-+}
-+
- /* can this audio status be captured? Pure check, callable in atomic context. */
- static int it6625_audio_check(const struct it6625 *it6625,
- 			      const struct it6625_audio_info *info)
- {
- 	const struct it6625_audio_stream *s = &info->stream;
--	u32 rate = it6625_audio_fs_to_rate(s->fs_code);
-+	unsigned int channels;
-+	u32 rate;
- 
- 	if (!info->read_ok || !info->vid_stable || !info->present ||
- 	    info->avmute)
- 		return -ENODEV;
- 
--	if (s->out_if != AUD_OUT_IF_I2S || s->type != AUD_TYPE_LPCM ||
--	    s->multi_stream || s->is_3d)
--		return -ENODEV;
+diff --git a/drivers/firmware/qcom/Kconfig b/drivers/firmware/qcom/Kconfig
+index 3ad22f8fc3e5..54b9abfb6aad 100644
+--- a/drivers/firmware/qcom/Kconfig
++++ b/drivers/firmware/qcom/Kconfig
+@@ -28,16 +28,12 @@ config QCOM_PAS_TEE
+ config QCOM_SCM
+ 	tristate "Qualcomm PAS SCM interface driver" if ARCH_QCOM || COMPILE_TEST
+ 	select QCOM_PAS
+-	select QCOM_TZMEM
+-	default y if ARCH_QCOM
 -
--	if (!rate || rate > IT6625_AUDIO_MAX_RATE)
-+	if (s->out_if != AUD_OUT_IF_I2S || s->multi_stream || s->is_3d)
- 		return -ENODEV;
+-config QCOM_TZMEM
+-	tristate
+ 	select GENERIC_ALLOCATOR
++	default y if ARCH_QCOM
  
--	if (s->channels < 2 || s->channels % 2 ||
--	    s->channels > it6625_audio_max_channels(it6625))
-+	if (it6625_audio_xport(it6625, s, &rate, &channels))
- 		return -ENODEV;
- 
- 	if (!it6625_audio_wl_bits(s->i2s_wl))
-@@ -2288,8 +2358,9 @@ static int it6625_dai_startup(struct snd_pcm_substream *substream,
- 	struct it6625 *it6625 = dai_to_6625(dai);
- 	struct snd_pcm_runtime *runtime = substream->runtime;
- 	struct it6625_audio_info info;
-+	unsigned int channels;
- 	unsigned long flags;
--	u32 gen;
-+	u32 gen, rate;
- 	int ret;
- 
- 	it6625_s_ctrl_audio(&it6625->sd);
-@@ -2305,13 +2376,16 @@ static int it6625_dai_startup(struct snd_pcm_substream *substream,
- 	if (ret)
- 		return ret;
- 
-+	/* the check above passed, so this can't fail */
-+	it6625_audio_xport(it6625, &info.stream, &rate, &channels);
-+
- 	ret = snd_pcm_hw_constraint_single(runtime, SNDRV_PCM_HW_PARAM_RATE,
--					   it6625_audio_fs_to_rate(info.stream.fs_code));
-+					   rate);
- 	if (ret < 0)
- 		return ret;
- 
- 	ret = snd_pcm_hw_constraint_single(runtime, SNDRV_PCM_HW_PARAM_CHANNELS,
--					   info.stream.channels);
-+					   channels);
- 	if (ret < 0)
- 		return ret;
- 
-@@ -2389,18 +2463,21 @@ static int it6625_dai_hw_params(struct snd_pcm_substream *substream,
- 				struct snd_soc_dai *dai)
- {
- 	struct it6625 *it6625 = dai_to_6625(dai);
--	const struct it6625_audio_stream *s;
-+	unsigned int channels;
- 	unsigned long flags;
-+	u32 rate;
- 	int ret;
- 
- 	it6625_s_ctrl_audio(&it6625->sd);
- 
- 	spin_lock_irqsave(&it6625->audio_lock, flags);
- 	ret = it6625_audio_validate_locked(it6625);
--	s = &it6625->audio_accepted;
-+	if (!ret)
-+		ret = it6625_audio_xport(it6625, &it6625->audio_accepted,
-+					 &rate, &channels);
- 	if (!ret &&
--	    (params_rate(params) != it6625_audio_fs_to_rate(s->fs_code) ||
--	     params_channels(params) != s->channels ||
-+	    (params_rate(params) != rate ||
-+	     params_channels(params) != channels ||
- 	     params_format(params) != SNDRV_PCM_FORMAT_S32_LE))
- 		ret = -EINVAL;
- 	spin_unlock_irqrestore(&it6625->audio_lock, flags);
-
+ config QCOM_TZMEM_MODE_SHMBRIDGE
+ 	bool "TrustZone interface memory allocator: SHM Bridge"
+-	depends on QCOM_TZMEM
++	depends on QCOM_SCM
+ 	help
+ 	  Use Qualcomm Shared Memory Bridge as memory allocator. The memory has the
+ 	  same alignment as in the 'Generic' allocator, which is used when this option
 -- 
-2.34.1
-
-
+Cheers,
+Nathan
