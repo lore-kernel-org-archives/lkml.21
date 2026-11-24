@@ -1,50 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.2
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.176
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795504127;
-	b=VtmxTNaywNegEgwY8gXOqJmkpXotJ1z6Sx3/odOx7mGuMVHJndahxmmttHzdNjwOEOJN
-	 AqLMcDzLOZyRdSIgQ5f4MLK6igToGlvE6T3swBaGXzww3guurWAdLZXVYpsWnTbcPRE9F
-	 hjf48a0zApc+sp784jToqDmyxwh9wNQwmx+ae3QM4RGmV/gqJ2hlwo0FiMB2msQbt8RoV
-	 wwBfgdb2ClwOSjJSckgKJeBJEnfyF+OdTh4VBsbIoYhUV0wi9XC/yN/u2JL+ADuyZf3i6
-	 GjXLPhLMH6vYlqrQxwkuMoXlQ8qjTbyNNt/YSza7O3klMqZo/9GnfB1orPPwvEFdhmQ==
+	t=1795504143;
+	b=BfoANIwLLABKH4nVlnkHJqqmPwsanlsjfCthw2vXbJ4b/v23KE2UWR16PFuZetpkHBQc
+	 krC6F/7a1eGuLfAkmhxGQL3reisnxTYnpzy1o+UixIDGdrTAzmgg5sdOCAc6k48q3xbK8
+	 TCQl8vr1/1n4KhzzEm5nHRtYMZ9TyUTExquYdP5BdgHPFsZ5URU1k2OA3Sj7YO/YFKD1s
+	 qhXgPUFwG0mvpLKjEG55jk40kVGoxGy/wL8nH+ApU3b6RhPic0qbjWBO8CvOBFIXvhd7i
+	 MjrKU0x48vtB+6GZjYNRvaRzTO0Vq5xa6HeUbb2XHpsUWuVCl0feBA0Sb9cHDsrj9rg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795504127;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-CM-TRANSID:
-	 X-Coremail-Antispam:X-Originating-IP:X-CM-SenderInfo;
-	bh=KmWK89/yh+3U6N8ztRGk91ddCFgN9nj5EioDuKtujQA=;
-	b=n9ghsddx64Mgw3jjl8JN1f3HIy4r+SfH2vswkaqFCI9zsKGKps8ld/wUn7mQzAaNDHN/
-	 fHJPelXuOdI4ut3XuahAiFrRK00NOtN9O0r4dgN+jh7SfN7QBtIQz4WO31U/ITy1XkzQi
-	 in5NmpKJmuKmU2zNYX4zKWgMuSeFOPU4MDxhwygV+sbMsiTFCxyMnUgz070EaVIk8S/lL
-	 uu9zAuuac8zqZnnCs8Omz78L1FJ85ieRnqvsFBCV0/RyyfJ/FhIV1M0LN2xMkLp0KZChF
-	 v8oxrBFH+2MeIztLcHiF3VhgLqK5Hs7HeTvEmttnp9EzBbhII14fV1szlxKUqYYSSKA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795504143;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=yHzcEi28TzLcdkTdLjmsJRjiQsin7uG0PUUFZLOdqqY=;
+	b=tBiLgMDaKluxMEhPHG671/Qp2L8sxse9PSQcc58xDsZ8KczSKgh+ck2lCJIK5+2lojvt
+	 /R9panoKXtc8xAL0xKzcEHX0QPmHsKHai4GBy/lJgVdaFdYwyf55mFrxZRpMx9RzQBvbT
+	 5/M5VnSF8mB9XAzt4Wp1muMw9O/4gdmCOQzBx51S06IFZ9JJmAum1j+Sl2owDdBbKD2Tf
+	 lIfphMmYvepJrvOONGZtmDyd5bWfNPD438jzOY0zGE/nGs2FzU1QwCqJUz6xOgDNtoqxB
+	 6ThVsZlwVWOJewgEXzecvi9rf/2Z6E3Gj3sxhvN+kYeafZFIvYAZ1aTJmWmU01E/iiQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=163.com;
-	spf=pass smtp.mailfrom=163.com;
-	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=fuz4oIuf;
-	arc=none smtp.remote-ip=117.135.210.2
-Received: from m16.mail.163.com (m16.mail.163.com [117.135.210.2])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=i7IDtHpi;
+	arc=none smtp.remote-ip=209.85.210.176
+Received: from mail-pf1-f176.google.com (mail-pf1-f176.google.com [209.85.210.176])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9C0FA606A321;
-	Tue, 24 Nov 2026 07:08:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9C0FA606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C38BE606A321
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 07:09:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C38BE606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=fuz4oIuf
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Message-ID:Date:MIME-Version:Subject:To:From:
-	Content-Type; bh=KmWK89/yh+3U6N8ztRGk91ddCFgN9nj5EioDuKtujQA=;
-	b=fuz4oIuf6/1yHcSA4hJ/814zy0uFTvH3wWDcT83QsYBEXW3szQjjgX2WWnVABa
-	LcCL3YtpYl3EO83fLtr5Cs7vTpvjt3Ms7RUT6sRPSmknhV6ytic38emSKkLhZqzF
-	zUjEdI69YBoOEQIODztWdiXef8dlBT0fvEmQDgY06s7pw=
-Received: from [IPV6:2409:8900:1fd6:2667:fa79:c486:b564:4e50] (unknown [])
-	by gzga-smtp-mtada-g0-2 (Coremail) with SMTP id _____wD3X3rbNwVrvxODJw--.9843S2;
-	Tue, 24 Nov 2026 15:08:14 +0800 (CST)
-Message-ID: <a2f75e81-b012-4bb1-8885-a2ed310fa988@163.com>
-Date: Tue, 24 Nov 2026 15:08:11 +0800
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=i7IDtHpi
+Received: by mail-pf1-f176.google.com with SMTP id d2e1a72fcca58-8b5e5e64494so2150498b3a.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 23:09:02 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795504142; x=1796108942; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=yHzcEi28TzLcdkTdLjmsJRjiQsin7uG0PUUFZLOdqqY=;
+        b=i7IDtHpiA7zeZev7aih9yX1LZtQXdeesNsKu4cSsMhiefYQDrnDgPRGnMpMJDBc2H6
+         4yNSjtG6acrhqVBIPDrOng69tcGHUyU1KTKMOX9MMHEO9br25oUgFLPOGYfSTbw3RHzy
+         7gRlu8VsXkog7fclpydcW4rXwR+8zHhJruqLv0DBTsUOssQ2+YXHp2JmhxlR+a2NCkxz
+         RzUVuDzfxptM+Mb/jy/d1rGD5Ay4KOdjwJJAmntbj0tb/zt/JhtHChsAu3FjQJquZ8FC
+         xCxXVFx4O8sjs41d0ZodlYSOWbgxGZhql82soaWWMUrgZXAEJypg7RUL1JsfH2DK1wVn
+         9EJA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795504142; x=1796108942;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=yHzcEi28TzLcdkTdLjmsJRjiQsin7uG0PUUFZLOdqqY=;
+        b=hLNXVr1ANkzcx1/TacFSH/fIeed4IdkUBnkTu6R3AmKJZdNH9/7dkY3J75/q1INW/7
+         HNvSTx3G5xi2N0SnKYZlpbmW4K6kQCh9x4YXrzboc0xV8xKyWpSoyO/n6XyI4fMOnyNM
+         9Lc2EyZfV85QrH9uScnJbgnG7WGVMl7LaNUK98lpnGXka3N+TF9ybStWjI11YQsZBqeZ
+         DwWvCUwlxJAzr8cWKumgch2Zkh+ZZWshE6PLL0PsDsCyI6gHDPhsrWDucJqkNYXZrY6d
+         FKsBrf/aUXB2jyv+4fxYi9+PiYetL3VGGWPjvvjq73j734uDEUf3PrfmDatfmR/NDdm3
+         0tsg==
+X-Forwarded-Encrypted: i=1; AL+hErHYC/gf3ZSCByRBaT7fPB3oscQWOb4H7+N31kOT2BGVcQxPQmHifp1tcvgRGLdalszweIz7DT55GQ+0RNw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8h0kRnLTnhD97896R46978JW+DIDM/8qLoOwlnb2Xn9n+hWq+i
+	VETgUuZ78AO0IOnMR/w/TcMVzqXiUWZoK8azE1GOq0T/R587hj6SSwSn
+X-Gm-Gg: AZFdTZdsKJJqQ9QZ1yr/P7tSJpAY9NPYiRxAsNOsJ7U9htYTVr7P2WN2HeVo+DOilXp
+	/P1wg+x+DNgVtlxmSGtOjtGK6LffF4eq1Ftbi6M7VJ6ggH+SMyqsd01cfz9zOPvIm5/O3AECmIP
+	MzFD7kNsKEfTfmCHn8BNhd6GcSClPCold7erILu4Fb3Y5rhKawgrOHgiquujD5Gfb5qfdzwRKby
+	vPVvzENE/4Z/vTdihKbDaRlWGIMMAfH03P9mWciLvJpumi6KadJLQnDDLNCRreYr/vVY8ZQowrM
+	lQHb/CL7jP5xudRbNYwJUFTLw5a2xmo3I7oX3E3ZEcQQ8JgrgHi5qO/PVzKlD5YHhj0JoKNtO/A
+	a3bVMV/bCy18rCtyPmUN0GMycMENraT+v0YNFa5YYR/2KkOVAq/zC5Ri1oNpLou2yxEHNGsnMeE
+	54s/a/5i+I1dDfssmKuU9qOh5SpO96vWzaYNbOE4PDnmfIbD59ZPKuR0twk4nXaHPvT63NHHS/Q
+	rexRXK57OFqfiIWjIqC5tEZ/3CiFYM7RJKf48SSVmluwUufViqUVCkUkgiaiGy6R8hJE0WL5LZx
+	EYPd4LEmFkNXYHt8IMcvXHl2eyMNo4CJoCC2LXJDdkdu/crlWRQohplvTk8ainsJgos=
+X-Received: by 2002:a05:6a00:94c8:b0:89f:129a:9590 with SMTP id d2e1a72fcca58-8c87d01fbc2mr12088013b3a.48.1795504142083;
+        Mon, 23 Nov 2026 23:09:02 -0800 (PST)
+Received: from d20be28ee783.tail196be.ts.net (vldb.skku.ac.kr. [115.145.173.180])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87077bff6sm6748955b3a.3.2026.11.23.23.08.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 23:09:01 -0800 (PST)
+From: Kyuwon Cho <kyuwoncho18@gmail.com>
+To: Steffen Klassert <steffen.klassert@secunet.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>
+Cc: "David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Florian Westphal <fw@strlen.de>,
+	Sabrina Dubroca <sd@queasysnail.net>,
+	Hui Peng <benquike@gmail.com>,
+	netdev@vger.kernel.org,
+	ipsec@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH ipsec] xfrm: allow route optimization mode only for DSTOPTS and ROUTING states
+Date: Tue, 24 Nov 2026 16:08:56 +0900
+Message-ID: <179550330841.535592.4607028415857424638@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -54,109 +103,78 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: ntfs: deleting $Extend breaks subsequent mount
-To: Namjae Jeon <linkinjeon@kernel.org>, theBIT5 x3zk <x3zk@outlook.com>
-Cc: "linux-fsdevel@vger.kernel.org" <linux-fsdevel@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "open list:NTFS FILESYSTEM" <ntfs@lists.linux.dev>,
- Hyunchul Lee <hyc.lee@gmail.com>, Baolin Liu <liubaolin@kylinos.cn>
-References: <DM4PR15MB6276A5C442568B4C7E604AA386452@DM4PR15MB6276.namprd15.prod.outlook.com>
- <CAKYAXd-MHxzjvc20J-x4VYBnuk3sVpzmHo+zrHb8n3nx8Aav6g@mail.gmail.com>
-Content-Language: en-US
-From: liubaolin <liubaolin12138@163.com>
-In-Reply-To: <CAKYAXd-MHxzjvc20J-x4VYBnuk3sVpzmHo+zrHb8n3nx8Aav6g@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:_____wD3X3rbNwVrvxODJw--.9843S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWxuF45Wr4xXr43uF1fAw13urg_yoW5WFyUpr
-	9FgF9FgrykG3srK3s2vFs8ZF1Fqw1xtayUJF1rXF17AFyYgw1agr15KF1Fqry8Jrnak3y5
-	Za1jg3yrua15A3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UTKZAUUUUU=
-X-CM-SenderInfo: xolxutxrol0iasrtmqqrwthudrp/xtbC6R4h62sFN94eiAAA3s
 
+verify_newsa_info() accepts XFRM_MODE_ROUTEOPTIMIZATION with any
+protocol. esp6_init_state() treats a mode it does not know as
+transport, so an ESP state in that mode is created, and the first
+packet through it hits the WARN_ON_ONCE()s in xfrm_state_mtu() and
+xfrm_inner_mode_input(), which assume that route optimization never
+comes with ESP:
 
+  WARNING: net/xfrm/xfrm_state.c:3264 at xfrm_state_mtu+0x239/0x3d0
+  RIP: 0010:xfrm_state_mtu (net/xfrm/xfrm_state.c:3264)
+  Call Trace:
+   <TASK>
+   xfrm_bundle_create (net/xfrm/xfrm_policy.c:3992 net/xfrm/xfrm_policy.c:2785)
+   xfrm_resolve_and_create_bundle (net/xfrm/xfrm_policy.c:2885)
+   xfrm_lookup_with_ifid (net/xfrm/xfrm_policy.c:3114 net/xfrm/xfrm_policy.c:3245)
+   xfrm_lookup_route (net/xfrm/xfrm_policy.c:3344 net/xfrm/xfrm_policy.c:3355)
+   ip6_dst_lookup_flow (net/ipv6/ip6_output.c:1299)
+   udpv6_sendmsg (net/ipv6/udp.c:1699)
 
-在 2026/11/24 09:40, Namjae Jeon 写道:
-> On Tue, Nov 24, 2026 at 5:01 AM theBIT5 x3zk <x3zk@outlook.com> wrote:
->>
->> Hi,
-> Hi,
->>
->> Was messing around with the new ntfs driver (fs/ntfs) on 7.4.0-rc3-1-mainline
->> and noticed you can just rm -rf '$Extend' even without show_sys_files.
->> After umount, the filesystem fails to mount again.
->>
->> Steps:
->>
->> # mount -t ntfs /root/ntfs.img /mnt -o loop
->> # cd /mnt
->> # ls '$Extend'
->> '$ObjId'  '$Quota'  '$Reparse'
->> # rm -rf '$Extend'
->> # cd /
->> # umount /mnt
->> # mount -t ntfs /root/ntfs.img /mnt -o loop
->> mount: /mnt: wrong fs type, bad option, bad superblock on /dev/loop0,
->>         missing codepage or helper program, or other error.
->>
->> dmesg:
->> ntfs: volume version 3.1, dev loop0, cluster size 4096
->> ntfs: (device loop0): load_system_files(): Failed to load $Extend.
->> ntfs: (device loop0): ntfs_fill_super(): Failed to load system files (-22).
-> Please check the attached patch.
-> Thanks for the report.
+  WARNING: net/xfrm/xfrm_input.c:449 at xfrm_input+0x2176/0x5f50
+  RIP: 0010:xfrm_input (net/xfrm/xfrm_input.c:449 net/xfrm/xfrm_input.c:705)
+  Call Trace:
+   <IRQ>
+   xfrm6_esp_rcv (net/ipv6/xfrm6_protocol.c:119)
+   ip6_protocol_deliver_rcu (net/ipv6/ip6_input.c:479)
 
-Hi Namjae,
-   I noticed that NInoSetExtendSys() is only reached when looking up the
-unnamed $DATA attribute returns -ENOENT. A file directly under $Extend
-that has an unnamed $DATA attribute skips this path and never gets
-NI_ExtendSys set, leaving it mutable without sys_immutable.
+Accept the mode only for the Mobile IPv6 protocols, as IP-TFS mode is
+already limited to ESP.
 
-   I reproduced this with your patch applied, using default mount options
-and a synthetic NTFS image containing a SYSTEM-marked file with unnamed
-$DATA directly under $Extend. After remounting, this write still succeeds:
-     echo changed > '/mnt/$Extend/review-data'
+Fixes: c2d305e51038 ("xfrm: remove input indirection from xfrm_mode")
+Fixes: c7b37c769d2a ("xfrm: remove get_mtu indirection from xfrm_type")
+Signed-off-by: Kyuwon Cho <kyuwoncho18@gmail.com>
+---
+Steffen asked for this on our report:
+https://lore.kernel.org/netdev/awUsEE7XZIFwc0Ws@gauss4/
+Hui Peng posted a patch with this description in September, but its
+diff changed attach_auth_trunc() instead:
+https://lore.kernel.org/all/20260919215239.3471352-1-benquike@gmail.com/
 
-   Could we move the direct-child classification into the common
-inode-loading path, so that setting NI_ExtendSys does not depend on
-whether the unnamed $DATA attribute exists?
-   I tested the change below in QEMU. The write above is now rejected
-with EPERM, and normal file, hard-link, symlink and remount checks pass.
+The issue was found by an LLM-guided test generator that we are
+developing as a research prototype. The patch was written with LLM
+assistance; we reviewed and tested it. With it, the ESP state of the
+reproducer is refused with -EINVAL and the warnings are gone, while
+DSTOPTS and ROUTING states in route optimization mode and ESP states in
+transport and tunnel mode are still accepted.
 
-Thanks,
-Baolin
+ net/xfrm/xfrm_user.c | 9 ++++++++-
+ 1 file changed, 8 insertions(+), 1 deletion(-)
 
-You may consider applying the following change on top of your attached 
-patch:
-**************************************************************************
-diff --git a/fs/ntfs/inode.c b/fs/ntfs/inode.c
-index e1c5a767e62b..c0e2535401bb 100644
---- a/fs/ntfs/inode.c
-+++ b/fs/ntfs/inode.c
-@@ -959,6 +959,15 @@ static int ntfs_read_locked_inode(struct inode *vi)
-                 goto unm_err_out;
-         }
-
-+       /* Classify $Extend children regardless of their data/index 
-layout. */
-+       if (ni->mft_no >= FILE_first_user) {
-+               err = ntfs_is_extended_system_file(ctx);
-+               if (err < 0)
-+                       goto unm_err_out;
-+               if (err > 0)
-+                       NInoSetExtendSys(ni);
-+       }
-+
-         if (ni->flags & FILE_ATTR_REPARSE_POINT) {
-                 unsigned int mode;
-
-@@ -1163,7 +1172,6 @@ static int ntfs_read_locked_inode(struct inode *vi)
-                          */
-                         extend_sys = ntfs_is_extended_system_file(ctx);
-                         if (extend_sys > 0) {
--                               NInoSetExtendSys(ni);
-                                 if (m->flags & MFT_RECORD_IS_VIEW_INDEX) {
-                                         if (extend_sys == 2) {
-                                                 name = reparse_index_name;
+diff --git a/net/xfrm/xfrm_user.c b/net/xfrm/xfrm_user.c
+index 217f65faa2bd..c4bbfd638d73 100644
+--- a/net/xfrm/xfrm_user.c
++++ b/net/xfrm/xfrm_user.c
+@@ -477,9 +477,16 @@ static int verify_newsa_info(struct xfrm_usersa_info *p,
+ 	switch (p->mode) {
+ 	case XFRM_MODE_TRANSPORT:
+ 	case XFRM_MODE_TUNNEL:
+-	case XFRM_MODE_ROUTEOPTIMIZATION:
+ 	case XFRM_MODE_BEET:
+ 		break;
++	case XFRM_MODE_ROUTEOPTIMIZATION:
++		if (p->id.proto != IPPROTO_DSTOPTS &&
++		    p->id.proto != IPPROTO_ROUTING) {
++			NL_SET_ERR_MSG(extack,
++				       "Route optimization mode requires DSTOPTS or ROUTING");
++			goto out;
++		}
++		break;
+ 	case XFRM_MODE_IPTFS:
+ 		if (p->id.proto != IPPROTO_ESP) {
+ 			NL_SET_ERR_MSG(extack, "IP-TFS mode only supported with ESP");
+-- 
+2.43.0
 
