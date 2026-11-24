@@ -1,114 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795481051;
-	b=faqsFV3C1AHlpSS5mZYU+opmEJ4rlfyUW3FWGDzRL7yj/ZY5s3FWffuF7gB5AvMg7mcJ
-	 GMTwTYrSaDkdb68BD6+9PgkE2p3FLSyOyu8na536vmYl7uJMVyp42FC5S/siwGRppV+8y
-	 yfaDEe8kLdCBE954tb4jUsFqIzTnkUhYmqWGlw0N+jtTy/deuNbG/C7JmrkbKu7MjXq7V
-	 4eQkehAEPQT7AYWCoQMzTcxCVJtZRMFTqDwCTx7MHRABs96I1tZ5Szr0LzJCOATw2P3fO
-	 kbpRzyl9sXHzdA3czX4KgyaBeBzByJ12G+CbgW2GJjle37VSsrtRca7GR8YzSBRJbew==
+	t=1795481068;
+	b=Z5V7/5w4v3Azwv8blDr3dggESkQ7rsNzlrw4WqYVIKDdWKWiBh5NgI30Jg2xMBrOJ+MQ
+	 8VNAdQwdV18z+of6T2tu41NPQr6nW6PWo0GO0jxCIibpkOzgDdmIxSBoC4EqfDmjrx5mZ
+	 cfnUhjkiC6UqcAkxsJqV81FKJnCO8RonPdOrMIlHhV4HsoddwyfpXzMiB5RZw4W8UJEYx
+	 YBNeeS7UI7BF4+AkndlObsrkAmPLXFUajTulDn01edGRBIRJwRmjwhR9aX3HTlonj85Qx
+	 r8EhI5sN6tfAScbbmJPmoRfTfOsC4j6ijKHIiq3IV6hC1LAxy/tysT/3dKjWZqpxHvQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795481051;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:Received:Date:From:To:Cc:Subject:Message-ID:References:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To:User-Agent;
-	bh=Wi0fAXmXePj9clIxSj/PDaoYWKJnO/KlO0YBgvh950U=;
-	b=dM8C1Zu9PcPwTatyNnSjtJ6aya8Fo8u4lz/5/eqqxICW9O2mSRk//W0OW6o3dyFvg0Tg
-	 0auNaQPlQRih9ldhkRUZ6ABvHb/VQaGXIPcdsI9Rcb2f07fIsHiynRnj4hY9qdHHHDR5A
-	 DJEjwLk6BHCHEuryc7eRtJVst27tgTR3Q8r0A512SXaCgvr2wt+jhvSVdiS3IfzxjJ61K
-	 XWIc7UQyKXPBW4wN47arlpa4lqKlhquvCd9sE9kP+NJfdNe9zPoFLwoNnCz9Yh3NW84Ol
-	 WIARK5WGRP9cPYVesAsIpN/xVLE7XqRHeu1lyJTPqVT7FzX/fGyHY8RNsmg6uygcWuw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795481068;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:Content-Language:To:
+	 Cc:References:From:Autocrypt:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=0MScgZgXeIWmjS6hoGqe6kXsg/e8o8ts/nbOkXEpNcs=;
+	b=VdHuDVHj7uDDP9UV+kQjHeZUX796MGYIbK6hZ5pE0chocU8/d8xUPl24hoJxyfl4ZaQK
+	 oU+SNmsx3xM0BPe0HvFfCD8ztW/8/bxanbu+hBd1bB3Pj8LHAtn6/X6IeqKdTpCnGyhMM
+	 XxF5Yav7IlmIcnMJ9Hdb87KduRVF/ibMGVS0lwAKDS+2ia3/K9wolXYuZqhUqDNRNEC3t
+	 0M/kCq/EROgWk9CpKCUs+/5YY8UMKWFAex+7esrlJZ4dGJbY8CIKQPtomBdOCdcfCbhMA
+	 q+pEmmqW/LwFsKhHpqUUZezOJ3mZeCJA4WjDJUv2pBUfG0KW2WgJhnS/XWJrcUvO8AQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Q6sO6vDc;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=kgZQwC01;
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=f9RyjsI5;
+	arc=none smtp.remote-ip=209.85.210.172
+Received: from mail-pf1-f172.google.com (mail-pf1-f172.google.com [209.85.210.172])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 98AE6606A326
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 00:44:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 98AE6606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6ACF1606A322
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 00:44:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6ACF1606A322
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Q6sO6vDc;
-	dkim=pass (2048-bit key, unprotected) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=kgZQwC01
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795481049;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Wi0fAXmXePj9clIxSj/PDaoYWKJnO/KlO0YBgvh950U=;
-	b=Q6sO6vDcn0vNTAdBOkD9I8pG6Jps8ysB0S6TUN2g1/lKQseopk+cvztOTJhPaTe9v7ZaM+
-	GFBOorTnTs6fOr5gfuu6j0dmuRH6iGNwPOcn+gKwnJlrFf34ROGO+lYFYL+qVcoGAnxro5
-	YOI1GsFmurPn5IsKiFljmPIhC0OOsjY=
-Received: from mail-qv1-f69.google.com (mail-qv1-f69.google.com
- [209.85.219.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-454-gXizEZ7dP8mU1awQLHrMFw-1; Tue, 24 Nov 2026 00:44:07 +0000
-X-MC-Unique: gXizEZ7dP8mU1awQLHrMFw-1
-X-Mimecast-MFC-AGG-ID: gXizEZ7dP8mU1awQLHrMFw_1795481047
-Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-92137a721c7so65850626d6.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 16:44:07 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=f9RyjsI5
+Received: by mail-pf1-f172.google.com with SMTP id d2e1a72fcca58-8b6a88e4341so1672676b3a.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 16:44:28 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795481047; x=1796085847; darn=vger.kernel.org;
-        h=user-agent:in-reply-to:content-disposition:content-type
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=Wi0fAXmXePj9clIxSj/PDaoYWKJnO/KlO0YBgvh950U=;
-        b=kgZQwC01Z3ML77UaoMtUPzjhGMHfbsltqAwcZZlf4stEdeC4aavxqkjWbiOWpDUPLv
-         pXFjLPqYRFJEbQQTIEI72onJGGAojnConuD7nOyEhAeTL1KSLPz4aDLRUaZ3OXxImwU6
-         jwg4+Pqn72WkG77cJgmHGscQgaV89R2bvTMtnUvKeGachK5im9weIyI6CwNh1a5dM2Su
-         6T01u2QsG6I0IzgZjOxJElhTwq5Iqvby5pzBrcrczlCAT2uxHV+jN96aChBuxMoq1S8H
-         z5PLKxC22x2GWeaGmQiununGtlSpDLEJoe9/Y33b/6I04LdkOispCMTKmz+RtxIUKkca
-         lJtQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795481047; x=1796085847;
-        h=user-agent:in-reply-to:content-disposition:content-type
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=gmail.com; s=20260707; t=1795481068; x=1796085868; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
+         :references:cc:to:content-language:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=Wi0fAXmXePj9clIxSj/PDaoYWKJnO/KlO0YBgvh950U=;
-        b=LdGk+/ekv7XjbOgRTcKv4dpjhRIGFHndt//Wq4WSL1vJlniAkMFD9VhvaK+jUPEg98
-         PNdjcA+wHk+WHMKSfbfGaUICEBoViAbKFHqDiFEnbgOS8HGE5s4mPtwgj0xowC2Tns2d
-         qmoMgtZo6jmVNxo8QoqP9l1lGfYSgPD6524RRplB4xcNRzfKrrNgbuOL6iMkwsbLvVrM
-         CdW3GXzedWfE2Z5hk022ryqnUO83KpyzDZSKPJTF4aGCytEC05U0CcZ4CA0LYkcKq/kP
-         HydR7wyhHgEkZNZv2FjoH8CgZSt0jFmmjHjNrNMF6HSUuiacPQ7vKf1xXv8EMlO5OA//
-         Fjbg==
-X-Forwarded-Encrypted: i=1; AL+hErG5oFC7P+WSHltyOfG1eW4dhvlpbWcnZgr/+2qJT/TqvnUDtaVi9DhEwn1K05d9D9CuoZFpeq3NUIpG0h4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8jxVHjAYAk+xJ2XmBMfIXPxIaTdNiOcGrVHN2dkn/unQ4RSVhk
-	WsrrOOfKpv1E/Gva/DLxuga3yBLCh9HM0gNn8on1WGCI5UGQyNgZuEzNxdonTyX63v2gtdtGA1I
-	Zn2Gf+TeKlOojBewUxkJgmXlEmEITWJdD8w+B5WY54BsrGCLxJspKkwS4GEE1J/zIrw==
-X-Gm-Gg: AZFdTZcUPcq6hi1EVLQ5ipVLczSNyI/39LA+Ri0uhPp1wZ4/1C+SqAj/RgqXR8qB5MV
-	/V72F2ks+KCQj8dz2cniEEQprn0wjhpO8F28TnEMYwqCQeUqlxk+VObbZB1b5X7ngnimIetYTNM
-	pzsDgeM/FNd7Ip/jGVEo9514d+nrZEyZD6pWvgWBzCQXFtzKqnLNU8FiD3NJtolsKuDc3bDQN9l
-	7CKLT2wfcKxwpp/TY+DAp7ErdmLbg6XrPawblUK9PMn6LBeRozBM3p4+h/7ve7Vnd+oc7bEmB0G
-	ndnljtj3oadfitExhO0hepz3OvmNk9FpKK8pv0sUvgyuwsa5raxMd3YOzjFw/xVDjGilNXEpaiL
-	cXJ0tQBVyk0Omi+ewen1cUnVqYpcKrHnooISGWlWUGfmOFhC+qFPk2doF+5rdV+1aWfa7K4r39f
-	Sg
-X-Received: by 2002:a05:6214:4e04:b0:920:fc07:1e4d with SMTP id 6a1803df08f44-92134b14149mr196492086d6.43.1795481047242;
-        Mon, 23 Nov 2026 16:44:07 -0800 (PST)
-X-Received: by 2002:a05:6214:4e04:b0:920:fc07:1e4d with SMTP id 6a1803df08f44-92134b14149mr196491816d6.43.1795481046791;
-        Mon, 23 Nov 2026 16:44:06 -0800 (PST)
-Received: from redhat.com ([69.43.42.202])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-921349b456csm121669456d6.13.2026.11.23.16.44.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 16:44:05 -0800 (PST)
-Date: Mon, 23 Nov 2026 19:44:04 -0500
-From: Brian Masney <bmasney@redhat.com>
-To: Joshua Covington <joshuacov@gmail.com>
-Cc: masneyb@kernel.org, sboyd@kernel.org, bmasney+clk@redhat.com,
-	jbrunet+clk@baylibre.com, andrea.porta@suse.com,
-	linux-clk@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] clk: rp1: allow the clock provider to be probed again
-Message-ID: <awTd1OGm3Munmah9@redhat.com>
-References: <179545567027.246915.947299820828330388.b4-review@b4>
- <20261123233827.61587-1-joshuacov@gmail.com>
+        bh=0MScgZgXeIWmjS6hoGqe6kXsg/e8o8ts/nbOkXEpNcs=;
+        b=f9RyjsI5BlEiP+ogUL82p4Zw2/oIInh0yzWd4zl3Nzz9yX3AjS9uJvGArF4X9sQ1Dv
+         t/Zemesbv+oPAotN3AiNR+cAc7SZK8XyhoPrOalw3XPafnkPzqPtKf5QspbIijk7jBmK
+         KSH1oO/ImNUem/yw+9s/gCVmNdTGMgBZyQ3iiAT/NQ2+mtXquoI8i1MB7dwOxMRWNplg
+         lPERUKetm1oqsjEDslCK7WOVDu8BYirk3nNZ2THvGNwQjlT682gTTARQiMeOqypTVAau
+         iVQaUzAUALq81iVGZMOOFhFCfL+IjFP8WnE+MMTi7nG9ANAR3Y94b9siGYjaiapXTBLv
+         8+jw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795481068; x=1796085868;
+        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
+         :references:cc:to:content-language:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=0MScgZgXeIWmjS6hoGqe6kXsg/e8o8ts/nbOkXEpNcs=;
+        b=jjJUBz3x9jjn+4dODtRCXPcjvdbaG+wMI0/LKwdyUumXX4VVjhKRhk43+PG24JG64x
+         PjW1lCqfFgFwleiR7YnFZFZ7X3i/pykoKqaWshtgEfmSJExkJFeC81C/QYSaR7CqTynn
+         b/1JgvZblILd2pLqwE3v5c7D47AbBTQRHmnkmEi4S4IPMc+tkw3OYMyAZlhEVPJyFJyX
+         rg9jWH3LMxHjXbiaeEenZriwnO/v1q2JcZhSzjCdkOEaxTmrM8yqnzfYQ7Bi9MoFzKgm
+         1FW2hRNqiZfm3A25Mte9yAkgPesTBsu51WsljlwvOgGoa1PXy8gwv+7DkF+obh35rj3d
+         qkqQ==
+X-Forwarded-Encrypted: i=1; AL+hErH/dr+h8stiYL47BtDg5XBPFrPysS1DCek0U2X7facy+QbjJAY3g8xktetLBSkJjSlq/TKTwyT+u/hgUzQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9uN9vaSigi4Ogn1uE0RkgHUOYFjeEmLcnAQFQlnTVJn+8RPJFx
+	4uTb1+2roKLJfwva3QcVSZqXQ/UVRLRRTI3go4QCSMBer84QH5fYZc6o
+X-Gm-Gg: AZFdTZfhY5Mz462n3aGJG/Bigf7psgsBQepsw0ulcY4pY7kxwN39I6VL4FC2CYiAR6o
+	J+LrgLJU8m5VuK4ddbroL9SCD8PynPZtgr9Y/6Cs+OppEgcAs90HieRgSR8vygwyZLgx0FP/S+V
+	ePW9EQs7pYtgL5cNHxdebVlMsdWBILfGzGRNy37uN+G34w9SS15dZtBT5x6y7zpmZv74k6yPUTI
+	GDxGnPtAvwCozzTEYT1zmIuFeYXQaxCjQa7Nx9rMnWBViZO6Rg7InAmbRDXGmgT2thvL7Z0riwi
+	uDEtuIOjajuSBOOrxqOFlClHPolNTdkbVN8b9VrP8alx1utv1hB6oHBW55/J+JEF9nWG526RFcS
+	zql5+TCFEtQo53VBW1xvNGivp12RkckudB754bayGnb+58RjiNQdjKYf7BnuHkKso2tpr9Ec1SA
+	rc+hHvtdaAPveqtdDFh5lFSmuJiFQ8MB5jihbHrJ5LMrQA7zKL4AdjninDxhbhEp1am5SEbgmMz
+	7JrjCniLdiNlgAkkNZUlenN9Gr91Z4Mkr9IXyt6uemhUatOV+rSHlvmFUqt+lDo8uHHMfiXxZgZ
+	vEDlAZ4LJ3P016HByEizk56mOaoEr9ybNOpYBFOGjW9h2uKTOzrUw9nwMLDOJYk0
+X-Received: by 2002:a05:6300:48:b0:3dd:a195:dd5d with SMTP id adf61e73a8af0-4014ed36da8mr13462544637.63.1795481067613;
+        Mon, 23 Nov 2026 16:44:27 -0800 (PST)
+Received: from ?IPV6:2601:600:a482:7d70::b4f9? ([2601:600:a482:7d70::b4f9])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde9bb05981sm855550a12.26.2026.11.23.16.44.26
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 23 Nov 2026 16:44:27 -0800 (PST)
+Message-ID: <e4a05b89-f9ca-4082-a203-07f6a00f8913@gmail.com>
+Date: Mon, 23 Nov 2026 16:44:26 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -118,85 +92,126 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261123233827.61587-1-joshuacov@gmail.com>
-User-Agent: Mutt/2.4.3 (2026-10-09)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v2 2/2] net: wwan: iosm: fix S3 resume by re-binding
+ the driver around it
+Content-Language: en-US
+To: netdev-bot+sashiko@kernel.org
+Cc: netdev@vger.kernel.org, loic.poulain@oss.qualcomm.com,
+ ryazanov.s.a@gmail.com, johannes@sipsolutions.net, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ pabeni@redhat.com, m.chetan.kumar@linux.intel.com,
+ linux-kernel@vger.kernel.org, mail@maciej.szmigiero.name,
+ nihaal@cse.iitm.ac.in, stable@vger.kernel.org
+References: <20261119042714.505405-2-davidlwesten@gmail.com>
+ <179541107082.3135.11504382259893948340@kernel.org>
+From: David Westen <davidlwesten@gmail.com>
+Autocrypt: addr=davidlwesten@gmail.com; keydata=
+ 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
+In-Reply-To: <179541107082.3135.11504382259893948340@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-Hi Joshua,
+On 11/22/26 9:17 PM, netdev-bot+sashiko@kernel.org wrote:
+> [Severity: Low]
+> Will this apply to the stable trees that this Fixes: tag selects?
+>
+> Commit 0b6f6593aa8c ("net: wwan: iosm: Fix hibernation by re-binding the
+> driver around it") added pm_notify(), pm_notifier and pci_registered. That
+> commit has no Fixes: or Cc: stable tag. A tree that has 1f52d7b62285 but
+> not 0b6f6593aa8c has no pm_notify() at all.
+>
+> Could the prerequisite be named, for example with
+> "Cc: stable@vger.kernel.org # depends on 0b6f6593aa8c"?
 
-On Mon, Nov 23, 2026 at 11:38:27PM +0000, Joshua Covington wrote:
-> On Mon, Nov 23, 2026 at 12:41:10PM -0500, Brian Masney wrote:
-> > There's presumably other drivers that will have the same issue as well.
-> > Rather than having drivers all try to fix this themselves, let's see if
-> > we can fix this in the core for everyone. Can you try this completely
-> > untested patch? If that works, then you can take it over. It will need a
-> > kunit test.
-> 
-> Thanks a lot, it works. I tested it on my Raspberry Pi CM5 (currently
-> 6.18.64 with the Raspberry Pi downstream patches) with your patch
-> instead of the clk-rp1 change. Unbinding and binding the RP1 PCI device
-> again, which oopsed in __clk_register() before, now brings all RP1
-> peripherals back without any warning.
-> 
-> I also wrote three KUnit tests for the following:
-> 
-> - registering, unregistering and registering the same clk_hw again;
-> - hw->init being restored when registration fails (-EEXIST on a
->   duplicate name);
-> - a parent referenced through clk_parent_data.hw being an orphan after
->   it has been unregistered, and reparented once it is registered again.
-> 
-> They pass on the CM5 and on QEMU x86_64 with KASAN. Without your patch,
-> the first two oops on the NULL init data, and the third reports a
-> slab-use-after-free in __clk_register().
+Yes, v3 will name it in the stable tag.
 
-That all sounds good!
+> [Severity: High]
+> Can this expose a use-after-free of ipc_imem->ipc_task on every S3
+> suspend?
+>
+> [...]
+>
+> The unbind and hibernation paths already use this ordering. This patch
+> puts it on the S3 path while the modem is running and has just been told
+> to go to UNINIT. Could the MSIs be quiesced or freed before
+> ipc_imem_cleanup() tears down the tasklet?
 
-> 
-> I noticed two things while reading it:
-> 
-> - clk_unregister() now writes to the clk_hw. So far it only touched it
->   through ops->terminate, so a driver that frees its clk_hw before
->   unregistering it may now write to freed memory.
+Yes. v3 will free the MSIs before ipc_imem_cleanup() tears down the
+tasklet. The teardown doesn't need them: ipc_imem_handle_irq() already
+ignores MSIs once the phase is IPC_P_OFF_REQ.
 
-As far as I know drivers shouldn't do that, and it's a bug if they do.
+> [Severity: Medium]
+> Does the modem now enter system sleep in D0 with its firmware still
+> running? This applies when the card keeps power in S3, or when freeze or
+> standby is entered while mem_sleep is deep.
+>
+> [...]
+>
+> Could this raise sleep power, or keep the platform out of S0ix during an
+> explicit s2idle? The changelog lists lost data sessions for these cases,
+> but it doesn't mention this.
 
-> - hw->init is also restored when the clk_init_data was on the stack of
->   the registering function, so after unregistering it can point to a
->   dead stack frame.
+Yes. With the driver unbound, the modem gets no sleep request and the
+PCI core leaves it in D0. That's the cost of re-binding the driver
+around the suspend. v3 will mention it in the changelog.
 
-This could potentially be a problem, however...
+> [Severity: Low]
+> Can this register the driver again in the middle of a uswsusp
+> hibernation?
+>
+> [...]
+>
+> The hibernation image would then be created with iosm bound. The later
+> PM_POST_HIBERNATION from snapshot_release() does nothing, so the unbind
+> added by 0b6f6593aa8c is lost. Before this patch PM_POST_SUSPEND was
+> ignored, so this couldn't happen.
 
->   That only matters for a driver that registers the
->   clk_hw again without setting hw->init first, as the updated comment
->   in clk-provider.h says.
+Right, both paths share pci_registered. v3 will remember which
+transition unbound the driver and only bind it again after that one.
 
-All of the cases that I've seen across the various clk drivers the
-hw->init will be initialized again with data from the stack, so it
-shouldn't be an issue.
+Thanks,
+David
 
-I found there is a function object_is_on_stack() that could be used
-here, and if true, we could just set hw->init to NULL to avoid the
-issue of it reading stale data the next time the driver is bound. This
-will still assume that the next time it probes again, the caller sets
-hw->init again. But honestly, if that crops up, then the driver already
-has an issue that needs to be fixed.
-
-> On the CM5, clk-rp1 also keeps a cached rate per clock that survives a
-> rebind, so I added a small clk-rp1 patch that resets it on probe.
-> 
-> I'll rebase on clk-next and send a series with your change, the tests
-> and the clk-rp1 patch. How would you like to be credited for the core
-> change? If you add your Signed-off-by, I'll keep you as the author;
-> otherwise I'll use Suggested-by.
-
-Sure...
-
-Signed-off-by: Brian Masney <masneyb@kernel.org>
-
-If you end up changing the core patch more, then feel free to take over
-authorship of the patch, and just list me as Co-developed-by.
-
-Brian
-
+pw-bot: cr
