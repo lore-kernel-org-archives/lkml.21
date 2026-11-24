@@ -1,82 +1,109 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=67.231.153.30
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795552266;
-	b=0y3IKiJplA+GJf/KOMUWGNlkv3FsI4beRsCt39ABXS9JsB60ptpyaKBxahiWKqgh9o0d
-	 qxSSqgoiTj+9V0wLFIJem7DiIe3C+UkbZ2frQiDSoX7dNVjd+z8zS9gd857p89zOOGDuN
-	 4Pp3P4hdIpEBvDGHtPV8Uz1sKsrF5qgmeZ8k1GbP0H8TDenVcdSbroYu5b4y07CAXE4gV
-	 VdwcJ/ByevJiJ2x63LtBOJwLco6g0/HuHN3uHEbac2p8wuInWa9jdRK0KralWCVwM6aS+
-	 nKdrpowfT9jZjTzkTtgonvcmt0b+Qugx0DdWi+yyWZjnabjz7yi73oR6rJK6knrVN/w==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795552266;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Date:From:To:
-	 CC:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:X-Originating-IP:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Spam-Details-Enc:X-Authority-Analysis:X-Proofpoint-GUID:
-	 X-Proofpoint-Virus-Version;
-	bh=iswGJYDERYr+zAWg75b8sg5Zn4Dv7nFZ+rihAnJo3tM=;
-	b=SHh8X4VbjZ7qEDrFC1enq7jsHFqJA/te7jwseBeajXLQdGQoLBIa6yQi410ykBMG0iWN
-	 CHBGmw6TEA9j5PVxt625d4JX+n2ku+Qm1fY78vWK09WVI3rdGm31mascgVb+HzRhhzDf5
-	 nC5++hxQavEnVvpbB4rkpDF66xAvqdpALB+EdZYzRylqjwFZohpwJ60VJu3ocJm0HNKYU
-	 7XIKLrJ2+3XOtzayP+Z0VkfiTiRMYtUCMdL26Mm9IJFJfUjmLMcirxqCsv2JD54M4QJqJ
-	 r/iXDr6E8LEGEG7GNkrhGudbn81w2Jd1ZVeKxQ5fc6YLPW/MiNyaDQXcSdPPV4kY3+Q==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=meta.com;
-	spf=pass smtp.mailfrom=meta.com;
-	dkim=pass header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b="gm/dN8cG";
-	arc=none smtp.remote-ip=67.231.153.30
-Received: from mx0b-00082601.pphosted.com (mx0b-00082601.pphosted.com [67.231.153.30])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.70.24
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795552369;
+	b=p+nYJxzaRsOIwkdsplHXTIJbZHQ51bieNjVy6yUcNrX+ECKNO3k38G3LktYYo4pDEfk3
+	 Qqz8U9x2Ye3UAQdXzSSeRCXi3G/lETuxSJFvXoDypnSnohdMkQyethD3psOR+plOg4YEq
+	 tl9XdixYqPvemQLiXU7u8PC1XzwaJNY+s2qhVNFhXHjPx5CZwyY5iPeDxd+7Flih/ldxF
+	 y5nanp59XucfH7qWXHvu4Mb4kKPmlPbGm6pqEhUqQyKn6JbfGSydCmN3K+F2oOlIYcqhP
+	 AeASL8/PDYUqtV9LpPjOAiF2zo58ZRt/NxrVeOv876ksuDtB35auOAyKCpugry7MCDQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795552369;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:Content-Type:
+	 Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=IeN7EtCxFjFyK9Cyolxr882yiwzOGhdWlX+Fhc8chJM=;
+	b=3eUkevZzm/c+xIwoz6Vyv8UvXylQ5PAmgB96VlOX60oyc9AUjjrJuxK95MOhtZhVkkOJ
+	 lSw6S4iUAWPfh+IDWQDznCJFKssusdnRfOIBpr9hLT3q90lYxDKM8MqKQ1zre8NAhLbNE
+	 P+G5QJQPvRvDomd3aQa2DBL1ck9v2CLXnzBbjjXoHqS/npWhG4k0pLCQG5i2jpdaoKz0J
+	 POfhL/wtyCURRNlxzJtEcQQKmxbyeeAowfc3GWEDme7IxYclBbovN8eGq/iviUJf41kSW
+	 Ny8CQqlE9SQ+PPaSiXLi827DcFUD+fHomzSk/81/szWt5mRw8ZmMpVfUFi6WHMcII0w==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.nxp.com;
+	spf=pass smtp.mailfrom=oss.nxp.com;
+	dkim=pass header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=EQlrv0Pj;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.70.24
+Received: from AS8PR04CU009.outbound.protection.outlook.com (mail-westeuropeazon11011024.outbound.protection.outlook.com [52.101.70.24])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CCA56606A32A;
-	Tue, 24 Nov 2026 20:31:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CCA56606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=meta.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=meta.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 39A16606A31E;
+	Tue, 24 Nov 2026 20:32:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 39A16606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.nxp.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.nxp.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=gm/dN8cG
-Received: from pps.filterd (m0109332.ppops.net [127.0.0.1])
-	by mx0a-00082601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AOIXVuU977599;
-	Tue, 24 Nov 2026 12:30:38 -0800
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=meta.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pps82601-s2048-2026-q3; bh=iswGJYDERYr
-	+zAWg75b8sg5Zn4Dv7nFZ+rihAnJo3tM=; b=gm/dN8cGjBc4GQMGCJumRi1BZG9
-	YPt9dAnkPwz5EGIZhd5OtTxzIbdPiIjfBr5QY8Mc0xRuqsMMjjkdb/wkRzCZmJiZ
-	vS32Hj6i3Mgu/zflaJpYaKNAS+UOq7iuiLXBLMGfwFp8DJSsJzS/ZtxN6YT6ZaZ4
-	XoRHhdVH3FqtnW/gyGGhqTPk2zc/H6DvMfS8be+ihtke2V9HUhtLQMtY6BKu568v
-	3v6W+d/NsMi3OM10UOoIlPEdj3NGLYArOHcTYfdSK/G++WhQ2HzHC/9xpVKQFf91
-	2BCz+X/VecipzS63oBUO6nRHod4O32AfAmD0t1cQTf+wE6Ypn757uSawtbw==
-Received: from mail.thefacebook.com ([163.114.134.16])
-	by mx0a-00082601.pphosted.com (PPS) with ESMTPS id 4j5dcn2k71-9
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
-	Tue, 24 Nov 2026 12:30:38 -0800 (PST)
-Received: from localhost (2620:10d:c085:208::f) by mail.thefacebook.com
- (2620:10d:c08b:78::c78f) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.56; Tue, 24 Nov
- 2026 20:30:36 +0000
-Date: Tue, 24 Nov 2026 12:30:35 -0800
-From: Bobby Eshleman <bobbyeshleman@meta.com>
-To: Paolo Abeni <pabeni@redhat.com>
-CC: Michal Luczaj <mhal@rbox.co>, Stefano Garzarella <sgarzare@redhat.com>,
-        "David S. Miller" <davem@davemloft.net>,
-        Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
-        Simon Horman <horms@kernel.org>,
-        George
- Zhang <georgezhang@vmware.com>, Andy King <acking@vmware.com>,
-        Dmitry
- Torokhov <dtor@vmware.com>, <virtualization@lists.linux.dev>,
-        <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        Kyle Zeng
-	<kylebot@openai.com>
-Subject: Re: [PATCH net v2] vsock: only undo SS_CONNECTING when connect()
- fails
-Message-ID: <awXz6yo12ZOQPE8E@devvm29614.prn0.facebook.com>
-References: <20261117-vsock-connect-close-v2-1-db5388323770@meta.com>
- <ed28d36a-682e-4db5-abf4-1339734e7c57@rbox.co>
- <awTJ8EOl52W0ph1K@devvm29614.prn0.facebook.com>
- <ebb9c249-85bf-4737-841f-ab6ddcaab5a9@redhat.com>
+	dkim=pass (2048-bit key) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=EQlrv0Pj
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=j1N5+pQFVfC/PZ4COyUwI0yJud9rgCPEaqOcZHRl4i3jlDWtlEY5a0sK3txNyy4MQC+I+BBNDB5qH0gcVIZMMizvHMFT6CS15mSGBOEoZIRvgQyA+xzQzaRpQr1ssehvvBkLjc9FTxIIx1fs1kYTZybWuVH69d8hQtjd3UFj0q1APnMZLr7qYcGIH3jxWSfXT8ZdxhX36DaZhV3jwoFjWSs54eO/rHl1/8HdRRNQDhAGIERso98PAfrYt2SHN9iuCHFXOVdCRr06aW+UI46REDTYAejFLkNhuuHFUbpp4t1YmozQtCHRJivaOrYUKRc04nxNafvn7vCCRJrpQlk8lQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=IeN7EtCxFjFyK9Cyolxr882yiwzOGhdWlX+Fhc8chJM=;
+ b=w5Ee1TnhED211Z/IsfFF6VmvlnimxP6IVp8nHAuGy6gjl68dEyQLpSQQs4Er9Qh9RiQ8lT5s9ef5EBshbym7MzEFxpKiN9izYKv0Y2KfrSK0gjy3xMZmAkK6lHgzZz+Jf2v2S8MSai3OOMMjteA80Z8rbJyZp/0Kb5bYW1nKkCAw6I9AcQDdXVRR4vUg5Eulp2654dzDArUUKhNZNUzhnVw2qHVL6/nJ/RMXr9r8DRw6bPjDXLxLyT0O+6EvbRTjsH1+2LC5YcusX0iKaNnFicwgikNmc1jcYB773CP++S0Cl/bv4SEzML7KZsxIfzlZHJeH0olV1cESHdrtyWijCQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=IeN7EtCxFjFyK9Cyolxr882yiwzOGhdWlX+Fhc8chJM=;
+ b=EQlrv0Pjhlgf970LMxqE1y6ZGe/m/6GXrUHkGHmZqBU2N4RHahlBMyWN7yFfePNP/RtCC3SM378+35LITmx65jZMmoBaNLXa5jr20tyq7C9pgad1O9+FknQVjnhoNIccGYk264U/YB9jnU0lvUujtCmxCUBOdQlC3gvJSYjRvLTVacNmDQbWkNkcTedBJV4zwE2eJo4NV1QZkUgpycGIkVnKM9RmSwRUA/Ebfni8svyotHtDu7SqefBNBjkAfZdRHh2InoBSmoxI2Y7z8PqDwBhjJkT1/WEM72dAs3ZdW6QahiSk3Nf1DQtxhI2p3ke1yGdwQQpRksQNP9yiha3PqA==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
+ by MMZPR04MB618476.eurprd04.prod.outlook.com (2603:10a6:190:4f::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Tue, 24 Nov
+ 2026 20:32:46 +0000
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b%4]) with mapi id 15.21.0662.004; Tue, 24 Nov 2026
+ 20:32:46 +0000
+From: Frank.Li@oss.nxp.com
+To: Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Michael Walle <mwalle@kernel.org>,
+	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Frank Obergfell <frank.obergfell@bytesatwork.ch>
+Cc: Frank Li <Frank.Li@nxp.com>,
+	Daniel Baluta <daniel.baluta@nxp.com>,
+	Jessica Zhang <jesszhan0024@gmail.com>,
+	Fabio Estevam <festevam@gmail.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Alexander Forsch <alexander.forsch@bytesatwork.ch>,
+	dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: (subset) [PATCH v3 0/5] arm64: dts: freescale: Add support for bytesatwork byteDEVKIT i.MX93
+Date: Tue, 24 Nov 2026 15:32:37 -0500
+Message-ID: <179555227333.1032701.11663881152667132012.b4-ty@b4>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261111133119.1063210-1-frank.obergfell@bytesatwork.ch>
+References: <20261111133119.1063210-1-frank.obergfell@bytesatwork.ch>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: PH8PR07CA0007.namprd07.prod.outlook.com
+ (2603:10b6:510:2cd::23) To MI3PR04MB12438.eurprd04.prod.outlook.com
+ (2603:10a6:290:76::14)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,201 +113,101 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <ebb9c249-85bf-4737-841f-ab6ddcaab5a9@redhat.com>
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI0MDA4MCBTYWx0ZWRfX1XwEk7IFnqVL
- IsxEauoxA2030kImjzgsVvv73kGtN9s6cXqJh1kqtOM0Ov+1qSRbP4ALaSnNis747jWVFk4/rWf
- lF2zvnQtTnh6e/5iQKYjYe3ji9lwVe0=
-X-Proofpoint-ORIG-GUID: DpeAX_CIYOBp6U1WXu6qNU39rpokBsXw
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI0MDA4MCBTYWx0ZWRfX0lDTlwiTBfL/
- ZgsfVpoM8ZXQ5vsstvo27BBlhSB9k5MKdGEvIKdzNZiKxuRh8ZQJia9S6wEXd9/fxyczw334iBx
- XdkXHFBKZDRFRTI3dLSA6j4p/w2BScHptf9iQRnjdWQ4t23+wKBnYwPjXGj4Wh/EVT1AfQq0vP3
- dDjRVDEcQo34ZXTfBhZx2149bLRvJ/MR64tDyDedgbDT2OUJ9Z54LbxEYVhloEsOb9CHxC34uIh
- EpaX8F7dkuE7OGHO7AQkrzO62LhSI/yQLxaceUGNsxVdxM3KAQXtGv4pFmlT38NuWtbs91NuVqo
- suhvJOorO5uhYMQKc4HBHeM67bpkeLGVb1fJ0Lrfsr0r0Kpn5BV+Bd9un8D6JS/iAH57b0zUJBO
- k2jLQRd5XQJSmLfQIp9CZRCvSaI63a7wakmdASDfi+6WrQht81gsvISHa0wJUwU/bjsSq2/cOZ9
- Wvz0zeGZAuFFGkH2UNA==
-X-Authority-Analysis: v=2.4 cv=Ku3YSmWN c=1 sm=1 tr=0 ts=6b05f3ee cx=c_pps
- a=CB4LiSf2rd0gKozIdrpkBw==:117 a=CB4LiSf2rd0gKozIdrpkBw==:17
- a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=7x6HtfJdh03M6CCDgxCd:22 a=xtH7KyWI9dI7BmFOsl-x:22 a=4zObMqdbO8GudoyobMYA:9
- a=CjuIK1q_8ugA:10
-X-Proofpoint-GUID: DpeAX_CIYOBp6U1WXu6qNU39rpokBsXw
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-24_05,2026-11-23_01,2025-10-01_01
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|MMZPR04MB618476:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4fbe9ee0-7c03-425f-bef7-08df4a6a193f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|19092799006|1800799024|366016|7416014|23010399003|376014|18002099003|22082099003|56012099006|11063799006|261028144727099003|261022105027099003|261009223027099003|261026140227099003|261022075727099003|261026121527099003|10067099003;
+X-Microsoft-Antispam-Message-Info:
+	LJVSJYycpYP2MawB7bpvpj0aYVgAUBKNpWumRsCYxuJ197H0SoVVWxMqf4zaUuS02EkkNAJN/i1bxa3Z61uXuZSu/wsrzzFWzks+K3/7XNk1T2ydipJEGi4LMgdLwjAfcwycG0hmgtnVbAEVZxaUzo1SLZvNb+P1tIton6LwAPI3g9kZH24V8dUJuJRE11rGrF1uQ5CDT3tZ2C/F2DGlbY+3IizsPDg5b0Fqxps4Rr+QyxXiay6EaA7WygUgHjLd1SHWzW4dzM2ZdLtCkM0qT/GO2YzZqIuFdD6oTdfpRfF0tYtnPo/XULgwqev91MArBf166wMprA4TRToPY7TJ8oLGBqi4Dy3+GMmB0BZyav0J751d+neHi/NflQQBKQGgk6+64SopvIuk/JOM5hN9ZDRknn7dbf3quGnkA8GNq0RDI2xOB7PsfmlC7iIsi4O0zZHC8/6J2VacpmXKZB6cll4cx129b0OKyngjrgeY6/pBMKRCsHSIe5qN+MkjIyWprXBPmQK9l/jlvSCYuzT/HadWmbIhOxM7ydptM5E77nu6Cy1C8HP/rOKrdkdx1/Whp2HIuZMcw+Qm9l270aD7+agNIQ8u9UfN0jelsANjezRBfTcQfqP+ZB1sSoAWpGFMLqj/ip4v8wEOH0CdYtyP1xgXjUjSJDP4vuAmZW0XPWQ=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(366016)(7416014)(23010399003)(376014)(18002099003)(22082099003)(56012099006)(11063799006)(261028144727099003)(261022105027099003)(261009223027099003)(261026140227099003)(261022075727099003)(261026121527099003)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?VTZmVTNiUDJ3b1R2MmJqL0ZkZTF6UGxucDhNZ0c3TlVBRnFlR2svdVJNSCsx?=
+ =?utf-8?B?TFhUaFhRVWx6YkR4NEdscUpxYXQ0YncxN056bmxmRWdaOTNWTVhVTG01L0gw?=
+ =?utf-8?B?cC94Z2I1alVqSUw2TU5iV3JOT2JrMjlVcjRnekNUREI2SVdnRTdDU3hvek9Q?=
+ =?utf-8?B?ZUQ1dkNsa2hUTHpNK1pVSkhyMDRyL25BRno1TU9adkhxam9TczkyWW8xdCtG?=
+ =?utf-8?B?Z3Q5cUMySkNoc2ZBQnAwc2VxQng1MDljZ2IzaktDZ0xDTlkzQ2Y5RmJ1dExp?=
+ =?utf-8?B?cFpZY0xoUXFzYXEvK0k5ME96T3J0NldsdzB4dEV3bUplTysxNUI4QTU2eis2?=
+ =?utf-8?B?LzBCL3Z3bWZHSm1jV2JVclBYWW82N0tqK3JVcFdlL0EyWXYzL0xMU3E2Snkz?=
+ =?utf-8?B?V3VnSW51QUJGUm5yL25wL0ozbzh6LzFxK1VZTzUvaEYxclVxOGJ5d3VKZ2xO?=
+ =?utf-8?B?Vm04L3ZXdFpucWRxT0hHZnBKSlp5RjZSZkF0VEQya1Nqb3VCdUJZZlhtcXli?=
+ =?utf-8?B?L2RaaUVGTjdObk54ZFRzY2hlT3phRkpnamJRaWZQbmhFd0tIczdTbEFkMjRl?=
+ =?utf-8?B?aHphTzQ1MTV5TUU4bVhWNVlKUzcraWo0MTkwbE5HVm5DZVdnaVF2NkZTK251?=
+ =?utf-8?B?cjNlWldvOTR6clJnM01PSWVsb2ZWWktSRkJ2c1dNSHhTVStyYXlvNVhOMEVq?=
+ =?utf-8?B?dzhjbEpMVC94Zi8rQ2h2MGRiNXNLem5HdDE0djh6TGV2Mm9vNHcwVDZhSlor?=
+ =?utf-8?B?REdtWStZb2FTSWh5RTFkYlZrZUlwQVFNcm9RSDBLbXlKb2g1dnVud3dodHdD?=
+ =?utf-8?B?K1MxajFBWksvNHhQQ1J2MUZYRTEzTWRVYWlrY3VhcWdickJJdW5qeEw5RktW?=
+ =?utf-8?B?aUZVSlNUOHprZ3duQ0ZyejJhOGEwMFBEeVA1UHFkN0R1V1pwQTd1cEticEZp?=
+ =?utf-8?B?cHpYS2dUbTZBbU9VUXhHVGZTdDA4WWVUZFo3RjNrSGFDZ3VlVnJZK2ZER2lR?=
+ =?utf-8?B?WGhVWVg2OHFiVjlxQ3RCNTlYUzdEbElLbWFDVjR5dzFlWkFqa3g4VGVmQnVj?=
+ =?utf-8?B?U1Mza1pBTDAyL0FnRzNUSlJMc0R2Z1V6WkxDc256SC9vd09uZnhnZmt4bmJk?=
+ =?utf-8?B?NUJCa1hJTDhIdFlKL2xHWFdEc05xeGRuSzNyV0dRZmxtMkRtRllNSGhnd1ZM?=
+ =?utf-8?B?NzA3Wi9CMzhyT1Vob1RtZzJKUTJZamdmMkhpL21ONzlRZGVTcklMUnEvaDNQ?=
+ =?utf-8?B?dmVISTFoeEQrQnMzN3BRbXFJcHZkN2F6Y0Yza2RWTUxGek1mSnAxaVZCUXFz?=
+ =?utf-8?B?MnMzc3FkdFVHQmV4K1l5WGRzbmRLK205MG9maGsxSUtvRnVBT2ZZZGwrU2xl?=
+ =?utf-8?B?aTgrTGt2b0lwTHFQbXAwNW5NbmhibVRVbUJadkcrblRGdXY1eEZoT21tdVlF?=
+ =?utf-8?B?UFZ1cHZwS0tnOW96VTNxcDdpdy9CNlRuNjhVdXBxUGZuVWVOWEl4eGtvVDNm?=
+ =?utf-8?B?R0lzVGEwc3FBcjhoMW5FQ0w0RnpLSGhKYVRydXhydzdmcHVMTU9iZi8vQUhU?=
+ =?utf-8?B?OHRtOElYSWlNdkdkYTk4MWhuS1JrRXZ6R2RGd0prbVRUWG9RQ3FLVXpEUDVG?=
+ =?utf-8?B?aklHM3FUZkY4cW81eGk0VVM2aUVoL0ZvNEVhbGU5c0ozMXpuTVhVK1RoejVD?=
+ =?utf-8?B?WDBkdGltRnFxNGIwaWdHN1prem55SUJ3SytUMFJ4bXExYmh6c0FYdzRVdE9V?=
+ =?utf-8?B?ZEJXZmdsUXZRTHRTUnZRci9MWWM4RXVyWW01RE1XeDdYMWJLSmpLTjRaRFEx?=
+ =?utf-8?B?bUdERmkzaHZETUpOR3NMay9SNTNnakNJVG1QcTUyRVdRME8vejF4dUpRTTNa?=
+ =?utf-8?B?cTFadzRGRzN4c2dkcGxZOGczZVBDMCtjSUZSWVh3SUgwUjl5NkZ5Wlh0aEFa?=
+ =?utf-8?B?TDZaY0tsc1lkWVdlMXF1eHJ6STdEVUtwa0ROc1ZONEZkRFhjUkUySXJhZTkx?=
+ =?utf-8?B?WHpQOVlCLzF2eUVGNWlJdjV4dHRkYXpJcUJCTHV0ZkVaeDB1YmJ1S1dRMElX?=
+ =?utf-8?B?Uk5ZNHBNZVJJVGpPY2NNSEpuWkZpb1NXK3lGYSt1K2Zvd3o3UndGR3lrWTla?=
+ =?utf-8?B?MXBOaCtXam1adFZxekQvUXFGUEZqK3FReGJiYmFIMFpQcy9Yc2NJWG5STThy?=
+ =?utf-8?B?L1B2MElDamtWazZZSmxOUVdEejhoWXpHaFBKc3gvSEhlMnp4VmlpMmtxcE1Z?=
+ =?utf-8?B?RjFvci9EUUJld3hJb3pTSGdoK0xNT3ZhNDcyOFlVMUJZTWxEUGFXWW9lbXlj?=
+ =?utf-8?B?YWs5czd1aFFRUHdjakZISm9USldLT3RYT1ZRN1FaS29kaUw5Vi9GTUQwT2VJ?=
+ =?utf-8?Q?zh+JdkLEzMpmJvGSWl4CEUMgC3X7dF9eHmCOC?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4fbe9ee0-7c03-425f-bef7-08df4a6a193f
+X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 20:32:46.1350
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: uqGHMTWaF41XDjnIb9daV9xTq1FAnSjlISLAr4C3cjae2ihvKMJZdpniqud5r88BgB4eDL05Bs2ICnjUzNO9uWiW/kvyT2W+zk4HaOZS/2WQ5zz+PdRSiFuvyBU5ImXs
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MMZPR04MB618476
 
-On Tue, Nov 24, 2026 at 03:39:17PM +0100, Paolo Abeni wrote:
-> On 11/24/26 00:19, Bobby Eshleman wrote:
-> > On Sat, Nov 21, 2026 at 07:32:15PM +0100, Michal Luczaj wrote:
-> > > On 11/18/26 02:34, Bobby Eshleman wrote:
-> > > > vsock_connect() sleeps with the socket unlocked. Meanwhile the transport
-> > > > can complete the handshake, setting sock->state to SS_CONNECTED, and then
-> > > > reset the connection, e.g. in vhost_vsock_reset_orphans(),
-> > > > virtio_vsock_reset_sock() or vmci_transport_handle_detach(). When
-> > > > connect() gets the lock back, it finds sk_err set and moves the socket
-> > > > back to SS_UNCONNECTED. Userspace can then connect() the socket again,
-> > > > and a connect() to a CID on another transport makes
-> > > > vsock_assign_transport() release the transport the socket was connected
-> > > > on.
-> > > > 
-> > > > Only move the socket back to SS_UNCONNECTED if it is still
-> > > > SS_CONNECTING. A socket that got connected stays SS_CONNECTED, and
-> > > > another connect() fails with -EISCONN.
-> > > > 
-> > > > Likewise, only move sk_state to TCP_CLOSE if it is still TCP_SYN_SENT.
-> > > > Otherwise a second thread blocked in connect() on the same socket can
-> > > > time out after the first one failed and called listen(), and overwrite
-> > > > TCP_LISTEN.
-> > > 
-> > > Ohh, this took me a while.
-> > > 
-> > > > +/* Avoid breaking the socket when another thread has changed its state while
-> > > > + * we were asleep.
-> > > > + */
-> > > > +static void vsock_connect_close(struct socket *sock)
-> > > > +{
-> > > > +	struct sock *sk = sock->sk;
-> > > > +
-> > > > +	if (sk->sk_state == TCP_SYN_SENT)
-> > > > +		sk->sk_state = TCP_CLOSE;
-> > > > +	if (sock->state == SS_CONNECTING)
-> > > > +		sock->state = SS_UNCONNECTED;
-> > > > +}
-> > > 
-> > > I was wondering why not
-> > > 
-> > > 	if (sk->sk_state == TCP_SYN_SENT) {
-> > > 		sk->sk_state = TCP_CLOSE;
-> > > 		sock->state = SS_UNCONNECTED;
-> > > 	}
-> > > 
-> > > and I think the only reasons we can't say "SYN_SENT iff CONNECTING" is
-> > > because shutdown() can flip SYN_SENT/CONNECTING to SYN_SENT/DISCONNECTING.
-> > > On connect's failure, the blocking path kinda-ignores such shutdown() and
-> > > resets the socket to UNCONNECTED anyway, while the non-blocking (i.e.
-> > > vsock_connect_timeout()) also consults sk_shutdown != SHUTDOWN_MASK.
-> > > 
-> > > So how about being consistent:
-> > > 
-> > > static void vsock_connect_close(struct socket *sock)
-> > > {
-> > > 	struct sock *sk = sock->sk;
-> > > 
-> > > 	// we follow vsock_connect_timeout():
-> > > 	// TCP_SYN_SENT implies SS_{DIS,}CONNECTING;
-> > > 	// and we do check sk_shutdown
-> > > 	//
-> > > 	// or am I missing something?
-> > > 
-> > > 	if (sk->sk_state == TCP_SYN_SENT &&
-> > > 	    sk->sk_shutdown != SHUTDOWN_MASK) {
-> > > 		sk->sk_state = TCP_CLOSE;
-> > > 		sock->state = SS_UNCONNECTED;
-> > > 	}
-> > > }
-> > > 
-> > > What do you think?
-> > 
-> > I think we could say TCP_SYN_SENT implies SS_{DIS,}CONNECTING, but
-> > probably not the reverse... without a peer on the other end our connect
-> > request gets an RST reply, switching to TCP_CLOSE but leaving untouched
-> > SS_CONNECTING. Using only TCP_SYN_SENT then skips resetting
-> > SS_CONNECTING to SS_UNCONNECTED, and future connect() retries hit
-> > -EALREADY forever.
-> > 
-> > It seems to work for vsock_connect_timeout() because that function only
-> > needs to test if the attempt to connect is still pending (if yes, then
-> > close everything up), but vsock_connect_close() needs to know more
-> > precisely if the socket still holds the state that this current connect
-> > attempt changed... so it separately checks "Did we set TCP_SYN_SENT? if
-> > so, set to TCP_CLOSE.  Did we set SS_CONNECTING?  If so, set to
-> > SS_UNCONNECTED."
-> > 
-> > I think it might even make more sense to consolidate in the other
-> > direction and make vsock_connect_timeout() a caller of the new
-> > vsock_connect_close(), since it appears there is a similar edge case
-> > there...
-> > 
-> > connect(), O_NONBLOCK
-> >    transport->connect()  /* OP_REQUEST */
-> >    mod_delayed_work(connect_work)
-> > 
-> > shutdown(SHUT_RDWR)
-> >    sock->state = SS_DISCONNECTING
-> >    sk_shutdown = SHUTDOWN_MASK
-> > 
-> > vsock_connect_timeout()
-> >    skips the socket because of SHUTDOWN_MASK
-> >    /* still TCP_SYN_SENT / SS_DISCONNECTING */
-> > 
-> > late OP_RESPONSE, virtio_transport_recv_connecting()
-> >    sk_state = TCP_ESTABLISHED
-> >    sock->state = SS_CONNECTED
-> >    vsock_insert_connected()
-> > 
-> > So the attempt never times out, and a late OP_RESPONSE connects a
-> > socket the user already shut down, overwriting SS_DISCONNECTING with
-> > SS_CONNECTED. I think that's a separate bug for a separate patch,
-> > though.
-> > 
-> > Or am I off track / missing something?
-> I have slightly different question: is the 'multiple threads
-> connecting/disconnecting the same socket concurrently' a
-> relevant scenario? Otherwise if final state is self-consistent
-> (i.e. _NOT_ TCP_SYN_SENT + SS_DISCONNECTING) I think there is
-> nothing to fix here.
-> 
-> /P
+From: Frank Li <Frank.Li@nxp.com>
 
-To your point, the only user-facing issue I can see with
-vsock_connect_timeout() would be seen in pretty rare cases.... Since it
-skips the socket when sk_shutdown == SHUTDOWN_MASK, if the peer never
-responds with RST the connect attempt never times out, the socket sits
-in TCP_SYN_SENT + SS_DISCONNECTING (connect() returning -EINVAL) until
-close(). But I'm pretty sure this could only happen on the vhost side if
-the guest was unresponsive/crashed or on the virtio side if maybe
-vhost's RST dropped during VM migration when vhost's send queue is
-purged. IMHO this should probably be fixed, but I don't think its worth
-turning the code upside down for.
 
-Looking at this connect()/shutdown() sequence again today... with
-O_NONBLOCK, there is some inconsistent behavior that although is not
-caused by vsock_connect_timeout(), I'd like to mention here since its
-come up. It exists even for a single thread making both calls. Playing
-w/ vsock_loopback and bpftrace, it does end up with SS_DISCONNECTING +
-TCP_SYN_SENT, but I think the most unexpected thing from the user's
-perspective is that it temporarily flips to SS_CONNECTED even after
-shutdown() and a number of syscalls present the socket as connected:
+On Wed, 11 Nov 2026 14:31:14 +0100, Frank Obergfell wrote:
+> This series introduces support for the bytesatwork byteENGINE i.MX93
+> System on Module (SoM) and the carrier board byteDEVKIT.
+> It also adds display support for the integrated Youritech et050fw01-kt
+> MIPI-DSI panel by extending the existing ILI9806E panel driver.
+>
+> Changes in v3:
+> - Patches 1 & 4:
+>   - Added Reviewed-by tag from Daniel Baluta.
+> - Patch 5:
+>   - Added imx mailing list (imx@lists.linux.dev) to MAINTAINERS entry.
+>   - Moved controller activation (&lpi2c2, &mu1, &mu2, &usdhc1, &wdog3) from
+>     imx93-byteengine.dtsi to imx93-bytedevkit.dts.
+>   - Removed unused LVDS backlight (lcd_bl), disabled lpi2c1 node, and unused
+>     LVDS pinctrl groups.
+> - Patches 2 & 3:
+>   - No changes.
+>
+> [...]
 
-  repro    connect()     -> -EINPROGRESS  SS_CONNECTING     TCP_SYN_SENT
-  repro    shutdown()    -> 0             SS_DISCONNECTING  TCP_SYN_SENT
-  repro    getpeername() -> -ENOTCONN     SS_DISCONNECTING  TCP_SYN_SENT
-  repro    connect()     -> -EINVAL       SS_DISCONNECTING  TCP_SYN_SENT
-  repro    recv()        -> -ENOTCONN     SS_DISCONNECTING  TCP_SYN_SENT
-  repro    SO_ERROR      =  0
-  repro    poll()        -> IN|HUP|RDHUP  SS_DISCONNECTING  TCP_SYN_SENT
-  kworker  recv_pkt(OP_RESPONSE)          SS_CONNECTED      TCP_ESTABLISHED
-  ^ the switch to connected is here
+Applied, thanks!
 
-  repro    getpeername() -> 0             SS_CONNECTED      TCP_ESTABLISHED
-  repro    connect()     -> -EISCONN      SS_CONNECTED      TCP_ESTABLISHED
-  repro    recv()        -> 0             SS_CONNECTED      TCP_ESTABLISHED
-  repro    SO_ERROR      =  0
-  ^ the socket starts partially acting like it's connected/established
+[3/5] arm64: dts: freescale: imx93: Add MIPI DSI controller node
+      commit: e9d67b72ffcbfa53c76092827ea084ebd7259436
 
-  repro    poll()        -> IN|HUP|RDHUP  SS_CONNECTED      TCP_ESTABLISHED
-  kworker  recv_pkt(OP_RST)               SS_CONNECTED      TCP_CLOSING
-  ^ eventually RST shows up and shuts things down
+Other patches wait for panel patch pick up.
 
-TCP handles this better... shutdown() on SYN_SENT socket aborts the
-connect attempt w/ tcp_disconnect() resulting in TCP_CLOSE,
-SS_UNCONNECTED, sk_err = ECONNRESET, and the late SYN-ACK doesn't push
-it into established, and users see POLLERR/SO_ERROR.
-
-I think the TCP approach also fixes that edge case with
-vsock_connect_timeout(), since the user would at least see the errors.
-
-Best,
-Bobby
+Best regards,
+--
+Frank Li <Frank.Li@nxp.com>
