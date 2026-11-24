@@ -1,46 +1,46 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.38.64.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795485035;
-	b=rfcYwf2kuN8Sw9ejzlrPvwUOFb0Md+VkJMbTfXxuHclK41FFv3L5vTnBMPWCgb1Cat6I
-	 ZQqmHLBS7n872/WYw+lUiwreV8hggrnrqpxj9ZgQOyW+Q8S0hDJ2QLMLSsZaNbTuYOS98
-	 juR5+RARDLiktWVSZFNnHSRlZV8Pdd6sEjvgzzsgRl9SDIZ/0lxXjyBs0gI+WZjWqmk5W
-	 oUgvlptkWhSAl18O3Itx/jhbs7vh3Ptk1ctvOK6wq+4JxB1DB5lE80mk0swWEaeXp6Vbt
-	 qay3nrwErTLlqNTIy/Lz9sUnmWZ6CTDURzzMXca7VE9nxP8mjyhrphzU+lTj2GSRLlA==
+	t=1795485039;
+	b=MyyqGpVU8XEMlO+WcBmskCcxNY1TLLdUYfDudOXstU3RTumYGrfovKXtkUSV83DaPwyS
+	 Fp6yTgCOfwhr8k4OcK2uH+ybjJnZ9gvdc8JJ6GVN4JGP64UV1nZot07acuvT4cKoiJ2ot
+	 IzCjjz72xrZtQw4zPh7pLA1XwtBG7gwSzhfvbLcLI3TNomdXv3WkfJx74W1CcH55+nnf6
+	 i+TE9JfyIAOn9e8PIe6hUt47ldkwfr3qdZN8Pi++TVTNiQLOErNg1m7N3wo4n7pX1djvB
+	 jWvs3+KXO1W6Xk5KMOeW+hKExbiNRWL9VpJV38enN8F5xQWEphMCcbxmNg+ReC1IcmA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795485035;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795485039;
 	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
 	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
 	 X-CM-SenderInfo;
-	bh=8stPd0BvbVB4nZtLZxMRHJFqc7x8Surgk6m4yiTBfog=;
-	b=Bu/5hlYp60Qi1coN6ZGXLV2sLrM+rdRqMk4PpYITb0A/FdAPKDt5lZP1wuM/2V3e7WMX
-	 Kiv1ArVnizJxOLoWckJswNn15AFXs3YE3bYwq4PmWdk6CHqnTdLB77ZUd92eoiC5Ng5Et
-	 KySWhR5IFU1mBZuwopazt/6RP700Zh2dv2E/WjQ7Q8i9IIByyQk7Vp1lzDmbeavbqdMc2
-	 BvQLr7ba9aLpBVO6Ph9BOCuxzBDhd8je8B8uDTpCEsJTd3VdRSgoW5IK3e506w8EIdpMG
-	 79fRRhdhJf5kT6J1Yzufgo48hYls5UwX1SwNHZtSDAxYDEdH4I8lbwGeluVsOUG3sEw==
+	bh=0v6SacVxJF8vWHkgyLmi9nYNQ9TUMeNxVSHsYTdV6sg=;
+	b=zzmX5F/54bILtS+2ykZepcJUeshSUFhwJKae68okjNK02w1bXA7CJ/VISelNLP02rLWk
+	 cZQHHjGuaDHmynTwoffuhV795Ebc000WlahowCIHHroNWHI+s+WVMiRQ8ucHgPWpLTUBA
+	 38puuflRYpmVPCQ/Fin5CDTgFZD5ka8OYS2XhhPJmaBBWdyEDGT7QMjNQBebZT+e/du4A
+	 qzqrUTJZC5WxyXuW+bkIt9fbIrBrux3GpScqWdpgsnwoFR6wC1qBE6UnPk7XHsOL1TQH7
+	 fIAjDwL5nfXoCh5nDcHcgajuuJ5LkyoRKm5/4psBmFmxstQa1+lqtNF1JM6hyAbTaHQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=mail.ustc.edu.cn;
 	spf=pass smtp.mailfrom=mail.ustc.edu.cn;
-	dkim=pass header.d=mail.ustc.edu.cn header.i=@mail.ustc.edu.cn header.a=rsa-sha256 header.s=dkim header.b=VEf391pB;
+	dkim=pass header.d=mail.ustc.edu.cn header.i=@mail.ustc.edu.cn header.a=rsa-sha256 header.s=dkim header.b=MUkMHptM;
 	arc=none smtp.remote-ip=202.38.64.46
 Received: from ustc.edu.cn (smtp.ustc.edu.cn [202.38.64.46])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 3CD20606A31E;
-	Tue, 24 Nov 2026 01:50:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3CD20606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 5946C606A33D;
+	Tue, 24 Nov 2026 01:50:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5946C606A33D
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mail.ustc.edu.cn
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mail.ustc.edu.cn
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=mail.ustc.edu.cn header.i=@mail.ustc.edu.cn header.a=rsa-sha256 header.s=dkim header.b=VEf391pB
+	dkim=pass (1024-bit key) header.d=mail.ustc.edu.cn header.i=@mail.ustc.edu.cn header.a=rsa-sha256 header.s=dkim header.b=MUkMHptM
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=mail.ustc.edu.cn; s=dkim; h=Received:From:To:Cc:Subject:Date:
 	Message-ID:In-Reply-To:References:MIME-Version:
-	Content-Transfer-Encoding; bh=8stPd0BvbVB4nZtLZxMRHJFqc7x8Surgk6
-	m4yiTBfog=; b=VEf391pBXqHKEtkEam/JWIeNSceFA8QDAtoXiNDfqvy9p50XFK
-	5Eh8OyYU5FRJovX1I40wKVM7kkFq0fmluMAqhfejtP+ituS5iowWDWoJuRlc88W7
-	JjxfCJREkOQugGdIxDROP6zIz/cyqULf5h9pg/nD6UK+mUmNF9jU9jXcM=
+	Content-Transfer-Encoding; bh=0v6SacVxJF8vWHkgyLmi9nYNQ9TUMeNxVS
+	HsYTdV6sg=; b=MUkMHptMGF5ugiNmuemPcCie79bA0WhEJE0RckaiaHZ8r0Nn5d
+	CUat6B+HR1Is3WpWpUO91hOUwQoh9EqQf4x5JRt7CLh3PcZsDs7O1MM/gbID1bG0
+	RXOh0qbGrAa/M2f2ZizbYQEdxuRJrPdDCk0sK41C35/mr+KJYYY1GVIrc=
 Received: from xuqianhui.tail7a2807.ts.net (unknown [114.214.185.179])
-	by mailimap2024 (Coremail) with SMTP id 3pYKCgDHPDFk7QRrHDHvAA--.1941S3;
-	Tue, 24 Nov 2026 09:50:31 +0800 (CST)
+	by mailimap2024 (Coremail) with SMTP id 3pYKCgDHPDFk7QRrHDHvAA--.1941S4;
+	Tue, 24 Nov 2026 09:50:33 +0800 (CST)
 From: Qianhui Xu <xiaqinghuan@mail.ustc.edu.cn>
 To: dmitry.torokhov@gmail.com
 Cc: robh@kernel.org,
@@ -49,9 +49,9 @@ Cc: robh@kernel.org,
 	devicetree@vger.kernel.org,
 	linux-input@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 1/6] Input: aw86927 - fix the 7 V boost reference for AW86938
-Date: Tue, 24 Nov 2026 09:50:23 +0800
-Message-ID: <20261124015028.1427420-2-xiaqinghuan@mail.ustc.edu.cn>
+Subject: [PATCH v3 2/6] Input: aw86927 - widen the AW86938 boost mode mask
+Date: Tue, 24 Nov 2026 09:50:24 +0800
+Message-ID: <20261124015028.1427420-3-xiaqinghuan@mail.ustc.edu.cn>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261124015028.1427420-1-xiaqinghuan@mail.ustc.edu.cn>
 References: <20261124015028.1427420-1-xiaqinghuan@mail.ustc.edu.cn>
@@ -65,13 +65,13 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:3pYKCgDHPDFk7QRrHDHvAA--.1941S3
-X-Coremail-Antispam: 1UD129KBjvdXoW7Jr15Zr1DGrW3ur1ftF1fZwb_yoWkArb_C3
-	4rZwn7Z340kF1kKw4DtwsxZrZIqrn5Wa48Z3Zavw15KFyIyFsrta18Xr4UXwn7ArWDAw1U
-	tw4UAasa9a4FgjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUbq8YjsxI4VW3JwAYFVCjjxCrM7AC8VAFwI0_Gr0_Xr1l1xkIjI8I
+X-CM-TRANSID:3pYKCgDHPDFk7QRrHDHvAA--.1941S4
+X-Coremail-Antispam: 1UD129KBjvdXoW7JrWfur48trW5JrW3CFyfJFb_yoWktrg_Zr
+	yrZw1kZ340k3Wkta1DJwn3ZFZxtr1rC34UZwnavr15tFyIkFsrta1vqFWUXwnayrWDGw1v
+	vw4UAas3ua4FkjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUbqxYjsxI4VWDJwAYFVCjjxCrM7AC8VAFwI0_Xr0_Wr1l1xkIjI8I
 	6I8E6xAIw20EY4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l82xGYIkIc2x26280x7
-	IE14v26r18M28IrcIa0xkI8VCY1x0267AKxVWUCVW8JwA2ocxC64kIII0Yj41l84x0c7CE
+	IE14v26r15M28IrcIa0xkI8VCY1x0267AKxVW8JVW5JwA2ocxC64kIII0Yj41l84x0c7CE
 	w4AK67xGY2AK021l84ACjcxK6xIIjxv20xvE14v26w1j6s0DM28EF7xvwVC0I7IYx2IY6x
 	kF7I0E14v26r4UJVWxJr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I8E87Iv
 	6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c
@@ -80,18 +80,17 @@ X-Coremail-Antispam: 1UD129KBjvdXoW7Jr15Zr1DGrW3ur1ftF1fZwb_yoWkArb_C3
 	AK67AK6w4l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG
 	67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r126r1DMI
 	IYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_JFI_Gr1lIxAIcVC0I7IYx2IY6xkF7I0E
-	14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJV
-	W8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjxUcT5d
-	DUUUU
-X-CM-SenderInfo: 50ld1x5qjk3t3q6ptxnoox23vfohv3gofq/1tbiAREAB2sElFsCDQAwsI
+	14v26F4j6r4UJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr
+	0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU01a
+	0DUUUUU==
+X-CM-SenderInfo: 50ld1x5qjk3t3q6ptxnoox23vfohv3gofq/1tbiAREAB2sElFsCDQAysK
 
-AW86938_PLAYCFG1_BST_7000MV names 7 V, but the register encodes the boost
-voltage as ((mV - 6000) / 2 * 0x8313) >> 22 + 5, so the value used since
-AW86938 support was added, 0x11, selects 9 V.  Program 0x09 for 7 V, the
-value the vendor driver uses for these actuators.
-
-Found while adding the AW86937 variant, which shares the register layout
-and the same wrong value.
+The boost mode of the AW86938 and AW86937 is a two-bit field at bits 6:5
+of PLAYCFG1, but the mask is defined as GENMASK(5, 5).  When the driver
+selects bypass mode it only clears bit 5 and leaves bit 6 at whatever the
+bootloader left in the register, so the part may keep a boost mode that
+the driver did not ask for.  Widen the mask so that both bits are
+programmed.
 
 Fixes: df53055c540f ("Input: aw86927 - add support for Awinic AW86938")
 Signed-off-by: Qianhui Xu <xiaqinghuan@mail.ustc.edu.cn>
@@ -100,18 +99,18 @@ Signed-off-by: Qianhui Xu <xiaqinghuan@mail.ustc.edu.cn>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/drivers/input/misc/aw86927.c b/drivers/input/misc/aw86927.c
-index 0657c52b4c79..6d09e5e96b2a 100644
+index 6d09e5e96b2a..b9b7315a5dbe 100644
 --- a/drivers/input/misc/aw86927.c
 +++ b/drivers/input/misc/aw86927.c
-@@ -47,7 +47,7 @@
- #define AW86938_PLAYCFG1_BST_MODE_MASK		GENMASK(5, 5)
+@@ -44,7 +44,7 @@
+ #define AW86927_PLAYCFG1_BST_8500MV		0x50
+ 
+ #define AW86938_PLAYCFG1_REG			0x06
+-#define AW86938_PLAYCFG1_BST_MODE_MASK		GENMASK(5, 5)
++#define AW86938_PLAYCFG1_BST_MODE_MASK		GENMASK(6, 5)
  #define AW86938_PLAYCFG1_BST_MODE_BYPASS	0
  #define AW86938_PLAYCFG1_BST_VOUT_VREFSET_MASK	GENMASK(4, 0)
--#define AW86938_PLAYCFG1_BST_7000MV		0x11
-+#define AW86938_PLAYCFG1_BST_7000MV		0x09
- 
- #define AW86927_PLAYCFG2_REG			0x07
- 
+ #define AW86938_PLAYCFG1_BST_7000MV		0x09
 -- 
 2.53.0
 
