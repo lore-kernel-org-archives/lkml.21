@@ -1,173 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=107.22.191.150
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795544164;
-	b=OwisO0urdw0DdyyH+e6T3b+u7/mLVMdIBzkoVuOm2rZ7n5szAT/oftSsaEQzLyI0P2Os
-	 xvphC2u0ffljI+RBIbiE7a9v4LETqm5CsJWFbj+vU0jq03EPgmw5mRWI0OtlD+QjMpY/G
-	 j/K5JcSydew9wT5ld/6E3LCLSFrRoDyxoi33Ezml3D9mh1klTEWCdsFIHagM7tGtW4F0S
-	 SzgxfPtxqOIKJi+Jx+WmCGC5gwklGwcL25H8fkC+LfUxRddqF59ZZVuwBDsMogCyApaLt
-	 UtxqKg+Tlkcgm+4shq9D0lEf6Ubh/HB3RIUQik3MfB5REOlVJ/iB7ocinJvS88bkABw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795544164;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:Received:Received:X-Farcaster-Flow-ID:Received:Received:
-	 Received:Received:From:To:CC:Subject:Thread-Topic:Thread-Index:Date:
-	 Message-ID:References:In-Reply-To:Accept-Language:Content-Language:
-	 X-MS-Has-Attach:X-MS-TNEF-Correlator:x-ms-publictraffictype:
-	 x-ms-traffictypediagnostic:x-ms-office365-filtering-correlation-id:
-	 x-ms-exchange-senderadcheck:x-ms-exchange-antispam-relay:
-	 x-microsoft-antispam:x-microsoft-antispam-message-info:
-	 x-forefront-antispam-report:
-	 x-ms-exchange-antispam-messagedata-chunkcount:
-	 x-ms-exchange-antispam-messagedata-0:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version:
-	 X-Exchange-RoutingPolicyChecked:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-AuthSource:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-originalarrivaltime:
-	 X-MS-Exchange-CrossTenant-fromentityheader:
-	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
-	 X-MS-Exchange-CrossTenant-userprincipalname:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-OriginatorOrg;
-	bh=Z3L3jXxweWSWwcKv1HJ3+Wm1K1oGGA0ydSan4KUTWVk=;
-	b=ZFWzC3mhjUYSDHfgdBYfnPYo4YfW51myoxOuZ2E/CPVNZ9Hf7AKykZS6RI9iicrFg6rH
-	 0kZQmBwemCGkxSo7sUpO/O6fPVKIYAgZgHk2UglSAmpKBbrzZQDBpOofGLD3xoCBWlJQI
-	 IDAfVczEB/u4mdh1I2yDXPucT6dkfPD/VLnBkyNn7npWousu8PG9PNPm238D3Gv1LyXwf
-	 Ij+1WvAn/mye+k2PF8bbSl4QTtomglr5vp9yXfmVmn8tyBPPiIkM9bggVIa8tBgHY6hhq
-	 h+T2IQ/AMv604XmnBR/rxH7xj8xRMCy06edOp0QzzpTHCFBbl7JUJseOnyB2AWXeTSA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=amazon.com;
-	spf=pass smtp.mailfrom=amazon.com;
-	dkim=pass header.d=amazon.com header.i=@amazon.com header.a=rsa-sha256 header.s=amazoncorp2 header.b=Ycfg2BPo;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=107.22.191.150
-Received: from iad-out-001.esa.us-east-1.outbound.mail-perimeter.amazon.com (iad-out-001.esa.us-east-1.outbound.mail-perimeter.amazon.com [107.22.191.150])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795544218;
+	b=D831dJ27ugXNVaxm2hwRJaHLuOYi4/xJ+NQlVADc4ef+47JYz37RYAyqpwBKGBQVRXMe
+	 RviQpsN0hQGqKN6PERYfX9QX/3DyEyD1JuMtljzGUBFN7iHR17mRoxGP+s1oISwJcp6V0
+	 3QahU2XnN4uipYTmUYb9nLZHfsiEvPQwL02TD6TOx3f1Z0BhsRqFwsZy6BGKwQIoUYAke
+	 aoNG8h48LIf9iW7z0BreZuGHeDsADAOj1tj5J6VmS9xqvcoulhieQ+9qJTC71iONwT2aZ
+	 3dWhS6o7PaiIbHO8yiqAxf3X0nQoW/MfvZ/yaWPF/zv3Rkrm/zzeyCHkiLeEvcZu5Zg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795544218;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=iGCDQxlSZyNbpjb8HmmAXDh7kjSdNds3Y7zGFjiw20U=;
+	b=u+OAP9hFkXUbKHZgq/cH27RqEu41p7o7J39OUOeC76793qpwqSDiY2SPgtojIappqCcM
+	 F5RXuTiJ29YrB5IBCRycFjyj+//OFxnEiiWDn/GnVx/Frmp0vjn6A9JOXe0+4skiTy0rV
+	 4dzVdfzlEdmTBcSCrlJmjocD+xpVi2u4AT4FBlHtiXDQ6S9YyCYxkPrr/MmzL0M6Vb1tG
+	 Aeyu/+iiSYQ47GG6TJxmP04PmVcqdM2Q1ah/6M0Gxf96W3UTMHRZhjUiXsp5HarxDjXlr
+	 X5DMKpQBlZcX1Hdw8q3q7acrDyuFIX3LSyUlbhuwgEPZjwwAke6XKMaR4Phme2FWSFg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="SD/W5C0A";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DC69C606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 18:16:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DC69C606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amazon.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=amazon.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A9D60606A326;
+	Tue, 24 Nov 2026 18:16:58 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=amazon.com header.i=@amazon.com header.a=rsa-sha256 header.s=amazoncorp2 header.b=Ycfg2BPo
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
-  t=1795544163; x=1827080163;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=Z3L3jXxweWSWwcKv1HJ3+Wm1K1oGGA0ydSan4KUTWVk=;
-  b=Ycfg2BPolEDVHO0osoH7hTlK4pyha1wo7xX8ngcUadiK7lnIXoxiwf93
-   3Vd8pciBBEHmPxKZ7ulUefBYQEmmgrJavVdfxbUixBNT+HfXlIzGJeMXb
-   fJFAfFjNMGiIj4KyJnChW55MNH3LSUtqxXXJHZtds3nqMCvxcLhbPrjVB
-   6tkoiiOEb4NiOjg/1HWdjwf7MSGPH+rHB7yrg1oiNkQIm115Bt9qJ8rKv
-   b+QDeSrE1V6Gfl0Vg8TUROgvFp1+n5KDJP5bsa6sLU6rNI9Wtag169qGs
-   XiHEOcHGjz7UjBoK8uS1mJo7NPA39MgVthyL75GE6Y2aHznFo+5Lb5VCk
-   Q==;
-X-CSE-ConnectionGUID: U8QJ0iinRleTj1mdiMw4bg==
-X-CSE-MsgGUID: wIhebacCSn+W37XZKbk5cQ==
-X-IronPort-AV: E=Sophos;i="6.27,231,1787011200"; 
-   d="scan'208";a="32321345"
-Received: from ip-10-4-22-235.ec2.internal (HELO smtpout.naws.us-east-1.prod.farcaster.email.amazon.dev) ([10.4.22.235])
-  by internal-iad-out-001.esa.us-east-1.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 18:15:59 +0000
-Received: from EX19MTAUEB002.ant.amazon.com [52.94.133.143:31817]
- by smtpin.naws.us-east-1.prod.farcaster.email.amazon.dev [10.0.18.35:2525] with esmtp (Farcaster)
- id 6971c821-a6f5-4133-ae74-50f893d66c75; Tue, 24 Nov 2026 18:15:59 +0000 (UTC)
-X-Farcaster-Flow-ID: 6971c821-a6f5-4133-ae74-50f893d66c75
-Received: from EX19EXOUEB001.ant.amazon.com (10.252.135.46) by
- EX19MTAUEB002.ant.amazon.com (10.252.135.47) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.57;
- Tue, 24 Nov 2026 18:15:59 +0000
-Received: from DM2PR04CU003.outbound.protection.outlook.com (10.252.134.239)
- by EX19EXOUEB001.ant.amazon.com (10.252.135.46) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.57
- via Frontend Transport; Tue, 24 Nov 2026 18:15:59 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=s1NAB+k9rA2Hv0mDCrANT16tOizVMNeiZiHgGkFPiInMKAve8yKEO6YgKWPJH9drXDAFFcu/Uz0GhPHRX2StrZGEbjDOuatJwzwZZ6WN4nX+CKei0vK4jEg+HCYjDhNDoKQ4HBuZ3pbOK1u0tpck036diLm4uBlT7f98ALleVDE1AWJDi4ISqxCn3Ekw+wA1TbuvIRj6q1IcmTT9VeB8fs59hulGqV/DLTO3ObrwvRTBKgX2n41YgxGh788h1eCLlMDML2112TDgZdveMe8VF5cwWvx6KJ7GmWD0PDoQTjiUrXrCIf5jKwBmK+YJ+hFoQxnbjgvbFn6OjAUyEe84kg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Z3L3jXxweWSWwcKv1HJ3+Wm1K1oGGA0ydSan4KUTWVk=;
- b=GcqtdG/YXkEyJ7JNOyVUTZfYeVRFJi1yfUUFcUgeAimoJAPH81EFmfvnJwghQyu1dyeBTZdtnKN6+fHpWoeBdJe4/fXJJJ5t4xxcDF25h4hmMy1cFxVVpldbgfrQC0xScUYADj0SubCz9OKVKjm6JmaJU+MVE3VPn07OpvElIvXkSfxduRfvFq1lgFOuQW1RY4n3LgQWP8/AHZHr3ydNa0sFz+8OVNNs4SjwvjMe8v7hS2gvEcNwBaINArsdXg40q+crNHeL9o7MutDFZp7Svg/NJbc2t0U3wvfaWaVY8gjToSBi/Eu3lCwCfNR3fKdGzzJeAlQynx/gkpv5U+nSug==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amazon.com; dmarc=pass action=none header.from=amazon.com;
- dkim=pass header.d=amazon.com; arc=none
-Received: from BY3PR18MB4722.namprd18.prod.outlook.com (2603:10b6:a03:3c9::19)
- by DSVPR18MB988458.namprd18.prod.outlook.com (2603:10b6:8:3aa::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.4; Tue, 24 Nov
- 2026 18:15:54 +0000
-Received: from BY3PR18MB4722.namprd18.prod.outlook.com
- ([fe80::e307:5f61:2694:b219]) by BY3PR18MB4722.namprd18.prod.outlook.com
- ([fe80::e307:5f61:2694:b219%4]) with mapi id 15.21.0639.012; Tue, 24 Nov 2026
- 18:15:54 +0000
-From: "Farber, Eliav" <farbere@amazon.com>
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-CC: Andrew Morton <akpm@linux-foundation.org>, David Hildenbrand
-	<david@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Zi Yan
-	<ziy@nvidia.com>, "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka
-	<vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan
-	<surenb@google.com>, Michal Hocko <mhocko@suse.com>, Jann Horn
-	<jannh@google.com>, Pedro Falcato <pfalcato@suse.de>, Baolin Wang
-	<baolin.wang@linux.alibaba.com>, Nico Pache <nico.pache@linux.dev>, "Ryan
- Roberts" <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, Barry Song
-	<baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>, Usama Arif
-	<usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>,
-	"linux-mm@kvack.org" <linux-mm@kvack.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH v3 0/5] mm, uio: huge PFN mappings for /dev/mem and UIO
-Thread-Topic: [PATCH v3 0/5] mm, uio: huge PFN mappings for /dev/mem and UIO
-Thread-Index: AQHdfD/Y5rL8EZ9PrkKpjL+hf/TkhQ==
-Date: Tue, 24 Nov 2026 18:15:53 +0000
-Message-ID: <BY3PR18MB47229409964FC3BD80B7CE00C6442@BY3PR18MB4722.namprd18.prod.outlook.com>
-References: <20261124131510.38745-1-farbere@amazon.com>
- <awWPTMvlt34wPyux@gremlin>
-In-Reply-To: <awWPTMvlt34wPyux@gremlin>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach:
-X-MS-TNEF-Correlator:
-authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amazon.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: BY3PR18MB4722:EE_|DSVPR18MB988458:EE_
-x-ms-office365-filtering-correlation-id: d8ca2174-0f4b-4bc3-1814-08df4a56fa8a
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|7416014|10070799003|376014|23010399003|366016|18002099003|22082099003|4143699003|38070700021|56012099006|11063799006|261028144727099003|261026140227099003|261026121527099003|261022105027099003|10067099003;
-x-microsoft-antispam-message-info: kzq/t7gPahLkpo9ddq5l2z+7wW5r5oMrqa7g8UufdOtwqJiTuiSzqzV8ph9ZwkIX3z2oRVKWsja8vU8+uSp92qbUWA8aPOCIGSaL8YRXIrxnZCYfX0CNq1qmSw9djDjGeUxBsnRJL8K2k0/Bedm3H3BP2VLrnQ/V/F6vkgVFPoMdQ7jFlAHI1aV68z0o8GptMqJ9m2LZ3QzamkcdaLFS68ygYRblbgCh+SO8EVbmfP/rDX3Txuxmy15NsTkh4d/tLKFQ1tlr/wkoGtMQSp0SsrrnKxG5Z2kaybHjzjmo9nzzvArF4lYnA8Q7W7PFJytymet6nYkVD48u6xWk38xndMVnSxMhdod+gX2dZHpzzKkc3WDqJn93GYT2axaFX6wf0CMdmLE9XH5IUKPbZPhZsNq9ylXUrduJXmwF0gmXxhvZ+pJBeaFtuZtYxU3HETk5O5VewZruhp52Zgy105xCvj1ygn3BLpd+1bMHQGp37njguREDSyQa3eTiHjThVK93zbRZHkeQGeyt5hxfNS7tRMPmH0pc2GEIKdjz8ewo6zA8TL0FSXRAmk9zUKY7cYGVKdk4DPcU3Hsqf+UTIPg0VRWeiPYZAVfzbmgjesSfEVGpAepcrKUAq8VYJ/0crKLIzAWR4lay0rJ35TXC5lMMLgaD61H/fXDUbUPrMXwRbiMw1fcUevobDedZd/1ivGH/Qk6J+PAiCZCx/Nleadekc0hAPdF2psDjGOhcGiHrHgI=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BY3PR18MB4722.namprd18.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(10070799003)(376014)(23010399003)(366016)(18002099003)(22082099003)(4143699003)(38070700021)(56012099006)(11063799006)(261028144727099003)(261026140227099003)(261026121527099003)(261022105027099003)(10067099003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?+xEUqvhmP7n7O4bQSm1RFq19B08xQgHS4iNRkNKcFTka4ZIAqhHuh36wBwmt?=
- =?us-ascii?Q?bsbX+nQxp79cEoirW6/6hLznJRRrdx41dbKguUVu+lAWfurYs4kTcMqJOJCm?=
- =?us-ascii?Q?7Gq6C7gY4cgpfV4TI7uRC7ceGmazK/2fIrcb65OClE1HK6eCij+GzvoHtaFt?=
- =?us-ascii?Q?rgkhCphnJdmwCI6hmGo5LWxraGzlbDAL3jp+98got9c0XWDU5fCer9K8mOCR?=
- =?us-ascii?Q?8g69ls55MFFeLkxJZ0dX3sZ14pMvtECcxcOOTqCX1+FNjzM3HKfpg5gpVbVA?=
- =?us-ascii?Q?Hto/0NdS58wfq+/usp6cap4ZxnWIQ6arqiXz+Kbm/F54bShpxThtuHaXdA2i?=
- =?us-ascii?Q?45OwIGoVlFdGaWyMngbdqlpDGjIIOMqpYk8QFm+tGt7z1iHe5dPnHDiCk3kL?=
- =?us-ascii?Q?8E6H2muGOcfyupA0o/SmKRQJkunUatc9373xbX3WU3C5SD6DOfr5dkRyB75j?=
- =?us-ascii?Q?r2mFn0oWIh6ixgyHLmfDjmwOkCgjG9uSybCsgpI+0PeuBj2pSDHzJWe9sXGg?=
- =?us-ascii?Q?o3wS51TB7z5nbecoRKjQWyX//hehDgoLapk0l4NnNKm31DMRGvnOhpxQAGwE?=
- =?us-ascii?Q?gkkBhlWaWq/194+/hnuAlcEvzws8M0B+v2zotn0pVJ+PtUbRyEgby31M8eqe?=
- =?us-ascii?Q?/o/ZTcJsuHgVFK1GQ8WPw+r7Edc3bn5zcGeDWPATEkK39em+axR91Wo4PYe3?=
- =?us-ascii?Q?1XXVlb4oH5Lc4YwzIeBsHWk6dIkMgHl2hbSLtqJ5YLQYw489D9y+kPKKdtwI?=
- =?us-ascii?Q?1DxVbXs60/ureDYpfyUShTg6m2hIXlC27IDoULPOgxCw+vPuQAkPRf2ifgWF?=
- =?us-ascii?Q?LUeQkisMEDf8a+GIIXjnXp0Canx4JQtrOI0LU57yqg2UBHP7pxDxKqDhzKLj?=
- =?us-ascii?Q?d1HbjzLsvMKmmoC3/C8BvOSza1ms9I9ArlUb7QV7zCG1VOhYoW2V+zvdD+uc?=
- =?us-ascii?Q?hxx3QB8zbj2rqfWsh1/1fz+mVGIXRjN89jDn0ZOGgjeo0a7tFxoBmnU2SRyU?=
- =?us-ascii?Q?yHtY20FMuUZxP5OjxigFmEsork+jBoc3GEHZAnF3Kuz25TMlJO+zfPSAiCan?=
- =?us-ascii?Q?wZ/x7skXEFXGYuD9xpvuT+Gtupv0hUPb7pfTLTGeRHKVtgQT2OMZBkf9UoWY?=
- =?us-ascii?Q?BlgQH+bSfcype5tQ0YxconbYwxT+BtZe8p45TiVFaevgAlmvFstbRc6CqGO3?=
- =?us-ascii?Q?rQnV76kzJsirDf6fnkMpZlOYs6255uWflmGIR7I7XAn8PYwoU7ikYshP8hkL?=
- =?us-ascii?Q?j57ny1etFHsF/Ppg0FLfXIFc2Aiwe6k63f9JgT8VcPQdla2T4Ph9Cp3Dc0ws?=
- =?us-ascii?Q?LN2P6u97OgJ2vaIqb7WUfGsYnOCipSGC4PJ9WZElyFaA9gvKvEOTNr5AbwOT?=
- =?us-ascii?Q?DQrN85zIio8iDRZWQVfQHPLP4b0IJWwLtxIaBUoBMqOxOvRvkQw3Knbw/Fb2?=
- =?us-ascii?Q?sox7jDezo+MpGRvH6Qkq8U+0U6JEMtaQHYNJEJMOtLQChBcgpawXBUVbjI3h?=
- =?us-ascii?Q?eRDAcobjUKgbH1P9uwkQF1U5m8KZlO9xd2TKbH/qxzU7LWdJ4v0HES/aAMUN?=
- =?us-ascii?Q?7tgEgNn8CWHpyLRSy+rY+K6zUIsMMmTd0Jk9aIa9K7ydqC8uUbUDhTyOV7p5?=
- =?us-ascii?Q?aHou283BrAtb4YRFfaxG1IhBRzVX3Fmk1dvJ8xgct2BwOQszmOSgCnBznsC0?=
- =?us-ascii?Q?4PtZ1eJgt2uqERbLcoe40r0w9OTBTBsbTHZMRJ/n1pDUCeEeKbx03KI1I1vL?=
- =?us-ascii?Q?FVnvI+Dg71/sD49DiVfY2bUbtLG08p2CTSsStNpK0ExUD+8S/kkX?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SD/W5C0A
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E43B1F000CA;
+	Tue, 24 Nov 2026 18:16:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795544217;
+	bh=iGCDQxlSZyNbpjb8HmmAXDh7kjSdNds3Y7zGFjiw20U=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=SD/W5C0ASolH9COBd9wxlzS8OhjBSOpB4GDhjPjv+hFUBmlFcx4gwAT655N1S2vZj
+	 bHdogH/ywDxgK04aCxjYYb+n/0QrIDu4uoDoG5RAtbJYy+VUvGhkAEzPZJ/y6LHlBq
+	 N5e5bMiy+ufbs0SdlC6LEUGUqpOH8LZVOgvlxRHYWQiMxVA3XYyqoACZwPfTOo0H6b
+	 XKb0PGwAuBSU0SQjIkNXw9hthB0lPIRyZjd49KoGOo7brkRA4NvwKiDA3d2PNYH2rz
+	 +YOuidcDP7JidcTZkYvit+ptJw4lH70khjbXvJA4oYfRkRPjcShYkxBU4MX6yH9Q+j
+	 XC32QrDvrHVjw==
+Date: Tue, 24 Nov 2026 18:16:53 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Matthias Kaehlcke <mka@chromium.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Anand Moon <linux.amoon@gmail.com>, linux-usb@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Icenowy Zheng <uwu@icenowy.me>, Han Gao <rabenda.cn@gmail.com>
+Subject: Re: [PATCH 1/3] dt-bindings: usb: vialab,vl817: use
+ unevaluatedProperties
+Message-ID: <20261124-rehab-overlord-9b7f44ee7e0f@spud>
+References: <20261124-vl817-uneval-prop-v1-0-137c093fb300@iscas.ac.cn>
+ <20261124-vl817-uneval-prop-v1-1-137c093fb300@iscas.ac.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -177,45 +63,70 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Exchange-RoutingPolicyChecked: Rv8cDeUJqXCMPcouZXXlh2bQ+EWz79qJM45tmn7anZHVkU3xV+Wnlj9bCkrT/zMUxHeMxaH08oJipOqkcLlewaBjHT5w6kVbX/ubsVoXzmewEwLhTGZE0jTnkpVpLd21r9Ieov+OWgeEWeykHdRwpyOrUnJXmIpHbFyod/hp7gu0aLpXwwfpBTkeK9tw4iZDP6Ktf669GH3QHYuPGr3F/JSX5Ua2SC5BXQ0LByFW8+9XzSPZREDPRv0b0SrXw3vIp9YR7dEtygce8fPR9cF5086vkAmJluaAB5zwmkO1ncpn7FAw2dpRMHqx1xvP/6YbyB4liKwBOH0EYzx25l3XyA==
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: BY3PR18MB4722.namprd18.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d8ca2174-0f4b-4bc3-1814-08df4a56fa8a
-X-MS-Exchange-CrossTenant-originalarrivaltime: 24 Nov 2026 18:15:54.0259
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 5280104a-472d-4538-9ccf-1e1d0efe8b1b
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: SCwhWzTmk6wFG4cU4zWGYqAGSrXbD+Znp9aEODVt4+AlPp7RUislMZ4LmqX27B7vVs1q9EXEIUfktiMVTevfLg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DSVPR18MB988458
-X-OriginatorOrg: amazon.com
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="h5SN1Pgh8t8ElQFR"
+Content-Disposition: inline
+In-Reply-To: <20261124-vl817-uneval-prop-v1-1-137c093fb300@iscas.ac.cn>
 
-On 11/24/26 13:28, Lorenzo Stoakes (ARM) wrote:
-> What on earth are you doing, Eliav?
->
-> There was outstanding review on v2, you replied to it with what looks lik=
-e an
-> AI-generated response [0], then instantly sent this respin out?...!
+--h5SN1Pgh8t8ElQFR
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-I did not mean to annoy you, and I am sorry.
+On Tue, Nov 24, 2026 at 04:31:01PM +0800, Icenowy Zheng wrote:
+> Currently the VL817 binding has additionalProperties set to false
+> instead of unevaluatedProperties, which disallows properties documented
+> in the parent schema.
 
-Sending that reply was my normal practice. I answer the open review on
-the old version first, and send the new version after that.
+This is not quite true though, they're permitted if the binding contains
+"foo: true" etc - which this one does.
 
-I sent v3 because I misread what David was asking. On 11/13/26 11:39 he
-wrote:
+> Change it to unevaluatedProperties, which is the better practice for
+> derived schemas.
 
-> Before I reply to anything in here: did an LLM compose most of these wall=
-s of
-> text? :)
+Not really, it's fine to do addtionalProps: false + foo: true if only
+a subset of the inherited properties are valid.
 
-I took that as being about the whole series, not about my replies. He was
-right about the series: much of the cover letter, the commit messages and
-the code comments in v1 and v2 was LLM text. I spent the last days going
-back over all of it and rewriting it, and I thought that was what he was
-waiting for.
+IMO this series should be two patches, or maybe even just one that
+changes the ref (as your patch 2 does) and sets the then derived
+property to true. Otherwise, this should be two patches, with patch 3
+split into whichever of patch 1 and 2 is relevant.
 
-Sorry again for the noise.
+>=20
+> Signed-off-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+> ---
+>  Documentation/devicetree/bindings/usb/vialab,vl817.yaml | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>=20
+> diff --git a/Documentation/devicetree/bindings/usb/vialab,vl817.yaml b/Do=
+cumentation/devicetree/bindings/usb/vialab,vl817.yaml
+> index c815010ba9c2e..d0484e48e319c 100644
+> --- a/Documentation/devicetree/bindings/usb/vialab,vl817.yaml
+> +++ b/Documentation/devicetree/bindings/usb/vialab,vl817.yaml
+> @@ -40,7 +40,7 @@ required:
+>    - vdd-supply
+>    - peer-hub
+> =20
+> -additionalProperties: false
+> +unevaluatedProperties: false
+> =20
+>  examples:
+>    - |
+>=20
+> --=20
+> 2.56.0
+>=20
+>=20
 
-Thanks,
-Eliav
+--h5SN1Pgh8t8ElQFR
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCawXUlQAKCRB4tDGHoIJi
+0nO+AQCJAJQTo53plhDVm7UVgErvHVFbl7zCVtc+zoFcZcdSxwD/cwcY0/X1MXWN
+jqxraemeI6fTwrwLeoYGLbzdaaRxYAw=
+=fGFb
+-----END PGP SIGNATURE-----
+
+--h5SN1Pgh8t8ElQFR--
