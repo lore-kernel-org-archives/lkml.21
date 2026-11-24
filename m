@@ -1,54 +1,45 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.71
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795547746;
-	b=BeaO9DvBb+tL6nQEJQ10ZmPoVvjHFvWBuw/hEXsyAzU4NyV2+dUUH0HQH9ggd2DK+gBW
-	 IB2GcDnZkDQ/fPfK4SCoVhaGkzYNmUAzh86AdVds6FgM8utuIgeEM5c0eal+kBzLbMPKc
-	 Nz1xb/THRo+bXPAzqM2ih1j89+b5Zoy0X2HPNtmOBHOk0tey8VOYp0bzQ8TK9xLnI+ziE
-	 /eRT8Ik9f02b4cAvhnbQfdHixl7zYmx+CzQxWc+Ymweyss5/WWVr0HX07p0ouF8/kr5ir
-	 8m89eZQPj73LSTLtxN94JNK1vAL17m51p0TR92I5hMnfh5B/OP8fa8otqPtms2rvlkA==
+	t=1795547787;
+	b=SoCCkkkX/ebrWuGxZPcqVgKlP0iB6w7omiUrwGiup5fCYImjbMsAQf9mvNPDYlw5rVYr
+	 8wlbTfCgJV9Zt2M1i9GenWjY93+Jej+FyG1gPeKZFXCojD1vihjL/o684ITWNRkycRYYY
+	 P6LaAi2kBY6qaoTAWPCpdeDIQFo+Xo18vzi/ii0DNaeDSVUXTOLV5/EIg+Z3rydFRKkrl
+	 9AoaCrhCLPXsyxcJBf5i+L/maQYZVJCt6l3FFhTcHJvzDicNUdW71ZIg1MhWFvMRhZ38K
+	 WQeVlolGbZ+nYcLqp0WGmvt26hDxz5uQ1uYTgMU0d2at4XK61TtPvY7eq9y9LeG57Vw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795547746;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:MIME-Version:X-Received:Date:In-Reply-To:
-	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
-	 Subject:From:To:Cc:Content-Type;
-	bh=iVaX5nAlkBKMSj8rUpfeIOl3ibSmoRV5kmxp9WpM+9Y=;
-	b=A3BqT6RGCXbzte1P0PH9FGT8edlCOfO83aikQS+Euv4pbJJwpUtWbQQeu7ewf75QEZvm
-	 GH8sIVSomBVNo4nvrEbjlemPyO6AeDQQH/Bnho4zTdKD+YBSq/CYea4dgQu9kNcl9eOAe
-	 5rBNgGwrIpkMz5xnqcBBuyt6vi9Uue2OsifXceroW+apIOqNn2Yb4CMkZtsRl/KZ+YqYD
-	 CkgY/7utKsdYOVoZQuceSrYBPofNrJY3i/xcWQtsKB+DiDu/VTJfdrcYUM7pd82lUsF6Q
-	 qbMYiA9+N+UMn0xWFZaWQaEM2t4mXxlBTG3yyA5dWHqoJqLRzdTZ8stcUhnS3KYcRKw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795547787;
+	h=Received:DKIM-Signature:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:References:
+	 Date:Message-Id:X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=lXwLpfc4aS4+J/jJs2iTIAGiSEtFcclowGK9/tjyUGk=;
+	b=O+T0pJJXU1PcQbBM1BtCIsz0Jm/snJDXTSLff11Z2yWJ3B6ustCQYdg+I7mGveo0Bg8D
+	 tN2qeFEkeSx8BN5gvCtE2gCiXOTLOivyK2lkwfNEdEOSHHbCtmbldttBm7s7VPFUWSuFt
+	 mjyweaLrFnzjnmK96y0tGWGFSqKKGQRRzYXBpblm7OYzaQM5FZZjFKz6GJups6ibeB+gS
+	 0AT3P1Ey7too5hnbw0WuxmPGSeBDv/38CtKIP3AVG0qu1L7wYyAFypcd5YOaGxTeYZE7z
+	 OrThPBKI/ZfB+e4Zo1Ko4JNWXkoq2Fv/dkdGIrWw4NIk4AM99NklmzVa8v4VQFTKr6w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=syzkaller.appspotmail.com;
-	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
-	arc=none smtp.remote-ip=209.85.210.71
-Received: from mail-ot1-f71.google.com (mail-ot1-f71.google.com [209.85.210.71])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=E8xOoZm1;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C5004606A321
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 19:15:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C5004606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
-Received: by mail-ot1-f71.google.com with SMTP id 46e09a7af769-862ab20625eso1975572a34.2
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 11:15:45 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795547745; x=1796152545;
-        h=content-type:cc:to:from:subject:message-id:in-reply-to:date
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=iVaX5nAlkBKMSj8rUpfeIOl3ibSmoRV5kmxp9WpM+9Y=;
-        b=XPCk9H3cfQKrlH20inILYcdqJGYrsldxu/0NRgchGZnP6GVhG+3e0+Z1u9FGTfGwfS
-         MnrZRIuYQLFMAJdW5uVeJyQn/GPo3RQdxKy2rd3zuUsmXWaj3LvxPGG/rHhZzO6joT9s
-         lsB1eggAjHjEc1knoBcBPZNYIO/bnRy4rU+G0pXHHEpL8OepsqFtqSh6nChYPVLpsFwP
-         1LfAWZW4uVJGSQ5lNEYozSIC+oa47DieSfSG9Wa5CzClTb5s8kbNvL3sTMc+joLXKp6C
-         KtkbIJLQmaERIE9idLjMPeyIFmLIVfhjqS+M2h5zOQ7BPOZMMHdENlNzmpEzCzYULxya
-         g5KQ==
-X-Forwarded-Encrypted: i=1; AL+hErFSkMmKuOzNry7auVEDirAjbC9znbHWLCs56MUw6w2nezvqrdW1ij6U99SG48xUIGgZ9u0VYMXput9nElw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+xQkhjabjcx1vW511XGlnmrfNBhhKfUinQLorex/MMlrku6Hi1
-	/bXcrabjGsPJH9s09KPtMaYnmfZHhoVgqnmGVoO0a2Htu+riRnCU4GZZvcN5w8NRZF5oBV8wFZI
-	F6Qi9exOiTIr+UhOZbbaSGJwQhcFxtz9jT6ENnQ0Ye6GfUwPCdN8kaqGTN64=
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E8186606A31E;
+	Tue, 24 Nov 2026 19:16:26 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=E8xOoZm1
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 333321F000C6;
+	Tue, 24 Nov 2026 19:16:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795547786;
+	bh=lXwLpfc4aS4+J/jJs2iTIAGiSEtFcclowGK9/tjyUGk=;
+	h=Subject:From:To:Cc:In-Reply-To:References:Date;
+	b=E8xOoZm1tkyvMNjNixCEnPcZxqSvm7nQHecKeztfjP56GWSvZjYReB7gYKUMnv/w0
+	 Sm3JsLa7BScRVmvAS4iQD2/oBRunDKNEBcW7/bWITGa+2n8302BouwuRDbV60VPuZg
+	 oZD4mrDpCZ1837ckijBp0VEFr+jUN1AjhTzGkgLhtEEqiV2h/rj9UlQWbhuUhiftc3
+	 hJCM24QqfT+wOyzl0fIt8DCweVrvK0lJJ5CWDml25DFhXcZc4D2vJUPPWYy6DpgpaN
+	 JsVYyoyZsZchDF+71Dwm6d7BrOJ9Mko0WLASP4tj/CWY13bXLducdhFzpeREsi4KOj
+	 iyQDhLG7PwCJw==
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,115 +49,99 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Received: by 2002:a05:6808:4488:b0:4d6:90f3:74ad with SMTP id
- 5614622812f47-57a0b644678mr16259886b6e.45.1795547744778; Tue, 24 Nov 2026
- 11:15:44 -0800 (PST)
-Date: Tue, 24 Nov 2026 11:15:44 -0800
-In-Reply-To: <20261119-gup-dirty-what-v1-0-236d69f25c24@suse.de>
-X-Google-Appengine-App-Id: s~syzkaller
-X-Google-Appengine-App-Id-Alias: syzkaller
-Message-ID: <6b05e260.e1ffc79a.44bf.0000.GAE@google.com>
-Subject: [syzbot ci] Re: mm: GUP dirty + ->release_folio() fixes
-From: syzbot ci <syzbot+ci6dc3bd0a53405de7@syzkaller.appspotmail.com>
-To: akpm@linux-foundation.org, axelrasmussen@google.com, baohua@kernel.org, 
-	baolin.wang@linux.alibaba.com, baoquan.he@linux.dev, david@kernel.org, 
-	dev.jain@arm.com, hannes@cmpxchg.org, jack@suse.cz, jhubbard@nvidia.com, 
-	kas@kernel.org, kasong@tencent.com, lance.yang@linux.dev, liam@infradead.org, 
-	linux-ext4@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-mm@kvack.org, linux-nfs@vger.kernel.org, 
-	ljs@kernel.org, mhocko@kernel.org, mhocko@suse.com, nico.pache@linux.dev, 
-	peterx@redhat.com, pfalcato@suse.de, qi.zheng@linux.dev, rppt@kernel.org, 
-	ryan.roberts@arm.com, shakeel.butt@linux.dev, stable@vger.kernel.org, 
-	surenb@google.com, usama.arif@linux.dev, vbabka@kernel.org, 
-	weixugc@google.com, willy@infradead.org, yuanchu@google.com, ziy@nvidia.com
-Cc: syzbot@lists.linux.dev, syzkaller-bugs@googlegroups.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH v4 3/5] soc: st: stm32mp2-syscfg: register the clock
+ device
+From: Brian Masney <masneyb@kernel.org>
+To: Gabriel Fernandez <gabriel.fernandez@foss.st.com>
+Cc: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Christophe Roullier <christophe.roullier@foss.st.com>, 
+ Dario Binacchi <dario.binacchi@amarulasolutions.com>, 
+ linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Brian Masney <masneyb@kernel.org>
+In-Reply-To: <20261124-ups_mp25_clk_syscfg-v4-3-894d95dffec4@foss.st.com>
+References: <20261124-ups_mp25_clk_syscfg-v4-0-894d95dffec4@foss.st.com>
+ <20261124-ups_mp25_clk_syscfg-v4-3-894d95dffec4@foss.st.com>
+Date: Tue, 24 Nov 2026 14:16:18 -0500
+Message-Id: <179554777875.338124.2443153902372697503.b4-review@b4>
+X-Mailer: b4 0.17-dev-8145e
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1998; i=masneyb@kernel.org;
+ s=20250903; h=from:subject:message-id;
+ bh=F1WVQywTa9F2r7TDaCAJztvWfqC8Q7gfotXdlbvqROs=;
+ b=owGbwMvMwCW2/dJd9di6A+2Mp9WSGLJZH7W0Czi4fuJvs6oPT7shs7bSP1zXa3Km+xF5bf0jV
+ WcZTao7SlkYxLgYZMUUWZbkGhVEpK6yvXdHkwVmDisTyBAGLk4BmIjUKUaGnbHpPgx+ZmUPVnA3
+ zjwxl7/CLpDp4EoWvXb912Enmq8kMTI0tLaL5vuELPvwdL0ES9a6wooZclMLAliN9nutq72Wxcs
+ PAA==
+X-Developer-Key: i=masneyb@kernel.org; a=openpgp;
+ fpr=A46D32705865AA3DDEDC2904B7D2DD275D7EC087
 
-syzbot ci has tested the following series
+Hi Gabriel,
 
-[v1] mm: GUP dirty + ->release_folio() fixes
-https://lore.kernel.org/all/20261119-gup-dirty-what-v1-0-236d69f25c24@suse.de
-* [PATCH RFC 1/5] mm/khugepaged: fix filemap_release_folio() interaction with GUP dirty
-* [PATCH RFC 2/5] mm/huge_memory: fix filemap_release_folio() interaction with GUP dirty
-* [PATCH RFC 3/5] mm/vmscan: avoid releasing FS metadata for !FOLL_PIN gup folios
-* [PATCH RFC 4/5] mm/vmscan: be more careful when releasing FS metadata if buffer_heads_over_limit
-* [PATCH RFC 5/5] mm/filemap: refuse releasing maybe_dma_pinned folios
+> The STM32MP23x and STM32MP25x SYSCFG provides the LTDC pixel clock mux,
+> whose driver is an auxiliary driver since the SYSCFG node is bound to
+> this driver.
+> 
+> Create the auxiliary device for the clock driver.
+> 
+> Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+> [gabriel.fernandez@foss.st.com: create the device on STM32MP23x too]
+> Signed-off-by: Gabriel Fernandez <gabriel.fernandez@foss.st.com>
+> ---
+>  drivers/soc/st/Kconfig           |  1 +
+>  drivers/soc/st/stm32mp2-syscfg.c | 14 +++++++++++++-
+>  2 files changed, 14 insertions(+), 1 deletion(-)
+>
+> diff --git a/drivers/soc/st/Kconfig b/drivers/soc/st/Kconfig
+> index 2a9d6a77be45..62bbe8c63238 100644
+> --- a/drivers/soc/st/Kconfig
+> +++ b/drivers/soc/st/Kconfig
+> @@ -5,6 +5,7 @@ config SOC_STM32MP2
+>  	tristate "STM32MP2 SoC family support"
+>  	depends on ARCH_STM32 || COMPILE_TEST
+>  	default ARCH_STM32 && ARM64
+> +	select AUXILIARY_BUS
+>  	select SOC_BUS
+>  	help
+>  	  If you say yes here, you get support for the ST STM32MP2 family
+> diff --git a/drivers/soc/st/stm32mp2-syscfg.c b/drivers/soc/st/stm32mp2-syscfg.c
+> index 770321a4a6f7..1160b65d3dde 100644
+> --- a/drivers/soc/st/stm32mp2-syscfg.c
+> +++ b/drivers/soc/st/stm32mp2-syscfg.c
+> @@ -3,13 +3,25 @@
+>   * Copyright 2026 Marek Vasut
+>   */
+>  
+> +#include <linux/auxiliary_bus.h>
+>  #include <linux/module.h>
+>  #include <linux/of_platform.h>
+>  #include <linux/platform_device.h>
+>  
+>  static int stm32mp2_syscfg_probe(struct platform_device *pdev)
+>  {
+> -	return devm_of_platform_populate(&pdev->dev);
+> +	struct device *dev = &pdev->dev;
+> +	int ret;
+> +
+> +	ret = devm_of_platform_populate(dev);
+> +	if (ret)
+> +		return ret;
+> +
 
-and found the following issue:
-WARNING in filemap_release_folio
+Looking at the dt binding, I see that the clocks property is optional.
+Should this have the following check?
 
-Full report is available here:
-https://ci.syzbot.org/series/852fc6fd-04c3-494d-a18d-4072753d5c47
+    if (!of_property_present(dev->of_node, "clocks"))
+        return 0;
 
-***
+Brian
 
-WARNING in filemap_release_folio
-
-tree:      linux-next
-URL:       https://kernel.googlesource.com/pub/scm/linux/kernel/git/next/linux-next
-base:      bb7a206a3ffb0992b3600205b7cf2bcbd228d339
-arch:      amd64
-compiler:  Debian clang version 22.1.8 (1~deb13u4), Debian LLD 22.1.8
-config:    https://ci.syzbot.org/builds/789b8ec7-0fce-48b1-bd3f-130fad443c68/config
-syz repro: https://ci.syzbot.org/findings/b27d3479-eda0-470a-a735-8bde8b489eea/syz_repro
-
- __do_sys_exit_group kernel/exit.c:1134 [inline]
- __se_sys_exit_group kernel/exit.c:1132 [inline]
- __x64_sys_exit_group+0x3f/0x40 kernel/exit.c:1132
- x64_sys_call+0x18c6/0x18d0 arch/x86/include/generated/asm/syscalls_64.h:232
- do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
- do_syscall_64+0x171/0x540 arch/x86/entry/syscall_64.c:89
- entry_SYSCALL_64_after_hwframe+0x77/0x7f
-------------[ cut here ]------------
-1
-WARNING: mm/filemap.c:4574 at filemap_release_folio+0x579/0x6a0 mm/filemap.c:4574, CPU#1: syz.0.32/5940
-Modules linked in:
-CPU: 1 UID: 0 PID: 5940 Comm: syz.0.32 Not tainted syzkaller #0 PREEMPT(full) 
-Hardware name: QEMU Standard PC (Q35 + ICH9, 2009), BIOS 1.16.2-debian-1.16.2-1 04/01/2014
-RIP: 0010:filemap_release_folio+0x579/0x6a0 mm/filemap.c:4574
-Code: 89 df 48 83 c4 10 5b 41 5c 41 5d 41 5e 41 5f 5d e9 2c 88 58 00 e8 47 76 b7 ff 48 89 df 48 c7 c6 a0 82 39 8c e8 e8 74 16 ff 90 <0f> 0b 90 e9 00 fc ff ff e8 2a 76 b7 ff 48 89 df e8 a2 26 00 00 41
-RSP: 0000:ffffc90003486d78 EFLAGS: 00010246
-RAX: d29da7cf2dd17300 RBX: ffffea0006c30400 RCX: 0000000000000046
-RDX: 0000000000000000 RSI: ffffffff8e935905 RDI: ffff8881720f1e00
-RBP: dffffc0000000000 R08: ffffffff9014c6eb R09: 1ffffffff20298dd
-R10: dffffc0000000000 R11: fffffbfff20298de R12: 0000000000000001
-R13: ffffea0006c30408 R14: 1ffffd4000d86080 R15: 1ffffd4000d86081
-FS:  00007f9243ca06c0(0000) GS:ffff8882a7801000(0000) knlGS:0000000000000000
-CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
-CR2: 00007fb8ff871a20 CR3: 000000016d7f6000 CR4: 00000000000006f0
-Call Trace:
- <TASK>
- collapse_file mm/khugepaged.c:2426 [inline]
- collapse_pmd+0x389d/0x6bd0 mm/khugepaged.c:2869
- collapse_single_pmd+0x1c74/0x36b0 mm/khugepaged.c:2921
- madvise_collapse+0x3e7/0x920 mm/khugepaged.c:3313
- madvise_vma_behavior+0xffe/0x4cb0 mm/madvise.c:1390
- madvise_walk_vmas+0x57d/0xb70 mm/madvise.c:1742
- madvise_do_behavior+0x385/0x540 mm/madvise.c:1937
- do_madvise+0x327/0x3a0 mm/madvise.c:2035
- __do_sys_madvise mm/madvise.c:2044 [inline]
- __se_sys_madvise mm/madvise.c:2042 [inline]
- __x64_sys_madvise+0xa6/0xc0 mm/madvise.c:2042
- do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
- do_syscall_64+0x171/0x540 arch/x86/entry/syscall_64.c:89
- entry_SYSCALL_64_after_hwframe+0x77/0x7f
-RIP: 0033:0x7f9242da8fd9
-Code: ff c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 e8 ff ff ff f7 d8 64 89 01 48
-RSP: 002b:00007f9243ca0028 EFLAGS: 00000246 ORIG_RAX: 000000000000001c
-RAX: ffffffffffffffda RBX: 00007f9243026180 RCX: 00007f9242da8fd9
-RDX: 0000000000000019 RSI: 000000000060005f RDI: 0000200000000000
-RBP: 00007f9242e37fed R08: 0000000000000000 R09: 0000000000000000
-R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
-R13: 00007f9243026218 R14: 00007f9243026180 R15: 00007fff1d17f228
- </TASK>
-
-
-***
-
-If these findings have caused you to resend the series or submit a
-separate fix, please add the following tag to your commit message:
-  Tested-by: syzbot@syzkaller.appspotmail.com
-
----
-This report is generated by a bot. It may contain errors.
-syzbot ci engineers can be reached at syzkaller@googlegroups.com.
+-- 
+Brian Masney <masneyb@kernel.org>
