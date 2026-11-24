@@ -1,63 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=18.9.28.11
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795532196;
-	b=OWZh+dmX+Na0mpj1LQUzlvyby1z0iPuwbHVe4NrTfJxqPnsbjrIRugu0HkojEpfQ4spy
-	 hWzMJk+7dAappHiZXsaIZgUz+BtFqFQ59II891StWaHqUYwhOweQYPMCO5ihdTRTT5jzb
-	 ui2vpOjP3b+wVu1kvOiw92n0k0EFVXgwecj3Td4UmALOiSv+JbKel3Q+mHBUiAOeutaiW
-	 mBHaXGgjtIEl+87WWtXtvCutujD8Pbs5ZyNKeoKmoC6EGPaxQpDd9tI4B81OZufH3jLVu
-	 QplkwiR1lGg+GdyO5jE2j9v6ewCvLeet9KoOBeKapOncQknvgdMPPTBJzRupBt9BZXQ==
+	t=1795532209;
+	b=cScaKOmyI1r3EUXBWJuvpsij2pYM8bUbDj7k8kvCdtXmQu5TnsJwo+RJMyuH4HKpL2vD
+	 TqqzEhSCBbv4FyhfUyDX68XrLP4eu0vjrQNmabPr/MMQWzzq1qb7W0d3k44bYpCMi3Qas
+	 /g8Uq0DHUufgWubbdeO0Bji52STc3DJrZO7kuHfMDj2+Mv22CacQ4Yo5O/9vBfQvARuai
+	 ulbtpJj7MxavY7sWvMdyCKY0LAw2xl4B7UczhTRZaMIik81ntegwXEX0PzdcHV6CDNB9m
+	 44thsYr/mtcYo5o9yOPlLegoufMTjmkYvoh8IkzAWxuFllC2n0EBw/DJjX03jQTIdCA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795532196;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=/AUkC4hONDgD6ntHPObWNT7fhuOS0myZax3gE4i18kI=;
-	b=wewcPdmUCb2QEQ4ZvnDtF/o691ZLF1Z1kjhYE8+YhInGs0WmUpLwwCKR/yUVGYn9yc8t
-	 +115Yiu5I/7PFDA6He+uLgytXzxaGq6e7wnNymNoK+6mBXyfwvGnYGeZrzSE0PEEJUWEu
-	 UBsdQfuGfGUvivdvRer91jxrhrz+oRqcicWa4H4lEDoDjj6c02iXU+uTA1BfbcJN/tfQq
-	 42oSA9g4f6Tn6aLgP6qG+EUj+aSdssjdoQzWUXCGqkatXY7U4i0xtraFK4xvBMaPgETmG
-	 enH7wUcDWlxNZE0UfzLu1YlDh3d5z/63FsSnP50puv191eTZIlLmQ4/WgxZ3Yqb9bsA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795532209;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=L4IbR2w7U7160WkS4Yv7iABO81bcXNtx1OMFPwxU9YY=;
+	b=x6U23DMaP2k7gu+VjWCCfyPmSAm9aIpaoNqqsG/PBpAa04IdRnuAbbOJ50okwpa4Oqix
+	 m5ca1nDekC4/mJX9QBTeME+rSuyr0IkjPVwHzZxiurPUVbzXv0+LytnhBGKt2r+s1Z9K5
+	 pTUtNUcryzqtEYIawCBSzLP40hON/hFzOIKnLZSmTcl35fv4sTXYBV9WNUkO5pu8X7Im7
+	 NIDXUWO7QirskZPwbqJ5S8lG0bKgWfkIeCr61nrwfKqDofaqhypq6thT3UMzNIiC0YT7C
+	 ZE2R7nRMjSdV1ZsvTS4pNlFK/aF9QUiZ/0kHGSNKAmX9qYEEXm9tOd97wKtiXsTwfTg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=mit.edu;
-	spf=pass smtp.mailfrom=mit.edu;
-	dkim=pass header.d=mit.edu header.i=@mit.edu header.a=rsa-sha256 header.s=outgoing header.b=f5NvEFVA;
-	arc=none smtp.remote-ip=18.9.28.11
-Received: from outgoing.mit.edu (outgoing-auth-1.mit.edu [18.9.28.11])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LBBhasd6;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E50C8606A327
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 14:56:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E50C8606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=mit.edu
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mit.edu
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 894A6606A32C;
+	Tue, 24 Nov 2026 14:56:49 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=mit.edu header.i=@mit.edu header.a=rsa-sha256 header.s=outgoing header.b=f5NvEFVA
-Received: from macsyma.thunk.org (pool-173-48-102-184.bstnma.fios.verizon.net [173.48.102.184])
-	(authenticated bits=0)
-        (User authenticated as tytso@ATHENA.MIT.EDU)
-	by outgoing.mit.edu (8.14.7/8.12.4) with ESMTP id 6AOEtUao020827
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 24 Nov 2026 09:55:31 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mit.edu; s=outgoing;
-	t=1795532133; bh=/AUkC4hONDgD6ntHPObWNT7fhuOS0myZax3gE4i18kI=;
-	h=Date:From:Subject:Message-ID:MIME-Version:Content-Type;
-	b=f5NvEFVAjHeAdRryr5U7XKmkGkpVYoTT/WlXHM0Fy46Z93JRUSYXcOFCwnsA61J/O
-	 9LTrcIdsLdNGKroP4VpNk51XHjHqFZ/4HRUhJaFf/DP+25ryNvi7APAl2G2rTVGCkF
-	 i9vXoJtp4CPdJeUEjFrhqT14XBXtZK1Oa0ntEqK697pe71AAbRzxBlZZnT1bEAKq4t
-	 XCdfKDBRo2rOxiAemWhs1Iap021SQdPqzFYqlotsYxtMejzQxGPyyU4RuqkqYD9BLK
-	 2rE4ae2JZS4DruNP574zt0dzQpew39/GA+j5H8bO1yubn5Mhs7IRTBVczPAJLb7nsy
-	 uBATV51CE6e3w==
-Received: by macsyma.thunk.org (Postfix, from userid 15806)
-	id 29EE4291FE50; Tue, 24 Nov 2026 09:55:30 -0500 (EST)
-Date: Tue, 24 Nov 2026 09:55:30 -0500
-From: "Theodore Tso" <tytso@mit.edu>
-To: Zhao Gongyi <zhaogongyi@bytedance.com>
-Cc: linux-ext4@vger.kernel.org, linux-kernel@vger.kernel.org,
-        adilger.kernel@dilger.ca, libaokun@linux.alibaba.com, jack@suse.cz,
-        ojaswin@linux.ibm.com, ritesh.list@gmail.com, yi.zhang@huawei.com
-Subject: Re: [PATCH v4 0/2] ext4: reject impossible group free cluster counts
-Message-ID: <awWhtXvIgTk1QzuY@mit.edu>
-References: <20261124033900.76700-1-zhaogongyi@bytedance.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LBBhasd6
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1590C1F000E0;
+	Tue, 24 Nov 2026 14:56:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795532209;
+	bh=L4IbR2w7U7160WkS4Yv7iABO81bcXNtx1OMFPwxU9YY=;
+	h=From:To:Cc:Subject:Date;
+	b=LBBhasd6kfXqD8HYRiP2SjDSZDUtRpll/VrYEISj2+9Q4NjCW0GaStJodF92fxUTb
+	 HkHlKjXqGrf55Ro0/1ueu3jLp5GmkM8+Xe+X9+WAR/bE58JZDBBApEV3NoULvqegnF
+	 pSUly3ot1poEwT9a1gYAjWtXI6ycMxB3jNSbVY+CbpBigfh6QzxEwE0WY2nem6yK/q
+	 sZsWADnWiogeGdnO6/aZvbqz9PIiDP53SCQDFtkZEEH4Ashk4rHeF/k5WEl9rIKTtO
+	 KjHtm/uGCP0+1jg1xJeyefILBCrdQISu8vBay/FKLCcQEsBPxtq2uMdrx2/Ghcze7R
+	 nkt2sxLDa+iuA==
+From: Sasha Levin <sashal@kernel.org>
+To: Mark Brown <broonie@kernel.org>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
+	Jez Ng <jez@sfcompute.com>,
+	Ricardo Neri <ricardo.neri-calderon@linux.intel.com>,
+	Juergen Gross <jgross@suse.com>,
+	Ingo Molnar <mingo@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@kernel.org>,
+	x86@kernel.org,
+	linux-pm@vger.kernel.org,
+	Linux Next Mailing List <linux-next@vger.kernel.org>,
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
+Subject: linux-next: semantic conflict between the pm and tip trees
+Date: Tue, 24 Nov 2026 09:56:46 -0500
+Message-ID: <20261124145646.3655959-1-sashal@kernel.org>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,38 +64,36 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261124033900.76700-1-zhaogongyi@bytedance.com>
+Content-Transfer-Encoding: 8bit
 
-On Tue, Nov 24, 2026 at 11:38:58AM -0500, Zhao Gongyi wrote:
-> ext4 initializes its free-space counters from the group descriptors. A
-> corrupt descriptor can advertise more free clusters than its group can
-> hold. Journal block replay can also replace the superblock and group
-> descriptors that were examined when mounting.
-> 
-> This series adds an optional JBD2 recovery callback and uses it in ext4
-> to validate the recovered geometry and group descriptors. It checks the
-> metadata before fast commit replay and checks the descriptors again
-> after fast commit replay. Both halves of the group free-cluster count
-> are read under the group lock.
+Hi Mark,
 
-Note: in the future, could you send your patches so that each of the
-patches are sent as a reply to the cover letter, so becomes easy to
-find all of the patches associated with the patch series?  This makes
-life much easier for patch reviews, and it also allows me to use the
-"b4" command to gether up and apply all of the patches once the patch
-review is complete.
+The current pm tree has a semantic conflict with the tip tree that
+breaks the x86 build:
 
-The way I do that is to put in my ~/.gitconfig:
+  drivers/thermal/intel/intel_hfi.c:407:38: error: too many arguments to function call, expected single argument 'msr', have 2 arguments
 
-[sendemail]
-	chainreplyto = no
-	thread = yes
+437ce3015e51 ("thermal: intel: hfi: Disable HFI on shutdown and kexec")
+in the pm tree uses rdmsrq(MSR_IA32_HW_FEEDBACK_CONFIG, msr_val), and
+e7f9f17e0013 ("treewide: Convert rdmsrq() from a macro to an inline
+function") in the tip tree makes rdmsrq() take only the MSR and return
+the value.
 
-See the discussion of the --thread and --[no-]chain-reply-to options
-in the man pages for git-send-mail and git-format-patch for more details.
+The fix for the merge:
 
-Many thanks!
+diff --git a/drivers/thermal/intel/intel_hfi.c b/drivers/thermal/intel/intel_hfi.c
+--- a/drivers/thermal/intel/intel_hfi.c
++++ b/drivers/thermal/intel/intel_hfi.c
+@@ -404,7 +404,7 @@ static bool hfi_disable_if_enabled(void)
+ {
+ 	u64 msr_val;
 
-       	   	     		       - Ted
+-	rdmsrq(MSR_IA32_HW_FEEDBACK_CONFIG, msr_val);
++	msr_val = rdmsrq(MSR_IA32_HW_FEEDBACK_CONFIG);
+ 	if (!(msr_val & HW_FEEDBACK_CONFIG_HFI_ENABLE_BIT))
+ 		return false;
+
+
+-- 
+Thanks,
+Sasha
