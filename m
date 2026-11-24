@@ -1,59 +1,60 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795512278;
-	b=AqeW3r9HH6R5Qj9DFFSo5XHqXr7SSWz3GgmXwYu6t8gAPTzTRfB/ZUG7XLyqVE677Yy5
-	 tsxy5TSkQ8lUp9+zoBQB2x8t1HMIDeToMBzSDWefMjYsoo5wfH59wAoiAayhn6vOefU1w
-	 2lCCk36fqlHaK5Ah+UwphSI5LSNvI8a0gsS5JU0E+xE1FN8NpKfqkrwmyFW77de42KLLu
-	 zNsdvhSDQiHg1uiO9X+NqZY6w56dYChC2gqA+YG+JIzPmu6vZeXTYk2jOvg2hXvgkQFb9
-	 9y7b6dSdSREuolVYp907zlOY+VP3paEpsda/BsOKjmHYBGGAujS6PchBwgdiRhDehfg==
+	t=1795512275;
+	b=X/wWDyg/T9HaG0rnUJPP4kQISiI53S4A0zsKDKbnmk6of/t+loNeNhzPG1p+SdB1lAXs
+	 d8Mv7Vg428nanXnSx5cQPIv/LNZzrwC4JFO+iR4ev6GW5BYPsL06r+lKxVNr5bsHBlxiv
+	 8DEzDdxQL1zIRs2MWl4vKRrutKParh53rEqjivkDGykDrZUbH3K+f1qclHwrkcguJGDYT
+	 Q7mU2MMXN8aiKHz2cVaSHzE3s5zz502X4TB/EdGutaF4k6GXH9tove0LaGDSls3Hv52rY
+	 RBKEZ6zGrOoSnCm4/Ri6/DzYjBA+CLVg88XZN4e5XN6qvbNNRdWyYHMY9mk9PdEspJQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795512278;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Subject:
-	 Date:Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:X-Last-TLS-Session-Version;
-	bh=ErlUnItM2bJrYKuLZXeyKH1pw6LrTqwX7tmnsb6bczY=;
-	b=wFUmvgbJxgVGOdfNxFbmUBRQrlWFF9pTXPt+dDZgU9INBIp6Ak3WK4Xyk1SZ+FBgchTI
-	 hNR0T4Pg7zK4YgFtTECDKL+BKZYotJo9WTorW1Lt9bPVuvhMcURFuNHUEPFQ3X/cKthUk
-	 Ib3/94AxeBVIo3wDnnP7hZBfmbSyY/XpgCuojYw4dFIgy0tSroeK6w0OtuEqtsE5CwJtO
-	 R1TnvGQfkPYbhwYuR7e47+hX+S2owvY+64eEtBfO8SOXs6kHWLSC9deZUpa47fB+hZs2g
-	 PlSKIF0voO+KNdueSH7PcVxBDTjD17wB/5Mi09x+j0O4lzcxaElEbz0uChoHYVgk4hQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795512275;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Date:
+	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Last-TLS-Session-Version;
+	bh=OCZOn+cqE7e8uuH9fPsFEjtoD65VvfhvTdGx7l8MCeE=;
+	b=4ZZnnXnq+5ynbaNzI3Ozid1RSjLTPKoouoPSdEea7bHkOsTUyvr5AFo5ty85w2BXsAPy
+	 q2EPdQi2C3+2wJh0HH4aLe2yNAvmTj2zmDDAtVchozLvZEDaIsLOotlCNbqcoZFaE9GY5
+	 0SVAQxD3I80jPTS6aar7924xeqAiyl39aliVFnqHHLOPPBk+DufmULF/36WM0zAFtKJGo
+	 2iH08omTUMNBxX/NL3q0EhAB+2kI06qUoCk1N6cOqK/C7OR4spEUUKPHIeWS+EzGLAxPY
+	 MEVVygf3kRaGxOWjsFSh6+GNzR07Na+FNUQv7vLgTKKM1wA3O0RTTqLk4SlXZOGPscA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=bootlin.com;
 	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=v4Jfiv6p;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=dNW5k8sX;
 	arc=none smtp.remote-ip=185.246.84.56
 Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ACAA3606A33C
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:24:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ACAA3606A33C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4370E606A33A
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:24:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4370E606A33A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=v4Jfiv6p
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=dNW5k8sX
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 437B71A17AD;
-	Tue, 24 Nov 2026 09:24:31 +0000 (UTC)
+	by smtpout-02.galae.net (Postfix) with ESMTPS id F14E91A17B5;
+	Tue, 24 Nov 2026 09:24:32 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 11349601E1;
-	Tue, 24 Nov 2026 09:24:31 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 319AA11E68C80;
-	Tue, 24 Nov 2026 10:24:27 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id C7B31601E1;
+	Tue, 24 Nov 2026 09:24:32 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 673A611E6A5BF;
+	Tue, 24 Nov 2026 10:24:30 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795512270; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding; bh=ErlUnItM2bJrYKuLZXeyKH1pw6LrTqwX7tmnsb6bczY=;
-	b=v4Jfiv6pkXQse3y32vlDDxQyWbunmg1FQl8vlrEw+mLYE2psH4Sq1L2VrlkX/72U+vDXMC
-	xPyovGstdwL7PHREEa/KoH6rQREJJ66r2Z2z3Zp2Pp8B10eL5+0tOTN6sEevLHI7X4uckZ
-	3V6bLdfZAXWIaYPX3p1vrPZMIVCwQD67kTdl8fBFG2xEl06vMJRIgqgVLYRvXgqn/tFH4p
-	usK9ww7gBZyx98DEYPsFJVwb/RGifb8/6q9ixuJSdvjQzyV5/MXDBu9WsL6VVLEBWdZ299
-	j7dam/FQebX+aRBan+5inuXw8G8qiAVYU8TBc0G1j1OSX4Hu8W+5LzkiMExTfQ==
+	t=1795512271; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=OCZOn+cqE7e8uuH9fPsFEjtoD65VvfhvTdGx7l8MCeE=;
+	b=dNW5k8sXvh1W/kPRuVNQeI14Vqtp//01RcYQiJNKcHQ+cK4q/r5fWeRlzqFIOpo0bjHetP
+	0hJ8I8v/bmuluyuXhqU7600QkyVnBXLK8IEipLHfvut5iSfR3D98wWqAdrwD5gSaq/Ngq5
+	7bU2hLB2I3i+6avpvAcAyKQuKau56fhCwvYpfVo+wW9OD5A50aPorrB9b+voL6AmL06XfO
+	GuLchSnHqPwBlgKleYiF2I+fhPJ7w29Ets0mm1q6+bNMB8aMryqso+I1NXZioO5k9nMTzC
+	1EkvTda2kNdhIWlg4BfUES6buUZI+I14THRKDTdI1+3U6LmsWSn3s6vHV9r0BA==
 From: Miquel Raynal <miquel.raynal@bootlin.com>
-Subject: [PATCH v2 0/3] mtd: rawnand: cadence: Fix incorrect variable
- dereference
-Date: Tue, 24 Nov 2026 10:24:21 +0100
-Message-Id: <20261124-perso-upstreaming-rawnand-fixes-v2-0-69db17ad07bd@bootlin.com>
+Date: Tue, 24 Nov 2026 10:24:22 +0100
+Subject: [PATCH v2 1/3] mtd: rawnand: cadence: Fix DMA device dereference
+ when DMA is disabled
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,11 +66,9 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/42NTQ6CMBBGr0Jm7ZgWLQZX3sOw6M8Ak0jbtIgaw
- t2tnMDle1/yvhUyJaYM12qFRAtnDr5AfajAjtoPhOwKQy3qRkrZYqSUAz5jnhPpif2ASb+89g5
- 7flPG3lxOxqm2cdJCqcRE+1Ai967wyHkO6bMfLvJn/28vEgUK26rmLI1Swt5MCPOD/dGGCbpt2
- 76Rk9fQ0AAAAA==
-X-Change-ID: 20261119-perso-upstreaming-rawnand-fixes-fb73bd596d1c
+Message-Id: <20261124-perso-upstreaming-rawnand-fixes-v2-1-69db17ad07bd@bootlin.com>
+References: <20261124-perso-upstreaming-rawnand-fixes-v2-0-69db17ad07bd@bootlin.com>
+In-Reply-To: <20261124-perso-upstreaming-rawnand-fixes-v2-0-69db17ad07bd@bootlin.com>
 To: Richard Weinberger <richard@nod.at>, 
  Vignesh Raghavendra <vigneshr@ti.com>, 
  Niravkumar L Rabara <niravkumarlaxmidas.rabara@altera.com>
@@ -81,32 +80,64 @@ Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
 X-Mailer: b4 0.14.3
 X-Last-TLS-Session-Version: TLSv1.3
 
-Small series fixing a report dating from September on the Cadence
-controller. The last patch uses a newer API for one of the DMA helpers.
+Move the DMA resource mapping into the has_dma branch and only unmap the
+resource when a DMA channel was actually acquired.
 
+Fixes: 5c56bf214af8 ("mtd: rawnand: cadence: fix DMA device NULL pointer dereference")
+Reported-by: kernel test robot <lkp@intel.com>
+Closes: https://lore.kernel.org/all/202603252339.fQzI6oc8-lkp@intel.com/
+Reported-by: Dan Carpenter <error27@gmail.com>
+Closes: https://lore.kernel.org/all/202609010758.3N8tYZdG-lkp@intel.com/
+Cc: stable@vger.kernel.org
 Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
 ---
-Changes in v2:
-- Add a patch resizing the bounce buffer before the BBT scan, which
-  fixes a potential heap buffer overflow reported by Sashiko.
-- Convert the buffer mapping in cadence_nand_slave_dma_transfer()
-  to dmaengine_get_dma_device() so both ends of the transfer are mapped
-  against the same device, again as suggested by Sashiko.
-- Link to v1: https://lore.kernel.org/r/20261119-perso-upstreaming-rawnand-fixes-v1-0-0c95641b550c@bootlin.com
+ drivers/mtd/nand/raw/cadence-nand-controller.c | 23 ++++++++++++-----------
+ 1 file changed, 12 insertions(+), 11 deletions(-)
 
----
-Miquel Raynal (3):
-      mtd: rawnand: cadence: Fix DMA device dereference when DMA is disabled
-      mtd: rawnand: cadence: Resize the bounce buffer before the BBT scan
-      mtd: rawnand: cadence: Switch to dmaengine_get_dma_device()
+diff --git a/drivers/mtd/nand/raw/cadence-nand-controller.c b/drivers/mtd/nand/raw/cadence-nand-controller.c
+index e19ceb2d5dfc..42cc62b36457 100644
+--- a/drivers/mtd/nand/raw/cadence-nand-controller.c
++++ b/drivers/mtd/nand/raw/cadence-nand-controller.c
+@@ -3168,17 +3168,17 @@ static int cadence_nand_init(struct cdns_nand_ctrl *cdns_ctrl)
+ 					    "%d: Failed to get a DMA channel\n", ret);
+ 			goto disable_irq;
+ 		}
+-	}
+ 
+-	dma_dev = cdns_ctrl->dmac->device;
+-	cdns_ctrl->io.iova_dma = dma_map_resource(dma_dev->dev, cdns_ctrl->io.dma,
+-						  cdns_ctrl->io.size,
+-						  DMA_BIDIRECTIONAL, 0);
++		dma_dev = cdns_ctrl->dmac->device;
++		cdns_ctrl->io.iova_dma = dma_map_resource(dma_dev->dev, cdns_ctrl->io.dma,
++							  cdns_ctrl->io.size,
++							  DMA_BIDIRECTIONAL, 0);
+ 
+-	ret = dma_mapping_error(dma_dev->dev, cdns_ctrl->io.iova_dma);
+-	if (ret) {
+-		dev_err(cdns_ctrl->dev, "Failed to map I/O resource to DMA\n");
+-		goto dma_release_chnl;
++		ret = dma_mapping_error(dma_dev->dev, cdns_ctrl->io.iova_dma);
++		if (ret) {
++			dev_err(cdns_ctrl->dev, "Failed to map I/O resource to DMA\n");
++			goto dma_release_chnl;
++		}
+ 	}
+ 
+ 	nand_controller_init(&cdns_ctrl->controller);
+@@ -3204,8 +3204,9 @@ static int cadence_nand_init(struct cdns_nand_ctrl *cdns_ctrl)
+ 	return 0;
+ 
+ unmap_dma_resource:
+-	dma_unmap_resource(dma_dev->dev, cdns_ctrl->io.iova_dma,
+-			   cdns_ctrl->io.size, DMA_BIDIRECTIONAL, 0);
++	if (cdns_ctrl->dmac)
++		dma_unmap_resource(dma_dev->dev, cdns_ctrl->io.iova_dma,
++				   cdns_ctrl->io.size, DMA_BIDIRECTIONAL, 0);
+ 
+ dma_release_chnl:
+ 	if (cdns_ctrl->dmac)
 
- drivers/mtd/nand/raw/cadence-nand-controller.c | 62 ++++++++++++++------------
- 1 file changed, 34 insertions(+), 28 deletions(-)
----
-base-commit: 7475ea8b58616b33c04afb976cf0fbaad9dd63fb
-change-id: 20261119-perso-upstreaming-rawnand-fixes-fb73bd596d1c
-
-Best regards,
 -- 
-Miquel Raynal <miquel.raynal@bootlin.com>
+2.56.0
 
