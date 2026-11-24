@@ -1,88 +1,48 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795540251;
-	b=pQ0LFNIK/iBxZZPB4VFCPSHiw/jC2q6IGK2Fvcn1CWX/Cp7tZ4/Bi4yWi4QNsPqO09Gf
-	 BFlBIeUab61oZ2Q9Scq2QgcQ4K/sHotT0MJBKZHAd0bh05U9jDcj+S3XQNiKzQOOIXYqs
-	 pqvjzh8Whc6WuMOJs/kl3a+lVNQHDpxt0GUBv4fhyRmTbWHSi4jNfuT3inXyGfIu4IW8t
-	 7V73TZfhUOK0XWLOcfTZbew5FjLYZr+4MmtZX5XbmCVQBKb9OoKzJSElaMdRspb6uIae1
-	 bZzcjGw1nlalLLfQEpRMoAo+BI7d9Jek6tuK9M+Px2sBF7R+kfC3mpWn9jJ8tkMpDJg==
+	t=1795540248;
+	b=xSNuQ8dJP1yAfG4VxiCp80iO7UOgx++gngJ7Y9vrX+R9tLj0+clveg0A21Y1QviNQfph
+	 5JGuAZOV3YLJVDCmMwxVODIIRaTfcFYVVmRNNP5myrhCkjLzMQAF/5SxC0ga0TLeky3Ne
+	 Uk0+XUbdtXNy+c5NtTrMm8OjF90WK4JPhO8/kV01rTt+jETClSJecDarg6NlIFbeh+H0T
+	 FagKOaJnVuoqZLgg/KedfGdkmSb6a1Gf8BXvR1EWa/xyu/SXZOAUfFheR27oXcn0ktSOX
+	 yq+TYWU+QgwuvBS+DR49i56VEIQK0nBS2s/tq1U28/GCCzq5IyYgWn530mjVPD6WBzA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795540251;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Subject:Date:Message-Id:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:X-B4-Tracking:To:Cc:X-Mailer;
-	bh=u8kv2zYNDRxVVHOiDhvZgUHGX0zKQbtOrLo9540hpuo=;
-	b=IKyzSdROM6L+OcA/5Ffiu2NIAHVstWOvkJZytjbCJp4aXP/QT9GNxROAQPqDVLpzunDG
-	 a2uvTUu2gbV6fEUSgiJHoQHtTjncn3d6ZVcLXddw6qiTZeLfDkLTKNz85jAZIbuntoqiN
-	 HdnbrqHxC7UHnw7hB54azko340k9/0nxK8PtYp2YFC5wHbGcSp6uObuRbfHjCF9Wu6AQG
-	 1Z0dx+deG5LFVrgfyIqskV8+2s/AbnTCX0TwBoEezlKkallmSrb2BNpc7HJoCx34VZ3dS
-	 crr9erym1HkM9zoSDcotDgLU4EWNRRrxMzW5+cze/dkjdZUsROBHeOJFbFK8HIm3WIQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795540248;
+	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=Hoi6ZKqF0rWP2dY8L9fi70WXIdQ16OJirLzXOK8DLeI=;
+	b=pDGt0A/3toN8EkS8GZAWFXUA2nEqfdc5rNu5MW4SW2fyNtS6WZSursg46TGQLe9kfeb0
+	 UhhS7ahm92Uf2QlUGg7gnf5fHeIJGYHNQE6dLjRVHUxRhJ8oM21cAn8S7mc8NE/cAxvID
+	 MtT/92I9uzpbQNKfAxXAyrzSPT4u7bzJO2ZuDesNEOObeYGFk7rRB4naTkfZJYo7d395C
+	 azCprW7/i7YskEQWccwolP+7mfdsvePh3qxqq0cMQcu4p/DUwxaLMN8j+21hYcUq8P0Kn
+	 U042nWu7tPVniLDtCUNwLB4mrveX9RISXhPKt7srq48DCF/Ge+lnxYfp0PHgrS3jw6g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ESCI8Weh;
-	arc=none smtp.remote-ip=209.85.210.49
-Received: from mail-ot1-f49.google.com (mail-ot1-f49.google.com [209.85.210.49])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mQ7IdyS4;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B7D56606A682
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 17:10:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B7D56606A682
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B4C39606A31E;
+	Tue, 24 Nov 2026 17:10:48 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ESCI8Weh
-Received: by mail-ot1-f49.google.com with SMTP id 46e09a7af769-843cf077f10so6633382a34.1
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:10:50 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795540249; x=1796145049; darn=vger.kernel.org;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=u8kv2zYNDRxVVHOiDhvZgUHGX0zKQbtOrLo9540hpuo=;
-        b=ESCI8Wehg58uJN9SHkEiE+nEdgJUZDkWTjGDxOa+lqjLHEH89QsNf9J6d5OM+7eVdF
-         IHuj9QNzXnI9dRKVMjaHDnDUID7et+aws4Nhglh33DnRaW+UIHzVLqiKWGh8H7MBz7GP
-         +z8+4O8/xRbljkGGIe3JWjKOGes8xdiX3gqIeva2m+PnbI6QhQg2FvtmBcQdkuOAJy/f
-         QLDXB8NaaS1Bd9HukZy8yWzx4YnWjiwzNuIdR2BpfwdKZYHREEM19K5fxzIc+Y9TXINb
-         xK2/o78SgOxzGjcPoCKnlzM9vvpt2ZQK6inEam5eSUIaMQhZddsQL35LukCAcpXwz7xe
-         8nFA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795540249; x=1796145049;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=u8kv2zYNDRxVVHOiDhvZgUHGX0zKQbtOrLo9540hpuo=;
-        b=oZaMdgwLni4w2Xus9ZQ1O9NY8lO2E9KlqxCO9y75S/Xxsn5Ae2N/13ZSjLRiDrdNTG
-         TieYbOP5CrHpkjyX96bV+F/sFlFIad6qbl0ibBBOyI3l0jXWLrvVH7OSMyT+UpstWq2G
-         HwDrx5B8fNM4Oe4ElrJoDl+uYnzcXGDeQZCAO+18bJD1zAj156fNZu3ie3qbE5AXtJlF
-         O+IMMD0vHOS2Zzj8O0rtTO167geJRfoRe7By3oYlrkkLIFJuIu1u7sGcpPHZYj7b9bGc
-         pS+0yDfOtWKl+R9LQ6iSI7LmQDQtH0QgAbZgZxUEYGZWopaDAXhuA+h7qSZRJ5N+vj0J
-         6FYw==
-X-Forwarded-Encrypted: i=1; AL+hErHvtNGyUF48YnXeOgdWvZOZjfRuSIFqADNjYMZjf9AZI6hYqvoRWufDqc9n39rod37kxmCsSfTCH4URlqU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+52fqCr6WkOCYknuEaaeXi2V3hSYsFgDLbqmhFZhsaQ2pK06in
-	++/0U82i73GiZfG/MZ/bYJvX2PLHXBHPl5ox+GOuioup7xg6u9lSngeS
-X-Gm-Gg: AZFdTZc/qOP6SCueRmy0dhu+fKLRhaHneR8DAyWrvlfYWEnanbT0CUFzWWhPpM8994Y
-	AXhsgyR+6bzA8vNgsNi34PTqMn2B3FqeoVdA8GVophF1Zwlych/YkkCHgW0/Jg6ipLVMK55U69+
-	MygoRdMxbq5EEEBB2BHXyTvN9YDExS9qB7h4Z7WYOlMtQLaHHP8WIy0HYa/R6QPihktcO9lDKY/
-	F3sVkzeRasg0LV0VXpv/Aoi2EX4nbTwjDz+gYqxCnDsClwB9yjTb144MCKzePWvc34gqlgxjzeK
-	U54mpTKLz+EA3W8sKuAv2fLweHpajC93cnqniXH3k/qIbcEzGhk6EWG8N2yMW2POex0FoJ52knr
-	baT2Ne0fxNa4heCyMcoQ7cmAXIgga9R0Mp5sIrXjHRLMaz2XpK/WryZsbzkTLtClpFtD8UZgQwo
-	+PqVLWYRZ7vS3kYcN8gBNIHKgJEX/el8vJMT7RmnCyExS62aV/t7HI8A7dXs1MKHmzme69+flYY
-	1sT6vxNBmSizmOWVeH+GdRKJEtl5tb2JP+MpkgD5aAlQcLnCkePJVWdaULoX0OVSrCzK3IlQqPD
-	gwuqcD1XUXH4iUo=
-X-Received: by 2002:a05:6830:6411:b0:81f:8a6d:7b52 with SMTP id 46e09a7af769-8631593a1cdmr16409262a34.24.1795540249576;
-        Tue, 24 Nov 2026 09:10:49 -0800 (PST)
-Received: from [127.0.1.1] ([150.117.174.129])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-863168dd6besm11131021a34.11.2026.11.24.09.10.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 09:10:49 -0800 (PST)
-From: Gary Wang <is0124@gmail.com>
-Subject: [PATCH v2 0/5] upboard pinctrl support for device id INTC1055 &
- INTC1057 & INTC105E
-Date: Wed, 25 Nov 2026 01:10:34 +0800
-Message-Id: <20261125-upboard-pinctrl-add-intc1057-intc105e-support-v2-0-c8079f8f569f@gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mQ7IdyS4
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DEBC21F000EC;
+	Tue, 24 Nov 2026 17:10:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795540248;
+	bh=Hoi6ZKqF0rWP2dY8L9fi70WXIdQ16OJirLzXOK8DLeI=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=mQ7IdyS49AENVW+aKfDJc1YLjA04/p8tIxN7YRDMM8ueVAsZNqc2KIWGDZ3TZPGty
+	 gXMLycS92SL17oxb9pNQUQLbr9BYnh+cML/2JQxhWGRdxcCNG34TvnqPHj++AvZRcI
+	 o33kofJHgb0IFg9vyzDiBYV4hAn0XY/Sk18425ehbjJVVj28odQrfwj5Z8yO+gQjhE
+	 KLpLeuZ3Il5hlLlMZ1Kg/+btvjNwhLcNVBzd1kF8lsjFQZ2wOGGFFNyNoK+HoQrcGj
+	 deyGUfLK3i0oz1rS4zwVcXps7U2kHgDwdvxcey8H2XvzU/DYFD7/9y1q9N/5mNwN4R
+	 BsRMnajdG7pUQ==
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Date: Tue, 24 Nov 2026 17:07:59 +0000
+Subject: [PATCH v2 07/11] perf: convert VMA flag tests to use vma_flags_t
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,68 +54,189 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAArFBWsC/5XNQQ6DIBCF4as0rDuNoKLtqvdoXCCMOokKATRtj
- HcvNfEA3c0/i/dtLKAnDOxx2ZjHlQLZOYW4Xpge1NwjkEnNRCYk56KAxbVWeQOOZh39CMoYoDl
- qnpXVeSCExTnrI2BdtUWGPJdlwdKm89jR+/BeTeqBQrT+c/Ar/31PKf9TWjkI6EQuhLpzWUvz7
- CdF403biTX7vn8BM5i6TuoAAAA=
-To: Mika Westerberg <mika.westerberg@linux.intel.com>, 
- Andy Shevchenko <andy@kernel.org>, Linus Walleij <linusw@kernel.org>, 
- Thomas Richard <thomas.richard@bootlin.com>, 
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: Daniele Cleri <danielecleri@aaeon.eu>, 
- JunYingLai <junyinglai@aaeon.com.tw>, Louis Chen <louischen@aaeon.com.tw>, 
- BillyChou <BillyChou@aaeon.com.tw>, linux-gpio@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Gary Wang <is0124@gmail.com>, 
- stable@vger.kernel.org
-X-Mailer: b4 0.13.0
+Message-Id: <20261124-late-2026-vma-flags-v2-7-bf3fade93064@kernel.org>
+References: <20261124-late-2026-vma-flags-v2-0-bf3fade93064@kernel.org>
+In-Reply-To: <20261124-late-2026-vma-flags-v2-0-bf3fade93064@kernel.org>
+To: Andrew Morton <akpm@linux-foundation.org>, 
+ David Hildenbrand <david@kernel.org>, Jason Gunthorpe <jgg@ziepe.ca>, 
+ John Hubbard <jhubbard@nvidia.com>, Peter Xu <peterx@redhat.com>, 
+ "Matthew Wilcox (Oracle)" <willy@infradead.org>, Jan Kara <jack@suse.cz>, 
+ Rik van Riel <riel@surriel.com>, "Liam R. Howlett" <liam@infradead.org>, 
+ Vlastimil Babka <vbabka@kernel.org>, Harry Yoo <harry@kernel.org>, 
+ Jann Horn <jannh@google.com>, Lance Yang <lance.yang@linux.dev>, 
+ Zi Yan <ziy@nvidia.com>, Matthew Brost <matthew.brost@intel.com>, 
+ Joshua Hahn <joshua.hahnjy@gmail.com>, Byungchul Park <byungchul@sk.com>, 
+ Gregory Price <gourry@gourry.net>, 
+ Ying Huang <ying.huang@linux.alibaba.com>, 
+ Alistair Popple <apopple@nvidia.com>, 
+ Baolin Wang <baolin.wang@linux.alibaba.com>, 
+ Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>, 
+ Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>, 
+ Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>, 
+ Xu Xin <xu.xin@linux.dev>, Chengming Zhou <chengming.zhou@linux.dev>, 
+ Madhavan Srinivasan <maddy@linux.ibm.com>, 
+ Nicholas Piggin <npiggin@gmail.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
+ "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>, 
+ Shrikanth Hegde <sshegde@linux.ibm.com>, Pedro Falcato <pfalcato@suse.de>, 
+ Kairui Song <kasong@tencent.com>, Qi Zheng <qi.zheng@linux.dev>, 
+ Shakeel Butt <shakeel.butt@linux.dev>, 
+ Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>, 
+ Wei Xu <weixugc@google.com>, Baoquan He <baoquan.he@linux.dev>, 
+ Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
+ Michal Hocko <mhocko@suse.com>, Leon Romanovsky <leon@kernel.org>, 
+ SJ Park <sj@kernel.org>, Rakie Kim <rakie.kim@sk.com>, 
+ David Rientjes <rientjes@google.com>, 
+ Alexander Viro <viro@zeniv.linux.org.uk>, 
+ Christian Brauner <brauner@kernel.org>, 
+ Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+ Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
+ Adrian Hunter <adrian.hunter@intel.com>, 
+ James Clark <james.clark@linaro.org>, 
+ Masami Hiramatsu <mhiramat@kernel.org>, Oleg Nesterov <oleg@redhat.com>, 
+ John Johansen <john.johansen@canonical.com>, 
+ Georgia Garcia <georgia.garcia@canonical.com>, 
+ Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>, 
+ "Serge E. Hallyn" <serge@hallyn.com>, Mimi Zohar <zohar@linux.ibm.com>, 
+ Roberto Sassu <roberto.sassu@huawei.com>, 
+ Dmitry Kasatkin <dmitry.kasatkin@gmail.com>, 
+ Eric Snowberg <eric.snowberg@oracle.com>, Fan Wu <wufan@kernel.org>, 
+ Stephen Smalley <stephen.smalley.work@gmail.com>, 
+ =?utf-8?q?Ondrej_Mosn=C3=A1=C4=8Dek?= <omosnacek@gmail.com>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
+ linux-fsdevel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+ kvm@vger.kernel.org, damon@lists.linux.dev, 
+ linux-trace-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, 
+ apparmor@lists.ubuntu.com, linux-security-module@vger.kernel.org, 
+ linux-integrity@vger.kernel.org, selinux@vger.kernel.org, 
+ "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4026; i=ljs@kernel.org;
+ h=from:subject:message-id; bh=q20FVgbTncUenAoabJhU/UxTd+TaqPmkjn0LMdXaCOg=;
+ b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLJZj+RF2V0qzp2xM3oL74zmDK+Z+RnTxFOPPFVP9luzJ
+ jDCKeRXRykLgxgXg6yYIsvzL+L7g0TC5nVe8HeDmcPKBDKEgYtTACbiq8zwT+vOYc6+XYVPrHo8
+ OWZ+OPZ28utjqd2p/7Z4WG7T+u1SE8jIcKHchD2gyiI/9KzN/XOBF34rtFxkrHpYcjxYlL2Z392
+ AFQA=
+X-Developer-Key: i=ljs@kernel.org; a=openpgp;
+ fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
 
-Add missing groups and functions in Tigerlake & Alderlake & Meteorlake
-for INTC1055 & INTC1057 & INTC105E.
-Add support "UP Xtreme ARL","UP Xtreme i14","UP Squared Pro 7000",
-"UP Squared i12","UP 7000".
-Fix pinmux-select set CPLD GPIO OUT not function mode for I2C pins
-on the AANT0F04.
+Replace use of the legacy vm_flags_t flags with vma_flags_t values in the
+perf mmap and mmap event logic.
 
-The pinctrl-upboard is provide additional driving power & pin mux function
-through native SOC pins->FPGA/CPLD->hat pins for flexable board level
-applications. it's probe from ACPI device id AANT0F01 & AANT0F04.
+No functional change intended.
 
-To: Mika Westerberg <mika.westerberg@linux.intel.com>
-To: Andy Shevchenko <andy@kernel.org>
-To: Linus Walleij <linusw@kernel.org>
-To: Thomas Richard <thomas.richard@bootlin.com>
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: Daniele Cleri <danielecleri@aaeon.eu>
-Cc: JunYingLai <junyinglai@aaeon.com.tw>
-Cc: Louis Chen <louischen@aaeon.com.tw>
-Cc: BillyChou <BillyChou@aaeon.com.tw>
-Cc: linux-gpio@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-Signed-off-by: Gary Wang <is0124@gmail.com>
-
-Changes in v2:
-- Add missing SoB.
-- Fix CPLD I2C pinmux-select by good method and update commit message.
-- Link to v1: https://lore.kernel.org/r/20261123-upboard-pinctrl-add-intc1057-intc105e-support-v1-2-f2322a91686d@gmail.com
-
+Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+Reviewed-by: Lance Yang <lance.yang@linux.dev>
 ---
-Gary Wang (5):
-      pinctrl: tigerlake: add ish_uart groups and functions for INTC1055
-      pinctrl: alderlake: add some groups and functions for INTC1057
-      pinctrl: meteorlake: add some groups and functions for INTC105E
-      pinctrl: upboard: fix I2C pinmux-select set CPLD GPIO OUT not function mode
-      pinctrl: upboard: add device id INTC1055 & INTC1057 & INTC105E based UP boards support
+ kernel/events/core.c | 26 ++++++++++++++------------
+ 1 file changed, 14 insertions(+), 12 deletions(-)
 
- drivers/pinctrl/intel/pinctrl-alderlake.c  |  40 +++++++++++
- drivers/pinctrl/intel/pinctrl-meteorlake.c |  32 +++++++++
- drivers/pinctrl/intel/pinctrl-tigerlake.c  |   4 ++
- drivers/pinctrl/pinctrl-upboard.c          | 108 ++++++++++++++++++++++++++---
- 4 files changed, 176 insertions(+), 8 deletions(-)
----
-base-commit: 7475ea8b58616b33c04afb976cf0fbaad9dd63fb
-change-id: 20261124-upboard-pinctrl-add-intc1057-intc105e-support-e87b40e13654
+diff --git a/kernel/events/core.c b/kernel/events/core.c
+index e870f12c3ad8..219b7af9a632 100644
+--- a/kernel/events/core.c
++++ b/kernel/events/core.c
+@@ -7234,6 +7234,7 @@ static int map_range(struct perf_buffer *rb, struct vm_area_struct *vma)
+ 		unsigned long va = vma->vm_start + PAGE_SIZE * pagenum;
+ 		struct page *page = perf_mmap_to_page(rb,
+ 				vma_start_pgoff(vma) + pagenum);
++		vma_flags_t vma_flags = vma->flags;
+ 
+ 		if (page == NULL) {
+ 			err = -EINVAL;
+@@ -7241,8 +7242,9 @@ static int map_range(struct perf_buffer *rb, struct vm_area_struct *vma)
+ 		}
+ 
+ 		/* Map readonly, perf_mmap_pfn_mkwrite() called on write fault. */
++		vma_flags_clear(&vma_flags, VMA_SHARED_BIT);
+ 		err = remap_pfn_range(vma, va, page_to_pfn(page), PAGE_SIZE,
+-				      vm_get_page_prot(vma->vm_flags & ~VM_SHARED));
++				      vma_flags_to_page_prot(vma_flags));
+ 		if (err)
+ 			break;
+ 	}
+@@ -7360,7 +7362,7 @@ static int perf_mmap_rb(struct vm_area_struct *vma, struct perf_event *event,
+ 	if (!perf_mmap_calc_limits(vma, &user_extra, &extra))
+ 		return -EPERM;
+ 
+-	if (vma->vm_flags & VM_WRITE)
++	if (vma_test(vma, VMA_WRITE_BIT))
+ 		rb_flags |= RING_BUFFER_WRITABLE;
+ 
+ 	rb = rb_alloc(nr_pages,
+@@ -7441,7 +7443,7 @@ static int perf_mmap_aux(struct vm_area_struct *vma, struct perf_event *event,
+ 
+ 		WARN_ON(!rb && event->rb);
+ 
+-		if (vma->vm_flags & VM_WRITE)
++		if (vma_test(vma, VMA_WRITE_BIT))
+ 			rb_flags |= RING_BUFFER_WRITABLE;
+ 
+ 		ret = rb_alloc_aux(rb, event, pgoff_start, nr_pages,
+@@ -7476,7 +7478,7 @@ static int perf_mmap(struct file *file, struct vm_area_struct *vma)
+ 	if (event->cpu == -1 && event->attr.inherit)
+ 		return -EINVAL;
+ 
+-	if (!(vma->vm_flags & VM_SHARED))
++	if (!vma_test(vma, VMA_SHARED_BIT))
+ 		return -EINVAL;
+ 
+ 	ret = security_perf_event_read(event);
+@@ -9848,7 +9850,7 @@ static int perf_event_mmap_match(struct perf_event *event,
+ {
+ 	struct perf_mmap_event *mmap_event = data;
+ 	struct vm_area_struct *vma = mmap_event->vma;
+-	int executable = vma->vm_flags & VM_EXEC;
++	bool executable = vma_test(vma, VMA_EXEC_BIT);
+ 
+ 	return (!executable && event->attr.mmap_data) ||
+ 	       (executable && (event->attr.mmap || event->attr.mmap2));
+@@ -9881,7 +9883,7 @@ static void perf_event_mmap_output(struct perf_event *event,
+ 		if (use_build_id)
+ 			misc |= PERF_RECORD_MISC_MMAP_BUILD_ID;
+ 	}
+-	if (!(mmap_event->vma->vm_flags & VM_EXEC))
++	if (!vma_test(mmap_event->vma, VMA_EXEC_BIT))
+ 		misc |= PERF_RECORD_MISC_MMAP_DATA;
+ 
+ 	perf_event_header__init(&mmap_event->event_id.header, &sample,
+@@ -9932,19 +9934,19 @@ static void perf_event_mmap_event(struct perf_mmap_event *mmap_event)
+ 	char *buf = NULL;
+ 	char *name = NULL;
+ 
+-	if (vma->vm_flags & VM_READ)
++	if (vma_test(vma, VMA_READ_BIT))
+ 		prot |= PROT_READ;
+-	if (vma->vm_flags & VM_WRITE)
++	if (vma_test(vma, VMA_WRITE_BIT))
+ 		prot |= PROT_WRITE;
+-	if (vma->vm_flags & VM_EXEC)
++	if (vma_test(vma, VMA_EXEC_BIT))
+ 		prot |= PROT_EXEC;
+ 
+-	if (vma->vm_flags & VM_MAYSHARE)
++	if (vma_test(vma, VMA_MAYSHARE_BIT))
+ 		flags = MAP_SHARED;
+ 	else
+ 		flags = MAP_PRIVATE;
+ 
+-	if (vma->vm_flags & VM_LOCKED)
++	if (vma_test(vma, VMA_LOCKED_BIT))
+ 		flags |= MAP_LOCKED;
+ 	if (vma_is_hugetlb(vma))
+ 		flags |= MAP_HUGETLB;
+@@ -10110,7 +10112,7 @@ static void perf_addr_filters_adjust(struct vm_area_struct *vma)
+ 	 * Data tracing isn't supported yet and as such there is no need
+ 	 * to keep track of anything that isn't related to executable code:
+ 	 */
+-	if (!(vma->vm_flags & VM_EXEC))
++	if (!vma_test(vma, VMA_EXEC_BIT))
+ 		return;
+ 
+ 	rcu_read_lock();
 
-Best regards,
 -- 
-Gary Wang <is0124@gmail.com>
+2.56.1
 
