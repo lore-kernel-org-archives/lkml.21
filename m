@@ -1,66 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.133
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=124.126.103.232
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795497885;
-	b=IETNHgFncT50sg+U4TJc0ZiaAvjITqg4DNkaqVREvZoJvJY1pBUtMOGORNan9UJ9dy0w
-	 p787ZCvE7zVDHfWgst3ZXdf1vE2XXLW2ATlWSQA8PJuRPrtEa9aa0LGw5SWUjsoJUIU3M
-	 WKdViFiwd4Ry/UYJ93p+WRR+dflbsFm17gey+gH/5LjArdUibfWHL+E9MJ51EhX6vhvNH
-	 oFi/S/H5L8JcX2P857Y2YLJnZojMKmN5yfKpfK/mClfIWE29OKsFRxS23VzJY4sxSkYkA
-	 K45Nklf+e+ILjzJ/fOZVU8SOLW0RGd2wdvNzrmfnpTnCGWxsB6eXwjpeIzgh2yyOOyw==
+	t=1795497939;
+	b=PXwGuVo7qKJr16hBsc41PU9MSgYeoZ9St+2Sb7IyycobRNsQDZxEcSGaapUIM0cXPLFg
+	 Q2CeasGR0VtbiNflEUXdVlJwkWPaNDZgP3zyZBKevDKUBUVaGPYjX4EqmIUBdmH7PfsOf
+	 TrYZAVk4/TeH4cmg9aoewp0fMShVQ7CbDPcJaFBqwMgCxYf3hr2kJRhwJEqLyGDQwlxvG
+	 HaNBzWhOXVLDehbQoFphJOaKeIjkBLh/rrU15Vv8vaTcEbaPjqXSvR0tQ9FW5orGu9r7d
+	 bbEZo/jByN09l/UV5LT5ccruga+c9wVN+XfymU3Vcz/repvPwYwoQRq/bUiKwLJetYg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795497885;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=EUbnCTk25H/cREetncbitvhF60S/wmbBZLPLU9DM/r4=;
-	b=O2XFyy97wJPGHt3MsPPyhEUsmTvD5W5o4s89EX8W4kxcgTvv+aC0znXuzMwPzLWZO1DY
-	 A57azSMxFbfVG0zBMCGvMUj81cA4V7qjsYOrWorULRs6WO9yUoJFE/oGl9PC8KfYTEnU4
-	 +W0jnRnozYMEvFpIYWf1yHtSevHIW9S30I8bVZZFyO0w4sSnJ28bFUoxPb7LwDR3/XV9E
-	 g7dyL6eWqDIAnQgNGh5hCnZdsjXN79/e+EZHJZXK/4+/rW8i9skQFuWx3YDGBSzub2vXO
-	 /FgIimkkNTq3rFtEDqJm3P4eW0TLsOHhbJLMyc8MhqEyK89i3Gnef3XEKIz1CDaTsdQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795497939;
+	h=DMARC-Filter:X-UUID:X-CTIC-Tags:X-CID-P-RULE:X-CID-O-INFO:X-CID-INFO:
+	 X-CID-META:X-CID-BVR:X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:X-User:
+	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
+	 References:MIME-Version:Content-Transfer-Encoding;
+	bh=gt7qPrM9qdKVWUQeM+5YYRxWTA6OuBqueaSihtYdXpM=;
+	b=bClzzMeNDwQWtDIt2x83Foka4GVQjKla6I3oAWtJS7HmkXus4R82thkTaRdJz1duDyz8
+	 YY0Lurt4ycL7wywZkecbXzsBaSuvkMmeb4kQCnrzgpepz8Xbn6+ZrAdwpEf+XQO+0+vrF
+	 Kn9OuHvFfK5N4y+eaZ131TtKpIP23qLEIxdWeisnM9GwX8zli0J6MQDDecugReD5TxWau
+	 eGmGUHlp+mn0bfQ0M5VcpjeUGrSifsfkmKS+Jc8NHffemZIprdJLBlNCdynkSz7JdDHmD
+	 erRdZGireNAraOSO3KQ9rMD8lH4Z6XHBV4H1mfjqX2N8bIOtASKJRMih7h4WNqUg4Yw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=IS0dH4Fe;
-	arc=none smtp.remote-ip=95.215.58.133
-Received: from mta1.migadu.com (out-133.mta1.migadu.com [95.215.58.133])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=none header.from=kylinos.cn;
+	spf=pass smtp.mailfrom=kylinos.cn;
+	arc=none smtp.remote-ip=124.126.103.232
+Received: from mailgw.kylinos.cn (mailgw.kylinos.cn [124.126.103.232])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A5F5E606A326
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 05:24:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A5F5E606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=IS0dH4Fe
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=g2dnbFx4/3WtLU6XELgiDkbskvVUDKsGs2lr4KoV968=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795497882; v=1; x=1796102682;
- b=IS0dH4FedNpDBmQ8dYuxofkWbRzbn7d7qcFSg1O40Vp+YlvwAAA9HJRPxp4PwqC3ksPz/YpR
- S179VFCkr5/OjQNV0mekkonJDVxbpj0Lj6Z4GeRyqiS1MUJK3fpJ1rPL+Wl/9rtYCUbMdac8DZ+
- Ngg8I33O5wJbYRWd+F32dcig=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 4bed5c34e88d1cd2;
-	Tue, 24 Nov 2026 05:24:42 +0000
-X-Mizu-Trace-ID: 4bed5c34e88d1cd2
-X-Migadu-Flow: FLOW_OUT
-Date: Mon, 23 Nov 2026 21:24:37 -0800
-From: Shakeel Butt <shakeel.butt@linux.dev>
-To: Muchun Song <muchun.song@linux.dev>
-Cc: Andrew Morton <akpm@linux-foundation.org>, Tejun Heo <tj@kernel.org>, 
-	Johannes Weiner <hannes@cmpxchg.org>, Michal Koutny <mkoutny@suse.com>, 
-	Michal Hocko <mhocko@kernel.org>, Roman Gushchin <roman.gushchin@linux.dev>, 
-	Meta kernel team <kernel-team@meta.com>, cgroups@vger.kernel.org, linux-mm@kvack.org, 
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH] memcg: free the private ID of a memcg that never comes
- online
-Message-ID: <20261124052054.GC555944@shakeel.butt@linux.dev>
-References: <20261124000439.967403-1-shakeel.butt@linux.dev>
- <F39B4A81-BB17-4C5D-851E-2740EBBBBA8B@linux.dev>
- <awUTKy9tx8nWJgXf@linux.dev>
- <2FE2D209-FB57-4191-A324-F179B2394DB1@linux.dev>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9B5B3606A326;
+	Tue, 24 Nov 2026 05:25:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9B5B3606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kylinos.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kylinos.cn
+X-UUID: 7534ae96e7c711f19a56ed5b684f684d-20261124
+X-CTIC-Tags:
+	HR_CC_COUNT, HR_CC_DOMAIN_COUNT, HR_CC_NAME, HR_CC_NO_NAME, HR_CTE_8B
+	HR_CTT_MISS, HR_DATE_H, HR_DATE_WKD, HR_DATE_ZONE, HR_FROM_NAME
+	HR_SJ_DIGIT_LEN, HR_SJ_LANG, HR_SJ_LEN, HR_SJ_LETTER, HR_SJ_NOR_SYM
+	HR_SJ_PHRASE, HR_SJ_PHRASE_LEN, HR_SJ_PRE_RE, HR_SJ_WS, HR_TO_COUNT
+	HR_TO_DOMAIN_COUNT, HR_TO_NAME, SA_EXISTED, SN_EXISTED, SPF_NOPASS
+	DKIM_NOPASS, DMARC_NOPASS, CIE_BAD, CIE_GOOD, CIE_GOOD_SPF
+	GTI_FG_BS, GTI_RG_INFO, GTI_C_BU, AMN_GOOD, ABX_MISS_RDNS
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.19,REQID:2ac807dd-1c9a-4e57-9293-8dfcc65ffee5,IP:10,
+	URL:0,TC:0,Content:7,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:17
+X-CID-INFO: VERSION:1.3.19,REQID:2ac807dd-1c9a-4e57-9293-8dfcc65ffee5,IP:10,UR
+	L:0,TC:0,Content:7,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:17
+X-CID-META: VersionHash:7db8b62,CLOUDID:6525c901083e2b5399c99180e13d4bee,BulkI
+	D:261124052649EMM1JUQD,BulkQuantity:1,SF:17|19|64|66|78|80|81|82|83|102|12
+	7|136|153|841|850|865|898|915,TC:nil,Content:4|15|50|99,EDM:-3|-100,IP:-2,
+	URL:0,File:nil,RT:nil,Bulk:40,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,
+	SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_FAS,TF_CID_SPAM_FSD
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 7534ae96e7c711f19a56ed5b684f684d-20261124
+X-User: maguicai@kylinos.cn
+Received: from localhost.localdomain [(36.106.123.207)] by mailgw.kylinos.cn
+	(envelope-from <maguicai@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 917687200; Tue, 24 Nov 2026 13:25:27 +0800
+From: Guicai Ma <maguicai@kylinos.cn>
+To: Jarkko Sakkinen <jarkko@kernel.org>
+Cc: keyrings@vger.kernel.org,
+	linux-security-module@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	David Howells <dhowells@redhat.com>,
+	James Morris <jmorris@namei.org>,
+	Paul Moore <paul@paul-moore.com>,
+	"Serge E . Hallyn" <serge@hallyn.com>,
+	Guicai Ma <maguicai@kylinos.cn>
+Subject: Re: [PATCH 2/2] KEYS: Fix asym key overflow in keyctl_pkey_verify()
+Date: Tue, 24 Nov 2026 00:25:23 -0500
+Message-ID: <20261124052524.939642-1-maguicai@kylinos.cn>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261123211959.4102708-3-jarkko@kernel.org>
+References: <20261123211959.4102708-3-jarkko@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -70,58 +87,30 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <2FE2D209-FB57-4191-A324-F179B2394DB1@linux.dev>
+Content-Transfer-Encoding: 8bit
 
-On Tue, Nov 24, 2026 at 12:52:41PM +0800, Muchun Song wrote:
+On Mon, Nov 23, 2026 at 11:19:59PM +0200, Jarkko Sakkinen wrote:
+> While verifying a variable-length signature shorter than info.max_sig_size,
+> memdup_user() reads past the end of the caller's _in2 and passes trailing
+> bytes to ->asym_verify_signature().
 > 
-> 
-> > On Nov 24, 2026, at 12:33, Shakeel Butt <shakeel.butt@linux.dev> wrote:
-> > 
-> > On Tue, Nov 24, 2026 at 10:50:00AM +0800, Muchun Song wrote:
-> >> 
-> >> 
-> >>> On Nov 24, 2026, at 08:04, Shakeel Butt <shakeel.butt@linux.dev> wrote:
-> >>> 
-> > [...]
-> >> 
-> >> The leak analysis and the fix look correct to me. However, using
-> >> CSS_RELEASED here makes the private ID cleanup depend on a generic CSS
-> >> teardown state, and adds an accessor solely for this failure path.
-> >> 
-> >> The private ID is not needed until mem_cgroup_css_online(), so could we
-> >> instead reserve it at the beginning of that callback? Failures in
-> >> css_create() before ->css_online() would then never own a private ID,
-> >> while failures after the reservation would continue to use the existing
-> >> mem_cgroup_private_id_remove() cleanup.
-> >> 
-> >> This would also make the private ID lifecycle more explicit: reserve and
-> >> publish it during online, then drop the initial reference during offline.
-> >> It would avoid both the new css_is_released() helper and special handling
-> >> in mem_cgroup_css_free().
-> > 
-> > Thanks Muchun. Nothing needs the private ID before ->css_online(), so
-> > reserving it there would work. But it moves the out-of-IDs failure from
-> > ->css_alloc() to ->css_online(). By then css_create() has linked the
-> > css into the parent's children list and css_idr, so mem_cgroup_iter()
-> > can css_tryget() it and cache it in iter->position. A css that fails
-> > online is freed without ->css_released(), so
-> > invalidate_reclaim_iterators() never runs, and the free does not wait
-> > for those references. Today memcg's ->css_online() fails only when a
-> > small allocation fails. With the move, every mkdir on a system that is
-> > out of IDs would take that path. I would rather keep failing in
-> > ->css_alloc(), before anything is visible.
-> > 
-> > To drop the CSS_RELEASED dependency, I can test the ID's own state:
-> > !memcg->private_id_objcg means the ID was never published and the memcg
-> > still owns the reservation. Let me know if that works for you.
-> 
-> You're right. I missed that the css is visible to mem_cgroup_iter()
-> before ->css_online() completes. Using private_id_objcg to track whether
-> the reservation was published makes sense to me. Thanks Shakeel!
-> 
+> Set params->in2_len to uparams.in2_len in the KEYCTL_PKEY_VERIFY case.
+[...]
+> @@ -176,7 +176,7 @@ static int keyctl_pkey_params_get_2(const struct keyctl_pkey_params __user *_par
+>  			goto out_up_key_sem;
+>  		}
+>  
+> -		params->out_len = info.max_sig_size;
+> +		params->in2_len = uparams.in2_len;
+>  		break;
+>  	default:
+>  		ret = -EOPNOTSUPP;
 
-Oh I just noticed that private_id_objcg is introduced in 7.4, so to
-backport the fix to previous stable kernels, we will still need to use
-CSS_RELEASED or something else there.
+Tested this series with an RSA-2048 key (enc=pkcs1 hash=sha256) on
+arm64. A truncated signature with the remaining bytes still present in
+userspace memory and a short signature placed right before an unmapped
+page now both fail with -EINVAL, and normal signature verification
+still passes.
+
+Reviewed-by: Guicai Ma <maguicai@kylinos.cn>
+Tested-by: Guicai Ma <maguicai@kylinos.cn>
