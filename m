@@ -1,61 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.164
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795512844;
-	b=deLV5qXflpT8Ob0I+cRe5EBSox1JVlq5MITM958svMgOFwXeOUE414JmaXLM2zfpLFHw
-	 w+LJ1eNa5BkTrWxM/d1idpm8pS5DT2eWThPycguFxWjaeAjVUQn7N7Mj0tWGUAAcILcDo
-	 Y0mh9RpS3MG7bvz8tEQIrQunoetSwDGzQ+knZx8dT1s494JQS14XYEW9wqychgRgbeyBK
-	 ZOTdYLFUuITn/63mZJC4WlOEMlMa6SHSU4QcF77mZF6GziM9DmwA+Zflogr4HqjYd219S
-	 5Wbvm61aeYKKJjV3JZumHBI+R+GeSx6yK6xhmTnD6f1eUabnl1MwitrKGT1cOH1qjHw==
+	t=1795512842;
+	b=mV0vfBpdlkpnoLcNUKWEhkBseCo8p3kQrwH5K05oyH8tFcdrqoKqPz2K4QJuFI2Cq525
+	 4I6SImYlxNmOO5Qn2YlP3RLq6Q626C6UMafAYvbJcTW1ltrY4buTpnLsxWMoMLbYdJ9Gv
+	 nocnR2Bb7U+LrgYrjy6DENB/xhzQ8//zYC8pQsdfllhWJxBXmLqlkoUY1oldPH+sJ/MYR
+	 nBhMlCYzMbVtSt0fVOSipOnhYn2ML21SOjcfWPN43LcGz/k4qyCikGSNZZZYzktY6fESV
+	 v8UsPRMRVBZ2CsZRVaSDZ7WXncjIy5KMpyMb5yJ47kc61Z2o6H1MGEzjgkPoK6z8sXA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795512844;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=JmZNKyGNzoJnbzxEBlYVfscQifvkDBMRaWGqmZLCDec=;
-	b=Yv6ukjNzX+JDmgErLBQxpm3Csasna58nDy8kWl7tJ5msaprkf37iMLJmGqqBbA/W+njo
-	 AF0wnQZPyeHCKvf5LV5zjYUlbHnyx3Vqf4QvKRrc4/0raA31pY/BjbzwSY59MJwdg7ziU
-	 ++/Hv4aFxuauyX68u0vmEU9qCSEggHjtAuq6DRIRC9xbGAkmKKLhChpshmaVJro3SArI/
-	 jUfm7js7mdep0D9CRie9TnmQKTPgsuYYwDeaNfAWCINaRzodcIq6miJ4ooRKoGM9p4+Fy
-	 SRnSAJuk07u5lEN5TGICEUEYuShi4Z6Tu4IuWsFWk2B5CaeaD3qK3UwvdaETRfNMvDw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795512842;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=xnHM6QCSfz4haO8qh+eGQ5MTOzq7qkQC9H2pOHh/vPs=;
+	b=ohOnjRUh78jfmsi0yIsTyHOaOT+o2RuJNtuNCwKtxZ3faLbgcYo0LO/oSQg/ND7kNlbX
+	 hKra7deLtxNPZ9zh1tVAeDj8ne9GisW3DBW5ByFXKBotjWpLg6LyaOSTThfMmoSDzRNYE
+	 j+UfBkycLtChkjU2hgrWR52uPkR8Yp6lYrWuZvovJgU8p7ZiZ95YBh4BVFlKWYnhtKvbQ
+	 9mvia4Y02kFuB0MqUP5lHlzqP8A380PS+xhYM9zKR2MyYlqIvLEScUpFP1nZOm5eBksSh
+	 rGYr0+2iqPKSIGL90AKq4YV4Ox1IZXPDhMjuiwuCkji9429G8PydQFCJC/zHjTEExEQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AqZxKgDg;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=NOloo2kW;
+	arc=none smtp.remote-ip=91.218.175.164
+Received: from mta0.migadu.com (out-164.mta0.migadu.com [91.218.175.164])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 53BF2606A68E;
-	Tue, 24 Nov 2026 09:34:04 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 83095606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:34:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 83095606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AqZxKgDg
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9DDA31F000E6;
-	Tue, 24 Nov 2026 09:34:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795512843;
-	bh=JmZNKyGNzoJnbzxEBlYVfscQifvkDBMRaWGqmZLCDec=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=AqZxKgDgJNdsFBu4VJkX+2UmaSNWbhKaQpYn8aM9KrMOqmiF3X7E+XlFta/RpUXs5
-	 J89yL9ORqBl2lZjYigehLi/3Ifj823RSDcd5FeGTBL67SKheEdD8QXtdqC05Psb7Pa
-	 GhWeTMKyhWrrdX9cwjizzhNv/R3g1uwEyfMMzpPtppFXjBhlPXd5lBlY/62QK5poJ4
-	 pk3efWed2JcTsMExdjBc8UQ/3g6kfGcqTwD2ohBDVhG3ep3qWV4aJMF0FpXxxhNfsG
-	 SUoJITkbrkuwI1tCRbrcga83Clv5jmMWyWATXBMOkCm0ewXiCauxuKCocZzPAHV3C8
-	 3E60pkTgK/haA==
-Subject: Re: [PATCH net v2 2/2] net: ibm: emac: read the fixed-link status
- before adjusting the link
-From: netdev-bot+sashiko@kernel.org
-To: xiaolinkui@126.com
-Cc: andrew@lunn.ch, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, rosenp@gmail.com,
- jacob.e.keller@intel.com, daniel.machon@microchip.com, chunkeey@gmail.com,
- kees+treewide@kernel.org, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, xiaolinkui@kylinos.cn
-Date: Tue, 24 Nov 2026 09:34:02 +0000
-Message-ID: <179551284212.3135.10573123366533276098@kernel.org>
-In-Reply-To: <20261123093201.770552-3-xiaolinkui@126.com>
-References: <20261123093201.770552-3-xiaolinkui@126.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=NOloo2kW
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=GYbL3+eOGyznpi+w5XQwf2OJd3SoN6YCyYiWbmrjVzE=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795512838; v=1; x=1796117638;
+ b=NOloo2kWnlG5LoWIxCLgiwDCTtmRE2Pv8tGIj/d2rdCb32NHPpq1V9DmsYEO9oi4JxwXvL4p
+ +nyu2N40/WpDjXLEFQBZf2FKKm3tU7TG+UXSFOAZ+PwkufyMUcwE7ZI81UV2cOHEiwS1UYn9nMU
+ 40VaX/2pJq5tqI2gEcT6JRVA=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 8c63c8a366e7c598;
+	Tue, 24 Nov 2026 09:33:58 +0000
+X-Mizu-Trace-ID: 8c63c8a366e7c598
+X-Migadu-Flow: FLOW_OUT
+From: Tao Cui <cui.tao@linux.dev>
+To: Jens Axboe <axboe@kernel.dk>,
+	Bart Van Assche <bvanassche@acm.org>
+Cc: Keith Busch <kbusch@kernel.org>,
+	Jan Kara <jack@suse.cz>,
+	Ming Lei <tom.leiming@gmail.com>,
+	Damien Le Moal <dlemoal@kernel.org>,
+	Hannes Reinecke <hare@kernel.org>,
+	Zhao Gongyi <zhaogongyi@bytedance.com>,
+	stable@vger.kernel.org,
+	linux-block@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	cuitao@kylinos.cn,
+	cui.tao@linux.dev
+Subject: [PATCH] loop: fix stale dma_alignment when direct I/O is silently dropped
+Date: Tue, 24 Nov 2026 17:33:42 +0800
+Message-ID: <20261124093342.838490-1-cui.tao@linux.dev>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,117 +73,134 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+From: Tao Cui <cuitao@kylinos.cn>
 
-Critical: 0 · High: 1 · Medium: 0 · Low: 0
+LOOP_SET_BLOCK_SIZE and LOOP_CONFIGURE can silently drop
+LO_FLAGS_DIRECT_IO when the new block size is smaller than the backing
+device's DIO alignment or the offset is unaligned.  The drop happens in
+loop_update_dio(), which runs after queue_limits_commit_update(), so the
+committed limits keep the dma_alignment computed from the pre-drop flag
+state, i.e. the backing file's alignment.  With an f2fs backing file,
+setting the block size to 512 then leaves every O_DIRECT request
+requiring 4K-aligned buffers.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+loop_set_status() has the same window in a different shape: an offset
+change can drop the flag but nothing recomputes the queue limits.
 
-- [High] The fix does not cover 10 Mbit/s full-duplex fixed links.
+Judge direct I/O usability against the block size the limits are being
+computed for rather than the committed one, and let loop_set_dma_limit()
+fall back to SECTOR_SIZE - 1 when the flag is about to be dropped, which
+is the order loop_set_dio() already uses.  Recompute the DMA alignment
+after the flag flip in loop_set_status().
 
---
+Fixes: 6c8dec275ccc35e8f ("loop: set dma_alignment from the backing file for direct I/O")
+Cc: stable@vger.kernel.org
+Signed-off-by: Tao Cui <cuitao@kylinos.cn>
+---
+ drivers/block/loop.c | 31 +++++++++++++++++++++++--------
+ 1 file changed, 23 insertions(+), 8 deletions(-)
 
-net: ibm: emac: read the fixed-link status before adjusting the link
-
-For a fixed link, emac_init_phy() never starts the PHY state machine, so
-after d99b408ed8e5 emac_adjust_link() copied SPEED_UNKNOWN/DUPLEX_UNKNOWN
-into dev->phy. This patch calls phy_read_status() once after
-of_phy_connect(), so the emulated swphy registers fill in speed, duplex
-and pause. It also disconnects the PHY if the read fails.
-
-> diff --git a/drivers/net/ethernet/ibm/emac/core.c b/drivers/net/ethernet/ibm/emac/core.c
-> index ba02cf878a124..8b9ffbcd2ff42 100644
-> --- a/drivers/net/ethernet/ibm/emac/core.c
-> +++ b/drivers/net/ethernet/ibm/emac/core.c
-> @@ -2677,9 +2677,16 @@ static int emac_init_phy(struct emac_instance *dev)
->  				return res;
->  
->  			if (!of_phy_connect(ndev, np, &emac_adjust_link, 0,
-> -					    dev->phy_mode)) {
-> +					    dev->phy_mode))
-> +				res = -EINVAL;
-> +			else
-> +				res = phy_read_status(ndev->phydev);
-
-[Severity: High]
-Does this resolve a 10 Mbit/s full duplex fixed link? The commit message
-says:
-
-  The PHY is emulated, so genphy_read_status() resolves speed, duplex
-  and pause from the registers swphy generates out of the device tree
-  status.
-
-For 10 Mbit the swphy tables in drivers/net/phy/swphy.c never set the
-10 Mbit BMSR ability bits. Only the LPA register gets them:
-
-static const struct swmii_regs speed[] = {
-	[SWMII_SPEED_10] = {
-		.lpa   = LPA_10FULL | LPA_10HALF,
-	},
-	...
-
-static const struct swmii_regs duplex[] = {
-	[SWMII_DUPLEX_HALF] = {
-		.bmsr  = BMSR_ESTATEN | BMSR_100HALF,
-	...
-	[SWMII_DUPLEX_FULL] = {
-		.bmsr  = BMSR_ESTATEN | BMSR_100FULL,
-	...
-
-genphy_read_abilities() builds phydev->supported from BMSR only, so no
-10baseT mode ends up in supported or advertising. Then, in
-phy_read_status()->genphy_read_status():
-
-  genphy_read_lpa()
-    lp_advertising gets 10baseT_Full plus the pause bits
-  phy_resolve_aneg_linkmode()
-    lp_advertising & advertising has no speed mode, so
-    phy_caps_lookup_by_linkmode() returns NULL and speed/duplex
-    stay SPEED_UNKNOWN/DUPLEX_UNKNOWN
-  phy_resolve_aneg_pause()
-    only runs for DUPLEX_FULL, so pause stays 0
-
-phy_read_status() still returns 0, so the error path is skipped, and
-emac_adjust_link() copies DUPLEX_UNKNOWN and pause = 0 into dev->phy.
-
-emac_configure() only sets full duplex and flow control when duplex is
-DUPLEX_FULL:
-
-	else if (dev->phy.duplex == DUPLEX_FULL)
-		mr1 |= EMAC_MR1_FDE | EMAC_MR1_MWSW_001;
-	...
-	if (!emac_has_feature(dev, EMAC_FTR_NO_FLOW_CONTROL_40x) &&
-	    dev->phy.duplex == DUPLEX_FULL) {
-		if (dev->phy.pause)
-			mr1 |= EMAC_MR1_EIFC | EMAC_MR1_APP;
-
-So for a fixed-link node with speed 10 and full-duplex, wouldn't the MAC
-still be programmed half duplex with flow control off? That is the
-symptom the commit message describes, and it worked before d99b408ed8e5.
-100 and 1000 Mbit links resolve correctly. 10 Mbit half duplex only comes
-out right because the unknown values fall back to 10/half.
-
-Could swphy report the 10 Mbit abilities in BMSR? Alternatively, could
-the PHY-less path take speed, duplex and pause directly from the
-fixed-link status, or at least check that phydev->speed and
-phydev->duplex were resolved before using them?
-
-> +
-> +			if (res) {
-> +				if (ndev->phydev)
-> +					phy_disconnect(ndev->phydev);
->  				of_phy_deregister_fixed_link(np);
-> -				return -EINVAL;
-> +				return res;
->  			}
->  
->  			emac_adjust_link(ndev);
-
+diff --git a/drivers/block/loop.c b/drivers/block/loop.c
+index 194f51d9dab6..4798c4d47a0e 100644
+--- a/drivers/block/loop.c
++++ b/drivers/block/loop.c
+@@ -179,11 +179,11 @@ static loff_t lo_calculate_size(struct loop_device *lo, struct file *file)
+  * of backing device, and the logical block size of loop is bigger than that of
+  * the backing device.
+  */
+-static bool lo_can_use_dio(struct loop_device *lo)
++static bool lo_can_use_dio(struct loop_device *lo, unsigned int bsize)
+ {
+ 	if (!(lo->lo_backing_file->f_mode & FMODE_CAN_ODIRECT))
+ 		return false;
+-	if (queue_logical_block_size(lo->lo_queue) < lo->lo_min_dio_size)
++	if (bsize < lo->lo_min_dio_size)
+ 		return false;
+ 	if (lo->lo_offset & (lo->lo_min_dio_size - 1))
+ 		return false;
+@@ -204,7 +204,8 @@ static inline void loop_update_dio(struct loop_device *lo)
+ 	WARN_ON_ONCE(lo->lo_state == Lo_bound &&
+ 		     lo->lo_queue->mq_freeze_depth == 0);
+ 
+-	if ((lo->lo_flags & LO_FLAGS_DIRECT_IO) && !lo_can_use_dio(lo))
++	if ((lo->lo_flags & LO_FLAGS_DIRECT_IO) &&
++	    !lo_can_use_dio(lo, queue_logical_block_size(lo->lo_queue)))
+ 		lo->lo_flags &= ~LO_FLAGS_DIRECT_IO;
+ }
+ 
+@@ -840,13 +841,17 @@ static unsigned int loop_default_blocksize(struct loop_device *lo)
+ 	return SECTOR_SIZE;
+ }
+ 
+-static void loop_set_dma_limit(struct loop_device *lo, struct queue_limits *lim)
++static void loop_set_dma_limit(struct loop_device *lo, struct queue_limits *lim,
++		unsigned int bsize)
+ {
+ 	/*
+ 	 * Direct I/O forwards the user pages to the backing file unchanged, so
+ 	 * track the backing's DMA alignment requirement as the mode is toggled.
++	 * Judge usability against @bsize rather than the committed block size,
++	 * so limits computed for a pending change match the flag state that
++	 * loop_update_dio() settles on right after the commit.
+ 	 */
+-	if (lo->lo_flags & LO_FLAGS_DIRECT_IO)
++	if ((lo->lo_flags & LO_FLAGS_DIRECT_IO) && lo_can_use_dio(lo, bsize))
+ 		lim->dma_alignment = max_t(unsigned int, lo->lo_dio_mem_align,
+ 					   SECTOR_SIZE - 1);
+ 	else
+@@ -874,7 +879,7 @@ static void loop_update_limits(struct loop_device *lo, struct queue_limits *lim,
+ 	lim->logical_block_size = bsize;
+ 	lim->physical_block_size = bsize;
+ 	lim->io_min = bsize;
+-	loop_set_dma_limit(lo, lim);
++	loop_set_dma_limit(lo, lim, bsize);
+ 	lim->features &= ~(BLK_FEAT_WRITE_CACHE | BLK_FEAT_ROTATIONAL);
+ 	if (file->f_op->fsync && !(lo->lo_flags & LO_FLAGS_READ_ONLY))
+ 		lim->features |= BLK_FEAT_WRITE_CACHE;
+@@ -1134,6 +1139,7 @@ loop_set_status(struct loop_device *lo, blk_mode_t mode,
+ 		struct block_device *bdev, const struct loop_info64 *info)
+ {
+ 	struct block_device *claim_bdev = bdev_whole(bdev);
++	struct queue_limits lim;
+ 	int err;
+ 	bool partscan = false;
+ 	bool size_changed = false;
+@@ -1189,6 +1195,15 @@ loop_set_status(struct loop_device *lo, blk_mode_t mode,
+ 	/* update the direct I/O flag if lo_offset changed */
+ 	loop_update_dio(lo);
+ 
++	/*
++	 * The offset change may have silently dropped LO_FLAGS_DIRECT_IO;
++	 * refresh the DMA alignment so the queue limits match the new flag
++	 * state.
++	 */
++	lim = queue_limits_start_update(lo->lo_queue);
++	loop_set_dma_limit(lo, &lim, queue_logical_block_size(lo->lo_queue));
++	queue_limits_commit_update(lo->lo_queue, &lim);
++
+ 	blk_mq_unfreeze_queue(lo->lo_queue, memflags);
+ 	if (partscan)
+ 		clear_bit(GD_SUPPRESS_PART_SCAN, &lo->lo_disk->state);
+@@ -1361,7 +1376,7 @@ static int loop_set_dio(struct loop_device *lo, unsigned long arg)
+ 		return 0;
+ 
+ 	if (use_dio) {
+-		if (!lo_can_use_dio(lo))
++		if (!lo_can_use_dio(lo, queue_logical_block_size(lo->lo_queue)))
+ 			return -EINVAL;
+ 		/* flush dirty pages before starting to use direct I/O */
+ 		vfs_fsync(lo->lo_backing_file, 0);
+@@ -1373,7 +1388,7 @@ static int loop_set_dio(struct loop_device *lo, unsigned long arg)
+ 		lo->lo_flags |= LO_FLAGS_DIRECT_IO;
+ 	else
+ 		lo->lo_flags &= ~LO_FLAGS_DIRECT_IO;
+-	loop_set_dma_limit(lo, &lim);
++	loop_set_dma_limit(lo, &lim, queue_logical_block_size(lo->lo_queue));
+ 	queue_limits_commit_update(lo->lo_queue, &lim);
+ 	blk_mq_unfreeze_queue(lo->lo_queue, memflags);
+ 	return 0;
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261123093201.770552-1-xiaolinkui%40126.com
+2.53.0
+
