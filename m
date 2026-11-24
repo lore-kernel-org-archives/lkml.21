@@ -1,65 +1,58 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795535810;
-	b=VR7YyNXFW0RyDBc2hgTfO7oHASfDh/DIygWJaemgU2Hgasz0woh20NrwHXp7N7JJ6KJl
-	 vx7oxDp2kAjn6Hz/xsNJ17Qr9v4Sy1Wy17yP3XRgVRJ5xHfqzTaKlQMQyUuvmLdDMVmsh
-	 sfyAMpqw9UTIZlXzumaNMgyq1CFNvfKlPcGIwLr7DLd9TF7H2/9Pl7xE2S3EJ0CuRdvMc
-	 fvTqWNlhZTE5BmVUhfEbFbRUhaTl0VjsAQY0X9/gzjoWYXXwq4F2JKg29rekt0QdHu9Gx
-	 jd7SHb+Zpl/SaFeFkF12S24OdFwih/4H0pId07ckUiA0ibeLTNo9WYv8XvtWoDyaw6g==
+	t=1795535841;
+	b=aGlKpvUD3log0rI8zMmH09UxuKAHeKwYsTZcx7zrryYXWrnVdilZ3CL4fyDyYA8GHqO9
+	 zzocVsRfwwfsahz7ivFzVpDV7u1uwVgzvW8jLwvdczu2MpxMmpbF64F7EEq0mAANsUwwY
+	 g+4p3pnj4kCG80cBUldkUaZNm8BTgqmrj3+kEGK2oCVA+3RupJOGDJwdG1Ub0Jb9tuu9I
+	 kMOg97ldiaEkgg2LkJ1ljkcmtVAqsqFImMNHHotSQBku/sYTHnKHNd8Ww6jxdRJ3zltvB
+	 Psw1L3+2YjyTJlHTLlbN0zkAvPNTokX2RgKOV+Y8o0vK8XOec5U62NsLV0mA+vT8+tw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795535810;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795535841;
 	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=k6r3s+BqLdhqdRRzKh2nC27WkeQWODtjIQNAEONMLSQ=;
-	b=AGBrXrnmZavxnLubaCEFfzK0Q3ge6OQGJLy99xDeAMqC/iNgwC9RLKyZgBN/vo4r8B0M
-	 QSEiaw1TQJ1AKauo3im4U3bUDZ3IbTG35P7dMzgs951i5sBkgTihWspUZnPJMJfXzJIxV
-	 DapOuAv2hPFOoHeuwtAGJ8oIHxunLgok1jQ+SheFSW6g9ncsg93FxYFU4uE79kKQgf4g8
-	 ZgU0owZfue0Q9W0cEUgA8aYscbkGPUu+dr2lCzjOgdGMVqY/9xQw6KyVR2MWG2Vvw4JQZ
-	 mymXydeYTeHWgSmPzBnJ0UgjA9sqY1095Ex3Q7xIp4bdxp7SCUKz/m9UXZLsUyOEoww==
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=e618oH1wZyA3evgTKCe3X6OhnEmuk1PZR1Bt320gdGA=;
+	b=AkcB7sqzDmhcwXRoAuvnQkSfGBTrwQVr0Hggmf9IkANPeLrCjzPlMb3gavL6RM5pR8tO
+	 rv6q6pFTeHDaWcYeXLR+wVq/QMJc0h6V2yef1/JeyA5/AnUP9PLn5WjUt0X9DjIgdw5qq
+	 CQ+JXj2rH/Pm4zklbOtrD0AdQEGd9qAcOlBN42hDr/00aDyRH+HRakjCGCI+gHYkY+Kax
+	 LARe2XGg4RBAeXsqC9Gfad3Uz0+Lq71i6b3gJsUiYxQ/y24e9ZdvPCSN/d46dbTac3JIY
+	 qLMiy0tpXtD4fgrAUeMaECKaoOsuc1zGoebx8yS7PQ4Kzzg4D+Am8Yp36MivbxdcLAw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YqGzCa8Q;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BpwfxaTD;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9E79F606A31E;
-	Tue, 24 Nov 2026 15:56:50 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DC680606A321
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 15:57:21 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YqGzCa8Q
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 47E731F00A19;
-	Tue, 24 Nov 2026 15:56:43 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BpwfxaTD
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1F0321F000E6;
+	Tue, 24 Nov 2026 15:57:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795535810;
-	bh=k6r3s+BqLdhqdRRzKh2nC27WkeQWODtjIQNAEONMLSQ=;
+	s=k20260515; t=1795535841;
+	bh=e618oH1wZyA3evgTKCe3X6OhnEmuk1PZR1Bt320gdGA=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=YqGzCa8QL0NVqlP2obsuHAelk4S6MZNKNwnM1WkANuOvgUnuT+eZGV9RJ2XEjkz7K
-	 FvRTkrcmhoQQ5uVUVRxayEYsnRH8ekuotj988EOVhVQoYZzNeJ/1Tdg+J1neSGzbDH
-	 QrkXsgGaZYCsUr56aGQ4nxmmBr4SV32321hTRXgJDckTPmjRxd7wLfSET3J41QNpEi
-	 ke6DXkEgzjAYwwSnG2tS1aFSP1PjJj8/KRFmLzx6Y0d/LstYiVIOX+IUvFeEbby8zm
-	 BQaQOOBgsrVv/9cnK1HcPTqe7+/KkPPsaolk3FE5lKQp1YWRGr4/TYN45JZ7wbHDx3
-	 3oGNJDxgPn4Gg==
-Date: Tue, 24 Nov 2026 15:56:40 +0000
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Suren Baghdasaryan <surenb@google.com>
-Cc: Pedro Falcato <pfalcato@suse.de>, Ingo Molnar <mingo@redhat.com>, 
-	Peter Zijlstra <peterz@infradead.org>, Juri Lelli <juri.lelli@redhat.com>, 
-	Vincent Guittot <vincent.guittot@linaro.org>, Dietmar Eggemann <dietmar.eggemann@arm.com>, 
-	Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>, 
-	Valentin Schneider <vschneid@redhat.com>, K Prateek Nayak <kprateek.nayak@amd.com>, 
-	Kees Cook <kees@kernel.org>, David Hildenbrand <david@kernel.org>, 
-	"Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
-	Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>, 
-	Andrew Morton <akpm@linux-foundation.org>, Shakeel Butt <shakeel.butt@linux.dev>, 
-	Jann Horn <jannh@google.com>, Puranjay Mohan <puranjay@kernel.org>, 
-	Alexei Starovoitov <ast@kernel.org>, linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
-	bpf@vger.kernel.org, Chris Mason <mason@kernel.org>, stable@vger.kernel.org
-Subject: Re: [PATCH] mm/vma: drop mm asynchronously in vma_start_read()
-Message-ID: <awWxsn2c1xR_JiEs@gremlin>
-References: <20261124-vma-read-lock-mmdrop-async-v1-1-257f99f551de@kernel.org>
- <awWLCZ-jBjSD7V3M@pedro-suse.tail5790ac.ts.net>
- <CAJuCfpGk6eYK43Unxo+O4ML5=GM_siZ9owp6oa9fO0ipZXVg-g@mail.gmail.com>
+	b=BpwfxaTD2MEjS1btEJaR5JWWEC+b2IZqBFJqtADDhoQXgna3MzcvZJ6TyMC3TuAax
+	 RP7uJkdSlZYH/CxGszqx7/9MPjuYOyXMc7FN7+eSv+NVKSbFkdLFveouNfWcgyuG2P
+	 r9W6OTU7DCdU0YG+Ms96qNeYcUotV7Shb0g8hGzyq35XNvhTVJUzcFCSn09RWzkmxX
+	 aUGEGHhcTLK+P8QGldpE6N7ouQcu95wX5D4YQs8+eNFszBMv+WalM7fOwyJSI9akZJ
+	 ZD8bJYpk/KRnjsdQTPlgpxWpbhS2jLdzFbizovnWLtP6svoXo2/d3ZFu+AVVa0uAdv
+	 /BJ5DSwPhBzsg==
+Date: Tue, 24 Nov 2026 17:57:13 +0200
+From: Mike Rapoport <rppt@kernel.org>
+To: Andy Lutomirski <luto@kernel.org>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Ingo Molnar <mingo@redhat.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Thomas Gleixner <tglx@kernel.org>, x86@kernel.org
+Cc: "H. Peter Anvin" <hpa@zytor.com>,
+	Rick Edgecombe <rick.p.edgecombe@intel.com>,
+	Tom Lendacky <thomas.lendacky@amd.com>,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/9] x86/mm: CPA robustness fixes and cleanups
+Message-ID: <awWz2REjNXoGJV0b@kernel.org>
+References: <20261112-fixes-x86-v1-0-791adb8d6670@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,39 +62,53 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAJuCfpGk6eYK43Unxo+O4ML5=GM_siZ9owp6oa9fO0ipZXVg-g@mail.gmail.com>
+In-Reply-To: <20261112-fixes-x86-v1-0-791adb8d6670@kernel.org>
 
-On Tue, Nov 24, 2026 at 07:46:04AM -0800, Suren Baghdasaryan wrote:
-> On Tue, Nov 24, 2026 at 5:04 AM Pedro Falcato <pfalcato@suse.de> wrote:
-> > Is there any particular reason for unlocking the RCU comment last? after the mmdrop_async().
->
-> Yeah, I think moving the RCU unlocking was unnecessary (unlock as soon
-> as possible is in general advisable) and we could just remove the
-> comment. Both versions however seem correct to me.
+Gentle ping :)
 
-For simplicity. 'The operation is done under an RCU lock' :)
+On Thu, Nov 12, 2026 at 06:31:05PM +0200, Mike Rapoport (Microsoft) wrote:
+> These are x86 CPA robustness fixes and cleanups I found while working on
+> a generic implementation of the set_memory APIs.
+> 
+> The first three patches fix issues that are unlikely to happen in
+> practice, but are still worth fixing even if only to avoid LLM spam:
+> * CPA does not flush the TLB when only an alias of the requested range
+>   changes, and the alias keeps stale TLB entries.
+> * mark_rodata_ro() ignores a failure to write protect the kernel and
+>   enables the read-only protections anyway.
+> * set_memory_encrypted() and set_memory_decrypted() map random physical
+>   memory at an unmapped address instead of failing.
+> 
+> The rest are smaller robustness changes and cleanups.
+> 
+> ---
+> Mike Rapoport (Microsoft) (9):
+>       x86/mm/pat: flush the TLB when only an alias mapping changed
+>       x86/mm: don't set kernel_set_to_readonly when write protecting fails
+>       x86/mm/pat: don't populate page tables in set_memory_{en,de}crypted()
+>       x86/mm/pat: don't BUG() on inconsistent page count
+>       x86/mm/pat: don't warn about W^X violations before mark_rodata_ro()
+>       x86/mm/pat: remove CPA_ARRAY
+>       x86/mm/pat: pass the address to CPA by value
+>       x86/mm/pat: move the collapse of large pages out of cpa_flush()
+>       x86/mm/pat: use cpa_flush() on CPA errors
+> 
+>  arch/x86/mm/init_32.c        |   8 +-
+>  arch/x86/mm/init_64.c        |   8 +-
+>  arch/x86/mm/pat/cpa-test.c   |  15 ++--
+>  arch/x86/mm/pat/set_memory.c | 203 +++++++++++++++++++------------------------
+>  4 files changed, 108 insertions(+), 126 deletions(-)
+> ---
+> base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+> change-id: 20261112-fixes-x86-0c15b6adc212
+> 
+> --
+> Sincerely yours,
+> Mike.
+> 
 
-I alluded above, but intent is to revert 0b16f8bed19c which I _think_ is
-fine. And at that point it actively simplifies.
-
-The operations done there are only done in a rare scenario (VMA recycled) and
-now the extra bits done under RCU there are really quite small so I think fine.
-
-I will follow up on that later.
-
-> > Acked-by: Pedro Falcato <pfalcato@suse.de>
->
-> Reviewed-by: Suren Baghdasaryan <surenb@google.com>
-
-Thanks x2!
-
->
-> >
-> > --
-> > Pedro
-
---
-Cheers, Lorenzo
+-- 
+Sincerely yours,
+Mike.
