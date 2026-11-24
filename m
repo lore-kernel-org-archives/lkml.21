@@ -1,83 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.47
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.50
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795503022;
-	b=uza9P/aT+uS0ICD77fSIhYIjHE/iC5sVy4rYFXiVzxHotJ/kyBl7CYAdIDP/dD8k/9W5
-	 7ttjnwL17cRooSa1sIKBsLDhfK3G84RZKl641Y/J67xQ/2duHz1BFKeGUBLVl0Xk1Mv5K
-	 B0SAYN3MxYqAkkPNTL44u9wG9xlu6K7KM+mTo1wK5qEM/1MUM4ZiquMeVtymyPMUUbOWR
-	 MHrcrPIzoNIbqXDBtYMF6wQrI/naXuMY+tZMJzTxuTTGCuWASvNYotpY6RvS8lgt1V3yC
-	 TclAaVZmS1b0wg+cx0cVVUZdUmRLZEYeNGZc7BitZZ66vMT4mDv8djFRJVu0bFTB7xw==
+	t=1795503029;
+	b=b1tVGSS1RLvr0ZznIKCLFVyAf1evU5hQMlO3R2i7I9rxZM3xkehJvCpMy/QGwhbK2JCG
+	 dJXcg2l6XEnnCZcnrGRby03Zo0N19ZmaMk4uL2UNT7/7hOgnHGo6PD3CbXobj9kdtfVyq
+	 gEb/aozBGhr+ZpIU6x2a7ZOAMOoO2lFm/LVvTqs+hgRcJQ+c6Y/GsXUGJUUTGNt9jK48o
+	 3f6ZcIg+QAnNmAOTeHvc6Mn/GBkiYKf8vV1rFzrIxpW8bgBR1oi9tpUYFTrRq5zXv9s6A
+	 8rDUls4ugknhzMlb8aMNn6WNzuyLTEZ+x/2py3OU8ecnj1rhydRhjLpYPiDcmWd3Eew==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795503022;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795503029;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=HENiTwapNaU7NbNMtbDzb4zDBCZlFqydguAonmAa+ZY=;
-	b=BpQDlp9/1Vq1yXwvEtEDvBORyG/W5xnSizubbEtXlI83dhti8vLX5NsQQvVLUV/31fmL
-	 FcM3Ovg9KVMk/7HuEtbCIuXskgXP2qaz+q81fviUBonRCR22QFY0XKjoVaGcx17cIf+sY
-	 Iks9sa9NyVEXPb6LuZG7YiSE2lWrfEdqfvzoo2S9FuAWYhH19EDzn26GzJVEolsl4KCZ3
-	 vIEL5x+kL6QuUXNcDAGei095mZRFQ8S4pIhHPHfjRe6kefKJTtY63yBOQepGa0ECboQQ6
-	 pWabE+0TPr+g8ncR1WIAA2DYaL8MO8K845xl9Vef8F13X1qKtNrOIilloFgqWK/pRHA==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=UOn4hDwfQTw/XYPgE2jhZm1AB2+X5E33KlJWlVFviUU=;
+	b=uhdjS3QQECHgboDliqVqjZZS/ZpopXp7J7Ksx+BwgXNXPwVrndvdIdNHXibpvJDJuzRN
+	 gnJPAgPROLwZvkjYdfldh65I7eaBoBOcxi8COHw860X7A+yutwXZDm4RzSV6hmYgQvjgo
+	 pb8bGoUZarFeIbUz6ss0X2OyeD/xqIjiuyb1qJo1ePVPLYiRlCe5KhMeDMo5+yowu+7qN
+	 FI/IHRVvTcfWOAiBxQpAHpRPgonqyHr92QD61wYnSegMJSyjOGF4BNK8O3MvpmLNaq5QJ
+	 ZWafa/OjcP38vCZhPsnsvT7utmzPnGlKZOa6uEhX5AuIvMM7MGE0wRLweE0d2hcHkoA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mS2nLBcx;
-	arc=none smtp.remote-ip=209.85.167.47
-Received: from mail-lf1-f47.google.com (mail-lf1-f47.google.com [209.85.167.47])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=R988hr3O;
+	arc=none smtp.remote-ip=209.85.167.50
+Received: from mail-lf1-f50.google.com (mail-lf1-f50.google.com [209.85.167.50])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B1ACC606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 06:50:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B1ACC606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E2B9760A2608
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 06:50:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E2B9760A2608
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mS2nLBcx
-Received: by mail-lf1-f47.google.com with SMTP id 2adb3069b0e04-5c26207ee6eso1726785e87.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 22:50:21 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=R988hr3O
+Received: by mail-lf1-f50.google.com with SMTP id 2adb3069b0e04-5c10dc41270so4487657e87.2
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 22:50:28 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795503020; x=1796107820; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=HENiTwapNaU7NbNMtbDzb4zDBCZlFqydguAonmAa+ZY=;
-        b=mS2nLBcx/X6705BUxPUz2G/dvtJ9frwUyGwvOP11xr+LVW4J+T7aWZ1xX+Pfptulcr
-         1EKi9h4uWpkmN+uC4v4kb37U2636Ru8/6yWwp2i8XkBdj19eRqnr9LkdTypC44YA/wKl
-         z1YNL3NVGanJFWCE+1WrMSgeAG9NDgaUOV47tfB4HmFVXLGr4aaSc7JZ1h9VA7Qd1dyV
-         9cQ/KvhUYY2bwjy4YL+qDp+5wXsxbBwtHpEKXoU88/WuV9cV0R742bLnPugIj5NEdyt8
-         W3qTLMY8/sGc1Re26/W8oVd7eR6oeYnQ8QbZom9PPaul5zNdlyDzBs9Sd7O+/Yr8axIa
-         Oydg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795503020; x=1796107820;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20260707; t=1795503027; x=1796107827; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=HENiTwapNaU7NbNMtbDzb4zDBCZlFqydguAonmAa+ZY=;
-        b=EBcvGH676qTFERpaig4QJKqBbJuiJ/k878zCEwK0WiPCLFPdWXDHEVqtevdyRH0s22
-         2NAAUhBknjHYynWlfN7hCjvBenRhsiGD0H5xC8qmTvtMfeX4hNx5Qv7Ecj+UHT9Ip+M9
-         /77R50UDFW46hofUhUF5eeB2GJO+BStUto/Oyr3LZBQZAlB6S/HNtXrcI2pgl2mYnNxE
-         aByZisB7vYfIUu2gE+TYnEq+f8kTltuPqH9JYtcJdTFK6Eeu5rUcGXMsem+a7FhD5dF2
-         xGcp5PTUJzbUN3HrnB8OHP+d+WyK7c4w1LzQLyB8b424P8XaoIsOcKxvPccIAn14oKcq
-         q8LA==
-X-Forwarded-Encrypted: i=1; AL+hErEXR+uS5t/jOgDi6o4Qw3OfvCWmFlOLWsffvnHkI4SezSVm/BE833O7c6VmUUaUvQKsSn1ziNbK2QJ2h8A=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8qOIiEHsoakQe9rv69kyIXJMngtt7cotFm70syjqt5L+cI53Ul
-	AGpEyaV9tsLh6B8CYjHAE6e+swiqrryIk2ip22wxar7gvlQqrtAg0kM5
-X-Gm-Gg: AZFdTZdW1zC/W/4uo9jFJRIsaXrGGVUZKiyxWqpIYE96Q2XtAE46ylMzvaDNdhv9cPA
-	KizmrmW7CUSz9d5to7yaIJbX3Yj0WCm2tEddwl/154eVR1p3bwhE0J8yC8ChWr3+3wyqTQtTRYt
-	iIraUF3cjeRSg82u9pTaDNfZCPX8rZ+tWycwfgmF7McvaPawzTXO6p0luOWX4E8cDzqZy5F0GT+
-	KreJUXxxCPd2WkwdfaoHMZSS5gseo1YsQ+T7XzO93KcYyOrePit91ri+nTe2CvI2Th5K/inErnP
-	2FAa4O6KILdbnIR1CFWoYWaA0GT8npKnKrMLjxmUDQxggN9w4YVSfzRfpQye04k3PJyhKFJXpMc
-	v6uKQ7gPNjyEF5hHtC0WZaZ0orjht/hFKVP9nyFZNbi2Gg+kb/tH19F8mQEwdYhdc/c97Vzlq/Y
-	RdoCFWjEN9FbI3/JoHibNqVGQO9LKrhwYkEZsWb2aQwpKICoXBvWBZA4K2NL8IZzA08eQUuV5Dq
-	sYMrXbUUE0TGOV48nmrzqxj4cnyDcRn5Dt1fbPchfEJX6W9Z27wECflS0dLqfD0oWQ1hdxeJ2dU
-	6lvBaSRB4waP9AEniumgkUHPcF1cbewKZP+wrBK5j+1kCPLU1c9XeH+S1XdUkFuBUTz2VzPhsOX
-	00IXuX99Pnvyj1ToR3+Y7cZ+rJuSAItjkJXa0mQ==
-X-Received: by 2002:a05:6512:3e1a:b0:5bf:ae0d:5c8e with SMTP id 2adb3069b0e04-5c1bc89ae6emr4162899e87.57.1795503019603;
-        Mon, 23 Nov 2026 22:50:19 -0800 (PST)
+        bh=UOn4hDwfQTw/XYPgE2jhZm1AB2+X5E33KlJWlVFviUU=;
+        b=R988hr3Os4IeqdwhkRpwxXQAWDAar+YYhT+uJqAPhgzJZ2bKJSuWBNr7bBCq16YaWZ
+         ZNiA4so9QiTCbRiLpFwWO85Ik9RjiyCFy+z9kyRf+vnAnJ7Mma7lUhNLMnqz64Nop9pi
+         lGm6mKyGsyrxWOIrwbNA24bvXoAcCJa4bHI/bexoowh4moJSMv3DaSEAdtbbtrkA3vZ5
+         uXnELVA1zmNYgSJssKunscMhnYKK4AyxSRDWmcBS0FMijKiZg6yN9Cu+P0NEkLV2XhzV
+         gyf9gtWGVkw5dvNBRMFaIqivSW46H7E95nwWLCgzWv0fXzDjh5KrX4O0SCnh6HNmFt/7
+         Uurg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795503027; x=1796107827;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=UOn4hDwfQTw/XYPgE2jhZm1AB2+X5E33KlJWlVFviUU=;
+        b=TlNYNccUqku++GXohxoIa8Zfo+CCuedK0IXcYxJCEsujWxyVEm2pwUTyzz9xVhRRMU
+         bKq92PqVMb3HbkVB7AKenfmyIq/M40zrgg0gL7MUBk8PbypUvZGAlY7XZt7YVrGKnmIh
+         KxWQ4luLhEpxGk8EDAHakHwBghx7n2KF1Eg8C7OORa24HMxHHnuocLx0n3l55jGgs6Vx
+         7NGnH0gMYt4SayUYFVPMNtnhAyeb7Iy5/rHeTRRKDqyDssdYZygiWqO9EI7MYtlR5dce
+         JfEw3hyXuXErhb+7mioolwjOOTc0MAVkxvV6eXuI7TXa2GR7J39FTgLJN4QNvAk1173M
+         D2Ag==
+X-Forwarded-Encrypted: i=1; AL+hErHtW+VZbePRlwYMjmhITlfftiCm1mHSP6fz2IqXHkWNTUKZBsA9EpQIQNnxEzGAUonJLaoOgf7Db9pu/Rc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9sMfV2adIqdd+CW1Ew395c1YfVJY3/blBeBpuE868gZK0XRWOG
+	8vn1Lsg9hPQJfX20uFcmgvw2ODoZXsl0kTs4R4/+9lRU+k4RPHx0fEy7
+X-Gm-Gg: AZFdTZdoRj8Q40ASPQhL0k4Jwyl1pwAYzP19Gm7OR/7C2Il9m2Rj3EjGTOodOxJUiba
+	DPryOP3c8rArP88xJa/verx+lNgjRu262I+mr+hHKr+bPjoQuk6TEPaQ4r8Bh39R6XShMJxLrQK
+	dq/kvafEGMgURVx0rthe94jqHOJ9n5vtpg6dn+bfkRFRBAE+A1Y+hLadiBNWfjKLbH70JYDDBLB
+	wbseaGxHMwUvbxutzbp7rnNxvboZswUKzx9pRDakPQ24JxTVH0xegRvKH8BumY4TJeCHvBgnu2R
+	SYjil++dzC8nRF4fcCphdCssz8jLdhxAo22pEluU/ImntcoiaqxI/mWr8djuz7ghhe/pgy7WsdF
+	eYsNFn/DyKwbvY5KJWOqUnPZPwQIxsHsgCHLKHZbktkj7XtV6q4GuYEQ10QRHamLvnYUKqjTLuu
+	mZwsKnYLfcoH6kzNfbjAja/jxTGhILVQqbPhhR9u09ViOxGQLMVnpXyPbp6BbAUwhA7BMZ9rG57
+	kkc3FtQjQsL+np4iO99qNH1DgARVok0RKT3J3idFlfXiEtj90VEGp5NbkGWh4N4xodEE5DU2K7u
+	Xzgi/MYeUN+q4Vb8c207joOT6iZ7twn7uTeMIj0g7TNjUWWOaw22hNAeBcsMyOPwYsxenKtCVYY
+	Pdor97fwaow+G+VCJ4qNejAEHwlDhWet6Mm3n+FY=
+X-Received: by 2002:a05:6512:2255:b0:5c1:4f2b:a2ba with SMTP id 2adb3069b0e04-5c1bc7da45bmr4469860e87.34.1795503026920;
+        Mon, 23 Nov 2026 22:50:26 -0800 (PST)
 Received: from yantra.. (nekmmqsyyquzw1lm5eb-1.v6.elisa-laajakaista.fi. [2001:99a:d7d:c300:3cd2:d52a:a1ef:5dd3])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5c1bd018b45sm3538556e87.41.2026.11.23.22.50.18
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5c1bd018b45sm3538556e87.41.2026.11.23.22.50.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 22:50:19 -0800 (PST)
+        Mon, 23 Nov 2026 22:50:25 -0800 (PST)
 From: Rupesh Majhi <zoone.rupert@gmail.com>
 To: Andy Shevchenko <andy@kernel.org>,
 	Antoniu Miclaus <antoniu.miclaus@analog.com>,
@@ -93,10 +94,12 @@ Cc: linux@analog.com,
 	linux-iio@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Rupesh Majhi <zoone.rupert@gmail.com>
-Subject: [PATCH 0/6] iio: debugfs register access through regmap in the core
-Date: Tue, 24 Nov 2026 08:50:10 +0200
-Message-ID: <20261124065016.185124-1-zoone.rupert@gmail.com>
+Subject: [PATCH 6/6] iio: pressure: dps310: add debugfs register access
+Date: Tue, 24 Nov 2026 08:50:16 +0200
+Message-ID: <20261124065016.185124-7-zoone.rupert@gmail.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261124065016.185124-1-zoone.rupert@gmail.com>
+References: <20261124065016.185124-1-zoone.rupert@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -108,43 +111,31 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-More than 25 IIO drivers have a debugfs_reg_access callback that is
-only a regmap_read() or regmap_write() on the regmap of the parent
-device. Patch 1 adds a core helper for that, patches 2 to 5 use it in
-four drivers and patch 6 adds register access to dps310 with it. The
-other drivers can follow in batches if the helper is wanted.
+Expose the registers through direct_reg_access with the core regmap
+helper, so the configuration and status registers can be looked at
+through the driver's regmap instead of around it on the bus.
 
-The helper finds the regmap with dev_get_regmap() on the parent, so it
-only fits drivers with one regmap there. Existing callbacks that take a
-lock or claim direct mode around the access are left alone.
+The access is not serialised with the driver beyond the regmap lock.
+Reading INT_STS or a result register clears what the driver waits for,
+as it would on the bus.
 
-Patch 6 is tested on a DPS310 on a BeagleBone Black. I don't have the
-other parts. For those, adxl313, adxl372, bma220 and ina226 (ina219
-uses the same callback) were instantiated on i2c-stub under QEMU:
-reads, writes and refused registers through direct_reg_access give the
-same results before and after.
+Signed-off-by: Rupesh Majhi <zoone.rupert@gmail.com>
+---
+ drivers/iio/pressure/dps310.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-Based on iio testing.
-
-Rupesh Majhi (6):
-  iio: core: add iio_debugfs_reg_access_regmap()
-  iio: accel: adxl313: use iio_debugfs_reg_access_regmap()
-  iio: accel: adxl372: use iio_debugfs_reg_access_regmap()
-  iio: accel: bma220: use iio_debugfs_reg_access_regmap()
-  iio: adc: ina2xx-adc: use iio_debugfs_reg_access_regmap()
-  iio: pressure: dps310: add debugfs register access
-
- drivers/iio/accel/adxl313_core.c | 12 +-----------
- drivers/iio/accel/adxl372.c      | 15 +--------------
- drivers/iio/accel/bma220_core.c  | 12 +-----------
- drivers/iio/adc/ina2xx-adc.c     | 15 ++-------------
- drivers/iio/industrialio-core.c  | 28 ++++++++++++++++++++++++++++
- drivers/iio/pressure/dps310.c    |  1 +
- include/linux/iio/iio.h          |  2 ++
- 7 files changed, 36 insertions(+), 49 deletions(-)
-
-
-base-commit: f2cbef9101b9fc979a324bb1242b8b802a2484b6
+diff --git a/drivers/iio/pressure/dps310.c b/drivers/iio/pressure/dps310.c
+index 9ffef150cc4c..257fe25c5ce1 100644
+--- a/drivers/iio/pressure/dps310.c
++++ b/drivers/iio/pressure/dps310.c
+@@ -1563,6 +1563,7 @@ static const struct iio_info dps310_info = {
+ 	.write_raw = dps310_write_raw,
+ 	.hwfifo_set_watermark = dps310_hwfifo_set_watermark,
+ 	.hwfifo_flush_to_buffer = dps310_hwfifo_flush,
++	.debugfs_reg_access = iio_debugfs_reg_access_regmap,
+ };
+ 
+ static int dps310_probe(struct i2c_client *client)
 -- 
 2.43.0
 
