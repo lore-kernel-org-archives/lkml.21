@@ -1,118 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.169
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795557152;
-	b=4QtEVz3vOzUlNn8JQ7d3DexUHMN+Cv1Pl84UTugWMyDpibcZFy7dRSUd2j7RboUGZikS
-	 DcAAsNUysnlcpMTOi4plQ811/lAGlWlOCrSsndhw7YBP1fBtxEWt4OZ0qnKaNEXYmtpYm
-	 3hhezCqxVpHqrvnS204lxyRp1MxQ9VDkHqS44ODUqg9NmKosMZH8CNkALzl7XJDa8L/7D
-	 ZqqN5gLIKWh0wNx4r27OWGqHAcPjt/xep8JS6IDec1HkkvpLfq8nj3bWRmpPuOsqTQrgC
-	 VOP+dPP7xjBvT436k5wPNIxtjSSqbJVuu33x6IQNmCiHggDdtsvzsnWO3lFwTpeoFSQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795557152;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.174
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795557150;
+	b=gfvq9xwgIY97sgbKMQ38rp+x1bcO2+scSD14tSxzFzxy2C6MbHeenNCd/oqk+BDmTKRY
+	 hwEJTpVDBatUzC6FzZ1/aogKLg1GNI8e9Udy+wL4ueRTf+XLMEbIXfktTOLWxrBNJl3M0
+	 dwKOnLW5C+4/BitWdBRFW7du/yw1uPSX7Jb4dGoEI1V2dPwqscYCZK1B48yH1OKsHmh/r
+	 pxoEiGiOPai/QyIYHEGWRVaJ6BkV8nKvbm4Ef8CBoJ5E4SCJYHvW6yVl5holRoFnxs+dQ
+	 hPBfXZcSDKk8yQvDyJiqRtVRyQ+RBBlLNCnVR3OtxO7xq9DcAeXEzeYmmkgS4Z5646g==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795557150;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Subject:From:To:Cc:Date:In-Reply-To:References:Autocrypt:
-	 Content-Type:User-Agent:MIME-Version;
-	bh=SoZPg/og+n6XZlBxBoY+E3d63ypK0pFhrHnI5qqIb58=;
-	b=LI9RSZvyN521s9VqZ+Tn5x2Hfrgw4tRdh/sLKKEJL/3nn0DaESj8Oav4ZBOGRbZE4U9U
-	 xKxpzv04EtQrnTRJ3yQtUz6YfNAB5VwWwzghmb9iUq5Zb7pHK/ztKYSvL0AbcvSqyz8eF
-	 IHUuHxP2NbmIO1MIONiICTm2re+DUew69ivNU2PAw89mzFOvFOiCZQURt3fP3ntJmqL1V
-	 HqrFZBm6v32XlC7XJvzEvrv173yzDwRhBQejcJyWJ4YJHfVklgDG50r54qNGIOHVwDV5I
-	 RENGdSrQnEA/KD+KX6KQswfd33YroQtfgKvoD6NcIbg/AbblL5e7RJa0O/hKgwGyimA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ndufresne.ca;
-	spf=pass smtp.mailfrom=ndufresne.ca;
-	dkim=pass header.d=ndufresne-ca.20260707.gappssmtp.com header.i=@ndufresne-ca.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b="sXBngM6/";
-	arc=none smtp.remote-ip=209.85.222.169
-Received: from mail-qk1-f169.google.com (mail-qk1-f169.google.com [209.85.222.169])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=Lf1Y3VuyPwvovOGVJHv+EhVFPSKZjC4cG/I119XVXRE=;
+	b=zMVIarwvbTE1zPYIFUiIoXTXmH4TFXo5nqwm4d/mbHMKyy7QKjLbDcmmpqSnKAQTdIoW
+	 5HJyeYxXLM4HNJpv1MKu1nD1xaOe/uADbS6zEZkz0HGwgdEalJc8/rk61vaRVnBxDH8zt
+	 qNpBeFRssv1jVKQLujj96GJXMSevIOD7i8egMpxUy6IW7P6wSOUH3H76IgaFQ9X+SsDbM
+	 cUsgcOY/RBaIHEvyQ3sQfkHBHTHAdTVexkNSL72V2Bmh1JHzrlW49K+ScnQkR4lGrtdut
+	 bAz+uQnYLWW4F5YEaSTT7zN2yyzSz7IbpCu3kcE+FMRG2G97DtHPWWnk4IZDyOP/8bg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=googlemail.com;
+	spf=pass smtp.mailfrom=googlemail.com;
+	dkim=pass header.d=googlemail.com header.i=@googlemail.com header.a=rsa-sha256 header.s=20260707 header.b="J4wgzj/q";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.174
+Received: from mail-yw1-f174.google.com (mail-yw1-f174.google.com [209.85.128.174])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0AEB0606A330
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 21:52:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0AEB0606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ndufresne.ca
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ndufresne.ca
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A71CA606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 21:52:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A71CA606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=googlemail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=googlemail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ndufresne-ca.20260707.gappssmtp.com header.i=@ndufresne-ca.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=sXBngM6/
-Received: by mail-qk1-f169.google.com with SMTP id af79cd13be357-94999a08973so475520185a.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:52:30 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=googlemail.com header.i=@googlemail.com header.a=rsa-sha256 header.s=20260707 header.b=J4wgzj/q
+Received: by mail-yw1-f174.google.com with SMTP id 00721157ae682-8b4d6981c67so32528467b3.1
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:52:29 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795557149; cv=none;
+        d=google.com; s=arc-20260327;
+        b=ioGPwoNYLH67OSv0WMqzBGdQu+Q2YWQtCvv+V3ogS4W/sb3Ji5NeH1uVvcyFCqXKMR
+         8GrXhCfiHReViVUAi8m6r9VvS0uuv9SUQxbBmqvnOmtjJZamIjI+mNQ875zMHaGj8bZB
+         8w0QOm5iA5/D2AA1FzbT3OWra6hNR2fATYROogQv7GXozTeDsOfqLFnJM2BjXezoBK3G
+         gnqaj6AlYsi/GJ/p7Qw8iqjhBrG89rYgPSpW92mwy4vzeUsXV4Mrul4ZZxe99y4jkgKX
+         LegUpAOBn3E5RXjkmFMGFkeRSTV1ji2ARJ2ua7PYE2DfQIdnUbP9I2wn4d2mxATEPm2U
+         ak9w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=Lf1Y3VuyPwvovOGVJHv+EhVFPSKZjC4cG/I119XVXRE=;
+        fh=qLa7LBYrfQX81CZeupkwZXKYVC3EAi25a5z9BcuTjTM=;
+        b=BqV/99K9miWrcZWFYYzU4fnz7/YEnVpXFqoQliED/JZHVt8glLnCywIvVCVWTkxaPV
+         /rU6mSMMHF2J7DSSLsF5EqlJCyPfvNki33qWaSVp8GQgA0fMMNit3WvPHHaeMes+tg/1
+         IxAxrW26Mmp4qEmx2U3Dc4Fe4SY8tdO3oXQw7ncd9PowNsEkcj5kQof9/G7RboAMio6u
+         tBnRYJrNbiyfXgEui4qoLhGE/BZHzCbfLSpqi/ZqE1DhXCJyGg9hrG3Qxcq2a5czNgav
+         Mz289ggftecHyMnGXc2z89rmURUlFjVW7C8/3J1bJHD5CUhglw5c0MVwJMFrs5M5jV+1
+         knRA==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ndufresne-ca.20260707.gappssmtp.com; s=20260707; t=1795557150; x=1796161950; darn=vger.kernel.org;
-        h=mime-version:user-agent:content-type:autocrypt:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+        d=googlemail.com; s=20260707; t=1795557149; x=1796161949; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=SoZPg/og+n6XZlBxBoY+E3d63ypK0pFhrHnI5qqIb58=;
-        b=sXBngM6/0rsvC+V3z7M5RTUQcK3ro02Ylx+s+oMinZXzULOjzTLtZXp8nOaa4ykZW+
-         O8Dqr7W8yda9Chc77F0r0AuSWgrPIZ8dAkjxnrU05W+A/K1gOgaA1bh+0BLpLUJfcS3G
-         QRL0JGLa4AI5sPx+M1FZ4YzYRsRsUubMwuaVPDR+Rc8Ewhioe/OH8si8SL7vHHXO0Q1G
-         IYYgascTDzk4maegHL1n2LWy/yOVPCWaeP6yTtcqXWZNjLhieRMVp/sVBnfBNiQr6Ogd
-         PKbWcGbV16/M1WtZ3ECkagLRMH60Kxr6j7Uj+Z4KTrcT2Z30lJ/Hud9Vm5egodMXgZgy
-         lQ/A==
+        bh=Lf1Y3VuyPwvovOGVJHv+EhVFPSKZjC4cG/I119XVXRE=;
+        b=J4wgzj/qUW8Te4tO+gJNuLHr8BgOSxIUEX95ONeC8vg1THoFDBuISwGqmHI9WndL7O
+         ndUID7KHmeVBejDHTI4rs9Th0sTjRGOq7JZKOKGXOqcWwrG0VA9Jx1Y3ul4n1YXNROVp
+         aA8gW/c19c3mgim/pLAvr+u5KeJ8AnsOO/OT7W6WFl3KRFiYKgHN8wVurPb5bpkXcRyh
+         5jcXcpXhTk5ZIeAsP/tLcHmbvf9t0bypqi7VYnjWSQf8/LrHWP/8KvipCr31O1QlC4BI
+         LSEEhZo6+y2x6dW8Dp/30D/7GTlnVoajqHXdbCpWPgx+OJXULngjCSg0k6ptM1KVIpxI
+         6EDg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795557150; x=1796161950;
-        h=mime-version:user-agent:content-type:autocrypt:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
+        d=1e100.net; s=20260707; t=1795557149; x=1796161949;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=SoZPg/og+n6XZlBxBoY+E3d63ypK0pFhrHnI5qqIb58=;
-        b=klBug06D3mwmECdz0WxRmSswdTJYsUAkRYao60yE2X0vSJNm3KojCrL+Hj6Eag5l/J
-         zxZlawRCHPmuOVT+rjkCEMgtMJDF1EG62oteVL7DMNS0c1sTTRd1lmZ/KnMnC06HIAJ5
-         +pLynYSXpMYS/dDNIwx1qRSXabdCYzWqE0Ckxm3AQfaXYEWvtIXD+VYhu7a/ICrmIXIJ
-         SdPDB5mblJ/v6ZFf6dqm7xoJsU39GLDS4vPmsHKMZr4cXuq6FE/f+HnNwUGwKH+RZtUg
-         nFbKTv4N8t3PCsMWDQ0cgpB4y7PamBymVUyNR/L7ayjInNmemdN1RIViMGeJj5V1DHxa
-         dT8g==
-X-Forwarded-Encrypted: i=1; AL+hErEIhLdNfNTID5F8+kxckhl4k/Gz0hQ+7YNze8G7lKHNbCGa6WgmEtXUJQpJAZDPMc1ORLoa6ujWKhSEAUE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+UqE8wAyqggNUUE60UPOkF0u2RCj3VjIW5b9avIzt3Ys7NI0u1
-	SKYTyDdhJvrs6yl7txujxUV/T/7JpxD0XqV1TWG1om5alxk9K6SNSEYCELAiVv3VxSk=
-X-Gm-Gg: AZFdTZcIhjfEsepZwCTXePwDAFsEeHeBfws2/OC1aYGaFNBi2dBtP0Mow6IRtu3YYUR
-	0SMKoErzgklBiQm2JEbbVV/2hYvBLpahx3n6wrbrHIpsDCZDYC/UH6RJQ1zeLAbA0OKBngb+yPc
-	gnA94Y5L0Atfg/5x07HVe3WSAXnY/lGrY1FmVx/RXLteIQ2fceRHYelo8NfrsqneWgt6sT22+jx
-	B1R4XcienYEVulc7F3yTPc4edyIKapG7KWHzylqAHIzbf1UvqpBcc2KJ4GKXRwmq0IoZSfgv+3z
-	8gJ6gpYOqK7FIB0sw8WiNag6a8RdCDVrtiCWwVy5AMPK+C/5WOjqYzVBuWx6aVF7R3pLWYCDf9w
-	57Q28+obSjzi25+rS208l5PSIi8Cz/AUaU/rr2jiTspz2Vbw1qlVM0rXbvD6HgtLTNd532SD+aO
-	PqcDVsgivTxwSgdeRgU8TZKvy8vMNYqRLm+m8hIZ0j9ODzB0wsb1gSdDOtaU1os2PRecw/lKiTp
-	j5wRJpdXekdL1utBHT5WQOK/eYarb2vyKxKHISzROOHpi8LFvfvnO23r55pP/Q3IQVrJpE4KVLL
-	wPSry0SDCMQBbQSdhOyfSWu/Lkev2wlFzCgY0PiPA8ZR86zaUIDFGV1S
-X-Received: by 2002:a05:620a:458d:b0:939:6dea:4f1a with SMTP id af79cd13be357-949ba9c228amr2813987185a.48.1795557149846;
-        Tue, 24 Nov 2026 13:52:29 -0800 (PST)
-Received: from ?IPv6:2606:6d00:11:8ec9::c41? ([2606:6d00:11:8ec9::c41])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-949bb34ac1esm1148155085a.15.2026.11.24.13.52.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 13:52:29 -0800 (PST)
-Message-ID: <71a121d6b863f31f625abcea20642269881d0b72.camel@ndufresne.ca>
-Subject: Re: [PATCH v2 17/17] media: rockchip: rga: schedule jobs to
- multiple cores
-From: Nicolas Dufresne <nicolas@ndufresne.ca>
-To: Sven =?ISO-8859-1?Q?P=FCschel?= <s.pueschel@pengutronix.de>, Jacob Chen
-	 <jacob-chen@iotwrt.com>, Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, 
- Mauro Carvalho Chehab
-	 <mchehab@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Philipp Zabel
-	 <p.zabel@pengutronix.de>
-Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	kernel@pengutronix.de, Detlev Casanova <detlev.casanova@collabora.com>, 
- Michael Tretter <m.tretter@pengutronix.de>, Guangshuo Li
- <lgs201920130244@gmail.com>
-Date: Tue, 24 Nov 2026 16:52:28 -0500
-In-Reply-To: <20260916-spu-rga3multicore-v2-17-23aa2cb74e61@pengutronix.de>
-References: <20260916-spu-rga3multicore-v2-0-23aa2cb74e61@pengutronix.de>
-	 <20260916-spu-rga3multicore-v2-17-23aa2cb74e61@pengutronix.de>
-Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-xervUYoD/U351QaeWOLl"
-User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
+        bh=Lf1Y3VuyPwvovOGVJHv+EhVFPSKZjC4cG/I119XVXRE=;
+        b=AUNdgXAeSV9YUjDW4vsnk6dkQB5PLW7bQOLhI4SoXbH4IgKaAJAOLT4QAZUQ8CVBpI
+         Mr3SR1cd5Ggy0D80tnDNqqQEl+MuJRHQDc1TmZ1F89C8kKuck1FtMzNhkG30coYtoJju
+         PZCWA25RKwBDgM8MO4IEKqJfkhNfSVROnwuGSHMgK1tDwXDuTb1h6CMD4yz9u9CNZ9IR
+         SBMTrEcBFHv5HuIal3LpVBnHCIqGoKPL8Wg0yEuTXOcGUg67mvHcRFvDL+5XLGDMEjYa
+         MsG6GaQpocGWeUHq6Ku4WKk8f0LdD1A7OXvlov3zl2R/3+1e1l3ZRcgFeDlPl39qnwIs
+         fbSQ==
+X-Forwarded-Encrypted: i=1; AL+hErHp0A5ZYOd3ZmJq/j93z4788digbpjnO1rVVVEmvF+ED6Ur+51VMWG2Dzn9Rxa7q3/jCwvzSiEz/eVI8rY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9L4xRBnLdYtVJ+wDsL7GOEYa6vlgJAOcQ1JWuptqgvC1E80Hdq
+	nHCJzkFNvNhAHn6kyWgJQ86s9xIfkoa89BaABHdMKjgUW+sk0qNJWNiK3zgTPKj2D4LNkIwmyeE
+	9Ik19Zr2gvVat5tGtPho0jlxvvWpJeCM=
+X-Gm-Gg: AZFdTZcbRz53WR9HJ2whYFKuOVE50Vw1qK47ZqsyFKv1VIT61lRk5OH4kLHLg46J8Tc
+	Vd8j6GyBfiXAJfwhXjmxVduFFTlrsbQuYboNQk9WxFst3JXBh7I1bNzccp1IxCHSCnrDcrFf3DE
+	aALeuGfvx43FeedN9ouVr2lI9SLMZNDhmnQOvLFcOaFghaArgzmqTa6oEr6I4qpP+heegxkO8rC
+	U5SZr77RhdWqXzKEYLVVcLUiLiWilmPVB2cuTIoYWxD2zb4VhGZVtyctrStBu0WsDp6AweNCKUr
+	Bi1Uhh62MMI+5eHBdZ4jXwGoH1v8qbzQbzdvPEPVSx4yqdntratCvQUz51lnEaSAANa/s8vm8sl
+	zk/XnvTI0naYz1XWpZhGgTgjQ3OU5zz+aWznNrjnVfSYKSQF/Endqee3hIN4TRDyaxq0xNA==
+X-Received: by 2002:a05:690c:6d87:b0:88f:ccf7:25d9 with SMTP id
+ 00721157ae682-8b520504b49mr86018497b3.60.1795557148692; Tue, 24 Nov 2026
+ 13:52:28 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -122,170 +104,64 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-
---=-xervUYoD/U351QaeWOLl
+References: <20261117-g12a-mux-data-path-v2-1-fc56db5973af@iav.lv>
+ <CAFBinCALe-8oB5Mwpyx-B_7dKJ-WZcMCjycHv=xH+JasRBOaPw@mail.gmail.com> <20261124-re-martin-g12a-mux-t7@iav.lv>
+In-Reply-To: <20261124-re-martin-g12a-mux-t7@iav.lv>
+From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Date: Tue, 24 Nov 2026 22:52:18 +0100
+X-Gm-Features: Aa3M54pdaFD27QxQGunyvXHUItWwaVO9EDUyn4_5FJjuusCb-0isvsezb1c1rbA
+Message-ID: <CAFBinCB3auaxcJ4wV+Q-KS4hBKfacrPpu_X9BAVBirAuMNbDvw@mail.gmail.com>
+Subject: Re: [PATCH net v2] net: mdio: mux-meson-g12a: keep the MAC data path
+ when switching MDIO
+To: Igor Velkov <iav@iav.lv>
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, 
+	Russell King <linux@armlinux.org.uk>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
+	Jerome Brunet <jbrunet@baylibre.com>, Lucas Tanure <tanure@linux.com>, netdev@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-Le mercredi 16 septembre 2026 =C3=A0 17:09 +0200, Sven P=C3=BCschel a =C3=
-=A9crit=C2=A0:
-> Schedule jobs to multiple cores to utilize all RGA cores. To avoid race
-> conditions when selecting the next free core a dedicated spinlock is adde=
-d.
->=20
-> Note that this doesn't increase the max frame rate of a single
-> stream, as a context will wait for the job to finish before starting
-> the next device_run call.
->=20
-> Signed-off-by: Sven P=C3=BCschel <s.pueschel@pengutronix.de>
+Hi Igor,
 
-I'll let you go through the Sashiko report here.
+On Tue, Nov 24, 2026 at 10:31=E2=80=AFPM Igor Velkov <iav@iav.lv> wrote:
+>
+> Hi Martin,
+>
+> On Tue, Nov 24, 2026 at 9:50 PM Martin Blumenstingl
+> <martin.blumenstingl@googlemail.com> wrote:
+> > I have just reviewed Lucas patch [0] which adds Ethernet support for th=
+e T7 SoC.
+> > He kept the internal MDIO mux path disabled by default, so boards
+> > using it will have to enable it.
+> > Have you tested that approach as well? If not: it would be great if
+> > you could investigate the pros/cons of your approach vs. Lucas'
+> > approach.
+>
+> Not on hardware. By the code it works: mdio-mux registers only the
+> available child buses, and the g12a driver writes CNTL2 only from
+> switch_fn. With int_mdio disabled the internal bus never exists, so
+> CNTL2 only ever gets the external setting.
+>
+> But that avoids the bug rather than fixes it. The MDIO source and the
+> data path are separate CNTL2 bits; the driver switched them together.
+> Disabling int_mdio only keeps that path from running, and only on
+> boards whose DT does it. The G12A/G12B/SM1/S4/C3 dtsi enable int_mdio,
+> and ten boards use the internal PHY relying on that. Changing the
+> default touches all of them, and existing DTBs keep the bug.
+>
+> The driver change removes the coupling: the data path follows the PHY
+> the MAC attaches, with any DTB. For a new SoC like T7, int_mdio
+> disabled in the dtsi is ordinary DT practice, and the two combine. If
+> one has to pick, the driver change: it fixes the cause.
+All of this sounds reasonable.
+What caught my eye is that the code now reads strange: we have a mux
+that we're following for half of the register values while another
+part is fixed at probe time.
 
-Nicolas
-
->=20
-> ---
-> v2
-> - Set core->curr to null first in pm_runtime_resume_and_get error path
->   (https://sashiko.dev/#/patchset/20260606-spu-rga3multicore-v1-0-3ec2b15=
-675f7%40pengutronix.de?part=3D15)
-> - Also protect adding/removing cores with the spinlock in bind/unbind
-> ---
->  drivers/media/platform/rockchip/rga/rga.c | 30 +++++++++++++++++++++++++=
-++---
->  drivers/media/platform/rockchip/rga/rga.h |  1 +
->  2 files changed, 28 insertions(+), 3 deletions(-)
->=20
-> diff --git a/drivers/media/platform/rockchip/rga/rga.c b/drivers/media/pl=
-atform/rockchip/rga/rga.c
-> index b2eeae0a61771..6294825eaacfd 100644
-> --- a/drivers/media/platform/rockchip/rga/rga.c
-> +++ b/drivers/media/platform/rockchip/rga/rga.c
-> @@ -38,13 +38,29 @@ static void device_run(void *prv)
->  {
->  =09struct rga_ctx *ctx =3D prv;
->  =09struct rockchip_rga *rga =3D ctx->rga;
-> -=09struct rga_core *core =3D rga->cores[0];
-> +=09struct rga_core *core =3D NULL;
->  =09struct vb2_v4l2_buffer *src, *dst;
->  =09unsigned long flags;
->  =09int ret;
-> +=09unsigned int i;
-> +
-> +=09spin_lock_irqsave(&rga->cores_lock, flags);
-> +=09for (i =3D 0; i < rga->num_cores; i++) {
-> +=09=09if (!rga->cores[i]->curr) {
-> +=09=09=09core =3D rga->cores[i];
-> +=09=09=09core->curr =3D ctx;
-> +=09=09=09break;
-> +=09=09}
-> +=09}
-> +=09spin_unlock_irqrestore(&rga->cores_lock, flags);
-> +
-> +=09WARN_ONCE(!core, "No free core although max parallel jobs matches the=
- core count!\n");
-> +=09if (!core)
-> +=09=09return;
-> =20
->  =09ret =3D pm_runtime_resume_and_get(core->dev);
->  =09if (ret < 0) {
-> +=09=09core->curr =3D NULL;
->  =09=09v4l2_m2m_buf_done_and_job_finish(rga->m2m_dev, ctx->fh.m2m_ctx,
->  =09=09=09=09=09=09 VB2_BUF_STATE_ERROR);
->  =09=09return;
-> @@ -58,8 +74,6 @@ static void device_run(void *prv)
->  =09}
->  =09spin_unlock_irqrestore(&rga->ctrl_lock, flags);
-> =20
-> -=09core->curr =3D ctx;
-> -
->  =09src =3D v4l2_m2m_next_src_buf(ctx->fh.m2m_ctx);
->  =09src->sequence =3D ctx->osequence++;
-> =20
-> @@ -748,6 +762,7 @@ static int rga_core_bind(struct device *dev, struct d=
-evice *master, void *data)
->  =09struct rockchip_rga *rga =3D data;
->  =09struct rga_core *core =3D dev_get_drvdata(dev);
->  =09struct rockchip_rga_version version;
-> +=09unsigned long flags;
->  =09int ret =3D 0;
-> =20
->  =09core->rga =3D rga;
-> @@ -785,7 +800,9 @@ static int rga_core_bind(struct device *dev, struct d=
-evice *master, void *data)
-> =20
->  =09pm_runtime_put(core->dev);
-> =20
-> +=09spin_lock_irqsave(&rga->cores_lock, flags);
->  =09rga->cores[rga->num_cores++] =3D core;
-> +=09spin_unlock_irqrestore(&rga->cores_lock, flags);
-> =20
->  =09return 0;
->  }
-> @@ -796,6 +813,7 @@ static void rga_core_unbind(struct device *dev, struc=
-t device *master,
->  =09struct rga_core *core =3D dev_get_drvdata(dev);
->  =09struct rockchip_rga *rga =3D core->rga;
->  =09u8 i;
-> +=09unsigned long flags;
-> =20
->  =09/* Remove our core from the list */
->  =09for (i =3D 0; i < rga->num_cores; i++) {
-> @@ -810,8 +828,10 @@ static void rga_core_unbind(struct device *dev, stru=
-ct device *master,
->  =09=09=09=09iommu_detach_device(domain, core->dev);
->  =09=09}
-> =20
-> +=09=09spin_lock_irqsave(&rga->cores_lock, flags);
->  =09=09rga->cores[i] =3D rga->cores[rga->num_cores - 1];
->  =09=09rga->num_cores--;
-> +=09=09spin_unlock_irqrestore(&rga->cores_lock, flags);
->  =09=09break;
->  =09}
-> =20
-> @@ -977,6 +997,9 @@ static int rga_bind(struct device *dev)
->  =09=09goto rel_m2m;
->  =09}
-> =20
-> +=09/* after binding all cores num_cores has the proper number of cores *=
-/
-> +=09v4l2_m2m_set_max_parallel_jobs(rga->m2m_dev, rga->num_cores);
-> +
->  =09v4l2_info(&rga->v4l2_dev, "Registered %s as /dev/%s\n",
->  =09=09  vfd->name, video_device_node_name(vfd));
-> =20
-> @@ -1047,6 +1070,7 @@ static int rga_probe(struct platform_device *pdev)
->  =09=09return dev_err_probe(dev, -ENODEV, "failed to get match data\n");
-> =20
->  =09spin_lock_init(&rga->ctrl_lock);
-> +=09spin_lock_init(&rga->cores_lock);
->  =09mutex_init(&rga->mutex);
-> =20
->  =09dev_set_drvdata(dev, rga);
-> diff --git a/drivers/media/platform/rockchip/rga/rga.h b/drivers/media/pl=
-atform/rockchip/rga/rga.h
-> index 522021c3e0249..b046083244bf6 100644
-> --- a/drivers/media/platform/rockchip/rga/rga.h
-> +++ b/drivers/media/platform/rockchip/rga/rga.h
-> @@ -86,6 +86,7 @@ struct rockchip_rga {
->  =09struct mutex mutex;
->  =09/* ctrl parm lock */
->  =09spinlock_t ctrl_lock;
-> +=09spinlock_t cores_lock;
-> =20
->  =09const struct rga_hw *hw;
-> =20
-
---=-xervUYoD/U351QaeWOLl
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCawYHHAAKCRDZQZRRKWBy
-9BkdAQDViMbWw7ZIgkMJFFddGVM8H0l7fqIrL1g/8RohkUjwyQEA4rRzp7+Odfyt
-Gc2+uGfr//xab4zmFlHvwWN8TkrIiAc=
-=pKUO
------END PGP SIGNATURE-----
-
---=-xervUYoD/U351QaeWOLl--
+I don't know stmmac, phylib nor mdio-mux-meson-g12a enough to point
+out an alternative solution.
+So until someone comes up with a better plan you're patch and
+description is the best we have.
