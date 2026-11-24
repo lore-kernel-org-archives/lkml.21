@@ -1,101 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.215.173
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795540154;
-	b=HAdkXUvAyOom0e/hoRz94/dmyjCX5aXF4OEgx9UO3smLLm5z8AuRJ5tw1iBBQfY/QDOl
-	 keQ1rYEXEnIafZzHTpr06MsN+Af5h4pulIFHBqKgCakaimnIMgauYwxcTZRd0nC091weX
-	 OpUBZUotCaP3FYRhXD0o0GtBtihMcyz1+LclputNogNr558ESviNTB+M1r8m3qoiv1NUv
-	 zzKY2RL2g2sEaSxkPobW6Nq8J6TVsDyLg85YMDZAYOywNRmzNP0XdY0MKoa4Mash0C9CK
-	 eXgsTi7orY7SRJqzRJlw1ALjvew+m8AACR3dipcEJBmgfJG2FRUxhwegNNOPHGUJh3g==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795540154;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=X9VL+UZGuvvn+L4e88A9yFSdMmbH0iKnEH4T++PwoT0=;
-	b=37q+QLyCM5BzYLprHxk9X53QXPIEDPXkcZohG+9NoQTa1Gcomh1Ae3vtwX8jNf3u+gui
-	 +f2L8k3xoI4L8dU0lc3y9dPq4jTlTzw0p+O8RIMwgP5vT0pYf5i8Ar11YPO1bCgC2Ezwu
-	 5IfGf+umhxPLW7FiPY4vT4cj8ywCWyf9MfxoSeJbj4aBIANCF4oDt+izA6Qi9fJutVNfF
-	 uzOdSAaiGHTinvny02NYp2aQzxo9On5ZOEIXnnfqCFYtXBRKNPA5tzZZ3vQMIhU7vSWoW
-	 SM7VjJurVPZNcmSL4tZgUI0w+t7KORRD2lN2mO9R+MSbuN02UM0XHMoWvV+A10lUPCQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=q3ofmZ51;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.215.173
-Received: from mail-pg1-f173.google.com (mail-pg1-f173.google.com [209.85.215.173])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795540164;
+	b=DJ/4YneCDRRcYUVq7Z0SyDWEfmWW2Dz+z3o0NZTtp4Ha6lhrN3kwTLcrWACycP/NEcuf
+	 Rch16+n9cNDzXfX024yJvtY+zbQpqVOmtrMmIZYxfe0srDXEGyn+SIvgTXGfcOOAu29Sj
+	 Wy8fr2xvCQpEwfe/l/mjT2q/FTbzwP9Y/dsScEn2yqsJQQprqdH6ra/1joghvm5wL0pCZ
+	 gV+/B7x2EfY4OkxHWJd8iNI2Cq0CciOnxk6ezzSo431YFYGVc6W+uZgLkTnss56oA05bw
+	 6qIPkhkq4DjbFTVg7LNMAUSz/jBqiyo3CCzxirA2w82oGW1HXnjXz13usU8T7FvwfbQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795540164;
+	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=AaIrFlkXdeWf9hXAsBJcUrPwWw8lPr576kDFCtinrC4=;
+	b=mRRCm/cd976UnbwaMi+4kCDQOCNUB/jfDPcIZ4oKFsa5MVmp+HNcqallEDRSihWy/Q9r
+	 mEn69TTsakgRPjl0GZtUUq47Ib96cVN2JQddpOm3jB1c9kzoEIzYlQ48LjCL6vzjT0okO
+	 xRCg0udLmrpjt7KIZywUpO+yAURGZkPyr1405/ZVe4RxiRo4oglr6TZNGmv6wCtE7+Vog
+	 BtuKb8THn+LvMd5GiV0sIno/OiWibNTLlJa+HISnAmhZKHb9c/0vXDVawgwVS+NEgx5RC
+	 p0G4JZwxdBWrCQjsIQMCIiygMzqpoiTV4QHD1wcCdBhuimaBK1ShQOgJ3QpB8bmY1Wg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Fh5NqFKV;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 25DC260A263B
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 17:09:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 25DC260A263B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 56004606A337;
+	Tue, 24 Nov 2026 17:09:24 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=q3ofmZ51
-Received: by mail-pg1-f173.google.com with SMTP id 41be03b00d2f7-cddc250d815so1868480a12.2
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:09:13 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795540152; cv=none;
-        d=google.com; s=arc-20260327;
-        b=ci+nkQE8QMe0+dC9Jc/0HjwDa6nYkmZoy714ILoSwUnTh2XsvfnRccPWByhFQtcPdC
-         tQl5gqtPqrfl7JChg8Qn5WUzwIfbkShX3uvLXhwqN+M29yHj2ECDI7OHJGnLqnU6uKfI
-         ZYKcPfbn9wAC5G57nx/BOV1s8DmPPVTFsn7DiwaMYsYhNBI98aZ83ks9ioKMjWINwves
-         E2iJ4m3GedntFnFmTk2dsf13zVOBQ3zD24baRiW4Od8Mpuh+RQjypqK7ddKe3jnqsq4c
-         6F/YdBwN1Tz5iuBni2t3vC7Fs2RWVxCTrVhxhKSEV0JFB0OjJVha4mS+YUyJjtliEBE0
-         D4bQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=X9VL+UZGuvvn+L4e88A9yFSdMmbH0iKnEH4T++PwoT0=;
-        fh=/64r3FtKL0JpfRpqjxVou9cjkfjE0Vmp/011ZL1yZjI=;
-        b=CI7fVFqfLOj4YAdgsJhGSbXpF7bdCofEzPz4RoWRTFp4jtxfoDm4GXt+FBEwtsauT7
-         jyihkzw3gciRCbwdrmimj5nemliDo8N9wEstAN82FHCgZ/xoRgsSbZVDEvud62smEacX
-         MQjoAqC9zwmnJ7QQlc2e9aNewl7nChiOE/+ZA/wyDfeuPtRY3nSvhbUWyZmC60EmMOCb
-         lfx23uCgYYaQNtGckwtJUGrWFJtiF+8b69H46mPKtEdHhQLUS8t6ll7Pgdft3MtMRmhK
-         SiyJcKTyLKlhmNFjZbJnzbjlDzojYjcvAMXHJQWHUvnZGP8NKHdr0zbW5ixM0FNEZ5YI
-         Kxlg==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795540152; x=1796144952; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=X9VL+UZGuvvn+L4e88A9yFSdMmbH0iKnEH4T++PwoT0=;
-        b=q3ofmZ51KdDiSe31lFyb1pGcKM2i5v6DnKfzrg+Pky/e9KyGKb1/+AkYl9QZ9sR3du
-         rj+nBMjVGvXqgjlFfny2JCQCIRfswUsErqN7P3Yu3Kl4Wr0hHhZg+XxKijd5Q6fAKWR4
-         6NVEsE4P3Uib7ty8eOkbDpbZkWkUpOW6Onh7y4dGdlvMtpqtZIWn+8rKO+i/cpPY/HY7
-         huQTRNe46nKtyvdSuzaLClrIVBxyPmYoJmfyspB53oTKgr8sZljTPJKBRbXPKmmzlweO
-         g+U4obngtO0yjgCUOK3gaB5CYU5lHY96yfGFG2lH32X/OHwq1g9lzqUfrsKqhRLSnGCV
-         4GXQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795540152; x=1796144952;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=X9VL+UZGuvvn+L4e88A9yFSdMmbH0iKnEH4T++PwoT0=;
-        b=0VvLkYowwinZK/xhznfY3kwvKYZ2b4lpEEX9eD7FfddwWYBrJZ+MZWGVxgRJipaiOO
-         xoYFNoohBSukfvnKS0wFy9wFaHzmlYVr+ZLkTfJ4bApf3a4+A+H8Vcu0LpKYz/OPg5s1
-         se5v9EbBMCyPtqzeLH1ehRTWO0mrXh+65rukd5XhIyyh3CRPpSiuce8yPZ2u3/y+YUSd
-         YDtvaUKaSzqJKeoh/vLVB4fgKjD8N7rPKE9vWJXa1RpBZbXvmMW/QglhsS3KZQTGUl7Q
-         vxktk5h0h97ia6aOXEm0JRrkiJYWuljuyA3x+oQGiVPPJIHe3knEfwcB8vJ6KBKPHr2b
-         glOA==
-X-Forwarded-Encrypted: i=1; AL+hErF9h9pN7kXPiGmmGKgdjiLiG4EtFBzAix3wqqE6erjm/p65sB/SC30C8iSNHOPqOO3FM049wXk2s/kLygE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+Ku87DidlhRytDqXigBiPDnkAVzanB4KlIo2tEnXfLziEmYCBk
-	Tp9b3IRLtbcheVZGu+TPusvE37pPFdNGyJuB+sM9uY0XcOXPamUXPPF9JAqCPFxyKYPHBaksHVV
-	8ymxw4HuSBN1u4RowPs/QxKgd4hvpqp0=
-X-Gm-Gg: AZFdTZfz8PHzZ9dHnNkXAAGpjS7g7BhGZzsZ8Ruz33p2k9+uRQOHWi/t4HrwoyjsimZ
-	eZRMsJiJajhAPMG1OVC2fjChN499E1cfZxkHyBlZF73lGii2WFk5+y3G0rodAPajaM+jedRmRZT
-	5oKqAASTezITnq6XlWslKnAF6rv5fsLeiLZPVWXpo7LWqqCQbSn1kp9G6hcoHinKG3cko9eTa7+
-	bTIK5UV1n4b3HpU3rgZuFjN/h5XzvwAIoC/0+sjPygYXiyfUOAD0MR2m0yXu98YS+GS+V9azelY
-	My+wEG2EFNAfQceaOzR08sCHHlXuYWtZiAfFhY1NjA/rZbscH9k536kvMld0hT9poFfPsueELfL
-	shbXHf0bnwO5Fa3Nb5VE2u+bNpnEX0110dapKLA26OwdwFpgEe+siZR3E8xnVGc3rSV1fRYDq1A
-	VVjp+w1es3oGXwqJQ9JFIWqg0OEAJb8m/hj4l3kA==
-X-Received: by 2002:a05:6a20:6a06:b0:3f8:443c:4ce1 with SMTP id
- adf61e73a8af0-4014db57950mr17323321637.29.1795540152313; Tue, 24 Nov 2026
- 09:09:12 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Fh5NqFKV
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C6CF1F000D0;
+	Tue, 24 Nov 2026 17:09:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795540163;
+	bh=AaIrFlkXdeWf9hXAsBJcUrPwWw8lPr576kDFCtinrC4=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=Fh5NqFKVY7dmEHOZo+WfBqkbmDoW4EzOBurfc1eW7z5egP5jZ69di12rtO+fJDhlG
+	 +asNZ8e7evQ6DQ9TAwz5qnSWe61KBzp37w3IUz1sZ197hsmM3XfKfW8sKh0dT8l1yO
+	 pjn7SavwfbD02HUUU9lkEnRgD64gQJSlhK+LUWGcgrIRrFZ2RY8328T8DDhD7zJy/v
+	 4JhIgZ02UnJ3QrbkIgU/rPWi64UpgCJu/lgGYsaS0LC9AJBTd2BfRevIb0LTRnc3ij
+	 g0WVhVCUqF4knuF0OXQ/isOcX7Z44fhhey0B6KvDsIWeOjm/BfaAZM7K3WH1yH7ff/
+	 pOLG1BJlyy5wg==
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Date: Tue, 24 Nov 2026 17:07:55 +0000
+Subject: [PATCH v2 03/11] mm: convert miscellaneous VMA flag tests to use
+ vma_flags_t
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,225 +53,306 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <179539544818.3016044.13738712075053349592@gmail.com> <179539544818.3016044.18009252996572506068@gmail.com>
-In-Reply-To: <179539544818.3016044.18009252996572506068@gmail.com>
-From: Xin Long <lucien.xin@gmail.com>
-Date: Tue, 24 Nov 2026 12:09:01 -0500
-X-Gm-Features: Aa3M54o3Mm28v-FnGzbOeKj4VXKtMVAJcVd8119mGvZOM1SygJE7tskfr7xggbY
-Message-ID: <CADvbK_de1zGLfjvEk-BJYcv5SsEzqC2RwL3R7qt7sWL09aCmow@mail.gmail.com>
-Subject: Re: [PATCH net v3 1/1] sctp: fail the association when the INIT-ACK
- cannot be processed
-To: Kyuwon Cho <kyuwoncho18@gmail.com>
-Cc: Marcelo Ricardo Leitner <marcelo.leitner@gmail.com>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Simon Horman <horms@kernel.org>, Willem de Bruijn <willemb@google.com>, Jun Yang <junvyyang@tencent.com>, 
-	linux-sctp@vger.kernel.org, netdev@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261124-late-2026-vma-flags-v2-3-bf3fade93064@kernel.org>
+References: <20261124-late-2026-vma-flags-v2-0-bf3fade93064@kernel.org>
+In-Reply-To: <20261124-late-2026-vma-flags-v2-0-bf3fade93064@kernel.org>
+To: Andrew Morton <akpm@linux-foundation.org>, 
+ David Hildenbrand <david@kernel.org>, Jason Gunthorpe <jgg@ziepe.ca>, 
+ John Hubbard <jhubbard@nvidia.com>, Peter Xu <peterx@redhat.com>, 
+ "Matthew Wilcox (Oracle)" <willy@infradead.org>, Jan Kara <jack@suse.cz>, 
+ Rik van Riel <riel@surriel.com>, "Liam R. Howlett" <liam@infradead.org>, 
+ Vlastimil Babka <vbabka@kernel.org>, Harry Yoo <harry@kernel.org>, 
+ Jann Horn <jannh@google.com>, Lance Yang <lance.yang@linux.dev>, 
+ Zi Yan <ziy@nvidia.com>, Matthew Brost <matthew.brost@intel.com>, 
+ Joshua Hahn <joshua.hahnjy@gmail.com>, Byungchul Park <byungchul@sk.com>, 
+ Gregory Price <gourry@gourry.net>, 
+ Ying Huang <ying.huang@linux.alibaba.com>, 
+ Alistair Popple <apopple@nvidia.com>, 
+ Baolin Wang <baolin.wang@linux.alibaba.com>, 
+ Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>, 
+ Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>, 
+ Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>, 
+ Xu Xin <xu.xin@linux.dev>, Chengming Zhou <chengming.zhou@linux.dev>, 
+ Madhavan Srinivasan <maddy@linux.ibm.com>, 
+ Nicholas Piggin <npiggin@gmail.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
+ "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>, 
+ Shrikanth Hegde <sshegde@linux.ibm.com>, Pedro Falcato <pfalcato@suse.de>, 
+ Kairui Song <kasong@tencent.com>, Qi Zheng <qi.zheng@linux.dev>, 
+ Shakeel Butt <shakeel.butt@linux.dev>, 
+ Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>, 
+ Wei Xu <weixugc@google.com>, Baoquan He <baoquan.he@linux.dev>, 
+ Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
+ Michal Hocko <mhocko@suse.com>, Leon Romanovsky <leon@kernel.org>, 
+ SJ Park <sj@kernel.org>, Rakie Kim <rakie.kim@sk.com>, 
+ David Rientjes <rientjes@google.com>, 
+ Alexander Viro <viro@zeniv.linux.org.uk>, 
+ Christian Brauner <brauner@kernel.org>, 
+ Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+ Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
+ Adrian Hunter <adrian.hunter@intel.com>, 
+ James Clark <james.clark@linaro.org>, 
+ Masami Hiramatsu <mhiramat@kernel.org>, Oleg Nesterov <oleg@redhat.com>, 
+ John Johansen <john.johansen@canonical.com>, 
+ Georgia Garcia <georgia.garcia@canonical.com>, 
+ Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>, 
+ "Serge E. Hallyn" <serge@hallyn.com>, Mimi Zohar <zohar@linux.ibm.com>, 
+ Roberto Sassu <roberto.sassu@huawei.com>, 
+ Dmitry Kasatkin <dmitry.kasatkin@gmail.com>, 
+ Eric Snowberg <eric.snowberg@oracle.com>, Fan Wu <wufan@kernel.org>, 
+ Stephen Smalley <stephen.smalley.work@gmail.com>, 
+ =?utf-8?q?Ondrej_Mosn=C3=A1=C4=8Dek?= <omosnacek@gmail.com>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
+ linux-fsdevel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+ kvm@vger.kernel.org, damon@lists.linux.dev, 
+ linux-trace-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, 
+ apparmor@lists.ubuntu.com, linux-security-module@vger.kernel.org, 
+ linux-integrity@vger.kernel.org, selinux@vger.kernel.org, 
+ "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=8060; i=ljs@kernel.org;
+ h=from:subject:message-id; bh=HbJWR73e5rJe6zVww3bXvTrm1rI3bP2M41UnWwSLhf4=;
+ b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLJZj+TWfD2t2uLo3b8la07U3I9LGBgeeLsfuOG4c3Ln9
+ Y9hV+5s7ihlYRDjYpAVU2R5/kV8f5BI2LzOC/5uMHNYmUCGMHBxCsBEGlIZGX4Ux1T7qNoHnf57
+ Y1lO7e0pLp1TVc6//3mrdJpllqt1VAPDf/e4Qw6aG880HNl9ebfT+71TPAOm74v80bjSxr+ni+8
+ gMzsA
+X-Developer-Key: i=ljs@kernel.org; a=openpgp;
+ fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
 
-On Sun, Nov 22, 2026 at 11:09=E2=80=AFPM Kyuwon Cho <kyuwoncho18@gmail.com>=
- wrote:
->
-> sctp_sf_do_5_1C_ack() queues SCTP_CMD_PEER_INIT and SCTP_CMD_ASSOC_SHKEY.
-> If either fails to allocate memory, sctp_cmd_interpreter() stops there,
-> but the association stays: with the peer marked AUTH capable and
-> asoc->shkey still NULL, a chunk that the peer wants authenticated, such
-> as the ABORT built by close() with SO_LINGER {1, 0}, takes a reference
-> on the NULL key:
->
->   BUG: KASAN: null-ptr-deref in sctp_auth_shkey_hold (net/sctp/auth.c:113=
-)
->   Write of size 4 at addr 0000000000000018
->   Call Trace:
->    sctp_auth_shkey_hold (net/sctp/auth.c:113)
->    sctp_control_set_owner_w (net/sctp/sm_make_chunk.c:112)
->    sctp_make_abort_user (net/sctp/sm_make_chunk.c:1016)
->    sctp_close (net/sctp/socket.c:1564)
->
-> Process the INIT-ACK and set up the association key directly in
-> sctp_sf_do_5_1C_ack(), and fail the association if either step fails.
-> SCTP_CMD_PEER_INIT and SCTP_CMD_ASSOC_SHKEY have no other users, so
-> remove them.
->
-> Fixes: 1b1e0bc99474 ("sctp: add refcnt support for sh_key")
-> Suggested-by: Xin Long <lucien.xin@gmail.com>
-> Signed-off-by: Kyuwon Cho <kyuwoncho18@gmail.com>
-> ---
->  include/net/sctp/command.h |  4 ----
->  net/sctp/sm_sideeffect.c   | 40 --------------------------------------
->  net/sctp/sm_statefuns.c    | 15 +++++++++++---
->  3 files changed, 12 insertions(+), 47 deletions(-)
->
-> diff --git a/include/net/sctp/command.h b/include/net/sctp/command.h
-> index 2058fabffbf6..8596e96c321a 100644
-> --- a/include/net/sctp/command.h
-> +++ b/include/net/sctp/command.h
-> @@ -34,7 +34,6 @@ enum sctp_verb {
->         SCTP_CMD_GEN_SACK,      /* Send a Selective ACK (maybe).  */
->         SCTP_CMD_PROCESS_SACK,  /* Process an inbound SACK.  */
->         SCTP_CMD_GEN_INIT_ACK,  /* Generate an INIT ACK chunk.  */
-> -       SCTP_CMD_PEER_INIT,     /* Process a INIT from the peer.  */
->         SCTP_CMD_GEN_COOKIE_ECHO, /* Generate a COOKIE ECHO chunk. */
->         SCTP_CMD_CHUNK_ULP,     /* Send a chunk to the sockets layer.  */
->         SCTP_CMD_EVENT_ULP,     /* Send a notification to the sockets lay=
-er. */
-> @@ -86,7 +85,6 @@ enum sctp_verb {
->         SCTP_CMD_ASSOC_CHANGE,   /* generate and send assoc_change event =
-*/
->         SCTP_CMD_ADAPTATION_IND, /* generate and send adaptation event */
->         SCTP_CMD_PEER_NO_AUTH,   /* generate and send authentication even=
-t */
-> -       SCTP_CMD_ASSOC_SHKEY,    /* generate the association shared keys =
-*/
->         SCTP_CMD_T1_RETRAN,      /* Mark for retransmission after T1 time=
-out  */
->         SCTP_CMD_UPDATE_INITTAG, /* Update peer inittag */
->         SCTP_CMD_SEND_MSG,       /* Send the whole use message */
-> @@ -117,7 +115,6 @@ union sctp_arg {
->         struct sctp_association *asoc;
->         struct sctp_transport *transport;
->         struct sctp_bind_addr *bp;
-> -       struct sctp_init_chunk *init;
->         struct sctp_ulpevent *ulpevent;
->         struct sctp_packet *packet;
->         struct sctp_sackhdr *sackh;
-> @@ -158,7 +155,6 @@ SCTP_ARG_CONSTRUCTOR(CHUNK, struct sctp_chunk *, chun=
-k)
->  SCTP_ARG_CONSTRUCTOR(ASOC,     struct sctp_association *, asoc)
->  SCTP_ARG_CONSTRUCTOR(TRANSPORT,        struct sctp_transport *, transpor=
-t)
->  SCTP_ARG_CONSTRUCTOR(BA,       struct sctp_bind_addr *, bp)
-> -SCTP_ARG_CONSTRUCTOR(PEER_INIT,        struct sctp_init_chunk *, init)
->  SCTP_ARG_CONSTRUCTOR(ULPEVENT,  struct sctp_ulpevent *, ulpevent)
->  SCTP_ARG_CONSTRUCTOR(PACKET,   struct sctp_packet *, packet)
->  SCTP_ARG_CONSTRUCTOR(SACKH,    struct sctp_sackhdr *, sackh)
-> diff --git a/net/sctp/sm_sideeffect.c b/net/sctp/sm_sideeffect.c
-> index 35f540fb15fc..a95bf10b852b 100644
-> --- a/net/sctp/sm_sideeffect.c
-> +++ b/net/sctp/sm_sideeffect.c
-> @@ -698,32 +698,6 @@ static void sctp_cmd_assoc_failed(struct sctp_cmd_se=
-q *commands,
->         sctp_add_cmd_sf(commands, SCTP_CMD_DELETE_TCB, SCTP_NULL());
->  }
->
-> -/* Process an init chunk (may be real INIT/INIT-ACK or an embedded INIT
-> - * inside the cookie.  In reality, this is only used for INIT-ACK proces=
-sing
-> - * since all other cases use "temporary" associations and can do all
-> - * their work in statefuns directly.
-> - */
-> -static int sctp_cmd_process_init(struct sctp_cmd_seq *commands,
-> -                                struct sctp_association *asoc,
-> -                                struct sctp_chunk *chunk,
-> -                                struct sctp_init_chunk *peer_init,
-> -                                gfp_t gfp)
-> -{
-> -       int error;
-> -
-> -       /* We only process the init as a sideeffect in a single
-> -        * case.   This is when we process the INIT-ACK.   If we
-> -        * fail during INIT processing (due to malloc problems),
-> -        * just return the error and stop processing the stack.
-> -        */
-> -       if (!sctp_process_init(asoc, chunk, sctp_source(chunk), peer_init=
-, gfp))
-> -               error =3D -ENOMEM;
-> -       else
-> -               error =3D 0;
-> -
-> -       return error;
-> -}
-> -
->  /* Helper function to break out starting up of heartbeat timers.  */
->  static void sctp_cmd_hb_timers_start(struct sctp_cmd_seq *cmds,
->                                      struct sctp_association *asoc)
-> @@ -1397,16 +1371,6 @@ static int sctp_cmd_interpreter(enum sctp_event_ty=
-pe event_type,
->                                         SCTP_CHUNK(new_obj));
->                         break;
->
-> -               case SCTP_CMD_PEER_INIT:
-> -                       /* Process a unified INIT from the peer.
-> -                        * Note: Only used during INIT-ACK processing.  I=
-f
-> -                        * there is an error just return to the outter
-> -                        * layer which will bail.
-> -                        */
-> -                       error =3D sctp_cmd_process_init(commands, asoc, c=
-hunk,
-> -                                                     cmd->obj.init, gfp)=
-;
-> -                       break;
-> -
->                 case SCTP_CMD_GEN_COOKIE_ECHO:
->                         /* Generate a COOKIE ECHO chunk.  */
->                         new_obj =3D sctp_make_cookie_echo(asoc, chunk);
-> @@ -1772,10 +1736,6 @@ static int sctp_cmd_interpreter(enum sctp_event_ty=
-pe event_type,
->                         sctp_cmd_peer_no_auth(commands, asoc);
->                         break;
->
-> -               case SCTP_CMD_ASSOC_SHKEY:
-> -                       error =3D sctp_auth_asoc_init_active_key(asoc,
-> -                                               GFP_ATOMIC);
-> -                       break;
->                 case SCTP_CMD_UPDATE_INITTAG:
->                         asoc->peer.i.init_tag =3D cmd->obj.u32;
->                         break;
-> diff --git a/net/sctp/sm_statefuns.c b/net/sctp/sm_statefuns.c
-> index 6a4205de0aa6..fd9f94c12d42 100644
-> --- a/net/sctp/sm_statefuns.c
-> +++ b/net/sctp/sm_statefuns.c
-> @@ -603,13 +603,22 @@ enum sctp_disposition sctp_sf_do_5_1C_ack(struct ne=
-t *net,
->
->         initchunk =3D (struct sctp_init_chunk *)chunk->chunk_hdr;
->
-> -       sctp_add_cmd_sf(commands, SCTP_CMD_PEER_INIT,
-> -                       SCTP_PEER_INIT(initchunk));
-> +       if (!sctp_process_init((struct sctp_association *)asoc, chunk,
-> +                              sctp_source(chunk), initchunk, GFP_ATOMIC)=
-) {
-> +               sctp_add_cmd_sf(commands, SCTP_CMD_INIT_FAILED,
-> +                               SCTP_PERR(SCTP_ERROR_NO_RESOURCE));
-> +               return SCTP_DISPOSITION_CONSUME;
-> +       }
->
->         /* SCTP-AUTH: generate the association shared keys so that
->          * we can potentially sign the COOKIE-ECHO.
->          */
-> -       sctp_add_cmd_sf(commands, SCTP_CMD_ASSOC_SHKEY, SCTP_NULL());
-> +       if (sctp_auth_asoc_init_active_key((struct sctp_association *)aso=
-c,
-> +                                          GFP_ATOMIC)) {
-> +               sctp_add_cmd_sf(commands, SCTP_CMD_INIT_FAILED,
-> +                               SCTP_PERR(SCTP_ERROR_NO_RESOURCE));
-> +               return SCTP_DISPOSITION_CONSUME;
-> +       }
-Please change the error process to:
+Replace use of the legacy vm_flags_t flags with vma_flags_t values in the
+remaining straightforward VMA flag tests scattered throughout core mm, HMM
+(and its test module), DAMON and the OOM reaper.
 
-                if (err_chunk)
-                        sctp_chunk_free(err_chunk);
-                return sctp_stop_t1_and_abort(net, commands,
-                                              SCTP_ERROR_NO_RESOURCE, ENOME=
-M,
-                                              asoc, chunk->transport);
+No functional change intended.
 
-in the two places above as Clashiko [1] suggested.
+Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+Acked-by: Gregory Price (Meta) <gourry@gourry.net>
+Acked-by: David Hildenbrand (Arm) <david@kernel.org>
+Reviewed-by: Lance Yang <lance.yang@linux.dev>
+Reviewed-by: SJ Park <sj@kernel.org> # DAMON
+---
+ include/linux/mm_inline.h | 2 +-
+ lib/test_hmm.c            | 4 ++--
+ mm/damon/vaddr.c          | 2 +-
+ mm/hmm.c                  | 6 +++---
+ mm/internal.h             | 2 +-
+ mm/mempolicy.c            | 4 ++--
+ mm/mmap_lock.c            | 4 ++--
+ mm/msync.c                | 4 ++--
+ mm/oom_kill.c             | 4 ++--
+ mm/pagewalk.c             | 2 +-
+ mm/vma.h                  | 4 ++--
+ 11 files changed, 19 insertions(+), 19 deletions(-)
 
-You may also want to confirm and address the issue reported in
-sctp_assoc_update()
-in a separate patch.
+diff --git a/include/linux/mm_inline.h b/include/linux/mm_inline.h
+index 36b80a2a0e74..573b68ffbc63 100644
+--- a/include/linux/mm_inline.h
++++ b/include/linux/mm_inline.h
+@@ -813,7 +813,7 @@ static inline pte_marker copy_pte_marker(
+ 
+ static inline bool vma_has_recency(const struct vm_area_struct *vma)
+ {
+-	if (vma->vm_flags & (VM_SEQ_READ | VM_RAND_READ))
++	if (vma_test_any(vma, VMA_SEQ_READ_BIT, VMA_RAND_READ_BIT))
+ 		return false;
+ 
+ 	if (vma->vm_file && (vma->vm_file->f_mode & FMODE_NOREUSE))
+diff --git a/lib/test_hmm.c b/lib/test_hmm.c
+index b803c53201cc..e08993b10a7a 100644
+--- a/lib/test_hmm.c
++++ b/lib/test_hmm.c
+@@ -1251,7 +1251,7 @@ static int dmirror_migrate_to_system(struct dmirror *dmirror,
+ 	mmap_read_lock(mm);
+ 	for (addr = start; addr < end; addr = next) {
+ 		vma = vma_lookup(mm, addr);
+-		if (!vma || !(vma->vm_flags & VM_READ)) {
++		if (!vma || !vma_test(vma, VMA_READ_BIT)) {
+ 			ret = -EINVAL;
+ 			goto out;
+ 		}
+@@ -1323,7 +1323,7 @@ static int dmirror_migrate_to_device(struct dmirror *dmirror,
+ 	mmap_read_lock(mm);
+ 	for (addr = start; addr < end; addr = next) {
+ 		vma = vma_lookup(mm, addr);
+-		if (!vma || !(vma->vm_flags & VM_READ)) {
++		if (!vma || !vma_test(vma, VMA_READ_BIT)) {
+ 			ret = -EINVAL;
+ 			goto out;
+ 		}
+diff --git a/mm/damon/vaddr.c b/mm/damon/vaddr.c
+index 1e65e7651cd9..750e643e020f 100644
+--- a/mm/damon/vaddr.c
++++ b/mm/damon/vaddr.c
+@@ -240,7 +240,7 @@ static void damon_va_walk_page_range(struct mm_struct *mm, unsigned long start,
+ 		goto lock_mmap;
+ 	}
+ 
+-	if (!(vma->vm_flags & VM_PFNMAP)) {
++	if (!vma_test(vma, VMA_PFNMAP_BIT)) {
+ 		ops->walk_lock = PGWALK_VMA_RDLOCK_VERIFY;
+ 		walk_page_range_vma(vma, start, end, ops, private);
+ 	}
+diff --git a/mm/hmm.c b/mm/hmm.c
+index ad7d6013922d..6b9def3c0687 100644
+--- a/mm/hmm.c
++++ b/mm/hmm.c
+@@ -596,9 +596,9 @@ static int hmm_vma_walk_test(unsigned long start, unsigned long end,
+ 	struct hmm_range *range = hmm_vma_walk->range;
+ 	struct vm_area_struct *vma = walk->vma;
+ 
+-	if (!(vma->vm_flags & (VM_IO | VM_PFNMAP)) &&
++	if (!vma_test_any(vma, VMA_IO_BIT, VMA_PFNMAP_BIT) &&
+ 	    !vma_test_single_mask(vma, VMA_SHADOW_STACK) &&
+-	    vma->vm_flags & VM_READ)
++	    vma_test(vma, VMA_READ_BIT))
+ 		return 0;
+ 
+ 	/*
+@@ -663,7 +663,7 @@ static int hmm_do_fault(struct mm_struct *mm,
+ 		return -EFAULT;
+ 
+ 	if (required_fault & HMM_NEED_WRITE_FAULT) {
+-		if (!(vma->vm_flags & VM_WRITE))
++		if (!vma_test(vma, VMA_WRITE_BIT))
+ 			return -EPERM;
+ 		fault_flags |= FAULT_FLAG_WRITE;
+ 	}
+diff --git a/mm/internal.h b/mm/internal.h
+index de4593b3e3b6..cc5e43e7bc49 100644
+--- a/mm/internal.h
++++ b/mm/internal.h
+@@ -1259,7 +1259,7 @@ ssize_t splice_folio_into_pipe(struct pipe_inode_info *pipe,
+ 
+ static inline bool vma_is_single_threaded_private(struct vm_area_struct *vma)
+ {
+-	if (vma->vm_flags & VM_SHARED)
++	if (vma_test(vma, VMA_SHARED_BIT))
+ 		return false;
+ 
+ 	return atomic_read(&vma->vm_mm->mm_users) == 1;
+diff --git a/mm/mempolicy.c b/mm/mempolicy.c
+index 6f800fb961ae..6528c86042bb 100644
+--- a/mm/mempolicy.c
++++ b/mm/mempolicy.c
+@@ -2015,7 +2015,7 @@ SYSCALL_DEFINE5(get_mempolicy, int __user *, policy,
+ 
+ bool vma_migratable(struct vm_area_struct *vma)
+ {
+-	if (vma->vm_flags & (VM_IO | VM_PFNMAP))
++	if (vma_test_any(vma, VMA_IO_BIT, VMA_PFNMAP_BIT))
+ 		return false;
+ 
+ 	/*
+@@ -2567,7 +2567,7 @@ struct folio *vma_alloc_folio_noprof(gfp_t gfp, int order, struct vm_area_struct
+ 	pgoff_t ilx;
+ 	struct folio *folio;
+ 
+-	if (vma->vm_flags & VM_DROPPABLE)
++	if (vma_test_single_mask(vma, VMA_DROPPABLE))
+ 		gfp |= __GFP_NOWARN;
+ 
+ 	pol = get_vma_policy(vma, addr, order, &ilx);
+diff --git a/mm/mmap_lock.c b/mm/mmap_lock.c
+index 073c5125b424..36dc9c0b5dfa 100644
+--- a/mm/mmap_lock.c
++++ b/mm/mmap_lock.c
+@@ -636,7 +636,7 @@ struct vm_area_struct *lock_mm_and_find_vma(struct mm_struct *mm,
+ 	 * Well, dang. We might still be successful, but only
+ 	 * if we can extend a vma to do so.
+ 	 */
+-	if (!vma || !(vma->vm_flags & VM_GROWSDOWN)) {
++	if (!vma || !vma_test(vma, VMA_GROWSDOWN_BIT)) {
+ 		mmap_read_unlock(mm);
+ 		return NULL;
+ 	}
+@@ -659,7 +659,7 @@ struct vm_area_struct *lock_mm_and_find_vma(struct mm_struct *mm,
+ 			goto fail;
+ 		if (vma->vm_start <= addr)
+ 			goto success;
+-		if (!(vma->vm_flags & VM_GROWSDOWN))
++		if (!vma_test(vma, VMA_GROWSDOWN_BIT))
+ 			goto fail;
+ 	}
+ 
+diff --git a/mm/msync.c b/mm/msync.c
+index ced41d3c2903..06c62cdb337d 100644
+--- a/mm/msync.c
++++ b/mm/msync.c
+@@ -79,7 +79,7 @@ SYSCALL_DEFINE3(msync, unsigned long, start, size_t, len, int, flags)
+ 		}
+ 		/* Here vma->vm_start <= start < vma->vm_end. */
+ 		if ((flags & MS_INVALIDATE) &&
+-				(vma->vm_flags & VM_LOCKED)) {
++				vma_test(vma, VMA_LOCKED_BIT)) {
+ 			error = -EBUSY;
+ 			goto out_unlock;
+ 		}
+@@ -88,7 +88,7 @@ SYSCALL_DEFINE3(msync, unsigned long, start, size_t, len, int, flags)
+ 		fend = fstart + (min(end, vma->vm_end) - start) - 1;
+ 		start = vma->vm_end;
+ 		if ((flags & MS_SYNC) && file &&
+-				(vma->vm_flags & VM_SHARED)) {
++				vma_test(vma, VMA_SHARED_BIT)) {
+ 			get_file(file);
+ 			mmap_read_unlock(mm);
+ 			error = vfs_fsync_range(file, fstart, fend, 1);
+diff --git a/mm/oom_kill.c b/mm/oom_kill.c
+index 5d48bd862c27..91b11299cb5d 100644
+--- a/mm/oom_kill.c
++++ b/mm/oom_kill.c
+@@ -524,7 +524,7 @@ static bool __oom_reap_task_mm(struct mm_struct *mm)
+ 	 * of the address space.
+ 	 */
+ 	mas_for_each_rev(&mas, vma, 0) {
+-		if (vma->vm_flags & (VM_HUGETLB|VM_PFNMAP))
++		if (vma_test_any(vma, VMA_HUGETLB_BIT, VMA_PFNMAP_BIT))
+ 			continue;
+ 
+ 		/*
+@@ -537,7 +537,7 @@ static bool __oom_reap_task_mm(struct mm_struct *mm)
+ 		 * we do not want to block exit_mmap by keeping mm ref
+ 		 * count elevated without a good reason.
+ 		 */
+-		if (vma_is_anonymous(vma) || !(vma->vm_flags & VM_SHARED)) {
++		if (vma_is_anonymous(vma) || !vma_test(vma, VMA_SHARED_BIT)) {
+ 			if (zap_vma_for_reaping(vma))
+ 				ret = false;
+ 		}
+diff --git a/mm/pagewalk.c b/mm/pagewalk.c
+index e6493bbe6919..41e19f544493 100644
+--- a/mm/pagewalk.c
++++ b/mm/pagewalk.c
+@@ -393,7 +393,7 @@ static int walk_page_test(unsigned long start, unsigned long end,
+ 	 * define their ->pte_hole() callbacks, so let's delegate them to handle
+ 	 * vma(VM_PFNMAP).
+ 	 */
+-	if (vma->vm_flags & VM_PFNMAP) {
++	if (vma_test(vma, VMA_PFNMAP_BIT)) {
+ 		int err = 1;
+ 		if (ops->pte_hole)
+ 			err = ops->pte_hole(start, end, -1, walk);
+diff --git a/mm/vma.h b/mm/vma.h
+index 05300badd70b..a74143bd2274 100644
+--- a/mm/vma.h
++++ b/mm/vma.h
+@@ -596,9 +596,9 @@ static inline bool vma_wants_manual_pte_write_upgrade(struct vm_area_struct *vma
+ 	 * private mappings, that's always the case when we have write
+ 	 * permissions as we properly have to handle COW.
+ 	 */
+-	if (vma->vm_flags & VM_SHARED)
++	if (vma_test(vma, VMA_SHARED_BIT))
+ 		return vma_wants_writenotify(vma, vma->vm_page_prot);
+-	return !!(vma->vm_flags & VM_WRITE);
++	return vma_test(vma, VMA_WRITE_BIT);
+ }
+ 
+ #ifdef CONFIG_MMU
 
-Thanks.
->
->         /* Reset init error count upon receipt of INIT-ACK.  */
->         sctp_add_cmd_sf(commands, SCTP_CMD_INIT_COUNTER_RESET, SCTP_NULL(=
-));
-> --
-> 2.43.0
->
+-- 
+2.56.1
 
-[1] https://netdev-ai.bots.linux.dev/sashiko/#/patchset/179539544818.301604=
-4.18009252996572506068%40gmail.com
