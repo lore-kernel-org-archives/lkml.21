@@ -1,54 +1,128 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.112
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795516046;
-	b=BDA9UMl/XGzgG/2pT0TGXstAWP6VIgWWh/T5b2yA0xnkPI4X7HUA+m5UETUAUBpmz9Hv
-	 puFs788TmSXb0+0k6oTZTyP6AkJhl1nJPvkNlbDjot90eriC3VCbCFgqOg404rKNwhKEK
-	 ariXlypPy17+6/uOeGwRifFj0Ar49Jt4c9VZ5y8mf/o1+m+ntkGSvZKojettC4IJsiBLl
-	 6cRq96S0D91F1XvlDh38YYgX9Sp8s8Wu5U59LKvQ993fvmhD2YAu6VWStITSYSXtb2/xx
-	 eDKwEeaIm7qKrAEFwewQsbWCQ8qhY5I3PqfnkRebmqP/QrVyfbkOWCk0++MP5ATmy2g==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795516046;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ZohoMailClient;
-	bh=4A9LDC1Pxq66xRXpAnFLlD4joyJvsEB7ommipyTBSAU=;
-	b=0r296QIYyzrJN07yACv5naTLb6o2GSHcCCbgagodYMHzKv1cKX6vzRyhLJJGruFlqPvo
-	 rCr69hv0+j+Rzp9ckXY6S5wxzv3OgDdI4P3cXbQDK+rXf3XGa8j4swV61XivA8rwz78xH
-	 tOqzdDt9/LiHPLPxWGwzsozTHwwnz9pNqr5sCgE8QessUfVay6XS1tONEWqUIpUg9pOsE
-	 qO1COIE8++94ov3lYUBGuOY3PircjslCqFOKYDcFO4BmPgUH8MLOQ1KQFDgqSLFPiobBp
-	 t0rmxIiz3SQoyK1kS5KfSsEA7/Sh4oOlbDScWPZ+sff5f1zK1czJS30OvxbCr/Vy6cg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=collabora.com;
-	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=IyJGpSNW;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.112
-Received: from sender5-pp-f112.zoho.com (sender5-pp-f112.zoho.com [165.173.182.112])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795516066;
+	b=E5XAHM/AazTwAN3UBoBjNf+ZOxeNqg+XrgTSyaWq8K5qj9R/MVymx5esLXDdfraiuy2S
+	 5xFZusPF9e9C5ohX3QdhSGz96b01hrH4/2RD3pF0bwNE1xGtL40R6Urm6Q1fyEmaLZ2An
+	 FBBgQLYAypaSYcQ7MUyIvcoH8E7daD2qvpUt3SRBEAXkF/bdCjGTZUyRVCBH3M1bcnA4N
+	 Vvjy1NZOOqS81lk3BW53XUI1ct2bl4GLYk6yRwYhORwHBGGZ4UXtX4ZpVsa8Du39b1W3P
+	 UNfCvdnhAsH7accHiYJ7w+WZWIdfLhonn5j9vtyf9vv8KCshGnejhV01RWS48XjpN9g==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795516066;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Date:From:
+	 To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:X-Authority-Analysis:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-GUID:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=vcl5YiUrbFKyKkOQnxaMI+T47Jq9o3luS62ccZg1YjY=;
+	b=2ZXCPv3mj3DH9RRJ3XOAsMIIJLvkLDd98dxgIjKF+6EUOIsgbkMLYS5LcCSc5oALxgs6
+	 GkeMIfn1WfnctirmeYOJc6azCvznNkcXEcRxhFX7qf7VLtAXFvY9ZSbnB9gfdc1aNQgfh
+	 UauqNi8UpaFDNV+zwbNJosSDBqnNDZI1BPLLs2+56g552kl18e6h/A3FEti874buGt8wc
+	 1/yuagEpXwOMrRGuad0G+U9lMkzzR2UA2aMKTLNkOe2Wd9zNvzFWCXLfGira0iCCUO9S4
+	 Kdaqd98hH6pRuNGNdIJpLMbuA3Fm1E09iH3XBtEs44UFM3OO6mlOQ1IU9v52GwOKhxQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=OGCN7uqN;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b="AK4Qhj/d";
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 84946606A31E;
-	Tue, 24 Nov 2026 10:27:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 84946606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E5FC9606A327
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 10:27:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E5FC9606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=IyJGpSNW
-ARC-Seal: i=1; a=rsa-sha256; t=1795516019; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=LfGiEdx8OjnCNigbjAA6/zn9RrTArJj2FDRUGgWVO5SPcAiahJmVxLsT627D3JaA8Igbqlk1yUjNWE7FultU3Bvjuzb7lmQFjH8Bltsder65QyePUvW12kIwQ2gD1J7Pm48uyCA6+GZGsGYkMcPrpWoVFDd0ThBLB7EqbRVig3A=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1795516019; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=4A9LDC1Pxq66xRXpAnFLlD4joyJvsEB7ommipyTBSAU=; 
-	b=hPUujiE2ZP/ar4Z+UH5dqbDAOlu/PhBGp4xXAHQrjoOBPy0SqOKalskGYGBEDYLsnNLScobmFoTbeo1JD79xvbDAopeATWwr6kp+lgmkpB1lpo0xT+4lVe0wGqPJpDgkcgxjvN7idRhNZj7JKbfRXEYW6FhUTRxndJMcaQgIrzY=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=michael.riesch@collabora.com;
-	dmarc=pass header.from=<michael.riesch@collabora.com>
-DKIM-Signature: a=rsa-sha256; b=IyJGpSNWB3Iy/ksv11xA0oHwGVyuEQzfVI+XPmi/aAJVMDKWAB3iuYQoMCoSwuI+OLtzXFjzqdUyIVoOUcKK8Ty899HJoO+qLXSiJ3Vusk85kW5XO6Xrtp9piULRsfRNBmr0mlJSrkVMRm7FRDOK/PvBotijXBWkz1DcEKOVRPo=; c=relaxed/relaxed; s=zohomail; d=collabora.com; v=1; bh=4A9LDC1Pxq66xRXpAnFLlD4joyJvsEB7ommipyTBSAU=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 1795515987257765.0607790829777;
-	Tue, 24 Nov 2026 02:26:27 -0800 (PST)
-Message-ID: <35884259-b669-46ed-a9e9-59cbfab926e1@collabora.com>
-Date: Tue, 24 Nov 2026 11:26:23 +0100
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=OGCN7uqN;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=AK4Qhj/d
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AO8iDBV1598156
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 10:27:45 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=vcl5YiUrbFKyKkOQnxaMI+T4
+	7Jq9o3luS62ccZg1YjY=; b=OGCN7uqN05tuOGacoC1593ZXu/H840KxnH4UJ6Zt
+	NUsSLwJunItQqdz7vX1SttC39rEeMZ2dFc+S09B9W/R5PFaoTVFNJ6aT/rnSqSCl
+	KIe/XrjD/ppEuI4rLTu/MTiL5Tpx7YhezQkkL8SVwHYxPVfCYW+bJsqGPzwn3kjK
+	A7JsNx5M+b4AjFk88vjhdydgcDk0qLnocYhz6tyuMm4dGe9NDieu/IqmoocxkOyO
+	fG8/e5HjHwuURIrzSjJa5+Fj7OZsQGPl9JKpueS5XG2WbLoqI2USbBF2xyYrSonr
+	Fwv/PdZ7sq7+5oYSLa3tM/yOaTVdm2lp37Ha6g7CHe5tPQ==
+Received: from mail-dl1-f70.google.com (mail-dl1-f70.google.com [74.125.82.70])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j4ukqk4pm-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 10:27:44 +0000 (GMT)
+Received: by mail-dl1-f70.google.com with SMTP id a92af1059eb24-1b29df78132so3910833c88.1
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 02:27:44 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795516064; x=1796120864; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=vcl5YiUrbFKyKkOQnxaMI+T47Jq9o3luS62ccZg1YjY=;
+        b=AK4Qhj/dBvYGgezfeuuAmX9FgHkw3wYkmnJGSx/tgYXCm5g+z/dX2iXGu+Dka15vD8
+         PlIQlPiINrgMpX6Bi1SdHHyXJWpG7Z2PpF8oFLY5+aJ3T9scN+e3D1U9gCnv9qrpOZz/
+         m7lgtzHiBhxIEfgCYj5KwnA15CydxsQLQrmJasfoCJYsEkUX7xRuLf7wb3yCCDuiC5x2
+         +LA3B9tQYHb8J4i1RqwuO3+slCNKMDuCIGaw1fBoYcd1Zgs7tHbR1Pb+kMb1hoZaUfIK
+         9Lp+E4ktbFYcP+pWhHR8fZN7+/PPBrK8dxV4oJJG/o/xPmW4Cf+Q4lPQN8+1tLMNMbOX
+         m69A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795516064; x=1796120864;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=vcl5YiUrbFKyKkOQnxaMI+T47Jq9o3luS62ccZg1YjY=;
+        b=D1ypFGrD7w5P5Dm9NAKzgPcKpM7U1lGW+0lUpkzg4buYjs3CkW1UaNzjSZRcUoqP1x
+         q5BS5ZF74n72PXVR6Ze73nQlgPiz62EXBd1aQSbE2F6xJGVmhf2D8EDPv/koWAEprEZw
+         8/hoHZ+21JPeP2JlvfgEdFwPnknyo8BGDwyqsxez26pBk8rPrxSZXfHb9Ua+QYfPBtTw
+         oYlCWmQ0T+zEayCk4jOC1QE5QcZRlryHM9ok0Bfr1knRdSI+SIf1VecJOzZflAHTrg2H
+         ueqfsXMZue81nchYu+w+rRBXBF1E9PjkS/kq+aEw816Cezs9KmNc4K4jmG6igxnWJqx9
+         khQQ==
+X-Forwarded-Encrypted: i=1; AL+hErHxPw0l3umBrS4Sc/Lro90Oakf8DWgCyLKrED4WrOoIT+AXXfKuSvk30Mgx0PoLSWG9fAZf5K304q1qgks=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8x/oY7sEri3xy4cLmDLRqw6kdaLfzb6+RYQ+3WZHMuSUHV2Bqe
+	y7HxLwOTPPu8Qs0RrahdeZtM0MmcxrzwH+WOWuONCCJEdB5xb0XxqwlmnhGzar177ZkLPd2ty0F
+	tIssnEqMFYJwfhCsP6BQ55mTblUugQmA4Bqxgh9CKFM3mzNj6JwWy0hlzsWhqlCN0psc=
+X-Gm-Gg: AZFdTZcRbJ9R3tpIClEEwd/09sRH7V89PZgJk4FTaLnLbKPikFmRyCg76oTamNZLXlC
+	fX+2djvv1KQi5B45t61SFX7AmwLRh44eKlwMFmTzliCbpGh9uHGgOLMl1UgwpvfcnUwXQPoyfK3
+	GqwrL+/DB4F/v2Iv3UxZ+ptIpOCSIJm0LECIglKaJKfMGQdDDXd1YeRG32DI5DcMj1KYJjaCWsz
+	TCiHztYjg6Hsj45KhuS6T/D20mZC4WnUKXiJGOwnAIUwUcTP9cKNGEt/75MarpC2QHF8LwEN5AO
+	pCNxPJBUPIUmm6u7gyKxet4Z2bvmZ3r1SzBeeqVAgPR2d3idcoGVxT1+Men/dHDz4ikLMk0CHUG
+	mXzrBNlvip6CdzJe1M1qEH7nkS1AAB52gRnnQOUcn2Sklt3e33gT1vB483mC+sOZJ9Jc+mwuRa1
+	6Z
+X-Received: by 2002:a05:701b:2514:b0:16a:c6f2:60c2 with SMTP id a92af1059eb24-1b55689fcb2mr12874040c88.12.1795516063687;
+        Tue, 24 Nov 2026 02:27:43 -0800 (PST)
+X-Received: by 2002:a05:701b:2514:b0:16a:c6f2:60c2 with SMTP id a92af1059eb24-1b55689fcb2mr12874001c88.12.1795516063089;
+        Tue, 24 Nov 2026 02:27:43 -0800 (PST)
+Received: from hu-mojha-hyd.qualcomm.com ([202.46.23.25])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b55684c85fsm49238690c88.14.2026.11.24.02.27.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 02:27:42 -0800 (PST)
+Date: Tue, 24 Nov 2026 15:57:34 +0530
+From: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
+To: Komal Bajaj <komal.bajaj@oss.qualcomm.com>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Abel Vesa <abelvesa@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Mathieu Poirier <mathieu.poirier@linaro.org>,
+        Manivannan Sadhasivam <mani@kernel.org>,
+        Bartosz Golaszewski <brgl@kernel.org>,
+        Kumar Patro <bibek.patro@oss.qualcomm.com>,
+        Jingyi Wang <jingyi.wang@oss.qualcomm.com>,
+        Luca Weiss <luca.weiss@fairphone.com>,
+        Shawn Guo <shengchao.guo@oss.qualcomm.com>,
+        linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-remoteproc@vger.kernel.org
+Subject: Re: [PATCH v7 5/5] arm64: dts: qcom: sm8750: Add EL2 overlay for MTP
+Message-ID: <20261124102734.7hf4s5nf5kpkw64y@hu-mojha-hyd.qualcomm.com>
+References: <20261120-shikra-el2-v7-0-9d9000eb50d4@oss.qualcomm.com>
+ <20261120-shikra-el2-v7-5-9d9000eb50d4@oss.qualcomm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,80 +132,53 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/2] media: rockchip: rkcif: Filter enumerated formats
- by media bus code
-To: Faizel K B <faizel.kb@gmail.com>,
- Mehdi Djait <mehdi.djait@linux.intel.com>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
- Heiko Stuebner <heiko@sntech.de>, linux-media@vger.kernel.org,
- linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, libcamera-devel@lists.libcamera.org,
- Robert Mader <robert.mader@collabora.com>
-References: <20261118203134.315591-1-faizel.kb@gmail.com>
- <20261118203134.315591-2-faizel.kb@gmail.com>
-Content-Language: en-US
-From: Michael Riesch <michael.riesch@collabora.com>
-In-Reply-To: <20261118203134.315591-2-faizel.kb@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ZohoMailClient: External
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261120-shikra-el2-v7-5-9d9000eb50d4@oss.qualcomm.com>
+X-Authority-Analysis: v=2.4 cv=Wu++otfv c=1 sm=1 tr=0 ts=6b0566a0 cx=c_pps
+ a=SvEPeNj+VMjHSW//kvnxuw==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
+ a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22
+ a=EUspDBNiAAAA:8 a=RR6Oj5ZeI5PBhayghEMA:9 a=CjuIK1q_8ugA:10
+ a=Kq8ClHjjuc5pcCNDwlU0:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI0MDA0MCBTYWx0ZWRfX88kkq4R3sbsx
+ PN1UkaLUaQ5ZdSk7pPReJer/Xd73Jzj1Y8DrEdPWkqb6NSrfqnhJGeh0pybeFjw+stmKsKL3cs8
+ ZEme8OlpicDoFNPtrjtrZG2zmOKAf5a/aJpU2iAngzjYKNoK4ct6oi1GN2bjO/87me+cgPn3dOY
+ ENOQwsNva6lkks+feyQ7x/7gacjpaT+gD2tp3BlLmnuWhb9SfW+EHflmvTcclfwqXoY8BZhShe0
+ rr+PYx5NHIl4MiWjyW/MlaohPxOgZpXNe27LE9A8S8XRWZSVrKxQfXmjfPxPAVL0j+zs0obWMZW
+ 52miimPjZyCL31greWSUjWFIBdfrSSdcPl5k56UcAQh2S/uZaafvxluXLKTQnR0xCgTbcdJGF4O
+ XIoXf5n2MsAksA3lJQEUoasuUwZKAXxxLDyi1LpgLNcO8FN/1iqSdswVWDMFLLamTSB5Q31Y2D4
+ FKyZhsUvgPJ39oH3rcg==
+X-Proofpoint-GUID: 5ATgeRQboWMQrTI5-R9EiTwBVU7O0R6P
+X-Proofpoint-ORIG-GUID: 5ATgeRQboWMQrTI5-R9EiTwBVU7O0R6P
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI0MDA0MCBTYWx0ZWRfX2HSehdbi0mfG
+ YBLKvQIEWYvCQhdnbFAsa6HAgAtWkuROlefrIbl7NQTZ0qr0oy4XQyyC4eL0jEjxD7tuZhTJCUR
+ f1uSacbz3PohImVj7coem1JqPDWyGoc=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-24_01,2026-11-23_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 priorityscore=1501 impostorscore=0 spamscore=0 adultscore=0
+ lowpriorityscore=0 suspectscore=0 bulkscore=0 clxscore=1015 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611240040
 
-Hi Faizel,
-
-Thanks for your patch.
-
-On 11/18/26 21:31, Faizel K B wrote:
-> VIDIOC_ENUM_FMT ignores the mbus_code field and returns all formats,
-> although the video devices set V4L2_CAP_IO_MC. Return only the formats
-> that match the requested media bus code. The DVP output formats have no
-> media bus code, so they are still all returned.
+On Fri, Nov 20, 2026 at 06:50:53PM +0530, Komal Bajaj wrote:
+> SM8750 boards boot Linux under the Gunyah hypervisor, with Linux
+> running at EL1. Linux can also be booted directly at EL2 on these
+> devices.
 > 
-> Otherwise userspace can pick a pixel format that doesn't match the
-> media bus format, and then interprets the captured data in the wrong
-> format.
+> For EL2 boot, describe the IOMMU streams used by the remote processor
+> firmware in the DeviceTree consumed by Linux. Also disable GPU zap
+> shader and Iris video codec.
 > 
-> Signed-off-by: Faizel K B <faizel.kb@gmail.com>
-
-Reviewed-by: Michael Riesch <michael.riesch@collabora.com>
-
-Best regards,
-Michael
-
-> ---
->  .../platform/rockchip/rkcif/rkcif-stream.c     | 18 ++++++++++++++----
->  1 file changed, 14 insertions(+), 4 deletions(-)
+> Add an EL2-specific DT overlay and apply it to the SM8750 MTP to
+> produce sm8750-mtp-el2.dtb alongside the standard DTB.
 > 
-> diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-stream.c b/drivers/media/platform/rockchip/rkcif/rkcif-stream.c
-> index 3130d420ad55..b117ba57bc75 100644
-> --- a/drivers/media/platform/rockchip/rkcif/rkcif-stream.c
-> +++ b/drivers/media/platform/rockchip/rkcif/rkcif-stream.c
-> @@ -395,13 +395,23 @@ static int rkcif_stream_enum_formats(struct file *file, void *priv,
->  				     struct v4l2_fmtdesc *f)
->  {
->  	struct rkcif_stream *stream = video_drvdata(file);
-> +	const struct rkcif_output_fmt *fmt;
-> +	unsigned int i, n = 0;
->  
-> -	if (f->index >= stream->out_fmts_num)
-> -		return -EINVAL;
-> +	for (i = 0; i < stream->out_fmts_num; i++) {
-> +		fmt = &stream->out_fmts[i];
->  
-> -	f->pixelformat = stream->out_fmts[f->index].fourcc;
-> +		if (f->mbus_code && fmt->mbus_code &&
-> +		    fmt->mbus_code != f->mbus_code)
-> +			continue;
->  
-> -	return 0;
-> +		if (n++ == f->index) {
-> +			f->pixelformat = fmt->fourcc;
-> +			return 0;
-> +		}
-> +	}
-> +
-> +	return -EINVAL;
->  }
->  
->  static int rkcif_stream_enum_framesizes(struct file *file, void *fh,
+> Signed-off-by: Komal Bajaj <komal.bajaj@oss.qualcomm.com>
 
+
+Reviewed-by: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
+
+-- 
+-Mukesh Ojha
