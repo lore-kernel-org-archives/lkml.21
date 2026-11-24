@@ -1,109 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.53.12
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.210.171
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795545571;
-	b=MLo1T0qmRuHRGkwvKEBouc2nIgtjAJ3V6C+ntpaOa9xgyaj0oX4+l04MuPD37PoSIvY9
-	 fkzWM3BdRWToinu13i4HEFa04mQhoNcjU+Qie/aZz4Wu6WP/dACiDpC6PzowM/YDuLnFo
-	 87ZuVtBt6s4eXc0DPk7lHIr9hVFMjZu5u1AANIqVVeFbblnmrs6+P4TjwAjv4YPWiA7yl
-	 iqUXs9t6bS+9nfByP9xrc6T4ToBxotuR8wupvrI2dJqdV4Wp3DfM4Wd5KE8OfF8sl+525
-	 XXmo5LZjmpgsGHdvl0pS0OfEGCKPIJC+HJkRHizZyFloq3zAlHclk4mRvT0Gg+pxPUA==
+	t=1795545618;
+	b=aLddsq+5sjdohM+CmVN7lmYVTyeUBYphTbPopAA1DuHj10bfVcpL+cLWAONUOnBWsamM
+	 okASJDbaDvpGB9ICxcrfD9rEEdFifzuBXnKeUB0lsVQybDl0+/V+hQM4SJkdgt5pkd331
+	 /M96sM9CmeAki1+jIta1G6BOVQJN/io3t5RuqhRLKDft7CI0y8ZMWtXi+yvtX56grQPmg
+	 kWIqCtc7VhS3yxe/spY8KT3/lDrF5CIqFP5jxmoWj8LEK0u9dzwUCdL6VRBELfOWMdBw/
+	 q78xovYdN2Caj7k60eMqTMxulU/s8fUSzemEtIE5bWcwxFdZ4q4J+QjFfMcYGhP+HTg==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795545571;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 Received:Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:Content-Transfer-Encoding:Content-Type:
-	 X-EOPAttributedMessage:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=bgy5XjjkALoDzFe+PXNnhgyb98yMo1dw4iQi3LTBzl4=;
-	b=LocQaKp4F2QyEeqi5trwwL/pd/kLxaqT+F8a97+jBuwLugZLHBTr+hGS+Fh9EL3LKW5o
-	 OAZAjK++deRjkdukVaHBseyeSgf+VPmWvae6+Y7hNegQLU2xVy8WWGE97NnJkeZdr7jrn
-	 WPujbu1XQkCW6jzQqsSYJOa4oyPFgqfmS8E/HL20ELlvHgyxSV+nBFqLbzUnN1ch67u5H
-	 ohj1OrP5O1J8d4z+WsGTIXYzRJp+lcn/iCW0ntv02FVrx6sH8/Lr5vKn3Awlux6y6CozV
-	 4PEUZgg2Vyv/iwHb9dEcfdSteCke4/5aYnglKtm6YJ4PHvkpWFycLqb/BiqX7AurvgA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795545618;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=3cr3soCs/aH4Auc5veUlCs6H08qDugqKnqtBUy6DKyY=;
+	b=bytfbK02nLJ+UMwp5cY6CWHnUIBEUJFZ9oU3+Vs3MVH3S/VnzBmDLcsW6/04sB8EkByJ
+	 Z/uas7gI7A8r0c0JLP7U5x7SmtbTZGgqw1AMfSncjPrAoc/ION6JDfRtNe1FPlJh/UFr+
+	 d9M2REiDNyTpBJY2vAieT6Ju7z/c4uym1ij4nTbcbdGVzAX+HeHHqc3szlC09t3gx6Kbs
+	 dt0XX+hthdlXQvw0X5wErfd55LYhMUS421+x4SEGGXoNZhQ0BzQcwEMRjV/ASyQ7vNn2/
+	 0QafF0pqN65W8HP+zXJl89t0Ycj/9whsyT4txIXD9gCx6RK7w014PMA6L8g0abl3qlA==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=amd.com;
-	spf=fail smtp.mailfrom=amd.com;
-	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=MvApR0Ub;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.53.12
-Received: from BL0PR03CU003.outbound.protection.outlook.com (mail-eastusazon11012012.outbound.protection.outlook.com [52.101.53.12])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=none header.from=fooishbar.org;
+	spf=pass smtp.mailfrom=fooishbar.org;
+	dkim=pass header.d=fooishbar.org header.i=@fooishbar.org header.a=rsa-sha256 header.s=google header.b=Vfv0YWxS;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.210.171
+Received: from mail-pf1-f171.google.com (mail-pf1-f171.google.com [209.85.210.171])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 84D15606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 18:39:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 84D15606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C6915606A321
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 18:40:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C6915606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=fooishbar.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fooishbar.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=MvApR0Ub
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=XMQD8Cj9FipJCZEwtBRkLIts9DCpUzjXfGfhQBVcRo8bE6aLqLq1/KfO4i4ZOAKY3tyrpOz7Elk9VA9/3vyWjYHrdmkyRQyqepABXj5cMuTK7uqzkBwfqm3DTG/owDB5RSJKIuVbxtDISq5AsQr9hufB5xjboXyIx2aIfTsW6nt1SitAzp3i9gvJkNuwbShg27CmQ7gOH5EhgD+XvuM6EkgbuCqEgQtPfiqVI8tLjjw74S9B6FT2pl7pJC+s+wW72h2p7hhSQJA377tbVBF0Rm+mqndv1INt+48vEUiBXdClE/Pf8dBbJ5Eewl5QALBCxkaxhaddqjR6EB/u5nXhyg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=bgy5XjjkALoDzFe+PXNnhgyb98yMo1dw4iQi3LTBzl4=;
- b=n1zvlfTnLWBpRfkkQX5SIeb0/0OJbPT674DgYMYNGMrUPrgo9HBFbWj5ommtPN4+6ut9zIBX9M4fbhIC6gMFp3Ef+w1VTDqfVmm40rEu5aCEWsT09cBFSpnq2tMEZVEkMIw6zACFAxccHIFHcJYAYDdoyJ1PmBUPZfFOMJ070JJFGfiwC/X553ZREFJ0HBlimVOUkCYy+RfwFA1ETlOQ4NUClVTm0W7jhcDz38AJ3MIY5e0m7/OTr+g0s7DXxsmk6GCa+stNuvEUva2g7iZWM8hcMq37WFkZ1CGKoAJmyEzXIv3QPnW/HxIFWTYRwCf0D5zGXtw9BkgXGExIW1Widw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=bgy5XjjkALoDzFe+PXNnhgyb98yMo1dw4iQi3LTBzl4=;
- b=MvApR0Ub+rizmBWwIBg568biSHBHt9oS3z+S8DnvOHXhNBqA0SFz1hdQERSaYqRrVnm68bwhRz6BydLCXt7/Q9JrKUPfm1ZHyrFqS6Zrb77LXl+W45zP24krUFI8FkN/xizNVPf9f6E9io5UqPOqRaIkeQ/A7YKiOgCXpxxA5CY=
-Received: from BN0PR02CA0015.namprd02.prod.outlook.com (2603:10b6:408:e4::20)
- by CY8PR12MB7268.namprd12.prod.outlook.com (2603:10b6:930:54::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Tue, 24 Nov
- 2026 18:39:24 +0000
-Received: from BN3PEPF00022BC8.namprd05.prod.outlook.com
- (2603:10b6:408:e4:cafe::43) by BN0PR02CA0015.outlook.office365.com
- (2603:10b6:408:e4::20) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.5 via Frontend Transport; Tue, 24
- Nov 2026 18:39:23 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
-Received: from satlexmb08.amd.com (165.204.84.17) by
- BN3PEPF00022BC8.mail.protection.outlook.com (10.167.248.214) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.662.3 via Frontend Transport; Tue, 24 Nov 2026 18:39:23 +0000
-Received: from satlexmb10.amd.com (10.181.42.219) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Tue, 24 Nov
- 2026 12:39:22 -0600
-Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb10.amd.com
- (10.181.42.219) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Tue, 24 Nov
- 2026 12:39:22 -0600
-Received: from xsjlizhih51.xilinx.com (10.180.168.240) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.57 via Frontend
- Transport; Tue, 24 Nov 2026 12:39:21 -0600
-From: Lizhi Hou <lizhi.hou@amd.com>
-To: <ogabbay@kernel.org>, <quic_jhugo@quicinc.com>,
-	<dri-devel@lists.freedesktop.org>, <mario.limonciello@amd.com>,
-	<karol.wachowski@linux.intel.com>, <max.zhen@amd.com>
-CC: Lizhi Hou <lizhi.hou@amd.com>, <linux-kernel@vger.kernel.org>,
-	<sonal.santan@amd.com>
-Subject: [PATCH V1] accel/amdxdna: Reject zero length user buffer entry
-Date: Tue, 24 Nov 2026 10:39:14 -0800
-Message-ID: <20261124183914.1955667-1-lizhi.hou@amd.com>
-X-Mailer: git-send-email 2.34.1
+	dkim=pass (2048-bit key, unprotected) header.d=fooishbar.org header.i=@fooishbar.org header.a=rsa-sha256 header.s=google header.b=Vfv0YWxS
+Received: by mail-pf1-f171.google.com with SMTP id d2e1a72fcca58-8b271e573adso2090137b3a.2
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 10:40:12 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795545612; cv=none;
+        d=google.com; s=arc-20260327;
+        b=XNyIgi3MxO63CBRm2vckt39JS2vReWfLwnnxTL77UARZ3Yo5dfI8e5g+BMZUp+n8iQ
+         s3DCcMg3uszla5Ij8/vCm0Vtn/iroWy5YDvep0CC9UMS2VD7kwQSjDRY/mak9TC/xO6i
+         6mJnhSMms6Oh8vcSz9jLkov0sgv63kWso42Mq5vpMh9pRWXjPyXy0t5UJ6DiRQZ2js2B
+         YLFg8ehOBZa7skn5Q0P0394W9szQBXm9Irk4+GS1/EqsNmTsoEPpqvyVWlbBTUfXXker
+         NEUE1YyCD1jZIryT5U+mWqDGFl0Mup2y+KHgWQRnqZP3N+wEmY32r/PbK/gqGKhrdQjX
+         IOVg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=3cr3soCs/aH4Auc5veUlCs6H08qDugqKnqtBUy6DKyY=;
+        fh=ApPCF/qnfEyy/ZW9wSm18dQNcdHRzmEKSlVLtVhD29M=;
+        b=gJiIhAHMcc44COW2b1S1fC/XSoiDpd2qifwvK2aeONvcDXK9til6Pn+pkgzbyTMa/u
+         BKvWzmrX4xUS0pl24hfL27v9+eakLT617hjHgRa48jtiZPvEWQ0rggt1pHVrwD8QsjVL
+         gl4Es+hR0/Wk8aGeuPd/r8GSNRBSSagF+3tG4R32R+8ZRlWkVmy7XjDKwEUVdTvTa4id
+         4RLi3Pt09UyJ2nxD78JmIukwIG1hbFJltOGUwzECNhs393qQEv1vUFbT0uvPDRJjp/GS
+         MWceAdALDQR/Pj2vOZiJfrjclCGVCtPTEADqeWjlAe6d/UBJKGhIm9w5U49liRKYsaYH
+         3cBA==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=fooishbar.org; s=google; t=1795545612; x=1796150412; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=3cr3soCs/aH4Auc5veUlCs6H08qDugqKnqtBUy6DKyY=;
+        b=Vfv0YWxSAxoP1AD3nQ+YQzFzO3EpWxRZbX1pQuOChuKfbzewP85iO1pEw97BDfn3jm
+         vjpbtXC0YVI234XklnPCOtBFXdOxskhzU1fvy520UfdSyEvxE7VRjq4NgzgxzY+K1XhY
+         a731bhTlCKkOqy3fZ5xznDV4yOmbiBtbYFPHXAVKrEf6+gYjx5sj5UDs4OuFQpogM7LS
+         6cDAynXbGm6LnF6yorabsPUUT+fzshFwUdTNxoE/0EAIEM9Hi3gfAhl9FrJRectaLrsc
+         G9qQA1dGU/+wCd3Y5f0zLjRhsMwbxUw74/x1cd5hJ+xpdV5S/tEjdO/Rs0ooyEfwmtzp
+         DUiw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795545612; x=1796150412;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=3cr3soCs/aH4Auc5veUlCs6H08qDugqKnqtBUy6DKyY=;
+        b=gIKJgwa9grm98p2wvXmh8ZpPBfl/kEqUpDtvkmced3vNFGLCpiQZhxWT1BUOL0uW+c
+         ZahgNBEXR9BHHd7NX1ML/bps7kRK3M/9n3ysfXTrAe2RggoTaYYFSwkJeb1mfD5lxCtG
+         OWgiE2phbkNW/j303nlFaZvfj/j4DWoz+AjtaNix5jYQleURGa2PBWWnSW6ChnP6nQM9
+         j77S+86EQsrfHzzjr9f8ujQZM6zGsYItk9RPM5qOd9tKqk1yByz1WxjhQevh1JYk0iyT
+         VYPGt7L7tM8/DJk/rB8usc4CpjGdz714RGeCbK7SJCQcalK5l2BLR8KVKXpVh69VcjTo
+         tRUQ==
+X-Forwarded-Encrypted: i=1; AL+hErHIUjaHMpaNmcBnFnKbnX6vwZw3+Blh0Q9kMURP+DBOdjJwAr4if8angF8kyVZZXDmlblRVMoxfb1tlRv0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+Nv8A8OWG4WE01iExJObuns3UNDGFs2izdC1qIxJFhJs24rUvj
+	ZUme5ttwHzWXf8EW0Y6yBnsBZ4TsmGSd0IqyNu9OSN5SFz6Uk1zHJ3h+RAnLtlDOBwFYyqPXLHa
+	Lbp3/qN8n87LUStSEx3ya1VMGFjFbftwb9g2JKcez/A==
+X-Gm-Gg: AZFdTZdzzFe27/2ReBVrEFREOSditNo9WZLdUYxHTwFjYnF552KytqTVc+tzF6pNXS+
+	dp0u9Xf7MO9IdHl5ONXuqCwbWlEa3RpKqgUCbIwa9VFgHRjUGG7QaUmZpfWVhaHHm6QhSwAVT0t
+	K1Ju711i8Osx2a4n28lDVjG6YwVYmx+KIlw1nk6MfTq3+m3XpODeO9waJgmd4kPczpMmj9rqovm
+	R/4qhLrceprkYnM4eoqntF3+QdZL9TGG35PWG4tWT9VZ2RgdfyJ4ek01BUH+8RH7PO5PyYBzsU0
+	MUXyKeW8uOcITjuDH0Bm7UWDmSnhsrN3Q86vtxml21NT0yMgNNIr7dihn1O1R+KWhMghAivZNhz
+	xXoKcoE6Hp568BO33WPLUmraIUxRe6ye0v4h/
+X-Received: by 2002:a05:6a21:3e04:b0:3d3:ae40:51e6 with SMTP id
+ adf61e73a8af0-4014bb52da7mr14240670637.26.1795545611912; Tue, 24 Nov 2026
+ 10:40:11 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -113,63 +103,98 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN3PEPF00022BC8:EE_|CY8PR12MB7268:EE_
-X-MS-Office365-Filtering-Correlation-Id: f80c4618-9372-40a4-11ab-08df4a5a425f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|82310400026|1800799024|376014|36860700016|23010399003|18002099003|261009223027099003|11063799006|10067099003|56012099006|261021121427099003|261102123227099003|261021123027099003;
-X-Microsoft-Antispam-Message-Info:
-	cEIF4q42qJRsGSlHYL0QvjXSI1a8wDRDhkzy6CQDFZ7pXz5NyqiaGu9OFR4i8TLiZAVVyOGkbC/4PiMdeagTjIJ4XDnpZRv1mgYl2EdtX9YiZq7qtjgCi5IvGBW2tb9jyr8NgXwtukbVt2fHxbSLdw8E4uLe6Ziq7285hTCWX5z4svEGPfkBokslEfBmSpyi2uS5oOHkaiHakePpHN2IPNuDAvYOkdHoYoHFJM9qo8ZnW5UNub5u5V4DcF/6BDRrhLTQzpR75gMquGquWUiyfG/Lnk7vun0fSds72MYnhKRrujkADKI5dCpkcTwMe70gvJshjpLNxLFlOwqI6XCbax9QIERqYfRMm3NBD0bcETm2wy56wtSF5kSvXrDsHyDURfWLlhcqvLCB544LMK0TGJkH8fYK033t5eI8Fj13eHKOLM1jbudnnM4APWjWfHEgZcXWeKfctAsCfrEGGX4WTgXboYOZBd0+apNyWHmdAuY7oKk/Mo9GvpNRCx3IjZbDJwFiRocXB2aMR9hG0W3sdsrJGSmN52nFG66R/1bGxu+TvBpDy+a3bql/rFqjtPb6aYlHr/5B4FK5AKbvPmGdalQEXXuV2n90lynExhb9DY/IXDCvhKYZBqr/+jliGpCEoZIi4g+AVgJiE0NbyfYBrDbkZz857tdJHfMlYtqpMYndM65N+71n3RyNfr2elhERg9qrUIoOloKQUM+Yvhc3KQ==
-X-Forefront-Antispam-Report:
-	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(376014)(36860700016)(23010399003)(18002099003)(261009223027099003)(11063799006)(10067099003)(56012099006)(261021121427099003)(261102123227099003)(261021123027099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	/98ySDW11dQzBCpqoIYhH27k5WicQf8DXkf5ll1Lb65iAXxMHLW739jf14k22et7xY54hEeRmTy3HleFyuAXHI9qKaa66m7rWgwxW6HTynDQKCMNV0KdyfqsXNMzeKV0Fg/i0PFjq9uEsekpgcG/OeqHhHj5dPBfy5iPAdW+8EIDed8K1vIz5f+PciqvJUC+VhzKNdTk9Qag3kwklRH7OnPS2I2vUK6VGxzLiLhtlwuCy3t6GHfrR+W2Z0GWTg1h65zrLueT0spQxFR8TGOr7EMKQ9L1DIYtN5ANIlo9wVuk2cOw/Sw5OZUQzhVa4mr8jBMGPT9I91YEh6qyv9q8gKwodYym5vgTJpZLqR8Csq1Pobcz3Sj78VsYcUUko6wDsEXllv5xDvo5OpOag2kmqIJfM24DYuwxGLspo97TF3TwG4bhEQ7tt56F2CyFJf5d
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 18:39:23.0359
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: f80c4618-9372-40a4-11ab-08df4a5a425f
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	BN3PEPF00022BC8.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR12MB7268
+References: <20260714114414.184512-1-angelogioacchino.delregno@collabora.com>
+ <20260714114414.184512-34-angelogioacchino.delregno@collabora.com>
+ <CAPj87rO9saEC34+5NiYK8xyZiNytrVgOcszoY5uc7BpL=M4WTg@mail.gmail.com> <14a4f698-8739-45c6-8904-496ac61e73c9@collabora.com>
+In-Reply-To: <14a4f698-8739-45c6-8904-496ac61e73c9@collabora.com>
+From: Daniel Stone <daniel@fooishbar.org>
+Date: Tue, 24 Nov 2026 18:40:00 +0000
+X-Gm-Features: Aa3M54qIEgHVmsqq4DxWvUflQF2v_NEZOm-dewWZxD6n7rtVG1aK5-HIk_WFDp4
+Message-ID: <CAPj87rPtL1nDrEF34LTmQDr9V4GbX0s8SR3wwwWWp4r0yQ2hag@mail.gmail.com>
+Subject: Re: [PATCH v2 33/46] drm/mediatek: Add support for Display Controller
+ exDMA component
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: chunkuang.hu@kernel.org, p.zabel@pengutronix.de, airlied@gmail.com, 
+	simona@ffwll.ch, maarten.lankhorst@linux.intel.com, mripard@kernel.org, 
+	tzimmermann@suse.de, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	matthias.bgg@gmail.com, dri-devel@lists.freedesktop.org, 
+	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	justin.yeh@mediatek.com, jason-jh.lin@mediatek.com, kernel@collabora.com
+Content-Type: text/plain; charset="UTF-8"
 
-DRM_IOCTL_AMDXDNA_CREATE_BO with DRM_AMDXDNA_BO_SHARE_DEV_MEM takes an
-array of user space VA entries. Each entry is validated for page
-alignment only. A zero length is page aligned, thus an entry with
-length zero is accepted. Such an entry contributes no page to the
-buffer.
+Hi there,
 
-Reject a zero length entry in the validation loop.
+On Tue, 24 Nov 2026 at 15:01, AngeloGioacchino Del Regno
+<angelogioacchino.delregno@collabora.com> wrote:
+> On 11/24/26 15:28, Daniel Stone wrote:
+> > On Tue, 14 Jul 2026 at 12:45, AngeloGioacchino Del Regno
+> > <angelogioacchino.delregno@collabora.com> wrote:
+> >> +       if (!pending->enable || pending->height == 0 || pending->width == 0 ||
+> >> +           pending->x > OVL_EXDMA_MAX_SIZE || pending->y > OVL_EXDMA_MAX_SIZE) {
+> >
+> > Definitely don't do this please. If exdma is asked to do something it
+> > can't (and I'm assuming that these last two checks are intended to be
+> > on w/h rather than x/y?), then you need to reject that in
+> > atomic_check. Getting here with pending->enable == true and then not
+> > enabling it, is not OK.
+>
+> That was done because mediatek-drm isn't in the best shape, and atomic_check is too
+> late for this check... adding support for those components is done on top of a big
+> restructuring, which still is not complete, as the entire mediatek-drm driver can,
+> and needs to, improve quite a bit.
 
-Fixes: bd72d4acda10 ("accel/amdxdna: Support user space allocated buffer")
-Signed-off-by: Lizhi Hou <lizhi.hou@amd.com>
----
- drivers/accel/amdxdna/amdxdna_ubuf.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+Hmmm, too late? I don't quite follow - there is the layer_check()
+which should presumably stop such a state from being generated within
+atomic_check() - is there something I'm missing which means that this
+couldn't work?
 
-diff --git a/drivers/accel/amdxdna/amdxdna_ubuf.c b/drivers/accel/amdxdna/amdxdna_ubuf.c
-index 0e0cd69cd1fbf..93b2b6496a0f7 100644
---- a/drivers/accel/amdxdna/amdxdna_ubuf.c
-+++ b/drivers/accel/amdxdna/amdxdna_ubuf.c
-@@ -111,7 +111,8 @@ struct dma_buf *amdxdna_get_ubuf(struct drm_device *dev,
- 
- 	for (i = 0, exp_info.size = 0; i < num_entries; i++) {
- 		if (!IS_ALIGNED(va_ent[i].vaddr, PAGE_SIZE) ||
--		    !IS_ALIGNED(va_ent[i].len, PAGE_SIZE)) {
-+		    !IS_ALIGNED(va_ent[i].len, PAGE_SIZE) ||
-+		    !va_ent[i].len) {
- 			XDNA_ERR(xdna, "Invalid address or len %llx, %llx",
- 				 va_ent[i].vaddr, va_ent[i].len);
- 			ret = -EINVAL;
--- 
-2.34.1
+> > Relatedly, most of mtk_plane_pending_state should be deleted as
+> > duplicative of drm_plane_state and it would be great to see a patch
+> > series very soon to clean that up.
+>
+> Again, I agree mediatek-drm needs a rather big cleanup.
+>
+> Lately, upstream has been a bit slow in reviewing etc for many reasons, which is
+> why this series has been there for months now (though things are getting unblocked
+> lately at least for this specific series, so that's good).
+>
+> Anyway - let me see what I can do, but I can't make *big* promises - the only thing
+> I can say is that further *big* cleanups/restructuring is something I can do in the
+> next iteration (after the partial restructuring that is done in this series gets
+> merged, but definitely not in this series) whenever I can find some time to.
+>
+> I'm all for making things perfect, but I only have two hands, unfortunately :-(
 
+Sure, that makes sense. I think this series is already a really good
+step in the right direction.
+
+There's still a lot more to be done though: if I was looking at this
+as a new driver, the state management alone would be a hard reject
+until it was fixed. It looks like it was a pre-atomic driver with its
+own state management, which then had an atomic implementation bolted
+on in a way you wouldn't do it if you were starting from scratch, that
+has then had three different hardware-programming mechanisms (shadow,
+direct, and CMDQ/GCE) pushed into it.
+
+I'm sure there could be more to be done with the vfunc forest and the
+way all the components are modelled. I'm sure any specific 'why not do
+it like this?' suggestions I would have would be very wrong in some
+way, but as an exercise, sit down with someone who understands display
+hardware and KMS drivers for half an hour. Start by spending 3-5
+minutes explaining the MTK block & routing model to them, then go
+directly to attempting to explain mtk_crtc_num_comp_planes(). A lot of
+the questions and confusion that comes out of that would probably feed
+into what a different design might look like.
+
+Right now, it feels like the top-level DDP implementation is so
+generic and flexible that it's extremely difficult to reason about and
+think through, but then it's so abstract that we end up not being able
+to use any of the hardware blocks in anything other than passthrough
+mode, which is pretty much the worst of both worlds. Hopefully we can
+come up with a better path forward that means we can support more
+hardware and expose more of the functionality as a nice present for
+next Christmas.
+
+Cheers,
+Daniel
