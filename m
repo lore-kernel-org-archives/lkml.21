@@ -1,59 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=203.254.224.25
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.30.111
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795487974;
-	b=AwWlDZf/WxNvVSJPa5pYmR3/S3W+n575oOojyO/fj9mPKQPr7wJgAWozFMp5Ohl9H0/V
-	 ++2pwW3Sd8ZckqzeVTsRgaq0Fg4yxhqkD6BcwIlTCKPHcPHiqO7TirohjmYRtQ67AP7xo
-	 9lZ0JQuw6FX4F9vZ9rnhErhWBrY/8DMHqgmaCXL4AM2p0Z7LRHFC/5QBVs5i/aXqWYBYt
-	 yH1aNTRvaukCGMpVHwPN2rUmoQrYrNiB5ZjGkCFIAE6vSfEMwylcBu0woubj0YfZzOqOS
-	 3RELIGygCK2y3iMPQwSYXg0iBzsuI+mqDFaCcR6y4EW/ISU+Jl28mute31XVChjzI/g==
+	t=1795488002;
+	b=jHrNG5SytM9aIvGDqh6QDZGo1KfHLp6uWx2gRuOUKO4gpYL33Y8+C4rbLrk8xKODJ6P+
+	 UV2hfoQvCWkK9FssNwGlKPx0N52y6B+0UeWgSfl/M6gwMBvnvKbKs4kCEyU0OQVSQbyZh
+	 87QkzLys9baiGyDx/wPrx6IBFTJze4Z058FN68f80iwXk8avTyHK8ptt5x0Mkj3rwLy+w
+	 kBZxiPZLFMWIOR0uVz97or57gAlswMUWqojLy1ZTh7o0sfSPcJSUl0N3IA6P38XzSVMmb
+	 nH04hgIk0EW3R3SZjMb0jlIhEQb493jrvTEYlzwcxSmHFJChyw+YUVgW/9CmYXPbrmg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795487974;
-	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Received:Received:
-	 Mime-Version:Subject:Reply-To:Sender:From:To:CC:X-Priority:
-	 X-Content-Kind-Code:In-Reply-To:X-CPGS-Detection:X-Drm-Type:
-	 X-Msg-Generator:X-Msg-Type:X-Reply-Demand:Message-ID:Date:
-	 X-CMS-MailID:Content-Transfer-Encoding:Content-Type:X-Sendblock-Type:
-	 CMS-TYPE:X-CPGSPASS:X-CPGSPASS:cpgsPolicy:X-CFilter-Loop:
-	 X-CMS-RootMailID:References;
-	bh=zve+A8EdEpj67a/vh+Dk/itIDrtlVGR/8h1o6XoTsvY=;
-	b=HqTgqYpwhkqKDAznDPabaITUhjZW32OxtHb1xbgtLDJljldC/qzjzWNzxJiA5a17kwMY
-	 /zE5qE8W2zrXZxC0eKD5yp3aPmbQ75P82Xhfe9SsCxyHxRQvMbaKP5DQp1IGiQKtaQWoz
-	 ymSx7ZrNu0qcsoS/9UXAsEfvJM57aaVQFTjJDDy0/fyIRjyE9Wpbxq7Jrb+DmmM8VAoZv
-	 ouZur1eGh9ZV+ZXHqZ44ssNCQN+syx7A0zn1TyyiP9PN7MibF8YLOv8dl5USPeN28Y6r6
-	 MAllkQDATvVvDX3yg2PIDm7M34VS0vDPUbYPUtZR+y29ZDPt6npO8DsVIixIptKVM+g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795488002;
+	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=sJ4gUX0/F5wdw93Yu4EtXJV9s8BHoRQzpleUP4DagLI=;
+	b=OzkZbEJUuFc/nBsaXiD2w3+TQullFjP3RzzTe22RTXDkt1nOOaK2EH05FIm4KDRw3Xmi
+	 QDYKm6DaWIja/kchohssR9O6GEIq9b9w5VvsROPjTw38oy+g4v47i/L/7S76Qq0ZNWiC9
+	 cx+auO6iH1Rfbxj6naqRcBtjoAmasjL744mgk1VK9HmeD1GPXA6Rc7ENUgtFrXjW6TSJf
+	 gVgHWPlS4uPigrw2fB/yKhDvU3Nn+44HXjz5sKlJSxYAlihjMe5TL/WCKBOHJd6HBWZZg
+	 SNvIL91hz7YCmKkAQQAB9V0jw1rnMCSTw0g7okGd4z0irP4H/ByJXfcsKgwyzDd5b+w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=samsung.com;
-	spf=pass smtp.mailfrom=samsung.com;
-	dkim=pass header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=JsYnWihw;
-	arc=none smtp.remote-ip=203.254.224.25
-Received: from mailout2.samsung.com (mailout2.samsung.com [203.254.224.25])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=linux.alibaba.com;
+	spf=pass smtp.mailfrom=linux.alibaba.com;
+	dkim=pass header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b="sjQNW5/d";
+	arc=none smtp.remote-ip=115.124.30.111
+Received: from out30-111.freemail.mail.aliyun.com (out30-111.freemail.mail.aliyun.com [115.124.30.111])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B79E9606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 02:39:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B79E9606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=samsung.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=samsung.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5806F606A31E;
+	Tue, 24 Nov 2026 02:39:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5806F606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.alibaba.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.alibaba.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=JsYnWihw
-Received: from epcas2p4.samsung.com (unknown [182.195.41.56])
-	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20261124023932epoutp025c08d310b3e8f9a9da92a68b5f4994fd~q2sxAMlC00932709327epoutp02U
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 02:39:32 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20261124023932epoutp025c08d310b3e8f9a9da92a68b5f4994fd~q2sxAMlC00932709327epoutp02U
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1795487972;
-	bh=zve+A8EdEpj67a/vh+Dk/itIDrtlVGR/8h1o6XoTsvY=;
-	h=Subject:Reply-To:From:To:CC:In-Reply-To:Date:References:From;
-	b=JsYnWihwvj4VSfznxdeU7r964KoPaIavrYKTdXrS6OnHwajtZ7PhCbcNPFQBMuVJj
-	 MM8H/k1/NsvrVQ/HXIziFPMBY8xG2cRRTI8jhM0W9O30wrqHthSGH1VBeuQbsFWfsQ
-	 9HFBKg2PVk+7uCq42OdKdaISmhGQjmMyL++lIUkE=
-Received: from epsnrtp01.localdomain (unknown [182.195.42.153]) by
-	epcas2p3.samsung.com (KnoxPortal) with ESMTPS id
-	20261124023931epcas2p3d4ceecec60dda0cf69412bdac06060b4~q2swqFO3z1035010350epcas2p34;
-	Tue, 24 Nov 2026 02:39:31 +0000 (GMT)
-Received: from epcas2p1.samsung.com (unknown [182.195.38.208]) by
-	epsnrtp01.localdomain (Postfix) with ESMTP id 4jYRpq3q0Rz6B9mD; Tue, 24 Nov
-	2026 02:39:31 +0000 (GMT)
+	dkim=pass (1024-bit key, unprotected) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=sjQNW5/d
+DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1795487987; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
+	bh=sJ4gUX0/F5wdw93Yu4EtXJV9s8BHoRQzpleUP4DagLI=;
+	b=sjQNW5/dukfYtqnaSLmz9ATouyQ9pnp7gbwnqE5Scjp6lLhd1/CxfOlSsIjJwlZp7L6s57qKyQzZ+ookI/YCeemT8KMAtcMoQDHPHKvbHZEzAs+uTpig/dbuQyIuAblDInTpGOKeiNq4UTabUsGqO1jOXD0sky1qk8PNS+bD4p0=
+X-Alimail-AntiSpam:AC=PASS;BC=-1|-1;BR=01201311R951e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037026112;MF=baolin.wang@linux.alibaba.com;NM=1;PH=DS;RN=16;SR=0;TI=SMTPD_---0XFMwctk_1795487984;
+Received: from 30.74.144.134(mailfrom:baolin.wang@linux.alibaba.com fp:SMTPD_---0XFMwctk_1795487984 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Tue, 24 Nov 2026 10:39:45 +0800
+Message-ID: <6d88dfe8-3f6c-4a86-9829-107195a318a7@linux.alibaba.com>
+Date: Tue, 24 Nov 2026 10:39:44 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,67 +52,61 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Subject: RE:(2) [PATCH v2 2/2] xfs: skip the fsync flush when a later flush
- has completed
-Reply-To: daejun7.park@samsung.com
-Sender: Daejun Park <daejun7.park@samsung.com>
-From: Daejun Park <daejun7.park@samsung.com>
-To: Christoph Hellwig <hch@lst.de>
-CC: Carlos Maiolino <cem@kernel.org>, "linux-xfs@vger.kernel.org"
-	<linux-xfs@vger.kernel.org>, Dave Chinner <david@fromorbit.com>, "Darrick J.
- Wong" <djwong@kernel.org>, Amir Goldstein <amir73il@gmail.com>, Brian Foster
-	<bfoster@redhat.com>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, Daejun Park <daejun7.park@samsung.com>
-X-Priority: 3
-X-Content-Kind-Code: NORMAL
-In-Reply-To: <20261120181706.GB1954@lst.de>
-X-CPGS-Detection: blocking_info_exchange
-X-Drm-Type: N,general
-X-Msg-Generator: Mail
-X-Msg-Type: PERSONAL
-X-Reply-Demand: N
-Message-ID: <20261124023930epcms2p76ee61d14c5333dd04b4466b9f11bbcf8@epcms2p7>
-Date: Tue, 24 Nov 2026 11:39:30 +0900
-X-CMS-MailID: 20261124023930epcms2p76ee61d14c5333dd04b4466b9f11bbcf8
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] mm/shmem: don't drop a folio whose swap write failed
+To: mt4022@columbia.edu, Andrew Morton <akpm@linux-foundation.org>,
+ Hugh Dickins <hughd@google.com>, David Hildenbrand <david@kernel.org>,
+ Kairui Song <kasong@tencent.com>
+Cc: Chris Mason <mason@kernel.org>, Chris Li <chrisl@kernel.org>,
+ Kemeng Shi <shikemeng@huaweicloud.com>, Nhat Pham <nphamcs@gmail.com>,
+ Baoquan He <baoquan.he@linux.dev>, Barry Song <baohua@kernel.org>,
+ Youngjun Park <youngjun.park@lge.com>, Tal Zussman <tz2294@columbia.edu>,
+ linux-mm@kvack.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
+References: <20261123-shmem-swap-write-failed-v1-1-41a0115dfbf1@columbia.edu>
+From: Baolin Wang <baolin.wang@linux.alibaba.com>
+In-Reply-To: <20261123-shmem-swap-write-failed-v1-1-41a0115dfbf1@columbia.edu>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="utf-8"
-X-Sendblock-Type: AUTO_CONFIDENTIAL
-CMS-TYPE: 102P
-X-CPGSPASS: Y
-X-CPGSPASS: Y
-cpgsPolicy: CPGSC10-223,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20261120181715epcas2p3fe7b223290792dc835b5dff5374b2cbc
-References: <20261120181706.GB1954@lst.de>
-	<20261111-xfs-fsync-flush-seq-v2-0-b5c00c25d276@samsung.com>
-	<20261111-xfs-fsync-flush-seq-v2-2-b5c00c25d276@samsung.com>
-	<CGME20261120181715epcas2p3fe7b223290792dc835b5dff5374b2cbc@epcms2p7>
 
-On Fri, Nov 20, 2026 at 07:17:06PM +0100, Christoph Hellwig wrote:
-> On Wed, Nov 11, 2026 at 12:17:12PM +0900, Daejun Park via B4 Relay wrote:
-[...]
-> > With an internal log, an fsync that takes the new skip can miss a
-> > failed flush on bio-based dm. dm drops the error of a preflush sent
-> > with data, unless the table is linear or stripe on a single device.
-[...]
-> I think you've fixed this bug in dm in the meantime, right?
 
-Yes, commit e92cd41e8e5e ("dm: fail a REQ_PREFLUSH bio with data when
-its preflush fails") in v7.4-rc3.
 
-[...]
-> > +	 * DAX writes are not block I/O, so DAX only skips the flush when
-> > +	 * this log force flushed, as before.
->
-> I don't get the DAX part.  As far as cache flushes are concerned we
-> don't special case DAX anywhere else, why here?
+On 11/24/26 1:21 AM, Mani Tofigh via B4 Relay wrote:
+> From: Mani Tofigh <mt4022@columbia.edu>
+> 
+> shmem_swapin_folio() drops a large folio that does not fit the mapping
+> from the swap cache if the folio is neither dirty nor under writeback.
+> The folio can belong to another file and be under swap writeback, when
+> the swap entry was freed and reused before the swap cache lookup.
+> 
+> Swap write completion does not take the folio lock.  On a failed write,
+> swap_write_end() marks the folio dirty and then ends writeback.  Since
+> dirty is tested first, the folio can look clean and written:
+> 
+>    CPU0 (swapin of file Y)             CPU1 (swapout of file X)
+>    -----------------------             ------------------------
+>    shmem_swapin_folio()
+>      folio_test_dirty() == false
+>                                        swap_write_end(), failed write
+>                                          folio_mark_dirty()
+>                                          folio_end_writeback()
+>      folio_test_writeback() == false
+>      swap_cache_del_folio()
+>      /* X's data is lost */
+> 
+> The next swapin of X reads the slot whose write failed.
+> 
+> Test writeback first.  Both flags are in folio->flags.  If the
+> writeback test sees the write ended, the dirty test then sees the dirty
+> bit set before it.
+> 
+> With the fix, a folio whose swap write failed stays in the swap cache.
+> 
+> Fixes: fc2c19648d68 ("mm/shmem: fix swapin livelock on a mismatched large swap cache folio")
+> Suggested-by: Chris Mason <mason@kernel.org>
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Mani Tofigh <mt4022@columbia.edu>
+> ---
 
-I was not sure that a flush issued by another CPU covers DAX data on
-powerpc, so I kept the old behaviour for DAX. I never verified that.
-The existing log_flushed skip may already rely on such a flush.
-
-v3 drops the IS_DAX() check in xfs_file_fsync().
-
-Best regards,
-Daejun
+LGTM. Thanks.
+Reviewed-by: Baolin Wang <baolin.wang@linux.alibaba.com>
