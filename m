@@ -1,123 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.44
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795529538;
-	b=gUNHtaaWF2J6hs5orVFutEh9tf4bceqcYQ9UAtYCeMVzaekdYlWKo3Toj58SmkfYhBcS
-	 7Kl0+y5YnAoCqNvdO4jXh+jO/UNKCcpOzkP2d462UyU/3dh0pJjY3xOHbbLHBl2ZLr8iG
-	 /7QPefrRZMYVQqjStQEPE3SkbZEDV9uAIiLKn47kcsDeXP1/3l5I/rNWmwyD2Ka7PS9PD
-	 lw3lK3/phFxiFtiW8AFkPDaitHn3yOgiR5JOQDFBAEKZq3R5nW5qcX93gltl697+BhlSq
-	 vYLsL4NjOqscX40SZjXV09oqUYXSPXCkIIOJDE/2wBCGBwW/BclwhpluHmcaQwwA1lg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795529538;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding;
-	bh=a2jTjAttfP/k6A0fA1FgjeitHCs9Uab3ZxcInWTSuWk=;
-	b=ewLPPJsfM1CW8594y5Y9Xvq8CjcybDNJzzJxrbqXK5l4aEMUIrztk2NGDgXinsWUNGf1
-	 90d3ZxsEib5fQkpicgGJElQ96t1TuIeDLJi5roPHi4k33msef2Juwz8aRz7Z1xF26Ws35
-	 OjEbvzvTuJc+Mjar6+nEbiWjBAMrDfKZc/WArhMpX8VG4+SqMiWLAWT1t6mW2utEoI8Hb
-	 QpXgvFBuSr+XgRJyUSS8eIcVIXix1kM21oPTFsJbti4DbaWFXC1wonGSlDLGHym2/g3Bb
-	 3Xj0bPqjkWjEk8SfwWcyI2n41v6gvCONAg/JCIc+2qrztCbbfpm/l5k3pJUf0JnqxyQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="mh9/B5NC";
-	arc=none smtp.remote-ip=209.85.218.44
-Received: from mail-ej1-f44.google.com (mail-ej1-f44.google.com [209.85.218.44])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.66.38
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795529563;
+	b=DGnzKpIyjahPs92bJrtaNyFDjQvnRp1s/+ugESJ/F7sskAuv5qU9qDTxTJqjcIiMzXZD
+	 yB9rgHdXiat5SHuvfK+ddbdC+TmUv+qIA+awwh7oLPe46e4ORMN4S3b4BH1JGHjXMDbEY
+	 lpY7PUYyDQvucQkl8BG2fqhldN0Px+QFetdPlo6aHS7KlVS4V3rsNalPMPjOPCTT1yluy
+	 F1o3NFvOatButJSl/2ZWn3KQOtAllUhEWlDvy7zfGXrTJXCt+KnwZRJWHl/DIwtKAnO2W
+	 MkEN0/foWFfYPnGeiXOdjQyoTKnczqeypooLsgNNmsuxOImYzJ8slKHFOup4Emo/wQA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795529563;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:CC:
+	 References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Originating-IP:X-ClientProxiedBy:
+	 X-EOPAttributedMessage:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=2zvkBTFpnDd9m5FrX1ALPeQh+KOreXEr0/JLN0qggqg=;
+	b=VZQ8y7CN45iVsU1fDx42BJCPN2S+ejmL4CipEFmrOuIB7FHkPeNQya4SU3J4t73zEK63
+	 vU3teUajStxW2djR/HQ2AO/sMwXROLT/uaVytCrpYGihJbdsczRxUyO7QlyCaG7qu4JOZ
+	 K7IAm67X05fas20StN+5I/C4TNn7xcPeWtZqxe3aGVJ360RiRMJjEz+RffcwwBXWxChnr
+	 6KNutFrB5IR/5PknCxLkLfS3bwxfTFQyVKZ3Nh8vvx5YtnLWkU+JFsmsManjcUT0U5sz4
+	 PS//rVUPfVRa3V/Klxv+f0hT0djltrvBker7KQ9zM8OGOC3EajuLqfHywT7x0gKVErA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=foss.st.com;
+	spf=pass smtp.mailfrom=foss.st.com;
+	dkim=pass header.d=foss.st.com header.i=@foss.st.com header.a=rsa-sha256 header.s=selector2 header.b="NLiD/a5y";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.66.38
+Received: from DUZPR83CU001.outbound.protection.outlook.com (mail-northeuropeazon11012038.outbound.protection.outlook.com [52.101.66.38])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 84801606A326
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 14:12:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 84801606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 66C5E606A31E;
+	Tue, 24 Nov 2026 14:12:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 66C5E606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=foss.st.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=foss.st.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mh9/B5NC
-Received: by mail-ej1-f44.google.com with SMTP id a640c23a62f3a-c506a231b88so628335866b.3
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 06:12:18 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795529537; x=1796134337; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-disposition:content-type
-         :mime-version:references:in-reply-to:message-id:date:subject:cc:to
-         :from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=a2jTjAttfP/k6A0fA1FgjeitHCs9Uab3ZxcInWTSuWk=;
-        b=mh9/B5NCDd7FTPewAQdCKu+NtCWx4NkbGoNSdHUS2Xm+2zJ0DEKjDHQdgZUX6Ofdiu
-         gzBrJPPDx/OdrrKxyNNg7xMQCLCYcTUkWJOFSj3tlGo5A72moyxiU7QuJONFcYhqEgJs
-         mFMtXYgcu1+B1+BfXfTZAO3xIA+VvmcvYUYYKsqmlDHCUFgkGsQTumkFcyeamtKkB168
-         1oCjphr/iEF03J8z5od7m+uEXFydUnK8qjOMFCZy2yKyOxG3kyqfApoFnyzM8wnSwRZS
-         YT0q/19V0X6qV/pOWLv4gHP+DjWS3EJGE6rChvrymuiXSBQS6lnEahqyFrw6OfeIg1gS
-         y+ig==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795529537; x=1796134337;
-        h=content-transfer-encoding:content-disposition:content-type
-         :mime-version:references:in-reply-to:message-id:date:subject:cc:to
-         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=a2jTjAttfP/k6A0fA1FgjeitHCs9Uab3ZxcInWTSuWk=;
-        b=hB7mtfeUC+8F/w0wLjaorYotumlc3Nv942weThjV0yk/52yETouiDNbiCU4E1n7pTj
-         L6MCTkkTx6qxhnXsxTptXKv54Dmar1qehMP57/WzgXba3FKZ8XmY4fGUFzve4QvYmC1L
-         v5oHU5Aw5pcQGBuKJhbJUp5uY649AZeUysfccbAmwhu+maUua51xN49YesbQ5PdgGJUU
-         1P2iwyo8mTGYE3Zaqp+ogIOmV1sAENZz7Z/ZxoqDHxDB8pfFsDqx8+xrKk6tJ7+/jf3X
-         QUecVWiVD52/KkNM7qH7Utd8uy1JVCa/xCeeEEwY5UFtxyXSlLxJkmPqwaejtoJid3WG
-         px9A==
-X-Forwarded-Encrypted: i=1; AL+hErG2hpK3S5qiTC5ADjFR9Vo0novzjA8CgxT4D7bnD57rWibM26HkUGrOj7v4CdCjAFXgn9o1cHHkLWI5KxY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9cMjYX4unOXjIfRkZTeGSzAgF3rQ13T/WuYZMjblUa3fbWLiDu
-	abewMaWHB9IMRQDthMom7bnkJh2AdayNeyh5aatoYa0TO7utJRNBFUhv
-X-Gm-Gg: AZFdTZfYlbN3B/eaz8WCSKaDvOU/SIi2916mtI5/a+9J1KJCAji188usC7R1Q47gzMt
-	GQ5D7aJWXQX2iWp4ReE9HbCHWu4rzKKpsTJXr9h8/Hd+1qs5da6bGUwEDvLXuTxQ1xtvao73Ls/
-	0rPoHRfEUX1tkw7q0IlVXr4yjgySlzzVOCVQIWESTs6j4TpvhwrV+EQ4cV3QbuXFClYmnZIKpyy
-	aOXjXyCis9lN2X6c925N1s6W1lFYSQlG2jIikwsO2J9xezk463NKaE59OT4esZZwwVAfza6vER/
-	y5ERSlx8IOiZ1jGNXr4DxnD7+/ed+fw15aCuMbxW31+edjGxyBgVxTANAZlFDGz/LF24KYyGZQs
-	MEnVdDFmDfL4ue7wjz+sKIpriO0UQ6aNfKJZNcVfxEuCWVNrTzeCSQbjlrLwb/M2h5+XR40OmC+
-	ryn1ni1l4qmReUhe9UVXfPBakMIfQGh5xLhedAxQanhy8yN71oPkAsyAf+5+x6pEeXm4mfdA2lR
-	uOs5BD3MZmqllQAtzXo/m9QQHIoCs31atHfJhJS3psjHPrfZKf7isFUqnoqG84QDyIyKb2haUAw
-	nO8frU++Qj80G0ZnXN8pQ58kBHRvWm4=
-X-Received: by 2002:a17:906:26cd:b0:c41:26b8:c49c with SMTP id a640c23a62f3a-c513a5db1d6mr934692166b.10.1795529536866;
-        Tue, 24 Nov 2026 06:12:16 -0800 (PST)
-Received: from ArchOarora ([95.179.249.152])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513ae8db37sm520054266b.35.2026.11.24.06.12.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 06:12:16 -0800 (PST)
-From: Oarora Etimis <oaroraetimis@gmail.com>
-To: Louis Chauvet <louis.chauvet@bootlin.com>
-Cc: Haneen Mohammed <hamohammed.sa@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Melissa Wen <melissa.srw@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	jose.exposito89@gmail.com,
-	Jonathan Corbet <corbet@lwn.net>,
-	Harry Wentland <harry.wentland@amd.com>,
-	Lucas De Marchi <demarchi@kernel.org>,
-	Ville =?utf-8?B?U3lyasOkbMOk?= <ville.syrjala@linux.intel.com>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Kory Maincent <kory.maincent@bootlin.com>,
-	sebastian.wick@redhat.com,
-	victoria@system76.com,
-	thomas.petazzoni@bootlin.com,
-	dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	Simona Vetter <simona.vetter@ffwll.ch>,
-	llvm@lists.linux.dev
-Subject: Re: [PATCH v6 10/43] drm/drm_atomic_state_helper: Properly load default value for rotation
-Date: Tue, 24 Nov 2026 15:11:59 +0100
-Message-ID: <awWbIh471dkjKGII@Oarora>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261120-vkms-all-config-v6-10-78ace90f4fc1@bootlin.com>
-References: <20261120-vkms-all-config-v6-0-78ace90f4fc1@bootlin.com> <20261120-vkms-all-config-v6-10-78ace90f4fc1@bootlin.com>
+	dkim=pass (2048-bit key, unprotected) header.d=foss.st.com header.i=@foss.st.com header.a=rsa-sha256 header.s=selector2 header.b=NLiD/a5y
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=PAxQCX8LqfcHRjIutxx/wVGqvR4eOi5l/3FHU8wF82FGnsE+YDLzGdfZWN0vlorJ3nT5XCVqycaTo0Of4WNJW6UECdyxewmKnokUXzySUPuCvxn+IUQ7ImWRlVycpjkemPAlRUfBLsEMcUtrb00/v43TRiaD88dLgKWApY+bRlkih6bI/SFuMJKFlr+PcR9+ShIceX9CrE9SQfy0mcLRHWhcQ0ZngOfqvxrO/JwP3FQBndFn9jGP/envi3LAC+/5mvsRos/E5/CIizgfhd/3coD0PTc0KYryCzFhNbHyDQk+uSfkY4psgUcJSBpoGBxaijtg4mw1GHWNRnaNui20tQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=2zvkBTFpnDd9m5FrX1ALPeQh+KOreXEr0/JLN0qggqg=;
+ b=WzN0+pZ1Z+49U0hC4ZwMV/LzOX2UqkMu8JxFe7PZE+LhK/6Iy3MVIJG2NHLGP7W1SJJxVn+RopJb/kcaIOWu1Xhm/F57Easb7C8SrI2EtDZGo2i5KwwA63GW6es4eUUX37XuzrxyhXjgAbz/B56DZla2si3yEivCz/fB+PMhmlB9XCoP8v720kIVBAO8g6zviNb3Q/+IMg1IVOCNiqVdLGxNTX6VWcXHf/Hl/0AFiyQf75iuXIeMg4nmL8ABIf7S0K+JnM944D/UHnL9J//VobDp6SG0CJ2V7Cd9bJt3EEA55NNRzRFXn7psjnMgKTwYNLNGHp/81teml1Ot7xPF1A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.60) smtp.rcpttodomain=nabladev.com smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=2zvkBTFpnDd9m5FrX1ALPeQh+KOreXEr0/JLN0qggqg=;
+ b=NLiD/a5yFEzFPBkNiOW4IpKN3wKnrUUWhQmA3Nb8vjpckxtQxQXwDKoVmlt66hAzkgqOjh6Ojc1uAiOwUdHAE7CuyaqCqZJKZFglMihofluxwpqxfJDSwPLuhStcR0RBsxWryVvh8D38rQbVY55J+qk6GvkDJ8Wlykxfmp9WTzkTtyk1y5o1XmMi4yZRmb1S9fQdj1z9D0Lta1gEJJAGrwOxOaAFEkwJbbuv6eTZNWWcpM/pK0pm2oQFOznC/ECoiVpCmIGUpPN5YRw7IwmB1EsoeUDBPODMQ5KOyJ6hQLydoKNub3la+IccNPkBBVy4UFrjTbvjpjui1uPKYyfjKQ==
+Received: from DUZPR01CA0154.eurprd01.prod.exchangelabs.com
+ (2603:10a6:10:4bd::24) by AMBPR10MB9707.EURPRD10.PROD.OUTLOOK.COM
+ (2603:10a6:20b:76c::10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.4; Tue, 24 Nov
+ 2026 14:12:40 +0000
+Received: from DU2PEPF00028D05.eurprd03.prod.outlook.com
+ (2603:10a6:10:4bd:cafe::99) by DUZPR01CA0154.outlook.office365.com
+ (2603:10a6:10:4bd::24) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.5 via Frontend Transport; Tue, 24
+ Nov 2026 14:12:39 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=fail (sender IP
+ is 164.130.1.60) smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.60; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.60) by
+ DU2PEPF00028D05.mail.protection.outlook.com (10.167.242.165) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.639.5 via Frontend Transport; Tue, 24 Nov 2026 14:12:39 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
+ (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Tue, 24 Nov
+ 2026 15:13:44 +0100
+Received: from [10.48.86.79] (10.48.86.79) by STKDAG1NODE2.st.com
+ (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Tue, 24 Nov
+ 2026 15:12:38 +0100
+Message-ID: <f8c6d70e-e9d2-443f-8e6f-1459a9bf5aaa@foss.st.com>
+Date: Tue, 24 Nov 2026 15:12:37 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -127,52 +104,117 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: dts: st: Move Bluetooth to USART2 on STM32MP23xx
+ DHCOS SoM
+To: Marek Vasut <marex@nabladev.com>, <linux-arm-kernel@lists.infradead.org>
+CC: Christoph Niedermaier <cniedermaier@dh-electronics.com>, Conor Dooley
+	<conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, "Maxime
+ Coquelin" <mcoquelin.stm32@gmail.com>, Rob Herring <robh@kernel.org>,
+	<devicetree@vger.kernel.org>, <kernel@dh-electronics.com>,
+	<linux-kernel@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>
+References: <20261026125201.76716-1-marex@nabladev.com>
+Content-Language: en-US
+From: Alexandre TORGUE <alexandre.torgue@foss.st.com>
+In-Reply-To: <20261026125201.76716-1-marex@nabladev.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU2PEPF00028D05:EE_|AMBPR10MB9707:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9a3512e5-bb4c-4b9b-8596-08df4a34ffb0
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|36860700016|376014|7416014|1800799024|82310400026|3023799007|261021123027099003|10067099003|11063799006|56012099006|261026140227099003|261021135927099003|261021121427099003|261022105027099003|261009223027099003|261026121527099003|261102123227099003|261028144727099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info:
+	s8n8mwzWgeZUcU3kO8+uuHxGQCNj077jCn0RdxuPUkK/6Kd+bMa5BrDSMv3GUsDN1Y/NKtCjoWKE1Qmap6QHyOLRYIeoemmXIOR/LMe8xAUu0WCgFv4GqJDuSwNie94JAvMiU0s9eXRNP9yM23+9pdPVTkigWpCmHZXsk66t4fwvO26zEHlWxs0QgaUUtdz0AMRPHiC0iYytkFaEclGWEjmXeLveUMdFtdlNvFPKpSnSX6L7bpEpSuFpXcs8dBgobY/ToSX/nYLNIjUlM3eYGeNC/mFgGn4moxyV2gcV7qpR+JqwkObLCLK0pywiKFhnm73QFuCEEn7pu9Yd763+ChuuUwO+RAvtGDObxGKF4AEq/1tj4GHdDYqrB33DILQzd2OLFmjIbxu4Do4OL2+z7aTKVkXyCzweU74zWJydGPD/ApA5+BBGRzGDtTpWaivF49d8EbqmL1Nvx4YHLt8qePWQl8QjtLlEqYwKvIyIz45hDtQbpaWSVYBIoBRqmT9xYKBAKxqyZlsSHQnJwwvMRA8og4+aOEL96GV+r4ahE/LhOPsqLkyWHNKv4t2LhxxTW3BEoknAO0orMwCmI+hdb1Ml/Y8rTI+PjLJXsd7UTzQW36UjcQZPyKKFPSsMVszD8z0VFVMogXfp1YQ1X/R9W20Ko5AF1rUwcdHyDMuV3pzUva3+2qSgP1oJTSjPUQVuXlSDUdZt1xOKi7NFs/ZrCw==
+X-Forefront-Antispam-Report:
+	CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(376014)(7416014)(1800799024)(82310400026)(3023799007)(261021123027099003)(10067099003)(11063799006)(56012099006)(261026140227099003)(261021135927099003)(261021121427099003)(261022105027099003)(261009223027099003)(261026121527099003)(261102123227099003)(261028144727099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	TEWKbNUtIq4ubGbMmKKgCCejQ3gb69AJS+H26bYSCpF+xy+o9MkP5c1f+iaVBqu1FfD5LmF5snangT7TnXtBkubCM6wqE10FRXyZKE7GxVhMVAAydYq3b6NHRPrQDXIDAvL+DfLGbv7q338fp/2sn+4IR90Kzvdk2Jp+45VzNz+twdg2Tw+tUupuIzEtT78uEC3cnjrY4KkVguzMjQ1vlbhGGxcCv7ExG5vz/YiUEDcyPArFe8YgUFSQ/PC0UgbIN70plXqEOjqTeC325HnAghoCEo5y3xjW6P/4EkOoodx6+j3ajW8gQlpoVOREcKdnx3TEPY2GHcXj/ZGDUW2Alkl3J6FmmUK0174E/MIzxGgxWjbS8KqM1na7Y/nSc65xpEkWHv+LRiAnQx+C9h6Vk97KbC4YnYZdIa2XCrOMY1sp/ERd04WBjRVmRFiHB+ZM
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 14:12:39.6718
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9a3512e5-bb4c-4b9b-8596-08df4a34ffb0
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	DU2PEPF00028D05.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AMBPR10MB9707
 
-On Fri, Nov 20, 2026 at 06:58:52PM +0100, Louis Chauvet wrote:
-> Currently, the default rotation is always DRM_MODE_ROTATE_0 for all planes.
-> Some planes may have a rotation property, and the property may specify a
-> different default value and supported values.
+Hi Marek
+
+On 10/26/26 13:51, Marek Vasut wrote:
+> The Bluetooth chip is connected to USART2 on STM32MP23xx DHCOS SoM,
+> adjust the DT to match the schematic.
 > 
-> This is not an issue for "fixed" configurations, but with the introduction
-> of VKMS configuration, some plane may only support 90° and 180°
-> rotations, so the reset state of the plane was wrong (forced to 0°).
-> 
-> Fixes: ab2dd990f4ab ("drm: Add __drm_atomic_helper_crtc_state_reset() & co.")
-> Signed-off-by: Louis Chauvet <louis.chauvet@bootlin.com>
+> Fixes: 6642d6a47901 ("arm64: dts: st: Add support for DH electronics STM32MP23xx/STM32MP25xx DHCOS SoM and Breakout Board and DHSBC")
+> Signed-off-by: Marek Vasut <marex@nabladev.com>
 > ---
->  drivers/gpu/drm/drm_atomic_state_helper.c | 6 ++++++
->  1 file changed, 6 insertions(+)
+> Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>
+> Cc: Christoph Niedermaier <cniedermaier@dh-electronics.com>
+> Cc: Conor Dooley <conor+dt@kernel.org>
+> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+> Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>
+> Cc: Rob Herring <robh@kernel.org>
+> Cc: devicetree@vger.kernel.org
+> Cc: kernel@dh-electronics.com
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-kernel@vger.kernel.org
+> Cc: linux-stm32@st-md-mailman.stormreply.com
+> ---
+>   .../arm64/boot/dts/st/stm32mp23xx-dhcos-som.dtsi | 16 ++++++++--------
+>   1 file changed, 8 insertions(+), 8 deletions(-)
 > 
-> diff --git a/drivers/gpu/drm/drm_atomic_state_helper.c b/drivers/gpu/drm/drm_atomic_state_helper.c
-> index 267f44330629..13e848abb33c 100644
-> --- a/drivers/gpu/drm/drm_atomic_state_helper.c
-> +++ b/drivers/gpu/drm/drm_atomic_state_helper.c
-> @@ -32,6 +32,7 @@
->  #include <drm/drm_crtc.h>
->  #include <drm/drm_device.h>
->  #include <drm/drm_framebuffer.h>
-> +#include <drm/drm_mode_object.h>
->  #include <drm/drm_plane.h>
->  #include <drm/drm_print.h>
->  #include <drm/drm_vblank.h>
-> @@ -231,6 +232,11 @@ void __drm_atomic_helper_plane_state_init(struct drm_plane_state *plane_state,
->  
->  	plane_state->plane = plane;
->  	plane_state->rotation = DRM_MODE_ROTATE_0;
-> +	if (plane->rotation_property &&
-> +	    !drm_object_property_get_default_value(&plane->base,
-> +						   plane->rotation_property,
-> +						   &val))
-> +		plane_state->rotation = val;
->  
->  	plane_state->alpha = DRM_BLEND_ALPHA_OPAQUE;
->  
-> 
-> -- 
-> 2.56.0
-> 
+> diff --git a/arch/arm64/boot/dts/st/stm32mp23xx-dhcos-som.dtsi b/arch/arm64/boot/dts/st/stm32mp23xx-dhcos-som.dtsi
+> index ffdcceb2fa237..5d4624c3200ad 100644
+> --- a/arch/arm64/boot/dts/st/stm32mp23xx-dhcos-som.dtsi
+> +++ b/arch/arm64/boot/dts/st/stm32mp23xx-dhcos-som.dtsi
+> @@ -24,7 +24,6 @@ &rv3032 {
+>   	interrupts-extended = <&gpiod 10 IRQ_TYPE_EDGE_FALLING>;
+>   };
+>   
+> -/* Bluetooth */
+>   &usart1 {
+>   	pinctrl-names = "default", "sleep", "idle";
+>   	pinctrl-0 = <&usart1_pins_a>;
+> @@ -32,15 +31,9 @@ &usart1 {
+>   	pinctrl-2 = <&usart1_idle_pins_a>;
+>   	uart-has-rtscts;
+>   	status = "okay";
+> -
+> -	bluetooth {
+> -		compatible = "infineon,cyw55572-bt";
+> -		brcm,requires-autobaud-mode;
+> -		max-speed = <3000000>;
+> -		shutdown-gpios = <&ioexp 2 GPIO_ACTIVE_HIGH>;
+> -	};
+>   };
+>   
+> +/* Bluetooth */
+>   &usart2 {
+>   	pinctrl-names = "default", "sleep", "idle";
+>   	pinctrl-0 = <&usart2_pins_b>;
+> @@ -48,4 +41,11 @@ &usart2 {
+>   	pinctrl-2 = <&usart2_idle_pins_b>;
+>   	uart-has-rtscts;
+>   	status = "okay";
+> +
+> +	bluetooth {
+> +		compatible = "infineon,cyw55572-bt";
+> +		brcm,requires-autobaud-mode;
+> +		max-speed = <3000000>;
+> +		shutdown-gpios = <&ioexp 2 GPIO_ACTIVE_HIGH>;
+> +	};
+>   };
 
-Reviewed-by: Oarora Etimis <oaroraetimis@gmail.com>
+Applied on stm32-fixes.
+
+regards
+Alex
