@@ -1,60 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=79.135.106.98
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.30.113
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795524023;
-	b=V+7XcFw5prja1FZAIzFkBlcTlJOUDG8FAXPv2INLmyN93dphpxhNN/uWQEB3sUuYbYT6
-	 AmAUzZygJHtUxzZeKNBiyuMY6gphODO6IFcVy1CvdiKrdZeHgn+hrHyug0PELQQyhK7DZ
-	 dN1m61vgU323AGPDQlGjA8NIqv9GHIhqgZF4oz8sIM/Xv5u66bcvYStJfSt7qWiUtJjhm
-	 82ZrvcFaAl9wO4YNAGcODLX7egiPRuMH1cDggXIgOb/KkZta0QCM0iA3dz4G4e0j2qE5c
-	 o60eEMgamfsU6V292xyMD6GtoJ6apvk/BG0wVjde2OAyBfrJR3mcaznA24M6DN8xgeQ==
+	t=1795524033;
+	b=4QrTW78LkPtOoQOjAg40gl0hgz2jQGXN2NV+ZulJSgjzjEPjDaq5g9UHys0LZWgH1bui
+	 WIuDMREclWzKR7mhQpxur4mo8osofolmWswRpQJs3jOuTCkj7KSklnK/wsv31FZ/IwXpm
+	 9G1YOrQpgS9oeCKIQ2ZjkY7tH0AUo2oDLm6dwe5SP+/ZBSgXLh5dzYoBc8OWVBhWBYL3g
+	 VXLDiIDvCY4AfpmDGdZ770T0hhZdNyhk1IblSC4Xlb8VLUlcW4waGJt0ZvwIpgaXBDFvT
+	 n/E13tPUoAz81IvWKRj3UgDeHZwFy2bXBYHFG8AediAi2lqC9DhQdMk2bwn0QOQrM0A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795524023;
-	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
-	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=fmJU1hjBtut2ZClpTk0/Uyfv4hHhwMNPcQa921A/cjI=;
-	b=BCRVTpIGhiAPARgfhO4tZpgrQNHnKWpHygn9e5hvvFParvrqF8RzOFsZTBCnWmG3494n
-	 0iKzRt5aYkTc984ogCRAmSGVGXmmWa4cGV3ISs6NTFllIepTY3YtqDwyWjrNfz/X/GroF
-	 tFgzBYZPMQOh7lSoMdEyyZ7ak91YxUseLzXZ/owaiVpNIGBx+OrR3YqhinhXSTQD9KUHh
-	 eNZjeJNM+9HlTwRuQ8/2Xf1sWFdXAP25zMvYkurcBJk+hH4wtB42NPp9g6WpHZjfi2HYu
-	 3QZlb57rweybgFVpdurfCtsAMPPxy2liN9LY7dy7yLbhaPzBIfq3lGnVBXn/zpE6plA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795524033;
+	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:From:To:Cc:
+	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=FUtlIPoksxhaEfSCf9BWdDtY6/jrrPPqHFcq/5SBjwc=;
+	b=tYO7OYFsPdKaPTRMGAUi5Xzd9lpMdLKBEA7OXDwJICA3q9/oR92D3kSC/od41Vhf7uv0
+	 y7KTQFLOlajZJE1o0u1Mc3+Y9dHdg+X4/BK/pmv272BqLTR5l0r41iWwDAgrP7GGnunz4
+	 XCQx+H9g/Dnv5pC3RBTkTVYNdgn+TqlUsFLYMAl44EZX3i+Ft8Y94YcrO8w/cI8Gj/m7f
+	 KR7Plt0xliZs9Mn7OOfnNKmfJd5wyGER0OqxkrTMfMAvH80EvrgEdaHmPk62cVKejvYzY
+	 QJ5HSecLlMsCcH9bHf8RXhU39/a9yQXExVv23i4E/zwEW4jNE/sjlIdQ4Or/uZB+GUg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=proton.me;
-	spf=pass smtp.mailfrom=proton.me;
-	dkim=pass header.d=proton.me header.i=@proton.me header.a=rsa-sha256 header.s=ndz7wbr4ebftpiguigrsldtefu.protonmail2 header.b="j/cWJcDy";
-	arc=none smtp.remote-ip=79.135.106.98
-Received: from mail-10698.protonmail.ch (mail-10698.protonmail.ch [79.135.106.98])
+	dmarc=pass header.from=linux.alibaba.com;
+	spf=pass smtp.mailfrom=linux.alibaba.com;
+	dkim=pass header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=O2pplg2I;
+	arc=none smtp.remote-ip=115.124.30.113
+Received: from out30-113.freemail.mail.aliyun.com (out30-113.freemail.mail.aliyun.com [115.124.30.113])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 41623606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 12:40:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 41623606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=proton.me
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=proton.me
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 54D55606A326;
+	Tue, 24 Nov 2026 12:40:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 54D55606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.alibaba.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.alibaba.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=proton.me header.i=@proton.me header.a=rsa-sha256 header.s=ndz7wbr4ebftpiguigrsldtefu.protonmail2 header.b=j/cWJcDy
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=proton.me;
-	s=ndz7wbr4ebftpiguigrsldtefu.protonmail2; t=1795524019;
-	x=1795783219; bh=fmJU1hjBtut2ZClpTk0/Uyfv4hHhwMNPcQa921A/cjI=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=j/cWJcDyE1LJFJt1lsYHUyt5wY0iew0bPCEjGAWJuCSRCmhgg4xdsULHug7l0DT9x
-	 UuyGAjVF3TpmZpSsga+vZZBC3RXS2avPqLfJdLX2a5IOnacdljp57RUOxu4nt7J9P4
-	 DCthNWYBuoV8Q64y2LUH9iI8WXpnnnGqPHQAIGXOCY0c0aR/paAg4maRUlhAQBuJ4R
-	 VucgBGlVP+L+AjSYEttL22HK3T6GCQiFx8lRqSmq4nkoHdBeIrNzIP9SbWUDxZyoCS
-	 iwfvkfUsYguYRPxweWkuNJWbZJBXFPlBCXLo66KnNWi7lTx0Cp2URLv+PaPmn6wMYB
-	 vWNm6bc1exmAQ==
-Date: Tue, 24 Nov 2026 12:40:14 +0000
-To: Hyunchul Lee <hyc.lee@gmail.com>
-From: Ernest Borowski <ernest.borowski.git@proton.me>
-Cc: ernest.borowski.git@proton.me, Namjae Jeon <linkinjeon@kernel.org>, Baolin Liu <liubaolin12138@163.com>, ntfs@lists.linux.dev, linux-kernel@vger.kernel.org, Zhan Xusheng <zhanxusheng1024@gmail.com>, stable@vger.kernel.org
-Subject: Re: [PATCH 5/7] ntfs: punch out the delalloc reservation of a failed buffered write
-Message-ID: <179552401127.2437814.5296523363339090299.b4-reply@b4>
-In-Reply-To: <awPTjheQrp6sxB5W@hyunchul-PC02>
-References: <20261122-b4-ntfs-delalloc-fixes-v1-0-0726f0dce403@proton.me> <20261122-b4-ntfs-delalloc-fixes-v1-5-0726f0dce403@proton.me> <awPTjheQrp6sxB5W@hyunchul-PC02>
-Feedback-ID: 236360163:user:proton
-X-Pm-Message-ID: 96cd9f2e223e2295cbc6d5f0c93ff9b921a6e372
+	dkim=pass (1024-bit key) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=O2pplg2I
+DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1795524028; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=FUtlIPoksxhaEfSCf9BWdDtY6/jrrPPqHFcq/5SBjwc=;
+	b=O2pplg2IjV/qPfsrT2s1e8xv1wYoZq5x+oqPK2+myCsK0AHUa3imewxtnRJ5ZRoBdNhjWwnKpGZigcHYfd6srlEEyRCrujU+/7O37QYsC8v6X0I5A9VSSsvLSXnbrfL/ZtFsxjuierHjSeNkQNp0gSVCMc6HLc4I86aQ2jWjcDI=
+X-Alimail-AntiSpam:AC=PASS;BC=-1|-1;BR=01201311R121e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam011083073210;MF=guanghuifeng@linux.alibaba.com;NM=1;PH=DS;RN=13;SR=0;TI=SMTPD_---0XFOSkmu_1795524027;
+Received: from VM20241011-104.tbsite.net(mailfrom:guanghuifeng@linux.alibaba.com fp:SMTPD_---0XFOSkmu_1795524027 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Tue, 24 Nov 2026 20:40:27 +0800
+From: Guanghui Feng <guanghuifeng@linux.alibaba.com>
+To: guanghuifeng@linux.alibaba.com
+Cc: alex@shazbot.org,
+	alifm@linux.ibm.com,
+	ankita@nvidia.com,
+	dakr@kernel.org,
+	fengchengwen@huawei.com,
+	jgg@ziepe.ca,
+	kevin.tian@intel.com,
+	kvm@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	mattev@meta.com,
+	ritesh.list@gmail.com,
+	xinmengs@nvidia.com
+Subject: [PATCH v2 1/2] vfio: Add get_unmapped_area callback to vfio_device_ops
+Date: Tue, 24 Nov 2026 20:40:03 +0800
+Message-ID: <20261124124004.457441-2-guanghuifeng@linux.alibaba.com>
+X-Mailer: git-send-email 2.43.7
+In-Reply-To: <20261124124004.457441-1-guanghuifeng@linux.alibaba.com>
+References: <20261124073048.268988-1-guanghuifeng@linux.alibaba.com>
+ <20261124124004.457441-1-guanghuifeng@linux.alibaba.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,65 +72,136 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-On Mon, Nov 23, 2026 at 02:47:58PM +0900, Hyunchul Lee wrote:
-> Could this leave clean dealloc clusters reserved?
->
-> For example, with 1 KiB clusters and 512-byte blocks,
-> iomap_write_dealloc_ifs_punch() calls this callback seperately for each
-> clean block in a dirty folio. For a cluster covering [1024, 2048),
-> the callback receives [1024, 1536) and [1536, 2048) separately. Rounding
-> each range produces an empty punch range, so neither call removes
-> the reservation, even if the entire cluster is clean.
+vfio exposes device regions through the device file descriptor and a
+bus driver backs a region with pfnmaps over the device MMIO space when
+the user calls mmap(2) on it.  Unless the user asks for a specific
+address, the virtual address of the resulting VMA is picked by the
+generic address selection in mm_get_unmapped_area(), which only
+guarantees PAGE_SIZE alignment.
 
-Yes, thanks.  The test only used 512-byte, 4 KiB, 16 KiB and 64 KiB
-clusters (either one block or at least 4 KiB), so it missed this.
+That is enough for the base mapping, but it keeps a driver from ever
+backing a region with huge pfnmaps.  huge_fault() only installs a PMD
+or PUD sized pfnmap when both the fault address and the pfn are aligned
+to that page size, see is_aligned_for_order().  A driver can only
+influence the first of those, and it cannot do so from its mmap()
+callback because the address has already been fixed up by then.
 
-Triggering it requires a folio with clean, uptodate blocks behind dirty
-ones after a short write.  That takes a hole below the initialized size
-already read into the page cache (a write past the initialized size
-drops the cache first) and a copy ending on a cluster boundary.  If the
-copy ends inside a cluster, patch 7 calls folio_mark_dirty() to cover
-the rest of that cluster, which dirties every block, so nothing is
-punched; that makes writeback write the whole page, and I will look at
-narrowing it in v2.
+Add a get_unmapped_area() callback to vfio_device_ops along with a
+dispatcher in vfio_device_fops, so a bus driver can ask for an address
+that is aligned to the largest page size its region can be mapped with
+before the VMA is created.  Drivers that do not provide the callback,
+and configurations without huge pfnmap support, fall back to
+mm_get_unmapped_area() and keep the existing behaviour.
 
-For example, with 1 KiB clusters on a file initialized to its end:
-pread() 32 KiB at 0, then pwrite() 32 KiB at 0 from a source that
-faults after 1 KiB.  With v1 the three clean clusters of the first folio
-keep their reservation, and writeback allocates them but writes only the
-dirty blocks, so [1024, 4096) reads back the old disk contents after a
-remount.  A failed write at a lower offset than a dirty cluster in the
-same folio keeps the reservation until the inode is evicted.
+The hook is only consulted when the kernel has to choose the address:
+a MAP_FIXED mapping never reaches it, and an explicit address hint is
+passed through to the driver, which is expected to honour it.  The
+callback therefore serves the userspace consumers that call
+mmap(fd, offset) with addr=0 and rely on the kernel to pick a suitable
+address for them, rather than trying to second guess userspace that
+already arranges the alignment itself.
 
-                                  v1                  v2
-  short copy, 1 KiB clusters      4 clusters, 3072 B  1 cluster, 0 B
-  short copy, 2 KiB clusters      2 clusters, 2048 B  1 cluster, 0 B
-  failed write, 1 KiB clusters    4 clusters          1 cluster
-  failed write, 2 KiB clusters    2 clusters          1 cluster
+This mirrors what drivers/dax/device.c does with
+dax_get_unmapped_area(), which has to satisfy the same alignment
+requirement for its PMD sized pfnmaps.
 
-(clusters allocated or reserved, of which 1 is the written cluster;
-bytes of old data read back after a remount.  Same results on Ubuntu
-26.04 and Arch Linux.)
+Signed-off-by: Guanghui Feng <guanghuifeng@linux.alibaba.com>
+---
+ drivers/vfio/vfio_main.c | 34 ++++++++++++++++++++++++++++++++++
+ include/linux/vfio.h     | 12 ++++++++++++
+ 2 files changed, 46 insertions(+)
 
-v2 adds an iomap patch before this one that passes each run of clean
-blocks to ->punch() in one call.  A cluster no larger than a folio then
-reaches ->punch() whole when all its blocks are clean.  A larger cluster
-overlapping a dirty folio has dirty data and must stay.  XFS and ext4
-punch whatever range they get, so for them it only means fewer calls.
-The iomap patch alone fixes both the short copy and the failed write.
-
-CI runs:
-  ntfs-next + v1:            https://github.com/xerrni/linux-ntfs/actions/r=
-uns/45386115143
-  ntfs-next + v1 + v2 fixes: https://github.com/xerrni/linux-ntfs/actions/r=
-uns/45386121459
-
-The cases are in tests/delalloc_partial_fail.sh in
-https://github.com/xerrni/linux-ntfs.
-
-Thanks,
-Ernest
+diff --git a/drivers/vfio/vfio_main.c b/drivers/vfio/vfio_main.c
+index 4e5d738ccf4b..edf9eb4cd477 100644
+--- a/drivers/vfio/vfio_main.c
++++ b/drivers/vfio/vfio_main.c
+@@ -28,6 +28,7 @@
+ #include <linux/pseudo_fs.h>
+ #include <linux/rwsem.h>
+ #include <linux/sched.h>
++#include <linux/sched/mm.h>
+ #include <linux/seq_file.h>
+ #include <linux/slab.h>
+ #include <linux/stat.h>
+@@ -1431,6 +1432,36 @@ static int vfio_device_fops_mmap(struct file *filep, struct vm_area_struct *vma)
+ 	return device->ops->mmap(device, vma);
+ }
+ 
++#ifdef CONFIG_ARCH_SUPPORTS_HUGE_PFNMAP
++/*
++ * Give the bus driver a chance to request a virtual address that allows the
++ * mapping to be backed by huge pages, fex. a PCI BAR mapping that could be
++ * faulted in with PMD or PUD sized pfnmaps.  Anything the driver cannot
++ * handle, including devices without huge mapping support, falls back to the
++ * generic address selection, which is also what happens without this
++ * callback.
++ */
++static unsigned long vfio_device_fops_get_unmapped_area(struct file *filep,
++							unsigned long addr,
++							unsigned long len,
++							unsigned long pgoff,
++							unsigned long flags)
++{
++	struct vfio_device_file *df = filep->private_data;
++	struct vfio_device *device = df->device;
++
++	/* Paired with smp_store_release() following vfio_df_open() */
++	if (!smp_load_acquire(&df->access_granted))
++		goto out;
++
++	if (device->ops->get_unmapped_area)
++		return device->ops->get_unmapped_area(device, filep, addr, len,
++						      pgoff, flags);
++out:
++	return mm_get_unmapped_area(filep, addr, len, pgoff, flags);
++}
++#endif
++
+ #ifdef CONFIG_PROC_FS
+ static void vfio_device_show_fdinfo(struct seq_file *m, struct file *filep)
+ {
+@@ -1456,6 +1487,9 @@ const struct file_operations vfio_device_fops = {
+ 	.unlocked_ioctl	= vfio_device_fops_unl_ioctl,
+ 	.compat_ioctl	= compat_ptr_ioctl,
+ 	.mmap		= vfio_device_fops_mmap,
++#ifdef CONFIG_ARCH_SUPPORTS_HUGE_PFNMAP
++	.get_unmapped_area = vfio_device_fops_get_unmapped_area,
++#endif
+ #ifdef CONFIG_PROC_FS
+ 	.show_fdinfo	= vfio_device_show_fdinfo,
+ #endif
+diff --git a/include/linux/vfio.h b/include/linux/vfio.h
+index 0cc91c6f96d2..68a84a1fd3fd 100644
+--- a/include/linux/vfio.h
++++ b/include/linux/vfio.h
+@@ -102,6 +102,12 @@ struct vfio_device {
+  * @ioctl: Perform ioctl(2) on device file descriptor, supporting VFIO_DEVICE_*
+  *         operations documented below
+  * @mmap: Perform mmap(2) on a region of the device file descriptor
++ * @get_unmapped_area: Optional, suggest a virtual address for mmap(2) of a
++ *         device region such that the mapping can be backed by huge pages,
++ *         ie. the address is aligned to the largest page size the region can
++ *         be mapped with.  Drivers that don't support huge mappings, and
++ *         configurations without huge pfnmap support, leave this unset and
++ *         the generic address selection is used.
+  * @request: Request for the bus driver to release the device
+  * @match: Optional device name match callback (return: 0 for no-match, >0 for
+  *         match, -errno for abort (ex. match with insufficient or incorrect
+@@ -143,6 +149,12 @@ struct vfio_device_ops {
+ 	void	(*dma_unmap)(struct vfio_device *vdev, u64 iova, u64 length);
+ 	int	(*device_feature)(struct vfio_device *device, u32 flags,
+ 				  void __user *arg, size_t argsz);
++	unsigned long (*get_unmapped_area)(struct vfio_device *vdev,
++					   struct file *filp,
++					   unsigned long addr,
++					   unsigned long len,
++					   unsigned long pgoff,
++					   unsigned long flags);
+ };
+ 
+ #if IS_ENABLED(CONFIG_IOMMUFD)
+-- 
+2.43.7
 
