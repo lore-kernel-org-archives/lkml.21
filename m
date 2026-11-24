@@ -1,83 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795536849;
-	b=lWEwks7pYZbKEpS6aXJtQu2bLrZtUO0cLDrNz45pqQePzw2NJ7dzGgGaxAFl24Meo8Jm
-	 XeAL2k/yHHcd1vhqHm5+N7DAEqN7M6NaaCiG0+WH29oWBQ0uuV/fAnIKSFxsIRZIWnl+H
-	 takEn/0AgqX1NWgHrDqYMjUCMp3KFZ2DXvWyhe/kilOki5unM+AvZxCDZfeLkAizRbTSh
-	 Xuv0kmnAAbh/NP9EKOEWs+HOcsz0osLQ7IzkTwwYUtsn86aM+ASmq6HQ+5kCSIhV7pb/f
-	 JTuP9VUaSobYmveLrUcDWeoCMLAfVMhuByXYbSlvt1eonDX3/dG/l4jzevVo5DibSgA==
+	t=1795536862;
+	b=5F75VlIUASjGWtFojxSDY9cy9/6iwIsMcTq0VU25pJ9SlBvPM5eBpvBuXVZDPq6AdF21
+	 ytAn4Vy8zKjWHdK7iuaSeIVu4JB7zK84VS7l1XMq3kbj+quMR1d92owaSEXtHKcHfBGwq
+	 sofboHpYIgBM+yrDL5MwPfa5aG6i6/ceEjcbnPoYOcUDHNd09qCYX3LiQDonfpM3UjWPt
+	 GRIh7YU9hRPO4AmnpgMr8QWnPU7bI+E2lbk0/bTSgwkWOFxQYxYJ5GOAmwNUIKDKL6C2f
+	 aeJTlLqHz8GiBSPGwgPEqesPdGkaSCuMqMCCaKar3FN364foFMXpylr+EJkFlIutIyQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795536849;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:Received:From:To:Cc:Subject:Date:
-	 Message-ID:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Scanned-By;
-	bh=XAU8hIyCdHjxNoq80dW172OlDTbuwZf51aoQ3MrXrlw=;
-	b=T4YV7z12noj9bntaFPQFsQ9vj3dCM/Jqnyn3PKb9Q/ruRARL3qUkkLybphv9oL4ukXvp
-	 PyPq4KW5mef4ASC8Qf/puztoe+2IfwtNJe//ZHJhA6F04cRhZLppTt908SJ0O9/OM6TMv
-	 PVF5HWScSh7Xpm0m9pnlq7Sfob/DOMganfFpNMgb5gsrsKIBJTB6GHallswfPUi4XIEiy
-	 he+39MQ42MzhwtVRVCXbD+te9C9aixug8B+EyJDjg0pOGyc6FcNDGn9ILcHxtRlNn1wvw
-	 Ltn711rXaUApezISuQFx5EPCN7GqER/wYI1ro0m4ip+gxgWQ/GglvsN/Wcz/mNS7GNQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795536862;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To;
+	bh=WrZPcXpujul/0lHKoTpqeKk2rEN77o0/xsCu0c+kPzk=;
+	b=Ky5GDjvbokDWlb+kUJ2wfXZVoFb24wjeJep3zOW9GXEdcU0iJY+7dGeXEwXfWNrl+e6q
+	 GGJ2mzor7EpQRIeJeAwSi70K7CddSVFXnFBpq/jTiY3Abq4z0zdLlVFbBqvQuTGHqKZNd
+	 HG+FX36mKB12rX+HzzB+wypFAt0YdzH4iuXI72TXayPdZ4frIqHNOBjDZxh0lbAahJ4Bz
+	 1UvtID7PH3TB1VDzdYE9rP4d4y35aWbKiKB6QrmPdIEadWf6KLRdZsyyxjpOEsJFvCE1C
+	 sn38HftIWBsCkqvaptNSooqgUakEEphYKQEaNehJCT2Bv+GdxykVSR3hJgZhXNKCkLQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=dBwBLDFp;
-	arc=none smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=b9S5gsaK;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4A2F7606A688
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 16:14:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4A2F7606A688
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 30847606A31E;
+	Tue, 24 Nov 2026 16:14:21 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=dBwBLDFp
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795536848;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=XAU8hIyCdHjxNoq80dW172OlDTbuwZf51aoQ3MrXrlw=;
-	b=dBwBLDFpd/iAqNRB1OKkfaIbulDwUHgNckPr7tiEF0+IUwiMz4RaAkKrZG7ztvANrgcrUv
-	VC9D9grAI0kwK6Y/hbmOaOIk0mLkStEYluFB1TaK0h96++Jy4Oo0mAUA+qECKLflSXjqK0
-	qCKGtKSg1oKfAKuyccSz/QLsPYcwmRM=
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-639-A0VBYSHrPWGuUUqaqtBxmg-1; Tue,
- 24 Nov 2026 16:14:00 +0000
-X-MC-Unique: A0VBYSHrPWGuUUqaqtBxmg-1
-X-Mimecast-MFC-AGG-ID: A0VBYSHrPWGuUUqaqtBxmg_1795536834
-Received: from mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.95])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 1FE371802560;
-	Tue, 24 Nov 2026 16:13:54 +0000 (UTC)
-Received: from dhowells-thinkpadp1gen8.rmtgb.csb (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
-	by mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id A5607436;
-	Tue, 24 Nov 2026 16:13:51 +0000 (UTC)
-From: David Howells <dhowells@redhat.com>
-To: netdev@vger.kernel.org
-Cc: David Howells <dhowells@redhat.com>,
-	Marc Dionne <marc.dionne@auristor.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	linux-afs@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Jeffrey Altman <jaltman@auristor.com>,
-	stable@vger.kernel.org
-Subject: [PATCH net v3 10/10] rxrpc: Fix RACK-TLP implementation
-Date: Tue, 24 Nov 2026 16:12:58 +0000
-Message-ID: <20261124161302.4044422-11-dhowells@redhat.com>
-In-Reply-To: <20261124161302.4044422-1-dhowells@redhat.com>
-References: <20261124161302.4044422-1-dhowells@redhat.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=b9S5gsaK
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6AAAB1F000C0;
+	Tue, 24 Nov 2026 16:14:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795536861;
+	bh=WrZPcXpujul/0lHKoTpqeKk2rEN77o0/xsCu0c+kPzk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=b9S5gsaKM1pEhc09ZRSKqeE5LzsmM0Rch2EIYoXBLn5hFQCbGTZXqgnLIgSaDPnEl
+	 IBxlX6mGcjSAZFKw3M6SOnF5FfngeYDJXOVqHmZ7aJofIs5BCqipkg2MsGRPiTSVeO
+	 fOVKyc07oysD6nmQwarUXsAa0y1b1GnJ+OSa6MkE8DMz5fMbzHbWBLxuQA8UICjsww
+	 oWnFVSuSd2RDBPhlfT26bwiGLnTXw7hqn2wqaJ0zqP3VsXeiRgM75pGp7tcRdF2+Fb
+	 KcadwoDHLT/mzbfbkZOigg6GrPHPGBAtVVMTG8X0JFTMG+Ce+oRGj/NbqZWFqpjH7z
+	 u5LArjSylbEDA==
+Date: Tue, 24 Nov 2026 18:14:14 +0200
+From: Mike Rapoport <rppt@kernel.org>
+To: Dave Hansen <dave.hansen@intel.com>
+Cc: Pankaj Gupta <pankaj.gupta@amd.com>, Thomas Gleixner <tglx@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H . Peter Anvin" <hpa@zytor.com>,
+	Tom Lendacky <thomas.lendacky@amd.com>,
+	Ard Biesheuvel <ardb@kernel.org>, Kiryl Shutsemau <kas@kernel.org>,
+	Ilias Apalodimas <ilias.apalodimas@linaro.org>,
+	linux-kernel@vger.kernel.org, linux-mm@kvack.org,
+	linux-efi@vger.kernel.org, Pankaj.gupta.linux@gmail.com
+Subject: Re: [PATCH RFC 0/3] x86/e820: Ignore memmap= and mem= in
+ confidential guests
+Message-ID: <awW31hUpXuujSAXA@kernel.org>
+References: <20261124133241.221719-1-pankaj.gupta@amd.com>
+ <e08f2321-749e-40f6-9ed4-3dba8e1625ba@intel.com>
+ <awWzrkLxfQ2_ODKe@kernel.org>
+ <2dd40d0d-2e1f-4a7f-ba65-2cceccd82028@intel.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -87,274 +68,31 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-Scanned-By: MIMEDefang 3.6 on 10.30.177.95
+In-Reply-To: <2dd40d0d-2e1f-4a7f-ba65-2cceccd82028@intel.com>
 
-Fix the RACK-TLP implementation in the following ways:
+On Tue, Nov 24, 2026 at 07:58:31AM -0800, Dave Hansen wrote:
+> On 11/24/26 07:56, Mike Rapoport wrote:
+> > On Tue, Nov 24, 2026 at 07:09:42AM -0800, Dave Hansen wrote:
+> >> On 11/24/26 05:32, Pankaj Gupta wrote:
+> >>> In a confidential guest (SEV-SNP, TDX) the EFI stub builds the unaccepted
+> >>> memory bitmap before the command line is parsed. memmap= and mem= edit
+> >>> e820_table only afterwards.
+> >> memmap= and mem= are debugging tools, right? 
+> > I wish they were 🙂
+> > But AFAIU they are used to carve out "pmem" or PFN-mapped memory.
+> 
+> I've used them that way for development, but production pmem systems
+> always had persistent memory in their BIOS-provided memory maps.
+> 
+> How are folks depending on these in production in confidential guests?
 
- (1) Move the "in Fast or RTO recovery" flag to the rxrpc_call struct
-     rather than rxrpc_ack_summary so that it persists beyond ACK parsing
-     to the next time rxrpc_congestion_management() happens (when the next
-     ACK is parsed).  This allows that value to be accessed by RACK-TLP
-     when invoked by the Reorder timer expiring.
+They shouldn't but you can't guarantee that.
 
- (2) In rxrpc_input_call_event(), rearm the RTO timer before the function
-     returns if no other timer is running and if DATA packets have been
-     sent but not yet ACK'd.  This prevents us not having a timer set to
-     drive retransmission.
+But I don't mind letting them crash if they do :)
 
-     Further, update the RTO timer after new data has been ACK'd if the RTO
-     timer was running before the ACK was processed (but not if it has just
-     been started by the TLP probe dispatch as that set the timer for
-     itself).
-
- (3) In rxrpc_congestion_management(), initialise the TLP state when
-     entering the FAST_RETRANSMIT congestion control state, not every time
-     we process that state.
-
- (4) Don't reset segment_xmit_ts in rxrpc_rack_mark_lost() as that's called
-     from three places, one of which shouldn't do that.  Instead, do it in
-     the calling function as appropriate.
-
- (5) In rxrpc_tlp_calc_pto(), check flight_size is at most one jumbo
-     packet's worth of subpackets in size, not just any non-zero value
-     (RFC8985 7.2 has a comparison against 1, so this is approximated
-     because we'll be sending jumbo packets if possible).
-
-Fixes: 7c482665931b ("rxrpc: Implement RACK/TLP to deal with transmission stalls [RFC8985]")
-Signed-off-by: David Howells <dhowells@redhat.com>
-cc: Marc Dionne <marc.dionne@auristor.com>
-cc: Jeffrey Altman <jaltman@auristor.com>
-cc: Eric Dumazet <edumazet@google.com>
-cc: "David S. Miller" <davem@davemloft.net>
-cc: Jakub Kicinski <kuba@kernel.org>
-cc: Paolo Abeni <pabeni@redhat.com>
-cc: Simon Horman <horms@kernel.org>
-cc: linux-afs@lists.infradead.org
-cc: stable@vger.kernel.org
----
- net/rxrpc/ar-internal.h |  4 ++-
- net/rxrpc/call_event.c  | 22 ++++++++++++++++-
- net/rxrpc/input.c       | 10 +++++---
- net/rxrpc/input_rack.c  | 54 ++++++++++++++++++++++++++++++++++++++---
- 4 files changed, 82 insertions(+), 8 deletions(-)
-
-diff --git a/net/rxrpc/ar-internal.h b/net/rxrpc/ar-internal.h
-index c0cb1c7e6680..37e649f96efd 100644
---- a/net/rxrpc/ar-internal.h
-+++ b/net/rxrpc/ar-internal.h
-@@ -653,6 +653,7 @@ enum rxrpc_call_flag {
- 	RXRPC_CALL_RX_IS_IDLE,		/* recvmsg() is idle - send an ACK */
- 	RXRPC_CALL_RECVMSG_READ_ALL,	/* recvmsg() read all of the received data */
- 	RXRPC_CALL_CONN_CHALLENGING,	/* The connection is being challenged */
-+	RXRPC_CALL_NEW_DATA_ACKED,	/* New data has been ACK'd */
- };
- 
- /*
-@@ -810,6 +811,7 @@ struct rxrpc_call {
- #define RXRPC_TX_SMSS		RXRPC_JUMBO_DATALEN
- #define RXRPC_MIN_CWND		4
- 	enum rxrpc_ca_state	cong_ca_state;	/* Congestion control state */
-+	bool			cong_in_recovery; /* If we're in Fast retransmit recovery */
- 	u8			cong_extra;	/* Extra to send for congestion management */
- 	u16			cong_cwnd;	/* Congestion window size */
- 	u16			cong_ssthresh;	/* Slow-start threshold */
-@@ -896,7 +898,6 @@ struct rxrpc_ack_summary {
- 	bool		retrans_timeo:1;	/* T if reTx due to timeout happened */
- 	bool		need_retransmit:1;	/* T if we need transmission */
- 	bool		rtt_sample_avail:1;	/* T if RTT sample available */
--	bool		in_fast_or_rto_recovery:1;
- 	bool		exiting_fast_or_rto_recovery:1;
- 	bool		tlp_probe_acked:1;	/* T if the TLP probe seq was acked */
- 	u8 /*enum rxrpc_congest_change*/ change;
-@@ -1266,6 +1267,7 @@ ktime_t rxrpc_tlp_calc_pto(struct rxrpc_call *call, ktime_t now);
- void rxrpc_tlp_send_probe(struct rxrpc_call *call);
- void rxrpc_tlp_process_ack(struct rxrpc_call *call, struct rxrpc_ack_summary *summary);
- void rxrpc_rack_timer_expired(struct rxrpc_call *call, ktime_t overran_by);
-+void rxrpc_update_rack_rto_timer(struct rxrpc_call *call);
- 
- static inline void rxrpc_tlp_end_probe(struct rxrpc_call *call)
- {
-diff --git a/net/rxrpc/call_event.c b/net/rxrpc/call_event.c
-index 62e15b03c9c2..2b3bd5355a02 100644
---- a/net/rxrpc/call_event.c
-+++ b/net/rxrpc/call_event.c
-@@ -312,7 +312,7 @@ bool rxrpc_input_call_event(struct rxrpc_call *call)
- {
- 	struct sk_buff *skb;
- 	ktime_t now, t;
--	bool did_receive = false, saw_ack = false;
-+	bool did_receive = false, saw_ack = false, in_rto = false;
- 	s32 abort_code;
- 
- 	rxrpc_see_call(call, rxrpc_call_see_input);
-@@ -330,6 +330,8 @@ bool rxrpc_input_call_event(struct rxrpc_call *call)
- 		goto out;
- 	}
- 
-+	clear_bit(RXRPC_CALL_NEW_DATA_ACKED, &call->flags);
-+	in_rto = call->rack_timer_mode == RXRPC_CALL_RACKTIMER_RTO;
- 	do {
- 		skb = __skb_dequeue(&call->rx_queue);
- 		if (skb) {
-@@ -448,6 +450,24 @@ bool rxrpc_input_call_event(struct rxrpc_call *call)
- 				       rxrpc_propose_ack_input_data);
- 	}
- 
-+	/* Need to rearm the RTO timer if we don't start the TLP-PTO
-+	 * timer [RFC8985 7.3].
-+	 */
-+	if (call->rack_timer_mode == RXRPC_CALL_RACKTIMER_OFF &&
-+	    call->tx_in_flight > 0) {
-+		ktime_t rto = rxrpc_get_rto_backoff(call, false);
-+
-+		call->rack_timer_mode = RXRPC_CALL_RACKTIMER_RTO;
-+		call->rack_timo_at = ktime_add(ktime_get_real(), rto);
-+		trace_rxrpc_rack_timer(call, rto, false);
-+		trace_rxrpc_timer_set(call, rto, rxrpc_timer_trace_rack_rto);
-+	} else if (call->rack_timer_mode == RXRPC_CALL_RACKTIMER_RTO &&
-+		   test_bit(RXRPC_CALL_NEW_DATA_ACKED, &call->flags) &&
-+		   in_rto) {
-+		/* Update the RTO timer if we saw an ACK. */
-+		rxrpc_update_rack_rto_timer(call);
-+	}
-+
- 	/* Make sure the timer is restarted */
- 	if (!__rxrpc_call_is_complete(call)) {
- 		ktime_t next = READ_ONCE(call->expect_term_by), delay;
-diff --git a/net/rxrpc/input.c b/net/rxrpc/input.c
-index 66be37f21410..aa3af5a10c01 100644
---- a/net/rxrpc/input.c
-+++ b/net/rxrpc/input.c
-@@ -34,6 +34,7 @@ static void rxrpc_congestion_management(struct rxrpc_call *call,
- {
- 	summary->change = rxrpc_cong_no_change;
- 	summary->in_flight = call->tx_in_flight;
-+	call->cong_in_recovery = false;
- 
- 	if (test_and_clear_bit(RXRPC_CALL_RETRANS_TIMEOUT, &call->flags))
- 		summary->retrans_timeo = true;
-@@ -97,12 +98,12 @@ static void rxrpc_congestion_management(struct rxrpc_call *call,
- 		call->cong_extra = 0;
- 		call->cong_dup_acks = 0;
- 		summary->need_retransmit = true;
--		summary->in_fast_or_rto_recovery = true;
-+		call->cong_in_recovery = true;
-+		rxrpc_tlp_init(call);
- 		goto out;
- 
- 	case RXRPC_CA_FAST_RETRANSMIT:
--		rxrpc_tlp_init(call);
--		summary->in_fast_or_rto_recovery = true;
-+		call->cong_in_recovery = true;
- 		if (!summary->new_low_snack) {
- 			if (summary->nr_new_sacks == 0)
- 				call->cong_cwnd += 1;
-@@ -1217,6 +1218,9 @@ static void rxrpc_input_ack(struct rxrpc_call *call, struct sk_buff *skb)
- 		rxrpc_input_soft_acks(call, &summary, skb);
- 	}
- 
-+	if (summary.nr_new_hacks || summary.nr_new_sacks)
-+		set_bit(RXRPC_CALL_NEW_DATA_ACKED, &call->flags);
-+
- 	if (test_bit(RXRPC_CALL_TX_LAST, &call->flags) &&
- 	    call->acks_nr_sacks == call->tx_top - hard_ack &&
- 	    rxrpc_is_client_call(call))
-diff --git a/net/rxrpc/input_rack.c b/net/rxrpc/input_rack.c
-index 240362109a3b..473046562b0b 100644
---- a/net/rxrpc/input_rack.c
-+++ b/net/rxrpc/input_rack.c
-@@ -30,7 +30,6 @@ static void rxrpc_rack_mark_lost(struct rxrpc_call *call,
- 
- 	if (__test_and_clear_bit(ix, &tq->in_flight))
- 		call->tx_in_flight--;
--	tq->segment_xmit_ts[ix] = UINT_MAX;
- }
- 
- /*
-@@ -146,6 +145,7 @@ void rxrpc_input_rack(struct rxrpc_call *call,
- 
- 		__clear_bit(ix, &reneged_acks);
- 		rxrpc_rack_mark_lost(call, tq, ix);
-+		tq->segment_xmit_ts[ix] = UINT_MAX;
- 	}
- 
- 	while (new_acks) {
-@@ -197,7 +197,7 @@ static ktime_t rxrpc_rack_update_reo_wnd(struct rxrpc_call *call,
- 	}
- 
- 	if (!call->rack_reordering_seen) {
--		if (summary->in_fast_or_rto_recovery)
-+		if (call->cong_in_recovery)
- 			return 0;
- 		if (call->acks_nr_sacks >= dup_thresh)
- 			return 0;
-@@ -243,6 +243,7 @@ static ktime_t rxrpc_rack_detect_loss(struct rxrpc_call *call,
- 				remaining = ktime_sub(ktime_add(xmit_ts, lost_after), now);
- 				if (remaining <= 0) {
- 					rxrpc_rack_mark_lost(call, tq, ix);
-+					tq->segment_xmit_ts[ix] = UINT_MAX;
- 					trace_rxrpc_rack_detect_loss(call, summary, seq);
- 				} else {
- 					timeout = max(remaining, timeout);
-@@ -313,7 +314,7 @@ ktime_t rxrpc_tlp_calc_pto(struct rxrpc_call *call, ktime_t now)
- 	if (call->rtt_count > 0) {
- 		/* Use 2*SRTT as the timeout. */
- 		pto = ns_to_ktime((u64)call->srtt_us * (NSEC_PER_USEC / 4));
--		if (flight_size)
-+		if (flight_size <= max(call->peer->pmtud_jumbo, 1))
- 			pto = ktime_add(pto, call->tlp_max_ack_delay);
- 	} else {
- 		pto = NSEC_PER_SEC;
-@@ -446,3 +447,50 @@ void rxrpc_rack_timer_expired(struct rxrpc_call *call, ktime_t overran_by)
- 		pr_warn("Unexpected rack timer %u", mode);
- 	}
- }
-+
-+/*
-+ * Update the RACK RTO timer after new data is ACK'd.
-+ */
-+void rxrpc_update_rack_rto_timer(struct rxrpc_call *call)
-+{
-+	struct rxrpc_txqueue *tq;
-+	ktime_t earliest = KTIME_MAX, rto;
-+
-+	if (!call->tx_in_flight)
-+		return;
-+
-+	for (tq = call->tx_queue; tq; tq = tq->next) {
-+		unsigned long nacks = ~tq->segment_acked;
-+		int nr_sent;
-+
-+		if (after(tq->qbase, call->tx_transmitted))
-+			break;
-+
-+		nr_sent = (call->tx_transmitted - tq->qbase) + 1;
-+		if (nr_sent < RXRPC_NR_TXQUEUE)
-+			nacks &= (1UL << nr_sent) - 1;
-+
-+		while (nacks) {
-+			unsigned int ix = __ffs(nacks);
-+			ktime_t xmit_ts;
-+
-+			__clear_bit(ix, &nacks);
-+
-+			if (tq->segment_xmit_ts[ix] != UINT_MAX) {
-+				xmit_ts = rxrpc_get_xmit_ts(tq, ix);
-+				if (ktime_before(xmit_ts, earliest))
-+					earliest = xmit_ts;
-+			}
-+		}
-+	}
-+
-+	if (earliest != KTIME_MAX) {
-+		rto = ktime_add(earliest, rxrpc_get_rto_backoff(call, false));
-+		if (ktime_after(rto, call->rack_timo_at)) {
-+			call->rack_timer_mode = RXRPC_CALL_RACKTIMER_RTO;
-+			call->rack_timo_at = rto;
-+			trace_rxrpc_rack_timer(call, rto, false);
-+			trace_rxrpc_timer_set(call, rto, rxrpc_timer_trace_rack_rto);
-+		}
-+	}
-+}
-
+-- 
+Sincerely yours,
+Mike.
