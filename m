@@ -1,89 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.45
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.158.5
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795512889;
-	b=3uozOQWDJsFSvLR3XNjX9NwcvtSt63YxxNEHHcNv13GZSXJ54D6BQoxVugNvnEHKf9xV
-	 ga0YKoPs8XFB4tfBS7rwLzVtpDqqcT6WAfb9IrAIjP9VPt/59BPrTpPl6KPfust3ULqnO
-	 nlvxGUHFxKUvc7rPvO+s/8G3Zd+MGzSbVCP7sJSZWvwgtx6rgTwav61nBVM7Bo+915e3m
-	 oCtkzZcejvPBL0ZFQkqXAf5/61260D35NsKG7DDaUHiXpU78LqZv11hKLU6qIqSJMVDFK
-	 a+ZoxKsAn6vlVNVHfbor98Uwtq03fckoKQ1xJIQY96dnI7BHRKULJj5fy8WTHLFkm5w==
+	t=1795512935;
+	b=Y7QrMCgszDcw9VwejX6iEQME+5YYL1Vq/sICfHLoI4RAWUEPXlYJTfSx/IN1rEg8msKL
+	 vijc37I50IXiO3agcSSCt83vcHqjpOR2YHzuyEe5UlGbSZC/qgTsOLpFD+rv1Yr4/yS6K
+	 HKvztqUK53/rUF701ZHIZrtiyeeT7zW/epCjxNXpIvW1+NcDLcFYu8HvK6VjUAxyZ2NYs
+	 2BnspuO3bQd97On2yBU1sweN1nhB5O4w4dBmypp6Z0NAtPiBR13EBp2jg/zmzGZjt2A8y
+	 k6rYLlJPoeF2xzrokyclOeG+P7ZWIYyIF2qrd1bwlje8psRzEdveSKZN/Dse7D/mXKw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795512889;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=dzlULNiaNZ0xXGdWA1rlfP/03H+C6Hi4qgErNRy8s+Y=;
-	b=z6dvVYaNbGP3g+aAINzTCXCbo4Cv5kXbeJ0L8dtN6X4x1gVp6Rdpk36sn8cJtDlx1f7p
-	 jnS+t7kzzS8uFuf9E7uIuwB/CPGu+j7nEesbPHyup6jf1C7i+5lnPDUNr8DsqGIHbAtlY
-	 GSmy6uCuQSuqPBqBwdiNZRVT8beZgx37NIRu11wrAXX4IZ9L+VBBi0H6/nYNYd93+7yib
-	 7AxmokIkhNBrmMjCguJXE9zjCctJ5UDXoju+F8XX2MiDGFHPHMoTjRgJgvcuvY+zwR2qZ
-	 owBb7N/t65c+FqNdKZozc3BIkcDcbiW00+2nKXaetefmJlDJtbiD4GWekifxYVj62Og==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795512935;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
+	 Received:Received:Received:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:From:Content-Language:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-TM-AS-GCONF:
+	 X-Proofpoint-Reinject:X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-GUID:X-Authority-Analysis:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=D8bVNU7oB3bmU/rHoE2jYFPe9ETXZbQxDjY46ziarvs=;
+	b=E3H88fWvdw4oVpF8iBxw/+Dkw/oE0hHC7ICkJzIa13OL28nBsHBCmGUcJyvcZ9cLoelB
+	 wy5zNPVtqy9x0U/ECJMhZlVk6Vcpk7lX3jEDI071J57h3jml2blJCYw32nYf8d1F8AKYM
+	 oxCO8SGjemVxDgYl+c/cNCOaM1ZYkHYw/CrjPp3VZHtGmedJhtFlEFFxLy2+lLLnZz+aX
+	 SSRw5VIG+P1WMimAf4pm1btDhSAGPJwwz4CQ5xqSOjNpa6f2tBtDHsOfUq1yXsDXB/5dX
+	 zT21scjM9Z14Ys6zd+5XyIqX3t7VaCW1GtJ0RDNkUKRsY7BZ5/pMRlAkpyNs82774PQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=baylibre.com;
-	spf=pass smtp.mailfrom=baylibre.com;
-	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=VKJuV1Q7;
-	arc=none smtp.remote-ip=209.85.128.45
-Received: from mail-wm1-f45.google.com (mail-wm1-f45.google.com [209.85.128.45])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=linux.ibm.com;
+	spf=pass smtp.mailfrom=linux.ibm.com;
+	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=JSxXKSJ+;
+	arc=none smtp.remote-ip=148.163.158.5
+Received: from mx0b-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com [148.163.158.5])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7F54C606A321
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:34:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7F54C606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=baylibre.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=baylibre.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 424F6606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:35:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 424F6606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=VKJuV1Q7
-Received: by mail-wm1-f45.google.com with SMTP id 5b1f17b1804b1-4b79502c27aso41413835e9.1
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 01:34:48 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1795512887; x=1796117687; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=dzlULNiaNZ0xXGdWA1rlfP/03H+C6Hi4qgErNRy8s+Y=;
-        b=VKJuV1Q7KiG/NwjyZGk6cDku3ZQZ8pLxNIFWTycp4mS+Flrvh1frRwcrBkKmANhMId
-         osZ9wi/GtFjbonSQhQygz7P+9fYtTn+I7W3Fc8sVZqnSdF4/FXB9/keQi8bil4wy+5Xe
-         cM0lANGMUvPoV82g4bcZkEeXIQyVe+0ade9/yXxZC2B/elTI6v6accCROCGQt8caz6Dq
-         NQ3AXl0JC6gRBYKxiJ0tL+NC5EWMwd5NtRsm/4TyOOWxSNTQX/h1/rbA/jg0rFtoSmej
-         Vgx4EvuGeaxQ1Hl1owVxy9+1TMuPZHV33p7hP5QVEAEs3Z4MljVXkAGbAJ44gy3xZ30g
-         heKw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795512887; x=1796117687;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=dzlULNiaNZ0xXGdWA1rlfP/03H+C6Hi4qgErNRy8s+Y=;
-        b=fAHoldsBJKV8ovcM0JldVBmBn6RH54DrUaqM2iikQj1uzuULhmkBYbeZ0GPwM6hrbo
-         cvErIxJR/aYi37etiIhyL3jr5Enqo037TR6O62jO8bFoNLJyGR47oUTXjk0AQuUoYtB+
-         hyDnZyPgjnyhstgHUKdINRyGvnjycPGLhCMDYhWG/RqSOGTIJ65zvJJ1e0kCFVY0IEog
-         zHE/bQ7Y8CNwRTMGtrN25H7CxvPy/0m94fRn1n4NSq3w3j4yboJC1YVhFukM0baXLU5G
-         qTlQB4QrfDg9taw4ltDTON7kh8vUfe0An8uP/e74MfZO2Z2NuvwUC2jIj0/4lf9rhhBe
-         4dTQ==
-X-Forwarded-Encrypted: i=1; AL+hErGO7ZGc+AR5/H68ngIpVzMcqvuPuXYX6Njk+VlwsAWH6y1QiBDYCLEJVxz16JgV6lXvvKUt2ciiaIeWfKg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9kH1vrTT8bQ7W1St3GN6Uy7VP/yWCmJo++JvonqTjyXeZmDOkP
-	LDAyUL60r2XEp/Avs7/bdvzlDMEGaUF8RpwbPGSL60/KeLWcDS1rfZOH5gwQPjV5g3I=
-X-Gm-Gg: AZFdTZcWSVk/oAI7fMiWJFxsTqeHkcRoZhaB+igAFvQvrztblJHoZoLiA/j8kbQk+0F
-	hkYuAJ7LKs4JmXuhuhygglFLiawiZjLsNltS95lsNxS7iJdeJwwk2Pa6Wq5tvirgqORLNEHQ6uM
-	UxemGY8gOjrVV2MftsoAvuQP1+eyyNrnUBdDkBtI72JcFV7szL1ZNHyDEITSU3LUtiQ3XaGGqrV
-	Fm3R2X38CRPqQQ1mwyQpvfyMoG8d8gVMZtOfVfL/aDGqCZ5Cjsy5OapJF732jBzZBmQ6cEgKsHD
-	y7pcSYisxhTgI+0M49VDxuiasZlc6FQc0OnQoTP0dRHU7rAGHlwGzX8qQvIBEkfOBtSoHxsXhb4
-	quRA90iWcOhP1W/U8m+ldd/OEy/Sc05ig8gKJW1YbSqlOTQhEEqlEjtym0JdNWe+mDbR/82aWCk
-	iTtl5dCS9+7V8f3l1YThiA1ayCIDS3ih6jwuk7EIy7Z1wjua3UMoq4CzYGqHV2i4aO1aOM6TyaL
-	1c1zK05+H9nBbgY+tKX+QvZ0KjSwcYEMxt1WDHchkvskJlGdokeih/X+DaptR3uLfGMkTuuz/qw
-	dnZzhB2Q7YokvDRQpy+tod0YUElMTgAVkMYtzBr9+8w8PSNyxn8AgrFwvBkcPoB287Viz1EDy65
-	Aww==
-X-Received: by 2002:a05:600c:5251:b0:4a1:f8cb:7d70 with SMTP id 5b1f17b1804b1-4bb8881e837mr267264845e9.24.1795512886893;
-        Tue, 24 Nov 2026 01:34:46 -0800 (PST)
-Received: from ?IPV6:2001:8a0:d6cd:9000:86f4:4e71:9fc8:3183? ([2001:8a0:d6cd:9000:86f4:4e71:9fc8:3183])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b110c50sm26488815f8f.37.2026.11.24.01.34.44
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 24 Nov 2026 01:34:46 -0800 (PST)
-Message-ID: <57582334-45ef-421c-a460-314f5b5ece74@baylibre.com>
-Date: Tue, 24 Nov 2026 09:34:44 +0000
+	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=JSxXKSJ+
+Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AO356qX1271610;
+	Tue, 24 Nov 2026 09:35:11 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=D8bVNU
+	7oB3bmU/rHoE2jYFPe9ETXZbQxDjY46ziarvs=; b=JSxXKSJ+eLiQOjPbYWsDck
+	G0EPS8jy1wpoR6EegncLkhUwIFVUF9dWBX5mi7yKqH8985d5SpykLnR54U+lTt/8
+	aopY97RvTnI2vv3NDgbFAkbwdlkbBdMLqNtVcP4A/WXTJ6C8BST9Js7eptnMjbZZ
+	2XFs+BUOW8Shko8I/aW/2KUR4ZEe0gCWlxPNzxTQkB01L0homUrL2aWjipIkn2T0
+	DVs52E8RDNhX9Y81zf8P6APzhoGpgrWGbnCnrdeqMsZonf+97QStl9AtxxmaEShg
+	gvHwvnXXqkUjOKKSOE2TnKlZYCy87toGYh2hNsJG9wdmJzR9Vgh2XrMOlOfkYJ0A
+	==
+Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j34g16mqp-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Tue, 24 Nov 2026 09:35:10 +0000 (GMT)
+Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma23.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AO8x5Rj3890861;
+	Tue, 24 Nov 2026 09:35:10 GMT
+Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
+	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4j3q4h9ynp-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 24 Nov 2026 09:35:10 +0000 (GMT)
+Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
+	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AO9Z61Q28181198
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 24 Nov 2026 09:35:08 GMT
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id CB76E2005A;
+	Tue, 24 Nov 2026 09:35:06 +0000 (GMT)
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id CAFBB2004E;
+	Tue, 24 Nov 2026 09:35:02 +0000 (GMT)
+Received: from [9.39.26.220] (unknown [9.39.26.220])
+	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Tue, 24 Nov 2026 09:35:02 +0000 (GMT)
+Message-ID: <a2bd3564-0990-47ab-b922-6793dd1de144@linux.ibm.com>
+Date: Tue, 24 Nov 2026 15:05:01 +0530
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,40 +86,164 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v18 4/8] accel/rocket: take the core clocks and resets
- from the devicetree
-To: Jiaxing Hu <gahing@gahingwoo.com>, tomeu@tomeuvizoso.net,
- heiko@sntech.de, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- joro@8bytes.org, will@kernel.org, robin.murphy@arm.com,
- p.zabel@pengutronix.de, ogabbay@kernel.org, zhangqing@rock-chips.com
-Cc: royalnet026@gmail.com, sidong.yang@furiosa.ai,
- ulf.hansson@oss.qualcomm.com, abel.vesa@oss.qualcomm.com,
- sebastian.reichel@collabora.com, chaoyi.chen@rock-chips.com,
- shawn.lin@rock-chips.com, finley.xiao@rock-chips.com,
- diederik@cknow-tech.com, alchark@flipper.net, leonard@lausen.nl,
- vlwwwwww@gmail.com, jeff.hugo@oss.qualcomm.com,
- dri-devel@lists.freedesktop.org, linux-rockchip@lists.infradead.org,
- iommu@lists.linux.dev, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <cover.1795478392.git.gahing@gahingwoo.com>
- <82329b6681958350294846c830598ebde29b874a.1795478392.git.gahing@gahingwoo.com>
+Subject: Re: [PATCH 0/5] cacheinfo, powerpc: Move powerpc to generic cacheinfo
+To: linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+        driver-core@lists.linux.dev
+Cc: christophe.leroy@csgroup.eu, maddy@linux.ibm.com,
+        gregkh@linuxfoundation.org, rafael@kernel.org, dakr@kernel.org,
+        johan@kernel.org, sudeep.holla@kernel.org, ritesh.list@gmail.com,
+        tim.c.chen@linux.intel.com, yu.c.chen@intel.com
+References: <20261118163639.890546-1-sshegde@linux.ibm.com>
+From: Shrikanth Hegde <sshegde@linux.ibm.com>
 Content-Language: en-US
-From: Daniel Drake <ddrake@baylibre.com>
-In-Reply-To: <82329b6681958350294846c830598ebde29b874a.1795478392.git.gahing@gahingwoo.com>
-Content-Type: text/plain; charset=UTF-8
+In-Reply-To: <20261118163639.890546-1-sshegde@linux.ibm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-ORIG-GUID: cgxDXRLU7frcthZrm8ywv-bSA6kQLkug
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI0MDAzNiBTYWx0ZWRfX0G7rF0YTsorK
+ VAr4IS2zpQiOBEOYkWZsLQSIS9+70PTnTdokW7iXrsRLC52kYhpCKAXPEhuWvozPEu5WZLe/YvA
+ 4dU1vsZ3ruMe0jWo452PCNANO6UNmw0=
+X-Proofpoint-GUID: ytxi2pxdeRsI1y50fNAvczzjgJiMbVOH
+X-Authority-Analysis: v=2.4 cv=c8M+0h9l c=1 sm=1 tr=0 ts=6b055a4f cx=c_pps
+ a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=RzCfie-kr_QcCd8fBx8p:22 a=VwQbUJbxAAAA:8
+ a=7CQSdrXTAAAA:8 a=VnNF1IyMAAAA:8 a=lsGhJCwmx7oV3vd9AWkA:9 a=QEXdDO2ut3YA:10
+ a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI0MDAzNiBTYWx0ZWRfX49CZomBWZ+tC
+ pdVZlVdQXQSeAeCV/vQxvoxzldYfzMqBZGoUaWE7yCdgkja/BD0PQoeRcrmTKk7DCLzDu0Fy8M0
+ usD+MvQXshMfGY9KEDvufTowBKUTqfQ40ZtNK7EZMwdp5QDZjCW+pe6haRBGYD6oL0DAyF0norU
+ r0kjG5hNMFiJp0jdkHAeboI1L5tzvfeuR+5UxqI0lXdp4sL6uMWu3+dHvUUb7lK/L/SROdNJpu0
+ RQTYQ6i7veRc4eKV0t3xtHIycVH941y+NZdJQ+OJ5PlV4Hd/gjO+ugiXDjikv82v6wRvNoek5Xe
+ eJlsjKTwy7gq+FbldYmoqRh1dezg2J6VJ6RTTItmcdC/tLoUaOt3V8Ee+gXPv/mVduZJ7Ec2JM9
+ TByPV2sT+3TXzeSN8YN8yYTMnKAv+iRfbSz03nyfNJLpVjfA5QctEqopN8Peo8F6XAviIewisvE
+ e0g7XxtgBeyrjAMjGdg==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-24_01,2026-11-23_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 clxscore=1015 malwarescore=0 suspectscore=0 bulkscore=0
+ priorityscore=1501 phishscore=0 adultscore=0 spamscore=0 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611240036
 
-On 24/11/2026 00:01, Jiaxing Hu wrote:
-> The RK3576 NPU core has six clocks and one reset, the RK3588 core four
-> clocks and two resets. Take all clocks and resets the core node lists
-> instead of naming and counting them per SoC; the binding defines them
-> and dtbs_check enforces it. The driver only uses them all together.
-> 
-> On the RK3588 the resets are now deasserted in devicetree order, srst_a
-> then srst_h; before it was the reverse.
-> 
-> Suggested-by: Daniel Drake <ddrake@baylibre.com>
-> Signed-off-by: Jiaxing Hu <gahing@gahingwoo.com>
 
-Reviewed-by: Daniel Drake <ddrake@baylibre.com>
+
+On 11/18/26 10:06 PM, Shrikanth Hegde wrote:
+> This is another attempt to move powerpc towards generic cacheinfo
+> framework. This is spiritual successor to earlier attempts by Sudeep
+> Holla [1]
+> 
+> The context around this time was, when trying to enable Cache Aware
+> scheduling on powerpc using a llc_override kernel parameter[2], it was
+> pointed out that the llc_bytes which is retreived using
+> get_effective_llc_bytes fails and hence the cache aware scheduling is
+> effectively a NOP, moment the process has a visible footprint.
+> 
+> Instead of adding more hacks around with custom arch_llc_bytes, this is
+> an attempt to move powerpc to generic cacheinfo instead. This removes
+> the powerpc maintaining a separate sysfs entries for all caches.
+> A few modifications to the generic code is necessary due to some of the
+> conventions followed in the device tree specifications. The details are
+> in the respective patches.
+> 
+> If this approach does not work, then I am afraid we might have to fallback to
+> arch_llc_bytes.
+
+Well, though it worked for normal boot and hotplug, LPM is broken and DLPAR is likely
+a problem too if the logical CPUid is reused with different device tree node.
+
+So I am afraid it is not straightforward to port.
+
+The current PowerPC implementation owns references to the device-tree cache nodes
+and destroys and rebuilds its cache objects during LPM. It also releases cache
+objects as CPUs are removed during DLPAR.
+
+Generic cacheinfo has a different lifetime model. Its per-CPU info_list is retained
+across CPU offline, and the leaves continue to contain fw_token pointers to the
+device-tree cache nodes. Replacing or freeing those leaves safely is not straightforward
+because scheduler and page allocator users can access them concurrently. Handling this properly
+would need a broader lifetime and synchronization mechanism in generic cacheinfo.
+
+Doing all that heavy lifting for the case of LPM/DLPAR is likely going to be overkill.
+That may still be worth doing independently, but it is substantially more involved than
+what is needed here.
+
+So I am planning to resort to something like below. Introduce a new arch
+specific hook (cacheinfo_get_arch_llc_info) to get the cache size and
+cpus of that cache.
+
+Hopefully should be able to send it out soon. Now would be the good to wake me up if
+there is a better way!!
+
+
+@@ -XXX,15 +XXX,23 @@ static unsigned long get_effective_llc_bytes(int cpu,
+  					     struct sched_domain *sd)
+  {
+  	struct cacheinfo *llc;
++	unsigned long size;
+  	unsigned int hw_weight;
+  
+  	llc = get_cpu_cacheinfo_llc(cpu);
+-	if (!llc)
+-		return 0;
++	if (llc) {
++		size = llc->size;
++		hw_weight = cpumask_weight(&llc->shared_cpu_map);
++	} else if (cacheinfo_get_arch_llc_info(cpu, &size, &hw_weight)) {
++		return 0;
++	}
+  
+-	hw_weight = cpumask_weight(&llc->shared_cpu_map);
+-	if (!hw_weight)
++	if (!size || !hw_weight)
+  		return 0;
+  
+-	return llc->size * sd->span_weight / hw_weight;
++	return size * sd->span_weight / hw_weight;
+
+> 
+> Note that initial draft of the work[code,changelog] was carried out by LLM.
+> Provided the device tree blob and both powerpc,generic cacheinfo code.
+> With few iterations, LLM did generate the right code with few tweaks.
+> Only the cover-letter and Patch 5 are completely from me. Thanks to
+> LLM, this series is in shape in few days otherwise would have taken
+> more time.
+> 
+> Tested the values compatibilty on Power11 Dedicated and Shared LPAR's.
+> All the values are same, except id and uevent which was not there
+> before. That should help rather than hurt any tool.
+> 
+> This may need more broader checks on different boards/configuration
+> to ensure it is same. Also DLPAR CPU add/remove is not tested yet.
+> Please test and report if your board/platform shows up any different
+> values in those cache entries.
+> 
+> [1]: https://lore.kernel.org/all/1424715500-21725-1-git-send-email-sudeep.holla@arm.com/#t
+> [2]: https://lore.kernel.org/all/20261023131646.2907938-1-sshegde@linux.ibm.com/
+> 
+> This series is needed llc_override patch[2] series to work. A subsequent
+> version of that will be sent out soon.
+> 
+> PS: I am working with 90% coffee and 10% sleep.
+> 
+> Shrikanth Hegde (5):
+>    cacheinfo: Allow architectures to provide custom cache IDs
+>    cacheinfo: Support unified caches described by d-cache properties
+>    cacheinfo: Add teardown and rebuild helpers
+>    powerpc/cacheinfo: Move to generic cacheinfo
+>    sched/topology: Remove stale comment around llc_bytes on powerpc
+> 
+>   arch/powerpc/kernel/cacheinfo.c           | 994 +++-------------------
+>   arch/powerpc/kernel/cacheinfo.h           |  13 -
+>   arch/powerpc/kernel/sysfs.c               |   3 -
+>   arch/powerpc/platforms/pseries/mobility.c |   2 +-
+>   drivers/base/cacheinfo.c                  | 111 ++-
+>   include/linux/cacheinfo.h                 |   3 +
+>   kernel/sched/topology.c                   |   7 -
+>   7 files changed, 194 insertions(+), 939 deletions(-)
+>   delete mode 100644 arch/powerpc/kernel/cacheinfo.h
+> 
 
