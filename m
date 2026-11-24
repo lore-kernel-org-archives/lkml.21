@@ -1,88 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.48
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795540265;
-	b=ZjRxmcR2Pofn6sr6qXFZybZUKGBFiqWhw6EFkPWuOQoBmd3pLHkN6FSd0ykBg5iO/Wvi
-	 tyEGmX0RRa+0kPvW23P0NFS4zuOH/QEF7wlSF8bMEa0LB5LJpEjJyd8ozG4ydyd8NCGq0
-	 Oxt07u9wHSk62cgBxDQkbpaej+e3apoLuAvdJHqmFx+yPSwH/HH3Dnnsb6WdPztQyWDUR
-	 E7tbKSdMSOEu4ablTJGGR6eNq4mBVcN4fakR4IXcRakP9YNLnH+ZyVlRdZIFfbfZGxLCP
-	 IdK2/V5ijIn4r92yxSXzas6V1wlDWUKnnioLRufx9lSd2H0FQ3uZI9fCu4f5d8uHaEQ==
+	t=1795540269;
+	b=HvJYNuy9o6Jenz8wJmjgJgtvU4ZQPvC6nHsVNybfAm7mN5w48TX3P87GFDT4JHoLOryd
+	 mkTirjWQBmPjwsOqPjtYg486NBUyzXirYoO/YIbps1rWkOZE05hVYB27BHSiPrMpfCcRY
+	 AwYIUfWYCFG4pxm2dh6x4aBgfP5do1106lmNE/Qygivc09wmXtlAuPjs0+XC5CX5fGprg
+	 Hx8XqufGJt9QJ6AvIJwYW4zFRhe8d6YONtqDf/WJNIwEddAv4gd65wmf5tu2oKWnaRhJ6
+	 1JwzAcY62F0487OI9mTlndqAXTUNRU9I6YHoumpgc4sCk9HjcxXrbtgmba3e4qcW+Tg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795540265;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
-	bh=Gh8q8mJVDQR+NyGikWkffprIeLzliNYmsHDBlbQMV2I=;
-	b=AlFwVson8jLICsXxVKyvND0KOfRU6ZS51G73riBnI6vXVMIJ4bRoAVfMDOK857zNhcF/
-	 zAbpwXjGWiIiRuWIvlO682I2vrwnb83xgsFWSGYT0mTLX6nQFzaitNZEP+2LRlZO+LjLr
-	 RLRw8YYYwPrlqzu22Vu3Jm+WZp12+pdCZ0G4fIoawejs/OhmnSEbbaLFW3yQ2c+mJz+K0
-	 6dpWzIfYrHRYuF+T3lHlxlFmn+FaWIdijHGI/v1SOaW6Zna5zyq2RwX3QHdAyyZEGKwgX
-	 FJM7SZdXwFnn37Wc4asZS+ri3kMXeGWPQWpgKe9Gx/xoRjpMVpINfsJdYDCM4FEQ6fw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795540269;
+	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=kZ3jLbZRJ/VHth5eaJGnJSAc1BSxLfXRApAmbg64kWY=;
+	b=QnsY2IEsos7e5wmTnAGyqYBQ0rW2LKAR9zZIjSpgH5FR2ydbzFjo20WIIP9quSj5DLma
+	 z5nfG/dmdl9nboXIh7d6977approWVXljolBiRa+NnQ7Of2dTwdlrusSKwVQMHs4bOTdT
+	 ENXQIgInPOmNYjYESxtY1vyr73zz+pfQ7ttPwCiZMWhnDsoBoLGF2YQlblOtz9PUsEBP3
+	 AKt0cZVkwqRcaWUKDdOopz3owf/eMzL7nSrh9wK+M2d1uZDd7wy3w+T9DpXxGlzFZJLkg
+	 V39ddkh87WMpmvYPHvV1eEgeD56dHlzDnRMXi+fp4/OZ8T6XNs6+CkzuFsOxvMYh+MA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=c5s8I2pT;
-	arc=none smtp.remote-ip=209.85.210.48
-Received: from mail-ot1-f48.google.com (mail-ot1-f48.google.com [209.85.210.48])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=j2oxXXw5;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90E95606A6A4
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 17:11:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 90E95606A6A4
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4F6E8606A696;
+	Tue, 24 Nov 2026 17:11:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=c5s8I2pT
-Received: by mail-ot1-f48.google.com with SMTP id 46e09a7af769-862b090e3c3so2529353a34.2
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:11:05 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795540264; x=1796145064; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Gh8q8mJVDQR+NyGikWkffprIeLzliNYmsHDBlbQMV2I=;
-        b=c5s8I2pTtlki/5Mgeo9+maByeYBCj/Nris0A7XKIvhWnnJuV4ltJRCHcwOksUJA/49
-         tuHThyzNyfs2ejOjbPw7ZeCn518qLC05KaCHw9SRsvcQpbS3R2zn5/vMoVLfhk0al9Ax
-         AJT8s9QQl+pmlStwTDGNgYI4xlxlyTSPlBvvFFnDG2O1KgfBzIT3/wSWyIz2apoFYb5D
-         RBuqsQmaS12Fv/ayvL8nRdwURBsRkBr/HhpojLx0DRbnm5T2cXgxrv1cOQ7IZMAj98Nm
-         /yukBgS0PNXNfs8xRrY6Ts8/SkhmGmtVHbMNNWrIPKIgjSm1rcEAABP84v4wivEr1U/I
-         gvqA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795540264; x=1796145064;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Gh8q8mJVDQR+NyGikWkffprIeLzliNYmsHDBlbQMV2I=;
-        b=aSOm9q4L7cf5QC4+R8d/azPnjBKRfcpYXwqEYg5j+z+KbeFZVTfInaCjARZf6R5+3K
-         Zp1UPJygptt5SzdrGcNpvBuI5CEkNKmRyfzC2xvqDRtSxBqFOx0XJNGEOvrXTrNJp7P/
-         gpSmDe7qD/m3mrLJb37VhYtgiM6L1v/0bb0MScry1UZWBFfeuZEBUgEH/Vj62DIW+V2f
-         ZcKBtTBtyfRLLniyA3zL/YSmkQngbbxzQIEV+S9iL0aoJodAuohMZIS8MBQHXI8Ww2Ox
-         Gr6Ukc7aE2vhPJKxEiYS3JhncLaeqHh0lvlnvuPrBGv6L//8W06Z+A5MMhcpuZl4J5mY
-         glXw==
-X-Forwarded-Encrypted: i=1; AL+hErEBfhCJCvWBtNagsU+LWVUcAeh5WCpYAwzcLZpAVd8agoCB5Si8z/yvwjCk9YrNXqBMcMyD728hShKbqY8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+N/BT5vzvWWTdJuv3JpX3KZJDX7QLadhTSEa7t/pAJMUeGnFYD
-	NGiwfr1BZZNfuip6UYJYSo7eFzC7Vs29hIn3XX1hGZCrPIqi4DtNLFBo
-X-Gm-Gg: AZFdTZdkvAtFAGYwBOq+9je3SEcO+FiA0iPMcocgLJjs3cJ7wumNI9AwwCP0rUEv86/
-	mhGTPy7rApfou7JSk7LI+yer/8gq17j66raUYHP2iap2l6BrexHOmwjRlWnWXJxsMsqoPnhsOqv
-	WQIFsDEp9VBC1mvBdV3oLQEearFKr3jc3lwoCbDB177/NnlTlisp3DkfQTznUix2vKKvv7m7bnZ
-	CpqakClXVN87uuWVnDx58r03COk3QwyGMFB7zVynsQtPu+Xkk13tFiXsNs+SVuwzCnOurkaDkMU
-	/Cyfkfbod/3uU+Pi1Z9fAN3VjgBhiOTbUzTdEdg938Ekl0AYz5xgeV1n7E7HW/UQcDuCgJb9L1c
-	hIWTN1LKlFOOqV4uORZdvIZHS7V6ZwXCfadc9WmCBKtP71uQFLGmy/Ku88WjoiBOIgkdkefA1E4
-	Wv5KQ0CqjJzOYsnVl6QblcqN/9fBEefPBjinHD1dBoiDNVgO+MvnH/x72PfGf0WENsSnKN2hF8f
-	rWrB+wHfR93f+plEw9K3pjPipiYruXJNCWzYFEvOdXqC16raA4/yMySxQUkdwRhtgM+Me0C/B8K
-	JPzls75PkgAoloXgef3RqXw+FK32Dg==
-X-Received: by 2002:a05:6830:2306:b0:862:c685:849a with SMTP id 46e09a7af769-8631507f9a4mr18481473a34.0.1795540264410;
-        Tue, 24 Nov 2026 09:11:04 -0800 (PST)
-Received: from [127.0.1.1] ([150.117.174.129])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-863168dd6besm11131021a34.11.2026.11.24.09.10.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 09:11:04 -0800 (PST)
-From: Gary Wang <is0124@gmail.com>
-Date: Wed, 25 Nov 2026 01:10:36 +0800
-Subject: [PATCH v2 2/5] pinctrl: alderlake: add some groups and functions
- for INTC1057
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=j2oxXXw5
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EB03A1F000D1;
+	Tue, 24 Nov 2026 17:10:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795540269;
+	bh=kZ3jLbZRJ/VHth5eaJGnJSAc1BSxLfXRApAmbg64kWY=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=j2oxXXw5aycUKNOMG1/DLAxgqIp8Sjh0cy1uPDzj0VsLoLzP39KcAhPEhZa91ZbU0
+	 H8EWAkRDjjvmeMoDjewdq6ZKK544u5JaiRV4qMMeZJmeHaFIEPNj1UH233/FuATQZm
+	 Qdf1Uax5gYT0AAImCi7AZH6Q0Clf8dLZxDGQwMxBZAX/hKNmSBFqQKHZIoPnOSnDDQ
+	 2GWVFQHmnLVbUFRtgsGjd/DH82/mDkeubJc+OBMpeUry1qEzZkDHUC8IUi2lj+GwtX
+	 dSxYVPdtOe0VauPrsUWxIhV2mkMwY71xKEtg+G7v5M5SGq9FeEfJfWTcp474LhBtqb
+	 b5DXkSHEmddVw==
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Date: Tue, 24 Nov 2026 17:08:00 +0000
+Subject: [PATCH v2 08/11] selinux: convert VMA flag tests to use
+ vma_flags_t
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,88 +55,130 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261125-upboard-pinctrl-add-intc1057-intc105e-support-v2-2-c8079f8f569f@gmail.com>
-References: <20261125-upboard-pinctrl-add-intc1057-intc105e-support-v2-0-c8079f8f569f@gmail.com>
-In-Reply-To: <20261125-upboard-pinctrl-add-intc1057-intc105e-support-v2-0-c8079f8f569f@gmail.com>
-To: Mika Westerberg <mika.westerberg@linux.intel.com>, 
- Andy Shevchenko <andy@kernel.org>, Linus Walleij <linusw@kernel.org>, 
- Thomas Richard <thomas.richard@bootlin.com>, 
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: Daniele Cleri <danielecleri@aaeon.eu>, 
- JunYingLai <junyinglai@aaeon.com.tw>, Louis Chen <louischen@aaeon.com.tw>, 
- BillyChou <BillyChou@aaeon.com.tw>, linux-gpio@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Gary Wang <is0124@gmail.com>
-X-Mailer: b4 0.13.0
+Message-Id: <20261124-late-2026-vma-flags-v2-8-bf3fade93064@kernel.org>
+References: <20261124-late-2026-vma-flags-v2-0-bf3fade93064@kernel.org>
+In-Reply-To: <20261124-late-2026-vma-flags-v2-0-bf3fade93064@kernel.org>
+To: Andrew Morton <akpm@linux-foundation.org>, 
+ David Hildenbrand <david@kernel.org>, Jason Gunthorpe <jgg@ziepe.ca>, 
+ John Hubbard <jhubbard@nvidia.com>, Peter Xu <peterx@redhat.com>, 
+ "Matthew Wilcox (Oracle)" <willy@infradead.org>, Jan Kara <jack@suse.cz>, 
+ Rik van Riel <riel@surriel.com>, "Liam R. Howlett" <liam@infradead.org>, 
+ Vlastimil Babka <vbabka@kernel.org>, Harry Yoo <harry@kernel.org>, 
+ Jann Horn <jannh@google.com>, Lance Yang <lance.yang@linux.dev>, 
+ Zi Yan <ziy@nvidia.com>, Matthew Brost <matthew.brost@intel.com>, 
+ Joshua Hahn <joshua.hahnjy@gmail.com>, Byungchul Park <byungchul@sk.com>, 
+ Gregory Price <gourry@gourry.net>, 
+ Ying Huang <ying.huang@linux.alibaba.com>, 
+ Alistair Popple <apopple@nvidia.com>, 
+ Baolin Wang <baolin.wang@linux.alibaba.com>, 
+ Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>, 
+ Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>, 
+ Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>, 
+ Xu Xin <xu.xin@linux.dev>, Chengming Zhou <chengming.zhou@linux.dev>, 
+ Madhavan Srinivasan <maddy@linux.ibm.com>, 
+ Nicholas Piggin <npiggin@gmail.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
+ "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>, 
+ Shrikanth Hegde <sshegde@linux.ibm.com>, Pedro Falcato <pfalcato@suse.de>, 
+ Kairui Song <kasong@tencent.com>, Qi Zheng <qi.zheng@linux.dev>, 
+ Shakeel Butt <shakeel.butt@linux.dev>, 
+ Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>, 
+ Wei Xu <weixugc@google.com>, Baoquan He <baoquan.he@linux.dev>, 
+ Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
+ Michal Hocko <mhocko@suse.com>, Leon Romanovsky <leon@kernel.org>, 
+ SJ Park <sj@kernel.org>, Rakie Kim <rakie.kim@sk.com>, 
+ David Rientjes <rientjes@google.com>, 
+ Alexander Viro <viro@zeniv.linux.org.uk>, 
+ Christian Brauner <brauner@kernel.org>, 
+ Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+ Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
+ Adrian Hunter <adrian.hunter@intel.com>, 
+ James Clark <james.clark@linaro.org>, 
+ Masami Hiramatsu <mhiramat@kernel.org>, Oleg Nesterov <oleg@redhat.com>, 
+ John Johansen <john.johansen@canonical.com>, 
+ Georgia Garcia <georgia.garcia@canonical.com>, 
+ Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>, 
+ "Serge E. Hallyn" <serge@hallyn.com>, Mimi Zohar <zohar@linux.ibm.com>, 
+ Roberto Sassu <roberto.sassu@huawei.com>, 
+ Dmitry Kasatkin <dmitry.kasatkin@gmail.com>, 
+ Eric Snowberg <eric.snowberg@oracle.com>, Fan Wu <wufan@kernel.org>, 
+ Stephen Smalley <stephen.smalley.work@gmail.com>, 
+ =?utf-8?q?Ondrej_Mosn=C3=A1=C4=8Dek?= <omosnacek@gmail.com>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
+ linux-fsdevel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+ kvm@vger.kernel.org, damon@lists.linux.dev, 
+ linux-trace-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, 
+ apparmor@lists.ubuntu.com, linux-security-module@vger.kernel.org, 
+ linux-integrity@vger.kernel.org, selinux@vger.kernel.org, 
+ "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1924; i=ljs@kernel.org;
+ h=from:subject:message-id; bh=Uj1h40qu7RJJAsenD1k9bntx12XC9vbZ3RhmualmjYU=;
+ b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLJZj+SFmM5Y1Pzgkp2azP5dryY4Rs/LY1tiWxhjPEPJc
+ SdLquGfjlIWBjEuBlkxRZbnX8T3B4mEzeu84O8GM4eVCWQIAxenAExk5VaGf5ZFPTIJ1j1MqvNL
+ +sNOd9kt+LBAykL2/5nEi1OCDskHyTMybJnstzHxS/78s/cuWP3pjDfnLdNZL3TE4PfRJ3/ZN0S
+ /ZAcA
+X-Developer-Key: i=ljs@kernel.org; a=openpgp;
+ fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
 
-Add ish_i2c0,ish_i2c1,i2c0,i2c1,pwm0,uart0,ish_spi pin groups & functions
-in adln_soc_data for device id INTC1057.
-The pinctrl-upboard driver set the correct pin function corresponding to
-these data.
+Replace use of the legacy vm_flags_t flags with vma_flags_t values in the
+SELinux mmap backing file and mprotect LSM hooks.
 
-Signed-off-by: Gary Wang <is0124@gmail.com>
+No functional change intended.
+
+Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+Acked-by: Paul Moore <paul@paul-moore.com>
+Reviewed-by: Lance Yang <lance.yang@linux.dev>
 ---
- drivers/pinctrl/intel/pinctrl-alderlake.c | 40 +++++++++++++++++++++++++++++++
- 1 file changed, 40 insertions(+)
+ security/selinux/hooks.c | 14 +++++++-------
+ 1 file changed, 7 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/pinctrl/intel/pinctrl-alderlake.c b/drivers/pinctrl/intel/pinctrl-alderlake.c
-index 415bc0a16957..d3bdd727ced2 100644
---- a/drivers/pinctrl/intel/pinctrl-alderlake.c
-+++ b/drivers/pinctrl/intel/pinctrl-alderlake.c
-@@ -306,6 +306,42 @@ static const struct pinctrl_pin_desc adln_pins[] = {
- 	PINCTRL_PIN(256, "GPP_R_7"),
- };
+diff --git a/security/selinux/hooks.c b/security/selinux/hooks.c
+index 9950f89dfaa2..5198a66b624b 100644
+--- a/security/selinux/hooks.c
++++ b/security/selinux/hooks.c
+@@ -4205,16 +4205,16 @@ static int selinux_mmap_backing_file(struct vm_area_struct *vma,
+ {
+ 	unsigned long prot = 0;
  
-+static const unsigned int adln_ish_i2c0_pins[] = { 5, 6 };
-+static const unsigned int adln_ish_i2c1_pins[] = { 7, 8 };
-+static const unsigned int adln_i2c0_pins[] = { 99, 100 };
-+static const unsigned int adln_i2c1_pins[] = { 101, 102 };
-+static const unsigned int adln_pwm0_pins[] = { 119 };
-+static const unsigned int adln_uart0_pins[] = { 105, 106, 107, 108 };
-+static const unsigned int adln_ish_spi_pins[] = { 128, 129, 130, 131 };
-+
-+static const struct intel_pingroup adln_groups[] = {
-+	PIN_GROUP("ish_i2c0_grp", adln_ish_i2c0_pins, 2),
-+	PIN_GROUP("ish_i2c1_grp", adln_ish_i2c1_pins, 2),
-+	PIN_GROUP("i2c0_grp", adln_i2c0_pins, 1),
-+	PIN_GROUP("i2c1_grp", adln_i2c1_pins, 1),
-+	PIN_GROUP("pwm0_grp", adln_pwm0_pins, 2),
-+	PIN_GROUP("uart0_grp", adln_uart0_pins, 2),
-+	PIN_GROUP("ish_spi_grp", adln_ish_spi_pins, 7),
-+};
-+
-+static const char * const adln_ish_i2c0_groups[] = { "ish_i2c0_grp" };
-+static const char * const adln_ish_i2c1_groups[] = { "ish_i2c1_grp" };
-+static const char * const adln_i2c0_groups[] = { "i2c0_grp" };
-+static const char * const adln_i2c1_groups[] = { "i2c1_grp" };
-+static const char * const adln_pwm0_groups[] = { "pwm0_grp" };
-+static const char * const adln_uart0_groups[] = { "uart0_grp" };
-+static const char * const adln_ish_spi_groups[] = { "ish_spi_grp" };
-+
-+static const struct intel_function adln_functions[] = {
-+	FUNCTION("ish_i2c0", adln_ish_i2c0_groups),
-+	FUNCTION("ish_i2c1", adln_ish_i2c1_groups),
-+	FUNCTION("i2c0", adln_i2c0_groups),
-+	FUNCTION("i2c1", adln_i2c1_groups),
-+	FUNCTION("pwm0", adln_pwm0_groups),
-+	FUNCTION("uart0", adln_uart0_groups),
-+	FUNCTION("ish_spi", adln_ish_spi_groups),
-+};
-+
- static const struct intel_padgroup adln_community0_gpps[] = {
- 	INTEL_GPP(0, 0, 25, 0),				/* GPP_B */
- 	INTEL_GPP(1, 26, 41, 32),			/* GPP_T */
-@@ -341,6 +377,10 @@ static const struct intel_community adln_communities[] = {
- static const struct intel_pinctrl_soc_data adln_soc_data = {
- 	.pins = adln_pins,
- 	.npins = ARRAY_SIZE(adln_pins),
-+	.groups = adln_groups,
-+	.ngroups = ARRAY_SIZE(adln_groups),
-+	.functions = adln_functions,
-+	.nfunctions = ARRAY_SIZE(adln_functions),
- 	.communities = adln_communities,
- 	.ncommunities = ARRAY_SIZE(adln_communities),
- };
+-	/* translate vma->vm_flags perms into PROT perms */
+-	if (vma->vm_flags & VM_READ)
++	/* translate VMA flag perms into PROT perms */
++	if (vma_test(vma, VMA_READ_BIT))
+ 		prot |= PROT_READ;
+-	if (vma->vm_flags & VM_WRITE)
++	if (vma_test(vma, VMA_WRITE_BIT))
+ 		prot |= PROT_WRITE;
+-	if (vma->vm_flags & VM_EXEC)
++	if (vma_test(vma, VMA_EXEC_BIT))
+ 		prot |= PROT_EXEC;
+ 
+ 	return selinux_mmap_file_common(backing_file, prot,
+-					vma->vm_flags & VM_SHARED,
++					vma_test(vma, VMA_SHARED_BIT),
+ 					true);
+ }
+ 
+@@ -4228,13 +4228,13 @@ static int selinux_file_mprotect(struct vm_area_struct *vma,
+ 	u32 av;
+ 	const struct file *file = vma->vm_file;
+ 	bool backing_file;
+-	bool shared = vma->vm_flags & VM_SHARED;
++	bool shared = vma_test(vma, VMA_SHARED_BIT);
+ 
+ 	/* check if we need to trigger the "backing files are awful" mode */
+ 	backing_file = file && (file->f_mode & FMODE_BACKING);
+ 
+ 	if (default_noexec &&
+-	    (prot & PROT_EXEC) && !(vma->vm_flags & VM_EXEC)) {
++	    (prot & PROT_EXEC) && !vma_test(vma, VMA_EXEC_BIT)) {
+ 		/*
+ 		 * We don't use the vma_is_initial_heap() helper as it has
+ 		 * a history of problems and is currently broken on systems
 
 -- 
-2.43.0
+2.56.1
 
