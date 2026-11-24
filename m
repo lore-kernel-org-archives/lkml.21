@@ -1,123 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.43
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795544526;
-	b=vCoeU8/HDexu5CiePTcjzSBINNl8iOTPYiUshhzt0QJEOpaEQKI1Muim+Lj1wwtgux8X
-	 5B9YakzMxV9LPv9urROssi7oTtFPLA6/PoQDteB3ZQqVeOFhUKydpnHL0zUvWVK6Cc9mD
-	 e4n6cplwIjJSs7LiMstUM/LRpeB+Izigxp3QIWEKNaKg7cQV3AZsms5N0ojAtK8rWcaAk
-	 AyJc0AE+5OZX3UMPfkfy/xY4TnCdIjJxwfywxIrSbva+xHNkiNP9xEH1hE+jRoFMpo9om
-	 JLx3tEcPuY+5Qk9kcp+ZHvhlModc0GdDxs0rDatAyKK3duG9vw8KW1QGAXwsKTuR8vg==
+	t=1795544553;
+	b=M1U8LB6Tj+aEvA/l/ZC0gYFkt+qd9zqylUEGgeDjbxwNmPfYrBTkvEagyj+nZO4KW48A
+	 APOAX+noMMHN2UbbwSHesgw0n53FaVJjnk1KR+7QyiDzF+vDSJyx1f7Q2qP00Y8dhkwN7
+	 iKWw+D8Y0CU4ONQ8rsjRfxhtNDugTSC4+jwDW7AY9cSnzgigf+nZXYfuLDvr0Fc3Mfx8s
+	 lXhzYTxJdPWCpRAxdrB3rtaT8WYt/q+NmyhR3iKeJg+6JXlt6qmYG3bChzOq/AGYt7Eea
+	 JbTZr+Rr9ulZeYhQmXuzWB6IdmEvS156Y5Bff3r6qAeHyIUa05LZ9HhOisVEmGCxzkg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795544526;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795544553;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding;
-	bh=UNWM0kxmEWnOWwACmt2LEHoYvhY3LG1h6QPQ7rX8clQ=;
-	b=vfFl7c8Fp/A2VzwoGx7dWDmc1fzFUIaA1lAn0AeFpzkQpa99aWsQvvxT0p7DI4t1TWmk
-	 Nv0SxVCxGq0qlKK1Ujbv/cBmHR+jeNWX3RKlBEiWKnD2XVpMq/2bvR/AKmQ2Iw03Rvw8Z
-	 mSF03dzuLIaaIAfU6S2/dWfvz9rrB6bdeiTcVDECSPUBJv00WDc9DVXaxxMOWrVowUaKE
-	 d+vxzviCcFHvpkl0mlhJruDaq8yO2eW2xf7mG31CKI0vf5YfjzgKQKpKBZ7ADqdbasENX
-	 o7jBnKipbR14mnWYYBPm4hjOoNmJhgav/35xVKuVkY8VDGJc8iHhxOUhhFc2P1tRA0w==
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=lp2V1CD3UzTfS8SfEqnuM0AkFNXDFtv8aXVUJV8xgrM=;
+	b=mhcJhp+cwQZzdetI97mABDzmLoYV3fNTFWX76i+AradEYS61HThEso50Qf0+e8niD3RP
+	 uy/BMDMVmynKO2Yt54KHzPL15I0wKutky7ZPnW1YwKLEj/ndvwyYU2ABzpQ62Qe2GM8ZY
+	 LchuUbTCBKdoYAMeoa7528m0Xj2v5zFwxb1PEjL3XQtdsXnxCFmhBO+kr4E6EuuICtqAJ
+	 xpaMEVZrdgsBlaIwNPk199Jes3ypLBnPQMZRiZlRQIRhYSo/t63BDkAx8n8+B78JrzX3B
+	 GpTMbVkpD1z3VWiQc8p0LaEBwKk6iht1x3AlU5v8yNDWLPT8x7FNqVmQjAPNWl47qCA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=XrVsW5Y1;
-	arc=none smtp.remote-ip=209.85.128.43
-Received: from mail-wm1-f43.google.com (mail-wm1-f43.google.com [209.85.128.43])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="DNLYG8o/";
+	arc=none smtp.remote-ip=74.125.82.43
+Received: from mail-dl1-f43.google.com (mail-dl1-f43.google.com [74.125.82.43])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B8B24606A33B
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 18:22:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B8B24606A33B
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 24056606A339
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 18:22:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 24056606A339
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=XrVsW5Y1
-Received: by mail-wm1-f43.google.com with SMTP id 5b1f17b1804b1-4a5177d78c7so47579395e9.2
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 10:22:05 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=DNLYG8o/
+Received: by mail-dl1-f43.google.com with SMTP id a92af1059eb24-1b563e32936so1114267c88.1
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 10:22:30 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795544524; x=1796149324; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-disposition:content-type
-         :mime-version:references:in-reply-to:message-id:date:subject:cc:to
-         :from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=UNWM0kxmEWnOWwACmt2LEHoYvhY3LG1h6QPQ7rX8clQ=;
-        b=XrVsW5Y1bdWNUbF0AXAKO+y5TpLoe8GfxGqndppcglHWXyVzHnzgl/rPx/zKCBANzj
-         tfcyEVENjVfe/0u3hWD6v0kkS3b7DjrY68QN1Q8v5uMSTqpDEfoQKQKWfAHsv1r9FnPi
-         Kqt/28D68T8DjO1+l15y8cUuIOL0PQ18171i/1Y241ZCCFpifXuyph4TfPRpnGEBjbSr
-         pXUZUvegKzw94OWAT48MdEi6A/k+RyRnPxx8D5KN73Gi4kLMHbYqgX+OlADQH4XXIFzh
-         j1t+kwhBzn+ISz8iD5Hohh9XrQTI15hSNT8GnG9r1dI11kiOqihj9dCE+VvrnTpF7VpD
-         YjQg==
+        d=gmail.com; s=20260707; t=1795544550; x=1796149350; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=lp2V1CD3UzTfS8SfEqnuM0AkFNXDFtv8aXVUJV8xgrM=;
+        b=DNLYG8o/Q8J5WqPu8p+NIGocgHhg9M/LFdO8BOGqgl1n/72wXjyZnjaLhhCU8ExAz1
+         KeYhD+Twn0WgTQj27WqyG9OIX4vixtNxcf2dJcr+OzSbSWdq9LQothnAIqyoE562KWN/
+         8S5gHRbSkcCXHq4OVuddS4r1yu3OLRBNcALHpu1u8VehpsDAJkQaaC+Bvf4rnqg5yIVj
+         Mo5+pWPeEgpg0khVaV/Jp+97+MenSYsgHYRZjkV2akYETyq4EQTynIl+zAe/F5vzGX0T
+         8chHQs7BFv8I5KdJ2JWzpBjR9M42ghq5QrkOxWwikZwEOZ6Kj4k7asjiyd6eyvuX4vnj
+         LGYQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795544524; x=1796149324;
-        h=content-transfer-encoding:content-disposition:content-type
-         :mime-version:references:in-reply-to:message-id:date:subject:cc:to
-         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=UNWM0kxmEWnOWwACmt2LEHoYvhY3LG1h6QPQ7rX8clQ=;
-        b=Bu0Pdl7GPpqUIUAbEeoOuzacVkquTRCJC6NpMXNKBg3io/eZY5YySEtXEQgDRq7iOj
-         CIOajbmNC0G5FQPh8fplC9MvRDXGjOcaP/+nxGeajEZVQkkNL1vqv5HAokobpEqcDIPk
-         icv6VvpnkM2LRYGSyuq57eUge0sBcbijqDamaT9edlLD+RLFPFyAV614TKHaHt1xS3Hj
-         RLkvzYrz2y4HEgDwjSlniGrdJaRQoDCHuv3/R5SV6NpjZHFGNEY5wXmy4wJJq0aoXH65
-         1UFk4bXNqI+CsDv5LtVMgaXYn3MiuasJxqD7HsGEYye1bDntach5b+TuaZVgAV+ltdn5
-         A+MQ==
-X-Forwarded-Encrypted: i=1; AL+hErFxbJyWr4Gdf/67RH2JjW0p6502xHCFimNDTMi+wPt0YRkoEcN+stIN77FJhw1dyz1Q6jNuSa/NOfIPbnw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8n+KyBULOX7+ZA+M+gO9PngcXM4K+k7qWNiIoKwwhV0mPCZvWj
-	wIkAprHqHzywTE4njpgt2OGYOPLC/2t4kEiukW8Oq6yTMDH+Ja+fHqqJ
-X-Gm-Gg: AZFdTZdhnbYIcu2Djmwx0AiWY/21XHEECkuJA3QomzhOpqxMF5UyQMcziR9gymKVIWY
-	APuzHCwUleP8XGQKasR3H6gWQg9DDZx+WFHzM+86Ik3ptxnmmEqJj7Z7q55n+Wdtq0WJ4Tmg6go
-	z0nsMNwtHAwZA0HZJ7mKqGMY7hgV2/NJBFKbEvnV5/mQQ22gF2GyEWG8XhWxzTp6Zxs6E9HvDzV
-	NXsBzH3Qiw1VODxwOJIXPscc89JBxVqQrQoEk60BpigLZ9azNz9OP0Riz4zKmZQnN9aU0cVstNU
-	7JsJ0IMmexDcrcOp4LCEeZd4XZu5xvfuSjeLFQ5UbpzyK4P2W5lnoN3yoh4VBdjEGGb/BpgFOiE
-	fyVkanijIr6PnDS4W+Ggh5D/175Zer5B/dI6bLQgXdoEyoSMuawR/PDtvv98olkOUuGBgjpe461
-	9yyeYOe1xculYZz87HdrkL8g3TTO9g3UEAbVZHs4i0atFBi2K0cIxIUxXrtmwUYqUHIflMybwqY
-	s3ATP52+AqhkCyUnREVMXRuhgOKOIy4QHnc8Yl01ovoDGBndngbsF8LNUX1SN/oSNE65UTFqhw/
-	Qq/csZYHYfOp6Xr+K8w6aOchKkx41H04
-X-Received: by 2002:a05:600c:3b88:b0:4a1:e672:5721 with SMTP id 5b1f17b1804b1-4bb8880789dmr358586325e9.13.1795544523856;
-        Tue, 24 Nov 2026 10:22:03 -0800 (PST)
-Received: from ArchOarora ([95.179.249.152])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6a67f204sm34524117f8f.21.2026.11.24.10.21.53
+        d=1e100.net; s=20260707; t=1795544550; x=1796149350;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=lp2V1CD3UzTfS8SfEqnuM0AkFNXDFtv8aXVUJV8xgrM=;
+        b=C785bTkx6xQvKLzeQ5dSpNk+smXTqLTlezeGakDqKU9fnuKZ1YIGWfLPWQKS8W+CHh
+         4rf3udcNN5a55IIUnq9cTULU5UvVOq3Xln/wnCWn+XnjJIpb2/mfFnd2IWwCd2/4n+gn
+         EiPZCdcV0xfcoln6+0K5NH8HgyIegBQ2YznQMAoBdPVAFsjRYrXm8aQVsHtMpP41pxZ7
+         ChOaTX2JrXBmBek7QslkZMUDwvAPUYjQUyQ+iWOWqgX4jzIPglR67mvwWq8WpyqRGmCf
+         Tt8XyCnXcwbuNc2N4rs8JxcYu5d74RGgaXoaCG3LGdQRxc+qHxyy2YPrMfYx1LhBbrO2
+         XqoQ==
+X-Forwarded-Encrypted: i=1; AL+hErGepTtXEmkbAywJzaM0JYAchGpf+rStSTZGPIksup+/a14xLPvYJ+i2V+7g2e1zmYzgHV2FTclNHLnfbQI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z91BhvDrAfk2LEvfZk7xkpHr9+9D5mK9yxz11f6TaLxMs0XvXBy
+	VEWW+49d2LaNhHD9M+J0KtdVwpdfylyhZCQYTWbpwOT0VjLqx0zgMRxl
+X-Gm-Gg: AZFdTZfuHv1gviun9+jh0bJMq+rZiEtSXJlNYB2OI8tt4RSR0BLhBxiXX1JzwAOtkpF
+	7I0Rz0irhGFO8v9y0cYWbVI9oZJfwdq5NCqlbO/za8XmL9p0wWVM2hktUh+AFcC+e4GHsuo5Vs0
+	JdXJBT9o+JL2Vq5nX9XTrAl6GsiNVCuGglRjEepad0BhfQhm2/ZNshbkIpma3ey5p0EnJdtFRfe
+	Wl4axmpE8OTlWwUK38U8KVlYhlUa4QL1uYgGOO2tiySyDMmvbaP1Zt8HnphuKJWHlqFjcvVv42y
+	fSdYEZbDHddbGpOx6UDdgAVtD258taGEcIlokHib1VGP35B8OB51BFPKHr9giYbVG6ASSGaytaY
+	tGCvz3FEtlfEvOSvFQVWo+jbdWL6FhyOm9M+8R/JS775EIF/reRVDwwJMzBWAeWjAPA+ZfjFbSE
+	PpDQaxxHTo1SD/3PHuFg+Z4Fnyr4qu8BALuSznWle7HnayBcc+JsGVMOq8UgxhfybjsyXRYGMNl
+	FMOnVC47XD+8p2w3AMIrQgdAzoqcd2MpvntYd6E5Mgi8nDnYg76sSe62qb6uaG2qMc1IudTuFGs
+	Q4zBzgxJMlbCCw9i5eLhyQH85mZPlxUPISazAXwPPyHq5mPjShxWzOjgEor7DcLEOY0wIfFaYd4
+	9k+gE6qu+GX6t3/oeyg==
+X-Received: by 2002:a05:7022:3a83:b0:184:992:c9ec with SMTP id a92af1059eb24-1b55693aaabmr20326331c88.38.1795544549929;
+        Tue, 24 Nov 2026 10:22:29 -0800 (PST)
+Received: from google.com ([2a00:79e0:2ebe:8:ee3b:b892:771b:3bc7])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5567ff27bsm40472836c88.6.2026.11.24.10.22.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 10:22:03 -0800 (PST)
-From: Oarora Etimis <oaroraetimis@gmail.com>
-To: Louis Chauvet <louis.chauvet@bootlin.com>
-Cc: Haneen Mohammed <hamohammed.sa@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Melissa Wen <melissa.srw@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	jose.exposito89@gmail.com,
-	Jonathan Corbet <corbet@lwn.net>,
-	Harry Wentland <harry.wentland@amd.com>,
-	Lucas De Marchi <demarchi@kernel.org>,
-	Ville =?utf-8?B?U3lyasOkbMOk?= <ville.syrjala@linux.intel.com>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Kory Maincent <kory.maincent@bootlin.com>,
-	sebastian.wick@redhat.com,
-	victoria@system76.com,
-	thomas.petazzoni@bootlin.com,
-	dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	Simona Vetter <simona.vetter@ffwll.ch>,
-	llvm@lists.linux.dev
-Subject: Re: [PATCH v6 13/43] drm/vkms: Add KUnit test for device lifecycle
-Date: Tue, 24 Nov 2026 19:21:49 +0100
-Message-ID: <awXRsQbfxPzFWHzw@Oarora>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261120-vkms-all-config-v6-13-78ace90f4fc1@bootlin.com>
-References: <20261120-vkms-all-config-v6-0-78ace90f4fc1@bootlin.com> <20261120-vkms-all-config-v6-13-78ace90f4fc1@bootlin.com>
+        Tue, 24 Nov 2026 10:22:27 -0800 (PST)
+Date: Tue, 24 Nov 2026 10:22:24 -0800
+From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+To: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+Cc: linux-mediatek@lists.infradead.org, Hans de Goede <hansg@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-input@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2] Input: goodix - sync the irq controller while
+ starting firmware
+Message-ID: <awXV3Y080rMLw_VO@google.com>
+References: <20261124085058.128173-1-l.scorcia@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -127,29 +100,23 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
+In-Reply-To: <20261124085058.128173-1-l.scorcia@gmail.com>
 
-Hello Louis,
+On Tue, Nov 24, 2026 at 09:46:22AM +0100, Luca Leonardo Scorcia wrote:
+> On the Lenovo Tab E7 (TB-7104F), which has a Goodix GT-912 touch screen,
+> the touch screen fails to come online after loading firmware, printing
+> the error "Error reading 1 bytes from 0x8041: -6".
+> 
+> Comparing the upstream code with the Android stock sources, the existing
+> call to goodix_int_sync should be moved between the upload of the firmware
+> and the watchdog restart. With this change the touchscreen is correctly
+> detected and working.
+> 
+> Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
 
-Two problems.
+Applied, thank you.
 
-.kunitconfig fails the config stage, so none of the four suites runs:
-
-- DEBUG_SLAB and PAGE_POISONING_ZERO are gone (2a19be61a651, f289041ed4cf);
-  PAGE_POISONING_NO_SANITY too (8f424750baaa), but it is =n and skipped.
-- DEBUG_KMEMLEAK and DEBUG_OBJECTS* need DEBUG_KERNEL, unset in the UML base
-  config.
-
-The device name collides, 9 of 12 cases fail:
-
-- vkms_config_default_create() uses DEFAULT_DEVICE_NAME, already taken by
-  vkms_init(); device_add() fails with -EEXIST, vkms_create() returns
-  -ENODEV.
-- 12/12 with create_default_dev=0.
-
-Tested at f046b77fa3e9, CONFIG_DRM_VKMS=m.
-
-Thank you,
-Oarora Etimis
+-- 
+Dmitry
