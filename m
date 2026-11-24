@@ -1,123 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.46
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795503902;
-	b=j8J3YfURSz5/xSeBiM4/V7iE2bx+8z18vr19ru84nLSINAkcBDZy1zTgp2J2C6jODOA8
-	 GhcptKAdnhIpfNvvxiC+fRvXzPkjEd7x2cXNJ42nrdxiZKqpNCHrinaeD187mMBnNRQ/U
-	 QNJbxwbnWWMEu6EWDBEwx77YzDbkKcJmbaHutt1NDoAavvLJyDLHcwdzavBwZ0nVuBlTo
-	 /A3IWdOKb4DYJWhrKmfnYGqR9BJQT6wjotqORYNRnpqj1TgusSW3GHozXeJWe47Ix+Rvy
-	 9Tr7Vc27J8eXKYevEfjwHrvCOu7kV2vAEl9NndPUqqV0N+IwgIomeU0Oz371pjaFEAQ==
+	t=1795503930;
+	b=OWgz8GNZ10b24du68G4cuVYyLix5nJH0skfyc93MLbA1Z3FYI0wZez6OQo8x2OYe7q+4
+	 WVwaMl7yffEDHNAjxyLTdK4nWu3adfMwxEczdXyy3pyoPa3WFC7SeP8PVMh6PtGhT/5hM
+	 5RBuOo+6Fe0VoG8P0gYY5tGCXd/9Z3jYb7r8X/nyCH3YWRVIS83D6Ix0CFS4BA/Q4y2ec
+	 ZUj8H4U3I1K1DajtcTX3JkFZ36mCkXOdsDdhuUGDzjqbAyZsGseq2BSuT6VG9+PIAVZCZ
+	 iP9PEb/ppGG68VNgWDHxRem+spKfRj3WOb+1YTFFrwXCfy7E0XOJ5P9MhCN2xbNRInA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795503902;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795503930;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding;
-	bh=BIMw7C3LdL9dEcQe5UAN8K0d6FbiCwVm0msm5sc6v58=;
-	b=ouh5kz4stcZa0K45jcaUQQR0ZiEvG7V1F8x4b+TiaNWFfhQNjFO4Pe1g3RVQ7RWInYtL
-	 ioDh1W48A/LshM88fb8hYJu8HW1IlswvlG9qPylKpOJDkVd2mrwPUn+iGtMNMV7a6IVWi
-	 TZ7LfClf2Iq/JDFIaL5BsYxmhchXh9oNVaY1L+7UWfwB3GZQtxtcP4JRitvWiEK2IeQjZ
-	 CHeO/SrXjzAc08d8i229gIkzLAsEQHoCvM2CMcK+w4l7pzVrgTxE+H3qqgbcHFmSgAv0z
-	 qGsUtjLhhHpL/8l2bcslg/seJokpOiun2+Q1zN1nlVmvDVAqAkDpQqD22HlA37mLdjw==
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=uWITfgyRJ+DT3n8YFgueon79iakRaQERwgzzXSP2YYo=;
+	b=FNuzioxV5YUlOEwevDXY3xngtZ6qIh27YAV6pQ7TefgFd1LTOId2izlsIRx3o2Rx0BRF
+	 hh9RxuoiGifIg6r5I7T4fzvyagfZMCCqwrE1AZIzfnhnWrTvHWPlEiwyIMDqaLtcabc/l
+	 NcWQlCscCVroZl/rS/UYk3tdsXMy86A6XpkDUu2UjMPev+LJOtsLJQuUh6PqIr2dpcuY3
+	 pwFfS1bUdnj/PIUKc6Oz/7NeRjML3LqW2u7DDIWLvJcJ6un5fvGuLNstZij3etGl/Q5N/
+	 kakAw42sycsqhYY+YThvG2n5fXQS66zNkV5I7vGg+UW3IwwzgjITJrmneS9MqNXfSWw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="mO/mZZbu";
-	arc=none smtp.remote-ip=209.85.221.46
-Received: from mail-wr1-f46.google.com (mail-wr1-f46.google.com [209.85.221.46])
+	dmarc=pass header.from=baylibre.com;
+	spf=pass smtp.mailfrom=baylibre.com;
+	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=kqgoHF2Y;
+	arc=none smtp.remote-ip=209.85.128.42
+Received: from mail-wm1-f42.google.com (mail-wm1-f42.google.com [209.85.128.42])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 91D8A606A322
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 07:05:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 91D8A606A322
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 49FDF606A326
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 07:05:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 49FDF606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=baylibre.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=baylibre.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mO/mZZbu
-Received: by mail-wr1-f46.google.com with SMTP id ffacd0b85a97d-4a2f4ca0dcfso2358142f8f.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 23:05:01 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=kqgoHF2Y
+Received: by mail-wm1-f42.google.com with SMTP id 5b1f17b1804b1-4bb6ba3b244so41530015e9.3
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 23:05:30 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795503900; x=1796108700; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-disposition:content-type
-         :mime-version:references:in-reply-to:message-id:date:subject:cc:to
-         :from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=BIMw7C3LdL9dEcQe5UAN8K0d6FbiCwVm0msm5sc6v58=;
-        b=mO/mZZbueEgry9+LtmX+rpAkAbrYWNZLKMp198Y/yWZOYXOT6GgnfQMF+GWrUBCrHo
-         5j2zb6r6TP4k5KV3k7zZ2GECskcs3dM7QwYIO/qNCA4CFyfJXhonVaq8Kn0BLoSm3LiU
-         RJbH5UWbyHg1VHrKWkU+Ll+DtzyPm1zGiovDujH4FgcguLgpClTY8+Xoel/L2nEozEsz
-         ntXyiClfi6iPDQvrTWRLIPD2nzqgAjaiS+bpWbLoiiTm5twO05w4BMAcONkBUVYoBMoq
-         Tq4RQkP6KABDPsLgpKlVxyDjn3jTcvM46Uzb7Xbz/0kxOMPXSMDU7H6CscaM/dYtwdfP
-         YdfQ==
+        d=baylibre.com; s=google; t=1795503929; x=1796108729; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=uWITfgyRJ+DT3n8YFgueon79iakRaQERwgzzXSP2YYo=;
+        b=kqgoHF2YDALc+f9/RieVMk3nV8G4RNjhav/vx18ZWMiMNQndDTGFtpK7lcTEzu4Lkn
+         9D2G5/ZTGnNt+knnZeBE3unSxyw+zi93B1ut2dNz73+v2ADuPbdSWQHuzgkO04DLXmjL
+         odO/YveQjmNTTn0H+03xgCdf1ZxUHYInFSTZxJpWBDm3bXL2gxi5n9PTKva+gOc/DtR7
+         yntni/qD8wXpjNrB5LrlQnzvYJ4UQla64AG0p/S/lLP9GdKCnl4O7O81qKWlobG7lzKs
+         4w6H9D1N6dKGYzVyikfctxOhKpa53SVjdwgzU+e6ys3k2v2tqOTyW+ukNX2O25ez5MGH
+         HMUA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795503900; x=1796108700;
-        h=content-transfer-encoding:content-disposition:content-type
-         :mime-version:references:in-reply-to:message-id:date:subject:cc:to
-         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=BIMw7C3LdL9dEcQe5UAN8K0d6FbiCwVm0msm5sc6v58=;
-        b=rsStLyKZjBa2jFIOhnyI5pyN8Q5Ccw3cpIRy9rpxwPfivpk141tcPgphQ6OK4vIRDo
-         9+MYbGBB4OSknFipuEoafoClTKBLMd9XQKC/7RkcsmuarLElPVvCufYiz0ItQHwUOfpV
-         X8xcEkBl71R0L2GvebeXEaccLDLlI0h5t7RjKwaNahtuuQ8bhscLwHWGVwyjLV1o3dxF
-         G9mAqAw/CqhaKhC/ZANpQXpu+bC/FdXXRuDGhB3GTPEIbpDCfBGk6pd5gLgLZUbD4GRo
-         quKB5A/MB16jtohL4/zN0fCfEdOVNi98fi8Skp9Z26UtxLfmzGd4lTaL8vfbjhYAaoW4
-         98OQ==
-X-Forwarded-Encrypted: i=1; AL+hErFUBPJosp8/NWKkgOsLy6mvUZUpw4/L89W7dBFGIniSnkmRYISCJ6VHZm8NbupsLyYMyeORy+qOBfnRS00=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/McPwqDHJ7fNZ08FgrAkZPqhBY620VSTRfjiOXns3idFWRWUIZ
-	lhEJTma/kRyn5TJTgM+BmLMdrjzmFa0/HISb6icg7bWwm5eMq41vFxz8
-X-Gm-Gg: AZFdTZdFT+9AkcRnuNL1yvRYMORcYRCStSxlnoXcrocfHAfymIbD3faVh24SdXtGevR
-	F/XqRnjfw+wmI1QKPSVR0M4EoCKGHXkAHXR/SzYwk5r85vembhdGddYOg/w6MMwSGnE8p3Q7upY
-	5dbG+iy1AHiNuiDX1/UfWG+fN+Csy1JuzBkOIPEpdHMCYaBaT27k0rHkkGBjbDJKYh+QeH3MvWS
-	aaNPQSyUW2zztmPYoHteOpTekvXDUwhyLdYPRBE+glXhpn7f2VpHOrpQflvxmZQ8BFgqtPPk+el
-	fK4XcZVuaNVn5MRcBUhoPyUZQfO7UR5FSRQsKeeCCqxAcdRwgJFoVa9PqnCXTkJLa43CZtyr4dJ
-	n4nhwHbj/nkDZPMycoeSzcnlxjTMlA7wbbuY8RNSO1nWuor2iJmafo0YWOuLVZJq+++jfWyDzhF
-	J0Izii4+4ZJz1teBJHck/ZBJtKOaNH5z36mjibxRH0cPZl4EQwhJzZlJJzAsvL5gzUwoNaRjD4L
-	IT6cparwWV/3vhshUcZ+A77Xe/qYz+S3w+fJqprfrf5re3hBEIenJN0R8anoOMiOEdG45S5amwY
-	jalPXUNMCFr7uajM2y0RpVv9Lhm3jMIO7A==
-X-Received: by 2002:a05:600c:4ecd:b0:4a3:12fb:1ef1 with SMTP id 5b1f17b1804b1-4bb8881e81cmr291163845e9.29.1795503899706;
-        Mon, 23 Nov 2026 23:04:59 -0800 (PST)
-Received: from ArchOarora ([2001:19f0:6c01:2c43:5400:5ff:fef6:1b30])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb9066f6e6sm173032935e9.3.2026.11.23.23.04.49
+        d=1e100.net; s=20260707; t=1795503929; x=1796108729;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=uWITfgyRJ+DT3n8YFgueon79iakRaQERwgzzXSP2YYo=;
+        b=xw+W90Ji49gsrgD7DjARrSi/4NLumRpZVxcVi6e28STOID3lQ3RNDTc9yCrVbyWmDS
+         LbJF91pVeZxDoxOPR4aobfxP4TjzzsL2/eAZ24FEx1oEzshX1rDm6b9zhD09wIjN+bWV
+         9My93+vkutIsx+iGluz6nl4K0RR5x1WoXzWlssixU1gnpd5InFqBkCeEs8XWom5S5wbM
+         6oII54WEIr2O4vkfnaZO0fC0NvgBlr5ZWqXfNMMJQoJLUZRj7DmhXT8B/GvezOH3FsoV
+         MgzJflazQn4aDACDPCYLTpdLbVhI2Y6B4BBl3w7nO3bQtqxq8RAzygymybb3QZzKwlmR
+         N3jg==
+X-Forwarded-Encrypted: i=1; AL+hErEVfEKpb91vP71TC0c26+54CTQOS+JWkIKxESEVsqdnj+o/VcEbH3I7vAcVn06s2lEGJSFZZIUEHShtlcM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8M06I6zqhyyNzu2bDCZV+d9MaXTPLQogf/b8sYY6ZNb9XPj9Ad
+	mC4aYt0PRXnn2m2JLyYgg4kzmjl69LrR7doZATCT9oUFjlfeV/H8BegymBLteI9nFAM=
+X-Gm-Gg: AZFdTZdSAAGcTB7jPYY9664HrnaSNjr6RDNCyePoYXPAk4dRjcS/cA+/7JnUCHHac0/
+	xnbA70HsAfgcEq+IRg0zgzdqCRhZLAnE3Eu7Ao04s1IkAUgv9CxS9uRh4nq/cdfeZ8TWTuvixkl
+	quLEpB1KX+FvTl1/fPgzTRMPey8h84q8oVQMMp9DwxN2hnv0UxmVbk+aR2O5DizyOn/NmSdbIka
+	AV8VEXMx+YDlMeMfjgGi+RU3XeNwL4LUuSYXZUH/EnBF87JSaQh9tDkEWCAwSitPhWjo7MDx4te
+	ArEuKuF9rg8Vvar5XPAj12GzI7UXVtRRnLYJk//RvYNtWyD/1lXhR1ZeT3Q6mhceTH/S1tXdZhD
+	uKB0cNBsd8T9CPfQilJznCW1WW4g+EeKNi67rPUjAfpfcwdhwJHV6arFL+XENsmXw1KnTiS5EJy
+	CgZfEpkY/6HrS6IEyS7o1LwNf2w6hGblEL4Nt2kw/3HMyHPi0LipY7Qr5W46BR+45MW4Iqot0Ve
+	HHDoVC4Ft6spCu58OcGa2UVI1zPfekNcoqRAz1tnLi2TsXDJm9zaP2S/Nonf7jLZdtQIjC71ST/
+	y2a4IX5YvZVclG5Dq814/vHq5rkWEzgyBqE=
+X-Received: by 2002:a05:600c:3b9e:b0:4a1:cf60:dcc3 with SMTP id 5b1f17b1804b1-4bb88820687mr324067185e9.29.1795503928774;
+        Mon, 23 Nov 2026 23:05:28 -0800 (PST)
+Received: from localhost ([2a02:8071:6e30:8500:1d24:d58d:2b65:c291])
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4bb8526cbd0sm541592115e9.0.2026.11.23.23.05.27
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 23:04:58 -0800 (PST)
-From: Oarora Etimis <oaroraetimis@gmail.com>
-To: Louis Chauvet <louis.chauvet@bootlin.com>
-Cc: Haneen Mohammed <hamohammed.sa@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Melissa Wen <melissa.srw@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	jose.exposito89@gmail.com,
-	Jonathan Corbet <corbet@lwn.net>,
-	Harry Wentland <harry.wentland@amd.com>,
-	Lucas De Marchi <demarchi@kernel.org>,
-	Ville =?utf-8?B?U3lyasOkbMOk?= <ville.syrjala@linux.intel.com>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Kory Maincent <kory.maincent@bootlin.com>,
-	sebastian.wick@redhat.com,
-	victoria@system76.com,
-	thomas.petazzoni@bootlin.com,
-	dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	Simona Vetter <simona.vetter@ffwll.ch>,
-	llvm@lists.linux.dev
-Subject: Re: [PATCH v6 32/43] drm/vkms: Introduce connector type
-Date: Tue, 24 Nov 2026 08:04:45 +0100
-Message-ID: <awU0T4JnNWB7xU5O@Oarora>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261120-vkms-all-config-v6-32-78ace90f4fc1@bootlin.com>
-References: <20261120-vkms-all-config-v6-0-78ace90f4fc1@bootlin.com> <20261120-vkms-all-config-v6-32-78ace90f4fc1@bootlin.com>
+        Mon, 23 Nov 2026 23:05:28 -0800 (PST)
+Date: Tue, 24 Nov 2026 08:05:26 +0100
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: filipp.dunsky@gmail.com
+Cc: Olivia Mackall <olivia@selenic.com>, 
+	Herbert Xu <herbert@gondor.apana.org.au>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, linux-crypto@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/3] hwrng: Add Cortina Systems CS7542 TRNG driver
+Message-ID: <awU2-KjkZB7WvqfX@monoceros>
+References: <20261123-b4-cs7542-trng-v1-0-92d9ffcee531@gmail.com>
+ <20261123-b4-cs7542-trng-v1-2-92d9ffcee531@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -127,136 +100,54 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="mtdygncuvh4wucsf"
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-
-On Fri, Nov 20, 2026 at 06:59:14PM +0100, Louis Chauvet wrote:
-> In order to emulate connector-specific behavior, add the connector type
-> to the connector configuration.
-> 
-> Signed-off-by: Louis Chauvet <louis.chauvet@bootlin.com>
-> ---
->  drivers/gpu/drm/vkms/tests/vkms_config_test.c |  5 +++++
->  drivers/gpu/drm/vkms/vkms_config.c            |  3 +++
->  drivers/gpu/drm/vkms/vkms_config.h            | 24 ++++++++++++++++++++++++
->  drivers/gpu/drm/vkms/vkms_connector.c         |  2 +-
->  4 files changed, 33 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/gpu/drm/vkms/tests/vkms_config_test.c b/drivers/gpu/drm/vkms/tests/vkms_config_test.c
-> index a43dff511fc3..257ba0342034 100644
-> --- a/drivers/gpu/drm/vkms/tests/vkms_config_test.c
-> +++ b/drivers/gpu/drm/vkms/tests/vkms_config_test.c
-> @@ -137,6 +137,7 @@ static void vkms_config_test_default_config(struct kunit *test)
->  	struct vkms_config *config;
->  	struct vkms_config_plane *plane_cfg;
->  	struct vkms_config_crtc *crtc_cfg;
-> +	struct vkms_config_connector *connector_cfg;
->  	int n_primaries = 0;
->  	int n_cursors = 0;
->  	int n_overlays = 0;
-> @@ -211,6 +212,10 @@ static void vkms_config_test_default_config(struct kunit *test)
->  
->  	/* Connectors */
->  	KUNIT_EXPECT_EQ(test, vkms_config_get_num_connectors(config), 1);
-> +	vkms_config_for_each_connector(config, connector_cfg) {
-> +		KUNIT_EXPECT_EQ(test, vkms_config_connector_get_type(connector_cfg),
-> +				DRM_MODE_CONNECTOR_VIRTUAL);
-> +	}
->  
->  	KUNIT_EXPECT_TRUE(test, vkms_config_is_valid(config));
->  
-> diff --git a/drivers/gpu/drm/vkms/vkms_config.c b/drivers/gpu/drm/vkms/vkms_config.c
-> index 963e32d5adf7..291c0330bc56 100644
-> --- a/drivers/gpu/drm/vkms/vkms_config.c
-> +++ b/drivers/gpu/drm/vkms/vkms_config.c
-> @@ -651,6 +651,8 @@ static int vkms_config_show(struct seq_file *m, void *data)
->  		seq_printf(m, "\tstatus=%s\n",
->  			   drm_get_connector_status_name(
->  				   vkms_config_connector_get_status(connector_cfg)));
-> +		seq_printf(m, "\ttype=%s\n",
-> +			   drm_get_connector_type_name(vkms_config_connector_get_type(connector_cfg)));
->  	}
->  
->  	return 0;
-> @@ -984,6 +986,7 @@ struct vkms_config_connector *vkms_config_create_connector(struct vkms_config *c
->  
->  	connector_cfg->config = config;
->  	connector_cfg->status = connector_status_connected;
-> +	vkms_config_connector_set_type(connector_cfg, DRM_MODE_CONNECTOR_VIRTUAL);
->  	xa_init_flags(&connector_cfg->possible_encoders, XA_FLAGS_ALLOC);
->  	kref_init(&connector_cfg->refcnt);
->  
-> diff --git a/drivers/gpu/drm/vkms/vkms_config.h b/drivers/gpu/drm/vkms/vkms_config.h
-> index 9d0a0087c9da..88429e01089b 100644
-> --- a/drivers/gpu/drm/vkms/vkms_config.h
-> +++ b/drivers/gpu/drm/vkms/vkms_config.h
-> @@ -138,6 +138,7 @@ struct vkms_config_encoder {
->   * struct vkms_config_connector
->   *
->   * @link: Link to the others connector in vkms_config
-> + * @type: Store the type of connector using DRM_MODE_CONNECTOR_* values
->   * @config: The vkms_config this connector belongs to
->   * @status: Status (connected, disconnected...) of the connector
->   * @possible_encoders: Array of encoders that can be used with this connector
-> @@ -150,6 +151,7 @@ struct vkms_config_connector {
->  	struct list_head link;
->  	struct vkms_config *config;
->  
-> +	int type;
->  	enum drm_connector_status status;
->  	struct xarray possible_encoders;
->  
-> @@ -371,6 +373,28 @@ vkms_config_plane_set_default_pipeline(struct vkms_config_plane *plane_cfg,
->  }
->  
->  /**
-> + * vkms_config_connector_get_type() - Return the connector type
-> + * @connector_cfg: Connector to get the type from
-> + */
-> +static inline int
-> +vkms_config_connector_get_type(const struct vkms_config_connector *connector_cfg)
-> +{
-> +	return connector_cfg->type;
-> +}
-> +
-> +/**
-> + * vkms_config_connector_set_type() - Set the connector type
-> + * @connector_cfg: Connector to set the type to
-> + * @type: New connector type
-> + */
-> +static inline void
-> +vkms_config_connector_set_type(struct vkms_config_connector *connector_cfg,
-> +			       int type)
-> +{
-> +	connector_cfg->type = type;
-> +}
-> +
-> +/*
->   * vkms_config_plane_get_default_rotation() - Get the default rotation for a plane
->   * @plane_cfg: Plane to get the default rotation from
->   *
-> diff --git a/drivers/gpu/drm/vkms/vkms_connector.c b/drivers/gpu/drm/vkms/vkms_connector.c
-> index 11e313440225..f5e99e77e84f 100644
-> --- a/drivers/gpu/drm/vkms/vkms_connector.c
-> +++ b/drivers/gpu/drm/vkms/vkms_connector.c
-> @@ -88,7 +88,7 @@ struct vkms_connector *vkms_connector_init(struct vkms_device *vkmsdev,
->  		return ERR_PTR(-ENOMEM);
->  
->  	ret = drmm_connector_init(dev, &connector->base, &vkms_connector_funcs,
-> -				  DRM_MODE_CONNECTOR_VIRTUAL, NULL);
-> +				  vkms_config_connector_get_type(connector_cfg), NULL);
->  	if (ret)
->  		return ERR_PTR(ret);
->  
-> 
-> -- 
-> 2.56.0
->
-
-Aww, makes sense! Missed colon earlier.
+In-Reply-To: <20261123-b4-cs7542-trng-v1-2-92d9ffcee531@gmail.com>
 
 
-Reviewed-by: Oarora Etimis <oaroraetimis@gmail.com>
+--mtdygncuvh4wucsf
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Subject: Re: [PATCH 2/3] hwrng: Add Cortina Systems CS7542 TRNG driver
+MIME-Version: 1.0
 
-Reviewby
+Hello,
+
+On Mon, Nov 23, 2026 at 09:41:35PM +0300, Fil Dunsky via B4 Relay wrote:
+> +#include <linux/bits.h>
+> +#include <linux/hw_random.h>
+> +#include <linux/io.h>
+> +#include <linux/iopoll.h>
+> +#include <linux/mfd/syscon.h>
+> +#include <linux/mod_devicetable.h>
+
+Don't add <linux/mod_devicetable.h>. of_device_id is already provided by
+<linux/platform_device.h> with less overhead and build dependencies.
+
+> +#include <linux/of.h>
+> +#include <linux/regmap.h>
+> +#include <linux/slab.h>
+> +#include <linux/string.h>
+> +#include <linux/module.h>
+> +#include <linux/platform_device.h>
+
+Best regards
+Uwe
+
+--mtdygncuvh4wucsf
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmsFNzMACgkQj4D7WH0S
+/k4RvAgAkmX1z3ggD4bQYR5QDbQBtW/xgm40V3vJbHo8sFlOzs9OnglLP+iPjhHu
+WKQBnpxjsqZITO8X1LvclAujKd6LAR/OEzTxOML37xIoq2uBbct6r4uBVug8dmzk
+0TZf3jIxobXh6AuI2klxHcrpbIkEKAJgKFnJNJnRnS2pjQnmue649DpG/SF2PgAm
+tIIPrcfWA1AyLg82sa98l6cfBXT/Cj1+457Y+hc7mN9Vs6T+gLTj9cRd+VHY6cW5
+FqY3RUG/SNcyRVT4K6C6iR6RS2S41VNXYMCkhMXLIxu7ERVkC/tz2juaeFdUr1Zp
+bBg0EPgOCTpcZl2EyaSSblW1G3fqCw==
+=IJHG
+-----END PGP SIGNATURE-----
+
+--mtdygncuvh4wucsf--
