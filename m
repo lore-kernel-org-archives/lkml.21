@@ -1,64 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.3
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795544435;
-	b=ICChWgRM26X8ozbhn2soMrpp6LEF/eETFlC+EakHmeC8ATauzYIXZZIR2iJCwNMUNBiR
-	 Kqyp2JxNI6bdmjvnAnswHTVaDMz3eBN3DDOF964h+iJwSB+jwttYqm4Cl8iWR9JTUs7pa
-	 OCrDPwRzsbwA+6mHM+l1kEyb0ksraW2+b1Ru2oGSGej7LrnutmdiosRpOneaQt3rlEezf
-	 djnJ7fy9xte0PmN/de08ovyRT4svtSRZjOx1QZ6r4TpIhy57r09jVvctYTEjUzn/b2h1l
-	 HUtk0lvbyC4GEtohmOm7TddmzfegoHRg6PbPirveW4WCouCp2ULbFwKYr+685w029Nw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795544435;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
-	 X-CM-SenderInfo;
-	bh=rn2JMXIObYI9wUt1ea1lSjudrwErALnnzN0nbwRNkfY=;
-	b=hCtGBSh8uUtuq/RZ1l/JV536RAOAYCbeTzeHI833+54S6XycX8/3yrKbDfU/OU4x5cYI
-	 LgjcPJSPVF5NVQViiw0tFtFhRUQh0TMQwpGVlHTjW8J43Z9kr/j5FKqVbf3eh5f4Bx3pO
-	 taewL22OJ09As5Z3y42BwF+MlxQF8ekBl/Pb4Mxp1XljrhQrF5S8dXm0on7TSbdGFWOVY
-	 ItCy3hqFFv6wn+se1J14PTlYPZBL4jG6lWRY8XS6W7TwXFIjYEx6dxCEqDC11/FdCJvDz
-	 idDVcgo+lz/mEVlT452Bd9SkYwomU54ulEgwSgvYdMq3TldYtE8piBP6sBxPRlpOX0w==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=163.com;
-	spf=pass smtp.mailfrom=163.com;
-	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=A349BdiF;
-	arc=none smtp.remote-ip=117.135.210.3
-Received: from m16.mail.163.com (m16.mail.163.com [117.135.210.3])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.112
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795544438;
+	b=2X+jNq5TFscNaqJmpPXfyup5fpPscS/90fVw6uhx7FMaJ1tDi3RDi/IdD4hYxrypkoVq
+	 JvDB6LM6EAGliT1lf4N0rFR+Ikw7O6uO4hzH0bdaPh019sAQ4GcsdhbG6WOdTRSo086+q
+	 iubrtTl8g06PEpCgBLjG/9t3PpFiloGI6frRrDrwMOEUYqrA2lDooZsn1zcU7Tf4eqKOQ
+	 YFK+at0zzAMBfuRiYWELCdeCFfheMxRY28McURY8HASSHEbdvcMXBllhQhfZTOOld6/Jh
+	 3mhHY/aw38XNHNuc6T8YRACAxVsy/ClVV+XYegdxtnHF9qeq14vL+A2NMLv+SFp1R7Q==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795544438;
+	h=DMARC-Filter:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
+	 In-Reply-To:To:Cc:X-Mailer:X-ZohoMailClient;
+	bh=ELtphjr+DUQvE0cavmN1fqbzSfP2pfSWNeP+KWNKicw=;
+	b=h+S/w7tQgRWlq/Y8CJBrTwJR/2U1Fn9Ogdm87/vBLjJHUKY09CsSqoA6LKopyVp61Vnw
+	 PtH8O/Zk/MrTC9qnZ6xYt3qfmMgM1sOFqDRyHHUFMWWZexIkS9wP/iOiZmF1gOyFM8eWH
+	 /II3zCooEg4kVIp66ZJGOlqA7JUNlf5ZXQNAqn/GzBH0NUudZ0l7V4+VEmTfD5Q1wr4U9
+	 rZihzif7M/TnZOikd/s5Ulh2mRXlDqZipwR6TCkNIQkX6ljd2RL3HTg1wKgAYQoVDb093
+	 V08cRULfgAhaiIMzPPDtYoeZ14k16/U13u7al/LT7T3NTXwAE6oY8LzDGZkaoZUvSdg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=rong.moe;
+	spf=pass smtp.mailfrom=rong.moe;
+	dkim=pass header.d=rong.moe header.i=@rong.moe header.a=rsa-sha256 header.s=zmail2048 header.b=EC5slpNm;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.112
+Received: from sender5-pp-f112.zoho.com (sender5-pp-f112.zoho.com [165.173.182.112])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6FE6A606A687;
-	Tue, 24 Nov 2026 18:20:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6FE6A606A687
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 94FD9606A333;
+	Tue, 24 Nov 2026 18:20:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 94FD9606A333
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=rong.moe
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rong.moe
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=A349BdiF
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=rn
-	2JMXIObYI9wUt1ea1lSjudrwErALnnzN0nbwRNkfY=; b=A349BdiFhOFLw5eB4o
-	2gs6Xa+Z4epe2azGQRjXucIG6mi0DH9tr1ZwgnqIsQ1nlUDvaYtv1J4vCZCshXSS
-	HHzNZn8d8anK6dTGhqBjGdcLWSuKKdDFWp6It2/jnNJTPQyKJT0N4ccY25ZkbmOb
-	0Orcs6kAvM3MLC7DG+OtseQ1U=
-Received: from ubuntu (unknown [])
-	by gzsmtp4 (Coremail) with SMTP id PygvCgAH7o8k1QVrJbHLHw--.27478S2;
-	Wed, 25 Nov 2026 02:19:29 +0800 (CST)
-From: Shaopei Zhu <shaopei_1012@163.com>
-To: Matthew Wilcox <willy@infradead.org>
-Cc: Namjae Jeon <linkinjeon@kernel.org>,
-	Sungjong Seo <sj1557.seo@samsung.com>,
-	Yuezhang Mo <yuezhang.mo@sony.com>,
-	exfat@lists.linux.dev,
-	linux-fsdevel@vger.kernel.org,
-	linux-api@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4] exfat: add EXFAT_IOC_COMBINE to append a file's clusters to another
-Date: Wed, 25 Nov 2026 02:19:11 +0800
-Message-ID: <20261124181911.773506-1-shaopei_1012@163.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <awXMJaZ58iS3K2N0@casper.infradead.org>
-References: <20261124142807.773299-1-shaopei_1012@163.com> <awXMJaZ58iS3K2N0@casper.infradead.org>
+	dkim=pass (2048-bit key) header.d=rong.moe header.i=@rong.moe header.a=rsa-sha256 header.s=zmail2048 header.b=EC5slpNm
+ARC-Seal: i=1; a=rsa-sha256; t=1795544288; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=L39ZnSMBqcmkWYnTRZJmwJlxlw2OC7Kze7LZhxEGFWlLjLvjT0oWxvszMbuRFM6sVoTKBmZ4QP2DArPnP8MXUHpaO3Wu9HRB/hWlhQBtd5S6IY/uyjbBl5qmf5Jk8RnMmA6vdlUzST4Q/9DyfyeTUBLbJO29H9IgmCWkix8Ydsk=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1795544288; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=ELtphjr+DUQvE0cavmN1fqbzSfP2pfSWNeP+KWNKicw=; 
+	b=Pip0DEYx+OnkS/CTcaRJSlXVgjq5Labguyvxj57gRUH2sFvi1iXfRiq3guGbnwYlCR4fTwbHI7kRnfZjhKHkkTViM5ij92OQ86p/wVL8ML/6V8JBJc/R3W3QDYYIHa6zyrAkUHg9d+Umw++tMaBFo7Jay7WtEa4ioTovmkJtV/M=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=rong.moe;
+	spf=pass  smtp.mailfrom=i@rong.moe;
+	dmarc=pass header.from=<i@rong.moe>
+DKIM-Signature: a=rsa-sha256; b=EC5slpNmln3oVwA/qaVYZUBkJ/+1h3UzEi0YA2A3QYNyYX0T0pWFuYxP9yQ2+3bf/C0isK/JbOborUUWw614ssa7KDca8DchhaRBoaZG84kFuD1MaXu1UpoxIjtp+kdJCGawHZ+A6i+OYENaSKIBHGay1Nm2NYlfzFFGEylBrAPwQVjyQa2661UGXE71qVq6orBxG+KBwsSD/+x8B+yAg6Bb5xiRyuURf1gg2u59ytDReWGEwGtepHRhsrriBCe6j3bOkqmBa2i+bAFucRv6n5PFJ7PDkBQ61v3nxID6bjwf6tlVk1wtuHrgKKcGZTsZPG14E8Ols2tKFloWdjNS3g==; c=relaxed/relaxed; s=zmail2048; d=rong.moe; v=1; bh=ELtphjr+DUQvE0cavmN1fqbzSfP2pfSWNeP+KWNKicw=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zohomail.com with SMTPS id 1795544287026756.0312791299377;
+	Tue, 24 Nov 2026 10:18:07 -0800 (PST)
+From: Rong Zhang <i@rong.moe>
+Date: Wed, 25 Nov 2026 02:17:03 +0800
+Subject: [PATCH v2 7/7] platform/x86: ideapad-laptop: Enable ymc_ec_trigger
+ for Lenovo Yoga 7 14IRL8
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -68,44 +60,56 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:PygvCgAH7o8k1QVrJbHLHw--.27478S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW7tF4UAFyftF15Ww18tr48Xrb_yoW8XF17pa
-	y3twsrta1DJw13GFn3Cw4xt3yru3WxKw4fJas8tw1UZrs8XF129r9xtFW2ka48G39Fqwn0
-	qF4Yvas8C398uaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UqeHgUUUUU=
-X-CM-SenderInfo: pvkd01phlbiiirs6il2tof0z/xtbC6hGdLGsF1TGqyAAA3i
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261125-ymc-82yl-v2-7-624bdcb3c50e@rong.moe>
+References: <20261125-ymc-82yl-v2-0-624bdcb3c50e@rong.moe>
+In-Reply-To: <20261125-ymc-82yl-v2-0-624bdcb3c50e@rong.moe>
+To: Mark Pearson <mpearson-lenovo@squebb.ca>, 
+ "Derek J. Clark" <derekjohn.clark@gmail.com>, 
+ Hans de Goede <hansg@kernel.org>, 
+ =?utf-8?q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
+ Gergo Koteles <soyer@irl.hu>, Ike Panhc <ikepanhc@gmail.com>, 
+ Andrew Kallmeyer <kallmeyeras@gmail.com>
+Cc: Eduard Aliman <edialiman20@gmail.com>, 
+ platform-driver-x86@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Mahir Faisal <mahirfaisalantiq33@gmail.com>, Rong Zhang <i@rong.moe>
+X-Mailer: b4 0.17-dev-ce4c1
+X-ZohoMailClient: External
 
-On Tue, Nov 24, 2026 at 05:40:53PM +0000, Matthew Wilcox wrote:
-> On Tue, Nov 24, 2026 at 10:28:07PM +0800, Shaopei Zhu wrote:
-> > As with EXT4_IOC_MOVE_EXT and F2FS_IOC_MOVE_RANGE, the source must be
-> > open for reading and writing, the destination for writing, and both must
-> > be regular files on the same mount.  Files whose allocation, chain
-> > layout or valid_size are inconsistent, as after a failed truncate or on
-> > a corrupt volume, are refused with -EIO before anything is changed.
->
-> Why are you designing your own ioctl instead of implementing
-> EXT4_IOC_MOVE_EXT in exfat?  That's the normal way of doing things as
-> it lets us later hoist the ioctl from all the filesystems implementing
-> it to the VFS.
+The Lenovo Yoga 7 14IRL8's EC must be triggered by software on YMC
+events, or else the enable state of touchpad, keyboard, and keyboard
+backlight become out of sync.
 
-Hi Matthew,
+Add a DMI quirk table entry for the said device.
 
-Thanks for looking at this.  That paragraph was badly worded: I only
-meant that the permission rules are the same as for those ioctls, not
-that the operation is similar.
+Reported-by: Mahir Faisal <mahirfaisalantiq33@gmail.com>
+Closes: https://msgid.link/CAGAHqH6o0TUa1HXMrNV6e+HNYwU3xxHkOM665756n8Cp3AzhVQ@mail.gmail.com
+Reviewed-by: Mark Pearson <mpearson-lenovo@squebb.ca>
+Signed-off-by: Rong Zhang <i@rong.moe>
+---
+ drivers/platform/x86/lenovo/ideapad-laptop.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-EXT4_IOC_MOVE_EXT is a defragmentation primitive: it copies the data of
-the original file into the donor's blocks and exchanges the block
-mappings, so the contents and sizes of both files stay the same, and
-the range has to lie within both files.  It cannot append one file to
-another, which is what is needed here: the clusters of the source are
-linked onto the end of the destination, the destination grows and the
-source is unlinked, without copying any data.
+diff --git a/drivers/platform/x86/lenovo/ideapad-laptop.c b/drivers/platform/x86/lenovo/ideapad-laptop.c
+index 4f9dc95d8c65..f9453de6df76 100644
+--- a/drivers/platform/x86/lenovo/ideapad-laptop.c
++++ b/drivers/platform/x86/lenovo/ideapad-laptop.c
+@@ -1872,6 +1872,13 @@ static const struct dmi_system_id ymc_ec_trigger_quirk_dmi_table[] = {
+ 			DMI_MATCH(DMI_PRODUCT_NAME, "82N7"),
+ 		},
+ 	},
++	{
++		/* Lenovo Yoga 7 14IRL8 */
++		.matches = {
++			DMI_MATCH(DMI_SYS_VENDOR, "LENOVO"),
++			DMI_MATCH(DMI_PRODUCT_NAME, "82YL"),
++		},
++	},
+ 	{ }
+ };
+ 
 
-I will reword that paragraph in the next version so that it states the
-rules without suggesting that the operations are related.
-
-Thanks,
-Shaopei
+-- 
+2.55.0
 
