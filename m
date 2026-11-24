@@ -1,69 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.8
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795509655;
-	b=RkyJNa47jkgo2gfG7wDt2ehOJQu4ncmRh1eiH7txxqZ54npwsx8q46lnopUFqUgnNmEv
-	 iQU1wZmkMsa3LrdNW6Q6V4ENaWlvsgX2It84daVmglZbv3DPzbMj/5ceNn+rKOYlStLQt
-	 XNBh0F65XUkP4OqjalWsliELPp+g2cglIj9izrJofN+XpP8ooiQ6nyUHnzK+z3UlU8vXj
-	 t5HMdMTvK5BpKgUZ2an5BsN9bDxCPFssdXx6F7ozvO/CJ8qzwLQwQoYIndZNcneeKLL5w
-	 chDqkhoQIYZdS3nT07q0BtQwBLEdkgUATRQWU1vH5TJXnuMx0BRtTyMD1Jd8o6BDUzg==
+	t=1795509716;
+	b=MaEkqB/QigMeQtgSFK7NV6xr6DTQIPZ4AY9SeqTzPTAw/AjzWgy5PVQdoImqk2lcxLcE
+	 +6hvNSG10Pui4vM0TDpu22y81uPOPEpTJ2KRkA2jY/VTUL79jkefoiTuPUWaYXWQ0svp5
+	 I6mcTUkiDrVqLpO4S2PT4icty5QMWTRUOwUMdC207G4hHqQaM/0FfJ6cY2FVqPboyTbMX
+	 jLr3TBtUdVGGgqP/j27HGnVZqVF2ZJ/Sen/vdCKhlqx1Mgc7grGcmaxP+E8Ol9WVkcopK
+	 +egOCj9uVlN78YHxge6+W7oTjnGavAlTGsEi7eblKTjGHqJTDBLgrlzqunjOkH9CuMw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795509655;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
-	 X-CM-SenderInfo;
-	bh=LLFwVtKDDdrBbmQl5AzXD5u/y9ekHppzu7EmZ71WArU=;
-	b=FgJdTXIAsiiogqlnS1X4lZe3E6jd8rfDtq83b42IQF3Ba96fpLAz0HfNKeMSjtdl5aqZ
-	 bm3Z2/InLn25u98ZFg36BsJBjz1VT6ZsUITB9IpNmDCeLqZLkwEujKwCeF8UXCwtkn2mX
-	 r5z/jxzjYkt2Mdm8dcg+uuSx/BRbCu4RDY1IaI7FqjQJ1yh2yoEjbklO96uh+S6TGsHxC
-	 07QEknZUnxTNkkX5Gwe9O6SQEMS+B+nNhI4DvFlRzFzGoniZuz+V408BZIbH2NF/AtkiW
-	 h7BfRV5CCV9fYHAawzNiKjr6mOsiqJSG1Gy0AH9GlmiJHXyH6fAP2fETOs7rLfCHc5Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795509716;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=miq8lHAk9j+ldEOiiht4iRcOG6aLFpZt8I9oVYIzhag=;
+	b=Y/1WC1uOV5wERqWxJHy8xNE/gEPEKJNgm15MZDLNa8wPafQuGxZFgLzYAeVNQv36KKjg
+	 C5OkVfZdHc1UmtaKbcvoyxg3V1VntW9nCesD/8SS9reZ938tOE6bKJKC3lLJM3xPuLmIq
+	 +PNrZCe1qRrTqvS8ZKPsBcnDa/xkXhigQwZ4NoQwLq/RY2AZdVoxhN+bOkgC2aX+Ky2dH
+	 I80J4wzgMYmklqwi0cZTWvxPzb0FSLngj4/8bPbUtiUaiT4lZH+vYsZ0S0IRpVDODi+md
+	 Lnx9tcqxNrT0HutA45S5axPghBakvqmPGH1nh0kzq5iuG4/h8ZO6/c0xO3LhbwoLBiA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=126.com;
-	spf=pass smtp.mailfrom=126.com;
-	dkim=pass header.d=126.com header.i=@126.com header.a=rsa-sha256 header.s=s110527 header.b=OwF9OGky;
-	arc=none smtp.remote-ip=117.135.210.8
-Received: from m16.mail.126.com (m16.mail.126.com [117.135.210.8])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=EpuxjjND;
+	arc=none smtp.remote-ip=209.85.216.49
+Received: from mail-pj1-f49.google.com (mail-pj1-f49.google.com [209.85.216.49])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 05F05606A69B;
-	Tue, 24 Nov 2026 08:40:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 05F05606A69B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=126.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=126.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 18BDC606A326
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 08:41:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 18BDC606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=126.com header.i=@126.com header.a=rsa-sha256 header.s=s110527 header.b=OwF9OGky
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=126.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=LL
-	FwVtKDDdrBbmQl5AzXD5u/y9ekHppzu7EmZ71WArU=; b=OwF9OGkyhkG4KRk9wT
-	IqleHjt3Uu/TnTZv1VP45tgekaaMeCZMLO5UwM8BZmrYuSpAaIr+PJtbbnLnQLIl
-	TmVXmsK/6J4N3WfrJLDysx0fPrmIj72dhIyw7xZFXEYgIGPoBqlPtb3SHd17MbPN
-	yuc9O6r6AJ9L3Ic7KqfvWb13E=
-Received: from localhost.localdomain (unknown [])
-	by gzsmtp4 (Coremail) with SMTP id PykvCgD3_8VfTQVrT2gGEA--.38055S2;
-	Tue, 24 Nov 2026 16:39:59 +0800 (CST)
-From: Linkui Xiao <xiaolinkui@126.com>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	rosenp@gmail.com,
-	jacob.e.keller@intel.com,
-	daniel.machon@microchip.com,
-	chunkeey@gmail.com,
-	kees+treewide@kernel.org,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Linkui Xiao <xiaolinkui@kylinos.cn>
-Subject: Re: [PATCH net] net: ibm: emac: attach the fixed-link PHY with of_phy_connect()
-Date: Tue, 24 Nov 2026 16:39:57 +0800
-Message-Id: <20261124083957.2480682-1-xiaolinkui@126.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <4ed4f82b-3ff8-467b-9127-bdc29d498ae4@lunn.ch>
-References: <20261112075321.3903875-1-xiaolinkui@126.com> <ef2eb733-4b94-4c2e-9165-0b324733a482@lunn.ch> <20261123091012.730441-1-xiaolinkui@126.com> <4ed4f82b-3ff8-467b-9127-bdc29d498ae4@lunn.ch>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=EpuxjjND
+Received: by mail-pj1-f49.google.com with SMTP id 98e67ed59e1d1-3b40470fdd8so2065266a91.1
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 00:41:55 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795509715; x=1796114515; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=miq8lHAk9j+ldEOiiht4iRcOG6aLFpZt8I9oVYIzhag=;
+        b=EpuxjjNDpv8P/TaKIGvDrghu6h29YD9v/Ow2khz3TFEhVVUlhELGmYhcihYvRqSTOB
+         ucOI6LuN+ktO6hQJa82SHMUX9PK3Rw97/65XpXoHq615v6hnbDp3EHh4difyb5PpWlMZ
+         sc5dH/3DeTkKDzXWTfEp156NQwATS3O5P2lchbyPU7ZO4wMLz+1X4Ky/QnfGpNdiCdrh
+         Ui9OR+4YellgZy878gCtG+p2x7RyZwrBbQgrbLoX5EgzNJoAuVvSOTqDSXObriVLf5dB
+         lS1RUgpH273WxkYJ9LOxbmhzL8BPmYapKqA6W8kd5Y8JsBoGfAHq4cIZyQ8ru04hgMQ4
+         BYag==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795509715; x=1796114515;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=miq8lHAk9j+ldEOiiht4iRcOG6aLFpZt8I9oVYIzhag=;
+        b=pcdQD1TJHoN4JkjZmUZhqlbtTUJgXk125mNjJqLwXcbxfF3d0W3O4TcmEZGDPINFh4
+         btbgpgtrSwIP0e68VDyz6iZ79Xt7qFWcribOikNm5WB9LqFfaAAWfe1W9/9girFiSvA8
+         N6lFFuYE4z6tS4NWkJx7k5j2xcFpfR/kvT/8oYEWlU6SRckgr2PbFpWZRbk8mxPZlKx/
+         MC+zVbKDaRFhixsJY8r7TtrwbhhnxS1lolZ/wxw8qrO+X+Q2xo9kkaG1VNCioxUcMZnX
+         6ZlXAubkBEQ2PQHIBIFHa6w7GH2dHPNg2UiGh8UjJjAgzhsf3PaqCeev8VSKKcqEiPjN
+         hpcQ==
+X-Forwarded-Encrypted: i=1; AL+hErF4dN3btzkq6nbftlOUvvMz8Hbx52Uy45j1bafsxMYexIcUnma/ZJzl8qWZbsf4ZymtL1cKUmD3utc/vnY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/WJpGpPmJIbCZSvZ9woU8ZOj//B78Sh8MlOoVba41O0Ak9kdk2
+	HoDOZR3nh4R89hsMpCbd27QBSVnEWeF86v/Sglo1tVJQkbRwvzaawLDL
+X-Gm-Gg: AZFdTZdgMhEh0DiOnb3oyQi7WERa3BTFDLD8Ky3MTGj1IbCXJjH9H32b9TQyxT/u1w7
+	f7IKYMRmJMUnFN8G601xmcNtyoWbk3c4HNFDRC1oGrwMI8FbcYCZ3dOLq5kwpyW4394oB1Ep9xT
+	2fa6wU6FVFeByTyLli9ha8Up29C8bZbOOHhKeSTRZ/q7RhzVVR7QvFZph+9YQW4cxGX+OF+n65t
+	PZm6on71D+b3UlJ18EtVnsni9RBk+G/ns34LHYOfhyqXv9AkhqutSROeLY/c0Ko/rFD+CLqT52K
+	yZRZWxAqi9Dy3TF+yNrHj7IodkACcUAvnYTOMxfC2lCYOcLbED2ePNnLWNyZjP1KMHnPA3H+vue
+	2kCBqNOy8IF0sLSCWebkvMwe0H5bc7fSFaXeDg/TRec8qIJ6YRqCw04WmHUe809Y/AMt7MdRnd3
+	gQbWGzQFWolD7b64WKY/wBkNaWPmJnh+uEV5D/dzU9UpL9JWVaDLpc/anGaZwZRTtDdQPsRH8Al
+	ma1ISZ24zRGZj80yswqRqjITBi4tcXpYNyChcxcJE7lVqlXRlJdYpIxjELbRV+hSKoHkXQJBoW/
+	8on4Mr3azgbuK46B6ttu7MMLGKwQ+BJANA5Tv28QE0yEXb+kRmOkQ9Sh54Gd9R1c53W3B50BokN
+	JoeoUYA==
+X-Received: by 2002:a17:90b:1644:b0:3ac:c98e:345e with SMTP id 98e67ed59e1d1-3b41caef685mr10503851a91.45.1795509715146;
+        Tue, 24 Nov 2026 00:41:55 -0800 (PST)
+Received: from [172.19.1.42] (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405d135e9sm24432973a91.4.2026.11.24.00.41.52
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 24 Nov 2026 00:41:54 -0800 (PST)
+Message-ID: <c88fd429-025a-406d-ad80-ec464db7d1cd@gmail.com>
+Date: Tue, 24 Nov 2026 16:41:51 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -73,49 +93,78 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:PykvCgD3_8VfTQVrT2gGEA--.38055S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWxJF1rtr47Xw17uF1DurW3Jrb_yoW8Wr4kpF
-	W2q3WDWrs5JF4IvFnrC3y8Cr9akF1kJFWjyryrGrW5AF98Gr12qrZrK3y2yFW5C3Z5Gryj
-	vw48JasxXa93taDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0zE_Ma3UUUUU=
-X-CM-SenderInfo: p0ld0z5lqn3xa6rslhhfrp/xtbBlR+GXWsFTV9h0gAA3e
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 3/3] iio: adc: Add Nuvoton MA35D1 EADC driver
+To: Jonathan Cameron <jic23@kernel.org>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ dlechner@baylibre.com, nuno.sa@analog.com, andy@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ chernyakin.victor.j@outlook.com, cwweng@nuvoton.com
+References: <20261117082832.1551574-1-cwweng.linux@gmail.com>
+ <20261117082832.1551574-4-cwweng.linux@gmail.com>
+ <20261122030647.70b41b61@jic23-hlaptop>
+Content-Language: en-US
+From: Chi-Wen Weng <cwweng.linux@gmail.com>
+In-Reply-To: <20261122030647.70b41b61@jic23-hlaptop>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-Hi Andrew,
+On Sun, Nov 22, 2026 at 03:06:47AM +0000, Jonathan Cameron wrote:
+ > > +	/*
+ > > +	 * pollfunc->irq is not initialized until the pollfunc is first
+ > > +	 * attached to a trigger, so only suspend and resume triggering
+ > > +	 * while the buffer is enabled.
+ > > +	 */
+ >
+ > True enough but isn't it also guarded by if indio_dev->pollfunc
+ > inside the iio_device_suspend_triggering()?
+ >
+ > I think in the case you are avoiding it is a noop anyway.
+ >
+ > disable_irq() nests fine so it shouldn't even matter if anyone turned
+ > it on yet.
 
-Thanks for the review.
+I checked this again on v7.4-rc4 (b6a9fa34ce41).
 
-> The whole point of fixed-link is that it works like a real PHY. You
-> should not special case it other than when creating it and destroying
-> it. You should call phy_start/phy_stop. When start is called, phylib
-> will call the adjust link callback, same as a real PHY, and setup the
-> MAC as needed.
+iio_alloc_pollfunc() uses kmalloc_obj() without initializing pf->irq, 
+while iio_triggered_buffer_setup_ext() allocates the pollfunc before the 
+buffer is enabled.
 
-Done. v3 drops both the hand called emac_adjust_link() and v2's
-phy_read_status(): the fixed PHY is attached with of_phy_connect() and
-started with phy_start(), and phylib resolves the link and calls the
-callback. phy_stop() comes from phy_disconnect() in emac_remove() and on
-the probe error path. The only special casing left is creating and
-destroying the fixed PHY.
+The PM helpers check whether pollfunc is non-NULL and pf->irq > 0. If 
+the uninitialized IRQ value happens to be positive, disable_irq() could 
+be called with an invalid or unrelated IRQ number.
 
-phy_start() stays in emac_init_phy() rather than moving to emac_open(),
-because that is where this driver already starts the phy-handle PHY
-(emac_mdio_init_phy()). Moving only the fixed link to open/close would
-special case it again, and moving both paths is a larger change to code I
-cannot test here. Say the word and I will send that to net-next
-separately.
+This is why I added the iio_buffer_enabled() check for the 
+inactive-buffer case.
 
-I was wrong that a fixed link has no reason to run the state machine.
-emac_adjust_link() does not program the MAC either, it only copies speed,
-duplex and pause into dev->phy, which emac_configure() reads at open.
-phy_start() is called from emac_init_phy(), before register_netdev(), so
-the state machine is queued before userspace can bring the interface up.
+ > > +	if (!iio_buffer_enabled(indio_dev))
+ > > +		return 0;
+ >
+ > As above, I'm missing why we need to protect the call
+ > to resume_triggering. The pollfunc can't change between
+ > suspend and resume so there is either one there or not
+ > in both cases and the guards inside that call should take care
+ > of the rest. If I'm missing something we should look to
+ > fix it in those calls!
 
-v3 is posted as a new thread.
+Agreed. The same uninitialized IRQ concern applies to the resume helper.
 
-Cross compiled for powerpc out of ppc44x_defconfig with W=1, clean. No
-hardware here, so no runtime test.
+I also noticed that iio_trigger_attach_poll_func() does not clear 
+pf->irq on its error paths. If request_threaded_irq() or 
+set_trigger_state() fails, pf->irq can retain a stale positive IRQ 
+number after the resources have been released. The normal detach path 
+explicitly resets it to 0.
+
+The error propagation from iio_trigger_get_irq() was fixed by 
+dff701806ab6, but these two IRQ state issues remain in v7.4-rc4.
+
+Would it make sense to initialize pf->irq to 0 in iio_alloc_pollfunc() 
+and clear it on the attach error paths?
+
+I agree that fixing this in the IIO core would be preferable to relying 
+on driver-specific checks. I haven't reproduced an IRQ failure at 
+runtime; these findings are based on source inspection.
 
 Thanks,
-Linkui
-
+Chi-Wen
