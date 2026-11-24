@@ -1,99 +1,53 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.178
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=216.40.44.16
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795530289;
-	b=QttDtDP9MAczbxTwDM+HLwR6TMBHsssI/jE7NkyZGbhVuxIub5yaN9n6c52APRu/bJ8X
-	 ZswexziG09eTDQZ16m/wcgcSqA00GXxZsRvXFcXNF+Orja9pb41l0s1tQz3UB8/Nv2t6o
-	 fQSBZN2GnniqCGwmE+ZsV6WuUzI8uqtcdYklEqSXRMHVA0fe99P3j/wFZ8a2HfExK9Obd
-	 3NOywO5gZyv0T6oFeqTNjOMmKewXh3C24ZCFID/l73oCZ1MfPFumaSfz4bZxCNogYCS7n
-	 YTgsKZxgBiMTuK4abxkH0oiWEBDZyqegK6mUYtDFW5xAkVZItNtz8bUyFz6TFUGP7Ww==
+	t=1795530292;
+	b=GnJWAYoSTi/RAqk2iahjJNmD6+ASr2l/d9EMcAUvOfca2oTRzZWVMOlmW2JXo9IG3MPY
+	 8VPqDsLmcAEiim81v6p0yp7Qmpw5sqHoq4pVklVbHBnu4ZYqSwCodE5d+JD+WW+VQwLfL
+	 Tkfac66OXNS623EK7aJqvNglqaewB1Lj0pmfUf8QVs7Qr+PNADqMUhZYjWlwc2TUYog5n
+	 Tf5eFHdV3WhLx+mZ7ca/QqsC0mFNG+c/GkE5KDMATke78+3paRO+wQ05UWtD5EEtl3gbI
+	 lClqYzcma45kFo13EtTmTnVxmT5B8Zijz3yM4Uj9niqwjeSSSlbaOjBrTwFSVKIk6AQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795530289;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=KXE7cnFOP3ln9NR3eVHLPVzp6B5Ml9Wh1PqMmVWUxaw=;
-	b=ggMdp+IyXhENnSjbtGLyz0866X6gfsH6eXXWIIpK6cQN6BozVZlsBUa+/ayeSAQ7eaxo
-	 GtuH7wOvEznlkDvRXkjZ6RBlZBK9iwsRHea6V1xApyNvKFqfY9GPW+/UpLbMTFJW8NQv8
-	 FSBusXHNLlXmzbsYDhj9my2V9SutR3k6f72S5XyA3OIddrBjMGlwjaRqrKxIb8La7QQHb
-	 2kEAffhcLNQgpiB/WDxT+Yy1HQ6JV4dFOSK8qQ20DLX/Y2tmU1koVPSsJSmWkMc0U454P
-	 ujDNPXcQhLg471pvyWpsFk22I8h3lxxO6CnlAnIKlLYmHXNPmTLtAx+z5Zk5LuSnTEQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795530292;
+	h=DMARC-Filter:Received:Received:Date:From:To:Cc:Subject:Message-ID:
+	 X-Mailer:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Rspamd-Server:X-Rspamd-Queue-Id:X-Stat-Signature:X-Spam-Status:
+	 X-Session-Marker:X-Session-ID:DKIM-Signature:X-HE-Tag:X-HE-Meta;
+	bh=1LOcVQNYAG/m8FwGOgpeskXItoFPNok4dIXg82mENYE=;
+	b=zA3pEtrdS0xwHxPt0bp9pDZ3t+KX7Dn/Nclp+oYF3Yg2som9BSqBbS8sYnJxqHhS0vzz
+	 U0WeVH7SPzS48FYIS9DYlniiYZCXsxxyrfWP2BU9m0ikF+oIOlnuH7ZDf6G+vO++27usY
+	 mo4DGDhJUq+HWYFTW7qTbhMNxTNvKa+AiIEElgFG/T8q2ToD3gfxnX1fLmw0SKDiRuuxO
+	 8/vxNpiCG5aOrbXlMcS0/5ZZS8asiXbf8aU2ew3r53GZhQZ4ysfPFQOI+J+hi+f8Sq8z3
+	 3euzqdv8h1tQ/5l2DYSc7UhDM8xPwI+8IXkblI/0CNxujAspM7gi1aXIUxGo3ha4vHw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cloudlinux.com;
-	spf=pass smtp.mailfrom=cloudlinux.com;
-	dkim=pass header.d=cloudlinux.com header.i=@cloudlinux.com header.a=rsa-sha256 header.s=google header.b=NsYXFd4w;
-	arc=none smtp.remote-ip=209.85.128.178
-Received: from mail-yw1-f178.google.com (mail-yw1-f178.google.com [209.85.128.178])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=goodmis.org;
+	spf=pass smtp.mailfrom=goodmis.org;
+	dkim=pass header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=JuH+hMlD;
+	arc=none smtp.remote-ip=216.40.44.16
+Received: from relay.hostedemail.com (smtprelay0016.hostedemail.com [216.40.44.16])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 726CC606A321
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 14:24:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 726CC606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=cloudlinux.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cloudlinux.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 98AE7606A331;
+	Tue, 24 Nov 2026 14:24:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 98AE7606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=goodmis.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=goodmis.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=cloudlinux.com header.i=@cloudlinux.com header.a=rsa-sha256 header.s=google header.b=NsYXFd4w
-Received: by mail-yw1-f178.google.com with SMTP id 00721157ae682-8b0ca1ebc8bso38894837b3.2
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 06:24:48 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=cloudlinux.com; s=google; t=1795530287; x=1796135087; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=KXE7cnFOP3ln9NR3eVHLPVzp6B5Ml9Wh1PqMmVWUxaw=;
-        b=NsYXFd4w1jowqyHVsz+D0NKs5uG9b1AQQZIL27miMJkZX02Uf1ioJfz7iPtRa/QXYo
-         iEp036fziKdqn6D6sDQoIZDiJf1sK4CCgmX0UbSUf8l6piP0WhralLuFU6k6GbkIUKtc
-         cXlnorAM40+68QjcAh8y9dBdrqMh9gWhSLMmzx5Yf8VMWSr4sTDjwsWD2hqfSx8KUShq
-         4LcbcbtuYjTYQL37uNkXyn3YbVBzY0mujKvoq6WL0vm9Klm2i9H4KYihKsm+3PQncqap
-         niZVh5pe8g/LRphMUZK3W4xR9a5pioVJJCTSbCPI6zCsbYv+RGIT1A02s5AnoCEAgpBj
-         xPLQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795530287; x=1796135087;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=KXE7cnFOP3ln9NR3eVHLPVzp6B5Ml9Wh1PqMmVWUxaw=;
-        b=p0AkVOvUOF+YhY5YdqWZJmbzCf985z8+ixPt4AJxs4xi+CwMFbvDEsphzT165Xqnlj
-         7UTUYGNe0VeDo0WjDUSIZI/ViKClxv0SEEZ/sxz67N7U5xMfsoeedmVHI+kjAr7tPd5w
-         0UvetpV61SV3sL7OxgDkK9aBuGJ5q0aB1E/o1MQZJFIqBH/emjqv5jwg4R5hOzdIu7Sh
-         izJHH/INcQ/IrWJFRUwyUkDmtMOutWtrLO7IU5CvxaA9nXWu4xKEU3qBrkoCFClB3NDf
-         vLBALHGCV5gzE3YlSt9k5Rq8RlBDLoG5gjC7VhJDPydQ2x+YSiD0XsyPr8T8ds1hCAvG
-         yrcw==
-X-Forwarded-Encrypted: i=1; AL+hErG3fUcrDq5RAV/ngDMJuD4j6NttV02fbObA/fUtpE0oGFGtBzt2q+gmZGZ8EaT1sYHstImqZhV+K2KcWsA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/39uLnsSd+dFEKABOAZWfmfJtL6hpY8y4oooNJcXR6ATSQs5Az
-	L6guhtI76YoxxfQ5WNzJpT14jz6pK4fZocABEgaj2dIbATHXfmhl6WirqsS1NHWY6NY=
-X-Gm-Gg: AZFdTZfoBvYcXVINnba64sEdUW4Ifes/gHsFHLUjzR7+d72LKThLPv/tT7VV38f1p+/
-	CX36nMqlmkPH+eaC5z1Lm0zVi4pFM0+ixVPjICPS43RXQqhPtuJ7YHhrywO7ZRGedve/XFl/vj5
-	dZ1vAIVEZGozobrWaDYj+uoUHHITPQ7o11kAlsxSiuutr7GmiWxbP17viB31JY96EGp3MO1/GmL
-	JGRlsh646tC+GLB5N5baHKtL6XidgJN/pFMfMM1P9EvxI0llXcEJFYKSDahNWYpp9KcrWM/pFmI
-	4aqYJRK5pZ2rALX6SIJ4mCvk6xftDt7TKV1ZJ2W7hSUkoP5QSvHbtwnk3NispMPJHoLbghKcSI2
-	TJCU8qJjyForWg4reHgzKFSAmz3mTFVtHj0kVuXW+/EFmR9FEoGgmvAMRrQ//ojMbdRBW7NXg/3
-	mTPJOmWH2317Zo7x7DXwrqyph9e3gkeGq5UbJJDihhDLsFjYebw/SjhMC2wc+scgaqJtrz1rX6W
-	zWG8EClxBt2e37JaEljDP7+5nX3Lr+bRNaHkbxYSGuySCTfY7g0AHjwKAgsnzhq7yXpR4B1E+BX
-	rCLfSOoSwWPCaZkWC96iGCqLWU5JwmeTNdxVtw==
-X-Received: by 2002:a05:690c:4d47:b0:8b3:22c:b420 with SMTP id 00721157ae682-8b520329516mr63869277b3.5.1795530287265;
-        Tue, 24 Nov 2026 06:24:47 -0800 (PST)
-Received: from rmustafin-laptop ([27.79.41.63])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b52033c2d4sm58062957b3.36.2026.11.24.06.24.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 06:24:46 -0800 (PST)
-From: Rustam Mustafin <rmustafin@cloudlinux.com>
-To: Peter Huewe <peterhuewe@gmx.de>,
-	Jarkko Sakkinen <jarkko@kernel.org>
-Cc: Jason Gunthorpe <jgg@ziepe.ca>,
-	Shuah Khan <shuah@kernel.org>,
-	Jaewon Yang <yong010301@gmail.com>,
-	linux-integrity@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Rustam Mustafin <rmustafin@cloudlinux.com>
-Subject: [PATCH v3 2/2] selftests: tpm2: test that io_uring reads are rejected
-Date: Tue, 24 Nov 2026 21:24:32 +0700
-Message-ID: <20261124142432.368943-3-rmustafin@cloudlinux.com>
-X-Mailer: git-send-email 2.52.0
-In-Reply-To: <20261124142432.368943-1-rmustafin@cloudlinux.com>
-References: <20261124142432.368943-1-rmustafin@cloudlinux.com>
+	dkim=pass (1024-bit key, unprotected) header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=JuH+hMlD
+Received: from omf09.hostedemail.com (lb01a-stub [10.200.18.249])
+	by unirelay10.hostedemail.com (Postfix) with ESMTP id 260B7C0BD5;
+	Tue, 24 Nov 2026 14:24:50 +0000 (UTC)
+Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf09.hostedemail.com (Postfix) with ESMTPA id 83E1A2002E;
+	Tue, 24 Nov 2026 14:24:48 +0000 (UTC)
+Date: Tue, 24 Nov 2026 09:24:47 -0500
+From: Steven Rostedt <rostedt@goodmis.org>
+To: LKML <linux-kernel@vger.kernel.org>, Linux Trace Kernel
+ <linux-trace-kernel@vger.kernel.org>
+Cc: Masami Hiramatsu <mhiramat@kernel.org>, Mathieu Desnoyers
+ <mathieu.desnoyers@efficios.com>
+Subject: [PATCH v8] tracing/probes: Zero out faulted dereferenced fields
+Message-ID: <20261124092447.4dbf5233@gandalf.local.home>
+X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,140 +57,264 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-Rspamd-Server: rspamout01
+X-Rspamd-Queue-Id: 83E1A2002E
+X-Stat-Signature: pekdud8xugcwkn6j476t7m3t1o8aq51z
+X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
+X-Session-ID: U2FsdGVkX185e3D9loKvSDyp9pRDXXeEiP4mCEPXlfg=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=goodmis.org; h=date:from:to:cc:subject:message-id:mime-version:content-type:content-transfer-encoding; s=dkim1; bh=1LOcVQNYAG/m8FwGOgpeskXItoFPNok4dIXg82mENYE=; b=JuH+hMlD48lb3di18Hee9FXnyxim0ufEryo542nNnl2hutQvH4Cu3Bgx45EjmG46/mgG4sPhNeVCpjDCzDKSchTpGxukFWiGuCQ4zs3Ypt/uByEt9OQtEwoZVSvJqVMGhM312ctX663WXFD5eRn7B+VjabHWC5TAA4voo8pyMR4=
+X-HE-Tag: 1795530288-998317
+X-HE-Meta: U2FsdGVkX19O0OkT3IIMhA09qI0FrhCqvdbj5ORcoWyhWR9tOYISBb8xtGrJe79TQe0dMMMbITvsP6EWfX3hoztoF8txQJBN4qRRbDaRxn9Y6IN5TwOeEEDr0b8B3KcHS50lYjr/RbhY1tGUcSAhfU9LgHvtJtdahMC09c6eq+Hnad/utgdTO/J91Eirom9utVLguzhG1AYqIwMYuRjmkYf3s4nSrQqI7NuIU5YsDYzhC0aX/My2hKT/HMPH2+J19FkvgYbBTPJp98fOXr9ecqMTBRiMbwKvMpBr7ryuNK0gn2upsqu5MmNV2tVAwlbolQH+aY7gR0ToPzN6ck4dzAksdJbv5U2Ysq7p0PihBRyKhvtF/sMB2X9zqgxZT8aBJvQbktxp3jSAWCAAHoXOT2liqMPDs+heyOZbBb82Rd1gknFv45bitDLEACGdsFDz9iu6yFet/iOuEKYy58xcKhrIp1iswVwTwLkwF0QjuEU=
 
-Test that IORING_OP_READ on /dev/tpm0 and /dev/tpmrm0 fails with -EIO and
-that the following read() returns the whole response. The test needs
-liburing-ffi (liburing 2.4+) and is skipped without it.
+From: Steven Rostedt <rostedt@goodmis.org>
 
-Assisted-by: Claude:claude-opus-5-5
-Signed-off-by: Rustam Mustafin <rmustafin@cloudlinux.com>
+While looking at tasks global descriptor tables, I discovered the
+following anomaly:
+
+~# echo 't:sched sched_switch prev=prev mm=(task_struct)prev->mm ppgd=(task_struct)prev->mm->pgd' > /sys/kernel/tracing/dynamic_events
+
+The above creates a tprobe on the sched_switch tracepoint and records the
+previous task_struct pointer, it's mm_struct and the pgd the mm_struct
+points to.
+
+~# trace-cmd start -e tracepoints:sched
+
+            bash-1050    [000] d..3.    90.829478: sched: (__probestub_sched_switch+0x0/0x10) prev=0xffff88d30b623600 mm=0xffff88d30108c600 ppgd=0xffff88d33352b000
+          <idle>-0       [002] d..3.    90.836024: sched: (__probestub_sched_switch+0x0/0x10) prev=0xffff88d301870000 mm=0x0 ppgd=0x0
+     rcu_preempt-15      [002] d..3.    90.836031: sched: (__probestub_sched_switch+0x0/0x10) prev=0xffff88d3013ad100 mm=0x0 ppgd=0xffff88d33352b000
+
+The first event has is a user task that has both a valid mm_struct and a pgd.
+The second event is a kernel task where the mm_struct is NULL and so is the
+dereferenced pgd pointer.
+
+The third event is where things looked strange. The mm_struct is NULL but
+the dereferenced pgd has a value! That is: NULL->pgd produced something
+other than zero.
+
+The reason for this is that the probe_mem_read() and probe_mem_read_user()
+do not write to the destination on failure. The process_fetch_insn_bottom()
+loop does not check the return value of the dereference (as it is the last
+one), and does not update the event. That leaves the value for that failed
+field to be whatever was in the ring buffer at that time.
+
+Have both probe_mem_read() and probe_mem_read_user() set the destination to
+zero on failure to read the address.
+
+Now all pgd are zero when mm is zero.
+
+Also update the stage 2 of process_fetch_insn_bottom() to not return on
+fault but to just set the value to zero and also do not even bother
+dereferencing the address if the value is already zero. This allows the
+code to continue and fill in the zero into the memory location on the
+ring buffer.
+
+Cc: stable@vger.kernel.org
+Fixes: 533059281ee59 ("tracing: probeevent: Introduce new argument fetching code")
+Signed-off-by: Steven Rostedt <rostedt@goodmis.org>
 ---
- tools/testing/selftests/tpm2/Makefile      |  2 +-
- tools/testing/selftests/tpm2/test_uring.sh | 15 +++++
- tools/testing/selftests/tpm2/tpm2_tests.py | 72 ++++++++++++++++++++++
- 3 files changed, 88 insertions(+), 1 deletion(-)
- create mode 100755 tools/testing/selftests/tpm2/test_uring.sh
+Changes since v7: https://patch.msgid.link/20261123213246.00440bfc@gandalf.local.home
 
-diff --git a/tools/testing/selftests/tpm2/Makefile b/tools/testing/selftests/tpm2/Makefile
-index a9bf9459fb25..44630fb980fa 100644
---- a/tools/testing/selftests/tpm2/Makefile
-+++ b/tools/testing/selftests/tpm2/Makefile
-@@ -1,5 +1,5 @@
- # SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
- include ../lib.mk
+- Have all the helper functions test for null pointer before
+  dereferencing (Sashiko).
+
+ kernel/trace/trace_probe_tmpl.h | 103 +++++++++++++++++++++++++-------
+ 1 file changed, 83 insertions(+), 20 deletions(-)
+
+diff --git a/kernel/trace/trace_probe_tmpl.h b/kernel/trace/trace_probe_tmpl.h
+index 8acc0f0ebd7a..b9fd2f61a0ca 100644
+--- a/kernel/trace/trace_probe_tmpl.h
++++ b/kernel/trace/trace_probe_tmpl.h
+@@ -96,7 +96,8 @@ fetch_store_symstring(unsigned long addr, void *dest, void *base)
+ 		return -ENOMEM;
  
--TEST_PROGS := test_smoke.sh test_space.sh test_async.sh
-+TEST_PROGS := test_smoke.sh test_space.sh test_async.sh test_uring.sh
- TEST_PROGS_EXTENDED := tpm2.py tpm2_tests.py
-diff --git a/tools/testing/selftests/tpm2/test_uring.sh b/tools/testing/selftests/tpm2/test_uring.sh
-new file mode 100755
-index 000000000000..516985ef20af
---- /dev/null
-+++ b/tools/testing/selftests/tpm2/test_uring.sh
-@@ -0,0 +1,15 @@
-+#!/bin/sh
-+# SPDX-License-Identifier: GPL-2.0-only
-+
-+# Kselftest framework requirement - SKIP code is 4.
-+ksft_skip=4
-+
-+[ -e /dev/tpm0 ] || exit $ksft_skip
-+[ -e /dev/tpmrm0 ] || exit $ksft_skip
-+read tpm_version < /sys/class/tpm/tpm0/tpm_version_major
-+[ "$tpm_version" = 2 ] || exit $ksft_skip
-+
-+python3 -c 'import sys, tpm2_tests
-+sys.exit(not tpm2_tests.uring_available())' || exit $ksft_skip
-+
-+python3 -m unittest -v tpm2_tests.UringTest 2>&1
-diff --git a/tools/testing/selftests/tpm2/tpm2_tests.py b/tools/testing/selftests/tpm2/tpm2_tests.py
-index ffe98b5c8d22..6fe60e00ff06 100644
---- a/tools/testing/selftests/tpm2/tpm2_tests.py
-+++ b/tools/testing/selftests/tpm2/tpm2_tests.py
-@@ -9,6 +9,7 @@ from tpm2 import ProtocolError
- import unittest
- import logging
- import struct
-+import errno
+ 	__dest = get_loc_data(dest, base);
+-	len = sprint_symbol(namebuf, addr);
++	/* Do not dereference NULL pointers */
++	len = addr ? sprint_symbol(namebuf, addr) : -1;
+ 	if (len < 0) {
+ 		*(u32 *)dest = make_data_loc(0, __dest - base);
+ 		return 0;
+@@ -133,13 +134,65 @@ process_common_fetch_insn(struct fetch_insn *code, unsigned long *val)
+ 	return 0;
+ }
  
- class SmokeTest(unittest.TestCase):
-     def setUp(self):
-@@ -331,3 +332,74 @@ class AsyncTest(unittest.TestCase):
++/* On failure, zero out the destination */
++static nokprobe_inline int
++do_probe_mem_read_user(void *dest, void *src, size_t size)
++{
++	int ret;
++
++	/* Do not dereference NULL pointers */
++	ret = src ? probe_mem_read_user(dest, src, size) : -1;
++	if (ret < 0)
++		memset(dest, 0, size);
++	return ret;
++}
++
++/* On failure, zero out the destination */
++static nokprobe_inline int
++do_probe_mem_read(void *dest, void *src, size_t size)
++{
++	int ret;
++
++	/* Do not dereference NULL pointers */
++	ret = src ? probe_mem_read(dest, src, size) : -1;
++	if (ret < 0)
++		memset(dest, 0, size);
++	return ret;
++}
++
++static nokprobe_inline int
++do_fetch_store_string(unsigned long addr, void *dest, void *base)
++{
++	/* NULL addr gets zero size string */
++	if (!addr) {
++		void *__dest = get_loc_data(dest, base);
++
++		*(u32 *)dest = make_data_loc(0, __dest - base);
++		return 0;
++	}
++	return fetch_store_string(addr, dest, base);
++}
++
++static nokprobe_inline int
++do_fetch_store_string_user(unsigned long addr, void *dest, void *base)
++{
++	/* NULL addr gets zero size string */
++	if (!addr) {
++		void *__dest = get_loc_data(dest, base);
++
++		*(u32 *)dest = make_data_loc(0, __dest - base);
++		return 0;
++	}
++	return fetch_store_string_user(addr, dest, base);
++}
++
+ /* From the 2nd stage, routine is same */
+ static nokprobe_inline int
+ process_fetch_insn_bottom(struct fetch_insn *code, unsigned long val,
+ 			   void *dest, void *base)
+ {
+ 	struct fetch_insn *s3 = NULL;
+-	int total = 0, ret = 0, i = 0;
++	int total = 0, ret = 0, i = 0, offset;
+ 	u32 loc = 0;
+ 	unsigned long lval, llval = val;
  
-         self.assertEqual(rc, 22)
-         async_client.close()
+@@ -147,25 +200,26 @@ process_fetch_insn_bottom(struct fetch_insn *code, unsigned long val,
+ 	/* 2nd stage: dereference memory if needed */
+ 	do {
+ 		lval = val;
++		/* Prevent dereferencing NULL val pointer */
++		offset = val ? code->offset : 0;
+ 		switch (code->op) {
+ 		case FETCH_OP_DEREF:
+-			ret = probe_mem_read(&val, (void *)val + code->offset,
+-					     sizeof(val));
++			do_probe_mem_read(&val, (void *)val + offset,
++					  sizeof(val));
+ 			break;
+ 		case FETCH_OP_UDEREF:
+-			ret = probe_mem_read_user(&val,
+-				 (void *)val + code->offset, sizeof(val));
++			do_probe_mem_read_user(&val, (void *)val + offset,
++					       sizeof(val));
+ 			break;
+ 		case FETCH_OP_CPU_PTR:
+-			val = (unsigned long)this_cpu_ptr((void __percpu *)val);
+-			ret = 0;
++			/* Do not dereference NULL pointers */
++			if (val)
++				val = (unsigned long)this_cpu_ptr((void __percpu *)val);
+ 			break;
+ 		default:
+ 			lval = llval;
+ 			goto out;
+ 		}
+-		if (ret)
+-			return ret;
+ 		llval = lval;
+ 		code++;
+ 	} while (1);
+@@ -175,17 +229,18 @@ process_fetch_insn_bottom(struct fetch_insn *code, unsigned long val,
+ stage3:
+ 	/* 3rd stage: store value to buffer */
+ 	if (unlikely(!dest)) {
++		offset = code->offset;
+ 		switch (code->op) {
+ 		case FETCH_OP_ST_STRING:
+-			ret = fetch_store_strlen(val + code->offset);
++			ret = val ? fetch_store_strlen(val + offset) : 0;
+ 			code++;
+ 			goto array;
+ 		case FETCH_OP_ST_USTRING:
+-			ret = fetch_store_strlen_user(val + code->offset);
++			ret = val ? fetch_store_strlen_user(val + offset) : 0;
+ 			code++;
+ 			goto array;
+ 		case FETCH_OP_ST_SYMSTR:
+-			ret = fetch_store_symstrlen(val + code->offset);
++			ret = val ? fetch_store_symstrlen(val + offset) : 0;
+ 			code++;
+ 			goto array;
+ 		default:
+@@ -193,27 +248,33 @@ process_fetch_insn_bottom(struct fetch_insn *code, unsigned long val,
+ 		}
+ 	}
+ 
++	/*
++	 * Once val is zero, it is pointing to NULL. Any new dereference is
++	 * also treated as a NULL pointer.
++	 */
++	offset = val ? code->offset : 0;
 +
-+def uring_available():
-+    import ctypes.util
-+
-+    name = ctypes.util.find_library('uring-ffi')
-+    if not name:
-+        return False
-+    lib = ctypes.CDLL(name)
-+    ring = ctypes.create_string_buffer(1024)
-+    if lib.io_uring_queue_init(1, ring, 0) < 0:
-+        return False
-+    lib.io_uring_queue_exit(ring)
-+    return True
-+
-+def uring_read(fd, size):
-+    import ctypes.util
-+
-+    lib = ctypes.CDLL(ctypes.util.find_library('uring-ffi'))
-+    lib.io_uring_get_sqe.restype = ctypes.c_void_p
-+    lib.io_uring_prep_read.argtypes = [ctypes.c_void_p, ctypes.c_int,
-+                                       ctypes.c_void_p, ctypes.c_uint,
-+                                       ctypes.c_uint64]
-+    ring = ctypes.create_string_buffer(1024)
-+    ret = lib.io_uring_queue_init(1, ring, 0)
-+    if ret < 0:
-+        raise OSError(-ret, 'io_uring_queue_init')
-+    try:
-+        buf = ctypes.create_string_buffer(size)
-+        lib.io_uring_prep_read(lib.io_uring_get_sqe(ring), fd, buf, size, 0)
-+        ret = lib.io_uring_submit(ring)
-+        if ret < 0:
-+            raise OSError(-ret, 'io_uring_submit')
-+        cqe = ctypes.c_void_p()
-+        ret = lib.io_uring_wait_cqe(ring, ctypes.byref(cqe))
-+        if ret < 0:
-+            raise OSError(-ret, 'io_uring_wait_cqe')
-+        # cqe->res follows the 64-bit user_data
-+        res = ctypes.c_int.from_address(cqe.value + 8).value
-+    finally:
-+        lib.io_uring_queue_exit(ring)
-+
-+    return res
-+
-+class UringTest(unittest.TestCase):
-+    def read_response(self, flags):
-+        client = tpm2.Client(flags)
-+        fmt = '>HII III'
-+        cmd = struct.pack(fmt,
-+                          tpm2.TPM2_ST_NO_SESSIONS,
-+                          struct.calcsize(fmt),
-+                          tpm2.TPM2_CC_GET_CAPABILITY,
-+                          tpm2.TPM2_CAP_TPM_PROPERTIES,
-+                          tpm2.TPM2_PT_FIXED, 1)
-+        try:
-+            client.tpm.write(cmd)
-+            res = uring_read(client.tpm.fileno(), 4096)
-+            # The rejected read must leave the whole response in place
-+            rsp = client.tpm.read(4096)
-+        finally:
-+            client.close()
-+
-+        self.assertEqual(res, -errno.EIO)
-+        sz, rc = struct.unpack('>II', rsp[2:10])
-+        self.assertEqual(sz, len(rsp))
-+        self.assertEqual(rc, 0)
-+
-+    def test_read_tpm(self):
-+        self.read_response(0)
-+
-+    def test_read_tpmrm(self):
-+        self.read_response(tpm2.Client.FLAG_SPACE)
+ 	switch (code->op) {
+ 	case FETCH_OP_ST_RAW:
+ 		fetch_store_raw(val, code, dest);
+ 		break;
+ 	case FETCH_OP_ST_MEM:
+-		probe_mem_read(dest, (void *)val + code->offset, code->size);
++		do_probe_mem_read(dest, (void *)val + offset, code->size);
+ 		break;
+ 	case FETCH_OP_ST_UMEM:
+-		probe_mem_read_user(dest, (void *)val + code->offset, code->size);
++		do_probe_mem_read_user(dest, (void *)val + offset, code->size);
+ 		break;
+ 	case FETCH_OP_ST_STRING:
+ 		loc = *(u32 *)dest;
+-		ret = fetch_store_string(val + code->offset, dest, base);
++		ret = do_fetch_store_string(val + offset, dest, base);
+ 		break;
+ 	case FETCH_OP_ST_USTRING:
+ 		loc = *(u32 *)dest;
+-		ret = fetch_store_string_user(val + code->offset, dest, base);
++		ret = do_fetch_store_string_user(val + offset, dest, base);
+ 		break;
+ 	case FETCH_OP_ST_SYMSTR:
+ 		loc = *(u32 *)dest;
+-		ret = fetch_store_symstring(val + code->offset, dest, base);
++		ret = fetch_store_symstring(val + offset, dest, base);
+ 		break;
+ 	default:
+ 		return -EILSEQ;
+@@ -237,11 +298,13 @@ process_fetch_insn_bottom(struct fetch_insn *code, unsigned long val,
+ 			if (s3->op != FETCH_OP_ST_STRING &&
+ 			    s3->op != FETCH_OP_ST_USTRING) {
+ 				dest += s3->size;
+-				val += s3->size;
++				/* Only update a non NULL val */
++				if (val)
++					val += s3->size;
+ 				goto stage3;
+ 			}
+ 			code--;
+-			val = lval + sizeof(char *);
++			val = lval ? lval + sizeof(char *) : 0;
+ 			if (dest) {
+ 				dest += sizeof(u32);
+ 				*(u32 *)dest = update_data_loc(loc, ret);
 -- 
-2.52.0
+2.53.0
 
