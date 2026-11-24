@@ -1,62 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.226.149.37
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795537114;
-	b=2h5a3gNtxEk6T1CqDJLjLvn116LOWtZVvjG5i4lQqNeV4UBgkDQqPadYTEHr/iedsVIk
-	 X7+TpOA260GgdFytMOgK6tZb+1BFJ7PgMfLMnFNf6zdxltDdk9w0UJj4glNIozyfaov1D
-	 iIJ4FJTr/NihJo/mvvf2U0K1WVwInQjdKMk+Sf1/YzDb9R1xR77j1Fjf53tCxlo4cPARs
-	 VmhvLkaLLgt8QTv5QK1S5cF+k7YkPhAj9RYGVsd+5HYYIA6DWdeInMRZf7Qu6Khna2OmR
-	 K1ZYl/IurKxsr3OzxfaIF9du8RF8EYxl658h03PtHenabjd0mH3wgqCTUUZ/LTI0t3A==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795537114;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:From:Subject:To:Cc:References:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=OS+g8r/vEgbbXgK47jEcIac9E+hDiBGHrAOXRbTPV0U=;
-	b=wW/wnFGEidU06vRkABz4BS8MILzPwAf7w7hDGtBXFQ5HVaFfznm8Mhv1eYhK1ZQ9OocC
-	 0E2qoBnUxSP6E9aTxEQ6uKGF76ZpVivnsCr98oSzmTLVylbVD97hC5REWUVs/bx105Ahk
-	 1K3INzDn3eYUL+gQRwe5sAVPwSc0lEDfXpABb4W8XpQrZOoISsnvYvC9s6Jp1en5SsM94
-	 O3BikNJ3DyXNaJ6ft1nTBPC8Cn6NxUu+BKTh/WUWXAWZ1zjHkaKu2J1YfiFS/BdC/rnLr
-	 bMywC+2mxPQmsDJN1HYlo+Wbwx4PyZyMSMR402HPcUuuCbCfTY2TELTJDgovx2ORcOQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=rbox.co;
-	spf=pass smtp.mailfrom=rbox.co;
-	dkim=pass header.d=rbox.co header.i=@rbox.co header.a=rsa-sha256 header.s=selector1 header.b=EYBjD2Kp;
-	arc=none smtp.remote-ip=185.226.149.37
-Received: from mailtransmit04.runbox.com (mailtransmit04.runbox.com [185.226.149.37])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.130.14
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795537118;
+	b=gL5vhysoTh9470LzTSpmHD+8l53sS9Y7/kRmNcxLdbpWyjbZ5q+jLh7ImiQMzDWXPZOd
+	 oVnIiW/8/o5rmafaubj/JnN6+55DxHk8adUQyinyLLH40mcfK2mSDl998pk7XtV2Hrs+u
+	 Tw9PTHO1FYHvDLG1gloDoUHd/dIFqlDO8Fyv8pxrs1QqVx4yS8FG2A0+9Dx0g8hcnsMXj
+	 Jqk/Wire6HV9U3+gT8VSWE7crMUVPbDqTCAD8EYGbnzSczed2xDzHUrMiB66xjdxamEVO
+	 FxcM1llLe4eNIZtx85sjEVaA2s80Tmw/CKi5TcQeXQaBAkWYgYlMbM6+++WdSZH5nrA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795537118;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:CC:
+	 References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Originating-IP:X-ClientProxiedBy:
+	 X-EOPAttributedMessage:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=46uldnw9fZbBIOZe2YX01/yNb3tLUAE0QCm+8hJEZzs=;
+	b=WziYyo1fM8vj1RxR7YBIsk+O1nZMqw4ImwIWQh7e4FSDQJRxeEAPwNyjJ0TJo5Osy/6G
+	 L7JcvMNlsCyQKXOKTgyy0jxHzR4Hz82WAYOWjbALM2XzLrXv8KEd6bISg+hDAAXu5qOkA
+	 ZcMJD1NE2bL7NqBfM/F4Zc9yISRFVnITuZ88mvYMTzkh/yuzyBqBjt2HkmpHpJVSHBE/5
+	 OoqNU1vNDxW65C6voEyUrlbuqReNxQ8b7OU0kDzMN1ycZ8tTVeCslVyYnFw9isHNHdpl/
+	 fou+RgHFLPEZ4Xv2a2FBvcO5RgXo1szn7WdjDzlKFzWgwgvu2md2OIVOELDl0ZBcxNQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=foss.st.com;
+	spf=pass smtp.mailfrom=foss.st.com;
+	dkim=pass header.d=foss.st.com header.i=@foss.st.com header.a=rsa-sha256 header.s=selector2 header.b=B8GMGQXg;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.130.14
+Received: from MRWPR03CU001.outbound.protection.outlook.com (mail-francesouthazon11011014.outbound.protection.outlook.com [40.107.130.14])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E15BF606A330
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 16:18:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E15BF606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=rbox.co
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rbox.co
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C1BA0606A330;
+	Tue, 24 Nov 2026 16:18:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C1BA0606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=foss.st.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=foss.st.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=rbox.co header.i=@rbox.co header.a=rsa-sha256 header.s=selector1 header.b=EYBjD2Kp
-Received: from mailtransmit02.runbox ([10.9.9.162] helo=aibo.runbox.com)
-	by mailtransmit04.runbox.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-	(Exim 4.93)
-	(envelope-from <mhal@rbox.co>)
-	id 1xVtDj-006Jvm-Op; Tue, 24 Nov 2026 17:18:15 +0100
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=rbox.co;
-	s=selector1; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:References:
-	Cc:To:Subject:From:MIME-Version:Date:Message-ID;
-	bh=OS+g8r/vEgbbXgK47jEcIac9E+hDiBGHrAOXRbTPV0U=; b=EYBjD2KpncwOkqCBy/Xwbbew40
-	T5T9y/FvwFAM/8tQGhwyZbmpWQ4tKU/Alb+XzOvucJjfXCxSH4wHWA2WvM3rhdR0ZejkSD96rIuQg
-	LCdHMDAixnlWjI/8kE5u2qC0wpAPEKfrwHAzwX1TAd02I+yG0Ud/RQ/bT0wn9hp2/PnbSy2kQVELT
-	xG2EitK9Qv824kJ41t96dtri3io4/EU9A92H0hziRFcOG8a8rUBOvz4rXYS3K/86cUPGNvIf7MSSD
-	yKGpbUvEP+A27VFPm4fq5aeRPftdyiqJsHYReeVB4a/Fx1NUWuZ/Jz9Xu3dPv4upGxzjgiuA+wfIi
-	9H6qGmvg==;
-Received: from [10.9.9.73] (helo=submission02.runbox)
-	by mailtransmit02.runbox with esmtp (Exim 4.86_2)
-	(envelope-from <mhal@rbox.co>)
-	id 1xVtDe-0001Sk-3T; Tue, 24 Nov 2026 17:18:10 +0100
-Received: by submission02.runbox with esmtpsa  [Authenticated ID (604044)]  (TLS1.2:ECDHE_SECP256R1__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
-	(Exim 4.95)
-	id 1xVtDR-009PeQ-BJ;
-	Tue, 24 Nov 2026 17:17:57 +0100
-Message-ID: <ca274ecf-3525-4bf0-a525-0460b5ea2d28@rbox.co>
-Date: Tue, 24 Nov 2026 17:17:56 +0100
+	dkim=pass (2048-bit key, unprotected) header.d=foss.st.com header.i=@foss.st.com header.a=rsa-sha256 header.s=selector2 header.b=B8GMGQXg
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Pwost8+btof0tBu/+/yytzHwQ/1PccxUZPPs1CIDC2VdpZ4lXCGEeW4XrUHacj7AGRzdt9zWKyHm75L/GLUD2387vh79cNTNeMNMvxEMApC41Ogyl4XRU6kGz9lKm27UZie06bsto+tV/yyLRWFuCTuSWUr2pXwcibb78InbmK6jCyiiKda0l+UB1QQNIXm88VC5C26vEc5QXf+H2S5R3ACXfFslCGPeupJHqcOMnJ+wJHaPzYJgQLRHt6Yo9dfE/6B5/OwS8gm6m3HRI/tCyP++ydNUbPS5RwqPpGs9yboHIqzYkvjU995BXczNQFIuo4NujQCieQgBOS4IZxmoMw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=46uldnw9fZbBIOZe2YX01/yNb3tLUAE0QCm+8hJEZzs=;
+ b=auVNkBgpr6jC0co15jkH2gTUqDxM2HMmu966FIPyYifXQC3n2J2Z/rK7tHqYYT0IrKJJ1dHMnpCO9li7rGbZCQlgBxk43+D/jG+mF+/aGiKQlQ6ao4E/wHCK+sEc84YkBQuXkPORVvRV8bnNN1jckUHu88JQLXWrjUBgm1uAlrt69y/0mbpS5Sz+Etwly7dlrTVIXmzKmAK+39OecT5DCUyc/OP0N7K54UNTCgYPA6YMC0GHMM0acq4dnckeI7KqaqgE7Hn9YKo/VQbRKxmCqdsKLYaTzu6LCqGUKRg/ex5IrpxQZOSmo4ubEfFfni8pBfRaIx6my8BCqyTAmAWd6Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.60) smtp.rcpttodomain=nabladev.com smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=46uldnw9fZbBIOZe2YX01/yNb3tLUAE0QCm+8hJEZzs=;
+ b=B8GMGQXgkZ/ypkrBG77zXiqd0nmAPQdasgZ/ZAIgrirT36OWJM2m8S5A3ijxor8NM295ZJ2NtZb252PaPJGpFEdpu5fL+JD+xT4FfztAr1qYOkhvoanbWBTP1hQ++UjgogIsYdh+vn4wMzNuNcUD9UOzikvMlGNAslL/hfw63W0SI86Yn42pKPzZryQxUTt/PX0THFIMQ69KUNVNzy9vQ5zu8P3FH0GexBN4XKqsEXa4LN6Fil/c0XC9Inc9wys/lKXyStXtYxJHaSsKx8Syt+c5AnLoFn5/XFBGEGzjz4BTQ7V1bL9eTrtO5JIuJ9rEOv6RaX5IuuE7eqeEVBOzqA==
+Received: from DUZPR01CA0194.eurprd01.prod.exchangelabs.com
+ (2603:10a6:10:4b6::19) by BR0PR10MB613821.EURPRD10.PROD.OUTLOOK.COM
+ (2603:10a6:2c8:61::15) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.4; Tue, 24 Nov
+ 2026 16:18:33 +0000
+Received: from MAD0EPF000008B7.eurprd04.prod.outlook.com
+ (2603:10a6:10:4b6:cafe::43) by DUZPR01CA0194.outlook.office365.com
+ (2603:10a6:10:4b6::19) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.5 via Frontend Transport; Tue, 24
+ Nov 2026 16:18:33 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=fail (sender IP
+ is 164.130.1.60) smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.60; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.60) by
+ MAD0EPF000008B7.mail.protection.outlook.com (10.167.241.139) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.662.3 via Frontend Transport; Tue, 24 Nov 2026 16:18:32 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
+ (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Tue, 24 Nov
+ 2026 17:19:37 +0100
+Received: from [10.48.86.79] (10.48.86.79) by STKDAG1NODE2.st.com
+ (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Tue, 24 Nov
+ 2026 17:18:31 +0100
+Message-ID: <1a7384a1-fb23-4299-804a-67340bae0aec@foss.st.com>
+Date: Tue, 24 Nov 2026 17:18:31 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,171 +105,80 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-From: Michal Luczaj <mhal@rbox.co>
-Subject: Re: [PATCH net v2] vsock: only undo SS_CONNECTING when connect()
- fails
-To: Bobby Eshleman <bobbyeshleman@meta.com>
-Cc: Stefano Garzarella <sgarzare@redhat.com>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Simon Horman <horms@kernel.org>, George Zhang <georgezhang@vmware.com>,
- Andy King <acking@vmware.com>, Dmitry Torokhov <dtor@vmware.com>,
- virtualization@lists.linux.dev, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, Kyle Zeng <kylebot@openai.com>
-References: <20261117-vsock-connect-close-v2-1-db5388323770@meta.com>
- <ed28d36a-682e-4db5-abf4-1339734e7c57@rbox.co>
- <awTJ8EOl52W0ph1K@devvm29614.prn0.facebook.com>
-Content-Language: pl-PL, en-GB
-In-Reply-To: <awTJ8EOl52W0ph1K@devvm29614.prn0.facebook.com>
-Content-Type: text/plain; charset=UTF-8
+Subject: Re: [PATCH] ARM: dts: stm32: Convert GPIO hog to USB connector Vbus
+ supply on STM32MP15xx DHCOM PicoITX
+To: Marek Vasut <marex@nabladev.com>, <linux-arm-kernel@lists.infradead.org>
+CC: Christoph Niedermaier <cniedermaier@dh-electronics.com>, Conor Dooley
+	<conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, "Maxime
+ Coquelin" <mcoquelin.stm32@gmail.com>, Rob Herring <robh@kernel.org>,
+	<devicetree@vger.kernel.org>, <kernel@dh-electronics.com>,
+	<linux-kernel@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>
+References: <20261022124138.185850-1-marex@nabladev.com>
+Content-Language: en-US
+From: Alexandre TORGUE <alexandre.torgue@foss.st.com>
+In-Reply-To: <20261022124138.185850-1-marex@nabladev.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MAD0EPF000008B7:EE_|BR0PR10MB613821:EE_
+X-MS-Office365-Filtering-Correlation-Id: 805a007f-d3f0-4f51-b289-08df4a4695b1
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|7416014|376014|36860700016|23010399003|1800799024|82310400026|10067099003|261102123227099003|11063799006|56012099006|261026121527099003|261021123027099003|261022105027099003|261021121427099003|261026140227099003|261021135927099003|261028144727099003|261009223027099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info:
+	Gtggl7d7fv5XZBc8AIjjlTDSeyfqWA9IkG0Mjvax7vz4hnADXJOYpbD4+eRJ2/48hpFVyKvkMuY3Xs995FYK3dWJrEKz1avu3hjBX3Sqs/ChW6X4SahyOmfzQtj2U2ASfEB4CVToOFaQ8cXBbDlxiMJc33yc2TgCCRLrInRouf7g7nsclwOr1bRFZaQSV5NL7enYxZIyClqw4WbmgpzwXgjkaeeU607P4uByJaZc/wvRLLYbmz0NmAgzzVgdROx/PeW+nEkIFnVAopwim1UVo6FcWYzQRVw61leSIpxeaurPUKOGgxm2TyxtABjiV3lYrp0ohUlzi6rETywfXrG216oGbxGvbQtB0PukQWyQfObMfEmcGfO8FZSjhht1QbzPEBUVNs2DUtLiYqcTYZxBgvKG/wYifXvLEBLVQSasA877DQq1HDVCQlYgGQVChOgWwubW/IHM4N47d0kfERvpraT8LhVlDBH9EGQOP22d3pFxYFlBZDzdVeF34uHBkqRR0rgo2xlCIvxqZxMKJFph+gXckbRjCkAO18dks6BUhLUaVIcwUjIF5M60AWZrAwzbTmJmLq6+M4pObZNldthrXKST2JvuLV7QR8JEH0EWwEzF81sF44dK9znPmeCXZ10WuH/q3H/QMeuVgTkk+b3EBu5IwZK1Pvq6xTnLrXxtvIA3n3uxwvAY81uruTPBnvLa2xxJTxF4T4xDqxyJoIUQzA==
+X-Forefront-Antispam-Report:
+	CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(376014)(36860700016)(23010399003)(1800799024)(82310400026)(10067099003)(261102123227099003)(11063799006)(56012099006)(261026121527099003)(261021123027099003)(261022105027099003)(261021121427099003)(261026140227099003)(261021135927099003)(261028144727099003)(261009223027099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	+f8sPr4p3iBJxnCnsz+kVFjxYSCRi7DGfO4DPS1mrmuHexVTSTzWI2odcr40R7wO+nwf2sKPoL8GFrtRuIS6leXToGGAONPvFT4ZwaYjEr/KCDOol+S+R/kCudzq5/3DY2qEA2Cxr5junaWFpuq7z112q5eP4taMkqhQ7bFlYxrT1HdvzwxBR+wtt+wwHUCqOb14eJbzjUJokL+fkuOUyCuxegWqZcs+sazkMLevvFqh7B5V132ZO4w83gcr3oKEoQ6G84ESCzJQdNC0oq3PeUDNfV+hrrwDK+vtGEeK2GeqKlUnY6CJmAzo2qJjlvrzzC7NY5I+FSJYU/AEqRKzglzW20BezGYrFxO+J2jKCkC7fR3TSKqEwk54GCI+n4JV5RTnDG63A9klADe/4WguBHTQwhlNQLq1lisOQJssPY0tHzOw1SsNH5wnd2Is3fL2
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 16:18:32.8369
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 805a007f-d3f0-4f51-b289-08df4a4695b1
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	MAD0EPF000008B7.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BR0PR10MB613821
 
-On 11/24/26 00:19, Bobby Eshleman wrote:
-> On Sat, Nov 21, 2026 at 07:32:15PM +0100, Michal Luczaj wrote:
->> On 11/18/26 02:34, Bobby Eshleman wrote:
->>> vsock_connect() sleeps with the socket unlocked. Meanwhile the transport
->>> can complete the handshake, setting sock->state to SS_CONNECTED, and then
->>> reset the connection, e.g. in vhost_vsock_reset_orphans(),
->>> virtio_vsock_reset_sock() or vmci_transport_handle_detach(). When
->>> connect() gets the lock back, it finds sk_err set and moves the socket
->>> back to SS_UNCONNECTED. Userspace can then connect() the socket again,
->>> and a connect() to a CID on another transport makes
->>> vsock_assign_transport() release the transport the socket was connected
->>> on.
->>>
->>> Only move the socket back to SS_UNCONNECTED if it is still
->>> SS_CONNECTING. A socket that got connected stays SS_CONNECTED, and
->>> another connect() fails with -EISCONN.
->>>
->>> Likewise, only move sk_state to TCP_CLOSE if it is still TCP_SYN_SENT.
->>> Otherwise a second thread blocked in connect() on the same socket can
->>> time out after the first one failed and called listen(), and overwrite
->>> TCP_LISTEN.
->>
->> Ohh, this took me a while.
->>
->>> +/* Avoid breaking the socket when another thread has changed its state while
->>> + * we were asleep.
->>> + */
->>> +static void vsock_connect_close(struct socket *sock)
->>> +{
->>> +	struct sock *sk = sock->sk;
->>> +
->>> +	if (sk->sk_state == TCP_SYN_SENT)
->>> +		sk->sk_state = TCP_CLOSE;
->>> +	if (sock->state == SS_CONNECTING)
->>> +		sock->state = SS_UNCONNECTED;
->>> +}
->>
->> I was wondering why not
->>
->> 	if (sk->sk_state == TCP_SYN_SENT) {
->> 		sk->sk_state = TCP_CLOSE;
->> 		sock->state = SS_UNCONNECTED;
->> 	}
->>
->> and I think the only reasons we can't say "SYN_SENT iff CONNECTING" is
->> because shutdown() can flip SYN_SENT/CONNECTING to SYN_SENT/DISCONNECTING.
->> On connect's failure, the blocking path kinda-ignores such shutdown() and
->> resets the socket to UNCONNECTED anyway, while the non-blocking (i.e.
->> vsock_connect_timeout()) also consults sk_shutdown != SHUTDOWN_MASK.
->>
->> So how about being consistent:
->>
->> static void vsock_connect_close(struct socket *sock)
->> {
->> 	struct sock *sk = sock->sk;
->>
->> 	// we follow vsock_connect_timeout():
->> 	// TCP_SYN_SENT implies SS_{DIS,}CONNECTING;
->> 	// and we do check sk_shutdown
->> 	//
->> 	// or am I missing something?
->>
->> 	if (sk->sk_state == TCP_SYN_SENT &&
->> 	    sk->sk_shutdown != SHUTDOWN_MASK) {
->> 		sk->sk_state = TCP_CLOSE;
->> 		sock->state = SS_UNCONNECTED;
->> 	}
->> }
->>
->> What do you think?
+Hi Marek
+
+On 10/22/26 14:40, Marek Vasut wrote:
+> Replace current GPIO hog with USB-A connector vbus-supply.
+> This moves the Vbus GPIO into port control, where it can
+> be enabled and disabled by the controller as needed.
 > 
-> I think we could say TCP_SYN_SENT implies SS_{DIS,}CONNECTING, but
-> probably not the reverse... without a peer on the other end our connect
-> request gets an RST reply, switching to TCP_CLOSE but leaving untouched
-> SS_CONNECTING. Using only TCP_SYN_SENT then skips resetting
-> SS_CONNECTING to SS_UNCONNECTED, and future connect() retries hit
-> -EALREADY forever.
-
-Ugh, true. And your double-if approach has it covered.
-
-> It seems to work for vsock_connect_timeout() because that function only
-> needs to test if the attempt to connect is still pending (if yes, then
-> close everything up), but vsock_connect_close() needs to know more
-> precisely if the socket still holds the state that this current connect
-> attempt changed... so it separately checks "Did we set TCP_SYN_SENT? if
-> so, set to TCP_CLOSE.  Did we set SS_CONNECTING?  If so, set to
-> SS_UNCONNECTED."
-
-Right, got it.
-
-> I think it might even make more sense to consolidate in the other
-> direction and make vsock_connect_timeout() a caller of the new
-> vsock_connect_close(), since it appears there is a similar edge case
-> there...
+> Signed-off-by: Marek Vasut <marex@nabladev.com>
+> ---
+> Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>
+> Cc: Christoph Niedermaier <cniedermaier@dh-electronics.com>
+> Cc: Conor Dooley <conor+dt@kernel.org>
+> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+> Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>
+> Cc: Rob Herring <robh@kernel.org>
+> Cc: devicetree@vger.kernel.org
+> Cc: kernel@dh-electronics.com
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-kernel@vger.kernel.org
+> Cc: linux-stm32@st-md-mailman.stormreply.com
+> ---
+>   .../dts/st/stm32mp15xx-dhcom-picoitx.dtsi     | 27 +++++++++----------
+>   1 file changed, 12 insertions(+), 15 deletions(-)
 > 
-> connect(), O_NONBLOCK
->   transport->connect()  /* OP_REQUEST */
->   mod_delayed_work(connect_work)
-> 
-> shutdown(SHUT_RDWR)
->   sock->state = SS_DISCONNECTING
->   sk_shutdown = SHUTDOWN_MASK
-> 
-> vsock_connect_timeout()
->   skips the socket because of SHUTDOWN_MASK
->   /* still TCP_SYN_SENT / SS_DISCONNECTING */
-> 
-> late OP_RESPONSE, virtio_transport_recv_connecting()
->   sk_state = TCP_ESTABLISHED
->   sock->state = SS_CONNECTED
->   vsock_insert_connected()
-> 
-> So the attempt never times out, and a late OP_RESPONSE connects a
-> socket the user already shut down, overwriting SS_DISCONNECTING with
-> SS_CONNECTED. I think that's a separate bug for a separate patch,
-> though.
+> diff --git a/arch/arm/boot/dts/st/stm32mp15xx-dhcom-picoitx.dtsi b/arch/arm/boot/dts/st/stm32mp15xx-dhcom-picoitx.dtsi
+> index 01c693cc03446..7f444bd4c58d3 100644
+> --- a/arch/arm/boot/dts/st/stm32mp15xx-dhcom-picoitx.dtsi
+> +++ b/arch/arm/boot/dts/st/stm32mp15xx-dhcom-picoitx.dtsi
+> @@ -16,6 +16,14 @@ led-0 {
 
-Great, I'm all in favour of consolidation. So in the scenario above,
-invoking vsock_connect_close() on vsock_connect_timeout() (with sk_shutdown
-check dropped) would result in CLOSE/DISCONNECTING, and no more late
-virtio_transport_recv_connecting(), right?
+Applied on stm32-next.
 
->> I guess this approach also addresses "[Severity: Low] What happens if
->> another thread calls shutdown() while a blocking connect() is asleep?". As
->> for "[Severity: Medium] Can a connect() waiter that times out late still
->> abort a newer connect attempt on the same socket?", isn't this the current
->> situation?
->>
-> Yeah, Sashiko is worried that a racing shutdown() breaks reusing the
-> socket, but AFAIK vsock doesn't support reuse after shutdown anyway.
-> Before this patch a second connect() could succeed, but the shutdown
-> flags are never cleared, so sendmsg() still returns -EPIPE and recvmsg()
-> returns 0. With this patch the socket stays SS_DISCONNECTING, so
-> connect() fails with -EINVAL instead.
-
-One more detail: currently a sock that went through a failed connect() can
-still become a listener. A transport-bearing listener, which I don't think
-is good. So, except for the connect+shutdown case, this does not change
-with your patch, right?
-
-> And agreed about the medium issue, the late connect() waiter race is no
-> different than before this patch.
-
-Paolo, is this the "multiple threads connecting/disconnecting the same
-socket concurrently" you were referring to? Yeah, I think there's an
-agreement it's not an issue.
-
-thanks,
-Michal
+regards
+Alex
