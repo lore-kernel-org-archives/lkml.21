@@ -1,91 +1,127 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=44.246.77.92
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.146
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795526138;
-	b=am+fH75Esd9hwVFRa/uiLvsUMhHbTskhYAtJNfcsHfuGMeyg8pPacUJjkVzFGVMEVNjj
-	 JnKarKHrXoa/UAqRdmI1dO/QGtrp5yZWxk4cJTuM1gmo4LTQVCRBW30dY/VLifor6UmCl
-	 pwNF8lVWg99Y/GfPhITefy8yz1jzAEFn3puKerfnBsYXStT3yfQg8m50m/LJ9JwNpTJ3e
-	 Zo6rWV8HMNmy1YpMnQDKXltyDGQsN6BHhhruG7VNzImVY06XZ9JWSCli6/+W43jcY9U6D
-	 5nM19U3hQCv4zYU6uWbnCGe9GLkzuxmYjnjdhMbSnGFQ9UXZv4XggyKLAKz7eNTTFVA==
+	t=1795526152;
+	b=azIPwR9T5vlOjZaNtKY5TNEO2xCM0ROtLll3g0a2lj+3LFHssmqPywVWEeGUVfESz1ww
+	 Yf+VbEB0dxfyan+SazeXGcbUhyLqd7kpSufAwTk7pd8NB/YFi619TyjGS3o3+7KtDl1Gj
+	 UDdCKJrRIR20uXMph63xYcw5H/dImz212kz/OpwG0wFdFIPS/+8xnAmo98Nj319qQrLfO
+	 dUoupMstiRwUtBvgTsSI6xQmGt3sJ5RdxT5mwLPzNrAl0fIbs4PErLD+bR1522foNq32y
+	 oklNOuWhg83MN8amE45dFSzjUbCbTb3EE+F1pMvpidG3mIiQCKb0vlWR0g4lMAslkxg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795526138;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:Received:Received:X-Farcaster-Flow-ID:Received:Received:
-	 From:To:CC:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding:Content-Type:X-Originating-IP:
-	 X-ClientProxiedBy;
-	bh=VgurLvvvr384y9MTeNkWPXzxaojRL6Dxy37I+cewcWs=;
-	b=PWRDijmV85xcExTc9rPKhs96QvsDv05v9j7qvu9EROFoUonuWrOXpviYXPpqW9VIDgUM
-	 YQsSTheCGfbZpjXyFvBAdTpreKssBEUjppN/v596gyWeur6p/YNp1Cpa9ByjJpGs4FcDY
-	 M+Ngf11kx+Kl5mL8vJEzn+iek5DY6K67ZxcKNhmPBsK8k49VhhPQGnbo+42jJs/gIVYt0
-	 l3QFb7xNzUEJLslI808+NXB1PZOWfmJwd8WG8gpVTih68GWM95rVyBOFb+rh8Mru5M2BC
-	 n/3aLFY2eRtLppSF08p0aumAGQnM/aWpVW5xqm//nSUty9jUkdlJ/LhKCa7PCpdVMgw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795526152;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
+	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:Content-Transfer-Encoding:
+	 In-Reply-To;
+	bh=aVamEKjGtmIT7yRnNtNWQ+dI6BoC4j7+bmZgBFsxNNk=;
+	b=p3yA75UJRiBGkEeUzOTE47mQCSRh5EcU/pzqnEFl3MdpzTX4dFO+G17ELpFkXON1JIPU
+	 yyM8I70cJ76V38Q2xulJiMcD8Gw5ccsG7/Fjc3Ve52ZWGgI8/owDp82TBtlwvm9pM//IM
+	 SOeCGcvuD1gOdkZcGO4ZQ4yDN8mNixqBcHzngmLtye1TdP+x837bQSXumitaLdWnKEWaq
+	 tvuXZO2N1g75ykH/4tGFx2ibb3qa7ZADgVi3Brjd4VvIptLBKf/iqPxcNBbshT9lGndL+
+	 V44cS0erfcKMbYe2wdXaQVzJyRsiuNSFr+oBlZgf2y9nQj5NLNCOo2fXi50HQW66HLQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=amazon.com;
-	spf=pass smtp.mailfrom=amazon.com;
-	dkim=pass header.d=amazon.com header.i=@amazon.com header.a=rsa-sha256 header.s=amazoncorp2 header.b=n7O8C2wN;
-	arc=none smtp.remote-ip=44.246.77.92
-Received: from pdx-out-004.esa.us-west-2.outbound.mail-perimeter.amazon.com (pdx-out-004.esa.us-west-2.outbound.mail-perimeter.amazon.com [44.246.77.92])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=ragnatech.se;
+	spf=pass smtp.mailfrom=ragnatech.se;
+	dkim=pass header.d=ragnatech.se header.i=@ragnatech.se header.a=rsa-sha256 header.s=fm2 header.b=dEzkMMUv;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b="w/aZyZqk";
+	arc=none smtp.remote-ip=103.168.172.146
+Received: from fout-a3-smtp.messagingengine.com (fout-a3-smtp.messagingengine.com [103.168.172.146])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8E696606A321
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:15:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8E696606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amazon.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=amazon.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BAD04606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:15:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BAD04606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ragnatech.se
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ragnatech.se
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=amazon.com header.i=@amazon.com header.a=rsa-sha256 header.s=amazoncorp2 header.b=n7O8C2wN
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
-  t=1795526137; x=1827062137;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=VgurLvvvr384y9MTeNkWPXzxaojRL6Dxy37I+cewcWs=;
-  b=n7O8C2wN1hP7Wl87h6X/k50ff0f9H6aWy7QhGa6KsfMYV4g63v4YPyET
-   Hg/+kuOlG8eHBrkNcfyH1BzlLWIuo8aI9Ejd+0vzztNo1Uemzgi5GaW63
-   jCe/lGbdlVpsEoi6agxF4hNSyZlU2k+ezU0ijrXwwpb6Nv/p0q6y4Lvus
-   LP4P+JOaMomUSOuzgxzKhBACshYioKA8dDdb1PvLKms8WTYqNqwKXVxzG
-   YbjlxrmW/PvpUjpbBcRfh8V97tqDghJSrg7BYqaejrfmbzZ0dqo3rlOIX
-   PZyKG/zHbkorAjd0gTOwNkPzheO/CQmzfnudmqcekQToE7x91EUny5sv5
-   A==;
-X-CSE-ConnectionGUID: kRW0/GftRmmhwwxUhQIPtg==
-X-CSE-MsgGUID: +akRYXerQSiy5hQixpRXGQ==
-X-IronPort-AV: E=Sophos;i="6.27,230,1787011200"; 
-   d="scan'208";a="34958837"
-Received: from ip-10-5-12-219.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.12.219])
-  by internal-pdx-out-004.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 13:15:28 +0000
-Received: from EX19MTAUWC001.ant.amazon.com [205.251.233.53:9651]
- by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.27.99:2525] with esmtp (Farcaster)
- id e3a81d02-342e-46b8-bf3e-664c775bc11f; Tue, 24 Nov 2026 13:15:28 +0000 (UTC)
-X-Farcaster-Flow-ID: e3a81d02-342e-46b8-bf3e-664c775bc11f
-Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
- EX19MTAUWC001.ant.amazon.com (10.250.64.174) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.57;
- Tue, 24 Nov 2026 13:15:27 +0000
-Received: from dev-dsk-farbere-1a-46ecabed.eu-west-1.amazon.com
- (172.19.116.181) by EX19D001UWA001.ant.amazon.com (10.13.138.214) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.57; Tue, 24 Nov 2026
- 13:15:24 +0000
-From: Eliav Farber <farbere@amazon.com>
-To: Andrew Morton <akpm@linux-foundation.org>, David Hildenbrand
-	<david@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Zi Yan
-	<ziy@nvidia.com>
-CC: Lorenzo Stoakes <ljs@kernel.org>, "Liam R. Howlett" <liam@infradead.org>,
-	Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>, "Suren
- Baghdasaryan" <surenb@google.com>, Michal Hocko <mhocko@suse.com>, Jann Horn
-	<jannh@google.com>, Pedro Falcato <pfalcato@suse.de>, Baolin Wang
-	<baolin.wang@linux.alibaba.com>, Nico Pache <nico.pache@linux.dev>, "Ryan
- Roberts" <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, Barry Song
-	<baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>, Usama Arif
-	<usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>,
-	<linux-mm@kvack.org>, <linux-kernel@vger.kernel.org>, Eliav Farber
-	<farbere@amazon.com>
-Subject: [PATCH v3 3/5] mm: add vmf_insert_pfn_order()
-Date: Tue, 24 Nov 2026 13:15:08 +0000
-Message-ID: <20261124131510.38745-4-farbere@amazon.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261124131510.38745-1-farbere@amazon.com>
-References: <20261124131510.38745-1-farbere@amazon.com>
+	dkim=pass (2048-bit key, unprotected) header.d=ragnatech.se header.i=@ragnatech.se header.a=rsa-sha256 header.s=fm2 header.b=dEzkMMUv;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=w/aZyZqk
+Received: from phl-compute-02.internal (phl-compute-02.internal [10.202.2.42])
+	by mailfout.phl.internal (Postfix) with ESMTP id D23D0EC0AB7
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 08:15:50 -0500 (EST)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-02.internal (MEProxy); Tue, 24 Nov 2026 08:15:50 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ragnatech.se; h=
+	cc:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1795526150;
+	 x=1795612550; bh=aVamEKjGtmIT7yRnNtNWQ+dI6BoC4j7+bmZgBFsxNNk=; b=
+	dEzkMMUvWGGyRHwuCbQkHNfx38zG4ZZmADvTzy5Eep7HWf8lmHCKH+Sc/rkPrFgV
+	AaAep+uYc9GKB+1PXNRgDDDWbAp7Ze2EubZj3sxDwUHAU2INmiMO0GH4iv5Hg/xI
+	Ax775a/7q0h+paZZpjN2XnF+N4rHxuBMKkgeWtwyLJtQ+crZ+VNQ1B7fdan7WW1S
+	2fcLRdgvmbU2peJzf+Tues5cY1dZYcQFJseKE5DrBnERKFgFOCW9HNzXM5rJGBBV
+	pXLOQKQDKUvcpW0p8Pi7UVDkVUovQf0w09SM+YmRnDr2amzD+O6gu5z+QFIRhHEk
+	jscDYK0xevZcTKWNIfaCYQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795526150; x=
+	1795612550; bh=aVamEKjGtmIT7yRnNtNWQ+dI6BoC4j7+bmZgBFsxNNk=; b=w
+	/aZyZqk/YSDlUpGg3fT/Tsp5bfjM5BW/56SQBVHfZJr6+GH84FmA5yXTOeUyNgLq
+	7SqUvi4wF1ANpmqDvLEorH1lWhghumc5PJ/aIG3QZDra5GsH5CpRVFLNP48JfEss
+	OArnb7OZLCBQVkpzHXYztV0KknGHKmoLReQQ9LrC5YnpRVQVec3W/pVO/IpfOET6
+	8Y1S2vBrbwQDIPe1C2Qd6bHReKRKkRtvAJHjqqbmtCqK51P3QFeAVJOyRj9s0wwh
+	+f7Xs7Aia4dU9JgOcZJReP4Ktdeq+haNmOhnHoVLbxrdY570WsLMRDJo/Cn3iXQP
+	eZmLYEEHREmJnQfreg+tw==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=ragnatech.se a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795526150; d=ragnatech.se;
+	mf=PG5pa2xhcy5zb2Rlcmx1bmRAcmFnbmF0ZWNoLnNlPg==;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm2:rsa-sha256:SavkpqlqGdSiAQ3ktmHr3Ys3naI9eTogSRe3vogDRxPjKDj
+	fRFoWDCoekk3E76mTsds8uZ40g8veIrRFeHTZTL42K9hBDO4CwulScfG348jxFzk
+	F7aCPTpp244fkhI6Gan4+yVL3r5+ugkNoL0jnJ9CD1Wc81yGIUaxbdqxJRh4dRZG
+	e23LQsi6/O/opL4YNMw6m839gB3c9AwlQGDkKdw9wP4yhlwketuXcfNbTp/vVWbT
+	Kgb3U9AS3NBI26NTL+yuC7F/Cm+u2O1yme8x8yiqC6JBEL40ladPt2Brtvbdjcm3
+	Ney40aI0lR10TDYo21HKZ3Q3UMWFbCR/ZXSV4/Q==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=13;
+	hn=cc,content-disposition,content-transfer-encoding,
+	content-type,date,feedback-id,from,in-reply-to,message-id,
+	mime-version,references,subject,to;
+Message-Instance: m=1; h=sha256:JPIzaRU0RPD24xhYpH+g2304YB/5/4rHLN6fQWqHtic=:PUzoxzOICq8kfRbfuyeCkCzvlzYK+hVmRTnMGFTmvOY=;
+X-ME-Sender: <xms:BY4Fa_9nTaOfps3qouT24SWpbZ62UX1wQwEgp3blxhwOmZHMQCPPsw>
+    <xme:BY4Fa8IXGiaZhMp7Q07mJZFkScl5xP-IeC2DExNsFTHVcqNQAFirwEy7-nS2RsHN2
+    cb5iLwltaaDvgcYzNJr-RL3auC4NqqnCtrjx3TYHQPPukCEBXFlWNga>
+X-ME-Received: <xmr:BY4Fa9tlU5Zl8bOXKxPuJqZY3WaXv4ng6_H39oPdUyyPWwX3SllLVcoTkN2aWAzZFDtgp94bODIudB9UPRxyfC6f7Sxi2eg>
+X-ME-Proxy-Cause: dmFkZTFrJFsw3Ege2Uj5arsxtTNJaBTBul296UB2io5A6CESSkqbdfdZ1GFQsUQHkREpe1
+    tUr0V5+X/sjXWyvVC/oBDoc5GHHakUhRY5gLXqhWJDndfRFfmBP1Hakoe+RxT0sRfVNeQU
+    Pnn+hj11+iEBIdbzUGTze5pYm4MuLuvJbovc9cxYQilAmZEPt+hDpyFDZNWa8aYbyCvXzN
+    I2zroZ5OcQ4sl6QkI6LpUTXv3CZtoxiyeEst9EY4RQwBSqsrn040Y1Ob4beFtwtoXWli03
+    mJuuLNqqGYLlD3XDG2Adh+F5tuwCwhrbRgfJhHszuYl1jC5TklIk38yHbG6XmLN1Uz12L1
+    HXnhGdbnuj+/E3fq8UJtZIyMLkoVVrcqJJfoLaiEynHdc+ouoaZh9HICIJQEqvk13lUZ7f
+    MSlJi0VQfZ3n/UTX3k0G7l1I3xA4Xenh4g8AZBTqUmGNFT75Jz0/eJMurT/ywvUaqJwbOU
+    NMk30GrcLcQdVSeLDKhAcKVW0CLeLxEhrWBIkj9yBuKM3SqM9cVtWWlqm8iDBzLhDFANhY
+    Y2pzxznyOb1ldZSsBjJu0XiPLArGlZ++UzIG1252I88r1hHubt/OYKiIivXeiHd/SOOBr4
+    bdKppVkbCPHcbcilaNNDj+astyxCT2sMc929od1G5peZZdcjCXIt7qxzF7oQ
+X-ME-Proxy: <xmx:BY4FazAHtTZekxen4-DcsylcinC_W6p5rw6R7GVHoApyRDPe0JvdCg>
+    <xmx:BY4Fa1Nob6NluIZNkd9UWfyjBATnysvMrvuRimoohDRMsgAQPRLh_A>
+    <xmx:BY4Fa7D-IgUxY042sSi-itT7qExAlQRblxJjTeqybOadaXLLJvH4ig>
+    <xmx:BY4Fa-5oFme7Y5o5Icgr4AClJAQkyYqoIy62-6pWz27vQG7xTTl5-g>
+    <xmx:Bo4Fa5nydV3NY_NNhCG5BuQf6-6ngLctKbAOAOPTj2bA9evkPT0B66yh>
+Feedback-ID: i80c9496c:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
+ 24 Nov 2026 08:15:49 -0500 (EST)
+Date: Tue, 24 Nov 2026 14:15:47 +0100
+From: Niklas =?utf-8?Q?S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>
+To: Yaohan Li <shunsheng1218@gmail.com>
+Cc: "Rafael J . Wysocki" <rafael@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	linux-renesas-soc@vger.kernel.org, linux-pm@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3] thermal: rcar_gen3: register the interrupt handlers
+ after the zones
+Message-ID: <20261124131547.GI3898744@ragnatech.se>
+References: <20261119022926.1493582-1-shunsheng1218@gmail.com>
+ <20261124095110.131258-1-shunsheng1218@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -95,183 +131,428 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: EX19D031UWC004.ant.amazon.com (10.13.139.246) To
- EX19D001UWA001.ant.amazon.com (10.13.138.214)
+In-Reply-To: <20261124095110.131258-1-shunsheng1218@gmail.com>
 
-mm offers a ->huge_fault handler a PUD first, then a PMD, then ->fault
-for a PTE. A VM_PFNMAP handler wanting huge mappings therefore dispatches
-on the order itself, guarding the huge two with
-CONFIG_ARCH_SUPPORTS_{PMD,PUD}_PFNMAP. vfio-pci open-codes that dispatch.
+Hi Yaohan,
 
-Add vmf_insert_pfn_order() to do the dispatch instead.
+This is a very large patch doing lots of different things and needs to 
+be broken up. And I'm concerned about removing the remove() function in 
+favor of devm_add_action_or_reset() design.
 
-It maps a write fault writable at every order, as the huge DAX and DRM
-handlers do; vfio-pci passes false. No order-0 PFNMAP insert took a write
-flag before. vmf_insert_pfn_prot() keeps its signature, with its body
-moved to a static helper that takes the write flag.
+When I suggested altering the probe order I had in mind moving the init 
+order of things to make sure it was cleaned up in the right order not 
+making it depend on devm. Maybe that is not possible, but if this is the 
+only solution it needs to be broke apart in discreet steps that can be 
+reviewed.
 
-/dev/mem and UIO, later in this series, are the first users.
+On 2026-11-24 17:51:10 +0800, Yaohan Li wrote:
+> The interrupt handlers are requested before the thermal zones are
+> registered, and devres releases resources in the reverse order.  That
+> leaves the same object exposed at both ends: during probe the handler
+> exists while part of the sensors and zones are not initialised yet, and
+> during teardown it outlives the zones it reports to.  The handler walks
+> every sensor and calls thermal_zone_device_update() through tsc->zone,
+> which is never cleared when the zone is unregistered.
+> 
+> Fix the order rather than the removal path.  Look the interrupts up
+> first, keep the source masked while the sensors are initialised, and
+> register the handlers only once every zone exists.  A devres action
+> registered after the handlers masks the source again, and the source is
+> enabled last, so the teardown order comes from devres itself: source
+> off, handlers, hwmon, zones, MMIO mappings, runtime PM.  ->remove() has
+> nothing left to do and is gone.
+> 
+> The thermal core copies the zone operations when a zone is registered,
+> so whether set_trips() is available has to be decided before the zones
+> are created.  Registering the handlers last moves that decision after
+> the zones exist, so when the interrupts cannot be requested the zones
+> are released and registered again without set_trips(): the driver keeps
+> the polling configuration it had before instead of failing the probe.
+> The zones are created and dropped once more in that path only.
+> 
+> rcar_gen3_thermal_init() clears REG_GEN3_IRQEN as well.  Nothing but
+> rcar_gen3_thermal_enable_irqs() writes the register again, at the end of
+> the probe and from ->resume(), so a source that the firmware or an
+> earlier bind left enabled does not stay on while the zones are being
+> created.
+> 
+> Check the sensor count before reading the fuses, because the fuse
+> reader dereferences tscs[0].  Return -ENODEV when no sensor resources
+> are present.
+> 
+> Signed-off-by: Yaohan Li <shunsheng1218@gmail.com>
+> 
+> ---
+> Prepared against v7.4-rc1-1969-g666539eecdf4.
+> 
+> Compile tested only: arm64, aarch64-linux-gnu-gcc 11.4,
+> CONFIG_ARCH_RENESAS, CONFIG_ARCH_RCAR_GEN3 and CONFIG_RCAR_GEN3_THERMAL.
+> No board was available, so probe, the polling fallback, resume and
+> teardown were not exercised on hardware, and there was no way to make an
+> interrupt request fail on a real device.
+> 
+> Changes in v3:
+>  - Register the interrupt handlers after the thermal zones and let devres
+>    own the whole teardown, as suggested; ->remove() is gone.
+>  - Look the interrupts up before the zones are registered, because the
+>    thermal core copies the zone operations at registration time.
+>  - Split the sensor initialisation from enabling the interrupt source and
+>    re-enable it from ->resume().
+>  - Clear REG_GEN3_IRQEN in the sensor initialisation, so that the source
+>    stays masked until it is enabled on purpose.
+>  - Keep the polling fallback when the handlers cannot be requested:
+>    release the zones through a devres group and register them again
+>    without set_trips().
+>  - Check for a device without sensors before the fuses are read.
+>  - Drop the has_irqs() helper.
+> 
+> AI assistance: prepared with Claude (Anthropic) as a coding assistant; the
+> author reviewed the reasoning and takes responsibility for the content.
+> ---
+>  drivers/thermal/renesas/rcar_gen3_thermal.c | 197 ++++++++++++++------
+>  1 file changed, 145 insertions(+), 52 deletions(-)
+> 
+> diff --git a/drivers/thermal/renesas/rcar_gen3_thermal.c b/drivers/thermal/renesas/rcar_gen3_thermal.c
+> index 9c64cbc2ee67..7e4d6aa6e5dd 100644
+> --- a/drivers/thermal/renesas/rcar_gen3_thermal.c
+> +++ b/drivers/thermal/renesas/rcar_gen3_thermal.c
+> @@ -103,6 +103,8 @@ struct rcar_gen3_thermal_tsc {
+>  	int thcode[3];
+>  };
+>  
+> +#define RCAR_GEN3_THERMAL_MAX_IRQ	2
+> +
+>  struct rcar_gen3_thermal_priv {
+>  	struct rcar_gen3_thermal_tsc *tscs[TSC_MAX_NUM];
+>  	struct thermal_zone_device_ops ops;
+> @@ -110,6 +112,7 @@ struct rcar_gen3_thermal_priv {
+>  	int ptat[3];
+>  	int tj_t;
+>  	const struct rcar_thermal_info *info;
+> +	int irqs[RCAR_GEN3_THERMAL_MAX_IRQ];
+>  };
+>  
+>  static inline u32 rcar_gen3_thermal_read(struct rcar_gen3_thermal_tsc *tsc,
+> @@ -324,8 +327,7 @@ static bool rcar_gen3_thermal_read_fuses(struct rcar_gen3_thermal_priv *priv)
+>  	return true;
+>  }
+>  
+> -static void rcar_gen3_thermal_init(struct rcar_gen3_thermal_priv *priv,
+> -				   struct rcar_gen3_thermal_tsc *tsc)
+> +static void rcar_gen3_thermal_init(struct rcar_gen3_thermal_tsc *tsc)
+>  {
+>  	u32 reg_val;
+>  
+> @@ -335,11 +337,9 @@ static void rcar_gen3_thermal_init(struct rcar_gen3_thermal_priv *priv,
+>  
+>  	usleep_range(1000, 2000);
+>  
+> +	rcar_gen3_thermal_write(tsc, REG_GEN3_IRQEN, 0);
+>  	rcar_gen3_thermal_write(tsc, REG_GEN3_IRQCTL, 0);
+>  	rcar_gen3_thermal_write(tsc, REG_GEN3_IRQMSK, 0);
+> -	if (priv->ops.set_trips)
+> -		rcar_gen3_thermal_write(tsc, REG_GEN3_IRQEN,
+> -					IRQ_TEMPD1 | IRQ_TEMP2);
+>  
+>  	reg_val = rcar_gen3_thermal_read(tsc, REG_GEN3_THCTR);
+>  	reg_val |= THCTR_THSST;
+> @@ -466,9 +466,9 @@ static const struct of_device_id rcar_gen3_thermal_dt_ids[] = {
+>  };
+>  MODULE_DEVICE_TABLE(of, rcar_gen3_thermal_dt_ids);
+>  
+> -static void rcar_gen3_thermal_remove(struct platform_device *pdev)
+> +static void rcar_gen3_thermal_pm_put(void *data)
+>  {
+> -	struct device *dev = &pdev->dev;
+> +	struct device *dev = data;
+>  
+>  	pm_runtime_put(dev);
+>  	pm_runtime_disable(dev);
+> @@ -481,25 +481,66 @@ static void rcar_gen3_hwmon_action(void *data)
+>  	thermal_remove_hwmon_sysfs(zone);
+>  }
+>  
+> -static int rcar_gen3_thermal_request_irqs(struct rcar_gen3_thermal_priv *priv,
+> -					  struct platform_device *pdev)
+> +static int rcar_gen3_thermal_register_zones(struct rcar_gen3_thermal_priv *priv,
+> +					    struct device *dev)
+>  {
+> -	struct device *dev = &pdev->dev;
+>  	unsigned int i;
+> -	char *irqname;
+> -	int ret, irq;
+> +	int ret;
+> +
+> +	for (i = 0; i < priv->num_tscs; i++) {
+> +		struct rcar_gen3_thermal_tsc *tsc = priv->tscs[i];
+> +		struct thermal_zone_device *zone;
+>  
+> -	for (i = 0; i < 2; i++) {
+> +		zone = devm_thermal_of_zone_register(dev, i, tsc, &priv->ops);
+> +		if (IS_ERR(zone)) {
+> +			dev_err(dev, "Sensor %u: Can't register thermal zone\n", i);
+> +			return PTR_ERR(zone);
+> +		}
+> +		tsc->zone = zone;
+> +
+> +		ret = thermal_add_hwmon_sysfs(zone);
+> +		if (ret)
+> +			return ret;
+> +
+> +		ret = devm_add_action_or_reset(dev, rcar_gen3_hwmon_action, zone);
+> +		if (ret)
+> +			return ret;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int rcar_gen3_thermal_get_irqs(struct rcar_gen3_thermal_priv *priv,
+> +				      struct platform_device *pdev)
+> +{
+> +	unsigned int i;
+> +	int irq;
+> +
+> +	for (i = 0; i < RCAR_GEN3_THERMAL_MAX_IRQ; i++) {
+>  		irq = platform_get_irq_optional(pdev, i);
+>  		if (irq < 0)
+>  			return irq;
+>  
+> +		priv->irqs[i] = irq;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int rcar_gen3_thermal_request_irqs(struct rcar_gen3_thermal_priv *priv,
+> +					  struct device *dev)
+> +{
+> +	unsigned int i;
+> +	char *irqname;
+> +	int ret;
+> +
+> +	for (i = 0; i < RCAR_GEN3_THERMAL_MAX_IRQ; i++) {
+>  		irqname = devm_kasprintf(dev, GFP_KERNEL, "%s:ch%d",
+>  					 dev_name(dev), i);
+>  		if (!irqname)
+>  			return -ENOMEM;
+>  
+> -		ret = devm_request_threaded_irq(dev, irq, NULL,
+> +		ret = devm_request_threaded_irq(dev, priv->irqs[i], NULL,
+>  						rcar_gen3_thermal_irq,
+>  						IRQF_ONESHOT, irqname, priv);
+>  		if (ret)
+> @@ -509,14 +550,34 @@ static int rcar_gen3_thermal_request_irqs(struct rcar_gen3_thermal_priv *priv,
+>  	return 0;
+>  }
+>  
+> +static void rcar_gen3_thermal_enable_irqs(struct rcar_gen3_thermal_priv *priv)
+> +{
+> +	unsigned int i;
+> +
+> +	for (i = 0; i < priv->num_tscs; i++)
+> +		rcar_gen3_thermal_write(priv->tscs[i], REG_GEN3_IRQEN,
+> +					IRQ_TEMPD1 | IRQ_TEMP2);
+> +}
+> +
+> +static void rcar_gen3_thermal_disable_irqs(void *data)
+> +{
+> +	struct rcar_gen3_thermal_priv *priv = data;
+> +	unsigned int i;
+> +
+> +	for (i = 0; i < priv->num_tscs; i++) {
+> +		rcar_gen3_thermal_write(priv->tscs[i], REG_GEN3_IRQEN, 0);
+> +		rcar_gen3_thermal_write(priv->tscs[i], REG_GEN3_IRQMSK, 0);
+> +	}
+> +}
+> +
+>  static int rcar_gen3_thermal_probe(struct platform_device *pdev)
+>  {
+>  	struct rcar_gen3_thermal_priv *priv;
+>  	struct device *dev = &pdev->dev;
+>  	struct resource *res;
+> -	struct thermal_zone_device *zone;
+>  	unsigned int i;
+>  	int ret;
+> +	void *group;
+>  
+>  	priv = devm_kzalloc_obj(dev, *priv);
+>  	if (!priv)
+> @@ -525,14 +586,25 @@ static int rcar_gen3_thermal_probe(struct platform_device *pdev)
+>  	priv->ops = rcar_gen3_tz_of_ops;
+>  
+>  	priv->info = of_device_get_match_data(dev);
+> +
+>  	platform_set_drvdata(pdev, priv);
+>  
+> -	if (rcar_gen3_thermal_request_irqs(priv, pdev))
+> +	/*
+> +	 * The interrupts are looked up here but their handlers are registered
+> +	 * only once the thermal zones exist.  The thermal core copies the zone
+> +	 * operations when a zone is registered, so whether set_trips() is
+> +	 * available has to be decided before the zones are created.
+> +	 */
+> +	if (rcar_gen3_thermal_get_irqs(priv, pdev))
+>  		priv->ops.set_trips = NULL;
+>  
+>  	pm_runtime_enable(dev);
+>  	pm_runtime_get_sync(dev);
+>  
+> +	ret = devm_add_action_or_reset(dev, rcar_gen3_thermal_pm_put, dev);
+> +	if (ret)
+> +		return ret;
+> +
+>  	for (i = 0; i < TSC_MAX_NUM; i++) {
+>  		struct rcar_gen3_thermal_tsc *tsc;
+>  
+> @@ -541,22 +613,20 @@ static int rcar_gen3_thermal_probe(struct platform_device *pdev)
+>  			break;
+>  
+>  		tsc = devm_kzalloc_obj(dev, *tsc);
+> -		if (!tsc) {
+> -			ret = -ENOMEM;
+> -			goto error_unregister;
+> -		}
+> +		if (!tsc)
+> +			return -ENOMEM;
+>  
+>  		tsc->priv = priv;
+>  		tsc->base = devm_ioremap_resource(dev, res);
+> -		if (IS_ERR(tsc->base)) {
+> -			ret = PTR_ERR(tsc->base);
+> -			goto error_unregister;
+> -		}
+> +		if (IS_ERR(tsc->base))
+> +			return PTR_ERR(tsc->base);
+>  
+>  		priv->tscs[i] = tsc;
+>  	}
+>  
+>  	priv->num_tscs = i;
+> +	if (!priv->num_tscs)
+> +		return -ENODEV;
+>  
+>  	if (!rcar_gen3_thermal_read_fuses(priv))
+>  		dev_info(dev, "No calibration values fused, fallback to driver values\n");
+> @@ -564,40 +634,64 @@ static int rcar_gen3_thermal_probe(struct platform_device *pdev)
+>  	rcar_gen3_thermal_shared_coefs(priv);
+>  
+>  	for (i = 0; i < priv->num_tscs; i++) {
+> -		struct rcar_gen3_thermal_tsc *tsc = priv->tscs[i];
+> +		rcar_gen3_thermal_init(priv->tscs[i]);
+> +		rcar_gen3_thermal_tsc_coefs(priv, priv->tscs[i]);
+> +	}
+>  
+> -		rcar_gen3_thermal_init(priv, tsc);
+> -		rcar_gen3_thermal_tsc_coefs(priv, tsc);
+> +register_zones:
+> +	group = devres_open_group(dev, NULL, GFP_KERNEL);
+> +	if (!group)
+> +		return -ENOMEM;
+>  
+> -		zone = devm_thermal_of_zone_register(dev, i, tsc, &priv->ops);
+> -		if (IS_ERR(zone)) {
+> -			dev_err(dev, "Sensor %u: Can't register thermal zone\n", i);
+> -			ret = PTR_ERR(zone);
+> -			goto error_unregister;
+> +	ret = rcar_gen3_thermal_register_zones(priv, dev);
+> +	if (ret)
+> +		goto release_group;
+> +
+> +	/*
+> +	 * Handlers last and the source enabled after them, so devres runs the
+> +	 * teardown in the opposite order: source off, handlers, hwmon, zones,
+> +	 * MMIO mappings, runtime PM.
+> +	 */
+> +	if (priv->ops.set_trips) {
+> +		ret = rcar_gen3_thermal_request_irqs(priv, dev);
+> +		if (ret) {
+> +			dev_info(dev, "Failed to request interrupts (%d), polling instead\n",
+> +				 ret);
+> +
+> +			/*
+> +			 * The thermal core copies the zone operations when a
+> +			 * zone is registered, so the zones above cannot be
+> +			 * switched to polling afterwards.  Release them and
+> +			 * register them again without set_trips().
+> +			 */
+> +			devres_release_group(dev, group);
+> +
+> +			for (i = 0; i < priv->num_tscs; i++)
+> +				priv->tscs[i]->zone = NULL;
+> +
+> +			rcar_gen3_thermal_disable_irqs(priv);
+> +			priv->ops.set_trips = NULL;
+> +			goto register_zones;
+>  		}
+> -		tsc->zone = zone;
+>  
+> -		ret = thermal_add_hwmon_sysfs(tsc->zone);
+> +		ret = devm_add_action_or_reset(dev,
+> +					       rcar_gen3_thermal_disable_irqs,
+> +					       priv);
+>  		if (ret)
+> -			goto error_unregister;
+> +			goto release_group;
+>  
+> -		ret = devm_add_action_or_reset(dev, rcar_gen3_hwmon_action, zone);
+> -		if (ret)
+> -			goto error_unregister;
+> -
+> -		dev_info(dev, "Sensor %u: Loaded\n", i);
+> +		rcar_gen3_thermal_enable_irqs(priv);
+>  	}
+>  
+> -	if (!priv->num_tscs) {
+> -		ret = -ENODEV;
+> -		goto error_unregister;
+> -	}
+> +	devres_remove_group(dev, group);
+>  
+> -	return 0;
+> +	for (i = 0; i < priv->num_tscs; i++)
+> +		dev_info(dev, "Sensor %u: Loaded\n", i);
+>  
+> -error_unregister:
+> -	rcar_gen3_thermal_remove(pdev);
+> +	return 0;
+>  
+> +release_group:
+> +	devres_release_group(dev, group);
+>  	return ret;
+>  }
+>  
+> @@ -606,11 +700,11 @@ static int rcar_gen3_thermal_resume(struct device *dev)
+>  	struct rcar_gen3_thermal_priv *priv = dev_get_drvdata(dev);
+>  	unsigned int i;
+>  
+> -	for (i = 0; i < priv->num_tscs; i++) {
+> -		struct rcar_gen3_thermal_tsc *tsc = priv->tscs[i];
+> +	for (i = 0; i < priv->num_tscs; i++)
+> +		rcar_gen3_thermal_init(priv->tscs[i]);
+>  
+> -		rcar_gen3_thermal_init(priv, tsc);
+> -	}
+> +	if (priv->ops.set_trips)
+> +		rcar_gen3_thermal_enable_irqs(priv);
+>  
+>  	return 0;
+>  }
+> @@ -625,7 +719,6 @@ static struct platform_driver rcar_gen3_thermal_driver = {
+>  		.of_match_table = rcar_gen3_thermal_dt_ids,
+>  	},
+>  	.probe		= rcar_gen3_thermal_probe,
+> -	.remove		= rcar_gen3_thermal_remove,
+>  };
+>  module_platform_driver(rcar_gen3_thermal_driver);
+>  
+> -- 
+> 2.34.1
+> 
 
-Signed-off-by: Eliav Farber <farbere@amazon.com>
----
-
-Changes in v3:
-- Dropped vmf_pfn_order_ok(). Patch 2 checks the window and the pfn now,
-  so this helper only dispatches on the order.
-
-Changes in v2:
-- Pass the write flag at order 0 too. An ->access caller that does not
-  retry the fault was left with a read-only pte.
-- vmf_insert_pfn_prot() keeps its signature; its body moved to a static
-  helper that takes the flag.
-- Dropped the claim that uffd-wp can write-protect such a mapping.
-
- include/linux/mm.h |   2 +
- mm/memory.c        | 102 ++++++++++++++++++++++++++++++++++-----------
- 2 files changed, 80 insertions(+), 24 deletions(-)
-
-diff --git a/include/linux/mm.h b/include/linux/mm.h
-index cab58a403a3d..263689ded155 100644
---- a/include/linux/mm.h
-+++ b/include/linux/mm.h
-@@ -5069,6 +5069,8 @@ vm_fault_t vmf_insert_mixed(struct vm_area_struct *vma, unsigned long addr,
- 			unsigned long pfn);
- vm_fault_t vmf_insert_mixed_mkwrite(struct vm_area_struct *vma,
- 		unsigned long addr, unsigned long pfn);
-+vm_fault_t vmf_insert_pfn_order(struct vm_fault *vmf, unsigned long pfn,
-+				unsigned int order);
- int vm_iomap_memory(struct vm_area_struct *vma, phys_addr_t start, unsigned long len);
- 
- static inline vm_fault_t vmf_insert_page(struct vm_area_struct *vma,
-diff --git a/mm/memory.c b/mm/memory.c
-index 3d5706f8a7bf..7deff9c18acb 100644
---- a/mm/memory.c
-+++ b/mm/memory.c
-@@ -2931,6 +2931,36 @@ static vm_fault_t insert_pfn(struct vm_area_struct *vma, unsigned long addr,
- 	return VM_FAULT_NOPAGE;
- }
- 
-+static vm_fault_t __vmf_insert_pfn_prot(struct vm_area_struct *vma,
-+					unsigned long addr, unsigned long pfn,
-+					pgprot_t pgprot, bool mkwrite)
-+{
-+	/*
-+	 * Technically, architectures with pte_special can avoid all these
-+	 * restrictions (same for remap_pfn_range).  However we would like
-+	 * consistency in testing and feature parity among all, so we should
-+	 * try to keep these invariants in place for everybody.
-+	 */
-+	BUG_ON(!(vma->vm_flags & (VM_PFNMAP|VM_MIXEDMAP)));
-+	BUG_ON((vma->vm_flags & (VM_PFNMAP|VM_MIXEDMAP)) ==
-+						(VM_PFNMAP|VM_MIXEDMAP));
-+	BUG_ON((vma->vm_flags & VM_PFNMAP) && vma_is_cow_mapping(vma));
-+	BUG_ON((vma->vm_flags & VM_MIXEDMAP) && pfn_valid(pfn));
-+
-+	if (unlikely(is_zero_pfn(pfn)))
-+		return VM_FAULT_SIGBUS;
-+
-+	if (addr < vma->vm_start || addr >= vma->vm_end)
-+		return VM_FAULT_SIGBUS;
-+
-+	if (!pfn_modify_allowed(pfn, pgprot))
-+		return VM_FAULT_SIGBUS;
-+
-+	pfnmap_setup_cachemode_pfn(pfn, &pgprot);
-+
-+	return insert_pfn(vma, addr, pfn, pgprot, mkwrite);
-+}
-+
- /**
-  * vmf_insert_pfn_prot - insert single pfn into user vma with specified pgprot
-  * @vma: user vma to map to
-@@ -2967,30 +2997,7 @@ static vm_fault_t insert_pfn(struct vm_area_struct *vma, unsigned long addr,
- vm_fault_t vmf_insert_pfn_prot(struct vm_area_struct *vma, unsigned long addr,
- 			unsigned long pfn, pgprot_t pgprot)
- {
--	/*
--	 * Technically, architectures with pte_special can avoid all these
--	 * restrictions (same for remap_pfn_range).  However we would like
--	 * consistency in testing and feature parity among all, so we should
--	 * try to keep these invariants in place for everybody.
--	 */
--	BUG_ON(!(vma->vm_flags & (VM_PFNMAP|VM_MIXEDMAP)));
--	BUG_ON((vma->vm_flags & (VM_PFNMAP|VM_MIXEDMAP)) ==
--						(VM_PFNMAP|VM_MIXEDMAP));
--	BUG_ON((vma->vm_flags & VM_PFNMAP) && vma_is_cow_mapping(vma));
--	BUG_ON((vma->vm_flags & VM_MIXEDMAP) && pfn_valid(pfn));
--
--	if (unlikely(is_zero_pfn(pfn)))
--		return VM_FAULT_SIGBUS;
--
--	if (addr < vma->vm_start || addr >= vma->vm_end)
--		return VM_FAULT_SIGBUS;
--
--	if (!pfn_modify_allowed(pfn, pgprot))
--		return VM_FAULT_SIGBUS;
--
--	pfnmap_setup_cachemode_pfn(pfn, &pgprot);
--
--	return insert_pfn(vma, addr, pfn, pgprot, false);
-+	return __vmf_insert_pfn_prot(vma, addr, pfn, pgprot, false);
- }
- EXPORT_SYMBOL(vmf_insert_pfn_prot);
- 
-@@ -3021,6 +3028,53 @@ vm_fault_t vmf_insert_pfn(struct vm_area_struct *vma, unsigned long addr,
- }
- EXPORT_SYMBOL(vmf_insert_pfn);
- 
-+/**
-+ * vmf_insert_pfn_order - insert a pfn mapping at a given fault order
-+ * @vmf: The fault being handled.
-+ * @pfn: The pfn to map at the start of the order-aligned fault window.
-+ * @order: The fault order, as passed to ->huge_fault (0 for ->fault).
-+ *
-+ * For ->fault and ->huge_fault handlers of VM_PFNMAP mappings, which must not
-+ * be COW. Maps @pfn with a PTE, PMD or PUD as @order and the architecture
-+ * allow. A write fault is mapped writable, so the first write does not call
-+ * ->pfn_mkwrite.
-+ *
-+ * Return: vm_fault_t value; %VM_FAULT_FALLBACK if the fault cannot be mapped
-+ * at @order, so that it is retried at a smaller order. @order 0 never returns
-+ * %VM_FAULT_FALLBACK.
-+ */
-+vm_fault_t vmf_insert_pfn_order(struct vm_fault *vmf, unsigned long pfn,
-+				unsigned int order)
-+{
-+	struct vm_area_struct *vma = vmf->vma;
-+	bool write = vmf->flags & FAULT_FLAG_WRITE;
-+
-+	/*
-+	 * Pass write at order 0 too: vm_page_prot is read-only while soft-dirty
-+	 * is armed, and .access has no second fault to upgrade the pte.
-+	 */
-+	if (!order)
-+		return __vmf_insert_pfn_prot(vma, vmf->address, pfn,
-+					     vma->vm_page_prot, write);
-+
-+	/* vmf_insert_pfn_pmd() rejects the huge zero pfn; order 0 does not */
-+	if (is_huge_zero_pfn(pfn))
-+		return VM_FAULT_FALLBACK;
-+
-+	/* vmf_insert_pfn_pmd() and vmf_insert_pfn_pud() do not check L1TF */
-+	if (!pfn_modify_allowed(pfn, vma->vm_page_prot))
-+		return VM_FAULT_FALLBACK;
-+
-+	if (IS_ENABLED(CONFIG_ARCH_SUPPORTS_PMD_PFNMAP) && order == PMD_ORDER)
-+		return vmf_insert_pfn_pmd(vmf, pfn, write);
-+
-+	if (IS_ENABLED(CONFIG_ARCH_SUPPORTS_PUD_PFNMAP) && order == PUD_ORDER)
-+		return vmf_insert_pfn_pud(vmf, pfn, write);
-+
-+	return VM_FAULT_FALLBACK;
-+}
-+EXPORT_SYMBOL_GPL(vmf_insert_pfn_order);
-+
- static bool vm_mixed_ok(struct vm_area_struct *vma, unsigned long pfn,
- 			bool mkwrite)
- {
 -- 
-2.47.3
-
+Kind Regards,
+Niklas Söderlund
