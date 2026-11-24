@@ -1,81 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=68.232.154.123
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.11
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795517839;
-	b=cpZXtG/FUu/JzvC+k22IhLkckdv+wMgDp1+Vtndx56Ctoqj/uYOEpKulfuYFrz5Z2WKa
-	 51TCe67JZfn/1f6WIA2uyIvE+SWZoBY5gETR4tfzIu2SBCad+ZbOplDnrF4Iidcnmertv
-	 cmbGEuhQHSr9GdIy0EcC/OwtuDtMsmQORaNBQpK4/8qNICQEq1sWwpcZPBZVq/67WiTY4
-	 IOsx4pFYgYDtQPgrH4ZrMR1VS5YpX/BPGb53tLMsiHfmJ9gz3lHuThIBkUhLm0bmApnAF
-	 dPDX2ESdSZ53IdhRgZAyu186qRhmQyQ7kRitO7bCRvnAEf8GTHXDWHyhfLbW298Pp3w==
+	t=1795517842;
+	b=3WvuJIEzeeM0t5WzCU9P0dzuAsZBru1sbmkchJtLl3fvUDIssEcOiH/6fGVLcuz6+yAv
+	 wNaZoIvKK6hTN537BpaCicrMitt5vV1qACMBJqF3PhVFbxT9RZE/YkhAE5dbKSWho/N/w
+	 oABCwFc9em17+3tHEy80rISTNFBX+F0jskLvVBoObwy6l1gpJWStU4ZAbiSa5dg8o1bVA
+	 MOqw0xRMQzv/xNG78ZgG0gcvF0p2BBaLZvWPqnHpnGBVG8wxgyVzjhWizmRyvhR2NeoWT
+	 DxH2xHSQvQaxjhuhBVPmzdYTJkxHW/s3Eg6yyhYqRWE71zJuJGCvIJGMQEiScrFoq0Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795517839;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795517842;
 	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-Amp-Result:Received:Received:Received:Date:From:To:CC:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
 	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To;
-	bh=bdUTdf9dDgBjwg07WL55Ogde5gI6LPVoDQfRnrqmUtk=;
-	b=QVggoMgRAIVJLtubuLDY1RxOO2g1ydbduQZgi1dloLpHSbfiX49fZ9czRQ57Mp0T1Zau
-	 KR/69frQzv9DdKmTYPdU9dvLbxdqRigrpjwnMbaIql1u5vk26TRX4iJZmNc28KwDHDysW
-	 to3yv8YuCvcONYtZcK0GN/0sofewT7nGT0JzxqPTpFrTJRYMSaZX4AWRab+8TmkmRed8/
-	 QnhcQUMyyJDRDk6tUtfptNBk1wy0Na1nojJuMb+Zacqv6uDr7wogrZFL0pw80w5jWXFxW
-	 QrSFr/dtR6+v6WwSjYLeQC1GRKMyoUu86PCTU8/G54IxbBB3fYEQ4TzPUJdJZQKbBVQ==
+	 Content-Disposition:In-Reply-To:Organization;
+	bh=P+PcCsm4vdxJHSzNKZZLeBWvXuD+SwiVLNGAujPZtS8=;
+	b=ze+EhDQIsWxL4QL9LCKVkW6ExnCovGmY9YJLXRFUWYZZ+PY7AVAKN8SDRLaUmAh7QbDY
+	 HbzkSgsvDF4LJObkNmJH8FG4U8UcXQupjFPHy8oj7++Z0hL+crx2NFSIZdqfe0iYt1GD3
+	 GNBGIclfbfWL8CGlbxJxo/hGPWhOuELzZYCCbvUVH6u/lh4uagjOgMKHNhWbqVy6zKcDe
+	 p+7Ed/vPuV71sZIkNJVHSRJV9i86PNYOHsZc9Nh/JydDuWsVWjuSOGdvaHq7+5W4U+piU
+	 HjJ7CKv4QdnGa85xUdhxU9Db9XWo0vTbJkFWrWEpnqJggYFcfJMRiXaLMaks3qshHvA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=microchip.com;
-	spf=pass smtp.mailfrom=microchip.com;
-	dkim=pass header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=CVxxf0ge;
-	arc=none smtp.remote-ip=68.232.154.123
-Received: from esa.microchip.iphmx.com (esa.microchip.iphmx.com [68.232.154.123])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=CNElQOQg;
+	arc=none smtp.remote-ip=198.175.65.11
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.11])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3ABD9606A31E;
-	Tue, 24 Nov 2026 10:57:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3ABD9606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=microchip.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=microchip.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DA4BD606A331;
+	Tue, 24 Nov 2026 10:57:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DA4BD606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=CVxxf0ge
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=CNElQOQg
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1795517839; x=1827053839;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795517841; x=1827053841;
   h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=l071rGFlMII7tXc4PoX3isJvA0LZxydeqW53eKRfYjU=;
-  b=CVxxf0geB8Zt9B4Hlh66MfOVGkFzAg35exQ4xtmkt5q1zhOgw2DHknET
-   BTGRIcpIAwzp2W3ifRkDlx33xghDmMhzmMT9VKFxlKiPZBkST9r0UVjj6
-   3OwiuXnl5z9nky7OVoe9uGKWth4pi+9XCYT6wbvs62qYEh6UcESI2Pe/V
-   5P1rrrI8rwLAxqEFXnkLt/OAHaGHvnm+cAATjOOwGvekCc+hdpZQK5jUf
-   DFTNviuDYMVJHhsPoZ74Q7pQ+5RIuY6wl22Kc3+3ZnBnZzxWuw/YOGxAB
-   L8cip1j54sfpMf/+IWzcdd8qrSqcXwsaioOyBs2QoqStlKocVKlc8vClR
-   A==;
-X-CSE-ConnectionGUID: hXAbyUf2Tf2cH5n/PB8PbA==
-X-CSE-MsgGUID: TskSu2hHRfiYPfY7zteBXg==
+   mime-version:in-reply-to;
+  bh=IWUdh6wlCG1cIm2uLZBl4Op6usA9RcU9a8mRfnfZlxc=;
+  b=CNElQOQg1S5JKpgqozx6LR1SgoXBrcrUvBnmcwUEu8kFjUtuI3w9paHY
+   RLYCF6KjGQhyAb8+pCsdZOkRZiBy/CexacomLtW3erjqE3Ogl3n2HWUPd
+   Fp5Oem2dB1Wmy2oBKrVum2LeVJ9GiHfl7Gyxrkn5ONLcXkU/HGeb5WjuZ
+   DdqzgP/3MrQYLNU/BXiNtxUKPsBfWXyYDUMguNS3xg6Rb+Xgn8csUiEKy
+   Eyb0qnyD4L1oS2J8ejynVxkiv3sR4zecDiA0EaU3E+mbnGN0ZEWBpG5Ho
+   cWcHpMWEzFdjwAAPlr27PcfUUt2j9Hlq7JJJQWTFFCQFLrNdEtjXQe91x
+   g==;
+X-CSE-ConnectionGUID: /B51pEUVSZOVx0VUiNhq/w==
+X-CSE-MsgGUID: ekzgqh8uQSWW/Av+Tt2Aaw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11975"; a="4243746"
 X-IronPort-AV: E=Sophos;i="6.27,230,1787036400"; 
-   d="scan'208";a="67206544"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 24 Nov 2026 03:57:18 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Tue, 24 Nov 2026 03:57:17 -0700
-Received: from DEN-DL-M70577 (10.10.85.11) by chn-vm-ex04.mchp-main.com
- (10.10.85.152) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
- Transport; Tue, 24 Nov 2026 03:57:14 -0700
-Date: Tue, 24 Nov 2026 11:57:14 +0100
-From: Daniel Machon <daniel.machon@microchip.com>
-To: <netdev-bot+sashiko@kernel.org>
-CC: <andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@kernel.org>,
-	<kuba@kernel.org>, <pabeni@redhat.com>, <Steen.Hegelund@microchip.com>,
-	<UNGLinuxDriver@microchip.com>, <richardcochran@gmail.com>,
-	<linux@armlinux.org.uk>, <netdev@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<robert.marko@sartura.hr>, <horatiu.vultur@microchip.com>,
-	<jensemil.schulzostergaard@microchip.com>, <horms@kernel.org>
-Subject: Re: [PATCH net-next v3 2/9] net: sparx5/lan969x: free the FDMA
- buffers on init errors and deinit
-Message-ID: <20261124105714.fi22ofd5ll56kjj4@DEN-DL-M70577>
-References: <20261120-sparx5-mtu-change-v3-2-55c272fe1acc@microchip.com>
- <179544589378.3135.12983025959243801234@kernel.org>
+   d="scan'208";a="4243746"
+Received: from fmviesa013.fm.intel.com ([10.60.135.153])
+  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 01:45:41 -0800
+X-CSE-ConnectionGUID: L3TgT/dfRTOWYVaaU1eO1A==
+X-CSE-MsgGUID: fZTIEnI4R86sg3+P4xOS2w==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,230,1787036400"; 
+   d="scan'208";a="13525408"
+Received: from hrotuna-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.245.125])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 01:45:38 -0800
+Date: Tue, 24 Nov 2026 11:45:35 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Rupesh Majhi <zoone.rupert@gmail.com>
+Cc: Andy Shevchenko <andy@kernel.org>,
+	Antoniu Miclaus <antoniu.miclaus@analog.com>,
+	David Lechner <dlechner@baylibre.com>,
+	Eddie James <eajames@linux.ibm.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Lucas Stankus <lucas.p.stankus@gmail.com>,
+	Marcelo Schmitt <marcelo.schmitt@analog.com>,
+	Michael Hennerich <Michael.Hennerich@analog.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Petre Rodan <petre.rodan@subdimension.ro>, linux@analog.com,
+	linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/6] iio: debugfs register access through regmap in the
+ core
+Message-ID: <awVcvw3gtg3jNEgY@ashevche-desk.local>
+References: <20261124065016.185124-1-zoone.rupert@gmail.com>
+ <awVPu-reXnQHbr9y@ashevche-desk.local>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -85,239 +89,36 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <179544589378.3135.12983025959243801234@kernel.org>
+In-Reply-To: <awVPu-reXnQHbr9y@ashevche-desk.local>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 
-> Thank you for your contribution! Sashiko AI review found 2 potential
-> issue(s) to consider.
+On Tue, Nov 24, 2026 at 10:50:03AM +0200, Andy Shevchenko wrote:
+> On Tue, Nov 24, 2026 at 08:50:10AM +0200, Rupesh Majhi wrote:
+> > More than 25 IIO drivers have a debugfs_reg_access callback that is
+> > only a regmap_read() or regmap_write() on the regmap of the parent
+> > device. Patch 1 adds a core helper for that, patches 2 to 5 use it in
+> > four drivers and patch 6 adds register access to dps310 with it. The
+> > other drivers can follow in batches if the helper is wanted.
+> > 
+> > The helper finds the regmap with dev_get_regmap() on the parent, so it
+> > only fits drivers with one regmap there. Existing callbacks that take a
+> > lock or claim direct mode around the access are left alone.
 > 
-> Critical: 0 · High: 0 (1) · Medium: 1 · Low: 1
+> Nice! But I think we want a bit more to do to prepare for this change.
+> I was triggered by regmap.h include in IIO core.
 > 
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
-> 
-> - [Medium] At this commit, lan969x_fdma_rx_get_frame()
->   (drivers/net/ethernet/microchip/sparx5/lan969x/lan969x_fdma.c) reads…
-> - [Low] This patch fixes several real bugs but has no Fixes: tag: -
->   Sparx5 RX skbs leak on every deinit, and the RX DCBs leak when TX…
-> 
-> Pre-existing issues:
-> - [High] This problem wasn't introduced by this patch, but both NAPI
->   pollers ignore fdma_dcb_add() failures when re-arming consumed RX…
-> 
-> --
-> 
-> net: sparx5/lan969x: free the FDMA buffers on init errors and deinit
-> 
-> This patch adds sparx5_fdma_rx_free(), lan969x_fdma_rx_free() and
-> lan969x_fdma_tx_free(), and calls them on the init error paths and on
-> deinit, so the RX skbs/pages, page_pool, DCBs and in-flight TX buffers
-> are released. It also checks the fdma_dcbs_init() return value for RX.
-> It stores the mapped TX length in struct sparx5_tx_buf instead of reading
-> it from the skb.
-> 
-> > diff --git a/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x_fdma.c b/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x_fdma.c
-> > index fd532c89f9110..5f96910df5383 100644
-> > --- a/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x_fdma.c
-> > +++ b/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x_fdma.c
-> > @@ -67,13 +67,13 @@ static void lan969x_fdma_tx_clear_buf(struct sparx5 *sparx5, int weight)
-> >  		if (!fdma_db_is_done(fdma_db_get(fdma, i, 0)))
-> >  			continue;
-> >
-> > -		db->dev->stats.tx_bytes += db->skb->len;
-> > +		db->dev->stats.tx_bytes += db->len;
-> >  		db->dev->stats.tx_packets++;
-> >  		sparx5->tx.packets++;
-> >
-> >  		dma_unmap_single(sparx5->dev,
-> >  				 db->dma_addr,
-> > -				 db->skb->len,
-> > +				 db->len,
-> >  				 DMA_TO_DEVICE);
-> 
-> [Severity: Low]
-> Should this patch carry Fixes: tags?
-> 
-> Before this change, lan969x_fdma_tx_clear_buf() read db->skb->len for
-> two-step PTP skbs in the normal TX completion path. Those skbs stay on
-> port->tx_skbs, and lan969x_ptp_irq_handler() can free them before NAPI
-> reaps the TX descriptor:
-> 
-> lan969x_ptp_irq_handler() {
->     ...
-> 			__skb_unlink(skb, &port->tx_skbs);
-> 			skb_match = skb;
->     ...
-> 		dev_kfree_skb_any(skb_match);
->     ...
-> }
-> 
-> The PTP timeout purge can free them the same way. That makes the old read
-> a use-after-free, and dma_unmap_single() could be given the wrong size.
-> 
-> The commit message explains the switch to db->len. It doesn't say that
-> this fixes a use-after-free at runtime, and the subject only mentions init
-> errors and deinit.
-> 
-> The other fixes here also have no Fixes: reference:
-> 
-> - the Sparx5 RX skb leak on deinit
-> - the lan969x page_pool, TX DCB, tx->dbs and in-flight skb leaks
-> - the put of never-allocated pages after a partial RX fill
-> 
-> Without the tags, stable trees that ship lan969x FDMA probably won't pick
-> up the use-after-free fix. Would it make sense to split the lan969x and
-> Sparx5 fixes, since they go back to different commits, and tag each one?
-> 
-> > @@ -90,12 +90,26 @@ static void lan969x_fdma_free_pages(struct sparx5_rx *rx)
-> >  	struct fdma *fdma = &rx->fdma;
-> >
-> >  	for (int i = 0; i < fdma->n_dcbs; ++i) {
-> > -		for (int j = 0; j < fdma->n_dbs; ++j)
-> > +		for (int j = 0; j < fdma->n_dbs; ++j) {
-> > +			if (!rx->page[i][j])
-> > +				continue;
-> > +
-> >  			page_pool_put_full_page(rx->page_pool,
-> >  						rx->page[i][j], false);
-> > +			rx->page[i][j] = NULL;
-> > +		}
-> >  	}
-> >  }
-> 
-> [Severity: Medium]
-> Can this still put a page the driver no longer owns?
-> 
-> At this commit, lan969x_fdma_rx_get_frame() reads the slot but never
-> clears it:
-> 
-> lan969x_fdma_rx_get_frame() {
->     ...
-> 	page = rx->page[fdma->dcb_index][fdma->db_index];
-> 
-> 	sparx5_ifh_parse(sparx5, page_address(page), &fi);
->     ...
-> }
-> 
-> The page then goes to the stack through build_skb() and
-> skb_mark_for_recycle(), or back to the pool through
-> page_pool_recycle_direct().
-> 
-> The slot is only overwritten when lan969x_fdma_rx_dataptr_cb() succeeds:
-> 
-> 	page = page_pool_dev_alloc_pages(rx->page_pool);
-> 	if (unlikely(!page))
-> 		return -ENOMEM;
-> 
-> 	rx->page[dcb][db] = page;
-> 
-> lan969x_fdma_napi_poll() ignores the fdma_dcb_add() return value during
-> refill. So if that allocation fails, the slot keeps pointing at the
-> consumed page.
-> 
-> On teardown, lan969x_fdma_deinit()->lan969x_fdma_rx_free()->
-> lan969x_fdma_free_pages() sees a non-NULL slot, and the new NULL check
-> doesn't skip it. Wouldn't page_pool_put_full_page() then put that page a
-> second time?
-> 
-> The Sparx5 half of this patch clears rx->skb[][] in
-> sparx5_fdma_rx_get_frame(), but lan969x gets no matching change. The NULL
-> check therefore can't tell owned slots from stale ones.
-> 
-> This looks to be fixed later in the series by "net: sparx5/lan969x: add
-> support for resizing the FDMA buffers". That patch adds
-> rx->page[fdma->dcb_index][fdma->db_index] = NULL in
-> lan969x_fdma_rx_get_frame(). Could that change move into this patch so
-> the commit works on its own?
+> I can see the first patch in the series to split debugfs bits into
+> industrialio-debugfs.c first, and then your first patch builds on
+> top of that.
 
-This needs a failed RX refill first, which is the pre-existing refill issue
-flagged on this patch, where the lan969x RX ring already stalls.  It is also
-only reachable on deinit. Also, the issue go away with patch 6.
+I just sent one separately, feel free to include into your v2.
+20261124094502.557175-1-andriy.shevchenko@linux.intel.com
 
-> 
-> [ ... ]
-> 
-> > @@ -172,14 +186,18 @@ static int lan969x_fdma_rx_alloc(struct sparx5 *sparx5)
-> >  		return PTR_ERR(rx->page_pool);
-> >
-> >  	err = fdma_alloc_coherent(sparx5->dev, fdma);
-> > -	if (err)
-> > +	if (err) {
-> > +		page_pool_destroy(rx->page_pool);
-> >  		return err;
-> > +	}
-> >
-> > -	fdma_dcbs_init(fdma,
-> > -		       FDMA_DCB_INFO_DATAL(fdma->db_size),
-> > -		       FDMA_DCB_STATUS_INTR);
-> > +	err = fdma_dcbs_init(fdma,
-> > +			     FDMA_DCB_INFO_DATAL(fdma->db_size),
-> > +			     FDMA_DCB_STATUS_INTR);
-> > +	if (err)
-> > +		lan969x_fdma_rx_free(sparx5);
-> >
-> > -	return 0;
-> > +	return err;
-> >  }
-> 
-> [Severity: High]
-> This isn't a bug introduced by this patch, but the same RX buffer
-> allocation failure is now handled at init and is still ignored at runtime.
-> Can RX stall for good when the NAPI refill fails?
-> 
-> Both pollers ignore the fdma_dcb_add() return value when they re-arm
-> consumed RX DCBs:
-> 
-> lan969x_fdma_napi_poll() {
->     ...
-> 		fdma_dcb_add(fdma,
-> 			     old_dcb,
-> 			     FDMA_DCB_INFO_DATAL(fdma->db_size),
-> 			     FDMA_DCB_STATUS_INTR);
->     ...
-> }
-> 
-> sparx5_fdma_napi_callback() {
->     ...
-> 		fdma_dcb_add(fdma, fdma->dcb_index,
-> 			     FDMA_DCB_INFO_DATAL(fdma->db_size),
-> 			     FDMA_DCB_STATUS_INTR);
->     ...
-> }
-> 
-> In fdma_api.c, __fdma_db_add() writes the status, with DONE cleared,
-> before it calls the dataptr callback:
-> 
-> 	db->status = cpu_to_le64(status);
-> 
-> 	err = cb(fdma, dcb_idx, db_idx, &dataptr);
-> 	if (unlikely(err))
-> 		return err;
-> 
-> The callback can fail in two places:
-> 
-> - __netdev_alloc_skb(..., GFP_ATOMIC) in sparx5_fdma_rx_dataptr_cb()
-> - page_pool_dev_alloc_pages() in lan969x_fdma_rx_dataptr_cb()
-> 
-> When it fails, __fdma_dcb_add() returns early. dcb->nextptr/info are not
-> written, the previous DCB is not linked to it, and fdma->last_dcb stays
-> the same. The next successful refill links last_dcb to the following DCB,
-> so the hardware chain skips the failed one.
-> 
-> The software index fdma->dcb_index still walks the ring in order. Once it
-> wraps to the failed DCB, db 0 has DONE clear and the hardware never fills
-> it. After that, fdma_has_frames() (lan969x) and fdma_db_is_done() in
-> sparx5_fdma_rx_get_frame() return false on every poll.
-> 
-> Wouldn't FDMA extraction to the CPU then stop until the driver is
-> reloaded? This is still the case at the end of the series.
-> 
-> Generated by Claude Code Patch Reviewer
-> 
-> -- 
-> Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261120-sparx5-mtu-change-v3-0-55c272fe1acc%40microchip.com
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
