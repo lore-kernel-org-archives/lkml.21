@@ -1,102 +1,164 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.219.51
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.103.20.0
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795479292;
-	b=wgisDG1/Jniz8NbzpQAA+YCnNqfchcOFKaEhy8NAJcNciz6wINlOVLNcCOsUgVKvNTRS
-	 TzaUSJuNjyIZ4qWjtt8xfecaPho/o+kbYRmQdPs1GtpcAhgvqZJSbL7KhdUOM9tIz8lge
-	 yF3n/SATLKm9jhNdMkSN9jmrHV2oq5W+nA16yCK4Bhi0ssIlPb5onjmkpeQhvZdHUxImj
-	 7H/Sl3tpFRzKYlPjOE55pLeozrCdIwlIoTxujwAdZnQz1RVacUao6zn+Q74a4YjEKkv44
-	 BKizCDMN6gAezAS2W8Bu3ZVAU3rqjsvZjw0YWT5/t/Fxr2qTy0CDOxJADXuSYEUuZ2A==
+	t=1795479378;
+	b=KBAXoAToE3WrxApnelgGFU9KdsaYyrEafzES+j2qPCmNgkapRxO7TL6RzKdsvLcHVhnj
+	 zKGADWe4j+7AvTBEoUDK2Mxbfwojnr/yGqXsetQi/3CdbJtPOuU3YeAThyUXKh+Jfw3Dd
+	 1OWT7itdKb/mh/M/Hrq/gclpu4cTamRi1k7nGje4FDQsDjK20L1xAR2y+tYiLxPgWWl/k
+	 V2vH2gpXccHc1/w3ORVunuzgESdbFTOenfxzNcneuof2fsutYbKguGjiEfa0P7AJ/+bX6
+	 GVmhfGNxsrjodREk7r7vM18+PceBAyfyPhZkFHLGdZfgEv572zgWkoUzelXGGS9tmjA==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795479292;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=6XVZ2NiwhlknfYaEdDrlA5ehy0/PYDAe60GW8QDF+Jg=;
-	b=BQizbgKVqlMSAOfBRq1A6ltd4/xICZPfSE98yHwdY/J8RuC131uiUEm1JnICU/DD6WhJ
-	 +OdlVIpF6rQ+NLothV+xoBJC7btqMT4AQZYZAFpXJyxlTUlVVVOoAR81gE/ucdeXQp2pY
-	 1WILCpnRWUDegtltjv2mDx/QOmojx5NJJk2biVVdNmyvk3JiGjiP4uU9flfUF3dOC0R2g
-	 qRa8FLyaADOVDf9pbObpnWJL9Tv27PYw0I3HoT4fO7lZJTX4o36Gq4LYv6JwqW4WT3t61
-	 TAybPnE8r56V1GihUj+NpxV5E9HyTbRMzyazihDeWU6NYSxzkvGsrCyr4vVQ1EjQpGA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795479378;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:CC:Subject:
+	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
+	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
+	 x-ms-publictraffictype:x-ms-traffictypediagnostic:
+	 x-ms-office365-filtering-correlation-id:
+	 x-ms-exchange-slblob-mailprops:x-microsoft-antispam:
+	 x-microsoft-antispam-message-info:
+	 x-ms-exchange-antispam-messagedata-chunkcount:
+	 x-ms-exchange-antispam-messagedata-0:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
+	 X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-originalarrivaltime:
+	 X-MS-Exchange-CrossTenant-fromentityheader:
+	 X-MS-Exchange-CrossTenant-id:
+	 X-MS-Exchange-CrossTenant-rms-persistedconsumerorg:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=XyWHdxxVdQeM4D7+Pa4KBCToryah7k6xe1AyxGV2ZCc=;
+	b=JttsVi8FDys8yUfKJDfNQG1iZncbZG3Fe4ENKcU5dpy2CScJImWVSSg96ZRscfZOcJDS
+	 tVzYl6P5ZDbDN9kO7Fb1DlmcbucR9XCIiWKgTQfrzi2OCD7LqGJHes6+N2S9fA9wKZhwc
+	 9ACT6Kk8d/knWKEvNa93+HR3MlegenlyVzlhEjt0nSpxYPVvTwpVjC8S3xIolQXw5F0Ov
+	 gnkJ6uHBfLDCTHG51RbhDEzvG6tZ5nNodPgqFuRQ182VmGScJeK5O8xT5atIKLr9jHPyl
+	 6cXNfk245tsW6N6aRjBqV3YQW+AJ/8u5VyLpeOONe3acats3rQkEsADJH417V4uZm2w==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=stellman-greene.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=stellman-greene-com.20260707.gappssmtp.com header.i=@stellman-greene-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=A4QlAUdg;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.219.51
-Received: from mail-qv1-f51.google.com (mail-qv1-f51.google.com [209.85.219.51])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=outlook.com;
+	spf=pass smtp.mailfrom=outlook.com;
+	dkim=pass header.d=outlook.com header.i=@outlook.com header.a=rsa-sha256 header.s=selector1 header.b="mV/bpM58";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.103.20.0
+Received: from CH1PR05CU001.outbound.protection.outlook.com (mail-northcentralusazolkn19010000.outbound.protection.outlook.com [52.103.20.0])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D5719606A321
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 00:14:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D5719606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=stellman-greene.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E2CA2606A31E;
+	Tue, 24 Nov 2026 00:16:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E2CA2606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=outlook.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=outlook.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=stellman-greene-com.20260707.gappssmtp.com header.i=@stellman-greene-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=A4QlAUdg
-Received: by mail-qv1-f51.google.com with SMTP id 6a1803df08f44-92130d3ee15so40256996d6.3
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 16:14:51 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795479291; cv=none;
-        d=google.com; s=arc-20260327;
-        b=dW0X+J6n8TTLhcur6FuQNBsAqGYnLo7Kyp3GCPJb0y6/9JmL+FIDdZLg6OO0nwzZht
-         Jk5yEXSXCuEHByNZmJP6+2JDVsho/S+2y+iH+EdXW095m8ZfbW+0b9S2YQ/KLZZ7lld9
-         8C4QixAknXMyBZhcxtWfGfs1AgE1KAAx+dzBedHXaGCXGNyiuZ5zp29uk2iUYaBJZEhF
-         8PcI/odqyXIaV2tGk4x/fxGqemvWOEqojEdHoBvDL1jQKnDqAuAYCJpRgupTUOTU0rW7
-         hAFuslzySlrc99a0LLMjJftoXIybQMb5MBc9PNOKDczZ+98qHYA4eQYgvcBngdGgMLl1
-         jQMQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=6XVZ2NiwhlknfYaEdDrlA5ehy0/PYDAe60GW8QDF+Jg=;
-        fh=TqCqUOLdG3eOZF+uuJjhaavct1Na1xeispnxB+skh1U=;
-        b=ie7v8Ob1aF0ypSv3V06WZCwlzA+aFq7BBCOpQr3fH1sN32Oc0l2vaGWpSIiBxKsdD+
-         Ckf1O9tiogqJJeQMEw1bkSPnwwGHput4llzYsDY6z8GaQBt6HGQ2WRyMPyXzX+9R7461
-         gHGMtKHkqdIMd6G3FCREauVw0LBYlmAIt6wRmLZqEM21TgdBexnV6+1Vfs9L8TAOCQLM
-         eBwRdllQFV9BCjcDmzg+9wq1H3qwoRu/EvWETsh7SqvcFJ2LQU3T0KddAL8PMCOY05Og
-         ntlSSTSi5nEMuU7mBxIfus8rGYo8Zq7qG77KTuVRwaAY2P6BkR7Krlw22cbg+8PB8c8z
-         6BAg==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=stellman-greene-com.20260707.gappssmtp.com; s=20260707; t=1795479291; x=1796084091; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=6XVZ2NiwhlknfYaEdDrlA5ehy0/PYDAe60GW8QDF+Jg=;
-        b=A4QlAUdgzcP4QQMusPEGIU7gYufXHiTJ8so/+IqtSIsFx9qdWKy+wWPDSyd2xBim7O
-         em9Hzsbp4eF2QgZ4E/ZOCukj+tpJjX+cmpgVdlWHIUjhj1jAlb1OeGkCeyVNS4DDCAX/
-         BYFeDw8AXnCxqpICZ+V6oLllWqiAs5S/z5inSGFNlLzh11DcYuyxugkaJJCXppU809jS
-         Eva34bxzf2Ia5lO7ZiS8JMaQuPY3f6nhf4Vcby57ik8Usmh4IlaDvHJ9FU5rTZ4sczsN
-         C37xoJWsTpyn/8InYUPjfzMV3kamioT6+DwmuyZ0CLYB8W4zZfAq5/uvoamQOrjYcfV4
-         c0Wg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795479291; x=1796084091;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=6XVZ2NiwhlknfYaEdDrlA5ehy0/PYDAe60GW8QDF+Jg=;
-        b=Oqp+iwxxcf56tGC44cIXOiaXkntWCWCKO83yMGizHZ+KxoKmoOQ6PvSfr8AxzeoJgc
-         vFkb13phnYrvLQ8wwOf5ywnET4rtm5U6sLRSBowNzwg0QI5601zluNl1rJQ+Szq2VHgD
-         j0KWpMPD4ay18JdYY77pJ4zPEz8IuUKOLbak/i3ln05MLfG5mLpuW34W67j2qSdk8r/X
-         scGVMr9Yii5hLaFqIhwdPciKq51dQrvywGouSzy2k5TmVBNt239WGygqZKVhS8G+fYkD
-         OnDvB1iXB4Qbg70Rgg6d3Sjohn2bXDtFl6pJQZefSoGajESs6WhfPX55lmOntEKuLxET
-         G9ug==
-X-Forwarded-Encrypted: i=1; AL+hErHMLX9ybgrrLZiF4/PDfEPjVd0gd0eUPTp9hSnOCZEgvqCwt58T5EFFHcHbtaMDcJfYvCQL8nI5DfpYLoo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9yYXy5+5EtlYXx5bu89Py2bBu9JSyxpKYW8SVELIUhJo5EUjQO
-	ucggOJmUdw7ZsdtgKm3Iym6o+YSlUJx/DkANLqkH85RN0bcI854Cf+iySSkxsLQQPinhzJcrA6z
-	2ixQVJONtqYUb64+vi/Zt9vEl/hJe4Xw=
-X-Gm-Gg: AZFdTZfCQbraSpx7JrYATnEccoic3zFTz7OzObrn813WspP262OGFtamrP5PxWHJ1o3
-	7ZoJpMTG+P/7rHT6A0gA422riun/WuNnK5q58wFNY/oQJL3Gp+n2qd9cI7iz+h7XZrTDWaAMq06
-	GhxiSGia2grgDNIWy12VHfHRhgXy+AdFjFPFcfs/4KUtEr9v6AfjjcPk67va5xh+dFbdyD5OhNJ
-	W2fb1jPEM6DBpf07M6/PaL11mcHlGjDAgxV1eYvvVMD9pZAdlIHRFaBJ2JnOYMQwbZLRsx3rBo0
-	+7Dfwn8Vn/AfGy52tF986wOUZoUqcf5fNVy0WdUizUZ0V5cOJq3JAqroQar7W7vckV71gAtuQ+C
-	SoTcOrL7xEmfKl1oQEkxNzM8ollN59aGiBiA96Q8UF2vkAcJJfmmQs0o9c9d72uay3fHgkxmcyQ
-	7b8SzJQ93I/BXtIe7NV9l0Ey18po712uaWM4GDl1Azc0qP8wpywX4K8eCqZ3r/kdVvyvauE+593
-	PrJaw4vMIFTWzPF/A==
-X-Received: by 2002:a05:6214:85d4:10b0:921:2397:15c0 with SMTP id
- 6a1803df08f44-92134aae88amr174798896d6.9.1795479290741; Mon, 23 Nov 2026
- 16:14:50 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=outlook.com header.i=@outlook.com header.a=rsa-sha256 header.s=selector1 header.b=mV/bpM58
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Qov2kfOGL4ZK7fDtBA6tV4+kZM2lo9MvK7S1tkPz2LsLPF+ccUI3UfyE3SvTaIxRN6NcNo/lFGwX6bTsdKxKKJQD3HgHc5hMW7NuYwR95auk7MPg7Xg2QX/SWCoNwtY331SksDBXc47ldRkJEPuHsbPwx/iuDI5dc1SkPuTbE/3GrlBvfEtAdox2sk2dOVrAYhIJXEbILK80OP3wiLpvWk2MwBTKfYv1VKyChMyn06PINbtrDjBoWYrD1SVLyj0Axd8pCz3RZ1QGkcfRRakETIg8hpgG1RKauxo7aRRmSg/PZ5IrTI1fccQNGpd8k0zir6H/EKywNRaybfNrDxhKwA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=XyWHdxxVdQeM4D7+Pa4KBCToryah7k6xe1AyxGV2ZCc=;
+ b=QBjelbnfw61LFaLbETegZupD2dMomawdtP7zb9D9jACu4FlxnBdTaWXAwU2phsd0XaG1Fa0ZJ/lNb3vx6FxahsfHyzKV9d7JXoced1zyOYw8RYFEVk7IV1JjJ50h8gQiB1/EyWkTqA3hTHwGKDeUKrgFDR55t4I7iezMNl7ZzXXCP0Cq/WAOPYkpEPAIg5PEFC305+ztzx3e2W+uIqUin3CIJ4nv5NBHB2m6PgQWl13J2+AWdIKnSH2Bwuh2lDXh5encN2t+j5VGWLY6OWhq6jo0kJ8mWFZ2K2d0C/CoBNnaTfsIwYX3HKDZx3MdIqltsI6cVRo7/PsRiNEzqtx2nw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=XyWHdxxVdQeM4D7+Pa4KBCToryah7k6xe1AyxGV2ZCc=;
+ b=mV/bpM58lt05m/QteVF0bABnggZR3+evnw23C2iImYT5D9EJ/1WRopWun9wkuqUmaWx6mM6apno7x3MTbuDNLmle7HgYSd2vbqQmshQVD/jEdxAl93neSPhLVWoGVZLSwnM0fj6O/jYSeYJk/u3O/9CVlqi19GZUgdzG2UuV4fW7SgCQ8RprbS7zjrG1q3g0dFN3+fj8K1ZNbpRCQgcZQscMJG5Z5wqJGq4DMyYaz/v+YWQGyvf/vjXvkdyxrlGb8JE3ZQpLWr2HLx6OnrNioLD9UR1dUdCdjM4lFI1c5dPmfllD3DqwiAQnetm5qpFUzbcgrJCwzFKk0k1EvfF8ng==
+Received: from MN2PR02MB6863.namprd02.prod.outlook.com (2603:10b6:208:1d7::20)
+ by IA4PR02MB349042.namprd02.prod.outlook.com (2603:10b6:207:108::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Tue, 24 Nov
+ 2026 00:16:15 +0000
+Received: from MN2PR02MB6863.namprd02.prod.outlook.com
+ ([fe80::da67:fd0f:d96d:ac53]) by MN2PR02MB6863.namprd02.prod.outlook.com
+ ([fe80::da67:fd0f:d96d:ac53%4]) with mapi id 15.21.0639.012; Tue, 24 Nov 2026
+ 00:16:15 +0000
+From: Michael Kelley <mhklinux@outlook.com>
+To: Naman Jain <namjain@linux.microsoft.com>, "haiyangz@microsoft.com"
+	<haiyangz@microsoft.com>, "wei.liu@kernel.org" <wei.liu@kernel.org>,
+	"decui@microsoft.com" <decui@microsoft.com>, "tglx@kernel.org"
+	<tglx@kernel.org>, "mingo@redhat.com" <mingo@redhat.com>, "bp@alien8.de"
+	<bp@alien8.de>, "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
+	"x86@kernel.org" <x86@kernel.org>, "luto@kernel.org" <luto@kernel.org>,
+	"peterz@infradead.org" <peterz@infradead.org>
+CC: "hpa@zytor.com" <hpa@zytor.com>, "riel@surriel.com" <riel@surriel.com>,
+	"bigeasy@linutronix.de" <bigeasy@linutronix.de>, "zhouchuyi@bytedance.com"
+	<zhouchuyi@bytedance.com>, "houwenlong.hwl@antgroup.com"
+	<houwenlong.hwl@antgroup.com>, "qq570070308@gmail.com"
+	<qq570070308@gmail.com>, "bastien.curutchet@bootlin.com"
+	<bastien.curutchet@bootlin.com>, "dianders@chromium.org"
+	<dianders@chromium.org>, "jgross@suse.com" <jgross@suse.com>,
+	"hawk@kernel.org" <hawk@kernel.org>, "linux-hyperv@vger.kernel.org"
+	<linux-hyperv@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: RE: [PATCH v2 2/5] x86/tlb: Make the conditional flush predicate
+ reusable
+Thread-Topic: [PATCH v2 2/5] x86/tlb: Make the conditional flush predicate
+ reusable
+Thread-Index: AQHddnQzkd+wmIinp0iD8tjoCXhsg7c8ZR+A
+Date: Tue, 24 Nov 2026 00:16:15 +0000
+Message-ID:
+ <MN2PR02MB6863198AC15E17474598EF23D4442@MN2PR02MB6863.namprd02.prod.outlook.com>
+References: <20261117091507.2088642-1-namjain@linux.microsoft.com>
+ <20261117091507.2088642-3-namjain@linux.microsoft.com>
+In-Reply-To: <20261117091507.2088642-3-namjain@linux.microsoft.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: MN2PR02MB6863:EE_|IA4PR02MB349042:EE_
+x-ms-office365-filtering-correlation-id: 55cdee34-6993-41c6-5b60-08df49c0275a
+x-ms-exchange-slblob-mailprops:
+ znQPCv1HvwUXBahuwteIkQeW30lJPuxObkrM6g+zZ+Vfub++oX56v+PPbNec+L63/WSFecL5PbLlQ0QqjurNYaT2RvOC+I58hxUtyQ34Sc7TnChVkmYLgM1F4WIr0t0DCfgcuawP0WiYAb4A3EFFaDYcv96OMzHE7km5Fo/ec1DyvzYTJaAavrFCQ8bRg5NeZ0LJdEUrKgao9PE/FnjeIWi6AfKuq2amUGhfCFS2y5rpXkbexRoWELu/bz++8Fgd2pSK+4rS7u4umGYiUcJhuwGB6xjaWW9ojaifAvKxELWybkYeT+2q0jpJ87wORoSQhuqq2GRd8j7llRN9gwM/r7Hl5W34KIk5SIXtnC9kin826F/f6mJayEGYMjZI6KCocLfejoXcRQ45EvrA6yv2N01lhNnSUP2E/7DG+MWFM8J9bpBHCbc1N/UdrOV1ZREVF1t8JChYRCdwzu9vj0zWNjyXVI61qVIgK/FBspzUajxzmFhQzFan5t/Cd+1j8cnQBV0uyy6DbkBWodwq2vobJIcYO9SOU65rj7x//0s09ioDeVfTY0mD3OQntKAmWbi48uFW50lbVxwMOKDjY16IZJuXNggHYKyAksRYmH/U2tyRbTm47+mOxhcWRm2P2og3PF7qNYhD25mytHwqfEs7pQRSzjgEQs+EJB5APT6XYgAb+UyrZbiXE2aPom/qXwLtEiVMVqCTERJFXJG+0Hro0HLX77TtlZRALslLapJrSMksg7WJZWc44tNzD0F2hpQIVsNL2y7+0SU=
+x-microsoft-antispam:
+ BCL:0;ARA:14566002|24021099003|55001999006|13091999003|25010399006|51005399006|15080799012|41001999006|8062599012|8060799015|19110799012|37011999003|31061999003|40105399003|102099032|3412199025|440099028;
+x-microsoft-antispam-message-info:
+ =?us-ascii?Q?S+6u5q8IzI0qb3kSDhnJwSftn4wG/DwmcbcqTbhCxDDxrQP+/PMU4Y/3z3ZL?=
+ =?us-ascii?Q?FDQ+5j+CeIXkdLVpa4jPg9FqK0qiihmJ2IXsaXLo/Ky5Odg99ydloj/YtTnH?=
+ =?us-ascii?Q?53wdZoQnF7tTRot5/MH4P3hqRl9ZNZJqDersebeg+ejEJtZjibtzk7SZaxiu?=
+ =?us-ascii?Q?TubHeee8wCYeuk/U+D92CGNGKMSsRG89m5HuElGgZjwz4A49ykayy/pxL5y9?=
+ =?us-ascii?Q?K6aAhrvti7EfsnyTs3sXlLLe5seCtr0xx/gh4XlTgTIOZnlGi/idA/zfdZsL?=
+ =?us-ascii?Q?RLoVJszBv2croBzeo/OfeXPQO8xnoIbrrqb4pVBPaOXBerM2d4lgJ/W3K9fD?=
+ =?us-ascii?Q?bJozJlEJBn+r6fDvS6Mtte5iqEcphqaYAsAHbljI8f5qIi3Xh1McW9BgEWYa?=
+ =?us-ascii?Q?HEAXzFkgB2p22SMaoY7h83+cKmQ2zNt8tRlXPEhrjVb3zgldci6Z+JqvI7+J?=
+ =?us-ascii?Q?2QMshRLvIW2fINHobsuvsUhBW5jDfX3llV2w1KDWO/lXPjhsnYLxbe9ax57A?=
+ =?us-ascii?Q?UXsgQQgA5vO4jmSRBMquKZZ1kHu8S6/32wKl8sGED5dQ6R+wdw85MIKO34A8?=
+ =?us-ascii?Q?aBYjYby3YPvPNnEMAvYH2Becsb4RVKklPzCUgtOIUWRCBjBqnk80Q2fRuDtA?=
+ =?us-ascii?Q?2wabzH7SXZBOuoiAmkQSAAY6aeDObi2uB16CTjdXHM6OhAzoj25nA2cKrQEM?=
+ =?us-ascii?Q?SqQJW0EqjL2mjvykg2yCYHaacgV7LOtAHs+PQTJPcbAzRWbd0U1q2Xzglmki?=
+ =?us-ascii?Q?h/eypNTMRgoj5IYK0OlaJQtAzdoh3KVhf68Mo9Lw+701xOheBz7vSc0Js404?=
+ =?us-ascii?Q?1qVxk8gjvkes3b8O5BakBuIcol7JXvNF3Hl9Pj7vxbAbZzNLMB3yI1pNxezQ?=
+ =?us-ascii?Q?klEGjsMTLI/JatbwHhNNd9dpN2fvC5BdyyUz4B7bxFOqmkSYWxcf3foI90Pw?=
+ =?us-ascii?Q?LsaTrkbOVgMw7TElOx+qjmcz9T2mHE9BibfqkPmwRFVcIswzOF2Glm9XgKjs?=
+ =?us-ascii?Q?2tpFYKaithB4j1CxCAFb65GtORZc/Qs68EroZBWbTARClW191Y+Des7VmOHW?=
+ =?us-ascii?Q?GGmfwBn0?=
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:
+ =?us-ascii?Q?MBBFK1tzHHhg7Yv6gQy2hGf9rv7EdszKPVCKZUg6ud3W52+5jJBo/t0AEIOY?=
+ =?us-ascii?Q?yHWH8ll0AIRo4Gj8R2vdGqkd1qtGdklMFAJE7tAtIrHC75+t3mxmVRQIYZZV?=
+ =?us-ascii?Q?r92HMRTHMK8irzADiuUSyBOIZTtvQSpcMmr1jYh20n4NV4XbBbRShy1pJRxV?=
+ =?us-ascii?Q?pCj9xcH/QqkJsrjcZelmtr4J1woVI8NctTK4otyOcddc2BnHRLo5U3m/+lNe?=
+ =?us-ascii?Q?DU91Ss0D2/sg51rvKeLdL8lacSwfQ5lzrKEj8JUa3RwNxPfRk0G0XVdhHsej?=
+ =?us-ascii?Q?SF9YePemkHpHvnVXdkmV2vIYhGYuZG2MDr9G2IYvP0N7gDj3H9XR/sjc7tdd?=
+ =?us-ascii?Q?nAit5zU5Bn8D69GEeywmzuZoWNMJQW0CHrhTwN5DSF+kjfprD+4r/h/+Cghv?=
+ =?us-ascii?Q?t5H40PKOYD9V7s/hy/6qVcaxkrd5iYZQRCVnCoGZA1LtueytHk5nbC/JlAw9?=
+ =?us-ascii?Q?X1CHIHtx7Gpdep4sgraU2r/ElaOE8sgWDoL+W0bwXl8b6CSM+PaA6/HQ01hQ?=
+ =?us-ascii?Q?sW8FgD+Fzb582Udv6vqXWympL/ubl9fSoJ1CqFaHPwadyTGRRsoyL0Ki6lNi?=
+ =?us-ascii?Q?MSq1bZUq0z1uyJIJtW3V8jZMJYlw/v0idy4yXC9imhXEoCqgCQMTlPYGPNqi?=
+ =?us-ascii?Q?tualZPt9NkLbFtJiGHlnyXWqhR7eK7HElHnaZgfSfO8Lv4EgLegSUOvogSzR?=
+ =?us-ascii?Q?C+v2DU/0+zIFzEgbQT4zfFnmxd64kkb8g/lJRroMaZSljyTtQbcQ+yPQLIe6?=
+ =?us-ascii?Q?kVkkm5vGLsMVPpSDZWKhbbH5pruaJPvfsh4YxHAmMqjr3IEytMfB69Jk84+o?=
+ =?us-ascii?Q?OTZvkGBLxLh3eQsZVdfl8EJx8AeYahSGLSRv8Ds5iVXMky/0s+ZjBGaxPVfO?=
+ =?us-ascii?Q?93k/uw1/951lreMkW1XN0GV0wEnRg9DcUa01RtqA6UWsUrvdM+VsWXYCovIB?=
+ =?us-ascii?Q?zfBmBXlp1GhYP7tCNP+5Pc2ydSMVEO5q8EMcn2Db7/qe7SZ0ASb7MOsdYxvm?=
+ =?us-ascii?Q?2xDANySBZ9SGkLR6QFcxX7xv/lzPLC4y1wNxZohjUy79GF8yBGwjPO+rl3Rx?=
+ =?us-ascii?Q?MD0xi+v176UBtPDBHLiLvFmIV8KiNjsBVVUl0L+fb3V/auImN8d+uBvPNoiJ?=
+ =?us-ascii?Q?+6gREbcARHCDDVnGxHFjGYzpgdGy5NYFFUj4FZBde/4N686wA/B6j3V9kijV?=
+ =?us-ascii?Q?qQbIT1vqRHP/N/NFxWCDe2WNcTTsnvvHygiqAu+YVWtwVmqVA29OjpKLoHO8?=
+ =?us-ascii?Q?snSXyW+k+A0OcxRQR3rwOjfiDFnTfsG8X9qRsHXinsDD6MGkIURvkNxstZqP?=
+ =?us-ascii?Q?3wqvep85e+WZZAe4cNR4AjpPGmzKCC7zH1pCSdNZ2SXwjL6V3ReHZ0cRJ5w7?=
+ =?us-ascii?Q?ODPnh1E=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,136 +168,112 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261122233958.10462-1-astellman@stellman-greene.com> <179547862919.3135.6087887655063297728@kernel.org>
-In-Reply-To: <179547862919.3135.6087887655063297728@kernel.org>
-From: Andrew Stellman <astellman@stellman-greene.com>
-Date: Mon, 23 Nov 2026 19:14:39 -0500
-X-Gm-Features: Aa3M54r8LqYwCwZHSInNPFAsZl3pmCroukwtjzOFoNnEUp-H2sQ6lvQOIHcivKs
-Message-ID: <CAChPuV88P4Uf8BBxAhrM044ozX21ZCiPqn4J3-vLc-x_Gz_wiA@mail.gmail.com>
-Subject: Re: [PATCH net] tipc: free the tunnel packets when failover
- tunnelling stops early
-To: netdev-bot+sashiko@kernel.org
-Cc: jmaloy@redhat.com, tung.quang.nguyen@est.tech, davem@davemloft.net, 
-	edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, 
-	tuong.t.lien@dektech.com.au, ying.xue@windriver.com, netdev@vger.kernel.org, 
-	tipc-discussion@lists.sourceforge.net, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: MN2PR02MB6863.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-CrossTenant-Network-Message-Id: 55cdee34-6993-41c6-5b60-08df49c0275a
+X-MS-Exchange-CrossTenant-originalarrivaltime: 24 Nov 2026 00:16:15.2500
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA4PR02MB349042
 
-Agreed: that return also skips the FAILOVER_MSG hand-over, and goto
-out is safe there since tnlq is already initialised and empty. I'll
-include it in v2.
+From: Naman Jain <namjain@linux.microsoft.com> Sent: Tuesday, November 17, =
+2026 1:15 AM
+>=20
 
-pw-bot: cr
+In the patch Subject, avoid the "flush predicate" terminology (see my
+comment on Patch 4).
 
-On Mon, Nov 23, 2026 at 7:03=E2=80=AFPM <netdev-bot+sashiko@kernel.org> wro=
-te:
->
-> Thank you for your contribution! Sashiko AI review found 1 potential
-> issue(s) to consider.
->
-> Critical: 0 =C2=B7 High: 0 =C2=B7 Medium: 1 =C2=B7 Low: 0
->
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwor=
-k
-> know by including "pw-bot: cr" as a separate line at the end of your repl=
-y
-> (one such reply per series is enough).
->
-> - [Medium] The patch leaves one early exit in tipc_link_tnl_prepare()
->   (net/tipc/link.c) that still skips the FAILOVER_MSG receive-side hand-=
-=E2=80=A6
->
+> Make should_flush_tlb() available to the Hyper-V backend and give it a
+
+What is the Hyper-V "backend"?  Maybe more specific would be
+"PV tlb flush functions"?
+
+> const struct flush_tlb_info pointer instead of void *. Keep a
+> should_flush_tlb_wrapper() adapter for the SMP callback interface.
+
+Is there any particular reason for needing a specific type instead
+of keeping the void *? I'm just wondering what value that change
+adds other than the compiler being able to typecheck the call
+as made from the Hyper-V code.
+
+Michael
+
+>=20
+> No functional changes.
+>=20
+> Signed-off-by: Naman Jain <namjain@linux.microsoft.com>
+> ---
+>  arch/x86/include/asm/tlbflush.h |  1 +
+>  arch/x86/mm/tlb.c               | 18 ++++++++++++++----
+>  2 files changed, 15 insertions(+), 4 deletions(-)
+>=20
+> diff --git a/arch/x86/include/asm/tlbflush.h b/arch/x86/include/asm/tlbfl=
+ush.h
+> index 70098d448e999..1d1852ecaf084 100644
+> --- a/arch/x86/include/asm/tlbflush.h
+> +++ b/arch/x86/include/asm/tlbflush.h
+> @@ -263,6 +263,7 @@ void flush_tlb_one_user(unsigned long addr);
+>  void flush_tlb_one_kernel(unsigned long addr);
+>  void flush_tlb_multi(const struct cpumask *cpumask,
+>  		      const struct flush_tlb_info *info);
+> +bool should_flush_tlb(int cpu, const struct flush_tlb_info *info);
+>=20
+>  static inline bool is_dyn_asid(u16 asid)
+>  {
+> diff --git a/arch/x86/mm/tlb.c b/arch/x86/mm/tlb.c
+> index 53dcab39566f2..9b1aea2b3a1d5 100644
+> --- a/arch/x86/mm/tlb.c
+> +++ b/arch/x86/mm/tlb.c
+> @@ -1279,10 +1279,14 @@ static void flush_tlb_func(void *info)
+>  			nr_invalidate);
+>  }
+>=20
+> -static bool should_flush_tlb(int cpu, void *data)
+> +/*
+> + * Select ordinary flush targets using state ordered against context swi=
+tches.
+> + * Callers must bypass this filtering for page-table freeing and global =
+ASID
+> + * transitions, as native_flush_tlb_multi() does.
+> + */
+> +bool should_flush_tlb(int cpu, const struct flush_tlb_info *info)
+>  {
+>  	struct mm_struct *loaded_mm =3D per_cpu(cpu_tlbstate.loaded_mm, cpu);
+> -	struct flush_tlb_info *info =3D data;
+>=20
+>  	/*
+>  	 * Order the 'loaded_mm' and 'is_lazy' against their
+> @@ -1317,6 +1321,12 @@ static bool should_flush_tlb(int cpu, void *data)
+>  	return false;
+>  }
+>=20
+> +/* Adapt the typed predicate to the SMP conditional-call interface. */
+> +static bool should_flush_tlb_wrapper(int cpu, void *data)
+> +{
+> +	return should_flush_tlb(cpu, data);
+> +}
+> +
+>  static bool should_trim_cpumask(struct mm_struct *mm)
+>  {
+>  	if (time_after(jiffies, READ_ONCE(mm->context.next_trim_cpumask))) {
+> @@ -1357,8 +1367,8 @@ STATIC_NOPV void native_flush_tlb_multi(const struc=
+t
+> cpumask *cpumask,
+>  	if (info->freed_tables || mm_in_asid_transition(info->mm))
+>  		on_each_cpu_mask(cpumask, flush_tlb_func, (void *)info, true);
+>  	else
+> -		on_each_cpu_cond_mask(should_flush_tlb, flush_tlb_func,
+> -				(void *)info, 1, cpumask);
+> +		on_each_cpu_cond_mask(should_flush_tlb_wrapper, flush_tlb_func,
+> +				      (void *)info, 1, cpumask);
+>  }
+>=20
+>  void flush_tlb_multi(const struct cpumask *cpumask,
 > --
->
-> tipc: free the tunnel packets when failover tunnelling stops early
->
-> The three early returns inside the tunnelling loop of
-> tipc_link_tnl_prepare() now jump to a new out: label. That label purges
-> any tunnel packets left on tnlq. It then runs the FAILOVER_MSG receive
-> side hand-over (drop_point, failover_reasm_skb, deferdq).
->
-> > diff --git a/net/tipc/link.c b/net/tipc/link.c
-> > index 6427c69f89294..2fead2f4ed0fa 100644
-> > --- a/net/tipc/link.c
-> > +++ b/net/tipc/link.c
->
-> [ ... ]
->
-> > @@ -2073,6 +2073,9 @@ void tipc_link_tnl_prepare(struct tipc_link *l, s=
-truct tipc_link *tnl,
-> >               }
-> >
-> >       tipc_link_xmit(tnl, &tnlq, xmitq);
-> > +out:
-> > +     /* Empty unless tunnelling stopped early */
-> > +     __skb_queue_purge(&tnlq);
-> >
-> >       if (mtyp =3D=3D FAILOVER_MSG) {
-> >               struct sk_buff_head *fdefq =3D &tnl->failover_deferdq;
->
-> [Severity: Medium]
-> The commit message says the fix is to "go on with the hand-over" when
-> tunnelling stops early. Should the earlier exit, taken when the dummy
-> packet can't be allocated, also jump to out?
->
-> That path in tipc_link_tnl_prepare() still returns directly:
->
-> net/tipc/link.c:tipc_link_tnl_prepare() {
->     ...
->         skb =3D tipc_msg_create(TIPC_LOW_IMPORTANCE, TIPC_DIRECT_MSG,
->                               BASIC_H_SIZE, 0, l->addr, tipc_own_addr(l->=
-net),
->                               0, 0, TIPC_ERR_NO_PORT);
->         if (!skb) {
->                 pr_warn("%sunable to create tunnel packet\n", link_co_err=
-);
->                 return;
->         }
->     ...
-> }
->
-> tipc_msg_create() allocates with tipc_buf_acquire(..., GFP_ATOMIC), so it
-> can fail under memory pressure. If it fails for FAILOVER_MSG, this code
-> never runs:
->
->     tnl->drop_point =3D l->rcv_nxt;
->     tnl->failover_reasm_skb =3D l->reasm_buf;
->     skb_queue_splice_init(&l->deferdq, fdefq);
->
-> The caller goes into failover anyway:
->
-> __tipc_node_link_down()
->     tipc_link_tnl_prepare(l, tnl, FAILOVER_MSG, xmitq);
->     tipc_link_reset(l);    <- frees l->reasm_buf, purges l->deferdq
->     tipc_link_fsm_evt(l, LINK_RESET_EVT);
->     tipc_link_fsm_evt(l, LINK_FAILOVER_BEGIN_EVT);
->     tipc_node_fsm_evt(n, NODE_FAILOVER_BEGIN_EVT);
->
-> tnl->drop_point then keeps a stale value. That is 0 from link creation,
-> 1 from tipc_link_failover_prepare(), or whatever an earlier failover left=
-.
-> tipc_link_failover_rcv() then does this:
->
->         if (unlikely(less(seqno, l->drop_point))) {
->                 kfree_skb(iskb);
->                 continue;
->         }
->         if (unlikely(seqno !=3D l->drop_point)) {
->                 __tipc_skb_queue_sorted(fdefq, seqno, iskb);
->                 continue;
->         }
->
-> Could this drop the peer's tunnelled messages? Could it also leave them
-> in failover_deferdq for good, since drop_point only moves forward on an
-> exact match?
->
-> tnlq is already initialised and empty at that point, and the out: block
-> only touches tnlq, l and tnl. So changing that return to goto out looks
-> safe.
->
-> --
-> Sashiko AI review =C2=B7 https://netdev-ai.bots.linux.dev/sashiko/#/patch=
-set/20261122233958.10462-1-astellman%40stellman-greene.com
+> 2.43.0
+>=20
+
