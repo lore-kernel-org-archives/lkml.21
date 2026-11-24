@@ -1,80 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.37
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795562885;
-	b=C1BHx66ADVrJlwHELEKINV+9MV6Va+0Cp93U4OqIMenXd9/lAv9xrmwCXPKRa793Lw80
-	 NQyIxwV+1NJOMBhzL67tPxfnPJYfV1gW5uLjvvzb//oyQopXdY5aJI9s2jEHUg8h6PLEK
-	 6N88UaKso5dVj/v4tTlMARN0w9jHAxh4PYEDP0ahKaDRE1JnS+l+4nQec6cRMpQ3E1XSR
-	 J8uYvpGABIANqjceEXXNv3Lw8LP8puuG8rTXUxYRvU8UEj8wp/LgbvNrEl2YmRlF0SMZy
-	 Cq3iBHZD02e0OygNWkqVsWfWQBxjq5GcCR126xchToWEr3trDKB+umGLmHj3Y7Awv4A==
+	t=1795562925;
+	b=Yt3aTdizLf+HhHhCEMB9j3lVWWo4rqwNMPqr8UcJO3w89SLmB8wJnbjgHiRQQVdne9Bw
+	 h6yfc2diPhM+Npgb99KhusdPXCJ0ryp2Fu6jZoReZXdSsihgUWkj1PI/MDrucVybOpNNg
+	 8vGM8DYUv9mL9xUe5RUCl7fzxFiAyJuFTX2Rxidg96UDF6gL8pSz3/0n67yFyaUgnz68s
+	 D9avhvCV/CLrkrP8MGjQwfmsCkNp3goITNhDiqj7G9NPClO01QUuth8iiY7c4CzKbkKzL
+	 Z0KlmvIfwFOThxybLs48tPVnw21ly0URzYENXU5t8LEL8zUlni+A9or0kMbGzDFULyQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795562885;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:X-Patch-Reply:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=e08IKl8cuBBIsRhTefRMXH9yyrlJ5903Bm6C16lOTgw=;
-	b=4hQYwTC3V9G5+aeDy40dWLokI1x0ab8JYBfoOxrrXWxJYzMDMspaf4ABSsxFiQMcqGB4
-	 1sTThN/m5TQXU90I5esIio4Qm6zGhbwWn7jyBWASXTHRv14vZsYnTiLSTl9bhmDIPumMg
-	 /t9Q6naITspptTr0xS8qh4KrPX69d/isy2C7zPyG1zEDnBIcRSS/QUSJHuZ2xkJqaJbIX
-	 NknbcbYo9uSNCeEqskbg+7AqoX+Tw6QzutPn7Tva9eSKkCrl67rOz+Xx0W4gUdMchfFoL
-	 Zns0At++Hha5YU6/3LHrx/1lyYvcmOAifk6SHFBtP2dtw9DnY7bzB3701UpJ/gmQbJA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795562925;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=Bp7vbYZqgnJSbea341jrZg5sveSuhCAR0xNbFY7zOp4=;
+	b=x60+xdwnHM1ZLLItZN+97NfuupFHA0z7UPTnUo5jxMzYRfz9U3UXndrUAO2xhQjB3CrY
+	 jpHbytFmS+HtnxVZP8NaI5zhb3PEz8d3rB+uqwPOCmuyl1df0X+AYrz4dOokslcu59FV6
+	 7YA8m/Y7Hans6YsfXyaGWVtllDzZT0P3cC4smGgdQb3/gEaZcCbpl/JVpfohbveS2Kp/s
+	 7jCnqCmdjhtSI8loOp9LWLflvHkD2H1wtiuLTcB9w5vZRzix+wfEu9zBMkvUtTzSj8RLu
+	 HjSTO28yi06zXv5c02KOMjUHXtWSbmuT49sUsgmRJ3RXjAdLAJVCGNHVFTCRnEHlvnw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=opC0cO78;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=YkHccQtu;
+	arc=none smtp.remote-ip=95.215.58.37
+Received: from mta1.migadu.com (out-37.mta1.migadu.com [95.215.58.37])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 82171606A323;
-	Tue, 24 Nov 2026 23:28:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CCF93606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 23:28:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CCF93606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=opC0cO78
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9AA681F000CF;
-	Tue, 24 Nov 2026 23:27:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795562885;
-	bh=e08IKl8cuBBIsRhTefRMXH9yyrlJ5903Bm6C16lOTgw=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=opC0cO78hR5M0GxIiFgeUlDOJYGAjpNo00je0ZS+32Tw1bHsTDC9+VWYDnI5bTUdG
-	 x82rcEJqjVFBrR/gavYI+bdes2Z8LWb3g/BZIxIH5fiVpz7ch/RgLaJtAwSyJqUVou
-	 ExcKrbpD4jnVjVGUCT6HAVN4RlFIT3ZTyC913Qhxm10dK+zoycDp1bcd1829W0QJHJ
-	 D7bmKf8SgFo3y7XNzHjI8ECLIjRB+VqJUFbvJfur4L78QQ4YsYmfeETI+W+fKSSHnH
-	 wqC8DIZZ86ctR2jYGQZzYZOrjzu3i36kR/5uYo9nv9B5pToBUz5Vz4aa/viSThR0yL
-	 cQOMWZqx3o6Lw==
-From: Danilo Krummrich <dakr@kernel.org>
-To: John Hubbard <jhubbard@nvidia.com>
-Cc: Danilo Krummrich <dakr@kernel.org>,
-	Alexandre Courbot <acourbot@nvidia.com>,
-	Timur Tabi <ttabi@nvidia.com>,
-	Alistair Popple <apopple@nvidia.com>,
-	Eliot Courtney <ecourtney@nvidia.com>,
-	Zhi Wang <zhiw@nvidia.com>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	Boqun Feng <boqun@kernel.org>,
-	Gary Guo <gary@garyguo.net>,
-	=?UTF-8?q?Bj=C3=B6rn=20Roy=20Baron?= <bjorn3_gh@protonmail.com>,
-	Benno Lossin <lossin@kernel.org>,
-	Andreas Hindborg <a.hindborg@kernel.org>,
-	Alice Ryhl <aliceryhl@google.com>,
-	Trevor Gross <tmgross@umich.edu>,
-	Daniel Almeida <daniel.almeida@collabora.com>,
-	Tamir Duberstein <tamird@kernel.org>,
-	=?UTF-8?q?Onur=20=C3=96zkan?= <work@onurozkan.dev>,
-	linux-pci@vger.kernel.org,
-	rust-for-linux@vger.kernel.org,
-	nova-gpu@lists.linux.dev,
-	dri-devel@lists.freedesktop.org,
-	LKML <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2 0/1] rust: pci: add a prerequisite for the r000 GSP firmware
-Date: Wed, 25 Nov 2026 00:27:57 +0100
-Message-ID: <20261124232757.2443082-1-dakr@kernel.org>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261111200549.160806-1-jhubbard@nvidia.com>
-References: <20261111200549.160806-1-jhubbard@nvidia.com>
-X-Patch-Reply: applied
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=YkHccQtu
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=nPjM6DQ6Wy2VgjwnrWH1igbk+eR6QyexaJnli8SHASY=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795562923; v=1; x=1796167723;
+ b=YkHccQtuvRtzfa6pi699HYwBTfxxyiGITsdl+eqA55s4pDLsoAHncTkdo3HOlQJLOTiOcp9+
+ 31KWt2YV7CbnMGxVddQf3jZpB7O4zwInN0dm0wzP0pola5duJWxBlgvhGuCJDiilDKdexWnuC1g
+ /BXcTw6nGS8PlV7WJLye//Gg=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id a5687cf46e03fba8;
+	Tue, 24 Nov 2026 23:28:42 +0000
+X-Mizu-Trace-ID: a5687cf46e03fba8
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <b69a5619-87bd-41bf-9125-95f17f232c62@linux.dev>
+Date: Tue, 24 Nov 2026 16:28:38 -0700
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,25 +58,60 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3] mm/ksm: prevent zero-page remapping during
+ ksmd-triggered THP splits
+To: "David Hildenbrand (Arm)" <david@kernel.org>, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org
+Cc: Andrew Morton <akpm@linux-foundation.org>, Zi Yan <ziy@nvidia.com>,
+ Baolin Wang <baolin.wang@linux.alibaba.com>,
+ "Liam R. Howlett" <liam@infradead.org>, Ryan Roberts <ryan.roberts@arm.com>,
+ Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>,
+ Lance Yang <lance.yang@linux.dev>, Usama Arif <usama.arif@linux.dev>,
+ Kiryl Shutsemau <kas@kernel.org>, Yu Zhao <yuzhao@google.com>,
+ Xu Xin <xu.xin@linux.dev>, Chengming Zhou <chengming.zhou@linux.dev>,
+ Matthew Brost <matthew.brost@intel.com>,
+ Joshua Hahn <joshua.hahnjy@gmail.com>, Byungchul Park <byungchul@sk.com>,
+ Gregory Price <gourry@gourry.net>, Ying Huang
+ <ying.huang@linux.alibaba.com>, Alistair Popple <apopple@nvidia.com>,
+ Usama Arif <usamaarif642@gmail.com>, aarcange@redhat.com
+References: <20261122-b4-ksm_fixv2-v3-1-f78ea7779746@linux.dev>
+ <27c7a176-cd38-4e2c-b2e6-ad63b79ffc07@kernel.org>
+Content-Language: en-US
+From: Nico Pache <nico.pache@linux.dev>
+In-Reply-To: <27c7a176-cd38-4e2c-b2e6-ad63b79ffc07@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-On Wed, 11 Nov 2026 12:05:48 -0800, John Hubbard wrote:
-> [PATCH v2 0/1] rust: pci: add a prerequisite for the r000 GSP firmware
 
-Applied, thanks!
 
-  Branch: topic/pci-sriov-7.5-rc1
-  Tree:   git://git.kernel.org/pub/scm/linux/kernel/git/driver-core/driver-core.git
+On 11/23/26 9:33 AM, David Hildenbrand (Arm) wrote:
+> 
+> [...]
+> 
+> 
+> 
+> I do wonder if we wan to make this an inline function to not require a function
+> call just to check this.
+> 
+> Thoughts?
 
-[1/1] rust: pci: add domain_nr() accessor
-      commit: 002b9422b314
+we would have to also expose ksm_scan_thread; tbh im not sure what the 
+impact of that is.
 
-      [ Move domain_nr() to Device<Bound>, since pci_domain_nr() may access
-        host controller data through bus->sysdata. References to the PCI
-        device and bus do not necessarily keep that data alive after host
-        controller removal. The bound context guarantees the required
-        lifetime. - Danilo ]
+> 
+> 
+> Probably helpful to throw in an unlikely() and to to reverse the checks
+> (checking the latter is cheaper than the former).
 
-The patch is in the topic/pci-sriov-7.5-rc1 topic branch and will be merged into
-the corresponding target branch soon.
+Sounds good! ill send a fixup once we determine if we want to inline the 
+function.
+
+> 
+> In general LGTM.
+
+Thank you!
+-- Nico
+
+> 
+
