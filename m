@@ -1,79 +1,70 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795560440;
-	b=SPUs9kEt968Q3a56ShoXzzB1nFkOWFip40jCwXtYYF7hiIJwdpbcwi0BXVTL67/8pvlI
-	 k7VISV/hbEa6NVQslhFz2ZQ3a7sjqVIq0KbL8nb3cyaPDDr8ZZW2om31+VQdZSoeZQuuX
-	 dIr3ch8gnOmNZQu3oHTLj1OszM1/HnbvhfVKIgDVnkItAg75UP/2k/xkUeyDGmrTpN6U4
-	 0HQbxCT0pPzsb4JmasRXRu1dTXPfIAUkL97LCJexnSRycid/5aJkIoHkg2KApCc26iwoV
-	 R6qMO4d6Ud0EH1QgYlN22XSRXIm6S2tzslZKbhaA/sZ5NkCnlUh8p9GAjgKvHR+zHfw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795560440;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=nezTVwX8oFCdjg6+8FefTSCVGXK6w3/g8n6WJXjB7os=;
-	b=F5aKlQu05rdKyozs8DCeiy/SF2T3QrqFlXwlRAedGYOAEfQvII27yGks4JLPNoV22wbj
-	 EB305wrjEIUXzyYUmxo05zs/ZbOVoAa3KQ/ASMOE1N79TUkGSUt2gu8aWVdfIbTdeE4oC
-	 YHom8a3DIvqoBVLXxJv3AdjaFyTqYUpVn3kpB9dbLLjutmYU02xHJYvnuUt0wqZ9trflp
-	 BVAXulVOwH0mg/e0NvIaG/2ENTqQNlhYRbeYH+7NB7JCxq0AAQZRmPETbGOHO6Q+b1jqC
-	 R8gSRlsEir65wBLilutZ8mjzrhWTOkEUz9l28xr5EWzUj9RWpfjWn+wdIGcYR7vIw7g==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=knY6yZl4;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5162F606A334;
-	Tue, 24 Nov 2026 22:47:20 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=knY6yZl4
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795560439;
-	b=T7RkCF7HzMHA8ZMCGOy40jyjjQjkc563Dfo38yALb5j9hueiYMrI94X2mPhMmWVwd+s0
-	 Jr35O7/AJXc4Wqzws3i9CQUIA+Jp5l/YvIsB9AG1Z0HgIbnXnlG1AibrHwbeCyyyZraNA
-	 LibDQI2z3prZrNip5xHQGkS8wYE9FzF/hc6BNLf8I6neVGJnvQ9Lks1gkMzSs6twgCGLi
-	 I45d1WO+xn5xiPx2/hDcn2ugk8EfnUGi3yqY8wz8rJtYGkQtR5D/3XArWcK4oAPFKHKKP
-	 3vaidxsRgG42OCErZX/qc3ZD7jNEOA90h44fhG8B/7BMzdU3kSQ1co51lyKhce93deQ==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795560439;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=nezTVwX8oFCdjg6+8FefTSCVGXK6w3/g8n6WJXjB7os=;
-	b=k++r4OG+U/UHfxXPiaEJM/0KSOI0GmvFCVuZhFisji5GS0wNMw+jniFCccN6cl09qVBg
-	 ym/eWIcib6CKq1dwoKPzW6P99yoNmaADxigjFuByR+SqYkpZEyhpmP4bKEIM2gEMyJJ1k
-	 kQYrSN577vY/lDnqG1suPugfRi0lrFonx6PdCf3BcFqwbc44o4eTtCPXQPVIbu2Hd95bD
-	 Y6mIyufPcziK4BeCSsXuX9VgPDh8OxDezNMQveXrr2x9hzoV/2q/mcgclLKOY8SZeDnpH
-	 GElyOEgbsb7x5Dy8hnIKu5sg08w/YzxifwPDDy2ElAHhX0Fx8ohGPPovmvjW+mHDt6A==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.37
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795560505;
+	b=NUJW8H7EhU6xS91RJmtHPrYJvfMjg3Dcfz/UKNolJw4uiBLTuG9iXO/17IaEGno7pDm6
+	 qXxd1M0aN9ZZhoJlhXJASl3FYysPYE6hi6RRlTb6uYRmEbTKsyX32EKa/JmlYS5lfqPOf
+	 aaV8YltzOaYVP+/Q07gHya5qu7BQ6sg9R+s6DrSxlAndLjlu0rzs22YFN2P9UGpPbXThK
+	 O50FWo17m4tuIyrzcLEh5Go5S129Ktm878EOV8hSX1LlUFLDJ7vztOqMv1A6uFGhoj7u5
+	 hRbzblDYW8x7eCsPaCoY55CAQTVMlAcCCIlmso3aNhRg9PKZqZVjTW0CpUsMAhDeKDQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795560505;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=+DGaK7tdK/jQDQgmFYOL9GCIXPoQra/tqNSVV7YpIcw=;
+	b=dcrCbakJUs9i0BOQ11DYSrQTFQFmGPAOAnFjP6CUsiqwsVA9/CzVq96/+1Lwda79yGJu
+	 3ewUD9foaPT1y8GxNlSrlTW9QqOnJ5HXOUJs5Rarg05gPt5Jv3x/EkH6yET4sIr+pvnsQ
+	 8mpPvvTnZ9xHu2TyRm61w1vjAxadK/PkEakKcxVm45nFFIIVP6CXvpCnCXP7wKR7hhb4M
+	 sPiwaiz3+AZ09pp1L6NG+OtTxWQze5Q6GVh9g12kZ+gBoSm+s3t0QpDW/hR+FWR3rjcuy
+	 khZ5Vz6wbSH/wfaUwm9YHqyIo9YXvCXnmiZ9y4cmrffOvVNwtPHEM2lh3izAkglXtzg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=DKelomLp;
+	arc=none smtp.remote-ip=95.215.58.37
+Received: from mta1.migadu.com (out-37.mta1.migadu.com [95.215.58.37])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 5185A1F000EB;
-	Tue, 24 Nov 2026 22:47:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795560439;
-	bh=nezTVwX8oFCdjg6+8FefTSCVGXK6w3/g8n6WJXjB7os=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=knY6yZl4xPXnPInNmEH6Rq+9ZWcusDPWDPiDagjjdmGqMM5WCD3tpK0tnFMDduWt4
-	 YVEurqZjnF/eJu41g45m6adIQaBwHeWTHXt6XHrY0/S1+YzUAUP/PVbH2WqgBPhK/0
-	 aSS21wDfJjT1kN8rjOEhswKPFU4FOGfehlX5n/6LWdQX4H13F+HcFhxsAxU8mJRMLs
-	 ZwPpOcUgprJE5471qmjmguLtnBiNHk8xfJYCGVTzWVZ51R+12OwYuAOR5RBho98vYn
-	 w9IjkCsUpSi6/tN3ig7vNW9QxMQtRv5MrbhiLtdNAkra30xxe5lDJK2DmVIVnFH9Kr
-	 xlF19aIzKwVhA==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id D56624CC10;
-	Tue, 24 Nov 2026 22:46:59 +0000 (UTC)
-From: Robert Ijtsma via B4 Relay <devnull+robertijtsma.gmail.com@kernel.org>
-Date: Tue, 24 Nov 2026 23:46:58 +0100
-Subject: [PATCH 2/2] iio: light: add ams OSRAM TCS3430 XYZ and ambient
- light sensor driver
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 095F4606A321
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 22:48:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 095F4606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=DKelomLp
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=jvRjn27Vow3+7TTkDAOPjeeYkoC+LCIavC/UlJ4h/O4=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795560501; v=1; x=1796165301;
+ b=DKelomLp8QZzE5J6+CU+bJizLp376Rl1HB2rz6Fpv1NpUa76O9kNcKX6hSZIrgvht0OG2VZW
+ 2jjVmRN5dsUXysZlLxVonjuw296z3eig4t2zSsqp4Dmset79FmQliboRcJ733bx1wyH3hDgsTq9
+ eay9MZLkSOlJBQEDPu6vhtRA=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id e9aa19df668f8716;
+	Tue, 24 Nov 2026 22:48:20 +0000
+X-Mizu-Trace-ID: e9aa19df668f8716
+X-Migadu-Flow: FLOW_OUT
+From: Ihor Solodrai <ihor.solodrai@linux.dev>
+To: Alexei Starovoitov <ast@kernel.org>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>
+Cc: Alan Maguire <alan.maguire@oracle.com>,
+	Emil Tsalapatis <emil@etsalapatis.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Song Liu <song@kernel.org>,
+	Tejun Heo <tj@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	bpf@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	sched-ext@lists.linux.dev
+Subject: [PATCH bpf-next v3 0/6] libbpf: Support kernel-side kfunc variants
+Date: Tue, 24 Nov 2026 15:48:05 -0700
+Message-ID: <20261124224811.16134-1-ihor.solodrai@linux.dev>
+X-Mailer: git-send-email 2.56.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,452 +74,129 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261124-iio-tcs3430-v1-2-0f2a38a6a4c1@gmail.com>
-References: <20261124-iio-tcs3430-v1-0-0f2a38a6a4c1@gmail.com>
-In-Reply-To: <20261124-iio-tcs3430-v1-0-0f2a38a6a4c1@gmail.com>
-To: Jonathan Cameron <jic23@kernel.org>, 
- David Lechner <dlechner@baylibre.com>, 
- =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, 
- Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: linux-iio@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Robert Ijtsma <robertijtsma@gmail.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795560419; l=12434;
- i=robertijtsma@gmail.com; s=20261122; h=from:subject:message-id;
- bh=dtV6AhP8bkV0dJ+wEFVJkec7NYtVmfKkQQtBOiTI0mQ=;
- b=ziAJVhuM+OAA1HRIQ7YR7JyPyH5YGLQeIGyVOAMUwK8RHirBjzueVywvLWEzKzCjn3+5KROE/
- fX91bIUDFf9Axh28cjc4yBtdygbF/0dQ6SWgs2ZCAB7gVEfqL859H6E
-X-Developer-Key: i=robertijtsma@gmail.com; a=ed25519;
- pk=qiDyKVqFicxFIR5sB5m+p9SWPKL2/+mMoiQnUx0C9P0=
-X-Endpoint-Received: by B4 Relay for robertijtsma@gmail.com/20261122 with
- auth_id=1604
-X-Original-From: Robert Ijtsma <robertijtsma@gmail.com>
-Reply-To: robertijtsma@gmail.com
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-From: Robert Ijtsma <robertijtsma@gmail.com>
+A kfunc prototype change breaks BPF programs built against the old
+prototype. For example, 8fe4dc4f6456 ("bpf: change prototype of
+bpf_session_{cookie,is_return}") made this change in v7.0:
 
-Add an IIO driver for the ams OSRAM TCS3430 ambient light and CIE 1931
-XYZ tristimulus color sensor (found at I2C address 0x39 on devices such
-as the Microsoft Surface Pro X).
+  before:  bool bpf_session_is_return(void);
+  v7.0:    bool bpf_session_is_return(void *ctx);
 
-The driver exposes:
-- Illuminance (photopic Y channel) with raw counts and lux scale
-- Modified intensity channels for X, Y, Z, and IR1
-- Selectable hardware gain (1x, 4x, 16x, 64x, 128x) and integration time
-- Regulator management and system sleep suspend/resume support
+A program built before v7.0 declares bpf_session_is_return(void), and
+libbpf can't resolve it on v7.0. The kernel has no way to keep the old
+prototype available to such programs. sched_ext works around the same
+problem with ___v2___compat names in compat.bpf.h.
 
-Tested on Microsoft Surface Pro X SQ2 (SC8180X).
+With this series, the kernel can keep the old prototype as a variant:
 
-Signed-off-by: Robert Ijtsma <robertijtsma@gmail.com>
+  bool bpf_session_is_return(void *ctx);
+  bool bpf_session_is_return___v1(void);
+
+and libbpf binds each declaration to the function with a matching BTF
+prototype.
+
+The new lookup changes what some existing declarations resolve to.
+
+A replay of kfunc resolution against v6.18, v7.2 and bpf-next BTF
+covered 1302 BPF objects: 1174 sched_ext schedulers from Meta's
+internal builds, and 128 public objects from the scx repo,
+tools/sched_ext, the selftests and bpftrace. It also covered 16
+objects declaring every kfunc from each x86 vmlinux.h in the scx
+repo's history, counted here as public. No strong declaration
+changes. These __weak declarations change, counted in objects per
+kernel:
+                                                    public   Meta
+  lost on v7.2 and bpf-next, no candidate:
+    scx_bpf_dsq_insert___v2___compat                    36    136
+    scx_bpf_dsq_move_to_local___v2___compat             33     27
+    scx_bpf_reenqueue_local___v2___compat                9     44
+
+  lost on v7.2 and bpf-next, struct names differ:
+    bpf_io_uring_get_region(struct io_ring_ctx *)        1      0
+    bpf_io_uring_submit_sqes(struct io_ring_ctx *)       1      0
+
+  lost on bpf-next, struct names differ:
+    bpf_cpumask_populate(struct cpumask *)               8     88
+
+  lost on v6.18 and v7.2, struct names differ:
+    bpf_cpumask_populate(struct bpf_cpumask *)           4      0
+
+  gained on v7.2 and bpf-next:
+    scx_bpf_dsq_move_to_local___v2(u64, u64)             7    120
+    scx_bpf_dsq_insert___v2(...)                         8      0
+    scx_bpf_reenqueue_local___v2(void)                   8      0
+
+In-tree compat.bpf.h now tries the plain ___v2 names first. Objects
+that gain a ___v2 kfunc now call it instead of their fallback path.
+
 ---
- MAINTAINERS                 |   1 +
- drivers/iio/light/Kconfig   |  10 ++
- drivers/iio/light/Makefile  |   1 +
- drivers/iio/light/tcs3430.c | 345 ++++++++++++++++++++++++++++++++++++++++++++
- 4 files changed, 357 insertions(+)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index b1cebc2..5194709 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -1494,6 +1494,7 @@ M:	Robert Ijtsma <robertijtsma@gmail.com>
- L:	linux-iio@vger.kernel.org
- S:	Maintained
- F:	Documentation/devicetree/bindings/iio/light/ams,tcs3430.yaml
-+F:	drivers/iio/light/tcs3430.c
- 
- AMT (Automatic Multicast Tunneling)
- M:	Taehee Yoo <ap420073@gmail.com>
-diff --git a/drivers/iio/light/Kconfig b/drivers/iio/light/Kconfig
-index 462fff1..09894cd 100644
---- a/drivers/iio/light/Kconfig
-+++ b/drivers/iio/light/Kconfig
-@@ -609,6 +609,16 @@ config TCS3414
- 	  This driver can also be built as a module.  If so, the module
- 	  will be called tcs3414.
- 
-+config TCS3430
-+	tristate "ams OSRAM TCS3430 ambient light and XYZ color sensor"
-+	depends on I2C
-+	help
-+	  If you say yes here you get support for the ams OSRAM TCS3430
-+	  ambient light and CIE 1931 XYZ tristimulus color sensor.
-+
-+	  This driver can also be built as a module.  If so, the module
-+	  will be called tcs3430.
-+
- config TCS3472
- 	tristate "TAOS TCS3472 color light-to-digital converter"
- 	depends on I2C
-diff --git a/drivers/iio/light/Makefile b/drivers/iio/light/Makefile
-index 6672ed0..cd7b42e 100644
---- a/drivers/iio/light/Makefile
-+++ b/drivers/iio/light/Makefile
-@@ -56,6 +56,7 @@ obj-$(CONFIG_ST_UVIS25)		+= st_uvis25_core.o
- obj-$(CONFIG_ST_UVIS25_I2C)	+= st_uvis25_i2c.o
- obj-$(CONFIG_ST_UVIS25_SPI)	+= st_uvis25_spi.o
- obj-$(CONFIG_TCS3414)		+= tcs3414.o
-+obj-$(CONFIG_TCS3430)		+= tcs3430.o
- obj-$(CONFIG_TCS3472)		+= tcs3472.o
- obj-$(CONFIG_SENSORS_TSL2563)	+= tsl2563.o
- obj-$(CONFIG_TSL2583)		+= tsl2583.o
-diff --git a/drivers/iio/light/tcs3430.c b/drivers/iio/light/tcs3430.c
-new file mode 100644
-index 0000000..138c8ab
---- /dev/null
-+++ b/drivers/iio/light/tcs3430.c
-@@ -0,0 +1,345 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * IIO driver for ams OSRAM TCS3430 Ambient Light and CIE 1931 XYZ Sensor
-+ *
-+ * Copyright (C) 2026 Robert Ijtsma <robertijtsma@gmail.com>
-+ *
-+ * Datasheet:
-+ *   https://look.ams-osram.com/m/43d518b4cd81e3f2/original/TCS3430-DS000539.pdf
-+ */
-+
-+#include <linux/array_size.h>
-+#include <linux/bitfield.h>
-+#include <linux/bits.h>
-+#include <linux/cleanup.h>
-+#include <linux/device.h>
-+#include <linux/err.h>
-+#include <linux/i2c.h>
-+#include <linux/math64.h>
-+#include <linux/mod_devicetable.h>
-+#include <linux/module.h>
-+#include <linux/mutex.h>
-+#include <linux/pm.h>
-+#include <linux/regulator/consumer.h>
-+#include <linux/types.h>
-+#include <linux/units.h>
-+
-+#include <linux/iio/iio.h>
-+
-+#define TCS3430_REG_ENABLE		0x80
-+#define   TCS3430_ENABLE_PON		BIT(0)
-+#define   TCS3430_ENABLE_AEN		BIT(1)
-+#define TCS3430_REG_ATIME		0x81
-+#define TCS3430_REG_CFG1		0x90
-+#define   TCS3430_CFG1_AGAIN_MASK	GENMASK(1, 0)
-+#define TCS3430_REG_ID			0x92
-+#define   TCS3430_ID_MASK		GENMASK(7, 2)
-+#define   TCS3430_ID_VAL		0xdc
-+#define TCS3430_REG_CH0DATAL		0x94
-+#define TCS3430_REG_CH1DATAL		0x96
-+#define TCS3430_REG_CH2DATAL		0x98
-+#define TCS3430_REG_CH3DATAL		0x9a
-+#define TCS3430_REG_CFG2		0x9f
-+#define   TCS3430_CFG2_DEFAULT		0x04
-+#define   TCS3430_CFG2_HGAIN		BIT(4)
-+#define TCS3430_REG_CFG3		0xab
-+#define   TCS3430_CFG3_DEFAULT		0x0c
-+#define TCS3430_REG_INTENAB		0xdd
-+
-+/* 72 integration cycles * 2.78 ms = 200.16 ms */
-+#define TCS3430_DEFAULT_ATIME_CYCLES	72
-+#define TCS3430_ATIME_STEP_US		2780
-+
-+/*
-+ * Photopic Y channel typical sensitivity from datasheet optical characteristics:
-+ * ~0.537 counts/lux at AGAIN = 16x and ATIME = 100 ms (36 cycles), giving:
-+ *   lux/count = 2980 / (gain * integration_time_ms)
-+ */
-+#define TCS3430_LUX_FACTOR		2980ULL
-+
-+static const int tcs3430_gains[] = { 1, 4, 16, 64, 128 };
-+
-+struct tcs3430_data {
-+	struct i2c_client *client;
-+	/* Protects device configuration across multi-register updates */
-+	struct mutex lock;
-+	u8 gain_idx;
-+};
-+
-+static int tcs3430_apply_gain(struct tcs3430_data *data, u8 gain_idx)
-+{
-+	u8 cfg1, cfg2;
-+	int ret;
-+
-+	if (gain_idx == 4) {
-+		cfg1 = FIELD_PREP(TCS3430_CFG1_AGAIN_MASK, 3);
-+		cfg2 = TCS3430_CFG2_DEFAULT | TCS3430_CFG2_HGAIN;
-+	} else {
-+		cfg1 = FIELD_PREP(TCS3430_CFG1_AGAIN_MASK, gain_idx);
-+		cfg2 = TCS3430_CFG2_DEFAULT;
-+	}
-+
-+	ret = i2c_smbus_write_byte_data(data->client, TCS3430_REG_CFG1, cfg1);
-+	if (ret)
-+		return ret;
-+
-+	ret = i2c_smbus_write_byte_data(data->client, TCS3430_REG_CFG2, cfg2);
-+	if (ret)
-+		return ret;
-+
-+	data->gain_idx = gain_idx;
-+	return 0;
-+}
-+
-+static int tcs3430_init_hw(struct tcs3430_data *data)
-+{
-+	struct i2c_client *client = data->client;
-+	int ret;
-+
-+	ret = i2c_smbus_write_byte_data(client, TCS3430_REG_ENABLE, 0x00);
-+	if (ret)
-+		return ret;
-+
-+	ret = i2c_smbus_write_byte_data(client, TCS3430_REG_ATIME,
-+					TCS3430_DEFAULT_ATIME_CYCLES - 1);
-+	if (ret)
-+		return ret;
-+
-+	ret = tcs3430_apply_gain(data, data->gain_idx);
-+	if (ret)
-+		return ret;
-+
-+	ret = i2c_smbus_write_byte_data(client, TCS3430_REG_CFG3,
-+					TCS3430_CFG3_DEFAULT);
-+	if (ret)
-+		return ret;
-+
-+	ret = i2c_smbus_write_byte_data(client, TCS3430_REG_INTENAB, 0x00);
-+	if (ret)
-+		return ret;
-+
-+	return i2c_smbus_write_byte_data(client, TCS3430_REG_ENABLE,
-+					 TCS3430_ENABLE_PON |
-+					 TCS3430_ENABLE_AEN);
-+}
-+
-+static void tcs3430_power_off(void *priv)
-+{
-+	struct tcs3430_data *data = priv;
-+
-+	i2c_smbus_write_byte_data(data->client, TCS3430_REG_ENABLE, 0x00);
-+}
-+
-+static int tcs3430_read_raw(struct iio_dev *indio_dev,
-+			    const struct iio_chan_spec *chan,
-+			    int *val, int *val2, long mask)
-+{
-+	struct tcs3430_data *data = iio_priv(indio_dev);
-+	int ret;
-+
-+	switch (mask) {
-+	case IIO_CHAN_INFO_RAW:
-+		guard(mutex)(&data->lock);
-+		ret = i2c_smbus_read_word_data(data->client, chan->address);
-+		if (ret < 0)
-+			return ret;
-+		*val = ret;
-+		return IIO_VAL_INT;
-+
-+	case IIO_CHAN_INFO_SCALE: {
-+		u32 itime_us = TCS3430_DEFAULT_ATIME_CYCLES * TCS3430_ATIME_STEP_US;
-+		u64 scale_nano;
-+		u32 rem;
-+		int gain;
-+
-+		scoped_guard(mutex, &data->lock)
-+			gain = tcs3430_gains[data->gain_idx];
-+
-+		scale_nano = div_u64(TCS3430_LUX_FACTOR * NSEC_PER_SEC * USEC_PER_MSEC,
-+				     (u32)gain * itime_us);
-+		*val = div_u64_rem(scale_nano, NSEC_PER_SEC, &rem);
-+		*val2 = rem;
-+		return IIO_VAL_INT_PLUS_NANO;
-+	}
-+
-+	case IIO_CHAN_INFO_HARDWAREGAIN:
-+		guard(mutex)(&data->lock);
-+		*val = tcs3430_gains[data->gain_idx];
-+		return IIO_VAL_INT;
-+
-+	case IIO_CHAN_INFO_INT_TIME:
-+		*val = 0;
-+		*val2 = TCS3430_DEFAULT_ATIME_CYCLES * TCS3430_ATIME_STEP_US;
-+		return IIO_VAL_INT_PLUS_MICRO;
-+
-+	default:
-+		return -EINVAL;
-+	}
-+}
-+
-+static int tcs3430_write_raw(struct iio_dev *indio_dev,
-+			     const struct iio_chan_spec *chan,
-+			     int val, int val2, long mask)
-+{
-+	struct tcs3430_data *data = iio_priv(indio_dev);
-+	unsigned int i;
-+
-+	if (mask != IIO_CHAN_INFO_HARDWAREGAIN || val2 != 0)
-+		return -EINVAL;
-+
-+	for (i = 0; i < ARRAY_SIZE(tcs3430_gains); i++) {
-+		if (tcs3430_gains[i] == val) {
-+			guard(mutex)(&data->lock);
-+			return tcs3430_apply_gain(data, i);
-+		}
-+	}
-+
-+	return -EINVAL;
-+}
-+
-+static int tcs3430_read_avail(struct iio_dev *indio_dev,
-+			      const struct iio_chan_spec *chan,
-+			      const int **vals, int *type, int *length,
-+			      long mask)
-+{
-+	if (mask != IIO_CHAN_INFO_HARDWAREGAIN)
-+		return -EINVAL;
-+
-+	*vals = tcs3430_gains;
-+	*type = IIO_VAL_INT;
-+	*length = ARRAY_SIZE(tcs3430_gains);
-+	return IIO_AVAIL_LIST;
-+}
-+
-+#define TCS3430_INTENSITY_CHANNEL(_mod, _addr) {			\
-+	.type = IIO_INTENSITY,						\
-+	.modified = 1,							\
-+	.channel2 = (_mod),						\
-+	.address = (_addr),						\
-+	.info_mask_separate = BIT(IIO_CHAN_INFO_RAW),			\
-+	.info_mask_shared_by_all = BIT(IIO_CHAN_INFO_HARDWAREGAIN) |	\
-+				   BIT(IIO_CHAN_INFO_INT_TIME),		\
-+	.info_mask_shared_by_all_available =				\
-+		BIT(IIO_CHAN_INFO_HARDWAREGAIN),			\
-+}
-+
-+static const struct iio_chan_spec tcs3430_channels[] = {
-+	{
-+		.type = IIO_LIGHT,
-+		.address = TCS3430_REG_CH1DATAL,
-+		.info_mask_separate = BIT(IIO_CHAN_INFO_RAW) |
-+				      BIT(IIO_CHAN_INFO_SCALE),
-+		.info_mask_shared_by_all = BIT(IIO_CHAN_INFO_HARDWAREGAIN) |
-+					   BIT(IIO_CHAN_INFO_INT_TIME),
-+		.info_mask_shared_by_all_available =
-+			BIT(IIO_CHAN_INFO_HARDWAREGAIN),
-+	},
-+	TCS3430_INTENSITY_CHANNEL(IIO_MOD_Z, TCS3430_REG_CH0DATAL),
-+	TCS3430_INTENSITY_CHANNEL(IIO_MOD_Y, TCS3430_REG_CH1DATAL),
-+	TCS3430_INTENSITY_CHANNEL(IIO_MOD_LIGHT_IR, TCS3430_REG_CH2DATAL),
-+	TCS3430_INTENSITY_CHANNEL(IIO_MOD_X, TCS3430_REG_CH3DATAL),
-+};
-+
-+static const struct iio_info tcs3430_info = {
-+	.read_raw = tcs3430_read_raw,
-+	.write_raw = tcs3430_write_raw,
-+	.read_avail = tcs3430_read_avail,
-+};
-+
-+static int tcs3430_probe(struct i2c_client *client)
-+{
-+	struct device *dev = &client->dev;
-+	struct tcs3430_data *data;
-+	struct iio_dev *indio_dev;
-+	int ret;
-+
-+	if (!i2c_check_functionality(client->adapter,
-+				     I2C_FUNC_SMBUS_BYTE_DATA |
-+				     I2C_FUNC_SMBUS_WORD_DATA))
-+		return -EOPNOTSUPP;
-+
-+	ret = devm_regulator_get_enable(dev, "vdd");
-+	if (ret)
-+		return dev_err_probe(dev, ret, "failed to enable vdd supply\n");
-+
-+	indio_dev = devm_iio_device_alloc(dev, sizeof(*data));
-+	if (!indio_dev)
-+		return -ENOMEM;
-+
-+	data = iio_priv(indio_dev);
-+	data->client = client;
-+	data->gain_idx = 3; /* 64x default gain */
-+	i2c_set_clientdata(client, data);
-+
-+	ret = devm_mutex_init(dev, &data->lock);
-+	if (ret)
-+		return ret;
-+
-+	ret = i2c_smbus_read_byte_data(client, TCS3430_REG_ID);
-+	if (ret < 0)
-+		return dev_err_probe(dev, ret, "failed to read device ID\n");
-+	if ((ret & TCS3430_ID_MASK) != TCS3430_ID_VAL)
-+		dev_info(dev, "unexpected part ID 0x%02x\n", ret);
-+
-+	ret = tcs3430_init_hw(data);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "failed to initialize device\n");
-+
-+	ret = devm_add_action_or_reset(dev, tcs3430_power_off, data);
-+	if (ret)
-+		return ret;
-+
-+	indio_dev->name = "tcs3430";
-+	indio_dev->info = &tcs3430_info;
-+	indio_dev->modes = INDIO_DIRECT_MODE;
-+	indio_dev->channels = tcs3430_channels;
-+	indio_dev->num_channels = ARRAY_SIZE(tcs3430_channels);
-+
-+	return devm_iio_device_register(dev, indio_dev);
-+}
-+
-+static int tcs3430_suspend(struct device *dev)
-+{
-+	struct tcs3430_data *data = dev_get_drvdata(dev);
-+
-+	guard(mutex)(&data->lock);
-+	return i2c_smbus_write_byte_data(data->client, TCS3430_REG_ENABLE, 0x00);
-+}
-+
-+static int tcs3430_resume(struct device *dev)
-+{
-+	struct tcs3430_data *data = dev_get_drvdata(dev);
-+
-+	guard(mutex)(&data->lock);
-+	return tcs3430_init_hw(data);
-+}
-+
-+static DEFINE_SIMPLE_DEV_PM_OPS(tcs3430_pm_ops, tcs3430_suspend,
-+				tcs3430_resume);
-+
-+static const struct of_device_id tcs3430_of_match[] = {
-+	{ .compatible = "ams,tcs3430" },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(of, tcs3430_of_match);
-+
-+static const struct i2c_device_id tcs3430_id[] = {
-+	{ .name = "tcs3430" },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(i2c, tcs3430_id);
-+
-+static struct i2c_driver tcs3430_driver = {
-+	.driver = {
-+		.name = "tcs3430",
-+		.of_match_table = tcs3430_of_match,
-+		.pm = pm_sleep_ptr(&tcs3430_pm_ops),
-+	},
-+	.probe = tcs3430_probe,
-+	.id_table = tcs3430_id,
-+};
-+module_i2c_driver(tcs3430_driver);
-+
-+MODULE_AUTHOR("Robert Ijtsma <robertijtsma@gmail.com>");
-+MODULE_DESCRIPTION("ams OSRAM TCS3430 Ambient Light and XYZ Color Sensor Driver");
-+MODULE_LICENSE("GPL");
+v2->v3:
+  * Move relevant bpftool dependencies from libbpf_internal.h to
+    libbpf_tools.h, so that bpftool only includes the new header
+    (Quentin).
+  * sched_ext patch: check scx_bpf_reenqueue_local___v2 too in
+    __COMPAT_scx_bpf_reenqueue_local_from_anywhere() (bpf-ci bot).
+  * libbpf: load module BTFs before the lookup, so that the load
+    errors aren't reported as "no compatible prototype" (bpf-ci bot).
+  * docs: explain how older libbpf and light skeletons resolve a ___vN
+    kfunc (bpf-ci bot).
 
+v2: https://lore.kernel.org/bpf/20261121003403.2928928-1-ihor.solodrai@linux.dev/
+
+v1->v2:
+  * Pick a kfunc by prototype among all funcs with the same essential
+    name, without preferring the exact name (Andrii, Eduard).
+  * Compare struct and union names, ignoring ___ suffixes, instead of
+    using bpf_core_types_are_compat(), so that variants can differ
+    only in a pointee type (Eduard, Andrii).
+  * Drop the alias exception that kept ___v2___compat names working
+    (Eduard). New patch 2 updates compat.bpf.h instead.
+  * resolve_btfids: check registered kfuncs within vmlinux or a module
+    with libbpf's new matcher and report every matching pair. New
+    patch #1 shares libbpf internals with it instead of wrapping them
+    (Eduard).
+  * Call kernel-side ___ functions "variants". "Flavor" stays CO-RE's
+    term for local suffixes.
+  * Rewrite the docs for the new rules.
+
+v1: https://lore.kernel.org/bpf/20261117192153.3384031-1-ihor.solodrai@linux.dev/
+
+---
+
+Ihor Solodrai (6):
+  libbpf: Separate interfaces shared with in-tree tools
+  sched_ext: Prefer ___v2 kfunc names in compat.bpf.h
+  libbpf: Resolve kfunc variants by prototype
+  selftests/bpf: Test kfunc variant selection by prototype
+  resolve_btfids: Reject ambiguous kfunc variants
+  docs/bpf: Describe how to change a kfunc's prototype
+
+ Documentation/bpf/kfuncs.rst                  |  99 ++++++++++
+ tools/bpf/bpftool/Makefile                    |   6 +-
+ tools/bpf/bpftool/common.c                    |   2 +-
+ tools/bpf/bpftool/gen.c                       |   3 +-
+ tools/bpf/bpftool/prog.c                      |   2 +-
+ tools/bpf/bpftool/xlated_dumper.c             |   2 +-
+ tools/bpf/resolve_btfids/btf_colors.c         |  15 +-
+ tools/bpf/resolve_btfids/btf_colors.h         |   4 -
+ tools/bpf/resolve_btfids/main.c               |  74 ++++++-
+ tools/lib/bpf/btf.c                           |  99 +++++++++-
+ tools/lib/bpf/libbpf.c                        | 112 +++++++----
+ tools/lib/bpf/libbpf_internal.h               | 164 +--------------
+ tools/lib/bpf/libbpf_tools.h                  | 186 ++++++++++++++++++
+ tools/sched_ext/include/scx/compat.bpf.h      |  48 +++--
+ .../selftests/bpf/prog_tests/verifier.c       |   3 +
+ .../selftests/bpf/progs/kfunc_variants.c      |  32 +++
+ .../selftests/bpf/test_kmods/bpf_testmod.c    |  12 ++
+ .../bpf/test_kmods/bpf_testmod_kfunc.h        |   3 +
+ 18 files changed, 629 insertions(+), 237 deletions(-)
+ create mode 100644 tools/lib/bpf/libbpf_tools.h
+ create mode 100644 tools/testing/selftests/bpf/progs/kfunc_variants.c
+
+
+base-commit: a58375b858fac35afb78a3dd68ad6a19c01799eb
 -- 
 2.56.0
-
 
