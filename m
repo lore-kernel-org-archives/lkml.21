@@ -1,74 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.197
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.197
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795490995;
-	b=44HeDVMMrKnFicEoyIjLzaDNCbCROA1qCibYYdEt2Ed8OxfBbFKofIVC5kgm3oXDNjSo
-	 njd3eFpIoteV6DSPJGZMBr+MUdyMiHiHnmcKXhJorRwMYOvJ6zdUKsazM/dHxNQm81CmX
-	 quVdOpI3y8quAmytgjgfLijaypRIoXBULUu5EBJ0Zlp+ipeBuOBxJNVubtrmMVcs1I2JP
-	 Yx7WWaA5A86M6GTkLf6j0gW5tJqECRomkC4qXEks4fOcRYLYQUys2+A8iSdAlYSzb4MA2
-	 XTSau/iuGqqUWm8QQkINdnJLQqrUXYsybMMf0W71hAWYMEvwtWv2G5AzRTLAr5OZEag==
+	t=1795490999;
+	b=X607hP4Gk5Q4L8EM2DsmA7Og6pBNkwnFd2NhKxJ0Nf3H0bUBB7adGI/SzOVv1bg812gC
+	 1SP8P6q3fcV1zAxZJhzwcbLkPfDG7aNkEryvCVyRx9jyCwbVxOzI7nG2ka2azMhG0M/ZS
+	 4PIT8RvDUgV76dUx3K85AW62H0Jzg/t2W7g/xBtDA2mBnN7SMO0T6suqQz2ifKVxS4xA0
+	 tC2cqmmgIfJZgM60rdrHLsT2ngTTVH0i0e+y3/mQgT5IG/mKyCAUaf54f+c4H0eA/JY1W
+	 Nod5CNxLpAFFe+yY4DjBKYco+CaJZXa8sQnxV6R55vLtNji/DEU5edhhuNDElmzK7Ww==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795490995;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795490999;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
 	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
 	 Content-Type;
-	bh=y6IiJs/DMF6EfGohMMzJwSUIi3XIZn9ABEzl61p3zSk=;
-	b=edqA4mWIK2qiz8P3XgqBfN0DDYz/9uVNIUBq7vDsFloIVLePmm/fqGYdr7NjY4nyB5T3
-	 7RuiWM8ZMvPy49kjJOLtb2IVaO1PDW0wx8GvX+q7izVQq+1HV4GhzKHVjU8g5oloeqCbE
-	 6v4MXK4VvCIDweItsGMN2TXnRSSbg4VItpHdVPSGbgGr6a9rhw9/bC1r3G+yqtm3ojcjD
-	 P/NL4Ua+5DuhMV91oWbgIiU3PE4mSH4E5ey9y+MAU1lYvief6R1z9Iyfk+ySyewbKfzle
-	 1hW4WdPKROsTqHVEzPY11Sire+rDdBaDJjhV1JpqjemNw7xqNZO0gVS1F0hHX03v+8Q==
+	bh=8eCq9dib8jOAF7T/Xv3lvdH1JoM5UBCk+ZQipVveLXA=;
+	b=IP8jE+wJL9k2ex5uXo7ktQdJ99pmWotsAU4NO0KW6UAfVhv/BsZGMVbkkBiQMqReQnlL
+	 hZlzt8cG32BGHc8Jv55TcD/4hhpBltPc58Ie5pvIdTkuTuBwTL0bl01IXQLIwbpqB2Hw8
+	 ar6hnw+uDprf0F4ASw6M7gfkUCyR040V0mxpBEN0XnYNkDFQ3nSrIU1sNJYnyYoEcQytX
+	 WsCnh72n+z2SzVZarq/u/IVkEXznXGFx/buFMFTMC5ZdXmihU+1qFL7ZyRodiaHrchUpz
+	 J2Eqtsd6+fqSY2wmY4yCspXUr5sGe6TA0CVaOF4rASU9vdUhv17irKMdimv/Udm3Qug==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=T0dqIfDF;
-	arc=none smtp.remote-ip=209.85.167.197
-Received: from mail-oi1-f197.google.com (mail-oi1-f197.google.com [209.85.167.197])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=nM6iVLRV;
+	arc=none smtp.remote-ip=74.125.82.197
+Received: from mail-dy1-f197.google.com (mail-dy1-f197.google.com [74.125.82.197])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 83CCF606A321
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 03:29:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 83CCF606A321
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3CC94606A32A
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 03:29:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3CC94606A32A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=T0dqIfDF
-Received: by mail-oi1-f197.google.com with SMTP id 5614622812f47-4cbf700ddccso3040866b6e.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 19:29:55 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=nM6iVLRV
+Received: by mail-dy1-f197.google.com with SMTP id 5a478bee46e88-38531c1a566so2779528eec.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 19:29:58 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795490994; x=1796095794; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795490997; x=1796095797; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=y6IiJs/DMF6EfGohMMzJwSUIi3XIZn9ABEzl61p3zSk=;
-        b=T0dqIfDFe7oB6QtLppNI2vBPpk5n2plu1YR5OLmUMw2lnYYO5frOsef/48tzmTEsOw
-         vI3jlIchKPVJa9GfFhaG/Do5kdfS5RWkVErErww/LWvFp0HCyjvjwfwoRd49fKKBHgld
-         Dha4h3zWGTlDnU3SAwY7KOFNSpLSxPICWvhevZk6LyAVtH/R9o7QczftPW6sek6COAdt
-         bzX/2RVCRahGOV5xvkKQjkODmr9gwvFtAz+BguSRahNM8meyuhd1kejH5TClWnvqSm8c
-         Fi5KW0z4cDzxlnkD8x8BIRCP4PLfOZeSPP0I63WAjUo7ng9Ly32ju+98IBmd4qyU7s6m
-         /Haw==
+        bh=8eCq9dib8jOAF7T/Xv3lvdH1JoM5UBCk+ZQipVveLXA=;
+        b=nM6iVLRV+E5DEkmJ8PrBOFUkLT1+E0ajv2uzNxmiCETMayVDGZQIAACNQV2LGmp1jo
+         8MSB9tByEVkGCYavNn0Gl/aUb7wDTzReNQ/RkCfy4rDo4KfC1up6dXDk54LmgHSD4B7y
+         6jicJi1ntP7lLQKpGt1j8kGGz5whtqBV6AB0r12KNLtcoa4qNtUIieD0Mp3AkmgA5kj4
+         tR4uau9kpl8oYfdTrn4Nfz0uxLZ3Aot68KuUH0XWGwc6M3WidaiI+0R3aa/PNs7HQZcB
+         0XLNVpQr7cZsaCS71X4X++d0EJvojjyOBUthrbGSKH7A3VRBggJrL/fwzoTznIRlEOxj
+         LedQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795490994; x=1796095794;
+        d=1e100.net; s=20260707; t=1795490997; x=1796095797;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=y6IiJs/DMF6EfGohMMzJwSUIi3XIZn9ABEzl61p3zSk=;
-        b=UEG/NiPIc6KsrcFu8llqJKdpDJ6cCl5XBVYwY1OUMLUjPgF3uF2cnpnpOaa7QVa6U7
-         w7E0Qcl2Pc0kpOdkk5O3+kWN2UWUTOObKzngPPbky9+YsEgRficiqXxgkP8p6PzdQMpV
-         VX0KxoMfLh/tAEkyLyWj2NfgnTDwW9Vqj3eBn6qx+7MfR0KVz52ccFX82Z2k2HiQ7JcX
-         5X7SdMj97+H+JJQXRSm29WuePBBqp/HljnIdVEFvSIk1FI8mqfe/dDV0mOT6r018+uSx
-         D7u94GwcjCUchWdMKgAEWFnR/40Ks8OOJaGICt2P8UApXQ6P933FdY8xutMbQDZqdia4
-         oTyA==
-X-Forwarded-Encrypted: i=1; AL+hErEB8I4xrGyP/tazL26xClW/PsaIU4zORcI8OJrFavIq5Wb2OFAd7SIgLa5Ux/cZ5cuGVBirt+2nV/z3UuE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9DCJRd5zN+b/3ps6J797JhGcE4nVaFoCNN9aTCuOotWeKYFQaz
-	/JUEz2OZra5Hr285FOxRpp39/Hw2yDi1922Nwd11BOH6YrwPd9W4nCB32DArbW+sks5AogHHMP7
-	Eq+nptOCBjg==
-X-Received: from iobdq9.prod.google.com ([2002:a05:6602:1b89:b0:9c3:dedd:2a97])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6808:660e:b0:4f4:b5ba:a241
- with SMTP id 5614622812f47-57a0b048d65mr14053472b6e.39.1795490994095; Mon, 23
- Nov 2026 19:29:54 -0800 (PST)
-Date: Mon, 23 Nov 2026 19:29:01 -0800
+        bh=8eCq9dib8jOAF7T/Xv3lvdH1JoM5UBCk+ZQipVveLXA=;
+        b=2eOJIQ8mWX0vQRdlVbCL9LScpUhPzZMHrZIuZXNzkPXTVKiOE4Y0K/KKmcvrK1AVz8
+         668w3YzMEhVTpZI+PAFAMu8pTjbtJshUWmvTygtwcJ07AulwyUHd0/aYUx8j9OTG27ds
+         UKeX9wTFyaRWJChtwq0Ro8AKICc4lSscIrmUKATHtKn01Zm28HGO0HXUmtAC6J3MHyRe
+         yhKtoWS9nrgrigSlxwPwrhheEGV5kubGmCoawUPH3F87nSRBg66ys6zn8TaJ5egKKGYi
+         RuInLW4CEMkZFmpfY+aYHqA8134G6rbErNm9ekOFIcACJ8ktkAavlwfE5dssdISgCncI
+         xzng==
+X-Forwarded-Encrypted: i=1; AL+hErH3CKqSwLcb0aL7V3WVj4CApQ75XbJ4fjN5ixCg+Z7DjPF7ZqTCcx/2XLJucj458bHCbHp75R4oACpO4hA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9w12/Gj1p4rzQCqqn9DHoOABXZf1N+KGGHLgMb8/sCDYDcJnz3
+	71GUePgkl2Eq8mc5M5VcnfyrU5gBuWBsLMGVe1vspq8R3xo04A30l9jN2hu8tTeymi9OoAJl7no
+	/9oDJpSLhzQ==
+X-Received: from dybzy8.prod.google.com ([2002:a05:7301:e108:b0:382:22da:973b])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7300:d941:b0:381:3a24:1be2
+ with SMTP id 5a478bee46e88-3856fd5d566mr15197140eec.13.1795490996929; Mon, 23
+ Nov 2026 19:29:56 -0800 (PST)
+Date: Mon, 23 Nov 2026 19:29:02 -0800
 In-Reply-To: <20261124032902.3859564-1-irogers@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -81,9 +81,9 @@ Precedence: list
 Mime-Version: 1.0
 References: <20261124032902.3859564-1-irogers@google.com>
 X-Mailer: git-send-email 2.56.1.809.ga0b61035b5-goog
-Message-ID: <20261124032902.3859564-11-irogers@google.com>
-Subject: [PATCH v9 10/11] perf session: Add dso__session() and session-scoped
- allocation wrappers
+Message-ID: <20261124032902.3859564-12-irogers@google.com>
+Subject: [PATCH v9 11/11] perf test symbols: Add session allocation wrapper
+ and lock contention tests
 From: Ian Rogers <irogers@google.com>
 To: Namhyung Kim <namhyung@kernel.org>, Arnaldo Carvalho de Melo <acme@kernel.org>, 
 	Alireza Haghdoost <haghdoost@uber.com>, Ian Rogers <irogers@google.com>
@@ -92,219 +92,213 @@ Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, Jiri 
 	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 
-Add explicit session-scoped memory allocation wrappers:
-- perf_session__malloc(session, size)
-- perf_session__zalloc(session, size)
-- perf_session__calloc(session, nmemb, size)
-- perf_session__realloc(session, ptr, size)
-- perf_session__strdup(session, s)
-
-When an allocation fails and returns NULL, if a non-NULL struct
-perf_session is provided, the wrapper invokes perf_session__shrink() to
-evict unreferenced symbols, DSOs, and cached debuginfo across the
-session's machines and then retries the allocation once. This avoids
-the thrashing overhead of periodic heuristic shrinking while allowing
-perf to recover from memory exhaustion.
-
-Also plumb a back-pointer from struct dsos to its owning struct machine
-so machine__session(machine) and dso__session(dso) can resolve the
-active perf_session.
+Add test_session_alloc_shrink() to tools/perf/tests/symbols.c verifying:
+- machine__session() and dso__session() back-pointer resolution.
+- perf_session__malloc(), zalloc(), calloc(), realloc(), and strdup()
+  allocation wrappers and perf_session__shrink() eviction.
+- Multithreaded contention between dso__find_binary_type()
+  (dso__data_open_lock -> dso__lock(dso)) and perf_session__shrink() under
+  dso__lock(dso), plus perf_session__e_machine() shard iteration.
 
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- tools/perf/util/dso.c     |  7 ++++
- tools/perf/util/dso.h     |  2 ++
- tools/perf/util/dsos.c    |  1 +
- tools/perf/util/dsos.h    |  1 +
- tools/perf/util/machine.c |  1 +
- tools/perf/util/machine.h |  5 +++
- tools/perf/util/session.c | 70 +++++++++++++++++++++++++++++++++++++++
- tools/perf/util/session.h |  6 ++++
- 8 files changed, 93 insertions(+)
+ tools/perf/tests/symbols.c | 162 +++++++++++++++++++++++++++++++++++++
+ 1 file changed, 162 insertions(+)
 
-diff --git a/tools/perf/util/dso.c b/tools/perf/util/dso.c
-index b6217c49dd14..43b1ad44d165 100644
---- a/tools/perf/util/dso.c
-+++ b/tools/perf/util/dso.c
-@@ -1915,6 +1915,13 @@ void dso__delete(struct dso *dso)
- 	__dso__delete(dso, /*close_data=*/true);
+diff --git a/tools/perf/tests/symbols.c b/tools/perf/tests/symbols.c
+index 1fd6bfdc4147..c6375bd7e3d9 100644
+--- a/tools/perf/tests/symbols.c
++++ b/tools/perf/tests/symbols.c
+@@ -8,6 +8,8 @@
+ #include <errno.h>
+ #include <inttypes.h>
+ #include <limits.h>
++#include <pthread.h>
++#include <stdatomic.h>
+ #include <stdbool.h>
+ #include <stddef.h>
+ #include <stdio.h>
+@@ -19,6 +21,7 @@
+ #include "dso.h"
+ #include "env.h"
+ #include "machine.h"
++#include "session.h"
+ #include "srcline.h"
+ #include "thread.h"
+ #include "symbol.h"
+@@ -320,6 +323,161 @@ static int test_dsos_shrink(void)
+ 	return ret;
  }
  
-+struct perf_session *dso__session(const struct dso *dso)
-+{
-+	struct dsos *dsos = dso ? RC_CHK_ACCESS(dso)->dsos : NULL;
++struct shrink_lock_race_args {
++	struct dso *dso;
++	atomic_bool stop;
++};
 +
-+	return dsos ? machine__session(dsos->machine) : NULL;
++static void *shrink_lock_race_worker(void *arg)
++{
++	struct shrink_lock_race_args *args = arg;
++
++	while (!atomic_load_explicit(&args->stop, memory_order_relaxed))
++		dso__find_binary_type(args->dso);
++
++	return NULL;
 +}
 +
- bool dso__can_shrink_symbols(const struct dso *dso)
- {
- 	const char *name;
-diff --git a/tools/perf/util/dso.h b/tools/perf/util/dso.h
-index b0ee45a53f40..eb56bf9fb4d1 100644
---- a/tools/perf/util/dso.h
-+++ b/tools/perf/util/dso.h
-@@ -20,6 +20,7 @@
- struct machine;
- struct map;
- struct perf_env;
-+struct perf_session;
- 
- #define DSO__NAME_KALLSYMS	"[kernel.kallsyms]"
- #define DSO__NAME_KCORE		"[kernel.kcore]"
-@@ -797,6 +798,7 @@ static inline refcount_t *dso__refcnt(struct dso *dso)
- bool dso__can_shrink_symbols(const struct dso *dso);
- bool dso__try_evict(struct dso *dso);
- size_t dso__shrink(struct dso *dso);
-+struct perf_session *dso__session(const struct dso *dso);
- 
- char *dso__filename_with_chroot(const struct dso *dso, const char *filename);
- 
-diff --git a/tools/perf/util/dsos.c b/tools/perf/util/dsos.c
-index 77f668d7557c..43605daedba6 100644
---- a/tools/perf/util/dsos.c
-+++ b/tools/perf/util/dsos.c
-@@ -19,6 +19,7 @@ void dsos__init(struct dsos *dsos)
- {
- 	init_rwsem(&dsos->lock);
- 
-+	dsos->machine = NULL;
- 	dsos->cnt = 0;
- 	dsos->allocated = 0;
- 	dsos->dsos = NULL;
-diff --git a/tools/perf/util/dsos.h b/tools/perf/util/dsos.h
-index de10a10de777..87002b25a3bb 100644
---- a/tools/perf/util/dsos.h
-+++ b/tools/perf/util/dsos.h
-@@ -19,6 +19,7 @@ struct machine;
-  */
- struct dsos {
- 	struct rw_semaphore lock;
-+	struct machine *machine;
- 	struct dso **dsos __pt_guarded_by(&lock) __guarded_by(&lock);
- 	unsigned int cnt __guarded_by(&lock);
- 	unsigned int allocated __guarded_by(&lock);
-diff --git a/tools/perf/util/machine.c b/tools/perf/util/machine.c
-index f4108cc725fc..20215c12819e 100644
---- a/tools/perf/util/machine.c
-+++ b/tools/perf/util/machine.c
-@@ -81,6 +81,7 @@ int machine__init(struct machine *machine, const char *root_dir, pid_t pid)
- 	memset(machine, 0, sizeof(*machine));
- 	RB_CLEAR_NODE(&machine->rb_node);
- 	dsos__init(&machine->dsos);
-+	machine->dsos.machine = machine;
- 	threads__init(&machine->threads);
- 
- 	machine->kmaps = maps__new(machine);
-diff --git a/tools/perf/util/machine.h b/tools/perf/util/machine.h
-index b42c363723c9..80ef16384aa5 100644
---- a/tools/perf/util/machine.h
-+++ b/tools/perf/util/machine.h
-@@ -165,6 +165,11 @@ static inline struct perf_session *machines__session(struct machines *machines)
- 	return machines->session;
- }
- 
-+static inline struct perf_session *machine__session(const struct machine *machine)
++static int test_session_alloc_shrink(void)
 +{
-+	return machine && machine->machines ? machine->machines->session : NULL;
++	struct perf_session *session = zalloc(sizeof(*session));
++	struct dso *dso;
++	struct thread *th;
++	pid_t pid = getpid();
++	char *p1 = NULL, *p2 = NULL, *p3 = NULL, *s = NULL, *tmp;
++	int ret = TEST_FAIL;
++
++	if (!session)
++		return TEST_FAIL;
++
++	perf_env__init(&session->header.env);
++	if (machines__init(&session->machines, session))
++		goto out;
++	session->machines.host.env = &session->header.env;
++	if (machine__session(&session->machines.host) != session) {
++		pr_debug("machine__session did not return owning session!\n");
++		goto out;
++	}
++
++	dso = machine__findnew_dso(&session->machines.host, "/tmp/perf_test_session_dso");
++	if (!dso)
++		goto out;
++	if (dso__session(dso) != session) {
++		pr_debug("dso__session did not return owning session!\n");
++		dso__put(dso);
++		goto out;
++	}
++	dso__put(dso);
++
++	p1 = perf_session__malloc(session, 64);
++	p2 = perf_session__zalloc(session, 64);
++	p3 = perf_session__calloc(session, 4, 16);
++	s = perf_session__strdup(session, "perf_session_alloc_test");
++	if (!p1 || !p2 || !p3 || !s || strcmp(s, "perf_session_alloc_test") != 0) {
++		pr_debug("perf_session allocation wrappers failed!\n");
++		goto out;
++	}
++
++	tmp = perf_session__realloc(session, p1, 128);
++	if (!tmp) {
++		pr_debug("perf_session__realloc failed!\n");
++		goto out;
++	}
++	p1 = tmp;
++
++	if (perf_session__shrink(session) == 0) {
++		pr_debug("perf_session__shrink failed to evict unreferenced DSO!\n");
++		goto out;
++	}
++	down_read(&session->machines.host.dsos.lock);
++	if (session->machines.host.dsos.cnt != 0) {
++		up_read(&session->machines.host.dsos.lock);
++		pr_debug("perf_session__shrink failed to evict unreferenced DSO!\n");
++		goto out;
++	}
++	up_read(&session->machines.host.dsos.lock);
++
++	/*
++	 * Regression test for AB-BA lock inversion between dso__lock(dso_A)
++	 * (held by dso__load() when calling perf_session__shrink() to evict
++	 * unreferenced dso_B) and dso__data_open_lock (acquired before
++	 * dso__lock(dso_A) by dso__find_binary_type()).
++	 */
++	dso = machine__findnew_dso(&session->machines.host, "/tmp/perf_test_contended_dso");
++	if (!dso)
++		goto out;
++	{
++		bool was_singlethreaded = perf_singlethreaded;
++		struct shrink_lock_race_args race_args = {
++			.dso = dso,
++			.stop = false,
++		};
++		pthread_t worker;
++
++		perf_set_multithreaded();
++		if (pthread_create(&worker, NULL, shrink_lock_race_worker, &race_args) != 0) {
++			if (was_singlethreaded)
++				perf_set_singlethreaded();
++			dso__put(dso);
++			goto out;
++		}
++		for (int i = 0; i < 200; i++) {
++			struct dso *evict = machine__findnew_dso(&session->machines.host,
++								 "/tmp/perf_test_evict_dso");
++
++			dso__put(evict);
++			mutex_lock(dso__lock(dso));
++			RC_CHK_ACCESS(dso)->bintype_searched = 0;
++			perf_session__shrink(session);
++			mutex_unlock(dso__lock(dso));
++		}
++		atomic_store_explicit(&race_args.stop, true, memory_order_relaxed);
++		pthread_join(worker, NULL);
++		if (was_singlethreaded)
++			perf_set_singlethreaded();
++	}
++	dso__put(dso);
++	perf_session__shrink(session);
++
++	/*
++	 * Verify perf_session__e_machine() -> threads__for_each_thread() does
++	 * not self-deadlock on table->lock when a non-leader thread looks up or
++	 * creates its leader thread in the same shard.
++	 */
++	{
++		bool was_singlethreaded = perf_singlethreaded;
++		uint16_t e_machine;
++
++		perf_set_multithreaded();
++		th = machine__findnew_thread(&session->machines.host, pid,
++					     pid + THREADS__TABLE_SIZE);
++		if (!th) {
++			if (was_singlethreaded)
++				perf_set_singlethreaded();
++			goto out;
++		}
++		thread__put(th);
++		e_machine = perf_session__e_machine(session, NULL);
++		if (was_singlethreaded)
++			perf_set_singlethreaded();
++		if (e_machine == EM_NONE) {
++			pr_debug("perf_session__e_machine failed!\n");
++			goto out;
++		}
++	}
++
++	ret = TEST_OK;
++out:
++	free(p1);
++	free(p2);
++	free(p3);
++	free(s);
++	machines__exit(&session->machines);
++	perf_env__exit(&session->header.env);
++	free(session);
++	return ret;
 +}
 +
- void machines__process_guests(struct machines *machines,
- 			      machine__process_t process, void *data);
+ struct shrink_reload_find_args {
+ 	struct symbol *kept;
+ 	u64 first_start;
+@@ -822,6 +980,10 @@ static int test__symbols(struct test_suite *test __maybe_unused, int subtest __m
+ 	if (ret != TEST_OK)
+ 		return ret;
  
-diff --git a/tools/perf/util/session.c b/tools/perf/util/session.c
-index 9f16bff1b72f..610bbc769ef7 100644
---- a/tools/perf/util/session.c
-+++ b/tools/perf/util/session.c
-@@ -4278,3 +4278,73 @@ size_t perf_session__shrink(struct perf_session *session)
- 
- 	return machines__shrink(&session->machines);
- }
++	ret = test_session_alloc_shrink();
++	if (ret != TEST_OK)
++		return ret;
 +
-+static __thread bool perf_session__in_shrink;
-+
-+static bool perf_session__try_shrink(struct perf_session *session)
-+{
-+	size_t freed;
-+
-+	if (!session || perf_session__in_shrink)
-+		return false;
-+
-+	perf_session__in_shrink = true;
-+	freed = perf_session__shrink(session);
-+	perf_session__in_shrink = false;
-+
-+	return freed > 0;
-+}
-+
-+void *perf_session__malloc(struct perf_session *session, size_t size)
-+{
-+	void *ptr = malloc(size);
-+
-+	if (unlikely(!ptr && size != 0) && perf_session__try_shrink(session))
-+		ptr = malloc(size);
-+
-+	return ptr;
-+}
-+
-+void *perf_session__zalloc(struct perf_session *session, size_t size)
-+{
-+	void *ptr = zalloc(size);
-+
-+	if (unlikely(!ptr && size != 0) && perf_session__try_shrink(session))
-+		ptr = zalloc(size);
-+
-+	return ptr;
-+}
-+
-+void *perf_session__calloc(struct perf_session *session, size_t nmemb, size_t size)
-+{
-+	void *ptr = calloc(nmemb, size);
-+
-+	if (unlikely(!ptr && nmemb != 0 && size != 0) && perf_session__try_shrink(session))
-+		ptr = calloc(nmemb, size);
-+
-+	return ptr;
-+}
-+
-+void *perf_session__realloc(struct perf_session *session, void *ptr, size_t size)
-+{
-+	void *new_ptr = realloc(ptr, size);
-+
-+	if (unlikely(!new_ptr && size != 0) && perf_session__try_shrink(session))
-+		new_ptr = realloc(ptr, size);
-+
-+	return new_ptr;
-+}
-+
-+char *perf_session__strdup(struct perf_session *session, const char *s)
-+{
-+	char *dup;
-+
-+	if (!s)
-+		return NULL;
-+
-+	dup = strdup(s);
-+	if (unlikely(!dup) && perf_session__try_shrink(session))
-+		dup = strdup(s);
-+
-+	return dup;
-+}
-diff --git a/tools/perf/util/session.h b/tools/perf/util/session.h
-index cbea6792a008..c6157eddcc43 100644
---- a/tools/perf/util/session.h
-+++ b/tools/perf/util/session.h
-@@ -213,4 +213,10 @@ uint16_t perf_session__e_machine(struct perf_session *session, uint32_t *e_flags
- 
- size_t perf_session__shrink(struct perf_session *session);
- 
-+void *perf_session__malloc(struct perf_session *session, size_t size);
-+void *perf_session__zalloc(struct perf_session *session, size_t size);
-+void *perf_session__calloc(struct perf_session *session, size_t nmemb, size_t size);
-+void *perf_session__realloc(struct perf_session *session, void *ptr, size_t size);
-+char *perf_session__strdup(struct perf_session *session, const char *s);
-+
- #endif /* __PERF_SESSION_H */
+ 	ret = init_test_info(&ti);
+ 	if (ret != TEST_OK)
+ 		return ret;
 -- 
 2.56.1.809.ga0b61035b5-goog
 
