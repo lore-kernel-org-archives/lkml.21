@@ -1,95 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.151
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795483943;
-	b=c+P8h21A9GQsniwMCWIq+1d1tsblkmuWGk1vwVjJhM+ahBgBcy88HBq+S0ASCgyXkjbb
-	 BNJWGWlmIYz1CZhCSGg8K06Yh+oB2kmG1JuhPb93OgEIxztunvPhOuFPAugunrV3F3h0k
-	 WqywgcJoG054kbCblKmFQBK3Fe4UQrUjd4qHoSLCm372aE8w+DhwvwE2mBpd5lTKgDL0T
-	 SEsUKIGyeUQ7MSiCw2PRDecd0sjPhJT7fmlfG+HVG+RXnsFsG0z3EWt1ioBCPdoFn3Y9K
-	 GZbSD957WiJQPNE3vsVmHvyvQ0IVLquBxE5AJKDIABblvLeIGx705agUArbkzZknHlg==
+	t=1795483940;
+	b=fSgvoqMK46Las89NnWnRVUcQJlzR7yhENXCBO4Rm9ymbxsQHTYyCRZbaEwDP2jevDLT8
+	 s+vEjmzNbvyt+4MshwNb0qcxlbhhRlbb/iuAlJoe58jEM1vIh6fkRfHJEzJWFLuKf1JOl
+	 dpX4llvtF8Xzou3VyvlQ6HHZYbQ43BUa1haNop2E5e42hx5ifbmz8r7oDABWuHMehqh1T
+	 4P7kxmKhajxuXBytSkrOxBklWAHILL8lt6mgKo2OSUXOGv3bFZrwJ9D/WmjIhg5ftQKKa
+	 t0V1l59DJqX89R7aV/Y8a2E1rAprNJ8oV/bqTVWLjbWoOnxjcIzkmek4+REz5m6/Ynw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795483943;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=nAKiNemk2GJJwDYP8p1zRplDTIqlR1poJkDMNc9BGdA=;
-	b=Aua8J4RlemiNhPp5B57PN38txLQo8nGKtKP1goYzb75vxS9LUh4/0IDdh2SV8qhqHcIf
-	 gnU4uIyW8cgu99Ubi9xpxEThYR4QF7V2EAyhYNr+o18Stp9O3VZz4bdAqKRBVodWeVO5m
-	 5ByY6miJ0QFIA6JlVCdYCKBIeYAzRHUq45PMatXFR47M64cMBvM66mdHgo1BmAHC5X+DM
-	 8WZJ1y7WhDK3rddBGhg3vhttL4g2hUO5JjCVn+PRgyRNE/3F3Yg23xcPeqJgRXP7tW2zI
-	 TDER9TKbVRo2tfzEgZIGl60DXrNJIg1KiYOWp/0COnbna5N3aI23msbc4Mfqod8kQ+A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795483940;
+	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
+	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
+	 To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=kTiCx1nGBqhTPvN9zmHTwQR8MBY578BB/oiZhYYLins=;
+	b=Zw6NO/GnaLpK6a63rLdMEBWSQekBl4yZUmksLDgWxEOD1RCErknm5PrUNBHKbOWwJZ8h
+	 1l+ZJQo+3sW2BHK0sCFBpSqZLthqwSrxjaEI+gGP6d32X2nSxSZYXHsgS5TPAQgEZYc+F
+	 WEQ3R9XhVd+6r2U275ezasxu8ypJDC7U2ZEJCjEonExjG3BZn/WmwHBq7OYDVwoYTkski
+	 KI5bgzhIIuJ+qSpbl5C5kESQGN+s9FviaPoEAwvSv60yz7bVp5jeHurvgl3rfMKs8eIBZ
+	 1xO3Nk0r+eI6lIWRg6PpZgi49Paip8Ow6vMBstsOi51xCHO7GOz0Nj0ujOiUHh3/Q5A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fgZSWi0C;
-	arc=none smtp.remote-ip=74.125.82.53
-Received: from mail-dl1-f53.google.com (mail-dl1-f53.google.com [74.125.82.53])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A8EBF606A334
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 01:32:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A8EBF606A334
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	dmarc=pass header.from=cmss.chinamobile.com;
+	spf=pass smtp.mailfrom=cmss.chinamobile.com;
+	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=MOfrJH1E;
+	arc=none smtp.remote-ip=111.22.67.151
+Received: from cmccmta8.chinamobile.com (cmccmta8.chinamobile.com [111.22.67.151])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 0725E606A31E;
+	Tue, 24 Nov 2026 01:32:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0725E606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fgZSWi0C
-Received: by mail-dl1-f53.google.com with SMTP id a92af1059eb24-14394530ec6so5736363c88.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 17:32:22 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=MOfrJH1E
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795483942; x=1796088742; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=nAKiNemk2GJJwDYP8p1zRplDTIqlR1poJkDMNc9BGdA=;
-        b=fgZSWi0CfA8PjW8babAeGvHSPwaWYbL89BEAHJy+ktqIoYDUEZME1smhCOfnnxW0+v
-         AFjfxviZRLBb005A2J+N/u36TKD+8tMxY/1SOdJbY7xYvu/hKN6jekjXk0e1gaIPmd74
-         QPSr+c9G1gHQukDwmEGlBUeunAbqz5t0Vbq4EqemoslU1kmBx3b8CA+HoBhDsv0ArvYq
-         U+QjlfzW1u1efaiUDglKRnzWqaBCiPSsx7ev1Q6t8ZLwrCeywfWkt5bYPmdbipveu3Tw
-         bK8aaKxc3z/js/1HAmRkiAQn8uwcnzE+jUkhP05Jyge0CHDjEMfxgwhiIi2bShYoInug
-         rYsg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795483942; x=1796088742;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=nAKiNemk2GJJwDYP8p1zRplDTIqlR1poJkDMNc9BGdA=;
-        b=VhuffzkkdAYg8iHQYwPqa+CnTP8Ue9C7R3fqQ+NfIC/0MoSQC3+vCQd7jrU5huzlrw
-         dK4WNxJ3VPYj2PbE/L7uRE/UVKgDJ4KSjKzd3ptRkz1bjSEjKRw/kySPaXKMm4umVTxp
-         iWla3BKmpEcBrs+9sslEWdPzBNp11TBj7vgc1lUrXhQZEjX+xfIH8Bq1S5iSPKWcosKi
-         Di9Cw/UevBPbQWa31Z1JKc417Cu9BVd0e+4Fj7iUtj1tMrD7HNJ1qNDRi8n8nkvfN0dn
-         VqCMHU4YqW6uEhUZcXc+p+dHLhUDe35R5XU2Ctv763O5L2YuE1o1uL0EsuaUeCD2tJOZ
-         0Opw==
-X-Forwarded-Encrypted: i=1; AL+hErFc+X83TCN26ie7BVJRzH5jFzhm9sEyNEA/+zZNLQHb1+a+A/a/Z70M/7t9uBRG646MjDEf6Y/iyHqWiaQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9U0Ot3q+fuBt9fyWemHpfxATbcUNW9nDbvPMsBfljbCqQrUmWl
-	BECGJgzPnQI5le1qVha9XRwGo21wEicpJ4JOoRmTHke1LyZq2YN+l63g
-X-Gm-Gg: AZFdTZfllo7mE7rcM7PVhaWlz49TIIiJXdBKzEfA+1pc6v14m2JbWVJ+Bwsg1y2rmXR
-	Jj9HXODBTnPpHcnrQDYZP6VXcY+4p392zAxnOLIMyXlCCR0icGS7R9xz0n/HDgcbmA9Ra5wM6rb
-	hogA1BSSc9EwgFx6FnNty++zEUOqbDStqyZCCJ6VF2wEC29cfcUszYd7VyeF9EEcTpDdlJjdC8r
-	GNzLYawhMIR8Nn+AZiXEKoR3Oj/XhE4Tgj/vq1B7mx2t2ZArEaZnKqKfXoegyQbMTOucbwma2Qz
-	g7BJ7v9CDE7n3acioCUJaRGhH937ypJ2UpaAIUewe0hHMfOI69Twrlo/tGLw23b+DX0QrvkRqJb
-	EOfnJQZ2AGkPHurA8RNxL12lOYKnaF9FTGF+7SUnIFWYn5Sg+bJ2/ZELFD3Vv7aCmwEgSNYRThC
-	q5O2D1lyaeIk3lhi6fUAQnz8onx2nel53lTJL400lqZEiGPwZmdB85gy+gz4B1T6wAgshRAPu/l
-	Y812BfWHEn3Pmsh+U564vg0D5mjSPCLfWrv8bu9q7RripRmArk0qgUp187awQHB8Zdw0ETA8526
-	J0uIfgozXCUyE4rdWXluKZ7IZkGtDr/CFTBUTwF+H/oPj8fONBRHgeJvhvqv9RZT+mx93pg=
-X-Received: by 2002:a05:7022:f90b:b0:18d:5ef2:1644 with SMTP id a92af1059eb24-1b5568ebfaamr12146790c88.30.1795483941534;
-        Mon, 23 Nov 2026 17:32:21 -0800 (PST)
-Received: from google.com ([2a00:79e0:2ebe:8:4121:d698:201c:9274])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5567ff27bsm34017451c88.6.2026.11.23.17.32.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 17:32:20 -0800 (PST)
-Date: Mon, 23 Nov 2026 17:32:18 -0800
-From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-To: Guo Zihao <guozh23@xiaopeng.com>
-Cc: Markus Armbruster <armbru@redhat.com>, 
-	Thomas Gleixner <tglx@kernel.org>, linux-input@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	stable@vger.kernel.org
-Subject: Re: [PATCH v2] Input: xen-kbdfront - bound the backend-supplied
- keycode
-Message-ID: <awTpHuucnYYCHdx7@google.com>
-References: <20261106014957.4130059-1-guozh23@xiaopeng.com>
- <20261106020217.48481-1-guozh23@xiaopeng.com>
+	d=cmss.chinamobile.com; s=default; l=0;
+	h=from:subject:message-id:to:cc:mime-version;
+	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
+	b=MOfrJH1E6iHCM6bz4IBzaIRYFWUiHv11QUvCQSe4B/89t8eDakmP9dievy9ZvmFJiWS5uYML02mr4
+	 MNhLQZ6Rq4aPsQvfbqixFClNwJ69l3SCRejCF6Hrk5uiTlB1TO0PI9v6kPVkaAqumdDOJRX/oNkBz+
+	 HijECyooY+fQ3u7E=
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
+	by rmmx-syy-dmz-app06-12006 (RichMail) with SMTP id 2ee66b04e921fc7-0e49a;
+	Tue, 24 Nov 2026 09:32:17 +0800 (CST)
+X-RM-TRANSID:2ee66b04e921fc7-0e49a
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from  (unknown[104.224.130.48])
+	by rmsmtp-syy-appsvr02-12002 (RichMail) with SMTP id 2ee26b04e8edf00-0e094;
+	Tue, 24 Nov 2026 09:32:17 +0800 (CST)
+X-RM-TRANSID:2ee26b04e8edf00-0e094
+From: Haishuang Yan <yanhaishuang@cmss.chinamobile.com>
+To: netdev@vger.kernel.org
+Cc: David Ahern <dsahern@kernel.org>,
+	Ido Schimmel <idosch@nvidia.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Shuah Khan <shuah@kernel.org>,
+	Alice Mikityanska <alice.kernel@fastmail.im>,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net-next 5/6] ip6_gre: Enable BIG TCP packets
+Date: Mon, 23 Nov 2026 17:31:23 -0800
+Message-ID: <20261124013124.3693-6-yanhaishuang@cmss.chinamobile.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261124013124.3693-1-yanhaishuang@cmss.chinamobile.com>
+References: <20261124013124.3693-1-yanhaishuang@cmss.chinamobile.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,44 +78,62 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261106020217.48481-1-guozh23@xiaopeng.com>
+Content-Transfer-Encoding: 8bit
 
-On Fri, Nov 06, 2026 at 10:02:17AM +0800, Guo Zihao wrote:
-> Keycodes arrive from the shared ring the backend writes:
-> 
-> 	if (test_bit(key->keycode, info->ptr->keybit)) {
-> 		dev = info->ptr;
-> 	} else if (test_bit(key->keycode, info->kbd->keybit)) {
-> 		...
-> 	} else {
-> 		pr_warn("unhandled keycode 0x%x\n", key->keycode);
-> 		return;
-> 	}
-> 
-> The keycode is a plain u32 from the ring page, while the keybit
-> bitmaps it is tested against are sized for the KEY_CNT keycode bits
-> declared to the input core. A backend that sends a keycode at or
-> above KEY_CNT makes test_bit() read past the bitmap to decide which
-> device gets the event, and no keycode at or above KEY_MAX is a valid
-> EV_KEY code in the first place.
-> 
-> Since the event sits in memory the backend keeps writing access to,
-> the keycode must also be fetched exactly once: re-reading key->keycode
-> after the bounds check would let a concurrent backend write feed an
-> unchecked value to test_bit() and input_event(). Snapshot the keycode
-> into a local variable with READ_ONCE() before validating it, and use
-> the snapshot (as well as the already snapshotted pressed value)
-> throughout.
-> 
-> Ignore keycodes the bitmaps cannot hold.
-> 
-> Fixes: 4ee36dc08e5c ("xen pvfb: Para-virtual framebuffer, keyboard and pointer driver")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Guo Zihao <guozh23@xiaopeng.com>
+Commit f3d0f753f066 ("vxlan: Enable BIG TCP packets") and
+commit 03ebe91b0f61 ("geneve: Enable BIG TCP packets") allowed BIG TCP
+on UDP tunnels. ip6gre and ip6gretap can carry BIG TCP packets as well:
+IPv6 BIG TCP no longer needs a hop-by-hop jumbo header, the GRE header
+has no length field, the GSO and GRO paths already handle it, and FOU
+encapsulation sets the UDP length with udp_set_len() since
+commit 47282504ad21 ("udp: Support BIG TCP GSO packets where they can
+occur").
 
-Applied, thank you.
+Bump tso_max_size up to GSO_MAX_SIZE so that the admin can use BIG TCP
+with ip6gre and ip6gretap. ip6erspan is left alone. The default
+gso_max_size and gso_ipv4_max_size stay at 64KB, so nothing changes
+unless they are raised explicitly.
 
+iperf3 TCP over ip6gre and ip6gretap, with IPv4 traffic between two
+netns connected by veth, without encapsulation, 3 runs of 10 seconds
+each, in a KVM guest with 8 vCPUs on an Intel Core i7-14700 host:
+
+  ip6gre,    65536:   84.7,  84.4,  90.2 Gbit/s
+  ip6gre,    196608: 117.7, 112.5, 128.4 Gbit/s (+38%)
+  ip6gretap, 65536:  103.1,  97.9, 102.4 Gbit/s
+  ip6gretap, 196608: 123.0, 125.7, 124.8 Gbit/s (+23%)
+
+A later patch in this series extends big_tcp_tunnels.sh to cover ip6gre
+and ip6gretap with IPv4 and IPv6 traffic, without encapsulation and with
+FOU.
+
+Signed-off-by: Haishuang Yan <yanhaishuang@cmss.chinamobile.com>
+---
+ net/ipv6/ip6_gre.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/net/ipv6/ip6_gre.c b/net/ipv6/ip6_gre.c
+index 26c0e1c4de1..0ace21db3b4 100644
+--- a/net/ipv6/ip6_gre.c
++++ b/net/ipv6/ip6_gre.c
+@@ -1462,6 +1462,7 @@ static void ip6gre_tunnel_setup(struct net_device *dev)
+ 	dev->flags |= IFF_NOARP;
+ 	dev->addr_len = sizeof(struct in6_addr);
+ 	netif_keep_dst(dev);
++	netif_set_tso_max_size(dev, GSO_MAX_SIZE);
+ 	/* This perm addr will be used as interface identifier by IPv6 */
+ 	dev->addr_assign_type = NET_ADDR_RANDOM;
+ 	eth_random_addr(dev->perm_addr);
+@@ -1934,6 +1935,7 @@ static void ip6gre_tap_setup(struct net_device *dev)
+ 	dev->priv_flags &= ~IFF_TX_SKB_SHARING;
+ 	dev->priv_flags |= IFF_LIVE_ADDR_CHANGE;
+ 	netif_keep_dst(dev);
++	netif_set_tso_max_size(dev, GSO_MAX_SIZE);
+ }
+ 
+ static bool ip6gre_netlink_encap_parms(struct nlattr *data[],
 -- 
-Dmitry
+2.43.0
+
+
+
