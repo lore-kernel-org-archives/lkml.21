@@ -1,79 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795508433;
-	b=K9R9cnzo6JFmFm0QC7x58/b0mX2H9zDe81ZN3/iz8SpVuUjFzS06LO0PRGAM/PxrURek
-	 UqLENL/LJLVLjnNHXdHOjiXuN5M7Z+xaQ5WFUBO8jkho91vmAif+IVncujEK5M2V4z9pG
-	 6U6fQCZt/GmQaNMucHbynmN8zUHk55k4tbHLrLdUwgVcR0aepc3GMYS45b1H/4nD6/Wyx
-	 9VIG+FXleiVuGB6yhf6iq3tDzddhBZGp7JfC4TEwp/p2hQ2sfl662ZCWqSP+wyft7rzbH
-	 qSKxTLZPJKcNo3jzgjrVAEUOY2bOnFzEE7hZXmaGeW8TsSMw68+LHV5kLKWIVkfsNPQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795508433;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=65XV3n5OmazkoQahF/FD/QxeH7h22sCza9h0+2Ucpy8=;
-	b=ZwwIDokP991nvwFcS7pcM8O5yEfP6t/zFhuWXlK8AawkOauwWX/iJCWWGE7vgSOTrF0i
-	 S5JnmHIrjVMaH5QthDoG+Trl44N/JS/NeWuOUqnzdE2SDoqraNaDBxgr5LK5wtgrMRxJX
-	 ng2dIU4r7xoa3RpMdSFsjPMajOIbDL0xdFR19c/8grWcmkcfGG+iZcEz+lkE4e02crF3B
-	 dDXQ/MyZnZPv8ldPEukoNI7CaFXzt3t4OO42vtGcYa4MkA5CGkRxmXPjTDVthw6ahArpB
-	 FbEXz6FDeYkwpWhmiWW2UUMQqIJt5dnjGO/XZklm6L2veQAtKdVzkFx2Fm9BajoHPEw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="NH/FZTCX";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795508485;
+	b=gwQHrXb2IPIrj2NjMvklLLduTBiAVRTPnxpV4e/ZFIOH9/go8uYIbNW8TaoIfZncwUTm
+	 YqI8vuJlJcUYxFtYiq/chNSxzxxR3B1UX1QFhVImnkEUj4+rbRI8Kw+oVC2DH64WfHnHB
+	 V/ch6M7ZueOCwW4VTiVAcksj5MLcYe8o+uNEKHA/9vx3iJ4lYTos/YKBZySC/0C2U7ctt
+	 ymKt1elJhquXYlUYps/NOGrTi9ZMHMhdmzrC1xjZqBzm2zgixlMZzaoiEQfEW9EulL7yy
+	 hbvkHE+RNT1Yq0SjHIji9Krafv4r3EJY/9CIGvhDWUaegNEOwwIwAwCotL2qVCbOwqQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795508485;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=wwj0QXSNreWEUy/rLPR1l2BY0WuGMY1+8NqMgEz9Gj4=;
+	b=oVwYacZDKLkxroVlzTiqwCjiJ8bUpCe/CWaK0eqK3H6lnBfzM7nI+mkj4hl9yJqGNM7g
+	 +e/1B9qZ/UiNbf8pwSH+dd23ciSsBpRHjAlzFmIrsBaDbiorWKF8UZ1Hr3pYvL0b+meFk
+	 Ct4ycazizgOwIJERKM8j7OwK6e1IHlMIUWmosDplAP926sYAzuoIi7nA+96UCdUybCB8Z
+	 GblEIU43fflc2+4eLDLzjYyuz0oPgmM7+tZiTOh01ZK7vpwwHjekY8FhFG0uwvETYp7RI
+	 C/7TS90Fjs08gA5N4vBXUudN71nmcnxFUetinzgEPOgx/S8VBlyMWT/JKWCdePy/dPg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=Ao01OcX3;
+	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 80E66606A322;
-	Tue, 24 Nov 2026 08:20:33 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DF050606A322;
+	Tue, 24 Nov 2026 08:21:24 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NH/FZTCX
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795508432;
-	b=c0MZwJIvANXqRga9t0E/44d8ua3pqP00TnzuLGw3HLNHrbuOOVu5bkVNJ0x3bQq3dJuP
-	 N9rf+pRormZvPyfCUPWFahv0Y3z/ysVSk1y1pZle9Kd8JGNickpFEBJWALqiaWQhudTmx
-	 bzsVVfqEFLpiBNNZwH09heuwhOQo/NWhVuPIwwCEeVBNvLSWSFEOKEL04tqYbjGSkGqXr
-	 VP4uAdGvU5kYcctwDUeCjvFOxrsts9RWMEYZ8WKKaltnjzwZB5YvyayF2ij/MWS9d8KHk
-	 jCOe8OsxoVssPXHiqlMwKQd0ewR4APLMcHo9OcerGE8b/jInDpf9Bu/opGx9XCiR1QQ==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795508432;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=65XV3n5OmazkoQahF/FD/QxeH7h22sCza9h0+2Ucpy8=;
-	b=1j3ueOCLXfuQ0Ae5XV3zUf67Hg9orA1M53DDvBBByNKSZRZP1Geu2Kt6h0CaBUF0IVOp
-	 CYWG2isF57HFNGA4Nb21xVNJDiqkNlW+UINy/Bnv2G8fHllkNvPrV4Hboc4pf31z58wVz
-	 arhZwvXWaG+mOKwc6Fe5uJ7W0jtugFMcOoIBpe608zT9HH61qx+a1bIdqGjjUiYPFE6Aq
-	 kp7NaSylink+xRZKeSeYmld9EWIYdgSmaLM817kADEVIKFYffDcjRzUJv2bVU4TQUyOPm
-	 QNhoES9WLTKqin6fassDKxkj3HiO0E9DuYimT7JkRpgeywlGQnvQZFAK+oM80ui/DPQ==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 975121F000D1;
-	Tue, 24 Nov 2026 08:20:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795508432;
-	bh=65XV3n5OmazkoQahF/FD/QxeH7h22sCza9h0+2Ucpy8=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=NH/FZTCXvWBZ87Ve4yQ+n8+eYTAZYvtyAUa6AGEynRIQyTkcm+DtlSaIWRcHpDu6V
-	 szwDXapKz3ta8GDEVoHkCRPfEqoAJb9s2voJ9zyxFAFJhokz/UAp7I4AANn4K7D9D8
-	 9KPJCZnV7LzzouNrsWvyW+XuE2cNJzbCKo5KCtmFT3PpstWI+/hEVxywzxt3qQP6Q4
-	 N1vMTpyCOWp69UPchbjRLvnwet2qYTaXUuV6OIZKBau6g7pchuZur27KTIuam/IFcK
-	 PFZOchk8cyCPvInqIb+m/DXSbTk2Wu5ULBihg3r438I+jiXoZJlJltmuJt2ncNjCjc
-	 HvdBCfw9nve9w==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 295394C941;
-	Tue, 24 Nov 2026 08:20:21 +0000 (UTC)
-From: Fil Dunsky via B4 Relay <devnull+filipp.dunsky.gmail.com@kernel.org>
-Date: Tue, 24 Nov 2026 11:20:21 +0300
-Subject: [PATCH v2 3/3] MAINTAINERS: Add Cortina Systems CS7542 TRNG
- support
+	dkim=pass (1024-bit key) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=Ao01OcX3
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7A7591F000CA;
+	Tue, 24 Nov 2026 08:21:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
+	s=korg; t=1795508484;
+	bh=wwj0QXSNreWEUy/rLPR1l2BY0WuGMY1+8NqMgEz9Gj4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Ao01OcX3G8/+JxAjCMpZCGjRN5lHadBQIdZmEtpffolZbq1Nf+ZtbyaMaCOrCXYKW
+	 w/rHzS39nSdkP2maH+oqTatNzFuUS+2/MG5FIEDHSSq2A3jxzZ5eXbQ5DTvwPKhRKE
+	 b+Sw6hH7z3sHevDQ18gET8jZIHeBN4D/P5xXh3C8=
+Date: Tue, 24 Nov 2026 09:21:20 +0100
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Luo Gengkun <luogengkun@huaweicloud.com>
+Cc: stable@vger.kernel.org, Sasha Levin <sashal@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>, Jiri Olsa <jolsa@kernel.org>,
+	Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	James Clark <james.clark@linaro.org>,
+	Alexei Starovoitov <ast@kernel.org>,
+	"David S . Miller" <davem@davemloft.net>,
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
+	bpf@vger.kernel.org, alexander.shishkin@linux.intel.com
+Subject: Re: [PATCH stable/linux-6.6.y] perf, bpf: Fix NULL
+ event->orig_overflow_handler dereference
+Message-ID: <2026112402-dictation-juror-2e5d@gregkh>
+References: <20261124084837.2327711-1-luogengkun@huaweicloud.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,61 +65,70 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261124-b4-cs7542-trng-v2-3-0192937b44be@gmail.com>
-References: <20261124-b4-cs7542-trng-v2-0-0192937b44be@gmail.com>
-In-Reply-To: <20261124-b4-cs7542-trng-v2-0-0192937b44be@gmail.com>
-To: Olivia Mackall <olivia@selenic.com>, 
- Herbert Xu <herbert@gondor.apana.org.au>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
- linux-crypto@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795508418; l=909;
- i=filipp.dunsky@gmail.com; s=20260930; h=from:subject:message-id;
- bh=MzB08CctM8fwsUgGK3bypoUBj9M40TVd0CcGnpP75WA=;
- b=tHE1Fi5oHku4Cl+7MQSTeOe4Ua2Rr2u6spKFraXTw2guvbiji8EzAZuQjfcgw1fYitR5mokd9
- KJQwEwF2iBPCVs2obe6IxL1AC5N38aWUyFioU3hPzKvfyYLAG9ZMquX
-X-Developer-Key: i=filipp.dunsky@gmail.com; a=ed25519;
- pk=JAYP8e2rJ54DHOmhNtXud8rl1igAaAXoOHxtJmVXI1g=
-X-Endpoint-Received: by B4 Relay for filipp.dunsky@gmail.com/20260930 with
- auth_id=1085
-X-Original-From: Fil Dunsky <filipp.dunsky@gmail.com>
-Reply-To: filipp.dunsky@gmail.com
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261124084837.2327711-1-luogengkun@huaweicloud.com>
 
-From: Fil Dunsky <filipp.dunsky@gmail.com>
+On Tue, Nov 24, 2026 at 08:48:37AM +0000, Luo Gengkun wrote:
+> We hit the following problem on x86:
+> 
+> 	BUG: kernel NULL pointer dereference, address: 0000000000000000
+> 	#PF: supervisor instruction fetch in kernel mode
+> 	#PF: error_code(0x0010) - not-present page
+> 	RIP: 0010:0x0
+> 	Call Trace:
+> 	 <IRQ>
+> 	 bpf_overflow_handler+0xa4/0x120
+> 	 __perf_event_overflow+0x11d/0x2f0
+> 	 perf_swevent_hrtimer+0x127/0x140
+> 	 __hrtimer_run_queues+0x108/0x250
+> 	 hrtimer_interrupt+0xfb/0x230
+> 	 sysvec_apic_timer_interrupt+0x69/0x90
+> 	 </IRQ>
+> 	 <TASK>
+> 	 asm_sysvec_apic_timer_interrupt+0x1a/0x20
+> 	 __perf_event_set_bpf_prog+0xb7/0x180
+> 	 _perf_ioctl+0x1f9/0xb40
+> 	 perf_ioctl+0x41/0x70
+> 	 __se_sys_ioctl+0x82/0xc0
+> 	 do_syscall_64+0x44/0xb0
+> 	 entry_SYSCALL_64_after_hwframe+0x78/0xe2
+> 	 </TASK>
+> 
+> RIP is 0 with error_code(0x0010) (instruction fetch, not-present), i.e.
+> an indirect call through a NULL function pointer.
+> 
+> perf_event_set_bpf_handler() records the handler currently installed on
+> the event and replaces it with bpf_overflow_handler():
+> 
+> 	event->prog = prog;
+> 	event->bpf_cookie = bpf_cookie;
+> 	event->orig_overflow_handler = READ_ONCE(event->overflow_handler);
+> 	WRITE_ONCE(event->overflow_handler, bpf_overflow_handler);
+> 
+> WRITE_ONCE() is a single-copy atomic access, not a compiler barrier, and
+> the store to orig_overflow_handler is a plain assignment, so the compiler
+> may reorder the two stores. GCC 11.4.0 does; disassembly of
+> __perf_event_set_bpf_prog():
+> 
+> 	mov    0x3d0(%rbp),%rax                  ; prev = overflow_handler
+> 	mov    %rsi,0x3e8(%rbp)                  ; event->prog = prog
+> 	mov    %r13,0x3f0(%rbp)                  ; event->bpf_cookie = cookie
+> 	movq   $bpf_overflow_handler,0x3d0(%rbp) ; publish overflow_handler
+> 	mov    %rax,0x3e0(%rbp)                  ; orig_overflow_handler = prev
+> 
+> Use smp_store_release()/smp_load_acquire() to guarantee both the compiler
+> and the memory ordering.
+> 
+> Upstream status:
+> Not affected. commit f11f10bfa1ca ("perf/bpf: Call BPF handler directly,
+> not through overflow machinery") removed orig_overflow_handler and
+> calls bpf_overflow_handler() directly from __perf_event_overflow(), so
+> the reordering window no longer exists. That rework was not backported
+> to any stable tree.
 
-Route changes to the CS7542 random number generator driver and binding
-to their subsystem mailing list and the platform maintainer.
+Please backport that rework instead of doing a one-off patch.
 
-Signed-off-by: Fil Dunsky <filipp.dunsky@gmail.com>
----
- MAINTAINERS | 7 +++++++
- 1 file changed, 7 insertions(+)
+thanks,
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 44540a1eb..46d0a5778 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -2949,6 +2949,13 @@ F:	tools/perf/tests/shell/coresight/*
- F:	tools/perf/util/cs-etm-decoder/*
- F:	tools/perf/util/cs-etm.*
- 
-+ARM/CORTINA SYSTEMS CS7542 RANDOM NUMBER GENERATOR
-+M:	Fil Dunsky <filipp.dunsky@gmail.com>
-+L:	linux-crypto@vger.kernel.org
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/rng/cortina,cs7542-trng.yaml
-+F:	drivers/char/hw_random/cs75xx-trng.c
-+
- ARM/CORTINA SYSTEMS GEMINI ARM ARCHITECTURE
- M:	Hans Ulli Kroll <ulli.kroll@googlemail.com>
- M:	Linus Walleij <linusw@kernel.org>
-
--- 
-2.53.0
-
-
+greg k-h
