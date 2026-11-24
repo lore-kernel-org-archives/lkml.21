@@ -1,49 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795505764;
-	b=P+QmMQk3gvb/QRI7KJaO8bhI88fuXi+KFDxXIxxcf71EgPuyxRp1n83bQsjST+41CCqo
-	 TtCmHy1Ib1TyWAS6sKlDzs1f08ZMly8e3m7gJPLtIE7/66+RKvM3Ljwv+cqabKAWqGGEk
-	 AvnC/yFP2wusmUC/etoGLxO41oxFUf3nX0aKUivlcnEck5FUDDmYUFcewNwynmLO3OyC4
-	 pB/a8c5/d5v1lLsBQG3L8d9hQdCuWAO+XCOpupmyviwuHshmDrz/azmuakmxDMfdbHYYq
-	 jo3y+InfrKACpMwlX851+wkTu5DDyFi9EexhmVR3oiN6meewjwT6tPbidTxw3JaeKvw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795505764;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=V7pbJ9uhpGhN+1kSxcNHzQRBcymuEphN9sunBG772yk=;
-	b=UpyMI+yRCYSaFKNPVUY6hqsgfyefb3eUiMC7OZY/8CgjRhagR1l4qd7aNbyECG7nfShO
-	 Oh0XHF7bQZYFL48nWy2g5AqKsV3wrozy7w6qFfW9l4wmdHqJbOHUFOK9rco4R/xwReajR
-	 J0O+gyMDGqeqm2RrHdXEZIyJlSDq6LYu9/KguFxqfH28xPf37SspyOglIMDMFIIr4NTnk
-	 9ubRPraAYhy6Y9iuaRBDcsyA2QDwRm5CPOzSbA6a6M4E9HYlGIWgE78quxaMHFq91L+Z1
-	 ENvJgqtug0agG1h8UUIILNTJHla+adFA6CFpz0THcrArO3FTFrQnilFh30+8TwA1+fQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=d24iPo0t;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id F38A7606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 07:36:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F38A7606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=d24iPo0t
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 29C04339;
-	Mon, 23 Nov 2026 23:35:59 -0800 (PST)
-Received: from [10.57.71.117] (unknown [10.57.71.117])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3C94C3F86F;
-	Mon, 23 Nov 2026 23:36:00 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795505761; bh=lavwvUvnZ3GN6bpw6lQu0qJ6+Rzr3/ojn5HS0I0oCTo=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=d24iPo0tQ8AZXw5d7EO3yb0SlPXQVa1R9gXyqY8jGou+d1U867HdnqpZQmc0E3Vcr
-	 RfzBhZeDruCor3NLYlfan2NLKIE+GZHE8fzaUg1ZkSJ5B9dz9QBHW84Kn02t+gezk1
-	 tNKdgwSYIGe9TU1HiecK5G0Nx8/9Sih0rzugfCnc=
-Message-ID: <6c8a8583-e7b0-4331-a92d-ba174e926755@arm.com>
-Date: Tue, 24 Nov 2026 07:35:58 +0000
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.75.107
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795505768;
+	b=p528qEhF+erb+6ji0yNumqG7FFsKn8lqZIjx/fXnNSTg9mUoGReem1tO/SDy/WCTpPbh
+	 khLTExCOqKY+CIwqKq0t1SZXb7CMIF/4ZfBsO3AdkCl8s7NkGcqh5cuLElLr2FudkLGeT
+	 nbFjyNIrNV3A1qkKXyPgx6+ILOvJyvc5qvZUCjOzL7dv/KCxh3mQwuj74nkquj1vfeGTb
+	 eKN69RIpuH5xmN9p8UDm9uaQZ1fSKcyIO3TkPu+Q9VlUYGpsNPo/5JAdAF9bMULsmM3UV
+	 XYOJa00j5KDCKfR6pYb5BgwlnqNe4o3NC8KnoEFwvBVh45jRUibTzrUMHWa/ovRWb9A==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795505768;
+	h=DMARC-Filter:Received:Received:X-MS-Exchange-Authentication-Results:
+	 Received-SPF:Received:Received:From:To:Cc:Subject:Date:Message-Id:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-EOPAttributedMessage:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:Content-Type:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=Lnh4Hz6eypUahM6CD4PAa9VLWuCYpWMG2wp8hO4gGKw=;
+	b=gS3HRsXSIZ6JgdM87lO7Aqj6XPHBR+yYPqGG6A4PJz0zP1pR4el0SNEt/TLZS5AcebfK
+	 yX2bBxPZU8jdFldO6cVH3l3frgk10PcfqKqsRXoPoyr3QqrmYFunxTIPaUN/ovo7TGCk7
+	 It0n57NDuZbaUXnEeBPJAlKb1lEKNiONuVNBjOBJVGu+gK3JjWEb9W38v1+L4t9ACYkZY
+	 u3gXCr2VwQAFSnLu8bN0xE4MFIK1XwZMaHuPs3PlRNSwA0iJ190s6z5zFqnbWohieDNVD
+	 jXXFUkh0BhS/sHfkKlnPOBaCxW1jDosamxybYGQZld8Dh/OcTnwHaZQbug4b77OwZWA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=none header.from=cixtech.com;
+	spf=pass smtp.mailfrom=cixtech.com;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.75.107
+Received: from OS8PR02CU002.outbound.protection.outlook.com (mail-japanwestazon11022107.outbound.protection.outlook.com [40.107.75.107])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 80CBE606A326
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 07:36:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 80CBE606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=cixtech.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cixtech.com
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ZTVx/SQNszfZfWz1nxqruCGb5h2Udm7kgYBBHpIwHJw2HHHlI6EiWT4AWY0cY65n8+V5teJgqbYHwkr9CROZtj7LxN6VVmbxSKWxD+UEYwJ6kFOsSzAST387kltijGrODaHmRPXCdinV4qrOQGK6B4TcJI+0qUvnAGV0+Qyo2zxzT1H/eWXUcMg69Mojv9Dk0Ghp0/tdpBgdDqkbXg484MfsULGi/5e2My5FbWwUlXavScqETohFryN05ZWwsnd0t+vpn9v8aYr0ubIBei8IUK+UdjK27tSK56qIY/VBRlKy6XaV07ax5ZkfHD7uaOilhGc7B3n7gN2gz9BZ1ZkqoQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Lnh4Hz6eypUahM6CD4PAa9VLWuCYpWMG2wp8hO4gGKw=;
+ b=J9rZkby2i7KPk7uA/053dXv7YZcuEudK2joExbI1EHeGnfDX6P4ibAHxQHe+V/G4Ym5EdHdDgI84KptoUGbFPgC3T0re62Gx+ZoTH3dji+EtyKoSwpYKjinBkd2g1grCvmRNI85dQ6bOl8EOYu+QXFz1zofnFCAL114mxcva3V2eKScW/MnTRTcxG0Z2TcDJuJ+zwAxNY+LvJqExyIE2MIvWfdFWcvHkel/sxkyu3wZF4yAkcX0HjH+PN5myWZMYk/pnxyC8uiG8QypKNDbjZ4maFIbYT0HT4r7RBnHUDA6R4ykohsCKaA1yiFeiRnYUassxYUeSSWyfy14+DeTyow==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 222.71.101.198) smtp.rcpttodomain=arm.com smtp.mailfrom=cixtech.com;
+ dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
+ not signed); arc=none (0)
+Received: from SI3PR02CA0003.apcprd02.prod.outlook.com (2603:1096:4:295::15)
+ by SEYPR06MB5038.apcprd06.prod.outlook.com (2603:1096:101:52::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.4; Tue, 24 Nov
+ 2026 07:36:03 +0000
+Received: from SG2PEPF000B66CC.apcprd03.prod.outlook.com
+ (2603:1096:4:295:cafe::8b) by SI3PR02CA0003.outlook.office365.com
+ (2603:1096:4:295::15) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.5 via Frontend Transport; Tue, 24
+ Nov 2026 07:36:02 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 222.71.101.198) smtp.mailfrom=cixtech.com; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
+Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
+ 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
+ client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
+Received: from smtprelay.cixcomputing.com (222.71.101.198) by
+ SG2PEPF000B66CC.mail.protection.outlook.com (10.167.240.25) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.662.3 via Frontend Transport; Tue, 24 Nov 2026 07:36:02 +0000
+Received: from localhost.localdomain (unknown [172.16.66.33])
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 9B92A427EFD7;
+	Tue, 24 Nov 2026 15:36:00 +0800 (CST)
+From: Luo Liu <Luo.Liu@cixtech.com>
+To: liviu.dudau@arm.com,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	dri-devel@lists.freedesktop.org,
+	cix-kernel-upstream@cixtech.com
+Cc: airlied@gmail.com,
+	simona@ffwll.ch,
+	linux-kernel@vger.kernel.org,
+	Wuyi.Shen@cixtech.com
+Subject: [PATCH v2 0/3] drm/komeda: Use the bridge connector
+Date: Tue, 24 Nov 2026 15:35:57 +0800
+Message-Id: <20261124073600.3124817-1-Luo.Liu@cixtech.com>
+X-Mailer: git-send-email 2.25.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,73 +102,75 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 0/3] Fix uclamp race against non atomic static key
- enable
-To: Qais Yousef <qyousef@layalina.io>
-Cc: Ingo Molnar <mingo@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
- Vincent Guittot <vincent.guittot@linaro.org>,
- Dietmar Eggemann <dietmar.eggemann@arm.com>,
- Steven Rostedt <rostedt@goodmis.org>, John Stultz <jstultz@google.com>,
- linux-kernel@vger.kernel.org, Kayra Cizmeci <kayracizmeci@gmail.com>
-References: <20261121041507.39582-1-qyousef@layalina.io>
- <070726aa-0e91-4d65-b3c5-00df3a180732@arm.com> <awU36OTU45MPn-Lg@aerith>
-From: Christian Loehle <christian.loehle@arm.com>
-Content-Language: en-US
-In-Reply-To: <awU36OTU45MPn-Lg@aerith>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SG2PEPF000B66CC:EE_|SEYPR06MB5038:EE_
+Content-Type: text/plain
+X-MS-Office365-Filtering-Correlation-Id: 26771266-3ff2-414d-ce4a-08df49fd976c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|82310400026|42112799006|23010399003|36860700016|1800799024|376014|18002099003|6133799003|56012099006|261009220027099003|261028144727099003|261102123227099003|261021121427099003|261009221227099003|261026140227099003|261009223327099003|261026121527099003|261022075727099003|261009223027099003|261009221727099003|261022105027099003|10067099003|261021123027099003;
+X-Microsoft-Antispam-Message-Info:
+	eDDA+nHkKTASKBzjvKKngAYMBr1rM0UPjCYojIOhOYj8QkUd/4N/MrWRUIgy79i72iCDb0FZvbu0V+drcE1Hh71JtAP08bTwMj/IuLScdhwH63wb1wVcPJGDkN2bOgY4k5xZu93QZVN6puSRS4Zdzkvxe2dDVGwraG9DRowQ1Ng4Zf6rzaoC7obu3+jeCwJ0Ol9w6XlNezKmf9FbXhy280CPutxvhUMKz1VEveWquH3dtJwFGr3rqJlkJZlSnNCcpm/tvKyf3y46Hl73vO46X/AXDyqBl63Bwzm5amWHcByUNN3pjA4Dw4hzAEfjXkeEj2ftP/CP4qKUe71evNhCl5mrohuMZ5GwYsxZtOCul3HlUEKgoKvCtt/HeTC0wBl6IHH15qzGY+9ZjB4zRUHrvQlBPvK5K3NF/3LQVt3D3cAgtipe4FjPGi4NIMfpUWkJ+n5P7WwhoTWyzEe5KxqyjDUymt6yUtZ0qg9EmmxqLnKRligqCyWHeY8n54Jf15uqqVGHOdVx7vkNoD7IWdkF4NRV6tTcCdhy5S82Rn9PK9JJyCzjO8sGRDGGV3z9sppELXMjW/KGlW8ukPXoA8XRqurESus/QQCLRhqptoXiI/KbbA5aaQGvxAlIs1VbeIH20XptxH+YceRyID1Ka/6ML3qn2/GibAeOUH9kuvJQ6pVM1Kfn9yia2XCX6Vnjcpdq
+X-Forefront-Antispam-Report:
+	CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(42112799006)(23010399003)(36860700016)(1800799024)(376014)(18002099003)(6133799003)(56012099006)(261009220027099003)(261028144727099003)(261102123227099003)(261021121427099003)(261009221227099003)(261026140227099003)(261009223327099003)(261026121527099003)(261022075727099003)(261009223027099003)(261009221727099003)(261022105027099003)(10067099003)(261021123027099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	znKA9WH/nccUj6W3OFfQqpYcsJ2vs6hptilOM2mB4vSTZpdetIBevnPhGw8wFVMCrO+xtWu3mIpOr/xswAvf1+589J58DWpEslPn0QtlDFxubi1+q9eZ/xfcIfvyAECoqbLMib9t/SmIxR9SuYcNtGBKbFgf3T98prqp5LbMAqnIg7eih2bIxeI6sImmpTg91/+m+rxaqX7buqQqs7gXf8Z8H1dfkYaP084hOp4uehRoFR+0Xeclx/zUuxSa24BuSaNrj/cfvTBAMc4pqUvdGMZ63sWIPlumnV7VH5q/jPfgenHAMlk9t6XpGzKtkB3E/Ld5PBza/m8a4lA5quS5vYpNQRCm/N3ePiPMNowYpuRona+hQB3+JNS5P5k6ty1J1SdVqw+WqUvDIfGWx3SSBk9Bul68hp8ljLE1DPFYO9z1IbFg5R7uYWsV8TtQtLRS
+X-OriginatorOrg: cixtech.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 07:36:02.4194
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 26771266-3ff2-414d-ce4a-08df49fd976c
+X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	SG2PEPF000B66CC.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEYPR06MB5038
 
-On 11/24/26 07:21, Qais Yousef wrote:
-> On 11/23/26 09:19, Christian Loehle wrote:
->> On 11/21/26 04:15, Qais Yousef wrote:
->>> Latest version drops the partial revert (patch 3 in v5) as RT group
->>> throttling is going to be marked as broken and anyway a proper fix will
->>> require non trivial rewrite how dequeue happens for throttled tasks or
->>> full revert of subtracting nr_running added 10 years ago. Both of which
->>> is not appealing and with the proposal to mark this feature as broken,
->>> better leave it and hopefully just delete the problem area.
->>>
->>> So in summary RT throttling is not fixed and being ignored. Fair
->>> throttling is fixed by pairing uclamp_rq_inc/dec with
->>> add/sub_nr_running. For RT, we do that in inc/dec_tasks() which are
->>> called when tasks are actually enqueued/dequeued - as stated will fail
->>> in RT throttling case. Given the minor severity of the problem and
->>> effort required to restructure part of RT group throttling that is being
->>> marked broken as we speak, I think this should do.
->>>
->>> Changes since v5:
->>> 	- Drop patch 3 to partial revert subtracting rq->nr_running for
->>> 	  RT throttling.
->>> 	- Drop fixes tag from patch 1 as the series now is partially
->>> 	  fixed and not suitable for LTS.
->>
->> Is this how this is done? I guess we could also NAK the backports?
->> Also presumably this was observed in live systems, so is not-backporting
->> an option?
-> 
-> Is this the best way you could phrase your question? I asked clearly for
-> feedback on v5 and you kept quite. If you have such strong opinion, speak up
-> next team at the right moment instead of trolling like this.
+The first patch converts komeda to the new DRM bridge model. Bridges
+following that model no longer create a connector themselves, so the
+display driver attaches them with DRM_BRIDGE_ATTACH_NO_CONNECTOR and
+creates one connector for the whole chain with
+drm_bridge_connector_init().
 
-Qais, I don't know which part of my phrasing came off badly here but it
-clearly did.
-The above questions are genuine, I was just wondering what the correct
-way of 'fixes' are that we don't want backported (yet?), afaics the obvious
-options are:
-- Omit the fixes tag (like $SUBJECT does), but that obviously loses the
-information that this is a fix.
-- Keep the fixes tag, which most likely leads to stable AUTOSEL picking it
-up, it lands in stable review and we can NAK it there to prevent backporting.
+The second patch fixes the teardown path that the conversion exposes.
+drm_bridge_connector_init() creates the connector with
+drmm_connector_init(), which provides no ->destroy hook and leaves the
+cleanup to a managed action. The drm_mode_config_cleanup() call in
+komeda_kms_detach(), and in the komeda_kms_attach() error paths, drops
+the connector references directly, so drm_connector_free() ends up
+calling the NULL ->destroy pointer.
 
-I'm not sure which one is preferred, that is why I phrased it as a question.
-I don't have a strong opinion that is why I hadn't responded to v5.
-That is all.
+Switching to drmm_mode_config_init() lets the core release the mode
+configuration after the connector cleanup actions have run. The komeda
+private objects are then finalized by walking the pipelines instead of
+mode_config.privobj_list, which also holds the bridges that the encoder
+cleanup releases.
 
-> 
-> FWIW except for RT group throttling breakage, patch 1 and
-> 3 could go to stable. Not sure what would be the right fixes tag for patch 3.
-> 
-> FWIW I work with Wei who reported this and this is not a wide spread disaster
-> walking on earth. It has taken more effort than it is truly worth actually.
+The third patch fixes a latent interrupt race found in review. The IRQ
+is still registered after komeda_kms_detach(), and the
+komeda_kms_attach() error path, clear drm->dev_private, so a shared
+interrupt can reach komeda_kms_irq_handler() and dereference a NULL
+mdev. It is independent of the conversion.
+
+Luo Liu (3):
+  drm/komeda: Use the bridge connector
+  drm/komeda: Use drmm_mode_config_init()
+  drm/komeda: Free the IRQ before clearing dev_private
+
+ drivers/gpu/drm/arm/display/Kconfig           |  2 +
+ .../gpu/drm/arm/display/komeda/komeda_crtc.c  | 18 +++++++--
+ .../gpu/drm/arm/display/komeda/komeda_kms.c   | 39 ++++++++++++-------
+ .../gpu/drm/arm/display/komeda/komeda_kms.h   |  2 +-
+ .../arm/display/komeda/komeda_private_obj.c   | 23 ++++++++---
+ 5 files changed, 60 insertions(+), 24 deletions(-)
+
+
+base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+-- 
+2.25.1
 
