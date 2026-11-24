@@ -1,109 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.174
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=178.238.236.174
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795512577;
-	b=rzW0ABon4dUsGmaVnibzZ5znvcCa8YDkVlzctm00KWgUU+qbukFWfJj2A70GBssfmHRi
-	 5XOyic+BkwuYSspKiV6vurlAvEuox8FcZYrZ7Q3j7IyKuAy8AyYgHgmQvA21kdltBlQt8
-	 CTuUoQ4bgkqklUM8CwJfD8ir0UIDs85lRa9pTu4NrasSavK37pu+VwaYT2sYR/8Kk1Cac
-	 iLUZL+7msEacg+lbobY8WEOgcsFYDwKRAM13cdHaVv1MTB9LoS3jFQa7lZ0P4xIH5plyi
-	 4tWToRfk+g47jBMhe+/h5oZU52LExkZLXaTP2A9Ad8wM8sZFPQhVjJ92xrNnZkhtxAg==
+	t=1795512615;
+	b=BYa/4NS2Q2WquxKg3glyvv5lNMW4rS1AHHoGEhVbpvwJN5cPvSDsBTUM+FxLfHqoUmKB
+	 zPHKccZDt0uAvcBNF0i38uIYsWsWrO42YrkR59K9cT7GJNbniM4Yb3CeQNSgJqNr8HoFK
+	 EB981Oj6l+ou3UsXWD5tdvP6c9Fv66/aIlN01ULSJVS//Bgb7SsU3V3VLnjomVNHH/wHU
+	 L2NWPaAyEinc3Xl5gCwMZGo1oCbPuJhMEhsTrSWKk/PyUdp7ZFcpcsArw3z5aTraB/TgM
+	 JtMHHfEzYeH2OJvwlivN/0Y6YHfaStK99dP0PSvrjNI9QlJynuXg9xXzxOG3jJ1xzfg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795512577;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=Ak06+rRtQsPupbgxyIs6n4VqFtz0XTJF75o2FEFeOXg=;
-	b=e/Qi5gupJc0AFY7XAIWBiZaNpyjA6yraX2yFRZ9M6ksrf2PpTJKUUzOqWSTIkVKdxKew
-	 mS4VRpzJpWl+Ewra5S9sGMYFvUcbHw+TYqPe/OMX4gofAkxdyTRKtNszLqE2F1vPNQA71
-	 wnh6RY2O7l+X9eEcqcHiR0nChURLyhgCcmEVBtudki5jA3e2MVGvqWY3V4tMhzhn0nr46
-	 2+XPmLHXukKKcR4l2dBfUXFhFHB1tDCgHRvcVwv+7Hm9+PA21sEIPRJ1+7hKSOh/sJnOv
-	 KnYY67Cd+DYQwYFXEciq772+cF9pl4nDR+4eMDbsSDFGBrM1Dka6+sqgiSCs4IR0HFg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795512615;
+	h=DMARC-Filter:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=mNgCIbmsH0oNU5mw8fmrTinxZczxUxL31e0miMo7kPU=;
+	b=RlsUMPnNzT5Keo2cs3CqdWa86QqbLgZhWQJ5jhAmP5Mpb2oynp1gJIcDQz2nMWCF2mlX
+	 fxXfUCxSLSbtMNTNe/V2/lNZoKnpxvPNc5Ii2xDLKhgP/nkD27TyA6WfECBgnzYNiXqsx
+	 iKWkhQSNLDFFRTsXtk7ZH1kzBl8jMGGjv7nhT1iRuSO/pyl45TZnTn+h2xgHEEiz6DpYD
+	 vKT9uD2SmEBD8kRXkbt3MxPMRnetXkK6g445XXPZLcj0oZC3MjkJ6+SaBC3avd6y+qFx3
+	 y4rAzE0ayap7/wi9vRY6scs1eCIE+j/VDgfmXWaLIfAMMD7sWQc/TqDqR6IeYWk5hMA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=crusoe.ai;
-	spf=pass smtp.mailfrom=crusoe.ai;
-	dkim=pass header.d=crusoe.ai header.i=@crusoe.ai header.a=rsa-sha256 header.s=google header.b="Z9I0/3Ye";
-	arc=none smtp.remote-ip=74.125.82.174
-Received: from mail-dy1-f174.google.com (mail-dy1-f174.google.com [74.125.82.174])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=kemnade.info;
+	spf=pass smtp.mailfrom=kemnade.info;
+	dkim=pass header.d=kemnade.info header.i=@kemnade.info header.a=rsa-sha256 header.s=20220719 header.b=q5aI78by;
+	arc=none smtp.remote-ip=178.238.236.174
+Received: from mail.andi.de1.cc (mail.andi.de1.cc [178.238.236.174])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 38A9C606A326
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:29:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 38A9C606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=crusoe.ai
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=crusoe.ai
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4A986606A326;
+	Tue, 24 Nov 2026 09:30:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4A986606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=kemnade.info
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kemnade.info
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=crusoe.ai header.i=@crusoe.ai header.a=rsa-sha256 header.s=google header.b=Z9I0/3Ye
-Received: by mail-dy1-f174.google.com with SMTP id 5a478bee46e88-33fb4680717so11378522eec.1
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 01:29:36 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=crusoe.ai; s=google; t=1795512576; x=1796117376; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Ak06+rRtQsPupbgxyIs6n4VqFtz0XTJF75o2FEFeOXg=;
-        b=Z9I0/3YeG5bj89ZQoL/adT7pXrWzvzzYKSsWDDJuS/CSBYwhJVw5T2Q2InadazD3tn
-         ZA1tdk4wUDMb2xUeFg+LJ3qMhpgGE+rhXM+GaBn4DeEQxnWaiFJOAq0/Gz7Dj5YmbGJo
-         U0naIVPsVFS+dpcNMgyZLYaZ/83/djQYIRVRWBbIPAM+JjrC/sQDmYC71vZxOoCIE6Lp
-         6dScOKxneJ1jaQraCi68b70NqmPYO37JTy2IAi+1bV1JJQ/dNa87IT0lfjk7HCGpRaii
-         UurRUUdkdxBNZG8fF7Aos2pfuE808zNeYSXRFF60Ey+meFpg0EbKVJBKh4f6mH4RFid/
-         4e9w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795512576; x=1796117376;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Ak06+rRtQsPupbgxyIs6n4VqFtz0XTJF75o2FEFeOXg=;
-        b=KRWPqlhZmUOZyrFcPucwR9gfylnURXTcsOx6KoNqsDxV57RemEUDL9jFKAD4OvHZXq
-         EkzPMY54a2d4bLSZ8YdiWSV5P4YRzvEakBXwEEExcIu8gLKz1rbSRW5AgLgXbUa4+5DX
-         rEaF0H+DCJX0BK/VKZZ3iMrxFa+r3yf82I3SSP0aT24aWXBnS0BeM17XKxLd1HkFZhXn
-         SEYU3UHu0YeE6aJ92qZqVsQJv35/0eY5D1zmDyOKrlpE1uOhxQBfoO3UVMUn7M/86mPP
-         KAwbGc/q0jhd57TCG1iNyjYdV4a95mLPwB01OkdyWHD99LLUNsr/xGAzl9Xb1b/f3Fdo
-         RQXg==
-X-Forwarded-Encrypted: i=1; AL+hErGsw4uVk7XWDsRib0uc/Pb8Noc6jSxSdUlavbfjbYuSFmRmJz1dgmkc8TNUVmizl5LBz4IRWAdjdLqfyjc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/fTiGqT0yO/BVdzchGJqQjZSRZZBHQcgJ+EiPMiUrnWpcAAosd
-	3WW759QPRD1Jf6QB6qudpkVyVUIykGQt7lk2tj8awWUuTYPeeNSbJi3VypbdXxaiWwUdXgT20pD
-	SigwCGPga0g==
-X-Gm-Gg: AZFdTZd8h3vDDE1129bGka3lRTBTExURiZ4g1mvh18Rd6J8C7Aze9nMmJ7xQbNCVgsQ
-	83bijlkPdhbHHR8QGcPuqj3P7Rm4Go48s3hRSqh1oTrMQ8o0p0SX7bYUCDHlumgVgOCDzXwcTt2
-	TSU3ws9ONU8E/5YkfvukYyY6EG7TaBTSDvYVEuZP6/OQnaD66fKFci2fH/eUpX+snu6VJde5Tme
-	XWTU4MxREMTVxIjwxrx4qacE1QI16bzyxXjpq4hqBqvMUy4EUJAX7DF+V4KJn8bjSPLyGPOkn+z
-	Qo/X27ZK8wsV/JtOlXTJj5aW9I8Lqp89eU2GviMJS5KhIOljZHlBVZmK+t3Lypddk35CyKGgcVt
-	0u57qQzCEe80XmCrhD4MavMSFqgt6GUNvdht/6i6j9u2lsGVR1CuJNwj9m8lX5xIof9SwjacUSW
-	uGaZNybqOWW0Fla18wPynZT5bkoZef8T8KUJm/o8iybRn7gLydZGF8HufatPpNxOp2/+xyR/hGQ
-	3nhs7OgGS0gyM4lngmadazpAUquQJgSgXwbfMMcmC/Sx9gOqa4CH9VaC5zem+TI6rRg95Gx9Om0
-	BmpS55jAwKPrW2TzWTf303WF4YUuX4DTmry7jw8bM6dxSn/2XjbIxyPyzYlVYMvpCc8eqXK6CeO
-	hL+b3ejnlhV87AV8viAg=
-X-Received: by 2002:a05:7301:1a84:b0:386:abfb:4a2 with SMTP id 5a478bee46e88-386abfb1a83mr6976322eec.11.1795512576085;
-        Tue, 24 Nov 2026 01:29:36 -0800 (PST)
-Received: from MBP-Saravanan-D.civet-hops.ts.net ([71.202.170.54])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385666e99fdsm54229158eec.5.2026.11.24.01.29.34
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Tue, 24 Nov 2026 01:29:35 -0800 (PST)
-From: Saravanan D <saravanand@crusoe.ai>
-To: Daniel Wagner <dwagner@suse.de>
-Cc: Saravanan D <saravanand@crusoe.ai>,
-	Hannes Reinecke <hare@suse.de>,
-	linux-nvme@lists.infradead.org,
-	kbusch@kernel.org,
-	hch@lst.de,
-	sagi@grimberg.me,
-	axboe@kernel.dk,
-	nilay@linux.ibm.com,
-	sgogte@purestorage.com,
-	hare@kernel.org,
-	linux-kernel@vger.kernel.org,
-	iyamahata@crusoe.ai,
-	kiyer@crusoe.ai,
-	ganbalagane@crusoe.ai,
-	sjpark@crusoe.ai,
-	bchen@crusoe.ai
-Subject: Re: [PATCH v5 2/2] nvme-tcp: allow setting per-queue io_cpu through sysfs
-Date: Tue, 24 Nov 2026 01:29:10 -0800
-Message-ID: <20261124092915.90075-1-saravanand@crusoe.ai>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <79b5a23a-5ecf-4e96-85c8-031b5eca2867@flourine.local>
-References: <20261018010059.83120-1-saravanand@crusoe.ai> <20261018010059.83120-3-saravanand@crusoe.ai> <0ee4d281-61b4-458e-92c6-7fff3e50c0ec@flourine.local> <72fce5bb-b256-42aa-8844-f970c4480ad3@suse.de> <79b5a23a-5ecf-4e96-85c8-031b5eca2867@flourine.local>
+	dkim=pass (2048-bit key, unprotected) header.d=kemnade.info header.i=@kemnade.info header.a=rsa-sha256 header.s=20220719 header.b=q5aI78by
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=kemnade.info; s=20220719; h=References:In-Reply-To:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description;
+	bh=mNgCIbmsH0oNU5mw8fmrTinxZczxUxL31e0miMo7kPU=; t=1795512614; x=1796722214; 
+	b=q5aI78by7+dKlRXpCMOK4AlyOizav1dkOB7nj97U/oJ2BhUEuNtUnKVdMdK65D9MlQJO654iffa
+	oDjNBVrn+QTbmCdvpdPsl5MS90douVsB4yP6uxB4lddiPDndOfnkd/4uuioUvqgasAyCy/Gz3BcHt
+	Ugxs5U8TVhqHDJoO9RehWm0/e2EcOLTem7sNwt9GbqNXmYuo7rZzb3fkS54VAKzpHoDurN9cUov/q
+	qPnTaZ5+10Mx/lqJ0LFFztP26kuSstK2d/4oY56xE8AdowJJWu14hEkF/5OXY/naoGbwsDfU+NEvM
+	16DU+KlfIo0NmvEw6lxBMCnnINEzcdlogA/w==;
+Date: Tue, 24 Nov 2026 10:30:03 +0100
+From: Andreas Kemnade <andreas@kemnade.info>
+To: Cong Nguyen <congnt264@gmail.com>
+Cc: Grygorii Strashko <grygorii.strashko@ti.com>, Santosh Shilimkar
+ <ssantosh@kernel.org>, Kevin Hilman <khilman@kernel.org>, Linus Walleij
+ <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, Alexander
+ Sverdlin <alexander.sverdlin@siemens.com>, Jiawen Liu <1298662399@qq.com>,
+ linux-omap@vger.kernel.org, linux-gpio@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] gpio: omap: do not unprepare the debounce clock twice
+ on probe failure
+Message-ID: <20261124103003.1900db6d@kemnade.info>
+In-Reply-To: <20261124085231.3696739-1-congnt264@gmail.com>
+References: <20261124085231.3696739-1-congnt264@gmail.com>
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; aarch64-unknown-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -113,45 +66,44 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-On Wed, Oct 21, 2026 at 10:19:37AM +0200, Daniel Wagner wrote:
-> However, to make this truly user-friendly, I think nvme-cli should be
-> extended so it is aware of this and can configure it directly. I've
-> merged Nilay's --nr-io-queues patches, so this is the natural next
-> feature nvme-cli should support; see commit:
->
-> e170d6985797 ("news: document the use of --nr-io-queues during nvme connect")
+On Tue, 24 Nov 2026 15:52:31 +0700
+Cong Nguyen <congnt264@gmail.com> wrote:
 
-Hi Daniel,
+> The debounce clock is now obtained with devm_clk_get_prepared(), so
+> devres unprepares it when probe fails or the device is unbound. The error
+> path added for a failing pm_runtime_resume_and_get() still calls
+> clk_unprepare() on the same clock by hand.
+> 
+> When pm_runtime_resume_and_get() fails and a debounce clock is present,
+> the clock is unprepared twice. The second clk_unprepare() warns that the
+> clock is already unprepared.
+> 
+> Drop the manual clk_unprepare().
+> 
+> This issue was found by auditing the driver with an LLM coding assistant.
+> 
+> Fixes: 9df982f1f283 ("gpio: omap: handle debounce clock preparation failure")
+> Signed-off-by: Cong Nguyen <congnt264@gmail.com>
 
-Now that Keith has queued v8 for 7.5, I have started on the nvme-cli
-support and I would like to get alignment on the command shape.
+Reviewed-by: Andreas Kemnade <andreas@kemnade.info>
+> ---
+>  drivers/gpio/gpio-omap.c | 2 --
+>  1 file changed, 2 deletions(-)
+> 
+> diff --git a/drivers/gpio/gpio-omap.c b/drivers/gpio/gpio-omap.c
+> index 0da628ae77be..0af26c3f7197 100644
+> --- a/drivers/gpio/gpio-omap.c
+> +++ b/drivers/gpio/gpio-omap.c
+> @@ -1463,8 +1463,6 @@ static int omap_gpio_probe(struct platform_device *pdev)
+>  	ret = pm_runtime_resume_and_get(dev);
+>  	if (ret < 0) {
+>  		pm_runtime_disable(dev);
+> -		if (bank->dbck_flag)
+> -			clk_unprepare(bank->dbck);
+>  		return ret;
+>  	}
+>  
 
-To show the values, I plan to have show-topology and its JSON output
-list io_cpu and managed for each queue of a TCP controller, next to
-the existing per controller fields such as NUMANode and Reconnects.
-
-Setting io_cpu cannot follow --nr-io-queues as a connect option,
-because the kernel only exposes it in sysfs once the queues exist. As
-far as I can tell no nvme-cli command writes a kernel sysfs attribute
-today, and the only writes are the vendor defaults libnvme applies
-after a connect. So I am proposing a new command
-
-  nvme set-io-cpu <ctrl> --qid=<qid> --cpu=<cpu>
-
-backed by a libnvme call that reads and writes queues/<qid>/io_cpu.
-When privilege separation is in use, the helper's handle_set_attr()
-would gain an io_cpu case that only accepts a valid controller name, a
-numeric qid and a cpu number or -1, alongside ctrl_loss_tmo and
-iopolicy.
-
-Would you prefer a different name or home for this, for example a more
-general command for setting controller attributes?
-
-I can post the series as soon as we agree on the command. If you
-would rather wait for the kernel patches to land in Linus's tree, I
-will hold it until then.
-
-Thanks,
-Saravanan D.
