@@ -1,57 +1,115 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.70.43.22
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795527185;
-	b=IHVCaY8TDMhKEDuw+RaROft6SwdK0FevOvDZZ1PPvMc3KfqCTdMLjONc1SRTKiiAe5v3
-	 SW2uscq/7s5pAUJ9YxTP82lmgvevuks08AU64mbO/N8r5xlgvMuUIbvwP3LCQijEJBKSN
-	 B+sVfMahSXao8cKoet1BTsZvjo4VK3I6gaIhiEZFCH955H2QJp57u6WkEIH5lOhU76m5Q
-	 l+DNhTHYTtJ92FvxbMLSw6tL1pAI/copE3RVsMwTo38W0+Y3vhukjKaIC24cvTcUDNx5X
-	 JHBxXUsPhZEVm2pQ3JUNaY9PPvHb0XSn7IMNmdkrgvrFvJqMu2EGoGNRays6JmlvFVA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795527185;
-	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
-	 Feedback-ID:X-Pm-Message-ID:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=vbfFORKXsBUwqqx+vRWbtjSPw0l/j1sIKSEK8iegjBY=;
-	b=3aTkA/ahJDOJGSyuuoAcS/6HCULy3P4DLr0rlaBTQQkCz0XhWFNQ0CmQl+s5TtoR1HXz
-	 dXCICYkGIxDrx0rswrLLm5KFnAQD/vK5xDz/zQ2tVry4rezNl8JnG2G0OhzYRwzZ3LP5z
-	 deIy9QGULIr4qvQgr1C4rNDoStPcjorGBDWWs+0URPawfHheDvxTCmOGPz+NgPVfYnD6x
-	 8x/x1JY3i7/8zQkU0lvYhmhXr7fPJ7MoIm+OpHKMnqLQh3cfapuWOL0GETv9LiqoqbmUE
-	 qxBZF5CzKiY9mEq813rNsxNEUPF61jlm1TLspO+n08L1lGLSIMFfdV42/jg7xzK/4cQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=protonmail.com;
-	spf=pass smtp.mailfrom=protonmail.com;
-	dkim=pass header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=ZtBF83mw;
-	arc=none smtp.remote-ip=185.70.43.22
-Received: from mail-4322.protonmail.ch (mail-4322.protonmail.ch [185.70.43.22])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.61.35
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795527195;
+	b=Yx6/kUtNWG04yklDP8yC4YnaA4osyABfB9uH/IE4CWzBe5NGZ7uvSrFk+cGkTbmK9mxW
+	 eJhYuvdT6e5Nk4wXhXN0os23JhpCIA29F6X4H5VKR634E2IedHF4AKElSnDB/gLRgG5v1
+	 vOGEik/s3FWKKg//Cb4FBZSxpBHf+jfqe9LXEe2hmVDmBqXD5pBMka+RYrpgN89xmqWy5
+	 JFKKlFtsV1dRzZMMmTEm+6H9jxxQQM4YOsxr92KpFrT6x14KBuJWVQnv8Y8r0iIZ6mRzH
+	 zq7jToMOmNQC/J//ejRMU0D14NhY9Z0gDu6cGgvo0SFzQh/o07szaNKo/jXxkzwsSQA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795527195;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 Received:Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:
+	 Content-Type:X-EOPAttributedMessage:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=1wdoQHbPv3tXS7S4MStolc76uOgtWQZBqgClzx/HElo=;
+	b=f6qcwYIUmop/Lp4bHCuKJBzocaQAKuM+v9kJX8UIqaGgV0GrgdlaaqBp2RBcxv63NSt5
+	 rb8oiQmBt5IrPwdSQtlc3oLdMsyZY6SmDod0tf/2g82IDxfpONn8XFisOVCbBjx/vSwMf
+	 PEJu9dlcgyVywIUNCy3zrKA7rjrM3maP2gMGR8JoIyUkxAa7PpCL9YLFf9vz3xXuafV6v
+	 vOU+6xjv9SWeOvbcF2IpcNLHNnAU3pE8FpsCwVNwyNPlBFn/DD1PCjddAejCGuIm/PD07
+	 xSLhZvhimMvl1+Jvi8aS+NASzPj9w7meAly56UlPRYHJzH/sTe520i1N1rxZyzqM4hA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=amd.com;
+	spf=fail smtp.mailfrom=amd.com;
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=gcMMxg3e;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.61.35
+Received: from DM1PR04CU001.outbound.protection.outlook.com (mail-centralusazon11010035.outbound.protection.outlook.com [52.101.61.35])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BDC3A606A327
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:33:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BDC3A606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=protonmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=protonmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3F396606A33B;
+	Tue, 24 Nov 2026 13:33:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3F396606A33B
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=ZtBF83mw
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
-	s=protonmail3; t=1795527181; x=1795786381;
-	bh=vbfFORKXsBUwqqx+vRWbtjSPw0l/j1sIKSEK8iegjBY=;
-	h=Date:To:From:Cc:Subject:Message-ID:Feedback-ID:From:To:Cc:Date:
-	 Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
-	b=ZtBF83mwxwXW/52lxLjXXm32pdT9y53MDgIhJZVyx+3iE/HAb/vh5VnY5p+VgPjYE
-	 Hb1ANSlodDXOF2FLsh3LegUyPwRS7KuAxllOYUNLi4p0c3Rgz/dupxIhFDuMZXj3d3
-	 Vi/XOw8rqpki/APzfa6bNn81uBZ2cHEA2LofooX8ZzsY+7FI6LVJwUbpUOHblXbu0e
-	 aerrb0V09j5rsicFQ4PG9ALngC+HAsdfzAIjvMTDjQC8p9WVj6uCN0VCylqCe0eidV
-	 swf6s+npKi1iWELIwAwSG4R4/u4bzOtlEDaDg0A0dV2F90vr7mBHcpWw+XThJjJ9pU
-	 9sFT8zAJX7fUA==
-Date: Tue, 24 Nov 2026 13:32:58 +0000
-To: Giovanni Cabiddu <giovanni.cabiddu@intel.com>
-From: Ryan Prinz <rc4d5a@protonmail.com>
-Cc: Herbert Xu <herbert@gondor.apana.org.au>, "David S . Miller" <davem@davemloft.net>, qat-linux@intel.com, linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org, Ryan Prinz <rc4d5a@protonmail.com>
-Subject: [PATCH] crypto: qat - fix missing DH public key validation
-Message-ID: <20261124133245.1739232-1-rc4d5a@protonmail.com>
-Feedback-ID: 190731814:user:proton
-X-Pm-Message-ID: 87716131018708394a98b4d7ad3b4712f9aa8542
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=gcMMxg3e
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=pF1JYmYHIJI+BSYrbbuTbLmOFm/ZXrTaMfx+Cu1Tnb7k8tdSYaVGxI8LMCNcFNTJ97emGsY+UVwG+Sed1L+LeEiMmx8EsEWrR7GNCZVXIPyjedu1mmEbSsfJl/YquIOUPQSFFTlKs1A5pBY/kJ/b5uTJPASCqlVyYTZZm1TD8Pnh3j5g6I2UL9k0ch5Vq/XPVlaMbVMLwlgiNjjVo642IsiZ5wpLuYMTtlpiEBvWSxe66AGP9y+pPStZ58f+tOvjC/BIVJr5p3gDJ95KU5rTHOtAr23Cl7YtmJt1fnvnX8N0Wj1Qi3ILQ2rB5DF9H1N3cPiKOGA50rIidfex69b+ww==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=1wdoQHbPv3tXS7S4MStolc76uOgtWQZBqgClzx/HElo=;
+ b=tHLihW/e+afyCpontU84xI86CxDAzcn0d74in9RTPpBicHnXgmoRJGNdIETpcO7mil5l8Nz5pa/N1eSqhWALxD2/aksL3koLiiqA9tXQHUTorHP+y5Yk09GjbmwMYZY0AX9Shgim0Qtw3Eg6TaEaYLDW1wyoWeuGP+7HroKjgwBu9i6CGFKWa8qH/nrj8aLq/2wehR/4r2tuJAzvBW3IzkwfmfHgKQStcgn6FW4cxKEr22G7BMJ46CpN737++HgEsL4vvSamUH5ih/gPkYAE8Zh00dsDp7Uotiku2TC55QCjlpBF2Xpnnzhm/PW7jogpfBBDt3dJgGQT1d2C0BEQPQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=1wdoQHbPv3tXS7S4MStolc76uOgtWQZBqgClzx/HElo=;
+ b=gcMMxg3ek/EA9w8jNoQ9wguHVXjoN+Uf6Tx9bXmO1PSimCMjs+YY2sovr50+tX/QkUoNFoPklYZusfktfBl4jRX1VI3VCBxajpQC6GDBhGEvdtn4tcgZ1XLa4I+X25LpPAkhOBFVgnVYt3cr04RxoShrMbwYwQzvWXBNLfAWLvk=
+Received: from BN0PR04CA0080.namprd04.prod.outlook.com (2603:10b6:408:ea::25)
+ by DM4PR12MB6109.namprd12.prod.outlook.com (2603:10b6:8:ae::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.4; Tue, 24 Nov
+ 2026 13:32:47 +0000
+Received: from LV8PEPF00000068.namprd03.prod.outlook.com
+ (2603:10b6:408:ea:cafe::aa) by BN0PR04CA0080.outlook.office365.com
+ (2603:10b6:408:ea::25) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.6 via Frontend Transport; Tue, 24
+ Nov 2026 13:32:46 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
+Received: from satlexmb08.amd.com (165.204.84.17) by
+ LV8PEPF00000068.mail.protection.outlook.com (10.167.248.41) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.662.3 via Frontend Transport; Tue, 24 Nov 2026 13:32:46 +0000
+Received: from Satlexmb09.amd.com (10.181.42.218) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Tue, 24 Nov
+ 2026 07:32:45 -0600
+Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb09.amd.com
+ (10.181.42.218) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Tue, 24 Nov
+ 2026 07:32:44 -0600
+Received: from pankaj-M75q.amd.com (10.180.168.240) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.57 via Frontend
+ Transport; Tue, 24 Nov 2026 07:32:44 -0600
+From: Pankaj Gupta <pankaj.gupta@amd.com>
+To: Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+	<x86@kernel.org>
+CC: "H . Peter Anvin" <hpa@zytor.com>, Tom Lendacky <thomas.lendacky@amd.com>,
+	Ard Biesheuvel <ardb@kernel.org>, Kiryl Shutsemau <kas@kernel.org>, "Ilias
+ Apalodimas" <ilias.apalodimas@linaro.org>, <linux-kernel@vger.kernel.org>,
+	Mike Rapoport <rppt@kernel.org>, <linux-mm@kvack.org>,
+	<linux-efi@vger.kernel.org>, <Pankaj.gupta.linux@gmail.com>, Pankaj Gupta
+	<pankaj.gupta@amd.com>
+Subject: [PATCH RFC 3/3] x86/e820: Ignore mem= in confidential guests
+Date: Tue, 24 Nov 2026 07:32:41 -0600
+Message-ID: <20261124133241.221719-4-pankaj.gupta@amd.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261124133241.221719-1-pankaj.gupta@amd.com>
+References: <20261124133241.221719-1-pankaj.gupta@amd.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -61,142 +119,66 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PEPF00000068:EE_|DM4PR12MB6109:EE_
+X-MS-Office365-Filtering-Correlation-Id: a137cdd8-6f2b-4f86-8c0b-08df4a2f6d26
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|376014|7416014|36860700016|23010399003|1800799024|82310400026|10067099003|11063799006|56012099006|261021121427099003|261102123227099003|18002099003|22082099003|6133799003;
+X-Microsoft-Antispam-Message-Info:
+	u+MHLehXfHQFP4KAI7hgNY4Ncw+1lRAgTb4UnFBKqz1oyJDrLyo/8tKOOndwbJ/V3e54sID08W7stvfkV5Fblx3lIUdS/YvRwau1yeud0PCzQmtSg1bUVsblLnG9RCTI6U6TdUH1nhpUm+qiMObY7yqhgHM7c2eHOWXlDKl0kelzC5z9wfjvqAw0fMNNNK5u8XqnGJ18mIx+zGtjtJrue7VZPsRhNaqoX6VuQWykvBEoHrGDK/lQNFTRZ4NIiaDUCYDX6vI6vcbYlTtR3RpphqQzA9ZW+e1nQSl8BVWG2/tBEpF54QM1wo1aDkFz32UeOQ7JkO327huBeC5TaCO/HbDu0w0b5EC/Ia2MC9NtQM2IeuW84RfH4lJnDrVgdFlViZ0h0CPfr2cfAFK9E/YK92h6+5gQKHgjgpkcvXFbQzbYEadMnjX6zWNBIvLktnnV23/2he/G/CXkOIRds7TYJBoAJrnSDTLtPD/lrnjp65Oe+3eLktsZvRn2wrpaOEN/eI0P3eUJIT0Na0Xkhy3uSzCOUxVuFLeiGMIFeWtigpw4/it/Q3nCtzsh/mLyemceRvsvjdsh8hQmGBPjkJnRoePh6G3cWQWxdUD7bqGSWOJ84bR674MioTpklLybAOcT6mgYGh8mRPSAIExBToO7LBLlArbENuDCuSgmGQmJGifDG6PazyvP47366XETbYqkZBMg1B4QdA5WJ6+RhgagzQ==
+X-Forefront-Antispam-Report:
+	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(7416014)(36860700016)(23010399003)(1800799024)(82310400026)(10067099003)(11063799006)(56012099006)(261021121427099003)(261102123227099003)(18002099003)(22082099003)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	mP0Kptxin80t7k+xLYrlgUvxTQdLtQouTV4MJsn+XF9jSK6afXJmVsimjjtTRAIZInFA5Ihc+YXKWmPuIhHkI8PwHn2TIwR3WSTppMtTiVwGkgq0AKryZW3E93n/UcunOraphXLHFJYZ5xVR59/ZnWtzBYRfOCoHnU+oAiyDa3W3RV/JruajYzv+aYG3rk3jj/03jOtCZt/Vo3x8pt2s25hJqOcJLYqV9T3QlVzTT9aXKwhkBbHQCuWzAmNPl3k2qyCMiJfFEy4jCE+PXqX4hoIZ5Txgu7fmB4SUgck2avijYiieOyp0coZCOp9xwrABhacipiF3aeR0YIKpwlx7S6WLDOHSYcKkTFPV/nh6F+uiixo2losInk7VtfLBp4wU4AZGnA3CwS1SkB4//lVdNdyol4dOBct1eZlajjnil77Otum4LxDO8xBt4DoRTD08
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 13:32:46.4507
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: a137cdd8-6f2b-4f86-8c0b-08df4a2f6d26
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	LV8PEPF00000068.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB6109
 
-qat_dh_compute_value() passes the peer's DH public value into the
-hardware queue without checking it. The only checks on req->src are
-on length (req->src_len > ctx->p_size); never on the value itself.
+mem= also only edits the E820 table, after the firmware and the EFI stub
+have set up the unaccepted memory bitmap. It removes the RAM above the
+given limit, but the bitmap bits for it stay set.
 
-crypto/dh.c's dh_is_pubkey_valid() is the generic software check for
-this: it rejects a value outside [2, p-2], but only when FIPS mode
-is enabled, and only for callers using the software implementation.
-QAT's hardware path has no equivalent check in either mode.
+accept_memory() accepts whole units, and one more unit when the range ends
+on a unit boundary.  Memory below the limit can therefore pull in a unit
+that is no longer in the E820 table. On SEV-SNP that memory is not mapped
+and PVALIDATE faults.
 
-QAT registers "dh" at cra_priority 1000, versus the generic software
-implementation's 100, so any caller requesting "dh" gets this
-unvalidated path whenever a QAT device is present and the requested
-modulus size (1536/2048/3072/4096 bits) is one QAT supports;
-qat_dh_set_secret() only falls back to software for sizes outside
-that set.
+Warn and ignore mem= in confidential guests, for the same reason as
+memmap=.
 
-drivers/nvme/common/auth.c requests "ffdheNNNN(dh)" for NVMe-oF's
-in-band DH-HMAC-CHAP authentication. Three of its five supported
-group sizes, 2048, 3072 and 4096 bits, match QAT's hardware sizes.
-Forcing the derived session key Ks to a known value lets an
-attacker who holds a handshake transcript perform an offline
-brute-force attack against the pre-shared key, which is what the DH
-exchange is documented to protect against on top of plain CHAP.
-
-Fixed by validating the peer-supplied value before it reaches the
-hardware queue, rejecting any value outside [2, p-2].
-
-Fixes: 2acbb8771f6a ("crypto: qat - add param check for DH")
-Signed-off-by: Ryan Prinz <rc4d5a@protonmail.com>
+Signed-off-by: Pankaj Gupta <pankaj.gupta@amd.com>
 ---
-No Intel QuickAssist hardware was available to reproduce this.
-Verified by building the modified driver (along with crypto/dh.c and
-crypto/kpp.c) against an unmodified kernel tree on x86_64, confirming
-the module compiles and links cleanly with no new warnings; and
-verifying the range-check arithmetic in a standalone test
-exercising the boundary values 0, 1, 2, p-2, p-1, p and a value
-larger than p, which all produced the expected accept/reject result.
+ arch/x86/kernel/e820.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-AI Disclosure: An AI assistant was used to assist with the
-analysis and testing. I have verified the vulnerability, the fix, and
-the test results myself and take responsibility for this contribution,
-per Documentation/process/coding-assistants.rst.
-
- drivers/crypto/intel/qat/qat_common/qat_asym_algs.c | 63 +++++++++++++++++=
-+++
- 1 file changed, 63 insertions(+)
-
-diff --git a/drivers/crypto/intel/qat/qat_common/qat_asym_algs.c b/drivers/=
-crypto/intel/qat/qat_common/qat_asym_algs.c
-index 77d59e977472..78f1b949614b 100644
---- a/drivers/crypto/intel/qat/qat_common/qat_asym_algs.c
-+++ b/drivers/crypto/intel/qat/qat_common/qat_asym_algs.c
-@@ -216,6 +216,63 @@ static unsigned long qat_dh_fn_id(unsigned int len, bo=
-ol g2)
- =09}
- }
-
-+/* Returns true iff 2 <=3D y <=3D p - 2, given big-endian buffers of p_siz=
-e bytes. */
-+static bool qat_dh_pubkey_in_range(const u8 *y, const u8 *p_minus_1,
-+=09=09=09=09   unsigned int p_size)
-+{
-+=09bool is_zero_or_one =3D true;
-+=09unsigned int i;
+diff --git a/arch/x86/kernel/e820.c b/arch/x86/kernel/e820.c
+index 9c206ad4369c..c7b86267a480 100644
+--- a/arch/x86/kernel/e820.c
++++ b/arch/x86/kernel/e820.c
+@@ -940,6 +940,9 @@ __init static int parse_memopt(char *p)
+ #endif
+ 	}
+ 
++	if (cc_ignore_cmdline_mem("mem"))
++		return 0;
 +
-+=09for (i =3D 0; i < p_size - 1; i++) {
-+=09=09if (y[i]) {
-+=09=09=09is_zero_or_one =3D false;
-+=09=09=09break;
-+=09=09}
-+=09}
-+
-+=09if (is_zero_or_one && y[p_size - 1] <=3D 1)
-+=09=09return false;
-+
-+=09return memcmp(y, p_minus_1, p_size) < 0;
-+}
-+
-+static int qat_dh_peer_pubkey_valid(struct qat_dh_ctx *ctx,
-+=09=09=09=09    struct scatterlist *src,
-+=09=09=09=09    unsigned int src_len, gfp_t flags)
-+{
-+=09unsigned int p_size =3D ctx->p_size;
-+=09u8 *p_minus_1, *y;
-+=09int i, ret =3D 0;
-+
-+=09if (!src_len || src_len > p_size)
-+=09=09return -EINVAL;
-+
-+=09y =3D kzalloc(p_size, flags);
-+=09if (!y)
-+=09=09return -ENOMEM;
-+
-+=09scatterwalk_map_and_copy(y + (p_size - src_len), src, 0, src_len, 0);
-+
-+=09p_minus_1 =3D kmemdup(ctx->p, p_size, flags);
-+=09if (!p_minus_1) {
-+=09=09ret =3D -ENOMEM;
-+=09=09goto free_y;
-+=09}
-+
-+=09for (i =3D p_size - 1; i >=3D 0; i--) {
-+=09=09if (p_minus_1[i]-- !=3D 0)
-+=09=09=09break;
-+=09}
-+
-+=09if (!qat_dh_pubkey_in_range(y, p_minus_1, p_size))
-+=09=09ret =3D -EINVAL;
-+
-+=09kfree_sensitive(p_minus_1);
-+free_y:
-+=09kfree_sensitive(y);
-+=09return ret;
-+}
-+
- static int qat_dh_compute_value(struct kpp_request *req)
- {
- =09struct crypto_kpp *tfm =3D crypto_kpp_reqtfm(req);
-@@ -241,6 +298,12 @@ static int qat_dh_compute_value(struct kpp_request *re=
-q)
- =09if (req->src_len > ctx->p_size)
- =09=09return -EINVAL;
-
-+=09if (req->src) {
-+=09=09ret =3D qat_dh_peer_pubkey_valid(ctx, req->src, req->src_len, flags)=
-;
-+=09=09if (unlikely(ret))
-+=09=09=09return ret;
-+=09}
-+
- =09memset(msg, '\0', sizeof(*msg));
- =09ICP_QAT_FW_PKE_HDR_VALID_FLAG_SET(msg->pke_hdr,
- =09=09=09=09=09  ICP_QAT_FW_COMN_REQ_FLAG_SET);
---
-2.51.2
+ 	userdef = 1;
+ 	mem_size = memparse(p, &p);
+ 
+-- 
+2.34.1
 
