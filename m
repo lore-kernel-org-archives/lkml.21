@@ -1,99 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.195.3
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795512050;
-	b=GDK/Nt13J1UgTs8Umkg8MTWRfEJajoCFH0AyCZrSqjXRQNLpafdHTBUuW1N7rl7FUTh2
-	 QOshH/ncSm6WDSuk3Fyv35BWZFSbDgwraF2LkQnXFdFJD5kV7Vx4FexEL+xlYhft7C0Dx
-	 nuNlPU7RWb+lAg6uo/ERfPjM0N5f65v5tm5IADAlHZGoRw5l/fYpjlTpcVQUlIQ20Fj7l
-	 +a5B+UQSsD3uFiYdYUpGfL1hrzXyB2YO+jSAdauE41tz25vIXMvrPNwDeE8j4M5a8PIAd
-	 h3PxnwLskpLVjDXjywb0QnWO6a46/1XioigDI+f/xo9darxKHRHNVjl2RbbJdjws0xg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795512050;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 Content-Transfer-Encoding:Content-Type:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=4vRzZFkpKkpiasAiHZYtMm4gaOcUq7NQRnMtwKNDFK0=;
-	b=u4vOEyAxAUVQZvj9kfMRx2Rs+nwrmAg+ASzE8s8fZS0aN8OHEZ09oHegvFIgHdj0FVli
-	 P39kyXP+njWvilhLxsXhDsrRa2h2h6g3vlfbk/9xnzhtlv9akSvl1zAQ/nqoxGGG3htUU
-	 4jdGckJW1y6zUN1S4RT5eV4KI/7pHFYSlrcK5vrOCxqmi+aHGfiXMlBy2+sMFcZYgtbmF
-	 ClXUaxmCHDSEsCV9Pzw2aEFsuyulKqLfPntjqM+PoK15lK0eomWsUg1V35/oCLlUxrmG8
-	 v0H7pLZ8F85teEOfHqSO9ubR2w3/RQaqp0rq/IQHeaik6I/zEVJKDi24w8Rr7BgfoqQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=VfNk5Mts;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.195.3
-Received: from SN4PR2101CU001.outbound.protection.outlook.com (mail-southcentralusazon11012003.outbound.protection.outlook.com [40.93.195.3])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795512060;
+	b=LVvHZqJk92TQTF3HKys/HQ0oapHCo/QKUxtoI5+oYi5lEdL8iVq1qVeCuav3MMBZaiAM
+	 2rviEBNsMCdN8NvHJOBT/78QZ3J+N+abNZNiL9oa+pWHgSKFOfbYOEEMfhM7cjbqvlxQL
+	 2I4We4DYl5CqddrY3Na9od8zDRSRfz6g0U92k5LMAlU4U12ZwEHUGfiqCnQwXsJcEMrI0
+	 /rJRDZ8fiHo+RNyUW3z1cOqhGcxIiloWZiWDEt9zkpNidUiShonhQd0hh5k1BWTWXSYZw
+	 KrIKduAXNKKt6NYURDm3J1mGFRXp9r//i+QUCh0DheZGrw2+BdSitp+QmY6tkWPuQQg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795512060;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:Received:From:To:Cc:Subject:Date:
+	 Message-ID:MIME-Version:Content-Transfer-Encoding:X-Scanned-By;
+	bh=A4qNjXr7gru+en691Xh7tZguWdeIUYdmSdX45dTKY3E=;
+	b=5pJVENOv1CNR2QRjsIQpj/JPLITUe3IKWTYgNxVijjWZONTl2isX2i9CjsTE3F2C86fO
+	 0vzsxeiuphk2N4ShvbjLBlr16J8z3kPhzfoiK6fD59ufbjWzAtguC9YG/XlfLkZZNFaDW
+	 r1LzRMFbGrTqbisXtDuyp55or0PBSn1/yKKb2yxw9p+r3iMZVHWC/U4CfYQLQh0s6mXGg
+	 AqLpP8FD1QJjG0JQ+fgf0V1aPpy2+qdQoPmSL8UI2bLV9yi2zQtqn82AA4KNS1donI5Ev
+	 +qLurVNbV+WLLOg7wv8d9aFEtPfgw2GIoslLJGXmzKhaET5V4l4yNvBkf0N/a6mQEbA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Ic7WZBgb;
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9CDF9606A68B;
-	Tue, 24 Nov 2026 09:20:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9CDF9606A68B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1220E606A33A
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:20:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1220E606A33A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=VfNk5Mts
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Auxfzl/eq9+mID2Lnm9MMgjX3QmklmT7B7uinksGHbl6HAlx0h4mHNsWtZySBnJ0S3JmizdVepvdGg8uKqpr29VJBZoYWosuUrGjQfedb+nlbSePy1MTQzGC8KbuqAb/6IqXsEvh3ZQZi9yNVD5tscmj/jl6OdR4OYShtOs7qwPqu8LQuqSDmrqpiJQ/BVyKJD5Sr8szcelF+hNbbL6zRv/BZig24qvIJR5NLvMBkApAMkfNkjqOYSwf2Dj+8zduaj6A/rvMHqJpU/HRJqNcYOx+TUP9t9nkyRlRTc2Xq+oG91TGBusTajppkaVBDdxWVONgvyqY1niS83qCmFngdA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=4vRzZFkpKkpiasAiHZYtMm4gaOcUq7NQRnMtwKNDFK0=;
- b=YB37lh5WrwezBq22dXL+QuZilv7DfVtDy1FCH1V9Z+o9aKW7EevyjsxAjNOwcsa79ibl0BbGRDo7umzOZYjhrV1HqDdXJWK4YFxDHbEnNb8Oqd7Rop8iJwK+q59zEAEcAmuLllYNbAi71WrbyxOGgxPz+E1HZKvJZO+aHWk5sjRAjaoYoKTqwPj/7NS6hkXyoQpD9XeCpPmWT4Qu5uRhQojSsFkYy2UxNt1Qj0ETWoyjZvYOfHc6hXq34Fv+updc5NLXqL4sCiUdtI/Nl8NEyqboxCxY1LjcxrflptgkqtM+JestdQ/CeYw+vCFbsdbXy+bRQQYtDHhGkP4U/9q+Gw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=4vRzZFkpKkpiasAiHZYtMm4gaOcUq7NQRnMtwKNDFK0=;
- b=VfNk5Mtslu1+hzFMglw/RWd0HAw24ffOo2QEgKjXWQfO9YsZwYQH15cv2P3tP1h0kOsXRYKk4vjA6Zrs39ucMHhAzO4+mVd5Vb/2Fkcn/UNuVgTE75HjHYgOlstov9Cp/X6t+rxonDKCqXE00d51F2hEnn7l8kj4iQBYqNDGDNszN7bYjuKoEqojvPSQeQOg1/Pnk3GapczfSuMwOV5ZYJMVZ7WZDwAgvC1J70R+kKntZZPK92C8mcQ8myig7e1/KSftIEhf/zGKqlvWp2qfo+eCONmsmiHBoqyo7q2btI2PK7kMJtMUiL6Ipo7idzatezMHuV8uzfj3Ofocb6E/yA==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from PH7PR12MB5974.namprd12.prod.outlook.com (2603:10b6:510:1d9::19)
- by SA0PR12MB4415.namprd12.prod.outlook.com (2603:10b6:806:70::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Tue, 24 Nov
- 2026 09:20:46 +0000
-Received: from PH7PR12MB5974.namprd12.prod.outlook.com
- ([fe80::f5a5:bbc3:e9da:f8a0]) by PH7PR12MB5974.namprd12.prod.outlook.com
- ([fe80::f5a5:bbc3:e9da:f8a0%3]) with mapi id 15.21.0639.012; Tue, 24 Nov 2026
- 09:20:46 +0000
-From: Adrian Ambrozewicz <aambrozewicz@nvidia.com>
-To: Bartosz Golaszewski <brgl@kernel.org>,
-	Linus Walleij <linusw@kernel.org>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
-	Kent Gibson <warthog618@gmail.com>,
-	"Paul E. McKenney" <paulmck@kernel.org>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Jia Jia <physicalmtea@gmail.com>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	linux-gpio@vger.kernel.org,
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Ic7WZBgb
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795512058;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=A4qNjXr7gru+en691Xh7tZguWdeIUYdmSdX45dTKY3E=;
+	b=Ic7WZBgbrTKYRzh85H6gzhi7dW4w4L2V++Zcp04bECRymm8CIhyJDl4fB2p8hcp7YBQ76b
+	5yUBeyqUpFqkR51wZFH+aRgWXFDOfHQ2NwUbWKRBRAw2qFz9YV7KqW4krNFU1OE5zpVbIk
+	NXlOwJ3l3qJ1q2oS+c1CgsJDAzdS4KU=
+Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-640-0fETCUzCOmuz2edAQ9kvrw-1; Tue,
+ 24 Nov 2026 09:20:54 +0000
+X-MC-Unique: 0fETCUzCOmuz2edAQ9kvrw-1
+X-Mimecast-MFC-AGG-ID: 0fETCUzCOmuz2edAQ9kvrw_1795512053
+Received: from mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.95])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 416AB1944B03;
+	Tue, 24 Nov 2026 09:20:53 +0000 (UTC)
+Received: from fballuch-thinkpadx1carbongen13.redhat.corp (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
+	by mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id C45B841F;
+	Tue, 24 Nov 2026 09:20:51 +0000 (UTC)
+From: Filip Balluch <fballuch@redhat.com>
+To: johannes@sipsolutions.net
+Cc: linux-wireless@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH v8 2/8] gpiolib: free the label of lines released after their chip was removed
-Date: Tue, 24 Nov 2026 11:20:33 +0200
-Message-ID: <20261124-gpiolib-chip-removal-v8-2-aambrozewicz@nvidia.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261124-gpiolib-chip-removal-v8-0-aambrozewicz@nvidia.com>
-References: <20261124-gpiolib-chip-removal-v8-0-aambrozewicz@nvidia.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: TLZP290CA0002.ISRP290.PROD.OUTLOOK.COM (2603:1096:950:9::8)
- To PH7PR12MB5974.namprd12.prod.outlook.com (2603:10b6:510:1d9::19)
+	jtornosm@redhat.com,
+	Filip Balluch <fballuch@redhat.com>
+Subject: [PATCH] mac80211: fix missing crypto tailroom in fast-xmit
+Date: Tue, 24 Nov 2026 10:20:47 +0100
+Message-ID: <20261124092047.452491-1-fballuch@redhat.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,116 +76,70 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH7PR12MB5974:EE_|SA0PR12MB4415:EE_
-X-MS-Office365-Filtering-Correlation-Id: b5a38b13-4bdd-48c5-2aac-08df4a0c387d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|366016|7416014|376014|23010399003|1800799024|261022075727099003|261021123027099003|261102123227099003|11063799006|261021121427099003|56012099006|10067099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info:
-	cHDuF2Up3M53EPhCKOEn11VScSDB5DuWfl9nhuSSdZSvsEAu3Zvcjd2s0djq/qeg1fJOBcZTcl7p1aaChZ0iSsf6a0xbUfEh5OP5QEbvqqiyXIWh9nMRemLYcT6xGrkdnv9jzzce6sNISnfifYVh1xImH5oRjc8Sqs5e2zEPdjsxmJTrqoKEHdmIEoxs/xaTmBcFL0sO+8DaAgtyMYmSK4geQxNl7KN6PBK6pKS++BMVMqByinFUDlpcTZe/IZ4Ae7AdzJHny4u/T+fSZ0PktMAJ6aPguX3lkHbAHavsGrVXiMeIsJXA7TI9xLbB5qlhC3M3TTfcJGMzJhbfhfZNyBXu38R7EA5R5Qkgbkt/XUeBFQ9miuR6HPbyl3Q4fUNmGTlrwel/mIpIqQ7aOrOGPu9Jv/JGg77zFGlvRuXDcFptRc1HKzIw2Fnbn0OOVm11vNzyGTU+/ZRTzq8GTaG1D10iLPCAeOMk56kFg8eHARFNH46Jo9zSLCQUOdYMUwPsEvG+sr70PhjafThSdeXagPgr2f2Xl7homdWwVqqL3VZ48sDo5BWpybrTPVvYSO9LUUHaidS4dodqFMOVPdkmac7jW99R6WxKrz90T6CfJeslhWdZKppt/yJoc3t1BDVYoM+1dyjCZDjuRJIm2034syuqkuHnqMacPE0t38wDynY=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH7PR12MB5974.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(23010399003)(1800799024)(261022075727099003)(261021123027099003)(261102123227099003)(11063799006)(261021121427099003)(56012099006)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?5zW6MMWUoFNvFKs9/k3YU/cRkialGx7WdLFnKQYJqTy7n+ck6F3W2dWkPyjf?=
- =?us-ascii?Q?EtMmUEg+1iTayRpxiDK/vjLKQ5V+9gYZeoNRQ1gCu4iwsMN+ZRnuoFerkRyY?=
- =?us-ascii?Q?+imbk/TLL0gWudYYYPmCUvu3MfGVUA7Yr0lDPL6QBOsXPKc3mzaiRDyCGdQe?=
- =?us-ascii?Q?uqb5bN1pFti0Y1fJO4v8i1DLNlYkFRqG+3QslZfyhDv3Q34oLP6jxJPcguiA?=
- =?us-ascii?Q?r1lrUkmqhZ4GKATQ+RPqBSDkooebX59Q6JKVaAoD1VIEF1HjzU7HXIg8vcof?=
- =?us-ascii?Q?BAO4ncrm7j2NN18KyG1SNnTCKNFxXpCzVM4n/U5rgjVX9nwE7ev3zHWVvBvh?=
- =?us-ascii?Q?FSQaIjHSFhzCE0mI/xlLuRVqO4+yTjhFCO5uAn+Ppt22/1lnkB3V6f4tlzuX?=
- =?us-ascii?Q?BG+v7IfTF3M/mqQUc32imMeWOJeLnX3QYiYBzFNNQoh4PMRoS1kI4TvRwRNh?=
- =?us-ascii?Q?W+I3POudTewjjirFpP4e9RGLb6WWje9hKbrcsDbYp4iJtrSCu3Sdq9fvPrTF?=
- =?us-ascii?Q?JNz0mvH+ojtOKJZ8yTz6BBO909TBGk1YVTTyNQBHUINqjDbC/HSo/16eKK9e?=
- =?us-ascii?Q?zA0WMEL/WGpJ90AG390hjQWSzLr+Aa3o7uPiuCXNarkds+LqwG1b/j44Bn+p?=
- =?us-ascii?Q?TimyV3yYy4Su3B6o4fVDRxFcUWzvPo5j04oq9/To1ZFyQVzils7rspVMc2e3?=
- =?us-ascii?Q?fDF6kZ0s9e8L8Q5FWsRPWX1UabEFwCM1BacWu/eeizNq6WR2Epk2m+jlJ5st?=
- =?us-ascii?Q?BWdqz5FJfmjc/19QHSpBFCH16B0PQKz1FvzRyeVDqYhxK3FwtiLfExBXDADt?=
- =?us-ascii?Q?umX7emJBz3l6nQpP06rjo73XXfHONRMGWMLCAedP7SY7AVOzNv9wXgf1tQYv?=
- =?us-ascii?Q?wEn2fiUDZ+0yxSb866V2sJeSeEj3bRcvrvteg0YA0QrN0tX0t3C0SzeAgiA4?=
- =?us-ascii?Q?djmlnIIibKQMo+CyIXoypGN6jb9MAZgyidtg/jNnBzaUmkeSgU2QKg+KR/Uf?=
- =?us-ascii?Q?HafgDmfmoWtFwzXq9jD17EcuX+DruQSxjaI7Oym/KSQf32I6Fx9F0LSAK4gc?=
- =?us-ascii?Q?w9UEEj4+UVD+vTpWG17yAZ+xCHXnVcGqjDz+m1xOx5W8HflNXER7fAgncxIg?=
- =?us-ascii?Q?S796f1O8OJqRurdhSF4KaUXms4JNy+DrO3Qfi9+NALklxWFfc2rfrkqJjS4y?=
- =?us-ascii?Q?zumiXGSzRsIr9u1yfGlL2J6Ib1EIoJ52RlK/56eHHJxDwpTlzaFVXNFtccGg?=
- =?us-ascii?Q?f9jK9GvLk6jnX2cCn5LXLuF+N3HRNEtvdRKhuD2Ezrc4ZzCfAud1rGZE0xKS?=
- =?us-ascii?Q?RHLdsWW6xHD1QjMV+6ecGgWMl2GuVyn3eu5sOAHbuv/Glu7tjVZQC+lHHu64?=
- =?us-ascii?Q?fA9wMsJ3Vn1L3kpcvwke5rMsi+UEYeh2I4Eh8Aq76eSuzGd/ahKiM9t4mT6n?=
- =?us-ascii?Q?1QQBKXS/e88vI1MtH+plyoDODdW8/OHIf8G4ntmT19+Co4HdyjQVj1Iir+xt?=
- =?us-ascii?Q?zuXoAwci92Pr1jIZwWmA2ne/q3s+lxzvPGE+4WmuLHXMdYs7uVbQ4np5nT8W?=
- =?us-ascii?Q?BpMbjNAipDiP/HyFJ3i105zU43PzlXz/3H6cChl1PiRt0SjyCVl+QIlqwlEz?=
- =?us-ascii?Q?g6pdeQMxkHbAlmU7SDFDs6pGGGbKe83Ca5/yjdjqnSEu7yRU7Nkr3H/PzySc?=
- =?us-ascii?Q?qnzjZz7Q5MGd9eZO/KwnFG47m7P5qESSvLoQ9kSyGxLqCb0PiOhgvYP/XbUH?=
- =?us-ascii?Q?8/6SUhd4KA=3D=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b5a38b13-4bdd-48c5-2aac-08df4a0c387d
-X-MS-Exchange-CrossTenant-AuthSource: PH7PR12MB5974.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 09:20:46.0367
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: DUXu0GU44xCZ3n+zIuk1S2DcDn1eNY1Zll6h2iM/zrUvf57JOJLJpqU/SUcFqVhvkE21r9JfjKXgj2Hjk/eegA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA0PR12MB4415
+Content-Transfer-Encoding: 8bit
+X-Scanned-By: MIMEDefang 3.6 on 10.30.177.95
 
-gpiod_free_commit() drops the consumer label only while the chip is
-still there. A line that user space keeps requested across
-gpiochip_remove() is released when gdev->chip is already NULL, and its
-label leaks:
+A key uploaded to hardware with the IEEE80211_KEY_FLAG_RESERVE_TAILROOM
+flag set tells mac80211 that the driver will handle the encryption
+itself but needs MIC tailroom reserved in the skb. The regular TX path
+honors this through crypto_tx_tailroom_needed_cnt in
+ieee80211_skb_resize(), but the fast-xmit path always passes ENCRYPT_NO
+and never reserves tailroom for such keys.
 
-  unreferenced object (size 32):
-    comm "gpio-hold"
-    backtrace (crc 7ff222d9):
-      desc_set_label
-      gpiod_request_commit
-      gpiod_request
-      linereq_create
-      gpio_ioctl
+mac80211_hwsim claims CCMP/GCMP keys as hardware keys while encrypting
+in software at TX time, so with full-MSS TCP segments the CCMP code
+finds an skb without the required tailroom.
+dmesg logs:
 
-Clear the label before the chip check. The ->free() callback, the flags
-update and the line state notification need the chip and stay under it.
+WARNING: CPU: 0 PID: 0 at net/mac80211/wpa.c:462 ccmp_encrypt_skb.isra.0+0x73/0x1f0 [mac80211]
+RIP: 0010:ccmp_encrypt_skb.isra.0+0x73/0x1f0 [mac80211]
+Call Trace:
+ <IRQ>
+ ieee80211_crypto_ccmp_encrypt+0x3c/0x60 [mac80211]
+ ieee80211_encrypt_tx_skb+0x91/0x110 [mac80211]
+ mac80211_hwsim_tx+0x1cc/0x7f0 [mac80211_hwsim]
+ ieee80211_handle_wake_tx_queue+0x74/0xc0 [mac80211]
+ ieee80211_queue_skb+0x204/0x430 [mac80211]
+ __ieee80211_xmit_fast+0x206/0x3b0 [mac80211]
 
-Reproduced with gpio-sim: request a line, set the chip's "live"
-attribute to 0, then close the request. kmemleak reports up to 30 such
-objects after 30 cycles; with this change, none after 100.
+and the frame is dropped. The same combination of fast-xmit and a
+RESERVE_TAILROOM key is reachable on ath11k and ath12k in raw mode,
+where the firmware expects the reserved MIC space to be present.
 
-Fixes: 35b545332b80 ("gpio: remove gpio_lock")
-Cc: stable@vger.kernel.org
-Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Signed-off-by: Adrian Ambrozewicz <aambrozewicz@nvidia.com>
+Pass ENCRYPT_DATA instead so that tailroom is reserved whenever a
+driver requested it. For drivers without any RESERVE_TAILROOM keys the
+counter is zero and the resize behaves exactly as before.
+
+Fixes: 17c18bf880b2 ("mac80211: add TX fastpath")
+
+Signed-off-by: Filip Balluch <fballuch@redhat.com>
 ---
- drivers/gpio/gpiolib.c | 8 ++++++--
- 1 file changed, 6 insertions(+), 2 deletions(-)
+ net/mac80211/tx.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/gpio/gpiolib.c b/drivers/gpio/gpiolib.c
-index 82e0be8864f4..9832f755312f 100644
---- a/drivers/gpio/gpiolib.c
-+++ b/drivers/gpio/gpiolib.c
-@@ -2707,7 +2707,12 @@ void gpiod_free_commit(struct gpio_desc *desc)
+diff --git a/net/mac80211/tx.c b/net/mac80211/tx.c
+index 91b14112e24f..760da3114956 100644
+--- a/net/mac80211/tx.c
++++ b/net/mac80211/tx.c
+@@ -3753,14 +3753,14 @@ void __ieee80211_xmit_fast(struct ieee80211_sub_if_data *sdata,
+ 	    ieee80211_amsdu_aggregate(sdata, sta, fast_tx, skb, da, sa))
+ 		return;
  
- 	flags = READ_ONCE(desc->flags);
+-	/* will not be crypto-handled beyond what we do here, so use false
+-	 * as the may-encrypt argument for the resize to not account for
+-	 * more room than we already have in 'extra_head'
++	/* the key may require tailroom to be reserved, e.g. when the
++	 * driver encrypts in software (IEEE80211_KEY_FLAG_RESERVE_TAILROOM),
++	 * so ask for encryption tailroom even though we don't encrypt here
+ 	 */
+ 	if (unlikely(ieee80211_skb_resize(sdata, skb,
+ 					  max_t(int, extra_head + hw_headroom -
+ 						     skb_headroom(skb), 0),
+-					  ENCRYPT_NO)))
++					  ENCRYPT_DATA)))
+ 		goto free;
  
--	if (guard.gc && test_bit(GPIOD_FLAG_REQUESTED, &flags)) {
-+	if (guard.gc && !test_bit(GPIOD_FLAG_REQUESTED, &flags))
-+		return;
-+
-+	desc_set_label(desc, NULL);
-+
-+	if (guard.gc) {
- 		if (guard.gc->free)
- 			guard.gc->free(guard.gc, gpiod_hwgpio(desc));
- 
-@@ -2717,7 +2722,6 @@ void gpiod_free_commit(struct gpio_desc *desc)
- #ifdef CONFIG_OF_DYNAMIC
- 		WRITE_ONCE(desc->hog, NULL);
- #endif
--		desc_set_label(desc, NULL);
- 		set_mask_bits(&desc->flags,
- 			      BIT(GPIOD_FLAG_ACTIVE_LOW) |
- 			      BIT(GPIOD_FLAG_REQUESTED) |
+ 	hdr = skb_push(skb, extra_head);
 -- 
-2.43.0
+2.56.0
 
