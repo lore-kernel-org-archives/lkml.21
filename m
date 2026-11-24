@@ -1,102 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795522239;
-	b=2HoJ1Bnd/C//p4tuSjCBqzGKEejK2uIPCanZ581TD6fA+6Gp5NreARlyhNL2RUzpB8Ln
-	 PbXE2zur33M6MJ0AEiCC2Zbwam5iV7olKuKPx/eGiCbna3qpsAJFQay6XzrmHzZGqFw6k
-	 CCq6lGgbBaS9zqK3LG1yDL4I3BApMZaApssx50dhEVZg47ioXR1GPqUEMnZj80CUOwJ4s
-	 MiVgy5jCj3BA/QX9Mimkn5HobKMNToty/nU6aZ6MRr07t876XHTXorbD7nRbDOL0Lzrs1
-	 ICLAo7pDoj3urqWPx1j8GXEl8QpgLMjuWsQXdtpuz5kZ7KE0sFkAp/BeDeNl8tC0j5g==
+	t=1795522399;
+	b=IefcD7cxrmhVD0bYe+gK9+PoWnm2mzvfoVD0EYvVVuu1rIbk7Kp6knnuNhHBxeqzqwo6
+	 72HQEbjDcfQxK/DoPiWXwXuuAYmWv8ueRJwu5emi+FjMQ4wQbui+sNLAHi5ckezqnFdoa
+	 oTz8KwPsEpZQCG0PETHkK2iDt8B8/1nA5HSWbHiwDjkNX5UgcMia/5Bd+PcYYkSj2EK4H
+	 5i5ExF+Xvqf9N2KggsQSYvp0jy1eQ0qtN/+U5ennIrkmR6GmyJZ2d356iC0oSKfOGL4oN
+	 2y4riTG3OmyRs+7V8Ydow/N3ZDzO9wn3mu9eoUU33n1i+FBu8DGwpnkPX0yFhZ+Gu+w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795522239;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=TNtaF0DLgYxwre8UJL5XaZV5dHuYhll67t5b/hqMCng=;
-	b=Visbrdp0az5agtHlabOf+lRDXs1X8zu/QRo9AU8SaPJiDBYimGT3dv/owADOZq8NqVF3
-	 6GQd5OBvFsJrKh2MteySMUN8BH/BB//ovbadWoQp7J7FnxY7WNxzF2c/kmQn8a4ndjpum
-	 FV0wdMbbLwYaQORffdEC25yERyLB1bVAUB2ArTSVY9VWjyaQR1pm5gXcQhLYYyn/yTZRk
-	 XYKS+0JQEgbBL3X6FwTTKrknduR1jx1Yfc94RICu7TeFPIhcLkUvGp/tLCzKDsOW8oiu+
-	 vfzRAQ/GxjtFIQ1Cx6WoApsi8v1GbcG+0rY7yQc6o4u+AwEK0OvOSEYobyPTAWoGhPg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795522399;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=yzusoICsZjm08Apg9oZ/jq4BkURI6t1XbBRqUFt4Xm8=;
+	b=UJhjl5w23wpwlA1HU3Nb8VUttfjJe9SdnA2T1sDub1kkA/QOlrson+s5cdkrzvfbve+l
+	 RC6IEyR67ex3rN+tksKzcDOidnGpYiGulVBRh6cOm7y5oG4yUWxpSen6qEEFoNk7eFrqI
+	 tOLLkoNE+jY9cotgvebwvKCDoX94EQCSaQlgOCtmDuH1wuPnI21Ka5wEShtPNUnofGETI
+	 aiu9qyqbnsRBeggu4L9qruSDiSbMm+cmSEkn5xtr3FzIhf4m5XeEzj53+rawYpO8VWfc8
+	 Bvp/sA3KBfxxFpYA0SCg8YxMI8cvZ1pJeswA8tFJw2Si/4aup49nDle1YnezcMZtfDg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=IaZHF+2J;
-	arc=none smtp.remote-ip=209.85.160.49
-Received: from mail-oa1-f49.google.com (mail-oa1-f49.google.com [209.85.160.49])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B66AD606A321
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 12:10:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B66AD606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=E8isgUyy;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 3B6DC606A32A;
+	Tue, 24 Nov 2026 12:13:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3B6DC606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=IaZHF+2J
-Received: by mail-oa1-f49.google.com with SMTP id 586e51a60fabf-483a66818edso2401418fac.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 04:10:38 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795522237; x=1796127037; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=TNtaF0DLgYxwre8UJL5XaZV5dHuYhll67t5b/hqMCng=;
-        b=IaZHF+2JdlJMU2soSWePUJeZV7NaDMrv1i4uo+bM8TuyascofftacGsxrs0Bd3Y0SC
-         mpfZkFz0PEs6TnU6RaxVwVw8wSnC4/knQp5AqqZgE1er8+j4cO71QeHnhV4l1vGNwaAA
-         x853c+3EXzmuw34b7jsNwfc86oV5Nqt5gAqopZHSpQVOsmt5rgnfcubM0BZ9PrsUhzqF
-         SDIwSmy7n3I/QZ48SACPSN9IlGbWUabhBwpSGcLAXgoiUNwZ6vd+15W7s0kycUWmDCRC
-         ugz4gaZfeplGASpep2JUVORQHmWFqQ/uLU/Ge5IvTPWq4G5WYgxUbnJJm6n6OiKU/Sl7
-         Kuhg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795522237; x=1796127037;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=TNtaF0DLgYxwre8UJL5XaZV5dHuYhll67t5b/hqMCng=;
-        b=quFuSdXQcukQ4nSpw9o2bAVf3ZsL5VbvmHt3Mtwr4a5l0Fjs9lN5caexas1AUnW2LS
-         Be5Gs0oFkAhj1EheMLea9jgdpUdkxc+e3Z22K9S0SY4xYOT2Ngu2SuVAhI3jHYjfnWFm
-         iYDlST+DNRhO5bx62gFPSsajjEZmoHTQkl6YlZ/Vi61hil/Grp8eMLxOsHZNsteI0+3f
-         /bLq4xtbAvo7vWqpDXUSASkSgek+/Q778vgRsLuLIrxg1cMLG7cJC17c/JVwVqx3o3H5
-         yZdQ+hkqJRWMaHhKbRzVhVovVlQyNtAxNAHLMOGQBTLW51erMe8JzMLLhNpjmkk0/MDU
-         tpXg==
-X-Forwarded-Encrypted: i=1; AL+hErHL/xUB81rn+p0Zlx3IbsubYTqbNqDFuuXD++lzDOq8YgBzpHDFxSl8dvjBQfGFctQfelHwcHrEkw2kHYg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/H6NGh/fpgy9VP2RMN7cHv5wyOix1kIynIhQpjE+Gs3vP4IdhA
-	6cRD5tjXmQVD4YI5hv3b9HcgL3p8FVOsU79VR+Ff4JLt1xOsu1RECn7l
-X-Gm-Gg: AZFdTZflzJni43uS4hCY37K7MvOFu3Ev+TgZLaRaBJ3txtftK4qKe6yZdc7dpX4PkSg
-	HxKbwu3oRag+DU3D4bJUFav6tBcI+2SSNf5hEPCW+g56JhmMVyvNXwpqRPmcaaA7McQBFeHB1It
-	+sBpnzkVflIO7qfYxcekvlTx/2QjWOZUcypOV7JUZl/80YB/y0w6vGdHD8TZrBC1JOczqHzkOFe
-	EwNiavLSAR7dUYeifVIk4Imr0cRG/bx3pjUpKCDyK4wtsI7XHfUbjEHy9YChhaWTvC+Q7jixZbr
-	NsRA4wZNluO/bT7wGUc7X5ilhwUzWnJvGsPDpytblZI16JMVqALIetki1qkIIxEjK19tCHtcYK+
-	IXmFB94J9rP93U06zyNUtQPhmcWNNfWjqENFJilJYfPqV23SCBl/7Rg6W1VTkH9wvHaGrNNmkJo
-	XOPjUvh4z6CYQcPtsRJZ4qdWLN0XQrRaN896gmxnOldEMIgxUxEjibD5laAbSuSh+WhgcNg1VyC
-	AEOsU58Fi2DFStHTSAzB7M+PJ1YhJsHvHlGF0fr4KZhv7UlyhZPmuVcOAB3wSJVKwYOANIQbaUp
-	B95OVuR4BhwLPe+/fhK7W+o=
-X-Received: by 2002:a05:6870:e08e:b0:48f:e0e5:a1f8 with SMTP id 586e51a60fabf-4bc8492648bmr14119241fac.44.1795522237361;
-        Tue, 24 Nov 2026 04:10:37 -0800 (PST)
-Received: from localhost ([2a03:2880:10ff:71::])
-        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-4bc5ebdc0acsm15053309fac.3.2026.11.24.04.10.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 04:10:36 -0800 (PST)
-From: Vlad Poenaru <vlad.wing@gmail.com>
-To: "Michael S . Tsirkin" <mst@redhat.com>,
-	Si-Wei Liu <si-wei.liu@oracle.com>,
-	Jonah Palmer <jonah.palmer@oracle.com>
-Cc: Jason Wang <jasowangio@gmail.com>,
-	=?UTF-8?q?Eugenio=20P=C3=A9rez?= <eperezma@redhat.com>,
-	Xuan Zhuo <xuanzhuo@linux.alibaba.com>,
-	Brett Creeley <brett.creeley@amd.com>,
-	Kyle McMartin <jkkm@meta.com>,
-	Joao Martins <joao.m.martins@oracle.com>,
-	virtualization@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	kernel-team@meta.com
-Subject: Re: [PATCH] virtio_pci: limit Oracle DSC2-200 virtio-net to 48-bit DMA
-Date: Tue, 24 Nov 2026 04:10:30 -0800
-Message-ID: <20261124121030.38490-1-vlad.wing@gmail.com>
-X-Mailer: git-send-email 2.53.1
-In-Reply-To: <20261121063742-mutt-send-email-mst@kernel.org>
-References: <20261109184253.531677-1-vlad.wing@gmail.com> <20261119200654.1048266-1-vlad.wing@gmail.com> <20261119181557-mutt-send-email-mst@kernel.org> <20261120171435.83458-1-jonah.palmer@oracle.com> <20261120123500-mutt-send-email-mst@kernel.org> <b8ff5bab-d08f-42b8-9c88-e4665ea3078c@oracle.com> <20261121063742-mutt-send-email-mst@kernel.org>
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=E8isgUyy
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BEC79339;
+	Tue, 24 Nov 2026 04:13:15 -0800 (PST)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 597E03F632;
+	Tue, 24 Nov 2026 04:13:17 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795522398; bh=Bz7umvMoPtgIHCEppXFYHWZcFXpcpdG83AT8i+31kpw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=E8isgUyyGUY/+jfI1aGuIyNhFLJGeRCpBVaEgIMVIro0/iHezUX1AfBowPvgiJpz9
+	 Q8XwXcio+kDZ94maesvIvnFfWJA7eScolfnnIInPInsPyt/5BWuw2z90s3sSPKC6Id
+	 p+Nv12OtfBR8jj+sVkwkHKNPO7e+P618mjt8jURM=
+Date: Tue, 24 Nov 2026 12:13:14 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Thorsten Blum <blum@kernel.org>
+Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Kees Cook <kees@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-hardening@vger.kernel.org
+Subject: Re: [PATCH RESEND] arm64: patching: Annotate text_addrs, new_insns
+ with __counted_by_ptr()
+Message-ID: <awV_Wn0PivLnU2wp@arm.com>
+References: <20261111164515.77988-2-blum@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,22 +63,31 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261111164515.77988-2-blum@kernel.org>
 
-Hi Michael, Si-Wei, Jonah,
+On Wed, Nov 11, 2026 at 05:45:14PM +0100, Thorsten Blum wrote:
+> Add __counted_by_ptr() to aarch64_insn_patch::text_addrs and
+> aarch64_insn_patch::new_insns to enable access bounds checking via
+> CONFIG_UBSAN_BOUNDS and CONFIG_FORTIFY_SOURCE.
+[...]
+>  struct aarch64_insn_patch {
+> -	void		**text_addrs;
+> -	u32		*new_insns;
+> +	void		**text_addrs __counted_by_ptr(insn_cnt);
+> +	u32		*new_insns __counted_by_ptr(insn_cnt);
 
-Michael, please keep the quirk in your tree. A firmware fix only
-helps the hosts that receive it. Hosts on today's firmware, including
-those booting stable kernels, need the quirk until their firmware is
-updated.
+I'm not sure it buys us anything. The only accesses to these arrays are
+in aarch64_insn_patch_text_cb() in a loop already bounded by
+pp->insn_cnt. UBSAN just repeats the loop condition. There's no
+mem*/str* use of these pointers either, so FORTIFY_SOURCE doesn't
+matter.
 
-Yes to 51 bits, given Jonah's testing. I will send a v2 with 51 bits
-to replace the version in your tree.
+The annotation can't catch a wrong count from the caller since insn_cnt
+is taken directly from the cnt argument of aarch64_insn_patch_text().
 
-Jonah, Si-Wei: will the fixed firmware be visible from the PCI side,
-for example as a new revision ID or subsystem device ID? If so, a
-follow-up can limit the quirk to the old firmware and give fixed
-devices the full mask.
+So, I don't think this patch is needed.
 
-Thanks,
-Vlad
+-- 
+Catalin
