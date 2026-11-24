@@ -1,107 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.130
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795502474;
-	b=TKJyqxENDyi+4iCyj1WHRsSDzHHzaBzNcSkp++JhccQIyRk7bj4HNe3u0Dh5QldP0u8Y
-	 xM9TRqFYUyaOUHdrX8odfZncXXthZ3ZaU0PAj+rnBDNb8ysJUnA9Rhzo35cN1NaHwyCmr
-	 Y1ETHX+JgzDn/zxQtnEVV/u+xWCYGrZmeEvN71jHam+18u/axsGKh7c21TH8f9ZC9L/T7
-	 fJnEU0y5L/2iK1mYtcea2xpJvoPpuVdDBVy71WHisCXGUuYZSC7+6DWYXPsZOtAIbGfNp
-	 pdLLLiCUImGVZLnozmhpghtYfoCeVbkXE1WKBLZF8ySbz5e+OuyUX+5CmIy7nwclu1A==
+	t=1795502482;
+	b=qck4rTCBHZRAFVVsQBENqaUYO2JkpMAyFDP1mDq7yD+uHqLt9ytkGR4XTvDoqPRRvgev
+	 tgQcnmJrIXHrD8C9TOXexnMfmyLJhAXeBbvGInpW3Zc7Cb2nyMLC7J1o0I1gwYY+hqqWP
+	 AAiEJfYRJR+X/jPK0ect8xw0yKGAwWV4AvlpQOot1yAavYLNrgAVcFwec1Q0PMG7BFNf8
+	 YZ3owlkF6VG/kpg85FLpVRFq1TypPQUZ5DjdCyH+8/U0BJSWOu2t3cZQ3QYyNjBGsvP7h
+	 pqJc5geeyQoBhLkB4feJDvwtmvTfB0tT9FHIb0xKQATIkasxkHyo4Ozy0JMPxzGA4xQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795502474;
-	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:Received:
-	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding:X-Spam-Flag:X-Spam-Level:X-Spamd-Result:
-	 X-Spam-Score;
-	bh=/hXeQQdmCcFIYejm32YeM2sCSWjzrW5ddVMP6NBf6kI=;
-	b=AaSNhTvmAAZJDfv+dqOSyDUaiRQeUJJ7EKIbm5oDeuPWW5/rKcZkDVohX2AMzJJaEt8Q
-	 NLev5GQY4y6u0KkQAdexqP36eZwHNaBOepkNeh+pYeQeiVhx10YYZe6RBS1D0yhdnWPmY
-	 JtksNmgMz58ZdYi2EaG5INtAHpza5FeGshtZoEfXaoVyPZz8nIUJ4PMGJnKK2q8f3EyvO
-	 aDmi6Kaf0LsERYztBaYVd/PWNwky7Ykp53AyuXkBqrCFtit4HcVXq2o5V6Xy8au1LnbXW
-	 EplWCCAxSwymAGh+pL46f6hsTcELX0qtE3rNsAMU19vmiAod3xdJxCYkr8S3RsKu9TA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795502482;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=D0iXW4cQ6r7peoDFl+A6eW97uV9tAAL0MLqDFk+woko=;
+	b=TjWnFa3SbJaPTKeoaW7YoU4Fhl7R6nlVFDAcaZQT+EVZcgpn6xUewYFVxl9hlLjd7t7y
+	 TJrLfeJVe8dhf+J2C/QJRVGb9WsKCHMlOC/Dv/1jAXErd8HZm6Oa8SY7KcmArQLiEV2/7
+	 tbCUIb6G7Es5OoU+i4koEPaCA9jSK5uDgO8AFSZLTEP0L8Ok7JqX5LXX+I77CwfP+ck8b
+	 JzcklhhfBrpoxeJEiTOeSUZh2swVTAvT7Qnmu4gXpUBn7L6K1mrLO2yeyZ6t6nTzLDwZD
+	 nzBK95lGms2Z8Fm/IC5R7hjh8mFz9LbIMPvRUshSGfKvxDZ4O2p3cdxRWJ1ub8bKagQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.com;
-	spf=pass smtp.mailfrom=suse.com;
-	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=susede1 header.b=qmGAPux5;
-	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=susede1 header.b=qmGAPux5;
-	arc=none smtp.remote-ip=195.135.223.130
-Received: from smtp-out1.suse.de (smtp-out1.suse.de [195.135.223.130])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bgDbZiCK;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5911A606A326;
-	Tue, 24 Nov 2026 06:41:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5911A606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6AEB6606A326;
+	Tue, 24 Nov 2026 06:41:22 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=susede1 header.b=qmGAPux5;
-	dkim=pass (1024-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=susede1 header.b=qmGAPux5
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 6997022076;
-	Tue, 24 Nov 2026 06:41:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.com; s=susede1;
-	t=1795502471; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
-	bh=/hXeQQdmCcFIYejm32YeM2sCSWjzrW5ddVMP6NBf6kI=;
-	b=qmGAPux5feV/IK5E/dEfT9nur5vEcG+lQnRdjCXnm4XcGttQRfkcJUqPXaod4Abd66J1wP
-	P11kld2OMWM7fPDwgS78Pj+LJjBdcbDzFuFhAiwHjeNscq6f4GqSVjT7IABnp7MwjWFHqd
-	49eQRr7mVk9QoSLjmtaMA159nnPa3Vo=
-Authentication-Results: smtp-out1.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.com; s=susede1;
-	t=1795502471; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
-	bh=/hXeQQdmCcFIYejm32YeM2sCSWjzrW5ddVMP6NBf6kI=;
-	b=qmGAPux5feV/IK5E/dEfT9nur5vEcG+lQnRdjCXnm4XcGttQRfkcJUqPXaod4Abd66J1wP
-	P11kld2OMWM7fPDwgS78Pj+LJjBdcbDzFuFhAiwHjeNscq6f4GqSVjT7IABnp7MwjWFHqd
-	49eQRr7mVk9QoSLjmtaMA159nnPa3Vo=
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 8ECDB13505;
-	Tue, 24 Nov 2026 06:41:10 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id XfqRGYYxBWsqIAAAD6G6ig
-	(envelope-from <jgross@suse.com>); Tue, 24 Nov 2026 06:41:10 +0000
-From: Juergen Gross <jgross@suse.com>
-To: linux-kernel@vger.kernel.org,
-	x86@kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-perf-users@vger.kernel.org,
-	linux-hwmon@vger.kernel.org,
-	platform-driver-x86@vger.kernel.org
-Cc: Juergen Gross <jgross@suse.com>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	James Clark <james.clark@linaro.org>,
-	Guenter Roeck <linux@roeck-us.net>,
-	Tony Luck <tony.luck@intel.com>,
-	Ashok Raj <ashok.raj.linux@gmail.com>,
-	Hans de Goede <hansg@kernel.org>,
-	=?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-Subject: [PATCH v2] msr: replace rdmsr()/wrmsr() in comments
-Date: Tue, 24 Nov 2026 07:41:08 +0100
-Message-ID: <20261124064108.2440277-1-jgross@suse.com>
-X-Mailer: git-send-email 2.56.0
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bgDbZiCK
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2E44C1F0089E;
+	Tue, 24 Nov 2026 06:41:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795502481;
+	bh=D0iXW4cQ6r7peoDFl+A6eW97uV9tAAL0MLqDFk+woko=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=bgDbZiCK/ZKa00WDXAUWPS269+6R3R6rqkH5S5llCEDGPFKXb8jKhdFa3mtRisUaS
+	 xm4Zizp87kzhzeGM0c0e6XH40AM+2D8kEO9kV6NmYO/tci25Q/pcgIcAMRpOgfih5W
+	 as1tjQOmdNjeuBK9cCQN83Gz7fSxk8mtcdJHGKhOucahc89TT4kb97anUOPAakrN9d
+	 0VFVZzMQNzKS4XBUECUYYEGCGuP0lF64vN1f4pEFbc9wD3gSaRfiOHje6QG9WkKo9L
+	 TWMd/MdfDGfQduJXbBm6NoPbgtLjkKYP71mbqfxX8iFJs3lWw4v10g/TvSur5eVRPs
+	 Mn/k+UFhMS3Hw==
+Message-ID: <7bce0280-704e-42ce-ba65-d3ab369bc20c@kernel.org>
+Date: Tue, 24 Nov 2026 07:41:14 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -111,179 +51,83 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Spam-Flag: NO
-X-Spam-Level: 
-X-Spamd-Result: default: False [-10.30 / 50.00];
-	SUSE_INTERNAL_BYPASS(-9.00)[];
-	BAYES_HAM(-3.00)[100.00%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	MID_CONTAINS_FROM(1.00)[];
-	R_MISSING_CHARSET(0.50)[];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	ARC_NA(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	FREEMAIL_CC(0.00)[suse.com,kernel.org,redhat.com,alien8.de,linux.intel.com,zytor.com,lwn.net,linuxfoundation.org,infradead.org,arm.com,google.com,intel.com,linaro.org,roeck-us.net,gmail.com];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[29];
-	MIME_TRACE(0.00)[0:+];
-	TO_DN_SOME(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,suse.com:email];
-	TAGGED_RCPT(0.00)[];
-	RCVD_TLS_ALL(0.00)[];
-	URIBL_BLOCKED(0.00)[suse.com:email,imap1.dmz-prg2.suse.org:helo];
-	RCVD_COUNT_TWO(0.00)[2];
-	FROM_HAS_DN(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	R_RATELIMIT(0.00)[to_ip_from(RLfdszjqhz8kzzb9uwpzdm8png)];
-	DKIM_SIGNED(0.00)[suse.com:s=susede1];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com]
-X-Spam-Score: -10.30
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/5] dt-bindings: soc: Add Cortina Systems CS7542
+ global control block
+To: filipp.dunsky@gmail.com, Linus Walleij <linusw@kernel.org>,
+ Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>,
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>
+Cc: Arnd Bergmann <arnd@arndb.de>, linux-gpio@vger.kernel.org,
+ linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20261123-cs7542-syscon-v3-0-f1c07a1703f8@gmail.com>
+ <20261123-cs7542-syscon-v3-1-f1c07a1703f8@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20261123-cs7542-syscon-v3-1-f1c07a1703f8@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-Replace all mentioning of rdmsr() and wrmsr() in comments with
-rdmsrq() and wrmsrq(), as the former functions are no longer
-existing.
+On 23/11/2026 21:54, Fil Dunsky via B4 Relay wrote:
+> From: Fil Dunsky <filipp.dunsky@gmail.com>
+> 
+> Describe the shared global register block and its strap-selected APB,
+> CPU and AXI clocks. A pinctrl child will share the syscon regmap. Keep
+> clock IDs in the order used by the previous out-of-tree CS75xx clock
+> provider.
+> 
+> AI assistance: Codex prepared this change from the existing OpenWrt port
+> and GPL vendor sources.
+> 
+> Signed-off-by: Fil Dunsky <filipp.dunsky@gmail.com>
 
-In drivers/hwmon/coretemp.c drop mentioning rdmsr/wrmsr, as the
-comment was incorrect in this regard.
+I commented at v1 10 hours after it was posted and now I see v3.
+Dropping from patchwork, so this won't cut the queue.
 
-Signed-off-by: Juergen Gross <jgross@suse.com>
----
-To be applied on top of current core/msr branch of the tip tree.
-V2:
-- drop comment in drivers/hwmon/coretemp.c (Asaf Nuri Bertizlioglu)
----
- Documentation/arch/x86/microcode.rst  | 2 +-
- arch/x86/events/amd/ibs.c             | 2 +-
- arch/x86/events/intel/core.c          | 2 +-
- arch/x86/events/intel/lbr.c           | 6 +++---
- arch/x86/include/asm/shared/msr.h     | 2 +-
- arch/x86/kernel/cpu/feat_ctl.c        | 2 +-
- drivers/hwmon/coretemp.c              | 3 +--
- drivers/platform/x86/intel/ifs/load.c | 5 +++--
- 8 files changed, 12 insertions(+), 12 deletions(-)
-
-diff --git a/Documentation/arch/x86/microcode.rst b/Documentation/arch/x86/microcode.rst
-index b627c6f36bcf..df1fb2c82333 100644
---- a/Documentation/arch/x86/microcode.rst
-+++ b/Documentation/arch/x86/microcode.rst
-@@ -151,7 +151,7 @@ are also treated as fatal by the kernel.
- On certain Intel machines, MCEs are also broadcast to all threads in a
- system. If one thread is in the middle of executing WRMSR, a MCE will be
- taken at the end of the flow. Either way, they will wait for the thread
--performing the wrmsr(0x79) to rendezvous in the MCE handler and shutdown
-+performing the wrmsrq(0x79) to rendezvous in the MCE handler and shutdown
- eventually if any of the threads in the system fail to check in to the
- MCE rendezvous.
- 
-diff --git a/arch/x86/events/amd/ibs.c b/arch/x86/events/amd/ibs.c
-index f43949bde19c..2ef0530b6561 100644
---- a/arch/x86/events/amd/ibs.c
-+++ b/arch/x86/events/amd/ibs.c
-@@ -591,7 +591,7 @@ static void perf_ibs_start(struct perf_event *event, int flags)
- 		 *  o Set VAL bit            CTL2[Dis] = 1
- 		 *  o Raise NMI --.        o ...
- 		 *                 \       o ->start()
--		 *                  \        wrmsr(IBS_{FETCH|OP}_CTL, new value);
-+		 *                  \        wrmsrq(IBS_{FETCH|OP}_CTL, new value);
- 		 *                   \       (wrmsr clears the VAL bit)
- 		 *                    `--> o Receives delayed NMI
- 		 *                           (Unknown NMI since VAL bit is cleared)
-diff --git a/arch/x86/events/intel/core.c b/arch/x86/events/intel/core.c
-index 96bcbf823aec..1b6213ef2ced 100644
---- a/arch/x86/events/intel/core.c
-+++ b/arch/x86/events/intel/core.c
-@@ -6963,7 +6963,7 @@ static bool check_msr(unsigned long msr, u64 mask)
- 		return false;
- 
- 	/*
--	 * Quirk only affects validation in wrmsr(), so wrmsrq()'s value
-+	 * Quirk only affects validation in wrmsrq(), so wrmsrq()'s value
- 	 * should equal rdmsrq()'s even with the quirk.
- 	 */
- 	if (val_new != val_tmp)
-diff --git a/arch/x86/events/intel/lbr.c b/arch/x86/events/intel/lbr.c
-index beac04502b73..760d5e465a56 100644
---- a/arch/x86/events/intel/lbr.c
-+++ b/arch/x86/events/intel/lbr.c
-@@ -222,7 +222,7 @@ enum {
-  * are the TSX flags when TSX is supported, but when TSX is not supported
-  * they have no consistent behavior:
-  *
-- *   - For wrmsr(), bits 61:62 are considered part of the sign extension.
-+ *   - For wrmsrq(), bits 61:62 are considered part of the sign extension.
-  *   - For HW updates (branch captures) bits 61:62 are always OFF and are not
-  *     part of the sign extension.
-  *
-@@ -231,8 +231,8 @@ enum {
-  *   1) LBR format LBR_FORMAT_EIP_FLAGS2
-  *   2) CPU has no TSX support enabled
-  *
-- * ... then any value passed to wrmsr() must be sign extended to 63 bits and any
-- * value from rdmsr() must be converted to have a 61 bits sign extension,
-+ * ... then any value passed to wrmsrq() must be sign extended to 63 bits and
-+ * any value from rdmsrq() must be converted to have a 61 bits sign extension,
-  * ignoring the TSX flags.
-  */
- static inline bool lbr_from_signext_quirk_needed(void)
-diff --git a/arch/x86/include/asm/shared/msr.h b/arch/x86/include/asm/shared/msr.h
-index a20b1c08c99f..c46188ca5403 100644
---- a/arch/x86/include/asm/shared/msr.h
-+++ b/arch/x86/include/asm/shared/msr.h
-@@ -13,7 +13,7 @@ struct msr {
- };
- 
- /*
-- * The kernel proper already defines rdmsr()/wrmsr(), but they are not for the
-+ * The kernel proper already defines rdmsrq()/wrmsrq(), but they are not for the
-  * boot kernel since they rely on tracepoint/exception handling infrastructure
-  * that's not available here.
-  */
-diff --git a/arch/x86/kernel/cpu/feat_ctl.c b/arch/x86/kernel/cpu/feat_ctl.c
-index 7228fc2bb43e..0c10b1f35270 100644
---- a/arch/x86/kernel/cpu/feat_ctl.c
-+++ b/arch/x86/kernel/cpu/feat_ctl.c
-@@ -36,7 +36,7 @@ static void init_vmx_capabilities(struct cpuinfo_x86 *c)
- 	 * features that can be turned off.  Ignore the allowed-0 settings,
- 	 * if a feature can be turned on then it's supported.
- 	 *
--	 * Use raw rdmsr() for primary processor controls and pin controls MSRs
-+	 * Use raw rdmsrq() for primary processor controls and pin controls MSRs
- 	 * as they exist on any CPU that supports VMX, i.e. we want the WARN if
- 	 * the RDMSR faults.
- 	 */
-diff --git a/drivers/hwmon/coretemp.c b/drivers/hwmon/coretemp.c
-index 96d57fe12de6..ad5e8f40ad0c 100644
---- a/drivers/hwmon/coretemp.c
-+++ b/drivers/hwmon/coretemp.c
-@@ -66,8 +66,7 @@ enum coretemp_attr_index {
-  *		IA32_TEMPERATURE_TARGET MSR.
-  * @last_updated: The time when the current temperature value was updated
-  *		earlier (in jiffies).
-- * @cpu_core_id: The CPU Core from which temperature values should be read
-- *		This value is passed as "id" field to rdmsr/wrmsr functions.
-+ * @cpu_core_id: The CPU Core from which temperature values should be read.
-  * @status_reg: One of IA32_THERM_STATUS or IA32_PACKAGE_THERM_STATUS,
-  *		from where the temperature values should be read.
-  * @attr_size:  Number of sysfs attributes in this temperature data group.
-diff --git a/drivers/platform/x86/intel/ifs/load.c b/drivers/platform/x86/intel/ifs/load.c
-index 6320a0e45d38..74041a3410c3 100644
---- a/drivers/platform/x86/intel/ifs/load.c
-+++ b/drivers/platform/x86/intel/ifs/load.c
-@@ -110,8 +110,9 @@ static void auth_err_message(struct device *dev, u32 err_code)
- /*
-  * To copy scan hashes and authenticate test chunks, the initiating cpu must point
-  * to the EDX:EAX to the test image in linear address.
-- * Run wrmsr(MSR_COPY_SCAN_HASHES) for scan hash copy and run wrmsr(MSR_AUTHENTICATE_AND_COPY_CHUNK)
-- * for scan hash copy and test chunk authentication.
-+ * Run wrmsrq(MSR_COPY_SCAN_HASHES) for scan hash copy and run
-+ * wrmsrq(MSR_AUTHENTICATE_AND_COPY_CHUNK) for scan hash copy and test chunk
-+ * authentication.
-  */
- static void copy_hashes_authenticate_chunks(struct work_struct *work)
- {
--- 
-2.56.0
-
+Best regards,
+Krzysztof
