@@ -1,111 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.35
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795513576;
-	b=Ztcnt6yshtn2dWMNpZZMJ8+QAnUqlx1OviYtb3uI/9ctx2aqWMBjTVga+PipmaVgHv87
-	 LWYfgyDRWEy6RirV2pgT7se3Q6MhQQuS3pwdbP73QslyIVK5MDIRTGwsurCQrkKeVwLZ/
-	 XM5fFovVhm0sV8GQ95rIEQGRixGFAbeRVgFn34eI9xgDyoPdUaP3WqEJX9rmNQS8pi5kO
-	 z1WNqbWY7ovIhFedk17ZzDizpYzp16TuB7LE6KGIhbN0gYN35eYfSk7eo3v9RDn6f9IwU
-	 JyJH/ZwIogFIl0DfE/h5x66X7zuveC/iGYFVN/ixGuSIBzlqVUfzjJ2bOZ1gIfq5ZyQ==
+	t=1795513595;
+	b=xVrfcWVhKAqpTzTDwPS4D0EaxgkhdkGvJZ+6aucctdG10HDAcMbdBvAVTz9kGn/dswaW
+	 lyXfnoXPov6UzfHuvXGZG9dSFMGQbktw8IxXn9+BdtlOI1ymQeHFfBRGQjVKfwqaKjxWx
+	 N3RQE4T3nYZtjH7q/vEb/mjqKup1Rh29O5HBip00jF6XyFRBwQ54bxN2ycN9x+nWpgtcU
+	 Y3gNrTNu9tmpwHUqLKBAG/Ygcpv98OBrhxDJszM5fgrkh4OVbj1sQYlV/ft4PctUAGvBN
+	 yi92orlXH80QN/WgMyz4wA1HQTMbOI4fwwwsC5IgqWGl9bVht/CG3Lya5ioojaOBZrg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795513576;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Type:X-Mailer:
-	 Content-Transfer-Encoding;
-	bh=cpTS94Nlb5etqG8ClWRhdF0oxfHbFp//wqSv3Y/5cKI=;
-	b=a2hLA+nyumgHGUjKED/Eu9hTzX4p65QMx968ZMIDehR+rBwV5nERcIVMOsJgGACjrIHw
-	 lqxZT71ZVH3VeEZlPEEKdPLVdgU7KCNLi+mth5hU1WF5JJxLehO138W7u/isAavqq/88a
-	 2QarEDGa/pzIgTsIi2JibXJRvEPS8BZtDTUyQEPRhWcD+Vvy+SQUbQuubhEi0xOFK11z1
-	 V1MsEIXTSd6R9xKcihrVL+vf1p8xKYDl1Us4DVRbHE3EmQn3pk8BEx+++2SvjUBBiiIkc
-	 s4eP4zLz9IVQUCxymeeAhoGE7n1PizmqQSzCOgcFxjOteJjMJcalt0wR5w6tCk9IBbQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795513595;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=w5fGPA+H9bFCghY7g2x7TUhvKF0aDCRRu8sPx7t4g8Q=;
+	b=QAnbWFw95sNBk2TlbXpZcqIIOLT34eIsJodqvPLxEfyg8M1LxuTXtAJxMb2rel6DEpot
+	 0lLsUdGBy+4R8ozyxW24cuiczd6iGsrFzKz3EuWlhyKy/HMNUQGCgwZYhbutTi+xPz6WR
+	 c/y3zISyMwP5fkA3xYNYgd+uTGe5epWZmdt0doe8DgUmIxvMLDBJq6QIDkOKNx3zxAWdN
+	 AJ+UzeyyEfimSTJKGfpPbTh1bBCuOMtXpAp2MlCzkpvGueYG+OI5MY++3ese/wcrgISv9
+	 DgctCcLGQBfLr1xKFf9AVfPNq931/Mzy2OI61QFcAMsNqFMkYFt+k+SSsCLNejiW4Nw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Gvw8DUWV;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=wyuan.org;
+	spf=pass smtp.mailfrom=wyuan.org;
+	dkim=pass header.d=wyuan.org header.i=@wyuan.org header.a=rsa-sha256 header.s=key1 header.b=QBaNuUjr;
+	arc=none smtp.remote-ip=95.215.58.35
+Received: from mta1.migadu.com (out-35.mta1.migadu.com [95.215.58.35])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5BB16606B033;
-	Tue, 24 Nov 2026 09:46:16 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E6935606A872
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:46:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E6935606A872
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=wyuan.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=wyuan.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Gvw8DUWV
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D85131F000C4;
-	Tue, 24 Nov 2026 09:46:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795513575;
-	bh=cpTS94Nlb5etqG8ClWRhdF0oxfHbFp//wqSv3Y/5cKI=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=Gvw8DUWVJURXZPN6ZRi0RTKSYd8JK8tfvyMMCiQKqdmRKRyE+KMgApmRrT9+f9hRg
-	 SoaUHiR/UScRwQ7YxbuXQtviPo4xgeJvxCWRyLrzg518CTKdlmaqGFc+UgwlWJ0ExK
-	 9YaN46IoUKkchdS0CPECdWS30cucl3toj+Ky1fabeo3WTstnBESvd6tkRHLMk/RGIJ
-	 fEcCIzF1iqWmYejBgHuCloMrflvYJl7mfjsahKGSbNtvt+rwHPw4r2k1LLv2TrERcg
-	 t5yQL9tI6ySCfsJGmi59PPrNr4BBN1yFWG7oJ0udsb8Mnq0YsBTJohxfqqIVXG7c8c
-	 X+/f2uxbfx+jA==
-From: Leon Romanovsky <leon@kernel.org>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	"David S. Miller" <davem@davemloft.net>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	"Joerg Roedel (AMD)" <joro@8bytes.org>,
-	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
-	Vasant Hegde <vasant.hegde@amd.com>,
-	Will Deacon <will@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	David Woodhouse <dwmw2@infradead.org>,
-	Lu Baolu <baolu.lu@linux.intel.com>,
-	Johan Hovold <johan@kernel.org>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Marcel Holtmann <marcel@holtmann.org>,
-	Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
-	Nipun Gupta <nipun.gupta@amd.com>,
-	Nikhil Agarwal <nikhil.agarwal@amd.com>,
-	Pieter Jansen van Vuuren <pieter.jansen-van-vuuren@amd.com>,
-	Chris Lu <chris.lu@mediatek.com>,
-	Mans Rullgard <mans@mansr.com>,
-	Alan Stern <stern@rowland.harvard.edu>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Cornelia Huck <cornelia.huck@de.ibm.com>,
-	Andrew Morton <akpm@osdl.org>,
-	Jeff Garzik <jeff@garzik.org>,
-	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
-	Bart Van Assche <bvanassche@acm.org>,
-	Alexander Duyck <alexander.h.duyck@linux.intel.com>,
-	Dan Williams <djbw@kernel.org>
-Cc: linux-kernel@vger.kernel.org,
-	driver-core@lists.linux.dev,
-	linux-input@vger.kernel.org,
-	netdev@vger.kernel.org,
-	linux-wireless@vger.kernel.org,
-	linux-usb@vger.kernel.org,
-	linux-bluetooth@vger.kernel.org,
-	linux-acpi@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-pci@vger.kernel.org,
-	iommu@lists.linux.dev,
-	linux-coco@lists.linux.dev,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Luiz Augusto von Dentz <luiz.von.dentz@intel.com>,
-	Greg Kroah-Hartman <gregkh@suse.de>,
-	linux-sound@vger.kernel.org,
-	Jason Gunthorpe <jgg@ziepe.ca>
-Subject: [PATCH v4 25/33] driver core: Expose committed device trust level
-Date: Tue, 24 Nov 2026 11:43:56 +0200
-Message-ID: <20261124-device-trust-core-v4-25-037eb0d17b1f@nvidia.com>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261124-device-trust-core-v4-0-037eb0d17b1f@nvidia.com>
-References: <20261124-device-trust-core-v4-0-037eb0d17b1f@nvidia.com>
+	dkim=pass (2048-bit key, unprotected) header.d=wyuan.org header.i=@wyuan.org header.a=rsa-sha256 header.s=key1 header.b=QBaNuUjr
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=LF0q2K3tyOr7KGO2AG5QfLveDcN/YDA1xdf/RlJ8cxA=;
+ c=simple/simple; d=wyuan.org;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795513591; v=1; x=1796118391;
+ b=QBaNuUjrN00/f1KL/+KWfk19c5L/bXSiL9C4GgTli0lOF+RGEzhz61MLf9QlmCkPA2BYxYJR
+ Bh6BJ8tenWOmLFwvKJxQHIwovtVudt9/KzhkjgSxzrqC7k8q61KQvnSLWmRmIqBF6zSzeEPj32i
+ cyBEqq1DQuzyJagDfo2vT/r+bsGgRRhXIL3nr7NkbXyfh8s3cOd324b4yN3jod5EG/+/BcKBhKW
+ xW756XkOCWNTqEnoCNpxd7ezpzu7CDxSX0oWGOuuqku/IOcLvjp2OWiNkiTqj1fOYW/Zv8e4yv4
+ f1E7iQGvwtSCpD82mJ6JGyHyp2DMNx2jOLCE3dkNdimgQ==
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 45a6dc87a3d4f534;
+	Tue, 24 Nov 2026 09:46:31 +0000
+X-Mizu-Trace-ID: 45a6dc87a3d4f534
+X-Migadu-Flow: FLOW_OUT
+Date: Tue, 24 Nov 2026 17:46:25 +0800
+From: Weijie Yuan <wy@wyuan.org>
+To: TAKANO Mitsuhiro <takano32@gmail.com>
+Cc: amd-gfx@lists.freedesktop.org, Harry Wentland <harry.wentland@amd.com>,
+	Leo Li <sunpeng.li@amd.com>,
+	Alex Deucher <alexander.deucher@amd.com>,
+	Rodrigo Siqueira <siqueira@igalia.com>,
+	Christian =?iso-8859-1?Q?K=F6nig?= <christian.koenig@amd.com>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Thomas Huth <thuth@redhat.com>, dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 0/2] drm/amd/display: document two members of dc.h
+Message-ID: <awVc8RAMO75SFkxV@wyuan.org>
+References: <20261123122226.4101191-1-takano32@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -115,64 +71,22 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-X-Mailer: b4 0.15-dev-18f8f
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261123122226.4101191-1-takano32@gmail.com>
 
-From: Leon Romanovsky <leonro@nvidia.com>
+On Mon, Nov 23, 2026 at 12:22:24PM +0000, TAKANO Mitsuhiro wrote:
+> Two undocumented members in dc.h, both reported by kernel-doc: the union in
+> dc_probe_status has no description of its own, and the comment of
+> mpc_color_caps does not mention max_gamut_remap_coeff.  Both patches only
+> add comment text, so no build was run.
+> 
+> The diff is unchanged from the previous posting.  As Weijie Yuan suggested,
+> the AI disclosure moved out of the commit message: it is now below the ---
+> in each patch, and it is also in this cover letter.
 
-After probe failure or unbind, active trust returns to blocked while the
-accepted operating level remains committed. IOMMU state and other
-infrastructure can outlive the driver, so active trust alone cannot tell
-them which operating level was accepted.
+Tested on my local machine, the warnings disappear.
 
-Expose the retained commitment separately. This lets infrastructure honor
-the original level after probe failure or unbind without mistaking inactive
-driver state for a new authorization opportunity.
+Tested-by: Weijie Yuan <wy@wyuan.org>
 
-Signed-off-by: Leon Romanovsky <leonro@nvidia.com>
----
- drivers/base/trust.c         | 13 +++++++++++++
- include/linux/device/trust.h |  1 +
- 2 files changed, 14 insertions(+)
-
-diff --git a/drivers/base/trust.c b/drivers/base/trust.c
-index b968bfc937346..ddd570773a070 100644
---- a/drivers/base/trust.c
-+++ b/drivers/base/trust.c
-@@ -155,6 +155,19 @@ enum device_trust_level device_get_trust_level(const struct device *dev)
- }
- EXPORT_SYMBOL_GPL(device_get_trust_level);
- 
-+/**
-+ * device_get_committed_trust_level - Return the lifetime trust commitment
-+ * @dev: device to inspect
-+ *
-+ * Return: %DEVICE_TRUST_BLOCKED before admission, otherwise the level fixed
-+ * before driver setup. The commitment survives setup failure and unbind.
-+ */
-+enum device_trust_level device_get_committed_trust_level(const struct device *dev)
-+{
-+	return READ_ONCE(dev->trust_committed_level);
-+}
-+EXPORT_SYMBOL_GPL(device_get_committed_trust_level);
-+
- /**
-  * device_is_adversarial - Test whether a device is operated as an adversary
-  * @dev: device to inspect
-diff --git a/include/linux/device/trust.h b/include/linux/device/trust.h
-index a3a583eeb484c..1ac9cb5b3ceb3 100644
---- a/include/linux/device/trust.h
-+++ b/include/linux/device/trust.h
-@@ -48,6 +48,7 @@ int device_trust_set_policy_locked(struct device *dev,
- 				   enum device_trust_policy policy);
- int device_trust_set_policy(struct device *dev, enum device_trust_policy policy);
- enum device_trust_level device_get_trust_level(const struct device *dev);
-+enum device_trust_level device_get_committed_trust_level(const struct device *dev);
- bool device_is_adversarial(const struct device *dev);
- 
- #endif /* _DEVICE_TRUST_H_ */
-
--- 
-2.56.1
-
+Thanks. Jon would be happy about this, I guess. ;-)
