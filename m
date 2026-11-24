@@ -1,101 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.51
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795560437;
-	b=cfvde8/otOqU1NKnqmeS+MGaYVtaT2na/2X4V+h/VHtGxUtTCWXTOyY7TRn/u6ij5VKD
-	 mbnarskU8V78bAQXTCRscY/COtpz7tGewV1Il3PINLctlwzg8z5gPjUQHOwXqs7AoZ00J
-	 UGzHBOHgXc43cvDRoZRhtRkdl9n6FcougPbtQNlobXy5a2nh/0x08mfUjZGmS5tOX6lQg
-	 Z7ApV0kZs4YPo3otMO56BIq1AHyjXH46p8wpkI2m8RxsL6iG12QC//yb33EckzqPQDycA
-	 ampgKt5057Pj1yCHBZjTryAjIqEs1tJLFENzeDWRZoOWsPTa7Awg/fzJQ4Py8XHOvhw==
+	t=1795560440;
+	b=Gq7Z850JLkSPt+SINR55U+NARv98HJJHtZOONANBhQEI+3vErxnmyvwUhgeamCKIg5xe
+	 OJm0aQoZ9WWGEqKPZRNGKby1bRmDwxV6ECm+h27yu7cNIqiGjYKcCq+ttrkm4YbGPkrzV
+	 kMwWNZR3s630EtSrTPx10yrUrN4YZR/7bL2RGM87VHkISSCGrlIqJ9bZaL/tV8e7wMYA7
+	 OtgnM61nAp7Z80ZOG1K/xX8041Z0E8oSDu3F0AR29VsZ73Dw9QXVoFy5VgsadoblPLP4K
+	 fOzy3RXpfa//5NtR2k/mOhFTw62BITEk2BxeYGCIG/K9eqGaCirJtgw5IpqsI6cgIFg==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795560437;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=GF9UzmSOZxINPRRDMCQdqLyqXkvSltKB8TQCTr+wUgg=;
-	b=dkAmjm2I4AcPqpAuh/sS+DIcRHZE0JFIYoigSJu0grZPzlRU0S04yjIZLej084k0pBu1
-	 odDhtEFtsKELm1ki0JckGNBEcwLhrnh4LKt6fgPW0STFBgwzj910W9pu3tbPfjGkFTm2M
-	 d7ecbOiFmmh7p/9KajkEDVqI+0mNkraZ3Bzk1NAZ7LPtoTAMUX6jL2fxbkA/64JSocn07
-	 dO4lvRsCjMAEeXKOBHhLWuL+XBYVA27J1lC6JSJ8P6N7+ReVpzKpPl6zJaqQA7ss1OHwV
-	 Eq+pSqXNDeN+0f4xYuB5cXSp4wbisjuD7ICSxa/X3oe3PkSHKDlFK3s/fTVZU4qgtZg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795560440;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=Y54nt4+fq24f4YIB9TGXc8UsmwWcLEu74poV5qjZyIk=;
+	b=a5iplGJip07HEeygWWMIZi4EDAj7DQLtocc7iOp/CwRrbh+X17kpyTyJoqRPcreV2PYY
+	 wb4aW4cCB0LyQ7sNG8Dlh28lJoY/HB73HX42Os7bdUZl87cNJHIdgylOO03m1x15hU3KJ
+	 8wKP8/1jUI5ThsrFnOeTVbGzTEipFqpHvmvoMKg15jC/sgap72TAnb6wei+6Q3JobHX9z
+	 JfPlj6qqo24z7xHZexEGAX/s31K4fyw3fzSyPIUWxLIZNZlEiDE+P8MH3ROSlFS7TGOaV
+	 oz8VtEEGc8EY4jnfRau0jz9m3F1c+vE6NGhdIQ0R77x3srrCRtOZGuJyU+10H4RhhQw==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=IDVYfjGl;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.51
-Received: from mail-wm1-f51.google.com (mail-wm1-f51.google.com [209.85.128.51])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AJr2hUe+;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 85293606A338;
+	Tue, 24 Nov 2026 22:47:20 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AJr2hUe+
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795560440;
+	b=zqv0Xo9C9A3CV+Pye2nkXwm79FF4DpPxH5l0rJTgp5TLuBrXi75YVLGHArduR3jnB7r2
+	 1uDlY8VWbFfcAjF2XSZ7OqJG/5NVF6oVaQz28CO2Gh1+Emud+d8FERt7eb0ismvbgycca
+	 M0DcrNMx4pDkiJ9sZp0W2KBb9wko8jDBtnuCTEj2isaolJu4CJv3SVZ184tsNAL0IQ6RR
+	 Yf4mLPY/lXm5VaTuGwiBrwkm9YaYwDZqBlKxB1tdfrSA4JlIVkbIdjFa3gTytRwOMtHKk
+	 2FD6CV1QyGbQXRQESTQ1yHHxKM1agHXj662TEVk0tyq4ADXwWMRudlJkhra1ZGApHEw==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795560440;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=Y54nt4+fq24f4YIB9TGXc8UsmwWcLEu74poV5qjZyIk=;
+	b=pQU6PmLA86UToxCiltm/2obg+Qwl9I04hU5NrsHd5Vd0gvwg+T6XZrnw+9XfrGn93RPL
+	 LTtfqrV63XWpmJvIGBTI1yZzqjCBH8FFAXM843681Y+/PdKxg3o8qQDgn7G/xPASyUCn9
+	 Y6EAVg68xJbQZ6Wc70JWuVWYhWHD50wAK/RZTmsg2zECBgXOSij/ymWN53SlZx7XK/xVF
+	 N6R20nPkvjd7aghQ1H1mYngSE1DVCqOcrjIA713QY7riIWzFSjjWolF3sQp7ZprRtYvdD
+	 UWHrYP4BA4nz6dHSvwpJoIZEao/Nca75yFocSFTboS0bVPA/WKh62NtAJeEV4zb1yLQ==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 957BA606A32C
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 22:47:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 957BA606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=IDVYfjGl
-Received: by mail-wm1-f51.google.com with SMTP id 5b1f17b1804b1-4a207b02a2cso36561065e9.1
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 14:47:17 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795560436; cv=none;
-        d=google.com; s=arc-20260327;
-        b=Txwia7wTYrbkyOuoJlxRUwZqiN3QM2lbJxN0+S8giQLzInta6A3n5XPMO1r7lwlbfX
-         DTAKvwmCxewG867YEnW0PoybLH6sXuzrFIaMdjFyjzuaw80SOmPbeVPTIo2Eeen4XPnF
-         RZyP7vXd3CcSRNEDXOE5qe10qHFNkOVLCvfNPeJmJH912PSnPphB5z4cSUaqOddjRyLT
-         Hq08hpjI88d9jYJxYxp1os/N0ckJqWe+S7VMCYWTO+BFJR3qHIuA7WsAjPj87f1GmGSq
-         6ExEfgyGbNWZm/T3pdS0jpSzsab/idIkzUbu094xNBAUassT/eizpexuv3zCm1Mhgqb3
-         aN/Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=GF9UzmSOZxINPRRDMCQdqLyqXkvSltKB8TQCTr+wUgg=;
-        fh=T+WI082oh+6gISqurZdaudU6rE8/Tt9H2D1mnqtMlRM=;
-        b=CjTcXmNHRQz1xnYt3auL14HcBsHjwEK97z/l/454AGFFShZDWMohDDlr8/m+KC0/w9
-         qOLD/+5Evpoa0htnd1j9R6QMWDji9QGBhmnrUiTooHRUYl8SLvInzLxl/vdPJzhnNtix
-         g7IEETbRr9upwHHykGWPvFs6Azuo4oUx81AOai7QTfkT3/Nm8zmYvB3jU+ZOyXjfprMo
-         hIQ9o8UyOg8MO+74zmDYZxcluPwSZ0VmDyk42nVZFXFWvJKY3vw+IxhPgzLhUpVa2XGs
-         PGAUTlePmjZUIGEPj61QubhYMNODKs/ccCy8/L/oFwus4+gdlLUIuGuQvWdKVsSh4X4l
-         SFYQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795560436; x=1796165236; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=GF9UzmSOZxINPRRDMCQdqLyqXkvSltKB8TQCTr+wUgg=;
-        b=IDVYfjGlC847MomvevIBogV0vwwH2yd2UbYY5Cdba1WMU1IFjTL1zOVYezv7JfLPaL
-         PEoqyv72xKtn6m6/PpgG3HD+F597WR+Lk4Kw6Ao5dbhfcgN/qOa0pF3ohOj+ju6tcKWv
-         xmHbpuErkFM1Td9TuAkjzXq7scwkjlT3tecreogkpIBZirKgRy0UaJ5J+6ZZ0xG/H6tb
-         h69dlYSWiOgugkyOJj7SlhGoDA6PBXqhF8NFuL4NgSD4uID64PVSpoTq8Z57tph/rQP6
-         /YsFIn26b+AhrcnUJdzvD5gRy3rhZvce1QEXJTon3HeB81IlADuKdmg3HsiYIai6Y9Fu
-         A9fQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795560436; x=1796165236;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=GF9UzmSOZxINPRRDMCQdqLyqXkvSltKB8TQCTr+wUgg=;
-        b=wG4enXO1Ptv314l6XjV8YlB9dnPLruIR/QvGq+9JtsbZlUmWSG4n63hLmbL0/Cnaam
-         5FLOAJGwpIQuDi1ZwETFuKSr4Yt9fcXA57tSgFkbTZzAmykNWtBzO8876ugDXRjBcf6r
-         wfCuKTcIjIR0UEBqMNm+DQdroO5EklJ0l6hTb+ay4fQLCukjfB8TwUfdxThAlU9/gUk5
-         lPfftH53GbGllFD2gtCw3cW6pOGilXOwP3yUSRYjw9bOJXKPWKhMRn/BcFtxo1OMqV1b
-         /ezVn6tf4lHK9Yjmhfb26FPQFdiOWFU/Bf0OQkWaAzTO7RulK3Pnu6obYVbCFdxPCSw1
-         +Vdg==
-X-Forwarded-Encrypted: i=1; AL+hErGTedm5KRKuT7ithIH+mWUsomWSNUt/vJ7JMF4V3iFszn8Z7a+R1WNozkYg7thcj1xn6V1rw2vUYgYmvWA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8v0ZWofDMCoMln/nCyS/DTkT3wH3yD327A+Wn3QhMoTqnMF6NO
-	DgJVBfXxxrnM1BEJxyMZazkVKXcFYuwITpzit+BxwCSkYEf6Nt3R5kA8NY2oOIkyz+Bpgw8Y4HI
-	0C1uqyl9X+vrwqFqJgpnjuoYhQ6wdAQM=
-X-Gm-Gg: AZFdTZeWEXf5X1iPV7paQf/eSjbdKXANElQD/NV6mXYdJSE1CvGpfBBD+YlILMd58Ax
-	MwViKcOiOBpw/Ls9qFx5sOlCuRgU53V//jBCiJIZ+wM/qAo6SpZIRxjcOlHzKWXf2pX/5i9VTYg
-	IwKXoHp3yzDN7wjnM+q248imJ4jcrq4pSvhoeIUtl2R9x7KMnjj1ol6NQBYxB/qE/4odaUMeBJ9
-	+NWv4NogGCORAOnPSB2aeK97N9uaD1WLCD5HzaumbSYvQX97Bw+rM5S+vZeeCF+fxAxpmUUJVaY
-	CCpGqnUaM/jZv789caTOam3puBcuafmRYBth8GW2DQV5vMDqNNlsk47kMhSpkfkaB3DLnD+Q5LT
-	jjDvxhfKprlaNLzjA9aW6/wX4z82qHexSc+pttK2ZJHNOQT8JDssDoksjykB7XuHXathpTg4yYR
-	Tl3QuybD5zkFRB1PGFQM8=
-X-Received: by 2002:a05:600c:6748:b0:4bb:6a2d:b42d with SMTP id
- 5b1f17b1804b1-4bb88824e64mr318116355e9.31.1795560435685; Tue, 24 Nov 2026
- 14:47:15 -0800 (PST)
+	by smtp.kernel.org (Postfix) with ESMTPS id 3141B1F000C4;
+	Tue, 24 Nov 2026 22:47:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795560440;
+	bh=Y54nt4+fq24f4YIB9TGXc8UsmwWcLEu74poV5qjZyIk=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=AJr2hUe+J6SBcQF3C5KVPaqfAYAPMd6N9gYtsCP+w05xmWp/4AtLt6V6s8Jy2tPtG
+	 0cPm/gc7xin0tDqAN2v3blcuouFerLqo5TgxjQQChrTjx7jGZf9CiclsRnMKAY5fzp
+	 OIvK/8HC46WJTiTifwht27gBEHlUfct7oUy1molx6t5sQb63rAqwZTmMc4rHRWMQt2
+	 X6KmfPYga/QYs+mawZAUFVs9yuOoMJPGHv7uanjlIySMRClUVvXLykggSFvD4LISHL
+	 CHMcmt5mtqH60N4rXFi28gp3/xFmtkVbhgd9mr8oBfiUivQRdMCAJ9kgPCwM5W16dn
+	 OB5nAURHYM84A==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id BA6D14CC0D;
+	Tue, 24 Nov 2026 22:46:59 +0000 (UTC)
+From: Robert Ijtsma via B4 Relay <devnull+robertijtsma.gmail.com@kernel.org>
+Date: Tue, 24 Nov 2026 23:46:57 +0100
+Subject: [PATCH 1/2] dt-bindings: iio: light: add ams OSRAM TCS3430
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,81 +82,120 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261121003403.2928928-1-ihor.solodrai@linux.dev>
- <20261121003403.2928928-2-ihor.solodrai@linux.dev> <adf5a84b-5d80-4c02-91f5-12def2c37304@kernel.org>
- <faecfef3-ac9f-41be-8bc3-83a66572066a@linux.dev>
-In-Reply-To: <faecfef3-ac9f-41be-8bc3-83a66572066a@linux.dev>
-From: Andrii Nakryiko <andrii.nakryiko@gmail.com>
-Date: Tue, 24 Nov 2026 14:47:04 -0800
-X-Gm-Features: Aa3M54oiG4dsSQL3PSHqOX4KocU7vtpa91-MEZLJQ-xarDHbD7m4NESmq_n90Qo
-Message-ID: <CAEf4Bza6oDkY=mfa4PedrQYtjYnkefTs2m-wVatK9BGoNLd-wA@mail.gmail.com>
-Subject: Re: [PATCH bpf-next v2 1/6] libbpf: Separate interfaces shared with
- in-tree tools
-To: Ihor Solodrai <ihor.solodrai@linux.dev>
-Cc: Quentin Monnet <qmo@kernel.org>, Alexei Starovoitov <ast@kernel.org>, Andrii Nakryiko <andrii@kernel.org>, 
-	Daniel Borkmann <daniel@iogearbox.net>, Eduard Zingerman <eddyz87@gmail.com>, 
-	Kumar Kartikeya Dwivedi <memxor@gmail.com>, Alan Maguire <alan.maguire@oracle.com>, 
-	Emil Tsalapatis <emil@etsalapatis.com>, Jiri Olsa <jolsa@kernel.org>, Song Liu <song@kernel.org>, 
-	Tejun Heo <tj@kernel.org>, Yonghong Song <yonghong.song@linux.dev>, bpf@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, sched-ext@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261124-iio-tcs3430-v1-1-0f2a38a6a4c1@gmail.com>
+References: <20261124-iio-tcs3430-v1-0-0f2a38a6a4c1@gmail.com>
+In-Reply-To: <20261124-iio-tcs3430-v1-0-0f2a38a6a4c1@gmail.com>
+To: Jonathan Cameron <jic23@kernel.org>, 
+ David Lechner <dlechner@baylibre.com>, 
+ =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, 
+ Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-iio@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Robert Ijtsma <robertijtsma@gmail.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795560419; l=2397;
+ i=robertijtsma@gmail.com; s=20261122; h=from:subject:message-id;
+ bh=6g3jbEADq4dZ3mSEGwYLMwabsTUEtLyGK4g51b8S51k=;
+ b=8Nwd+wcxYr8+gQfY89SoZNiJ/L0j2Xe4BohEDYG4fTvdYpPs8l4HEaf068d6gyPQjVYWOcXQg
+ 0Kv0bXEEHNFA7LhdXUb7SakqBVaiDtsarKOLqdzdMEP5VyyZtD7I53n
+X-Developer-Key: i=robertijtsma@gmail.com; a=ed25519;
+ pk=qiDyKVqFicxFIR5sB5m+p9SWPKL2/+mMoiQnUx0C9P0=
+X-Endpoint-Received: by B4 Relay for robertijtsma@gmail.com/20261122 with
+ auth_id=1604
+X-Original-From: Robert Ijtsma <robertijtsma@gmail.com>
+Reply-To: robertijtsma@gmail.com
+Content-Transfer-Encoding: 7bit
 
-On Mon, Nov 23, 2026 at 9:44=E2=80=AFAM Ihor Solodrai <ihor.solodrai@linux.=
-dev> wrote:
->
-> On 2026-11-23 7:55 a.m., Quentin Monnet wrote:
-> > 2026-11-20 17:33 UTC-0700 ~ Ihor Solodrai <ihor.solodrai@linux.dev>
-> >> resolve_btfids links libbpf statically and uses its BTF header
-> >> accessor, field iterator and SHA-256 helper. libbpf_internal.h
-> >> also defines logging macros and poisons kernel integer typedefs,
-> >> so resolve_btfids wraps the hash helper in a separate source file.
-> >>
-> >> Move the shared declarations to libbpf_tools.h and use them
-> >> directly in resolve_btfids. The header is for in-tree tools and
-> >> stays uninstalled. No shared-library symbols change.
-> >
-> >
-> > Hi Ihor, the change in bpftool's Makefile looks OK and I understand the
-> > motivation for libbpf_tools.h for resolve_btfids. But I find it a bit
-> > confusing to move away from libbpf_internal.h only partially for
-> > bpftool, and to have a split dependency on both libbpf_internal.h and
-> > libbpf_tools.h. Have you considered moving the other objects that
-> > bpftool requires from libbpf_internal.h to libbpf_tools.h as well?
->
-> Hi Quentin, thank you for taking a look.
->
-> I haven't considered that, and it seems like a good idea to me.
->
-> The way I thought about this is that in practice libbpf has at least
-> three levels of (userspace, non-BPF) API:
->    - public API defined in the symbols map
->    - internal API, shared helpers and such
->    - API for the in-tree users, that doesn't make sense to make
->      public
+From: Robert Ijtsma <robertijtsma@gmail.com>
 
-well, I don't think encouraging this with extra "libbpf_tools.h" is a
-good thing. I'd prefer to keep stuff like that in libbpf_internal.h
-(because it is meant to be internal to libbpf, with bpftool and
-resolve_btfids being a special case)
+Add Devicetree binding schema for the ams OSRAM TCS3430 ambient light
+and CIE 1931 XYZ tristimulus color sensor.
 
-Do I understand correctly that the problem is mostly in poisoning?
-should we just guard those pragmas with #ifdef check and let
-resolve_btfids disable that, if desired?
+Signed-off-by: Robert Ijtsma <robertijtsma@gmail.com>
+---
+ .../devicetree/bindings/iio/light/ams,tcs3430.yaml | 52 ++++++++++++++++++++++
+ MAINTAINERS                                        |  6 +++
+ 2 files changed, 58 insertions(+)
 
->
-> I felt like the last one needs a header to reduce the amount of
-> copy-paste. I don't like "libbpf_tools.h", it gives me "10k loc
-> utils file" vibes, but I couldn't come up with a better name. Open
-> to suggestions.
->
-> I need to look into bots' feedback, and I expect there will be a v3,
-> so I'll see what bpftool parts can be moved to the new header as well.
->
-> Thanks!
->
-> >
-> > Thanks,
-> > Quentin
->
->
+diff --git a/Documentation/devicetree/bindings/iio/light/ams,tcs3430.yaml b/Documentation/devicetree/bindings/iio/light/ams,tcs3430.yaml
+new file mode 100644
+index 0000000..085a70e
+--- /dev/null
++++ b/Documentation/devicetree/bindings/iio/light/ams,tcs3430.yaml
+@@ -0,0 +1,52 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/iio/light/ams,tcs3430.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: ams OSRAM TCS3430 XYZ Tristimulus Color and Ambient Light Sensor
++
++maintainers:
++  - Robert Ijtsma <robertijtsma@gmail.com>
++
++description: |
++  The ams OSRAM TCS3430 is an I2C ambient light and CIE 1931 XYZ tristimulus
++  color sensor with photopic Y, Z, X, and IR channels.
++
++  Datasheet: https://look.ams-osram.com/m/43d518b4cd81e3f2/original/TCS3430-DS000539.pdf
++
++properties:
++  compatible:
++    const: ams,tcs3430
++
++  reg:
++    maxItems: 1
++
++  vdd-supply: true
++
++  interrupts:
++    maxItems: 1
++
++required:
++  - compatible
++  - reg
++  - vdd-supply
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/irq.h>
++
++    i2c {
++        #address-cells = <1>;
++        #size-cells = <0>;
++
++        light-sensor@39 {
++            compatible = "ams,tcs3430";
++            reg = <0x39>;
++            vdd-supply = <&vdd_reg>;
++            interrupts = <24 IRQ_TYPE_LEVEL_LOW>;
++        };
++    };
++...
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 44540a1..b1cebc2 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -1489,6 +1489,12 @@ S:	Maintained
+ F:	Documentation/devicetree/bindings/iio/light/ams,as73211.yaml
+ F:	drivers/iio/light/as73211.c
+ 
++AMS TCS3430 DRIVER
++M:	Robert Ijtsma <robertijtsma@gmail.com>
++L:	linux-iio@vger.kernel.org
++S:	Maintained
++F:	Documentation/devicetree/bindings/iio/light/ams,tcs3430.yaml
++
+ AMT (Automatic Multicast Tunneling)
+ M:	Taehee Yoo <ap420073@gmail.com>
+ L:	netdev@vger.kernel.org
+
+-- 
+2.56.0
+
+
