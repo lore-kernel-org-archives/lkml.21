@@ -1,88 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.50
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.176
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795526666;
-	b=s4tFQP3kDdmVODXjq+zgDy/uL7JGhiKq3Am1z1Hxcx3PjGJJgh8VqddEO3Hgud99tF2e
-	 hUJirZyErNABpfXyg6ZjdVYD/ZcvIiqfYfkZ+zZEAdVU1Xx+3qvseyaPfngNpugQAQ+GK
-	 SaKT8PIN9LNxUICiuqkvjCaaywKOrs7EvC447Lbg2D0461mgacPDZxnU2GtkwIgjqZ4Lc
-	 V7YqFlaNsbhCbSPRAP/g/CLSgU8WPbnyhfhx5MgMiV9Qru2MWH9xXSoXazIY7ExJIlBXr
-	 pgdtMPggkYfDpADgwovZEr7hYPbXRAPqyZmqxiWwXxjVZHjntnVeh2Uwn4goyZgZWTg==
+	t=1795526708;
+	b=wlm1uSLycig2gGxtS4I03XEkh8sefX5sJWQ2TWclYDjj1eYMOYDOnPkfl696wYBZQDNt
+	 6ZzWNbdWUTcEhaj3yQx20KLi3FQ1bRy9HaiX3gcBR2ItTlrYRJyH01Fz+wPYQsx4LjmIJ
+	 G2RVEUPTiF72bQLWwiISIIqO5am+GvMg+wjPYmrHb8sqnBOz4387gF4CRh++AW8zc73HZ
+	 wfceC9qN3hHofPc36tlT2r2NwavpBhJ+uDIxccTK3XIGb6ynttSE4ARYMr1jmt4Ya26oZ
+	 lCXi8AxAzEO7U3gmTkvp0vPS9pPM7g9PeKsAHlSAlzoj163KJMT9eNL7pcLWgwnDcAw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795526666;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795526708;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=j2lGOfpuqWA9c5CeS3NsQ/3TJJfRuyj6wTBADsS42iU=;
-	b=3G7TgscTCKe22M/vpLxDOtlxDGFs2Kx5SwD0uuPHMOXpMBsSIZhigbiTmOvU4C5bpXuD
-	 F2lgpSBwj1XjLp8dd/eSuQcr23xI2LhMcRMEF7WehqaVVchWlNJQJiU0/LA4xX74xMiD5
-	 0IPOR2IerMxLwB9LsejxLi0ools7yFanxAMgCJsziYtxgfeIJ+UrJoDilsOHqcsZEEdkb
-	 +uYF0L650i9mTHCZ/pei4hXlj2afH1pEaBEj7xuYUP+ci5Ko0Zsn5kMPYMx1YiReweu8p
-	 IsimjUjE2IU5kxotBnbeEzySgn552nJeHQo7L1bYubjrAoszoEggt2MoUk2Cm6tIu+A==
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
+	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=+RtgrQ36JHyvhHGZvGGPZkAXfWTlvQfOhrnt2cyvwVs=;
+	b=TivGGy0/zhlKzecDv0FPYblik0ySTOeYzJeN7OLVVFblVNjA3bYSf+tPyIUg2fI0sDcj
+	 ADEf2VNvZI0Z5ojGIBaPt/fRGMR0J+kwiJJu7WLsikrO0C+SjTFIo/JoWiV/1xlM+NdMQ
+	 6JsSNB25YHLVj/3yivXN3CDtwpDE6j7PC9ydNINgLnDhZ1K5HpfxTT69DQcYPMY3KmdTC
+	 mvWZeIqgH11LuG5Wv1s0irHS07wLeWLpY4VmjtQGqWFwgSJfGdNXLV1w6PHl12btrEEEg
+	 o1pg/pDlZdLKxGcGG/Fe+gVlRqFXaiO0HderY1v2zhjhl3+iDFMa2gPP2j0gDOysH2w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="e2qVYdC/";
-	arc=none smtp.remote-ip=209.85.128.50
-Received: from mail-wm1-f50.google.com (mail-wm1-f50.google.com [209.85.128.50])
+	dmarc=pass header.from=kernel.dk;
+	spf=pass smtp.mailfrom=kernel.dk;
+	dkim=pass header.d=kernel.dk header.i=@kernel.dk header.a=rsa-sha256 header.s=google header.b=zBRyiUY3;
+	arc=none smtp.remote-ip=74.125.82.176
+Received: from mail-dy1-f176.google.com (mail-dy1-f176.google.com [74.125.82.176])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A59D7606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:24:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A59D7606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5BCAA606A321
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:25:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5BCAA606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=kernel.dk
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kernel.dk
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=e2qVYdC/
-Received: by mail-wm1-f50.google.com with SMTP id 5b1f17b1804b1-4bb85e07aadso54918055e9.1
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 05:24:25 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.dk header.i=@kernel.dk header.a=rsa-sha256 header.s=google header.b=zBRyiUY3
+Received: by mail-dy1-f176.google.com with SMTP id 5a478bee46e88-386c4d2e2ccso913839eec.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 05:25:07 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795526664; x=1796131464; darn=vger.kernel.org;
+        d=kernel.dk; s=google; t=1795526706; x=1796131506; darn=vger.kernel.org;
         h=content-transfer-encoding:content-type:in-reply-to:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=j2lGOfpuqWA9c5CeS3NsQ/3TJJfRuyj6wTBADsS42iU=;
-        b=e2qVYdC/mXdjFACrZz+884sYdtZuVnERtWgcQhcsucfmOtRPjnYpcroO1cl9kYtRrz
-         Ipz+u4I+zinaMDaKG9o+E5noYTt992UI3Ana8d998e3XOlokRkou7fZ4YKzI+NvFFgvJ
-         ASYWizXvFH2Lu0l3xKj/mpyg9xKlN/tOvjqKNh/0CBlOpFU4EgIKn9guL186RrGdMWwn
-         HDkLXY1jUcMNWSZDxI+xwV1UQ022sX1aX3eigoLqFxqR67l/iUKRPgVZNsap7uuOrrVa
-         4vN8Gw8pKQMm+mEP/GB4J3/mlMyYNCZehrYM+9PNIwihO8Abe6FaR/dLZbGVXccuFaLd
-         yL3A==
+        bh=+RtgrQ36JHyvhHGZvGGPZkAXfWTlvQfOhrnt2cyvwVs=;
+        b=zBRyiUY3rhQ831i6K0Q80YRK53wy/s16sGtc8qaWE3XszoZ/667xPbc9pI/ly+th+y
+         8C2crYafo+omUFFfwd0UArRoD4oPLMKu/J8MG2sDRlOrYbFMSqp0jqTqbGwPF6W1jYoK
+         ZLBbBElM6smNmHeMvleKKZGm7Dwid+s++sfKwP78RBkYAGwOEB/K/tklvROiYourIZ/d
+         VUIIe9gEdRb8Lds2LRmJ7KfMvlKptgGrtq76GeM+WG+WT34I8h1f6m8GrOU6umx1Fu8z
+         mKBkCtSPmPAWXBoBSUHJpRUiQsSyflZInH4weSkhX4KdhUiZl+VzcdBs9Bt+CVTVyNwY
+         YT/g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795526664; x=1796131464;
+        d=1e100.net; s=20260707; t=1795526706; x=1796131506;
         h=content-transfer-encoding:content-type:in-reply-to:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=j2lGOfpuqWA9c5CeS3NsQ/3TJJfRuyj6wTBADsS42iU=;
-        b=fBS66uqwIhFn4YCWDeumcE88eZBqz55Kqhh0wvTtiZbxtb1I/U7zZq6ZEctdbqjtvd
-         N+6lY3y7+YJOj7DH7iWdtQwBcQ999oji3PWEIGiZC/U3H4zDc6uAjvJEWAbuTk+lh0d3
-         nwh99+CxGxjmOXS+mn94AWgnpqPho4ZujhtcafC8npHjYfn940A6PSiR/h+vHc7pG/x+
-         HYXiYzYni9Q7HJHNmRraD2LHdX8d/dJmKGwa0dC/ezZU7VuJJsjhHstXlm7JuQfCVvq/
-         TG6HvIHDYNoP32RBW3uoRiCL34bkk6KOEpAoycBbTXCxAbHmRDtYR2U0hQ6JvZUXuQv+
-         BMYg==
-X-Forwarded-Encrypted: i=1; AL+hErG+aRvoKl5AMJuDY6sI23seS4bO+ciD2/59AYhF16yfuyegRJLOyYOr8l1GJNd/pI54MUdz+Bv56qPX5tU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z88bUZCfn9KspJ1ycs3vckXiRKguAmwEbJqhH1iMnqNB4HvhKfX
-	wMfhHj509BI+GzEWfEqkt2tSNvvDntInZ65dxNWFhlXxangp0ZrwtoKu
-X-Gm-Gg: AZFdTZdLR5U9sfUxiLEdfZ4OLxu25vH3cyTW5dewtHDgzg+K265g1vVIpAVT1J63iGQ
-	iOMUxfog/8VJGF/ljG/3eeEMR7HjJyUs/CCUCrVxYXTrBoIrJCz6zB9X3nzR46oGnt1FbN/R3BO
-	bRneg+glPm0WR3lVJWGOLDoQ3G/TD0oK3KAnVu8bv3shGAPvqCY1QmALQhpT7bmuh0DYoapnlna
-	9oG+00WcHy4yEhR2JJPZMJvGuo+kYQ3/GbFsPiCOQWx9IGG4Ttd4jejPlUDwDS9SKkPYkd8aqM3
-	OsKxASL5vh7Je4abSjWpp5/t5K16QFG+K3qDIyfnKWZqaeyAVtzhed7poj5zX2LlbssZQDCOnHy
-	ButR/XqrLkAOyhZ/+AkHmjiwzIX+n1qrk5RPSb16mJGOhdzUROFYs9r+6ij8b/xwVq6+Jii1ZGt
-	hd2kvCFyrnCLZiJj8fsg+LxcenTQsI9iBLjzT5NIge61xdOc/KLBggaWWrsf66vYK1+bh/sP12U
-	7gGAQ+R67QvgItEFEAqOH0us7Bd/5QxaV1f1nW3+JQUrSkqG1ZKg1dnaiC3NTFBeEEpIYZEi1EP
-	nlsb3f/uPLCBVgoBdWOxQWHeu3vQ/00b4M8L0Or1KxDicw==
-X-Received: by 2002:a05:600c:64c6:b0:4a3:598e:e7a8 with SMTP id 5b1f17b1804b1-4bb887c2c98mr274938815e9.4.1795526663725;
-        Tue, 24 Nov 2026 05:24:23 -0800 (PST)
-Received: from [192.168.1.22] ([83.231.69.9])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6a67f281sm26298695f8f.22.2026.11.24.05.24.21
+        bh=+RtgrQ36JHyvhHGZvGGPZkAXfWTlvQfOhrnt2cyvwVs=;
+        b=jH3mWHbvBwWcsbxKWZiTas37VuLtdaudB04eA6bX5OYdhR4JzdlZS9SD5E7GEHfnCO
+         xIABT/bfMaif4QUO7AViaLwoNNITa2moxqyd1eaevwNUvZmjIbdfxrQS7PekC2gQzJ0H
+         J+wLodlBHHAOrBldFDXc07z8hV1Snpp91+dzD0zDXfrQoIp7K5aqnc/3F93cPZ5kh3ot
+         jtJUhSSfnYtwwUvyZWpELh9orQ4KR0EwFbrZDkPtKBAfMClbxc6tpMd5p4aGsjXjUFlk
+         uh4Ps1Ku+5XL5L56+0c6dewpf9X2X2sTfUulJx6/QWtZYAUiWxwZNtw4Nv/sMhu23Hwl
+         mgsQ==
+X-Gm-Message-State: APuU4Z/O/l3znviqKLz7EVy4bmyV8gT7p2RcTCDV+ET7h5+Leb6AZm6y
+	2MfGjPX4C9DCHb1lVeNbYMN7w1bPSZZL/8S8OyE8XI2tycGKszH1VFbSbnuzuzCw1Io=
+X-Gm-Gg: AZFdTZeJnQSn0ApEQZKmJiPby3lvYdmveUzuB5M0pzJ1sEizf96vZo/ms7cw61oQwT3
+	CleVFzpYArvXSD6tgsF/qMByIRbJDvYvLvn3pucxaQik3RDG7NB3fc1ZBi6LnJgg37BBI88AN3j
+	kxobjj/xIJY8xnp9bcdDkGFTSnEpYX31xuA+A/D/joxKm+//qqMjFZ6xEaDC+uU7eM5a8GOUIDU
+	jJ+MgYHcYC5BuQmSo5n/EOFbg0Zv6F7aP/ELzkutm33lEyJpyObEvci51TX2uzBVR6CW8iTGDk3
+	6iIcpMx83j9iQX/3AWsJQpC3999n4Tl7JqTSGyoSIaoQzzGGujDA9wdUuRA3xJsP65xvWp17L3w
+	IdhG6wezsGNLQwjIhdJJoyPD84ubayhjuXPnfVW66CdoX8z7/V3artlWucp4u+aZVJzyjptZ1aA
+	19DLachNSDxH3uFK8iaF3vpPmeQcnsYU40rEZVvCNk9Z2rmCk9ZkY7Koe23tSIwlsVsoGd6PIqF
+	IIj+BlcX2iS+9P6+OF5Hrmph5iGUzEzkL3M8kUOt+mdpIXumNRy41vFsTrw9GznF8RZZCFTSA6E
+	Vb/gDKWCygojIET3xadkLyRYGNwE0KlO6COxfd/JboDgys64ciS2JkxpEWLaSg9Y5dr1F3CJQae
+	vtQXkLhstZw1P7KepXqdVp/TJ1F3PAFF+tpf4BJkHk0veSKy02H9v7hcTduJK/FajiPSUqA==
+X-Received: by 2002:a05:693c:8209:b0:383:e7af:c28d with SMTP id 5a478bee46e88-3856f14d5b2mr15436134eec.9.1795526706150;
+        Tue, 24 Nov 2026 05:25:06 -0800 (PST)
+Received: from [192.168.1.142] ([198.8.77.135])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385666e96bdsm42793514eec.7.2026.11.24.05.25.05
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 24 Nov 2026 05:24:23 -0800 (PST)
-Message-ID: <7465de57-8d97-4952-9daf-d95bdb4b7e78@gmail.com>
-Date: Tue, 24 Nov 2026 14:24:20 +0100
+        Tue, 24 Nov 2026 05:25:05 -0800 (PST)
+Message-ID: <f43872eb-6549-4087-a6b0-d49d877e867f@kernel.dk>
+Date: Tue, 24 Nov 2026 06:25:04 -0700
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,82 +92,25 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/2] mm: fix deadlock on the folio lock when migrating
- and splitting folios
-To: "David Hildenbrand (Arm)" <david@kernel.org>, Zi Yan <ziy@nvidia.com>,
- Baolin Wang <baolin.wang@linux.alibaba.com>,
- "Liam R. Howlett" <liam@infradead.org>, Nico Pache <nico.pache@linux.dev>,
- Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>,
- Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>,
- Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>,
- "Matthew Wilcox (Oracle)" <willy@infradead.org>,
- William Kucharski <william.kucharski@oracle.com>,
- Heiko Carstens <hca@linux.ibm.com>,
- Alexander Gordeev <agordeev@linux.ibm.com>,
- Claudio Imbrenda <imbrenda@linux.ibm.com>,
- Johannes Weiner <hannes@cmpxchg.org>, "Lorenzo Stoakes (ARM)"
- <ljs@kernel.org>, Matthew Brost <matthew.brost@intel.com>,
- Joshua Hahn <joshua.hahnjy@gmail.com>, Byungchul Park <byungchul@sk.com>,
- Gregory Price <gourry@gourry.net>, Ying Huang
- <ying.huang@linux.alibaba.com>, Alistair Popple <apopple@nvidia.com>,
- Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
- Miklos Szeredi <miklos@szeredi.hu>, Joanne Koong <joannelkoong@gmail.com>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
- linux-fsdevel@vger.kernel.org, stable@vger.kernel.org,
- Chris Mason <mason@kernel.org>, Chris Down <chris@chrisdown.name>
-References: <20261124-migrate_reclaim_deadlock-v2-0-03cc147e1e36@kernel.org>
- <66e5f9e3-17d4-4635-8919-c67ed562f9f0@kernel.org>
+Subject: Re: [PATCH 5.10/5.15/6.1/6.6] io_uring/io-wq: save worker type before
+ dropping its reference
+To: Alexander Martyniuk <alexevgmart@gmail.com>, stable@vger.kernel.org,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: linux-kernel@vger.kernel.org, lvc-project@linuxtesting.org,
+ Kyle Zeng <kylebot@openai.com>
+References: <20261124103600.39642-1-alexevgmart@gmail.com>
 Content-Language: en-US
-From: "Jose A. Perez de Azpillaga" <azpijr@gmail.com>
-In-Reply-To: <66e5f9e3-17d4-4635-8919-c67ed562f9f0@kernel.org>
+From: Jens Axboe <axboe@kernel.dk>
+In-Reply-To: <20261124103600.39642-1-alexevgmart@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 
-On 11/24/26 10:47 AM, David Hildenbrand (Arm) wrote:
-> On 11/24/26 08:56, David Hildenbrand (Arm) wrote:
->> Whenever we allocate memory with __GFP_FS while holding folio locks, we
->> can deadlock on the folio lock when triggering direct reclaim or
->> compaction.
->>
->> For example, evicting inodes with a populated page cache takes folio
->> locks, and if we happen to need one of the folio locks we already hold,
->> we'll deadlock.
->>
->> FUSE makes this example easier to trigger, because it evicts inodes on
->> the last reference. A similar deadlock with FUSE was recently fixed in
->> FUSE [1].
->>
->> Let's handle folio splitting by simply running in NOFS context. We only
->> perform small allocations, so it doesn't really make a difference.
->> Interestingly, this also fixes one of a handful of possible memcg v1
->> deadlocks.
->>
->> For page migration, change the code to allocate destination folios
->> without holding folio locks, which is in any case the right thing to do
->> to reduce folio lock holding times.
->>
->> Some of this might also be fixable using Jan's work on deferred inode
->> reclaim [2]. However, that is not stable material, and not allocating
->> folios while holding other folio locks is an improvement on its own.
->>
->> Unprivileged users can trigger this deadlock with FUSE and
->> mbind()/migrate_pages(); however, it requires multiple NUMA nodes and
->> quite some luck.
->>
->> I reproduced the original deadlocks with FUSE and made sure they can no
->> longer be triggered with these fixes. Further, I ran the usual migration
->> and folio splitting selftests.
+On 11/24/26 3:35 AM, Alexander Martyniuk wrote:
+> From: Kyle Zeng <kylebot@openai.com>
 > 
-> @Jose, could you find and fix other cases where we allocate under the folio lock
-> with __GFP_FS (and direct reclaim enabled?).
-> 
-> I think at least do_set_pmd() might have a problem when allocating a page table
-> through pte_alloc_one(). And I'm sure there's more.
-> 
+> commit 37e425460b7c41687e51e3254b1eb1d799da9614 upstream.
 
-sure, I'll look into it :)
-
+Not sure why you're sending this, it's already in stable?
 -- 
-cheers,
-jose a. p-a
+Jens Axboe
+
