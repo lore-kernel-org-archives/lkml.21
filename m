@@ -1,67 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.96
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795620123;
-	b=pldWLbZngj4Zp2dqjnaePnwd2UZUOZvUP2tiJRtfB5Ba6L9+ZvTXt0thC72QyPZyHnKe
-	 hSD8jVYQUT6D3mscdS9Y4FO+Zrln+fvinaeJ2YhCTC/gm+QnfZ9naeA1Veo+IGzt03rxh
-	 kRPiPNf7ajszQBc2oEG/eIFukzjEmx8jrFfbiMmJ2xgNV8gipc+SoIayQ/cvYT8pJrSkf
-	 Iuo39eh/lyARNgzoKYBLNyyilrb0MF6oxRX+4Lid/hZRFpgA6iuFMBuPYj6wplsrU3gOY
-	 VGDd7dnF5cxj99KX547EiqiVaYEfrXY1S7Ag55f4w8rkAQJ7dYbF1fmDkOiElnHJgCA==
+	t=1795620152;
+	b=spuzC60RC4SqpbdQSJUfiukmfZo3fk62Vzw94hVGwNAP48kMCGepkMDKAy1+umNWx98Y
+	 9SsGDaaP/v0tuUVIMFRDAe8g8NXgYlJK920yyM7jcl0lvVmqsEEPkMimElpJqMEatcTth
+	 k5V6kswivPlqPxZSHkDSOko8trigeXkgVnfg0e0yfliEaPic453nlbL0RY69NTlacdC2k
+	 Eaqg7Qtwf8ou085QdE0kseiBKw98gZGOrB1B7nRXoarg9DVcsCWLvrDCYtA9bFM1sObBS
+	 hbFiCgO9qFiIMmkBL8ArJkCa0g58uj1tRfPq79sAHw4BSB5O05/0oPQawiNPcF1W92Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795620123;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=CifWyrn9kLivKLGUJMFWOKg6eEMnLvcZRh6jBkDlvmg=;
-	b=OmxHk2IRoWaEE+13QNyB4Q9FKp22Atky9U5UKLT2jXkl7rkE7HoOIYddiJYrqL7Sk0zc
-	 GZK+p3TCE+3QGp8vxvlDy5fwDKI7oGBQfnB6JWx+TIeVrTvDxsRzPTZsJO7wh5KxYivgZ
-	 yOPEW0DZmYCHf44gR7NRZyfu7yshLvY8dvt70wufsFtrvPLQSp+kI5FNHeMgkrVlDqmUP
-	 QtdeVcmKCFyyxSR0KuD45ooSJa62T3W+/8NpcqoXbEZgT9MD7K3hSFu6MgiZ2w7svc8FP
-	 iEUkORkSdENL06mx262ooQO0jGhPSRW53eQ1wHd7r1IJ/hLTfRJFJfc6+aMAz2v9NBw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795620152;
+	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
+	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=s0Sjb1DgacCXHrpE8DixpKmLTLzsenxzTbzFw1kwskM=;
+	b=hfjblB0VYP3ZVIPyjaOfdaxdZsseZJWK2XL7S/p60qEsKJz+YSJhJPxmCnJUtkSn6I3p
+	 WbXmqeVAXtvDISWdiI4+ditFS5g4zAlJXSkJFVFmmtBohEVVmOjrjDqVA9cE9UHGAyxJc
+	 29URjcBdXuIsEd6fkANqkaV/2AjZlLagMAdhhWM1T3I0LyuD9Bhqjtp3rVZfZg/KrRDNU
+	 xhbBMK64RPKhNfSdJRhC+L5uUjou8BHy9GLrJepVbZVu9Nbagoks2H6BboAiH5tViK9zu
+	 SubW7Z8tYfMBj9ObJJKUbUAr2Ns+0pTQzGgd5JZdrmCVxvc0loeRuiTRjhG15mhzsAQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b="eu/acfj7";
-	arc=none smtp.remote-ip=91.218.175.96
-Received: from mta0.migadu.com (out-96.mta0.migadu.com [91.218.175.96])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="W5RseR/Q";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8688F606A321
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:22:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8688F606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E92B8606A327;
+	Wed, 25 Nov 2026 15:22:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=eu/acfj7
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=LHXtKsSSTtBxV1tByXCuT3bFUh7XApx4GtOxSomysqU=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795620119; v=1; x=1796224919;
- b=eu/acfj7GOF9XKHbMFBtE01hUnABYS0nNhMB9WXUidlL3g9IOU+uCYdcG1/4YysYopk4QLej
- 7fLCp3yp/9jJH2hIWNOV7HMGZV0tvLDBW+WegYUfGvo0ZIVJDkx5r7ebVGdHQutwmYl3TcViVYy
- 8pXQx49BW0o1fyRfFHasTUws=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by mta12.migadu.com with ESMTPS id 327d822d9fb9905d;
-	Wed, 25 Nov 2026 15:21:59 +0000
-X-Mizu-Trace-ID: 327d822d9fb9905d
-X-Migadu-Flow: FLOW_OUT
-Date: Wed, 25 Nov 2026 23:21:49 +0800
-From: Hangbin Liu <hangbin.liu@linux.dev>
-To: "jiangjiehua (A)" <jiangjiehua1@huawei.com>
-Cc: netdev@vger.kernel.org, Jay Vosburgh <j.vosburgh@gmail.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Hangbin Liu <liuhangbin@kylinos.cn>,
-	Changzhong Zhang <zhangchangzhong@huawei.com>,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net] bonding: clear stale usable_slaves in broadcast mode
-Message-ID: <awb9DbxQwIFaO3nJ@fedora>
-References: <20261124130102.18807-1-jiangjiehua1@huawei.com>
- <20261125012632.GB19338@Liu-laptop>
- <3001f950-9693-4f71-aabc-41b741af865b@huawei.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=W5RseR/Q
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE62A1F000CF;
+	Wed, 25 Nov 2026 15:22:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795620151;
+	bh=s0Sjb1DgacCXHrpE8DixpKmLTLzsenxzTbzFw1kwskM=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=W5RseR/QkC7iZ18SXo4XPZT82eZfO7qCEQXJHhAxT941VXW20T+6sUOimetiXHQTg
+	 5jnFy4zt6+w8tegyzIFHP8SGxzzdDze+acpjVTYtRBUnyiQbhLMb1J/XfsOd2cpaK1
+	 raWvPNK0FHVwPisfM99cUamOCRG4FcVC7I5Dic+rcqPCDc5x9JO6SM3jZnVtV4oExL
+	 IfNwuTDBTGYmttKJ11VmtPZ+G8eFDDy6ARScfgR8ZJun2t4+8ZBa/bcyiXtDp4LQya
+	 2lekjrFyo2Yp169SIM4ayZ/XsC65W6GP7NgzGV2JQnJIzp64iitWb36a2hlCA1wKJW
+	 AjEHetdIxiHXg==
+From: Mark Brown <broonie@kernel.org>
+To: phucduc.bui@gmail.com
+Cc: Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
+ Takashi Iwai <tiwai@suse.com>, Kees Cook <kees+treewide@kernel.org>, 
+ Jihed Chaibi <jihed.chaibi.dev@gmail.com>, 
+ Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, 
+ linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20261117042102.12442-1-phucduc.bui@gmail.com>
+References: <20261117042102.12442-1-phucduc.bui@gmail.com>
+Subject: Re: [PATCH 0/2] ASoC: cirrus: ep93xx-i2s: Clean up resource
+ management
+Message-Id: <179554463637.947306.4123953706641155831.b4-ty@b4>
+Date: Tue, 24 Nov 2026 18:23:56 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,104 +62,57 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <3001f950-9693-4f71-aabc-41b741af865b@huawei.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1443; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=i65/khEverv/t4MZb/sMgT44sPx8dhG9HuSw8r/tozI=;
+ b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLLZ/po8//W5NJTD5b5B3A/P1gMlCk1Z9qllG+9IfIwSu
+ Hx2FqNJRykLgxgXg6yYIktcFvfL+pLXa/gOLmyDmcPKBDKEgYtTACayq5uRYa13ZDD3p1Al411b
+ /q8y7/gWrdnvx/Wp4IBHa4XOfwdZH4b/iUV/C+1Px0z5lS3WJe+03/CE9Ky0C1P2aF5h26V4M+E
+ jLwA=
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 
-On Wed, Nov 25, 2026 at 03:00:37PM +0800, jiangjiehua (A) wrote:
+On Tue, 17 Nov 2026 11:21:00 +0700, phucduc.bui@gmail.com wrote:
+> ASoC: cirrus: ep93xx-i2s: Clean up resource management
 > 
-> Hi Hangbin,
-> On 11/25/2026 9:26 AM, Hangbin Liu wrote:
-> > Hi Jiehua,
-> > On Tue, Nov 24, 2026 at 09:01:02PM +0800, JiangJieHua wrote:
-> > > In broadcast mode, bond_set_slave_arr() frees the usable_slaves argument
-> > > and returns early, but does not clear bond->usable_slaves.
-> > 
-> > Since the issue was introduced in bond_set_slave_arr(). Should we set
-> > the bond->usable_slaves to NULL here before return?
+> From: bui duc phuc <phucduc.bui@gmail.com>
 > 
-> Clearing bond->usable_slaves in bond_set_slave_arr() does fix the leak,
-> but it is too late for updelay: bond_enslave() links the new slave via
-> bond_master_upper_dev_link() before calling bond_update_slave_arr(),
-> so miimon can already see the slave while the stale empty array is
-> still there and skip updelay.
+> Hi all,
 > 
-> Clearing when the mode changes to broadcast happens while the bond is
-> down with no slaves and mii_work has already been canceled, so the
-> stale pointer is gone before any new slave is visible.  That fixes both
-> the leak and the updelay issue.
+> This series simplifies IRQ error checking and clock resource
+> management in the ep93xx-i2s driver.
+> 
+> [...]
 
-After a second look, I found we should ignore the updelay based on
-bonding doc section 13.1 paragraph 4.
+Applied to
 
-I will revert 45fc134bcfad and prepare another fix.
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.5
 
-Thanks
-Hangbin
+Thanks!
 
-> 
-> > 
-> > Thanks
-> > Hangbin
-> > > 
-> > > A mode change requires the bond to be down with no slaves.  When the
-> > > last slave is removed in balance-xor, balance-tlb or balance-alb,
-> > > bond_update_slave_arr() publishes an empty usable array, and later mode
-> > > changes do not clear it.  If the bond is switched to broadcast, the
-> > > stale pointer remains: bond_miimon_inspect() sees count == 0 and
-> > > ignores updelay for slaves enslaved while the stale array remains, and
-> > > bond_uninit() leaks the array.
-> > > 
-> > > Clear bond->usable_slaves when the mode is changed to broadcast.  The
-> > > bond is down and has no slaves at that point, so the array can be freed
-> > > and set to NULL before the bond is brought up again.  Broadcast never
-> > > publishes usable_slaves, so it stays NULL.
-> > > 
-> > > The issue was discovered by an AI code review agent and confirmed by
-> > > manual code inspection.  It was reproduced on mainline with virtme-ng;
-> > > no kernel modifications or error injection were needed.  With a dummy
-> > > slave and miimon=1:
-> > > 
-> > >   ip link add bond0 type bond mode balance-xor miimon 1 updelay 1000
-> > >   ip link add dummy0 type dummy
-> > >   ip link set bond0 up
-> > >   ip link set dummy0 master bond0
-> > >   ip link set dummy0 nomaster
-> > >   ip link set bond0 down
-> > >   ip link set bond0 type bond mode broadcast
-> > >   ip link set bond0 up
-> > >   ip link set dummy0 master bond0
-> > > 
-> > > After the final enslavement, dummy0 comes up within 50 ms despite
-> > > updelay=1000 (20 of 20 runs on the unpatched kernel).  With the fix,
-> > > none of 300 runs skipped updelay.  The bonding mode-2 recovery-updelay
-> > > selftest passes on the same kernel.
-> > > 
-> > > Fixes: 45fc134bcfad ("bonding: do not set usable_slaves for broadcast mode")
-> > > Signed-off-by: JiangJieHua <jiangjiehua1@huawei.com>
-> > > ---
-> > >  drivers/net/bonding/bond_options.c | 8 ++++++++
-> > >  1 file changed, 8 insertions(+)
-> > > 
-> > > diff --git a/drivers/net/bonding/bond_options.c b/drivers/net/bonding/bond_options.c
-> > > index 9efadeff6a22..f65916444fa1 100644
-> > > --- a/drivers/net/bonding/bond_options.c
-> > > +++ b/drivers/net/bonding/bond_options.c
-> > > @@ -936,6 +936,14 @@ static int bond_option_mode_set(struct bonding *bond,
-> > >  	WRITE_ONCE(bond->params.arp_validate, BOND_ARP_VALIDATE_NONE);
-> > >  	WRITE_ONCE(bond->params.mode, newval->value);
-> > > +	if (newval->value == BOND_MODE_BROADCAST) {
-> > > +		struct bond_up_slave *usable;
-> > > +
-> > > +		usable = rtnl_dereference(bond->usable_slaves);
-> > > +		RCU_INIT_POINTER(bond->usable_slaves, NULL);
-> > > +		kfree_rcu(usable, rcu);
-> > > +	}
-> > > +
-> > >  	/* When changing mode, the bond device is down, we may reduce
-> > >  	 * the bond_bcast_neigh_enabled in bond_close() if broadcast_neighbor
-> > >  	 * enabled in 8023ad mode. Therefore, only clear broadcast_neighbor
-> > > -- 
-> > > 2.33.8
-> > > 
-> 
+[1/2] ASoC: cirrus: ep93xx-i2s: Simplify platform_get_irq() error check
+      https://git.kernel.org/broonie/sound/c/0262f255ad9e
+[2/2] ASoC: cirrus: ep93xx-i2s: Use devm_clk_get()
+      https://git.kernel.org/broonie/sound/c/59852db7b402
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
+
