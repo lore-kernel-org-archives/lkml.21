@@ -1,77 +1,112 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.19
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.227
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795551206;
-	b=L2681khvSZ4Qc9NGsxd5nL3M64wME257P3v6vG69uidwA7oaqYXQytl8dbr49V/c/S9N
-	 VFQqL8ZVnJvSgCMz6yEW3i9+ZNsBca/5hihXy0TbCdd3/sknkarMOC7jUy8nZ8wb+gISW
-	 4lB+T4RVyw4GXeNfCpQ7snMijeaLBo5M9pxw+WXqOyTV8pXPnwv09Y+jloOL+HJH8swtv
-	 PV6LozLi+9P/2e8vzfKBcKg2qbciYTTSqyIaf/C/zooYQ/jq5lEK4XWSBLES9uBBhhSil
-	 7LweZMxr33/EeURjOU05kAUlAxKGD7CiNqB88TbEqQTSBVOXset6G0+94Qx+Oj/eR4A==
+	t=1795551215;
+	b=ynTBQSx/v6HRoqubps9VIwBiPH/QVLF47LGiEujKlE9mS6u6v1ID6rfvvVByhuTVzEUW
+	 iL4mExiqzf5IraRpc/t9+y7utadr5YY+0rP7NfTO4IsrnChM2McgLcDYLHTO39IOij9Yf
+	 B2BR2cuha1KznnnmylHfrPPbj4TMwVs+D/EV+QgAHV3Dj4qktGMNpKvAi4y6q6pRvrAux
+	 WIiNxS5nZVx/GMAm2hoVJoPrIEGpGXLcMebn2pSS8Z0qtF64HNd9Dqfx0XLyGubKg1Xej
+	 ZhJtwHSpvVtgTpQV/br7RjMyu/HhPfStmiRBLK91VDb18Bj/YglJWyamJxEcDmbunjQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795551206;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:Organization;
-	bh=gQf8frNguLobZXWUrQ/hXoMW/a/GtbObUQWRboDaXds=;
-	b=40uroZEU//7ihwBQLZ7aPZfJWxwjlQsOKKQ9NecWFroVH5sbX8e5f4mbePZSNJR+G15g
-	 l08oh+60MoKHcnXWcvpJ+U8QJZtGSNaRVOg184hgSQjv0NoS8Et0Opwa8isxK7h6RJXnO
-	 d8Z02RJYzfU9fbYmp7bBqNjBJ2QxQxbrP598V9LteHCnYWxvG2kyTIKbguSziYsrsq6h8
-	 Jl4t+L8Re/h77K7XWpR9mVN5KmQWjTuB9j9UXhTboCqOcaVdUCFGUJzlXjzvOKJiXTk+C
-	 UmqGPR4GqdlgTpE/ZfM2ADwNs0ITKvU3/P0oUoUUyQn0OoNluCh/HbpiT5oadxZPHyw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795551215;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:X-Relaying-Domain:
+	 X-CFilter-Loop:Received:DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Received:X-Received:Received:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-DetectorID-Processed;
+	bh=0BBHhcvcX0NmOlb5zn8lXYG+5JCH/df9UZnJ1qUIA4A=;
+	b=toD3HxD4r6QubgeTIFVkMvoGmfQ1G5umYRrPzq210Sc91sxAhBAxs+J5JRX0Hr+HekLH
+	 zB22qNnC/NMVJD4BudNMZY5mckQ3Uw82yRIjXyKUYYfezt0fkX/GEHHWOAmsTD7jLprH7
+	 qoT7AoMMpFespPyhxaPH5DiAry/BQcbTdzvTRzcCccHpaZsJoo7Ygba2rhr/MGA2iGNf4
+	 fYwBYZwJhn9Mwv/u1KrEB8VsSQzaTuCvjvEOIrLt+wDPOaAGx0aALej+aSnlLqusCirQL
+	 hk1mVm1ay1wfP6PBH+ucAUBjbZZZ2y5TtixsL1jLrmUJu8TEn9WuMGcB/TL6iTHeGcA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=hTxXe1Fo;
-	arc=none smtp.remote-ip=198.175.65.19
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.19])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=broadcom.com;
+	spf=fail smtp.mailfrom=broadcom.com;
+	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=iPER3Nu4;
+	arc=none smtp.remote-ip=209.85.215.227
+Received: from mail-pg1-f227.google.com (mail-pg1-f227.google.com [209.85.215.227])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 02E76606A323;
-	Tue, 24 Nov 2026 20:13:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 02E76606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D6449606A32D
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 20:13:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D6449606A32D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=hTxXe1Fo
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795551206; x=1827087206;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=kh+JTYsJsidFbyYhu4Wjfbi7GT4ar0AQn5xuM00xc5w=;
-  b=hTxXe1FowpN+s6imHt32HIwt4GF3vzkDytY2vZMCpPXfE99j9+zJDGMm
-   Bc3tWuKKtBTDT7/AmebVd033t8A8c02swqFNlvkJc4WF4TmCHoYNkT/E5
-   +UAmamclKg1WbGOhmUAW699pYJr1bZz8lNqeM6UWfO7df6cxXPfNbBL9d
-   m9XP4wbXO5YywB/JEx/10kqlgyYtlRRIcO57AirUzZTXyLThHmK/ut2c8
-   JufYk6ujFZzARwzOmYg2JJ4+pNgSHCpygxXfkpzhYAflhOFn45B3NYD+K
-   7ugho5oqS+NzWKW5TYV8FqY4dXdmjT0MJNoJ/jUlzS+v3Bi3OJWUSDb+s
-   g==;
-X-CSE-ConnectionGUID: 9GEVUhElTKGyuRzaWD4X6Q==
-X-CSE-MsgGUID: M0tU3MQqR+K+edz4XyqqNg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11976"; a="4466501"
-X-IronPort-AV: E=Sophos;i="6.27,231,1787036400"; 
-   d="scan'208";a="4466501"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 12:13:25 -0800
-X-CSE-ConnectionGUID: 7xhsbpQhRRCrmXDpICRhGA==
-X-CSE-MsgGUID: QfHW+koQS9ifJVHCo91vpA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,231,1787036400"; 
-   d="scan'208";a="11645451"
-Received: from hrotuna-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.245.125])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 12:13:23 -0800
-Date: Tue, 24 Nov 2026 22:13:21 +0200
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Ondrej Zary <linux@zary.sk>
-Cc: Hans de Goede <hansg@kernel.org>,
-	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	platform-driver-x86@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3] Introduce Synology x86 NAS LEDs driver
-Message-ID: <awXv4b3cjVlOc0NT@ashevche-desk.local>
-References: <20261124125616.1168560-1-linux@zary.sk>
- <awXDRNPad3iWtwdp@ashevche-desk.local>
- <202611241954.47791.linux@zary.sk>
+	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=iPER3Nu4
+Received: by mail-pg1-f227.google.com with SMTP id 41be03b00d2f7-cddc250d815so1940719a12.2
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 12:13:34 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795551214; x=1796156014;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:dkim-signature:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=0BBHhcvcX0NmOlb5zn8lXYG+5JCH/df9UZnJ1qUIA4A=;
+        b=MhB3MeulxQxnWcLQSVhKjRuwSdefuj84xumMeFfCv4TqIrmtE9jV9oKPSrFqwXn43t
+         W5XHg3lM2Q8FfstyTUSBNCB1w9abK0rfpCQ8yrBvSqUgAZo8XLXtYfaDyWSeOO1NK1ZR
+         aFhjUKhUT8/GR+W3d2iT1LiDEv5hLcFW5E4EBj7Zy+H4dV5FoMZOs/6CzQyr49ovRahy
+         siZq2YEd3IAHx3ACZkEYGcE21DLB3VZT1FzEto9wJQFr/2plFkzvokrwJxsCXBISAd8e
+         LzLpNhVRki2Y8wUDv8SmsG1cUCmcXiU3hQx69WVrF7lWkdRmmhGQdZn5Eooh/FqL8iUi
+         GKBg==
+X-Forwarded-Encrypted: i=1; AL+hErFbeCazPSrIMmNMJQaqmWI6GyKZN6uDera2TeFGmbF61FkKM4JD8GzmwyS4NZwNjldHDB8fpBxSGpJzsOM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/EIPdJ3AYAFOQKjO4F8DA1l8udbK6LDYD3uOvxXQvxHaKZWZul
+	LNn1Hp3u5syuPLFLc+YIBy5+HNRqI3rsCIGoMBKzV5o7hcyc6+/vQlCcbWvryYVfpyiOaOlwerm
+	eR1cp+/wvzzvv0/ugV491os8Bs16gTTPOm8BV0oDKUtNWOBQfIhXGzj7rnWWouGJuE+Ipo8dgb0
+	w6NaTyCQVlYH5gZ/PnCLrNdIlG97RWnaQ+USEuTOm/01X42UVF8ErFMJ9t5d0mjHPIGNpDd9Ya8
+	Zm6ngf4eMnQ1bC3Ge2iRTM=
+X-Gm-Gg: AZFdTZd6/Rta64M1XUJIVkxEh4msWBQObhnbxHasIcHvBNDkmC8CZ02zKrudXRmD5ub
+	cQ56yfU3Hg34ZFy4IbyMF/e8Xf8FuAH+u7f6wNAsQJMVeGpzi/xOoPtc5RcAp6Vb81vnETyzFPe
+	dYWRTu92ub174lU28geIBVE6R7gK414UbYMUpQQ8kDUeRhH67O85zEB98JrUwvUCo6ORtfgEMeP
+	hMkcVOc3+SeJOnjdJSpTeNFagakfDQARIFahFXPnIeH+rBC/VeqssP2koxFxEzge02un7qF0IrA
+	SDS8fzBuwQSfXaBfKtqy8wPj3ZdXW6mt4JAcUaPTH/WRFCGjB/9ntvPMwLHiQL2xSoR1/+Nzjex
+	xuN2db3piJCWkkqP0zBRgbffJ/US3wpN/SQAuuVYmoedVA2k2DjeHjyClviFZ6G80ATlFHj1Tll
+	+fcqUeWMErQuLZYG3mD6Alur6mBxx7e+xhccB/tUDJDw==
+X-Received: by 2002:a17:90b:3d50:b0:3b4:d312:8fb4 with SMTP id 98e67ed59e1d1-3b4d31292ebmr3213499a91.43.1795551214035;
+        Tue, 24 Nov 2026 12:13:34 -0800 (PST)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-100.dlp.protect.broadcom.com. [144.49.247.100])
+        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b41ff67243sm5759612a91.3.2026.11.24.12.13.32
+        for <linux-kernel@vger.kernel.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 24 Nov 2026 12:13:34 -0800 (PST)
+X-Relaying-Domain: broadcom.com
+X-CFilter-Loop: Reflected
+Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-93f2c0e6653so28262385a.1
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 12:13:31 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1795551211; x=1796156011; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=0BBHhcvcX0NmOlb5zn8lXYG+5JCH/df9UZnJ1qUIA4A=;
+        b=iPER3Nu4r5LT6OZnZ6QsyFZ5zgc0WpUwgxprR8WKSlU7h9ggDx3fozfUwIWdjoqza8
+         3zlpPqddV5ACbN3iwC3eq0Vuk0XeqqY8XhpW5cGm05sKAg30VyElaJnhAOrzGajBlaje
+         ten1Jz0hfaQg6pxKOjcD7f43RO6BN3m8pNsVM=
+X-Forwarded-Encrypted: i=1; AL+hErHLwHYE6z2FVVfUABS1LG2S153+98GU+rdhpQ7g4cOaKHMaq7s0Usn3sLk7+Tvz3cH+sOzKIRtVDs01RIc=@vger.kernel.org
+X-Received: by 2002:a05:620a:4625:b0:949:6d95:f63c with SMTP id af79cd13be357-949bab4d95dmr2635394785a.56.1795551211439;
+        Tue, 24 Nov 2026 12:13:31 -0800 (PST)
+X-Received: by 2002:a05:620a:4625:b0:949:6d95:f63c with SMTP id af79cd13be357-949bab4d95dmr2635390885a.56.1795551211025;
+        Tue, 24 Nov 2026 12:13:31 -0800 (PST)
+Received: from bld-bun-02.bun.broadcom.net ([192.19.176.227])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-949bb34ac1esm1127270385a.15.2026.11.24.12.13.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 12:13:30 -0800 (PST)
+From: Arend van Spriel <arend.vanspriel@broadcom.com>
+To: Shirong Zhao <shxzhaosr@163.com>
+Cc: Arend van Spriel <arend.vanspriel@broadcom.com>,
+	linux-wireless@vger.kernel.org,
+	brcm80211@lists.linux.dev,
+	brcm80211-dev-list.pdl@broadcom.com,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v3] wifi: brcmfmac: drop glom superframe on header parse failure
+Date: Tue, 24 Nov 2026 21:13:27 +0100
+Message-ID: <20261124201327.3491419-1-arend.vanspriel@broadcom.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20261116041534.24-1-shxzhaosr@163.com>
+References: <20261116041534.24-1-shxzhaosr@163.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -81,74 +116,29 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <202611241954.47791.linux@zary.sk>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Content-Transfer-Encoding: 8bit
+X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 
-On Tue, Nov 24, 2026 at 07:54:47PM +0100, Ondrej Zary wrote:
-> On Tuesday 24 November 2026 18:03:00 Andy Shevchenko wrote:
-> > On Tue, Nov 24, 2026 at 01:45:46PM +0100, Ondrej Zary wrote:
+On Mon, 16 Nov 2026 12:15:34 +0800, Shirong Zhao <shxzhaosr@163.com> wrote:
+> brcmf_sdio_rxglom() uses rd_new.len_nxtfrm and rd_new.dat_offset
+> right after the superframe brcmf_sdio_hdparse() without checking
+> errcode.  On parse failure those fields are either uninitialized
+> (the early -ENODATA/-EIO/-EPROTO returns) or hold a rejected value
+> (the -ENXIO bad-offset return), so bus->cur_read.len gets garbage
+> and skb_pull() runs with a garbage length.
+>
+> Check errcode first and drop the superframe with the same cleanup
+> used for a bad subframe below.
+>
+> Fixes: 9d7d6f95bda1 ("brcmfmac: streamline header parse code of sdio glom read")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Shirong Zhao <shxzhaosr@163.com>
+> Acked-by: Arend van Spriel <arend.vanspriel@broadcom.com>
+> ---
+>  drivers/net/wireless/broadcom/brcm80211/brcmfmac/sdio.c | 11 +++++++++++
+>  1 file changed, 11 insertions(+)
 
-...
+Acked-by: Arend van Spriel <arend.vanspriel@broadcom.com>
 
-> > > +struct synology_pci_dev {
-> > > +	unsigned int bus;
-> > > +	unsigned int devfn;
-> > > +	struct pci_device_id id;
-> > > +};
-> > > +
-> > > +/* onboard PCI devices found in DS411+ to confirm the machine type (after DMI match) */
-> > > +static const struct synology_pci_dev ds411plus_pci_devices[] __initconst = {
-> > > +	/* 00:00.0 Host bridge: Intel Corporation Atom Processor D4xx/D5xx/N4xx/N5xx DMI Bridge */
-> > > +	{ 0, PCI_DEVFN(0, 0), { PCI_DEVICE_SUB(PCI_VENDOR_ID_INTEL, 0xa000,
-> > > +					       PCI_VENDOR_ID_INTEL, 0xa000) } },
-> > > +	/* 00:1f.0 ISA bridge: Intel Corporation 82801IR (ICH9R) LPC Interface Controller */
-> > > +	{ 0, PCI_DEVFN(0x1f, 0), { PCI_DEVICE_SUB(PCI_VENDOR_ID_INTEL, 0x2916,
-> > > +						  PCI_VENDOR_ID_INTEL, 0x2916) } },
-> > 
-> > > +	/* 02:00.0 Mass storage controller: Silicon Image, Inc. SiI 3531 Serial ATA Controller */
-> > > +	{ 2, PCI_DEVFN(0x00, 0), { PCI_DEVICE_SUB(PCI_VENDOR_ID_CMD, 0x3531,
-> > > +						  PCI_VENDOR_ID_CMD, 0x3531) } },
-> > > +	/* 03:00.0 Ethernet controller: Intel Corporation 82574L Gigabit Network Connection */
-> > > +	{ 3, PCI_DEVFN(0x00, 0), { PCI_DEVICE_SUB(PCI_VENDOR_ID_INTEL, 0x10d3,
-> > > +						  PCI_VENDOR_ID_INTEL, 0x0000) } },
-> > > +	{}
-> > 
-> > > +};
-> > 
-> > > +/* check if all PCI devices in the list are present at specified locations */
-> > > +static bool __init synology_pci_devices_present(const struct synology_pci_dev *list)
-> > > +{
-> > > +	const struct synology_pci_dev *d;
-> > > +
-> > > +	for (d = list; d->id.vendor; d++) {
-> > > +		struct pci_dev *pdev = pci_get_domain_bus_and_slot(0, d->bus, d->devfn);
-> > > +
-> > > +		if (!pdev)
-> > > +			return false;
-> > 
-> > > +		bool matched = d->id.vendor == pdev->vendor &&
-> > > +			       d->id.device == pdev->device &&
-> > > +			       d->id.subvendor == pdev->subsystem_vendor &&
-> > > +			       d->id.subdevice == pdev->subsystem_device;
-> > 
-> > Don't mix variable definitions with the code (it's exceptionally possible
-> > for a couple of cases, none of which is this one). Can't it use
-> > pci_match_id() approach with driver_data? (If we ever need this check.)
-> 
-> I don't see how can pci_match_id() be used here. I can merge pci bus and
-> devfun into driver_data to fit into pci_device_id table but there's no
-> pci_dev which could be matched against that table (and walking all PCI
-> devices does not seem to be an improvement).
-
-_After_ DMI match the walk over all PCI devices is not a big deal. The code
-will be nicer. But maybe there is a better choice? Like checking CPUID? Or
-maybe something interesting is present in the ACPI tables?
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
+Regards,
+Arend
