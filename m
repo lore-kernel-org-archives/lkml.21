@@ -1,70 +1,92 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.139
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.173
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795484072;
-	b=awaj7VdWOIm2VTlHE0WM3c2o4VQRCys3BJUKnO7UEbm8K7OhBDqDa1WBcu2KNawdZBjn
-	 RZAhEMhI0FJoQophnt4zgnpcw29H4uROvG+v9I7Cc7ZwwJ7di1ScGb1PL2yiiB1X20y8/
-	 D4RswXVUPdJTubK1krmiGD5y+4c1+FSyiucxoe4hv/Vjw0AlKdaBujdO4d/GJPClL5GT7
-	 tOuU1LK0s/ReNY1dnNJfGkw/WjjkkiKg/4w4rj/B866hyMTDIsKng+qynUnf+q6mfGbiA
-	 oqdR/263k1Xe2Q9fpTwL2wsndXAzm4Nxmc/rLoX3yJzZy2ide9iAc874Ia56aTDqQUA==
+	t=1795484253;
+	b=K6iqXKOcm+02GtKyDolxcajRiZwd/vS5chrpMqAGgTYA4cukUfcwE6lCIT6V7NqWoS5Z
+	 75sh0UcllLtkNES0hKnA8YIrGYUBXz5fYxVs1Lt1I+HOz87PuGoibFo3YuSkeEDjuuYSM
+	 31adVzACwPuTYAwUI3HT8HNCBoMNOzMGWsfyf1zgFFhk5PzTTEFwvo21MP0OTU+ipTR7n
+	 fsDrOds+Ohp9L+sM0A6ChvakGvdYIaTR9ofXc98JPp1xarRZBdf9jf4kjEDeqJemVNnC0
+	 E3U1DQTsIulfk9xkhXzQeUyh5BnzI4bgBPAr/Sp/Is7JvTF+Fprr9XUuneLGUegrgzw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795484072;
-	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
-	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
-	 To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=oB91cvLVv77J9+Q8wIXKUGWmJ4awD5QCFhfn5x2IOY4=;
-	b=Ktc0zQcWzMGtFoLkO9PfxaoUNc9evJrs+IkxkZcLdCXhkm2aONqVmCr7M5StujYl5APg
-	 7NZVktJFlD96KxkRVWO6xOJKJhme7+MpGJS0cczzZFCDjTrcyRQQ2mlicG3E16HdtLamJ
-	 GiO1uiew6RFNx4d5Dm93F/WMjQm8Aq09AwMffDBSAoeHHewu5hnuqURIrmyrptRJXHAZj
-	 9XPkxa2VPioLthcODQUT1inwjNjUpX1BlSjN+mMm3BaENdglB/dR5cJQMTzSexs9O15Is
-	 sFvOXDkU9wb3Wwz+JzWQJoajSxepBpGsJQ3A5bpEFu4YFkJqRBeCRp1lkRDNaKHUDIg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795484253;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=+4GuLZnncWSPgY9po7iJToNx53KFsiruJ7YElhg33E8=;
+	b=l4WBKagr6yQIdnlztEDKyhFHWWsgzbCcjkXatdrUkMbwXlwixh/RE4ms80fCcD5yOBZt
+	 6PgEKxDHpEeKzdgX+LytXWMIB7/shdlk48tXfJojeZm8GJSZogy0rPmc6i1rLZKYzd7a3
+	 oI/5v6dGxqRuq8pHjLqXnaPDILm/THxcHc9tybkmIz3QiXtjyo62J6DiSkFeSQyXxpKaE
+	 rJS7ClWfv88L79nML8RgkXlbm79ojNoggGC3irmTMQ5rFCHKb/9DIMrA3KAGG+5Le9XDK
+	 yUCLZnbmAk6IONG3DhoTbNxAX/tvYmCwcESxZoY+z/+FN6N07nuYzTPDRKE9BlFYWKQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cmss.chinamobile.com;
-	spf=pass smtp.mailfrom=cmss.chinamobile.com;
-	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=D92YFggw;
-	arc=none smtp.remote-ip=111.22.67.139
-Received: from cmccmta6.chinamobile.com (cmccmta6.chinamobile.com [111.22.67.139])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 5BB37606A322;
-	Tue, 24 Nov 2026 01:34:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5BB37606A322
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=cimI2Fg0;
+	arc=none smtp.remote-ip=74.125.82.173
+Received: from mail-dy1-f173.google.com (mail-dy1-f173.google.com [74.125.82.173])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 29310606A321
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 01:37:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 29310606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=D92YFggw
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=cimI2Fg0
+Received: by mail-dy1-f173.google.com with SMTP id 5a478bee46e88-38699cf08dfso4156329eec.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 17:37:32 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=cmss.chinamobile.com; s=default; l=0;
-	h=from:subject:message-id:to:cc:mime-version;
-	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
-	b=D92YFggwGQGjrgPVGdskHxrKIIwlhRMut53NQc7gUWDTrK8T8iwti0gwOrLQd+H6zLlOsoqf/Dgvj
-	 mekEyQPcl8zusaOfEMOGqZn7E+FqNq23zc+YhN9sggUcYEnl1QSx2mO3KWmxzAUlhJxFMv9Bpy89Hg
-	 m1KhVoQJ83AwBdpY=
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
-	by rmmx-syy-dmz-app01-12001 (RichMail) with SMTP id 2ee16b04e99fc52-1d9e1;
-	Tue, 24 Nov 2026 09:34:24 +0800 (CST)
-X-RM-TRANSID:2ee16b04e99fc52-1d9e1
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from DESKTOP-3K8GUTQ (unknown[223.108.79.98])
-	by rmsmtp-syy-appsvr04-12004 (RichMail) with SMTP id 2ee46b04e99cf57-0e044;
-	Tue, 24 Nov 2026 09:34:23 +0800 (CST)
-X-RM-TRANSID:2ee46b04e99cf57-0e044
-From: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
-To: chester.a.unal@arinc9.com
-Cc: daniel@makrotopia.org,
-	andrew@lunn.ch,
-	olteanv@gmail.com,
-	sean.wang@mediatek.com,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	netdev-bot+sashiko@kernel.org,
-	Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
-Subject: [PATCH v4] net: dsa: mt7530: enable the regulators in probe() and
- unwind on error
-Date: Tue, 24 Nov 2026 09:34:21 +0800
-Message-ID: <20261124013422.1408-1-laixiangwu@cmss.chinamobile.com>
-X-Mailer: git-send-email 2.50.1.windows.1
+        d=gmail.com; s=20260707; t=1795484252; x=1796089052; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=+4GuLZnncWSPgY9po7iJToNx53KFsiruJ7YElhg33E8=;
+        b=cimI2Fg0Nir9Ip5ELkjvEp3lJWUKanxHQHo6mRlDdF9wlRTzHWIDNjQbth101BjTTf
+         OxBPdIsxXMaGy85nxdHqif2oLrjgyOY3Ux+ekWhX+/pUyyulMtreGKZTcyltAJxammzA
+         zXl6SKNx7yy+/doSz+RMCEiX5tTgRSdA5aQ2hd9cBHMCsnXw/fWHbxWqqMjvxLMmK1VW
+         SblNzBd21LlkC42g7TK1rVzpW4QmJmniuMWOHQvDyaAfh02sZGrhfS5FP9m6Ab7zr3mo
+         XdJG8q0GqNB33VnviO5+34swSf353B5TcgS3lax7eCt+/Dy0SDcLUYGLJtEn8mU0xVm7
+         Q9nw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795484252; x=1796089052;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=+4GuLZnncWSPgY9po7iJToNx53KFsiruJ7YElhg33E8=;
+        b=0oTz3gdlnbgZ2vRpU9wpNkDYtuxuqqHxsWG8V30NiUXMoEybVRLJX/yrRb8NzTfEQt
+         rRocHiXUZ0nic9f53C/7Uqoo3i3XanxCJWLVdQb+dNQJAbjv7AIeSoa7sM8suflnDe2g
+         hkfsjcVbhlpyrN0t9vJdZlVHOL1nL501AGXtiYXFpQrd3EHbjNp0+YsdMWZNR6doe0v2
+         rY82G2SFDk56ftcWZBV1jpKH9V3tMIH7BeFoDaHvU9YEIU5e02HfW/cduBEJzqMjSp9W
+         7XxepXlf26u8SX595C1eVXcgG4NCKMTCLu43Ypv9Dv8Bt7R4uEWPQNjip/RuYwrZ+ShT
+         8u6Q==
+X-Forwarded-Encrypted: i=1; AL+hErGGQzISPKXwFfK2je6PBD5V1ekiO6gHYX2dkXqgiJxjWI7ZDsKxQFuR+uHA7e4VzGM5lKpMQbA7lOJMnnY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/+LokQFw/Cuo7phssIFn97kAnp9zwDUPwzAmdnTfekWgnoytqi
+	XQ4lOQzClOBJRaCiwq7aPIMeURpkMkMogL1pXOJ6E1i77oFuxVZJazO1
+X-Gm-Gg: AZFdTZd3t7A5m6zkWnFuNKrkJLLew94inpmP65tFw0dlr0szHrDnr+4fUuCodFrigfh
+	8tuyWSxu5XQqYboWdOgPWCyXx5ebqw4QhPGhFD7MHx5QEBPx7D80dnt6iatO6SfkEMxtyFIfo+L
+	FmVHssXfbiWhMMKTpSke53siKQ8S5evN5O3ctzeMhNc1c3Nls1E0cLzhjaWiOl4uZd15S86r7+x
+	oy0aGQtypfAslkXwkl+x5W84U+KuFjsTQhi5pDMaYJbxAMwJzJn1RG+5k1uilIpmmeUq0yrfTTI
+	H50+bjog1wIQ5VU3kisj1SDZhf3Y8Gq9BVOzKJX6qmR6ZvVLjuajyXFej4lZrnWHNfVXlutIu3P
+	nWuW9zRGQYNQh33nDjPvZuSmQ+BrTY1ZmpMi7LMEOcMv7A543iFz13yF6j5g2DEfKUkm7CYD/0z
+	Upij3e7F6hTqQBpxGHbunj/KgAKhwF0aOv76YaTF9qZh2O07CSN65+J+BjlSzeBA2gRp3GsdkDV
+	yu7jztxhvF7BvfCkCi1RaXt3XM6awlQQpalvVrHe1wUb1sUPqy5Vg8T9Z7oNvMMwjKPYM4BKW0o
+	zibMiErLdU2aT3IhU7Yq62ZSMJDATm5zdhlhfJLxGlUssYjTGTVidUb279wIhxxfHsRMfyQ=
+X-Received: by 2002:a05:7300:7c08:b0:384:3123:a0cb with SMTP id 5a478bee46e88-3856ff5b880mr21376997eec.27.1795484252142;
+        Mon, 23 Nov 2026 17:37:32 -0800 (PST)
+Received: from google.com ([2a00:79e0:2ebe:8:4121:d698:201c:9274])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38567abb870sm33334473eec.25.2026.11.23.17.37.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 17:37:31 -0800 (PST)
+Date: Mon, 23 Nov 2026 17:37:28 -0800
+From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+To: Chris Sutherland <csutherland.random@gmail.com>
+Cc: linux-input@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] Input: atkbd - skip deactivate for Lenovo IdeaPad Slim 3
+ 17IWC11
+Message-ID: <awTqUmpSO79drKco@google.com>
+References: <20261029164444.400649-1-csutherland.random@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -74,153 +96,21 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261029164444.400649-1-csutherland.random@gmail.com>
 
-mt7530_setup() enables the core and io regulators of the MT7530, but the=0D
-only matching regulator_disable() calls live in mt7530_remove(), which=0D
-never runs when the probe fails.  A failure anywhere between the enables=0D
-and a fully registered switch - the remaining steps of mt7530_setup(),=0D
-the IRQ chip or MDIO bus registration in mt753x_setup() (both can also=0D
-return -EPROBE_DEFER), the SGMII PCS creation, or the DSA core itself -=0D
-therefore leaves both regulators enabled.  The devm-acquired handles=0D
-are then released with a non-zero enable_count, which triggers the=0D
-WARN_ON() in _regulator_put(), and each probe deferral grows the count=0D
-further.=0D
-=0D
-Move the enables to mt7530_probe(), right after the regulators are=0D
-acquired, and unwind them with plain error labels if a later step in=0D
-the probe fails.  mt7530_setup() and mt7530_remove() keep their original=0D
-shape, so the enables and disables stay balanced in every combination of=0D
-probe, setup and unbind: a failed probe always unwinds, and a switch=0D
-that stays bound is always disabled exactly once by mt7530_remove().=0D
-=0D
-Enabling the supplies this early is safe.  Nothing accesses the switch=0D
-between the enables and dsa_register_switch(): the reset line has been=0D
-asserted since it was acquired in mt7530_probe() with GPIOD_OUT_LOW, so=0D
-the rails come up while the chip is held in reset, and mt7530_setup()=0D
-still releases the reset afterwards, unchanged.  MT7621 does not have=0D
-these supplies and is skipped by the priv->id =3D=3D ID_MT7530 guards, and=
-=0D
-the MT7988 MMIO variant has no regulators at all.=0D
-=0D
-Found by code inspection; the issue has not been triggered at runtime=0D
-and no MT7530 hardware was available for testing.  The in-tree boards=0D
-that wire these supplies (the MT7623 boards mt7623n-bananapi-bpi-r2=0D
-and mt7623n-rfb-emmc via mt7623a.dtsi) connect them to switchable=0D
-MT6323 PMIC outputs, so on those boards a failed probe would leave the=0D
-supplies on and trip the WARN_ON(enable_count) splat when the devm=0D
-handles are released.=0D
-=0D
-Fixes: b8f126a8d543 ("net-next: dsa: add dsa support for Mediatek MT7530 sw=
-itch")=0D
-Suggested-by: Andrew Lunn <andrew@lunn.ch>=0D
-Signed-off-by: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>=0D
----=0D
-=0D
-Changes in v4:=0D
-- Drop the devm_add_action_or_reset() approach and unwind the regulators=0D
-  with plain error labels in mt7530_probe(), and restore the explicit=0D
-  disables in mt7530_remove(), as requested by Andrew Lunn.=0D
-- Extend the commit message: explain why enabling the regulators=0D
-  early in probe() is safe, and state which boards are affected.=0D
-=0D
-Link: https://lore.kernel.org/r/20261123022415.433-1-laixiangwu@cmss.chinam=
-obile.com=0D
-=0D
- drivers/net/dsa/mt7530-mdio.c | 38 ++++++++++++++++++++++++++++++++---=0D
- drivers/net/dsa/mt7530.c      | 18 -----------------=0D
- 2 files changed, 35 insertions(+), 21 deletions(-)=0D
-=0D
-diff --git a/drivers/net/dsa/mt7530-mdio.c b/drivers/net/dsa/mt7530-mdio.c=
-=0D
-index 0be107dc6..b1daefc90 100644=0D
---- a/drivers/net/dsa/mt7530-mdio.c=0D
-+++ b/drivers/net/dsa/mt7530-mdio.c=0D
-@@ -210,18 +210,50 @@ mt7530_probe(struct mdio_device *mdiodev)=0D
- 		priv->io_pwr =3D devm_regulator_get(&mdiodev->dev, "io");=0D
- 		if (IS_ERR(priv->io_pwr))=0D
- 			return PTR_ERR(priv->io_pwr);=0D
-+=0D
-+		regulator_set_voltage(priv->core_pwr, 1000000, 1000000);=0D
-+		ret =3D regulator_enable(priv->core_pwr);=0D
-+		if (ret < 0) {=0D
-+			dev_err(&mdiodev->dev,=0D
-+				"Failed to enable core power: %d\n", ret);=0D
-+			return ret;=0D
-+		}=0D
-+=0D
-+		regulator_set_voltage(priv->io_pwr, 3300000, 3300000);=0D
-+		ret =3D regulator_enable(priv->io_pwr);=0D
-+		if (ret < 0) {=0D
-+			dev_err(&mdiodev->dev,=0D
-+				"Failed to enable io pwr: %d\n", ret);=0D
-+			goto err_disable_core_pwr;=0D
-+		}=0D
- 	}=0D
- =0D
- 	rc.lock_arg =3D &priv->bus->mdio_lock;=0D
- 	priv->regmap =3D devm_regmap_init(priv->dev, &mt7530_regmap_bus,=0D
- 					priv, &rc);=0D
--	if (IS_ERR(priv->regmap))=0D
--		return PTR_ERR(priv->regmap);=0D
-+	if (IS_ERR(priv->regmap)) {=0D
-+		ret =3D PTR_ERR(priv->regmap);=0D
-+		goto err_disable_powers;=0D
-+	}=0D
- =0D
- 	if (priv->id =3D=3D ID_MT7531)=0D
- 		priv->create_sgmii =3D mt7531_create_sgmii;=0D
- =0D
--	return dsa_register_switch(priv->ds);=0D
-+	ret =3D dsa_register_switch(priv->ds);=0D
-+	if (ret)=0D
-+		goto err_disable_powers;=0D
-+=0D
-+	return 0;=0D
-+=0D
-+err_disable_powers:=0D
-+	if (priv->id =3D=3D ID_MT7530)=0D
-+		regulator_disable(priv->io_pwr);=0D
-+=0D
-+err_disable_core_pwr:=0D
-+	if (priv->id =3D=3D ID_MT7530)=0D
-+		regulator_disable(priv->core_pwr);=0D
-+=0D
-+	return ret;=0D
- }=0D
- =0D
- static void=0D
-diff --git a/drivers/net/dsa/mt7530.c b/drivers/net/dsa/mt7530.c=0D
-index 7781a63b4..b669a94d4 100644=0D
---- a/drivers/net/dsa/mt7530.c=0D
-+++ b/drivers/net/dsa/mt7530.c=0D
-@@ -2411,24 +2411,6 @@ mt7530_setup(struct dsa_switch *ds)=0D
- 	ds->ageing_time_min =3D 2 * 1000;=0D
- 	ds->ageing_time_max =3D (AGE_CNT_MAX + 1) * (AGE_UNIT_MAX + 1) * 1000;=0D
- =0D
--	if (priv->id =3D=3D ID_MT7530) {=0D
--		regulator_set_voltage(priv->core_pwr, 1000000, 1000000);=0D
--		ret =3D regulator_enable(priv->core_pwr);=0D
--		if (ret < 0) {=0D
--			dev_err(priv->dev,=0D
--				"Failed to enable core power: %d\n", ret);=0D
--			return ret;=0D
--		}=0D
--=0D
--		regulator_set_voltage(priv->io_pwr, 3300000, 3300000);=0D
--		ret =3D regulator_enable(priv->io_pwr);=0D
--		if (ret < 0) {=0D
--			dev_err(priv->dev, "Failed to enable io pwr: %d\n",=0D
--				ret);=0D
--			return ret;=0D
--		}=0D
--	}=0D
--=0D
- 	/* Reset whole chip through gpio pin or memory-mapped registers for=0D
- 	 * different type of hardware=0D
- 	 */=0D
--- =0D
-2.50.1.windows.1=0D
-=0D
+On Thu, Oct 29, 2026 at 04:44:44PM +0000, Chris Sutherland wrote:
+> The IdeaPad Slim 3 17IWC11 (83VS) creates an AT keyboard device but
+> produces no events after atkbd init. The 15IWC11 (83RR) already skips
+> deactivate for this EC failure. Add 83VS to that quirk.
+> 
+> Tested on a 7.3.0+ build. Without the quirk the device is silent.
+> With it, /dev/input/event3 produces events from the internal keyboard.
+> 
+> Signed-off-by: Chris Sutherland <csutherland.random@gmail.com>
 
+Applied, thank you.
 
+-- 
+Dmitry
