@@ -1,56 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.10.208.52
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795537640;
-	b=FLsu0S7XVfACApJ1GW693DjSIF9qKajwDnmBvNHWR2YgKT4jO9hOwisIqF0kBO55OPi0
-	 +7gW2qXgh7rEo34IsxbAqFkfWltiZL2swuhr6+NmMr9kiVwDELHt32G0QkwEaziO/tv5B
-	 4rGoiza5oAW4xpVmCDhJAqUCfeeN5l4RzkjFDn61UHbYJuUpYyGyMGNZn0zAvQhRHT/7j
-	 eNkRsZwzwlx5H8Q1lFOpFJV7XYpLdPFm0f/nTUckHu7JyWJwKdTRhMv2LY5pt5DRItmOz
-	 +Xu1zn9sm/PrFMwDsr5FkC/uQPcs77v8AV23HM62xC91LgPYfF4PHdOOPz7vHIACPXQ==
+	t=1795537651;
+	b=3bwP746EB+1/aYKUkzMfSGYmKYRgC2eGLPO4AWamt1/B0HMmBYPU8+5JMhTm+66iAzqO
+	 2yeMjxhEhR7SzdijJKVU/f2UpaoIcwU6olf1kCtMff/q91owtSJ75/dyUll/qmuvgI/sK
+	 Nsa3N6emaqCzBqNeLjWvvzO337zEHIjYuSOol19fXbRTfmPxXamp0oFVpOeEBMnNCSarX
+	 hc3Gd9JtAKuADCHboQktnMdikQ3bXZWjFztqTkjWF8ovGZFdLjHCmLbHbQ8SDJVvEI6Kq
+	 raUuw9yn2wesp7TS0IpIFYkn1UrCZanJ6gdeBus9vS9CC812K/wSqkCrXpv0kZiagOg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795537640;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=/+3j8Kgy9C8irEIqEgZC/GGq9yhGv+BkGWWDPqpisWM=;
-	b=AW6csCyaFrkDLIodyTKHM+JhXHAadDxtWfeL2ougez8CW3Y8y5pN700q+SHWc/3yHZ35
-	 58J9A4HZaeDnx5biBDpA+lbCMPqjKB+yio2PdLda6zq4Sk+8jDdAA4MwvCNjwuFGi0N53
-	 DvDo2BpATNECNNuylIZR0pGmkaFqcKLS0Bw1V9IRc/84zTJxIyaVwXeFMrT03wBRblSMS
-	 Vm+l93x6YPg+X9yURKpQGlXOrMk2WMl+I1iLVYgABDiRs+lYeZ5LDrFIMXDgaHf9iSxaj
-	 Wfa01cV+0PR/lIitM+qn8oGc5aogervuU0i83sBsYBNKEN9CPHXlRrhXT5S91g9GwKg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795537651;
+	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-Rspamd-Queue-Id;
+	bh=EYwlmi6nVR2KBTF/EYBGQySw9lW8D/ABKdT8CfSaVg8=;
+	b=Bl35qkIVp9OEqw9lUu1vD6pCszb0g7NbtqPSS4a/tpZnFyrrbRNYUG3k3jmpufdvdJyw
+	 VknR/WTZ7mqePNwrTSeBaAECDtEq0PqoCK/L+MJzvyg3PjwnfIN/+obOiRCyYJc9GPF5U
+	 Wk5d6koJXqfAW7PRzI1d0N/Te5mQN7lx5DsdMp/D1bDJOOB9vXnd9lgLx/5tnq2wYLqFG
+	 5fceGScg/SkurWZHD1y54QyBFp9EfuzlgiqADv1XEfPN7zCguf78KVTZerT/BRzkNVhH5
+	 K0yUo2G31Lueaq+dDMPzlY8GsrZybdcLPUgAPQ7wOzfb9fspyFvnNt4T6nXHtEteZFg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HFxswjOq;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=none header.from=mandelbit.com;
+	spf=pass smtp.mailfrom=mandelbit.com;
+	dkim=pass header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=Fuqxaacd;
+	arc=none smtp.remote-ip=195.10.208.52
+Received: from mout-b-203.mailbox.org (mout-b-203.mailbox.org [195.10.208.52])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id E2B4A606A31E;
-	Tue, 24 Nov 2026 16:27:19 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 10E19606A31E;
+	Tue, 24 Nov 2026 16:27:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 10E19606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mandelbit.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mandelbit.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HFxswjOq
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 7E3641F000C6;
-	Tue, 24 Nov 2026 16:27:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795537639;
-	bh=/+3j8Kgy9C8irEIqEgZC/GGq9yhGv+BkGWWDPqpisWM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=HFxswjOqjlOU5O8sEduHm9m2VZFLGo+Mn5AZc6zBg2oA1Zd7d/lMbMjPQWJhXOBn9
-	 Cfxe+++lyg58q0+DzTMzbO2x8+bXrq+kDL5FVyMF3xieg687ljG1o4TgKSnBXqOpFc
-	 WLGP6nFvAcsE0chG6ha18UaNjckmWqafRBWVion0okOvMM7UdAeckOyXJiXMAeCO5J
-	 a5oJuuaMvXQ5AN1NqyX/N/Xt4DEVqG653oo7UsEjJwijcwG2+XjaReUScKEAG6Ecpg
-	 jwFBF/KH6uQgSU2/j4/0aTmnAy+8b5ZHhc7+h+UySkg+1XzbeW3drR6oo/lPyAybFN
-	 usLHHzy2AA60A==
-Date: Tue, 24 Nov 2026 18:27:15 +0200
-From: Jarkko Sakkinen <jarkko@kernel.org>
-To: Guicai Ma <maguicai@kylinos.cn>
-Cc: David Howells <dhowells@redhat.com>, Paul Moore <paul@paul-moore.com>,
-	James Morris <jmorris@namei.org>,
-	"Serge E . Hallyn" <serge@hallyn.com>, keyrings@vger.kernel.org,
-	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] KEYS: Protect key instantiation and rejection against
- type removal
-Message-ID: <awW640zaT8Bnqd0-@kernel.org>
-References: <20261124053303.940216-1-maguicai@kylinos.cn>
- <20261124091243.1019217-1-maguicai@kylinos.cn>
+	dkim=pass (2048-bit key, unprotected) header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=Fuqxaacd
+Received: from smtp202.mailbox.org (smtp202.mailbox.org [IPv6:2001:67c:2050:b231:465::202])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA512)
+	(No client certificate requested)
+	by mout-b-203.mailbox.org (Postfix) with ESMTPS id 4jYpB71G33zLmY9;
+	Tue, 24 Nov 2026 17:27:27 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mandelbit.com;
+	s=MBO0001; t=1795537647;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=EYwlmi6nVR2KBTF/EYBGQySw9lW8D/ABKdT8CfSaVg8=;
+	b=FuqxaacdRITZwmg52GFge1uH5xPdkOdlMGebKPBpHv69a/KKI7TLnTwsrPnVUR6n3E+zDL
+	LfzO843JWD8av+ZWZ8Sp0/Yvx3JSoUjRKm65W1cwJK/SexQhdIXMQylGw1+k29EjY3jmv0
+	t2B+rnQBRH2HNeTOmhxelrTB53cGpqZEVyAprXXHpMJPqw15eepQFa2baEjGkx2Vv/Tf9d
+	2U/CVxCVj6tjd2ID/CpKq0TJmNP8hLy6VKN/Q6w41H8/3CfpTfeehZquwtZKBnmxKtdzq9
+	Yeramoa7tnWDTlDGGJPu+B8I10kfM8UbQtX4EMW5Qsu/pxb/cMYMZ+VVKJmJWQ==
+Authentication-Results: outgoing_mbo_mout;
+	dkim=none;
+	spf=pass (outgoing_mbo_mout: domain of ralf@mandelbit.com designates 2001:67c:2050:b231:465::202 as permitted sender) smtp.mailfrom=ralf@mandelbit.com
+From: Ralf Lici <ralf@mandelbit.com>
+To: netdev@vger.kernel.org
+Cc: Ralf Lici <ralf@mandelbit.com>,
+	David Ahern <dsahern@kernel.org>,
+	Ido Schimmel <idosch@nvidia.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Kuniyuki Iwashima <kuniyu@google.com>,
+	Steffen Klassert <steffen.klassert@secunet.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	Florian Westphal <fw@strlen.de>,
+	Xia Yan <yanxia@cmss.chinamobile.com>,
+	Sabrina Dubroca <sd@queasysnail.net>,
+	Antonio Quartulli <antonio@mandelbit.com>,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net-next v5 1/4] ipv6: stamp the default route node with a fresh serial on link failure
+Date: Tue, 24 Nov 2026 17:27:07 +0100
+Message-ID: <002e141deadfa855bc389899aba43be60e840d5c.1795537128.git.ralf@mandelbit.com>
+X-Mailer: git-send-email 2.56.0
+In-Reply-To: <cover.1795537128.git.ralf@mandelbit.com>
+References: <cover.1795537128.git.ralf@mandelbit.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,78 +87,91 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261124091243.1019217-1-maguicai@kylinos.cn>
+Content-Transfer-Encoding: 8bit
+X-Rspamd-Queue-Id: 4jYpB71G33zLmY9
 
-On Tue, Nov 24, 2026 at 04:12:43AM -0500, Guicai Ma wrote:
-> key_instantiate_and_link() reads key->type->def_datalen and ->preparse,
-> passes key->type to restrict_link->check(), and invokes ->instantiate()
-> and ->free_preparse() without synchronizing against key type removal.
-> A reference on the key keeps the key object alive, but does not pin the
-> module that provides its type.
-> 
-> unregister_key_type() removes the type from key_types_list and waits for
-> key_garbage_collector() to run three passes: pass 1 sets KEY_FLAG_DEAD
-> and clears key->perm, pass 2 unlinks dead keys from keyrings, and pass 3
-> takes key->sem for writing, retypes key->type to &key_type_dead, and
-> destroys the payload. A key still under construction stays in
-> KEY_IS_UNINSTANTIATED with a valid authorisation key, so an upcall
-> helper calling KEYCTL_INSTANTIATE after pass 3 reaches
-> __key_instantiate_and_link() and jumps to key_type_dead.instantiate,
-> which is NULL:
-> 
->   Unable to handle kernel NULL pointer dereference at
->   virtual address 0000000000000000
->   Internal error: Oops: 0000000086000006 [#1] SMP
->   pc : 0x0
->   lr : __key_instantiate_and_link+0xb8/0x2f8
->   Call trace:
->    0x0 (P)
->    key_instantiate_and_link+0x2e8/0x36c
->    keyctl_instantiate_key_common+0x1cc/0x338
->    keyctl_instantiate_key+0xbc/0x120
->    __arm64_sys_keyctl+0x218/0x3f0
-> 
-> If the module unloads while ->preparse() or ->instantiate() is running,
-> execution can also return into freed module text or skip
-> ->free_preparse(). While the request_key() syscall holds key_types_sem
-> across the upcall, in-kernel request_key() callers do not, so
-> unregister_key_type() can run before KEYCTL_INSTANTIATE or
-> KEYCTL_REJECT.
-> 
-> key_reject_and_link() shares the same window: it links the key into
-> @keyring and calls key_set_expiry() (which reads key->type->flags)
-> without checking KEY_FLAG_DEAD. Linking a dead key between GC pass 2 and
-> pass 3 leaves it in the keyring's assoc_array while pass 3 overwrites
-> key->type (which aliases key->index_key.type) in place.
-> 
-> Neither key->sem nor key_types_sem can be taken here: holding key->sem
-> across __key_link_lock() and __key_instantiate_and_link() inverts lock
-> order against encrypted_instantiate() (which locks the master key's
-> semaphore under keyring->sem and key_construction_mutex), and
-> key_instantiate_and_link() is already called with key_types_sem held for
-> reading (e.g. from request_key_auth_new()).
-> 
-> Add key_type_srcu and call synchronize_srcu(&key_type_srcu) at the end
-> of GC pass 1 (KEY_GC_REAPING_DEAD_1) whenever dead keys were marked.
-> SRCU rather than RCU because ->preparse() and ->instantiate() may sleep.
-> Hold key_type_srcu across the full body of key_instantiate_and_link()
-> and key_reject_and_link() and check KEY_FLAG_DEAD:
-> 
-> - Callers that observe !KEY_FLAG_DEAD finish all key->type accesses and
->   any keyring linking before pass 2 unlinks dead keys and pass 3 retypes
->   them to key_type_dead.
-> - Callers entering after synchronize_srcu() observe KEY_FLAG_DEAD:
->   key_instantiate_and_link() returns -EKEYREVOKED (matching
->   key_validate()), and key_reject_and_link() skips linking (returning
->   -EKEYREVOKED if @keyring was given) and key_set_expiry() while still
->   completing negative instantiation so waiters wake up and @authkey is
->   invalidated.
-> 
-> Also return -EOPNOTSUPP in key_instantiate_and_link() if a live key type
-> does not provide ->instantiate().
+ip6_link_failure invalidates the cached dsts of an RTF_DEFAULT route by
+writing -1 into the node's fn_sernum. Once the node already holds -1,
+another link failure leaves the serial unchanged, so dsts cached with
+that cookie can survive subsequent failures.
 
-The commit message is incomprehensible.
+The assignment also leaves net->ipv6.fib6_sernum unchanged, making the
+invalidation invisible to lookups watching the namespace generation.
 
-Br, Jarkko
+Use fib6_update_sernum under tb6_lock to allocate and stamp a fresh
+serial. This makes repeated invalidations distinguishable and allows the
+lookup stamps introduced later in this series to detect them.
+
+Advancing the namespace generation also invalidates unrelated dsts using
+nexthop objects, which are validated against that generation. This
+happens once per ip6_link_failure call: once per queued skb when the
+neighbour of the default router fails, and once per packet on the
+tunnel transmit error paths that call dst_link_failure, some of which a
+remote host can trigger with ICMP errors. These are error paths and add
+no cost to the fast path.
+
+Found while reviewing the IPv6 routing code to address the dst-cache
+race.
+
+Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
+Signed-off-by: Ralf Lici <ralf@mandelbit.com>
+---
+Changes since v4 https://lore.kernel.org/netdev/79fea581787dd175005d81090d246e982a07cc51.1795166508.git.ralf@mandelbit.com/
+- Mention the tunnel transmit error paths. (Sashiko)
+
+Changes since v3 https://lore.kernel.org/netdev/5b59512a6c51c7a5d7c7b4e16728de3c522d9a1e.1794906743.git.ralf@mandelbit.com/
+- Note that the generation advances once per ip6_link_failure call.
+  (Sashiko)
+- Widen the rt6_exception_net comment. (Sashiko)
+
+Changes since v2 https://lore.kernel.org/all/143461e2c94a20060ff4c7d6e5eb46c47ac46aa0.1794384146.git.ralf@mandelbit.com/
+- Add a Fixes tag referencing the initial git import. (Sashiko)
+- Clarify that the nexthop-object invalidation is a harmless side
+  effect, rather than a deficiency being fixed. (Sashiko)
+
+No changes since v1 https://lore.kernel.org/netdev/5b039a5a24808f2678eedd283c29f8dae514ef5e.1793806941.git.ralf@mandelbit.com/
+
+ net/ipv6/route.c | 18 ++++++++++--------
+ 1 file changed, 10 insertions(+), 8 deletions(-)
+
+diff --git a/net/ipv6/route.c b/net/ipv6/route.c
+index 4a4c5ace63c5..bbe6d67bb696 100644
+--- a/net/ipv6/route.c
++++ b/net/ipv6/route.c
+@@ -1531,9 +1531,11 @@ static struct rt6_info *rt6_make_pcpu_route(struct net *net,
+  */
+ static DEFINE_SPINLOCK(rt6_exception_lock);
+ 
+-/* Exceptions are accounted to the netns their dst was allocated in.
+- * Unlike dev_net(dst->dev), it does not change when the device moves to
+- * another netns or when dst_dev_put() points the dst to blackhole_netdev.
++/* Return the netns the dst was allocated in, which owns the fib6 table of
++ * its route. Exceptions are accounted to it, and ip6_link_failure advances
++ * its generation. Unlike dev_net(dst->dev), it does not change when the
++ * device moves to another netns or when dst_dev_put() points the dst to
++ * blackhole_netdev.
+  */
+ static struct net *rt6_exception_net(const struct rt6_info *rt)
+ {
+@@ -2873,13 +2875,13 @@ static void ip6_link_failure(struct sk_buff *skb)
+ 			rt6_remove_exception_rt(rt);
+ 		} else {
+ 			struct fib6_info *from;
+-			struct fib6_node *fn;
+ 
+ 			from = rcu_dereference(rt->from);
+-			if (from) {
+-				fn = rcu_dereference(from->fib6_node);
+-				if (fn && (rt->rt6i_flags & RTF_DEFAULT))
+-					WRITE_ONCE(fn->fn_sernum, -1);
++			if (from && from->fib6_table &&
++			    (rt->rt6i_flags & RTF_DEFAULT)) {
++				spin_lock_bh(&from->fib6_table->tb6_lock);
++				fib6_update_sernum(rt6_exception_net(rt), from);
++				spin_unlock_bh(&from->fib6_table->tb6_lock);
+ 			}
+ 		}
+ 		rcu_read_unlock();
+-- 
+2.56.0
+
