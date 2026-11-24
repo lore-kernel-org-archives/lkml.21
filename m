@@ -1,72 +1,70 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.4
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=160.30.148.34
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795506232;
-	b=l9g7apCHTQVPS7R2sXLdLqD2o8hydY283FayUxA/JMZFHYWzfwt7GfZKvfnNiC4JqC0A
-	 M6ucL29r0WgRQdMdtgubhxxcworyh1RNQuudl5v2196bsuIIeajsAtnvEON1bbolyzG+E
-	 Q2ikP1Jf3Aoo872AJxu1l/CJN1WySmCufpTLQLmdlpLGbBW/kBmWsuMf8pynBy4IEn9DV
-	 Ict+w9MnU4rpp8vmZUZdxsE/Xa/OdxWFvkStajGwdVZ9ANpNt4POX2EOjyHRClVFgbaRe
-	 7HGdwrzaz+o2f528swVPCVge+bnuYT47OmNvNq069pn1zeVieHRx3LOdh8YZ0rASN9Q==
+	t=1795506242;
+	b=vcDRZJ4D/gncfM5gVfKbfBOwQN6Hditwx5N6w5vH4E1RKrxNca5LhyP+petdMomKG3CC
+	 FpSQLN9AhP2Gfq3Tj8fXVQEHIthqXwU7ykHM1xcsKpdtS05WwSpo+4j4IgUW5IZunIWOm
+	 eyoU3bg3dlyjMAgxMuo8CNNiAqwoYwvsAIdrS+5fRcoVIcCJhxshfwlsEfIiVbfSBi7Uc
+	 jMY0lKPgHI0yrjFD/0KVFxGbk4MNyAI3DoV1E9GD0tJaG+tB5zhBogMfCijZLreh1E248
+	 Vx5NswqA451f1yOIsn7U4rq4NsG+kAvZaIYcJyEG+IVTxRlq5kkHcpL+qIEBc8aIc+A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795506232;
-	h=DMARC-Filter:DKIM-Signature:Date:From:To:Cc:Subject:X-Priority:
-	 X-Mailer:In-Reply-To:References:X-NTES-SC:Content-Transfer-Encoding:
-	 Content-Type:MIME-Version:Message-ID:X-Coremail-Locale:X-CM-TRANSID:
-	 X-CM-SenderInfo:X-Coremail-Antispam;
-	bh=egDQpVic8+ZWvGHi/RAoKinxkbY/WeNVCIcjd2qNix8=;
-	b=dEJqLOkLYJU5ohzsyVdLNswQAWntHLCdiZzi8vcZ/DgW056FHtQwLTThcgkIg+t/snV1
-	 KtCP8wV07IzkSymm1cL+lX7RK+BRR49EQDezEFMPg4gXJsfzkUh/iZRtT7kQTEnvZo7c2
-	 mDt+E9XRzZZKJr0+5bwzvF7WjWWM4r/esnSWeCCscov+J7bw0kKTEHREepBqKvCSWS15b
-	 Z6RxAqqLqYbLzHzN2qcFb2um82po2tpgqG2/vt41RDTRgq5d1Fa0hX96h+HemDeW1AeU+
-	 kav5cm73LQTWso0//MfmL/Ry3P9iZmd9+f027wRab2UyFjDpE2DBZguYz64cAKYVI9Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795506242;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Message-Id:Received:
+	 Received:X-Zmail-TransId:X-Mailer:Date:Mime-Version:From:To:Cc:
+	 Subject:Content-Type:X-MAIL:X-MSS:X-TLS:X-ENVELOPE-SENDER:X-SOURCE-IP:
+	 X-CLEAN:X-Fangmail-Anti-Spam-Filtered:X-Fangmail-MID-QID;
+	bh=ThakZ12NW5n+EVxOeLzJgVL3vhX2Gjt4+Ap1QAIpiY4=;
+	b=WZo7Dxyd2gF5GoFc0qK9rXFLmDFfiKehSwjZDJmLPoUPhnwShW+Hl0Gri6aSTsbC3tkQ
+	 0DsZu3R3nQqN8wrA1IG6DRDR+VQAtWhGZ0M1ACEaaDwQ+CnzTr0NSF0hKKa0eWOQjrO3P
+	 6rIF+3rLH/Y/ZvxXm832aG8veX+6EyzNlek29iHn9Xe2pji9prz0jJ7KQJ4R5Hc+kp/Cl
+	 pBlpK++mXow0ksX2lV0R0EyMtNmJwnzMyiHyjFrurRy0NgvziUonTwMm1dzHxFe585PPN
+	 GePrktygqf07Xh+gcZ28yQRV/Z5fekeigLEiVtthkxGbuGdg05P8MVcZ+e9k/RWi9jw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=163.com;
-	spf=pass smtp.mailfrom=163.com;
-	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=Gq1e3p+8;
-	arc=none smtp.remote-ip=117.135.210.4
-Received: from m16.mail.163.com (m16.mail.163.com [117.135.210.4])
+	dmarc=pass header.from=zte.com.cn;
+	spf=pass smtp.mailfrom=zte.com.cn;
+	dkim=pass header.d=zte.com.cn header.i=@zte.com.cn header.a=rsa-sha256 header.s=z202610 header.b=XjsCbxPS;
+	arc=none smtp.remote-ip=160.30.148.34
+Received: from mxhk.zte.com.cn (mxhk.zte.com.cn [160.30.148.34])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 24778606A31E;
-	Tue, 24 Nov 2026 07:43:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 24778606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BDDB3606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 07:44:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BDDB3606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=zte.com.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=zte.com.cn
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=Gq1e3p+8
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Date:From:To:Subject:Content-Type:MIME-Version:
-	Message-ID; bh=egDQpVic8+ZWvGHi/RAoKinxkbY/WeNVCIcjd2qNix8=; b=G
-	q1e3p+8vLNdoWPWozO30hvSLWG5qnUe/9uxpmXwfiwaM6Bge4hAmyUYlxVsfylF2
-	3lMeyVUGfYMLxk9JNun84LgnAnAU2k9Hg3Vh8xMjFZbL1WdJK8GUHFnhhUwiFJC4
-	JpHJ3+Y+r8sCEZuMheJ+GDHHzR4yQg/96rd8z5ym/s=
-Date: Tue, 24 Nov 2026 15:42:56 +0800 (CST)
-From: zl020895  <zl020895@163.com>
-To: "Bartosz Golaszewski" <brgl@kernel.org>
-Cc: longzhao@ambarella.com, linux-gpio@vger.kernel.org,
-	"Linus Walleij" <linusw@kernel.org>,
-	"Michael Walle" <mwalle@kernel.org>,
-	"Andy Shevchenko" <andriy.shevchenko@linux.intel.com>,
-	"Rob Herring" <robh@kernel.org>,
-	"Krzysztof Kozlowski" <krzk@kernel.org>,
-	"Krzysztof Kozlowski" <krzk+dt@kernel.org>,
-	"Krzysztof Kozlowski" <krzysztof.kozlowski@oss.qualcomm.com>,
-	"Conor Dooley" <conor+dt@kernel.org>,
-	"Mika Westerberg" <westeri@kernel.org>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	"Conor Dooley" <conor.dooley@microchip.com>
-Subject: Re:Re: [PATCH v14 01/14] dt-bindings: gpio: pl061: add Ambarella
- CV75 variant
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version 2023.4-cmXT build
- 20260511(2e539873) Copyright (c) 2002-2026 www.mailtech.cn 163com
-In-Reply-To: <rvkdwpnypgxx3smfkqllik6vidzln3yg6nvshed3dtg7rtkq3j@u4pdrleymwrm>
-References: <20261110-cv75-gpio-v14-0-e586aad0467a@ambarella.com>
- <20261110-cv75-gpio-v14-1-e586aad0467a@ambarella.com>
- <rvkdwpnypgxx3smfkqllik6vidzln3yg6nvshed3dtg7rtkq3j@u4pdrleymwrm>
-X-NTES-SC: AL_Qu2SB/mbuUks4CCYYekdnUoTj+Y/XMK0uvwk1YdVc/4EnSXq2RASTG1BNnTm3sKdFyWCvRmRUSls8NpHWoJKb2qOrspCRW7Mw2npMoClXg==
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset=GBK
+	dkim=pass (2048-bit key, unprotected) header.d=zte.com.cn header.i=@zte.com.cn header.a=rsa-sha256 header.s=z202610 header.b=XjsCbxPS
+Received: from mse-db.zte.com.cn (unknown [10.5.228.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mxhk.zte.com.cn (FangMail) with ESMTPS id 4jYZZ05gNQz5BNRx;
+	Tue, 24 Nov 2026 15:43:52 +0800 (CST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=zte.com.cn;
+	s=z202610; t=1795506232;
+	bh=vAlgFZAej5uUyO+1shCvosasemEXAe+b1UMxZEvgWR4=;
+	h=Date:From:To:Cc:Subject;
+	b=XjsCbxPS3YhpKqsXjlSaTYDT2Oo9p8qxF2I+n8sckYqEixCCDVL6/FW81dac8DbOH
+	 OrpZrjNB2mfy3FANK3OrY7sMIrDrUZwwczJhqclo+bFY1YlK2GWYNl+lDmnUqELIDS
+	 TCkZSlGbmIckhMAIJ+HWLFnjSoqRIZVgnXbliYwvXc+TFLVHCNpm2lSqVi8SW079Uh
+	 7aWvMkWU17gS0EGqM8/oqjoXN5mI8T59OaMIW+WIdHVeHAxeKWsoqyBhzfrm3moXU2
+	 GPXUddrKLdca1cqm/i43JbrcX1smiLIrFvWj+1RxC9f4if+RXKs00CsFp+2VyL1S4q
+	 nseWqgDWmyCxg==
+Received: (from root@localhost)
+	by mse-db.zte.com.cn id 6AO7homY042860;
+	Tue, 24 Nov 2026 15:43:50 +0800 (+08)
+	(envelope-from li.hanting@zte.com.cn)
+Message-Id: <202611240743.6AO7homY042860@mse-db.zte.com.cn>
+Received: from njy2app01.zte.com.cn ([10.40.12.136])
+	by mse-fl1.zte.com.cn with SMTP id 6AO71T83036888;
+	Tue, 24 Nov 2026 15:01:29 +0800 (+08)
+	(envelope-from li.hanting@zte.com.cn)
+Received: from mapi (njb2app07[null])
+	by mapi (Zmail) with MAPI id mid203;
+	Tue, 24 Nov 2026 15:01:31 +0800 (CST)
+X-Zmail-TransId: 2aff6b05364ba66-4f927
+X-Mailer: Zmail v1.0
+Date: Tue, 24 Nov 2026 15:01:31 +0800 (CST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,20 +73,228 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Message-ID: <15be9ea4.6305.1a20c82000c.Coremail.zl020895@163.com>
-X-Coremail-Locale: zh_CN
-X-CM-TRANSID:dSgvCgD3ny0AQAVrT_t0AA--.161W
-X-CM-SenderInfo: d2oqjiqyzvqiywtou0bp/xtbC7gAsnWsFQAAdeAAA3U
-X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
+Mime-Version: 1.0
+From: <li.hanting@zte.com.cn>
+To: <palmer@dabbelt.com>, <pjw@kernel.org>, <aou@eecs.berkeley.edu>,
+        <alex@ghiti.fr>
+Cc: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <linux-mm@kvack.org>, <akpm@linux-foundation.org>, <rppt@kernel.org>,
+        <songmuchun@bytedance.com>
+Subject: =?UTF-8?B?W1BBVENIIHYzXSByaXNjdjogbW06IEZpeCBzcGxpdCBsaW5lYXIgbWFwIHBhZ2UgdGFibGUgYWxsb2NhdGlvbg==?=
+Content-Type: text/plain;
+	charset="UTF-8"
+X-MAIL:mse-db.zte.com.cn 6AO7homY042860
+X-MSS: AUDITRELEASE@mse-db.zte.com.cn
+X-TLS: YES
+X-ENVELOPE-SENDER: li.hanting@zte.com.cn
+X-SOURCE-IP: 10.5.228.131 unknown Tue, 24 Nov 2026 15:43:52 +0800
+X-CLEAN: YES
+X-Fangmail-Anti-Spam-Filtered: true
+X-Fangmail-MID-QID: 6B054038.000/4jYZZ05gNQz5BNRx
 
-QXQgMjAyNi0xMS0yMyAyMzo0ODoyOCwgIkJhcnRvc3ogR29sYXN6ZXdza2kiIDxicmdsQGtlcm5l
-bC5vcmc+IHdyb3RlOgo+SGkhIENhbiB5b3UgYWRkcmVzcyBzYXNoaWtvJ3MgY29tbWVudCBhYm91
-dCB0aGUgbWlzc2luZyB2ZW5kb3IgcHJlZml4PwoKSGkgQmFydG9zeiwKClRoZSBhbWJhcmVsbGEg
-cHJlZml4IGlzIGFscmVhZHkgaW4gdGhlIHRyZWUsIFJvYiBhcHBsaWVkIGl0IG9uIDE1IE9jdDoK
-ICBodHRwczovL2xvcmUua2VybmVsLm9yZy9yLzIwMjYxMDE0LWN2NzUtcHJlZml4LXYxLTEtZmU5
-NWVkNTY3ODgwQGFtYmFyZWxsYS5jb20KClNhc2hpa28gaXMgcmUtcmFpc2luZyBLcnp5c3p0b2Yn
-cyBjb21tZW50IGZyb20gdjEuCgpCVFcsIHRoZSBzZXJpZXMgd2FzIHJlc3B1biBhcyB2MTUgbGFz
-dCB3ZWVrOgogIGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL3IvMjAyNjExMTgtY3Y3NS1ncGlvLXYx
-NS0wLWUzYzU2MzY3M2ZlMUBhbWJhcmVsbGEuY29tCgpCZXN0IHJlZ2FyZHMsCkxvbmcgWmhhbwo=
+Commit 9e4a3ec3411b ("x86/mm/pat: Allocate split page tables as kernel
+page tables") recently fixed a latent inconsistency in the x86 CPA code
+(assigned CVE-2026-97525): __split_large_page() allocated the new PTE
+page with a bare pagetable_alloc(), bypassing pte_alloc_one_kernel(), so
+the page table constructor never ran and the resulting page was neither
+flagged PG_table, nor accounted in NR_PAGETABLE, nor marked as a kernel
+page table.
 
+RISC-V open-codes the same pattern when splitting the linear mapping on
+behalf of set_memory_*(): __split_linear_mapping_{pmd,pud,p4d}()
+allocate the new page table pages with bare alloc_page(GFP_KERNEL) -
+three call sites in arch/riscv/mm/pageattr.c, introduced by
+commit 311cd2f6e253 ("riscv: Fix set_memory_XX() and set_direct_map_XX()
+by splitting huge linear mappings").
+
+As on pre-fix x86, the resulting pages live in init_mm without the
+PG_table flag, without NR_PAGETABLE accounting and without the kernel
+ptdesc marking. Under CONFIG_MEMORY_HOTPLUG, hot-removing memory tears
+down the linear mapping of the removed range via arch_remove_memory()
+-> remove_linear_mapping() -> free_p*d_table(), which releases these
+page tables through pagetable_dtor() even though the constructor never
+ran, underflowing NR_PAGETABLE on current mainline. Muchun Song's
+series "mm: Fix page-table teardown during memory hot-remove" [1]
+fixes the freeing side by skipping the destructor for pages without
+the PG_table flag, but the root cause remains: the allocation side
+still bypasses the page-table constructors, so these tables are
+unflagged and unaccounted for their entire lifetime.
+
+Align the three sites with the standard page-table allocation and
+population helpers:
+
+ - the PTE level switches to pte_alloc_one_kernel(&init_mm), exactly
+   like the x86 fix, and installs the new table into the parent entry
+   with pmd_populate_kernel();
+
+ - the PMD and PUD levels switch to the generic pmd_alloc_one() and
+   pud_alloc_one(), which already handle the init_mm case by selecting
+   GFP_PGTABLE_KERNEL, running the level constructors and marking the
+   ptdesc as a kernel page table, and install the new tables with
+   pud_populate() and p4d_populate().
+
+No change to the resulting linear mappings is intended; the observable
+difference is that split linear mapping page tables are now properly
+flagged and accounted, so /proc/vmstat:nr_page_table_pages no longer
+under-counts.
+
+Fixes: 311cd2f6e253 ("riscv: Fix set_memory_XX() and set_direct_map_XX() by splitting huge linear mappings")
+Signed-off-by: Hanting Li <li.hanting@zte.com.cn>
+
+---
+Changes since v2 [2]:
+
+- Install the new page tables with pmd_populate_kernel(),
+  pud_populate() and p4d_populate() instead of open-coding the
+  virtual-address-to-PFN conversion, as suggested by Muchun Song.
+
+- Reword the intended-behaviour statement: the accounting, PG_table
+  state and hot-remove destructor behavior are intentional functional
+  changes, so "no functional change" was misleading; it now states
+  that no change to the resulting linear mappings is intended. Also
+  suggested by Muchun Song.
+
+- Shorten the subject and drop the greeting from the commit message.
+
+[1] https://lore.kernel.org/r/20261008073021.2512665-3-songmuchun@bytedance.com
+[2] https://lore.kernel.org/r/<202611230851.6AN8pFDD065900@mse-fl1.zte.com.cn>
+
+Hello,
+
+Thank you for the review, Muchun. All four suggestions are
+incorporated in this version.
+
+One detail worth spelling out about p4d_populate(): unlike the
+previous open-coded set_p4d(), which falls back to writing through
+the pud alias when 4-level paging is disabled, p4d_populate() is a
+no-op in that case. The difference is not reachable here: with
+3-level paging, best_map_size() caps the linear mapping at PMD_SIZE,
+so a leaf p4d entry can only exist when 4-level paging is enabled,
+where p4d_populate() matches the open-coded write exactly.
+
+The discussion about deferring this change until free-path work
+lands is now settled by Muchun's series [1] being queued for
+mainline: this patch fixes the allocation side of the same lifetime
+mismatch.
+
+(Note: the generic CPA rework series "[PATCH RFC 00/18] arch, mm:
+create a generic set_memory/change_page_attr core" would eventually
+replace this code entirely; this patch is intended as a small fix in
+the meantime.)
+
+Comments welcome.
+
+ arch/riscv/mm/pageattr.c | 38 +++++++++++++++++---------------------
+ 1 file changed, 17 insertions(+), 21 deletions(-)
+
+diff --git a/arch/riscv/mm/pageattr.c b/arch/riscv/mm/pageattr.c
+--- a/arch/riscv/mm/pageattr.c
++++ b/arch/riscv/mm/pageattr.c
+@@ -3,9 +3,11 @@
+  * Copyright (C) 2019 SiFive
+  */
+
++#include <linux/mm.h>
+ #include <linux/pagewalk.h>
+ #include <linux/pgtable.h>
+ #include <linux/vmalloc.h>
++#include <asm/pgalloc.h>
+ #include <asm/tlbflush.h>
+ #include <asm/bitops.h>
+ #include <asm/set_memory.h>
+@@ -109,23 +111,21 @@
+ 			continue;
+
+ 		if (pmd_leaf(pmdp_get(pmdp))) {
+-			struct page *pte_page;
+ 			unsigned long pfn = _pmd_pfn(pmdp_get(pmdp));
+ 			pgprot_t prot = __pgprot(pmd_val(pmdp_get(pmdp)) & ~_PAGE_PFN_MASK);
+ 			pte_t *ptep_new;
+ 			int i;
+
+-			pte_page = alloc_page(GFP_KERNEL);
+-			if (!pte_page)
++			ptep_new = pte_alloc_one_kernel(&init_mm);
++			if (!ptep_new)
+ 				return -ENOMEM;
+
+-			ptep_new = (pte_t *)page_address(pte_page);
+-			for (i = 0; i < PTRS_PER_PTE; ++i, ++ptep_new)
+-				set_pte(ptep_new, pfn_pte(pfn + i, prot));
++			for (i = 0; i < PTRS_PER_PTE; ++i)
++				set_pte(ptep_new + i, pfn_pte(pfn + i, prot));
+
+ 			smp_wmb();
+
+-			set_pmd(pmdp, pfn_pmd(page_to_pfn(pte_page), PAGE_TABLE));
++			pmd_populate_kernel(&init_mm, pmdp, ptep_new);
+ 		}
+ 	} while (pmdp++, vaddr = next, vaddr != end);
+
+@@ -149,24 +149,22 @@
+ 			continue;
+
+ 		if (pud_leaf(pudp_get(pudp))) {
+-			struct page *pmd_page;
+ 			unsigned long pfn = _pud_pfn(pudp_get(pudp));
+ 			pgprot_t prot = __pgprot(pud_val(pudp_get(pudp)) & ~_PAGE_PFN_MASK);
+ 			pmd_t *pmdp_new;
+ 			int i;
+
+-			pmd_page = alloc_page(GFP_KERNEL);
+-			if (!pmd_page)
++			pmdp_new = pmd_alloc_one(&init_mm, vaddr);
++			if (!pmdp_new)
+ 				return -ENOMEM;
+
+-			pmdp_new = (pmd_t *)page_address(pmd_page);
+-			for (i = 0; i < PTRS_PER_PMD; ++i, ++pmdp_new)
+-				set_pmd(pmdp_new,
++			for (i = 0; i < PTRS_PER_PMD; ++i)
++				set_pmd(pmdp_new + i,
+ 					pfn_pmd(pfn + ((i * PMD_SIZE) >> PAGE_SHIFT), prot));
+
+ 			smp_wmb();
+
+-			set_pud(pudp, pfn_pud(page_to_pfn(pmd_page), PAGE_TABLE));
++			pud_populate(&init_mm, pudp, pmdp_new);
+ 		}
+
+ 		ret = __split_linear_mapping_pmd(pudp, vaddr, next);
+@@ -198,23 +196,21 @@
+ 			continue;
+
+ 		if (p4d_leaf(p4dp_get(p4dp))) {
+-			struct page *pud_page;
+ 			unsigned long pfn = _p4d_pfn(p4dp_get(p4dp));
+ 			pgprot_t prot = __pgprot(p4d_val(p4dp_get(p4dp)) & ~_PAGE_PFN_MASK);
+ 			pud_t *pudp_new;
+ 			int i;
+
+-			pud_page = alloc_page(GFP_KERNEL);
+-			if (!pud_page)
++			pudp_new = pud_alloc_one(&init_mm, vaddr);
++			if (!pudp_new)
+ 				return -ENOMEM;
+
+ 			/*
+ 			 * Fill the pud level with leaf puds that have the same
+ 			 * protections as the leaf p4d.
+ 			 */
+-			pudp_new = (pud_t *)page_address(pud_page);
+-			for (i = 0; i < PTRS_PER_PUD; ++i, ++pudp_new)
+-				set_pud(pudp_new,
++			for (i = 0; i < PTRS_PER_PUD; ++i)
++				set_pud(pudp_new + i,
+ 					pfn_pud(pfn + ((i * PUD_SIZE) >> PAGE_SHIFT), prot));
+
+ 			/*
+@@ -224,7 +220,7 @@
+ 			 */
+ 			smp_wmb();
+
+-			set_p4d(p4dp, pfn_p4d(page_to_pfn(pud_page), PAGE_TABLE));
++			p4d_populate(&init_mm, p4dp, pudp_new);
+ 		}
+
+ 		ret = __split_linear_mapping_pud(p4dp, vaddr, next);
