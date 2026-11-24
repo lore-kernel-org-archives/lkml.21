@@ -1,95 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.177
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795556068;
-	b=AHJkLV5C5Wq1NjwW/o1Re3/PEtcSqfJ9B1nxGHUeZrM0Kf5bPARM+B5VSBLD08l78/0L
-	 lVD1dIZ7ubYWcOsMlgIyzQGHablZM79pSfb6fWrX+WEBNHnKnPEcIeB/I9DTNJ2DNDMSC
-	 JFKqP0I8npv4BLlKeRJXW0aR1cOz4jPDJYeiE1mMqSNgvXW6MpN2trBZZ3ejMAUGACAhw
-	 QANxji+HMp0s0y78lyc6RO4MPnl9cTxwvZ1/3R3fqlrFMFDuCxEbib/gzeWxpp92GlcTT
-	 VLp2PlHvPX5DY8vc2iI8TDXvZ4AC3wgSdjpAp66gPmtnLgbVqhNZ1u6pl5blurJ04oA==
+	t=1795556083;
+	b=4//ShdyefbKAP1qAe3H9rWCEMfjSd1X7khyEkhcRqooVHgZMDSS3Dhqjbo5vTFOCx6GA
+	 cbPXcrkALnu/6A6IyWkyeajpnf+f+S1EBOWtw1/8LkXfwljcjjKtPigrh/1nz+Z2zuEHx
+	 f0MofU9ukMqGvKC0ToHzsaleJB8CSKAZOcY+9DaCV6TYlu0fdsT8zbJtfHo53QFxpqiII
+	 lv6mCDL3GER6MkonlkUm/i95ddlB/qCMiBun5EezDe9l9xyUKw1v/RudwMXl79fHOXbKY
+	 kuauNLktzf/fonhaXviT/VBZsIt6fLuRYeOUmbjPdPXF295VCss/1LcCESQ+MljkQ6w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795556068;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795556083;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=O9lMyeWaR2AVa49Y0bfc4zD6I2/RGDgVBYEZU7qaCoU=;
-	b=i4dhx2mgyYOIKEcOD3mA2lpKC6RmXND5AXudee8cn6gYbLygwOIQrsuWldWn7Gi0gAhe
-	 1lQ+pD2oIhTSw4xboTgWkA/w3EDWgmQGXIln/RIax2u466Z0h9wLPtXWtJ5/shzK9D+w+
-	 w77WuwXRoFiMAKMTz+LMWuSDIbCtwvARnLjunggCbyZhNqud8ni71pb/3+zLytA54qWnR
-	 ZNp3yy8IEb2c84FwyB4UxqzXErZXPL1MnN4gLyg6XNbbqjY46GJCsrnK39e/RCKJgtDU7
-	 1JxV+3HEW78/3VJz9b0Olwr7ZdnQMLSpSm6acvH8HKxSZL3N/fL6dYPGRRwz/0q14AQ==
+	bh=PyyQwKmFe9iM2Cp50Hb1UepVeU0i/+dyb3nhRaBGF3U=;
+	b=hzTEoYtvRdnBNsZA36YDDTQjRU4/6PvzRISjY4StnSy4zvjMdQDw04+hOH3P1f5PE0hN
+	 HlYWJXJgpCOJtPu3U1rdWVMmiamW9Qvhx6caDNttvAaDwdRj2zIpX8m4u/hJjjKpECgnz
+	 rVV2VSWESvL9D08FbytJ0H/FyxENE4Y6eUTp/zaV9IAfucGWgX+efTwgtRQAlnxULaudu
+	 6baaKK/rxQNvsEQ5RquwKOX00V/nZeqGsXCYeS5P2q0WwCmUuujNl0sLMmsa+eu2LJtS/
+	 1szjB3YNjJ4A6F2zPwM25a5zkdsgN+0H3GDZp/3jnaqHLJyUEGb9iTQma1FWszlhgMQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YnA8H5mb;
-	arc=none smtp.remote-ip=74.125.82.177
-Received: from mail-dy1-f177.google.com (mail-dy1-f177.google.com [74.125.82.177])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=oOjlOt8j;
+	arc=none smtp.remote-ip=209.85.128.45
+Received: from mail-wm1-f45.google.com (mail-wm1-f45.google.com [209.85.128.45])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BBE07606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 21:34:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BBE07606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 10711606A321
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 21:34:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 10711606A321
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YnA8H5mb
-Received: by mail-dy1-f177.google.com with SMTP id 5a478bee46e88-386c71feeeaso1214945eec.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:34:27 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=oOjlOt8j
+Received: by mail-wm1-f45.google.com with SMTP id 5b1f17b1804b1-4a5b2be99a8so43325765e9.2
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:34:42 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795556067; x=1796160867; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795556081; x=1796160881; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=O9lMyeWaR2AVa49Y0bfc4zD6I2/RGDgVBYEZU7qaCoU=;
-        b=YnA8H5mbAb87huLraVdskBGdPTT/W3Qs8PqUBuSJEO5p9jqoLnCBe6TimVXsJE/luI
-         CqmX+ZsW1ejQGYGkGq1rCauhmPrXsMcoQ92yJgCgGrhBeo2ewA9VcdH1lXPxeOAKZi+N
-         Fwi/1uVNs5TrL5KTb7fBYO9i9RGbHPSNFoTmDhJzLS5W3Qxp4G1oZ5/Pgr4j+f7HUghl
-         MjN1iF34nSV8JE9MO6X41gR+N9pdCjQMGKXcYk7qxLSDXhWGOtBtZ5FqIr+LAozV37HH
-         t1oOx4phLeQMotl3A0RqAdrEvWEfsfmrAlNmeVd5ZIPi5ZRnwWU5bSa05Vc7cg91L00U
-         qXUg==
+        bh=PyyQwKmFe9iM2Cp50Hb1UepVeU0i/+dyb3nhRaBGF3U=;
+        b=oOjlOt8jNFXVtNx13w4rQVGTgE8/JSWvYa95a33OuG/Nchqm5WrW4BBXjdYKLtJ28W
+         A1JDuw5B8eWUeHHiwbhq8WVOcxptXsFPWIrKnEtpfI2ti2yvkUb+PFaP5kIN02mgvUgK
+         pCzsS5dJivxyKh7tSL+PEypJyDo2yokfKFWtwnuRVrDmJ1qbocihDhfENZYBh0tghUQz
+         WGOS+FkV+FLFGcXzrGsm/echy3MjDe0T+VnHgW7P2gMWx01W6yap/5b9/rWkWuj+VZry
+         W1YJoOdCYrkBYxPDFR52nf36PKNMQhFLqAsU8x7OUbr86Y9Yz8zeg91OA7Jm7/r2tlHQ
+         /tFQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795556067; x=1796160867;
+        d=1e100.net; s=20260707; t=1795556081; x=1796160881;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=O9lMyeWaR2AVa49Y0bfc4zD6I2/RGDgVBYEZU7qaCoU=;
-        b=l7L7QI4NqttRFpBIDiVTOyyf6oL2aeMrL8yfVVlRcR8+HsSDf8Jb7oRJUxCQIWCtf8
-         qD2opFGAoeXngxoKqJCJH8Sd/cbkTZ9qFZziK3btXjnMNqbYcjSiXXDyCHQHhkMyA6SD
-         E75dB9kccbD5E68MWb2z02cqvhw40tbhYWvQkmiJYcmBkcoQrecoMjX1u1Zup3mVWRLI
-         euKdvi4VCmOnhGIne02WOl8KM+Kthb5HoEVgHUrkw94rbt2iF5IZ1QaSuSMHPk5qH2XX
-         ZpcU6uhwqqOAivswvDRH4zDS3Sde8KdUAEgmOo8uQctHkGKnp/k441mjReeK8FG25R3i
-         +McQ==
-X-Forwarded-Encrypted: i=1; AL+hErGp0JRjnHld3YOGJnPVjJxPqdP9xiJUGAOHVtg1r0f1C3k/MV0A8ZXvYdjBcsRmo2/j6ZheJ3prNmJVap0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9vHhYDTlGKo6lunqVliJ79BsY48WOIWax5F30fnCg+0M7GUvex
-	hg03ZUJR18myP2LuxVGYbMcxPMzL6Gt6IOCXNH/4GXgbO0J1NUp/2A75
-X-Gm-Gg: AZFdTZenmGeTPAZwOHVt78wacp7PrRBUIZM3YOp/FDwd7C2IWVCZQpycG6CJJBqyY+4
-	6Kp0wEBRUPsjE+ipo5xu/6TBrKpmwhwCTLl3cxduxEWcydwPtIx4rqH2RilR7Lp8VRHTHW9QCmu
-	a3KQFAzQDwL/vaiXBoOTZit9mzr7N8C4IOFW+jwTXVRn1cSZzjcbQSreJzfzyV0IZBJnz81NOv5
-	Od6sYjGXfbxSOJ4qiT2EhRrx7MoAW9gAZdFXapk33PlK1kstg0JDMzHvpb6x8BMIOOq+F2tibZo
-	VXyrWXr8PyDehXtVfdxr9SX8WGLe8w7Hpn5qG6LQr7878lVpySkDkWK/KjYMwJLX4b6wd9Vi75L
-	MoS8T1n6sSK9N7fakp4fVsO8yXRG6xRkkQGqD4IsMKkZumtr4oH/449bTbMO4j9CAW4ta9UtheN
-	RFU4K/9mhbTUFuf7tvzEsLKCsekw7m6AuEdYc6OyXM8vdbfHM3H8SD28dL0FKHYUGcdRWXk2OsG
-	BsRqqUPXxQr0EqWKw67f7wRzMC60gR9wY0/ZHBVCHyJa+JSbhdrUFEaoAZZOIuHVwdaEcnH/OQV
-	BfssnyQnOY4lYvy/64BYmdy67O8WFX+rW7wV0rVqbLxegvP4OnmLotwJW7eGwy9mHlnG3vgOt69
-	lso2ANkU5M4K8
-X-Received: by 2002:a05:7300:e91e:b0:384:2780:8757 with SMTP id 5a478bee46e88-38570a3e793mr18231095eec.22.1795556066685;
-        Tue, 24 Nov 2026 13:34:26 -0800 (PST)
-Received: from dev-oss-0.tail8d7c7c.ts.net (c-73-70-201-200.hsd1.ca.comcast.net. [73.70.201.200])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385666e7f59sm49448857eec.6.2026.11.24.13.34.25
+        bh=PyyQwKmFe9iM2Cp50Hb1UepVeU0i/+dyb3nhRaBGF3U=;
+        b=INyAksPyhFhhBAqrp+1Zxo0wiegcqYu3VSXHQZXZ8JcC4G8HtDOMpFcUdKGrqHi2DF
+         qCG2xkCUC5WTvMgGgTfOvDqyT3q98IQb3oyj1jZ4RBM3TvSN8+hxTh2X+cF6r/07cIjx
+         cMb/+t79zP4ULqYmffUP9kVI+c0nNH7YVCjiE5dpcHyfaWkIbdEKDIwuUKIO4m1y+rOH
+         fboEyn39xk4LamojE9yKcrx/n0q3r7dYbiG2fe5pxy8odeii2zByzOTBecgNnRxYyFYO
+         F4RFMT2mXlVIIIZ9fNvW6U/YLvhMEVxHq1i5a8fhZ5MrNynZruLnrMwt8eHbp1KaaTWL
+         jeSA==
+X-Forwarded-Encrypted: i=1; AL+hErEQEX9ol33cnB5pIK32cQHG91ShF1gdPkoGFg+/ItoiMBccEVLugsHtNoQqRR6lPueGsLVyVxElEvKyTnM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/sNnU8fcY0AH9Sk0j0dD7VAoTnPcEaECyMKaTZNgM7h3kMAM3e
+	+glt8RkvUp7YOiHACw13fcRjgl+XAJrISR4Rlq00LmuzqhPbiLp1eWq2
+X-Gm-Gg: AZFdTZd315VnxCEA6IEPvmy69JvyHli09ASP+u0UeH5C+CjsPa04QGtqUvK7yDh5z5+
+	WC69BTPHJDYqCsAXjOWcHpcQNi8lUziqAHlV4DDtdgRrz1xZXNPpAV6AMMf7rC3PVtxu2JMXwVb
+	thEk7C6IJ+u9lXAe9ZqoTbQbTic4Ap6STL0wuhRNzTn88px25JhnCPAfW8x6k/EzPgvMb8IeXm3
+	0v7IZpWLQTVkJtdzm2RVYvT/Ry3v5AALqe8C+rGyOOkU9AZDr1tzGV9tngKDATYkohNHwBHGPyQ
+	E63JI2KdECYxiD1sGcfenHmkKr6VfKXo0MRicjEqhMnsZg0F02RC3t+9NubcNGtkjYM1NHldbdb
+	tx9C9U+OgzSDYrGyewuWNGmDjDdbm+nrORZWAcln/AzWI/uEeGaDTG9ioRAJz5VU+iZdNrU+O4Q
+	Sby9x0i5dEDaotkIJREss3ybxipLKa1/0J1kzBm38WRzFGedbUHn0BV8thsUrGZbE/2RvdJXkmp
+	iXtL1tFxUV2pEXhTIXbdKSCVLjwDJzLmyP5MJGkGtmZPPXjMZBbWN8fGv+b1qTMidIKvbHlNHSz
+	M/WUwOPvA7MHHV4wil3+M14IE0h4Lg==
+X-Received: by 2002:a05:600c:800e:b0:4bb:7757:fe58 with SMTP id 5b1f17b1804b1-4bb8881b9d7mr328897525e9.19.1795556081300;
+        Tue, 24 Nov 2026 13:34:41 -0800 (PST)
+Received: from fra-x8664 ([151.83.244.218])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb90660cb4sm403974515e9.2.2026.11.24.13.34.39
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 13:34:26 -0800 (PST)
-From: Qian Xiao <heyheyco@gmail.com>
-To: Matthew Wilcox <willy@infradead.org>,
-	Andrew Morton <akpm@linux-foundation.org>
-Cc: linux-fsdevel@vger.kernel.org,
-	linux-mm@kvack.org,
+        Tue, 24 Nov 2026 13:34:40 -0800 (PST)
+From: Francesco Magazzu <postadelmaga@gmail.com>
+To: Lyude Paul <lyude@redhat.com>,
+	Danilo Krummrich <dakr@kernel.org>
+Cc: David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Ilia Mirkin <imirkin@alum.mit.edu>,
+	dri-devel@lists.freedesktop.org,
+	nouveau@lists.freedesktop.org,
 	linux-kernel@vger.kernel.org,
-	Krystian Kaniewski <krystianmkaniewski@gmail.com>,
-	Qian Xiao <heyheyco@gmail.com>
-Subject: [PATCH] xarray: fix index jumping backwards in xas_find_marked()
-Date: Tue, 24 Nov 2026 13:34:24 -0800
-Message-ID: <20261124213424.2224554-1-heyheyco@gmail.com>
-X-Mailer: git-send-email 2.53.0
+	regressions@lists.linux.dev,
+	stable@vger.kernel.org
+Subject: [PATCH] drm/nouveau/devinit/gf100-: fix POST being skipped on GPUs without display
+Date: Tue, 24 Nov 2026 22:34:30 +0100
+Message-ID: <20261124213430.9525-1-postadelmaga@gmail.com>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,186 +103,66 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-xas_find() keeps xa_index when a lookup starts inside a multi-index
-entry stored in a non-leaf node, and aligns xa_offset with that index
-before advancing. xas_find_marked() still does neither.
+Commit 2139cb633d48 ("drm/nouveau/devinit/gf100-: try to avoid
+double-running vbios scripts") skips devinit if VGA CRTC register 0x00
+or 0x1a is non-zero, unless the display engine is disabled.  It detects
+the latter from the return value of nvkm_devinit_disable(), which is
+always 0: the strapped-off engines are removed with
+nvkm_subdev_disable() instead.  So the VGA registers are always read.
 
-Walking from a sibling slot to the canonical slot calls
-xas_move_index(), so a start index such as 127 becomes 0. After the
-cursor has been walked, xa_offset can also stay on the canonical slot
-while xa_index is inside a later slot of the same entry. The next
-xas_find_marked() then recomputes xa_index from the stale offset. If
-the entry is split, the call returns a marked entry below the index
-already reached. xas_find() returns the following entry in the same
-situation.
+On a GM108 (GeForce 940MX: no display engine, not POSTed by the
+firmware) those reads fault and return 0x13.  devinit is skipped, the
+GPU is used uninitialised and the machine panics at boot:
 
-Resolve the sibling without moving xa_index. Before advancing a cursor
-that has already been walked, set xa_offset from xa_index the same way
-xas_find() does. Keep skipping sibling entries at the return site.
+  nouveau 0000:01:00.0: fifo: fault 01 [WRITE] at 00000000001a1000 engine 05 [BAR2] client 08 [HUB/HOST_CPU_NB] reason 04 [UNBOUND_INST_BLOCK] on channel -1
+  mce: CPUs not responding to MCE broadcast (may include false positives): 1,3
+  Kernel panic - not syncing: Timeout: Not all CPUs entered broadcast exception handler
 
-The userspace XArray test suite passed. The kernel was not built.
+Check device->disp instead, once nvkm_devinit_disable() has removed the
+disabled engines, like nv50_devinit_preinit() does.
 
-Fixes: b803b42823d0 ("xarray: Add XArray iterators")
-Cc: <stable@vger.kernel.org>
-Signed-off-by: Qian Xiao <heyheyco@gmail.com>
+Fixes: 2139cb633d48 ("drm/nouveau/devinit/gf100-: try to avoid double-running vbios scripts")
+Cc: stable@vger.kernel.org
+Assisted-by: Claude:claude-fable-5-2
+Signed-off-by: Francesco Magazzu <postadelmaga@gmail.com>
 ---
- lib/test_xarray.c | 104 ++++++++++++++++++++++++++++++++++++++++++++++
- lib/xarray.c      |  12 ++++--
- 2 files changed, 113 insertions(+), 3 deletions(-)
 
-diff --git a/lib/test_xarray.c b/lib/test_xarray.c
-index 615f7730a5bd..ddc392d42d29 100644
---- a/lib/test_xarray.c
-+++ b/lib/test_xarray.c
-@@ -1316,6 +1316,109 @@ static noinline void check_multi_find_4(struct xarray *xa)
- #endif
- }
- 
-+static noinline void check_multi_find_marked_nonleaf(struct xarray *xa)
-+{
-+#ifdef CONFIG_XARRAY_MULTI
-+	unsigned int order = XA_CHUNK_SHIFT + 1;
-+	unsigned long next = 1UL << order;
-+	unsigned long start = next - 1;
-+	XA_STATE(xas, xa, start);
-+	XA_STATE_ORDER(split, xa, 0, 0);
-+	void *entry;
-+	unsigned long i;
-+
-+	/* Multi-index entry in two slots of a non-leaf node, both marked. */
-+	xa_store_order(xa, 0, order, xa_mk_index(0), GFP_KERNEL);
-+	xa_set_mark(xa, 0, XA_MARK_0);
-+	XA_BUG_ON(xa, xa_store_index(xa, next, GFP_KERNEL) != NULL);
-+	xa_set_mark(xa, next, XA_MARK_0);
-+
-+	rcu_read_lock();
-+	entry = xas_find_marked(&xas, ULONG_MAX, XA_MARK_0);
-+	XA_BUG_ON(xa, entry != xa_mk_index(0));
-+	XA_BUG_ON(xa, xas.xa_index != start);
-+
-+	entry = xas_find_marked(&xas, ULONG_MAX, XA_MARK_0);
-+	XA_BUG_ON(xa, entry != xa_mk_index(next));
-+	XA_BUG_ON(xa, xas.xa_index != next);
-+
-+	entry = xas_find_marked(&xas, ULONG_MAX, XA_MARK_0);
-+	XA_BUG_ON(xa, entry != NULL);
-+	rcu_read_unlock();
-+
-+	xa_destroy(xa);
-+	XA_BUG_ON(xa, !xa_empty(xa));
-+
-+	/* Split the multi-index entry after a lookup begins inside it. */
-+	xa_store_order(xa, 0, order, xa_mk_index(0), GFP_KERNEL);
-+	xa_set_mark(xa, 0, XA_MARK_0);
-+	XA_BUG_ON(xa, xa_store_index(xa, next, GFP_KERNEL) != NULL);
-+	xa_set_mark(xa, next, XA_MARK_0);
-+
-+	xas_set(&xas, start);
-+	rcu_read_lock();
-+	entry = xas_find_marked(&xas, ULONG_MAX, XA_MARK_0);
-+	XA_BUG_ON(xa, entry != xa_mk_index(0));
-+	XA_BUG_ON(xa, xas.xa_index != start);
-+	rcu_read_unlock();
-+
-+	xas_split_alloc(&split, xa_mk_index(0), order, GFP_KERNEL);
-+	if (xas_error(&split)) {
-+		XA_BUG_ON(xa, true);
-+		goto out;
-+	}
-+	xas_lock(&split);
-+	xas_split(&split, xa_mk_index(0), order);
-+	for (i = 0; i < next; i++)
-+		__xa_store(xa, i, xa_mk_index(i), 0);
-+	xas_unlock(&split);
-+
-+	rcu_read_lock();
-+	entry = xas_find_marked(&xas, ULONG_MAX, XA_MARK_0);
-+	XA_BUG_ON(xa, entry != xa_mk_index(next));
-+	XA_BUG_ON(xa, xas.xa_index != next);
-+
-+	entry = xas_find_marked(&xas, ULONG_MAX, XA_MARK_0);
-+	XA_BUG_ON(xa, entry != NULL);
-+	rcu_read_unlock();
-+
-+	xa_destroy(xa);
-+
-+	/* Nothing marked past the index already walked. */
-+	xa_store_order(xa, 0, order, xa_mk_index(0), GFP_KERNEL);
-+	xa_set_mark(xa, 0, XA_MARK_0);
-+	XA_BUG_ON(xa, xa_store_index(xa, next, GFP_KERNEL) != NULL);
-+
-+	xas_set(&xas, start);
-+	rcu_read_lock();
-+	entry = xas_load(&xas);
-+	XA_BUG_ON(xa, entry != xa_mk_index(0));
-+	XA_BUG_ON(xa, xas.xa_index != start);
-+	rcu_read_unlock();
-+
-+	xas_set(&split, 0);
-+	xas_split_alloc(&split, xa_mk_index(0), order, GFP_KERNEL);
-+	if (xas_error(&split)) {
-+		XA_BUG_ON(xa, true);
-+		goto out;
-+	}
-+	xas_lock(&split);
-+	xas_split(&split, xa_mk_index(0), order);
-+	for (i = 0; i < next; i++)
-+		__xa_store(xa, i, xa_mk_index(i), 0);
-+	xas_unlock(&split);
-+
-+	rcu_read_lock();
-+	entry = xas_find_marked(&xas, ULONG_MAX, XA_MARK_0);
-+	XA_BUG_ON(xa, entry != NULL);
-+	rcu_read_unlock();
-+
-+out:
-+	xa_destroy(xa);
-+	XA_BUG_ON(xa, !xa_empty(xa));
-+#endif
-+}
-+
- static noinline void check_find_1(struct xarray *xa)
- {
- 	unsigned long i, j, k;
-@@ -1440,6 +1543,7 @@ static noinline void check_find(struct xarray *xa)
- 	check_multi_find_2(xa);
- 	check_multi_find_3(xa);
- 	check_multi_find_4(xa);
-+	check_multi_find_marked_nonleaf(xa);
- }
- 
- /* See find_swap_entry() in mm/shmem.c */
-diff --git a/lib/xarray.c b/lib/xarray.c
-index 48f440d114e1..4d943791a7b4 100644
---- a/lib/xarray.c
-+++ b/lib/xarray.c
-@@ -1495,6 +1495,14 @@ void *xas_find_marked(struct xa_state *xas, unsigned long max, xa_mark_t mark)
- 		xas->xa_offset = xas->xa_index >> xas->xa_node->shift;
- 	}
- 
-+	if (advance &&
-+	    xas->xa_offset != get_offset(xas->xa_index, xas->xa_node)) {
-+		if (!xas->xa_node->shift)
-+			xas->xa_offset = ((xas->xa_index - 1) & XA_CHUNK_MASK) + 1;
-+		else
-+			xas->xa_offset = get_offset(xas->xa_index, xas->xa_node);
-+	}
-+
- 	while (xas->xa_index <= max) {
- 		if (unlikely(xas->xa_offset == XA_CHUNK_SIZE)) {
- 			xas->xa_offset = xas->xa_node->offset + 1;
-@@ -1507,10 +1515,8 @@ void *xas_find_marked(struct xa_state *xas, unsigned long max, xa_mark_t mark)
- 
- 		if (!advance) {
- 			entry = xa_entry(xas->xa, xas->xa_node, xas->xa_offset);
--			if (xa_is_sibling(entry)) {
-+			if (xa_is_sibling(entry))
- 				xas->xa_offset = xa_to_sibling(entry);
--				xas_move_index(xas, xas->xa_offset);
--			}
- 		}
- 
- 		offset = xas_find_chunk(xas, advance, mark);
+Notes:
+    v7.3.4 boots on this machine; v7.3.5, which has the stable backport
+    (992f7f5f34f8), panics.  Tested on v7.3.5: with this patch the GM108 is
+    POSTed again at probe and on runtime resume.  Not tested on a board
+    that has a display engine.
+    
+    Read at preinit on this board: 0x2240c = 0x00000000, CR00 = CR1A = 0x13,
+    0x021c04 = 0x00000001 (display strapped off).
+    
+    The regression was analysed and the patch drafted with an AI coding
+    assistant (Claude Code); I tested it on the hardware above.
+
+ drivers/gpu/drm/nouveau/nvkm/subdev/devinit/gf100.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/gpu/drm/nouveau/nvkm/subdev/devinit/gf100.c b/drivers/gpu/drm/nouveau/nvkm/subdev/devinit/gf100.c
+index 186e09ea0c..b256404c24 100644
+--- a/drivers/gpu/drm/nouveau/nvkm/subdev/devinit/gf100.c
++++ b/drivers/gpu/drm/nouveau/nvkm/subdev/devinit/gf100.c
+@@ -107,12 +107,12 @@ gf100_devinit_preinit(struct nvkm_devinit *base)
+ 	 * VBIOS multiple times may have detrimental effects.
+ 	 */
+ 	if (base->post) {
+-		u64 disable = nvkm_devinit_disable(base);
++		nvkm_devinit_disable(base);
+ 		/* magic to detect whether or not x86 vbios code has
+ 		 * executed the devinit scripts to initialise the
+ 		 * board. only works if there's a display engine.
+ 		 */
+-		if (!(disable & (1ULL << NVKM_ENGINE_DISP))) {
++		if (device->disp) {
+ 			if (nvkm_rdvgac(device, 0, 0x00) ||
+ 			    nvkm_rdvgac(device, 0, 0x1a)) {
+ 				base->post = false;
+
+base-commit: 8d7fe9885c62fc9a95bf55d9db244d9672a8aadc
 -- 
-2.53.0
+2.56.1
 
