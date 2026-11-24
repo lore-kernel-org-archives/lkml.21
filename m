@@ -1,124 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=205.220.168.131
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795505879;
-	b=epBNz9+8RFu/uums2+sd4QdeVRuj899cgsqYmF3ANYlCe90heJi14h1SFSf3DsMsg1D2
-	 uXu4/mng9R9MSl8UCoiAOiTyhNZHrKVFk/E7jYU4WjJbYgaxceDOsBc0E74A61LTtyud3
-	 gxzJ02DyNREK4oAgErswyM0Zn2S80TirrxDX9O1PUT5SHUxC2tr0fkhGOWCFr4jAXvOOD
-	 IuMsCko6+FhnrmrRtY3mGfncsadC1nt6TomHpO6hHVWxBjXofp1gQL8S4nNojuTI+XgxH
-	 F1qVMPKCxOSduWgTFzrQHBcejX33tV3bwrnJ4RarKvvENjT8AUAiTvomp7Wy8xHXW1w==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795505879;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:MIME-Version:
-	 References:In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:
-	 Cc:Content-Type:Content-Transfer-Encoding:X-Proofpoint-Spam-Info:
-	 X-Authority-Analysis:X-Proofpoint-GUID:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=WLDBCseQttjsh+YgjaRZ95arQzmquJXtwPce4pg+uuw=;
-	b=0YrDXOv5b1xNDU7Nt3tsPCF8d4XdHYswmNCNNUyPyfmq+lk0maLWfOR2Y+oKclwGO7Cp
-	 +kYWArsqGvC6YmWXOK0g+CUGJM7KP35cO3DVnMab4gv5QjGSLYc2ytC0jfKmdww92HaMR
-	 9xb3E/eGruT8cEOcSPQRbrX4JHJKqS2rc9KmAUmQzFewe2N5SOWvc/CXlSKdy12FHGVP3
-	 Ri4pkKiObi895c2of92Q/t1mNu4mmJt5AK9iBfAYOMMW39rmEidYhR2IumXVdgmzJn1J/
-	 5b/+ziZ2k7pz6JiZLL2rPCEuDqT9pL2RbRjTHrK/J/bf8DjxqH4JckxmLZFFu+jC+aA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=jB2OhFnb;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=S1+Iax5U;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.3
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795505920;
+	b=BUS6Tb8RZ80O6cu2mErTL9GU0yjd6vu+gTFHs+q51dFHjdEYb8REMdonaFXXZ7vGTrv0
+	 XmXE7ZF0pgkV6F2Q2doMe9aw3igM10mxLI1AZSUUL1r6NcxdNR+CuXeDT0snrwS4Kl8zT
+	 W6ypZ5wWR1PCTQ+wH/2OnkQZKUXgHpJL/lwtmZ/mnHINhJO8vxbVkt6x8PAwMkjXmLwtB
+	 TaHfWpY/aHVLZ+7qDMz33cEypAFSFMyXieKSv9oeizCNXfWkSprvhu/wSoYKacW2FWBF9
+	 rhuh3IsOC5WbuO4TKfLHI0zdUKX/7LcCbYWZxv2C1rC41yVm/yM4qGzjoLEjUfXITXQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795505920;
+	h=DMARC-Filter:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-CM-TRANSID:
+	 X-Coremail-Antispam:X-CM-SenderInfo;
+	bh=ktivcff5YhXmCgYBdixf03CRfgnJAwXEY/ur6PjxkoA=;
+	b=QKm0jijlT6EbvBjQVb0ErkTj563f9fAydxWgDGlaM65GkLv8AwFbOtzsHV1nZ+7AfRW5
+	 yjtPbd3pu1UXg30/rrGAhYRJc404gjp22wBjVNzidFUzs1ISpzytmOe20Hv0T1rGs4+iN
+	 oPCpPOVpDebg09ztz1NhJAuZFBuhEiV8aW3X+ATx+S2KjQ02ssmZBq0TPWPGVXUF8Xib9
+	 4zxUxQFWllA78yLgyPvZdBWwFkn1aB34Hm4cu9dZx4Opz6cqVFOWOO3E7R7LsmZEJrLC9
+	 HEnQCvx0ip0xY72CwTlbEg1INceWVj9K/jwApUJG01KbIV7CEda14HmGTZAhN2qQ+ow==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=163.com;
+	spf=pass smtp.mailfrom=163.com;
+	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=SJu0NOYd;
+	arc=none smtp.remote-ip=117.135.210.3
+Received: from m16.mail.163.com (m16.mail.163.com [117.135.210.3])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 25FB0606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 07:37:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 25FB0606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C33D7606A31E;
+	Tue, 24 Nov 2026 07:38:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C33D7606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=jB2OhFnb;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=S1+Iax5U
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AO2k6Qw3225388
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 07:37:56 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	WLDBCseQttjsh+YgjaRZ95arQzmquJXtwPce4pg+uuw=; b=jB2OhFnb5kcQJfBh
-	9PooZCIYHGNUVjDcGwumXONQT2rphRiM+HKb+Z5rBcfoZ9URBb6HmUCKyU398p1z
-	0DE3n1unAJCPGSKA9qHqDKxoWrwnFiNfWRaB4F0mZuQ+gIyw7qVkk0rFFWIT+hr0
-	xlGvD+nbKD4m1GM6eRm0zn5N+zABS6NWAAQ4zM+xLUUTfkXPLcKrmGNQSuaj6NVk
-	LSMFCUkYtOrVzKgsE9JjRJp/p/+NgBxqv/l5UGfpSyCfsEnsySH6HhHWtAFvnFTH
-	QiJHfUK8nig+0y+RvbrdRu8nHxWlPz45JWmVSfVxj87VvZ9rM/3qatNGi8g/YvkN
-	LVZ85g==
-Received: from mail-yw1-f200.google.com (mail-yw1-f200.google.com [209.85.128.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j4x8f1sjq-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 07:37:56 +0000 (GMT)
-Received: by mail-yw1-f200.google.com with SMTP id 00721157ae682-8b50256700cso64738067b3.3
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 23:37:55 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795505875; cv=none;
-        d=google.com; s=arc-20260327;
-        b=LtSlNoNiiNh81Krgh3euuTYhuvOuEnEdeUhFFPNYpuwnF4kTzNzG/AVd/glEnPrJxr
-         Y+8KJvm02s4J2ZRo0Tdg9p9nihHFmYV/4zu3Rt6MjqR6w9Xu+jjwEz9jnEpMRCSoeH/s
-         5iN9B994+yube6817Vfrayx5VlbR+z8EXv8aPZ+SEKOnG+bGBrkwbhAO5WTigLwfaXlQ
-         ATGpy+gxi7xcOuNYOuAbebZrPavl1wwVFKyTbEjlRzHgk1MXNTURqAO5BxXcBiMRD8B8
-         lVcvf3w/qka3epqXOP3aDsJ0M5EWzkwNOie4SLtxS2kIEUMvQ5jMjcR75L4uLSPGms+e
-         DmBw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=WLDBCseQttjsh+YgjaRZ95arQzmquJXtwPce4pg+uuw=;
-        fh=ohQKvKzH6dkU2b6CCBWfmEOeS/DOqnqglKggxe6RN6U=;
-        b=Q7eubgJ+qi+ytce6Gr5E97NaWfJ1hRmj8QBugLgl6OKKoczzPWh0OHZaCIaDK8p3AH
-         nOUIo9v9nkh3JS8Sv7TeKoywS6e6FNcGUj0fh6c7kC2+gpuBgi2ij4GjSt6gppih+8ER
-         O/FcH3Xi5DogUk9+DOgZ4eYcfIGpYwmLMSgMnyCqZ7ACA5Mtn/FkwHNgjR8gMKN/rIxe
-         q86eyKzJJ4Bqcvx06gJ4OeZkEX/4MKi5XILT2EBvUc/ODS5daHQD4S+XDjTTRnZm3vdq
-         j21L5+LeiC4cybOyoXjCt/TdYNC2IuR9VKBtXrj3sVU3dfnqlyMvc2NlbkwOTBnsYmuu
-         6luA==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795505875; x=1796110675; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=WLDBCseQttjsh+YgjaRZ95arQzmquJXtwPce4pg+uuw=;
-        b=S1+Iax5UjwdrBfjmC61+6GR7Ef9vLvndZMhbV6RF5f5jjGfM0fKOFIGSb9cZxbE499
-         ufQ0Iw9iW/MkroytuRNTzxKljpJElsFF8w9uRLGP7Avq+RZTb57Ul1XAJRZ5qQA1kqxg
-         7jbG878tFdG6DzFw+/37L1jhd6FV1aCc7/cXrp+cfOfsQhmbgR+jpkWB2+0CyWhWN8/h
-         yrF5TtN9QZy1tEKAfvOEpPuv5AnxPa6u6OCgoeLhGxjDwK43OfnV/PUQdhSEXPtDxnYS
-         FFlkC6lp8vy68Kr1OCdhQERS5xVbG1XGyggIdSHRH/KZmZy1PSroQztV131DD4SIsduA
-         xQvQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795505875; x=1796110675;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=WLDBCseQttjsh+YgjaRZ95arQzmquJXtwPce4pg+uuw=;
-        b=p/+T8aNOudwbicrPae2IiyueTogmi8Ss1B4wPFVFOpe/wY7wy+AtWCKHAyN1YQxKNK
-         +A2zCZjd660z09drc3jtvl5oCk7tB8qQ/7zoT3vvJLldtHfGqindVOEPQh4tdaFJiyn3
-         xZau02N2dPXn+NO0xUSJQ8a5gnOz8wvyl3tTBFk1K2KRwgmpOzC9tfiuDycloIfbEblX
-         /7Lwikn5kMKxysWnyb2GrPCpljmlBTa0+5fZSZ8n+hMYGkHs/aRIB19x/mWC36F1LHB5
-         E5eU2j/eo+XFq3+wyGiSCEOodluy6BBU8Kp2UWoHvd9xRcAzsPnO+KDe0xkABfg3NQxD
-         Y7DA==
-X-Forwarded-Encrypted: i=1; AL+hErE0uljdoyl4eu+plEyUhh3iwSvboGIDzldj72+QqFu5YgPsifCvf/G00fhzGu4bCl/Cj/Dgby9nmvkZtLE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8Zo3Xk45XyHcTjM7nwjOLpH3Nf8oriolvCZER33XJGN4GfYmjy
-	LPt24fBMauF2sRWJWbZH8gCbQG6pJy/xw7NZT0R0eCeav6GoNEUEnMrj2M8qru6G60k6VndHt3V
-	XWHZFkayisauz0BpFb3y86f7jqjpI1iG/vDbsRAkGdg3NAFlOdcHHJ32SWPwoXPXt9g+0sJvzwp
-	ED+NYYKBOKIfkntWT2zL00U8Ij2h6/+zz+ZUypVXbvyw==
-X-Gm-Gg: AZFdTZe05XyMSeBR72BzWK5RUeZpvfLcEI6aFc8I/fp4kd0cqOXRtn378FM9MJex/yR
-	LtuQmMRUtY7DoP8V6W3opddU3S9ZDLdjDRh1Sipht4VWAMD8LF6Vw++OHCMu3igvDWhQqzCgM+2
-	m+GU5ObS248aVrZ9mptUv3fSU771GugR0Ibs6li6a5m8BFtq5zl72qnSMWXpnm8fqv0WDgbGeqZ
-	vIhIeBSg4sO4KwgMgWBNbbqng/Cwpwd0cxLcnUB
-X-Received: by 2002:a05:690e:450d:10b0:677:cbfc:be28 with SMTP id 956f58d0204a3-67df447c2b9mr2926914d50.75.1795505875020;
-        Mon, 23 Nov 2026 23:37:55 -0800 (PST)
-X-Received: by 2002:a05:690e:450d:10b0:677:cbfc:be28 with SMTP id
- 956f58d0204a3-67df447c2b9mr2926857d50.75.1795505874551; Mon, 23 Nov 2026
- 23:37:54 -0800 (PST)
+	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=SJu0NOYd
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=Message-ID:Date:MIME-Version:Subject:To:From:
+	Content-Type; bh=ktivcff5YhXmCgYBdixf03CRfgnJAwXEY/ur6PjxkoA=;
+	b=SJu0NOYdF7Tsnm5hGETbI6nj5WtbBE+jujNFNGrA4sU0MH1NSYOWL/ZxUXYdTN
+	iaTkXqxLaWkk2iOMPxQUXitO7lp+YEkk9w1BnoN3VJp8gfPfCMDJNQd9onZV8KRn
+	pZ7w/WEc4AX1Py7XuBkwmQxbtVvEQaJ38qSSU1xpROUSU=
+Message-ID: <1e923186-be5a-4640-b56f-a6d019747c83@163.com>
+Date: Tue, 24 Nov 2026 15:34:23 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -128,153 +51,339 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261105-late-2026-mmap_prepare-v1-0-c56aadfbab8a@kernel.org> <20261105-late-2026-mmap_prepare-v1-11-c56aadfbab8a@kernel.org>
-In-Reply-To: <20261105-late-2026-mmap_prepare-v1-11-c56aadfbab8a@kernel.org>
-From: Jens Wiklander <jens.wiklander@oss.qualcomm.com>
-Date: Tue, 24 Nov 2026 08:37:43 +0100
-X-Gm-Features: Aa3M54q5vxZ2pH5GHxV6_gcu1Tnc83EBXhtYw1pJ9H77Fl7U3CQoqAKpEumRrbk
-Message-ID: <CAGgiveX=Z5gS7iJWBanyysVUStDRbgTnVktQwJySXw_-xL+sUA@mail.gmail.com>
-Subject: Re: [PATCH 11/14] tee: convert shm mmap hook to mmap_prepare
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Cc: Juergen Gross <jgross@suse.com>,
-        Stefano Stabellini <sstabellini@kernel.org>,
-        Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>,
-        Madhavan Srinivasan <maddy@linux.ibm.com>,
-        Nicholas Piggin <npiggin@gmail.com>,
-        Michael Ellerman <mpe@ellerman.id.au>,
-        "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-        "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
-        Shrikanth Hegde <sshegde@linux.ibm.com>,
-        Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>,
-        Dexuan Cui <decui@microsoft.com>,
-        "Michael S. Tsirkin" <mst@redhat.com>,
-        Jason Wang <jasowangio@gmail.com>,
-        =?UTF-8?Q?Eugenio_P=C3=A9rez?= <eperezma@redhat.com>,
-        Xuan Zhuo <xuanzhuo@linux.alibaba.com>,
-        Jarkko Sakkinen <jarkko@kernel.org>,
-        Dave Hansen <dave.hansen@linux.intel.com>,
-        Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-        Borislav Petkov <bp@alien8.de>, x86@kernel.org,
-        "H. Peter Anvin" <hpa@zytor.com>, Jan Kara <jack@suse.com>,
-        Paul Moore <paul@paul-moore.com>,
-        Stephen Smalley <stephen.smalley.work@gmail.com>,
-        =?UTF-8?B?T25kcmVqIE1vc27DocSNZWs=?= <omosnacek@gmail.com>,
-        Joel Stanley <joel@jms.id.au>,
-        Andrew Jeffery <andrew@codeconstruct.com.au>,
-        Ryan Chen <ryan_chen@aspeedtech.com>,
-        Billy Tsai <billy_tsai@aspeedtech.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Abel Vesa <abelvesa@kernel.org>, Jens Wiklander <jenswi@kernel.org>,
-        Sumit Garg <sumit.garg@kernel.org>,
-        Scott Branden <scott.branden@broadcom.com>,
-        Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-        Arnd Bergmann <arnd@arndb.de>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        Richard Cochran <richardcochran@gmail.com>,
-        David Woodhouse <dwmw2@infradead.org>,
-        Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller" <davem@davemloft.net>,
-        Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>, xen-devel@lists.xenproject.org,
-        linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-        kvm@vger.kernel.org, linux-hyperv@vger.kernel.org,
-        virtualization@lists.linux.dev, linux-sgx@vger.kernel.org,
-        selinux@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-aspeed@lists.ozlabs.org, linux-arm-msm@vger.kernel.org,
-        op-tee@lists.trustedfirmware.org, netdev@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI0MDAzMCBTYWx0ZWRfX/c8i9RJ3e8x2
- Le8BeNOs5zWKhb9ul0GM2Ruy84eWJQ/NVYxq3KFtXKV2ewFAyV+uPEYlfjzsGGDesmVXAUaQIHg
- I18QMvQLTv3Hsmqjzp4C0cKe+qkFx3k=
-X-Authority-Analysis: v=2.4 cv=JbgpPkKV c=1 sm=1 tr=0 ts=6b053ed4 cx=c_pps
- a=NMvoxGxYzVyQPkMeJjVPKg==:117 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
- a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
- a=YMgV9FUhrdKAYTUUvYB2:22 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8
- a=97S62Xg_vF6B0O42EdoA:9 a=QEXdDO2ut3YA:10 a=kLokIza1BN8a-hAJ3hfR:22
-X-Proofpoint-GUID: o5c53c2kwnrYgs_Gf1vmflipDDMvjD9D
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI0MDAzMCBTYWx0ZWRfXxCoLziJxhgCq
- JuHpSxKxzGfBejoNUgPLImfRbb57nspEAYQi1CLEdlN9BfXCtyvsNhOyDAoiGoyTwO4yjbqZpQG
- qqMhcZxGXSIIYCk0qpoJ1QqUXFCWDKRlE9z7pX9/qsyVLA4oPOociC+k/IQ7RIUVDSfW3EC+dEU
- kFbXmgNSswAjHT2SEj1POO148q/UdJIbgmi5MW4wy9PKhcLpTfw2bB9dHIF2As6C9ouwDXpArpU
- 7N0qn7b2FMA7Kk2FmmV14IYcECJfJXiSd37sG6G4B0WZxVdBnfVDX62oV5JHKAyMbfmmZ/svHEk
- bOLBwtj7Uykm2TPxr52FY6QdHhW3/+qsdF6/EH6AXV8nPiUYObcecoL4lpcJFkMiv/Xk/B714q/
- ggWW+65JP+5U1mctZIwA+lXg7KtuwxP7wwS6z7iw2OaYgCcoEpYU/bKcTxVSqSpsFMe47/6oRWS
- Hkiq2PFTevdh5C1vT2w==
-X-Proofpoint-ORIG-GUID: o5c53c2kwnrYgs_Gf1vmflipDDMvjD9D
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-24_01,2026-11-23_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 bulkscore=0 lowpriorityscore=0 malwarescore=0 spamscore=0
- impostorscore=0 suspectscore=0 clxscore=1015 priorityscore=1501 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611240030
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] platform/x86: lenovo-wmi-other: Add raw
+ GetDataByPackage interface
+To: =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+ Rong Zhang <i@rong.moe>
+Cc: platform-driver-x86@vger.kernel.org,
+ Mark Pearson <mpearson-lenovo@squebb.ca>, derekjohn.clark@gmail.com,
+ W_Armin@gmx.de, corbet@lwn.net, skhan@linuxfoundation.org,
+ rdunlap@infradead.org, Hans de Goede <hansg@kernel.org>,
+ linux-doc@vger.kernel.org, LKML <linux-kernel@vger.kernel.org>
+References: <20261116040532.154928-1-alanpluto@163.com>
+ <20261123061120.18740-1-alanpluto@163.com>
+ <fcabaf8647e0c1ab487cd612d5a290082613ec0b.camel@rong.moe>
+ <983f2e32-cc6e-fa3f-3aee-6aad1e5fa7c8@linux.intel.com>
+Content-Language: en-US
+From: Alan <alanpluto@163.com>
+In-Reply-To: <983f2e32-cc6e-fa3f-3aee-6aad1e5fa7c8@linux.intel.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:_____wCXdRGmPgVrsZZhJw--.34443S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW3Zw4xCry8XFy3Gry3Jr1xuFg_yoWkGr15pF
+	Z8Cay8tr4DJr17Gr12q3W2vFnYvr1rJw15uryDJ3Wjyr9FyryfWF1F9FWF9ryqvrZrGw1F
+	vayUGrZxurs8XrJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jctxfUUUUU=
+X-CM-SenderInfo: hdod01poxw0qqrwthudrp/xtbC8wfUyGsFPqcLqgAA3+
 
-On Thu, Nov 5, 2026 at 10:08=E2=80=AFPM Lorenzo Stoakes (ARM) <ljs@kernel.o=
-rg> wrote:
->
-> Move from the deprecated mmap hook to the new mmap_prepare hook, using th=
-e
-> PFN remap mmap action to map the shared memory.
->
-> Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
-> ---
->  drivers/tee/tee_shm.c | 14 +++++++-------
->  1 file changed, 7 insertions(+), 7 deletions(-)
+On 11/23/2026 8:35 PM, Ilpo Järvinen wrote:
+> On Mon, 23 Nov 2026, Rong Zhang wrote:
+> 
+>> Hi Alan,
+>>
+>> On Mon, 2026-11-23 at 14:11 +0800, Alan Pluto wrote:
+>>> Lenovo's userspace utility uses the Other Mode WMI GetDataByPackage
+>>
+>> What's the purpose of the utility? Could you provide some context? You
+>> can ignore this question if it's confidential, but in general providing
+>> necessary context can help maintainers and reviewers learn about the
+>> intent.
+>>
+>>> method (99) to check device readiness. Expose the method through debugfs
+>>> so the firmware request and response can be inspected on Linux without
+>>> adding a stable userspace ABI.
+>>>
+>>> The interface is disabled by default and can be enabled by passing
+>>> enable_get_data_by_package=1 when loading the module.
+>>>
+>>> Signed-off-by: Alan Pluto <alanpluto@163.com>
+>>> ---
+>>> Changes in v2:
+>>> - Replace the character device with a debugfs file, disabled by default.
+>>> - Allow one open per WMI device and require a single read for the response.
+>>> - Use scoped locks, lockdep checks, automatic buffer cleanup, and the
+>>>   WMI helper's minimum response size check.
+>>>
+>>>  Documentation/wmi/devices/lenovo-wmi-other.rst |  12 +-
+>>>  drivers/platform/x86/lenovo/wmi-other.c        | 208 +++++++++++++++++++++++++
+>>>  2 files changed, 219 insertions(+), 1 deletion(-)
+>>>
+>>> diff --git a/Documentation/wmi/devices/lenovo-wmi-other.rst b/Documentation/wmi/devices/lenovo-wmi-other.rst
+>>> index 011054d64eac5b601333373c4d405f9c5117ffc2..42e1525a8852bd7c8ddc04cc4047b1f09c5b770f 100644
+>>> --- a/Documentation/wmi/devices/lenovo-wmi-other.rst
+>>> +++ b/Documentation/wmi/devices/lenovo-wmi-other.rst
+>>> @@ -33,6 +33,15 @@ under the following path:
+>>>  
+>>>  Additionally, this driver also exports attributes to HWMON.
+>>>  
+>>> +GetDataByPackage diagnostics
+>>> +~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>>
+>> Missing a ~
+>>
+>>> +
+>>> +The driver does not create the diagnostic file by default. To enable it,
+>>> +pass ``enable_get_data_by_package=1`` when loading ``lenovo-wmi-other``.
+>>> +The file is at ``lenovo_wmi/<WMI device>/get_data_by_package``.
+>>> +Not all devices support the method. Use only commands whose behavior and
+>>> +side effects are understood.
+>>> +
+>>>  LENOVO_CAPABILITY_DATA_00
+>>>  -------------------------
+>>>  
+>>> @@ -107,7 +116,8 @@ WMI interface description
+>>>  =========================
+>>>  
+>>>  The WMI interface description can be decoded from the embedded binary MOF (bmof)
+>>> -data using the `bmfdec <https://github.com/pali/bmfdec>`_ utility:
+>>> +data using the `bmfdec <https://github.com/pali/bmfdec>`_ utility. This older
+>>> +example lists ``Max(40)`` for GetDataByPackage; newer firmware uses 100 bytes.
+>>
+>> ??? Could you move the sentence to the right place?
+>>
+>>>  
+>>>  ::
+>>>  
+>>> diff --git a/drivers/platform/x86/lenovo/wmi-other.c b/drivers/platform/x86/lenovo/wmi-other.c
+>>> index bd64e7b44669db684145298ae088dd2c7f539d29..827b4215c612fbfc052bbadff0672e68e65517f0 100644
+>>> --- a/drivers/platform/x86/lenovo/wmi-other.c
+>>> +++ b/drivers/platform/x86/lenovo/wmi-other.c
+>>> @@ -27,13 +27,16 @@
+>>>   */
+>>>  
+>>>  #include <linux/acpi.h>
+>>> +#include <linux/atomic.h>
+>>>  #include <linux/bitfield.h>
+>>>  #include <linux/cleanup.h>
+>>>  #include <linux/component.h>
+>>>  #include <linux/container_of.h>
+>>> +#include <linux/debugfs.h>
+>>>  #include <linux/device.h>
+>>>  #include <linux/export.h>
+>>>  #include <linux/firmware_attributes.h>
+>>> +#include <linux/fs.h>
+>>>  #include <linux/gfp_types.h>
+>>>  #include <linux/hwmon.h>
+>>>  #include <linux/idr.h>
+>>> @@ -41,9 +44,12 @@
+>>>  #include <linux/kobject.h>
+>>>  #include <linux/limits.h>
+>>>  #include <linux/module.h>
+>>> +#include <linux/mutex.h>
+>>>  #include <linux/platform_profile.h>
+>>>  #include <linux/power_supply.h>
+>>> +#include <linux/slab.h>
+>>>  #include <linux/types.h>
+>>> +#include <linux/uaccess.h>
+>>>  #include <linux/wmi.h>
+>>>  
+>>>  #include <acpi/battery.h>
+>>> @@ -90,6 +96,8 @@ enum lwmi_feature_id_psu {
+>>>  
+>>>  #define LWMI_FEATURE_VALUE_GET 17
+>>>  #define LWMI_FEATURE_VALUE_SET 18
+>>> +#define LWMI_DATA_PACKAGE_GET 99
+>>> +#define LWMI_DATA_PACKAGE_INPUT_MAX 100
+>>>  
+>>>  #define LWMI_FAN_ID_BASE 1
+>>>  #define LWMI_FAN_NR 4
+>>> @@ -141,6 +149,8 @@ struct lwmi_om_priv {
+>>>  	struct device *fw_attr_dev;
+>>>  	struct kset *fw_attr_kset;
+>>>  	struct wmi_device *wdev;
+>>> +	struct dentry *debugfs_dir;
+>>> +	atomic_t package_opened;
+>>>  	int ida_id;
+>>>  
+>>>  	struct lwmi_fan_info fan_info[LWMI_FAN_NR];
+>>> @@ -156,6 +166,23 @@ struct lwmi_om_priv {
+>>>  	bool bh_registered;
+>>>  };
+>>>  
+>>> +struct lwmi_package_response {
+>>> +	__le32 data_size;
+>>> +	u8 data[];
+>>> +};
+>>
+>> Even though there is no gap between data_size and data, please add a
+>> __packed annotation to clearly indicate your intent.
+>>
+>>> +
+>>> +struct lwmi_package_file {
+>>> +	struct lwmi_om_priv *priv;
+>>> +	/* Protects the pending response on shared descriptors. */
+>>> +	struct mutex lock;
+>>> +	struct lwmi_package_response *response;
+>>> +	size_t response_len;
+>>> +};
+>>> +
+>>> +static bool enable_get_data_by_package;
+>>> +module_param(enable_get_data_by_package, bool, 0400);
+>>> +MODULE_PARM_DESC(enable_get_data_by_package, "Enable the GetDataByPackage debugfs interface");
+>>> +
+>>>  /*
+>>>   * Visibility of fan channels:
+>>>   *
+>>> @@ -1611,6 +1638,174 @@ static void lwmi_om_fw_attr_remove(struct lwmi_om_priv *priv)
+>>>  
+>>>  /* ======== Self (master: lenovo-wmi-other) ======== */
+>>>  
+>>> +static int lwmi_package_open(struct inode *inode, struct file *file)
+>>> +{
+>>> +	struct lwmi_om_priv *priv = inode->i_private;
+>>> +	struct lwmi_package_file *state __free(kfree) = NULL;
+>>
+>> The declarations of __free() pointers should be placed at where it's
+>> allocated, i.e., ...
+>>
+>>> +
+>>> +	if ((file->f_mode & (FMODE_READ | FMODE_WRITE)) != (FMODE_READ | FMODE_WRITE))
+>>> +		return -EINVAL;
+>>> +
+>>> +	state = kzalloc_obj(*state);
+>>
+>> ...here.
+>>
+>> Meanwhile, opening the file while priv->package_opened == 1 allocates
+>> memory in vain. Could you move it below the package_opened check? In this
+>> manner you don't need the __free() either.
+>>
+>>> +	if (!state)
+>>> +		return -ENOMEM;
+>>> +
+>>> +	if (atomic_cmpxchg(&priv->package_opened, 0, 1))
+>>
+>> atomic_cmpxchg_acquire()
+>>
+>>> +		return -EBUSY;
+>>> +
+>>> +	mutex_init(&state->lock);
+>>> +	state->priv = priv;
+>>> +	file->private_data = no_free_ptr(state);
+>>> +
+>>> +	return stream_open(inode, file);
+>>> +}
+>>> +
+>>> +static int lwmi_package_release(struct inode *inode, struct file *file)
+>>> +{
+>>> +	struct lwmi_package_file *state = file->private_data;
+>>> +	struct dentry *dentry = file->f_path.dentry;
+>>> +
+>>> +	kfree_sensitive(state->response);
+>>
+>> You didn't explain what data it is in your replies. "Can contain
+>> sensitive data" is not an acceptable explanation.
+>>
+>> Please grep the occurrence of kfree_sensitive() in the kernel tree, and
+>> you'll find that they are mostly credentials. Does the data passed by the
+>> interface fall into the same category? 
+>>
+>> TBH, anything goes through WMI is *never* secret. If a manufacturer ever
+>> decided to use it to deliver "sensitive" data, it either misunderstood
+>> the word or chose the wrong interface.
+>>
+>> An ACPI-WMI method goes through the ACPICA, then the WMI core, and
+>> finally here. The former two's temporary buffers are either on stack or
+>> freed by the vanilla kfree(). If leaking "sensitive" response were really
+>> a concern, it must had been leaked before it reached your code.
+>>
+>> Please don't use kfree_sensitive() unless you really understand the data
+>> flow path and have a strong reason to use it. If you insist on it, please
+>> answer both questions.
+>>
+>>> +	mutex_destroy(&state->lock);
+>>> +
+>>> +	/* Unlike read and write, release can run after debugfs removal. */
+>>
+>> The comment is not helpful, as it's just repeating well-known knowledge.
+>> Please explain what it protects:
+>>
+>>    The release() callback may be called after state->priv has been freed.
+>>    Only when the debugfs file hasn't been removed is the pointer valid.
+>>
+>>> +	if (!debugfs_file_get(dentry)) {
+>>> +		atomic_set(&state->priv->package_opened, 0);
+>>
+>> atomic_set_release()
+>>
+>>> +		debugfs_file_put(dentry);
+>>> +	}
+>>> +
+>>> +	kfree(state);
+>>> +	return 0;
+>>> +}
+>>> +
+>>> +static int lwmi_package_invoke(struct lwmi_package_file *state, u8 *data)
+>>> +{
+>>> +	struct lwmi_om_priv *priv = state->priv;
+>>> +	struct wmi_buffer input = { .length = LWMI_DATA_PACKAGE_INPUT_MAX, .data = data };
+>>> +	struct wmi_buffer output;
+>>> +	u32 data_size;
+>>> +	int ret;
+>>> +
+>>> +	lockdep_assert_held(&state->lock);
+>>> +
+>>> +	/* The tested firmware needs two calls before its response is usable. */
+>>> +	ret = wmidev_invoke_method(priv->wdev, 0, LWMI_DATA_PACKAGE_GET,
+>>> +				   &input, &output, 0);
+>>> +	if (ret)
+>>> +		return ret;
+>>> +
+>>> +	kfree_sensitive(output.data);
+>>> +
+>>> +	ret = wmidev_invoke_method(priv->wdev, 0, LWMI_DATA_PACKAGE_GET,
+>>> +				   &input, &output, sizeof(struct lwmi_package_response));
+>>> +	if (ret)
+>>> +		return ret;
+>>> +
+>>> +	struct lwmi_package_response *response __free(kfree_sensitive) = output.data;
+>>> +
+>>> +	data_size = le32_to_cpu(response->data_size);
+>>> +	if (data_size > output.length - sizeof(*response))
+>>
+>> Why not use struct_size() here? Considering that...
+>>
+>>> +		return -EPROTO;
+>>> +
+>>> +	state->response_len = struct_size(response, data, data_size);
+>>
+>> ...you've used it here, you may introduce a on-stack variable to
+>> temporarily store the calculated size and use it here and there.
+>>
+>>> +	state->response = no_free_ptr(response);
+>>> +	return 0;
+>>> +}
+>>> +
+>>> +static ssize_t lwmi_package_write(struct file *file, const char __user *buffer,
+>>> +				  size_t count, loff_t *ppos)
+>>> +{
+>>> +	struct lwmi_package_file *state = file->private_data;
+>>> +	u8 input[LWMI_DATA_PACKAGE_INPUT_MAX] = {};
+>>> +	int ret;
+>>> +
+>>> +	if (!count || count > sizeof(input))
+>>> +		return -EINVAL;
+>>> +
+>>> +	ACQUIRE(mutex_try, state_guard)(&state->lock);
+>>> +	if (ACQUIRE_ERR(mutex_try, &state_guard) || state->response)
+>>> +		return -EBUSY;
+>>
+>> I don't think it's a good idea to share the same errno between the two
+>> cases.
+>>
+>> While ACQUIRE_ERR(mutex_try, &state_guard) should return -EBUSY, a
+>> pending state->response should return something like -EALREADY or
+>> -ENOTEMPTY.
+> 
+> Generally, one should be mostly be returning the error from ACQUIRE_ERR() 
+> for that case.
+> 
+> 	ret = ACQUIRE_ERR(..);
+> 	if (ret)
+> 		return ret;
+> 
+I'll split the two cases: return the error from ACQUIRE_ERR()
+directly, and return a separate -EALREADY for the pending
+state->response case. Thanks!
 
-Reviewed-by: Jens Wiklander <jens.wiklander@oss.qualcomm.com>
-
-Thanks,
-Jens
-
->
-> diff --git a/drivers/tee/tee_shm.c b/drivers/tee/tee_shm.c
-> index daa4af1e089e..8fcbf0232aeb 100644
-> --- a/drivers/tee/tee_shm.c
-> +++ b/drivers/tee/tee_shm.c
-> @@ -567,10 +567,9 @@ static int tee_shm_fop_release(struct inode *inode, =
-struct file *filp)
->         return 0;
->  }
->
-> -static int tee_shm_fop_mmap(struct file *filp, struct vm_area_struct *vm=
-a)
-> +static int tee_shm_fop_mmap_prepare(struct vm_area_desc *desc)
->  {
-> -       struct tee_shm *shm =3D filp->private_data;
-> -       size_t size =3D vma->vm_end - vma->vm_start;
-> +       struct tee_shm *shm =3D desc->file->private_data;
->
->         /* Refuse sharing shared memory provided by application */
->         if (shm->flags & TEE_SHM_USER_MAPPED)
-> @@ -580,17 +579,18 @@ static int tee_shm_fop_mmap(struct file *filp, stru=
-ct vm_area_struct *vma)
->                 return -EINVAL;
->
->         /* check for overflowing the buffer's size */
-> -       if (vma->vm_pgoff + vma_pages(vma) > shm->size >> PAGE_SHIFT)
-> +       if (desc->pgoff + vma_desc_pages(desc) > shm->size >> PAGE_SHIFT)
->                 return -EINVAL;
->
-> -       return remap_pfn_range(vma, vma->vm_start, shm->paddr >> PAGE_SHI=
-FT,
-> -                              size, vma->vm_page_prot);
-> +       mmap_action_remap_full(desc, shm->paddr >> PAGE_SHIFT);
-> +
-> +       return 0;
->  }
->
->  static const struct file_operations tee_shm_fops =3D {
->         .owner =3D THIS_MODULE,
->         .release =3D tee_shm_fop_release,
-> -       .mmap =3D tee_shm_fop_mmap,
-> +       .mmap_prepare =3D tee_shm_fop_mmap_prepare,
->  };
->
->  /**
->
-> --
-> 2.56.0
->
