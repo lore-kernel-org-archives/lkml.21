@@ -1,97 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795534682;
-	b=d5ZvKEybeFd7925AXlCPHsZqM8l9CIuZRCIlF8O3wlB4AypU9+BEGL2vdcKpa+MDgcjw
-	 AheoHp/Pnye1iXttDPSoU/HmV+bUZggV6oUAX0A8gvd05W+9ndg40uTGaypLIcd1xyDDN
-	 DxVRzL0oNbLm+xdFbsKukM6YEavEdXzUh4yImcW91IvJ4YM3+e6dOvAwNgrZOSgeHCTFl
-	 /4QWVhwPr0xEwOGbS6TM+e93sT+50IkUvVHVMhdlqCpBUtmITJ3k4Kwe5XljQkCZoEyi/
-	 tQpBeGqkZP8gVSwO4+x/6Ptg/8ioJi8WZnWGJIAgtI8NjinMqyYbHePolkE9/bxjx8A==
+	t=1795534696;
+	b=oJlA2tTMTKf5MgXPLdFi5Fkp0ozHy4MsIUk9Bz9ysA/SA1mSc2svzuf/dVeVaKh4+qyf
+	 S5PA+++7qatabtr2MflaaQF5Lj1EzIosm1pKnH7O9xrb/5xT1X34DIRmtDw2lG8SrgsAd
+	 ism6musey3DgEoktVleX5N8Zzn6oHJnUQ/I13LZqsSR2oHH084zWZAxejl+IQmYFjHBlj
+	 8Pvr2zi+k0WLZ1u4m1C/tWEDLgsUpxQmnkMkTWq7x1lbWZkHLl6Jd5PbTglren1/ALSDo
+	 6Blau3lObR2GHjqL22fbPn3archzD5k7XecLzrO/DGhzKdrhEOhadtb9qxYLKDRzyGw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795534682;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795534696;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=UPNik2zvIMnBUa7IZjozMFZ8OPcZJz9a45E3NsIDV28=;
-	b=yQdTlv5nEp1v8rXC1UH8dpjCC8KIMNNw1wt1WXb1E/zGnD8jpwHeh3qw1V6kVD5Ouy/d
-	 28UIvLJ9j4rNUhDzb5ZOjAk7+RoFMKPrUxPsEV/OG9NW9I7O1vQglnRIGlnsk4Xm/yrHX
-	 YmA9YhqZ81JSR5iJclUYPoT5Y1mrpuyi9Is6HSClP11Vr9x6GqBRq3cx+bVcQz1gf9MY8
-	 1p2UE8MN59pkGQ8fkSi4OiDIszRX82iOU46CKkiGfYw9I4IJkCE7ZNc6wO26fJUjPjBMP
-	 wVaNWMlpsz6XgUu5Lyht3InnWX8eXU3y6Z5MFOFdoceV/xyPavEe72tSpP9CGBi6Reg==
+	bh=7bx6YXLfofHgTcT+fkqDDtRZ6uWmHxeGGyk9a9eB7Gk=;
+	b=KSo9c0p1aW+x9gTo6Gjj2nQZOA2taW3dRte0tjMKlbKGAfPjhAhSmhSQID4lNe0n7zYR
+	 0jntSJ4Iau9DP8LbGAdJnFxesAkeZ5ij1gvGakzU729Yr8rLn34Tk+nrMAgbt6uk/owec
+	 Wfr5z1LUyCZTWLpwRCEMPc5sp99pRpqwD1yAUdHHa3vT4OROKyu90/RjRrmKPHX106oGV
+	 axL3EkaAsCKH6OgRR54iWnav1HMP/K9PL6DTIXDkjMv+h6QiiT92qRCCZAaKRkxVla6bc
+	 O9d90R5RwDQJ05HQfFgX/G8unoUK3qx83Fuvk/UeCjnIpqkJSijXa0ljiMecl9Hju5g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=f+nZxpWk;
-	arc=none smtp.remote-ip=209.85.210.53
-Received: from mail-ot1-f53.google.com (mail-ot1-f53.google.com [209.85.210.53])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=deUMFlsp;
+	arc=none smtp.remote-ip=209.85.210.43
+Received: from mail-ot1-f43.google.com (mail-ot1-f43.google.com [209.85.210.43])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A873C606A326
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 15:38:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A873C606A326
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E4FC4606A323
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 15:38:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E4FC4606A323
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=f+nZxpWk
-Received: by mail-ot1-f53.google.com with SMTP id 46e09a7af769-833e671ee9fso4303982a34.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 07:38:01 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=deUMFlsp
+Received: by mail-ot1-f43.google.com with SMTP id 46e09a7af769-862bb0a189aso2290063a34.1
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 07:38:14 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795534680; x=1796139480; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795534694; x=1796139494; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=UPNik2zvIMnBUa7IZjozMFZ8OPcZJz9a45E3NsIDV28=;
-        b=f+nZxpWkXTIASogb1/i/10DjCbH7/VDfaCqceWoWD1okJs/eHwG9as2UUv7doyg4sj
-         Se5Sd/sgSoM5+vAasPvRAGH2FFWKwyRIWPeImjnpY6cnnGKz90XlikEAfQ/wKWCTCZYE
-         Hnu+3Oe6ZrcBCgbB+nURBkOpU7+IB20ppxLzGu+E3QMWouoaRILlLgtMuZZGAZ+3UImx
-         hdwt9FHVuqRfL63nZUVYK40lx2zR8lZPuyQ4IRff9l0GjKNegUVJWCjCeXlESBRZHjHG
-         gqYDNM7mww0Be+weYvQYTp+UX8xok4uBt6d0KXYAq/QHhGfpSWKRzrkkw9xu6j5p2tYk
-         jNtQ==
+        bh=7bx6YXLfofHgTcT+fkqDDtRZ6uWmHxeGGyk9a9eB7Gk=;
+        b=deUMFlsp+pdwjun4GHWKzF0sS3xgDr7ShhARb9srSDmtj+cvwu5jnvhPb3liiFtNfB
+         qzbKd01Eaj4Z8WUIUYTFNaE4x/3WA8YjyxxHwoy7pLVcQqLFAFwmNlIhoSHhOsOjLAV6
+         xnXQVaVEGEAZsPXMNjdBNVG6zGYHPNtTBtIUNPA4NWAbCsce+47/lPHkRcmclXtCrx+R
+         KkKwTEPolcal86hgNwozGfFquLFse5ANwsZyJo2ZIcjPYQE6mhTXmkQndUs83HufDfWN
+         nA0ppBbpW+2l+bqJRPQQXGklRXyAd34kUYIHmY9KUr9AgwzrFUevg2ZXDyQ0yX4BAg4v
+         O0tA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795534680; x=1796139480;
+        d=1e100.net; s=20260707; t=1795534694; x=1796139494;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=UPNik2zvIMnBUa7IZjozMFZ8OPcZJz9a45E3NsIDV28=;
-        b=jlpHCiG8KmCRyQ4i4rx+Jx7Qbdy3SBQU/pvyNZ8dYEf13p9Hv8F5uhdlTBgVrZOKW2
-         dCJBNExBwVH0ptI+eMtbi5A2jYPiUn/w17SsZNUjPBorXN52oGVjbf0mXr8RUD3dHQkk
-         4pASM6LQ+bkifFB7rYlFTT3648uMdPbOI/PoDFmBfOipwcNPfz576C08r3uB9E6PapnK
-         UNEkLTOofyRZNKVTE5LmUm//+lf+m56RJwPEHulPhfJt8SsXq9x5zi7vlvaoPU72t8Ne
-         K9CWS9GTl9S0f+Ha2IfVGa1DAJOPT0qtAXOOWm7Qmk2yvPPMkwiijh7ADL0ARY7egCqP
-         bN4g==
-X-Forwarded-Encrypted: i=1; AL+hErHcVbX6wMwp4W9gI783WCIZ/0D8tL4ZdarQe0fZk+7uW6B69E7J5/E7XoB76h0I7Px77BWCIdF31AShk2A=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8ixMMwdAnT8uUgLbZyF3d6tdmC3qWvpcP0yx7Jc8t5BqgiIMHK
-	M8qoFFWu3vk2QA60VR/OI+opc+827AdJS4hTkLjtXVHiz8F/Kabj4rJu
-X-Gm-Gg: AZFdTZcENsRADLor+nsBgrg2VPDOVtviLRJj48upsFJvyVRiA5dzDuciOl7f8CeHoK7
-	T889ALg7NCQmsAhVfSSaNHVCGC4C0OA8+7yyZl32tjQoM7hWdNhaSUEOClFqs657KsNwHRWJfcl
-	YgwE1QQSxRoILQ6VLsvonYIfkWqkQ4VffMkEZ939dmMvXpulI/wyZMLJjIjbO0Iob1CP6SlMedZ
-	6cPYx25p0n8iHseGD9M2dNEu9dSIoUzC2Cb3TKY7D7sns4NCQgg8NE0P5M2NZfqpw/7wtgo8MP2
-	fLPQ4tI7RrvwYW0VUvoARuPHpR0ndY+eYzyo5n0nD4o1cCMvZ2FP04gy0a8tW97DNtjx2Km/rAP
-	MafxTlrVeUIULUKtoXPmYTi8w5VowbIXtMel1py/64qT5qSEu1R1wf3HZUOaYqN6x4L77qWba8q
-	nlhXX+uRB60wlWQzdbNzgz2kdJ1tUXgq1FDyMT4vqEAWZJe+xA6Hr3784AJnbidqCrRCDox23Iu
-	IJ4aPyOa6wOgtADRalsIXI+g5sm0MKcKD1gO7t1QlDUwVg5yMpZWB5DixwPkQBdwv+wB+gf4uFg
-	3C+TIspheFzvbtaqxjZMbAl1SesdX7z5UZ5KXvYhevJ+HaYDZbIwiVDG+7PrWemTmwA+4XJEQiB
-	iE7TeScr5dor5flxlXPcxBKnrz4fRHDklVfiu2mB83wMb3FOhJE5Xm+V+EI2siTCQjlQp/VHbcV
-	9MYhFkKW33cV5A
-X-Received: by 2002:a05:6808:4fe1:b0:4fb:bfc2:1a64 with SMTP id 5614622812f47-57a0b44cd17mr16836640b6e.31.1795534680520;
-        Tue, 24 Nov 2026 07:38:00 -0800 (PST)
+        bh=7bx6YXLfofHgTcT+fkqDDtRZ6uWmHxeGGyk9a9eB7Gk=;
+        b=If4Di3afh7TahKUokgCYTso2zCB1yLZfT6cSIKtWhcYUBxjaTOFFZv1r0FhBjsjsBF
+         91dLWPAKhsBmyowX7DDttWac4ex3ycKu7ZglKbKEuZYHZ/Anw62rEfSZiMP/6kT0B8Jg
+         PXv2Plge4wcI297u2t13q0Tdp9xPy6Kp9w346xbCMk1L2fC8GbPN3+OK3FyciyiS8/hD
+         W4qCAZk+TcoIzYAXKe58k5SH2wQGByWnkuxVcnnO9UApuo0xQf3qKlsxpwAgLCj7V3M6
+         9G2+wz6am8Jms7f3q/UQaU9n5FiU0IhFFycayrNwMp8a1et44ialx9nbQZIDOhv5HljC
+         9u4w==
+X-Forwarded-Encrypted: i=1; AL+hErHk5Yoo8PuyTOyL5DAvXsgVE8AiTNSha6Imtgb2QBDYdZyhyjDS76E3U+JfaGwtiUsux6YcMYyGq+JVIu0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+LxB6yn3rBUovowa5vfl4Z4IwDrYEwJ2WsSj5JvUzFScaAfR9K
+	w26Ly2xGixeFxvvaTeN0U5Q0dm7Hg5Lz8M09gMWZ8AmAKr3lb+WEgbeXOn2qJQ==
+X-Gm-Gg: AZFdTZe6QONfukA6A3Z2bvovK4XUVuGAiP8ku2HGtGJ6aPUNkIRaeosxanzzKHChJ8L
+	Yb12FIrb96JXR0kmHgyv1wjLggjKNuwB1fYbgTyRO4Ozj6OVHzrbogrIR/8A5JeyV0AunOR8wNx
+	9KRmd6IGxKe5C1iLBEtH7Q0yAOrmNbj/37XpfGn8Gyn216GsGbPsRmvBALV70CrcD9B9RXkda1S
+	wQfv01nOpIlZkzjlBKnWq0K7M4cgYyTu5oSzOn4Ds3ox9h9KxPol2t/FzDJIS8duqMjFZh8zSoC
+	hufRUal+fjbZXp2dXGWR/Fx6LFvwEKOE3207muIzxe2KmetZy8kfNVq5rye1xajshkac+0ibdel
+	BFLDgrEJTfC3NizKn4LmACr7D21u8xYP2mqL/DmGWG0zw7JGbm/RFQWxUWxTkw0DJvcyM/Yedyi
+	kiANHww8JEhfMP5htxZZnqDQ/ZVRWl0/mAVbj9jlNWhRCaMqg6mC7CZIEQ4ehq+fH4OJI9zUZ4K
+	WDly/hJCkhQkQd2oPIA+u4gNfozdfF+LFle/Na7Mbva2v6+tye4F5b0rA5iMSALGFtIxSfVrMOW
+	qkB14ddeFDRRfAVzZEQBOvOzug1TSdYA901/eeVoma5merhlAqI6K4EKfK+3ImhWDIQZYCCAF1N
+	+wK+E56YTj7HXgjDEAs4QiOfxv8m4LU7+4KC49LIFmByDzdBcqHQ11VllS5MFP1afhLUNahZZ2M
+	T3BhZnfn2Yh9pf
+X-Received: by 2002:a05:6830:3151:b0:862:ca2e:919f with SMTP id 46e09a7af769-863158f0a19mr21098554a34.18.1795534693844;
+        Tue, 24 Nov 2026 07:38:13 -0800 (PST)
 Received: from tempest-testimage-cc-centos9-stream-server-1191361818 (chi-dyn-129-114-108-164.tacc.chameleoncloud.org. [129.114.108.164])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-57a347636b9sm11718810b6e.7.2026.11.24.07.37.57
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-863607d0f48sm1501065a34.7.2026.11.24.07.38.12
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 07:37:59 -0800 (PST)
+        Tue, 24 Nov 2026 07:38:13 -0800 (PST)
 From: Yuho Choi <oss.patchbox@gmail.com>
-To: Sudeep Holla <sudeep.holla@kernel.org>,
-	Liviu Dudau <liviu.dudau@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Linus Walleij <linusw@kernel.org>
-Cc: Russell King <linux@armlinux.org.uk>,
-	Nicolas Pitre <nico@fluxnic.net>,
-	linux-arm-kernel@lists.infradead.org,
+To: Geert Uytterhoeven <geert+renesas@glider.be>,
+	Ulf Hansson <ulfh@kernel.org>
+Cc: Magnus Damm <magnus.damm@gmail.com>,
+	linux-renesas-soc@vger.kernel.org,
+	linux-pm@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Yuho Choi <oss.patchbox@gmail.com>
-Subject: [PATCH] ARM: vexpress: Fix device_node reference leak in tc2_pm_init()
-Date: Tue, 24 Nov 2026 15:37:35 +0000
-Message-ID: <20261124153755.338370-2-oss.patchbox@gmail.com>
+Subject: [PATCH] pmdomain: renesas: rcar-sysc: Fix CPG/MSTP node reference leak
+Date: Tue, 24 Nov 2026 15:38:08 +0000
+Message-ID: <20261124153811.338437-2-oss.patchbox@gmail.com>
 X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -104,49 +102,49 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-tc2_pm_init() looks up the SCC node with of_find_compatible_node(),
-which returns the node with its reference count raised, and passes it
-to of_iomap() and irq_of_parse_and_map(). Neither of them keeps the
-node, and none of the function's exits drops the reference.
-tc2_pm_init() runs once as an early initcall, so this leaks a single
-reference at boot.
+rcar_sysc_pd_init() checks whether the device tree has a
+"renesas,cpg-mstp-clocks" node by storing the result of
+of_find_compatible_node() in the bool has_cpg_mstp. The returned node
+has its reference count raised, and the reference is lost when the
+pointer is converted to a bool. rcar_sysc_pd_init() runs once as an
+early initcall, so this leaks a single reference at boot.
 
-Declare np with __free(device_node) so that the reference is dropped
-when the function returns, as is already done in vexpress_flags_set()
-and vexpress_smp_dt_prepare_cpus().
+Keep the node in a local variable and put it after the check.
 
-Fixes: 11b277eabe70 ("ARM: vexpress/TC2: basic PM support")
+Fixes: 1c8c77f52d10 ("soc: renesas: rcar-sysc: Enable Clock Domain for I/O devices")
 Signed-off-by: Yuho Choi <oss.patchbox@gmail.com>
 ---
-Compile-tested only (ARM multi_v7_defconfig, W=1). I have no TC2 board
-to test it on.
+Compile-tested only (ARM multi_v7_defconfig, W=1). I have no R-Car
+board to test it on.
 
- arch/arm/mach-versatile/tc2_pm.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ drivers/pmdomain/renesas/rcar-sysc.c | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
 
-diff --git a/arch/arm/mach-versatile/tc2_pm.c b/arch/arm/mach-versatile/tc2_pm.c
-index 0fe78da0c109..0e471a76bc98 100644
---- a/arch/arm/mach-versatile/tc2_pm.c
-+++ b/arch/arm/mach-versatile/tc2_pm.c
-@@ -202,15 +202,15 @@ static int __init tc2_pm_init(void)
- 	unsigned int mpidr, cpu, cluster;
- 	int ret, irq;
- 	u32 a15_cluster_id, a7_cluster_id, sys_info;
+diff --git a/drivers/pmdomain/renesas/rcar-sysc.c b/drivers/pmdomain/renesas/rcar-sysc.c
+index 3c8a44c6d772..20acc9dece6b 100644
+--- a/drivers/pmdomain/renesas/rcar-sysc.c
++++ b/drivers/pmdomain/renesas/rcar-sysc.c
+@@ -353,7 +353,7 @@ static int __init rcar_sysc_pd_init(void)
+ 	const struct rcar_sysc_info *info;
+ 	const struct of_device_id *match;
+ 	struct rcar_pm_domains *domains;
 -	struct device_node *np;
++	struct device_node *np, *cpg_np;
+ 	void __iomem *base;
+ 	unsigned int i;
+ 	int error;
+@@ -370,8 +370,9 @@ static int __init rcar_sysc_pd_init(void)
+ 			goto out_put;
+ 	}
  
- 	/*
- 	 * The power management-related features are hidden behind
- 	 * SCC registers. We need to extract runtime information like
- 	 * cluster ids and number of CPUs really available in clusters.
- 	 */
--	np = of_find_compatible_node(NULL, NULL,
--			"arm,vexpress-scc,v2p-ca15_a7");
-+	struct device_node *np __free(device_node) =
-+		of_find_compatible_node(NULL, NULL,
-+					"arm,vexpress-scc,v2p-ca15_a7");
- 	scc = of_iomap(np, 0);
- 	if (!scc)
- 		return -ENODEV;
+-	has_cpg_mstp = of_find_compatible_node(NULL, NULL,
+-					       "renesas,cpg-mstp-clocks");
++	cpg_np = of_find_compatible_node(NULL, NULL, "renesas,cpg-mstp-clocks");
++	has_cpg_mstp = cpg_np;
++	of_node_put(cpg_np);
+ 
+ 	base = of_iomap(np, 0);
+ 	if (!base) {
 
 base-commit: 8dac6df92a2e66e2098bbc69061964cfe7e8375b
 -- 
