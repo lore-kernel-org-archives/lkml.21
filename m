@@ -1,93 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.44
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.28.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795520248;
-	b=w4B5cWXdrFuVtftKG4I6QGFbwjt+hm2MwygxXV2ml8nfa4PCcZVvYavPEDq2SCF6RS9h
-	 7NeJMt3DB/xcxnuzT0xfFdzyZk0e71Pug1P6K4c/qWSpiAjZhDFIHBFQ22eRO1FEGIxLA
-	 fpXhqqzFpOuUS1LdCbp1Do6Kk1oNSRIweuk4KANezFLImwx57SE+4v+kWrQ7X+p5Ko4gp
-	 Wiool4wzVPxI5lqcbOsW8/+I617WcQ8xoAxS1RE39hu+ofGZ2x3AxalcJsFU4Ae5523N2
-	 iwC5Psqx5Ua7tBhcOueNgjMI0uV3Dt7SP0ZewHuQ4xRZmghBcGVSRn8KkRuJCaD8bVw==
+	t=1795520258;
+	b=n2+ifDLWUHLitmTU5SzYq1AwWq3ptQfgb5TjKPlGThU4bPTRGk3bHbYKJSMLh5Q9psko
+	 EWYPh7G8ftZnHEe9puu2Lued2IyT3a8h4Btfs0n8BvAfdSc7IWBYnyWIMnYgV7MFKllji
+	 QsI0ihl9qXHWxuYPh/fv5JG8keIC/L+pmsernpbktuGN3jbujIpjxZz8OsmCfynCh0SPG
+	 9l6568LWypyN8MfWC02EvbZTlL9geSni3zVQEpxN3xzuZFRPqIgCd5pXM4N9g9Dwanyk+
+	 FmBAbBpAizgOLNSnjBj5b6YmC1I9q5GDUFL8SQfH7tpFok0elEEqTM5d6n9xHZmyGLQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795520248;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795520258;
+	h=DMARC-Filter:X-Alimail-AntiSpam:Received:From:To:Cc:Subject:Date:
+	 Message-Id:X-Mailer:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=VQGclKgAQnib41pezV4NU0Ap/XBFbTepIY8+BriRXdE=;
-	b=e/20i/1OuLPlLgqdGWk8/4eszGA9BmRKMoKYxiFe5FM7TzNT0VsG4eFBbvOBDOTbVvkq
-	 fdylOVn/bK7c4J7Qibx4NGEMnm6hyS/EeeUAjQwNDTihTihOgAdYyd+DVG6ZJmF/K6MAY
-	 Z/Gb26lRHoq1YyEX3H4HPpnLwRyA+vknYOTT962gsUrYp/AWymgDrH4XuQGJm+zBPNVbT
-	 fz9+NSR1Sf0RPSG8tv7cxPBqBEfNkxLWIlv5Ple1K8iDyxXuOE/tLO+zk9Fp65da0Qbvd
-	 A8CnGKqRnyYx+T7uzrIGpnc1xWZmDf4MGxYiZZbGGvEXvPoRmHGNodXsdgVBQHVyHKA==
+	bh=ffFcW/wEVn0upi3qmE81RMYECIu3yhVq9k41vKWVWh8=;
+	b=qGOFA3XK5ej/VaVpraa2hvD5dJM9dfJicGcw2UkrRsiOTXPd7BwQ4SvBQB35lJm87OGh
+	 2TYURAQ7wFvccsuQs1EIL4VkyVReKfPEyOMRimN4lV010eNTyW3i5f1AYRHDuqHQRY5hP
+	 TblLD7Jjs9lBKo1z9MJ3uwoBLzdHO2FZiYinUGjUvDQl9QcRZA921UyRMotuwgLEs+osM
+	 yxRuiP2b214m5emXuBXq2UAWTWVXw936UO3ShGThMYziH3hMQpk7rzCNQR8zNPfjeo9Go
+	 8V2AD/tIwi5tEdttaayipcXm8cMNYpv0pYN0yX2/SQMbe+wq5FuyB6nN36UB4cbc9LQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="IWzg/v//";
-	arc=none smtp.remote-ip=209.85.221.44
-Received: from mail-wr1-f44.google.com (mail-wr1-f44.google.com [209.85.221.44])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=none header.from=kaihong.com;
+	spf=pass smtp.mailfrom=kaihong.com;
+	arc=none smtp.remote-ip=115.124.28.49
+Received: from out28-49.mail.aliyun.com (out28-49.mail.aliyun.com [115.124.28.49])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 59EE4606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 11:37:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 59EE4606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=IWzg/v//
-Received: by mail-wr1-f44.google.com with SMTP id ffacd0b85a97d-4ad6219f7d8so3738463f8f.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 03:37:28 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795520247; x=1796125047; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=VQGclKgAQnib41pezV4NU0Ap/XBFbTepIY8+BriRXdE=;
-        b=IWzg/v//d/etPgDgdmukjX1yxEjPbSPqtiGrWWDoJuxLEFNbqBa1jM7vsQo9RBZ+tr
-         YbnTYElZfesLeHBye5yfZm4OpKoI029ZvuEsb5Er5df2Dr47NNyon02VIGdYKNXnnig+
-         tuaMkHTHrH7QB0mCN8V/Glna72tcizgHfvomDJ2TT8u9r5aw/UGXc1bbjgiLYaUd6cc7
-         XCBdGUZ16aAAN48+oE+kvW4p8+vTzA/pa6QmdFm08MUmAjbM9TaINwzggXyQaZmFGMiv
-         gmXvL0IVcWC24nz35AKXo05oo8+mTl8y0d3VgOs15xtWCOIUqKQXOuIxkAIODanq7ZJk
-         sz6Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795520247; x=1796125047;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=VQGclKgAQnib41pezV4NU0Ap/XBFbTepIY8+BriRXdE=;
-        b=nfn7F5L0azdLsdIhxWnjBjQdVc/tpWShtp1Xo+6fAhi6j79PIrtmtcm0jLczWRB/e+
-         Zx489Ce1lyyLKOC3ILLsxnrYQEgwr6pX3y7LPvIKIdsE5hcRLHwiIEvSukffXjejr4I8
-         ArH2OcUaUoCXhojRK/w/WtrVGx/0AoQvogES3l8zt0OdYPtVQndw0NaAPAPmU8ZvFHkF
-         G0bYN6Goxez9yi13n18K7KOgAMSgKTEI98KrDDFxdNFLsuUF3CeTVvGmZ/1H/TOg24pz
-         FC1mdx8AOePO9qRtAzxeOkOzt1evfx1ijV/fA0AJ/d29ZLH+IdyB2jvfKff2XPXIyt/M
-         VSCQ==
-X-Forwarded-Encrypted: i=1; AL+hErGfGXb5uLZYmvsMJ6xszohb4bmnp7y00k2ijiveKSyxNBIUodcIQEnI7FmTm0pYv58c9NKQwlARomBttRQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+rzxpBGCPT4cl0/OLpI4nYErWHDcxKhQneNRFPMwo6Nt9oCWmb
-	Rwt+UE3owmHif/uG/Mch43WkPs/C/DVnNdJTZZyiQRLOZSuh/QNDBIkl
-X-Gm-Gg: AZFdTZcv6M7jPs+LUrVUuRIAZWXPVXjDN6o/dL/+O/0L85zqxOVJzJrgwmbit7e7FB0
-	sNSuvHqRJ+lf0qJMJYEgu2GZqAtAao5+QVLzJ6r0CgiW09GQR0g1j9EtOW/uOYQACuQBwONk38a
-	zFt3zfsELEvP6F4Sbzj1KV/LPM6LFbBwP/ssAlcGl0vJlfeRrjqlOpEuezAIpISnHEHLRabZ0nn
-	8yKI6kVixmk6GWRCPtSABLkA5/2II+D77xXn0aJQHhaZcRaKsqxu/1s0rzqB6qL9T6vfPRZeMbe
-	hkoL82yxwaeziZUHJ6UqWB0D6ji2ZHnwJwEhO2Ne7jsiHmY4pqFcmM2cCpEWqN61Hb91K+E24GJ
-	uwG9I+qssH1q6d7YtQPi+r1CtfImsJn8CatjEMcM5WqcIa1mOKeXj/QHwBI5Y3Jgefz1J9fuO5k
-	qRjKrOl9XpkGVdJ2deO/67vV8y1WAYfrJBw6FjmQ+ZKDSrTr9jZpkDy5unmqz6Paa46K1iIpPag
-	3321Xi3qAodbWseB/sDCYXRrWMgCsD5BZ3v2fMPYAGiC+MWeOQ8QYQCUu72IwdRA4rlCm2DS/fA
-	CA6TEPs3GIdL7tloQPw/hGQ=
-X-Received: by 2002:a05:600c:4e0e:b0:4a1:da58:1ee with SMTP id 5b1f17b1804b1-4bb88938dc9mr303753705e9.31.1795520246518;
-        Tue, 24 Nov 2026 03:37:26 -0800 (PST)
-Received: from thinkpad ([92.36.54.136])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884a3a3dsm415634765e9.10.2026.11.24.03.37.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 03:37:25 -0800 (PST)
-From: Andrey Zakharov <dedemorow@gmail.com>
-To: simont@opensource.cirrus.com,
-	ckeepax@opensource.cirrus.com,
-	rf@opensource.cirrus.com
-Cc: broonie@kernel.org,
-	patches@opensource.cirrus.com,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] firmware: cs_dsp: Replace strlcat() with seq_buf in KUnit tests
-Date: Tue, 24 Nov 2026 14:36:55 +0300
-Message-ID: <20261124113655.610791-1-dedemorow@gmail.com>
-X-Mailer: git-send-email 2.56.1
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5EB82606A321;
+	Tue, 24 Nov 2026 11:37:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5EB82606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kaihong.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kaihong.com
+X-Alimail-AntiSpam:AC=CONTINUE;BC=0.06463327|-1;CH=green;DM=|CONTINUE|false|;DS=CONTINUE|ham_system_inform|0.00439941-0.000242477-0.995358;FP=1009340942401455331|0|0|0|0|-1|-1|-1;HT=maildocker-contentspam033037033194;MF=wangxiaolei01@kaihong.com;NM=1;PH=DS;RN=13;RT=13;SR=0;TI=SMTPD_---.k9B4J50_1795520244;
+Received: from nj-vm-261.pxvirt.local(mailfrom:wangxiaolei01@kaihong.com fp:SMTPD_---.k9B4J50_1795520244 cluster:ay29)
+          by smtp.aliyun-inc.com;
+          Tue, 24 Nov 2026 19:37:25 +0800
+From: Xiaolei Wang <wangxiaolei01@kaihong.com>
+To: mcanal@igalia.com,
+	mwen@igalia.com,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	tvrtko.ursulin@igalia.com,
+	wangxiaolei01@kaihong.com
+Cc: dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org,
+	itoral@igalia.com
+Subject: [PATCH v3] drm/v3d: Fix double free of query arrays on parse failure
+Date: Tue, 24 Nov 2026 11:37:23 +0000
+Message-Id: <20261124113723.3055530-1-wangxiaolei01@kaihong.com>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -97,98 +61,451 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-strlcat() is being removed from the kernel. It runs an unbounded
-strlen() on the destination, and its size argument is not tied to
-the real buffer, see the issue below.
+On a parse error the timestamp and performance parsers free the query
+array, and the job release path then frees it again: query_info->count
+had not been set yet, so no syncobj was put twice, but the stale array
+was handed to kvfree() a second time.
 
-The bin and wmfw tests fill a 512 byte buffer with a repeated string
-by calling strlcat() in a loop, and use the return value to detect
-that the buffer is full. Use seq_buf_init() and seq_buf_puts() and
-stop when seq_buf_has_overflowed() is true. kunit_kzalloc() returns
-a zeroed buffer, so seq_buf_init() is enough here.
+Make the job the only owner: the parsers just fill the array and record
+how far they got. count is set before the parse loop, the arrays are
+zero allocated, and the free helpers stop at the first entry that was
+never set up, which keeps put-count equal to find-count. That also
+removes the inline kvfree() of kperfmon_ids and the count arguments of
+the free helpers.
 
-Tested: built with gcc 16.2.1 and ran the cs_dsp KUnit suites under
-QEMU (x86_64, kunit.py, REGMAP_BUILD): 5829 of 5829 tests pass, the
-same as without the patch. The tests do not look at the contents of
-the buffer, so I also checked it with a temporary assertion after the
-loop: strlen(infobuf) is 511 with the old strlcat() loop and with the
-new code, and the assertion fails if 510 is expected.
+Tested on Raspberry Pi 5 (v3d).
 
-Not tested: other architectures and any real hardware.
-
-Link: https://github.com/KSPP/linux/issues/370
-Signed-off-by: Andrey Zakharov <dedemorow@gmail.com>
+Fixes: 0e50fcc20bd8 ("drm/v3d: Fix potential memory leak in the timestamp extension")
+Fixes: 32df4abc44f2 ("drm/v3d: Fix potential memory leak in the performance extension")
+Cc: stable@vger.kernel.org
+Cc: Maíra Canal <mcanal@igalia.com>
+Cc: Iago Toral Quiroga <itoral@igalia.com>
+Cc: Tvrtko Ursulin <tvrtko.ursulin@igalia.com>
+Signed-off-by: Xiaolei Wang <wangxiaolei01@kaihong.com>
 ---
- drivers/firmware/cirrus/test/cs_dsp_test_bin.c  | 7 +++++--
- drivers/firmware/cirrus/test/cs_dsp_test_wmfw.c | 7 +++++--
- 2 files changed, 10 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/firmware/cirrus/test/cs_dsp_test_bin.c b/drivers/firmware/cirrus/test/cs_dsp_test_bin.c
-index 63416838f865..2f44b7a6e637 100644
---- a/drivers/firmware/cirrus/test/cs_dsp_test_bin.c
-+++ b/drivers/firmware/cirrus/test/cs_dsp_test_bin.c
-@@ -17,6 +17,7 @@
- #include <linux/math.h>
- #include <linux/random.h>
- #include <linux/regmap.h>
-+#include <linux/seq_buf.h>
+Changes in v3:
+- Stop the query free loops at the first entry that has no syncobj.
+- Do not free the query arrays from the parser error paths; the job is
+  the only owner now, so the array is released exactly once.
+- Set query_info->count before the parse loop in every parser, and drop
+  the count argument from v3d_copy_query_info() as well as from the two
+  free helpers.
+- Drop the superfluous comment in v3d_sched.c and rewrite the commit
+  message.
+
+Link to v2: 
+- https://patchwork.kernel.org/project/dri-devel/patch/20261120022828.2612091-1-wangxiaolei01@kaihong.com/
+Link to v1:
+- https://patchwork.kernel.org/project/dri-devel/patch/20261110061341.2075931-1-wangxiaolei01@kaihong.com/
+
+ drivers/gpu/drm/v3d/v3d_drv.h    |   6 +-
+ drivers/gpu/drm/v3d/v3d_sched.c  |  40 +++++----
+ drivers/gpu/drm/v3d/v3d_submit.c | 136 ++++++++++---------------------
+ 3 files changed, 70 insertions(+), 112 deletions(-)
+
+diff --git a/drivers/gpu/drm/v3d/v3d_drv.h b/drivers/gpu/drm/v3d/v3d_drv.h
+index 7c7bdf6e51a5..e5c9ad86449a 100644
+--- a/drivers/gpu/drm/v3d/v3d_drv.h
++++ b/drivers/gpu/drm/v3d/v3d_drv.h
+@@ -669,10 +669,8 @@ static __always_inline int v3d_pm_runtime_put(struct v3d_dev *v3d)
+ }
  
- #include "../cs_dsp.h"
+ /* v3d_sched.c */
+-void v3d_timestamp_query_info_free(struct v3d_timestamp_query_info *query_info,
+-				   unsigned int count);
+-void v3d_performance_query_info_free(struct v3d_performance_query_info *query_info,
+-				     unsigned int count);
++void v3d_timestamp_query_info_free(struct v3d_timestamp_query_info *query_info);
++void v3d_performance_query_info_free(struct v3d_performance_query_info *query_info);
+ struct v3d_stats *v3d_stats_alloc(void);
+ void v3d_stats_release(struct kref *refcount);
+ void v3d_job_update_stats(struct v3d_job *job);
+diff --git a/drivers/gpu/drm/v3d/v3d_sched.c b/drivers/gpu/drm/v3d/v3d_sched.c
+index 1924e3440dc9..6e55523be66b 100644
+--- a/drivers/gpu/drm/v3d/v3d_sched.c
++++ b/drivers/gpu/drm/v3d/v3d_sched.c
+@@ -96,33 +96,41 @@ v3d_sched_job_free(struct drm_sched_job *sched_job)
+ }
  
-@@ -2109,6 +2110,7 @@ static void bin_patch_name_and_info(struct kunit *test)
- 	unsigned int reg_inc_per_word = cs_dsp_mock_reg_addr_inc_per_unpacked_word(priv);
- 	u32 reg_val, payload_data;
- 	char *infobuf;
-+	struct seq_buf sb;
- 	unsigned int alg_base_words, reg_addr;
- 	struct firmware *fw;
+ void
+-v3d_timestamp_query_info_free(struct v3d_timestamp_query_info *query_info,
+-			      unsigned int count)
++v3d_timestamp_query_info_free(struct v3d_timestamp_query_info *query_info)
+ {
+-	if (query_info->queries) {
+-		unsigned int i;
++	unsigned int i;
  
-@@ -2126,8 +2128,9 @@ static void bin_patch_name_and_info(struct kunit *test)
- 	infobuf = kunit_kzalloc(test, 512, GFP_KERNEL);
- 	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, infobuf);
+-		for (i = 0; i < count; i++)
+-			drm_syncobj_put(query_info->queries[i].syncobj);
++	if (!query_info->queries)
++		return;
  
--	for (; strlcat(infobuf, "Waffle{Blah}\n", 512) < 512; )
--		;
-+	seq_buf_init(&sb, infobuf, 512);
-+	while (!seq_buf_has_overflowed(&sb))
-+		seq_buf_puts(&sb, "Waffle{Blah}\n");
+-		kvfree(query_info->queries);
++	for (i = 0; i < query_info->count; i++) {
++		if (!query_info->queries[i].syncobj)
++			break;
++
++		drm_syncobj_put(query_info->queries[i].syncobj);
+ 	}
++
++	kvfree(query_info->queries);
+ }
  
- 	cs_dsp_mock_bin_add_info(priv->local->bin_builder, infobuf);
+ void
+-v3d_performance_query_info_free(struct v3d_performance_query_info *query_info,
+-				unsigned int count)
++v3d_performance_query_info_free(struct v3d_performance_query_info *query_info)
+ {
+-	if (query_info->queries) {
+-		unsigned int i;
++	unsigned int i;
  
-diff --git a/drivers/firmware/cirrus/test/cs_dsp_test_wmfw.c b/drivers/firmware/cirrus/test/cs_dsp_test_wmfw.c
-index 1de70e81a868..464a0cc79415 100644
---- a/drivers/firmware/cirrus/test/cs_dsp_test_wmfw.c
-+++ b/drivers/firmware/cirrus/test/cs_dsp_test_wmfw.c
-@@ -16,6 +16,7 @@
- #include <linux/firmware/cirrus/wmfw.h>
- #include <linux/random.h>
- #include <linux/regmap.h>
-+#include <linux/seq_buf.h>
- #include <linux/string.h>
- #include <linux/vmalloc.h>
+-		for (i = 0; i < count; i++) {
+-			drm_syncobj_put(query_info->queries[i].syncobj);
+-			kvfree(query_info->queries[i].kperfmon_ids);
+-		}
++	if (!query_info->queries)
++		return;
  
-@@ -1722,6 +1723,7 @@ static void wmfw_load_with_info(struct kunit *test)
- 	unsigned int reg_addr;
- 	u8 *payload_data, *readback;
- 	char *infobuf;
-+	struct seq_buf sb;
- 	const unsigned int payload_size_bytes = 48;
- 	int ret;
+-		kvfree(query_info->queries);
++	for (i = 0; i < query_info->count; i++) {
++		kvfree(query_info->queries[i].kperfmon_ids);
++
++		if (!query_info->queries[i].syncobj)
++			break;
++
++		drm_syncobj_put(query_info->queries[i].syncobj);
+ 	}
++
++	kvfree(query_info->queries);
+ }
  
-@@ -1745,8 +1747,9 @@ static void wmfw_load_with_info(struct kunit *test)
- 	infobuf = kunit_kzalloc(test, 512, GFP_KERNEL);
- 	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, infobuf);
+ static void
+diff --git a/drivers/gpu/drm/v3d/v3d_submit.c b/drivers/gpu/drm/v3d/v3d_submit.c
+index 7548faab67ba..288283900022 100644
+--- a/drivers/gpu/drm/v3d/v3d_submit.c
++++ b/drivers/gpu/drm/v3d/v3d_submit.c
+@@ -174,11 +174,9 @@ v3d_cpu_job_free(struct kref *ref)
+ 	struct v3d_cpu_job *job = container_of(ref, struct v3d_cpu_job,
+ 					       base.refcount);
  
--	for (; strlcat(infobuf, "Waffle{Blah}\n", 512) < 512;)
--		;
-+	seq_buf_init(&sb, infobuf, 512);
-+	while (!seq_buf_has_overflowed(&sb))
-+		seq_buf_puts(&sb, "Waffle{Blah}\n");
+-	v3d_timestamp_query_info_free(&job->timestamp_query,
+-				      job->timestamp_query.count);
++	v3d_timestamp_query_info_free(&job->timestamp_query);
  
- 	cs_dsp_mock_wmfw_add_info(local->wmfw_builder, infobuf);
- 	cs_dsp_mock_wmfw_add_info(local->wmfw_builder, "Another block of info");
+-	v3d_performance_query_info_free(&job->performance_query,
+-					job->performance_query.count);
++	v3d_performance_query_info_free(&job->performance_query);
+ 
+ 	if (job->indirect_csd.indirect)
+ 		drm_gem_object_put(job->indirect_csd.indirect);
+@@ -734,7 +732,6 @@ v3d_get_cpu_timestamp_query_params(struct drm_file *file_priv,
+ 	struct drm_v3d_timestamp_query timestamp;
+ 	struct v3d_timestamp_query_info *query_info = &job->timestamp_query;
+ 	unsigned int i;
+-	int err;
+ 
+ 	if (!v3d_validate_cpu_job(file_priv, job))
+ 		return -EINVAL;
+@@ -747,43 +744,34 @@ v3d_get_cpu_timestamp_query_params(struct drm_file *file_priv,
+ 
+ 	job->job_type = V3D_CPU_JOB_TYPE_TIMESTAMP_QUERY;
+ 
+-	query_info->queries = kvmalloc_objs(struct v3d_timestamp_query,
++	query_info->queries = kvzalloc_objs(struct v3d_timestamp_query,
+ 					    timestamp.count);
+ 	if (!query_info->queries)
+ 		return -ENOMEM;
+ 
++	query_info->count = timestamp.count;
++
+ 	offsets = u64_to_user_ptr(timestamp.offsets);
+ 	syncs = u64_to_user_ptr(timestamp.syncs);
+ 
+ 	for (i = 0; i < timestamp.count; i++) {
+ 		u32 offset, sync;
+ 
+-		if (get_user(offset, offsets++)) {
+-			err = -EFAULT;
+-			goto error;
+-		}
++		if (get_user(offset, offsets++))
++			return -EFAULT;
+ 
+ 		query_info->queries[i].offset = offset;
+ 
+-		if (get_user(sync, syncs++)) {
+-			err = -EFAULT;
+-			goto error;
+-		}
++		if (get_user(sync, syncs++))
++			return -EFAULT;
+ 
+ 		query_info->queries[i].syncobj = drm_syncobj_find(file_priv,
+ 								  sync);
+-		if (!query_info->queries[i].syncobj) {
+-			err = -ENOENT;
+-			goto error;
+-		}
++		if (!query_info->queries[i].syncobj)
++			return -ENOENT;
+ 	}
+-	query_info->count = timestamp.count;
+ 
+ 	return 0;
+-
+-error:
+-	v3d_timestamp_query_info_free(&job->timestamp_query, i);
+-	return err;
+ }
+ 
+ static int
+@@ -795,7 +783,6 @@ v3d_get_cpu_reset_timestamp_params(struct drm_file *file_priv,
+ 	struct drm_v3d_reset_timestamp_query reset;
+ 	struct v3d_timestamp_query_info *query_info = &job->timestamp_query;
+ 	unsigned int i;
+-	int err;
+ 
+ 	if (!v3d_validate_cpu_job(file_priv, job))
+ 		return -EINVAL;
+@@ -805,11 +792,13 @@ v3d_get_cpu_reset_timestamp_params(struct drm_file *file_priv,
+ 
+ 	job->job_type = V3D_CPU_JOB_TYPE_RESET_TIMESTAMP_QUERY;
+ 
+-	query_info->queries = kvmalloc_objs(struct v3d_timestamp_query,
++	query_info->queries = kvzalloc_objs(struct v3d_timestamp_query,
+ 					    reset.count);
+ 	if (!query_info->queries)
+ 		return -ENOMEM;
+ 
++	query_info->count = reset.count;
++
+ 	syncs = u64_to_user_ptr(reset.syncs);
+ 
+ 	for (i = 0; i < reset.count; i++) {
+@@ -817,25 +806,16 @@ v3d_get_cpu_reset_timestamp_params(struct drm_file *file_priv,
+ 
+ 		query_info->queries[i].offset = reset.offset + 8 * i;
+ 
+-		if (get_user(sync, syncs++)) {
+-			err = -EFAULT;
+-			goto error;
+-		}
++		if (get_user(sync, syncs++))
++			return -EFAULT;
+ 
+ 		query_info->queries[i].syncobj = drm_syncobj_find(file_priv,
+ 								  sync);
+-		if (!query_info->queries[i].syncobj) {
+-			err = -ENOENT;
+-			goto error;
+-		}
++		if (!query_info->queries[i].syncobj)
++			return -ENOENT;
+ 	}
+-	query_info->count = reset.count;
+ 
+ 	return 0;
+-
+-error:
+-	v3d_timestamp_query_info_free(&job->timestamp_query, i);
+-	return err;
+ }
+ 
+ /* Get data for the copy timestamp query results job submission. */
+@@ -848,7 +828,6 @@ v3d_get_cpu_copy_query_results_params(struct drm_file *file_priv,
+ 	struct drm_v3d_copy_timestamp_query copy;
+ 	struct v3d_timestamp_query_info *query_info = &job->timestamp_query;
+ 	unsigned int i;
+-	int err;
+ 
+ 	if (!v3d_validate_cpu_job(file_priv, job))
+ 		return -EINVAL;
+@@ -861,37 +840,32 @@ v3d_get_cpu_copy_query_results_params(struct drm_file *file_priv,
+ 
+ 	job->job_type = V3D_CPU_JOB_TYPE_COPY_TIMESTAMP_QUERY;
+ 
+-	query_info->queries = kvmalloc_objs(struct v3d_timestamp_query,
++	query_info->queries = kvzalloc_objs(struct v3d_timestamp_query,
+ 					    copy.count);
+ 	if (!query_info->queries)
+ 		return -ENOMEM;
+ 
++	query_info->count = copy.count;
++
+ 	offsets = u64_to_user_ptr(copy.offsets);
+ 	syncs = u64_to_user_ptr(copy.syncs);
+ 
+ 	for (i = 0; i < copy.count; i++) {
+ 		u32 offset, sync;
+ 
+-		if (get_user(offset, offsets++)) {
+-			err = -EFAULT;
+-			goto error;
+-		}
++		if (get_user(offset, offsets++))
++			return -EFAULT;
+ 
+ 		query_info->queries[i].offset = offset;
+ 
+-		if (get_user(sync, syncs++)) {
+-			err = -EFAULT;
+-			goto error;
+-		}
++		if (get_user(sync, syncs++))
++			return -EFAULT;
+ 
+ 		query_info->queries[i].syncobj = drm_syncobj_find(file_priv,
+ 								  sync);
+-		if (!query_info->queries[i].syncobj) {
+-			err = -ENOENT;
+-			goto error;
+-		}
++		if (!query_info->queries[i].syncobj)
++			return -ENOENT;
+ 	}
+-	query_info->count = copy.count;
+ 
+ 	job->copy.do_64bit = copy.do_64bit;
+ 	job->copy.do_partial = copy.do_partial;
+@@ -900,73 +874,51 @@ v3d_get_cpu_copy_query_results_params(struct drm_file *file_priv,
+ 	job->copy.stride = copy.stride;
+ 
+ 	return 0;
+-
+-error:
+-	v3d_timestamp_query_info_free(&job->timestamp_query, i);
+-	return err;
+ }
+ 
+ static int
+ v3d_copy_query_info(struct v3d_performance_query_info *query_info,
+-		    unsigned int count,
+ 		    unsigned int nperfmons,
+ 		    u32 __user *syncs,
+ 		    u64 __user *kperfmon_ids,
+ 		    struct drm_file *file_priv)
+ {
+ 	unsigned int i, j;
+-	int err;
+ 
+-	for (i = 0; i < count; i++) {
++	for (i = 0; i < query_info->count; i++) {
+ 		struct v3d_performance_query *query = &query_info->queries[i];
+ 		u32 __user *ids_pointer;
+ 		u32 sync, id;
+ 		u64 ids;
+ 
+-		if (get_user(sync, syncs++)) {
+-			err = -EFAULT;
+-			goto error;
+-		}
++		if (get_user(sync, syncs++))
++			return -EFAULT;
+ 
+-		if (get_user(ids, kperfmon_ids++)) {
+-			err = -EFAULT;
+-			goto error;
+-		}
++		if (get_user(ids, kperfmon_ids++))
++			return -EFAULT;
+ 
+ 		query->kperfmon_ids =
+ 			kvmalloc_array(nperfmons,
+ 				       sizeof(struct v3d_performance_query *),
+ 				       GFP_KERNEL);
+-		if (!query->kperfmon_ids) {
+-			err = -ENOMEM;
+-			goto error;
+-		}
++		if (!query->kperfmon_ids)
++			return -ENOMEM;
+ 
+ 		ids_pointer = u64_to_user_ptr(ids);
+ 
+ 		for (j = 0; j < nperfmons; j++) {
+-			if (get_user(id, ids_pointer++)) {
+-				kvfree(query->kperfmon_ids);
+-				err = -EFAULT;
+-				goto error;
+-			}
++			if (get_user(id, ids_pointer++))
++				return -EFAULT;
+ 
+ 			query->kperfmon_ids[j] = id;
+ 		}
+ 
+ 		query->syncobj = drm_syncobj_find(file_priv, sync);
+-		if (!query->syncobj) {
+-			kvfree(query->kperfmon_ids);
+-			err = -ENOENT;
+-			goto error;
+-		}
++		if (!query->syncobj)
++			return -ENOENT;
+ 	}
+ 
+ 	return 0;
+-
+-error:
+-	v3d_performance_query_info_free(query_info, i);
+-	return err;
+ }
+ 
+ static int
+@@ -987,12 +939,13 @@ v3d_get_cpu_reset_performance_params(struct drm_file *file_priv,
+ 	job->job_type = V3D_CPU_JOB_TYPE_RESET_PERFORMANCE_QUERY;
+ 
+ 	query_info->queries =
+-		kvmalloc_objs(struct v3d_performance_query, reset.count);
++		kvzalloc_objs(struct v3d_performance_query, reset.count);
+ 	if (!query_info->queries)
+ 		return -ENOMEM;
+ 
++	query_info->count = reset.count;
++
+ 	err = v3d_copy_query_info(query_info,
+-				  reset.count,
+ 				  reset.nperfmons,
+ 				  u64_to_user_ptr(reset.syncs),
+ 				  u64_to_user_ptr(reset.kperfmon_ids),
+@@ -1000,7 +953,6 @@ v3d_get_cpu_reset_performance_params(struct drm_file *file_priv,
+ 	if (err)
+ 		return err;
+ 
+-	query_info->count = reset.count;
+ 	query_info->nperfmons = reset.nperfmons;
+ 
+ 	return 0;
+@@ -1027,12 +979,13 @@ v3d_get_cpu_copy_performance_query_params(struct drm_file *file_priv,
+ 	job->job_type = V3D_CPU_JOB_TYPE_COPY_PERFORMANCE_QUERY;
+ 
+ 	query_info->queries =
+-		kvmalloc_objs(struct v3d_performance_query, copy.count);
++		kvzalloc_objs(struct v3d_performance_query, copy.count);
+ 	if (!query_info->queries)
+ 		return -ENOMEM;
+ 
++	query_info->count = copy.count;
++
+ 	err = v3d_copy_query_info(query_info,
+-				  copy.count,
+ 				  copy.nperfmons,
+ 				  u64_to_user_ptr(copy.syncs),
+ 				  u64_to_user_ptr(copy.kperfmon_ids),
+@@ -1040,7 +993,6 @@ v3d_get_cpu_copy_performance_query_params(struct drm_file *file_priv,
+ 	if (err)
+ 		return err;
+ 
+-	query_info->count = copy.count;
+ 	query_info->nperfmons = copy.nperfmons;
+ 	query_info->ncounters = copy.ncounters;
+ 
 -- 
-2.56.1
+2.34.1
 
