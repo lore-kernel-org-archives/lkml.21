@@ -1,95 +1,114 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.43
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795546151;
-	b=wE8fXFEMJ0Q+NtlHUQnwn9XiDv85VmvL/Jo5vfc8Kz6/VPLEQS0ktxXTbbzXFoi/HUtM
-	 zCktvfy4auGNfCDaBw+ul74CRMOaXWbL+nBR7sqdp/mc6FZYCp8o72wtDPgB4Gv0+BtU8
-	 M2pj4C9NukxkaMwYZTDl2n2KMXVauD97UVwkg1vYBtat4i5IMBRYH2AuFD45DU0Oh296C
-	 G2iGYWDqntt37yKfjfdAYN1FEIWDdCT8zoZhor/B8miW0vbrkkJTBYhE2L8p1g1dCFvhR
-	 vwZ18Z4vGKUFJG8Q74XrheQNog19dv3kGZeQ1XESGwWcuBww2cyz6QY53fIWphQ/jAw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795546151;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:Content-Transfer-Encoding:
-	 In-Reply-To;
-	bh=4yLPI/bzfD8pEXes+IoGrcyl3dKDKR1GnvriWiKOLpo=;
-	b=RFAIKg6VblyIS38ib6R+O/IJQuTtJv4kBO+7Ty0uALBJ6901xcpwhgAauH1xE1210czP
-	 tdxtTZNmhXJeXa1F9gH/LDTzFAlF8NucYko6Y2ch00PEyzsKv5Nx6RBwiPGKdS0AuIwwi
-	 g+YhSyFRD3AjPUGwcrobaz8UP47rOCYSovu+iUCwgV8UqUJE4sRTAS9Gr/SVrNhVuGNMH
-	 mAuLE6gZp4vOR7fLiR9AhZ4BUbp6DE+vhgmLFW8W7I+gumKr5+bU1W6TYNH4yC4OviJMB
-	 1rHhhTChGwwWZVI7UnAewUVczXkEXVLE/4Y1VxPPySkjpPGq/1vxpoTxSx47vXpTOPw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=chromium.org;
-	spf=pass smtp.mailfrom=chromium.org;
-	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=G3hp8gfc;
-	arc=none smtp.remote-ip=209.85.128.43
-Received: from mail-wm1-f43.google.com (mail-wm1-f43.google.com [209.85.128.43])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.74.47
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795546217;
+	b=UPMhMYOGwinzC+qIwZXJ4xUsspTVMQjKFHlQDbWtzdRUDU9gLb4JDVtLoE7g+2PD0+k0
+	 uheelSgN/9m1my13xfmDRLK4FbUmqRvycTkvffPawfESiZZVlFO4G4TdYv+A7QdNHTFdb
+	 b+3fEnp+s53ymNFF6ad5yDZ+awMwkm3HfByZy0JqvbiEsDrV/ebD3aGvfc+1qe2S/IklT
+	 rtn7dJW7M3egZrlDVvd2YwnbHhGFBHRTMQamcgaGVTMg2x9vHJ1E+t/VTTWc3mYCyPqPq
+	 YMHTMCypEcnW8mxtLaV2DI+iK4Ym4AqqqvWRhwQg3rPTa7Pxg5ecsTe6v2BjVD3KakQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795546217;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:Content-Type:Content-Disposition:
+	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-LD-Processed:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=C/L089tmDxWfsFQycIuEojc2vJxjf3DdhHw6qtn5JEA=;
+	b=yx66IltF1xws36zDt/rt/1A4VUV8D3vzeidfpz0LdQ6tcIQE4op86vZt0fR02SDV0UKB
+	 ij/GZpaMBkf1MG9lDxPFbf08DxEkXXY2TFRj89xw+OZ74tlCkBctXtaBzJKE+3OuO+33T
+	 ewd9/vVP4inaccdjrsIJ7NejB2lPf7moYslLHgLX1IikqBs3lcCqLU5/dCMcH84LnaIQ0
+	 bxHMv44+4NHPmev3SC/CB6hsXMn1S4tnDIzD0yAjFF+0QIa12y5XTMQgomo22bfAMpqvL
+	 gt6FVSp8oNe+v5G6iLpE6zX3wf0rLaHPgR8KwhprA7UrDC7v2jMwOxAHRLh70V61BRw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=bp.renesas.com;
+	spf=pass smtp.mailfrom=bp.renesas.com;
+	dkim=pass header.d=bp.renesas.com header.i=@bp.renesas.com header.a=rsa-sha256 header.s=selector1 header.b=j3fJPECO;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.74.47
+Received: from OS0P286CU010.outbound.protection.outlook.com (mail-japanwestazon11011047.outbound.protection.outlook.com [40.107.74.47])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B3AC9606A326
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 18:49:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B3AC9606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chromium.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chromium.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 57EF3606A31E;
+	Tue, 24 Nov 2026 18:50:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 57EF3606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=bp.renesas.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bp.renesas.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=G3hp8gfc
-Received: by mail-wm1-f43.google.com with SMTP id 5b1f17b1804b1-4a9a8d6cea8so63705515e9.1
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 10:49:10 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1795546149; x=1796150949; darn=vger.kernel.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=4yLPI/bzfD8pEXes+IoGrcyl3dKDKR1GnvriWiKOLpo=;
-        b=G3hp8gfckd/4YqJylhwOM2V4zLHeR/F33cnRjJlXi8H+zG4x/tkhHg/3TaVxwBBXQQ
-         WOIMMeflCtIyrImXli/BFZZOFCai/pzwvA4oD7Nl4N/RWr1gVyl1Z9gaZeL5cD0UOxRV
-         oBEt9oTJT6iNyn0B01GKgcTOnauv4eS17mdag=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795546149; x=1796150949;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=4yLPI/bzfD8pEXes+IoGrcyl3dKDKR1GnvriWiKOLpo=;
-        b=KIfye6ZgVR3gHkmYqQdl3UXlsf1mv6/DdpjATR5VXi+owc3xr+lv4IpOQRu/FzeNRG
-         k4y4E8DHKUoGrrOYpL34HdLEUH8ayI/le13iRDOAom/32NXcrllB9MeFjnNDP8OjPStj
-         JtJLTd1m1N8DD64AiY55+hRZa6B5iPQz9XzaujUJ0+OSaXKpvqRPwB/l1TrRIC4vLZHY
-         5B83kwOS6C+US5QQlWo8fZn06HPfiBYw6Wpjk54CjgST4rROm4sQIesYBSDXK2y/OWWA
-         z8wpCAeqMY1b4HnJJjkSPeatdwW0E5Kf7braeqw8K5KmQwgkVYGt1Vld1Xl26mB2vgNb
-         22Ig==
-X-Forwarded-Encrypted: i=1; AL+hErHay3gvR3Xcoav235WjpP5v88qD5hkKhUnYmFvVmUPiOOZIlIMEFDoaEb6dqTOvdokhqYyYylBOsPROaT4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/ZNggsVtMg7p9hgAbXpPQzPVYB6n99q+dRza3+qDJWqSa9jcYp
-	OVR2+2cN05AQxIYDaTbdMjv4DIQNsMz8LrlmMXXw+FxhhTY/21HBOiLqOOelxQLkWw==
-X-Gm-Gg: AZFdTZcBESCfB5t0USV/EI0XXJ8hMWoZX3C6GtBrC1UWZ0afnbBMd2+SjOPqniX+Wx2
-	zUlHqiX7s3mUwXu0XvwVgmP+hWOIsoRMlIkqPcvtcMWKFPesGkKnKyeOXBhg3OudxDr6BGoAv9n
-	FPrFa4ANqD799rbaO/rGe3GDASAAoMkaVEN8NcLRg7sRDiK5ehmEowc0emHErModxRBAIO3LS4r
-	koK26MI0rOCDivoxjg7zjzsj78/oI7mqWCM+DB8C95oLfP0m7eu/2MgTtpsVhi8QuM2AeKqd/H6
-	uGQEos49QE1HZ95mV7Cv+MhL2LugtqOzwKC/oA4hsbgGYesyA8h4WETOD9fp34QUELCzha8Xv3M
-	d69pO1l8cLcO9n4s+MJBpM64MhsZEBw7X7fdDWK5abyYtwAGDvQzlM8vFtJqGhm+3ndLbriF8vg
-	ZQ5LYHosEdBYOOwz6rSnwSK2AYdUlO1zCgzeHyFXQi5Ki4fj6D6CfcJL3Q+WZ5UMLKjlZI/ADWN
-	4opnpMF7YJEWzo6aNFrC9VL9CGbJGjOEI+W+RSpYpfWe/i6BFv2Ni7DJlcd2BhalR+adokwZYDS
-	eAdDZ1LLgl6L9bAM79xAjCq5rWqzdMKs4sAGS0vDtmk+NtzvsctMZ16r56GD0fVa
-X-Received: by 2002:a05:600c:1d09:b0:4bb:66fd:ad68 with SMTP id 5b1f17b1804b1-4bb888160cdmr336029925e9.14.1795546148684;
-        Tue, 24 Nov 2026 10:49:08 -0800 (PST)
-Received: from google.com ([2a00:79e0:285b:8:af0c:c5f1:ee8a:b81f])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb88402ce9sm367300855e9.0.2026.11.24.10.49.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 10:49:08 -0800 (PST)
-Date: Tue, 24 Nov 2026 19:49:04 +0100
-From: Dmytro Maluka <dmaluka@chromium.org>
-To: Esther Shimanovich <eshimanovich@chromium.org>
-Cc: Bjorn Helgaas <bhelgaas@google.com>, Rajat Jain <rajatja@google.com>,
-	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
-	Mario Limonciello <mario.limonciello@amd.com>,
-	Ilpo =?utf-8?B?SsOkcnZpbmVu?= <ilpo.jarvinen@linux.intel.com>,
-	iommu@lists.linux.dev, Lukas Wunner <lukas@wunner.de>,
-	Mika Westerberg <mika.westerberg@linux.intel.com>,
-	linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5] PCI: Detect and trust built-in Thunderbolt chips
-Message-ID: <awXXSfrhLHK7TNbp@google.com>
-References: <20240910-trust-tbt-fix-v5-1-7a7a42a5f496@chromium.org>
+	dkim=pass (1024-bit key, unprotected) header.d=bp.renesas.com header.i=@bp.renesas.com header.a=rsa-sha256 header.s=selector1 header.b=j3fJPECO
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=BCwVQXn0lXQw1HVklC++qkx+UjmfCDj8T/T9+LPgVXvKzFgxAC6hABu7ST0iPOL7DvFbIlPAUbv8ybHafkDWPxO+ARDCp7oy0lpq9OXJfGQ/HnqzNkuQ994wkU6x6NuWVIotUpoMLn63u2KtZgDSc3srLnylM6Xipr8Fygye2g5MkvzL6B2Z1ohuR5QrLvFmP57ixHl2ZXyBeyOrJmRDyWVwLc7jNp+IaJb22U4UwQHI9tAytnQRWOGl9mmquA6hGbMfrhJxLyHqLYJopVOxH2G/JVNYULG8XJLaVoKdpW5FIx/DyDf+EAO3G5uTvWrxuDzppb6488T1siAYiTReJg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=C/L089tmDxWfsFQycIuEojc2vJxjf3DdhHw6qtn5JEA=;
+ b=hxo9cUmRIByIlBRStm/UMGiYNeEQ7wehCHnNtJ+hZtH9JjTObhGHntGryvn6DNYIZk8zC0zBT/sD/y8MZ5LHQK6Vky0gRDagDGzBcNAqnK83UN/zMs7T5Iu2rGJa1t39GimQ2wY8+g1ingNOYTtFKre9MqQcfugy7e3VfRoh8NfXClrqNuqXDTup7ovi1X3lbFR8MMpoEcWJbgjE4UyRg+77meLqXGTXsz8pWSwHulyXbA0ssRGqa5IBwzEiNe39psCYv7cKswS+ZlTrhcXojekk6GwDT+U6u0DExEwaGtjC4e2nLODj+EgSJP4TH2EDWSbd3t7pN4c55MKsQv+IKg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=bp.renesas.com; dmarc=pass action=none
+ header.from=bp.renesas.com; dkim=pass header.d=bp.renesas.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bp.renesas.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=C/L089tmDxWfsFQycIuEojc2vJxjf3DdhHw6qtn5JEA=;
+ b=j3fJPECOELSLzHW3ynqQ4ZmZTui8NB2HEehl3sYZL0AtFFAOjlsq3YemM2mKB7WKwYfm8D73uoMEgIoq4K8ducI2JKizzf5hSIzYg1CC3gochpzRVbhrpMJelhdLjQXI9t6oOcK2y+ttdvtlG1Lp+oH/iSGcVfO5qO/fT7QDLAo=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=bp.renesas.com;
+Received: from OSOPR01MB295138.jpnprd01.prod.outlook.com
+ (2603:1096:604:521::15) by OSCPR01MB12880.jpnprd01.prod.outlook.com
+ (2603:1096:604:340::6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.5; Tue, 24 Nov
+ 2026 18:50:13 +0000
+Received: from OSOPR01MB295138.jpnprd01.prod.outlook.com
+ ([fe80::4f0e:fd0e:ff2b:b180]) by OSOPR01MB295138.jpnprd01.prod.outlook.com
+ ([fe80::4f0e:fd0e:ff2b:b180%7]) with mapi id 15.21.0662.004; Tue, 24 Nov 2026
+ 18:50:07 +0000
+Date: Tue, 24 Nov 2026 19:49:45 +0100
+From: Tommaso Merciai <tommaso.merciai.xr@bp.renesas.com>
+To: Biju Das <biju.das.jz@bp.renesas.com>
+Cc: Tommaso Merciai <tomm.merciai@gmail.com>,
+	Prabhakar Mahadev Lad <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	"linux-renesas-soc@vger.kernel.org" <linux-renesas-soc@vger.kernel.org>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	"magnus.damm" <magnus.damm@gmail.com>,
+	Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>,
+	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v10 08/12] drm: renesas: rz-du: Separate the DU instance
+ from the DRM device
+Message-ID: <awXcSSnNeaOQFQZ5@tom-desktop>
+References: <cover.1794502191.git.tommaso.merciai.xr@bp.renesas.com>
+ <68fcf838eee14c1906f23b2b7c74c560793cd1d4.1794502191.git.tommaso.merciai.xr@bp.renesas.com>
+ <OS3PR01MB65968FEBCB08429F11188CE986452@OS3PR01MB6596.jpnprd01.prod.outlook.com>
+ <awVW5B4p06FUfBHw@tom-desktop>
+ <TYYPR01MB6603AA1B7A48B7D899604EE586442@TYYPR01MB6603.jpnprd01.prod.outlook.com>
+ <awV8G86QIth4GtaA@tom-desktop>
+ <TYYPR01MB6603A1FB28A473A400A2C49386442@TYYPR01MB6603.jpnprd01.prod.outlook.com>
+ <awWsGjt6cW_CSoMH@tom-desktop>
+ <OS3PR01MB659637409ADFF9CFC2AD395186442@OS3PR01MB6596.jpnprd01.prod.outlook.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <OS3PR01MB659637409ADFF9CFC2AD395186442@OS3PR01MB6596.jpnprd01.prod.outlook.com>
+X-ClientProxiedBy: FR0P281CA0047.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:48::18) To OSOPR01MB295138.jpnprd01.prod.outlook.com
+ (2603:1096:604:521::15)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,332 +118,219 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20240910-trust-tbt-fix-v5-1-7a7a42a5f496@chromium.org>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: OSOPR01MB295138:EE_|OSCPR01MB12880:EE_
+X-MS-Office365-Filtering-Correlation-Id: 73458635-8698-4c58-2f43-08df4a5bc279
+X-LD-Processed: 53d82571-da19-47e4-9cb4-625a166a4a2a,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|52116014|7416014|366016|376014|1800799024|38350700014|10067099003|11063799006|56012099006|4143699003|261026121527099003|261021121427099003|261021123027099003|261022075727099003|261026140227099003|261028144727099003|261102123227099003|261022105027099003|261009223027099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info:
+	yCI16hax1pXk6h4vQ8tIO9PlN1Hg3yjVGO0ew2pFfIVjJGjrx2YS7VVwsu5AYH06oibZwHXbBPfItUGJt770DYxwfFU9ZUKowoMaBLTP0VXteLEAD6C3PLF+sUhNNpVvkHXHUjost1CrRTIqj9xiBk37KYX9QR6wcjDvSaYU4hRxyvkpriMCWiVl/LUCaZP0em0kOxreKVAosl0VwYN/wppMFXcTQ3LsZIBy7SO92Fch7KYxObh0FARj0n0rJAXFphR/gWGO1+EPYI2BcGk2jz3BRFt8HDtG9iwztq9NjHYL0gFX0BHpcRuJh0nblTSk7TqhsFmcMFxz9wxprzoBYUAE6laa/qizukcBAaxiDM6EoZOpKjjmgdZjtWSlzUboLwuwM8EUzZnWsBolto/oHYzwzmhVEXhm/jMOoO0t3sHMasr4Dbz2H8kBXe2qvz46Ef1YIMX8BJbdqjkfdyw8kA08wbuocx7HWBN897+FWfrbKChrBMjcjkLqJONWo7iZumLt7n3vYrLika49SJRICNc6i7M+7xQRijdgsxM0jWOIG814+DQxeNlpoFkbuUKuSKmDGv3W8/u74sgdJSN+MA6F9Xc+3i+GZP7QJ+xkfrvB8nYIx6B+3vdQRutLHGec7RGA0oAHkE6GCnVO9Eb5j/q5aF3tvSqETLAdkU41175oUViJ0+fsLqh2EXbuLMMpEaJ3MU10zk5PdjYc1gzjNMligjXoUWxI9Cwma5Xjb78=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:OSOPR01MB295138.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(52116014)(7416014)(366016)(376014)(1800799024)(38350700014)(10067099003)(11063799006)(56012099006)(4143699003)(261026121527099003)(261021121427099003)(261021123027099003)(261022075727099003)(261026140227099003)(261028144727099003)(261102123227099003)(261022105027099003)(261009223027099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?8y2pgo3IBf40aRw62GmNHB5W8uxZ1YQRwhAAOcWMhVNCRPOsMW59RHH7I1JO?=
+ =?us-ascii?Q?ngpn3viS549T+EhAdHK3VTunQpNqINaDdGFmRgq1wECTTUpHzpS4z1NMIb6K?=
+ =?us-ascii?Q?gqLEstNqF1moxVi3aT0kwW76ccdhNqAz32hpIzSlbTJLroY74sMhHLF58Nlf?=
+ =?us-ascii?Q?LgqA88Z1iW391tSI/8q4QXdnJzTqW++kn1l0i0QUWI7WqhQcgKio663FPyje?=
+ =?us-ascii?Q?LXR4OHkMkMaAzP4kFRNEaxEPwsOcyVZcOzZS024MCk8ISpX2gH4GWjaMJZxR?=
+ =?us-ascii?Q?n33r+APmz5spfA71auXCvidKJG+Jo3nKh5m0R0c34IXch4n9j2D9QZPAcovK?=
+ =?us-ascii?Q?Uu0n6ANpjtghuXaVIVHTsZrvrk/dDYd0Xphhz4jJ34FsPQBj5y03b9+1z5Rq?=
+ =?us-ascii?Q?TYpHM+cHOEy9hPY6ChA5zOBO4IRqeQBSmVKA3LNbjndWj2NrHAx22crPWDCE?=
+ =?us-ascii?Q?glf4i72tOQi+txTT695PAG8s7mypEwfDkPRgyHL2x18GuJ3lKcMAg6U8gj/S?=
+ =?us-ascii?Q?6vDUXIjXijTCEPm3hUy7XMIrXMjXpIJO717FznTZZtM2UAXrjiePm8k5xDiV?=
+ =?us-ascii?Q?DZYw+nWoufjNfv7GAPPGTrm5Pxy3Bo3nSBU/ljv7R9hubM4xRawOy8BVaqbD?=
+ =?us-ascii?Q?uPxpEh4yUynDCKFWOIzMi+s/91NGDOMFrWWjHvaLZxqYkeJ2nt6LYjwi/Wzi?=
+ =?us-ascii?Q?HXWkcVGVFkHTjIW/7CaZwEOKNCxwk+o0WUTHOLjELtLb3Rv2eTxC4XxDbFih?=
+ =?us-ascii?Q?TBDtEdl3gyva6YjsUD+StcllJTwaAno0fd5JgEwxeejDz0pT35HpznGhBJAM?=
+ =?us-ascii?Q?ew/TWNgwEOyaalml7rfK7iFGttVdbj25Mf1EiAfueXMwdvjfEPKJsGkXsBJl?=
+ =?us-ascii?Q?JJBwIyd5rpIuRKWzhasyiyydAO3zK2WFN7LTLsw5mMgHPIrkAVlyyrUQLZ3d?=
+ =?us-ascii?Q?P3/V8ShObvaC3QZlfisj5RMOsPYkYQRT5DbCFN8zpvuBqkDgstJK2rJhsWFV?=
+ =?us-ascii?Q?p5wVloF5MNSDy7Z/kIHtUcwHVU89BleN6Wp7+onGcirwI8tibGXQn6Sjh8hx?=
+ =?us-ascii?Q?PZz2l/bJsmgalqc052OnQq8scMCu1jUvXSilEI7KfO0owjNKVSOCP9OT8xgR?=
+ =?us-ascii?Q?MgCk056cS4mEcwK6Yadtb3e0XvG4qocIZ0u+gpYgroWD2aL6RNnlsqZBLpoa?=
+ =?us-ascii?Q?rJDpUVHw9ng+NX6Xt8Xr/BUr/GUQoRqu5Jj0A225ejcRj5ELHsKD1NyFMLs7?=
+ =?us-ascii?Q?HrfteMi8X6NASRUd66FjzQy8X+YHh5saj1zRST49cemLan9lkaCYyTGcbIUq?=
+ =?us-ascii?Q?oyrMcYMqSnrfSAYWfuYRe4JnocKUc7+i3gThxw71+ESWhT5u7VHLnRk8zmSo?=
+ =?us-ascii?Q?C7PSlgeEOLsNULvMbV1pD4q8QKUrDNI8+gs3GjHetb0jQrelZ9MTCaZDX9WH?=
+ =?us-ascii?Q?Io8iA929RsGB6p93JOudzQQyCuneV5b8515qfwMbdsAZsC83sYx5EhW8PMoA?=
+ =?us-ascii?Q?x+nFf7TTSoA5TYIQx++7tDwzxfFFGg3FobU3qgQtbECyM3fgjFS3eZqoDPFd?=
+ =?us-ascii?Q?5PQAJDap+D52L2b//mxk2oF0Jr3jj/qkpdFTX4IbFJAZTxoJ90bkngJJB5NA?=
+ =?us-ascii?Q?CcrcfPCW6KAcAqNIYZFTIgMYsGnCjufuqytJ8/RMMBTqRB22UfQcOaz9ZouO?=
+ =?us-ascii?Q?BzzRgdlzgWlYXJ69vsp1SElhS3MSpX6HHyKIhYkI9cvTKvboySHiAcaw11qU?=
+ =?us-ascii?Q?r0DKTlWY12lWMhrg6UdwiJrzNDbG1j2kAi+v4RDVw+uoYOEDp4g8?=
+X-OriginatorOrg: bp.renesas.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 73458635-8698-4c58-2f43-08df4a5bc279
+X-MS-Exchange-CrossTenant-AuthSource: OSOPR01MB295138.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 18:50:07.8341
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 53d82571-da19-47e4-9cb4-625a166a4a2a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: QBmraOYw9PHQ2aMEbWuHKSwAIZw/uW8ZCIEv8IMRlD9U6/6cQJB5V4KJndWF8SLTxovHZ/K/fk+GqLLyj4gnXKOpvgtK4QvS5j27p6WXt6trKn5iFpRBbjPliLiRivCr
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: OSCPR01MB12880
 
-On Tue, Sep 10, 2024 at 05:57:45PM +0000, Esther Shimanovich wrote:
-> Some computers with CPUs that lack Thunderbolt features use discrete
-> Thunderbolt chips to add Thunderbolt functionality. These Thunderbolt
-> chips are located within the chassis; between the root port labeled
-> ExternalFacingPort and the USB-C port.
-> 
-> These Thunderbolt PCIe devices should be labeled as fixed and trusted,
-> as they are built into the computer. Otherwise, security policies that
-> rely on those flags may have unintended results, such as preventing
-> USB-C ports from enumerating.
-> 
-> Detect the above scenario through the process of elimination.
-> 
-> 1) Integrated Thunderbolt host controllers already have Thunderbolt
->    implemented, so anything outside their external facing root port is
->    removable and untrusted.
-> 
->    Detect them using the following properties:
-> 
->      - Most integrated host controllers have the usb4-host-interface
->        ACPI property, as described here:
-> Link: https://learn.microsoft.com/en-us/windows-hardware/drivers/pci/dsd-for-pcie-root-ports#mapping-native-protocols-pcie-displayport-tunneled-through-usb4-to-usb4-host-routers
-> 
->      - Integrated Thunderbolt PCIe root ports before Alder Lake do not
->        have the usb4-host-interface ACPI property. Identify those with
->        their PCI IDs instead.
-> 
-> 2) If a root port does not have integrated Thunderbolt capabilities, but
->    has the ExternalFacingPort ACPI property, that means the manufacturer
->    has opted to use a discrete Thunderbolt host controller that is
->    built into the computer.
-> 
->    This host controller can be identified by virtue of being located
->    directly below an external-facing root port that lacks integrated
->    Thunderbolt. Label it as trusted and fixed.
-> 
->    Everything downstream from it is untrusted and removable.
-> 
-> The ExternalFacingPort ACPI property is described here:
-> Link: https://learn.microsoft.com/en-us/windows-hardware/drivers/pci/dsd-for-pcie-root-ports#identifying-externally-exposed-pcie-root-ports
-> 
-> Suggested-by: Mika Westerberg <mika.westerberg@linux.intel.com>
-> Signed-off-by: Esther Shimanovich <eshimanovich@chromium.org>
-> Tested-by: Mika Westerberg <mika.westerberg@linux.intel.com>
-> Tested-by: Mario Limonciello <mario.limonciello@amd.com>
-> Reviewed-by: Mika Westerberg <mika.westerberg@linux.intel.com>
-> Reviewed-by: Mario Limonciello <mario.limonciello@amd.com>
-> ---
-> While working with devices that have discrete Thunderbolt chips, I
-> noticed that their internal TBT chips are inaccurately labeled as
-> untrusted and removable.
-> 
-> I've observed that this issue impacts all computers with internal,
-> discrete Intel JHL Thunderbolt chips, such as JHL6240, JHL6340, JHL6540,
-> and JHL7540, across multiple device manufacturers such as Lenovo, Dell,
-> and HP.
-> 
-> This affects the execution of any downstream security policy that
-> relies on the "untrusted" or "removable" flags.
-> 
-> I initially submitted a quirk to resolve this, which was too small in
-> scope, and after some discussion, Mika proposed a more thorough fix:
-> https://lore.kernel.org/lkml/20240510052616.GC4162345@black.fi.intel.com
-> I refactored it and am submitting as a new patch.
-> ---
-> Changes in v5:
-> - Applied the following edits suggested by Lukas Wunner:
->   - Applied ifdefs edits to ensure code is only compiled on x86 systems
->   with ACPI
->   - Added returns to avoid unecessary checks
->   - Renamed pcie_is_tunneled to arch_pci_dev_is_removable
-> - Link to v4: https://lore.kernel.org/r/20240823-trust-tbt-fix-v4-1-c6f1e3bdd9be@chromium.org
-> 
-> Changes in v4:
-> - Applied edits on logic-flow clarity and formatting suggested by Ilpo
->   Järvinen
-> - Mario Limonciello tested patch and confirmed works as intended.
-> - Link to v3: https://lore.kernel.org/r/20240815-trust-tbt-fix-v3-1-6ba01865d54c@chromium.org
-> 
-> Changes in v3:
-> - Incorporated minor edits suggested by Mika Westerberg.
-> - Mika Westerberg tested patch (more details in v2 link)
-> - Added "reviewed-by" and "tested-by" lines
-> - Link to v2: https://lore.kernel.org/r/20240808-trust-tbt-fix-v2-1-2e34a05a9186@chromium.org
-> 
-> Changes in v2:
-> - I clarified some comments, and made minor fixins
-> - I also added a more detailed description of implementation into the
->   commit message
-> - Added Cc recipients Mike recommended
-> - Link to v1: https://lore.kernel.org/r/20240806-trust-tbt-fix-v1-1-73ae5f446d5a@chromium.org
-> ---
->  arch/x86/pci/acpi.c | 119 ++++++++++++++++++++++++++++++++++++++++++++++++++++
->  drivers/pci/probe.c |  30 +++++++++----
->  include/linux/pci.h |   6 +++
->  3 files changed, 148 insertions(+), 7 deletions(-)
-> 
-> diff --git a/arch/x86/pci/acpi.c b/arch/x86/pci/acpi.c
-> index 55c4b07ec1f6..62271668c3b1 100644
-> --- a/arch/x86/pci/acpi.c
-> +++ b/arch/x86/pci/acpi.c
-> @@ -250,6 +250,125 @@ void __init pci_acpi_crs_quirks(void)
->  		pr_info("Please notify linux-pci@vger.kernel.org so future kernels can do this automatically\n");
->  }
->  
-> +/*
-> + * Checks if pdev is part of a PCIe switch that is directly below the
-> + * specified bridge.
-> + */
-> +static bool pcie_switch_directly_under(struct pci_dev *bridge,
-> +				       struct pci_dev *pdev)
-> +{
-> +	struct pci_dev *parent = pci_upstream_bridge(pdev);
-> +
-> +	/* If the device doesn't have a parent, it's not under anything. */
-> +	if (!parent)
-> +		return false;
-> +
-> +	/*
-> +	 * If the device has a PCIe type, check if it is below the
-> +	 * corresponding PCIe switch components (if applicable). Then check
-> +	 * if its upstream port is directly beneath the specified bridge.
-> +	 */
-> +	switch (pci_pcie_type(pdev)) {
-> +	case PCI_EXP_TYPE_UPSTREAM:
-> +		return parent == bridge;
-> +
-> +	case PCI_EXP_TYPE_DOWNSTREAM:
-> +		if (pci_pcie_type(parent) != PCI_EXP_TYPE_UPSTREAM)
-> +			return false;
-> +		parent = pci_upstream_bridge(parent);
-> +		return parent == bridge;
-> +
-> +	case PCI_EXP_TYPE_ENDPOINT:
-> +		if (pci_pcie_type(parent) != PCI_EXP_TYPE_DOWNSTREAM)
-> +			return false;
-> +		parent = pci_upstream_bridge(parent);
-> +		if (!parent || pci_pcie_type(parent) != PCI_EXP_TYPE_UPSTREAM)
-> +			return false;
-> +		parent = pci_upstream_bridge(parent);
-> +		return parent == bridge;
-> +	}
-> +
-> +	return false;
-> +}
-> +
-> +static bool pcie_has_usb4_host_interface(struct pci_dev *pdev)
-> +{
-> +	struct fwnode_handle *fwnode;
-> +
-> +	/*
-> +	 * For USB4, the tunneled PCIe root or downstream ports are marked
-> +	 * with the "usb4-host-interface" ACPI property, so we look for
-> +	 * that first. This should cover most cases.
-> +	 */
-> +	fwnode = fwnode_find_reference(dev_fwnode(&pdev->dev),
-> +				       "usb4-host-interface", 0);
-> +	if (!IS_ERR(fwnode)) {
-> +		fwnode_handle_put(fwnode);
-> +		return true;
-> +	}
-> +
-> +	/*
-> +	 * Any integrated Thunderbolt 3/4 PCIe root ports from Intel
-> +	 * before Alder Lake do not have the "usb4-host-interface"
-> +	 * property so we use their PCI IDs instead. All these are
-> +	 * tunneled. This list is not expected to grow.
-> +	 */
-> +	if (pdev->vendor == PCI_VENDOR_ID_INTEL) {
-> +		switch (pdev->device) {
-> +		/* Ice Lake Thunderbolt 3 PCIe Root Ports */
-> +		case 0x8a1d:
-> +		case 0x8a1f:
-> +		case 0x8a21:
-> +		case 0x8a23:
-> +		/* Tiger Lake-LP Thunderbolt 4 PCIe Root Ports */
-> +		case 0x9a23:
-> +		case 0x9a25:
-> +		case 0x9a27:
-> +		case 0x9a29:
-> +		/* Tiger Lake-H Thunderbolt 4 PCIe Root Ports */
-> +		case 0x9a2b:
-> +		case 0x9a2d:
-> +		case 0x9a2f:
-> +		case 0x9a31:
-> +			return true;
-> +		}
-> +	}
-> +
-> +	return false;
-> +}
-> +
-> +bool arch_pci_dev_is_removable(struct pci_dev *pdev)
-> +{
-> +	struct pci_dev *parent, *root;
-> +
-> +	/* pdev without a parent or Root Port is never tunneled. */
-> +	parent = pci_upstream_bridge(pdev);
-> +	if (!parent)
-> +		return false;
-> +	root = pcie_find_root_port(pdev);
-> +	if (!root)
-> +		return false;
-> +
-> +	/* Internal PCIe devices are not tunneled. */
-> +	if (!root->external_facing)
-> +		return false;
-> +
-> +	/* Anything directly behind a "usb4-host-interface" is tunneled. */
-> +	if (pcie_has_usb4_host_interface(parent))
-> +		return true;
-> +
-> +	/*
-> +	 * Check if this is a discrete Thunderbolt/USB4 controller that is
-> +	 * directly behind the non-USB4 PCIe Root Port marked as
-> +	 * "ExternalFacingPort". Those are not behind a PCIe tunnel.
-> +	 */
-> +	if (pcie_switch_directly_under(root, pdev))
-> +		return false;
-> +
-> +	/* PCIe devices after the discrete chip are tunneled. */
-> +	return true;
-> +}
-> +
->  #ifdef	CONFIG_PCI_MMCONFIG
->  static int check_segment(u16 seg, struct device *dev, char *estr)
->  {
-> diff --git a/drivers/pci/probe.c b/drivers/pci/probe.c
-> index b14b9876c030..7e0d6a1e151b 100644
-> --- a/drivers/pci/probe.c
-> +++ b/drivers/pci/probe.c
-> @@ -1631,23 +1631,33 @@ static void set_pcie_thunderbolt(struct pci_dev *dev)
->  
->  static void set_pcie_untrusted(struct pci_dev *dev)
->  {
-> -	struct pci_dev *parent;
-> +	struct pci_dev *parent = pci_upstream_bridge(dev);
->  
-> +	if (!parent)
-> +		return;
->  	/*
-> -	 * If the upstream bridge is untrusted we treat this device
-> +	 * If the upstream bridge is untrusted we treat this device as
->  	 * untrusted as well.
->  	 */
-> -	parent = pci_upstream_bridge(dev);
-> -	if (parent && (parent->untrusted || parent->external_facing))
-> +	if (parent->untrusted) {
-> +		dev->untrusted = true;
-> +		return;
-> +	}
-> +
-> +	if (arch_pci_dev_is_removable(dev)) {
+Hi Biju,
 
-Looks like this caused a regression: on non-x86, dev->untrusted is never
-set to true for any device (so we *never* enforce DMA protection from
-externally plugged devices), since set_pcie_untrusted() solely relies on
-arch_pci_dev_is_removable() which is implemented on x86 only (on other
-archs it is a stub returning false), without checking
-parent->external_facing on other archs like it did before this patch.
-
-(I found this by looking at the code, not by testing.)
-
-> +		pci_dbg(dev, "marking as untrusted\n");
->  		dev->untrusted = true;
-> +	}
->  }
->  
->  static void pci_set_removable(struct pci_dev *dev)
->  {
->  	struct pci_dev *parent = pci_upstream_bridge(dev);
->  
-> +	if (!parent)
-> +		return;
->  	/*
-> -	 * We (only) consider everything downstream from an external_facing
-> +	 * We (only) consider everything tunneled below an external_facing
->  	 * device to be removable by the user. We're mainly concerned with
->  	 * consumer platforms with user accessible thunderbolt ports that are
->  	 * vulnerable to DMA attacks, and we expect those ports to be marked by
-> @@ -1657,9 +1667,15 @@ static void pci_set_removable(struct pci_dev *dev)
->  	 * accessible to user / may not be removed by end user, and thus not
->  	 * exposed as "removable" to userspace.
->  	 */
-> -	if (parent &&
-> -	    (parent->external_facing || dev_is_removable(&parent->dev)))
-> +	if (dev_is_removable(&parent->dev)) {
-> +		dev_set_removable(&dev->dev, DEVICE_REMOVABLE);
-> +		return;
-> +	}
-> +
-> +	if (arch_pci_dev_is_removable(dev)) {
-> +		pci_dbg(dev, "marking as removable\n");
->  		dev_set_removable(&dev->dev, DEVICE_REMOVABLE);
-> +	}
->  }
->  
->  /**
-> diff --git a/include/linux/pci.h b/include/linux/pci.h
-> index 9e36b6c1810e..dca19203bc7c 100644
-> --- a/include/linux/pci.h
-> +++ b/include/linux/pci.h
-> @@ -2604,6 +2604,12 @@ pci_host_bridge_acpi_msi_domain(struct pci_bus *bus) { return NULL; }
->  static inline bool pci_pr3_present(struct pci_dev *pdev) { return false; }
->  #endif
->  
-> +#if defined(CONFIG_X86) && defined(CONFIG_ACPI)
-> +bool arch_pci_dev_is_removable(struct pci_dev *pdev);
-> +#else
-> +static inline bool arch_pci_dev_is_removable(struct pci_dev *pdev) { return false; }
-> +#endif
-> +
->  #ifdef CONFIG_EEH
->  static inline struct eeh_dev *pci_dev_to_eeh_dev(struct pci_dev *pdev)
->  {
+On Tue, Nov 24, 2026 at 04:04:48PM +0000, Biju Das wrote:
+> Hi Tommaso,
 > 
-> ---
-> base-commit: 3f386cb8ee9f04ff4be164ca7a1d0ef3f81f7374
-> change-id: 20240806-trust-tbt-fix-5f337fd9ec8a
+> > -----Original Message-----
+> > From: Tommaso Merciai <tommaso.merciai.xr@bp.renesas.com>
+> > Sent: 24 November 2026 15:24
+> > Subject: Re: [PATCH v10 08/12] drm: renesas: rz-du: Separate the DU instance from the DRM device
+> > 
+> > Hi Biju,
+> > 
+> > On Tue, Nov 24, 2026 at 12:51:18PM +0000, Biju Das wrote:
+> > >
+> > > Hi Tommaso,
+> > >
+> > > > -----Original Message-----
+> > > > From: Tommaso Merciai <tommaso.merciai.xr@bp.renesas.com>
+> > > > Sent: 24 November 2026 11:59
+> > > > Subject: Re: [PATCH v10 08/12] drm: renesas: rz-du: Separate the DU
+> > > > instance from the DRM device
+> > > >
+> > > > Hi Biju,
+> > > >
+> > > > On Tue, Nov 24, 2026 at 09:33:13AM +0000, Biju Das wrote:
+> > > > > Hi Tommaso,
+> > > > >
+> > > > > > -----Original Message-----
+> > > > > > From: Tommaso Merciai <tommaso.merciai.xr@bp.renesas.com>
+> > > > > > Sent: 24 November 2026 09:21
+> > > > > > Subject: Re: [PATCH v10 08/12] drm: renesas: rz-du: Separate the
+> > > > > > DU instance from the DRM device
+> > > > > >
+> > > > > > Hi Biju,
+> > > > > > Thanks for your review.
+> > > > > >
+> > > > > > On Mon, Nov 23, 2026 at 04:59:32PM +0000, Biju Das wrote:
+> > > > > > > Hi Tommaso,
+> > > > > > >
+> > > > > > > > -----Original Message-----
+> > > > > > > > From: Tommaso Merciai <tommaso.merciai.xr@bp.renesas.com>
+> > > > > > > > Sent: 13 November 2026 12:20
+> > > > > > > > Subject: [PATCH v10 08/12] drm: renesas: rz-du: Separate the
+> > > > > > > > DU instance from the DRM device
+> > > > > > > >
+> > > > > > > > On RZ/G3E two DU instances share a DRM device, which can
+> > > > > > > > only be created once both instances have been probed.
+> > > > > > > >
+> > > > > > > > Split the DU device structure: keep the match data and the
+> > > > > > > > registers in a structure allocated with the platform device,
+> > > > > > > > and allocate the KMS objects with the DRM device in a new
+> > > > > > > > rzg2l_du_instance_init() helper, as they are released
+> > > > > > with it.
+> > > > > > > >
+> > > > > > > > No functional change intended.
+> > > > > > > >
+> > > > > > > > Signed-off-by: Tommaso Merciai
+> > > > > > > > <tommaso.merciai.xr@bp.renesas.com>
+> > > > > > > > ---
+> > > > > > > > v9->v10:
+> > > > > > > >  - New patch.
+> > > > > > > >
+> > > > > > > >  drivers/gpu/drm/renesas/rz-du/rzg2l_du_drv.c | 61
+> > > > > > > > ++++++++++++++------
+> > > > > > > >  1 file changed, 44 insertions(+), 17 deletions(-)
+> > > > > > > >
+> > > > > > > > diff --git a/drivers/gpu/drm/renesas/rz-du/rzg2l_du_drv.c
+> > > > > > > > b/drivers/gpu/drm/renesas/rz- du/rzg2l_du_drv.c index
+> > > > > > > > d3cccbdf9012..d102876c07e1 100644
+> > > > > > > > --- a/drivers/gpu/drm/renesas/rz-du/rzg2l_du_drv.c
+> > > > > > > > +++ b/drivers/gpu/drm/renesas/rz-du/rzg2l_du_drv.c
+> > > > > > > > @@ -162,6 +162,27 @@ static int rzg2l_du_pm_resume(struct
+> > > > > > > > device
+> > > > > > > > *dev)  static DEFINE_SIMPLE_DEV_PM_OPS(rzg2l_du_pm_ops,
+> > > > > > > >  				rzg2l_du_pm_suspend, rzg2l_du_pm_resume);
+> > > > > > > >
+> > > > > > > > +/*
+> > > > > > > > +-----------------------------------------------------------
+> > > > > > > > +----
+> > > > > > > > +----
+> > > > > > > > +----
+> > > > > > > > +------
+> > > > > > > > + * DU instance
+> > > > > > > > + */
+> > > > > > > > +
+> > > > > > > > +static int rzg2l_du_instance_init(struct rzg2l_du_device *du,
+> > > > > > > > +				  struct drm_device *ddev) {
+> > > > > > > > +	struct rzg2l_du_device *rcdu;
+> > > > > > > > +
+> > > > > > > > +	rcdu = drmm_kzalloc(ddev, sizeof(*rcdu), GFP_KERNEL);
+> > > > > > > > +	if (!rcdu)
+> > > > > > > > +		return -ENOMEM;
+> > > > > > >
+> > > > > > > Why there is duplicate allocation of rcdu? One in probe() and
+> > > > > > > here
+> > > > > >
+> > > > > > The two allocations have different lifetimes.
+> > > > > >
+> > > > > > The one in rzg2l_du_probe() is tied to the platform device. It
+> > > > > > holds what is needed before the DRM device exists and outside of
+> > > > > > the component bind (dev, info, mmio, and ddev/is_master for the
+> > > > > > master, PM and remove), as on RZ/G3E
+> > > > the DRM device is only created once both instances have been probed.
+> > > > > >
+> > > > > > The one in rzg2l_du_instance_init() holds the KMS objects
+> > > > > > (crtcs, vsps, lvds, index). Their drmm cleanup handlers point
+> > > > > > into it and run when the DRM device is released, which can
+> > > > > > happen after the platform device has been unbound,
+> > > > so it has to be allocated with the DRM device.
+> > > > >
+> > > > > Then there is an issue right, platform unbound will unmap mmio and
+> > > > > other data structures it allocated in rzg2l_du_probe()and drm
+> > > > > driver is using after that( Use after free Bug)
+> > > >
+> > > > Mmmm In theory no.
+> > > >
+> > > > The KMS part keeps its own copy of dev, info and mmio, and its drmm
+> > > > cleanup handlers only drop references, they don't access the hardware.
+> > >
+> > > Can you please make sure these variables set to NULL, after Platform
+> > > unbound?
+> > 
+> > Please correct me if I'm wrong but IMHO this patch keeps the same behaviour as the driver before this
+> > series.
+> > 
+> > Where rcdu is embedded in the DRM device (devm_drm_dev_alloc()) and mmio is devm managed. Setting the
+> > pointers to NULL would only turn an invalid access into a NULL dereference no?
 > 
-> Best regards,
-> -- 
-> Esther Shimanovich <eshimanovich@chromium.org>
+> Ack.
+> 
+> But why you need copy? What preventing to use original allocated rcdu
+> in rzg2l_du_modeset_init_du()?
+
+The copy is needed because the two DUs share one DRM device, which can
+only be created at bind time, once both instances have been probed.
+
+Before this series, the DRM device was allocated in probe with
+devm_drm_dev_alloc(), and rcdu was embedded in it.
+
+Now each instance needs its own structure at probe time (dev, info, mmio),
+before the DRM device is allocated with devm_drm_dev_alloc() in the master
+bind, so it is allocated with devm_kzalloc(). 
+
+The KMS objects (crtcs[], vsps[]) belong to the shared DRM device, 
+so at bind time each instance allocates its own structure for them
+with drmm_kzalloc(), released with the DRM device.
+
+Each instance copies its own dev, info and mmio into that structure, as
+they are used by the KMS code, e.g. rzg2l_du_crtc_set_display_timing()
+(mmio), rzg2l_du_encoders_init() (info) and rzg2l_du_crtc_create()
+(dev).
+
+Kind regards,
+Tommaso
+
+> 
+> Cheers,
+> Biju
+> 
 > 
