@@ -1,89 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.43
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795560668;
-	b=3GifpV/U2gyvyJYt/Gd/cYghcyBLm7Vz3gj4FfeB1ehnM9YU/vvDJm2WwjFzwJTwRR4d
-	 DQmqNkwX3+ybvt75yzgBWnX8Zlj9gmc/fzlJCO2oXARDLllg4ciZsagPFztCBgDjgyX0j
-	 jX3rS6hJGLb+ANRp9Oss7D5edo/vo+HN5xd0aKEeLusvGdb/+2VIkwe57m+FCESv1VVfH
-	 iRd7UlNz9Qe6ft8NxTPwxGjLS11y90rG8Y2qExOYlszfNpk04Xvf4akrtchGH4Q5r2oKf
-	 77QzmDohfNxZNBnTwcIC9hWx8B2dvvP42J8NyZVEniEVP7YNBJJTtFFJOOI8H3Et/ZA==
+	t=1795560670;
+	b=eeEg/MBJT6MbjHLJhvBeNKjlZP8KEAWCQDiPZ1jX8EopMN5eAFcPI1q5OY8RinHM/4fk
+	 fUsh5/oZD87OQDUs8fAVIzkLpC0Vkzf68cRzdlNYpe1WBWWzuh4C7PTId/SHymNFRwpL4
+	 5RuD9Q9B/Nh9OiTPD86GhyDx99Dy52JyV4fUPOduaIQzEWk8USLbWmXSk172/eR0zlaTt
+	 g/aSR5UoiNHaulECmVIkoyVVLOfvFDYhWOk+PDcVU1pDcl1M1lzHSDUl7VWbm5LtWN7zY
+	 1QuOAQPvUlW5fJ7v2n8gxNkEO2MykuhuQCMzAZ+QoW1qD1AD+jCbLvhSuw3UqQXbHng==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795560668;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795560670;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=jrigqiEu/nUvTtr8hgpZahiDD4O3PEjOJSdql4Qjodk=;
-	b=gWruBIE3QNoddFFNaZpIfZa1uFr6va5RzEqvZhJW3KCskcueFlINFUKEnYfzIGeyAlWT
-	 Rwt0mMZ3NLJmLvaLOicQIHfevBBWIU8Z5XC8A74LPXcopkD/C8O2YWEbfQ2a8cL9NNY/R
-	 f/Q6z15Vw68V8ie/f8ys0Rcr9hDfsPK06E0IuucBgz2UJ3iMHM8byDL08g/YWxzDQ7qVa
-	 M0f2lk+4ZQXUvVZhfSKQwm54+t52PeTcke3/7BeXOK0f17U/Kw0ERj1fW8SU8EcGrJ/IC
-	 hw9B936/jgFbgYi6nbWR8QzitcDa383HmPg0MH/AIoo4KxNVe1jP+cjT2BIirgDWDmA==
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=8fbqFXfnJmZ5wlNeBVcYahiL5PvY2DhQX6o+WRRQBHU=;
+	b=AECZLsZzXYHQxOanHFFNWKmiF84M6bpk2IRB6vlVT5crn3uzTefLFd8/h4nY5yD5qOdf
+	 17C7p3+h6DHn86YhOZxxZjzHu2dzb5+Y9e0mJ6X2EUTJlG3rrp0GdThsTXX3t1lewVDT+
+	 zofcAQ+w8vhJIRXht+RUemYArz0BAwygARQnYNVI9x7amxJqVI1HCHEQuufs3wd1DbVhG
+	 KictMIKjW91bpRrkZZDatvWroNE+AI0Vyn8Y2XfDrlnLqgI45JDQ9TVGGiS8TI7IoUYCN
+	 khcYefnON622TS4jTdcMzi7hGfaIBzml1yRs+NLvnwnhEhwJRMibhbMs5c5gD3mSSTA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=IwU9Qbho;
-	arc=none smtp.remote-ip=209.85.128.43
-Received: from mail-wm1-f43.google.com (mail-wm1-f43.google.com [209.85.128.43])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GCdFeoTW;
+	arc=none smtp.remote-ip=209.85.128.49
+Received: from mail-wm1-f49.google.com (mail-wm1-f49.google.com [209.85.128.49])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E6DFB606A33F
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 22:51:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E6DFB606A33F
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2BD3606A69D
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 22:51:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F2BD3606A69D
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=IwU9Qbho
-Received: by mail-wm1-f43.google.com with SMTP id 5b1f17b1804b1-4b467581b98so49631985e9.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 14:51:07 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GCdFeoTW
+Received: by mail-wm1-f49.google.com with SMTP id 5b1f17b1804b1-4a35a60499eso40734925e9.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 14:51:09 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795560666; x=1796165466; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=jrigqiEu/nUvTtr8hgpZahiDD4O3PEjOJSdql4Qjodk=;
-        b=IwU9QbhodXzlLDRauWBLrFbli/b9ei5ev5Yr6svDKdoANACaA9KLxcnMoSiHjB2uQL
-         Fcdp5U9gh74slg4rFlwZHdSadfT6fhg4WDhi1i3MABxRtGG6ZDLzyDi7/+7EHkmIEl34
-         S8KIhqYfbkxrK85wMruIrUnGuvmWJKChn7HwavPJsaDZ8C89ZfgYugOKlQjmdbHR7GcC
-         HXjCYimCXcEMPCd7mKCxsIf90YhibXQBMus2F3VR+zJLk/Sy8ZBoqsmldO6zjOstdVyD
-         l3ZweCwHPPW5c4cDA2tRXMo+yhYDHUqNsc2Qomy96/mVnHn5FtmOKe8Fy3oNPk/cubNM
-         bVwg==
+        d=gmail.com; s=20260707; t=1795560668; x=1796165468; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=8fbqFXfnJmZ5wlNeBVcYahiL5PvY2DhQX6o+WRRQBHU=;
+        b=GCdFeoTWhhvd2pA4jmshxSJGXNPRUZNH67/i8ObsgUB1JZxDHmGK3mdIOqwQPjyViC
+         lz6/JqDiNWB92qK4G43yckMYusH5A0jEpSUcDChtrQ6VSXVxfuz2xPRCklFLkg+eF9Tx
+         TDQcXH9ldQ5ozQcKo2tG9Gb7uuEJWtP7rRcsK8lPetm7LWwbVXJmtbqcP5nPLaOTAhUZ
+         aST/YzJnKL6jDsMzAqYBcvuNdkte+C4841S8XhQdI5n9zuM+xhTeLFWwEvMwg1Uet0JA
+         A9jNjlb7B3B9ZRLtQixaO8caFViJteaXCYBhn4QZB6maKkNhABs4DmYMDYZVjmOGLqz0
+         v/ag==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795560666; x=1796165466;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=jrigqiEu/nUvTtr8hgpZahiDD4O3PEjOJSdql4Qjodk=;
-        b=ahuFhkRI9zvShZMFYFj7dEOmKCJDqw6fe00BJWxUoNgOx1ezIXTKl98D0ZgWqsVZm3
-         Z+S+FE+MFoSnMubRfV/Mb03Sj/sk3BjgihdKjqvzyUwg/rz1qHKH6NH+aypUqFf2wep5
-         byE72uHj6ZKykm8zP/CGUxknbAeIahjzeF5f3omuq+D+UoKwu3Lyv+U6MBBMQ7AD7WxO
-         iaIHZKWRqF6M0aHqB/w0I/jPYPFDjff9Pbu/JJrc+4Oy2Bs24WpIq7HcukUaK02MRpKt
-         k/i2df+pIC9OQ24zAiacb7d1WuLzDKvo2bA+uVydYzunDwdFuUKTLdzB1aHJqyKPBgvV
-         Cgww==
-X-Forwarded-Encrypted: i=1; AL+hErGRs7/Sxe22u1C0SXE8m8gs8vmGZr9fic6XWKFYdCYHlSp+X3H7fxXtAdzjRn3H8XvLS25AWOR9wDUaZaI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8/fBizHRb+BecFdM5xUKMszLGQcfVQbP/KfcnH24aA3lkJS28v
-	/Y3APbe3d9fUsX4q7HczTwBGTU8TJ1B8O7wrTt/yiu9HDanh+HZClSs=
-X-Gm-Gg: AZFdTZeekqOYybd++A6VGR14TjQXFzFgK2qLeylQxRdI3FuzVyHsFzXu5gs+4leWJTM
-	dMoxb0cWCRlVaHhEB0CjsMsBIUlys9/KwUclreyHhjfHwpmJUCn1O3Vd2Rvh8/vCSKI+SGgl/8Y
-	d46DysFGWIFZP9N5xvkcp2BXTjQJzEjBIyGFtQ6mkXczY8BsFzbAyWWviZdQmDtS1rYoguhJQ6w
-	0HJOcgx3UkqFVO6ZWB5k5kCsZnKptWrqLhArLLcnAU1zN02Ti2+h+TKd1ZFP0E2iaX91XF9k62C
-	oISfRwf83ZphtV/s1tZ9YMq9yn/06chcuTjQ6xjI5eJ+OW69mw3H6jQN+A/jfuOnw0TFuSsLFH/
-	vV62J/jR2ienH/5aNype28/JxQpro4sfI3nL5dq5BtjdRE/QDzVCZInBe5wzIbx0alxxFnw14iE
-	WGfXGBHJaGwvJZyoAYLHd4cFZ4rdV7SLDcskbPC+Pwm5ovdPW9PE98LEOyt6ERFOUTC2Re4E+5J
-	1b+DHuNRV/Jq7855uFF2UpOHjwMltWwkRTkgZ04tZ1fx2v0w1mnbQRutEIqn6fG1e6fd9trzatI
-	X05LseWi2S9fe1NQ50vJk+hsGJbLAKVUcFykU1bW3hIONsRS+axWA7YIuHL7HM24A1wYYYvYYa8
-	h1q4FSt++bZMRP7MLkIy2Elh2zn5THcMd1sQ8ZTNLdWjfle5llTaJs6UjXmaB8LYP9j3jpjoqRB
-	aMQ21AjUOg6V+gkUdETw99h4bC1pom/U2F
-X-Received: by 2002:a05:600c:3b8a:b0:4a3:59c9:a754 with SMTP id 5b1f17b1804b1-4bb8892da25mr318594355e9.22.1795560666345;
-        Tue, 24 Nov 2026 14:51:06 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795560668; x=1796165468;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=8fbqFXfnJmZ5wlNeBVcYahiL5PvY2DhQX6o+WRRQBHU=;
+        b=PpJSXOZ4MRbGQMH1SK75xX0zPdNUue27+ZkJR6CwDNOfD1D2rn54shotpQiqlD808M
+         yc7oLGYklpbXm1+cnPSmnHYOhaFo+lFYgo6fba9UEFwu42Es302gTGVFl7WEpFcnYkmH
+         jKOkUZkF6SIeejU3ZfsE6RoWoZExi5JxYYrecP/GNZqA0dsDlcYqqPqmx+tieGzPbdVr
+         D78L+eVyOqqKsogYSgm6naETpvgUrWkdGJgNwY0KPf+6hCCMBQ4C0QufTNomubeDMGy3
+         Xecf1GLEjuCVTkVMGPlEwytF6ZZilNDa2O9aN3kRs0jdzhM5KTqJw6zH3V+R1PBmu6Jw
+         YTmw==
+X-Forwarded-Encrypted: i=1; AL+hErG/78byMIYeXiqHhzoqln/xvb0cJAQ0nPiUWf014RQQExRpYpGtigUkUv5VKnfSUlQLkr8cjJLNv1SKIu8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/cNnSG0vTqbUJS6pfAx46ye5Q3PHO1ymo2nERG7iiBCN4h0eHT
+	W3hYPy8Xfhw1BFQ3WWTO6DD3/9cCtbmYeXlvPvhoQBqo+bsre8Upo7I=
+X-Gm-Gg: AZFdTZcA4Jy1JvmqEZ/Sc45cV8HTjgpzRZXjE6GD41AQ5H9YcvoqITbv2keDzHCzHrg
+	6Kj5yhASk167v1UZ9PAtjGUcUE7LRDMP3KVPsslx4T67bLwFXP9JxnJVK+BR9grfPG7Z7XN7KVI
+	R0RoLNgX5X4jst0uG0HX7aIjhDCjcV3z7iwIdoecGpqoycDzExsiycl88GKmSQ+q1U5Jz+FAKNO
+	JZ29IlV+NBdWdnhN3zSv3kxaLVi6EpK9dCBBrFHBPTrNgI14ZqyTHJE2WajYFLS69p9kFb+kcn/
+	bz5ju2M8KEIax94IYaipSLZuBybRSstmhyFkIN53mWXplWmwToo0QT/LHYEbxhHD3K1XLBIcUXo
+	d/PqrusJVoUZ1DnbVNVX7VDBJQy0E9LB+OinUTApgoFm5WJPgeG9E5pa992M1rAFXRwCpE4mmLO
+	aTU7yfxyedzyjbZLEJGKdEj6omNABqZ/ot6HVydq0ncb26pzVkcNg6hU7IL8WAm/8/ya4BLiJcl
+	zAb8bFVE3LqWCrC61J0B1oOhadFO7hArdut1HhjNWbtDca6IdWs0Ji09mMOhhNqLeXCMmHQ9YGh
+	u9AIQ4XCn8kEmEvqFGqbU4lBqZVzYmAQswoGNRDht+J8G9haNwUxxTZ26VyT6E4Yo6HoUySHQ9s
+	AP46GJRYtJR47LSsehYKBawpZEPp0r5aMCmoIHCnsp4BKMeFsmmImdVvOnZS5UnKec0ylAdPWvV
+	TwZ59nw+CaQXJrvUVKtS080nSd0P+8m2bp
+X-Received: by 2002:a05:600c:4f0d:b0:4bb:5c97:f4b1 with SMTP id 5b1f17b1804b1-4bb8881941bmr368118945e9.24.1795560668275;
+        Tue, 24 Nov 2026 14:51:08 -0800 (PST)
 Received: from localhost.localdomain (dynamic-2a02-3100-2ec1-8a00-a10d-4335-1e05-e7ae.310.pool.telefonica.de. [2a02:3100:2ec1:8a00:a10d:4335:1e05:e7ae])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853a1e8bsm393839525e9.9.2026.11.24.14.51.04
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853a1e8bsm393839525e9.9.2026.11.24.14.51.06
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Tue, 24 Nov 2026 14:51:05 -0800 (PST)
+        Tue, 24 Nov 2026 14:51:07 -0800 (PST)
 From: Tobias Philipp <tphilipp@gmail.com>
 To: bpf@vger.kernel.org
-Cc: Felix Fietkau <nbd@nbd.name>,
+Cc: Tobias Philipp <tphilipp@gmail.com>,
 	Alexei Starovoitov <ast@kernel.org>,
 	Daniel Borkmann <daniel@iogearbox.net>,
 	Andrii Nakryiko <andrii@kernel.org>,
@@ -101,16 +100,16 @@ Cc: Felix Fietkau <nbd@nbd.name>,
 	"David S. Miller" <davem@davemloft.net>,
 	Jakub Kicinski <kuba@kernel.org>,
 	Shuah Khan <shuah@kernel.org>,
+	Felix Fietkau <nbd@nbd.name>,
 	=?UTF-8?q?Thibaut=20VAR=C3=88NE?= <hacks@slashdirt.org>,
 	Stijn Tintel <stijn@linux-ipv6.be>,
 	Daniel Mack <daniel@zonque.org>,
 	netdev@vger.kernel.org,
 	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Tobias Philipp <tphilipp@gmail.com>
-Subject: [PATCH bpf-next v2 1/4] bpf: Fix alignment of memory allocator objects on 32-bit archs
-Date: Tue, 24 Nov 2026 23:50:52 +0100
-Message-ID: <20261124225055.87344-2-tphilipp@gmail.com>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH bpf-next v2 2/4] bpf: Align lpm_trie map values to 8 bytes
+Date: Tue, 24 Nov 2026 23:50:53 +0100
+Message-ID: <20261124225055.87344-3-tphilipp@gmail.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20261124225055.87344-1-tphilipp@gmail.com>
 References: <20261124225055.87344-1-tphilipp@gmail.com>
@@ -123,99 +122,116 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-From: Felix Fietkau <nbd@nbd.name>
+The verifier checks the alignment of PTR_TO_MAP_VALUE accesses only
+against the offset within the value and assumes that the value itself
+starts on an 8-byte boundary. It accepts BPF_DW atomics and 64-bit
+load-acquire/store-release at 8-byte aligned offsets of a value.
 
-The BPF memory allocator prefixes each object with a header that holds
-struct llist_node while the object sits on a free list, and a pointer
-to the owning bpf_mem_cache while it is allocated. The header size was
-sizeof(struct llist_node), so on 32-bit architectures the memory handed
-out was offset by 4 bytes from the 8-byte aligned kmalloc allocation.
+lpm_trie stores the value directly behind the key bytes, at
+node->data + trie->data_size, where data_size is key_size - 4 and can
+be anything from 1 to 256. Nodes come from bpf_mem_alloc, which returns
+8-byte aligned objects (on 32-bit architectures since the previous
+patch), and data[] is at offset 24 (64-bit) or 16 (32-bit) in the node.
+So the value is 8-byte aligned only if data_size is a multiple of 8.
+For an IPv4 trie (key_size 8, data_size 4) it is 4 mod 8.
 
-The verifier assumes that allocated objects are 8-byte aligned and
-allows BPF_DW atomic instructions on their u64 fields, e.g. on values
-of non-preallocated hash maps, objects from bpf_obj_new() and local
-storage. On arm32 the JIT does not implement atomics, and the
-interpreter executes them via atomic64_*(), which are implemented with
-LDREXD/STREXD on ARMv6K and later. Those instructions require 8-byte
-aligned addresses; a misaligned address raises an alignment fault and
-crashes the kernel.
+On arm64 the JIT emits LSE atomics or LDXR/STXR loops, LDAR and STLR
+for these instructions. All of them raise an alignment fault on a
+misaligned address. FEAT_LSE2 relaxes that for LSE atomics that stay
+within a 16-byte block, and for LDAR/STLR only if SCTLR_EL1.nAA is
+set, which Linux does not do. The fault is not fixed up. This oops is
+from a 64-bit atomic add at offset 8 of an IPv4 lpm_trie value, which
+crosses a 16-byte boundary (Linux 7.3.5 under QEMU, HVF on an
+FEAT_LSE2 host):
 
-Pad the header to 8 bytes to preserve the alignment provided by
-kmalloc. Store the percpu pointer of percpu objects at the new header
-offset instead of assuming the header is pointer-sized, and update the
-copy of the header size used by the hash map memory usage accounting.
+  Mem abort info:
+    ESR = 0x0000000096000021
+    FSC = 0x21: alignment fault
+  Internal error: Oops: 0x96000021 [#1] SMP
+  pc : bpf_prog_cc9155b98965fc5e+0x64/0x90
+  Call trace:
+   bpf_prog_cc9155b98965fc5e+0x64/0x90 (P)
+   bpf_dispatcher_xdp_func+0x14/0x28
+   bpf_test_run+0x11c/0x360
+   bpf_prog_test_run_xdp+0x358/0x548
 
-Fixes: 7c8199e24fa0 ("bpf: Introduce any context BPF specific memory allocator.")
-Reported-by: Thibaut VARÈNE <hacks@slashdirt.org>
-Reported-by: Stijn Tintel <stijn@linux-ipv6.be>
-Signed-off-by: Felix Fietkau <nbd@nbd.name>
-Link: https://lore.kernel.org/all/20260717183632.99195-1-nbd@nbd.name/
-[tphilipp: rebased onto bpf-next, adjusted context in hashtab.c.
- Local storage no longer uses bpf_mem_alloc in bpf-next. On 32-bit
- this patch moves an IPv4 lpm_trie value from 0 to 4 mod 8; the next
- patch fixes that, so both have to be applied together.]
+On x86-64 a locked 8-byte access at 4 mod 8 is a split lock when it
+crosses a cache line, which is fatal in kernel mode on CPUs with split
+lock detection ("Split lock detected").
+
+Round data_size up to a multiple of 8 when computing the value offset
+and the node size, like hashtab does for keys. IPv4 nodes grow by 4
+bytes, IPv6 nodes (data_size 16) are unchanged. Add a BUILD_BUG_ON()
+for the offset of data[], which the alignment of the value relies on.
+
+This patch and the previous one have to be applied together. Without
+the previous patch, nodes are at 4 mod 8 on 32-bit architectures and
+this patch misaligns the IPv4 value there, which is aligned today by
+accident. Without this patch, the previous one misaligns it.
+
+This was found with AI assistance while trying to verify the
+correctness of map value accesses with formal methods. The patch was
+written with the help of an AI coding assistant (Claude Opus 5.5).
+
+Fixes: b95a5c4db09b ("bpf: add a longest prefix match trie map implementation")
 Signed-off-by: Tobias Philipp <tphilipp@gmail.com>
 ---
- kernel/bpf/hashtab.c  | 2 +-
- kernel/bpf/memalloc.c | 8 ++++----
- 2 files changed, 5 insertions(+), 5 deletions(-)
+ kernel/bpf/lpm_trie.c | 19 +++++++++++++------
+ 1 file changed, 13 insertions(+), 6 deletions(-)
 
-diff --git a/kernel/bpf/hashtab.c b/kernel/bpf/hashtab.c
-index a2d0bfd4c..b84911054 100644
---- a/kernel/bpf/hashtab.c
-+++ b/kernel/bpf/hashtab.c
-@@ -2594,7 +2594,7 @@ static u64 htab_map_mem_usage(const struct bpf_map *map)
- 		else if (!lru)
- 			usage += sizeof(struct htab_elem *) * num_possible_cpus();
- 	} else {
--#define LLIST_NODE_SZ sizeof(struct llist_node)
-+#define LLIST_NODE_SZ ALIGN(sizeof(struct llist_node), 8)
+diff --git a/kernel/bpf/lpm_trie.c b/kernel/bpf/lpm_trie.c
+index 4d6f25db9..44ad5c163 100644
+--- a/kernel/bpf/lpm_trie.c
++++ b/kernel/bpf/lpm_trie.c
+@@ -286,7 +286,7 @@ static void *trie_lookup_elem(struct bpf_map *map, void *_key)
+ 	if (!found)
+ 		return NULL;
  
- 		num_entries = bpf_map_sum_elem_count(map);
- 		usage += (htab->elem_size + LLIST_NODE_SZ) * num_entries;
-diff --git a/kernel/bpf/memalloc.c b/kernel/bpf/memalloc.c
-index 15684d0fc..29d62d864 100644
---- a/kernel/bpf/memalloc.c
-+++ b/kernel/bpf/memalloc.c
-@@ -33,7 +33,7 @@
-  * Every allocated objected is padded with extra 8 bytes that contains
-  * struct llist_node.
-  */
--#define LLIST_NODE_SZ sizeof(struct llist_node)
-+#define LLIST_NODE_SZ ALIGN(sizeof(struct llist_node), 8)
- 
- #define BPF_MEM_ALLOC_SIZE_MAX 4096
- 
-@@ -148,7 +148,7 @@ static struct llist_node notrace *__llist_del_first(struct llist_head *head)
- static void *__alloc(struct bpf_mem_cache *c, int node, gfp_t flags)
- {
- 	if (c->percpu_size) {
--		void __percpu **obj = kmalloc_node(c->percpu_size, flags, node);
-+		void *obj = kmalloc_node(c->percpu_size, flags, node);
- 		void __percpu *pptr = __alloc_percpu_gfp(c->unit_size, 8, flags);
- 
- 		if (!obj || !pptr) {
-@@ -156,7 +156,7 @@ static void *__alloc(struct bpf_mem_cache *c, int node, gfp_t flags)
- 			kfree(obj);
- 			return NULL;
- 		}
--		obj[1] = pptr;
-+		*(void __percpu **)(obj + LLIST_NODE_SZ) = pptr;
- 		return obj;
- 	}
- 
-@@ -262,7 +262,7 @@ static void alloc_bulk(struct bpf_mem_cache *c, int cnt, int node, bool atomic)
- static void free_one(void *obj, bool percpu)
- {
- 	if (percpu)
--		free_percpu(((void __percpu **)obj)[1]);
-+		free_percpu(*(void __percpu **)(obj + LLIST_NODE_SZ));
- 
- 	kfree(obj);
+-	return found->data + trie->data_size;
++	return found->data + round_up(trie->data_size, 8);
  }
+ 
+ static struct lpm_trie_node *lpm_trie_node_alloc(struct lpm_trie *trie,
+@@ -302,7 +302,7 @@ static struct lpm_trie_node *lpm_trie_node_alloc(struct lpm_trie *trie,
+ 	node->flags = 0;
+ 
+ 	if (value)
+-		memcpy(node->data + trie->data_size, value,
++		memcpy(node->data + round_up(trie->data_size, 8), value,
+ 		       trie->map.value_size);
+ 
+ 	return node;
+@@ -597,8 +597,14 @@ static struct bpf_map *trie_alloc(union bpf_attr *attr)
+ 
+ 	raw_res_spin_lock_init(&trie->lock);
+ 
+-	/* Allocate intermediate and leaf nodes from the same allocator */
+-	leaf_size = sizeof(struct lpm_trie_node) + trie->data_size +
++	/* Allocate intermediate and leaf nodes from the same allocator.
++	 * The key bytes are padded to a multiple of 8 bytes, because the
++	 * verifier assumes that map values are 8-byte aligned. Objects from
++	 * bpf_mem_alloc are 8-byte aligned, so data[] must be as well.
++	 */
++	BUILD_BUG_ON(offsetof(struct lpm_trie_node, data) % 8);
++	leaf_size = sizeof(struct lpm_trie_node) +
++		    round_up(trie->data_size, 8) +
+ 		    trie->map.value_size;
+ 	err = bpf_mem_alloc_init(&trie->ma, leaf_size, false);
+ 	if (err)
+@@ -766,8 +772,9 @@ static u64 trie_mem_usage(const struct bpf_map *map)
+ 	struct lpm_trie *trie = container_of(map, struct lpm_trie, map);
+ 	u64 elem_size;
+ 
+-	elem_size = sizeof(struct lpm_trie_node) + trie->data_size +
+-			    trie->map.value_size;
++	elem_size = sizeof(struct lpm_trie_node) +
++		    round_up(trie->data_size, 8) +
++		    trie->map.value_size;
+ 	return elem_size * READ_ONCE(trie->n_entries);
+ }
+ 
 -- 
 2.54.0 (Apple Git-157)
 
