@@ -1,107 +1,131 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.54
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795536172;
-	b=YTgafPLRBcNF89FGIlJpJHfKzRvHjflUf34h+NZFw0UeYN1RMaC448fBpoD63JXq4IGn
-	 EIxYmLgttbf5r9FKcwH98t9OFYrRVTDP7H3q0rGbXKn50xWBmR6vvGg/zp+kDn43zEjG6
-	 w5CUlT7wsfP1tBnKa1ydWYw2fkyr1SQUJ1b3PNYdQzlSWNvOc2rAgYrkEsMO6BoZkdbyA
-	 VwTztyjd9/3bDIxArbb0xLDvgMdtRWSJgnNMJZboU7wSIBYS3oCH9d4NjphvlZQ84vNui
-	 G5Rz/pXySwJGVd4gxNmFRX0klwIA/So6q9czCXGqvPdng2LtWDkmoscrA86R3dZmK+w==
+	t=1795536168;
+	b=hD1sLX7gspe2vKbFavW8khkqIQukDxetcS1FU2riDJ+4qhRhx4E/Fjpe0w/EbemFpV1b
+	 UqmSzRos4vKND4fGz2R9HBLpGHkyDTQiQTdDkg+XjWrwnrUgxSQbOqhM7R171B7KGEYem
+	 H7JQjd/ZFrNH8EqlzVHMdmtr6GwX6iFKp0JK0y+V0zRSIxs7iFs+susAwXFbMEFh6PDDb
+	 ARV6j+HNPlzFh58mmydnCvPsTVobPsuiR13rC/ilrkYSV6Ot94aapcYmAEymqtmys9AHo
+	 6BdzXfXNvTTSoXGbbbdFmhbeEKtqqwficSLR427jxUDe6oBespexVrnkclIlLOpM+xg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795536172;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:Content-Transfer-Encoding:
-	 In-Reply-To;
-	bh=VIP6J/fBo0uMkDHJLPjC6lz8Vse963XInWutXlvbkwI=;
-	b=GKN+HthhBhChc1isRaZ5nGoEFUpnRufaJhL8apzNDBIPp3b86GNrEug3K3gnR7oMYKft
-	 w/Ron/1UW672ogN37KHPqrfp9DIqViMukrRpIAyeKj9SjyEVbskrPnRYRn/b/pPUu+sfs
-	 hWrAyqiMRkpLsOxMGiMzCC/L0DpxL9UdQohFS8yp8hoGAkp5204V7f9WEOxOKvT5xgNM0
-	 vtJAjflcIiE1/aGIg1bk4zxMNtrIPkk+e1LjvDu8pVamBs5knj9xL3WLzPeJcjOQ4Co0B
-	 u7NFo1IXvTI/MaWcKgKeQf01b0djiygf48eAJn9+CPcmdoEKY7MrGUVi157Q+tGcbcw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795536168;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Date:From:
+	 To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:X-Authority-Analysis:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=7e5IkpeNb6Jnq3ekR9vD1xEnTo2vym3AHpRb4B0Ibcc=;
+	b=DWhFcL2mnGJhDHzOnurtETJKFicNf0wOwbdlMCWBSAfK+FirCCcsKmy4FmHFsZKVtMX5
+	 iowHkHYdDCSs5TQxtEqJvB3PtULd0f8p6GjauKPPbGEt0B08kz16oMqg05QjO9aRMpQhp
+	 qm05NNlChkSgyDfWt6mDRbILgQ2g02Xh3gEJRTVUTvWAgbWGcD9BO5dIgsCujeE9NSXPz
+	 GhwBMH0xDiCcaEJlgWU8C2k1etwJO++IubejmCYf+JJwEtU1EAs+AiB4QalC41c3CNrgh
+	 pf3rLxbDC+NNALqDj6AZ0PW7UeKMltlP7DDOscP5HMHrvpbj3ijo+HqeH2tIXPLeA7A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=b7ro8bt8;
-	arc=none smtp.remote-ip=209.85.221.54
-Received: from mail-wr1-f54.google.com (mail-wr1-f54.google.com [209.85.221.54])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=lvK4NXkZ;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=g9lk5BOf;
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6FA69606A336
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 16:02:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6FA69606A336
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B6804606A326
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 16:02:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B6804606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=b7ro8bt8
-Received: by mail-wr1-f54.google.com with SMTP id ffacd0b85a97d-4a358881793so2429581f8f.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 08:02:52 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=lvK4NXkZ;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=g9lk5BOf
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AOFL5nM2318041
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 16:02:46 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=7e5IkpeNb6Jnq3ekR9vD1xEn
+	To2vym3AHpRb4B0Ibcc=; b=lvK4NXkZVCfaLQE3CerZ13b8vyja8k2emdEbwSCp
+	vHLW4KegKzU+SUm3+j8urcgcUUuE52ETu6NFLJmQjjGSWXEgZp38p9T28Bws03+u
+	5SSwEIWJzZuMp71ifrUe28tpmZR6mNHQttxtVY6+hcWVEnuOYFS9wji97Xs9T+Ra
+	eeyAzwGirdlPf7dRh8e3GJ1wCudn0AtQiKW2ipvSl6BmEBZ7KYbiKkOaVg6Edj4T
+	dCKon/cjBNx4fg4qUtLiz5ZcetPeAT0pwkF76torbJ37iyBgl8MWZeMc+yU8ZC3X
+	uLEdmh1BVvA4mlMuVDNiE9xShP59pBVtTmB0UeNpBd7dTA==
+Received: from mail-dy1-f198.google.com (mail-dy1-f198.google.com [74.125.82.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j4yvd3psw-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 16:02:46 +0000 (GMT)
+Received: by mail-dy1-f198.google.com with SMTP id 5a478bee46e88-38355b03cb8so4692289eec.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 08:02:46 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795536171; x=1796140971; darn=vger.kernel.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=VIP6J/fBo0uMkDHJLPjC6lz8Vse963XInWutXlvbkwI=;
-        b=b7ro8bt8s6WZ6goSKdTR9/b7UJZ+ETxzxEOK0KkeYo2eflpr8rt0OF6cFwV0jnuChQ
-         viEH1Te3AgIKQ6/QUdTLdEwn45BzlMSO/KkLMybo1MY4sV3bcqBM7pg4YLoF32KwKm8H
-         +lcVjh6X8y92UVgcXyfso+WFDHxbnhGvk/TeyGE0zkXdEfaCDi3p98b1jci2sgSm31fl
-         w6EvnZhsiX8/R6QD+XjTHNd9kIQqXTn+eL5AzVDkjKo8hRdiCQHd+U+rWOPGf06yuLs7
-         RNL0Mlb4kz0rsO68sTFR1NAJ/TSvmlvW+vAqvMMDbROXjbVQwWAddk9yPnDXxED9W8sD
-         MA1Q==
+        d=oss.qualcomm.com; s=google; t=1795536166; x=1796140966; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=7e5IkpeNb6Jnq3ekR9vD1xEnTo2vym3AHpRb4B0Ibcc=;
+        b=g9lk5BOfRD0NNrdSlLnTFXx/f2RE7AhWuJ6j/Cedz9jBLIiRB58nTYl1xqigMpRSkc
+         6YmXkhdie7b1EKp9TENFN0FvyP0ncXQK/S50zg95FVmGuS6RZT6PqG8yDo9nEYy/fvtv
+         QiCsVJM53fGoVsMGsu+gN7dHgCX/LvLa09wygNuuygWwXlzSxNvUIax5jPQUhEuG6fVi
+         qdaKRmfEorqVb53uSfFbmilR4r5DVWYu22mw8wEiA8BV8TAMMGMF0pPDPHE5VgwYJF62
+         8h92mzNS5yUCpPQFOOxCl+RjoRrurRMgK2zHfssOmATUC/bPSgrgYn3sJk0bpmEAtx6r
+         iFVQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795536171; x=1796140971;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=VIP6J/fBo0uMkDHJLPjC6lz8Vse963XInWutXlvbkwI=;
-        b=kxhj4JXuGTduAqc19CserxHCnAA7BXjdEdNG06j74VoU3K7YHa0fm9YVkPnTBbHnMW
-         APna2D6OpWavsfExgs/pxjaX4v2lOeTrvRWkPXhJeMg+3Ceje66lPis/Ta+8FzUbFA/5
-         m/2yjEE/LGSUH5FgqtDWiG9DBZRXi8uW9uDDMvjk536plY5pslSA+YjO1PGfgEGOgCg4
-         kGRsnBIVY/lWvAJRVis9r351UVg4kSiTTNElLfPgW/H7fW8CnsQtwSZWO6Yzb+4wkZ4q
-         E3k4yKaC7guOn8zpsincktNGsNIcA8IyVkjjcLrZXjvLlLm38RXG+pTT20WH3E6Ihj9Y
-         omMw==
-X-Forwarded-Encrypted: i=1; AL+hErF1D5q8Cfi32CxyVYl5rEVJsQViWd73kkjF01JF2ipdU9cKXV/CYCAB0CBJbEyHzUpRJ9BtwBjaNk3kfms=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+6Mwj2vgtxYsIHtQ63NQmCFvruO13X8tO2ZfEzIpOMDTq8dPXf
-	SWfVEo5AFoLF/okyWNiMvAdbeVNxVCo8I0f/Jm343V8DDVN5yXK5GjuaS+o7GAj8dw==
-X-Gm-Gg: AZFdTZewtymsq1guM7uBZOXUfVe65QtenDBls1o7kN3x+dXgYvSI9dPWdTN2ieflfew
-	H7oqWc483hwIpLzc3DG8knF2E0d3Gmzi7B0AoKIFALYZyj3lJZPN3OLNzzVxP2GcSyMpUWMZwyG
-	hNt+8kl1ZLvVyJltGmf6xWbjs0eyR2XAT0wPteHsFiG3X5j7Uxzl25GUeNcxNLux7o7JEpnmTNq
-	0r1mi35gIn3SRIkVX0UfdQsSU1Mn+En7sCPxQbHvDo0nn09zfDxWigEBv2A+62MQthTEkbdZPCu
-	PQsZLi+iDti2Za6yWWJDozwGxoP0vx45Dy1YqIao3vlcdb4hlwlYDjqQLnxp3VdcmU4lbpdWpOu
-	vsUPB70B3TVrtSMY07qqW4ctkxITVyy+wDcal2zNReOtjH3IjIDiYDq9cT8+KtuOX4uTS7u0S8k
-	BCnxUbVZ7NZ9iCAkF2sUbMP/lYSzzx1mz6zHkwKF5ZHaJm4NdeKRpYzsA2tEyuvwMkgFukRUEe8
-	Wd42Hq9wm7rO5MJxQ+1MEJDYhZoIdh0iaPl7IX8WqGOZgegXeSD2+bMp9HYqMNEDvIK3dgYvFbo
-	dBfaJK4KAVMDRrjoJyJxs4DpiHlRt+uPN7fevxyCSLFGcWn4uap68Miq9vNT
-X-Received: by 2002:a05:6000:4541:b0:4aa:d196:f329 with SMTP id ffacd0b85a97d-4abb4c7afc6mr19740332f8f.27.1795536170162;
-        Tue, 24 Nov 2026 08:02:50 -0800 (PST)
-Received: from google.com ([2a00:79e0:288a:8:d01b:9df4:1123:37e8])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab658e2d1bsm30145984f8f.8.2026.11.24.08.02.49
+        d=1e100.net; s=20260707; t=1795536166; x=1796140966;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=7e5IkpeNb6Jnq3ekR9vD1xEnTo2vym3AHpRb4B0Ibcc=;
+        b=oP77Mr7IGTQM8d7FF7YympqPeR20sEE8wGR5sDlWeef6r8Lnft9xi9Brsyunu+ph+u
+         mrdXz3wQKSEIgXm8WecgBxNVH7b+7i3Pdcx9sa9PjqGZTw6SoS5a1Azpc8Q1BHb9KfEz
+         MSFRmRUP/b5OIIf+dOsBSrY95vAcqau9/2xH3X1I9jhsD+CUtuB+kCq2vpUnW9+GUyef
+         VrVeJNkOWJ3Y+1BKr6e/RJZfHNvuzUKkqG39WZW2idzEGtXogypsOfa88Sz8fu0ndQUU
+         L46WAJv+QQ2t3qmm/G4J4y82iuaQ3XIt8ZQpixrzaZP5dk276UuR96kUMP9Xojsn6aCO
+         5adg==
+X-Forwarded-Encrypted: i=1; AL+hErGoRqS2hHSb5pxEfhnFudwMm+GUVFai+c+R3tWl3fycmQ8UC7mCs0OVW8oZUcwIFgAl153MFh754Mm8HCE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+XF5FrVMk30FhYZUFhvc1rBVAbN/04SMwYGhGsmeSCmj8uAagq
+	H5kfBbuRRvWDs9pyeVGRqm8VOCtvoiknDJAHyGHlZxjoyzj6fFco1o5mXdCGk9fzCA9Jyox18cj
+	f/3j7xvDkf6phahrUTnVQiOomA1Of115H0ywpRx7nAnuSSxBzCogCzjVBXB8YUl+oagI=
+X-Gm-Gg: AZFdTZf5486Wv8A2IBIPvwk5W1weJrhCVh5d9Kig6LE2FJUGbSzAuxXKFicCqbnp7si
+	SDWbjcubZbsj+nMDTyxx4wr5eMIhBCeO1CkninN1KvDF8isxv5fZTdw+LkVnjFykd9VDOoLhTU7
+	zW35j53BkMidCh18WyGPCAL1fvbH/4xD+ve9T5+0FIN9+58kozC9mL54czSFk8dCidrpzPxh8cM
+	gU2vy2ih0BTLBwY1ihIE/IJlGDAxzWvq0677W9y2KyeEHemW0/f/xH6QHVTdKV1PHjlSNqzvEfS
+	dMNDxRLjmzLUjygq8tUrkmvzzD3ITWE6ZULuoopP0JisvrLDJtzY2sfbrnX/+rHdfqmS4Iy9ZFK
+	xsGbdKPZjiKKjiwg0MKBiPs6fUazFB3sdVsVYGAEdQH1Ln0xBtC9bjE/QbD/ZQQ==
+X-Received: by 2002:a05:7022:3f0d:b0:16c:3408:760b with SMTP id a92af1059eb24-1b5568dabf1mr15168430c88.32.1795536165195;
+        Tue, 24 Nov 2026 08:02:45 -0800 (PST)
+X-Received: by 2002:a05:7022:3f0d:b0:16c:3408:760b with SMTP id a92af1059eb24-1b5568dabf1mr15168384c88.32.1795536164374;
+        Tue, 24 Nov 2026 08:02:44 -0800 (PST)
+Received: from oss.qualcomm.com ([202.46.23.25])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385d2b93dd9sm51670984eec.24.2026.11.24.08.02.38
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 08:02:49 -0800 (PST)
-Date: Tue, 24 Nov 2026 17:02:44 +0100
-From: =?utf-8?Q?G=C3=BCnther?= Noack <gnoack@google.com>
-To: =?utf-8?Q?Micka=C3=ABl_Sala=C3=BCn?= <mic@digikod.net>
-Cc: =?utf-8?Q?G=C3=BCnther?= Noack <gnoack3000@gmail.com>,
-	Christian Brauner <brauner@kernel.org>,
-	Oleg Nesterov <oleg@redhat.com>, Tejun Heo <tj@kernel.org>,
-	Bart Van Assche <bvanassche@acm.org>, Cen Zhang <blbllhy@gmail.com>,
-	James Morris <jmorris@namei.org>,
-	Lee Seong Hyeon <ihopenre@gmail.com>,
-	Marco Elver <elver@google.com>, NeilBrown <neil@brown.name>,
-	Nickolai Zeldovich <nickolai@csail.mit.edu>,
-	Paul Moore <paul@paul-moore.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	"Serge E . Hallyn" <serge@hallyn.com>,
-	Yihan Ding <dingyihan@uniontech.com>, linux-kernel@vger.kernel.org,
-	linux-security-module@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH] landlock: Do not hold exec_update_lock across the TSYNC
- wait
-Message-ID: <awW1JBtrZUoBcwJq@google.com>
-References: <20261120151554.2651743-1-mic@digikod.net>
- <20261121.bd9ab1ba5f9f@gnoack.org>
- <20261123.RailieV3ePah@digikod.net>
+        Tue, 24 Nov 2026 08:02:43 -0800 (PST)
+Date: Tue, 24 Nov 2026 21:32:35 +0530
+From: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Gopikishan Thawre <gopikishan.thawre@oss.qualcomm.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Abel Vesa <abelvesa@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Richard Cochran <richardcochran@gmail.com>,
+        linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+        Vishnu Saini <vishnu.saini@oss.qualcomm.com>,
+        Khalid Faisal Ansari <khalid.ansari@oss.qualcomm.com>,
+        Ajinkya Inchure <ainchure@qti.qualcomm.com>,
+        Anuj Tripathi <anuj.tripathi@oss.qualcomm.com>,
+        Sushrut Shree Trivedi <sushrut.trivedi@oss.qualcomm.com>,
+        Wei Deng <wei.deng@oss.qualcomm.com>,
+        Karthik S <karthik.s@oss.qualcomm.com>
+Subject: Re: [PATCH v4 3/3] arm64: dts: qcom: lemans: Add LeMans Draco EVK
+ board
+Message-ID: <awW1G1Aou/65UZ89@oss.qualcomm.com>
+References: <20261123-lemans-draco-final-changes-bringup-v4-0-dbfc15cd0883@oss.qualcomm.com>
+ <20261123-lemans-draco-final-changes-bringup-v4-3-dbfc15cd0883@oss.qualcomm.com>
+ <609ea06d-10c5-4727-a9db-8d42e526befb@lunn.ch>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -111,77 +135,47 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20261123.RailieV3ePah@digikod.net>
+In-Reply-To: <609ea06d-10c5-4727-a9db-8d42e526befb@lunn.ch>
+X-Authority-Analysis: v=2.4 cv=ZYeIpcVA c=1 sm=1 tr=0 ts=6b05b526 cx=c_pps
+ a=wEP8DlPgTf/vqF+yE6f9lg==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
+ a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
+ a=kppLnbNoFjUBNF5CwvgA:9 a=CjuIK1q_8ugA:10 a=bBxd6f-gb0O0v-kibOvt:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI0MDA2MiBTYWx0ZWRfX6gt1JbEdYMvG
+ 55WQNF94MbnX4t0scGPVKt9ihv7PMd/ZKDoDSFFGhl0B6l4/aGT2TyzdUnEFK8rV/c8PP3s77lk
+ cDdjUYGJwo9fJt84mvjAGYfdFxqzFQ2EtqWDBnDIdwFdu1c19sb8IQgRAtfLKM7Fhlw2tU3NOIG
+ 3Dvo+WQB7ufXJVvcQLamNUShi9r4a0Ps5pQUQa1GmDNx2kMCz5Vm8FEeFeVqW/P8jNDKdHBGqX3
+ X9gn5nZgrWInCkKckPbfxALStbriQdGCumpwmH2mjLVFhBNqv6OoHieSwF57wI+kjf+qQvcoD3r
+ plGAnK87sTj+DLrysE2GJsCTgjBHRr77chVDoxJ30K9sp7TGxoK3zCsQCXV3z/QEERbOY/bxV6T
+ 5474pdWebSF+Ul3j2oeoOjnwJtQvDNhwm9gQkQJbY5M3cEvMPVYFCyzWf9VIhKCokMEt0rpji20
+ 15cYeMPoZL2htCs7jCA==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI0MDA2MiBTYWx0ZWRfX4BPLRJsLLfq+
+ e2NrNx1NKCIcYbXAJNj3v5GkYrPrH525cuszgqzep1XcqamCchBmx1T4RTQTQeeOk2U06ystysD
+ Y+sQYHic6BIRvVr46aZpUn3nqrH7RBg=
+X-Proofpoint-ORIG-GUID: 50My5Cmmr-sFigK1-lf2Zef2wNZljyKX
+X-Proofpoint-GUID: 50My5Cmmr-sFigK1-lf2Zef2wNZljyKX
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-24_04,2026-11-23_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 malwarescore=0 suspectscore=0 adultscore=0 priorityscore=1501
+ lowpriorityscore=0 bulkscore=0 impostorscore=0 phishscore=0 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611240062
 
-On Mon, Nov 23, 2026 at 10:37:22AM +0100, Mickaël Salaün wrote:
-> On Sat, Nov 21, 2026 at 10:46:49PM +0100, Günther Noack wrote:
-> > On Fri, Nov 20, 2026 at 04:15:52PM +0100, Mickaël Salaün wrote:
-> > > landlock_restrict_sibling_threads() write-locks
-> > > current->signal->exec_update_lock to serialize TSYNC callers, and holds
-> > > it until every sibling thread has run its task_work.  This wait is
-> > > unbounded: TWA_SIGNAL does not wake a TASK_KILLABLE sleeper, so a
-> > > sibling blocked as a vfork() parent runs it only once its child execs or
-> > > exits.
-> > > 
-> > > Meanwhile, readers of this lock block, mostly in D state:
-> > > /proc/<pid>/stat, mm_access(), pidfd_getfd(), kcmp(), perf_event_open(),
-> > > etc.  An unprivileged process can thus stall tools run by other users,
-> > > including root, such as ps and top.
-> > > 
-> > > Only a per-process "TSYNC in progress" marker is needed.  Use an unused
-> > > signal_struct.flags bit, protected by sighand->siglock, which is held
-> > > only to set or clear the marker.  A second caller still restarts the
-> > > syscall, and a cleanup class releases the marker on every return.
-> > > 
-> > > Like de_thread(), treat a group exit or an ongoing exec as a held
-> > > marker: a group exit may overwrite the flags, and both kill the other
-> > > threads, which the restart lets the caller handle.
-> > > 
-> > > Add KUnit tests for taking a free marker and for rejecting a held one.
-> > > A concurrent TSYNC caller cannot be started deterministically from user
-> > > space, but a KUnit thread has no sibling and can hold the marker itself.
-> > > 
-> > > Cc: Christian Brauner <brauner@kernel.org>
-> > > Cc: Günther Noack <gnoack@google.com>
-> > > Cc: Nickolai Zeldovich <nickolai@csail.mit.edu>
-> > > Cc: Oleg Nesterov <oleg@redhat.com>
-> > > Cc: Tejun Heo <tj@kernel.org>
-> > > Cc: Yihan Ding <dingyihan@uniontech.com>
-> > > Cc: stable@vger.kernel.org
-> > > Reported-by: Lee Seong Hyeon <ihopenre@gmail.com>
-> > > Suggested-by: Lee Seong Hyeon <ihopenre@gmail.com>
-> > > Fixes: ff88df67dbf7 ("landlock: Serialize TSYNC thread restriction")
-> > > Signed-off-by: Mickaël Salaün <mic@digikod.net>
-> > > ---
-> > > 
-> > > Changes since the initial report from Lee Seong Hyeon:
-> > > - Rewrite the fix, storing the marker in an unused signal_struct.flags
-> > >   bit protected by sighand->siglock instead of adding a signal_struct
-> > >   field.
-> > > - Treat group exit and ongoing exec as a held marker, because group exit
-> > >   may overwrite the flags.
-> > > - Release the marker with a cleanup class.
-> > 
-> > It's not clear to me why the cleanup class and the fix are bundled in
-> > one commit here.  (I do find the cleanup class useful, but shouldn't a
-> > bugfix commit be as minimal as possible so that it is easy for people
-> > to apply to their downstream kernels?)
+On Mon, Nov 23, 2026 at 09:29:49PM +0100, Andrew Lunn wrote:
+> > +&ethernet0 {
+> > +	phy-handle = <&hsgmii_phy0>;
+> > +	phy-mode = "2500base-x";
 > 
-> I included the cleanup class because we needed to change the up_write()
-> call anyway, so it's a good opportunity to use an automatic cleanup
-> mechanism instead of replacing it with an explicit lock + flag change.
+> > +		hsgmii_phy0: ethernet-phy@1c {
 > 
-> I also moved the initial check before the initialization because it
-> makes more sense there and it was a good opportunity to do it now (I
-> updated the comment as well).
+> Same here. Broken 2500BaseX? Or properly functioning 2500baseX?
 > 
-> This extra cleanup doesn't have any impact on backporting.
 
-Fair enough, sounds good.
+Based on my previous experience with Lemans based boards, I think its
+the former: overclocked SGMII / broken 2500base-x.
 
-Acked-by: Günther Noack <gnoack@google.com>
-
-—Günther
+	Ayaan
