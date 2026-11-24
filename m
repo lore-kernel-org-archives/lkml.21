@@ -1,49 +1,49 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795549755;
-	b=IF/lNqs30MYGUUSmSXSddcOam+IGDKSRgfx++5g2YL3AjaEcBMM/XEvtC2EPPmnve3oF
-	 U4y0KHd+L2WZbXwgE0EuZNeu7vWWXMFIW1GwMi/5NvLiA9ebasYM7oDQkfFT202v9YpgY
-	 DP12WZaaeHHK2nR0mPUVnuLeU+y1vuEE11vYVnwIM+zw/mmEiJc+3bLdP5IIwX3Fp/zTz
-	 oYkgjLA+tHTleN/e6MvNLYNy9DO+zcdsN7kun5w/BcZsF2B0nkSrBplMJQ+MBU4atpbOE
-	 9/FaPriP6h7hQn7imlSpig5hKxWSLLddStXUyMLq9ooCfBkn4NxevwBbn/IdwSIOQ2Q==
+	t=1795549761;
+	b=LRA3uKK+ZBzPHxdHwqvFkXLrbVvFxokaU6ynQkdAMudWHZaPIDPydqQu2yn2c7jmP4mH
+	 04QnIKiDOJsHVX3VBGzCpmGbm1oUbX3I+ykZVSCbynE9AmX9dkiZKX68WciCD8b1OE2yH
+	 VR0NwiS0CjtHu5BjHyamjiek5Pnte2LE3zZy0jhwdmFyUPSZgeN91usU844cfi96eCFfi
+	 aHYrS63BlNQzatnR60/72aD2SkeogDsn5CxscL8+mk4pnOrieonZL5jamOQqocQ9cCdgV
+	 RzcrN5yAG/X2I6izxio2rCv8grna5XlGHZh+mlnC0zQinVBdfoMWweIvct5dT/18pwg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795549755;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795549761;
 	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
 	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=Tv+WjnE1poltZNggXzTxqDJ17rxW7uEBKlv7N5rp1Ow=;
-	b=H3JLCURKrGIXZtRGk7YAHbJbuHGu0apIY9JvDGIjUy58upNQfRJhcJ3b/jgplsTxYPOL
-	 uvjREAKBrLyCGzjtYGML3akv7I80p5Zets2DVirTlnXOzZ8kkg4lG1pfYc18OTAdmg9Mr
-	 tInnsZEeavfOGypHAWpWYSRlMOdQNDh29r0hwQIEQ4G3l2viIQKn2gLZMrCQk6XcZWzpI
-	 JJ2cj2iPfbx2kbnVHtjrfEztrOlugwx1inbmNHQsNFwq9eYpvUifdRyHFGmEoCOHpNQCB
-	 0w8jWRam+f+cXfLyjpc/E7KtWyZA4tdfeUSNdscr51F0KedzOD6wEgFLc56LB+RZDpw==
+	bh=i64St0ZDINPGuhs5UmewT2T5OBCrdSEPbCFt5v/89y4=;
+	b=utG73gUjKUwpoSWRWTGfcqTnBtSEha4RBzQpeV72cAs0X/4rHNrQSmtfkZbxLveDgRet
+	 U2d+30KNcFqhfAqmhGHsqHU8Vj4yxpYBpW3uT8ZpcEmPOdhbdOzqPTMvbYlVsBO8W5S16
+	 5yUPpmmIb1eSsQKa9apy/8xbLgNXOWFzB0NnAi2nClVIzK4fHYMaORfMNuG6SrhUN8ijM
+	 LjfdA5LNt7ampPuvhsYNMt8bOh0Ijt+5JfLkBUquyf4StE28566GNHAMW3W2NzAoxeFrj
+	 qp2q7+XlN4HSb/civpIqBetGnuoi4W7Fqmw6JtDtVy6+fSUlIbXO3Xvvkyyi2Mja/gQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kd4YPvk+;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=N5IvkwB0;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C8D01606A680;
-	Tue, 24 Nov 2026 19:49:15 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BE119606A68D;
+	Tue, 24 Nov 2026 19:49:21 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kd4YPvk+
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DAFDE1F000D1;
-	Tue, 24 Nov 2026 19:49:14 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=N5IvkwB0
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C8B021F000ED;
+	Tue, 24 Nov 2026 19:49:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795549755;
-	bh=Tv+WjnE1poltZNggXzTxqDJ17rxW7uEBKlv7N5rp1Ow=;
+	s=k20260515; t=1795549761;
+	bh=i64St0ZDINPGuhs5UmewT2T5OBCrdSEPbCFt5v/89y4=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=kd4YPvk+Gjbb4ACwrFgSEnyOlVgOratgYnALxil65aPzY4WZIf4l6IZS1yfBhSlyX
-	 r1CNmg9ZThHpK33d0HWxfNqX2BcJ2hbYQjsw1oe4XuiCM8r987EaWlvyM9cdNUbq+d
-	 ZIkWPvqlsDN0We25Gj4S0JGxfytQyYXbHtJ9Xzwew6iDb6JmG3rZhaIrqmK4lV4dEV
-	 dY0fycRFqs55AC7o8ZG+EYmJLZyXQEtKmyvGJKrs+M/beQApd/6vUAKtF760qQ1n1b
-	 dsTqviNRmKOFDkZmnoN+B7sU06WQH4GcKBL0v3TK8eEu2KkX2KcMLAI5JAymTfmLUO
-	 Pt/4eNt4DLvdA==
+	b=N5IvkwB0XDns4GHdyJBTE+CSfNqF79yh3mGki45T94l4PIDMbhVl9V7ShreOSwUS9
+	 wDLAV5E6Yr1l2ofstOCpFMRWiQwLfEE1veNP3tp+JkEG8LkUJOOyGzmMYvsWZYzw+h
+	 yh+qPhVpPu1gMzx4crEdjMLtZIxL/ccTpfYQWRQ0EkAn/vRkd2kG0VZzWSVKXR1F4f
+	 b9LEM3LZ7NQDcJpHYpEVUnj6HbYX4BDbZp7T/71KlKpE492HcZeakxIMJE3LhspyFw
+	 UnvIOLAcAPtvWoDVt61GobGWQgnvA3r7lixZZkPYZt8hLy226QLHFQ1fWbMJcrGAB6
+	 SxeN+Eqq+MCnw==
 From: Jeff Layton <jlayton@kernel.org>
-Date: Tue, 24 Nov 2026 14:48:41 -0500
-Subject: [PATCH v3 02/12] nfsd: take freeze protection before updating
- delegation timestamps
+Date: Tue, 24 Nov 2026 14:48:45 -0500
+Subject: [PATCH v3 06/12] nfsd: pin the client while a GETATTR holds a
+ conflicting delegation
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -55,7 +55,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261124-delegts-fixes-v3-2-6fe4ba705aef@kernel.org>
+Message-Id: <20261124-delegts-fixes-v3-6-6fe4ba705aef@kernel.org>
 References: <20261124-delegts-fixes-v3-0-6fe4ba705aef@kernel.org>
 In-Reply-To: <20261124-delegts-fixes-v3-0-6fe4ba705aef@kernel.org>
 To: Chuck Lever <cel@kernel.org>, NeilBrown <neil@brown.name>, 
@@ -65,281 +65,148 @@ Cc: =?utf-8?q?Aur=C3=A9lien_Couderc?= <aurelien.couderc2002@gmail.com>,
  linux-nfs@vger.kernel.org, linux-kernel@vger.kernel.org, 
  Jeff Layton <jlayton@kernel.org>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=9935; i=jlayton@kernel.org;
- h=from:subject:message-id; bh=CgmlacvwyZ3nFpEhzmaY9xy1jwN/aj4m+kVauBLvixQ=;
- b=owEBbQKS/ZANAwAKAQAOaEEZVoIVAcsmYgBrBeo1ARnptVnFQsgOxYxjFYf9zpWxquNxAjh7s
- +3YvTK58IiJAjMEAAEKAB0WIQRLwNeyRHGyoYTq9dMADmhBGVaCFQUCawXqNQAKCRAADmhBGVaC
- Fc27D/4obht4QkTrA1E+aCRB7PWZ23PjEadmXOMKXCaM+qZTu9unUaPOfEIAfCb2JnCIvIubbEP
- PDdcZsiZ6WQ/hse47SLJ0MUd8ClXejHfH5icROgJybr0efhKWQHxvW+27utb/tVcsyo2cWsgkrp
- 77/RjlbBgT3As0QflL5lE3Xqi0ULpaJYlswqglOEqCKIMUUb/X6UhBdwC+9gtmeeEb/O2DxxRD+
- OeoerNWfQxoF4VtPdNOAkP9lOW/h57JquDje30KFHPalxxm8MA8vFQJQe94G6jtVyuOLUYM1yP2
- q03/dVQKNw88zIjr4jpfI7cICvYzgqSs8Ci+1OUKcyvZGDkpCe8o6M4qpDeUBA/Xld2wRYrEJgn
- ghsv++2qfgmzOGv44gb1vxPMQj0CRJQxzHMjxylO1C30Aws22WMhKStnjewgPIRZZePYFEp5+8J
- WK3h0c65iq71X7j/VspQ9gJyNpeLBoA6hxWlhVcibWM8nw3KboDvlc7P+/zRDK4UWmrfA+y9RsP
- mGe+fDun1DBU231oFN+QQomMlIdjU7tP2OJAkn4GvFIBLbgAoa1NaZlc57hPWXvPgFFanTgfJKs
- qX3Jj2RCWK5DrSlURA7J/X15TLKhb9UZk4l9kl8dfw5kHVjdn6meZ3TXN25qT2xpBzUMdloNaY2
- Y7ZzLshqUmSl0wQ==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4940; i=jlayton@kernel.org;
+ h=from:subject:message-id; bh=TfGwIIa640s+L2DJWLXZ1zXJX7IDlVxD/S2qTX7e29U=;
+ b=owEBbQKS/ZANAwAKAQAOaEEZVoIVAcsmYgBrBeo2jj0+UAcOw54/sBuiNgmFSa1rcxA/Lxpsp
+ 57IxYso+/uJAjMEAAEKAB0WIQRLwNeyRHGyoYTq9dMADmhBGVaCFQUCawXqNgAKCRAADmhBGVaC
+ FXosEADU3uyQrsfuk3rk6Q+VLqpd+N5csl8bnde+BFGtKMAnYiJUjTs5XyIu1A+yADuOEMoUqhr
+ Ejy9xUa6IrlbJf8aK1mjWMIVqZOePZh9OvxFopot/Lj300BQAN7bInonM1x4hw2pTXxw0qcrUBU
+ NJ9nqxBgoHEvcvnGe+mgg/CuUTvNPw/AUutMgq6AwEEwODb0ZmsGevqdAa/4G3CKDVMc3n3exoz
+ mWmzRI3kW6hpCIZ8eo5p7yXOlpWjj3SeC/yDy9kw9S4A+46TXR9QVMC7y+G2sLaZ7B5X51S+hW5
+ 6gZlaMstCxYwWZeDUXAz2ASN7CgXM6GnvfqwooEAK6+n3bk21aixL7qQf6pdzJS6bJP5R8HOyFV
+ zBydgHiN2vYoK4iam6tXAFSXQMNhJCdMFOCPKhOoCYTQ8firQdwT514/A8aYioHsdtz2ID9GwiN
+ puAnOKwJRlrNUhNoMDnxqTAggfXMGBgHUOLVjbO5xwM1JLffEda+HNrVvlLJr2Mn7JLV2iUCHS9
+ MoLuGl4haGmI+hcPhN1HLeIYjgragmexumn1jKorsrtwq0dUhYdpMOnhd1kBMucxbM3QfYdCZUt
+ jrjnjkoJolU8/GV+Em9uRS3riQP006svarm9WbFTveGp3OHLt4xwvCHTlVQiDlaIARRgUbpuIkf
+ 5iiTFGz9lMGURww==
 X-Developer-Key: i=jlayton@kernel.org; a=openpgp;
  fpr=4BC0D7B24471B2A184EAF5D3000E684119568215
 
-cb_getattr_update_times(), nfsd_update_cmtime_attr() and
-nfsd4_finalize_deleg_timestamps() call notify_change() under
-inode_lock(), but nothing holds freeze protection for the export's
-filesystem. They can therefore modify a frozen filesystem. On ext4, a
-foreign GETATTR whose CB_GETATTR finds that the holder modified the file
-trips the WARN_ON() in ext4_journal_check_start(), and the inode's mtime
-and ctime change while the filesystem is frozen.
+nfsd4_deleg_getattr_conflict() takes a reference on a write delegation
+it finds through the inode's lease, sends CB_GETATTR, waits for the
+reply, and drops the reference only after the wait.
+nfsd4_encode_fattr4() can also hold the delegation until the GETATTR
+reply is encoded.
 
-The delegation's file (but see CB_GETATTR below) and the COPY or CLONE
-destination are open for write, so the mount's write access is held.
-Only the superblock's freeze protection is missing. Freeze protection is
-taken outside inode_lock.
+A delegation reference doesn't keep its client alive. __destroy_client()
+doesn't wait for stateid references, and the final nfs4_put_stid() uses
+the client (cl_lock, the stateid idr and ->sc_free). If the client is
+destroyed while the GETATTR waits, the GETATTR's put can touch a freed
+nfs4_client. For example, a client that does not reply to the CB_GETATTR
+can have its lease expire during the wait.
 
-- cb_getattr_update_times() runs in the nfsd thread that is processing
-  the GETATTR. Rather than hold the thread until the thaw,
-  cb_getattr_update_times() tries for freeze protection and returns
-  NFS4ERR_DELAY, so the client retries. The GETATTR's delegation
-  reference doesn't keep the file open, though. A racing DELEGRETURN or
-  revocation can put fi_deleg_file, so pin fi_deleg_file to keep the
-  write access. Skip the update once the delegation is unhashed, because
-  the delegation's return may already have finalized the times. The
-  times from CB_GETATTR are older and would roll the finalized times
-  back.
-- nfsd_update_cmtime_attr(), from COPY and CLONE, waits for the thaw, as
-  the data change that made the update necessary did.
-- nfsd4_finalize_deleg_timestamps() runs when a delegation's lease is
-  released. FMODE_NOCMTIME is clear by then, so nothing sets the times
-  later. DELEGRETURN waits for the thaw, as the WRITEs did. The
-  delegation is already unhashed, so the laundromat can't revoke it
-  meanwhile. The laundromat and NFSD shutdown may not wait, so they only
-  try for freeze protection, and leave the times alone with a notice
-  when the filesystem is frozen.
+Under flc_lock, while the lease is still on the inode, take a client
+reference along with the delegation reference. Client teardown removes
+the lease before free_client() drops the client's initial reference, so
+the client is still live while the lease is on the inode.
+nfsd4_put_leased_deleg() drops both references.
 
-Reported-by: Christian Brauner <brauner@kernel.org>
-Closes: https://lore.kernel.org/linux-nfs/20261114-abdrehen-mahnwache-farbpalette-9c31774145cc@brauner/
-Fixes: 7e8ae8486e44 ("fs/nfsd: fix update of inode attrs in CB_GETATTR")
-Fixes: e5e9b24ab8fa ("nfsd: freeze c/mtime updates with outstanding WRITE_ATTRS delegation")
-Fixes: 2863bac7f49c ("nfsd: update mtime/ctime on CLONE in presense of delegated attributes")
-Fixes: 4183cf383b6f ("nfsd: update mtime/ctime on COPY in presence of delegated attributes")
+Fixes: c5967721e106 ("NFSD: handle GETATTR conflict with write delegation")
 Signed-off-by: Jeff Layton <jlayton@kernel.org>
 ---
- fs/nfsd/nfs4state.c | 121 ++++++++++++++++++++++++++++++++++++++++------------
- 1 file changed, 93 insertions(+), 28 deletions(-)
+ fs/nfsd/nfs4state.c | 41 ++++++++++++++++++++++++++++++++++++++---
+ fs/nfsd/nfs4xdr.c   |  2 +-
+ fs/nfsd/state.h     |  1 +
+ 3 files changed, 40 insertions(+), 4 deletions(-)
 
 diff --git a/fs/nfsd/nfs4state.c b/fs/nfsd/nfs4state.c
-index 048b2616d783..f3d1065d3448 100644
+index f865548c297b..07f8caed5198 100644
 --- a/fs/nfsd/nfs4state.c
 +++ b/fs/nfsd/nfs4state.c
-@@ -1453,7 +1453,32 @@ static void put_deleg_file(struct nfs4_file *fp)
- 	}
+@@ -2921,6 +2921,38 @@ void nfsd4_put_client(struct nfs4_client *clp)
+ 	kref_put(&clp->cl_nfsdfs.cl_ref, __free_client);
  }
  
--static void nfsd4_finalize_deleg_timestamps(struct nfs4_delegation *dp, struct file *f)
-+static void nfsd_cmtime_notice(struct inode *inode, int err)
++/*
++ * Reference a delegation found through its lease, for use after flc_lock
++ * is dropped. A delegation reference alone doesn't keep the client.
++ * __destroy_client() doesn't wait for stateid references, yet
++ * nfs4_put_stid() uses the client, so pin the client as well. Caller
++ * holds flc_lock with @dp's lease on the inode. Client teardown removes
++ * the lease before free_client() drops the client's initial reference,
++ * so the initial reference is still held here.
++ */
++static bool nfsd4_get_leased_deleg(struct nfs4_delegation *dp)
 +{
-+	pr_notice_ratelimited("nfsd: Unable to update timestamps on inode %02x:%02x:%llu: %d\n",
-+			      MAJOR(inode->i_sb->s_dev),
-+			      MINOR(inode->i_sb->s_dev),
-+			      inode->i_ino, err);
++	if (!refcount_inc_not_zero(&dp->dl_stid.sc_count))
++		return false;
++	nfsd4_get_client(dp->dl_stid.sc_client);
++	return true;
 +}
 +
-+/* Caller holds freeze protection for @f's filesystem */
-+static void __nfsd_update_cmtime_attr(struct file *f, unsigned int flags)
++/**
++ * nfsd4_put_leased_deleg - release a delegation found through its lease
++ * @dp: delegation to release
++ *
++ * Drops the delegation and client references that the lease walk took.
++ * May free the client, so the caller must be able to sleep.
++ */
++void nfsd4_put_leased_deleg(struct nfs4_delegation *dp)
 +{
-+	struct inode *inode = file_inode(f);
-+	struct iattr attr = {
-+		.ia_valid = ATTR_CTIME | ATTR_MTIME | ATTR_DELEG | flags,
-+	};
-+	int ret;
++	struct nfs4_client *clp = dp->dl_stid.sc_client;
 +
-+	inode_lock(inode);
-+	ret = notify_change(&nop_mnt_idmap, f->f_path.dentry, &attr, NULL);
-+	inode_unlock(inode);
-+	if (ret)
-+		nfsd_cmtime_notice(inode, ret);
++	nfs4_put_stid(&dp->dl_stid);
++	nfsd4_put_client(clp);
 +}
 +
-+static void nfsd4_finalize_deleg_timestamps(struct nfs4_delegation *dp, struct file *f,
-+					    bool may_wait)
- {
- 	/* don't do anything if FMODE_NOCMTIME isn't set */
- 	if ((READ_ONCE(f->f_mode) & FMODE_NOCMTIME) == 0)
-@@ -1471,30 +1496,48 @@ static void nfsd4_finalize_deleg_timestamps(struct nfs4_delegation *dp, struct f
- 	if (dp->dl_setattr)
- 		return;
- 
-+	/*
-+	 * FMODE_NOCMTIME is clear now, so nothing later sets the times.
-+	 * DELEGRETURN waits for a thaw as the WRITEs did. The laundromat
-+	 * and NFSD shutdown may not, so they leave the times alone while
-+	 * the filesystem is frozen.
-+	 */
-+	if (may_wait) {
-+		file_start_write(f);
-+	} else if (!file_start_write_trylock(f)) {
-+		nfsd_cmtime_notice(file_inode(f), -EBUSY);
-+		return;
-+	}
- 	/* Stamp everything to "now" */
--	nfsd_update_cmtime_attr(f, ATTR_ATIME);
-+	__nfsd_update_cmtime_attr(f, ATTR_ATIME);
-+	file_end_write(f);
- }
- 
--static void nfs4_unlock_deleg_lease(struct nfs4_delegation *dp)
-+static void nfs4_unlock_deleg_lease(struct nfs4_delegation *dp, bool may_wait)
- {
- 	struct nfs4_file *fp = dp->dl_stid.sc_file;
- 	struct nfsd_file *nf = rcu_dereference_protected(fp->fi_deleg_file, 1);
- 
- 	WARN_ON_ONCE(!fp->fi_delegees);
- 
--	nfsd4_finalize_deleg_timestamps(dp, nf->nf_file);
-+	nfsd4_finalize_deleg_timestamps(dp, nf->nf_file, may_wait);
- 	kernel_setlease(nf->nf_file, F_UNLCK, NULL, (void **)&dp);
- 	nfsd_fsnotify_recalc_mask(nf);
- 	put_deleg_file(fp);
- }
- 
--static void destroy_unhashed_deleg(struct nfs4_delegation *dp)
-+static void __destroy_unhashed_deleg(struct nfs4_delegation *dp, bool may_wait)
- {
- 	put_clnt_odstate(dp->dl_clnt_odstate);
--	nfs4_unlock_deleg_lease(dp);
-+	nfs4_unlock_deleg_lease(dp, may_wait);
- 	nfs4_put_stid(&dp->dl_stid);
- }
- 
-+static void destroy_unhashed_deleg(struct nfs4_delegation *dp)
-+{
-+	__destroy_unhashed_deleg(dp, false);
-+}
-+
- /**
-  * nfs4_delegation_exists - Discover if this delegation already exists
-  * @clp:     a pointer to the nfs4_client we're granting a delegation to
-@@ -1593,7 +1636,7 @@ unhash_delegation_locked(struct nfs4_delegation *dp, unsigned short statusmask)
- 	return true;
- }
- 
--static void destroy_delegation(struct nfs4_delegation *dp)
-+static void destroy_delegation(struct nfs4_delegation *dp, bool may_wait)
- {
- 	bool unhashed;
- 	struct nfsd_net *nn = net_generic(dp->dl_stid.sc_client->net,
-@@ -1603,7 +1646,7 @@ static void destroy_delegation(struct nfs4_delegation *dp)
- 	unhashed = unhash_delegation_locked(dp, SC_STATUS_CLOSED);
- 	spin_unlock(&nn->deleg_lock);
- 	if (unhashed)
--		destroy_unhashed_deleg(dp);
-+		__destroy_unhashed_deleg(dp, may_wait);
- }
- 
- /**
-@@ -7529,7 +7572,7 @@ nfs4_open_delegation(struct svc_rqst *rqstp, struct nfsd4_open *open,
- 		f = rcu_dereference_protected(dp->dl_stid.sc_file->fi_deleg_file, 1)->nf_file;
- 		if (!nfsd4_add_rdaccess_to_wrdeleg(rqstp, open, fh, stp) ||
- 				!nfs4_delegation_stat(dp, currentfh, &stat)) {
--			destroy_delegation(dp);
-+			destroy_delegation(dp, false);
- 			nfs4_put_stid(&dp->dl_stid);
- 			goto out_no_deleg;
- 		}
-@@ -9280,7 +9323,7 @@ nfsd4_delegreturn(struct svc_rqst *rqstp, struct nfsd4_compound_state *cstate,
- 		goto put_stateid;
- 
- 	trace_nfsd_deleg_return(stateid);
--	destroy_delegation(dp);
-+	destroy_delegation(dp, true);
- 	smp_mb__after_atomic();
- 	wake_up_var(d_inode(cstate->current_fh.fh_dentry));
- put_stateid:
-@@ -10755,8 +10798,11 @@ static int cb_getattr_update_times(struct dentry *dentry, struct nfs4_delegation
- {
- 	struct inode *inode = d_inode(dentry);
- 	struct nfs4_cb_fattr *ncf = &dp->dl_cb_fattr;
-+	struct nfs4_file *fp = dp->dl_stid.sc_file;
- 	struct iattr attrs = { };
--	int ret;
-+	struct nfsd_file *nf;
-+	bool hashed;
-+	int ret = 0;
- 
- 	if (deleg_attrs_deleg(dp->dl_type)) {
- 		struct timespec64 now = current_time(inode);
-@@ -10780,10 +10826,40 @@ static int cb_getattr_update_times(struct dentry *dentry, struct nfs4_delegation
- 	if (!attrs.ia_valid)
- 		return 0;
- 
-+	/*
-+	 * The reference on @dp doesn't keep the delegation's file open.
-+	 * A racing DELEGRETURN or revocation can put fi_deleg_file, so
-+	 * pin fi_deleg_file to keep the mount's write access.
-+	 */
-+	rcu_read_lock();
-+	nf = nfsd_file_get(rcu_dereference(fp->fi_deleg_file));
-+	rcu_read_unlock();
-+	if (!nf)
-+		return 0;
-+
-+	/*
-+	 * Don't hold an nfsd thread until a frozen filesystem thaws.
-+	 * NFS4ERR_DELAY makes the client retry.
-+	 */
-+	if (!file_start_write_trylock(nf->nf_file)) {
-+		nfsd_file_put(nf);
-+		return -EAGAIN;
-+	}
- 	attrs.ia_valid |= ATTR_DELEG;
- 	inode_lock(inode);
--	ret = notify_change(&nop_mnt_idmap, dentry, &attrs, NULL);
-+	/*
-+	 * Once @dp is unhashed, its return or revocation may already have
-+	 * finalized the times under inode_lock. The CB_GETATTR times are
-+	 * older and would roll the finalized times back.
-+	 */
-+	spin_lock(&fp->fi_lock);
-+	hashed = delegation_hashed(dp);
-+	spin_unlock(&fp->fi_lock);
-+	if (hashed)
-+		ret = notify_change(&nop_mnt_idmap, dentry, &attrs, NULL);
- 	inode_unlock(inode);
-+	file_end_write(nf->nf_file);
-+	nfsd_file_put(nf);
- 	return ret;
- }
- 
-@@ -11052,25 +11128,14 @@ nfsd_get_dir_deleg(struct nfsd4_compound_state *cstate,
-  * @flags: any additional flags that should be updated
-  *
-  * Given upon opening a file delegated attributes were issues, update
-- * @f attributes to current times.
-+ * @f attributes to current times. Waits for a frozen filesystem to thaw,
-+ * like the data change that makes this necessary.
-  */
- void nfsd_update_cmtime_attr(struct file *f, unsigned int flags)
- {
--	int ret;
--	struct inode *inode = file_inode(f);
--	struct iattr attr = {
--		.ia_valid = ATTR_CTIME | ATTR_MTIME | ATTR_DELEG | flags,
--	};
--
--	inode_lock(inode);
--	ret = notify_change(&nop_mnt_idmap, f->f_path.dentry, &attr, NULL);
--	inode_unlock(inode);
--	if (ret)
--		pr_notice_ratelimited("nfsd: Unable to update timestamps on "
--				      "inode %02x:%02x:%llu: %d\n",
--				      MAJOR(inode->i_sb->s_dev),
--				      MINOR(inode->i_sb->s_dev),
--				      inode->i_ino, ret);
-+	file_start_write(f);
-+	__nfsd_update_cmtime_attr(f, flags);
-+	file_end_write(f);
- }
- 
  static void
+ free_client(struct nfs4_client *clp)
+ {
+@@ -10889,7 +10921,7 @@ static int cb_getattr_update_times(struct dentry *dentry, struct nfs4_delegation
+  *
+  * Returns 0 if there is no conflict; otherwise an nfs_stat
+  * code is returned. If @pdp is set to a non-NULL value, then the
+- * caller must put the reference.
++ * caller must release it with nfsd4_put_leased_deleg().
+  */
+ __be32
+ nfsd4_deleg_getattr_conflict(struct svc_rqst *rqstp, struct dentry *dentry,
+@@ -10934,7 +10966,10 @@ nfsd4_deleg_getattr_conflict(struct svc_rqst *rqstp, struct dentry *dentry,
+ 		return 0;
+ 	}
+ 
+-	refcount_inc(&dp->dl_stid.sc_count);
++	if (!nfsd4_get_leased_deleg(dp)) {
++		spin_unlock(&ctx->flc_lock);
++		return nfserr_jukebox;
++	}
+ 	ncf = &dp->dl_cb_fattr;
+ 	nfs4_cb_getattr(&dp->dl_cb_fattr);
+ 	spin_unlock(&ctx->flc_lock);
+@@ -10975,7 +11010,7 @@ nfsd4_deleg_getattr_conflict(struct svc_rqst *rqstp, struct dentry *dentry,
+ 	}
+ 	status = nfs_ok;
+ out_status:
+-	nfs4_put_stid(&dp->dl_stid);
++	nfsd4_put_leased_deleg(dp);
+ 	return status;
+ }
+ 
+diff --git a/fs/nfsd/nfs4xdr.c b/fs/nfsd/nfs4xdr.c
+index 950c67362566..e6131095024f 100644
+--- a/fs/nfsd/nfs4xdr.c
++++ b/fs/nfsd/nfs4xdr.c
+@@ -4106,7 +4106,7 @@ nfsd4_encode_fattr4(struct svc_rqst *rqstp, struct xdr_stream *xdr,
+ 		if (!timespec64_is_epoch(&ncf->ncf_cb_atime))
+ 			args.stat.atime = ncf->ncf_cb_atime;
+ 
+-		nfs4_put_stid(&dp->dl_stid);
++		nfsd4_put_leased_deleg(dp);
+ 	} else {
+ 		args.change_attr = nfsd4_change_attribute(&args.stat);
+ 	}
+diff --git a/fs/nfsd/state.h b/fs/nfsd/state.h
+index e9816000c943..f80abcc278f6 100644
+--- a/fs/nfsd/state.h
++++ b/fs/nfsd/state.h
+@@ -977,6 +977,7 @@ extern void nfsd4_shutdown_callback(struct nfs4_client *);
+ extern void nfsd4_shutdown_copy(struct nfs4_client *clp);
+ void nfsd4_get_client(struct nfs4_client *clp);
+ void nfsd4_put_client(struct nfs4_client *clp);
++void nfsd4_put_leased_deleg(struct nfs4_delegation *dp);
+ void nfsd4_async_copy_reaper(struct nfsd_net *nn);
+ bool nfsd4_has_active_async_copies(struct nfs4_client *clp);
+ void nfsd_update_cmtime_attr(struct file *f, unsigned int flags);
 
 -- 
 2.56.1
