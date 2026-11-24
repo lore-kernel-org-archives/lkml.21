@@ -1,97 +1,117 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.162.134
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795517705;
-	b=UIahLZvspAywpeAf+0h5EFxJl9DeWHOv0TN7J0zTz+QoMxz0P1QkBt8HFOt83K3FyPzt
-	 wuLsX4YG5VTp1lG5IbO1HZwE++qDxhx+SQRV8URG0gfi2X5caPjUvLss4MiGFMec3avMn
-	 F3JM17dmBnVOL3UK0/YjCtNHIdWT01T+3bFba6DnSlCxRh7LbD0DvbPaih56IxXUmb7R8
-	 9cGeyh6x3RczjFNvQz6CCIeRkfcdZS8T0NvepTvli4QN691p+y9/FmQQdvVFa44TbH+d9
-	 63ar4s1kxqlC/QxcOtTgRJtaB0GzAw1utBbpasBnJp1DtlBIDYdT7PRuKJ9Q1WrtCUA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795517705;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To:User-Agent:
-	 X-EOPAttributedMessage:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=INt5KuJe5Ta76AN2NV01s5cGe8cgwCgb07Tt435XZmU=;
-	b=Db3hDQTsmSLMA+XZikpdIHjaY6r9iGd4KbiTdOwAEqIfoFulOIduIwh6LHKnv4D723ED
-	 DhYNrxc1jlM9E+tWJvzgdGGPO11vNfhXL0GCPW6mXghlbEd/bDK2+Ao/Z9xix3jKaHIBC
-	 5hPlowaXn4j2RgrpsXIl74ManfLh+c6UQC3U8ediIp2OElFp/Yy/s4KLKkN9h0M0Gs/dE
-	 MVGzTdIbfR4R8sQg6UaobrFNZ3Ky3Jn+Cm3Y69PBMoNq0PAsUaN6l8MQEX+2CnAcYFE3R
-	 3GXs8kYSVR4hGbUNFSqwYi6wzmrDb90zTuyV/bYYoWIiTThkxjy1eChLsqI43Bw+4HA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=macq.eu;
-	spf=pass smtp.mailfrom=macqel.be;
-	dkim=pass header.d=macq.eu header.i=@macq.eu header.a=rsa-sha256 header.s=selector1 header.b=u48705VK;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.162.134
-Received: from PA4PR04CU001.outbound.protection.outlook.com (mail-francecentralazon11023134.outbound.protection.outlook.com [40.107.162.134])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795517719;
+	b=aMxbBihQVEbNNTzKcmNSt6yhKOYA2wMEnrH5sjh6XSC89yZI9HJ76iG4LdeNyrYf70Og
+	 JGDAK10REkSftKE6+FhwCWuvP/IvglDcrX5DycXklZAixEpTh3JtCg9YfG8Y+o5PbDyxk
+	 FQjCvURLVwJ4+Pn5al1Fgfr/I+tOMfkhbc+IH2iKcyUon0HBGVuW5Mt5na19/xsZkBv3M
+	 cClLnUXnUl7AHfmmZIFKzwe/Jg8RksxkkGiy979L8cuQCF7cnOCMYCSR7D3pJ3lmVkTHw
+	 3cg80Gn/23lXF/AmhuCAqplutfSWQJxYoCFNvBkWgWyKz2yOD/452CAEjf+vFdPntrA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795517719;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:To:Cc:
+	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding:X-Authority-Analysis:X-Proofpoint-GUID:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=SaoDHmsRZlPH0GxcRak6hJ29lY+5PVrmCFX1SLF6qdE=;
+	b=ch8ihN97Y+CqT1aFTBwRtmimQ494LXhTbxiY7W6hbCuYPjlNFysFmc8OtdxPvCLZbLpN
+	 a3Yq2lNQr4L1MTsFHJFrRIQGa21ZhEvQXXIvnXMlGDIpZSGbN8HJLwNVeEQGJjf2oZqtF
+	 Ypxc0aZ89kLH2ywpYBLfkrvGc6C56vc1IroRiiWVXi0GOhMRnJUGxewafg1nX497sWicC
+	 nKYEthbDw2aixGDIWsVWAtxdO04wFsMudJeGo2ASKrty5XxADx9xB61UUGDtQkYtTZ8Al
+	 UDNqlhPapOglzM5V6rynpZCKUdlY3Sgjnd1vzSM/dombI/CWUv66n/1OeOK8R4TCzWg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=m+lHwVt0;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b="IR/AL0kg";
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B72D6606A32A;
-	Tue, 24 Nov 2026 10:55:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B72D6606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=macq.eu
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=macqel.be
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3CECC606A321
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 10:55:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3CECC606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=macq.eu header.i=@macq.eu header.a=rsa-sha256 header.s=selector1 header.b=u48705VK
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=InkIkP6BOUoF4JjJ7oaB245tox0HYHBQCFSHvnxrdV7HGu07sRyagz/jpa8w1CE93RwGUFqdlc30r5pd2A6ofWABUCZTQA5nWMysxX6Qv0ffsnjMZ+u1x3T2NaS7WrWGEJNXJFDMf6UIcifML1DwZTBNpWvqd30Xv5MUMRqUCk0wOpf+eKcE8CrX36o2JijMDIDAIZTet/0RsahV/XXMf1elw78jW052k14eP2Igbta2v2knl87BxxiK07m9TypF3eBPy4y2sje9I3h7mbW8y6raFXZGPW16CJq0MNZRYGKOqlisT0klxryFJnB0vnKDxmG2b9ViGAqXN1UD/iqzMw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=INt5KuJe5Ta76AN2NV01s5cGe8cgwCgb07Tt435XZmU=;
- b=xhddG6vU7HzcVDkswmDsFBaZ1Qjs5k+D2aIuhk7yQWzq/A+kmT8kYWM/7xh4WytfD0fT459fy0Xnj8Dk5bGDsWl12tpGE/sPWJuGgoayNS8rlc6krE+emlLNecvOW2pAyAlpzcqmmvcRE6CzcnbtUJFpYXWQvOQ+32wM+e9e/T+CJ/aatlkTFt26EpYzFB+SBsyF/SKSke0Zb6vElYmi3TD4TF5uhLXLhcZY3eUE1msMiKdbeeKEh6lhymIAaDaLFsrsusKSwmpGlXUXwXAOcyrM2e2ebVP4VimdDBph4mdAObm5c2rc4aJ/PsP22usFRNrWn7uQIqEMb0NrF8+X6Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=softfail (sender ip
- is 91.183.173.212) smtp.rcpttodomain=0x0f.com smtp.mailfrom=macqel.be;
- dmarc=fail (p=quarantine sp=quarantine pct=100) action=quarantine
- header.from=macq.eu; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=macq.eu; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=INt5KuJe5Ta76AN2NV01s5cGe8cgwCgb07Tt435XZmU=;
- b=u48705VKYRiRGCUjcS4wb1H4QR8FsumdI6dd5+ZvWp1goMDWRPYtZLek5yJ304TZ4aSLkv0YDZrbxNH0YzUUXfCwRV4DEBb8FWEVMc+zAvgPV6+sncW8ceapmchOFsqHwJjnPrXM0lizLodNnaOCpX1sUyhxi1omRHDz0dwbxM58VpAYXTRzATrlRCGLjnZVcX+N8kNOIML35mTMeUNTpZXzMlLNxDgLjzDpWtLaaASlzozIxHt+h59cGECFm+mf0oQmowgD7CbN9A2FQsBq+CsUpuwLV2tGrWzf2IriGqae03vWTrwwuz9uPIuorMjU93FLdnpSlHg7I/SoWUv19Q==
-Received: from VIVP296CA0110.AUTP296.PROD.OUTLOOK.COM (2603:10a6:800:355::13)
- by DU2PR05MB8886.eurprd05.prod.outlook.com (2603:10a6:10:2d9::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Tue, 24 Nov
- 2026 10:55:01 +0000
-Received: from MI3PEPF00008493.eurprd03.prod.outlook.com
- (2603:10a6:800:355:cafe::32) by VIVP296CA0110.outlook.office365.com
- (2603:10a6:800:355::13) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.14 via Frontend Transport; Tue,
- 24 Nov 2026 10:55:00 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=softfail (sender
- IP is 91.183.173.212) smtp.mailfrom=macqel.be; dkim=none (message not signed)
- header.d=none;dmarc=fail action=quarantine header.from=macq.eu;
-Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
- macqel.be discourages use of 91.183.173.212 as permitted sender)
-Received: from frolo.macqel.be (91.183.173.212) by
- MI3PEPF00008493.mail.protection.outlook.com (10.167.240.154) with Microsoft
- SMTP Server id 15.21.639.5 via Frontend Transport; Tue, 24 Nov 2026 10:55:00
- +0000
-Received: by frolo.macqel.be (Postfix, from userid 1000)
-	id 4EAF8DF00C8; Tue, 24 Nov 2026 11:54:59 +0100 (CET)
-Date: Tue, 24 Nov 2026 11:55:00 +0100
-From: Philippe De Muyter <philippe.demuyter@macq.eu>
-To: Daniel Palmer <daniel@0x0f.com>
-Cc: dmitry.torokhov@gmail.com, linux-input@vger.kernel.org,
-	linux-m68k@lists.linux-m68k.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] Input: amimouse - Fix the buttons
-Message-ID: <20261124105500.GA20772@frolo.corp.macq.eu>
-References: <20261124100604.2380938-1-daniel@0x0f.com>
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=m+lHwVt0;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=IR/AL0kg
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AO8IAVQ3701261
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 10:55:18 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=qcppdkim1; bh=SaoDHmsRZlPH0GxcRak6hJ29lY+5PVrmCFX
+	1SLF6qdE=; b=m+lHwVt0/EPdLs0KfDpvrKgv5hv+xBQAXuXJN2ZdQphMQD9AhgR
+	cQjiF8ABTTfnmJ7QOM+B8EFzwrF/B99crUKa4d1x/+nk6Vu8WfxsOKetFND3kJjg
+	8J1Zht0mFgnnf4iOt7O849iOKCcOb9ca8QARq1hV55Ohz92lHua1JVfI2ojOh9DF
+	zjnZ9sP4W/xgqmqJGRziqpEG//WTL+OL3a+c9uMdsKi9x95Kte0TpWiXjl90BB+D
+	lYHtDavYlgHA9dQsbT2IBGHf180MavBeS/rAn5fXCfRV8Scppdd2lNolfFdeyk28
+	/NEX+SaOd7PUnhN6tLRRNL3INburEyOJqmw==
+Received: from mail-dl1-f70.google.com (mail-dl1-f70.google.com [74.125.82.70])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j50ky26dp-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 10:55:18 +0000 (GMT)
+Received: by mail-dl1-f70.google.com with SMTP id a92af1059eb24-1b3b45597c7so5305620c88.1
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 02:55:18 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795517718; x=1796122518; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=SaoDHmsRZlPH0GxcRak6hJ29lY+5PVrmCFX1SLF6qdE=;
+        b=IR/AL0kgqjV9g4hSw8D8xhxXho8K35IHQJ/aS0RumPBsjxZD3a/uyx7CzzCi9wUnhu
+         xIf9YQzASshTcNUgT6gMD67dhHNeDzDKla9wVO+qdF/L6pCRKO4hh/EBXNebhZDLQn50
+         q26slekiFr1ceeN6CF5bJZtNOam7+AOwCtXX492gFqpzBtCTNyPCf1PkgMnNZDUMjywk
+         MieEZcHOVV09jy1LA1P/nxPxTHSDoBu0pDX8czg87Ybu3kkPR0MjNNfBpJhbdJP8Wtjh
+         3xtM886NdRVPL83w6wA3507l6NaSTAsatIbmbBvwWwNk4KptGNAuMK2ByTPhBBYEOjD1
+         freQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795517718; x=1796122518;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=SaoDHmsRZlPH0GxcRak6hJ29lY+5PVrmCFX1SLF6qdE=;
+        b=mbwCTHw7ugZnjzKIjuq/56+5gcO9q7UlSOqZByMbSf+FbiToBY2BwCebyIcZmM4Zmp
+         MksQFmqYlg9JDcy/hREjB5Mp8gMSzHBYczoe1OMqaZ239NIZasCyJ6D5BE5Fkqtp3gAY
+         /1Dme3el9fM4MyVn9O1CQ3Yge98fHc1jZ5sFFwNeBggZPmgErSvUYTLwhOJQ9z2W2fs5
+         FPy80QINsceZiprj4YsMOR6xrmjRxJjmsznjuh0+if8iXIoa/Pk0tAEMSRpZP6ys+IYs
+         M+Bg5yL9H6K9wnZroT5226ankkSoezc+619RtkXsgIBephO/gBy03M2dbUEdFsdlmdx0
+         Jb9g==
+X-Forwarded-Encrypted: i=1; AL+hErEu1UCA1SW/16Hkp5Gg0oc4isUtrfD+aJ0dUbZT7Dx/kgsNhRl7wkxHbZFD2NKbKIlBCNyRTKMlRHKYfGg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/xH+psptWn1rzZn3TuNm5s/kKGEunRhMI84SCf8KXx6uD/q3U0
+	1ngllxajvFyOyBMIR23Hyx1uThL2VIVAMhik8XEuB8CUCXuyUkxpunQlTMQbc9qEQqhVYrM8VAu
+	u4spyvNPKTW03aAtwEHj9BHKXliPsAg4ptaT/2fQfE+h4dzZQMmcbZPCG0diBC7B7ywM=
+X-Gm-Gg: AZFdTZeutIw/ZP7R/Vdmw6m/3JYQpaquZOlSIvcg8LxuRh+Mwhvk+1qacvXmogmnF8k
+	2wXbKqf69eJDbCk6MSAOBMOcZAhZ6aAcghPYPi0sGXbHzq1X+PImx5VZaMXKjVtbglsyvCOclMi
+	EpAnppy9GkHNSRazdH/ltveSEkPvT3r5AGdnYxuGYK4AvRZsy040lwy3PqiWxFXyCvrHRHMBK8a
+	OTn7fDNcd+o1VoG6PwNdqg4nUbMXdnYQflPCrypsHc2NfEwBlydt4Bdx+3JSLtBlv7hudrccodY
+	46qqj3vRK+ZcZZwPtjbw/ilkSf2kS0on6nA+O//Fy9gljFLVmvWKyDkJtp5sJgYMkB+hoAlzf2z
+	HePGxl8YsvYQvtDVOboHKozZtxPiu5BCLWUC05wg3PXmh2T7ssBgAc4lhvGG5gFmZgQWaE0Z101
+	uUwDfMrtGYvrqOXBufVGQZ9UTWjuVLY0LGclBXVIDadsZMDkiTQ+yXIAtU
+X-Received: by 2002:a05:701b:2088:10b0:190:f24b:9491 with SMTP id a92af1059eb24-1b556877bbemr15734144c88.12.1795517717641;
+        Tue, 24 Nov 2026 02:55:17 -0800 (PST)
+X-Received: by 2002:a05:701b:2088:10b0:190:f24b:9491 with SMTP id a92af1059eb24-1b556877bbemr15734114c88.12.1795517717201;
+        Tue, 24 Nov 2026 02:55:17 -0800 (PST)
+Received: from hu-ymg-blr.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com. [103.229.18.19])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b56ef9fd16sm22616418c88.4.2026.11.24.02.55.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 02:55:16 -0800 (PST)
+From: Yadu M G <yadu.mg@oss.qualcomm.com>
+To: Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Abel Vesa <abelvesa@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org
+Subject: [PATCH 0/3] arm64: dts: qcom: Add Qualcomm Seca SoC and Seca Ride board
+Date: Tue, 24 Nov 2026 16:25:08 +0530
+Message-ID: <cover.1795517711.git.yadu.mg@oss.qualcomm.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,48 +121,97 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261124100604.2380938-1-daniel@0x0f.com>
-User-Agent: Mutt/1.5.16 (2007-06-09)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MI3PEPF00008493:EE_|DU2PR05MB8886:EE_
-X-MS-Office365-Filtering-Correlation-Id: f7cd46ef-966f-4802-981e-08df4a196313
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|376014|36860700016|23010399003|82310400026|1800799024|10067099003|56012099006|11063799006|18002099003|22082099003|14776008|75936004;
-X-Microsoft-Antispam-Message-Info:
-	QT88JIJQrp0mXCJ6/d5uh54lq9T0R8YvN/GMxeLUE/n+GKLJc2lUYWR9MdUZC2mEjHJtc7bvYlr+U86XozyAl8LtVvYtfqcKl+1tUlDtAdVgCorLjYi50FMeXTOZMW2m/S00q/Tg4a3Y64H7KGqOLngIzaZkGPPTi3FaIZ2xV2oTkCZloXVsQadV1mvCHLBJa+vj2+TXWfkH48UPKzRD1AKX3FQilkDajuJj6jCQEszzPaRqNEC7nefB+hImxA4MVcFxxpRcsOUvneAl3r/ajZDQY6IXZyFZEjEGyokoAq7bB3oUQYid9a4+FQOO5DHOVsFANwts0dO0hM86pwWJ+aVQNT/rJ4l3vTvteL9NL7qv+2I3KbWjIfpHq8EJpR8ekYuJAiR7DDI7ZqKLkpSgFjE6OhTX5rU7kC5tfDgaYC0VhM7T1rFklXuD7Hdy0FuVAZ8FLYlBvOfLkDwKlo952ysuXjHielJTnDwSn0DTf5gVTdVFQSrXoq3HgEjq5Cr6chH16uUbjrZaXarWhvMq538BkHxg7sJI6NaZm/mFTL2GO84X1T3g3INccP/DSpuiuEcKd/9OxcFE1uUsY0/VCFMHtVPwiw8l2jOQhJUmN8X1DG7R6JuJHuk9PvS9IpIxoiTV1xrrWaRn9k8K+FK+XC9O2tcKzkKwbxYjmJBeO5f4KzBodtkGEUmcDshFfCvZx1NP8eU+k13N602yOk/Fbek23A5dO+ecim99Enyzhb1QAp6qAiTWt3swM+LAz2rIY7Dlk51E6ZlTeLEMUh8LZw==
-X-Forefront-Antispam-Report:
-	CIP:91.183.173.212;CTRY:BE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:frolo.macqel.be;PTR:212.173-183-91.adsl-static.isp.belgacom.be;CAT:NONE;SFS:(13230040)(376014)(36860700016)(23010399003)(82310400026)(1800799024)(10067099003)(56012099006)(11063799006)(18002099003)(22082099003)(14776008)(75936004);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	HaKDdGTqjD6K3rY7SAVs6b9HTyIjJiztW/4VdjuSL97xDSVEn7LngRpor+yVvxQIBwsUSaOKYJAfGMkJuC3Ci0T7L3128ZlFSv+Ys95mYhSkmHgOMmqP5ul5HkaxHTiuwidtb6JOvM2vYeFxx3Z/siUM3VPnEeQgkBG0TKv4ynIBTuzDf//Xxc0YtR6LNiPHuOZL+qfRg419qLOHknrHJaKokZcvkqYGpZRus3h77S8PgyvAa7yoShZGf7q5M02ZoB9+tb//OKZiyUcqyeRsJ8Yb2N3ymK+QWbEBfjRND54e+p/D44TDQWDAfVFG/kiUX/ZQswwXN+920VgSJPj0fLklmcf2EAn07deAati92Ptrs3qN7oJN4wit+e1jlvdoRn6ei7DeTSZx/MgHdYwOD2NvyEk8bDw/WLUHMFtFXcKPlWSk9i3EsVzjPldq8Mvv
-X-OriginatorOrg: macq.eu
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 10:55:00.5888
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: f7cd46ef-966f-4802-981e-08df4a196313
-X-MS-Exchange-CrossTenant-Id: 5541087b-384c-4066-992a-42aa5fe171eb
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=5541087b-384c-4066-992a-42aa5fe171eb;Ip=[91.183.173.212];Helo=[frolo.macqel.be]
-X-MS-Exchange-CrossTenant-AuthSource:
-	MI3PEPF00008493.eurprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR05MB8886
+Content-Transfer-Encoding: 8bit
+X-Authority-Analysis: v=2.4 cv=Y+ptIReN c=1 sm=1 tr=0 ts=6b056d16 cx=c_pps
+ a=SvEPeNj+VMjHSW//kvnxuw==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
+ a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22 a=VwQbUJbxAAAA:8
+ a=EUspDBNiAAAA:8 a=0wVTXZc6S0-_D5ZzavYA:9 a=Kq8ClHjjuc5pcCNDwlU0:22
+X-Proofpoint-GUID: IBQjdZYJ1xoREI71zBYGjIVPSlcBAwoo
+X-Proofpoint-ORIG-GUID: IBQjdZYJ1xoREI71zBYGjIVPSlcBAwoo
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI0MDA0MiBTYWx0ZWRfX1GJy9g7RQtFU
+ /BXsFc8AgyzOx6+pCkEHRCp9iHt+R364YVKKjWs7CobsFXmXqvtCvK+uyOPxKeIH3WD7SjO4v2C
+ p6V0TVCxgzlzFylz8xsyjVNCU9Q9vdc=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI0MDA0MiBTYWx0ZWRfXz6V3YAQPVXpZ
+ YnZz18V7NuPwJXvMWMQdaBZNURUMABW+/BopQw30D29EC4WNO9yoCMPzpyf9UMvC+LoT7vr0RqD
+ lmiL5Tt6mHpDUTxhT2UaRhuLpexI9gS3mJH1ntmM3CaL+rtwmuOFdrMl0/xU/5vU78m93QNr2bV
+ irHpX0bCx6aUenDoudXH0iAa1G9mkYiwqyx2J6gLPlG1Ky5mwnG7/Z0x5zGYJr9CMfVz1rca3Sv
+ h2wDetabjwz5WdIIyaizI13Uvbwx8UVtxl2nc2VfvfmOqg/rkTLmB0Gd9HnSO7/HQ4tQfXcBMmj
+ FnUPHo0ImeA9AEzdRB2st1WyFD6/lMlEd9Rx+9GhyjEZxZIphy5uHLoMcHPCphfiRVWyF5PYVn1
+ dWtH/HVKTDgLeTNeZG5UihC2Cr1NdtSfap01TakrSftdc3vEgClaAmFGNs23BZwN1vRIZE9wv87
+ h7WNCSkriWbtc4IR0oQ==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-24_01,2026-11-23_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 clxscore=1015 malwarescore=0 adultscore=0 spamscore=0
+ lowpriorityscore=0 bulkscore=0 suspectscore=0 impostorscore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611240042
 
-Hello Daniel,
+Add initial device tree support for the Qualcomm Seca automotive SoC
+and the Seca Ride board:
 
-On Tue, Nov 24, 2026 at 07:06:04PM +0900, Daniel Palmer wrote:
-> On the Amiga the left button is connected to CIAAPRA bit 6 (/FIR0)
-> and the middle and right ones are POTINP (called potgor in the code)
-> bits 8 (DATLX) and 10 (DATLY), all of these are active low according
-> to the "Amiga Hardware Reference Manual (3rd edition)":
+ - dt-bindings entry for the Seca Ride board
+ - Base SoC device tree (seca.dtsi)
+ - SecaAU GearVM layer (seca-gearvm.dtsi), where a VM manages platform
+   resources as SCMI server, and the Seca Ride board (seca-ride.dts)
 
-Try to put the word 'mouse' in the prevous sentence.  I had to read
-the description twice to understand what you're talking about.
+Firmware managed (GearVM) device compatibles use the "secaau" prefix,
+while blocks described in seca.dtsi keep the "seca" prefix.
 
-Best
+Dependencies (posted separately, each to its subsystem):
+ - pinctrl: qcom: Add Seca TLMM support
+   https://lore.kernel.org/r/cover.1795517583.git.yadu.mg@oss.qualcomm.com
+ - dt-bindings: mailbox: Add Seca IPCC compatible
+   https://lore.kernel.org/r/1a2010d7c4f4ae5d4629d2709157d7d47c20b3ea.1795517600.git.yadu.mg@oss.qualcomm.com
+ - dt-bindings: mailbox: Add Seca CPUCP mailbox compatible
+   https://lore.kernel.org/r/5bfd311f596ea5945b7c2251199d2d0ccff41133.1795517617.git.yadu.mg@oss.qualcomm.com
+ - dt-bindings: thermal: Add Seca TSENS compatible
+   https://lore.kernel.org/r/2d8b5fdcdff1f5d0df738d84773b0ed54159eee0.1795517630.git.yadu.mg@oss.qualcomm.com
+ - dt-bindings: firmware: Add Seca SCM compatible
+   https://lore.kernel.org/r/80dec38b30da490c8c7a2d0e9c03c9acaae0b8ad.1795517637.git.yadu.mg@oss.qualcomm.com
+ - dt-bindings: iommu: Add Seca SMMU compatible
+   https://lore.kernel.org/r/27f6e560a71f770078ef26137207905870c6ce58.1795517644.git.yadu.mg@oss.qualcomm.com
+ - dt-bindings: interrupt-controller: Add Seca PDC compatible
+   https://lore.kernel.org/r/69d22406d920bb2ca437604092b22648fc14384e.1795517650.git.yadu.mg@oss.qualcomm.com
+ - dt-bindings: qcom: geni-se-qup: Add compatible for Seca SoC
+   https://lore.kernel.org/r/6e09e1ce0d9250af78da72e464b7f99f942e1d7d.1795517657.git.yadu.mg@oss.qualcomm.com
+ - dt-bindings: crypto: qcom,prng: Document Seca TRNG
+   https://lore.kernel.org/r/b13bc8fa6aac6e9164ce9ad0ab202d0df491331f.1795517666.git.yadu.mg@oss.qualcomm.com
+ - dt-bindings: serial: Add compatible for Qualcomm Seca SoC
+   https://lore.kernel.org/r/9ec98ffd6cec85ad77738128329ec77777a1f69d.1795517676.git.yadu.mg@oss.qualcomm.com
+ - scsi: ufs: dt-bindings: Add compatible for Seca UFS Host Controller
+   https://lore.kernel.org/r/61136dcb5cde2c0cfe1b8f3a488e9edcf36043cf.1795517687.git.yadu.mg@oss.qualcomm.com
+ - dt-bindings: i2c: Add compatible for Seca SoC
+   https://lore.kernel.org/r/0439e03884c02c9edbec89132b526aaf8f54ae23.1795517696.git.yadu.mg@oss.qualcomm.com
+ - dt-bindings: spi: Add compatible for Qualcomm Seca SoC
+   https://lore.kernel.org/r/358f1284a656582ef0ea0e2b7bc07224372f9fdf.1795517702.git.yadu.mg@oss.qualcomm.com
 
-Philippe (not a amiga user)
+This series was prepared with help from an AI coding assistant
+(Claude). It assisted with review on the device tree, bindings and
+driver (formatting and alignment fixes), rewording commit messages,
+and running the validation steps (checkpatch, dt_binding_check,
+dtbs_check and W=1 builds). All changes were reviewed and tested on the
+Seca Ride board.
+
+Yadu M G (3):
+  dt-bindings: arm: qcom: Add Seca Ride board
+  arm64: dts: qcom: Introduce Seca SoC
+  arm64: dts: qcom: seca: Enable Seca Ride board support
+
+ .../devicetree/bindings/arm/qcom.yaml         |    5 +
+ arch/arm64/boot/dts/qcom/Makefile             |    1 +
+ arch/arm64/boot/dts/qcom/seca-gearvm.dtsi     | 2862 ++++++++++++++
+ arch/arm64/boot/dts/qcom/seca-ride.dts        |   81 +
+ arch/arm64/boot/dts/qcom/seca.dtsi            | 3339 +++++++++++++++++
+ 5 files changed, 6288 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/qcom/seca-gearvm.dtsi
+ create mode 100644 arch/arm64/boot/dts/qcom/seca-ride.dts
+ create mode 100644 arch/arm64/boot/dts/qcom/seca.dtsi
+
+
+base-commit: 3191063649dbf7c0d0b768e1f3655e4c5fc6edb5
+-- 
+2.43.0
+
