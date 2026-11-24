@@ -1,79 +1,121 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=170.10.129.124
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795483301;
-	b=afgbqTF2LEtccEdKgxAsaRanU7OlY7PnHr0wMLleVHS7UQSOwQKov9xbexuIlt3sqx2q
-	 fPkBJfe+L41nXUSk4XWEq+kjbUFAztgQwPnsGkh6IVGGRQGoOHgmgXMOAtUOSFzV+zQo4
-	 RgxaY9N9u50RbGiZjwgYtRMU5QF/m5Qov5R+H4K9++RGsmcBnwv2Nx2zWx/yMwjACYA9y
-	 pwn2sNcirgVL8cxMvzHOHUHuVsWxNuDOAy+ZYcTz3g81yEd6R7kvTZMzBZlAkwQaIywa5
-	 FAJvcN0AsBkfT3J207JcIaCld2L+8f7TrIFREvRArHllMKJoKQ9z53dlw3N+nvf7L3w==
+	t=1795483371;
+	b=ynBV2dSLWUv03f6Z7TQHXblchYGYvlbASiegeJQmcftZd4GYyXX+FHts6wKjX5Wl5Tvb
+	 +CbB6D8IYs9IqItlrm4SvjLKEEAFoZ8DyFQWg3GtHR2olAHvstbre26/rlGTIHyJfO7iI
+	 vBZ/Q3vuIqsfWCRy+kZgreovaY23HS6dsCsD3y02v7SgHB93CngKM1AHhcT4mvVCRhzk4
+	 l2IgEniwxt+QMOb97kFG4NiNfhePzIWScDIN3ZHuvFpJDJNrenH0yn4MRzjtwdRGiP1UU
+	 vA0win62hONJssV1nwLNPYvA1u50+e4mRrNRY+hBN6BEjKY3NCS5pAGcq/Rd0yWxjzw==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795483301;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=NPiHqCBzSMigGGhv6hcRBn033WAiMIBFt3pZgWFWluk=;
-	b=IDRRD8twGVzAA5Wg98uOQCUQIlEPceYhPKfzoPZw/h/u/AdkKZ3rH8TW81ytr5SLvk9I
-	 OYgDgh3QW41rFqbSiwTymT7pIHhJRDGoKIUUrrPCHh4/oZdP5m/gBo6ZMPzxsoJ8BrAtW
-	 HXbn4e8XezVK8FNOoPoXN4cz8V3lo6hSl04J8fbJsf0X1jQydIXasfNjW35ejXiKHs6yN
-	 15XzYpr7aJ2W6bCk3QOjOC9PKYd+nS0MytMNtkAKxEnw38QVW+XANtjanyjU+PfVIXzF5
-	 +79u/loXB8O1aiV6yZ9x9NfXjN5I5YoEDryqTXDOHwOMNKLoIRnr6pJ/43mWvMC8lGA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795483371;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:MIME-Version:References:In-Reply-To:From:Date:
+	 X-Gm-Features:Message-ID:Subject:To:Cc:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=o6hYnBwiFZNCgKvskv9vf2vEJ0wLJBN3T8leiCBivtA=;
+	b=AmX/fCBrOIBE91zI5JFeO63q7wktH81SCSaOzghBANn9uBDISfPpMwWAF0v9zjkWmuGj
+	 5j74KBwk94ThwIuNhued1PARvevaeMKpfe3I5IEjaCGo3BqtoiaICk3XT4hruMzuq5bLz
+	 jgIi4Hk6ZHUubB4I8fD4S/0Gv34oyVMgklgm3EjHHUrF8OyqfFpmWVnpPhIMXXqU2SkeI
+	 +/QEJCmBW9F9huJfLl1DP/n6hoB5bJzTFxWFR1vpFPTJ11bZQw6ugFwx0UNMQTjgLlsB5
+	 1lrkYOv1/OfkUsNOxVOuYaHCwP8MbMbK1F6HGSibM9AZQ0KJSyra3GAQJcfZINnWXJQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QoouS4HH;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C1597606A322;
-	Tue, 24 Nov 2026 01:21:41 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QoouS4HH
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795483301;
-	b=mOUOJrXXfzRElqVigakKMBoqfg7waoDu3dfyERmdLrLqgVE/4gLv2ntq7t+Cb+lAdaX6
-	 TSLNNPS1rnTeth+1H3/HSiB7A33cIRsoJEFEgXYjwD6sQNqi/cWaYVcE4UxjhkMDrt5+7
-	 1ja0CPp9tSTkSCYV7Jx/oyyV5I15OJZVqvzVfj9E9gHaXkT5MNcNm8JrCK8M0T/oW5/jS
-	 D9QukS0qZo2fnbYzVpz6kA0/yo2O5EjvV6x2jZVbe5KhtrMwMVaG9lbCWir3rm4dNkkTQ
-	 SKvCdlCg6wAcKqh7QujT0vkwvlCRcOzITxPOxoxgrL3mp60aUnECpcHFvKxGhG+9T6Q==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795483301;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=NPiHqCBzSMigGGhv6hcRBn033WAiMIBFt3pZgWFWluk=;
-	b=CVx8P+vsO2TaptsNFiL86mVdVlAzU6Ux+gFbC/uA2cd9IUs8ZdrYtJD2K3jIu9oSKI8J
-	 unvjiIjr+CAMLzVt8/ejHZCo1khgfIqoJcjXEJwhNqfzz3whxP8QLyGeFd4sVghgdoEBi
-	 m9pQGApufwTubCqm1GarfoJZDB7TzuSNGh38b+DGNiSa65nREa4Cmsxe9u6aXxs+C55h1
-	 zuI7zsiIDKYFqZNXq5MKO2cmU5zNk3aRtLTNhYwXbPsCln/uKISznpHuWZd7UeHMRHmET
-	 G/RGeXZ6lrRfZzaFWCmMSxHvUKX4YJuBSG+s7qcrP8Mfobbx95iF/JcTMwWfS3YxydQ==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b="a1vcX/T0";
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=arOIfOgJ;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id D0AA51F000E1;
-	Tue, 24 Nov 2026 01:21:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795483301;
-	bh=NPiHqCBzSMigGGhv6hcRBn033WAiMIBFt3pZgWFWluk=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=QoouS4HHDYzuyY1de5Ee3HxNQfplE9BwnuEx0b956GSNyZ0TFaD4gbBZ3/5lkBX+z
-	 8Rp0ptoQDArRRtoCPsbv1H/Orafk5opf59/CRkPNOgtzPEw3/f/zMqMHV01nre6+C1
-	 R3ezNxspO5YYr+mNWi487FRxrbCPfoo29fY89Cw5Ak2nQIqnEPZyPI0iXPrmLHUUUH
-	 izJHseP4Q4xVIazTRALSMiL1Pey7x1SZs85QF7aWylwvJNn6ngoxHaHKis3n333xh5
-	 Xo2HGPNHJIZTKAtvoNWhlW+BvzkQ5FL8QPFfuePh5bDooWE3MfTBoQV+v2HVqT07YY
-	 5xSWjkS6KZEbw==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 5EC224C809;
-	Tue, 24 Nov 2026 01:21:31 +0000 (UTC)
-From: Ahmed Abdelfattah via B4 Relay <devnull+me.ahmedabdelfattah.dev@kernel.org>
-Date: Tue, 24 Nov 2026 03:21:26 +0200
-Subject: [PATCH v3] EDAC/mc: Convert the poll period to jiffies when it is
- changed
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 98704606A321
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 01:22:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 98704606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=a1vcX/T0;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=arOIfOgJ
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795483369;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=o6hYnBwiFZNCgKvskv9vf2vEJ0wLJBN3T8leiCBivtA=;
+	b=a1vcX/T0Sx8c8omryKOGdDu+8gIFpTqRxFI1KfNCOsI135H3WxoKyODw5aLfhIihaNZFOz
+	4n6msE3GgXYOKks2h4dEO3A9683qMV+zw9P3jn4itrp63gEE6euzbyXdQgQVZnNEQ4RISY
+	YFa9rHPK0ElEUUnALLQwpqcAMG4EucA=
+Received: from mail-yw1-f198.google.com (mail-yw1-f198.google.com
+ [209.85.128.198]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-687-u5GcPtsmMxGrEzvkjPstzg-1; Tue, 24 Nov 2026 01:22:47 +0000
+X-MC-Unique: u5GcPtsmMxGrEzvkjPstzg-1
+X-Mimecast-MFC-AGG-ID: u5GcPtsmMxGrEzvkjPstzg_1795483367
+Received: by mail-yw1-f198.google.com with SMTP id 00721157ae682-836caf085e0so53572047b3.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 17:22:47 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795483367; cv=none;
+        d=google.com; s=arc-20260327;
+        b=KgkQS4elBaEmGXEx5mPSGTkJ+I+A2ZjCLI2PAeqARj4GxMmkR279M2oG++x9StO5CA
+         laydsYK30CdUFryqhQ/XD8jMcPo7qOya5sfs1LA0ho8/Gvj/m8ilzXaxDDV+wV3oy1Y1
+         zZ8mGHUPqDCl4Wn1gqgF8hybMrmfaqq7I5tfJq296m93qm7Fj0lXFkdnnpShxr+mzRz4
+         QtXJCfEjP0VokKvF5o+JzVjdhuER0poYsLYjUzsFXO8k8cQ0EhO0ZxhvnbjKdmX5uT8f
+         iwwGjPwaTgCW9xXCuPR58wJOylejzu/aiO/2vp/6yra0nGDMlOnsAAi5168jVCus1FES
+         PfAQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=o6hYnBwiFZNCgKvskv9vf2vEJ0wLJBN3T8leiCBivtA=;
+        fh=F4zq7dYSSDdza1+A5h2iUAVT1I0cpDCBV8E+dvqRcwE=;
+        b=hn1xo6NptjwUnVV8CFqcLq/2ONTjf7IU8AgI9MpGt9JehKh6aOVUouwoFtvWw2PWEu
+         Cx9l0akFVmZfhbezmQUGRnqqjkBWNq0TjuyrAeXx0dx/LaQ+kWtBSA5Lv4ynK3juxnLy
+         +mcj0kDwy04/lwq7MBIKVCPpxEVbVv6GTLyD29FA+qGSerlCAXtdh02SHO2Za9cKiI66
+         XJmR4HpEzTMviN6qrIveH/oDlbBip8WBR1SjoeGzJE7Tbrx6E5ZC6evMczgOnuKuhsnH
+         IPr+q17WSc2EEVYPCqBYfvkPnH8OKjF4VJf9kBtPx1mL7rFYSBI11hRzKgG753UgPagW
+         Lgrw==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=redhat.com; s=google; t=1795483367; x=1796088167; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=o6hYnBwiFZNCgKvskv9vf2vEJ0wLJBN3T8leiCBivtA=;
+        b=arOIfOgJjatsv80JVEpBvWV2cYjk1DFG529WBeqYVZMGb8G5XKgQX0BxBVyYjO6X89
+         XU/iiLqAa6JKHr5+YiHrFFmch4rOngPaojA+UtDibrDQFOJpR6UKfX6wDrp950WQlRze
+         RmGbYgjStorRu/XXsv9TV1Kng/eUkxkJiXEtOmxzq/3jG3MksuxpL8XIph4t30fkGtZl
+         puDe2bcO90EXdG3rFz/3uyZ3UUqq/tihog9dlpwR3WZRn/KDZPlNZdkSegJf6afWl7Eb
+         AsZR2uq1NPJYyaOaHJqtpmJvQ3hEJuKFLFuywQdHZG3XkvT+wvWNbS1vTf1CVSxIV0oQ
+         eBvQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795483367; x=1796088167;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=o6hYnBwiFZNCgKvskv9vf2vEJ0wLJBN3T8leiCBivtA=;
+        b=M51HnGzhPj+DLP3CwkNgzUyd1mc0Q7RKcj83oSjkBj+1kgSdVkMrRTCH2Y4U79twyY
+         QhezwA0HV7Vie6wcb4mmNngZzTvD7/pLHln7r7zzsYkU+5MI/MW7TsMjyXSxTUfft8rd
+         xor+nBPSuFKplwLOB+/h1JHGCqkWz8T/6x7ge+7Jl+ft1VTTJB/8qMUL8HykAZFt7uZb
+         JEWjJwjdp26IXtNP9A089dh5Cke4NqlFSGZmzePKG5HUbXHQVVMlHfxl2BVskIr892mF
+         ej/iVg22yeSj9cHpNKjdrDdskiLujqY9fL95j16gwhjGV0TzC3tE+7L97WCv/La0fJri
+         16Gw==
+X-Forwarded-Encrypted: i=1; AL+hErH8kAP3E7ljkE1h0yWWTn8BCgu0NY12ulPppQTDHsH/Q0T3GO3r1swiS8bAFXjOYE1fS/A3sEnPnHQcT6A=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8LQhEqsWr1BoHR2RlQIn2gd/AuBysWrOa7xK+z/4N/1lToJJ7l
+	WDIMs4kV6F0tTuTgmsen6mYNnCjbhE7KZYrWhBzZS/oCHfUgv5ZmujGMNzj7ufshR3Z02zvkGQi
+	NI5UfO9YA3IVQIyPseVbkK6Cfm43KsGYVrVnlRcXxuCdcTBmfdBcO+3NrNqz2TbLmTVhSvnjZJ/
+	g3bfPcq8IrDyXM3FSh4CQLzUOnvYdt3KzH89UPMVE6
+X-Gm-Gg: AZFdTZdA2djVwx9ty+do0oxLZ+MwOJRCJBtjBm3PDisytjAiWsfFob4GToBpvVRwlmK
+	rml1LRdNJrJfuUgMyDB3ya0X3q31W37fmepLjMBS3b4KA9A05VThE+7JRFCllO7NcH6PZ/MEYFi
+	trMYraJgVnIkGB6wWli0HR+HzMOt6dASwlBr0xmlBs6FiFsMq/dG4iNjSitd+Zt041NH7fyGTRq
+	chnLs08WpRppW04oXvpRZABXNjNxAwkjHpzpjYZPp55zA==
+X-Received: by 2002:a05:690c:c355:b0:8b5:4cff:d81d with SMTP id 00721157ae682-8b54cffe43bmr14262897b3.52.1795483367060;
+        Mon, 23 Nov 2026 17:22:47 -0800 (PST)
+X-Received: by 2002:a05:690c:c355:b0:8b5:4cff:d81d with SMTP id
+ 00721157ae682-8b54cffe43bmr14262807b3.52.1795483366524; Mon, 23 Nov 2026
+ 17:22:46 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,166 +125,66 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261124-edac-mc-poll-msec-jiffies-v3-1-a377fda35aed@ahmedabdelfattah.dev>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/43NzQ6CMBAE4FchPbuGLoLWk+9hPJR2V0r4MS02G
- sO7W/TiReNxkplvHiKQdxTEPnsIT9EFNw4pFKtMmEYPZwJnUxaYYyWlVEBWG+gNXMaugz6QgdY
- xJwK43rLCiqVEI9L+4ond7WUfT+8crnVLZlrApdG4MI3+/jqPcun98xMlSGAqUKlixzpXB930q
- V5b6lhPk27WlqJYLiN+oFj8QjGh+SbfGlNiWVb2CzrP8xPdgyVnNAEAAA==
-X-Change-ID: 20261119-edac-mc-poll-msec-jiffies-fb7f926f112c
-To: Borislav Petkov <bp@alien8.de>, Tony Luck <tony.luck@intel.com>
-Cc: Qiuxu Zhuo <qzhuo@nvidia.com>, linux-edac@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Ahmed Abdelfattah <me@ahmedabdelfattah.dev>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795483290; l=5834;
- i=me@ahmedabdelfattah.dev; s=20261106; h=from:subject:message-id;
- bh=jADiePoQwyKWlx1hQxkiCPwJnWF2b74pDalVFuubc6A=;
- b=htkZo4cGp+F7yGqN7zcLryOPbYzkS2swJeQ6vfLfbw8eiEE749i5oOFyGaUw710BqC9tC/qGr
- zo16EuLMSWYBJSYz8tj24bq+yLDTh1KPZDeqNHKMfiyDybSxoSHzA+b
-X-Developer-Key: i=me@ahmedabdelfattah.dev; a=ed25519;
- pk=DHEHKU4PddrkJ/iYMZpwyyXsFyIQ6ySjTttKLrt9YqI=
-X-Endpoint-Received: by B4 Relay for me@ahmedabdelfattah.dev/20261106 with
- auth_id=1438
-X-Original-From: Ahmed Abdelfattah <me@ahmedabdelfattah.dev>
-Reply-To: me@ahmedabdelfattah.dev
-Content-Transfer-Encoding: 7bit
+References: <20260722151023.1308069-1-agruenba@redhat.com> <20260730-armband-reklamieren-heuchelei-6f67abb088de@brauner>
+ <CAHc6FU4719z5crxP-ahSXs2qLachSL9GOiv4kXRZRifNxm-U_A@mail.gmail.com>
+ <20260731-rustikal-revidieren-parolen-02b3e749e9cb@brauner> <CAHc6FU7JQsrqf064yzG8_nDovSFwNCd+-cfmJE=_9pQLLYLdXw@mail.gmail.com>
+In-Reply-To: <CAHc6FU7JQsrqf064yzG8_nDovSFwNCd+-cfmJE=_9pQLLYLdXw@mail.gmail.com>
+From: Andreas Gruenbacher <agruenba@redhat.com>
+Date: Tue, 24 Nov 2026 02:22:35 +0100
+X-Gm-Features: Aa3M54pK9ZdQ5UCTwrQed5DfOXgeoX3EWqsEowwcQtn42_zjFDDeV5ll4RqCoPo
+Message-ID: <CAHc6FU4oKU0ojagHB__b9HTfTnn5_HG1N6MDpFHm=ZWA=Jk=cA@mail.gmail.com>
+Subject: Re: [PATCH v2] xattrat: accept empty O_PATH file descriptors
+To: Christian Brauner <brauner@kernel.org>
+Cc: Alexander Viro <viro@zeniv.linux.org.uk>, Jan Kara <jack@suse.cz>, linux-fsdevel@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-From: Ahmed Abdelfattah <me@ahmedabdelfattah.dev>
+Christian,
 
-Writing edac_mc_poll_msec at run time re-arms every polled memory
-controller through edac_mc_reset_delay_period(), which passes the new
-value to edac_mod_work() as it is. mod_delayed_work() takes jiffies, so
-the first poll after the write comes that many jiffies later, not that
-many milliseconds: at HZ=300, writing 2000 puts the next poll 6.7 s
-out. edac_mc_workq_function() re-arms with msecs_to_jiffies(), so only
-that first poll is off.
+On Fri, 31 Jul 2026 at 16:14, Andreas Gruenbacher <agruenba@redhat.com> wro=
+te:
+> On Fri, Jul 31, 2026 at 3:26=E2=80=AFPM Christian Brauner <brauner@kernel=
+.org> wrote:
+> > On 2026-07-30 22:34 +0200, Andreas Gruenbacher wrote:
+> > > On Thu, Jul 30, 2026 at 8:49=E2=80=AFPM Christian Brauner <brauner@ke=
+rnel.org> wrote:
+> > > > On 2026-07-22 17:10 +0200, Andreas Gruenbacher wrote:
+> > > > > Christian,
+> > > > >
+> > > > > here's an updated patch for making the *xattrat() system calls ac=
+cept
+> > > > > O_PATH file descriptors.
+> > > > >
+> > > > > Compared to the previous version (see the discussion at [*]), thi=
+s
+> > > > > version adds a fd_maybe_raw cleanup class that uses either fdget(=
+) or
+> > > > > fdget_raw() depending on which kinds of file descriptors are acce=
+ptable.
+> > > > > That's still a but ugly, but all the alternatives I could come up=
+ with
+> > > > > are much worse.
+> > > > >
+> > > > > [*] https://lore.kernel.org/linux-fsdevel/20260701191649.175871-1=
+-agruenba@redhat.com/
+> > > >
+> > > > Thank you. How do you feel about?
+> > >
+> > > I don't think it's an improvement; see below.
+> >
+> > Do you see other users outside of fs/xattr.c that would use this new fd
+> > class. If not it might be useful to just have a local version of this i=
+n
+> > fs/xattr.c?
+>
+> I hope nothing else will use fd_maybe_raw, but hiding it in fs/xattr.c
+> still doesn't seem like a good idea. Do you insist on having it moved?
 
-Before commit c4cf3b454eca ("EDAC: Rework workqueue handling") this
-path converted the value through edac_mc_workq_setup(), and
-edac_device_reset_delay_period() still does. Convert it here as well.
+this patch from the end of July is still pending. There have been no
+changes in this area; the patch still applies cleanly. What are your
+thoughts on this?
 
-All other callers of edac_mod_work() and edac_queue_work() already pass
-jiffies. Name the arguments after the unit they are in: "jiffies" for
-the two workqueue helpers, and "msec" for edac_mc_reset_delay_period(),
-as edac_device_reset_delay_period() has it.
-
-Fixes: c4cf3b454eca ("EDAC: Rework workqueue handling")
-Signed-off-by: Ahmed Abdelfattah <me@ahmedabdelfattah.dev>
----
-I noticed this while timing ie31200_edac's polls in a KVM guest: the
-first poll after a write to edac_mc_poll_msec came late.
-
-Tested on v7.4-rc3+ (4405c18c95d2) at HZ=300, with ie31200_edac bound
-to a QEMU model of the Kaby Lake host bridge (a local device model, not
-upstream QEMU), timing edac_mc_workq_function() with a kprobe. Without
-the patch the first poll came 6.76 s after writing 2000 and 3.51 s after
-writing 1000, with the polls after it every 2.13 s and 1.01 s. With the
-patch the first poll comes 2.11 s and 1.02 s after the write, in line
-with the ones after it. Writes below 1000 are still rejected.
----
-Changes in v3:
-- Dropped Qiuxu's Reviewed-by: he gave it for the one-line conversion
-  in v1, and v2 added the argument renames on top of that (Borislav).
-- No code changes.
-- Link to v2: https://patch.msgid.link/20261123-edac-mc-poll-msec-jiffies-v2-1-0407cc52556d@ahmedabdelfattah.dev
-
-Changes in v2:
-- Went through the callers of edac_mod_work() and edac_queue_work(). The
-  others already pass jiffies: edac_device keeps msecs_to_jiffies(msec)
-  in edac_dev->delay, edac_pci and the other edac_mc callers convert at
-  the call. So the fix is the same as in v1.
-- Renamed the "delay" argument of both helpers to "jiffies" (Borislav).
-  The "value" in the v1 hunk is edac_mc_reset_delay_period()'s argument
-  and is in milliseconds, so that one is now "msec". As an argument name
-  "jiffies" shadows the global one, which only W=2 complains about; I
-  can call it something else if you prefer.
-- Added Qiuxu's Reviewed-by and retested.
-- Link to v1: https://patch.msgid.link/20261119-edac-mc-poll-msec-jiffies-v1-1-fe329938fa09@ahmedabdelfattah.dev
----
- drivers/edac/edac_mc.c     | 6 +++---
- drivers/edac/edac_module.h | 6 +++---
- drivers/edac/wq.c          | 8 ++++----
- 3 files changed, 10 insertions(+), 10 deletions(-)
-
-diff --git a/drivers/edac/edac_mc.c b/drivers/edac/edac_mc.c
-index fd70caa85574..6feb0809a959 100644
---- a/drivers/edac/edac_mc.c
-+++ b/drivers/edac/edac_mc.c
-@@ -483,12 +483,12 @@ static void edac_mc_workq_function(struct work_struct *work_req)
- }
- 
- /*
-- * edac_mc_reset_delay_period(unsigned long value)
-+ * edac_mc_reset_delay_period(unsigned long msec)
-  *
-  *	user space has updated our poll period value, need to
-  *	reset our workq delays
-  */
--void edac_mc_reset_delay_period(unsigned long value)
-+void edac_mc_reset_delay_period(unsigned long msec)
- {
- 	struct mem_ctl_info *mci;
- 	struct list_head *item;
-@@ -499,7 +499,7 @@ void edac_mc_reset_delay_period(unsigned long value)
- 		mci = list_entry(item, struct mem_ctl_info, link);
- 
- 		if (mci->op_state == OP_RUNNING_POLL)
--			edac_mod_work(&mci->work, value);
-+			edac_mod_work(&mci->work, msecs_to_jiffies(msec));
- 	}
- 	mutex_unlock(&mem_ctls_mutex);
- }
-diff --git a/drivers/edac/edac_module.h b/drivers/edac/edac_module.h
-index eceef5539186..762a331a5708 100644
---- a/drivers/edac/edac_module.h
-+++ b/drivers/edac/edac_module.h
-@@ -48,12 +48,12 @@ extern void edac_device_remove_sysfs(struct edac_device_ctl_info *edac_dev);
- /* edac core workqueue: single CPU mode */
- int edac_workqueue_setup(void);
- void edac_workqueue_teardown(void);
--bool edac_queue_work(struct delayed_work *work, unsigned long delay);
-+bool edac_queue_work(struct delayed_work *work, unsigned long jiffies);
- bool edac_stop_work(struct delayed_work *work);
--bool edac_mod_work(struct delayed_work *work, unsigned long delay);
-+bool edac_mod_work(struct delayed_work *work, unsigned long jiffies);
- 
- extern void edac_device_reset_delay_period(struct edac_device_ctl_info *edac_dev, unsigned int msec);
--extern void edac_mc_reset_delay_period(unsigned long value);
-+extern void edac_mc_reset_delay_period(unsigned long msec);
- 
- /*
-  * EDAC debugfs functions
-diff --git a/drivers/edac/wq.c b/drivers/edac/wq.c
-index ad3f516627c5..edeb7bbd3d68 100644
---- a/drivers/edac/wq.c
-+++ b/drivers/edac/wq.c
-@@ -3,15 +3,15 @@
- 
- static struct workqueue_struct *wq;
- 
--bool edac_queue_work(struct delayed_work *work, unsigned long delay)
-+bool edac_queue_work(struct delayed_work *work, unsigned long jiffies)
- {
--	return queue_delayed_work(wq, work, delay);
-+	return queue_delayed_work(wq, work, jiffies);
- }
- EXPORT_SYMBOL_GPL(edac_queue_work);
- 
--bool edac_mod_work(struct delayed_work *work, unsigned long delay)
-+bool edac_mod_work(struct delayed_work *work, unsigned long jiffies)
- {
--	return mod_delayed_work(wq, work, delay);
-+	return mod_delayed_work(wq, work, jiffies);
- }
- EXPORT_SYMBOL_GPL(edac_mod_work);
- 
-
----
-base-commit: 4405c18c95d2d0f99f6c581ef0ee8591a1aa6ccd
-change-id: 20261119-edac-mc-poll-msec-jiffies-fb7f926f112c
-
-Best regards,
---  
-Ahmed Abdelfattah <me@ahmedabdelfattah.dev>
-
+Thanks,
+Andreas
 
