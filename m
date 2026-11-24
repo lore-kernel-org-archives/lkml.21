@@ -1,56 +1,93 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.134.164.83
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=66.163.188.154
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795543991;
-	b=td/fWsUcfN7050u0G1DS1bOPEKyq7u+KW/l+Yd9F64AbpxisuRnsNheRcUay0KiGic8K
-	 58qu5HND0yK9wuf3ujippQk6v/AuwR0PUvzvgHYIVLxHq9QBXIyDVbEpGTk2f6/x0Cxv4
-	 ejm9EK/9zPoiSwXRkoftBctyZ5FXCmKpnUeS1GghOifBHjs8fi99JIfmBYx7NaaJtymix
-	 08eYfcM79zfniKcVy8aS7N6k8RbfMi1bv9LMocL8tQaTY5kyfHJfkwKfI0N6aX6CSkA34
-	 Ubj+swiicFCFLYiA4/gDzH6hOQAuKWLxS5kI7p/yKrNrRJ6CSPNF7KTJ7MSh0rlEQNA==
+	t=1795544138;
+	b=D6qE2oNruS5pUZ8LCq7kvEfeqggk3cRx9jM9WCoELNScbQ6Nu9cShJkYqopWMG5tXwrt
+	 mDD2EpV6/WT5r3/+RmJ7tUotKqhJ9HqtGdCLa1xDDbXVqw0ybJBXEH/hhITHgWm6Eh+FU
+	 INK+svD/QGv3t3SfhPlrrfyB6YsY1QSBt8HWr3Hng4NGso1NAUPSvzRRLe2St6Rk4NvSy
+	 kBJzwU5xzn8rTfVlff7P9raNU4Rfo6HgwcjbmCIUuMe+s8vvnwDb0GnlF0fWCnIHGJib3
+	 3igDbDTEyN6MPjdYLD95TUaqpZbFxr4pa2MQev7Y6JM7OU3np+cJ3qmca1EdIwXcjbg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795543991;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:Received:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=UWXbji1X4pxMzbXfxu88bQcgXa0uUzb1/+z2PU7DMrE=;
-	b=uc+Mb3q7VhqxVQ47cs1uDAG1YDUEobbAWJzF08KgUXl4pWhdCqd7JwIGnjxgChw1K5Ie
-	 x9kj39nyzdU13tyeRu5UcLT+EVA5s9BsSiKslOZIopPUoBrMDs8fbS/BnWAWbKfIty3//
-	 mK7Nzn77ape7Z1bexXSWYYCg6D3LTtZALT3uTVMeEvw2/AV4yHELBQDQlV2xreYE3L5ur
-	 Zlsv5giKrsTJ/xNWJRjhsoiD/0pMm0TKbgg2eN8QV6sKd6Rr4abUdZuNv1+mpVg3TaJnL
-	 W5gDGPbgVRSQXbJ7q+hLL3g6sWKJ/PfhMTzX62QgWJD+1sNMXFubpQEwmS5IuYn3arQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795544138;
+	h=DMARC-Filter:DKIM-Signature:X-SONIC-DKIM-SIGN:X-YMail-OSG:X-Sonic-MF:
+	 X-Sonic-ID:Received:Received:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding:References;
+	bh=Yen8tBrnMyXOkESmaCf4yWwXX80nKkuZvGSV8PP1uLk=;
+	b=lMMCLKmD8or7kcUGo8wW4k9pBXL4rHX08GLPCnsWbE9fIYPErbqBWd9eAJpQYBN4Le5j
+	 o7ZHMOrJH13xC1J5OudcrVQp7/gpvhK/ApZQZnpn0Idy5+woVU/bI4JuLf1V203TS7qPq
+	 6phN05ZmnwUddZYzxYYQWkcbyltiYhWfpbcnPyq6bORcLGJBlgjj+3k08m1TGCLEf7/28
+	 pvfUxGrU3RTd0Amt0pFxV3E6mXr7szVY0MZTrjPmR+7koDuf8AxAdW3SmRn8eIjQJh8Oq
+	 aUUMcNYPJUevdJDzO6FLQ0lIl8traW1WLGksh6mxyLWNc+3473XbvgAg8UroxxM4PgA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=inria.fr;
-	spf=pass smtp.mailfrom=inria.fr;
-	dkim=pass header.d=inria.fr header.i=@inria.fr header.a=rsa-sha256 header.s=dc header.b=kLtZCBId;
-	arc=none smtp.remote-ip=192.134.164.83
-Received: from mail2-relais-roc.national.inria.fr (mail2-relais-roc.national.inria.fr [192.134.164.83])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=schaufler-ca.com;
+	spf=pass smtp.mailfrom=schaufler-ca.com;
+	dkim=pass header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=YtnlOIi8;
+	arc=none smtp.remote-ip=66.163.188.154
+Received: from sonic303-28.consmr.mail.ne1.yahoo.com (sonic303-28.consmr.mail.ne1.yahoo.com [66.163.188.154])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B0E4E606A32C
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 18:13:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B0E4E606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=inria.fr
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=inria.fr
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C368E606A327
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 18:15:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C368E606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=schaufler-ca.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=schaufler-ca.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=inria.fr header.i=@inria.fr header.a=rsa-sha256 header.s=dc header.b=kLtZCBId
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=inria.fr; s=dc;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=UWXbji1X4pxMzbXfxu88bQcgXa0uUzb1/+z2PU7DMrE=;
-  b=kLtZCBIdI1R3nZKaeAHSJEIle6jrTdTVGH4wTGtCm3UFM+tRSOtQW4u3
-   AT/e2VbNkgxReb1XFmp4WBVPIq7qTJG71zuiI4q1BQR+eU66qQRM3q2Jx
-   MyrE/ykZmKyrMqtQ1XLaBt1YmBXgCf52lW2W5vg5nb4IyvvYH8SougTNu
-   M=;
-X-CSE-ConnectionGUID: m04h4fJsQPe5s9trrWFVsg==
-X-CSE-MsgGUID: vnsbjmTmRx+Vyz9U2G9L2A==
-Authentication-Results: mail2-relais-roc.national.inria.fr; dkim=none (message not signed) header.i=none; spf=SoftFail smtp.mailfrom=keisuke.nishimura@inria.fr; dmarc=fail (p=none dis=none) d=inria.fr
-X-IronPort-AV: E=Sophos;i="6.27,231,1787004000"; 
-   d="scan'208";a="307166254"
-Received: from dt-aponte.paris.inria.fr (HELO [128.93.67.66]) ([128.93.67.66])
-  by mail2-relais-roc.national.inria.fr with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 19:13:07 +0100
-Message-ID: <1939197c-ef2d-43e5-8243-3c6e6217d7ba@inria.fr>
-Date: Tue, 24 Nov 2026 19:13:06 +0100
+	dkim=pass (2048-bit key) header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=YtnlOIi8
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795544137; bh=Yen8tBrnMyXOkESmaCf4yWwXX80nKkuZvGSV8PP1uLk=; h=From:To:Cc:Subject:Date:References:From:Subject:Reply-To:Content-Type; b=YtnlOIi8HENTqFgwQwpBSr9ad2Mm+WYCjHDciiT6jzHU87GXNwmG7Hy9LmjLn61jvTw2a4KeVsbrBzs/zDq7ZSlWzPYQHKWYujZ4Hi7/mZUjlq4pjswS5gHVGakNyBf94QU5dm+QBnetg3YT3QiguOx4IVYb7bVZ9xCAF79eLvT0CVRYLWI5vjWlKl5tjWaCtrmiZBjjHxm70AthfX0RzZnjamJY5SCphUSdZiUGe58gGqw2p2WjFqvic91FjqdrVLrTvkyUFMMoSdbfUsOn/kjmHJY0u7Ui4+YKncGPEf/I7Qg3tBpeHRzsb14HY0tfcyU+6OjtDo+ka2ParoYwUw==
+X-SONIC-DKIM-SIGN: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795544137; bh=l0Xh7gFXohjF87mFO5jlVxvS0KacET0ujUeGf4CwjWO=; h=X-Sonic-MF:From:To:Subject:Date:From:Subject; b=HvNVscaCPKX5LTugJfvYwwrLfZfLm7Knbh/FIYJ45nBtge+LFZADHfEuhWr4Vfb2n+/0FDdUWDjcgSHgwhrTvA3ZrAicte9pBlTAofcBFmBFUfMfRGKPiKLIu3WIHvo3A4+housxIaRIsOUwfnB+Y4zgvbHg42ibiXfaAvXd8PpLRnaDQmh+F7lJjfBNNfQ1AOHGp4SkbGkXLuIdyR22lytfmQ2oxI8qBgU4IM1ztXL2cZCzSOHwu5URxDx54JaSOOKU9+GK2a6Y8mukrIxbRULTvmjLx8T6Iyv9YrZn1Z5rdoHowHU2EusLuDLLTu6Mydn3e22+9aBZtraxDxBVjg==
+X-YMail-OSG: qwMjzWsVM1l0p3pVH2uf46XYh6CsaWP3JkqmibBKjz5JEiaGS.f2ffJYNqQIwuu
+ d4qz58p32sqC_uiklyGr15hqVotJBrufgC8NQox_FDhwww4Hhtvx.mq2N7JDEPv6OnB1SP0XtgMh
+ LAzyH4xLZOaHFy3l9rm43wtj4T.5rf81rJz1KIiAIHt2R8bzcOh8QPHirl0iJlpCv9nJFI6ftA.k
+ Ro0iJ416bU6SVH59gMDEPaG5HlZcrl_3RsW3rAKCL06geoDyQ2viRVvOUMhc2BcVCOFZYqMOo1jg
+ eShqA2b_xuA.zgfI8BtrVieph5immixMm5WATlT2HE8gVQLBuVfLJCyYin8rednt.HPxVWOsa9ye
+ l3Ii40J6TZyRxr3lJKhmTMpoDRWIk6K9eu0IRtaTEhmwZ1CWuxPhZIuCF6Ab2QGyKanyVMy2OR1A
+ 5An457WNpSLHGXUqLgZstL4OyX5sj1JrEhVgHeS8amNS.WKK6abIY6zByqhswippIh3JzEi0XUZD
+ _Zos15bJ_YE0QkRuYzi4mCC.cGlq4wsX9juQZ1ZbMMEb8TSRvPhzG5szeYJ_jyUaUhvVl9HcjQKE
+ e8U9NYSOOGKFo4UROfCGPySgzTz4ni6xWWkq._44PtrtaDdBHVEtD5ubV.2DcOUDDFum4V4cEoD8
+ 2uqkeF5fmO99gNGnsNB89vPTiz.xv6sxsFfD_WMJdGX.ekJpdofbeVUbewzwyXdxuej0yyKQYpaW
+ 4Z__lyPy6Fl0g5nBBxlfcXpkvK7SdTmGPUERjLMcI1Qrko28ljltsNxewECap_CS05LanzCBPUUW
+ P3Otw1mcEM.jwrLiWVq7zRl0abt1X0foIigLi8AYB7rAaaMQ7RYifL0a_0IZAFFYTRzgXf7xq7G7
+ 3MjeDLhgg6FKyC2IfjiWWzDqxxO0_Ew6SXbakrdmG4bB8xF06MXfPFMDosJBGjeX.4LrEkSD0HqT
+ yYTIgZc_Di74q59d5MegdDoiz.DeiXemwS2HyVfdRJcRXMaspvq.8glj0tVoQvW4r1KjODI_7A2B
+ mmvZ4_9gFZU.9Cwhr7VV2CKr967s4apcb0n5zzljtEG9Q5Xu8dlbMO.il3e4VgE66mle9JJSQI8z
+ cMYu1zCFIrL6K_ar6y65pMYLGv0ZC_bBHQ7v13RsXV.q6ca35A4Auua9k9XnW6zIgr9GTEMPrZMm
+ eYhNeB4RKsr.PAPTtBjan4rbXD09Mkj5Av4OYXPOGvxRxh_KGjKlrRVlV_.gGE8M4T08LcEsyW6D
+ fQoq4OR3xioOzvB_BBug3drGQpis7KGGVLYubXIKpmuJoI_gwoO4pggg8U5mM3Jbgv.C3zAuE3Nd
+ I1Xpsng20i1IoTqBssdZQtYJPM8mrQBoQXL5CqOvPpq4MbCyJ3yjbnaP5nSFbjD.tFIXESLOuLrX
+ 7r7gXovLBbqb3eQgsVULXH9Yj88ytaiQpEWsub1DKXTh2DMZdqt03iRwwcajrphnWyUVI_y26_Ys
+ MAdyBnPsCIr9vGM4niM4KdEtMpZYtaqb_MHXEJcKnDOn_f8a4IV6epSXd7DA69qpp1g.ZqgnRQgl
+ YtQ6y99t.IlHuOJoSNcTFAZNZBqHpN31TC6Jz_4kKwPPuyn.S3jeWTwjC6dcyj0mX4UCJGCmG3_S
+ QME8zz9UoeXfwGXpET_RzfYZfEdS9kUD3aqVGW5G7ar7TbPtUdilJd4Hqy1BPLUfMRaS0ssKrc64
+ Ez1N9eu8zOKW_Jk7VFkLre0daXCzAOZwzWWks.6fYWzS5xrBqX.q6qEquM5BsVT5u67VQFs.T7Kh
+ NJSwiErpJoRtiFLbfyaQ1W9CXIVc5hb.YFmABQzTQHF5SEDnhjSKP4NGnTjboKKVww45_gxsDC86
+ FHFQsy9nzv5jRPx5VBcu_wveCFeabJmWiew0e6SElMW5joxbg_9xMRo6fNnzbGKcPGF0bBfj5S3F
+ m7evrhAPw5oiuALqn0Jneon0sZ.REhJCAFAwNjouriwijSeIhVCqXxpe0JhZiLJzTC9d2y4CZrH2
+ SjnZHE0dgO9zCCbnxLgIBhCHnmpnIKd7cZlNVaF2QyVssGzdUge8ReMHe5QCbVSWNiE_7v1JLyeK
+ LQ1p08Cl0V4MyRsc5v6LESE64uVVzNFLa2u_TaBddx0sliDdAhlp_tM9a96toIBhx_ZOMyfIGgIR
+ 48FhN4HCIi8ym9zQsdS2iyzMnKxgAZoZ4.GwhyAEnFdtokD37Fr7gvgN4EsVfsz_g0fVGXEtxvJy
+ XAHlfQB3Yf91LyXoUvCVvki3RQA0u_AI93MV0IEIzownOLmYET8oq7WKPRcz6IJrFBzb6Hy1mNmW
+ 4zGCrvVKbd0Dxqyy8n6V1EWY-
+X-Sonic-MF: <casey@schaufler-ca.com>
+X-Sonic-ID: 08257e48-2c07-48da-95e2-e7a121109326
+Received: from sonic.gate.mail.ne1.yahoo.com by sonic303.consmr.mail.ne1.yahoo.com with HTTP; Tue, 24 Nov 2026 18:15:37 +0000
+Received: by hermes--production-gq1-7c58b65db6-g64hz (Yahoo Inc. Hermes SMTP Server) with ESMTPA ID 89675cfbe13ee0a2bc6abba71cb35f1a;
+          Tue, 24 Nov 2026 18:15:34 +0000 (UTC)
+From: Casey Schaufler <casey@schaufler-ca.com>
+To: casey@schaufler-ca.com,
+	paul@paul-moore.com,
+	linux-security-module@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	jmorris@namei.org,
+	serge@hallyn.com,
+	keescook@chromium.org,
+	john.johansen@canonical.com,
+	penguin-kernel@i-love.sakura.ne.jp,
+	stephen.smalley.work@gmail.com,
+	selinux@vger.kernel.org
+Subject: [PATCH 0/1] LSM: Mount option data management
+Date: Tue, 24 Nov 2026 10:15:21 -0800
+Message-ID: <20261124181522.30415-1-casey@schaufler-ca.com>
+X-Mailer: git-send-email 2.56.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,72 +97,43 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] sched/fair: Don't pick recent_used_cpu if target has no
- LLC domain
-To: Vincent Guittot <vincent.guittot@linaro.org>
-Cc: Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
- Juri Lelli <juri.lelli@redhat.com>,
- Dietmar Eggemann <dietmar.eggemann@arm.com>,
- Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>,
- Mel Gorman <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>,
- K Prateek Nayak <kprateek.nayak@amd.com>, linux-kernel@vger.kernel.org,
- julia.lawall@inria.fr, jean-pierre.lozi@inria.fr
-References: <20261124155107.358643-1-keisuke.nishimura@inria.fr>
- <CAKfTPtARqb5VW0LBxDjGK6cZV7+6Ba4EsjchEMjqO6L2PkiHHg@mail.gmail.com>
-Content-Language: en-US
-From: Keisuke Nishimura <keisuke.nishimura@inria.fr>
-In-Reply-To: <CAKfTPtARqb5VW0LBxDjGK6cZV7+6Ba4EsjchEMjqO6L2PkiHHg@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+References: <20261124181522.30415-1-casey.ref@schaufler-ca.com>
 
-Hello,
+Mount option processing does not allow for multiple LSMs to process
+options. It requires that the LSMs manage the data associated with their
+options and assumes that one LSM will do all the work. A second LSM using
+mount options clobbers the data of the first, resulting in mount failures.
 
-Thank you for the feedback.
+In order for multiple LSMs to provide mount options the LSM management of
+the data needs to change. A mount option blob replaces the LSM specific
+data that is allocated. This still needs to be allocated within the
+individual LSMs due to mount options being strictly optional. Duplication
+and freeing, on the other hand, can be managed in the infrastructure.
 
->> select_idle_sibling() can return prev or recent_used_cpu if they are idle
->> and share the LLC with target. However, cpus_share_cache() returns true
->> for any two isolated CPUs because their sd_llc_id is never set and keeps
->> the initial value.
-> 
-> Are you sure that's because their sd_llc_id is never set and keeps the
-> initial value? Or it's because they are in the same llc_mask() and we
-> use the same sd_llc_id for all CPUs in the same llc_mask ?
-> 
+SELinux provides a special challenge in that it defers mount option
+handling in cases where the policy is not loaded. This requires that
+additonal logic be added to detect if an allocated blob was created by
+SELinux or by another LSM.
 
-In the patch, I meant CPUs isolated by the boot parameter isolcpus,
-whose sd_llc_id keeps the initial value. But in the case of cgroup
-isolation, the following statement
+This is a substantial change from previous approaches to the problem,
+which failed backward compatibility. Hence, it is not a verson 2.
 
- > their sd_llc_id is never set and keeps the initial value.
+https://github.com/cschaufler/lsm-stacking#mount-262221
 
-is not true, although the same problem occurs. I will change the description in v2.
+Casey Schaufler (1):
+  LSM: infrastructure management of mount options
 
+ include/linux/lsm_hook_defs.h     |  2 -
+ include/linux/lsm_hooks.h         |  3 ++
+ security/lsm_init.c               |  2 +
+ security/security.c               | 29 ++++++++++-
+ security/selinux/hooks.c          | 85 +++++++++++++++++-------------
+ security/selinux/include/objsec.h |  8 +++
+ security/smack/smack.h            |  8 +++
+ security/smack/smack_lsm.c        | 86 +++++++++++--------------------
+ 8 files changed, 129 insertions(+), 94 deletions(-)
 
-> Being able to set a dedicated sd_llc_id for isolated cpu seems the right option
-> 
+-- 
+2.56.0
 
-That might be a cleaner fix, but I am afraid it would be a bigger change. The id 
-may need to be updated whenever a CPU enters or leaves an isolated partition in 
-cgroup? Since the id also seems to be used for other purposes, e.g. index of 
-per-LLC arrays in cache-aware scheduling (llc_id), the change could affect more 
-than this issue.
-
-As checking sd_llc already covers both boot parameter(isolcpus) and cgroup's 
-isolation, would it be okay to keep this fix in this function?
-
-
->> @@ -9175,10 +9175,13 @@ static int select_idle_sibling(struct task_struct *p, int prev, int target)
->>              asym_fits_cpu(task_util, util_min, util_max, target))
->>                  goto select_smt_priority;
->>
->> +       /* NULL if target has no LLC domain, e.g. isolcpus */
->> +       sd = rcu_dereference_all(per_cpu(sd_llc, target));
-> 
-> if sd_lls is null, can't we return immediately as there is no shared llc ?
-> 
-
-Yes. I will do early-return here in v2.
-
-Best,
-Keisuke
