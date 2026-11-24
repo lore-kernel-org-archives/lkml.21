@@ -1,74 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.70
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.198
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795559488;
-	b=PPoeZio5KAYF8y3GVZxOWFOdTVQnENz269D0PeuLSbnOqR23Rfz8qXd9dhL3ogcR712c
-	 L0UJLr2HVhPSSDHoG3tZQLbVn1z08YC2Ui8SwnjzQU16CsTI5dKmFHYJGghCI164KJknR
-	 fpYfTu9SeXKyAEAJmWRwzeGEihMWHhQByYO5c/ViE3L4iol96S86IqNB7nAdUqcRStLZ8
-	 q0l5W9l2PZ4YBEKdyffnQZM84gRUfYc3ZQW6puHy/6mJJIBhCqGiALkVnHyuV0GMxNz6/
-	 VvlFyAKT2GKpFl1zs2kzavZqyQSRzWH6o5uCrxG+5h2dehsRJy2LnKmlw2RTX+g2TqA==
+	t=1795559490;
+	b=tYVSeYEvFUMjvk7u3fpc0D3vARU+ySSzdzh4n7IWhlic/IceMFo4UT1KC0cNX0UuQC5e
+	 9fY5EFsy59SWMiEkvU9LQm4p1a7B1f4/TtkG5nc/kv3ud/XJrgglkvE+dpgXhWe8mY4of
+	 7qevefSdVUa0cFYNI8OA9SgVNHx2D9IpNqq1FTE0xNxOUtymFEJDH3gQO0zzq7JkybjLk
+	 EAxEd6F+ENJC3LfbSom07UIp6VQLfzsRK+XP3c1haFjGhs1ROowI91sZm/IGi24b3dWBy
+	 /lzzl0yz9JUjmBphfFPq9enH9IkXInQtajs7DL0B76iNzoDs1dyJksctLQLyRfkA+0A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795559488;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795559490;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
 	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
 	 Content-Type;
-	bh=bJ2wLl80H6W61OfbTAD+Kn2BL2XrYH+h5oNwZiTeGoQ=;
-	b=o3zyzylrPKQ48zHD1KamESLhCTu/cGnZjk3628ERLQsJQMCuNMsREYdKLJenu+MB5xKE
-	 y0VzDFAxNE2fBKYuDBmePdH2MhM6NFium7TYL1TNMxCFrRifkyG692QbYBSkHs9NgGB+i
-	 CnchZPzbcMoHzD0u5qN0a9Wo5FrNDDBsP6faiCIfui9Kh/K69sq0V1X5AZXuoS2LMJFlS
-	 5+5hWdVP7ZxGv/94aAMaWbhcUQLQblwf2dFEjVR5te8j90ylHu9frVmsvwyqZ7lA+jCQJ
-	 qDpGvV4Z0jWyGU0VYtbSaA4b9zYCcEQPrsnk2bPz2wFTXsqysYuH6zka4hIofRYIFWA==
+	bh=QCYdaX+gGCR9rqh1M6R/ZEIGIvsxPuaht+HN7q0IQhc=;
+	b=RKxVPr/Rj7NrhqvbCHY/cDDbL/XvHj20Ly6sOvuayVMJSkRCRpZT3lkskgsKtGgHVmIu
+	 sbmSsvWQFOCN99QP7LRNe4DI4ER1HeIMqnVYGJuFWjWDlikT2EPreTbkFTsjVfcD9/uAH
+	 lyyE0OCSq+0M+a8MQqkJlISaSgpTWLxDLA4MPs23US+8ZuwRIUyRHICmn7ojO2/nQdQqR
+	 VYwcZYD7GRajwm08yHzG3mzCz0rkdgGILnopYNnYWg8owmMBLPztAdvEuSQDZf6zCLtml
+	 uW2cmU5P6bR8lxnZR6GMILTk6+mOHU32tYMfPpZSYivxT8Yh89ONo9Wou1oYhKXpRCA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=fjzvUHvY;
-	arc=none smtp.remote-ip=74.125.82.70
-Received: from mail-dl1-f70.google.com (mail-dl1-f70.google.com [74.125.82.70])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=WZ3JLNmu;
+	arc=none smtp.remote-ip=74.125.82.198
+Received: from mail-dy1-f198.google.com (mail-dy1-f198.google.com [74.125.82.198])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A9BD9606A68C
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 22:31:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A9BD9606A68C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D29EA606A695
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 22:31:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D29EA606A695
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=fjzvUHvY
-Received: by mail-dl1-f70.google.com with SMTP id a92af1059eb24-1b3b45597c7so6532704c88.1
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 14:31:27 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=WZ3JLNmu
+Received: by mail-dy1-f198.google.com with SMTP id 5a478bee46e88-3869865a304so4765343eec.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 14:31:29 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795559487; x=1796164287; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795559489; x=1796164289; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=bJ2wLl80H6W61OfbTAD+Kn2BL2XrYH+h5oNwZiTeGoQ=;
-        b=fjzvUHvYh0KI6kWNbVeHRZlzKoFiRnNL01jIjunsRCL7ChFWSNO0TPC+v3I7YdQTYV
-         6LUA66+0fjOD3ty3WTd1NHa6jtBf7aVngkva/M4zFceycoqvu7QF7WtR/uxbWd2zZN2z
-         tBTudMeQQWx6u/Nx08CGAJhabiu4QhQBszvEAfaFKUpwO83jz3dUbllJf4wdBJo3vc7V
-         E0pPu3iRo6SG2ugmFgbG6XfAl3AvKYmL2KFkisrRsJwPw6iQAtwjgLV2ghNwbx2WHBjk
-         6bt9vDyv9tBiJgj8XJsTMei8nZBsdDft4GKGkUfNMD3RLFQFdClqKToRYw10eLDU9jbg
-         bwzg==
+        bh=QCYdaX+gGCR9rqh1M6R/ZEIGIvsxPuaht+HN7q0IQhc=;
+        b=WZ3JLNmudUfCbE8ABKetbbZ26ZeH89ln9BChxr1T+0iX1fx3sir9CcUCOoKampzTW4
+         5heA+sNstFyl5KruD1SqlVCuOgRLfWJOOSCZbwBiEFeWIA/tHs3VjQZv7cJXPjoTTsCA
+         NDLmMfwJESdvICPW4ON5PRXmDBIeUU2nxV2KV77RlFiTUkqiLNP8nCi4tvb9kBZkxDHv
+         x+si1GaF0yuS1k1AEWYtMrkDyeSp26aRatEOwE8FPHXtivReRpfFtOQzH6MQaJpOrrUT
+         nxUFo7M686UNkFoK5fyw2eHZAMctTSNxsJXjROFbWBuPEK/VeTl0P4kNSYnyDjTuZJAz
+         V8JA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795559487; x=1796164287;
+        d=1e100.net; s=20260707; t=1795559489; x=1796164289;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=bJ2wLl80H6W61OfbTAD+Kn2BL2XrYH+h5oNwZiTeGoQ=;
-        b=yjV5BEWKW3NRqbMpPBFMW3EIfHtxE1jKHae2L8lslboqHlSakbBCgUHpuRMqAqdXhl
-         KvBZOmd6eWMscnHZXgIJBy2b5lVp2D9nSlxPBAeQrTbylxhP8onBrGmvywudQLslZp3Z
-         BD7FoucjEIn3FbPW6KFo4LLk57xjcL3bchh9yGzFqT1aUe405MCNJN9qktI81wrn2wh3
-         +eINJ+qZu18PsQ8++wp6xWyz5lQlKq7xRMjk96GIcqSKJbL/KpfJiuvLPeqPQ3uWy3fW
-         SZxxnBghKMCY7BT/qYj1LRwplBbaXVz/GqcefqHplfdArG/1AVMIUtegFa1c8rbFKAi0
-         XqFg==
-X-Forwarded-Encrypted: i=1; AL+hErHzqEysMNU+VxL0hRpM78Tdswr84sSWYj7+1U1Q4HXIrsWw1SRSZ7a6zLZ1sSbS8Es8ShGfg3B47tUOkLc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+tcajsk43KwPRYtdCZ0481T1bguTxtt501QP4h9BjiGnOdPcYH
-	w++oYJenLEFlyVT1CeMxhLYbaY4L3iM+iceu9qrGmrmqPYOSzDGvexnwVmSoDu8qXtmOV+WlTBs
-	23rvQu6PUfw==
-X-Received: from dyaz16-n1.prod.google.com ([2002:a05:693c:6390:10b0:359:72f9:2aab])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:701b:4308:b0:1b5:1a6e:1bec
- with SMTP id a92af1059eb24-1b5568779e3mr15810887c88.10.1795559486229; Tue, 24
- Nov 2026 14:31:26 -0800 (PST)
-Date: Tue, 24 Nov 2026 14:31:04 -0800
+        bh=QCYdaX+gGCR9rqh1M6R/ZEIGIvsxPuaht+HN7q0IQhc=;
+        b=1B+HfAzkof6DvGhZJZUB5lSILqNbETavXPrua21iSHV5hA6tfRXizI2FlqScR8BItc
+         EA2qU21P9qNAY7leLTU98aUUlgU7hZHDVT8QVUMIfFXfAqUs5pZgzPvcZwl4wewqlCCd
+         L80BeT3gk8ccFwBzniCwLHb9c3UN26Y1EPQWa1m2vi5Vt7QOdgK6bsFLvJKW8aHPB/Ct
+         3KlugfTx3DmTRJWhHLni01IOhKxwRcGUTGQNeTAYnprGmGmIs+03xqXSvdUwsgi8BOY+
+         +mp07h+NwxzdUf6hOcRY0B3UpLPeuG+CWdBatxTsy0C0o/HzVB8Tjl9el2u70uPT3JNd
+         9EAQ==
+X-Forwarded-Encrypted: i=1; AL+hErETMwX4VxR4qyCPe9CuKB6bad3UGrpb6LiSvSuZjkS1UVOpL8NBg1Olm9kMjboa4NxqTDq3L3Y4Z9wNXE8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/CZNsjtm7hUivWlBMCXKufBljELVEYKD5PzwsRQ1QgF4Fm0+sm
+	5EgnWxRZoU46W8iI/aMhBHj5hO1F0K/AziYJuQsxJ02MfE3dlsgTGKJm+MH+0q1xC2DZrr47lIL
+	kyVxKqhMJgg==
+X-Received: from dyvo9-n1.prod.google.com ([2002:a05:693c:41c9:10b0:36a:16ac:9308])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:693c:8083:b0:376:6530:248f
+ with SMTP id 5a478bee46e88-38570a3717dmr19047233eec.24.1795559488396; Tue, 24
+ Nov 2026 14:31:28 -0800 (PST)
+Date: Tue, 24 Nov 2026 14:31:05 -0800
 In-Reply-To: <20261124223109.820609-1-irogers@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -81,8 +81,8 @@ Precedence: list
 Mime-Version: 1.0
 References: <20261124223109.820609-1-irogers@google.com>
 X-Mailer: git-send-email 2.56.1.831.g720f3f5937-goog
-Message-ID: <20261124223109.820609-8-irogers@google.com>
-Subject: [PATCH v10 07/12] perf symbol: Add symbols__shrink() and symbols__try_delete_unannotated()
+Message-ID: <20261124223109.820609-9-irogers@google.com>
+Subject: [PATCH v10 08/12] perf dso: Add dso__shrink() and dso__try_evict()
 From: Ian Rogers <irogers@google.com>
 To: Namhyung Kim <namhyung@kernel.org>, Arnaldo Carvalho de Melo <acme@kernel.org>, 
 	Alireza Haghdoost <haghdoost@uber.com>, Ian Rogers <irogers@google.com>
@@ -91,107 +91,291 @@ Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, Jiri 
 	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 
-Add symbol-container memory shrinking helpers to struct symbols:
-- symbols__shrink(): Reclaims the secondary name-sorted index
-  (symbols_by_name, rebuilt on demand by dso__sort_by_name()) and trims
-  unused over-allocated tail capacity in symbols->symbols while keeping
-  all live struct symbol entries intact.
-- symbols__try_delete_unannotated(): Deletes all symbols under
-  symbols->lock when none have entries in the annotations hashmap, running
-  an optional pre_delete callback before freeing the symbols.
+Add per-DSO memory shrinking and unreferenced DSO eviction helpers:
+- dso__shrink(): Without blocking on contended locks, closes cached DSO
+  data file descriptors, frees cached 4KB data pages, addr2line handles,
+  and libdw DWARF contexts. When a reloadable user DSO in a dsos
+  collection has no external references (refcnt == 1) and no annotated
+  symbols or inlines, evicts its symbol table via
+  symbols__try_delete_unannotated() and marks dso->loaded false so it
+  reloads on demand; otherwise calls symbols__shrink().
+- dso__try_evict(): Evicts an unreferenced user DSO (refcnt == 1, no
+  symbols, not kernel/vDSO/hit/header_build_id, and not on
+  dso__data_open) without blocking on locks.
 
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- tools/perf/util/symbol.c | 61 ++++++++++++++++++++++++++++++++++++++++
- tools/perf/util/symbol.h |  3 ++
- 2 files changed, 64 insertions(+)
+ tools/perf/util/dso.c | 215 +++++++++++++++++++++++++++++++++++++++++-
+ tools/perf/util/dso.h |   9 ++
+ 2 files changed, 222 insertions(+), 2 deletions(-)
 
-diff --git a/tools/perf/util/symbol.c b/tools/perf/util/symbol.c
-index 4e80ff176914..f2043872848c 100644
---- a/tools/perf/util/symbol.c
-+++ b/tools/perf/util/symbol.c
-@@ -253,6 +253,67 @@ void symbols__exit(struct symbols *symbols)
- 	exit_rwsem(&symbols->lock);
+diff --git a/tools/perf/util/dso.c b/tools/perf/util/dso.c
+index 83611d7ccaff..b6217c49dd14 100644
+--- a/tools/perf/util/dso.c
++++ b/tools/perf/util/dso.c
+@@ -17,6 +17,7 @@
+ #include <sys/types.h>
+ #include <unistd.h>
+ 
++#include "annotate.h"
+ #include "annotate-data.h"
+ #include "auxtrace.h"
+ #include "compress.h"
+@@ -1874,7 +1875,7 @@ struct dso *dso__new(const char *name)
+ 	return dso__new_id(name, NULL);
  }
  
-+bool symbols__try_delete_unannotated(struct symbols *symbols,
-+				     void (*pre_delete)(void *ctx), void *ctx)
+-void dso__delete(struct dso *dso)
++static void __dso__delete(struct dso *dso, bool close_data)
+ {
+ 	if (dso__dsos(dso))
+ 		pr_err("DSO %s is still in rbtree when being deleted!\n", dso__long_name(dso));
+@@ -1896,7 +1897,8 @@ void dso__delete(struct dso *dso)
+ 		RC_CHK_ACCESS(dso)->long_name_allocated = false;
+ 	}
+ 
+-	dso__data_close(dso);
++	if (close_data)
++		dso__data_close(dso);
+ 	auxtrace_cache__free(RC_CHK_ACCESS(dso)->auxtrace_cache);
+ 	dso_cache__free(dso);
+ 	dso__free_a2l(dso);
+@@ -1908,6 +1910,215 @@ void dso__delete(struct dso *dso)
+ 	RC_CHK_FREE(dso);
+ }
+ 
++void dso__delete(struct dso *dso)
 +{
-+	down_write(&symbols->lock);
-+	for (unsigned int i = 0; i < symbols->cnt; i++) {
-+		if (symbol__annotated(symbols->symbols[i])) {
-+			up_write(&symbols->lock);
-+			return false;
-+		}
++	__dso__delete(dso, /*close_data=*/true);
++}
++
++bool dso__can_shrink_symbols(const struct dso *dso)
++{
++	const char *name;
++
++	if (!dso || !dso__loaded(dso))
++		return false;
++
++	if (dso__kernel(dso) || dso__is_kmod(dso))
++		return false;
++
++	if (dso__is_vdso(dso))
++		return false;
++
++	switch (dso__binary_type(dso)) {
++	case DSO_BINARY_TYPE__KALLSYMS:
++	case DSO_BINARY_TYPE__GUEST_KALLSYMS:
++	case DSO_BINARY_TYPE__VMLINUX:
++	case DSO_BINARY_TYPE__GUEST_VMLINUX:
++	case DSO_BINARY_TYPE__KCORE:
++	case DSO_BINARY_TYPE__GUEST_KCORE:
++	case DSO_BINARY_TYPE__BPF_PROG_INFO:
++	case DSO_BINARY_TYPE__BPF_IMAGE:
++	case DSO_BINARY_TYPE__OOL:
++	case DSO_BINARY_TYPE__JAVA_JIT:
++	case DSO_BINARY_TYPE__GUEST_KMODULE:
++	case DSO_BINARY_TYPE__GUEST_KMODULE_COMP:
++	case DSO_BINARY_TYPE__SYSTEM_PATH_KMODULE:
++	case DSO_BINARY_TYPE__SYSTEM_PATH_KMODULE_COMP:
++		return false;
++	case DSO_BINARY_TYPE__DEBUGLINK:
++	case DSO_BINARY_TYPE__BUILD_ID_CACHE:
++	case DSO_BINARY_TYPE__BUILD_ID_CACHE_DEBUGINFO:
++	case DSO_BINARY_TYPE__FEDORA_DEBUGINFO:
++	case DSO_BINARY_TYPE__UBUNTU_DEBUGINFO:
++	case DSO_BINARY_TYPE__MIXEDUP_UBUNTU_DEBUGINFO:
++	case DSO_BINARY_TYPE__BUILDID_DEBUGINFO:
++	case DSO_BINARY_TYPE__GNU_DEBUGDATA:
++	case DSO_BINARY_TYPE__SYSTEM_PATH_DSO:
++	case DSO_BINARY_TYPE__OPENEMBEDDED_DEBUGINFO:
++	case DSO_BINARY_TYPE__NOT_FOUND:
++	default:
++		break;
 +	}
 +
-+	if (pre_delete)
-+		pre_delete(ctx);
++	switch (dso__symtab_type(dso)) {
++	case DSO_BINARY_TYPE__KALLSYMS:
++	case DSO_BINARY_TYPE__GUEST_KALLSYMS:
++	case DSO_BINARY_TYPE__VMLINUX:
++	case DSO_BINARY_TYPE__GUEST_VMLINUX:
++	case DSO_BINARY_TYPE__KCORE:
++	case DSO_BINARY_TYPE__GUEST_KCORE:
++	case DSO_BINARY_TYPE__BPF_PROG_INFO:
++	case DSO_BINARY_TYPE__BPF_IMAGE:
++	case DSO_BINARY_TYPE__OOL:
++	case DSO_BINARY_TYPE__JAVA_JIT:
++	case DSO_BINARY_TYPE__GUEST_KMODULE:
++	case DSO_BINARY_TYPE__GUEST_KMODULE_COMP:
++	case DSO_BINARY_TYPE__SYSTEM_PATH_KMODULE:
++	case DSO_BINARY_TYPE__SYSTEM_PATH_KMODULE_COMP:
++	case DSO_BINARY_TYPE__NOT_FOUND:
++		return false;
++	case DSO_BINARY_TYPE__DEBUGLINK:
++	case DSO_BINARY_TYPE__BUILD_ID_CACHE:
++	case DSO_BINARY_TYPE__BUILD_ID_CACHE_DEBUGINFO:
++	case DSO_BINARY_TYPE__FEDORA_DEBUGINFO:
++	case DSO_BINARY_TYPE__UBUNTU_DEBUGINFO:
++	case DSO_BINARY_TYPE__MIXEDUP_UBUNTU_DEBUGINFO:
++	case DSO_BINARY_TYPE__BUILDID_DEBUGINFO:
++	case DSO_BINARY_TYPE__GNU_DEBUGDATA:
++	case DSO_BINARY_TYPE__SYSTEM_PATH_DSO:
++	case DSO_BINARY_TYPE__OPENEMBEDDED_DEBUGINFO:
++	default:
++		break;
++	}
 +
-+	symbols__delete_locked(symbols);
-+	up_write(&symbols->lock);
++	name = dso__long_name(dso);
++	if (!name || name[0] == '[' || is_perf_pid_map_name(name) ||
++	    strstr(name, " (deleted)") != NULL)
++		return false;
++
 +	return true;
 +}
 +
-+/*
-+ * Reclaim auxiliary memory from @symbols without freeing live symbol
-+ * entries (whose lifetimes are owned by the containing struct dso):
-+ * - Free the secondary name-sorted index (@symbols_by_name), which is
-+ *   rebuilt on demand by dso__sort_by_name().
-+ * - Trim unused over-allocated tail capacity in @symbols->symbols.
-+ *
-+ * Returns the number of buffers reclaimed/shrunk.
-+ */
-+size_t symbols__shrink(struct symbols *symbols)
++static bool dso__has_annotated_inlines(struct dso *dso)
++{
++	struct rb_root_cached *tree = dso__inlined_nodes(dso);
++	struct rb_node *nd;
++
++	for (nd = rb_first_cached(tree); nd; nd = rb_next(nd)) {
++		struct inline_node *node = rb_entry(nd, struct inline_node, rb_node);
++		struct inline_list *ilist;
++
++		list_for_each_entry(ilist, &node->val, list) {
++			if (ilist->symbol && symbol__annotated(ilist->symbol))
++				return true;
++		}
++	}
++	return false;
++}
++
++static void dso__delete_inlines_and_srclines(void *ctx)
++{
++	struct dso *dso = ctx;
++
++	/* Free inlines before symbols, as inline frames reference symbols. */
++	inlines__tree_delete(dso__inlined_nodes(dso));
++	srcline__tree_delete(dso__srclines(dso));
++}
++
++size_t dso__shrink(struct dso *dso)
 +{
 +	size_t freed = 0;
 +
-+	down_write(&symbols->lock);
++	if (!dso)
++		return 0;
 +
-+	if (symbols->symbols_by_name) {
-+		zfree(&symbols->symbols_by_name);
++	if (mutex_trylock(&dso__data_open_lock)) {
++		if (dso__data(dso)->fd >= 0) {
++			close_dso(dso);
++			freed++;
++		}
++		mutex_unlock(&dso__data_open_lock);
++	}
++
++	if (!mutex_trylock(dso__lock(dso)))
++		return freed;
++
++	if (!dso__kernel(dso) && dso__binary_type(dso) != DSO_BINARY_TYPE__OOL &&
++	    !RB_EMPTY_ROOT(&dso__data(dso)->cache)) {
++		__dso_cache__free(dso);
 +		freed++;
 +	}
++	if (dso__a2l(dso)) {
++		dso__free_a2l(dso);
++		freed++;
++	}
++#ifdef HAVE_LIBBFD_SUPPORT
++	if (dso__a2l_libbfd(dso)) {
++		dso__free_a2l_libbfd(dso);
++		freed++;
++	}
++#endif
++#ifdef HAVE_LIBDW_SUPPORT
++	if (dso__libdw(dso)) {
++		dso__free_libdw(dso);
++		freed++;
++	}
++#endif
 +
-+	if (symbols->cnt == 0) {
-+		if (symbols->allocated > 0) {
-+			zfree(&symbols->symbols);
-+			symbols->sorted_cnt = 0;
-+			symbols->sorted_tail_cnt = 0;
-+			symbols->allocated = 0;
-+			freed++;
-+		}
-+	} else if (symbols->cnt < symbols->allocated) {
-+		struct symbol **shrunk = realloc(symbols->symbols,
-+						 symbols->cnt * sizeof(struct symbol *));
-+		if (shrunk) {
-+			symbols->symbols = shrunk;
-+			symbols->allocated = symbols->cnt;
-+			freed++;
-+		}
++	if (dso__dsos(dso) && refcount_read(dso__refcnt(dso)) == 1 &&
++	    dso__can_shrink_symbols(dso) && dso__has_symbols(dso) &&
++	    !dso__has_annotated_inlines(dso) &&
++	    symbols__try_delete_unannotated(dso__symbols(dso),
++					    dso__delete_inlines_and_srclines, dso)) {
++		atomic_store_explicit(&RC_CHK_ACCESS(dso)->loaded, false,
++				      memory_order_release);
++		freed++;
++	} else {
++		freed += symbols__shrink(dso__symbols(dso));
 +	}
 +
-+	up_write(&symbols->lock);
++	mutex_unlock(dso__lock(dso));
 +	return freed;
 +}
 +
- /*
-  * Order symbols by start address only, preserving insertion order among
-  * symbols sharing the same start address (matching the previous rbtree
-diff --git a/tools/perf/util/symbol.h b/tools/perf/util/symbol.h
-index 1aa54c1f1680..dd9be561618d 100644
---- a/tools/perf/util/symbol.h
-+++ b/tools/perf/util/symbol.h
-@@ -153,6 +153,9 @@ void symbol__delete(struct symbol *sym);
- void symbols__init(struct symbols *symbols);
- void symbols__exit(struct symbols *symbols);
- void symbols__delete(struct symbols *symbols);
-+bool symbols__try_delete_unannotated(struct symbols *symbols,
-+				     void (*pre_delete)(void *ctx), void *ctx);
-+size_t symbols__shrink(struct symbols *symbols);
- void symbols__sort_read_lock(struct symbols *symbols) __acquires_shared(&symbols->lock);
++/*
++ * Try to evict an unreferenced @dso from its owning struct dsos (whose write
++ * lock must be held by the caller) without blocking on any lock.
++ */
++bool dso__try_evict(struct dso *dso)
++{
++	bool can_evict = false;
++
++	if (!dso ||
++	    dso__has_symbols(dso) ||
++	    dso__header_build_id(dso) ||
++	    dso__hit(dso) ||
++	    dso__kernel(dso) ||
++	    dso__is_vdso(dso) ||
++	    refcount_read(dso__refcnt(dso)) != 1)
++		return false;
++
++	if (!mutex_trylock(&dso__data_open_lock))
++		return false;
++
++	if (dso__data(dso)->fd < 0 &&
++	    list_empty(&dso__data(dso)->open_entry) &&
++	    refcount_read(dso__refcnt(dso)) == 1 &&
++	    mutex_trylock(dso__lock(dso))) {
++		can_evict = !dso__has_symbols(dso) && !dso__has_annotated_inlines(dso);
++		mutex_unlock(dso__lock(dso));
++	}
++	mutex_unlock(&dso__data_open_lock);
++	if (!can_evict)
++		return false;
++
++	dso__set_dsos(dso, NULL);
++	if (refcount_dec_and_test(&RC_CHK_ACCESS(dso)->refcnt))
++		__dso__delete(dso, /*close_data=*/false);
++	else
++		RC_CHK_PUT(dso);
++	return true;
++}
++
+ struct dso *dso__get(struct dso *dso)
+ {
+ 	struct dso *result;
+diff --git a/tools/perf/util/dso.h b/tools/perf/util/dso.h
+index 70a121fd7ecd..b0ee45a53f40 100644
+--- a/tools/perf/util/dso.h
++++ b/tools/perf/util/dso.h
+@@ -789,6 +789,15 @@ static inline bool dso__has_symbols(const struct dso *dso)
+ 	return res;
+ }
  
- static inline u8 symbol__type(const struct symbol *sym)
++static inline refcount_t *dso__refcnt(struct dso *dso)
++{
++	return &RC_CHK_ACCESS(dso)->refcnt;
++}
++
++bool dso__can_shrink_symbols(const struct dso *dso);
++bool dso__try_evict(struct dso *dso);
++size_t dso__shrink(struct dso *dso);
++
+ char *dso__filename_with_chroot(const struct dso *dso, const char *filename);
+ 
+ bool dso__sorted_by_name(const struct dso *dso);
 -- 
 2.56.1.831.g720f3f5937-goog
 
