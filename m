@@ -1,75 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795542265;
-	b=lgKfaY7Mc/Gk83DdoPvRj/zcJZaPoquJGjBeg3xiH2PXsLtT+Pp75NCKNlnDnXa98sBq
-	 COClI75YVfZU8qDYdK+P+DZQEuoufMFhANVgwAaq0sYT8qKgu5vDfUaUdM7YjlVhK13mC
-	 9tje7FhD1pN/sup+HwcvpWft7wtXKK9+EynJhWPbQBN0H6rS2Tl1jY7Q5W1sKuuQ9ozLb
-	 N9s22LhUj4g1TjOaRVs86RSImteJ0o1ZbCrwgkz/CD8Nlps+ZvHykpQbibIlIRaBxVUtX
-	 bQwG1kF2GaSVReRNBkSTclr+Exyucr3qguCg5cqPQnutcWxxFgguyey+YCo3+/zwK3w==
+	t=1795542291;
+	b=C5k5a1H8iRJeJ2lmg2nBMWrTi6PFnk6dqGqbsHj/fxJJXCWhFjbFINh3PBd+vcsnf37N
+	 1Efb3LVGvTzIooTtV7fc0jBY6KAKnW1loGjqXeqxHb4c6soAexAHlsBqHnX8aMWVByAXs
+	 J/oZbcHxgjDVrzpaT5HYvo0rigygZWTO9hNZbRnNQftEO9MmxV+k9jleGcuklXbYcN7v3
+	 wGGN9U8Dwh30GI3ojxemiUUK1R+aF8Oo5nfQ/APvsY6TkbmKSdgwqkokoDLz37YSowSRw
+	 jrAs0txWUPWuN5fbzs8bHS5mOUZlkHayiqxB8I+d8jfVh+pZjHRGpLWKfofBbgNPqJA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795542265;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=1yEuTAuD9qF7B4gfMwaFCShGKrw0bpyd/m1S3g6b6xQ=;
-	b=l6WYYxcE49sDCtMaawIzOMvvbqWhKR1MYP4oXkCBGyxtLDaxHSpbwAWOw6JTmBkCAFXS
-	 FtVjDZqxtXi/SjYPe9yq43VeVrri5a0HnNJwetDeQemzT6FN2R4uVx5O1zA5rvaG9tW5y
-	 TVRLhTBEtLoJhWA7iXuwWU3MKnrf0BRzxm4Dov9IAweCc8rZwU0Dt8iNM6uaYcP5CX7jT
-	 DhJp4Grr5yQHrtXK00yeonqF1XMBVtiz9tefVZhcXN8SBfkyvvShoT1mwRpn1q83q//bQ
-	 iD/mHID8Ql9Ml832khFcmZqOPkJMUScrwTBOA6tI+6a5v5YjtL0BaNmafvDVpDtC0xQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795542291;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=q+3U1Q2zApI9ESCrs1/K1eJ+2sqiL/C+z/Ifq/99hF8=;
+	b=cY2Pl/bXGIHJJzKnfhKP0xi61W54dJnGpj1OgcJXQVimnsIfI/QegzDSDxLMnkYAJ8TU
+	 gRwMcO7+iPb5xuSyyNQp8WEWCJ8kNeGEYUsUHTaHzj/W2l28pq20sJreZbuLyXaNlrdBr
+	 of6DUy2o9ZYcZfVzEen+NMF9hQNBa+wZKJEx3k17OAtexwOVD6j2ytpR37du8reRjTNyn
+	 43Tp0ajmISMR5TbFGWBFmDF5dRM0MCMeTmi4R587TxofCmnjuCp2dNF9/O547L3jzREEm
+	 1K4faUpWdanitarEisHxTFTtJZc9eKN9RhA4tvrfs4AXTkKOcKebk+1yQJQkANN2IKw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lunn.ch;
-	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=E3Xk13R5;
-	arc=none smtp.remote-ip=156.67.10.101
-Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XxEgckDD;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 57F9E606A31E;
-	Tue, 24 Nov 2026 17:44:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 57F9E606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 09650606A323;
+	Tue, 24 Nov 2026 17:44:50 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=E3Xk13R5
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=1yEuTAuD9qF7B4gfMwaFCShGKrw0bpyd/m1S3g6b6xQ=; b=E3Xk13R5AsgssUSrEF+rQGaRp1
-	weGo5SgBnasTLKPGoLd1sL2QkiSCkfcjqyUYkD8IW7Tl2gaZmKuMQf7w171YbiKR2EaNRTHP/Z+3j
-	SvbTgoJq53v8856Uj6dnYLxPlVGozp6fwac6x76Sae28kt8GdLhle5Hh5ZwaUM8PdLmU=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xVuZ3-0017RL-2s; Tue, 24 Nov 2026 18:44:21 +0100
-Date: Tue, 24 Nov 2026 18:44:21 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
-Cc: Gopikishan Thawre <gopikishan.thawre@oss.qualcomm.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Abel Vesa <abelvesa@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Richard Cochran <richardcochran@gmail.com>,
-	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
-	Vishnu Saini <vishnu.saini@oss.qualcomm.com>,
-	Khalid Faisal Ansari <khalid.ansari@oss.qualcomm.com>,
-	Ajinkya Inchure <ainchure@qti.qualcomm.com>,
-	Anuj Tripathi <anuj.tripathi@oss.qualcomm.com>,
-	Sushrut Shree Trivedi <sushrut.trivedi@oss.qualcomm.com>,
-	Wei Deng <wei.deng@oss.qualcomm.com>,
-	Karthik S <karthik.s@oss.qualcomm.com>
-Subject: Re: [PATCH v4 3/3] arm64: dts: qcom: lemans: Add LeMans Draco EVK
- board
-Message-ID: <fef9f0c1-10d7-4718-9c45-74132ecdd1fe@lunn.ch>
-References: <20261123-lemans-draco-final-changes-bringup-v4-0-dbfc15cd0883@oss.qualcomm.com>
- <20261123-lemans-draco-final-changes-bringup-v4-3-dbfc15cd0883@oss.qualcomm.com>
- <609ea06d-10c5-4727-a9db-8d42e526befb@lunn.ch>
- <awW1G1Aou/65UZ89@oss.qualcomm.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XxEgckDD
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 4C5BA1F000CF;
+	Tue, 24 Nov 2026 17:44:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795542290;
+	bh=q+3U1Q2zApI9ESCrs1/K1eJ+2sqiL/C+z/Ifq/99hF8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=XxEgckDDMzG/SsUByh3vamNZSRHh2t572MW4EG3Sgb46pQYFk9qzuJrcvoloBSQ83
+	 36zWRaZr2aNdT2tCNiraIwbTVarDWkuFszNZ5MjCmZadTztv4YCvkcl5AtGSFtHOwG
+	 204FOaYxAbOJqs6tb1OiVD9Wab48dhVanOrtWyOrSkFsvx0Ylvt7QP+OXGVEOsjSD3
+	 W6U3CblmaV88Fj6qLSGCDV/TeTBM3dm60u3In+ZUFN0AeahzQZsdVqpcYDHJbAOuYt
+	 FpF3jTtHhb53OCnqf2NxDVIc+DixvKOLWygP0sl0HCCzCjTmd7uUXHlRdoGbPeqIdO
+	 1sG7HfZ0YrJsg==
+Date: Tue, 24 Nov 2026 19:44:47 +0200
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: keyrings@vger.kernel.org
+Cc: stable@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-security-module@vger.kernel.org,
+	David Howells <dhowells@redhat.com>,
+	James Morris <jmorris@namei.org>, Paul Moore <paul@paul-moore.com>,
+	"Serge E. Hallyn" <serge@hallyn.com>,
+	Guicai Ma <maguicai@kylinos.cn>
+Subject: Re: [PATCH] KEYS: Prevent key type removal during
+ key_instantiate_and_link()
+Message-ID: <awXNDy90GGDeFPp8@kernel.org>
+References: <20261124174035.1614480-1-jarkko@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -81,24 +63,34 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <awW1G1Aou/65UZ89@oss.qualcomm.com>
+In-Reply-To: <20261124174035.1614480-1-jarkko@kernel.org>
 
-On Tue, Nov 24, 2026 at 09:32:35PM +0530, Mohd Ayaan Anwar wrote:
-> On Mon, Nov 23, 2026 at 09:29:49PM +0100, Andrew Lunn wrote:
-> > > +&ethernet0 {
-> > > +	phy-handle = <&hsgmii_phy0>;
-> > > +	phy-mode = "2500base-x";
-> > 
-> > > +		hsgmii_phy0: ethernet-phy@1c {
-> > 
-> > Same here. Broken 2500BaseX? Or properly functioning 2500baseX?
-> > 
+On Tue, Nov 24, 2026 at 07:40:35PM +0200, Jarkko Sakkinen wrote:
+> key_instantiate_and_link() accesses key->type outside key->sem, which can
+> lead into null deref due that key types can be dropped at any possible
+> time.
 > 
-> Based on my previous experience with Lemans based boards, I think its
-> the former: overclocked SGMII / broken 2500base-x.
+> Address this by moving key_construction_mutex inside key->sem, and match
+> that order in key_reject_and_link())
+> 
+> Cc: stable@vger.kernel.org
+> Cc: keyrings@vger.kernel.org
+> Cc: linux-kernel@vger.kernel.org
+> Cc: linux-security-module@vger.kernel.org
+> Cc: David Howells <dhowells@redhat.com>
+> Cc: James Morris <jmorris@namei.org>
+> Cc: Jarkko Sakkinen <jarkko@kernel.org>
+> Cc: Paul Moore <paul@paul-moore.com>
+> Cc: "Serge E. Hallyn" <serge@hallyn.com>
+> Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
+> Reported-by: Guicai Ma <maguicai@kylinos.cn>
+> Closes: https://lore.kernel.org/r/20261124091243.1019217-1-maguicai@kylinos.cn
+> Signed-off-by: Jarkko Sakkinen <jarkko@kernel.org>
 
-I don't even think you need the prefix. There is only one PHY. The
-prefix would be useful if there were many PHYs using different link
-modes, RGMII, SGMII and a 2500BaseX.
+Can be better addressed later with this:
+https://lore.kernel.org/keyrings/20261112040242.247168-1-jarkko@kernel.org/
 
-	Andrew
+In erases all key type drop type of issue. Thus, totally acceptable
+bug fix.
+
+Br, Jarkko
