@@ -1,52 +1,51 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.167.242.64
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795514920;
-	b=baxnTnqbgRwTaJ+ahbYx5k2DTUF+0ZRDICvxJNyvOSd9CtC+d2VMR+lnXt84dM9aC/Tm
-	 awhgvqZ6l2gP9OGTL4/1Wvfe3AMCRv26bJOuGIogPmZorzQuvpDM4aDUN26Z4vD7xqDLm
-	 wGSy17LugmisD2Dtl0beljAuXNukG2IkFg2JaQyBlAeZ7i4JD2CCKwHGfM7aya2IJpzya
-	 p6/MUjZ+K9oD/SLLKB6ciJ2pDUSb7rmf0BCVRtjWGZVR7GFxfgOjeRHuYWXd7B9XzBqQw
-	 fq9FOdLxszO00UJoaQmgs4VQcgPjp7Vj0wMMu61HP4Rho/FbJGI1IjJ8Fqi4O8XKxVA==
+	t=1795514921;
+	b=jpSHYBG/rTzevejIEmcrlAv5Cgj71+hqmhM9gusQuRgG2/AOugCIPcdQavxicRdHHkKS
+	 kTDg58HwAvv59CHrQsGdW5wd4DpMGwKIABiRiPEcmArpnLs226sNUvO1DAEwyunie6S85
+	 eJpR40VG6aoGCLaBl/bjDQYa4RII1ofl6ZSpCqi7YCbWenQa6p54ldPu/CWreqY7NXwpq
+	 ecsmsbrgZHWHxSn8WfOetH3rVwEkrl3aOI2moZUTbah8/HouHfQ42mlyPFbEFzKrPi0rl
+	 DEnEyVGjx672ellQHkTRyPomkc879ybiGzSqofVLNdG87awMtBz9GhNaWrBx+Q6E0Jw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795514920;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795514921;
 	h=DMARC-Filter:Received:DKIM-Signature:From:Date:Subject:MIME-Version:
 	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
 	 In-Reply-To:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=mN6eejifKpzjqwhKjRr7PX8rB3PHI8F7ntoUHmZRDZs=;
-	b=dGLk1mwrGSgrAt4eRpE1FtmnTciI7+t5azRkxO0/EJOJo5YCMQ+3Nn7YNMU5WYzMRIOU
-	 HjE+5Bamko3Qy1ddB+2R6tR2hxDQu9hOogwWmPkEYu4Fj7DA4G03fVwaUmxohsv+NbV5i
-	 1e2notlspVPlozeCvnoFXv7xCJvV+XvU1sP5MxgdbOrntVhMaOiScFRBG04VED1m75jVG
-	 E2sX6/c9XXlOLzXlQ8vGgi//SHqSXaSdFicG5xEKelpPfQx4SeGzLul76iAEiEX1kLUGJ
-	 8xAju4Vl+Zz+x43plBOA9BJq9q4dWd34kpujTLJJJblEuJ/lIcGECYv3zQObEFhRy/g==
+	bh=WuN3IYs95V6E7N+OgEdRUiNg/TyW0PIvA5U13f7coJo=;
+	b=RTg8xS62KF2C7HPCVkoH0v9wLx/EI54JycycvHTNEkBEMW2bN76nl949KKLF4lnW5EHE
+	 9lGV0UC7B9mJVpbi1Mq7Hoai/M8PM1dGZnrIx/Ql6edETQiDMC3z6Qm8d/u/BuigGUx22
+	 yPaZvUQ4bOGyVHJo4fMLLghCBdkC/ioacjCvA2e01OEfXIP4CTeuHvJjlbRfYdRNbkbP+
+	 R+NCr+PMEEX+Nnu7xzAEW5ZBumBPjx6Fvksvl0YXth1twkOP06ydsgUkzgHSrYYwSfx5D
+	 W0k0ynC/33EtjBdcb4yVnLJBnX9a4gPqFD2kM5lko8cCxL8zevlVUVLDLjEwTPAiqyw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=ideasonboard.com;
 	spf=pass smtp.mailfrom=ideasonboard.com;
-	dkim=pass header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=cxjL4YKb;
+	dkim=pass header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b="O/RvsIsX";
 	arc=none smtp.remote-ip=213.167.242.64
 Received: from perceval.ideasonboard.com (perceval.ideasonboard.com [213.167.242.64])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 028AC60A261C
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 10:08:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 028AC60A261C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EC077606A6BC
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 10:08:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EC077606A6BC
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ideasonboard.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ideasonboard.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=cxjL4YKb
+	dkim=pass (1024-bit key) header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=O/RvsIsX
 Received: from [127.0.1.1] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 573E22082;
-	Tue, 24 Nov 2026 11:06:02 +0100 (CET)
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 49FE11E4E;
+	Tue, 24 Nov 2026 11:06:01 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1795514763;
-	bh=CWUq5Ef6O4fjXDdCF7Z4ZeT2vzhvSq1EHxE/RYS8yjU=;
+	s=mail; t=1795514762;
+	bh=IrRc1sBnD8wRTBcVOby8eJ8KPRLFprXIspxo6s3HE4U=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=cxjL4YKbm+4dtJncrjg38BQ3KJi0Nkf3M6W8P3OaNEe8aToFp5NFNPf2/pPaJIua1
-	 YxV4IbAq4+0oqQpyEsmd1xbHIpolfApGgorrSQRvATnCjj9iUIB+2y1oI2aRZU4I8l
-	 T8w39XF6po5XtSFIDDDEJFgS7+DN8PMngGTYZaMs=
+	b=O/RvsIsX4Eo3RiK3DE9o6v4WKfnTy/iQe1Ygl2EDVvnQ9+/hFuwII0qkCGAjiinCf
+	 0P5atVhBOYAI4rPAa8Vekj1GKy/JH+TZdngpOnUFrovi1eLfmeIR8OadoUsp+0Gu/t
+	 ElU13fcY4+Xe5vYnR6W3bWwdVoqF/k0JAGUUZxZo=
 From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Date: Tue, 24 Nov 2026 12:07:58 +0200
-Subject: [PATCH v6 07/13] drm/bridge: tc358762: Update comment about the
- number of lanes
+Date: Tue, 24 Nov 2026 12:07:57 +0200
+Subject: [PATCH v6 06/13] drm/bridge: tc358762: Improve DPI enable handling
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,7 +57,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261124-tc358762-fixes-v6-7-bd38fed6460f@ideasonboard.com>
+Message-Id: <20261124-tc358762-fixes-v6-6-bd38fed6460f@ideasonboard.com>
 References: <20261124-tc358762-fixes-v6-0-bd38fed6460f@ideasonboard.com>
 In-Reply-To: <20261124-tc358762-fixes-v6-0-bd38fed6460f@ideasonboard.com>
 To: Marek Vasut <marex@denx.de>, Andrzej Hajda <andrzej.hajda@intel.com>, 
@@ -73,52 +72,73 @@ Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
  Dave Stevenson <dave.stevenson@raspberrypi.com>, 
  Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1174;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1803;
  i=tomi.valkeinen@ideasonboard.com; h=from:subject:message-id;
- bh=CWUq5Ef6O4fjXDdCF7Z4ZeT2vzhvSq1EHxE/RYS8yjU=;
- b=owEBbQKS/ZANAwAIAfo9qoy8lh71AcsmYgBrBWIY3UoKmHpQgw3Fd98/qRtiPO+lNbIa+5gqH
- HDlXQ4n2TyJAjMEAAEIAB0WIQTEOAw+ll79gQef86f6PaqMvJYe9QUCawViGAAKCRD6PaqMvJYe
- 9c4lEACWNqgtEDX1g0+jTdJ1U8GsriiNiXaxOpvVYSWicwZQlFwc8nzTOVKebMe8WGu5nLP1s53
- zmGyLTnsbtNRbaTwYi9pNqR8BTluGNxhCEgsiQV1w0+A/yuoENw6RRut4NnLbJr3YNzdIy2x+Eb
- aQQ/UAnhY5S6oy/aEXA1uTrGfnDkDmrNxueM/KmOssCePYYufvFEGBnf8kePUxY1aP7d3446GAf
- EBYbg77Q01IuWunojrQEwg+tp6uqmX1tTn7m51hQ2cQq0QvfttL/tuVdUvBsKV004RCbMAVqZ5S
- Eqe9jexN4QHrEADr52UFMpftKshM/Ii7MByNAs7zI0lPPj2rgKSVXKkhbAyVhkCTtdkEkKif7Zc
- feyB+uc+ze7dYP7t3C3AGgSag1rT3scD27A/6ahvjn+FEsnVAadBPHAUtIAKwJK0Son1BqAhSmX
- urc+q3vfZ0b1DR6eYCJUMSHWG/aOfpE/tE75ENY094H73DMA7nLVDkvQJ17MD+QtVLzMferKyvR
- 605CY7Rv8K60cyxFG2fMG0BhUi7LuwrMwDUygiou8GT821hJ5oNNJLnDUkLrZ6IGdqhr1SWlWov
- TsQRcNW4ROaIa19hOuOoNlve4VCboPJ9o/I1OwfBtXCnADaBn7nEDtEHMmxdpKhx0mpaUwuTE7s
- qPFcoz0SjOwnJNQ==
+ bh=IrRc1sBnD8wRTBcVOby8eJ8KPRLFprXIspxo6s3HE4U=;
+ b=owEBbQKS/ZANAwAIAfo9qoy8lh71AcsmYgBrBWIYXQ6LkRuv+HvVX9gFlyIYbZOXrdexHng2z
+ o/mx0abvPGJAjMEAAEIAB0WIQTEOAw+ll79gQef86f6PaqMvJYe9QUCawViGAAKCRD6PaqMvJYe
+ 9U66EACYmL7GpGxMsctlaBc93ZWCJOcDn8ZjVqlWqx5uRaUIfPAYU3HQSjdht5Hd6qqIK5o41OR
+ WbdR0AkTxLNemkaBEyn3vO/vaOltNxbfMBDLG+iUWaRlISH0mPmNyp5RDrdGEwMCfalzYQ8wEll
+ qpPWC3+xrXz13SF23+kwvROI7UjRfwsnFZOZC0aj2OKH7AEdS73LUcNhe0d4vJUqdmS6yxzw2sU
+ 8CPdg/+Byoel99UH3MbM/HbFJYDm2Cc72w+hlN3fVsXtwxEGIU+oLESMaZMJJJ7fyKZrO3NfdCB
+ k4Y+NltAvozVxl+6gonHfNUfK7T6SgMcR6UvDMqPFQKtxDLFRDsGUbUQsczVX7QsrIBhK7U3gG+
+ ljh5kqDZI+KCcxJmsa4w4uMYk5Ym4qs84tzImo3KplX7NcalQxChaRqbOcHlIALVRt4D1Aljl3F
+ SSfBczJU7DW3fGSbn/IEA764iFrc2OqykrN8hfMEtJMVkviVfr1ZSiIqQsQwVwzV4dnm2jlhWol
+ AKz+1UFeLRNg9+U4kSeoD1kzrxvKWgl5CJRVZOyaHiJ3+ebZILIxXyRB693UvaaF97X8iyYJdgT
+ hpcz7iYitUvALLkSyipgLXsxvIoKpnnjPKv8Ayjk4SHy+6+Rp7XnPovs67zc/iUXysFVOVpyxjg
+ KlpEZEbM/ZH0RVA==
 X-Developer-Key: i=tomi.valkeinen@ideasonboard.com; a=openpgp;
  fpr=C4380C3E965EFD81079FF3A7FA3DAA8CBC961EF5
 
-Update comment about the number of lanes.
+The HW reset defaults has DPIENABLE bit as set. In the current driver we
+configure and enable various things while DPIENABLE is set. This results
+in a temporary DPI output with wrong timings, which may cause artifacts
+on the panel.
 
-Reviewed-by: Andreas Kemnade <andreas@kemnade.info>
+Fix this by clearing DPIEANBLE as the first thing when we start to
+enable the display. DPIENABLE is set later with the rest of the LCDCTRL
+configuration, and at that time we have done all the other
+configurations.
+
+Also, for symmetry and possibly improving the DPI output at disable
+time, explicitly disable DPIENABLE when disabling the bridge.
+
 Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
 ---
- drivers/gpu/drm/bridge/tc358762.c | 9 ++++++++-
- 1 file changed, 8 insertions(+), 1 deletion(-)
+ drivers/gpu/drm/bridge/tc358762.c | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
 
 diff --git a/drivers/gpu/drm/bridge/tc358762.c b/drivers/gpu/drm/bridge/tc358762.c
-index 0933fc974a7c..59323f26b2d2 100644
+index 91bc79d36a74..0933fc974a7c 100644
 --- a/drivers/gpu/drm/bridge/tc358762.c
 +++ b/drivers/gpu/drm/bridge/tc358762.c
-@@ -309,7 +309,14 @@ static int tc358762_probe(struct mipi_dsi_device *dsi)
- 	ctx->dev = dev;
+@@ -134,6 +134,12 @@ static int tc358762_init(struct tc358762 *ctx)
+ {
+ 	u32 lcdctrl;
+ 
++	/*
++	 * DPIENABLE has reset default of 1. Make sure we don't output on
++	 * DPI until we have finished the coniguration.
++	 */
++	tc358762_write(ctx, LCDCTRL, 0);
++
+ 	tc358762_write(ctx, SYSCTRL,
+ 		       FIELD_PREP(SYSCTRL_DPIDATA_IO_MASK, SYSCTRL_DPIDATA_IO_4MA) |
+ 		       FIELD_PREP(SYSCTRL_DPISTB_IO_MASK, SYSCTRL_DPISTB_IO_4MA) |
+@@ -185,6 +191,13 @@ static void tc358762_post_disable(struct drm_bridge *bridge,
+ 
  	ctx->pre_enabled = false;
  
--	/* TODO: Find out how to get dual-lane mode working */
-+	/*
-+	 * When using DSI clk for pixel clock (only mode supported in the driver),
-+	 * the pclk is derived directly from the DSI byteclk via simple divider,
-+	 * which is either 2 or 3.
-+	 * The required divider can be calculated with bitspp / 8 / nlanes. Thus,
-+	 * for RGB888, only nlanes = 1 works as nlanes = 2 would require divider
-+	 * of 1.5.
-+	 */
- 	dsi->lanes = 1;
- 	dsi->format = MIPI_DSI_FMT_RGB888;
- 	dsi->mode_flags = MIPI_DSI_MODE_VIDEO | MIPI_DSI_MODE_VIDEO_SYNC_PULSE |
++	/* Turn off the DPI output */
++	tc358762_write(ctx, LCDCTRL, 0);
++
++	ret = tc358762_clear_error(ctx);
++	if (ret < 0)
++		dev_err(ctx->dev, "error disabling DPI output (%d)\n", ret);
++
+ 	if (ctx->reset_gpio)
+ 		gpiod_set_value_cansleep(ctx->reset_gpio, 0);
+ 
 
 -- 
 2.43.0
