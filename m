@@ -1,119 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.219.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.227.15.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795556159;
-	b=hYzfslWL1OZCumdXIbxIZFNJhDJR0y2ZbdjU8+m8qZJVSBRTkDkcZyO4/aTdbQitlSQR
-	 AbXDGI3TnOn9z9uzWanZKdB2v6TXeWr+32Yoe4d+j8dLtLXPt9/Us0ZoYCe1ZG40xK8Tv
-	 bB1Bt2DY6N5X54NgA0nV1uPRKekxDTScWjdePBeDV11MbZcPJL5E3wNCKZ5oAPL96M9Qi
-	 bos8XmNLuhyCbFWMD8WTijW41Y6pWGifkZcIsm5ymoHdfAXrUir1OUP5NYEwD3IjE1ETO
-	 ftgmO2qnxmaWFh3lL88mqrsiOxbXGVHN3xe+rPSpaS3hsh0Z7idvoOt2NGR0dAOn//g==
+	t=1795556256;
+	b=JR9GL6Hyas2gvJzG9UBfkezm0lv7mD+3tJX19RHCXD9IkUXgW/aB9wEXWqbN1g8ezJWJ
+	 QgrRyIAT+pW1IslDDPqSxvQ02a5WtPJF6/x174H8SJjBkNu/X3peXiRm6uEqFyBj2PFaj
+	 bjUX5+sPyb7KnPfIOy2gHBEMi2CC+hJF1jcKoOwOtrtl6K5xJzozk30AwSEwxpt8BhOq0
+	 puxhFBPsVlOtcwGTPECE/2bjtMXZ8pJPkOsY9aGj5WXdi8rvmBBNnbz6JfWCYTKJ8TI5Z
+	 N0vBdm9vxuROGQK/E3huXN24ueKL9yNcuFzvnt0iDLZvJyw2XN23U2td9OJoPRvx0qQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795556159;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Subject:From:To:Cc:Date:In-Reply-To:References:Autocrypt:
-	 Content-Type:User-Agent:MIME-Version;
-	bh=PjbL4Wa8IiosODxBRnpJBDdjeGxS7zFTOO9eh2kHpB8=;
-	b=bmdQjZOIqhjOmtaSh9Nv4k0sK8zu07qJ54gQaZ9d7r/X/0IEEKiP3o80hmDmXS9H/i3w
-	 81pRprq94YajOSr2TwTbkbEazDCiN7SBrqFAWCkKqanSPFJJF1jtiAmX3Jqczb2d9vS1S
-	 aEFIoT74x/9xIHDWylgL6ZoT+B6hvuueC9lriAY/h1Gs4f+GhLrNzwdzSbax/50gES5Vp
-	 MKz1ADGdcxRk804iCcVypI6DMZw17C8hgh4wucWWINxMDGplCusHgsiQxK+J8MYJS9GgP
-	 YqIMpdVHvfiRwQFtRbIFz1tvQOx9Yn9rTcZssPGR/hZvqOal8HxaKgrMfc1HlDalnvg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795556256;
+	h=DMARC-Filter:DKIM2-Signature:Message-Instance:DKIM-Signature:
+	 X-UI-Sender-Class:Received:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-Provags-ID:X-Spam-Flag:
+	 UI-OutboundReport;
+	bh=5L8GReJaNnujsS7a1EWrgLiqhdYOYglSeCGZ4pyKlcw=;
+	b=2W7KPHkWZ1Pieo6bUdnSsK6wbCpzoWa/NsxSW5Au7Qp9XDDPDkjOGQ93W/5oEYTVyrCY
+	 VThc1puId3/Azh3KOcPHrKHI4mLmyeCe9w4QvFfMXSbgD5uuGdtRgblJlGlqnYLgdE9Mv
+	 dipkqH2HGihvB7kEew/ei6dtrHMCBH2in9qQovyrQL5UT0qiRaKnyFKElLb1wTpnPWC64
+	 HRZHGyvEBvQy7W7dgmm9abUAZ/iPWPJza7F6Bshu+bnU+lygfve+PDPxUY5G0OrcWTTfD
+	 F9WGHQg+mEY2rlttV3bCYK6ApUs93nJiH+ozJnl2GcrvQaFxeWKlCgtMJZO5SFO2D2A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ndufresne.ca;
-	spf=pass smtp.mailfrom=ndufresne.ca;
-	dkim=pass header.d=ndufresne-ca.20260707.gappssmtp.com header.i=@ndufresne-ca.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=jKrG37Kl;
-	arc=none smtp.remote-ip=209.85.219.49
-Received: from mail-qv1-f49.google.com (mail-qv1-f49.google.com [209.85.219.49])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=gmx.de;
+	spf=pass smtp.mailfrom=gmx.de;
+	dkim=pass header.d=gmx.de header.i=deller@gmx.de header.a=rsa-sha256 header.s=s31663417 header.b=Lva4JWz0;
+	arc=none smtp.remote-ip=212.227.15.18
+Received: from mout.gmx.net (mout.gmx.net [212.227.15.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 38C78606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 21:35:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 38C78606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ndufresne.ca
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ndufresne.ca
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EE3E3606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 21:37:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EE3E3606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=gmx.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmx.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ndufresne-ca.20260707.gappssmtp.com header.i=@ndufresne-ca.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=jKrG37Kl
-Received: by mail-qv1-f49.google.com with SMTP id 6a1803df08f44-92134c4592dso45062026d6.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:35:59 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ndufresne-ca.20260707.gappssmtp.com; s=20260707; t=1795556158; x=1796160958; darn=vger.kernel.org;
-        h=mime-version:user-agent:content-type:autocrypt:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=PjbL4Wa8IiosODxBRnpJBDdjeGxS7zFTOO9eh2kHpB8=;
-        b=jKrG37KlHlMRvA9ic8N3tUnFOFKZRoduFnKTAyfuGglMlRN1E4GwFHY2Ixq9vHnrYU
-         kklMwwDPfgqT+nzvWf5aIGmbST9jdsD+nA1ov6rDWJ+p6u7f8kF6XJyQeDRNITwNiT9N
-         Ai1OX4eawPMQbb9QyfXybdbZRXk13lc4fLDDXy6A34twm1cgV5Kbs4F2gO+4LLiVMCBg
-         BAQonSA66LvrdApFuL8mWbuwsmKVkmm423g0nBjygNqplqmjwWO0/xpZn+DLpA3OhZhX
-         C29MeaHdxP6BevVvTYsSHXFfwh5AUq8r3janbGXeZvoyL74Y0/RvKLBd3ueoB48xj9Ju
-         xf8A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795556158; x=1796160958;
-        h=mime-version:user-agent:content-type:autocrypt:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=PjbL4Wa8IiosODxBRnpJBDdjeGxS7zFTOO9eh2kHpB8=;
-        b=TIEaFwCHOfHza5F7MxjqRNGlEcqx99txff1dAo48O6xuFhU+FF3mnm2x+pP+Tj6R3r
-         a2YTwv8UqIXzin0QWJcABLrwgfWJoJJqkJYdZtNiuHmyXynzGWc+jE2SISf4vqb493fb
-         fXZCyFa4hZ87x3AaMq1Jawk3KyWmJFzuFgqkhY4+dba6JCjMn/SQpDvGT0ZrZonWJVJX
-         5GmPLTAowy8ldsCG/jyr3EAC4VX6e5/Zptnu2vlHYiyRwS58qEI7IRK48/E2pdlWiLvx
-         or44SslscR83IusOHEA07298E18n+pLPpz0UK1M4vXMmdiRHCIOpDCrDO15ugE/XTxim
-         zz9Q==
-X-Forwarded-Encrypted: i=1; AL+hErFlh+CncwSS6io+VMJpq77MbkUNxJ1uA8ip9AH1NyipxVr00H3zfpmH3TI86djPxrDAKnhHyxYBSZd6yUQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/CJs6p8IvGyLgjR/BwdtH+tP7WUxKHswCl/vAwDUmQv9wmks4t
-	CwnIJ3JCCQA+LXk+2mUrVG+s8MR/mPOpk56Gwj5Rggnu+eshpMQJodp7mzPlGrZWCGo=
-X-Gm-Gg: AZFdTZdyw8yQGanP/yMpmhYdC1Pvay0cxZ1q4FQkpd5+nBhOo7n/VmtSYzMqbh+bsN8
-	Z+ShMy55v9nOlSuK+0yfRu0pGbi2eSDJLCeHOA6ogeYGr657qToTPhWyZsMmdp7d5gVTJuW/reT
-	NkM1sL4E/KFFLy9a4al9/9nq7sNUJicVd3VaZ+wPFLbFRGnhiA78lfHE3b8pG6TNcolP67a4Oxl
-	cdvw7wjq61ISnAs5Lv7amY1ZVJNAStCkML+8i0EMpqNcGeCgdjg7/JwYnLlJ9yBglsOXK8NBum1
-	yWKBzIRLWkApu2wmx9x8swiu+VVcV62FZT/1/E8bYDwEUx4CRncK7exoUtc0sJaCCU9qQ1LhFUb
-	VfA4G7MFEKg9+noAuhu08452QJTKwVGTn+k3F336yTHyFAudk73Q2fh2VX+yF703SwTxdOLuMAU
-	JsAQK5aEXqvVqgMldRvfnLB7v8NS0h4Ljr6arjRwPqZlfMSn5F4dCZPZ/ny6a/zprzrGiB4jA+z
-	pKyYocq/cMhvKn/Hq1k1MezCPfjKnlznBC/GSNj4R62SZHQF/goU1x1bxQElY/vSf/UvUYPnLFo
-	zOGK9S/6Qv2nRkgj+QHiHDzzDKzmXP/SzY3ySx5+R1AzaE8cudThIjnPxaKRG5xC/dWewxOF7e8
-	8
-X-Received: by 2002:a05:6214:5348:b0:921:2215:5ca0 with SMTP id 6a1803df08f44-92134a3a1bdmr287245606d6.14.1795556158160;
-        Tue, 24 Nov 2026 13:35:58 -0800 (PST)
-Received: from ?IPv6:2606:6d00:11:8ec9::c41? ([2606:6d00:11:8ec9::c41])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-92134a1d948sm144137676d6.40.2026.11.24.13.35.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 13:35:57 -0800 (PST)
-Message-ID: <ad0545e9caf7ea1e0f4804f7b461f0747fb9b129.camel@ndufresne.ca>
-Subject: Re: [PATCH v2 13/17] media: rockchip: rga: move core initialization
- from bind to probe
-From: Nicolas Dufresne <nicolas@ndufresne.ca>
-To: Sven =?ISO-8859-1?Q?P=FCschel?= <s.pueschel@pengutronix.de>, Jacob Chen
-	 <jacob-chen@iotwrt.com>, Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, 
- Mauro Carvalho Chehab
-	 <mchehab@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Philipp Zabel
-	 <p.zabel@pengutronix.de>
-Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	kernel@pengutronix.de, Detlev Casanova <detlev.casanova@collabora.com>, 
- Michael Tretter <m.tretter@pengutronix.de>, Guangshuo Li
- <lgs201920130244@gmail.com>
-Date: Tue, 24 Nov 2026 16:35:56 -0500
-In-Reply-To: <20260916-spu-rga3multicore-v2-13-23aa2cb74e61@pengutronix.de>
-References: <20260916-spu-rga3multicore-v2-0-23aa2cb74e61@pengutronix.de>
-	 <20260916-spu-rga3multicore-v2-13-23aa2cb74e61@pengutronix.de>
-Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-1LAzSwIaGZzBAdtbh8uL"
-User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
+	dkim=pass (2048-bit key) header.d=gmx.de header.i=deller@gmx.de header.a=rsa-sha256 header.s=s31663417 header.b=Lva4JWz0
+DKIM2-Signature:  i=1; m=1; t=1795556254;
+ mf=PGRlbGxlckBnbXguZGU+;
+ rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+ d=gmx.de;
+ s=s31663417:rsa-sha256:CGXxtkBaKJNWM2VcQELPph5W8Lik
+   5mDMmI4oYvTmNRwpaFgLwuF9qusx9XiQcuBUZy5vlsvWUkiZD/DD7Rex5hJw19X5aTaebjg2n0E
+   DY7nVRusc21jOQfggthwhrjeSfMrIYBMmbEADGo6ZzhIBpcCto9VU60jjA6pmMrY+3rUYuAvjoV
+   oqxizSMPBffm+B/k6MOG92LGUU+ql590sbSeJKpuHqSj9VzWQ2W7MvUw/WjJndxDR+S+azQQ3F8
+   sFd5TIiCVeh7D9dhhD639THQBFWCxKoTcx+SpvlHLw/IR0bphNzIKbtsN+VhaaY3byOSM5flR7H
+   0iVNsekLdQwHgg==;
+Message-Instance:  m=1;
+ h=sha256:
+   mYowByvkc9s+IKw8eL91SRXeDxAvfennaxsjfOTFoCQ=:
+   bB5bhJ3Xemob1i6GTTkra7WAMkaip8ToxUJp/9+us6E=,
+  sha512:
+   6msYqRfgRe2gOCTq0+mFKzAkzjcuZqiNb/2YW5/FJQVOLv4Ur1wYd46vAOj1JCImUGgfbyiqLbxte+iDz+qH9w==:
+   3SkFOiO7a9PC+fglTJVpGT+kOKy3qdJjLSJJnbgs/WdOvsg9h2hrYUMYs5SoF99QsLvl+N82z8GpOjeJQJ+5hw==;
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.de;
+	s=s31663417; t=1795556231; x=1796161031; i=deller@gmx.de;
+	bh=5L8GReJaNnujsS7a1EWrgLiqhdYOYglSeCGZ4pyKlcw=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=Lva4JWz00a/quKKlPqgWH7hYBOCzDLdXMW07txyvS1smhs0viIK/UVxTUXjx7llr
+	 PdeCw4FPCVXic76vWjohb75dUW+aEt17BBpG4fKs6Uc6cBgLRI3XtuJ7sMILxUbw/
+	 8ssd/A2u3CPI7xxckd7wE61c7cB+dxJPRrun1K1p1ZxEU0xUirNhn7HdSaIzger+z
+	 fqNZB9dwNjMkHF3TO3ek8XvEMZHklYQubRE5LTtiLOM9bXOCheDCLE08+G8fH2AkI
+	 mIdsRFo9SvvFv8O5oa7YRB3LkEJwnGD55BQN8OmYBlltjNg5Z/7P0NyYlKgieFfBM
+	 tRCoTRdsBOgIjRiNsA==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from client.hidden.invalid by mail.gmx.net (mrgmx004
+ [212.227.17.190]) with ESMTPSA (Nemesis) id 1MjS5A-1yFnLg3mKg-00hETq; Tue, 24
+ Nov 2026 22:37:11 +0100
+Message-ID: <27cf86d7-b333-41cb-a250-6b6a14034b86@gmx.de>
+Date: Tue, 24 Nov 2026 22:37:09 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -123,203 +81,183 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-
---=-1LAzSwIaGZzBAdtbh8uL
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/2] vt: Skip hardware scrolling while blanked
+To: Yu Peng <pengyu@kylinos.cn>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Jiri Slaby <jirislaby@kernel.org>
+Cc: Thomas Zimmermann <tzimmermann@suse.de>, Nicolas Pitre
+ <nico@fluxnic.net>, Ronan Pigott <ronan@rjp.ie>,
+ linux-serial@vger.kernel.org, linux-fbdev@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org
+References: <20261124024811.305592-1-pengyu@kylinos.cn>
+ <20261124024811.305592-2-pengyu@kylinos.cn>
+Content-Language: en-US
+From: Helge Deller <deller@gmx.de>
+Autocrypt: addr=deller@gmx.de; keydata=
+ xsFNBF3Ia3MBEAD3nmWzMgQByYAWnb9cNqspnkb2GLVKzhoH2QD4eRpyDLA/3smlClbeKkWT
+ HLnjgkbPFDmcmCz5V0Wv1mKYRClAHPCIBIJgyICqqUZo2qGmKstUx3pFAiztlXBANpRECgwJ
+ r+8w6mkccOM9GhoPU0vMaD/UVJcJQzvrxVHO8EHS36aUkjKd6cOpdVbCt3qx8cEhCmaFEO6u
+ CL+k5AZQoABbFQEBocZE1/lSYzaHkcHrjn4cQjc3CffXnUVYwlo8EYOtAHgMDC39s9a7S90L
+ 69l6G73lYBD/Br5lnDPlG6dKfGFZZpQ1h8/x+Qz366Ojfq9MuuRJg7ZQpe6foiOtqwKym/zV
+ dVvSdOOc5sHSpfwu5+BVAAyBd6hw4NddlAQUjHSRs3zJ9OfrEx2d3mIfXZ7+pMhZ7qX0Axlq
+ Lq+B5cfLpzkPAgKn11tfXFxP+hcPHIts0bnDz4EEp+HraW+oRCH2m57Y9zhcJTOJaLw4YpTY
+ GRUlF076vZ2Hz/xMEvIJddRGId7UXZgH9a32NDf+BUjWEZvFt1wFSW1r7zb7oGCwZMy2LI/G
+ aHQv/N0NeFMd28z+deyxd0k1CGefHJuJcOJDVtcE1rGQ43aDhWSpXvXKDj42vFD2We6uIo9D
+ 1VNre2+uAxFzqqf026H6cH8hin9Vnx7p3uq3Dka/Y/qmRFnKVQARAQABzRxIZWxnZSBEZWxs
+ ZXIgPGRlbGxlckBnbXguZGU+wsGRBBMBCAA7AhsDBQsJCAcCBhUKCQgLAgQWAgMBAh4BAheA
+ FiEERUSCKCzZENvvPSX4Pl89BKeiRgMFAl3J1zsCGQEACgkQPl89BKeiRgNK7xAAg6kJTPje
+ uBm9PJTUxXaoaLJFXbYdSPfXhqX/BI9Xi2VzhwC2nSmizdFbeobQBTtRIz5LPhjk95t11q0s
+ uP5htzNISPpwxiYZGKrNnXfcPlziI2bUtlz4ke34cLK6MIl1kbS0/kJBxhiXyvyTWk2JmkMi
+ REjR84lCMAoJd1OM9XGFOg94BT5aLlEKFcld9qj7B4UFpma8RbRUpUWdo0omAEgrnhaKJwV8
+ qt0ULaF/kyP5qbI8iA2PAvIjq73dA4LNKdMFPG7Rw8yITQ1Vi0DlDgDT2RLvKxEQC0o3C6O4
+ iQq7qamsThLK0JSDRdLDnq6Phv+Yahd7sDMYuk3gIdoyczRkXzncWAYq7XTWl7nZYBVXG1D8
+ gkdclsnHzEKpTQIzn/rGyZshsjL4pxVUIpw/vdfx8oNRLKj7iduf11g2kFP71e9v2PP94ik3
+ Xi9oszP+fP770J0B8QM8w745BrcQm41SsILjArK+5mMHrYhM4ZFN7aipK3UXDNs3vjN+t0zi
+ qErzlrxXtsX4J6nqjs/mF9frVkpv7OTAzj7pjFHv0Bu8pRm4AyW6Y5/H6jOup6nkJdP/AFDu
+ 5ImdlA0jhr3iLk9s9WnjBUHyMYu+HD7qR3yhX6uWxg2oB2FWVMRLXbPEt2hRGq09rVQS7DBy
+ dbZgPwou7pD8MTfQhGmDJFKm2jvOwU0EXchrcwEQAOsDQjdtPeaRt8EP2pc8tG+g9eiiX9Sh
+ rX87SLSeKF6uHpEJ3VbhafIU6A7hy7RcIJnQz0hEUdXjH774B8YD3JKnAtfAyuIU2/rOGa/v
+ UN4BY6U6TVIOv9piVQByBthGQh4YHhePSKtPzK9Pv/6rd8H3IWnJK/dXiUDQllkedrENXrZp
+ eLUjhyp94ooo9XqRl44YqlsrSUh+BzW7wqwfmu26UjmAzIZYVCPCq5IjD96QrhLf6naY6En3
+ ++tqCAWPkqKvWfRdXPOz4GK08uhcBp3jZHTVkcbo5qahVpv8Y8mzOvSIAxnIjb+cklVxjyY9
+ dVlrhfKiK5L+zA2fWUreVBqLs1SjfHm5OGuQ2qqzVcMYJGH/uisJn22VXB1c48yYyGv2HUN5
+ lC1JHQUV9734I5cczA2Gfo27nTHy3zANj4hy+s/q1adzvn7hMokU7OehwKrNXafFfwWVK3OG
+ 1dSjWtgIv5KJi1XZk5TV6JlPZSqj4D8pUwIx3KSp0cD7xTEZATRfc47Yc+cyKcXG034tNEAc
+ xZNTR1kMi9njdxc1wzM9T6pspTtA0vuD3ee94Dg+nDrH1As24uwfFLguiILPzpl0kLaPYYgB
+ wumlL2nGcB6RVRRFMiAS5uOTEk+sJ/tRiQwO3K8vmaECaNJRfJC7weH+jww1Dzo0f1TP6rUa
+ fTBRABEBAAHCwXYEGAEIACAWIQRFRIIoLNkQ2+89Jfg+Xz0Ep6JGAwUCXchrcwIbDAAKCRA+
+ Xz0Ep6JGAxtdEAC54NQMBwjUNqBNCMsh6WrwQwbg9tkJw718QHPw43gKFSxFIYzdBzD/YMPH
+ l+2fFiefvmI4uNDjlyCITGSM+T6b8cA7YAKvZhzJyJSS7pRzsIKGjhk7zADL1+PJei9p9idy
+ RbmFKo0dAL+ac0t/EZULHGPuIiavWLgwYLVoUEBwz86ZtEtVmDmEsj8ryWw75ZIarNDhV74s
+ BdM2ffUJk3+vWe25BPcJiaZkTuFt+xt2CdbvpZv3IPrEkp9GAKof2hHdFCRKMtgxBo8Kao6p
+ Ws/Vv68FusAi94ySuZT3fp1xGWWf5+1jX4ylC//w0Rj85QihTpA2MylORUNFvH0MRJx4mlFk
+ XN6G+5jIIJhG46LUucQ28+VyEDNcGL3tarnkw8ngEhAbnvMJ2RTx8vGh7PssKaGzAUmNNZiG
+ MB4mPKqvDZ02j1wp7vthQcOEg08z1+XHXb8ZZKST7yTVa5P89JymGE8CBGdQaAXnqYK3/yWf
+ FwRDcGV6nxanxZGKEkSHHOm8jHwvQWvPP73pvuPBEPtKGLzbgd7OOcGZWtq2hNC6cRtsRdDx
+ 4TAGMCz4j238m+2mdbdhRh3iBnWT5yPFfnv/2IjFAk+sdix1Mrr+LIDF++kiekeq0yUpDdc4
+ ExBy2xf6dd+tuFFBp3/VDN4U0UfG4QJ2fg19zE5Z8dS4jGIbLg==
+In-Reply-To: <20261124024811.305592-2-pengyu@kylinos.cn>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:44vrnUG7/85r7xcLvI3Bl7XE5Vcmwu82yVgUfXcyJH4jFbj2ofd
+ ggnlm1k2Jeoo7YnLFno7N8UjU8EtFp1HsW8AGfWgyXyZMyQa+q5xGHwqojT34S+nSzByg8J
+ kDkpfZeu9yHHQZbE734gdAQPSyASS2FrXEJYfayIxl8hE0T67XoI6081SU5pglhk9mHPJMg
+ LJL2cEeJ2zLEwTV7syheA==
+X-Spam-Flag: NO
+UI-OutboundReport: notjunk:1;M01:P0:bd6qMY7KNMw=;qNo+avNQ2b9ntpFVyDkDaUQ19bg
+ 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
 
-Le mercredi 16 septembre 2026 =C3=A0 17:09 +0200, Sven P=C3=BCschel a =C3=
-=A9crit=C2=A0:
-> Move the core initialization from the core binding function to the core
-> probing function. This better matches the actual sequence, where the
-> core probe initializes most things and the bind function just binds the
-> core to the actual rga struct from the master device.
+On 11/24/26 03:48, Yu Peng wrote:
+> When vgacon is blanked without palette blanking (!vga_palette_blanked),
+> vgacon_set_origin() rejects VRAM so vc->vc_origin points to the heap
+> buffer vc->vc_screenbuf. Calling hardware scroll callbacks while blanked
+> then treats vc->vc_screenbuf as VRAM and causes out-of-bounds accesses.
 >=20
-> As the probe has no rockchip_rga struct, it has to get the
-> rga_hw struct from the of match data to determine if the given core has
-> an iommu.
+> Use con_should_update() to skip hardware scrolling and scrollback while
+> blanked, allowing con_scroll() to fall back to software scrolling.
 >=20
-> Signed-off-by: Sven P=C3=BCschel <s.pueschel@pengutronix.de>
-
-I don't think sashiko report is that much relevant, but please have a look.
-
-Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-
->=20
+> Assisted-by: LLM
+> Signed-off-by: Yu Peng <pengyu@kylinos.cn>
 > ---
-> v2
-> - indirectly fixed component_add error path not using goto err_put_clk
->   by using devres version for pm (pointed out by Sashiko and Nicolas)
-> - reordered commit for a better diff
-> - Avoid NULL pointer deref when interrupt fires on an unbound core
-> ---
->  drivers/media/platform/rockchip/rga/rga.c | 97 ++++++++++++++++++-------=
-------
->  1 file changed, 55 insertions(+), 42 deletions(-)
->=20
-> diff --git a/drivers/media/platform/rockchip/rga/rga.c b/drivers/media/pl=
-atform/rockchip/rga/rga.c
-> index 37ccac5b406a4..fa34b93b1b7a5 100644
-> --- a/drivers/media/platform/rockchip/rga/rga.c
-> +++ b/drivers/media/platform/rockchip/rga/rga.c
-> @@ -72,6 +72,10 @@ static irqreturn_t rga_isr(int irq, void *prv)
->  =09struct rga_core *core =3D prv;
->  =09struct rockchip_rga *rga =3D core->rga;
-> =20
-> +=09/* ignore interrupt on an unbound core */
-> +=09if (!rga)
-> +=09=09return IRQ_HANDLED;
-> +
->  =09if (rga->hw->handle_irq(core)) {
->  =09=09struct vb2_v4l2_buffer *src, *dst;
->  =09=09struct rga_ctx *ctx =3D core->curr;
-> @@ -740,55 +744,16 @@ static int rga_parse_dt(struct rga_core *core)
-> =20
->  static int rga_core_bind(struct device *dev, struct device *master, void=
- *data)
->  {
-> -=09struct platform_device *pdev =3D to_platform_device(dev);
->  =09struct rockchip_rga *rga =3D data;
-> -=09struct rga_core *core;
-> +=09struct rga_core *core =3D dev_get_drvdata(dev);
->  =09struct video_device *vfd;
->  =09int ret =3D 0;
-> -=09int irq;
-> -
-> -=09if (!pdev->dev.of_node)
-> -=09=09return -ENODEV;
-> -
-> -=09core =3D devm_kzalloc(&pdev->dev, sizeof(*core), GFP_KERNEL);
-> -=09if (!core)
-> -=09=09return -ENOMEM;
-> =20
->  =09core->rga =3D rga;
-> -=09core->dev =3D &pdev->dev;
-> =20
->  =09rga->cores[0] =3D core;
-> =20
-> -=09ret =3D rga_parse_dt(core);
-> -=09if (ret)
-> -=09=09return dev_err_probe(&pdev->dev, ret, "Unable to parse OF data\n")=
-;
-> -
-> -=09ret =3D devm_pm_runtime_enable(core->dev);
-> -=09if (ret)
-> -=09=09return ret;
-> -
-> -=09pm_runtime_set_autosuspend_delay(core->dev, 50);
-> -=09pm_runtime_use_autosuspend(core->dev);
-> -
-> -=09core->regs =3D devm_platform_ioremap_resource(pdev, 0);
-> -=09if (IS_ERR(core->regs))
-> -=09=09return PTR_ERR(core->regs);
-> -
-> -=09irq =3D platform_get_irq(pdev, 0);
-> -=09if (irq < 0)
-> -=09=09return irq;
-> -
-> -=09ret =3D devm_request_irq(core->dev, irq, rga_isr,
-> -=09=09=09       rga_has_internal_iommu(rga) ? 0 : IRQF_SHARED,
-> -=09=09=09       dev_name(core->dev), core);
-> -=09if (ret < 0)
-> -=09=09return dev_err_probe(core->dev, ret, "failed to request irq\n");
-> -
-> -=09ret =3D dma_set_mask_and_coherent(core->dev, DMA_BIT_MASK(32));
-> -=09if (ret)
-> -=09=09dev_err_probe(core->dev, ret, "32-bit DMA not supported");
-> -
-> -=09ret =3D v4l2_device_register(&pdev->dev, &rga->v4l2_dev);
-> +=09ret =3D v4l2_device_register(dev, &rga->v4l2_dev);
->  =09if (ret)
->  =09=09return ret;
->  =09vfd =3D video_device_alloc();
-> @@ -804,7 +769,6 @@ static int rga_core_bind(struct device *dev, struct d=
-evice *master, void *data)
->  =09video_set_drvdata(vfd, rga);
->  =09rga->vfd =3D vfd;
-> =20
-> -=09platform_set_drvdata(pdev, core);
->  =09rga->m2m_dev =3D v4l2_m2m_init(&rga_m2m_ops);
->  =09if (IS_ERR(rga->m2m_dev)) {
->  =09=09v4l2_err(&rga->v4l2_dev, "Failed to init mem2mem device\n");
-> @@ -855,6 +819,8 @@ static void rga_core_unbind(struct device *dev, struc=
-t device *master,
->  =09v4l2_m2m_release(rga->m2m_dev);
->  =09video_unregister_device(rga->vfd);
->  =09v4l2_device_unregister(&rga->v4l2_dev);
-> +
-> +=09core->rga =3D NULL;
->  }
-> =20
->  static const struct component_ops rga_core_ops =3D {
-> @@ -864,7 +830,54 @@ static const struct component_ops rga_core_ops =3D {
-> =20
->  static int rga_core_probe(struct platform_device *pdev)
->  {
-> +=09struct rga_core *core;
-> +=09const struct rga_hw *hw;
->  =09int ret =3D 0;
-> +=09int irq;
-> +
-> +=09if (!pdev->dev.of_node)
-> +=09=09return -ENODEV;
-> +
-> +=09hw =3D of_device_get_match_data(&pdev->dev);
-> +=09if (!hw)
-> +=09=09return dev_err_probe(&pdev->dev, -ENODEV, "failed to get match dat=
-a\n");
-> +
-> +=09core =3D devm_kzalloc(&pdev->dev, sizeof(*core), GFP_KERNEL);
-> +=09if (!core)
-> +=09=09return -ENOMEM;
-> +
-> +=09core->dev =3D &pdev->dev;
-> +
-> +=09ret =3D rga_parse_dt(core);
-> +=09if (ret)
-> +=09=09return dev_err_probe(&pdev->dev, ret, "Unable to parse OF data\n")=
-;
-> +
-> +=09ret =3D devm_pm_runtime_enable(core->dev);
-> +=09if (ret)
-> +=09=09return ret;
-> +
-> +=09pm_runtime_set_autosuspend_delay(core->dev, 50);
-> +=09pm_runtime_use_autosuspend(core->dev);
-> +
-> +=09core->regs =3D devm_platform_ioremap_resource(pdev, 0);
-> +=09if (IS_ERR(core->regs))
-> +=09=09return PTR_ERR(core->regs);
-> +
-> +=09irq =3D platform_get_irq(pdev, 0);
-> +=09if (irq < 0)
-> +=09=09return irq;
-> +
-> +=09ret =3D devm_request_irq(core->dev, irq, rga_isr,
-> +=09=09=09       hw->has_internal_iommu ? 0 : IRQF_SHARED,
-> +=09=09=09       dev_name(core->dev), core);
-> +=09if (ret < 0)
-> +=09=09return dev_err_probe(core->dev, ret, "failed to request irq\n");
-> +
-> +=09ret =3D dma_set_mask_and_coherent(core->dev, DMA_BIT_MASK(32));
-> +=09if (ret)
-> +=09=09dev_err_probe(core->dev, ret, "32-bit DMA not supported");
-> +
-> +=09platform_set_drvdata(pdev, core);
-> =20
->  =09ret =3D component_add(&pdev->dev, &rga_core_ops);
->  =09if (ret < 0)
+>   drivers/tty/vt/vt.c | 7 ++++---
+>   1 file changed, 4 insertions(+), 3 deletions(-)
+both patches applied to fbdev git tree.
 
---=-1LAzSwIaGZzBAdtbh8uL
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCawYDPAAKCRDZQZRRKWBy
-9C8BAP96KhNnPyp6c7icyZBmiQPklgkS45OBuWgpKtV74WtG4gEAg0B6t6w8Hkn9
-CttDJvFiRAACUl3ielwZ52l2M0lO7Q4=
-=YPtw
------END PGP SIGNATURE-----
-
---=-1LAzSwIaGZzBAdtbh8uL--
+Thanks!
+Helge
