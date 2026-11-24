@@ -1,57 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795532462;
-	b=VfmkN8QzAuSseTQzVadeG+z6sVy7MRxRZzVsUO3Nw8xSE8fvwo7tuzCboDn/kmUSV7nl
-	 /qUPplllR0jIL85jhOk+Jb2xili1cf5Vzv/IOQcMOSiwjN0mA/I44KzO0SISVu4p24yYN
-	 QGq1ycCDVkDcSPsFa/BWH9RX7v19juRwEU157LB9IRCpw316Fl8wZck2MSPaE/4KU3+p4
-	 vmSAi2Ud9TunTHRASaL1XFTJSvmPiEdhwNtMtjFjAzH4Qp/rArPwFclG+AIDfTRm9FsFp
-	 rdpmiiYl454GQfo3fQQbJ4Su8kptIRbLv3n+MMJRsstgR2W2bqrpux3IuWERbb60Ewg==
+	t=1795532474;
+	b=MiNddhbcyvSbhFBQ6iXQ96hRPB8vNp04CG9+whCs6Kuu1Ln0TNBMv0bSDEq5SZxNqqb8
+	 kf7Kxi/TTNmpaxLZ8I1miez2krIu/x3HKabk0hn6w4kepaSdHHuo6f2j2MD1mtVCc2opd
+	 Zj/Ev9qjNI+FXbNqYzS74Xn6QED/ESFVCwWs4bRn/mbsE4/7pOY8hck0RgWjKLksV1MN0
+	 ZM3lar8VsksQel1j9+6G9b6jquKhnnY1kelOdsG8grcYeNJEIgtSybxfUbfXK6GQMfi7n
+	 DYj5xmNn1qw20BLjwGSabsJv5/zqA8bGKQH4SKVQe3liJA8leMvwijbiT3/3lPahW/Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795532462;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:From:Content-Language:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=asbWuIn9ePuDPZMHSTApP9g/ewv2TUXo/89WnF//TCg=;
-	b=Dd+udx9WZ+PjYRAg+jkSW1nij+e6bbT3Fppv1MvJnmJ5nQVw9+ZiGYay1qSuidTgcR1t
-	 40ldMAsIhXUU4BCc3arhOaiEeMeGEu4VNyU7TERq62Pw58k7NK4/XerAs8/FUAnEHW9B7
-	 Y5Yku44G2NQXqn2BuBk4j1qJPA9JAjEQbsPgsTRPClNAb8Ftus+9khC3h+1KLxF/AbpcX
-	 B4cCfRyDwZL1hV8GxqwX+APp7/9IbdoV9MIGziZRIWhBT7+Ga/LaDEe7jKg0WZu1jeaE0
-	 XQ+PrKyeqS6rop5Kgm5SQuuW+ObpffJO2xKV2evgjBHxOs2nyj1N1gEd7OWivXkXmqQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795532474;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:Received:From:To:Cc:Subject:Date:
+	 Message-ID:MIME-Version:Content-Transfer-Encoding:X-Scanned-By;
+	bh=OCP8g2l59WgeSn2ZtdFHcJloG9W93voXqi/JA7Q4iag=;
+	b=1764bffoL6BVyHHLsEt+0mZIItOJBhh7F5fM6D0q3fzkv+oOYXluPvNnvcGM68cMpTW4
+	 cS/mD6C2cIcWEibxQN07aPIjAPd93kPzYWxG8QYG46wK+QQNJX7a9gwgFyx39M1FYFXJD
+	 3pezu5kVqBiaIqZKV7ZB1Pn+hM6Q7fFL8rb92URkRIDxGC228+elBJWiz8D2PfA2hzpMl
+	 Gbv61W8RAPRBIl4LI26DUJdda9wHVlvUDs1eOfgptsqByIYYvjxljJjKJBHuPWjpoQA6T
+	 eKaMuAOwcfOpB0orB63lt9g7mlsy2JdfWgPMeeTlXIT80ILAZ/fw/WxxP5NCniW9L6A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=collabora.com;
-	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=pQ0nXaTV;
-	arc=none smtp.remote-ip=148.251.105.195
-Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=EPz8jS5u;
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 33CCA606A31E;
-	Tue, 24 Nov 2026 15:01:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 33CCA606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AE31D606A326
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 15:01:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AE31D606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=pQ0nXaTV
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1795532460;
-	bh=dJcc5I0Ky/5T2QAptsnn0SzrB5NzoLMHaxiGnakhfhc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=pQ0nXaTVwLs9PqqU6CwULXvJgEIqxRyY5bxvW5uexTE19pWE+hs+oH0u+3jukYvE9
-	 y0RiUNk/bwYIkXTnHDceGFq6aIG3JnXjEQq5rEedFvSGZjxUcFFcLA5+xWhKG7epWR
-	 qJLqxwsM9GYg9ZtH7cMqOvV3Z9od6sWkRCszde6pNbSSG/lngu/Fq5abAGKsFyZn/D
-	 WrQFyIUZCLRCFlhW9InQy5vEfRgd/MIhHhirkWQeuRJRHThwYc5GAajSaEHCEFX+OU
-	 cEXN+KgSbk/KVER94bTmr227lVs7lsLPh1T4v74ZsYxB8iBJcQhpxg1TQYcCXPrlQX
-	 AO3PveeJUDSQw==
-Received: from [100.64.1.21] (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519)
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=EPz8jS5u
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795532472;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=OCP8g2l59WgeSn2ZtdFHcJloG9W93voXqi/JA7Q4iag=;
+	b=EPz8jS5up+a/R6YE79R9ym9/kFkS28hL1jgCtSsI/q7i1aN57aqdpYfTPRaaocLkZe+TL2
+	ieMvmdm0tG57MP+dAi5xqB2qccdy3yK3GCXL87DdW1F34K3t3eHxTaYIa4PDVwovgA8Qe/
+	UvhFrINlpt2oEbAh4tp76v4gf7qNXS4=
+Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-636-C8DzT9FgNlu_lLaNle3r6Q-1; Tue,
+ 24 Nov 2026 15:01:09 +0000
+X-MC-Unique: C8DzT9FgNlu_lLaNle3r6Q-1
+X-Mimecast-MFC-AGG-ID: C8DzT9FgNlu_lLaNle3r6Q_1795532468
+Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id A22CE17E09ED;
-	Tue, 24 Nov 2026 16:00:59 +0100 (CET)
-Message-ID: <14a4f698-8739-45c6-8904-496ac61e73c9@collabora.com>
-Date: Tue, 24 Nov 2026 16:00:59 +0100
+	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id E10B218028B7;
+	Tue, 24 Nov 2026 15:01:07 +0000 (UTC)
+Received: from jtaubepe-thinkpadx1carbongen12.ibmlowe.csb (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
+	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id CD8A1195B3C2;
+	Tue, 24 Nov 2026 15:01:05 +0000 (UTC)
+From: Jesse Taube <jtaubepe@redhat.com>
+To: "Martin K. Petersen" <martin.petersen@oracle.com>
+Cc: linux-scsi@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+	Nimal Prabudoss I <nprabudo@redhat.com>,
+	jmeneghi@redhat.com,
+	Nilesh Javali <njavali@marvell.com>,
+	Manish Rangankar <mrangankar@marvell.com>,
+	GR-ETH-Storage-Upstream@marvell.com,
+	Jesse Taube <jtaubepe@redhat.com>
+Subject: [PATCH] qedf: Fix use-after-free in qedf_xmit error path
+Date: Tue, 24 Nov 2026 10:01:03 -0500
+Message-ID: <20261124150103.166306-1-jtaubepe@redhat.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -61,99 +81,38 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 33/46] drm/mediatek: Add support for Display Controller
- exDMA component
-To: Daniel Stone <daniel@fooishbar.org>
-Cc: chunkuang.hu@kernel.org, p.zabel@pengutronix.de, airlied@gmail.com,
- simona@ffwll.ch, maarten.lankhorst@linux.intel.com, mripard@kernel.org,
- tzimmermann@suse.de, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, matthias.bgg@gmail.com,
- dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, justin.yeh@mediatek.com,
- jason-jh.lin@mediatek.com, kernel@collabora.com
-References: <20260714114414.184512-1-angelogioacchino.delregno@collabora.com>
- <20260714114414.184512-34-angelogioacchino.delregno@collabora.com>
- <CAPj87rO9saEC34+5NiYK8xyZiNytrVgOcszoY5uc7BpL=M4WTg@mail.gmail.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <CAPj87rO9saEC34+5NiYK8xyZiNytrVgOcszoY5uc7BpL=M4WTg@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
 
-On 11/24/26 15:28, Daniel Stone wrote:
-> Hi,
-> 
-> On Tue, 14 Jul 2026 at 12:45, AngeloGioacchino Del Regno
-> <angelogioacchino.delregno@collabora.com> wrote:
->> +void mtk_exdma_layer_config(struct device *dev, unsigned int idx,
->> +                                struct mtk_plane_state *state,
->> +                                struct cmdq_pkt *cmdq_pkt)
->> +{
->> +       struct mtk_disp_exdma *priv = dev_get_drvdata(dev);
->> +       struct mtk_plane_pending_state *pending = &state->pending;
->> +       const struct drm_format_info *fmt_info = drm_format_info(pending->format);
->> +       const u32 blend_mode = mtk_ovl_get_blend_mode(state, MTK_OVL_SUPPORT_BLEND_MODES);
->> +       const bool csc_enable = (fmt_info) ? fmt_info->is_yuv : false;
->> +       u32 val;
->> +
->> +       if (!pending->enable || pending->height == 0 || pending->width == 0 ||
->> +           pending->x > OVL_EXDMA_MAX_SIZE || pending->y > OVL_EXDMA_MAX_SIZE) {
-> 
-> Definitely don't do this please. If exdma is asked to do something it
-> can't (and I'm assuming that these last two checks are intended to be
-> on w/h rather than x/y?), then you need to reject that in
-> atomic_check. Getting here with pending->enable == true and then not
-> enabling it, is not OK.
-> 
+In one of the error paths in qedf_xmit, we were freeing the skb and then
+accessing the Fibre Channel frame header destination ID field stored
+in the skb. Save d_id from the skb before freeing it to avoid a
+use-after-free.
 
-That was done because mediatek-drm isn't in the best shape, and atomic_check is too
-late for this check... adding support for those components is done on top of a big
-restructuring, which still is not complete, as the entire mediatek-drm driver can,
-and needs to, improve quite a bit.
+Signed-off-by: Jesse Taube <jtaubepe@redhat.com>
+---
+ drivers/scsi/qedf/qedf_main.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
-(P.S.: yes the check was to be done on w/h)
+diff --git a/drivers/scsi/qedf/qedf_main.c b/drivers/scsi/qedf/qedf_main.c
+index da429b3a4283..ff7d93fbc079 100644
+--- a/drivers/scsi/qedf/qedf_main.c
++++ b/drivers/scsi/qedf/qedf_main.c
+@@ -1113,11 +1113,12 @@ static int qedf_xmit(struct fc_lport *lport, struct fc_frame *fp)
+ 	}
+ 	if (vn_port && ntoh24(fh->fh_d_id) != FC_FID_FLOGI) {
+ 		struct fc_rport_priv *rdata = NULL;
++		u32 d_id = ntoh24(fh->fh_d_id);
+ 
+ 		QEDF_INFO(&(qedf->dbg_ctx), QEDF_LOG_LL2,
+-		    "Dropping FCoE frame to %06x.\n", ntoh24(fh->fh_d_id));
++			  "Dropping FCoE frame to %06x.\n", d_id);
+ 		kfree_skb(skb);
+-		rdata = fc_rport_lookup(lport, ntoh24(fh->fh_d_id));
++		rdata = fc_rport_lookup(lport, d_id);
+ 		if (rdata) {
+ 			rdata->retries = lport->max_rport_retry_count;
+ 			kref_put(&rdata->kref, fc_rport_destroy);
+-- 
+2.56.0
 
-That said, I think at this point the best I can do, without going for continuing
-the entire restructuring here (I have no time for that right now, sorry) is to
-duplicate this check in .atomic_check(), so that when the entire thing will be
-ready, the right thing is already there waiting for the additional check to be
-simply removed.
-
-I have to recheck if there's anything "fast" I can do to make this completely
-right without double checks, but I'm afraid I can't.
-
-> Relatedly, most of mtk_plane_pending_state should be deleted as
-> duplicative of drm_plane_state and it would be great to see a patch
-> series very soon to clean that up.
-
-Again, I agree mediatek-drm needs a rather big cleanup.
-
-Lately, upstream has been a bit slow in reviewing etc for many reasons, which is
-why this series has been there for months now (though things are getting unblocked
-lately at least for this specific series, so that's good).
-
-Anyway - let me see what I can do, but I can't make *big* promises - the only thing
-I can say is that further *big* cleanups/restructuring is something I can do in the
-next iteration (after the partial restructuring that is done in this series gets
-merged, but definitely not in this series) whenever I can find some time to.
-
-I'm all for making things perfect, but I only have two hands, unfortunately :-(
-
-> It's been that way for the last 10
-> years, with seemingly no discussion ever of why it exists (my guess is
-> that it's a holdover from pre-atomic code), but no reason to
-> perpetuate the badness.
-
-It's there because the mediatek-drm codebase still nowadays has lots of technical
-debt, and because there is this GCE//CMDQ programming that adds up to make things
-slightly more complicated.
-
-> 
-> Same comment applies for the blender.
-
-Noted.
-
-Cheers,
-Angelo
