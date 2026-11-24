@@ -1,110 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.159
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795520346;
-	b=RXU4kqM4Q6lh1xE1rDdjfyXrrVKiv93J/BNqouprJsQwkJTVN44cPC7eDR24pJolJFCD
-	 hGel48smvDtCtSore9pg51tku/h9LiCc38Sy7QE/qJsjWrnPFa1omh/LDzHO7RvTU2yv3
-	 +r8ZKrv1UZzEqWZyWKqvTtHkaKSZ2F5Z85I0KzzQSTaBlI3SnwP59WVxIO3bO6WwOtDRW
-	 hCOQdOlebCGOJv6fBfVryZ2b3rrEm9m3Ldti/1d7TRc+jRj60R5j1Qy+5qLEIpsf+B5Xd
-	 MvoeoM1Ju839y/iCf5TWQkRDjssX++RiyhxpMIuhDei43QQkx5641xQuR7nfWd4BA5g==
+	t=1795520447;
+	b=CelI7NCr3VtMSzqC9xlpinw/QzNyeDP/wAWdDJDGMZZJopRn9Q/byRcw55sSMkMAYuJi
+	 iFTd/U6M2CNrlbCL1x9mwcokoJ6emvNjpm+gYhyTHYXQHN9yX3LSyn779j4q1rRucaJQv
+	 NdCGMYYkZMpa5HT1fI2lW7Nxo3jOKHNk41SYkDv92OepFKW9Jr1eQDuA2oq+cZXXLmUPf
+	 wXug/ipY0GpQWPDhBzWXGXDM7Lx3NPazj+i4dtUAG29Q31kIK/9f1L1Xoqlj/J1tuIIF5
+	 DiII/Z0QMuXT9NPY0YFIaoZ7sEvGip4JiOJuXHpsaKZAHbFSGMyvx/KbkmNB9/fUvnQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795520346;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795520447;
+	h=Received:DKIM-Signature:Received:Received:X-ME-Sender:
+	 X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
 	 MIME-Version:Date:From:To:Cc:Message-Id:In-Reply-To:References:
 	 Subject:Content-Type:Content-Transfer-Encoding;
-	bh=vAgyY33rGyhoxd7++6dPjFy8c6kIItEzdXI6nMt/QAU=;
-	b=hIVIJqft9FN7pjwPBZvxGYIHsT1fC46uUsYk5lgDNyb23kokeUS3Fg4GqylQ5MvvgkUu
-	 oc8doiX55z/WDMhv+zWc/Z9wTUCk95OZdckFPPpNdJxN+WVEv37w+l1DGgBZ+wmMzyvFn
-	 h8ph3D3DWxHMhxnVTto2g6T6EklUlqNyrJJyH4MnFEoNd6UJp3WXR9Wm4piVWPTb7AWbE
-	 lVhHGcleTAtl/fxxM59qGAeHGYwmozzRi8qkug9eevK0N5ysR/GML3+V4RGYzZDhdRHBl
-	 SaYkKRPeEiYaRlXk5Tz5PuyaHavM3MTu0WoRkMx9BmYO0JB+xmO/L5IvJIHxicMXN5A==
+	bh=YNKB+l0kbHZ2LFgYHq1tz3KLItdS3YCyjSFJuwPFLv0=;
+	b=UFaw3FHsfsBxHZ8GUmR0mypOGIxFiEVrJNJwqNM1KvLM4ZdJ34qrKRdh4wkRut46tWSw
+	 0PJtsbuYIZZTQn54w7kQzi5mtvSV++QOybZ7TyVGCTDu4Oi68qLD8XKmoJ6rHvZmYnBu+
+	 aHtUeljwXKTDt/y/Qx5v0WtBdVVKfpcPrmLmO83P2BVf2bvjz1ArXwWhVM3sB+5Vtoi9r
+	 8NQaULDwOE98HRfeWCxTQTHOZ9UcZqzh+gh4n/Onrcq157AJlL44ppyL4SbsntslsbNGx
+	 BE9x4JTezDOpWceHorXPxztcsoTnpuyUmq5uUj8ysGG+OrwAWP4nBUcQDNCRzY6ZnhQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=fastmail.im;
-	spf=pass smtp.mailfrom=fastmail.im;
-	dkim=pass header.d=fastmail.im header.i=@fastmail.im header.a=rsa-sha256 header.s=fm3 header.b=glyhEjdW;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=27ptkXp6;
-	arc=none smtp.remote-ip=103.168.172.159
-Received: from fhigh-a8-smtp.messagingengine.com (fhigh-a8-smtp.messagingengine.com [103.168.172.159])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="Y/KWG8/t";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C0FF4606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 11:39:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C0FF4606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=fastmail.im
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fastmail.im
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 671F1606A321;
+	Tue, 24 Nov 2026 11:40:47 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=fastmail.im header.i=@fastmail.im header.a=rsa-sha256 header.s=fm3 header.b=glyhEjdW;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=27ptkXp6
-Received: from ams-compute-01.internal (ams-compute-01.internal [10.64.2.61])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id 8A5EA1400273
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 06:39:04 -0500 (EST)
-Received: from ams-imap-19 ([10.64.2.39])
-  by ams-compute-01.internal (MEProxy); Tue, 24 Nov 2026 06:39:04 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fastmail.im; h=
-	cc:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1795520339;
-	 x=1795606739; bh=vAgyY33rGyhoxd7++6dPjFy8c6kIItEzdXI6nMt/QAU=; b=
-	glyhEjdWlOripV3KEgNEl3DrvKMz/KC6wKxEf0U4LZPNNXmmiMrxeP7gwghxAxgr
-	pj45S3ynLBHgMLhslPbnI4KTJfDLpNGsHXBia3Mt+WEBkIBaKTUKH8HgtpwksYZX
-	6yvP4SLN9o/G94KxNz3TYjdKtwjpZIlVejsBRrmfMPp3Cis0TZ1RQIv49j4bbKi/
-	EIP8h/8gPg5+eLeeI+GfH3k1TmGYQNeVUNF6AJVgTcbTeoojWY3Nh8Qp5Ogcflcw
-	wEyp25QbF4n5ebGkMroPsTOGWW3Q5itnZJ98nVeXzP4LozoBn02tPpHOOYs53ldu
-	x4/+cxbaFQ6rV6kc7J0dUQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795520339; x=
-	1795606739; bh=vAgyY33rGyhoxd7++6dPjFy8c6kIItEzdXI6nMt/QAU=; b=2
-	7ptkXp6Rn/pT0b8wppZnpxGadJcdDDazp/MWrusEiJ1ebOf9GjBlEtQxcMqsAXgt
-	upb8iw2j5WGiqAPGC9aF7kmhw3xzNpLUZVH8vllZeayuV2UAmS20PjkCvB1BoVXj
-	ZAg/7uruvWosqc85D/UpsZfL3E1sCFqixKdwEquyK/Vfc5BjRmM8HBAAtzxpEidL
-	4JIuAdK+t0OydvXlvLFuLoI7q1M1kSJzK0HliYfG9fiyRp5FaLLBEcNUoMg8eiC7
-	Lt2t3CnHbZwPI1vSQWvmt+v+gCbAhzOATRtoM7O+rQtK3fXk/+4xAm5AGR/lAjxi
-	lZO2oVNn1ezZRI7QwCVtw==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=fastmail.im a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795520339; d=fastmail.im;
-	mf=PGFsaWNlLmtlcm5lbEBmYXN0bWFpbC5pbT4=;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm3:rsa-sha256:jx4M9kM9w/DvMYCHV6UB14hHiKOH/CTdtRARfZh+o3Y0/4S
-	Z5ztYS4rzsA0M7c/mbCpT4YVwQ5YPwaA9w8N25VJwWu5F88S4FDs0xfTsYSqz4oN
-	RcoGqDIHaVqGSuzUUzc/qWq+Y8tyA5TMMNp2b4+2PolsJ9iW532gD9rRyxuOJl1N
-	eQ+dQxWitr42VzxFq0ycNOPqvcN975L1dnhX/C+AJb2uh6u45ZEJvezqrsf6gT3b
-	ZvFMjYEww27pSNhBXWFKVapBr9M0m3R55wRQV7i+arp/IzY8EIA9HlccjgoXwl7+
-	6YXqohIAHL5hG2Uf0xBMZNhF8rXETF82eC0gi5Q==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=12;
-	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
-	from,in-reply-to,message-id,mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:ALW9321OHBLiiL5SPsMumePA4d5xqqytp1VQGRM4k80=:dZY2KiK9PYfCfg7JMV7eBqXPw4kds7QQXD6ueU583vo=;
-X-ME-Sender: <xms:TncFa38cNUHB-U-p2ro8Zz3RJUOavie1mhiXXnAGjmBnodMyh8a-cg>
-    <xme:TncFa-gP2r01wxsJ1Hkz9qasjspcYeIAWp3-a5nFWRZs87U_xxsBGyXyqQI8T1mc3
-    1GRkKP0mHjCTz8Jyqyu-BtUIkIKSo7NCMrdJHAkD63Xf6H-CW6_D7Y>
-X-ME-Proxy-Cause: dmFkZTGGKQ38id+eRgJdj+g/UOJo3vPtsb5ZGc3CTeQs6u6bt9K70NIT1LuxDKr4LkF+Sd
-    XCj6mSYhEw6D3l1pSVUFKwRY89ot5WQpCU9AwgH4/A+HzaE2dTAcuf3zDDI62Y3vduKk8m
-    6BLE/i0DiZUMjjhhlWWbQ53EsjQlhgquAQgLyIOp0jUZIJKioZ+wTptlDFYUKuhXdu702L
-    khwKqjG3RFdMybZlR0IrgXPDASsJKNq+fYoAEknqNwayVpF0TJuCM68ZL5u+jvP2kSJzNb
-    uzEL92YYUhy3WTFz5OeVGhFev0RoxpMHTkkKoJW05Y7hAdAmzEcJlTbvwpOHTvLhVHOcXK
-    NFxq9luxS70aEA7UmQP5VBScPJ6mb9VjOUGPO8tfFVXuDmjRu1PhFb3ygA52AL64uurtb9
-    KhkQdfYv4lANOAn+MnCvTycdOHoWduwolJU82ULFPHWUYncprDLFNvl/RNfy5PC0gyVFCK
-    6Cy8ND2QIC4wk0iBJZCAxqZBIT1hEtwZg6OYDtgEBhjC6hRjs5/flLerQo2En8XAMtmnPR
-    /Bi0koRiNGfZzM5x8NZJ1GnXquVShnGDJ7/ONDaOTph89nLlZ+XGJEqlGrBOWYxB40GGOf
-    Mh8HXQwpidDm9408oeuDzjVXHpsMIw7rHAKtj0zg/GU0Mo7qZwM57bIiVHzA
-X-ME-Proxy: <xmx:UHcFa1_f312RZgYXqEMrnTw4AmkKMTxWxKr5sc4nvCobE9jZchmziw>
-    <xmx:UHcFazyAfwGsVXdBGE1tgdybf3aLPfNRWkCSlDtm1chEn9LEDIS-pA>
-    <xmx:UHcFa3_NeX3wtksN-MP8zAWPIHg0KttBrCbY0T_2bIE3dCNYcq73rA>
-    <xmx:UHcFaxN8fuh0tYdYOB868r4nFHZAXZ44-57dpvA7t7ahobSId8YynA>
-    <xmx:U3cFa7swwRahoueDmCOlHnNi2Hql5VtQirr4vRt82r2n9IAERyRjHful>
-Feedback-ID: i559e4809:Fastmail
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Y/KWG8/t
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7DF9C1F000D0;
+	Tue, 24 Nov 2026 11:40:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795520447;
+	bh=YNKB+l0kbHZ2LFgYHq1tz3KLItdS3YCyjSFJuwPFLv0=;
+	h=Date:From:To:Cc:In-Reply-To:References:Subject;
+	b=Y/KWG8/t01CyWXnuuxn5Fq6dG5U0E/DUCU9cLtTKyJCmyZpLPtz4H5tDoHmhjT0Y1
+	 6LVawp8QEZn0HS8F9iB9sABq0TgEer9xApKgILOghCb/TWwQiFTwASnLtqmDnK7p9d
+	 uJgGVhqzlPa7PnWK+5Ey6/Kb5r7XHf/MHKzE/m8edUN80AmhKmcTYbffqmuRec7uc4
+	 d9mhARS3a9G6QwypWQJblwQB1kWsG89+ctM0xLetzNd1o6PD9CegiBD/LfWccVOPV/
+	 mwmFaZY+FKMjMnznslikv6KFIdgbcvnwye4jOW7hxxlNtkIkQMnuklCiCZqRCsPY7V
+	 o8COXWTCVS4RQ==
+Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
+	by mailfauth.ams.internal (Postfix) with ESMTP id CB8041980047;
+	Tue, 24 Nov 2026 06:40:44 -0500 (EST)
+Received: from ams-imap-11 ([10.64.2.31])
+  by ams-compute-02.internal (MEProxy); Tue, 24 Nov 2026 06:40:44 -0500
+X-ME-Sender: <xms:u3cFa2WZAvaq-MEvL7K33-JMO8R2L3mYuau5n5hO2SMrNJWVXCfjFg>
+    <xme:u3cFa9bhlu9ODSrVznatnlU66U-X0sdpA7b4RyfQSL4FyGhJh5d3MrwfKWl-EX0HA
+    sXHlxQXvPDbgWoMy0fZq-dC9FFEENqFl2QrJ5Iv48L6_VfwgqhbPvA>
+X-ME-Proxy-Cause: dmFkZTEMmXa45SeVrzxdc8lVdrKvq22c5nOCVcabUq5/b3DwR+SZOjCmU5hPlCMvPbD/jG
+    xGX/zl+7UgdvrJtoEo2C2qX4tYzFehBttg3Q8pP42dTF1E6KmxXWfoidEoMJMsjro+itt4
+    Dvv+paoMENJtR1YVe1RrOmxWDJu+Dos+BL3NJB36HHYZEWQoPEfd2f0f49jDOmEwPJ5GWP
+    HzPV+D0S+5nz6CFwdVCwYRZ08IiLIvurA8XdTqHAWDn2e2iTnwalYGGrM/GMJlp2i9czsj
+    82jckTGxIKmWMZZoZjXotXZ30EwOrPwkcptldPdi9BERQbuh3XwGbk+bNvIevBmPzeESm8
+    kL3uHHbFpDKe/Qyr9qP7Bsd7LDWIe7a+gt6ZL+4J6xE+91VqGzmNCe+jrMdd0SKXcfAiWb
+    PqwEqqVTb6q1ZRikefhsevZPrtcPGrWz6A43HiI7rzNIufnWqEW8dIGgqU3jjStfzPjTkj
+    WU7PzjcqaagORtAW2YwEJSIS0dnpDAvF41+ytAJwUBRUeY9kHDr+exsb+ShZdtXPPwsW6v
+    8O2uGG7oshIGaqwGKOpm++TsqBweO19oaOIEGOmOLONzIR9NcfhwgfT6qGw/s2lNNEKdlN
+    G2lBH9CJHUyFnqUPatunvuFiUz83ZcNPj/ACHVAuvCdQddxAX9yskvkuzOTw
+X-ME-Proxy: <xmx:vHcFa14LWtxuoXQSCXztkRGKGGXPr9Fhc0nRNZECL5mHK6cj9eTvcg>
+    <xmx:vHcFa1JPA7ZCqMHIN6AcbZ9wj1llof3hXNUNdIwzaBx1q0zmqFfZeA>
+    <xmx:vHcFa-tNiJ8O6EcYswXmUD32CLau-OR3Dc-qYFb1N917WyGLFFE52Q>
+    <xmx:vHcFa0K9XZBHP6EtZCT73GFUDk43H4P62P4pZq7syHLXwfgabnpgwA>
+    <xmx:vHcFa3-1f6wVJb3kq-WjMyorYBzmD6N_8sGUlMyiB6J2AJI-tp0_LE-4>
+Feedback-ID: ice86485a:Fastmail
 Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id 6CBDE2F8005C; Tue, 24 Nov 2026 06:38:54 -0500 (EST)
+	id 75E98F80093; Tue, 24 Nov 2026 06:40:43 -0500 (EST)
 X-Mailer: MessagingEngine.com Webmail Interface
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -115,74 +77,111 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Date: Tue, 24 Nov 2026 13:38:26 +0200
-From: "Alice Mikityanska" <alice.kernel@fastmail.im>
-To: "Haishuang Yan" <yanhaishuang@cmss.chinamobile.com>,
- netdev@vger.kernel.org
-Cc: "David Ahern" <dsahern@kernel.org>, "Ido Schimmel" <idosch@nvidia.com>,
- "David S. Miller" <davem@davemloft.net>,
- "Eric Dumazet" <edumazet@kernel.org>, "Jakub Kicinski" <kuba@kernel.org>,
- "Paolo Abeni" <pabeni@redhat.com>, "Simon Horman" <horms@kernel.org>,
- "Shuah Khan" <shuah@kernel.org>, linux-kselftest@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Message-Id: <274a4204-8a35-4550-a6e2-dff96aaee55a@app.fastmail.com>
-In-Reply-To: <20261124013124.3693-1-yanhaishuang@cmss.chinamobile.com>
-References: <20261124013124.3693-1-yanhaishuang@cmss.chinamobile.com>
-Subject: Re: [PATCH net-next 0/6] ip tunnels: Enable BIG TCP packets
+Date: Tue, 24 Nov 2026 12:40:23 +0100
+From: "Ard Biesheuvel" <ardb@kernel.org>
+To: "Nicolas Brainez" <nicolas@brainez.net>
+Cc: "Ilias Apalodimas" <ilias.apalodimas@linaro.org>,
+ "Lukas Wunner" <lukas@wunner.de>, linux-efi@vger.kernel.org,
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Message-Id: <756a713a-dfc8-420b-8c70-76828e2b0bf6@app.fastmail.com>
+In-Reply-To: <20260928072832.25399-1-nicolas@brainez.net>
+References: <20260928072832.25399-1-nicolas@brainez.net>
+Subject: Re: [PATCH] efistub/x86: Fix the size type of the Apple properties protocol
 Content-Type: text/plain
 Content-Transfer-Encoding: 7bit
 
-On Tue, Nov 24, 2026, at 03:31, Haishuang Yan wrote:
-> Following vxlan and geneve, this series allows BIG TCP on ipip, gre,
-> gretap, sit, ip6tnl, ip6gre and ip6gretap, which also covers their FOU
-> and GUE encapsulation. The UDP length of FOU and GUE is already handled
-> since commit 47282504ad21 ("udp: Support BIG TCP GSO packets where they
-> can occur").
->
-> Each driver patch bumps tso_max_size to GSO_MAX_SIZE in the setup of
-> the device, like vxlan and geneve do. The default gso_max_size and
-> gso_ipv4_max_size stay at 64KB. vti, erspan and ip6erspan are left
-> alone.
 
-Thanks for your patches!
 
-Reviewed-by: Alice Mikityanska <alice.kernel@fastmail.im>
+On Mon, 28 Sep 2026, at 09:28, Nicolas Brainez wrote:
+> The size argument of the get(), set() and get_all() methods of the
+> Apple device properties protocol is a UINTN, not a u32. The reverse
+> engineered declaration added by commit 58c5475aba67 ("x86/efi: Retrieve
+> and assign Apple device properties") uses u32, and
+> retrieve_apple_device_properties() passes the address of a u32 on the
+> stack to get_all(). 64-bit Apple firmware writes 8 bytes through that
+> pointer, so the upper half of the store lands on whatever the compiler
+> placed next to the variable. OpenCore's
+> Include/Apple/Protocol/DevicePathPropertyDatabase.h declares the same
+> methods with UINTN, and a u32 canary placed right after the u32 size
+> is zeroed by both get_all() calls on a Mac mini 2018 (Macmini8,1).
+>
+> With clang and CONFIG_EFI_MIXED=n, the neighbour is the protocol
+> pointer p: the first get_all() call zeroes its low half, the second
+> call jumps through the corrupted pointer, and the machine powers off
+> before printing anything. A GCC build leaves padding in that slot, and
+> a clang build with CONFIG_EFI_MIXED=y places the setup_data pointer
+> there; neither crashes, so the bug went unnoticed since 2016. Talos
+> Linux, which builds its kernel with clang, reported it on several Mac
+> generations.
+>
+> Declare the size as unsigned long, as the stub does for every other
+> UINTN. No mixed mode argument mapping is needed: 32-bit firmware
+> writes the low 32 bits of the zero-initialised value, and the upper
+> half stays zero across both calls.
+>
+> Tested on a Macmini8,1 with v6.18.51, clang 22.1.8 and LLD,
+> CONFIG_EFI_MIXED=n, booted as EFI/BOOT/BOOTX64.EFI: the machine powers
+> off without the patch and boots with it. Builds with clang and GCC,
+> with and without CONFIG_EFI_MIXED. Mixed mode was not boot tested (no
+> 32-bit EFI Mac at hand).
+>
+> Claude Code assisted with reading the disassembly, writing the debug
+> patches and drafting this changelog; the tests ran on the hardware
+> above.
+>
+> Fixes: 58c5475aba67 ("x86/efi: Retrieve and assign Apple device properties")
+> Cc: stable@vger.kernel.org
+> Cc: Lukas Wunner <lukas@wunner.de>
+> Link: https://github.com/siderolabs/talos/issues/13231
+> Link: https://github.com/siderolabs/talos/issues/13579
+> Assisted-by: LLM
+> Signed-off-by: Nicolas Brainez <nicolas@brainez.net>
+> ---
+>  drivers/firmware/efi/libstub/efistub.h  | 8 +++++---
+>  drivers/firmware/efi/libstub/x86-stub.c | 2 +-
+>  2 files changed, 6 insertions(+), 4 deletions(-)
+>
+> diff --git a/drivers/firmware/efi/libstub/efistub.h 
+> b/drivers/firmware/efi/libstub/efistub.h
+> index fd91fc15e..1002c17a8 100644
+> --- a/drivers/firmware/efi/libstub/efistub.h
+> +++ b/drivers/firmware/efi/libstub/efistub.h
+> @@ -838,15 +838,17 @@ union apple_properties_protocol {
+>  		unsigned long version;
+>  		efi_status_t (__efiapi *get)(apple_properties_protocol_t *,
+>  					     struct efi_dev_path *,
+> -					     efi_char16_t *, void *, u32 *);
+> +					     efi_char16_t *, void *,
+> +					     unsigned long *);
+>  		efi_status_t (__efiapi *set)(apple_properties_protocol_t *,
+>  					     struct efi_dev_path *,
+> -					     efi_char16_t *, void *, u32);
+> +					     efi_char16_t *, void *,
+> +					     unsigned long);
+>  		efi_status_t (__efiapi *del)(apple_properties_protocol_t *,
+>  					     struct efi_dev_path *,
+>  					     efi_char16_t *);
+>  		efi_status_t (__efiapi *get_all)(apple_properties_protocol_t *,
+> -						 void *buffer, u32 *);
+> +						 void *buffer, unsigned long *);
+>  	};
+>  	struct {
+>  		u32 version;
+> diff --git a/drivers/firmware/efi/libstub/x86-stub.c 
+> b/drivers/firmware/efi/libstub/x86-stub.c
+> index cef32e2c8..87e142cae 100644
+> --- a/drivers/firmware/efi/libstub/x86-stub.c
+> +++ b/drivers/firmware/efi/libstub/x86-stub.c
+> @@ -158,7 +158,7 @@ static void retrieve_apple_device_properties(struct 
+> boot_params *boot_params)
+>  	efi_guid_t guid = APPLE_PROPERTIES_PROTOCOL_GUID;
+>  	struct setup_data *data, *new;
+>  	efi_status_t status;
+> -	u32 size = 0;
+> +	unsigned long size = 0;
+>  	apple_properties_protocol_t *p;
+> 
+>  	status = efi_bs_call(locate_protocol, &guid, NULL, (void **)&p);
 
-> Patch 6 extends big_tcp_tunnels.sh, which already covers vxlan, geneve
-> and bareudp, to check that BIG TCP packets go through all these devices,
-> without encapsulation and with FOU and GUE, with and without veth tx
-> checksum offload. sit is only checked with checksum offload, as GRO does
-> not build sit packets larger than 64KB.
+Queued up as a fix - thanks!
 
-Do you know why GRO doesn't aggregate >64K with sit? I had patches to
-enable BIG TCP on IP tunnels too, but I've never submitted mine because
-I didn't have a chance to investigate this specific failure. It would be
-interesting to lift this limitation of GRO with sit, as it aggregates
- >64K just fine in all other cases.
-
-> With iperf3 over veth in a KVM guest, raising gso_max_size from 64KB to
-> 196608 gives +20% to +39% depending on the tunnel, see the commit
-> messages for the numbers.
->
-> This work was done with the help of an AI coding assistant.
->
-> Haishuang Yan (6):
->   ipip: Enable BIG TCP packets
->   gre: Enable BIG TCP packets
->   sit: Enable BIG TCP packets
->   ip6_tunnel: Enable BIG TCP packets
->   ip6_gre: Enable BIG TCP packets
->   selftests: net: big_tcp_tunnels: Cover IP tunnels
->
->  net/ipv4/ip_gre.c                             |   2 +
->  net/ipv4/ipip.c                               |   1 +
->  net/ipv6/ip6_gre.c                            |   2 +
->  net/ipv6/ip6_tunnel.c                         |   1 +
->  net/ipv6/sit.c                                |   1 +
->  .../testing/selftests/net/big_tcp_tunnels.sh  | 131 +++++++++++++++++-
->  6 files changed, 135 insertions(+), 3 deletions(-)
->
->
-> base-commit: eb6d6c80d35449c27471b1874f13066c09a8964d
-> -- 
-> 2.43.0
