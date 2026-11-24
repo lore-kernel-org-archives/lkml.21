@@ -1,95 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.182
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.225
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795505589;
-	b=Jhp3Srg7WIMy1hMIS8XElVHcArR3G00Aa34iT6rNExxXDkcCDRGbLhCgkE4fgz/lezZR
-	 hYnc+42WJ0Thl2jhC1BEck0dbCGzGHdBk1Uuv24TlRc/MhZHXam/yOmn6mxxMEotIafZk
-	 rETYYM0gZuVv6cePUqD5M8P1WInGZ9NaoctgWdOjSTOBQ0YcEWABLT+snbXsp1/xsEcOs
-	 TCmhFlQKdcNNGuxU95QAbYmbQUo3nyOcQ2gty/0PljTCnn6jQxFqGxomL9iMzR5WjbFdV
-	 vPSnCtbR84EVOUopDuLXNm4TczFfk71Ti9iNnjycu+jjtgjLywvge8Z6mQ6rRc4YDmg==
+	t=1795505621;
+	b=2Mw+Q0f5K2trMTL2CbMR6+sEHKcJG0sclWXiCf1s44FIlpEEpphGKlWeDikPL+dIXpvN
+	 WLlMctX7nsI301OUmVvhu6oRspXo9jPIa0Dp1gYD/w5yg5grAJX47El3wd5TtunwqKj/z
+	 80qYWtEPHpnrrlnPVrV8OqgjVegikt8VgaUjXP9qVgFaC3E44nY4aJhDIAQBPKdUlDju2
+	 3nlODk4uKGee4CugRsFxijG84E6bhjlfZqft3pHIQs1AClDVtM2JO8A7PusRFkrtcjzN3
+	 B7K0NZWyE9AmVcvcSv1GwSzag5PITCOlgwxLUseqQ/DX6FVkD/d7CyR3LiUwcyS37Xg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795505589;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:Content-Transfer-Encoding:
-	 In-Reply-To;
-	bh=TAMfOuNFtblDQEnaf3fqBx0suItcSS3DJ/gNPv6O2+Q=;
-	b=oR+oLF2x+eF9Qs7AUqez3OgqqPJCvIeS0jCkUIrJ9R5uc6ZcIVQnAzmU92mk5RyTy+Rz
-	 sWPO2XUPaPvH2DaEyHGbUpZudPljp0qiSeFxeAllTIuW/uEy32hI5Pm4+VTviboVRLdx3
-	 jPHym9YLhmXhjcnZS2+SsFoGeABQch2uoCNJu9wmGPYZpguT5wXbzXjqE7s5SXiYwXZxG
-	 TDOEewN7pBC4/QUBVMmKSZMZBr2DOhAji3gmRUcutUAN4vpVfMW/T+AfaVLF4KY6CMYDb
-	 MF8W/RFv5O6xbAA/VblDVXI4z4dLcHf9wqqUKBSe+EIsdUX4mjF4NXu/g0s+NMuj1Xg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795505621;
+	h=DMARC-Filter:dkim-signature:Received:Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:CC:References:From:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding:X-Originating-IP:
+	 X-ClientProxiedBy;
+	bh=gq87rGVVD4KSpSFWL7D6d3e24UEKtH1rPNqBfJ2s+4Q=;
+	b=DtVdVKntzDj/NrHtss6A4w1Krrk2zC8u+O6soyDqAJD6O7o94MVHPqwBiIcrlRPFPjhu
+	 d4WNlhZNsaAuiXt5DjHtWHB6Z5fe0CWM0MOPCWWvt5pidV4EBL5gOUaW02BVz5dIeQd2a
+	 dNDcqSP7gC8HF2HprAXjm8joxNK7ot674vhDL9dHSPHA0yOxW/QS9ig/knxX8F1BoR/L0
+	 R3H51piMpPtg+1nw97UughyY/CW2D7pyycAGr5pDBSJy7A+GzB/yM2g4XsR3prXUjTsrz
+	 marFMo3sZhEyVZAZ3UsaH2w2Vh8+0+pWiZe9dOIh8vA1whlLBHuW84Au6SOvf/2CLNA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=chromium.org;
-	spf=pass smtp.mailfrom=chromium.org;
-	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=Fpd3dPh+;
-	arc=none smtp.remote-ip=74.125.82.182
-Received: from mail-dy1-f182.google.com (mail-dy1-f182.google.com [74.125.82.182])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=huawei.com;
+	spf=pass smtp.mailfrom=huawei.com;
+	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=IReWqivt;
+	arc=none smtp.remote-ip=113.46.200.225
+Received: from canpmsgout10.his.huawei.com (canpmsgout10.his.huawei.com [113.46.200.225])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2CCE606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 07:33:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F2CCE606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chromium.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chromium.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 164E0606A31E;
+	Tue, 24 Nov 2026 07:33:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 164E0606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=Fpd3dPh+
-Received: by mail-dy1-f182.google.com with SMTP id 5a478bee46e88-3869f03af6aso3410084eec.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 23:33:08 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1795505588; x=1796110388; darn=vger.kernel.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=TAMfOuNFtblDQEnaf3fqBx0suItcSS3DJ/gNPv6O2+Q=;
-        b=Fpd3dPh+c6x4LvxCk5WLrpb/2qKK43kRNoHM/prHUNmCE6nRIBkvq0qdPwjBEl3+BR
-         ZlAMrMXHM8ax7dtGxnoS/bNyXdhcthaNbv2Ws83Toyvhs6dQpKsfSa7gQhCZa4vCvZ/W
-         GkkoHGs0YviwI6T6YP7PDAW6pcTQ4O/rNz9Qs=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795505588; x=1796110388;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=TAMfOuNFtblDQEnaf3fqBx0suItcSS3DJ/gNPv6O2+Q=;
-        b=p27xoBASjHsbBHHk+mxviDHWO/3mZZLmjCP4Sk3ClFr5s+TCcGQag+DO+ohuaxspYF
-         PZPLYeXuS3GsqKVJ16kWcqH/0wbB1yPhwhQuIoHVt8/CRNWYNLQ2F6C7Bx9pL6E++CA7
-         b+T9hfu8/HtwMebve7EZFaeVuwT0yoiYSCK0DWKwk9RDagJLsxxGYEnNa78TkIEySoKx
-         q4YUXVf97ALnqnLczZnyUBMH+fONcQo6GQ572Gt7Xt9u7a9qGxMx0aH2yjAbj9bJqUNd
-         /vxjLW8OgZp/LlBqpdmllmeQZBuRhXuk1ssSJNrITPDDlY/R30CnDqjcz020Ot6c8Jcm
-         K+cg==
-X-Forwarded-Encrypted: i=1; AL+hErFbBXVNp8IuaT4zPDLsbHbcR0NRP7Unapiqnhs2hERPtTOYpmms/qThEyYopJ2OA5Nv13ta1YTCE3F8XBM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/DQIc7IGRtgegRDIT5kGzMgZBfa5FVeeapq0c7ZjMm8V96m3Dj
-	Mim5z8b6Qqe2O2rTgr2exnNcbJ+GcZgNW0/AutZj7ifqrQhlSpbKbc1GSLQ4gc6tRA==
-X-Gm-Gg: AZFdTZeeIQJtmqfA06HRwVLkv1aHPtybdmcvELLp+dht+jJdd2dtki+Ixp1eH0kgN7Z
-	063Ltc2ucSL9qRdq2u+Rl4neqlZAZZemcoK69UXR9EClwnN35Cd19NQunO6dcuo9RYU0PwhH60o
-	KsKJkh1+UQ/4E87VRa87F533K3RYWo6WhFM6Hw60UBj7qPBAK53B+yOcAtepjpkkguu9r9+OkF4
-	qDefROC6WyQw0zd11G7t0zrSZr+8JPpoYOg4O5Ql2kO5wXC2y2fkf1EV5V3tsejD4QmW8he9p73
-	HlCL/5yWbpuvWK4797jQiaFxQ0EM5sO6UUqeQpXc03aLXwStjz7haMLXXAPKTQijx2F4iRXWCZI
-	ztkCSGjndCBGKjUYZWuqqlMaMEbs3+wocDA9eQ2MlYltTeSoYyPdmsX7KQGjJJzrqw39f7zjiD1
-	+w8XO6mwNwA0JtXo7bh7aMTmvqCH5bjyfYxFZyvaUvEUOYnNC5PcjwT9VwjnLVrAAa3vF7lGAgt
-	AHBUlSx56/q76+V/t5I5IF6mjbxD94HMZknd/KT1APZ62hppOYZapmtPb4Lp2BzYRNw9z3RB49d
-	kp6H1UEOr4hiqVxsSDygNkm6eu1TpWnqg9X6MHbIfwOzuMe/rA22euK6IiSyknjui3V89O1S64J
-	tFYun9SQURfW/sLg=
-X-Received: by 2002:a05:693c:6395:20b0:375:6fed:8e71 with SMTP id 5a478bee46e88-384b3986edamr15452668eec.7.1795505587840;
-        Mon, 23 Nov 2026 23:33:07 -0800 (PST)
-Received: from google.com ([2a00:79e0:2031:6:d159:d585:9ced:38ba])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38567cafec4sm48387343eec.26.2026.11.23.23.33.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 23:33:07 -0800 (PST)
-Date: Tue, 24 Nov 2026 16:33:04 +0900
-From: Sergey Senozhatsky <senozhatsky@chromium.org>
-To: Xueyuan Chen <xueyuan.chen21@gmail.com>
-Cc: Eric Biggers <ebiggers@kernel.org>, Minchan Kim <minchan@kernel.org>, 
-	Sergey Senozhatsky <senozhatsky@chromium.org>, Jens Axboe <axboe@kernel.dk>, linux-kernel@vger.kernel.org, 
-	linux-block@vger.kernel.org
-Subject: Re: [PATCH RFC 0/3] zram: avoid copying spanning LZ4 objects before
- decompression
-Message-ID: <awU9ZqH74dletoXh@google.com>
-References: <20261122-zram-split-decomp-mm-rfc-v1-0-4e69b08c0fed@gmail.com>
- <20261121201511.GG1975@quark>
- <179550336970.2385422.4070914679921452831.b4-reply@b4>
+	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=IReWqivt
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=gq87rGVVD4KSpSFWL7D6d3e24UEKtH1rPNqBfJ2s+4Q=;
+	b=IReWqivtOsblcN+tXM/8b+ODJiGrLJge40Zj53rVyoXBu732GcajweLdUfVu6XElEMAIEa6T0
+	bzq4GYAmSbeufVRem9hKBtjgD0jbcvXBmmHP/3k8UCuSRd8FCfqDrG2jwrACcWUkH7QgVUFHMGI
+	/FsvAk2OGug5dfXjXNqerA8=
+Received: from mail.maildlp.com (unknown [172.19.163.214])
+	by canpmsgout10.his.huawei.com (SkyGuard) with ESMTPS id 4jYZKj4QBmz1K96m;
+	Tue, 24 Nov 2026 15:33:13 +0800 (CST)
+Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
+	by mail.maildlp.com (Postfix) with ESMTPS id E704C4056C;
+	Tue, 24 Nov 2026 15:33:30 +0800 (CST)
+Received: from [10.67.110.68] (10.67.110.68) by kwepemk200008.china.huawei.com
+ (7.202.194.74) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Tue, 24 Nov
+ 2026 15:33:30 +0800
+Message-ID: <5e4d8f95-ae3f-4143-a90e-c3ef51127230@huawei.com>
+Date: Tue, 24 Nov 2026 15:33:29 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,46 +62,57 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] resctrl: mpam: Fix potential per-CPU data leak on probe
+ failure
+To: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>, James Morse
+	<james.morse@arm.com>, Ben Horgan <ben.horgan@arm.com>, Reinette Chatre
+	<reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<stable@vger.kernel.org>
+References: <20261120173519.3923924-1-liguangshuo@mail.sdu.edu.cn>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <20261120173519.3923924-1-liguangshuo@mail.sdu.edu.cn>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <179550336970.2385422.4070914679921452831.b4-reply@b4>
+X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
+ kwepemk200008.china.huawei.com (7.202.194.74)
 
-On (26/11/24 14:56), Xueyuan Chen wrote:
-> > LZ4_decompress_safe_split() isn't actually very well optimized.  While
-> > it avoids the copy of the source data into a contiguous buffer, it
-> > copies every match and literal run with a variable-length memcpy(),
-> > which on most data is a very slow way to implement LZ decompression.
-> > 
-> > I suspect it looked good on your synthetic benchmark (pseudorandom data
-> > followed by 0's) only because that tended to generate 1 very long
-> > literal run and 1 very long match.  Whereas normal data would have lots
-> > of interleaved literal runs and matches of much shorter lengths where an
-> > external memcpy() call does very poorly; that is why the existing LZ4
-> > decompression code does not do it that way.
-> > 
-> > To some extent the literal run and match copy performance is fixable
-> > with a better implementation.  However, having to handle two different
-> > source buffers still introduces overhead that cannot go away.
-> > 
-> > So I feel this approach is probably not worth it.  If you'd like to
-> > continue to explore it, it would need to be tested on different data and
-> > would need to be properly optimized.
-> > 
-> > - Eric
-> > 
-> Hi Eric,
-> 
-> I reran the benchmark on arm64 with pages from an Android phone's
-> zram export. Optimizing short match copies cut cycles per spanning
-> read by 22–27% compared with the RFC decoder.
-> 
-> I also tried restoring the LZ4 short-sequence fast path within each
-> input fragment. That version was still slower than the existing
-> copy-and-decompress path in all 28 paired runs. Swap-in took about
-> 6.6–6.8% longer with one worker and 3.8% longer with eight workers.
-> 
-> I'll drop this RFC. Thanks for pointing me toward the short-copy
-> overhead and the workload issue.
 
-Oh, I see, thanks for the update.
+
+在 2026/11/21 1:35, Guangshuo Li 写道:
+> The PPI device IDs are allocated separately from the MSC. If subsequent
+> resource discovery fails, probe destroys the MSC without freeing its
+> per-CPU allocation.
+> 
+> Use devm_alloc_percpu() so the device releases the allocation when probe
+> fails. Its cleanup remains valid even if the MSC is freed beforehand.
+> 
+> This issue was found by our static analysis tool under development.
+
+Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
+
+> 
+> Fixes: 49aa621c4dca ("arm_mpam: Register and enable IRQs")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
+> ---
+>  drivers/resctrl/mpam_devices.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+> index c067b6d57d71..3e89f9183041 100644
+> --- a/drivers/resctrl/mpam_devices.c
+> +++ b/drivers/resctrl/mpam_devices.c
+> @@ -2351,7 +2351,7 @@ static int __setup_ppi(struct mpam_msc *msc)
+>  {
+>  	int cpu;
+>  
+> -	msc->error_dev_id = alloc_percpu(struct mpam_msc *);
+> +	msc->error_dev_id = devm_alloc_percpu(&msc->pdev->dev, struct mpam_msc *);
+>  	if (!msc->error_dev_id)
+>  		return -ENOMEM;
+>  
+> 
+> base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+
