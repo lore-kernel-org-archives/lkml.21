@@ -1,78 +1,104 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=80.241.56.171
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795554719;
-	b=yRXTsB4IJKdFaSrD/+35NSEXOQ3+/UXRdonGw5Cp8zTrtKaFffXj45YCGw/Mg1YNFIRM
-	 0J7ujS9Yv9VbeYrykAIMxWU8yexN1T80wNcYB7rNl7gjRolt6zVP5OYgZ0T18u/t88Gu4
-	 eoKviz9D4cEP+6Tr3HpUg2L0EdEZ9Nhvw0QOVKyW928kX48UUBww0sCowRnbrJxyHOZ5X
-	 D2zeuUZSvN7G+go3cxd5KllurZuAOSaS+G/ASdIiBVfhglgPWOWGHENpiBcv+J3qVOUpQ
-	 qyB4uWOsXUWZH0CqMxfWMIQE3a6i3GN5BIsHnUIiCDQPVx9fXjb4A9ODCU9rTugcapQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795554719;
-	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-MBO-RS-ID:X-MBO-RS-META;
-	bh=uLXRnIBT9Cz7nleA3d/y84tKsqUOLljvF1aGeuz0Kt8=;
-	b=x3CU1pHcoFkW0q1vHUn65fCkaZ30IOZ0RsJA5Mtq8TASOVC3yD+RHmDRrI64RefL4hS/
-	 ZrtZg/Fd6sWV44Rfr8ibN/ucMKv9B2C9XOqNQj1gZcYHgzuzIJvtdJVy0/9bbO3l6ua+2
-	 Z2xer2Ns0BU8qxH7lm6ZbfQj0m3nk1Ic6ra7aR3qt/BiHfGeHm/sci9JPTKYu0uuOlWxW
-	 QHzJBzLbf5m6vjYeT3oT/whI1wVb+VyMYOowW4KTlQdpGKMcQk3ZqNuIEVEFEROYzEa7U
-	 F3Zb4Zuu+xNyO7rOPoy2q9fBz3rprDJJmfP4CvCXZm3ci/fk13Phjr/GAuaQqstQC/g==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=mailbox.org;
-	spf=pass smtp.mailfrom=mailbox.org;
-	dkim=pass header.d=mailbox.org header.i=@mailbox.org header.a=rsa-sha256 header.s=mail20150812 header.b=ZPahEWbY;
-	arc=none smtp.remote-ip=80.241.56.171
-Received: from mout-p-201.mailbox.org (mout-p-201.mailbox.org [80.241.56.171])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.61.53
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795554743;
+	b=X0pm91we/QCugKV/yEjqfy46D268c7j97e29JX0THHcu+wnh6VLqYawim40HiWfFcayK
+	 +YHa0mafT63An+GLfofBHOHzD0rHGbUI68IPjaAmtveFraGtqJvQiT3XmVzEaBDJgao3B
+	 +0qZT9iFjkKtUhvCn4mLphE9MBPhgE/HYQKSimbCeRhFGyOAXtyftbbHkFF4NtFCIDs/v
+	 xiRQEZ1UxaTNUe5UqPOhigozCtiNStsTocPkO0d1OiW3Pu2kPYWuGxMCijI/E3VOVCfH9
+	 TYaYNpCD2mFGssz4AlRusIoJnLOUkegUPOAEmD2habr50KjKndG1fn9RG9qUf56rGMg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795554743;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:Content-Transfer-Encoding:Content-Type:
+	 X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=UXPZzRd65PuUqkEnfaUg4mJbz5uQiXFHRvy/e7CdfDM=;
+	b=3PyF5vL4CPXUPkufIsqMX4GO/YHIEYcw1Yr5hkWIQ0FLowDO6rYtKAsGJnncE5BQsO5M
+	 2+w5D8LPSOiMgsjhsyy2ltZT9i3XLa1W/JnEF62jggQFSREd8YKuGMVZgSGNoHRrV+QqO
+	 Y2I7iQwa0G9ydiVwTVIOfmGtAiZ3JJuAUjHqOu22n4pQYszJDgSvggfbjkl5Xl9z3mqGw
+	 0ul1tkf19rAOeGo86riKP4O6Aa545PCC9J2vCy2gkS1TtUz3W08BzHQqf8QW0TblnWdKD
+	 yZEZ5sBGN5M9dthedRtWv+HYyfgppzDnypHE3Jjy3hH4lQdzNKC5eU2lC2t6TfcN1Kg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=dh1FqUWd;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.61.53
+Received: from DM1PR04CU001.outbound.protection.outlook.com (mail-centralusazon11010053.outbound.protection.outlook.com [52.101.61.53])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8C462606A31E;
-	Tue, 24 Nov 2026 21:11:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8C462606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=mailbox.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mailbox.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B396C606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 21:12:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B396C606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=mailbox.org header.i=@mailbox.org header.a=rsa-sha256 header.s=mail20150812 header.b=ZPahEWbY
-Received: from smtp1.mailbox.org (smtp1.mailbox.org [IPv6:2001:67c:2050:b231:465::1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-201.mailbox.org (Postfix) with ESMTPS id 4jYwVG32MLzMlKd;
-	Tue, 24 Nov 2026 22:11:50 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1795554710;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=uLXRnIBT9Cz7nleA3d/y84tKsqUOLljvF1aGeuz0Kt8=;
-	b=ZPahEWbYEWdvTRpm5nHezyIWvKlmtyqte3xSytqMHThB8gC4uKZwuJSWb3hHQPujDldy4F
-	6NGew085UdnAZ+JugEpYg3yeej5uPLzpY1TRXWPZYaq6X1VGH8hq4KrrJM4I3kOxQbqxMi
-	mBMSt8hq246PBiBsJBjkk0eFFnfREwnXwZUS9QTbwJbAvVKs8C3uafCfVFMuksKSU4fyu+
-	63xMr4IyHmeFUmHDBiMWAPHYkXzy3S0Uct6auiONsUvyoiziiqEHQE58XVkUGmZZg4JT94
-	2CJqzWn2c2bLU7gD9zWCjiVmvdZilXMcWT4a7cVbQ1uJyd9fYREgAWIQvcLRfw==
-From: Oancea Catalin <john3@mailbox.org>
-To: Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>
-Cc: Kan Liang <kan.liang@linux.intel.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	James Clark <james.clark@linaro.org>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	linux-perf-users@vger.kernel.org,
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=dh1FqUWd
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=WdjtER6TREl1pXNdAC3qcy3ERxYJeYu/na9g5rgXaM5k90UNglWPstTUl+qmMkl0oqnCG6OU6zqe6gE7ZKrYPunLEiUWtT8fuqo6B+VJj6lVXjereYbt+O8+WyMDtuHaOzkGBrAexF8q4oNw2OMiz2QkFXAZ102O6XNbOhJTE9JLDznaE/2SLyP57vu38F3Bt1oRuAM41d0F/5G285mJ0mNOoHFO4tPTt6WNvzCyab9Tw3NeNHeH9yDsE5dtCRRoYLaAkVFkBn3U0b9NPnQmBx2M0lHa8jQVBjNTvQCUUiIfUSEliUFP4l39RhsMQASM7OItq0niMffl6rNVWE13pg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=UXPZzRd65PuUqkEnfaUg4mJbz5uQiXFHRvy/e7CdfDM=;
+ b=V1Z0w5Lw5xTP0+9vYTEusi5SIkmFkLPO59du5fdjA460FgkkLG3dySmCOTP8S2iahyCL0qVMt/yVPSoTx5UOfln/zShPapMLA2X9LOdzQGMwpwslrZmes4WNvoWX646/QZVRGbRxm8ZY3e/5ovSXp01KUiF+JGtQCINZiVIyAH+2BGoQc1rr3MXbXABZ4m+3lbdxx0dLqVs+rVUKs5fjJz5W6+lJLiZmoCjHnplD1B7RhVTCMpJEp1h0VgMbZs3XzGuezZA8jpB9shETjW7G1keaLV0/emcymGU0GRl6xfsb5eVKp2/tKh5T/Qghv+pKM5MufGYZ37GHWjRSbWrr2w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=UXPZzRd65PuUqkEnfaUg4mJbz5uQiXFHRvy/e7CdfDM=;
+ b=dh1FqUWd6kRVYhLU7YhrLMwHhRVu153sKRBUYET6dpyZJM2B3LGtdZMaQ8iLSUQ2KQYCe5clZBOMQuMNr+rVi675sB4f7sjyr77P9iqyUxnE0dpHkZ2QHQHsaf+vIW7yxIkSuoXpk6WegMxC4NVCcqbUzJ7RUWthRmHYPA5ZXRuFY1h1ZmAkqvAhRinfFVeXGSVkpkMHnilbbFEfdGVFK/CRPZxSo2sQa60lcHWWqKSgZYVLzshcPGuxOQ5DtH39dufmn/fFMMPjt/HdEBXwnlY014/mHhNGcYfZLCGmpoOXEyOTUOilIAM7ZET5ud94IyFKr78gsC+oF0WVhcPPUQ==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DM4PR12MB5390.namprd12.prod.outlook.com (2603:10b6:5:389::15)
+ by IA4PR12MB015138.namprd12.prod.outlook.com (2603:10b6:207:12a::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.4; Tue, 24 Nov
+ 2026 21:12:20 +0000
+Received: from DM4PR12MB5390.namprd12.prod.outlook.com
+ ([fe80::2815:c27e:a0a:2720]) by DM4PR12MB5390.namprd12.prod.outlook.com
+ ([fe80::2815:c27e:a0a:2720%3]) with mapi id 15.21.0662.001; Tue, 24 Nov 2026
+ 21:12:20 +0000
+From: Nathan Chen <nathanc@nvidia.com>
+To: linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH] perf/x86/amd/core: Handle overflows of counters stopped by a throttle
-Date: Tue, 24 Nov 2026 23:11:46 +0200
-Message-ID: <20261124211146.61378-1-john3@mailbox.org>
-X-Mailer: git-send-email 2.56.1
+Cc: Mark Rutland <mark.rutland@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Fuad Tabba <fuad.tabba@linux.dev>,
+	Oliver Upton <oupton@kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Tom Matthias <tmatthias@nvidia.com>,
+	Shameer Kolothum Thodi <skolothumtho@nvidia.com>,
+	Jason Gunthorpe <jgg@nvidia.com>,
+	Julian Miller <julianmiller@nvidia.com>
+Subject: [RFC PATCH 0/6] KVM: arm64: nv: Grow the shadow S2 MMU pool on demand
+Date: Tue, 24 Nov 2026 13:12:12 -0800
+Message-ID: <20261124211218.2751086-1-nathanc@nvidia.com>
+X-Mailer: git-send-email 2.43.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: MW4PR02CA0005.namprd02.prod.outlook.com
+ (2603:10b6:303:16d::14) To DM4PR12MB5390.namprd12.prod.outlook.com
+ (2603:10b6:5:389::15)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,209 +108,146 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-MBO-RS-ID: dd2b0bdb214adc26a17
-X-MBO-RS-META: sb34jjxorsi4wzsu3ao8uiji41e6dt4a
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM4PR12MB5390:EE_|IA4PR12MB015138:EE_
+X-MS-Office365-Filtering-Correlation-Id: 71479670-d0fb-4a96-16d1-08df4a6fa022
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|7416014|366016|376014|23010399003|1800799024|10067099003|261022105027099003|11063799006|5023799004|56012099006|261021121427099003|261022075727099003|261021123027099003|261026121527099003|261028144727099003|261026140227099003|261102123227099003|261009223027099003|18002099003;
+X-Microsoft-Antispam-Message-Info:
+	bvCA3/x3qy0L8SsCgt0QDH6YFYAZKwkBXA8j68gkdmUE8b9xqgqP2b4HpBxq271n4/nGBWePsigH2HXqeaCs/1DlsF1Pt8DTDUEqyHuDyRqFuntbFqupfk4kfsjLesxLvmykT5DnBTqPn6GHjecjQlnP1ctjzTwxLPXmfimrR6tzwd/rIjMo7k+0O68KT460zTXKgncT4uVBjdOIYoGHKQw+wp65+JyBxAKg6GIkA1Fmtm2PZsHDi+Ls/BUjZsYgjBqDKa55dy0o/Y8taSRpcLUOCH3tEimCoVlVHsS5O3TJKk6ScctYFU5A8kEczuYr8gA9tkZK3+R+hV5gdmMIve/7sLoMmKDuU/CXcLHMm77fXx0PwUk4rPAMsVHtQ+4g/2HTBAXXxYkKhQEPoYuN5yTPOj8Sfyqeo0RaXifU6xehEUoIOiyWseXvq/dmmNlx6nGr3cxxzUiN4kUjGogYk/wThxlTow2YKnfispyFtysUUqnjMtSo7er8HXFcU9oKFgDk6ImbgX0U4URDFZgaldssX/WQWWrBZ0f1m3QoZxO1x+sibim4DB3arOfO66tKs0lM/i7ZtxFh77MIUFWhQKTrl4OQT5CNOsSsTyo7kOvdWUmL0DQEMVALblsdeC2rUPoT2Ar+GTkK0CQFtQ3YAGpdJRnDrqlKaaD1YoL/yWM=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR12MB5390.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(366016)(376014)(23010399003)(1800799024)(10067099003)(261022105027099003)(11063799006)(5023799004)(56012099006)(261021121427099003)(261022075727099003)(261021123027099003)(261026121527099003)(261028144727099003)(261026140227099003)(261102123227099003)(261009223027099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?r/S/aYxTJXskIe9cHupK2I9UVU1mt96ouRZkR2FVL8B4d+IvdiXIJN5eOlPM?=
+ =?us-ascii?Q?rNySz4s8+F96pAEC4fQ7U65eF6DVZAqsrr57pN98+w/4xA/DFmKbT66Dear+?=
+ =?us-ascii?Q?N8amn+KQgG16hoZS3n3zE4lQQVVF33+zrBwNWuSQEPjc3Ivtu5OICMr9iWwj?=
+ =?us-ascii?Q?VH6DeYTJWzrwKIKDwWSr32rQo6PYlsHBjYFT2iefej0p1IL5IRNvg2g1fLwD?=
+ =?us-ascii?Q?QfMQLA8stZH4wFJkF03IIWCDtsivqg046AxVcYuWFsw1tJxOq8ZfbLBSFk6E?=
+ =?us-ascii?Q?TrUWALKNEq+Ac8YgwippePJ64O3dzH/bzRa8VZr5yF88ynH+Fgn+USyZQRzG?=
+ =?us-ascii?Q?j1+6jWLlCtMxrYj0uUCUqlE05p8JWmvgKdFyLXzpJG6Uf3tXOTBX3+mggfLa?=
+ =?us-ascii?Q?wuKZE21jOKjFnsTw/MRqMlQyc/EnqIdqa9L2Jpux+EctlYfLvPsCGzKcpjX/?=
+ =?us-ascii?Q?bgPMTl2XvCn7ktrQJeRrEBcHSD9rFbOjJO477XtrUHPHRshrs4RTdECIb+/z?=
+ =?us-ascii?Q?OQDliKp651PWKgzycEP/V08SMfMgbGFA4olPAyajjTT216p7bWIV65KEjCjb?=
+ =?us-ascii?Q?y5nZaWCKdZmHhy6yYh9V41KDqTU0k7yhksbtrctoBesJXjvPv8m2g0xUDhPG?=
+ =?us-ascii?Q?RwzCgjUvDajDBJ2TkZsrGNcc/BRUu7rNmr+htHzj6xygmmyXCSfqaxGN3VEk?=
+ =?us-ascii?Q?bcs7SWeUaFISaAB0uQnifj67T0iGEoDOSfBMmX89sfpXp5OjM44CfOLw+89t?=
+ =?us-ascii?Q?/FOju3PgAaQQX+sp1Fy3tuZquerttFqnB2PjTC4WV9PyX2REwzqOykj76qYi?=
+ =?us-ascii?Q?2c7p2QDBmqWuctluPPsfufIUvrYuUq90AoO4FXS7NSzTWoDIQ9O0OwOLzfOl?=
+ =?us-ascii?Q?gyvxo6qEddZKuO9H3kwBkBMkqHRNrDwN8Nr8g1i2MNm4EN58MMAWpHryAJT0?=
+ =?us-ascii?Q?OLYDO/zk0BlB/aA+/22+4/8Adt5PYWDSyuDYxiMTVGWM6UKtPq20fMH3jkf3?=
+ =?us-ascii?Q?4DDGrX+BmHWU/GRUijpaYpuBAIupdWLX9qvcoln9wrAb1T+mLvlcYiKaVUOk?=
+ =?us-ascii?Q?GPezvowSWkoQU9Ncd9WLZUACcSsDm1BxhyibtMP0DlEXrclV+q1yCUkmh/s4?=
+ =?us-ascii?Q?V61IKexKKG+uMuxk3CR8OfUObeseZBMWFll0XyJeaLGA8bt1C0+fKFNUPeEj?=
+ =?us-ascii?Q?H+ibLlzsCbXZmu/z15ypwT6bRzK1MBf2WHfxFmctY59gQgWioCNuvJH+Pdbb?=
+ =?us-ascii?Q?09uBpDuCsfdDQyffBg5sG7+96K+c1M7IeT/Pw4LJ8hmLMnf7flq2GWtUWNqk?=
+ =?us-ascii?Q?B2KoSovPDitMEUwBxx3GasqKgu1aI1/BtZQNaBZb9CAJFFLRUQewUpGVyJPX?=
+ =?us-ascii?Q?U1NMXOJLI5e3DOXtOKi/MF0RLuZ/rCG7tUNgVvH+eQdhnyV9o+V+tPvsqeTZ?=
+ =?us-ascii?Q?ZV29420t2HvKxzZO3g+SxQ+tS6d4XydtouQlaxHf6UoqXrMdDqHwCNAfxswo?=
+ =?us-ascii?Q?ts/4syswCri32bTAUGnlBj4Xr0r0rqFxS0ZSk5sBTcd6KAl3eEW9W65mvzIT?=
+ =?us-ascii?Q?9nJTga8McyOBdOay3HP/DgzpXy3SSM8pqZK6O+L+RbNb6hCEujWk5AiLuiD/?=
+ =?us-ascii?Q?uVzJdktA/TPRdbnNubwil5HOIUS8ahPwP3vZcxRRhKlBljNQ9sUzlS/60Csk?=
+ =?us-ascii?Q?nVwfRU3qb/TR5z3t0J8vONCDJksc8uJnd99PXuLFG1JFu8NhBRpe4e9I3M7x?=
+ =?us-ascii?Q?BgyMMhV18A=3D=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 71479670-d0fb-4a96-16d1-08df4a6fa022
+X-MS-Exchange-CrossTenant-AuthSource: DM4PR12MB5390.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 21:12:20.0119
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: k+HwaMA3KBI5RPOAVkTp6L74BnHMT9MXnoQFp2jcjlk0ND7wIsXaldfaa8q4N5OxqCIXrvPargv0aNJnfl/YSA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA4PR12MB015138
 
-amd_pmu_v2_handle_irq() reads PerfCntrGlobalStatus once, handles the
-overflows of the counters which are set in cpuc->active_mask and warns
-about every status bit which is left over:
+A nested-capable VM gets 2 shadow stage-2 MMUs per vcpu. Once the guest
+hypervisor runs more nested VMs than that, nearly every nested context
+switch recycles a live MMU and spikes host CPU usage.
 
-  New overflows for inactive PMCs: 2
-  WARNING: arch/x86/events/amd/core.c:1031 at amd_pmu_v2_handle_irq+0x86e/0x9a0
-  Call Trace:
-   perf_event_nmi_handler
-   nmi_handle
-   default_do_nmi
-   exc_nmi
+This series lets KVM grow the shadow MMU pool on demand when the pool
+is too small, up to a host-wide VMID budget. It also parks grown MMUs
+on a guest TLBI ALLE1 and when a guest range invalidation leaves them
+empty, in order to return unused capacity.
 
-Throttling stops the whole event group, so perf_event_overflow() can
-stop counters which the loop has not reached yet. When both events of a
-group overflow in the same NMI and the first one is throttled:
+Testing on a 16-bit VMID, 4K pages host with 64-vCPU L1 and idle
+2-vCPU Firecracker L2s:
 
-  amd_pmu_v2_handle_irq()
-    status = 0x3
-    counter 0: x86_perf_event_set_period()
-               perf_event_overflow()
-                 perf_event_throttle_group()
-                   x86_pmu_stop(leader)    clears active_mask bit 0
-                   x86_pmu_stop(sibling)   clears active_mask bit 1
-    counter 1: not in active_mask, skipped
-    status = 0x2                           warning
+- Ramping to 300 L2s grew the pool 128 -> 192 -> 256 -> 320, with no
+  host CPU usage spike observed and no VMID TLB flushes.
 
-The overflow of the sibling is not handled. Its period is not set up
-again and its status bit stays set, because only the handled bits are
-acknowledged.
+- Dropping to 20 L2s and forcing an ALLE1 (an L1 VMID rollover from
+  churning ~66K VMs) parked all grown MMUs and returned the budget.
+  Ramping back to 300 reactivated them without allocating, with no
+  host CPU usage spike observed.
 
-An unprivileged task can trigger this with perf_event_paranoid at its
-default of 2: open a group of two sampling events with short periods
-(raw event 0x76, exclude_kernel, sample_period 20000 and 20011) on the
-task itself and spin in user space. With six such tasks the warning
-shows up within seconds.
+- VM teardown returned the budget, with no warnings in dmesg.
 
-Take a copy of active_mask before the loop and walk the counters which
-were active on entry. For a counter which was stopped in the meantime,
-update the count, clear the status bit and set up the next period as
-before, but do not deliver a sample, as the event is throttled.
+Testing with 14 L2s on a 4-vCPU L1 with 6 L2 guests powered off or
+rebooted:
 
-Observed on v7.4-rc4-162-g8d7fe9885c62 in a KVM guest (virtual
-PerfMonV2 PMU, KASAN and lockdep enabled), not on bare metal. An MSR
-trace of the guest shows the sequence above: status 0x3, a write to
-counter 0, both event selects disabled, no write to counter 1. With
-this change the trace shows counter 1 being written after the two
-disables, and the warning did not trigger in six runs from fresh boots.
+- Firecracker unmaps guest memory before exiting, and L1 issues a TLBI
+  RIPAS2E1IS over all of the L2's memory, leaving its shadow MMU empty.
+  Patch 6 parked 5 of the 6 MMUs, and the remaining L2 had an MMU from
+  the initial pool which should never be parked. This is reclaim on
+  range invalidation, not on L2 shutdown, as a range invalidation
+  doesn't necessarily mean the nested VM is gone.
 
-The problem was found with syzkaller. The reproducer, the analysis and
-this patch were produced with an AI coding assistant (Claude Code,
-model Claude Mythos 5.2).
+Known limitations:
 
-Fixes: 9734e25fbf5a ("perf: Fix the throttle logic for a group")
-Signed-off-by: Oancea Catalin <john3@mailbox.org>
-Cc: stable@vger.kernel.org
----
-Notes for reviewers, not for the changelog:
+- ALLE1 parking can't tell live idle nested VMs from dead ones. After
+  an ALLE1, the remaining L2s found their MMUs parked, and each of
+  their vcpus recycled an initial MMU that was empty but still valid,
+  doing a whole-IPA unmap. Serialised on mmu_lock, these made L1 spike
+  host CPU usage for a brief period. Skipping the unmap of an
+  already empty victim would avoid this, but changes the recycle path
+  and is left out of this RFC.
 
-Testing was done only in a KVM guest (-cpu host on a Ryzen 9 7945HX host
-running 6.12.107, so KVM's virtual PMU), with KASAN, lockdep and HZ=1000.
-I have not run this on bare metal or on a non-debug kernel, where the NMI
-is much faster and throttling harder to reach.
+- On SIGTERM or SIGKILL, L1 issues no TLBI naming the L2's VMID, while
+  it runs or as it is torn down. The leftover MMUs are then only parked
+  on an ALLE1, which a Linux guest hypervisor only issues on its own
+  VMID rollover.
 
-Without the patch the reproducer below triggered the warning on 4 of 4
-fresh boots as root, 2 of 2 as uid 65534 and 1 of 1 as uid 65534 in a user
-namespace. With the patch: 0 of 6 fresh boots (3 root, 2 uid 65534, 1 user
-namespace), 90 seconds each, no other warning. In a 20 second MSR trace of
-one CPU with the patch, the sequence "status 0x3, counter 0 written, both
-event selects disabled, counter 1 written" occurred about 2100 times.
+For SIGTERM and SIGKILL, an alternative I prototyped is a periodic scan
+that parks grown MMUs no vcpu used since the previous scan. With a 10s
+period, it returned a dead nested VM's budget without taking
+MMUs from live idle ones.
+However, the scan has to unmap what it parks: after dropping from 300 to
+20 L2s, MMU mapping took some time and could delay the vcpus of a busy
+L1.
 
-Not verified: that the counts and samples of the sibling are right after
-it is unthrottled. The second counter of the guest counted unreliably even
-without sampling, which I attribute to the host's counters being shared
-with other VMs, so I could not measure it.
+Is parking on ALLE1 and range invalidation good enough to start with,
+or would you prefer a periodic scan or another signal for nested VMs
+whose VMM is killed?
 
-Not looked at: x86_pmu_handle_irq() and the Intel handler also skip
-counters which are no longer in active_mask. They do not warn, but an
-overflow of a sibling stopped by a group throttle would not have its
-period set up again there either, if I read them correctly.
+This series was developed with AI assistance (Anthropic Claude, through
+Cursor). It was used for design trade-offs, testing, and adversarial
+review of feedback received. I ran the tests on hardware, have reviewed
+every change, and take full DCO responsibility for the series.
 
-The Fixes: commit was checked by test: with the same config and
-reproducer, 9734e25fbf5a warns (2 of 2 fresh boots) and its parent
-ca559503b89c does not (0 of 3, 90 seconds each). 9734e25fbf5a is in v6.16
-and later. I did not test the stable trees.
+A branch can be found here with the series applied: 
+https://github.com/NathanChenNVIDIA/linux/tree/rfc_alle1_nested_s2_mmu_pool_dynamic_budgeted_kvmarmnext
 
-The kernel .config is the syzkaller one I fuzz with; I can send it.
+Nathan Chen (6):
+  KVM: arm64: nv: Allocate shadow S2 MMUs in blocks
+  KVM: arm64: nv: Pick the shadow S2 MMU to recycle with a clock
+  KVM: arm64: Add kvm_arm_vmid_nr_usable()
+  KVM: arm64: nv: Grow the shadow S2 MMU pool on demand
+  KVM: arm64: nv: Park grown MMUs on ALLE1 and reactivate them on demand
+  KVM: arm64: nv: Park shadow S2 MMUs emptied by a guest range
+    invalidation
 
----- repro.c ----
-// Reproducer for "WARNING in amd_pmu_v2_handle_irq" (New overflows for inactive PMCs).
-// Reduced from a program found by syzkaller.
-//
-// Each worker opens a group of two hardware sampling events on its own task,
-// both with a short fixed period, enables them and burns CPU in user space
-// for a moment, then exits. NPROC workers do this in a loop.
-//
-// Build: gcc -O2 -static -o repro repro.c        Run: ./repro   (stop with ^C)
-#define _GNU_SOURCE
-#include <linux/perf_event.h>
-#include <string.h>
-#include <sys/prctl.h>
-#include <sys/syscall.h>
-#include <sys/wait.h>
-#include <unistd.h>
+ arch/arm64/include/asm/kvm_host.h   |  25 +-
+ arch/arm64/include/asm/kvm_nested.h |   2 +
+ arch/arm64/kvm/nested.c             | 350 ++++++++++++++++++++++++----
+ arch/arm64/kvm/sys_regs.c           |   9 +
+ arch/arm64/kvm/vmid.c               |  12 +
+ 5 files changed, 356 insertions(+), 42 deletions(-)
 
-#define NPROC 6
 
-static int ev(unsigned long long config, unsigned long long period, int group)
-{
-	struct perf_event_attr a;
-
-	memset(&a, 0, sizeof(a));
-	a.type = PERF_TYPE_RAW;		/* CPU hardware counter */
-	a.size = sizeof(a);
-	a.config = config;
-	a.sample_period = period;	/* short fixed period: many interrupts per tick */
-	a.sample_type = PERF_SAMPLE_IP;
-	a.disabled = 1;
-	a.exclude_kernel = 1;		/* what an unprivileged user may ask for */
-	return syscall(SYS_perf_event_open, &a, 0 /* this task */, -1 /* any CPU */, group, 0);
-}
-
-static void once(void)
-{
-	volatile unsigned long n;
-	int leader = ev(0x76, 20000, -1);	/* 0x76: CPU cycles */
-
-	ev(0x76, 20011, leader);
-	prctl(PR_TASK_PERF_EVENTS_ENABLE, 0, 0, 0, 0);
-	for (n = 0; n < 30000000; n++)
-		;
-}
-
-int main(void)
-{
-	int i;
-
-	for (i = 0; i < NPROC; i++) {
-		if (fork())
-			continue;
-		for (;;) {
-			pid_t p = fork();
-
-			if (p == 0) {
-				once();
-				_exit(0);
-			}
-			waitpid(p, NULL, 0);
-		}
-	}
-	pause();
-	return 0;
-}
----- end of repro.c ----
-
- arch/x86/events/amd/core.c | 14 +++++++++++++-
- 1 file changed, 13 insertions(+), 1 deletion(-)
-
-diff --git a/arch/x86/events/amd/core.c b/arch/x86/events/amd/core.c
-index 49b6b8fce566..8d3781816418 100644
---- a/arch/x86/events/amd/core.c
-+++ b/arch/x86/events/amd/core.c
-@@ -958,6 +958,7 @@ static int amd_pmu_v2_handle_irq(struct pt_regs *regs)
- 	struct cpu_hw_events *cpuc = this_cpu_ptr(&cpu_hw_events);
- 	static atomic64_t status_warned = ATOMIC64_INIT(0);
- 	u64 reserved, status, mask, new_bits, prev_bits;
-+	DECLARE_BITMAP(active, X86_PMC_IDX_MAX);
- 	struct perf_sample_data data;
- 	struct hw_perf_event *hwc;
- 	struct perf_event *event;
-@@ -994,8 +995,15 @@ static int amd_pmu_v2_handle_irq(struct pt_regs *regs)
- 	/* Clear any reserved bits set by buggy microcode */
- 	status &= amd_pmu_global_cntr_mask;
- 
-+	/*
-+	 * perf_event_overflow() can throttle and thereby stop the whole group.
-+	 * Walk the counters which are active now, so that a pending overflow
-+	 * of a sibling stopped that way is still consumed.
-+	 */
-+	bitmap_copy(active, cpuc->active_mask, X86_PMC_IDX_MAX);
-+
- 	for_each_set_bit(idx, x86_pmu.cntr_mask, X86_PMC_IDX_MAX) {
--		if (!test_bit(idx, cpuc->active_mask))
-+		if (!test_bit(idx, active))
- 			continue;
- 
- 		event = cpuc->events[idx];
-@@ -1014,6 +1022,10 @@ static int amd_pmu_v2_handle_irq(struct pt_regs *regs)
- 		if (!x86_perf_event_set_period(event))
- 			continue;
- 
-+		/* Stopped by a group throttle in an earlier iteration */
-+		if (!test_bit(idx, cpuc->active_mask))
-+			continue;
-+
- 		perf_sample_save_brstack(&data, event, &cpuc->lbr_stack, NULL);
- 
- 		perf_event_overflow(event, &data, regs);
-
-base-commit: 8d7fe9885c62fc9a95bf55d9db244d9672a8aadc
+base-commit: 263a8db21f7321d74a9258d17151b295290b5dea
 -- 
-2.56.1
+2.43.0
 
