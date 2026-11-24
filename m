@@ -1,91 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.182
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795546915;
-	b=SrhnL07vDSgpHyof48UFBoiuVTW4Y201eV495kckJpw96RLhHqrc4L+FZPGDjkeigtCA
-	 XpW2i1k0z+itifTAbgBJ9KeaLoWNkGjLNpN0PsMNFbF/uQCUNxZPRjksFu5H7QBmgqFYs
-	 8A+iRM8YCDUyYlkp1BJkwUVcekYaDnKoykhE0BVsmo8L4IEUcjfUVGzObMU1w0coWHX0W
-	 6hbPN+GYmknz5nvYWZgmzWC1kHECKM4aIbbdT4ForK65CcPRzcG1FtX54oxPtchAY1Vm2
-	 YQ5UxxUK+LEOdzz0BzBoeJChMNt3lSrGQaFI7VsvYBxJCkfRr4vesTvg7m7u/8Qz9WQ==
+	t=1795546936;
+	b=Wks4mdVCA2myEmfSWLZ8eOXZMvDahxzT2SQ2JgytI5mOVk+S88Y4ZgZ0BHimYBEOGkV2
+	 xVzC0zcgm62X1fnDXVwkTbyqY2IfUtuxnLV/vyg2WgIJOc06/iNTHWbDv6VpGDSv4lLbo
+	 Ywt/7XzDN1gDQ6QsIlLtyuped1PMYn8agGwjB9098MTHsE4rp5qRwaPVvht1BtC/Nkc3Q
+	 F+AcugHSbGXzJVy2oeLMhI82QL5Mir83qavTkQ22QCrUPmn74gXR7ao/wQe245RSZEm9U
+	 GnumG/cvPzsCagnm1ZNdh9mW2k1668wENYPsuqDaPx2gxo7snfsUgNlAxdyVR6yil+Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795546915;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
-	 Date:In-Reply-To:References:Autocrypt:Organization:Content-Type:
-	 User-Agent:MIME-Version;
-	bh=v/zeC8eyq6ykMNoigJa4vX8GQ35hbqzC3pORcHQ88dU=;
-	b=CMsPcEO8VU3FJyy0aN47g0jcQIgE+1Oog1jFtoeII5T7m35wHLxBIYl/SnzdDB4HXjBd
-	 yldPgYnD7BVdjY8KrusYaSxgmfv7hgc6gec9fENUPEviwUf2kruoIOr7NpkpBwqJjTX5F
-	 /8Hjs1CRkGNpx+15rpjDwNRUjBnDfTsgHjxFSRhvBlryFX+sqFbSKMoa26U4pg/taci6+
-	 3lHuteH7n1ixbfQRXVmlU1drXX6t2fMab2aAB7mjILXUoXw7rOxPleAdpdj3/2m27WrT9
-	 QiTDFQaeFBiXnMVD8NjgF0rNT+M333BmVdSrdYSGUYGnVdNY1Aet/uPAHqoxpzUOFLw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795546936;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Message-Id:
+	 Cc:Subject:From:To:X-Mailer:References:In-Reply-To;
+	bh=vmPlBJsxyoTZOO9g2mmGNuUfH7b/frSSah/ZWuzVmhc=;
+	b=Vg+x8aiKvruxXkR7NWxLvuCeWT78B+9KZ42MFi2QJMCewp0g1Ivapz8+tF1J1BtS93rO
+	 /wEI/jfUSkIh85lT7l9gWEfGJZn2C3ZgVfa2/kNWMB3S1oxlYND/6wx9XDh0GDyvuvipf
+	 m4/Tfua5YUYd31Izu5/e3eBHylVwEkYRR5+NSovQWwbb8tNvGJZvh3BdRsPN/xxBERm+3
+	 dyj5s7CsHS+ai+hxrKUHb68Ib3ZR6B2P+WP6DGiaCRSY2PLre0mwP0lkcmAFfk2mGgNC5
+	 XnJZZ2vkgrMhGVNi18ZARz3VnPqmS6OjLpCck8HRPJJ9b1sNk7hdmia/5o/rj+u5uyQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=collabora.com;
-	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=IawfrXj0;
-	arc=none smtp.remote-ip=148.251.105.195
-Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=W49HLn5R;
+	arc=none smtp.remote-ip=209.85.215.182
+Received: from mail-pg1-f182.google.com (mail-pg1-f182.google.com [209.85.215.182])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EC850606A31E;
-	Tue, 24 Nov 2026 19:01:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EC850606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BFBC6606A327
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 19:02:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BFBC6606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=IawfrXj0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1795546913;
-	bh=v/zeC8eyq6ykMNoigJa4vX8GQ35hbqzC3pORcHQ88dU=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=IawfrXj0A9bhAGD9kBd/giIzBNMaVyYpOJsSgqQZOkDhZt/+ALg3V0YuJAKCz5ez8
-	 KoX34MuneLaGb21dy6ynWSgyzzrwtIaPEiLTv9VkA/GBwBgRYWdTaedSMhreERe0JJ
-	 yMG6WMQBavwohYuPPyAXRUpvQvmXx0nTS6e/XkfFMsHKdSM6Kh4YumbfIkxzZyxLyT
-	 twpNCRDmAYCPr4ln3qqWmotmTJZ4wqjnRYfQPzkCJz9QKzT7YjxQ4DOPXO/KxJ7Hm/
-	 W3AdfljItE+HXhFimb73eycuAOQwccmUtao9ZiKwK+ldI8cD4kHVwJ/vTSuQx05L71
-	 dkkNbwnG0K1/w==
-Received: from [100.64.0.214] (unknown [100.64.0.214])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 89F4B17E0183;
-	Tue, 24 Nov 2026 20:01:51 +0100 (CET)
-Message-ID: <a12fc9eef54ee31cda73bc1912d44e508fb8c7b9.camel@collabora.com>
-Subject: Re: [PATCH 3/7] media: rkvdec: hevc: bound the RPS reads by the
- control size
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Daniel Golle <daniel@makrotopia.org>
-Cc: Detlev Casanova <detlev.casanova@collabora.com>, Ezequiel Garcia	
- <ezequiel@vanguardiasur.com.ar>, Mauro Carvalho Chehab
- <mchehab@kernel.org>,  Heiko Stuebner	 <heiko@sntech.de>, Alex Bee
- <knaerzche@gmail.com>, Hans Verkuil	 <hverkuil+cisco@kernel.org>, Jonas
- Karlman <jonas@kwiboo.se>, Sebastian Fricke	
- <sebastian.fricke@collabora.com>, linux-media@vger.kernel.org, 
-	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Date: Tue, 24 Nov 2026 14:01:49 -0500
-In-Reply-To: <awDWVpqEBcOGsCuu@makrotopia.org>
-References: <cover.1794645268.git.daniel@makrotopia.org>
-	 <bb9c44d0f56221874b105394169e5c377ef21b42.1794645268.git.daniel@makrotopia.org>
-	 <6ae6d1101d3f7095d11462579a5a3313153533e6.camel@collabora.com>
-	 <awDWVpqEBcOGsCuu@makrotopia.org>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-Zq1j3KpLxB33TMTKA8Is"
-User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=W49HLn5R
+Received: by mail-pg1-f182.google.com with SMTP id 41be03b00d2f7-cd69954c755so3490310a12.3
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 11:02:15 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795546935; x=1796151735; darn=vger.kernel.org;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:content-transfer-encoding:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=vmPlBJsxyoTZOO9g2mmGNuUfH7b/frSSah/ZWuzVmhc=;
+        b=W49HLn5RkMaC5OffA1iNYwWj3QcXjho4bBBEYyHJ80sMc/UPULZx0is/eDJpC2N3ib
+         U5411fK9H7EvaHNUiAzyNcMRaRfWUePxiO5nF6dXRnWQcakCLoOcwBez1qwCR6R1oIfe
+         q4c7EtVSFXNeliYrDeUDxIDrBA9ZIJuyG39lD2tcmw1MBgaf0y6E9eqLCYzDMbFPT8aQ
+         T2II96TRsePidFGcPlSyAkLQbRIPL4z8RKR0PPlfzSoiEzHTM2cY+rkptgAAFD2Cwvml
+         DpAfsAN2AKGhtv05DtjXMcA4gmT2Ub8TyWWHMBLSJzr10iAYvLD8v6nEW2UiNe6xEGzX
+         AF6Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795546935; x=1796151735;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:content-transfer-encoding:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=vmPlBJsxyoTZOO9g2mmGNuUfH7b/frSSah/ZWuzVmhc=;
+        b=dnZllYysH6SmciEps4ileD+P+9gKvpGWkLt+Hh9N2bBgFEnFxF49jXSgcf+4EwlFdj
+         t2pMvgL6mbiWYIq1/+nlDzsGTerqWENkkZkZG04RPn8wGHpHdzouCqiwzq3H7pc2sjbw
+         p7y4EqYDMByKTzy3XcFoORu9qOX/p6T2lxj4J3J+2fSbsXDNEtVTJ9LzD73iZi6wTrK8
+         Tb+JU85V/dGIxqtLRVPuV8299Yuk0j2otD4iyoPdm5ptO/h/WfWUYC5U2ULAzyGWHPMq
+         HJvvqi92aJ2cmoot458xAvlrR2oCa3HQs+yOiydQxLwTIxm+kdnoe9ZnoYcxKZKaOoOl
+         sZEg==
+X-Forwarded-Encrypted: i=1; AL+hErGzaZePzM9GnoPTcXKXwdBpJ8GOpnAqXPvdIDmcaFWW+ThX6+/jYRWfRL+nOHkiqJWVFpbmqGJjOhCAIKI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+OtbIhPMevnV0LvSxayw2aUyd8E9R+CXp1NKW/5BxTiWabI6tT
+	HYKXKazAMaOUgAV453+YTj/6B6vcJ0Ae5Gc8/553yd22pJ5cL43ePF1v2VJkVAB2fg==
+X-Gm-Gg: AZFdTZcQ0yiYBgmqj3vpdD1Rb/kc9S2iGPUK2pMcLJPwrjys1dzih0VwQnQqHxoMZPV
+	XaJboa31IUNX20bihbCGGKXVQBA46KgkTP20YZDnzpNZ2gUrUhyT2CKBvKnbbkCj9L9qDDIH8xc
+	7999JH6rBP/S6T35LMmdZUF0Tqr1JiodBB00l8WWfj+vJC4ev8C1HYUpohg2gozyDlvDI+19xTB
+	aP18Y6iMgrGrea9dqa7DjzBoyMFcvh2p/OrlcvajyG5VraTtzrULJtKwQqB9GqVRpliFQSG21fT
+	weI+2FcQDgTMU7RUSp5im8Y1ZTq76d1ZG9c9HZd/inrkubJ0xAow3sZTIoUMPvzX5xKB+MeUBxZ
+	jGe/PwBlYccrLMqJxz8NLRrqbpTNImZH0dOnXnrPFXs+N9qvHjNkdtJVh0diScAD/nCaJRhzzOP
+	TU7i8Qe9qdPO8FWO4F5lket6sF2LbkSNLdWUOIX9eS+QJYDe6ERAcDaFEhlJmjCOrQUFlxjmYPa
+	fp/++inT/aUh6UHULjHpCpjCK5/z9zRbr/08jSNWD9iofy/cbyYksMF99Qcv7lIZ7y4b1/8rU2X
+	TaDlqSho8PMUV9YP1OffLMIIy5vairVBwBBBjIPehtk07Eu5Ldrfpj5ONrXJDnD/Fg==
+X-Received: by 2002:a05:6a20:a11f:b0:3e9:f2d:d556 with SMTP id adf61e73a8af0-4014ca44d17mr16159174637.55.1795546934090;
+        Tue, 24 Nov 2026 11:02:14 -0800 (PST)
+Received: from localhost (33.79.127.34.bc.googleusercontent.com. [34.127.79.33])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde9bb05981sm2247135a12.26.2026.11.24.11.02.12
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 24 Nov 2026 11:02:13 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,40 +87,78 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-
---=-Zq1j3KpLxB33TMTKA8Is
-Content-Type: text/plain; charset="UTF-8"
+Mime-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Tue, 24 Nov 2026 11:02:12 -0800
+Message-Id: <DN3O9LHR4XNH.1EYLA6D1F0J2P@google.com>
+Cc: "Tarun Sahu" <tarunsahu@google.com>, "Pasha Tatashin"
+ <pasha.tatashin@soleen.com>, "Mike Rapoport" <rppt@kernel.org>,
+ <robin.murphy@arm.com>, <maz@kernel.org>, <will@kernel.org>, "Alexander
+ Graf" <graf@amazon.com>, <seanjc@google.com>, <jgg@nvidia.com>,
+ <loganodell@google.com>, <arnd@arndb.de>, <dwmw2@infradead.org>,
+ <baolu.lu@linux.intel.com>, "Bjorn Helgaas" <bhelgaas@google.com>,
+ <oupton@kernel.org>, <alex@shazbot.org>, <gle.com@google.com>,
+ <pbonzini@redhat.com>, "Andrew Morton" <akpm@linux-foundation.org>,
+ <kevin.tian@intel.com>, <joro@8bytes.org>, <kvmarm@lists.linux.dev>,
+ <linux-pci@vger.kernel.org>, <kexec@lists.infradead.org>,
+ <kvm@vger.kernel.org>, <iommu@lists.linux.dev>,
+ <linux-arm-kernel@lists.infradead.org>, <skhawaja@google.com>,
+ <sagis@google.com>, <linux-arch@vger.kernel.org>, <linux-mm@kvack.org>,
+ <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v4 05/19] kho: Add feature header for fine-grained ABI
+ compatibility
+From: "David Matlack" <dmatlack@google.com>
+To: "Pratyush Yadav" <pratyush@kernel.org>, "David Matlack"
+ <dmatlack@google.com>
+X-Mailer: aerc 0.21.0
+References: <20261110050202.529473-1-tarunsahu@google.com>
+ <20261110050202.529473-6-tarunsahu@google.com>
+ <2vxzse0rzjdn.fsf@kernel.org> <DN2RQ7LGX224.3W3PSQ2PBHTJZ@google.com>
+ <2vxz33sqz1xj.fsf@kernel.org>
+In-Reply-To: <2vxz33sqz1xj.fsf@kernel.org>
 
-Le vendredi 20 novembre 2026 =C3=A0 23:23 +0000, Daniel Golle a =C3=A9crit=
-=C2=A0:
-> Rejecting when the control is set does not work, as the count and the
-> array are separate controls which can be set in any order, also in
-> different requests. The first point where both are known is when the
-> request is applied in device_run.
+On Tue Nov 24, 2026 at 7:25 AM PST, Pratyush Yadav wrote:
+> I don't think it buys us any functionality. It just hides the problem in
+> some lucky cases.
 
-Maybe we should have added validation in MEDIA_REQUEST_IOC_QUEUE ... Might =
-not
-be a totally missed opportunity, and would give an immediate result to user=
-.
-That being said, its does not invalidate your changes, so no action for thi=
-s
-specific comment.
+Following up on our offline discussion: I think it's worth keeping
+support for optional features, both before and after the spec changes
+land.
 
-Nicolas
+Before the spec lands, optional features are the only way to enable new
+features at all. For example, the PCI follow-up series [1] preserves
+BARs and bridge windows using an optional flag. It's purely additive: a
+kernel that doesn't understand it keeps behaving the way it does today.
+With optional features it can be enabled as soon as it lands, and Live
+Update keeps working in both directions, including rollback. If every
+feature is required, there is no way to enable it until the outgoing
+kernel can learn what its target supports.
 
---=-Zq1j3KpLxB33TMTKA8Is
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
+After the spec lands, optional features are still useful, and at worst
+harmless:
 
------BEGIN PGP SIGNATURE-----
+ - Kernels that predate the spec mechanism can't provide a spec. As long
+   as one of them is a possible target (e.g. for rollback), optional
+   features are still the only features the outgoing kernel can use.
 
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCawXfHQAKCRDZQZRRKWBy
-9PDaAP9JaEXDrgjNqXnAwmBBQaZfMuTkdkQqNBmHX1kOtDP4BwEAgt7hfvp8zlOm
-PSX0WEH+LwnvYvPGc8YUY/1TlMsijAQ=
-=6jr1
------END PGP SIGNATURE-----
+ - The outgoing kernel doesn't need to consult the spec for optional
+   features at all (less complexity), since by definition the target can
+   ignore them. It can always produce the same payload, and only
+   required features need to be gated on what the target supports.
 
---=-Zq1j3KpLxB33TMTKA8Is--
+ - Nothing prevents an outgoing kernel that has a spec from choosing not
+   to set optional bits its target doesn't understand, if we ever want
+   that.
+
+The cost of keeping them is negligible in the current design: the same
+number of bits in the header, and one range check on the incoming side.
+
+The one rule we need is that optional really means safe to ignore, e.g.
+optional data must not reference preserved memory or carry restrictions
+that the next kernel has to act on. Anything like that must be a
+required feature.
+
+[1] https://lore.kernel.org/linux-pci/20261019213054.3157159-5-dmatlack@goo=
+gle.com/
+
