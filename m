@@ -1,141 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=198.175.65.12
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795545392;
-	b=w+6Kxr4pLikR9fMJeMnrs0kukfy1wkgQJ7rl1ZyH3hScClSokxEPHnuc3l23IaBBrQXr
-	 tCriAFn26jdVSZ3yIWRe3mBd7yk8kvdimym0t9M5g2N8lv1HKndbREZyU42YEIkIEq1HR
-	 J4MabAxnhZPSO6pENNQ4uAHIgOENjloD4slZEvMpUXbRcdpXZI/kF7VMJb31HUfDKMBsG
-	 jKkfhezFRSbyiWqnqLLDmx2hr2vVZ9QpUf4U1TrC0ykhLyJvTgGsx8y2X25L4Or2Xwn/Y
-	 j63TtD10irxlmhGDb6ZeLjgHgporz8ZEJcNaOFlfIAJTn62Z7T7oRBH7tHYJPLmko0g==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795545392;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Received:
-	 Received:DKIM-Signature:Received:Received:Date:From:To:CC:Subject:
-	 Message-ID:References:Content-Type:Content-Disposition:In-Reply-To:
-	 X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-Exchange-RoutingPolicyChecked:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-OriginatorOrg;
-	bh=dKFoOVLI+AAA2ryYfx+gv9Pe6LoSXzWmRazPoYBIAu8=;
-	b=cfwXkq9z2SRX6nIZk6UItMruEXV/B3Y+pz2ujaRpYrhGCPOtYApSvwSz4C4gQ/vfDgVP
-	 ImsDUbwxLF+Iygmu1wjJVN5WiTyY22KZ0nqsFC+rzF+AgShxVew4Y/AD5TR9I2Q5/th15
-	 BEx3cjUiY700Df0cEAzBU0yT2ONVbkCvIH8Lw9i9xNL49VWuR9ik7gLALzZAxfR/Ze8qJ
-	 r9XDzvarivIpAexCJw+3humHq1vqpD4XViBnmqcbSlwMd/UDBmY2udD5keswonPz3Dedf
-	 k9wmJY0I9m9MrATMXCTm5q5h5FDLuGDpURBeFcLNwXGI5Q/DjhmGGVvXjlSrBr1O50Q==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Ojp5G8ZC;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=Jg5Nc5fO;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=198.175.65.12
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.12])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795545465;
+	b=SBvb0gxn2rjCN+6mZoeh12GkkRdWvpWbcOwhtiFgMzJFmMLjbHAs8PoXW1JCbX5VJoc9
+	 LTjeJiLnWrlKlJYF0dpi5tcoTY8E2awoj5Jcz19JPZvbMELhpaXlOxBHlYs8adZXCA2fG
+	 1/xk2OgMhyETVJauNWP26CekCoWtgXzPKa854xtwcySgb7HYKp3NVfGXQHE3kFlVsBGnh
+	 rR9ECODDxIoKCY1qFVSRiQszxa59C++bkm3ymu5jF9TDnK201AJENw8UBI8WKSgDtdj/e
+	 l34fDpacSh+oUKjOsizN2Pf65b4LMsBilqkUYH6G2Tkun/Wg2cN8H59NYdAmi8ZWssQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795545465;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:Content-Language:To:Cc:References:From:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=1zoOCvzXXxSjQ7psF4Sy29PKoeBfrrhdMZ3HpFuOxUw=;
+	b=O3TU7EzLeqk1jMXW8i2QkvqfSqBiV16F/Ci4LpAzBtTwqYt3/mDiduxM3L6OJ0Fn6MVj
+	 LYGNd0aII7eAuk5Nhh0RoJGGbDhNrDr8pn2izSf2phEI6aB+lDFyEOeMUi2v6E40YdJW+
+	 kuTyeIJuL2Qrb7hpdNQBm9v3eIL3lJmdFB5f4IhgN9le/xb1keVP1kfumLrix8ue9EdhT
+	 Ta9aMIHShM4g240l3pVASCrcztyDWnAKEjQMR0pp+GEgbwLvTZoEFC8ozf2uG60pm+OB1
+	 NXnaZXrzT58txn5Sp0ua6NBEf1zMnHD3q5B6SeOBff0dng5CPLn/k2JaQjYFUQA80gA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XV4ByG2X;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E521E606A31E;
-	Tue, 24 Nov 2026 18:36:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E521E606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5CC9D606A31E;
+	Tue, 24 Nov 2026 18:37:45 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Ojp5G8ZC;
-	dkim=pass (1024-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=Jg5Nc5fO
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795545392; x=1827081392;
-  h=date:from:to:cc:subject:message-id:references:
-   in-reply-to:mime-version;
-  bh=0tDw22Eo1EQxqSCIJCuh/epsC7BupIO669R1z1ELYiM=;
-  b=Ojp5G8ZCw2gdgaXby7eztCaPwifuK21tUzCqvOLEvbN+7qk9qbk2EDFI
-   c4qiNSBgJ8iZYBwb19pD7UGgoHNh5WaYzeNDNLf8IGl6uV6FK2gVjQnqW
-   DUVlJWG7hVEpJKBAVW64ptyEzzhn8XB6zgp/xPeQf2o5zCyzuJbDlU+Gj
-   RnBUj5rPS/1YgA4/jjhtc2HewiMmQmUGb4g++9qfSoppVR5jdOu/gWiQC
-   1D6PKcK3XPv40R7NgU9PFVpCl/N7efEHR8EsZ3DsszOOxGvfrNYikpSIv
-   mOoj/+tNxMi8ZphfqPwSz3GuDPu3lC4ukRQOOIluuF9wezzuCba9NFxMp
-   A==;
-X-CSE-ConnectionGUID: G9rrHS/hQU+G0SiNObX7Ig==
-X-CSE-MsgGUID: wkHgWLQ9Q6Kw4WGGNCvsig==
-X-IronPort-AV: E=McAfee;i="6800,10657,11976"; a="4299380"
-X-IronPort-AV: E=Sophos;i="6.27,231,1787036400"; 
-   d="scan'208";a="4299380"
-Received: from fmviesa005.fm.intel.com ([10.60.135.145])
-  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 10:36:31 -0800
-X-CSE-ConnectionGUID: H1DWiwNKQr2zHNIMg2UyOw==
-X-CSE-MsgGUID: xS5OYJqSS3SnuM+oNgS12A==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,231,1787036400"; 
-   d="scan'208";a="11764343"
-Received: from orsmsx903.amr.corp.intel.com ([10.22.229.25])
-  by fmviesa005.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 10:36:31 -0800
-Received: from ORSMSX903.amr.corp.intel.com (10.22.229.25) by
- ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57; Tue, 24 Nov 2026 10:36:30 -0800
-Received: from ORSEDG901.ED.cps.intel.com (10.7.248.11) by
- ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57 via Frontend Transport; Tue, 24 Nov 2026 10:36:30 -0800
-Received: from BN1PR04CU002.outbound.protection.outlook.com (52.101.56.63) by
- edgegateway.intel.com (134.134.137.111) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57; Tue, 24 Nov 2026 10:36:30 -0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=bLifpn+hoJtp5QscbpIJ5EiHmNdP5H18y5O6pAd/bSc014aOLkAzaC1xtnaXNCi6V5cKJr2ujErQB5Qt2fFRYVPhIB3vdhFCMHpbo0a+FZns6ApplsjdKIdJSO08Mt0KZGOl3MvWUDqX/MVJPZWXvhbIjt3d3ACt/iVTFYQmEmZTtvNMmJNsjTxyM2woL8ZWi456gAWCU0zEGkc+ocbx26Cvj9Ejoif6NOtJSpjXvdxA5ZU0RrOfD8inI5t8PX/cZeKBHdDjG38TIpl/MFgcnityWwXI7b+iXHOJSJz8LbstKEivkLeon9nXXRmyJT0k2yQr+G3bdjlVnhpk42UXfQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=dKFoOVLI+AAA2ryYfx+gv9Pe6LoSXzWmRazPoYBIAu8=;
- b=Vl9yXuoCjXsnASRwm0h7HnEvEjtQGLfWtkffahtdxIoM/0Y4qAZu5vQ5eSM1P4v64vQot3c954Oaqu0LV/lgnBlRc2vcALJyTb/VIzZlGU2F6JWwJRtE0jD3wJCtGGnDku9Ir1NumVTThITomXRyfszxm4Y4LFbsc7ZhvI3UFh5hC4U0cAqzknhu1cZo8APMw+9wrMT1g3sAo1fcDj1RYSStkAKsP1hQuw64bo7EuGmaPd1l99Lk0jlKqZesg+1uW6RYd6ejJs6TcOB8MIY8nVZU567NBiNXKxaydou4d2hos+LvzeqPdahbHt/eQbUX28X6kMrb+oyKSP9/Edc3Pg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=intel.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=dKFoOVLI+AAA2ryYfx+gv9Pe6LoSXzWmRazPoYBIAu8=;
- b=Jg5Nc5fOgzicuvIRct/NrhZ5EtLGW9mJ5ULtQbDRO9P1KA69l9etPb1RXbcFAkCj5mJ+0HT/N1dIdEC7q56nCanYDo+WS8ereWqKSMxQ8VVviKpFeYKYkJHIT9bLqgurHcX3ubAkK9nrnF1SIWfH+NqYjZSZ5WVITzJAjbUI6Bo=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from DS4PPF0BAC23327.namprd11.prod.outlook.com (2603:10b6:f:fc02::9)
- by CY5PR11MB6091.namprd11.prod.outlook.com (2603:10b6:930:2d::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Tue, 24 Nov
- 2026 18:36:23 +0000
-Received: from DS4PPF0BAC23327.namprd11.prod.outlook.com
- ([fe80::a1fc:97e0:329a:4aa7]) by DS4PPF0BAC23327.namprd11.prod.outlook.com
- ([fe80::a1fc:97e0:329a:4aa7%6]) with mapi id 15.21.0662.001; Tue, 24 Nov 2026
- 18:36:23 +0000
-Date: Tue, 24 Nov 2026 10:36:18 -0800
-From: Alison Schofield <alison.schofield@intel.com>
-To: Anisa Su <anisa.su887@gmail.com>
-CC: <linux-cxl@vger.kernel.org>, <nvdimm@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, Dave Jiang <dave.jiang@intel.com>, "Jonathan
- Cameron" <jic23@kernel.org>, Davidlohr Bueso <dave@stgolabs.net>, Ira Weiny
-	<iweiny@kernel.org>, Vishal Verma <vishal.l.verma@intel.com>, Fan Ni
-	<nifan.cxl@gmail.com>, Li Ming <ming.li@zohomail.com>, Benjamin Cheatham
-	<benjamin.cheatham@amd.com>, Gregory Price <gourry@gourry.net>, Richard Cheng
-	<icheng@nvidia.com>, Anisa Su <anisa.su@samsung.com>
-Subject: Re: [PATCH v1 02/14] cxl/port: Add dynamic capacity options to
- endpoint decoder mode
-Message-ID: <awXZItm1EwH2Qd5i@aschofie-mobl2.lan>
-References: <20261104230445.66625-1-anisa.su@samsung.com>
- <20261104230445.66625-3-anisa.su@samsung.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261104230445.66625-3-anisa.su@samsung.com>
-X-ClientProxiedBy: MW4PR04CA0349.namprd04.prod.outlook.com
- (2603:10b6:303:8a::24) To DS4PPF0BAC23327.namprd11.prod.outlook.com
- (2603:10b6:f:fc02::9)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XV4ByG2X
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 913561F000CF;
+	Tue, 24 Nov 2026 18:37:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795545464;
+	bh=1zoOCvzXXxSjQ7psF4Sy29PKoeBfrrhdMZ3HpFuOxUw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=XV4ByG2XuzrRqRUkVee62FtVwtGgTWPmdUBklGJb424G4LLlpAtHqrmXf6s0G3W+A
+	 Q3NrSDu7uJHYRw5azuUfvjpsjI8bgbSorFLdlAJSfNw45tvlIcrrFVD38ufggAp4w8
+	 VG2xL/O5+lREKTAZu+jda5NIwR8XVt8/6JgLaZR3gdh12O0AsG9v6faZj4zUQninYN
+	 y20o4UKbarZ+wPITdIarifBBNF7cZx59m44UsYvivZPDArXuZD9cAyTxM9snwDeDsE
+	 Y9lMggrHiyjs07iCopzSQIdIEd8e/bHVww0DWHMUVP++Ey2MvhqfafsQRlgjPWrhvP
+	 H2JsNFWKnROiQ==
+Message-ID: <5e26dc91-37e9-4c29-b88a-bb3a3358709c@kernel.org>
+Date: Tue, 24 Nov 2026 19:37:38 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -145,134 +51,233 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS4PPF0BAC23327:EE_|CY5PR11MB6091:EE_
-X-MS-Office365-Filtering-Correlation-Id: ba7460fd-c53a-4bd6-1a22-08df4a59d6c9
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|376014|366016|23010399003|22082099003|18002099003|6133799003|261009223027099003|261021121427099003|261021123027099003|261022105027099003|261026140227099003|261102123227099003|261022075727099003|261026121527099003|261028144727099003|56012099006|10067099003|4143699003|11063799006|5023799004;
-X-Microsoft-Antispam-Message-Info: 4Oy+O9S58QSTAL0BizIx51tOv9eIc8arEwPawyhavNnqwh14JXoEH9Ne/Uq3HkQaNrgCwhd7Z3O8rNBjjr9iaNIfwacKfecM2nzkS9swco8RE0KFGhAtmtxUbEELp6dP6S72gbVsa27RiGXGH20IK1yFWTDEnnekN6Cjo3r/q5ChPSD1Sn19OBxhsL+ylkzkPvR9pGwMCJqUCjnajy+qla8H4iHomB0couR4t2YSqTbgy8rqpHQxt6+L821zusJXNfXbb4r4hUa8yUXzc7lrZPK3NS9wLnxHXZAK8ARKAKMBMNO8t3Zp2BRH19x+96gvtMkztfHkKxds2zV9Jidh255zc8Uct3/OiKiTreMnSOHazX5UUx/1sIngpBxLeo2DtI3Ce/z50ouJnaPSlCZ2yM+h84t5l7hFfv9urkEhyocl2kMZghmLmkaOo891AU3XSNjiuatOsTUSaFVlNcQ4Z4XbiMIcIgwg6jrHkC2qkQAaObKeGWdUm7aVaRKDui52juJXsRnMUJyyiURNj9NhiMUDrAud1uyuSG3GmGWtggW1ADql0SoaOUgCE6xpaP7UCc0o5nfGEVDAYeoOMusy24yGh/vaypJQLII971TWaEbwsUgay4VaNFSI60pyMmdqeYzGhG1m7AZg4FExzwdYGDFQoqLUdUG0R1HbgAaxGrc=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS4PPF0BAC23327.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(376014)(366016)(23010399003)(22082099003)(18002099003)(6133799003)(261009223027099003)(261021121427099003)(261021123027099003)(261022105027099003)(261026140227099003)(261102123227099003)(261022075727099003)(261026121527099003)(261028144727099003)(56012099006)(10067099003)(4143699003)(11063799006)(5023799004);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?wK2a/5DA6L+rqoYGlwNJvDplpBBYHnDYxpYiJ/ol5OFm6dQgqwO+wJ3nD9jA?=
- =?us-ascii?Q?pfxiAiqad/4DC290hsS0t2nqjtBEFMhiwlFcUypvayTmZWpoPHIz5hkGKJ6d?=
- =?us-ascii?Q?X7U9jlkuj9BKyIweqV0uVR1LxG4eDzYBOf5ZtNYfWXBz+74k2yDvBT/L4M3R?=
- =?us-ascii?Q?4M4d2WLBiX5k146TpdSc0iJI9kLS973efZ318OE/EG3L2GlBCTb9OGCxrAdp?=
- =?us-ascii?Q?O80pH+Pb8lVa9SyhgFueGrhJIZ8E38HMUws6oX3vJVVufZiHYKUHyxNmn/3z?=
- =?us-ascii?Q?zNzazLYGcdyfLrN6PSIT2wM2BV6Vvj66l3aIpzcj0mVx1JTbfQXs+1PuopIH?=
- =?us-ascii?Q?VpmahqqBRYc0Pq5yBvvWWyN49GQuEwMGZqZBy81dHCCrMOFtKYu0rkQj9aXr?=
- =?us-ascii?Q?EmHQIwih0mtrCCuQxSN3hTyMhmO7zY7+SH1DnGseHgKZrrOzkbhbXviS7O6C?=
- =?us-ascii?Q?tK8Zubql1ZMYXlh4jKqEmM6Njy00ORUJJ0pbZ/mQoUbzw02ulnfAB5+Ql+4b?=
- =?us-ascii?Q?go3gtcSTFhia9TONac75lgF3iBEO4Ydab2e6f1+I3Z9dvwMeXOETQEXRYDjs?=
- =?us-ascii?Q?H3Q6SAi2rnG5IkdB/mgdKbypGP8DBFRNUQD/YdVF1tJMac5TBvY5DWXO/vOZ?=
- =?us-ascii?Q?74mUL0My1M2bv2VuRhKY/Dir3JwHk0veoId8p9htQhg1kRcL3TaJR0pFVxbb?=
- =?us-ascii?Q?PIJTdll2ga/2c1IjGdbaZ5fSSXNgWnmtpFyWeInfp4AZIMSbGLlkMoCOxUVN?=
- =?us-ascii?Q?sY1cMnPGaJQdHnTocuwCfK3eNL1KEPD/bFwyLqKnlLO4AVDPZSFhRHDbamS3?=
- =?us-ascii?Q?zdoCUUZ0rWYWJFZeAo+99QNx5soS9iCJDdshXo3zIy7iUYRYP10bST3IZkZ2?=
- =?us-ascii?Q?pXpZvG7ozOYDTANnAkdeUICDcFCDstKNVIN5BwK7JAyUAPCHx7JrLOOU9bSY?=
- =?us-ascii?Q?dGlXe5qUOzDHUrIKtCCLIMSPQAzGGAC2RxpPk/e4lw1UHWHoK7viuC2MoNlu?=
- =?us-ascii?Q?I2k28I5OkycgKf/ogs+l3BSV5rwAzJbxkWMI63U0VIxEYnQkep1TMeCu8DLx?=
- =?us-ascii?Q?JoiM9UZfjP49Y+yrV9QQ5ix38RXT4yE+YMryQ4gQKHnpEwaJKpa3iKX3fQlN?=
- =?us-ascii?Q?D8SpPVm4lxmguv/58cmyXHdePHLflbRNqqBwWDWY7hCiuf/GLYf5E5W0m/ps?=
- =?us-ascii?Q?CeGPVaiKROSl9kqn26C55uz+pt+/hL8uRf/dMYqBhOV5w2ZBYai/IF7sxtg+?=
- =?us-ascii?Q?aBWFm2kBYy8p+y9Zq+cwLzYhkwD5Onbhui/pvOFItAw1dZbSm3756HKbQDWw?=
- =?us-ascii?Q?5D9OcmCdWF79NMDXgWE0WWgeLLwlW+XNP6ktaexZgvX3mMYxz86IyO47drDv?=
- =?us-ascii?Q?5aytBAsi3pnhdPSSwTkKDPirrKO5SNn41wgH1jQhsQd9Hn5aR8FV9rgSR415?=
- =?us-ascii?Q?IRtDiCF/6kzsVDSrDYjCGvFY1/+vvhCFshcxgdUaSAvJVKqyJcixLI0EOP8b?=
- =?us-ascii?Q?RJinECvbtKwAv1wzuNXqrKtjaHbYsL5MewbjKPbo0wwkmYD3CTuxrA0B6BzR?=
- =?us-ascii?Q?esuSCUBXJ569t5SSPIOQcPuvtABfmx24fSzlFqXe3iDO15NpPxGt4T0PIOj3?=
- =?us-ascii?Q?G/QJIm9iKlJW5V1cQ4VaRcey049nUx+POBMUDhOixqf7B9viK9iQdpBhUPCn?=
- =?us-ascii?Q?z/3n7oFbRnFVrf8MxhVa15usYUdEJTu7/cJZQ+TbZsVR5Jjv5/cPLJgrePjO?=
- =?us-ascii?Q?jwxZ/dW9ptaUCBZnDHjgYQf7OIQZ2Zs=3D?=
-X-Exchange-RoutingPolicyChecked: SkxPNHeGDm0hQn2FolWwVDS6+Ri/NGbcneU+49MBi39lXS8BRoDVrpxN10WhhDkdoVYZl1nSN9FtyG7vAZy59e2El9dhioNGzbOBY2CwY/CAQ/TBi1+zvuHGNBkhqnGy4jM1HWxyTrYFtf+2GR7A32UvJvkTbsBd3+qyLLtZ5KttUlukBvKXx6FlCi1RPOuOdzrlMOWaS2rq0Iwnh6Z+2cCjUdsCYTB34S+V/Mq0TvjesFdbvMxoX5OvxNpOMLYAqW7q+qZKnn8yIhfQfj0RAjU3fbKPQ4sVH+UtaDqTgJyk+5FsCBv4eJr1RRbop7oKv7gpB4kDUGE4w9OaPEZzNA==
-X-MS-Exchange-CrossTenant-Network-Message-Id: ba7460fd-c53a-4bd6-1a22-08df4a59d6c9
-X-MS-Exchange-CrossTenant-AuthSource: DS4PPF0BAC23327.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 18:36:22.9195
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: fqxdrAMKGzNM06R96G8hdFMMtR0VPY2dG9i/U8AetBDHciDq7lSZK3g60m+2/V49sp7rEdEO/44LZhtDOP1YgdsSoRwlaqQy4a7XHrIx3dY=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY5PR11MB6091
-X-OriginatorOrg: intel.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] mm/vma: drop mm asynchronously in vma_start_read()
+Content-Language: en-US
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+ Peter Zijlstra <peterz@infradead.org>, Juri Lelli <juri.lelli@redhat.com>,
+ Vincent Guittot <vincent.guittot@linaro.org>,
+ Dietmar Eggemann <dietmar.eggemann@arm.com>,
+ Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>,
+ Mel Gorman <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>,
+ K Prateek Nayak <kprateek.nayak@amd.com>, Kees Cook <kees@kernel.org>,
+ David Hildenbrand <david@kernel.org>, "Liam R. Howlett"
+ <liam@infradead.org>, Mike Rapoport <rppt@kernel.org>,
+ Michal Hocko <mhocko@suse.com>, Andrew Morton <akpm@linux-foundation.org>,
+ Suren Baghdasaryan <surenb@google.com>, Shakeel Butt
+ <shakeel.butt@linux.dev>, Pedro Falcato <pfalcato@suse.de>,
+ Jann Horn <jannh@google.com>, Puranjay Mohan <puranjay@kernel.org>,
+ Alexei Starovoitov <ast@kernel.org>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org, bpf@vger.kernel.org,
+ Chris Mason <mason@kernel.org>, stable@vger.kernel.org
+References: <20261124-vma-read-lock-mmdrop-async-v1-1-257f99f551de@kernel.org>
+From: "Vlastimil Babka (SUSE)" <vbabka@kernel.org>
+Autocrypt: addr=vbabka@kernel.org; keydata=
+ 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
+In-Reply-To: <20261124-vma-read-lock-mmdrop-async-v1-1-257f99f551de@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-On Thu, Nov 05, 2026 at 08:02:26AM +0900, Anisa Su wrote:
-> Endpoints can now carry a dynamic ram partition following the
-> persistent memory partition. A DC partition is further described by
-> two properties reported in its CDAT DSMAS entry: shareable and
-> read-only.
+On 11/24/26 13:26, Lorenzo Stoakes (ARM) wrote:
+> Commit bee9ef4a40a2 ("bpf: switch task_vma iterator from mmap_lock to
+> per-VMA locks") open-codes a lock_next_vma() implementation that does
+> roughly the same thing in bpf_iter_task_vma_find_next(), only without
+> fallback to an mmap_lock.
 > 
-> Expand the decoder mode to accept 'dynamic_ram', 'dynamic_ram_shared',
-> 'dynamic_ram_ro' and 'dynamic_ram_shared_ro'. cxl_dpa_set_part()
-> selects the first dynamic ram partition whose properties match exactly.
+> This is because bpf_iter_task_vma_find_next() can be called from
+> non-sleepable contexts.
 > 
-> DCD may be disabled during validation after the DC partition(s) were
-> added to the DPA layout, so a decoder may only be assigned to a DC
-> partition while DCD is enabled for its memdev. Add a helper,
-> cxled_dcd_enabled(), to check cxl_dcd_supported().
+> However, lock_vma_under_rcu() gave no guarantee as to which contexts it is
+> safe to be called from, and indeed it turns out this assumption is unsafe.
 > 
-> Signed-off-by: Anisa Su <anisa.su@samsung.com>
-> Tested-by: Wonjae Lee <wj28.lee@samsung.com>
-> Tested-by: Junhee Park <jh9934.park@samsung.com>
-> Tested-by: Heesoo Kim <habil.kim@samsung.com>
+> Since commit 9bbffee67ffd ("mm: fix a UAF when vma->mm is freed after
+> vma->vm_refcnt got dropped"), this call chain is possible on x86:
+> 
+> lock_vma_under_rcu()
+>   -> vma_start_read()
+>     -> mmdrop()
+>       -> __mmdrop()
+>         -> mm_free_pgd()
+>           -> pgd_free()
+>             -> pgd_dtor()
+>               -> spin_lock(&pgd_lock)
+> 
+> Thus, a plain spin_lock() can occur when lock_vma_under_rcu() is
+> called. Since bpf_iter_task_vma_find_next() can be called in softirq
+> context, this can deadlock, for example:
+> 
+> pgd_alloc()
+>   -> spin_lock(&pgd_lock)
+>     <softirq>
+>     bpf_iter_task_vma_next()
+>       -> lock_vma_under_rcu()
+>         ...
+> 	  -> spin_lock(&pgd_lock) [ DEADLOCK ]
+> 
+> Alexei Starovoitov also pointed out that a BPF program attached to
+> trace_contention_end() can similarly cause a deadlock:
+> 
+>   pgd_alloc()
+>     spin_lock(&pgd_lock)
+>       queued_spin_lock_slowpath()
+>         trace_contention_end()          <- pgd_lock is held
+>           tp_btf/contention_end prog
+>             bpf_iter_task_vma_next()
+>               lock_vma_under_rcu()
+>                 vma_start_read()
+>                   mmdrop(other_mm)      <- last put takes pgd_lock again
+> 
+> Resolve the issue by having vma_start_read() use mmdrop_async() instead of
+> mmdrop() so the work is deferred to a work queue.
+> 
+> Make mmdrop_async() an internal mm function, defined in mm/internal.h, to
+> avoid abuse elsewhere (kernel/fork.c includes this header, so still retains
+> access).
+> 
+> Commit 0b16f8bed19c ("mm: change vma_start_read() to drop RCU lock on
+> failure") accounted for the fact that the RCU lock had to be dropped for
+> this operation, which is no longer applicable.
+> 
+> For the sake of a backported fix, retain this behaviour, however drop the
+> RCU lock last and remove the now irrelevant comment.
+> 
+> Reported-by: Chris Mason <mason@kernel.org>
+> Fixes: bee9ef4a40a2 ("bpf: switch task_vma iterator from mmap_lock to per-VMA locks")
+> Cc: stable@vger.kernel.org
+> Link: https://lore.kernel.org/all/DN267JUKDRNS.2VMV07CQ58R4X@gmail.com/
+> Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+
+Given how it should be rare to actually drop the mm here, it should be fine.
+
+Reviewed-by: Vlastimil Babka (SUSE) <vbabka@kernel.org>
+
 > ---
->  Documentation/ABI/testing/sysfs-bus-cxl | 25 +++++++----
->  drivers/cxl/core/core.h                 | 23 ++++++++++-
->  drivers/cxl/core/hdm.c                  | 21 ++++++++--
->  drivers/cxl/core/port.c                 | 55 ++++++++++++++++++++++---
->  4 files changed, 105 insertions(+), 19 deletions(-)
+>  kernel/fork.c  | 16 ----------------
+>  mm/internal.h  |  3 +++
+>  mm/mmap_lock.c | 21 ++++++++++++++++++---
+>  3 files changed, 21 insertions(+), 19 deletions(-)
 > 
-
-snip
-
-> diff --git a/drivers/cxl/core/core.h b/drivers/cxl/core/core.h
-> index 8a81be004d00..24fbb5718abc 100644
-> --- a/drivers/cxl/core/core.h
-> +++ b/drivers/cxl/core/core.h
-> @@ -6,6 +6,7 @@
+> diff --git a/kernel/fork.c b/kernel/fork.c
+> index 5efceb8d58a7..4d5866c83481 100644
+> --- a/kernel/fork.c
+> +++ b/kernel/fork.c
+> @@ -744,22 +744,6 @@ void __mmdrop(struct mm_struct *mm)
+>  }
+>  EXPORT_SYMBOL_GPL(__mmdrop);
 >  
->  #include <cxl/mailbox.h>
->  #include <linux/rwsem.h>
-> +#include <cxlmem.h>
+> -static void mmdrop_async_fn(struct work_struct *work)
+> -{
+> -	struct mm_struct *mm;
+> -
+> -	mm = container_of(work, struct mm_struct, async_put_work);
+> -	__mmdrop(mm);
+> -}
+> -
+> -static void mmdrop_async(struct mm_struct *mm)
+> -{
+> -	if (unlikely(atomic_dec_and_test(&mm->mm_count))) {
+> -		INIT_WORK(&mm->async_put_work, mmdrop_async_fn);
+> -		schedule_work(&mm->async_put_work);
+> -	}
+> -}
+> -
+>  static inline void free_signal_struct(struct signal_struct *sig)
+>  {
+>  	taskstats_tgid_free(sig);
+> diff --git a/mm/internal.h b/mm/internal.h
+> index de4593b3e3b6..cc95019c7e4b 100644
+> --- a/mm/internal.h
+> +++ b/mm/internal.h
+> @@ -1671,4 +1671,7 @@ static inline bool can_spin_trylock(void)
+>  /* char-mem.c */
+>  bool file_is_dev_zero(const struct file *file);
 >  
->  extern const struct device_type cxl_nvdimm_bridge_type;
->  extern const struct device_type cxl_nvdimm_type;
-> @@ -18,6 +19,25 @@ enum cxl_detach_mode {
->  	DETACH_INVALIDATE,
->  };
->  
-> +static inline struct cxl_memdev_state *
-> +cxled_to_mds(struct cxl_endpoint_decoder *cxled)
-> +{
-> +	struct cxl_memdev *cxlmd = cxled_to_memdev(cxled);
+> +/* mmap_lock.c */
+> +void mmdrop_async(struct mm_struct *mm);
 > +
-> +	return to_cxl_memdev_state(cxlmd->cxlds);
+>  #endif	/* __MM_INTERNAL_H */
+> diff --git a/mm/mmap_lock.c b/mm/mmap_lock.c
+> index 073c5125b424..28b387fe543a 100644
+> --- a/mm/mmap_lock.c
+> +++ b/mm/mmap_lock.c
+> @@ -306,11 +306,10 @@ static struct vm_area_struct *vma_start_read(struct mm_struct *mm,
+>  	 */
+>  	other_mm = vma->vm_mm; /* use a copy as vma can be freed after we drop vm_refcnt */
+>  
+> -	/* __mmdrop() is a heavy operation, do it after dropping RCU lock. */
+> -	rcu_read_unlock();
+>  	mmgrab(other_mm);
+>  	vma_refcount_put(vma);
+> -	mmdrop(other_mm);
+> +	mmdrop_async(other_mm);
+> +	rcu_read_unlock();
+>  
+>  	return NULL;
+>  }
+> @@ -560,6 +559,22 @@ void __mm_reset_vma_seqcounts(struct mm_struct *mm)
+>  }
+>  EXPORT_SYMBOL(__mm_reset_vma_seqcounts);
+>  
+> +static void mmdrop_async_fn(struct work_struct *work)
+> +{
+> +	struct mm_struct *mm;
+> +
+> +	mm = container_of(work, struct mm_struct, async_put_work);
+> +	__mmdrop(mm);
 > +}
 > +
-> +/* Type-2 devices have no memdev state; nothing else leaves @cxlds NULL here */
-> +static inline bool cxled_dcd_enabled(struct cxl_endpoint_decoder *cxled)
+> +void mmdrop_async(struct mm_struct *mm)
 > +{
-> +	struct cxl_memdev_state *mds = cxled_to_mds(cxled);
-> +
-> +	return mds && cxl_dcd_supported(mds);
-
-Same as Jonathan here.  It is mds, not cxlds, that is NULL for a Type-2
-device, so maybe:
-
-  /* Type-2 devices have no memdev state, so @mds is NULL for them */
-
-
+> +	if (unlikely(atomic_dec_and_test(&mm->mm_count))) {
+> +		INIT_WORK(&mm->async_put_work, mmdrop_async_fn);
+> +		schedule_work(&mm->async_put_work);
+> +	}
 > +}
 > +
-> +const char *cxl_dc_mode_name(bool shareable, bool read_only);
-> +int cxl_dc_mode_parse(const char *buf, bool *shareable, bool *read_only);
-
-cxl_dc_mode_parse() is only called from mode_store() in port.c, here and
-for the rest of the series. Can it be static in port.c, with no
-core.h declaration?
-
-snip to end
-
--- Alison
+>  #ifdef CONFIG_LOCK_MM_AND_FIND_VMA
+>  #include <linux/extable.h>
+>  
+> 
+> ---
+> base-commit: 913390e679e23e3a45643028ee7f992889094051
+> change-id: 20261124-vma-read-lock-mmdrop-async-ba417cd1c1f0
+> 
+> Cheers,
 
