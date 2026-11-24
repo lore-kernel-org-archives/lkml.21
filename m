@@ -1,58 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795533264;
-	b=Fch37iQlxleWyLRJSVmRBpoEM9jN5Ya2WNyJ1Zs9l6CIUanD9IChTzdhe7VgnxGktsVN
-	 iQEAjTuNg8ZrGCOr0R6PZRxC0sNSoRBKGZ2YbrmP6FtcSBVlmM9KsctyKSc7AEH70CfA0
-	 KiW/9ytd6+Kp4Fg6bChwu5ww3iZ6bzggfR6da7HCImnexRgipFBeS7x0nocwz02+rdrwU
-	 zqBpEIH3bECtQ6efOT8j+VL99BYMsJFYktZw9demtbE2wmLYvVKoNdlyX42CsLv60mSIj
-	 8halp7XBv1MrqdUTMtNOohU0WWa48gFPyHuDUlL3WwaW1kYFTeKtZFvIVMMVGIv6EmQ==
+	t=1795533265;
+	b=vpBdnB8uXa0enaVTrwYu4aGVaryva8NxH+K3byKjBsCjIiqVoBr+ypeHkYpQaCiKWXZD
+	 C5t25RrjBEitYZSnJxg64fnm4j2PWbW7yrTEUK1Gv99Y/z14845WtCPngbIe2GuO7pXkh
+	 djxt3/GeC8cqYS1XI5jSO6lS8OrHMHHe93cFMl6d2ni16U6syuXb6877myMKjo3txgU6h
+	 mZZO1ltE/oVdS7H2b+KP0UTjzaAe5kKCgKukHI5de63ITyQOwZiV2IuXX1VKcI1GulRTk
+	 nLli8GGJQx4y+gtJtfH0PVtdIHurHvMOBUbrtN5xnLQrOx3jWx6Vvmi50uoiHox8bEQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795533264;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 X-Last-TLS-Session-Version;
-	bh=5Jq1tkeamdfWHYf/2ZhMNkifeNZcmuwJsHOLzwb9tkk=;
-	b=DIAzm8fCfo9vrnO7pmXQUdTPw1GA5wWmann6a6xKZZ7WlXQsPuloTbTy4lF3B9T3oz8q
-	 6qc/mUqmS1ti2IYgFuEKYatcxawAWpodNIJG4YjT3CGBcKWOqpXTvC1MM4pgzXKePYPEx
-	 m4mR8X3cuXtwjCVesYrK1CUGyG/pV5Pv/gRakFNZGf9tZaFjg/OcuYH+s62VNf0ZW4hPr
-	 V3ZMD11FQt2mG04oLYBvoFnS5oj+1jY0vtoJrl4U5e7AJ+cunSpCQWRpCGDpFWEZs6V0d
-	 B7c4OMQ12az0HaLMPX4EvT+crHI4/fGwSmq3KF0CMtGBrL3D2nTScDZ9wNkQaXNm1wg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795533265;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:Autocrypt:In-Reply-To:Content-Type;
+	bh=PVJS6gkYs1IOy2J1QEN8soh2l1ljp7ZJVoiYPlTtrQ8=;
+	b=OkVDUzISfHK5ezhB8DXlh68rytIuTGlbsIzjeQj8C8kX/htT4doWbBKKSGtVmGjr2bgK
+	 jZHj1TBNHWPr7VbB154re+FkdnMbahrOGC+0iNlk77neNYj8PlnPVRnvJydrYc2vPXOyM
+	 p+3J8CX5l1zRmgchT06wv5brmGv43mRaSHZQhLqh/AFQb5aSFmPISPaIPGi+Y5sKKo1uq
+	 wScWSHzDnJSQ/+2wTBf9do4PdhKIQBKhsqcpLlhEOWVdlgU9TNO4HuWjqiznqAs6BgGnG
+	 GH95IbriRyL7Cx6sf6VtQj/vGfyhKzAin4Sm174oXH5d/mSHhdk4N1RH95r9dVd4O2Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=Y0Ql9SxG;
-	arc=none smtp.remote-ip=185.171.202.116
-Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=suse.com;
+	spf=pass smtp.mailfrom=suse.com;
+	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=ebSy9c36;
+	arc=none smtp.remote-ip=209.85.218.45
+Received: from mail-ej1-f45.google.com (mail-ej1-f45.google.com [209.85.218.45])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B2495606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 15:14:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B2495606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 953D2606A331
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 15:14:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 953D2606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=Y0Ql9SxG
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id BA15BC2C66D;
-	Tue, 24 Nov 2026 15:14:29 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 469F4601E1;
-	Tue, 24 Nov 2026 15:14:22 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id F369311E699D0;
-	Tue, 24 Nov 2026 16:14:16 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795533261; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=5Jq1tkeamdfWHYf/2ZhMNkifeNZcmuwJsHOLzwb9tkk=;
-	b=Y0Ql9SxGZ2W6YZijLNKiFSGggZnCvyooyeK2DXeDJJhoMTjLSfAlWDSOVHSGbOh/GIVQUY
-	BTHErcpH57ODTf2flR5jOzIQv0FgkuxkZUvuUSgJs5RVRK1wGNgnxUhx77hhvL2V0Rv4OB
-	/6BIT83pYsdjunEEcHXCaOmj+Q8e2+8nP8qrVTqoBPF/adX4xBF69vz4+ce03qJgOjax3G
-	jloSh9Ha0Ejdq8B3AqUlZeQidYV6FgMgnNR0Q5evffgmntiSNlkjx7s4Yc2C/OeawQgdZo
-	d8osdWlpvjTtpxOI1taA4N80va+sw7FojqbsoUzgDXndhjd7eDe6pP2MTWxCjA==
-Message-ID: <bd0af686-ef82-46b7-a6dd-0ad8f3adc176@bootlin.com>
-Date: Tue, 24 Nov 2026 16:14:16 +0100
+	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=ebSy9c36
+Received: by mail-ej1-f45.google.com with SMTP id a640c23a62f3a-c4203bbb1e9so764031266b.3
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 07:14:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1795533263; x=1796138063; darn=vger.kernel.org;
+        h=content-type:in-reply-to:autocrypt:from:content-language:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=PVJS6gkYs1IOy2J1QEN8soh2l1ljp7ZJVoiYPlTtrQ8=;
+        b=ebSy9c36aTR8fbWR4auSrsGE/djusSt0wnGSrYtNZznYZO2AGsYTXrIWq5Yx/WWe6e
+         5ppdti40uhKEW94t7ZFSocCJi011dLv/IVmpZLdx/hiVg8VcBfIBAEs9q1T6IWtCm+Xj
+         oSM2xBQwN4fD4gQt5tj/eZqzLrclz2LCj8ebVfMTOHAVciqttvJTIS7ZcwhwWF0k9wQ5
+         8NioETZdeLEjKVFWDGMpidQVMTe6Mx8z++FhWSVzYqOd2ooA4jgnCjR11G0MKsf6jdMF
+         /pjFmiUu291q6bMbQPtFgKvgB/yL4somch6Ia+TKpVodctkK5lj2HheDegrBEjDsKVgM
+         rucw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795533263; x=1796138063;
+        h=content-type:in-reply-to:autocrypt:from:content-language:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=PVJS6gkYs1IOy2J1QEN8soh2l1ljp7ZJVoiYPlTtrQ8=;
+        b=AoGLB4G14+6AzgKDW8aWgNB67i+DcpIb8Jid0+sOy751Dic+5Mthl33DtMoGGbctfF
+         zYzF765o4b1ESUtDCTvMcVHz+ceI/AWay14ZVo4ApgVqF7RNz1g1mi16Sj34PKq+Alrt
+         AgHBVY9AoL+jpVUWyyrb/LVGbgQq8W/9EYl2YeUClw65rxEDFlLS2SsbHL9ucaDH76+v
+         T0e8Mhv7stOeHEIoKAHZ4pvL22NmKNcBmHe4Lyi8vHiQHjd8Yj24GFSzx2B6hKp2BSKI
+         z5AzYtqUBaUvXBE/PI6bydPoZ14Wp9AKOz/N0t01WXBGjGX9tPBIaGAE6XOSFo5XZnbz
+         hbLA==
+X-Forwarded-Encrypted: i=1; AL+hErEj197QAWiZUzkI+b0/4MUip4FxcNplpcqQDRmM+hYXZ1/7Yy+Fnu3cT0C02XtktgchQg4zdGIWMXrBkJQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+MNG7dN8Wfv27oqLm9L4SqB+4KuWivalLUagB2zD10B437ObA8
+	kssqdboJbcv5RPJVzeoAyrVg1g90KCQ9UZvWAjUwgF3/otLGGrEuZQ0DS1G/K/bS43I=
+X-Gm-Gg: AZFdTZd2jeqr7ZOLbqoroHLMYQH4DBBDIgT7YrAFwe1qK4oX/jA48wdesHJKfVnbX4Z
+	jNQEIkIBYHHvaSfHId0v604FnwI8KP9W6y9sizw+LvTihE4skfrKfjyaBh/zkfcr1anq5AS06B7
+	AmoyqiwxSsDTmN+sd+ToLEKXw8ToQP9YyUMn9dZ0xrUKMK8RfIwrKw+lHkMHTqfC2Fnwu44P9Fb
+	H2X1ZHmS5SwRxQScdx979siHxEvPChq4x/KC0O4LVqUF1DfJfkopH4enrtYbKivahpZPHfY20kN
+	/qjDfgVkTb9tZ9OMGNx5gXr8TuMfFez2RKCMmDDf+x1hgdVhDVUpVM1Lks1t+hlA2fS9EmXvsUI
+	t+zWhwONWbNtplq+YSFCIPTMYDJu9w7lCdpnIagQxt6/en/UlB5GEo7IYGHIDIB2+u9s9rAlraw
+	j2VCN13PmmszWpkne7F0Fz+W9wawrwvDrrRGrfiSJk+INtteVr08BjdP+5kqUjmyJGUXLm7ezAa
+	FN+DDTrxNPOXA+BFnvNyF27VNMQpLZz65zWC6lntfvm2H1jJdgLOHIJ0ZEv2Wy/h9m1mp3bgDBH
+	n4+9Kaz/PeTRFe9/Oz0K82So9rYKz1W5nSdGAlHnUKtBy0PDlAzZyriL+039/M5XYQKhTxpbPOy
+	wXCRo6UiNCvACjYDs2GPtBufGg/nSIDY6PRNMI2NTR9YoVU503Zc=
+X-Received: by 2002:a17:906:c14b:b0:c35:babe:ab44 with SMTP id a640c23a62f3a-c513a1e0076mr1490288666b.0.1795533262820;
+        Tue, 24 Nov 2026 07:14:22 -0800 (PST)
+Received: from ?IPV6:2a00:12d0:afa3:c01:92cc:e257:77ba:97a1? (2a00-12d0-afa3-c01-92cc-e257-77ba-97a1.ip.tng.de. [2a00:12d0:afa3:c01:92cc:e257:77ba:97a1])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513ae698ccsm534442066b.26.2026.11.24.07.14.21
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 24 Nov 2026 07:14:22 -0800 (PST)
+Message-ID: <589d567e-912d-4913-9949-ee28dfd7f719@suse.com>
+Date: Tue, 24 Nov 2026 16:14:21 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,233 +92,191 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RESEND 2/4] drm/vkms: precompute the gamma LUT for every
- channel value
-To: Oarora Etimis <oaroraetimis@gmail.com>,
- Haneen Mohammed <hamohammed.sa@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Melissa Wen <melissa.srw@gmail.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, =?UTF-8?Q?Ma=C3=ADra_Canal?=
- <mairacanal@riseup.net>, Harry Wentland <harry.wentland@amd.com>,
- Pekka Paalanen <pekka.paalanen@collabora.com>,
- Arthur Grillo <arthurgrillo@riseup.net>,
- Helen Koike <helen.fornazier@gmail.com>,
- Vignesh Raman <vignesh.raman@collabora.com>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org
-References: <20261123-lut-v1-0-5556c89a2ebd@gmail.com>
- <20261123-lut-v1-2-5556c89a2ebd@gmail.com>
-From: Louis Chauvet <louis.chauvet@bootlin.com>
+Subject: Re: [PATCH v2 07/13] xen: convert xenstore interface mmap hooks to
+ mmap_prepare
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Stefano Stabellini <sstabellini@kernel.org>,
+ Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Nicholas Piggin <npiggin@gmail.com>, Michael Ellerman <mpe@ellerman.id.au>,
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+ "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
+ Shrikanth Hegde <sshegde@linux.ibm.com>,
+ Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>,
+ Dexuan Cui <decui@microsoft.com>, "Michael S. Tsirkin" <mst@redhat.com>,
+ Jason Wang <jasowangio@gmail.com>, =?UTF-8?Q?Eugenio_P=C3=A9rez?=
+ <eperezma@redhat.com>, Xuan Zhuo <xuanzhuo@linux.alibaba.com>,
+ Jarkko Sakkinen <jarkko@kernel.org>,
+ Dave Hansen <dave.hansen@linux.intel.com>, Thomas Gleixner
+ <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, x86@kernel.org,
+ "H. Peter Anvin" <hpa@zytor.com>, Jan Kara <jack@suse.com>,
+ Paul Moore <paul@paul-moore.com>,
+ Stephen Smalley <stephen.smalley.work@gmail.com>,
+ =?UTF-8?B?T25kcmVqIE1vc27DocSNZWs=?= <omosnacek@gmail.com>,
+ Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>,
+ Ryan Chen <ryan_chen@aspeedtech.com>, Billy Tsai
+ <billy_tsai@aspeedtech.com>, Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>, Abel Vesa <abelvesa@kernel.org>,
+ Jens Wiklander <jenswi@kernel.org>, Sumit Garg <sumit.garg@kernel.org>,
+ Scott Branden <scott.branden@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Arnd Bergmann <arnd@arndb.de>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Richard Cochran <richardcochran@gmail.com>,
+ David Woodhouse <dwmw2@infradead.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Cc: xen-devel@lists.xenproject.org, linux-kernel@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, kvm@vger.kernel.org,
+ linux-hyperv@vger.kernel.org, virtualization@lists.linux.dev,
+ linux-sgx@vger.kernel.org, selinux@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
+ linux-arm-msm@vger.kernel.org, op-tee@lists.trustedfirmware.org,
+ netdev@vger.kernel.org, linux-mm@kvack.org
+References: <20261124-late-2026-mmap_prepare-v2-0-0b0d99d655f9@kernel.org>
+ <20261124-late-2026-mmap_prepare-v2-7-0b0d99d655f9@kernel.org>
 Content-Language: en-US
-In-Reply-To: <20261123-lut-v1-2-5556c89a2ebd@gmail.com>
+From: =?UTF-8?B?SsO8cmdlbiBHcm/Dnw==?= <jgross@suse.com>
+Autocrypt: addr=jgross@suse.com; keydata=
+ xsBNBFOMcBYBCACgGjqjoGvbEouQZw/ToiBg9W98AlM2QHV+iNHsEs7kxWhKMjrioyspZKOB
+ ycWxw3ie3j9uvg9EOB3aN4xiTv4qbnGiTr3oJhkB1gsb6ToJQZ8uxGq2kaV2KL9650I1SJve
+ dYm8Of8Zd621lSmoKOwlNClALZNew72NjJLEzTalU1OdT7/i1TXkH09XSSI8mEQ/ouNcMvIJ
+ NwQpd369y9bfIhWUiVXEK7MlRgUG6MvIj6Y3Am/BBLUVbDa4+gmzDC9ezlZkTZG2t14zWPvx
+ XP3FAp2pkW0xqG7/377qptDmrk42GlSKN4z76ELnLxussxc7I2hx18NUcbP8+uty4bMxABEB
+ AAHNH0p1ZXJnZW4gR3Jvc3MgPGpncm9zc0BzdXNlLmNvbT7CwHkEEwECACMFAlOMcK8CGwMH
+ CwkIBwMCAQYVCAIJCgsEFgIDAQIeAQIXgAAKCRCw3p3WKL8TL8eZB/9G0juS/kDY9LhEXseh
+ mE9U+iA1VsLhgDqVbsOtZ/S14LRFHczNd/Lqkn7souCSoyWsBs3/wO+OjPvxf7m+Ef+sMtr0
+ G5lCWEWa9wa0IXx5HRPW/ScL+e4AVUbL7rurYMfwCzco+7TfjhMEOkC+va5gzi1KrErgNRHH
+ kg3PhlnRY0Udyqx++UYkAsN4TQuEhNN32MvN0Np3WlBJOgKcuXpIElmMM5f1BBzJSKBkW0Jc
+ Wy3h2Wy912vHKpPV/Xv7ZwVJ27v7KcuZcErtptDevAljxJtE7aJG6WiBzm+v9EswyWxwMCIO
+ RoVBYuiocc51872tRGywc03xaQydB+9R7BHPzsBNBFOMcBYBCADLMfoA44MwGOB9YT1V4KCy
+ vAfd7E0BTfaAurbG+Olacciz3yd09QOmejFZC6AnoykydyvTFLAWYcSCdISMr88COmmCbJzn
+ sHAogjexXiif6ANUUlHpjxlHCCcELmZUzomNDnEOTxZFeWMTFF9Rf2k2F0Tl4E5kmsNGgtSa
+ aMO0rNZoOEiD/7UfPP3dfh8JCQ1VtUUsQtT1sxos8Eb/HmriJhnaTZ7Hp3jtgTVkV0ybpgFg
+ w6WMaRkrBh17mV0z2ajjmabB7SJxcouSkR0hcpNl4oM74d2/VqoW4BxxxOD1FcNCObCELfIS
+ auZx+XT6s+CE7Qi/c44ibBMR7hyjdzWbABEBAAHCwF8EGAECAAkFAlOMcBYCGwwACgkQsN6d
+ 1ii/Ey9D+Af/WFr3q+bg/8v5tCknCtn92d5lyYTBNt7xgWzDZX8G6/pngzKyWfedArllp0Pn
+ fgIXtMNV+3t8Li1Tg843EXkP7+2+CQ98MB8XvvPLYAfW8nNDV85TyVgWlldNcgdv7nn1Sq8g
+ HwB2BHdIAkYce3hEoDQXt/mKlgEGsLpzJcnLKimtPXQQy9TxUaLBe9PInPd+Ohix0XOlY+Uk
+ QFEx50Ki3rSDl2Zt2tnkNYKUCvTJq7jvOlaPd6d/W0tZqpyy7KVay+K4aMobDsodB3dvEAs6
+ ScCnh03dDAFgIq5nsB11j3KPKdVoPlfucX2c7kGNH+LUMbzqV6beIENfNexkOfxHfw==
+In-Reply-To: <20261124-late-2026-mmap_prepare-v2-7-0b0d99d655f9@kernel.org>
+Content-Type: multipart/signed; micalg=pgp-sha256;
+ protocol="application/pgp-signature";
+ boundary="------------rZw0QHKmzMvHx5VSPSOUKur0"
+
+This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
+--------------rZw0QHKmzMvHx5VSPSOUKur0
+Content-Type: multipart/mixed; boundary="------------1hIkmj8WyEEdRHjB5CXVAQ0q";
+ protected-headers="v1"; hp="clear"
+Message-ID: <589d567e-912d-4913-9949-ee28dfd7f719@suse.com>
+Date: Tue, 24 Nov 2026 16:14:21 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 07/13] xen: convert xenstore interface mmap hooks to
+ mmap_prepare
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Stefano Stabellini <sstabellini@kernel.org>,
+ Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Nicholas Piggin <npiggin@gmail.com>, Michael Ellerman <mpe@ellerman.id.au>,
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+ "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
+ Shrikanth Hegde <sshegde@linux.ibm.com>,
+ Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>,
+ Dexuan Cui <decui@microsoft.com>, "Michael S. Tsirkin" <mst@redhat.com>,
+ Jason Wang <jasowangio@gmail.com>, =?UTF-8?Q?Eugenio_P=C3=A9rez?=
+ <eperezma@redhat.com>, Xuan Zhuo <xuanzhuo@linux.alibaba.com>,
+ Jarkko Sakkinen <jarkko@kernel.org>,
+ Dave Hansen <dave.hansen@linux.intel.com>, Thomas Gleixner
+ <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, x86@kernel.org,
+ "H. Peter Anvin" <hpa@zytor.com>, Jan Kara <jack@suse.com>,
+ Paul Moore <paul@paul-moore.com>,
+ Stephen Smalley <stephen.smalley.work@gmail.com>,
+ =?UTF-8?B?T25kcmVqIE1vc27DocSNZWs=?= <omosnacek@gmail.com>,
+ Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>,
+ Ryan Chen <ryan_chen@aspeedtech.com>, Billy Tsai
+ <billy_tsai@aspeedtech.com>, Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>, Abel Vesa <abelvesa@kernel.org>,
+ Jens Wiklander <jenswi@kernel.org>, Sumit Garg <sumit.garg@kernel.org>,
+ Scott Branden <scott.branden@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Arnd Bergmann <arnd@arndb.de>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Richard Cochran <richardcochran@gmail.com>,
+ David Woodhouse <dwmw2@infradead.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Cc: xen-devel@lists.xenproject.org, linux-kernel@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, kvm@vger.kernel.org,
+ linux-hyperv@vger.kernel.org, virtualization@lists.linux.dev,
+ linux-sgx@vger.kernel.org, selinux@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
+ linux-arm-msm@vger.kernel.org, op-tee@lists.trustedfirmware.org,
+ netdev@vger.kernel.org, linux-mm@kvack.org
+References: <20261124-late-2026-mmap_prepare-v2-0-0b0d99d655f9@kernel.org>
+ <20261124-late-2026-mmap_prepare-v2-7-0b0d99d655f9@kernel.org>
+Content-Language: en-US
+From: =?UTF-8?B?SsO8cmdlbiBHcm/Dnw==?= <jgross@suse.com>
+Autocrypt: addr=jgross@suse.com; keydata=
+ xsBNBFOMcBYBCACgGjqjoGvbEouQZw/ToiBg9W98AlM2QHV+iNHsEs7kxWhKMjrioyspZKOB
+ ycWxw3ie3j9uvg9EOB3aN4xiTv4qbnGiTr3oJhkB1gsb6ToJQZ8uxGq2kaV2KL9650I1SJve
+ dYm8Of8Zd621lSmoKOwlNClALZNew72NjJLEzTalU1OdT7/i1TXkH09XSSI8mEQ/ouNcMvIJ
+ NwQpd369y9bfIhWUiVXEK7MlRgUG6MvIj6Y3Am/BBLUVbDa4+gmzDC9ezlZkTZG2t14zWPvx
+ XP3FAp2pkW0xqG7/377qptDmrk42GlSKN4z76ELnLxussxc7I2hx18NUcbP8+uty4bMxABEB
+ AAHNH0p1ZXJnZW4gR3Jvc3MgPGpncm9zc0BzdXNlLmNvbT7CwHkEEwECACMFAlOMcK8CGwMH
+ CwkIBwMCAQYVCAIJCgsEFgIDAQIeAQIXgAAKCRCw3p3WKL8TL8eZB/9G0juS/kDY9LhEXseh
+ mE9U+iA1VsLhgDqVbsOtZ/S14LRFHczNd/Lqkn7souCSoyWsBs3/wO+OjPvxf7m+Ef+sMtr0
+ G5lCWEWa9wa0IXx5HRPW/ScL+e4AVUbL7rurYMfwCzco+7TfjhMEOkC+va5gzi1KrErgNRHH
+ kg3PhlnRY0Udyqx++UYkAsN4TQuEhNN32MvN0Np3WlBJOgKcuXpIElmMM5f1BBzJSKBkW0Jc
+ Wy3h2Wy912vHKpPV/Xv7ZwVJ27v7KcuZcErtptDevAljxJtE7aJG6WiBzm+v9EswyWxwMCIO
+ RoVBYuiocc51872tRGywc03xaQydB+9R7BHPzsBNBFOMcBYBCADLMfoA44MwGOB9YT1V4KCy
+ vAfd7E0BTfaAurbG+Olacciz3yd09QOmejFZC6AnoykydyvTFLAWYcSCdISMr88COmmCbJzn
+ sHAogjexXiif6ANUUlHpjxlHCCcELmZUzomNDnEOTxZFeWMTFF9Rf2k2F0Tl4E5kmsNGgtSa
+ aMO0rNZoOEiD/7UfPP3dfh8JCQ1VtUUsQtT1sxos8Eb/HmriJhnaTZ7Hp3jtgTVkV0ybpgFg
+ w6WMaRkrBh17mV0z2ajjmabB7SJxcouSkR0hcpNl4oM74d2/VqoW4BxxxOD1FcNCObCELfIS
+ auZx+XT6s+CE7Qi/c44ibBMR7hyjdzWbABEBAAHCwF8EGAECAAkFAlOMcBYCGwwACgkQsN6d
+ 1ii/Ey9D+Af/WFr3q+bg/8v5tCknCtn92d5lyYTBNt7xgWzDZX8G6/pngzKyWfedArllp0Pn
+ fgIXtMNV+3t8Li1Tg843EXkP7+2+CQ98MB8XvvPLYAfW8nNDV85TyVgWlldNcgdv7nn1Sq8g
+ HwB2BHdIAkYce3hEoDQXt/mKlgEGsLpzJcnLKimtPXQQy9TxUaLBe9PInPd+Ohix0XOlY+Uk
+ QFEx50Ki3rSDl2Zt2tnkNYKUCvTJq7jvOlaPd6d/W0tZqpyy7KVay+K4aMobDsodB3dvEAs6
+ ScCnh03dDAFgIq5nsB11j3KPKdVoPlfucX2c7kGNH+LUMbzqV6beIENfNexkOfxHfw==
+In-Reply-To: <20261124-late-2026-mmap_prepare-v2-7-0b0d99d655f9@kernel.org>
+
+--------------1hIkmj8WyEEdRHjB5CXVAQ0q
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: base64
 
+T24gMjQuMTEuMjYgMTU6MDIsIExvcmVuem8gU3RvYWtlcyAoQVJNKSB3cm90ZToNCj4gTW92
+ZSBmcm9tIHRoZSBkZXByZWNhdGVkIG1tYXAgaG9vayB0byB0aGUgbmV3IG1tYXBfcHJlcGFy
+ZSBob29rIGZvciB0aGUNCj4geGVuZnMgeHNkX2t2YSBmaWxlIGFuZCB0aGUgeGVuYnVzX2Jh
+Y2tlbmQgZGV2aWNlLCBib3RoIG9mIHdoaWNoIHJlbWFwIHRoZQ0KPiB4ZW5zdG9yZSBpbnRl
+cmZhY2UgcGFnZS4NCj4gDQo+IFVzZSB0aGUgUEZOIHJlbWFwIG1tYXAgYWN0aW9uIHRvIGRv
+IHNvLCByZXRhaW5pbmcgdGhlIC1FQUdBSU4gZXJyb3Igb24NCj4gZmFpbHVyZSB2aWEgdGhl
+IGFjdGlvbiBlcnJvciBvdmVycmlkZS4NCj4gDQo+IFNpZ25lZC1vZmYtYnk6IExvcmVuem8g
+U3RvYWtlcyAoQVJNKSA8bGpzQGtlcm5lbC5vcmc+DQpBY2tlZC1ieTogSnVlcmdlbiBHcm9z
+cyA8amdyb3NzQHN1c2UuY29tPg0KDQoNCkp1ZXJnZW4NCg==
 
+--------------1hIkmj8WyEEdRHjB5CXVAQ0q--
 
-On 11/23/26 17:20, Oarora Etimis wrote:
-> apply_lut() interpolates every channel of every pixel: three calls to
-> apply_lut_to_channel_value(), each computing a fixed-point LUT index and
-> lerping the two neighbouring entries. In virtme-ng with two CPUs, that
-> makes kms_plane@pixel-format-source-clamping take 78.9-83.8 s and
-> kms_plane@pixel-format 160.1-167.8 s over ten runs.
-> 
-> A channel value is a u16, so a channel has only 65536 possible inputs.
-> Compute them once per LUT change into three tables of 65536 u16, in one
-> allocation of 384 KiB, and let apply_lut() index them by the channel value
-> itself; composing a pixel then costs three reads. The two subtests drop to
-> 4.87-4.90 s and 9.70-9.84 s.
-> 
-> Entries come from the same apply_lut_to_channel_value(), so the composed
-> output stays bit-identical to the per-pixel path.
-> 
-> The tables are built in vkms_composer_worker(), outside the composer lock,
-> on a frame with a CRC pending whose blob differs from the one they were
-> built from. Holding a reference on that blob keeps its address from being
-> recycled, so comparing pointers stays a valid identity test for contents
-> that are immutable once published. They are allocated with kvmalloc() in
-> vkms_crtc_init() and freed by a device action that also drops the blob
-> reference - registered before the workqueue, so the workqueue is destroyed
-> first.
-> 
-> When there is no LUT the tables keep their previous contents; apply_lut()
-> returns on the NULL base before indexing them.
-> 
-> This patch depends on patch 1: it declares gamma_lut and clears
-> lut_length when there is no LUT. Applied alone, this patch does not
-> compile, and the rebuild check would build from a NULL base.
-> 
-> Signed-off-by: Oarora Etimis <oaroraetimis@gmail.com>
-> ---
->   drivers/gpu/drm/vkms/vkms_composer.c | 37 ++++++++++++++++++++++++++++++------
->   drivers/gpu/drm/vkms/vkms_composer.h |  3 +++
->   drivers/gpu/drm/vkms/vkms_crtc.c     | 24 +++++++++++++++++++++++
->   drivers/gpu/drm/vkms/vkms_drv.h      |  6 ++++++
->   4 files changed, 64 insertions(+), 6 deletions(-)
-> 
-> diff --git a/drivers/gpu/drm/vkms/vkms_composer.c b/drivers/gpu/drm/vkms/vkms_composer.c
-> index 1d5658bbd493..5bbc34113250 100644
-> --- a/drivers/gpu/drm/vkms/vkms_composer.c
-> +++ b/drivers/gpu/drm/vkms/vkms_composer.c
-> @@ -111,21 +111,37 @@ VISIBLE_IF_KUNIT u16 apply_lut_to_channel_value(const struct vkms_color_lut *lut
->   }
->   EXPORT_SYMBOL_IF_KUNIT(apply_lut_to_channel_value);
->   
-> +/*
-> + * Precompute the LUT for every 16-bit channel value, so that composing a
-> + * pixel becomes one table lookup instead of an interpolation.
-> + */
-> +VISIBLE_IF_KUNIT void build_lut_table(const struct vkms_color_lut *lut, u16 *lut_table)
-> +{
-> +	enum lut_channel channel;
-> +	int i;
-> +
-> +	for (channel = LUT_RED; channel < LUT_RESERVED; channel++) {
-> +		for (i = 0; i < LUT_TABLE_ENTRIES; i++)
-> +			lut_table[channel * LUT_TABLE_ENTRIES + i] =
-> +				apply_lut_to_channel_value(lut, i, channel);
-> +	}
-> +}
-> +EXPORT_SYMBOL_IF_KUNIT(build_lut_table);
->   
->   static void apply_lut(const struct vkms_crtc_state *crtc_state, struct line_buffer *output_buffer)
->   {
-> -	if (!crtc_state->gamma_lut.base)
-> -		return;
-> +	const struct vkms_output *out = drm_crtc_to_vkms_output(crtc_state->base.crtc);
-> +	const u16 *table = out->gamma_lut_table;
->   
-> -	if (!crtc_state->gamma_lut.lut_length)
-> +	if (!crtc_state->gamma_lut.base || !crtc_state->gamma_lut.lut_length)
->   		return;
->   
->   	for (size_t x = 0; x < output_buffer->n_pixels; x++) {
->   		struct pixel_argb_u16 *pixel = &output_buffer->pixels[x];
->   
-> -		pixel->r = apply_lut_to_channel_value(&crtc_state->gamma_lut, pixel->r, LUT_RED);
-> -		pixel->g = apply_lut_to_channel_value(&crtc_state->gamma_lut, pixel->g, LUT_GREEN);
-> -		pixel->b = apply_lut_to_channel_value(&crtc_state->gamma_lut, pixel->b, LUT_BLUE);
-> +		pixel->r = table[LUT_RED * LUT_TABLE_ENTRIES + pixel->r];
-> +		pixel->g = table[LUT_GREEN * LUT_TABLE_ENTRIES + pixel->g];
-> +		pixel->b = table[LUT_BLUE * LUT_TABLE_ENTRIES + pixel->b];
->   	}
->   }
->   
-> @@ -653,6 +669,15 @@ void vkms_composer_worker(struct work_struct *work)
->   	if (!crc_pending)
->   		return;
->   
-> +	/* Rebuild only when the LUT differs from the one the table was built from. */
-> +	if (gamma_lut != out->gamma_lut_blob) {
-> +		if (crtc_state->gamma_lut.lut_length)
-> +			build_lut_table(&crtc_state->gamma_lut, out->gamma_lut_table);
-> +
-> +		drm_property_blob_put(out->gamma_lut_blob);
-> +		out->gamma_lut_blob = gamma_lut ? drm_property_blob_get(gamma_lut) : NULL;
-> +	}
-> +
->   	if (wb_pending)
->   		ret = compose_active_planes(active_wb, crtc_state, &crc32);
->   	else
-> diff --git a/drivers/gpu/drm/vkms/vkms_composer.h b/drivers/gpu/drm/vkms/vkms_composer.h
-> index 04dd5646f672..b0ee93ba6dbe 100644
-> --- a/drivers/gpu/drm/vkms/vkms_composer.h
-> +++ b/drivers/gpu/drm/vkms/vkms_composer.h
-> @@ -17,11 +17,14 @@ enum lut_channel {
->   	LUT_RESERVED
->   };
->   
-> +#define LUT_TABLE_ENTRIES	(1U << 16)
-> +
+--------------rZw0QHKmzMvHx5VSPSOUKur0
+Content-Type: application/pgp-signature; name="OpenPGP_signature.asc"
+Content-Description: OpenPGP digital signature
+Content-Disposition: attachment; filename="OpenPGP_signature.asc"
 
-BIT(16)
+-----BEGIN PGP SIGNATURE-----
 
-With this:
+wsB5BAABCAAjFiEEhRJncuj2BJSl0Jf3sN6d1ii/Ey8FAmsFqc0FAwAAAAAACgkQsN6d1ii/Ey8U
+agf9EKmbZX8l548UDsdyJg6oJvCYHOXjuS/ExKBuNpmGhFgk7GREMY+3u3PwwH5i8jr55bbeWohR
+PQZmJLsVx91G2Go2UnTECf+ux5hcQK/L88QRCcbKXHLPL5o2jl4qSVtCpjc4+Zq8UulQYIwYP35a
+OS34bD2osQ81MOzn9C89cW+1W2vyw6436TybryP/f0H8AtinZ/cTr3yFyQO/tR2V2NBHtEzwqslP
+jNDjxr1xdpiDdCL4jZ8rdh7WfCE5cgGr89hzbDR9ZyzH4ka8x2ICUX++Mym777GSOuxLf3wzSPuW
+OkTRlKQEHsYqdVjYj7TAHGOBC56IwBlTfAmWefOR2g==
+=vFml
+-----END PGP SIGNATURE-----
 
-Reviewed-by: Louis Chauvet <louis.chauvet@bootlin.com>
-
->   #if IS_ENABLED(CONFIG_KUNIT)
->   u16 lerp_u16(u16 a, u16 b, s64 t);
->   s64 get_lut_index(const struct vkms_color_lut *lut, u16 channel_value);
->   u16 apply_lut_to_channel_value(const struct vkms_color_lut *lut, u16 channel_value,
->   			       enum lut_channel channel);
-> +void build_lut_table(const struct vkms_color_lut *lut, u16 *lut_table);
->   void apply_3x4_matrix(struct pixel_argb_s32 *pixel, const struct drm_color_ctm_3x4 *matrix);
->   #endif
->   
-> diff --git a/drivers/gpu/drm/vkms/vkms_crtc.c b/drivers/gpu/drm/vkms/vkms_crtc.c
-> index fe17f49305a9..c6ac90fbca2b 100644
-> --- a/drivers/gpu/drm/vkms/vkms_crtc.c
-> +++ b/drivers/gpu/drm/vkms/vkms_crtc.c
-> @@ -11,6 +11,7 @@
->   #include <drm/drm_vblank.h>
->   #include <drm/drm_vblank_helper.h>
->   
-> +#include "vkms_composer.h"
->   #include "vkms_drv.h"
->   
->   static bool vkms_crtc_handle_vblank_timeout(struct drm_crtc *crtc)
-> @@ -203,6 +204,14 @@ static const struct drm_crtc_helper_funcs vkms_crtc_helper_funcs = {
->   	.handle_vblank_timeout = vkms_crtc_handle_vblank_timeout,
->   };
->   
-> +static void vkms_release_gamma_lut(struct drm_device *dev, void *data)
-> +{
-> +	struct vkms_output *out = data;
-> +
-> +	kvfree(out->gamma_lut_table);
-> +	drm_property_blob_put(out->gamma_lut_blob);
-> +}
-> +
->   struct vkms_output *vkms_crtc_init(struct drm_device *dev, struct drm_plane *primary,
->   				   struct drm_plane *cursor)
->   {
-> @@ -235,6 +244,21 @@ struct vkms_output *vkms_crtc_init(struct drm_device *dev, struct drm_plane *pri
->   	spin_lock_init(&vkms_out->lock);
->   	spin_lock_init(&vkms_out->composer_lock);
->   
-> +	/*
-> +	 * Allocate before composer_workq: drmm frees in reverse order, so the
-> +	 * workqueue (and any running worker) is destroyed before this table is
-> +	 * freed.
-> +	 */
-> +	vkms_out->gamma_lut_table = kvmalloc_array(LUT_RESERVED * LUT_TABLE_ENTRIES,
-> +						   sizeof(*vkms_out->gamma_lut_table),
-> +						   GFP_KERNEL | __GFP_ZERO);
-> +	if (!vkms_out->gamma_lut_table)
-> +		return ERR_PTR(-ENOMEM);
-> +
-> +	ret = drmm_add_action_or_reset(dev, vkms_release_gamma_lut, vkms_out);
-> +	if (ret)
-> +		return ERR_PTR(ret);
-> +
->   	vkms_out->composer_workq = drmm_alloc_ordered_workqueue(dev, "vkms_composer", 0);
->   	if (IS_ERR(vkms_out->composer_workq))
->   		return ERR_CAST(vkms_out->composer_workq);
-> diff --git a/drivers/gpu/drm/vkms/vkms_drv.h b/drivers/gpu/drm/vkms/vkms_drv.h
-> index 381483aa4fb0..065a7b07b4ab 100644
-> --- a/drivers/gpu/drm/vkms/vkms_drv.h
-> +++ b/drivers/gpu/drm/vkms/vkms_drv.h
-> @@ -214,6 +214,10 @@ struct vkms_crtc_state {
->    *		      writeback)
->    * @composer_state: Protected by @lock, current state of this VKMS output
->    * @composer_lock: Lock used internally to protect @composer_state members
-> + * @gamma_lut_table: Precomputed gamma LUT indexed by the 16-bit channel value. Allocated
-> + *		     in vkms_crtc_init() and freed with the device.
-> + * @gamma_lut_blob: Blob @gamma_lut_table was built from. Holds a reference so that the
-> + *		    blob cannot be freed and reused at the same address with other contents.
->    */
->   struct vkms_output {
->   	struct drm_crtc crtc;
-> @@ -226,6 +230,8 @@ struct vkms_output {
->   	struct vkms_crtc_state *composer_state;
->   
->   	spinlock_t composer_lock;
-> +	u16 *gamma_lut_table;
-> +	struct drm_property_blob *gamma_lut_blob;
->   };
->   
->   struct vkms_config;
-> 
-
+--------------rZw0QHKmzMvHx5VSPSOUKur0--
