@@ -1,97 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795507718;
-	b=u+rFx3X5IVUI/G5EyzKPzn6fdzC0RxC9vNBwOrcRnZgUztbqKy7yukK/aJUPCCsS5hTH
-	 gEReVLXZO97tuqYOcGfbqjk84p4MiVpKK+JgFHDvFEPU8SZ2hFT5ITMPSDlUdVyvFaCai
-	 514QEvBtmjucSB02zk92/ZwusM3PjH9yqgnLO9GiI5yNv6BlTXgWBx29UCPZmd8ISZvNt
-	 FwKMP7DZ2fRy9YXvfbN7AFI0mS9pSQ5TYiejU8CfVvblUiZjHuFPXs+o8pg/EXfCvuol+
-	 yQF0gsWZ0POoVuMg/y+CPNVQADTIz7wzV5MRAgvKgk9uoeQkIjxyc+eOTh3Cjfp0ARw==
+	t=1795507753;
+	b=CQN+/pyk0atAs8c7nfbcxNyKoYjAp70NOwbPlijgzrot5MigTmdmKFAfalWTtAIqnM+5
+	 t4raUB6vWIGUDA+cOrKeHQWGruXoS6Pxe+2CJaASAi4vCe7ZyJE8J1By6edZjkzz30Pcg
+	 LLDAJh4714FFROG5aGnd4tTtba1aECk89MpYAI+uhdgiB/fzAEHcQ3DKWWFqOa3kCTTwe
+	 RLMybWUarMvtqUvcln8m8+Fka80Ror+QPl7u3zeBFxeRHH6ApMftevnexoQyIrcunZ7kz
+	 ECNJHDRJ5YiRFbsipCiVD+75DBiUl7P6DyhYunrDi8hE4GdlKfcyMt/314Lxy3YYnRA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795507718;
-	h=DMARC-Filter:Date:DKIM-Signature:DKIM-Signature:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=Rui415BXN6LQDJtlDxX2N/m8ikGKOPR/KXiSQWGrwO8=;
-	b=OJL8WgKrrcYD9srT9EHMdIRVkqrKa8QFoiGqoT2JaPFAsnvkx4zHEhlE+j2QF4M1BD7I
-	 wUIibnAb1dNZrimlX8FtFJoikyPKh3MCny0cE5DdcKbFdErsoc9ZJgDKRC6NwFCnCU8TY
-	 1gbzTorvzVy7hDstpgOZpgMuNoP+bjM9Am9KgeoOIe2F03CFqQ6SH5NMMj6ul6vvLyUVM
-	 //4BmCHcsMb/CRRdGgsBHTQ1Ydj6Tino1gpcD4R3xcz213wAnH0cLWgA0Xnh/X+t0Tt7S
-	 W6Vg1Jhz2PzJn7jvGSVidDGQcghOpcNmeORFTsNclKoPV/olkuR+RmTAyvHBKaDbwRg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795507753;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=SNa0jI0FiSQSesqDcSvYF2AIe3+V2OGkbaEUbg4vgtw=;
+	b=oZVhQY+crBaZgn96fyFSIlQ/GLUAizxvOnCxW3ZpTAUBz5CHu+TANBf8Cw2IbHWaG2mV
+	 YASYiVeayfQvZYfmkSr66xxDxl8ZpkEX3dNhu7uW5FA5msXBvKpeYVq3Ts9+3EXukTUUW
+	 JUDi8LAIWcdoY04qQhZgTXzmJEWo02BGX73JImlurMExMlCa2aPZcQFkQ5MzHfvPmjgQh
+	 1ZQ+/xewIAMB812+hI1I/N/M+3rSic0dIO6Nkx8Wkhr+isNW7e55YZaNAd75FpWavCVFv
+	 YyD2n65yMwN/tRp1mjUEjNUR0Cq63T/L/2xg6hxa3kwyLoiH4HzE4sKbeXU5gnffYog==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linutronix.de;
-	spf=pass smtp.mailfrom=linutronix.de;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=Ob+kzqBO;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b="IYM/Ts+c";
-	arc=none smtp.remote-ip=193.142.43.55
-Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Np6jz+Pz;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8F18F606A31E;
-	Tue, 24 Nov 2026 08:08:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8F18F606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1B5F5606A31E;
+	Tue, 24 Nov 2026 08:09:12 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=Ob+kzqBO;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=IYM/Ts+c
-Date: Tue, 24 Nov 2026 09:08:33 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1795507715;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Rui415BXN6LQDJtlDxX2N/m8ikGKOPR/KXiSQWGrwO8=;
-	b=Ob+kzqBOIdWlT+kWzEkrKu3xbz1ZDVnKHLF8tV6OF+/ElE4cX4ltP5jtXrSp01MCLI4dIJ
-	7B/Z76zWO8flDXxBetTgZIfWQbO6iK8n9EwwkSpahQ0F34X+sEbRba5BTn0OfsBcP71EOX
-	ATk3ZFAqG4w04LpAOWL+vIVaFv21hxEm2RFC5ZLhIojxuyxnkDgduJQynXWHp3Ay0bg63S
-	J0KCe//a2PuOelf2cHPjYsWAlQH4lpB813W7hbkGjymshP3zQ346LnYK/j3fXzWCzNwjNl
-	Z7fsIzx1hdwqJKnC0qK+hEehaCA1WUeZSOw9ZRoYgR9qmcU7G3Ubb1BxmuxbbQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1795507715;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Rui415BXN6LQDJtlDxX2N/m8ikGKOPR/KXiSQWGrwO8=;
-	b=IYM/Ts+cU5pFIDw1VQn7XIr6H/Bc08V2WzL/ps98TC0upmKHPp1OZCYmoOKvydvtj0zRiN
-	cEauxIaU3yxbDSBg==
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-To: Juri Lelli <juri.lelli@redhat.com>
-Cc: linux-kernel@vger.kernel.org, cgroups@vger.kernel.org,
-	rcu@vger.kernel.org, linux-doc@vger.kernel.org,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
-	Valentin Schneider <vschneid@redhat.com>,
-	K Prateek Nayak <kprateek.nayak@amd.com>,
-	luca abeni <luca.abeni@santannapisa.it>,
-	Yuri Andriaccio <yurand2000@gmail.com>,
-	Yuri Andriaccio <yuri.andriaccio@santannapisa.it>,
-	"Paul E. McKenney" <paulmck@kernel.org>,
-	Frederic Weisbecker <frederic@kernel.org>,
-	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
-	Joel Fernandes <joelagnelf@nvidia.com>,
-	Josh Triplett <josh@joshtriplett.org>,
-	Boqun Feng <boqun@kernel.org>, Uladzislau Rezki <urezki@gmail.com>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Lai Jiangshan <jiangshanlai@gmail.com>,
-	Zqiang <qiang.zhang@linux.dev>, Davidlohr Bueso <dave@stgolabs.net>,
-	Tejun Heo <tj@kernel.org>, Johannes Weiner <hannes@cmpxchg.org>,
-	Michal =?utf-8?Q?Koutn=C3=BD?= <mkoutny@suse.com>,
-	Qais Yousef <qyousef@layalina.io>,
-	John Ogness <john.ogness@linutronix.de>
-Subject: Re: [PATCH v4 3/6] sched: Add sysfs files for the per-CPU
- fair_server knobs
-Message-ID: <20261124080833.0I9HFgtf@linutronix.de>
-References: <20261123-sched_dl-v4-0-d523e4d960d3@linutronix.de>
- <20261123-sched_dl-v4-3-d523e4d960d3@linutronix.de>
- <awVDG-ABOvj7zGRg@jlelli-thinkpadt14gen4.remote.csb>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Np6jz+Pz
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 412FC1F000CA;
+	Tue, 24 Nov 2026 08:09:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795507752;
+	bh=SNa0jI0FiSQSesqDcSvYF2AIe3+V2OGkbaEUbg4vgtw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=Np6jz+PzAWLACWRJQadcKkpHuWvjrXsDqYPVTdx8Okon3l+0HK1YwRx1yTUB/ht29
+	 2hb4c7sLr7Wd79ciX0oIq88GezZe2NojqjsVL48OSECAezNKEsRzhHYhvGA0i5IjX4
+	 uLdRne31MEAhS4XtgviY8yLfmg+EHN1Kb/kfHJ+wufa6yRXLRw2/LiJrdMDDmYxDZc
+	 Zd86Yaou/FN8u5MAbEjMRh+GXFv/1cVdml3zRWE0NRRw4ZRErBPxVZyiFHgWhPeqqp
+	 sA2XoQ7ZbjzYdANMt9IB7F6jHLUFysQpuvuCOD05rsqWjH+n86T2HnhdXUG2wt+6F7
+	 jt/PGiOhLdHWw==
+Message-ID: <702af94e-4447-4b09-b7f4-4e4cb32c95b7@kernel.org>
+Date: Tue, 24 Nov 2026 09:08:59 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,58 +51,124 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <awVDG-ABOvj7zGRg@jlelli-thinkpadt14gen4.remote.csb>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/4] drm/i915: consider vm_pgoff in vm_access()
+To: Lorenzo Stoakes <ljs@kernel.org>, "Liam R. Howlett" <liam@infradead.org>,
+ Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>,
+ Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>,
+ Andrew Morton <akpm@linux-foundation.org>, Willy Tarreau <w@1wt.eu>,
+ Jani Nikula <jani.nikula@linux.intel.com>,
+ Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
+ Rodrigo Vivi <rodrigo.vivi@intel.com>, Tvrtko Ursulin
+ <tursulin@ursulin.net>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Chris Wilson <chris@chris-wilson.co.uk>,
+ Matthew Auld <matthew.auld@intel.com>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+ "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
+ Shrikanth Hegde <sshegde@linux.ibm.com>, Rik van Riel <riel@redhat.com>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+ intel-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
+ linuxppc-dev@lists.ozlabs.org, stable@vger.kernel.org
+References: <20261122-access_shite-v2-0-808d8d2aa700@kernel.org>
+ <20261122-access_shite-v2-2-808d8d2aa700@kernel.org>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <20261122-access_shite-v2-2-808d8d2aa700@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-On 2026-11-24 08:56:11 [+0100], Juri Lelli wrote:
-> Hello,
+On 11/22/26 18:55, David Hildenbrand (Arm) wrote:
+> vm_access() treats the start of every VMA as the beginning of the GEM
+> object. After a VMA split, vm_pgoff identifies a later part of the
+> object. Debugger reads and writes through ptrace or /proc/<pid>/mem then
+> access the wrong bytes.
 > 
-> On 23/11/26 14:41, Sebastian Andrzej Siewior wrote:
-> > The fair_server exposes the runtime and period knobs per-CPU in the
-> > debugfs folder. The debugfs interface is not a stable ABI.
-> > Make the /sys/kernel/debug/sched/fair_server/cpu*/{period|runtime} knobs
-> > available as /sys/kernel/sched/cpuX/{fair_server_period|fair_server_runtime}.
-> > 
-> > It adds a struct kobject to the rq and exposes only those two. The
-> > per-runqueue folder is named `cpu' rather than `rq' since it might be
-> > more intuitive to the user than `rq' or `runqueue'.
-> > 
-> > The set logic is pulled from the debugfs folder but it is still shared.
-> > That debugfs logic could be removed (after providing the same for
-> > ext-server) or symlinked for a while.
+> Properly consider vm_pgoff just like the fault handlers already do.
 > 
-> ...
+> Fixes: 9f909e215fea ("drm/i915: Implement vm_ops->access for gdb access into mmaps")
+> Cc: stable@vger.kernel.org
+> Acked-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+> Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
+> ---
+>  drivers/gpu/drm/i915/gem/i915_gem_mman.c | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
 > 
-> > +static ssize_t rq_fair_server_runtime_show(struct kobject *kobj, struct kobj_attribute *attr,
-> > +					   char *buf)
-> > +{
-> > +	struct rq *rq = kobj_to_rq(kobj);
-> > +	struct sched_dl_entity *dl_se;
-> > +
-> > +	dl_se = &rq->fair_server;
-> > +
-> > +	return sysfs_emit(buf, "%llu\n", dl_se->dl_runtime);
-> > +}
+> diff --git a/drivers/gpu/drm/i915/gem/i915_gem_mman.c b/drivers/gpu/drm/i915/gem/i915_gem_mman.c
+> index 6b337684dbfe8..e3b24dc8e94f5 100644
+> --- a/drivers/gpu/drm/i915/gem/i915_gem_mman.c
+> +++ b/drivers/gpu/drm/i915/gem/i915_gem_mman.c
+> @@ -511,13 +511,15 @@ vm_access(struct vm_area_struct *area, unsigned long addr,
+>  	struct i915_mmap_offset *mmo = area->vm_private_data;
+>  	struct drm_i915_gem_object *obj = mmo->obj;
+>  	struct i915_gem_ww_ctx ww;
+> +	unsigned long obj_offset;
+>  	void *vaddr;
+>  	int err = 0;
+>  
+>  	if (i915_gem_object_is_readonly(obj) && write)
+>  		return -EACCES;
+>  
+> -	addr -= area->vm_start;
+> +	obj_offset = area->vm_pgoff - drm_vma_node_start(&mmo->vma_node);
+> +	addr += (obj_offset << PAGE_SHIFT) - area->vm_start;
+>  	if (range_overflows_t(u64, addr, len, obj->base.size))
+>  		return -EINVAL;
+>  
 > 
-> Since these files are new and meant to replace debugfs, how about using
-> ns everywhere (you partly commented about it in the cover letter), as
-> sched_attr and the dl_server parameters already do, with the unit in the
-> name? I.e. fair_server_{runtime,period}_ns here and
-> dl_{runtime,period}_ns in 2/6, with only the procfs compatibility path
-> converting from us. Right now /sys/kernel/sched/ has dl_*_us in us next
-> to cpuX/fair_server_* in ns without a suffix.
 
-I can do both in ns (or us depending what is easier/ more useful). Let
-me update that then.
+If I can get an ACK on this change, I'll merge it through the mm-core tree.
 
-> Related, do we need to add Documentation/ABI/testing/sysfs-kernel-sched
-> entries for these and for the 2/6 files (units, defaults, limits,
-> what 0 / -1 mean, -EBUSY on admission failure)?
+Unless maintainers want to pick this here separately. Patch #4 might make it
+easier to trigger, though.
 
-Oh. That is a good one. Yes.
+-- 
+Cheers,
 
-> Thanks,
-> Juri
-
-Sebastian
+David
