@@ -1,59 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.51
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795555944;
-	b=I4ji+UpHeRWmoq1r8QotN4xq1OdIweZW0TTl7tU6ssJcqhL3r83U4fpMj0asQqDjl4f/
-	 6Eu41JQHavFZUJ70yKwcyBy0erNQalJ3hW+1Tjzrq1Ipow1EE3yTpbM8MugLckdBghr3Y
-	 tIdyhb12PlusIXP4gEpqTcW73MIA9N/6WxGxuxy+17NzkZ9DS539ahux79EYZ8/CeaTpK
-	 XjZpBcxNG9gYQZNHXzcU/XpaZqnflEIDGZSSs+yxIQKlVsh165EkWQ4XhpKJsa4OBekCj
-	 dCmjfmeseIe7HwY1lRqFCeRu7ZxhJzuH1HVJBdSSwhNy/lqoWyqSnYR35p3Jxx9DY7w==
+	b=0wXFQ1tEarylpfGr+L+M+NaLUlCI3cmQcMihy3/wqpBppdVEDni/sAiL+80rZNZZv6mi
+	 dCw5Js2+QW/6SfxeWqIpEOtnKLUAv2E0WS1P1qe2SuGUjc6FN/5fQXZLt1FvSZwOGlDQ0
+	 PZwQnKBi2h9mpbs5oi/0EJ9SE8TRu6YOReolhGxVdZzBG2jko1RmpG6Iwx8q6TG2ynw34
+	 GFucp8Ai3iS3QKalcgwjijK3Wwrocr00MNCT+KYIOZUMhWWr12ZS7Xfc4Gnn5OifZiEbm
+	 A7JyfCgusphDdQVBUmCbEamoZVLSRBbRP+rltB+3jXQPQ+VkfMeXsWtrawIDvQHr0dw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795555944;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=pxCVoM8sZVyMKnjJ/b022SiYasxrgvXvq5CHraLjb1M=;
-	b=3zYmVyiwp1Gcch/VvKQ8nIncjJTQTL+3ECHnGwwJWphkyOIcY9ziq90BNVFNK8EbSauG
-	 yoN+OLyIMoidAP3jlX1ujUhBDzXHQWBkDmTfFGt2Nu9HfpiCQ7OKS/4PmKmCRwTUopSGc
-	 H4lrZPyg04k6Cx32YVs+lOMg8MhpDiEDP/39P4cSOffr1pxMYJNyt6NbeZaEz8syEjhSr
-	 5r1a3sCx9AyEOs5hj9XXYiwxEuIFqhwfJwNE2DbgoL7KrzQw+qDmHpvP4W7Upc/99qSri
-	 WVtfEIpzdY7rh1HcPD1q7mw8D1yvgqhAZ+h4DqsOVvQ6GKzQBba1kTHrcupLu2sCy2w==
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=DDcAtIlwc2AD4AEcVG0iGSI0NR5o7B+lhg7MPzNzuB4=;
+	b=vB/Taml0tcS27fZbppWjDJLAVKa829E/nLI8S7fy0Hu6/GD9FTdwsNeF/3rKcWD7Vwyc
+	 pBWQ5y/NqgGQ5ibxPpiPz+WBbiTcZuDPqBF1oBK6Pqm7SDRHyyOmcc8EWoWVxdKW6ChoR
+	 /3/59qgls5k9f6RYkoc4HZ852F4/zbp/IoQIu1lzGqQWxcOjyrTDCI6HcHnqOqtqYOp16
+	 JdOUFumnx/Rwfg3Iv70Ju/dAvs+DvfwwCRgYM6SH1MawY8prpcX7zb1SVTXOaVN9U7K5I
+	 rMQ3HXp/A7RhMk/u5NR+kHPvosy2kuYovd5bJ+DXuPUldj/iiAoltgAuCpIlYOsC6SQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="oQjn/bus";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=googlemail.com;
+	spf=pass smtp.mailfrom=googlemail.com;
+	dkim=pass header.d=googlemail.com header.i=@googlemail.com header.a=rsa-sha256 header.s=20260707 header.b=fqPn0igb;
+	arc=none smtp.remote-ip=209.85.128.51
+Received: from mail-wm1-f51.google.com (mail-wm1-f51.google.com [209.85.128.51])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6FBCA606A333;
-	Tue, 24 Nov 2026 21:32:24 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D11B7606A33A
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 21:32:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D11B7606A33A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=googlemail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=googlemail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oQjn/bus
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 356E81F000C6;
-	Tue, 24 Nov 2026 21:32:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795555943;
-	bh=pxCVoM8sZVyMKnjJ/b022SiYasxrgvXvq5CHraLjb1M=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=oQjn/buspK+FsKyIqdVIEeQgGWGRa+2OaMKzQCzkGixU0KkDDN+dSgXo8I2DXx8i1
-	 K4ve8D76M7hbTnWb1QJpojstKh0C+zhHT/21Gak4Lvlh/vkcoYG+IGfnbTmO0fXq6Q
-	 6emK9uqekBpNHhNsJr6vlcVQdu4+pAbEHLLuGT6cZu/RekuvB0l0pUv1KqBz1CiHQR
-	 9UouIwYolzuRBLbd0yim8GAXYi7FntbMnTo+FcXEYv2rYVc9oN7b0UT8VutWS6Z8at
-	 ksWuNE4XoCltAvJ0XAJpfTSBdcLHVYn3sMx67Kg/Kk0CH0nFMcWgoYge+2vdQwN08z
-	 Upj6oC2vty6Iw==
-Date: Tue, 24 Nov 2026 21:32:22 +0000
-From: Eric Biggers <ebiggers@kernel.org>
-To: Martin Belanger <martin.nvme.dev@gmail.com>
-Cc: Hannes Reinecke <hare@suse.de>, Hannes Reinecke <hare@kernel.org>,
-	Keith Busch <kbusch@kernel.org>, Jens Axboe <axboe@kernel.dk>,
-	Christoph Hellwig <hch@lst.de>, Sagi Grimberg <sagi@grimberg.me>,
-	Chaitanya Kulkarni <kch@nvidia.com>, linux-nvme@lists.infradead.org,
-	linux-kernel@vger.kernel.org, keyrings@vger.kernel.org
-Subject: Re: [PATCH v6 0/9] nvme-auth: switch to use the kernel keyring
-Message-ID: <20261124213222.GD2227373@google.com>
-References: <20261123-dhchap-keyring-v4-v6-0-5082a49715ab@kernel.org>
- <20261123212105.GA18468@google.com>
- <692e91cc-e2ea-47cc-926f-6639952fb195@suse.de>
- <20261124201152.GA2227373@google.com>
- <851e3fa5-ad88-4470-877f-e977bb1a6ad9@gmail.com>
+	dkim=pass (2048-bit key) header.d=googlemail.com header.i=@googlemail.com header.a=rsa-sha256 header.s=20260707 header.b=fqPn0igb
+Received: by mail-wm1-f51.google.com with SMTP id 5b1f17b1804b1-4bba5e17cbeso112095e9.1
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:32:23 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlemail.com; s=20260707; t=1795555942; x=1796160742; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=DDcAtIlwc2AD4AEcVG0iGSI0NR5o7B+lhg7MPzNzuB4=;
+        b=fqPn0igbt9CYiII5B6D31XkWWpi++PdBoXbLYGajgAxqw+2kbPNOdmfpTh3C3IcMHl
+         UK88CkZ8mYGdVvJjYcKH5OaMcN9xzV3piVPFq5tzMHHju7N4eMIY9oyh90cudcLjVi5r
+         yWdSOnjgAAZivaminccdcbWNB0wa1a8DCuNfaMp3vWTNN7B7eNzF14dmG9R5QcVMhByl
+         DSJJqQOaxRUGi6g3d4KxTMca3swNuMFCZ9LdEwqxAWTGMKeLaqkWPhgaVZt4dRKX08qB
+         QNq0lDAMEGaotsHlFpeV2NXyDL6I38IlKrI0X4UzhQs/LMVtSC+N0TnU+kXIbKHaL+DA
+         3TSA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795555942; x=1796160742;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=DDcAtIlwc2AD4AEcVG0iGSI0NR5o7B+lhg7MPzNzuB4=;
+        b=vDsuu3tpeJtDq2aKzyKGi74bAZMmkvoF4nbiCGZ0Gf53Q6vhSfWBlLAt0nst6MG0dr
+         hcCB2wu+WXeZhWedkT4cOlrYeUeQXEvLZmaUCVsDTzz3sbofpv8AIUbJSSFe9MQ9YY6u
+         ni0UmRDeWr38t0Fei4NdLn4cYOPWXgzecCnoOM9HzI3EbBmB2/DW0etSUZxHDQ2poYdV
+         pqmBeeIMOTB5KdQvO3CLIFWd4706ORrvOvdq7LtWT2j3JBl10pcN6mtcHi9IG/csYZY8
+         Fhpan7zc3Q6wKaUt3ZUh0EDus/leuAugk3GJF0RgV7CQxEl3egKQs3KIpVsRu+DZSTF+
+         DHCg==
+X-Forwarded-Encrypted: i=1; AL+hErH4f+X7tkFsM47+mJsPFlkQIjyUmqMjC3/0BXFZPGe6BTc1nIycakJlbEM/679AS+OXjNsz28m3VbzQxvE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/CHSP1cBH3LzkH0Wmis2uumbtXLhDZMu8gfOqU1IS5XhnY5p1B
+	0mbYhFY/2Yor8iH6+v6ZQGrC5Ar5H0/nK4zFAl1WsPxJEnayL66lJEHq
+X-Gm-Gg: AZFdTZciLpteCyNLhTAPRIJpG81IOGOsB3SSdB46KiYGr41h/y4hKp8ICEKOzDGEmGd
+	75UCrjmA+vZn3R3UH7OQiNOdYfKI/wPPmxUDRyasBtc0iW8ngrctbEb8yYwbEPIwJVGBD9p522L
+	CA3t5x1tPpkgDE9Pm2i7vR7w4a5ryEL4rFznx4jgqiJdrGn7LFvDgDBIlwGgMj4Y5PUhPP0H1PA
+	Ji6EgxEPi6p741Qhjt3E+NMGsmIfyG60SkLvraV6vuaCSIEC6woC9t3nhn/Xj7oALbzfywcHGwv
+	Jnm3B4fAA1G9PgxDFsUUVZ2wP3CTCPIK5XJSpDrIywg3BuEAiH/ujdc9DC6JdQVlrClGSC2GbnJ
+	KOTpZ4ApfbO44i/L2uZe7+56D0ziTQCvgkPl3ba89OtIZ8dkWr090s01SsEFRthMU9nfWLZCMZN
+	AgmQMJOC9IdiqMACqbZf0i5DvcXpBYZ8o/27RcGNW//Qm7Spxki6jbDKqoQvxh7cxxrcOtkfECV
+	bUR1TpbFW49iUREXz7tZ4e3R1NyA6A/CTZ/BI3to7kFCFt291Pkyeby0eXa64u9kDDThCSVaw4+
+	A11ZsUyVKefii0ntPngADM7zhpAyAhlJWbM1EAHmTyNxyyJpAEisJrs4ua+Fsym1TX3RPlVJqAs
+	4MJ1dZq75BMQsnw9hNo/yLSVl2Ew6Xphpvq+czWlzuz/RidzZhs85vhI=
+X-Received: by 2002:a05:600c:4e02:b0:4a4:4d57:8462 with SMTP id 5b1f17b1804b1-4bb88812b1cmr326513585e9.24.1795555941983;
+        Tue, 24 Nov 2026 13:32:21 -0800 (PST)
+Received: from blackbox (dynamic-2a02-3100-ad98-7500-021b-21ff-fe38-46c2.310.pool.telefonica.de. [2a02:3100:ad98:7500:21b:21ff:fe38:46c2])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-4bb88442693sm410851315e9.1.2026.11.24.13.32.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 13:32:21 -0800 (PST)
+From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+To: mchehab@kernel.org,
+	linux-media@vger.kernel.org
+Cc: sakari.ailus@linux.intel.com,
+	hverkuil+cisco@kernel.org,
+	birenpandya@gmail.com,
+	linux-kernel@vger.kernel.org,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Subject: [PATCH v2] media: i2c: saa7115: only select SECAM for SECAM-only standard sets
+Date: Tue, 24 Nov 2026 22:32:05 +0100
+Message-ID: <20261124213205.807361-1-martin.blumenstingl@googlemail.com>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,67 +99,91 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <851e3fa5-ad88-4470-877f-e977bb1a6ad9@gmail.com>
+Content-Transfer-Encoding: 8bit
 
-On Tue, Nov 24, 2026 at 03:50:14PM -0500, Martin Belanger wrote:
-> On 11/24/26 15:11, Eric Biggers wrote:
-> > Keys not being readable from userspace is one of the usual reasons
-> > people think they want to use the keyrings.  The cover letter should say
-> > what this series is actually trying to accomplish.  Currently, it only
-> > mentions making it so that keys no longer need to be specified on the
-> > command line.  But when stated like that, it's a userspace issue: if the
-> > nvme program doesn't accept keys on stdin like keyctl does, that's an
-> > issue in the nvme program, not the kernel.
-> 
-> The goal from the user side is that no DH-HMAC-CHAP secret appears on a
-> command line, in a connect string or in a configuration file. These end
-> up in shell scripts, config files and logs, where unprivileged users can
-> read them. With the keyring, the configuration only names the key.
-> nvme-keysd (in nvme-cli) imports the secrets into the keyring from
-> systemd credentials or from a KMS, and the connection passes only the
-> key description.
+For the SAA7111(A), SAA7113 and GM7113C the chroma standard (CSTD bits
+of register 0x0e) is selected in saa711x_set_v4lstd(). Since commit
+a9aaec4e83e6 ("V4L/DVB (5408): Fix SECAM handling on saa7115") SECAM
+is chosen as soon as the requested set contains any SECAM standard,
+even if the set also contains PAL or NTSC standards.
 
-That is a userspace issue though, unless you also need the key to be
-kept out of the /dev/nvme-fabrics connect string or sysfs/configfs show
-output.  Note that this patchset also keeps the keyring keys readable by
-userspace still.
+Such mixed sets are passed to the driver in normal use: for these chips
+saa711x_querystd() can only determine the number of lines, so on a
+625-line signal VIDIOC_QUERYSTD returns all of V4L2_STD_625_50 (PAL,
+PAL-N, PAL-Nc and SECAM). An application which sets the detected
+standard (v4l2-ctl does this before streaming) then gets SECAM decoding
+of a PAL signal. On an SAA7113 this results in a picture without
+colour (U and V are a constant 128) and RDCAP in status byte 2 is
+cleared, so saa711x_g_input_status() reports V4L2_IN_ST_NO_SIGNAL even
+though the decoder is locked to the signal.
 
-> > It sounds like the idea is that the kernel would look up the 'struct
-> > key' by description again at runtime, such as on reset?  But this series
-> > doesn't actually do that.  The lookup just happens once, when the option
-> > or sysfs/configfs attribute is written to.  The key is not updatable
-> > either, so an external provider that rotates the key has to write to the
-> > attribute.  So there's no benefit to keeping the 'struct key' around
-> > after that write.
-> 
-> That is the part that does not work for a key provider. The secret
-> behind a key description can change at any time, and the new secret
-> must be used at the next authentication. This includes a controller
-> that is in a reconnect loop, which can last for a long time.
-> 
-> v6 looks up the key by description once, when the connect options are
-> parsed, and keeps it in opts->dhchap_key for the lifetime of the
-> controller. Every reconnect uses that same key. When nvme-keysd
-> replaces the key with add_key(), the controller keeps the old secret.
-> When the old key is revoked instead, the reconnect fails with -ENOKEY.
-> 
-> The same happens when an admin changes the secret on the storage
-> system. The host must use the new secret at the next reconnect,
-> otherwise every reconnect fails until someone writes the new secret to
-> the sysfs attribute or connects the controller again.
-> 
-> Copying the secret into 'struct nvme_dhchap_key' once has the same
-> problem. What the provider needs is a lookup by description at each
-> authentication, the way NVMe/TCP TLS without a pinned key already
-> works: nvme_tcp_alloc_admin_queue() calls nvme_tls_psk_default() at
-> each reconnect. That lookup runs in a kernel worker, which has no
-> process keyrings, so it also needs a fixed keyring: '.nvme', or the one
-> given with the 'keyring' option.
+The intention of the original change was most likely that a single
+SECAM variant (for example V4L2_STD_SECAM_L) selects SECAM as well, not
+only the whole V4L2_STD_SECAM group. Keep that, but only select SECAM
+when the set consists of SECAM standards only. For 625-line sets this
+is the same condition the saa7127 driver uses for its SECAM
+configuration, and for the sets applications pass in practice
+(VIDIOC_QUERYSTD results, V4L2_STD_ALL or single standards) it gives
+the same result as other decoder drivers such as tvp5150 and adv7180,
+which test for SECAM only after PAL and NTSC.
 
-Even if you actually need runtime key rotation without touching
-configfs/sysfs (why, when nvme-keysd could just write those files
-itself?), this series doesn't actually implement that.
+Mixed sets now keep CSTD = 000 (PAL BGDHI for 50 Hz, NTSC M for 60 Hz),
+which matches the behaviour before that commit. This also stops the
+driver from programming CSTD = 101 for 60 Hz when a set such as
+V4L2_STD_ALL is requested, which is reserved on the SAA7113 and selects
+PAL 4.43 on the SAA7111A.
 
-- Eric
+While here, document CSTD = 101 in the table above the code and add a
+comment that CSTD = 000 is used when none of the cases match. CSTD = 101
+is listed in table 42 ("Chrominance control subaddress 0Eh") of the
+SAA7113H data sheet (Rev. 02, 9 May 2005) and in table 26 ("Chrominance
+control SA0E") of the SAA7111A data sheet (1998 May 15).
+
+Link: https://www.mouser.lt/datasheet/2/302/SAA7113H_2-87651.pdf
+Link: https://www.eecg.toronto.edu/~tm4/SAA7111A_4.pdf
+Fixes: a9aaec4e83e6 ("V4L/DVB (5408): Fix SECAM handling on saa7115")
+Signed-off-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+---
+Changes since v1 at [0]:
+- dropped Assisted-by line
+
+[0] https://lore.kernel.org/linux-media/20261115224523.820853-1-martin.blumenstingl@googlemail.com/
+
+
+ drivers/media/i2c/saa7115.c | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/media/i2c/saa7115.c b/drivers/media/i2c/saa7115.c
+index f4015f11367b..a33487d37d08 100644
+--- a/drivers/media/i2c/saa7115.c
++++ b/drivers/media/i2c/saa7115.c
+@@ -1007,11 +1007,16 @@ static void saa711x_set_v4lstd(struct v4l2_subdev *sd, v4l2_std_id std)
+ 	010 Combination-PAL N (3.58MHz) NTSC 4.43 (60 Hz)
+ 	011 NTSC N (3.58MHz)            PAL M (3.58MHz)
+ 	100 reserved                    NTSC-Japan (3.58MHz)
++	101 SECAM (50 Hz)               reserved (SAA7111A: PAL 4.43)
+ 	*/
+ 	if (state->ident <= SAA7113 ||
+ 	    state->ident == GM7113C) {
+ 		u8 reg = saa711x_read(sd, R_0E_CHROMA_CNTL_1) & 0x8f;
+ 
++		/*
++		 * CSTD is cleared above, so it is 000 (PAL BGDHI for 50 Hz,
++		 * NTSC M for 60 Hz) unless one of the cases below matches.
++		 */
+ 		if (std == V4L2_STD_PAL_M) {
+ 			reg |= 0x30;
+ 		} else if (std == V4L2_STD_PAL_Nc) {
+@@ -1020,7 +1025,8 @@ static void saa711x_set_v4lstd(struct v4l2_subdev *sd, v4l2_std_id std)
+ 			reg |= 0x10;
+ 		} else if (std == V4L2_STD_NTSC_M_JP) {
+ 			reg |= 0x40;
+-		} else if (std & V4L2_STD_SECAM) {
++		} else if ((std & V4L2_STD_SECAM) &&
++			   !(std & ~V4L2_STD_SECAM)) {
+ 			reg |= 0x50;
+ 		}
+ 		saa711x_write(sd, R_0E_CHROMA_CNTL_1, reg);
+-- 
+2.56.1
+
