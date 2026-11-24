@@ -1,89 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.7
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795606811;
-	b=o//2/aDU+nGngoXAb9SPI4qkqu+3yWok8zaAFr2wp1N/nqSRyfGyL8LDOuvsS9a+p1u/
-	 zch7r9l8YTqQDnK7OtmD/SOqZx9vbU4MjzHEIkPgfdZfQz79yaoVouMy0XK5rZTtuMD4s
-	 sVURV2GDzhuviWbXwXACMdZ5sxWPfrAbgFfmqzU7mRwA9Wqtm3+vihQrx3S50ksko3JZL
-	 Iob6rOBKt+HMmH1pFsDztgFLjHxLiPF6CgitNaEUVlkXdskQDfq5PC4eBu+/bGC/4tWZG
-	 h623zoyNJOcdBzlD8X2yH8ce/xle1COkQFv1gzyobnrRbopzISb1FYD38eFmj1j0jeQ==
+	t=1795606969;
+	b=lkfhM8zAxQUNYwUD+9bxp+YA+UJF0cV2PrR1uvVCw+TVBdWECFHv0xvv411v+PqfWh0M
+	 ycua9pzKtzh29wR3Tw2qT243rPrXknE1/UzI27s3UCuvkc9Xh+KXY4wZh5clPe7KXTYOj
+	 GkZMNURvE8GZHZR3Zcj2g2xIstQauurPTHqierF5MEqNoxqEPm0mX77R+z7lD3/vnC22L
+	 F0v4aygM3hA/QCW54WxrO3zKZxOXJNnlMHwpNPy/e4uzf791RTeDxFkchlKDnhtaxu4kW
+	 4E84kZFsGSdJBU1KyQziNdFc0vwlRR2lpXKWovTwGIhUIe/9rez+HKDE0WgQaHCrDSg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795606811;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:
-	 Organization:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=ZHBAKn/6mnDMz3G6KYCfWnFqdTg254dkkOYHSR+PjqM=;
-	b=w3WMhEgv7SrozyOWzInFukGHYlT5YCDPzaxTvJqiFceFRzZTL+IhynYIzPzwWSmJOYGO
-	 24nC5JVCbtC/ev7VRIhRwInqnVwRlxj5XI43YjwXgaaBd6K851KlqpQvHrNZIGAE4D7Ro
-	 m24kQcVTtOmw2Xa+fXM7lrSODv2Mpi8ARI8qFNAGAGVNV2KdEjvRZhmJAJQ2oxwmb03ai
-	 FvpL70jvuhxQQYlxMDS2AJqakULuWJH/0VHWW5QM4MK6hMhiGvddtTSeiryrMwqTOuSKU
-	 fMhtR+KcWV7dJ8SQt7l6uoDZ+SPN7RDW+/mTJCCsf/q5aRGynbwOQauG0O66IPRpLfQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795606969;
+	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
+	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=S5bV6rNlUtAz5pBmkT5bOjCaAjkySo0AUi3HDTyYZRs=;
+	b=cnKef3+bhUZ/TPeuFmNsSNHIv4mhlsReNhrr0gBGgpOzlQZt9uCq6kvLvvBnlM4hQdsc
+	 vOBxVlKo8Bu9jlMD3raG/lAmpkxAgNsnKXW1+ad9K07JIsqNIg1ZlHVQy51IpXvr5X8ak
+	 jeoD5lyye90WwtCbZTkD+IqqNLE+T1XQDY9OWVjFWx3hz1IPGHorYCgyLH0TR9rEY/fnJ
+	 DJlNY7yeX1jtkSO8Zs6nZYdx3fIqOyE+bxwfhLxBwun2lSHmGgylmDpwBGqfLbBCVfQ20
+	 zBRy4Lw1WIw4fdTcDk2h6AIJaJjqHP8AX4XaMpFWf6zC0/Mb9DDobrUMaw3zrVfbZ1g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=a9gL3hGh;
-	arc=none smtp.remote-ip=192.198.163.7
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.7])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RzyKTEgy;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 66E27606A31E;
-	Wed, 25 Nov 2026 11:40:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 66E27606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 38519606A335;
+	Wed, 25 Nov 2026 11:42:49 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=a9gL3hGh
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795606810; x=1827142810;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=cOmxLcOtM4ej56pou+GrQe5UPufOSFf+f+fj4Cpa++g=;
-  b=a9gL3hGhLlCh6f32TRiD5oLAfbO0C3q7V02SivHsCsbO+JrJ4iPIOmLV
-   byLobcN9xa0Elb8ls7bAoWNrHXRKp/bsU2P3KDhFbBBjYbPT69PFBT/Im
-   2gUxVbf93+/s+ParZ4oeCJdtEB/zKlMy5OdAiBvP29uiX21V917qanrC8
-   v7ZRa7Dcl+UjYCLAhecv4ykgS93+4AxR8usuIe5MFEoEZNTLsiBlWkIod
-   n9zZQuh4TM7ecEm0pRSIRAMPdZ+ohHKBr418N+fQ0nQrOEQKkOCqwLKXK
-   6fafRFIU+dUbJvTzjbXNX2ethLnJULYBqa2CJmrq3ILffH9poN8PL6rrD
-   Q==;
-X-CSE-ConnectionGUID: TuDge/YORS2Nt1oUsZ3ncw==
-X-CSE-MsgGUID: xEB5yF4wTcKYiedYqTPVvg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11976"; a="4340891"
-X-IronPort-AV: E=Sophos;i="6.27,232,1787036400"; 
-   d="scan'208";a="4340891"
-Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 03:40:07 -0800
-X-CSE-ConnectionGUID: QneYRPHTRYiuHjMchAp8bA==
-X-CSE-MsgGUID: 1vU1F3/2TJiIKgXo4Psaeg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,232,1787036400"; 
-   d="scan'208";a="12062865"
-Received: from alekseim-mobl.ger.corp.intel.com (HELO kekkonen.fi.intel.com) ([10.245.244.36])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 03:40:04 -0800
-Received: from kekkonen.localdomain (localhost [IPv6:::1])
-	by kekkonen.fi.intel.com (Postfix) with SMTP id 089BD11F920;
-	Wed, 25 Nov 2026 13:40:08 +0200 (EET)
-Date: Wed, 25 Nov 2026 13:40:08 +0200
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6 krs, Bertel Jungin Aukio 5, 02600 Espoo
-From: Sakari Ailus <sakari.ailus@linux.intel.com>
-To: Sergey Lebedev <lsa.uz@pm.me>
-Cc: Manik Bajpai <manik.bajpai@intel.com>,
-	Divyamani Tripathi <divyamani.tripathi@intel.com>,
-	Bingbu Cao <bingbu.cao@amd.com>,
-	Antti Laakso <antti.laakso@linux.intel.com>,
-	German Pablo Lindo <germanpapulindez@gmail.com>,
-	Christian Murphy <christian@themurphys.eu>,
-	Hans Verkuil <hverkuil@kernel.org>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	linux-media@vger.kernel.org, linux-staging@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] media: staging/ipu7: snoop ISYS writes to capture buffers
-Message-ID: <awbJGGu0xANDKrhg@kekkonen.localdomain>
-References: <20261007183311.24637-1-lsa.uz@pm.me>
- <asaywQrMq-GSrI2r@kekkonen.localdomain>
- <20261110065119.20575-1-lsa.uz@pm.me>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RzyKTEgy
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 572FB1F000CA;
+	Wed, 25 Nov 2026 11:42:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795606968;
+	bh=S5bV6rNlUtAz5pBmkT5bOjCaAjkySo0AUi3HDTyYZRs=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=RzyKTEgyZaqvPg/H/ughgyMCXvevz/FS3Hc8X8wm9RthLQZzTM1VRYTc9Nje96mMv
+	 ouf7n7ewS8g7AP+xTCfsXXA0+iVSlUvu5+ENN0JM24WaABHMDGu78jFgwb2+Nf8SHm
+	 kqzMDN9Q9+bhCHe5eUhk7WUGvhifAVlmj8mU65Rh0n4t2D02W98dtSJtR1CQse/AGG
+	 v3pXit/KTEtPaFKG01aML3G3oYEf405yzhn1kHcQjVSD//MW0ZISz4XbWjgaoH96su
+	 0Xwd9NI0Wd3kH6itYIOpLQRBNxdwZEypBWDLd7OcI1mvRQSi1gzAOmLedgYfqKrZQO
+	 vmtYsRtIHKolQ==
+From: Mark Brown <broonie@kernel.org>
+To: Sylwester Nawrocki <s.nawrocki@samsung.com>, 
+ Liam Girdwood <lgirdwood@gmail.com>, Yige Jiang <yigejiang86@gmail.com>
+Cc: Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+ linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org
+In-Reply-To: <confirmed-20261105-21-73b8787ecede@gmail.com>
+References: <confirmed-20261105-21-73b8787ecede@gmail.com>
+Subject: Re: [PATCH] ASoC: samsung: snow: Fix private data and node cleanup
+ on remove
+Message-Id: <179553938431.264265.5398629498861013755.b4-ty@b4>
+Date: Tue, 24 Nov 2026 16:56:24 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,36 +60,46 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261110065119.20575-1-lsa.uz@pm.me>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1144; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=/5NEFdSU2DAqkiV05/ARjRB8qqbX50qEh8rKN3kSH0k=;
+ b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLLZTm4NE7jif2ypRUD+M7NDurEh7TwOk6bdcjaIbJo69
+ +nxtwZ9HaUsDGJcDLJiiixxWdwv60ter+E7uLANZg4rE8gQBi5OAZiI7ltGhlfXd8lFd+273ehv
+ Zf7hzLp3bLusixWEbspNEDWqlt5eZszIsE7S9FDU7R3xV+xc9bYGr89WLZQ8td/sntsUpWW9R7b
+ 5sQAA
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 
-Hi Sergey,
+On Tue, 24 Nov 2026 17:56:26 +0800, Yige Jiang wrote:
+> ASoC: samsung: snow: Fix private data and node cleanup on remove
 
-On Tue, Nov 10, 2026 at 06:51:25AM +0000, Sergey Lebedev wrote:
-> Hi Manik, Divyamani,
-> 
-> Sakari added you to this patch in October. Is is_snoop = 1 on the
-> capture pin right for IPU7, and for IPU 7.5, which I could not test?
-> 
-> Christian Murphy sent a different fix for the same rows in August,
-> which I missed: a clflush of each capture buffer in buf_prepare and
-> buf_finish, with is_snoop left at 0. If the snoop bit cannot be relied
-> on, his is the one to take:
-> https://lore.kernel.org/all/20260824224139.21256-1-christian@themurphys.eu/
-> 
-> With is_snoop = 1, frames holding rows of the buffer's previous fill
-> went from 301 of 698 and 684 of 697 to none, reading every frame with
-> the CPU, and 4224x3136 raw at about 790 MB/s still ran at 29.95 fps.
-> The patch applies to v7.4-rc1 unchanged.
-> 
-> It carries an Assisted-by tag, which 7.4-rc1 no longer accepts; Sakari,
-> please drop it when applying, or I will resend without it.
+Applied to
 
-Thanks; both this one and Antti's corresponding ipu6 driver patches have
-been merged.
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.5
 
--- 
-Regards,
+Thanks!
 
-Sakari Ailus
+[1/1] ASoC: samsung: snow: Fix private data and node cleanup on remove
+      https://git.kernel.org/broonie/sound/c/2f218b200765
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
+
