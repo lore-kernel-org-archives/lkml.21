@@ -1,101 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.171
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.173
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795554308;
-	b=xwV7BM1qWyPKtzkJ4jZpXkWqsdHEHyTLqNdrg23psOpvtjWgn5WJlpcTgogI6gbRYwY9
-	 3LV8OFQuIKLfu79zxTL3R89R4bKxiOIabcF6V3X0FWJOoV/l4gLTt1O4yWRGU8wTJTL68
-	 EI1XATl8rfbvyVz+djaIuiSTDfv1+HLGz2/7pslrDR20Oxb8OeKmAuVp2PxAMKVGRjudn
-	 R1/zpnwqKqBcuBY2YqDmAH+ItsGhUdSiq+jPiqS7hLqv1YcpvYMgyKUcr0IUT4OTcxfuV
-	 pGgKBkSLR2Uhy9TnyMJsDMO+bGjE9hWAytkExhGH9tAfDAxD+UDGuRXbINUlS21aBHg==
+	t=1795554304;
+	b=m8A2hc6icSsJpAoJgnFnqpQNN1b/bnWh9g0fQEla0NskeumquLbKFpXM3zrHS+Sa7GHL
+	 d5QoOdt/aC6BtfdDjR3BZZWyNGndeUNeHC9nhHZEqnwBxdm3sNcR/HBMJd6FBLEFuYkDa
+	 yoC93UruVQlZb8dUFNKlCQxPFcyXVYZa6I6iiZddfImfYiqrUJgtDJI/sYRk5xxbofddl
+	 oLJOOCsb+OklRuKO5L9urJiR+iNF+LAoMVkjOoUqALxGpS8udZ54YMhXA7ckHHoiwXxgH
+	 qTpx8rgyoZiETg0x+dIXXQoNAOf2RRxINdIugicoyMMxbNDc36Adv/UJlezikxp1ryA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795554308;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795554304;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=lpgsJPZBtmfp6Rhe7SCjLiDLVJwKnJJblvuR/GL5/ac=;
-	b=YxvJVFTO4NMFNCHL7AfRc4tJi83Sa8Z26K63Ir7GLgQOLAIE0RQ7DpNO8/UO9SWqXvho
-	 Xf3kn3UIhFtN4/d+fXf0TuGpG1RLblTGD531hna6sFxYlXxZTvwRbd3Vv543PQJJYrPvK
-	 pr2qzW89cD4aaAlhn5LuSt0qwwJ5vQtrlgs9YAyN5tc9NDWUzr/r1Iyfa8wN58yxXnQ2S
-	 CdRhqoBsy9UU0g4HsU2OIHmhn8kFVkq+aw4ZtiCLLt3gf00Ib4osrrWuDxrBQfcBtMz//
-	 7wERhB3CMYT7s2IcPG3CXOKqDbWm8+q4BT6w4dqSNu4pzLJuUZV99tNfe1EgkEbEc5g==
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=8989DAIhEGp2+SqiqOgHbnDP3tqjvddGwcJYPtRttbc=;
+	b=pzpNmYIYONlyAn1hl+dHerDTEWyPGT0lj25BBPo/j+AHRCAqUDS0xsX7QHPVS0e7I9/g
+	 cVZzJjY6W5E6UQeK6blfrKUGuS+bb0J4yQX4cnZTgFgzu6ftugbTKKgTF0oDumuwUbysk
+	 ljQFS+eZMvNzUSpRJ79XHOjQ0hW2/tP7VHe+sFNLtcwsyzz6L4eba7Dg+ubbqbaHzQR4N
+	 ED8J5Ma1i9matDvZSer+9Rm+BvNFntDN0u6/CAdQXUTnTsE3PG/Id1s+elTvaxr7X2dN8
+	 r7lY5wXrNNKCWTa5xxPfM1UTpXKefZX44dfw+gcoNiDww/kFzCMfols1GL8jgos/Ovw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=blockcast.net;
-	spf=pass smtp.mailfrom=blockcast.net;
-	dkim=pass header.d=blockcast.net header.i=@blockcast.net header.a=rsa-sha256 header.s=google header.b=pt+RZ3B3;
-	arc=none smtp.remote-ip=74.125.82.171
-Received: from mail-dy1-f171.google.com (mail-dy1-f171.google.com [74.125.82.171])
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Zk43yelt;
+	arc=none smtp.remote-ip=209.85.214.173
+Received: from mail-pl1-f173.google.com (mail-pl1-f173.google.com [209.85.214.173])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8D136606A687
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 21:05:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8D136606A687
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=blockcast.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=blockcast.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 67298606A326
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 21:05:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 67298606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=blockcast.net header.i=@blockcast.net header.a=rsa-sha256 header.s=google header.b=pt+RZ3B3
-Received: by mail-dy1-f171.google.com with SMTP id 5a478bee46e88-3863db981d4so6907955eec.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:05:08 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Zk43yelt
+Received: by mail-pl1-f173.google.com with SMTP id d9443c01a7336-2f048bc09d7so229955ad.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:05:04 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=blockcast.net; s=google; t=1795554308; x=1796159108; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=lpgsJPZBtmfp6Rhe7SCjLiDLVJwKnJJblvuR/GL5/ac=;
-        b=pt+RZ3B31N5NdJCUe8LOcd3CfL1VDdnqlTSErwpLMQXpWEs0p6v286jvv8zRo1u1NK
-         WkgNkKYf0coCvWLdGIt7WygP9WLKrOq22EX9WN/+pFu9/e0fjH9CGDrT119/MuJkwLbf
-         Lb7oYsqY+D7nyFvbY6ZhDf2iuLwzTAPWyPkXY3U0n7N06jLrXXlmJMhOJTT0LC6ZjcI6
-         mQHa9W4DbKzDvAjDlwtZhU/DUmEpehc6eVYBI3ZXymTyhUpRa5/Rt9gXZYKx+LmuMNlp
-         qNVPGBHFfEo5jLIiQZuUtOczqXK7rembddXlcw51NvmxTOYdWNxO6ot7OMLgO8XyuAlR
-         /38w==
+        d=google.com; s=20260707; t=1795554304; x=1796159104; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=8989DAIhEGp2+SqiqOgHbnDP3tqjvddGwcJYPtRttbc=;
+        b=Zk43yelt/tm8w8qrnUw/rYu8FoZfnG9Xcmo++SabJlb6abZbjfVjnfXI9XBZw/hv16
+         t9J8gTLH1sX5tjg/It/0QBr2WzKZaY4XroMeHNijrqAwKoXlcMeh8MCUjdw4+fKdt+md
+         RJ362duEdbPSO3k5gsNh20PW+bipuMnBbFmth+eRATzNg7Dyn1iPORbToeVVtiu2b6AI
+         hm4eeLQByAl4SS2/bYpWwJkDm00JSFY4WW83me9on7ZD4LR2C0L+7ip0ebIuUjbEEJKB
+         R3YRFTxd2ka1it3eIloE22crT1tiIze58b8gMdGr/dFPC5uLraumWlzqrK3w/8ZePRfc
+         zyHQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795554308; x=1796159108;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=lpgsJPZBtmfp6Rhe7SCjLiDLVJwKnJJblvuR/GL5/ac=;
-        b=26I160bABMwK65PF5/Yrn4OY7M2yBmHjqE75E9BBO9Jxo9JG1I6vyig/5HBM66y/bM
-         sxWCsV0mbjNn25hGuFAPr262AIodwjQUOFY17TND+XtlRz7E/4wJbxxoB/uapv9I9A8l
-         7TAfoaniRQoXNiB97ewzvGI1dOZ7gM1Ts7n2ifrUBMFm8rCBLLbpKYu+aHmn9Wj1pbqE
-         qV6FfVz0IB5rL/yNggR5xSrywzT1E216mOCbYKrlQZVsiy+H760o9/61osI9CdZmASkn
-         CZrKyXGThYiaIqDq8OK3qJDq6Ws8ny11DUPmkMHa64ZhBHguPgOzx//K5QVHr+3PajTx
-         6rCw==
-X-Forwarded-Encrypted: i=1; AL+hErG5xuaYaQLGqv7YI/F0LZE7XhfZyywOAy9aAIVfzn3NBChP8HXKy/DzbxJi8L4Qu4l2Wsg4AZPmkxrMQyQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9GIbbu423GHHuB/dTzQbXuJlKjuMgluuX1bUv5WTJBW6Fz8gUF
-	uZA1dutuX2d1zSXSufQStOlVxd0ZqOIIo2pf7L+spatSyXnl8DkRN3jZ8kc3Mcrm9IsZCMe/Nmb
-	fxcUq340=
-X-Gm-Gg: AZFdTZeUTgNs6mux4/yp+APRaCRZqIH6l2qPB/ErmJlOLwGhaGj7aebc+vIqcQrhC3F
-	cQoTs4DhOgHzhGjaEc+8dQBrNEGudRSAcgWlUE7LdEKKZYHRp8DXwFSmREPRBskIQpgZCRJGkcw
-	NCe+3Smb50F5DVOa7ID6Ic6fhKUM6Hn4geyklDFE5YvRIn7ks+dHYOoVrK19nwUCPr7IdHKbQuQ
-	5B43kpUg5N73AvNOeuDt6n9FDH00R0Ieu3qKoHB5wBR60zUnRek8pRabi4Rq8KqgnYFcMJTTkUe
-	TUx+Ss9V8CL3+80A31ilCuigjcto4DOL5TPHg+ehMDCdc2t/0BQ1xR+HcWZ8JQUn0cXrIUlXucA
-	K6F6ArwhJ+qs5ulYtN/D+Pxxf660itsK67B1HdcWsv5v9U39Si9fi6oCvtbFisrxKTDkwjpEJLB
-	kWHNZaI7w6OVRKm4u5N2RAyWQWk1M9+SdNFIWWB7jhVfjB2gU26+lW6GPd/Vg0S8Q6mYjbuyZ++
-	2rroa/Wr0SiKE4RTC9W955Dm/wT7psurftqhH9ZoMISF98QGkBQ5RL7aFzwr2YbJCLKLL4SqdPm
-	KMhAv+ucoLY9aYe6/x0iGPr2j0Pe0qcMei+Ocbvo1Ok4pLYe8j6e1MrXUdbVPZZWLtp/xiyO6BV
-	oOp1ErTRhYIdjrGqTcHr1p72+SoK4U/4oReV10Q57s90uhBSHdT0=
-X-Received: by 2002:a05:7301:6408:b0:36a:270:ce76 with SMTP id 5a478bee46e88-38570f2b27dmr16630459eec.33.1795554307334;
-        Tue, 24 Nov 2026 13:05:07 -0800 (PST)
-Received: from devbox.ts.blockcast.net ([69.25.95.32])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386c7c62a91sm5577813eec.17.2026.11.24.13.05.05
+        d=1e100.net; s=20260707; t=1795554304; x=1796159104;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=8989DAIhEGp2+SqiqOgHbnDP3tqjvddGwcJYPtRttbc=;
+        b=yqD8GBI7H48IfOsLu/J9AC19bXTs1QNVf908/6LJYhgznKpZGe1s9Ph1LDY12/0Obb
+         wmOfB4T+nwxFgVmQ/Yq65UPPrg5e5vizw8KUN8jWqXwwJTGcqsv3sVEqBe6DWUy3fsEJ
+         w9RA+VJUmhY51OkEnfgzECIK8xMGWObF4O+Dc21l5ukJVqaRSDhXH7WCa05OPAU5W664
+         GyHiDJtDz4ze1pRYBKGkMNg8Elmkbqm6/sS82yTelhmyfwrxBRPHWhbhBI/HAMUopSLt
+         CzZHk2xvKMbApqSsZq0iywQOTq23zNTPnRKdRvQ74xwy/Abac7vkROsvYiKZrTLrn8OI
+         gmOw==
+X-Forwarded-Encrypted: i=1; AL+hErGQ6xERUe3XnWx/AOcLHtv81NyIMc40TgnrFpgXSaSpBWK63f+P+Eeh0XEoIj7ZZkDBGEe7NNtl5eUE8zA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z92Mhw3UrtlEStf+9CRT1CP7cSKCYSTe3q9H3MueOwvAFnYBmKv
+	qYetJGNFOTUDFq+3buZpVuViCwuyrH+MAS3Gwe6V992iA590Yf0VSBGVsxDc9Zzaqg==
+X-Gm-Gg: AZFdTZeHoKvHBTqawf1JXlai9B6Pr/hK6Z/xifOpMJZmk7NfLr8YagjULs7OGDLVWoX
+	wRpgi3NSLwDjcJUyMC4tYGI1248tIKl1XxnhVKtwpefjx6hAk5chSYaEhhSqFKXklcxO+DtWNA9
+	zBd0BykFYnc+kln2mets8ePnEUYQ/D0NL+8NZ0C7y1XCEZFgnfcMdPnTceJrzhzoox0BeEnRis3
+	k+71cMelSrK06i5iBTAQcF9dTAUj4v6lDRBDZiEvwSCREieWTSUJuHz72bls/0Lr1ihf9NINcGz
+	JUBf0Y9aOo3Awt7EvL99qLjrG6niUTjzNkoUsv+3tjShC+bH3MEbcS9r9YI7E+S2YVlaa1uDoGy
+	ctLy4bMACCykSiDINvDfljT3NQ4MaBL6aFFflTwTb1ASM4iOF+1dOLIDwazmU2lP7CYUlre9AaY
+	UjVV2hdISSSd5OSzfcW7mV/2IkGXXiT2LeL2j9pZIzo3Xjel9bC66o675SuYH8J2pc6RCeE46Nl
+	FwuhWaG+OndarLgVX60y4suTDvC9ZEC4Ew4uQww6D5WLJMdRW3gugD6M3k8/KUFGFQoHVsGsLkK
+	l7wad03ilRSSOhwNZT17T9i2tEpe0X73afoMFZaspN9bu5LhRZ2WRwY+lqkLIb4TKccrgCxkg7H
+	KNiHaOX/euHVztSZHqqhFNA==
+X-Received: by 2002:a17:903:3887:b0:2e2:d665:6ad8 with SMTP id d9443c01a7336-2f062b6ecb2mr14518045ad.4.1795554303196;
+        Tue, 24 Nov 2026 13:05:03 -0800 (PST)
+Received: from google.com (25.75.145.34.bc.googleusercontent.com. [34.145.75.25])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41abb1b66sm25196583a91.1.2026.11.24.13.04.59
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 13:05:06 -0800 (PST)
-From: Omar Ramadan <omar@blockcast.net>
-To: Taehee Yoo <ap420073@gmail.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>
-Cc: netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Simon Horman <horms@kernel.org>
-Subject: [PATCH net-next v4 2/3] amt: bound the source-state work of one Membership Update
-Date: Tue, 24 Nov 2026 21:05:00 +0000
-Message-ID: <20261124210501.70394-3-omar@blockcast.net>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261124210501.70394-1-omar@blockcast.net>
-References: <20261124210501.70394-1-omar@blockcast.net>
+        Tue, 24 Nov 2026 13:05:00 -0800 (PST)
+Date: Tue, 24 Nov 2026 21:04:57 +0000
+From: Samiullah Khawaja <skhawaja@google.com>
+To: Alex Williamson <alex@shazbot.org>
+Cc: Bjorn Helgaas <bhelgaas@google.com>, Kevin Tian <kevin.tian@intel.com>, 
+	Jason Gunthorpe <jgg@ziepe.ca>, Anthony Pighin <anthony.pighin@nokia.com>, 
+	Dave Jiang <dave.jiang@intel.com>, Dan Williams <dan.j.williams@intel.com>, kvm@vger.kernel.org, 
+	linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH] vfio/pci: Only lock the upstream bridge if the reset may
+ need it
+Message-ID: <awXedVCoT7M79Rk5@google.com>
+References: <20261112235700.2029562-1-skhawaja@google.com>
+ <20261118163706.7138d246@shazbot.org>
+ <20261119143237.4bf54796@shazbot.org>
+ <awC5Ldqmue6DiO44@google.com>
+ <20261124084852.661dd7c1@shazbot.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,149 +104,147 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii; format=flowed
+Content-Disposition: inline
+In-Reply-To: <20261124084852.661dd7c1@shazbot.org>
 
-The relay applies every group record in a Membership Update under
-tunnel->lock in softirq, and ip_mc_may_pull() is the only bound on how
-many records it applies.  Each record walks its group's hash buckets and
-sources several times, so a report that names the same full group in
-many short records costs far more than one that refreshes the whole
-tunnel.  At the current defaults a 1.5 KB Update of about 180 empty
-records against one group already walks the group's 256 buckets some
-nine hundred times.
+On Tue, Nov 24, 2026 at 08:48:52AM -0700, Alex Williamson wrote:
+>On Fri, 20 Nov 2026 22:21:16 +0000
+>Samiullah Khawaja <skhawaja@google.com> wrote:
+>
+>> On Thu, Nov 19, 2026 at 02:32:37PM -0800, Alex Williamson wrote:
+>> >On Wed, 18 Nov 2026 16:37:06 -0800
+>> >Alex Williamson <alex@shazbot.org> wrote:
+>> >
+>> >> On Thu, 12 Nov 2026 23:57:00 +0000
+>> >> Samiullah Khawaja <skhawaja@google.com> wrote:
+>> >>
+>> >> > Commit 962ae6892d8b ("vfio/pci: Lock upstream bridge for
+>> >> > vfio_pci_core_disable()") makes vfio_pci_core_disable() trylock the
+>> >> > upstream bridge before resetting the device, and skips the reset if the
+>> >> > trylock fails.
+>> >> >
+>> >> > All VFs of a PF have the same upstream bridge. Take a device with two
+>> >> > VFs, both used by one process. When the process is killed, both VFs can
+>> >> > be released at the same time. The first one takes the bridge lock and
+>> >> > does its FLR, the second one fails the trylock and is never reset.
+>> >> >
+>> >> > The bridge lock is only needed for a bus reset, which is done through
+>> >> > the bridge. A VF is reset with FLR, and pci_parent_bus_reset() never
+>> >> > resets the bus for it because the PF and the other VFs are on the same
+>> >> > bus.
+>> >> >
+>> >> > Add pci_reset_needs_bridge_lock(), which returns true if any reset
+>> >> > method enabled for the device is a bus reset, and only lock the bridge
+>> >> > in vfio_pci_core_disable() when it does.
+>> >> >
+>> >> > Fixes: 962ae6892d8b ("vfio/pci: Lock upstream bridge for vfio_pci_core_disable()")
+>> >> > Cc: stable@vger.kernel.org
+>> >> > Signed-off-by: Samiullah Khawaja <skhawaja@google.com>
+>> >> > ---
+>> >> > Tested in QEMU with an igb PF behind a PCIe root port, bound to vfio-pci
+>> >> > with two VFs. Both VFs are opened through VFIO and then closed from two
+>> >> > threads at the same time, counting FLRs with a kprobe on pcie_flr().
+>> >> > Without this patch one VF missed its FLR in 50 of 50 rounds, with it
+>> >> > both VFs were reset in every round. I will send a VFIO selftest for this
+>> >> > separately.
+>> >> > ---
+>> >> >  drivers/pci/pci.c                | 28 ++++++++++++++++++++++++++++
+>> >> >  drivers/vfio/pci/vfio_pci_core.c |  3 ++-
+>> >> >  include/linux/pci.h              |  1 +
+>> >> >  3 files changed, 31 insertions(+), 1 deletion(-)
+>> >> >
+>>
+>> [snip]
+>>
+>> >> > +
+>> >> > +		if (pci_reset_fn_methods[m].reset_fn == pci_reset_bus_function ||
+>> >> > +		    pci_reset_fn_methods[m].reset_fn == cxl_reset_bus_function)
+>> >>
+>> >> This looks like a maintenance nightmare.  What if instead we did
+>> >> something like:
+>> >>
+>> >> bool pci_parent_bus_reset_possible(struct pci_dev *dev)
+>> >> {
+>> >> 	struct pci_dev *pdev;
+>> >>
+>> >> 	if (pci_is_root_bus(dev->bus) || dev->subordinate ||
+>> >> 	    !dev->bus->self || dev->dev_flags & PCI_DEV_FLAGS_NO_BUS_RESET)
+>> >> 		return false;
+>> >>
+>> >> 	list_for_each_entry(pdev, &dev->bus->devices, bus_list)
+>> >> 		if (pdev != dev)
+>> >> 			return false;
+>> >>
+>> >> 	return true;
+>> >> }
+>> >> EXPORT_SYMBOL_GPL(pci_parent_bus_reset_possible);
+>> >>
+>> >> static int pci_parent_bus_reset(struct pci_dev *dev, bool probe)
+>> >> {
+>> >> 	if (!pci_parent_bus_reset_possible(dev))
+>> >> 		return -ENOTTY;
+>> >>
+>> >> 	if (probe)
+>> >> 		return 0;
+>> >>
+>> >> 	return pci_bridge_secondary_bus_reset(dev->bus->self);
+>> >> }
+>> >>
+>> >> Where we'd then condition acquiring the bridge lock on whether it's
+>> >> even possible for a function scoped reset to perform a bus reset.
+>> >>
+>> >> It's a bit broader of a test than whether we actually have the necessary
+>> >> methods in our reset_fn list, but since we're not locking the reset_fn
+>> >> list between test and function-reset, it's also safer.  Thanks,
+>> >
+>> >After exploring Ionut's patch[1], what I propose above is probably
+>> >wrong.  We don't have any guarantees that the sibling topology is
+>> >static and this bus-reset-possible function presents it as immutable.
+>> >The existing bus-reset function has the same race, but the gap is
+>> >smaller, let's not make it bigger.
+>> >
+>> >There are however immutable properties we can test that cover a fair
+>> >number of cases.  For example:
+>> >
+>> >bool pci_reset_function_needs_bridge_lock(struct pci_dev *dev)
+>> >{
+>> >	return pci_upstream_bridge(dev) &&
+>> >		!(dev->dev_flags & PCI_DEV_FLAGS_NO_BUS_RESET) && !dev->is_virtfn;
+>> >}
+>> >EXPORT_SYMBOL_GPL(pci_reset_function_needs_bridge_lock);
+>> >
+>> >We should be able to use this as a condition on whether we acquire the
+>> >bridge device lock, in pci_reset_function() and in vfio-pci code.
+>> >Thanks,
+>>
+>> This sounds good and it will also fix the bug that I am seeing.
+>>
+>> The only caveat is that pci_dev_wait() might fail during VF reset and
+>> then it might try to do a bus reset if the VF is behind a pciehp or CXL
+>> port. I would prefer to do it only for vfio-pci code as that is where
+>> the reset skip issue is. pci_reset_function() takes the lock and
+>> serializes the VF reset. Are you ok with doing it just for vfio-pci?
+>
+>I think the test I'm proposing precludes a bus reset, ie. there is no
+>upstream bridge, the device flags prevent it, or we're provided with a
+>VF.  It's only those cases where we can't do a bus reset anyway, that
+>we can skip the bridge device lock.  I think that means it's useful in
+>PCI-core as well as vfio-pci.  Did I miss something?
 
-Charge each record for the passes the mode handlers and
-amt_cleanup_srcs() make over its group and for its per-source lookups,
-and stop applying records once the total exceeds twice what refreshing
-every group the tunnel may hold, with every source, would cost. A report
-that refreshes the tunnel's whole state uses half the budget; one that
-exceeds it is truncated, as a lost report would be, and the next
-periodic report restores the state. A record for a group the tunnel has
-no room for does no walk and is not charged, so records the relay
-refuses cannot use up the budget and truncate the same records from
-every report.
+Yes, the slot reset probe doesn't account for the VFs and will allow
+reset of the slot when hotplug is enabled.
 
-Found by review (Sashiko, on the limits patch); not triggered at runtime.
+I think that is probably a fix that needs to be done orthogonal to this.
+I will send a v2 of this by doing the needs_bridge_lock() as you
+mentioned above.
 
-Assisted-by: LLM
-Signed-off-by: Omar Ramadan <omar@blockcast.net>
----
- drivers/net/amt.c | 54 +++++++++++++++++++++++++++++++++++++++++++++++
- include/net/amt.h |  8 +++++++
- 2 files changed, 62 insertions(+)
+>
+>I do see that cxl_reset_bus_function() only does a cursory test for
+>probe, but then calls pci_reset_bus_function() when it executes, which
+>is an inconsistency issue of its own.  Thanks,
+>
+>Alex
 
-diff --git a/drivers/net/amt.c b/drivers/net/amt.c
-index 79d68bc..177bc0b 100644
---- a/drivers/net/amt.c
-+++ b/drivers/net/amt.c
-@@ -2157,6 +2157,30 @@ static void amt_igmpv2_leave_handler(struct amt_dev *amt, struct sk_buff *skb,
- 		amt_del_group(amt, gnode);
- }
- 
-+/* The source-state work one group record can cause: AMT_REC_WALKS passes
-+ * over the group's buckets and sources, which add_srcs may grow by nsrcs,
-+ * plus AMT_REC_LOOKUPS hash lookups per record source.
-+ */
-+static u64 amt_rec_cost(const struct amt_dev *amt, u32 nr_sources, u16 nsrcs)
-+{
-+	return (u64)AMT_REC_WALKS * (amt->hash_buckets + nr_sources + nsrcs) +
-+	       (u64)AMT_REC_LOOKUPS * nsrcs;
-+}
-+
-+/* The most work one Membership Update may cause: twice what refreshing
-+ * every group the tunnel may hold, with every source, costs.  The packet
-+ * length used to be the only bound, and a report that names one full
-+ * group many times costs far more than one that refreshes the whole
-+ * tunnel.
-+ */
-+static u64 amt_report_budget(const struct amt_dev *amt)
-+{
-+	return 2 * ((u64)AMT_REC_WALKS *
-+		    ((u64)amt->max_groups * amt->hash_buckets +
-+		     2 * amt->max_sources) +
-+		    (u64)AMT_REC_LOOKUPS * amt->max_sources);
-+}
-+
- static void amt_igmpv3_report_handler(struct amt_dev *amt, struct sk_buff *skb,
- 				      struct amt_tunnel_list *tunnel)
- {
-@@ -2167,6 +2191,7 @@ static void amt_igmpv3_report_handler(struct amt_dev *amt, struct sk_buff *skb,
- 	union amt_addr group, host;
- 	struct igmpv3_grec *grec;
- 	__be32 saddr;
-+	u64 budget = amt_report_budget(amt), work = 0;
- 	u16 nsrcs;
- 	u16 ngrec;
- 	int i;
-@@ -2194,6 +2219,20 @@ static void amt_igmpv3_report_handler(struct amt_dev *amt, struct sk_buff *skb,
- 		memset(&host, 0, sizeof(union amt_addr));
- 		host.ip4 = saddr;
- 		gnode = amt_lookup_group(tunnel, &group, &host, false);
-+		/* A record for a group the tunnel has no room for does no
-+		 * walk, so it is not charged.  Charging it would let a host
-+		 * joined to more than max_groups groups lose the same tail
-+		 * records from every report.
-+		 */
-+		if (!gnode && tunnel->nr_groups >= amt->max_groups)
-+			continue;
-+		work += amt_rec_cost(amt, gnode ? gnode->nr_sources : 0, nsrcs);
-+		if (work > budget) {
-+			netdev_dbg(amt->dev,
-+				   "Membership Update over work budget, %u of %u records ignored\n",
-+				   ngrec - i, ngrec);
-+			break;
-+		}
- 		if (!gnode) {
- 			gnode = amt_add_group(amt, tunnel, &group, &host,
- 					      false);
-@@ -2335,6 +2374,7 @@ static void amt_mldv2_report_handler(struct amt_dev *amt, struct sk_buff *skb,
- 	union amt_addr group, host;
- 	struct mld2_grec *grec;
- 	struct in6_addr saddr;
-+	u64 budget = amt_report_budget(amt), work = 0;
- 	u16 nsrcs;
- 	u16 ngrec;
- 	int i;
-@@ -2362,6 +2402,20 @@ static void amt_mldv2_report_handler(struct amt_dev *amt, struct sk_buff *skb,
- 		memset(&host, 0, sizeof(union amt_addr));
- 		host.ip6 = saddr;
- 		gnode = amt_lookup_group(tunnel, &group, &host, true);
-+		/* A record for a group the tunnel has no room for does no
-+		 * walk, so it is not charged.  Charging it would let a host
-+		 * joined to more than max_groups groups lose the same tail
-+		 * records from every report.
-+		 */
-+		if (!gnode && tunnel->nr_groups >= amt->max_groups)
-+			continue;
-+		work += amt_rec_cost(amt, gnode ? gnode->nr_sources : 0, nsrcs);
-+		if (work > budget) {
-+			netdev_dbg(amt->dev,
-+				   "Membership Update over work budget, %u of %u records ignored\n",
-+				   ngrec - i, ngrec);
-+			break;
-+		}
- 		if (!gnode) {
- 			gnode = amt_add_group(amt, tunnel, &group, &host,
- 					      ETH_P_IPV6);
-diff --git a/include/net/amt.h b/include/net/amt.h
-index f36efcd..82aaa6b 100644
---- a/include/net/amt.h
-+++ b/include/net/amt.h
-@@ -392,6 +392,14 @@ struct amt_dev {
- #define AMT_GC_KICK		2048
- #define AMT_MAX_GROUP		32
- #define AMT_MAX_SOURCE		128
-+/* Per group record, an upper bound on the passes the mode handlers plus
-+ * amt_cleanup_srcs() make over a group's buckets and sources, and on the
-+ * hash lookups they make per record source.  The handlers need at most 5
-+ * and 7 (EXCLUDE TO_IN and EXCLUDE BLOCK); the bound is rounded up so a
-+ * later pass does not silently exceed it.  See amt_rec_cost().
-+ */
-+#define AMT_REC_WALKS		7
-+#define AMT_REC_LOOKUPS		8
- #define AMT_HSIZE_SHIFT		8
- #define AMT_HSIZE		(1 << AMT_HSIZE_SHIFT)
- 
--- 
-2.43.0
-
+Thanks,
+Sami
