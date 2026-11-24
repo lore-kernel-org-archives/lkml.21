@@ -1,59 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.15
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795539792;
-	b=hOmfe+rAJlQEK/VjEd7pQmvf0zv49Ab1ioshfUJZVUlotUmQ3Dn0D7kZvXS3o8ROGFDU
-	 Ioq6GpmlhTHwb41+OacxJkU3G3DX0Z6xkLFlHLBxsebvxDOp/B0Q76ASnI46P76TdthWM
-	 I2Kvh7BwN9uTd/YZpXb4hN7SQhqn/MfcpUxDuMwKPjfibTzNe20F8871aAcFtyvGeazxW
-	 DDRv/sgSNVZXkqQ3FjNrqkfRKI0Bi2ZYwZwAzWuEzCpb1v6c9m4fenqgZC7qodHVv2BEA
-	 E8xRNyFSHgfyUQAAVRcaMaHxxsDulMMIWQK+hLoF9CHaCzAAN20vUgAd5/tk9KCeWsA==
+	t=1795539812;
+	b=biCpU+t80bOrcxKl9XsAolQddwpdgNfdEDsA4xjAiwJj9GT9tfTqNnDSFFkLZac3BOt8
+	 kvWn72nKMh7Kl8atwPLwMuihDlyMVahUTvAQet4nK/wL9WLrYTBOG9iqKfRdYKr6mW9/g
+	 xzljKpFoza+LIJoi6DszdEAXBio/eQXRpEZ4Ew3Xuri4VVld5CBrq2qDLCrAXpKb+igtz
+	 GQLKugSJqDR7D5eyJe3xw48tqWY17P4EuUMVFlPLJTQiIWPDSbK4hu4CGhAfyP8upEdbR
+	 37n7IbxLSUPvFgO56LrbOExLtM3PkeJt+fOeke43tQeuDHP9q1rbhL2oOXxWTK8in9g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795539792;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
-	 X-Cookie;
-	bh=7UOIaqm5jI4MW76ZbpVQEPff9n3HhPMQUS4wA9NCzL8=;
-	b=dl08OF+RmU6m0aX7mDkBdAO/1M7q6p6c9uUPfDkCd8ekgq8EAq+9vpJYjc//2LaSpwhT
-	 IA9jFIugIweRlsriNfTCD+BWf2mS3qOyqPyuZ7qis/y1QkIwAulpQUTtk7hATKtp5VRh9
-	 IiDT0sX2ddkAoMqdaDx6JHToHmszPNVstCIdkPZEjPPOYcKWkB06+8dOkAOANJsknKWWy
-	 tCvZAmJ6kxt2zQdO8+wFrTCI0v4/tG1m3CRCSmfr9VTK2iv4kGYFYIIunkD7dZ64wkVvd
-	 n2l2gheW4BkD172W/T/X0arPL2/LqJV0uCbwD6Zzr6rUp6MEFRiSmz+XjaWaRj1hqMQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795539812;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 Content-Language:Autocrypt:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=jHHJEpclenvhL4xmnZUmc9+yes2wNXZb3V1dO29rWao=;
+	b=mMwAF3TTZ2xGCHamxnpyzgGBqi/9z6xIXaBT31VH6iyk4jSGM5kERk6dPGSznKzjqGrw
+	 4mkztR+3NsmO9zfzC20Po+/YVe3XKxHjCV5LEaCmsUPJK84ccdlnpIRn1ZGMY7LWoY35L
+	 wN0zSij60+mRYb0KneWKAFg0AtOoCUbU0+z7E6LFW5Fsf3l/brkHMHaLWKai+uH54pU62
+	 WheD5CZ6v9MovqYNRmZVb+vHGoskRyRECKxdlmgNV+l+sf5qq1Sod6GhQnamKvy3N7Zjx
+	 Z1Mrr71zmNHcDF1y+sJmHLJVy4AtytTyvwx0+4c5SDA9j57B4U4W+KbWA8AuB7KH/zw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="UF/oFk/p";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=UMMbX9EK;
+	arc=none smtp.remote-ip=198.175.65.15
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.15])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EA694606A31E;
-	Tue, 24 Nov 2026 17:03:11 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3CED4606A31E;
+	Tue, 24 Nov 2026 17:03:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3CED4606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UF/oFk/p
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BFE0A1F000E1;
-	Tue, 24 Nov 2026 17:03:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795539791;
-	bh=7UOIaqm5jI4MW76ZbpVQEPff9n3HhPMQUS4wA9NCzL8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=UF/oFk/pE3wfrcuwm4GZnvP3scn0S79AMiBN+WF2lI2PXi2Po6Lo0ONRKn/CthD/L
-	 ZaYfeeMNNwylHLMJk8Q91Y+r9ld/TDWTe1gKbVzsz3462+lhA4yL5RTugwXdzQwtwy
-	 NAVOfdXp8hugB9pRO15IOstWC9Y4Kjs0taSSNv9l5axTAJlS7WpcCrude5WhsDqm95
-	 gAVLntYj91+Zn6OjTaIXS7zjrxDxMl+8xPtvp3KnakkJiSCL5jK4fe1bJMXtcOqt5D
-	 HRFoog3xrc/3sA0RyA/7eFIskHfuzvFJ29MdRXWR+RdyL9iDyRqcDd0RtH9CNq+tNz
-	 shYNDqgHAikuA==
-Date: Tue, 24 Nov 2026 17:03:07 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Sasha Levin <sashal@kernel.org>
-Cc: Christian Brauner <brauner@kernel.org>,
-	Namjae Jeon <linkinjeon@kernel.org>,
-	Chi Zhiling <chizhiling@kylinos.cn>,
-	Linux Next Mailing List <linux-next@vger.kernel.org>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH linux-next] exfat: check the emergency state in
- exfat_writeback_range()
-Message-ID: <01ee3c08-f7af-4b58-9981-849211b11e6e@sirena.org.uk>
-References: <av2mOPyANz3H59F5@sirena.org.uk>
- <20261120003508.2135492-1-sashal@kernel.org>
- <20261123212633.1204021-1-sashal@kernel.org>
+	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=UMMbX9EK
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795539810; x=1827075810;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=jHHJEpclenvhL4xmnZUmc9+yes2wNXZb3V1dO29rWao=;
+  b=UMMbX9EK9jbQYYPb8r/35ohmo2fWt1FkpumJ/OowGNn7IHucoqrIChg4
+   7bws4W4aLiIsNrzE8/pBsA0VraPIExMsHddbFTuA9jbz6zKgU8zkSByIz
+   qYqvTWQeZCO2ei06AI3JRr644vApnpjQyIQRil5cUZTTYVbHkGDOrmCj7
+   yBYr9XQVRa5QVca2BU6zYSmtp9QF3JxZvVJqUpYg1sTgRA2rtP3vzjgQR
+   RUTyEuP40TjhlA7LrhMdXnGdw3CrYZcJg5cm+CaArXePcyHbTYM2GD9u9
+   M7S9+4qrmIFrh+eon4yMrEx39irMrzM7k3cmOiAXdr+S/P8EdC1o5cmU2
+   Q==;
+X-CSE-ConnectionGUID: jLG9789PSJa2QavSdOiq8Q==
+X-CSE-MsgGUID: dg28UWHARDiu0siuAPMEtw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11976"; a="4393394"
+X-IronPort-AV: E=Sophos;i="6.27,231,1787036400"; 
+   d="scan'208";a="4393394"
+Received: from fmviesa005.fm.intel.com ([10.60.135.145])
+  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 08:41:15 -0800
+X-CSE-ConnectionGUID: 4POPJdNPSY+//fLB9GhGBw==
+X-CSE-MsgGUID: q4Y3RdbdT9SCvGtwj9x0Qg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,231,1787036400"; 
+   d="scan'208";a="11727878"
+Received: from sghuge-mobl2.amr.corp.intel.com (HELO [10.125.110.20]) ([10.125.110.20])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 08:32:04 -0800
+Message-ID: <96be8f5a-8f65-48ff-8263-1d5d5f706354@intel.com>
+Date: Tue, 24 Nov 2026 08:32:03 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,38 +73,81 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="MrxnbvwMatJQE4sr"
-Content-Disposition: inline
-In-Reply-To: <20261123212633.1204021-1-sashal@kernel.org>
-X-Cookie: Real Users never use the Help key.
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC 0/3] x86/e820: Ignore memmap= and mem= in confidential
+ guests
+To: Ard Biesheuvel <ardb@kernel.org>, Mike Rapoport <rppt@kernel.org>
+Cc: Pankaj Gupta <pankaj.gupta@amd.com>, Thomas Gleixner <tglx@kernel.org>,
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+ Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+ "H . Peter Anvin" <hpa@zytor.com>, Tom Lendacky <thomas.lendacky@amd.com>,
+ "Kiryl Shutsemau (Meta)" <kas@kernel.org>,
+ Ilias Apalodimas <ilias.apalodimas@linaro.org>,
+ linux-kernel@vger.kernel.org, linux-mm@kvack.org, linux-efi@vger.kernel.org,
+ Pankaj.gupta.linux@gmail.com
+References: <20261124133241.221719-1-pankaj.gupta@amd.com>
+ <e08f2321-749e-40f6-9ed4-3dba8e1625ba@intel.com>
+ <awWzrkLxfQ2_ODKe@kernel.org>
+ <2dd40d0d-2e1f-4a7f-ba65-2cceccd82028@intel.com>
+ <awW31hUpXuujSAXA@kernel.org>
+ <c0e82936-9436-45e4-a8b6-07bdaa9680df@app.fastmail.com>
+From: Dave Hansen <dave.hansen@intel.com>
+Content-Language: en-US
+Autocrypt: addr=dave.hansen@intel.com; keydata=
+ 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
+In-Reply-To: <c0e82936-9436-45e4-a8b6-07bdaa9680df@app.fastmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
+On 11/24/26 08:26, Ard Biesheuvel wrote:
+>> They shouldn't but you can't guarantee that.
+>>
+>> But I don't mind letting them crash if they do 🙂
+>>
+> I'm fine with either approach (i.e. disallowing it or doing nothing
+> at all), as long as we don't pretend that this is something that is
+> expected to work.
 
---MrxnbvwMatJQE4sr
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-
-On Mon, Nov 23, 2026 at 04:26:33PM -0500, Sasha Levin wrote:
-> Ping. next-20261123 still calls exfat_forced_shutdown() in
-> exfat_writeback_range(), so the emergency state check is still lost.
-> The patch still applies.
-
-You're sending a content free ping with no quoted context about
-something you buried in the middle of an old thread...
-
---MrxnbvwMatJQE4sr
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmsFw0oACgkQJNaLcl1U
-h9AWHgf+OmmjZBPiTzuvqRMMXuSWizS7IJ2rH7IQgXf71b9OlOBsx38yldoJoAsE
-0SGIcAB/Zzi2gocV819DTpEqBDai2Qu8iNwILxYeWt0yitms3SR4fYP3dfLfevuz
-WF27PINctyrBHJiN2PHVPvTjR3r/GQMap1EhIq3RGnCKJ6kUcx2rILphRU8UYGjm
-56Qhq/b3u6qzjvHOXp5TMcKCbixj5XzBVlBp9TI8wETPn3xNWnNkKi6WzO/z0yk7
-WL7jrgbonLP2csEiHZVpCMexwQ+9GJHDkxmGDXtKgZlHgGLFg5zR+ynuYZLr87eU
-cvFscajHANvp44lbhxDz6xqsbVHVKw==
-=eQu8
------END PGP SIGNATURE-----
-
---MrxnbvwMatJQE4sr--
+Yeah, it's not supposed to work. I'd rather document "don't poke the
+sharp stick in your eye" versus trying to make the stick less sharp.
