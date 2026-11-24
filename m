@@ -1,73 +1,108 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795516139;
-	b=KLefG+8mCc8AwRNrM9PBbX3cF3GLMuayf8Hun/2cNoOHQwvX5cAdiheEfIDCQvM12IQY
-	 amSLOIlMMORgjec/B+lJAXOc3K5n5B5Aer1qzzSKJYyrd/sV3XNVNmAliMqmW7UP52jyy
-	 dJ39UMaCh/Cs249fGu0n/XAmAa3dYpU6c8yAcO1vAtJdP+8SX9syHa9FS84fXZg5w5v7z
-	 ReR4q5/DB1w2g9m2wHgHZGfSUy+J+z2nwuSUwVV4AwfoECxkca1W1ng5+lzOIg35h9c/X
-	 Z83bf4DK7DMVniQve+r0ai/Bgy289G+2lO4/EcP4JM53t/MTDePr6drCqed8oKWXQhg==
+	b=snyjGCTZO+KFyGSqv3cApbk5I0JHtJJo370tLz/+4DcsJt7uQ6X1Yshp7d9LpiYTAK+Y
+	 yIEmSP+MKqeZfLmmGHz0yio5dpkC2mIKnVzhxTB9wGrgjcimXBilUswEcDpRXEC6NwjQq
+	 0kQtwDGFhDj3SOTGRGVkiHhtKe4e/DGoEmgUs3xw4gb7Uu/9H7LfqWO4WCmcaIxMAMri8
+	 eehmemIVsYvz9L0xZWh1Hlnpn7WaunooiQpeZQaiNTDqPteNxgFEjsbWAKZ1Fuum+t+n/
+	 7njJorSU28bMGZeU3p2YRpGkjjJiDgfzThhc9orWOyZLVRaXN2sLcSWIV73o/rk6ohQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795516139;
-	h=Received:DKIM-Signature:Received:Received:X-ME-Sender:
-	 X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
-	 MIME-Version:Date:From:To:Cc:Message-Id:In-Reply-To:References:
-	 Subject:Content-Type:Content-Transfer-Encoding;
-	bh=SsE8tNJAwqmZZibomeCnCihBIx8lYVgcQl1vfpBEb9c=;
-	b=hg2G/kBOsAVw6Jdl/VVwkEm6CM8QKJXzE3uytji5xOChmoQ1++09Pq3yYHbqBQwXHmVu
-	 gin4DfJxaODtU6U4nq3qZioi88l7qGGHSO/varzHsXPIYAZQgT8ijPeM9RwhPBxDhMtgM
-	 dnWI3A5e9b3j9cKglb2XMwA3x3MgEXsBPjNTyBQ6hBpBckprqXur4lugYijQ6HL6q5bnt
-	 W3YzZHrli7oyjWuKtFGGtLAfjw7UEpjsBzIaBLRs4c1LteWlbgvIPfE399NLvMfCezw+d
-	 9p1fbySECCyawySCaeU9xBIhlhl7YphpEXbSNS+kUdFg+9bXUVhce17oTud2N9mGKuQ==
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:Message-ID:Date:MIME-Version:User-Agent:Subject:
+	 To:Cc:References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=YvVos/w2bO5cHdAxwgGtEk1DQ0vvOaudIAzQaAlwIIk=;
+	b=Lw8aBACyY00UaWFIDpfkQAxCEr3rUM8WeffaHl9FkI14kSpxF4krthNbDoGifGKIokZa
+	 vzQVkuX0k4LL/wVqgLmMd2SlJSDvfXyrvLqrrpYN2e9keRfmkqlM22uFqhEaMQoMpZ6aR
+	 zhoUy1KW2LsqiE6pplcEMgFyryBWjPpaY0eI6OTmhnleL3i5d9rtQbc9aGNkJCdFC7bLz
+	 Ej0hLGE0UkGbdv0faxvqR19pwYqn2jJFI/E18k2S7YiHoNFh+G3FIOb+gYQi/6EGzPt7K
+	 MxN2mwhuyNw2yDYpZURUEaQrYdpJAHIRCN7bG6kVwngiEjbUFJPJVXbLxPhMNXkmwEg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=j5r7pOz1;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=gEIbS5br;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=YI2xnQ12;
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 77E9E606A31E;
-	Tue, 24 Nov 2026 10:28:59 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 179D3606A335
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 10:28:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 179D3606A335
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=j5r7pOz1
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 612BE1F000CA;
-	Tue, 24 Nov 2026 10:28:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795516139;
-	bh=SsE8tNJAwqmZZibomeCnCihBIx8lYVgcQl1vfpBEb9c=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject;
-	b=j5r7pOz1dZOWu1FsqC7tsQ+yL40chp8jTYFKkNe2a/RkiGzHJKoBqZgzmqgi3bnXf
-	 KRPd94sshA0mF4DkZIjUSCbtCMwoE5Pc6Em2pBq17Xj0+XObBcp00ccn5USbfSw7JP
-	 U9P4c2H8kZ/zwz5FkcnvACvZnryQoIZk3kiwe8TVPdrHQRJuSL0TIk26YKKYNR4bUi
-	 5aE2MGf5cyAZvjPbXzgr0ANebefvSK+9uWuYQLcovsNyIwIE+QOw7HoagOc3635zqt
-	 s1dnM5JDaIDaMJ3484l5OSyhWf4JhVrTtTC00XSCwVNf22rbd05juU+Bkg71bpEGyg
-	 QnDVOm38qmhZg==
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailfauth.ams.internal (Postfix) with ESMTP id 85FDD198004A;
-	Tue, 24 Nov 2026 05:28:56 -0500 (EST)
-Received: from ams-imap-11 ([10.64.2.31])
-  by ams-compute-02.internal (MEProxy); Tue, 24 Nov 2026 05:28:56 -0500
-X-ME-Sender: <xms:5mYFa4Tw6uJRtAOHAHQlAJOy-pNHp2w15DvU-oKThjSfD3t2Qkmopw>
-    <xme:5mYFawnUXb_xU1Obx4Ce5UxK8-TjAA_K01LnbQ2_1rXeZn6zPxcZom89fgjvPsqzk
-    jSlXFoBVcobsOQOwtuLK4ZquR5nTUANfOY95a8EbkfPf8FS-iDboFL->
-X-ME-Proxy-Cause: dmFkZTGxQNlVVxf5rzruqHNeMamFc70jMWRzsEXCXiLEDDkHNg7dSEv0cYugMIKTevMmX+
-    lg8UAZ9I1ffD+/UdXKzy/mgm8RSPCm2BCLtBrMf/cJV78tplpY0gzL7ifqTQpWODpq8AcY
-    7rkeyN4sHZBP4+SRrYOYgGoXLErpfWKhDrJ2pRHD3rDTQzV2mr6YhX+IooIjajukHmN78E
-    s8T744HKuyUqrPsJVlvp5Z8kj/xF7h1TAVjx43qjConhj29VO9oAXGPwElSpelCkpjfhSH
-    OP7MCCSr6VMjRUI+S7xN5i3ctnAWAQg2C0DKIany/XvhHFrrl3g2jA9k9jd6noeXRp4+pP
-    jwnc2/dZDBpOcAn3lNt9n7B6oLN4ekF4kTKOl8Z+Y30t9bUvn6A+YDox6Yc+hc8rmpfnCi
-    rY1fEekdW2qUjIhKFrHJns8GVCuGhPLGhWKyZV3z879NN8BRR5zec3qp/pxPZHmMXzZ1E/
-    lRuykNHv4qgLsAZrtnGNctM4idEcUwbx7SOR3qthoM9Iz7A86iT1Go0jXWt9leDd63xvOK
-    f4lOZW0dbc6ABQ8b1bImKiUry/QKr90+OaCI0HAAc3UTwK/PLLeMqTGJjiQ/SEimq/GyGp
-    gZ0nqv99uqj/X8SNRWaT2KgCVk5hOiQocEloTGs4uOxt+mbp5XZQl/UgGmWw
-X-ME-Proxy: <xmx:6GYFa80L2Lvn02VE4r7Su6Tcn_Dedc1xUgzha6qZHx_6F46H87at2A>
-    <xmx:6GYFa5U4YbuVMdUQcGafVvVAqmygW-gghWdAVq3-e_BzGzzA2ECffw>
-    <xmx:6GYFa3LR2mvcWSUhHJODeTUTzAfxV1Qn9M9xW74Ztf1AIi00Xrwc1Q>
-    <xmx:6GYFa70HHwQrtSWdqMIMgK-0fMQTgg0_3FIOE0sqBZHb_gPTGzsJug>
-    <xmx:6GYFa97tGvLDAX5jZI-9E6cYkI_uo6Ioi2-R0nCKC9NCDn9Q8HFs00dI>
-Feedback-ID: ice86485a:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id AC271F80093; Tue, 24 Nov 2026 05:28:54 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=gEIbS5br;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=YI2xnQ12
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795516138;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=YvVos/w2bO5cHdAxwgGtEk1DQ0vvOaudIAzQaAlwIIk=;
+	b=gEIbS5brK4L2GcXWb1XbC0+Map/xuITlPK/88cgE3KFXAsu8jFe1Q4a4gJTrSpZ8IAbipi
+	wqpu0Ly63rD+jXvAsAm9hZuTjTHKa0KIr28nsxXwczQZQNUeRx66Kr1oHeiooUNc6pZABf
+	wfIgwarmrA9+ouZimMFLRTf7UFpD3D4=
+Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
+ [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-317-vkhRfKnBMzKoeHoB4sjgsw-1; Tue, 24 Nov 2026 10:28:54 +0000
+X-MC-Unique: vkhRfKnBMzKoeHoB4sjgsw-1
+X-Mimecast-MFC-AGG-ID: vkhRfKnBMzKoeHoB4sjgsw_1795516133
+Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-490c1867460so2633329f8f.2
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 02:28:54 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=redhat.com; s=google; t=1795516133; x=1796120933; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=YvVos/w2bO5cHdAxwgGtEk1DQ0vvOaudIAzQaAlwIIk=;
+        b=YI2xnQ12auOqt+7nCCBXb8APJLJPOGIevpGDrGSOfQPMA4zXIiZNYtu8tJkmV1j9GU
+         4tavdjFfV9wckOv4540cxESkynrrdrzIMI5ShDWMZbi06jSiM7qx9wRobcuAIECAuYjv
+         aHTBHc7um6S58scG9vhv03QLrENSGYWjtWj+6C8OmBvWQ7Aby7HqKKVstLoaauZFkmOG
+         AyzIVZNp7OEmJP18HsEeG/B3kWmY6UHMgmeyyZhfqXkjUgQdl/7HeSnL0RIIgLCuaZ13
+         WuGBqnP/BjAz3Aza7btOoc+IhNJo6d7WbIkBPhcACRaTdNio/E0ZQlxBo0jPQHj+Gj2C
+         z7Xg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795516133; x=1796120933;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=YvVos/w2bO5cHdAxwgGtEk1DQ0vvOaudIAzQaAlwIIk=;
+        b=HBgusbIpVQryheaB0jAb1J599pSWG+mKzzElYZTRJjI2uDZ4mAIxYmfRxN0JRxmecj
+         SRRotPiF22jikeWef8dTnfFMFocEjAJegBNGQF/qNXUS2sAjNK4QgJ5ZUTE0t8jHtzBr
+         HS6wcHW2TCplncjLe9MDVytEOFzJRw2PniOHxSyxN3bnd6QfStfN77RXRtafS/42giMb
+         uEmLb3FY2VoC09ptrv/Bt4tC4jfJ9/PPE+huLbHjrquta1V1JuN2VL1Vb6v42iWLmzD8
+         A+dmk6vgwe3ty2l2NE+goiC1TlcZ4fzguLu4JEfPz6wt9sVXiohsWQEl3VgtwjUvfqXv
+         qv0w==
+X-Forwarded-Encrypted: i=1; AL+hErEQ27Kr2Jqn/zXpM+VpQvtjMisEqVlRj9QdhTINJ2qh5Lj1v0Ae/kK0U85tKNk+snJHtZeojKM11WsEeR4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/bOocnr+GzP8FEJoIDX/6z6PRvC1pEmXhHLrAAUeqOROjg1dpJ
+	g8Zv1jwDty4M6AIhKTHcB2rAWyS2U3NsIoaD9/WUXOPRECLWKOiN6dZoe/ptth81UFlw46a74G6
+	husMsKfZ+XA2rBsOPSkdgue6AAsoItX0ianplOuYGoXlTQlzfdNI7709rassr/gdx2g==
+X-Gm-Gg: AZFdTZebsLgun085nvZf77OL5lEYj3WLo1OVD4IW/7HkLXBGXrjJNwPoFyJ9uRf+/eA
+	RVhe67Bk+7Ih5N/3cw5iQMgbYqoOCJdiyFqZghELbCuozkX/m1VERX3asi4MvThC7jizYxkObHk
+	4LacI+YjXOjL/XIvMFqS3f2cuGO54xh7l3B/5bPsQjNBYsPW8JF6o9VUW7jJb1UWH9axAIinfcC
+	p3IoRwc+fV1uEzt4GGoFlettKVpr+IkMBiR9n1bNh6+tMbwKASf6Il6ZrOFMLeo0LWgTKYmJbpw
+	aI2tAqNY/OX3cmkUMGDR5TjaefxcFv0nrM/+afjNdegzy4tf03+RJBiqaGogWTUcMUhy26Tj6FK
+	sNItUUu/Mev9SOpsdoZR6VnxZjtjiMDnmRngD07nI/3sAdZKrth5oMPkopTyDZ0y4ASjdHPvPCS
+	7i1OEuevyZHjrs3L5YsUwkSUVgvvPY63a11Hgu32NjcGuY
+X-Received: by 2002:a05:6000:490f:b0:492:a72:9303 with SMTP id ffacd0b85a97d-4abb47b242fmr27035648f8f.22.1795516133352;
+        Tue, 24 Nov 2026 02:28:53 -0800 (PST)
+X-Received: by 2002:a05:6000:490f:b0:492:a72:9303 with SMTP id ffacd0b85a97d-4abb47b242fmr27035607f8f.22.1795516133023;
+        Tue, 24 Nov 2026 02:28:53 -0800 (PST)
+Received: from [192.168.88.30] (ip231-128-192-82.pool-bba.aruba.it. [82.192.128.231])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab658e2d55sm27405743f8f.5.2026.11.24.02.28.51
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 24 Nov 2026 02:28:52 -0800 (PST)
+Message-ID: <ca4c7d17-681a-4d28-a4a4-eea6f123fd9d@redhat.com>
+Date: Tue, 24 Nov 2026 11:28:51 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,50 +112,35 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Date: Tue, 24 Nov 2026 11:28:34 +0100
-From: "Ard Biesheuvel" <ardb@kernel.org>
-To: "Zhang Chujun" <zhangchujun@cmss.chinamobile.com>,
- "Jeremy Kerr" <jk@ozlabs.org>
-Cc: linux-efi@vger.kernel.org, linux-kernel@vger.kernel.org,
- "Kohei Enju" <kohei@enjuk.jp>, pjones@redhat.com
-Message-Id: <a3b9592d-1a89-488d-b61b-ac5d49aaba7e@app.fastmail.com>
-In-Reply-To: <20261120081540.1870-1-zhangchujun@cmss.chinamobile.com>
-References: <20261120081540.1870-1-zhangchujun@cmss.chinamobile.com>
-Subject: Re: [PATCH] efivarfs: fix off-by-one in efivar_validate() variable name
- matching
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [pull-request] mlx5-next updates 2026-11-19
+To: Tariq Toukan <tariqt@nvidia.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, netdev@vger.kernel.org
+Cc: Chris Mi <cmi@nvidia.com>, Edward Srouji <edwards@nvidia.com>,
+ Gal Pressman <gal@nvidia.com>, Jason Gunthorpe <jgg@ziepe.ca>,
+ Leon Romanovsky <leon@kernel.org>, open list <linux-kernel@vger.kernel.org>,
+ linux-rdma@vger.kernel.org, Mark Bloch <markb@mellanox.com>,
+ Mark Bloch <mbloch@nvidia.com>, Michael Gur <michaelgur@nvidia.com>,
+ Moshe Shemesh <moshe@nvidia.com>, Parav Pandit <parav@nvidia.com>,
+ Patrisious Haddad <phaddad@nvidia.com>, Saeed Mahameed <saeedm@nvidia.com>,
+ Shay Drori <shayd@nvidia.com>, Yishai Hadas <yishaih@mellanox.com>
+References: <20261119121123.2211400-1-tariqt@nvidia.com>
+Content-Language: en-US
+From: Paolo Abeni <pabeni@redhat.com>
+In-Reply-To: <20261119121123.2211400-1-tariqt@nvidia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 
-(cc Peter)
+On 11/19/26 13:11, Tariq Toukan wrote:
+> The following pull-request contains common mlx5 updates
+> for your *net-next* tree.
+> Please pull and let me know of any problem.
+Next time please co-post the whole patches with the PR, so that the series
+can go though clashiko.
 
-On Fri, 20 Nov 2026, at 09:15, Zhang Chujun wrote:
-> From: zhangchujun <zhangchujun@cmss.chinamobile.com>
->
-> efivar_validate() passes utf8_size + 1 to variable_matches(),
-> including the terminating NUL in the name length. However,
-> variable_matches() expects the number of non-NUL characters.
->
-> As a result, exact-name entries in variable_validate[] fail to
-> match, causing some variables to use the wrong validator or
-> bypass their intended validation.
->
-> Fixes: 630ba0cc7a6d ("efi: Fix out-of-bounds read in variable_matches()")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: zhangchujun <zhangchujun@cmss.chinamobile.com>
->
-> diff --git a/fs/efivarfs/vars.c b/fs/efivarfs/vars.c
-> index 6833c3d24b54..9f18bf48615c 100644
-> --- a/fs/efivarfs/vars.c
-> +++ b/fs/efivarfs/vars.c
-> @@ -274,7 +274,7 @@ efivar_validate(efi_guid_t vendor, efi_char16_t 
-> *var_name, u8 *data,
->  		if (efi_guidcmp(vendor, variable_validate[i].vendor))
->  			continue;
-> 
-> -		if (variable_matches(utf8_name, utf8_size+1, name, &match)) {
-> +		if (variable_matches(utf8_name, utf8_size, name, &match)) {
->  			if (variable_validate[i].validate == NULL)
->  				break;
->  			kfree(utf8_name);
+I manually run my local instance on this PR, and it looks sane, but this is
+really a one-off thing.
 
-Queued as a fix, thanks.
+/P
+
