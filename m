@@ -1,54 +1,106 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.246
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795500263;
-	b=b7BI8+SePbttJz6JL3/CqSqYB4f391v1I72fpbQ4YCjiRjYgb4yhXpz4eVD95FVBcMZF
-	 hi3CkbjOkHkUNb72hJXK0VnKZ9u6RTBvTFTe4GDP0GxRiMlj/qtqapA5+ATMDrkVHysi0
-	 s3rTxW3BFVB0R+2lh1h5EvgXtKAwxiwolfhwu2zmjlIQRVDs3bAhozIH6Y8VwXWBnuL2u
-	 Pgk6oGaajfliY6I1js9W1UYX9jElqyo3podpDqgbIlpvddMmn/nzqLNp+aINr6/KnYMrW
-	 kOBtavoHlJ/E6+yTVdDIo4w0mADO8CNIV0Y0yzDAUD4pWH3Z+hEEK/bS6ark+6RHW9g==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795500263;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=4Pfo0m9GNxlBQ7p6+B/RIl9ZLx9D0Ok0zfBJpO7aO8c=;
-	b=RUg+cfs17m2gVD23prvGGFP4QfeTX0PIo56VqLaovKHg3nbasPSC1CVxZDxwBFRhkZZ5
-	 te8Re9nQLVrE7x5ZkPjK+u+Wab+Rnc4c6EXFuPP907WUiLL83BR7M+qpNvDfGY5t5mmue
-	 PhmlmGm0T4HbPoPMhSFVzkJNH7SklMXYpG+OztezSolKrhaRa8vmldtJn4YD9+k/D+wJx
-	 oluBjoM4lAMSqUA5yG//m629n19qWsIuFU/tQqoLfbUtMDhFnKzldj1jZ1/c4CiwDNOxL
-	 5yC75iERrmBZTnly/fDsbmbmM4fttzvRz/nCjNDp2fRFxwlhzMGATglncXQsKQSvZQw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=spU2wE2J;
-	arc=none smtp.remote-ip=95.215.58.246
-Received: from mta1.migadu.com (out-246.mta1.migadu.com [95.215.58.246])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.52.70
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795500316;
+	b=KlvkRlJSBSK1TzAr59BfANSofFMiUg+eMGJ2aNMNjtIH27b49AwTxjWMZXLV8YlaCUVj
+	 /v43VR9GeANAaO5NCw/xwWXHVq5a6I7TTD0/v9bSDh40jA+FcOMr7c/ZkBkXr15cqyRED
+	 X33TG6CX+TjhH41YqcK+we41JFL96713IeZpTOZQu3j/SrsCRjaBP2v4u5DWHJGIPH//2
+	 SE44JWkQ8JMZhnXx24L5IJmDxbekz0Qn9AZC1pJn1uwd2B7bj3Ju9AEm4sfyMS1VxsNvs
+	 3/u1eRkl9EmdLB4+fgBHaljk6lb+uGrcEjfbwpugFR0+JFhYNFSGcPoT3i+Bl9xRzDA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795500316;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:Cc:Subject:
+	 From:To:X-Mailer:References:In-Reply-To:X-ClientProxiedBy:
+	 MIME-Version:X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:
+	 X-MS-Exchange-AntiSpam-MessageData-1:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=ne0UN9ZyeZTt4zx/pRpgHeckezgLo+HnVPZhBw0BfIY=;
+	b=QdqYhuCBI4S6MAazb/W8qz75ZhXtoiXMYoWt35yFc1Nb1pbELRyfd6sWGlyd1mjKuloh
+	 KQxCM/AI52OZrdbNoTOE7QwPPowMjD5KwGk/dM3EMHn3vwJzCNjmhzsbXVJTb68jaLoVY
+	 CBWz1ozKGOM1Oc/+Eu9hcy5CLfoxvWeb/KFpdSiSyMPfN1ivvWKPdhegFpMW2HZHArbXP
+	 e59uyoZE2MFIpeO88uyrefd1qZHj80CsyshwvmdZp9cAAE5/3bwqa78ozBi1IB39Q/mxM
+	 DdEdzngJQYhffYVeunLxrwv1/MERPKFHlCtvwTScHad49JUM8cP7IbXbmcJW+twlUKQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=YA8qdDrc;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.52.70
+Received: from BL2PR02CU003.outbound.protection.outlook.com (mail-eastusazon11011070.outbound.protection.outlook.com [52.101.52.70])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 24704606A322
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 06:04:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 24704606A322
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C10A6606A31E;
+	Tue, 24 Nov 2026 06:05:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C10A6606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=spU2wE2J
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=A97mGnWx6C3ym4QwqXztsiA/uMLXpw7V7sK7PHC8LAE=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795500259; v=1; x=1796105059;
- b=spU2wE2JCo3RSoWoO0swtuylFVf29jwzWpTs2D6JGmjIX9ja+ZhltosYwma9QgyUgCdv8jax
- mNJ5nCaBwlIoUDwHstsYovNLdBS1vqcYLQAUvQ8MjIYFezOD5EYup49kIh6pryQD017rPxXNjUh
- KG8tTA+t9sfKfgzij1ZG6P9E=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 18db97533973c0da;
-	Tue, 24 Nov 2026 06:04:18 +0000
-X-Mizu-Trace-ID: 18db97533973c0da
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <192baf9f-6f5c-4afd-a7c6-b9c506ef8044@linux.dev>
-Date: Tue, 24 Nov 2026 14:04:04 +0800
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=YA8qdDrc
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=I+tOz2ZM+htqXNWJssKbhCyYAOK7X7Adb2Dib788kIQLiR4AFESOfWtDDDv9xVe74DhabXeWFYmZf9ZDlJa5YMOs/ud6ZipzA158rjshOelCtmczbAXE+n4wLxBUdhQZcKk4WXE/MQP7PGiof/UKUBHj/SNNxRi9Xj72P3vzLwn5PXXx56Dz7M0/4rZUcDK590zW0FDKMU5Shezf9K9/84U2KvRcZD8fkW1x7pkpyUJgeJUlHAwJ5c5WpH43c6Oqob9avU3PphrLfoF/cxiZ+h7+oSA5QNaKIPQqP/zTZ5iqARbZUXr/uuXUidq7KJmbDQXRXPcA1ci5f12DioOqkg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ne0UN9ZyeZTt4zx/pRpgHeckezgLo+HnVPZhBw0BfIY=;
+ b=Qc131kQXaVI+K0mARPhVYr1KYhN2Obzp2BGFQX5zXItu/bMGDKlrNNN0eWQUpIqqcOAeg2hA0I8fCBiJRyxutKPzihodrPVt+UpEvtCy3JnULQYHBDmMP2hua8i84eqXvKwg0/LIz9F9UyhYotQLuvQPfn5jCNTtrvbcZHd5XonxOiPsjAnpQLHuqGmKZlQ2GTaADWpDLecDSWgcgAJZvL4Kqg8+rs9KF0BVrj8vjIiBvKqz6qjimuBOAsRIvW28Mad9vl/9iuwu+B61qEV99r3PaM55FmQJm8ynoayfYIdmDdRxl+VItXymJLgQ6AwkyukCQsc2swiqhaC8ehFXzA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ne0UN9ZyeZTt4zx/pRpgHeckezgLo+HnVPZhBw0BfIY=;
+ b=YA8qdDrcpkD8RK+HWUrgYFHBWasjq1ilyROuM53jWdwjBHwDvyB/I8bBhK8E+PupjP3iueES89uFdd+oF/Dv39XtxehVPVPk75Iic3dzWXgcr8jaaFcx4XTNiLLAv2vv72CX53ICUg069Aqnqwuk+tv2b35DH/Kb69xdi1kzvec65egQpOEd152q+vfNH9havGol4n2Ad7O6JNPr8QnA9O1s/zh/P/CwVMVM9NKsgdnWSAK2IoLSvcu6bTcauWt65ScYlRUeNMLqc/6Fw1IUfx1S6lRJGF81uDsf9T+jh0y9rRew7IwsW0Ov3PsEvUopaWwNEIa61Hb05ndC096mXg==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DS0PR12MB6413.namprd12.prod.outlook.com (2603:10b6:8:ce::10) by
+ CY8PR12MB7633.namprd12.prod.outlook.com (2603:10b6:930:9c::19) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.639.14; Tue, 24 Nov 2026 06:05:11 +0000
+Received: from DS0PR12MB6413.namprd12.prod.outlook.com
+ ([fe80::e82a:6673:4142:37fa]) by DS0PR12MB6413.namprd12.prod.outlook.com
+ ([fe80::e82a:6673:4142:37fa%5]) with mapi id 15.21.0639.012; Tue, 24 Nov 2026
+ 06:05:11 +0000
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Tue, 24 Nov 2026 15:05:08 +0900
+Message-Id: <DN37QMMBUBXX.B7K5PHRZ7OTL@nvidia.com>
+Cc: "Timur Tabi" <ttabi@nvidia.com>, "Alistair Popple" <apopple@nvidia.com>,
+ "Eliot Courtney" <ecourtney@nvidia.com>, "Zhi Wang" <zhiw@nvidia.com>,
+ "David Airlie" <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>,
+ "Bjorn Helgaas" <bhelgaas@google.com>, "Miguel Ojeda" <ojeda@kernel.org>,
+ "Boqun Feng" <boqun@kernel.org>, "Gary Guo" <gary@garyguo.net>,
+ =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, "Benno Lossin"
+ <lossin@kernel.org>, "Andreas Hindborg" <a.hindborg@kernel.org>, "Alice
+ Ryhl" <aliceryhl@google.com>, "Trevor Gross" <tmgross@umich.edu>, "Daniel
+ Almeida" <daniel.almeida@collabora.com>, "Tamir Duberstein"
+ <tamird@kernel.org>, =?utf-8?q?Onur_=C3=96zkan?= <work@onurozkan.dev>,
+ <nova-gpu@lists.linux.dev>, <dri-devel@lists.freedesktop.org>, "LKML"
+ <linux-kernel@vger.kernel.org>, <linux-pci@vger.kernel.org>,
+ <rust-for-linux@vger.kernel.org>, "dri-devel"
+ <dri-devel-bounces@lists.freedesktop.org>
+Subject: Re: [PATCH 1/9] rust: pci: add domain_nr() accessor
+From: "Eliot Courtney" <ecourtney@nvidia.com>
+To: "John Hubbard" <jhubbard@nvidia.com>, "Danilo Krummrich"
+ <dakr@kernel.org>, "Alexandre Courbot" <acourbot@nvidia.com>
+X-Mailer: aerc 0.22.0-0-gc2f86b7abde3
+References: <20261120044704.165223-1-jhubbard@nvidia.com>
+ <20261120044704.165223-2-jhubbard@nvidia.com>
+In-Reply-To: <20261120044704.165223-2-jhubbard@nvidia.com>
+X-ClientProxiedBy: TYCP286CA0060.JPNP286.PROD.OUTLOOK.COM
+ (2603:1096:400:2b5::15) To DS0PR12MB6413.namprd12.prod.outlook.com
+ (2603:10b6:8:ce::10)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,426 +110,85 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH-next v3 3/3] cgroup/cpuset: Disallow CPU 0 from being used
- in isolated partition
-To: Waiman Long <longman@redhat.com>, Tejun Heo <tj@kernel.org>,
- Johannes Weiner <hannes@cmpxchg.org>, =?UTF-8?Q?Michal_Koutn=C3=BD?=
- <mkoutny@suse.com>, Jonathan Corbet <corbet@lwn.net>,
- Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
- <rdunlap@infradead.org>, Ridong Chen <ridong.chen@linux.dev>,
- Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
- Juri Lelli <juri.lelli@redhat.com>,
- Vincent Guittot <vincent.guittot@linaro.org>,
- Dietmar Eggemann <dietmar.eggemann@arm.com>,
- Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>,
- Mel Gorman <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>,
- K Prateek Nayak <kprateek.nayak@amd.com>,
- Anna-Maria Behnsen <anna-maria@linutronix.de>,
- Frederic Weisbecker <frederic@kernel.org>, Thomas Gleixner <tglx@kernel.org>
-Cc: cgroups@vger.kernel.org, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-References: <20261124042802.532633-1-longman@redhat.com>
- <20261124042802.532633-4-longman@redhat.com>
-Content-Language: en-US
-From: Guopeng Zhang <guopeng.zhang@linux.dev>
-In-Reply-To: <20261124042802.532633-4-longman@redhat.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS0PR12MB6413:EE_|CY8PR12MB7633:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3ef48d7f-1947-4a34-b0d2-08df49f0e622
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|7416014|1800799024|376014|366016|23010399003|10070799003|18002099003|22082099003|261022105027099003|261026121527099003|261026140227099003|261028144727099003|56012099006|10067099003|4143699003|11063799006;
+X-Microsoft-Antispam-Message-Info:
+	/A73T4WC8sqd7VPXTZuwPULfdankzOGvNqICx8nJsJbEbShb4UEvIzI+JzS9Yee72HenE/nvJWMz/JyRcv5QxfuOQI0JfP1+crBxh1FuocmvoV88/+OqQJTJU85cBZB7uKLgvXZsC/PBBld9xsb40SO1HMYs5CVQnMg9TVeb8akJJb0BoYCGaghEXohd0qpdaZPvw2bHWBhF4d0WhJUMbUByb8SjYg8t2Su8D6qLSM8EMAYekDd4qswCmWToDy+zXKbqIKQiDJeGpqYwQIrc1B33zSijVdq26Dx3Ypc7O8dVYk8bdX2oym+UfvHHQ926XQHwkJaRK4KPBwQauH87tCPBlKvKuzWciBXrVeJGm+Yl3k6beRbKEj0/XWR8IxUHUgtdXmEM/CHmrzlWOz2oW6ubiy3vYFnTXEhmrU/CBwWTHEgLm4yqqcyJb7wuCa3uN1Bpk67jXgbDPJJ4dh23Dos8cfTNERx87jRzIDHfr3GEvOgg/vNP6WA9UOyoIGlAOaXKH6b2FRAixjK6+7p1j9vB04eiRouG+6nVIG3h9N0mnWuOKFBWpnOSvsawmGOX3uzaArGeQVYdEpHxQcXUjIJ68qZ77IIVvwmEZNXGHYfltSwOPLPnNZGSgzDQy/P4fct/OzlBSsJNluiUJ1399MbTfjNCJf4+DXQuTb8mpBc=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR12MB6413.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(376014)(366016)(23010399003)(10070799003)(18002099003)(22082099003)(261022105027099003)(261026121527099003)(261026140227099003)(261028144727099003)(56012099006)(10067099003)(4143699003)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?c0hWWTU4cGpra1ZpQ0FsVW9tako1MTZGcCtlR2RLNjl1RlFpOVBQQzVGTndv?=
+ =?utf-8?B?VU1qSk9mU3hsK29YV29IZS9aTWN6VXg0YkRBVzBXUjFRMkFjSlFuNDdyamJU?=
+ =?utf-8?B?cEZEbDY1eUdQTjNoK2NtZXRVUHIzaGVBdDYxSmlkNkYvNkJNTEpYdE9jbThz?=
+ =?utf-8?B?Y2ZJRldoRkRQQk1FQTRCV3ovMTBXcWMwTjBRNFN5NnJBMGVQdHYxNGdRVnUv?=
+ =?utf-8?B?SlpWSnlNNWFHNUN5WFR4bzd4c3Fkd2VEMGdjOGNabkZwSVllT1RxNHdJazNy?=
+ =?utf-8?B?WHNtblpRcFAyaDdKSDR3Z3Vwd2c4QW5majcyWTIxa21ON0dtd1VkMVJ5STdt?=
+ =?utf-8?B?cmZieW12cEphbUM5VVlzSlZmSGFDV2xQbjFPTkN6bHlWRVk5c09rdFhra1lx?=
+ =?utf-8?B?NHdraGpqZVVEVFZuKzdKcFROVTRIR1JoYTFhSjhXUHZDSGh2R3BYQllMblRz?=
+ =?utf-8?B?UFUyWkMzVUt0dUVXaHNIOWR5ODJ6b0dHbWFkRWdDWWZ0ekRQUVF5VHNlSmxX?=
+ =?utf-8?B?TWsxV3hLM3JSWmU1UEZkOFhtUWNLZmdWM3ZLYWFYTUFOY0FCMTdFTkl5OVpj?=
+ =?utf-8?B?SDc0Zm82ekgzeGRkRWpHS2thN08waXduclhMelh6YjhIRm9lZ0taSC9WVVdw?=
+ =?utf-8?B?WFg4RjBBSUEraGptNitqN0hqYk1zTGNYN0VDM1ZDS2t1MFowdHBzVitTODNU?=
+ =?utf-8?B?bDg3LzN5TnJaSjFMcUUyaXg1UTJmaW9admxDVzh1eTJYVU5SbWtkcnBrMXk4?=
+ =?utf-8?B?WWFRbnIzeHFIeWdld1lKSFpINCtZRFBYOS9jckNqUGR5T3pLWG42Z3NUR3dk?=
+ =?utf-8?B?cVFaaUYxM1VnYlZTL2IwZ3VXNUY3dkxINks5dEJheHA0SlpQV2tZc0NheEJD?=
+ =?utf-8?B?NzZUcDlaZjRVT1NyNHZLaGFJUDVVeTdzdzE0UWFQeFprd1p2RHBMaVV3eDE3?=
+ =?utf-8?B?OGduMDZtMzhZL1c3ZHgxUDJudGR3QjNFVG9uTFl6UUJ6OGZjenh3N0h5SDNW?=
+ =?utf-8?B?blc1NFg0RUxhRWFid3VyUFg1WTdNR0VWT0VzOEwyaFpQaWpBbGtOajRKV3l3?=
+ =?utf-8?B?aHllWUpkZUhvNXNoeE9rK0lCK2pUaHZaRHhyaUV0dUwzSUJCZW5QN0JjOUpp?=
+ =?utf-8?B?Y2hWNnpWMXJ1YTFFMHcwdTNwNVo5WlVLRkpheEZDclNHNERsVFJJMUhUbjhW?=
+ =?utf-8?B?Wjc1MW1ZM09GUW82WDVFME9aUWd3NmNKeFBjd3Z4ZkdXVUdyN1JEeGlKZnEz?=
+ =?utf-8?B?aXVyVUlUWTNlcGFJemF3NlBMR0gvdGFKTjA4VkduTDRtUENTTEZHUHlwektr?=
+ =?utf-8?B?dUErWXdHbm1FcHpIODRsd2VxQm50QmdsaGlEUEFYUE84U3c4T0Z2L3oxL3NS?=
+ =?utf-8?B?ZlNsTG40M3NWaFdTRmU1VjMwd1ZPdlRkaGR2ZWFTWGR6SjZuNlVxL1hVeUF0?=
+ =?utf-8?B?dVNnbWJ6d0R1SUgvQ1kvSGdoZzRCSHFadkoyRGRSQ2I1YWcwNjZ4eGRzTmVy?=
+ =?utf-8?B?NWRrQXlYOS8zbFF3c1ozS2EydUFQdndFTmZ2YzRUVGI5Ry9kUGlhUGFac2My?=
+ =?utf-8?B?emJEOE9uRTlpWWNQV2lPODRaeUg1VkRzWjZ1aUxvdkVwTTNMQkNBV3FQZ0xI?=
+ =?utf-8?B?K1U0ZmorcXFpT0JqN3NKNTZQditOTU4rWXYzNW90bjlJS2NFRzJrUkRMeDRS?=
+ =?utf-8?B?Znh6d1A4QWM5Z3YrT2hTRXJGSytyVVVJZVdCSHIwNy9CcktYNzVMRnNFYlR4?=
+ =?utf-8?B?RWtlaWErT2YvWmVNZEtHY3psRld3d0p1bnI3a0lKMEc0QjlQclJCOE1LSU14?=
+ =?utf-8?B?djI1U3Q5TlZpbXBEKy8zalkwcGxxbE54U0JmZmVXcXlkQkIrOEtHZ3BMTWVa?=
+ =?utf-8?B?T2cwTlZLZGsva3lKNVY5R3l2Rk50dk5MdG00ZUtmbTFUOHRwZnc5UlRhaUZW?=
+ =?utf-8?B?WXBJL2tUY2VTcjZuUDFZenVuckh5RVNTVlBubVJFcS9rQXU4cmpPTmlwSnVD?=
+ =?utf-8?B?VVhhcFZ5YjgvcXhxZC9BZy9za0pjZXVEMUFNUFFHS25xYXY3bVJ3Slc2N2xl?=
+ =?utf-8?B?OUs2Q1EvUW1XY014anFpbDBwaVBSNUFoQ213d0lTbFM2NkZRM0pMM2JYT2hW?=
+ =?utf-8?B?RjhlRm12aklCR2NQNjZIVGl4SWppRHZQYnJ0M1BybjZCd2pZcnc5N09DTXVi?=
+ =?utf-8?B?ekt4cnZrNW9YaUNiMVlkNklxQ1pCaUVPemJtZzhsUTlMRjlld1JzT1lnM01l?=
+ =?utf-8?B?YzBRazRsV21IQUJYS1ROOUN2N3E4NWhzSXYyMEo4aktpNFlGaHhiMWdLMXFp?=
+ =?utf-8?B?QjBxZTBySXhKREVGcU5wd1l3RVRFdDlrYW5FZnNQQ1hVdlVMbEhPbEdYZDNW?=
+ =?utf-8?Q?1OpydSMwffQ/6nye0CtlUPcbH3q5uEPi61eQh2BjahCXV?=
+X-MS-Exchange-AntiSpam-MessageData-1: DesPcZXDdjDbYg==
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3ef48d7f-1947-4a34-b0d2-08df49f0e622
+X-MS-Exchange-CrossTenant-AuthSource: DS0PR12MB6413.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 06:05:11.3633
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Fysk7M+U41d9CWyXSjzB7Osoq3OYhUy2/TxB4VcBp3xdeML18BLpHf5txGTybq6ItdWw0sDu0/70BHPQ1QxyVw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR12MB7633
 
-
-
-在 2026/11/24 12:28, Waiman Long 写道:
-> Domain isolating CPU 0 can be problematic and may even cause panic in
-> some cases. In the near future, we are going to enable dynamic change to
-> the nohz_full CPUs to include the CPUs that are in isolated partitions
-> via the CPU hotplug mechanism. However, CPU 0 can't be made offline
-> for some architectures like x86. IOW, putting CPU 0 in an isolated
-> partition may not have the same degree of isolation than other CPUs
-> in the isolated partition in the future. For all these reasons, it is
-> better to disable its use in an isolated partition.
-> 
-> Add a new partition error code to indicate to the users that CPU 0 cannot
-> be used in an isolated partition. The prstate_housekeeping_conflict()
-> function is modified to return the partition error code directly as it
-> can be either PERR_HKEEPING or PERR_ISOLCPU0.
-> 
-> Some existing test cases in test_cpuset_prs.sh are modified to remove
-> the use of CPU 0 in isolated partition setup and explicit new test cases
-> are added to test that. The NOHZ_FULL test cases also modified to run if
-> the "nohz_full" parameters includes all the CPUs except CPU 1-7 instead
-> of 0-7. Though it is not recommended to put CPU 0 in the nohz_full boot
-> parameter, it is the only way we can test that the cpuset code is able to
-> correctly disallow isolating the last nohz_full/domain housekeeping CPU.
-> 
-> With CPU 0 likely not allowed in the nohz_full list except for powerpc
-> and with CPU 0 also disallowed from being domain isolated and offline,
-> we will likely have CPU 0 being an always present online housekeeping
-> CPU for most kernels. For those kernels, we will not be able to trigger
-> partition invalidation due to using up the last nohz_full/domain
-> housekeeping CPU in an isolated partition and the NOHZ_FULL test cases
-> in test_cpuset_prs.sh will not be run.
-> 
-> The cgroup-v2.rst documentation file is also modified to indicate that
-> CPU 0 cannot be used in an isolated partition.
-> 
-> Signed-off-by: Waiman Long <longman@redhat.com>
-> Acked-by: Frederic Weisbecker <frederic@kernel.org>
+On Fri Nov 20, 2026 at 1:46 PM JST, John Hubbard wrote:
+> The nova-core driver has to send the GPU's PCI location to the GPU's
+> firmware as one word that holds the domain, the bus and the device
+> number.
+>
+> The PCI abstraction has dev_id(), which packs the bus, the device and
+> the function into one value. It has no accessor that reports the domain.
+>
+> Add an accessor for the domain number.
+>
+> Reviewed-by: Alexandre Courbot <acourbot@nvidia.com>
+> Reviewed-by: Gary Guo <gary@garyguo.net>
+> Signed-off-by: John Hubbard <jhubbard@nvidia.com>
 > ---
->  Documentation/admin-guide/cgroup-v2.rst       |  1 +
->  kernel/cgroup/cpuset-internal.h               |  1 +
->  kernel/cgroup/cpuset.c                        | 90 ++++++++++---------
->  .../selftests/cgroup/test_cpuset_prs.sh       | 44 +++++----
->  4 files changed, 81 insertions(+), 55 deletions(-)
-> 
-> diff --git a/Documentation/admin-guide/cgroup-v2.rst b/Documentation/admin-guide/cgroup-v2.rst
-> index 9e3c67b02ae2..2f792ff29425 100644
-> --- a/Documentation/admin-guide/cgroup-v2.rst
-> +++ b/Documentation/admin-guide/cgroup-v2.rst
-> @@ -2771,6 +2771,7 @@ Cpuset Interface Files
->  	and excluded from the unbound workqueues.  Tasks placed in such
->  	a partition with multiple CPUs should be carefully distributed
->  	and bound to each of the individual CPUs for optimal performance.
-> +	The boot CPU (CPU 0) cannot be used in an isolated partition.
->  
->  	A partition root ("root" or "isolated") can be in one of the
->  	two possible states - valid or invalid.  An invalid partition
-> diff --git a/kernel/cgroup/cpuset-internal.h b/kernel/cgroup/cpuset-internal.h
-> index 1ba94ffaff9d..505682493d81 100644
-> --- a/kernel/cgroup/cpuset-internal.h
-> +++ b/kernel/cgroup/cpuset-internal.h
-> @@ -36,6 +36,7 @@ enum prs_errcode {
->  	PERR_ACCESS,
->  	PERR_REMOTE,
->  	PERR_ISOPARENT,
-> +	PERR_ISOLCPU0,
->  };
->  
->  /* bits in struct cpuset flags field */
-> diff --git a/kernel/cgroup/cpuset.c b/kernel/cgroup/cpuset.c
-> index 30af9531acdd..45c6a2c99f20 100644
-> --- a/kernel/cgroup/cpuset.c
-> +++ b/kernel/cgroup/cpuset.c
-> @@ -61,6 +61,7 @@ static const char * const perr_strings[] = {
->  	[PERR_ACCESS]    = "Enable partition not permitted",
->  	[PERR_REMOTE]    = "Have remote partition underneath",
->  	[PERR_ISOPARENT] = "Root partition is not allowed with isolated parent",
-> +	[PERR_ISOLCPU0]  = "Boot CPU (cpu 0) cannot be isolated",
->  };
->  
->  /*
-> @@ -1327,25 +1328,25 @@ static void partition_xcpus_del(int old_prs, struct cpuset *parent,
->   * @parent_prs: Parent partition root state
->   * @new_cpus: the set of new effective xcpus in the current cpuset
->   * @del_cpus: old CPUs going to be removed from current cpuset, can be NULL
-> - * Return: true if there is conflict, false otherwise
-> + * Return: PRS error code if there is a conflict, PERR_NONE otherwise
->   *
-> - * There are two different housekeeping conflicts to be checked:
-> + * There are three different housekeeping conflicts to be checked:
->   * 1) If new_prs is PRS_ROOT, none of the @new_cpus can be a boot-time isolated
->   *    CPU. IOW, the whole @new_cpus must be a subset of HK_TYPE_DOMAIN_BOOT.
->   * 2) If nohz_full is enabled and we have isolated CPUs, their combination must
->   *    still leave housekeeping CPUs. This check is only needed if new_prs
->   *    differs from parent_prs and one of them is PRS_ISOLATED.
-> + * 3) CPU 0 cannot be used in an isolated partition.
->   */
-> -static bool prstate_housekeeping_conflict(int new_prs, int parent_prs,
-> -					  struct cpumask *new_cpus,
-> -					  struct cpumask *del_cpus)
-> +static enum prs_errcode prstate_housekeeping_conflict(int new_prs, int parent_prs,
-> +				struct cpumask *new_cpus, struct cpumask *del_cpus)
->  {
->  	cpumask_var_t full_hk_cpus;
-> -	int res;
-> +	int prs_err = PERR_NONE;
->  
->  	WARN_ON_ONCE(parent_prs <= 0);
->  	if (!new_prs)
-> -		return false;
-> +		return PERR_NONE;
->  
->  	/*
->  	 * For a currently invalid partition root state, do the check assuming
-> @@ -1361,9 +1362,12 @@ static bool prstate_housekeeping_conflict(int new_prs, int parent_prs,
->  	if (new_prs < 0)
->  		new_prs = -new_prs;
->  
-> +	if ((new_prs == PRS_ISOLATED) && cpumask_test_cpu(0, new_cpus))
-> +		return PERR_ISOLCPU0;
-> +
->  	if (housekeeping_enabled(HK_TYPE_DOMAIN_BOOT) && (new_prs == PRS_ROOT) &&
->  	    !cpumask_subset(new_cpus, housekeeping_cpumask(HK_TYPE_DOMAIN_BOOT)))
-> -		return true;
-> +		return PERR_HKEEPING;
->  
->  	if (del_cpus && cpumask_empty(del_cpus))
->  		del_cpus = NULL;
-> @@ -1377,7 +1381,7 @@ static bool prstate_housekeeping_conflict(int new_prs, int parent_prs,
->  	 */
->  	if (!housekeeping_enabled(HK_TYPE_KERNEL_NOISE) ||
->  	    (new_prs == parent_prs) || (!del_cpus && (new_prs == PRS_ROOT)))
-> -		return false;
-> +		return PERR_NONE;
->  
->  	/*
->  	 * Now make sure that @new_cpus contains new CPUs to be isolated and
-> @@ -1388,7 +1392,7 @@ static bool prstate_housekeeping_conflict(int new_prs, int parent_prs,
->  		swap(new_cpus, del_cpus);
->  
->  	if (!alloc_cpumask_var(&full_hk_cpus, GFP_KERNEL))
-> -		return true;
-> +		return PERR_HKEEPING;
->  
->  	/*
->  	 * Check if del_cpus may contain a CPU that can become an active
-> @@ -1398,20 +1402,19 @@ static bool prstate_housekeeping_conflict(int new_prs, int parent_prs,
->  		cpumask_and(full_hk_cpus, housekeeping_cpumask(HK_TYPE_KERNEL_NOISE),
->  			    housekeeping_cpumask(HK_TYPE_DOMAIN_BOOT));
->  		if (cpumask_first_and_and(del_cpus, full_hk_cpus,
-> -					  cpu_active_mask) < nr_cpu_ids) {
-> -			res = false;
-> +					  cpu_active_mask) < nr_cpu_ids)
->  			goto out;
-> -		}
->  	}
->  
->  	cpumask_and(full_hk_cpus, housekeeping_cpumask(HK_TYPE_KERNEL_NOISE),
->  		    housekeeping_cpumask(HK_TYPE_DOMAIN));
->  	cpumask_andnot(full_hk_cpus, full_hk_cpus, isolated_cpus);
->  	cpumask_and(full_hk_cpus, full_hk_cpus, cpu_active_mask);
-> -	res = !cpumask_weight_andnot(full_hk_cpus, new_cpus);
-> +	if (!cpumask_weight_andnot(full_hk_cpus, new_cpus))
-> +		prs_err = PERR_HKEEPING;
->  out:
->  	free_cpumask_var(full_hk_cpus);
-> -	return res;
-> +	return prs_err;
->  }
->  
->  /**
-> @@ -1446,9 +1449,12 @@ static enum prs_errcode validate_partition(struct cpuset *cs,
->  	if (!parent)
->  		parent = &top_cpuset;
->  	parent_prs = parent->partition_root_state;
-> -	if (parent_prs > 0 &&
-> -	    prstate_housekeeping_conflict(new_prs, parent_prs, new_excpus, del))
-> -		return PERR_HKEEPING;
-> +	if (parent_prs > 0) {
-> +		enum prs_errcode err = prstate_housekeeping_conflict(new_prs, parent_prs,
-> +								     new_excpus, del);
-> +		if (err)
-> +			return err;
-> +	}
->  
->  	if (tasks_nocpu_error(parent, cs, new_excpus))
->  		return PERR_NOCPUS;
-> @@ -1715,6 +1721,8 @@ static void compute_effective_nodemask(nodemask_t *new_mems,
->  static int remote_partition_enable(struct cpuset *cs, int new_prs,
->  				   struct tmpmasks *tmp)
->  {
-> +	enum prs_errcode err;
-> +
->  	/*
->  	 * The user must have sysadmin privilege.
->  	 */
-> @@ -1737,8 +1745,9 @@ static int remote_partition_enable(struct cpuset *cs, int new_prs,
->  		return PERR_INVCPUS;
->  	if (cpumask_intersects(tmp->new_cpus, subpartitions_cpus))
->  		return PERR_NOCPUS;
-> -	if (prstate_housekeeping_conflict(new_prs, PRS_ROOT, tmp->new_cpus, NULL))
-> -		return PERR_HKEEPING;
-> +	err = prstate_housekeeping_conflict(new_prs, PRS_ROOT, tmp->new_cpus, NULL);
-> +	if (err)
-> +		return err;
->  
->  	spin_lock_irq(&callback_lock);
->  	partition_xcpus_add(new_prs, NULL, tmp->new_cpus);
-> @@ -1833,14 +1842,16 @@ static void remote_cpus_update(struct cpuset *cs, struct cpumask *xcpus,
->  	 * left in the top cpuset.
->  	 */
->  	if (adding) {
-> +		enum prs_errcode err = prstate_housekeeping_conflict(prs, PRS_ROOT,
-> +							excpus, tmp->delmask);
-> +
->  		if (!capable(CAP_SYS_ADMIN))
->  			WRITE_ONCE(cs->prs_err, PERR_ACCESS);
->  		else if (cpumask_intersects(tmp->addmask, subpartitions_cpus) ||
->  			 cpumask_subset(top_cpuset.effective_cpus, tmp->addmask))
->  			WRITE_ONCE(cs->prs_err, PERR_NOCPUS);
-> -		else if (prstate_housekeeping_conflict(prs, PRS_ROOT,
-> -						       excpus, tmp->delmask))
-> -			WRITE_ONCE(cs->prs_err, PERR_HKEEPING);
-> +		else if (err)
-> +			WRITE_ONCE(cs->prs_err, err);
->  		if (cs->prs_err)
->  			goto invalidate;
->  	}
-> @@ -2101,16 +2112,16 @@ static int update_parent_effective_cpumask(struct cpuset *cs, int cmd,
->  			 * active housekeeping CPUs.
->  			 */
->  			cpumask_andnot(tmp->addmask, cs->effective_xcpus, tmp->delmask);
-> -			if ((parent_prs == PRS_ROOT) && (old_prs == PRS_ISOLATED) &&
-> -			    prstate_housekeeping_conflict(old_prs, parent_prs,
-> -							  tmp->delmask, tmp->addmask)) {
-> -				adding = cpumask_and(tmp->addmask, cs->effective_xcpus,
-> -						     tmp->delmask);
-> -				part_error = PERR_HKEEPING;
-> -			} else {
-> +			if ((parent_prs == PRS_ROOT) && (old_prs == PRS_ISOLATED)) {
-> +				part_error = prstate_housekeeping_conflict(old_prs, parent_prs,
-> +								tmp->delmask, tmp->addmask);
-> +				if (part_error)
-> +					adding = cpumask_and(tmp->addmask, cs->effective_xcpus,
-> +							     tmp->delmask);
-> +			}
-> +			if (!part_error)
->  				deleting = cpumask_andnot(tmp->delmask, tmp->delmask,
->  							  cs->effective_xcpus);
-> -			}
->  		} else if (is_partition_invalid(cs)) {
->  			struct cgroup_subsys_state *css;
->  			struct cpuset *child;
-> @@ -2121,11 +2132,11 @@ static int update_parent_effective_cpumask(struct cpuset *cs, int cmd,
->  			 * cpu exclusivity test when cpuset.cpus.exclusive is
->  			 * empty as well as the housekeeping check.
->  			 */
-> -			if (prstate_housekeeping_conflict(cs->partition_root_state,
-> -							  parent_prs, tmp->delmask, NULL)) {
-> -				part_error = PERR_HKEEPING;
-> +			part_error = prstate_housekeeping_conflict(cs->partition_root_state,
-> +							parent_prs, tmp->delmask, NULL);
-> +			if (part_error)
->  				goto write_error;
-> -			}
-> +
->  			if (cpumask_empty(cs->exclusive_cpus)) {
->  				rcu_read_lock();
->  				cpuset_for_each_child(child, css, parent) {
-> @@ -2997,12 +3008,11 @@ static int update_prstate(struct cpuset *cs, int new_prs)
->  		 * A change in load balance state only, no change in cpumasks.
->  		 * Need to update isolated_cpus.
->  		 */
-> -		if (prstate_housekeeping_conflict(new_prs, parent_prs,
-> -						  cs->effective_xcpus, NULL))
-> -			err = PERR_HKEEPING;
-> -		else if (parent_prs == PRS_ISOLATED)
-> +		if (parent_prs == PRS_ISOLATED)
->  			err = PERR_ISOPARENT;	/* old_prs should be isolated */
-> -
-> +		else
-> +			err = prstate_housekeeping_conflict(new_prs, parent_prs,
-> +							    cs->effective_xcpus, NULL);
->  		if (err) {
->  			disable_partition = true;
->  		} else {
-> diff --git a/tools/testing/selftests/cgroup/test_cpuset_prs.sh b/tools/testing/selftests/cgroup/test_cpuset_prs.sh
-> index 1397ec428c46..018993dbc63f 100755
-> --- a/tools/testing/selftests/cgroup/test_cpuset_prs.sh
-> +++ b/tools/testing/selftests/cgroup/test_cpuset_prs.sh
-> @@ -110,8 +110,8 @@ echo "" > test/cpuset.cpus
->  
->  #
->  # If nohz_full CPUs have been reserved at boot time, they should not include
-> -# CPUs 0-7 as that may fail some of the test cases. On the other hand if the
-> -# set of nohz_full CPUs includes all the CPUs except 0-7 in a single range
-> +# CPUs 1-7 as that may fail some of the test cases. On the other hand if the
-> +# set of nohz_full CPUs includes all the CPUs except 1-7 in a single range
->  # <first>-<last>, we can run a special set of housekeeping CPUs exhaustion
->  # tests to see if the cpuset code will reject them.
->  #
-> @@ -123,14 +123,22 @@ NOHZ_FULL_CPUS=
->  	NOHZ_FULL_CPUS=$(cat /sys/devices/system/cpu/nohz_full)
->  LAST_PRESENT_CPU=$(cat /sys/devices/system/cpu/present | sed -e "s/.*[,-]//")
->  [[ -n "$NOHZ_FULL_CPUS" ]] && {
-> -	FIRST_NOHZ_FULL_CPU=$(echo $NOHZ_FULL_CPUS | sed -e "s/[,-].*//")
-> -	LAST_NOHZ_FULL_CPU=$(echo $NOHZ_FULL_CPUS | sed -e "s/,.*//;s/.*[-]//")
-> +	if [[ $(expr $NOHZ_FULL_CPUS : "^0,") -gt 0 ]]
-> +	then
-> +		NOHZ_CPU0=1
-> +		NOHZ_CPUS=$(echo $NOHZ_FULL_CPUS | sed -e "s/^0,//")
-> +	else
-> +		NOHZ_CPUS=$NOHZ_FULL_CPUS
-> +	fi
-> +	FIRST_NOHZ_FULL_CPU=$(echo $NOHZ_CPUS | sed -e "s/[,-].*//")
-> +	LAST_NOHZ_FULL_CPU=$(echo $NOHZ_CPUS | sed -e "s/,.*//;s/.*[-]//")
->  	echo "Boot nohz_full CPUs: $NOHZ_FULL_CPUS"
->  }
->  [[ -n "$FIRST_NOHZ_FULL_CPU" && "$FIRST_NOHZ_FULL_CPU" -le 7 ]] &&
->  	skip_test "Boot NOHZ_FULL CPUs overlap CPUs to be tested!"
->  
->  [[ -n "$FIRST_NOHZ_FULL_CPU" && "$FIRST_NOHZ_FULL_CPU" = 8 &&
-> +   -n "$NOHZ_CPU0" &&
->     "$LAST_NOHZ_FULL_CPU" = $LAST_PRESENT_CPU ]] && RUN_NOHZ_FULL_TESTS=1
->  
->  #
-> @@ -394,8 +402,8 @@ TEST_MATRIX=(
->  	# Invalid to valid local partition direct transition tests
->  	" C1-3:P2  X4:P2    .      .      .      .      .      .     0 A1:1-3|XA1:1-3|A2:1-3:XA2: A1:P2|A2:P-2 1-3"
->  	" C1-3:P2  X4:P2    .      .      .    X3:P2    .      .     0 A1:1-2|XA1:1-3|A2:3:XA2:3 A1:P2|A2:P2 1-3"
-> -	" C0-3:P2    .      .    C4-6   C0-4     .      .      .     0 A1:0-4|B1:5-6 A1:P2|B1:P0"
-> -	" C0-3:P2    .      .    C4-6 C0-4:C0-3  .      .      .     0 A1:0-3|B1:4-6 A1:P2|B1:P0 0-3"
-> +	" C1-3:P2    .      .    C4-6   C1-4     .      .      .     0 A1:1-4|B1:5-6 A1:P2|B1:P0"
-> +	" C1-3:P2    .      .    C4-6 C1-4:C1-3  .      .      .     0 A1:1-3|B1:4-6 A1:P2|B1:P0 1-3"
->  
->  	# Local partition invalidation tests
->  	" C0-3:X1-3:P2 C1-3:X2-3:P2 C2-3:X3:P2 \
-> @@ -506,6 +514,12 @@ TEST_MATRIX=(
->  	"  CX1-4  CX2-4:P2  .    C5-6      .     .      .   P1:C3-6  0 A1:1|A2:2-4|B1:5-6 \
->  								       A1:P0|A2:P2:B1:P-1 2-4"
->  
-> +	# CPU 0 cannot be used in an isolated partition
-> +	"   C0-4     .      .      .       P2    .      .      .     0 A1:0-4 A1:P-2"
-> +	"  C0-4:P2   .      .      .      C0-2   .      .      .     0 A1:0-2 A1:P-2"
-> +	"  CX0-4  C0-2:P1   .      .       .     P2     .      .     0 A1:0-4|A2:0-2 A2:P-2"
-> +	"  CX0-4  C3-4:P2   .      .       .    C0-2    .      .     0 A1:0-4|A2:0-2 A2:P-2"
-> +
->  	# When multiple partitions with conflicting cpuset.cpus are created, the
->  	# latter created ones will only get what are left of the available exclusive
->  	# CPUs.
-> @@ -525,8 +539,8 @@ TEST_MATRIX=(
->  
->  	# A middle isolated parent shrunk below coverage: the released CPUs of
->  	# an invalidated child stay isolated as a higher ancestor still covers them.
-> -	" CX0-4:P2 CX2-4:P2 CX3-4:P2 .     .     X2     .      .     0 A1:0-1,3-4|A2:2|A3:2 \
-> -								       A1:P2|A2:P2|A3:P-2 0-4"
-> +	" CX1-4:P2 CX2-4:P2 CX3-4:P2 .     .     X2     .      .     0 A1:1,3-4|A2:2|A3:2 \
-> +								       A1:P2|A2:P2|A3:P-2 1-4"
->  
->  	# When an isolated partition child with root partition parent is invalidated,
->  	# its effective xcpus will be removed from isolated_cpus.
-> @@ -618,20 +632,20 @@ ISOLCPUS_TEST_MATRIX=(
->  	" CX1-2,I:X1,I:P1 . .      .     X1,2,I  .      .      .     0 A1:1-2,I|XA1:1-2,I A1:P-1 ."
->  )
->  
-> -# Test matrix to be run when boot time nohz_full CPUs cover all CPUs except CPUs 0-7
-> +# Test matrix to be run when boot time nohz_full CPUs cover all CPUs except CPUs 1-7
->  # This also means that CPU 8 is available and is a nohz_full CPU.
->  NOHZ_FULL_TEST_MATRIX=(
->  	#  old-A1 old-A2 old-A3 old-B1 new-A1 new-A2 new-A3 new-B1 fail ECPUs Pstate ISOLCPUS
->  	#  ------ ------ ------ ------ ------ ------ ------ ------ ---- ----- ------ --------
->  	# Using all the nohz_full HK CPUs 0-7 in isolated partition is not allowed
-> -	" C0-7       .      .      .      P2     .      .      .     0 A1:0-7 A1:P-2 ."
-> -	" C2-7:P2    .      .      .     C0-4    .      .      .     0 A1:0-4 A1:P2 0-4"
-> -	" C1-7:P2 C5-7:P2   .      .       .     .      .    C0:P2   0 A1:1-4|A2:5-7|B1:0
-> -								       A1:P2|A2:P2|B1:P-2 1-7"
-> +	" C1-7       .      .      .      P2     .      .      .     0 A1:1-7 A1:P-2 ."
-> +	" C2-7:P2    .      .      .     C1-4    .      .      .     0 A1:1-4 A1:P2 1-4"
-> +	" C2-7:P2 C5-7:P2   .      .       .     .      .    C1:P2   0 A1:2-4|A2:5-7|B1:1
-> +								       A1:P2|A2:P2|B1:P-2 2-7"
->  	# An isolated child partition cannot grow to take over the last
->  	# housekeeping CPU when its parent expands the exclusive CPUs.
-> -	" C0-8:X1-8:P1 CX0-8:P2 .  .     X0-7    .      .      .     0 A1:0-7|A2:0-7 A1:P1|A2:P-2 ."
-> -	" C0-8:X0-6:P1 CX0-8:P2 .  .     X2-8    .      .      .     0 A1:|A2:2-8 A1:P1|A2:P2 2-8"
-> +	" C1-8:X2-8:P1 CX1-8:P2 .  .     X1-7    .      .      .     0 A1:1-7|A2:1-7 A1:P1|A2:P-2 ."
-> +	" C1-8:X0-6:P1 CX1-8:P2 .  .     X2-8    .      .      .     0 A1:|A2:2-8 A1:P1|A2:P2 2-8"
->  )
->  
->  #
 
-Reviewed-by: Guopeng Zhang <zhangguopeng@kylinos.cn>
-Tested-by: Guopeng Zhang <zhangguopeng@kylinos.cn>
-
-Thanks,
-Guopeng
+Reviewed-by: Eliot Courtney <ecourtney@nvidia.com>
