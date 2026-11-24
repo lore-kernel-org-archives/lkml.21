@@ -1,141 +1,86 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.53
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795514377;
-	b=BpuiNnZxaTlj5DFjZEUk6F+uSccWtGdFtkqD5XXrezdn5g6AJizfPECRgV5NMS0wroZ1
-	 4uHqD9IDVge74bkqoCqAaxCXMkQdc/W0KQMJDMFMnqD8/Dqic8FZlWhFDnDI2Dzu+0iHB
-	 U2Lu/Q4N9l5s4rc1NSa2f7kFiI+4XTbVxKr5kOmsL8x9UZGoykR+6m16Wox8YDYD2VlZ3
-	 5VhHgrETIFSFIDm1oCY9Lw0xpVh8NRQ6tY/DZwB/oIBgwl4ldD8ZhG2u0g6W2OCSzvzqP
-	 3prkao0zZU4AwrO7QsvQjFZJ6SPdRxtN/7GFmLN3WUFYZPOQtY0xG+BRfbLEQh5DSVw==
+	t=1795514384;
+	b=nNfsaAJzJqZ5sDxr76k6kxWAd9YI1FajiELl1diJYGMoNCYMIfRypnlSLeIm4uLD4V1m
+	 W7q9uYMtWmaClNX9tVbnI59nU4RgQn98EO8jt7yiqIk+dxG8nK+tA1gtFqFn7LvtoNjgO
+	 jGpbg2mLwmudo7TM6rhelHfARwMJE4tjgLjPkwa2WczDjRhrf4rZHQzIpK8ncB8hazVaE
+	 NFc0w4NvBwSkYEmxCFpsP0+NXcDjRFUK6O2H+a/uHosL0AWLosaTHL3v3sDaY5/FUxOUo
+	 DvIPik7xoORfuJQGaTBWpJMjBLP59sx2Af9zY7VdqHdmQNaB+oGMTVvAURMZso+mWjg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795514377;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Date:From:
-	 To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=FYuz/K8ZJHw8V19OxffQhxGLJQWBYYcYpwJUkZTtfL8=;
-	b=wQiZ+RoGCQxqveuod6hmXLoo97NsxFE7V9SVaddJ2egD05ELAjB0bzHRftC4WyvwQCI0
-	 Q/XafbToEIcg054R4uOI1p5AkZgwurZlG0/DpLn4rAGmSdpJvx6xZ5ofl44BRPGcNbyEs
-	 JTlvhUi96kTR4TBMBkhV5kgfoRVJZB7DjxpJKoJKGQm5wh5N7gA7AWR8FbCpe6QMjkY8V
-	 3gccamqjBpJC3UE2tfK6BHHrPo+XY/YDaKi4XYT4d2aeNLvwNPusYotk+fbSbwp48+9OZ
-	 czpCCMMERunX82Dl7hwQOsRYCpF23Ld6MCPQtqHJwD8RWIO+K8wowWLUnnz0EYvXnIg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795514384;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=ah64LIQIXLTGPjDibRLYcaK6G0Dc/ReEzo5Y2FlN3Us=;
+	b=BMmlOtRxIS74txw78DhsDDIMUSrW+ttftLjYMY4uApX/ONQFoNjUpBQIdwFEJGUE0M6p
+	 SBo4x7EsliMwwLRU6S2KZ/h2BvCLGlpd28mO8g5HDFyc2gpGnKWjUILZ7pfgTwiH4M5BM
+	 WmOJ4an56U3eg3ZfRcpb4ao/N3OaJiZ3f7zfMPgA7kj8YVNsdf3AYI8fEfrSAF8tzjAzF
+	 46ShvII4wRpOC5j7zycYXfIjfzWAsjzO3xi5+y/UOb0PpXDO/107y+meN5Z1qX4T/G8WN
+	 eqVBeJ4TDZlyIaGhkI0+J4fG4Ia2k9gboCqscETnxmqgOCQO/lhR9gSaiNueTZmv4tQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=b23ugdr7;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=e0n1oN0R;
-	arc=none smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=linaro.org;
+	spf=pass smtp.mailfrom=linaro.org;
+	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=hSmIepVb;
+	arc=none smtp.remote-ip=209.85.218.53
+Received: from mail-ej1-f53.google.com (mail-ej1-f53.google.com [209.85.218.53])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9489B606A338
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:59:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9489B606A338
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 542C5606A689
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:59:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 542C5606A689
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=b23ugdr7;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=e0n1oN0R
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795514375;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=FYuz/K8ZJHw8V19OxffQhxGLJQWBYYcYpwJUkZTtfL8=;
-	b=b23ugdr7IJLEgos7XieA49KYy2MUNYpTd6rNUQrWHZ13scOsWsThhISd58PYGo3C7ykmVU
-	oh7t8WhACKYNr1iwv/YLbPGPleTiHy7lewj80j3/F88b8cNy9jFswHvX9aMw1apyCg6c8z
-	RbPK4HweIUxjxx6iyUrbPc1L1sm3Td8=
-Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
- [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-497-UXfglcuMPqGUJOUO8kORmw-1; Tue, 24 Nov 2026 09:59:33 +0000
-X-MC-Unique: UXfglcuMPqGUJOUO8kORmw-1
-X-Mimecast-MFC-AGG-ID: UXfglcuMPqGUJOUO8kORmw_1795514372
-Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-490d2ac331bso3770253f8f.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 01:59:33 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=hSmIepVb
+Received: by mail-ej1-f53.google.com with SMTP id a640c23a62f3a-c4395d31228so723471666b.1
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 01:59:43 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795514372; x=1796119172; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=FYuz/K8ZJHw8V19OxffQhxGLJQWBYYcYpwJUkZTtfL8=;
-        b=e0n1oN0RmBVJLCI2UlG/FmdCSTssxV+exz7Odw9yPctRTzDBOLz+b2w7bqcsPMtVhY
-         YZsnJlqpYryo6qXAzhI+HVuYKj2kQ6eORj7Y9ra/+xc7/TMDdxWlDbxBQGWNlPWo+pYh
-         P9Yh8ZIEPzKxRF39734uIOFuoBGSrOiagZDcnGRKcPvqCx8+d6iKyBGSdkKsUn7cDzEH
-         Zfq11/qZ89jFO2QeuD57BKgJ0CvhpX40ao4X/57E3cqcucRCuS5KVkPNQoYFzuwAs7nT
-         OgpeiwiGocdpfMzny02EziP9mr4b4+NpyTTgWQUvN5rhKV3uyv69ttF9MXSiOudVL5A5
-         KyaA==
+        d=linaro.org; s=google; t=1795514382; x=1796119182; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=ah64LIQIXLTGPjDibRLYcaK6G0Dc/ReEzo5Y2FlN3Us=;
+        b=hSmIepVbK9PWjrJBE1AprzX2N4p1wm7x2m2I4anFjoKv2cxG0XLVrsBXe5NIFEkEyS
+         N1kijXpvpVAN1QOMPlyRqhgOTpbYI2dzHaqAoJgWxpAkkhtP/f5iWwn9TTl7wD24X3EB
+         WxlV6AcGpKBEp2UfKtKPv5cEG83EaXrPouH3HCq1HYm8dq+s0DeWeySHJUhux/lzsOQU
+         968QwsVS4eWoqKrOqBrwPqrEZ0Qn1jTJPqZWc1wPIH36W6qEAhXYEFtpPDLNxQ1aVfiF
+         CbjZJRD7nsJlM5HtssYnsr/+Dt2Z9ZMa016YK5pVeoA31McodNBQihAv70Dw6snjGmXN
+         dLbw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795514372; x=1796119172;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=FYuz/K8ZJHw8V19OxffQhxGLJQWBYYcYpwJUkZTtfL8=;
-        b=V76WJ13FjuaTh8s603SJVllssWl+PIiF6cXfZzjnuXrX4IogTJkInhC1owx8eaJgkZ
-         7au+DXg+7Gw6PHOQJWJ1YlOt+ZvlulYI4J3KTN9qM2RYRTXw+1wkBt83137R2S9XW33s
-         EVtwqjFnZWcCdEaMUNyLAe86nXAjYJ5aJqBViyRdsB7nyJiFnEbMEt0NpiEqwiWOQLJH
-         7eyHWdeLsAFO2Uiyxw/u7BJQEsN0us73VpG0sV3gxkU6Uh+/rq/XeiQBw7twz4kUPKE/
-         kPxzUyaWrkpxxLL8RtLDcZcNUrs6NrS/aVYjFTtceezSyxNidigKjgH8t64imoov1TpU
-         3r7w==
-X-Gm-Message-State: APuU4Z+df/jX68TfocxsYAEJV9Iz18AeEDMvgu/dpW3GyGXixA1sHfhG
-	kmOXTAk3cnAU1+PweIuiEPbCKBLd0RYEmF4l16YdGbeKWhtNmfpNBkc3GNk7Q035FvYFAz0VGMT
-	2rhpF9xYIgx73tAfnR9n/9/6eokW1R9fKkMHFSPwX9eAGUR/fkUMeyN3hir1Mkx2MXQ==
-X-Gm-Gg: AZFdTZdPMuiqN7cU7hapR5n3JoDcLWyQBSMXPnRcsvOmi8KrIgWyoYkhKv1iEUbd1uV
-	1pwuFMGNZNxJyfWgNBpNR3CJKtJqCXKlr1OFn8OzDgY7sQb2Z0Bidu1ni4tSLYTLTeIalsTcevx
-	0athzlTfjazaOQa1FW+WNZ4qqNyef98dA4pdCde/FLrGVV+yrl6lfBTERMM3aP9pS1nO2fFFABz
-	n2xQyAKKLCLkAeUkUvWdt9DvsR8FGRsQoq0ggttSLREE89Nk9RSw8DugY5eLkhk09IobH15ZxzB
-	6ZfHitHe4yq8ywCSaG/EGghNLsGqLh0R80KJoh/NeQ3tNQ7WHqRDaJsNrj8OyfBPM/4/9gG2LFi
-	7U//LKpKeRVKqXv8Ehzu/kRGIjQ0XBf34dQ/OdRje/uuT8WR78PniHRaiHCR7ZNi3TiUXCMbZtH
-	XpyLk=
-X-Received: by 2002:a05:6000:4013:b0:4a7:d4c9:ea03 with SMTP id ffacd0b85a97d-4abaac57bb5mr26588508f8f.6.1795514372465;
-        Tue, 24 Nov 2026 01:59:32 -0800 (PST)
-X-Received: by 2002:a05:6000:4013:b0:4a7:d4c9:ea03 with SMTP id ffacd0b85a97d-4abaac57bb5mr26588458f8f.6.1795514372081;
-        Tue, 24 Nov 2026 01:59:32 -0800 (PST)
-Received: from jlelli-thinkpadt14gen4.remote.csb ([151.29.158.90])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab5ffcad11sm26055111f8f.0.2026.11.24.01.59.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 01:59:31 -0800 (PST)
-Date: Tue, 24 Nov 2026 10:59:28 +0100
-From: Juri Lelli <juri.lelli@redhat.com>
-To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Cc: linux-kernel@vger.kernel.org, cgroups@vger.kernel.org,
-	rcu@vger.kernel.org, linux-doc@vger.kernel.org,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
-	Valentin Schneider <vschneid@redhat.com>,
-	K Prateek Nayak <kprateek.nayak@amd.com>,
-	luca abeni <luca.abeni@santannapisa.it>,
-	Yuri Andriaccio <yurand2000@gmail.com>,
-	Yuri Andriaccio <yuri.andriaccio@santannapisa.it>,
-	"Paul E. McKenney" <paulmck@kernel.org>,
-	Frederic Weisbecker <frederic@kernel.org>,
-	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
-	Joel Fernandes <joelagnelf@nvidia.com>,
-	Josh Triplett <josh@joshtriplett.org>,
-	Boqun Feng <boqun@kernel.org>, Uladzislau Rezki <urezki@gmail.com>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Lai Jiangshan <jiangshanlai@gmail.com>,
-	Zqiang <qiang.zhang@linux.dev>, Davidlohr Bueso <dave@stgolabs.net>,
-	Tejun Heo <tj@kernel.org>, Johannes Weiner <hannes@cmpxchg.org>,
-	Michal =?iso-8859-1?Q?Koutn=FD?= <mkoutny@suse.com>,
-	Qais Yousef <qyousef@layalina.io>,
-	John Ogness <john.ogness@linutronix.de>
-Subject: Re: [PATCH v4 3/6] sched: Add sysfs files for the per-CPU
- fair_server knobs
-Message-ID: <awVgALGuilf2FMsT@jlelli-thinkpadt14gen4.remote.csb>
-References: <20261123-sched_dl-v4-0-d523e4d960d3@linutronix.de>
- <20261123-sched_dl-v4-3-d523e4d960d3@linutronix.de>
- <awVDG-ABOvj7zGRg@jlelli-thinkpadt14gen4.remote.csb>
- <20261124080833.0I9HFgtf@linutronix.de>
+        d=1e100.net; s=20260707; t=1795514382; x=1796119182;
+        h=content-transfer-encoding:content-type:in-reply-to:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=ah64LIQIXLTGPjDibRLYcaK6G0Dc/ReEzo5Y2FlN3Us=;
+        b=R6nYflHTPbQPCaFMJorVWdywvwYdxc1DhV5r62bIfAzKKO4f7nW9XHCVy4CFoJFRBk
+         lrjKtuyrhN7TBu8alsDDVPyx1mtYCv4W/9dspNNbSgRtDFOxSZSAHCK8L8oymSaKNRo9
+         TOyVZqzIGAT2/R32PB/MZo6EC865TQoE46t/TqEokqdEKxW0XSzCVSxuRJjz5qB+eBe9
+         WrlrrJXA/bDMzdSt5wEYkhI3apQ6CzWaKImDr5w8dayMvW3ehadrdCNwlidSjV73UZ5e
+         lp1T4vkaeXWmLMH355qXL0rvWUOIasCZV7nM5wDuCkjt/9PXyicdP0NJ527Q96qiciB4
+         JVxQ==
+X-Forwarded-Encrypted: i=1; AL+hErFM3EFwbqDpHhQHQnyuqcnDGjZnWXTKnvxc+1LmzRbg3jJqStfxVObvKu4QdC52W/xUOp4xdptLBdEhhSo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9sf+DybOVzuyzxzeXixQNKmg3s5oqiTBl8RLUUpuMz6Hkh515W
+	u87XN60Q7wp12tlFT6UHJAv7tyyZ/RUAiAaBRf+6Bmas6RYH2AVwk/GBi/SEu3DysU0=
+X-Gm-Gg: AZFdTZdr6tj+Xh/7cX9GDRhGe0uO8gGe3BPCladg1XwBSr5rt+lK30OHkEihQoj3jEV
+	owC6iVEGXPd+fcXYLZGNapJKmFU0GUqr7ZPD07Jq3ji3U19waCdoNe7A+/t2wGZAgDiAyEYHWgS
+	6Am7Gz4kfj03/MolVwPXt3GRE9sn5BMr/T7tvwoaS2IM59u2t2YfVnWqYc4gBqN3WSgIofKFhTi
+	27PchwC7rpG4cSQltKganA4OF6SnCoaCtXndNdtx25qj0aSi5qaQXjfX6gj9vIMIcfn4szCh7NW
+	GGA5c0DstkaX7iS5EB41gr21WUwdnkDFj0DfUYAq6g1YhBAXxFQdZ6F1ohUG0TVeXy32QvLyNwe
+	zqjoNpVczFm3hJymUd9GsPUICw+DJ1w+oCJinI2d69U5nBD3KW/PqMLyD+jqLEKwj/4C6QXMu4m
+	PY6HI8Z3/hz5MQYgz0+UoRDE5khYrSASShFsLVz8OEbZyEjczsdr1R657A0Q1ACL7PSlxxGO1Yc
+	CWa4uQDWIYRckQq2HcNDR+5dKSBxLe6zUs/Bv2RQmS1DpayEmNEPWuA1Q+7/GQvtfq2h4zcTePX
+	abD4lLX9sg+Yp2oSz5e6gmajFz8BQ3BLAIJiPcwaf74=
+X-Received: by 2002:a17:906:f10a:b0:c49:b8ec:a9e3 with SMTP id a640c23a62f3a-c513aad202amr993480966b.43.1795514381642;
+        Tue, 24 Nov 2026 01:59:41 -0800 (PST)
+Received: from [192.168.0.167] ([109.76.241.250])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513ad01b0bsm493902266b.10.2026.11.24.01.59.40
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 24 Nov 2026 01:59:41 -0800 (PST)
+Message-ID: <68bf8d15-8ebe-4d19-8f77-f49ca0cb5488@linaro.org>
+Date: Tue, 24 Nov 2026 09:59:40 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -145,52 +90,59 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261124080833.0I9HFgtf@linutronix.de>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/6] media: qcom: camss: Report the hardware SOF timestamp
+To: Loic Poulain <loic.poulain@oss.qualcomm.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
+Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-msm@vger.kernel.org
+References: <20261123-camss-hw-ts-v1-0-7b62dda6d7a9@oss.qualcomm.com>
+From: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+Content-Language: en-GB
+In-Reply-To: <20261123-camss-hw-ts-v1-0-7b62dda6d7a9@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-On 24/11/26 09:08, Sebastian Andrzej Siewior wrote:
-> On 2026-11-24 08:56:11 [+0100], Juri Lelli wrote:
-> > Hello,
-> > 
-> > On 23/11/26 14:41, Sebastian Andrzej Siewior wrote:
-> > > The fair_server exposes the runtime and period knobs per-CPU in the
-> > > debugfs folder. The debugfs interface is not a stable ABI.
-> > > Make the /sys/kernel/debug/sched/fair_server/cpu*/{period|runtime} knobs
-> > > available as /sys/kernel/sched/cpuX/{fair_server_period|fair_server_runtime}.
-> > > 
-> > > It adds a struct kobject to the rq and exposes only those two. The
-> > > per-runqueue folder is named `cpu' rather than `rq' since it might be
-> > > more intuitive to the user than `rq' or `runqueue'.
-> > > 
-> > > The set logic is pulled from the debugfs folder but it is still shared.
-> > > That debugfs logic could be removed (after providing the same for
-> > > ext-server) or symlinked for a while.
-> > 
-> > ...
-> > 
-> > > +static ssize_t rq_fair_server_runtime_show(struct kobject *kobj, struct kobj_attribute *attr,
-> > > +					   char *buf)
-> > > +{
-> > > +	struct rq *rq = kobj_to_rq(kobj);
-> > > +	struct sched_dl_entity *dl_se;
-> > > +
-> > > +	dl_se = &rq->fair_server;
-> > > +
-> > > +	return sysfs_emit(buf, "%llu\n", dl_se->dl_runtime);
-> > > +}
-> > 
-> > Since these files are new and meant to replace debugfs, how about using
-> > ns everywhere (you partly commented about it in the cover letter), as
-> > sched_attr and the dl_server parameters already do, with the unit in the
-> > name? I.e. fair_server_{runtime,period}_ns here and
-> > dl_{runtime,period}_ns in 2/6, with only the procfs compatibility path
-> > converting from us. Right now /sys/kernel/sched/ has dl_*_us in us next
-> > to cpuX/fair_server_* in ns without a suffix.
+On 23/11/2026 17:16, Loic Poulain wrote:
+> The CAMSS CSID latches the ARM architected counter on every start of
+> frame. This series exposes that time to userspace, both through the
+> V4L2_EVENT_FRAME_SYNC event and as the buffer timestamp.
 > 
-> I can do both in ns (or us depending what is easier/ more useful). Let
-> me update that then.
+> Until now both were taken when the interrupt was handled, or worse, when
+> the frame had finished being written out to memory, which is about a
+> frame period late. The hardware value is free of interrupt latency and
+> is directly comparable with CLOCK_MONOTONIC, so it can be correlated
+> with other timestamped data such as IMU samples.
+> 
+> Patch 1 lets a driver fill in the timestamp of a V4L2 event instead of
+> having the core take it. Patch 2 passes the SOF time down to the common
+> CSID event helper and adds the counter to CLOCK_MONOTONIC conversion.
+> Patches 3 to 5 read the registers on csid-340 and csid-gen2. Patch 6
+> uses the same time to stamp the captured buffers.
+> 
+> Patches 4 and 5 are picked from the timestamp support Bryan shared
+> earlier, with patch 5 adapted to use the conversion helper added in
+> patch 2 rather than its own.
+> 
+> Tested on QCM2290 (Arduino UNO Q) with an IMX219 sensor.
+> 
+> Signed-off-by: Loic Poulain <loic.poulain@oss.qualcomm.com>
+> ---
+> Bryan O'Donoghue (2):
+>        media: camss: Define timestamp registers for csid-gen2
+>        media: camss: csid-gen2: Report the hardware SOF timestamp
+> 
+> Loic Poulain (4):
+>        media: v4l2-event: Allow drivers to provide the event timestamp
+>        media: qcom: camss: csid: Pass the SOF time to csid_sof_event()
+>        media: qcom: camss: csid-340: Report the hardware SOF timestamp
+>        media: qcom: camss: Timestamp buffers at start of frame
+So I was offlining this change and kind of left it at comments I 
+received to make the type of timestamp selectable on a per-buffer basis.
 
-Mind that it would be nice to hear from others in this thread before I
-make you do changes that others might not agree with. :)
+IDK if that's really required for a first pass but, its where my own 
+reviews were left at that time.
 
+---
+bod
