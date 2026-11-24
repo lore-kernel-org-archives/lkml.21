@@ -1,84 +1,44 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.179
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=159.226.251.21
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795506988;
-	b=YGPlwM/p58iy5h1QjW6FeOAAcYxF2aLGO5Qr5GdDCsNbeyTEvctGxT2pF9EOQ1Dc+nAW
-	 HbT4bT+YKF1i9/5kXWxCxMIzq/jxEz/ApxWZLb3C8Ge6jO9fwnsVvzbvFAoPqeZcInYtV
-	 YKpzsoqTquQbbbaKssW10x0CTQiaZjJGzpLwd/Hfyu6OwnjD4FfDE+aoAinAyOahq7BLA
-	 wiQ/arkeRHvUb5ezV9gLxZ+4ihucp0tYuFVwgKEjvTVSUXcJD5vJTRuzm5TD2/Vd4/14e
-	 VM6EvC1U8t0ydxpyMnJf6j0NOnK4/k0NlYbqBzK88Nnd5QfQdQiwl2cQ+VtYsSWF43Q==
+	t=1795507004;
+	b=04C6AT4612hrNplDiD7F2K1uQWtEr1vZGiuYPq0uTsitiupFHmB98givIAwlVxWUogTq
+	 ut0QpS6NI9ne7qVnaFlFOts+IbOVQf7bD5GJkpBlfxI0pV4BFhAfoQTAK/K2XD8xuVqTP
+	 O0Nou7D+Xjxq1kZkW9dIOntvVIWI9Ja7LsKYflP2S29NEaTZvdVg5B5iD/dBw7Gf3zwar
+	 RU+qGpJ62Dl+ZS9B6JheA4F5Ajpce01fqvIVKkwEOVhRR1wsIhdpJ3FFtFMttDGsEnCDl
+	 fIRryl0wwsz2S22/r+hn4D+XV30YZoxoIOO0faAXsm85YhsPAVtNcmFRP3axqkck+gQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795506988;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:Subject:From:To:
-	 Cc:In-Reply-To:References:Date:Message-Id:X-Mailer;
-	bh=vYhZnVqOZw+nz+bSvWI9hUrAjtNqzIx5KTyz4HXKnEc=;
-	b=BGgZLU4NuJqonC79acw8kJXk93BDyLeS2Uya3HngCRxUavXo7JC+uKNI2W08TZhXCKpu
-	 xxXwlWgtx/1ZPrBZPGSQRBr9txUztPv9M0o5pK1VfzZShHNO7tGo8kUGDShCFtF0ZYfV0
-	 byzEqEaEIb6XuKzStsH9lV8+hMNXes3r+8OTQJ7CBYwZVDaC2rKReBD0bN0FCsXS7P2k1
-	 /f3hUL5tQ5R9fdSjaLStY7tnPtdz6ghdbhGnj7ZYRODP9Y3+jMsEf5Wr4TOwHSApgN5VQ
-	 PFVo/+Mx/L+6kZTTXkxZHKyPGannkMkH1A0Y9jiWjg2a4ihbAdQsNKzD48hMoQD2E5A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795507004;
+	h=DMARC-Filter:Received:From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
+	 Cc:X-Mailer:X-CM-TRANSID:X-Coremail-Antispam:X-Originating-IP:
+	 X-CM-SenderInfo;
+	bh=oKOwDJTj343bGkC/S0KkQlWHOXWdBRA/eeZF6IM24kU=;
+	b=mfWgyi5iIBpvZU5bg5UNc3ImYkYrPkpRYR44rGGb6gdmEFaVgftIY5bEWoDx/3vnxW+K
+	 eXanW/88nae6hYiQtXfz2ul5lb11UeqK0fqA13LmCRHW8N34NfFY+C2BPBGJKrKm8JRlC
+	 9WOG/qDQmuiqh7vx2OujZIpNAT966oxPMrbbEfvIVGeYgUozlIotHLlwhbWPJEkGGm6ZT
+	 W9ngXos2UiQvKux8FnkrYd3EEicHS34uNSlJWgWMFfhosaUzJe7SWPjTMOQm3hMv0HGfN
+	 xbGbwbeA8AIc5yGt4QxKy6u5GoEYTCfcqgqfy8EmXGE8cPvYkdJ8Iiz19BuGE2s0UuA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=cN9h1p1V;
-	arc=none smtp.remote-ip=74.125.82.179
-Received: from mail-dy1-f179.google.com (mail-dy1-f179.google.com [74.125.82.179])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=none header.from=iscas.ac.cn;
+	spf=pass smtp.mailfrom=iscas.ac.cn;
+	arc=none smtp.remote-ip=159.226.251.21
+Received: from cstnet.cn (smtp21.cstnet.cn [159.226.251.21])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0AD61606A321
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 07:56:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0AD61606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=cN9h1p1V
-Received: by mail-dy1-f179.google.com with SMTP id 5a478bee46e88-386c337edfeso43942eec.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 23:56:27 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795506987; x=1796111787; darn=vger.kernel.org;
-        h=message-id:date:references:in-reply-to:cc:to:from:subject
-         :content-transfer-encoding:content-type:mime-version:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=vYhZnVqOZw+nz+bSvWI9hUrAjtNqzIx5KTyz4HXKnEc=;
-        b=cN9h1p1VoSXcPxB3Fj5OZVM0BsYWslYa7ACsFpqDPFTZIQWQ5e5j7XPqNeI+ViFAqD
-         wXUlKlA0oka3N72ZB2U8ftjBv7rhKElWOmRGyQ0qk2AUaJhRA5TlVkvISCzLYB9H7V79
-         4MnUaw2bfyijcXTAjZQozrv3OHx7fV7naGPH+rv7RZ+xRoIFbpWvSAvpNNGrtNcAMFAz
-         vR5z/pFRokCQBYsJaaThWUs1hY6tJj4YnoRd4fpsH/fjTjSR+dn6v3NQlESJxOGvbshG
-         UmLBo8w78lxcEwNYRemOtvLIae7OlArtnpQ7ymdKDMxuY38tQJmG2/tP/QHZBgQAWme1
-         6sUg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795506987; x=1796111787;
-        h=message-id:date:references:in-reply-to:cc:to:from:subject
-         :content-transfer-encoding:content-type:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=vYhZnVqOZw+nz+bSvWI9hUrAjtNqzIx5KTyz4HXKnEc=;
-        b=xzUL1uNwsFB727UpbGpV9015k3rknvNxzjCrjcbARP3FdKRnvtAEPnW8hM9fth9SfA
-         RosONqGfgYyH3yE9jWvGgrJfQYmHShqHTBIrlMZNafoofGZy5VTCkNUGZZ4OkR6p92zd
-         2cKPmqhmztkwQMw4rV0VgVrCrr8Fy4f88jfNJGG/RgEzu4tksLSP3o8+T5IYGKOXZKTh
-         yki9cyKy0PxlHAJ+8Mj+ab50hARNAhFSpvAZa5q5w3ePZ/6t9+rqbpPXMo5ys8o4zCRS
-         C/9S7FCciSiZEKAySHpvJrsUAXlHPF8nrDSLk4iE1ni6BaQqRWeT4UgoGbc2gWBSW66l
-         WD4A==
-X-Forwarded-Encrypted: i=1; AL+hErFbe+IqDl+ciK8jPa15QOdqr+lKEozxbMH6rPZPK3xkAxlS8gYfwAmym/WgtWkRxuNaVfxGLuFEuBki9CA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8270K6eqpvldIn/kVi2Z1utvH7i2qtVvzV+Lo9JjLPVRfXGYnS
-	X5jhsTx87MI357pomNQALU3rLQ5PEaqytiWw7mKBg+SWJQ+LRudy9nSX
-X-Gm-Gg: AZFdTZddsxCm+8UWo+L0+Bj/x6MxAaZaQr95pDxlV8Gz9dosUf+Xv0HwC6cQvorfOhn
-	ZDZ5axK4gz1Nsu8LR3ksaTzpQATcw3gcN02s1hF7d8+mYDrVQ3er3Ma/Fa4tXCoJdQw0Z3MaKja
-	EZN+2C2iGJwmYD0KuKGR6xqZNEmYGEhQ4G4XZCiJSFucgJ67EYOIgvN560OC85TEbFg1xuoDIu5
-	P/zHVtRxEQ3uqz4gGf/lIJOBDheaAOHzXuWCP2oCHJZOT8tdAYMrpQCJOhvXAXAXCNic3bjQk4Y
-	XSzESJ/Izo6FsLQ/ithhFAYYGe325uB5/qVCZQffiom9ymFsMYN9yNweqYgKpUcuLabEZO25O2P
-	MZBDlPNztS6EqSB0uvRwFwgYMOuO4Kuob8eNNGfPV8u+4VPk6NKiX0HBXHGlGgeCUbY3MP6rR1B
-	oU4I01LZwnPUdGduc7ePaq+qvIvZPjAJo0R5qVIB+Mr78cP1u9cBJ5iGaH/CgA/fcgfVOj/9K5p
-	xbBDGr5rbAjm8oRMMYIMVQxwRcAm9PK3JzXf+PQm84SSrWPycZuahx5HpLhKUcDpU+0nF5ZrV0D
-	rHqDSxEseyHl136LtjhWqGHRB80V8/qOQ/JXWbKIhcetkx2kXYfzQAUxEnLAwpycNf4=
-X-Received: by 2002:a05:7300:1c24:b0:384:a0cb:a6d0 with SMTP id 5a478bee46e88-3856de58f7fmr23387653eec.1.1795506986646;
-        Mon, 23 Nov 2026 23:56:26 -0800 (PST)
-Received: from o6.lan ([2602:fce1:44f:115e::])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38566cd46c5sm51631829eec.11.2026.11.23.23.56.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 23:56:26 -0800 (PST)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 93268606A321;
+	Tue, 24 Nov 2026 07:56:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 93268606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=iscas.ac.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=iscas.ac.cn
+Received: from edelgard.fodlan.icenowy.me (unknown [120.85.97.139])
+	by APP-01 (Coremail) with SMTP id qwCowABHbfcVQwVrAUaUAQ--.8758S2;
+	Tue, 24 Nov 2026 15:56:06 +0800 (CST)
+From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+Subject: [PATCH v3 0/2] drm/bridge: add glue driver for T-Head TH1520 DW
+ MIPI DSI
+Date: Tue, 24 Nov 2026 15:56:01 +0800
+Message-Id: <20261124-th1520-dw-mipi-dsi-v3-0-ffcf2d87971b@iscas.ac.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -90,262 +50,97 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH RFC 2/3] lib/lz4: add safe decompression from two input
- buffers
-From: Xueyuan Chen <xueyuan.chen21@gmail.com>
-To: Sergey Senozhatsky <senozhatsky@chromium.org>
-Cc: Xueyuan Chen <xueyuan.chen21@gmail.com>, 
- Herbert Xu <herbert@gondor.apana.org.au>, Nhat Pham <nphamcs@gmail.com>, 
- Yosry Ahmed <yosry@kernel.org>, Minchan Kim <minchan@kernel.org>, 
- Jens Axboe <axboe@kernel.dk>, linux-kernel@vger.kernel.org, 
- linux-block@vger.kernel.org
-In-Reply-To: <awU7nwcEVC20uGMi@google.com>
-References: <20261122-zram-split-decomp-mm-rfc-v1-0-4e69b08c0fed@gmail.com>
- <20261122-zram-split-decomp-mm-rfc-v1-2-4e69b08c0fed@gmail.com>
- <awU7nwcEVC20uGMi@google.com>
-Date: Tue, 24 Nov 2026 15:56:21 +0800
-Message-Id: <179550698133.2385422.1938353460437500441.b4-reply@b4>
-X-Mailer: b4 0.16.0
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/32NywrCMBQFf0WyNiWPxiau/A9xkeZhr2BbkhqV0
+ n83qQsRxOXAOTMzii6Ai2i/mVFwCSIMfQa+3SDT6f7sMNjMiBG2o4QTPHVUMILtHV9hBGwjYCG
+ JFS1rFPMK5eMYnIfHKj2e3hxv7cWZqZjKooM4DeG5VhMtu7+BRDHBjeCe195yUvsDRKNjpU1le
+ lQSiX0klKqfEpYlSrfCK0mkl823ZFmWF34qUGENAQAA
+X-Change-ID: 20261030-th1520-dw-mipi-dsi-580d5b2792f9
+To: Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Sandy Huang <hjc@rock-chips.com>, 
+ =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Andy Yan <andyshrk@163.com>
+Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
+ Icneowy Zheng <uwu@icenowy.me>, Han Gao <gaohan@iscas.ac.cn>, 
+ Icenowy Zheng <zhengxingda@iscas.ac.cn>
+X-Mailer: b4 0.15.0
+X-CM-TRANSID:qwCowABHbfcVQwVrAUaUAQ--.8758S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7tryfKw1fKr4rAFW7Gw4rKrg_yoW8trWrpa
+	17Gry3JFyDJrZ29F9ayr18XFWfG3Z5JF98KFW5Kw1vvan8u3W8Xr9FkFs5WF1UXrn3uF42
+	vF4jg348WrsFvaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9Y14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
+	6r4UJwA2z4x0Y4vEx4A2jsIE14v26F4UJVW0owA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
+	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
+	2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
+	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
+	Y2ka0xkIwI1lc7CjxVAaw2AFwI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x
+	0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2
+	zVAF1VAY17CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF
+	4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWU
+	CwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCT
+	nIWIevJa73UjIFyTuYvjTRM6wCDUUUU
+X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
 
-On 2026-11-24 16:28 +0900, Sergey Senozhatsky wrote:
-> Let me Cc Herbert and zswap folks on this.  Herbert mentioned previously
-> (back in the days when we landed SG-list based zsmalloc object read API)
-> that lz4 can be extended to support spanning zsmalloc objects and, if this
-> lands, then zswap may also be interested in adopting it (along with zram).
+T-Head TH1520 contains a DesignWare MIPI DSI host controller paired with
+an internal DesignWare PHY, as a similar design (but with a different
+PHY) with the Rockchip DW MIPI DSI.
 
-I tested this approach using real zram data from an Android phone, but didn't
-see any performance gains. :(
+The functionality to write to the PHY is shared between these two
+implementations of DW MIPI DSI, so it's extracted from the Rockchip
+driver to the common code. (The same sequence could be seen in the
+HiSilicon Kirin DRM driver, but that one hasn't been converted to common
+DW MIPI DSI.)
 
-I'd be interested to hear if anyone has a better approach.
+Tested on a Lichee Console 4A (with a Mingjun MJ070BI30IA2 panel) with
+further pending DT patches.
 
-> 
-> On (26/11/22 01:09), Xueyuan Chen wrote:
-> > LZ4_decompress_generic() assumes contiguous input. Its wide literal
-> > loads can cross the boundary between independently mapped fragments.
-> > 
-> > Add a dictionary-free block decoder that reads from two buffers and
-> > handles literals, lengths and offsets that cross the split.
-> > 
-> > Signed-off-by: Xueyuan Chen <xueyuan.chen21@gmail.com>
-> > ---
-> >  include/linux/lz4.h      |  18 ++++++
-> >  lib/lz4/lz4_decompress.c | 163 +++++++++++++++++++++++++++++++++++++++++++++++
-> >  2 files changed, 181 insertions(+)
-> > 
-> > diff --git a/include/linux/lz4.h b/include/linux/lz4.h
-> > index ad6042a718b5..3b6217bd9a9b 100644
-> > --- a/include/linux/lz4.h
-> > +++ b/include/linux/lz4.h
-> > @@ -292,6 +292,24 @@ int LZ4_decompress_fast(const char *source, char *dest, int originalSize);
-> >  int LZ4_decompress_safe(const char *source, char *dest, int compressedSize,
-> >  	int maxDecompressedSize);
-> >  
-> > +/**
-> > + * LZ4_decompress_safe_split() - Decode a single block from two buffers
-> > + * @first: address of the first input fragment
-> > + * @first_len: bytes in the first input fragment
-> > + * @second: address of the second input fragment
-> > + * @second_len: bytes in the second input fragment
-> > + * @dst: output buffer, disjoint from the input buffers
-> > + * @capacity: bytes available in the output buffer
-> > + *
-> > + * The fragments, in order, contain one dictionary-free LZ4 block.
-> > + * Their addresses need not be adjacent. An empty fragment may be NULL.
-> > + *
-> > + * Return: the decoded size, or -EINVAL on error.
-> > + */
-> > +int LZ4_decompress_safe_split(const u8 *first, size_t first_len,
-> > +			      const u8 *second, size_t second_len,
-> > +			      u8 *dst, int capacity);
-> > +
-> >  /**
-> >   * LZ4_decompress_safe_partial() - Decompress a block of size 'compressedSize'
-> >   *	at position 'source' into buffer 'dest'
-> > diff --git a/lib/lz4/lz4_decompress.c b/lib/lz4/lz4_decompress.c
-> > index 3a2cd9acada4..548197faa3e3 100644
-> > --- a/lib/lz4/lz4_decompress.c
-> > +++ b/lib/lz4/lz4_decompress.c
-> > @@ -39,6 +39,11 @@
-> >  #include <linux/kernel.h>
-> >  #include <linux/unaligned.h>
-> >  
-> > +#ifndef STATIC
-> > +#include <linux/errno.h>
-> > +#include <linux/limits.h>
-> > +#endif
-> > +
-> >  /*-*****************************
-> >   *	Decompression functions
-> >   *******************************/
-> > @@ -705,6 +710,164 @@ int LZ4_decompress_fast_usingDict(const char *source, char *dest,
-> >  }
-> >  
-> >  #ifndef STATIC
-> > +struct lz4_split_input {
-> > +	const u8 *first;
-> > +	const u8 *second;
-> > +	size_t split;
-> > +	size_t size;
-> > +	size_t pos;
-> > +};
-> > +
-> > +static __always_inline size_t
-> > +lz4_split_input_left(const struct lz4_split_input *in)
-> > +{
-> > +	return in->size - in->pos;
-> > +}
-> > +
-> > +static __always_inline int lz4_split_get_byte(struct lz4_split_input *in)
-> > +{
-> > +	size_t pos = in->pos;
-> > +
-> > +	if (unlikely(pos == in->size))
-> > +		return -1;
-> > +	in->pos++;
-> > +	if (pos < in->split)
-> > +		return in->first[pos];
-> > +	return in->second[pos - in->split];
-> > +}
-> > +
-> > +/* The caller has checked that two bytes remain in the block. */
-> > +static __always_inline int lz4_split_get_offset(struct lz4_split_input *in)
-> > +{
-> > +	size_t pos = in->pos;
-> > +
-> > +	in->pos += 2;
-> > +	if (pos >= in->split)
-> > +		return get_unaligned_le16(in->second + (pos - in->split));
-> > +	if (in->split - pos >= 2)
-> > +		return get_unaligned_le16(in->first + pos);
-> > +	return in->first[pos] | (in->second[0] << 8);
-> > +}
-> > +
-> > +static __always_inline bool
-> > +lz4_split_copy_literals(struct lz4_split_input *in, u8 *dst, size_t len)
-> > +{
-> > +	size_t pos = in->pos;
-> > +
-> > +	if (unlikely(len > lz4_split_input_left(in)))
-> > +		return false;
-> > +	if (!len)
-> > +		return true;
-> > +	if (pos < in->split) {
-> > +		size_t n = min(len, in->split - pos);
-> > +
-> > +		memcpy(dst, in->first + pos, n);
-> > +		pos += n;
-> > +		dst += n;
-> > +		len -= n;
-> > +	}
-> > +	if (len)
-> > +		memcpy(dst, in->second + (pos - in->split), len);
-> > +	in->pos = pos + len;
-> > +	return true;
-> > +}
-> > +
-> > +/* The decoder has checked the lookbehind distance and output capacity. */
-> > +static __always_inline void
-> > +lz4_split_copy_match(u8 *dst, size_t distance, size_t len)
-> > +{
-> > +	size_t copied = min(distance, len);
-> > +
-> > +	if (distance == 1) {
-> > +		memset(dst, dst[-1], len);
-> > +		return;
-> > +	}
-> > +
-> > +	memcpy(dst, dst - distance, copied);
-> > +	/* Reuse the period already written, keeping each copy disjoint. */
-> > +	while (len - copied > copied) {
-> > +		memcpy(dst + copied, dst, copied);
-> > +		copied *= 2;
-> > +	}
-> > +	if (copied < len)
-> > +		memcpy(dst + copied, dst, len - copied);
-> > +}
-> > +
-> > +static __always_inline int
-> > +lz4_split_read_length(struct lz4_split_input *in, int length, int limit)
-> > +{
-> > +	int byte;
-> > +
-> > +	if (length > limit)
-> > +		return -EINVAL;
-> > +	if (length < RUN_MASK)
-> > +		return length;
-> > +
-> > +	do {
-> > +		byte = lz4_split_get_byte(in);
-> > +		if (byte < 0 || byte > limit - length)
-> > +			return -EINVAL;
-> > +		length += byte;
-> > +	} while (byte == 255);
-> > +	return length;
-> > +}
-> > +
-> > +int LZ4_decompress_safe_split(const u8 *first, size_t first_len,
-> > +			      const u8 *second, size_t second_len,
-> > +			      u8 *dst, int capacity)
-> > +{
-> > +	struct lz4_split_input in = {
-> > +		.first = first,
-> > +		.second = second,
-> > +		.split = first_len,
-> > +	};
-> > +	int written = 0, min_last_literals = 0;
-> > +
-> > +	if (capacity < 0 || !dst || (!first && first_len) ||
-> > +	    (!second && second_len) || first_len > SIZE_MAX - second_len)
-> > +		return -EINVAL;
-> > +	in.size = first_len + second_len;
-> > +
-> > +	for (;;) {
-> > +		int token, literal, distance, match;
-> > +
-> > +		token = lz4_split_get_byte(&in);
-> > +		if (token < 0)
-> > +			return -EINVAL;
-> > +		literal = lz4_split_read_length(&in, token >> ML_BITS,
-> > +						capacity - written);
-> > +		if (literal < 0 ||
-> > +		    !lz4_split_copy_literals(&in, dst + written, literal))
-> > +			return -EINVAL;
-> > +		written += literal;
-> > +		if (!lz4_split_input_left(&in))
-> > +			return literal >= min_last_literals ? written : -EINVAL;
-> > +
-> > +		/* A match must leave room for the final literal sequence. */
-> > +		if (lz4_split_input_left(&in) < 2 + 1 + LASTLITERALS ||
-> > +		    capacity - written < MFLIMIT)
-> > +			return -EINVAL;
-> > +
-> > +		distance = lz4_split_get_offset(&in);
-> > +		if (!distance || distance > written)
-> > +			return -EINVAL;
-> > +		match = lz4_split_read_length(&in, token & ML_MASK,
-> > +					      capacity - written - MINMATCH -
-> > +					      LASTLITERALS);
-> > +		if (match < 0)
-> > +			return -EINVAL;
-> > +		match += MINMATCH;
-> > +		lz4_split_copy_match(dst + written, distance, match);
-> > +		written += match;
-> > +		/*
-> > +		 * Leave at least LASTLITERALS bytes and end at least MFLIMIT
-> > +		 * bytes past the start of the last match.
-> > +		 */
-> > +		min_last_literals = max(LASTLITERALS, MFLIMIT - match);
-> > +	}
-> > +}
-> > +EXPORT_SYMBOL_GPL(LZ4_decompress_safe_split);
-> > +
-> >  EXPORT_SYMBOL(LZ4_decompress_safe);
-> >  EXPORT_SYMBOL(LZ4_decompress_safe_partial);
-> >  EXPORT_SYMBOL(LZ4_decompress_fast);
-> > 
-> > -- 
-> > 2.47.3
-> > 
-> 
+One question remains: I have to copy the extra lane bandwidth headroom
+from the Rockchip driver, otherwise the Mingjun panel cannot keep sync
+to the display signal; from my testing, changing the hardcoded
+PHY_STOP_WAIT_TIME from 0x20 to 0x2 (which is written by the vendor
+driver) can also make this panel to work w/o the extra headroom. I want
+some advice on whether to keep the extra headroom or changing the common
+code to make the PHY_STOP_WAIT_TIME parameter adjustable.
 
+Signed-off-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+---
+Changes in v3:
+- Fixed a remaining `syscon` in the DT binding.
+- Link to v2: https://patch.msgid.link/20261119-th1520-dw-mipi-dsi-v2-0-9ab5f9808f87@iscas.ac.cn
+
+Changes in v2:
+- Changed `syscon` to `thead,vo-syscon` in the DT binding.
+- Dropped the patch moving common PHY write routine to dw-mipi-dsi
+  common code.
+- Fixed a few problems pointed out by Sashiko in v1.
+- Link to v1: https://patch.msgid.link/20261030-th1520-dw-mipi-dsi-v1-0-753f34fd304f@iscas.ac.cn
+
+---
+Icenowy Zheng (2):
+      dt-bindings: display: bridge: document TH1520 MIPI DSI controller
+      drm/bridge: add TH1520 DesignWare MIPI DSI host controller
+
+ .../display/bridge/thead,th1520-dw-mipi-dsi.yaml   | 103 ++++
+ drivers/gpu/drm/bridge/Kconfig                     |  12 +
+ drivers/gpu/drm/bridge/Makefile                    |   1 +
+ drivers/gpu/drm/bridge/th1520-dw-mipi-dsi.c        | 570 +++++++++++++++++++++
+ 4 files changed, 686 insertions(+)
+---
+base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+change-id: 20261030-th1520-dw-mipi-dsi-580d5b2792f9
+
+Best regards,
+--  
+Icenowy Zheng <zhengxingda@iscas.ac.cn>
 
