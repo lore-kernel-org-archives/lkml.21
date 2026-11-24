@@ -1,49 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795534906;
-	b=GfDCn2mGQEs/5WUYWPDMxFdBjcJY32EqVl7mXEYMi6WbD347ce0UmvjrGM8NPnCfYQ89
-	 BkWWa03w2jsMKWR42nxJmCPVwLo+nRjv8ayC2n3qnCencOUAisunbN/OtDpVYLca1m/6L
-	 A2NzLiTZqpO3zSJPT0qed7Td2aIjSZKTOrsbRqlDClxBf8sbcIqbA/AC5QA0JTCQC5skN
-	 Mc/2HT3ifT1AjsnpGSSmBIAVefkcCjf9lA3Hn1paRbofS8FmlllY/YgTNL+qX6McntmAO
-	 1OCqFaF7mkrqh9+JQk/2ef2T7AMxMs/dl0avtpSJWjE0aZpBgSYtlo8eUCQwhkhoKIw==
+	t=1795534919;
+	b=YSetsiFvLfEGSJDFKRo3j0JacRMi2DK4KOTrPTKjztnzKwenyGx/UJME7a9fAMEzkfBj
+	 0NTORESa2kwDDeUZwr06cE+iU5BggMbcjFhVIwcN6a3rcBMxAYeGyS8dDlzMpRecsaHzW
+	 b5pzvK9TvEf+Ct4yOAQk2gL23OCepVCfCu23U2WwGFlHwJ4NM/wg4sOtLoQAxg24yow6T
+	 LS8/Y43vk9g7gw7Gf+V82wOtVoTWoC/+LKcNXgQdQ3q6O1YxwprgeJsLK7UaB6IiQvyxz
+	 eyX/JHEDrR0TQH1n51RinjoPfZI78Q9dFgMWyhNoNlPDWAiWzUdlDfGd4hI7IPiRLJg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795534906;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=3DGi56HMLNIFLBNyoeh83BW+Xx055MiTn+skwng0328=;
-	b=EQYT+bRU66wXuiZ6J5i9mZbP9C8zIOSdYbOjf1vX8RX/sFK1pnLNEGHczvdYRso5Jvwi
-	 0SAzlv0EbzhI1K2aCS4znKv0X8G9bh9SW9n8sMLj66T7MKeEYnDSMFAg9QdGlfwNz7gCR
-	 EQoaMd4lyudrsPLkpyX1b1+i6Kh0TnmZw24wGe1vXNy4z26I/PMTDzsj888tyEmbMrmfR
-	 Tjx9Gxwyv2x1nFHCTkPCDXHYeAwJbm6mE3vcd+cKruOJozsuDzH9F+a4ySZV/C5XmHhkA
-	 aVmc57d/vSG7d3crZ+xsh430wTOjj+7DXpFASEDERF0VT+68XihdgRNVDNNHI8vv05Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795534919;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=lzyWPH6N43nHOJGrLbm0KDeqII50zyohaciwgvVSjbw=;
+	b=NFxZbVovaJukTRrmNHHLj5YH4wGmVuuiGgBHKhPGtRZKHihEYR8KJeRxAQJaaCzK5LcF
+	 8Z+Byj/CFMimtDGPPVMzl9v6Po9CWoENdjGfKYL5wC0JYdEjAdLHX8sNu8f0X76/WBj54
+	 rOkOZTxQAh66L5bM/AAJrxrqTSvJA9jMmmAUPOKUvMnSOOeYUOtz3/BvBwYVqcEOuOT2L
+	 8HgD4ZFRkpoSzABGWqTaKnFCU35pKJDbuX/7TILvY3wxOvSIBq/UO1DG9FjSPT5RF1mGx
+	 +eHfhdcSRWmwgo426ROW0Y7mPV1buMJZUmjg9SRzf9tXYs7VdwOWa/Xx4i3BfqvIlfw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=uZhWUJiW;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id AB3E9606A329
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 15:41:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AB3E9606A329
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UXtQRVTZ;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 48825606A321;
+	Tue, 24 Nov 2026 15:41:59 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=uZhWUJiW
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 95EC5339;
-	Tue, 24 Nov 2026 07:41:41 -0800 (PST)
-Received: from [10.2.197.99] (ewhatever.cambridge.arm.com [10.2.197.99])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 042FB3F763;
-	Tue, 24 Nov 2026 07:41:42 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795534904; bh=MYQzCGwM/6VqgmM4kCbX5dX14lne+B+ab2AMSrnJXm8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=uZhWUJiW36cqsPqo5/a2BprZ3dtoaLvAULpErT+33bmXJ09qyDkEBCk0Cf3xwXt16
-	 ZHZ8ioV/s1oB5cMfYqa5QpIxA2UMibImXNDGqEoPHB2r6tvQEd0Zog2HB3A9Y3CrT0
-	 LJfaE01plWabPoyWobZcZWg9KdwN6a2TCM3TolzA=
-Message-ID: <2aad1921-9227-437a-b298-798ec1841421@arm.com>
-Date: Tue, 24 Nov 2026 15:41:41 +0000
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UXtQRVTZ
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6AF711F000D3;
+	Tue, 24 Nov 2026 15:41:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795534918;
+	bh=lzyWPH6N43nHOJGrLbm0KDeqII50zyohaciwgvVSjbw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=UXtQRVTZQkqWmsWmO6/2TQitWnLIJFkBsayzfsWYcQukMrzASqPjoeeTZip+LqLPn
+	 n5VEKkA8gfpmK8xdcOCarMiaOEIBSw8yreBYe73f1lx5zFeBDSBQogvo4JYes7a9Wd
+	 /YW3qG752NNBPU4lvMN2p5o8rxhx39t89btCXro98Lf4RgbcYJNv6lfJiNsH4ddWt6
+	 YATMn9lKY7fvuGakztMykAgnWnH12f4g325TDAnDpcqqniC5vGG8+HHrErndk+KExU
+	 TUhJY0JuWfQMeNXo3UJcRgibl1WoW8ImRnAzJU9QRwRjQUh5IVtjo/kMnsn2Zgj6yp
+	 O+Y6eYeYuJMQQ==
+Message-ID: <3bdaa592-7bbe-462d-a012-da6296251b33@kernel.org>
+Date: Tue, 24 Nov 2026 16:41:53 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -54,86 +52,75 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] coresight: perf: End AUX output when an event is
- throttled
-To: Leo Yan <leo.yan@arm.com>
-Cc: Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>,
- Vlad Poenaru <vlad.wing@gmail.com>, Amir Ayupov <aaupov@fb.com>,
- Suyash Mahar <smahar@meta.com>, Song Liu <song@kernel.org>,
- coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20261124-arm_cs_fix_throttling_oops-v1-1-3ad1dfad0159@arm.com>
- <09e172d0-3ef5-44ef-a966-7db3b8a4af9a@arm.com>
- <20261124153508.GA7209@e132581.arm.com>
+Subject: Re: [PATCH 2/2] dt-bindings: spi: rockchip-sfc: add RK3506 support
+To: ZhuXiangyu <1194781887@qq.com>, Mark Brown <broonie@kernel.org>,
+ Heiko Stuebner <heiko@sntech.de>
+Cc: Chris Morgan <macromorgan@hotmail.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, linux-spi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20261121073246.1233736-1-1194781887@qq.com>
+ <tencent_E24973E955D1A26CF5A4F983929F8F8B0006@qq.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20261124153508.GA7209@e132581.arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <tencent_E24973E955D1A26CF5A4F983929F8F8B0006@qq.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 
-On 24/11/2026 15:35, Leo Yan wrote:
-> On Tue, Nov 24, 2026 at 01:06:04PM +0000, Suzuki K Poulose wrote:
+On 21/11/2026 08:32, ZhuXiangyu wrote:
+> Document the RK3506 FSPI compatible with the generic SFC fallback, and
+> the rockchip,grf and rockchip,max-dll properties used for the
+> power-good handshake and DLL training.
 > 
->>> Check AUX handle ownership before updating the buffer or ending AUX
->>> output. Drop the post-update check because the full stop runs with
->>> local IRQs disabled, which prevents the TRBE IRQ from closing the
->>> handle during the stop.
-> 
-> ...
-> 
->>> +	if (mode & PERF_EF_UPDATE) {
->>>    		/* update trace information */
->>> -		if (!sink_ops(sink)->update_buffer)
->>> -			return;
->>> -
->>> -		size = sink_ops(sink)->update_buffer(sink, handle,
->>> -					      event_data->snk_config);
->>> -		/*
->>> -		 * Make sure the handle is still valid as the
->>> -		 * sink could have closed it from an IRQ.
->>> -		 * The sink driver must handle the race with
->>> -		 * update_buffer() and IRQ. Thus either we
->>> -		 * should get a valid handle and valid size
->>> -		 * (which may be 0).
->>> -		 *
->>> -		 * But we should never get a non-zero size with
->>> -		 * an invalid handle.
->>> -		 */
->>> -		if (READ_ONCE(handle->event))
->>> -			perf_aux_output_end(handle, size);
->>> -		else
->>> -			WARN_ON(size);
->>> +		if (sink_ops(sink)->update_buffer)
->>> +			size = sink_ops(sink)->update_buffer(sink, handle,
->>> +							     event_data->snk_config);
->>
->> Could we retain the READ_ONCE() check to handle the TRBE case here ? This
->> looks like introducing a regression. Something like :
->>
->> 		if (!READ_ONCE(handle->event)) {
->> 			WARN_ON(size);
->> 			goto out;
->> 		}
->>
->>
->>>    	}
->>
->>
->> Otherwise looks good to me
-> 
-> etm_event_stop() runs with local IRQ disabled, so the TRBE IRQ handler
-> cannot close the AUX handle during the stop. If the handler closed it
-> earlier, the ownership check before update_buffer() catches that case.
-> 
-> The second READ_ONCE(handle->event) check is redundant and is safe to
-> be removed.
+> Signed-off-by: ZhuXiangyu <1194781887@qq.com>
+> ---
 
-Of course, yes. agreed. Thanks for the clarification
+I will mark everything you as changes requested. This is all half
+broken, b4 review cannot even fetch for review.
 
-Cheers
-Suzuki
-
-> 
-> Thanks,
-> Leo
-
+Best regards,
+Krzysztof
