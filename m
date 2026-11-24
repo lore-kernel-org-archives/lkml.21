@@ -1,149 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.159
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795478603;
-	b=nwttFT0wo3rjtLCQ67seWpUcUyrwTftl7LtjJyOhLSEeeloOCvAXMTe79xS4BPiIztED
-	 CjYBTjMgcqkFVmdM6+5dNjvOLZOk9hpcJDSfMrAxS4qXlDJLS5oPG1ydgg05lSs7snmZX
-	 vK9IxvuDwLc/D5mtyrto4NZFdfpBqhknHjiR5cKNWKRmXOSbrByDznNBCK8M4OyA5hyTj
-	 pKGJRDGftkWJ4OFk+rIjVwrTt0/VoxWPJqLF3FzbveXSOdW4YJjqJZeLs7/zskO//qBp0
-	 DTrhlBHLgnfzjzCMrgBgPXn3k5QTQRTNHNz2Lely9a0ZmlLSiLZ5DNbXhtrXqc+WJyw==
+	t=1795478631;
+	b=Usnteoznd3Tzup5g9+wzQqPUvOIYjqJ9215LwtxLwKC9AykaG3ai+6gPMUQGxK5q18be
+	 cgiBRnCk234KPJ0JcbzbSYOGIc78wJP8m7M3oyVATF1m7N7Y1+r1YHZbjjedUnfWnBynA
+	 GXyELwEZuylt9ZIZMT7hIOP5i5Yt6FLh8ARVrC51FL9Eo9dUdo2Mcr1S8H3LitZN33RUQ
+	 zkOM6MKdKXibTaTGcW1ZxQm9lw8xdZbsj8ZLNfeYkR5QhmJ0LOVI7fxEdtmZkfK56XCkh
+	 OLUxu/p9rP6Ft47IWJTSglnt97j59goP83bAvBWjHcZuUKM6JkCoUnHg7MfZKHbNccg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795478603;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
-	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
-	 References:MIME-Version:Content-Transfer-Encoding;
-	bh=PAtsEURMjw6BMx3O8gA1fyA7I7ZNfExjOJqh5VnpOJg=;
-	b=rQsHoTAachNmtZPdm+N9lVYoe9HPcuKV5lrm1lIgRWmrtrHwl4mPQR0C5IAEXvm6+g3u
-	 0XoWu8Wkj3p6gwVjAK6lLKUH1DRzimdbFJKybytyEdob7j0yXE9C17BygubsOYwGfCHtr
-	 Qd9YS3e/9ANtOK77ArsnKkbovDvWKljSoGRWaS4LYLIofHk40kxhSPIKTMgCFxrv5J02t
-	 QN5e4zsFq7U9Kw4a/Ixfcl5kWtJFC9xQH5WQQuS98Lez/GO3Cm0Tuik00qr0wNqb1/nXG
-	 KC+ev3fZ7iJXtD/dv9crAIJ1jYLENtkxJzbkej7ZRpmsuNuz+i9H1etx9jqBVqEz2Lg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795478631;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=uhLm4YyQicFoJX+Exw7k19Cw4KlzHU0mutOb3HgYX+4=;
+	b=S2Fkrr3Eqj2Lu2/Gtx5HW6huSL9pEpyz23TkMSve0mMUU0S25Wc90KmJuY5YScQfRqxY
+	 nMgACmDmfeZ+tAtA1OkAqpwTenJ6XwPDfVnBs1i3Bt2ccB/vYUtFFnzPKfhp+ShY1G2eh
+	 UUztyMqcp9+ArC1InIusme9zqaxMehuCBJxklq0L2klQrlHZ2gJodGMNoqpKdVhzfsXya
+	 lLTZfJNhhGoJnKO0J/h1YHO5w0qPWGSkELyAbufJdTptn0lglEzDIlVLmvErg9/iS1zH9
+	 gU1MGFuk56UbU6XaDWav3MyWNYrHPLs/ohralZo6PI5QZz90ME1rpDuuoynL+KIcS6w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gahingwoo.com;
-	spf=pass smtp.mailfrom=gahingwoo.com;
-	dkim=pass header.d=gahingwoo.com header.i=@gahingwoo.com header.a=rsa-sha256 header.s=fm2 header.b=LqPFM7mM;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=MeLfp4qW;
-	arc=none smtp.remote-ip=103.168.172.159
-Received: from fhigh-a8-smtp.messagingengine.com (fhigh-a8-smtp.messagingengine.com [103.168.172.159])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eCraPmZx;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 56B18606A322
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 00:03:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 56B18606A322
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gahingwoo.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gahingwoo.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EE455606A31E;
+	Tue, 24 Nov 2026 00:03:50 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=gahingwoo.com header.i=@gahingwoo.com header.a=rsa-sha256 header.s=fm2 header.b=LqPFM7mM;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=MeLfp4qW
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id 91726140039F
-	for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 19:03:22 -0500 (EST)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-04.internal (MEProxy); Mon, 23 Nov 2026 19:03:22 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gahingwoo.com;
-	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
-	:from:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=fm2; t=1795478601; x=
-	1795565001; bh=PAtsEURMjw6BMx3O8gA1fyA7I7ZNfExjOJqh5VnpOJg=; b=L
-	qPFM7mMPil54tq78/Jd716sHwg7RwguLNAEGWU7uMM3cP+oa852l00DPW512c992
-	l3KLI5hWIA2keF9wrnHOH44SfbQ/DF+IsiaPgtd9wVJk56SLUPJ+ewHvG+OPTTfN
-	cgdKC91hfDy0OYCKlNhkclYnNzbYrHvjoRitALYt2WNGRduADer35oWsySCWts2+
-	PxnBy9sNYUhaq8P7+sYq5Brzb5CVB78P+5mb3cVlRzuwhPErrYSmCkdVz4t25Mkz
-	/4lQUMm8GizkCmcDwy35uI9iCpc05f4wYtIuERYHx+/Rmp8rMhPtYmLsyMwE9ThU
-	LAkMYEtGgc4LHxzE8/dXw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
-	:x-me-sender:x-sasl-enc; s=fm3; t=1795478601; x=1795565001; bh=P
-	AtsEURMjw6BMx3O8gA1fyA7I7ZNfExjOJqh5VnpOJg=; b=MeLfp4qWPzPIBJLHc
-	fvrGICUQsgTwFQvsKP4tFcZKQLqwTEUCUxA3iNHs8GihxZ27B2jZPBYJEx0uci8T
-	C8TsEic6fwdRVx+eUEVWLgtRPvAYUV4Cbl4YpczwItKcIwTrxwhNjnKX9nqs6RKT
-	gtWj8uavBJcv++XU+br9iKu8iFvGfZZIzW6ymjP/UOXN5u73WSmdxHExiOjNXVXl
-	AJjcQxq90VZn0a3xhIB8a3I/EGxlNMpAvkNBDMvzf13eF3nJ70btcAnv6dHvEc4Y
-	aT7dXN/jXtg0LCKUT07iJ9Q/bDEX5IXxD78ZDclrDWqMOTGJQZu3KXAoAkgGY95H
-	1Ricw==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=gahingwoo.com a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795478601; d=gahingwoo.com;
-	mf=PGdhaGluZ0BnYWhpbmd3b28uY29tPg==;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm2:rsa-sha256:ATsEia9/0Ks0pyamsLjpcOuEFI5gy8JoMLQXFeBpnZFwNVY
-	x0H1wt1u7G9kL6RmVd9OtFGBSqV2TT2bIukmDtbIgrqRCQY0+7jEFxLFS9a+4edm
-	7hW2jfKk5YrJ6qJlyx7OWAcDT3aQy+bWjm5bIzcdv6NMqwb/v65gBGjRisDvg2XB
-	z02617gcD6rMaRmKyoopBmvIvFV31b+yuwvG1KSp7IaTUXYJ9n3ch6kiXLNGSuR+
-	vPc/F3akYxoqBgiDPU7KiFkbfZLH+8BVgGSLfDLIeF4nPJYCDD1fJiwPCUIQD93Y
-	DTLSkh9oWBTRnxusHfz7E36icigekFBGUFcBQ/w==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=11;
-	hn=cc,content-transfer-encoding,date,feedback-id,from,
-	in-reply-to,message-id,mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:C1BWLQcnSytZepq4fTMqH2u1iaoudV1OrEuQTXPxCxI=:75ct8d2NEqNy8dcL0uqvryMqIsqJanWM8NlkNmCp4FM=;
-X-ME-Sender: <xms:SdQEa-sIeKyLAuqXySBonp3mPo5W-yYxD9H2Yap2i-QpPv0ygCY62w>
-    <xme:SdQEa0tvnOUEJ-OcoUYOXRapDxUTmlv44FJnLcWcc21weubyfhGm3G1ZYmVWZXqR5
-    D6xUtRTVCwAEdfQBz9jDtk53-AHBD0cl465bKSZz_ybLnHWiw_5VFXQ>
-X-ME-Received: <xmr:SdQEa_F_XEC4OTo-W7frqgaExL9vSfuVFgcnc8h-bdzbk8L774n-e5HISmI6u_EnFURzrrHl>
-X-ME-Proxy-Cause: dmFkZTEIvCBAqgUEloIsFZ3FkPJniX+pdPbA8lwmlIZBO9hGOTGGz/x2Hl+7nFbV5nyvKp
-    t925nNRn8DutQCQinVZPr73dXFznYxFvXbL116jqCZ/GfyonUZh/Db8T2FiyXrfT2tvgmY
-    iobzatdB+GcoyC0jM5VyW//zQbbnDI1hKnSbxsDcxkUlD4xzycqbxXM6vvDpB+AvPZI9PO
-    U/XSWb9pjObA40eWatkEvdJBkQEqjCEU+A4urP116L3cv2N0DBt76GIBJcBDbwZQhbIQjC
-    SOwjlJv+Q9QIaSqFf9Kz25pG8hZtrsSllc9yq5WXEJr9X0qGFNbX1Y7L6XZjelykM9Ldlj
-    QmYfQnu0oE0th0KiUcGx0BpMkjJLthd3bKUwFDw4YTV0EKGlUjFGl7tgyMnt+y+zTjDfMn
-    A5hn9D1CuCrMq63UC4P99nXpZOxG970N7X220xsTvy0qEZVNUEzFBwLxXq6z/ptaQdLiK/
-    5ajJg4DLERCe4jjGrZU50SAnnJv15ESTpkwVwTBKOZ57IUR2lClbNgO4PB97kdYHOcVIYI
-    vf0Oy+mmADrxqqMTl7osFUtXo4LyLrTomfvYSe6UEARwkvgzImWLUKXmg3FhO4wovXTLNi
-    Yd0svLJbtcBfeaZEUYGDbhnTPHzxtURDZto106cvXxQCV5eSz03oHModg6qQ
-X-ME-Proxy: <xmx:SdQEa3KRuUEyLxuR93E9SV1LN2Afhyae9W7rL4bR-1BH50iDrkH9Lw>
-    <xmx:SdQEa_Yl73dEbwPGkPLddSp9eFvYSOAtvmkfy5OMPGiv9SfFxLgQlQ>
-    <xmx:SdQEa8rlnUnM0ayQtCzAukRelyoXbPY_-L2Sv3wPuyz9phY9w_Pygw>
-    <xmx:SdQEa_HTdRppX0ht58zEsMip-7Po_arXDr5VrqTkylbdCl8rl3Q3dw>
-    <xmx:SdQEa3ojmRkqc_OHowVk7JwlBn0DV7gOfg64nfTP7pvvp2y0vgl7jhSb>
-Feedback-ID: i7a5e4b5f:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Mon,
- 23 Nov 2026 19:03:13 -0500 (EST)
-From: Jiaxing Hu <gahing@gahingwoo.com>
-To: tomeu@tomeuvizoso.net,
-	heiko@sntech.de,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	joro@8bytes.org,
-	will@kernel.org,
-	robin.murphy@arm.com,
-	p.zabel@pengutronix.de,
-	ogabbay@kernel.org,
-	zhangqing@rock-chips.com
-Cc: ddrake@baylibre.com,
-	royalnet026@gmail.com,
-	sidong.yang@furiosa.ai,
-	ulf.hansson@oss.qualcomm.com,
-	abel.vesa@oss.qualcomm.com,
-	sebastian.reichel@collabora.com,
-	chaoyi.chen@rock-chips.com,
-	shawn.lin@rock-chips.com,
-	finley.xiao@rock-chips.com,
-	diederik@cknow-tech.com,
-	alchark@flipper.net,
-	leonard@lausen.nl,
-	vlwwwwww@gmail.com,
-	jeff.hugo@oss.qualcomm.com,
-	dri-devel@lists.freedesktop.org,
-	linux-rockchip@lists.infradead.org,
-	iommu@lists.linux.dev,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v18 8/8] arm64: dts: rockchip: enable the NPU on rk3576-rock-4d
-Date: Tue, 24 Nov 2026 13:01:43 +1300
-Message-ID: <0bcd73278a4c7a0cb2e1b8bdb9aba306355384cb.1795478392.git.gahing@gahingwoo.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1795478392.git.gahing@gahingwoo.com>
-References: <cover.1795478392.git.gahing@gahingwoo.com>
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eCraPmZx
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ABC161F000C4;
+	Tue, 24 Nov 2026 00:03:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795478630;
+	bh=uhLm4YyQicFoJX+Exw7k19Cw4KlzHU0mutOb3HgYX+4=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=eCraPmZxbkmw5AtVz+bpDxqclOYcbi09vSCwcRyJIV7W2LvXj22Z9I4lyYybAnVM8
+	 /3UseCfM3GahiQHYbXioswx4BG13KYDaO5N7AU1Y8O7r6kp57bunmKmQQf+gy2+Ori
+	 8bhEQUXNj3YAl3tuzwt4TbzlCPHDQipVwgctxuQ3kaQQNfhOc72whof3nYlaFrls2G
+	 bpbt/eb95q+V22al1lGcRFLWRlJMizBtfLRf0V4WMHO4aegd3gtRNyDROUNXXFqkN+
+	 /jd/SNY0NZ4zpvHA3joDxPY4p98lrVB8hNu/Zv7NEkV7MQl4bRaGHd4GtbeX6ghjcO
+	 mJaXCzqkz/89g==
+Subject: Re: [PATCH net] tipc: free the tunnel packets when failover
+ tunnelling stops early
+From: netdev-bot+sashiko@kernel.org
+To: astellman@stellman-greene.com
+Cc: jmaloy@redhat.com, tung.quang.nguyen@est.tech, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+ tuong.t.lien@dektech.com.au, ying.xue@windriver.com, netdev@vger.kernel.org,
+ tipc-discussion@lists.sourceforge.net, linux-kernel@vger.kernel.org
+Date: Tue, 24 Nov 2026 00:03:49 +0000
+Message-ID: <179547862919.3135.6087887655063297728@kernel.org>
+In-Reply-To: <20261122233958.10462-1-astellman@stellman-greene.com>
+References: <20261122233958.10462-1-astellman@stellman-greene.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -153,61 +64,104 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-Enable both NPU cores and their IOMMUs, and make vdd_npu_s0 the supply
-of the NPU power domain. The rail is switched with the domain by commit
-b1bff9ced657 ("pmdomain: rockchip: manage the RK3576 NPU domain supply")
-in the pmdomain tree; without it nothing holds the rail and it is turned
-off as unused.
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-npu-supply is set because the binding requires it; no driver uses it.
+Critical: 0 · High: 0 · Medium: 1 · Low: 0
 
-Signed-off-by: Jiaxing Hu <gahing@gahingwoo.com>
----
- .../boot/dts/rockchip/rk3576-rock-4d.dts      | 22 +++++++++++++++++++
- 1 file changed, 22 insertions(+)
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts b/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
-index f068794e48d4..72b251d396fe 100644
---- a/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
-@@ -722,6 +722,10 @@ &pcie0 {
- 	status = "okay";
- };
- 
-+&pd_npu {
-+	domain-supply = <&vdd_npu_s0>;
-+};
-+
- &pinctrl {
- 	hdmi {
- 		hdmi_tx_on_h: hdmi-tx-on-h {
-@@ -779,6 +783,24 @@ wifi_en_h: wifi-en-h {
- 	};
- };
- 
-+&rknn_core_0 {
-+	npu-supply = <&vdd_npu_s0>;
-+	status = "okay";
-+};
-+
-+&rknn_mmu_0 {
-+	status = "okay";
-+};
-+
-+&rknn_core_1 {
-+	npu-supply = <&vdd_npu_s0>;
-+	status = "okay";
-+};
-+
-+&rknn_mmu_1 {
-+	status = "okay";
-+};
-+
- &sai6 {
- 	status = "okay";
- };
+- [Medium] The patch leaves one early exit in tipc_link_tnl_prepare()
+  (net/tipc/link.c) that still skips the FAILOVER_MSG receive-side hand-…
+
+--
+
+tipc: free the tunnel packets when failover tunnelling stops early
+
+The three early returns inside the tunnelling loop of
+tipc_link_tnl_prepare() now jump to a new out: label. That label purges
+any tunnel packets left on tnlq. It then runs the FAILOVER_MSG receive
+side hand-over (drop_point, failover_reasm_skb, deferdq).
+
+> diff --git a/net/tipc/link.c b/net/tipc/link.c
+> index 6427c69f89294..2fead2f4ed0fa 100644
+> --- a/net/tipc/link.c
+> +++ b/net/tipc/link.c
+
+[ ... ]
+
+> @@ -2073,6 +2073,9 @@ void tipc_link_tnl_prepare(struct tipc_link *l, struct tipc_link *tnl,
+>  		}
+>  
+>  	tipc_link_xmit(tnl, &tnlq, xmitq);
+> +out:
+> +	/* Empty unless tunnelling stopped early */
+> +	__skb_queue_purge(&tnlq);
+>  
+>  	if (mtyp == FAILOVER_MSG) {
+>  		struct sk_buff_head *fdefq = &tnl->failover_deferdq;
+
+[Severity: Medium]
+The commit message says the fix is to "go on with the hand-over" when
+tunnelling stops early. Should the earlier exit, taken when the dummy
+packet can't be allocated, also jump to out?
+
+That path in tipc_link_tnl_prepare() still returns directly:
+
+net/tipc/link.c:tipc_link_tnl_prepare() {
+    ...
+	skb = tipc_msg_create(TIPC_LOW_IMPORTANCE, TIPC_DIRECT_MSG,
+			      BASIC_H_SIZE, 0, l->addr, tipc_own_addr(l->net),
+			      0, 0, TIPC_ERR_NO_PORT);
+	if (!skb) {
+		pr_warn("%sunable to create tunnel packet\n", link_co_err);
+		return;
+	}
+    ...
+}
+
+tipc_msg_create() allocates with tipc_buf_acquire(..., GFP_ATOMIC), so it
+can fail under memory pressure. If it fails for FAILOVER_MSG, this code
+never runs:
+
+    tnl->drop_point = l->rcv_nxt;
+    tnl->failover_reasm_skb = l->reasm_buf;
+    skb_queue_splice_init(&l->deferdq, fdefq);
+
+The caller goes into failover anyway:
+
+__tipc_node_link_down()
+    tipc_link_tnl_prepare(l, tnl, FAILOVER_MSG, xmitq);
+    tipc_link_reset(l);    <- frees l->reasm_buf, purges l->deferdq
+    tipc_link_fsm_evt(l, LINK_RESET_EVT);
+    tipc_link_fsm_evt(l, LINK_FAILOVER_BEGIN_EVT);
+    tipc_node_fsm_evt(n, NODE_FAILOVER_BEGIN_EVT);
+
+tnl->drop_point then keeps a stale value. That is 0 from link creation,
+1 from tipc_link_failover_prepare(), or whatever an earlier failover left.
+tipc_link_failover_rcv() then does this:
+
+	if (unlikely(less(seqno, l->drop_point))) {
+		kfree_skb(iskb);
+		continue;
+	}
+	if (unlikely(seqno != l->drop_point)) {
+		__tipc_skb_queue_sorted(fdefq, seqno, iskb);
+		continue;
+	}
+
+Could this drop the peer's tunnelled messages? Could it also leave them
+in failover_deferdq for good, since drop_point only moves forward on an
+exact match?
+
+tnlq is already initialised and empty at that point, and the out: block
+only touches tnlq, l and tnl. So changing that return to goto out looks
+safe.
+
 -- 
-2.43.0
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261122233958.10462-1-astellman%40stellman-greene.com
