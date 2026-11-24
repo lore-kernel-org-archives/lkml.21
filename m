@@ -1,49 +1,51 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795540100;
-	b=FsocQdSgYBIhkNgfhQSFsLAJlmvM4CmIz7YytcUorNTV7bmmTGemOnUmqe3tvSei0NHb
-	 IGiZXofQ8lkEELFxWAYkCWC1M9pCfK0HpdPM+7t2uDjOsgYaabUzt39Q7vL59netablsq
-	 Smu5j/MB9aEuyZtdpCXZRArY2WMqvsC2mYguILF1STYdLrs25n3HCfquAX1o4CO6+5TMx
-	 H/5oL55pDq5NFJd1e/xPia0Wo6rm5AmJmbSWNFaG1WswyGvAqj4wnMRom/1eF6wjzBgEx
-	 MJtsSrpuNErFiXbbouf9uLzzQDUlZiTCWjxxDcAYtNb9eHTAkhPF0Fd/H+HJZqyfTlg==
+	t=1795540102;
+	b=u7OSAH8jD0TxG2bcnDHBBTog8i7KUxiZn65aeRL5CHxiDpVWCym4vuiIQaUXCtaCIEzp
+	 RBMELxKpiu7fvn0gettX3i7Wf9nzLDiUEQJfjScAqsY8ncMvlp4sSfjxsz6brxOWVxCZ3
+	 cFnqP8ykhPLduuwJKbL8TYXuZZiM+7Pu3ogLJHmKGMi/NJxB9xXPl6M00/7caM2OnjOX5
+	 t+RYAQn92zA16MBfsh0pbeF139+9TbZHQ08nUdF5E9DElckqWX4aK+qZ6BXeCVQdB/K4K
+	 DKcoL7vvCmVppn1XOJHkIm/4XukvvydofqCGt/Qq3gp/PFYlK/XF4noG5Ihuwa8eo3A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795540100;
-	h=Received:DKIM-Signature:From:Subject:Date:Message-Id:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
-	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=aqZtH0oPe0w0iyR81y6Fx2M9m70KmY8puMtxeRbq+2o=;
-	b=eN3mvG51YrPXYxCwEsUdFDQhRvKF5RUCAPwz3xUajZT9AlaSP7ytZR7LeVe03XrAHqNB
-	 JCL3TXPq2NuQEz2/iuVdVq3q83+202AnXLpZI10E5BRjaaO1iGFUQhE2irB65D1DDP0rD
-	 PMD8Cplg2lc6yLeWg9GIvV+8GcDA6oqio3v3sTt37iYIYiaGFSxuFxa9ebHS07kKwU1Ph
-	 yHoknUI3+8CCbMqdUjain/Z9LcMP2GZ1LrEG1kRhLLnfL6TMmtSWr4m44SZ4HuJe8qmbe
-	 yk/zX0Q6OFjcgyXx0ze7yUD/11+lIh0WmCeokTuJWWajOxQWMtPs6G6SykJWG8jLD+A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795540102;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:From:Date:Subject:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
+	 References:In-Reply-To:To:Cc:X-Mailer:X-Developer-Signature:
+	 X-Developer-Key;
+	bh=9pmOQdUXxeqpS7wKiA21ejTwSSfBYfWNjqKekXL+2hM=;
+	b=4TsBhlgLSTkpr015QvJZXc+9wRwXJxm5a8CnnyX9V+k+NIS18j6yLWmPDU/ec4fPx1vc
+	 /Bozi0jtJk3xxZkuKgKm57pxb0TRvbYz16ZDLRtZrdEDm0i0n45XG3+oCUct7kmGUa0+i
+	 TvO9Pe7iO9lfvrnSrJ72u35T37OxAi3a0uOBWLv7Yhr4X1knn/vql7PQIB91WWMLLgJF+
+	 lqtFGFVXEJgS8PeR8Gh16hOEhMT6BQ1APaFpZZeNVyCR+mkjobOFrsq8kWltbX0l5zDY6
+	 0xM8CbNfIgTPARZ7hFoEysjm00CyPk5H9M4fzQuB01qxrPMVIAmkErIq4DC6dApWH0w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VCuJxO6J;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E0B7F606A69D;
-	Tue, 24 Nov 2026 17:08:19 +0000 (UTC)
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=lxw0oUy0;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id C6421606A688;
+	Tue, 24 Nov 2026 17:08:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C6421606A688
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VCuJxO6J
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8B29B1F000D1;
-	Tue, 24 Nov 2026 17:07:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795540099;
-	bh=aqZtH0oPe0w0iyR81y6Fx2M9m70KmY8puMtxeRbq+2o=;
-	h=From:Subject:Date:To:Cc;
-	b=VCuJxO6Jjypj5DbUmhoytQziZJ5vLJGTNMNo3cqRxIUYh8Jzq3skhseCD0u5fRyjP
-	 C/2WEanKtLteavWso/oU3UJ6UtR3j3y9fK26/Wq6ytkGMpgt3chyo6ZXZEhXOKNaw5
-	 OJMyuJjnDYiBEsWgq3CJ337r7u+4G0BQSS+X4PEGurGZ29cGJXvYGBp2B0mKK810FW
-	 ftHg7joprB1aheUbxHOLTyL6VRQThAY1CflxS92AdC+zCo1MDGX49CRqEYciw8D45w
-	 OC/jVpT6VeMvEyweIbi7je9qiB2n4OB0NEcoB8q+V0O4UJwKh+CmIRZljhTIuC+2Js
-	 dix6TOTy+6I+w==
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Subject: [PATCH v2 00/11] mm: continue vma_flags_t conversion
-Date: Tue, 24 Nov 2026 17:07:52 +0000
-Message-Id: <20261124-late-2026-vma-flags-v2-0-bf3fade93064@kernel.org>
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=lxw0oUy0
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3D7B21762;
+	Tue, 24 Nov 2026 09:08:18 -0800 (PST)
+Received: from e126453.arm.com (e126453.arm.com [10.33.8.63])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 46E913F763;
+	Tue, 24 Nov 2026 09:08:18 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795540101; bh=vnR5vYi4yPiKzgs3i+YxzPzqQ/WvZmW18JO4t05gnJA=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=lxw0oUy0KAiIt8RIdMT+s2OEDRRsoGEWuuVbtyk41+hLU7F3SnyvUfCyjw4qZhLYJ
+	 pffE+wgsHjCAc/uV3rpHGnhbxdaup38EOLUgr4PLAmqMF0wUoPJdivYcCzmk4CrBXV
+	 Lz2ENDD7NIFXCVZyQJ9wG1huZ+GYa9I5QyiSI0p0=
+From: Anthony McGivern <anthony.mcgivern@arm.com>
+Date: Tue, 24 Nov 2026 17:07:34 +0000
+Subject: [PATCH 06/24] media: mali-c720: Add format handling
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -55,162 +57,672 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAA/23NQQqDMBCF4auEWTslY2oEV71HcZHqGEPTRBIJL
- eLdi0J3Xb5/8b0NMifHGTqxQeLisosBOlFXAobZBMvoRugE1LLWRJLQm5XxWFheBidvbMarpla
- R0UoPCioBS+LJvU/13lcCZpfXmD7nSaGj/rzmr1cIJcpRDSM15tE20+3JKbC/xGSh3/f9CwLCI
- fm3AAAA
-X-Change-ID: 20261101-late-2026-vma-flags-461731a636c3
-To: Andrew Morton <akpm@linux-foundation.org>, 
- David Hildenbrand <david@kernel.org>, Jason Gunthorpe <jgg@ziepe.ca>, 
- John Hubbard <jhubbard@nvidia.com>, Peter Xu <peterx@redhat.com>, 
- "Matthew Wilcox (Oracle)" <willy@infradead.org>, Jan Kara <jack@suse.cz>, 
- Rik van Riel <riel@surriel.com>, "Liam R. Howlett" <liam@infradead.org>, 
- Vlastimil Babka <vbabka@kernel.org>, Harry Yoo <harry@kernel.org>, 
- Jann Horn <jannh@google.com>, Lance Yang <lance.yang@linux.dev>, 
- Zi Yan <ziy@nvidia.com>, Matthew Brost <matthew.brost@intel.com>, 
- Joshua Hahn <joshua.hahnjy@gmail.com>, Byungchul Park <byungchul@sk.com>, 
- Gregory Price <gourry@gourry.net>, 
- Ying Huang <ying.huang@linux.alibaba.com>, 
- Alistair Popple <apopple@nvidia.com>, 
- Baolin Wang <baolin.wang@linux.alibaba.com>, 
- Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>, 
- Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>, 
- Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>, 
- Xu Xin <xu.xin@linux.dev>, Chengming Zhou <chengming.zhou@linux.dev>, 
- Madhavan Srinivasan <maddy@linux.ibm.com>, 
- Nicholas Piggin <npiggin@gmail.com>, Michael Ellerman <mpe@ellerman.id.au>, 
- "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
- "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>, 
- Shrikanth Hegde <sshegde@linux.ibm.com>, Pedro Falcato <pfalcato@suse.de>, 
- Kairui Song <kasong@tencent.com>, Qi Zheng <qi.zheng@linux.dev>, 
- Shakeel Butt <shakeel.butt@linux.dev>, 
- Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>, 
- Wei Xu <weixugc@google.com>, Baoquan He <baoquan.he@linux.dev>, 
- Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
- Michal Hocko <mhocko@suse.com>, Leon Romanovsky <leon@kernel.org>, 
- SJ Park <sj@kernel.org>, Rakie Kim <rakie.kim@sk.com>, 
- David Rientjes <rientjes@google.com>, 
- Alexander Viro <viro@zeniv.linux.org.uk>, 
- Christian Brauner <brauner@kernel.org>, 
- Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
- Arnaldo Carvalho de Melo <acme@kernel.org>, 
- Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
- Adrian Hunter <adrian.hunter@intel.com>, 
- James Clark <james.clark@linaro.org>, 
- Masami Hiramatsu <mhiramat@kernel.org>, Oleg Nesterov <oleg@redhat.com>, 
- John Johansen <john.johansen@canonical.com>, 
- Georgia Garcia <georgia.garcia@canonical.com>, 
- Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>, 
- "Serge E. Hallyn" <serge@hallyn.com>, Mimi Zohar <zohar@linux.ibm.com>, 
- Roberto Sassu <roberto.sassu@huawei.com>, 
- Dmitry Kasatkin <dmitry.kasatkin@gmail.com>, 
- Eric Snowberg <eric.snowberg@oracle.com>, Fan Wu <wufan@kernel.org>, 
- Stephen Smalley <stephen.smalley.work@gmail.com>, 
- =?utf-8?q?Ondrej_Mosn=C3=A1=C4=8Dek?= <omosnacek@gmail.com>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
- linux-fsdevel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
- kvm@vger.kernel.org, damon@lists.linux.dev, 
- linux-trace-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, 
- apparmor@lists.ubuntu.com, linux-security-module@vger.kernel.org, 
- linux-integrity@vger.kernel.org, selinux@vger.kernel.org, 
- "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3964; i=ljs@kernel.org;
- h=from:subject:message-id; bh=AxeX6Zqxak7Ff0FGtjI8UQufUYyumqYNiaGRAt4jiII=;
- b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLJZj+RGMUybXCrDUp937eOZY1FXjoUfd2jjdDu7MHppi
- 7fD9B0hHaUsDGJcDLJiiizPv4jvDxIJm9d5wd8NZg4rE8gQBi5OAZiI6VSGf6by2nvdT2svNv3G
- a5Ie3p2yXP+50sy7123nv02taTp4R4yRoVPqlDxHDnfXbUEO7UKVGzOvXZxuWuvsdc7h0sMltT1
- /uAE=
-X-Developer-Key: i=ljs@kernel.org; a=openpgp;
- fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
+Message-Id: <20261124-b4-initial-upstream-candidate-v1-6-0cb9bde1bd30@arm.com>
+References: <20261124-b4-initial-upstream-candidate-v1-0-0cb9bde1bd30@arm.com>
+In-Reply-To: <20261124-b4-initial-upstream-candidate-v1-0-0cb9bde1bd30@arm.com>
+To: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Cc: Anthony McGivern <anthony.mcgivern@arm.com>, 
+ Vincenzo Frascino <vincenzo.frascino@arm.com>, 
+ Nayden Kanchev <nayden.kanchev@arm.com>, 
+ Konstantin Babin <konstantin.babin@arm.com>, 
+ Linus Walleij <linusw@kernel.org>, jacopo.mondi@ideasonboard.com, 
+ kieran.bingham@ideasonboard.com, laurent.pinchart@ideasonboard.com, 
+ dan.scally@ideasonboard.com, Sakari Ailus <sakari.ailus@linux.intel.com>, 
+ Rob Herring <robh@kernel.org>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Hans Verkuil <hverkuil@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Anthony McGivern <Anthony.McGivern@arm.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795540078; l=19047;
+ i=Anthony.McGivern@arm.com; s=20261124; h=from:subject:message-id;
+ bh=QGJazcA9ntEWFug/aIlBtH3Ud97UjO1jwBvTaLIk4zI=;
+ b=VPqoXeWDmVHK2egX8EGlT5Se8NGl+7he7z4mIgCYogwx56SoSBYNvdf18GTIwGWEFVHKIVbDu
+ OADZ1s+hIoCA1kTWIgvLI4OPX23Q373Rp8v9EmpzYwUxi3M7x1x1v0r
+X-Developer-Key: i=Anthony.McGivern@arm.com; a=ed25519;
+ pk=cvw1HHVRuWpdkn55JpnRyCO2oGBkBWaBXcc2S3CmHTU=
 
-Continue the conversion of legacy vm_flags_t flags to the new vma_flags_t
-bitmap type.
+From: Anthony McGivern <Anthony.McGivern@arm.com>
 
-Do some more core mm conversion (we really should be the first to
-completely move to the new scheme :), but also update some mm-adjacent and
-otherwise straightforward cases - /proc/$pid/maps and friends, the coredump
-VMA dump size logic, uprobes, perf and LSM mmap/mprotect hooks.
+Define the supported media bus and capture formats, their bit depths
+and hardware buffer layouts. Add helpers to select formats and check
+which capture outputs support them.
 
-This series only makes strictly mechanical changes to keep things gentle
-during this very busy cycle.
+A future series may extend format enumeration to expose different sets
+of supported formats depending on the hardware version.
 
-No functional change intended.
-
-Build tested on x86-64 (allmodconfig, each patch individually), i386,
-arm64, riscv nommu and ppc64le.
-
-Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+Signed-off-by: Anthony McGivern <Anthony.McGivern@arm.com>
 ---
-v2:
-* Dropped what were 1/13, 3/13, 4/13, 5/13 and 6/13, as David has taken
-  these through mm/core.git.
-* Rebased on mm-new.
-* Updated 1/11 (was 2/13) to read VMA_RAND_READ_BIT before
-  maybe_unlock_mmap_for_io() can release the fault lock, avoiding a
-  use-after-free of the VMA, and to remove the now-shadowing inner VMA
-  declaration, as per Sashiko and Andrew.
-* Updated 2/11 (was 7/13) to drop an unrelated whitespace change in
-  mm/ksm.c and to fix up the indentation of touched lines, as per David.
-* Updated 3/11 (was 8/13) to retain the shadow stack check since added to
-  hmm_vma_walk_test().
-* Updated 4/11 (was 9/13) commit message to note that the soft-dirty
-  assert in vm_flags_clear() is intentionally dropped, as per Lance.
-* Split what was 13/13 into per-LSM patches 8/11 to 11/11, as per Paul.
-* Propagated tags, thanks everyone!
+ .../platform/arm/mali-c720/mali-c720-common.h      |   8 +
+ .../platform/arm/mali-c720/mali-c720-formats.c     | 452 +++++++++++++++++++++
+ .../platform/arm/mali-c720/mali-c720-formats.h     | 132 ++++++
+ 3 files changed, 592 insertions(+)
 
-v1:
-https://lore.kernel.org/r/20261105-late-2026-vma-flags-v1-0-0d3cd15ab75f@kernel.org
+diff --git a/drivers/media/platform/arm/mali-c720/mali-c720-common.h b/drivers/media/platform/arm/mali-c720/mali-c720-common.h
+index 0685bb7e0f5545091a022bf4ed19b3f2b249c2de..4f8e2918937c1ca212a11ccc6c4a0edb72dca72c 100644
+--- a/drivers/media/platform/arm/mali-c720/mali-c720-common.h
++++ b/drivers/media/platform/arm/mali-c720/mali-c720-common.h
+@@ -12,7 +12,9 @@
+ #include <linux/mutex.h>
+ #include <linux/refcount.h>
+ #include <linux/spinlock.h>
++#include <linux/videodev2.h>
+ 
++#include "mali-c720-formats.h"
+ #include "mali-c720-id.h"
+ #include "mali-c720-register-access.h"
+ #include "mali-c720-registers.h"
+@@ -20,6 +22,12 @@
+ #include "mali-c720-registers-ctx-mgr.h"
+ #include "mali-c720-registers-modules.h"
+ 
++enum mali_c720_cap_devs {
++	MALI_C720_CAP_DEV_FR0_RGB,
++	MALI_C720_CAP_DEV_FR0_YUV,
++	MALI_C720_MAX_NUM_CAP_DEVS,
++};
++
+ struct mali_c720_context_regs {
+ 	dma_addr_t dma_handle;
+ 	u8 *base;
+diff --git a/drivers/media/platform/arm/mali-c720/mali-c720-formats.c b/drivers/media/platform/arm/mali-c720/mali-c720-formats.c
+new file mode 100644
+index 0000000000000000000000000000000000000000..a4a1ae89327886fdd1d728a8b0b548dc555658ce
+--- /dev/null
++++ b/drivers/media/platform/arm/mali-c720/mali-c720-formats.c
+@@ -0,0 +1,452 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * ARM Mali-C720 ISP Driver - Image signal processor
++ *
++ * Copyright (C) 2026 Arm Ltd
++ */
++
++#include <linux/array_size.h>
++#include <linux/media-bus-format.h>
++
++#include "mali-c720-common.h"
++
++static const struct mali_c720_buffer_cfg mali_c720_buffer_configs[MALI_C720_BUFFER_CFG_MAX] = {
++	[MALI_C720_BUFFER_CFG_BAYER24] = {
++	  .data_format = 23,
++	  .data_layout = MALI_C720_BUFFER_LAYOUT_NORMAL,
++	  .data_align = MALI_C720_BUFFER_ALIGN_DENSE,
++	  .num_fifos = 1,
++	},
++
++	[MALI_C720_BUFFER_CFG_BAYER20_DENSE] = {
++	  .data_format = 19,
++	  .data_layout = MALI_C720_BUFFER_LAYOUT_NORMAL,
++	  .data_align = MALI_C720_BUFFER_ALIGN_DENSE,
++	  .num_fifos = 1,
++	},
++
++	[MALI_C720_BUFFER_CFG_BAYER16] = {
++	  .data_format = 15,
++	  .data_layout = MALI_C720_BUFFER_LAYOUT_NORMAL,
++	  .data_align = MALI_C720_BUFFER_ALIGN_DENSE,
++	  .num_fifos = 1,
++	},
++
++	[MALI_C720_BUFFER_CFG_BAYER14_DENSE] = {
++	  .data_format = 13,
++	  .data_layout = MALI_C720_BUFFER_LAYOUT_NORMAL,
++	  .data_align = MALI_C720_BUFFER_ALIGN_DENSE,
++	  .num_fifos = 1,
++	},
++
++	[MALI_C720_BUFFER_CFG_BAYER12_DENSE] = {
++	  .data_format = 11,
++	  .data_layout = MALI_C720_BUFFER_LAYOUT_NORMAL,
++	  .data_align = MALI_C720_BUFFER_ALIGN_DENSE,
++	  .num_fifos = 1,
++	},
++
++	[MALI_C720_BUFFER_CFG_BAYER10_DENSE] = {
++	  .data_format = 9,
++	  .data_layout = MALI_C720_BUFFER_LAYOUT_NORMAL,
++	  .data_align = MALI_C720_BUFFER_ALIGN_DENSE,
++	  .num_fifos = 1,
++	},
++
++	[MALI_C720_BUFFER_CFG_BAYER8] = {
++	  .data_format = 7,
++	  .data_layout = MALI_C720_BUFFER_LAYOUT_NORMAL,
++	  .data_align = MALI_C720_BUFFER_ALIGN_DENSE,
++	  .num_fifos = 1,
++	},
++
++	[MALI_C720_BUFFER_CFG_3SEMIPLANE_24BIT] = {
++	  .data_format = 48,
++	  .data_layout = MALI_C720_BUFFER_LAYOUT_NORMAL,
++	  .data_align = MALI_C720_BUFFER_ALIGN_DENSE,
++	  .num_fifos = 1,
++	},
++
++	[MALI_C720_BUFFER_CFG_NV12] = {
++	  .data_format = 144,
++	  .data_layout = MALI_C720_BUFFER_LAYOUT_NORMAL,
++	  .data_align = MALI_C720_BUFFER_ALIGN_DENSE,
++	  .num_fifos = 2,
++	},
++};
++
++static const struct mali_c720_mbus_format_info mali_c720_mbus_fmts[] = {
++	{
++	  .type = MALI_C720_FORMAT_BAYER_RGGB,
++	  .depth = MALI_C720_FORMAT_24BIT,
++	  .bit_depth = 24,
++	  .code = MEDIA_BUS_FMT_SRGGB24_1X24,
++	  .buffer_cfg = &mali_c720_buffer_configs[MALI_C720_BUFFER_CFG_BAYER24],
++	},
++	{
++	  .type = MALI_C720_FORMAT_BAYER_RGGB,
++	  .depth = MALI_C720_FORMAT_20BIT,
++	  .bit_depth = 20,
++	  .code = MEDIA_BUS_FMT_SRGGB20_1X20,
++	  .buffer_cfg = &mali_c720_buffer_configs[MALI_C720_BUFFER_CFG_BAYER20_DENSE],
++	},
++	{
++	  .type = MALI_C720_FORMAT_BAYER_RGGB,
++	  .depth = MALI_C720_FORMAT_16BIT,
++	  .bit_depth = 16,
++	  .code = MEDIA_BUS_FMT_SRGGB16_1X16,
++	  .buffer_cfg = &mali_c720_buffer_configs[MALI_C720_BUFFER_CFG_BAYER16],
++	},
++	{
++	  .type = MALI_C720_FORMAT_BAYER_RGGB,
++	  .depth = MALI_C720_FORMAT_14BIT,
++	  .bit_depth = 14,
++	  .code = MEDIA_BUS_FMT_SRGGB14_1X14,
++	  .buffer_cfg = &mali_c720_buffer_configs[MALI_C720_BUFFER_CFG_BAYER14_DENSE],
++	},
++	{
++	  .type = MALI_C720_FORMAT_BAYER_RGGB,
++	  .depth = MALI_C720_FORMAT_12BIT,
++	  .bit_depth = 12,
++	  .code = MEDIA_BUS_FMT_SRGGB12_1X12,
++	  .buffer_cfg = &mali_c720_buffer_configs[MALI_C720_BUFFER_CFG_BAYER12_DENSE],
++	},
++	{
++	  .type = MALI_C720_FORMAT_BAYER_RGGB,
++	  .depth = MALI_C720_FORMAT_10BIT,
++	  .bit_depth = 10,
++	  .code = MEDIA_BUS_FMT_SRGGB10_1X10,
++	  .buffer_cfg = &mali_c720_buffer_configs[MALI_C720_BUFFER_CFG_BAYER10_DENSE],
++	},
++	{
++	  .type = MALI_C720_FORMAT_BAYER_RGGB,
++	  .depth = MALI_C720_FORMAT_8BIT,
++	  .bit_depth = 8,
++	  .code = MEDIA_BUS_FMT_SRGGB8_1X8,
++	  .buffer_cfg = &mali_c720_buffer_configs[MALI_C720_BUFFER_CFG_BAYER8],
++	},
++
++	{
++	  .type = MALI_C720_FORMAT_BAYER_GRBG,
++	  .depth = MALI_C720_FORMAT_24BIT,
++	  .bit_depth = 24,
++	  .code = MEDIA_BUS_FMT_SGRBG24_1X24,
++	  .buffer_cfg = &mali_c720_buffer_configs[MALI_C720_BUFFER_CFG_BAYER24],
++	},
++	{
++	  .type = MALI_C720_FORMAT_BAYER_GRBG,
++	  .depth = MALI_C720_FORMAT_20BIT,
++	  .bit_depth = 20,
++	  .code = MEDIA_BUS_FMT_SGRBG20_1X20,
++	  .buffer_cfg = &mali_c720_buffer_configs[MALI_C720_BUFFER_CFG_BAYER20_DENSE],
++	},
++	{
++	  .type = MALI_C720_FORMAT_BAYER_GRBG,
++	  .depth = MALI_C720_FORMAT_16BIT,
++	  .bit_depth = 16,
++	  .code = MEDIA_BUS_FMT_SGRBG16_1X16,
++	  .buffer_cfg = &mali_c720_buffer_configs[MALI_C720_BUFFER_CFG_BAYER16],
++	},
++	{
++	  .type = MALI_C720_FORMAT_BAYER_GRBG,
++	  .depth = MALI_C720_FORMAT_14BIT,
++	  .bit_depth = 14,
++	  .code = MEDIA_BUS_FMT_SGRBG14_1X14,
++	  .buffer_cfg = &mali_c720_buffer_configs[MALI_C720_BUFFER_CFG_BAYER14_DENSE],
++	},
++	{
++	  .type = MALI_C720_FORMAT_BAYER_GRBG,
++	  .depth = MALI_C720_FORMAT_12BIT,
++	  .bit_depth = 12,
++	  .code = MEDIA_BUS_FMT_SGRBG12_1X12,
++	  .buffer_cfg = &mali_c720_buffer_configs[MALI_C720_BUFFER_CFG_BAYER12_DENSE],
++	},
++	{
++	  .type = MALI_C720_FORMAT_BAYER_GRBG,
++	  .depth = MALI_C720_FORMAT_10BIT,
++	  .bit_depth = 10,
++	  .code = MEDIA_BUS_FMT_SGRBG10_1X10,
++	  .buffer_cfg = &mali_c720_buffer_configs[MALI_C720_BUFFER_CFG_BAYER10_DENSE],
++	},
++	{
++	  .type = MALI_C720_FORMAT_BAYER_GRBG,
++	  .depth = MALI_C720_FORMAT_8BIT,
++	  .bit_depth = 8,
++	  .code = MEDIA_BUS_FMT_SGRBG8_1X8,
++	  .buffer_cfg = &mali_c720_buffer_configs[MALI_C720_BUFFER_CFG_BAYER8],
++	},
++
++	{
++	  .type = MALI_C720_FORMAT_BAYER_GBRG,
++	  .depth = MALI_C720_FORMAT_24BIT,
++	  .bit_depth = 24,
++	  .code = MEDIA_BUS_FMT_SGBRG24_1X24,
++	  .buffer_cfg = &mali_c720_buffer_configs[MALI_C720_BUFFER_CFG_BAYER24],
++	},
++	{
++	  .type = MALI_C720_FORMAT_BAYER_GBRG,
++	  .depth = MALI_C720_FORMAT_20BIT,
++	  .bit_depth = 20,
++	  .code = MEDIA_BUS_FMT_SGBRG20_1X20,
++	  .buffer_cfg = &mali_c720_buffer_configs[MALI_C720_BUFFER_CFG_BAYER20_DENSE],
++	},
++	{
++	  .type = MALI_C720_FORMAT_BAYER_GBRG,
++	  .depth = MALI_C720_FORMAT_16BIT,
++	  .bit_depth = 16,
++	  .code = MEDIA_BUS_FMT_SGBRG16_1X16,
++	  .buffer_cfg = &mali_c720_buffer_configs[MALI_C720_BUFFER_CFG_BAYER16],
++	},
++	{
++	  .type = MALI_C720_FORMAT_BAYER_GBRG,
++	  .depth = MALI_C720_FORMAT_14BIT,
++	  .bit_depth = 14,
++	  .code = MEDIA_BUS_FMT_SGBRG14_1X14,
++	  .buffer_cfg = &mali_c720_buffer_configs[MALI_C720_BUFFER_CFG_BAYER14_DENSE],
++	},
++	{
++	  .type = MALI_C720_FORMAT_BAYER_GBRG,
++	  .depth = MALI_C720_FORMAT_12BIT,
++	  .bit_depth = 12,
++	  .code = MEDIA_BUS_FMT_SGBRG12_1X12,
++	  .buffer_cfg = &mali_c720_buffer_configs[MALI_C720_BUFFER_CFG_BAYER12_DENSE],
++	},
++	{
++	  .type = MALI_C720_FORMAT_BAYER_GBRG,
++	  .depth = MALI_C720_FORMAT_10BIT,
++	  .bit_depth = 10,
++	  .code = MEDIA_BUS_FMT_SGBRG10_1X10,
++	  .buffer_cfg = &mali_c720_buffer_configs[MALI_C720_BUFFER_CFG_BAYER10_DENSE],
++	},
++	{
++	  .type = MALI_C720_FORMAT_BAYER_GBRG,
++	  .depth = MALI_C720_FORMAT_8BIT,
++	  .bit_depth = 8,
++	  .code = MEDIA_BUS_FMT_SGBRG8_1X8,
++	  .buffer_cfg = &mali_c720_buffer_configs[MALI_C720_BUFFER_CFG_BAYER8],
++	},
++
++	{
++	  .type = MALI_C720_FORMAT_BAYER_BGGR,
++	  .depth = MALI_C720_FORMAT_24BIT,
++	  .bit_depth = 24,
++	  .code = MEDIA_BUS_FMT_SBGGR24_1X24,
++	  .buffer_cfg = &mali_c720_buffer_configs[MALI_C720_BUFFER_CFG_BAYER24],
++	},
++	{
++	  .type = MALI_C720_FORMAT_BAYER_BGGR,
++	  .depth = MALI_C720_FORMAT_20BIT,
++	  .bit_depth = 20,
++	  .code = MEDIA_BUS_FMT_SBGGR20_1X20,
++	  .buffer_cfg = &mali_c720_buffer_configs[MALI_C720_BUFFER_CFG_BAYER20_DENSE],
++	},
++	{
++	  .type = MALI_C720_FORMAT_BAYER_BGGR,
++	  .depth = MALI_C720_FORMAT_16BIT,
++	  .bit_depth = 16,
++	  .code = MEDIA_BUS_FMT_SBGGR16_1X16,
++	  .buffer_cfg = &mali_c720_buffer_configs[MALI_C720_BUFFER_CFG_BAYER16],
++	},
++	{
++	  .type = MALI_C720_FORMAT_BAYER_BGGR,
++	  .depth = MALI_C720_FORMAT_14BIT,
++	  .bit_depth = 14,
++	  .code = MEDIA_BUS_FMT_SBGGR14_1X14,
++	  .buffer_cfg = &mali_c720_buffer_configs[MALI_C720_BUFFER_CFG_BAYER14_DENSE],
++	},
++	{
++	  .type = MALI_C720_FORMAT_BAYER_BGGR,
++	  .depth = MALI_C720_FORMAT_12BIT,
++	  .bit_depth = 12,
++	  .code = MEDIA_BUS_FMT_SBGGR12_1X12,
++	  .buffer_cfg = &mali_c720_buffer_configs[MALI_C720_BUFFER_CFG_BAYER12_DENSE],
++	},
++	{
++	  .type = MALI_C720_FORMAT_BAYER_BGGR,
++	  .depth = MALI_C720_FORMAT_10BIT,
++	  .bit_depth = 10,
++	  .code = MEDIA_BUS_FMT_SBGGR10_1X10,
++	  .buffer_cfg = &mali_c720_buffer_configs[MALI_C720_BUFFER_CFG_BAYER10_DENSE],
++	},
++	{
++	  .type = MALI_C720_FORMAT_BAYER_BGGR,
++	  .depth = MALI_C720_FORMAT_8BIT,
++	  .bit_depth = 8,
++	  .code = MEDIA_BUS_FMT_SBGGR8_1X8,
++	  .buffer_cfg = &mali_c720_buffer_configs[MALI_C720_BUFFER_CFG_BAYER8],
++	},
++
++	{
++	  .type = MALI_C720_FORMAT_RGB,
++	  .depth = MALI_C720_FORMAT_16BIT,
++	  .bit_depth = 16,
++	  .code = MEDIA_BUS_FMT_RGB161616_1X48
++	},
++	{
++	  .type = MALI_C720_FORMAT_RGB,
++	  .depth = MALI_C720_FORMAT_12BIT,
++	  .bit_depth = 12,
++	  .code = MEDIA_BUS_FMT_RGB121212_1X36
++	},
++
++	{
++	  .type = MALI_C720_FORMAT_YUV,
++	  .depth = MALI_C720_FORMAT_16BIT,
++	  .bit_depth = 16,
++	  .code = MEDIA_BUS_FMT_YUV16_1X48
++	},
++};
++
++static const struct mali_c720_v4l2_format_info mali_c720_v4l2_fmts[] = {
++	/* RGB formats */
++	{
++		.fourcc = V4L2_PIX_FMT_RGB24,
++		.mbus_code = MEDIA_BUS_FMT_RGB161616_1X48,
++
++		.comp_planes = 1,
++		.bpp = { 24, 0, 0, 0 },
++		.hdiv = 1,
++		.vdiv = 1,
++
++		.supported_mask = BIT(MALI_C720_CAP_DEV_FR0_RGB),
++
++		.buffer_cfg = &mali_c720_buffer_configs[MALI_C720_BUFFER_CFG_3SEMIPLANE_24BIT],
++	},
++
++	/* YUV formats */
++	{
++		.fourcc = V4L2_PIX_FMT_NV12,
++		.mbus_code = MEDIA_BUS_FMT_YUV16_1X48,
++
++		.comp_planes = 2,
++		.bpp = { 8, 16, 0, 0 },
++		.hdiv = 2,
++		.vdiv = 2,
++
++		.supported_mask = BIT(MALI_C720_CAP_DEV_FR0_YUV),
++
++		.buffer_cfg = &mali_c720_buffer_configs[MALI_C720_BUFFER_CFG_NV12],
++	},
++};
++
++int mali_c720_validate_mbus_format_match(const struct mali_c720_mbus_format_info *format,
++					 const struct mali_c720_mbus_format_match *match)
++{
++	return (match->type_mask & format->type) &&
++	       (match->depth_mask & format->depth);
++}
++
++const struct mali_c720_mbus_format_info *
++mali_c720_get_mbus_config_by_code(u32 code)
++{
++	unsigned int i;
++
++	for (i = 0; i < ARRAY_SIZE(mali_c720_mbus_fmts); i++) {
++		if (mali_c720_mbus_fmts[i].code == code)
++			return &mali_c720_mbus_fmts[i];
++	}
++
++	return NULL;
++}
++
++const struct mali_c720_mbus_format_info *
++mali_c720_get_mbus_config_by_matched_index(unsigned int index,
++					   const struct mali_c720_mbus_format_match *match)
++{
++	unsigned int i;
++	unsigned int count = 0;
++
++	for (i = 0; i < ARRAY_SIZE(mali_c720_mbus_fmts); i++) {
++		if (!mali_c720_validate_mbus_format_match(&mali_c720_mbus_fmts[i],
++							  match))
++			continue;
++
++		if (count++ == index)
++			return &mali_c720_mbus_fmts[i];
++	}
++
++	return NULL;
++}
++
++const struct mali_c720_mbus_format_info *
++mali_c720_shift_mbus_format(const struct mali_c720_mbus_format_info *format,
++			    enum mali_c720_format_depth out_depth)
++{
++	unsigned int i;
++
++	if (format->depth == out_depth)
++		return format;
++
++	for (i = 0; i < ARRAY_SIZE(mali_c720_mbus_fmts); i++) {
++		if (mali_c720_mbus_fmts[i].type == format->type &&
++		    mali_c720_mbus_fmts[i].depth == out_depth)
++			return &mali_c720_mbus_fmts[i];
++	}
++
++	return NULL;
++}
++
++bool
++mali_c720_mbus_code_supports_fmt(const struct mali_c720_v4l2_format_info *fmt,
++				 u32 code)
++{
++	/* Display all formats if no code is provided */
++	if (!code)
++		return true;
++
++	return fmt->mbus_code == code;
++}
++
++bool
++mali_c720_format_supported_by_vdev(const struct mali_c720_v4l2_format_info *fmt,
++				   unsigned int dev_id)
++{
++	if (fmt->supported_mask & BIT(dev_id))
++		return true;
++
++	return false;
++}
++
++static int
++mali_c720_validate_v4l2_format_match(const struct mali_c720_v4l2_format_info *format,
++				     const struct mali_c720_v4l2_format_match *match)
++{
++	if (!mali_c720_mbus_code_supports_fmt(format, match->mbus_code))
++		return 0;
++
++	if (!mali_c720_format_supported_by_vdev(format, match->dev_id))
++		return 0;
++
++	return 1;
++}
++
++const struct mali_c720_v4l2_format_info *
++mali_c720_get_v4l2_config_by_fourcc(u32 fourcc)
++{
++	unsigned int i;
++
++	for (i = 0; i < ARRAY_SIZE(mali_c720_v4l2_fmts); i++) {
++		if (mali_c720_v4l2_fmts[i].fourcc == fourcc)
++			return &mali_c720_v4l2_fmts[i];
++	}
++
++	return NULL;
++}
++
++const struct mali_c720_v4l2_format_info *
++mali_c720_get_v4l2_config_by_matched_index(unsigned int index,
++					   const struct mali_c720_v4l2_format_match *match)
++{
++	unsigned int i;
++	unsigned int count = 0;
++
++	for (i = 0; i < ARRAY_SIZE(mali_c720_v4l2_fmts); i++) {
++		if (!mali_c720_validate_v4l2_format_match(&mali_c720_v4l2_fmts[i], match))
++			continue;
++
++		if (count++ == index)
++			return &mali_c720_v4l2_fmts[i];
++	}
++
++	return NULL;
++}
+diff --git a/drivers/media/platform/arm/mali-c720/mali-c720-formats.h b/drivers/media/platform/arm/mali-c720/mali-c720-formats.h
+new file mode 100644
+index 0000000000000000000000000000000000000000..5d6f01a14296028ac69affbcbb1e7df3ea62f012
+--- /dev/null
++++ b/drivers/media/platform/arm/mali-c720/mali-c720-formats.h
+@@ -0,0 +1,132 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * ARM Mali-C720 ISP Driver - Image signal processor
++ *
++ * Copyright (C) 2026 Arm Ltd
++ */
++
++#ifndef MALI_C720_FORMATS_H
++#define MALI_C720_FORMATS_H
++
++#include <linux/bits.h>
++#include <linux/types.h>
++
++enum mali_c720_format_type {
++	MALI_C720_FORMAT_BAYER_RGGB = BIT(0),
++	MALI_C720_FORMAT_BAYER_GRBG = BIT(1),
++	MALI_C720_FORMAT_BAYER_GBRG = BIT(2),
++	MALI_C720_FORMAT_BAYER_BGGR = BIT(3),
++	MALI_C720_FORMAT_RGB = BIT(4),
++	MALI_C720_FORMAT_YUV = BIT(5),
++};
++
++#define MALI_C720_FORMAT_BAYER		(MALI_C720_FORMAT_BAYER_RGGB | \
++					 MALI_C720_FORMAT_BAYER_GRBG | \
++					 MALI_C720_FORMAT_BAYER_GBRG | \
++					 MALI_C720_FORMAT_BAYER_BGGR)
++
++enum mali_c720_format_depth {
++	MALI_C720_FORMAT_8BIT = BIT(0),
++	MALI_C720_FORMAT_10BIT = BIT(1),
++	MALI_C720_FORMAT_12BIT = BIT(2),
++	MALI_C720_FORMAT_14BIT = BIT(3),
++	MALI_C720_FORMAT_16BIT = BIT(4),
++	MALI_C720_FORMAT_20BIT = BIT(5),
++	MALI_C720_FORMAT_24BIT = BIT(6),
++};
++
++enum mali_c720_buffer_layout_ids {
++	MALI_C720_BUFFER_LAYOUT_NORMAL,
++	MALI_C720_BUFFER_LAYOUT_ALTERNATE,
++};
++
++enum mali_c720_buffer_align_ids {
++	MALI_C720_BUFFER_ALIGN_DENSE = 0,
++	MALI_C720_BUFFER_ALIGN_LSB = 2,
++	MALI_C720_BUFFER_ALIGN_MSB = 3,
++};
++
++enum mali_c720_buffer_cfg_ids {
++	/* Bayer */
++	MALI_C720_BUFFER_CFG_BAYER24,
++	MALI_C720_BUFFER_CFG_BAYER20_DENSE,
++	MALI_C720_BUFFER_CFG_BAYER16,
++	MALI_C720_BUFFER_CFG_BAYER14_DENSE,
++	MALI_C720_BUFFER_CFG_BAYER12_DENSE,
++	MALI_C720_BUFFER_CFG_BAYER10_DENSE,
++	MALI_C720_BUFFER_CFG_BAYER8,
++
++	/* Packed/Planar for RGB and YUV */
++	MALI_C720_BUFFER_CFG_3SEMIPLANE_24BIT,
++
++	/* YUV */
++	MALI_C720_BUFFER_CFG_NV12,
++
++	MALI_C720_BUFFER_CFG_MAX,
++};
++
++struct mali_c720_buffer_cfg {
++	unsigned int data_format;
++	unsigned int data_layout;
++	unsigned int data_align;
++	unsigned int num_fifos;
++};
++
++struct mali_c720_v4l2_format_match {
++	u32 mbus_code;
++	unsigned int dev_id;
++};
++
++struct mali_c720_v4l2_format_info {
++	u32 fourcc;
++	unsigned int mbus_code;
++
++	unsigned int comp_planes;
++	unsigned int bpp[4];
++	unsigned int hdiv;
++	unsigned int vdiv;
++
++	/* Mask designating which of the available video devs support this format. */
++	unsigned int supported_mask;
++
++	const struct mali_c720_buffer_cfg *buffer_cfg;
++};
++
++struct mali_c720_mbus_format_match {
++	unsigned int type_mask;
++	unsigned int depth_mask;
++};
++
++struct mali_c720_mbus_format_info {
++	enum mali_c720_format_type type;
++	enum mali_c720_format_depth depth;
++	unsigned int bit_depth;
++	u32 code;
++
++	const struct mali_c720_buffer_cfg *buffer_cfg;
++};
++
++int mali_c720_validate_mbus_format_match(const struct mali_c720_mbus_format_info *format,
++					 const struct mali_c720_mbus_format_match *match);
++const struct mali_c720_mbus_format_info *
++mali_c720_get_mbus_config_by_code(u32 code);
++const struct mali_c720_mbus_format_info *
++mali_c720_get_mbus_config_by_matched_index(unsigned int index,
++					   const struct mali_c720_mbus_format_match *match);
++const struct mali_c720_mbus_format_info *
++mali_c720_shift_mbus_format(const struct mali_c720_mbus_format_info *format,
++			    enum mali_c720_format_depth out_depth);
++
++bool
++mali_c720_mbus_code_supports_fmt(const struct mali_c720_v4l2_format_info *fmt,
++				 u32 code);
++bool
++mali_c720_format_supported_by_vdev(const struct mali_c720_v4l2_format_info *fmt,
++				   unsigned int dev_id);
++const struct mali_c720_v4l2_format_info *
++mali_c720_get_v4l2_config_by_fourcc(u32 fourcc);
++const struct mali_c720_v4l2_format_info *
++mali_c720_get_v4l2_config_by_matched_index(unsigned int index,
++					   const struct mali_c720_v4l2_format_match *match);
++
++#endif /* MALI_C720_FORMATS_H */
 
----
-Lorenzo Stoakes (ARM) (11):
-      mm/filemap: convert fault and readahead logic to use vma_flags_t
-      mm/madvise: convert madvise_vma_behavior() to use vma_flags_t
-      mm: convert miscellaneous VMA flag tests to use vma_flags_t
-      fs/proc/task_mmu: convert VMA flag tests to use vma_flags_t
-      fs/coredump: convert vma_dump_size() to use vma_flags_t
-      uprobes: convert VMA flag tests to use vma_flags_t
-      perf: convert VMA flag tests to use vma_flags_t
-      selinux: convert VMA flag tests to use vma_flags_t
-      apparmor: convert VMA flag tests to use vma_flags_t
-      ima: convert VMA flag tests to use vma_flags_t
-      ipe: convert VMA flag tests to use vma_flags_t
-
- arch/powerpc/kvm/book3s_hv_uvmem.c | 10 ++++----
- fs/coredump.c                      | 16 ++++++-------
- fs/proc/task_mmu.c                 | 43 +++++++++++++++++----------------
- include/linux/huge_mm.h            |  4 ++--
- include/linux/ksm.h                |  4 ++--
- include/linux/mm_inline.h          |  2 +-
- kernel/events/core.c               | 26 ++++++++++----------
- kernel/events/uprobes.c            | 12 ++++++----
- lib/test_hmm.c                     |  4 ++--
- mm/damon/vaddr.c                   |  2 +-
- mm/filemap.c                       | 26 ++++++++++----------
- mm/hmm.c                           |  6 ++---
- mm/internal.h                      |  2 +-
- mm/khugepaged.c                    | 10 ++++----
- mm/ksm.c                           |  8 +++----
- mm/madvise.c                       | 49 ++++++++++++++++++++------------------
- mm/mempolicy.c                     |  4 ++--
- mm/mmap_lock.c                     |  4 ++--
- mm/mremap.c                        |  2 +-
- mm/msync.c                         |  4 ++--
- mm/oom_kill.c                      |  4 ++--
- mm/pagewalk.c                      |  2 +-
- mm/vma.h                           |  4 ++--
- security/apparmor/lsm.c            |  2 +-
- security/integrity/ima/ima_main.c  |  2 +-
- security/ipe/hooks.c               |  2 +-
- security/selinux/hooks.c           | 14 +++++------
- 27 files changed, 139 insertions(+), 129 deletions(-)
----
-base-commit: 5bd93e4b0b357e9d0a13199887aacbf04d1ce216
-change-id: 20261101-late-2026-vma-flags-461731a636c3
-
-Cheers,
 -- 
-Lorenzo Stoakes (ARM) <ljs@kernel.org>
+2.55.0
 
