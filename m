@@ -1,58 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795539230;
-	b=JQcSyQ+0+b28e6kLjTTGzhsJIT8WKg9CjnSgZPVI1usqKxhCrRmyFIF43/2zy9ARPnJH
-	 vwJtQagq++UN6+FsYRXyY7l53tKQkGSvU9HHUTSradP315yi6KfYrhWzisla0OHaUAiDb
-	 43ELSSCn7pwz80KVOAQT9g65a4ttwh8K/9zJi+Dzrd+kyiaSEfXM8m6MQz4ie31d3V2T1
-	 ZzDOgJUE1Nyl1NG7bDVap4ZWXVT3iaAlqkwPNdSvqgP0rqW4XA8cEpR3ZCRmlSzkhGcfu
-	 RrG/80BGipQ8uXpG6cuaFI5dgAKPDTr/Apdu7hMxy8pPdhW4dtz8DaP+YrUyhMy5dJg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795539230;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=TGS0p3l5aUvQSsnJUtozcXV+gafJYP1vaRPZ8q+1yVs=;
-	b=SaEHNv2Cy+3jtGuhn8PPDnZGRXvZ9EFoLdoEI9YLvhjPT88SZAvMKj3k4djkCfg2tVme
-	 3cCRMtylwWnVwuNJlvSQLOIZ+tSYfXr9SsGWV6gpfJ5KC+yj9dUx3TCL+U7xvmpbRB229
-	 buRPpiUr7z8KDCLgwFZsXTUSzjKl3cTk46SB7OwJxulRwm22wBqjGh3t6+L1EHJyCQPUn
-	 IEboFCNYp1qw7FCbi7JNiOEF2hW+kDWviakmcl0Kf1pSsicLlX5sdDh+Y1vaczCLy3zgO
-	 SHB3oc1BVfKwGbJI1X9zRoZUdWZhv20zh+CDh02kBxbsPX3tgKkv4r6JQHGOwEY9KpQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="W+Q/DLky";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.85.19
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795539313;
+	b=KE9oIpDWyO8AB9qphFk2M48EFkpl166WDrmDXBT3Pg/7W36SgcEtGU0+PKI0lr16BwSB
+	 3k4dRWj/ImcvcxKCWD6epbHRcP456hAEjREoOq+K2jN1iDjRqVtwqgM0dbC2+EDfWVM9n
+	 9Zig7RhNBYF1c/Od51vy6Wmkt0ianrhkJQD4T2mZp/p3M1Wx564GrN05RbF5CwX/PPXqu
+	 0BjZfVC8lRx39MnGBN9aPQYiiY+Cd5V3qOPT2M4dQuEEfJu/IJr3X8Qm6YPLo9SzqO6jy
+	 wesFv6vqchyWQf5tTHdm+KW0tqLVBY7C9lHz9gEQDX6EDVrVR42GshY9GZWPHjx/Znw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795539313;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
+	 User-Agent:From:Subject:To:Cc:References:Content-Language:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-LD-Processed:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=lWcttLjKGdCCJ6xgq0ctD1iWvbtlIYhf1zx+oCS2Q9w=;
+	b=hc/Kgl5CvJg86ts1XdXPgB7g4a0UpDconVzcY6zcHCOn93MkFTFvLfoQwsLzjRJjYPGC
+	 z9TG7+5Qjk+b3Z1nAuhntL3y1B+BWqoP7Bt/kQKe97L0ZpZktKOMnsEABF8+MdsG/IB+8
+	 kxzt5LyJNKb4WlOTAaou+cr03iYBRb7ewnNoc3DLKLxmBqm49L/cV7i+3Sj+eTbaUpjQR
+	 HDnoN4SCKTLHuRRrUXYh9JvvmxpQ4nnsG/oOr8jdmgzUVfvKlZa2XRU4AmwSqAYRW9X/t
+	 urnGGjomrz8/WDSFbYt5TSobhiJeXxXqCOu0O0QlRXvt3fe+kD8PzTpLCfvkhMPfscg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=amd.com;
+	spf=fail smtp.mailfrom=amd.com;
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=PYiMLYh+;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.85.19
+Received: from BYAPR05CU005.outbound.protection.outlook.com (mail-westusazon11010019.outbound.protection.outlook.com [52.101.85.19])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C9AD0606A330;
-	Tue, 24 Nov 2026 16:53:50 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B4BE1606A32C;
+	Tue, 24 Nov 2026 16:55:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B4BE1606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=W+Q/DLky
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C0D721F000EB;
-	Tue, 24 Nov 2026 16:53:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795539230;
-	bh=TGS0p3l5aUvQSsnJUtozcXV+gafJYP1vaRPZ8q+1yVs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=W+Q/DLkygKoWveglsObwnQuDQHgHhVTLQBYYieM2oxOIAYtQwAL3WEOF2DLCZL2rS
-	 SLsGk1yYj0c5ZhKJxzpeyjJzcVtuG2Se1RWtmT4trrESXCTrIN8m7qgE0VbXPKsRE4
-	 mdcWRycOFo5nBnfBLfr9yrKwu1fySVR64C0gXTQ28Y4kaOOAsfR/hzNg3tWVrgnBTR
-	 l019oR6l78Ai6rXpy1paM+/c2kolkIcYvlIhh8nQz0ome6zV/4CRCET1tE2TVg2AFU
-	 6l+uALjhvT1IN939gxT23Xpl+bUli61HeqMiWL/7rK/0tONu2P735MhETaICOWf/ir
-	 wcG9si/y7Wosw==
-Date: Tue, 24 Nov 2026 16:53:48 +0000
-From: Harry Yoo <harry@kernel.org>
-To: arina.kharlamova@mbzuai.ac.ae
-Cc: Jonathan Corbet <corbet@lwn.net>, 
-	Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>, 
-	Kees Cook <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>, 
-	Vlastimil Babka <vbabka@kernel.org>, Hao Li <hao.li@linux.dev>, Christoph Lameter <cl@gentwo.org>, 
-	David Rientjes <rientjes@google.com>, Roman Gushchin <roman.gushchin@linux.dev>, 
-	workflows@vger.kernel.org, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-hardening@vger.kernel.org, linux-mm@kvack.org
-Subject: Re: [PATCH] slab: fix the kernel-doc of kmalloc_flex() on counter
- overflowy
-Message-ID: <awWxR-AsjwmkLE1Z@thinkstation>
-References: <20261124-slab-doc-v1-1-9f14dfce47c8@mbzuai.ac.ae>
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=PYiMLYh+
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=KKkTvyYkNMV0ST8WpG+ObezxW6CnDdsZGg6odytCY42Dnrs1iNTtamWJGc84ofLx6VQAA1cIuJ+kqoIFK9GDr5MZCOHudATVKgYGzZcE0qE4ud1YrEb+9avhxtJIMjBaHKs/lj3bleG2TH8ufTdKDszdYy6tE2v+Xj/FlGO0kDSgeen1e4Xotf7c3kPbRW01739lSiVrwWx1RJuhjMqgLD+R4gvZZbX9nAObJRbC0mLBq3zu1Kl0heDuDg086jBhe1rTAU61/MA08fHA+iHdWdtPbF06uvpw2IsiEwMvuj2IcHLJrNyNLp/DxvjoVy1oUgUhhahUmVqkN3SxJbHsOA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=lWcttLjKGdCCJ6xgq0ctD1iWvbtlIYhf1zx+oCS2Q9w=;
+ b=vpkdlmO/nZmOk4KXkBWlkL2sSI5Q5PP+g5gqe7NQxSkEMeEScj9GEvRFpsMbZb0PBbN643Rco54Ew6rxOfvjr01EZpHGWc4izr142NPNr04JIymFAEwNywv5H9/tRtvgf+nF8cLWV83V0aTvO/ooaRj9ItOOxP0k3AkuIR4w2bYhP0TMJdk5WG7uK+lswhDYCTEfJPg4Yizmm+EI+0Uqw3wkE9z6vWrloBIiNwhs5E5mdRG/wRVyRywa289O09Y/B0iO/GWoE1STvfDu3YGsSpldDIHacsP65km/uvEZ0PO5bzPrGmdknlQ9sxnAXhRFUCOqWwdv7M3JM2ZPXlKmyA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=lWcttLjKGdCCJ6xgq0ctD1iWvbtlIYhf1zx+oCS2Q9w=;
+ b=PYiMLYh+3r/caSunYiwjx15A+iKI017yAPdfjf/M0CH+TcTbRqWi6LNtYWPspIZtJPCO3SUuLmgR9P/A2+mW4gJj94rMocKOWjKV8a9B1WDVkU9IfMwSlUhOjE55Ok2FOm4IH52AGmYRYApi0oNGbv9xFZbAhIByaIIcUvc+FvY=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from CY1PR12MB9559.namprd12.prod.outlook.com (2603:10b6:930:fd::14)
+ by CY1PR12MB9626.namprd12.prod.outlook.com (2603:10b6:930:106::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Tue, 24 Nov
+ 2026 16:55:07 +0000
+Received: from CY1PR12MB9559.namprd12.prod.outlook.com
+ ([fe80::1761:23a3:6ab5:fbb8]) by CY1PR12MB9559.namprd12.prod.outlook.com
+ ([fe80::1761:23a3:6ab5:fbb8%7]) with mapi id 15.21.0639.010; Tue, 24 Nov 2026
+ 16:55:07 +0000
+Message-ID: <c3a7df9c-e337-47ac-9a6d-6bb81177affa@amd.com>
+Date: Tue, 24 Nov 2026 22:24:59 +0530
+User-Agent: Mozilla Thunderbird
+From: "Nagavarapu, Dileep Kumar" <dnagavar@amd.com>
+Subject: Re: [PATCH v5 12/16] iio: adc: xilinx-xadc: Refine Zynq read/write
+ error handling on timeout/interrupt
+To: Andy Shevchenko <andriy.shevchenko@intel.com>
+Cc: Jonathan Cameron <jic23@kernel.org>, David Lechner
+ <dlechner@baylibre.com>, =?UTF-8?Q?Nuno_S=C3=A1?= <nuno.sa@analog.com>,
+ Andy Shevchenko <andy@kernel.org>, Michal Simek <michal.simek@amd.com>,
+ Conall O'Griofa <conall.ogriofa@amd.com>, linux-iio@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ git@amd.com, Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
+References: <20261110050201.1850399-1-dileepkumar.nagavarapu@amd.com>
+ <20261110050201.1850399-13-dileepkumar.nagavarapu@amd.com>
+ <avNEpH6KGJkeI7dX@ashevche-desk.local>
+Content-Language: en-US
+In-Reply-To: <avNEpH6KGJkeI7dX@ashevche-desk.local>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: MA0PR01CA0024.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:b8::10) To CY1PR12MB9559.namprd12.prod.outlook.com
+ (2603:10b6:930:fd::14)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,163 +104,129 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261124-slab-doc-v1-1-9f14dfce47c8@mbzuai.ac.ae>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY1PR12MB9559:EE_|CY1PR12MB9626:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8941f3d0-2501-42b7-c484-08df4a4bb16c
+X-LD-Processed: 3dd8961f-e488-4e60-8e11-a82d994e183d,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|376014|366016|1800799024|4143699003|261022105027099003|261026140227099003|11063799006|56012099006|261021121427099003|10067099003|261102123227099003|261009223027099003|261028144727099003|261026121527099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info:
+	QqKNfV/4pMYe56537dtogGhirx9ci+EEQKxJUmPXnrJu2rdu3aHWNGMe1vOkVJ+0YA6qLfW23Zq4hTiprW0Syapdf+c7S59auUzB/qVai6KYdSRIftqORXPKOxm06kF37LavKVl6oeMm8F0YX7s/Ae8s5+i5ljHfchWPdbxhnnwBf92FqJaHOmdyqeqJwl7umX6HWnUZ8WfkuOPI5GtWZ6yWOxhK/l2cj9Eg1teFbPTFZfhebdzk1TiDVBhohf27l1+fLqTTO35vLveeUO7fWwF3uYYbMrchIx3CqUiPSE553yaDoEswLw9/qIaM2VJo/HVOnctwQ1gYo6MwOL2zSc3PDwicKjNFG/4WPkYhk0IkkltclK9I6q6n6q52FFG7aUzZAfyazh21CgEEcl6McrQqgBNk0yKy6mz5ohsb3bXIZitOmQpPdebb0j+BINAk/pbCdky2Ovyxs3EUtjIk3wX5be8GtzrBfCjZzE+8YJM0EXIM3IG9I3Zm+UOQjwjPwJVcIXiaptNFje1JcmGligpfRyMhgRMOxAUjrus7eohnJ4F7Lb+kIktBwFgI4U2WP8RKgPzFqO4eM9kypXY0ahrCU044J8ACMrYkIyvdLMshwOTJRBxnYbWqm1uevjciPWSQqIaRrmISrXgwuqebk3v4h5rQWZD2y/agyleu4nY=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CY1PR12MB9559.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(366016)(1800799024)(4143699003)(261022105027099003)(261026140227099003)(11063799006)(56012099006)(261021121427099003)(10067099003)(261102123227099003)(261009223027099003)(261028144727099003)(261026121527099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?amx5TUY0UmpwdUR6dHE2YWxlYzlqbFlYTDdIeVVNL21xKzNpajVUSXFLOFdl?=
+ =?utf-8?B?bUVsejQzSWMwUkYzb09vU3BGdzJ6MTVoUHZtVEJtRVVFT09ydFoyWkNuMlVs?=
+ =?utf-8?B?NnVQL000UmVURVozc3ZocUljbG5kOHNjYlFmeUoxQVVndkdrSzhxTGh1T1A4?=
+ =?utf-8?B?UUh5VXByalkrbVBUS2ZybHliKzcyVGlaMWkrZysxOVc4UUpHSGdzZlNMYlVI?=
+ =?utf-8?B?NDlhQ0RvQ3lhSnFUOWprSGxPZDRreitmc1ZmSzNTdWJja0FLbUQvL1kyT21I?=
+ =?utf-8?B?RUpjNXdBbHZOSWFxRVhZUWdNM1hHZko1QVlTWTlvZlBVMXgyUjZYempJcXNw?=
+ =?utf-8?B?dWpNdytBa0VscHJSakxVUzlqaGJWT0Z3MDJuaTQvWkdqZDRnOTFuR2Y3eGFO?=
+ =?utf-8?B?VjY5UENYdGlidmtIWkJoWEV5ZkdoSDVaUmpZRmN2cTNXcjBWQmhjRkw4bFhU?=
+ =?utf-8?B?YkpKZGNmQzNuWlowWFpiOUhLakFheTJyMHBOTXo3M0ZlY0tnOFQ0UEZqM0Vn?=
+ =?utf-8?B?MGdPVnVZOU4zcXQ4TW5hVHN2c2pkMStwUVZ2b210d3RvT1FzcVRiRCtzVU5I?=
+ =?utf-8?B?RXl1MmdkMmxkd1lQVFY5SnpnRVV0Y09Ib2gyZWZTZTVHc3NIWDNtQXJuT056?=
+ =?utf-8?B?aFQ5NXIyWU5GOUVnU3hwSDhFempOYXMwajZOYk9ZeFF6Rnk3aVYyR0N0WkhE?=
+ =?utf-8?B?T0hhWTVNSm0rUFVzM3F1c0dqS1JRK3JVVjhyWFB0dlFETU9NcG84SkpmdXFU?=
+ =?utf-8?B?VW12MmoyKzFJSW5MVVhEcXdPSEtZVm9PRUF1RHdnY2RhUkZyWWhyQlRpWEhC?=
+ =?utf-8?B?YjF2Z1RoU01ueENHNlUyMVhKbmJGYjNrRGp1VUV6WXkwS1hZQm4rQ0ZoMURJ?=
+ =?utf-8?B?UU5LOFRHSUltQnB4QjRhSG93UXg0VnN6VUJhUVV5Y1lQajVUSFNjajJHNlFW?=
+ =?utf-8?B?Y2hlaWl3dkV5b1cwZnNYbFJzaWsxYUlPaHdSM01qWTRGVVBLQnNRZ2RaaTVq?=
+ =?utf-8?B?NDZpZFhGNEFPMS9XcFJ1L0dPZk9XczVDazJaWEV0ZGxmQ0pZajZLVVE3Z2Rv?=
+ =?utf-8?B?NnlZUkxUQUM0bnY5YTFnbkRFQVZ3cVlhWjltL3JQdzJTaEQ2UXBjd3Rwd2tx?=
+ =?utf-8?B?NEZIWjNFRHV0TjFNdytRRXU2dS93Sk9sRVVCSGFjQVJBS0dCK2Z5bHp2OVNa?=
+ =?utf-8?B?aVJUaVR0SUZCQ2xHM2ttN2Y1Qm9hd0ZYbmk3VU1tWTNGSUpLVHI2Z3BjcExw?=
+ =?utf-8?B?Y2p2TW9XcWsxS2YxdnlkZXdxdnJBeW5XZjVRUXB6cUdFZXJNeEwrR0N3b0hq?=
+ =?utf-8?B?Z0dDVk0rVWtnMzBLUG5iT2V0VnBlNXpuRWdZcDVLM0VPbGlZUm1RQjFERmhv?=
+ =?utf-8?B?cDUraUFvQXk4Z2t2ekorcWRlM3M5aXlWV2JpUGtHSnBaU2xNODNkQW9HWHNT?=
+ =?utf-8?B?TFIyMndjSWxhNzU0azFWbUZESDcvSFhnWnROY1hESjFLZTVhU3VhbEhGa241?=
+ =?utf-8?B?M3l4WWZiaHhYcElpUlRTQ1JIcWJqN3pQd1lpejJMTVNLeHk3K1BCN2gzYnBG?=
+ =?utf-8?B?RmovVnhFRUpTZ09adXdqVTIyTlV0d1ZwdndDTUFVZGtiaW94bGFZQjN6SUtH?=
+ =?utf-8?B?ZFdLZXRQclM1TVFRMmszLzhaRXB6eUJYYS9kdWhlN1duVnFPODBVbitENS9p?=
+ =?utf-8?B?dDVGeG9ROWJTR09VUkRCUzZFWi9FUzRzR2gwZ2prbXFZNno2ZWxWa1lqQ0dD?=
+ =?utf-8?B?aTJScm9PdUYvb1hMT05OY2tTS20xdUYwM3pORGZuVUpnRlBjcEJXMHN6bm4v?=
+ =?utf-8?B?RlZNaUFmck1lVXpNZGczQk1GbFlhZFNLZ3A4RXVrb2Q3eTdPTjJqZ0RmUzFQ?=
+ =?utf-8?B?ZWRvaEt4WVBGaFB5K1lmRUF2cmhLaE9GN0k1SlEzTDNvWGFMZndzL3hwVDY5?=
+ =?utf-8?B?bEhkeTNNOTZBQzd2ek9hekwwRE1Cd3hJS0wyem53RW93NStrNXptY0NqUzdu?=
+ =?utf-8?B?U2Nha0V1YlRQN1VUdDlsUUR1MkJlSi9ibXBYZ2pER0RsRHhGaW8rRWJoS1VW?=
+ =?utf-8?B?QUc4S0FCdnVwTUY1b0RwcFZ3cjFOV1NCdGpkRHBjRHhvbVhwU0pTdXI1d0lK?=
+ =?utf-8?B?Zk8zUnY0cDNuMDF5a2FXZnZPanZBcXBmcDhBQU41UWo1ME0zdFZkUjRHTzdh?=
+ =?utf-8?B?Rm5jNnlCWk5ESmFDL1RvMW5vL2MvNmNkQWppMFRVTnlPa2F4OFdtTjVqQThE?=
+ =?utf-8?B?Q2ZxNUZ2RVU1N0U5YXkwbXA0Y2ZXRmtHOEtmWmJyZTNLWW5qWDBEUjRlNXJQ?=
+ =?utf-8?Q?UqUHXxZFJIETxD9fFY?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8941f3d0-2501-42b7-c484-08df4a4bb16c
+X-MS-Exchange-CrossTenant-AuthSource: CY1PR12MB9559.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 16:55:07.3310
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: pxtYZwKhx53v3Uo4JUqaczhJC82EbZFIOF+ZkMQm0qiLU8nKRNCzu4SjLttZUKGSVj7UU+YhT1zPgodmbkK/fA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY1PR12MB9626
 
-Hi Arina,
 
-On Tue, Nov 24, 2026 at 03:58:53AM +0400, Arina Kharlamova via B4 Relay wrote:
-> From: Arina Kharlamova <arina.kharlamova@mbzuai.ac.ae>
 
-Please consider improving readability of the commit message and the
-comment. LLMs are good at writing a bunch of "technically correct" texts
-that are completely unreadable by human.
-
-> Commit fa5c82f4d2bb ("slab.h: disable completely broken overflow handling
-> in flex allocations") removed the overflows_flex_counter_type() check from
-> __alloc_flex(), but left the kernel-doc of __alloc_flex() and
-> kmalloc_flex(), and the text in deprecated.rst, saying that the
-> allocation fails when COUNT cannot be represented by the __counted_by()
-> counter.
-
-Good catch.
-
-Hmm, commit fa5c82f4d2bb says it needs to be inserted into
-__set_flex_counter but conditionally but apparently there is no
-follow-up. Kees?
-
-> The code instead allocates COUNT elements and stores COUNT into the
-> counter, truncated to the counter's type. With a u8 counter,
-> kmalloc_flex(*p, array, 256) returns a 256-element object whose counter
-> is 0.
-
-> With compilers that lack __builtin_counted_by_ref() the counter is
-> not written at all.
-
-Yup, which is benign as the counter is only used by hardening checks,
-right?
-
-And they should be skipped with such a compiler?
-
-> A caller that relies on the documented check and does not bound COUNT
-> itself gets an object whose __counted_by() size is smaller than the
-> allocation. Accesses inside the allocation are then reported by
-> UBSAN_BOUNDS, and readers that loop up to the counter see fewer elements.
-
-Good point but a counter overflow is an obvious bug so this explanation
-is unnecessary and verbose.
-
-> Make the documentation describe what the code does, and fix the
-> Returns: text of overflows_flex_counter_type(), which still describes
-> the inverted logic that the same commit corrected.
-
-Ok.
-
-> Returning NULL, as the old text described, is not done here. Some
-> callers allocate one element more than the counter can hold and then set
-> the counter themselves: ext4_htree_store_dirent() calls kzalloc_flex()
-> with ent_name->len + 1 elements for a struct whose name_len is a __u8,
-> so a 255-byte name would then fail with -ENOMEM.
-
-again, this pagraph doesn't add much value in the commit message IMHO.
-
-> Found while checking a summary of the kmalloc_obj() family against the
-> v7.0 to v7.4-rc2 text of slab.h with a battery of inputs compiled by
-> GCC 15.2, with the help of an AI coding assistant (Claude); I reviewed
-> the analysis and the patch. A KUnit case (not part of this patch) that
-> calls kmalloc_flex() with a u8 counter and COUNT 256 gets a non-NULL
-> object with the counter 0 on v7.4-rc2 (UML, GCC 15.2.0); with
-> UBSAN_BOUNDS, writing element 255 of that object reports "index 255 is
-> out of range for type 'u32 [*]'". This patch changes comments only;
-> scripts/kernel-doc -Wall reports the same warnings for slab.h and
-> overflow.h before and after it.
-
-again, we don't really put a paragraph like this in the commit message.
-
-> Fixes: fa5c82f4d2bb ("slab.h: disable completely broken overflow handling in flex allocations")
-> Signed-off-by: Arina Kharlamova <arina.kharlamova@mbzuai.ac.ae>
-> ---
->  Documentation/process/deprecated.rst |  8 ++++----
->  include/linux/overflow.h             |  5 +++--
->  include/linux/slab.h                 | 15 +++++++++------
->  3 files changed, 16 insertions(+), 12 deletions(-)
+On 11/10/2026 9:51 PM, Andy Shevchenko wrote:
+> Caution: This message originated from an External Source. Use proper caution when opening attachments, clicking links, or responding.
 > 
-> diff --git a/Documentation/process/deprecated.rst b/Documentation/process/deprecated.rst
-> index 22a5e62c92ea..f8b7fb6f9629 100644
-> --- a/Documentation/process/deprecated.rst
-> +++ b/Documentation/process/deprecated.rst
-> @@ -405,7 +405,7 @@ become, respectively::
->  	__auto_type ptr = kmalloc_obj(struct foo [, gfp] );
->  
->  The argument gfp is optional, the default value is GFP_KERNEL.
-> -If `ptr->flex_member` is annotated with __counted_by(), the allocation
-> -will automatically fail if `count` is larger than the maximum
-> -representable value that can be stored in the counter member associated
-> -with `flex_member`.
-> +If `ptr->flex_member` is annotated with __counted_by(), the counter
-> +member associated with `flex_member` is set to `count` on compilers that
-> +support it. `count` is not checked against the type of the counter, so
-> +the caller must make sure it fits.
-> diff --git a/include/linux/overflow.h b/include/linux/overflow.h
-> index d0f04436343e..6ce610dbc12e 100644
-> --- a/include/linux/overflow.h
-> +++ b/include/linux/overflow.h
-> @@ -566,8 +566,9 @@ static __always_inline size_t __must_check size_sub(size_t minuend, size_t subtr
->   * @FAM: Member name of the FAM within @TYPE.
->   * @COUNT: Value to check against the __counted_by annotated @FAM's counter.
->   *
-> - * Returns: true if @COUNT can be represented in the @FAM's counter. When
-> - * @FAM is not annotated with __counted_by(), always returns true.
-> + * Returns: true if @COUNT cannot be represented in the @FAM's counter.
-> + * When @FAM is not annotated with __counted_by(), or the compiler cannot
-> + * resolve the counter, @COUNT is checked against size_t.
->   */
->  #define overflows_flex_counter_type(TYPE, FAM, COUNT)		\
->  	(overflows_type(COUNT, typeof_flex_counter(((TYPE *)NULL)->FAM)))
-> diff --git a/include/linux/slab.h b/include/linux/slab.h
-> index ad645967a3ee..69fa9066137f 100644
-> --- a/include/linux/slab.h
-> +++ b/include/linux/slab.h
-> @@ -1091,10 +1091,13 @@ void *kmalloc_nolock(size_t size, gfp_t gfp_flags, int node);
->   * @FAM: The name of the flexible array member of @TYPE structure.
->   * @COUNT: how many @FAM elements to allocate space for.
->   *
-> + * If @FAM is annotated with __counted_by() and the compiler supports
-> + * __builtin_counted_by_ref(), the counter member is set to @COUNT. @COUNT
-> + * is not checked against the type of that member: a value it cannot
-> + * represent is stored truncated, so the caller must bound @COUNT.
-> + *
->   * Returns: Newly allocated pointer to @TYPE with @COUNT-many trailing
-> - * @FAM elements, or NULL on failure or if @COUNT cannot be represented
-> - * by the member of @TYPE that counts the @FAM elements (annotated via
-> - * __counted_by()).
-> + * @FAM elements, or NULL on failure.
->   */
->  #define __alloc_flex(KMALLOC, GFP, TYPE, FAM, COUNT)			\
->  ({									\
-> @@ -1137,9 +1140,9 @@ void *kmalloc_nolock(size_t size, gfp_t gfp_flags, int node);
->   * @...: optional GFP flags for the allocation (GFP_KERNEL when not specified).
->   *
->   * Returns: newly allocated pointer to @VAR_OR_TYPE on success, NULL on
-> - * failure. If @FAM has been annotated with __counted_by(), the allocation
-> - * will immediately fail if @COUNT is larger than what the type of the
-> - * struct's counter variable can represent.
-> + * failure. If @FAM has been annotated with __counted_by(), the struct's
-> + * counter variable is set to @COUNT when the compiler supports it. @COUNT
-> + * must fit in the type of that variable; it is not checked.
->   */
->  #define kmalloc_flex(VAR_OR_TYPE, FAM, COUNT, ...) \
->  	__alloc_flex(kmalloc, default_gfp(__VA_ARGS__), typeof(VAR_OR_TYPE), FAM, COUNT)
 > 
-> ---
-> base-commit: 9b95c9eeec894e969d590f45f9b760e88ba92876
-> change-id: 20261124-slab-doc-1894ca04d006
+> On Tue, Nov 10, 2026 at 10:31:57AM +0530, Dileep Kumar Nagavarapu wrote:
+>> Refine the error codes returned from the wait, the same way in both
+>> xadc_zynq_write_adc_reg() and xadc_zynq_read_adc_reg(): a timeout
+>> (ret == 0) now returns -ETIMEDOUT instead of the previous -EIO,
+>> giving a more precise errno for this condition. An interrupted wait
+>> (ret < 0) now propagates that error to the caller instead of being
+>> silently treated as success.
+>>
+>> xadc_zynq_write_adc_reg() waits on xadc->completion after issuing the
+>> Zynq DRP write command, then drains the response word from
+>> XADC_ZYNQ_REG_DFIFO. The DFIFO read already ran unconditionally after
+>> the wait, regardless of outcome.
 > 
-> Best regards,
-> --  
-> Arina Kharlamova <arina.kharlamova@mbzuai.ac.ae>
+> ...
+> 
+>>        ret = wait_for_completion_interruptible_timeout(&xadc->completion, HZ);
+>> -     if (ret == 0)
+>> -             ret = -EIO;
+>> -     else
+>> -             ret = 0;
+>>
+>>        xadc_read_reg(xadc, XADC_ZYNQ_REG_DFIFO, &tmp);
+>>
+>> -     return ret;
+>> +     if (ret == 0)
+>> +             return -ETIMEDOUT;
+>> +
+>> +     if (ret < 0)
+>> +             return ret;
+> 
+> First check for generic errors, then for exclusive conditions ( == 0).
+> 
+>> +     return 0;
+> 
+> ...
+> 
+>>        ret = wait_for_completion_interruptible_timeout(&xadc->completion, HZ);
+>>        if (ret == 0)
+>> -             ret = -EIO;
+>> +             return -ETIMEDOUT;
+>> +
+>>        if (ret < 0)
+>>                return ret;
+> 
+> Ditto.
+> 
 
--- 
-Cheers,
-Harry / Hyeonggon
+This patch does not fix any behavioural issue; it only changes the
+error codes. Sashiko suggested adding a Fixes tag. Is it OK to ignore
+this comment, or do you have any other suggestions?
+
+> --
+> With Best Regards,
+> Andy Shevchenko
+
