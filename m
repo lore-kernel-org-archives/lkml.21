@@ -1,57 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795549798;
-	b=vHfycXuOnpK2ugWErQtqbJiPEMPtS+pkdMpz0ZWfH0RmbZZosahOXutekOcll3NmWhaz
-	 TKj1aXFgcd7079BthQzmGPS6JWOOX+8dQ4NcCe7Ou/zFdAS0LGBnb+G24BY+Fe5z0znV3
-	 LcH5gZoVYD8BEOJ0yKvI5GyoN+ScECwGzrUR6GAIz8PPXj84OlCxGE5XmZwr2B2BVWvqE
-	 moDih7bklrOAbjJtV96psy2tfYixd/96yj9ZynwZbjDoIw+ge5J+oK9+4E00jYTam4ggh
-	 OBWpxB1lpfZQCX3wg3hZba4oANtXjODXOXIgjQUoBKg9JW/4FQcA+JS7i7kwAiHrzPw==
+	t=1795549800;
+	b=NsfURjoXNLSf378N6t8Kf8ejKrvtu7qng1I0P9qR0nCUTO5m+XKd5crzNRglZiSs1TN9
+	 eFkMW77g0UgSGJhGV3xKabTv/L65XAUzNQ5p9nORyNmWsxs7C6Om/uSjL4PlXNrwCjjUQ
+	 11L4vePJHqdvpwEmhU+cZ1SOje2lOKkh7y0UjmrPONaCp6sEFuvnBzTtOHoKEk81+W53q
+	 6dOynimTf4d1BpWwQwAzU67MnEtka3fBmwZD7vMgXLUM9ULrYwkGSAWsc4IZxObcDCx6P
+	 VlNtA78O3u+t8OrkoubtUJGgMN42A9vsDT8Fa2YxOE+9w40tRGSRwqQKJuqLcj3qB5Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795549798;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=3vQN+p5rn0xSzztfNibN0piC3NtsdsJU2CPlg44+nds=;
-	b=0B49Peje9xeGmpodqyX8nO+LqOVwESd0xTKnlBPd+M1mK309y+XfmU4hC2mOeJ37sRCC
-	 yvgeaKR+eplYYsbO89Q471V0GUM64QSUR1TJ5qs5W3moGAyluGifCtjm3zgJOpDp4lFoa
-	 +vp6+pIj6Ekt7bEC6H31aNib6bsQU5VsXGp7tY8BMWZzpm5FgFnUy6U0gi5lgCLX6cXoP
-	 I0AiCUNgeX/dGekKmfs30UFhVF4pB5ePFAvUBQoVGgt6KFntLqPtGD/XaaYBcVf6+4tai
-	 yxNmF2jiVTh6MTNg4CiCT4GeRrX4dGUmZIuD3uW4+G9O7fkE+MDXLnELfJtY8mKZF7w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795549800;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=vtM2MEBmduOcZZltNQ7NOe1dSUbwO9go+8cdTtGYRPE=;
+	b=nUa43TCT/NtRQjK1HpMRB/foVX1XVzbutP26B5j5z8u4zQNk6KmxCt8QG8EdUOCknRNT
+	 VZqUX+rfyL5JXpLSJoFe4IMFa6EPF9BIwGPBAryP/TpSlxyjAkZVwWkdmwrIZkrchwPpG
+	 KRDGcpsZWIhn8zNFseecP16FP1kXHq8QRSsj9eTTRaRuQrL+X4Wesw6qVWUDcIQHMJt/d
+	 L6FkHiskKR0ZOqSAzrlYg9ASE4uCDRJExhIEqGIMYuG7Et+MzcF5eH50100OWFNlOq5C/
+	 E0YlO85+nuMRGjKEdJcJwnsb7NMQQx9Frh4+p01DTAmywnAFtUD0YwmDdDoefUM6S0A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=collabora.com;
-	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=F+B7eqKV;
-	arc=none smtp.remote-ip=148.251.105.195
-Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2A1D4606A32D;
-	Tue, 24 Nov 2026 19:49:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2A1D4606A32D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=DlPx3Trw;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 6307C606A683;
+	Tue, 24 Nov 2026 19:50:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6307C606A683
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=F+B7eqKV
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1795549796;
-	bh=5+s3ntbrWWKLh7zmQebaGp4DJFwhHHTRju1hyqw1NWY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=F+B7eqKVvizIse/ZJu2JcFT0aznOBckGoON/nDF/bRi2SNlidw6B7KJtluVFz9Boh
-	 m28lpeAl62x+DfW4To84cgQOW8eGEj3PeKWbQuJTg/6MHkKFdHnd532MF38gqeSWPg
-	 YgR5gENYbFJVDuX1jPDCxp/VHT/5HKdALWT/+wJLXpoC85vKJwBa3dNb7uTDm2oRvU
-	 sjKaRNFncg7W1GxixFbLnYShuC1sZdofUCSQg7iJWGlCGdfQI8TsrjoCrEjgtAIx3E
-	 ouOe3Nw33BQ20w07l51t8BeSx+8DNYDT3S2riYaaM9KWVwsV3r1597eObaMi5Z9AdX
-	 NxdzoBJKiTweg==
-Received: from [100.64.0.241] (unknown [100.64.0.241])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id CC26F17E010E;
-	Tue, 24 Nov 2026 20:49:55 +0100 (CET)
-Message-ID: <a267fd1e-412a-489b-8c2f-be95b6ad8b31@collabora.com>
-Date: Tue, 24 Nov 2026 21:49:55 +0200
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=DlPx3Trw
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DA6B0497;
+	Tue, 24 Nov 2026 11:49:56 -0800 (PST)
+Received: from pluto.guest.local (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0AA433F763;
+	Tue, 24 Nov 2026 11:49:55 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795549799; bh=hg/2DnWI8gLzOZWWZXz8Xss4EyuZZ/xSdaUsIAEYlfM=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=DlPx3Trwn1iTMVbnYyz6mM1lIeiMM4jHxEOV8dD8d0lCfio3OjH6AO00g3bOTQD0k
+	 wD21GqXNXhBdtDqgiGkTyvMr04RCz0kABbNngGTnMQkRH1NG3yg5DhPP9I5dMwsV2I
+	 s9YlzM6XovU6v5daRzOQbXvDmGNKc8h4rtq0fdAk=
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	arm-scmi@vger.kernel.org,
+	linux-doc@vger.kernel.org
+Cc: sudeep.holla@kernel.org,
+	james.quinlan@broadcom.com,
+	f.fainelli@gmail.com,
+	vincent.guittot@linaro.org,
+	etienne.carriere@st.com,
+	peng.fan@oss.nxp.com,
+	michal.simek@amd.com,
+	d-gole@ti.com,
+	jonathan.cameron@oss.qualcomm.com,
+	elif.topuz@arm.com,
+	lukasz.luba@arm.com,
+	philip.radford@arm.com,
+	david@kernel.org,
+	souvik.chakravarty@arm.com,
+	leitao@kernel.org,
+	kas@kernel.org,
+	puranjay@kernel.org,
+	usama.arif@linux.dev,
+	kernel-team@meta.com,
+	Cristian Marussi <cristian.marussi@arm.com>
+Subject: [PATCH v17 01/34] firmware: arm_scmi: Harden iterators state parsing
+Date: Tue, 24 Nov 2026 19:48:07 +0000
+Message-ID: <20261124194841.1147072-2-cristian.marussi@arm.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20261124194841.1147072-1-cristian.marussi@arm.com>
+References: <20261124194841.1147072-1-cristian.marussi@arm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -61,85 +82,62 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 04/25] drm/display: hdmi-state-helper: Reject connectors
- lacking HDMI funcs
-To: Maxime Ripard <mripard@kernel.org>
-Cc: Helge Deller <deller@gmx.de>, Martin Bugge <marbugge@cisco.com>,
- Thierry Reding <treding@nvidia.com>, Hans Verkuil <hverkuil@kernel.org>,
- Mauro Carvalho Chehab <mchehab@kernel.org>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, kernel@collabora.com,
- linux-fbdev@vger.kernel.org, dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org
-References: <20261114-drm-conn-hdmi-cleanup-v1-0-20e8a33a2286@collabora.com>
- <20261114-drm-conn-hdmi-cleanup-v1-4-20e8a33a2286@collabora.com>
- <awQ37kPdVr3Rb4rL@houat>
-Content-Language: en-US
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-In-Reply-To: <awQ37kPdVr3Rb4rL@houat>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-Hi Maxime,
+Add checks in the core multi-part iterators support to detect generally
+malformed and inconsistent multi-part replies.
 
-Thanks for checking this out!
+Fixes: 36b6ea0fc6bc ("firmware: arm_scmi: Add iterators for multi-part commands")
+Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
+---
+ drivers/firmware/arm_scmi/driver.c    | 10 ++++++++++
+ drivers/firmware/arm_scmi/protocols.h |  7 +++++++
+ 2 files changed, 17 insertions(+)
 
-On 11/23/26 2:57 PM, Maxime Ripard wrote:
-> On Sat, Nov 14, 2026 at 08:03:28PM +0200, Cristian Ciocaltea wrote:
->> drm_atomic_helper_connector_hdmi_check() must only be used with
->> connectors set up via drmm_connector_hdmi_init(), which guarantees
->> connector->hdmi.funcs is set.
-> 
-> I don't think that's true or mandated anywhere, and just like any other
-> helpers, we'll probably end up with a driver reusing parts of the states
-> but reimplementing part of the logic.
+diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
+index 05092301db29..55d9cc487916 100644
+--- a/drivers/firmware/arm_scmi/driver.c
++++ b/drivers/firmware/arm_scmi/driver.c
+@@ -1873,11 +1873,21 @@ static int __scmi_iterator_run(void *iter, unsigned int *start, unsigned int *en
+ 		if (ret)
+ 			return ret;
+ 
++		if (i->t->rx.len < SCMI_MULTIPART_REPLY_MIN_SZ) {
++			dev_err(ph->dev, "Invalid multi-part reply.\n");
++			return -EINVAL;
++		}
++
+ 		st->rx_len = i->t->rx.len;
+ 		ret = iops->update_state(st, i->resp, i->priv);
+ 		if (ret)
+ 			return ret;
+ 
++		if (!st->num_returned && st->num_remaining) {
++			dev_err(ph->dev, "Inconsistent multi-part reply.\n");
++			return -EINVAL;
++		}
++
+ 		if (st->num_returned > st->max_resources - st->desc_index) {
+ 			dev_err(ph->dev,
+ 				"No. of resources can't exceed %d\n",
+diff --git a/drivers/firmware/arm_scmi/protocols.h b/drivers/firmware/arm_scmi/protocols.h
+index 8583159059e6..c15ec188291a 100644
+--- a/drivers/firmware/arm_scmi/protocols.h
++++ b/drivers/firmware/arm_scmi/protocols.h
+@@ -33,6 +33,13 @@
+ 
+ #define MSG_SUPPORTS_FASTCHANNEL(x)	((x) & BIT(0))
+ 
++/*
++ * Common minimum size required by all the existing standard and vendor
++ * protocols to hold number of returned and remaining items in a multi-part
++ * reply.
++ */
++#define SCMI_MULTIPART_REPLY_MIN_SZ	(sizeof(u32))
++
+ enum scmi_common_cmd {
+ 	PROTOCOL_VERSION = 0x0,
+ 	PROTOCOL_ATTRIBUTES = 0x1,
+-- 
+2.54.0
 
-Ack, I will drop drm_WARN_ON_ONCE() and move the guard in hdmi_compute_config(),
-before accessing connector->hdmi.funcs->max_bpc.
-
-I would simply return -EINVAL with a proper debug message, rather than forcing
-max_bpc to 0 and letting hdmi_compute_format_bpc() still be called, which would
-generate a bunch of potentially misleading "output format not supported for any
-bpc count" messages.
-
-Regards,
-Cristian
-
-> 
-> Maxime
-> 
->> Other connectors used to fail gracefully: with max_bpc and
->> supported_formats both zero, hdmi_compute_config() found no usable
->> format/bpc combination and returned -EINVAL before
->> hdmi_generate_infoframes() dereferenced hdmi.funcs.
->>
->> As those fields are being replaced by drm_connector_hdmi_funcs
->> counterparts, hdmi_compute_config() would dereference hdmi.funcs right
->> away.  To preserve the old behaviour, return an error early for such
->> connectors, and use drm_WARN_ON_ONCE() to flag the driver bug.
->>
->> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
->> ---
->>  drivers/gpu/drm/display/drm_hdmi_state_helper.c | 3 +++
->>  1 file changed, 3 insertions(+)
->>
->> diff --git a/drivers/gpu/drm/display/drm_hdmi_state_helper.c b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
->> index c50cedc7fa65..f533d5a7aab9 100644
->> --- a/drivers/gpu/drm/display/drm_hdmi_state_helper.c
->> +++ b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
->> @@ -912,6 +912,9 @@ int drm_atomic_helper_connector_hdmi_check(struct drm_connector *connector,
->>  	if (!new_conn_state->crtc || !new_conn_state->best_encoder)
->>  		return 0;
->>  
->> +	if (drm_WARN_ON_ONCE(connector->dev, !connector->hdmi.funcs))
->> +		return -EINVAL;
->> +
->>  	ret = hdmi_compute_config(connector, new_conn_state, mode);
->>  	if (ret)
->>  		return ret;
->>
->> -- 
->> 2.56.0
->>
