@@ -1,22 +1,22 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.160.110
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.201.48
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795529215;
-	b=JJ4CiFkuttA3agvscBqt4ZPgmkGJSDerQC6uAIUzagqL1kBWymvJRIFOvcVdPbcHsEre
-	 cr0mzmJZ9LVmhdBxoKua4OpIB0waU3HMJmuGSmjD0SrhmFox12xCd4MxMy4E7ixyPhxAD
-	 WZTnanSVhJhx6HviT+iUPxvvZv8UZDCVlegZqEN4u1bx7xYQHPUhSFjWdL7XWeaeB0Bxs
-	 QMwjnsGJ5i0gsKZNtX6CFIbf2lTauX8LNzaS0Rox2Kc7cF8xK/gnxg6Nq3MQxgqkSEoCf
-	 njVmY8xvIe6+39g121lILkcuGbP48yEvb4CC3zGITEMoEBHwtXVNjlipdBsADSyOVqQ==
+	t=1795529219;
+	b=lbh2bxjJPNEsIr5GjCHAUn+ItufR7WQuWXwdkVHTqnz4dx8znEBagDTN2Vcx8j8ldgfm
+	 QIqMol807MJwGKo8FVDIcYCNiDnwNlif5MyiXGFNkn+cc6NErLfSCfbGhjlI0H0CEVwOx
+	 DZ6NOOl2L58zWaB5LejUeZ2fjMRDs3NPcEq1yiDLFuZw3lIeFL7RybRBEbsRowub7uBsN
+	 dmXIiSCIOXF70jt3B2taJT2Zv+UpYjdPaYXzaOS/OI1GJmhxePoBl08sy/hUUZJ3550M9
+	 +9AXqP7VLCV5CpMKeb3TlFwTxDuK4uTFPkemlVl1PPn/yKBR4uWV4ONaDwE5xi/m/mA==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795529215;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795529219;
 	h=DMARC-Filter:DKIM-Signature:Received:Received:
 	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 Received:From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-EOPAttributedMessage:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
+	 Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
+	 References:MIME-Version:Content-Transfer-Encoding:Content-Type:
+	 X-Originating-IP:X-ClientProxiedBy:X-EOPAttributedMessage:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
 	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
 	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
 	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
@@ -26,81 +26,97 @@ ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
 	 X-MS-Exchange-CrossTenant-FromEntityHeader:
 	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=uAZyIjIYSxUKllcewpoHABXS4mX8F9Jyc32ESP8v5Es=;
-	b=R//Ja6oms30vdEzxycHsbA0hezheIXiorONzetF13FV/7csNRXRqYDNKsoR5cZYQKER2
-	 R8F2PqDeOp4oMC42869Coqm75xJ1sJYLcmQm0Cvc4azSxO4k8RnsulRW9ICwNuhmxhqc6
-	 MbA3YCF+fbRlcqV2HQ0jRjm4X0nBY274RZ2hJ5JG1erkfBJSMsMdju6QUbiKknxHT3txQ
-	 yfDUWLOaXC/gNv+NE9j5oo9Bi0kSECI0Tz8kiyJMCje3CtRx0no1jEw/AYDUKXPdmBLZM
-	 vLN4gNyIh8Lg3gAUSYhg2RXA2VCsAgtDBA3gbXF7H82rYITxLQTcenEcQGaXb3Nq4gQ==
+	bh=WIhUYILwaMEfxgcv7IXXyXP1rTMNcfNLEhrbq6z5Tms=;
+	b=HHv1AC/Q2TPCIP2ABe+4Xq8namkab3PCwoV1PFoLjDZyCa33KklsTuCq+seWfdfNCx/B
+	 B3llAE1r8OyHEjebjkTaqWf5bUBLu1A/wbtuHcvKQGqD1roL6fZXycSyZay9BBE+GKxrX
+	 b74xkHycUaSAisiL38ruzCr3f6ZJhH+joIUytv1KDKlkiigKhriyLYXK5coPw6hIeZbGU
+	 C6m9lT2ooXUDZeuDL1IWEmaUrrUFaHFjz8Vx93tihvhIMeHS05Gy4Cl3b2gpKE4J7Ko7Z
+	 Oh0qE1fTQtiNkKpyOC5RSZrCRU1MwJ8Vi4R8wawIXtY+ONOJWHQazUZ/0fsgWUjCXHg==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=wenske.fr;
-	spf=pass smtp.mailfrom=wenske.fr;
-	dkim=pass header.d=wenske.fr header.i=@wenske.fr header.a=rsa-sha256 header.s=selector1 header.b=dOmdpNGj;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.160.110
-Received: from PAUP264CU001.outbound.protection.outlook.com (mail-francecentralazon11021110.outbound.protection.outlook.com [40.107.160.110])
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=Ug966nhe;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.201.48
+Received: from CY3PR05CU001.outbound.protection.outlook.com (mail-westcentralusazon11013048.outbound.protection.outlook.com [40.93.201.48])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 66CE360A380A;
-	Tue, 24 Nov 2026 14:06:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 66CE360A380A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=wenske.fr
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=wenske.fr
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E12DB606B741;
+	Tue, 24 Nov 2026 14:06:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E12DB606B741
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=wenske.fr header.i=@wenske.fr header.a=rsa-sha256 header.s=selector1 header.b=dOmdpNGj
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=Ug966nhe
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=qj2zb3uHv+XYxVQk2XE1veKj/3E4aF7Gmd8Isrjcj3SacXU45F8VgrJ2wBp8yzFPuY6eGd/XB0dg/SZ9DgtIf147vb52sHu845aK3yZrYHCwpacYCC2vVAVdIosyKB1R7jKGSM+BZT4OFTklWQWeeIy0GDyUVo9FrrCloDVvoIkyKQtGqv5wj7wLDoeQXF+d4nAtJ93ZzqbvHnhdfYLRGVnb5eEEjDk3LEmb/8psFvFEIf1TPYYNPKWGnZBpwUaD2qo1faKRbGLegIZYBXlCnAbSKTBhZEIcZHssL3jyKQvQ/3ElgZNJmhGAt8JS30Sg3TQoz2Gfs2viKvwUq7HiIg==
+ b=GUMHxXqlz/2j5iao9KMtTcZmregGexabECHr3q/G9N9bMaZjz81rYJJHDmn1/EfERXre6hxETGfWXpWDEK3bW/z5zbytL50eebliMWsvjGkP/v9mezvWgG+01e4IzZkFARKxA77ekfHflvYCQtpVC+aZOc47J5g+9q5+tMjP3jHMBlEiGX8fV9TDnbtDkQDTXSdOoPlGyIXah93EBPnC6Jbsxnkm/sT6IR47SOL108625sYjIyNEDE3+JZgoGLc/gZ+FGyIxKgtoyE7N99l1amUx6a4t7Sa+2ExHMbcK5kmr91LjyWGdB9mhVKEe98dpyYh6gY0QtPRObYywdtxXgg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=uAZyIjIYSxUKllcewpoHABXS4mX8F9Jyc32ESP8v5Es=;
- b=VEnLBGE+tX3HsEpk+Ed9CeVLUzwIWJKjmXKQyarZcr7DERAZOfh0hjOlhhcFTXlSA7NJ3H8t33BIzQkr4ltpAxdpj38LM9HdYh8b0t+6DPRrUGI2SeRwOXOSWhO3ugx0vdPUxPWUDfbfm54GgrySCBD0t91rSkEApWcDRvXVoZdxHYk3W1U9PAWLbokJgUKvHm6Nlsl+h5zCc/aicmWurASXHvQi11pzrXlzaJ3Nz7e1Nos/hxOAhCNaNk8dRWxsSzpWrfLHIlzUWpum7CHe4m/BafRkGvFmcp+Lobwh3wDOS9ARLjfc+akp01AqJFeWgMYFsI7wJ9G+sD412W2R0A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 82.65.107.217) smtp.rcpttodomain=gentoo.org smtp.mailfrom=wenske.fr;
- dmarc=fail (p=quarantine sp=quarantine pct=100) action=quarantine
- header.from=wenske.fr; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wenske.fr;
- s=selector1;
+ bh=WIhUYILwaMEfxgcv7IXXyXP1rTMNcfNLEhrbq6z5Tms=;
+ b=IJAPxXghJdgffGPAjN2tG+04Nmb1ihL7SRqrhUwYakTuGCQAP2TPsgmLWycuAvZym9wJjaiLWhJVl4NRH/hmejxGapauPU1Z1xTaH9qtvC/fQ4wsSc4s8FM38UfA5O2A2sFVZGQz3qUp//rBI5SVi3dO+VVJTnU0V+MWU0Wy9Wqa7A+OWeuqDYJDj/ZExHRA9KAME8YKOF/MDoorzGQ2rJSOyqXmnY9weqbJG0C3Etsg6pf9/oZPbY+ImvLUF4NmqKxEIZn38nLUfhJYijvaNCM7WMyZ0LTaBlAkIHIHnq8rjLgsTSho2qSE8AqUjqXOAE763WVsHZBiAzWySR31Zg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=uAZyIjIYSxUKllcewpoHABXS4mX8F9Jyc32ESP8v5Es=;
- b=dOmdpNGjSx2fwcAPU0V9qnUfw1uPRQu5JdKYSGT7ivPsZo0uLfHLN8Yv1DaJ6WaM8IXEq3i7GL2IBhHl62Fo/gvjsP4w9oq84/ZJ0iBNII/6xJLZZlrX9gnoW6TKz19C2eiIDG8jct9TasvSTBvDgDfpDZE0ITqZnnNHP9qQSIzdkWtv5zAj5opbYbhCrgKrTHr6FlOG4mCMm9A48AR5vjD+Xyd888tB8dnC6/KXPQx7zWiplarwuU7OikWAXz1rtxC3bnGzTp14fz1/SHIl6kXsQUNHQE4XZq/b7WQM0aPUpiRkENyLxPqGTGx+rQTdF7A7WqpF4DK+0i1HBDnvug==
-Received: from PA7P264CA0262.FRAP264.PROD.OUTLOOK.COM (2603:10a6:102:375::13)
- by PA3PPFADE62A42B.FRAP264.PROD.OUTLOOK.COM (2603:10a6:108:1::67b) with
+ bh=WIhUYILwaMEfxgcv7IXXyXP1rTMNcfNLEhrbq6z5Tms=;
+ b=Ug966nheYftDHs9DwmUtrJewWXvFw9QXh4ShLNFJz5CEqUBUdeN95e4JDcA5YNa99C0ps0lfwN8jRi2GBjeLMsH9gds41lD6Nbh/i3c3Suk8K3QSjB9ulKIxAaN0xMUtTd0WW22Ky9UTR9JvRVV7ntuZHmYSOgqZJnT063Y8bwKdZh8wUmvY8yc7PZxNEGa+WlyE9djG8XOcOLwxaf71QSjiDtFqBrXpAHIap5JEQlS5ThZhn4S62GkYnX53dv+9sq8Lx+ypZR2L249tBhC9jfL570xHLbAKjYCr2Ax24z6jzxbn79s9k0cjyNMCTw1D5KrGoUTD0buLL4ICh4mmsg==
+Received: from PH8PR21CA0008.namprd21.prod.outlook.com (2603:10b6:510:2ce::29)
+ by MN2PR12MB4207.namprd12.prod.outlook.com (2603:10b6:208:1d9::23) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Tue, 24 Nov
- 2026 14:06:49 +0000
-Received: from PA2PEPF00019230.FRAP264.PROD.OUTLOOK.COM
- (2603:10a6:102:375:cafe::51) by PA7P264CA0262.outlook.office365.com
- (2603:10a6:102:375::13) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.15 via Frontend Transport; Tue,
- 24 Nov 2026 14:06:49 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=fail (sender IP
- is 82.65.107.217) smtp.mailfrom=wenske.fr; dkim=none (message not signed)
- header.d=none;dmarc=fail action=quarantine header.from=wenske.fr;
-Received-SPF: Fail (protection.outlook.com: domain of wenske.fr does not
- designate 82.65.107.217 as permitted sender) receiver=protection.outlook.com;
- client-ip=82.65.107.217; helo=lgs.sw-servers.net;
-Received: from lgs.sw-servers.net (82.65.107.217) by
- PA2PEPF00019230.mail.protection.outlook.com (10.167.242.36) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.3
- via Frontend Transport; Tue, 24 Nov 2026 14:06:49 +0000
-Received: from zephy.int.sw-servers.net (zephy.int.sw-servers.net [10.1.2.3])
-	by lgs.sw-servers.net (Postfix) with ESMTPS id 77BD232D;
-	Tue, 24 Nov 2026 15:06:49 +0100 (CET)
-Received: by zephy.int.sw-servers.net (Postfix, from userid 1000)
-	id 59B8010B2C3; Tue, 24 Nov 2026 15:06:49 +0100 (CET)
-From: Sebastien WENSKE <sebastien@wenske.fr>
-To: Ard Biesheuvel <ardb@kernel.org>, linux-efi@vger.kernel.org
-Cc: swenske@veepee.com,
- Ilias Apalodimas <ilias.apalodimas@linaro.org>,
- James Le Cuirot <chewi@gentoo.org>, linux-kernel@vger.kernel.org,
- stable@vger.kernel.org
-Subject: Re: [PATCH] efi/libstub: Allocate the INITRD table in ACPI reclaim memory
-Date: Tue, 24 Nov 2026 15:06:41 +0100
-Message-ID: <20261124140640.0f627d7e212c@wenske.fr>
-In-Reply-To: <37c38d1e-03cc-44ae-b617-d45fbf80acc5@app.fastmail.com>
-References: <20261012133712.618913-1-sebastien@wenske.fr>
- <37c38d1e-03cc-44ae-b617-d45fbf80acc5@app.fastmail.com>
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Tue, 24 Nov
+ 2026 14:06:52 +0000
+Received: from CY6PEPF0000004B.namprd03.prod.outlook.com
+ (2603:10b6:510:2ce:cafe::75) by PH8PR21CA0008.outlook.office365.com
+ (2603:10b6:510:2ce::29) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.688.3 via Frontend Transport; Tue, 24
+ Nov 2026 14:06:51 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 216.228.117.160) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ CY6PEPF0000004B.mail.protection.outlook.com (10.167.247.136) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.662.3 via Frontend Transport; Tue, 24 Nov 2026 14:06:51 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Tue, 24 Nov
+ 2026 06:06:28 -0800
+Received: from kalok-SPC741D16QM3.nvidia.com (10.126.231.37) by
+ rnnvmail201.nvidia.com (10.129.68.8) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.57; Tue, 24 Nov 2026 06:06:15 -0800
+From: Alok Kumar <alkumar@nvidia.com>
+To: <dakr@kernel.org>, <acourbot@nvidia.com>, <kvm@vger.kernel.org>,
+	<rust-for-linux@vger.kernel.org>, <nova-gpu@lists.linux.dev>,
+	<linux-pci@vger.kernel.org>
+CC: <alex@shazbot.org>, <jgg@nvidia.com>, <yishaih@nvidia.com>,
+	<skolothumtho@nvidia.com>, <kevin.tian@intel.com>, <airlied@gmail.com>,
+	<simona@ffwll.ch>, <ojeda@kernel.org>, <alex.gaynor@gmail.com>,
+	<boqun.feng@gmail.com>, <gary@garyguo.net>, <bjorn3_gh@protonmail.com>,
+	<lossin@kernel.org>, <a.hindborg@kernel.org>, <aliceryhl@google.com>,
+	<tmgross@umich.edu>, <markus.probst@posteo.de>, <jhubbard@nvidia.com>,
+	<apopple@nvidia.com>, <joelagnelf@nvidia.com>, <ecourtney@nvidia.com>,
+	<cjia@nvidia.com>, <smitra@nvidia.com>, <kjaju@nvidia.com>,
+	<alkumar@nvidia.com>, <ankita@nvidia.com>, <aniketa@nvidia.com>,
+	<kwankhede@nvidia.com>, <targupta@nvidia.com>,
+	<linux-kernel@vger.kernel.org>, <zhiwang@kernel.org>, <zhiw@nvidia.com>,
+	<boqun@kernel.org>, <daniel.almeida@collabora.com>, <tamird@kernel.org>,
+	<work@onurozkan.dev>, <jgg@ziepe.ca>, <bhelgaas@google.com>,
+	<kwilczynski@kernel.org>, <dri-devel@lists.freedesktop.org>,
+	<peter@colberg.org>, <xinmengs@nvidia.com>
+Subject: [PATCH v5 29/35] gpu: nova-core: vgpu: negotiate the GSP plugin RPC version
+Date: Tue, 24 Nov 2026 19:29:25 +0530
+Message-ID: <20261124135937.18583-30-alkumar@nvidia.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261124135937.18583-1-alkumar@nvidia.com>
+References: <20261124135937.18583-1-alkumar@nvidia.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -110,72 +126,146 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: rnnvmail203.nvidia.com (10.129.68.9) To
+ rnnvmail201.nvidia.com (10.129.68.8)
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA2PEPF00019230:EE_|PA3PPFADE62A42B:EE_
-X-MS-Office365-Filtering-Correlation-Id: 88015a63-dce8-4efa-5ffa-08df4a342efa
+X-MS-TrafficTypeDiagnostic: CY6PEPF0000004B:EE_|MN2PR12MB4207:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7dddd66c-9c78-4399-fdd6-08df4a34304e
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|36860700016|23010399003|82310400026|1800799024|376014|260925021911599003|260925022911599003|260925021311599003|10067099003|56012099006|5023799004|261026140227099003|4143699003|261021121427099003|261022105027099003|261022075727099003|261102123227099003|261028144727099003|261009223027099003|18002099003|22082099003;
+	BCL:0;ARA:13230040|376014|7416014|1800799024|23010399003|36860700016|82310400026|10067099003|261022075727099003|11063799006|261028144727099003|56012099006|261021121427099003|261102123227099003|261009223027099003|261021123027099003|261026140227099003|261022105027099003|261026121527099003|18002099003|22082099003|6133799003|3023799007;
 X-Microsoft-Antispam-Message-Info:
-	W9E3ObsSffmNdXlc+LiaiZw/V5/83lFtRDcsFxx1h75+hCNISMAKzmL6tjNTwqzndVs+f9W1VbYQQCG9yP1SXtInt8QzH7UwSny5/6dKgnYYIm1MkYI9YvpypczJ9x9DdhxevOEKPSuR+Yus5QuvNH377ehQsjtYYtvL7LOA9gLC3n7my6CdTD/nJxX8Dny1qsYRLpq00oPrc/x1lJVXlQRBeJkJxmS97j5uV7cyhQG2DbG3YyXDOUVjNmj9oIEiUXveA2hNvBsBJjZicSvYE3s0NieP/A4p7HlmWRjMqYwcpFMCq3xjb1vv5sz8dM8BOKjWI4vhAPpX3k4oJgvQEqn00pIHfcOPRF9ltlvLtFSQgiBvwseNorQ/W/Lnu8a0Og03WyNV0rOXQmKZh3IUItueQuSkmupnLVfPgwifhGbxi9XykWoetcEhTE6Nmhg9V7xAk8Cbm7Vz5EwvhNdciMK0xzsrRuojYVJP14x9SuNoNa5QV4kBVrghOOIwacq4EoE5kRINg88o7xdV3CIqMB4yQJYbCq/9XjnlRUMjrZWbFQDCwXQcorBNQiQmmq+YNiFI1PK3Whz7mj5ojpPvQ3LmQdbn/8B7vhlBr+DBSq8OT5SUpwiSdQlAD07t0u4n3yZAiWzK/CMByz7a97C6Dg==
+	uM3M0y12Hn2Nz06USk+P8PEzTH6JXYXnOkqNFYgDuyhEVxOyjnrAphFYqTcLg7+Cm3IL1RILzC8/lnCC1bBwtKlAsZcqIe6JLQAVvbpk6Pm4mQt6c9PfMybS2XaxkPXCuKnpinx0dJuFoOiiOw8iwSDJ6XA5ZYk+G1Wi6BPo1W+RlmLI2OigUgYR0w95newFf5TV3+CvOCc4tTUKYUYhp5zPD3LfOMZiIyXru5Hy1Tpb7zC/n2R2JASyG8lslNaHuthyHz+Dif62iqe0CZ/f70X5pfadBq/NgfIfoppYauT7ybdD9KXXdS6xunRbGArojs8eZ1ckDdmFd/ff5ZeMy+H1hZ15zSutRMLoDcnR5Ot3Z50djN8u6nOx/mq/afcIWNL7CRsJuzgHcDob+VfX3OGsYo/Fo+c2xIqGIcdMUHLZQUNhNNTb11REh18TqbPrUQgrsdcvPE7GpTILT2ZAW2N5hK7afi8ts7V7rhpYvcNZTHOUpyx3W8sbGDowbM9cOWSXCrMlKT4pnEaINt3PC+1NnziFHLdmdiivv/sIqIBCpSGSPdOhUAFeqYuo3lv1X+9n+rJuDyHgM7dpnK0UrUgadSwndVC8ICCbZ7rWm0mqVBAqsCG8AjM1Ck1zv6aJw5g4UYIjm8WL1qxuZSrfj8EC1KWzBycIwoubXEElD3OAcOryUTFnBzshhh65/ZX2xEnOUQsXJg2qUTzvn+9y7g==
 X-Forefront-Antispam-Report:
-	CIP:82.65.107.217;CTRY:FR;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lgs.sw-servers.net;PTR:lgs.sw-servers.net;CAT:NONE;SFS:(13230040)(36860700016)(23010399003)(82310400026)(1800799024)(376014)(260925021911599003)(260925022911599003)(260925021311599003)(10067099003)(56012099006)(5023799004)(261026140227099003)(4143699003)(261021121427099003)(261022105027099003)(261022075727099003)(261102123227099003)(261028144727099003)(261009223027099003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
+	CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(23010399003)(36860700016)(82310400026)(10067099003)(261022075727099003)(11063799006)(261028144727099003)(56012099006)(261021121427099003)(261102123227099003)(261009223027099003)(261021123027099003)(261026140227099003)(261022105027099003)(261026121527099003)(18002099003)(22082099003)(6133799003)(3023799007);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
 X-MS-Exchange-AntiSpam-MessageData-0:
-	tMOpfCS3V/QqIv53Y732yLMiNzNLAi32jHyMvTLNmfyUAPqgQn7EsKFN8TSJxLM5Ix0ajbsc3WmA5OA5ZOBKL/tnjcs90G3sVG4l6UWJOUNIdYeE144O1oXqbHPVh5u6vMF0035/Jk9a9uth6pGq2sd7kaG2BFJYeyZxy3YJaYemKVCSzFOitLttzhOsTav+C7mca7Hw1/vNEtqc2GjAAqySECguJOfJUPxF3kw5BnbEZ2XMLfwunEemCBsE3tPoDtOTEQG2iy3IgsfTVXwJT7kSnSfBEOXaU3pTcbQJBlwKH1ZfLHasTwWTvz6/1I9zNHRis4nN3cC2bEp5mVadKesBeixFvlNrvjbxEn0EJZCCm7REU/yDGmAigK203+eV7tFz8OKeJRIiI6wdaiVcHzIGnyZpzx7xHQnDohlbG9mACPp2eLTRZYX3lzqVYtuR
-X-OriginatorOrg: wenske.fr
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 14:06:49.6331
+	bXw45C54tts7zomjTN1NlG+LYRYO9ASSs4iH91dtpC7RIeE9YpVz5r6IvSk/7DiIIwmgDmWeymUpTxTsqO0ix1hE4P05R9fWGXUgSt+dxmv5h8tr7cC6wbmmNFZvsPdIg1D6bEIe3HiCSEnCic6Ve4s6WL2rITtWb+Ai94y78dHTB+resXkDNTnPVUDWgSgDZjRZp24rrA6Gcd5bQ6m3OJ6SuQsW0Q6sWauciuKGqXlh0T83G95m8wYHc7iSRh8blaIZwM39XJToMUsuw6qrbRxWDwfqgYJODZ9mO+QaPZtlEO0ifoz27oZ1eAQgtSPJteM36iSEcpQTf7ubbsDLnNNzjcYip70JK5HU/6zXLIHiS/+lhdZDL+00MsUVR9AV69ROg4kvOIaaD5Nk4GZ35ODgG08R3qW66nQ9Mm31kwnKA8sVtnYh2uA2iD7VgXPz
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 14:06:51.8504
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 88015a63-dce8-4efa-5ffa-08df4a342efa
-X-MS-Exchange-CrossTenant-Id: ff4ca3b8-6c54-4519-8b0b-9389fb15cdbb
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=ff4ca3b8-6c54-4519-8b0b-9389fb15cdbb;Ip=[82.65.107.217];Helo=[lgs.sw-servers.net]
-X-MS-Exchange-CrossTenant-AuthSource: PA2PEPF00019230.FRAP264.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7dddd66c-9c78-4399-fdd6-08df4a34304e
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	CY6PEPF0000004B.namprd03.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA3PPFADE62A42B
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR12MB4207
 
-On Tue, 24 Nov 2026, at 12:38, Ard Biesheuvel wrote:
-> There was a report recently about EFI_ACPI_RECLAIM_MEMORY being
-> problematic in combination with hibernate, as those regions tends
-> to move around.
->
-> Can you try this fix instead please?
->
-> https://git.kernel.org/pub/scm/linux/kernel/git/efi/efi.git/commit/?h=urgent&id=6863183e8b65e833f8140e20d526282a725e040e
+From: Zhi Wang <zhiw@nvidia.com>
 
-Hello Ard,
+The host must negotiate the RPC protocol with the booted GSP plugin
+before sending instance configuration.
 
-It works, thanks - please consider my patch withdrawn.
+After observing the plugin's ready marker, initialize the shared RPC
+buffers and submit the existing typed version-negotiation request
+through the instance's PluginRpc channel.
 
-Tested on x86_64 under QEMU/KVM (q35, SMM) with Debian's OVMF
-2025.02, both the plain and the Secure Boot capable builds (no keys
-enrolled), the kernel booted as a systemd-stub UKI (initrd through the
-LINUX_EFI_INITRD_MEDIA_GUID device path), then kexec'd twice in a row
-with kexec_file_load() and an initrd:
+Co-developed-by: Eliot Courtney <ecourtney@nvidia.com>
+Signed-off-by: Eliot Courtney <ecourtney@nvidia.com>
+Signed-off-by: Zhi Wang <zhiw@nvidia.com>
+Signed-off-by: Alok Kumar <alkumar@nvidia.com>
+---
+ drivers/gpu/nova-core/vgpu/commands.rs       | 20 ++++++++++++++++----
+ drivers/gpu/nova-core/vgpu/fw/commands.rs    |  1 -
+ drivers/gpu/nova-core/vgpu/gsp_plugin_rpc.rs |  2 --
+ drivers/gpu/nova-core/vgpu/instance.rs       |  3 +++
+ 4 files changed, 19 insertions(+), 7 deletions(-)
 
-- v7.2.10, the setup of my report: without any patch the kexec'd
-  kernel oopses in tcp_parse_options+0xe7 again, 16 bytes of its text
-  zeroed at the stale table's address (0x1d4bcf98). With your patch
-  both kexec'd kernels log
+diff --git a/drivers/gpu/nova-core/vgpu/commands.rs b/drivers/gpu/nova-core/vgpu/commands.rs
+index d0fd7ab2593b..c1783ace8b3f 100644
+--- a/drivers/gpu/nova-core/vgpu/commands.rs
++++ b/drivers/gpu/nova-core/vgpu/commands.rs
+@@ -38,11 +38,15 @@
+     },
+     sbuffer::SBufferIter,
+     vgpu::{
+-        fw::commands::{
+-            AssignedVfVgpuType,
+-            VgpuProperties,
+-            VgpuPropertiesSchema, //
++        fw::{
++            commands::{
++                AssignedVfVgpuType,
++                VgpuProperties,
++                VgpuPropertiesSchema, //
++            },
++            RpcMessage,
+         },
++        gsp_plugin_rpc::PluginRpc,
+         instance::Gfid,
+         Dbdf,
+     },
+@@ -223,3 +227,11 @@ pub(super) fn send_cleanup(dev: &device::Device, cmdq: &Cmdq<'_>, gfid: Gfid) ->
+     dev_dbg!(dev, "cleanup: gfid={} done\n", gfid.get());
+     Ok(())
+ }
++
++/// Negotiate the host protocol with a bootloaded GSP plugin.
++pub(super) fn negotiate_plugin_version(
++    dev: &device::Device,
++    rpc: &mut PluginRpc<'_, '_>,
++) -> Result {
++    rpc.rpc_call(dev, RpcMessage::VersionNegotiation, &[])
++}
+diff --git a/drivers/gpu/nova-core/vgpu/fw/commands.rs b/drivers/gpu/nova-core/vgpu/fw/commands.rs
+index a8f6f0316d25..168a2447b67c 100644
+--- a/drivers/gpu/nova-core/vgpu/fw/commands.rs
++++ b/drivers/gpu/nova-core/vgpu/fw/commands.rs
+@@ -31,7 +31,6 @@
+ use super::bindings;
+ 
+ /// Message types supported by the nova-core plugin RPC channel.
+-#[expect(dead_code)]
+ #[derive(Clone, Copy)]
+ #[repr(u32)]
+ pub(crate) enum RpcMessage {
+diff --git a/drivers/gpu/nova-core/vgpu/gsp_plugin_rpc.rs b/drivers/gpu/nova-core/vgpu/gsp_plugin_rpc.rs
+index d96f6072a941..c68681d8d08b 100644
+--- a/drivers/gpu/nova-core/vgpu/gsp_plugin_rpc.rs
++++ b/drivers/gpu/nova-core/vgpu/gsp_plugin_rpc.rs
+@@ -65,7 +65,6 @@ pub(super) fn comm(&self) -> &CommBufferRegion<'map, 'gpu> {
+     }
+ 
+     /// Initialize the control and response buffers for the first RPC.
+-    #[expect(dead_code)]
+     pub(super) fn init_rpc(&mut self) -> Result {
+         self.comm.initialize()?;
+         self.message_sequence = 0;
+@@ -82,7 +81,6 @@ fn next_sequence(&self) -> u32 {
+     }
+ 
+     /// Write one RPC message, ring the VF doorbell, and wait for its response.
+-    #[expect(dead_code)]
+     pub(super) fn rpc_call(
+         &mut self,
+         dev: &device::Device,
+diff --git a/drivers/gpu/nova-core/vgpu/instance.rs b/drivers/gpu/nova-core/vgpu/instance.rs
+index 94735df79e1a..2c8542a45643 100644
+--- a/drivers/gpu/nova-core/vgpu/instance.rs
++++ b/drivers/gpu/nova-core/vgpu/instance.rs
+@@ -31,6 +31,7 @@
+ 
+ use super::{
+     commands::{
++        negotiate_plugin_version,
+         send_bootload,
+         send_cleanup,
+         send_shutdown, //
+@@ -161,6 +162,8 @@ impl<'gpu> VgpuInstance<'gpu> {
+     fn activate(&mut self, vgpu: &VgpuManagerInner<'gpu>) -> Result {
+         let dev = vgpu.dev;
+         self.bootload(dev, vgpu.cmdq, &vgpu.fifo_engine_list)?;
++        self.plugin_rpc.init_rpc()?;
++        negotiate_plugin_version(dev, &mut self.plugin_rpc)?;
+ 
+         Ok(())
+     }
+-- 
+2.53.0
 
-    efi: ... (MEMATTR=0x1d4b9018 unusable) (INITRD=0x1d4bcf98 unusable)
-
-  and run normally.
-
-- v7.3.6, with a debug print before the wipe: without a fix the
-  kexec'd kernels read what looks like their own text at the table's
-  address (e.g. base 0x74fb894800000002 size 0x7400000208b73b26) and
-  clear it, without any visible failure this time. With your patch the
-  table is disregarded and the wipe never runs - also with the flash
-  locked to SMM (-global driver=cfi.pflash01,property=secure,value=on).
-
-- v6.18.65: applies, both kexecs fine.
-
-Tested-by: Sebastien WENSKE <sebastien@wenske.fr>
-
-Thanks,
-Sebastien
