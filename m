@@ -1,84 +1,107 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.13
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.179
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795510211;
-	b=wQUH5Bh9dXZMGSdcbTqoXGVV5kE2UvDLmt6pTcBILx6o+nCNqk4goRdJ0UyFRrGSSHQt
-	 8JfAYJwOUth/ve0IsIZr0CWrkBHbq4dk0jCNboGNCi18Knt/qHamv3uhhwwqS5sC0gAwA
-	 bs6o+KOyplduTOTOuK/Mfy1m58fVm2JMcB8TjN9hlKSnfhJQfCLgVGhNIonrQExg7f+wh
-	 0gwqq0koaVYyvahQGRBh0Bl0dCCprjWNLvqMYTRJnb/Krr4awhAIbtbu63lSlBEAIywxU
-	 /IjQeTqw9ExoSyId4wuValpyUL+mPQ7OQwXa1q6GaiTli6l5l6Oj5bUl5Xb6Epn1q2Q==
+	t=1795510231;
+	b=YsNgTVWicshDcfJW064n+saj9kvC90RUAIRhFDo6W3V4gA/KebPWeQt9/aDK2qrm30VV
+	 BaAbOo37Wkr7wzbgWBwJI6j5SUTNQuGEQnl7dyJAB9KNd5us/N85/+HDc6+ruUzdccZAd
+	 kA59saihFZuCuufriELta2UUpoQ4hoe6P+2wPMT7JeTXJgVgtH8qVqCCsxaJS+Ngupp8Z
+	 fof6FFaEyuyblFg7kebN4oXz6RVDimt6j3Ubyexi/S+1Z9115EadZ0hcosAaIxbylLikG
+	 FxVbQtUBUb+2a1CQheNdSFyqMwRMtxWRuO97UMxGTgO7DTF3oEwORZ/EBDAI3K1R8mw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795510211;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:Organization;
-	bh=cAZWv1J5h9sR/nU1CV9haoog/YOQkcMiNcrM/W6MpiY=;
-	b=2RsoLOli8mR1OQY0vl7WeSW20rf/08ZZG27sCocyIiZKwLEL00R8T9QgD+SuP2KVKQ6j
-	 b3XcQfGFu/lenS95CSTcRV2iq4Fa8ATwiPkwnewzHEW6aiLQj+xPjV3KQaR8gxbD9pzQy
-	 Yq2oIGYzy/85sple22YsNhPA59BM7Kc/wyP5JH9PiMUOnhhCzSJK4MWV1sJ6EMn8k2N1j
-	 Nmk81oWLt67ZzCAOSxw6UXKHmsOj/brZSE3576J5a5ya5nsWAji57gWDZ17UVgNoKv5U0
-	 5obh1RAaOL967c19AF3CGYSneNEdi/j6sa844Fo3/RvmJIoh+Ly4KQ5077+y5YJLVSg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795510231;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Content-Type:Date:Message-Id:Subject:From:To:Cc:In-Reply-To:
+	 References:MIME-Version:Content-Transfer-Encoding:X-Correlation-ID;
+	bh=Ytx/MmCKq4L7Gfy8rXv0iAOzT1xtWn9s97+5u9XXrhk=;
+	b=2puHaQsluRp0DlDiPQlZ1zjBAsX/Ni2txwfL7xFcp/M9mx3fNEWIl2akIevGOF5sUjdk
+	 ejwgAHO0J4PGX/sADwrWrASFuflY+ur6uiSS1GUzpS2TsyMZHOKsEwor8GU4YRqfJokLD
+	 I/ylG0ds+M82KzMUdnKQ8Ac6iIS/FbGPoe0xSh5+dZb2sfnzVQ/XExJpepB3k4t5RGV8V
+	 50McWV6JzvckEwZyWWHi9OvD/Rsoer8I2k8MUf2VyXq5w/9ddJkG66bPaEbztdW4zivvD
+	 NDO9jr8TIpkLBX4JlPPNJYDKQEpKhwn+XTypfvlGG6G4y4o8NkCzG/G9IzNo/mKZ5ug==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=ZJkx2040;
-	arc=none smtp.remote-ip=192.198.163.13
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.13])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=IwghTiG1;
+	arc=none smtp.remote-ip=209.85.214.179
+Received: from mail-pl1-f179.google.com (mail-pl1-f179.google.com [209.85.214.179])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CCF7A606A31E;
-	Tue, 24 Nov 2026 08:50:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CCF7A606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A654A606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 08:50:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A654A606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=ZJkx2040
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795510210; x=1827046210;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=4MZyUGIPMO09FWen2gHchcNcLkG633lgWXSjW+jl+zo=;
-  b=ZJkx2040RV4wqycnpSMMLF21vmALvh4qb1kjq9//A1NRF7qZY1CMvpq9
-   cjpHcI+1Hc/wN9om+emDj+STj+YXT2fLK6ukqlHytpPS3m891A5MCgJ+E
-   OzYDNWgl6eyWtXfCCscpxhkvyDGYhO5k4jEaoh3uMHYT0oFmY4Z/5uPS7
-   nS8lvbybN/ftMLAJWrNZr+kDaLsk/HUhZXxDHt4xKsOKTJwpoNHm5zemA
-   KA4LMe88QCPlfZO3cPmztPdB38Kn7+TjwcWBbWoR2M+hQWvMkcLlhDSz2
-   N3/PWpS8F/6lh/cMuHmYQmTOCYk79ozc00XbYRlejPdQrEulSCTVgGkzV
-   Q==;
-X-CSE-ConnectionGUID: d6uyKHCtRBqQvS8JrbGM8A==
-X-CSE-MsgGUID: VomM6u7fQ26cV02NYd/3+A==
-X-IronPort-AV: E=McAfee;i="6800,10657,11975"; a="4316145"
-X-IronPort-AV: E=Sophos;i="6.27,230,1787036400"; 
-   d="scan'208";a="4316145"
-Received: from orviesa005.jf.intel.com ([10.64.159.145])
-  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 00:50:09 -0800
-X-CSE-ConnectionGUID: OYVfEHlqRo2Jn7FmMYJOqg==
-X-CSE-MsgGUID: lmNVR7H8RIm536uiKTvy/w==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,230,1787036400"; 
-   d="scan'208";a="11420696"
-Received: from hrotuna-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.245.125])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 00:50:06 -0800
-Date: Tue, 24 Nov 2026 10:50:03 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Rupesh Majhi <zoone.rupert@gmail.com>
-Cc: Andy Shevchenko <andy@kernel.org>,
-	Antoniu Miclaus <antoniu.miclaus@analog.com>,
-	David Lechner <dlechner@baylibre.com>,
-	Eddie James <eajames@linux.ibm.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Lucas Stankus <lucas.p.stankus@gmail.com>,
-	Marcelo Schmitt <marcelo.schmitt@analog.com>,
-	Michael Hennerich <Michael.Hennerich@analog.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Petre Rodan <petre.rodan@subdimension.ro>, linux@analog.com,
-	linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/6] iio: debugfs register access through regmap in the
- core
-Message-ID: <awVPu-reXnQHbr9y@ashevche-desk.local>
-References: <20261124065016.185124-1-zoone.rupert@gmail.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=IwghTiG1
+Received: by mail-pl1-f179.google.com with SMTP id d9443c01a7336-2f05b465cd1so20104595ad.3
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 00:50:30 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795510230; x=1796115030; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to:cc:to
+         :from:subject:message-id:date:content-type:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Ytx/MmCKq4L7Gfy8rXv0iAOzT1xtWn9s97+5u9XXrhk=;
+        b=IwghTiG1toayCj+xAgXK+k7p1cSV2MCa+Uh7VOhYwrBfMiEnGgj4R1SOZ2YePkWuTc
+         MbW1zL6qvozZ64o0mUz1nYj+fb14MAiqrC27FUOBPpI/cUTF5OuDKxqIYzyYeLKzRREt
+         2kCkUzFyn/3v28hWN2TK14tfcvCwIa7S4V2IIz0+wQC4TBQBDmsermQN4UJcrx6rvmNn
+         3/8EAkX6z6f/OcFNpD6sl61nEAfMG+Cn7o3TLFbJSysmk5yloxbhfyhRTOtKJworbsI2
+         kSzvraXhHu9f5uQpVccYhvXqnpMImKthFTZhjpLF8YOFlrn9HJvNREJIS4dgqHA0ZxQS
+         k6zA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795510230; x=1796115030;
+        h=content-transfer-encoding:mime-version:references:in-reply-to:cc:to
+         :from:subject:message-id:date:content-type:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Ytx/MmCKq4L7Gfy8rXv0iAOzT1xtWn9s97+5u9XXrhk=;
+        b=y8wYzkq9iek00pP1Bks2Aw2Jgen1admTL0WngCEaEgokWE3oaAqHZuPpv6M4OrogEg
+         EEqCgHbdcdFhc4k/CtdLQJTXlTh2/5UjPbht1AzxIRjqZ6CESk3sJ1bta7zmIqvwlNFR
+         By4us6k20YUlRee9AVTSGVKH0h3vcZUJSrJKTRypKrrJf5bj7W0aUKyskKJe7YbMfIPz
+         XpiEoe8TH0uTohb0EwTojWI84jQVoCouxYB1FpJfA1fExMFRkGa7yB1k/KfdGtVMQalz
+         T90rg9Kcj0MPkGQW+HquIk0O2l2qskhwma1KK3SEDEh8Fh4aw4VSsZovwcJxpSaA18li
+         GC/g==
+X-Forwarded-Encrypted: i=1; AL+hErF06HU0XUweQexD9wjT/+0NOl5hEUDE1rK9v8gwEe4s5Ng76PmTkJQu6mQuIlAL94z8ZUpd5m3LTNdkcBY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9+Winta9a3mTzQ+BSgWr3GOstqrAe/6KX9cbL/7CiNfTD6+JOv
+	9i2q1LNCp41t6GicmXWaQx8uumVJ6wD7q/xaonLAPtvjCHC/3Wkp/ISb
+X-Gm-Gg: AZFdTZfFRhrPpOPttvKk2Vsyu0c2bQy7vqu9ETE+Znji8QmnPpIpGytZndblLz3BKdV
+	rKd9YorTHFLSZ65vBVeO55KMjYy/19yFpHkGUXGRG+qWotmDOccXPQ/8fB0d8X85eBe4auZVSqs
+	rpDHD4ddDirSWAIHGVvrDdMBQ/HLMbnRZ7xFk0wiovzMU+sx+hg4r4Pf7kKKGTDVMMOuffakKrA
+	j1ZjOBGZanWBeLBzm7l4NPRgf0Nc39nVrbt6dFwAfO+kIDcvGjC03RrY3PBi8HNKesVcZ3l63Le
+	Q1kXpV27sZncy3b2S8q0MTYWCzg4Gwu2nAUm6XfSxBkmpWO7nA4OuwE4oYtXuxpjHfSZ95kAK4w
+	xtS8ENPKEo+G9qwB9USe5HvFfuc93DM1H97GEkzFOMwt3B87Jj/qW/vqjKdHLF73XApIOQSbiEI
+	KdwgYaUWAPP4hOtj6QtDHW8BuObzJQ/xVLc3y/6bGdHsQOtr/WFP1DoPWMLZ2eDScfTtZaud7uN
+	7t6ZXlQE68qIhmIY43resqFLJnw5CATuGI/xs0SR92/rmda7Ke/rs1lxMheKxv0aEV2tam2Quvn
+	psUu0erUFr7MVUSBNk3MdrclTA==
+X-Received: by 2002:a17:902:d54f:b0:2ed:21fb:e762 with SMTP id d9443c01a7336-2f03f118afdmr122301645ad.12.1795510229878;
+        Tue, 24 Nov 2026 00:50:29 -0800 (PST)
+Received: from localhost ([2001:8004:1ee0:986a:826:47b4:7374:22bb])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f146b84sm65630815ad.71.2026.11.24.00.50.18
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 24 Nov 2026 00:50:29 -0800 (PST)
+Content-Type: text/plain; charset=UTF-8
+Date: Tue, 24 Nov 2026 16:50:16 +0800
+Message-Id: <DN3B92I0MGTB.BJYABJ1HG9XS@gmail.com>
+Subject: Re: [PATCH 1/4] platform/x86: clevo-laptop: add minimal WMI driver
+ skeleton and Kbuild plumbing
+From: "Nick Dowsett" <nick42d@gmail.com>
+To: "Werner Sembach" <wse@tuxedocomputers.com>, <nick42d@gmail.com>, "Hans
+ de Goede" <hansg@kernel.org>, =?utf-8?q?Ilpo_J=C3=A4rvinen?=
+ <ilpo.jarvinen@linux.intel.com>, "Miguel Ojeda" <ojeda@kernel.org>, "Boqun
+ Feng" <boqun@kernel.org>, "Gary Guo" <gary@garyguo.net>,
+ =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, "Benno Lossin"
+ <lossin@kernel.org>, "Andreas Hindborg" <a.hindborg@kernel.org>, "Alice
+ Ryhl" <aliceryhl@google.com>, "Trevor Gross" <tmgross@umich.edu>, "Danilo
+ Krummrich" <dakr@kernel.org>, "Daniel Almeida"
+ <daniel.almeida@collabora.com>, "Tamir Duberstein" <tamird@kernel.org>,
+ "Alexandre Courbot" <acourbot@nvidia.com>, =?utf-8?q?Onur_=C3=96zkan?=
+ <work@onurozkan.dev>
+Cc: "Armin Wolf" <W_Armin@gmx.de>, <linux-kernel@vger.kernel.org>,
+ <platform-driver-x86@vger.kernel.org>, <rust-for-linux@vger.kernel.org>
+In-Reply-To: <b5f96ec9-ee4c-44c8-8451-9f40bed43290@tuxedocomputers.com>
+References: <20261122-clevo-laptop-v1-0-881debf4d4b0@gmail.com>
+ <20261122-clevo-laptop-v1-1-881debf4d4b0@gmail.com>
+ <b5f96ec9-ee4c-44c8-8451-9f40bed43290@tuxedocomputers.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -88,32 +111,73 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261124065016.185124-1-zoone.rupert@gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Content-Transfer-Encoding: quoted-printable
+X-Correlation-ID: <DN30VXQ0GPTS.KZ91F75HTGGQ@gmail.com>
 
-On Tue, Nov 24, 2026 at 08:50:10AM +0200, Rupesh Majhi wrote:
-> More than 25 IIO drivers have a debugfs_reg_access callback that is
-> only a regmap_read() or regmap_write() on the regmap of the parent
-> device. Patch 1 adds a core helper for that, patches 2 to 5 use it in
-> four drivers and patch 6 adds register access to dps310 with it. The
-> other drivers can follow in batches if the helper is wanted.
-> 
-> The helper finds the regmap with dev_get_regmap() on the parent, so it
-> only fits drivers with one regmap there. Existing callbacks that take a
-> lock or claim direct mode around the access are left alone.
+On Mon Nov 23, 2026 at 10:12 PM AWST, Werner Sembach wrote:
+>> diff --git a/drivers/platform/x86/Kconfig b/drivers/platform/x86/Kconfig
+>> index 9ce384e0475e..18aa4550c9f4 100644
+>> --- a/drivers/platform/x86/Kconfig
+>> +++ b/drivers/platform/x86/Kconfig
+>> @@ -1059,6 +1059,23 @@ config OXP_EC
+>> =C2=A0
+>> =C2=A0 source "drivers/platform/x86/tuxedo/Kconfig"
+>> =C2=A0
+>> +config CLEVO_LAPTOP
+>> +=C2=A0=C2=A0 tristate "Clevo Laptop Platform Driver"
+>> +=C2=A0=C2=A0 depends on RUST
+>> +=C2=A0=C2=A0 depends on ACPI_WMI=3Dy
+>> +=C2=A0=C2=A0 depends on DMI
+>> +=C2=A0=C2=A0 depends on LEDS_CLASS
+>> +=C2=A0=C2=A0 help
+>> +=C2=A0=C2=A0=C2=A0=C2=A0 This driver provides platform support for Clev=
+o barebones and
+>> +=C2=A0=C2=A0=C2=A0=C2=A0 rebranded laptops (Tuxedo, Metabox, Sager, XMG=
+, etc.).
+>> +=C2=A0=C2=A0=C2=A0=C2=A0 Currently only Clevo NLx0AU boards (e.g. Metab=
+ox Edge NL57AU)
+>> +=C2=A0=C2=A0=C2=A0=C2=A0 with a 5-step white keyboard backlight are sup=
+ported over WMI.
+>> +=C2=A0=C2=A0=C2=A0=C2=A0 It is intended to be extended with additional =
+Clevo models and
+>> +=C2=A0=C2=A0=C2=A0=C2=A0 EC features over time.
+>> +
+>> +=C2=A0=C2=A0=C2=A0=C2=A0 To compile this driver as a module, choose M h=
+ere: the module
+>> +=C2=A0=C2=A0=C2=A0=C2=A0 will be called clevo-laptop.
+>> +
+>=20
+> TUXEDO is officially all caps.
+>=20
+> Technically all clevo barebones are rebranded and it is sometimes more th=
+en just
+> rebranding.
+>=20
+> Maybe just drop everything behind the "and".
 
-Nice! But I think we want a bit more to do to prepare for this change.
-I was triggered by regmap.h include in IIO core.
+No concerns from my side, happy to amend this in v2. Please have a think
+also about how you would like code license attributed to TUXEDO.
 
-I can see the first patch in the series to split debugfs bits into
-industrialio-debugfs.c first, and then your first patch builds on
-top of that.
+>> +impl kernel::InPlaceModule for ClevoLaptopModule {
+>> +=C2=A0=C2=A0=C2=A0 fn init(module: &'static ThisModule) -> impl PinInit=
+<Self, Error> {
+>> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 pin_init::pin_init_scope(mov=
+e || {
+>> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 if d=
+mi::get_system_info(dmi::Field::BoardName)
+>> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0 .is_none_or(|board| !SUPPORTED_BOARDS.contains(&board=
+))
+>=20
+> We most likely need more complex matching here in the future.
+>=20
+> Is dmi_system_id table matching available in rust for the linux kernel?
 
--- 
-With Best Regards,
-Andy Shevchenko
+Not currently, but I believe this would be a relatively straightforward
+binding to write if needed, or it may even be idiomatic to write the
+complex matching directly in this driver since Rust makes iteration
+and string matching simpler. I'd consider this out-of-scope for the MVP
+unless you have some other tested boards with the same requirements as
+the NLx0AU.
 
-
+Cheers Nick
