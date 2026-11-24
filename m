@@ -1,100 +1,122 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.178
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795541471;
-	b=rgPRPzyUVGWdzx0Y6aByXwrUKkO4AxPGUIYUbVM26aNQUGi39mJSjfvGmkcGo+QQ4zg1
-	 MJgsPne9SOMt2ibufu9iby68ZZ9g8wCHBmsN9JTN2lWyzViHBNI9q9Vx+tW48D0l3GgO6
-	 vD8ghatAjrqX8tMKTOOsrQbr49EwSPzNlL8J9yM+0rOxvTPO2dt6VqAmMQDAFpqgYwc/n
-	 Q0QUiRhwkQFM8f1ODaJGtxZ/t3xOQJAx9/PsUuZdfSX1CYQoe9yKn53Ovc82JWS6kdfTg
-	 f9MkQ1swhhMJdM6HqFGgJG2cOrrRjoFpMb61q6C9f02TV+7zTjZb27cEffz5ZY0UkRw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795541471;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=0RR5LvreyxciSo64ec1mUeCjNpiSiP2wPe91sNz/dzI=;
-	b=YfSZ8yv0pw+/LKYXOwD5qSw9sfqaMknTDw+M8RuZ9SWR2F3AevaUIZCyGqc8XduCWnup
-	 asZGMIcIM/0WceL5L78tLEdYUkl3LL1fg+UbNaMw+Bamf4xV7GI5FPVpdSAX/IelF+vmA
-	 CSAOvXDvaingu5tqfxnHWOsKZZialixMqZ0rv3mvTRFYoT8xH3a6F3lgiY3FmUa9KOA9K
-	 qL2qMqGX8jqfoobcysH+cquXe6prH0Vixh2SKv3YlxNkRgT5ssIlPrUJkzRyH5vMh3mJD
-	 UGfj8Kt26TprrfiOMEVRu1CCSxcNSWDAWidVJ65MgXJ8DA2te8vVjGx3Yzy5Ggic9uw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=iiitd.ac.in;
-	spf=pass smtp.mailfrom=iiitd.ac.in;
-	dkim=pass header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=Aa6JGeOV;
-	arc=none smtp.remote-ip=209.85.215.178
-Received: from mail-pg1-f178.google.com (mail-pg1-f178.google.com [209.85.215.178])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.62.52
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795541489;
+	b=lUx+ciEvUN2dDYb7+gL9JrQqLrXlG+AhCIbYo6uVcS0I86Zn3shWSk7FlzNqAGcO/hJ0
+	 dUNNbsKd5D/BrVI6z+IFyh6zNxLuBWkqdvrifBOnf/PqDfE8PZ5ebGD4tQHDKRf8hts2W
+	 z75nsO7VEN1NSIbQCf6USWJlSSQ2Cu104vj7OHJ0pJ/iLC1Fa1XWFDSBxvxPkeSVSD1TZ
+	 GGXI6c+NLd6S9lug4lV4HIjqG/WMKUyK3ZEUPaqs/vihE6okHVuTyaYe03zQTVPBPj8ot
+	 NHw+cu+2tff0DC+93ZrLLCCAhzMk6+IHQYzzE4e5Ufh1ewG7L5oAYQg7W2TmcF0EQBQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795541489;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
+	 Date:X-Mailer:Message-ID:In-Reply-To:References:Content-Type:
+	 X-MS-Reactions:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=rh2tp8mhJ17iK9O6ovVhJrl688gggXEfBhn9QZS+Im4=;
+	b=5JGy5+G/tq8Eo6yEN9vb6o1E5bw6c3nWUBNFD0ohiTGg8V0mA8Rk3x69DI6HHx0fV3uc
+	 TDdrbsNY4M7GTSglMY/WUbm4oPkawmnJTvLq3MJXcKRJXA3M++Ium/aUpKD9KauDHUYk+
+	 863E7T5AOKjxKORuY5iT9PG7oYysHRLzPIclTiiW2+6r0J8NS+3y57zG+RB/r6xjJGOXg
+	 f2nLBuZqoAjWyjoYffce+2Nu5kOqNHvGDubnJvHnwoK/e5DWUnWXiSTCiVODnCGPBK+po
+	 RgGd5wE3/HynGLn/+wYjWtfypaJnUhmmjKuH2DiU0JUZexCbPmv0157m8nDyahMmJXA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=heFfopeh;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.62.52
+Received: from DM5PR21CU001.outbound.protection.outlook.com (mail-centralusazon11011052.outbound.protection.outlook.com [52.101.62.52])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E978B606A321
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 17:30:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E978B606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=iiitd.ac.in
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=iiitd.ac.in
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 40B15606A31E;
+	Tue, 24 Nov 2026 17:31:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 40B15606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=Aa6JGeOV
-Received: by mail-pg1-f178.google.com with SMTP id 41be03b00d2f7-cc758830601so3669555a12.2
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:30:52 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=iiitd.ac.in; s=google; t=1795541452; x=1796146252; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=0RR5LvreyxciSo64ec1mUeCjNpiSiP2wPe91sNz/dzI=;
-        b=Aa6JGeOVqgmBHeyX+CVHplahTzuhVl0rCOAqE63zoW/1gMj5sgVfQP4M/KQSltCw12
-         KvG79kdzE1xh+zyzMhOhOz+XgyACK0vAmnofsMbkan46pRx64ah6a/Ua7sBgxA4pfnlR
-         KeQg9O4XwM0HuhBkzFzbbaQnezPzAuUXfJLQ8=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795541452; x=1796146252;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=0RR5LvreyxciSo64ec1mUeCjNpiSiP2wPe91sNz/dzI=;
-        b=gEWlFXfnyk1CDuabLdwM93X4oYFGLVxNQM0K1TaEAkrzq+H6MoWj75ri2yikw949rQ
-         AVZODTJXZ+0O1rzvFg/jW2Z1rCoU9kk4qqPpbP1jgf0DwneviOT2b/TqmAQiSNsHW0ei
-         FyTbBaWsheT+sIthuF/HMT3qQIjjyQlZNU+Gd/0w6BlgDdAmZwPZ8ViTZalGJj+Hnnv7
-         CkG2RXLOSVjdWk4EgPTDWYRLXVRwR//TD7ZdZbEY1dRsG8ZvuYiJ8CRbOSvL8kaY7Aaz
-         /mLzwxr1JA7w1sXJrrCNXLn31HY+e2TEyLGJSDZ4fO8RA8IoZPJRk0fxR6QfVRqtmVsP
-         bjwQ==
-X-Forwarded-Encrypted: i=1; AL+hErFXmbHqJB+iyHElXF7nkBmNtW53NwLQopmXIyvpsI/2t0b3kOvPXD7eZM4tKUqx8f5CUqrPM5P4Mc7ZZjc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/9zHhCe/S7LkBpa4dfJEF494TA1R9+49s7XBgCMC5CvXeJccqL
-	scgLPEDQkdgxpReYDiXdIVrh7SWAmMtVhUvJfYLWYA/OQ/j2sYRweZ7VYceaNXiQl88=
-X-Gm-Gg: AZFdTZct6kuv0aQ2sbcz3ebxPyWsFmpLZ8PvbfZrKf8Ydn4YON/4Jg0p5OUgs+Ol9Fs
-	RZxMVaOevchM7CxNu6m3tigUQsOZamulnoxb8DCtFUCf1O2U0maB6fHQsFBQ+CLXJ7WucejNxd9
-	iF6zsPWSBq1Iv+RHzxXIJOynbE+TQZxuDQtcnvHCeNrxH9S4UpNnewPajhXuVEdnYFBhh3gZzsg
-	AWbhgEcbzFtcILvFxE3RB84eBz6cqiI1Z3Fbc0FW4LZkp/6gtdTtQYywCLYf+5UTNbdzyjr5MAw
-	wORyuIDQz5dVMIX8h3BjpSbGv/3I/XCKqVuua6TPHnVvobkEtWSmZ+PWc3jv2f00L3KPXbnN0F4
-	B9t2uktwH6P8fCH8F34KUmVXjiA8tsUnnNNbLJkFJFVTIJvkCSvrX5EvbVGRa1AWijqoHA5eYXn
-	a6uB2E8rAvoKJxNBfrqPpu4DVXdv8q97dxxxQnv2ay4tFFLm4E6c0F5JuXD/cqJbed70gEzwOrp
-	E02nTrLl7JrNZsvFqgqV6BHklTo6a+J9DUnkOkaSaSFHSPGlKTDXGbi7vRKVUcPcI1xGTNLWt/s
-	5zsuf0t/hEFvFHzN07CAGCKzOudPXH+MZ2T4lA/dUHn7KFDLoi66hWoDoAkodxb/6RjZ9OcUQCl
-	c4Sr3NcTWvLFHDqAya9k8Zi0QVIrq9AVfFDcWsWWG6R8cI5MQ+opucfRDJefaZsyW
-X-Received: by 2002:a05:6a20:e614:b0:3e2:a849:64bc with SMTP id adf61e73a8af0-4014a271f0cmr15099410637.9.1795541452264;
-        Tue, 24 Nov 2026 09:30:52 -0800 (PST)
-Received: from iiitd-S2600STB.iiitd.edu.in ([103.25.231.160])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87285ccf4sm7249487b3a.12.2026.11.24.09.30.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 09:30:51 -0800 (PST)
-From: Piyus Kedia <piyus@iiitd.ac.in>
-To: wenjia@linux.ibm.com,
-	jaka@linux.ibm.com,
-	alibuda@linux.alibaba.com,
-	tonylu@linux.alibaba.com,
-	guwen@linux.alibaba.com
-Cc: netdev@vger.kernel.org,
-	linux-s390@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	horms@kernel.org,
-	kapil@presceralabs.ai,
-	stable@vger.kernel.org
-Subject: [PATCH net v3] net/smc: drop the connection when the peer's failover cursor is impossible
-Date: Tue, 24 Nov 2026 23:00:44 +0530
-Message-Id: <20261124173044.591937-1-piyus@iiitd.ac.in>
-X-Mailer: git-send-email 2.34.1
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=heFfopeh
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=FYslmPOZpgoSyuQdx63GjrbA0kdNZcS+m+pgEMzuFbGQ3qluOySJK4jfxNBitrCJmFn0FZ724AvgyVBTuVb6/96ooVCeL9lvBf/07cqqnXmRS3ulmvregF+nD0iwJSAsbQQ14lvMOTWGsyg/vCinUb7RlYlt4phmeLeAHdw2gaRZVVqFQHuFaqAjZGgr3lkxoAqmaVPYxZEz/hmShMOwiFfkt54bvRW3845h1UNTSUMG4VMRHjcPPwZCVLvv4KKV+jhqhekWc7MMyRh+3ehatkt4SP+FLITnwntgWVDdQn6vNGK+bhwpwSDUz+W5c7zKve70nXAlpmMsqcDSnUUtbg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=rh2tp8mhJ17iK9O6ovVhJrl688gggXEfBhn9QZS+Im4=;
+ b=oryOKsPDUFnWmg6cZ4dg+26dPKNmKwEM1dWyzVe9c7E39Zi5EnA720zikBAA0lm8v0co9ngMCXGJckrhx2iYmu5BHI+LD+JVTeAAG0dZlCjrInHyKDhm0Ogw10s9SSuyRW66x4GwQnz9LV+aMHoGaYjnt0o+y3lfuOTcTSIhvQmUemgqE2tOrtLiP2V9hN14V/fqY3EUOXAVg7OFsa/hLZWdHWHO7Ha1USjNP2fk0ebg6w1iWKkZOEsQ7nTCBZW9icQhbuSf9qUXOLJyDeqJ3+aWMQcXo6Q3Zw8ey5pqxK6InAUsEZbyRSyShLFhhCR76MhpVBqzcihWvnhfF8Ruiw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=rh2tp8mhJ17iK9O6ovVhJrl688gggXEfBhn9QZS+Im4=;
+ b=heFfopehOKznDQJrrmun62LXHHPHQ4bVoQudpAZ6Jyv59bt7Lgn6GrC9spuDvNTU4i5T/uQmW5TuAbR7sFDLOILEB4t/8q2LEqIPuklMNCcu4AWiTBhfcQulHhsJKnhtiiz/hbAkYsBb8VTOrzaN9EyUnhLaRMvALoEtOq+O4oo6TnqZtHmMUguHriJp5fEDgLgG30aS9xAzwmNC7GEPTi1/1pxm50McOkc1+bSpj02Zplcwz9PPPAXl906gzfVAj75M84UKMTFnpt9hqdMw7aRnPcIwyvMZsnWUl9gBxPz7pBL7s+5GKkGxUG3BLt5wiHsAl3CuAhTHsd4Q/KCGdQ==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from IA0PR12MB8374.namprd12.prod.outlook.com (2603:10b6:208:40e::7)
+ by MN0PR12MB5858.namprd12.prod.outlook.com (2603:10b6:208:379::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.10; Tue, 24 Nov
+ 2026 17:30:32 +0000
+Received: from IA0PR12MB8374.namprd12.prod.outlook.com
+ ([fe80::d85f:4c87:ae84:3f16]) by IA0PR12MB8374.namprd12.prod.outlook.com
+ ([fe80::d85f:4c87:ae84:3f16%6]) with mapi id 15.21.0639.012; Tue, 24 Nov 2026
+ 17:30:32 +0000
+From: Zi Yan <ziy@nvidia.com>
+To: Kairui Song <ryncsn@gmail.com>
+Cc: kasong@tencent.com, linux-mm@kvack.org,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Johannes Weiner <hannes@cmpxchg.org>, Muchun Song <muchun.song@linux.dev>,
+ Qi Zheng <qi.zheng@linux.dev>, Ying Huang <ying.huang@linux.alibaba.com>,
+ Chris Li <chrisl@kernel.org>, Baoquan He <baoquan.he@linux.dev>,
+ Nico Pache <nico.pache@linux.dev>, Usama Arif <usama.arif@linux.dev>,
+ Michal Hocko <mhocko@kernel.org>, Roman Gushchin <roman.gushchin@linux.dev>,
+ Shakeel Butt <shakeel.butt@linux.dev>, David Hildenbrand <david@kernel.org>,
+ Lorenzo Stoakes <ljs@kernel.org>, "Liam R. Howlett" <liam@infradead.org>,
+ Barry Song <baohua@kernel.org>, Axel Rasmussen <axelrasmussen@google.com>,
+ Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>,
+ Vlastimil Babka <vbabka@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
+ Nhat Pham <nphamcs@gmail.com>, Youngjun Park <youngjun.park@lge.com>,
+ Gregory Price <gourry@gourry.net>,
+ "Matthew Wilcox (Oracle)" <willy@infradead.org>,
+ Baolin Wang <baolin.wang@linux.alibaba.com>,
+ Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>,
+ Lance Yang <lance.yang@linux.dev>, Hugh Dickins <hughd@google.com>,
+ SJ Park <sj@kernel.org>, David Rientjes <rientjes@google.com>,
+ Yu Zhao <yuzhao@google.com>, Vernon Yang <vernon2gm@gmail.com>,
+ Zicheng Wang <wangzicheng@honor.com>, Tal Zussman <tz2294@columbia.edu>,
+ Xiang Liu <liuxiang.277@bytedance.com>,
+ Ehab Ababneh <ehab.ababneh@intel.com>,
+ Zhao Zhenzhuo <zhaozhengzhuo@uniontech.com>, Lian Wang <lianux.mm@gmail.com>,
+ Joanne Koong <joannelkoong@gmail.com>, Kunwu Chan <kunwu.chan@gmail.com>,
+ Hui Zhu <hui.zhu@linux.dev>, Maxim Muzafarov <maxmuzaf@gmail.com>,
+ linux-kernel@vger.kernel.org, cgroups@vger.kernel.org, damon@lists.linux.dev,
+ linux-doc@vger.kernel.org, Tianyi Chen <hi@tychen.cc>,
+ Ridong Chen <ridong.chen@linux.dev>
+Subject: Re: [PATCH v6 15/18] mm/huge_memory: mark folio as accessed more
+ accurately on split
+Date: Tue, 24 Nov 2026 12:30:28 -0500
+X-Mailer: MailMate (3.0r7038)
+Message-ID: <09D65D03-B939-4E8E-B4D1-4B15FFAEBB37@nvidia.com>
+In-Reply-To: <awXABa3dYhEN0YEt@KASONG-MC4>
+References: <20261124-mglru-fg-v6-0-8ffea39934a6@tencent.com>
+ <20261124-mglru-fg-v6-15-8ffea39934a6@tencent.com>
+ <DN2V8E26C4EL.2TU52TEVLUFA@nvidia.com> <awXABa3dYhEN0YEt@KASONG-MC4>
+Content-Type: text/plain
+X-MS-Reactions: disallow
+X-ClientProxiedBy: MN2PR13CA0004.namprd13.prod.outlook.com
+ (2603:10b6:208:160::22) To IA0PR12MB8374.namprd12.prod.outlook.com
+ (2603:10b6:208:40e::7)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,188 +126,106 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA0PR12MB8374:EE_|MN0PR12MB5858:EE_
+X-MS-Office365-Filtering-Correlation-Id: d20d30b2-2cd9-42f6-9a40-08df4a50a433
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|7416014|1800799024|376014|366016|23010399003|261102123227099003|261026140227099003|261026121527099003|261021121427099003|11063799006|261022105027099003|4143699003|56012099006|261028144727099003|10067099003|22082099003|18002099003|6133799003;
+X-Microsoft-Antispam-Message-Info:
+	s0jzjEUVI8wscJmTDO9tgPBR7K1CrUMnceE3LLxAHBotJGJ6qldhLzhjTP/e9T+Wk5dqiIl+jmeBfldQT+E+rwnCQgnmATqvQfnRjm8woBcHwEup0fqFRyFSgJuhCHxBMv/ky+SoCSO8zUh8Pf8dgFLfrnkCG/Lg7fsEd+JCcZUnPRnXIKO7ojF4JJN2YITlHqPoBq5+XNAmMqtu+KBo6Bb2IAaYXi0LczkNkFHPsXAqXuPJJPsmX9pau0wwWjqr1WnCZDkgV0fSCmtmdmUt5rCPicWcrBCusEKxZBbY0fGckCySvnmOhsZWkmfBk8fddKt8O3Mju5n0mFqNqTcj21x6XMIZ49oepj7srxyBqiy/FcYeydxCYuwpwp7YiiOphGYJh19MDu+ohupQumB5Cd3VV54WENFnU9dzy04Uxvo5JayM8VsNK1OebLeuHK8t4I7uUJH9njsFRKG8LHqFxBOIsrE/xbMZE5j1LWDyjTtqgnX/JwGG8/3oSkhqafgSWIKFvsiNulKEkm0KcIA9uI2nSK+zicg6gRpvXhO1X8Ckat+uxAhEATEakWaNsfOxPOxa/O9sWiLlF61OpbdieuTBWxtOzIQ0b6UPwdazeVSqc0fGpeiaV+V46ctrjDQM9zrKCfiGmVqmvLQwliSXeo6fIKrcG1DQ3FhRNihYVLw=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA0PR12MB8374.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(376014)(366016)(23010399003)(261102123227099003)(261026140227099003)(261026121527099003)(261021121427099003)(11063799006)(261022105027099003)(4143699003)(56012099006)(261028144727099003)(10067099003)(22082099003)(18002099003)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?gtmhdio2108nKFlyPU7q0YAlDShAYTsAjxJEjFNjq7T+rgg9K5Fpkt1rYklK?=
+ =?us-ascii?Q?C8sCJoQ4uJJnLFhgyEJIXfa51vvChShuI3aqXRielY5A1zQi2a+dXPWEqcwU?=
+ =?us-ascii?Q?PnNT+gG1s7zaNayRgai0gmLGqmhBY+r5cCKVgyPVCLNr5nIw5QdFExD6r/uo?=
+ =?us-ascii?Q?iFWRXvOCfu/hkQBSgXZngugjALTgT9Za2Mz/fTbGCIFteGeoNh/GI4MiI5UF?=
+ =?us-ascii?Q?qSqKNrux9ZENb/ScOdzn0Y04m3A+egx8MDU2ZnV9UpqazMNesYPAAZq3AHiE?=
+ =?us-ascii?Q?hW0oBwNt7QBBahqGNenSMu6vFviVOx7g0DiIu4qdEBX/C1wz5q4Dw1aoDZO4?=
+ =?us-ascii?Q?GJPR82FQtdJwnYlmL+ny7lomj1HPcizAMU/5sD8igXLXUAexEz1MJv3L1k+8?=
+ =?us-ascii?Q?1V61Ue5Q18wuzqKz/VBYJQMUjXpuzGRp7K+D+xKXISG+mMkV/6SHlVU/Yd+P?=
+ =?us-ascii?Q?myygd+nLYUyK5BfS0zObdDur1BvIvuy7mkIE+aQnaCi/XuZyg+ikeYMcXGhI?=
+ =?us-ascii?Q?5uZffRZR3hH1ESrnVWlhewNVMZdo0iX6uCZkxUYuCkj8jrhN78F4fj0EZvIR?=
+ =?us-ascii?Q?ExdnwpRNlMW+hJQF5tZxACDcSn4yHpI3bXGBeiWaejP11pVPG13jN5wPaVHd?=
+ =?us-ascii?Q?CBILSau8KBvu6ww8iakiWz9wFyQH4muREhd6BDqo74FB7f8pJec3xvZjuTqi?=
+ =?us-ascii?Q?DdTbTJUUs4WXb5D7fuXCn49kz3rEFyDxB80lLSWlR7xzDVMz9iWzHs0X4Zum?=
+ =?us-ascii?Q?1ptoseu27GQLm1trxUmZofJaqIZ930QveG7oBIa/eQwP7z0c+d350mGExKvZ?=
+ =?us-ascii?Q?vTusJiThByF4/j24j7SWjnQtuHzmvYEjF17AZdHl8kORf4XEivaEignshjNF?=
+ =?us-ascii?Q?kLoV+MUfhSWHuh9tD8Cp9F4euxuGjxSyqIdk9rZaXO6QqSy9xCSgdpPh/Ed9?=
+ =?us-ascii?Q?7s6koFe851c1BuQ/BMlxM1nh3hygkVA2Kjqg+QwhkcMKXCskbQ7xV1PNMcjj?=
+ =?us-ascii?Q?moX5Zdz9okAaDzzqcRQy8lhtSaFRVlAXZuvsftShRhiZTNkdCZkikkhWC8a2?=
+ =?us-ascii?Q?FMLqhKU8nthEKAWdntqZ5rxZUA/asjelpSgVPBLI9BX4bqVFuM7b756jQ6pg?=
+ =?us-ascii?Q?6GENjGVnCMGcwWVOiDFvuhc5tauESNycmVS6jN4tt3qBXgeIVZcmBMho6D7l?=
+ =?us-ascii?Q?z6Y8tiMkTv6QylUjt7UEQzkl4T1QQS59JsyEFUppWjonheo9yganphw1syBe?=
+ =?us-ascii?Q?vwxPIzg95xB7H75gLDVENTvmfEw0AT0brBHbT+8fioa4rer2ib/0UhwHcTaQ?=
+ =?us-ascii?Q?wqYQygbKf2vViOYfDS2xAhH9j31BCPJMFqgvQ1E2Xkkoh07dwRE6vBGkICYK?=
+ =?us-ascii?Q?3uRTDzSkLaSOxcCqMCsrLBnWp0iGRvyTbLJi+05x8iHCRkhdJMOCIThOVP/n?=
+ =?us-ascii?Q?XJyyub9HdR40L83os73e4k0zUC1c56thcKg4bFCdRoinFpHj4Z1oP2VQpMHy?=
+ =?us-ascii?Q?ZFEf15YcHqycg/gnVu7PufrLea5XVszttGLB09KoxsQEAlilvuXqs1nP0CC/?=
+ =?us-ascii?Q?d+mVVEwutTzgtENn7V6VuaLFETDglHBs4Shf71R3Jbp3Y73VaJxp4IMKq+vF?=
+ =?us-ascii?Q?W4rO1HMS4DLuPsNo5RXGJ0w6GE1vC6fV/a18xon4rw6eTJSJ1Xn0wx7OevTI?=
+ =?us-ascii?Q?Emi8wMc/wOf4NfTU3QyT9N1K1lYXzG4MTtJj6HfAKMXNIIPU?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d20d30b2-2cd9-42f6-9a40-08df4a50a433
+X-MS-Exchange-CrossTenant-AuthSource: IA0PR12MB8374.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 17:30:32.5183
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: snJcW68tPHW0ANxBRCOqOgCfQ+HEiVPGCYJ5d+9MzFtogI3AjVPSh95KRn2FnOAu
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR12MB5858
 
-smc_switch_cursor() credits conn->sndbuf_space from the consumer cursor
-the peer reported, with nothing bounding the amount:
+On 24 Nov 2026, at 12:24, Kairui Song wrote:
 
-	smc_curs_copy(&cons, &conn->local_rx_ctrl.cons, conn);
+> On Mon, Nov 23, 2026 at 03:17:05PM +0800, Zi Yan wrote:
+>> On Mon Nov 23, 2026 at 1:53 PM EST, Kairui Song via B4 Relay wrote:
+>>> From: Kairui Song <kasong@tencent.com>
+>>>
+>>> The behavior of updating the folio's access info isn't consistent for
+>>> huge mapping splitting or ordinary unmapping. The page table's young
+>>> flag has to be translated into folio's access info.
+>>>
+>>> Right now it only checks and sets the folio's referenced flag, which isn't
+>>> enough since folio flag updates on access have their own rules. Ordinary
+>>> unmapping (zapping) calls folio_mark_accessed(), and it also checks
+>>> if the VMA has recency to avoid false updates.
+>>
+>> Can you elaborate on why vma_has_recency() should be used? "false updates"
+>> might be too vague.
+>
+> Thanks for the careful review!
+>
+> Right, maybe I shouldn't say these are "false updates" indeed. But it
+> makes sense to do so, will reword that paragraph.
+>
+> The young PTE becomes folio hotness via the LRU refs to help improve
+> LRU accuracy: telling the LRU that the folio is accessed, so it should
+> be protected as it is more likely to be reused soon.
+>
+> But vma_has_recency() is the app's hint that these accesses are not a
+> recency signal: MADV_RANDOM expects "page references in random order",
+> POSIX_FADV_NOREUSE sets FMODE_NOREUSE, and MADV_SEQUENTIAL expects
+> pages which "may be freed soon after they are accessed", which is the
+> opposite of what the refs mean. In all these cases, marking the folio
+> referenced from a PTE access hurts instead of helping.
+>
+> zap_pte_range() and folio_referenced_one() already ignore the accessed
+> bit for such VMAs. The split path is the last place translating a young
+> PTE into folio hotness without it. So while converting to the more
+> useful folio_mark_accessed(), also add the missing recency check to
+> avoid wrong promotion.
 
-	if (smc_curs_comp(conn->peer_rmbe_size, &cons, &fin) < 0) {
-		diff = smc_curs_diff(conn->peer_rmbe_size, &fin, &cons);
-		smc_curs_add(conn->sndbuf_desc->len,
-			     &conn->tx_curs_sent, diff);
-		smc_curs_add(conn->sndbuf_desc->len,
-			     &conn->tx_curs_fin, diff);
+The above explanation helps a lot. With that in the commit message, feel
+free to add
 
-		smp_mb__before_atomic();
-		atomic_add(diff, &conn->sndbuf_space);
+Reviewed-by: Zi Yan <ziy@nvidia.com>
 
-local_rx_ctrl.cons is whatever arrived in the peer's last CDC message.
-smc_cdc_cursor_to_host() drops only a cursor that moves backward within
-one wrap, so a peer can advance cons.count by nearly peer_rmbe_size and
-report consuming data this side never sent.  diff becomes that amount and
-sndbuf_space ends above sndbuf_desc->len, breaking the
-"0 <= sndbuf_space <= sndbuf_desc->len" that smc_cdc_tx_handler() states
-and the tx path reads as free room in the send ring:
+Thanks.
 
-	writespace = atomic_read(&conn->sndbuf_space);
-	/* not more than what user space asked for */
-	copylen = min_t(size_t, send_remaining, writespace);
-
-The first chunk of a two-part write is clamped against the buffer, the
-second is not, so memcpy_from_msg() copies past the end of the send
-buffer.  The two cursors advanced beside the credit can also leave the
-ring: smc_curs_add() subtracts the size only once, so a diff of two
-buffers or more leaves tx_curs_sent.count at or above sndbuf_desc->len,
-and smc_tx_rdma_writes() uses that count as a source offset.
-
-A peer reaches this path on an SMC-R link group with a second link by
-asking for the active one to be deleted:
-
-  smc_llc_rx_delete_link()
-    smc_llc_process_cli_delete_link()
-      smc_switch_conns()
-        smc_switch_cursor()
-
-An honest peer cannot have consumed more than this side has prepared and
-not yet had confirmed, which is sndbuf_desc->len - sndbuf_space.  A peer
-that reports more than that has broken the protocol, so drop the
-connection the way smc_cdc_msg_validate() does for a sequence number that
-cannot be honest - out_of_sync, peer_conn_abort, abort_work - and leave
-the cursors alone.
-
-Capping diff at that value instead was tried and is worse than it looks:
-the cap keeps sndbuf_space and the cursors in range, but it leaves
-local_tx_ctrl.prod behind local_rx_ctrl.cons, which is the state this
-block exists to repair.  smc_write_space() then computes
-peer_rmbe_size - smc_curs_diff(size, &cons, &prod) over an inverted pair;
-with cons.wrap == prod.wrap + 1 that is negative, smc_tx_rdma_writes()
-returns early on "rmbespace <= 0" for every later call, and the
-connection stops sending for good.  Dropping the connection has no such
-state to get wrong, and for a correct peer neither path is reached.
-
-How this was found: by AI-driven fuzzing built on top of syzkaller.  It
-reached the overflow through the other writer of sndbuf_space, the
-DMB-nocopy credit patched next, on a loopback-ism connection with the
-peer's consumer cursor forged by a debug patch: KASAN reported an
-869056-byte write past the send buffer in smc_tx_sendmsg()
-(use-after-free in _copy_from_iter).  The failover route above was then
-found by reading the other writers of that counter; we do not have a
-multi-link SMC-R group with two RDMA devices, so that route comes from
-the code and not from a run.
-
-Fixes: c6f02ebeea3a ("net/smc: switch connections to alternate link")
-Cc: stable@vger.kernel.org
-Signed-off-by: Kapil Vaswani <kapil@presceralabs.ai>
-Signed-off-by: Piyus Kedia <piyus@iiitd.ac.in>
----
-Link: https://lore.kernel.org/all/20261122053223.2497832-2-piyus@iiitd.ac.in/   
-
-v2 was a two-patch series.  This is a respin of the first patch only, which is
-the one the review covered; the second ("net/smc: bound the DMB-nocopy
-send-buffer credit as well") is unchanged and is being answered separately.
-
-Changes in v3, all from the review of v2:
-
- - Replaced the fix.  v2 capped diff at sndbuf_desc->len - sndbuf_space and
-   carried on.  The review pointed out where that leaves local_tx_ctrl.prod:
-   behind local_rx_ctrl.cons, which is the inversion the block exists to
-   repair.  smc_write_space() then computes peer_rmbe_size -
-   smc_curs_diff(size, &cons, &prod) over an inverted pair - for size 100,
-   prod (0,90) and cons (1,10) that is -80 - and smc_tx_rdma_writes() returns
-   early on "rmbespace <= 0" for every later call, so the connection stops
-   sending for good.  The cap traded an out-of-bounds write for a permanently
-   mute connection.  v3 drops the connection instead and leaves every cursor
-   alone, which has no partially-advanced state to get wrong.
-
- - The bound is no longer called "sent", in the code or in the subject.  It is
-   tx_curs_prep - tx_curs_fin, prepared and not yet confirmed, because
-   smc_tx_sendmsg() lowers sndbuf_space when data is copied in rather than
-   when it is written; the review was right that "outstanding" described a
-   tighter bound than the code applied.
-
- - The violation is now visible: out_of_sync and peer_conn_abort are set and
-   abort_work is queued, as smc_cdc_msg_validate() does for a sequence number
-   that cannot be honest.  v2 silently continued.
-
-Not addressed here, deliberately: the review also found that
-smc_cdc_tx_handler() updates sndbuf_space and tx_curs_fin under
-bh_lock_sock() while smc_switch_cursor() updates both under
-conn->send_lock, so the old link's completions can race the switch.  That
-is true before this patch too - the unpatched smc_switch_cursor() does the
-same atomic_add() and the same tx_curs_fin advance under send_lock alone -
-and it needs a completion to land in the window rather than a hostile
-cursor, so it is a separate bug with its own Fixes: tag.  It is answered in
-the reply to the review rather than fixed blind here: we have no multi-link
-SMC-R group with two RDMA devices, and the obvious drain
-(smc_cdc_wait_pend_tx_wr() before the send_lock) may stall on the
-smcr_link_down() path, where the old QP's completions arrive only after
-smcr_link_clear() flushes it.
-
-Measured, and not: the overflow was measured on a loopback-ism connection
-with the peer's consumer cursor forged by a debug patch - KASAN reported an
-869056-byte write past a 65504-byte send buffer - and with the bound in place
-no report at forged cursors of 100000, 1000000 and 2000000, with ordinary
-SMC-D traffic unaffected (SMC_DIAG mode=2, fb_reason=0x0).  The LLC
-DELETE_LINK route to smc_switch_cursor() has not been exercised here; it
-comes from reading the code.  smc_core.c builds clean and checkpatch
---strict reports nothing.
----
- net/smc/smc_core.c | 33 +++++++++++++++++++++++++++++++++
- 1 file changed, 33 insertions(+)
-
-diff --git a/net/smc/smc_core.c b/net/smc/smc_core.c
-index a3164201c142..ccfc3b1dc849 100644
---- a/net/smc/smc_core.c
-+++ b/net/smc/smc_core.c
-@@ -1055,6 +1055,7 @@ static int smc_switch_cursor(struct smc_sock *smc, struct smc_cdc_tx_pend *pend,
- {
- 	struct smc_connection *conn = &smc->conn;
- 	union smc_host_cursor cons, fin;
-+	int unconfirmed;
- 	int rc = 0;
- 	int diff;
- 
-@@ -1069,6 +1070,38 @@ static int smc_switch_cursor(struct smc_sock *smc, struct smc_cdc_tx_pend *pend,
- 		 * fin above, so now prod is smaller than cons. Fix that.
- 		 */
- 		diff = smc_curs_diff(conn->peer_rmbe_size, &fin, &cons);
-+		/* The peer's consumer cursor is taken as it arrives, so diff
-+		 * is a value the peer chose.  It cannot honestly exceed what
-+		 * this side has prepared and not yet had confirmed, which is
-+		 * sndbuf_desc->len - sndbuf_space: smc_tx_sendmsg() lowers
-+		 * sndbuf_space as data is copied in, and smc_cdc_tx_handler()
-+		 * raises it again as the peer confirms.  A larger diff credits
-+		 * sndbuf_space past the end of the send buffer - breaking the
-+		 * "0 <= sndbuf_space <= sndbuf_desc->len" that the tx path
-+		 * depends on - and pushes tx_curs_sent out of the ring, which
-+		 * smc_tx_rdma_writes() then uses as a source offset.
-+		 *
-+		 * Simply capping diff is not enough: the cap would leave
-+		 * local_tx_ctrl.prod behind local_rx_ctrl.cons, which is the
-+		 * state this block exists to repair, so smc_write_space()
-+		 * could return a negative peer_rmbe_space and the connection
-+		 * would stop sending for good.  A peer that reports consuming
-+		 * what was never prepared has broken the protocol, so drop the
-+		 * connection, as smc_cdc_msg_validate() does for a sequence
-+		 * number that cannot be honest.
-+		 */
-+		unconfirmed = conn->sndbuf_desc->len -
-+			      atomic_read(&conn->sndbuf_space);
-+		if (diff > max_t(int, unconfirmed, 0)) {
-+			conn->out_of_sync = 1;	/* prevent any further receives */
-+			conn->local_tx_ctrl.conn_state_flags.peer_conn_abort = 1;
-+			smc_wr_tx_put_slot(conn->lnk,
-+					   (struct smc_wr_tx_pend_priv *)pend);
-+			sock_hold(&smc->sk); /* sock_put in abort_work */
-+			if (!queue_work(smc_close_wq, &conn->abort_work))
-+				sock_put(&smc->sk);
-+			return 0;
-+		}
- 		smc_curs_add(conn->sndbuf_desc->len,
- 			     &conn->tx_curs_sent, diff);
- 		smc_curs_add(conn->sndbuf_desc->len,
--- 
-2.34.1
-
+Best Regards,
+Yan, Zi
