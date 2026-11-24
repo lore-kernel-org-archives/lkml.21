@@ -1,47 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.3
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795507807;
-	b=1YfWDMKi81fS4hMjmrDw/Xx0BTySi5aCsLIHmwjbiSEkt15XO+2Xv1XN8ntuTZgYBWcF
-	 yNKVkmWniWoU1723zrSdn0mmhdkjZvuqvpy47/dP1jBkpZwL2pqqpqynKnk8cbSCCW0rP
-	 RWsKOtmk+Tkh73pyEKBl0gUpUEtRNp/lKGntjAItMQJxdkqhf0KpdidQbPHq7AkBPzCuL
-	 85KOLly416fl0r2RFBii9GwZSLIEPQDPfxa2ldgvxXFicLq4V4PwdrDhfSlqjlCFNPw27
-	 1RFYrQewUr21CjlEfjOp3tdnnZwh9xOpGUbFq0ZmvxRL6GBEKvOCJeoYqy4d5kg0FTw==
+	t=1795507839;
+	b=kjGB53ZIXybLmDv9ZY6RlqIUZj7XUx6NX+1jbVJLhJ/QsI9E0v7dEFGDtoSX+2ZVqFxj
+	 Rn4ZIrLffc4TtEW80tUBiahU8pDvhW8YPXykXOl3P5QCGySGGMtxflUIexD9w4iE1XzSZ
+	 MkPz3lQTiteos2mwcW+Agh34IflNWuZH2DjBxlYrVpBJclFdGdxRxD/ydN+V8mwfUz5nv
+	 4CH42bDOwHoIEEyEalp4RCWAyfitYpezjKOMhr917vatVnavQP+f6H9ZgbHsOeppjHGRF
+	 1+bSjNnhEYQixTwH95yWQjJSyAb5iBsxerYqW6uYEZgo9qhdaJzFUgLnqYa43U7LT+A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795507807;
-	h=DMARC-Filter:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-CM-TRANSID:
-	 X-Coremail-Antispam:X-CM-SenderInfo;
-	bh=HUFKq0NtZt0mAtg8MNFLsQ6JW3ap6Rns1MfxgTE8oyc=;
-	b=dMG4g+JXrYZGsh1Dc4Gwka18DINaINtscs9UCHzWvyFgXtC7+PGOnMkHH+HQhVzNk3JN
-	 PrG1HyUXuf1Uw0067g87L+UVKG+qSYv/4x7yXm2NBidc+aRC34IntTeJxdAjgL4Xh6zU8
-	 w+bSLqKAsXGFoj9R8wmc/rCSpf9jI/cvuwM6+qtR9AsJAc3YULWfxaj24hMpyIgTxwEoY
-	 Bzl97sQTJ9RkKsgx8LgT39nFiyR2KqRibGayzZs2D7DgxrklR3haol8FM2d9I5DXBNpUf
-	 +a5XQGkKQ6AVT6cKY3NVQ6I0476TOKB/nixZ9Afe5fh17rMdP8u66QRLAsWOIZxCQHg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795507839;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Cc:Subject:To:References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=foCLJesoWm3QzBy9ELfsrdo+c6gGoGO3ipPAiXL9nOY=;
+	b=FYRieKyEVi8qDvLbCJgH/siPjiuoi17UXQfWZziuxoYhcglwl0elvSL76/DFu2wXGxwO
+	 /ktO5G/dwXW45T2Mo0JcKadtskAv36etFVUPt/GX/GQ0DFBksesAogTH0gufA59sYdVWd
+	 6LiTB9wHWlwF4xSn0af8EDSvM6yP262Pe65/0u3h2ndZlFGdv19F7KSpi3QqH7if9V3Bp
+	 6WWsYKGuJNeNGJVzfNh7hRwK9h6kjh3VKxpN3wrX02KZYFMSQ4IX7YeoY5z/5qwT1cbUT
+	 f/NX1kDAIHexnp49OVsHVjQZHAKecFNpWehKbCUw4U1PECVp3w0zZzei6SdwBjN5xEg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=163.com;
-	spf=pass smtp.mailfrom=163.com;
-	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b="bABrv/7y";
-	arc=none smtp.remote-ip=220.197.31.3
-Received: from m16.mail.163.com (m16.mail.163.com [220.197.31.3])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=N1hpcRdY;
+	arc=none smtp.remote-ip=95.215.58.131
+Received: from mta1.migadu.com (out-131.mta1.migadu.com [95.215.58.131])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3674D606A31E;
-	Tue, 24 Nov 2026 08:10:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3674D606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A426F606A321
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 08:10:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A426F606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=bABrv/7y
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Message-ID:Date:MIME-Version:Subject:To:From:
-	Content-Type; bh=HUFKq0NtZt0mAtg8MNFLsQ6JW3ap6Rns1MfxgTE8oyc=;
-	b=bABrv/7ysIAtYR/FmL9RJ0ySGM+QOGP2dW7CLaZKKJ1rqq6VIdu8K2YRwbEyQD
-	E8KrTdL8043Tu5l0hzIheB9K4vza1xLvSMknfyB5Wkxhpp7tvLIqBB4VgcUxREOb
-	S50GMLZp4stFmk5EeNaarFzL46ccp4FlZ6SvdgSOzJnC8=
-Message-ID: <f5b36363-45a8-43f6-863b-5c7df6cee7eb@163.com>
-Date: Tue, 24 Nov 2026 16:05:58 +0800
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=N1hpcRdY
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=9PWFsZj6oW7Qk4IFGriVk9yj4L3NIraIxedXhb1M7oM=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795507831; v=1; x=1796112631;
+ b=N1hpcRdYqX5YzNPHmllr8epCYP/dSNs9i7iqowjunULOGH/cj/oJQxLqyOCRzu02ITiby349
+ V8EhS4cpEzj0Ya+CFf9LDMEgbj5owXEcSnOevCfsvcV6XVHEHCh4DhBa8O3enNWhqpKXwO3kg7A
+ +XEYLuV2gq8AUGWU6X/LDZ5Q=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 2a86c1e445007e1e;
+	Tue, 24 Nov 2026 08:10:28 +0000
+X-Mizu-Trace-ID: 2a86c1e445007e1e
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <b48806fb-22a5-40da-a682-22e010c8316d@linux.dev>
+Date: Tue, 24 Nov 2026 16:10:10 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -52,531 +59,235 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] platform/x86: lenovo-wmi-other: Add raw
- GetDataByPackage interface
-To: Rong Zhang <i@rong.moe>, platform-driver-x86@vger.kernel.org
-Cc: mpearson-lenovo@squebb.ca, derekjohn.clark@gmail.com, W_Armin@gmx.de,
- corbet@lwn.net, skhan@linuxfoundation.org, rdunlap@infradead.org,
- hansg@kernel.org, ilpo.jarvinen@linux.intel.com, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20261116040532.154928-1-alanpluto@163.com>
- <20261123061120.18740-1-alanpluto@163.com>
- <fcabaf8647e0c1ab487cd612d5a290082613ec0b.camel@rong.moe>
- <5b327bf279357b68b91ec66b465501a2760b23eb.camel@rong.moe>
- <7442b878b63d67c44af0bdb379a9de04dae76669.camel@rong.moe>
-Content-Language: en-US
-From: Alan <alanpluto@163.com>
-In-Reply-To: <7442b878b63d67c44af0bdb379a9de04dae76669.camel@rong.moe>
+Cc: cui.tao@linux.dev, cuitao@kylinos.cn, linux-block@vger.kernel.org,
+ linux-kernel@vger.kernel.org,
+ Shin'ichiro Kawasaki <shinichiro.kawasaki@wdc.com>
+Subject: Re: [PATCH v7] loop: defer the queue limits clear to a workqueue
+To: Bart Van Assche <bvanassche@acm.org>, axboe@kernel.dk, hch@lst.de,
+ Tetsuo Handa <penguin-kernel@I-love.SAKURA.ne.jp>
+References: <20261124031238.555291-1-cui.tao@linux.dev>
+From: Tao Cui <cui.tao@linux.dev>
+In-Reply-To: <20261124031238.555291-1-cui.tao@linux.dev>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:PigvCgD3Xz8NRgVrM0fAHw--.21298S2
-X-Coremail-Antispam: 1Uf129KBjvAXoWfJr4UGF4fCr4rCr1rAry7Jrb_yoW8Ar15Go
-	WftFs3Ww18tr1UAr1UA39rAa429a48Gr1DXrW5Ars8Ja1jy3W3ur4UWw1fGFW5KFyrKr4D
-	Wa4kJr4rZFWYqr1rn29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7v73VFW2AGmfu7bjvjm3
-	AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUxxpnUUUUU
-X-CM-SenderInfo: hdod01poxw0qqrwthudrp/xtbC0Q6wpGsFRg4xRgAA3a
 
-Hi Rong,
+Hello, Bart,
 
-On 11/23/2026 11:36 PM, Rong Zhang wrote:
-> Hi Alan,
+在 2026/11/24 11:12, Tao Cui 写道:
+> From: Tao Cui <cuitao@kylinos.cn>
 > 
-> On Mon, 2026-11-23 at 20:34 +0800, Rong Zhang wrote:
->> Hi Alan,
->>
->> On Mon, 2026-11-23 at 20:21 +0800, Rong Zhang wrote:
->>> Hi Alan,
->>>
->>> On Mon, 2026-11-23 at 14:11 +0800, Alan Pluto wrote:
->>>> Lenovo's userspace utility uses the Other Mode WMI GetDataByPackage
->>>
->>> What's the purpose of the utility? Could you provide some context? You
->>> can ignore this question if it's confidential, but in general providing
->>> necessary context can help maintainers and reviewers learn about the
->>> intent.
->>>
->>>> method (99) to check device readiness. Expose the method through debugfs
->>>> so the firmware request and response can be inspected on Linux without
->>>> adding a stable userspace ABI.
->>>>
->>>> The interface is disabled by default and can be enabled by passing
->>>> enable_get_data_by_package=1 when loading the module.
->>>>
->>>> Signed-off-by: Alan Pluto <alanpluto@163.com>
->>>> ---
->>>> Changes in v2:
->>>> - Replace the character device with a debugfs file, disabled by default.
->>>> - Allow one open per WMI device and require a single read for the response.
->>>> - Use scoped locks, lockdep checks, automatic buffer cleanup, and the
->>>>   WMI helper's minimum response size check.
->>>>
->>>>  Documentation/wmi/devices/lenovo-wmi-other.rst |  12 +-
->>>>  drivers/platform/x86/lenovo/wmi-other.c        | 208 +++++++++++++++++++++++++
->>>>  2 files changed, 219 insertions(+), 1 deletion(-)
->>>>
->>>> diff --git a/Documentation/wmi/devices/lenovo-wmi-other.rst b/Documentation/wmi/devices/lenovo-wmi-other.rst
->>>> index 011054d64eac5b601333373c4d405f9c5117ffc2..42e1525a8852bd7c8ddc04cc4047b1f09c5b770f 100644
->>>> --- a/Documentation/wmi/devices/lenovo-wmi-other.rst
->>>> +++ b/Documentation/wmi/devices/lenovo-wmi-other.rst
->>>> @@ -33,6 +33,15 @@ under the following path:
->>>>  
->>>>  Additionally, this driver also exports attributes to HWMON.
->>>>  
->>>> +GetDataByPackage diagnostics
->>>> +~~~~~~~~~~~~~~~~~~~~~~~~~~~
->>>
->>> Missing a ~
->>>
->>>> +
->>>> +The driver does not create the diagnostic file by default. To enable it,
->>>> +pass ``enable_get_data_by_package=1`` when loading ``lenovo-wmi-other``.
->>>> +The file is at ``lenovo_wmi/<WMI device>/get_data_by_package``.
->>>> +Not all devices support the method. Use only commands whose behavior and
->>>> +side effects are understood.
->>>> +
->>>>  LENOVO_CAPABILITY_DATA_00
->>>>  -------------------------
->>>>  
->>>> @@ -107,7 +116,8 @@ WMI interface description
->>>>  =========================
->>>>  
->>>>  The WMI interface description can be decoded from the embedded binary MOF (bmof)
->>>> -data using the `bmfdec <https://github.com/pali/bmfdec>`_ utility:
->>>> +data using the `bmfdec <https://github.com/pali/bmfdec>`_ utility. This older
->>>> +example lists ``Max(40)`` for GetDataByPackage; newer firmware uses 100 bytes.
->>>
->>> ??? Could you move the sentence to the right place?
->>>
->>>>  
->>>>  ::
->>>>  
->>>> diff --git a/drivers/platform/x86/lenovo/wmi-other.c b/drivers/platform/x86/lenovo/wmi-other.c
->>>> index bd64e7b44669db684145298ae088dd2c7f539d29..827b4215c612fbfc052bbadff0672e68e65517f0 100644
->>>> --- a/drivers/platform/x86/lenovo/wmi-other.c
->>>> +++ b/drivers/platform/x86/lenovo/wmi-other.c
->>>> @@ -27,13 +27,16 @@
->>>>   */
->>>>  
->>>>  #include <linux/acpi.h>
->>>> +#include <linux/atomic.h>
->>>>  #include <linux/bitfield.h>
->>>>  #include <linux/cleanup.h>
->>>>  #include <linux/component.h>
->>>>  #include <linux/container_of.h>
->>>> +#include <linux/debugfs.h>
->>>>  #include <linux/device.h>
->>>>  #include <linux/export.h>
->>>>  #include <linux/firmware_attributes.h>
->>>> +#include <linux/fs.h>
->>>>  #include <linux/gfp_types.h>
->>>>  #include <linux/hwmon.h>
->>>>  #include <linux/idr.h>
->>>> @@ -41,9 +44,12 @@
->>>>  #include <linux/kobject.h>
->>>>  #include <linux/limits.h>
->>>>  #include <linux/module.h>
->>>> +#include <linux/mutex.h>
->>>>  #include <linux/platform_profile.h>
->>>>  #include <linux/power_supply.h>
->>>> +#include <linux/slab.h>
->>>>  #include <linux/types.h>
->>>> +#include <linux/uaccess.h>
->>>>  #include <linux/wmi.h>
->>>>  
->>>>  #include <acpi/battery.h>
->>>> @@ -90,6 +96,8 @@ enum lwmi_feature_id_psu {
->>>>  
->>>>  #define LWMI_FEATURE_VALUE_GET 17
->>>>  #define LWMI_FEATURE_VALUE_SET 18
->>>> +#define LWMI_DATA_PACKAGE_GET 99
->>>> +#define LWMI_DATA_PACKAGE_INPUT_MAX 100
->>>>  
->>>>  #define LWMI_FAN_ID_BASE 1
->>>>  #define LWMI_FAN_NR 4
->>>> @@ -141,6 +149,8 @@ struct lwmi_om_priv {
->>>>  	struct device *fw_attr_dev;
->>>>  	struct kset *fw_attr_kset;
->>>>  	struct wmi_device *wdev;
->>>> +	struct dentry *debugfs_dir;
->>>> +	atomic_t package_opened;
->>>>  	int ida_id;
->>>>  
->>>>  	struct lwmi_fan_info fan_info[LWMI_FAN_NR];
->>>> @@ -156,6 +166,23 @@ struct lwmi_om_priv {
->>>>  	bool bh_registered;
->>>>  };
->>>>  
->>>> +struct lwmi_package_response {
->>>> +	__le32 data_size;
->>>> +	u8 data[];
->>>> +};
->>>
->>> Even though there is no gap between data_size and data, please add a
->>> __packed annotation to clearly indicate your intent.
->>>
->>>> +
->>>> +struct lwmi_package_file {
->>>> +	struct lwmi_om_priv *priv;
->>>> +	/* Protects the pending response on shared descriptors. */
->>>> +	struct mutex lock;
->>>> +	struct lwmi_package_response *response;
->>>> +	size_t response_len;
->>>> +};
->>>> +
->>>> +static bool enable_get_data_by_package;
->>>> +module_param(enable_get_data_by_package, bool, 0400);
->>>> +MODULE_PARM_DESC(enable_get_data_by_package, "Enable the GetDataByPackage debugfs interface");
->>>> +
->>>>  /*
->>>>   * Visibility of fan channels:
->>>>   *
->>>> @@ -1611,6 +1638,174 @@ static void lwmi_om_fw_attr_remove(struct lwmi_om_priv *priv)
->>>>  
->>>>  /* ======== Self (master: lenovo-wmi-other) ======== */
->>>>  
->>>> +static int lwmi_package_open(struct inode *inode, struct file *file)
->>>> +{
->>>> +	struct lwmi_om_priv *priv = inode->i_private;
->>>> +	struct lwmi_package_file *state __free(kfree) = NULL;
->>>
->>> The declarations of __free() pointers should be placed at where it's
->>> allocated, i.e., ...
->>>
->>>> +
->>>> +	if ((file->f_mode & (FMODE_READ | FMODE_WRITE)) != (FMODE_READ | FMODE_WRITE))
->>>> +		return -EINVAL;
->>>> +
->>>> +	state = kzalloc_obj(*state);
->>>
->>> ...here.
->>>
->>> Meanwhile, opening the file while priv->package_opened == 1 allocates
->>> memory in vain. Could you move it below the package_opened check? In this
->>> manner you don't need the __free() either.
->>>
->>>> +	if (!state)
->>>> +		return -ENOMEM;
->>>> +
->>>> +	if (atomic_cmpxchg(&priv->package_opened, 0, 1))
->>>
->>> atomic_cmpxchg_acquire()
->>>
->>>> +		return -EBUSY;
->>>> +
->>>> +	mutex_init(&state->lock);
->>>> +	state->priv = priv;
->>>> +	file->private_data = no_free_ptr(state);
->>>> +
->>>> +	return stream_open(inode, file);
->>>> +}
->>>> +
->>>> +static int lwmi_package_release(struct inode *inode, struct file *file)
->>>> +{
->>>> +	struct lwmi_package_file *state = file->private_data;
->>>> +	struct dentry *dentry = file->f_path.dentry;
->>>> +
->>>> +	kfree_sensitive(state->response);
->>>
->>> You didn't explain what data it is in your replies. "Can contain
->>> sensitive data" is not an acceptable explanation.
->>>
->>> Please grep the occurrence of kfree_sensitive() in the kernel tree, and
->>> you'll find that they are mostly credentials. Does the data passed by the
->>> interface fall into the same category? 
->>>
->>> TBH, anything goes through WMI is *never* secret. If a manufacturer ever
->>> decided to use it to deliver "sensitive" data, it either misunderstood
->>> the word or chose the wrong interface.
->>>
->>> An ACPI-WMI method goes through the ACPICA, then the WMI core, and
->>> finally here. The former two's temporary buffers are either on stack or
->>> freed by the vanilla kfree(). If leaking "sensitive" response were really
->>> a concern, it must had been leaked before it reached your code.
->>>
->>> Please don't use kfree_sensitive() unless you really understand the data
->>> flow path and have a strong reason to use it. If you insist on it, please
->>> answer both questions.
->>>
->>>> +	mutex_destroy(&state->lock);
->>>> +
->>>> +	/* Unlike read and write, release can run after debugfs removal. */
->>>
->>> The comment is not helpful, as it's just repeating well-known knowledge.
->>> Please explain what it protects:
->>>
->>>    The release() callback may be called after state->priv has been freed.
->>>    Only when the debugfs file hasn't been removed is the pointer valid.
->>>
->>>> +	if (!debugfs_file_get(dentry)) {
->>>> +		atomic_set(&state->priv->package_opened, 0);
->>>
->>> atomic_set_release()
->>>
->>>> +		debugfs_file_put(dentry);
->>>> +	}
->>>> +
->>>> +	kfree(state);
->>>> +	return 0;
->>>> +}
->>>> +
->>>> +static int lwmi_package_invoke(struct lwmi_package_file *state, u8 *data)
->>>> +{
->>>> +	struct lwmi_om_priv *priv = state->priv;
->>>> +	struct wmi_buffer input = { .length = LWMI_DATA_PACKAGE_INPUT_MAX, .data = data };
->>>> +	struct wmi_buffer output;
->>>> +	u32 data_size;
->>>> +	int ret;
->>>> +
->>>> +	lockdep_assert_held(&state->lock);
->>>> +
->>>> +	/* The tested firmware needs two calls before its response is usable. */
->>>> +	ret = wmidev_invoke_method(priv->wdev, 0, LWMI_DATA_PACKAGE_GET,
->>>> +				   &input, &output, 0);
->>>> +	if (ret)
->>>> +		return ret;
->>
->> If you don't care about the first call's response, use
->> wmidev_invoke_procedure().
->>
->> Thanks,
->> Rong
->>
->>>> +
->>>> +	kfree_sensitive(output.data);
->>>> +
->>>> +	ret = wmidev_invoke_method(priv->wdev, 0, LWMI_DATA_PACKAGE_GET,
->>>> +				   &input, &output, sizeof(struct lwmi_package_response));
->>>> +	if (ret)
->>>> +		return ret;
->>>> +
->>>> +	struct lwmi_package_response *response __free(kfree_sensitive) = output.data;
->>>> +
->>>> +	data_size = le32_to_cpu(response->data_size);
->>>> +	if (data_size > output.length - sizeof(*response))
->>>
->>> Why not use struct_size() here? Considering that...
->>>
->>>> +		return -EPROTO;
->>>> +
->>>> +	state->response_len = struct_size(response, data, data_size);
->>>
->>> ...you've used it here, you may introduce a on-stack variable to
->>> temporarily store the calculated size and use it here and there.
->>>
->>>> +	state->response = no_free_ptr(response);
->>>> +	return 0;
->>>> +}
->>>> +
->>>> +static ssize_t lwmi_package_write(struct file *file, const char __user *buffer,
->>>> +				  size_t count, loff_t *ppos)
->>>> +{
->>>> +	struct lwmi_package_file *state = file->private_data;
->>>> +	u8 input[LWMI_DATA_PACKAGE_INPUT_MAX] = {};
->>>> +	int ret;
->>>> +
->>>> +	if (!count || count > sizeof(input))
->>>> +		return -EINVAL;
->>>> +
->>>> +	ACQUIRE(mutex_try, state_guard)(&state->lock);
->>>> +	if (ACQUIRE_ERR(mutex_try, &state_guard) || state->response)
->>>> +		return -EBUSY;
->>>
->>> I don't think it's a good idea to share the same errno between the two
->>> cases.
->>>
->>> While ACQUIRE_ERR(mutex_try, &state_guard) should return -EBUSY, a
->>> pending state->response should return something like -EALREADY or
->>> -ENOTEMPTY.
->>>
->>>> +
->>>> +	if (copy_from_user(input, buffer, count))
->>>> +		return -EFAULT;
->>>> +
->>>> +	ret = lwmi_package_invoke(state, input);
->>>> +	if (ret)
->>>> +		return ret;
->>>> +
->>>> +	return count;
->>>> +}
->>>> +
->>>> +static ssize_t lwmi_package_read(struct file *file, char __user *buffer,
->>>> +				 size_t count, loff_t *ppos)
->>>> +{
->>>> +	struct lwmi_package_file *state = file->private_data;
->>>> +	size_t len;
->>>> +
->>>> +	if (!count)
->>>> +		return 0;
->>>> +
->>>> +	ACQUIRE(mutex_try, state_guard)(&state->lock);
->>>> +	if (ACQUIRE_ERR(mutex_try, &state_guard))
->>>> +		return -EBUSY;
->>>> +
->>>> +	if (!state->response)
->>>> +		return 0;
->>>
->>> Reading the file without writing to it in prior is a mistake, isn't it?
->>> Thus:
->>>
->>> 		return -ENODATA;
->>>
->>>> +
->>>> +	len = state->response_len;
->>>> +	if (len > count)
->>>> +		return -ENOSPC;
->>>
->>> Returning -ENOSPC is confusing as there is nothing to allocate during
->>> read. How about -ENOBUFS?
->>>
->>>> +
->>>> +	if (copy_to_user(buffer, state->response, len))
->>>> +		return -EFAULT;
->>>> +
->>>> +	kfree_sensitive(state->response);
->>>> +	state->response = NULL;
->>>> +	return len;
->>>> +}
->>>> +
->>>> +static const struct file_operations lwmi_package_fops = {
->>>> +	.owner = THIS_MODULE,
->>>> +	.open = lwmi_package_open,
->>>> +	.release = lwmi_package_release,
->>>> +	.read = lwmi_package_read,
->>>> +	.write = lwmi_package_write,
->>>> +};
->>>> +
->>>> +static void lwmi_package_debugfs_remove(void *data)
->>>> +{
->>>> +	debugfs_remove_recursive(data);
->>>> +}
->>>> +
->>>> +static int devm_lwmi_package_debugfs_add(struct lwmi_om_priv *priv)
->>>> +{
->>>> +	struct device *dev = &priv->wdev->dev;
->>>> +	struct dentry *dir, *entry;
->>>> +	int ret;
->>>> +
->>>> +	if (!wmidev_instance_count(priv->wdev))
->>>> +		return 0;
+> loop_clear_limits() calls queue_limits_commit_update() directly from
+> the loop workqueue that processes the request.  That does a
+> non-atomic struct assignment to q->limits without freezing the queue,
+> which races with lockless readers of q->limits on other CPUs, such
+> as bio splitting reading max_hw_sectors and the discard path reading
+> max_hw_discard_sectors, letting them observe torn values.  The
+> trigger is a discard or write-zeroes request on a loop device whose
+> backing file does not support the corresponding fallocate operation.
 > 
-> Is the bail-out reachable? See commit cbf54f37600e ("platform/x86: wmi:
-> Skip blocks with zero instances").
+> The code already has an XXX comment saying this should move to a
+> workqueue.  Do that: schedule a work item on the system workqueue,
+> where it is safe to freeze the queue around the limits update.  The
+> pending modes live under a new mutex, lo->clear_limits_lock, guarded
+> by a backing-file check that drops records from a racing unbind or
+> rebind.  Requests that arrive while the clear is in flight fail
+> quietly, so the console report stays at the first failure.  The work
+> item is cancelled before the backing file changes and before the
+> device is freed.
 > 
->>>> +
->>>> +	dir = lwmi_debugfs_create_dir(priv->wdev);
->>>> +	if (IS_ERR(dir))
->>>> +		return PTR_ERR(dir);
-> 
-> IIRC, usually any error returned by debugfs methods can (and should) be
-> blindly (yeah!) ignored by passing the returned pointer to the next
-> debugfs method regardless.
-> 
-> See the kdoc of debugfs_create_dir() and debugfs_create_file().
-> 
->>>> +
->>>> +	atomic_set(&priv->package_opened, 0);
->>>
->>> Why would you need this? The struct is kzalloc()-allocated.
->>>
->>>> +
->>>> +	ret = devm_add_action_or_reset(dev, lwmi_package_debugfs_remove, dir);
->>>> +	if (ret)
->>>> +		return ret;
-> 
-> Technically, by postponing devm_add_action_or_reset() after
-> debugfs_create_file(), we can blindly ignore the former's error, too.
-> Several drivers have already been doing so.
-> 
-> That being said, if doing so seems weird, it's also acceptable to store a
-> pointer in priv and manage it manually instead of using devres.
-> 
->>>> +
->>>> +	entry = debugfs_create_file("get_data_by_package", 0600, dir, priv, &lwmi_package_fops);
->>>> +	if (IS_ERR(entry)) {
->>>> +		devm_release_action(dev, lwmi_package_debugfs_remove, dir);
->>>> +		return PTR_ERR(entry);
-> 
-> This error should also be ignored.
-> 
->>>> +	}
->>>> +
->>>> +	priv->debugfs_dir = dir;
->>>
->>> Why would you need this? The dir is devm-managed.
->>>
->>>> +	return 0;
->>>> +}
->>>> +
->>>>  /**
->>>>   * lwmi_om_master_bind() - Bind all components of the other mode driver
->>>>   * @dev: The lenovo-wmi-other driver basic device.
->>>> @@ -1693,6 +1888,7 @@ static int lwmi_other_probe(struct wmi_device *wdev, const void *context)
->>>>  {
->>>>  	struct component_match *master_match = NULL;
->>>>  	struct lwmi_om_priv *priv;
->>>> +	int ret;
->>>>  
->>>>  	priv = devm_kzalloc_obj(&wdev->dev, *priv);
->>>>  	if (!priv)
->>>> @@ -1708,12 +1904,24 @@ static int lwmi_other_probe(struct wmi_device *wdev, const void *context)
->>>>  	if (IS_ERR(master_match))
->>>>  		return PTR_ERR(master_match);
->>>>  
->>>> +	if (enable_get_data_by_package) {
-> 
-> It'd be better to move the check inside the helper function.
-> 
->>>> +		ret = devm_lwmi_package_debugfs_add(priv);
->>>> +		if (ret)
->>>> +			dev_warn(&wdev->dev, "failed to create GetDataByPackage debugfs files: %d\n",
->>>
->>> The file is named get_data_by_package.
->>>
->>>> +				 ret);
-> 
-> With error paths removed, the dev_warn() is no longer needed.
-> 
-> Thanks,
-> Rong
-> 
->>>> +	}
->>>> +
->>>>  	return component_master_add_with_match(&wdev->dev, &lwmi_om_master_ops,
->>>>  					       master_match);
->>>>  }
->>>>  
->>>>  static void lwmi_other_remove(struct wmi_device *wdev)
->>>>  {
->>>> +	struct lwmi_om_priv *priv = dev_get_drvdata(&wdev->dev);
->>>> +
->>>> +	if (priv->debugfs_dir)
->>>> +		devm_release_action(&wdev->dev, lwmi_package_debugfs_remove, priv->debugfs_dir);
->>>
->>> Why would you need this? The interface does not depend on the components.
->>>
->>> Thanks,
->>> Rong
->>>
->>>> +
->>>>  	component_master_del(&wdev->dev, &lwmi_om_master_ops);
->>>>  }
->>>>  
-Thanks a lot for the detailed suggestions. I need some more time to go
-through them carefully and respond.
+Sashiko's automated review pointed out a hole in the quiet marking in v7 [1], and after looking into it, I believe the report is correct.
 
-There is one important issue I'd like to discuss first: the userspace
-interface.
+Marking requests quiet at queue_rq() time misses two cases. Requests submitted in a batch can all pass loop_queue_rq() before the first failure records the verdict. Also, bios that are already inside submit_bio_noacct() when the queue freezes have already passed their limits check; they resume from bio_queue_enter() after loop_clear_limits_workfn() clears the pending flag and still report the same failure. Both cases can produce repeated console messages.
 
-V1 used a character device, and V2 switched to debugfs. However, we have
-since realized that debugfs is not suitable for our use case. We have a
-production userspace application that needs read/write access to this
-WMI interface, while access to debugfs is restricted when Secure Boot is
-enabled.
+I can reproduce this with eight threads issuing concurrent write-zeroes to a tmpfs-backed loop device: v7 logs two errors where loop/011 expects exactly one.
 
-So we need to reconsider the interface. Would exposing it through sysfs
-be acceptable, for example as a binary attribute under
-/sys/bus/wmi/devices/DC2A8805-.../, similar to
-drivers/platform/x86/dell/dcdbas.c?
+For v8, my plan is to stop deciding whether to quiet a request at queue_rq() time and instead quiet repeated failures at the point of failure. The verdicts remain recorded for the lifetime of the backing file and are cleared only on rebind or unbind. loop_clear_limits() reports whether a verdict is new, and repeated failures mark only their own request quiet. That guarantees the first failure for each mode is reported, regardless of how dispatch and queue freezing interleave.
 
-What do you think?
+With this change, the same eight-thread test logs exactly one error.
+
+Does this approach look reasonable to you? If so, I'll send the already tested patch as v8.
+
+Thanks,
+Tao
+
+[1] https://sashiko.dev/#/patchset/20261124031238.555291-1-cui.tao@linux.dev
+
+> Fixes: 5f75e081ab5c ("loop: Disable fallocate() zero and discard if not supported")
+> Suggested-by: Bart Van Assche <bvanassche@acm.org>
+> Signed-off-by: Tao Cui <cuitao@kylinos.cn>
+> ---
+>  drivers/block/loop.c | 91 +++++++++++++++++++++++++++++++++++++++-----
+>  1 file changed, 82 insertions(+), 9 deletions(-)
+> 
+> diff --git a/drivers/block/loop.c b/drivers/block/loop.c
+> index 194f51d9dab6..d15ccb339f03 100644
+> --- a/drivers/block/loop.c
+> +++ b/drivers/block/loop.c
+> @@ -67,6 +67,10 @@ struct loop_device {
+>  	struct list_head        rootcg_cmd_list;
+>  	struct list_head        idle_worker_list;
+>  	struct rb_root          worker_tree;
+> +	struct work_struct      clear_limits_work;
+> +	struct mutex		clear_limits_lock;
+> +	unsigned int		clear_limits_mode;
+> +	bool			clear_limits_pending;
+>  	struct timer_list       timer;
+>  	bool			sysfs_inited;
+>  
+> @@ -222,9 +226,25 @@ static void loop_set_size(struct loop_device *lo, loff_t size)
+>  		kobject_uevent(&disk_to_dev(lo->lo_disk)->kobj, KOBJ_CHANGE);
+>  }
+>  
+> -static void loop_clear_limits(struct loop_device *lo, int mode)
+> +static void loop_clear_limits_workfn(struct work_struct *work)
+>  {
+> +	struct loop_device *lo =
+> +		container_of(work, struct loop_device, clear_limits_work);
+>  	struct queue_limits lim = queue_limits_start_update(lo->lo_queue);
+> +	unsigned int memflags;
+> +	int mode;
+> +
+> +	/*
+> +	 * Requests that arrive while this clear is in flight are failed
+> +	 * quietly (see loop_queue_rq); once the limits have been
+> +	 * committed, further ones are rejected early at submission.
+> +	 */
+> +	memflags = blk_mq_freeze_queue(lo->lo_queue);
+> +	mutex_lock(&lo->clear_limits_lock);
+> +	mode = lo->clear_limits_mode;
+> +	lo->clear_limits_mode = 0;
+> +	WRITE_ONCE(lo->clear_limits_pending, false);
+> +	mutex_unlock(&lo->clear_limits_lock);
+>  
+>  	if (mode & FALLOC_FL_ZERO_RANGE)
+>  		lim.max_write_zeroes_sectors = 0;
+> @@ -234,14 +254,27 @@ static void loop_clear_limits(struct loop_device *lo, int mode)
+>  		lim.discard_granularity = 0;
+>  	}
+>  
+> -	/*
+> -	 * XXX: this updates the queue limits without freezing the queue, which
+> -	 * is against the locking protocol and dangerous.  But we can't just
+> -	 * freeze the queue as we're inside the ->queue_rq method here.  So this
+> -	 * should move out into a workqueue unless we get the file operations to
+> -	 * advertise if they support specific fallocate operations.
+> -	 */
+>  	queue_limits_commit_update(lo->lo_queue, &lim);
+> +	blk_mq_unfreeze_queue(lo->lo_queue, memflags);
+> +}
+> +
+> +static void loop_clear_limits(struct loop_device *lo, struct file *file,
+> +			      int mode)
+> +{
+> +	mutex_lock(&lo->clear_limits_lock);
+> +	if (lo->lo_backing_file != file) {
+> +		/*
+> +		 * The recording request was racing with an unbind or a
+> +		 * rebinding; its verdict is about a backing file that is
+> +		 * no longer current.  Drop it.
+> +		 */
+> +		mutex_unlock(&lo->clear_limits_lock);
+> +		return;
+> +	}
+> +	lo->clear_limits_mode |= mode;
+> +	WRITE_ONCE(lo->clear_limits_pending, true);
+> +	mutex_unlock(&lo->clear_limits_lock);
+> +	schedule_work(&lo->clear_limits_work);
+>  }
+>  
+>  static int lo_fallocate(struct loop_device *lo, struct request *rq, loff_t pos,
+> @@ -269,7 +302,7 @@ static int lo_fallocate(struct loop_device *lo, struct request *rq, loff_t pos,
+>  	 * supported and clear them here if that turns out not to be true.
+>  	 */
+>  	if (unlikely(ret == -EOPNOTSUPP))
+> -		loop_clear_limits(lo, mode);
+> +		loop_clear_limits(lo, file, mode);
+>  
+>  	return ret;
+>  }
+> @@ -514,6 +547,15 @@ static int loop_validate_file(struct file *file, struct block_device *bdev)
+>  static void loop_assign_backing_file(struct loop_device *lo, struct file *file)
+>  {
+>  	lo->lo_backing_file = file;
+> +	/*
+> +	 * Discard any modes recorded against the old backing file.  The
+> +	 * paths that can race with a pending work item cancel it before
+> +	 * they get here.
+> +	 */
+> +	mutex_lock(&lo->clear_limits_lock);
+> +	lo->clear_limits_mode = 0;
+> +	WRITE_ONCE(lo->clear_limits_pending, false);
+> +	mutex_unlock(&lo->clear_limits_lock);
+>  	lo->old_gfp_mask = mapping_gfp_mask(file->f_mapping);
+>  	mapping_set_gfp_mask(file->f_mapping,
+>  			lo->old_gfp_mask & ~(__GFP_IO | __GFP_FS));
+> @@ -1035,6 +1077,21 @@ static void __loop_clr_fd(struct loop_device *lo)
+>  	lo->lo_backing_file = NULL;
+>  	spin_unlock_irq(&lo->lo_lock);
+>  
+> +	/*
+> +	 * Discard and write-zeroes requests are submitted synchronously,
+> +	 * but a fatal signal can kill the submitting task between the
+> +	 * per-bio completions of a multi-bio range, leaving requests in
+> +	 * flight across this unbind.  Cancel any clear they have
+> +	 * scheduled and reset the modes; loop_clear_limits() also drops
+> +	 * records whose backing file is no longer current, so stragglers
+> +	 * arriving after a later loop_configure() cannot affect it.
+> +	 */
+> +	cancel_work_sync(&lo->clear_limits_work);
+> +	mutex_lock(&lo->clear_limits_lock);
+> +	lo->clear_limits_mode = 0;
+> +	WRITE_ONCE(lo->clear_limits_pending, false);
+> +	mutex_unlock(&lo->clear_limits_lock);
+> +
+>  	lo->lo_device = NULL;
+>  	lo->lo_offset = 0;
+>  	lo->lo_sizelimit = 0;
+> @@ -1700,6 +1757,7 @@ static void lo_free_disk(struct gendisk *disk)
+>  	loop_free_idle_workers(lo, true);
+>  	timer_shutdown_sync(&lo->timer);
+>  	mutex_destroy(&lo->lo_mutex);
+> +	mutex_destroy(&lo->clear_limits_lock);
+>  	kfree(lo);
+>  }
+>  
+> @@ -1802,9 +1860,19 @@ static blk_status_t loop_queue_rq(struct blk_mq_hw_ctx *hctx,
+>  
+>  	switch (req_op(rq)) {
+>  	case REQ_OP_FLUSH:
+> +		cmd->use_aio = false;
+> +		break;
+>  	case REQ_OP_DISCARD:
+>  	case REQ_OP_WRITE_ZEROES:
+>  		cmd->use_aio = false;
+> +		/*
+> +		 * A pending limits clear means this operation is already
+> +		 * known to be unsupported and the commit will make later
+> +		 * attempts fail early at submission.  Fail quietly so only
+> +		 * the first failure reports to the console.
+> +		 */
+> +		if (READ_ONCE(lo->clear_limits_pending))
+> +			rq->rq_flags |= RQF_QUIET;
+>  		break;
+>  	default:
+>  		cmd->use_aio = lo->lo_flags & LO_FLAGS_DIRECT_IO;
+> @@ -2018,6 +2086,8 @@ static int loop_add(int i)
+>  	spin_lock_init(&lo->lo_lock);
+>  	spin_lock_init(&lo->lo_work_lock);
+>  	INIT_WORK(&lo->rootcg_work, loop_rootcg_workfn);
+> +	INIT_WORK(&lo->clear_limits_work, loop_clear_limits_workfn);
+> +	mutex_init(&lo->clear_limits_lock);
+>  	INIT_LIST_HEAD(&lo->rootcg_cmd_list);
+>  	disk->major		= LOOP_MAJOR;
+>  	disk->first_minor	= i << part_shift;
+> @@ -2056,6 +2126,9 @@ static int loop_add(int i)
+>  
+>  static void loop_remove(struct loop_device *lo)
+>  {
+> +	/* Cancel before the queue becomes unreachable. */
+> +	cancel_work_sync(&lo->clear_limits_work);
+> +
+>  	/* Make this loop device unreachable from pathname. */
+>  	del_gendisk(lo->lo_disk);
+>  	blk_mq_free_tag_set(&lo->tag_set);
 
