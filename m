@@ -1,52 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.167.242.64
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795514926;
-	b=20zKe4RnP74xjtyvl5EWIWjkDOlkEOyIRCgwGGT+gSw969YH3pMsDKrDDb6w46EpCJFS
-	 8ZY1QvtGEB2SS6yvq8eUEuFSTAEaI1VXt7kWQFL3X60OOqma6S5LQlsdwt1GE6zaRNuc+
-	 Ll5GvEHubxixYiRMsMnOR79MaawQ2yFXuL7xYDhFAOJqW6+8jW1ZE+H12PEi9mLsv2oJk
-	 M+i4NWrcDf2qEahDPTmU75s9K6XQyzQpX9wkeCF4JsJKcfmfZegWZtYSJOds3R4OtcxiA
-	 WYJ6JNdpH9U2K1xtbkO2CHM77MKOY1beUAUfocgj8WSF0pzYKPJTfyr57AnACmKY+7Q==
+	t=1795514929;
+	b=CmvJmLkE5qDJ9i+S9ukYO1LwmHW9ksz7LlNQ0ifCIWXQchXkNW96gmdicraIvIEG8G4Y
+	 N21wAsfRZtarqRiBuWyW/E5w09EZKgr8gCllJYGadr0Fftt2PBoOU8zV7T1ZbQ4hXCiBM
+	 MdtgvPZNah45RpuUV2lujlZ6H6NfijHpYgErigTQ/MkC3EYVIf5OB0A+9QYPqWj/0KxBZ
+	 lqkpGHYrHbcbVai6UVGIj1pdn/5voUsf5uwcmSqEkcGTs2zmc5/Gtw+k4UYEMa9cZDp7K
+	 YklHLExx4GCc3bApe8bImhG+9wevPrjKDvahdkNXN7vKtyn81pkF0vH7CyX1iAzJk/Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795514926;
-	h=DMARC-Filter:Received:DKIM-Signature:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
-	 In-Reply-To:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=thQdVKzaxX4PYzqBNr0h9ZnsaGdfeH93i7X65D0Bz3w=;
-	b=huyzWY2ud+LKmp7PkNl0Hfu/IMGudPPfh3hzmxUYwxmzMEEmLjXOOmkSgJMDRFPAgmqT
-	 ube/F8cEKLJ1TGhgVj7hTx0vQUC4lTTSoHyazTRgP9Z/fIK/j+c7imcG/vMZMSQuVEC0h
-	 akkAdJ6fpoB7RRHfQXVg1Yef0tVQIHMDcIbSzo0BAheTbndNmGI6/Y8GxHJd3PdeAcKnO
-	 gZeKcLnzz9aOctsrZNtqSVdTj0zk5OAqVoyha+yeyMTmxxZi72CXNK9I+rhEHRXzdmWo/
-	 34iyddiiJ75AWz0e+xP32xNqld9Vqm97XRKI9gpZmOmhhRueMRX1DnmWSe77EpA1olA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795514929;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
+	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=rzf3/cqvmzHGv3qFSL5QC6mYfqjlWuS+RwxjyMzoNb8=;
+	b=KL/ybkHiV6tefRfTDWubiHjcRqGZYMJhIEIVJd2+qGC0Ub0Qn5bHUA7S0Lowua2IHQkt
+	 gWmBVLERi42WnHC+FMWfoiaEVz/JF+VSjahvRCZyXLI6VJh/5Oi6wbDo40XoTLyWoqbmQ
+	 ht2mC/K1AHZTx2jjAFH5EBgFKX2yz8lNB9pI0XczF171/WRKlTIM+ZQ9fzUcJjP9Py8m1
+	 VgdljKwlSoshYPj6Mp6xbb0XDnfmBOO4XtlAWfFB6LSCsK9w6/rrC26JOr/cYTGSzItSc
+	 wmU3OxNFlYwAXFAPE/FAvhhES2tthTWKvQKDnrxiDM3rVVueDMCj8RTZFPd8EL94QFA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ideasonboard.com;
-	spf=pass smtp.mailfrom=ideasonboard.com;
-	dkim=pass header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b="aC/8KE/+";
-	arc=none smtp.remote-ip=213.167.242.64
-Received: from perceval.ideasonboard.com (perceval.ideasonboard.com [213.167.242.64])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BCD3760A262B
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 10:08:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BCD3760A262B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ideasonboard.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ideasonboard.com
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b="IR8Cmp/i";
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 0B3DA606A695
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 10:08:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0B3DA606A695
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=aC/8KE/+
-Received: from [127.0.1.1] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id A70DA1F0C;
-	Tue, 24 Nov 2026 11:06:07 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1795514768;
-	bh=w46RB8VuBrpb/Z6cJ9wUQW2xUFcQqJBPHBgKlUDoB6k=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=aC/8KE/+lTHv3OuYglbtyZ0Tn8DBpL6BBS4kzDnlTSaeMK+5OPJ9rMjZ9PsedfPQv
-	 2aHPeAFmQ9EUyaD5CvJj9xPXdWwUXuIYjo+C0XJtqgc4Tdg1UF4d+BIJR6RTmPsDPP
-	 WYmtYvVIHn9AuBGY+t3vMXwrz0jbG1FpcNKoHB5g=
-From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Date: Tue, 24 Nov 2026 12:08:03 +0200
-Subject: [PATCH v6 12/13] drm/bridge: tc358762: Set DE_POL and DCLK_POL
- properly
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=IR8Cmp/i
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 33BC8339;
+	Tue, 24 Nov 2026 02:08:45 -0800 (PST)
+Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E6A3D3F632;
+	Tue, 24 Nov 2026 02:08:42 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795514928; bh=vwI/GWBLyLVLTmTN2EUL2154TR5p4FeVvygLq0PiHOU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=IR8Cmp/iF3CMKl01+dPH1sFgUvIbQzEGczcmIfbo4wYDkv+0Wn5W2chAQOali2dvB
+	 rldSikGgRg6cMBLtnB8NpHz6KtWdbciGwkm3bII1+gNHDr5CVsuNCW/xcfRgxLpWFx
+	 mNWAuqCIgeAlBg/WVI0u/CT24AqB+33esgT65JH8=
+Message-ID: <6825b01a-3235-4e4f-90f8-9e75646bfd17@arm.com>
+Date: Tue, 24 Nov 2026 10:08:41 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -56,93 +53,86 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 1/3] fork,arm,x86,fs/resctrl: Fix stale resource group
+ assignment vs copy_process()
+To: Reinette Chatre <reinette.chatre@intel.com>, kees@kernel.org,
+ mingo@redhat.com, peterz@infradead.org, juri.lelli@redhat.com,
+ vincent.guittot@linaro.org, dietmar.eggemann@arm.com, rostedt@goodmis.org,
+ bsegall@google.com, mgorman@suse.de, vschneid@redhat.com,
+ kprateek.nayak@amd.com, david@kernel.org, ljs@kernel.org,
+ liam@infradead.org, vbabka@kernel.org, rppt@kernel.org, surenb@google.com,
+ mhocko@suse.com, bp@alien8.de, tglx@linutronix.de,
+ dave.hansen@linux.intel.com, tony.luck@intel.com, Dave.Martin@arm.com,
+ james.morse@arm.com, babu.moger@amd.com, fustini@kernel.org,
+ jedrzej.wasiukiewicz@intel.com
+Cc: fenghuay@nvidia.com, peternewman@google.com, yu.c.chen@intel.com,
+ x86@kernel.org, linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+ patches@lists.linux.dev
+References: <cover.1795197419.git.reinette.chatre@intel.com>
+ <b2e13da64ca3e41207b5d46fb060bccefaf9fecd.1795197419.git.reinette.chatre@intel.com>
+ <17fe3497-b887-4dc1-a8f8-3b647c1880a6@arm.com>
+ <307b89b8-7613-46c2-a8a5-f6ecf7d05b25@intel.com>
+Content-Language: en-US
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <307b89b8-7613-46c2-a8a5-f6ecf7d05b25@intel.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261124-tc358762-fixes-v6-12-bd38fed6460f@ideasonboard.com>
-References: <20261124-tc358762-fixes-v6-0-bd38fed6460f@ideasonboard.com>
-In-Reply-To: <20261124-tc358762-fixes-v6-0-bd38fed6460f@ideasonboard.com>
-To: Marek Vasut <marex@denx.de>, Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Andreas Kemnade <andreas@kemnade.info>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- Dave Stevenson <dave.stevenson@raspberrypi.com>, 
- Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2062;
- i=tomi.valkeinen@ideasonboard.com; h=from:subject:message-id;
- bh=w46RB8VuBrpb/Z6cJ9wUQW2xUFcQqJBPHBgKlUDoB6k=;
- b=owEBbQKS/ZANAwAIAfo9qoy8lh71AcsmYgBrBWIa7FtHDm0h2ceUnVtbG+N2SMAbv2kCCMPdF
- 7jWwm70EEyJAjMEAAEIAB0WIQTEOAw+ll79gQef86f6PaqMvJYe9QUCawViGgAKCRD6PaqMvJYe
- 9XiZD/9v4gHrZGl8bA9S3ohEqOD1b0iMczRCKTdDjRTjLqSE7x086LWKN7wPnDMjdngG5eFY8cl
- ZLCKrvWEWqAJfVioBaXAeatrLonojyvbSRqmpXo7cj+xLHzK2rnIFHyFpQd+gYQSiNMXf3fwRRd
- ZKGJ99JJSlop3QWOmeUT87+Y6QpdVNVw1DYe3AOtn0GtAXwvk1RCxpo79o9UnLvQgnM9+5qXJfT
- T3fx/17SqSTW79QEtFoJBmS9oAnbb7MkhDNnDyKNbOkYntQi9IDWnD6UJyyMy5EnMxlE7bt3ewf
- F+Vbx9mAu3khItT9dslZzvRBCc6KaiGDYR+tH79CDBKp8nv+I/ClkO3TpaDzH/rmziPQ+EmICol
- kL7AtPrllJ70/yiC5F0hyxaERAt3NJnqCVBYM1z+88CMsPtjOjN70m0Y2YENcdyIMP1o/Dr9gDB
- mg41xX3rv+1lL/bYXtM9boaBoUXwo7JyvQq0ZxSQPzf9bOmmICPs+VvlNv55TYGtX6drET0ft8z
- 7CxRC+5PkU/g1j6enWxYmeJwDk39XW7OR9/9XIyqC84OUge3M8zoV87ZBHD3KaQZVGONtA3SR3o
- oU4xicQTMviYmLQwsJdxcNtzR/kjEIT7noUYsZ1uhLaJwWj+fVbm7SbYKa/4/ugm/uZ2SsIb7+5
- RGBXpjPPfrd+unw==
-X-Developer-Key: i=tomi.valkeinen@ideasonboard.com; a=openpgp;
- fpr=C4380C3E965EFD81079FF3A7FA3DAA8CBC961EF5
 
-The driver hardcodes LCDCTRL_DCLK_POL and ~DE_POL, ignoring what the
-panel actuall wants. Fix this by looking at the
-bridge_state->output_bus_cfg.flags, and set the polarities correctly.
+Hi Reinette,
 
-Reviewed-by: Andreas Kemnade <andreas@kemnade.info>
-Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
----
- drivers/gpu/drm/bridge/tc358762.c | 10 +++++++++-
- 1 file changed, 9 insertions(+), 1 deletion(-)
+On 24/11/2026 00:43, Reinette Chatre wrote:
+> Hi Ben,
+> 
+> Thank you very much for taking a look.
+> 
+> On 11/23/26 6:14 AM, Ben Horgan wrote:
+>> On 20/11/2026 18:39, Reinette Chatre wrote:
+>>>
+>>> - A static inline in include/linux/arm_mpam.h, beside the
+>>>   resctrl_arch_*() inlines already there. asm/mpam.h includes
+>>>   linux/arm_mpam.h, so the reverse include would be circular and
+>>
+>> Hmm, the existing include of linux/arm_mpam.h appears to be unnecessary.
+> 
+> ah, I see. I can include a preparatory patch that removes it.
+> 
+>> As such, that include can be removed and resctrl_arch_copy_closid_rmid()
+>> could be a static inline in include/linux/arm_mpam.h.
+> 
+> As a follow up, do you prefer include/linux/arm_mpam.h to contain the
+> full implementation like below, which is the first access of mpam_partid_pmg
+> outside arch/arm64/include/asm/mpam.h:
+> 
+> static inline void resctrl_arch_copy_closid_rmid(struct task_struct *dst,
+> 						 struct task_struct *src)
+> {
+> 	WRITE_ONCE(task_thread_info(dst)->mpam_partid_pmg, mpam_get_regval(src));
+> }
+> 
+> or, do you prefer to contain all users of mpam_partid_pmg in
+> arch/arm64/include/asm/mpam.h and thus instead implement solution as:
 
-diff --git a/drivers/gpu/drm/bridge/tc358762.c b/drivers/gpu/drm/bridge/tc358762.c
-index d9ae9f492020..4e9da4bf41d2 100644
---- a/drivers/gpu/drm/bridge/tc358762.c
-+++ b/drivers/gpu/drm/bridge/tc358762.c
-@@ -190,12 +190,15 @@ static void tc358762_enable(struct drm_bridge *bridge,
- {
- 	struct tc358762 *ctx = bridge_to_tc358762(bridge);
- 	struct drm_connector_state *conn_state;
-+	struct drm_bridge_state *bridge_state;
- 	struct drm_crtc_state *crtc_state;
- 	struct drm_connector *connector;
- 	struct drm_display_mode *mode;
- 	u32 lcdctrl;
- 	int ret;
- 
-+	bridge_state = drm_atomic_get_new_bridge_state(state, bridge);
-+
- 	connector = drm_atomic_get_new_connector_for_encoder(state, bridge->encoder);
- 	conn_state = drm_atomic_get_new_connector_state(state, connector);
- 	crtc_state = drm_atomic_get_new_crtc_state(state, conn_state->crtc);
-@@ -247,7 +250,9 @@ static void tc358762_enable(struct drm_bridge *bridge,
- 	if (ctx->use_vtg)
- 		lcdctrl |= LCDCTRL_VTGEN;
- 
--	lcdctrl |= LCDCTRL_DCLK_POL;
-+	/* Note: DCLK_POL affects pixdata, de and syncs */
-+	if (bridge_state->output_bus_cfg.flags & DRM_BUS_FLAG_PIXDATA_DRIVE_POSEDGE)
-+		lcdctrl |= LCDCTRL_DCLK_POL;
- 
- 	if (mode->flags & DRM_MODE_FLAG_PHSYNC)
- 		lcdctrl |= LCDCTRL_HSYNC_POL;
-@@ -255,6 +260,9 @@ static void tc358762_enable(struct drm_bridge *bridge,
- 	if (mode->flags & DRM_MODE_FLAG_PVSYNC)
- 		lcdctrl |= LCDCTRL_VSYNC_POL;
- 
-+	if (bridge_state->output_bus_cfg.flags & DRM_BUS_FLAG_DE_LOW)
-+		lcdctrl |= LCDCTRL_DE_POL;
-+
- 	tc358762_write(ctx, LCDCTRL, lcdctrl);
- 
- 	tc358762_write(ctx, PPI_STARTPPI, PPI_STARTPPI_STARTPPI);
+Yes. The second option looks best to me.
 
--- 
-2.43.0
+Thanks,
+
+Ben
+
+> 
+> arch/arm64/include/asm/mpam.h:
+> static inline void mpam_copy_task_partid_pmg(struct task_struct *dst,
+> 					     struct task_struct *src)
+> {
+> 	WRITE_ONCE(task_thread_info(dst)->mpam_partid_pmg, mpam_get_regval(src));
+> }
+> 
+> include/linux/arm_mpam.h:
+> static inline void resctrl_arch_copy_closid_rmid(struct task_struct *dst,
+> 						 struct task_struct *src)
+> {
+> 	mpam_copy_task_partid_pmg(dst, src);
+> }
+> 
+> Reinette
 
