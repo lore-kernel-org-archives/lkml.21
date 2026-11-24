@@ -1,112 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=65.109.113.108
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795496486;
-	b=45X9BlxI9AV4WlPPBI0MjL2HR5yeNT7CyVsxGhuWEEof/adYnf05BK5LrMkKDDp0ZoWK
-	 smwxJpHreV06G930aO6nFSKvYekOn+4JG4fC5dMc0WzP222o6fdLmwctT9LlXHk6OyTOG
-	 jpNRRaSNHAw4XE/7gT3bzwcFLBKfqRIO9rcPZCZrdqfHMo/e8icdqPcw+ALN7G9o6SktA
-	 FcwAah05O0X+oRVwH8fW4iQQosc+fkcU7668Yjbyfqom98bZtC4NwHiBNiNmknwrmAANi
-	 ObVEPaYWg/K+sx/DyrrQOBHCu0aoJD5+WHFGCZwHDsbrO1JNHiJ38x7HbE3u9p2KbCA==
+	t=1795496492;
+	b=VWbMO5FTjd3XcKEB1r6JfgXaYEAGBzJvZwb/LBM5EWJSnXJIaTflt6VAU8I/4OI0++9n
+	 zNH+kfrozOrufK9wHZc7pxsw6S7yuo4c1HhoHDCpnfpmtM7zLvMKrEHV1P5RFsqjqwXkd
+	 lmFKL56bFmRe4t3MboDWZ+R56wJZbOM5rr6Y4gyMPWYijiyEa3Tickodo+p3gqElHJF5x
+	 qlTYkWQvCBJngkpx/BOQa2FdEpmnVw1W065VjkCncQKtUXKQ0c3kxh30vtCQVr9IcvVql
+	 ABCCu0PIvteTW84Nngqs8q9M07nYSaI0aSgUo2a4gt2G8S7OdWoHczFa0H59cgsIGhQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795496486;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=SpABV9aKqp6smud8Wfu98a7VX6J5hPF06e5DetAJnC8=;
-	b=SMbpkkKHoeVWZ1D3eJiUB/71T5fsQx2CCQi36WKc1lOdUK/6Du/zigOOWiT4UmI4vyyW
-	 khva57x9Y6G2YP6e9S7o20nsVgqJQPt+A7uj51X9MZsOFXFCxiE88uJD1VnE88jqHig42
-	 SUG5OuxUJAjGVkfUTJj/bmpEsQHDKBTrkutap7zxhu5BLXF4HTu28xK6MeftpRCZ3Blp3
-	 PwPBMfPM4PwFEe4cj0DkkqE4HsiVvAjdoi1AX29JGEc+JF5yWXK0gtKuDHVsStcCfMx9e
-	 1lF089lunYQFtzrIsd9AWHwgFquFdCj6l88hmHO2i66hHBW+Yy1JYDHbuU9HwH3jxWw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795496492;
+	h=DMARC-Filter:Received:X-Virus-Scanned:Received:DKIM-Signature:
+	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=XM+P0UUh8M7+zT3EmoQUfy6DuwH+/xR6iA2fTPRkpYo=;
+	b=gwCWRWAxHXiwTRrX9ymIJspFjjSc8jNB6K0OGYLdTZzVq9c7i+Sy2KaeJQyyVkpJeES4
+	 IwbeGCWzqgP0vQFKfPPJnjWzfZQyTEYtwDo/bma4n/b8dTecyushneSXI4GjMmn1Nwk6R
+	 BRQT51pY/Vvc7EOzIn7HK/y+FhCEZXr3PF7fQZYGPP8z1m+VEMc26Mfr8h0nK0jTU45iG
+	 Ooav1FOyy6Casl1zUrT/FaOCKEWk6P3j6uRnSfc9ClOyT1cUjCjEXEQQyJofMRX9BFj6t
+	 dqieaOq1ZBrD1aPgPYfPM6vpUxPmmUFfaP+ksVcSbwN99VOp7ifYtLGL+w6N8Xbghyg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=kiTuZlf5;
-	arc=none smtp.remote-ip=209.85.128.53
-Received: from mail-wm1-f53.google.com (mail-wm1-f53.google.com [209.85.128.53])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=alien8.de;
+	spf=pass smtp.mailfrom=alien8.de;
+	dkim=pass header.d=alien8.de header.i=@alien8.de header.a=rsa-sha256 header.s=alien8 header.b=XoN6dl4w;
+	arc=none smtp.remote-ip=65.109.113.108
+Received: from mail.alien8.de (mail.alien8.de [65.109.113.108])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0F055606A690
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 05:01:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0F055606A690
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 40A7A606A322;
+	Tue, 24 Nov 2026 05:01:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 40A7A606A322
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=alien8.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=alien8.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=kiTuZlf5
-Received: by mail-wm1-f53.google.com with SMTP id 5b1f17b1804b1-4a35d5d4a20so39424405e9.2
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 21:01:25 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795496484; x=1796101284; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=SpABV9aKqp6smud8Wfu98a7VX6J5hPF06e5DetAJnC8=;
-        b=kiTuZlf5E9gkEl0zpKfnaUwlFCPbBI/X8mc9mf/rp6Q+KzKRxRQNm5aoSgmhHF8hyr
-         EP0QeMBmCe/gmVUZkPYNIx3ttCLhaiKAFfMRiNZmw4BDSJioK+NhAZvw3hYwq3h3Dqru
-         eVmRqxmZ/KoSXO0OWipEOutNvMJmw3sYs9h/2lBeWEfSl2usDxuuLZpBNtkKNWRoNsqF
-         1TNqwp27o4ywTLakbf12Gd3XMlp6sKXLvRBBCpvNSEBjoybzHbluCXoxRG7gf0Tb96sQ
-         fRGN07sshGxYtYNgdhqJHiCAsAJAnbKoMsytfo8W5f7qEGYO1zDO+qyqpm/CJ0wu8nZE
-         ENoA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795496484; x=1796101284;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=SpABV9aKqp6smud8Wfu98a7VX6J5hPF06e5DetAJnC8=;
-        b=SaMm5vtz0hACeCkDAAbee4sm/GRtklYm7tsSQuuO/AP4zVx2Nt4ksBJ3+V1UP4yjKA
-         ykFgi7rzXscJK3Q6PMaIHWPRZyiagfnQ4vGGZiZ7/R2BAxgT9IARGOMclwfzfFlZ18OZ
-         nC9OCAlz3PtMCPxlzgFgl1WIfPIeCr0RfaSq15CrEwipcim7+fe7PxZVvB8gXwXfdFTD
-         VQJK2N24EKbS7WFJP2vDnQsbrRUMqKAr+i0B8T3Mt7/8WRoOFIUQGUoNhieu1RWmBLmv
-         f+PP6QSMrDECK5fxQsQLiBsd1YQSR2SoWkVJsEjUhlXtedikep5mML/XEcvt0CIZixji
-         0K+A==
-X-Forwarded-Encrypted: i=1; AL+hErEsrqCukXbqeLqQ3FXq/mV7UGQGr6wyDTv1O72HB2N5NJwEri8zRzLvE6/QVL6GGwjcntnKDNuvM+gqU8M=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+COaUmu9MbZ4NXtQOjY60sZcb+Iv4QhIb9sL0rTXExDJGWjTAH
-	5gaeqEap3njmDy11S5BwKdNDP3v8hrljN2zovbMtDJyZzpJcq5H2L2Je
-X-Gm-Gg: AZFdTZccPxEFqk7Q6zZlFjEQ8FWEiR4JhOZfKhH9S5Hm33YF/oE/kRlHe5uXPYQogko
-	Ua8QyDWyy00iLY9lZmFcGcGIUGXo20/YANz6QvhtTI6gtkYUFA10io/Ch8uVZpywIsQGvGAqV16
-	4ooJaCnxC0wUkPYSY8Ty8BGoEk00hq2lB+AX6TuAWtMPYb4DQ6r27OtD+5Db7DZNR744tlAsxSg
-	wEgwWdE8xOndb3oWf9QEDQI/jFvB5sJHbQCEfFHu4j8KkYXzkGmV5hl0mnm3HQ36cdcPjCi4bR/
-	Z2go/xBnmkT6O/zN04hNw0mNs/WC70nk3LyfJSVlEgrTa9ZWhYp5xoQO1pacN3YOWSy1/u5ykau
-	yyLQjUxB7J8I+TW+NTqL4B4+w5nsi37rPYgHDAeyhnGnZJBvekTklW6RgvaRMaaP2ayIz9o4PAO
-	xk+dZ7EqL4wE3HWv6Bc+8VFJYBkM5kfoRHIlr97MQKPdoXgNwmSyeJYWZ87KUI+ACTvWw2D5j0y
-	ZQ2B1PKugqaVnjOc6BeSBI1H3N7mvQODTW6zRttHZA0kJ7sf2DwZGoK4KVAM/m2zDphsbXF7GyO
-	Yvaf1ELXW1pEwOCtRiEmCVrYqGgrCpvRa6PhLoRkJcYH+YU77Nr5Axgini5oV5VjXg9KbZ1OnBX
-	6j4vKOnFVf81zlDy+g8KgWLX2DCEmVtxFNubLEWjdWmzLUV/Lnvg3wtCwO+AXe3Yt5LEF8T7qt/
-	Oq02KebC0vCJAAvsXBqY6eK3UJKdfXHNl1O+eE8chymamgzdEwxoqx
-X-Received: by 2002:a05:600c:674f:b0:4bb:56bb:1196 with SMTP id 5b1f17b1804b1-4bb8880fb9bmr266365245e9.23.1795496484431;
-        Mon, 23 Nov 2026 21:01:24 -0800 (PST)
-Received: from localhost.localdomain (dynamic-2a00-1028-8388-a84e-f512-85ee-fdbe-0621.ipv6.o2.cz. [2a00:1028:8388:a84e:f512:85ee:fdbe:621])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb88442693sm353489155e9.1.2026.11.23.21.01.23
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Mon, 23 Nov 2026 21:01:23 -0800 (PST)
-From: Josef Schlehofer <pepe.schlehofer@gmail.com>
-To: Wim Van Sebroeck <wim@linux-watchdog.org>,
-	Guenter Roeck <linux@roeck-us.net>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: =?UTF-8?q?Pali=20Roh=C3=A1r?= <pali@kernel.org>,
-	=?UTF-8?q?Marek=20Beh=C3=BAn?= <kabel@kernel.org>,
-	Tzung-Bi Shih <tzungbi@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Linus Walleij <linusw@kernel.org>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	"Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
-	Shrikanth Hegde <sshegde@linux.ibm.com>,
-	linux-watchdog@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v4 3/3] powerpc: dts: turris1x.dts: Use wdi-gpios for the watchdog
-Date: Tue, 24 Nov 2026 06:01:18 +0100
-Message-ID: <20261124050118.87944-4-pepe.schlehofer@gmail.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20261124050118.87944-1-pepe.schlehofer@gmail.com>
-References: <20261124050118.87944-1-pepe.schlehofer@gmail.com>
+	dkim=pass (4096-bit key) header.d=alien8.de header.i=@alien8.de header.a=rsa-sha256 header.s=alien8 header.b=XoN6dl4w
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTP id A5CE440E02A9;
+	Tue, 24 Nov 2026 05:01:28 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at mail.alien8.de
+Authentication-Results: mail.alien8.de (amavisd-new); dkim=pass (4096-bit key)
+	header.d=alien8.de
+Received: from mail.alien8.de ([127.0.0.1])
+	by localhost (mail.alien8.de [127.0.0.1]) (amavisd-new, port 10026)
+	with ESMTP id 6vKUTZogjik0; Tue, 24 Nov 2026 05:01:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=alien8;
+	t=1795496485; bh=XM+P0UUh8M7+zT3EmoQUfy6DuwH+/xR6iA2fTPRkpYo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=XoN6dl4w0hO8vS82WF2sVspVH2Ft2yCybHFMhRmD+El3S2igLXKpsYPHgCoUVcvmb
+	 Oz8oGr8HDNWwBeOzl8rrUhUvaApVM9oPECC7d/9Ju/qibMK8Vo9T2dhtQWb95atjRZ
+	 MPFM0BOsEaCCUjHB/s3oXpSVfkL0TSDZNVttkSIEVv2GKzR8SzLlMQ+RW/hewfU6W5
+	 4Lxi7W6xN7fGfE33HLqD7S4d8vlc086is0sSBgTYcxlqpt4HVRdDWog3K8Mzi/W1Xf
+	 UlKcVU9nRdy1tP9J3ON3tF/jnhKp2rFe62GH+8QqxhjC/dt63NbTVdeMLdHCUzfE6+
+	 4AW7xbzjs7BZ1/+frP7bdFDkV52jvKF89A1KzaaLrpf0KbI9gVgkmGgQFkJjYVMo44
+	 DvW/KaEZpAIIQXozkEuWEeDMy4WXvEsMy75lE8aVlUbMF5MxC29dzQ5NVno2nDYq4+
+	 /foqT78Nar8WxvBxBRCsqHunGBN57QcfZswYl5yajf99gaCsX76l9xMNxDemElB4Cj
+	 tcBle8899/aszxRJRuMvOp/ZfdSf3iNFzLRp+u047z7oLqR3blWLgzairNs1uj+r7Y
+	 fjrtn9W6rytSEvHwabaQDXRpMAVcvSbpuc7IdEoHaYy3hSX82+tUZS2V6/Pbnayk03
+	 Gd+BMPN4fLEPETqdC9IO9FsE=
+Received: from stx.tnic (unknown [IPv6:2600:1700:38ca:c00::2b])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature ECDSA (P-256) server-digest SHA256)
+	(No client certificate requested)
+	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id 2EB5340E0240;
+	Tue, 24 Nov 2026 05:00:48 +0000 (UTC)
+Date: Mon, 23 Nov 2026 21:00:45 -0800
+From: Borislav Petkov <bp@alien8.de>
+To: Pierre Gondois <pierre.gondois@arm.com>
+Cc: linux-kernel@vger.kernel.org, Ashok Raj <ashok.raj@oss.qualcomm.com>,
+	James Morse <james.morse@arm.com>, Mark Brown <broonie@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>, Tony Luck <tony.luck@intel.com>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Shuai Xue <xueshuai@linux.alibaba.com>,
+	Mahesh J Salgaonkar <mahesh@linux.ibm.com>,
+	Oliver O'Halloran <oohall@gmail.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>,
+	Pawel Chmielewski <pawel.chmielewski@intel.com>,
+	Yazen Ghannam <yazen.ghannam@amd.com>,
+	Avadhut Naik <avadhut.naik@amd.com>,
+	Qiuxu Zhuo <qiuxu.zhuo@intel.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	"Fabio M. De Francesco" <fabio.m.de.francesco@linux.intel.com>,
+	Dave Jiang <dave.jiang@intel.com>,
+	Kai-Heng Feng <kaihengf@nvidia.com>,
+	Breno Leitao <leitao@debian.org>,
+	Terry Bowman <terry.bowman@amd.com>, Dan Williams <djbw@kernel.org>,
+	linux-acpi@vger.kernel.org, linux-edac@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-pci@vger.kernel.org,
+	acpica-devel@lists.linux.dev
+Subject: Re: [PATCH v1 09/19] ACPI: extlog: Report errors independently of
+ RAS consumers
+Message-ID: <20261124050045.GOawUZ_S5imwUOyh8B@fat_crate.local>
+References: <20261117111444.4185512-1-pierre.gondois@arm.com>
+ <20261117111444.4185512-10-pierre.gondois@arm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -116,39 +106,75 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20261117111444.4185512-10-pierre.gondois@arm.com>
 
-The watchdog node passes its WDI GPIO in a gpios property, which the
-maxim,max63xx binding does not define and the max63xx_wdt driver does
-not read. dtbs_check reports it for watchdog@2:
+On Tue, Nov 17, 2026 at 12:10:19PM +0100, Pierre Gondois wrote:
+> The RAS consumer check removes:
+> - trace events when no daemon is registered
+> - CPER console report when one is registered
+> This ties tracing, PCIe recovery and CXL protocol delivery to daemon
+> registration, and can hide a fatal record when userspace cannot process
+> its trace event before a reset.
+> 
+> Remove the RAS consumer registration condition and:
+> - always emit trace events
+> - print the CPER record only for CPER_SEV_FATAL
+> 
+> [1] additionally suggested to have a cmdline parameter to dynamically
+> update the above policy. Keep a simple hard coded policy for now.
+> 
+> [1]
+> https://lore.kernel.org/lkml/20240521183913.GGZkzqUSN1hdE-_OEY@fat_crate.local/
+> 
+> Signed-off-by: Pierre Gondois <pierre.gondois@arm.com>
+> ---
+>  drivers/acpi/acpi_extlog.c | 6 ++----
+>  1 file changed, 2 insertions(+), 4 deletions(-)
+> 
+> diff --git a/drivers/acpi/acpi_extlog.c b/drivers/acpi/acpi_extlog.c
+> index e09ea571c32f5..16a16b12d8ccf 100644
+> --- a/drivers/acpi/acpi_extlog.c
+> +++ b/drivers/acpi/acpi_extlog.c
+> @@ -208,10 +208,9 @@ static int extlog_print(struct notifier_block *nb, unsigned long val,
+>  	if (cper_estatus_len(tmp) > ELOG_ENTRY_LEN || cper_estatus_check(tmp))
+>  		return NOTIFY_DONE;
+>  
+> -	if (!ras_userspace_consumers()) {
+> +	/* Print fatal records regardless of RAS consumer registration. */
+> +	if (tmp->error_severity == CPER_SEV_FATAL)
+>  		print_extlog_rcd(NULL, tmp, cpu);
+> -		goto out;
+> -	}
 
-  Unevaluated properties are not allowed ('gpios' was unexpected)
+So after rereading that link, we had this conversation back then about
+reorganizing and reworking RAS error reporting and Dan (may he rest in peace)
+wanted to unify and dump all the old cruft - especially since
+ras_userspace_consumers() is not really used anymore. Apparently.
 
-Rename it to wdi-gpios, which the binding defines and the driver reads.
+But what else uses it?
 
-Signed-off-by: Josef Schlehofer <pepe.schlehofer@gmail.com>
----
+This is something other luserspace probably relies on and we should probably
+do our due diligence and slowly deprecate it with a warning splat but not just
+whack it unceremoniously.
 
-Notes:
-    Changes in v4:
-    - new patch
+And what I'm missing in all that effort is the big picture. What are you even
+trying to achieve here, what's the point of all that gymnastics?
 
- arch/powerpc/boot/dts/turris1x.dts | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Unify GHES and acpi_extlog? That's it?
 
-diff --git a/arch/powerpc/boot/dts/turris1x.dts b/arch/powerpc/boot/dts/turris1x.dts
-index dff1ea074d9d..494a96a1f78c 100644
---- a/arch/powerpc/boot/dts/turris1x.dts
-+++ b/arch/powerpc/boot/dts/turris1x.dts
-@@ -363,7 +363,7 @@
- 				 */
- 				compatible = "maxim,max6370";
- 				reg = <0x02 0x01>;
--				gpios = <&gpio 11 GPIO_ACTIVE_LOW>;
-+				wdi-gpios = <&gpio 11 GPIO_ACTIVE_LOW>;
- 			};
- 
- 			reboot@d {
+I'm sure there's much more to it than just a plain unification. 
+
+Probably CXL-something is going to use this too eventually?
+
+But I should not be guessing - I should be reading about the big picture
+somewhere. No?
+
+Thx.
+
 -- 
-2.54.0 (Apple Git-157)
+Regards/Gruss,
+    Boris.
 
+https://people.kernel.org/tglx/notes-about-netiquette
