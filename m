@@ -1,54 +1,111 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.11
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795542917;
-	b=OkLMrL7rPdEcnd3rS98qJ4XYdRBoxstLU8pAR1usW0xVmSKxD2LaoUIxm1Sc9G0iwmsK
-	 g4dOOieuerc1Kv8rwAR+jGuS7KAWTiBG0D0T+C8s5g5b39iId+H4nTufr7ZTtlsfIi4J3
-	 +FbttE2RPVk5sd1xKjU+0LLIOM5Yg7F8BC7iIinESK0YukRusxpMlfelnWyupOYFxCnru
-	 nkUa0dwvnoiL7txHRjhuMJVROjVAOwv5ofLafbKKkMsVzMsEkAXJBjqc+sfXdyZn39/sO
-	 /TrVQcy9nXeDNzXxMiX8i9phgLXbMg9w4DAE2pDDvBSRIKPcsqtwQQgSWVidGGPEKtw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795542917;
-	h=DMARC-Filter:DKIM-Signature:Received:Content-Type:Mime-Version:
-	 Subject:From:In-Reply-To:Date:Cc:Content-Transfer-Encoding:Message-Id:
-	 References:To:X-Mailer:X-ZohoMailClient;
-	bh=fpAiOPwESU3SxFIsWPPgq9rtaBiS5OvuHNtlKJUrn6E=;
-	b=LnqZwF2cWf8Et2DVTYi5YEEEBHkU7UoudHWsWX6mfHZ6RA37vAbt0kAynTz4YynIz6i6
-	 SxZW8UBq6RdkWbS3Mpc2BiGykdKVdE25MdhELQBoKJDt7ozGco7mlYS/Urp/U1mSWNVXL
-	 rSdjM32pMl1cPdnvMACUXuglPuQtv0KElOrqzfI4TrCbpUSWKKhgVgLqVJ5Yg0WBf9NSG
-	 tIP7bhhqQGtVNm4Cpj1fykvuaPb3EkW03IoLPgYSGrmInyyNtf51L8Wk2Tw1XEAYXlI7R
-	 wPSaxCZuQSiMoDZ394VPL1VtR4Z8rDud20OoI5AZSKEDiLsMVYG45LVYy+g1ZgkAytA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=collabora.com;
-	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=NWN2UAIY;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.11
-Received: from sender5-op-o11.zoho.com (sender5-op-o11.zoho.com [165.173.182.11])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.150
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795542970;
+	b=Qoof0YWsKcDmghJZIVFPJIxM5B9GIeR3qxOJYbkf91CyBBWnCgp8S5Exq1CpvHKKjN9D
+	 imXspdWTtvjV2l7uI4lBS1Yo4J0/GLd+PoVwfyA76IWKyXFSRY/SwRtxYdYgJlZMbBKl7
+	 i9XrBzXxpBAg0njOj7CMmiPdcQYFxySa0z/xWsNzxD6WJVlLbb1w2rVlcTByJaEArY95v
+	 T1CHSlhcR+/mVAMrwbPKxnQrJ3KkgUJY1c6DuliYiPSMLbBuNAHwtajNXKQ0iiUffrHzP
+	 9+5DBgL/Zx2QQrg1kUu+ks72UuPLXhw4TudRnIl6HX3WlDsAcB1FUAX8+PDL1aumSgw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795542970;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
+	 MIME-Version:X-ThreadId:Date:From:To:Cc:Message-Id:In-Reply-To:
+	 References:Subject:Content-Type:Content-Transfer-Encoding;
+	bh=kDJJsSL7gkz9rNon2P9KcGagBncDS02r/6Hfbn3ZcgA=;
+	b=ZbmB+40ODm6N1VYBaUWaJvY3ITN3QDnlH0TCOhk5+aaTEbZKwxyejGCmZvNpTX4KdRI5
+	 vyT5VQ3+FOJp37fwvKWCzJpbH6Zzhx7zFqey1HNk/vRkCa8ODX3ESMRXlbMAk1UgjEI1/
+	 dmrE4bN7a7ThsexT4bkmK5UI5QF30agbjl7QAKsjc++/Oc7eeIOQb5ENYBvCh2JAciox9
+	 AqHLk/4sz5+ysxVYfR8+OPrXdR2VUeAX3kbD5qVETIaJw1QbnW9gfGCmSC1eA7zxKzDbh
+	 BZmV6fxtMQ2L9C/YucsShvJeGvKrIiR4rDoPBbW7yz7wwbid1h9A8xHes0OKqsG6HvA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=squebb.ca;
+	spf=pass smtp.mailfrom=squebb.ca;
+	dkim=pass header.d=squebb.ca header.i=@squebb.ca header.a=rsa-sha256 header.s=fm1 header.b=KGK7GL0+;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=RnUz6vlo;
+	arc=none smtp.remote-ip=103.168.172.150
+Received: from fout-a7-smtp.messagingengine.com (fout-a7-smtp.messagingengine.com [103.168.172.150])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EC10B606A31E;
-	Tue, 24 Nov 2026 17:55:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EC10B606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C02FF606A323
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 17:56:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C02FF606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=squebb.ca
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=squebb.ca
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=NWN2UAIY
-ARC-Seal: i=1; a=rsa-sha256; t=1795542870; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=AqPLK2thyyeZzdMv+3QBPVqRpFEHXIVIWT19jJGPS2TSNZhqwtaEO6+T6FWxYEnLH9Hr5jQvgBRMsEJ1d1hzcLSBSvHZzO9vngr7zZMSDbri/aO0Ohb4gChq64vT5aDUleobra4aJmnNCpXlpORxDMYymHfJw40jOJyxacfrTgI=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1795542870; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=fpAiOPwESU3SxFIsWPPgq9rtaBiS5OvuHNtlKJUrn6E=; 
-	b=GfbBuk/u57p+2xSmCKZncHsNLcpv5cQ1t2U5EFm7kwOIKxQV2IXwEw3mWITKsdkjec+inoT67Kga6H0X/JphybaY7SbbL6G/Xfr3DGkbt3ZxJoM2eGpS3Y3UklRm/VAAok/nqG6YBrexMJPe97zwZiUtTpvt6IoaYm2GC6UsJOo=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=daniel.almeida@collabora.com;
-	dmarc=pass header.from=<daniel.almeida@collabora.com>
-DKIM-Signature: a=rsa-sha256; b=NWN2UAIYTOHUea2mpFHMsbSJ1q14R4wTlekbh8/k6krPLWHePOriqUAbNzYxNYmwpCIcj2lLspALX212zEsdySLQ5wZGsLBLqo4rv8Q12xu4CiFMTghlUMMp6tm7CdFdHpOoLpIVpLq7/fxvh3g6h4TUw259Cv7UyR1AmBwHQXg=; c=relaxed/relaxed; s=zohomail; d=collabora.com; v=1; bh=fpAiOPwESU3SxFIsWPPgq9rtaBiS5OvuHNtlKJUrn6E=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 1795542867599313.22834164371363;
-	Tue, 24 Nov 2026 09:54:27 -0800 (PST)
-Content-Type: text/plain;
-	charset=utf-8
+	dkim=pass (2048-bit key, unprotected) header.d=squebb.ca header.i=@squebb.ca header.a=rsa-sha256 header.s=fm1 header.b=KGK7GL0+;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=RnUz6vlo
+Received: from stl-compute-04.internal (stl-compute-04.internal [10.204.2.64])
+	by mailfout.phl.internal (Postfix) with ESMTP id B8AF5EC0BCF
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 12:56:08 -0500 (EST)
+Received: from stl-imap-02 ([10.204.2.93])
+  by stl-compute-04.internal (MEProxy); Tue, 24 Nov 2026 12:56:08 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=squebb.ca; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1795542967;
+	 x=1795629367; bh=kDJJsSL7gkz9rNon2P9KcGagBncDS02r/6Hfbn3ZcgA=; b=
+	KGK7GL0+ht5olDG/8gDlevkUoBQo++geY/9Ja7aPno3wqxVAeKMDula6U69Ft/uP
+	8z6T4POQ+cUh8Tj/VO+4FXTaqy7+5Cgt0y6u4zx9Xn7wO8wa9+vLlTn+OtHaKjRa
+	kB7bQ/3ipM2M0MRYit7Xd/Uyic1AI+HEC4iOk9C8pIa3R51qtkPBopRQS+ADuwfG
+	Dc47PoABG+4ADzPixj+Jg3BP/AOiCxXATjF2vTtVzZdBmaiNfztYtDFdZsmj6dzC
+	XOR7TTq+p54p75nhCQqFIZLsiq4kU1Ey9ABpJcSPu7tAcyX6qfNHsHs4Hs9mGVQZ
+	hfFztQQNwWwkJysBUEpaTA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795542967; x=
+	1795629367; bh=kDJJsSL7gkz9rNon2P9KcGagBncDS02r/6Hfbn3ZcgA=; b=R
+	nUz6vloShGOwhL9BVKyazWsjhO8xocHXzArXdBMETofFkEtsfo8uJM8YpBGHYq3S
+	aFkOVHZnJemPcdtyTH7JICPGVzrr+/ukhgT32ymh7H+lsL88RenWVixr2FFfA5W8
+	qMm7Fn76somi2m+ngYk+dodfjcg9TRO/Zo4Pk80YUQs27zIbzs3OmrQNwIgJdSNq
+	HZMrXYwSGt271mgApGtfpsCZcPh0KMmjurQrsMRGrWRfdWFkAHYEufoCd2rTkl8R
+	YMvlXXVa5ZBzQ+pVoVxNeSxXEa8BOJ5YfCsJc2OnmOcP9D+1wUY5AeI2QWk/D/HD
+	MWsZ/MZTWMeYdz1pXWl2A==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=squebb.ca a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795542967; d=squebb.ca;
+	mf=PG1wZWFyc29uLWxlbm92b0BzcXVlYmIuY2E+;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm1:rsa-sha256:i3ClscK3680XH+eJJKoljOzgVR18zFLYQI/iQBtvWcWgu4K
+	Znfp/FFzK5+CKLxVMuoaK2mRZbTIy/Wxq+9M3QC1MIvC8TNVMjcEqOONu3PoIpsw
+	StfSHlo28k2tRWBL5HnBa9j3IVSEUW8w+ce8DgpbVi+SSLsUGxxLP7rES5BJsFuT
+	geJTL4SuAWrJ15x15XEYs9D2bW+kacqtqN15nQ4UGt8CvmLmgyx1jTC8XIIjrnGp
+	ArlNAy2wc2c+WQEcquu7XQGVMgrMZywJbeP8uohPa4EGYrIfWVHvUciWtwQkh7Xc
+	wxQmp+iZbZCRpz3HNVz5EefFsnBNcGWY1DhR6hw==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=12;
+	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
+	from,in-reply-to,message-id,mime-version,references,subject,to;
+Message-Instance: m=1; h=sha256:8kwq3b9vF4aIYVRc0YExVwh3nc3egALguryDfQKtbYI=:eyc1528g9ioZwSTiB2mrY48PyKmbaO/ufr3W+OG90yM=;
+X-ME-Sender: <xms:tc8Fa1wwYpdUQOfqCtPZoxsTuw5fQGJa1rJU_P5rFy_zIDpzOI9vQQ>
+    <xme:tc8FawEToORkg6RuPMBAJ22jibQjUVeRB6GJv0EP32iqF5SAPJ6T5MV3BnWSVJuHL
+    TNVfUi3ImTZl5zueHf9f_WiDzg5da6pwLVCkEkxQak73Nzc1eeHHNoq>
+X-ME-Proxy-Cause: dmFkZTEH2K3mAqOY4x6MnPrBn64VMuhHnNbiLeVUdApU0aCzux8JQGqmUrjbvn0Gf/QtLX
+    NTEs2vr1z6VXqSMCf1DDTTiZ1uReVe6sSmmr9zr132BUhfW838nVG5EOenDcjR4Ja6a7qJ
+    X1CBG5zCPjEzSVGO39PblWrn/OE/6bzcTCoaIRIkyb718/WgQUvVetbStM3UbLDDyatKIN
+    h4WyGZoCgTzvfZCW5c1jXpyB2ZD5dFalB2pbABUd9UE4ygDExJnpB7L6hOfupRqo3bs9w8
+    K2UJHGmQS5d4UX44ooap8pljA3a80994T02f0q4F9wgDCs7Ozntq2gWEvdL6m9Dd6LKVKK
+    ss8VNtRe8V2v0+vt1gOsAV6i6rLgY72qgJRNgBpOiy2N7K6E8Al2vpzDEqzdwv7WxcCzs6
+    U57tVt2+SGqEQbWT/s7Fk2vRUgcXG6ILjDWotCO/qQvKw+S4KjuNnC4JrHBHLeiDFlJs2N
+    PhnVMVEhq50r1RZJyo0DtKyOSVqaEkEnU1cja+7DiC+iglA9FgIwukt+FnJeIbyTHTNVa3
+    BxNjVhhx3v43sKFDEXUMopjwsEVGSw8VOEzIFsRIPk8323unYTgxHRLd0ONLh53SAHLIXE
+    xTRk1zbFQVCaA1slRcNZCkgg6/d1CtLuJRVLnPq9UnddFCnd/kMRE92bALfw
+X-ME-Proxy: <xmx:ts8FaxQQ5h9zmgJN8i_a_ejna2jcH_JbfpOVZQxHG8TVqU00YyvGIA>
+    <xmx:ts8Fa93RS6LIOLeKbYowpVw7X_jf9qfq0ts-w4CHkVamITEdGFL7Ow>
+    <xmx:ts8FaxfBrrJ193iHuH9um5hb01xYbjjTwidnR_Zllu5ey4UBSplhWw>
+    <xmx:ts8Fa1NYGeKDn0LHDkYl0JMcYhucPrLAUBGC9DxFiiE-VWaMR0e16Q>
+    <xmx:t88Fawd8Mv_pNqAf9-us2LI-b9GZpshL6P6nlbsGa-N-RgQ2D0MTxBj9>
+Feedback-ID: ibe194615:Fastmail
+Received: by mailuser.stl.internal (Postfix, from userid 501)
+	id AAD032C00085; Tue, 24 Nov 2026 12:56:05 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,446 +114,68 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3901.200.71.1.16\))
-Subject: Re: [PATCH v7 2/3] drm/tyr: add TyrIrq threaded IRQ wrapper
-From: Daniel Almeida <daniel.almeida@collabora.com>
-In-Reply-To: <20260728-tyr-irq-v2-v7-2-4e172e58e28c@collabora.com>
-Date: Tue, 24 Nov 2026 14:54:12 -0300
-Cc: Alice Ryhl <aliceryhl@google.com>,
- Danilo Krummrich <dakr@kernel.org>,
- David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>,
- Miguel Ojeda <ojeda@kernel.org>,
- Boqun Feng <boqun@kernel.org>,
- Gary Guo <gary@garyguo.net>,
- =?utf-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>,
- Benno Lossin <lossin@kernel.org>,
- Andreas Hindborg <a.hindborg@kernel.org>,
- Trevor Gross <tmgross@umich.edu>,
- Tamir Duberstein <tamird@kernel.org>,
- Alexandre Courbot <acourbot@nvidia.com>,
- =?utf-8?Q?Onur_=C3=96zkan?= <work@onurozkan.dev>,
- linux-kernel@vger.kernel.org,
- dri-devel@lists.freedesktop.org,
- rust-for-linux@vger.kernel.org,
- kernel@collabora.com,
- Deborah Brouwer <deborah.brouwer@collabora.com>
-Content-Transfer-Encoding: quoted-printable
-Message-Id: <7C7287DF-458B-4AF8-8AB3-B5986E3B808E@collabora.com>
-References: <20260728-tyr-irq-v2-v7-0-4e172e58e28c@collabora.com>
- <20260728-tyr-irq-v2-v7-2-4e172e58e28c@collabora.com>
-To: Laura Nao <laura.nao@collabora.com>
-X-Mailer: Apple Mail (2.3901.200.71.1.16)
-X-ZohoMailClient: External
+MIME-Version: 1.0
+X-ThreadId: Aapn8tW6shyZ
+Date: Tue, 24 Nov 2026 12:55:45 -0500
+From: "Mark Pearson" <mpearson-lenovo@squebb.ca>
+To: "Tom Hu" <huxiaoying@kylinos.cn>, linux-kernel@vger.kernel.org
+Cc: "Henrique de Moraes Holschuh" <hmh@hmh.eng.br>,
+ "Derek J . Clark" <derekjohn.clark@gmail.com>, "Rong Zhang" <i@rong.moe>,
+ "Hans de Goede" <hansg@kernel.org>,
+ =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+ "platform-driver-x86@vger.kernel.org" <platform-driver-x86@vger.kernel.org>,
+ xiaoying_hu@126.com
+Message-Id: <d210975b-df3e-4858-96c8-06f868ee8ee8@app.fastmail.com>
+In-Reply-To: <20261124103935.897624-1-huxiaoying@kylinos.cn>
+References: <20261124103935.897624-1-huxiaoying@kylinos.cn>
+Subject: Re: [PATCH 1/2] platform/x86: thinkpad_acpi: Update charge_stop only after it
+ was applied
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 
-Hi Laura, this mostly looks good! A few things only:
-
-
-> On 23 Nov 2026, at 11:58, Laura Nao <laura.nao@collabora.com> wrote:
->=20
-> Introduce a generic TyrIrq threaded IRQ wrapper along with the
-> TyrIrqTrait trait describing the operations required to handle a
-> Tyr interrupt source.
->=20
-> Co-developed-by: Daniel Almeida <daniel.almeida@collabora.com>
-> Signed-off-by: Daniel Almeida <daniel.almeida@collabora.com>
-> Co-developed-by: Deborah Brouwer <deborah.brouwer@collabora.com>
-> Signed-off-by: Deborah Brouwer <deborah.brouwer@collabora.com>
-> Signed-off-by: Laura Nao <laura.nao@collabora.com>
+On Tue, Nov 24, 2026, at 5:39 AM, Tom Hu wrote:
+> From: huxiaoying <huxiaoying@kylinos.cn>
+>
+> The charge_stop_threshold store writes the new value into the cached
+> battery_info before the EC has accepted it.  If the ACPI call fails,
+> the cache and the hardware disagree, and subsequent charge_start
+> writes are validated against the stale-not-applied value.
+>
+> Move the cache update after a successful EC write and report -ENODEV
+> on failure, matching the charge_start path.
+>
+> Signed-off-by: huxiaoying <huxiaoying@kylinos.cn>
 > ---
-> drivers/gpu/drm/tyr/irq.rs           | 270 =
-+++++++++++++++++++++++++++++++++++
-> drivers/gpu/drm/tyr/reset/hw_gate.rs |   1 -
-> drivers/gpu/drm/tyr/tyr.rs           |   1 +
-> 3 files changed, 271 insertions(+), 1 deletion(-)
->=20
-> diff --git a/drivers/gpu/drm/tyr/irq.rs b/drivers/gpu/drm/tyr/irq.rs
-> new file mode 100644
-> index 000000000000..4a065c6272c5
-> --- /dev/null
-> +++ b/drivers/gpu/drm/tyr/irq.rs
-> @@ -0,0 +1,270 @@
-> +// SPDX-License-Identifier: GPL-2.0 or MIT
-> +
-> +//! Threaded IRQ wrapper shared by all Tyr interrupt sources.
-> +#![allow(dead_code)]
-> +use core::marker::PhantomPinned;
-> +
-> +use kernel::{
-> +    device::Bound,
-> +    interrupt::LocalInterruptDisabled,
-> +    irq::{
-> +        Flags,
-> +        IrqReturn,
-> +        ThreadedHandler,
-> +        ThreadedIrqReturn,
-> +        ThreadedRegistration, //
-> +    },
-> +    platform,
-> +    prelude::*,
-> +    sync::{
-> +        atomic::{
-> +            ordering:: {
-> +                Full,
-> +                Release, //
-> +            },
-> +            Atomic,
-> +            AtomicType, //
-> +        },
-> +        Arc,
-> +        SpinLockIrq, //
-> +    }, //
-> +};
-> +
-> +use crate::{
-> +    driver::IoMem,
-> +    reset::HwGate, //
-> +};
-> +
-> +/// Trait describing the operations required to service a Tyr =
-interrupt source.
-> +pub(crate) trait TyrIrqTrait: Sync {
-> +    /// Returns the masked interrupt status.
-> +    fn read_status(&self, io: &IoMem<'_>) -> u32;
-> +
-> +    /// Clears all bits in the mask register, disabling the interrupt =
-sources.
-> +    fn clear_mask(&self, io: &IoMem<'_>);
-> +
-> +    /// Sets the mask register to re-enable the interrupt sources.
-> +    fn reenable_mask(&self, io: &IoMem<'_>);
-> +
-> +    /// Returns the raw interrupt status, regardless of the current =
-mask.
-> +    fn read_raw_status(&self, io: &IoMem<'_>) -> u32;
-> +
-> +    /// Clears the given bits in the interrupt status register.
-> +    fn clear_status(&self, io: &IoMem<'_>, status: u32);
-> +
-> +    /// Returns the bitmask of interrupt sources handled by this =
-instance.
-> +    fn mask(&self) -> u32;
-> +
-> +    /// Handles the given pending, unmasked interrupt bits.
-> +    fn handle(&self, status: u32);
-> +}
-> +
-> +/// State shared between a [`TyrIrq`] and its [`TyrIrqRegistration`], =
-used to
-> +/// coordinate the primary handler, the threaded handler, and =
-teardown.
-> +#[derive(Clone, Copy, PartialEq, Eq)]
-> +#[repr(i32)]
-> +enum IrqState {
-> +    /// Active and ready to process new events.
-> +    Active =3D 0,
-> +    /// A primary handler has claimed a pending event and the =
-threaded handler is running, or
-> +    /// about to run, to service it.
-> +    Processing,
-> +    // Being deregistered: the mask has been, or is being, cleared, =
-and no
-> +    // handler may re-enable it.
-> +    Unregistering,
-> +}
-> +
-> +// SAFETY: `IrqState` and `i32` has the same size and alignment, and =
-it's round-trip
-> +// transmutable to `i32`.
-> +unsafe impl AtomicType for IrqState {
-> +    type Repr =3D i32;
-> +}
-> +
-> +/// A threaded IRQ wrapper shared by all Tyr interrupt sources.
-> +#[pin_data]
-> +pub(crate) struct TyrIrq<'a, T: TyrIrqTrait> {
-> +    /// The interrupt source.
-> +    irq: T,
-> +    /// Shared gate that coordinates hardware access with GPU reset.
-> +    hw: Arc<HwGate<'a>>,
-> +    /// Current state.
-> +    state: Atomic<IrqState>,
-> +    #[pin]
-> +    lock: SpinLockIrq<()>,
-
-Please move IrqState inside the lock:
-
->    lock: SpinLockIrq<IrqState>,
-
-Notice that Atomic<T> is gone here ^
-
-> +    #[pin]
-> +    _pin: PhantomPinned,
-> +}
-> +
-> +impl<'a, T: TyrIrqTrait> TyrIrq<'a, T> {
-> +    /// Requests a threaded IRQ registration for `irq`, using `name` =
-to look up the interrupt.
-> +    /// Returns the shared [`IrqState`] alongside the registration.
-> +    ///
-> +    /// # Safety
-> +    ///
-> +    /// Callers must not `mem::forget()` the resulting registration =
-or otherwise prevent its
-> +    /// [`Drop`] implementation from running.
-> +    unsafe fn request(
-> +        pdev: &'a platform::Device<Bound>,
-> +        name: &'static CStr,
-> +        irq: T,
-> +        hw: Arc<HwGate<'a>>,
-> +    ) -> Result<impl PinInit<ThreadedRegistration<'a, Self>, Error> + =
-'a>
-> +    where
-> +        T: 'a,
-> +    {
-> +        let state =3D Atomic::new(IrqState::Active);
-> +
-> +        let handler =3D try_pin_init!(Self {
-> +            irq,
-> +            hw,
-> +            state,
-> +            lock <- kernel::new_spinlock_irq!(()),
-> +            _pin: PhantomPinned,
-> +        });
-> +
-> +        // SAFETY: The caller guarantees the resulting registration =
-will not be leaked.
-> +        let registration =3D
-> +            unsafe { pdev.request_threaded_irq_by_name(Flags::SHARED, =
-name, name, handler) };
-
-I don't think we should use name twice here. The second one should =
-probably be
-tyr-job, tyr-mmu, tyr-gpu, etc. We should probably make this possible by =
-taking
-both a "irq_name" and a "name=E2=80=9D.
-
-> +
-> +        // Clear the status and unmask once the handler has been
-> +        // successfully registered.
-> +        Ok(registration.pin_chain(|reg| {
-> +            let handler =3D reg.handler();
-> +            let hw_guard =3D handler.hw.access();
-> +            let io =3D hw_guard.iomem();
-> +            let irq =3D &handler.irq;
-> +            irq.clear_status(io, irq.mask());
-> +            irq.reenable_mask(io);
-> +            Ok(())
-> +        }))
-> +    }
-> +}
-> +
-> +impl<T: TyrIrqTrait> ThreadedHandler for TyrIrq<'_, T> {
-> +    fn handle(&self) -> ThreadedIrqReturn {
-> +        // SAFETY: `handle()` is the hard IRQ handler, so interrupts =
-are already
-> +        // disabled.
-> +        let token =3D unsafe { =
-LocalInterruptDisabled::assume_disabled() };
-> +        let _guard =3D self.lock.lock_with(token);
-
-I'd rather not have this unsafe here if we can use the safe "lock()". If
-interrupts are off, turning them off again is harmless. Also, AI said =
-that your
-unsafe comment is not true under all configs.
-
-> +
-> +        // Only proceed if still `Active`. If `Unregistering`, the =
-IRQ is being
-> +        // torn down and must not be handled.
-> +        if self
-> +            .state
-> +            .cmpxchg(IrqState::Active, IrqState::Processing, Full)
-> +            .is_err()
-> +        {
-> +            return ThreadedIrqReturn::None;
-> +        }
-> +
-> +        let Some(hw_guard) =3D self.hw.try_access_atomic() else {
-> +            let _ =3D self
-> +                .state
-> +                .cmpxchg(IrqState::Processing, IrqState::Active, =
-Full);
-> +            return ThreadedIrqReturn::None;
-> +        };
-> +        let io =3D hw_guard.iomem();
-> +
-> +        let masked_status =3D self.irq.read_status(io);
-> +
-> +        if masked_status =3D=3D 0 {
-> +            // Go back to `Active`, unless the IRQ is being torn =
-down.
-> +            let _ =3D self
-> +                .state
-> +                .cmpxchg(IrqState::Processing, IrqState::Active, =
-Full);
-> +            return ThreadedIrqReturn::None;
-> +        }
-> +
-> +        self.irq.clear_mask(io);
-> +        ThreadedIrqReturn::WakeThread
-> +    }
-> +
-> +    fn handle_threaded(&self) -> IrqReturn {
-> +        let mut ret =3D IrqReturn::None;
-> +
-> +        loop {
-> +            let hw_guard =3D self.hw.access();
-> +            let io =3D hw_guard.iomem();
-> +            let raw_status =3D self.irq.read_raw_status(io) & =
-self.irq.mask();
-> +            if raw_status =3D=3D 0 {
-> +                break;
-> +            }
-> +            self.irq.clear_status(io, raw_status);
-> +            drop(hw_guard);
-> +            self.irq.handle(raw_status);
-> +            ret =3D IrqReturn::Handled;
-> +        }
-
-let hw_guard =3D loop {
-  ..
-  if raw_status =3D=3D 0 {
-    break hw_guard; <=E2=80=94 reuse this guy
-  }
-..
-};
-
-
-> +
-> +        // Only re-enable the mask if still `Processing`. If =
-`Unregistering`, the
-> +        // IRQ is being torn down and must stay masked.
-> +        let hw_guard =3D self.hw.access();
-> +        let _guard =3D self.lock.lock();
-> +        if self
-> +            .state
-> +            .cmpxchg(IrqState::Processing, IrqState::Active, Full)
-> +            .is_ok()
-> +        {
-> +            self.irq.reenable_mask(hw_guard.iomem());
-> +        }
-> +
-> +        ret
-> +    }
-> +}
-> +
-> +// A [`ThreadedRegistration`] for a Tyr interrupt source and its =
-state.
-> +
-> +// Unlike a bare [`ThreadedRegistration`], dropping this type is =
-always
-> +// safe to do while the device remains on a shared IRQ line: its =
-`Drop`
-> +// implementation masks the interrupt source, and notifies teardown =
-via the
-> +// shared [`IrqState`], before the inner [`ThreadedRegistration`] is
-> +// dropped and deregisters the handler.
-
-// -> ///
-
-Please mention that this must come before clocks and regulators, =
-otherwise the
-system will freeze when this type drops by attempting to do I/O on a =
-powered
-down circuit.
-
-> +#[pin_data(PinnedDrop)]
-> +pub(crate) struct TyrIrqRegistration<'a, T: TyrIrqTrait> {
-> +    #[pin]
-> +    registration: ThreadedRegistration<'a, TyrIrq<'a, T>>,
-> +}
-> +
-> +#[pinned_drop]
-> +impl<T: TyrIrqTrait> PinnedDrop for TyrIrqRegistration<'_, T> {
-> +    fn drop(self: Pin<&mut Self>) {
-> +        // Flag teardown and mask the interrupt source, before
-> +        // `self.registration`'s own `PinnedDrop` runs next and calls =
-`free_irq()`.
-> +        // This prevents the hardware from asserting the interrupt =
-again once it is
-> +        // deregistered. `free_irq()` itself waits for any handler =
-already in
-> +        // flight to complete, and having already flagged =
-`Unregistering`, such a
-> +        // handler will not re-enable the mask (see =
-`TyrIrq::handle_threaded`).
-> +        let handler =3D self.registration.handler();
-> +        let hw_guard =3D handler.hw.access();
-> +        let _guard =3D handler.lock.lock();
-> +        handler.state.store(IrqState::Unregistering, Release);
-> +        handler.irq.clear_mask(hw_guard.iomem());
-> +    }
-> +}
-> +
-> +impl<'a, T: TyrIrqTrait> TyrIrqRegistration<'a, T> {
-> +    /// Requests a threaded IRQ registration for `irq`, using `name` =
-to look up the interrupt.
-> +    ///
-> +    /// # Safety
-> +    ///
-> +    /// Callers must not `mem::forget()` the resulting registration =
-or otherwise prevent its
-> +    /// [`Drop`] implementation from running.
-> +    pub(crate) unsafe fn request(
-> +        pdev: &'a platform::Device<Bound>,
-> +        name: &'static CStr,
-> +        irq: T,
-> +        hw: Arc<HwGate<'a>>,
-> +    ) -> Result<Pin<KBox<Self>>>
-> +    where
-> +        T: 'a,
-> +    {
-> +        // SAFETY: The caller guarantees the resulting registration =
-will not be leaked.
-> +        let registration =3D unsafe { TyrIrq::request(pdev, name, =
-irq, hw) }?;
-> +
-> +        KBox::try_pin_init(
-> +            try_pin_init!(Self {
-> +                registration <- registration,
-> +            }),
-> +            GFP_KERNEL,
-> +        )
-> +    }
-> +}
-> diff --git a/drivers/gpu/drm/tyr/reset/hw_gate.rs =
-b/drivers/gpu/drm/tyr/reset/hw_gate.rs
-> index 40b38f07c472..2157b4b8ba78 100644
-> --- a/drivers/gpu/drm/tyr/reset/hw_gate.rs
-> +++ b/drivers/gpu/drm/tyr/reset/hw_gate.rs
-> @@ -76,7 +76,6 @@ pub(crate) fn access(&self) -> HwAccessGuard<'_, =
-'hw> {
->     ///
->     /// Returns `None` while the reset worker owns the hardware, in =
-which case
->     /// the caller must skip its hardware access.
-> -    #[expect(dead_code)]
->     pub(crate) fn try_access_atomic(&self) -> Option<HwAccessGuard<'_, =
-'hw>> {
->         let srcu =3D self.srcu.read_lock();
->=20
-> diff --git a/drivers/gpu/drm/tyr/tyr.rs b/drivers/gpu/drm/tyr/tyr.rs
-> index 9d995650be81..b112cc8a5573 100644
-> --- a/drivers/gpu/drm/tyr/tyr.rs
-> +++ b/drivers/gpu/drm/tyr/tyr.rs
-> @@ -12,6 +12,7 @@
-> mod fw;
-> mod gem;
-> mod gpu;
-> +mod irq;
-> mod mmu;
-> mod regs;
-> mod reset;
->=20
-> --=20
-> 2.39.5
->=20
-
-By the way, it seems like you forgot to run rustfmt one last time at =
-some
-point? Unless I am mistaken, running rustfmt here produces (a small) =
-diff.
-
-=E2=80=94 Daniel
-
+>  drivers/platform/x86/lenovo/thinkpad_acpi.c | 9 ++++-----
+>  1 file changed, 4 insertions(+), 5 deletions(-)
+>
+> diff --git a/drivers/platform/x86/lenovo/thinkpad_acpi.c 
+> b/drivers/platform/x86/lenovo/thinkpad_acpi.c
+> index 4f81855ad721..8fc5569131f6 100644
+> --- a/drivers/platform/x86/lenovo/thinkpad_acpi.c
+> +++ b/drivers/platform/x86/lenovo/thinkpad_acpi.c
+> @@ -9847,16 +9847,15 @@ static ssize_t tpacpi_battery_store(int what,
+>  			return -EINVAL;
+>  		if (value < battery_info.batteries[battery].charge_start)
+>  			return -EINVAL;
+> -		battery_info.batteries[battery].charge_stop = value;
+>  		/*
+>  		 * When 100 is passed to stop, we need to flip
+>  		 * it to 0 as that the EC understands that as
+>  		 * "Default", which will charge to 100%
+>  		 */
+> -		if (value == 100)
+> -			value = 0;
+> -		if (tpacpi_battery_set(THRESHOLD_STOP, battery, value))
+> -			return -EINVAL;
+> +		if (tpacpi_battery_set(THRESHOLD_STOP, battery,
+> +				       value == 100 ? 0 : value))
+> +			return -ENODEV;
+> +		battery_info.batteries[battery].charge_stop = value;
+>  		return count;
+>  	default:
+>  		pr_crit("Wrong parameter: %d", what);
+> -- 
+Looks good to me.
+Reviewed-by: Mark Pearson <mpearson-lenovo@squebb.ca>
+Mark
