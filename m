@@ -1,111 +1,112 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.135.74
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.139.74
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795554274;
-	b=oM7tqq5GVykqyR7ck7wYNy0TkGYj12bEGgRDcnslclzMffm46KfTtxfbR/ei/fVicPKs
-	 ETbSJaFFVEMdv0Gob0BRB3y584dc6Tho1HPD2er0eN5stYPZU839eK0rYYf0ekZ6nmDDp
-	 KpZKRqwHADpHcnwf9YV6iDN3JOQdnPdBN3SuLkbq78yjIWaWpJz4SWAkBmYoo+o1KNu22
-	 p6d1H7XDWzPVuJuKsGx6ngCTNGhcqTzg+gx0s7EsJXVqqCbWB4yTUv6z/v7SrdKF6pUV1
-	 PD2DJ9FZp0fHPMvQHkOKSayuQNYy3MREh9kNfL6w7A8EFolmoF2EBG0dyd+pLKY+7ng==
+	t=1795554275;
+	b=psvHi6K9yiIDPWO4IQYNPp9We6rrIO7ZsAMW2e8y5HMb5k5m0etpwmdgmSefwvCckVac
+	 xK7EyPpXml/v8/2NxPJ81j6FE3c71SYyIcOcaIZShUZP02TZ1P3wGGB2BMVT8sCGvfttB
+	 OMgb427crEMVpa7hI4rmRdRQWiGV7WD6UAzonlVLPtTnoSUaVi370OuJYCGTQDf8uhB/X
+	 2BEk+P007Rdv+fHZwNrNBcdTHR6nddZ2g/r9P5HxawQ+1oqRtWfJs0A/BY/zufKB8sGN2
+	 qzRy8PmMyp7K+RRbsP5w4AYBbCkzmrsoMj+H7td5ArZfQFqGrqRpscIY6tD6OPfTwWA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795554274;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795554275;
 	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
 	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:Date:
 	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Authority-Analysis:
-	 X-Proofpoint-GUID:X-Proofpoint-Spam-Info:
+	 X-Developer-Signature:X-Developer-Key:X-Proofpoint-GUID:
 	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
+	 X-Authority-Analysis:X-Proofpoint-Spam-Info:
 	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=ehoHHwwhO+SOqHm1ETZN2i9roC6iAhoxJvRnhkD8HmA=;
-	b=Geo1rsvd+CZN1JG+bLZxNXspnonrrjHZuVXiQzYLmTuD4zRTpTc0sAniwQz2upsEhTnx
-	 UF/ZFhzTRKqka4SmlNAebJiXwBsB+xKZaoqOm1qJeb9BAnRu3bLHKUQDQ1kOksRNdFkAp
-	 hsC5NuTnXz6PMXG8mAmRee8CUAA5rtC1sLuynUTjp0GqdD/iqz1Pjp+jn8wwEva/BT/R2
-	 bBMo9xBxA3jvlPo16ZOz6ek1vS3lBCM/URx5fWBBeCOWSRCaLg8GWw091/8USgsUzNQMX
-	 Aj0qkHkqewKkBkNqkkOSchjgj2Aa/DnJPf40N/s1T8Eq3RpYhEMJzv4vA2CvtDySxsg==
+	bh=HEE4z1qXFnBWTDdjAETCwV2Mt7o77ms8dAQPaznXq1g=;
+	b=1lGSuRfVRL4qWOPlsTRuqZI6/puZszUqgJHmTHy07gbR2fB6SlnJisonKjKZqofzUjjC
+	 fVASNRnoey7RoPZNkeWA8tgHe68HL6Ex+DTGhw2s4B/O6oW2JRFAUlwp9zGqXx0Dr3IAg
+	 0orfu4lOzFo/EBRmu3Cqiy/hzvVzEITbhFmdMjmBwyS234V7WjnGTeQRwhwG6El2SZTbu
+	 X6Nmnvou0RCTaF7sBmk1yl1fNpztkfQEQlvhrPsAhP/fhIPm5gfjpuN5sodH5pDNR4j73
+	 ryMdpRjW9Wa5+68ZQDer6mXEjRe2nJbUU8ZdSdqnAGmpM4mpBC+ykwKn/Ux8s0zg9tg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=columbia.edu;
 	spf=pass smtp.mailfrom=columbia.edu;
-	dkim=pass header.d=columbia.edu header.i=@columbia.edu header.a=rsa-sha256 header.s=pps01 header.b=G23IbbtZ;
-	dkim=pass header.d=columbia.edu header.i=@columbia.edu header.a=rsa-sha256 header.s=lionmail header.b=r3C0pI38;
-	arc=none smtp.remote-ip=148.163.135.74
-Received: from mx0a-00364e01.pphosted.com (mx0a-00364e01.pphosted.com [148.163.135.74])
+	dkim=pass header.d=columbia.edu header.i=@columbia.edu header.a=rsa-sha256 header.s=pps01 header.b=YRjpw25i;
+	dkim=pass header.d=columbia.edu header.i=@columbia.edu header.a=rsa-sha256 header.s=lionmail header.b=RYSVYdZZ;
+	arc=none smtp.remote-ip=148.163.139.74
+Received: from mx0b-00364e01.pphosted.com (mx0b-00364e01.pphosted.com [148.163.139.74])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7B437606A330
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 21:04:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7B437606A330
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D7B30606A685
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 21:04:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D7B30606A685
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=columbia.edu
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=columbia.edu
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=columbia.edu header.i=@columbia.edu header.a=rsa-sha256 header.s=pps01 header.b=G23IbbtZ;
-	dkim=pass (2048-bit key) header.d=columbia.edu header.i=@columbia.edu header.a=rsa-sha256 header.s=lionmail header.b=r3C0pI38
-Received: from pps.filterd (m0167068.ppops.net [127.0.0.1])
-	by mx0a-00364e01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AOKaLad3267240
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 16:04:33 -0500
+	dkim=pass (2048-bit key) header.d=columbia.edu header.i=@columbia.edu header.a=rsa-sha256 header.s=pps01 header.b=YRjpw25i;
+	dkim=pass (2048-bit key) header.d=columbia.edu header.i=@columbia.edu header.a=rsa-sha256 header.s=lionmail header.b=RYSVYdZZ
+Received: from pps.filterd (m0167075.ppops.net [127.0.0.1])
+	by mx0b-00364e01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AOKaM432982238
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 16:04:34 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=columbia.edu; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pps01; bh=ehoH
-	HwwhO+SOqHm1ETZN2i9roC6iAhoxJvRnhkD8HmA=; b=G23IbbtZreMQ79CHd6xU
-	W9YRl5E3SSxzj4gpb0ob8J9G8tIXaibQ7MPHYqWahqmETs05RJKu1ob6UtJpumjN
-	4VZTkM48jH2Z7tRksyMXOBWmBccc+Cz+bRw163iwhFNduy71cW113IoNIlYC48MK
-	II/q/fQhlOfKuAwIq2Fv6KQnqJ7cGjwLOgjabGVBJyNX8ZS7zpHFthE7bS6jTAYr
-	5FHFc3qOuzvqKMtGWzKMlzDJNuiYntkSmS2Sv/253w/KhQIEXoAXTlreLc4Q1cVz
-	/nXvUuNHrkX6bs8YHYsoug54SK8ulutJDAQr9kLcMc9rwC1TJea8LLmd3u5h9HWt
-	aA==
+	:message-id:mime-version:references:subject:to; s=pps01; bh=HEE4
+	z1qXFnBWTDdjAETCwV2Mt7o77ms8dAQPaznXq1g=; b=YRjpw25ioZigVnw31awX
+	iP8yzfcTyQZEOlPqDOQ0SsuOKu2MBboMFWr//cTpSWpGTHY9iuev0Up0yMu43G1b
+	YsF9Ps8bfoMs+2AEu6TB4m7NqCGFEZYtIYz2/UHcVA4RDpdL5Yq0WbzyZsQ6jw/B
+	KJ9ZNHivTC5hm3libb2AebYCeGxbK5N0q3GDgGtpyrcnKB2W2ctJEDQW4MoWVANO
+	bV+e1LVqsXzFyOVEJ+Ri5uEf81IP7Ja2tdpyFVHMpSdZeyIBnIS51WeX6wKRTf2z
+	NHo7gJgs4e+nnEEm4k4HMmJgOzR6PhJsTzDfLBt4Um0baT4MtGNl148B/LJEE6+V
+	GA==
 Received: from mail-qv1-f72.google.com (mail-qv1-f72.google.com [209.85.219.72])
-	by mx0a-00364e01.pphosted.com (PPS) with ESMTPS id 4j5eukt1bj-1
+	by mx0b-00364e01.pphosted.com (PPS) with ESMTPS id 4j5fanhqfe-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 16:04:32 -0500 (EST)
-Received: by mail-qv1-f72.google.com with SMTP id 6a1803df08f44-92125693bc6so97103816d6.1
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:04:32 -0800 (PST)
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 16:04:33 -0500 (EST)
+Received: by mail-qv1-f72.google.com with SMTP id 6a1803df08f44-92106c98714so103137576d6.3
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:04:33 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=columbia.edu; s=lionmail; t=1795554272; x=1796159072; darn=vger.kernel.org;
+        d=columbia.edu; s=lionmail; t=1795554273; x=1796159073; darn=vger.kernel.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=ehoHHwwhO+SOqHm1ETZN2i9roC6iAhoxJvRnhkD8HmA=;
-        b=r3C0pI38quTe1TPVm+izDNIhmN5USxpny8Om71Cki7z5FirAKuxcKNBpw31DhBicBh
-         rWvlMjneLh+6lQuMbel0/jkRJK9xCVP2DPgV+a4XHtU2lH62kvAHow2xdSKPek0HPI2v
-         ILPBFLKvG/+AG4lGb6l97Sdpwpn3zKZB4rMk2VLYASEZgIKW9P/NG0tniKDv1YY7NDIg
-         e+uC4JYKWu0FjbiadNgjSHCDszByl9FhYKovxYOt51Fpt93ILSglGcjBfwW3IYczdcDr
-         fq0rjcMQVtIcYmHqSdgl5uJD4CeyeImJFf3x1hXFTfNwpjsbUzqkJM0Q01C25UYROcYV
-         IJQw==
+        bh=HEE4z1qXFnBWTDdjAETCwV2Mt7o77ms8dAQPaznXq1g=;
+        b=RYSVYdZZXrvsesJneFVZ7u+svTH53OkKav4CbCThAJRVog3eYAdy860NXJalN72It3
+         YpNChhBHOpgAWYyKFmo+EK9yGkTbgiUFgKDjlqs6+93UeldxdT16xrI/E/KTZy4q/ONo
+         hAxsPX9d6R4kO+pfX9h2zVkp7TGNm5W4x7wibkzqf6a4IlYTacsfYVnoBUN30p5tiy4V
+         K8ktycjxv3VzMJdg36eRy93oSDxHCn5P+Lr95Y5ZuOjhgd7ZM0pQwbV9Ss6GRJxpva+y
+         93oVDoS6Sy8KBCR3QgP8NRoQzS/WnJtownuFXvveaFPPV0oQBo9IZyApE2nBYT84pp9W
+         ngag==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795554272; x=1796159072;
+        d=1e100.net; s=20260707; t=1795554273; x=1796159073;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=ehoHHwwhO+SOqHm1ETZN2i9roC6iAhoxJvRnhkD8HmA=;
-        b=dig54QeKsmE9mSofn7GdrhE8sUWiNM1tdQLkrFhDMcx07gfq6LDgTEztB8lUCtiJhF
-         UTwfBmJrzp/65xofqTW8UXeN3rzJjTeTiHTmBkjbyaVV8EIjfkuiiLx7YbFfC2n8ix6W
-         +v5fd8UgHEgpEMWnr861KJV47FqdcEpfczzyli2ZSOkRQNekY8hz6duXLL9d0Pn0pniP
-         mXt2DtZ+MOCJivmGGl5xI4GJPkxKHSizO0xUOvQP5/tUXp+702WfVnwazHCVJntp+LZC
-         roACY7Y5Gb1uAN3B3bsfmJgpDr5i5faOKqmoMjlgF3i76UnkZqV660zAfu2KeqpUY5yW
-         Pq7g==
-X-Forwarded-Encrypted: i=1; AL+hErEilnWSooQ7qu0UYsPs7uWXOKrLrHxh4DRvJF2/5rcHUokbLmA0s4hkQnCb7MF/ADpfpmAc9WTg14jz91U=@vger.kernel.org
-X-Gm-Message-State: APuU4Z//nqaNyLF1J0Z+t6emPjNEFLyj5rIv241tIdWaHay9xETfx1br
-	l85+ht0usx15SvSmTRG8H+uwlK1LVKjXPCAU33+GDvidHq2BicicKAAtEJ/rNAnRCOJf/qe7BOI
-	rJxeCrGnx8Ywreme/85fNfrN3mliC7igH09pU9d51uOQpwGEidr06yisPvJQ5hw==
-X-Gm-Gg: AZFdTZdT8E8QrlkNEHwoJynT+mTTxBSOKgrPmdKu1boyWN6Zx0S1TN7usG8NnGGUjyh
-	nvSx3ohY4SNqS7OB7a4R2P1vIMVkQREq7O04UEiUebdZl95lULG3H0rMjb62x9APjTuYyaUgmnE
-	2x9kBgNBA/LUin08cRAaB/Q+X/nILc/9p3dDITtM+40opInqjAp4A302yeE0tSYPnSF3zjgGqco
-	diqnRj64FlDsNB3d9E8DlbasqkhxE5uvqF6XH8KxxjQhLq9hCHl6diDzP4pniyy/7KykKd/Jfcr
-	8igiEjpfZcgZ3hUGScvS3FaxwDCAIU2iKyFsxAMjrDmQVwV5nWl9jW/gH4dz4icq6xgWsfFDZgu
-	g4PyI1coOtb2YWN6ZSJXCNYdOBy4o7KI9fVtWCmXxzDeS4+BIVIb5SOchkM0=
-X-Received: by 2002:a05:6214:8616:b0:921:23a6:8002 with SMTP id 6a1803df08f44-92134aef3d3mr270735776d6.14.1795554271516;
-        Tue, 24 Nov 2026 13:04:31 -0800 (PST)
-X-Received: by 2002:a05:6214:8616:b0:921:23a6:8002 with SMTP id 6a1803df08f44-92134aef3d3mr270735106d6.14.1795554270835;
-        Tue, 24 Nov 2026 13:04:30 -0800 (PST)
+        bh=HEE4z1qXFnBWTDdjAETCwV2Mt7o77ms8dAQPaznXq1g=;
+        b=ZWnEZO3gnEfIpcUNuvjVxLrHRH+ENXGmEgz60Q+ZuT+J4y0OXEneGCyY6VM+YVNQ0r
+         jMrqx1+5/0qFtUEb5634JquN7BgVEAJfbWFUnHtLCklTtgol8qO/LZ+ST2ZUCBt2ug92
+         hgD8ixAxkV7BTzf6Lj24X4FXb9bBulUGklsNDzbK/r7DekBftFPV4sVC/jX8Hq+1HQJC
+         +jZvRnXHSoZ57iG9WA42SiJJ422qr/ksdZL5hHdw8PtEayAf4JcJB0k8rz0Kad9ZLMT6
+         o2ZNvkwc/S0m1xm9h7JE+k11fMJ3GDmEqHbM55dP8gRwrY0fByQg/OLl5AyTjAti5BFu
+         711w==
+X-Forwarded-Encrypted: i=1; AL+hErHHNs9GQHiNXXD9ZEyNHet/gNLdGLgSBW+5zegI6vIqoYBWr35oncEWJ5W6bO4mLUe607b8MdM7y4pfE8U=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8xHbdwHhoxfYqEEK5FPUbCTPT4fawaWu+81ntW0dQyzoVyGQ8+
+	KFXAd+qDkpq2TdfZ8Cb1gj3UADZod60xgAiB33aRSIg4oUQpR9/kCaf2IsoPDd1iZwgodlB7heM
+	b/NycWxD6WtYE33SrKDfWf1jkAkTRxZgF/yp7amdGWdxTJHDJ35+HgxYhK9XJAQ==
+X-Gm-Gg: AZFdTZcvtknOATuALzpMO22M4mZ/4WqEQTJaErzr2gZvq5u+xZryXzg349QgUqqSF9b
+	UPBILDuJDPcLuk62LacTbznE9Tp8qL65v7TpGDsMjFzOfvraytqAWAL7NnXrcPrxcwCYQe8tjaI
+	40KI2CqIcaIt0jH9wK0GntRmSYxzztUx/9lzDyLg/XqSv6AXyk9+riRHAL+iXzeQQatamkLLqDp
+	tn1/kqs/kUFOwU9mnucqQZN8+LH/7Aa6pTPt3EtW8z168B30TJAQxCUOvmOSX52vCsmFJuDIeY8
+	kag4q63tfNSSm18CniZ4aRouwHRIM33vTCAs4P3X4FIgTyHOSYYNlC0p66tVVNRXhWI49nDUrJv
+	FqFE3I4sBqS18h5Vb4l9+8AYUVX28HSgngS7m+9/qDf/nrCwoeAIlz241bu0=
+X-Received: by 2002:a05:6214:458b:b0:921:1e1b:1e11 with SMTP id 6a1803df08f44-92134aae5b1mr274723906d6.11.1795554272943;
+        Tue, 24 Nov 2026 13:04:32 -0800 (PST)
+X-Received: by 2002:a05:6214:458b:b0:921:1e1b:1e11 with SMTP id 6a1803df08f44-92134aae5b1mr274723526d6.11.1795554272517;
+        Tue, 24 Nov 2026 13:04:32 -0800 (PST)
 Received: from [127.0.1.1] ([129.236.231.128])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-92134a0a454sm142827326d6.35.2026.11.24.13.04.30
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-92134a0a454sm142827326d6.35.2026.11.24.13.04.31
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 13:04:30 -0800 (PST)
+        Tue, 24 Nov 2026 13:04:31 -0800 (PST)
 From: Tal Zussman <tz2294@columbia.edu>
-Date: Tue, 24 Nov 2026 16:04:10 -0500
-Subject: [PATCH v2 2/4] gfs2: stop using pages for log buffers
+Date: Tue, 24 Nov 2026 16:04:12 -0500
+Subject: [PATCH v2 4/4] gfs2: remove the remaining page references in the
+ log code
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -117,7 +118,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261124-gfs2-log-folio-v2-2-f229e90c8285@columbia.edu>
+Message-Id: <20261124-gfs2-log-folio-v2-4-f229e90c8285@columbia.edu>
 References: <20261124-gfs2-log-folio-v2-0-f229e90c8285@columbia.edu>
 In-Reply-To: <20261124-gfs2-log-folio-v2-0-f229e90c8285@columbia.edu>
 To: Andreas Gruenbacher <agruenba@redhat.com>
@@ -125,498 +126,129 @@ Cc: gfs2@lists.linux.dev, linux-kernel@vger.kernel.org,
         "Matthew Wilcox (Oracle)" <willy@infradead.org>,
         Tal Zussman <tz2294@columbia.edu>
 X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795554268; l=16673;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795554268; l=3235;
  i=tz2294@columbia.edu; s=20250528; h=from:subject:message-id;
- bh=JXJNR40Zoc7tA58fqBwNx+T8MYnCgn648eK4Iy0hpHU=;
- b=A7Y/7NoR3LmCq2vLOvrREOGA/Q5IcbQr+VFi/SJF6e3zOLE8V/tsSUkFGJxRMOWc+jUdIadH5
- MGRqgO31Bf5DHk401AD/O3sZjmNVQHEUTDdp2mloNqpoPWT2guN6IlH
+ bh=OgZ2zeJfQt6UnNuu1TeQVqZhmgjPlO+0iv55uACTpZ8=;
+ b=iHK2QTNfzT4MBkSVKE27B+IG3oZy06kk89SJhnWSw5WSqD7RgNhyfXEWm3QkJcdvEysp9udmA
+ APClu+NXWayBPHZEA7dHJSQ7AX2RE18hryeS3ipkEr2qODvbcM3U7Pj
 X-Developer-Key: i=tz2294@columbia.edu; a=ed25519;
  pk=BIj5KdACscEOyAC0oIkeZqLB3L94fzBnDccEooxeM5Y=
-X-Authority-Analysis: v=2.4 cv=HJBWhYtv c=1 sm=1 tr=0 ts=6b05fbe0 cx=c_pps
+X-Proofpoint-GUID: H-OuyGUwMW3epnbzfIldON9NL7YiP3TV
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI0MDA4MyBTYWx0ZWRfXzbbNDQ2yEdco
+ 9qVLs9UpdLAJJjuQVa/Y7hXfDi3Zh1JW3YGfE6JB9xMzt6tLkLiDXXwUfco7QrsubCUYlbjYlhZ
+ Bpf1W2FdeUEd3WR40/H+YbCCWLGdTfyJj1bJIhCefnIwY2l1EJmSa87rnBnYruccoB7JrQMyiH7
+ caTDxe8Ycs+duazi2ZxSBGjYXQciB/ZCvCUxK4Buj+cLmnVwqUc++bH9MpH3I8lF7IvKiYmZOsl
+ CwbB0wML0w9jbTUCc7w8nwz7q+WwYDMfUuSBS/J14+GvWjFdLjNY9FrSFWNJwpYnUlwYw/ngzq8
+ FtKSuQQHQ8Y3rHYayofAY8RIJDMTTaeHDNmlvsdVoBIGZgQJA1cdnPDxJ7OiQQesi6TXLIyxCTe
+ 9yCqi4+ihLr4XCpfuDc4vUjKYjXtuteg1p1x8FNqVsV1myuBQV1T1TQqbjOdDLfdr3q0/DMHnuH
+ ADho4VD3NuKD0Jf6WzA==
+X-Proofpoint-ORIG-GUID: H-OuyGUwMW3epnbzfIldON9NL7YiP3TV
+X-Authority-Analysis: v=2.4 cv=acr0Dhot c=1 sm=1 tr=0 ts=6b05fbe1 cx=c_pps
  a=7E5Bxpl4vBhpaufnMqZlrw==:117 a=LNQXEAmb7IHcZyFqmLK0PA==:17
  a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=x7bEGLp0ZPQA:10 a=A0y_DWxS2BwA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=Da8U98TiO7q1upZEImrf:22 a=usPcmh10W0ubT8QP8_c3:22
- a=sYkUoKjhej99q4afhuMA:9 a=QEXdDO2ut3YA:10 a=pJ04lnu7RYOZP9TFuWaZ:22
-X-Proofpoint-GUID: cD5I7k8zaKj-1eQr0cLcPsBsA6KJlc8h
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI0MDA4MyBTYWx0ZWRfXzdcYPkZKVEHq
- NrEXylZj8/qW5iR1U04tn4elajOBzo7RI9Yq97r8dP7/zWaNBCTsgXNTnHRpZ2r82bCYNgayUEj
- 1Vl2NdlqlvGMSs7Wr6wCPxnIzI6JcfIVhB/RZMDSYwuEknZePQKE
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI0MDA4MyBTYWx0ZWRfX2uKF+E/FTplT
- P/dJIbxlQa4gHqTNz/VZXMq5s2VswHms9f/KjNQbbV75coOPlnzsgtepJi8GIzR9NSnDANqrscU
- 58u9q39eWsN1qjVwN8LBvJItoSKWGHyjTcFR0QYYRScVX0sHGSa/zkGDi0ErAyra2ExswuBbW7r
- WW4HfVjPwo0b363OwvKeXnQ+CYdCBQg7GHl7ZhsR3xFV55ZbtHGIFWPXxH2joj0GSDio3Ou5edd
- 5NmeoPZZoaFBrGZgwlnSn8PocbfKZ1QLnBDir8rTGjIzx54CpF0SHSj7qUOtlmbSnQjVivSCpbX
- fh6qegPfhgBA/z2DHEHA9rxt/8inVHQBmFsUgPFhMwyeIC0O6Vni+pFwPRMIlA00CozPAoOY0Hu
- KVNOIXjURr8s/sCAEjMW734eeecsIDphd+KoRA9G4O5PbocC0L5Nmd1Yue1QJHKIZ+HOmLlpBia
- FtzY0ZtoEB8WUi1pA/A==
-X-Proofpoint-ORIG-GUID: cD5I7k8zaKj-1eQr0cLcPsBsA6KJlc8h
+ a=VkNPw1HP01LnGYTKEx00:22 a=Da8U98TiO7q1upZEImrf:22 a=HpS3TJQ9O3Ob1ozEcmik:22
+ a=RLOwVVqb4wJnjAl-1mUA:9 a=QEXdDO2ut3YA:10 a=pJ04lnu7RYOZP9TFuWaZ:22
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI0MDA4MyBTYWx0ZWRfX3KcXUhPQww9e
+ b1kuxX7XUepUPAGS5wrV8vr6aVt9tVSzNg0C4JEVvXDV00OWqWPIBHS0WuSEFefvkgGz3fsBH9z
+ nDuuNkScikxi+quSzlhFVgU79gI7PN3OT9NjfEzzUpkprpZKGTze
 X-Proofpoint-Virus-Version: vendor=nai engine=6900 definitions=11976
  signatures=596817
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=10 clxscore=1015 adultscore=0 bulkscore=10 phishscore=0
- spamscore=0 malwarescore=0 suspectscore=0 priorityscore=1501 impostorscore=10
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611240083
+ spamscore=0 bulkscore=10 adultscore=0 phishscore=0 clxscore=1015
+ priorityscore=1501 suspectscore=0 impostorscore=10 malwarescore=0
+ lowpriorityscore=10 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
+ definitions=main-2611240083
 
-The log headers, descriptors, revoke blocks, and escaped block copies
-come from a mempool of pages and share a bio with the buffer heads being
-journaled. The completion handler tells the two apart by checking each
-segment for buffers, which treats a pool page as a folio. That won't
-work once memdescs give these pages a type of their own.
+gfs2_jhead_process_page() takes a folio, and the comments around it and
+gfs2_end_log_read() still describe folios as pages. Rename it to
+gfs2_jhead_process_folio() and update the comments.
 
-Make the per-superblock pool a kmalloc mempool of block-sized buffers
-instead, and add them to the bio with bio_add_virt_nofail(). Give the
-pool blocks their own completion handler, and start a new bio whenever
-the handler changes so that a bio only holds one kind of segment.
-gfs2_log_write() now takes a folio, so the log write path no longer uses
-struct page.
-
-Each descriptor and each escaped block copy is now a bio of its own.
-They are contiguous and merge under an I/O scheduler, but the flush
-path doesn't plug, so without a scheduler they reach the device as
-separate writes.
+Drop the struct page forward declaration from bmap.h as well, which has
+had no user since the unstuff path was converted.
 
 Signed-off-by: Tal Zussman <tz2294@columbia.edu>
 ---
- fs/gfs2/log.c        |  10 +--
- fs/gfs2/lops.c       | 204 ++++++++++++++++++++++++++++++++-------------------
- fs/gfs2/lops.h       |   6 +-
- fs/gfs2/ops_fstype.c |   3 +-
- 4 files changed, 136 insertions(+), 87 deletions(-)
+ fs/gfs2/bmap.h |  1 -
+ fs/gfs2/lops.c | 18 +++++++++---------
+ 2 files changed, 9 insertions(+), 10 deletions(-)
 
-diff --git a/fs/gfs2/log.c b/fs/gfs2/log.c
-index e7076db3ba46..2f9f20b40adc 100644
---- a/fs/gfs2/log.c
-+++ b/fs/gfs2/log.c
-@@ -841,7 +841,6 @@ void gfs2_write_log_header(struct gfs2_sbd *sdp, struct gfs2_jdesc *jd,
- {
- 	struct gfs2_log_header *lh;
- 	u32 hash, crc;
--	struct page *page;
- 	struct gfs2_statfs_change_host *l_sc = &sdp->sd_statfs_local;
- 	struct timespec64 tv;
- 	struct super_block *sb = sdp->sd_vfs;
-@@ -850,9 +849,8 @@ void gfs2_write_log_header(struct gfs2_sbd *sdp, struct gfs2_jdesc *jd,
- 	if (gfs2_withdrawn(sdp))
- 		return;
+diff --git a/fs/gfs2/bmap.h b/fs/gfs2/bmap.h
+index e3d6efdfd890..7b44cc9c742c 100644
+--- a/fs/gfs2/bmap.h
++++ b/fs/gfs2/bmap.h
+@@ -13,7 +13,6 @@
  
--	page = mempool_alloc(&sdp->sd_log_buf_pool, GFP_NOIO);
--	lh = page_address(page);
--	clear_page(lh);
-+	lh = mempool_alloc(&sdp->sd_log_buf_pool, GFP_NOIO);
-+	memset(lh, 0, sb->s_blocksize);
+ struct inode;
+ struct gfs2_inode;
+-struct page;
  
- 	lh->lh_header.mh_magic = cpu_to_be32(GFS2_MAGIC);
- 	lh->lh_header.mh_type = cpu_to_be32(GFS2_METATYPE_LH);
-@@ -905,8 +903,8 @@ void gfs2_write_log_header(struct gfs2_sbd *sdp, struct gfs2_jdesc *jd,
- 		     sb->s_blocksize - LH_V1_SIZE - 4);
- 	lh->lh_crc = cpu_to_be32(crc);
  
--	gfs2_log_write(sdp, jd, page, sb->s_blocksize, 0, dblock,
--		       REQ_OP_WRITE | op_flags);
-+	gfs2_log_write_buf(sdp, jd, lh, sb->s_blocksize, dblock,
-+			   REQ_OP_WRITE | op_flags);
- 	gfs2_log_submit_write(&jd->jd_log_bio);
- }
- 
+ /**
 diff --git a/fs/gfs2/lops.c b/fs/gfs2/lops.c
-index 7a2c29652fec..156d7c6341ca 100644
+index 156d7c6341ca..000be5ec54a3 100644
 --- a/fs/gfs2/lops.c
 +++ b/fs/gfs2/lops.c
-@@ -196,45 +196,70 @@ static void gfs2_end_log_write_bh(struct gfs2_sbd *sdp, struct folio *folio,
- 	} while (bh && size);
- }
- 
-+static void gfs2_log_write_error(struct bio *bio)
-+{
-+	struct gfs2_sbd *sdp = bio->bi_private;
-+	int err = blk_status_to_errno(bio->bi_status);
-+
-+	if (!cmpxchg(&sdp->sd_log_error, 0, err))
-+		fs_err(sdp, "Error %d writing to journal, jid=%u\n",
-+		       err, sdp->sd_jdesc->jd_jid);
-+	gfs2_withdraw(sdp);
-+}
-+
-+static void gfs2_log_write_done(struct bio *bio)
-+{
-+	struct gfs2_sbd *sdp = bio->bi_private;
-+
-+	bio_put(bio);
-+	if (atomic_dec_and_test(&sdp->sd_log_in_flight))
-+		wake_up(&sdp->sd_log_flush_wait);
-+}
-+
- /**
-- * gfs2_end_log_write - end of i/o to the log
-+ * gfs2_end_log_write - end of I/O to the log for buffers
+@@ -447,7 +447,7 @@ static void gfs2_log_write_block(struct gfs2_sbd *sdp, void *buf)
+  * gfs2_end_log_read - end I/O callback for reads from the log
   * @bio: The bio
   *
-- * Each bio_vec contains either data from the pagecache or data
-- * relating to the log itself. Here we iterate over the bio_vec
-- * array, processing both kinds of data.
-- *
-+ * Every folio in the bio comes from the page cache. Unlock the buffers
-+ * that were written.
+- * Simply unlock the pages in the bio. The main thread will wait on them and
++ * Simply unlock the folios in the bio. The main thread will wait on them and
+  * process them in order as necessary.
   */
- 
- static void gfs2_end_log_write(struct bio *bio)
- {
- 	struct gfs2_sbd *sdp = bio->bi_private;
--	struct bio_vec *bvec;
--	struct bvec_iter_all iter_all;
-+	struct folio_iter fi;
- 
--	if (bio->bi_status) {
--		int err = blk_status_to_errno(bio->bi_status);
-+	if (bio->bi_status)
-+		gfs2_log_write_error(bio);
- 
--		if (!cmpxchg(&sdp->sd_log_error, 0, err))
--			fs_err(sdp, "Error %d writing to journal, jid=%u\n",
--			       err, sdp->sd_jdesc->jd_jid);
--		gfs2_withdraw(sdp);
--	}
-+	bio_for_each_folio_all(fi, bio)
-+		gfs2_end_log_write_bh(sdp, fi.folio, fi.offset, fi.length,
-+				      bio->bi_status);
- 
--	bio_for_each_segment_all(bvec, bio, iter_all) {
--		struct page *page = bvec->bv_page;
--		struct folio *folio = page_folio(page);
-+	gfs2_log_write_done(bio);
-+}
- 
--		if (folio && folio_buffers(folio))
--			gfs2_end_log_write_bh(sdp, folio, bvec->bv_offset,
--					bvec->bv_len, bio->bi_status);
--		else
--			mempool_free(page, &sdp->sd_log_buf_pool);
--	}
-+/**
-+ * gfs2_end_log_write_buf - end of I/O to the log for log blocks
-+ * @bio: The bio
-+ *
-+ * Every segment in the bio is a block from the log buffer mempool.
-+ * Return them to the pool.
-+ */
- 
--	bio_put(bio);
--	if (atomic_dec_and_test(&sdp->sd_log_in_flight))
--		wake_up(&sdp->sd_log_flush_wait);
-+static void gfs2_end_log_write_buf(struct bio *bio)
-+{
-+	struct gfs2_sbd *sdp = bio->bi_private;
-+	struct bio_vec *bvec;
-+	struct bvec_iter_all iter_all;
-+
-+	if (bio->bi_status)
-+		gfs2_log_write_error(bio);
-+
-+	bio_for_each_segment_all(bvec, bio, iter_all)
-+		mempool_free(bvec_virt(bvec), &sdp->sd_log_buf_pool);
-+
-+	gfs2_log_write_done(bio);
+ static void gfs2_end_log_read(struct bio *bio)
+@@ -465,7 +465,7 @@ static void gfs2_end_log_read(struct bio *bio)
  }
  
  /**
-@@ -291,9 +316,9 @@ static struct bio *gfs2_log_alloc_bio(struct gfs2_sbd *sdp, u64 blkno,
-  * @flush: Always flush the current bio and allocate a new one?
-  *
-  * If there is a cached bio, then if the next block number is sequential
-- * with the previous one, return it, otherwise flush the bio to the
-- * device. If there is no cached bio, or we just flushed it, then
-- * allocate a new one.
-+ * with the previous one and the bio has the same completion handler,
-+ * return it, otherwise flush the bio to the device. If there is no
-+ * cached bio, or we just flushed it, then allocate a new one.
-  *
-  * Returns: The bio to use for log writes
-  */
-@@ -309,7 +334,7 @@ static struct bio *gfs2_log_get_bio(struct gfs2_sbd *sdp, u64 blkno,
- 
- 		nblk = bio_end_sector(bio);
- 		nblk >>= sdp->sd_fsb2bb_shift;
--		if (blkno == nblk && !flush)
-+		if (blkno == nblk && bio->bi_end_io == end_io && !flush)
- 			return bio;
- 		gfs2_log_submit_write(biop);
- 	}
-@@ -319,38 +344,63 @@ static struct bio *gfs2_log_get_bio(struct gfs2_sbd *sdp, u64 blkno,
- }
- 
- /**
-- * gfs2_log_write - write to log
-+ * gfs2_log_write - write a folio segment to the log
-  * @sdp: the filesystem
+- * gfs2_jhead_folio_search - Look for the journal head in a given page.
++ * gfs2_jhead_folio_search - Look for the journal head in a given folio.
   * @jd: The journal descriptor
-- * @page: the page to write
-+ * @folio: the folio to write
-  * @size: the size of the data to write
-- * @offset: the offset within the page 
-+ * @offset: the offset within the folio
-  * @blkno: block number of the log entry
-  * @opf: REQ_OP | op_flags
+  * @head: The journal head to start from
+  * @folio: The folio to look in
+@@ -499,9 +499,9 @@ static bool gfs2_jhead_folio_search(struct gfs2_jdesc *jd,
+ }
+ 
+ /**
+- * gfs2_jhead_process_page - Search/cleanup a page
++ * gfs2_jhead_process_folio - Search/cleanup a folio
+  * @jd: The journal descriptor
+- * @index: Index of the page to look into
++ * @index: Index of the folio to look into
+  * @head: The journal head to start from
+  * @done: If set, perform only cleanup, else search and set if found.
   *
-- * Try and add the page segment to the current bio. If that fails,
-+ * Try and add the folio segment to the current bio. If that fails,
-  * submit the current bio to the device and create a new one, and
-- * then add the page segment to that.
-+ * then add the folio segment to that.
+@@ -518,9 +518,9 @@ static bool gfs2_jhead_folio_search(struct gfs2_jdesc *jd,
+  * our references to the folio.
   */
  
--void gfs2_log_write(struct gfs2_sbd *sdp, struct gfs2_jdesc *jd,
--		    struct page *page, unsigned size, unsigned offset,
--		    u64 blkno, blk_opf_t opf)
-+static void gfs2_log_write(struct gfs2_sbd *sdp, struct gfs2_jdesc *jd,
-+			   struct folio *folio, unsigned int size,
-+			   unsigned int offset, u64 blkno, blk_opf_t opf)
+-static void gfs2_jhead_process_page(struct gfs2_jdesc *jd, unsigned long index,
+-				    struct gfs2_log_header_host *head,
+-				    bool *done)
++static void gfs2_jhead_process_folio(struct gfs2_jdesc *jd, unsigned long index,
++				     struct gfs2_log_header_host *head,
++				     bool *done)
  {
- 	struct bio *bio;
--	int ret;
+ 	struct folio *folio;
  
- 	bio = gfs2_log_get_bio(sdp, blkno, &jd->jd_log_bio, opf,
- 			       gfs2_end_log_write, false);
--	ret = bio_add_page(bio, page, size, offset);
--	if (ret == 0) {
-+	if (!bio_add_folio(bio, folio, size, offset)) {
- 		bio = gfs2_log_get_bio(sdp, blkno, &jd->jd_log_bio,
- 				       opf, gfs2_end_log_write, true);
--		ret = bio_add_page(bio, page, size, offset);
--		WARN_ON(ret == 0);
-+		WARN_ON(!bio_add_folio(bio, folio, size, offset));
- 	}
- }
- 
-+/**
-+ * gfs2_log_write_buf - write a log buffer to the log
-+ * @sdp: the filesystem
-+ * @jd: The journal descriptor
-+ * @buf: the buffer to write, from the log buffer mempool
-+ * @size: the size of the data to write
-+ * @blkno: block number of the log entry
-+ * @opf: REQ_OP | op_flags
-+ *
-+ * Like gfs2_log_write(), for a block allocated from sd_log_buf_pool.
-+ * Ownership of the buffer passes to the bio, which returns it to the
-+ * pool on completion.
-+ */
-+
-+void gfs2_log_write_buf(struct gfs2_sbd *sdp, struct gfs2_jdesc *jd,
-+			void *buf, unsigned int size, u64 blkno,
-+			blk_opf_t opf)
-+{
-+	struct bio *bio;
-+
-+	bio = gfs2_log_get_bio(sdp, blkno, &jd->jd_log_bio, opf,
-+			       gfs2_end_log_write_buf, false);
-+	if (bio->bi_vcnt >= bio->bi_max_vecs)
-+		bio = gfs2_log_get_bio(sdp, blkno, &jd->jd_log_bio,
-+				       opf, gfs2_end_log_write_buf, true);
-+	bio_add_virt_nofail(bio, buf, size);
-+}
-+
- /**
-  * gfs2_log_write_bh - write a buffer's content to the log
-  * @sdp: The super block
-@@ -367,30 +417,30 @@ static void gfs2_log_write_bh(struct gfs2_sbd *sdp, struct buffer_head *bh)
- 
- 	dblock = gfs2_log_bmap(sdp->sd_jdesc, sdp->sd_log_flush_head);
- 	gfs2_log_incr_head(sdp);
--	gfs2_log_write(sdp, sdp->sd_jdesc, folio_page(bh->b_folio, 0),
--			bh->b_size, bh_offset(bh), dblock, REQ_OP_WRITE);
-+	gfs2_log_write(sdp, sdp->sd_jdesc, bh->b_folio, bh->b_size,
-+		       bh_offset(bh), dblock, REQ_OP_WRITE);
- }
- 
- /**
-- * gfs2_log_write_page - write one block stored in a page, into the log
-+ * gfs2_log_write_block - write one block stored in a log buffer, into the log
-  * @sdp: The superblock
-- * @page: The struct page
-+ * @buf: The buffer
-  *
-- * This writes the first block-sized part of the page into the log. Note
-- * that the page must have been allocated from the sd_log_buf_pool mempool
-- * and that after this has been called, ownership has been transferred and
-- * the page may be freed at any time.
-+ * This writes the first block-sized part of the buffer into the log. Note
-+ * that the buffer must have been allocated from the sd_log_buf_pool
-+ * mempool and that after this has been called, ownership has been
-+ * transferred and the buffer may be freed at any time.
-  */
- 
--static void gfs2_log_write_page(struct gfs2_sbd *sdp, struct page *page)
-+static void gfs2_log_write_block(struct gfs2_sbd *sdp, void *buf)
- {
- 	struct super_block *sb = sdp->sd_vfs;
- 	u64 dblock;
- 
- 	dblock = gfs2_log_bmap(sdp->sd_jdesc, sdp->sd_log_flush_head);
- 	gfs2_log_incr_head(sdp);
--	gfs2_log_write(sdp, sdp->sd_jdesc, page, sb->s_blocksize, 0, dblock,
--		       REQ_OP_WRITE);
-+	gfs2_log_write_buf(sdp, sdp->sd_jdesc, buf, sb->s_blocksize, dblock,
-+			   REQ_OP_WRITE);
- }
- 
- /**
-@@ -604,12 +654,14 @@ int gfs2_find_jhead(struct gfs2_jdesc *jd, struct gfs2_log_header_host *head)
- 	return ret;
- }
- 
--static struct page *gfs2_get_log_desc(struct gfs2_sbd *sdp, u32 ld_type,
--				      u32 ld_length, u32 ld_data1)
-+static struct gfs2_log_descriptor *gfs2_get_log_desc(struct gfs2_sbd *sdp,
-+						     u32 ld_type, u32 ld_length,
-+						     u32 ld_data1)
- {
--	struct page *page = mempool_alloc(&sdp->sd_log_buf_pool, GFP_NOIO);
--	struct gfs2_log_descriptor *ld = page_address(page);
--	clear_page(ld);
-+	struct gfs2_log_descriptor *ld;
-+
-+	ld = mempool_alloc(&sdp->sd_log_buf_pool, GFP_NOIO);
-+	memset(ld, 0, sdp->sd_sb.sb_bsize);
- 	ld->ld_header.mh_magic = cpu_to_be32(GFS2_MAGIC);
- 	ld->ld_header.mh_type = cpu_to_be32(GFS2_METATYPE_LD);
- 	ld->ld_header.mh_format = cpu_to_be32(GFS2_FORMAT_LD);
-@@ -617,7 +669,7 @@ static struct page *gfs2_get_log_desc(struct gfs2_sbd *sdp, u32 ld_type,
- 	ld->ld_length = cpu_to_be32(ld_length);
- 	ld->ld_data1 = cpu_to_be32(ld_data1);
- 	ld->ld_data2 = 0;
--	return page;
-+	return ld;
- }
- 
- static void gfs2_check_magic(struct buffer_head *bh)
-@@ -652,7 +704,6 @@ static void gfs2_before_commit(struct gfs2_sbd *sdp, unsigned int limit,
- {
- 	struct gfs2_log_descriptor *ld;
- 	struct gfs2_bufdata *bd1 = NULL, *bd2;
--	struct page *page;
- 	unsigned int num;
- 	unsigned n;
- 	__be64 *ptr;
-@@ -665,10 +716,9 @@ static void gfs2_before_commit(struct gfs2_sbd *sdp, unsigned int limit,
- 		if (total > limit)
- 			num = limit;
- 		spin_unlock(&sdp->sd_log_lock);
--		page = gfs2_get_log_desc(sdp,
--					 is_databuf ? GFS2_LOG_DESC_JDATA :
--					 GFS2_LOG_DESC_METADATA, num + 1, num);
--		ld = page_address(page);
-+		ld = gfs2_get_log_desc(sdp,
-+				       is_databuf ? GFS2_LOG_DESC_JDATA :
-+				       GFS2_LOG_DESC_METADATA, num + 1, num);
- 		spin_lock(&sdp->sd_log_lock);
- 		ptr = (__be64 *)(ld + 1);
- 
-@@ -684,7 +734,7 @@ static void gfs2_before_commit(struct gfs2_sbd *sdp, unsigned int limit,
- 		}
- 
- 		spin_unlock(&sdp->sd_log_lock);
--		gfs2_log_write_page(sdp, page);
-+		gfs2_log_write_block(sdp, ld);
- 		spin_lock(&sdp->sd_log_lock);
- 
- 		n = 0;
-@@ -696,8 +746,7 @@ static void gfs2_before_commit(struct gfs2_sbd *sdp, unsigned int limit,
- 			if (buffer_escaped(bd2->bd_bh)) {
- 				void *p;
- 
--				page = mempool_alloc(&sdp->sd_log_buf_pool, GFP_NOIO);
--				p = page_address(page);
-+				p = mempool_alloc(&sdp->sd_log_buf_pool, GFP_NOIO);
- 				memcpy_from_folio(p, bd2->bd_bh->b_folio,
- 						  bh_offset(bd2->bd_bh),
- 						  bd2->bd_bh->b_size);
-@@ -705,7 +754,7 @@ static void gfs2_before_commit(struct gfs2_sbd *sdp, unsigned int limit,
- 				clear_buffer_escaped(bd2->bd_bh);
- 				unlock_buffer(bd2->bd_bh);
- 				brelse(bd2->bd_bh);
--				gfs2_log_write_page(sdp, page);
-+				gfs2_log_write_block(sdp, p);
- 			} else {
- 				gfs2_log_write_bh(sdp, bd2->bd_bh);
+@@ -631,7 +631,7 @@ int gfs2_find_jhead(struct gfs2_jdesc *jd, struct gfs2_log_header_host *head)
+ 				continue;
  			}
-@@ -856,7 +905,7 @@ static void revoke_lo_before_commit(struct gfs2_sbd *sdp, struct gfs2_trans *tr)
- 	struct gfs2_meta_header *mh;
- 	unsigned int offset;
- 	struct gfs2_bufdata *bd;
--	struct page *page;
-+	void *buf;
- 	unsigned int length;
  
- 	gfs2_flush_revokes(sdp);
-@@ -864,29 +913,30 @@ static void revoke_lo_before_commit(struct gfs2_sbd *sdp, struct gfs2_trans *tr)
- 		return;
- 
- 	length = gfs2_struct2blk(sdp, sdp->sd_log_num_revoke);
--	page = gfs2_get_log_desc(sdp, GFS2_LOG_DESC_REVOKE, length, sdp->sd_log_num_revoke);
-+	buf = gfs2_get_log_desc(sdp, GFS2_LOG_DESC_REVOKE, length,
-+				sdp->sd_log_num_revoke);
- 	offset = sizeof(struct gfs2_log_descriptor);
- 
- 	list_for_each_entry(bd, &sdp->sd_log_revokes, bd_list) {
- 		sdp->sd_log_num_revoke--;
- 
- 		if (offset + sizeof(u64) > sdp->sd_sb.sb_bsize) {
--			gfs2_log_write_page(sdp, page);
--			page = mempool_alloc(&sdp->sd_log_buf_pool, GFP_NOIO);
--			mh = page_address(page);
--			clear_page(mh);
-+			gfs2_log_write_block(sdp, buf);
-+			buf = mempool_alloc(&sdp->sd_log_buf_pool, GFP_NOIO);
-+			mh = buf;
-+			memset(mh, 0, sdp->sd_sb.sb_bsize);
- 			mh->mh_magic = cpu_to_be32(GFS2_MAGIC);
- 			mh->mh_type = cpu_to_be32(GFS2_METATYPE_LB);
- 			mh->mh_format = cpu_to_be32(GFS2_FORMAT_LB);
- 			offset = sizeof(struct gfs2_meta_header);
- 		}
- 
--		*(__be64 *)(page_address(page) + offset) = cpu_to_be64(bd->bd_blkno);
-+		*(__be64 *)(buf + offset) = cpu_to_be64(bd->bd_blkno);
- 		offset += sizeof(u64);
+-			gfs2_jhead_process_page(jd, blocks_read >> shift, head, &done);
++			gfs2_jhead_process_folio(jd, blocks_read >> shift, head, &done);
+ 			blocks_read += PAGE_SIZE >> bsize_shift;
+ 			if (done)
+ 				goto out;  /* found */
+@@ -642,7 +642,7 @@ int gfs2_find_jhead(struct gfs2_jdesc *jd, struct gfs2_log_header_host *head)
+ 	if (bio)
+ 		submit_bio(bio);
+ 	while (blocks_read < block) {
+-		gfs2_jhead_process_page(jd, blocks_read >> shift, head, &done);
++		gfs2_jhead_process_folio(jd, blocks_read >> shift, head, &done);
+ 		blocks_read += PAGE_SIZE >> bsize_shift;
  	}
- 	gfs2_assert_withdraw(sdp, !sdp->sd_log_num_revoke);
- 
--	gfs2_log_write_page(sdp, page);
-+	gfs2_log_write_block(sdp, buf);
- }
- 
- void gfs2_drain_revokes(struct gfs2_sbd *sdp)
-diff --git a/fs/gfs2/lops.h b/fs/gfs2/lops.h
-index 772557b63b48..c1d9e6fef7ac 100644
---- a/fs/gfs2/lops.h
-+++ b/fs/gfs2/lops.h
-@@ -14,9 +14,9 @@ extern const struct gfs2_log_operations *gfs2_log_ops[];
- 
- void gfs2_log_incr_head(struct gfs2_sbd *sdp);
- u64 gfs2_log_bmap(struct gfs2_jdesc *jd, unsigned int lbn);
--void gfs2_log_write(struct gfs2_sbd *sdp, struct gfs2_jdesc *jd,
--		    struct page *page, unsigned size, unsigned offset,
--		    u64 blkno, blk_opf_t opf);
-+void gfs2_log_write_buf(struct gfs2_sbd *sdp, struct gfs2_jdesc *jd,
-+			void *buf, unsigned int size, u64 blkno,
-+			blk_opf_t opf);
- void gfs2_log_submit_write(struct bio **biop);
- void gfs2_pin(struct gfs2_sbd *sdp, struct buffer_head *bh);
- int gfs2_find_jhead(struct gfs2_jdesc *jd,
-diff --git a/fs/gfs2/ops_fstype.c b/fs/gfs2/ops_fstype.c
-index f62a893ce5a2..f71174273abf 100644
---- a/fs/gfs2/ops_fstype.c
-+++ b/fs/gfs2/ops_fstype.c
-@@ -1219,7 +1219,8 @@ static int gfs2_fill_super(struct super_block *sb, struct fs_context *fc)
- 	if (error)
- 		goto fail_locking;
- 
--	error = mempool_init_page_pool(&sdp->sd_log_buf_pool, 64, 0);
-+	error = mempool_init_kmalloc_pool(&sdp->sd_log_buf_pool, 64,
-+					  sdp->sd_sb.sb_bsize);
- 	if (error)
- 		goto fail_sb;
  
 
 -- 
