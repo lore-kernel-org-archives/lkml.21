@@ -1,64 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795528091;
-	b=CdSm0CSeXN7IfCSyns4cs9ks6xV7aAORegQA2+UJwSJmh8o6VH5F7K9eCCwVp75Ebpp9
-	 OdSIIxUfikWL5H6E+G/hPv5Hs+i2OPO4Awdf3qwBd5odJIaZ/sRcsXYN5NRUPpMgPME+W
-	 JFtrjsqfjPvRXNuWcuYb2TYp+jUyQiSCpV4px1r3V528/39UKo6rhgMhRQAf7xaMFx3AX
-	 CxA9sXvaBna9NG/8qbSuQl0YZ9LCqzhEQvyNOLJDITxIOjovqn1rM9+bioL2+io+29aKH
-	 nHG9bUakWgxPiIjLzLw/ANV74muVCT3hJrH+wwGBa2hyIMUIlthmWxc+K1bVmxcTuVg==
+	t=1795528168;
+	b=rIHA8L05md7UK2cOBY908vFIsfU8QB5jDtFxfFtcj8fdJXcHl/gm+kCaS+tv+mX09A64
+	 oTA3lf/D9r7pm+7ZHQcJy3AhGyaRMZxppM9WVUtHfoC2opXJpBL0NYrua65Dwiv/O2xDw
+	 uxUTqmICCxnUJRyZO70Z2sl7R7xVyRxK4uSdwOBtv9U90nUK7G6wWBLxV9ZksQ1HrTS7x
+	 ue5yxmRCo+OKrI1o6cthp7SvdqFuM3qqRumqL7f1ceC3r5UdjcePkW4E04qaQ1B7ZbIKw
+	 CdIhXgDlDQDmpbDJJp9hAqGOw4tZKUHZM35wEBNC1KNJC6E//WXWTKnZQv2kkgcEaGA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795528091;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
-	 In-Reply-To:References:Auto-Submitted:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
-	b=kvpRMvQvERjBXr1WTspn+MSqC4VvEDkjayqY6xSgQmpUKKOpfPf1Izloy1tJBCF2/ndq
-	 FabJteeozMnIX80z4gyxT9ERbEtGVHLFse5aTTl9mLU13JIgOe+PeKExXjuywD3UTqIKq
-	 UNEcbN3DV6gKeMR0SF6Q0aUE3NYiSb+X952cFlr9Q9yoKVEUgUPFjqBpu++Nd5hSLG283
-	 UkDDvH0yJJ3XrU5JLHTGEI0xUYF0Ob0t/WAW5C5ZN9kcg4YMEh86AiIdgSfXoPY/UJhy1
-	 YnnyChMaUqqCzYaCXYykcgMuqnJ8164ApJewc8DoB1LFFxbxpEm7pQJ7irN4aUJ0azA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795528168;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
+	 Subject:In-Reply-To:References:User-Agent:Date:Message-ID:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Last-TLS-Session-Version;
+	bh=8/5WpIiDIF7odXUhPjSua3qAHd65kH+m9W4WVcGF87U=;
+	b=hwyVPg3Jc9mHxdwEnHShiOcpvjOmimfaKo6moGk+48eSnq0TD/ZOJv6ALr0O33XpKKGq
+	 wjjvgtEolBvY1lCIHNU0Lt+3FlKeOrvIwWfLsIcZNhCFA0sFVRp1unw4Cq43ARNkj/EAK
+	 JY51D41dnHJIq2OeHuSkOhHisGU/RiGeXl5h0ikUIbQSvd6EOZOIwftrjqgQCOLbzG6Jt
+	 Cm3juYwUmtm83Hw8cLmEqyNLQ7TjlnidnP3QRUVOV4TpoRt3Vem7kEDzeEi4PjIaol0me
+	 zpMj51eWprokzY2XyVeTyIWeW61/Gvi/eKsY/IFnBki4c4Gt0lg3mueqjI5lzR6vNuA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nNLXjrZK;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=Cmpnx7rl;
+	arc=none smtp.remote-ip=185.246.84.56
+Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 21FB4606A31E;
-	Tue, 24 Nov 2026 13:48:10 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B4107606A31E;
+	Tue, 24 Nov 2026 13:49:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B4107606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nNLXjrZK
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A49261F000CA;
-	Tue, 24 Nov 2026 13:48:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795528090;
-	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=nNLXjrZKU0KPp5cCUzh35q0ds0kxGrTKVZIKVDO798cpN7n0kwTAOkUDiHn7kCGF+
-	 NqRftmVVcX9z6FvIgiCSXAB1JKwZjHmOOSCI40Ssr11O0vbwmvDIMdJ6+JqgxcqSbO
-	 Fy2qxB3d093ltYsDpfHerjlVk4GwAAVEnHFnwzNN3h7BLOQ1JQQaZ9ckh6ATwe/MZu
-	 N0SprfwBmQwbM2S3a+bIFcYXl/TG48mGrCEtNFuDLqjV5CZ9nIu3RsKmzyQC/J+IGU
-	 NMgvjz7gW3SiRudfb9OzsT1Qw+mpNFdDoMXXnXdXET2yXBvNyXF6vNVBwM2z31yZuM
-	 D7a2lldDpU9nA==
-From: netdev-bot+sinfo@kernel.org
-To: Hangbin Liu <hangbin.liu@linux.dev>
-Cc: Jay Vosburgh <jv@jvosburgh.net>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
- Jesper Dangaard Brouer <hawk@kernel.org>,
- John Fastabend <john.fastabend@gmail.com>,
- Stanislav Fomichev <sdf@fomichev.me>, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, bpf@vger.kernel.org
-Subject: Re: [PATCH net-next] bonding: check XDP support before enslaving
- changes state
-Date: Tue, 24 Nov 2026 13:48:09 +0000
-Message-ID: <179552808917.3294.9587885907238376998@kernel.org>
-In-Reply-To: <20261124-bond_xdp_fix-v1-1-e67983924324@kylinos.cn>
-References: <20261124-bond_xdp_fix-v1-1-e67983924324@kylinos.cn>
-Auto-Submitted: auto-generated
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=Cmpnx7rl
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 2DDD91A17A7;
+	Tue, 24 Nov 2026 13:49:26 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 00B34601E1;
+	Tue, 24 Nov 2026 13:49:26 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D53D011E681A0;
+	Tue, 24 Nov 2026 14:49:20 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795528164; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=8/5WpIiDIF7odXUhPjSua3qAHd65kH+m9W4WVcGF87U=;
+	b=Cmpnx7rl6uDbr2CDscqr0Mb4Z71jVOlQ75QBuG1uXf9D63wGOvy73tgSquUSbODOnV6RC9
+	Deiog/0Y+Sc/4RFXRwPR8/LrN+YjwYtor2VR1394OWR1Glq4et7ZTfl9Pyk307B+6SB2LY
+	GaolzwfcqG8kTOTlfXwvnoBy8P/oLDdrDWphFrxMEt5/GwIZYg0MbvUku1hWpg9YrVWRFs
+	trQ7wyA7OSDEbIdeEdqu5YBgfS0RCwXSTu8oCdA2mvWQ3WAqYsciRE2USY0UyPa0FW9BEU
+	e70MLq++LQIUvGgyIERSnT5++QHuTZidN6IjGm56hFZLHDBWchIntqj+YL8H4w==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: Mark Brown <broonie@kernel.org>
+Cc: Richard Weinberger <richard@nod.at>,  Vignesh Raghavendra
+ <vigneshr@ti.com>,  Rob Herring <robh@kernel.org>,  Krzysztof Kozlowski
+ <krzk+dt@kernel.org>,  Conor Dooley <conor+dt@kernel.org>,  Pratyush Yadav
+ <pratyush@kernel.org>,  Michael Walle <mwalle@kernel.org>,  Takahiro
+ Kuwano <takahiro.kuwano@infineon.com>,  Thomas Petazzoni
+ <thomas.petazzoni@bootlin.com>,  praneeth@ti.com,  u-kumar1@ti.com,
+  p-mantena@ti.com,  a-dutta@ti.com,  s-k6@ti.com,
+  linux-spi@vger.kernel.org,  linux-kernel@vger.kernel.org,
+  linux-mtd@lists.infradead.org,  devicetree@vger.kernel.org
+Subject: Re: [PATCH v4 00/11] mtd/spi-mem: Enable DQS control
+In-Reply-To: <73680b0b-2c98-4ebc-bcb8-4ca144b469f7@sirena.org.uk> (Mark
+	Brown's message of "Tue, 24 Nov 2026 13:45:22 +0000")
+References: <20261120-winbond-nand-next-phy-tuning-v4-0-8c21e1f71f41@bootlin.com>
+	<164905f5-2857-4b8e-8d99-26939b45cde4@sirena.org.uk>
+	<875wxmttj7.fsf@bootlin.com>
+	<73680b0b-2c98-4ebc-bcb8-4ca144b469f7@sirena.org.uk>
+User-Agent: mu4e 1.12.12; emacs 30.2
+Date: Tue, 24 Nov 2026 14:49:20 +0100
+Message-ID: <87ld6is5jz.fsf@bootlin.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -68,26 +81,22 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
 
-Hi!
+On 24/11/2026 at 13:45:22 GMT, Mark Brown <broonie@kernel.org> wrote:
 
-This is an automated message. This series looks like a fix, but its
-commit messages seem to be missing some information:
+> On Tue, Nov 24, 2026 at 11:26:04AM +0100, Miquel Raynal wrote:
+>
+>> What is your plan with Santhosh's series? If his series will make it
+>> this round I will respin once applied. Otherwise I can just respin the
+>> independent spi-mem bits.
+>
+> I had review comments that he hasn't responded to.
 
- - How the issue was discovered, e.g. hit in production, hit during
-   development, syzbot report, manual code inspection, LLM or static
-   analysis tool scan.
+Ah, ok, I must have missed them in the flow of e-mails. I will therefore
+extract the spi-mem relevant section that is orthogonal to his series.
 
- - Whether the issue was actually triggered, or is only theoretical
-   (e.g. found by LLM and not proven at runtime). If it was triggered
-   please include the symptoms, like the stack trace or kernel messages.
-
-Please do not repost the series just to address the above. Instead,
-reply to this email with the missing information, so that reviewers
-can take it into account.
-
-*IMPORTANT*: If you do repost (for other reasons) - please include
-the relevant info in the cover letter or commit messages.
--- 
-The evaluation is done by an LLM so it may be wrong, if you think
-that is the case please reply and explain.
+Thanks,
+Miqu=C3=A8l
