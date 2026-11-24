@@ -1,69 +1,116 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.130
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795525484;
-	b=Q8/nYYfKHoGEE3ix/AMEusvN86Fvs/u0hv+WRE2yfwC2MeekEeTZ3KtMOWg2RW1FjQCq
-	 Nz5crW4n/GEmAF5ps9eiS97DzNPGCb0islq4/uJ6Qa7sunZ3RhdPBFhmjUnHFqB+wgkdu
-	 jF8dimuHZpQWELOFAj3jFrSg0uqLTLsDbvI1txuwr5BnIVcHO9Fj+LuzQ1/P28VEXTZPH
-	 tm6+B06iGYqo93bji0RNpJxkG0ruhjkGr+U0fiObEB3cwI60iZz5AZWMf4PkGTX3/kE+E
-	 sX4tGsGAnn156qUqaOvuzFBpoD8wyUvRu6mLxVPiADGnkOuqa4nDy4r71IDJw8C23fg==
+	t=1795525485;
+	b=Biz5jnfyzM9SnJUsPcbHCCu9JSn7vDGYRl1qDZ/ZuYX7zmlsIRGYQQnPs4iMRIJQmhk7
+	 Lqaz5c9og53aQX9JC37NwlYOIwcYnpF5rXCzoaShCpsEqYOuo5p3y6wWvC0JMlw5xDstV
+	 jYwTLW0LCxuwEcUjO06zAlyZUoKjrwHLk9hSVU+GQ9valGZDHWhb/g4b3n3lRQPxW/QC4
+	 EfQHGbumRbKE+oSPXssCRVUGmCK020kKhAJ7RLgQ6peDyLnulQ41EGF87HbhYu9eYX9Pz
+	 LhFzwQSlKLKKbgOYlp3YRCeck3O0Pc/mQdMvNWwo8JgzMPgUH8yEQZMci72vPp43Mfw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795525484;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:Received:From:Date:Subject:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
-	 References:In-Reply-To:To:Cc:X-Developer-Signature:X-Developer-Key:
-	 X-Scanned-By;
-	bh=HswTGjdf/JQiD1C8e4APyGnuL3ZWYy2QAUirnegyBwU=;
-	b=P2VJjO2YsfcOVsFficw5tyJAOSqtPnnNHqsEjuvjA6z0Q2xoLZc9D26TEADtEXPf/hv5
-	 kyV87Y4pfTJ+Q0PtSPOGj7UvBNwhLgVf3UCjG8eGQSse6Qs3sFp0tEfHp/GhgyhKSThNn
-	 RAKszfY5aRM21Q2aD9os5TvotWIuGQCX6Wj1iP46RDU6C1CznIR2+K9Efwm8UslkV+QRI
-	 q9XcrAzp+bzt6RVEadQ6ljNZO7gGQihrPH/XMJlFuMcM7tVjnjOqdVuV/2M5XputepW+U
-	 cAyFQztxoRpGpfrnghpYIK55xCA7iTh3XTtOR+LNsu3IvppDJsz7NO1wNDGxyEmIS1A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795525485;
+	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
+	 DKIM-Signature:Received:Received:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
+	 X-Rspamd-Queue-Id:X-Spam-Level:X-Rspamd-Server:X-Rspamd-Action:
+	 X-Spam-Flag:X-Spamd-Result:X-Spam-Score;
+	bh=MGLlsaUUSwBgOFasvcC4m8G1HbbNWKywwDMCQ+xfhD8=;
+	b=yY79upYOVKMnMr51RqJI+s9bB5q1JLFbCBPJ7eoMvcCug0VESh3Huktswz/L5QtjryRQ
+	 /G3jG2C8aMrDsEbZiVWSHtByoQ3/eFjT4ce4ZoEyVZj1xDQCl15d8jVigrDj9o8HiebLB
+	 RJdZBabqYwfRXqKpTecx8XV9ruF9/EifHMumYKINhhQO7Zst58vsBfHEJnH1jkAovy0uY
+	 Q5yMWu0C6iB7GGiARTt8g30h0GyW0x9CZcLhGqJWeVim30kq+6aXL54NT5EY17U/g3kqM
+	 Y157XkE0hxfAanPFpr/EjYCuMoy0zDJvdmf8awVKXq0K0eOMz/b6khErPQSpjIAzxwA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=aSJwIUnA;
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	dmarc=pass header.from=suse.de;
+	spf=pass smtp.mailfrom=suse.de;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=d6hKvlJg;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=o2pbox66;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=d6hKvlJg;
+	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=o2pbox66;
+	arc=none smtp.remote-ip=195.135.223.130
+Received: from smtp-out1.suse.de (smtp-out1.suse.de [195.135.223.130])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 35835606A32A
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:04:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 35835606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B6DDC606A326;
+	Tue, 24 Nov 2026 13:04:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B6DDC606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=suse.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=aSJwIUnA
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795525483;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=HswTGjdf/JQiD1C8e4APyGnuL3ZWYy2QAUirnegyBwU=;
-	b=aSJwIUnAb1viayXanR1uB0PzvldjIyNYe+p8ZpHCqiATpeBRm9WzlkL3fWGKNQbFes3Muw
-	VXfVXIQJ5JbbIhnQKb6XpTpkbY+Lhc2x0DyEu4JUjsMz5DOANFUJLy2s/GUJz3w80K3Ril
-	m833d0LFrfO+7CYDImn6vF7YF5oR9xQ=
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-408-pUVekPc1OTykjAYQ_c2NtQ-1; Tue,
- 24 Nov 2026 13:04:40 +0000
-X-MC-Unique: pUVekPc1OTykjAYQ_c2NtQ-1
-X-Mimecast-MFC-AGG-ID: pUVekPc1OTykjAYQ_c2NtQ_1795525474
-Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
+	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=d6hKvlJg;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=o2pbox66;
+	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=d6hKvlJg;
+	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=o2pbox66
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 2E836180288D;
-	Tue, 24 Nov 2026 13:04:34 +0000 (UTC)
-Received: from aesteve-thinkpadp1gen8.rmtes.csb (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
-	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 11DA41956087;
-	Tue, 24 Nov 2026 13:04:25 +0000 (UTC)
-From: Albert Esteve <aesteve@redhat.com>
-Date: Tue, 24 Nov 2026 14:03:38 +0100
-Subject: [PATCH v6 4/7] lsm: Add memcg_charge_task LSM hook
+	by smtp-out1.suse.de (Postfix) with ESMTPS id D5391221D0;
+	Tue, 24 Nov 2026 13:04:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1795525482; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=MGLlsaUUSwBgOFasvcC4m8G1HbbNWKywwDMCQ+xfhD8=;
+	b=d6hKvlJgG4X7khE+jq9at3VtIrBK87hyEDrBYy47SpMqyBgQyCGtWYEJB2QxO4UP0dEynx
+	HjMVntQ+5DCCgsmIa+ciX7ASPhoddYx8/NpY+DyRzyEOwxLhm6r1dhG2ZUHEju5VFoFd3z
+	EogkhkBofC6765TNqpTrNAp6xukXKfw=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1795525482;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=MGLlsaUUSwBgOFasvcC4m8G1HbbNWKywwDMCQ+xfhD8=;
+	b=o2pbox66290zEHTPTnLGRnEyF5M3kv9q1MZs1eYZssGtRnTpu9DoDG0/d4VS1CplMZajUS
+	JEagk2uRr0Os3XDg==
+Authentication-Results: smtp-out1.suse.de;
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=d6hKvlJg;
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=o2pbox66
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1795525482; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=MGLlsaUUSwBgOFasvcC4m8G1HbbNWKywwDMCQ+xfhD8=;
+	b=d6hKvlJgG4X7khE+jq9at3VtIrBK87hyEDrBYy47SpMqyBgQyCGtWYEJB2QxO4UP0dEynx
+	HjMVntQ+5DCCgsmIa+ciX7ASPhoddYx8/NpY+DyRzyEOwxLhm6r1dhG2ZUHEju5VFoFd3z
+	EogkhkBofC6765TNqpTrNAp6xukXKfw=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1795525482;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=MGLlsaUUSwBgOFasvcC4m8G1HbbNWKywwDMCQ+xfhD8=;
+	b=o2pbox66290zEHTPTnLGRnEyF5M3kv9q1MZs1eYZssGtRnTpu9DoDG0/d4VS1CplMZajUS
+	JEagk2uRr0Os3XDg==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 0DDE913505;
+	Tue, 24 Nov 2026 13:04:41 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id 0+wrM2iLBWuQKQAAD6G6ig
+	(envelope-from <pfalcato@suse.de>); Tue, 24 Nov 2026 13:04:41 +0000
+Date: Tue, 24 Nov 2026 13:04:39 +0000
+From: Pedro Falcato <pfalcato@suse.de>
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Cc: Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>, 
+	Juri Lelli <juri.lelli@redhat.com>, Vincent Guittot <vincent.guittot@linaro.org>, 
+	Dietmar Eggemann <dietmar.eggemann@arm.com>, Steven Rostedt <rostedt@goodmis.org>, 
+	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>, 
+	Valentin Schneider <vschneid@redhat.com>, K Prateek Nayak <kprateek.nayak@amd.com>, 
+	Kees Cook <kees@kernel.org>, David Hildenbrand <david@kernel.org>, 
+	"Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
+	Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>, 
+	Andrew Morton <akpm@linux-foundation.org>, Suren Baghdasaryan <surenb@google.com>, 
+	Shakeel Butt <shakeel.butt@linux.dev>, Jann Horn <jannh@google.com>, 
+	Puranjay Mohan <puranjay@kernel.org>, Alexei Starovoitov <ast@kernel.org>, linux-mm@kvack.org, 
+	linux-kernel@vger.kernel.org, bpf@vger.kernel.org, Chris Mason <mason@kernel.org>, 
+	stable@vger.kernel.org
+Subject: Re: [PATCH] mm/vma: drop mm asynchronously in vma_start_read()
+Message-ID: <awWLCZ-jBjSD7V3M@pedro-suse.tail5790ac.ts.net>
+References: <20261124-vma-read-lock-mmdrop-async-v1-1-257f99f551de@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -73,177 +120,115 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261124-v2_20230123_tjmercier_google_com-v6-4-dce12fa03ad6@redhat.com>
-References: <20261124-v2_20230123_tjmercier_google_com-v6-0-dce12fa03ad6@redhat.com>
-In-Reply-To: <20261124-v2_20230123_tjmercier_google_com-v6-0-dce12fa03ad6@redhat.com>
-To: Tejun Heo <tj@kernel.org>, Johannes Weiner <hannes@cmpxchg.org>, 
- =?utf-8?q?Michal_Koutn=C3=BD?= <mkoutny@suse.com>, 
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
- Sumit Semwal <sumit.semwal@linaro.org>, 
- =?utf-8?q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
- Michal Hocko <mhocko@kernel.org>, Roman Gushchin <roman.gushchin@linux.dev>, 
- Shakeel Butt <shakeel.butt@linux.dev>, Muchun Song <muchun.song@linux.dev>, 
- Andrew Morton <akpm@linux-foundation.org>, 
- Benjamin Gaignard <benjamin.gaignard@collabora.com>, 
- Brian Starkey <Brian.Starkey@arm.com>, John Stultz <jstultz@google.com>, 
- "T.J. Mercier" <tjmercier@google.com>, 
- Christian Brauner <brauner@kernel.org>, Paul Moore <paul@paul-moore.com>, 
- James Morris <jmorris@namei.org>, "Serge E. Hallyn" <serge@hallyn.com>, 
- Stephen Smalley <stephen.smalley.work@gmail.com>, 
- Shuah Khan <shuah@kernel.org>, Randy Dunlap <rdunlap@infradead.org>, 
- =?utf-8?q?Ondrej_Mosn=C3=A1=C4=8Dek?= <omosnacek@gmail.com>, 
- Jens Wiklander <jenswi@kernel.org>, Sumit Garg <sumit.garg@kernel.org>, 
- Philipp Stanner <phasta@kernel.org>, 
- =?utf-8?q?Ondrej_Mosn=C3=A1=C4=8Dek?= <omosnacek@gmail.com>
-Cc: airlied@gmail.com, cgroups@vger.kernel.org, linux-doc@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
- dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org, 
- linux-mm@kvack.org, linux-security-module@vger.kernel.org, 
- selinux@vger.kernel.org, linux-kselftest@vger.kernel.org, 
- op-tee@lists.trustedfirmware.org, Albert Esteve <aesteve@redhat.com>, 
- echanude@redhat.com, mripard@kernel.org
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795525424; l=4956;
- i=aesteve@redhat.com; s=20260827; h=from:subject:message-id;
- bh=NnGuBHtPlbFcDr9mVBlxh1SUG8fpAWo88wvwki8PATU=;
- b=uS0w++t5HxLnwIZuPB+hzxo5pcORnM4BMlT44nBmaZYqedh+HpbmI/khYr4CwtOWXpMG6kB0V
- WKX2OV7kC1tD6weCCbhXkocdlJBhGHok7kAfR3nu4wlC+uTRW11wJHt
-X-Developer-Key: i=aesteve@redhat.com; a=ed25519;
- pk=zI2RBeZgocwYm3AkJW4CtjoJnKoDZrfBl1xe5Ed6h+U=
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261124-vma-read-lock-mmdrop-async-v1-1-257f99f551de@kernel.org>
+X-Rspamd-Queue-Id: D5391221D0
+X-Spam-Level: 
+X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
+X-Rspamd-Action: no action
+X-Spam-Flag: NO
+X-Spamd-Result: default: False [-13.51 / 50.00];
+	SUSE_INTERNAL_BYPASS(-9.00)[];
+	BAYES_HAM(-3.00)[100.00%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	ARC_NA(0.00)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[28];
+	MIME_TRACE(0.00)[0:+];
+	FROM_HAS_DN(0.00)[];
+	DKIM_TRACE(0.00)[suse.de:+];
+	TO_DN_SOME(0.00)[];
+	DNSWL_BLOCKED(0.00)[2a07:de40:b281:104:10:150:64:97:from,2a07:de40:b281:106:10:150:64:167:received];
+	RCVD_COUNT_TWO(0.00)[2];
+	FROM_EQ_ENVFROM(0.00)[];
+	RCVD_TLS_ALL(0.00)[];
+	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
+	MISSING_XM_UA(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	R_RATELIMIT(0.00)[to_ip_from(RLxemws8ixnqptfze8914thf37)];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:dkim,suse.de:email,imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo]
+X-Spam-Score: -13.51
 
-Both DMA_HEAP_IOCTL_ALLOC and the new DMA_BUF_IOCTL_XFER_CHARGE ioctl
-accept a charge_fd field that, when set, causes the allocation to be
-charged to the cgroup named by the fd (a pidfd or a cgroupfd) rather
-than the caller's.
+On Tue, Nov 24, 2026 at 12:26:19PM +0000, Lorenzo Stoakes (ARM) wrote:
+> Commit bee9ef4a40a2 ("bpf: switch task_vma iterator from mmap_lock to
+> per-VMA locks") open-codes a lock_next_vma() implementation that does
+> roughly the same thing in bpf_iter_task_vma_find_next(), only without
+> fallback to an mmap_lock.
+> 
+> This is because bpf_iter_task_vma_find_next() can be called from
+> non-sleepable contexts.
+> 
+> However, lock_vma_under_rcu() gave no guarantee as to which contexts it is
+> safe to be called from, and indeed it turns out this assumption is unsafe.
+> 
+> Since commit 9bbffee67ffd ("mm: fix a UAF when vma->mm is freed after
+> vma->vm_refcnt got dropped"), this call chain is possible on x86:
+> 
+> lock_vma_under_rcu()
+>   -> vma_start_read()
+>     -> mmdrop()
+>       -> __mmdrop()
+>         -> mm_free_pgd()
+>           -> pgd_free()
+>             -> pgd_dtor()
+>               -> spin_lock(&pgd_lock)
+> 
+> Thus, a plain spin_lock() can occur when lock_vma_under_rcu() is
+> called. Since bpf_iter_task_vma_find_next() can be called in softirq
+> context, this can deadlock, for example:
+> 
+> pgd_alloc()
+>   -> spin_lock(&pgd_lock)
+>     <softirq>
+>     bpf_iter_task_vma_next()
+>       -> lock_vma_under_rcu()
+>         ...
+> 	  -> spin_lock(&pgd_lock) [ DEADLOCK ]
+> 
+> Alexei Starovoitov also pointed out that a BPF program attached to
+> trace_contention_end() can similarly cause a deadlock:
+> 
+>   pgd_alloc()
+>     spin_lock(&pgd_lock)
+>       queued_spin_lock_slowpath()
+>         trace_contention_end()          <- pgd_lock is held
+>           tp_btf/contention_end prog
+>             bpf_iter_task_vma_next()
+>               lock_vma_under_rcu()
+>                 vma_start_read()
+>                   mmdrop(other_mm)      <- last put takes pgd_lock again
+> 
+> Resolve the issue by having vma_start_read() use mmdrop_async() instead of
+> mmdrop() so the work is deferred to a work queue.
+> 
+> Make mmdrop_async() an internal mm function, defined in mm/internal.h, to
+> avoid abuse elsewhere (kernel/fork.c includes this header, so still retains
+> access).
+> 
+> Commit 0b16f8bed19c ("mm: change vma_start_read() to drop RCU lock on
+> failure") accounted for the fact that the RCU lock had to be dropped for
+> this operation, which is no longer applicable.
+> 
+> For the sake of a backported fix, retain this behaviour, however drop the
+> RCU lock last and remove the now irrelevant comment.
 
-Charging is currently limited to the caller's own memcg subtree unless
-the caller holds CAP_SYS_RESOURCE. But the capability is all-or-nothing.
-A process holding it, along with a dma-heap device node or a dma-buf
-fd can charge unlimited memory to any other process's cgroup, potentially
-exhausting that cgroup's limit and triggering OOM kills independent of
-the victim's own activity or privileges.
+Is there any particular reason for unlocking the RCU comment last? after the mmdrop_async().
 
-Add security_current_memcg_charge_task(), called in
-get_obj_cgroup_from_fd() when charge_fd refers to another process.
-The hook receives the credentials of the process whose cgroup will
-be charged (cred), giving security modules a controlled enforcement
-point for cross-cgroup objcg attribution policy.
+> 
+> Reported-by: Chris Mason <mason@kernel.org>
+> Fixes: bee9ef4a40a2 ("bpf: switch task_vma iterator from mmap_lock to per-VMA locks")
+> Cc: stable@vger.kernel.org
+> Link: https://lore.kernel.org/all/DN267JUKDRNS.2VMV07CQ58R4X@gmail.com/
+> Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
 
-When CONFIG_SECURITY is not set the hook compiles to an inline
-returning 0, adding no overhead to the fast path.
-
-Signed-off-by: Albert Esteve <aesteve@redhat.com>
----
- include/linux/lsm_hook_defs.h |  1 +
- include/linux/security.h      |  6 ++++++
- mm/memcontrol.c               | 11 +++++++++++
- security/security.c           | 14 ++++++++++++++
- 4 files changed, 32 insertions(+)
-
-diff --git a/include/linux/lsm_hook_defs.h b/include/linux/lsm_hook_defs.h
-index 87d9d06710cb..beb339663d76 100644
---- a/include/linux/lsm_hook_defs.h
-+++ b/include/linux/lsm_hook_defs.h
-@@ -43,6 +43,7 @@ LSM_HOOK(int, 0, capset, struct cred *new, const struct cred *old,
- 	 const kernel_cap_t *permitted)
- LSM_HOOK(int, 0, capable, const struct cred *cred, struct user_namespace *ns,
- 	 int cap, unsigned int opts)
-+LSM_HOOK(int, 0, memcg_charge_task, const struct cred *cred)
- LSM_HOOK(int, 0, quotactl, int cmds, int type, int id, const struct super_block *sb)
- LSM_HOOK(int, 0, quota_on, struct dentry *dentry)
- LSM_HOOK(int, 0, syslog, int type)
-diff --git a/include/linux/security.h b/include/linux/security.h
-index 40831fab5470..6c6cb08bb1c6 100644
---- a/include/linux/security.h
-+++ b/include/linux/security.h
-@@ -352,6 +352,7 @@ int security_capable(const struct cred *cred,
- 		       struct user_namespace *ns,
- 		       int cap,
- 		       unsigned int opts);
-+int security_current_memcg_charge_task(const struct cred *cred);
- int security_quotactl(int cmds, int type, int id, const struct super_block *sb);
- int security_quota_on(struct dentry *dentry);
- int security_syslog(int type);
-@@ -710,6 +711,11 @@ static inline int security_capable(const struct cred *cred,
- 	return cap_capable(cred, ns, cap, opts);
- }
- 
-+static inline int security_current_memcg_charge_task(const struct cred *cred)
-+{
-+	return 0;
-+}
-+
- static inline int security_quotactl(int cmds, int type, int id,
- 				     const struct super_block *sb)
- {
-diff --git a/mm/memcontrol.c b/mm/memcontrol.c
-index bf5b2672c0c7..41c81e492007 100644
---- a/mm/memcontrol.c
-+++ b/mm/memcontrol.c
-@@ -60,6 +60,7 @@
- #include <linux/lockdep.h>
- #include <linux/resume_user_mode.h>
- #include <linux/psi.h>
-+#include <linux/security.h>
- #include <linux/seq_buf.h>
- #include <linux/sched/isolation.h>
- #include <linux/kmemleak.h>
-@@ -3201,10 +3202,12 @@ static bool mem_cgroup_may_charge(struct mem_cgroup *memcg)
- struct obj_cgroup *get_obj_cgroup_from_fd(int fd)
- {
- 	struct cgroup_subsys_state *css;
-+	const struct cred *tcred;
- 	struct obj_cgroup *objcg;
- 	struct mem_cgroup *memcg;
- 	struct task_struct *task;
- 	unsigned int pidfd_flags;
-+	int ret;
- 
- 	if (mem_cgroup_disabled())
- 		return ERR_PTR(-EOPNOTSUPP);
-@@ -3229,6 +3232,14 @@ struct obj_cgroup *get_obj_cgroup_from_fd(int fd)
- 		if (IS_ERR(task))
- 			return ERR_CAST(task);
- 
-+		tcred = get_task_cred(task);
-+		ret = security_current_memcg_charge_task(tcred);
-+		put_cred(tcred);
-+		if (ret) {
-+			put_task_struct(task);
-+			return ERR_PTR(ret);
-+		}
-+
- 		rcu_read_lock();
- 		css = task_css(task, memory_cgrp_id);
- 		put_task_struct(task);
-diff --git a/security/security.c b/security/security.c
-index 4727b8347fc4..78b462b0ece5 100644
---- a/security/security.c
-+++ b/security/security.c
-@@ -674,6 +674,20 @@ int security_capable(const struct cred *cred,
- 	return call_int_hook(capable, cred, ns, cap, opts);
- }
- 
-+/**
-+ * security_current_memcg_charge_task() - Check if cross-cgroup memory charging is allowed
-+ * @cred: credentials of the process to charge
-+ *
-+ * Check whether the current process is allowed to charge
-+ * memory to the cgroup of the process with credentials @cred.
-+ *
-+ * Return: Returns 0 if permission is granted.
-+ */
-+int security_current_memcg_charge_task(const struct cred *cred)
-+{
-+	return call_int_hook(memcg_charge_task, cred);
-+}
-+
- /**
-  * security_quotactl() - Check if a quotactl() syscall is allowed for this fs
-  * @cmds: commands
+Acked-by: Pedro Falcato <pfalcato@suse.de>
 
 -- 
-2.55.0
-
+Pedro
