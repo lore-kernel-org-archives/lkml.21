@@ -1,67 +1,110 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=46.4.11.11
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795513279;
-	b=M7tMFdRib5394JOLI/6uwa2eqqBSaQlrkHqM2Pu/fe2wkmIOcoX5QKV6LcPatWf38S+o
-	 X/oRXhpsBTaCXSYWEFITHbSg2n1mFCty42TAiGqAaIvRZNsMNlaW6HQPNf2dl76YsvJha
-	 BYrPygrSZGSTRBaTWdDitD+ttSToo2h9K6bfptqRksFaHQRI0euCPpes+lK2kuCkRryCs
-	 pEpo1U/dZAdeSy8KMXxgAFNYrFjm73vQMNMiSEVx8QHE/GGMVrJ8+QISA/Cr/hYFvy9O4
-	 k2q3CIc5l/hNb0NGDKfVqwuvMbadctdHzquCnjU5wVnuAyP/d4XwknPQ2iDzRCJNryQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795513279;
-	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-Id:X-Mailer:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=hzoAA8suBfAH96OxtCvb1EidrQYp2xqds7CuCam9eJU=;
-	b=IuBjsa555CBnLT+baGFxutXrdLQNIj+d3z0ZgcPX58idHsBzR4q9hDQvSqARNP/T5pxI
-	 vrpCBgAv84gy5qXWSmqwkE+yq/LA6pj7TMK4sjRwKJSSVvSHYZZTQ42RIiqoiAP/L5ict
-	 mkBwpwJLiLCIQ+1dBL54G2RR20pxWWX53JHIawWP22JGyKOIXBrjAj0FYkriux8i5QpZU
-	 WoZ6RBqX9m4etgnHHxTlKxiXpgK2JQpvas471qo3P7VnWxNe1eKcPWyLOHPL/Ji3bHfcu
-	 W1zU2L/1Vf1fvP8tL/TOPnN0rioyW9HIvKIvJa2Wrlf51TseZ+S+KBq22un9aEC11Yg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=phrozen.org;
-	spf=pass smtp.mailfrom=phrozen.org;
-	arc=none smtp.remote-ip=46.4.11.11
-Received: from nbd.name (nbd.name [46.4.11.11])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.44.97
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795513291;
+	b=Wj4oOdVXI4olBp9VxUDD4eCUdbZ5nJiwdf0L/ahXLoIk1qZB2mZF1SXb79yLMWbmwkhV
+	 61VpjM8jkO/VAaOFXflvFsbk0r0y9geervMc6Dw6HB8fFqTSE5e9scPc6miEAfloXIS+i
+	 7UCUMx2rB39YB2S113JDwOZ2D6WZYD+H1hr6yzI4/fNsymh94Vhz7Xnpt6EZckcnP8TDp
+	 TaebA57B3POOcb8LKyr+C3kcLwCHx9/lTTgWy2KoM693Htn5b8yUgMnr1CNz0Fd1LUfOy
+	 awyJq06fJDfbDSE6VVYn5KESE+CIAs+c+doWAOs6f5GuQnQ3vWZ6M6tVjyIExj8Gfjg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795513291;
+	h=DMARC-Filter:Received:Received:X-MS-Exchange-Authentication-Results:
+	 Received-SPF:Received:Received:From:To:Cc:Subject:Date:Message-Id:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-EOPAttributedMessage:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:Content-Type:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=1PS0YeE8SMRJhJumT1urXmJUui+Lz5HSvuayNaA0WeI=;
+	b=ZnQ1/VB6E9W9TdMHCnE8lS39vtUqxsCiVPRvcgweUCG2m2bbdnTPakox7wqmCm+SiQSZ
+	 Tt1Z1yzb7Dn0gbqocZPfetlw8/sfc2ucI6tBM/y69BnELbHk99w/ukVFpz43HqnM672I8
+	 zmvP9Vl7hP89sNH6S4Y6RfgQwsDIhrrekTQE0K08MC8QGEQJ0fNRbO2yusrFkmJsCKdO5
+	 LSTyjzsdVl0m826lY386Rw/0Kd9y4bwzoN4BTtVxuMlBNNk2QxvWVNmhiF5Y5DQSkWbA1
+	 mwE3Rvcc+0tRwoRxduTU30cY5DHxiFwacpEkCiZiL02wKQ/nFRQn6X5Cadyosn2nhrw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=none header.from=cixtech.com;
+	spf=pass smtp.mailfrom=cixtech.com;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.44.97
+Received: from SEYPR02CU001.outbound.protection.outlook.com (mail-koreacentralazon11023097.outbound.protection.outlook.com [40.107.44.97])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3A555606A699;
-	Tue, 24 Nov 2026 09:41:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3A555606A699
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=phrozen.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=phrozen.org
-Received: from [2a04:4540:1403:dffc:4a09:a431:737f:f29f] (helo=bertha10..)
-	by ds12 with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <john@phrozen.org>)
-	id 1xVn1L-007e57-2l;
-	Tue, 24 Nov 2026 10:41:03 +0100
-From: John Crispin <john@phrozen.org>
-To: Lorenzo Bianconi <lorenzo@kernel.org>,
-	Lee Jones <lee@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>
-Cc: Ahmed Naseef <naseefkm@gmail.com>,
-	Benjamin Larsson <benjamin.larsson@genexis.eu>,
-	Christian Marangi <ansuelsmth@gmail.com>,
-	devicetree@vger.kernel.org,
-	lei.dong@airoha.com,
-	Linqi.zhang@airoha.com,
-	linux-gpio@vger.kernel.org,
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 43904606A6AC
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:41:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 43904606A6AC
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=cixtech.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cixtech.com
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=w07ddV/tR0hC1FfNVSziAiPoY8omles3L/7nSNRo5tWcfgypvGa0KRBskwaLBEr91PNJo3ZpcqT7F+E8nsRRdyNBTeIam9S3RDWW7GS96uKl3wJcfZSpNWACbrizRUkfIa65bdu5dOzkA4Egdn26GWyOcj1T1jQ546KLErGQ4ho31vgV8XR4UEB1OHn6cyG2FGkhoaF1w6rv8iwQ6exi4kaGlSlMz9+iycmD4b2uiIbfj8CILgg4wVCYks2zRV36PW3HtwnaOhj9waPswjNFP/4U0Qssir5UWDzigeXTjVxi+o0OvF0hLKwQdKjqmAzEoI5QawUw5boecoZ7VngYtg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=1PS0YeE8SMRJhJumT1urXmJUui+Lz5HSvuayNaA0WeI=;
+ b=G9Tqysgaq2SoXsxGuiEA6z35KpI08a5xDSWQu5ZUo4nyN2+WECNKCdocQVnpm476bxWt3brQORrEnu7IjlWPr0F3vrHr9pYQMUYCQQ8tZ1qjTCTG3PGtXxHtQ8VeZgCSf+6iptf1AXwZFvqMLxMVpWHlsMcavskDHxxPCwtJJywvDuZ4rAYsbc23tg3h7q/Ukzm/wG/73RpveArE7SDwBePfu72pPe8VMIdkkywWHWiqw2dtwD0DTVHMuPwLsBX3vuOaPm/KuTiK+ybXfm9Y2lnJ6ATqqipXDJsY+NFZEn3pLvKgOUyTdrFDGs9mSB6WX+QMjp+e7TxE33d0OS919g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 222.71.101.198) smtp.rcpttodomain=arm.com smtp.mailfrom=cixtech.com;
+ dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
+ not signed); arc=none (0)
+Received: from TYCPR01CA0186.jpnprd01.prod.outlook.com (2603:1096:400:2b0::9)
+ by TYSPR06MB7344.apcprd06.prod.outlook.com (2603:1096:405:9b::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.3; Tue, 24 Nov
+ 2026 09:41:22 +0000
+Received: from TY2PEPF0000AB87.apcprd03.prod.outlook.com
+ (2603:1096:400:2b0:cafe::9d) by TYCPR01CA0186.outlook.office365.com
+ (2603:1096:400:2b0::9) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.14 via Frontend Transport; Tue,
+ 24 Nov 2026 09:41:22 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 222.71.101.198) smtp.mailfrom=cixtech.com; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
+Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
+ 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
+ client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
+Received: from smtprelay.cixcomputing.com (222.71.101.198) by
+ TY2PEPF0000AB87.mail.protection.outlook.com (10.167.253.6) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.662.3 via Frontend Transport; Tue, 24 Nov 2026 09:41:21 +0000
+Received: from localhost.localdomain (unknown [172.16.66.33])
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 5010D40920E5;
+	Tue, 24 Nov 2026 17:41:20 +0800 (CST)
+From: Luo Liu <Luo.Liu@cixtech.com>
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Liviu Dudau <liviu.dudau@arm.com>,
+	Russell King <linux@armlinux.org.uk>,
+	dri-devel@lists.freedesktop.org
+Cc: Ayan Halder <Ayan.Halder@arm.com>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Kory Maincent <kory.maincent@bootlin.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
 	linux-kernel@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	mfd@lists.linux.dev,
-	Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>,
-	Rajeev.kumar@airoha.com,
-	upstream@airoha.com,
-	Weifeng.xu@airoha.com,
-	zhengping.zhang@airoha.com
-Subject: [PATCH v4 0/9] pinctrl: airoha: add AN7589 support
-Date: Tue, 24 Nov 2026 10:40:50 +0100
-Message-Id: <20261124094059.3882014-1-john@phrozen.org>
-X-Mailer: git-send-email 2.34.1
+	cix-kernel-upstream@cixtech.com,
+	Wuyi.Shen@cixtech.com
+Subject: [PATCH v3 4/4] drm/bridge: tda998x: fix DRM_BRIDGE_ATTACH_NO_CONNECTOR support
+Date: Tue, 24 Nov 2026 17:41:19 +0800
+Message-Id: <20261124094119.3220267-5-Luo.Liu@cixtech.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20261124094119.3220267-1-Luo.Liu@cixtech.com>
+References: <20261124094119.3220267-1-Luo.Liu@cixtech.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,97 +115,243 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: TY2PEPF0000AB87:EE_|TYSPR06MB7344:EE_
+Content-Type: text/plain
+X-MS-Office365-Filtering-Correlation-Id: 6323816a-b182-4656-0283-08df4a0f193c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|82310400026|1800799024|42112799006|36860700016|23010399003|376014|7416014|18002099003|6133799003|261009223027099003|22082099003|261021123027099003|56012099006|261102123227099003|261022113327099003|261022115727099003|261021133027099003|261021121427099003|261022105027099003|261026135527099003|261028144727099003|261026130827099003|261021130227099003|261021135927099003|261022075727099003|261026121527099003|261026140227099003|10067099003;
+X-Microsoft-Antispam-Message-Info:
+	vN4uWkbGZRKk4HcET/M5wW2XMmiwgsN8C4KC8L8FU8WlAlI1LDZiQKQo5wdBa3g91u0RXL1sIL8kfqhuMWtWT7G4grmKID8JoRGUguAF2yyy92yYkesq7yzhbfAxrRo7M4TgmEaAy1lriO/wU4vbPBEj/krgQYc16KiyHMXoCNcIZjIpSUl9aP033PoEQWBU32SwmsteQWCnUPxROlAv8YaEfbdiEqMiGJ5yH+LlAYx2CMJufQsa+uGP84gOzfUgZc04sY/QaTu/Hvh/xVclg6oNUyxoz5yFJPd1/rOIbIvGMCBEoWyuuLlRVtlZbRyQTIwhVFcHzVs5X/qeq62qJgqV0Q3Xckf4Ht8Xx1wckPkzs7FT0q7NmYmjVOgA/7mJcxYUkEksegBQ8UBfLmf5RxBr8FAQwJqJWaPa7HoWkBQjwyb3pmMcI3a5LzQGYeeOwiR1F+Y/gC9Wk5lPsm1okELs77ApRm2OdoU9g1QNGdvYGSAX01r8nfkVggs67ZVP13F3GippzLRhCNXvUmbG/OfSE1kH3vipwLTfk5cC8fXWq5PulSIMdabgZpleX3vnMTKEPG1ei0sHVC0XBhHnDfm84EAZKcgdZzEqd35+jCJ4YE4rq10aYEXEgAQ1Z2Ti3ISNbgO5GmSfZnQyqHFqmIIa4dP1b1s6dTwBm82OqE9yD/A+GNpvMkpggpNWHk3QBHnprrE2rSYqb8yRDhNheA==
+X-Forefront-Antispam-Report:
+	CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(42112799006)(36860700016)(23010399003)(376014)(7416014)(18002099003)(6133799003)(261009223027099003)(22082099003)(261021123027099003)(56012099006)(261102123227099003)(261022113327099003)(261022115727099003)(261021133027099003)(261021121427099003)(261022105027099003)(261026135527099003)(261028144727099003)(261026130827099003)(261021130227099003)(261021135927099003)(261022075727099003)(261026121527099003)(261026140227099003)(10067099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	EKf95eLOVNQy/7SqT4zPEwgpcxw+yJi2H0cnTeoM1s07F5Fq3BKzY5LWcxxyLhBPY0NmjtyiHt64WVJxVA941nQyv/+joMei0EhNmSw02iBI6V5GKfTjw5HZUvAgNu7d3gqiC53uM4AVtCGc4f1qfnLdcmusdj1MBs2k3Leg7/R/uSQ9SYy00EVUAp+HdH44JxUpIZTJTRG6PzQdL7cMhJKj+79uncyOykrEqX6lLWT9JNkgoVQteIs5VKln0I4eTwieUFg4LgGni8dHWDK98jG6rXjutZqT8jDjuK3t6l3jtF6WzZd5u9mW1NPbTdIDI1jiKFRPfBjw/emLDRYJnUjiEhGPlzjwQcJ04s11YHMqlZPYmUWdkQb4dbqkuyNFkuECVg8CxNEeT+lvkf4W3x9CFfTXlqKSAOsBc6Ota2vlBcYgIY9v0etxhss2qZPa
+X-OriginatorOrg: cixtech.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 09:41:21.5285
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6323816a-b182-4656-0283-08df4a0f193c
+X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	TY2PEPF0000AB87.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYSPR06MB7344
 
-The Airoha AN7589 has a GPIO controller like the EN7581 one, with a
-third bank for 74 GPIOs in total. Its pin functions are selected
-differently: a separate IOMUX block holds a 4 bit mode field per pin,
-eight pins per register, and mode 0 makes any pin a GPIO.
+When attached with DRM_BRIDGE_ATTACH_NO_CONNECTOR, the connector is
+created by drm_bridge_connector_init() and the driver's own connector
+is never initialised. Several paths still access that connector:
 
-The first four patches prepare the shared driver and change nothing
-for the SoCs it serves today:
+- tda998x_bridge_mode_set() reads display_info from it to decide the
+  RGB quantization range and whether infoframes and audio are
+  supported. As it stays zeroed, the bridge always operates in DVI
+  mode.
 
- 1. The GPIO register layout moves into the match data, so a SoC can
-    describe more than 64 pins.
- 2. A function group can carry one IOMUX mode per pin. A SoC
-    describes its IOMUX in the match data: the width of the mode
-    field and, from patch 4, the mode that makes a pin a GPIO.
- 3. The chip SCU becomes optional, as the AN7589 needs none.
- 4. A pin requested by gpiolib is put into GPIO mode through the
-    IOMUX, so no per pin gpio function is needed.
+- tda998x_audio_get_eld() copies the ELD from it, which is always
+  empty.
 
-Patch 5 adds the IOMUX to the syscon compatibles. Patch 6 adds the
-binding for the pin controller. Patch 7 adds the binding for the GPIO
-system controller it sits under, which also holds the PWM controller.
-Patch 8 moves the GPIO register offsets to the common header, so the
-AN7589 data can describe its own register table, with no functional
-change. Patch 9 adds the AN7589 pin data.
+- tda998x_detect_work() uses its drm_device to send hotplug events,
+  which never happens because the connector was never registered.
 
-The series applies to next-20261123 and has no dependencies.
+Use the connector passed to the bridge detect and EDID read operations
+instead of the driver's own connector whenever one was provided, and
+report hotplug events through drm_bridge_hpd_notify(). Also advertise
+interlaced mode support through the bridge, otherwise the bridge
+connector rejects them.
 
-Changes in v4:
-- Patch 6: limit the pins of a conf node to 12, the size of the
-  largest pin group (Conor).
-- Patch 7: the commit message no longer names the PWM controller a
-  second child, as it gets no child node (Conor).
-- Add the Acked-by of Conor to patches 5 and 7.
-- Link to v3: https://lore.kernel.org/r/20261116174854.342912-1-john@phrozen.org
+Fixes: c76a8be4feec ("drm/bridge: tda998x: Add support for DRM_BRIDGE_ATTACH_NO_CONNECTOR")
+Signed-off-by: Luo Liu <Luo.Liu@cixtech.com>
+---
+ drivers/gpu/drm/bridge/tda998x_drv.c | 64 +++++++++++++++++++---------
+ 1 file changed, 45 insertions(+), 19 deletions(-)
 
-Changes in v3:
-- Split the bindings in three: the syscon compatible (patch 5), the
-  pin controller (patch 6) and the GPIO system controller (patch 7)
-  (Lee, Conor).
-- Patch 6: allow one group per node, except for pcm_spi and pcie,
-  whose groups carry different signals of one device. Fix the uart5
-  example (Conor).
-- Patch 7: name the PWM controller in the commit message (Conor).
-- Add the Reviewed-by of Lorenzo to patches 3 and 9.
-- Link to v2: https://lore.kernel.org/r/20261112185941.1316112-1-john@phrozen.org
-
-Changes in v2:
-- Patch 3: look up the airoha,chip-scu phandle before the check for
-  a chip SCU compatible (Lorenzo).
-- Patch 6: one function per block type (uart, i2c, spi, pcm, mdio,
-  pcie, pon, sgpio, jtag), with the group selecting the instance, as
-  in the other Airoha pin controller bindings. List the valid groups
-  for the groups property (Conor).
-- Patch 9: the function table follows the binding. Name the match
-  data, the OF match table and the platform driver after the AN7589
-  (Lorenzo).
-- Link to v1: https://lore.kernel.org/r/20261110173941.301478-1-john@phrozen.org
-
-
-John Crispin (9):
-  pinctrl: airoha: make gpio register layout per SoC
-  pinctrl: airoha: add per pin mode field mux
-  pinctrl: airoha: make the chip SCU optional
-  pinctrl: airoha: mux a requested GPIO through the IOMUX
-  dt-bindings: mfd: syscon: add airoha,an7589-iomux
-  dt-bindings: pinctrl: airoha: add AN7589
-  dt-bindings: mfd: airoha: add AN7589 GPIO system controller
-  pinctrl: airoha: move the GPIO register offsets to the common header
-  pinctrl: airoha: add support of an7589 SoC
-
- .../mfd/airoha,an7589-gpio-sysctl.yaml        |  66 ++
- .../devicetree/bindings/mfd/syscon.yaml       |   1 +
- .../pinctrl/airoha,an7589-pinctrl.yaml        | 355 ++++++++++
- MAINTAINERS                                   |   3 +
- drivers/pinctrl/airoha/Kconfig                |  11 +
- drivers/pinctrl/airoha/Makefile               |   1 +
- drivers/pinctrl/airoha/airoha-common.h        |  41 +-
- drivers/pinctrl/airoha/pinctrl-airoha.c       | 119 +++-
- drivers/pinctrl/airoha/pinctrl-an7563.c       |   1 +
- drivers/pinctrl/airoha/pinctrl-an7581.c       |   1 +
- drivers/pinctrl/airoha/pinctrl-an7583.c       |   1 +
- drivers/pinctrl/airoha/pinctrl-an7589.c       | 623 ++++++++++++++++++
- drivers/pinctrl/airoha/pinctrl-en7523.c       |   1 +
- drivers/pinctrl/airoha/pinctrl-en7528.c       |   1 +
- 14 files changed, 1193 insertions(+), 32 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/mfd/airoha,an7589-gpio-sysctl.yaml
- create mode 100644 Documentation/devicetree/bindings/pinctrl/airoha,an7589-pinctrl.yaml
- create mode 100644 drivers/pinctrl/airoha/pinctrl-an7589.c
-
-
-base-commit: 3191063649dbf7c0d0b768e1f3655e4c5fc6edb5
+diff --git a/drivers/gpu/drm/bridge/tda998x_drv.c b/drivers/gpu/drm/bridge/tda998x_drv.c
+index 0b966c9844e7..40379d74a53a 100644
+--- a/drivers/gpu/drm/bridge/tda998x_drv.c
++++ b/drivers/gpu/drm/bridge/tda998x_drv.c
+@@ -81,6 +81,7 @@ struct tda998x_priv {
+ 	struct drm_encoder encoder;
+ 	struct drm_bridge bridge;
+ 	struct drm_connector connector;
++	struct drm_connector *bridge_connector;
+ 
+ 	u8 audio_port_enable[AUDIO_ROUTE_NUM];
+ 	struct tda9950_glue cec_glue;
+@@ -95,6 +96,19 @@ struct tda998x_priv {
+ #define bridge_to_tda998x_priv(x) \
+ 	container_of(x, struct tda998x_priv, bridge)
+ 
++/*
++ * When attached with DRM_BRIDGE_ATTACH_NO_CONNECTOR, the connector is created
++ * by drm_bridge_connector_init() and handed to the bridge detect and EDID
++ * operations; otherwise it is the driver's own connector.
++ */
++static struct drm_connector *tda998x_get_connector(struct tda998x_priv *priv)
++{
++	if (priv->bridge_connector)
++		return priv->bridge_connector;
++
++	return &priv->connector;
++}
++
+ /* The TDA9988 series of devices use a paged register scheme.. to simplify
+  * things we encode the page # in upper bits of the register #.  To read/
+  * write a given register, we need to make sure CURPAGE register is set
+@@ -769,6 +783,14 @@ static int tda998x_edid_delay_wait(struct tda998x_priv *priv)
+ 	return wait_event_killable(priv->edid_delay_waitq, !priv->edid_delay_active);
+ }
+ 
++static enum drm_connector_status tda998x_conn_detect(struct tda998x_priv *priv)
++{
++	u8 val = cec_read(priv, REG_CEC_RXSHPDLEV);
++
++	return (val & CEC_RXSHPDLEV_HPD) ? connector_status_connected :
++			connector_status_disconnected;
++}
++
+ /*
+  * We need to run the KMS hotplug event helper outside of our threaded
+  * interrupt routine as this can call back into our get_modes method,
+@@ -778,10 +800,11 @@ static void tda998x_detect_work(struct work_struct *work)
+ {
+ 	struct tda998x_priv *priv =
+ 		container_of(work, struct tda998x_priv, detect_work);
+-	struct drm_device *dev = priv->connector.dev;
+ 
+-	if (dev)
+-		drm_kms_helper_hotplug_event(dev);
++	if (priv->bridge_connector)
++		drm_bridge_hpd_notify(&priv->bridge, tda998x_conn_detect(priv));
++	else if (priv->connector.dev)
++		drm_kms_helper_hotplug_event(priv->connector.dev);
+ }
+ 
+ /*
+@@ -859,12 +882,12 @@ static void tda998x_write_aif(struct tda998x_priv *priv,
+ static void
+ tda998x_write_avi(struct tda998x_priv *priv, const struct drm_display_mode *mode)
+ {
++	struct drm_connector *connector = tda998x_get_connector(priv);
+ 	union hdmi_infoframe frame;
+ 
+-	drm_hdmi_avi_infoframe_from_display_mode(&frame.avi,
+-						 &priv->connector, mode);
++	drm_hdmi_avi_infoframe_from_display_mode(&frame.avi, connector, mode);
+ 	frame.avi.quantization_range = HDMI_QUANTIZATION_RANGE_FULL;
+-	drm_hdmi_avi_infoframe_quant_range(&frame.avi, &priv->connector, mode,
++	drm_hdmi_avi_infoframe_quant_range(&frame.avi, connector, mode,
+ 					   priv->rgb_quant_range);
+ 
+ 	tda998x_write_if(priv, DIP_IF_FLAGS_IF2, REG_IF2_HB0, &frame);
+@@ -873,10 +896,11 @@ tda998x_write_avi(struct tda998x_priv *priv, const struct drm_display_mode *mode
+ static void tda998x_write_vsi(struct tda998x_priv *priv,
+ 			      const struct drm_display_mode *mode)
+ {
++	struct drm_connector *connector = tda998x_get_connector(priv);
+ 	union hdmi_infoframe frame;
+ 
+ 	if (drm_hdmi_vendor_infoframe_from_display_mode(&frame.vendor.hdmi,
+-							&priv->connector,
++							connector,
+ 							mode))
+ 		reg_clear(priv, REG_DIP_IF_FLAGS, DIP_IF_FLAGS_IF1);
+ 	else
+@@ -1152,10 +1176,10 @@ static int tda998x_audio_get_eld(struct device *dev, void *data,
+ 				 uint8_t *buf, size_t len)
+ {
+ 	struct tda998x_priv *priv = dev_get_drvdata(dev);
++	struct drm_connector *connector = tda998x_get_connector(priv);
+ 
+ 	mutex_lock(&priv->audio_mutex);
+-	memcpy(buf, priv->connector.eld,
+-	       min(sizeof(priv->connector.eld), len));
++	memcpy(buf, connector->eld, min(sizeof(connector->eld), len));
+ 	mutex_unlock(&priv->audio_mutex);
+ 
+ 	return 0;
+@@ -1193,14 +1217,6 @@ static int tda998x_audio_codec_init(struct tda998x_priv *priv,
+ 
+ /* DRM connector functions */
+ 
+-static enum drm_connector_status tda998x_conn_detect(struct tda998x_priv *priv)
+-{
+-	u8 val = cec_read(priv, REG_CEC_RXSHPDLEV);
+-
+-	return (val & CEC_RXSHPDLEV_HPD) ? connector_status_connected :
+-			connector_status_disconnected;
+-}
+-
+ static enum drm_connector_status
+ tda998x_connector_detect(struct drm_connector *connector, bool force)
+ {
+@@ -1390,6 +1406,8 @@ static void tda998x_bridge_detach(struct drm_bridge *bridge)
+ {
+ 	struct tda998x_priv *priv = bridge_to_tda998x_priv(bridge);
+ 
++	priv->bridge_connector = NULL;
++
+ 	if (priv->connector.dev)
+ 		drm_connector_cleanup(&priv->connector);
+ }
+@@ -1449,6 +1467,7 @@ static void tda998x_bridge_mode_set(struct drm_bridge *bridge,
+ 				    const struct drm_display_mode *adjusted_mode)
+ {
+ 	struct tda998x_priv *priv = bridge_to_tda998x_priv(bridge);
++	struct drm_connector *connector = tda998x_get_connector(priv);
+ 	unsigned long tmds_clock;
+ 	u16 ref_pix, ref_line, n_pix, n_line;
+ 	u16 hs_pix_s, hs_pix_e;
+@@ -1465,7 +1484,7 @@ static void tda998x_bridge_mode_set(struct drm_bridge *bridge,
+ 	 * it, otherwise reduce to limited-range.
+ 	 */
+ 	priv->rgb_quant_range =
+-		priv->connector.display_info.rgb_quant_range_selectable ?
++		connector->display_info.rgb_quant_range_selectable ?
+ 		HDMI_QUANTIZATION_RANGE_FULL :
+ 		drm_default_rgb_quant_range(adjusted_mode);
+ 
+@@ -1674,7 +1693,7 @@ static void tda998x_bridge_mode_set(struct drm_bridge *bridge,
+ 	 * ignore CEA version 2 and below (iow, behave as if we're a
+ 	 * CEA-861 source.)
+ 	 */
+-	priv->supports_infoframes = priv->connector.display_info.cea_rev >= 3;
++	priv->supports_infoframes = connector->display_info.cea_rev >= 3;
+ 
+ 	if (priv->supports_infoframes) {
+ 		/* We need to turn HDMI HDCP stuff on to get audio through */
+@@ -1701,6 +1720,9 @@ tda998x_bridge_edid_read(struct drm_bridge *bridge,
+ 	const struct drm_edid *drm_edid;
+ 	const struct edid *edid;
+ 
++	if (connector)
++		priv->bridge_connector = connector;
++
+ 	drm_edid = tda998x_edid_read(priv, connector);
+ 	if (!drm_edid) {
+ 		dev_dbg(&priv->hdmi->dev, "failed to get edid\n");
+@@ -1729,6 +1751,9 @@ tda998x_bridge_detect(struct drm_bridge *bridge,
+ {
+ 	struct tda998x_priv *priv = bridge_to_tda998x_priv(bridge);
+ 
++	if (connector)
++		priv->bridge_connector = connector;
++
+ 	return tda998x_conn_detect(priv);
+ }
+ 
+@@ -2011,6 +2036,7 @@ tda998x_probe(struct i2c_client *client)
+ 
+ 	priv->bridge.ops |= DRM_BRIDGE_OP_EDID | DRM_BRIDGE_OP_DETECT;
+ 	priv->bridge.type = DRM_MODE_CONNECTOR_HDMIA;
++	priv->bridge.interlace_allowed = true;
+ 	drm_bridge_add(&priv->bridge);
+ 
+ 	return 0;
 -- 
-2.34.1
+2.25.1
 
