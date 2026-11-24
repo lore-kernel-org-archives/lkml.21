@@ -1,56 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.112
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795538771;
-	b=iCzSjvnXRoV4UWPeA0KIdz3wo/BciYFljJIHKnirqcv9bgCdA2cgrwOdrTnlHLoIeRRn
-	 2ZChNic9pX5aaZFU0BN7r7StqfrCytvOEg0mfMWXItt2P5bPadibgcCv7bPiGjUegr2as
-	 GSLW7YDBVK/NOL9gZNpdwmrLGmDGYwytcHVuN+16+c/Ivbes9D7LaL2oVq8ByvNIHwgKk
-	 ijLg8BG5+sMPBjMrJO3W+VIp7h6/tDw3kOioQmdF0nN1jDb8OWDAi86zEFdhBRsxFAn6Y
-	 eNKCzXa4uqNuD5auJZaroIvoUEQ/K0y8sOWeqy1vrQH3yg1hUTopcTueoWGy3Q0G0YQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795538771;
-	h=DMARC-Filter:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
-	 In-Reply-To:To:Cc:X-Mailer:X-ZohoMailClient;
-	bh=LLDJu6OWDDnxUrH9ZzdDynPpPEVIR3ZLD1JnVoiACwQ=;
-	b=PvUKCBSash++XBKB+GELwf/tceXewK9lSf5pZVzGqV7jEwBC4s8UumzUm420SwEaFX0I
-	 gswi9cMMZF1/VCr3V5tnrt6kFKiSVuXSx4aURk8nk6v7iYDL36YLRe08Ji4r4RfQzs1gC
-	 Pxeoa/smWoefJhH57nap+2xTUsPhpIfHJ7l0pwMl9wGruTj4KemSdACQpCVzNolLjzxpA
-	 CvW6YxoLFqJYD4GfNqOvAEq7N56I9x8+STgD/V9nbDIp5Cro1uhnLZXgLpKddP+rH1XWZ
-	 dwiP3mTgyJAmvjTRcGSIP1Q6LEK26k9oTrozIbwgYYl8Zmog79HTQiFwcaxZeO4zsTQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=rong.moe;
-	spf=pass smtp.mailfrom=rong.moe;
-	dkim=pass header.d=rong.moe header.i=@rong.moe header.a=rsa-sha256 header.s=zmail2048 header.b=O0Rwmv3v;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.112
-Received: from sender6-pp-f112.zoho.com (sender6-pp-f112.zoho.com [165.173.180.112])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795538778;
+	b=Wt/Mue5GHTVicdCGekhiVsk+rIQjDz2Jqlx862ci60KsxfOuiaEil46cJTZTLUFxDNPT
+	 IJ9HUF/HdrgSbFp+sJK0YHsV8IVOQSHvWHzD1c7+MIlKADsTwMHcGTOGMrfuG1GCH2HsS
+	 LaKKFxGjb12tRPvk+Y5M9zsXDhofkJ0w/kNm/n4IXT+85OHe/fq2S0jWJM5c/O3z4f8gS
+	 wybBSuKKWqt8ETg325iLcGb8wghM4IYuPSlt8UzHTphRLG9v0zj5+20o28b9hqvtkwMOi
+	 KnybumBNmT8b4EKVUx9YBzRB1s1gIal8MBq11lzf84LLUJtJZY9hlvej2fUWYV1IIjA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795538778;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=66yLjLF09no/CGggODWw/UNlLt5dwM1C2hA7f/88NZE=;
+	b=T8NdhgtGd0eWLBnBug7y6AoiSzJQuHCfHbyMehameWyibT2DhgNa61LpxlZJ0iB1+Uw5
+	 Altf8VpogFEtI6HohQTNS3ruxbyXiWt9eiucqkHgyCt2mtE4hdCFiSLrcvKgi7uuRvYcC
+	 IMFnNNmBClTGISzFO/WDAQTvYUFHlR8MinAe9BXfY8a8xkAfOlH7T0q5HolG46SIGI1cO
+	 0K+C5GU+UAUdBgLaASAVZpdaaXJ7skkk1b+XCMceTBtaBqrtlDhHlOSBR7A7Vtc7S+mZd
+	 9zu4MVTysidg8/XWtyo5Kwrgb0AvJlxuvjDXjIZoQZVH/DyyyjGkJfMTSlk+yxPJ42Q==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BMaxAH7m;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B782E606A32A;
-	Tue, 24 Nov 2026 16:46:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B782E606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=rong.moe
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rong.moe
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B5076606A321;
+	Tue, 24 Nov 2026 16:46:18 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=rong.moe header.i=@rong.moe header.a=rsa-sha256 header.s=zmail2048 header.b=O0Rwmv3v
-ARC-Seal: i=1; a=rsa-sha256; t=1795538712; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=cKsZNJ7qU1wrZ1U4Qk+6ohy5g1V48TtQ/F0petrsADM6wkQXIGoLiX7aETnggdJWv5MhS2VUru6TIvPyPxFymfXoxoCwK9L/z+7SRLj0+hkBikTPE5e24/FpdWUZm52xoiIRP34M6AUXw0S1ItzQb9KlrSUVgMVE3tlqMwwqIRc=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1795538712; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=LLDJu6OWDDnxUrH9ZzdDynPpPEVIR3ZLD1JnVoiACwQ=; 
-	b=V77ODUPDk57ZzSDOjcyBeh7p5V3RUn8GS960fk8YaXYXP0OGlZHkUYQ4xz1Y9qKtfnwBd83HzQsOTePV/aHHrp+4z0V9XeAUjk19rpCwhzT0Ay6729nvXSqbtVkHluAjeBUzKXT374/T4kHbvH35dDx4ZVhEQ6cVmskkuGiEOtk=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=rong.moe;
-	spf=pass  smtp.mailfrom=i@rong.moe;
-	dmarc=pass header.from=<i@rong.moe>
-DKIM-Signature: a=rsa-sha256; b=O0Rwmv3vykpbANs0HEC8581nKFrMcl0vBw44nfN3wGmx5vB6g3AV+EE+Yb+mnZJyu0dCdOsJb6a5cbiChwPE0sbvX8Z1zqPfiv2MU86I5Y65QdmPtBtlkHHl3Qg9dZY3ejFPoyaABkLpERWVEfZdMqfb8jdtVJB4K+zhqRczYymclORjR/0AZdymQd4QLpD5yFi8FN548xFSxBtG9bVD8tdwb9YI3bLt+GH6ELpCiNAHGEZk4fHbIDgfxPNfoc0JexuDOA1B+qoRxm93gZplVJ+kLV2mBKkp5pG4OdAZ4359Sv+RJDPdsL6DAfwNrgLdhwZScq35/xTCfkNAxwP+Dg==; c=relaxed/relaxed; s=zmail2048; d=rong.moe; v=1; bh=LLDJu6OWDDnxUrH9ZzdDynPpPEVIR3ZLD1JnVoiACwQ=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 1795538709263532.7347938450698;
-	Tue, 24 Nov 2026 08:45:09 -0800 (PST)
-From: Rong Zhang <i@rong.moe>
-Date: Wed, 25 Nov 2026 00:44:30 +0800
-Subject: [PATCH v4 2/9] HID: haptic: Fix use-after-free when draining
- workqueue
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BMaxAH7m
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57CCA1F000D1;
+	Tue, 24 Nov 2026 16:46:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795538778;
+	bh=66yLjLF09no/CGggODWw/UNlLt5dwM1C2hA7f/88NZE=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=BMaxAH7m0fFWfiFx4/Wk2I1BVUzKTw3nqggjWxQ7oB52l0+GE1njFSsJtFQbGUbaI
+	 ZKH9WXB+PXzpSZsc2LO+SvxYj8kUvtACPrSpkJhbEsQjItQcTMSZlljF89lET8+q4i
+	 9wDP3A1cWMj4UnxJW9JFwErcg6VHA7hTwsFwFaIV+mq9p82O5DscIHm4uNfPxz5TSv
+	 JdwoMrAGvX5JxeVjlT/s2dpuo9z3fh/tE0fmYmg0qCGWBDXmPFAM5f93m7RK7bVx69
+	 Ew9sUlAt/vfgaXGo+Ktq1otOa78OkrnrUhNESS4C8yN/hnp48GsJxoqXiqQdos0amD
+	 ogwLX7yjHtSSg==
+Subject: Re: [PATCH net-next v2] net: xilinx: axienet: Derive RX frame length
+ from residue in dmaengine path
+From: netdev-bot+sashiko@kernel.org
+To: srinivas.neeli@amd.com
+Cc: radhey.shyam.pandey@amd.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, michal.simek@amd.com,
+ horms@kernel.org, netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ git@amd.com
+Date: Tue, 24 Nov 2026 16:46:16 +0000
+Message-ID: <179553877690.3135.3125454257939180385@kernel.org>
+In-Reply-To: <20261123164251.48234-1-srinivas.neeli@amd.com>
+References: <20261123164251.48234-1-srinivas.neeli@amd.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,141 +65,172 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261125-hid-haptic-kmod-v4-2-03713a89f656@rong.moe>
-References: <20261125-hid-haptic-kmod-v4-0-03713a89f656@rong.moe>
-In-Reply-To: <20261125-hid-haptic-kmod-v4-0-03713a89f656@rong.moe>
-To: Jiri Kosina <jikos@kernel.org>, Benjamin Tissoires <bentiss@kernel.org>, 
- Angela Czubak <aczubak@google.com>, Henrik Rydberg <rydberg@bitmath.org>, 
- Dmitry Torokhov <dmitry.torokhov@gmail.com>
-Cc: linux-input@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Rong Zhang <i@rong.moe>, stable@vger.kernel.org
-X-Mailer: b4 0.17-dev-ce4c1
-X-ZohoMailClient: External
 
-The haptic->wq is destroyed after freeing effects and their report
-buffers, which is too late. If any work is still pending or running
-before the workqueue destruction, haptic_work_handler() will access the
-just-freed contents, causing a use-after-free.
+Thank you for your contribution! Sashiko AI review found 3 potential
+issue(s) to consider.
 
-Fix it by destroying the workqueue before putting the HID device and
-freeing haptic resources. The allocation sequence is also adjusted to
-the reverse.
+Critical: 0 · High: 0 · Medium: 2 · Low: 1
 
-Since the workqueue allocation is anyway touched, also replace the
-legacy creation API with the modern alloc_ordered_workqueue(). In this
-manner, the temporary buffer on heap can be replaced by the API's
-formatting.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Also call __clear_bit(EV_FF, dev->evbit) in the bail-out path to match
-the behavior of input_ff_destroy().
+- [Medium] The commit message says the residue-based length is "correct
+  across all designs, including multi-descriptor frames".
+- [Medium] The commit message says that summing the residue over the
+  chain gives the correct length for multi-descriptor frames.
+- [Low] This patch fixes a real, user-visible RX failure in the dmaengine
+  path of axienet_dma_rx_cb()…
 
-Fixes: 344ff3584957 ("HID: haptic: initialize haptic device")
-Cc: stable@vger.kernel.org
-Signed-off-by: Rong Zhang <i@rong.moe>
----
- drivers/hid/hid-haptic.c | 36 ++++++++++++++++--------------------
- 1 file changed, 16 insertions(+), 20 deletions(-)
+--
 
-diff --git a/drivers/hid/hid-haptic.c b/drivers/hid/hid-haptic.c
-index c675e14f06e1..8312b8edc847 100644
---- a/drivers/hid/hid-haptic.c
-+++ b/drivers/hid/hid-haptic.c
-@@ -382,6 +382,9 @@ static void hid_haptic_destroy(struct ff_device *ff)
- 	struct hid_haptic_device *haptic = ff->private;
- 	int r;
- 
-+	destroy_workqueue(haptic->wq);
-+	haptic->wq = NULL;
-+
- 	kfree(haptic->stop_effect.report_buf);
- 	haptic->stop_effect.report_buf = NULL;
- 
-@@ -392,9 +395,6 @@ static void hid_haptic_destroy(struct ff_device *ff)
- 	}
- 	haptic->effect = NULL;
- 
--	destroy_workqueue(haptic->wq);
--	haptic->wq = NULL;
--
- 	kfree(haptic->duration_map);
- 	haptic->duration_map = NULL;
- 
-@@ -411,8 +411,6 @@ int hid_haptic_init(struct hid_device *hdev,
- 	struct ff_haptic_effect stop_effect = {
- 		.hid_usage = HID_HP_WAVEFORMSTOP & HID_USAGE,
- 	};
--	const char *prefix = "hid-haptic";
--	char *name;
- 
- 	haptic->hdev = hdev;
- 	haptic->max_waveform_id = max(2u, haptic->max_waveform_id);
-@@ -447,20 +445,11 @@ int hid_haptic_init(struct hid_device *hdev,
- 	haptic->manual_trigger_report_len =
- 		hid_report_len(haptic->manual_trigger_report);
- 	mutex_init(&haptic->manual_trigger_mutex);
--	name = kmalloc(strlen(prefix) + strlen(hdev->name) + 2, GFP_KERNEL);
--	if (name) {
--		sprintf(name, "%s %s", prefix, hdev->name);
--		haptic->wq = create_singlethread_workqueue(name);
--		kfree(name);
--	}
--	if (!haptic->wq) {
--		ret = -ENOMEM;
--		goto duration_map;
--	}
-+
- 	haptic->effect = kzalloc_objs(struct hid_haptic_effect, FF_MAX_EFFECTS);
- 	if (!haptic->effect) {
- 		ret = -ENOMEM;
--		goto output_queue;
-+		goto duration_map;
- 	}
- 	for (r = 0; r < FF_MAX_EFFECTS; r++) {
- 		haptic->effect[r].report_buf =
-@@ -489,12 +478,18 @@ int hid_haptic_init(struct hid_device *hdev,
- 	fill_effect_buf(haptic, &stop_effect, &haptic->stop_effect,
- 			HID_HAPTIC_ORDINAL_WAVEFORMSTOP);
- 
-+	haptic->wq = alloc_ordered_workqueue("hid-haptic %s", WQ_MEM_RECLAIM, hdev->name);
-+	if (!haptic->wq) {
-+		ret = -ENOMEM;
-+		goto stop_buffer_free;
-+	}
-+
- 	input_set_capability(dev, EV_FF, FF_HAPTIC);
- 
- 	ret = input_ff_create(dev, FF_MAX_EFFECTS);
- 	if (ret) {
- 		dev_err(&hdev->dev, "Failed to create ff device.\n");
--		goto stop_buffer_free;
-+		goto reset_evbit;
- 	}
- 
- 	ff = dev->ff;
-@@ -505,6 +500,10 @@ int hid_haptic_init(struct hid_device *hdev,
- 	ff->destroy = hid_haptic_destroy;
- 	return 0;
- 
-+reset_evbit:
-+	__clear_bit(EV_FF, dev->evbit);
-+	destroy_workqueue(haptic->wq);
-+	haptic->wq = NULL;
- stop_buffer_free:
- 	kfree(haptic->stop_effect.report_buf);
- 	haptic->stop_effect.report_buf = NULL;
-@@ -513,9 +512,6 @@ int hid_haptic_init(struct hid_device *hdev,
- 		kfree(haptic->effect[r].report_buf);
- 	kfree(haptic->effect);
- 	haptic->effect = NULL;
--output_queue:
--	destroy_workqueue(haptic->wq);
--	haptic->wq = NULL;
- duration_map:
- 	kfree(haptic->duration_map);
- 	haptic->duration_map = NULL;
+net: xilinx: axienet: Derive RX frame length from residue in dmaengine path
+
+This commit changes axienet_dma_rx_cb() so that the dmaengine RX path
+computes the received frame length as the posted buffer length minus
+result->residue. Previously the length came from the APP4 descriptor
+metadata word. It also detects failed transfers through
+dmaengine_result.result and removes the unused LEN_APP macro.
+
+> diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+> index 7e83c4b5f1931..5b4998e2ca148 100644
+> --- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+> +++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+
+[ ... ]
+
+> @@ -1219,30 +1218,27 @@ axienet_start_xmit(struct sk_buff *skb, struct net_device *ndev)
+>  static void axienet_dma_rx_cb(void *data, const struct dmaengine_result *result)
+>  {
+
+[ ... ]
+
+> -	/* TODO: Derive app word index programmatically */
+> -	rx_len = (app_metadata[LEN_APP] & 0xFFFF);
+> +	/* Actual length = posted buffer length - residue. */
+> +	rx_len = lp->max_frm_size - result->residue;
+
+[Severity: Low]
+This fixes a receive failure that users can see. Should it carry a Fixes:
+tag and go through net rather than net-next?
+
+The line being replaced came in with commit 6a91b846af85 ("net: axienet:
+Introduce dmaengine support"). On designs without the status/control
+stream, the old code had two failure modes.
+
+If the channel has no metadata_ops, dmaengine_desc_get_metadata_ptr()
+returns ERR_PTR(-ENOTSUPP) and every frame is dropped here:
+
+	if (IS_ERR(app_metadata)) {
+		...
+		dev_kfree_skb_any(skb);
+		lp->ndev->stats.rx_dropped++;
+		goto rx_submit;
+	}
+
+Before commit 8bbceba7dc5090, that ERR_PTR was dereferenced instead.
+
+If metadata_ops is present but the status stream is absent, the invalid
+APP4 value is passed straight to skb_put().
+
+The stable trees that carry the dmaengine RX path won't pick this up unless
+it has something like:
+
+Fixes: 6a91b846af85 ("net: axienet: Introduce dmaengine support")
+
+>  	skb_put(skb, rx_len);
+>  	skb->protocol = eth_type_trans(skb, lp->ndev);
+
+[Severity: Medium]
+The commit message says the residue-based length is "correct across all
+designs, including multi-descriptor frames where the residue is summed over
+the chain". Does that hold for a frame longer than one posted RX buffer?
+
+axienet_rx_submit_desc() posts each skb as its own dmaengine descriptor
+with a single sg entry:
+
+	sg_dma_len(skbuf_dma->sgl) = lp->max_frm_size;
+	dma_rx_desc = dmaengine_prep_slave_sg(lp->rx_chan, skbuf_dma->sgl,
+					      1, DMA_DEV_TO_MEM,
+
+xilinx_dma_get_residue() only sums the segments of that one descriptor:
+
+	residue += (axidma_hw->control & chan->xdev->max_buffer_len) -
+		   (axidma_hw->status & chan->xdev->max_buffer_len);
+
+So the residue is never summed across the several descriptors that make up
+one frame.
+
+When the MTU is above 1500, axienet_device_reset() sets max_frm_size to
+mtu + VLAN_ETH_HLEN + XAE_TRL_SIZE and enables XAE_OPTION_JUMBO. No maximum
+receive frame length is programmed into the MAC.
+
+If the MAC then accepts frames longer than max_frm_size, any L2 peer can
+send one. For example, a double-tagged frame at MTU size is mtu + 26 bytes.
+AXI DMA S2MM fills the current BD without EOF and continues into the next
+BD, which belongs to the next descriptor and the next skb:
+
+  first callback:  residue == 0, so a truncated max_frm_size frame is
+                   passed to __netif_rx()
+  second callback: rx_len == remainder, so eth_type_trans() parses bytes
+                   from the sender's payload as a new Ethernet header
+
+Could a remote peer use this to inject a frame with its own choice of MAC
+addresses, ethertype and VLAN tag, getting past hardware MAC filtering and
+VLAN separation?
+
+If the remainder is shorter than ETH_HLEN, eth_skb_pull_mac() silently
+fails and the short skb is still passed up the stack.
+
+axienet_dma_rx_cb() never checks XAXIDMA_BD_STS_RXSOF_MASK or
+XAXIDMA_BD_STS_RXEOF_MASK, and dmaengine_result does not carry them.
+
+The missing SOF/EOF handling predates this patch. Before it, APP4 on the
+EOF BD held the full frame length, so skb_put() hit skb_over_panic(). With
+this change the same input instead becomes silent frame splitting.
+
+Should buffers that don't carry both SOF and EOF be dropped? Alternatively,
+could the MAC's accepted frame size be limited to max_frm_size?
+
+[Severity: Medium]
+A related case can happen inside a single descriptor. Is the summed
+residue still correct when the dmaengine provider splits the single RX sg
+into several BDs?
+
+xilinx_dma_prep_slave_sg() caps each hardware BD at xdev->max_buffer_len
+through xilinx_dma_calc_copysize(). max_buffer_len comes from
+xlnx,sg-length-width, which can be 8 to 26 bits.
+
+Nothing in axienet checks lp->max_frm_size against that per-BD limit. Two
+examples where one descriptor ends up with several BDs:
+
+  width 13 (8191) with MTU 9000 (max_frm_size 9022)
+  width 10 (1023) with the default 1522 byte max_frm_size
+
+AXI DMA S2MM ends a BD at TLAST and starts each packet in a new BD. The
+legacy axienet_rx_poll() relies on the same behaviour.
+xilinx_dma_complete_descriptor() only checks the last segment:
+
+	if (!(seg->hw.status & XILINX_DMA_BD_COMP_MASK) && chan->has_sg)
+		break;
+
+With a frame A shorter than BD0, the sequence would be:
+
+  frame A lands in BD0, and the descriptor stays pending
+  frame B lands in BD1, which is the same skb at offset BD0-size
+  BD1 completes, and the residue sum gives rx_len = len(A) + len(B)
+
+Would axienet_dma_rx_cb() then deliver frame A followed by len(B) bytes of
+stale buffer data, and lose frame B? If B is longer than BD1, it spills
+into the next descriptor as described above.
+
+The old APP4 method was also wrong here, because it reported B's length
+from the last BD. However, the commit message explicitly says the
+summed-residue case is handled correctly.
+
+>  	skb->ip_summed = CHECKSUM_NONE;
 
 -- 
-2.55.0
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261123164251.48234-1-srinivas.neeli%40amd.com
