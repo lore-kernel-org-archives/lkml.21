@@ -1,55 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795564374;
-	b=h7ZfSvZt49BRvHpFMZ5GlUKtwvKMab5Eiuyy6m4w0OO8bz9obiMWvQZTODz5ieZI0A4m
-	 CFISPqZgpFinKxUXL+fM6jxFhbgUuYAIoU4HqcwnNUXe5kg1xUdY/EwCklvz/fEK4WUeY
-	 ZRfttJxjHFJlmlUoEn0XHau62afDICDgLjX2uoQEvH/cZ8qJuE82Eo0mMLZJscxUXLlOe
-	 8iw72PxzU38bkuub22uVIh5jJSvPxp+2t9Z+WNxEbQbO86aRWl8Y9t7UmuSIZLh7rK02R
-	 d4+ANlph6e/QZKVh4ecPF+QdXgBvMxDF9W1KVsvjbfnzXjhfVMuJ0wZJWsA5hjDH3+g==
+	t=1795564476;
+	b=r/QfR7wxtEbElk/lizwUhEwbPO7NQprss+VPjWXXSmPhghV/3k1JuuQBqpL22KMQvCB7
+	 9UK6Gbi1LmUHTjbpJaVen3z8hyLH88SsEJzzQPY5UnzTT2FuC70wJV/TeChYsAWEjqFV7
+	 p9YNnDWkuhGdEilZkBiXXazGrj6jkDRHlgoAZuKWBFwHmGAMXc0B1hqZwSMhpC/DRmCnT
+	 I+nUoygRqQqoVYidEVCMEhOZu9IlLYc8UW0SM8u+9h3lmNOtqa6fyBbbLbkYZowZ6fpro
+	 s5zRTWfGN/8rJiillJ1rGeYsc1EChAYPvO07leMxJZb4k+KhftDoQZEqER+/zbvOSJw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795564374;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=FdmbSo5Y/+1WVcBaZi3UOeVDRS7HdI9UnXMTYxRF8pM=;
-	b=pPe+nJG9P06gN46VEHJL6G4aCuZDiXOjMHvSNJURvuDPPnBlbWGt+LFgohmq9114JfxS
-	 cMpVvFbDtRwXtc4KJ9aXqX1p3Y7ApdgVc3fE26C4ZodJA7lBypAQEc4hdZePXG5/lO8Wx
-	 h/HRhMq7xgMB2Y3CQiqv5/gXZiC5STESREZRE5GfAlHlclhgb7mD+mmo6i0TOMQ4g+atj
-	 Cc2yL8XlPMJQGB1wVX/JXP85wRVuulJbB2WeBLjR5ftev7TcG8DTY6M2ElJw2E9VpybbF
-	 aLdlAjLt/NnmGm09AyVRdxmW1GmnBYwCONWI7wbCuQZZrerZbKqYlFWVV7hmRSepvXQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795564476;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:Received:From:To:Cc:Subject:Date:
+	 Message-ID:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-Scanned-By;
+	bh=QWGvzPpYWLrHjwLeDxSm7nXRTt1ieW4I3yri6RDwek4=;
+	b=WvcB++ZTioOryqabPDURG2f7cpyJRWfhqhsyJzP4dPuWdPbFjswIe3GWXL6QTzyA1691
+	 5nModgxDuS5bW5/0mT+gQSLZR3rODBJXRYhwYhL0Ibu8WeMDw2ZxpenZem+fKII9G8N3j
+	 ESl6dYp+it0ASoJCCw0QojYBNytuPV0SKoBa0lVnuG2DH0Uaw7x5oWPrnImlgW+zZSXHk
+	 53Wq9F9EAr5pmLtCc3qrRlbNXo7N2Nmjm8XLPZG/On3ZHPWClsdiSOD2bCx0+ZbUO8lSZ
+	 tAXvo+SuGuf9tyw6GqkSRhKQu9AUyg69dWuQABM7nil7LmZju7WQnSp3xL2heB5Lmvg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jy1KLICg;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=FzgB3qBG;
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5ADBB606A329
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 23:52:54 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 85906606A338
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 23:54:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 85906606A338
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jy1KLICg
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 333F21F000D4
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 23:52:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795564374;
-	bh=FdmbSo5Y/+1WVcBaZi3UOeVDRS7HdI9UnXMTYxRF8pM=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=jy1KLICgiWSXqsqyyn/gjKmfh+rsCDzaG2EVfNWUB4gbGN8xmKT6uSv5yG+2iL1G7
-	 IK3zduScRh3Q4Zuq4FZneQ9tmRu1TiDvJln8Te05PBA79SXVpiyXqG8mF9i3SwLHvk
-	 Oo8sB4hdZxHtCrY9Yp/82RTOL5ehb+IOdHnv7vuI+nTa+CypiHlDIRHTzAW0fd85Wb
-	 kGQeDv0vEfxPIYQoKOwKqTq61J+hvj7UQXwjN02iepCKKWyx6iMZPrcx5PhnfGSIwv
-	 GOBypqMenmIXZEadzSQwUM1+/LKppHQa8uUZJVDduDzJvol8Tl2PH8TZBl1ISExNwK
-	 9DbZFcLqMeomQ==
-Received: by mail-lf1-f44.google.com with SMTP id 2adb3069b0e04-5c14f3dab66so4643582e87.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 15:52:54 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErFNEawhqqogE1q87p1k1xljXTdUA7xVhjMEgpuprTzK82oqnAjQtI1wP97uRX808gOPu+rV1Riw7DZ7Hv4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z92+gIbk2UXnLHq1xFVNbBc5t+r/lZaluLCyqV81bWIsr2t+g/p
-	Gaw7dBSEPJDOUIpED1Un2mlNIYaDtUWhOr50cT2qSTryV4s+8eYKyaFGCRHvgMySrBAWtACca1N
-	BmIxV+mmXdtVDwHGk4/AKh7K0SkFwYFM=
-X-Received: by 2002:a05:6512:3c86:b0:5bf:a34f:14ce with SMTP id
- 2adb3069b0e04-5c1b7bcb80cmr4369964e87.11.1795564372635; Tue, 24 Nov 2026
- 15:52:52 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=FzgB3qBG
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795564474;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=QWGvzPpYWLrHjwLeDxSm7nXRTt1ieW4I3yri6RDwek4=;
+	b=FzgB3qBGqUGeo8ZwSOCJZOtNyC/CqttQjkyQoFvsuCQ65wZqz2EbsWQTBGJXH6lHOw0vvu
+	CH9/AAwUeLUxbSt0LCjYYDFEGHrIn4Y3S5QCZkZWMrxdVOJUv+Z7GkfNY7hJVqOI6YQJlk
+	LaQPh6ZrVCSgDfyAHp9qlixQ3ZFt+zU=
+Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-435-NpUdX5X0OVGaDfU1Q91OYg-1; Tue,
+ 24 Nov 2026 23:54:30 +0000
+X-MC-Unique: NpUdX5X0OVGaDfU1Q91OYg-1
+X-Mimecast-MFC-AGG-ID: NpUdX5X0OVGaDfU1Q91OYg_1795564469
+Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 43C4219560B8;
+	Tue, 24 Nov 2026 23:54:29 +0000 (UTC)
+Received: from jhladky-thinkpadp1gen7.tpbc.csb (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
+	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id ACC51195B3C0;
+	Tue, 24 Nov 2026 23:54:26 +0000 (UTC)
+From: Jirka Hladky <jhladky@redhat.com>
+To: dockseed@proton.me
+Cc: will@kernel.org,
+	catalin.marinas@arm.com,
+	kristina.martsenko@arm.com,
+	luyang@redhat.com,
+	jmario@redhat.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: clear_user: align __arch_clear_user() to 128B for I-cache efficiency
+Date: Wed, 25 Nov 2026 00:54:20 +0100
+Message-ID: <20261124235420.1299547-1-jhladky@redhat.com>
+In-Reply-To: <h2Yz7IeYKGRjKTvtyae9lgHZIlzgU1Ze5lPbucMya5_pi5-E78h2z8BgJHbZ0JG3ufYHoIE_2ax0hUF-_TDkXfXnPwhLilCyFV0NHh4GML4=@proton.me>
+References: <h2Yz7IeYKGRjKTvtyae9lgHZIlzgU1Ze5lPbucMya5_pi5-E78h2z8BgJHbZ0JG3ufYHoIE_2ax0hUF-_TDkXfXnPwhLilCyFV0NHh4GML4=@proton.me>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,169 +83,49 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261015142552.4128028-1-ryan.roberts@arm.com> <20261015142552.4128028-14-ryan.roberts@arm.com>
-In-Reply-To: <20261015142552.4128028-14-ryan.roberts@arm.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Wed, 25 Nov 2026 00:52:40 +0100
-X-Gmail-Original-Message-ID: <CAD++jLmpMQ1KExszFo-So-dQ2rxDiG2fo1GYGV_T0VPQM2b=MQ@mail.gmail.com>
-X-Gm-Features: Aa3M54pFqitfpRija09wdUEiLNXZP7zwbQjloIBuStVWLIh0bhqixHx00fUO9n0
-Message-ID: <CAD++jLmpMQ1KExszFo-So-dQ2rxDiG2fo1GYGV_T0VPQM2b=MQ@mail.gmail.com>
-Subject: Re: [RFC PATCH v2 13/15] misc/arm-cla: Add stage-2 MTC and VM context switch
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Arnd Bergmann <arnd@arndb.de>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
-	Alex Williamson <alex@shazbot.org>, Jason Gunthorpe <jgg@nvidia.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Jean-Philippe Brucker <jpb@kernel.org>, Oded Gabbay <ogabbay@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, kvm@vger.kernel.org, devicetree@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
 
-Hi Ryan, Jean-Philippe,
+Hi Norman,
 
-On Thu, Oct 15, 2026 at 4:27=E2=80=AFPM Ryan Roberts <ryan.roberts@arm.com>=
- wrote:
+Thank you for the excellent analysis, and for pinpointing that the
+root cause is in clear_user.S itself rather than in where the
+function lands.
 
-> From: Jean-Philippe Brucker <jpb@kernel.org>
->
-> Add functions to switch the guest MTC. Reset the accelerators and CLA
-> registers on switch. No save/restore of accelerators at the moment, we
-> only restore the kernel's PL0CTL.
->
-> Signed-off-by: Jean-Philippe Brucker <jpb@kernel.org>
-(...)
+We reproduced your findings on bare-metal Ampere Altra (Neoverse N1,
+no FEAT_MOPS) and can confirm them end to end.
 
-> +/**
-> + * struct cla_regs_pl1 - Saved CLA register state (PL1)
-> + * @pl0ctrl: Host PL0 control register
-> + *
-> + * Most registers are simply reset when transitionning to and from VMs, =
-since we
-> + * don't support shared assignment.
-> + */
-> +struct cla_regs_pl1 {
-> +       u64 pl0ctrl;
-> +};
-> +
+Disassembling __arch_clear_user() out of /proc/kcore on the running
+kernels, both the ELN 7.3.0-65 and 7.4.0-0.rc3 builds we tested carry
+exactly two NOPs between the loop-back branch target and the first
+sttr, i.e. the padding you described.
 
-> +enum cla_ctx_type {
-> +       CLA_CTX_PL0,
-> +       CLA_CTX_PL1,
-> +};
+To isolate the change, we built two kernels from the same tree, same
+config and toolchain, differing only in the label move (your one-line
+fix): the unpatched build has the two NOPs in the loop, the patched
+build branches directly to the sttr. Reading 4 GiB from /dev/zero
+(performance governor, pinned CPU, median of 3 runs):
 
-Please add authoritative definitions of the these two context states
-here so we know exactly what they are for.
+                        unpatched     patched
+  kernel instr/MiB        797.5k       536.4k
+  throughput              11.6 GB/s    22.3 GB/s
 
->   * Mutable, written by domain reassignment, device work, and CPU hotplug=
-:
->   * @regs:              State for each device in domain.
->   * @asid:              Pinned ASID of live context.
-> + * @guest_mmu:         Stage 2 translation configuration.
+The instruction counts match your measurements almost exactly, and
+the delta (261.1k per MiB) is precisely the two NOPs at 8 bytes per
+iteration (2 x 131072). On N1 the throughput effect is even larger
+than on your A76: +92%.
 
-Since they are now in a union there is some information missing here,
-asid for PL0, guest_mmu for PL1?
+The unpatched rebuild also reproduces the stock ELN kernel's numbers
+exactly, so the only variable in the comparison above is the
+one-line fix.
 
->   */
->  struct cla_ctx {
->         struct kref refcnt;
-> @@ -191,7 +220,10 @@ struct cla_ctx {
->         refcount_t users;
->         struct list_head queue_node;
->         void **regs;
-> -       unsigned int asid;
-> +       union {
-> +               unsigned int asid;
-> +               struct kvm_arch_guest_mmu *guest_mmu;
-> +       };
->         wait_queue_head_t waitq;
->  };
+I have posted the reworked patch as [PATCH v2] in this thread:
 
-(...)
+  https://lore.kernel.org/all/20261124233043.1289050-1-jhladky@redhat.com/
 
->  /**
->   * cla_ctx_create - Create a context or increase its user count
->   * @domain: CLA domain
-> @@ -48,8 +79,12 @@ struct cla_ctx *cla_ctx_create(struct cla_domain *doma=
-in,
->         INIT_LIST_HEAD(&ctx->queue_node);
->         init_waitqueue_head(&ctx->waitq);
->
-> -       mmgrab(key->mm);
-> -       get_file(key->file);
-> +       if (cla_ctx_is_pl0(ctx)) {
-> +               mmgrab(key->mm);
-> +               get_file(key->file);
-> +       } else {
-> +               WARN_ON(!cla_ctx_get_pl1(ctx));
-> +       }
+with your diagnosis credited in the commit message and a Suggested-by
+trailer.
 
-This WARN_ON looks more like an assert() of some kind?
-Since it's an enum and assigned from those everywher
-this is basically a check for memory corruption...?
+Thanks again,
+Jirka
 
-Well maybe better safe than sorry.
-
-If you want to employ this pattern, and especially if there
-will be PL2, PL3 etc in the future, do a switch?
-
-switch (ctx->key.type) {
-case CLA_CTX_PL0:
-    mmgrab(key->mm);
-    get_file(key->file);
-    break;
-case CLA_CTX_PL1:
-    break;
-default:
-    WARN_ON(1); /* Should never happen */
-    break;
-}
-
-So you would then use that pattern also here:
-
-> -       mmdrop(key->mm);
-> -       fput(key->file);
-> +       if (cla_ctx_is_pl0(ctx)) {
-> +               mmdrop(key->mm);
-> +               fput(key->file);
-> +       } else {
-> +               cla_ctx_put_pl1(ctx);
-> +       }
-
-And here:
-
-> -       mmdrop(ctx->key.mm);
-> -       fput(ctx->key.file);
-> +       if (cla_ctx_is_pl0(ctx)) {
-> +               mmdrop(ctx->key.mm);
-> +               fput(ctx->key.file);
-> +       } else {
-> +               cla_ctx_put_pl1(ctx);
-> +       }
-
-
->  #define cla_kernel_mtc \
->         (cla_kernel_pl =3D=3D 2 ? CLA_MTC_REGIDX_PL2 : CLA_MTC_REGIDX_PL1=
-)
->
-> +/**
-> + * struct cla_mtc_s2 - Stage 2 MTC configuration for the host or a VM.
-> + * @hcr: HCR_EL2 register value.
-> + * @vttbr: VTTBR_EL2 register value.
-> + * @vtcr: VTCR_EL2 register value.
-> + */
-> +struct cla_mtc_s2 {
-> +       u64 hcr;
-> +       u64 vttbr;
-> +       u64 vtcr;
-> +};
-
-At this point I have no idea what "stage 1" and "stage 2" is, but I just
-assume it is something everyone working on virtualization knows about.
-Maybe it could be explained briefly in the commit message for the
-rest of us?
-
-Yours,
-Linus Walleij
