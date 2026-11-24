@@ -1,56 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.112
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795544414;
-	b=qQjmIQyW/hH76kHF0QOhumSp/NLJ0TMkhdXBReRj9FOdNU8nV0cvhUn0ewUsiJooEgj7
-	 NDsd1bxLRgC0bzOGwLzdD8QV6Uh51Vd7xs0G0bXjUp/fyXTWLVe14/cyAnqcLZSWRyB7z
-	 nT14G3Q9tWe/yvQDJQ0T0+emqfrVKMIvBfiHlpeYq1nFlrVP0GMs8BhyCLgExa4PnH/WJ
-	 WkUHJ/ho3kDHKaQnhwrHg3/zu8RbRBhvzX5z7FWZAEiCktavZuNoJNtOBn38o9szEkmxB
-	 wXpsb/7rGwBbE773Hj1G0NM9YnStrmXj7jBhtSd2n+0VL6JA6bQ0FmC2V2dPEraaCMg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795544414;
-	h=DMARC-Filter:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
-	 In-Reply-To:To:Cc:X-Mailer:X-ZohoMailClient;
-	bh=bKpgatmxUa55yxAWRxpgGdPKA3RPX5U3wNy4QwwxQFI=;
-	b=VyE8U7TInubIy+D8AOsM9OY9rjmqwPSrL3av13Myp62QnWcc/V9qr7etx9quo5R34358
-	 uqquTJy/SNgNKiaJiScc2kSczX3haVPw0oOzl2KUnb/yavQqOUy8wLsH+w4WSEtNh6R12
-	 uzDrG4agu268jwRDZUdppBKt19+IhYbJSOAvbjC6ivKQBVH2jE6rRFzUbYSj4xNXxRBXF
-	 gC509+2wzyDv3OvIpAOhKFvs6D20E9IWoA0QXfs3cUADSOU3trdk6ogNw/HzIW6WPTcHI
-	 shWo1PxDKvZ0McsRva9wf9RwY6vEtw7D0xtGyEDIoPjtnpIBnPaTJOgNQDESq1c1O6Q==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=rong.moe;
-	spf=pass smtp.mailfrom=rong.moe;
-	dkim=pass header.d=rong.moe header.i=@rong.moe header.a=rsa-sha256 header.s=zmail2048 header.b=VrUYcqdd;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.112
-Received: from sender5-pp-f112.zoho.com (sender5-pp-f112.zoho.com [165.173.182.112])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.49
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795544431;
+	b=oLq9F+ekK53Mcb49+w2rdI98yuW3mY+zcgfV13d7ZlDuMZt0lZx1vCXtXRUK27U9nBNa
+	 6nWkxXMIi9a7zSwO2Ug4L1rI/iffjaE0SJirZOte+2uVjXFK/mYbwLxJ3R4MI7NvqWCIa
+	 l/eIhH8Ag0WVMjJ/sBTkK93xA0iyGrMS0ij41bAq0jyUkNBsQD4xtt4Z0tgjjHuP22fSY
+	 XNDKV2GiFZ69IcBOMqF/iV5IK8Plust++FlVpVJnV+OiZ+KzG4SK1wjdqX0Oet5w9MVD9
+	 3R2qEt6oFfuOLkDd17X40KLqs/W00Hz4HuhP+zEFt28772LCbs9JAus5/6jtMYV/6Ig==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795544431;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=t6rdI7mURCpoui2vomlPR/PWdU7STA6LJoFefEg+LTQ=;
+	b=R/7AeA71ELlg7HZNCfWcFTaeGb36n+A0Vy4lowGqyJbzKqXjkG/t0DAxwHvrcegTboXB
+	 qH2WzFAHAba9zhELHLoxB8A3tZPc43CQ4W9I3YwnnBvveTw7rimT8lvNm9+aV+WKANbZZ
+	 N726VK0URgNvXyZmNF50pRt5sY1dSeLqHiPNZHcoLCbblS80cUA60SLo29HWN65uLAA8f
+	 ZdEOyCqFm2P8G90DUO/MBO19clZrioVRjtyS9X2RCug8ZAE5uTyGzXuNQLGMnPJuwHbLS
+	 MZOhLZt9ytMhneY9oCoRxw+XrJw3ewAA51n25Z49anZ1c3iZ9jXlpC0VEc1liXn90vw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=riscstar.com;
+	spf=pass smtp.mailfrom=riscstar.com;
+	dkim=pass header.d=riscstar.com header.i=@riscstar.com header.a=rsa-sha256 header.s=google header.b=CZoClDc9;
+	arc=none smtp.remote-ip=209.85.160.49
+Received: from mail-oa1-f49.google.com (mail-oa1-f49.google.com [209.85.160.49])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C72EC606A695;
-	Tue, 24 Nov 2026 18:20:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C72EC606A695
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=rong.moe
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rong.moe
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 018F0606A696
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 18:20:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 018F0606A696
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=riscstar.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=riscstar.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=rong.moe header.i=@rong.moe header.a=rsa-sha256 header.s=zmail2048 header.b=VrUYcqdd
-ARC-Seal: i=1; a=rsa-sha256; t=1795544286; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=P67kMpT2JueENBhkVaz424MZHMp/hnGaLz3xZUrE1CfT+9y9eEuZi7CZry0NUrJsDx87PWxmnkXDC9xBgsChRtgcPmMPweNHjcf8mLSC+8G7v4FFWfDCW+EqbKz41D3xD/T4rksxS4QaIx39V8yjyAtm9HKyuPuv8IYQbPQuSDs=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1795544286; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=bKpgatmxUa55yxAWRxpgGdPKA3RPX5U3wNy4QwwxQFI=; 
-	b=hrzRAvj4sEssqT1s67mLZ4Gr+Z9RhbTAyUb1y+yr+Qu9X8twAaaOMGtLoBC6mSkj8QhUuERuK93t7MQZ1lfUr90Ww+PGjkNJzO4M5NDCyXP5emz5jutIZLeuGmaj2Ol2T77kBya8ZplQStccCt+KfbQdkzknO6zrFf9K/El7M1k=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=rong.moe;
-	spf=pass  smtp.mailfrom=i@rong.moe;
-	dmarc=pass header.from=<i@rong.moe>
-DKIM-Signature: a=rsa-sha256; b=VrUYcqddmKYKs+d7kJcvQOegQQkAQFB2MqkluCSm7Y6cAHh/YdgclH2JmusBkmPptn9Y6QHbKI4abm2OhqGCxe4bEuuNB4Oh6r/M6+PckFZ+S2zrOiTkESm3Y+k+U5qT4nswiiwFrBW9viyylyt1xDXrluPBQlOj/m2P0iUsMES+F024lW3MHGjxwM9HkSyJiM6WK/b4iIyEJvGqnB9Ws+wb7+ix2w7zC3xabkDpDIv4xlLB9CZU4xtUOJOqsCWqipESesopqJZaPYb+/qFUBnAMQ20rsZ34IjaU3vfwISzaE1wjelJj7okx1zDGF2M30AYuEIY8WpeRhRrEOFffmw==; c=relaxed/relaxed; s=zmail2048; d=rong.moe; v=1; bh=bKpgatmxUa55yxAWRxpgGdPKA3RPX5U3wNy4QwwxQFI=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 1795544283120254.4060037016501;
-	Tue, 24 Nov 2026 10:18:03 -0800 (PST)
-From: Rong Zhang <i@rong.moe>
-Date: Wed, 25 Nov 2026 02:17:02 +0800
-Subject: [PATCH v2 6/7] platform/x86: ideapad-laptop: Trigger the EC on YMC
- events following Windows behavior
+	dkim=pass (2048-bit key) header.d=riscstar.com header.i=@riscstar.com header.a=rsa-sha256 header.s=google header.b=CZoClDc9
+Received: by mail-oa1-f49.google.com with SMTP id 586e51a60fabf-48e9476e26aso1744351fac.3
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 10:20:19 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=riscstar.com; s=google; t=1795544419; x=1796149219; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=t6rdI7mURCpoui2vomlPR/PWdU7STA6LJoFefEg+LTQ=;
+        b=CZoClDc954audVYdIAGk8ir98EMyWzZHR4PzCp8Z+e2wEsJQmV1rb/kHIm8sEB4Jvp
+         c/ZpPcECG7Kg0949y0SWgOinmwavNBIrF8zVixscHcAkNpX6YUdmZ/2d/OK191FY8e6o
+         Z4PguIbi2hOCQc3GsJL9zb80eiKCeMDN855klDJsOp+lXiNWxqQi8IRQUBze156ylde0
+         Q1HQEbokl49+3iwiPhPsqudSrpuw/1BKEuijh662QrDC82vqGNE61FqqYwtrTGhXJjTq
+         qojQSWWOI0D9ja+Azu798AWtQou687WNmexdfBUuDLsDiqzkoJ4Uiau95H9RNFadWat5
+         y/Tw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795544419; x=1796149219;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=t6rdI7mURCpoui2vomlPR/PWdU7STA6LJoFefEg+LTQ=;
+        b=CPAwd2TMDhPA83sGI9QxppDN0EBvVG9bo4AyrazWb0W2qTqffLk35vlk/ZEPpwpHhI
+         IDY3vKVkgXXiJ8i4ecEkhUAhy/JklVXtn7tp5sRGQ8YhEUvsMXif9kAF7Gu8cs/cXK03
+         ZtS7Uph43I6I5hx2LtIFlL2P7UGmJVawfDY71OShV93lYlPegCHQlbcje0vToTgSW+rg
+         IwvQi8YCGbnw2LtNgoEziUmQv3hgL7Nolz31xFUbf+e8INRcOfBjO674ZYrTKc02AWz8
+         bk2ns0QWXPb4x3s5I/bLVgh+4FOP3e/Wo5xpLU8VXOfjGSq7YRtxa8eMxIfA1+HseXgC
+         tZOQ==
+X-Forwarded-Encrypted: i=1; AL+hErFeVRYT6BaopgHrxq0yDXpNuTwiirKiVdjvF7fIgPR6C5ZbAutUNIkG9GiltVovVfeoNAuW04q5hFL8KWU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9Wutgukwfz1No8trpV3wnrfzdbPQxWhPSyOQnuKdz+IyRWxCBl
+	aB5VYgv8aB9c4i7h+PJUFjoDcUlR9quWtK+5BKZ2XeDt8mq7RBStvYJ/oalETwnq7Qk=
+X-Gm-Gg: AZFdTZfsuyTWnNMsXG/YPhP4B8qo9GOxwePc2BCZdTOBfGerhMCcLLXKTgCv5Y4D3q2
+	OqtPSSEMGTtV6thm/CtWXokJVtXMREewozs0vASPXyhGuEzgQKdtiwIHJzta+krNxSinqdgpMF4
+	g6eTMXmCVn1oWIiyr1BE08wKBCn+Pltrdl1UEPYrY2AwovDvRiusIN4Q5gYRVpFL0aRZAvyzi3H
+	syYcs63ibJFJq01oPCRmuvVrTkUnn3g8W06YhSXK6RFeugHfG91fm/ywvsnBcwh98bhOJdXJmw8
+	ZFegTeYGBwvqpqPawYCLg8v/w97RDKmWV6o5Te7LgNCieuPYlvq0xCAUsxrV4aV/eIlXBkOWwXK
+	JSDkDp1Y+6g+yWN5PyhwxZDLR4B0eBTnXZ3EtmJQsI4NV4GhL96hOwnWJRipbWJJ6odNaOQxNx1
+	8ifCPYp8k8oBNpnHV/vQum9LjCMWQmX5j+crIliS32r70kVTtpsl3O7Zt0ly88CfAH6nvXgBchx
+	3Ox7UOWT+lJxRRImtiwgtYaSIqCN6rKRnd+vRLg+/mEG3tg6Z9ZsoNO5lx5G7KtnRZrzeRU7y38
+	JEcwZukLgLrZ/xXVDCyJOvGe+WMMxOlj
+X-Received: by 2002:a05:6870:5b9a:b0:4b4:8c0f:40b6 with SMTP id 586e51a60fabf-4bc821920bcmr13877948fac.20.1795544418852;
+        Tue, 24 Nov 2026 10:20:18 -0800 (PST)
+Received: from [172.22.22.28] ([76.156.233.211])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-4bc60891cf6sm15654378fac.13.2026.11.24.10.20.18
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 24 Nov 2026 10:20:18 -0800 (PST)
+Message-ID: <3f7e5d79-c356-4082-9be2-bca3b8833f88@riscstar.com>
+Date: Tue, 24 Nov 2026 12:20:17 -0600
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,122 +92,57 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] staging: greybus: bootrom: use firmware size for debug
+ output
+To: pavankumaryalagada@gmail.com, johan@kernel.org
+Cc: gregkh@linuxfoundation.org, elder@kernel.org, vireshk@kernel.org,
+ esennesh@leaflabs.com, skhan@linuxfoundation.org,
+ greybus-dev@lists.linaro.org, linux-staging@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+References: <20261124181046.44750-1-pavankumaryalagada@gmail.com>
+Content-Language: en-US
+From: Alex Elder <elder@riscstar.com>
+In-Reply-To: <20261124181046.44750-1-pavankumaryalagada@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261125-ymc-82yl-v2-6-624bdcb3c50e@rong.moe>
-References: <20261125-ymc-82yl-v2-0-624bdcb3c50e@rong.moe>
-In-Reply-To: <20261125-ymc-82yl-v2-0-624bdcb3c50e@rong.moe>
-To: Mark Pearson <mpearson-lenovo@squebb.ca>, 
- "Derek J. Clark" <derekjohn.clark@gmail.com>, 
- Hans de Goede <hansg@kernel.org>, 
- =?utf-8?q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
- Gergo Koteles <soyer@irl.hu>, Ike Panhc <ikepanhc@gmail.com>, 
- Andrew Kallmeyer <kallmeyeras@gmail.com>
-Cc: Eduard Aliman <edialiman20@gmail.com>, 
- platform-driver-x86@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Mahir Faisal <mahirfaisalantiq33@gmail.com>, Rong Zhang <i@rong.moe>
-X-Mailer: b4 0.17-dev-ce4c1
-X-ZohoMailClient: External
 
-Currently, the ideapad-laptop driver triggers the EC with YMC command
-0x01, which seems to be randomly chosen with trial-and-error and turns
-out to be not a command for YMC events. While the devices in the DMI
-quirk table recognize it, some other devices do not, making the
-trigger_ec functionality a no-op.
+On 11/24/26 12:10 PM, pavankumaryalagada@gmail.com wrote:
+> From: Yalagada Pavan Kumar <pavankumaryalagada@gmail.com>
+> 
+> The firmware size is converted to little-endian byte order before
+> being stored in size_response->size. However, the debug message
+> prints size_response->size directly without converting it back
+> to CPU byte order.
+> 
+> Use bootrom->fw->size instead, which already contains the firmware
+> size in CPU byte order.
+> 
+> Fixes: fc41c2da44c5 ("greybus: firmware/bootrom: debug output from bootrom protocol")
+> Suggested-by: Alex Elder <elder@riscstar.com>
+> Signed-off-by: Yalagada Pavan Kumar <pavankumaryalagada@gmail.com>
 
-Lenovo's YMC driver for Windows (YMC.exe) emits YMC command 0x08/0x09 on
-fold/unfold YMC events, in which "unfold" means laptop mode and "fold"
-means other modes.
+Thanks for the patch, this looks good.
 
-Adopt the said sequence to make it work on all relevant devices. For the
-sake of caution, only emit YMC command 0x08 only for the known fold
-postures. For all other postures (including unknown ones), emit 0x09 to
-make sure the touchpad and keyboard are still functional.
+Reviewed-by: Alex Elder <elder@riscstar.com>
 
-Reported-by: Mahir Faisal <mahirfaisalantiq33@gmail.com>
-Closes: https://msgid.link/CAGAHqH6o0TUa1HXMrNV6e+HNYwU3xxHkOM665756n8Cp3AzhVQ@mail.gmail.com
-Reviewed-by: Mark Pearson <mpearson-lenovo@squebb.ca>
-Signed-off-by: Rong Zhang <i@rong.moe>
----
-Changes in v2:
-- Fix typos (thanks Mark Pearson)
----
- drivers/platform/x86/lenovo/ideapad-laptop.c | 35 +++++++++++++++++++++++++---
- 1 file changed, 32 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/platform/x86/lenovo/ideapad-laptop.c b/drivers/platform/x86/lenovo/ideapad-laptop.c
-index 91a8d11c79c5..4f9dc95d8c65 100644
---- a/drivers/platform/x86/lenovo/ideapad-laptop.c
-+++ b/drivers/platform/x86/lenovo/ideapad-laptop.c
-@@ -133,6 +133,11 @@ enum {
- 	VPCCMD_W_BL_POWER = 0x33,
- };
- 
-+enum ymc_cmd {
-+	YMC_CMD_FOLD	= 0x08,
-+	YMC_CMD_UNFOLD	= 0x09,
-+};
-+
- /*
-  * These correspond to the number of supported states - 1
-  * Future keyboard types may need a new system, if there's a collision
-@@ -1870,9 +1875,10 @@ static const struct dmi_system_id ymc_ec_trigger_quirk_dmi_table[] = {
- 	{ }
- };
- 
--static void ideapad_laptop_trigger_ec(void)
-+static void ideapad_laptop_trigger_ec(u32 code)
- {
- 	struct ideapad_private *priv;
-+	enum ymc_cmd cmd;
- 	int ret;
- 
- 	guard(mutex)(&ideapad_shared_mutex);
-@@ -1884,8 +1890,29 @@ static void ideapad_laptop_trigger_ec(void)
- 	if (!priv->features.ymc_ec_trigger)
- 		return;
- 
-+	switch (code) {
-+	case YMC_POSTURE_TABLET:
-+	case YMC_POSTURE_DRAWING_BOARD:
-+	case YMC_POSTURE_TENT:
-+		/*
-+		 * Sync keyboard backlight and disable the touchapd and keyboard
-+		 * only when the device is folded...
-+		 */
-+		cmd = YMC_CMD_FOLD;
-+		break;
-+	default:
-+		/*
-+		 * ...IOW, whenever there is a chance that the device may be
-+		 * unfolded, e.g., in laptop mode or any other unknown modes,
-+		 * sync keyboard backlight and enable the touchapd and keyboard,
-+		 * so that users don't lose input.
-+		 */
-+		cmd = YMC_CMD_UNFOLD;
-+		break;
-+	}
-+
- 	scoped_guard(mutex, &priv->vpc_mutex)
--		ret = write_ec_cmd(priv->adev->handle, VPCCMD_W_YMC, 1);
-+		ret = write_ec_cmd(priv->adev->handle, VPCCMD_W_YMC, cmd);
- 	if (ret)
- 		dev_warn(&priv->platform_device->dev, "Could not write YMC: %d\n", ret);
- }
-@@ -1893,9 +1920,11 @@ static void ideapad_laptop_trigger_ec(void)
- static int ideapad_laptop_nb_notify(struct notifier_block *nb,
- 				    unsigned long action, void *data)
- {
-+	const u32 *p = data;
-+
- 	switch (action) {
- 	case IDEAPAD_LAPTOP_YMC_EVENT:
--		ideapad_laptop_trigger_ec();
-+		ideapad_laptop_trigger_ec(*p);
- 		break;
- 	}
- 
-
--- 
-2.55.0
+> ---
+>   drivers/staging/greybus/bootrom.c | 4 ++--
+>   1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/staging/greybus/bootrom.c b/drivers/staging/greybus/bootrom.c
+> index fb1fbd3f7b99..4e225084851b 100644
+> --- a/drivers/staging/greybus/bootrom.c
+> +++ b/drivers/staging/greybus/bootrom.c
+> @@ -222,8 +222,8 @@ static int gb_bootrom_firmware_size_request(struct gb_operation *op)
+>   	size_response = op->response->payload;
+>   	size_response->size = cpu_to_le32(bootrom->fw->size);
+>   
+> -	dev_dbg(dev, "%s: firmware size %u bytes\n",
+> -		__func__, size_response->size);
+> +	dev_dbg(dev, "%s: firmware size %zu bytes\n",
+> +		__func__, bootrom->fw->size);
+>   
+>   unlock:
+>   	mutex_unlock(&bootrom->mutex);
 
