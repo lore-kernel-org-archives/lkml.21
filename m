@@ -1,69 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.1
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795506184;
-	b=hyIOlw/p0Q6vqW1N49VoipKd7s/hwxsX0bLqfZ+q/lmDVsOCTg9HQ3O+yyZ8yCLJpuIe
-	 FhISBigPQTHV3fcJ7w82ycpbnGBmbx6RTZ/qZ529nJ3n0FrM/+/kpWmkTSxIoBmG/vcPO
-	 DrbjyyDHVTLePIVgtWqArz1Gq0/H/sAmGB6NDoEvSPYwA620eSgIXTpST5yXmGaz0DQFe
-	 f2+526H0DWPTn7tv2bhtmC470FZulFbGPLD/4dc1hNjAX92XzXKtSoGoPc1u6QzqQAaD4
-	 0xc2apC25+VuGm4WKUE+cx777hW3u3bMXT/Q5KasJ3EnuBWRqU148MznlzcEaN3glcA==
+	t=1795506232;
+	b=l9g7apCHTQVPS7R2sXLdLqD2o8hydY283FayUxA/JMZFHYWzfwt7GfZKvfnNiC4JqC0A
+	 M6ucL29r0WgRQdMdtgubhxxcworyh1RNQuudl5v2196bsuIIeajsAtnvEON1bbolyzG+E
+	 Q2ikP1Jf3Aoo872AJxu1l/CJN1WySmCufpTLQLmdlpLGbBW/kBmWsuMf8pynBy4IEn9DV
+	 Ict+w9MnU4rpp8vmZUZdxsE/Xa/OdxWFvkStajGwdVZ9ANpNt4POX2EOjyHRClVFgbaRe
+	 7HGdwrzaz+o2f528swVPCVge+bnuYT47OmNvNq069pn1zeVieHRx3LOdh8YZ0rASN9Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795506184;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=ofMeRTUK/d++vd0VVb6NYwvSqG1R2k68vtR0bdVpuMU=;
-	b=5NAiCyrAKhgUJSFqyhzohm2k0yRVW2WgykmMOhHa4NobxiIiOtVfUxRSfTOGyo55fHst
-	 uIHU2NRlo6rgZRlx2KHYL+QUZIIceHrccGZ0d5oDo4gbrG5mhrz70hZ4PtzEkqdaqzyXm
-	 8Jk+2YFvkM285K58fH9FlIN9WnLoyXVYVCQRUHQy4cwQTQLAR0R+cbwlm58giTmvthmjZ
-	 SDaoRROC5OSEyFaZbrP3gWCxHuvZ0W8gKIqE5ebr3G7Mkl+xebtzAdFU79LJBLC0ES84p
-	 rvnjQf8hRuc/YwHbRjjN9ExXsebmufxJ+AmNhREr4SZU9bRQzHEQMMpyG99d4EI7AXA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795506232;
+	h=DMARC-Filter:DKIM-Signature:Date:From:To:Cc:Subject:X-Priority:
+	 X-Mailer:In-Reply-To:References:X-NTES-SC:Content-Transfer-Encoding:
+	 Content-Type:MIME-Version:Message-ID:X-Coremail-Locale:X-CM-TRANSID:
+	 X-CM-SenderInfo:X-Coremail-Antispam;
+	bh=egDQpVic8+ZWvGHi/RAoKinxkbY/WeNVCIcjd2qNix8=;
+	b=dEJqLOkLYJU5ohzsyVdLNswQAWntHLCdiZzi8vcZ/DgW056FHtQwLTThcgkIg+t/snV1
+	 KtCP8wV07IzkSymm1cL+lX7RK+BRR49EQDezEFMPg4gXJsfzkUh/iZRtT7kQTEnvZo7c2
+	 mDt+E9XRzZZKJr0+5bwzvF7WjWWM4r/esnSWeCCscov+J7bw0kKTEHREepBqKvCSWS15b
+	 Z6RxAqqLqYbLzHzN2qcFb2um82po2tpgqG2/vt41RDTRgq5d1Fa0hX96h+HemDeW1AeU+
+	 kav5cm73LQTWso0//MfmL/Ry3P9iZmd9+f027wRab2UyFjDpE2DBZguYz64cAKYVI9Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=llM368uR;
-	arc=none smtp.remote-ip=95.215.58.1
-Received: from mta1.migadu.com (out-1.mta1.migadu.com [95.215.58.1])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=163.com;
+	spf=pass smtp.mailfrom=163.com;
+	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=Gq1e3p+8;
+	arc=none smtp.remote-ip=117.135.210.4
+Received: from m16.mail.163.com (m16.mail.163.com [117.135.210.4])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 05BE5606A321
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 07:43:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 05BE5606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 24778606A31E;
+	Tue, 24 Nov 2026 07:43:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 24778606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=llM368uR
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=nUm9h5NzIsHA719PM5aMKgjtiDgEeXdY3gm36qPN1JU=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795506180; v=1; x=1796110980;
- b=llM368uRlmFVfBP2Dh+llK1cRQmLQkZJeCtK//yrYnm4NIdrbVZ66yOBt/Hoy9sNl30/F6wv
- 4KKWh6pcTyjIMDzkW0IVaiwSffcCGBmNB18DbWC4pRHgeO0iYpd6+fMxy3PX76BlssAlEGjsumk
- dmF1/44D0JsdPKfiTNuh3lN0=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 48930a964aa0b930;
-	Tue, 24 Nov 2026 07:43:00 +0000
-X-Mizu-Trace-ID: 48930a964aa0b930
-X-Migadu-Flow: FLOW_OUT
-Date: Tue, 24 Nov 2026 09:42:56 +0200
-From: Petre Rodan <petre.rodan@linux.dev>
-To: Rupesh Majhi <zoone.rupert@gmail.com>
-Cc: Andy Shevchenko <andy@kernel.org>,
-	Antoniu Miclaus <antoniu.miclaus@analog.com>,
-	David Lechner <dlechner@baylibre.com>,
-	Eddie James <eajames@linux.ibm.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Lucas Stankus <lucas.p.stankus@gmail.com>,
-	Marcelo Schmitt <marcelo.schmitt@analog.com>,
-	Michael Hennerich <Michael.Hennerich@analog.com>,
-	Nuno S?? <nuno.sa@analog.com>, linux@analog.com,
-	linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 4/6] iio: accel: bma220: use
- iio_debugfs_reg_access_regmap()
-Message-ID: <awU_3xHeImTF_N7n@sunspire.home.arpa>
-References: <20261124065016.185124-1-zoone.rupert@gmail.com>
- <20261124065016.185124-5-zoone.rupert@gmail.com>
+	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=Gq1e3p+8
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=Date:From:To:Subject:Content-Type:MIME-Version:
+	Message-ID; bh=egDQpVic8+ZWvGHi/RAoKinxkbY/WeNVCIcjd2qNix8=; b=G
+	q1e3p+8vLNdoWPWozO30hvSLWG5qnUe/9uxpmXwfiwaM6Bge4hAmyUYlxVsfylF2
+	3lMeyVUGfYMLxk9JNun84LgnAnAU2k9Hg3Vh8xMjFZbL1WdJK8GUHFnhhUwiFJC4
+	JpHJ3+Y+r8sCEZuMheJ+GDHHzR4yQg/96rd8z5ym/s=
+Date: Tue, 24 Nov 2026 15:42:56 +0800 (CST)
+From: zl020895  <zl020895@163.com>
+To: "Bartosz Golaszewski" <brgl@kernel.org>
+Cc: longzhao@ambarella.com, linux-gpio@vger.kernel.org,
+	"Linus Walleij" <linusw@kernel.org>,
+	"Michael Walle" <mwalle@kernel.org>,
+	"Andy Shevchenko" <andriy.shevchenko@linux.intel.com>,
+	"Rob Herring" <robh@kernel.org>,
+	"Krzysztof Kozlowski" <krzk@kernel.org>,
+	"Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+	"Krzysztof Kozlowski" <krzysztof.kozlowski@oss.qualcomm.com>,
+	"Conor Dooley" <conor+dt@kernel.org>,
+	"Mika Westerberg" <westeri@kernel.org>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	"Conor Dooley" <conor.dooley@microchip.com>
+Subject: Re:Re: [PATCH v14 01/14] dt-bindings: gpio: pl061: add Ambarella
+ CV75 variant
+X-Priority: 3
+X-Mailer: Coremail Webmail Server Version 2023.4-cmXT build
+ 20260511(2e539873) Copyright (c) 2002-2026 www.mailtech.cn 163com
+In-Reply-To: <rvkdwpnypgxx3smfkqllik6vidzln3yg6nvshed3dtg7rtkq3j@u4pdrleymwrm>
+References: <20261110-cv75-gpio-v14-0-e586aad0467a@ambarella.com>
+ <20261110-cv75-gpio-v14-1-e586aad0467a@ambarella.com>
+ <rvkdwpnypgxx3smfkqllik6vidzln3yg6nvshed3dtg7rtkq3j@u4pdrleymwrm>
+X-NTES-SC: AL_Qu2SB/mbuUks4CCYYekdnUoTj+Y/XMK0uvwk1YdVc/4EnSXq2RASTG1BNnTm3sKdFyWCvRmRUSls8NpHWoJKb2qOrspCRW7Mw2npMoClXg==
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset=GBK
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -73,61 +76,19 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="dgE9aJuT6iuBwFGc"
-Content-Disposition: inline
-In-Reply-To: <20261124065016.185124-5-zoone.rupert@gmail.com>
+Message-ID: <15be9ea4.6305.1a20c82000c.Coremail.zl020895@163.com>
+X-Coremail-Locale: zh_CN
+X-CM-TRANSID:dSgvCgD3ny0AQAVrT_t0AA--.161W
+X-CM-SenderInfo: d2oqjiqyzvqiywtou0bp/xtbC7gAsnWsFQAAdeAAA3U
+X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
 
+QXQgMjAyNi0xMS0yMyAyMzo0ODoyOCwgIkJhcnRvc3ogR29sYXN6ZXdza2kiIDxicmdsQGtlcm5l
+bC5vcmc+IHdyb3RlOgo+SGkhIENhbiB5b3UgYWRkcmVzcyBzYXNoaWtvJ3MgY29tbWVudCBhYm91
+dCB0aGUgbWlzc2luZyB2ZW5kb3IgcHJlZml4PwoKSGkgQmFydG9zeiwKClRoZSBhbWJhcmVsbGEg
+cHJlZml4IGlzIGFscmVhZHkgaW4gdGhlIHRyZWUsIFJvYiBhcHBsaWVkIGl0IG9uIDE1IE9jdDoK
+ICBodHRwczovL2xvcmUua2VybmVsLm9yZy9yLzIwMjYxMDE0LWN2NzUtcHJlZml4LXYxLTEtZmU5
+NWVkNTY3ODgwQGFtYmFyZWxsYS5jb20KClNhc2hpa28gaXMgcmUtcmFpc2luZyBLcnp5c3p0b2Yn
+cyBjb21tZW50IGZyb20gdjEuCgpCVFcsIHRoZSBzZXJpZXMgd2FzIHJlc3B1biBhcyB2MTUgbGFz
+dCB3ZWVrOgogIGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL3IvMjAyNjExMTgtY3Y3NS1ncGlvLXYx
+NS0wLWUzYzU2MzY3M2ZlMUBhbWJhcmVsbGEuY29tCgpCZXN0IHJlZ2FyZHMsCkxvbmcgWmhhbwo=
 
---dgE9aJuT6iuBwFGc
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-
-Hello!
-
-On Tue, Nov 24, 2026 at 08:50:14AM +0200, Rupesh Majhi wrote:
-> The debugfs callback only reads or writes the regmap of the parent
-> device, which is what the core helper does.
->=20
-> Signed-off-by: Rupesh Majhi <zoone.rupert@gmail.com>
-> ---
->  drivers/iio/accel/bma220_core.c | 12 +-----------
->  1 file changed, 1 insertion(+), 11 deletions(-)
->=20
-> diff --git a/drivers/iio/accel/bma220_core.c b/drivers/iio/accel/bma220_c=
-ore.c
-> index 23eff578158c..d2f21c0ab491 100644
-
-passes all my unit tests (which do use debugfs regmap access) on both i2c a=
-nd
-spi sensors, thanks for the patch.
-
-Tested-by: Petre Rodan <petre.rodan@subdimension.ro>
-
-best regards,
-peter
-
---dgE9aJuT6iuBwFGc
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iQJPBAABCgA5FiEEGiKYHD4NvFCkTqJ3dCsnp2M6SWMFAmsFP/4bFIAAAAAABAAO
-bWFudTIsMi41KzEuMTIsMiwyAAoJEHQrJ6djOkljvhoP/35lNBdRKJKcMl0l08Gj
-J0TxKq+1Ky7NjIocC9ND2KYZBadBWOn7gQWXyExKq9X7Afwoa/W7wVUjrdsM8RhE
-JAZcWLyf67x/2vg01Vmvqmy2PfBdKu53H/oTKu9er3exwcLRRn02gAjHk06PGpv3
-3q58yo+nbHpiW6RoAD3LH7/4W79xAdMIAUUj/KAepEswL6C6M3XYzIazKI+AdUeJ
-CD0pAKL5ftTTW05lJZpA1NLU1g9Y8ldH8vRjpRKKqw4qNNfSNSQGO2X33fOoUx8O
-/uYLd/kxmf7gZe6uX8rxdyNJE0bTK5aDofcTjj4GBw5vgsGPXwubmpTij2V27Lf3
-qs1jMHb7te/X2eSzIPxojitu73q6Gwk4lJcIr83PpJQIV4fr+akho5V4nffD+SKO
-zk6ao1Uki8YUARVNx3k2KIiUgoClz10EPpYNWTD6G5ShcOYIw86oi2FSnrKNY75A
-JaatuLTYbmFkcJ+qrC/KGhaJMsca0gIp+0wcfATIko0sd4oHEa1fejlh+hvjAnFP
-MVX6ljDu+DcqVPgPbwkywAzGhg9nB4/en7ir5QhJCFZgtmEsOXm6ixE5NCkZ7lgF
-BzpsC7r1XXUVEnL3eICeAMPDBxvB9wANPy14VE+oZukmRM7IirgnjN5o6bbGcMoW
-qWQrXppWcGjzNJ1INevcCFec
-=+nKt
------END PGP SIGNATURE-----
-
---dgE9aJuT6iuBwFGc--
