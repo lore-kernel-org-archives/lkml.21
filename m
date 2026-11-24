@@ -1,96 +1,45 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.45
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795543360;
-	b=s0kxjiMhnYi4i/Sr7lZn/tVMpLwtmrFu2YTLYhYpU7XlrWzYRieSD9Hp0aFFbkVKcOy5
-	 FqZyumIByCQ3BznxGWXBCEzagWWgv6jHqVNClipCkawGUdLLi1Lc02wZ7UtIkH2Ju8QNn
-	 d6Kf1pQfkRSAPMKLdZrKoVteO8yXApNbDRHbQ3p6N3C4ZCJwEI1+3wawf/FStNReO7HGf
-	 toTmUA9+mNlWkiVEAvl/ddP0lTvurKuj0wSwggUXQoQMbeVWYx1Vn5n+2hqKKGXEtILGR
-	 r73g6RAQKnu0+akUkK86wza6eNl/ZEgqOaPj5YXStAmsj/Oog0oPKjt7coiKAIw/9GQ==
+	t=1795543380;
+	b=N6TYtu5XocvcyGT8mxciBzFf8GTHAMFBwdwVx+3cu0Ia141BLTvAqg0Km4ZLmu8mmecH
+	 KTrqyt6ZHqIwFKP7zHYPdluXvNWkgX1kby5piKXuDsnBmVyIKlAsgyr6B8Jb+K0AJmhqu
+	 Qy+YCMJJcV7Vo50j+Yxa+0IBOon37zBsCHm8lGyjAj9l2uQ0SIPNBR5KqABS1qsN50NcB
+	 60e54yF2n1J1VCklU2tG1sd/IUe5iW1y5VpTxwPsY9/+XazRzaDMrThz0QCQkyMbZGALQ
+	 /dTpfUId+OknwlKQSR2/eZZX1tgIq1I2pfWs0duFmpFBGU3/yXesPGpPixeMxqXqi+Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795543360;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=zQkgUQWvgHuDLhp8zgHPxhn7fVYRY6fg/KKwqiExn3U=;
-	b=g5Gk3vE8TCPWy/LbzjFFr4Utl6tum13Kg/1SqtrvGrgGF9FoLKnddFCQXfnBe2GR8IXV
-	 YRP7yV3H7TLMAEdRYnzxWQIgjzxC/Wm1eELHzWORVTrF50kyB6lBZqPdUVAPjESZx+ym3
-	 wx7wAtCfXhJMfa9aL/GSCR8aJBD+k34HNfiEb/sqfrNhI7eoSpXauA/DB9NAPKp+YP8TO
-	 Rttr850grrWjaR1IbC4JRE4el+EAySq5h749d1dCDtJzZ0XLVb0BVKRnUbfvYRHnzOqOM
-	 hvCXkkJkZG59BD1Xkcz6BpKN4IsxR+KgYdmfzHEWSKH2OTcuE6Zq/rP6l8dutYV4Nxw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795543380;
+	h=Received:DKIM-Signature:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:References:
+	 Date:Message-Id:X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=+s/pSWYEicfBjwGMsJ0V5M+5lqwSaSDECXGtDKSmQ04=;
+	b=I63yCMlJDbOAdpjRVtUWF3NGZk51y4+QTWr1HRZ6NUWvDaFcZMYjIJ3xqbaCs2Hxwkm0
+	 CxdTR5SCs4o1/HY1EdaMOWZpgN2yVfs4PoQ51G5GXakrbqHN6hXDCSr/1YKQibgP8yO6j
+	 MNxiiz3FeUyNDhDcyosAScC7TA2RrTJY1OCUWDTHmUum1Jg10ubORpClc37jWImWVfGsn
+	 hfHkkyxFh80Hd8ncmJ49TyOGiuHVI9lhpLRjtpSwOVPO2p6F6r3a0r0r+EELO1aDvonME
+	 hA+0m7+kxmkYJqxA2fqBsdK0hen8xP5WKP4PYN5R+WtYlCp77jODhWMcwoqEjhwDOXQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="kxT/wa2m";
-	arc=none smtp.remote-ip=209.85.210.45
-Received: from mail-ot1-f45.google.com (mail-ot1-f45.google.com [209.85.210.45])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ClDp25Df;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C106E606A326
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 18:02:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C106E606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2A5BF606A31E;
+	Tue, 24 Nov 2026 18:02:59 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=kxT/wa2m
-Received: by mail-ot1-f45.google.com with SMTP id 46e09a7af769-844a8bf7e25so2603906a34.1
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 10:02:39 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795543359; x=1796148159; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=zQkgUQWvgHuDLhp8zgHPxhn7fVYRY6fg/KKwqiExn3U=;
-        b=kxT/wa2mI5ypXdXzTiyqvREnUl3j2J6bmqGMGaiBZ70znPMyiS0zD00BWruxAwBCVW
-         +2R1JiAl6gG9Y9yi2kEUZEEBIyG2s1WTzUAhQ8BllT+bLodxvbnK13O9mNVKOEuuMsLd
-         iaCZ8SoUlALn+ghlbpOBdwYJ1cbidOo+Tdrl+l6SDW2Pm0wRRF4KKb2SB5vwe5ZYoPhg
-         e2NJq6TBPgszeLWlddzfV3ZRhnPJ6wTQH9Tfj+VhrGMauSuhET6PXYPgubfprLrp/h4P
-         UZfZLahhI1SqEQB3B/fBGeSvBJ9SnOa6LahihtQ5dnD15yWkFauIxty3GZmHBx/LQDp8
-         5MFg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795543359; x=1796148159;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=zQkgUQWvgHuDLhp8zgHPxhn7fVYRY6fg/KKwqiExn3U=;
-        b=cSV/Ml8f709uSuOk1fgFaKvRWq5ZjNvh3J40T8KCA5dVbBYOnApSxhZcsRj/v5nEnX
-         rZEwI7B2nmrJ0ZNiP0OnSoVpw9VYYRmPKPrXj12qeSeFc7dwiqj2gfy2vPJDVgQ7xf8W
-         AFcPj8ufjaNYpB8j35LkrYeFZxXET5JFoqG/uwxxi38WsCwB1Bjs4jxEpP5JlPsUekLI
-         avlsqYQL4H/e8ZqV1OE6qX+2/ec1rjmyn+TYa0h+uSgTTkaqJtc39DRCmZLnVHADqzdZ
-         uBIODmkurjhz69ys8MWXSBmeejssIek9DsK7GTUFBRSxhlx7emFL/it6lJ9YopYjsgcv
-         1mRg==
-X-Forwarded-Encrypted: i=1; AL+hErGzBSOV3cxH5jZnLZh+HS+yn03pm6RgE1V/6UosiiYB8fz55Yg+gnSIQskJHPguDDBOErpJBIcghZXT3p4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8+Dkj6wW5dhV8m90uRQdhtRhtCneGLHfW/fz7I5JmYeIOe/fX/
-	4niz1xqk8FWYGFhCo1rtat5lrMz8LSWKBq3afYRZLeXhV/+k0Nz6j7h2
-X-Gm-Gg: AZFdTZdArjHOYUcdw8OTll+bAXdxI13t5EthE70nvtjPxSKXvAPTiFApBjRERtwFteh
-	VyeLB1fRamAqHUfCWfvH7GwfBjvPwxSZPtSSd9MFi/sHgbJDfOssy0je/okJfYV5lMOTAD7mNZI
-	zgfGtybQWf695VeTyXhxd/ly/TAMDpym/4h/W9UqHs7uYbT0fcaCBfN7saFJHu7XygFvxiSuqHn
-	l+IWNCi5BiW5mnF9mmpAKxcR9W5S29RDyTIDxxgUFxjVZHE79ohw7bAGNB7F8fcsOJLTmGwLI5n
-	V5VPnYipw3eRG4lAFp5UY0hB+1vDfQ8vFhmg5D+OgJrfJHKwdpIle/0zR6w7Qz0lQFkyQjsDogM
-	1R8R4iPyYeEgLPJh68S4gppgUNUFA7PV5GDuLd3LBzhckiWCaR4soIb/es7dYrDSWnJrbprcibY
-	qciGmKzFrwR6g3oLzIk3o/DWufV3rlz6WD9AvK/OrYftRi45F1Vu2LKIOVW2BWBSTL8kOmsn1FJ
-	1U0AiVqP0DdlTjJehBOW0LAwZZB2JgyjcuBgpg96YqDXekd/xxNBVkZHe5CJXLwbfU3X7qQmDoo
-	KBTsV0WMKl5pOGfTuMQWhk0Bbh+mZ4TJXddT9Y0UT7zbWB9iCHiLt5YSyanWJTEJ8w6TH3CtHKw
-	iEB1/WKO1VxOpdYhwAt6GbbXYqV+wXFK2ag9vvjQwtZ/I/XxdbVwUcGDbyd8gKPxCLUI=
-X-Received: by 2002:a05:6830:719f:b0:862:c685:84bf with SMTP id 46e09a7af769-863152f7117mr15179705a34.4.1795543358575;
-        Tue, 24 Nov 2026 10:02:38 -0800 (PST)
-Received: from tempest-testimage-cc-centos9-stream-server-1191361818 (chi-dyn-129-114-108-164.tacc.chameleoncloud.org. [129.114.108.164])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-8631692d9f7sm11940806a34.24.2026.11.24.10.02.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 10:02:38 -0800 (PST)
-From: Yuho Choi <oss.patchbox@gmail.com>
-To: Karan Tilak Kumar <kartilak@cisco.com>,
-	Sesidhar Baddela <sebaddel@cisco.com>,
-	Narsimhulu Musini <nmusini@cisco.com>
-Cc: "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
-	"Martin K. Petersen" <mkp@kernel.org>,
-	linux-scsi@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Yuho Choi <oss.patchbox@gmail.com>
-Subject: [PATCH] scsi: snic: Disable the devcmd2 WQ before freeing its results ring
-Date: Tue, 24 Nov 2026 18:02:31 +0000
-Message-ID: <20261124180234.400564-2-oss.patchbox@gmail.com>
-X-Mailer: git-send-email 2.56.1
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ClDp25Df
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AFD501F000C4;
+	Tue, 24 Nov 2026 18:02:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795543379;
+	bh=+s/pSWYEicfBjwGMsJ0V5M+5lqwSaSDECXGtDKSmQ04=;
+	h=Subject:From:To:Cc:In-Reply-To:References:Date;
+	b=ClDp25DfPkorfz8AIyXtWi0fQxZ56izXBcw/49/a4ORshdCwZikRsC4WG1jBERGSe
+	 +28ZBwp7OB1mnkUHU67bDf5jzdO4DvPJMzSDA8EKWwrPEUEEQ0dsL4GOxrBuVZEAfc
+	 bUBWhBtw0k7kEdXTnpmS0CUD83/IG2ESFZt5+LQKQxvyjN5HKDSLf6xs/GgfDNq4ki
+	 WM6S//jDysHo2C/bIQWKFgFbidJoCej8lLowQ3BHgyh4SNpb7zA5AktzQYZs25RNqT
+	 hX4tCGU6o2UFlawjZnNEOc3CWLEiv7Gc1iFTa0KObSbtLlWWYW7HHB1sP/zdFi/88T
+	 kYVdGEjOnanGw==
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,44 +49,51 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH 1/4] ASoC: tlv320aic32x4: Add missing DAC and driver
+ output mixer routes
+From: Mark Brown <broonie@kernel.org>
+To: Gianfranco Mariotti <gianfranco.mariotti94@gmail.com>
+Cc: Mark Brown <broonie@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, 
+ Shenghao Ding <shenghao-ding@ti.com>, Kevin Lu <kevin-lu@ti.com>, 
+ Baojun Xu <baojun.xu@ti.com>, Sen Wang <sen@ti.com>, 
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+ linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20261123234050.150364-2-gianfranco.mariotti94@gmail.com>
+References: <20261123234050.150364-1-gianfranco.mariotti94@gmail.com>
+ <20261123234050.150364-2-gianfranco.mariotti94@gmail.com>
+Date: Tue, 24 Nov 2026 18:02:55 +0000
+Message-Id: <179554337505.947306.7216985666736610034.b4-review@b4>
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1031; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=ZBR7L1W394LeicZssVSWRjbC5NHnyZ1U+Hl8ykMixMc=;
+ b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLJZL/obTJ7GFtjMdNv/TcL+h/f+8M76k3vk+vKL8WZHt
+ 5zy0Aw811HKwiDGxSArpsgSl8X9sr7k9Rq+gwvbYOawMoEMYeDiFICJKB5g+B/76A37iWsm0xMO
+ l8mGFrY1F7rH/79usfdxQ/WXiNDZBjsZ/jvOrH9jfFnxut1ah1Vx39YELjgtK9B0LzJp58bry/5
+ 0JfIBAA==
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 
-vnic_dev_deinit_devcmd2() frees the devcmd2 results ring before it
-disables the devcmd2 WQ. The adapter writes the result of each devcmd2
-command into that ring. When a command times out in _svnic_dev_cmd2(),
-its descriptor stays posted on the WQ, and snic_remove() ignores the
-error from svnic_dev_close(), so the adapter can still complete the
-command and write its result after the ring has been freed.
+> The HPR and LOL output routing selection registers (Page 1, Registers 13
+> and 14) support routing the opposite DAC channel's negative
+> reconstruction filter terminal as well as bridging the HPL and LOR
+> output amplifier stages for mono differential configurations:
+> - AIC32X4_HPRROUTE bit 4: Left DAC negative terminal to HPR
+> - AIC32X4_HPRROUTE bit 0: HPL output driver to HPR
+> - AIC32X4_LOLROUTE bit 4: Right DAC negative terminal to LOL
+> - AIC32X4_LOLROUTE bit 0: LOR output driver to LOL
 
-Disable the WQ first, so that the adapter has acknowledged stopping the
-queue before the results ring is freed.
+>  static const struct snd_kcontrol_new hpr_output_mixer_controls[] = {
+> +	SOC_DAPM_SINGLE("L_DAC Switch", AIC32X4_HPRROUTE, 4, 1, 0),
+>  	SOC_DAPM_SINGLE("R_DAC Switch", AIC32X4_HPRROUTE, 3, 1, 0),
+>  	SOC_DAPM_SINGLE("IN1_R Switch", AIC32X4_HPRROUTE, 2, 1, 0),
+> +	SOC_DAPM_SINGLE("HPL Switch", AIC32X4_HPRROUTE, 0, 1, 0),
 
-Fixes: c8806b6c9e82 ("snic: driver for Cisco SCSI HBA")
-Signed-off-by: Yuho Choi <oss.patchbox@gmail.com>
----
-Compile-tested only (x86_64, SCSI_SNIC=m, W=1). I have no Cisco VIC
-adapter, and the late write would come from the adapter, so I could not
-reproduce it.
+Is this supported for all the devices covered by the driver?  See
 
- drivers/scsi/snic/vnic_dev.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+   https://www.ti.com/lit/pdf/slaa463
+   https://www.ti.com/lit/pdf/slau306
 
-diff --git a/drivers/scsi/snic/vnic_dev.c b/drivers/scsi/snic/vnic_dev.c
-index 22303f827583..44a2cc59821c 100644
---- a/drivers/scsi/snic/vnic_dev.c
-+++ b/drivers/scsi/snic/vnic_dev.c
-@@ -421,8 +421,8 @@ static void vnic_dev_deinit_devcmd2(struct vnic_dev *vdev)
- 	vdev->devcmd2 = NULL;
- 	vdev->devcmd_rtn = NULL;
- 
--	svnic_dev_free_desc_ring(vdev, &dc2c->results_ring);
- 	svnic_wq_disable(&dc2c->wq);
-+	svnic_dev_free_desc_ring(vdev, &dc2c->results_ring);
- 	svnic_wq_free(&dc2c->wq);
- 	kfree(dc2c);
- }
-
-base-commit: 8dac6df92a2e66e2098bbc69061964cfe7e8375b
 -- 
-2.56.1
-
+Mark Brown <broonie@kernel.org>
