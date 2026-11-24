@@ -1,62 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=210.118.77.12
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.174
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795514166;
-	b=aM+nu6iZK4OVtf0ULMAqvzrNvPorIdpmZV/ARq4TP7wHFWRCAvbXJ9Qvc8/sDrqsCxR8
-	 0xUeZC2ShLh8juGai/+QevoDoaFgMwLSvGZZ2948GThXkjKYawLuTK/EVPTyHVRZ0Eoey
-	 UmC+BDJOLf3OHPd2L5SHdnMgMJPqTz4ZA1xPTO9P23NifUycK0CwrMEnNQmP42IAMkOfU
-	 XB/qVCxqrTV3f3iT/IfDvtGv4AkxFSS6UgbAArPVtYoKdAzbQLPppIGO+JvYNZ2mp68PF
-	 RZrM/OGjbc1sE/59je9iXFpFo0bpYqZKebiyAotgU6JHWnxzGIRevgKYFHdDyGT6c2w==
+	t=1795514194;
+	b=p1u5k3tE3tj6+d8+oY8ffAxzQNWLt7yH4SuS9MdbU6Z1g3rNmDNQ9EBzEV4R5S8DyAUF
+	 j0V9zTXurxV2oOFTbM5mJ0CSi019w5W1vjsmbzRrHP6sU5/hHQzQFT7uSlVQdmhhtDxE1
+	 4GA9CoW8CnESjg7kLaDZdGR+PU9E3tJ/khar01wmE9r5ys3LmWK1N5V9sZMnsu248NZ88
+	 Ne7i6YsF55cmD+ANJspNnnm9dP6h9awldbfA5abTbwDziQanhjYeTrwEkzxlUpVilth/H
+	 +nahLa14nq71AAdSEXI44ZmNzbbxiTdW6PyvbzD7GF+dFffcdA+AJJes5nUAr5bzF2g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795514166;
-	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Transfer-Encoding:Message-Id:
-	 In-Reply-To:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
-	 X-CMS-MailID:X-Msg-Generator:Content-Type:X-RootMTR:X-EPHeader:
-	 X-CMS-RootMailID:References;
-	bh=SSQUWtraceJTHXBtVhiuGWIORZtWx2UwATdIbhdiqtY=;
-	b=B89RqG5qYP5MOrhZy05sUbhNjK18ATEx/1nDmD1/erKINSJlzu3/QbMM7zoRAledIC1a
-	 dG6qyeyQW+JP0So2GbclBi3DqrpZTW/wOeIGymejT7DltryJCn33ujoqYNgkVsb1d+n0L
-	 Sx1HknukrSFzXWc9okFOtemYKmGLgkmlxTB+VW7CrdyRSx3tmZ6k+Pa4QEBxAU4ID3oQt
-	 2EYwRwzLoi2j7Gzao77I0qzhn9Lz63nAK1uOrKQjhnT4HD4VaWP51pmT/ybjLT6tVrESc
-	 jfJ9Y+2pcd4ScE2TE58ypXXtGlqwNcTCB5jAmYMBYEiS7MaoglpTy8JFnseiGAYJKlw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795514194;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=xmnB05OFBqRK5KT7n/FEDBwbB7ml+xB+YEvxP4wnFjw=;
+	b=Dg8t42CZekmiVkLU1WV/eAdZUhdxjvjTSbJAm3lJLpcHQpunp4Aw6lvEl3y1+W8HT0o6
+	 PAerWyfgmCV/vVQJFgwPxP/a/OCJe9LCK0ymIAbmWwuCvN5QjRXSihNt8MUOdeNqWVrg0
+	 aZ2yJwYerYFh9yGF/CUSVXej7V1q5OJQYymJMdAbCIBR+Jv83E7P57r0edCMoYiMDzg8v
+	 wJ24Y3jhxLxopOEC045LjS7MkWTbuOBUUmQWRI5dLQsp/g9Ym3GRjT1PLJCnr1UTobVGa
+	 CyWWbZjDx9TgkOxz8m+O+jlSmT2a4BYbb1W/00vOvOdLM62sJj4nyLA5NZ/U9M/6v4w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=samsung.com;
-	spf=pass smtp.mailfrom=samsung.com;
-	dkim=pass header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=XKgNHmBr;
-	arc=none smtp.remote-ip=210.118.77.12
-Received: from mailout2.w1.samsung.com (mailout2.w1.samsung.com [210.118.77.12])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="fHI+3cV/";
+	arc=none smtp.remote-ip=209.85.210.174
+Received: from mail-pf1-f174.google.com (mail-pf1-f174.google.com [209.85.210.174])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3B9EA606A69A
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:56:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3B9EA606A69A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=samsung.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=samsung.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C6579606A32C
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:56:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C6579606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=XKgNHmBr
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20261124095600euoutp020e29c7538922dfb6aeb281b2e9ba618c~q8p2Sqh1q2627426274euoutp02K
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:56:00 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20261124095600euoutp020e29c7538922dfb6aeb281b2e9ba618c~q8p2Sqh1q2627426274euoutp02K
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1795514160;
-	bh=SSQUWtraceJTHXBtVhiuGWIORZtWx2UwATdIbhdiqtY=;
-	h=From:Date:Subject:In-Reply-To:To:Cc:References:From;
-	b=XKgNHmBrZf+1w83i8YldUhiLGgzglAFBZm0qU2ivf0bcNpLBSb9/S4ONZU3bwCYQy
-	 pOXWRsHhZieEg5+VTArPfOlJ7F2U1xny+w+ddtzYcllTeMJO4NkjGjE2VkWPp9ORCI
-	 tbsfd9sqoGqEmqoeHepcqkQ/Jr3zsFoA7RS51/hc=
-Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20261124095559eucas1p2b14a7a7741e5a14d56ac9262ab8a919d~q8p15Dhtb1641616416eucas1p25;
-	Tue, 24 Nov 2026 09:55:59 +0000 (GMT)
-Received: from AMDC4942.eu.corp.samsungelectronics.net (unknown
-	[106.210.136.40]) by eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20261124095558eusmtip2e972cc4d20d18714817d581be64c4390~q8p1FvR4v0412504125eusmtip2F;
-	Tue, 24 Nov 2026 09:55:58 +0000 (GMT)
-From: Michal Wilczynski <m.wilczynski@samsung.com>
-Date: Tue, 24 Nov 2026 10:54:02 +0100
-Subject: [PATCH v8 5/5] MAINTAINERS: Add entries for the Innosilicon and
- JH7110 HDMI PHYs
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fHI+3cV/
+Received: by mail-pf1-f174.google.com with SMTP id d2e1a72fcca58-8a07078200fso2163880b3a.2
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 01:56:33 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795514193; x=1796118993; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=xmnB05OFBqRK5KT7n/FEDBwbB7ml+xB+YEvxP4wnFjw=;
+        b=fHI+3cV/a0MWUI5HgdFWOzmhhVmUTFbNwxJbUBcxZ4xzVit/U8y7tMl9Kf9FDe2UBT
+         wBvrKWbRSCzpTYrls+E7NsW0CYX8ljva+T1cx+xahKywPS9oxC1Jm0lLgJuCZ2STQLOB
+         Ni5DQEmmgM4pCjopIF1vQfJWy5N9jqWFGnDmvAfVSbxUSU0Vt7Tp18Y6x291e+JbVclN
+         3M9OTFe73sluKCdmyEimeI80uXtkmizi9jgoOKcQ6vkpa2kfsAJFJ9gsTxbdv+SZ3gH/
+         IZnpl2knzm7IAXs/PDutvtWpgtDvRdV1RbO8gEwIskpYPJqZhySePA8aJHJ8j6VulQ9z
+         1x5Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795514193; x=1796118993;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=xmnB05OFBqRK5KT7n/FEDBwbB7ml+xB+YEvxP4wnFjw=;
+        b=c9/F/E4WzPrYBEjld32D4GBE7c9gDp/A7GYnS6FSIWFhAkTNdMqbRnQUQnsa18Kt7b
+         WP693u1CrpT3O7OKI+UvlbBhZhDe8o+uRXngVeqi/oMs3FyQtPRpWf5a6OZSUQ7yMrOA
+         ZwW00uc8/48OOoYMj4FL6CUYj1t2oAesCU31acFCgTY4OKZpewn0Lysh6uKywQSWps4L
+         qVC6FjsxgZ9ddnOy1MVp7kSdTyEHe3MAilFLgu8uekEAe7wTjVFTB9NafzoOWEeYAZal
+         xX0FDiPYVuwbIJzv3ldjPeT+nCb23oB1APoTXVjcTLvBhff4++uk230QyYSBw7qLOPmV
+         WovQ==
+X-Forwarded-Encrypted: i=1; AL+hErGOyCIZKKoaGZtxG67vCs0uv8wwS5Y7HdI0bcMzXgtTjkT1RXzLvT5gcAgN69e6GKLP4oKny4ARwEAH5iA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/QiarqrivX0wz/w9TpzVCQNNxdHkWgsJ6CUbV7kvCzqTbmuvYg
+	b0bHrlsQEMkfW8kTFpfMj5lSHfVVuTiI88gxFGOHwyDNPdpdfnO0rRs=
+X-Gm-Gg: AZFdTZeMUzQWwk59t5Bgjo8l6FpAEOFwUJbvL1spndZWMAZjq2bg3qJcovniKPX9ZRH
+	xLmIq4aLVRfZuQHZJBitB9B2Ylss+QLw+Rk+4NZAAPWsxuIyvjW4IFCRAiDRXxqs8Jq9UYB4Kw1
+	SU2zdCBu52ltRYEb6ufquxpX8PGpnv42ZMcRmAglOmXOmrfIr6ivmogwGv2lzmX6X9mOE/A3dUE
+	Z9oSwynoayD3UbyVFkn/x8sPCMIUToZSN/baZQ4tVGPmAAjeezyioT8XD4bJtQ7PTscpM4FjR68
+	8IUt9Ho0ogkNdYJBZEm+wLxY1ORHtANYPL1WUkHM/ax4hxyshArRsTss2ELZE7ByNHFZSMz8mPn
+	CWDAXu28A61Bc06ADaUrJi8ehtAhgFzWFY9vq9v1CK0XJeiltcyWT8C9C9Fesz3FbrYdBjFmF3f
+	PLAXKnC1Fq85m6pY3tRDsMNdkkifmOQs1GuA+yp7TOi/Y6x8adgRudkJCLHFNZUcc3ovdUMcFoo
+	DnUbXjMPCoQEnNGQXRno2YdnGaq1zgMP3KBtE6FyjYfRbzLKcQFNojtW+o8tSxzdmIbg356u9UK
+	+Ujq+PFmU4mtsQnNQ3AqtkFkSl3ujqWOovQcnJw9nPMMxnR2Z0AcpQQGK5tlWG6rC1t0
+X-Received: by 2002:a05:6a00:4207:b0:886:77eb:38fb with SMTP id d2e1a72fcca58-8c87c480419mr11371810b3a.25.1795514193146;
+        Tue, 24 Nov 2026 01:56:33 -0800 (PST)
+Received: from localhost.localdomain ([2406:3003:2002:639c:5da8:85f0:b5f6:2eae])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87285c272sm7075747b3a.19.2026.11.24.01.56.30
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Tue, 24 Nov 2026 01:56:32 -0800 (PST)
+From: Yige Jiang <yigejiang86@gmail.com>
+To: Sylwester Nawrocki <s.nawrocki@samsung.com>,
+	Liam Girdwood <lgirdwood@gmail.com>
+Cc: Yige Jiang <yigejiang86@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	linux-sound@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] ASoC: samsung: snow: Fix private data and node cleanup on remove
+Date: Tue, 24 Nov 2026 17:56:26 +0800
+Message-ID: <confirmed-20261105-21-73b8787ecede@gmail.com>
+X-Mailer: git-send-email 2.50.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,85 +99,51 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261124-jh7110-inno-hdmi-phy-v8-5-5e3008122cba@samsung.com>
-In-Reply-To: <20261124-jh7110-inno-hdmi-phy-v8-0-5e3008122cba@samsung.com>
-To: Vinod Koul <vkoul@kernel.org>,  Neil Armstrong
-	<neil.armstrong@linaro.org>,  Manivannan Sadhasivam <mani@kernel.org>, Rob
-	Herring <robh@kernel.org>,  Krzysztof Kozlowski <krzk+dt@kernel.org>,  Conor
-	Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,  Emil Renner
-	Berthing <kernel@esmil.dk>,  Hal Feng <hal.feng@starfivetech.com>, Dominique
-	Belhachemi <db@domibel.de>,  Michal Wilczynski <m.wilczynski@samsung.com>,
-	Andy Yan <andyshrk@163.com>
-Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org,  Marek
-	Szyprowski <m.szyprowski@samsung.com>,  Icenowy Zheng
-	<zhengxingda@iscas.ac.cn>,  Chaoyi Chen <chaoyi.chen@rock-chips.com>, 
-	Joshua Peisach <jpeisach@ubuntu.com>
-X-Mailer: b4 0.15-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1562;
-	i=m.wilczynski@samsung.com; h=from:subject:message-id;
-	bh=ZQaAxGYox2BJ1OpbRDQi15xD57Nk5zN+Rfwi1TWQD8E=;
-	b=owGbwMvMwCGWumv6zndzRCIZT6slMWSzxmu+WTSjI3K2HZfX0y+L9yyNSclVWRLGvzkiXHXrJ
-	sWItUo/O0pZGMQ4GGTFFFnObow2kvzH8LT8+ONfMHNYmUCGMHBxCsBElpcx/K+Q5w9asDwyPLoj
-	8P9CJ5a506eWTP/8qfr/Er7jvd9tduUw/C9r+M3r49Frd2t9ctSEI3un7ty+8TR3j9lbh8+LIgq
-	1r7IAAA==
-X-Developer-Key: i=m.wilczynski@samsung.com; a=openpgp;
-	fpr=CDB15B3219FE00E577C7E3FA65BA97B9EE9C1459
-X-CMS-MailID: 20261124095559eucas1p2b14a7a7741e5a14d56ac9262ab8a919d
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20261124095559eucas1p2b14a7a7741e5a14d56ac9262ab8a919d
-X-EPHeader: CA
-X-CMS-RootMailID: 20261124095559eucas1p2b14a7a7741e5a14d56ac9262ab8a919d
-References: <20261124-jh7110-inno-hdmi-phy-v8-0-5e3008122cba@samsung.com>
-	<CGME20261124095559eucas1p2b14a7a7741e5a14d56ac9262ab8a919d@eucas1p2.samsung.com>
+Content-Transfer-Encoding: 8bit
 
-Add an entry for the common Innosilicon HDMI PHY library, which the
-Rockchip and StarFive Innosilicon HDMI PHY drivers share, so that
-changes to it reach the people who can test it.
+The ASoC core stores the snd_soc_card pointer in the platform device's
+driver data. snow_remove() treats that pointer as a snow_priv instead,
+so the accesses to the DAI link and clock use the wrong object. Obtain
+the private data through snd_soc_card_get_drvdata(), as the other card
+callbacks do.
 
-Add an entry for the StarFive JH7110 HDMI PHY binding and driver, next
-to the other JH7110 PHY drivers.
+Also remove the explicit put of link->codecs->of_node. After the modern
+DAI-link conversion it is the same node that
+snd_soc_of_put_dai_link_codecs() releases. Keeping both puts would cause
+an extra reference drop once the private-data lookup is corrected. The
+helper alone releases the codec references for both supported bindings.
 
-Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+Fixes: aff8d2bed9e5 ("ASoC: samsung: Add HDMI audio support for Snow")
+Fixes: db1623faa432 ("ASoC: samsung: snow: use modern dai_link style")
+Signed-off-by: Yige Jiang <yigejiang86@gmail.com>
 ---
- MAINTAINERS | 13 +++++++++++++
- 1 file changed, 13 insertions(+)
+AI assistance was used for analysis and patch preparation.
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 93abbb315065de00c29cc02de16c38eac58ac5a1..118e13d5e4d9bdcad0561191128bf1b3e7975278 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -13181,6 +13181,13 @@ T:	git https://gitlab.freedesktop.org/drm/misc/kernel.git
- F:	drivers/gpu/drm/bridge/inno-hdmi.c
- F:	include/drm/bridge/inno_hdmi.h
+Based on next-20261104 (8b7179210b22).
+Compile-tested: arm64, GCC 14.2.0, W=1, sound/soc/samsung/snow.o;
+baseline and patched objects built with no warnings.
+Static source review; no hardware, boot, or KASAN test was performed.
+
+ sound/soc/samsung/snow.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/sound/soc/samsung/snow.c b/sound/soc/samsung/snow.c
+index 66ef49dff1ba37de3285cbaaf1293937d6bb0b77..64b3e2e41c2142117cb7d782b59302804d33dda7 100644
+--- a/sound/soc/samsung/snow.c
++++ b/sound/soc/samsung/snow.c
+@@ -220,11 +220,11 @@ static int snow_probe(struct platform_device *pdev)
  
-+INNOSILICON HDMI PHY LIBRARY
-+M:	Michal Wilczynski <m.wilczynski@samsung.com>
-+L:	linux-phy@lists.infradead.org
-+S:	Maintained
-+F:	drivers/phy/phy-inno-hdmi.c
-+F:	include/linux/phy/inno-hdmi-phy.h
-+
- INOTIFY
- M:	Jan Kara <jack@suse.cz>
- R:	Amir Goldstein <amir73il@gmail.com>
-@@ -26731,6 +26738,12 @@ S:	Supported
- F:	Documentation/devicetree/bindings/phy/starfive,jh7110-dphy-tx.yaml
- F:	drivers/phy/starfive/phy-jh7110-dphy-tx.c
+ static void snow_remove(struct platform_device *pdev)
+ {
+-	struct snow_priv *priv = platform_get_drvdata(pdev);
++	struct snd_soc_card *card = platform_get_drvdata(pdev);
++	struct snow_priv *priv = snd_soc_card_get_drvdata(card);
+ 	struct snd_soc_dai_link *link = &priv->dai_link;
  
-+STARFIVE JH7110 HDMI PHY DRIVER
-+M:	Michal Wilczynski <m.wilczynski@samsung.com>
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/phy/starfive,jh7110-inno-hdmi-phy.yaml
-+F:	drivers/phy/starfive/phy-jh7110-inno-hdmi.c
-+
- STARFIVE JH7110 MMC/SD/SDIO DRIVER
- M:	William Qiu <william.qiu@starfivetech.com>
- S:	Supported
+ 	of_node_put(link->cpus->of_node);
+-	of_node_put(link->codecs->of_node);
+ 	snd_soc_of_put_dai_link_codecs(link);
+ 
+ 	clk_put(priv->clk_i2s_bus);
 
--- 
-2.34.1
-
+base-commit: 8b7179210b22f8e48a82c5ceacb9d56a9c4cfec4
