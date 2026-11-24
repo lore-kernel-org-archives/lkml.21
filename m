@@ -1,92 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=52.13.214.179
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=46.4.11.11
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795513268;
-	b=TQbyHlcpj0E45rV1v9VHRqXEUDadoB6Ec77PnnZpiHhbdOjALzur2Ekqqdctgxbhy7l0
-	 V0yMTHCBJh/3QXGjmiXhNBlXYLA2RBLp1/fh56w0yQulZE95GC16YWiIR0YAtqevgJKIC
-	 EdoTQxi5UsgYHBEmcewaE4xv+td+uMfj2mIj+yY9i7xg+zTJ+xzlk5C4A1Q1uvkf85Dmq
-	 3c2R+aFG1XzrqnCadSbMSDSs1qhZbuZIFAjoDaf3HN3EW16awa/PjHY9+ZhCiCKvfCHLs
-	 ZFRzTNy3LAzB0xPxpHhp5XS+BjWjDZqtx08Y+c46c9NnZor62Bc1Huz5Z4fcCztL3Kw==
+	t=1795513277;
+	b=x3ZAXu2oweqze+vx2tAAjSV6Ad9tpmA2znnAZj4FciLIwwWz5o5SeAakBh4NdfyK1dJI
+	 TYr27pNZJ5PKQE+j+lWTgxLXG7+59sIRBzicWuMJlLEJbZegFGyNKnmjYBoceQnj9N05T
+	 gb49D1bhigs0IgWzu655Sv7S86D30UJ3wlhwMOVYhSRz+llM1OHsSZshCzewodVnba1Ky
+	 z/YxdP80sn7KHlrQaLbwWmtJvan+kF66jZ79IItnOsUdbw+zxLy/V+S5q0onrbV4xXtWu
+	 ogpt0Ao9UZYZjSNylOlqI34LfA65ltpAzYAvGDIAY02FIgGMvnInNoafU2OmMWL+1yQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795513268;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:Received:Received:X-Farcaster-Flow-ID:Received:Received:
-	 From:To:CC:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:X-Originating-IP:X-ClientProxiedBy:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=NuIlpaMiYTHMQPmZ3V/JomVHe0nIq9gdD5u1MrfR3i4=;
-	b=3UQJp16PDVQAtI3ahxS3/Q84qhIAVJVeabw6X/h7DEl6xj02MSSix176VHl+fYpdRcHR
-	 b/qYgQ78TFuTUGE/32UZ8AiTx4pF1C0r86+IHvHDF/4/AWJUMZjOvSoaTuLH9VM6nFkJi
-	 ufsWVIe1kGabkLMUf8NhqLVdkDvNaiWMJWIJpKnYkMx+3zEy+UabIB+v+vZVdpArJ0gFh
-	 XZ3Hd01hnPbGnKrPagb8N5PzEdiYD8ZsqJjo/y8RegT7enNEKkF91wSjie7qvMkBkwBKS
-	 ApqPk4pmTDBqMFX+EOamqcf/9VeUY0w6ejVlaz7NIwee1934TY99r1gZhyE+a7wPTBA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795513277;
+	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-Id:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
+	bh=9bcEZ4e/7ni52kWsELoQjyQIotM+LGhCx2OzH0/KNHs=;
+	b=RZM7r52n3SeCv8Z4t6fR3EMMNkQl4IejaH7Kd09q7yxakuTkhBeCGbPucI4CjzwiBYsx
+	 my0dz+LOpL7t2WCxTAKyzntoQWhiGb51xdmG2piI/k02HZnXLTairmivKugxRi6op4rIt
+	 6okaGai9dYR96k9VydNLdam3BZUBk74NSiukx+cqp21EXGVWfyDsbNRlJ6YeBppz9s3rp
+	 n88jTYebDwr8VqAObnLeIdUutaDtR5RcCC9l05gGmQKitDKLkPadzHkI2lBdpYjQilE9n
+	 UO2nDYUN+j0+0D69cwYbePyc8LUfKzxj5DkJ7cgcfKEf7pV5Y+TtwoLjo6cJdD1f51w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=amazon.com;
-	spf=pass smtp.mailfrom=amazon.com;
-	dkim=pass header.d=amazon.com header.i=@amazon.com header.a=rsa-sha256 header.s=amazoncorp2 header.b=B0SDCiQ4;
-	arc=none smtp.remote-ip=52.13.214.179
-Received: from pdx-out-005.esa.us-west-2.outbound.mail-perimeter.amazon.com (pdx-out-005.esa.us-west-2.outbound.mail-perimeter.amazon.com [52.13.214.179])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=none header.from=phrozen.org;
+	spf=pass smtp.mailfrom=phrozen.org;
+	arc=none smtp.remote-ip=46.4.11.11
+Received: from nbd.name (nbd.name [46.4.11.11])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 978FE606A33E;
-	Tue, 24 Nov 2026 09:41:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 978FE606A33E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amazon.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=amazon.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=amazon.com header.i=@amazon.com header.a=rsa-sha256 header.s=amazoncorp2 header.b=B0SDCiQ4
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
-  t=1795513265; x=1827049265;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=NuIlpaMiYTHMQPmZ3V/JomVHe0nIq9gdD5u1MrfR3i4=;
-  b=B0SDCiQ46dDtpkoJTLFP4Na3w2+SqPRZo4BdE2km1SbSo22DhNyVGFrY
-   sRI9c/e73Se6ZkZsaDzHhPBXj7AawPMmP7ADVlpo6yA17AYQ544WEOrtE
-   et0rzfyRdMoY0EiTZ13vJt11uRFMX5umLhItS2h6JPblJJNHSKh88XlSr
-   jF59Jg/fcTIJNz6jDhVKRRdcq2Ma5GFjpJNs1kNaTiMfF7S2liw4zTG/w
-   4OlJhVDlMsKRA51qa4yQHTFS7MOsWSJtNmJvPZBG+e6O5ntGwiHm+vzNp
-   zQT/z5z5FfmZ9WWBjJvVjkvMw3L7RqZ4eyK39baNAwl0GPnWCYeN5LaiW
-   w==;
-X-CSE-ConnectionGUID: 7R0bqCtFQH2Ztt/M3gwEqw==
-X-CSE-MsgGUID: iXdy9ZjnTs2L6ir5aLeSGA==
-X-IronPort-AV: E=Sophos;i="6.27,230,1787011200"; 
-   d="scan'208";a="34944075"
-Received: from ip-10-5-12-219.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.12.219])
-  by internal-pdx-out-005.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 09:41:02 +0000
-Received: from EX19MTAUWB001.ant.amazon.com [205.251.233.104:21440]
- by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.36.204:2525] with esmtp (Farcaster)
- id faae0fa9-fa9e-45e9-8752-cdd1a246c23b; Tue, 24 Nov 2026 09:41:02 +0000 (UTC)
-X-Farcaster-Flow-ID: faae0fa9-fa9e-45e9-8752-cdd1a246c23b
-Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
- EX19MTAUWB001.ant.amazon.com (10.250.64.248) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.57;
- Tue, 24 Nov 2026 09:41:02 +0000
-Received: from dev-dsk-sieberf-metal-1a-7543e84d.eu-west-1.amazon.com
- (172.19.116.227) by EX19D001UWA001.ant.amazon.com (10.13.138.214) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.57; Tue, 24 Nov 2026
- 09:40:58 +0000
-From: Fernand Sieber <sieberf@amazon.com>
-To: Peter Zijlstra <peterz@infradead.org>
-CC: Fernand Sieber <sieberf@amazon.com>, Karl Mehltretter
-	<kmehltretter@gmail.com>, <stable@vger.kernel.org>, Ingo Molnar
-	<mingo@redhat.com>, Juri Lelli <juri.lelli@redhat.com>, Vincent Guittot
-	<vincent.guittot@linaro.org>, Shuah Khan <shuah@kernel.org>, Dietmar Eggemann
-	<dietmar.eggemann@arm.com>, Steven Rostedt <rostedt@goodmis.org>, Ben Segall
-	<bsegall@google.com>, Mel Gorman <mgorman@suse.de>, Valentin Schneider
-	<vschneid@redhat.com>, K Prateek Nayak <kprateek.nayak@amd.com>, "Daniel
- Bristot de Oliveira" <bristot@kernel.org>, Joel Fernandes
-	<joelagnelf@nvidia.com>, Josh Don <joshdon@google.com>,
-	<linux-kernel@vger.kernel.org>, <linux-kselftest@vger.kernel.org>,
-	<nh-open-source@amazon.com>, Fahad Mubeen <fmubeen@amazon.de>, "David
- Woodhouse" <dwmw@amazon.co.uk>, Misha Karataiev <karataev@amazon.com>,
-	Hendrik Borghorst <hborghor@amazon.de>, Ibrahim Elshahed <lshahed@amazon.de>
-Subject: [PATCH 1/2] sched/deadline: Keep forced idle uncharged when a sibling ends it
-Date: Tue, 24 Nov 2026 11:40:30 +0200
-Message-ID: <0eb24d6c957d45f9f7274eb9e92d9dbd3c76117d.1795510960.git.sieberf@amazon.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <cover.1795510960.git.sieberf@amazon.com>
-References: <20261124080737.1988-1-kmehltretter@gmail.com> <cover.1795510960.git.sieberf@amazon.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D6AF0606A33B;
+	Tue, 24 Nov 2026 09:41:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D6AF0606A33B
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=phrozen.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=phrozen.org
+Received: from [2a04:4540:1403:dffc:4a09:a431:737f:f29f] (helo=bertha10..)
+	by ds12 with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <john@phrozen.org>)
+	id 1xVn1M-007e57-2Z;
+	Tue, 24 Nov 2026 10:41:04 +0100
+From: John Crispin <john@phrozen.org>
+To: Lorenzo Bianconi <lorenzo@kernel.org>,
+	Lee Jones <lee@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>
+Cc: Ahmed Naseef <naseefkm@gmail.com>,
+	Benjamin Larsson <benjamin.larsson@genexis.eu>,
+	Christian Marangi <ansuelsmth@gmail.com>,
+	devicetree@vger.kernel.org,
+	lei.dong@airoha.com,
+	Linqi.zhang@airoha.com,
+	linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	mfd@lists.linux.dev,
+	Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>,
+	Rajeev.kumar@airoha.com,
+	upstream@airoha.com,
+	Weifeng.xu@airoha.com,
+	zhengping.zhang@airoha.com
+Subject: [PATCH v4 2/9] pinctrl: airoha: add per pin mode field mux
+Date: Tue, 24 Nov 2026 10:40:52 +0100
+Message-Id: <20261124094059.3882014-3-john@phrozen.org>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261124094059.3882014-1-john@phrozen.org>
+References: <20261124094059.3882014-1-john@phrozen.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -96,152 +73,157 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-ClientProxiedBy: EX19D031UWC003.ant.amazon.com (10.13.139.252) To
- EX19D001UWA001.ant.amazon.com (10.13.138.214)
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-Commit f4626e1c3c14 ("sched/deadline: Don't charge core-sched forced
-idle to the DL servers") keeps forced idle from being charged to the
-fair and ext servers. But it tests forced_idle_rq() when the idle time
-is charged, not when the idle task started running. When the sibling
-ends the forced idle, the test reads false by then and the forced-idle
-span is charged anyway.
+Newer Airoha SoCs select the function of a pin through a mode field in
+a dedicated IOMUX block instead of through function specific bits in
+the chip SCU. The AN7589 has a 4 bit field per pin, eight pins per 32
+bit register. A group can then need one register write per pin, and
+the two entry regmap[] of a function group cannot carry that.
 
-The timeline below describes the issue:
+Let a function group supply a pin_modes[] array, parallel to the pins
+of the group. When it is set, set_mux writes each mode into the IOMUX
+regmap and then applies the regmap[] entries of the group, so a group
+can combine its pin modes with a register write in the GPIO block.
 
-  Setup. CPU0 and CPU1 are SMT siblings.
-  - CPU1 runs R, a SCHED_FIFO task with cookie X, which spins and
-    sleeps briefly in a loop.
-  - CPU0 has C, a CFS task with no cookie, which only runs through
-    CPU0's fair server.
+A SoC with an IOMUX describes it in its match data with struct
+airoha_pinctrl_iomux, which holds the width of the mode field. Probe
+then takes the regmap from the airoha,iomux phandle.
 
-  t0, CPU0 is forced idle. The core cookie is X and CPU0 has no
-  cookie-X task, so CPU0 runs idle. core_forceidle_count is set and
-  idle->se.exec_start is stamped.
+No functional change for the existing SoCs.
 
-  t1, R blocks. CPU1 does the core-wide pick. No cookie-X task is
-  left, so forced idle ends: the pick clears core_forceidle_count and
-  picks C for CPU0.
-
-  t2, CPU0 switches from idle to C. update_curr_idle() charges the
-  idle time since its last update to the fair and ext servers.
-  forced_idle_rq(rq0) reads false, since t1 cleared the count, so the
-  forced-idle span up to t1 is charged.
-
-  t3, result. The fair server spends its runtime on time in which C
-  could not run, and C gets throttled. With R spinning 800us and
-  sleeping 10us (HZ=1000, 2-core 2-thread KVM guest), C gets 0.8-1.8%
-  of the CPU instead of the 5% reservation.
-
-With this patch, the core-wide pick settles the idle time of each idle
-sibling under the state from before the pick: at t1 it drops CPU0's
-forced-idle span, and a pick that starts forced idle charges the idle
-time before it. As only this pick changes core_forceidle_count,
-forced_idle_rq() then holds for the whole span that update_curr_idle()
-charges.
-
-With this, C gets 5.6-5.8% in the same setup.
-
-Fixes: f4626e1c3c14 ("sched/deadline: Don't charge core-sched forced idle to the DL servers")
-Reported-by: Karl Mehltretter <kmehltretter@gmail.com>
-Closes: https://lore.kernel.org/all/20261124080737.1988-1-kmehltretter@gmail.com/
-Cc: stable@vger.kernel.org
-Signed-off-by: Fernand Sieber <sieberf@amazon.com>
+Signed-off-by: John Crispin <john@phrozen.org>
 ---
- kernel/sched/core.c  |  8 ++++++++
- kernel/sched/idle.c  | 25 +++++++++++++++++++------
- kernel/sched/sched.h |  1 +
- 3 files changed, 28 insertions(+), 6 deletions(-)
+ drivers/pinctrl/airoha/airoha-common.h  | 14 ++++++++
+ drivers/pinctrl/airoha/pinctrl-airoha.c | 48 +++++++++++++++++++++++++
+ 2 files changed, 62 insertions(+)
 
-diff --git a/kernel/sched/core.c b/kernel/sched/core.c
-index ea89471d4743c..825d9bbea3128 100644
---- a/kernel/sched/core.c
-+++ b/kernel/sched/core.c
-@@ -6451,6 +6451,14 @@ pick_next_task(struct rq *rq, struct rq_flags *rf)
- 		if (i != cpu && (rq_i != rq->core || !core_clock_updated))
- 			update_rq_clock(rq_i);
+diff --git a/drivers/pinctrl/airoha/airoha-common.h b/drivers/pinctrl/airoha/airoha-common.h
+index 850e733db15a..7a0cb8924e71 100644
+--- a/drivers/pinctrl/airoha/airoha-common.h
++++ b/drivers/pinctrl/airoha/airoha-common.h
+@@ -49,6 +49,12 @@
+ 		.group_size = ARRAY_SIZE(table##_func_group),		\
+ 	}
  
-+		/*
-+		 * This pick can start or end forced idle on rq_i while its
-+		 * idle task runs on, and the old state is already reset.
-+		 * Charge the idle time so far under the old state.
-+		 */
-+		if (rq_i->curr == rq_i->idle)
-+			charge_idle_to_dl_servers(rq_i, fi_before && rq_i->nr_running);
++#define PINCTRL_MODE_FUNC_GROUP(id, table)				\
++	{								\
++		.name = id,						\
++		.pin_modes = table##_modes,				\
++	}
 +
- 		p = pick_task(rq_i, rf);
- 		if (unlikely(p == RETRY_TASK)) {
- 			/* rq lock may have been dropped, clocks invalidated */
-diff --git a/kernel/sched/idle.c b/kernel/sched/idle.c
-index 451b4846219d5..0449ccefba6c7 100644
---- a/kernel/sched/idle.c
-+++ b/kernel/sched/idle.c
-@@ -561,7 +561,14 @@ prio_changed_idle(struct rq *rq, struct task_struct *p, u64 oldprio)
- 	BUG();
+ #define PINCTRL_CONF_DESC(p, offset, mask)				\
+ 	{								\
+ 		.pin = p,						\
+@@ -75,6 +81,7 @@ struct airoha_pinctrl_func_group {
+ 		u32 val;
+ 	} regmap[2];
+ 	int regmap_size;
++	const u8 *pin_modes;
+ };
+ 
+ struct airoha_pinctrl_func {
+@@ -102,6 +109,10 @@ struct airoha_gpiochip_regs {
+ 
+ extern const struct airoha_gpiochip_regs airoha_gpiochip_regs_64;
+ 
++struct airoha_pinctrl_iomux {
++	u8 mode_bits;
++};
++
+ struct airoha_pinctrl_confs_info {
+ 	const struct airoha_pinctrl_conf *confs;
+ 	unsigned int num_confs;
+@@ -126,6 +137,8 @@ struct airoha_pinctrl {
+ 	const struct airoha_pinctrl_confs_info *confs_info;
+ 
+ 	struct regmap *chip_scu;
++	struct regmap *iomux;
++	const struct airoha_pinctrl_iomux *iomux_info;
+ 	struct regmap *regmap;
+ 
+ 	struct gpio_chip gpiochip;
+@@ -135,6 +148,7 @@ struct airoha_pinctrl {
+ 
+ struct airoha_pinctrl_match_data {
+ 	const char *chip_scu_compatible;
++	const struct airoha_pinctrl_iomux *iomux_info;
+ 	const char *pinctrl_name;
+ 	struct module *pinctrl_owner;
+ 	const struct airoha_gpiochip_regs *gpio_regs;
+diff --git a/drivers/pinctrl/airoha/pinctrl-airoha.c b/drivers/pinctrl/airoha/pinctrl-airoha.c
+index 5ae29e80da69..615b48a056c4 100644
+--- a/drivers/pinctrl/airoha/pinctrl-airoha.c
++++ b/drivers/pinctrl/airoha/pinctrl-airoha.c
+@@ -401,6 +401,35 @@ static int airoha_pinctrl_add_gpiochip(struct airoha_pinctrl *pinctrl,
  }
  
--static void update_curr_idle(struct rq *rq)
-+/*
-+ * Charge the time the idle task of @rq ran since its se.exec_start to the
-+ * fair and ext servers, and advance se.exec_start to now. Nothing is
-+ * charged if @span_was_forced_idle: forced idle was not time available to
-+ * any class on @rq, so the deferred servers must not consume their runtime
-+ * on it.
-+ */
-+void charge_idle_to_dl_servers(struct rq *rq, bool span_was_forced_idle)
- {
- 	struct sched_entity *se = &rq->idle->se;
- 	u64 now = rq_clock_task(rq);
-@@ -573,11 +580,7 @@ static void update_curr_idle(struct rq *rq)
- 
- 	se->exec_start = now;
- 
--	/*
--	 * Forced idle was not time available to any class on this rq, so
--	 * don't let the deferred servers consume their runtime on it.
--	 */
--	if (forced_idle_rq(rq))
-+	if (span_was_forced_idle)
- 		return;
- 
- 	dl_server_update_idle(&rq->fair_server, delta_exec);
-@@ -586,6 +589,16 @@ static void update_curr_idle(struct rq *rq)
- #endif
- }
- 
-+/*
-+ * Only the core-wide pick starts or ends forced idle, and it charges the
-+ * idle time up to that point under the old state, so the current state is
-+ * the state of the whole span here.
-+ */
-+static void update_curr_idle(struct rq *rq)
+ /* pinmux callbacks */
++static int airoha_pinmux_set_pin_mode(struct airoha_pinctrl *pinctrl,
++				      unsigned int pin, u8 mode)
 +{
-+	charge_idle_to_dl_servers(rq, forced_idle_rq(rq));
++	unsigned int mode_bits = pinctrl->iomux_info->mode_bits;
++	unsigned int modes_per_reg = sizeof(u32) * BITS_PER_BYTE / mode_bits;
++	unsigned int shift = (pin % modes_per_reg) * mode_bits;
++	unsigned int reg = (pin / modes_per_reg) * sizeof(u32);
++
++	return regmap_update_bits(pinctrl->iomux, reg,
++				  GENMASK(mode_bits - 1, 0) << shift,
++				  mode << shift);
 +}
 +
- /*
-  * Simple, special scheduling class for the per-CPU idle tasks:
-  */
-diff --git a/kernel/sched/sched.h b/kernel/sched/sched.h
-index 32f76551a0c5e..1c61a1a9309a0 100644
---- a/kernel/sched/sched.h
-+++ b/kernel/sched/sched.h
-@@ -3005,6 +3005,7 @@ static inline bool sched_fair_runnable(struct rq *rq)
++static int airoha_pinmux_set_pin_modes(struct airoha_pinctrl *pinctrl,
++				       const struct group_desc *grp,
++				       const u8 *modes)
++{
++	int i, err;
++
++	for (i = 0; i < grp->grp.npins; i++) {
++		err = airoha_pinmux_set_pin_mode(pinctrl, grp->grp.pins[i],
++						 modes[i]);
++		if (err)
++			return err;
++	}
++
++	return 0;
++}
++
+ static int airoha_pinmux_set_mux(struct pinctrl_dev *pctrl_dev,
+ 				 unsigned int selector,
+ 				 unsigned int group)
+@@ -431,6 +460,15 @@ static int airoha_pinmux_set_mux(struct pinctrl_dev *pctrl_dev,
+ 		if (strcmp(group->name, grp->grp.name))
+ 			continue;
  
- extern struct task_struct *pick_task_fair(struct rq *rq, struct rq_flags *rf);
- extern struct task_struct *pick_task_idle(struct rq *rq, struct rq_flags *rf);
-+void charge_idle_to_dl_servers(struct rq *rq, bool span_was_forced_idle);
++		if (group->pin_modes) {
++			int err;
++
++			err = airoha_pinmux_set_pin_modes(pinctrl, grp,
++							  group->pin_modes);
++			if (err)
++				return err;
++		}
++
+ 		for (j = 0; j < group->regmap_size; j++) {
+ 			switch (group->regmap[j].mux) {
+ 			case AIROHA_FUNC_PWM_EXT_MUX:
+@@ -824,6 +862,16 @@ int airoha_pinctrl_probe(struct platform_device *pdev)
  
- #define SCA_CHECK		0x01
- #define SCA_MIGRATE_DISABLE	0x02
+ 	pinctrl->chip_scu = map;
+ 
++	if (data->iomux_info) {
++		map = syscon_regmap_lookup_by_phandle(dev->of_node,
++						      "airoha,iomux");
++		if (IS_ERR(map))
++			return PTR_ERR(map);
++
++		pinctrl->iomux = map;
++		pinctrl->iomux_info = data->iomux_info;
++	}
++
+ 	/* Init pinctrl desc struct */
+ 	pinctrl->desc.name = data->pinctrl_name;
+ 	pinctrl->desc.owner = data->pinctrl_owner;
 -- 
-2.47.3
-
-
-
-
-Amazon Development Centre (South Africa) (Proprietary) Limited
-29 Gogosoa Street, Observatory, Cape Town, Western Cape, 7925, South Africa
-Registration Number: 2004 / 034463 / 07
+2.34.1
 
