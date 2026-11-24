@@ -1,66 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.220
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=79.135.106.31
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795506364;
-	b=G4ntLjqE9X53U2EVS6etV0sO0gs/RbIsi477XE5PKo0jsDQXj/uKKSN5C5okDtsC++HF
-	 bd6FD6qRDdkC09YlNI0bFKl5GIpbLPl4m7+xyBa27hC+DOGKjal643G924elsPzTm5Qs0
-	 OAHVxftiQtvgGc/QB2+lKVj14QSfObBC/qz5X6IZBfgHzZEoX6JNn73JRoGIhNr9OGrVZ
-	 wFhKJIGDjtMW5pyqOpYdaY15pGm5IZqSXEHo/tgd+BQAmKdccXOVZ3VyvCkbFM6/k8GA2
-	 Eg6oUz1LUcP18wJbuJ4TVx/lZaypCngEZ8oxeiSugfyAQaAm4NCgbjkAOG2QzVEthQw==
+	t=1795506362;
+	b=ibxc3ZpWP5ESEDJoNjNu4XTvbZvsfsKYXS5O/VJX6UAmyc6rw9Pl6JA4OQoLQXAmi7pI
+	 /5ssIHPVx9nrG+u+G5J5mIpC48qclLAPXYZmdWCdAPvgBuJUsfqG1G9irVkTNfTl3DW+1
+	 zYBoR4shMI43rjFwCOApXVFrVeiDTMCJCJuE3MSihq32fmlyfApZfN6RGw3t2Q8/GM/ad
+	 atEyUBKbEWUbS7LPXJ3WDnJfpiR1pwNrgp42mX7wLZEmSk3kadiB5Trh4paloC0CGckrb
+	 Lf+A5GzWq0Py87Lerppw1Cha5GJTD1KCA0OK9jEAVzfA9aN4fBka74NG0NEPCXUrcYg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795506364;
-	h=DMARC-Filter:dkim-signature:Received:Received:Received:From:To:CC:
-	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
-	 X-ClientProxiedBy;
-	bh=q62QOHedAQhHbKYeJiS/KWEztBtvhrPpU7h9U/jgrEU=;
-	b=ds8QR3ISkfhnwDL7JdmJozr/LNAP7kSjTv0D6P0hNKS/ht8ighMRg0FeIE7wG/5VVoby
-	 ETc1M0uxuz/q6WN43KWDJwpiYF56sSBpX+Ts2Jpl/MtRW6zvpzvwbTIBjy8CTeZuImQnz
-	 hrxN16I6VGLgnfUM9+Ox3CK8m/bWbTzMdtGSdPlCkzLHWaq2OR0S2N+bQ6IA7GrP13nr1
-	 0et4FTo1HaogDPRuV1UDQR1ezG5v7AmuShcBqgJx09YzPzHEgGhGd3lzRIvQkrMCWqcpF
-	 QB/GnWZepRUyJuYha1ckFAMSvJ3z5U1ksWRDeHSYM+FAGc7KUb4DRf6isWMDXfODuHw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795506362;
+	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
+	 Feedback-ID:X-Pm-Message-ID:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=zpRnhO6ETmCWwFUmF0vR5fErBVE1PURDZa67B1CQG1I=;
+	b=HLsQFDt2j7zOOxSadn3DMvRopSJxnlEd3I1BG6mt59vssMzOcaWZ2Xgc0C6QN3ZzUUYm
+	 zbLDdCqPodyfipuHgp0IBgBCIWokMmerj2nIiW/vpDH14bqR0WjksCecbNkF3fqgFWMhS
+	 JNGXjJlONz2pdxgnxAKZKyKOXJwN9YPlXCt6vYMLNEmas401jMZq88qM7Loj5hwgJKlOc
+	 WJvCgKNAE1cpy52IG6ys2xr2QQDW3izvSFWgykKdrW/NsihzJlp9YDCoGFk4r2h0qtjnx
+	 prF+Ru/EAPrtSAxBafKcmoM6Li7coYAAuhBvIfAclwN+3XopRfKq+inHyo2r7t9+rPQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=huawei.com;
-	spf=pass smtp.mailfrom=huawei.com;
-	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=xN2BOoF8;
-	arc=none smtp.remote-ip=113.46.200.220
-Received: from canpmsgout05.his.huawei.com (canpmsgout05.his.huawei.com [113.46.200.220])
+	dmarc=pass header.from=protonmail.com;
+	spf=pass smtp.mailfrom=protonmail.com;
+	dkim=pass header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=ggBp+EqB;
+	arc=none smtp.remote-ip=79.135.106.31
+Received: from mail-10631.protonmail.ch (mail-10631.protonmail.ch [79.135.106.31])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 13732606A322
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 07:46:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 13732606A322
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 40B10606A31E;
+	Tue, 24 Nov 2026 07:46:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 40B10606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=protonmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=protonmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=xN2BOoF8
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=q62QOHedAQhHbKYeJiS/KWEztBtvhrPpU7h9U/jgrEU=;
-	b=xN2BOoF8010HfI+FQt+sZsAiBWOtOp9IDCTj+HXveF9QngPnRpBLh2369fTtJsq8msrUdFoDI
-	YTl66tEU3lc2heg1KoXc2qZjyJTnSDxV0owa8Ig2UhaUaxlpOoDsgxyF/mYpTTARv6Wayo/cDK1
-	9uaR1U5Q6aTIKAbBjlTk3w4=
-Received: from mail.maildlp.com (unknown [172.19.162.223])
-	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4jYZbS2HGyz12LGX;
-	Tue, 24 Nov 2026 15:45:08 +0800 (CST)
-Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
-	by mail.maildlp.com (Postfix) with ESMTPS id 19C6440575;
-	Tue, 24 Nov 2026 15:45:57 +0800 (CST)
-Received: from huawei.com (10.90.53.73) by kwepemk200008.china.huawei.com
- (7.202.194.74) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Tue, 24 Nov
- 2026 15:45:56 +0800
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-To: <james.morse@arm.com>, <ben.horgan@arm.com>, <reinette.chatre@intel.com>,
-	<fenghuay@nvidia.com>, <jic23@kernel.org>, <will@kernel.org>,
-	<tan.shaopeng@jp.fujitsu.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-CC: <ruanjinjie@huawei.com>
-Subject: [PATCH v4] arm_mpam: resctrl: Use the domain's counter ID
-Date: Tue, 24 Nov 2026 15:45:52 +0800
-Message-ID: <20261124074552.1701376-1-ruanjinjie@huawei.com>
-X-Mailer: git-send-email 2.34.1
+	dkim=pass (2048-bit key, unprotected) header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=ggBp+EqB
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
+	s=protonmail3; t=1795506359; x=1795765559;
+	bh=zpRnhO6ETmCWwFUmF0vR5fErBVE1PURDZa67B1CQG1I=;
+	h=Date:To:From:Cc:Subject:Message-ID:Feedback-ID:From:To:Cc:Date:
+	 Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
+	b=ggBp+EqBmkmTKocSuPKhyKg7t38Eq96Qwu9+i8JjZug7LiV1O/M5TlnMW8ETNia6x
+	 9KDjySjxH2c0demKBo7AVbDZhiZPWu5nEA5bBNWRQtDV9uxRoWWt5MrFA2AWex5pIW
+	 ApQlGzwXX7ffEOAyTIoDEPUsr3sX0MJ5iMWlyTz4dMPd2wLLM8kS31IoyHlwx1QVVe
+	 HeSCo3N2dQ9bzGY0gDwiSzArBFTPKyAg8b00l11zcmdXGvWpX57HcLHE1n1OGa+aB/
+	 l33NVuesCone/otY1wr9SZsjCzJVeNJHxXCE7dqQryA66/0y0h5zzBsJvwTlhv/ra4
+	 9as+mdTAp0n2w==
+Date: Tue, 24 Nov 2026 07:45:51 +0000
+To: linux-wpan@vger.kernel.org, netdev@vger.kernel.org
+From: Ryan Prinz <rc4d5a@protonmail.com>
+Cc: Alexander Aring <alex.aring@gmail.com>, Stefan Schmidt <stefan@datenfreihafen.org>, Miquel Raynal <miquel.raynal@bootlin.com>, "David S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, linux-kernel@vger.kernel.org, Ryan Prinz <rc4d5a@protonmail.com>
+Subject: [PATCH net v5] ieee802154: 6lowpan: validate fragment offset against datagram size
+Message-ID: <20261124074531.1701179-1-rc4d5a@protonmail.com>
+Feedback-ID: 190731814:user:proton
+X-Pm-Message-ID: 5db93f1eb541a8ff9e8e77829bba84e724955fbe
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -70,192 +61,81 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
- kwepemk200008.china.huawei.com (7.202.194.74)
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-resctrl assigns MBM counters per domain: mbm_L3_assignments takes a
-domain ID, a group can have a counter in one domain and none in
-another, and resctrl_arch_cntr_read() and resctrl_arch_reset_cntr()
-are given the counter to use.
+A 6LoWPAN fragment carries the datagram's total size (d_size) and its
+own offset within it. lowpan_frag_queue() never checks that the
+offset, or offset plus length, fits inside d_size, and never rejects
+an empty fragment.
 
-The driver ignores that counter and looks the monitor up in
-mbwu_idx_to_mon[], indexed by CLOSID and RMID.
-resctrl_arch_config_cntr() fills that array without looking at the
-domain, so each group has one monitor for the whole resource.
-Whichever assignment is written last selects the monitor the group
-reads in every domain.
+A datagram is considered complete once enough bytes have been counted
+(fq->q.meat) toward d_size, regardless of whether those bytes actually
+form a contiguous range. So an out-of-range or empty fragment's length
+still counts toward completion, even though it doesn't belong anywhere
+in the datagram.
 
-For example, with the counter ID each group uses for mbm_total_bytes
-on each domain and "_" for none:
+IPv6's ip6_frag_queue() already bounds each fragment's end against
+IPV6_MAXPLEN and rejects zero-length fragments; 6LoWPAN had no
+equivalent checks.
 
-                                domain 0         domain 1
-  mount, mkdir g1               default=0 g1=1   default=0 g1=1
-  unassign both on domain 1     default=0 g1=1   default=_ g1=_
-  assign g1 on domain 1         default=0 g1=1   default=_ g1=0
+Fixed by rejecting any fragment that is empty, or whose offset (or
+offset + length) exceeds d_size.
 
-g1 is assigned the lowest free counter on domain 1, counter 0. That
-assignment is the last one written for g1, so it selects the monitor
-g1 reads in every domain. On domain 0, g1 uses counter 1, but reads
-the monitor of counter 0:
-
-                      counter whose monitor is read on domain 0
-                      default      g1
-  expected            0            1
-  actual              0            0
-
-That is the default group's monitor.
-
-Translate the counter ID with assigned_counters[], which maps a counter
-ID to a monitor of the class and is valid in every domain.
-
-mbwu_idx_to_mon[] is left alone: resctrl_arch_config_cntr() still fills
-it, but the read and reset paths no longer consult it, and a future
-default mbm_assign_mode may use the array, so removing it can be
-considered separately. Unassigning a counter now resets its monitor,
-where before the lookup made the reset a no-op; the monitor is reset
-again when the counter is next assigned.
-
-Fixes: a5ff6ef2d73e ("arm_mpam: resctrl: Add resctrl_arch_cntr_read() & resctrl_arch_reset_cntr()")
-Suggested-by: Ben Horgan <ben.horgan@arm.com>
-Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
-Cc: <stable@vger.kernel.org>
+Fixes: 7240cdec60b1 ("6lowpan: handling 6lowpan fragmentation via inet_frag=
+ api")
+Signed-off-by: Ryan Prinz <rc4d5a@protonmail.com>
 ---
+v5:
+ - Resent as a new thread instead of in reply to the v1 thread, per
+   Jakub Kicinski's request. No content changes from v4.
+
 v4:
-- Rename: mon_for_cntr() -> mon_idx_from_cntr_id(), and drop the comment. (Ben)
-- Add is_cntr parameter to make read_mon_cdp_safe() and
-  reset_mon_cdp_safe() the same pattern. (Ben)
-- v3: https://lore.kernel.org/all/20261118125417.671859-1-ruanjinjie@huawei.com/
-v3:
-- Keep mbwu_idx_to_mon[] and remove the cleanup. (Ben)
-- Split out as a mpam seperate patch.
-- Remove unnessary stable version.
-- v2: https://lore.kernel.org/all/20261113083506.4129060-2-ruanjinjie@huawei.com/
----
- drivers/resctrl/mpam_resctrl.c | 49 ++++++++++++++++++++++++++--------
- 1 file changed, 38 insertions(+), 11 deletions(-)
+ - Added a check for zero-length fragments (!skb->len), which the
+   previous check missed. ip6_frag_queue() and nf_ct_frag6_queue()
+   already reject these; this patch now does too.
+ - Reworded the impact description to stop claiming one specific
+   mechanism for how an out-of-range fragment causes harm. A
+   separate, pre-existing bug elsewhere in the reassembly code made
+   that mechanism unreliable; it's left out of scope here and will
+   be addressed on its own.
 
-diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
-index 8e9d5c68c2c1..a81adb1b1bfc 100644
---- a/drivers/resctrl/mpam_resctrl.c
-+++ b/drivers/resctrl/mpam_resctrl.c
-@@ -463,6 +463,14 @@ void resctrl_arch_mon_ctx_free(struct rdt_resource *r,
- 	resctrl_arch_mon_ctx_free_no_wait(evtid, mon_idx);
- }
- 
-+static int mon_idx_from_cntr_id(struct mpam_resctrl_mon *mon, int cntr_id,
-+			enum resctrl_conf_type cdp_type)
-+{
-+	u32 idx = resctrl_get_config_index(cntr_id, cdp_type);
+Reproduced two ways: with a local kernel module calling
+lowpan_frag_rcv() directly, and over mac802154_hwsim with three
+independent processes standing in for sender, receiver and attacker.
+An attacker in radio range who observes one fragment of an
+in-progress transmission reads d_tag, d_size and the addressing in the
+clear, then sends a single out-of-range fragment of its own before the
+legitimate fragment for that span arrives. In this arrival order, the
+receiver's reassembly completed with the attacker's bytes included in
+the final buffer instead of the out-of-range fragment being rejected.
+Both reproducers were re-run against this fix to confirm the
+out-of-range fragment is now rejected outright.
+
+AI Disclosure: An AI assistant (Claude) was used to assist with the
+analysis and testing. I have verified the vulnerability, the fix, and
+the test results myself and take responsibility for this contribution,
+per Documentation/process/coding-assistants.rst.
+
+ net/ieee802154/6lowpan/reassembly.c | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/net/ieee802154/6lowpan/reassembly.c b/net/ieee802154/6lowpan/r=
+eassembly.c
+index ddb6a5817d09..4edd307000c8 100644
+--- a/net/ieee802154/6lowpan/reassembly.c
++++ b/net/ieee802154/6lowpan/reassembly.c
+@@ -103,6 +103,9 @@ static int lowpan_frag_queue(struct lowpan_frag_queue *=
+fq,
+ =09offset =3D lowpan_802154_cb(skb)->d_offset << 3;
+ =09end =3D lowpan_802154_cb(skb)->d_size;
+
++=09if (!skb->len || offset > end || skb->len > end - offset)
++=09=09goto err;
 +
-+	return mon->assigned_counters[idx];
-+}
-+
- static int __read_mon(struct mpam_resctrl_mon *mon, struct mpam_component *mon_comp,
- 		      enum mpam_device_features mon_type,
- 		      int mon_idx,
-@@ -500,19 +508,25 @@ static int __read_mon(struct mpam_resctrl_mon *mon, struct mpam_component *mon_c
- }
- 
- static int read_mon_cdp_safe(struct mpam_resctrl_mon *mon, struct mpam_component *mon_comp,
--			     enum mpam_device_features mon_type,
-+			     enum mpam_device_features mon_type, bool is_cntr,
- 			     int mon_idx, u32 closid, u32 rmid, u64 *val)
- {
- 	if (cdp_enabled) {
-+		int code_idx = mon_idx, data_idx = mon_idx;
- 		u64 code_val = 0, data_val = 0;
- 		int err;
- 
--		err = __read_mon(mon, mon_comp, mon_type, mon_idx,
-+		if (is_cntr) {
-+			code_idx = mon_idx_from_cntr_id(mon, mon_idx, CDP_CODE);
-+			data_idx = mon_idx_from_cntr_id(mon, mon_idx, CDP_DATA);
-+		}
-+
-+		err = __read_mon(mon, mon_comp, mon_type, code_idx,
- 				 CDP_CODE, closid, rmid, &code_val);
- 		if (err)
- 			return err;
- 
--		err = __read_mon(mon, mon_comp, mon_type, mon_idx,
-+		err = __read_mon(mon, mon_comp, mon_type, data_idx,
- 				 CDP_DATA, closid, rmid, &data_val);
- 		if (err)
- 			return err;
-@@ -521,6 +535,9 @@ static int read_mon_cdp_safe(struct mpam_resctrl_mon *mon, struct mpam_component
- 		return 0;
- 	}
- 
-+	if (is_cntr)
-+		mon_idx = mon_idx_from_cntr_id(mon, mon_idx, CDP_NONE);
-+
- 	return __read_mon(mon, mon_comp, mon_type, mon_idx,
- 			  CDP_NONE, closid, rmid, val);
- }
-@@ -552,13 +569,13 @@ int resctrl_arch_rmid_read(struct rdt_resource *r, struct rdt_domain_hdr *hdr,
- 
- 	mon_type = mpam_feat_msmon_csu;
- 
--	return read_mon_cdp_safe(mon, mon_comp, mon_type, mon_idx,
-+	return read_mon_cdp_safe(mon, mon_comp, mon_type, false, mon_idx,
- 				 closid, rmid, val);
- }
- 
- /* MBWU counters when in ABMC mode */
- int resctrl_arch_cntr_read(struct rdt_resource *r, struct rdt_l3_mon_domain *d,
--			   u32 closid, u32 rmid, int mon_idx,
-+			   u32 closid, u32 rmid, int cntr_id,
- 			   enum resctrl_event_id eventid, u64 *val)
- {
- 	struct mpam_resctrl_mon *mon = &mpam_resctrl_counters[eventid];
-@@ -574,8 +591,8 @@ int resctrl_arch_cntr_read(struct rdt_resource *r, struct rdt_l3_mon_domain *d,
- 	l3_dom = container_of(d, struct mpam_resctrl_dom, resctrl_mon_dom);
- 	mon_comp = l3_dom->mon_comp[eventid];
- 
--	return read_mon_cdp_safe(mon, mon_comp, mpam_feat_msmon_mbwu,
--				 USE_PRE_ALLOCATED, closid, rmid, val);
-+	return read_mon_cdp_safe(mon, mon_comp, mpam_feat_msmon_mbwu, true,
-+				 cntr_id, closid, rmid, val);
- }
- 
- static void __reset_mon(struct mpam_resctrl_mon *mon, struct mpam_component *mon_comp,
-@@ -603,12 +620,22 @@ static void __reset_mon(struct mpam_resctrl_mon *mon, struct mpam_component *mon
- }
- 
- static void reset_mon_cdp_safe(struct mpam_resctrl_mon *mon, struct mpam_component *mon_comp,
--			       int mon_idx, u32 closid, u32 rmid)
-+			       bool is_cntr, int mon_idx, u32 closid, u32 rmid)
- {
- 	if (cdp_enabled) {
--		__reset_mon(mon, mon_comp, mon_idx, CDP_CODE, closid, rmid);
--		__reset_mon(mon, mon_comp, mon_idx, CDP_DATA, closid, rmid);
-+		int code_idx = mon_idx, data_idx = mon_idx;
-+
-+		if (is_cntr) {
-+			code_idx = mon_idx_from_cntr_id(mon, mon_idx, CDP_CODE);
-+			data_idx = mon_idx_from_cntr_id(mon, mon_idx, CDP_DATA);
-+		}
-+
-+		__reset_mon(mon, mon_comp, code_idx, CDP_CODE, closid, rmid);
-+		__reset_mon(mon, mon_comp, data_idx, CDP_DATA, closid, rmid);
- 	} else {
-+		if (is_cntr)
-+			mon_idx = mon_idx_from_cntr_id(mon, mon_idx, CDP_NONE);
-+
- 		__reset_mon(mon, mon_comp, mon_idx, CDP_NONE, closid, rmid);
- 	}
- }
-@@ -631,7 +658,7 @@ void resctrl_arch_reset_cntr(struct rdt_resource *r, struct rdt_l3_mon_domain *d
- 	l3_dom = container_of(d, struct mpam_resctrl_dom, resctrl_mon_dom);
- 	mon_comp = l3_dom->mon_comp[eventid];
- 
--	reset_mon_cdp_safe(mon, mon_comp, USE_PRE_ALLOCATED, closid, rmid);
-+	reset_mon_cdp_safe(mon, mon_comp, true, cntr_id, closid, rmid);
- }
- 
- /*
--- 
-2.34.1
+ =09/* Is this the final fragment? */
+ =09if (offset + skb->len =3D=3D end) {
+ =09=09/* If we already have some bits beyond end
+--
+2.51.2
 
