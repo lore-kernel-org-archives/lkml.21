@@ -1,82 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.21
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.41
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795529430;
-	b=sRwV25xpKbzyZWj7GL7ZcAGOewvGBmeKRRjMKvG+o2FBNynJfGYntrEotExQ8BO65NLC
-	 +PKnd7v0xUpk+F/gLQyiboz2R7ByIhCyu7QvmdSYHsGK/FlVyhZ3tqAlMU9ibcjn/cD25
-	 CYCmM/ydc0twOfdw9tSeOWI2AKtTxa/ztKOmKKo6BtayEbmIwo06PESDHbh0lG7Y6nemD
-	 d6R+R8v1y3eGir/dubslpwzZjfbN4LzhPGrhIupCs/hIaNssd/baVwOIqkfffjPLQdJng
-	 OSh2iU5SO6uT1ikzlInThokjyeTTIsJCqqrT+6QrxSSvduq5nK88/uBf9L5QGrpCO7A==
+	t=1795529432;
+	b=yNSahxlvM+N/12VKvbWhPecbusDibSDOzek2xv0h6fO31QomEneXNMHJCm2RQLhN8xxl
+	 Bxc4XTPz+QAB7hUjQu6Z3XjyNTZPS2V7e1yhxV7yQhKZ4i3ohi0qiWrM5nvpz5/akefyD
+	 tNU9y6O9RHX8wpRxEJcOj78YAdgTzLdfduEKwjq4gPwBicxVn+2eQNWTyyxB+Y8RWOdYp
+	 /oqidueMJLsmOEbSqoGH1gksDXst4Ar2HhbgTRkmOcLSWOQ+OxdJ7FK/wle3cN5cN9hnK
+	 oSb4w+NNSwEvTQqyqcYOfCuE5jk8n5AAmtQVU3paIni0OtHKlvD7N7Qfm4UnrsVsdAA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795529430;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:Date:To:cc:
-	 Subject:In-Reply-To:Message-ID:References:MIME-Version:Content-Type:
-	 Content-ID;
-	bh=Yf16UmoCdaq2rgm91/Zix7F1KLA/6UUFuc21FWaR1GM=;
-	b=RDNfnjqpFQ6chkgLRDudWz74CkOc8j9nezP9A9/7lx+0mIlk00AhhCV6ia/nqmjzMzrG
-	 aXsVAfAblTcMR9Xh8RahX/fxalC75lWVAKMvCb6TtxvGNYEHfcFFLBASd6zGgxD3/42Us
-	 L/lRYLCF4wJjlKWjrAzWel6V4bF0ZOEZRrwmQX8ImWPQgDF3S7hrwOLqksQqJlWZrnt33
-	 r+jAVQ19d9gCsm7p0BIO6+P3KakbRb0TdV0lCZZD6CW2Q+Z83TaRhnVpdVUvyOuIdnAO7
-	 CV4whRe1lK8h3SDvwDsEugoC4/YEWMaHJEOToCVLm7Wuv4TTE/6aeMwd6NbEIulhrOg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795529432;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=jXiPVtfN2wZl1+H6KM7aKPWRvFLxQP41vzviKryy7aM=;
+	b=n7Jn1nQGWRr9kCeXzdhigvmGrlFiZ4xOtqbwDqGfkVg8r904QZPc+UaQ6G6+DhBee+Pq
+	 hMpE/WBu5HC/++hpt8CFWP5p8cdbFBJKsvHoYMb93lEbzVsQgOzL+x9KA5mmpMaENcM51
+	 ZkhfCscAvX6B2n5OiqTOL3a2HKjMpcTihv5bPOfD0DTUBxbw6b3uEBs4bmwlHn2rvA72A
+	 Xn8Hu7k8cgr3hZnnvLe+RhYynuvUcuv9jy7vAFRZ+WAjnml/K2h86Vz2JnpYOcXI1/l+R
+	 KpumL8sxPWklawfmAZvl7C4WZdgM0t/DEhV6P3FarD5a1fnA0niGyK2WufR5rtF6jVw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b="NlZWj9w/";
-	arc=none smtp.remote-ip=198.175.65.21
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.21])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=B9cOdsCf;
+	arc=none smtp.remote-ip=209.85.222.41
+Received: from mail-ua1-f41.google.com (mail-ua1-f41.google.com [209.85.222.41])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8A6F9606A321;
-	Tue, 24 Nov 2026 14:10:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8A6F9606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CB7EA606B033
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 14:10:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CB7EA606B033
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=NlZWj9w/
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795529429; x=1827065429;
-  h=from:date:to:cc:subject:in-reply-to:message-id:
-   references:mime-version:content-id;
-  bh=DbF9blqS58BsaJrl77anwBbzdIRE63KSKh4+UiAGdb4=;
-  b=NlZWj9w/DYGwwx6X10B/Emz3NA4vxTeS5ujTmtCAGjb2qxOiGvYy+ELg
-   PGVkQx7Wc1roNt4frctDspWpVgYMkZnS03nqGpQuejYa8zbIUmhnBOjgj
-   LpcAUC6OYCrCLSxWf+fVaEU5QOg8nm7lKWlO2LYwLWOc6+2XrHSEOT4d1
-   TfJbB0oimPrC4/9L6m+Lc48+6P/YGAlnWRwdUYdr5vA0w9r9CAMS/pKjj
-   XxHQUurHszu08f8/JjYPq41VKDUQYbWsjOhlBDTEG1QWMfUvIrT7Vq7ZI
-   MKR8laKTGRTMwg1D6vJbuegTL7VOIMN8e5xdSbKLwt2kCKeRg4Qssys0I
-   w==;
-X-CSE-ConnectionGUID: 9IWQfRUWQWuZdumYkbA/vw==
-X-CSE-MsgGUID: QYE1cFBVTDOWDl04ReT/3Q==
-X-IronPort-AV: E=McAfee;i="6800,10657,11976"; a="4458048"
-X-IronPort-AV: E=Sophos;i="6.27,231,1787036400"; 
-   d="scan'208";a="4458048"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 06:10:28 -0800
-X-CSE-ConnectionGUID: QoaCtDQCQB6HE+TPlvwb+A==
-X-CSE-MsgGUID: akfHCXbTS5WImxDVLwN3OA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,231,1787036400"; 
-   d="scan'208";a="11782092"
-Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.190])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 06:10:23 -0800
-From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-Date: Tue, 24 Nov 2026 16:10:20 +0200 (EET)
-To: David Matlack <dmatlack@google.com>
-cc: linux-pci@vger.kernel.org, Bjorn Helgaas <bhelgaas@google.com>, 
-    Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>, 
-    Rob Herring <robh@kernel.org>, 
-    =?ISO-8859-2?Q?Krzysztof_Wilczy=F1ski?= <kw@linux.com>, 
-    "Rafael J. Wysocki (Intel)" <rafael@kernel.org>, 
-    =?ISO-8859-15?Q?Christian_K=F6nig?= <christian.koenig@amd.com>, 
-    Alex Williamson <alex@shazbot.org>, LKML <linux-kernel@vger.kernel.org>, 
-    stable@vger.kernel.org
-Subject: Re: [PATCH v2 07/16] PCI: Serialize bridge window sizing and resource
- assignment
-In-Reply-To: <DN314UP7ZLCR.39N4XNGLWKR05@google.com>
-Message-ID: <42d7af61-bf69-b440-8685-5d9cec4863dd@linux.intel.com>
-References: <20261120134716.3027-1-ilpo.jarvinen@linux.intel.com> <20261120134716.3027-8-ilpo.jarvinen@linux.intel.com> <DN314UP7ZLCR.39N4XNGLWKR05@google.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=B9cOdsCf
+Received: by mail-ua1-f41.google.com with SMTP id a1e0cc1a2514c-9905d61449cso1186450241.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 06:10:31 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795529431; x=1796134231; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=jXiPVtfN2wZl1+H6KM7aKPWRvFLxQP41vzviKryy7aM=;
+        b=B9cOdsCfRSm/kHBVHQzvDZZF/z2RrcH2FFKfpsj/vjD+Terp7WV3aMU4fYavvSdty2
+         +DfuMEiqNsVK3QErFBhvOWY6gPu0rMGwMdpc+OBca16yQnDzoF3rtADwW64d2+HTDYbn
+         9lcAu1EEZ/4BhGNFidq36l/XsWiVYGWDUxI6nXvdI0pBLWsovczeWdW5yu/3ybCpre3q
+         XdYPXaixauQ9TCHlVQ3CvEnE2FHYNH50FqFh2T9wq85/vgt/WMnDnW/ZyUhM+aBH//wb
+         bOJjrA7aedUkkWYf3xaF5yiJ94ZkfqLf+nkzQ2Tn9i2mSKL8VuoiKXOmjihuQS5Jo8y8
+         fSyw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795529431; x=1796134231;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=jXiPVtfN2wZl1+H6KM7aKPWRvFLxQP41vzviKryy7aM=;
+        b=d07fJW/ZWNHJ0ERzXpw2TAzK/Rf3OZZzfACh25NO1ZDunGqrsJBkTvvIpX5iq8nar6
+         16sy7HuE5b5CBmrqj/HGCOPQvoXytdMJTvmYikvMvCQW9fx0sF9WqD0bMqbqOTapuIGb
+         nD//190qdWkhSZ4+a+jlCk78+qGNZe7Cp4ScaBI7m5+d70jc1VD2Ds2A+8QgceNU+Rbs
+         UmrINjG/KPtzNQVMio1x2z2MOnB7fdgr2WE1oq/Wu2hTyMSwnzGrL2WAMSGKr9Axfrmk
+         ZM6Dw2lIPHVghpurhMRahIepQG0uEcuaB9iE5HPMNBPeQ56qftzT87snPFbOQ7tttoH/
+         7VDQ==
+X-Forwarded-Encrypted: i=1; AL+hErE8ri7sjB8D/aA8Kxz4mwSH6RoKnRRzmBiOP6brE0sNWguwV8EtSxJQ45YV9ngfD0Mu7OekU1Lxok/eGtA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/Rv26NINctVa/JjChQGP53Pk7M0epBDtoXVo+xyLIHbQVLWC5a
+	2jsqr9QgSY0e7p8PKgTqGj6VDaKKq9wIldOw2IyAoWxxkFycEXpXkgss
+X-Gm-Gg: AZFdTZdisb7BDKBFNcCIiSq7RKvEusIxLidsuZYQWiFyCphJ8oyJkvhrHsX1rYXCo4C
+	/qa5TvEeYtgnyBxXXCvmwI6UUrY4BG+ROiAzudsXxickAJpJ4LVm1dZVohZ5Q8jPPGgNtSe4ssA
+	BUSxTQ9rVbcXD9e1GHbDptqwmWn4Jy9eMsm0xlcd1i7BgYc+53C3AY2PR84hwVLdh+3FQWXx/Oh
+	CXUwsV30Vz6p8RiKmdluHfecSkZ37ZQPvCixzHme5WeVwTP/XB3nlNMD2eqI3ii8cQXJApN+aUN
+	ZtOmMTtVvHszl96KzhyBY3WY5/BNzvT+csaHb6PBBHBaf/JkhXKIXhk9fedN3W32nyF9xThtwa5
+	0mWDHrYh/cXe32x3kGS5dcFOLEx/1YDdcjFxdPjkq86bEWpy3AjhuighF60Rh2EFmM6Q/yjNc4L
+	LHd8kZXDJIPNLm3DlaNlqYaVFbtwvZpK63dlXqWdegpILsxIPV3iGwzlFBj4sjW6V8WHfBbEtKl
+	KXGbPrYf87oXOBZM5LjPU+WyNL1aAZAaJ5fjhwuh1GsA4yKwa81ZllJdcvOgd4Ue3eg67t6dTDz
+	H14kj0tbU3yhKXB4nDNqHmb/YXo2pbjF
+X-Received: by 2002:a05:6122:628b:b0:5ec:e6b8:eb94 with SMTP id 71dfb90a1353d-5ee8aefcf60mr8116807e0c.12.1795529430568;
+        Tue, 24 Nov 2026 06:10:30 -0800 (PST)
+Received: from shine.local ([168.196.221.52])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5ee8b555137sm14056121e0c.3.2026.11.24.06.10.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 06:10:30 -0800 (PST)
+From: "Andrei A. Bykov" <andreiab9019@gmail.com>
+To: linux-bluetooth@vger.kernel.org
+Cc: marcel@holtmann.org,
+	luiz.dentz@gmail.com,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 0/2] Bluetooth: fix bonded LE peripheral reconnect completion and holds
+Date: Tue, 24 Nov 2026 11:09:54 -0300
+Message-ID: <20261124140956.15296-1-andreiab9019@gmail.com>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,150 +95,72 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/mixed; BOUNDARY="8323328-391643659-1795523890=:1182"
-Content-ID: <56a05202-b09a-9069-dc67-183d2681f167@linux.intel.com>
+Content-Transfer-Encoding: 8bit
 
-  This message is in MIME format.  The first part should be readable text,
-  while the remaining parts are likely unreadable without MIME-aware tools.
+This series fixes two interactions seen when reconnecting a bonded Windows
+central to an LE HID peripheral on an Intel AX210 with BlueZ 5.88.
 
---8323328-391643659-1795523890=:1182
-Content-Type: text/plain; CHARSET=ISO-8859-15
-Content-Transfer-Encoding: QUOTED-PRINTABLE
-Content-ID: <0777c4a3-630c-0741-ee0d-4cca22293e78@linux.intel.com>
+The first patch preserves a synchronous terminal-event waiter across an
+unrelated command reply and refreshes that waiter for the next synchronous
+command after timeout or cancellation. The second keeps LE discovery hold
+ownership in its completion callback and handles both encryption and key
+refresh setup paths, including failed setup followed by a late event.
 
-On Mon, 23 Nov 2026, David Matlack wrote:
+Changes since v1, following the public Sashiko report:
+- Refresh the saved request from a callback-bearing synchronous command,
+  including after timeout or cancellation; retain Reset resend ownership.
+- Handle the BT_CONFIG key-refresh path through hci_encrypt_cfm().
+- Explicitly abort failed LE setup and prevent later feature events from
+  announcing that aborting connection as successfully connected.
+- Rebase onto the official Bluetooth master at 4fe38719e673, rather than
+  the GitHub workflow branch used for v1.
 
-> On Fri Nov 20, 2026 at 5:47 AM PST, Ilpo J=E4rvinen wrote:
-> > +/*
-> > + * Serializes bridge window sizing, resource fitting, and assignment.
-> > + * pci_rescan_remove_lock cannot be used for this because BAR resize a=
-nd
-> > + * some drivers run these operations under device_lock() during probe.
-> > + *
-> > + * Context:
-> > + *  - Nests inside pci_rescan_remove_lock and device_lock().
-> > + *  - Nests outside pci_bus_sem.
-> > + */
-> > +static DEFINE_MUTEX(pci_res_setup_lock);
->=20
-> Hi Ilpo,
->=20
-> Could this lock live in struct pci_host_bridge instead of being global?
->=20
-> As far as I can tell, a sizing and assignment pass never goes above a
-> root bus, and root bus windows are only allocated from, never modified.
-> So passes on different host bridges never touch the same resources.
-> Every entrypoint has a pci_bus or pci_dev to look up the host bridge
-> with, and pci_assign_unassigned_resources() already goes one root bus at
-> a time.
+Local extracted-function tests pass 152 dispatch and 62 lifetime checks
+with GCC, Clang and ASan/UBSan. Both the unpatched tree and v1 fail the
+new regression cases. These checks model kernel services and do not
+exercise concurrent workqueues or a physical controller.
 
-Hi David,
+A full kernel and modules build of this revision on the official base
+completed successfully; that upstream build was not boot-tested.
 
-I don't immediately see anything preventing from moving it into the host=20
-bridge struct, I'll look into this. pci_assign_unassigned_resources() does=
-=20
-process all root busses but sequentially so it should work too.
+I also tested a backport to Linux 7.3.5 with the same configuration used
+for v1 and upstream prerequisite f3183d7ad101 (Bluetooth: hci_sync: Drop
+the command's sk reference), already present in the series base. Repeated
+bonded reconnects, approximately seven hours without observed connection
+loss, and disabling/re-enabling Bluetooth on Windows passed.
 
-Not sure if it really helps much currently because pci_bus_sem is also=20
-held but that might eventually change (there's the series which=20
-attempted to split that into a separate lock in each bus, I don't=20
-remember why that work stalled).
+A hardware trace confirms encryption can complete before remote features
+without prematurely completing the feature waiter. The short HID test
+sent 48 reports. In a teardown run with 20 seconds of post-exit recording,
+Disconnection Complete arrived 137 ms after Disconnect, with no observed
+command or connection timeout. One earlier teardown wait of about two
+seconds was not reproduced; its cause and relation to this series remain
+unconfirmed.
 
-> To be clear, the lock wouldn't protect any fields of struct
-> pci_host_bridge itself. It would protect the resource[] entries of the
-> devices below the host bridge, and the BAR, bridge window and Resizable
-> BAR registers they mirror. The host bridge is just the smallest object
-> that contains a whole pass.
->=20
-> My motivation isn't performance. It's that global locks make it hard to
-> tell what data they protect. pci_rescan_remove_lock is a good example:
-> it's held around runtime rescans, but not around enumeration of ACPI
-> host bridges at boot,
+Windows suspend/resume remains a limitation: in two attempts BlueZ
+reported a connection while the test HID application continued waiting
+for the notification subscription. I have not localized this to the peer,
+BlueZ, the application or the kernel; this series does not claim to
+resolve that scenario.
 
-Not yet. ;-)
+OpenAI Codex assisted with the analysis, patch preparation and tests.
+Sashiko supplied the review findings addressed by this revision.
 
-=2E..I already have another (unsubmitted) series that adds=20
-pci_rescan_remove_lock around host bridge setups because they too can race=
-=20
-with a sysfs /rescan leading to adding devices more than once, etc.
+v1: https://lore.kernel.org/r/20261121033104.441146-1-andreiab9019@gmail.com
+Review: https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261121033104.441146-1-andreiab9019%40gmail.com
 
-Early enumeration obviously won't need it but to be able to add lockdep=20
-asserts to strategic places, I want to cover early init paths too.
+Andrei A. Bykov (2):
+  Bluetooth: hci_sync: keep unrelated replies away from event waiters
+  Bluetooth: hci_core: preserve LE feature holds across encryption
+    events
 
-The host bridge setup locking series requires though that=20
-pci_rescan_remove_lock is reentrant (the v16 series inflight) because=20
-there are a few cases that face lock-divergent callers (VMD, some HP=20
-driver, some arch code that will be partially fixed by that v16 series,=20
-and a few others I don't now recall).
-
-The races that this series is fixing, however, are easier to hit than host=
-=20
-bridge setup ones, because, e.g., ThunderBolt hotplug racing with some=20
-probe() initiated BAR resize does not depend on root triggering a racing=20
-rescan call through sysfs.
+ include/net/bluetooth/hci_core.h |  9 +++++++-
+ net/bluetooth/hci_core.c         | 16 +++++++++++++-
+ net/bluetooth/hci_event.c        | 36 +++++++++++++++++++++++++-------
+ 3 files changed, 52 insertions(+), 9 deletions(-)
 
 
-> and that was confusing when I was working on PCI
-> Live Update. This is a different lock, of course, but it would be nice
-> to avoid adding another global lock.
+base-commit: 4fe38719e6738feaa90486e36b0790dd5d960a96
+-- 
+2.56.1
 
-Now I actually started to wonder why couldn't pci_rescan_remove_lock also=
-=20
-be per host bridge?? (+ a separate lock to protect root buses list)
-=2E..I think I'll take a look at this as well.
-
-> I tried it on top of this series to see how much it changes. Only this
-> patch is affected. It adds a mutex to struct pci_host_bridge,
-> initializes it in pci_init_host_bridge(), and uses a small helper in
-> setup-bus.c:
->=20
->   static struct mutex *pci_res_setup_lock(struct pci_bus *bus)
->   {
->   =09return &pci_find_host_bridge(bus)->res_setup_lock;
->   }
->=20
-> All of the guard() sites and most of the lockdep asserts already have a
-> bus or dev to pass in. __assign_resources_sorted() only gets a list, so
-> it would have to assert using the first entry.
-
-I can just move that assert one level up to avoid this problem.
-
-> Putting the lock in the host bridge would also make it reachable from
-> remove.c. pci_destroy_dev() drops pci_bus_sem after list_del() and then
-> calls pci_free_resources() without pci_res_setup_lock. I couldn't find a
-> path where this can cause bugs, but that seems like just a lucky
-> side-effect of the current code. It would be nice to have the new lock
-> explicitly cover that case too.
-
-I don't think remove can cause problems because we also hold pci_bus_sem=20
-over the entire sizing and assignment operation on purpose to keep the bus=
-=20
-devices from coming and going underneath us.
-
-So either:
-
-1. list_del() has already removed the dev and sizing nor assigned never=20
-   sees it.
-
-2. pci_destroy_dev() cannot remove it from list until the sizing and=20
-   assignment algorithm has finished.
-
-=2E..So to me it looks it works as designed, and luck has nothing to do wit=
-h=20
-it. :-)
-
-
-=2E..I think what you were actually suggesting is to extend this new lock t=
-o=20
-do something else than serialize sizing and assignment calls. :-) It is=20
-not meant for that, and even less so competing with pci_bus_sem's role in=
-=20
-protecting devices in buses.
-
-> This is not a blocker by any means, just wanted to get your thoughts.
-
-I really appreciate you taking a look on this.
-
---=20
- i.
---8323328-391643659-1795523890=:1182--
