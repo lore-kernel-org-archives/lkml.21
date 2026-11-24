@@ -1,54 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.253
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.198
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795490955;
-	b=U4oQ0MVBHMNqtqI+WgEdu4o4tGQ1djbMxb369BDhhgFEo4wrc5Oh1XWgeO4d8ftnFVSR
-	 YK818uIdcUdN8JZW5yjVAvW55KVcKICO0e06jwybrSuWrMBYMOM/tLDLh/vuKGJKVYCcJ
-	 W5lTOPkj3TNxwS7H8pOHOMmUHQyzKxR9OX9rn4+Rt/F08w/KCyt8XdtpjmbeyzlHl+8eq
-	 McAGggsvdFT4Co4kR9S9nBj50NawcwizCjsAL5Pj0vhd0NWu51W+CPlhu31Q7yG20dqOx
-	 +EP3sWbz9lD6oqE5KrcG2nfQ14DG5Ibtecy1qCmwFWgkU3EwE11V7t+RHlqnGxsar5w==
+	t=1795490959;
+	b=ExX5D9sOZ4kkoGKMBePJpaKFb09CONG5p0fYKQ2ZoFNix6/FCKGFi0s3wnrnbtnzJKpF
+	 hgue71PLvQsaXY9yTZhWus8C0BO9epySBFt0cb2KrhLRzwiNbxz8khPlQFEq9E8ICo//Z
+	 HkcG0tnLqJQPSto/Ira6VJXU5XZEKvn6Eyxz7E5Z75Mh24elq35fNArPmGsBqKH1egkgj
+	 QrpJ2EneIJMVThvppUt9Q9mMAkDDYwr79fDstY8ARKZJf/UrKim4iKE8Nmcwf2mCcEz8l
+	 Q75EI7iejNSkG2x8OEV5b7LnfZcfbEHTBbNQbIlLHgHnh9Sluxth/ut6TlvegxM4XPw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795490955;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=5ALeO3oG+Hv+dqFmliGYTeohKGuRFLqgeGcjhloofMw=;
-	b=kTpT53ybNSCAVRSxMHqedKckJYX+LpUT1hVKDD0VfIOWK9Y4kfALt5Ytfi7DNp9QlXEk
-	 JHXB8gZwYTFhqhYIXLiNMuoMLdUPrO16LJ++FZURIpnaJLsnshj3X4ZA1Yp2dJdGoDbUB
-	 80+S8dM4SmHxU375wcKRJy6dgPQfs3yYzZYOfEsL7wAQVZVd0GHKwj8V64QxG4j8HRgzJ
-	 eq0z5677etG6vXykUljW2DTi0WnNUILzDdpTHJy8DEWWHpIsyGku/Ls92XX4YMfa3z7z3
-	 Q2Q21aaBCTZerokf4yDZo4J6pZR6+2n1tT0z65MU0sFfS5On4jjw8F1Vy2hQscyauSg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795490959;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
+	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
+	 Content-Type;
+	bh=fT0zSbnD3mo4aMVQeMcqaVdNSoaD5DKwARAcwlYJEpk=;
+	b=i4+6wYPCPQ92dIw9dhTtIS1nPf5K2dO6r1Z3aXFw0gNE2s9hZ49kPUTXONhgXxG7sb84
+	 DI8seMbg7CV86Iqa+zdiS1qVofj5E9P4c4wpyDYdmjCF+P6VqsC7znPUdzUz810UJ5mvC
+	 Gr+6rsBaIIKk0PXFzt+y6RH17jKfGejX064orHq2N4aP2tYe8MsCdoVPz45wdllsJbccj
+	 nFerHpQjRWt0KyKoKFHZPiNKgRAYVBTTWTjWXFGvj3Zdwh9D7W6FKuEgrPBSwFlbYCseg
+	 GIgZwuwgPNtyBpXpaAVjKkGZpesSMM2A4QAEL0+i8wXmFpcKhjltZxVeHOHDCDI8/0g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=IPJEXKiS;
-	arc=none smtp.remote-ip=95.215.58.253
-Received: from mta1.migadu.com (out-253.mta1.migadu.com [95.215.58.253])
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=ALdQ07cK;
+	arc=none smtp.remote-ip=74.125.82.198
+Received: from mail-dy1-f198.google.com (mail-dy1-f198.google.com [74.125.82.198])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 12BBE606A332
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 03:29:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 12BBE606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 961F2606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 03:29:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 961F2606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=IPJEXKiS
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=/Ycwrk15J2G1unV9F7wLuAEx7H9rovtHg/SNblnbumQ=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795490952; v=1; x=1796095752;
- b=IPJEXKiSxVnK/jR9RgYShva3fAArlNtqkF5uzg0ACjaxKuG1hmsTZdu2IHjRPxxRfQtS/WWl
- xqP00acqw6LbZUGQHK4M52EbzTn8zK+3/yk2Wh8ARQUafmHg2gFF+hV75kmi98C1ztd2qpLSMzT
- S7Hf7ucrbtGVPOnFXUsUNaLw=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 4e30fe14ff1d33fe;
-	Tue, 24 Nov 2026 03:29:10 +0000
-X-Mizu-Trace-ID: 4e30fe14ff1d33fe
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <4175783d-de11-4e73-bfd2-515fd30a3c57@linux.dev>
-Date: Tue, 24 Nov 2026 11:28:57 +0800
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=ALdQ07cK
+Received: by mail-dy1-f198.google.com with SMTP id 5a478bee46e88-3869865a304so2721448eec.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 19:29:18 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795490958; x=1796095758; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=fT0zSbnD3mo4aMVQeMcqaVdNSoaD5DKwARAcwlYJEpk=;
+        b=ALdQ07cKpdmyBHJpYRiLET3wQu906BW/wX2YomBauyAvAtDirelIFTcQ8n70WrbJQV
+         ErZx5ih41SnFUYXOt9xVwXtIoPdAswHrTFpXyEHK9xtSCACsATGe6q7bZ1AVz19CqjJ8
+         /1CUlZaum97img0HdfxOML2j9YZyC975kbS6xG3GErJJiyBAhXskj0Z0l0mWwBGQKtmK
+         MeHC/XCN9JydEE4+2eBjV5bWAjU4Hev9TPifqGClYv+pIAt4GQtAeYplXmtaVYhgqh+J
+         l320ItlZ25mcXg6fSksXGGvWDcHa+R7OlD5xp20WqhVrOIpYb6sbHBvhabJBL1hlK3w4
+         qWJg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795490958; x=1796095758;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=fT0zSbnD3mo4aMVQeMcqaVdNSoaD5DKwARAcwlYJEpk=;
+        b=NqPHdsfbEOeqF3wPssc4vsS6fEbuvbVJ4ynXJWkv6ZHOiZWQhzkU2OBpXiL3FSwj94
+         R++LCQFuTzcOx9CrA0bqo6aglVKW3g1gJGpSKVdu2AVHN50CtSG3FTG7LwN+AcUDZWcv
+         bu16inmJTrAI5GJSlNZvQZ0/u03NiiChZYPN/psvY+b4RsZAPLU9xPxHjyLkzjJWNG/+
+         jZLjz1aSN9j7VaCs/i6ag2A9JvOflgv/nBwLJ8gl6bzh3U1vK/i5k/Ig+z7rSCdTd0yu
+         yCtY4aQTERmXn8ZcobmCyXifAgbd0MnkeGS8I9RN/e/E4EX/mRdliiq2hftK+AD/a64R
+         9xOg==
+X-Forwarded-Encrypted: i=1; AL+hErHoV9BeXFz7tDtzqrlkd5RLn8ygi3AS4eQqoz/PjOXMAWGHJAizPFs9qbWTP5iNETKN//pB2arY0WmgyE4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9VuawW52dnsMHDRVSdmbgeL5tWy7h0EMp/dfqdQQFiEeXgEBn6
+	PPrQlt3dNkOqlPQYlzxnj/mfxy4aQGg6qHiZVODF8nkfMetr7+LBaZ3KqhM4ubAthtEwmYlTzkp
+	txIgvK/ehpQ==
+X-Received: from dlea16-n2.prod.google.com ([2002:a05:701b:4210:20b0:1b5:43fc:8107])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:1701:b0:1a4:c892:b130
+ with SMTP id a92af1059eb24-1b55feaa6a4mr10986719c88.15.1795490957426; Mon, 23
+ Nov 2026 19:29:17 -0800 (PST)
+Date: Mon, 23 Nov 2026 19:28:53 -0800
+In-Reply-To: <20261124032902.3859564-1-irogers@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,456 +78,298 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH-next v2 3/3] cgroup/cpuset: Disallow CPU 0 from being used
- in isolated partition
-To: Waiman Long <longman@redhat.com>, Tejun Heo <tj@kernel.org>,
- Johannes Weiner <hannes@cmpxchg.org>, =?UTF-8?Q?Michal_Koutn=C3=BD?=
- <mkoutny@suse.com>, Jonathan Corbet <corbet@lwn.net>,
- Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
- <rdunlap@infradead.org>, Ridong Chen <ridong.chen@linux.dev>,
- Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
- Juri Lelli <juri.lelli@redhat.com>,
- Vincent Guittot <vincent.guittot@linaro.org>,
- Dietmar Eggemann <dietmar.eggemann@arm.com>,
- Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>,
- Mel Gorman <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>,
- K Prateek Nayak <kprateek.nayak@amd.com>,
- Anna-Maria Behnsen <anna-maria@linutronix.de>,
- Frederic Weisbecker <frederic@kernel.org>, Thomas Gleixner <tglx@kernel.org>
-Cc: cgroups@vger.kernel.org, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-References: <20261123041209.382726-1-longman@redhat.com>
- <20261123041209.382726-4-longman@redhat.com>
-Content-Language: en-US
-From: Guopeng Zhang <guopeng.zhang@linux.dev>
-In-Reply-To: <20261123041209.382726-4-longman@redhat.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Mime-Version: 1.0
+References: <20261124032902.3859564-1-irogers@google.com>
+X-Mailer: git-send-email 2.56.1.809.ga0b61035b5-goog
+Message-ID: <20261124032902.3859564-3-irogers@google.com>
+Subject: [PATCH v9 02/11] perf symbol: Replace sorted boolean with sorted_cnt
+ prefix length
+From: Ian Rogers <irogers@google.com>
+To: Namhyung Kim <namhyung@kernel.org>, Arnaldo Carvalho de Melo <acme@kernel.org>, 
+	Alireza Haghdoost <haghdoost@uber.com>, Ian Rogers <irogers@google.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, Jiri Olsa <jolsa@kernel.org>, 
+	Adrian Hunter <adrian.hunter@intel.com>, James Clark <james.clark@linaro.org>, 
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
+When symbols are appended after an initial sort, re-running full-array
+merge sort across the entire symbol table rescans the already-sorted
+prefix and allocates a scratch buffer even when only a few symbols were
+appended.
 
+Replace the @sorted boolean in struct symbols with @sorted_cnt, the
+length of the leading start-address-sorted prefix (so @sorted_cnt ==
+@cnt indicates the entire array is sorted):
+- Pass first_unsorted to symbols__insertion_sort_range() so
+  already-sorted prefixes are not rescanned.
+- In symbols__sort_locked(), binary-insert in place without allocating
+  when <= 8 symbols have been appended (or cnt <= 64), and otherwise
+  sort only the newly appended tail [sorted_cnt .. cnt) before merging
+  with [0 .. sorted_cnt).
 
-在 2026/11/23 12:12, Waiman Long 写道:
-> Domain isolating CPU 0 can be problematic and may even cause panic in
-> some cases. In the near future, we are going to enable dynamic change to
-> the nohz_full CPUs to include the CPUs that are in isolated partitions
-> via the CPU hotplug mechanism. However, CPU 0 can't be made offline
-> for some architectures like x86. IOW, putting CPU 0 in an isolated
-> partition may not have the same degree of isolation than other CPUs
-> in the isolated partition in the future. For all these reasons, it is
-> better to disable its use in an isolated partition.
-> 
-> Add a new partition error code to indicate to the users that CPU 0 cannot
-> be used in an isolated partition. The prstate_housekeeping_conflict()
-> function is modified to return the partition error code directly as it
-> can be either PERR_HKEEPING or PERR_ISOLCPU0.
-> 
-> Some existing test cases in test_cpuset_prs.sh are modified to remove
-> the use of CPU 0 in isolated partition setup and explicit new test cases
-> are added to test that. The NOHZ_FULL test cases also modified to run if
-> the "nohz_full" parameters includes all the CPUs except CPU 1-7 instead
-> of 0-7. Though it is not recommended to put CPU 0 in the nohz_full boot
-> parameter, it is the only way we can test that the cpuset code is able to
-> correctly disallow isolating the last nohz_full/domain housekeeping CPU.
-> 
-> With CPU 0 likely not allowed in the nohz_full list except for powerpc
-> and with CPU 0 also disallowed from being domain isolated and offline,
-> we will likely have CPU 0 being an always present online housekeeping
-> CPU for most kernels. For those kernels, we will not be able to trigger
-> partition invalidation due to using up the last nohz_full/domain
-> housekeeping CPU in an isolated partition and the NOHZ_FULL test cases
-> in test_cpuset_prs.sh will not be run.
-> 
-> The cgroup-v2.rst documentation file is also modified to indicate that
-> CPU 0 cannot be used in an isolated partition.
-> 
-> Signed-off-by: Waiman Long <longman@redhat.com>
-> ---
->  Documentation/admin-guide/cgroup-v2.rst       |  1 +
->  kernel/cgroup/cpuset-internal.h               |  1 +
->  kernel/cgroup/cpuset.c                        | 90 ++++++++++---------
->  .../selftests/cgroup/test_cpuset_prs.sh       | 43 +++++----
->  4 files changed, 80 insertions(+), 55 deletions(-)
-> 
-> diff --git a/Documentation/admin-guide/cgroup-v2.rst b/Documentation/admin-guide/cgroup-v2.rst
-> index 9e3c67b02ae2..2f792ff29425 100644
-> --- a/Documentation/admin-guide/cgroup-v2.rst
-> +++ b/Documentation/admin-guide/cgroup-v2.rst
-> @@ -2771,6 +2771,7 @@ Cpuset Interface Files
->  	and excluded from the unbound workqueues.  Tasks placed in such
->  	a partition with multiple CPUs should be carefully distributed
->  	and bound to each of the individual CPUs for optimal performance.
-> +	The boot CPU (CPU 0) cannot be used in an isolated partition.
->  
->  	A partition root ("root" or "isolated") can be in one of the
->  	two possible states - valid or invalid.  An invalid partition
-> diff --git a/kernel/cgroup/cpuset-internal.h b/kernel/cgroup/cpuset-internal.h
-> index 1ba94ffaff9d..505682493d81 100644
-> --- a/kernel/cgroup/cpuset-internal.h
-> +++ b/kernel/cgroup/cpuset-internal.h
-> @@ -36,6 +36,7 @@ enum prs_errcode {
->  	PERR_ACCESS,
->  	PERR_REMOTE,
->  	PERR_ISOPARENT,
-> +	PERR_ISOLCPU0,
->  };
->  
->  /* bits in struct cpuset flags field */
-> diff --git a/kernel/cgroup/cpuset.c b/kernel/cgroup/cpuset.c
-> index 30af9531acdd..4b90b4c0fba6 100644
-> --- a/kernel/cgroup/cpuset.c
-> +++ b/kernel/cgroup/cpuset.c
-> @@ -61,6 +61,7 @@ static const char * const perr_strings[] = {
->  	[PERR_ACCESS]    = "Enable partition not permitted",
->  	[PERR_REMOTE]    = "Have remote partition underneath",
->  	[PERR_ISOPARENT] = "Root partition is not allowed with isolated parent",
-> +	[PERR_ISOLCPU0]  = "Boot CPU (cpu 0) cannot be isolated",
->  };
->  
->  /*
-> @@ -1327,25 +1328,28 @@ static void partition_xcpus_del(int old_prs, struct cpuset *parent,
->   * @parent_prs: Parent partition root state
->   * @new_cpus: the set of new effective xcpus in the current cpuset
->   * @del_cpus: old CPUs going to be removed from current cpuset, can be NULL
-> - * Return: true if there is conflict, false otherwise
-> + * Return: PRS error code if there is a conflict, PERR_NONE otherwise
->   *
-> - * There are two different housekeeping conflicts to be checked:
-> + * There are three different housekeeping conflicts to be checked:
->   * 1) If new_prs is PRS_ROOT, none of the @new_cpus can be a boot-time isolated
->   *    CPU. IOW, the whole @new_cpus must be a subset of HK_TYPE_DOMAIN_BOOT.
->   * 2) If nohz_full is enabled and we have isolated CPUs, their combination must
->   *    still leave housekeeping CPUs. This check is only needed if new_prs
->   *    differs from parent_prs and one of them is PRS_ISOLATED.
-> + * 3) CPU 0 cannot be used in an isolated partition.
->   */
-> -static bool prstate_housekeeping_conflict(int new_prs, int parent_prs,
-> -					  struct cpumask *new_cpus,
-> -					  struct cpumask *del_cpus)
-> +static enum prs_errcode prstate_housekeeping_conflict(int new_prs, int parent_prs,
-> +				struct cpumask *new_cpus, struct cpumask *del_cpus)
->  {
->  	cpumask_var_t full_hk_cpus;
-> -	int res;
-> +	int prs_err = PERR_NONE;
->  
->  	WARN_ON_ONCE(parent_prs <= 0);
->  	if (!new_prs)
-> -		return false;
-> +		return PERR_NONE;
-> +
-> +	if ((new_prs == PRS_ISOLATED) && cpumask_test_cpu(0, new_cpus))
-> +		return PERR_ISOLCPU0;
->  
+Using 'perf bench internals symbols':
 
-Hi Waiman,
+  Before:
+    Average append + lookup: 1551.533 usec (+- 3.379 usec)
+  After (-90.3%):
+    Average append + lookup: 150.333 usec (+- 0.273 usec)
 
-The CPU 0 check is missed when an invalid isolated partition becomes valid again.
+Signed-off-by: Ian Rogers <irogers@google.com>
+---
+ tools/perf/util/symbol.c | 75 +++++++++++++++++++++++++++++-----------
+ tools/perf/util/symbol.h | 21 +++++++----
+ 2 files changed, 68 insertions(+), 28 deletions(-)
 
-I reproduced this after applying the complete v2 series on a 32-vCPU x86-64 VM booted with nohz_full=0,8-31:
-
-cd /sys/fs/cgroup
-echo +cpuset > cgroup.subtree_control
-mkdir A
-echo 0-1 > A/cpuset.cpus
-echo isolated > A/cpuset.cpus.partition
-cat A/cpuset.cpus.partition
-# isolated invalid (Boot CPU (cpu 0) cannot be isolated)
-
-echo 0-2 > A/cpuset.cpus
-cat A/cpuset.cpus.partition
-# isolated
-cat A/cpuset.cpus.exclusive.effective
-# 0-2
-cat cpuset.cpus.isolated
-# 0-2
-
-Initially, the partition is marked invalid because it contains CPU 0. However, a subsequent write to cpuset.cpus makes it a valid isolated partition that still contains CPU 0.
-The same sequence also reproduces with isolcpus=domain,managed_irq,0,10-11, where the final global isolated mask is 0-2,10-11.
-
-Here, new_prs can still be PRS_INVALID_ISOLATED (-2), so the check above does not match.
-Would it make sense to move the CPU 0 check after normalizing new_prs?
-
-if (new_prs < 0)
-        new_prs = -new_prs;
-
-if ((new_prs == PRS_ISOLATED) && cpumask_test_cpu(0, new_cpus))
-        return PERR_ISOLCPU0;
-
-Best regards,
-Guopeng
-
->  	/*
->  	 * For a currently invalid partition root state, do the check assuming
-> @@ -1363,7 +1367,7 @@ static bool prstate_housekeeping_conflict(int new_prs, int parent_prs,
->  
->  	if (housekeeping_enabled(HK_TYPE_DOMAIN_BOOT) && (new_prs == PRS_ROOT) &&
->  	    !cpumask_subset(new_cpus, housekeeping_cpumask(HK_TYPE_DOMAIN_BOOT)))
-> -		return true;
-> +		return PERR_HKEEPING;
->  
->  	if (del_cpus && cpumask_empty(del_cpus))
->  		del_cpus = NULL;
-> @@ -1377,7 +1381,7 @@ static bool prstate_housekeeping_conflict(int new_prs, int parent_prs,
->  	 */
->  	if (!housekeeping_enabled(HK_TYPE_KERNEL_NOISE) ||
->  	    (new_prs == parent_prs) || (!del_cpus && (new_prs == PRS_ROOT)))
-> -		return false;
-> +		return PERR_NONE;
->  
->  	/*
->  	 * Now make sure that @new_cpus contains new CPUs to be isolated and
-> @@ -1388,7 +1392,7 @@ static bool prstate_housekeeping_conflict(int new_prs, int parent_prs,
->  		swap(new_cpus, del_cpus);
->  
->  	if (!alloc_cpumask_var(&full_hk_cpus, GFP_KERNEL))
-> -		return true;
-> +		return PERR_HKEEPING;
->  
->  	/*
->  	 * Check if del_cpus may contain a CPU that can become an active
-> @@ -1398,20 +1402,19 @@ static bool prstate_housekeeping_conflict(int new_prs, int parent_prs,
->  		cpumask_and(full_hk_cpus, housekeeping_cpumask(HK_TYPE_KERNEL_NOISE),
->  			    housekeeping_cpumask(HK_TYPE_DOMAIN_BOOT));
->  		if (cpumask_first_and_and(del_cpus, full_hk_cpus,
-> -					  cpu_active_mask) < nr_cpu_ids) {
-> -			res = false;
-> +					  cpu_active_mask) < nr_cpu_ids)
->  			goto out;
-> -		}
->  	}
->  
->  	cpumask_and(full_hk_cpus, housekeeping_cpumask(HK_TYPE_KERNEL_NOISE),
->  		    housekeeping_cpumask(HK_TYPE_DOMAIN));
->  	cpumask_andnot(full_hk_cpus, full_hk_cpus, isolated_cpus);
->  	cpumask_and(full_hk_cpus, full_hk_cpus, cpu_active_mask);
-> -	res = !cpumask_weight_andnot(full_hk_cpus, new_cpus);
-> +	if (!cpumask_weight_andnot(full_hk_cpus, new_cpus))
-> +		prs_err = PERR_HKEEPING;
->  out:
->  	free_cpumask_var(full_hk_cpus);
-> -	return res;
-> +	return prs_err;
->  }
->  
->  /**
-> @@ -1446,9 +1449,12 @@ static enum prs_errcode validate_partition(struct cpuset *cs,
->  	if (!parent)
->  		parent = &top_cpuset;
->  	parent_prs = parent->partition_root_state;
-> -	if (parent_prs > 0 &&
-> -	    prstate_housekeeping_conflict(new_prs, parent_prs, new_excpus, del))
-> -		return PERR_HKEEPING;
-> +	if (parent_prs > 0) {
-> +		enum prs_errcode err = prstate_housekeeping_conflict(new_prs, parent_prs,
-> +								     new_excpus, del);
-> +		if (err)
-> +			return err;
-> +	}
->  
->  	if (tasks_nocpu_error(parent, cs, new_excpus))
->  		return PERR_NOCPUS;
-> @@ -1715,6 +1721,8 @@ static void compute_effective_nodemask(nodemask_t *new_mems,
->  static int remote_partition_enable(struct cpuset *cs, int new_prs,
->  				   struct tmpmasks *tmp)
->  {
-> +	enum prs_errcode err;
-> +
->  	/*
->  	 * The user must have sysadmin privilege.
->  	 */
-> @@ -1737,8 +1745,9 @@ static int remote_partition_enable(struct cpuset *cs, int new_prs,
->  		return PERR_INVCPUS;
->  	if (cpumask_intersects(tmp->new_cpus, subpartitions_cpus))
->  		return PERR_NOCPUS;
-> -	if (prstate_housekeeping_conflict(new_prs, PRS_ROOT, tmp->new_cpus, NULL))
-> -		return PERR_HKEEPING;
-> +	err = prstate_housekeeping_conflict(new_prs, PRS_ROOT, tmp->new_cpus, NULL);
-> +	if (err)
-> +		return err;
->  
->  	spin_lock_irq(&callback_lock);
->  	partition_xcpus_add(new_prs, NULL, tmp->new_cpus);
-> @@ -1833,14 +1842,16 @@ static void remote_cpus_update(struct cpuset *cs, struct cpumask *xcpus,
->  	 * left in the top cpuset.
->  	 */
->  	if (adding) {
-> +		enum prs_errcode err = prstate_housekeeping_conflict(prs, PRS_ROOT,
-> +							excpus, tmp->delmask);
-> +
->  		if (!capable(CAP_SYS_ADMIN))
->  			WRITE_ONCE(cs->prs_err, PERR_ACCESS);
->  		else if (cpumask_intersects(tmp->addmask, subpartitions_cpus) ||
->  			 cpumask_subset(top_cpuset.effective_cpus, tmp->addmask))
->  			WRITE_ONCE(cs->prs_err, PERR_NOCPUS);
-> -		else if (prstate_housekeeping_conflict(prs, PRS_ROOT,
-> -						       excpus, tmp->delmask))
-> -			WRITE_ONCE(cs->prs_err, PERR_HKEEPING);
-> +		else if (err)
-> +			WRITE_ONCE(cs->prs_err, err);
->  		if (cs->prs_err)
->  			goto invalidate;
->  	}
-> @@ -2101,16 +2112,16 @@ static int update_parent_effective_cpumask(struct cpuset *cs, int cmd,
->  			 * active housekeeping CPUs.
->  			 */
->  			cpumask_andnot(tmp->addmask, cs->effective_xcpus, tmp->delmask);
-> -			if ((parent_prs == PRS_ROOT) && (old_prs == PRS_ISOLATED) &&
-> -			    prstate_housekeeping_conflict(old_prs, parent_prs,
-> -							  tmp->delmask, tmp->addmask)) {
-> -				adding = cpumask_and(tmp->addmask, cs->effective_xcpus,
-> -						     tmp->delmask);
-> -				part_error = PERR_HKEEPING;
-> -			} else {
-> +			if ((parent_prs == PRS_ROOT) && (old_prs == PRS_ISOLATED)) {
-> +				part_error = prstate_housekeeping_conflict(old_prs, parent_prs,
-> +								tmp->delmask, tmp->addmask);
-> +				if (part_error)
-> +					adding = cpumask_and(tmp->addmask, cs->effective_xcpus,
-> +							     tmp->delmask);
-> +			}
-> +			if (!part_error)
->  				deleting = cpumask_andnot(tmp->delmask, tmp->delmask,
->  							  cs->effective_xcpus);
-> -			}
->  		} else if (is_partition_invalid(cs)) {
->  			struct cgroup_subsys_state *css;
->  			struct cpuset *child;
-> @@ -2121,11 +2132,11 @@ static int update_parent_effective_cpumask(struct cpuset *cs, int cmd,
->  			 * cpu exclusivity test when cpuset.cpus.exclusive is
->  			 * empty as well as the housekeeping check.
->  			 */
-> -			if (prstate_housekeeping_conflict(cs->partition_root_state,
-> -							  parent_prs, tmp->delmask, NULL)) {
-> -				part_error = PERR_HKEEPING;
-> +			part_error = prstate_housekeeping_conflict(cs->partition_root_state,
-> +							parent_prs, tmp->delmask, NULL);
-> +			if (part_error)
->  				goto write_error;
-> -			}
-> +
->  			if (cpumask_empty(cs->exclusive_cpus)) {
->  				rcu_read_lock();
->  				cpuset_for_each_child(child, css, parent) {
-> @@ -2997,12 +3008,11 @@ static int update_prstate(struct cpuset *cs, int new_prs)
->  		 * A change in load balance state only, no change in cpumasks.
->  		 * Need to update isolated_cpus.
->  		 */
-> -		if (prstate_housekeeping_conflict(new_prs, parent_prs,
-> -						  cs->effective_xcpus, NULL))
-> -			err = PERR_HKEEPING;
-> -		else if (parent_prs == PRS_ISOLATED)
-> +		if (parent_prs == PRS_ISOLATED)
->  			err = PERR_ISOPARENT;	/* old_prs should be isolated */
-> -
-> +		else
-> +			err = prstate_housekeeping_conflict(new_prs, parent_prs,
-> +							    cs->effective_xcpus, NULL);
->  		if (err) {
->  			disable_partition = true;
->  		} else {
-> diff --git a/tools/testing/selftests/cgroup/test_cpuset_prs.sh b/tools/testing/selftests/cgroup/test_cpuset_prs.sh
-> index 1397ec428c46..f297e59d8f00 100755
-> --- a/tools/testing/selftests/cgroup/test_cpuset_prs.sh
-> +++ b/tools/testing/selftests/cgroup/test_cpuset_prs.sh
-> @@ -110,8 +110,8 @@ echo "" > test/cpuset.cpus
->  
->  #
->  # If nohz_full CPUs have been reserved at boot time, they should not include
-> -# CPUs 0-7 as that may fail some of the test cases. On the other hand if the
-> -# set of nohz_full CPUs includes all the CPUs except 0-7 in a single range
-> +# CPUs 1-7 as that may fail some of the test cases. On the other hand if the
-> +# set of nohz_full CPUs includes all the CPUs except 1-7 in a single range
->  # <first>-<last>, we can run a special set of housekeeping CPUs exhaustion
->  # tests to see if the cpuset code will reject them.
->  #
-> @@ -123,14 +123,22 @@ NOHZ_FULL_CPUS=
->  	NOHZ_FULL_CPUS=$(cat /sys/devices/system/cpu/nohz_full)
->  LAST_PRESENT_CPU=$(cat /sys/devices/system/cpu/present | sed -e "s/.*[,-]//")
->  [[ -n "$NOHZ_FULL_CPUS" ]] && {
-> -	FIRST_NOHZ_FULL_CPU=$(echo $NOHZ_FULL_CPUS | sed -e "s/[,-].*//")
-> -	LAST_NOHZ_FULL_CPU=$(echo $NOHZ_FULL_CPUS | sed -e "s/,.*//;s/.*[-]//")
-> +	if [[ $(expr $NOHZ_FULL_CPUS : "^0,") -gt 0 ]]
-> +	then
-> +		NOHZ_CPU0=1
-> +		NOHZ_CPUS=$(echo $NOHZ_FULL_CPUS | sed -e "s/^0,//")
-> +	else
-> +		NOHZ_CPUS=$NOHZ_FULL_CPUS
-> +	fi
-> +	FIRST_NOHZ_FULL_CPU=$(echo $NOHZ_CPUS | sed -e "s/[,-].*//")
-> +	LAST_NOHZ_FULL_CPU=$(echo $NOHZ_CPUS | sed -e "s/,.*//;s/.*[-]//")
->  	echo "Boot nohz_full CPUs: $NOHZ_FULL_CPUS"
->  }
->  [[ -n "$FIRST_NOHZ_FULL_CPU" && "$FIRST_NOHZ_FULL_CPU" -le 7 ]] &&
->  	skip_test "Boot NOHZ_FULL CPUs overlap CPUs to be tested!"
->  
->  [[ -n "$FIRST_NOHZ_FULL_CPU" && "$FIRST_NOHZ_FULL_CPU" = 8 &&
-> +   -n "$NOHZ_CPU0" &&
->     "$LAST_NOHZ_FULL_CPU" = $LAST_PRESENT_CPU ]] && RUN_NOHZ_FULL_TESTS=1
->  
->  #
-> @@ -394,8 +402,8 @@ TEST_MATRIX=(
->  	# Invalid to valid local partition direct transition tests
->  	" C1-3:P2  X4:P2    .      .      .      .      .      .     0 A1:1-3|XA1:1-3|A2:1-3:XA2: A1:P2|A2:P-2 1-3"
->  	" C1-3:P2  X4:P2    .      .      .    X3:P2    .      .     0 A1:1-2|XA1:1-3|A2:3:XA2:3 A1:P2|A2:P2 1-3"
-> -	" C0-3:P2    .      .    C4-6   C0-4     .      .      .     0 A1:0-4|B1:5-6 A1:P2|B1:P0"
-> -	" C0-3:P2    .      .    C4-6 C0-4:C0-3  .      .      .     0 A1:0-3|B1:4-6 A1:P2|B1:P0 0-3"
-> +	" C1-3:P2    .      .    C4-6   C1-4     .      .      .     0 A1:1-4|B1:5-6 A1:P2|B1:P0"
-> +	" C1-3:P2    .      .    C4-6 C1-4:C1-3  .      .      .     0 A1:1-3|B1:4-6 A1:P2|B1:P0 1-3"
->  
->  	# Local partition invalidation tests
->  	" C0-3:X1-3:P2 C1-3:X2-3:P2 C2-3:X3:P2 \
-> @@ -506,6 +514,11 @@ TEST_MATRIX=(
->  	"  CX1-4  CX2-4:P2  .    C5-6      .     .      .   P1:C3-6  0 A1:1|A2:2-4|B1:5-6 \
->  								       A1:P0|A2:P2:B1:P-1 2-4"
->  
-> +	# CPU 0 cannot be used in an isolated partition
-> +	"  CX0-4     .      .      .       P2    .      .      .     0 A1:0-4 A1:P-2"
-> +	"  CX0-4  C0-2:P1   .      .       .     P2     .      .     0 A1:0-4|A2:0-2 A2:P-2"
-> +	"  CX0-4  C3-4:P2   .      .       .    C0-2    .      .     0 A1:0-4|A2:0-2 A2:P-2"
-> +
->  	# When multiple partitions with conflicting cpuset.cpus are created, the
->  	# latter created ones will only get what are left of the available exclusive
->  	# CPUs.
-> @@ -525,8 +538,8 @@ TEST_MATRIX=(
->  
->  	# A middle isolated parent shrunk below coverage: the released CPUs of
->  	# an invalidated child stay isolated as a higher ancestor still covers them.
-> -	" CX0-4:P2 CX2-4:P2 CX3-4:P2 .     .     X2     .      .     0 A1:0-1,3-4|A2:2|A3:2 \
-> -								       A1:P2|A2:P2|A3:P-2 0-4"
-> +	" CX1-4:P2 CX2-4:P2 CX3-4:P2 .     .     X2     .      .     0 A1:1,3-4|A2:2|A3:2 \
-> +								       A1:P2|A2:P2|A3:P-2 1-4"
->  
->  	# When an isolated partition child with root partition parent is invalidated,
->  	# its effective xcpus will be removed from isolated_cpus.
-> @@ -618,20 +631,20 @@ ISOLCPUS_TEST_MATRIX=(
->  	" CX1-2,I:X1,I:P1 . .      .     X1,2,I  .      .      .     0 A1:1-2,I|XA1:1-2,I A1:P-1 ."
->  )
->  
-> -# Test matrix to be run when boot time nohz_full CPUs cover all CPUs except CPUs 0-7
-> +# Test matrix to be run when boot time nohz_full CPUs cover all CPUs except CPUs 1-7
->  # This also means that CPU 8 is available and is a nohz_full CPU.
->  NOHZ_FULL_TEST_MATRIX=(
->  	#  old-A1 old-A2 old-A3 old-B1 new-A1 new-A2 new-A3 new-B1 fail ECPUs Pstate ISOLCPUS
->  	#  ------ ------ ------ ------ ------ ------ ------ ------ ---- ----- ------ --------
->  	# Using all the nohz_full HK CPUs 0-7 in isolated partition is not allowed
-> -	" C0-7       .      .      .      P2     .      .      .     0 A1:0-7 A1:P-2 ."
-> -	" C2-7:P2    .      .      .     C0-4    .      .      .     0 A1:0-4 A1:P2 0-4"
-> -	" C1-7:P2 C5-7:P2   .      .       .     .      .    C0:P2   0 A1:1-4|A2:5-7|B1:0
-> -								       A1:P2|A2:P2|B1:P-2 1-7"
-> +	" C1-7       .      .      .      P2     .      .      .     0 A1:1-7 A1:P-2 ."
-> +	" C2-7:P2    .      .      .     C1-4    .      .      .     0 A1:1-4 A1:P2 1-4"
-> +	" C2-7:P2 C5-7:P2   .      .       .     .      .    C1:P2   0 A1:2-4|A2:5-7|B1:1
-> +								       A1:P2|A2:P2|B1:P-2 2-7"
->  	# An isolated child partition cannot grow to take over the last
->  	# housekeeping CPU when its parent expands the exclusive CPUs.
-> -	" C0-8:X1-8:P1 CX0-8:P2 .  .     X0-7    .      .      .     0 A1:0-7|A2:0-7 A1:P1|A2:P-2 ."
-> -	" C0-8:X0-6:P1 CX0-8:P2 .  .     X2-8    .      .      .     0 A1:|A2:2-8 A1:P1|A2:P2 2-8"
-> +	" C1-8:X1-8:P1 CX1-8:P2 .  .     X1-7    .      .      .     0 A1:1-7|A2:1-7 A1:P1|A2:P-2 ."
-> +	" C1-8:X0-6:P1 CX1-8:P2 .  .     X2-8    .      .      .     0 A1:|A2:2-8 A1:P1|A2:P2 2-8"
->  )
->  
->  #
+diff --git a/tools/perf/util/symbol.c b/tools/perf/util/symbol.c
+index 03c4314935a5..b9ddebdcd900 100644
+--- a/tools/perf/util/symbol.c
++++ b/tools/perf/util/symbol.c
+@@ -220,8 +220,8 @@ void symbols__init(struct symbols *symbols)
+ 	symbols->symbols = NULL;
+ 	symbols->symbols_by_name = NULL;
+ 	symbols->cnt = 0;
++	symbols->sorted_cnt = 0;
+ 	symbols->allocated = 0;
+-	symbols->sorted = true;
+ }
+ 
+ static void symbols__delete_locked(struct symbols *symbols)
+@@ -233,8 +233,8 @@ static void symbols__delete_locked(struct symbols *symbols)
+ 	zfree(&symbols->symbols);
+ 	zfree(&symbols->symbols_by_name);
+ 	symbols->cnt = 0;
++	symbols->sorted_cnt = 0;
+ 	symbols->allocated = 0;
+-	symbols->sorted = true;
+ }
+ 
+ void symbols__delete(struct symbols *symbols)
+@@ -279,9 +279,10 @@ static unsigned int symbols__upper_bound(struct symbol **arr, unsigned int len,
+ 
+ static void symbols__insertion_sort_range(struct symbol **arr,
+ 					  unsigned int start,
++					  unsigned int first_unsorted,
+ 					  unsigned int end)
+ {
+-	for (unsigned int i = start + 1; i < end; i++) {
++	for (unsigned int i = max(first_unsorted, start + 1); i < end; i++) {
+ 		struct symbol *sym = arr[i];
+ 
+ 		if (!symbol__less_or_equal(arr[i - 1], sym)) {
+@@ -355,7 +356,7 @@ static void symbols__sort_range_with_tmp(struct symbol **arr, unsigned int n,
+ 	unsigned int i = 0;
+ 
+ 	if (n <= 32) {
+-		symbols__insertion_sort_range(arr, 0, n);
++		symbols__insertion_sort_range(arr, 0, 1, n);
+ 		return;
+ 	}
+ 
+@@ -379,8 +380,10 @@ static void symbols__sort_range_with_tmp(struct symbol **arr, unsigned int n,
+ 		}
+ 
+ 		if (i - start < 32 && i < n) {
++			unsigned int run_end = i;
++
+ 			i = min(start + 32U, n);
+-			symbols__insertion_sort_range(arr, start, i);
++			symbols__insertion_sort_range(arr, start, run_end, i);
+ 		}
+ 
+ 		runs[nr_runs++] = (struct symbol_run){
+@@ -431,22 +434,48 @@ static void symbols__sort_range_with_tmp(struct symbol **arr, unsigned int n,
+ static void symbols__sort_locked(struct symbols *symbols)
+ 	__must_hold(&symbols->lock)
+ {
+-	if (symbols->sorted)
++	unsigned int m = symbols->sorted_cnt;
++	unsigned int k;
++
++	if (m >= symbols->cnt) {
++		symbols->sorted_cnt = symbols->cnt;
+ 		return;
++	}
++	k = symbols->cnt - m;
+ 
+-	if (symbols->cnt <= 64) {
+-		symbols__insertion_sort_range(symbols->symbols, 0, symbols->cnt);
+-	} else {
++	/*
++	 * When only a few symbols have been appended since the last sort
++	 * (including single-symbol insertions), insert them directly at
++	 * their binary-searched sorted positions in O(N) without allocating.
++	 */
++	if (k <= 8 || symbols->cnt <= 64) {
++		symbols__insertion_sort_range(symbols->symbols, 0, m, symbols->cnt);
++		symbols->sorted_cnt = symbols->cnt;
++		return;
++	}
++
++	if (m <= 1) {
+ 		struct symbol **tmp = malloc(((symbols->cnt + 1) / 2) * sizeof(struct symbol *));
+ 
+ 		if (tmp) {
+ 			symbols__sort_range_with_tmp(symbols->symbols, symbols->cnt, tmp);
+ 			free(tmp);
+ 		} else {
+-			symbols__insertion_sort_range(symbols->symbols, 0, symbols->cnt);
++			symbols__insertion_sort_range(symbols->symbols, 0, m, symbols->cnt);
++		}
++	} else {
++		struct symbol **tmp = malloc(k * sizeof(struct symbol *));
++
++		if (tmp) {
++			symbols__sort_range_with_tmp(&symbols->symbols[m], k, tmp);
++			symbols__merge_runs(symbols->symbols, 0, m, symbols->cnt, tmp);
++			free(tmp);
++		} else {
++			symbols__insertion_sort_range(symbols->symbols, 0, m, symbols->cnt);
+ 		}
+ 	}
+-	symbols->sorted = true;
++
++	symbols->sorted_cnt = symbols->cnt;
+ }
+ 
+ /*
+@@ -456,7 +485,7 @@ static void symbols__sort_locked(struct symbols *symbols)
+ void symbols__sort_read_lock(struct symbols *symbols)
+ {
+ 	down_read(&symbols->lock);
+-	while (!symbols->sorted) {
++	while (symbols->sorted_cnt < symbols->cnt) {
+ 		up_read(&symbols->lock);
+ 		down_write(&symbols->lock);
+ 		symbols__sort_locked(symbols);
+@@ -505,6 +534,7 @@ void symbols__fixup_duplicate(struct symbols *symbols)
+ 		}
+ 	}
+ 	symbols->cnt = write_idx + 1;
++	symbols->sorted_cnt = symbols->cnt;
+ 	zfree(&symbols->symbols_by_name);
+ 	up_write(&symbols->lock);
+ }
+@@ -679,9 +709,10 @@ static int __symbols__insert(struct symbols *symbols, struct symbol *sym)
+ 		symbols->allocated = to_allocate;
+ 	}
+ 
+-	if (symbols->sorted && symbols->cnt > 0 &&
+-	    !symbol__less_or_equal(symbols->symbols[symbols->cnt - 1], sym))
+-		symbols->sorted = false;
++	if (symbols->sorted_cnt == symbols->cnt &&
++	    (symbols->cnt == 0 ||
++	     symbol__less_or_equal(symbols->symbols[symbols->cnt - 1], sym)))
++		symbols->sorted_cnt = symbols->cnt + 1;
+ 
+ 	symbols->symbols[symbols->cnt++] = sym;
+ 	zfree(&symbols->symbols_by_name);
+@@ -894,11 +925,13 @@ void dso__delete_symbol(struct dso *dso, struct symbol *sym)
+ 	struct symbols *symbols = dso__symbols(dso);
+ 
+ 	down_write(&symbols->lock);
+-	for (unsigned int i = 0; i < symbols->cnt; i++) {
++	for (unsigned int i = symbols->cnt; i-- > 0; ) {
+ 		if (symbols->symbols[i] == sym) {
+ 			memmove(&symbols->symbols[i], &symbols->symbols[i + 1],
+ 				(symbols->cnt - i - 1) * sizeof(struct symbol *));
+ 			symbols->cnt--;
++			if (i < symbols->sorted_cnt)
++				symbols->sorted_cnt--;
+ 			zfree(&symbols->symbols_by_name);
+ 			symbol__delete(sym);
+ 			break;
+@@ -1243,8 +1276,8 @@ static int maps__split_kallsyms_for_kcore(struct maps *kmaps, struct dso *dso)
+ 	old_cnt = root->cnt;
+ 	root->symbols = NULL;
+ 	root->cnt = 0;
++	root->sorted_cnt = 0;
+ 	root->allocated = 0;
+-	root->sorted = true;
+ 	zfree(&root->symbols_by_name);
+ 	up_write(&root->lock);
+ 
+@@ -1315,8 +1348,8 @@ static int maps__split_kallsyms(struct maps *kmaps, struct dso *dso, u64 delta,
+ 	old_allocated = root->allocated;
+ 	root->symbols = NULL;
+ 	root->cnt = 0;
++	root->sorted_cnt = 0;
+ 	root->allocated = 0;
+-	root->sorted = true;
+ 	zfree(&root->symbols_by_name);
+ 	up_write(&root->lock);
+ 
+@@ -1463,8 +1496,8 @@ static int maps__split_kallsyms(struct maps *kmaps, struct dso *dso, u64 delta,
+ 	if (root->cnt == 0) {
+ 		root->symbols = old_symbols;
+ 		root->cnt = write_idx;
++		root->sorted_cnt = write_idx;
+ 		root->allocated = old_allocated;
+-		root->sorted = true;
+ 		old_symbols = NULL;
+ 	} else {
+ 		for (unsigned int j = 0; j < write_idx; j++)
+@@ -1490,13 +1523,13 @@ static int maps__split_kallsyms(struct maps *kmaps, struct dso *dso, u64 delta,
+ 	if (root->cnt == 0) {
+ 		root->symbols = old_symbols;
+ 		root->cnt = write_idx;
++		root->sorted_cnt = (delta == 0) ? write_idx : min(write_idx, 1U);
+ 		root->allocated = old_allocated;
+-		root->sorted = (delta == 0);
+ 		old_symbols = NULL;
+ 	} else {
+ 		for (unsigned int j = 0; j < write_idx; j++)
+ 			__symbols__insert(root, old_symbols[j]);
+-		root->sorted = false;
++		root->sorted_cnt = min(root->cnt, 1U);
+ 	}
+ 	zfree(&root->symbols_by_name);
+ 	up_write(&root->lock);
+diff --git a/tools/perf/util/symbol.h b/tools/perf/util/symbol.h
+index 629f6b2fcd0a..2b20bfb22fd1 100644
+--- a/tools/perf/util/symbol.h
++++ b/tools/perf/util/symbol.h
+@@ -97,14 +97,18 @@ struct symbol {
+ 
+ /**
+  * struct symbols - A locked collection of symbols stored in a sorted array.
++ *
++ * The @symbols array of @cnt pointers (within an allocation of @allocated
++ * slots) keeps a start-address-sorted prefix @symbols[0 .. @sorted_cnt)
++ * followed by an optional unsorted tail @symbols[@sorted_cnt .. @cnt) from
++ * bulk symbols__insert() appends. When @sorted_cnt == @cnt, the entire array
++ * is sorted; otherwise the unsorted tail is lazily sorted and merged into the
++ * prefix on lookup or iteration.
+  */
+ struct symbols {
+ 	/** @lock: Read/write semaphore synchronizing access to the arrays. */
+ 	struct rw_semaphore lock;
+-	/**
+-	 * @symbols: Dynamically allocated array of @allocated symbol pointers,
+-	 * sorted by start address when @sorted is true.
+-	 */
++	/** @symbols: Dynamically allocated array of @allocated symbol pointers. */
+ 	struct symbol **symbols __guarded_by(&lock);
+ 	/**
+ 	 * @symbols_by_name: Optional lazily built array of @cnt symbol pointers
+@@ -112,12 +116,15 @@ struct symbols {
+ 	 * is 0, or when invalidated by a symbol-table mutation.
+ 	 */
+ 	struct symbol **symbols_by_name __guarded_by(&lock);
+-	/** @cnt: Number of valid entries in @symbols. */
++	/** @cnt: Total number of valid symbol pointers in @symbols. */
+ 	unsigned int cnt __guarded_by(&lock);
++	/**
++	 * @sorted_cnt: Length of the leading start-address-sorted prefix in
++	 * @symbols. The entire @symbols array is sorted iff @sorted_cnt == @cnt.
++	 */
++	unsigned int sorted_cnt __guarded_by(&lock);
+ 	/** @allocated: Capacity (in entries) of the @symbols allocation. */
+ 	unsigned int allocated __guarded_by(&lock);
+-	/** @sorted: True when @symbols is sorted by address range. */
+-	bool sorted __guarded_by(&lock);
+ };
+ 
+ void symbol__delete(struct symbol *sym);
+-- 
+2.56.1.809.ga0b61035b5-goog
 
