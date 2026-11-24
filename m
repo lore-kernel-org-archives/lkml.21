@@ -1,63 +1,56 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795620146;
-	b=2L3YZ1crm8zdR6jMioBfJ5T8v9V4rPOT5AW1O8jU06aJgbGKuWXPzqx2jwtw6Dl+XFPn
-	 YgELHGEze2u3EOUggvxfOJpiGiPjK5/HCbORJRQSkWs6sjWcfB5TgA0/utejR0qQI7ndC
-	 HLGC8aSdsLwefKY79XK8rPypaE8oLsZgyr4pzDITNQrft5MIGCZKr+RUf2UeI5n/o+DBK
-	 pFZEc8geF03BVBFKCK1KbNs7wbBgrck0GDSbOAdLT5sIYuvrUhkSAEpGa2ZqNe9ErFval
-	 Txyx5jiveoLAHTkJV3x9F7xmRf8czDgG1p+HOwPP+MeM2grYnn8Dr4uFJkZa9mD+N+A==
+	t=1795620165;
+	b=09HnmNJbenxDmIEJ+hj1wxldF4o8lEsp09Y0Iqudp5VH4FzII4LcyPn6km71o+YNLSwX
+	 hW1gLAOyL+b15D7C3myZf4Hgiz/2jinS1OfYEnCdtOnaKHLQqfCORYnG2V7YLGJjaNQwG
+	 p6mN84eD+Q0KkwLDnngtGET60b1Jbj6nXnG3FBDvozxrNP4EM5K9cpfco3il+3MPzrBtx
+	 G+bOXnIDNQifMcvcepu0GbUKaKZo67enLjrU+tGcXPgWuXp/f/2+dX5G65IcnrhhkHUm8
+	 MxWl/fxRay6b43yqQeOQmtGtMqoSubd+40WuhOmMIAf/JsKDjaEEd0fYULMGURoBgmQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795620146;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
-	 X-Cookie;
-	bh=WPm5f6o6q9fQoFUXqZTkOjGUojfVjYLnzIwjI2iGOZA=;
-	b=H0x1tqDZSjp3A+YnyKCAxZ4Vh3bvxwXJLr3RhJGYZswECwDPKIBqDGWbJ53gFV+yZWTH
-	 3kPPco7e3TPD329pB1BUpm1LD0AkgmNUsIEUu3J3QTd/38CDbAmCk2tgA2dKsEG2eLSWy
-	 LwSXIdMynWXYesERhr8YXJaWYT62aO9tSFA/KKaNfaxET+/WVYXZuYWPnv6acazXsYYAp
-	 KioweFWIePvZplJHhQdaGAMInx1RJ9fGLIE0snGQaN7M54uuS9Uku1u46b8oBbMa9q0/7
-	 oPzRgEXCsQ52V3Udd2zSUjJOo0ZwMehrRtzw1Jw1HdBwJLXiGIH7ITezm3kJThBN15g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795620165;
+	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
+	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=6GSg/jLsN29tre5kcZSyHYsaS369WhKvfnM4vNbmqC4=;
+	b=x1pZy6iP6Tlbr0iuH2+fj26H4U9R3MBXQamzXDb7h6zid5oNLsFrSZMKKkD7CRpcAH6C
+	 shQtvudZ2XGbx68pR2AgOQUCTRfVRIx/TrPV3dyG4T8XtuvKwhsyA+V+Kit+ywG0Px4xm
+	 ZvYUcdJ6oNH5TxN/x5FyRqCVZhU8cKq05WwCyr0Px668MzyEJ9QSLldEzaoFwOc/J5E99
+	 uRJDzxZKXDVc3+HZuP+mmhV6VMU1aeS8Q3mUbScsLgpRKN+7QamO+7kWIFdT/6ihl25+B
+	 jW9MENL7Q/by9fCFatJyqZN/uNV7fyvZ7zoFGSPeBxJ6X6xkF6Q6DoBfHko8AKJ/Kaw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iirkhZsk;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="f/qK01bz";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D8521606A31E;
-	Wed, 25 Nov 2026 15:22:26 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AE819606A688;
+	Wed, 25 Nov 2026 15:22:45 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iirkhZsk
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74C911F000C0;
-	Wed, 25 Nov 2026 15:22:23 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=f/qK01bz
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1BA31F00A01;
+	Wed, 25 Nov 2026 15:22:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795620146;
-	bh=WPm5f6o6q9fQoFUXqZTkOjGUojfVjYLnzIwjI2iGOZA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=iirkhZskCFEGY5EgYsFyvEtuayDf13fe1TB9VZlGBLo63US3MpFkmWHz4LxlPfedb
-	 LfZyvNlGEk0m0Ao3tNxrWy/uKsQrUzrWa8j1dSDjL7J3R92pmrWBNuERT9LG2iS2hR
-	 uWYZiLkNlLNSbP2xouJYCetuy65y5siHjM33ZszIaBKkfqv5674aOja7y0UEVca8U5
-	 RK7Ct15GNb8toAnGWx7f7QnSu95a4n3DvSsh218HDL+gle6tM8MEyH2y8byhbDfBpN
-	 4auyymDP7u3CfBsTLd9RMuepu53iGhwlu/6cqQmamXbWhUhODAHaH4VwPZEgcTejXU
-	 gphu0cY239okw==
-Date: Wed, 25 Nov 2026 15:22:20 +0000
+	s=k20260515; t=1795620165;
+	bh=6GSg/jLsN29tre5kcZSyHYsaS369WhKvfnM4vNbmqC4=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=f/qK01bzHUyDDeiTBo/kJ+oJc+8tLLn5lqj3TMdelkNMNfVQnR77kanE7SRbUYD0X
+	 cgDZoWOIUWs0RG2dA9fuRwCyo0ObFwsvclvJIcIGwT4WX2XsiAAAClh+zfJWwLVCgI
+	 TjurB0ntDfya+a5LXXvrCWIu+CllDbGwMa1dddBXgUJpFFMXfjgZCwL/xD8OptuUeW
+	 4X2r/hmpPCGZVpH32quxqByqLthhk6uNruY6gykvkJcJ8S/JCcmbI7o4us5WbTjleS
+	 Uv5QAjawlUWR28mIhTL8F0A7lDaIHuFYvm0h67xvHYsFP5Lpe9hmbJvgCUptnH83pr
+	 pxW6lDjfu7g7A==
 From: Mark Brown <broonie@kernel.org>
-To: Andy Shevchenko <andriy.shevchenko@intel.com>
-Cc: raffaele.tranfaglia@gmail.com,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>, Johan Hovold <johan@kernel.org>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	Jonathan Cameron <jic23@kernel.org>, linux-iio@vger.kernel.org,
-	linux-kernel@vger.kernel.org, driver-core@lists.linux.dev,
-	linux-sound@vger.kernel.org, Neo Chang <YLCHANG2@nuvoton.com>
-Subject: Re: [PATCH v2 1/3] ASoC: codecs: nau8360: set val_bits to the widest
- register size
-Message-ID: <1c55d4cc-bd67-4344-8727-0017fd5b79f7@sirena.org.uk>
-References: <20261125-regmap-kunit-val-bits-v2-0-81db3b79cd3f@gmail.com>
- <20261125-regmap-kunit-val-bits-v2-1-81db3b79cd3f@gmail.com>
- <awbhwVw52eSTTmiu@ashevche-desk.local>
+To: Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
+ Takashi Iwai <tiwai@suse.com>, Ian Rogers <irogers@google.com>
+Cc: linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ llvm@lists.linux.dev, Elkin Cruz <elkin@google.com>
+In-Reply-To: <20261119171059.1537658-1-irogers@google.com>
+References: <20261119171059.1537658-1-irogers@google.com>
+Subject: Re: [PATCH] ASoC: codecs: aw88395: Validate 4-byte alignment and
+ init ret in reg update
+Message-Id: <179554902677.947306.15693529746115817043.b4-ty@b4>
+Date: Tue, 24 Nov 2026 19:37:06 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,42 +60,46 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="2vhTjSjPcqbwGTMA"
-Content-Disposition: inline
-In-Reply-To: <awbhwVw52eSTTmiu@ashevche-desk.local>
-X-Cookie: -- Owen Meredith
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1166; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=0hTnNHG4RTo/uFcq2aIwcu+mFLSWwLBMdCg+YvkFGjw=;
+ b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLLZ/jrdfjDR4EaI6iTzj+77qqZ3xbXv8lx8UtJ9khBfU
+ 4HaJs/GjlIWBjEuBlkxRZa4LO6X9SWv1/AdXNgGM4eVCWQIAxenAEzEIozhf8K2NzMSqhVX9gT+
+ FdlatfEba2bakdsrbln9rNWYdG7RhRsM/8uVl5+UbjTnEpp25+XJ1ERxli9NzzfNnWFivTjwZ++
+ 8VHYA
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 
+On Thu, 19 Nov 2026 09:10:59 -0800, Ian Rogers wrote:
+> ASoC: codecs: aw88395: Validate 4-byte alignment and init ret in reg update
 
---2vhTjSjPcqbwGTMA
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Applied to
 
-On Wed, Nov 25, 2026 at 03:25:21PM +0200, Andy Shevchenko wrote:
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.5
 
-> Hmm... While it works, it might be not the best approach. In cases like this
-> elsewhere we create two regmaps (one per each val_bits size) and choose them
-> based on the register offset.
+Thanks!
 
-Either approach works fine, neither is particuarly elegant - you do end
-up with a bit of open coding with the register I/O functions, but
-equally it causes surprises elsewhere to have multiple register maps for
-the same device and that's also error prone so there's something to be
-said for putting the special casing in the two functions.
+[1/1] ASoC: codecs: aw88395: Validate 4-byte alignment and init ret in reg update
+      https://git.kernel.org/broonie/sound/c/e5c608dbb738
 
---2vhTjSjPcqbwGTMA
-Content-Type: application/pgp-signature; name="signature.asc"
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
 
------BEGIN PGP SIGNATURE-----
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmsG/SwACgkQJNaLcl1U
-h9CQkQf+JBrJ5QV/gQV+1O7tzRwKf4d0vznu88UTJU3Xytz1LKQzUFrihlew+uMc
-hkIe6ghvi2S6VC237c1JQNbGQ3S0hrEDKRlA7YlatPEPU4WZMSsCphiCwH2qityO
-n4JXaihCtV/x2X9bvz5VfKF6aHvJiPMDDaaPpwplKXr9fbwFY7awuoBs+NIvlFgy
-fBCmNfr+oShutTvPJvUqafAiLeBzNHkkH7BWK3LijyAmC/BdjTSM0BNYhdUfZIhN
-A9i07xVWjt5Kw7qgEYMlRf04oZ/85j9R7oKbxRbFNqxh26fXqO1OkOwb5/bL7BE/
-3M88cALi3Xc+VFF3YSmJQeafm9S2Bw==
-=1vm1
------END PGP SIGNATURE-----
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
 
---2vhTjSjPcqbwGTMA--
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
+
