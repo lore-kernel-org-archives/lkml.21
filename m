@@ -1,119 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.149
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795547159;
-	b=YPCIf3pTZwj4YzvnIJo4s5RmEg8FzDgB70R6Y1FGGeXpBS64Qy0G+V3Cti6FamwGUbSX
-	 1FEk9bKWcjUTQWuvJ7kUUGFumuiS7DmFTLOU+z9quyW5zcghE8IrNWNaNR6NyGF07uAAA
-	 bdemE6vKZVa4HLO1KU3UPBzN2JNIqE0obfPxXLcP5uf58pZABPihlUXoAsVTfuBSDLCNQ
-	 kKAXEMl/fb+Q+hQs/MLHwQYJYW+xoWhB5B1qqsNig2KEjr9YV6Diu36c9rkj/hiH4d83k
-	 Yy2KwQueI/nglroLEvpsdkdD+Tmsh1P4EV44Z64KddlRxQwwmGst3uvCDVnq0RTmLuQ==
+	t=1795547248;
+	b=i0rAIBDH9+CpU8wmz5d4D+KVJrLs9ghftyXs+88LGFxEfyYx+/Ql1qf2KHzF/NgOhVhq
+	 BhLbO8mmY+7i6AyvE2iZlvCGCJeAea4MNxeHJ/n9siBU0D9EM4Mv9g55g8U0ib0ptZJLe
+	 tEAHkQhW/HNHfBOvL0O/DQXubshkvl5ed4o5hPgPsnaT/pxkx5UvjtiTE4SsI3DR8vdrh
+	 Qen1WzTLj8hoygeLxwSo+JKUYXNPfFBlQj3DXrprTHpc1ojQHXgeIljeovSawlsmVdjV+
+	 cwHKCYt7iLFLSrZfSLBpbbTBMxPZ1vxnvkV31Cb8OsAb0WLgFjtft1UUt/DAiIsdI0w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795547159;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
-	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=l5HWvAdbteddFFTaYe5iMeBI4K69O1UpafXxfUHxKDo=;
-	b=iuG0IaPxPOsrqz1IafACF6tO2YHdtwyZSsoNiICe1JALDfKemhVsRzbbfmE/Hixas9+3
-	 XHATAJUAvmyZLUCs83R8WTS8q/iR5wUFaOrlpcJsOuJTWWe1olM4C7/p+9ooj8XqRI4iq
-	 gUZKJiKMFbkn5B0x1y3bsZagoWFCg49h/p8JGF5movHciDodQHlZ7MVKyZBzIEkI3C+/g
-	 TpyRZUdnuj8OVLeg5oV1rtEJ3TS2ILh4kgFHsTb4LdysKKh1n3pTqE1rfnwlHu3txNlr0
-	 vAh4rghKbbR+orJvUazlC/1Sz/B9tVqKQikks0UpubN+191i63qg2DgoCwHMUy9BjFw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795547248;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=hcyQ4mkEgZ0lMnjgED6npY7t2QIURd34rU2TnUW9EkY=;
+	b=4aVMq0C6b4u+1HFT29U/svmrdsVP2vuygw8lkNLjmGvXFvOFsehhp3RE8pDvH78IrnCk
+	 /qxr0YIcQxRLjjuIs1lqdH/4mS5uBz8OruRTQCa6jth1lTn7rY1JufckKfPqID7NmVg9e
+	 C/Cte7rfrm9bKUPPr98KXkWicVB/rJcp3MwO24/4aAabxQ8olA3Eiu9AQGvlKaR6e/iVS
+	 rJknP4joqa3+Q9t7T3a4CO6fgYJ+a5ukHe/hRzQY/dpWtRY+xMVlTTffdMQCgtYLLwubJ
+	 b8dtBxRI2BzUbC/DtSljBhWS6zqdmiWwG9e4HmE8vPkFNVY0apVUB8TTfAqB7N7S9rQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=fastmail.com;
-	spf=pass smtp.mailfrom=fastmail.com;
-	dkim=pass header.d=fastmail.com header.i=@fastmail.com header.a=rsa-sha256 header.s=fm3 header.b="LTwn8sI/";
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=VOQFLsvb;
-	arc=none smtp.remote-ip=103.168.172.149
-Received: from fout-a6-smtp.messagingengine.com (fout-a6-smtp.messagingengine.com [103.168.172.149])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BU6i5nEy;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8F5A9606A32C
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 19:05:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8F5A9606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=fastmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fastmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F37B6606A323;
+	Tue, 24 Nov 2026 19:07:27 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=fastmail.com header.i=@fastmail.com header.a=rsa-sha256 header.s=fm3 header.b=LTwn8sI/;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=VOQFLsvb
-Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
-	by mailfout.phl.internal (Postfix) with ESMTP id BD0EFEC05F5
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 14:05:57 -0500 (EST)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-01.internal (MEProxy); Tue, 24 Nov 2026 14:05:57 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fastmail.com; h=
-	cc:cc:content-transfer-encoding:content-type:date:date:from:from
-	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
-	:to; s=fm3; t=1795547157; x=1795633557; bh=l5HWvAdbteddFFTaYe5iM
-	eBI4K69O1UpafXxfUHxKDo=; b=LTwn8sI/EXwgiEBxzHJlfPafvpdABc5S8o0MC
-	e0Hyqo/i+Qyc44R/V1MaIRxJlZgE2zvu5t6N49Wl2MXZ5Zc1YoWsVoraHme5WZic
-	I7ZXhsBaB3q24NvTou36lP3u+2SAXUaLfw0kN2zNXOMBGPxceEYBmso/MNdiTbqf
-	mXSKwiZJTriqeh3YBVUzSlofbsKcF/az9AwASFFmLI7h/XtnuBBwpn9/BkGXKK3Q
-	cKuIKAxevr7huFL+c67ts5BCdNYPnQorDBVffOH0quUZEIBOoqKnXuldJUkHLG4f
-	Rt1jHU6NOTEmguqhQqeBci5U4yD8r+2KViyKWEjUamZ3kYXAQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
-	1795547157; x=1795633557; bh=l5HWvAdbteddFFTaYe5iMeBI4K69O1UpafX
-	xfUHxKDo=; b=VOQFLsvb2L/iWxAWQ2ItYi2TqTXQb+S6L2f8nGHdNW1kplHlxog
-	Yfr0F9EQdU1JWX+HYx7yWAuMSBOGuNLiOUV/thRFu2zovlqAzqpo2C0XcPTK9gN+
-	XPn41pHC+X/bt9DV+jQNvRikCqg5fQEiLUrlEcPafPb+Lzlhc+9LMUOcdraily//
-	4tCJepp5QmyDVDAF0tK3sE9OX7ltx8SYMnd5dNYHKzD1RwtnP8j6RaLQn9cRzSXn
-	1g8pX/+Pw/7ZVAolUI0lCQNcxRyjXjEWSZBwOBmrLwhIHscG3kH5/YqzmZZo8QTY
-	0ckfQhPCP24bj0pQkYYFsYydPaq8OpHS3TQ==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=fastmail.com a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795547157; d=fastmail.com;
-	mf=PGJhcmFudEBmYXN0bWFpbC5jb20+;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm3:rsa-sha256:aq4so3jfg5I50audI9N2EfKAH0h3YEjwIfYSVlTyHYqHVZU
-	+T0a26xm1AjCE5ZH7flRnllf5FBa1SQxFu79Jvf3v1uXaZIIzzvcsk/SXAK56E/B
-	KQ5rakvcf5clLgRlw8b6GuRwxIuJuKwtPZpVbMjfH2kEKgK5i54FEmuByivcb1tt
-	EQNnfkV9SQ1Od7GvgZVUc6vJV0DRWuWQu8zIfIyMtW2SPjKQu/RlezjfosG+CnTW
-	diab1iH9YpFMkKcIJLYzoY/gAm//zkCAMH1T6YTlcZYPmn9o3oD+S9kFsmAxOFW+
-	CClufC65T1fS/xthIp72wrYzwM4h+qd8SfWv+ow==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=9;
-	hn=cc,content-transfer-encoding,date,feedback-id,from,
-	message-id,mime-version,subject,to;
-Message-Instance: m=1; h=sha256:aUiUWa/LPAy/w+qjc1ZBk8coGBB9ccAsxK/LG3RDTak=:Kn1fNPjTECSVUwdX2gQH1Ss0mfOa3spfmrMa3HT0hOI=;
-X-ME-Sender: <xms:FeAFa3Y7W0P3GVAAf-Q8nVU2cxOZ539lS6h3fABX1u7tLPsQXu3xZg>
-    <xme:FeAFa_WuCM5BwbYC91EqBuGW64k_e--Y-fr3Cn3OI-MMCaJbWIN9Hi1sKWu0fRQ9T
-    zAcgP3botd39WBaNke2qSOAu92xjUt_HrnDi6kJhX8paQZ7eYM>
-X-ME-Received: <xmr:FeAFa1jk95xj769_Q7H-irdf6uuGx2c8PdrQrfxC70rmZG5WuhkbN4Rx>
-X-ME-Proxy-Cause: dmFkZTGqoSm+JEsSMyskpHQmeWD+Nm5bmhoCsG8pT8fQLuM9Ju4YoAwUT0ToiqVhmRSyCa
-    vSjDWaxDytj5eiI7p0wy+/AurvJcqrEy8bzhm0wAfHgrWKozIVKJgBiYo2JHmz7KXydIRC
-    bc9BBbIYHXlm7X0ugmVtNaN+7/HAoJWrxfeZu0MyusSAgpCzWe901ILNd3X2eynA8jnSRq
-    +m1AwTUzDlzDIF4zRAehZ5A2y/guYn7E6vXNc1fxsFLlADIhbSFafEEgvz6s9zRyavNJn4
-    +Wx77C3uXdOHZM+MmA9GVKre7yG2fFJB+aaR8FuqmVV+9cZre8eEDda3D5o0FZdZ93DBXa
-    Lfps5pgF9VlKLxhBEui/q1Ciy14ylaKjPk/k8r2Ji+8N6rTL+sg9tcQ8uvYddq1bFtrfFK
-    2DeGsrz3dHWMm7f/OTNyQ1KFCV7DNYNf3RF+ZAV9uVigLPDrWVtvXhM8AjRCcS5IMmr7it
-    4PfTCPaOE9Fa4xqFrwkD7umajikYmU2c2MzDsx70DP4aNL21ShJygDUTPNg+NZJq+oeyZO
-    DaQ+n9ANgJprZO+mvFOjgg+sBKTaSby7uqk297y3L05yJ2cK9GU11Y+LK/CG6khuY+Nxd8
-    4jW71Svt0ePsbEbDMFIDMnP3iWH5TSWOUfJijat7yemdTgwZXYdUavGYn2FQ
-X-ME-Proxy: <xmx:FeAFa9uKRFXTzrZxIb6b7_bFUR9J_aeiZASAvrM5rtjkBXoeT5PSWg>
-    <xmx:FeAFa-47lxchOh-nFQAyc2ZdWg91FPkjNe8H75y3vhrOvYEsX06qSA>
-    <xmx:FeAFaxPIkXKlhyuFy5vT6FYmM9wICeT5Rt-0ZEPBJlsngXu2pnK_ig>
-    <xmx:FeAFa0sRzROJfUMXFAoO02txCoW4b-KViLr3FL4MOrEaEMxbs9A4aA>
-    <xmx:FeAFa3aQJ_G5eKKMpvelD6cm69bhZ8k2O-e3Wp0LXm10exBpJlsecR_X>
-Feedback-ID: i9dce4b48:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
- 24 Nov 2026 14:05:56 -0500 (EST)
-From: Baran Tuna <barant@fastmail.com>
-To: Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH] soc: mediatek: mtk-svs: Use %pe to print PTR_ERR()
-Date: Tue, 24 Nov 2026 22:05:42 +0300
-Message-ID: <9448408e0bd0f37a05d458f0c8ae69ec848cdf71.1795546605.git.barant@fastmail.com>
-X-Mailer: git-send-email 2.53.0
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BU6i5nEy
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 592841F000E6;
+	Tue, 24 Nov 2026 19:07:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795547247;
+	bh=hcyQ4mkEgZ0lMnjgED6npY7t2QIURd34rU2TnUW9EkY=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=BU6i5nEymqMyRs6doXmJGcRc7OqHkzotGGww5bwY2P65H0kXqa6xFrKcN/1AbnZQS
+	 Eo/ARzo74IfLdE88T4iwa9UU8bM2lSZRuMwvO9IAR/hMhTwJsLYqQaI3Dv9VB9QXgi
+	 YOuqs6+4JtNB5IJtIJhGBiPFTY+3grZ5/xOoNGFMLp2gXOLUEoSK2hQU5mAclw6LKZ
+	 QC26+AIydwDjpV0jYF8ImcQhKyDBm6yJcpQMvjd88lmgaMN2+iqJaKzSXpahcWA1+t
+	 FRx6N6z94hlVUZCfM2+mn9yf7vxv8O+DFtesgbmZavwuB94tkZiw6H2M7xGdttVdR3
+	 jUGOyd46/6Eag==
+Subject:
+ Re: [PATCH net-next 1/3] dt-bindings: net: Add Cortina CS7542 MDIO controller
+From: netdev-bot+sashiko@kernel.org
+To: filipp.dunsky@gmail.com
+Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ andrew@lunn.ch, hkallweit1@gmail.com, linux@armlinux.org.uk,
+ andrew+netdev@lunn.ch, netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Date: Tue, 24 Nov 2026 19:07:25 +0000
+Message-ID: <179554724588.3135.13754934088283070222@kernel.org>
+In-Reply-To: <20261123-b4-cs7542-mdio-v1-1-626d0a0e3b4d@gmail.com>
+References: <20261123-b4-cs7542-mdio-v1-1-626d0a0e3b4d@gmail.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -123,71 +65,137 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-Use the %pe format specifier to print error pointers symbolically
-instead of printing PTR_ERR() as a number.
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-Found by scripts/coccinelle/misc/ptr_err_to_pe.cocci.
+Critical: 0 · High: 0 · Medium: 1 · Low: 1
 
-Signed-off-by: Baran Tuna <barant@fastmail.com>
----
- Compile-tested only.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
- drivers/soc/mediatek/mtk-svs.c | 17 ++++++++---------
- 1 file changed, 8 insertions(+), 9 deletions(-)
+- [Medium] The binding states the CS7542 MDIO block has an MDC prescaler.
+- [Low] The CS7542 MDIO binding
+  (Documentation/devicetree/bindings/net/cortina,cs7542-mdio.yaml)…
 
-diff --git a/drivers/soc/mediatek/mtk-svs.c b/drivers/soc/mediatek/mtk-svs.c
-index 0f37b3aadaa2..385c4aef9e91 100644
---- a/drivers/soc/mediatek/mtk-svs.c
-+++ b/drivers/soc/mediatek/mtk-svs.c
-@@ -594,8 +594,8 @@ static int svs_sync_bank_volts_from_opp(struct svs_bank *svsb)
- 						 svsb->opp_dfreq[i],
- 						 true);
- 		if (IS_ERR(opp)) {
--			dev_err(svsb->dev, "cannot find freq = %u (%ld)\n",
--				svsb->opp_dfreq[i], PTR_ERR(opp));
-+			dev_err(svsb->dev, "cannot find freq = %u (%pe)\n",
-+				svsb->opp_dfreq[i], opp);
- 			return PTR_ERR(opp);
- 		}
- 
-@@ -833,9 +833,8 @@ static int svs_status_debug_show(struct seq_file *m, void *v)
- 		opp = dev_pm_opp_find_freq_exact(svsb->opp_dev,
- 						 svsb->opp_dfreq[i], true);
- 		if (IS_ERR(opp)) {
--			seq_printf(m, "%s: cannot find freq = %u (%ld)\n",
--				   svsb->name, svsb->opp_dfreq[i],
--				   PTR_ERR(opp));
-+			seq_printf(m, "%s: cannot find freq = %u (%pe)\n",
-+				   svsb->name, svsb->opp_dfreq[i], opp);
- 			return PTR_ERR(opp);
- 		}
- 
-@@ -1840,8 +1839,8 @@ static int svs_bank_resource_setup(struct svs_platform *svsp)
- 		for (i = 0, freq = ULONG_MAX; i < bdata->opp_count; i++, freq--) {
- 			opp = dev_pm_opp_find_freq_floor(svsb->opp_dev, &freq);
- 			if (IS_ERR(opp)) {
--				dev_err(svsb->dev, "cannot find freq = %ld\n",
--					PTR_ERR(opp));
-+				dev_err(svsb->dev, "cannot find freq = %pe\n",
-+					opp);
- 				return PTR_ERR(opp);
- 			}
- 
-@@ -1864,8 +1863,8 @@ static int svs_get_efuse_data(struct svs_platform *svsp,
- 
- 	cell = nvmem_cell_get(svsp->dev, nvmem_cell_name);
- 	if (IS_ERR(cell)) {
--		dev_err(svsp->dev, "no \"%s\"? %ld\n",
--			nvmem_cell_name, PTR_ERR(cell));
-+		dev_err(svsp->dev, "no \"%s\"? %pe\n",
-+			nvmem_cell_name, cell);
- 		return PTR_ERR(cell);
- 	}
- 
+--
 
-base-commit: 8d7fe9885c62fc9a95bf55d9db244d9672a8aadc
+dt-bindings: net: Add Cortina CS7542 MDIO controller
+
+This adds a YAML binding for the Cortina CS7542 Clause 22 MDIO controller.
+The binding references mdio.yaml and requires compatible, reg and the cell
+properties. It disallows clock-frequency and suppress-preamble because the
+MDC prescaler set by firmware is kept as is.
+
+> diff --git a/Documentation/devicetree/bindings/net/cortina,cs7542-mdio.yaml b/Documentation/devicetree/bindings/net/cortina,cs7542-mdio.yaml
+> new file mode 100644
+> index 0000000000000..77b5e2f09f423
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/net/cortina,cs7542-mdio.yaml
+> @@ -0,0 +1,48 @@
+
+[ ... ]
+
+> +description:
+> +  Clause 22 MDIO controller. Firmware configures the MDC prescaler before
+> +  the operating system starts; the driver retains this setting.
+> +
+> +allOf:
+> +  - $ref: mdio.yaml#
+> +
+> +properties:
+> +  compatible:
+> +    const: cortina,cs7542-mdio
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  clock-frequency: false
+> +  suppress-preamble: false
+
+[Severity: Low]
+Do these two false constraints describe a hardware limit, or only what the
+current driver does?
+
+The description talks about what "the driver retains". The MDC prescaler
+also looks like a programmable register. cs75xx_mdio_probe() in
+drivers/net/mdio/mdio-cs75xx.c, added later in this series, reads it and
+writes it back:
+
+    cfg = readl(priv->base + PER_MDIO_CFG);
+    /* The firmware configures the MDC rate; retain its prescaler. */
+    cfg |= MDIO_CFG_MANUAL;
+    writel(cfg, priv->base + PER_MDIO_CFG);
+
+So the hardware seems able to set the MDC rate. Rejecting clock-frequency
+then only reflects that the Linux driver doesn't implement it. Nothing in
+the binding says the hardware can't suppress the preamble either.
+
+Documentation/devicetree/bindings/writing-bindings.rst says bindings should
+not refer to Linux or "device driver". It also says they should be based on
+what the hardware has, not on what an OS and driver currently support.
+
+With this binding, a board whose PHYs need a different MDC rate has no
+valid way to say so. dt_binding_check also rejects these standard
+mdio.yaml properties.
+
+The commit message has the same problem:
+
+  clock-frequency and preamble suppression are not supported.
+
+This reads like a hardware limitation.
+
+Could the description be reworded to describe the hardware? And could the
+false entries be dropped unless the hardware really lacks these features?
+
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - "#address-cells"
+> +  - "#size-cells"
+> +
+> +unevaluatedProperties: false
+
+[Severity: Medium]
+Is this schema missing an input clock, and possibly a reset?
+
+The description says the block has an MDC prescaler, which means it
+divides some input clock. The schema only adds compatible and reg on top of
+mdio.yaml. With unevaluatedProperties: false, any DT node that has a clocks
+or resets property fails validation.
+
+writing-bindings.rst asks for complete bindings in this case:
+
+  - DO attempt to make bindings complete even if a driver doesn't support
+    some features.
+
+cs75xx_mdio_probe(), added later in the series, never gets or enables a
+clock:
+
+    priv->base = devm_platform_ioremap_resource(pdev, 0);
+    ...
+    return devm_of_mdiobus_register(dev, bus, dev->of_node);
+
+What if a Linux clock driver manages the parent clock? clk_disable_unused()
+could gate it at late_initcall. Every access would then time out in the
+readl_poll_timeout_atomic() call in cs75xx_mdio_wait(), and the attached
+PHYs would be unusable.
+
+A rate change on a shared parent clock would also change MDC without
+notice, since the driver keeps the firmware divider and never recomputes
+it. That could push MDC above the 2.5 MHz Clause 22 limit.
+
+There is no CS7542 clock driver or DTS in the tree yet. So the runtime
+failure depends on whether that clock can actually be gated or changed.
+
+If a required clocks property is added later, though, existing DTs written
+against this binding would stop validating.
+
+Would it be better to describe the clock now?
+
 -- 
-2.53.0
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261123-b4-cs7542-mdio-v1-0-626d0a0e3b4d%40gmail.com
