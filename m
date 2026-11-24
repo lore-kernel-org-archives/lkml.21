@@ -1,60 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.70.43.25
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795523887;
-	b=C7lk3/WtmnmokPj4eCkLWNlDf/2+2KGtwc5W8lOYnKRSPJncKNCSEf/7jXcNBpjm9FOC
-	 rvFmDEddNvQk6daAAzq6nZaG9COwxelUMr7LOXDQJ5EZ8sUDP9AH7OC5jm9fcNUd5hUvm
-	 AxfBGT+x4nC0A1wyJG1r+cl9XkYL0h4mKZA18LN2N7LInUmDCJ17BSybC6GL1sfNqkD5s
-	 u8oe8tHbE2NjNN2J3U6n7P4681Tey/evdcN0U/tD8GycPAL7ne3709RV90FNvXMiVNrji
-	 dFqvj+CRDH25GFTK6LQw1XPDUmbEdz5SpXEjyQqFSFvs4kWQoqdR03SQPXtIJAE/0cg==
+	t=1795523932;
+	b=xgnqY45Grrv3NZ9H3GoBmiWWzDjI4rFdUe7sCEzeKH0PTg3gHB4JWXOHm4l+oFLcOCXx
+	 zGxCejAzBPBg32RLIj0l4Dyvjdx7xApfMsQwpFKCv3mfqp4v6l8KLSsUUQ+SALPjQWDjO
+	 zlZPFDVVLb2cWNXaR3/jb+qAvedPg2InKNxqcGxjKWk21+ow2wfxmQiSR6ENOvyJE/kp3
+	 9JkAkB6AzXihPkBsV1lPnk16HzNvw3YmFuZ2h4W7yBJQKniWjhS7B5n2KQgLYYbhxzGSy
+	 mUIDrJJo4FVzKpPRJxpkZG4jeuhu3XIHhB945NFfw/URWttOURMWcXipfA2Gi9re69g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795523887;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
-	 In-Reply-To:References:Auto-Submitted:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
-	b=sGQWHvfvNuR4bDcafpCJrAsVYXAgtgvxZYv6zee4x7SsMj6SyIwEHlIu97ppO86/Wxct
-	 OcVVhFRJKFfgktYjDNFk3gDhNmdcBtaZBotoQThJV2AgLqWAuPSyjz4Cc340Km+GuJ6IY
-	 8vnA25faWO4aek/SpRoY7NZULZVBDvxZ1GodLDSL5aYEoJ+4K5XsRIbbg0DhJG6lXNmK+
-	 yRS3N+5EqVCFHfRR4VBR9cv8uRJXq3I6gl0QwD80ed/1rGxS32YZsfpd2dFMRRpBX6Mma
-	 sz/60df3dYwwYoUf2+FrZc437tksudmJfl07XoDjRlMMCTo8xF1pMb7ze2qRkkbP92g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795523932;
+	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
+	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=eJCmBSYolN8SoZoYUvJwCwebOumcXhSHA0DzyLMAWlg=;
+	b=ba8ljI1hkKklX/CV+hzx4QewSN8NlYuXbc2s2o5o/5qj5GQPerUz1zZVFB9uXTQZ+exu
+	 ncgEwzNFsccKF8v68Q/0jA9jUm9OdJp/xyY7QtVx2fzr98CSyQUqzG5qhEIK1TsZIX285
+	 fKQUfg0NKLXMvPt2Knxu6EAA1bEIQ1/zYc+4PTZl+V3irNq/ROvI3KiEehfYJUygKP1oq
+	 F0tWjc5Fapv5+zi8zqCcCCxY19F4IzXwf5kOzLD66ROwrDR7++J/mEdRfmBn3BlaeQPKX
+	 6uSGpsktLIPOy4U3UNHZpO7gAbYjGUqKGF/GsT8N5tKpvynF0p7HMGWAOdWS4FTIAwQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m2IRfZkb;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=proton.me;
+	spf=pass smtp.mailfrom=proton.me;
+	dkim=pass header.d=proton.me header.i=@proton.me header.a=rsa-sha256 header.s=protonmail2 header.b="k/0qqZma";
+	arc=none smtp.remote-ip=185.70.43.25
+Received: from mail-4325.protonmail.ch (mail-4325.protonmail.ch [185.70.43.25])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 05635606A31E;
-	Tue, 24 Nov 2026 12:38:06 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A0F19606A322
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 12:38:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A0F19606A322
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=proton.me
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=proton.me
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m2IRfZkb
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1931E1F000C6;
-	Tue, 24 Nov 2026 12:38:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795523886;
-	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=m2IRfZkbevR2dQCYVTzfY+xTtZIikKF1nJQVqzV8G2zJbdGdOkyRwt7Fnn8hcnGKo
-	 79sOajCbX6w6Tq0kZ3N447flt3Byp2AjW6bHGzclsCCKgtdbDQrdJGH8mef4j2sZKy
-	 niwhgZz7/INN7LunfFuAocJWa58bdroj2t2KugbOAOvyQqOH6mMRn0kMYZsaTiVzGQ
-	 zAM1Rk8M9oFTJTb3xWP5GYxRIyeEQkUDf+2SSpr+CW5heJQt0NSQQk4erPrfDvt09x
-	 LTevUAzIu6uk+aJ+q6SscUUWqZbuKtdRNvuzj/2MSj96E+2ZbVwxeukWMlFU95unMf
-	 +ZxcQc6LdXSVQ==
-From: netdev-bot+sinfo@kernel.org
-To: Hangbin Liu <hangbin.liu@linux.dev>
-Cc: Jay Vosburgh <jv@jvosburgh.net>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: 
- Re: [PATCH net-next] bonding: roll back fail_over_mac if enslave fails
-Date: Tue, 24 Nov 2026 12:38:05 +0000
-Message-ID: <179552388563.3294.14587394953378202358@kernel.org>
-In-Reply-To: <20261124-bond_fail_over_mac-v1-1-9caee319331f@kylinos.cn>
-References: <20261124-bond_fail_over_mac-v1-1-9caee319331f@kylinos.cn>
-Auto-Submitted: auto-generated
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+	dkim=pass (2048-bit key, unprotected) header.d=proton.me header.i=@proton.me header.a=rsa-sha256 header.s=protonmail2 header.b=k/0qqZma
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=proton.me;
+	s=protonmail2; t=1795523929; x=1795783129;
+	bh=eJCmBSYolN8SoZoYUvJwCwebOumcXhSHA0DzyLMAWlg=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=k/0qqZmacAwl8oMRPyyWCJrzsZvmztwbgamFRCEwUx2HWJ3RD0p2tC5zxUNy7nbPu
+	 C4p1/ZjBIVNzvSC98ZYV17MhuPbAuR4bz09ll3Yv7cFkHj2TeiFSU/F4kNaMfvxoSo
+	 0Rf8jI5kCNi3D12ZGXng1LJJCEfJDN8o0k5mQjuzjHRyFCNwaUFm9ZpufRmomHkpqy
+	 3EEw3dBp+n/oPN5fvlSrPgrQh9MfbkV24JAxOC0S63N38rAFOhJrQN2e2ve1AbJr6v
+	 XVQ2aLhkkYgASz8bS+xLbGMZr9ciwE/VnJlocCmeLDwLgieWsTTtAIKYBZMQ81rEnn
+	 nnGYfgpeQctDw==
+Date: Tue, 24 Nov 2026 12:38:44 +0000
+To: Hyunchul Lee <hyc.lee@gmail.com>
+From: Ernest Borowski <ernest.borowski.git@proton.me>
+Cc: ernest.borowski.git@proton.me, Namjae Jeon <linkinjeon@kernel.org>, Baolin Liu <liubaolin12138@163.com>, ntfs@lists.linux.dev, linux-kernel@vger.kernel.org, Zhan Xusheng <zhanxusheng1024@gmail.com>, stable@vger.kernel.org
+Subject: Re: [PATCH 1/7] ntfs: release delalloc reservations cut off by truncate
+Message-ID: <179552391645.2429893.14069187088819363568.b4-reply@b4>
+In-Reply-To: <awOh8Zxdmg_-wKPg@hyunchul-PC02>
+References: <20261122-b4-ntfs-delalloc-fixes-v1-0-0726f0dce403@proton.me> <20261122-b4-ntfs-delalloc-fixes-v1-1-0726f0dce403@proton.me> <awOh8Zxdmg_-wKPg@hyunchul-PC02>
+Feedback-ID: 236360163:user:proton
+X-Pm-Message-ID: c84d250e94fba5c9ad7d33e5c64ed591b75f76a7
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,26 +64,28 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-Hi!
+On Mon, Nov 23, 2026 at 11:16:17AM +0900, Hyunchul Lee wrote:
+> If ntfs_cluster_alloc() succeeds for a LCN_DEALLOC run but the
+> subsequent kmemdup() in ntfs_attr_map_cluster() fails, the reservation
+> has already been substracted from dirty_clusters but LCN_DELLOC run
+> remains.
+>
+> Is this planned to be addressed in part 2?
 
-This is an automated message. This series looks like a fix, but its
-commit messages seem to be missing some information:
+Yes.  This is pre-existing (ntfs-next has the same path), and the first
+patch of part 2, "ntfs: keep delalloc reservations when a cluster
+allocation fails", fixes it.  When the runlist copy (kmemdup()), the
+runlist merge or the mapping pairs update fails after the allocator has
+taken a delalloc reservation, ntfs_attr_map_cluster() restores the
+reservation before freeing the clusters.  The same patch stops
+ntfs_cluster_alloc() from setting vol->dirty_clusters to 0 when it fails
+after the free space check.  A fail-nth reproducer covers these paths.
 
- - How the issue was discovered, e.g. hit in production, hit during
-   development, syzbot report, manual code inspection, LLM or static
-   analysis tool scan.
+If you would rather have it here, I can move it into v2 of this series.
 
- - Whether the issue was actually triggered, or is only theoretical
-   (e.g. found by LLM and not proven at runtime). If it was triggered
-   please include the symptoms, like the stack trace or kernel messages.
+Thanks,
+Ernest
 
-Please do not repost the series just to address the above. Instead,
-reply to this email with the missing information, so that reviewers
-can take it into account.
-
-*IMPORTANT*: If you do repost (for other reasons) - please include
-the relevant info in the cover letter or commit messages.
--- 
-The evaluation is done by an LLM so it may be wrong, if you think
-that is the case please reply and explain.
