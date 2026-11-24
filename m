@@ -1,67 +1,48 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=159.226.251.21
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795509312;
-	b=2SDI/8ualdhgLF0s4UbbNlMFw3nnazvZUltUogshVNwOSVoAa4RdhNpiID+wElzVp4Rv
-	 UbXc1cwKc8I7JQHkJdpllzaUvgQ5jCdchXzTW2aiv4k3sDLoeo8OzBTgWARvJAGaLMgxV
-	 D1a7yYhBkqRV5y7vjsK+hGHpWj4OV3zMylkQ3t6SayXpbgyGHNU+cAIMO4mfH733E7C87
-	 466JS8T2OfXBGfQynJJCzqaZzFU4cMxDE+3eSOS9UoEH/u5+Ggr7JnZPf65pIYURw5C1j
-	 is6Wo3Io0O+Z+GIdBeKyGij/AVaZHgDNREPWjwy2Va5KZqK+Ra+t8B6KV/7RfoPxcdw==
+	t=1795509328;
+	b=oGPGw+IjOqL00BnjurMfgi/fjCT5s9QpB1cLB4KDozPxtABuN8ISoAc9Pfg2lV4Qbcnh
+	 UpHrvtpMQ2eCQ/M0ytJdbTNDLesnPdmtdglQPyvOTRPowskiWeFcP8dfY3J6BOqN24k5l
+	 huhNj1lW8Hwf3yTdMC8Te83Xq3iDUuUE7/tbOVZY97hFsYELbBQ9dvYtgxtK8XrmvcCio
+	 gS4lBydtzN24NzriPW1+NjnBCqzYSb/D9H4qFgmxwHY3SbYkLssmo1GM/cA7yGQ3ImcVs
+	 DIz837b4Eav6ULb0zSGBnSgAGRxOaQ6yg+WIZNBRP8s1fQX80qy7yNI0ByRKsuk1C7w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795509312;
-	h=DMARC-Filter:Received:Message-ID:Subject:From:To:Cc:Date:In-Reply-To:
-	 References:Content-Type:Content-Transfer-Encoding:User-Agent:
-	 MIME-Version:X-CM-TRANSID:X-Coremail-Antispam:X-Originating-IP:
-	 X-CM-SenderInfo;
-	bh=w8v0C2bmmyd3xrWEYjQ9lhSNkSAa9ZzscDC6rLUEtzQ=;
-	b=bmlgtljE4cjc+SKMXK3M1HO7MTXGgOCzaBAXBKcWLWAYziX6J6DFbZ55HhSBCgnZwvBG
-	 40wF4VQR87ObcyJswsL+RD61zXWjAcRwrpUcuF/g6VoUcKLM55JD08Iu2A0beNnBjE1oc
-	 zRJKflUMpvAVoF3rydcLd7IXMsdeVF8hJR9kwz5Halg3KNE5ZGabNkqYw0DR/WQnHqG5c
-	 Ecr2FMDLj4mxcxwdJvVJX4WBmSqHsTIvZX5kwca6NwUiAlduSkNk9D/N1vAFs4Bk9YcrO
-	 4RFi5J1KSJqy4FrFWLblnEODvRl7FXB/bqMqYLUvVbZ42T3OnjgzkWXpcboGrn/5mHA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795509328;
+	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:
+	 X-Mailer;
+	bh=E2Iui6nyflKBUHKAAV+wZGQlF41I5Mkux6PwXcFAOMA=;
+	b=SaIBKbU9mJpgNc7XS06HRg/tVBCh9jJ6c2q57rFUSV+yA0YA/CkDDMiVkqYAsy1lFsZa
+	 Ac7CvdgtOQAaFJAuXUxRYrJvvXQkSEBMqbNnrrXTtqike8bA9ZfzQOOpEu3/o9c83/2Dy
+	 Xm7rEyC87snDSDFoj12JOu8q0ZXhZ7GpSpghsPt2kn0K86ksETSL6P97+IM3eczT6DW4O
+	 rPSabvzewqHRU4yG05gFWGoeEXOPCCZNlWTsWOMImQJV4CouSW0Jf84aWNuh/wRKvQG2o
+	 6JgLMlmoCCf2uQLuaugcks2K2Nx2xm+uTHZlf0jym3GYnT2MspRcK2hNFgxsfsp+6oQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=iscas.ac.cn;
-	spf=pass smtp.mailfrom=iscas.ac.cn;
-	arc=none smtp.remote-ip=159.226.251.21
-Received: from cstnet.cn (smtp21.cstnet.cn [159.226.251.21])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=STBqYclq;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 98BE5606A338;
-	Tue, 24 Nov 2026 08:35:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 98BE5606A338
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=iscas.ac.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=iscas.ac.cn
-Received: from edelgard.fodlan.icenowy.me (unknown [120.85.97.139])
-	by APP-01 (Coremail) with SMTP id qwCowAAHMvwiTAVro9qUAQ--.44326S2;
-	Tue, 24 Nov 2026 16:34:43 +0800 (CST)
-Message-ID: <561b5dc1b3a87ebc78f2357d253df4676395fb10.camel@iscas.ac.cn>
-Subject: Re: [PATCH v3 2/2] drm/bridge: add TH1520 DesignWare MIPI DSI host
- controller
-From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-To: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong	
- <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, Laurent
- Pinchart	 <Laurent.pinchart@ideasonboard.com>, Jonas Karlman
- <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli
- <luca.ceresoli@bootlin.com>, Maarten Lankhorst	
- <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, Rob Herring	 <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley	 <conor+dt@kernel.org>, Sandy
- Huang <hjc@rock-chips.com>, Heiko =?ISO-8859-1?Q?St=FCbner?=	
- <heiko@sntech.de>, Andy Yan <andyshrk@163.com>,
- dri-devel@lists.freedesktop.org, 	devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, 	linux-rockchip@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, 	linux-riscv@lists.infradead.org, Han
- Gao <gaohan@iscas.ac.cn>
-Date: Tue, 24 Nov 2026 16:34:42 +0800
-In-Reply-To: <af27260f-1911-47bb-8fe2-8eaa8bec31b0@rock-chips.com>
-References: <20261124-th1520-dw-mipi-dsi-v3-0-ffcf2d87971b@iscas.ac.cn>
-	 <20261124-th1520-dw-mipi-dsi-v3-2-ffcf2d87971b@iscas.ac.cn>
-	 <af27260f-1911-47bb-8fe2-8eaa8bec31b0@rock-chips.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.58.3 
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0286C606A337;
+	Tue, 24 Nov 2026 08:35:27 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=STBqYclq
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4AD31F000E1;
+	Tue, 24 Nov 2026 08:35:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795509327;
+	bh=E2Iui6nyflKBUHKAAV+wZGQlF41I5Mkux6PwXcFAOMA=;
+	h=From:Date:Subject:To:Cc;
+	b=STBqYclqVmb2ma1VTLpCp/QBi8UOHAwSo+IbiHO0QWB9vbdoMZcBCcBV8gZAAtRBs
+	 ZDfUrhZc756TScR2XhaudxyzFT4KylxqjfVmyeJQmSQqBazWhsFM1T4azw2XBxupVW
+	 Dm112gsOHLdhNP9KeQq+yfrK3NBWEjRN9CE9qocdt5Fjbs7MugOtsYrAET1TPi28IP
+	 RqA2l24XjGuVzdyDCywIYwOpI+CpwDTwTyBgv0ruOwnivYCJwFnRfsK7Vfcy//zVLC
+	 280zd7LjfPhPlXzyWRPeGGF9/AesQFEkqsNJcP5TAIE9ktWsKpcy4qRP8LfUuRILdA
+	 vF28Pkt5bRiJg==
+From: "GUO Ren (XuanTie)" <guoren@kernel.org>
+Date: Tue, 24 Nov 2026 08:35:04 +0000
+Subject: [PATCH v7] riscv: errata: Add ERRATA WRITE_ONCE fixup
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,365 +52,272 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-CM-TRANSID:qwCowAAHMvwiTAVro9qUAQ--.44326S2
-X-Coremail-Antispam: 1UD129KBjvJXoW3Cw4rWr1xXFWrZw48uFWDCFg_yoWDWF18pF
-	1xAFWUtFW5JFs7Wwnav3Z5trnxJw1rtr1rW3yxtr48tFyFvr93Gr4q9r9xJFy8ZFs5Xr4S
-	ya98ua13K34ftrDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvlb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26ryj6rWUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I
-	8E87Iv6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
-	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r106r15McIj6I8E87Iv67AKxVWUJVW8Jw
-	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1l
-	c7CjxVAaw2AFwI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr
-	1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE
-	14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7
-	IYx2IY6xkF7I0E14v26F4j6r4UJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2
-	z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8Jr0_Cr1UYxBIdaVFxhVjvj
-	DU0xZFpf9x07b4oGdUUUUU=
-X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261124-write_once-v7-1-4158a930aa80@kernel.org>
+X-B4-Tracking: v=1; b=H4sIADdMBWsC/03Myw6CMBCF4Vchs7akMwEaXfkexphahlIvrZmCm
+ hDeXdCNyz8555sgswTOsCsmEH6GHFJcwmwKcL2NnlVolwbS1CBSpV4SBj6l6Fi1lrA1aKwzBMv
+ hIdyF9xc7HH+dx/OF3bAK66KTdFdDL2z/Ua2RDFKJ29rUTaVQ+TEJx/2VJfKtTOJhnj/Hq+SAq
+ wAAAA==
+X-Change-ID: 20261124-write_once-da21d717ac72
+To: Drew Fustini <fustini@kernel.org>, Han Gao <gaohan@iscas.ac.cn>, 
+ Inochi Amaoto <inochiama@gmail.com>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Arnd Bergmann <arnd@arndb.de>, 
+ Chen Wang <chen.wang@linux.dev>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-arch@vger.kernel.org, sophgo@lists.linux.dev, 
+ Alexandre Ghiti <alexghiti@rivosinc.com>, 
+ Leonardo Bras <leobras@redhat.com>, Yao Zi <me@ziyao.cc>, 
+ Chen Wang <unicorn_wang@outlook.com>, 
+ Xiaoguang Xing <xiaoguang.xing@sophgo.com>, 
+ "GUO Ren (XuanTie)" <guoren@kernel.org>
+X-Mailer: b4 0.16.0
 
-=E5=9C=A8 2026-11-24=E4=BA=8C=E7=9A=84 16:29 +0800=EF=BC=8CChaoyi Chen=E5=
-=86=99=E9=81=93=EF=BC=9A
-> Hi Icenowy,
->=20
-> On 11/24/2026 3:56 PM, Icenowy Zheng wrote:
-> > The T-Head TH1520 SoC contains a Synopsys DesignWare MIPI DSI host
-> > controller with an internal DesignWare MIPI D-PHY.
-> >=20
-> > Add a glue driver configuring clocks and PHY parameters for it.
-> >=20
-> > Signed-off-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-> > ---
-> >  drivers/gpu/drm/bridge/Kconfig              |  12 +
-> >  drivers/gpu/drm/bridge/Makefile             |   1 +
-> >  drivers/gpu/drm/bridge/th1520-dw-mipi-dsi.c | 570 ++++++++++++++++++++=
-++++++++
-> >  3 files changed, 583 insertions(+)
-> >=20
-> > diff --git a/drivers/gpu/drm/bridge/Kconfig b/drivers/gpu/drm/bridge/Kc=
-onfig
-> > index c7da6b02d7b6b..f8987e8946fbb 100644
-> > --- a/drivers/gpu/drm/bridge/Kconfig
-> > +++ b/drivers/gpu/drm/bridge/Kconfig
-> > @@ -372,6 +372,18 @@ config DRM_THEAD_TH1520_DW_HDMI
-> >  	  Choose this to enable support for the internal HDMI bridge found
-> >  	  on the T-Head TH1520 SoC.
-> > =20
-> > +config DRM_THEAD_TH1520_DW_MIPI_DSI
-> > +	tristate "T-Head TH1520 DesignWare MIPI DSI bridge"
-> > +	depends on OF
-> > +	depends on COMMON_CLK
-> > +	depends on ARCH_THEAD || COMPILE_TEST
-> > +	select DRM_DW_MIPI_DSI
-> > +	select GENERIC_PHY_MIPI_DPHY
-> > +	select MFD_SYSCON
-> > +	help
-> > +	  Choose this to enable support for the internal MIPI DSI bridge
-> > +	  found on the T-Head TH1520 SoC.
-> > +
-> >  config DRM_TOSHIBA_TC358762
-> >  	tristate "TC358762 DSI/DPI bridge"
-> >  	depends on OF
-> > diff --git a/drivers/gpu/drm/bridge/Makefile b/drivers/gpu/drm/bridge/M=
-akefile
-> > index 15cc821d85b7e..5af871ba5ce77 100644
-> > --- a/drivers/gpu/drm/bridge/Makefile
-> > +++ b/drivers/gpu/drm/bridge/Makefile
-> > @@ -32,6 +32,7 @@ obj-$(CONFIG_DRM_SII9234) +=3D sii9234.o
-> >  obj-$(CONFIG_DRM_SIMPLE_BRIDGE) +=3D simple-bridge.o
-> >  obj-$(CONFIG_DRM_SOLOMON_SSD2825) +=3D ssd2825.o
-> >  obj-$(CONFIG_DRM_THEAD_TH1520_DW_HDMI) +=3D th1520-dw-hdmi.o
-> > +obj-$(CONFIG_DRM_THEAD_TH1520_DW_MIPI_DSI) +=3D th1520-dw-mipi-dsi.o
-> >  obj-$(CONFIG_DRM_THINE_THC63LVD1024) +=3D thc63lvd1024.o
-> >  obj-$(CONFIG_DRM_TOSHIBA_TC358762) +=3D tc358762.o
-> >  obj-$(CONFIG_DRM_TOSHIBA_TC358764) +=3D tc358764.o
-> > diff --git a/drivers/gpu/drm/bridge/th1520-dw-mipi-dsi.c b/drivers/gpu/=
-drm/bridge/th1520-dw-mipi-dsi.c
-> > new file mode 100644
-> > index 0000000000000..8e866b70aec88
-> > --- /dev/null
-> > +++ b/drivers/gpu/drm/bridge/th1520-dw-mipi-dsi.c
-> > @@ -0,0 +1,570 @@
-> > +// SPDX-License-Identifier: GPL-2.0
-> > +/*
-> > + * Copyright (C) 2026 Institute of Software, Chinese Academy of Scienc=
-es (ISCAS)
-> > + *
-> > + * Author:
-> > + *   Icenowy Zheng <zhengxingda@iscas.ac.cn>
-> > + *
-> > + * Based on dw_mipi_dsi-stm.c, which is:
-> > + *   Copyright (C) STMicroelectronics SA 2017
-> > + *
-> > + * Based on dw-mipi-dsi-rockchip.c, which is:
-> > + *   Copyright (C) Rockchip Electronics Co., Ltd.
-> > + *
-> > + * Based on vendor kernel phy-dw-mipi-dphy.c, which is:
-> > + *   Copyright (C) Alibaba Group Holding Limited.
-> > + */
-> > +
-> > +#include <linux/bitfield.h>
-> > +#include <linux/clk.h>
-> > +#include <linux/kernel.h>
-> > +#include <linux/mfd/syscon.h>
-> > +#include <linux/module.h>
-> > +#include <linux/phy/phy.h>
-> > +#include <linux/phy/phy-mipi-dphy.h>
-> > +#include <linux/platform_device.h>
-> > +#include <linux/regmap.h>
-> > +#include <linux/regulator/consumer.h>
-> > +
-> > +#include <video/mipi_display.h>
-> > +
-> > +#include <drm/bridge/dw_mipi_dsi.h>
-> > +#include <drm/drm_mipi_dsi.h>
-> > +
-> > +/* DSI controller registers for DPHY access */
-> > +
-> > +#define DSI_PHY_TST_CTRL0		0xb4
-> > +#define PHY_TESTCLK			BIT(1)
-> > +#define PHY_UNTESTCLK			0
-> > +#define PHY_TESTCLR			BIT(0)
-> > +#define PHY_UNTESTCLR			0
-> > +
-> > +#define DSI_PHY_TST_CTRL1		0xb8
-> > +#define PHY_TESTEN			BIT(16)
-> > +#define PHY_UNTESTEN			0
-> > +#define PHY_TESTDOUT(n)			(((n) & 0xff) << 8)
-> > +#define PHY_TESTDIN(n)			(((n) & 0xff) << 0)
-> > +
-> > +/* DPHY registers */
-> > +
-> > +#define PLL_DELAY_LP_TX_START_LP11	0x02
-> > +#define TXDINDLYTIME_9_2		GENMASK(7,  0)
-> > +
-> > +#define PLL_FSM_CNTRL			0x03
-> > +
-> > +#define PLL_PROP_CHARGE_PUMP_CTRL	0x0e
-> > +#define PLL_PROP_CNTRL			GENMASK(5,  0)
-> > +
-> > +#define PLL_INT_CHARGE_PUMP_CTRL	0x0f
-> > +#define PLL_INT_CNTRL			GENMASK(5,  0)
-> > +
-> > +#define PLL_VCO_CTRL			0x12
-> > +#define PLL_VCO_CNTRL_OVR_EN		BIT(6)
-> > +#define PLL_VCO_CNTRL_OVR		GENMASK(5,  0)
-> > +
-> > +#define PLL_GMP_CTRL_DIGITAL_TEST	0x13
-> > +#define PLL_TESTLOCK			BIT(7)
-> > +#define PLL_GMP_CNTRL			GENMASK(5,  4)
-> > +#define TSTPLLDIG			GENMASK(3,  1)
-> > +#define TSTPLLDIG_LOCK			(0x0 << 1)
-> > +#define TSTPLLDIG_REFCLK		(0x1 << 1)
-> > +#define TSTPLLDIG_FBCLK			(0x2 << 1)
-> > +#define TSTPLLDIG_INT_CLKIN		(0x3 << 1)
-> > +#define TSTPLLDIG_LOCK_FROM_DETECTOR	(0x4 << 1)
-> > +#define TSTPLLDIG_OUTPUT		(0x5 << 1)
-> > +#define TSTPLLDIG_BUF_VCOCLK		(0x6 << 1)
-> > +#define TSTPLLDIG_UPDATEPLL		(0x7 << 1)
-> > +
-> > +#define PLL_N_DIV_FSM_SIG		0x17
-> > +#define PLL_N_OVR			GENMASK(3,  0)
-> > +
-> > +#define PLL_M_DIV			0x18
-> > +#define PLL_M_OVR_4_0			GENMASK(4,  0)
-> > +#define PLL_M_OVR_9_5			GENMASK(4,  0)
-> > +
-> > +#define PLL_N_AND_M_DIV_CTRL		0x19
-> > +#define PLL_M_OVR_EN			BIT(5)
-> > +#define PLL_N_OVR_EN			BIT(4)
-> > +
-> > +#define PLL_CHARGE_PUMP_BIAS_CTRL	0x1c
-> > +#define PLL_CPBIAS_CNTRL		GENMASK(6,  0)
-> > +
-> > +#define PLL_ANALOG_PROGRAM_CONTROL	0x1f
-> > +#define PLL_MPLL_PROG_5_0		GENMASK(5,  0)
-> > +#define PLL_MPLL_PROG_11_6		GENMASK(5,  0)
-> > +#define PLL_MPLL_PROG_16_12		GENMASK(4,  0)
-> > +
-> > +#define HS_FREQ_RANGE_OF_OPERATION	0x44
-> > +#define HSFREQRANGE_OVR_EN		BIT(7)
-> > +#define HSFREQRANGE_OVR			GENMASK(6,  0)
-> > +#define HSFREQRANGE			HSFREQRANGE_OVR
-> > +
-> > +#define PG_LP_BIAS_LANE0		0x4a
-> > +#define PRG_ON_LANE0			BIT(6)
-> > +
-> > +#define SR_FSM_OVR_CNTRL		0xa0
-> > +#define SR_DDL_LOOP_CONF		0xa3
-> > +
-> > +/* syscon registers */
-> > +
-> > +#define MIPIDSI0_SYSREG			0x8
-> > +#define MIPIDSI1_SYSREG			0xc
-> > +#define MIPIDSI_HSFREQRANGE		GENMASK(9,  3)
-> > +#define MIPIDSI_CFGCLKFREQRANGE		GENMASK(15, 10)
-> > +#define MIPIDSI_CFGCLKFREQRANGE_DEF	(0x1c << 10)
-> > +
-> > +struct pll_hsfreqrange {
-> > +	unsigned int max_mbps;
-> > +	u8 hsfreqrange;
-> > +};
-> > +
-> > +static const struct pll_hsfreqrange hsfreqrange_table[] =3D {
-> > +	{ 80,  0x00 },
-> > +	{ 90,  0x10 },
-> > +	{ 100, 0x20 },
-> > +	{ 110, 0x30 },
-> > +	{ 120, 0x01 },
-> > +	{ 130, 0x11 },
-> > +	{ 140, 0x21 },
-> > +	{ 150, 0x31 },
-> > +	{ 160, 0x02 },
-> > +	{ 170, 0x12 },
-> > +	{ 180, 0x22 },
-> > +	{ 190, 0x32 },
-> > +	{ 205, 0x03 },
-> > +	{ 220, 0x13 },
-> > +	{ 235, 0x23 },
-> > +	{ 250, 0x33 },
-> > +	{ 275, 0x04 },
-> > +	{ 300, 0x14 },
-> > +	{ 325, 0x25 },
-> > +	{ 350, 0x35 },
-> > +	{ 400, 0x05 },
-> > +	{ 450, 0x16 },
-> > +	{ 500, 0x26 },
-> > +	{ 550, 0x37 },
-> > +	{ 600, 0x07 },
-> > +	{ 650, 0x18 },
-> > +	{ 700, 0x28 },
-> > +	{ 750, 0x39 },
-> > +	{ 800, 0x09 },
-> > +	{ 850, 0x19 },
-> > +	{ 900, 0x29 },
-> > +	{ 950, 0x3A },
-> > +	{ 1000, 0x0A },
-> > +	{ 1050, 0x1A },
-> > +	{ 1100, 0x2A },
-> > +	{ 1150, 0x3B },
-> > +	{ 1200, 0x0B },
-> > +	{ 1250, 0x1B },
-> > +	{ 1300, 0x2B },
-> > +	{ 1350, 0x3C },
-> > +	{ 1400, 0x0C },
-> > +	{ 1450, 0x1C },
-> > +	{ 1500, 0x2C },
-> > +	{ 1550, 0x3D },
-> > +	{ 1600, 0x0D },
-> > +	{ 1650, 0x1D },
-> > +	{ 1700, 0x2E },
-> > +	{ 1750, 0x3E },
-> > +	{ 1800, 0x0E },
-> > +	{ 1850, 0x1E },
-> > +	{ 1900, 0x2F },
-> > +	{ 1950, 0x3F },
-> > +	{ 2000, 0x0F },
-> > +	{ 2050, 0x40 },
-> > +	{ 2100, 0x41 },
-> > +	{ 2150, 0x42 },
-> > +	{ 2200, 0x43 },
-> > +	{ 2250, 0x44 },
-> > +	{ 2300, 0x45 },
-> > +	{ 2350, 0x46 },
-> > +	{ 2400, 0x47 },
-> > +	{ 2450, 0x48 },
-> > +	{ 2500, 0x49 },
-> > +};
-> > +
-> > +struct hstt {
-> > +	unsigned int max_mbps;
-> > +	struct dw_mipi_dsi_dphy_timing timing;
-> > +};
-> > +
-> > +#define HSTT(_max_mbps, _c_lp2hs, _c_hs2lp, _d_lp2hs, _d_hs2lp)	\
-> > +{					\
-> > +	.max_mbps =3D _max_mbps,		\
-> > +	.timing =3D {			\
-> > +		.clk_lp2hs =3D _c_lp2hs,	\
-> > +		.clk_hs2lp =3D _c_hs2lp,	\
-> > +		.data_lp2hs =3D _d_lp2hs,	\
-> > +		.data_hs2lp =3D _d_hs2lp,	\
-> > +	}				\
-> > +}
-> > +
-> > +static struct hstt hstt_table[] =3D {
-> > +	HSTT(80, 21, 17, 15, 10),
-> > +	HSTT(90, 23, 17, 16, 10),
-> > +	HSTT(100, 22, 17, 16, 10),
-> > +	HSTT(110, 25, 18, 17, 11),
-> > +	HSTT(120, 26, 20, 18, 11),
-> > +	HSTT(130, 27, 19, 19, 11),
-> > +	HSTT(140, 27, 19, 19, 11),
-> > +	HSTT(150, 28, 20, 20, 12),
-> > +	HSTT(160, 30, 21, 22, 13),
-> > +	HSTT(170, 30, 21, 23, 13),
-> > +	HSTT(180, 31, 21, 23, 13),
-> > +	HSTT(190, 32, 22, 24, 13),
-> > +	HSTT(205, 35, 22, 25, 13),
-> > +	HSTT(220, 37, 26, 27, 15),
-> > +	HSTT(235, 38, 28, 27, 16),
-> > +	HSTT(250, 41, 29, 30, 17),
-> > +	HSTT(275, 43, 29, 32, 18),
-> > +	HSTT(300, 45, 32, 35, 19),
-> > +	HSTT(325, 48, 33, 36, 18),
-> > +	HSTT(350, 51, 35, 40, 20),
-> > +	HSTT(400, 59, 37, 44, 21),
-> > +	HSTT(450, 65, 40, 49, 23),
-> > +	HSTT(500, 71, 41, 54, 24),
-> > +	HSTT(550, 77, 44, 57, 26),
-> > +	HSTT(600, 82, 46, 64, 27),
-> > +	HSTT(650, 87, 48, 67, 28),
-> > +	HSTT(700, 94, 52, 71, 29),
-> > +	HSTT(750, 99, 52, 75, 31),
-> > +	HSTT(800, 105, 55, 82, 32),
-> > +	HSTT(850, 110, 58, 85, 32),
-> > +	HSTT(900, 115, 58, 88, 35),
-> > +	HSTT(950, 120, 62, 93, 36),
-> > +	HSTT(1000, 128, 63, 99, 38),
-> > +	HSTT(1050, 132, 65, 102, 38),
-> > +	HSTT(1100, 138, 67, 106, 39),
-> > +	HSTT(1150, 146, 69, 112, 42),
-> > +	HSTT(1200, 151, 71, 117, 43),
-> > +	HSTT(1250, 153, 74, 120, 45),
-> > +	HSTT(1300, 160, 73, 124, 46),
-> > +	HSTT(1350, 165, 76, 130, 47),
-> > +	HSTT(1400, 172, 78, 134, 49),
-> > +	HSTT(1450, 177, 80, 138, 49),
-> > +	HSTT(1500, 183, 81, 143, 52),
-> > +	HSTT(1550, 191, 84, 147, 52),
-> > +	HSTT(1600, 194, 85, 152, 52),
-> > +	HSTT(1650, 201, 86, 155, 53),
-> > +	HSTT(1700, 208, 88, 161, 53),
-> > +	HSTT(1750, 212, 89, 165, 53),
-> > +	HSTT(1800, 220, 90, 171, 54),
-> > +	HSTT(1850, 223, 92, 175, 54),
-> > +	HSTT(1900, 231, 91, 180, 55),
-> > +	HSTT(1950, 236, 95, 185, 56),
-> > +	HSTT(2000, 243, 97, 190, 56),
-> > +	HSTT(2050, 248, 99, 194, 58),
-> > +	HSTT(2100, 252, 100, 199, 59),
-> > +	HSTT(2150, 259, 102, 204, 61),
-> > +	HSTT(2200, 266, 105, 210, 62),
-> > +	HSTT(2250, 269, 109, 213, 63),
-> > +	HSTT(2300, 272, 109, 217, 65),
-> > +	HSTT(2350, 281, 112, 225, 66),
-> > +	HSTT(2400, 283, 115, 226, 66),
-> > +	HSTT(2450, 282, 115, 226, 67),
-> > +	HSTT(2500, 281, 118, 227, 67),
-> > +};
-> > +
->=20
-> Where do these data come from?
+The early version of XuanTie C910 core has a store merge buffer
+delay problem. The store merge buffer could improve the store queue
+performance by merging multi-store requests, but when there are not
+continued store requests, the prior single store request would be
+waiting in the store queue for a long time. That would cause
+significant problems for communication between multi-cores. This
+problem was found on sg2042 platform with the qspinlock lock torture
+test.
 
-This is part of the vendor DPHY driver, see [1].
+So appending a fence w.o could immediately flush the store merge
+buffer and let other cores see the write result.
 
-Thanks,
-Icenowy
+This will apply the WRITE_ONCE errata to handle the non-standard
+behavior via appending a fence w.o instruction for WRITE_ONCE().
 
-[1]
-https://github.com/revyos/th1520-linux-kernel/blob/th1520-lts/drivers/phy/s=
-ynopsys/phy-dw-mipi-dphy.c#L185
+This problem is only observed on the sg2042 hardware platform: it
+takes hours of locktorture stress testing to trigger the livelock
+once, and an interrupt can break the livelock. No user space
+application has been observed to hit this problem, so there is no
+need to modify user space WRITE_ONCE(). The vDSO code runs in user
+space context as well, so its WRITE_ONCE() does not need the errata
+fence either.
+
+Acked-by: Arnd Bergmann <arnd@arndb.de>
+Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+Reviewed-by: Leonardo Bras <leobras@redhat.com>
+Reviewed-by: Inochi Amaoto <inochiama@gmail.com>
+Tested-by: Han Gao <gaohan@iscas.ac.cn>
+Tested-by: Yao Zi <me@ziyao.cc>
+Cc: Chen Wang <unicorn_wang@outlook.com>
+Cc: Xiaoguang Xing <xiaoguang.xing@sophgo.com>
+Cc: Paul Walmsley <pjw@kernel.org>
+Cc: Drew Fustini <fustini@kernel.org>
+Co-developed-by: Han Gao <gaohan@iscas.ac.cn>
+Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
+Signed-off-by: GUO Ren (XuanTie) <guoren@kernel.org>
+---
+Changelog
+
+v7:
+ - Define BUILD_VDSO for the riscv vDSO build (as arm64, powerpc and
+   others do) and use it to keep the WRITE_ONCE errata alternative out
+   of the vDSO. The vdso getrandom code uses WRITE_ONCE(), so v6 added
+   .alternative entries to the vDSO and booting with
+   CONFIG_DEBUG_VIRTUAL=y hit VIRTUAL_BUG_ON() in vmalloc_to_page(),
+   as reported by Drew Fustini:
+   https://lore.kernel.org/linux-riscv/awPgjwuswbjeDftg@thelio/
+   Fold in Han Gao's "riscv: vdso: Define BUILD_VDSO" patch:
+   https://lore.kernel.org/linux-riscv/20261124-riscv-vdso-build-vdso-v1-1-c52b0b3592dc@iscas.ac.cn/
+ - Clarify in the commit message why user space and the vDSO are not
+   affected by the livelock.
+ - Rebase on v7.4-rc4.
+
+v6:
+https://lore.kernel.org/linux-riscv/20261120012712.1957564-1-guoren@kernel.org/
+ - Refine the title
+ - Focus on SG2042 fixup
+ - Rebase on v7.4-rc3
+
+v5:
+https://lore.kernel.org/linux-riscv/20260421143154.1590156-1-guoren@kernel.org/
+ - Add Acked-by: Arnd Bergmann <arnd@arndb.de> for asm/generic
+ - Add Reviewed-by: Inochi Amaoto <inochiama@gmail.com>
+ - Rebase on v7.0
+
+v4:
+https://lore.kernel.org/linux-riscv/20260412143116.1445893-1-guoren@kernel.org/
+ - Add Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+   (https://lore.kernel.org/linux-riscv/1cfdf6c1-a384-43ad-9588-284335d073f7@ghiti.fr/)
+ - Add Tested-by: Yao Zi <me@ziyao.cc>
+ - Rebase on v7.0-rc7
+
+v3:
+https://lore.kernel.org/linux-riscv/20260125063941.443777-1-guoren@kernel.org/
+ - Rebase on 6.19-rc6.
+ - Remove errata_list_vendors patch which has been merged.
+ - Add Tested-by tag.
+
+v2:
+https://lore.kernel.org/linux-riscv/20250713155321.2064856-1-guoren@kernel.org/
+ - Add new header file for errata_list_vendors.
+ - Rebase newest kernel version.
+
+v1:
+https://lore.kernel.org/all/20241214143039.4139398-1-guoren@kernel.org/
+---
+ arch/riscv/Kconfig.errata                    | 18 +++++++++++++++++
+ arch/riscv/errata/thead/errata.c             | 20 +++++++++++++++++++
+ arch/riscv/include/asm/errata_list_vendors.h |  3 ++-
+ arch/riscv/include/asm/rwonce.h              | 30 ++++++++++++++++++++++++++++
+ arch/riscv/kernel/vdso/Makefile              |  1 +
+ include/asm-generic/rwonce.h                 |  2 ++
+ 6 files changed, 73 insertions(+), 1 deletion(-)
+
+diff --git a/arch/riscv/Kconfig.errata b/arch/riscv/Kconfig.errata
+index 4f77b3c6d7fd..3505ab2bf9e4 100644
+--- a/arch/riscv/Kconfig.errata
++++ b/arch/riscv/Kconfig.errata
+@@ -179,4 +179,22 @@ config ERRATA_THEAD_GHOSTWRITE
+ 
+ 	  If you don't know what to do here, say "Y".
+ 
++config ERRATA_THEAD_WRITE_ONCE
++	bool "Apply T-Head WRITE_ONCE errata"
++	depends on ERRATA_THEAD
++	default y
++	help
++	  The early version of XuanTie C9xx cores of sg2042 & th1520 have a
++	  store merge buffer delay problem. The store merge buffer could
++	  improve the store queue performance by merging multi-store
++	  requests, but when there are no continued store requests, the
++	  prior single store request would be waiting in the store queue
++	  for a long time. That would cause significant problems for
++	  communication between multi-cores. Appending a fence w.o could
++	  immediately flush the store merge buffer and let other cores
++	  see the write result.
++
++	  This will apply the WRITE_ONCE errata to handle the non-standard
++	  behavior via appending a fence w.o instruction for WRITE_ONCE().
++
+ endmenu # "CPU errata selection"
+diff --git a/arch/riscv/errata/thead/errata.c b/arch/riscv/errata/thead/errata.c
+index 6f1c683f0ec0..64683882d50b 100644
+--- a/arch/riscv/errata/thead/errata.c
++++ b/arch/riscv/errata/thead/errata.c
+@@ -168,6 +168,23 @@ static bool errata_probe_ghostwrite(unsigned int stage,
+ 	return true;
+ }
+ 
++static bool errata_probe_write_once(unsigned int stage,
++				    unsigned long arch_id, unsigned long impid)
++{
++	if (!IS_ENABLED(CONFIG_ERRATA_THEAD_WRITE_ONCE))
++		return false;
++
++	/* target-c9xx cores report arch_id and impid as 0 */
++	if (arch_id != 0 || impid != 0)
++		return false;
++
++	if (stage == RISCV_ALTERNATIVES_BOOT ||
++	    stage == RISCV_ALTERNATIVES_MODULE)
++		return true;
++
++	return false;
++}
++
+ static u32 thead_errata_probe(unsigned int stage,
+ 			      unsigned long archid, unsigned long impid)
+ {
+@@ -183,6 +200,9 @@ static u32 thead_errata_probe(unsigned int stage,
+ 
+ 	errata_probe_ghostwrite(stage, archid, impid);
+ 
++	if (errata_probe_write_once(stage, archid, impid))
++		cpu_req_errata |= BIT(ERRATA_THEAD_WRITE_ONCE);
++
+ 	return cpu_req_errata;
+ }
+ 
+diff --git a/arch/riscv/include/asm/errata_list_vendors.h b/arch/riscv/include/asm/errata_list_vendors.h
+index 02b5ab0d23a8..678cd0d42b42 100644
+--- a/arch/riscv/include/asm/errata_list_vendors.h
++++ b/arch/riscv/include/asm/errata_list_vendors.h
+@@ -19,7 +19,8 @@
+ #define	ERRATA_THEAD_MAE 0
+ #define	ERRATA_THEAD_PMU 1
+ #define	ERRATA_THEAD_GHOSTWRITE 2
+-#define	ERRATA_THEAD_NUMBER 3
++#define	ERRATA_THEAD_WRITE_ONCE 3
++#define	ERRATA_THEAD_NUMBER 4
+ #endif
+ 
+ #ifdef CONFIG_ERRATA_MIPS
+diff --git a/arch/riscv/include/asm/rwonce.h b/arch/riscv/include/asm/rwonce.h
+new file mode 100644
+index 000000000000..327a663f90d2
+--- /dev/null
++++ b/arch/riscv/include/asm/rwonce.h
+@@ -0,0 +1,30 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++
++#ifndef __ASM_RWONCE_H
++#define __ASM_RWONCE_H
++
++#include <linux/compiler_types.h>
++#include <asm/alternative-macros.h>
++#include <asm/vendorid_list.h>
++#include <asm/errata_list_vendors.h>
++
++#if defined(CONFIG_ERRATA_THEAD_WRITE_ONCE) && !defined(NO_ALTERNATIVE) \
++					    && !defined(BUILD_VDSO)
++
++#define __WRITE_ONCE(x, val)				\
++do {							\
++	*(__volatile__ typeof(x) *)&(x) = (val);	\
++	asm volatile(ALTERNATIVE(			\
++		"nop",					\
++		"fence w, o",				\
++		THEAD_VENDOR_ID,			\
++		ERRATA_THEAD_WRITE_ONCE,		\
++		CONFIG_ERRATA_THEAD_WRITE_ONCE)		\
++		: : : "memory");			\
++} while (0)
++
++#endif /* CONFIG_ERRATA_THEAD_WRITE_ONCE && !NO_ALTERNATIVE && !BUILD_VDSO */
++
++#include <asm-generic/rwonce.h>
++
++#endif	/* __ASM_RWONCE_H */
+diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makefile
+index c023046a3fd7..b99645672634 100644
+--- a/arch/riscv/kernel/vdso/Makefile
++++ b/arch/riscv/kernel/vdso/Makefile
+@@ -35,6 +35,7 @@ endif
+ 
+ ccflags-y := -fno-stack-protector
+ ccflags-y += -DDISABLE_BRANCH_PROFILING
++ccflags-y += -DBUILD_VDSO
+ ccflags-y += -fno-builtin
+ ccflags-y += $(CONFIG_CC_OPT_INLINE_MEMSET)
+ ccflags-y += $(KBUILD_BASE_ISA)$(CFI_MARCH)
+diff --git a/include/asm-generic/rwonce.h b/include/asm-generic/rwonce.h
+index 52b969c7cef9..4e2d941f15a1 100644
+--- a/include/asm-generic/rwonce.h
++++ b/include/asm-generic/rwonce.h
+@@ -50,10 +50,12 @@
+ 	__READ_ONCE(x);							\
+ })
+ 
++#ifndef __WRITE_ONCE
+ #define __WRITE_ONCE(x, val)						\
+ do {									\
+ 	*(volatile typeof(x) *)&(x) = (val);				\
+ } while (0)
++#endif
+ 
+ #define WRITE_ONCE(x, val)						\
+ do {									\
+
+---
+base-commit: 8d7fe9885c62fc9a95bf55d9db244d9672a8aadc
+change-id: 20261124-write_once-da21d717ac72
+
+Best regards,
+--  
+GUO Ren (XuanTie) <guoren@kernel.org>
 
