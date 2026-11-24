@@ -1,49 +1,49 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795549763;
-	b=ecV4kFnX2koCNRpgSXRokUcV91SdfoHV7n33vKFhrzA4TWg9z1VlDjLvyCPtbkI1COix
-	 zMibcZMhRQr04ka2erh8nRpuXbQ/5qCVxz/JjAaBJnxlJW0e4Z6K3ugP1L9QAQ10a/DNc
-	 gRm6Tm8WjqY+ZWNfozzUypwadX/y0pDcoRXsXbgbjKXgkfk2oXGU7rtnWcu+wwpoJrj0H
-	 L/j0PdfgdYdeMksXx3yJv7Ou+nGy0lSBM1O/nHxQKSiachZGMQd6LLhIUipoLSUQcQVpK
-	 Vn5OETUZP6Kly3HUBZjo3UmMwIMBhnosOEWDeLlIX9eVKGSrP1YGmLcEga5+zYICvpQ==
+	t=1795549769;
+	b=jys7uFz5xval5WeesD7sZL/ohjwjVVJyNuzIyJkJq/EmjZmaNwX01jR3sdrNkoUSB4H1
+	 XQ7uqdzWC3oOo3fPsRsKbUZ7k1H2G8h9zN4L65EAciX3kW7EOtaShtCs7u7whbEk+ShIn
+	 iW9KxzGPQ1DPWVM24I8o9u4OXZymZSx5IWlyaivMbpZHD8E1DMJ3Aq5qakauzHPc4Ky0k
+	 dDBSxWpoei7Tt1FyYV7saDMy/Ml8q/0TGWKfnvz6TDPuIWlPOiDCr60bHpU3NiEsb7EYb
+	 O4am6shkelR83i531WrNgVlrbLfg5OqMVA3h3qJZ+xXxef6NSTETkyulKUmBtx2V+Qg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795549763;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795549769;
 	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
 	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=yvgOq0d9S6TtDtOdFnJxyYYnrpcSihTZuHtkKlDf9h0=;
-	b=sCNVTS4BwDHiiPwweQB218cBV7Y49pIHAaLsHjcoO+PpcUBw3ATVxrrofHX5iMNmzytL
-	 dxFquwNcC48nbtoCSsSjamoslTWPkBDJCquFCIGwtK/l0nIexOj9lrzec5jp1vlVoe6c6
-	 4hCw3+f6Lb0DrZ1cFkE91kx1F93rxQHteifjkBlHo8+GxXTJNF0MNCZH5T7V1W7Tn9wct
-	 PMbGf+s7XXyQDRJUCM8PBNtWIZKEzqLL0Bu72BGMJ2TKMTTemPSpd/6YQ3Yx/gX+O81/Z
-	 lmZUpXpLI+/Y7jY/ClvGusgu+Vshz3dQDBZvyj9Uv0P+SdCnWcSYAi2w5WcTUH9D4RA==
+	bh=zHwfQCfJmb38lEqFT76DaImX1atMSnLcBbVhYr/nfyM=;
+	b=IFJBLRlvpgtWh1STyr/JYkMcl1cQuw/s34tvdoSQfFmksmlJckYOSm3JFgR+wmnTqbxL
+	 nsVJ3OMc8XbHR4ySyqERQLKrOgIGY4a4W07A0lky4JtPrPXRHP/fJBYbUabNiLUalFWLN
+	 G3lrlvxOxKjH8MLU8Aaokars+ovr7gUpl5fQ2f1XwlAgZsL6pjXLxqtW4EAmEASUuxMpL
+	 UUHiMFhUR/0UUO9MygPUr+NeQNJSUk8isUQPMzqukmgZyS3+MaQlSiblcmLjKOaX8+sqh
+	 NjNhKkh0jRCjZUyRQHVvyBVBi9wBZ6NtgbUpOr1AXwTQFYhmBWiNA62ZXD1tEQh1sPw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JvF2mjBB;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mJ3UZqMg;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6F339606A323;
-	Tue, 24 Nov 2026 19:49:23 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AE58260A2637;
+	Tue, 24 Nov 2026 19:49:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JvF2mjBB
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 734EF1F000EB;
-	Tue, 24 Nov 2026 19:49:22 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mJ3UZqMg
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B281D1F000EF;
+	Tue, 24 Nov 2026 19:49:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795549763;
-	bh=yvgOq0d9S6TtDtOdFnJxyYYnrpcSihTZuHtkKlDf9h0=;
+	s=k20260515; t=1795549769;
+	bh=zHwfQCfJmb38lEqFT76DaImX1atMSnLcBbVhYr/nfyM=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=JvF2mjBB4THKCV4tAV3KkZYDJMMWZdNNHS8ttb51kOia+iGsD03qHZuCwsaMNqZQJ
-	 BKDuFjUSZx6CJt1OVpwhIIZr1cBbPRvKCrh2n0Eq7gpEzX6Pv7x7TtzFiOT7ue5IdG
-	 GbH4IAlkSf5oQuDJ37SbI2SJl5kHSZq8riHQP+tz9RL/HnOwloZ3VGWGHog+jIBz44
-	 WLcgIAMB6hxcE1GWXZtjGpFDahra53PBrEirbgNeZwI1rnzoRQp3W7ChBku6e9Z+qn
-	 3cjCmehswE3HmhmXQ7qP3gEX6wBrAklrqAQYxsKIioUKu8PX0yuTeleigzDs/L996g
-	 +avurPdtXY33g==
+	b=mJ3UZqMgGmLdb82o80SR1ozHE88enUbrnt1eX4uBOZ43rQ8H7143TB23+zCQEo+SC
+	 qGTSoJzL/whWgyeQW+wWwjEGzgcL9JyBpO4okIxEblPfJZSe+BIzDrx4tWy1hQVayp
+	 if9tLAZ6rzTXUA6vYxWAJxYGAYtbkpgu5qz+++BeX/9OjUbQFKo0qgRANyHJg78Ol9
+	 M4iX7eMYDUuAhNoytBbgdZwbZ/UG9Rua3+44GUCFndjAiXWj/wNLRU6HJq+uNdYlpt
+	 1Z9p2J3nUg7nzpPMnSS/n1FsFVS+IfqZvakQ4swqmpR34qyxjHgFDTXNGBDl2jr056
+	 52aO44LJcFYHA==
 From: Jeff Layton <jlayton@kernel.org>
-Date: Tue, 24 Nov 2026 14:48:46 -0500
-Subject: [PATCH v3 07/12] nfsd: recall when a CB_GETATTR reply omits the
- size
+Date: Tue, 24 Nov 2026 14:48:51 -0500
+Subject: [PATCH v3 12/12] nfsd: move ctime when CB_GETATTR applies a
+ delegated mtime
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -55,7 +55,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261124-delegts-fixes-v3-7-6fe4ba705aef@kernel.org>
+Message-Id: <20261124-delegts-fixes-v3-12-6fe4ba705aef@kernel.org>
 References: <20261124-delegts-fixes-v3-0-6fe4ba705aef@kernel.org>
 In-Reply-To: <20261124-delegts-fixes-v3-0-6fe4ba705aef@kernel.org>
 To: Chuck Lever <cel@kernel.org>, NeilBrown <neil@brown.name>, 
@@ -65,98 +65,55 @@ Cc: =?utf-8?q?Aur=C3=A9lien_Couderc?= <aurelien.couderc2002@gmail.com>,
  linux-nfs@vger.kernel.org, linux-kernel@vger.kernel.org, 
  Jeff Layton <jlayton@kernel.org>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3116; i=jlayton@kernel.org;
- h=from:subject:message-id; bh=DhLEfE/Jg000N/BGIhPExPeKjIZnZt2tSyzjPie4Irc=;
- b=owEBbQKS/ZANAwAKAQAOaEEZVoIVAcsmYgBrBeo2KwD9mBLN4UY7pmb4e0oER+9nqB1rYE8du
- jgYzTPlA+uJAjMEAAEKAB0WIQRLwNeyRHGyoYTq9dMADmhBGVaCFQUCawXqNgAKCRAADmhBGVaC
- FSC1D/4tWSbGlETnupVv1g5f7dcxAo6pe+7KmDoMWtTyEzSJJR6yhRMCQdERJxSgzos5OfDJFCH
- D+db7k9DyqKgSixarV13SVDyv6vZunvykdQfdb5m4H/r1nvMgMwAoDmNytKaRXqTpIn1U+kq0j2
- Dhja03t0Szk44xRnmq8OZ9PsMpbTqzmC9Nmemmo+jm+0X25c+mJAcP/nLPoORhTqU4xFU2admlw
- EehgBN+1OlQCvTCfPkq5DeF+GOBG0Gpdr1FXAKnjC97l3eNkTwbFgkXxWw+JxBsEMu1kgbnJZ8A
- K55BrjcWAfZTV/fq2RujrmgVk9M0TXgfN7Cc/67+f1zwOi9qsvIcsB7hRYHOngUBCL1Rh9tfnU0
- 80eVbu/A7EwrCuJ+hEaOn9GEy1AH/Ucwl81Wx+Ej2mAmrSfV4qurX3xighvjYOBKYo9DKUpf6Js
- Bdw+fU6Kt/c0MY/LKdWdlA2ChcNdVlxxur5+FJGyxbMomwaDtQRADe1+QvXeS7d7YYwm8zuk9Es
- tkmdcMS6ZRy9AXi0reLkHSfupnJAlmCSG9NKkS2P29EtS0VuIZWNdKc0LcOCQgzpCNcV/Sj5HWI
- C9wad5wZSkCGZoZZp3OB8T30sZr+yLWdwXpE77Wgvl280vsK2VS1cMttKnkQAeItNVt0HUQ8mJz
- 4VR/EXtAOq/mAbg==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1444; i=jlayton@kernel.org;
+ h=from:subject:message-id; bh=1zT3UR8D3JA8M02VhrGNMqquxLfZZpeteUoT2Rr+yYs=;
+ b=owEBbQKS/ZANAwAKAQAOaEEZVoIVAcsmYgBrBeo3L99VriAkr4qzcnB0Tc1cqC359ivgWAqd6
+ /GPFv/DzViJAjMEAAEKAB0WIQRLwNeyRHGyoYTq9dMADmhBGVaCFQUCawXqNwAKCRAADmhBGVaC
+ FaAJEACl395lXbeuYFS0OkikolFouk/IuYDNKKgjir6xFOvFg/vJ1MZfNHUjRTzpl3ZgrN59BZw
+ ru0JRZFKQSnXFKfoUhhqdgXurlEoXTN5IrsSZU2cgM0qpktCofGRkyrKhM+mYLFfq1Rqbf+KQpD
+ 2oBTZRrsbG2HmgREcpNWZAA2Ks0Fh0k1bsNc185y1nQra6ieb4aJu8Sv97SDEb1/9OpvzIQrY2p
+ 2w7nVlUFyYboHJWh2e0/KL9+9SSyzSLaqPmrg0zgLWq4bhTuvFWNhacTssfuGd9Q/lV0iyO04gT
+ lXw4rOg0ToG8JqlG8+AXbFFKLj6xOlxpoI8PBHewJE2XwnYXhpYAHeKH1ZsVUXzH22DTy/N9gtA
+ dWpbICbYG+26LbsEwt7fpBxgKSt8xV7iP1eoloQXa79AWpxelMmXs2rVUaqb85a6VGYlbYdf5aW
+ gJkIaJkPa03SSGcYYSJwcQr5kzxYVHzIob/8NUSrYlLcQqOKQBnFBvmGzvBztKxeH6Rg+6lgiwE
+ eXmpyJho6V5OdJxEVGn42EAmflAjuGX7KqF3Ani3O4YnlNdDDIBKpSjDk1cEk0yxUk3gWZvUMWD
+ sJudAjGOOylD7Ayde9aCKCb34PYfnDBO/yQrxMnI9Y+ny7dojL1cDECUDN1KN3FNOAWTpOOmwMB
+ /TJaz80uVnJNvng==
 X-Developer-Key: i=jlayton@kernel.org; a=openpgp;
  fpr=4BC0D7B24471B2A184EAF5D3000E684119568215
 
-decode_cb_fattr4() zeroes ncf_cb_fsize and fills it in only if the
-reply's bitmap includes SIZE. nfsd4_deleg_getattr_conflict() doesn't
-look at that bitmap. For a reply without SIZE, a non-empty file's size
-doesn't match zero, so the waiter marks the file modified and sets
-ncf_cur_fsize to zero. GETATTR replies then report the file as empty to
-every client but the delegation holder.
+cb_getattr_update_times() sets ATTR_CTIME only when the delegated ctime
+passes vetting. When the vetted mtime is applied but the ctime is
+rejected, the inode's mtime changes and its ctime doesn't.
 
-NFSD always requests SIZE in CB_GETATTR, and the holder may have changed
-the size. Add ncf_cb_bitmap0 to hold word 0 of the reply's bitmap,
-cleared when the callback is issued. In nfsd4_cb_getattr_done(), treat a
-reply without SIZE as failed. The waiter then recalls the delegation, as
-for any other CB_GETATTR failure.
+Always set ATTR_CTIME with an applied mtime, and ATTR_CTIME_SET only
+when the ctime passes vetting, so a rejected ctime moves to the current
+time. This matches SETATTR with delegated times.
 
-A reply that omits CHANGE is left alone. The zero change attribute does
-not match, so the waiter errs on the safe side and treats the file as
-modified.
-
-Fixes: c5967721e106 ("NFSD: handle GETATTR conflict with write delegation")
+Fixes: b40b1ba37ad5 ("nfsd: fix timestamp updates in CB_GETATTR")
 Signed-off-by: Jeff Layton <jlayton@kernel.org>
 ---
- fs/nfsd/nfs4callback.c | 1 +
- fs/nfsd/nfs4state.c    | 8 ++++++++
- fs/nfsd/state.h        | 1 +
- 3 files changed, 10 insertions(+)
+ fs/nfsd/nfs4state.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
-diff --git a/fs/nfsd/nfs4callback.c b/fs/nfsd/nfs4callback.c
-index 70ab4fd32195..ac65ba4c4b7d 100644
---- a/fs/nfsd/nfs4callback.c
-+++ b/fs/nfsd/nfs4callback.c
-@@ -737,6 +737,7 @@ static int nfs4_xdr_dec_cb_getattr(struct rpc_rqst *rqstp,
- 		return status;
- 	if (xdr_stream_decode_uint32_array(xdr, bitmap, 3) < 0)
- 		return -EIO;
-+	ncf->ncf_cb_bitmap0 = bitmap[0];
- 	if (xdr_stream_decode_u32(xdr, &attrlen) < 0)
- 		return -EIO;
- 	maxlen = sizeof(ncf->ncf_cb_change) + sizeof(ncf->ncf_cb_fsize);
 diff --git a/fs/nfsd/nfs4state.c b/fs/nfsd/nfs4state.c
-index 07f8caed5198..51dca62b2bce 100644
+index 6bb3ce974c9c..9ebee4fca9d6 100644
 --- a/fs/nfsd/nfs4state.c
 +++ b/fs/nfsd/nfs4state.c
-@@ -3885,6 +3885,13 @@ nfsd4_cb_getattr_done(struct nfsd4_callback *cb, struct rpc_task *task)
+@@ -10910,10 +10910,11 @@ static int cb_getattr_update_times(struct dentry *dentry, struct nfs4_delegation
+ 			attrs.ia_valid |= ATTR_ATIME | ATTR_ATIME_SET;
  
- 	trace_nfsd_cb_getattr_done(&dp->dl_stid.sc_stateid, task);
- 	ncf->ncf_cb_status = task->tk_status;
-+	/*
-+	 * A reply without SIZE leaves ncf_cb_fsize at zero, which the
-+	 * waiter would report as the file's size. Fail the callback, so
-+	 * the waiter recalls the delegation instead.
-+	 */
-+	if (!task->tk_status && !(ncf->ncf_cb_bitmap0 & FATTR4_WORD0_SIZE))
-+		ncf->ncf_cb_status = NFS4ERR_IO;
- 	switch (task->tk_status) {
- 	case -NFS4ERR_DELAY:
- 		rpc_delay(task, 2 * HZ);
-@@ -4132,6 +4139,7 @@ static void nfs4_cb_getattr(struct nfs4_cb_fattr *ncf)
- 
- 	/* set to proper status when nfsd4_cb_getattr_done runs */
- 	ncf->ncf_cb_status = NFS4ERR_IO;
-+	ncf->ncf_cb_bitmap0 = 0;
- 
- 	/* ensure that wake_bit is done when RUNNING is cleared */
- 	set_bit(NFSD4_CALLBACK_WAKE, &ncf->ncf_getattr.cb_flags);
-diff --git a/fs/nfsd/state.h b/fs/nfsd/state.h
-index f80abcc278f6..c5f607049aaf 100644
---- a/fs/nfsd/state.h
-+++ b/fs/nfsd/state.h
-@@ -205,6 +205,7 @@ struct nfs4_cb_fattr {
- 	u32 ncf_cb_status;
- 
- 	/* from CB_GETATTR reply */
-+	u32 ncf_cb_bitmap0;		/* word 0 of the returned bitmap */
- 	u64 ncf_cb_change;
- 	u64 ncf_cb_fsize;
- 	struct timespec64 ncf_cb_mtime;
+ 		if (nfsd4_vet_deleg_time(&attrs.ia_mtime, &dp->dl_mtime, &now)) {
+-			attrs.ia_valid |= ATTR_MTIME | ATTR_MTIME_SET;
++			/* A rejected ctime still moves, to the current time */
++			attrs.ia_valid |= ATTR_MTIME | ATTR_MTIME_SET | ATTR_CTIME;
+ 			attrs.ia_ctime = attrs.ia_mtime;
+ 			if (nfsd4_vet_deleg_time(&attrs.ia_ctime, &dp->dl_ctime, &now))
+-				attrs.ia_valid |= ATTR_CTIME | ATTR_CTIME_SET;
++				attrs.ia_valid |= ATTR_CTIME_SET;
+ 		}
+ 	} else {
+ 		attrs.ia_valid |= ATTR_MTIME | ATTR_CTIME;
 
 -- 
 2.56.1
