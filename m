@@ -1,100 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.53
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.65.28
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795530049;
-	b=22fMoB0dwDRNsh+lxSESSYhIRy8wqERCVnvXKGo9BNB8oidZr045TNzaQIGvcKE9G7Wb
-	 WYfia65wGmGXHo0jY0WiuodKMkWQYtxc3ZkZ1is9ycC9NLKnhtpNzUIYfGrf3LXbFiJt3
-	 dCTvpLcpG/GFrc/Z1KkyzV1pz0ocCr8xBU/FQODYzJRB88fdmWIBgLf9A0281rOwAJeZN
-	 j6hpZ1NV5R67H/daLSGyrG1McvG7Qc6blQiN+qaxofvJ0W4yw+VFYtbMkR4pgvW/Ha6cu
-	 AB3M9Q66CaAES6WN+V4F5eGYfaiScov3nfVxNz1GorqrbYO3Kz64I3f6u3L81BA88/g==
+	t=1795530082;
+	b=YNw1mFNDOoVpeYku1gm1hMcbFoTmZ+PRO83TGIh2urLM61Aci2CHt++XC9/RtEz9HKOO
+	 8V6x8A9DPnhZ4sjlVFLQtcUg8fLW0FqZGc9swwP+ZsSfgoJZ3pU03b0KjJ3QbXwcTCHUu
+	 LYRDPvqOzR+R8e4lFTLmfM8+A7u5oShHF8B/jDJwn+cvWYYFKfyww4CivETEquYu4XCk2
+	 oeOVDW0+ev88kQyWpFw/kOvxIQ0Sm4HwPYr8Ku0HPjq8CDDk6m10SvzHaS2Si8kC4Be/A
+	 bkBaOPAUTpsOGFSJzLeqyftOBGwNyRs0xaFoArHV3WxAF/Dc+reF6DReb9eVd2tpS5w==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795530049;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=y0h22hVZxbtmWk7yVQqewBkuV98pktZusJwPn6z69Yw=;
-	b=V7w6nOvxFFdMfVAlRypFfbe3R4N78VGzxwoDVpLWOs7wgFwpE/ehJev6pkIufTyl/g+Z
-	 jj03LrsdR9m+mJ86H8YAUyAOr6A0FpQ4miHUxKd/JDtjlOxIkg6ZpVFnjM5YV1/tFBSjR
-	 SGFNDBWEe+UOc+sdUI3YQAYM+L19qA7VhPeJtkZTrsZneJq4AFRpXv/0jB13eODftpQix
-	 Ho72Nh2ATkeP3sFAKX/rw0uhmKUmJXCWqT2fhls+R63Cbk4Mjymhnsuz6tj2uhb21fwIO
-	 mG4pZy/G+J5D8rnzVd5hK24H7hYSU4ivF9nOvberVbZAsn/1NpwTrRxH2YV5WBBZYpg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795530082;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:CC:
+	 References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Originating-IP:X-ClientProxiedBy:
+	 X-EOPAttributedMessage:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=6LQMpoN9tp4e2KbllfcYkbyvUI9DVOn+GgVnLjrkKTA=;
+	b=cUUKYp3sOG8OhJY/KTQTimFDYYtMutl2tSf9/750mlI74AGkhLnfW3ELW8G2QhIa0zKp
+	 wvFJ/hNBToyaGSoZAdRqb2AOVvlPAcODdxWu/hP40h/AsXw2OLUHNrFYWqRRD6jOEMDdR
+	 FsUipk6QCJROUjy9OJi7V9WvCFhFC519ELTT6ys9vPaONG1hSVW6r4rleiNix6aa0Gan/
+	 LpT2TbX0rBfvfLuxkkcOX+iQMjnQR5les0V5oy9oJVYHUl1kRbGZe0nFX8vYNjt0ClQzT
+	 5hjizCHMZd+B4b73q1Y4tZizL60rKDE+PZpKJ4T3JrIWIsR7rlqEsloqwnyoREdRAjw==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=CJYylu9E;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.53
-Received: from mail-dl1-f53.google.com (mail-dl1-f53.google.com [74.125.82.53])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=foss.st.com;
+	spf=pass smtp.mailfrom=foss.st.com;
+	dkim=pass header.d=foss.st.com header.i=@foss.st.com header.a=rsa-sha256 header.s=selector2 header.b=V6Lybgl1;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.65.28
+Received: from DU2PR03CU002.outbound.protection.outlook.com (mail-northeuropeazon11011028.outbound.protection.outlook.com [52.101.65.28])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9CFAD606A334
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 14:20:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9CFAD606A334
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A402E606A31E;
+	Tue, 24 Nov 2026 14:21:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A402E606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=foss.st.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=foss.st.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=CJYylu9E
-Received: by mail-dl1-f53.google.com with SMTP id a92af1059eb24-18818daa3e7so2723082c88.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 06:20:48 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795530048; cv=none;
-        d=google.com; s=arc-20260327;
-        b=qMtQij/VXkznIcigSfL7I43u5W3dNc5GwnFCXHoG/igt9P1hFofQHbcNGFFbLllmnj
-         c6+pFLQ3GgxTXOSlZa6WnDmYPsuvqzPgJJD7LL44UqUDE+fqSdU4ufpIJSOTwJOYqSkr
-         wphY7KHB1WngEdCEWA6POrtFiKgfLX46XOktCCuCdaWSDvKgnGzKvm8SqxnT6HxC3ghH
-         hNsMK8f3wzDNWzkMyUT7Jt/KX3bVDUUFxWdBDX4b/b5HtR3pgicImjSpTkMHALmfABlw
-         cXoFu7uGAp0hjUeZOVjKPpLFmWAxI19K6lSxAbUrAEMDeDxj+GjsYNeQAryS5FCY8qFD
-         NlZA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=y0h22hVZxbtmWk7yVQqewBkuV98pktZusJwPn6z69Yw=;
-        fh=uD3BnTWbsO3Qoj15lQWXioNqBbeDOsFWN7rgKZYLrdQ=;
-        b=dT0D8EXn/8sP87O2RtOXDUWK6BNB+3UZgqpboLc24bmRc2D5QmnTBGWlZdvex482Vd
-         5d9hUm7ffSEaJ1+WzpR523b9FGPCKeyU2U0NVwf1lLKG1orbKwTUV6Rfx+SkRXyDrlJ/
-         YAX8tlE5A+rAk6oF7Ll7EjG85tVo39UbJJIV6y9988j4laSo8HPzzctsDlGqCCvrpOa9
-         UYQGtV8oHZogVihlVAuyVvSBdOhEirz+kr3D17Wr1OXa5qPFlQlWV1vSuNTlWJ+bYVwd
-         TZGI5iiRmTAeVRedxppcd0+HuX9qGXRzG9G/hoA3xNIBXG7TQOf0XUn/7alWCZ18Ry3l
-         XBbQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795530048; x=1796134848; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=y0h22hVZxbtmWk7yVQqewBkuV98pktZusJwPn6z69Yw=;
-        b=CJYylu9E8v3fGsQhDxIDvVuZ6KSDA3nvOFJj/4LXQvNZ/yfEhYIt6O41JQESuenVPk
-         lWbn3UCPRSYmFWxFDqftRaDrZ9lc9QhCGE46ENnvhhue8Me6AWmEbqcKlf7wLBABK9oa
-         3mE02y2f+9+14/q4hzWCinQSzGYjqj6adIK0AYIHWjrPvpsKpBQzz64z7pYSdmeWiiY6
-         mgQOjNxLS2zC79krZtgtkxFv96sVj3puoIMQYlBnyOWYeOgYsOdF8MkT9n65OIJiIoIO
-         e0lYCpkbmPVWzd2faLZjdUKVCAI3f1iitOPybfojYT8MnxhP66TAOE1TBKA929kFdJL5
-         qJKw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795530048; x=1796134848;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=y0h22hVZxbtmWk7yVQqewBkuV98pktZusJwPn6z69Yw=;
-        b=cNA5sv2Nd1ORo4baxEXM/m7IevfRE5wscMVekYOqWmV6ongdRWTvz/J8HXmIk250wf
-         vGl2+rIfA4xUpiLugnhiIl4QmL6K4Oc3odUjegQPWXV8E21boh/L/jC1wIh1pUbGeF/9
-         WfQI/g+xpf89FTU/nl/QZc/BVong8CdkTAzu9TkWAmG1xNltgC+7t6MEbFXvmK/o6FiE
-         i/xlWdDy85zR2cMbVML/KMmIALaCdLhq+6Ku9XC2pFAg64wkEwruzFib/FO4fizPUKTX
-         IV7Evy2lv5W29IHxhEuueuAX8P435uQVHbwXA610dyKZILL/T4+efQdc7e+PU5QLVEpt
-         tgMA==
-X-Forwarded-Encrypted: i=1; AL+hErEv7aScaG164U5QHddxrOpTqsSelm/CXq1gn44ZRXvjmowsKv+sTDwjdzk9pVVEgiKnoVpmXbV3qTs2zM8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8+hNefnHDhk3eC1bVtFF5YgLEsxviIzbIHIcdF+gsUxqaw3Dbi
-	PEnnYi+tN3DL3TzerF5q+6oYZxF9y9bLv1zPXqBUfWvtrkOH3KPAJMZkd+ZavrKJGEThcfZBJlx
-	XgjLpRfHMH0hH4LGizjbCl4GstuePRl8=
-X-Gm-Gg: AZFdTZe205of5hnvPhw8y2SieUfVSofBN5TbsdtbUzE+xvCWqsLw4mgfB9yXTL71i26
-	D7PGat4vYWeOg9iDXtyS7JlqJ5sHpVYsR5UefXAPCy3JB0q8QEONag6hYOjAhc8kWpcCpyTDwFJ
-	3NtD6DUafn+mXMOp2C3RfcilthQCjiLPB3dbqOMxY5Fx4ulrWk7y2gDkjAlyEJEIi9tcnuY8KRl
-	F2r9Vz5CNkXGGlQewf9EHb39zkNTAoBLiFHO1f1GqHkwLKAZR+1nqWr3zTLQvXVkSMMsCXEEktN
-	TKPEyJSW1TFwvpoWsT+nSbuoeYSi/Q1RdAAr5WZQMb41j4xpsxveca8P8CnypzOhEj1ISbsb+Hn
-	w8TxnSWG1NxuyFDQPcAQuzTVu4iR6LEiPfTpKaNM=
-X-Received: by 2002:a05:7022:ea4f:b0:1b5:31ed:e23b with SMTP id
- a92af1059eb24-1b5568aac99mr12606778c88.6.1795530047559; Tue, 24 Nov 2026
- 06:20:47 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=foss.st.com header.i=@foss.st.com header.a=rsa-sha256 header.s=selector2 header.b=V6Lybgl1
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=nXbLeJybPdk9wSIf50OQJG5fwIqYcGeSdmKrsdKjyhCVBi9AxYSJ0KE2j4W6NtBFws8ifO1XRk9iOGzxiIFSkqyLRqspEMaWtapXX/TJLKlPjOvGlnN+2Wb54cO1i02U9NjLS3pXBxmjhc32LD71BBYK0o15K4M2LuCuK0pcghgRyLWqs8RICeWXk+atfU9oG/5+M6enaDezAe9DhkZhsvVBzjjCj2YoPH2nVC79M+spM75nB3zuttWC8G+17SH+3Mw297fODIchmBznGCpK4O57PefUNgoaEKYeAj68IgqUOXzlOaYITIpJVurvktbVfJINKmjaPZqaStPkZKUd0w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=6LQMpoN9tp4e2KbllfcYkbyvUI9DVOn+GgVnLjrkKTA=;
+ b=aFaqd+CQlWOCnK7iJqHBjf6zt0Rzh0ryDQMPPyvb1D34/H+VxNqmvUZ4R6DqD57yTxsZShpcBacA1iUF5pnL7HlQ9q7+/gPzf1B2VAx5jkvfhWn7jGpPdd42gWqaIMVAWuumzhAAo/C2wn9/lO0i0WqfbcQUxOmbDGpSnc9veZPYOf6PYGiB9YsL5D9FKM0doFnu301kkw5mxeMGuAfwyGGWC02iN8WBkCLqLlAju/4YS+MZyTlA+XxA4lEvrWq4s3jGyRdrSJtCKnqZ+BTGer4OC7ry2cSkHQpnEufw33Mmm5/GHyKi0IsOa/weYEiSYJ8SBJbrQTJ8Yx1mUsvvyQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.59) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=6LQMpoN9tp4e2KbllfcYkbyvUI9DVOn+GgVnLjrkKTA=;
+ b=V6Lybgl1QcbAqz1wyH3znASUpa3SxlDHFulSB6KcTVwUWrRH/xal7ROdE4Id9hy5b25tMC0N9R9Ke3Uajqp2yi/LU4buLhRLXP/VDqwylM9BUdoMdZtwoK289Rlt/AKb6hUkIPQIrfw6cqZUFcxvk1D6q7NWijUvVrI0X+mmshSQwAYqFLsCxXUC2l0cjNBIr/BngSaBgjIVMkGCY1pejLBBMjTgOp1f1Wzbd0xzU51GJIeEqxmIqSFbL7vGfWdyhX+LQzZcuVM1PM7wKa7sno60mzBr7NAI/TqwB716R1eh8p6LdN59edqRPm7evZVIe/8YdxKGI8MRqSRHHXCWTQ==
+Received: from LO3P265CA0033.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:387::16)
+ by DB8PR10MB3815.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:10:160::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.3; Tue, 24 Nov
+ 2026 14:21:16 +0000
+Received: from MI3PEPF0000855A.eurprd05.prod.outlook.com
+ (2603:10a6:600:387:cafe::86) by LO3P265CA0033.outlook.office365.com
+ (2603:10a6:600:387::16) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.6 via Frontend Transport; Tue, 24
+ Nov 2026 14:21:15 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=fail (sender IP
+ is 164.130.1.59) smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.59; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.59) by
+ MI3PEPF0000855A.mail.protection.outlook.com (10.167.240.22) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.662.3 via Frontend Transport; Tue, 24 Nov 2026 14:21:15 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
+ (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Tue, 24 Nov
+ 2026 15:22:02 +0100
+Received: from [10.48.86.79] (10.48.86.79) by STKDAG1NODE2.st.com
+ (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Tue, 24 Nov
+ 2026 15:21:13 +0100
+Message-ID: <085f8dd2-8773-4db4-b838-040bf0f071b5@foss.st.com>
+Date: Tue, 24 Nov 2026 15:21:12 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,210 +104,66 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261123044347.3273-1-chenguoming88s@gmail.com>
- <20261123075116.3868-1-chenguoming88s@gmail.com> <DN2JJHBVAPCY.2CNUCGCO781D6@bootlin.com>
-In-Reply-To: <DN2JJHBVAPCY.2CNUCGCO781D6@bootlin.com>
-From: guoming chen <chenguoming88s@gmail.com>
-Date: Tue, 24 Nov 2026 22:20:35 +0800
-X-Gm-Features: Aa3M54pt207_jk8iesQauUtcEdhbIWiMbFM_TfJYFPmwgZG_F_2cdAtL7SC0sqE
-Message-ID: <CAHNm3OizHNb0-N-E5Vrkv+2g69F=J47Cqirtnt9Z76EYvZBiJA@mail.gmail.com>
-Subject: Re: [PATCH v4] usb: cdns3: fix NULL dereference in cdns_host_resume()
-To: =?UTF-8?B?VGjDqW8gTGVicnVu?= <theo.lebrun@bootlin.com>
-Cc: Peter Chen <peter.chen@kernel.org>, Pawel Laszczak <pawell@cadence.com>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Roger Quadros <rogerq@kernel.org>, 
-	linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] arm64: dts: st: add PSCI idle state to STM32MP25 CPU
+ domains
+To: Patrick Delaunay <patrick.delaunay@foss.st.com>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>
+CC: Linux STM32 <linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>
+References: <20261119185544.v2.1.Ia5e0774883d237f5825b7090962b454294922558@changeid>
+Content-Language: en-US
+From: Alexandre TORGUE <alexandre.torgue@foss.st.com>
+In-Reply-To: <20261119185544.v2.1.Ia5e0774883d237f5825b7090962b454294922558@changeid>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MI3PEPF0000855A:EE_|DB8PR10MB3815:EE_
+X-MS-Office365-Filtering-Correlation-Id: 468f0b3b-611e-4669-5a55-08df4a363320
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|82310400026|1800799024|36860700016|23010399003|376014|18002099003|22082099003|56012099006|11063799006|261028144727099003|261021123027099003|261022105027099003|261026121527099003|261026140227099003|10067099003;
+X-Microsoft-Antispam-Message-Info:
+	XOaIkEfOejKzco+w5pA0TyMwoM9ex2cHAToMr8Y1GO+5l9ZoGj+0bQd4Dyr7ou2yhEvF+g0W+gtM1Tmeo2gI261izAPGffV2V1sgoIGNSd4dt+oTt5kvU4A54rL906JKGcqiytraYK71P0iaJDtO+AWO8SgZPxEnOcBQiaIQXa0WTphcVVY+QDu5kfaBFtq/wSvpdpAJ8UwwEJ/CU6cG61FyideFNKrNRPDDgrYmuSwjEV5FJw8PgQJsxvPmr9cwQJwkcpW59tVLryXx09qs+aEducutN3tbvoYmxnLjRjstJVhuPHpV0+YiSDnr+cEMVEOgq004+CFvVmripWvHZRw96G9ob60Wwzy8ay8/JuHSKRmOcQwb4bHAMm/eSY99ym4B67kIP7Ph9CGQ4RFodivZsX2qa0aFmue5D96SxNSVS2905xpyLjn1NDsaL0j3iaqG+4niMc9M6VzfI2I49D1iQLWR/mb4V6L50bERR0QdxfsMDLtirRKiGFOExdQnMfX+58m5BoZ8JUjqjOon2MJn6Fe+JjBnWbkG5Tw0HcRa3aecnnA5qys42wnznZWKAkbw0nR5m0eRUNCR39JlVOoss1xBRT3oV7wjUfAkMpI0BxQ6P7E8F+MSuG+5RGnEOVfje7wgZSChNNCoMoB7GSrJ/xToMOLsD+oG2O468UlCllwStRlZzNjeOQOg3i8B10SD5Y8BJS4r1V5NfAGitQ==
+X-Forefront-Antispam-Report:
+	CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(36860700016)(23010399003)(376014)(18002099003)(22082099003)(56012099006)(11063799006)(261028144727099003)(261021123027099003)(261022105027099003)(261026121527099003)(261026140227099003)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	R/cWPFothx/fIN6IaP+W1FW/BOsgZ95nypQDruOcq6MsQ0lykAt5DMhiJRxTi+KpCmC487BOaNFRmctMdKTEIq7fvWjagZppRbYjvWrOWyCnIFFmELMhOFOdB4czDGlzRfHCyRsLg1KFx2NH15YY5kHpnqCSAD/UJnbE/qVsBX1jBpa8jJ4DbyDnlvcoHhHqywOW49OC0k8dL1h3vP2EKcuCaqCTdM6+lWUPj/prwBtYaWqy5N+tgHKPX/iSBxp7ApkkKs3BGfl0w00O9O0d/0xBZfVXmaAUENcocqDE5S0+7sEIxXduPWaP5/VybthBPMyHYR4cl/oi7X+JkRePJ43pmJyr3NFGZgkKWuQW6ydBoGfOnF2X+kjQA3rLLVWIhb0AkPZ8FSmBg7CQ5Tc7x9e9vnqAHBqpgq8D3gWshLra14GOoPlhAUsch16kisI1
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 14:21:15.5900
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 468f0b3b-611e-4669-5a55-08df4a363320
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	MI3PEPF0000855A.eurprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR10MB3815
 
-Th=C3=A9o Lebrun <theo.lebrun@bootlin.com> =E4=BA=8E2026=E5=B9=B411=E6=9C=
-=8823=E6=97=A5=E5=91=A8=E4=B8=80 19:07=E5=86=99=E9=81=93=EF=BC=9A
->
-> Hello Guomin,
->
-> On Mon Nov 23, 2026 at 8:51 AM CET, Guomin chen wrote:
-> > From: Guoming Chen <chenguoming88s@gmail.com>
-> >
-> > cdns_host_resume() assumes that the xhci-hcd child is bound and passes
-> > platform_get_drvdata() to hcd_to_xhci_priv() unchecked.  The child is
-> > created by __cdns_host_init(), but xhci-plat probes it only when it
-> > registers; cdns3/ precedes host/ in drivers/usb/Makefile, so with both
-> > built in the child is registered before xhci-plat's initcall runs, and
-> > with xhci-plat as a module it stays unbound until the module loads.
-> > Platforms that allow runtime PM (cdns3-imx is the only in-tree user)
-> > autosuspend the controller after 20 ms, so the parent may already be
-> > suspended when the child is probed.
-> >
-> > Resuming the parent, either for the child's probe
-> > (__driver_probe_device() calls pm_runtime_get_sync(dev->parent)) or on
-> > a system-wide resume, runs cdns_host_resume() while the drvdata is
-> > still NULL; xhci_plat_probe() sets it later via __usb_create_hcd().
-> > hcd_to_xhci_priv(NULL) then dereferences NULL + offsetof(struct
-> > usb_hcd, primary_hcd):
-> >
-> >   pc : usb_hcd_is_primary_hcd+0x0/0x1c
-> >   lr : cdns_host_resume+0x24/0x44
-> >
-> > Commit 87e4b043b98a ("usb: cdns3: fix role switching during resume")
-> > only skips the callback when the role changes during resume, which is
-> > not the case here.
-> >
-> > Return early when there is no hcd to notify: the host role can fail to
-> > start after cdns_role_start() set cdns->role, or the child may not be
-> > probed yet.  An unbound child has no state to restore, power_lost is
-> > only consumed by an initialized host, and cdns_wakeup_irq() already
-> > checks cdns->host_dev the same way.  Also publish cdns->host_dev only
-> > after platform_device_add() succeeds: the error paths free the child
-> > with platform_device_put() while the pointer stays set, and the next
-> > resume would dereference freed memory instead of bailing out.
->
-> Your commit is too long and robotic; didn't read!
->
-> Reading the patch, you protect against two things:
->  - cdns->host_dev =3D=3D NULL
->  - platform_get_drvdata(cdns->host_dev) =3D=3D NULL
->
-> Your commit message should say that out loud and give an exact way for
-> those two to occur. It should also mention the hardware used to
-> reproduce the issue, with full kernel panic log.
->
-> Thanks,
-Hi Th=C3=A9o,
+Hi
 
-thanks for the review.  You asked for the exact way each of the two
-cases happens, the hardware it reproduces on, and the full panic log;
-here is what I can share, plus what I plan for v5.  Machine identifiers
-are redacted from the log.
+On 11/19/26 18:55, Patrick Delaunay wrote:
+> Define a PSCI CPU suspend state and reference it from both STM32MP25
+> CPU power domains.
+> 
+> In OSI mode, PSCI power domains are initialized as off. The idle-state
+> allows the CPU power-domain governor to manage them, avoiding probe
+> stalls for devices that depend on the cluster power domain, including
+> SDMMC1.
+> 
+> Fixes: 9c8d852dabbd ("arm64: dts: st: add power domain on stm32mp25")
+> Signed-off-by: Patrick Delaunay <patrick.delaunay@foss.st.com>
+> ---
 
-Both NULL cases are reachable in the code:
+Applied on stm32-fixes.
 
-- cdns->host_dev: cdns_role_start() sets cdns->role before calling the
-  role's start callback and does not undo it when the callback fails.
-  cdns_resume() then calls the role's resume callback regardless of the
-  role driver's state, so cdns_host_resume() runs for the host role with
-  cdns->host_dev =3D=3D NULL.
-
-- the child's drvdata: __cdns_host_init() creates the xhci-hcd platform
-  device, but the drvdata is set only in xhci_plat_probe(), by
-  __usb_create_hcd().  The parent is resumed before that: when the child
-  is first probed, __driver_probe_device() calls
-  pm_runtime_get_sync(dev->parent) before really_probe(); a system
-  resume can also arrive while the child is still unbound.
-
-What matters for this bug is the configuration, not the board: the
-glue enables runtime PM (CDNS3_DEFAULT_PM_RUNTIME_ALLOW), so
-cdns3-plat.c uses a 20 ms autosuspend instead of pm_runtime_forbid(),
-and the controller can already be suspended when xhci-plat registers.
-cdns3/ is linked before host/ in drivers/usb/Makefile, so the child can
-exist and stay unbound when xhci_plat_init() later registers its
-driver.  The in-tree i.MX8QM glue sets the same quirk, so the window is
-not specific to this platform.
-
-The oops below is the second case.  The faulting address, 0x208, is
-offsetof(struct usb_hcd, primary_hcd), read by usb_hcd_is_primary_hcd()
-through hcd_to_xhci_priv(NULL).
-
-Unable to handle kernel NULL pointer dereference at virtual address
-0000000000000208
-Mem abort info:
-  ESR =3D 0x0000000096000004
-  EC =3D 0x25: DABT (current EL), IL =3D 32 bits
-  SET =3D 0, FnV =3D 0
-  EA =3D 0, S1PTW =3D 0
-  FSC =3D 0x04: level 0 translation fault
-Data abort info:
-  ISV =3D 0, ISS =3D 0x00000004, ISS2 =3D 0x00000000
-  CM =3D 0, WnR =3D 0, TnD =3D 0, TagAccess =3D 0
-  GCS =3D 0, Overlay =3D 0, DirtyBit =3D 0, Xs =3D 0
-[0000000000000208] user address but active_mm is swapper
-Internal error: Oops: 0000000096000004 [#1]  SMP
-Modules linked in:
-
-pstate: 81400009 (Nzcv daif +PAN -UAO -TCO +DIT -SSBS BTYPE=3D--)
-pc : usb_hcd_is_primary_hcd+0x0/0x1c
-lr : cdns_host_resume+0x24/0x44
-sp : ffff80008007ba40
-x29: ffff80008007ba40
- x28: ffff0000993c8000
- x27: ffff0000a0a39148
-
-x26: 0000000000000001
- x25: 0000000000000000
- x24: 0000000000000001
-
-x23: 0000000000000002
- x22: ffff0000a0a39104
- x21: 0000000000000410
-
-x20: 0000000000000000
- x19: 0000000000000000
- x18: 00000000ffffffff
-
-x17: 2072657473696765
- x16: 722074616c705f69
- x15: 63687820746e6569
-
-x14: 6c63203a5d6d7364
- x13: ffffc001a9b23dc8
- x12: 000000000000083d
-
-x11: 00000000000002bf
- x10: 0000c001087aec88
- x9 : 0000000000000000
-
-x8 : 0101010101010101
- x7 : ff7f7f7f7f7f7f7f
- x6 : 8080808080808080
-
-x5 : 0000000000000023
- x4 : 1fffffffffffffff
- x3 : ffff0000a0a39c80
-
-x2 : ffffc001a829e030
- x1 : 0000000000000000
- x0 : 0000000000000000
-
-Call trace:
- usb_hcd_is_primary_hcd+0x0/0x1c (P)
- cdns_resume+0x50/0xdc
- cdnsp_controller_resume.isra.0+0x14c/0x198
- cdnsp_plat_runtime_resume+0x20/0x10c
- pm_generic_runtime_resume+0x2c/0x44
- __rpm_callback+0x48/0x1dc
- rpm_callback+0x74/0x80
- rpm_resume+0x44c/0x63c
- __pm_runtime_resume+0x4c/0x90
- __driver_probe_device+0x64/0x1a0
- driver_probe_device+0x3c/0x110
- __driver_attach+0xf4/0x1fc
- bus_for_each_dev+0x78/0xd8
- driver_attach+0x24/0x30
- bus_add_driver+0x110/0x234
- driver_register+0x60/0x128
- __platform_driver_register+0x24/0x30
- xhci_plat_init+0x44/0x50
- do_one_initcall+0x58/0x264
- kernel_init_freeable+0x1e4/0x3c0
- kernel_init+0x20/0x1dc
- ret_from_fork+0x10/0x20
-Code: 52800003 f9407ca5 d63f00a0 17ffffe4 (f9410401)
----[ end trace 0000000000000000 ]---
-Kernel panic - not syncing: Oops: Fatal exception
-
-The fix returns early in both cases.  This does not weaken the path the
-commit was added for: on a system resume the child is bound and
-power_lost is still forwarded to xhci-plat exactly as before.  The
-other hunk, publishing cdns->host_dev only after platform_device_add()
-succeeds (reported by Sashiko in v4), keeps cdns_host_exit() and the
-next resume from touching a child that an error path already freed.
-
-The log is from a 6.18-based kernel, but the function at the crash
-site is unchanged from mainline, and the v5 patch applies to current
-mainline.
-
-In v5 I will state both checks and the exact path that produces each
-NULL in the commit message, and include the relevant frames of this
-trace; the code is unchanged.  I will send v5 shortly.
-
-Thanks,
-Guoming
+regards
+alex
