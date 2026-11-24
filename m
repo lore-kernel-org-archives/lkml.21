@@ -1,58 +1,92 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=216.40.44.15
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.178
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795534226;
-	b=fQ7uUlZaMT73uzeyXAHop/EQCxiw2t9t52nx0kFjOuXrIzc2ozcZNXKYVkNw2R2Bq5NF
-	 7Al93o0b+uHoQVL2M3LHfDPKz6tz83/u5dW0jM+LaF63ftd9d3zb3tGbLvIf/HugtDzoE
-	 +CCYXLFXqsROUCIYgmx7S5eedFcLiTLdmnD7dGMIwAFDo9HKZg9TDx0orZIHcmTMYlb4j
-	 vI6lCBL2LdOu0SuepWUcb9kEtQf4cMf3tpOx3cegeNMsJ1udtEall4BZrrv6k9UZMdWUs
-	 myaPHduzhGUL/1Am0Efr4/U1t3ie3Wq1Q3tWn8gq+NNEnSw+/cd7xtYsGvvPZV9Z99g==
+	t=1795534248;
+	b=GgVZIiXk2XcyYTjFlhlpvy1iwVVRPYLDiGnioSzAVQGvSDYGxmpiu2Q/sflpensoiMXF
+	 ONapI/upgl/e6hhPdmYv4gda2Zfea2kGHppMTdVdegQ0pQ0QH4omRYr8dOxuwueO6PTSX
+	 Go4CQOGQ0J0tdfWfApKhuPpPqznYSXppIbRqEmmoCVKE8BtetMhJnB++Bc87LHT6lALxZ
+	 Mk0MHeiXkuT+BbIm5WtERP7h3QdvN0H7b8RABCqROQRjQw9c9ICKfEdI3Xfhqdv5ye5il
+	 4pkOSFaiWrvgxhW1HSepYEiiT2pOj1CN97F6o1aN+ZJWohpLaMpL55qBHKiDO5mhAhw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795534226;
-	h=DMARC-Filter:Received:Received:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:X-Rspamd-Server:X-Rspamd-Queue-Id:
-	 X-Stat-Signature:X-Spam-Status:X-Session-Marker:X-Session-ID:
-	 DKIM-Signature:X-HE-Tag:X-HE-Meta;
-	bh=16XWJDbX7mkImoOTQxy5tEsY//wr/EZ/0Fl+xefuhm4=;
-	b=FiLRdMNHaXgnOCSB1PzH4r2WJROje1Gktmeh+8GTln/x104quOYoNLlCr5FZnDKQwM7O
-	 l3kv6knXkN2wyFpvQkj5QnOYnMU9E2NWh3ZQIsIPtbyPv8xEg2q8vyOIBIQsIK5AizQHu
-	 w6dKsk8k5upzrcDnp2ghhgC6mzpqUYcsJ7nLfCBBdllHgqOdvSfUmoYSPKuF0sStp7Iug
-	 De9K1XVgQyAuD0FyFwUAYyNusrPmELlvvnqnb/Gd5M2V+5sYltm/L+upTRuNZJkLXqjMQ
-	 n8e76I6r8zH2a8YZ9AFcFBrGB0DKRwBGWsW47vNpzoV/VwfFX9Bgmf+454Pl0txZc1g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795534248;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=vfjq/bA54698vpa+UUFXUPUZ2VgCOvKkSPLtAbzZju0=;
+	b=cMoZixSmc6x0PDzCU8xXyJL4jkBlGfd+BlzymBhnbnQwjJIA3ySJXcgbLuyIwHYvutVT
+	 1QhzXhbcl8UwO2w+P2k0wsfHHub3+FXUO9SXqDxqzZ00u18nnHRTaNpDG1yy6NhxfpM6T
+	 VV8QFFQlF5D1s2zigyFmK/2SwVS0ZaJw0Wh2hYXeCajWL03t6w1y8U/1q/H4clX8zMMEq
+	 uJR/3eQ1FKObRh5qUDYn0xhgFacrgmgu+0LKlAt8PL2nQuovd3twozewExHW/o8Z+20sX
+	 RqF5jmzJn35v1iS1IQuPblDLNz9/hH7YIxpVhryvD0SYH6VOsyk4mMhrudA3F3OdmHQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=goodmis.org;
-	spf=pass smtp.mailfrom=goodmis.org;
-	dkim=pass header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=zccZXyxS;
-	arc=none smtp.remote-ip=216.40.44.15
-Received: from relay.hostedemail.com (smtprelay0015.hostedemail.com [216.40.44.15])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=O7QcER5o;
+	arc=none smtp.remote-ip=209.85.222.178
+Received: from mail-qk1-f178.google.com (mail-qk1-f178.google.com [209.85.222.178])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 62083606A321;
-	Tue, 24 Nov 2026 15:30:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 62083606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=goodmis.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=goodmis.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6793E606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 15:30:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6793E606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=zccZXyxS
-Received: from omf04.hostedemail.com (lb01a-stub [10.200.18.249])
-	by unirelay01.hostedemail.com (Postfix) with ESMTP id 5E8241C470D;
-	Tue, 24 Nov 2026 15:30:23 +0000 (UTC)
-Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf04.hostedemail.com (Postfix) with ESMTPA id 6506B20027;
-	Tue, 24 Nov 2026 15:30:21 +0000 (UTC)
-Date: Tue, 24 Nov 2026 10:30:20 -0500
-From: Steven Rostedt <rostedt@goodmis.org>
-To: LKML <linux-kernel@vger.kernel.org>, Linux Trace Kernel
- <linux-trace-kernel@vger.kernel.org>, linux-kselftest
- <linux-kselftest@vger.kernel.org>
-Cc: Masami Hiramatsu <mhiramat@kernel.org>, Mathieu Desnoyers
- <mathieu.desnoyers@efficios.com>, Shuah Khan <skhan@linuxfoundation.org>
-Subject: Re: [PATCH] tracing/selftests: Make sure trace_printk is set to top
- instance
-Message-ID: <20261124103020.708990a6@gandalf.local.home>
-In-Reply-To: <20261123145918.0d7f3728@gandalf.local.home>
-References: <20261123145918.0d7f3728@gandalf.local.home>
-X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=O7QcER5o
+Received: by mail-qk1-f178.google.com with SMTP id af79cd13be357-94961bfe1a0so307182085a.3
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 07:30:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795534247; x=1796139047; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=vfjq/bA54698vpa+UUFXUPUZ2VgCOvKkSPLtAbzZju0=;
+        b=O7QcER5oq7Kls3YTU9w9IabWj7DY/stXowmd8Q/wYvMGoG0EQrjBWKhinRDB/xfvP9
+         YLH9MMSYUS6HTHNOaW1VNy5vufJdh3SmSbNh1hxMzXxpXGworRhWh83HUI2Td2Q7kx/6
+         QvvIieR45R6Bdx44+Zsd6uFleFPT0uVJZqb1ToL2PXzuVL4kILSvYJ3IzNjCwHVk3JsJ
+         v1/OKmKKJEvHXpTZRSHjtfHB1rD/NI6NMIW03DoveSgUoKOUu+yGAqnHynJkalWctkUA
+         EyYkaKGwel436nxTvbwwgenwG1LsxgRzhUwijUfWJ7n+DC5zZ0jE71/7+99i4fn8NMhJ
+         DQuA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795534247; x=1796139047;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=vfjq/bA54698vpa+UUFXUPUZ2VgCOvKkSPLtAbzZju0=;
+        b=hsBvoiUD2Y+4esb815klHZX3HDznlFOjgM946uCg+HwSnzg1FRrToSDIpPhdLxLATI
+         gdzKp0TvsWmVkjjaGmbe67HeS/HQOWmApncY0QgK9h/tqAIWNtKF72kW3Zlaui6TG4HM
+         NyukeiYNTMxuFgGYxOG18vt5tIeNHhD6oK6nAVucqo3HUapcn8ivhqn2eCyt+k+KLEvE
+         /gTkbADO2TIeRZI4dsilxoV8foJcgbqkKbO1MaHkKvU/pcADFmG/kOUCKOz7+w1YLTAD
+         OD0hsAkqUPgqadRcCUImQ6RwMxJ7o/mZUw1P4ct/0krSF1YoKI25kPxohV7BxnOHT3wx
+         VQtQ==
+X-Gm-Message-State: APuU4Z+ojGHV98K4qjPaRJWc5zLF7pRXdb1z137sRjAF0Osi4YDxwK53
+	MDwiyqW1WOYWaGWwPM8olXo95ZXuzDReJCEIzmMpQocKhfTrHVCXJ+f9tVumww==
+X-Gm-Gg: AZFdTZfEVR9yw/Yinw/UTO8DMXKhfj3W5T99eNOCgxvsPqDwrfREM56qGp9yW9rmOrK
+	mwF9X1JtHXIDIJcUszIifRlV0sHVDy496Rqi7olmEDhjl9LgvCZ4NV+/zn4M03StmtEQEw5izZG
+	ZLt3cXSi9lolilWnKfBjTsYMm/Al65IwMu+uinLzoF5pm02/lmyvb1mNPWQFLec0tIN+lVapMs1
+	9XOmwj/TsIEfQtQw7oCtOSWuXraB9gMZrGloXWR4DNwkJIPIJrX9rrR4N8sqcHEOuFMLMx17qcH
+	XySNcHXZyevXBmREatonrVMPlhUt7vUlJpE3tWys7Nf2ilQ1NUrmP3QomSJpHJAuoAI0alruqw8
+	7k2ih1BuQ5f0lnY0NUxdlfTRudkWnj7COrPyPLoFpjZVoGJw53fy0qveLMkX3/q1WEHVYxMzRXE
+	ie3lrW3i+AQYof/HkGvgRoW42nMgu3fuARUURO7MZ6ZSVh3x4KaDOrhUI3TrTmBZqwriftpI6Zs
+	7dRxCccn4r4AbYoSd/e1oQm4pweH19axrXurU4xB9iQV4chvwUhOzPrU+VfbGTQPt6h/aMqVjY3
+	n5uF6XdgI+wRaU6RvH6k64in8sVEUIdkGi5SKnzK3o405FBslplVefELrUZPvIZMxNBHw7ipEMg
+	uoOmGnxa6JKH2AextPRTPfXOoMX2Utabm/YkJLPE79SKpAMNz//sHqeLK5bXhTwvnY1O//KC+WA
+	==
+X-Received: by 2002:a05:620a:838a:b0:943:e946:8c6d with SMTP id af79cd13be357-949bab6e501mr2412050085a.72.1795534244602;
+        Tue, 24 Nov 2026 07:30:44 -0800 (PST)
+Received: from nickserv.taila7d40.ts.net ([72.225.160.232])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-949caf98d34sm852700485a.2.2026.11.24.07.30.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 07:30:44 -0800 (PST)
+From: Nick Terrell <nickrterrell@gmail.com>
+To: linux-kernel@vger.kernel.org
+Cc: Nick Terrell <terrelln@fb.com>,
+	Nick Terrell <nickrterrell@gmail.com>,
+	Kernel Team <Kernel-team@fb.com>,
+	David Sterba <dsterba@suse.com>
+Subject: [PATCH v2] zstd: decompress: prevent stale literal leaks after output buffer wraps
+Date: Tue, 24 Nov 2026 07:49:33 -0800
+Message-ID: <20261124154933.108631-1-nickrterrell@gmail.com>
+X-Mailer: git-send-email 2.48.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,90 +96,105 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Rspamd-Server: rspamout01
-X-Rspamd-Queue-Id: 6506B20027
-X-Stat-Signature: dbybb87j5gm3rbyikzdipgfzmnkfodcx
-X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
-X-Session-ID: U2FsdGVkX19GnvZ1Vm2yNa/wFMPFAHwmV9gQ1wsr3tg=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=goodmis.org; h=date:from:to:cc:subject:message-id:in-reply-to:references:mime-version:content-type:content-transfer-encoding; s=dkim1; bh=16XWJDbX7mkImoOTQxy5tEsY//wr/EZ/0Fl+xefuhm4=; b=zccZXyxSrCZMSMg6H0ViLYeMx9iYn0jYGlWQdaI4Y0G6BGkqrYk+jFu4z1mBUtoFeSnIeOVXOpVyHAqAMTMkzWqNagQFbyz4P9pAHzO8AmlABU4j04qP/KBEtnj7GcWOU+tIXrDB/+9tdvZ7WGhA1P8Lk2m/TDyL+wrlhRNH3Hs=
-X-HE-Tag: 1795534221-241193
-X-HE-Meta: U2FsdGVkX1/cI292Mz4fh4i3MZHrJ0mPMTg/M/m8HbAyIP0JhfjCx+bXqd2iuQnwJXXcit4OeeYu04sHaUdd7bzTfmZnxBZZi9+//sLynIA+BzFtPBRIaqLNbcV6K0EaDOJc8MtBA5xkgBx4DTaXV1ksaEP2ijc48q+3U0C2CYMdZswoVXqxbTc3fT1zSQHu3HMuCPJIjaJH3vvEdo/b4J9qN6O+Un3o0ZCz0YgczN0q2UTYM45OvG0IOu93hYDAJP84B1Po7kd+Bs/m4T5LRwAL3lxtouM4RhTao7w61+RGWTFR/2nc+8uLx2ajhMsAGATyb0Bf9Scgt+uDn+KWjJmiUjgWCLs023NFU8+5KC2wMI1I1yFZHHyEzmA83JJNAqEEPIeVhjIGAkX7lLEqjutt33pPbmyK
+Content-Transfer-Encoding: 8bit
 
+From: Nick Terrell <terrelln@fb.com>
 
-Masami,
+After the streaming output buffer wraps, the external dictionary and
+current prefix must share the frame history window. Retaining expired
+history can allow malformed offsets to expose uninitialized bytes or
+literals from earlier decompressions on the same context.
 
-You OK with this patch?
+Once a full window has been decoded, limit external history to the
+portion not occupied by the current prefix. Apply this bound before
+subsequent blocks even when output remains contiguous. Also zero the
+wildcopy padding after decoder-owned literals, including both parts of a
+split literal buffer, so permitted over-reads only see initialized bytes.
 
-If so...
+This is a port of upstream zstd commit 0c9d297531a9 ("decompress:
+prevent stale literal leaks after output buffer wraps").
 
-Shuah, can you take this patch if Masami acks it. It's not urgent and can
-go in the next merge window.
+Link: https://github.com/meta/zstd/commit/0c9d297531a9f15a717ff24604afc0843b3b1427
 
-Thanks,
+Signed-off-by: Nick Terrell <terrelln@fb.com>
+---
+ lib/zstd/decompress/zstd_decompress_block.c | 35 +++++++++++++++++++++
+ 1 file changed, 35 insertions(+)
 
--- Steve
-
-
-On Mon, 23 Nov 2026 14:59:18 -0500
-Steven Rostedt <rostedt@goodmis.org> wrote:
-
-> From: Steven Rostedt <rostedt@goodmis.org>
-> 
-> In order to debug a kernel crash, the boot command line added
-> the traceprintk flag to have trace_printk() go to the persistent ring
-> buffer. When the fix was found, the command line wasn't updated.
-> 
-> Later, when running the ftrace selftests, the direct function tests were
-> failing. The reason for this was because these tests would load the
-> ftrace-direct.ko module which would add a trampoline that did a
-> trace_printk. The test would then search the top level instance buffer for
-> the trace_printk output. The issue is that the kernel command line had
-> moved the destination to the persistent ring buffer causing the writes of
-> trace_printk to go there and not the top level instance and because the
-> tests did not find the output it was looking for, they failed.
-> 
-> Update the tests to set the trace_printk destination to the top level
-> instance at the start of the tests to force the output to go there so that
-> the tests will not fail in such a case again.
-> 
-> Signed-off-by: Steven Rostedt <rostedt@goodmis.org>
-> ---
->  .../testing/selftests/ftrace/test.d/direct/ftrace-direct.tc  | 5 +++++
->  .../testing/selftests/ftrace/test.d/direct/kprobe-direct.tc  | 5 +++++
->  2 files changed, 10 insertions(+)
-> 
-> diff --git a/tools/testing/selftests/ftrace/test.d/direct/ftrace-direct.tc b/tools/testing/selftests/ftrace/test.d/direct/ftrace-direct.tc
-> index d75a8695bc21..359257123e6d 100644
-> --- a/tools/testing/selftests/ftrace/test.d/direct/ftrace-direct.tc
-> +++ b/tools/testing/selftests/ftrace/test.d/direct/ftrace-direct.tc
-> @@ -2,6 +2,11 @@
->  # SPDX-License-Identifier: GPL-2.0
->  # description: Test ftrace direct functions against tracers
->  
-> +# Make sure trace_printk goes to the main buffer
-> +if [ -f options/trace_printk_dest ]; then
-> +	echo 1 > options/trace_printk_dest
-> +fi
-> +
->  rmmod ftrace-direct ||:
->  if ! modprobe ftrace-direct ; then
->    echo "No ftrace-direct sample module - please make CONFIG_SAMPLE_FTRACE_DIRECT=m"
-> diff --git a/tools/testing/selftests/ftrace/test.d/direct/kprobe-direct.tc b/tools/testing/selftests/ftrace/test.d/direct/kprobe-direct.tc
-> index e52e470a1f8f..b22e3fb1c468 100644
-> --- a/tools/testing/selftests/ftrace/test.d/direct/kprobe-direct.tc
-> +++ b/tools/testing/selftests/ftrace/test.d/direct/kprobe-direct.tc
-> @@ -3,6 +3,11 @@
->  # description: Test ftrace direct functions against kprobes
->  # requires: kprobe_events
->  
-> +# Make sure trace_printk goes to the main buffer
-> +if [ -f options/trace_printk_dest ]; then
-> +	echo 1 > options/trace_printk_dest
-> +fi
-> +
->  rmmod ftrace-direct ||:
->  if ! modprobe ftrace-direct ; then
->    echo "No ftrace-direct sample module - please build with CONFIG_SAMPLE_FTRACE_DIRECT=m"
+diff --git a/lib/zstd/decompress/zstd_decompress_block.c b/lib/zstd/decompress/zstd_decompress_block.c
+index 710eb0ffd5a3..96d9bc67e3a4 100644
+--- a/lib/zstd/decompress/zstd_decompress_block.c
++++ b/lib/zstd/decompress/zstd_decompress_block.c
+@@ -124,6 +124,25 @@ static void ZSTD_allocateLiteralsBuffer(ZSTD_DCtx* dctx, void* const dst, const
+     }
+ }
+ 
++/*
++ * Zeros the bytes directly after the decompressed literals so that over-reads
++ * only read zeros, rather than potentially uninitialized memory, or bytes from
++ * prior decompressions.
++ */
++static void ZSTD_zeroLiteralsBufferPadding(ZSTD_DCtx* dctx, size_t litSize)
++{
++    if (dctx->litBufferLocation == ZSTD_split) {
++        BYTE* const litBufferEnd = dctx->litBuffer + litSize - ZSTD_LITBUFFEREXTRASIZE;
++        assert(litBufferEnd == dctx->litBufferEnd);
++        ZSTD_memset(litBufferEnd, 0, WILDCOPY_OVERLENGTH);
++        ZSTD_memset(dctx->litExtraBuffer + ZSTD_LITBUFFEREXTRASIZE, 0, WILDCOPY_OVERLENGTH);
++    } else {
++        BYTE* const litBufferEnd = dctx->litBuffer + litSize;
++        assert(litBufferEnd == dctx->litBufferEnd);
++        ZSTD_memset(litBufferEnd, 0, WILDCOPY_OVERLENGTH);
++    }
++}
++
+ /*! ZSTD_decodeLiteralsBlock() :
+  * Where it is possible to do so without being stomped by the output during decompression, the literals block will be stored
+  * in the dstBuffer.  If there is room to do so, it will be stored in full in the excess dst space after where the current
+@@ -241,6 +260,7 @@ static size_t ZSTD_decodeLiteralsBlock(ZSTD_DCtx* dctx,
+ 
+                 RETURN_ERROR_IF(HUF_isError(hufSuccess), corruption_detected, "");
+ 
++                ZSTD_zeroLiteralsBufferPadding(dctx, litSize);
+                 dctx->litPtr = dctx->litBuffer;
+                 dctx->litSize = litSize;
+                 dctx->litEntropy = 1;
+@@ -284,6 +304,7 @@ static size_t ZSTD_decodeLiteralsBlock(ZSTD_DCtx* dctx,
+                     {
+                         ZSTD_memcpy(dctx->litBuffer, istart + lhSize, litSize);
+                     }
++                    ZSTD_zeroLiteralsBufferPadding(dctx, litSize);
+                     dctx->litPtr = dctx->litBuffer;
+                     dctx->litSize = litSize;
+                     return lhSize+litSize;
+@@ -330,6 +351,7 @@ static size_t ZSTD_decodeLiteralsBlock(ZSTD_DCtx* dctx,
+                 {
+                     ZSTD_memset(dctx->litBuffer, istart[lhSize], litSize);
+                 }
++                ZSTD_zeroLiteralsBufferPadding(dctx, litSize);
+                 dctx->litPtr = dctx->litBuffer;
+                 dctx->litSize = litSize;
+                 return lhSize+1;
+@@ -2184,6 +2206,19 @@ void ZSTD_checkContinuity(ZSTD_DCtx* dctx, const void* dst, size_t dstSize)
+         dctx->prefixStart = dst;
+         dctx->previousDstEnd = dst;
+     }
++    /* The external dictionary and current prefix share the frame window.
++     * As the prefix grows after a wrap, retaining a full external window
++     * could let corrupt offsets alias the destination and expose stale literals.
++     * decodedSize > 0 ensures the frame header has initialized windowSize.
++     * Only kicks in after decoding windowSize bytes because the entire dictionary is
++     * valid as long as a single byte of the dictionary is in the window.
++     */
++    if (dstSize > 0 && dctx->isFrameDecompression && dctx->decodedSize > 0 && dctx->decodedSize >= dctx->fParams.windowSize) {
++        size_t const prefixSize = (size_t)((const char*)dctx->previousDstEnd - (const char*)dctx->prefixStart);
++        size_t const extDictSize = (size_t)((const char*)dctx->prefixStart - (const char*)dctx->virtualStart);
++        U64 const maxExtDictSize = prefixSize < dctx->fParams.windowSize ? dctx->fParams.windowSize - prefixSize : 0;
++        dctx->virtualStart = (const char*)dctx->prefixStart - (size_t)MIN((U64)extDictSize, maxExtDictSize);
++    }
+ }
+ 
+ 
+-- 
+2.48.1
 
