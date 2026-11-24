@@ -1,109 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795524591;
-	b=FtT6YKBtEk2qs4znOXK8Hx+4eEJmeZiFo+8st9FFc79H75zvNbenpOGFnUaheGumJUg7
-	 EOhMzQmM/tk1xwe+bxTINOOD+Bnch8dMtBSodz4YRp2NA7BGo7KtueXqZP0K1BeW3Cwv+
-	 BH7zF4crjnytnmnqxbtc7KxohESUJzUAWaCRwphfdGr1ZU+Lc51Hm71/WWjdNx4FvFyAs
-	 tqqtRVAa+IXF1OplRCZAqVXL/hWRMeJSb4X28PQpTGSZzSqgf3Or0w8RMNpxw0rPnuBPo
-	 iL7lp0neNGRS/kFx27Ar7e/X6fxJMjyf9j2ogRjaBSzwg1OTqppiXGQuxqNlqhf6yYA==
+	t=1795524612;
+	b=sQ6ooD8Sfbtc5RoUXDRkCkn53EPd0SwUjwnEZR9PkKQ8UWT21cJZC4IJFnQjZyASyznU
+	 51sAE1mfRebQLH8R4LDUJcEkbMerysr7Gj140MfQ4B6gauLvzXa9TU62ZqibVcX2G/Im1
+	 Ohy0xXqpoYS44HonQ/UKidsbjiQGW7eU39W5XQhzRQH9YreS8Evs2uENrG0CwAk5lSDgL
+	 YyOKel/7GgGIgF87crX6p+iejpXEAHLV5VS5oc1+gGWYT6aKHh9ofKPA6WyT+7ixBP8Dj
+	 HPKhIR0g+b6Q4Vwc2aGM42B6a+BAMkasbcoYi5IaeMn0OcynAf6z5qWDJBc+BH9xU4g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795524591;
-	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
-	 DKIM-Signature:Received:Received:Date:Message-ID:From:To:Cc:Subject:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795524612;
+	h=Received:DKIM-Signature:Received:Date:Message-ID:From:To:Cc:Subject:
 	 In-Reply-To:References:User-Agent:MIME-Version:Content-Type:
-	 X-Rspamd-Queue-Id:X-Spam-Level:X-Rspamd-Server:X-Rspamd-Action:
-	 X-Spam-Flag:X-Spamd-Result:X-Spam-Score;
-	bh=2Ar3R0sAiavmEDCbC3boywkQQn01DRass16tsmxBk6w=;
-	b=mo98JEE78qYxgXQfmTe8CIcp13FmwsWhGZFL3qOlmY1qg8RP18lBQJdOP214ThikpXoC
-	 9f6o2G3JD1GkXqvDaiWjliWv9trGHBZ7YNQ5EFbS4RHkWt602p8yhl79h7SqKEEsoBqt2
-	 0wa8zDirPqYw5XEG4sAwJs+6nOqCwmv23KhdHnUkSRRLvhPokvqXOux+cjwUpXEvfmwIG
-	 +1WAydzqNP8UuQJJbrLopPECkqwZXf5kxS4jYyxiQmEVeRYwN62YLQmwTu8Kzu+7CUAmK
-	 Hh4J3/Y3tuv4rVpXXQO9qwqoSiuCwS4ST6heKSoY0llpwJ+SvClLpNelQSTD3u+mp8A==
+	 X-SA-Exim-Connect-IP:X-SA-Exim-Rcpt-To:X-SA-Exim-Mail-From:
+	 X-SA-Exim-Scanned;
+	bh=fkcXNh2S892P26zeb4v8GatV81GnIFMuUNe4sWAuvks=;
+	b=GUcPvP2SMr9qLHzUpssieGrgCs2eWdDvTIB0I0pJanUYES12weTuDNOCBJtxczRelQYl
+	 HLdTcxvmPDdaZjfF8HzHigGwSFkHBz3R0UJJI4y9D2KKN8kxcqG7ZRWinIyTKO43Db3IL
+	 cZ9KhkVpxK0qFGjwMamHY7PCJLHn4Vp/AXz1FrnGFxy2f4YWgOB8JqnvOkGeKJyzDZyg1
+	 BJXkwq+6LWDwrBziwRyzQWwrHZeOoQEsg+wpqkcSPAx+GaqXkaDJhPuqVQBAsWuNJXkQv
+	 H7w51ZWQvX9Qp4SBc/wKzxRy9C3plkzS3JxM+Pwrqo9UfkBZ/A6m0XCMnFnufqrKx9A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.de;
-	spf=pass smtp.mailfrom=suse.de;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=pg3nKz4t;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=nazSh38p;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=pg3nKz4t;
-	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=nazSh38p;
-	arc=none smtp.remote-ip=195.135.223.131
-Received: from smtp-out2.suse.de (smtp-out2.suse.de [195.135.223.131])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Gr2PEFt6;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C25BE606A32A;
-	Tue, 24 Nov 2026 12:49:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C25BE606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=suse.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7EF30606A31E;
+	Tue, 24 Nov 2026 12:50:11 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=pg3nKz4t;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=nazSh38p;
-	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=pg3nKz4t;
-	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=nazSh38p
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id D96F71F7CC;
-	Tue, 24 Nov 2026 12:49:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1795524588; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=2Ar3R0sAiavmEDCbC3boywkQQn01DRass16tsmxBk6w=;
-	b=pg3nKz4tEtfTxJE/0LlP7QmFw6JI8Hda8ESG35EhvPQIQbM89YkD3+WESVGNZsR2oKjjbH
-	HEPY2hxNOe+ON3DZd8NSmitHnqFY7Z2Wq2kF/JwaCIjIn/MO+91iJPK/F7Dcw5LofzuzKJ
-	Dw9ed9R/pY/pXwIaZ7ydIdhHaFzm90I=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1795524588;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=2Ar3R0sAiavmEDCbC3boywkQQn01DRass16tsmxBk6w=;
-	b=nazSh38p/6vEGr6URw707d+D7Edj4mXay1XY8SId6zAomDsA5nLHGbzEp+Tjncnyb76qsy
-	X3bOMP4bRpdo+YBw==
-Authentication-Results: smtp-out2.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=pg3nKz4t;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=nazSh38p
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1795524588; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=2Ar3R0sAiavmEDCbC3boywkQQn01DRass16tsmxBk6w=;
-	b=pg3nKz4tEtfTxJE/0LlP7QmFw6JI8Hda8ESG35EhvPQIQbM89YkD3+WESVGNZsR2oKjjbH
-	HEPY2hxNOe+ON3DZd8NSmitHnqFY7Z2Wq2kF/JwaCIjIn/MO+91iJPK/F7Dcw5LofzuzKJ
-	Dw9ed9R/pY/pXwIaZ7ydIdhHaFzm90I=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1795524588;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=2Ar3R0sAiavmEDCbC3boywkQQn01DRass16tsmxBk6w=;
-	b=nazSh38p/6vEGr6URw707d+D7Edj4mXay1XY8SId6zAomDsA5nLHGbzEp+Tjncnyb76qsy
-	X3bOMP4bRpdo+YBw==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id A13C41339F;
-	Tue, 24 Nov 2026 12:49:48 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id IpV3HuyHBWuqGgAAD6G6ig
-	(envelope-from <tiwai@suse.de>); Tue, 24 Nov 2026 12:49:48 +0000
-Date: Tue, 24 Nov 2026 13:49:44 +0100
-Message-ID: <87tsl69yxj.wl-tiwai@suse.de>
-From: Takashi Iwai <tiwai@suse.de>
-To: uni.lorenzo.a@gmail.com
-Cc: Takashi Iwai <tiwai@suse.com>,
-	Jaroslav Kysela <perex@perex.cz>,
-	linux-sound@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] ALSA: hda/realtek: Enable speaker amp on ONEXPLAYER X1 i
-In-Reply-To: <20261123-oxp-x1-amp-v1-1-8b61da12d092@gmail.com>
-References: <20261123-oxp-x1-amp-v1-1-8b61da12d092@gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) Emacs/30.2 Mule/6.0
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Gr2PEFt6
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 80B391F000C0;
+	Tue, 24 Nov 2026 12:50:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795524610;
+	bh=fkcXNh2S892P26zeb4v8GatV81GnIFMuUNe4sWAuvks=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=Gr2PEFt6Nif4bgQBkTr20iv52muiiKwwK0cRcdA2K0e825bGiSD/zpBb8TnonFISy
+	 fxqG4PZIaD/LsMIx6VJ2b9q82i6NAso2o9l3lcff2wZgZkU/fYbcM/T1MqnYuWA5Tg
+	 3OeTKCka90kyPatC5NxqPl3gda+lX38e3x5q9Xv9FcQFwO5Hm6v6qeV1eyZY8VMU3F
+	 31mirC74x45EEyhE3MU0Q/la2PlvYX/UX1LzUgFtaIRv/t1AIgC+BMlOFtbXOH4PID
+	 x2aHnvY+gDaxfJFp3TjoCIPM2cpf8Lj3JiVjlcrTrKDx8/nQN8aFOKLv7UkpNWOquZ
+	 swhINiwhDxj8w==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1xVpyK-00000002Zmv-16Az;
+	Tue, 24 Nov 2026 12:50:08 +0000
+Date: Tue, 24 Nov 2026 12:50:07 +0000
+Message-ID: <868q2iz94w.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Justin He <Justin.He@arm.com>
+Cc: Oliver Upton <oupton@kernel.org>,
+	Fuad Tabba <fuad.tabba@linux.dev>,
+	Joey
+ Gouly <Joey.Gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki
+ Poulose <Suzuki.Poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin
+ Marinas <Catalin.Marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark
+ Rutland <Mark.Rutland@arm.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Sean
+ Christopherson <seanjc@google.com>,
+	Shuah Khan <shuah@kernel.org>,
+	Sascha
+ Bischoff <Sascha.Bischoff@arm.com>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>,
+	"kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>,
+	"linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>,
+	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
+	"linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>,
+	Lorenzo
+ Stoakes <ljs@kernel.org>, Dan Carpenter <dan@pereq.eu>
+Subject: Re: [PATCH 1/3] KVM: arm64: Don't load hardware vCPU state before first run
+In-Reply-To: <AS2PR08MB978600ED2150F773D3E1631DF7442@AS2PR08MB9786.eurprd08.prod.outlook.com>
+References: <20261123150917.2679600-1-justin.he@arm.com>
+	<20261123150917.2679600-2-justin.he@arm.com>
+	<86eccbzcqh.wl-maz@kernel.org>
+	<AS2PR08MB978600ED2150F773D3E1631DF7442@AS2PR08MB9786.eurprd08.prod.outlook.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -114,74 +99,75 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
 Content-Type: text/plain; charset=US-ASCII
-X-Rspamd-Queue-Id: D96F71F7CC
-X-Spam-Level: 
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
-X-Rspamd-Action: no action
-X-Spam-Flag: NO
-X-Spamd-Result: default: False [-11.01 / 50.00];
-	SUSE_INTERNAL_BYPASS(-9.00)[];
-	BAYES_HAM(-3.00)[100.00%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	MID_CONTAINS_FROM(1.00)[];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	TO_DN_SOME(0.00)[];
-	FREEMAIL_TO(0.00)[gmail.com];
-	MIME_TRACE(0.00)[0:+];
-	ARC_NA(0.00)[];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	RCVD_TLS_ALL(0.00)[];
-	DKIM_TRACE(0.00)[suse.de:+];
-	RCVD_COUNT_TWO(0.00)[2];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	RCPT_COUNT_FIVE(0.00)[5];
-	DNSWL_BLOCKED(0.00)[2a07:de40:b281:106:10:150:64:167:received,2a07:de40:b281:104:10:150:64:97:from];
-	TAGGED_RCPT(0.00)[];
-	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,suse.de:dkim]
-X-Spam-Score: -11.01
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: Justin.He@arm.com, oupton@kernel.org, fuad.tabba@linux.dev, Joey.Gouly@arm.com, seiden@linux.ibm.com, Suzuki.Poulose@arm.com, yuzenghui@huawei.com, Catalin.Marinas@arm.com, will@kernel.org, Mark.Rutland@arm.com, pbonzini@redhat.com, seanjc@google.com, shuah@kernel.org, Sascha.Bischoff@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, ljs@kernel.org, dan@pereq.eu
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 
-On Mon, 23 Nov 2026 20:05:05 +0100,
-Lorenzo Argentieri via B4 Relay wrote:
-> 
-> From: Lorenzo Argentieri <uni.lorenzo.a@gmail.com>
-> 
-> The internal speakers of the ONE-NETBOOK ONEXPLAYER X1 i (Intel Core
-> Ultra 7 155H, ALC245, subsystem ID 1f75:1602) are almost inaudible on
-> Linux. They are driven by a Realtek smart amplifier at I2C address 0x10,
-> behind the ALC245 coefficient tunnel. The firmware leaves the amplifier
-> unconfigured, and the Windows driver programs it at initialization.
-> 
-> Add a fixup that replays the register writes of the Windows driver
-> through the tunnel: coefficient 0x24 selects the amplifier, 0x25/0x26
-> hold the register address, 0x28 the value, and writing 0xb023 to 0x29
-> starts the transfer. Bit 5 of 0x29 is a self-clearing go bit; poll it
-> instead of using a fixed delay (a write completes in about 200 us).
-> 
-> The sequence was captured from Windows by the onexplayer2pro-audio-fix
-> project and decoded here. Its reads and address probes were dropped,
-> leaving 46 amplifier register writes. The fixup runs at every codec
-> init, so the configuration is restored after system resume.
-> 
-> Tested on ONEXPLAYER X1 i, BIOS 2.42, after a full power-off: a test
-> tone played through the speakers and recorded by the internal microphone
-> is about 50 dB louder with this fixup than without it.
-> 
-> Link: https://github.com/feederchain/onexplayer2pro-audio-fix
-> Signed-off-by: Lorenzo Argentieri <uni.lorenzo.a@gmail.com>
+Adding Dan to this loop, as I reckon something else is amiss.
 
-Applied to for-next branch.
+On Tue, 24 Nov 2026 01:39:23 +0000,
+Justin He <Justin.He@arm.com> wrote:
+> 
+> Hi, Marc
+> 
+> > -----Original Message-----
+> [...]
+> > > KVM_PRE_FAULT_MEMORY calls vcpu_load() as soon as
+> > KVM_ARM_VCPU_INIT has
+> > > completed. On arm64, however, kvm->arch.sysreg_masks, the trap
+> > > configuration, vncr_tlb and nested vGIC state are only set up on the
+> > > first KVM_RUN in kvm_arch_vcpu_run_pid_change().
+> > 
+> > I think I'm going to queue a patch disabling prefaulting immediately,
+> > and then we can fix this crap.
+> > 
+> Fine with me. I'll rebase on top of it and have v2 re-enable
+> pre-faulting together with the load/put change.
+
+Don't worry about that. I can fix that myself when applying the
+patches.
 
 
-thanks,
+> > > Since kvm_running_vcpu can now be set without VHE state on the CPU, use
+> > > host_ctxt->__hyp_running_vcpu in VHE enter_vmid_context() (matching
+> > > nVHE)
+> > 
+> > Can you clarify under which circumstances we end-up on the TLB
+> > invalidation path? Simply faulting things in should not result in
+> > invalidation. Unless we end-up with MMU notifiers firing?
+> > 
+> I found this by code inspection, not from a failure. A TLBI from a stage-2
+> BBM or an MMU notifier can hit this path during pre-faulting, but before
+> the first run hw_mmu is canonical, so it makes no difference. As Lorenzo
+> said, I'll drop this hunk.
 
-Takashi
+vcpu->arch.hw_mmu being the canonical one before the first run doesn't
+hold anymore, since a7602ea542d4e ("KVM: arm64: nv: Initialize hw_mmu
+to NULL for nested vCPUs"), as userspace can configure things for an
+L2, before first run, and bad things happen otherwise.
+
+But the observation remains: if an MMU notifier occurs for any reason
+while pre-faulting (likely a concurrent reclaim), we get the "not
+quite loaded" vcpu in enter_vmid_context(). If vcpu->arch.hw_mmu is a
+valid (non-null) pointer, then we will restore whatever is in that
+structure when reaching exit_vmid_context(), and that's not what is
+intended.
+
+So I think we need that sort of exclusion. Either we track what is
+actually properly loaded (using __hyp_running_vcpu as you did before,
+or by checking whether the vcpu is in a valid state).
+
+I think we have a somewhat similar breakage with 5651590be08a6 ("KVM:
+arm64: Load the vcpu in KVM_SET_VCPU_EVENTS"): as vcpu_load() now
+becomes sensitive to vcpu_has_run_once() being true, we can't tell
+anything of the state that is going to be evaluated by the event
+injection helper.
+
+We could prevent the non-running injection in KVM_SET_VCPU_EVENTS, but
+that's also a change in the API...
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
