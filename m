@@ -1,158 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.136
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795533326;
-	b=I3Adv/4b0yoeGlB7D07doX4UcRVQU2u5dKvMPEjsIe/t7Z+eaAoiNxPn6MdFk3Hv+QbB
-	 hvCXGvjlNRNweUWBItwHWyUyuovs2T9MW6erfASHDf7ZWzoUfxLxMrb+eaF44zCxaKB1+
-	 wJXKPPHjao0ocY4nvQgEayC+miHWx83vf8Hdl3N2xo6sKBUh84adLRcXdCEBah1rtcU9b
-	 QP2EG/nUrT4uFoVRqOwqt19H5/7eUM1wGj23zBhV6VmWkI0uwFBKTx5agivnpQKaNN5h4
-	 HLGxdrrAVjX/c4RBYlvrcCTquYOyAfbRb6ma+H7fzYX9zGp8F9G6e729FAULGlJhszw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795533326;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:CC:Subject:
-	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
-	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
-	 msip_labels:x-ms-publictraffictype:x-ms-traffictypediagnostic:
-	 x-ms-office365-filtering-correlation-id:x-ms-exchange-senderadcheck:
-	 x-ms-exchange-antispam-relay:x-microsoft-antispam:
-	 x-microsoft-antispam-message-info:x-forefront-antispam-report:
-	 x-ms-exchange-antispam-messagedata-chunkcount:
-	 x-ms-exchange-antispam-messagedata-0:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-originalarrivaltime:
-	 X-MS-Exchange-CrossTenant-fromentityheader:
-	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
-	 X-MS-Exchange-CrossTenant-userprincipalname:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=5of6Fiqhz1ehQEp10+5JOSuFwML33ZAYYmPVFybHzZQ=;
-	b=PQyvcF5+xahJPE9faNcm595kelyPk2ubkK8On1Zd/RnuuaWzDafU8LdyFQuGDxd31PeE
-	 +r/ryF5+7gem4hCKhO3CRci/QVegqa6n6wz7WF+Mp6XEcfTOfyYDt5IzvqOL1tdX2+Ltf
-	 VGres0v6OKssriRHxnFF5X2YoOzIr23lS2l664ixENE08eypDdgOQfgWWINFj918MtoYM
-	 26BGkN+4AKo/soFkHAc4H0pJuVNYANd55DuTSTBenL4/+U0W8us0OrkFk+VOrRRx/fjch
-	 2o0A9IdogqF7Pv5/wDIxSZvN8s/qm/iVFy5Pj2FimHrzbzZnv3fGzrF7TYhaGfGyqCQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=vt.edu;
-	spf=pass smtp.mailfrom=vt.edu;
-	dkim=pass header.d=VirginiaTech.onmicrosoft.com header.i=@VirginiaTech.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-VirginiaTech-onmicrosoft-com header.b="kN/UMlSD";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.136
-Received: from PH7PR06CU001.outbound.protection.outlook.com (mail-westus3azon11020136.outbound.protection.outlook.com [52.101.201.136])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.53
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795533383;
+	b=FVW21SVffWn+QGtxWoy1KSJQc5BF9XvfmnBsG7T9A8ep1aJqwhskQDFyW7NH2u1mi8cZ
+	 7RrytDoWXTmfq1omatNMlLnjX04L84w6+z8FXiKX481oi9srsmX0a6/fZ5xBriL1DW7rN
+	 ze763GTLQTCRHXY3lCUehC4CyTOUHBNmeCMku/FHDfSqwI8L/gmj4UG7mCZobNPCFnP24
+	 E0Dyr0qm21HbdQDSVQYV1iohukIKMC/0rbZhoP2YbMANaNpebRG+1PsC6YbB1iHYkmP9G
+	 Ev0AqzZnvn6ShaYFCItFBtpfJpfdew/jkT64dHWJ2sj7tEwtwUPdSE+c5DhasUV3yHQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795533383;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:User-Agent;
+	bh=F96WSg5pTD28lUSUnHWWtFmWs2K3E3FdmPFxV73gVEU=;
+	b=Z0d2j8w2XV7IRD4KNNvSFB4RXjeFlN9Ebn8OwRmsTUYgQOnkAurOkAXeZ76Dtt+O7KFK
+	 vJV1kGpRQTadG+ggWNEeF1PfsAHuacpUxi9DiK4oXHi3AXujbUd1e0L3HEue8pT15PD/0
+	 NkOWoiS04l9PtKODRKLniAf8LEq5i9fy11sMvUlc/jDtIYAez01Nv2pDoKrsvCMgzUIAU
+	 cHBLs4tw5Iugxs4XkXV5OIaGaJX4Rl+76df64JTOpSpF6wFB7bI7pt/gKmDQt98XaImcl
+	 aJBd3Z8FwlwR7xv1Xyfu+BjCWMNEP3motNYGAdksDXzQXkBUWDsWIZ+caS322cf/SPA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=DkznfrrH;
+	arc=none smtp.remote-ip=74.125.82.53
+Received: from mail-dl1-f53.google.com (mail-dl1-f53.google.com [74.125.82.53])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BFFFF606A31E;
-	Tue, 24 Nov 2026 15:15:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BFFFF606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=vt.edu
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=vt.edu
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 215FF606A321
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 15:16:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 215FF606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=VirginiaTech.onmicrosoft.com header.i=@VirginiaTech.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-VirginiaTech-onmicrosoft-com header.b=kN/UMlSD
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=SloLO37pcvdNeExm6Q8czweqwhjMldOV8UlD/TOql/jM7o3dW+KL2HM8LjA1r/PFs0lPinHmrIxoeok9X27LnfMNiEXIhfhSL6YPeO9IM5XdECHmR2ODjJ6/Lsw5XFeoju3NjaRuQ/eCBEA1PCj3cNTop51o9EKwRbpxHEZi9c9bk5x5toWf3/ncAayObv+rXoBvRSNuYB5r6GA6GQXCElG2WqaKusoDnzgytp3OFkkM49fD1R/7c9X1T1Ul3REjNZ26FVHLYAaUI68zntlGVRnpAU0JPACRkm/4RSu0exIGYrxvRy55LpVrW/lP0ufs3539AVhQ1h3R2aAsOVOLFw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001; h=From:Date:Subject:Message-ID:MIME-Version;
- bh=5of6Fiqhz1ehQEp10+5JOSuFwML33ZAYYmPVFybHzZQ=;
- b=bD/hOmEF5dm/n0Ly2OyJZgmeNgVvqpje51KFOSnAGraj6W0MBEv2Xzi8jlWjBHzr5hcvdmS1JvHVyp/EbeITaFnNKvW2XqVa7LCnchnoKjF7LIuwEoTBEy+d7jaI9WvwCirugRYcLomzHlG4NJp40+Rb6OBbSO8lnSM9Fc8Pc/rynV8jYn99HFe9yRTHCe7UedZpJ6J9Mm6npT/wQ+5C4pT81wbB1T5deSM2llN6sCbwl2FgDT8Fowxu4dBcn+5pC9cWx9VVQ+jl4IHSeHkCIA+RHLXWQq/x9dkRa1GfoiMXd9ql8HMxE3yUaJeRRSvKMHMDr5zHLLfAsaE09q5opw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=vt.edu; dmarc=pass action=none header.from=vt.edu; dkim=pass
- header.d=vt.edu; arc=none
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=DkznfrrH
+Received: by mail-dl1-f53.google.com with SMTP id a92af1059eb24-1aefd1bf74aso2114345c88.1
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 07:16:22 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=VirginiaTech.onmicrosoft.com; s=selector1-VirginiaTech-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=5of6Fiqhz1ehQEp10+5JOSuFwML33ZAYYmPVFybHzZQ=;
- b=kN/UMlSDb9LAVAcBjw2TmzNma5G03iRy7rNcDitJaKV3zwUYXZ4nh+tnvm5Ws5FVbHVMVr5tXSnK9KGlozYPfQQnAOSf5jOViF4UBRY7Xvy4hnZZD11Rc1VZmmAU5dEwGbRrgO6FrTv7QjzNVqu1zP7M2k19WpQ3nuwORAUJ9+s=
-Received: from DM6PR05MB4137.namprd05.prod.outlook.com (2603:10b6:5:81::28) by
- SJ0PR05MB7692.namprd05.prod.outlook.com (2603:10b6:a03:2e8::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Tue, 24 Nov
- 2026 15:15:21 +0000
-Received: from DM6PR05MB4137.namprd05.prod.outlook.com
- ([fe80::a6db:3b91:d780:cd9b]) by DM6PR05MB4137.namprd05.prod.outlook.com
- ([fe80::a6db:3b91:d780:cd9b%5]) with mapi id 15.21.0639.012; Tue, 24 Nov 2026
- 15:15:20 +0000
-From: "Ravindran, Binoy" <binoy@vt.edu>
-To: Yafang Shao <laoar.shao@gmail.com>
-CC: "Paul E. McKenney" <paulmck@kernel.org>, Frederic Weisbecker
-	<frederic@kernel.org>, Neeraj Upadhyay <neeraj.upadhyay@kernel.org>, Joel
- Fernandes <joelagnelf@nvidia.com>, Josh Triplett <josh@joshtriplett.org>,
-	Boqun Feng <boqun@kernel.org>, Uladzislau Rezki <urezki@gmail.com>, Steven
- Rostedt <rostedt@goodmis.org>, Mathieu Desnoyers
-	<mathieu.desnoyers@efficios.com>, Lai Jiangshan <jiangshanlai@gmail.com>,
-	Zqiang <qiang.zhang@linux.dev>, Josh Poimboeuf <jpoimboe@kernel.org>,
-	Miroslav Benes <mbenes@suse.cz>, "live-patching@vger.kernel.org"
-	<live-patching@vger.kernel.org>, Petr Mladek <pmladek@suse.com>, Joe Lawrence
-	<joe.lawrence@redhat.com>, Song Liu <song@kernel.org>, Ingo Molnar
-	<mingo@kernel.org>, Jiri Kosina <jikos@kernel.org>, "rcu@vger.kernel.org"
-	<rcu@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "Shastri, Jaidev" <jaidevshastri@vt.edu>
-Subject: Re: [PATCH 0/2] livepatch: Do not lose exiting tasks during a
- transition
-Thread-Topic: [PATCH 0/2] livepatch: Do not lose exiting tasks during a
- transition
-Thread-Index: AQHde4yeIwbsGnp4R0y51MdXMm7dBLc8PZ1JgABb5oCAAAiQF4AAJg4AgACNPVs=
-Date: Tue, 24 Nov 2026 15:15:20 +0000
-Message-ID:
- <DM6PR05MB4137C1461A45A521072B526FD1442@DM6PR05MB4137.namprd05.prod.outlook.com>
-References: <20261123-klp-series-v3-v1-0-427c95811d9b@vt.edu>
- <DM6PR05MB41373C039888AD13938D3838D1452@DM6PR05MB4137.namprd05.prod.outlook.com>
- <CALOAHbDu5NmVowk4SHzeUDxASaxKkbL_w1dModFWzdi8yK9tBw@mail.gmail.com>
- <DM6PR05MB41377901DA5182DDFAD6E3D4D1442@DM6PR05MB4137.namprd05.prod.outlook.com>
- <CALOAHbCDSAuvxHt2jd-f5rvTrxeZ4KZkKUfqxrE09PXk+Te36Q@mail.gmail.com>
-In-Reply-To:
- <CALOAHbCDSAuvxHt2jd-f5rvTrxeZ4KZkKUfqxrE09PXk+Te36Q@mail.gmail.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach:
-X-MS-TNEF-Correlator:
-msip_labels:
-authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=vt.edu;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: DM6PR05MB4137:EE_|SJ0PR05MB7692:EE_
-x-ms-office365-filtering-correlation-id: d7e04321-7b8d-42cb-84d6-08df4a3dc113
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam:
- BCL:0;ARA:13230040|1800799024|376014|7416014|786006|10070799003|23010399003|366016|6133799003|261009223027099003|22082099003|18002099003|4143699003|56012099006|11063799006|261028144727099003|261102123227099003|261026140227099003|261026121527099003|261022075727099003|261022105027099003|261021123027099003|261021121427099003|38070700021|10067099003;
-x-microsoft-antispam-message-info:
- jgfeRbMATzHLD4ylXrVWyJHolvfrlrAwgfLSiq8DqsMF6Npy+pDq4gN6aCI78M4xrFgKIxja1KTt/f2PKZbfduD55FuPc2YjftGSs6EqlvMvaKI0ub5MmDzRfkmNakVd5q2rKx/nleadKcgIlT3nTneNCFW1Zhlwm+XPXXxFaHdZPeK0SnBxq4k6zUd6gm57Ryn4cSHeoG8Fn8S2ddt83qg/rufwfyvsXLQstZIewCQYDjZyg/VHq7KRn8MVR2siKRLfFOGqDGS0nfw1Wp3skWKWXuugo1shPMn93JA16YWwfOr5XhN5c+FriPtIZE2+QHfGyjsYE/wdOWMVYP7t7diwOylvXBZp3XHp4B4UTJJVoNd97m686hh3YjdrNzy0j4h86qK8p/p86XOkHZunF2dgj0Reqji8YZ9PuiFflz28gUdlbZBYNW8xtdIjkIoFoVvGJXkgNGxEa0LXuz9e0Dpc9H/P09CLnUf6JuBPCxAxyjM2l0lRTch0AmIeQWTFsclf+i+6yVcfJk/SJkNCATRq8RJvaMAMlDzBT7FSmoipxCTlQyj5XHN7nftAWCw8R/g3pn9G2+3otqHidDrg2GJHcEVrYpgyZ+J/u11VpdoVEB+PG20i0HMUDotAd82TmULQmWHt6nnhSe5q/arU2Cy4obxPZKQDt98ZeSTJvasCPe3gobzoHKnaFkUUJWxg+HtWlRZWq9jc/mHtM7px/Q==
-x-forefront-antispam-report:
- CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR05MB4137.namprd05.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(786006)(10070799003)(23010399003)(366016)(6133799003)(261009223027099003)(22082099003)(18002099003)(4143699003)(56012099006)(11063799006)(261028144727099003)(261102123227099003)(261026140227099003)(261026121527099003)(261022075727099003)(261022105027099003)(261021123027099003)(261021121427099003)(38070700021)(10067099003);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0:
- =?iso-8859-1?Q?zSuDwiU+RuM9UDBZYgh0KoP/Tl/73GyNiEmee0+UQhOZI2HH0TwPytUw5F?=
- =?iso-8859-1?Q?FP/13FTvhPy28kioP2sYCb5DzzIGYGy0YgwduRvS3UH9qGcAG8h2yjC5dV?=
- =?iso-8859-1?Q?GxYqpBdBkZ0efp/wz7FRzJ3P143r8vHzakjXXHHF8/8yMch/FmZrle4RGE?=
- =?iso-8859-1?Q?ttFjZLxnjGhxLckxvGrQaHKPJUJDFuk7MfgMlMtnR8vXdhcd2MUFd/Pqte?=
- =?iso-8859-1?Q?i88smKIGjtm6XuvrirGKN4WnryX9ZXgB2hiP0PWIhjaZnH6dvAKE7GbOQu?=
- =?iso-8859-1?Q?A4u1Hy0HQxh5mpURK0IGsxMChiLiM29gJYyNDVUg5Sowzb6Esc0eNjudEu?=
- =?iso-8859-1?Q?LEI2IdfAO8NIROD7beRzF0aympcyPwFVeCUZ8MwBN7ohFMRZqTriIRiDDs?=
- =?iso-8859-1?Q?gaHIw/+DTKQ9q9QDQDatMdr1Gxh2XpeueBVlqwKoQI+2JlVzh5znrfwBuI?=
- =?iso-8859-1?Q?++YY1YWOVzRjtL5m1vV9nIQLgwBalfKsKfV/cG8cNzkvHgqpMH6bK8MbGF?=
- =?iso-8859-1?Q?vQ+k+ZwjFmYFN1xqMCXcCgLS0fMDmkTiLNhTu2IT5Xl3JxLSa2tbap2XG4?=
- =?iso-8859-1?Q?gv2c86S0+eqfYUb2p0Xv0m2FmszCsDKQoD1yZ0aO2VzegP49IExayFt+km?=
- =?iso-8859-1?Q?NT5fuZX/rxSwe4y6AgzWvbwmGhdiPMkOBYfaMqS/Tq99GKuDQF07mHwQsw?=
- =?iso-8859-1?Q?cuNAs/dgeQzubJX4f4Vg8Cc6W7s9BeKFvlUJEsvfJQ1Df8+HqnFUVAfi4N?=
- =?iso-8859-1?Q?ZRnnadcwxoYEt3f+MjPXZTz4wwXtiiMddUkDjflV3TXBNU3my1XTx3gCpo?=
- =?iso-8859-1?Q?UJUe+OJ4zfPzI1RVPpF7BuZ2bx/PCpjJKbiY2Q3r6cRofP4T6GgYTmyjXh?=
- =?iso-8859-1?Q?hBjjBhUjcVT51R9SZ3eVDn5X+fTiXMAVaUMcJ7jYAdOXj41scPywKywdRF?=
- =?iso-8859-1?Q?hKimFAAkedehplEVu6RhsIkaDq1J/f6NOMIRyP4sQGEMBMMhL1Kmfnj8xC?=
- =?iso-8859-1?Q?e4yLa0KcBk9ZlLXICvYj8XeIpwlqOqefXRX8tjz6AJ/G0WDsPFBPd/KQoB?=
- =?iso-8859-1?Q?UR3znfdsGgNMimmldW2oWHTKm3fr/81LJ+pYwtVHHk7NzM7p3/TUpi+Dcb?=
- =?iso-8859-1?Q?7/lbGuVA/Minh0c/Md13H/6TRoMxLU70g+bcepktCaSJadFa6HHk6P4Q3u?=
- =?iso-8859-1?Q?qP82YcO1JSb0/OtPjvZFNmgY/oMFTSsWflsrC3wg57n4niwoitkd34gT2C?=
- =?iso-8859-1?Q?3IDkZX2y18bGi44UF7p12WIMjOU9JRxwKVBIrjEgVZepu0keyGuEbF4whM?=
- =?iso-8859-1?Q?a/jG1QZbzR5IV8YeSosneUU1bYdZWqEsVlfyElL3lAokp2aTKRstZ9fgC6?=
- =?iso-8859-1?Q?EmB1mTZ5/MKtpVphcV+kmubIDEHG2TAF7agQA2No1fp5fmmoi2sO0Ph4Rk?=
- =?iso-8859-1?Q?ohKOxpe2xPIyBTrxNGK2Clbur3MhDbgAFH0RJXirT5StSgbnKla3EVbO/9?=
- =?iso-8859-1?Q?y05Tj+1j+pY28cRerpS01ZlbpimV3n8PvZT0XcWZR3ePfImGobqONflG6Z?=
- =?iso-8859-1?Q?F4aAG7HdTzFDR5N9Sxh3VE5CN6sbHywqSE8CH7GuXaKjOj/x5J792cDFEo?=
- =?iso-8859-1?Q?CVqm+RsQelndQXPnUgRydyH2IYaShuvaO+OFN+Llf5m3m1x6KNUke0QjCj?=
- =?iso-8859-1?Q?WduDDLj3Qoo2cJDjG7OmOR8gtBJDYUJHA9Dy16qVeAo/AP0JTSEG0jFZ1o?=
- =?iso-8859-1?Q?A4apAjEXj4eQUZoB/OyLSOjXEuPJLT7E8aownTmbg+nOVbYCaRZiaElo4C?=
- =?iso-8859-1?Q?oMJYMPU6lA=3D=3D?=
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+        d=gmail.com; s=20260707; t=1795533382; x=1796138182; darn=vger.kernel.org;
+        h=user-agent:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=F96WSg5pTD28lUSUnHWWtFmWs2K3E3FdmPFxV73gVEU=;
+        b=DkznfrrH3uEXCcf0Q1btCan2uPBXxFeUswMEvzg734hyFctGoIV4QJMQ3y0X2+xiLD
+         Z+VtwkZxt5LrDR4mGXK6O9yFOnUHpKyt2M5214U4PUIzJ1u0Yz7Ml1y1/jqlflqJU5Wa
+         fWdTjt/ikkvZgW9wyZeavDKWiUw5znQLYxMi2uuPLzZa/IPRoLPtoeqdk/6iTI+Sae7n
+         D5SaXgyRZFarh0+sVjdXq1cIav69zCnyW21wjOfQRNzjEhqHpL6ZZDhKGGsyIZDM3wR6
+         GqREMwHBs0xDmLXLML8OX1EO6/+BNpnpH5aXdyZBGGhf11REF/uIih2+M9YbsRf+qbV6
+         ZFaQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795533382; x=1796138182;
+        h=user-agent:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=F96WSg5pTD28lUSUnHWWtFmWs2K3E3FdmPFxV73gVEU=;
+        b=aH8XwWCLJ17AnKlJxgq5f+mDCvVNbyh7rNFRB+LQJGUuef5c8P+7f/0Bmy6gR9mqe5
+         QjXTe1OnyJh+G8j65567j+Xn7BM9mqFfZFkJlI++CFyfO5qnKH8IXK6rdwWCS5sAVBmT
+         qAxSya3JiUbX8aw8CB7nAfryPpirV9AiS21RV1YC/ux8WnWZCdWII42uCos0w1rnvUJC
+         6X90B783PNUHH7jA6bZz5WjLxvhuhLz7IqNZiY6wFCvA4yMyurYe45jt1Fa52+lwqMnZ
+         WAELR5hBjJxRVGLbtLg4/XlIpG86QisikKil5Zr4XuG84kt+AVKP8t5Wk9bt3MBccu9Y
+         IoHw==
+X-Forwarded-Encrypted: i=1; AL+hErFYhB40DLXOGAhJZhBxgm/JcFcpkiMNUtsPFfeOKyisVp0vXnZ8ChERQOg89Zd7cESKHsFs75lMPhNKlX4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+OBgkoMknpSoutzET5+vW51w32n3dL7ujCqjufdWXwEsY8PD0w
+	qvqNnsaa+81wm+GCtFiZq85PpWwwINn45hZ+YrWpYvms8WXI5LcA4QVA
+X-Gm-Gg: AZFdTZdebQ3yXoiAX4p359DpgY6t6zFk8IRDJ77QuP1jZnTmRtyBmGq644zAe1mv2Ni
+	wbV9QfW9jprEeI/c3aYsU7XfrmKK10hG1+/AKs5Isg5litlWnMp7ex3eHM6eHInWyJGKednTgtS
+	F+0CbxiRYtGEQsCJQGmLwNqKLwwdNA+IOA2xeU7gej43HZNrX68JzREMxv+VZCHZcmMslBeqIdA
+	rADhs1d4pNzQuohlRc3ciPzKyvGT0jaeDyDOjMS0wN7v6W373hz/gUyIN/rpyF67YHmJE/cay7S
+	dlGUXs7WaGqNBrwdBGPkEDk1YX4HERJCsmZJ5NkWPsuAS9IR2HqtPw3a4RZV2itLUDD6tplqB/C
+	P3jD80aaemWDZV055oU7ZRybns3zyEsD9DjXvdS8vIGDFMiYUiSK4smcU3ClssxhBYeG6kPUjib
+	BZvaVW/XlQbzqEvmhxZADd9+xDVnPU0hAbwqxm58YBrPCDvV4NL7MbnBcaZuS4c/awXahFQb43s
+	qhqQ091UVvWLTMhDm6aRrcTzdk9wyUASU+FP7ml0R17LeR5pEPocCEsTM549nulTnh5V72Qw3lq
+	H96TXm7Wj5Udc+voxuuHi8uPKUKevhexKNfJCMY0MOMwS77V1XSJTpQB4irsuTOpuWPp0p+iWCE
+	SwqdMdpIDHTaDIS91WZ0=
+X-Received: by 2002:a05:701b:4550:10b0:1b5:337a:6456 with SMTP id a92af1059eb24-1b55247eff6mr14816177c88.5.1795533381990;
+        Tue, 24 Nov 2026 07:16:21 -0800 (PST)
+Received: from asus-ux3405ca ([2400:9800:1ae:2539:58d8:c556:ab51:fdfd])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b55ff0e4e6sm28471337c88.11.2026.11.24.07.16.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 07:16:21 -0800 (PST)
+Date: Tue, 24 Nov 2026 22:16:15 +0700
+From: Muhammad Huda Nugroho <mhudan21@gmail.com>
+To: Manivannan Sadhasivam <mani@kernel.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Krzysztof Wilczynski <kwilczynski@kernel.org>,
+ Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>
+Cc: linux-pci@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Subject: [PATCH v2] PCI: qcom: Do not power off a PHY whose power-on
+ failed
+Message-ID: <20261124151615.SjIkx%mhudan21@gmail.com>
+User-Agent: mail v14.9.25
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -161,50 +97,114 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-X-OriginatorOrg: vt.edu
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: DM6PR05MB4137.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d7e04321-7b8d-42cb-84d6-08df4a3dc113
-X-MS-Exchange-CrossTenant-originalarrivaltime: 24 Nov 2026 15:15:20.2547
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 60956884-10ad-40fa-863d-4f32c1e3a37a
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: lvfU/WF8o5rbLWh+s827sxyiEES2lwRzmOlgns8g9k03EfUPTOD/1vwKfuxRPwZE
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR05MB7692
 
-=0A=
-Hi Yafang,=0A=
-=0A=
-Thanks for checking it.=0A=
-=0A=
-> Is it worth adding yet another separate list for the klp transition?=0A=
-=0A=
-I don't think so. The exit lists already cover the window we need,=0A=
-from before exit_notify() until after do_exit() disables preemption,=0A=
-and any separate list of exiting tasks would need its own insertion=0A=
-and removal on every task exit.=0A=
-=0A=
-> If not, I think we should at least make the CONFIG_TASKS_RCU dependency=
-=0A=
-> explicit:=0A=
-=0A=
-Agreed. In v7.4, TASKS_RCU defaults to NEED_TASKS_RCU && PREEMPTION.=0A=
-LIVEPATCH depends on DYNAMIC_FTRACE_WITH_REGS or=0A=
-DYNAMIC_FTRACE_WITH_ARGS, which need DYNAMIC_FTRACE and therefore=0A=
-FUNCTION_TRACER, and FUNCTION_TRACER selects NEED_TASKS_RCU. The five=0A=
-architectures that select HAVE_LIVEPATCH (x86, arm64, powerpc, s390=0A=
-and loongarch) all select ARCH_HAS_PREEMPT_LAZY, which rules out=0A=
-PREEMPT_VOLUNTARY, and none of them selects ARCH_NO_PREEMPT, which=0A=
-PREEMPT_NONE requires. The remaining models all enable PREEMPTION. So=0A=
-every livepatch kernel already builds TASKS_RCU, and the select changes=0A=
-no configuration today. It documents the dependency and keeps it if=0A=
-those defaults change.=0A=
-=0A=
-I will add it to v2 as a separate patch with your Suggested-by, and=0A=
-drop the !CONFIG_TASKS_RCU caveat from the changelogs.=0A=
-=0A=
-Thanks,=0A=
-Binoy=0A=
-=0A=
+qcom_pcie_phy_power_on() unwinds a failed phy_power_on() by calling
+qcom_pcie_phy_power_off(), which walks the whole port list - including
+the port that just failed, and every port the loop has not reached yet.
+The phy_set_mode_ext() failure path returns without unwinding at all,
+leaking the ports already powered on.
+
+The first of those is not a leak but a refcount underflow.
+phy_power_off() decrements phy->power_count unconditionally and invokes
+the provider's ->power_off only at a count of 1, while phy_power_on()
+invokes ->power_on only at a count of 0. Releasing a reference that was
+never acquired therefore drives the count to -1, and the next
+phy_power_on() returns success having silently skipped powering the PHY
+up: no error, no message, just a PHY that is never initialised again.
+
+The damage outlives the failed attempt, which is what makes it worth
+fixing. On a single-port controller the very first failure is enough to
+reach -1. It is normally invisible because a failed host init at probe
+time is fatal anyway, but it becomes reachable as soon as anything
+retries host init at runtime, as system resume does - at which point the
+controller comes back with a PHY the core believes is already on.
+
+Unwind with list_for_each_entry_continue_reverse() so that only the
+ports successfully powered on are powered off, and route the
+phy_set_mode_ext() failure through the same unwind. The PHY core already
+releases the failed acquisition itself, so the failing port must not be
+released here.
+
+Fixes: a2fbecdbbb9d ("PCI: qcom: Add support for parsing the new Root Port binding")
+Signed-off-by: Muhammad Huda Nugroho <mhudan21@gmail.com>
+---
+v2: add the Fixes: tag, and nothing else. Verified against that commit
+    rather than taken on trust: before it, qcom_pcie_host_init() called
+    phy_power_on(pcie->phy) directly and simply returned on failure. It
+    introduced both qcom_pcie_phy_power_off() and the call to it from the
+    phy_power_on() failure path - that call is the release of a
+    never-acquired reference this patch removes.
+    The tag was identified by the Sashiko automated review of v1:
+    https://sashiko.dev/#/patchset/20261121113721.7OL6u%mhudan21@gmail.com
+
+Notes for reviewers, not for the commit message:
+
+Against mainline master as of 2026-11-24; v1 was also applied cleanly to
+linux-next/HEAD (909ef7a9a30f) by the review bot's baseline run.
+
+A structurally similar unwind fix for the tegra host bridge was declined in
+August 2026 ("PCI: tegra: Unwind partial PHY ...", Pengpeng Hou) on the
+grounds that a phy_power_on() failure means a broken system that an unwind
+will not save. That reasoning answers a leak argument, and it is fair
+against one - a PHY left powered after a fatal probe failure changes
+nothing. It is not the argument here. The problem in this driver is the
+opposite direction: a reference released that was never taken, leaving
+power_count below zero, so the next phy_power_on() succeeds without
+powering the PHY. That survives the failed attempt and breaks the next
+legitimate one.
+
+The same underflow was described by Vladimir Oltean in March 2026 while
+reviewing "scsi: ufs: qcom: Drop the PHY power_count check" - "If 0, the
+power_count would become negative after phy_power_off(), and a subsequent
+phy_power_on() would merely bump it back to 0" - and the ufs patch was
+withdrawn in favour of per-driver state tracking. This patch takes the
+other available route for a consumer that must not inspect power_count:
+only release what it acquired.
+
+Found by reading the error path, not by observing it fire. The underflow
+mechanism is from the PHY core's own accounting in phy_power_on() and
+phy_power_off(); no hardware reproduction of the resume case is claimed.
+I would rather say so than imply a bug report I do not have.
+
+ drivers/pci/controller/dwc/pcie-qcom.c | 23 ++++++++++++++++++-----
+ 1 file changed, 18 insertions(+), 5 deletions(-)
+
+--- a/drivers/pci/controller/dwc/pcie-qcom.c
++++ b/drivers/pci/controller/dwc/pcie-qcom.c
+@@ -1445,16 +1445,29 @@
+ 	list_for_each_entry(port, &pcie->ports, list) {
+ 		ret = phy_set_mode_ext(port->phy, PHY_MODE_PCIE, PHY_MODE_PCIE_RC);
+ 		if (ret)
+-			return ret;
++			goto err_power_off;
+ 
+ 		ret = phy_power_on(port->phy);
+-		if (ret) {
+-			qcom_pcie_phy_power_off(pcie);
+-			return ret;
+-		}
++		if (ret)
++			goto err_power_off;
+ 	}
+ 
+ 	return 0;
++
++err_power_off:
++	/*
++	 * Only release what was actually acquired. phy_power_off() decrements
++	 * phy->power_count unconditionally and invokes the provider's callback
++	 * only at 1, while phy_power_on() invokes it only at 0, so releasing a
++	 * port whose phy_power_on() failed (or was never reached) drives the
++	 * count negative - after which the next phy_power_on() silently skips
++	 * powering the PHY up at all. The PHY core already unwinds the failed
++	 * acquisition itself.
++	 */
++	list_for_each_entry_continue_reverse(port, &pcie->ports, list)
++		phy_power_off(port->phy);
++
++	return ret;
+ }
+ 
+ static void qcom_pcie_configure_ports(struct qcom_pcie *pcie)
+-- 
+2.51.0
