@@ -1,107 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.130
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=45.254.49.197
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795528636;
-	b=msPnlIIP3as2n3Rm7b86Eey7O+1oDQIsaGrZIv2cob37+qUwtUM5IXTVDS+5wWLn5pjn
-	 ujtVAQZA2yS1G52W3+w9ZkMXuvTMtMare93Gg/Rdbhv67Ouf6AyPUJlG18UFuEbqez/B9
-	 GnlSkgfPl2Gk8Gk2jCBPFyDXr0Q7xFQXPWXhzFF8EtMdWxLWNnhG1hKv5ww8u/QRpJrXz
-	 2A4T8FAAhvjeR20tii2qCQK63nQ5ZFYTjQ8xLIRN9NjYH4MP0lAfTURTcNYnaQAVCeR/9
-	 kbi+h6EyMojRqP8BoMduDc5o7+cDztTsvbgQ1FsMjYUKO2BA4fJD1u758BApfakzHSg==
+	t=1795528719;
+	b=4SaPTIneJGIs5gQRfej/2icxOMuaq88TzmC6ftmi2ueE2JRye/VBjG6sSYdCke3pzf7R
+	 WsiZ3Nn+RtFRQD3RHm8H1LP2im9DU/T5NaZXvK0pi7xeeTmt/i7ECCFiUPSRH5vvpoMBH
+	 SxtP+7EOlNTAeDKh+lDcX8aZx5cnwn5FLpL2TMF+Q1rOsrwz77Juh/6KC3ZLzrSUoe0eS
+	 yz9LGUBqz/+CVCGf+V2h74CZYY7NLbJvQ1DQAt84nDNj2q7r8xxBwBbdY8sVQYiTp11B7
+	 +C429jvVO7NmDFiMRmx6qJQcvuaOgpXCAS/fX3/LfDKGkr/1r7AC877vAkyowH9QNnw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795528636;
-	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
-	 DKIM-Signature:Received:Received:Date:Message-ID:From:To:Cc:Subject:
-	 In-Reply-To:References:User-Agent:MIME-Version:Content-Type:
-	 X-Spamd-Result:X-Spam-Score:X-Spam-Level:X-Spam-Flag;
-	bh=aMgBPS0VttTs0uWQ8O9FVSYefd2Z+89IofAQkH25+8w=;
-	b=rjQPjYH3uMah9hbeChKHd1PjVu16kjjg8bhIqrl3xRo42fLj3d/ZitvLGHsh755fl/Qy
-	 pGEneGY331smqYQ8ukVW1SZlZZQQln324rB4n3HTGSRnM7UWcrXA0oZ0T1SDbedVGtkl2
-	 a7bPkkl7NvNl4vtahkU6f33pKPeptOIELvUHhOAqN4val6sgA7Ds/UJWvoLxGpuiucECS
-	 wSDpgRicJ7bKOV/WFMFzLLrP1E53oGJRqbHf0rlIEuumoJGeBZidcmVztXwYgpjL4ydz2
-	 vlycL03KucKxZvIJSezorMoovLb6Zp5ou/fgSovLuoiUB3akQhh0HhPhY9IGx+cLMew==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795528719;
+	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding:X-HM-Tid:X-HM-MType:
+	 X-HM-Spam-Status:DKIM-Signature;
+	bh=JbC4PGXeNQYt83pxY8JXiDjUk4U9HQ0DbJyhggtLv2o=;
+	b=Gc85hKnyh/U954aQKI8ZK7Qwv6xA9Kk10SJMxmQx2W98Vl/3jx+x3uH7Lalv7nWCxZvw
+	 dG7WgkDelT9ZaeSL9UOl+2yY6fwVs9fpEgFSE3lTOPKAB1wAdi8CZ2GqMn6SMi3gwJvTH
+	 QLye9uVlIZqCq10az2ZMAGhfcI6HNFjHfF1GjfOQ9pQ13EEkl4o3tx7qbLDoOEVu/k37H
+	 s7t24zGnVWE3wLRznqRgrlNC3qkEdirXfX+wqRSEw5GvtSxBz4XMjj9bFDHXSXjjCHEPQ
+	 GpF9J3JuOKByeYFBxBxfsLToa47Gcs3uxu+7Bo+DZ5NdFUFurSGZ3nh1CB4AXKht77Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.de;
-	spf=pass smtp.mailfrom=suse.de;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=UR15ghQm;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=oyQqgNoP;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=UR15ghQm;
-	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=oyQqgNoP;
-	arc=none smtp.remote-ip=195.135.223.130
-Received: from smtp-out1.suse.de (smtp-out1.suse.de [195.135.223.130])
+	dmarc=pass header.from=mail.sdu.edu.cn;
+	spf=pass smtp.mailfrom=mail.sdu.edu.cn;
+	dkim=pass header.d=mail.sdu.edu.cn header.i=@mail.sdu.edu.cn header.a=rsa-sha256 header.s=default header.b=NeTFzsPL;
+	arc=none smtp.remote-ip=45.254.49.197
+Received: from mail-m49197.qiye.163.com (mail-m49197.qiye.163.com [45.254.49.197])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7063B606A31E;
-	Tue, 24 Nov 2026 13:57:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7063B606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=suse.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BEEFC606A31E;
+	Tue, 24 Nov 2026 13:58:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BEEFC606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=mail.sdu.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mail.sdu.edu.cn
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=UR15ghQm;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=oyQqgNoP;
-	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=UR15ghQm;
-	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=oyQqgNoP
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 8A27022040;
-	Tue, 24 Nov 2026 13:57:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1795528633; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=aMgBPS0VttTs0uWQ8O9FVSYefd2Z+89IofAQkH25+8w=;
-	b=UR15ghQmSC9ZyjbSZ4KwXQopbetXOS5WPYkhFeIEkyG83X3Gr5GQKw+MLteoOU8dEhvvNP
-	0/9geCalNj7zVZ1X6xy3zYvZxCUjHTASqBrSNu1vVZdJFs5+FSxhGhZl4MTlHldPsy5QKX
-	zyPgZkGS7Usje6+OAa7FDoDJyxjkc04=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1795528633;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=aMgBPS0VttTs0uWQ8O9FVSYefd2Z+89IofAQkH25+8w=;
-	b=oyQqgNoP1XKSj84lp5mL3oQAUjqlmmwWAf18HVfigXDoCHaPQ/BwdDPwOCt9Ivdb08DsQE
-	iiFtNa8ELVyywrBA==
-Authentication-Results: smtp-out1.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1795528633; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=aMgBPS0VttTs0uWQ8O9FVSYefd2Z+89IofAQkH25+8w=;
-	b=UR15ghQmSC9ZyjbSZ4KwXQopbetXOS5WPYkhFeIEkyG83X3Gr5GQKw+MLteoOU8dEhvvNP
-	0/9geCalNj7zVZ1X6xy3zYvZxCUjHTASqBrSNu1vVZdJFs5+FSxhGhZl4MTlHldPsy5QKX
-	zyPgZkGS7Usje6+OAa7FDoDJyxjkc04=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1795528633;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=aMgBPS0VttTs0uWQ8O9FVSYefd2Z+89IofAQkH25+8w=;
-	b=oyQqgNoP1XKSj84lp5mL3oQAUjqlmmwWAf18HVfigXDoCHaPQ/BwdDPwOCt9Ivdb08DsQE
-	iiFtNa8ELVyywrBA==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 5C99013505;
-	Tue, 24 Nov 2026 13:57:13 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id u9agDrmXBWtSEAAAD6G6ig
-	(envelope-from <tiwai@suse.de>); Tue, 24 Nov 2026 13:57:13 +0000
-Date: Tue, 24 Nov 2026 14:57:05 +0100
-Message-ID: <87ld6i9vta.wl-tiwai@suse.de>
-From: Takashi Iwai <tiwai@suse.de>
-To: Arshdeep Singh <chahalarsh342@gmail.com>
-Cc: tiwai@suse.com,
-	perex@perex.cz,
-	linux-sound@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] ALSA: hda/realtek: Add quirk for HP Pavilion 15-cs3xxx
-In-Reply-To: <20261124132056.57345-1-chahalarsh342@gmail.com>
-References: <20261124132056.57345-1-chahalarsh342@gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) Emacs/30.2 Mule/6.0
+	dkim=pass (1024-bit key, unprotected) header.d=mail.sdu.edu.cn header.i=@mail.sdu.edu.cn header.a=rsa-sha256 header.s=default header.b=NeTFzsPL
+Received: from lgs.. (unknown [101.76.249.61])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 55d4cdb99;
+	Tue, 24 Nov 2026 21:58:31 +0800 (GMT+08:00)
+From: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
+To: Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	=?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>
+Cc: linux-iio@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org,
+	Andy Shevchenko <andriy.shevchenko@intel.com>
+Subject: [PATCH v2] iio: adc: ti_am335x_adc: Fix potential use-after-free on DMA unbind
+Date: Tue, 24 Nov 2026 21:58:28 +0800
+Message-ID: <20261124135828.2274815-1-liguangshuo@mail.sdu.edu.cn>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -110,55 +57,59 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-Spamd-Result: default: False [-12.30 / 50.00];
-	SUSE_INTERNAL_BYPASS(-9.00)[];
-	BAYES_HAM(-3.00)[100.00%];
-	MID_CONTAINS_FROM(1.00)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	MIME_TRACE(0.00)[0:+];
-	ARC_NA(0.00)[];
-	TO_DN_SOME(0.00)[];
-	FREEMAIL_TO(0.00)[gmail.com];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	RCPT_COUNT_FIVE(0.00)[5];
-	FROM_EQ_ENVFROM(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	RCVD_TLS_ALL(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo]
-X-Spam-Score: -12.30
-X-Spam-Level: 
-X-Spam-Flag: NO
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0aa20dd9dcc803a1kunmcddb6b51342489
+X-HM-MType: 10
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkZHUNNVkIaSkJCHRoZGEJDGlYeHw
+	5VEwETFhoSFyQUDg9ZV1kYEgtZQVlKS0pVTE1VSU9CVU1KWVdZFhoPEhUdFFlBWU9LSFVKS0lCQ0
+	NMVUpLS1VLWQY+
+DKIM-Signature: a=rsa-sha256;
+	b=NeTFzsPL8Zf+hyGjMSnEq77JuiyIi6oknvOZrAk5Ulb1zoWYs/Dh5i2CHZkvRnetknfFMuo6+/CTc+74o/Shcz1tfttNDnoXCkjjnFfdcMz29eO5QRp7tUj9b6Il+sFkIPROFMdKG6ZVXvMBlHEzsGqpV8KDgXKj+vWSR7mnfOA=; c=relaxed/relaxed; s=default; d=mail.sdu.edu.cn; v=1;
+	bh=JbC4PGXeNQYt83pxY8JXiDjUk4U9HQ0DbJyhggtLv2o=;
+	h=date:mime-version:subject:message-id:from;
 
-On Tue, 24 Nov 2026 14:20:56 +0100,
-Arshdeep Singh wrote:
-> 
-> The HP Pavilion 15-cs3006tx (ALC295, subsystem 103c:86e2) has no
-> working mute LED by default. Booting with model=hp-mute-led-mic3
-> makes the LED work on this machine, so add a quirk entry for this
-> SSID that applies the same fixup,
-> ALC269_FIXUP_HP_MUTE_LED_MIC3.
-> 
-> Testing: verified on the hardware with model=hp-mute-led-mic3, which
-> selects the same fixup as this entry. alc269.o builds and
-> checkpatch.pl --strict is clean. I have not booted a kernel built
-> with this patch.
-> 
-> Tooling: the working model option was found by manual testing,
-> guided by an AI chat assistant (Claude). The table entry and this
-> changelog were prepared with a coding agent (OpenAI Codex); I
-> reviewed both.
-> 
-> Signed-off-by: Arshdeep Singh <chahalarsh342@gmail.com>
+A channel reference does not keep the DMA provider bound. If the EDMA
+provider is unbound first, ADC removal accesses the freed channel when
+freeing its DMA buffer and releasing the channel.
 
-Applied now.  Thanks.
+Link the ADC platform device to the provider so the ADC is removed first,
+including when firmware device links are disabled. The driver core drops
+the link on probe failure or ADC removal.
 
+This issue was found by our static analysis tool under development.
 
-Takashi
+Fixes: f438b9da75eb ("drivers: iio: ti_am335x_adc: add dma support")
+Cc: stable@vger.kernel.org
+Signed-off-by: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
+---
+Changes in v2:
+  - Use dmaengine_get_provider_device() to obtain the supplier device.
+
+  Backports need 61527d7e6998 ("dmaengine: add dmaengine_get_provider_device() API").
+
+ drivers/iio/adc/ti_am335x_adc.c | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/drivers/iio/adc/ti_am335x_adc.c b/drivers/iio/adc/ti_am335x_adc.c
+index 0c3e0e9e8364..c7f8bafe0f4a 100644
+--- a/drivers/iio/adc/ti_am335x_adc.c
++++ b/drivers/iio/adc/ti_am335x_adc.c
+@@ -546,6 +546,11 @@ static int tiadc_request_dma(struct platform_device *pdev,
+ 		return ret;
+ 	}
+ 
++	if (!device_link_add(&pdev->dev,
++			     dmaengine_get_provider_device(dma->chan),
++			     DL_FLAG_AUTOREMOVE_CONSUMER))
++		goto err;
++
+ 	/* RX buffer */
+ 	dma->buf = dma_alloc_coherent(dmaengine_get_dma_device(dma->chan), DMA_BUFFER_SIZE,
+ 				      &dma->addr, GFP_KERNEL);
+
+base-commit: b6a9fa34ce4187cb69d3c588a4bbffc31ce5db8f
+-- 
+2.43.0
+
