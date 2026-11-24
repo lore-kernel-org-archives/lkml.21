@@ -1,60 +1,93 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795546297;
-	b=T5UmcbZ9jOWABaRpQ88nMld3DPfJJuVgzSRtXLtpKCFTTyAshDcMU6vM396sDs6ALQIx
-	 NXTSEJg16s3Bwm8Bn6VajTmBYIH+Gv/kcs1rb3KNSJs6VNNOKP7J+cOljcT5vbxcU4vC8
-	 8wKAko7hvmoDE6mh36eAcAWrJBIIEARRZ+G67pLOTev8aVMswFgDuUW/tugh90G9MFlBy
-	 Vf6MQJ7dxv8J2NUNs7Jm/XdRZDLKPd+4hr34PygQ+m/6DUpjqzNhWpOR8aKBpB90uh0BW
-	 hbOEITMFqeivlBCgSYmEbpoDhrq1IQmtN+TYomu75uxAi3bhl0/27428fpn9nxsP8/g==
+	t=1795546331;
+	b=T5S/pdp4m2eakCBaMd5Rb+qkjx/qtVYIWvF0Supw6RZlgCsXwTuOerA70T6FXiLilVcN
+	 jB/s7yG84d5m7G6bW6bZB1+P11Do5uWOTW4Yt3SXy3pZVVbkCwWXFsUQhJDOEz0yvk6cl
+	 gTEoVO4Bj3/at2458JeUVGiOySI91IddyEI3Gk6KQw3LSmPIerJeM6KbumyjCzvajZmGD
+	 BOTJhlgz95H44ClNkY6TgDIanvJdORAeF9muNUE6d9XHNLiB4V83O/1udFWNZmFzWdSTn
+	 lfuYFyvhHRUe5M+TSYQNE0pp5knqdFKcOwwAEr5vFIkCzMoNYwHU+jdI3HdhyraHeXw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795546297;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=3HrwYbYeRKwhWvtwePQmsJVNwLGkYk2BRyepq/uuTWk=;
-	b=LT4a10RppWj3bhvcXyt5FomKL0or6vZik/jFvbH96mHqQuzfT8G6Ijw9fnTLTng2FWVc
-	 CCAyM+hJTOHsIMeLQ7CdbpDIVHaQNEGflgDFf8x6ssKtLSm5I1ZeIwLr+2pmyyrKxGWYw
-	 AM/A3g3GJ44LUns/ByNHAYyBWbkMwwxZHbRiTkuWBGI3CXhyI0ORAAkqNZgSCgQbMIBP7
-	 YQul/JkSJN4wn5kD5lX6OhauI3WonyYK3wydobz5ftvdM4Tfq5C0tVO3Xe3duuQif3iaG
-	 FGZ00WnVH71OkahP6KZDNnZ04fHAKFIut4t14rT6x4vw/lyqz8OfGgEyAk8kOXnPHag==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795546331;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=0sNoW/KWYC5fenn6W3ZO2QgTuASrJJ6ujM7Ci83DK9o=;
+	b=Ed3D09zOQNrWj3TDzKik5Zre/WpGlfd3VJs2GluUkZg0s9Aw0+AEAg8ncpGS5Cnv2Z1A
+	 OCCCDMAKf53sHHjjxcTg/c6gI+QdtWEUY1+5b+VOSE/wDN7a03j9WHj8Yy+kN9UyeFOf1
+	 LEBee3LmDPqnM+KUgabSL13aTBRVtvfl2QSYlk/NhbW+C9bpZfDg9YbhgWpJInpy64VWL
+	 uC3qcKDpAcAtGdCtw1HT4r+Qs1kd17DdrKgiWl5niipKDd2WuruBcRMWWWt6sc7SkUwID
+	 WP0Kp/X4jY/PAzeoTAgNnKqptfakf7S1pneM8JNT6eNmGbo0+bYsm8EB/88AKHSkQ7w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=arm.com;
 	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=hC7gz91+;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=HxpQmHpN;
 	arc=none smtp.remote-ip=217.140.110.172
 Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 62A80606A33E;
-	Tue, 24 Nov 2026 18:51:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 62A80606A33E
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 81EA1606A321;
+	Tue, 24 Nov 2026 18:52:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 81EA1606A321
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=hC7gz91+
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=HxpQmHpN
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D35B316F3;
-	Tue, 24 Nov 2026 10:51:33 -0800 (PST)
-Received: from pluto.guest.local (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6FE9A3F86C;
-	Tue, 24 Nov 2026 10:51:35 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1019F497;
+	Tue, 24 Nov 2026 10:52:08 -0800 (PST)
+Received: from e129823.arm.com (e129823.arm.com [10.2.213.3])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7EAC33F86C;
+	Tue, 24 Nov 2026 10:52:03 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795546296; bh=reLjI8ZY114XEuMwYzlvXp4Ql2o+omVz+I8QfgMTkOk=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=hC7gz91+aJPJmR+PIIVh/7/EHn9yRj6IekgR7gxbBmRgc3KNl8XdhdKb74+IXRyEw
-	 SB+dLH6oNgpFiG/a/JFJ1R+y2dGkkjhDDyaNBfk91y61wFrR1hKN/KMmpaAsx18Jw0
-	 4FfB6X4rso5gb/2lwQAOYIGxfx1LHuUizpRdSJeI=
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	arm-scmi@vger.kernel.org
-Cc: sudeep.holla@kernel.org,
-	philip.radford@arm.com,
-	Cristian Marussi <cristian.marussi@arm.com>
-Subject: [PATCH 2/2] firmware: arm_scmi: Refactor protocol allocation
-Date: Tue, 24 Nov 2026 18:51:11 +0000
-Message-ID: <20261124185111.1022322-3-cristian.marussi@arm.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20261124185111.1022322-1-cristian.marussi@arm.com>
-References: <20261124185111.1022322-1-cristian.marussi@arm.com>
+	t=1795546330; bh=cEx0NNr4v9OqxertlfeaIBCZsjK0gqeBlEmSznQ0QE4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=HxpQmHpNrqXVqUfjE0HPfLK3ewOjjeolAx23daMcxTI88aKM+hL6rA2Fg+4rqd8+R
+	 qMFVk/rzRBXFpbU1Dfr/ftkZEjuXw3RMnNovsFD1RM3+rwaFKpdU0NBWTD4cVkNWWE
+	 Ki55UEoYDf7IlCgUAL9LE2jIQWyjvIsSNBfWze2I=
+Date: Tue, 24 Nov 2026 18:52:00 +0000
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: Mike Rapoport <rppt@kernel.org>
+Cc: Yeoreum Yun <yeoreum.yun@arm.com>, Russell King <linux@armlinux.org.uk>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Kairui Song <kasong@tencent.com>, Qi Zheng <qi.zheng@linux.dev>,
+	Shakeel Butt <shakeel.butt@linux.dev>,
+	Barry Song <baohua@kernel.org>,
+	Axel Rasmussen <axelrasmussen@google.com>,
+	Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>,
+	Johannes Weiner <hannes@cmpxchg.org>,
+	David Hildenbrand <david@kernel.org>,
+	Michal Hocko <mhocko@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>,
+	Tianrui Zhao <zhaotianrui@loongson.cn>,
+	Bibo Mao <maobibo@loongson.cn>, Anup Patel <anup@brainfault.org>,
+	Atish Patra <atish.patra@linux.dev>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Andy Lutomirski <luto@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>, x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	"Liam R. Howlett" <liam@infradead.org>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Michal Hocko <mhocko@suse.com>, Jonas Bonn <jonas@southpole.se>,
+	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+	Stafford Horne <shorne@gmail.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
+	linux-arch@vger.kernel.org, linux-mm@kvack.org, kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+	linux-openrisc@vger.kernel.org
+Subject: Re: [PATCH RESEND v2 12/21] mm/pgtable: redefine PGTABLE_LEVEL enum
+ with ascend order from PGD
+Message-ID: <awXc0MSZl9t9VW8e@e129823.arm.com>
+References: <20261102-dummy_ptxp3-v2-0-78840b2ec73c@arm.com>
+ <20261102-dummy_ptxp3-v2-12-78840b2ec73c@arm.com>
+ <awXD4i47F-VAG1tD@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,135 +97,77 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <awXD4i47F-VAG1tD@kernel.org>
 
-Simplify protocol initialization and finalization using cleanup handlers.
-Relocate the protocol put operations out of the setup and cleanup code so
-as to be executed strictly after the protocol devres groups have been
-fully released.
+On Tue, Nov 24, 2026 at 07:05:38PM +0200, Mike Rapoport wrote:
+> On Mon, Nov 02, 2026 at 11:21:25AM +0000, Yeoreum Yun wrote:
+> > The PGTABLE_LEVEL enum values appear to be ordered in the opposite direction
+> > from their intended usage.
+> > 
+> > Intuitively, higher page table levels should have smaller enum values,
+> > but PTE is currently assigned 0.
+> 
+> That's not what x86 thinks :)
+> They even expose it in /proc/vmstat with smaller numbers meaning lower levels
+> 
+> $ grep direct_map /proc/vmstat 
+> direct_map_level2_splits 152
+> direct_map_level3_splits 4
+> direct_map_level2_collapses 0
+> direct_map_level3_collapses 0
+> 
+> Just an observation, I don't mind either order.
 
-Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
----
- drivers/firmware/arm_scmi/driver.c | 53 +++++++++++++-----------------
- 1 file changed, 22 insertions(+), 31 deletions(-)
+Right. I made this change because a depth-based scheme seems more intuitive.
 
-diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
-index 2c4424aa0d37..199f0a189432 100644
---- a/drivers/firmware/arm_scmi/driver.c
-+++ b/drivers/firmware/arm_scmi/driver.c
-@@ -2256,24 +2256,21 @@ static void scmi_protocol_version_initialize(struct device *dev,
-  *
-  * Context: Assumes to be called with @protocols_mtx already acquired.
-  * Return: A reference to a freshly allocated and initialized protocol instance
-- *	   or ERR_PTR on failure. On failure the @proto reference is at first
-- *	   put using @scmi_protocol_put() before releasing all the devres group.
-+ *	   or ERR_PTR on failure.
-  */
- static struct scmi_protocol_instance *
- scmi_alloc_init_protocol_instance(struct scmi_info *info,
- 				  const struct scmi_protocol *proto)
- {
-+	const struct scmi_handle *handle = &info->handle;
-+	struct scmi_protocol_instance *pi;
- 	int ret = -ENOMEM;
- 	void *gid;
--	struct scmi_protocol_instance *pi;
--	const struct scmi_handle *handle = &info->handle;
- 
- 	/* Protocol specific devres group */
- 	gid = devres_open_group(handle->dev, NULL, GFP_KERNEL);
--	if (!gid) {
--		scmi_protocol_put(proto);
--		goto out;
--	}
-+	if (!gid)
-+		return ERR_PTR(ret);
- 
- 	pi = devm_kzalloc_obj(handle->dev, *pi);
- 	if (!pi)
-@@ -2328,10 +2325,7 @@ scmi_alloc_init_protocol_instance(struct scmi_info *info,
- 	if (pi->proto->instance_deinit)
- 		pi->proto->instance_deinit(&pi->ph);
- clean:
--	/* Take care to put the protocol module's owner before releasing all */
--	scmi_protocol_put(proto);
- 	devres_release_group(handle->dev, gid);
--out:
- 	return ERR_PTR(ret);
- }
- 
-@@ -2351,25 +2345,25 @@ scmi_alloc_init_protocol_instance(struct scmi_info *info,
- static struct scmi_protocol_instance * __must_check
- scmi_get_protocol_instance(const struct scmi_handle *handle, u8 protocol_id)
- {
--	struct scmi_protocol_instance *pi;
- 	struct scmi_info *info = handle_to_scmi_info(handle);
-+	struct scmi_protocol_instance *pi;
-+	const struct scmi_protocol *proto;
- 
--	mutex_lock(&info->protocols_mtx);
-+	guard(mutex)(&info->protocols_mtx);
- 	pi = idr_find(&info->protocols, protocol_id);
--
- 	if (pi) {
- 		refcount_inc(&pi->users);
--	} else {
--		const struct scmi_protocol *proto;
--
--		/* Fails if protocol not registered on bus */
--		proto = scmi_protocol_get(protocol_id, &info->version);
--		if (proto)
--			pi = scmi_alloc_init_protocol_instance(info, proto);
--		else
--			pi = ERR_PTR(-EPROBE_DEFER);
-+		return pi;
- 	}
--	mutex_unlock(&info->protocols_mtx);
-+
-+	/* Fails if protocol not registered on bus */
-+	proto = scmi_protocol_get(protocol_id, &info->version);
-+	if (!proto)
-+		return ERR_PTR(-EPROBE_DEFER);
-+
-+	pi = scmi_alloc_init_protocol_instance(info, proto);
-+	if (IS_ERR(pi))
-+		scmi_protocol_put(proto);
- 
- 	return pi;
- }
-@@ -2402,12 +2396,13 @@ void scmi_protocol_release(const struct scmi_handle *handle, u8 protocol_id)
- 	struct scmi_info *info = handle_to_scmi_info(handle);
- 	struct scmi_protocol_instance *pi;
- 
--	mutex_lock(&info->protocols_mtx);
-+	guard(mutex)(&info->protocols_mtx);
- 	pi = idr_find(&info->protocols, protocol_id);
- 	if (WARN_ON(!pi))
--		goto out;
-+		return;
- 
- 	if (refcount_dec_and_test(&pi->users)) {
-+		const struct scmi_protocol *proto = pi->proto;
- 		void *gid = pi->gid;
- 
- 		if (pi->proto->events)
-@@ -2418,15 +2413,11 @@ void scmi_protocol_release(const struct scmi_handle *handle, u8 protocol_id)
- 
- 		idr_remove(&info->protocols, protocol_id);
- 
--		scmi_protocol_put(pi->proto);
--
- 		devres_release_group(handle->dev, gid);
-+		scmi_protocol_put(proto);
- 		dev_dbg(handle->dev, "De-Initialized protocol: 0x%X\n",
- 			protocol_id);
- 	}
--
--out:
--	mutex_unlock(&info->protocols_mtx);
- }
- 
- void scmi_setup_protocol_implemented(const struct scmi_protocol_handle *ph,
+As you pointed out, though, the x86 specification uses smaller
+numbers (0) for lower levels (pte), so I think we can leave the
+x86-specific direct_map_* entries as they are.
+
+>  
+> > For consistency and cleanup, reverse the enum value ordering.
+> > 
+> > Since there is no current user relies on these numbers to be ascending from
+> > PTE->PGD, so it can be changed to be ascending from PGD->PTE, in the
+> > direction of the page table walk.
+> > 
+> > Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
+> > Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> > ---
+> >  include/linux/pgtable.h | 8 ++++----
+> >  1 file changed, 4 insertions(+), 4 deletions(-)
+> > 
+> > diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
+> > index 780fe849ff8b7..a032f95943357 100644
+> > --- a/include/linux/pgtable.h
+> > +++ b/include/linux/pgtable.h
+> > @@ -2288,11 +2288,11 @@ static inline bool arch_has_pfn_modify_check(void)
+> >  typedef unsigned int pgtbl_mod_mask;
+> >  
+> >  enum pgtable_level {
+> > -	PGTABLE_LEVEL_PTE = 0,
+> > -	PGTABLE_LEVEL_PMD,
+> > -	PGTABLE_LEVEL_PUD,
+> > +	PGTABLE_LEVEL_PGD = 0,
+> >  	PGTABLE_LEVEL_P4D,
+> > -	PGTABLE_LEVEL_PGD,
+> > +	PGTABLE_LEVEL_PUD,
+> > +	PGTABLE_LEVEL_PMD,
+> > +	PGTABLE_LEVEL_PTE,
+> >  };
+> >  
+> >  static inline const char *pgtable_level_to_str(enum pgtable_level level)
+> > 
+> > -- 
+> > 2.43.0
+> > 
+> 
+> -- 
+> Sincerely yours,
+> Mike.
+
 -- 
-2.54.0
-
+Sincerely,
+Yeoreum Yun
