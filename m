@@ -1,47 +1,130 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.149
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795502359;
-	b=SofJ4e1aNN9HjfnKJyEK91WzItY0MeJ8nQQJNIOYU5HG4pSKLx8O12qzMpMoV2vikjyh
-	 JRI6xkZUqbR6GWe0aXWX8WmHC9D1DCgKwfvP/q4IBTi8CLkx2TPTO42neaGITLhH4F7Rc
-	 kv1oAZfdEdwIPLxF9fFh3JZM/AAtmK0axzoWqif06Nj9LLTWsrecHrPHQVt1yYa79TAyd
-	 ESa7qfiul9ykNUGqRFisKbkDj/QforqK1bQQcfkycJKHiFP+o+lJPMp8QOBtOTO6KDYFc
-	 Xued08R2IlL8sAab30lCdaAi740xRrwV/vUs6b6ecSa9heu4ScqeWtKM28MH/lDdwDA==
+	t=1795502445;
+	b=0dVS9Bo+nXQF1OjmSUes+Q5/wdcb7wirqj6USFmcbmkdNrNguXjRR1Y7v+hja4nj+mfC
+	 8wX1RDOedCX5GCtdX51mPfRwslpYAnoMUPBY4yxssGygCh8ItHpAO5UVT5AHfuK+LKsDq
+	 M9kmLy24Hv0gfweKm7YqdYG/VNg42wKQxY1E4dHvdwOWLB74Vqo29VOTkUeo/FDZ+be5T
+	 LTn1G5pey6+WOJG0L/asxupziaqaCRleKH+hFXuVa6zOb11TLIoFsDV/387zNM8m8xYOy
+	 +6fjT8swbBfCov6dup8TyGaGyg9+ydHx+/qBYjhZTae5ytS/+huP6YdugcRgZxfm8fg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795502359;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=PgqRXdTZ4ONcvPOx0PqGgwz2ExETKo+FnP18SHLENdg=;
-	b=hdzmtdw/Pxz79jwPdLmoJf7i+yf0ahvamFbeOM8Xe0eZWFFQjBO4fHQ4H0HAgSjinsTB
-	 qakDmsfpJTS2LONLslTEiLJUynWLoXiY8WHZrfeUYn7z6aZQm7DNXy6DI4MudWyXzZOOY
-	 yv2mUhoZCwrD1fZmVM/09OfjYYJK4mHIvLXGZGwZDciNV8nvjOAXmhHokbbwfTEkhjmfN
-	 5pC3WgVzJe40IYFV4lvvCc33c1na26zi6+3WkunmAOILwVL25Y5ECjHvPwZa4TaNy37k/
-	 uqiygDdhYrJy2zWUtr1x4E7M4LyiS5C1xnYCBwxq8IMi4zGF068eJGdXgDBQ7hYy+0g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795502445;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
+	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:Content-Transfer-Encoding:
+	 In-Reply-To;
+	bh=w23lNFq4PU3EA/g8IT7NKGXR8jqt/dFslDDg8kIe164=;
+	b=TLf0SnKKw+hvAuDa/7Jr1DqQ/+cFvI3mXrCmSUovKyV3VvpJg965cDr2mCoirOpNu4Ik
+	 B5Ft324zrTJYdUSouGZHRriuwMiVZ4if8fnugPybFyrpuLgwaSIxQgqDUlT95+sRYTUg0
+	 g8hok+7YS5ZHKQtb8qiCAgaclF8F2/w8yEjl8cr2MbrLzfLJNNXFSyg9nSvc3kG5OONyp
+	 /SRBHqksG6a9jUTgCF/7kRBmUFJmR/XY0j2XxSzsnz1t+MkQp20NQf61AXJB4Gf3aoRuv
+	 CcL2is+3sfhasDH0VeAIm6k0swu4GrwUcUKXSE+0+Aqbigh9zg9F9SdOxVlvpKDCPkQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QCQzmhjA;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=ragnatech.se;
+	spf=pass smtp.mailfrom=ragnatech.se;
+	dkim=pass header.d=ragnatech.se header.i=@ragnatech.se header.a=rsa-sha256 header.s=fm2 header.b=oBumkIjE;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=WAZ9zMHG;
+	arc=none smtp.remote-ip=103.168.172.149
+Received: from fout-a6-smtp.messagingengine.com (fout-a6-smtp.messagingengine.com [103.168.172.149])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 36CF1606A31E;
-	Tue, 24 Nov 2026 06:39:18 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 08371606A330
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 06:40:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 08371606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ragnatech.se
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ragnatech.se
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QCQzmhjA
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 187C41F000C6;
-	Tue, 24 Nov 2026 06:39:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795502358;
-	bh=PgqRXdTZ4ONcvPOx0PqGgwz2ExETKo+FnP18SHLENdg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=QCQzmhjAK1/uACJ8EuxssUw36mmNcSMppc698Ic47HVXYveBPBiF/fOg8lsbDHRdk
-	 v/Wyo0N6h94PEi/aebDwRe8QgFa38QMc1YYT9IgqSGW5o8j7TZFyd1YXFGwl8IFfVI
-	 opWrQLUgAoIXsABgp5Fh5NlgVGBWYH6GgAWJzim0t1Vj61MB1ngZI4pdwLVvo8CE9+
-	 2fjfQjmIAgLUvhUINLMaufMDMZHoh30ptQ4jy5i6id9y1h06Jj3SWyU512Q4ovY+bq
-	 rWwkzFELoTwMlbS0a7UDfgZgDMe332DSzM/R66wnMNcmBsrOLI+xYy0xd8UnXQE7c0
-	 +zkZT/nwIrLPw==
-Message-ID: <eacbc1ca-d12f-45f7-804e-2c7454d97eaa@kernel.org>
-Date: Tue, 24 Nov 2026 07:39:10 +0100
+	dkim=pass (2048-bit key, unprotected) header.d=ragnatech.se header.i=@ragnatech.se header.a=rsa-sha256 header.s=fm2 header.b=oBumkIjE;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=WAZ9zMHG
+Received: from phl-compute-02.internal (phl-compute-02.internal [10.202.2.42])
+	by mailfout.phl.internal (Postfix) with ESMTP id 07521EC09AB
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 01:40:44 -0500 (EST)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-02.internal (MEProxy); Tue, 24 Nov 2026 01:40:44 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ragnatech.se; h=
+	cc:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1795502443;
+	 x=1795588843; bh=w23lNFq4PU3EA/g8IT7NKGXR8jqt/dFslDDg8kIe164=; b=
+	oBumkIjExkoM1uwCehL/8oDhAQlt08qXvFbsmQNQYgAfGBD5NYGk+u85+QcpSBr3
+	IeGEwNWzr8kBxoP1y5MR9UM8OHEvHqfh09uX11iwF6Ad8ch+aMafcxG/qRFYEjcY
+	J4AO+Rnl1EmniiB/RoKKdWumxugKLRfac672moww3Ug+NUnYbwOZQTRsr+yBUGn/
+	sYa7y3WvyWBNsgLSBwElyfZQN9GYxA7KPxZNqU2iHvf7DBzXvD2h3nUewhy3F5b7
+	Y57JfrsJNJVip7YLloTJ3EIcEWI6L/t50gcmR1alY5fibg1MpI/prAqb/eXaU2OC
+	g7aP9zY5s3s9aJLtoNZLyA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795502443; x=
+	1795588843; bh=w23lNFq4PU3EA/g8IT7NKGXR8jqt/dFslDDg8kIe164=; b=W
+	AZ9zMHGtea3NNZRXu4FUEXV6Bzhntnmfou1n5WVSuKqpMR7dDsl8QLH26GCd+W/z
+	KctwHRNHLnlUnNjIOAREn3DWh/m7g/pcvjcrqJ4s+mpfAn5oTjLo7HubR/KnUxIc
+	ayEmdMZ7dYcfpVzBKzQ+pK9TDtCf1yje4ZPBGN60E2PPY5416Th0FCxFqzzsS80J
+	1c2tt5arOumSyzIYNnltDrghSg2qAXKWo2eRQlYct2uSqISLXQfVvYuftJ7Vjs94
+	yESCxu84mAM/BMXm8l+g/ORG0/QwvjvrgcT4YsC2JIIWBrO1M5n3qpUNFfHUNXaj
+	aeSjxODs9RT66EM97T/qQ==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=ragnatech.se a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795502443; d=ragnatech.se;
+	mf=PG5pa2xhcy5zb2Rlcmx1bmRAcmFnbmF0ZWNoLnNlPg==;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm2:rsa-sha256:SjZnNvRT6MdR5OYpsP7oYZ2VisuHJBBUUdhZD5FUSbYsikg
+	TXXaU0tQoy00/DPl7j3P/1ZfyP8TtwJdpLjDHC4CqGWkw9QsSXkEIgAVyebGjokg
+	JTAf6pS89MQjGMJ3vfFx/mY5kjkzDxp+ks+/BOrD0uc4zjcpCgBUwqOXnbM26iac
+	a4MKDx9LA1FDIEl4lD9R+j8LgYnKOFaggoqkE4i56V7APoevFLdfZb/7ayadb1gc
+	EEk0NoGs+2NYjuqwn8U39XDGI0ya7ASPsXAN9ZwwXd5pDx28svAAHYc06Qo+D80w
+	TFf4QtnHg5QJgcgHwahRCuF2H3068ELfvnG7dbw==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=13;
+	hn=cc,content-disposition,content-transfer-encoding,
+	content-type,date,feedback-id,from,in-reply-to,message-id,
+	mime-version,references,subject,to;
+Message-Instance: m=1; h=sha256:STD6H0HdESP6jlj1Ui0LxDpZbGwRDzEyJb8kvkm7AG4=:XDFc0NTQHGVBocCGeAeBq/Z+MiIoxLgdkMxglKsMzN0=;
+X-ME-Sender: <xms:azEFa4tD-g6g_xAa5S9YsbHnAmZnBQ5ahcc73PVn9xpPacqFWM843Q>
+    <xme:azEFa15aAxm40NhgNkelVxNtVvusqHDHbkLa9udQekNfJj-0Dyn3rwF8dalgLMbPb
+    DYM2A32Y69SGy-L1iJQ3HIKt076vR4e0LVbRikV7g_3irn73wee>
+X-ME-Received: <xmr:azEFa0fqTEURASYd3KlUIdzC1wocQOpeic0TAAg2hW1b5clpRiuNn7tcGX43E-hz_5WD1qvBrhdY4jYoMvU21o3SgvDnYH0>
+X-ME-Proxy-Cause: dmFkZTEZm1p0nloDXCDDKweUR4luS46Uz3EWb2EgwJk32G4Vg9LVoiy2p+zVRYy110bsoE
+    0imqv32La6cgFk2EuNvmn4GxG5XLm/NJBl2YetOQhdgT2+k9mR4Bzki9T4yHyJ5V6QTQcX
+    DmpQicN2uQkqExraEzYLlcXNOcQhRzYXSFwYVKD8ufnUxcNpQcWQVF2N0q6V9ibAJRuQ3o
+    jn3mVXoryYaqGW+3G0ECefPAy4ybFAvHHB73CdCxtWAFc8Uq6LQlmKJtWwvOUpYAUmHcI1
+    mij4p5AoXoNDsRx1Mo4UUURwoJW2xZIkVeEGp+iDQUzCbuvpPrk6DLtvk8fWJFgbJgLoFJ
+    UOCUeAICb9oT1TQ5M+6CoIaudDjcALNbktE7fXWhpOMU+jV4qUdRerNCh4YZSYEqifKNwE
+    Qk/EWvie8LZ6xSrWbTTK1syG5TXm4U96uBPqzoqJQ2okVfBpZyEVgv5PgUcZcPXLkdoE5B
+    H8PZK3IEgchx7LG/wRupnpPqvN/v2jou1VEllehrrYZq5kjQ0wiWPLk8YsqqHkyR7Qh05v
+    FSSrz/XNTq6Bn5cJlpM8VCNWUPVKTBiU7/GFlSLqcnfhIoU+zbFEIpJiI4UiRsULKt3KH5
+    edF5++UkoIh3BiMxAKZXA/oYgMf44fKf2IHLOoiqPpw6l2XV0wcRLzo3e4YQ
+X-ME-Proxy: <xmx:azEFayxxe5_YRxRV94TPLHwFWG1-DQqA8u2yXiNDELCbZpGuSoRCOg>
+    <xmx:azEFa5_wcr9ctliapuT1eKrYDSWhWFOxJC6jNQFmH66qouQJJtTwJw>
+    <xmx:azEFawxPKK23kTm4uezKwy11t-RTvDPVcSeC757YqYMbNtab0dJgbA>
+    <xmx:azEFaxpIXJRZuzIvTuj66iuACsQk8jHATShGxcooPZzcNtyMZwXcEw>
+    <xmx:azEFa9XlxaCFvUDAfTZBpnZlbDYi5Cv4esXVmnb5Rz2f3zL2FIAFbJel>
+Feedback-ID: i80c9496c:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
+ 24 Nov 2026 01:40:42 -0500 (EST)
+Date: Tue, 24 Nov 2026 07:40:40 +0100
+From: Niklas =?utf-8?Q?S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>
+To: Yaohan Li <shunsheng1218@gmail.com>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	linux-renesas-soc@vger.kernel.org, linux-pm@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] thermal: rcar_gen3: release the IRQ handlers before
+ the zones are freed
+Message-ID: <20261124064040.GF3898744@ragnatech.se>
+References: <20261117145348.1092528-1-shunsheng1218@gmail.com>
+ <20261119022926.1493582-1-shunsheng1218@gmail.com>
+ <20261122144813.GB3898744@ragnatech.se>
+ <20261123064745.GD3898744@ragnatech.se>
+ <179548695107.1834709.12105107414276177799@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,119 +134,46 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next 1/5] dt-bindings: reset: Add Cortina CS7542
- network engine reset domain
-To: Fil Dunsky <filipp.dunsky@gmail.com>,
- Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Hans Ulli Kroll <ulli.kroll@googlemail.com>,
- Linus Walleij <linusw@kernel.org>, Russell King <linux@armlinux.org.uk>
-Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20261123-b4-cs7542-ethernet-v1-0-fdb5e8c2d508@gmail.com>
- <20261123-b4-cs7542-ethernet-v1-1-fdb5e8c2d508@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20261123-b4-cs7542-ethernet-v1-1-fdb5e8c2d508@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <179548695107.1834709.12105107414276177799@gmail.com>
 
-On 23/11/2026 19:44, Fil Dunsky wrote:
-> Describe the atomic reset domain required to stop all network-engine and
-> LSO/SSP DMA users before releasing their mappings. Exclude the SDRAM
-> controller and independent PCIe resets. Allow this provider as a child
-> of the shared global syscon.
+Hi Yaohan,
+
+On 2026-11-24 10:22:31 +0800, Yaohan Li wrote:
+> Hi Niklas,
 > 
-> Signed-off-by: Fil Dunsky <filipp.dunsky@gmail.com>
-> ---
->  .../bindings/reset/cortina,cs7542-ne-reset.yaml    | 42 ++++++++++++++++++++++
->  .../soc/cortina/cortina,cs7542-syscon.yaml         |  4 +++
->  2 files changed, 46 insertions(+)
+> Yes, I agree.  I have reworked the probe to look up the IRQs first,
+> initialize the sensors with IRQEN cleared, and request the handlers after
+> all the thermal zones have been registered.  A devres action disables the
+> interrupt sources before the handlers are freed, so ->remove() is no
+> longer needed.
 > 
-> diff --git a/Documentation/devicetree/bindings/reset/cortina,cs7542-ne-reset.yaml b/Documentation/devicetree/bindings/reset/cortina,cs7542-ne-reset.yaml
-> new file mode 100644
-> index 000000000..8f5b5b835
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/reset/cortina,cs7542-ne-reset.yaml
-> @@ -0,0 +1,42 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/reset/cortina,cs7542-ne-reset.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Cortina Systems CS7542 network engine reset domain
-> +
-> +maintainers:
-> +  - Fil Dunsky <filipp.dunsky@gmail.com>
-> +
-> +description: |
-> +  Child of the CS7542 global syscon. One reset domain covers NI, FE, TM,
-> +  scheduler, queue manager, NI XRAM and the entire DMA block (LSO and SSP).
-> +  SDRAM and unrelated peripheral reset bits are not modified. The consumer
-> +  must own all these blocks exclusively. This reset is not suitable for a
-> +  network-only consumer while a separate driver uses SSP DMA.
-> +
-> +properties:
-> +  compatible:
-> +    const: cortina,cs7542-ne-reset
-> +
-> +  "#reset-cells":
-> +    const: 0
-> +
-> +required:
-> +  - compatible
-> +  - "#reset-cells"
+> Since the thermal core copies the zone operations during registration,
+> set_trips() still has to be selected beforehand.
+> 
+> The current version retains the no-IRQ fallback for -ENXIO and propagates
+> -EPROBE_DEFER and other lookup errors.  However, if IRQ lookup succeeds
+> but requesting a handler fails, probe now fails instead of falling back
+> to polling.
 
-Same comments, no resources here, not a separate device. Fold it into
-the parent node.
+It needs to revert back to polling. IIRC the interrupts are used to get 
+quick notification of a trip point but if interrupts are not 
+enabled/supported it can still find it using the polling method.
 
-Best regards,
-Krzysztof
+> 
+> Would you be happy with that change, or would you prefer to retain the
+> original fallback on IRQ request failure as well?
+
+A bug fix should not alter behavior, other then fixing the bug ;-)
+
+> 
+> The reworked patch builds on arm64, but I have not tested it on hardware.
+> 
+> Thanks,
+> Yaohan
+
+-- 
+Kind Regards,
+Niklas Söderlund
