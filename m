@@ -1,99 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.51
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
 	t=1795542193;
-	b=H5qRPPy6Mi1+rD2Uj1piTaOOF3SSdoMnP7303jPaFVns+lANXCSnwpqu4WRJy2iKLIM2
-	 qKLN0M/79NFa5PXbiCzheX2j1JWbgkEbwRF1mookMUH3KflryVuxX9Za/kGEiLUWfMyiM
-	 /cmUxOMX5IXIKEX9bvmTQIVoUUB506JewySJbUaSAbIM5aDwMh1K+mN6/5TbG81Gg/8yV
-	 VssCeC5Q9fqV5uiBkyhuiQSao7h+D13hH8VLsGnXjjiRdPArA7Q9QctJyaSDhw5dhgRSZ
-	 5nV6xwuwV+76003KdBFd//1i7Wc4SYCOEw2NpJR8mPnf9gMTGh/PW6zesoYaCTuoCXQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	b=dLpgCBeUgDJ+1Q2tTkPRVy5+hE80r20dJ1cAIfcl7xNdLDxcFJJeTxndop1SqawVOySV
+	 TRaElZAb1FHcg8SkNR/2uVn2za2Z4+qiHApByCvTgmsljwlT2K0R5G5cSR4hfPrGonAQ5
+	 OTbfbS9gaP+5xqxe+b8hbpTMmZASlbguos4tlqH8OWpo1l4WQasT8WztskWpG2g3omHGm
+	 J3F5+aYoH0GLC9IJMrg8nGxFR+LiOdOpE85RCbkoHcZ0Js2heDmCTrvafn4f6EuhTOIaT
+	 1vib3hdzA5D+PLEY8TVCU4qsgwTkZVL4na4gRtWm+v4kcbP16CrnIHbWGW9aPonAy0A==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795542193;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Received:X-Forwarded-Encrypted:X-Received:Received:From:In-Reply-To:
-	 References:MIME-Version:Date:X-Gmail-Original-Message-ID:
-	 X-Gm-Features:Message-ID:Subject:To:Cc:Content-Type;
-	bh=sGwL+rAjN7ROYVGUA8Ywk3WhpiIIp3H2Jwa6afAFCVc=;
-	b=g9oprSnZ8FQE75a6JdMNS2CwGoZkehuntQOD95Avo0nJtq4r9mr1mNh6EbQ2aWbzSouD
-	 vk7mSiIu5JbgX3/pu6IYlIB3HQder2CToPbnGshbsNfWxPvZtL6zq39a+TE7+KnLwjV06
-	 k7Oci66jbLJd/8zsQ5ueddGQVm62nD6YZnUXKGJcNQ0UBHICPHRGem/TAzKhBg8+BPV9i
-	 lYu5UFNPorqFdvj2L8NyE3M/w4f8grWSuoLYnKvGO+ew07sRQ2Ai7n6LIfqrL7yilhWhz
-	 IjIl+TGzav+H0QFA2v2GRo6BKkZpRgvdd4WW7VOLqFKXNUZk+9Sv6jGnY/67CArUlyA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=linux-foundation.org;
-	spf=pass smtp.mailfrom=linuxfoundation.org;
-	dkim=pass header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=google header.b=Bm4z767w;
-	arc=none smtp.remote-ip=209.85.218.51
-Received: from mail-ej1-f51.google.com (mail-ej1-f51.google.com [209.85.218.51])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
+	 X-Endpoint-Received:X-Original-From:Reply-To;
+	bh=sCc0kofNvkDa3L6oT1taaFE+OREB6QTLHsXJrjG7pts=;
+	b=KdI8P01sotWvjD90NbGkS1qzocov4eu+THUFhDt/h88JCnjZ4ALamNxP5kspwlSVxzIe
+	 OsoSaANEDP/UbuuAy2Ggj5whO+KlpX5c8Fua7KbVl0PbmwZO/7Jas9zBt4FPszztQt2bE
+	 Z5SpuQ/Twg9HVDizlImwTpk2ougMen46Xa1EgejCTEFzU12BrpIdhtFVjeKoWyvQAESIW
+	 ehXfOovZtg7ywskUNXO0ld06lBAPtOvPeiEBCaL2eJXna/JkOAsoup1X9VfTeMOW8FPBy
+	 rmSldYyqZ6nseoobYxSx3ELhDny0/7IiXEjG7mF7PHmu5BcKzGwni7NjAVbm/G+Pnkw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PVy7FqQD;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 92B09606A335;
+	Tue, 24 Nov 2026 17:43:12 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PVy7FqQD
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795542192;
+	b=vB7DpqTiwU7aLdEhT6qrpEd30G9lOu3bviaAmBd4l9NFNe8EIbCJOPN+JOWB0GbpvGUs
+	 59n2eRf+BJ/fgx70HAR0+qgVnQNfGB5nnVnW2O5YKxTEatc2RwjnxIfI+D6Wc3VrXVE0l
+	 Om2Yiiu21ka/PzXplGeDD1+xaNnsjlLO/rSG5gJ1U1/J/KjB9lX97tTT97EqEeL6OUD52
+	 bOVtWaWF8hBzReNL4/oKTVW8W3OfI6hPSBPoKkb/vpo03dBG0OXe4PedLIa7rT01IGIjZ
+	 m5iSaALTmkTGmLtoh9b4IoK/tBoXQa/cRyPna1XyanvlWAW/IjuZTX1+WBYwoMrg/9w==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795542192;
+	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
+	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=sCc0kofNvkDa3L6oT1taaFE+OREB6QTLHsXJrjG7pts=;
+	b=misdtEuTjgp41MVdSRijqaT9dZazi+dz7VeE0bYpvyjGN4aU0hPbQQNXNfdQ9nfs5kKc
+	 rT2tBrfcKCjKEy7IE/Lj/Q9GIMqf0rIJWDL49BuwJrW3k2O+PIqf1j/CKhRyiihAEiI2B
+	 9DplKUv3Zlk/szR5f/JdrOHLJ4NHVaBe3lxwv2J8hjRm//eT/Kyp0MXm0E5tnhZ6PwwjZ
+	 sTg7JCdCDYpMr7vkD7sS+NQYYWEPFJ51eDO0WAbsgS9nY2pYkpKZWXhONnbJ3tUoDcQdN
+	 g2nqIUGPHVp7x47Gf0gFdCc9/51Rnk690uEAyQgRGrxIzk9DUmw6kEx6RXLdtvZhbSw==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 897ED606A32C
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 17:43:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 897ED606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=linux-foundation.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linuxfoundation.org
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=google header.b=Bm4z767w
-Received: by mail-ej1-f51.google.com with SMTP id a640c23a62f3a-c5126505cb3so623041166b.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:43:11 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linux-foundation.org; s=google; t=1795542190; x=1796146990; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:mime-version:references
-         :in-reply-to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=sGwL+rAjN7ROYVGUA8Ywk3WhpiIIp3H2Jwa6afAFCVc=;
-        b=Bm4z767wH6sKdGF1dg8gpYJbGb9K8flm48M9Aw2Sx8MKkoLSiawioVLFYNkWy4XjPe
-         Jp5HwzhBcxsPDX8WC9hCrBD7Sq+RQ/LWenCE59EnPcM5PE+XCD+VqW48CdLAVAtQ7WZT
-         KishY9+GAL2PBhHxTCqRUmYDMdrxnunZumlX4=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795542190; x=1796146990;
-        h=content-type:cc:to:subject:message-id:date:mime-version:references
-         :in-reply-to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=sGwL+rAjN7ROYVGUA8Ywk3WhpiIIp3H2Jwa6afAFCVc=;
-        b=SFbcjXB9KpXyErL8X6TiO2zV22Oi6QeIBITUywxD+w0FHtY13gMvqYcw2UTU13VFw5
-         KP8Vec8owlS2lcgXG9bsj+39RAYgOoxw7Xk/ngaCNz1AXARVJMvrpPcEsnq7FXZJIA83
-         984oOoBly51h8nQ1rDqNlOUC13b8nm8DOBHrF/p8viL6QhfmHFE4LPHWgnujZo0FKYav
-         afsGX0i+OhIhEJesF+8wTmlD8tBxrX9xuELqMrADGO0hDuFGNuwh7aLswmtZ78uK9bPy
-         zDHY/IPG+OjyQPbjWkwUrazECvtdGJMELTHpYUd6t6bfNUqy4aYJEX7M28GwF14fwb7a
-         XTQw==
-X-Forwarded-Encrypted: i=1; AL+hErFLAtLyc5vIrtK+RlPfNdoK/ycXwMUpKqOvP9/Br0jkBFCwk0XA6YjBnDloExG8x2vTAES1vgSLcVjoNcQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+SRbjFeSbubaQQt7N68EQGsuh8jBJLuPhoG6R/D0l/TF8jzjof
-	nCxnBW6AoKTQGMypOuVGfgWbwepHqYSsg3kPgoix49Z3uufd21P3s6Oahm/EInRG9Coj0t5CDKX
-	QMaMePG2E+A==
-X-Gm-Gg: AZFdTZdFF9rmZO+beleGR6i19qYXQuaymvqpM5uIP8BMrWWfoW819xivOJioi+ZBLKy
-	ya7l8Yi1GLs9GrUXw9bQzoEWXlA23RLD8PjZENZbIbgns69QnQAOxwDH1BRv77rfnyM0LAZDWFV
-	vT8v8OiM1+8ppL18VWWifjK11EIZb5jr9nehHc68nocrD0oKi/xWK9rcnJD1mKMlSlnNHXZ5Py3
-	puCtHDXSZvYilF5j7g1X7h4ve4VaL3pRAhOqnkwR0Gv090fxrk0f/DiXZY2nyGtUXlWmdavoytk
-	JFBUQOc97ap049pA/Sk5brSJGFZjm06RFbUh38avN+HJVkmpUf2MyeT6CgSCB00c7mSCOwONeHI
-	Te4E1ALEa6u/x3tPRUWE1YlNjOuZcoTg9pONBK6mjht4aBjAqV2dcwU+A0VHX/SPjx0VVJpcaTq
-	9d9gsnhq+kLoxas9N6vCDhZPm1ldCNgko3/O5qzjq/lXQmKFVDRhsQMZxGiWQXsWf7y5Ee3IBkL
-	ntPdqffdTH+bZyt4sDt5yHHYMfH2DSLmvuOOiH04/7qUDbgZLrUglzjlT7awxogmIqdDKCfTugv
-	ff8clrhUlKo6AecoKYRjVGRt8AdMXSOr7V1Wjp4UMgvLwnXcZUXyMKSq9bM/SVuNlvYB6ano6qh
-	YH/8=
-X-Received: by 2002:a17:906:3b04:b0:c29:3c97:c994 with SMTP id a640c23a62f3a-c513ab47f35mr979494366b.35.1795542190468;
-        Tue, 24 Nov 2026 09:43:10 -0800 (PST)
-Received: from mail-ej1-f45.google.com (mail-ej1-f45.google.com. [209.85.218.45])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513acff65bsm564347366b.4.2026.11.24.09.43.09
-        for <linux-kernel@vger.kernel.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 24 Nov 2026 09:43:09 -0800 (PST)
-Received: by mail-ej1-f45.google.com with SMTP id a640c23a62f3a-c4d581da0aaso673706366b.2
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:43:09 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErGQx3Yq9pbvtR4aOl6fSJNU5FG/+hy+qLFyGTBag+mOLFvt0TUDKdYe90eMN52rJr6TRE04Ahyphk39xXg=@vger.kernel.org
-X-Received: by 2002:a17:907:a88e:b0:c42:5363:38dc with SMTP id
- a640c23a62f3a-c513ab0e03fmr1346144566b.25.1795542189561; Tue, 24 Nov 2026
- 09:43:09 -0800 (PST)
-Received: from 425495914135 named unknown by gmailapi.google.com with
- HTTPREST; Tue, 24 Nov 2026 09:43:09 -0800
-From: Linus Torvalds <torvalds@linux-foundation.org>
-In-Reply-To: <CAHk-=wgYc9vFEmyV0Ch_e49j6GOhUCMQMnMV4f1FLLvumZOmRw@mail.gmail.com>
-References: <20261122-b4-sched-wait-intr-head-v2-0-4a764b64e8ce@columbia.edu>
- <20261122-b4-sched-wait-intr-head-v2-1-4a764b64e8ce@columbia.edu>
- <CAHk-=wj_eqNh+gNhCQh3exrL5Pmo5hbZBcL0W-4Ah_Nw0Kegzw@mail.gmail.com>
- <awWSwmvaTwBxfU-r@redhat.com> <CAHk-=wj3GCXZohdFWWPAOkC_LHno4X0oQW+0sQFJzRMvjpODUg@mail.gmail.com>
- <CAHk-=wgYc9vFEmyV0Ch_e49j6GOhUCMQMnMV4f1FLLvumZOmRw@mail.gmail.com>
+	by smtp.kernel.org (Postfix) with ESMTPS id 5F5DD1F000C6;
+	Tue, 24 Nov 2026 17:43:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795542192;
+	bh=sCc0kofNvkDa3L6oT1taaFE+OREB6QTLHsXJrjG7pts=;
+	h=From:Subject:Date:To:Cc:Reply-To;
+	b=PVy7FqQDlTr4xSNME9EwWR+FxkDm0KhHUAsrjE6TZICUij3sQ3WMLgknX+Jk2/kLa
+	 0ko7a6jLBq8Kq3RRNZpbqhVtLSnbOLBeMPP/pMlg7uVFr970WU6EttsIQZ0jsFolKN
+	 idI6lP5mJ8fhjT870yt0ClLCswsgUus/A+XZwN009V8dpJ4Mnx54GPpdxP3AUxR+98
+	 RiK0sZy7YjdLqiWMxqGuczdb+c2OUp7EGqgkgcGToOul0jRS4M7KWLH+c0K1NDE0iC
+	 1PYZpssr1QKZSw6DadhAhpFYOXLSro2uV+Yqy79E51ieeUQdhsKluDXB4inW5XXT/P
+	 pGwd6z2+fo8dQ==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id B7F424CB18;
+	Tue, 24 Nov 2026 17:43:00 +0000 (UTC)
+From: Armandas Kvietkus via B4 Relay <devnull+armandas.kvietkus.proton.me@kernel.org>
+Subject: [PATCH 0/4] Add FPC1540 fingerprint sensor support through QSEE
+Date: Tue, 24 Nov 2026 18:42:59 +0100
+Message-Id: <20261124-fpc1540-tee-v1-0-6c6985f05b06@proton.me>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,79 +83,66 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Date: Tue, 24 Nov 2026 09:43:08 -0800
-X-Gmail-Original-Message-ID: <CAHk-=wiBBNtcLyu2fq47oXi-v2hX02m2=xFiG7tNa_hssaMNTw@mail.gmail.com>
-X-Gm-Features: Aa3M54qKnfQZwxI-mjKB8QHeQk1--kc11z_QwsMG6NLOaQrTy8GdH9me-KahpT4
-Message-ID: <CAHk-=wiBBNtcLyu2fq47oXi-v2hX02m2=xFiG7tNa_hssaMNTw@mail.gmail.com>
-Subject: [PATCH 1/7] sctp: don't let a blocked reader take write-space wakeups
-To: Oleg Nesterov <oleg@redhat.com>
-Cc: mt4022@columbia.edu, Jens Axboe <axboe@kernel.dk>, 
-	Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Christian Brauner <brauner@kernel.org>, Michal Nazarewicz <mina86@mina86.com>, Wen Yang <wen.yang@linux.dev>, 
-	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	tz2294@columbia.edu, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzNDQyMT3bSCZENTEwPdktRU3WQLyyRjUyPzVHOjRCWgjoKi1LTMCrBp0bE
+ QfnFpUlZqcgnICKXaWgABVT8WbwAAAA==
+X-Change-ID: 20261124-fpc1540-tee-c89b3527e72a
+To: Bjorn Andersson <andersson@kernel.org>, 
+ Konrad Dybcio <konradybcio@kernel.org>, Abel Vesa <abelvesa@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+ Shuah Khan <skhan@linuxfoundation.org>, 
+ Randy Dunlap <rdunlap@infradead.org>, Arnd Bergmann <arnd@arndb.de>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-doc@vger.kernel.org, 
+ Armandas Kvietkus <armandas.kvietkus@proton.me>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795542180; l=1509;
+ i=armandas.kvietkus@proton.me; h=from:subject:message-id;
+ bh=xOzpTrKsIgO9EFs8IZauDfSC/Ubdmarcofr0n2Gl3BM=;
+ b=AczOttScH5/OAPV3Cnqt7WmEyirdiwHPYuF3W5zL6ePdL/mVcDkBYicWVRtGm1LjC23JxPGtf
+ A5Qh83g54DEDFjZPZcpqTqPDWUb9iFNXd3+mupcLsSjqbealYUKUzLG
+X-Developer-Key: i=armandas.kvietkus@proton.me; a=ed25519;
+ pk=wuqmImJ9sKlDVcwALOvfGhjj7G8EBjjM4TpCdmlrAf8=
+X-Endpoint-Received: by B4 Relay for armandas.kvietkus@proton.me/default
+ with auth_id=974
+X-Original-From: Armandas Kvietkus <armandas.kvietkus@proton.me>
+Reply-To: armandas.kvietkus@proton.me
 
-From: Linus Torvalds <torvalds@linux-foundation.org>
-Date: Mon, 23 Nov 2026 17:33:14 -0800
-Subject: [PATCH 1/7] sctp: don't let a blocked reader take write-space wakeups
+On some Qualcomm phones the FPC1540 is driven by a QSEE app and Linux
+only has to power the sensor, load the app and pass commands to it.
 
-sctp_wait_for_packet() waits exclusively on sk_sleep() with the default
-autoremove wake function, so it accepts any wakeup and consumes it.
+The first patch adds the qcom_scm calls to start and stop an app and to
+load a services image. The rest adds the binding and the driver, which
+exposes the app to userspace through /dev/fpc_tee.
 
-Then __sctp_write_space() sends EPOLLOUT with a wake-one wakeup:
-sctp_wait_for_packet() wakes up, finds no data, goes back to sleep, and
-the walk stops.
-
-End result: anybody else queued behind it that was waiting for EPOLLOUT
-will never see it.
-
-Filter on EPOLLIN | EPOLLERR like receiver_wake_function() in
-net/core/datagram.c.  State changes (using sock_def_wakeup()) use an
-unkeyed wake-all and still get through and will ignore the exclusive
-nature of sctp_wait_for_packet().
-
-Cc: Oleg Nesterov <oleg@redhat.com>
-Cc: Marcelo Ricardo Leitner <marcelo.leitner@gmail.com>
-Cc: Xin Long <lucien.xin@gmail.com>
-Cc: Eric Dumazet <edumazet@kernel.org>
-Cc: Jakub Kicinski <kuba@kernel.org>
-Cc: Paolo Abeni <pabeni@redhat.com>
-Signed-off-by: Linus Torvalds <torvalds@linux-foundation.org>
 ---
- net/sctp/socket.c | 11 ++++++++++-
- 1 file changed, 10 insertions(+), 1 deletion(-)
+Armandas Kvietkus (4):
+      firmware: qcom: scm: Add QSEE app start, shutdown and services image load
+      dt-bindings: vendor-prefixes: Add Fingerprint Cards AB
+      dt-bindings: misc: Add FPC1540 fingerprint sensor driven by a QSEE app
+      misc: Add FPC1540 fingerprint sensor driver for QSEE apps
 
-diff --git a/net/sctp/socket.c b/net/sctp/socket.c
-index bc68af88e271..85ac4952e9cb 100644
---- a/net/sctp/socket.c
-+++ b/net/sctp/socket.c
-@@ -9070,6 +9070,15 @@ static int sctp_msghdr_parse(const struct
-msghdr *msg, struct sctp_cmsgs *cmsgs)
- 	return 0;
- }
+ .../devicetree/bindings/misc/fpc,fpc1540-tee.yaml  |  74 +++
+ .../devicetree/bindings/vendor-prefixes.yaml       |   2 +
+ Documentation/userspace-api/ioctl/ioctl-number.rst |   2 +
+ MAINTAINERS                                        |   8 +
+ drivers/firmware/qcom/qcom_scm.c                   |  83 ++++
+ drivers/misc/Kconfig                               |  10 +
+ drivers/misc/Makefile                              |   1 +
+ drivers/misc/fpc1540-tee.c                         | 512 +++++++++++++++++++++
+ include/linux/firmware/qcom/qcom_scm.h             |  23 +
+ include/uapi/linux/fpc1540-tee.h                   |  20 +
+ 10 files changed, 735 insertions(+)
+---
+base-commit: ef922b721a5e99348fc1f5801fdeb427ee14ee9f
+change-id: 20261124-fpc1540-tee-c89b3527e72a
 
-+/* Don't take wakeups for other events, e.g. EPOLLOUT from write space. */
-+static int sctp_receiver_wake_function(wait_queue_entry_t *wait,
-+				       unsigned int mode, int sync, void *key)
-+{
-+	if (key && !(key_to_poll(key) & (EPOLLIN | EPOLLERR)))
-+		return 0;
-+	return autoremove_wake_function(wait, mode, sync, key);
-+}
-+
- /*
-  * Wait for a packet..
-  * Note: This function is the same function as in core/datagram.c
-@@ -9078,7 +9087,7 @@ static int sctp_msghdr_parse(const struct msghdr
-*msg, struct sctp_cmsgs *cmsgs)
- static int sctp_wait_for_packet(struct sock *sk, int *err, long *timeo_p)
- {
- 	int error;
--	DEFINE_WAIT(wait);
-+	DEFINE_WAIT_FUNC(wait, sctp_receiver_wake_function);
+Best regards,
+--  
+Armandas Kvietkus <armandas.kvietkus@proton.me>
 
- 	prepare_to_wait_exclusive(sk_sleep(sk), &wait, TASK_INTERRUPTIBLE);
 
--- 
-2.56.0.313.g975a75ca90
