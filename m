@@ -1,102 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.53.5
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795539229;
-	b=piAvaiCL42Gwgs9w/u9gZlYWHUqydUbB67kGQI66TO9ONYOvA1yK/npMR74w4Z6AFFtF
-	 rfYF0fWpTZlQUYowojjP3I89TMmJPHLMOayXf9pdrwkVauLqnEnKT9+ynL1Yfe9E0iNx/
-	 BBO7OyOaDYIG4oL6fVIUawTuuNaPrkAg2Vhp/wg64VhviDHy3JcqcoCGM5yFAjIbYLJIC
-	 bAcefSFTH0uvzviyOyqkqhAJOaIb2EskNtUh1LJ6wGDeFv4FAo1AEMNuy+dBMrV6SU07D
-	 JIS9w3eFGljFELfKMwSwr/UjdP3n7Kyn5hHzK//uVFWfbbHorlfX51bJXNfC22cx8Vg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795539229;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:From:Subject:To:Cc:References:Content-Language:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-LD-Processed:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=iOk5q+z3t+gH5BFuZnM8gF4oMYS6RiydYksgAOOMLSM=;
-	b=vluAhZ4u7Y8w2C1GUGvetbXeKBMKlrawWgvoQrcEfEZzwU9f/Oc1ApS8XLmbguaftfBH
-	 6aSnnMdiRu3JeP28xYkD95dEa8Vx8wGTQpT4jvqO2mSADNwifP6hZYgRwbBAqkdrPoKMB
-	 AhHfYy5uOgiZ9NoE/60T2l1MdgpFXptDDSkUeslU6RhoCpqbCq2Q2IrflFecPsGXwh9tS
-	 yZ8vsoazsbZdGqjY5n0SY3Yczfp3p04RySwDkumJ3GIBbIP5dQz6TjL762YvZZthAhMBH
-	 IJkEcab/buptRqAAgNzCJGhlAUiQOHFaUSZsoxDj61W/iRlQ13dtpMKekoVWnvaUecQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=amd.com;
-	spf=fail smtp.mailfrom=amd.com;
-	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=cP+QMTBv;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.53.5
-Received: from BL0PR03CU003.outbound.protection.outlook.com (mail-eastusazon11012005.outbound.protection.outlook.com [52.101.53.5])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795539230;
+	b=JQcSyQ+0+b28e6kLjTTGzhsJIT8WKg9CjnSgZPVI1usqKxhCrRmyFIF43/2zy9ARPnJH
+	 vwJtQagq++UN6+FsYRXyY7l53tKQkGSvU9HHUTSradP315yi6KfYrhWzisla0OHaUAiDb
+	 43ELSSCn7pwz80KVOAQT9g65a4ttwh8K/9zJi+Dzrd+kyiaSEfXM8m6MQz4ie31d3V2T1
+	 ZzDOgJUE1Nyl1NG7bDVap4ZWXVT3iaAlqkwPNdSvqgP0rqW4XA8cEpR3ZCRmlSzkhGcfu
+	 RrG/80BGipQ8uXpG6cuaFI5dgAKPDTr/Apdu7hMxy8pPdhW4dtz8DaP+YrUyhMy5dJg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795539230;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=TGS0p3l5aUvQSsnJUtozcXV+gafJYP1vaRPZ8q+1yVs=;
+	b=SaEHNv2Cy+3jtGuhn8PPDnZGRXvZ9EFoLdoEI9YLvhjPT88SZAvMKj3k4djkCfg2tVme
+	 3cCRMtylwWnVwuNJlvSQLOIZ+tSYfXr9SsGWV6gpfJ5KC+yj9dUx3TCL+U7xvmpbRB229
+	 buRPpiUr7z8KDCLgwFZsXTUSzjKl3cTk46SB7OwJxulRwm22wBqjGh3t6+L1EHJyCQPUn
+	 IEboFCNYp1qw7FCbi7JNiOEF2hW+kDWviakmcl0Kf1pSsicLlX5sdDh+Y1vaczCLy3zgO
+	 SHB3oc1BVfKwGbJI1X9zRoZUdWZhv20zh+CDh02kBxbsPX3tgKkv4r6JQHGOwEY9KpQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="W+Q/DLky";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D6AB4606A333;
-	Tue, 24 Nov 2026 16:53:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D6AB4606A333
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C9AD0606A330;
+	Tue, 24 Nov 2026 16:53:50 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=cP+QMTBv
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=HCPrdgomcWqxp8zNYiEjdxruq8zdWpRPUmjKxl5IN5wasnfgYkAOwNj1VsTuJY9fLvN4kTfcrqfXZE5hHMY5fVfnolfQUAM336Ii/DuIRbB1gUoTQPVQcHGVmiN6uqV+ciV88dHtQ4m/Uv1xR1Ro35KaJuL83FHQ9+YlEEeG7oDd6BfSDefJCM+GHXITvW/V7k7ji7LQo3aaH2/yqBkODKuVH5FYepzbmw7C9U/RBf5CqysfT6o+l2o0WjHFa8kknPkvvsSo5Hk93A2wG6eg6rnnc0EHyNYZ2M9NkCq/MZ/aZANDh3RZSk3VroLvzwixVFQVJQHD379ZrT3t4JRZ6w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=iOk5q+z3t+gH5BFuZnM8gF4oMYS6RiydYksgAOOMLSM=;
- b=ZLjIUnDUBRb07wcRvBW2JAkozh3L+yZkpfVRVJmOq1onMBJV+K4bm2/LHDAfmoep98piS7+oVUDM3nA02F3sQjdf8iNG+OH+tV/bZybRO7CTIWR6lSY2LszC9ZbPvyyMjpqkcx4YVbCbh6pyslY4On4aWlhrX5M9+HxXZtiC9hZAO4SnlEQVpocdWf7X2mpxd+nPcQ2ZiLOyLAOPG9YbGb1ueajYkw1QwPPl9g0anw1iD4cU76DO2J+L9mqvkKwI42PyUYiTV9W4WP3soR7+WzvCM8pO8XCCjhHFSLXY3kG5FlfAsr9eiQQ0ERYXF2jrtTQrnl7nP8LzBcXgA6K1TQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=iOk5q+z3t+gH5BFuZnM8gF4oMYS6RiydYksgAOOMLSM=;
- b=cP+QMTBv/6mNI2Aq/ykLJZmyJROj2ejn8uN8H+s8J0PTtoNydnIFxthQ1FoNTZId4gxMrNRsiHPM0IHsjWKfUwHeSv7HOjZXdYrhyu5dpBEEJMcH/210aXepmBAJqHQTdmjhK7NXU1D6v7vJCJveRc8CV0lN8QbpaaTgvPUl380=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from CY1PR12MB9559.namprd12.prod.outlook.com (2603:10b6:930:fd::14)
- by CY1PR12MB9626.namprd12.prod.outlook.com (2603:10b6:930:106::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Tue, 24 Nov
- 2026 16:53:36 +0000
-Received: from CY1PR12MB9559.namprd12.prod.outlook.com
- ([fe80::1761:23a3:6ab5:fbb8]) by CY1PR12MB9559.namprd12.prod.outlook.com
- ([fe80::1761:23a3:6ab5:fbb8%7]) with mapi id 15.21.0639.010; Tue, 24 Nov 2026
- 16:53:36 +0000
-Message-ID: <f7273b47-0835-4afb-9e45-ddf729f05b8e@amd.com>
-Date: Tue, 24 Nov 2026 22:23:29 +0530
-User-Agent: Mozilla Thunderbird
-From: "Nagavarapu, Dileep Kumar" <dnagavar@amd.com>
-Subject: Re: [PATCH v5 14/16] iio: adc: xilinx-xadc: Split driver into core
- and platform files
-To: Andy Shevchenko <andriy.shevchenko@intel.com>
-Cc: Jonathan Cameron <jic23@kernel.org>, David Lechner
- <dlechner@baylibre.com>, =?UTF-8?Q?Nuno_S=C3=A1?= <nuno.sa@analog.com>,
- Andy Shevchenko <andy@kernel.org>, Michal Simek <michal.simek@amd.com>,
- Conall O'Griofa <conall.ogriofa@amd.com>, linux-iio@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- git@amd.com, Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
-References: <20261110050201.1850399-1-dileepkumar.nagavarapu@amd.com>
- <20261110050201.1850399-15-dileepkumar.nagavarapu@amd.com>
- <avNGcpcemoeE3J7O@ashevche-desk.local>
- <42949fe9-b336-40e7-8a8e-43f6d24da9bc@amd.com>
- <awVzDqxuwsOjoFCi@ashevche-desk.local>
-Content-Language: en-US
-In-Reply-To: <awVzDqxuwsOjoFCi@ashevche-desk.local>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: MA0PR01CA0029.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:b8::11) To CY1PR12MB9559.namprd12.prod.outlook.com
- (2603:10b6:930:fd::14)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=W+Q/DLky
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C0D721F000EB;
+	Tue, 24 Nov 2026 16:53:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795539230;
+	bh=TGS0p3l5aUvQSsnJUtozcXV+gafJYP1vaRPZ8q+1yVs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=W+Q/DLkygKoWveglsObwnQuDQHgHhVTLQBYYieM2oxOIAYtQwAL3WEOF2DLCZL2rS
+	 SLsGk1yYj0c5ZhKJxzpeyjJzcVtuG2Se1RWtmT4trrESXCTrIN8m7qgE0VbXPKsRE4
+	 mdcWRycOFo5nBnfBLfr9yrKwu1fySVR64C0gXTQ28Y4kaOOAsfR/hzNg3tWVrgnBTR
+	 l019oR6l78Ai6rXpy1paM+/c2kolkIcYvlIhh8nQz0ome6zV/4CRCET1tE2TVg2AFU
+	 6l+uALjhvT1IN939gxT23Xpl+bUli61HeqMiWL/7rK/0tONu2P735MhETaICOWf/ir
+	 wcG9si/y7Wosw==
+Date: Tue, 24 Nov 2026 16:53:48 +0000
+From: Harry Yoo <harry@kernel.org>
+To: arina.kharlamova@mbzuai.ac.ae
+Cc: Jonathan Corbet <corbet@lwn.net>, 
+	Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>, 
+	Kees Cook <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>, 
+	Vlastimil Babka <vbabka@kernel.org>, Hao Li <hao.li@linux.dev>, Christoph Lameter <cl@gentwo.org>, 
+	David Rientjes <rientjes@google.com>, Roman Gushchin <roman.gushchin@linux.dev>, 
+	workflows@vger.kernel.org, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-hardening@vger.kernel.org, linux-mm@kvack.org
+Subject: Re: [PATCH] slab: fix the kernel-doc of kmalloc_flex() on counter
+ overflowy
+Message-ID: <awWxR-AsjwmkLE1Z@thinkstation>
+References: <20261124-slab-doc-v1-1-9f14dfce47c8@mbzuai.ac.ae>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,146 +62,163 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY1PR12MB9559:EE_|CY1PR12MB9626:EE_
-X-MS-Office365-Filtering-Correlation-Id: d67845e5-539d-489f-55ac-08df4a4b7b4b
-X-LD-Processed: 3dd8961f-e488-4e60-8e11-a82d994e183d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|376014|366016|1800799024|4143699003|261022105027099003|261026140227099003|261022075727099003|11063799006|56012099006|261021121427099003|10067099003|261102123227099003|261021123027099003|261009223027099003|261028144727099003|18002099003|22082099003|3023799007;
-X-Microsoft-Antispam-Message-Info:
-	VSsrgWtflf+Ad38mKbi6mJBGaDef7nL6JdxfB6TCijLKjaAPCBOmglDuXi77+z4b7AKLMZe51kWYxi/fCDehi49CVgUgquU696IBpCma+HSZ89bnEcDMSpVovi9ZNRvQSK+90Zqkduzx1xFoWxzZ/sKZ0IwWu+BxBAxlR688f5/DseEQayGY8emHina7trTSknPedhlFVoN/fQofmLhM8rO89zwWEZl4gecrWJIy4AjWzFwlqnDSw6x8DdNXAZJIly3eWEtxN5YIoGbrpGSCGUPHxioLA6vsCEriqZ/sxi6CNEJ9QsQLBgiLbfpRuYZwM2eUdFo9ddnTMRKI9ayp2wR9slS0kPipsHrhPfTn2QliF7etgMZBjH73veXXXfGglmW6vIIODJjWsGMUIuQqGm5N7hlGYnF6wjnKIpseU4UsDcvRe+FsMiF0h1tEuT7oIFUdwwrez4LFz2UH8ukDSUzuW2col1YysPiqI3fcxGJIdWM/pRHYuCna+PdcUY0cafknY5t8BkyoNs6aXptH9wlOH276vA+XUEmBGBMu9RZ6i6ywNzTrJhV0ggK2QlUO17ThJnfuPypAb72sAQY5vbuwVElDe3/d++UW6noe5XXip7I9DXA7QYZ4UpKZAUnNzA+ckFHUVysW7xav+ze/nQcsP5BCbKaUES7+KLHTW1o=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CY1PR12MB9559.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(366016)(1800799024)(4143699003)(261022105027099003)(261026140227099003)(261022075727099003)(11063799006)(56012099006)(261021121427099003)(10067099003)(261102123227099003)(261021123027099003)(261009223027099003)(261028144727099003)(18002099003)(22082099003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?N1UyaWRQUDhVaTBXMTdubE9nYkI2RlNRWDNETFptdDVUZzdSTE5vZnBDb0xy?=
- =?utf-8?B?bVI2UkQwUHkrUDhWWHcyaHJ3aERDMFpUWjFGQ21MdE9Rbkx4c0MrcDFhTThQ?=
- =?utf-8?B?Z283RW14cG44NFk2L3pYLzFKWkYxMjROM00zRExxS1FDcFpxK216RTdJakIv?=
- =?utf-8?B?SEtvTFBhcXNtYnJ5aXR5SzlBK0cwQ2hXTjc1STVlcFN5ODNoOU5DQkNSVmNq?=
- =?utf-8?B?QnpFWEZsbDYvY21ESXJReDVQam83QndCZWpON3YrTTVFRitJbjNPVVRUdWNm?=
- =?utf-8?B?Q3IxbTczWTRNdVk4eUN5MFFOY1J6cEVIRmt0d2pTaUNSSDhieC8xNlpRQTZI?=
- =?utf-8?B?THQyL1h2UE5jMHJ1bmxLd1cweDBWTHV0NllvWDZ3dkh4bHRnOW5DN2l4M1hl?=
- =?utf-8?B?YmdZRVVrUy9Sb1c0eHVIQUt0QUs2THBOWUgyR3lMNVBuYWtLMHZqV1htOG92?=
- =?utf-8?B?Zy9BbmV2R3BvdTNlKzVwbm5yOThrU21NcCtLcXd0ODl5RGQxa0V3YUVFb3B6?=
- =?utf-8?B?VmdYS2l3NW8zdDRhUnV2Y1M4U2xIeGpjMDVOa1VtZXRFMGRBNkgvT3owNXNK?=
- =?utf-8?B?ODczNTVaZUczWWY2WFpQSGVmaWs5UW5FMWczdEp2OXZBeWRLd01KcG1XZ3oy?=
- =?utf-8?B?SU12dmo5WXMxTHRHUThpTnZ6RmRpcnVSaXMzbXdrSXlqcUp4dWNzSlVpY0hr?=
- =?utf-8?B?Rk1ENDF1QXAyUGJSK0dwdUJlSVVDUXhKdGlvZVJDeG85bEliNCtlQlhaQUwr?=
- =?utf-8?B?ZFZpRlpMaThOQ2Y1VVRGMHdhNkZQTWJxbWtLSzI4OU5kSTBvbkVrRkNxcmkz?=
- =?utf-8?B?VXdOKy8zM01oWTlROUlFc0luejFtVXMxTCtPSVI4V0NreTZ0TVA1WnpCUHd6?=
- =?utf-8?B?dUZocHA1Y2xzOHRkTEd2ZjRpN3gxVS9NaGozSGV3aThUY01mRWZ0b25mZTNl?=
- =?utf-8?B?ZU9qUXp6NzFpQmkzNStsOUlnTWJvNjFUYVdwWGI4VmRzUmZpVHhOZEVoU21T?=
- =?utf-8?B?N1JabWx6MUcvZ0prU2pmeWprSkFWZlNSZXZxbEtiK200amNaaHJMekNlNkRN?=
- =?utf-8?B?MVh4b0tPTDBRT1BsWnM3M3lzcFd3cVdhMG95dFNic1hNaWRCVnpsWmtnZkJx?=
- =?utf-8?B?eUd6c2NaS2pzZVRPY1cyQzQwL3dmVll4T3h6UkpOQ3dIaHB1b2pLbnVXMWFS?=
- =?utf-8?B?Z1hRRnpvTU1ySEc0V3M1Y1k2ckZaNFVtaytKVTAxUUdBcXFzZUxkeGdWSElM?=
- =?utf-8?B?aWJEVUlLRGo4bUl2eGxadGRGVkUzRENWYlZJMnZ4T1ZEVG9IOXBYampBeUFw?=
- =?utf-8?B?VE1DZ2tOUTZsRTZaUGNSTlZoVTBNc01GVTUzK1NnbDdZZTAzSThPckg3Nnlu?=
- =?utf-8?B?WGsrMHVzSHVWbnNjOUpwNXFsdGdhOHVqNEtCOE5ZejJpb01DWWMxcSs2eS83?=
- =?utf-8?B?a3hNRjhycjJFTVhOQWdVd1AraGJZazlIVS9iVXBGckkzNFNuQVFJWkFHRm5t?=
- =?utf-8?B?YWZ6QnJrUndTNExla25BL3lxU09Vak5HakVQeXF4WG5tWnlyZTdhOVVYeGtR?=
- =?utf-8?B?SHZUVjVVaDNXUjNhYnlleEx4MnRyaHE1UnpwQlJxZnhQWUc1NjBkY2JNcktP?=
- =?utf-8?B?V1lnckhRVHovR2t4YUQ4NDVKS1FKRWRWRVlvMDBoRTRmWlgvVTRUYXg4RFpM?=
- =?utf-8?B?WFhNNTNWdGRISTBnQkpRWVppcjkydDc0Z3VsNDUzdWRTTFFGeWptMFQ4OFZi?=
- =?utf-8?B?d1pKSXU4Q1pXZXJUQVZacWNOaXBlbUJMZk02V3E0SFpOeUY4RGY0ZjhYZ3pU?=
- =?utf-8?B?dVJydk5uV05TSEloV1NRd1VWM3FqUC9GUXpuR2Vnc0phZy90QjYxZ2lVYStW?=
- =?utf-8?B?R2xGNGxyMDl3KytOQ2gxQys5cUpvQTNTbjd4amwzR3NqM3NSOWo2UU9DaUV2?=
- =?utf-8?B?R3haMVR4WVVJRFhyc3dtSUZQSERLL1o0dk56MC9RL0dMSno2b1lzUXViTFZz?=
- =?utf-8?B?c0ZIOUQxdjVmQVdzVnM0cTJGVks0RkhTSmY1T1RyTzhrRU9JQzdvek5WL2hG?=
- =?utf-8?B?M2lSKzJMZnFSTDNCOFllU1FYWU5hbnN6T2pOMytUZjZoMnp2aUx1VWI4YUpM?=
- =?utf-8?B?WkVsb2RCZmQ4YXlDd2twMi9rcDY4UkhzSEJJSUFLTGZBU1RsbG5wZUhJMENS?=
- =?utf-8?B?TXQ0anlnS2NIOFA3dTFGUjI3K3VxVTdHWFc0UnZYNnhxMkdQOW5UamVLRytm?=
- =?utf-8?B?ZkpTdkRRbmRWNDdpRFVLSWRiemRLZ0wyL0NBcnkzZDBPUG1yU2dUZW41Smxx?=
- =?utf-8?Q?2RgAmZLltlf2EdSiTB?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d67845e5-539d-489f-55ac-08df4a4b7b4b
-X-MS-Exchange-CrossTenant-AuthSource: CY1PR12MB9559.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 16:53:36.6912
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: h364Rl0b8toisIpNwFpDRCkjrsSLroorKjdjCsFpjNR37SqXyYCMqwGwSlvGol2Ak3MP/XWwRM6TJTHTi3GvyQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY1PR12MB9626
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261124-slab-doc-v1-1-9f14dfce47c8@mbzuai.ac.ae>
 
+Hi Arina,
 
+On Tue, Nov 24, 2026 at 03:58:53AM +0400, Arina Kharlamova via B4 Relay wrote:
+> From: Arina Kharlamova <arina.kharlamova@mbzuai.ac.ae>
 
-On 11/24/2026 4:50 PM, Andy Shevchenko wrote:
-> Caution: This message originated from an External Source. Use proper caution when opening attachments, clicking links, or responding.
-> 
-> 
-> On Tue, Nov 24, 2026 at 04:33:59PM +0530, Nagavarapu, Dileep Kumar wrote:
->> On 11/10/2026 9:59 PM, Andy Shevchenko wrote:
->>> On Tue, Nov 10, 2026 at 10:31:59AM +0530, Dileep Kumar Nagavarapu wrote:
-> 
-> ...
-> 
->>>> ---
->>>>    drivers/iio/adc/Kconfig                       |   8 +-
->>>>    drivers/iio/adc/Makefile                      |   5 +-
->>>>    drivers/iio/adc/xilinx-xadc-core.c            | 690 +--------------
->>>>    drivers/iio/adc/xilinx-xadc-events.c          |   1 +
->>>>    ...inx-xadc-core.c => xilinx-xadc-platform.c} | 818 +-----------------
->>>>    drivers/iio/adc/xilinx-xadc.h                 |  27 +
->>>>    6 files changed, 72 insertions(+), 1477 deletions(-)
->>>
->>> This is weird statistics... I think it's a bug in Git. What it did, it copies
->>> -core.c twice and uses statistics on each file after that without duplicating
->>> the *original* amount of lines.
->>
->> I generated the patches using the following command: "git format-patch \
->>     -M \
->>     -C10% \
->>     --histogram \
->>     --base=origin/togreg \
->>     --cover-letter \
-> 
->>     --subject-prefix="PATCH v5" \
-> 
-> Hint: You can use -v5 instead of the above long parameter.
-> 
->>     origin/togreg..HEAD"
->>
+Please consider improving readability of the commit message and the
+comment. LLMs are good at writing a bunch of "technically correct" texts
+that are completely unreadable by human.
 
->> If I remove the 10% similarity threshold from the command,
+> Commit fa5c82f4d2bb ("slab.h: disable completely broken overflow handling
+> in flex allocations") removed the overflows_flex_counter_type() check from
+> __alloc_flex(), but left the kernel-doc of __alloc_flex() and
+> kmalloc_flex(), and the text in deprecated.rst, saying that the
+> allocation fails when COUNT cannot be represented by the __counted_by()
+> counter.
+
+Good catch.
+
+Hmm, commit fa5c82f4d2bb says it needs to be inserted into
+__set_flex_counter but conditionally but apparently there is no
+follow-up. Kees?
+
+> The code instead allocates COUNT elements and stores COUNT into the
+> counter, truncated to the counter's type. With a u8 counter,
+> kmalloc_flex(*p, array, 256) returns a 256-element object whose counter
+> is 0.
+
+> With compilers that lack __builtin_counted_by_ref() the counter is
+> not written at all.
+
+Yup, which is benign as the counter is only used by hardening checks,
+right?
+
+And they should be skipped with such a compiler?
+
+> A caller that relies on the documented check and does not bound COUNT
+> itself gets an object whose __counted_by() size is smaller than the
+> allocation. Accesses inside the allocation are then reported by
+> UBSAN_BOUNDS, and readers that loop up to the counter see fewer elements.
+
+Good point but a counter overflow is an obvious bug so this explanation
+is unnecessary and verbose.
+
+> Make the documentation describe what the code does, and fix the
+> Returns: text of overflows_flex_counter_type(), which still describes
+> the inverted logic that the same commit corrected.
+
+Ok.
+
+> Returning NULL, as the old text described, is not done here. Some
+> callers allocate one element more than the counter can hold and then set
+> the counter themselves: ext4_htree_store_dirent() calls kzalloc_flex()
+> with ent_name->len + 1 elements for a struct whose name_len is a __u8,
+> so a 255-byte name would then fail with -ENOMEM.
+
+again, this pagraph doesn't add much value in the commit message IMHO.
+
+> Found while checking a summary of the kmalloc_obj() family against the
+> v7.0 to v7.4-rc2 text of slab.h with a battery of inputs compiled by
+> GCC 15.2, with the help of an AI coding assistant (Claude); I reviewed
+> the analysis and the patch. A KUnit case (not part of this patch) that
+> calls kmalloc_flex() with a u8 counter and COUNT 256 gets a non-NULL
+> object with the counter 0 on v7.4-rc2 (UML, GCC 15.2.0); with
+> UBSAN_BOUNDS, writing element 255 of that object reports "index 255 is
+> out of range for type 'u32 [*]'". This patch changes comments only;
+> scripts/kernel-doc -Wall reports the same warnings for slab.h and
+> overflow.h before and after it.
+
+again, we don't really put a paragraph like this in the commit message.
+
+> Fixes: fa5c82f4d2bb ("slab.h: disable completely broken overflow handling in flex allocations")
+> Signed-off-by: Arina Kharlamova <arina.kharlamova@mbzuai.ac.ae>
+> ---
+>  Documentation/process/deprecated.rst |  8 ++++----
+>  include/linux/overflow.h             |  5 +++--
+>  include/linux/slab.h                 | 15 +++++++++------
+>  3 files changed, 16 insertions(+), 12 deletions(-)
 > 
-> 10% is way too low threshold!
+> diff --git a/Documentation/process/deprecated.rst b/Documentation/process/deprecated.rst
+> index 22a5e62c92ea..f8b7fb6f9629 100644
+> --- a/Documentation/process/deprecated.rst
+> +++ b/Documentation/process/deprecated.rst
+> @@ -405,7 +405,7 @@ become, respectively::
+>  	__auto_type ptr = kmalloc_obj(struct foo [, gfp] );
+>  
+>  The argument gfp is optional, the default value is GFP_KERNEL.
+> -If `ptr->flex_member` is annotated with __counted_by(), the allocation
+> -will automatically fail if `count` is larger than the maximum
+> -representable value that can be stored in the counter member associated
+> -with `flex_member`.
+> +If `ptr->flex_member` is annotated with __counted_by(), the counter
+> +member associated with `flex_member` is set to `count` on compilers that
+> +support it. `count` is not checked against the type of the counter, so
+> +the caller must make sure it fits.
+> diff --git a/include/linux/overflow.h b/include/linux/overflow.h
+> index d0f04436343e..6ce610dbc12e 100644
+> --- a/include/linux/overflow.h
+> +++ b/include/linux/overflow.h
+> @@ -566,8 +566,9 @@ static __always_inline size_t __must_check size_sub(size_t minuend, size_t subtr
+>   * @FAM: Member name of the FAM within @TYPE.
+>   * @COUNT: Value to check against the __counted_by annotated @FAM's counter.
+>   *
+> - * Returns: true if @COUNT can be represented in the @FAM's counter. When
+> - * @FAM is not annotated with __counted_by(), always returns true.
+> + * Returns: true if @COUNT cannot be represented in the @FAM's counter.
+> + * When @FAM is not annotated with __counted_by(), or the compiler cannot
+> + * resolve the counter, @COUNT is checked against size_t.
+>   */
+>  #define overflows_flex_counter_type(TYPE, FAM, COUNT)		\
+>  	(overflows_type(COUNT, typeof_flex_counter(((TYPE *)NULL)->FAM)))
+> diff --git a/include/linux/slab.h b/include/linux/slab.h
+> index ad645967a3ee..69fa9066137f 100644
+> --- a/include/linux/slab.h
+> +++ b/include/linux/slab.h
+> @@ -1091,10 +1091,13 @@ void *kmalloc_nolock(size_t size, gfp_t gfp_flags, int node);
+>   * @FAM: The name of the flexible array member of @TYPE structure.
+>   * @COUNT: how many @FAM elements to allocate space for.
+>   *
+> + * If @FAM is annotated with __counted_by() and the compiler supports
+> + * __builtin_counted_by_ref(), the counter member is set to @COUNT. @COUNT
+> + * is not checked against the type of that member: a value it cannot
+> + * represent is stored truncated, so the caller must bound @COUNT.
+> + *
+>   * Returns: Newly allocated pointer to @TYPE with @COUNT-many trailing
+> - * @FAM elements, or NULL on failure or if @COUNT cannot be represented
+> - * by the member of @TYPE that counts the @FAM elements (annotated via
+> - * __counted_by()).
+> + * @FAM elements, or NULL on failure.
+>   */
+>  #define __alloc_flex(KMALLOC, GFP, TYPE, FAM, COUNT)			\
+>  ({									\
+> @@ -1137,9 +1140,9 @@ void *kmalloc_nolock(size_t size, gfp_t gfp_flags, int node);
+>   * @...: optional GFP flags for the allocation (GFP_KERNEL when not specified).
+>   *
+>   * Returns: newly allocated pointer to @VAR_OR_TYPE on success, NULL on
+> - * failure. If @FAM has been annotated with __counted_by(), the allocation
+> - * will immediately fail if @COUNT is larger than what the type of the
+> - * struct's counter variable can represent.
+> + * failure. If @FAM has been annotated with __counted_by(), the struct's
+> + * counter variable is set to @COUNT when the compiler supports it. @COUNT
+> + * must fit in the type of that variable; it is not checked.
+>   */
+>  #define kmalloc_flex(VAR_OR_TYPE, FAM, COUNT, ...) \
+>  	__alloc_flex(kmalloc, default_gfp(__VA_ARGS__), typeof(VAR_OR_TYPE), FAM, COUNT)
 > 
-
-Is it OK to use `-M -C --histogram` (default thresholds) instead? With
-it, xilinx-xadc-platform.c is shown as a new file with all lines as
-additions rather than as a copy of xilinx-xadc-core.c. The statistics
-then look like this:
-
-  drivers/iio/adc/Kconfig                |   8 +-
-  drivers/iio/adc/Makefile               |   5 +-
-  drivers/iio/adc/xilinx-xadc-core.c     | 688 +------------------------
-  drivers/iio/adc/xilinx-xadc-events.c   |   1 +
-  drivers/iio/adc/xilinx-xadc-platform.c | 677 ++++++++++++++++++++++++
-  drivers/iio/adc/xilinx-xadc.h          |  28 +
-  6 files changed, 733 insertions(+), 674 deletions(-)
-
-Are these statistics OK?
-
-
->> xilinx-xadc-platform.c is no longer detected as a copy of the original
->> xilinx-xadc-core.c, which is not the expected output.
->> Is there a better command or approach that would allow Git to recognize
->> xilinx-xadc-platform.c as being split from the original file while also
->> producing meaningful diff statistics?
+> ---
+> base-commit: 9b95c9eeec894e969d590f45f9b760e88ba92876
+> change-id: 20261124-slab-doc-1894ca04d006
 > 
-> But it's not a full copy. Have you tried to apply the patch from the mailing
-> list and see if `git am` correctly recognises the split?
-> 
+> Best regards,
+> --  
+> Arina Kharlamova <arina.kharlamova@mbzuai.ac.ae>
 
-Yes. I applied the v5 series from the mailing list with `git am`
-and all patches applied without errors
-
-> 
-> --
-> With Best Regards,
-> Andy Shevchenko
-
+-- 
+Cheers,
+Harry / Hyeonggon
