@@ -1,56 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=216.40.44.16
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795530895;
-	b=F+hpf0Up7agMOxkPM/Y9kbPQUfXNLau6xOlvRSC9co9EsO0gfIJ8wKSUYWhXMBrqKwD9
-	 Q42+w1nme7bg5gyDzuNHkVSqdpzyt/Qw6Pe/qMfO9o5cD9FceXt97CPjQO0maJW7gPsdB
-	 mBk5rNWbf60oUwjac3wDVO8ZLe9KPPMbfVbIB9W8IrZOXE9w4UhjcZ2+QAKgj5mhrJXvy
-	 /ai/kuLbveGIGqURujhecPuqcrp4r72nrV3SMy7B65M0ibOk3nHy2jvR8Wg2/gONgqycI
-	 lZ74kjRzrEVfEP6y11huL9ql2VyJ1DxIZngz3Np62/JLJn6n+Q/W7+GwAcyqrlfUKag==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795530895;
-	h=DMARC-Filter:Received:Received:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:X-Rspamd-Server:X-Rspamd-Queue-Id:
-	 X-Stat-Signature:X-Spam-Status:X-Session-Marker:X-Session-ID:
-	 DKIM-Signature:X-HE-Tag:X-HE-Meta;
-	bh=/CT6/MyjBFCAt30ylmwkm5YqXIvvm+uNz1QIn+PjSwk=;
-	b=hZI68cN8ArNpXYZfXKdh70uBCGOVqDCNfXHvof6ghDEOz8JBVeY2gDZoHbjChXt+nCA7
-	 18/MzWSf6JXYSw76MjWEJH/9yw4LMQBlV1NF7JxUlcigGYPUr05tFtMvjJaQmJbdq8Rb/
-	 l7X8mX/NEbOy596nvs2wQyWf79L3ez7I46mGS+Av8Rjl8vt44prGxtA6uzHlsqlxVhMA4
-	 I5vxtYdSzh7WMGuCfrmItLx/kgLHbavE+VryqLmkv+nfX0Msy9k+hFgqKY91OFAOtkhRq
-	 y3h06Ugd6LuqjBmd7uOg+FSR5wgIuuHVDtKV0tjwcw79HtzyQfdKMaJs8PBRIR9SvLA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=goodmis.org;
-	spf=pass smtp.mailfrom=goodmis.org;
-	dkim=pass header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=joj9FSb7;
-	arc=none smtp.remote-ip=216.40.44.16
-Received: from relay.hostedemail.com (smtprelay0016.hostedemail.com [216.40.44.16])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=81.169.146.168
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795530924;
+	b=mKTvs/fwjc6FTAQVZhYl5hYwojj5jTvfpd947M/mxG89pN082+VMPgUk2kriLtM3pQYF
+	 S8wh+V5BlMrjTanLleJvTLArkhTSFQcnoH3CkhaG+t84Gy3EOVRL/jhTNqptXKJw/YzUT
+	 xBy9iyMO/xE8ESw4cND/XaLNgs0IuXZ5y1Sz2qwlVFTxAGoTkFbwY/M0xemZa3Vn9MQyN
+	 kxJ+2REMV64ZV4Mlpwlq1OdhKLhXE+2onhJrtfwkTXbNeFdtE9YRHjW8nhgrrlLYLaWSp
+	 HG4rzrdpTDhsJuES1B/0T5oJw7CHDsOSmerqFrMoQZKXikafwHc/6vqjmdpfCBpTntw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795530924;
+	h=DMARC-Filter:X-RZG-CLASS-ID:DKIM-Signature:DKIM-Signature:X-RZG-AUTH:
+	 Received:Content-Type:Mime-Version:Subject:From:In-Reply-To:Date:Cc:
+	 Content-Transfer-Encoding:Message-Id:References:To:X-Mailer;
+	bh=pPC4o0FashGrZ7q1ba6XFZ2dyTINKWWF8cNcwGutazw=;
+	b=Tp217BjOo29vQEj1/vRzVOooYuysvg9UdU1MOUWTXtvpcbYNkGU0UKfg+91Ff+GAfCRw
+	 yXa2TrkYAf22AI9XVOBElEUWDkrrLqhzNQ/Z4oV5eXfZTg1mAfQoBfAaCEm3RF3lKX2IF
+	 BjYHrze14I3j7kQe0duisrIeVfzbzPdBa++/jz4llwyPbEBdmTL1ewF389X+ZKqb6UC2j
+	 rB6Z/0LBugX690EqTdDLBUWJnvsDj16hLwQ24CtpPgOLP6tENCKOcg0GhsBs8n+LqrQe8
+	 qzW6zuilf3oV5PZIaCUGPE4JV2WQvCp9pR0Pk3bXTpCdJvaMg20Ww98SGJUFOZXb9wQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=goldelico.com;
+	spf=pass smtp.mailfrom=goldelico.com;
+	dkim=pass header.d=goldelico.com header.i=@goldelico.com header.a=rsa-sha256 header.s=strato-dkim-0002 header.b=TBq3Zp9F;
+	dkim=pass header.d=goldelico.com header.i=@goldelico.com header.a=ed25519-sha256 header.s=strato-dkim-0003 header.b=9K1WvYtz;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=81.169.146.168
+Received: from mo4-p02-ob.smtp.rzone.de (mo4-p02-ob.smtp.rzone.de [81.169.146.168])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DD95C606A685;
-	Tue, 24 Nov 2026 14:34:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DD95C606A685
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=goodmis.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=goodmis.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D4F23606A31E;
+	Tue, 24 Nov 2026 14:35:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D4F23606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=goldelico.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=goldelico.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=joj9FSb7
-Received: from omf17.hostedemail.com (lb01a-stub [10.200.18.249])
-	by unirelay10.hostedemail.com (Postfix) with ESMTP id 73CD8C0B9D;
-	Tue, 24 Nov 2026 14:34:53 +0000 (UTC)
-Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf17.hostedemail.com (Postfix) with ESMTPA id A3D5F17;
-	Tue, 24 Nov 2026 14:34:51 +0000 (UTC)
-Date: Tue, 24 Nov 2026 09:34:50 -0500
-From: Steven Rostedt <rostedt@goodmis.org>
-To: Donglin Peng <dolinux.peng@gmail.com>
-Cc: mhiramat@kernel.org, linux-trace-kernel@vger.kernel.org,
- linux-kernel@vger.kernel.org, pengdonglin <pengdonglin@xiaomi.com>
-Subject: Re: [PATCH] fgraph: Format error pointers as signed errno values
-Message-ID: <20261124093450.555bafa5@gandalf.local.home>
-In-Reply-To: <CAErzpmtcDUu6dtQAvV4fJTuDyr6YqtyrLi6XBjWHLjxS55RTYQ@mail.gmail.com>
-References: <20261020104710.2366146-1-dolinux.peng@gmail.com>
-	<CAErzpmtcDUu6dtQAvV4fJTuDyr6YqtyrLi6XBjWHLjxS55RTYQ@mail.gmail.com>
-X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	dkim=pass (2048-bit key) header.d=goldelico.com header.i=@goldelico.com header.a=rsa-sha256 header.s=strato-dkim-0002 header.b=TBq3Zp9F;
+	dkim=pass header.d=goldelico.com header.i=@goldelico.com header.a=ed25519-sha256 header.s=strato-dkim-0003 header.b=9K1WvYtz
+ARC-Seal: i=1; a=rsa-sha256; t=1795530855; cv=none;
+    d=strato.com; s=strato-dkim-0002;
+    b=VQiaI5Hy157VlrRqaOCj1N9vjjVa8Ra0JmiNp7xaIASjJ9jINXJ0n3OKdnYSQRp4JZ
+    +EShQjRUhHzrJZJ7sL5P8n0r04fvc5f1n+yoXkQddn7xVATA1/TZ9th/4PZ+vlVxqbIl
+    jpmPK15kaGe7+/0/dlIzlo2RhAcQfaFGmdEojwWa9EcecaXzd8JzT45K+ugKPNxYCY2I
+    rnOPo4AX4UK8cKxWYfqEhoTC2FIWfD1ka/Ateg8XoQTc7pADiw/BrgJD9c3LYwJSkNjX
+    3JocLaQ7E0IzmGCQsTZqvzi1MU/Oy7HoHzw5ysEoEsjpY5pMiLsP9n43mrM2dq7EfYiQ
+    PoMQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; t=1795530855;
+    s=strato-dkim-0002; d=strato.com;
+    h=To:References:Message-Id:Cc:Date:In-Reply-To:From:Subject:Cc:Date:
+    From:Subject:Sender;
+    bh=pPC4o0FashGrZ7q1ba6XFZ2dyTINKWWF8cNcwGutazw=;
+    b=H1naZhooZrS8f4XAxSxLXUg4qjedYo56i3dz4xniKf7PkDMMjT/O1xgSSh9pfgr4pS
+    RFaYBeA2pNvx6TjrzltkUhOW7nU34meCf3mdle70hKq/e+sMBfvnJL5nfk+s5JF0bOna
+    F5tgYYVwgBLjH8a/kqlIKwsIqVii7+hqZwRjgzP11d1zIiOv/wtvdZez3yuLiTf3YWAg
+    7uXrxSe9FyH9wM6WMDcMENrz8D1ktfCFFP4qkCT+/lgv+mO27fL3zIMZxH+PgOZcHrWy
+    TV+UI924lerakwwjDWZ5PhvjFulKtvt3MAylYXdCPVn9WjoDEy7M99Y5Vll7+TYdrztB
+    ElIQ==
+ARC-Authentication-Results: i=1; strato.com;
+    arc=none;
+    dkim=none
+X-RZG-CLASS-ID: mo02
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; t=1795530855;
+    s=strato-dkim-0002; d=goldelico.com;
+    h=To:References:Message-Id:Cc:Date:In-Reply-To:From:Subject:Cc:Date:
+    From:Subject:Sender;
+    bh=pPC4o0FashGrZ7q1ba6XFZ2dyTINKWWF8cNcwGutazw=;
+    b=TBq3Zp9FVBdC07XCYxWQJdKxG6KJ26CqiOTO1TaNSfuZPKB7l6tlkfjJCkcYX/bzxN
+    NzC6pX1L6sq8PzgPHNP+VfBSLIv+4n8QXwCH5OmFQY7o6YOKs6xKFKPkDhMka5utJ6Tg
+    lrAAIHPZmZmnqAMFPo19GWniCdao68N1O6rerqOFE6VjphVxTNb+MiMGp8ZZK0J6BvUB
+    nUYNTZrX7gzhEqMlVtFWrjqRQR2iqJWiQr29ymQeF4e2rXp+rZD0vaRApCBvz3aso0gh
+    Rhf3vkl868bsKQJ9S6UY5Tr7hLY9BJp5YU9ukW02eQnC6EiisrjxWy8CIIXFRWY0OxAh
+    B9hg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; t=1795530855;
+    s=strato-dkim-0003; d=goldelico.com;
+    h=To:References:Message-Id:Cc:Date:In-Reply-To:From:Subject:Cc:Date:
+    From:Subject:Sender;
+    bh=pPC4o0FashGrZ7q1ba6XFZ2dyTINKWWF8cNcwGutazw=;
+    b=9K1WvYtzJzNNHClBs+8Vddpi1CzZaNt4JUc5jRlbRw8+zB//G65L//AA5d5KzafPpj
+    z8iD9e13OeegkV32RYAQ==
+X-RZG-AUTH: ":JGIXVUS7cutRB/49FwqZ7WcJeFKiMhflhwDubTJ9qVpwcQVkPW4I1HrV3poLlciNVWUgMvoVkTTR2P7jtjQyY2AeEP/F"
+Received: from smtpclient.apple
+    by smtp.strato.de (RZmta 55.6.3 AUTH)
+    with ESMTPSA id Qb56a22AOEYD3aL
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (curve X9_62_prime256v1 with 256 ECDH bits, eq. 3072 bits RSA))
+	(Client did not present a certificate);
+    Tue, 24 Nov 2026 15:34:13 +0100 (CET)
+Content-Type: text/plain;
+	charset=us-ascii
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,26 +93,81 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3826.700.81.1.11\))
+Subject: Re: [Letux-kernel] [PATCH v2 04/20] dt-bindings: sound: pcm1754:
+ Describe PCM1773
+From: "H. Nikolaus Schaller" <hns@goldelico.com>
+In-Reply-To: <608d13a4-6634-406e-aba8-b48114895cc0@sirena.org.uk>
+Date: Tue, 24 Nov 2026 15:33:42 +0100
+Cc: linux-fbdev@vger.kernel.org,
+ Lee Jones <lee@kernel.org>,
+ linux-pwm@vger.kernel.org,
+ Tony Lindgren <tony@atomide.com>,
+ Linus Walleij <linus.walleij@linaro.org>,
+ dri-devel@lists.freedesktop.org,
+ Jaroslav Kysela <perex@perex.cz>,
+ =?utf-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
+ David Airlie <airlied@gmail.com>,
+ linux-leds@vger.kernel.org,
+ Simona Vetter <simona@ffwll.ch>,
+ Rob Herring <robh@kernel.org>,
+ Aaro Koskinen <aaro.koskinen@iki.fi>,
+ Kevin Hilman <khilman@baylibre.com>,
+ Helge Deller <deller@gmx.de>,
+ Bartosz Golaszewski <brgl@kernel.org>,
+ Russell King <linux@armlinux.org.uk>,
+ Peter Ujfalusi <peter.ujfalusi@gmail.com>,
+ Daniel Thompson <danielt@kernel.org>,
+ devicetree@vger.kernel.org,
+ Conor Dooley <conor+dt@kernel.org>,
+ Pavel Machek <pavel@kernel.org>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>,
+ Roger Quadros <rogerq@kernel.org>,
+ linux-gpio@vger.kernel.org,
+ linux-sound@vger.kernel.org,
+ Takashi Iwai <tiwai@suse.com>,
+ linux-omap@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Jingoo Han <jingoohan1@gmail.com>,
+ Liam Girdwood <lgirdwood@gmail.com>,
+ linux-kernel@vger.kernel.org,
+ Thomas Zimmermann <tzimmermann@suse.de>,
+ kernel@pyra-handheld.com,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Jarkko Nikula <jarkko.nikula@bitmer.com>,
+ Jessica Zhang <jessica.zhang@oss.qualcomm.com>
 Content-Transfer-Encoding: 7bit
-X-Rspamd-Server: rspamout01
-X-Rspamd-Queue-Id: A3D5F17
-X-Stat-Signature: 4aaqgt1kon5yofrsrk3m38c41yhdjsrf
-X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
-X-Session-ID: U2FsdGVkX1+XPnsBSjISZXrW6/affoj0qDxQzPO1Cno=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=goodmis.org; h=date:from:to:cc:subject:message-id:in-reply-to:references:mime-version:content-type:content-transfer-encoding; s=dkim1; bh=/CT6/MyjBFCAt30ylmwkm5YqXIvvm+uNz1QIn+PjSwk=; b=joj9FSb7fNf58VcbWIKo3NQFWC8XZdKBGEEUT5v6jQ86d6Pv29zqJmPHkb4E9JPIdC9d47R0OjrE64QdZ/5FOc4z+Tp3yjPvlPMDL0qplOaB/+lxNL6sGAbUxVFcrQONt7EE7GfrSLdxkKhBvvVSRcdMP9vChz3zeYMUWxZeOqQ=
-X-HE-Tag: 1795530891-558170
-X-HE-Meta: U2FsdGVkX1+91AO1C8lgBAF7jFZzqoKSsDJx768XTKRRNQg9ajXNB3MkTqyhrt6hMPuy0oaBBv3i7gQ/73RM2pjbgGokX5gjTNi9k8nnboO/9FUB7TRz2ZxFX+yNXQ11KYP62K8RDlUMkvXtFfnZVFc0M643ZVNGBvdDUdSGl5cjFJECVnR0aHaGMm2Udmu0g1RUZ8mFpLPUU/NLIDDXlrSX3ntG+2dW9uKJ58ZqYS7KuZ79AOAZ00CFGZR3UqI0azSl4dl3kJ2z7AQMZoCe7f1jlVBIj+grVYTAFWuOdhDOtCA4GDYWA0HHA2QfBPkhSweJr2u31Zj3nH+1MXKiamz/GEEtGnxP
+Message-Id: <5A40DA10-E001-49C5-9432-F1494F6CDD49@goldelico.com>
+References: <cover.1795505160.git.hns@goldelico.com>
+ <a92d44c4ba920358003d475d4cac7541af037f41.1795505160.git.hns@goldelico.com>
+ <608d13a4-6634-406e-aba8-b48114895cc0@sirena.org.uk>
+To: Mark Brown <broonie@kernel.org>
+X-Mailer: Apple Mail (2.3826.700.81.1.11)
 
-On Tue, 24 Nov 2026 19:07:55 +0800
-Donglin Peng <dolinux.peng@gmail.com> wrote:
+Hi Mark,
 
-> Just a quick ping on this patch.
+> Am 24.11.2026 um 13:05 schrieb Mark Brown <broonie@kernel.org>:
 > 
+> On Tue, Nov 24, 2026 at 08:25:44AM +0100, H. Nikolaus Schaller wrote:
+>> Extend the PCM1754 device tree binding to describe the related
+>> PCM1773 stereo DAC.
+> 
+> Please submit patches using subject lines reflecting the style for the
+> subsystem, this makes it easier for people to identify relevant patches.
+> Look at what existing commits in the area you're changing are doing and
+> make sure your subject lines visually resemble what they're doing.
+> There's no need to resubmit to fix this alone.
 
-It's in queue. I have 153 patches in my todo list and unfortunately, fixes
-always preempt enhancements. This patch is more of an enhancement than a
-fix. But I'll get to it.
+Agreed. Should become
 
--- Steve
+	ASoC: dt-bindings: ti,pcm1754: 
+
+Unfortunately there is no tool to find this (neither checkpatch, Sashiko-Bot,
+nor ChatGPT did report it before submission and I didn't think of checking
+again).
+
+BR and thanks,
+Nikolaus
+
