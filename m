@@ -1,117 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.237
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795527001;
-	b=2rZeSUiM52kWGib5Zw/GrhRmGjRTbXlMxR4tcqMnc69CZQgqdxICYSMzXnp1T879oOEw
-	 AkMD7Gps/U28b/SxQ9FdHB7ToLX9lVs6whs7bGbC1f2JvOUgX6VBWHiETJctNXO8hbeeG
-	 Fixf5U1orRyJc3Bny2AM2QvHaruoeVDQtMB+LH9fC+SAbb9rG+0U5mpCar3Al9W+LgLEt
-	 q33GCCqeoHcWrgb6ibz/IobQ9osNS4zw8kKcysn1AcwIrK3SFTj5xgBJ/emjuO/3QqsPP
-	 MArqd/Y1QUk/KjWTUWtdKPyI6JDLzu337CuN54gP9KaQ7Sdu/4ea4Kec+RE4qc+N+Yw==
+	t=1795527015;
+	b=pDdq4UrtKlbFxA8Qiz94azw5Sp9CM8AYPY9WNeZFCJKIvEhM8Fm5O0VcwUAo88IpxYPP
+	 pEUp/s87eqt8P2JbhKmJbfrrp81umsi2AAZPXwPDXUkIayxE13nPXr7IPx3zu3WLiVNOW
+	 u3YfEbHlg/oawj0q9esb0jIUR3Q3RGUR/T+Lv9YxbRK4u3ntZth8PraeWTqD7x0pGVFVs
+	 P/KCAgnyx5AUiSXxjnZkQhWHnYBaeBzk9D57xVBkMbvQ5K4nmFcpSAURd/pKG/e5cMSuL
+	 3o7tMyn9+Rf8zLv/Hxl4wf54hdlOoMsdsmwWAv8FpflIRB5c+IXn+4KERlFopWfEE7w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795527001;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:Received:From:To:Cc:Subject:Date:Message-Id:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=HbHpUlOb1f43/quJqropjm+88ksUSksI9CVMWl4Gkh0=;
-	b=EfF8WNyhhHqsY6zrpg4sFigEBaKpDNl0WFFo2SLiVS6Vz/0x7LZe80nKsRVmIKSQryax
-	 rLFFN/I3RbM9SUj6uIiRJeBAVtyvVDp4V6gMfceZFNafwQzgKOizaqMOGkikhyUtYIWkp
-	 NlRKKJwHrNxB+sVV6r7hb8tcyPwfN4IUxC9rWQcDBI24ib0/KZNqJgPTTaZcOEkTB9Ph7
-	 t4l3YvH0RYDAoGNxp+Ltbclv2+DAaTkZ9FLEH/1+Ye0Bym7JPt5qErPdFN9+zac8TLBhv
-	 tK7p7LYXH78o8f/o3cE44vypu5o53fyet1UvMKLKDBzjc25ZzRj6LkBY85y/D8q6rtQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795527015;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=G1128rTZNHF3TZTp71wq55rZrR9C5zp6Bb3gqvNEXPY=;
+	b=d0aEETATuFNQP1QlQLi7J8pqnHas6KtUnmjP9LptvoWOOj5r+C8CXSkGXNQak7LHTHW0
+	 QtQuIdqFWvIpXib+eW9xNtTuSU/Y7YX0MzZPx+RO67Bt4LuWuFxPXuOeNlEU1+LZ6sKAj
+	 d9N1G02AD82mn7CNK2bDSCtZmfJ0cXeHD9Sezul0Dtez3p+4pX7/ozA/J5kbiK8BGr1kO
+	 gl4ihJ8+mDlF/SDYlefemQCXANir84NXvN6OrVxcUOa/2ViD72gk8jVsobR5TV9BOjm6n
+	 o9MCWo8VXTpJKn2cnTVLFGeHywF9k1LeDM//AG1w2oBkQ66RcsmhnZMeB22apFSSUDg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b="Bgv8oiC/";
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=NIDesLzg;
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=sZBN7sJM;
+	arc=none smtp.remote-ip=91.218.175.237
+Received: from mta0.migadu.com (out-237.mta0.migadu.com [91.218.175.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3D3F5606A326
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:29:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3D3F5606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90294606A321
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:30:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 90294606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Bgv8oiC/;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=NIDesLzg
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795526999;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=HbHpUlOb1f43/quJqropjm+88ksUSksI9CVMWl4Gkh0=;
-	b=Bgv8oiC/wOGGzdLg3HSuOJpsgnTPXhS74tBAb2d78Bjr4BrKACFjG+xyR9SxW5vwbYJBLE
-	Fo4Mfig4tEqqkUarXmWK4OOklf2q176AXofMpDILZTSeCf2iPvlPE4RERP5tb1AUyRGwkZ
-	p7MFwLDui8OgJcp/7flaWC0s/RRW2N8=
-Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com
- [209.85.222.199]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-586-i4xCBph4PI-yWnYLu9csSw-1; Tue, 24 Nov 2026 13:29:56 +0000
-X-MC-Unique: i4xCBph4PI-yWnYLu9csSw-1
-X-Mimecast-MFC-AGG-ID: i4xCBph4PI-yWnYLu9csSw_1795526996
-Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-949b0d322fbso654956385a.3
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 05:29:56 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795526996; x=1796131796; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=HbHpUlOb1f43/quJqropjm+88ksUSksI9CVMWl4Gkh0=;
-        b=NIDesLzgePeW1RI0l9jKnJHf2IhnwUfrUG2lBF5y+GZLhZ8Z3Ie7UpBf6SP23F4iYV
-         x2qvOckOntfNSX1HuCJ0VQoFYumN6u7TV8xuc40J42HiLZk/fq1i9FTtDmjBd2oau2LY
-         PGHK8eItVm68NPPY+LdgsqeEgv2Sb4wQ7am7tALLiq3Bfjsg72hnAkEsD7NvRKDAGQa9
-         A6WVvroMc+D7Tjo741ZXl4KdViQW8l3aAOD2YfJlq7hT1RbgByrpYDzs9hi0tUD7AJnO
-         OqN4vluVGic+u3umCBsMQ2KT+1vD3Wgpd1xXw43e9B0EFg85cQ0i1uewBw4wW2w9EvFB
-         tceg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795526996; x=1796131796;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=HbHpUlOb1f43/quJqropjm+88ksUSksI9CVMWl4Gkh0=;
-        b=OvKNSLDRSbUF2y1t3xJlwwA5yI87TfQOxeFQTUpAFoUi/GL4J3a5ioT2Jsc+N+iDJ0
-         sudGoCdtRUXC9kDUrH/J8udYMArofPdvODsGIzevEhWOfdDy3qljqfQ4Rc931w9mCYiW
-         6sWIBXzCGS8zR7DcGCC5A8HSNsyWx7htBBNwRIbQwchy3bspzsNM1IaBNgRCgPvwxSYH
-         lP99VghwwjCcEaY+Pq3o3JUcIXqR7HX4Rq8GOklyj9czsSyqXaRZ9muxhnQOw46mIRmX
-         0X03mXLFuSYdT3DFCtEzLTDMn3Pk4lU2gJ1vttYiXLT3BI3vF2Ax+gC0Tk8oM6q/vTN6
-         20OA==
-X-Forwarded-Encrypted: i=1; AL+hErEgdJ+yM3kFZWpsuIkdW92IsBRZA5f7ZX3OyyiZLoKkM2DYUGpRHBRInpebHmPBvIWF1rNPJynr0OeaaVo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8VApCnCnmRJ8CTbVQ/8QWknG+9WoPvhZejTCrcAkTj3mnH0tQb
-	eV8YbvE1gWkUJRamLVbdSyO1ObC/gl3GN8IxmhetsmbgYNh+gJJjCsrzd8PTLlT4W3fA/zxkBqH
-	YInAOcgmcz9DCvoSay6SWgKBsBvim4D9jaV+bNJQEaKScCOi7k+VP8KGu7TPCRJqOgw==
-X-Gm-Gg: AZFdTZcaxIB/N9KJRvC3lpst+00rHCovvvLd++kx9y1O307r2N88PoKHNV5KWUrV+Qh
-	ffq1t1DnY6TKARPM9ErCX+Mhlt//IAjL2o23REgUBKBjiaKlLbE06U8r94ducknvXX5xhn26lt4
-	kweFzhn+UJOmJe8O/PKGTgvaK7KNfscrIu4uIvjtFbc4/AoDQzA8D57U/AG6qNXqCCnFFEc8nZq
-	UYwCkIOQ13D3mnDReh4apKlNg7MscIDAPopbiuVrO3p0GeJ/qteHe4giRNNJvs/c3yBv13j3MlM
-	r2zkmHxFyDRdgOz5h2flCpA73xRTrzBUMxVOpa937ZgQsqAfIXVr1zhLCtvrYp2YLVbJWfrHNyb
-	aSA13XkWRp8vg3e1Cx053lE31RATTqKfaMI4alrMYcd9NfF/MiEc2zZrTSt++jjwhYr8e4z+csa
-	uMUcODNGZCGeH4Vd0bxT856as1uLaUHarMCDdFkbktZLuq95YQjmh16/WsMKWXG1yJ4V0wmmdeu
-	Z8Tana1G0Ghoppj0kuOlX6k3KZwwKsi7E9LPSw2Gz0Z/G+U1bL/
-X-Received: by 2002:a05:620a:4004:b0:949:7920:9d06 with SMTP id af79cd13be357-949bab0e640mr2535561185a.68.1795526995954;
-        Tue, 24 Nov 2026 05:29:55 -0800 (PST)
-X-Received: by 2002:a05:620a:4004:b0:949:7920:9d06 with SMTP id af79cd13be357-949bab0e640mr2535555885a.68.1795526995359;
-        Tue, 24 Nov 2026 05:29:55 -0800 (PST)
-Received: from cluster.. (4f.55.790d.ip4.static.sl-reverse.com. [13.121.85.79])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-949bb3f1ee7sm1033930385a.28.2026.11.24.05.29.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 05:29:55 -0800 (PST)
-From: Alex Markuze <amarkuze@redhat.com>
-To: Daolong Zhang <dlzhangak@isoftstone.com>
-Cc: Ilya Dryomov <idryomov@gmail.com>,
-	Viacheslav Dubeyko <slava@dubeyko.com>,
-	ceph-devel@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v2] ceph: fix inode and i_filelock_ref leak on file lock rollback
-Date: Tue, 24 Nov 2026 13:29:52 +0000
-Message-Id: <20261124132952.2186886-1-amarkuze@redhat.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <1795396934.6B039543.003.4jXp835gJkz40Rf@fangwg01>
-References: <20261122193828.1324376-1-amarkuze@redhat.com> <1795396934.6B039543.003.4jXp835gJkz40Rf@fangwg01>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=sZBN7sJM
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=jILvBWgUdQBgbN13h1Z1hnj/mPs1bGH6/A63I3+jXoI=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795527009; v=1; x=1796131809;
+ b=sZBN7sJMdpRSX2eH/sKxkVGPecuYLWOXQnkNt+wFlYY/ESCFL4bSSJ5pJqh0/DgzJLYKWUe3
+ e+fFcJB33XxsweU+kgqYtVZu7DtQFHYyBPZDKpwh+5fyba7xGGYg+zffo2YtYmpRDCcAatBARcv
+ JSrKwVELiQUCNLZAZe06NKcs=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id a47cf47b72ca0424;
+	Tue, 24 Nov 2026 13:30:09 +0000
+X-Mizu-Trace-ID: a47cf47b72ca0424
+X-Migadu-Flow: FLOW_OUT
+From: Huiwen He <huiwen.he@linux.dev>
+To: Namjae Jeon <linkinjeon@kernel.org>,
+	linux-cifs@vger.kernel.org
+Cc: Sergey Senozhatsky <senozhatsky@chromium.org>,
+	Tom Talpey <tom@talpey.com>,
+	ChenXiaoSong <chenxiaosong@chenxiaosong.com>,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 0/2] ksmbd: splice READ payloads over TCP
+Date: Tue, 24 Nov 2026 21:25:52 +0800
+Message-ID: <20261124132554.1185817-1-huiwen.he@linux.dev>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -123,12 +68,47 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Hi Daolong,
+From: Huiwen He <hehuiwen@kylinos.cn>
 
-Thanks for the patch.
+ksmbd reads file data into a private response buffer. TCP then copies
+the payload into an skb. If the reply must be queued, ksmbd also
+copies the unsent bytes into a queue buffer.
 
-Reviewed-by: Alex Markuze <amarkuze@redhat.com>
+This series uses MSG_SPLICE_PAGES to avoid those TCP copies for plain,
+standalone READs: patch 1 splices the initial TCP send from private
+pages and a header page fragment, and patch 2 retains references to
+unsent payload folios on the send queue so the send worker can splice
+them as well.
 
+Summary of fio sequential read results (16 jobs, QD32 per job, SMB3.1.1
+tmpfs; each column is relative to the preceding commit):
+
+Channels  I/O         Throughput change        Host Gcycles/GiB change
+                     patch 1    patch 2          patch 1    patch 2
+       1  4 KiB        -0.3%      -0.9%            +1.8%      -1.1%
+       1  64 KiB      +28.4%      +0.9%           -31.5%      -5.9%
+       1  256 KiB     +60.8%      +5.3%           -40.5%     -22.5%
+       1  1 MiB       +51.5%      +9.2%           -33.1%     -32.2%
+       4  4 KiB        +0.2%      +0.2%            +0.9%      +0.2%
+       4  64 KiB       +3.9%      +2.6%            -6.9%      +0.8%
+       4  256 KiB     +12.1%      -0.4%           -43.0%      -0.8%
+       4  1 MiB       +17.6%      +7.1%           -39.5%     -34.7%
+
+Huiwen He (2):
+  ksmbd: send READ payloads with MSG_SPLICE_PAGES
+  ksmbd: retain unsent READ pages on the TCP send queue
+
+ fs/smb/server/connection.c    |  18 +++
+ fs/smb/server/connection.h    |   1 +
+ fs/smb/server/ksmbd_work.c    |  24 ++--
+ fs/smb/server/ksmbd_work.h    |   8 +-
+ fs/smb/server/smb2pdu.c       |  74 +++++++++--
+ fs/smb/server/transport_tcp.c | 223 ++++++++++++++++++++++++++++++----
+ fs/smb/server/transport_tcp.h |   1 +
+ 7 files changed, 301 insertions(+), 48 deletions(-)
+
+
+base-commit: 89d5e8fdd5a74a318d18b7267c4ec5d70b2285f1
 -- 
-Alex Markuze
+2.43.0
 
