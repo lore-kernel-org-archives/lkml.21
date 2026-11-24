@@ -1,102 +1,111 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795513597;
-	b=PB/4IoO/YGa9tqzkFTnKVJLlH9l7G5X+RC+BTqUZXRGGO0D09/bLh/hP5J+Cj+840SKc
-	 APUjY8H6NIqiJOAC3/0vw9W8PoOHTIOlJ8tzBixdfKkIEwBkqdUG5U8XBp77IZIP+ipHq
-	 3ANlNX3kiJ857QF4yRegQ+1UK1jYhtdDrdoa2ZRWEJ7AJjzIIvT7302wN1NK0RAlnlaYp
-	 KdcuC0Q9bXoLdB/3BdJGrH2qSN1fOmjEi47VxmFKVOURm1vmPgTtEGgxNYNA893ADstmB
-	 /Z0WxB87baPPSTCmT/rbVm+X4vqByVuFwc79uekC3fhfLJcaQ7FnFrOyELd+egE6GQg==
+	t=1795513598;
+	b=2E3w3IBEjG722krziI0oShYME7kBaJ+IP6R8EV/aZtubCZSeZBuii9KzN2p7nPSg08Qu
+	 rzjjs15Cd3EKrSBOOQrQCQCHpZQJyaD369i3xgUdVMo8+naN/uCmqFh+tChun6AJgfy1p
+	 0lRa47lKKkMjZmsoXH/HIlEoSDbJgvBo33ri59sFBvX+31lNMdAZG0f4lLbz7gL9K1BoF
+	 FKA5Mrnnyf3HPmkGnp2DS7NNPVZsO2R6GrnQhj8VYFJ+Vg0238Hmv2kZ783zCAdprN1iE
+	 yXZs6clu97TlFI1lAQto+qfb3S58jf68+I3DVCBc6LOHCf6Lzcab9ddRXrV2mW1+55Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795513597;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=tBF+matHGBGE6Nr1Fd/2Ogm4SDKpAbX6dyL5PCX4Igk=;
-	b=ZlYc9Z4hLKlwjovtlUxSDxn/H7O6E/SvJ96ghyw0Y2cnc/sxSGnWEsX5QOC9Fgg247sQ
-	 kPHU51hNrDgi4y75dqwIgJtvylZeHdBfXnOeV7hGVDSX4YE39/uBPH1jN4Pm2u07HLehD
-	 cA2EcNlDkoiLteADEoaTLJZr+KwnBTNGU7SAX972dIG7mFkHFlmBEGBNYPPpuxaRR3eOE
-	 MtA1a5IpYxb0uwrVCZyDRpNEZ9BKMtw4vk041JUpFNvvN7tP0fnPRpE5BgRLe2cHlFii0
-	 q9n2AdK5XcjzYzH4AKHSqr8YovbkP61Ibxd7AbF2Tfow/19O7RdOlsuECdM7ejY+QbA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795513598;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Type:X-Mailer:
+	 Content-Transfer-Encoding;
+	bh=5VqkE0VpGyyIhB+nhv1WiMIPqzUR1jVg0fCyvEoMlKM=;
+	b=m15z2uVGSAQ0gIBsUHBoshti6giBR8XLHND3+M1ezPKrqkEkZhelFJfwNrPGhZT+vS9R
+	 uXbE7XeOQYqu+HD3BvyAciSa3oIj/0GVMMHbTJO1ThnuFiTG3vjzfvFKI2yh4c9t7gpeQ
+	 Ym72cRfWkinBA/IxQPCoBxukEcriMsNqIXUIxminciFXY5dx+XGYsZjVljfEeIqHvByno
+	 jykzfdzczL6Fyjf/jefsTKDB/niR3G+1ga6oaDiTlZkSf1pqdJAIxaVTQbTnKsQv2LlBM
+	 EWGuDNPeWeeDFgsgnPZb/juhZgBElbDYLXrBBEW0QmR3Vc+82yDmnTDRJkPqAp1Ij0Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=teslabs.com;
-	spf=fail smtp.mailfrom=teslabs.com;
-	dkim=pass header.d=teslabs-com.20260707.gappssmtp.com header.i=@teslabs-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=F2DuapRP;
-	arc=none smtp.remote-ip=209.85.128.49
-Received: from mail-wm1-f49.google.com (mail-wm1-f49.google.com [209.85.128.49])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Vaj6VuPX;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9295C606A853
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:46:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9295C606A853
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=teslabs.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=teslabs.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E4E8F606CC23;
+	Tue, 24 Nov 2026 09:46:37 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=teslabs-com.20260707.gappssmtp.com header.i=@teslabs-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=F2DuapRP
-Received: by mail-wm1-f49.google.com with SMTP id 5b1f17b1804b1-4a207b02a2cso30311775e9.1
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 01:46:36 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=teslabs-com.20260707.gappssmtp.com; s=20260707; t=1795513595; x=1796118395; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=tBF+matHGBGE6Nr1Fd/2Ogm4SDKpAbX6dyL5PCX4Igk=;
-        b=F2DuapRPmyZprQaMWa13/95lcAo7egtMQxaK0A97dc36K/UbriXjpI4WRcY04/rH+h
-         oQhbZmVPs2FSjZbGBvJ9uh0X7+yZ/+97EcWMSiN6KppPDEcBiONtkTrCS8POowkV7Cg2
-         CfosKbONOI5Fk0Eo+pRsFWSgNZqA6ugDOfOmrOBUWKpOCLBWaC6ZQH67Lcejb4XbsSid
-         MdQ3Ks/BDgtJHKmUIKfl595k9N7kw+dmBigAhMPu4YI/A6a3JMTFvcsoRbGf1S0CaHgu
-         J4a/1uVx5Ru36M5vSSfHS5r2nZgqLkbUDvmPu3P9Cyfr9d4s/LhIyLyE68iUsS5wvQjD
-         uMVg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795513595; x=1796118395;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=tBF+matHGBGE6Nr1Fd/2Ogm4SDKpAbX6dyL5PCX4Igk=;
-        b=HFy4++ojblVluOb7aFivjoSAhfe3Jk67AW9+Sk8ZyRLvgPva5Y+MMtvvRamjwONhjC
-         LbdTJdisE0qAb+gAJgBd64dSMXIiuHRSyBvQWidtQU9lOUgjVl1nhcBM8xuffF7dbJlR
-         qPKnbr564ilqZk8/WuzidGH2sdUjvZxfJs7b52+Pd76FaSvebyB9uh0WeTLFSe6mBSkO
-         HtV6GkO+ON5L+QK60lMDdr8e8rUB97zGv3ceY/6BjSvc6xvr2KtBu5YWrb0tHwlIq0//
-         fwGakiXPh5iOmHOX8ZgdJ1kgdXC/v3105g5ddBcxY30v7A1gVrahRHfs4rC7ifYnV8qO
-         GM2g==
-X-Forwarded-Encrypted: i=1; AL+hErHQzAWbuZn5b7J7TrD3GGN3lJ5VVAxg2XWtfSVBqNVe8CaEp213ldBLSCzqR24JAofAEgtrEzjE7RcfJXo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z97Nl5C2MYuS4LAzeDSN9FNqPYVxUcSe3aQsER+cJ2jdgi85AAs
-	AgCcUxidKlLt7F2BiQUwmDR3gN+CF6xq9jrauVpxTXQ51d5RIXRKDMqTMXw76CFHr3Q=
-X-Gm-Gg: AZFdTZd8mFuRrIK+0xzYEpmzmSAJtPdJ1xkhxnudPIj70CRWEFfDx+4J+pLBRd4Ue0t
-	aB5e9jFj9Ui18F854QWmH8zCgO15nv456VuXQnJa95VhQyBnCzxc1KnwgYXwCYabw34Ig25rrIM
-	uIC/B/ycL/kNj+9s8LvEhou9/H1VnGV1e5ls/dp7GUU7Znedif7ZNORo3sq11RkKLsyxSv2De1n
-	qgo9xirM6N5qTHNtXiekyefrR9IyrVrujzNsCgKP+8hqmaY0Wi+jyf4b+xu4K1KbtZk0YvmV6CE
-	DZxLQUEpp6bF9bifa5A0IfvgJOG0p1HFpoFqfd+xY9dO6SRg4n8MZdBrG14BoSST5BcJim+bJFo
-	G+Eq7opjOmPe8PjlrkypAsDBIGZadpbUQBUnkAe7y7pqbOLNYxkE3cQMN11W30tSusqRUlQq419
-	6Qa2vay3XIEYrR22nEm69xFPA7Gv80kCn88MqbuU51byUIFm5Th7zAP9odrPaGwlzNEWh12uNBb
-	Dw+6qnEYyfmp/bd9POlC6GaXW05LLjSmtOq/8NFS5nr5SJCHbXgzNCMsBDAawzdy174z0IBnmao
-	7evYt9sFy9VtKz3YlnoBVPc/febwO8hU7VL5//HVpZcfptMC8EhGXWixhnDzKFqiOdX3w6o9tML
-	m9eztj5ZUwf0qGmwihm6dteOrP5CMBWpK
-X-Received: by 2002:a05:600c:a0d:b0:4a1:825a:56fd with SMTP id 5b1f17b1804b1-4bb88826c1fmr277657935e9.32.1795513595111;
-        Tue, 24 Nov 2026 01:46:35 -0800 (PST)
-Received: from localhost.localdomain ([139.47.121.129])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884c3063sm431782555e9.15.2026.11.24.01.46.34
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Tue, 24 Nov 2026 01:46:34 -0800 (PST)
-From: Gerard Marull-Paretas <gerard@teslabs.com>
-To: Jonathan Cameron <jic23@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: David Lechner <dlechner@baylibre.com>,
-	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Frank Li <Frank.li@nxp.com>,
-	linux-iio@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v5 1/4] dt-bindings: iio: magnetometer: Add MEMSIC MMC5603 and MMC5633
-Date: Tue, 24 Nov 2026 10:46:29 +0100
-Message-ID: <20261124094632.8879-2-gerard@teslabs.com>
-X-Mailer: git-send-email 2.45.2
-In-Reply-To: <20261124094632.8879-1-gerard@teslabs.com>
-References: <20261124094632.8879-1-gerard@teslabs.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Vaj6VuPX
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B28C1F000C4;
+	Tue, 24 Nov 2026 09:46:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795513597;
+	bh=5VqkE0VpGyyIhB+nhv1WiMIPqzUR1jVg0fCyvEoMlKM=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=Vaj6VuPXFICAhTrbXRScJXlOnk1nbebiZHJ819vMfiPCTTgD19fO3/d8iCRfvTHBW
+	 X0I29LSCUZRvB/TZRXAjLyISNBI6QPoaOvb8QCzqd41HPfd5IY6l8utB0NQxJvcKP7
+	 k/JKciXNoiJQf5W5kn6cCxdka7rVQsEtl1/doccjKwtOKNwCrzaAYvUl7WTB4hw/JH
+	 ZPRjHwDJT3diDEoIxqZx3Mj1d4rY77EUrmp0DO+s+MFarJNPhW4YpUYMhMpVFc7dos
+	 vLVjOR/njoIKQt1Uo7CPta//5OhpK19uJlFKQNVk3n4VpLIHTEhkGHgNGGP53L7U63
+	 F35QqNLjXWeLg==
+From: Leon Romanovsky <leon@kernel.org>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	"David S. Miller" <davem@davemloft.net>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	"Joerg Roedel (AMD)" <joro@8bytes.org>,
+	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
+	Vasant Hegde <vasant.hegde@amd.com>,
+	Will Deacon <will@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	David Woodhouse <dwmw2@infradead.org>,
+	Lu Baolu <baolu.lu@linux.intel.com>,
+	Johan Hovold <johan@kernel.org>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Marcel Holtmann <marcel@holtmann.org>,
+	Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
+	Nipun Gupta <nipun.gupta@amd.com>,
+	Nikhil Agarwal <nikhil.agarwal@amd.com>,
+	Pieter Jansen van Vuuren <pieter.jansen-van-vuuren@amd.com>,
+	Chris Lu <chris.lu@mediatek.com>,
+	Mans Rullgard <mans@mansr.com>,
+	Alan Stern <stern@rowland.harvard.edu>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Cornelia Huck <cornelia.huck@de.ibm.com>,
+	Andrew Morton <akpm@osdl.org>,
+	Jeff Garzik <jeff@garzik.org>,
+	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
+	Bart Van Assche <bvanassche@acm.org>,
+	Alexander Duyck <alexander.h.duyck@linux.intel.com>,
+	Dan Williams <djbw@kernel.org>
+Cc: linux-kernel@vger.kernel.org,
+	driver-core@lists.linux.dev,
+	linux-input@vger.kernel.org,
+	netdev@vger.kernel.org,
+	linux-wireless@vger.kernel.org,
+	linux-usb@vger.kernel.org,
+	linux-bluetooth@vger.kernel.org,
+	linux-acpi@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-pci@vger.kernel.org,
+	iommu@lists.linux.dev,
+	linux-coco@lists.linux.dev,
+	Alexey Kardashevskiy <aik@amd.com>,
+	Luiz Augusto von Dentz <luiz.von.dentz@intel.com>,
+	Greg Kroah-Hartman <gregkh@suse.de>,
+	linux-sound@vger.kernel.org,
+	Jason Gunthorpe <jgg@ziepe.ca>
+Subject: [PATCH v4 29/33] iommu: Use device trust for DMA restrictions
+Date: Tue, 24 Nov 2026 11:44:00 +0200
+Message-ID: <20261124-device-trust-core-v4-29-037eb0d17b1f@nvidia.com>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261124-device-trust-core-v4-0-037eb0d17b1f@nvidia.com>
+References: <20261124-device-trust-core-v4-0-037eb0d17b1f@nvidia.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,105 +115,221 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+X-Mailer: b4 0.15-dev-18f8f
 Content-Transfer-Encoding: 8bit
 
-The MMC5603NJ and MMC5633NJL are listed in trivial-devices.yaml, which
-allows no properties besides the register address and interrupts.
-Boards need to describe how the sensor is oriented, and the supply it
-runs from, which is often switched on wearables.
+From: Leon Romanovsky <leonro@nvidia.com>
 
-Give them a binding of their own, covering both the I2C and I3C
-connections of the MMC5633NJL.
+PCI-specific untrusted checks exclude devices classified as adversaries
+through generic policy. Their DMA protections should depend on the selected
+trust policy rather than the source of that classification.
 
-Signed-off-by: Gerard Marull-Paretas <gerard@teslabs.com>
+Use policy for early domain selection and active trust for DMA bouncing.
+This removes the remaining need for PCI's duplicate untrusted flag.
+Changes to IOMMU domains after authorization remain separate work.
+
+Signed-off-by: Leon Romanovsky <leonro@nvidia.com>
 ---
- .../iio/magnetometer/memsic,mmc5633.yaml      | 61 +++++++++++++++++++
- .../devicetree/bindings/trivial-devices.yaml  |  4 --
- 2 files changed, 61 insertions(+), 4 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/iio/magnetometer/memsic,mmc5633.yaml
+ .../driver-api/driver-model/device-trust.rst         | 20 ++++++++++++++++++++
+ drivers/iommu/amd/iommu.c                            |  3 +--
+ drivers/iommu/dma-iommu.c                            | 14 +++++---------
+ drivers/iommu/intel/iommu.c                          | 14 +++++---------
+ drivers/iommu/iommu.c                                |  9 +++++----
+ drivers/pci/probe.c                                  |  1 -
+ include/linux/pci.h                                  |  8 --------
+ 7 files changed, 36 insertions(+), 33 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/iio/magnetometer/memsic,mmc5633.yaml b/Documentation/devicetree/bindings/iio/magnetometer/memsic,mmc5633.yaml
-new file mode 100644
-index 000000000000..423b8ecbb9e5
---- /dev/null
-+++ b/Documentation/devicetree/bindings/iio/magnetometer/memsic,mmc5633.yaml
-@@ -0,0 +1,61 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/iio/magnetometer/memsic,mmc5633.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/Documentation/driver-api/driver-model/device-trust.rst b/Documentation/driver-api/driver-model/device-trust.rst
+index 3c6babdba80e9..2c31d887a0cb0 100644
+--- a/Documentation/driver-api/driver-model/device-trust.rst
++++ b/Documentation/driver-api/driver-model/device-trust.rst
+@@ -255,6 +255,26 @@ fixed; it cannot fall back to unrestricted.
+ Drivers that manage DMA themselves must provide their own containment.
+ Drivers that do not use DMA need no domain.
+ 
++PCI classification
++==================
 +
-+title: MEMSIC MMC5603 and MMC5633 3-axis magnetic sensors
++PCI selects adversarial as the initial policy for devices that the
++platform reports as removable through external-facing ports, and for
++devices below a bridge with adversarial policy. IOMMU domain selection,
++ATS, and ACS Translation Blocking follow the policy at discovery; DMA
++bouncing follows the active level. Without device trust boot options this
++classification cannot change, so PCI devices keep the restrictions they
++had before device trust.
 +
-+maintainers:
-+  - Gerard Marull-Paretas <gerard@teslabs.com>
++Boot options are an explicit opt-in to replace it. A global value other
++than default and a device rule replace the classification at discovery.
++Global blocked and adversarial therefore restrict every PCI device, and
++authorization does not revisit those discovery-time decisions. PCI has no
++``trust_resolve`` callback, so a device rule of default resolves to
++unrestricted. Devices below a bridge inherit adversarial policy only while
++the bridge's policy is adversarial. A matching driver rule applies when
++the driver binds and changes only DMA bouncing.
 +
-+description:
-+  The MMC5603NJ is connected over I2C, the MMC5633NJL over I2C or I3C.
-+
-+properties:
-+  compatible:
-+    enum:
-+      - memsic,mmc5603
-+      - memsic,mmc5633
-+
-+  reg:
-+    maxItems: 1
-+
-+  vdd-supply: true
-+
-+  mount-matrix:
-+    description: An optional 3x3 mounting rotation matrix.
-+
-+required:
-+  - compatible
-+  - reg
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    i2c {
-+        #address-cells = <1>;
-+        #size-cells = <0>;
-+
-+        magnetometer@30 {
-+            compatible = "memsic,mmc5603";
-+            reg = <0x30>;
-+            vdd-supply = <&vdd_1v8>;
-+            mount-matrix = "-1", "0", "0",
-+                           "0", "1", "0",
-+                           "0", "0", "-1";
-+        };
-+    };
-+
-+  - |
-+    i3c {
-+        #address-cells = <3>;
-+        #size-cells = <0>;
-+
-+        magnetometer@30,4a20000f000 {
-+            compatible = "memsic,mmc5633";
-+            reg = <0x30 0x4a2 0xf000>;
-+            vdd-supply = <&vdd_1v8>;
-+        };
-+    };
-diff --git a/Documentation/devicetree/bindings/trivial-devices.yaml b/Documentation/devicetree/bindings/trivial-devices.yaml
-index a8b2b9deade4..523c205c0880 100644
---- a/Documentation/devicetree/bindings/trivial-devices.yaml
-+++ b/Documentation/devicetree/bindings/trivial-devices.yaml
-@@ -261,10 +261,6 @@ properties:
-           - meas,tsys01
-             # MEMSIC magnetometer
-           - memsic,mmc35240
--            # MEMSIC 3-axis magnetometer
--          - memsic,mmc5603
--            # MEMSIC 3-axis magnetometer (Support I3C HDR)
--          - memsic,mmc5633
-             # MEMSIC 3-axis accelerometer
-           - memsic,mxc4005
-             # MEMSIC 2-axis 8-bit digital accelerometer
+ Initrd attestation sequence
+ ===========================
+ 
+diff --git a/drivers/iommu/amd/iommu.c b/drivers/iommu/amd/iommu.c
+index 960e1dc05ec69..e358bbb1f2baa 100644
+--- a/drivers/iommu/amd/iommu.c
++++ b/drivers/iommu/amd/iommu.c
+@@ -3401,8 +3401,7 @@ static int amd_iommu_def_domain_type(struct device *dev)
+ 	if (!dev_is_pci(dev))
+ 		return 0;
+ 
+-	/* Always use DMA domain for untrusted device */
+-	if (to_pci_dev(dev)->untrusted)
++	if (pci_dev_default_is_restricted(to_pci_dev(dev)))
+ 		return IOMMU_DOMAIN_DMA;
+ 
+ 	/* Apply device specific quirks */
+diff --git a/drivers/iommu/dma-iommu.c b/drivers/iommu/dma-iommu.c
+index 78742aeba932d..a48fb511bfe6f 100644
+--- a/drivers/iommu/dma-iommu.c
++++ b/drivers/iommu/dma-iommu.c
+@@ -589,16 +589,11 @@ static int iova_reserve_iommu_regions(struct device *dev,
+ 	return ret;
+ }
+ 
+-static bool dev_is_untrusted(struct device *dev)
+-{
+-	return dev_is_pci(dev) && to_pci_dev(dev)->untrusted;
+-}
+-
+ static bool dev_use_swiotlb(struct device *dev, size_t size,
+ 			    enum dma_data_direction dir)
+ {
+ 	return IS_ENABLED(CONFIG_SWIOTLB) &&
+-		(dev_is_untrusted(dev) ||
++		(device_is_adversarial(dev) ||
+ 		 dma_kmalloc_needs_bounce(dev, size, dir));
+ }
+ 
+@@ -611,7 +606,7 @@ static bool dev_use_sg_swiotlb(struct device *dev, struct scatterlist *sg,
+ 	if (!IS_ENABLED(CONFIG_SWIOTLB))
+ 		return false;
+ 
+-	if (dev_is_untrusted(dev))
++	if (device_is_adversarial(dev))
+ 		return true;
+ 
+ 	/*
+@@ -1189,7 +1184,8 @@ static phys_addr_t iommu_dma_map_swiotlb(struct device *dev, phys_addr_t phys,
+ 	 * swiotlb_tbl_map_single() has initialized the bounce buffer proper to
+ 	 * the contents of the original memory buffer.
+ 	 */
+-	if (phys != (phys_addr_t)DMA_MAPPING_ERROR && dev_is_untrusted(dev)) {
++	if (phys != (phys_addr_t)DMA_MAPPING_ERROR &&
++	    device_is_adversarial(dev)) {
+ 		size_t start, virt = (size_t)phys_to_virt(phys);
+ 
+ 		/* Pre-padding */
+@@ -1790,7 +1786,7 @@ size_t iommu_dma_max_opt_mapping_size(void)
+ 
+ size_t iommu_dma_max_mapping_size(struct device *dev)
+ {
+-	if (dev_is_untrusted(dev))
++	if (device_is_adversarial(dev))
+ 		return swiotlb_max_mapping_size(dev);
+ 
+ 	return SIZE_MAX;
+diff --git a/drivers/iommu/intel/iommu.c b/drivers/iommu/intel/iommu.c
+index 5a2e705a2f2e0..0202b491f222e 100644
+--- a/drivers/iommu/intel/iommu.c
++++ b/drivers/iommu/intel/iommu.c
+@@ -2624,8 +2624,8 @@ static void __init platform_optin_force_iommu(void)
+ 		return;
+ 
+ 	/*
+-	 * If Intel-IOMMU is disabled by default, we will apply identity
+-	 * map for all devices except those marked as being untrusted.
++	 * If Intel-IOMMU is disabled by default, an external device could
++	 * otherwise receive an identity map despite its adversarial policy.
+ 	 */
+ 	if (dmar_policy_off()) {
+ 		pr_info("Intel-IOMMU force enabled due to platform opt in\n");
+@@ -3629,16 +3629,12 @@ static bool intel_iommu_is_attach_deferred(struct device *dev)
+ 	return translation_pre_enabled(info->iommu) && !info->domain;
+ }
+ 
+-/*
+- * Check that the device does not live on an external facing PCI port that is
+- * marked as untrusted. Such devices should not be able to apply quirks and
+- * thus not be able to bypass the IOMMU restrictions.
+- */
++/* Bypass quirks must not prevent later adversarial operation. */
+ static bool risky_device(struct pci_dev *pdev)
+ {
+-	if (pdev->untrusted) {
++	if (pci_dev_default_is_restricted(pdev)) {
+ 		pci_info(pdev,
+-			 "Skipping IOMMU quirk for dev [%04X:%04X] on untrusted PCI link\n",
++			 "Skipping IOMMU quirk due to trust policy [%04X:%04X]\n",
+ 			 pdev->vendor, pdev->device);
+ 		pci_info(pdev, "Please check with your BIOS/Platform vendor about this\n");
+ 		return true;
+diff --git a/drivers/iommu/iommu.c b/drivers/iommu/iommu.c
+index b486b8bbd1fcd..891b0cd2dad02 100644
+--- a/drivers/iommu/iommu.c
++++ b/drivers/iommu/iommu.c
+@@ -1901,10 +1901,11 @@ static int iommu_get_default_domain_type(struct iommu_group *group,
+ 		driver_type = iommu_get_def_domain_type(group, gdev->dev,
+ 							driver_type);
+ 
+-		if (dev_is_pci(gdev->dev) && to_pci_dev(gdev->dev)->untrusted) {
++		if (dev_is_pci(gdev->dev) &&
++		    pci_dev_default_is_restricted(to_pci_dev(gdev->dev))) {
+ 			/*
+-			 * No ARM32 using systems will set untrusted, it cannot
+-			 * work.
++			 * No ARM32 using systems select a restricted trust
++			 * policy; it cannot work.
+ 			 */
+ 			if (WARN_ON(IS_ENABLED(CONFIG_ARM_DMA_USE_IOMMU)))
+ 				return -1;
+@@ -1928,7 +1929,7 @@ static int iommu_get_default_domain_type(struct iommu_group *group,
+ 		if (driver_type && driver_type != IOMMU_DOMAIN_DMA) {
+ 			dev_err_ratelimited(
+ 				untrusted,
+-				"Device is not trusted, but driver is overriding group %u to %s, refusing to probe.\n",
++				"Device trust policy restricts DMA, but driver is overriding group %u to %s, refusing to probe.\n",
+ 				group->id, iommu_domain_type_str(driver_type));
+ 			return -1;
+ 		}
+diff --git a/drivers/pci/probe.c b/drivers/pci/probe.c
+index 606ab8a3aa8ed..d890049823a6e 100644
+--- a/drivers/pci/probe.c
++++ b/drivers/pci/probe.c
+@@ -2080,7 +2080,6 @@ int pci_setup_device(struct pci_dev *dev)
+ 	set_pcie_cxl(dev);
+ 
+ 	pci_set_default_trust_policy(dev);
+-	dev->untrusted = device_policy_is_adversarial(&dev->dev);
+ 	device_trust_init(&dev->dev);
+ 
+ 	/* "Unknown power state" */
+diff --git a/include/linux/pci.h b/include/linux/pci.h
+index 5da9f7fabf1e5..25a54b25775d4 100644
+--- a/include/linux/pci.h
++++ b/include/linux/pci.h
+@@ -490,14 +490,6 @@ struct pci_dev {
+ 	unsigned int	shpc_managed:1;		/* SHPC owned by shpchp */
+ 	unsigned int	is_thunderbolt:1;	/* Thunderbolt controller */
+ 	unsigned int	is_cxl:1;               /* Compute Express Link (CXL) */
+-	/*
+-	 * Devices marked being untrusted are the ones that can potentially
+-	 * execute DMA attacks and similar. They are typically connected
+-	 * through external ports such as Thunderbolt but not limited to
+-	 * that. When an IOMMU is enabled they should be getting full
+-	 * mappings to make sure they cannot access arbitrary memory.
+-	 */
+-	unsigned int	untrusted:1;
+ 	/*
+ 	 * Info from the platform, e.g., ACPI or device tree, may mark a
+ 	 * device as "external-facing".  An external-facing device is
+
 -- 
-2.45.2
+2.56.1
 
