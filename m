@@ -1,61 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.3
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.15
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795514458;
-	b=iZCKt/OuJTrpdIl5ob/rC/AKRMhx0eO4r9FuvVE+Fz1Xh61zKIm0a8tINx17L1OnxsSg
-	 05k+y4c4s4iGFFG9WYcyzgjsm+ocdusgbPToch1o+zzLyM0+iI5RL35hDih9QWBrFKJMG
-	 knVzCByuJkEJg8QTeRMts4VuVZ9lslRQzfv58jpLF24RisqC3+IvB1rvf/cjcS0O+T4BR
-	 RtXp5Aswvt2FyN9+dpmZbaD+VHLL3QCM4QMfTtSpyVfANNHS7vUUikMGCHMVFfUXGlDoa
-	 hMj8lcK26RKALQcoxk3x7JrPJIW8GqwmSDCkuopQjzU0vkqT5T8bJngSaMVYzq7SlUQ==
+	t=1795514465;
+	b=GdLMTom0yheX6f0PXV7Sm8JCeEnBQtyjGbDIpd9xPGEx4rsecT/V/rqBhjMpOlZNpB5F
+	 TYjIJmbuP8v65p5pZW4Od+NcAizl5BqQrmQ+GyBbhGBSaiPtTS1+DpMV2id+pRlssL6Ta
+	 SoyB9iNTrM2SYSM1Vqaz9PQrw0F6XuQPppQ65f3dYTim1Mb8IXqq4k9ryKR6APEvkvjPM
+	 S1o2ayCYrvqOWBvstiIoLurVbJujQVt2mhU8qjCv2iUQz1yj4j+0HO3hMIdoH1SRTUXHK
+	 s4Nv7A93DAWtDhbICvuIJxmtJo+HvYkohQKIW+DgRGIri/4Jc7uTF8kHHL2xTrSw5+w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795514458;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
-	 X-CM-SenderInfo;
-	bh=yIIBQoRR89NTHy9ZCDwkHf8kWCbxt7j/00D8+1ttnwc=;
-	b=fC8iLAqrLwtETCrF5PH/iycygloBxDal1iepgUiXpFH3BEoPlRuX2/qusGfK16xsdive
-	 60YdYK8Dh+Iq7toc7nRCwyLw2W91IbuT20ApgG6VXGi3107X07jCAnJk3kHQyEuzY/7ob
-	 84tIsnUhBcEoBdSVCPpqOjHT9xcBBUN0VLq8jUQOHpw//Z8i7MeYrfM1hpGpfY9B5f7Hh
-	 v0ngbfPvJL7v3+pRYO+VlPyRZz5ZXXyizlbCdBwaA5qlcwagmdOSuyNXUmBOlSyQM6G0o
-	 BvQpQL5ZVckw6fEHyUXMVL4igRoYKN0ODVuZyNOquKLGazzIeBQZ6bj+GQAd42NE3uQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795514465;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:Organization;
+	bh=Zf9ESEgy1Yvb0BHjTagLxMnoCOgbiLUZ3kDaGMI2aC0=;
+	b=hi/3e0CVGIQtoL3cVqmlIn980MFZ50mK0eL3RpF6Hi/R3L1+p2xHc8Kf2sM6Whz735F6
+	 nwrHpQftGTbe6dau5KhrI0PZNKchlYjwWQSdS5Ftvb2hM3ts0XAce5iBeEpJvrFUA+ISo
+	 cMvW1fxsDQaEDvdCS3abBGcwuRwyCuKj15iKiIYhaAyTJ6ZiXO3kiUH8rm2bnzswegOON
+	 yyAMQ2dmS4LGuSV0c+pRDZLPJWxeWC4Y/x5Yd6YVAQXS0NwPNwOXzrhdWJDKd5az0KUtL
+	 CDUmvaugC4i07yiI5eHWdqu2uI0YZ0P7L7n7FcMxAZU9zFExLmt7yDiHMjaDE/ATLGg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=163.com;
-	spf=pass smtp.mailfrom=163.com;
-	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=HKwOpv2c;
-	arc=none smtp.remote-ip=117.135.210.3
-Received: from m16.mail.163.com (m16.mail.163.com [117.135.210.3])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=L3jXIWAq;
+	arc=none smtp.remote-ip=198.175.65.15
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.15])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AEB20606A332
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 10:00:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AEB20606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6D04F606A31E;
+	Tue, 24 Nov 2026 10:01:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6D04F606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=HKwOpv2c
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=yI
-	IBQoRR89NTHy9ZCDwkHf8kWCbxt7j/00D8+1ttnwc=; b=HKwOpv2cS5rXfPE1/+
-	tk3bNdlj0USE1sZjhsMmEfn4wtQaRIX+4SQaLTGshDgrPpuOrupAjod2D+3kA7Bp
-	2ionbwMtLRMZpGJgb+2AZLe5VlKCsma50mUT3zZgaeZLzkggPcM+q4tq33virAwo
-	P34qgP3fm0q3bWsu2b2DosITU=
-Received: from user-VMware-Virtual-Platform.localdomain (unknown [])
-	by gzsmtp3 (Coremail) with SMTP id PigvCgD3jiUtYAVro_nRHw--.24605S2;
-	Tue, 24 Nov 2026 18:00:13 +0800 (CST)
-From: Ziheng Wei <zihengw03@163.com>
-To: gregkh@linuxfoundation.org
-Cc: fan.jiaming@hotmail.com,
-	amit@kernel.org,
-	arnd@arndb.de,
-	virtualization@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] virtio_console: drop device reference when DMA allocation fails
-Date: Tue, 24 Nov 2026 18:00:11 +0800
-Message-ID: <20261124100011.5043-1-zihengw03@163.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <2026112438-juggle-squeamish-22ea@gregkh>
-References: <2026112438-juggle-squeamish-22ea@gregkh>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=L3jXIWAq
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795514465; x=1827050465;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=Eltag6jOZ8zeJgwzkIWJ40VcLJAp19NlWjNiKuJ8QlY=;
+  b=L3jXIWAqRYQhwOkE1/XF1eOoyoTA/Zal08pjECmpIu0BWnEaA0C+nYjL
+   wMI43Dgp/DD7yfV261rP0zGv+0KNu9h9nP2ei8Xu2MWZ1vE3bOkPv3L+z
+   SImbgLRMo/F1n6KcnDccIsBSqWOaT9nUk3XkjHCb/zmNxbzfsRLS1zZ29
+   q/hpndiFfLE/dkZuDqQRiEu2BOoGC0Ew5Asa585NLxFyQWDH+9TV4sZWc
+   5ZXfqKNlwlluoUP6peeao1BqxcA8+gACVskMn4y+3KAxI6Hs4LDGA77fv
+   llVbHckpEsjgy7pFQVh7rHsZtol0D8g/iks7eLUOm6X/mek4Nom9kPqa5
+   g==;
+X-CSE-ConnectionGUID: S6aHRbljTIqIe1f14ixqyQ==
+X-CSE-MsgGUID: n9ysHJPbSo25lB9h9WFcrA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11975"; a="4355697"
+X-IronPort-AV: E=Sophos;i="6.27,230,1787036400"; 
+   d="scan'208";a="4355697"
+Received: from orviesa009.jf.intel.com ([10.64.159.149])
+  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 01:13:45 -0800
+X-CSE-ConnectionGUID: n61VJSvpRo2frX89+RSoZg==
+X-CSE-MsgGUID: FX+CTpqaRFujgeEjWD0HRQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,230,1787036400"; 
+   d="scan'208";a="11834755"
+Received: from hrotuna-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.245.125])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 01:13:43 -0800
+Date: Tue, 24 Nov 2026 11:13:41 +0200
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Yury Norov <ynorov@nvidia.com>
+Cc: linux-kernel@vger.kernel.org, Yury Norov <yury.norov@gmail.com>,
+	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
+	Jonathan Cameron <jic23@kernel.org>, Chris Li <sparse@chrisli.org>,
+	Luc Van Oostenryck <luc.vanoostenryck@gmail.com>,
+	linux-sparse@vger.kernel.org
+Subject: Re: [PATCH v1 1/1] bitmap: Refactor bitmap_read() and bitmap_write()
+ to avoid too big shift
+Message-ID: <awVVRTuvDLLVmRlS@ashevche-desk.local>
+References: <20261119191530.1716850-1-andriy.shevchenko@linux.intel.com>
+ <av9eAde6AKlAKWaH@yury>
+ <av9kOeZtIjOtH2yp@ashevche-desk.local>
+ <av9ofhBTAcMJud_-@yury>
+ <awAH8F_UXdcftgV6@ashevche-desk.local>
+ <awBcWKvDGV8sLcGu@yury>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,22 +87,54 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:PigvCgD3jiUtYAVro_nRHw--.24605S2
-X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
-	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUVQJ5UUUUU
-X-CM-SenderInfo: p2lkv0ljzqjqqrwthudrp/xtbC7g4-j2sFYC50pQAA3h
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <awBcWKvDGV8sLcGu@yury>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 
-Sorry for the missing context. The question I was answering was:
+On Fri, Nov 20, 2026 at 09:42:32AM -0500, Yury Norov wrote:
+> On Fri, Nov 20, 2026 at 10:42:24AM +0200, Andy Shevchenko wrote:
+> > On Thu, Nov 19, 2026 at 04:22:06PM -0500, Yury Norov wrote:
+> > > On Thu, Nov 19, 2026 at 11:03:53PM +0200, Andy Shevchenko wrote:
+> > > > On Thu, Nov 19, 2026 at 03:37:33PM -0500, Yury Norov wrote:
+> > > > > On Thu, Nov 19, 2026 at 08:15:30PM +0100, Andy Shevchenko wrote:
 
-  Is this a duplicate of
-  https://lore.kernel.org/all/aoWK_qpSBeO6Bw0M@michalis-linux/?
+...
 
-Yes, it is. Both patches fix the same alloc_buf() device-reference leak
-when dma_alloc_coherent() fails. I missed Michail Tatas's earlier patch
-during my duplicate search, so please ignore mine.
+> > > > > I guess... Let's keep the patch minimal?
+> > > > > 
+> > > > > > -	mask = BITMAP_LAST_WORD_MASK(nbits);
+> > > > > > -	value &= mask;
+> > > > > > -	offset = start % BITS_PER_LONG;
+> > > > > > -	space = BITS_PER_LONG - offset;
+> > > > > > -	fit = space >= nbits;
+> > > > > 
+> > > > > I don't like this 'fit' thing, and would like to drop it. But
+> > > > > let's find a better motivation to do that?
+> > > > 
+> > > > Why? The fit keeps the check I want to refactor, since it makes it twice
+> > > > the code with that ternary looks ugly and unreadable. This is exactly the
+> > > > chance to kill two birds with one stone.
+> > > 
+> > > That's what I meant regarding the motivational part and minimizing the
+> > > patch.
+> > 
+> > OK. So refactoring bitmap_write() to make it look like bitmap_read() can be
+> > done after your nice below patch.
+> 
+> Sure, I'll take the patch with the tags suggested.
 
-Sorry again for the noise.
+In the Linux Next it uses Link instead of Closes. Perhaps you still have
+a chance to amend that?
 
-Ziheng Wei
+> But you're very welcome to continue optimizing it - my gut feeling says we
+> can squeeze a few more percents out of it with just a careful refactoring.
+
+Sure, when I have time to look into this again.
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
 
