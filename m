@@ -1,18 +1,18 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.201.44
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.52.4
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795500540;
-	b=pWmfJuHie+rZ9TVahQiFRgc0uDyU3D+Tayc3If/epid5bf/Waiq7JWGbQqHeH0rtyjPS
-	 GtlHgqGdd3C6QTLZsMAUP0LAmr10FpRTSQe3ULA2MZgFMjT6p019fwzQ9CAkZSlTnyF77
-	 0+wId6MFUfU3c7+LRCIEhcWy/ELtliXp7mazWG15E9yoj2YmIJRbj0RdlTIov7oEjrG9n
-	 5AI/f+dNSiRpK1UtT7AtRnt/IQHcsUHb7tBW4HE+VBlH6m63dtL39aAUIA931izMh6Rt5
-	 0nVR6Qm8fwGRifPLyQb1rEaAk7huOJv+j7ZUdyHJG66o9I/W9GwIanAnrtSPwa15wrw==
+	t=1795500541;
+	b=BVnqyth+KdSTIonKl3U2pULUBKVUePbNE+a9Ff/0XpaWiGPWSTK3MpcEVB2T9cEqUI3G
+	 77TvocAjZmpDmtX7dPaaewGI6bnJefV515uX/KJZKdkNLWUYyqIPIidSoadxbrTJVL1jn
+	 PxRAxg80Flh5Apf3eKNM5oZk/sG9yI2bOwXYkcMUzCmHB1vfSgTaZmHqlotnNzHlu3Ux4
+	 QasiJ41XOUp2jV5M6zx3igUvfvD7UB6IGD7+3uUQMO2qe7I6kJGsN9LVkeIxtAIb0PKcr
+	 0ARpziZ7s7tXpiHQkZ6W+kPUjIV4eEXEf5N8L8otm1iW2c+BQBtGcLbLgGw5QCeD+/w==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795500540;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795500541;
 	h=DMARC-Filter:DKIM-Signature:Received:Received:
 	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
 	 Received:Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:Content-Transfer-Encoding:Content-Type:
-	 X-EOPAttributedMessage:X-MS-PublicTrafficType:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:
+	 Content-Type:X-EOPAttributedMessage:X-MS-PublicTrafficType:
 	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
 	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
 	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
@@ -26,53 +26,53 @@ ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
 	 X-MS-Exchange-CrossTenant-FromEntityHeader:
 	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=UvysTtCD/3LgyyuIumxSbtcjvrxRJQCrzFZgbiqhVQk=;
-	b=L4LClDmy07WSGSipp6fEKPucHSF4bY/lwIhWwI4DzEgRG5vc6BO+NnnzDnRtcdq0EOoW
-	 TmnR5j6BgUrxG2rD7sbhYz0WGRnZQJgvGOtXL70sy2DQD5YXhbg0A8S+dY98PshFUJPwZ
-	 nJ6OPkcholluSXRB/4BnzwKNpPMcQh0p9Ft5yG46+PE+ERhfK09Gh+2odQ2dOZn2tGUgR
-	 rg5voKvvNr4OWoi/azQ9U14PioK9e31/o7ktgEBaivbWKVM9BYq0p2n1Pt9ikhVBIhoQ/
-	 SMPEhp08ITDtia8VZl0KeaUUoBp7ATCSSLwLdvC7FKcnxAeQoo2v/yIvJ6ScnTCw3bA==
+	bh=yy5a4fEuRo7yzPSHkynjLzcAw1n10CiunSCZA/qqXqA=;
+	b=12bjra+RWDeB/QtusFlS86uk48Ua6OsChsIXbYIZpye/u+id8r7KrtZwZx16Uze1GpQr
+	 xw49FE7ZMdVbphWiaBMt/ytQz0Be7K35FqY31KbkWTpecrczzd+AVfMVbfYEUUqOAclwB
+	 3RLGPdyA9+2nbFst0Dxoj4XSIcK31mGjChzkzrVIxxcJIgDHoeJQH6lwlu31Mjy5PgUJQ
+	 T88hJPGSju5t17CbRJ85PHm4K1xKjHwMmH0OHi5pyKnRtQYWlw9v/Et8UwXX4gDcGpEXg
+	 53UNZwGzn+q5ms4IwTdh3bDIzVX0ALOiNg/+PU58U5YzA/OXfup5nURn2PeLhgKw6LQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=amd.com;
 	spf=fail smtp.mailfrom=amd.com;
-	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=LoWzMrjd;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.201.44
-Received: from CY3PR05CU001.outbound.protection.outlook.com (mail-westcentralusazon11013044.outbound.protection.outlook.com [40.93.201.44])
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b="CJb/g/hx";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.52.4
+Received: from BL2PR02CU003.outbound.protection.outlook.com (mail-eastusazon11011004.outbound.protection.outlook.com [52.101.52.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A7FAF606A31E;
-	Tue, 24 Nov 2026 06:08:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A7FAF606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 09892606A326;
+	Tue, 24 Nov 2026 06:09:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 09892606A326
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
 Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=LoWzMrjd
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=CJb/g/hx
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=vcgLG2mPiBu7a20vyyhpUECVGimjpZ63LXuYVYnjOzsWCOwwu6QQZp4UGBaiv8+klGArllsv3NqrqQ3pdg9vobyBGUJdWrDcUrn5beyXIpg9JlS1hX/W52FC900+Q34SpNv6Q6YPWVQDAOIVOtU0PKgX5qofMGV5Ax/GHsXKlnT27uJ3vKM8xWdUtx0wltxHHDw2ACX9bGp/gmdPxGr65VtgJ9o9P3/KvVXbv1eyZaVXo/aBLmVZtrlfvGiJy849yXGwNpeH7+HADID6RPQm/lCBacdED0YkU00ZZpPXGM+Suey2xXQfVApQKUTXIRA3UaeqFrVme4H0Wco6GFVn0g==
+ b=MPhrAqKUkMdx5KrFe+MzfNzQB5JNxoMMDL2QiBErzYPa/xPByjtlvYgYStnpxU1ODivvTTaxg4lPiMsIEIsOiVtC7udhzOgufmi3hkruNrVODPKD/5BEEvZpU9W8LubZG5FGQGwaMlFMCy6SK3oJjk/Mjtd3fyQd2soE/Td8wBi8jpAIYVApkksrifrISPC7oCn5uPnR3DAy2enbQz1ZIiQJzjnrphFdpuNu4OhmETVbcwCnrUrjjJESED6Z+B+/rTmMg5b1HDTgaL9ZW7zuk0MLMMBsPsMt+tEIBHeBFzxhO1gi5Dk5ssyDfkoAobIzRkPCpUMqzlwG1pUMygzIwQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=UvysTtCD/3LgyyuIumxSbtcjvrxRJQCrzFZgbiqhVQk=;
- b=Fh3RaCNCPbZP7gyWeYqgoEAIDIuU1hBhUnqCrXhVO4SK6d2vYOfQlpzjF3dv70XAujwg8Xs9fs2B4eI7ElTPhBLd85GA38NJCmWsqkKps5vts63a4R5aw159CZWty2QBVlf7yq0PTLy26hd3JO3HgoTa/wLl0fLWoT8RiMDoXOuZeZvNiJuwiQ9aOqyyasgKDOCpgd8VgtXX3m9/YWYbxZQeLmPu5a3LXLgWpKp7OgYCz94I7ok0vPoWvq+WEoI8QFVGdDTw6oYc6dk5gYOz6q3VMVMiie6f2yf1o7xtijFjx/bAPjWHNPbB7AONWCLS9GpI/mL0zID+m7ecQ7cVGg==
+ bh=yy5a4fEuRo7yzPSHkynjLzcAw1n10CiunSCZA/qqXqA=;
+ b=X8kTup1s5uogqUZCuaV0gX1v1JIi0kx9AomHvaidwuUr3YG+77Dav+jfV6Oklb9tQKUoYkRympdbVn3DGZD/l1Ph5a3ltTcNihp7TnbA5iYf++uXtdCKmnl1nkZyBF0yRxdzicV+Szyg1p+vJFYHQIuIalxaKTi4sG3F0JHrJYJksw9UC+wK19GJbHZLQDZeWaVuoS4reaNYCBapPNFBxg653Lk9J6M34MfUlEB4Rhi51nP2IK7H2YIBhwQ87Ile96yfy5WqUVBhs2th5RLQ+2zsrlUAoD54vtqdzSWylkxocMBDbwljKuDCfxEPmWQSwM7xfWKqK4b2+hE2fi2/1Q==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  165.204.84.17) smtp.rcpttodomain=bootlin.com smtp.mailfrom=amd.com;
  dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
  header.from=amd.com; dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=UvysTtCD/3LgyyuIumxSbtcjvrxRJQCrzFZgbiqhVQk=;
- b=LoWzMrjdE9hyOXX6pE4NQ2jBhOMoN7Lcr/2Cv8e8St0e89XEhruStEjM0nQFdpXeKh/8Nz6weyNi0DEqb3VdTyyubTOYhcVmA34ZOG4BaHwVp064i3kSFcqsdJT0aClq+ZikfO8Waz1glg3hHeJ+lB/VroK6rXUMVzMjK5ygp3U=
-Received: from BY3PR10CA0023.namprd10.prod.outlook.com (2603:10b6:a03:255::28)
- by LV0PR12MB338367.namprd12.prod.outlook.com (2603:10b6:408:3ed::22) with
+ bh=yy5a4fEuRo7yzPSHkynjLzcAw1n10CiunSCZA/qqXqA=;
+ b=CJb/g/hx8wQVSqqCnChafNdJTqk2HdsM61y0nuMiP77PRJfCHCsp2rvu+BhiYCGt6jXlvzTLKoVR4JwnRdPeOlG43GbWCTFMj9BueHQETvLg9iUkAKWuhPgYciryZO3SKRH9yFEh/p8puXV9XdRyRLKe68Jq6BKgsyiUHjK3R/I=
+Received: from PH8PR02CA0046.namprd02.prod.outlook.com (2603:10b6:510:2da::20)
+ by PH7PR12MB6882.namprd12.prod.outlook.com (2603:10b6:510:1b8::12) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Tue, 24 Nov
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Tue, 24 Nov
  2026 06:08:56 +0000
-Received: from SJ1PEPF000023D2.namprd02.prod.outlook.com
- (2603:10b6:a03:255:cafe::4e) by BY3PR10CA0023.outlook.office365.com
- (2603:10b6:a03:255::28) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.5 via Frontend Transport; Tue, 24
- Nov 2026 06:08:56 +0000
+Received: from SJ1PEPF000023D1.namprd02.prod.outlook.com
+ (2603:10b6:510:2da:cafe::2) by PH8PR02CA0046.outlook.office365.com
+ (2603:10b6:510:2da::20) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.6 via Frontend Transport; Tue, 24
+ Nov 2026 06:08:55 +0000
 X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
  is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=amd.com;
@@ -80,20 +80,20 @@ Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
  165.204.84.17 as permitted sender) receiver=protection.outlook.com;
  client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
 Received: from satlexmb07.amd.com (165.204.84.17) by
- SJ1PEPF000023D2.mail.protection.outlook.com (10.167.244.9) with Microsoft
+ SJ1PEPF000023D1.mail.protection.outlook.com (10.167.244.7) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
  15.21.662.3 via Frontend Transport; Tue, 24 Nov 2026 06:08:54 +0000
-Received: from Satlexmb09.amd.com (10.181.42.218) by satlexmb07.amd.com
+Received: from satlexmb10.amd.com (10.181.42.219) by satlexmb07.amd.com
  (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Tue, 24 Nov
  2026 00:08:44 -0600
-Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb09.amd.com
- (10.181.42.218) with Microsoft SMTP Server (version=TLS1_2,
+Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb10.amd.com
+ (10.181.42.219) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Tue, 24 Nov
- 2026 00:07:06 -0600
+ 2026 00:07:20 -0600
 Received: from xhdshubhraj40.xilinx.com (10.180.168.240) by satlexmb07.amd.com
  (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.57 via Frontend
- Transport; Tue, 24 Nov 2026 00:07:03 -0600
+ Transport; Tue, 24 Nov 2026 00:07:17 -0600
 From: Shubham Patil <shubhamsanjay.patil@amd.com>
 To: Alexandre Belloni <alexandre.belloni@bootlin.com>, Frank Li
 	<Frank.Li@nxp.com>
@@ -102,10 +102,12 @@ CC: Jeremy Kerr <jk@codeconstruct.com.au>, Matt Johnston
 	<netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
 	<meaganlloyd@linux.microsoft.com>, <git@amd.com>, Shubham Patil
 	<shubhamsanjay.patil@amd.com>
-Subject: [PATCH v3 0/3] i3c: account for controller transfer limits
-Date: Tue, 24 Nov 2026 11:36:48 +0530
-Message-ID: <20261124060651.1987454-1-shubhamsanjay.patil@amd.com>
+Subject: [PATCH v3 3/3] net: mctp i3c: clamp transfer lengths to the controller limits
+Date: Tue, 24 Nov 2026 11:36:51 +0530
+Message-ID: <20261124060651.1987454-4-shubhamsanjay.patil@amd.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261124060651.1987454-1-shubhamsanjay.patil@amd.com>
+References: <20261124060651.1987454-1-shubhamsanjay.patil@amd.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -119,71 +121,81 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF000023D2:EE_|LV0PR12MB338367:EE_
-X-MS-Office365-Filtering-Correlation-Id: 10dc3bed-d9eb-4b56-7093-08df49f16b66
+X-MS-TrafficTypeDiagnostic: SJ1PEPF000023D1:EE_|PH7PR12MB6882:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8225b135-52d0-40b9-a453-08df49f16b41
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|36860700016|82310400026|1800799024|376014|6133799003|18002099003|11063799006|261021135927099003|56012099006|261026140227099003|261102123227099003|261028144727099003|261021121427099003|261022113327099003|261022105027099003|261022075727099003|261022115727099003|261021130227099003|261009221227099003|261009223327099003|261021123027099003|261009220027099003|261009221727099003|261026130827099003|261009223027099003|261026121527099003|10067099003;
+	BCL:0;ARA:13230040|82310400026|1800799024|376014|23010399003|36860700016|18002099003|22082099003|261009223027099003|261021121427099003|261021123027099003|261026140227099003|261022105027099003|261102123227099003|261026121527099003|261022113327099003|261022075727099003|261028144727099003|56012099006|10067099003|5023799004|11063799006;
 X-Microsoft-Antispam-Message-Info:
-	ZUgNM9vOR8wKR+8IJmfIrbcd/1SAqlH+1lRF/jxZ0lOujLW/ROyvIeH+Q1WSWfTeXx2976JNFe0JFEb7IYSP8VtQ2O2gBFFbcZISSiyPGvqiXDfmBtwqUgP1NgXcHxoKyoh5xGuFV+3i+Lo6jG9Z9bcULRRngSg/6lc30uvMdyIM2fPu3bCX20rw0Tm76rloVb/n2wB8tzp6NIaKZYIlDHUd51efhqmBrAxs/z6LVD+O22KpTfaMfiq/GlkfAlAiZ85phGCaH8Xl0LMJIpSCZfcIgRPTsmnENgN1Z+0quM32hkHV6FhdnyK3oeri5YKYxNEyFT4C9JVl89vng29A7pY1/EP/aVINCH/0QeWZwsv2McG85Gf+SzS/G/14gM6IbjB2bHgNGVMheLdxjPdk/Hok2/bffo9nFmF/UqBTDEFqVyKRABMEDB490egM69f1Ha8qVsoelx8Zt59S4YFMZ60TqOo9nQIde5nEI68Fqu24GLgKvC+7PcKSxzqNCJTfzbdDnyjPma15GJqR2HSMHnDZ8C4wgl+M8wuCFF2cWueZbSTynik6zOyi2lFWDzdFIC1+LmDuBi5tUTtPXc8aQOeF1YVzzLouKQf/9ZdlZDYUiX+q6XTTMZEG2h6QyjGUkeh0vOG4zSirO4FVr4lqnQ==
+	OzknpFi+rUZg9rQw5eraCz1c943lgpQiJPS3LuYodbJh4yCN74m9PUQ74KEk+HXJ/BTDTYG5JLjjzcaqe5b8wsUPH1I4+wwd56lOwwwJUMCYGTcSlNzC45zDLIuazUTPv+h731wmxI8odpfMFI8cjRE8fTkedULRC5DMGVt7715WXYnIv5sVFRYNToktrkAmPKPfRZIB6Rnwcml8P5xmzXkwY5PWqfyExxa82zEustl0kjxsiDnDmDzAm4lESnyhlyG5oWv8FO38CwhORHOB7wdGUP1Aj7dGu1ngOz5CxYd2hFmztKjwTPKS2R6Pk0JrIIYBH0boH5RqdVcNP7IywJBm5ZbZIaCbIj7nlSLEYdTJfvlvTHKIfLRNKOJUu6OL1MVugHedp+y7EA6t2a6IQNAjLK0x4ImTidppGCfnGUp7TnlqeG2kKS5B9AlT8QIxxR2tuh4Ery+6DUjx4E35TooK8dNKUeqbceBFgr0ALXtnxeQoUiDk+5VZ1/OPhh+uqbalXZQACKhiOhmCUrtX7OhFcMdNyEdmxfN1WgepBGRyIX5Fd6foX490OShx8+9tzGym53IkxXFQqjhS5BU+teHA6sxJNGr/xxcjx92gmTdN6QlFjTSJwkveNUmq1LIs14/tcSm6FFCRfN5OejIXd2oqAfDqpwwCkGq2lAUjv5sDeHX/EQfkn6X99znp9vvwObc+vDVUpnNTE16xshi1eQ==
 X-Forefront-Antispam-Report:
-	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(82310400026)(1800799024)(376014)(6133799003)(18002099003)(11063799006)(261021135927099003)(56012099006)(261026140227099003)(261102123227099003)(261028144727099003)(261021121427099003)(261022113327099003)(261022105027099003)(261022075727099003)(261022115727099003)(261021130227099003)(261009221227099003)(261009223327099003)(261021123027099003)(261009220027099003)(261009221727099003)(261026130827099003)(261009223027099003)(261026121527099003)(10067099003);DIR:OUT;SFP:1101;
+	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(376014)(23010399003)(36860700016)(18002099003)(22082099003)(261009223027099003)(261021121427099003)(261021123027099003)(261026140227099003)(261022105027099003)(261102123227099003)(261026121527099003)(261022113327099003)(261022075727099003)(261028144727099003)(56012099006)(10067099003)(5023799004)(11063799006);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
 X-MS-Exchange-AntiSpam-MessageData-0:
-	HVYiIDsFS7mBp2mKbX00dksXW0RrDnsTgZjQ0IWWbAMukkiuJJEyM1nN8efikLD/FvMm8pxwuxXNBqj73+XN9HwrcTQAwcQLDF60AHPrQlnzX2GsT9naePWAQ5yuWRdgOrPEjxTx66iyFVhodbXOZanzXQrL3t4VMCmf5GMZ7fR69n225bvkSEO25pzZAurXcZL+yK+Es9qASIiUx0GaFe/vmp3a9mSxJBAOEXryB0qei66P8/CL1WzhBOcZ4/6a0+jY1rRF017sMiH73dYiCXPoDVLySy67Kt2UzDR4cQFYA5mISkymaAGzB/rrO8rClGVw7hba7AHJtPuMuCsSC7zwCxWenTlX0nhNfDMSjQyiRjqCDkcDxdkb98WjS9mJk3uPbzjUSAq9HknNIf/UkbnPpEIpJtm6eeZAZhjPTLVQGzgMyx/ucGXe6xBOUcM1
+	+AEEq0kkBzVNXvvDMmL1ByoIggPseal/jNSoz3oZVFjp9+tGkNDDvoXdLfCFJ7Rp11yc/jpUVFlquUn1SoGPCkZ7q6czsqmIBrYlvp5/5OM5yDMoiPp2ic4G0PGlbI38frxx0E7CYOzRJDQ05hYyn/ZVMVY7bMt594P0rDfDeqjR5AFJ8K9EG8a4kI5tbQ+4+EU5X+JWga2mAu21tVC2nEEYFU0wPIx2P802fQaiGd69HDE72UjJkHrQeSNHcPlUI8uitUD4S3LNQVdKsJuzEmpzqU2xRNhOc9EMb9DCbsxCHOcKtQ6ZY3nPq97OjLcWsI951mYkRyCTnJ0gzRd9Se01egk6Sx68SFygY6TlMJqwtm5ytAbDixy9rG0H4R9KOZ7JuvO+JyQWh0dVOFxF/9tO58xFnmWzkulap0UKxhjAzasd3oLziSo9Uffg9ApQ
 X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 06:08:54.6432
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 06:08:54.4624
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 10dc3bed-d9eb-4b56-7093-08df49f16b66
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8225b135-52d0-40b9-a453-08df49f16b41
 X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
 X-MS-Exchange-CrossTenant-AuthSource:
-	SJ1PEPF000023D2.namprd02.prod.outlook.com
+	SJ1PEPF000023D1.namprd02.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV0PR12MB338367
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB6882
 
-Targets advertise MRL and MWL, but these values do not account for smaller controller transmit and receive buffers. This can cause client drivers such as mctp-i3c to request transfers that the controller must reject.
+mctp_i3c_setup() takes the maximum read and write lengths straight from
+GETMRL and GETMWL. Those describe the endpoint alone, so on a controller
+with a smaller limit every read can be built too large and rejected.
+Transmit packets can similarly reach the controller even when they are
+larger than its transmit buffer. The receive path also allocates an skb
+for data the hardware can never deliver.
 
-Add controller transfer limits to the I3C core, publish the independent DesignWare transmit and receive buffer depths, and make mctp-i3c use the effective target/controller limits.
+Use i3c_device_get_max_read_xfer_bytes() and
+i3c_device_get_max_write_xfer_bytes() instead, which return the smaller
+of the endpoint and controller limits.
 
- Changes in v3:
-  - Rename controller limit fields to max_tx_bytes/max_rx_bytes.
-  - Use FIELD_GET() and a u32 variable for the RX capability register.
-  - Use sizeof(u32) to convert FIFO depths to bytes.
-  - Add the DesignWare databook reference for RX_BUF_SIZE.
-  - Shorten patch 1's commit message and update patch 3's subject prefix.
+Behaviour is unchanged when neither reports a limit, as the helpers
+return 0 exactly as the GETMRL and GETMWL fields do today.
 
-Link to v2:
-https://lore.kernel.org/all/20261105085425.3418230-1-shubhamsanjay.patil@amd.com/
+Signed-off-by: Shubham Patil <shubhamsanjay.patil@amd.com>
+---
+Changes in v3:
+- Change the subject prefix to "net: mctp i3c:".
+- No code changes.
 
-Changes in v2:
-- Rework the solution to preserve the target-reported MRL and MWL instead
-  of sending SETMRL/SETMWL and rewriting the GETMRL/GETMWL responses.
-- Add I3C core fields and helper APIs that combine target and controller
-  transfer limits.
-- Track the DesignWare transmit and receive buffer depths separately.
-- Add an mctp-i3c patch that uses the effective transfer limits.
-- Drop the unrelated IBI payload-length clamping from this series.
-- Split the original DesignWare-only patch into three patches.
+ drivers/net/mctp/mctp-i3c.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-Link to v1:
-https://lore.kernel.org/all/20260908102724.3232660-1-shubhamsanjay.patil@amd.com/
-
-Shubham Patil (3):
-  i3c: Add helpers to get the maximum transfer size for a device
-  i3c: dw: Track the transmit and receive buffer depths separately
-  net: mctp i3c: clamp transfer lengths to the controller limits
-
- drivers/i3c/device.c               | 49 ++++++++++++++++++++++++++++++
- drivers/i3c/master/dw-i3c-master.c | 24 ++++++++++-----
- drivers/i3c/master/dw-i3c-master.h |  3 +-
- drivers/net/mctp/mctp-i3c.c        |  8 ++---
- include/linux/i3c/device.h         |  3 ++
- include/linux/i3c/master.h         | 13 ++++++--
- 6 files changed, 85 insertions(+), 15 deletions(-)
-
+diff --git a/drivers/net/mctp/mctp-i3c.c b/drivers/net/mctp/mctp-i3c.c
+index 88d9e36cd4a2..6d08898e1d21 100644
+--- a/drivers/net/mctp/mctp-i3c.c
++++ b/drivers/net/mctp/mctp-i3c.c
+@@ -81,9 +81,9 @@ struct mctp_i3c_device {
+ 	bool have_mdb;
+ 	/* I3C dynamic address */
+ 	u8 addr;
+-	/* Maximum read length */
++	/* Maximum read length, limited by the device MRL and the controller */
+ 	u16 mrl;
+-	/* Maximum write length */
++	/* Maximum write length, limited by the device MWL and the controller */
+ 	u16 mwl;
+ 	/* Provisioned ID */
+ 	u64 pid;
+@@ -214,8 +214,8 @@ static int mctp_i3c_setup(struct mctp_i3c_device *mi)
+ 	i3c_device_get_info(mi->i3c, &info);
+ 	mi->have_mdb = info.bcr & BIT(2);
+ 	mi->addr = info.dyn_addr;
+-	mi->mwl = info.max_write_len;
+-	mi->mrl = info.max_read_len;
++	mi->mwl = i3c_device_get_max_write_xfer_bytes(mi->i3c);
++	mi->mrl = i3c_device_get_max_read_xfer_bytes(mi->i3c);
+ 	mi->pid = info.pid;
+ 
+ 	rc = i3c_device_request_ibi(mi->i3c, &ibi);
 -- 
 2.34.1
 
