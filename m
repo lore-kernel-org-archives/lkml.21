@@ -1,79 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795489527;
-	b=KR0q320l7TwcBfvpbxE5wr+PoUf5CwT0UVq2Z9Na9MTmOzDnQKlqiUcl3nqObXex6f3C
-	 6xDs0BLBoox3T8rHpXcG4NjGqN2VAy+NSDjV+U2zjKHdME7KJ5vhxmKnKaHuY2bwX0tEW
-	 QJGQEahO8huhbzPSmduMD/Nwt/jpN/1yYU0H4DCPSsCIIRD85rgamJdk6f+Wh/ple9/ql
-	 3AmdNS+NA9w4zcWETpOtEqPQ4d6MrSIn5n/vhqlVYoQhOCtVCXdziVNqwmXCl9nEXO0sf
-	 nEugtpPd8sNQzOMqEEDzqcgMaDYwLXJZxQo1LlDti3dOODEql2cTjXXJbt8XT6q6Vrg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795489527;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=al+z87ufNXWaA/vy0OPeTYHPL2k+0pGDZQocxqmFWoc=;
-	b=y8q8B5S2ZssgKMXY8+2Kx+x9e0maZMLdT+G/cH8yX/ku7JpUpQfTfUoCIKk6j/klcMFh
-	 7U0uCekEaMPPssfEQBsbSFIIR+p19yVY03+wEVajRAZQv1St7C7W9i7O+4NLL7BvhOQuU
-	 YBUb65WVQ1TF4ZEAz0UZKyHgrXKZu7F0je48hUDJxOFBHh5TiLfvSKjS/0lWVRLT0RmMi
-	 b1BL0jp6V843mfBHInFhzkyC3jrenI6oRYE9wgD9Mxdyx+K4+7g+jxwwC/LXMuS3xodMd
-	 qc/F1gvPW81X4t08MP3UuOQiyxfOYHKPBrNdeqrb+wlJ+ctf49Ik5qSJ0YI3hoQFdMg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="VZI/BuLE";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8FEF4606A691;
-	Tue, 24 Nov 2026 03:05:27 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VZI/BuLE
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795489527;
-	b=JFfIj+Y6Lg0wilyMCkD0TH6+OnvvaBFLkOVOwLEXDKxKTx8nwKU54su/G5zn7jJ5Y3Cj
-	 LMDjqtAVf2U+mYc6jDKoQttX3fjaBmqAWSbfLqXdBEFYWWuRSF2mMvsQeCrhxuQ53sNqM
-	 pm3fpL5Qy3nWNWTcPEQvWANJve5oLSLA5U9UVgR8DPi1XQf35uOdJwgQrDLYakgx2A8c4
-	 Y71aX2wsGyt/Y+XG7037JaH7LLAafn/GophdzALknEIhAeBJOo2704i9Titcjtqjcm2Ek
-	 5xjfYwu9mAkO1SPVX0DLlxtWUXRqf9EMyXpCUKzYlQE2v33t/cT60Gjd2Ng12wgQ+iA==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795489527;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=al+z87ufNXWaA/vy0OPeTYHPL2k+0pGDZQocxqmFWoc=;
-	b=SN8L5iHdrIooTVT0/VDajmXRIepiaddTkBK8VRwpWCkHMh11JzFF9OYB84koBESMI53b
-	 jG6dsGtf/yaC1pFu5RITtMoUSGtFs28LNtjG+RRYFnHeWBcPQ9pJKtUrwhDPqpsgHaZb/
-	 rhWNYG2Y+JtAit7YoiW3ydjJYBr4HtU2N1oLNz4IimZGT8kFd/h21oMIxdxIjwTNnRsF1
-	 AWtokq7PV00pamtVEGdNx3OrAgGvQpxYLPfnhk10il2KC7QaQ+LoKRz80UO1a/wEgvc/1
-	 LRSwfj7dJsDbxi53caAF/pf7h/Cf4pigBK5VE88kM8hRBCR1uas+7uJZqnAtA+P1zHQ==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.33
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795489532;
+	b=aTLmfNk5Kd+IkpK3yk0DfZ7uYwtQngxyhG7pBc1IcDQyp4G1r425+3t5NXv1m07MJsMi
+	 Fw7iZ0Ykqjy8DxwxfVK+ZFu0j3xKp79SV/GFK+7LXSxEMmST/BpqidctP/lV/4i0w2iPN
+	 LUTm2h00CppyOzpTHpUJfe7gl0ZglMZLyAJ1725oYwRgHjCdgLaI5DFeQW102/pFljOL/
+	 hd1JaMt37yWWQ3LCA3ioacaPgX2aV77XQmnHAtRw0efiB/u+XGvSfDZsfxn8/Y5hfF7Bw
+	 ivVGfVldP0B2vMpjar+Uv98C2BL/oevmsPoAS66dCr0HUtHxF4vbVUzMDYgVoJLlAfA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795489532;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=t9KS4305neDKBsFcNTS/0eSUFFO9PpJgyH3BrjeV05A=;
+	b=qX2BH1jUdJIFnju6aRws779UhZ2SIEviCTmWHNyfXaLpOQWUEEd3EFFFpc+YlClLDuRo
+	 d7WPKTTmEYpjRIdmDUcUmpWoRVAFbiKrGCvYMA0KZoR4PPdKczDnslTSkc4hJwGOq3eaW
+	 wiGmopTVNGdzLP9rmtvCIq16g1o++wn+5nPAkV2ig1oJuGXLe/0tZ4K0bmupz3WefAUSh
+	 eWjko3AeKjLpPMH1moWosNVxbCDYWnwvj0g53mzzYDR1j2d2NxTbEa+7aA++frnT3EhB1
+	 LL7c/WmUYj7pM+f6v/gbooKQjx+JPcuAGqqwZ/PLg2qjz8GOzsy2d6EvlUSJOTeWxpA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=q6aTVuo5;
+	arc=none smtp.remote-ip=91.218.175.33
+Received: from mta0.migadu.com (out-33.mta0.migadu.com [91.218.175.33])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 1A4261F000D8;
-	Tue, 24 Nov 2026 03:05:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795489527;
-	bh=al+z87ufNXWaA/vy0OPeTYHPL2k+0pGDZQocxqmFWoc=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=VZI/BuLEwN9l5aHZAaVmCTzOXFKmxHIk74nFs6RfcwK6lNWPA4u0JB0aJOCY8JMeV
-	 l6SwSJqy2TgWHFtJnRfaNpFitAzM4Og43DJW7Kg5uSBOY8ByGLt6o7OpSPTy1A3Jh3
-	 i7n89m0bbdkeyoToNCmONpFsxkrFi35q3K6wQXQCHqqYCj9UNxtHbo/7A3bpmaMPzu
-	 0o/orhndrx/vdTLzmFtZi78DNqM15oEIVHZJ7Nju7U04BP1gvtUtjZA8zRPf9hfC46
-	 n/BU121lrwp4nljIjJClqQuggpJ5LtxfvXgIQep7wTP/1HxLDfSvr/BVhux7qon61G
-	 8SgNM7W8CzrWw==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 2658B4C86B;
-	Tue, 24 Nov 2026 03:05:09 +0000 (UTC)
-From: Hermes Wu via B4 Relay <devnull+Hermes.wu.ite.com.tw@kernel.org>
-Date: Tue, 24 Nov 2026 11:04:42 +0800
-Subject: [PATCH v2 5/9] media: i2c: it6625: decode audio status fields with
- FIELD_GET()
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 21972606A33A
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 03:05:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 21972606A33A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=q6aTVuo5
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=Dr5NpzBTKqBZbHmaCa+5JxIlMFu6dSvBFoJtjVDZExY=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795489530; v=1; x=1796094330;
+ b=q6aTVuo5LnpbZlwkyXgXcxDUdi7NwTSmX/VzU04aUM7Tp07Iet3sUjkypke/UYMgPb6eEUJ0
+ P47P8LnLQj2F2mF6SFn+/hKoKbyeLyAbVQOUXHJSfxnQZDkfwQe2upOkAdYhCBIhBImBU7fjzdF
+ uI7wLx1Bu9cniPoLzmUd8H70=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id dfdee2bf3addbc78;
+	Tue, 24 Nov 2026 03:05:26 +0000
+X-Mizu-Trace-ID: dfdee2bf3addbc78
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <76951771-cbe5-4518-a118-b06a30353d88@linux.dev>
+Date: Tue, 24 Nov 2026 11:05:06 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,336 +58,139 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261124-upstream-it6625-alsa-i2s-v2-5-a154685f6989@ite.com.tw>
-References: <20261124-upstream-it6625-alsa-i2s-v2-0-a154685f6989@ite.com.tw>
-In-Reply-To: <20261124-upstream-it6625-alsa-i2s-v2-0-a154685f6989@ite.com.tw>
-To: Hermes Wu <Hermes.Wu@ite.com.tw>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Hans Verkuil <hverkuil+cisco@kernel.org>, 
- Hans Verkuil <hverkuil@kernel.org>
-Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Mark Brown <broonie@kernel.org>, 
- Liam Girdwood <lgirdwood@gmail.com>, linux-sound@vger.kernel.org, 
- linux-api@vger.kernel.org, Hermes Wu <Hermes.wu@ite.com.tw>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795489507; l=8899;
- i=Hermes.wu@ite.com.tw; s=20241230; h=from:subject:message-id;
- bh=WPk2YeGJwzNecWrsNwk3gR3OtFlVcXGJcpS5lV2f2b4=;
- b=WkjaNYjLCQElvm9sQTDxdzKHLv7QnjgTNMN/nvzEPF8VFTgP4izGThh6s0vUSMIBe5pmqkykP
- yqZifFHnqbACOkFvPzl6IU+RTwVoi/1BOJrIIg2UB4nFQPoQqZs3BVW
-X-Developer-Key: i=Hermes.wu@ite.com.tw; a=ed25519;
- pk=qho5Dawp2WWj9CGyjtJ6/Y10xH8odjRdS6SXDaDAerU=
-X-Endpoint-Received: by B4 Relay for Hermes.wu@ite.com.tw/20241230 with
- auth_id=310
-X-Original-From: Hermes Wu <Hermes.wu@ite.com.tw>
-Reply-To: Hermes.wu@ite.com.tw
-Content-Transfer-Encoding: 7bit
-
-From: Hermes Wu <Hermes.wu@ite.com.tw>
-
-The sampling-rate control compares the whole HDMI_AUDIO_INFO1 byte
-against the AUD_FS code table, although AUD_FS occupies only bits
-[5:0]. Any set upper bit makes every rate read back as 0.
-
-Describe the audio registers with GENMASK() fields and decode them with
-FIELD_GET(). Collect the audio status in one helper that runs under
-it6625_lock: it reads RX_STATUS once, for both the video-stable and the
-audio-present bits, and reads the read-only stream description in
-0x6B-0x6E as a single 4-byte transfer only while audio is present. Both
-audio controls are then fed from that one sample.
-
-Drop the 0x6E alignment/delay/polarity/shift defines; they were unused,
-and the audio output framing is fixed by the firmware.
-
-Apart from masking AUD_FS, the controls behave as before: the rate
-reads 0 when there is no stable signal, no audio, an unknown code or a
-read error, and the present control follows the audio-present bit.
-
-Signed-off-by: Hermes Wu <Hermes.wu@ite.com.tw>
----
- drivers/media/i2c/it6625.c | 206 +++++++++++++++++++++++++++++----------------
- 1 file changed, 132 insertions(+), 74 deletions(-)
-
-diff --git a/drivers/media/i2c/it6625.c b/drivers/media/i2c/it6625.c
-index af6995dee8de2d820c593f4924adc6f7e031e61c..6ff5a5574b379c217138500887a041563158845a 100644
---- a/drivers/media/i2c/it6625.c
-+++ b/drivers/media/i2c/it6625.c
-@@ -83,25 +83,34 @@ MODULE_PARM_DESC(debug, "debug level (0-3)");
- #define REG_HDMI_VIDEO_INFO 0x6A
- #define B_COLOR_MODE  BIT(0)
- #define B_COLOR_DEPTH  BIT(4)
-+/*
-+ * 0x6B-0x6E describe the decoded HDMI audio stream that the firmware passes
-+ * through to the audio output. They are read-only and only meaningful while
-+ * REG_RX_STATUS reports audio present.
-+ */
- #define REG_HDMI_AUDIO_INFO1 0x6B
--#define B_AUD_FS  BIT(0)
-+#define M_AUD_FS  GENMASK(5, 0)
- 
- #define REG_HDMI_AUDIO_INFO2 0x6C
--#define B_AUD_CH  BIT(0)
--#define B_AUD_WL  BIT(4)
-+#define M_AUD_CH  GENMASK(3, 0)
-+#define M_AUD_WL  GENMASK(7, 4)
- 
- #define REG_HDMI_AUDIO_INFO3 0x6D
--#define B_AUD_TYPE  BIT(0)
-+#define M_AUD_TYPE  GENMASK(1, 0)
-+#define AUD_TYPE_LPCM 0
- #define B_AUD_MS  BIT(2)
- #define B_AUD_3D  BIT(3)
- 
- #define REG_AUDIO_FMT 0x6E
--#define B_I2S_WL  BIT(0)
--#define B_I2S_ALN BIT(2)
--#define B_I2S_DLY BIT(3)
--#define B_I2S_LR  BIT(4)
--#define B_I2S_SFT BIT(5)
--#define B_AUD_OUT_IF  BIT(6)
-+#define M_I2S_WL  GENMASK(1, 0)
-+#define I2S_WL_16BIT 0
-+#define I2S_WL_18BIT 1
-+#define I2S_WL_20BIT 2
-+#define I2S_WL_24BIT 3
-+#define M_AUD_OUT_IF  GENMASK(7, 6)
-+#define AUD_OUT_IF_I2S 0
-+
-+#define AUDIO_INFO_LEN 4
- 
- #define REG_IF_LATCH_HB 0x6F
- #define REG_IF_DATA 0x70
-@@ -254,6 +263,28 @@ enum it6625_chip_type {
- 	IT6626_CHIP = 1,
- };
- 
-+/* decoded 0x6B-0x6E: the HDMI audio stream passed through to the output */
-+struct it6625_audio_stream {
-+	u8 fs_code;
-+	u8 channels;
-+	u8 type;
-+	bool multi_stream;
-+	bool is_3d;
-+	u8 i2s_wl;
-+	u8 out_if;
-+};
-+
-+struct it6625_audio_info {
-+	/* false if any status read failed */
-+	bool read_ok;
-+	/* REG_RX_STATUS */
-+	bool vid_stable;
-+	bool present;
-+	bool avmute;
-+	/* only refreshed while present */
-+	struct it6625_audio_stream stream;
-+};
-+
- struct it6625 {
- 	struct device *dev;
- 	struct i2c_client *i2c_client;
-@@ -592,61 +623,94 @@ static inline bool no_signal(struct it6625 *it6625)
- 	return val < 0 ? true : !(val & B_RX_STABLE);
- }
- 
--static inline bool audio_present(struct it6625 *it6625)
-+static const struct it6625_audio_rate {
-+	u8 fs_code;
-+	u32 rate;
-+} it6625_audio_rates[] = {
-+	{ AUD32K,    32000 },
-+	{ AUD44K,    44100 },
-+	{ AUD48K,    48000 },
-+	{ AUD64K,    64000 },
-+	{ AUD88K,    88200 },
-+	{ AUD96K,    96000 },
-+
-+	{ AUD128K,  128000 },
-+	{ AUD176K,  176400 },
-+	{ AUD192K,  192000 },
-+	{ AUD256K,  256000 },
-+	{ AUD352K,  352800 },
-+	{ AUD384K,  384000 },
-+
-+	{ AUD512K,  512000 },
-+	{ AUD705K,  705600 },
-+	{ AUD768K,  768000 },
-+	{ AUD1024K, 1024000 },
-+	{ AUD1411K, 1411200 },
-+	{ AUD1536K, 1536000 },
-+};
-+
-+/* returns 0 for an unknown sampling-frequency code */
-+static u32 it6625_audio_fs_to_rate(u8 fs_code)
-+{
-+	for (unsigned int i = 0; i < ARRAY_SIZE(it6625_audio_rates); i++) {
-+		if (it6625_audio_rates[i].fs_code == fs_code)
-+			return it6625_audio_rates[i].rate;
-+	}
-+
-+	return 0;
-+}
-+
-+/*
-+ * Sample the audio status. REG_RX_STATUS is always read; the stream
-+ * description in 0x6B-0x6E is only read while audio is present, otherwise
-+ * info->stream is left untouched. read_ok is false if any read failed.
-+ */
-+static void it6625_read_audio_info(struct it6625 *it6625,
-+				   struct it6625_audio_info *info)
- {
-+	u8 buf[AUDIO_INFO_LEN];
- 	int val;
- 
--	val = it6625_read_byte(it6625, REG_RX_STATUS);
--	return val < 0 ? false : val & B_RX_AUD_ON;
--}
--
--static int get_audio_sampling_rate(struct it6625 *it6625)
--{
--	static const struct fs_id_map {
--		u8 fs_id;
--		u32 freq;
--	} s_fsid_map[] = {
--		{ AUD32K,    32000 },
--		{ AUD44K,    44100 },
--		{ AUD48K,    48000 },
--		{ AUD64K,    64000 },
--		{ AUD88K,    88200 },
--		{ AUD96K,    96000 },
--
--		{ AUD128K,  128000 },
--		{ AUD176K,  176400 },
--		{ AUD192K,  192000 },
--		{ AUD256K,  256000 },
--		{ AUD352K,  352800 },
--		{ AUD384K,  384000 },
--
--		{ AUD512K,  512000 },
--		{ AUD705K,  705600 },
--		{ AUD768K,  768000 },
--		{ AUD1024K, 1024000 },
--		{ AUD1411K, 1411200 },
--		{ AUD1536K, 1536000 },
--	};
--	int fs_id;
--	int i, freq = 0;
-+	lockdep_assert_held(&it6625->it6625_lock);
- 
--	if (no_signal(it6625) || !audio_present(it6625))
--		return 0;
-+	val = it6625_read_byte(it6625, REG_RX_STATUS);
-+	if (val < 0) {
-+		info->read_ok = false;
-+		info->vid_stable = false;
-+		info->present = false;
-+		info->avmute = false;
-+		return;
-+	}
- 
--	guard(mutex)(&it6625->it6625_lock);
-+	info->read_ok = true;
-+	info->vid_stable = val & B_RX_STABLE;
-+	info->present = val & B_RX_AUD_ON;
-+	info->avmute = val & B_RX_AVMUTE;
- 
--	fs_id = it6625_read_byte(it6625, REG_HDMI_AUDIO_INFO1);
--	if (fs_id < 0)
--		return 0;
-+	if (!info->present)
-+		return;
- 
--	for (i = 0; i < ARRAY_SIZE(s_fsid_map); i++) {
--		if (s_fsid_map[i].fs_id == fs_id) {
--			freq = s_fsid_map[i].freq;
--			break;
--		}
-+	if (it6625_read_bytes(it6625, REG_HDMI_AUDIO_INFO1, buf, sizeof(buf))) {
-+		info->read_ok = false;
-+		return;
- 	}
- 
--	return freq;
-+	info->stream.fs_code = FIELD_GET(M_AUD_FS, buf[0]);
-+	info->stream.channels = FIELD_GET(M_AUD_CH, buf[1]);
-+	info->stream.type = FIELD_GET(M_AUD_TYPE, buf[2]);
-+	info->stream.multi_stream = buf[2] & B_AUD_MS;
-+	info->stream.is_3d = buf[2] & B_AUD_3D;
-+	info->stream.i2s_wl = FIELD_GET(M_I2S_WL, buf[3]);
-+	info->stream.out_if = FIELD_GET(M_AUD_OUT_IF, buf[3]);
-+}
-+
-+/* sampling rate for the V4L2 control: 0 means unavailable */
-+static u32 it6625_audio_info_rate(const struct it6625_audio_info *info)
-+{
-+	if (!info->read_ok || !info->vid_stable || !info->present)
-+		return 0;
-+
-+	return it6625_audio_fs_to_rate(info->stream.fs_code);
- }
- 
- static u64 it6625_get_pclk(struct it6625 *it6625)
-@@ -905,20 +969,21 @@ static int it6625_s_ctrl_detect_hdmi_5v(struct v4l2_subdev *sd)
- 				hdmi_5v_power_present(it6625));
- }
- 
--static int it6625_s_ctrl_audio_sampling_rate(struct v4l2_subdev *sd)
-+static int it6625_s_ctrl_audio(struct v4l2_subdev *sd)
- {
- 	struct it6625 *it6625 = sd_to_6625(sd);
-+	struct it6625_audio_info info = {};
-+	int ret;
- 
--	return v4l2_ctrl_s_ctrl(it6625->ctrl_audio_sampling_rate,
--				get_audio_sampling_rate(it6625));
--}
-+	scoped_guard(mutex, &it6625->it6625_lock)
-+		it6625_read_audio_info(it6625, &info);
- 
--static int it6625_s_ctrl_audio_present(struct v4l2_subdev *sd)
--{
--	struct it6625 *it6625 = sd_to_6625(sd);
-+	ret = v4l2_ctrl_s_ctrl(it6625->ctrl_audio_sampling_rate,
-+			       it6625_audio_info_rate(&info));
-+	if (ret)
-+		return ret;
- 
--	return v4l2_ctrl_s_ctrl(it6625->ctrl_audio_present,
--				audio_present(it6625));
-+	return v4l2_ctrl_s_ctrl(it6625->ctrl_audio_present, info.present);
- }
- 
- static int it6625_v4l2_sd_ctrl_update(struct v4l2_subdev *sd)
-@@ -929,11 +994,7 @@ static int it6625_v4l2_sd_ctrl_update(struct v4l2_subdev *sd)
- 	if (ret)
- 		return ret;
- 
--	ret = it6625_s_ctrl_audio_sampling_rate(sd);
--	if (ret)
--		return ret;
--
--	return it6625_s_ctrl_audio_present(sd);
-+	return it6625_s_ctrl_audio(sd);
- }
- 
- static int it6625_enable_stream_locked(struct it6625 *it6625, bool enable)
-@@ -1184,10 +1245,7 @@ static void it6625_irq_format_change(struct it6625 *it6625)
- 
- static void it6625_irq_hdmi_audio_change(struct it6625 *it6625)
- {
--	struct v4l2_subdev *sd = &it6625->sd;
--
--	it6625_s_ctrl_audio_sampling_rate(sd);
--	it6625_s_ctrl_audio_present(sd);
-+	it6625_s_ctrl_audio(&it6625->sd);
- }
- 
- static void it6625_get_timings(struct it6625 *it6625,
-
--- 
-2.34.1
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH-next v2 1/3] tick/sched: Make tick_nohz_full_mask and
+ HK_TYPE_KERNEL_NOISE cpumask consistent
+To: Waiman Long <longman@redhat.com>, Tejun Heo <tj@kernel.org>,
+ Johannes Weiner <hannes@cmpxchg.org>, =?UTF-8?Q?Michal_Koutn=C3=BD?=
+ <mkoutny@suse.com>, Jonathan Corbet <corbet@lwn.net>,
+ Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
+ <rdunlap@infradead.org>, Ridong Chen <ridong.chen@linux.dev>,
+ Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
+ Juri Lelli <juri.lelli@redhat.com>,
+ Vincent Guittot <vincent.guittot@linaro.org>,
+ Dietmar Eggemann <dietmar.eggemann@arm.com>,
+ Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>,
+ Mel Gorman <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>,
+ K Prateek Nayak <kprateek.nayak@amd.com>,
+ Anna-Maria Behnsen <anna-maria@linutronix.de>,
+ Frederic Weisbecker <frederic@kernel.org>, Thomas Gleixner <tglx@kernel.org>
+Cc: cgroups@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+References: <20261123041209.382726-1-longman@redhat.com>
+ <20261123041209.382726-2-longman@redhat.com>
+Content-Language: en-US
+From: Guopeng Zhang <guopeng.zhang@linux.dev>
+In-Reply-To: <20261123041209.382726-2-longman@redhat.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
 
+
+在 2026/11/23 12:12, Waiman Long 写道:
+> When the nohz_full boot parameter is first set, the cpu list parameter is
+> passed directly to tick_nohz_full_setup() to set up tick_nohz_full_mask
+> cpumask. Then the HK_TYPE_KERNEL_NOISE cpumask will be set up as the
+> inverse of given cpu list parameter. Some of the timer code and RCU
+> uses tick_nohz_full_mask directly while other timer code, scheduler
+> and other subsystems use the HK_TYPE_KERNEL_NOISE cpumask.
+> 
+> With CONFIG_PM_SLEEP_SMP && !CONFIG_PM_SLEEP_SMP_NONZERO_CPU config
+> options, the boot CPU will be cleared from tick_nohz_full_mask if set
+> while the corresponding HK_TYPE_KERNEL_NOISE cpumask isn't touched.
+> The nohz_full entry in kernel-parameters.txt does state that the boot
+> CPU will be forced outside the range to maintain the timekeeping. So it
+> makes sense that the HK_TYPE_KERNEL_NOISE should be modified accordingly.
+> 
+> Fix this inconsistency problem by adding a new cpumask_set_cpu() init
+> function to be called by tick_nohz_init() when the boot CPU is cleared
+> from tick_nohz_full_mask.
+> 
+> PM_SLEEP_SMP_NONZERO_CPU depends on ARCH_SUSPEND_NONZERO_CPU which can
+> only be set for the PowerPC architecture. Moreover CONFIG_PM_SLEEP_SMP is
+> on by default, it means most kernels will not allow CPU 0 to be set in
+> the tick_nohz_full_mask and hence should be set in HK_TYPE_KERNEL_NOISE
+> cpumask.
+> 
+> Fixes: 6f1982fedd59 ("sched/isolation: Handle the nohz_full= parameter")
+> Signed-off-by: Waiman Long <longman@redhat.com>
+> ---
+>  include/linux/sched/isolation.h |  2 ++
+>  kernel/sched/isolation.c        | 11 +++++++++++
+>  kernel/time/tick-sched.c        |  2 ++
+>  3 files changed, 15 insertions(+)
+> 
+> diff --git a/include/linux/sched/isolation.h b/include/linux/sched/isolation.h
+> index cf0fd03dd7a2..ae5109450ac9 100644
+> --- a/include/linux/sched/isolation.h
+> +++ b/include/linux/sched/isolation.h
+> @@ -44,6 +44,7 @@ extern bool housekeeping_enabled(enum hk_type type);
+>  extern void housekeeping_affine(struct task_struct *t, enum hk_type type);
+>  extern bool housekeeping_test_cpu(int cpu, enum hk_type type);
+>  extern int housekeeping_update(struct cpumask *isol_mask);
+> +extern void __init housekeeping_set_cpu(int cpu, enum hk_type type);
+>  extern void __init housekeeping_init(void);
+>  
+>  #else
+> @@ -72,6 +73,7 @@ static inline bool housekeeping_test_cpu(int cpu, enum hk_type type)
+>  }
+>  
+>  static inline int housekeeping_update(struct cpumask *isol_mask) { return 0; }
+> +static inline void housekeeping_set_cpu(int cpu, enum hk_type type) { }
+>  static inline void housekeeping_init(void) { }
+>  #endif /* CONFIG_CPU_ISOLATION */
+>  
+> diff --git a/kernel/sched/isolation.c b/kernel/sched/isolation.c
+> index 156025ef81b7..c0c8b8862cbd 100644
+> --- a/kernel/sched/isolation.c
+> +++ b/kernel/sched/isolation.c
+> @@ -120,6 +120,17 @@ bool housekeeping_test_cpu(int cpu, enum hk_type type)
+>  }
+>  EXPORT_SYMBOL_GPL(housekeeping_test_cpu);
+>  
+> +void __init housekeeping_set_cpu(int cpu, enum hk_type type)
+> +{
+> +	/* Only CPU setting of HK_TYPE_KERNEL_NOISE is currently supported */
+> +	if (type != HK_TYPE_KERNEL_NOISE)
+> +		return;
+> +
+> +	if (static_branch_unlikely(&housekeeping_overridden) &&
+> +	    READ_ONCE(housekeeping.flags) & BIT(type))
+> +		cpumask_set_cpu(cpu, housekeeping_cpumask_dereference(type));
+> +}
+> +
+>  int housekeeping_update(struct cpumask *isol_mask)
+>  {
+>  	struct cpumask *trial, *old = NULL;
+> diff --git a/kernel/time/tick-sched.c b/kernel/time/tick-sched.c
+> index 255488366d7c..d9f45c9f9b89 100644
+> --- a/kernel/time/tick-sched.c
+> +++ b/kernel/time/tick-sched.c
+> @@ -22,6 +22,7 @@
+>  #include <linux/sched/stat.h>
+>  #include <linux/sched/nohz.h>
+>  #include <linux/sched/loadavg.h>
+> +#include <linux/sched/isolation.h>
+>  #include <linux/module.h>
+>  #include <linux/irq_work.h>
+>  #include <linux/posix-timers.h>
+> @@ -683,6 +684,7 @@ void __init tick_nohz_init(void)
+>  			pr_warn("NO_HZ: Clearing %d from nohz_full range "
+>  				"for timekeeping\n", cpu);
+>  			cpumask_clear_cpu(cpu, tick_nohz_full_mask);
+> +			housekeeping_set_cpu(cpu, HK_TYPE_KERNEL_NOISE);
+>  		}
+>  	}
+>  
+
+Built and boot-tested the v2 series on a 32-vCPU x86-64 VM with
+CONFIG_NO_HZ_FULL=y and CONFIG_PM_SLEEP_SMP=y. With nohz_full=0,8-31,
+verified that CPU 0 is excluded from nohz_full and included in
+HK_TYPE_KERNEL_NOISE. The cpuset selftests passed.
+
+Acked-by: Guopeng Zhang <zhangguopeng@kylinos.cn>
+Tested-by: Guopeng Zhang <zhangguopeng@kylinos.cn>
+
+Thanks,
+Guopeng
