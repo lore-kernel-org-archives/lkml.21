@@ -1,81 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.17
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795516042;
-	b=aS+nddnN2Hav3PxGEGpnFuDACfJBvlebUiHfUX0pakdAHThl1ydeHJjrmSx2fe3dH6XI
-	 O6GPHehkt1marmB4OoANXfNjFtlUKUrN5080NlmhrJTlU/bnWitOUjcC3hmm25mM7XQAX
-	 7j2XD1WS+moPssDlhxVtzcpUzhD0V/kzCVIGBVJIKF345US8RDvSacK/7pRFssqvUEe0a
-	 LwKTQmKew2nXrzLPs/+oQ8vL0eYtHenny94CboqniVj7zxioMAjj5ooS2V9j29WbsxSI/
-	 ZbJmJsoeEhTNxRrKlN9t161o8uLltp7RpcLt8GZKU5qJavYiHkvr2bw1i+Z45X4p8Rg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795516042;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:Organization;
-	bh=bv3MYp50cO6JG3wyY7QdIPoIXH9KstB0wwFIT4JfjgA=;
-	b=KoOLgeid/V2V/xA9K3KpeDkp/6ez6d17ZxZayy8C8pBh76qFr6iEIpqCiGKvHjiH4sn5
-	 i3YhPj0MREHz0OVS1F8ma15vVuDcCNJfidcLsND3Ws5JMFpXoRZC+56hxAsDf8VAjpN35
-	 m9kj+KN/vb1bUcw809zxe8HqC+fGfYZ12XKzegWizyB5ht6ykliBl13zcEHVz+uBObFkd
-	 KKFH4h2f6tTmNzA+B0E2MIrqUy40wZZOu59q3L/Tqbw8vj9c0/biB+bhhHQ0m6zq3wydh
-	 tfHebHy0mqy2Zh+dhpH5qL+7exn/Ic4o9ofcP3sNvvpjgnn6wF2I5I4Vu6gMFDbb2hQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=b9ixxqam;
-	arc=none smtp.remote-ip=198.175.65.17
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.17])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.112
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795516046;
+	b=BDA9UMl/XGzgG/2pT0TGXstAWP6VIgWWh/T5b2yA0xnkPI4X7HUA+m5UETUAUBpmz9Hv
+	 puFs788TmSXb0+0k6oTZTyP6AkJhl1nJPvkNlbDjot90eriC3VCbCFgqOg404rKNwhKEK
+	 ariXlypPy17+6/uOeGwRifFj0Ar49Jt4c9VZ5y8mf/o1+m+ntkGSvZKojettC4IJsiBLl
+	 6cRq96S0D91F1XvlDh38YYgX9Sp8s8Wu5U59LKvQ993fvmhD2YAu6VWStITSYSXtb2/xx
+	 eDKwEeaIm7qKrAEFwewQsbWCQ8qhY5I3PqfnkRebmqP/QrVyfbkOWCk0++MP5ATmy2g==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795516046;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ZohoMailClient;
+	bh=4A9LDC1Pxq66xRXpAnFLlD4joyJvsEB7ommipyTBSAU=;
+	b=0r296QIYyzrJN07yACv5naTLb6o2GSHcCCbgagodYMHzKv1cKX6vzRyhLJJGruFlqPvo
+	 rCr69hv0+j+Rzp9ckXY6S5wxzv3OgDdI4P3cXbQDK+rXf3XGa8j4swV61XivA8rwz78xH
+	 tOqzdDt9/LiHPLPxWGwzsozTHwwnz9pNqr5sCgE8QessUfVay6XS1tONEWqUIpUg9pOsE
+	 qO1COIE8++94ov3lYUBGuOY3PircjslCqFOKYDcFO4BmPgUH8MLOQ1KQFDgqSLFPiobBp
+	 t0rmxIiz3SQoyK1kS5KfSsEA7/Sh4oOlbDScWPZ+sff5f1zK1czJS30OvxbCr/Vy6cg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=IyJGpSNW;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.112
+Received: from sender5-pp-f112.zoho.com (sender5-pp-f112.zoho.com [165.173.182.112])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8F164606A31E;
-	Tue, 24 Nov 2026 10:27:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8F164606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 84946606A31E;
+	Tue, 24 Nov 2026 10:27:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 84946606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=b9ixxqam
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795516042; x=1827052042;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=TnAVW8znwYMhZ6U0JVzDhzcJhGdWbZqAFm6lyt6LM5I=;
-  b=b9ixxqamrN7xhW/FyBIrUAjL/bWFTeuBBAHaYtJQjZRGWDrlOORICYd+
-   F3tj+DMi/FTCCxrhotdjRY8p/3u7d4+8ZsdZPpesRB/RbNQng22wYyL9c
-   28HfJcBqjSdwv5Rc85en7ubm2wb4YHI2ETk2j3rE3ohdZaC0adDjjR2xL
-   Bh6YyIB385bbkAfAVb3c8Qq8vGTBATGSzHXlyRmFXqXIvR0iSKCCABcZl
-   yE/yPblRDWPl1Uyyqs6R1xoCp6LDpLQ6LOa1L/QegKi5mnulyUFeelwWy
-   jumZAb/A5f4GNV9nLgQIbhAktF68p9x9jzmsv67CiPurOqtlCaazveYTM
-   g==;
-X-CSE-ConnectionGUID: ynme8IBOR1ye5GknncrsHQ==
-X-CSE-MsgGUID: 4MQiwO2CRayvHOqkgWe0Yw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11975"; a="4364343"
-X-IronPort-AV: E=Sophos;i="6.27,230,1787036400"; 
-   d="scan'208";a="4364343"
-Received: from orviesa005.jf.intel.com ([10.64.159.145])
-  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 02:22:57 -0800
-X-CSE-ConnectionGUID: YxJJb1eYTLaL61vC8MchUA==
-X-CSE-MsgGUID: Gz0SA2SJTM2R4qiA71kRAw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,230,1787036400"; 
-   d="scan'208";a="11442732"
-Received: from hrotuna-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.245.125])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 02:22:53 -0800
-Date: Tue, 24 Nov 2026 12:22:51 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Gerard Marull-Paretas <gerard@teslabs.com>
-Cc: Jonathan Cameron <jic23@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>, Frank Li <Frank.li@nxp.com>,
-	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 3/4] iio: magnetometer: mmc5633: Enable the VDD supply
-Message-ID: <awVle8CFVrYHkih1@ashevche-desk.local>
-References: <20261124094632.8879-1-gerard@teslabs.com>
- <20261124094632.8879-4-gerard@teslabs.com>
+	dkim=pass (1024-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=IyJGpSNW
+ARC-Seal: i=1; a=rsa-sha256; t=1795516019; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=LfGiEdx8OjnCNigbjAA6/zn9RrTArJj2FDRUGgWVO5SPcAiahJmVxLsT627D3JaA8Igbqlk1yUjNWE7FultU3Bvjuzb7lmQFjH8Bltsder65QyePUvW12kIwQ2gD1J7Pm48uyCA6+GZGsGYkMcPrpWoVFDd0ThBLB7EqbRVig3A=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1795516019; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=4A9LDC1Pxq66xRXpAnFLlD4joyJvsEB7ommipyTBSAU=; 
+	b=hPUujiE2ZP/ar4Z+UH5dqbDAOlu/PhBGp4xXAHQrjoOBPy0SqOKalskGYGBEDYLsnNLScobmFoTbeo1JD79xvbDAopeATWwr6kp+lgmkpB1lpo0xT+4lVe0wGqPJpDgkcgxjvN7idRhNZj7JKbfRXEYW6FhUTRxndJMcaQgIrzY=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=michael.riesch@collabora.com;
+	dmarc=pass header.from=<michael.riesch@collabora.com>
+DKIM-Signature: a=rsa-sha256; b=IyJGpSNWB3Iy/ksv11xA0oHwGVyuEQzfVI+XPmi/aAJVMDKWAB3iuYQoMCoSwuI+OLtzXFjzqdUyIVoOUcKK8Ty899HJoO+qLXSiJ3Vusk85kW5XO6Xrtp9piULRsfRNBmr0mlJSrkVMRm7FRDOK/PvBotijXBWkz1DcEKOVRPo=; c=relaxed/relaxed; s=zohomail; d=collabora.com; v=1; bh=4A9LDC1Pxq66xRXpAnFLlD4joyJvsEB7ommipyTBSAU=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zohomail.com with SMTPS id 1795515987257765.0607790829777;
+	Tue, 24 Nov 2026 02:26:27 -0800 (PST)
+Message-ID: <35884259-b669-46ed-a9e9-59cbfab926e1@collabora.com>
+Date: Tue, 24 Nov 2026 11:26:23 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -85,21 +58,80 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261124094632.8879-4-gerard@teslabs.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/2] media: rockchip: rkcif: Filter enumerated formats
+ by media bus code
+To: Faizel K B <faizel.kb@gmail.com>,
+ Mehdi Djait <mehdi.djait@linux.intel.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Heiko Stuebner <heiko@sntech.de>, linux-media@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, libcamera-devel@lists.libcamera.org,
+ Robert Mader <robert.mader@collabora.com>
+References: <20261118203134.315591-1-faizel.kb@gmail.com>
+ <20261118203134.315591-2-faizel.kb@gmail.com>
+Content-Language: en-US
+From: Michael Riesch <michael.riesch@collabora.com>
+In-Reply-To: <20261118203134.315591-2-faizel.kb@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ZohoMailClient: External
 
-On Tue, Nov 24, 2026 at 10:46:31AM +0100, Gerard Marull-Paretas wrote:
-> Boards may switch the supply of the sensor, so get and enable it before
-> initialising the chip, and wait the 5 ms both parts need after VDD is
-> valid before they can be operated.
+Hi Faizel,
 
-Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
+Thanks for your patch.
 
--- 
-With Best Regards,
-Andy Shevchenko
+On 11/18/26 21:31, Faizel K B wrote:
+> VIDIOC_ENUM_FMT ignores the mbus_code field and returns all formats,
+> although the video devices set V4L2_CAP_IO_MC. Return only the formats
+> that match the requested media bus code. The DVP output formats have no
+> media bus code, so they are still all returned.
+> 
+> Otherwise userspace can pick a pixel format that doesn't match the
+> media bus format, and then interprets the captured data in the wrong
+> format.
+> 
+> Signed-off-by: Faizel K B <faizel.kb@gmail.com>
 
+Reviewed-by: Michael Riesch <michael.riesch@collabora.com>
+
+Best regards,
+Michael
+
+> ---
+>  .../platform/rockchip/rkcif/rkcif-stream.c     | 18 ++++++++++++++----
+>  1 file changed, 14 insertions(+), 4 deletions(-)
+> 
+> diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-stream.c b/drivers/media/platform/rockchip/rkcif/rkcif-stream.c
+> index 3130d420ad55..b117ba57bc75 100644
+> --- a/drivers/media/platform/rockchip/rkcif/rkcif-stream.c
+> +++ b/drivers/media/platform/rockchip/rkcif/rkcif-stream.c
+> @@ -395,13 +395,23 @@ static int rkcif_stream_enum_formats(struct file *file, void *priv,
+>  				     struct v4l2_fmtdesc *f)
+>  {
+>  	struct rkcif_stream *stream = video_drvdata(file);
+> +	const struct rkcif_output_fmt *fmt;
+> +	unsigned int i, n = 0;
+>  
+> -	if (f->index >= stream->out_fmts_num)
+> -		return -EINVAL;
+> +	for (i = 0; i < stream->out_fmts_num; i++) {
+> +		fmt = &stream->out_fmts[i];
+>  
+> -	f->pixelformat = stream->out_fmts[f->index].fourcc;
+> +		if (f->mbus_code && fmt->mbus_code &&
+> +		    fmt->mbus_code != f->mbus_code)
+> +			continue;
+>  
+> -	return 0;
+> +		if (n++ == f->index) {
+> +			f->pixelformat = fmt->fourcc;
+> +			return 0;
+> +		}
+> +	}
+> +
+> +	return -EINVAL;
+>  }
+>  
+>  static int rkcif_stream_enum_framesizes(struct file *file, void *fh,
 
