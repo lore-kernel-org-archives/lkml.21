@@ -1,47 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=210.118.77.12
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795514163;
-	b=PhYT4x48f056yifIh4K4+bygpfwXmEN719w6ZTU83uEDjftz7Qwa30zBioh1Elmpe1od
-	 rkrB1cVxvhY0i1GNNWwXSeZWCuE4/SQc+Bh6Drdmd69Ov6+3mJkgotEg5vHQ+h8YNsHxf
-	 3iJdhazsk9bQe7M0TvbBoMendjUDVYtcc0O42cKaZT6dHywW3djMYd8pRzz/AnR3UfwP9
-	 eE1an/OczCsO1uLQg/fbifiAv2Lnw/vd3KN7zDje4uN2Mvk6Ak1k1u7Wyitc/C2p54QUW
-	 j3pNL1eacTh9w+x5mxgKmiCa2JWQ6bvC9PheqDgyqa0MVPj/xBjyePRmw/AxIaeDb/g==
+	t=1795514164;
+	b=mz8Q/6k6xl+OzM4iZq1KC6YujJJKsC/2avfsfWloFbAEQU/cwp/DuELXIchnqwafUGU5
+	 rtTw7KiJ3d2gGMWdbHSQulpTjFWMCH5y61rFvGvbBdUxhmHEoVQca/bE3NmWJfnSBzepm
+	 U1CV/H+/fS0mEZtlNBnuZHh4V0wK279+EoxiCM1z+7yV6/M9ofKg8STauKKQ1atLrhtos
+	 ns3dKjqS0THQAUYOSKVlyz3B1FuTtyjsdKJwqbcrnCCOtlbGaa53NcBzA1Gz8G7n73qW/
+	 A3l7CdYTvMyvit/fkjIPs5KzEqy1g5g77IzFb1GUAthw/QjKPy5qC115UBEjczg+Tqw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795514163;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=HBwwx22gdCBZcO+HQC+OiG/e+KY/HmCfnI4aK0bezx0=;
-	b=LYdOBr/FJSe0QkzfLKey6kt15fLGy9ZZiRCte1i/LeqL+IAVR54quWeNel2oUmtJ2mh/
-	 VbeM/FIxfUFErsVnvYd4XYXCmZcOFh1vBn/nxlaMlFs3A9pOrXHhzh41T5rXC9MW8QU+w
-	 Ybap+qcG+YmzPiGJ816CuZK/nNoyjCtapzNpLD0OV+iL93XKTrJn8ZVF+45z0aBmbkwns
-	 cef6MeBz752+9v0rsJ9LDoziEJ3eLAmmLmHM1fkqIHbKcQLsb/+78hsKuOvNhYlRiQ+V3
-	 o7AKlWhW8FJF6YhcnWnLJHPxRaJ/nQ57feLNI+z+t81DreIoLMzb+SCnQu2GiSsW8Mw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795514164;
+	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Received:Received:
+	 From:Date:Subject:MIME-Version:Content-Transfer-Encoding:Message-Id:
+	 In-Reply-To:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
+	 X-CMS-MailID:X-Msg-Generator:Content-Type:X-RootMTR:X-EPHeader:
+	 X-CMS-RootMailID:References;
+	bh=06AQXyihJq/OEvwcZMATqFb1XaBS16clhoCnTaBSROQ=;
+	b=0B8f9wdFBDoKpnpYK0MqvpVRvSSu816JJpDT53wqWL4j9ffRbrjRBj9rr/8X29w/USdk
+	 5otbwKXzD7PlW3vPJRVgmJ3oWqYL9AfMAVKjZ3kGzu32z0TTD4RvuAtQSNQNfJA02om96
+	 8O9IiQ3uYFAAJ9ys2GgllawRyHC8pwZ9H44OIA3e3ZkLh8ynMlJlohI0cphNiRykfiFYz
+	 pJvSmc76yJnothRv0MJ6HQxc3jHGT1NXTDIBgjYuXYisOzi0xGf9/M+Ew/eP8XPeTbE8g
+	 mA1e1Ui9cFs8qt4fCuIZT8AhOJNqi5GPKA5BcFAGRoNPJQB3WDQYax9Lj4FtY3Vivfg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HgKvT66T;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=samsung.com;
+	spf=pass smtp.mailfrom=samsung.com;
+	dkim=pass header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=lJTqO4zD;
+	arc=none smtp.remote-ip=210.118.77.12
+Received: from mailout2.w1.samsung.com (mailout2.w1.samsung.com [210.118.77.12])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DE7C3606A32A;
-	Tue, 24 Nov 2026 09:56:03 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 46B10606A327
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:56:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 46B10606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=samsung.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=samsung.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HgKvT66T
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86A121F000EB;
-	Tue, 24 Nov 2026 09:55:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795514162;
-	bh=HBwwx22gdCBZcO+HQC+OiG/e+KY/HmCfnI4aK0bezx0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=HgKvT66TjCdo1tP68cBTobK77WEZOs0plGQEzS8YDlxCl0uR4GpJeTTms4vjEJFEQ
-	 XFZ8XAhxZgOGNms6u9xuyZM1+WQ08J/xdo1Tz/4lIAeMmVdqSHwrtZZvNAQ9G5G0RQ
-	 4t1hrQnSv90AYxS0fS5KvUlb79gdT9DrVSpg9F9U+8Lrl9Dmkj7qlu0Yqp9eaPM33A
-	 3FvZljj58ni7EX2g3uu5n9L4k5aBGz4jov5y/cHJ3KdmqA4Mz3EhX0Gi5QBmObXkuu
-	 dIMimcxNuwFX473yI69Bde9fMfX32vg2bv3rJyreFKWU1WtTe5tVLu4QWh1wR6Iqqq
-	 QjidklHUqc3cw==
-Message-ID: <a5f859c1-0779-4ae1-88f0-bfa12268e09c@kernel.org>
-Date: Tue, 24 Nov 2026 10:55:57 +0100
+	dkim=pass (1024-bit key) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=lJTqO4zD
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20261124095556euoutp0258b0ab420cc9efc72c4a1ecea4578da6~q8pykoZeo2627426274euoutp02-
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:55:56 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20261124095556euoutp0258b0ab420cc9efc72c4a1ecea4578da6~q8pykoZeo2627426274euoutp02-
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1795514156;
+	bh=06AQXyihJq/OEvwcZMATqFb1XaBS16clhoCnTaBSROQ=;
+	h=From:Date:Subject:In-Reply-To:To:Cc:References:From;
+	b=lJTqO4zD+PB7K66c1WmgMyxjayLU/IN7CjD4ccWJvUcW/TfFPAn8blRjLAGnxUINq
+	 Z7+Wi23Px2QiGbMg5ITc1Ov4KMVtxrdd95dmsF/mYnBknG/ZxF3mcwFo3b7Lber4GX
+	 vDAJ+4H8s2nOHdHVkl4TB3mWZgxDyq3q7yfZVRxc=
+Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20261124095555eucas1p1bf8a1e59f2197aafda6bc4f048384eec~q8pyNkyh21824718247eucas1p1R;
+	Tue, 24 Nov 2026 09:55:55 +0000 (GMT)
+Received: from AMDC4942.eu.corp.samsungelectronics.net (unknown
+	[106.210.136.40]) by eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20261124095554eusmtip24b9eb202848a11b54137244f0282c269~q8pxZUQWH3142631426eusmtip2b;
+	Tue, 24 Nov 2026 09:55:54 +0000 (GMT)
+From: Michal Wilczynski <m.wilczynski@samsung.com>
+Date: Tue, 24 Nov 2026 10:53:58 +0100
+Subject: [PATCH v8 1/5] dt-bindings: phy: Add starfive,jh7110-inno-hdmi-phy
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,178 +65,110 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] dt-bindings: power: supply: Add qcom,pm4125-charger
- binding
-To: Raj Aryan <raj.aryan@oss.qualcomm.com>, Sebastian Reichel
- <sre@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Casey Connolly <casey.connolly@linaro.org>,
- Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>
-Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- Rakesh Kota <rakesh.kota@oss.qualcomm.com>
-References: <20261124-smblite-charger-for-pm4125-v1-0-2132c9f0601f@oss.qualcomm.com>
- <20261124-smblite-charger-for-pm4125-v1-1-2132c9f0601f@oss.qualcomm.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20261124-smblite-charger-for-pm4125-v1-1-2132c9f0601f@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261124-jh7110-inno-hdmi-phy-v8-1-5e3008122cba@samsung.com>
+In-Reply-To: <20261124-jh7110-inno-hdmi-phy-v8-0-5e3008122cba@samsung.com>
+To: Vinod Koul <vkoul@kernel.org>,  Neil Armstrong
+	<neil.armstrong@linaro.org>,  Manivannan Sadhasivam <mani@kernel.org>, Rob
+	Herring <robh@kernel.org>,  Krzysztof Kozlowski <krzk+dt@kernel.org>,  Conor
+	Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,  Emil Renner
+	Berthing <kernel@esmil.dk>,  Hal Feng <hal.feng@starfivetech.com>, Dominique
+	Belhachemi <db@domibel.de>,  Michal Wilczynski <m.wilczynski@samsung.com>,
+	Andy Yan <andyshrk@163.com>
+Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org,  Marek
+	Szyprowski <m.szyprowski@samsung.com>,  Icenowy Zheng
+	<zhengxingda@iscas.ac.cn>,  Chaoyi Chen <chaoyi.chen@rock-chips.com>, 
+	Joshua Peisach <jpeisach@ubuntu.com>
+X-Mailer: b4 0.15-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2057;
+	i=m.wilczynski@samsung.com; h=from:subject:message-id;
+	bh=6AQm50xtAvbrSQTSn64RxXqfjCuQ7qgMNyPcGxB0fq8=;
+	b=owGbwMvMwCGWumv6zndzRCIZT6slMWSzxmuq14sV/uf5x3FGacaLf0oXq/0WH8xNzNl//IJlz
+	rG556P+d5SyMIhxMMiKKbKc3RhtJPmP4Wn58ce/YOawMoEMYeDiFICJiH9k+O/2y7lZdHbMbX2h
+	LTphQpWWh2N0tr9ewt58T9locsD6xjJGhuk/n3z+wB4vuSAh3FDmlaf0lX1bEmeabayYJ/e8I2r
+	XAgYA
+X-Developer-Key: i=m.wilczynski@samsung.com; a=openpgp;
+	fpr=CDB15B3219FE00E577C7E3FA65BA97B9EE9C1459
+X-CMS-MailID: 20261124095555eucas1p1bf8a1e59f2197aafda6bc4f048384eec
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20261124095555eucas1p1bf8a1e59f2197aafda6bc4f048384eec
+X-EPHeader: CA
+X-CMS-RootMailID: 20261124095555eucas1p1bf8a1e59f2197aafda6bc4f048384eec
+References: <20261124-jh7110-inno-hdmi-phy-v8-0-5e3008122cba@samsung.com>
+	<CGME20261124095555eucas1p1bf8a1e59f2197aafda6bc4f048384eec@eucas1p1.samsung.com>
 
-On 24/11/2026 10:15, Raj Aryan wrote:
-> Add YAML devicetree binding for the Qualcomm SMBLite switch-mode
+Add the dt-binding for the StarFive JH7110 Innosilicon HDMI PHY.
 
-YAML devicetree binding, you hit combo... Drop YAML.
+This device is a child of the starfive,jh7110-hdmi-subsystem node. It
+functions as both a PHY provider for the controller and as a clock
+provider for the variable pixel clock (hdmi_pclk), which it generates
+from its refoclk.
 
-A nit, subject: drop second/last, redundant "bindings". The
-"dt-bindings" prefix is already stating that these are bindings.
-See also:
-https://elixir.bootlin.com/linux/v7.1-rc7/source/Documentation/devicetree/bindings/submitting-patches.rst#L23
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+---
+ .../phy/starfive,jh7110-inno-hdmi-phy.yaml         | 49 ++++++++++++++++++++++
+ 1 file changed, 49 insertions(+)
 
-> battery charger found on the PM4125 PMIC.
-> 
-> SMBLite is a reduced-feature charger IP sharing a common SPMI
-> interface with the SMB2 family (PMI8998, PM660) but using separate
-> SPMI peripheral bases for CHGR, DCDC, USB, MISC and BATIF blocks.
-> 
-> The binding covers:
+diff --git a/Documentation/devicetree/bindings/phy/starfive,jh7110-inno-hdmi-phy.yaml b/Documentation/devicetree/bindings/phy/starfive,jh7110-inno-hdmi-phy.yaml
+new file mode 100644
+index 0000000000000000000000000000000000000000..8dbd113b1534a37d00dfd60454f300531a813b8b
+--- /dev/null
++++ b/Documentation/devicetree/bindings/phy/starfive,jh7110-inno-hdmi-phy.yaml
+@@ -0,0 +1,49 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/phy/starfive,jh7110-inno-hdmi-phy.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: StarFive JH7110 Innosilicon INNO HDMI PHY
++
++maintainers:
++  - Michal Wilczynski <m.wilczynski@samsung.com>
++
++description:
++  The PHY portion of the StarFive JH7110 INNO HDMI IP.
++
++properties:
++  compatible:
++    const: starfive,jh7110-inno-hdmi-phy
++
++  clocks:
++    maxItems: 1
++    description: Reference oscillator.
++
++  '#clock-cells':
++    const: 0
++
++  '#phy-cells':
++    const: 0
++
++required:
++  - compatible
++  - clocks
++  - '#clock-cells'
++  - '#phy-cells'
++
++additionalProperties: false
++
++examples:
++  # Shown as a child of the HDMI subsystem node; see
++  # Documentation/devicetree/bindings/display/starfive/starfive,jh7110-hdmi-subsystem.yaml
++  # for the full node.
++  - |
++    phy {
++        compatible = "starfive,jh7110-inno-hdmi-phy";
++        #clock-cells = <0>;
++        clocks = <&xin24m>;
++        #phy-cells = <0>;
++    };
++
++...
 
-Do not explain what the patch is doing. We can read the diff. Please
-read submitting patches or look at other commits to learn what is
-supposed to be here.
+-- 
+2.34.1
 
-> 
->   - compatible string: qcom,pm4125-charger
->   - reg property for the CHGR peripheral base address
->   - Four interrupts: usb-plugin, bat-ov, wdog-bark and
->     usbin-icl-change
->   - Two IIO channels: usbin_v (USB input voltage via ADC5_USB_IN_V_16)
->     and usbin_i (USB input current via ADC5_USB_IN_I)
->   - Optional JEITA soft and hard threshold configuration as raw
->     16-bit ADC comparator values written to BATIF ADC comparator
->     registers
->   - Optional monitored-battery phandle for battery parameters such
->     as float voltage and charge termination current
-
-...
-
-> +
-> +maintainers:
-> +  - Raj Aryan <raj.aryan@oss.qualcomm.com>
-> +  - Rakesh Kota <rakesh.kota@oss.qualcomm.com>
-> +
-> +description: |
-> +  The Qualcomm SMBLite is a switch-mode battery charger IP found on
-> +  the entry-level Qualcomm PM4125 PMIC. It exposes five separate
-> +  SPMI peripheral bases for CHGR, DCDC, USB, MISC and BATIF blocks and
-> +  supports USB input current limiting, JEITA temperature protection,
-> +  battery overvoltage detection and a hardware watchdog.
-> +
-> +properties:
-> +  compatible:
-> +    const: qcom,pm4125-charger
-> +
-> +  reg:
-> +    maxItems: 1
-> +    description: Base address of the CHGR SPMI peripheral (e.g. 0x1000).
-
-Drop description.
-
-> +
-> +  interrupts:
-> +    maxItems: 4
-> +
-> +  interrupt-names:
-> +    items:
-> +      - const: usb-plugin
-> +      - const: bat-ov
-> +      - const: wdog-bark
-> +      - const: usbin-icl-change
-> +
-> +  io-channels:
-> +    minItems: 1
-> +    maxItems: 2
-
-Why is this flexible?
-
-> +    description: |
-> +      IIO ADC channels used by the charger. usbin_v is the USB input
-> +      voltage channel (ADC5_USB_IN_V_16). usbin_i is the USB input
-> +      current channel (ADC5_USB_IN_I).
-> +
-> +  io-channel-names:
-> +    minItems: 1
-> +    items:
-> +      - const: usbin_v
-> +      - const: usbin_i
-> +
-> +  monitored-battery: true
-> +
-> +  qcom,jeita-soft-thresholds:
-> +    $ref: /schemas/types.yaml#/definitions/uint32-array
-> +    minItems: 2
-> +    maxItems: 2
-> +    description: |
-> +      JEITA soft temperature thresholds (COOL, WARM) as raw 16-bit ADC
-> +      comparator values written to the BATIF ADC comparator registers.
-> +      Example: <0x5314 0x25e3> for COOL=15°C, WARM=45°C.
-> +
-> +  qcom,jeita-hard-thresholds:
-> +    $ref: /schemas/types.yaml#/definitions/uint32-array
-> +    minItems: 2
-> +    maxItems: 2
-> +    description: |
-> +      JEITA hard temperature thresholds (COLD, HOT) as raw 16-bit ADC
-> +      comparator values written to the BATIF ADC comparator registers.
-> +      Example: <0x58cd 0x20b8> for COLD=0°C, HOT=60°C.
-
-Express temperatures with proper units.
-
-
-
-Best regards,
-Krzysztof
