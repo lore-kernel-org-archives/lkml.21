@@ -1,83 +1,66 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.41
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=199.89.1.16
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795538224;
-	b=1dLdSwDKJEaFaVhCaq0GLwWUQeZbt1bARMI/3QdrzP5o4OeOHZXLFG6mHtOzm3FNt76+
-	 awWH/FIoofsqLCFoN1s851FvvVpegt0sBZUzFxVVYntcxX1YmxXe+aHbl6A1/9o3hGtm6
-	 B9t2CjcEmpsXS4QoO393RdjExmeGdtRi5qYnRZ0tUaWrQXtPJVLhTdr0LIK398zaIW3de
-	 TmBxnb3LfAxYZOXWV6jT7s8ke5l3cIz/Oilx94N6mYuc0vWcdH1+tviNVHR5Mkaz4GpNr
-	 6Rdt1tkRG1tAhjtSAsdBNykZBWNzadQQPl85IC1wS3QCvuBV/nBIah6TaBI8DIvYyWA==
+	t=1795538284;
+	b=5N3mtdyu+mLU6WhcbJH+QDyODYtrXDnwacmPV41H5b6D+gxzKYagBCYIHDI4rUjuPMLd
+	 6+XohbffIiPOxsV+1+wxs0ksrVpyQEL3Tp1Mjfl5uHLn/2BSn449fZO1nK7Ckq/i+0Yx1
+	 XKs3VDOpvNaRZYxJqiQQ7tf1DGJ40TU3p3uueuLP5FKlDaI5G6t+n4T6o1vBkVJeBUKA8
+	 cwjOt5IxN9OenOO29Usv+clPLEmshTpIVd5oWP4xReJb0Dw+gCWRRtb+NxraMcTzd9keZ
+	 82y5M8bfQciqX/IFkuYZzokH16ZA90WMJEGv3oidxfKdZ7TMVm/WpwHD0tcLW2VyULw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795538224;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Mime-Version:Content-Type:Date:Message-Id:Cc:Subject:From:To:X-Mailer:
-	 References:In-Reply-To;
-	bh=kERKRhF39h+o4brc6m3SDvQJ22VyguIEsdUljr0uSEI=;
-	b=RQ7bQZlZZK6tMYkxyjsVORW9T5rLi90XJDgnitYkb3QqkgOhkREbpsHmoys1AUQzXcAr
-	 NDv0CDAXDwLJ65z3ugVRZOmqOzjwPoqw+e6PiAKSuA/syvsmsqMHHhgUtSE/GsAeYM1kQ
-	 zD5LdX5wNooQ0T5Q3vzW7EK593UeX96sRyNAKF4B6+LXZtMoCHSrg4AGq7a4V4wx+uxQe
-	 M0j8NCO7YX0o7JSw34hHmq7FlpLrSUiJUAYIc0yGloROaaiGAsfcqW7W88VCLi4AJF5sl
-	 5dvDMTxCty/xq2Ojz0f+q2PVlnKrlEMg7qj/OPZAAPxBOuziICGnrxaKGCogMQz3C8g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795538284;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Virus-Scanned:Received:
+	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
+	 References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=VcKqAindQ+wtPkjkunJkcwHZ0Zj0u+55F0mjged3HyQ=;
+	b=M4lwzgHHMtvuqKDBn8ncyy+0eo8l664cAyns56wSxYReLxa+BBXhTcOtRO6IH58eMbLa
+	 GimHgM6w3ePz6D6l4xoVMUpv+E+LTrDj2U7GZF86S7wMFF4I5SM/5sz6/hYj5VgXtJasE
+	 qclFJo6d30omX50+eqg5JHt1WOmQ9jl6f5J1zWbiIFfAFthak1tfJWWiDyjuFjlsEv+KS
+	 unJyg91/tnOfb78CBZBNTRHJ9wmdHPjgHRuZZy41S/ocWzKxUagBZwgIVHWMzA4wstcC2
+	 nWeNxYJZrp/PUPRzeW5sF/uqe2Ei+dO0+wr+/YnJAJp69apRCknG9q4Rg99mY5JV8lQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="Jx/Y0n13";
-	arc=none smtp.remote-ip=209.85.221.41
-Received: from mail-wr1-f41.google.com (mail-wr1-f41.google.com [209.85.221.41])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=acm.org;
+	spf=pass smtp.mailfrom=acm.org;
+	dkim=pass header.d=acm.org header.i=@acm.org header.a=rsa-sha256 header.s=mr01 header.b=AaHe7eAY;
+	arc=none smtp.remote-ip=199.89.1.16
+Received: from 013.lax.mailroute.net (013.lax.mailroute.net [199.89.1.16])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 65DB4606A321
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 16:37:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 65DB4606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6C289606A32D;
+	Tue, 24 Nov 2026 16:38:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6C289606A32D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=acm.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=acm.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Jx/Y0n13
-Received: by mail-wr1-f41.google.com with SMTP id ffacd0b85a97d-48e09aa5264so2730096f8f.2
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 08:37:03 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795538222; x=1796143022; darn=vger.kernel.org;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-type:mime-version:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=kERKRhF39h+o4brc6m3SDvQJ22VyguIEsdUljr0uSEI=;
-        b=Jx/Y0n13hEoX+FItoehcRiEMnpKujE90jegfLWLkkAIeHAobjnHacXmvC9hqTrfygG
-         UPp4FbhIW6jKGdP/Zc0T/X+EiH1EtxgDA66cpwYBlm99Ijv8RD1E14/029hW2iwFGxqP
-         g61B77QRYZJnN2nS9Dum3lKfbagpTpdzpKxf7Me14u2tr5b7aBF9KFWve2381H6uCMfR
-         Kvx1hdIHuCvtpEHQcIalwSbvPZqq80xPP3Uz+P3PWd6XkOtNGNUPGcFEQ2Ymjo93dEIg
-         kjfZIASLMDxjzbFNMuzoAAGhtbpwLLGPofpUfm1I07rvch9u9y0asKrXA+t6/E52wmum
-         cgvg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795538222; x=1796143022;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-type:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=kERKRhF39h+o4brc6m3SDvQJ22VyguIEsdUljr0uSEI=;
-        b=iUDqkfODzXzaMkoUWK76AvBTckb6vEJaVzmIn6L93IwF2+lciRtMZmojvARA++hGPr
-         BKD4+nYH9tb8oSTs1cGkk1AwLTxwLHdLQZBF11d1agXnMV4W38ytjT0kLIwmgHFbQ20x
-         0n1vjr/be4REDLKbmfTj/SKHBr9x471Rcd25PJwp6nb9WStZ+ttDek+eYzYudCXzc1wV
-         IY6AldjF2T/vT66dMGEZ2TQ/s3zIp0NXEVe/Rm7zdWvlFT1MwJsEkwdXKckHS13bXOFf
-         MBF7cM/Dv5fmZZnoI6hF2jK+e9/kOHi37ma5Bjge06wfiCODj7k4PErkWhV6dYTL4Vum
-         a5pA==
-X-Forwarded-Encrypted: i=1; AL+hErH0RSUpSpzJG8z9LuwU7emxSTxpCKxLkK6KdDm2jcAPi4r3a5Sst35na+Q/Kka2riiLBDWrSIGCVV5v55c=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9969WXojO2Z9k4tRCZ/pb25Na425rJps18W/rNeIShoxOMnQLa
-	TmQUZUxtaUQ3rT4JrtAVsdJ0s8MwhdY1Ynu4yRH3yTvdvFxSA+XMGQCY
-X-Gm-Gg: AZFdTZeDNaZHHaBwkCOYk0wyreTKQhdpsih8p0E1+kxw4k5wJJ380J0jJkd8dVyMDa+
-	/FrNohxtAbf2DMKX9V9Bm0+xkrevxAtTImOMfR7L6KGKlpN3lgiWrnH3MNgUyjM/eJ010Th4upm
-	lerSceXA6c4i+g2vIVXJ66SdA19Yj/x4xYzofkGMzaKbzTSupk66cjNPZSlUo209qqzelktingl
-	ybrVxEwNKpveJhOnYXGs2oj/AZFHnr+pTAIqhLoN4F+ruh+7ot+gC3w+3zqO7b2Apur61+tHnwl
-	00ZJnaB7VaKXwYc66+jnx7P9MkhwRSmEER2/s8a5oNS7TY0fGCrjSQHoXmUIcruyuPjsoXfE7D8
-	mXFQCq8NxiIDIzhk9CcuAvh4KHSm+9d5S8jjT2vchF6N9duREp5OYsjqo6zDH/9omjF0EFyjRtH
-	1BWUQjCNkavvyp8CP8kN1U03K9Gj+5bBpVldSdj3awFcw9HdTWxdmGGu5wPDJmg+EKcGoJZVujd
-	V6azttXGQ6TGTEBPVRkQoTvYk+PO3M78qPjnEckW3mytMhVkO7Aqps0ijjyavvh1/fhlTQWBi/8
-	LeLi4k4JuB4oGGx+QEx/tkBlxUpVIMGPpGpYdGXsJyshDtyc1w==
-X-Received: by 2002:a05:6000:2f87:b0:4a7:1428:13dd with SMTP id ffacd0b85a97d-4abb19c173emr28025902f8f.21.1795538222274;
-        Tue, 24 Nov 2026 08:37:02 -0800 (PST)
-Received: from localhost ([130.192.98.149])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6ae2dd55sm28207985f8f.30.2026.11.24.08.37.01
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 24 Nov 2026 08:37:01 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=acm.org header.i=@acm.org header.a=rsa-sha256 header.s=mr01 header.b=AaHe7eAY
+Received: from localhost (localhost [127.0.0.1])
+	by 013.lax.mailroute.net (Postfix) with ESMTP id 4jYpQF6p9WzlfvqM;
+	Tue, 24 Nov 2026 16:37:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=acm.org; h=
+	content-transfer-encoding:content-type:content-type:in-reply-to
+	:from:from:content-language:references:subject:subject
+	:user-agent:mime-version:date:date:message-id:received:received;
+	 s=mr01; t=1795538272; x=1798130273; bh=VcKqAindQ+wtPkjkunJkcwHZ
+	0Zj0u+55F0mjged3HyQ=; b=AaHe7eAYuU8vzjg7cR1Z3k75naI24NXULG++7wgI
+	DLYImG5O+Q6lE0HGJ/IwjQQVs6tal314bXGukXQj/dlzsGqFUZ7e7AvEliOJ9Mdw
+	iMqzZR9NzQ4tPcaDAfsJmhDhe7BE4yIMrJXWSnnig+KDgX9s0L0F9IoLHjEERY+7
+	OU8yqGz/E2JfbItUw6FU1vyt2XXtWuBejLx55PbSwmJtsLdUD/8CXxRd7+PmcmVh
+	JA8c76xbSiV0/7oMrZeQQDkVCox03oA8fgAyardlcqOH3RKhO9mRn6ExKndlMKC8
+	rkPbNdC3afxHuJObuUQGtF1TBqXo2HfWL2xAyq6fs6Rz9Q==
+X-Virus-Scanned: by MailRoute
+Received: from 013.lax.mailroute.net ([127.0.0.1])
+ by localhost (013.lax [127.0.0.1]) (mroute_mailscanner, port 10029) with LMTP
+ id LkaBam14LBfH; Tue, 24 Nov 2026 16:37:52 +0000 (UTC)
+Received: from [IPV6:2a00:79e0:2ed2:d:b87d:aea9:8f72:a6cd] (unknown [104.135.182.41])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: bvanassche@acm.org)
+	by 013.lax.mailroute.net (Postfix) with ESMTPSA id 4jYpQ83pdbzlkvPv;
+	Tue, 24 Nov 2026 16:37:52 +0000 (UTC)
+Message-ID: <207069e4-6c99-40b3-ac0c-7ffe675a0c9f@acm.org>
+Date: Tue, 24 Nov 2026 08:37:51 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,122 +69,87 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Type: multipart/signed;
- boundary=c9078eddc541ab7c7de706e146801d0bb3133a1a69d3339943a4873a1056;
- micalg=pgp-sha512; protocol="application/pgp-signature"
-Date: Tue, 24 Nov 2026 17:36:57 +0100
-Message-Id: <DN3L6DY60QKG.184FB9CISL5SL@gmail.com>
-Cc: "Alexander Viro" <viro@zeniv.linux.org.uk>, "Christian Brauner"
- <brauner@kernel.org>, "Jan Kara" <jack@suse.cz>, "Edward Adam Davis"
- <eadavis@qq.com>, "Amir Goldstein" <amir73il@gmail.com>, "Miklos Szeredi"
- <miklos@szeredi.hu>, <linux-kernel@vger.kernel.org>,
- <linux-fsdevel@vger.kernel.org>
-Subject: Re: [PATCH] vfs: fix file_getattr hint to request xflags
-From: "koraynilay" <koray.fra@gmail.com>
-To: "Luis Henriques" <luis@igalia.com>, "koraynilay" <koray.fra@gmail.com>
-X-Mailer: aerc 0.22.0-0-gc2f86b7abde3
-References: <20261124150108.189282-1-koray.fra@gmail.com>
- <87se0qb42p.fsf@igalia.com>
-In-Reply-To: <87se0qb42p.fsf@igalia.com>
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] loop: fix stale dma_alignment when direct I/O is silently
+ dropped
+To: Tao Cui <cui.tao@linux.dev>, Jens Axboe <axboe@kernel.dk>
+Cc: Keith Busch <kbusch@kernel.org>, Jan Kara <jack@suse.cz>,
+ Ming Lei <tom.leiming@gmail.com>, Damien Le Moal <dlemoal@kernel.org>,
+ Hannes Reinecke <hare@kernel.org>, Zhao Gongyi <zhaogongyi@bytedance.com>,
+ stable@vger.kernel.org, linux-block@vger.kernel.org,
+ linux-kernel@vger.kernel.org, cuitao@kylinos.cn
+References: <20261124093342.838490-1-cui.tao@linux.dev>
+ <96ffc97d-62bc-4a91-ae3d-9baa28ef500b@linux.dev>
+Content-Language: en-US
+From: Bart Van Assche <bvanassche@acm.org>
+In-Reply-To: <96ffc97d-62bc-4a91-ae3d-9baa28ef500b@linux.dev>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
---c9078eddc541ab7c7de706e146801d0bb3133a1a69d3339943a4873a1056
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
+On 11/24/26 2:56 AM, Tao Cui wrote:
+ > I noticed the sashiko report [1].  The lock order in loop_set_status()
+ > is indeed different from 06a2ff603f1f, but I think the reported
+ > deadlock cannot be reached through this code.  The queue is frozen and
+ > fully drained before queue_limits_start_update() takes q->limits_lock,
+ > and nothing between start_update() and commit_update() blocks, so the
+ > new code never waits for anything while holding the lock.
 
-On Tue Nov 24, 2026 at 5:13 PM CET, Luis Henriques wrote:
-> On Tue, Nov 24 2026, koraynilay wrote:
->
->> When using a FUSE mount over an underlying filesystem that supports
->> xflags, querying them from userspace with file_getattr() strips them
->> because file_getattr sets flags_valid =3D true so FUSE uses
->> FS_IOC_GETFLAGS instead of FS_IOC_FSGETXATTR.
->>
->> Fix it by setting fsx_valid =3D true instead.
->>
->> Output when using a simple FUSE mount that simply forwards the ioctls to
->> the underlying fs:
->>
->> before the fix:
->>
->>   /xfs/file: FS_IOC_FSGETXATTR: ret=3D0, projid=3D69
->>   /xfs/file: file_getattr:      ret=3D0, projid=3D0
->>   /ext4/file: FS_IOC_FSGETXATTR: ret=3D0, projid=3D42
->>   /ext4/file: file_getattr:      ret=3D0, projid=3D0
->>
->> after the fix:
->>
->>   /xfs/file: FS_IOC_FSGETXATTR: ret=3D0, projid=3D69
->>   /xfs/file: file_getattr:      ret=3D0, projid=3D69
->>   /ext4/file: FS_IOC_FSGETXATTR: ret=3D0, projid=3D42
->>   /ext4/file: file_getattr:      ret=3D0, projid=3D42
->>
->> Fixes: cb184dd19154 ("fs: init flags_valid before calling vfs_fileattr_g=
-et")
->> Assisted-by: Gemini:3.8-flash-high antigravity-cli-1.5.11
->> Signed-off-by: koraynilay <koray.fra@gmail.com>
->> ---
->> Hi, I found this issue while working on the v2 of [1], here is the
->> reproducer, not in the commit message because of the size.
-[...]
->>
->> [1]: https://lore.kernel.org/all/DN2YMTH77KWE.3IPE9OG8377X0@gmail.com/T/=
-#t
->>
->>  fs/file_attr.c | 2 +-
->>  1 file changed, 1 insertion(+), 1 deletion(-)
->>
->> diff --git a/fs/file_attr.c b/fs/file_attr.c
->> index 833e03810b24..3b249a0a6b36 100644
->> --- a/fs/file_attr.c
->> +++ b/fs/file_attr.c
->> @@ -383,7 +383,7 @@ SYSCALL_DEFINE5(file_getattr, int, dfd, const char _=
-_user *, filename,
->>  	struct path filepath __free(path_put) =3D {};
->>  	unsigned int lookup_flags =3D 0;
->>  	struct file_attr fattr;
->> -	struct file_kattr fa =3D { .flags_valid =3D true }; /* hint only */
->> +	struct file_kattr fa =3D { .fsx_valid =3D true }; /* hint only */
->
-> Isn't this reintroducing the bug that was fixed by commit
->
-> cb184dd19154 ("fs: init flags_valid before calling vfs_fileattr_get") ?
+Whether or not a deadlock can be triggered, I expect lockdep to complain
+about this patch. blk_mq_freeze_queue() acquires q->io_lockdep_map and
+that map is only released by blk_mq_unfreeze_queue(). Hence, calling
+queue_limits_start_update() between these two calls records the
+dependency q_usage_counter(io) -> limits_lock. The opposite order is
+already used by loop_set_dio(), loop_set_block_size() and
+queue_limits_commit_update_frozen(). This is the same complaint that has
+been fixed by commit 06a2ff603f1f ("loop: Fix recently introduced lock
+inversion"). A lockdep complaint is a problem by itself since it
+disables lockdep and hence hides later reports. Has this patch been
+tested with lockdep enabled?
 
-Hmm, it shouldn't, since that was just an uninitialized bug for the
-whole struct, while now it's initialized (unless you meant something
-else?).
+ > I am more worried about the suggested reorder: with start_update()
+ > before blk_mq_freeze_queue(), loop_set_status() would hold limits_lock
+ > while draining, and an in-flight write-zeroes request on an
+ > unsupported backing file would block in loop_clear_limits() on that
+ > lock while holding a queue usage counter, so the freeze would never
+ > complete.
 
-> Maybe fuse_fileattr_get() shouldn't be handling FS_IOC_FSGETXATTR at all,
-> and FS_IOC_FSGETXATTR handling should be moved into fuse_do_ioctl()
-> instead?  (Or, more likely, I'm missing something!)
+That scenario is not specific to loop_set_status(). loop_set_dio(),
+loop_set_block_size() and the sysfs store methods already hold
+limits_lock while freezing the queue. Making loop_set_status() follow
+the same convention does not introduce a new class of problems. The
+proper fix is the loop_clear_limits() rework, so please make this patch
+depend on "loop: defer the queue limits clear to a workqueue" instead of
+deviating from the locking convention.
 
-The bug being fixed is when using file_getattr tho, which in the vfs is
-directly sent to inode->i_op->fileattr_get(dentry, fa), which for FUSE
-is fuse_fileattr_get().
+ > The snapshot taken before the drain could also overwrite a concurrent
+ > loop_clear_limits() commit.
 
-What should probably be done though (well, not in this patch) is switch
-fuse_fileattr_get() from FS_IOC_FSGETXATTR to vfs_fileattr_get(), for
-fsx_valid.
-This is because while right now FS_IOC_FSGETXATTR is equivalent to
-file_getattr VER0, in the [1] above it will be bumped to VER1, making
-file_getattr VER1 a superset of file_getattr VER0.
+I don't think that can happen. limits_lock is held from
+queue_limits_start_update() until queue_limits_commit_update(), so
+loop_clear_limits() cannot commit anything in between.
+
+ > So I would like to keep the patch as it stands, but happy to discuss
+ > further.
+
+Please call queue_limits_start_update() before blk_mq_freeze_queue() in
+loop_set_status() and call loop_set_dma_limit() and
+queue_limits_commit_update() after loop_update_dio().
+
+A few more comments about the patch itself:
+- lo_can_use_dio() is now evaluated twice, once before the limits are
+   committed and once in loop_update_dio(), and both results must agree.
+   That seems fragile to me. Please consider documenting this
+   requirement above loop_set_dma_limit().
+- With this patch every LOOP_SET_STATUS call updates the queue limits.
+   Can that be restricted to the case where LO_FLAGS_DIRECT_IO has been
+   cleared?
+- Please mention in the patch description that the stale limit is too
+   strict rather than too permissive, in other words, that the effect is
+   that O_DIRECT I/O with 512-byte aligned buffers is rejected.
+- How has this patch been tested? A blktests test would be welcome.
+- Please use 12 characters for the commit ID in the Fixes: tag.
 
 Thanks,
-koraynilay
 
-> Cheers,
-
-
-
---c9078eddc541ab7c7de706e146801d0bb3133a1a69d3339943a4873a1056
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRJ2XvJtXGwULYEerQ0bnTtJTDoOAUCawW9KQAKCRA0bnTtJTDo
-OBMBAQCFso9zgoILmV9GTY3WdiCk4vT/1a2actWnHtu9q6vCEAD/euVTaTbVu1rI
-QTkbcrfDclHkY50qMNgDWseDNAm2ZwI=
-=5idA
------END PGP SIGNATURE-----
-
---c9078eddc541ab7c7de706e146801d0bb3133a1a69d3339943a4873a1056--
+Bart.
