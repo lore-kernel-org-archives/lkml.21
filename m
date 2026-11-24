@@ -1,54 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.160
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795487383;
-	b=NU0ZoH2rvbKVfUYdjlWoa/D6ixHCyGAu9otpQlFDdAE5+2da2x/GtUhQcntPfYLiPgjd
-	 +uw9cavTq/kkW/Tpu7RPbQZ/6pT+4Eqar+N6TPcG8osYXPToxCwATfcVmdgKqIuS1VcC2
-	 LFpXmA7riS9owH4jfFEQCg+GM7dEqYjmL9pujdvPn+9jjqIox7i4Y8X6DYP4J+Ce0PRLT
-	 6KAnDXKeQmITp+3DAHSOF2/0onjmsmPXTLu15j+ATqX3Bib61+6R2p0HPQ4wrs8kWwOj6
-	 dsiNfdxJFELxOF/M0NHaXyCwiCZjJDSWTuh5q2c2H/4xaTxIXx1HUFHYSk2WovBZrKw==
+	t=1795487379;
+	b=jbI1pgnBGOgimxBmZg7RnYJfMrLYUWYl1gv5qpM2dFZyhQ+qbyCgSWUXDxjs+nIo8jYp
+	 FiYkAmBYNFrNzMNN3GQ1KfUDkKYz6eE4zbZ7nA0dajx/ogYB+NRvEbuuVc2XYVYyIhWiQ
+	 IU5/4GPzYGdZiMMarVf7CNcUupW2g/lVfcG6Rpfz+uA+B8ERWzNg9K/XpqM3kzbMLaHfd
+	 PfIQg7NmilEsR4pQsmO/2/mgCJZKkOGGTrhoPdeDq63xjiqBS3Wz6Ju+BkkP40LB0eHlf
+	 NHdHENyT8OZWYO/bQefD0mTTTT+gIt37TF06LtCGKmG6PP9bq+Tf1wt5rKrv9HATI8w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795487383;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Content-Type:Mime-Version:Subject:From:
-	 In-Reply-To:Date:Cc:Content-Transfer-Encoding:Message-Id:References:
-	 To:X-Mailer;
-	bh=18r5tD9y2ALIX7X7Kv9k6QsRP9npRMqolTYhIPTl4so=;
-	b=QqnutjBLJCoGhNkv1DT5lakmd3YgWj0aD6PRR37aFTpWktr38wVY3Kou06BQ/mJ9PivQ
-	 qkh/14i8hsXgYRUbBQKz9kXwh9iNUfRmEI1/Xq4BUo810mzSqT8ByzF5klKELmJL+vMHP
-	 OdqwcsiauEAilYZzvM+T+mijbrXZMsqLTcoSE/EGg8DttDRbUgYyo+Oq2yPkNXn/1fGpm
-	 RlqZpDR8W48NAsKDXccbqohhE1BXOnJmD/Pa6n1nnHOwq/eAFqrJerST6MXs4zqyng34E
-	 hd+8Hs6gYSGerN9U8zLGogpz8DfS6Ho1dq51fIpB4DQvDXaqVbe1CDmZY6vyLRPPVhA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795487379;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=8NvDqIrKXQ3eal5Cp0jr6Hk9FP8h4weYBqykTLZjvkg=;
+	b=4f9JphXynmeDxpeXB6cbmwHEfnVFetDtJ2n/brI+2r191Hlf3rZq4tgzOiWBXblsoBCS
+	 rHsejf/XGcZOII3ZzE/zqWTecfDtKIPlNvG22c4eDrbZDrD4q+gOWDLhoZiKFU2xO6G6a
+	 fN+7AtlGgEOrl64bqYjwo9aoGfEdpPjFOFRXIo29r656404y1Tn24hbZOTDihSaye3dGK
+	 Buf7eqjUKWeqMSita6jKzaVIiUZwFNg7NDQKpzak4avSKVxFpB+q2+VHFxHg89Tk44ZB0
+	 VdOnwIt1uD+0KGYIxaTufQKWxrnM9a6RGN5KtJucmx8cj2EK0kfqINhjRwggEnjCx0A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=t6cAU+2B;
-	arc=none smtp.remote-ip=95.215.58.160
-Received: from mta1.migadu.com (out-160.mta1.migadu.com [95.215.58.160])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=f+jgVsxj;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BA9C2606A331
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 02:29:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BA9C2606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BE77E606A31E;
+	Tue, 24 Nov 2026 02:29:39 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=t6cAU+2B
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=bKdavHn4Gjkl6Bx3sYPvnFvwvriR5ITOlurhR8mBhXw=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795487381; v=1; x=1796092181;
- b=t6cAU+2Bv3v1WcGrFVBGWgpe8IFNzbhM2ln3PsfgIirTnzYYZFzT2Zqzyt+Rku3+xT7EKtmH
- OvViD/l6cknN8+M4I46IYyN8V50z4iUVGVd2EmagOWuRL6HyyBtwUfHSFoNsbn1/QvyUuHvCfL0
- 9heleEeqkkj80GZqvmXAtp3o=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 42d52afc46ba6af1;
-	Tue, 24 Nov 2026 02:29:40 +0000
-X-Mizu-Trace-ID: 42d52afc46ba6af1
-X-Migadu-Flow: FLOW_OUT
-Content-Type: text/plain;
-	charset=utf-8
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=f+jgVsxj
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16D081F000CA;
+	Tue, 24 Nov 2026 02:29:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795487379;
+	bh=8NvDqIrKXQ3eal5Cp0jr6Hk9FP8h4weYBqykTLZjvkg=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=f+jgVsxjp8mHuxBkzR7gtZ5ZFii3zHj/Vnf7rMjL1hpqnoVPzBxnROTETcd/Xa6WE
+	 jfZbixfKit3yNUUs/ayq3l8klvIpDznn8ggf6NUAE5LY1LuvrpGiKZ38FDDISj4Czv
+	 WDQ7ACcfL97lANMUYoIXa3aeCoJnjRBZzaTnlHUFzbjQma/izzyiHCwUGvmkP+2R1V
+	 /JQk8zRTSV7vcdfC3HodkbjS8rz2YwFOl7/uPABUEktKr24unr+pN4Q/Zrv6onDTHG
+	 5upHMdsbcxspjxDe3Vu4BJXhPImnvqHWsxXE8399FdCYCVo1tVpLhUjtSDKX0A3d8/
+	 txHN8K4FlMbfQ==
+Subject: Re: [PATCH net v7 2/6] net: wwan: t7xx: fix runtime PM usage count
+ underflow on -EACCES
+From: netdev-bot+sashiko@kernel.org
+To: tim770802@gmail.com
+Cc: netdev@vger.kernel.org, chandrashekar.devegowda@intel.com,
+ haijun.liu@mediatek.com, ricardo.martinez@linux.intel.com,
+ loic.poulain@oss.qualcomm.com, ryazanov.s.a@gmail.com,
+ johannes@sipsolutions.net, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ ilpo.jarvinen@linux.intel.com, sreehari.kancharla@linux.intel.com,
+ m.chetan.kumar@linux.intel.com, horms@kernel.org,
+ linux-kernel@vger.kernel.org, tim.jh.chen@wnc.com.tw,
+ Chih.Hung.Huang@wnc.com.tw
+Date: Tue, 24 Nov 2026 02:29:37 +0000
+Message-ID: <179548737758.3135.16325622111996411281@kernel.org>
+In-Reply-To: <20261120015556.131547-3-tim770802@gmail.com>
+References: <20261120015556.131547-3-tim770802@gmail.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,326 +68,157 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3901.200.71.1.16\))
-Subject: Re: [PATCH v3 04/19] hugetlb_vmemmap: Use try_update_vmemmap_pte to
- update in-use PTEs
-From: Muchun Song <muchun.song@linux.dev>
-In-Reply-To: <CADrL8HUstWR2pajfYYzRqL7HziVfzZAXJas6MqJkK6pVxSzXEg@mail.gmail.com>
-Date: Tue, 24 Nov 2026 10:29:22 +0800
-Cc: Muchun Song <muchun.song@linux.dev>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>,
- Oscar Salvador <osalvador@suse.de>,
- Andrew Morton <akpm@linux-foundation.org>,
- Kefeng Wang <wangkefeng.wang@huawei.com>,
- Nikos Nikoleris <nikos.nikoleris@arm.com>,
- Linu Cherian <linu.cherian@arm.com>,
- Mark Rutland <mark.rutland@arm.com>,
- David Hildenbrand <david@kernel.org>,
- Ryan Roberts <ryan.roberts@arm.com>,
- Nanyong Sun <sunnanyong@huawei.com>,
- Yu Zhao <yuzhao@google.com>,
- Frank van der Linden <fvdl@google.com>,
- David Rientjes <rientjes@google.com>,
- linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- linux-mm@kvack.org
-Content-Transfer-Encoding: quoted-printable
-Message-Id: <4A195604-B83B-4608-B32E-5F6CC85AE96F@linux.dev>
-References: <20261122184453.2668189-1-jthoughton@google.com>
- <20261122184453.2668189-5-jthoughton@google.com>
- <4508589C-2E30-4DAB-9465-73121835D0D8@linux.dev>
- <CADrL8HUstWR2pajfYYzRqL7HziVfzZAXJas6MqJkK6pVxSzXEg@mail.gmail.com>
-To: James Houghton <jthoughton@google.com>
-X-Mailer: Apple Mail (2.3901.200.71.1.16)
+MIME-Version: 1.0
 
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
+Critical: 0 · High: 0 · Medium: 1 (1) · Low: 1
 
-> On Nov 24, 2026, at 04:48, James Houghton <jthoughton@google.com> =
-wrote:
->=20
-> On Sun, Nov 22, 2026 at 9:47=E2=80=AFPM Muchun Song =
-<muchun.song@linux.dev> wrote:
->>=20
->>=20
->>=20
->>> On Nov 23, 2026, at 02:44, James Houghton <jthoughton@google.com> =
-wrote:
->>>=20
->>> set_pte_at() cannot be used to replace in-use vmemmap PTEs on arm64, =
-so
->>> replace it with a more specific routine, try_update_vmemmap_pte().
->>>=20
->>> try_update_vmemmap_pte() is used for modifying page table entries =
-such
->>> that there is a guarantee that no fault will be taken.
->>>=20
->>> For the generic implementation, please note one difference: =
-set_pte()
->>> does not invoke page_table_check_ptes_set(), but set_pte_at(), the =
-call
->>> we are about to replace, does. However, this is a functional no-op
->>> because page_table_check_ptes_set() does nothing for init_mm PTEs, =
-which
->>> vmemmap PTEs are.
->>>=20
->>> Signed-off-by: James Houghton <jthoughton@google.com>
->>> ---
->>> arch/loongarch/include/asm/pgtable.h |  2 ++
->>> arch/riscv/include/asm/pgtable.h     |  2 ++
->>> arch/x86/include/asm/pgtable.h       |  2 ++
->>> include/linux/pgtable.h              | 22 +++++++++++++++++++
->>> mm/hugetlb_vmemmap.c                 | 32 =
-+++++++++++++++++++++++-----
->>> 5 files changed, 55 insertions(+), 5 deletions(-)
->>>=20
->>> diff --git a/arch/loongarch/include/asm/pgtable.h =
-b/arch/loongarch/include/asm/pgtable.h
->>> index f87603135131..123eda3f6035 100644
->>> --- a/arch/loongarch/include/asm/pgtable.h
->>> +++ b/arch/loongarch/include/asm/pgtable.h
->>> @@ -633,6 +633,8 @@ static inline long pmd_protnone(pmd_t pmd)
->>> #define pmd_leaf(pmd)         ((pmd_val(pmd) & _PAGE_HUGE) !=3D 0)
->>> #define pud_leaf(pud)         ((pud_val(pud) & _PAGE_HUGE) !=3D 0)
->>>=20
->>> +#define ARCH_WANTS_GENERIC_POPULATE_VMEMMAP_PTE
->>> +
->>> /*
->>> * We provide our own get_unmapped area to cope with the virtual =
-aliasing
->>> * constraints placed on us by the cache architecture.
->>> diff --git a/arch/riscv/include/asm/pgtable.h =
-b/arch/riscv/include/asm/pgtable.h
->>> index 2ebd5fa5adc5..c8d05bc12cc8 100644
->>> --- a/arch/riscv/include/asm/pgtable.h
->>> +++ b/arch/riscv/include/asm/pgtable.h
->>> @@ -1172,6 +1172,8 @@ static inline pud_t pud_modify(pud_t pud, =
-pgprot_t newprot)
->>>=20
->>> #endif /* CONFIG_TRANSPARENT_HUGEPAGE */
->>>=20
->>> +#define ARCH_WANTS_GENERIC_POPULATE_VMEMMAP_PTE
->>> +
->>> /*
->>> * Encode/decode swap entries and swap PTEs. Swap PTEs are all PTEs =
-that
->>> * are !pte_none() && !pte_present().
->>> diff --git a/arch/x86/include/asm/pgtable.h =
-b/arch/x86/include/asm/pgtable.h
->>> index 000fc6c1ca37..271cdc61de3a 100644
->>> --- a/arch/x86/include/asm/pgtable.h
->>> +++ b/arch/x86/include/asm/pgtable.h
->>> @@ -1372,6 +1372,8 @@ static inline pmd_t pmdp_establish(struct =
-vm_area_struct *vma,
->>> }
->>> #endif
->>>=20
->>> +#define ARCH_WANTS_GENERIC_POPULATE_VMEMMAP_PTE
->>> +
->>> #ifdef CONFIG_HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD
->>> static inline pud_t pudp_establish(struct vm_area_struct *vma,
->>>              unsigned long address, pud_t *pudp, pud_t pud)
->>> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
->>> index bc1353f03b08..ab33df268955 100644
->>> --- a/include/linux/pgtable.h
->>> +++ b/include/linux/pgtable.h
->>> @@ -458,6 +458,28 @@ static inline void set_ptes(struct mm_struct =
-*mm, unsigned long addr,
->>> #endif
->>> #define set_pte_at(mm, addr, ptep, pte) set_ptes(mm, addr, ptep, =
-pte, 1)
->>>=20
->>> +#ifdef ARCH_WANTS_GENERIC_POPULATE_VMEMMAP_PTE
->>=20
->> Why not ARCH_WANTS_VMEMMAP_UPDATE_PTE? Then x86, loogarch and RISC-V =
-do not need define
->> this macro in their ptable.h.
->=20
-> You're basically asking to make this opt-out instead of opt-in, right?
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Yes, exactly.
+- [Medium] At this commit, t7xx_cldma_send_skb()
+  (drivers/net/wwan/t7xx/t7xx_hif_cldma.c) still has the bug this patch…
+- [Low] net: wwan: t7xx: inaccurate Fixes tag citing 46e8f49ed7b3 for
+  runtime PM bug
 
->=20
-> I like making the different architectures explicitly opt in to the
-> generic implementation; it forces any new architecture to decide if
-> the generic implementation is correct for them. But I don't feel
-> strongly.
+Pre-existing issues:
+- [Medium] t7xx_dpmaif_irq_rx_done() takes a runtime PM reference and
+  hands it to the NAPI poll by calling napi_schedule(&rxq->napi).
 
-We already have an opt-in config: ARCH_WANT_OPTIMIZE_HUGETLB_VMEMMAP.
-It already forces new architectures to pay attention to it.
+--
 
-Thanks,
-Muchun
+net: wwan: t7xx: fix runtime PM usage count underflow on -EACCES
 
->=20
-> I'll switch it to opt-out in v4 unless you or someone else tells me =
-otherwise.
->=20
->>=20
->>> +/*
->>> + * try_update_vmemmap_pte - Remap PTEs used by the vmemmap.
->>> + * @addr: Base address of the remapped PTE.
->>> + * @ptep: Page table pointer to be overwritten.
->>> + * @pte: Page table entry to write.
->>> + *
->>> + * This function is only to be used to update PTEs that map the =
-vmemmap. The
->>> + * only valid transitions supported by this function are: =
-leaf-level
->>> + * (PAGE_SIZE), valid-to-valid. The pfn and prot bits may be =
-changed.
->>> + *
->>> + * Implementations of this function must ensure that, while the =
-update is taking
->>> + * place, CPUs will not fault on the remapped virtual address.
->>> + */
->>> +static inline int try_update_vmemmap_pte(unsigned long addr, pte_t =
-*ptep,
->>> +                                      pte_t pte)
->>=20
->> Please rename it to vmemmap_update_pte, all HVO-related helpers will =
-be prefixed
->> with vmemmap.
->=20
-> Okay, will do.
->=20
->>=20
->> Again, I still recommend having this function return void. That will =
-make the
->> overall code simpler. If we actually run into related issues in the =
-future, we
->> can add support for it then. I don't want to introduce unnecessary =
-code
->> maintenance now.
->=20
-> Thanks. I will just point back to my reply from v2[1]. I hope Catalin
-> or Will have thoughts on this.
->=20
-> [1] =
-https://lore.kernel.org/linux-mm/CADrL8HWNaurYHGnpvC9qwr6bVU74YhhucCuhoVYc=
-vqmSX+R6+Q@mail.gmail.com/
->=20
->>=20
->> Thanks,
->> Muchun
->>=20
->>> +{
->>> +     set_pte(ptep, pte);
->>> +     return 0;
->>> +}
->>> +#endif
->>> +
->>> #ifndef __HAVE_ARCH_PTEP_SET_ACCESS_FLAGS
->>> extern int ptep_set_access_flags(struct vm_area_struct *vma,
->>>                               unsigned long address, pte_t *ptep,
->>> diff --git a/mm/hugetlb_vmemmap.c b/mm/hugetlb_vmemmap.c
->>> index 2e9cf8d39c89..b4d0311bcc4a 100644
->>> --- a/mm/hugetlb_vmemmap.c
->>> +++ b/mm/hugetlb_vmemmap.c
->>> @@ -218,15 +218,19 @@ static int alloc_vmemmap_page_list(struct =
-list_head *head,
->>>      return -ENOMEM;
->>> }
->>>=20
->>> +/*
->>> + * Copy @src into the first page on @vmemmap_pages and return it. =
-The page is
->>> + * left on the list; the caller must remove it only once it has =
-successfully
->>> + * been installed in the vmemmap.
->>> + */
->>> static struct page *vmemmap_dup_page_from_list(const struct page =
-*src,
->>>              struct list_head *vmemmap_pages)
->>> {
->>>      struct page *dst =3D list_first_entry(vmemmap_pages, struct =
-page, lru);
->>>=20
->>> -     list_del(&dst->lru);
->>>      copy_page(page_address(dst), page_address(src));
->>>=20
->>> -     /* Ensure updates to @dst page are visible before =
-set_pte_at(). */
->>> +     /* Ensure updates to @dst page are visible before =
-try_update_vmemmap_pte(). */
->>>      smp_wmb();
->>>=20
->>>      return dst;
->>> @@ -248,6 +252,8 @@ static int vmemmap_optimize_pte(pte_t *pte, =
-unsigned long addr,
->>>      const struct page *page =3D (const struct page *)addr;
->>>      const struct folio *folio =3D page_folio(page);
->>>      struct page *src =3D pte_page(ptep_get(pte)), *dst;
->>> +     bool dup =3D false;
->>> +     int ret;
->>>=20
->>>      if (likely(vmemmap_optimizable_pfn(page_to_pfn(page), =
-folio_order(folio)))) {
->>>              dst =3D folio_vmemmap_shared_tail_page(folio);
->>> @@ -255,16 +261,27 @@ static int vmemmap_optimize_pte(pte_t *pte, =
-unsigned long addr,
->>>                      return -ENOMEM;
->>>      } else {
->>>              dst =3D vmemmap_dup_page_from_list(src, =
-walk->vmemmap_pages);
->>> +             dup =3D true;
->>>      }
->>>=20
->>> -     list_add(&src->lru, walk->vmemmap_pages);
->>>      /*
->>>       * Map the shared tail page writable intentionally. A lockless =
-get that
->>>       * read a non-zero refcount before the remap can still do its =
-cmpxchg
->>>       * after it. The refcount is zero, so the cmpxchg fails and =
-leaves the
->>>       * page unchanged.
->>>       */
->>> -     set_pte_at(&init_mm, addr, pte, mk_pte(dst, PAGE_KERNEL));
->>> +     ret =3D try_update_vmemmap_pte(addr, pte, mk_pte(dst, =
-PAGE_KERNEL));
->>> +     if (ret)
->>> +             return ret;
->>> +
->>> +     /*
->>> +      * We successfully overwrote the vmemmap PTE, so the page that =
-was just
->>> +      * unmapped can be freed, and if we mapped a duplicated page, =
-remove it
->>> +      * from the list so that it doesn't get freed later.
->>> +      */
->>> +     if (dup)
->>> +             list_del(&dst->lru);
->>> +     list_add(&src->lru, walk->vmemmap_pages);
->>>=20
->>>      return 0;
->>> }
->>> @@ -275,6 +292,7 @@ static int vmemmap_restore_pte(pte_t *pte, =
-unsigned long addr,
->>>      const struct page *page =3D (const struct page *)addr;
->>>      const struct folio *folio =3D page_folio(page);
->>>      struct page *src =3D pte_page(ptep_get(pte)), *dst, *tail;
->>> +     int ret;
->>>=20
->>>      if (unlikely(!vmemmap_optimizable_pfn(page_to_pfn(page), =
-folio_order(folio))))
->>>              return 0;
->>> @@ -291,7 +309,11 @@ static int vmemmap_restore_pte(pte_t *pte, =
-unsigned long addr,
->>>              return 0;
->>>=20
->>>      dst =3D vmemmap_dup_page_from_list(src, walk->vmemmap_pages);
->>> -     set_pte_at(&init_mm, addr, pte, mk_pte(dst, PAGE_KERNEL));
->>> +     ret =3D try_update_vmemmap_pte(addr, pte, mk_pte(dst, =
-PAGE_KERNEL));
->>> +     if (ret)
->>> +             return ret;
->>> +
->>> +     list_del(&dst->lru);
->>>=20
->>>      return 0;
->>> }
->>> --
->>> 2.56.1.809.ga0b61035b5-goog
+This commit replaces pm_runtime_resume_and_get() with
+pm_runtime_get_noresume() plus pm_runtime_resume() in four DPMAIF TX/RX
+contexts. A usage count reference is now still held when -EACCES is
+treated as success. The reference is dropped with pm_runtime_put_noidle()
+only on errors that abort the operation.
 
+> t7xx_dpmaif_tx_hw_push_thread(), t7xx_dpmaif_tx_done(),
+> t7xx_dpmaif_bat_release_work() and t7xx_dpmaif_irq_rx_done() treat
+> -EACCES from pm_runtime_resume_and_get() as success and proceed to
+> access the hardware.
 
+[Severity: Medium]
+Was a fifth caller with the same pattern left out here? At this commit,
+t7xx_cldma_send_skb() in drivers/net/wwan/t7xx/t7xx_hif_cldma.c still
+does:
+
+drivers/net/wwan/t7xx/t7xx_hif_cldma.c:t7xx_cldma_send_skb() {
+    ...
+	ret = pm_runtime_resume_and_get(md_ctrl->dev);
+	if (ret < 0 && ret != -EACCES)
+		return ret;
+    ...
+allow_sleep:
+	t7xx_pci_enable_sleep(md_ctrl->t7xx_dev);
+	pm_runtime_put_autosuspend(md_ctrl->dev);
+	return ret;
+}
+
+On the -EACCES path, pm_runtime_resume_and_get() has already given back
+its reference. Every exit then goes through allow_sleep, so wouldn't the
+pm_runtime_put_autosuspend() there drop a reference that was never
+taken? The path is t7xx_port_wwan_write() or t7xx_port_fastboot_write()
+-> t7xx_cldma_send_skb().
+
+The next patch in the series, "net: wwan: t7xx: fix skb double free when
+CLDMA send sees -EACCES", converts this site to the same
+pm_runtime_get_noresume() + pm_runtime_resume() pattern. So the end of
+the series looks correct.
+
+Could the CLDMA conversion be folded into this patch, or at least
+mentioned in the commit message? Then this commit would fully fix the
+underflow it describes.
+
+> diff --git a/drivers/net/wwan/t7xx/t7xx_hif_dpmaif_rx.c b/drivers/net/wwan/t7xx/t7xx_hif_dpmaif_rx.c
+> index 5af90ca6e0631..77770869d5750 100644
+> --- a/drivers/net/wwan/t7xx/t7xx_hif_dpmaif_rx.c
+> +++ b/drivers/net/wwan/t7xx/t7xx_hif_dpmaif_rx.c
+> @@ -911,8 +911,10 @@ void t7xx_dpmaif_irq_rx_done(struct dpmaif_ctrl *dpmaif_ctrl, const unsigned int
+>  	 * which can't be done from softirq context the poll function
+>  	 * is running in.
+>  	 */
+> -	ret = pm_runtime_resume_and_get(ctrl->dev);
+> +	pm_runtime_get_noresume(ctrl->dev);
+> +	ret = pm_runtime_resume(ctrl->dev);
+>  	if (ret < 0 && ret != -EACCES) {
+> +		pm_runtime_put_noidle(ctrl->dev);
+>  		dev_err(ctrl->dev, "Failed to resume device: %d\n", ret);
+>  		return;
+>  	}
+
+[Severity: Low]
+Is the Fixes: tag pointing at the right commit? 46e8f49ed7b3
+("net: wwan: t7xx: Introduce power management") only added the system
+sleep dev_pm_ops callbacks (suspend, resume, freeze, thaw, poweroff,
+restore) and the PM entity registration. It does not add any runtime
+PM calls, and it does not touch t7xx_hif_dpmaif_rx.c or
+t7xx_hif_dpmaif_tx.c.
+
+The pm_runtime_resume_and_get() calls that ignore -EACCES and are then
+paired with an unconditional pm_runtime_put_autosuspend() look like
+they came from two later commits:
+
+  d10b3a695ba0 ("net: wwan: t7xx: Runtime PM")
+    t7xx_dpmaif_bat_release_work(), t7xx_dpmaif_tx_done() and
+    t7xx_dpmaif_tx_hw_push_thread()
+
+  364d0221f178 ("net: wwan: t7xx: Fix Runtime PM resume sequence")
+    t7xx_dpmaif_irq_rx_done()
+
+Should the trailers cite those two commits instead? The stable
+tooling uses Fixes: to decide which trees need this patch. Anyone
+running git blame later would also be sent to a commit that has
+nothing to do with the usage count underflow.
+
+[Severity: Medium]
+This is a pre-existing issue and was not introduced by this patch. The
+reference taken here is passed on to the NAPI poll right after this
+block:
+
+	napi_schedule(&rxq->napi);
+
+The return value is ignored. If NAPI_STATE_SCHED is already set,
+napi_schedule() does nothing. In that case t7xx_dpmaif_napi_rx_poll()
+never reaches the pm_runtime_put_autosuspend() that would drop this
+reference.
+
+Can this leak the runtime PM usage count and keep the modem from
+runtime suspending?
+
+SCHED can stay set in two ways. The first is a closed netdev, while
+DPMAIF RX-done interrupts can still arrive:
+
+t7xx_ccmni_close()
+  t7xx_ccmni_disable_napi()
+    napi_disable()
+
+The second is the !rxq->que_started early return in
+t7xx_dpmaif_napi_rx_poll(), which returns without calling
+napi_complete_done():
+
+	if (!rxq->que_started) {
+		atomic_set(&rxq->rx_processing, 0);
+		pm_runtime_put_autosuspend(rxq->dpmaif_ctrl->dev);
+		dev_err(...);
+		return work_done;
+	}
+
+The same leak already existed on the normal success path before this
+patch. This patch adds the same handoff on the -EACCES path.
+
+The que_started part is fixed later in the series by "net: wwan: t7xx:
+complete NAPI on the not-started RX poll early return", which adds
+napi_complete_done() to that early return.
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261120015556.131547-1-tim770802%40gmail.com
