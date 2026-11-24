@@ -1,86 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.227.138
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=124.126.103.232
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795498299;
-	b=JhtbfrElQnFgy2cjraJQJKbLiIXgKFQGE7VvbktQttoqIOfjNlDDBh9C6I4yR1hJeLd0
-	 oRTC10tcccfuQjA3ok07gGiHOM2khisGouKTbqV6QPD2o+aMUoAJIf71IPl6Xs3buCaAk
-	 chlWmFaRFzxgmOxxj/1+5OxUKbEkMc/xdvlsNAq4nUwcjs0rS4bRVPc36GYT3+qMXFjsj
-	 YYs2XwDW3m/TPI5mQLkHsTqWfDGrtqLfibYazSV2hH4aJrS1BfEDh0SpVvceFDnUZ6fTV
-	 J1TDG6gA8Jv80ivlx3HYBUkUCe5327Rf4dsYirsSf5lRCKHFERMQvT7cfjTXcHMBHHw==
+	t=1795498396;
+	b=Ki71ZKGeo9l2RvSrY1NgTQa9yWUvvGk84q6wDecv+np1BbdykBQ7J1TX3whj79YdsbcB
+	 s01qiZui0v9jkDSpEM6PmDrBR+WBWg+yF3I2/HopRNWYKlnBwS/vy8OyS7+gnQ4zg3Rzj
+	 pSy16yQFSyhFr0yPyetgWmw/RWYfHTq2RRCr6H9Ra0DELjTtzbl/yOwMmDaUr61JwtyLI
+	 vv/ORrbX79ZWZg9w5doLdyEvMoPZcaSuYPOmJ8oJIIdYwTF28nLTm6Of68gyA3N2+MOFZ
+	 uYaCNwrYclrSWQ2k7FvzE6a3heCPixNbaTsFbQEuPAzKV74f/GfNuoHuDsYiIHz/aBQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795498299;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=MHGUggYwA3gp5Hl40fLruxFZvaBCGWgXTV8JidRQovM=;
-	b=JP3fbk6TRHXvDMfL9MLzpoaLnsAO5r2IEstliLey1v9ChaNcwoBTJ3VDzfyWgJ54lA4x
-	 9QAwS9hgjNb5ggZyWMIU3SJwpz+t629FFoSCTTPE24IdwTnbiJgkdHRQ7bdus5hFKpO4D
-	 BuVw0mfOkw+0gjaCEqWjcKxywxVnFNuy71TcbomYNBb+5j90M72ejzJuEXVLtFn7hqVkz
-	 x38Ay5Glr/jOWeLhDVFZpwQD9zUisYHrdno+K+Ft9gMfw83T/M0LRYxpgkrDnBs795qK1
-	 QXmFNgEompgHkXFHtS0Up9TfysMyFoY1nWC2RZnVIW4uyHwtUxvPesDJS6IX8JYkhiA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795498396;
+	h=DMARC-Filter:X-UUID:X-CTIC-Tags:X-CID-P-RULE:X-CID-O-INFO:X-CID-INFO:
+	 X-CID-META:X-CID-BVR:X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:X-User:
+	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=CnFsYe8laaCsWo8gqpr+IQVdVBo4MQAceNgwRTBc9us=;
+	b=dc0X3GlO6RMsqmjWArohDB621Mb0ZNkRotIFsv07vwhN9RCTSd0QrasM7ENF2B1+egVF
+	 ulR4hjsQLaUfG3yFsk7vhHsaCJoPBNeciUCP8/kOxdQ7wJP2khQIL2oM8mMC26NDlNZCE
+	 L9En4wLFJRKQi88wFLn7uTTTGZ7MteB4XsD188S84oSISOqld2a3N7sZzPvjYTX0RN53+
+	 7/T7bUKJqN9dJE47j2agpTJZetQXt2lUs/N04bvlZijZ0rn20oouLN0UrqHBRHacsVHVh
+	 Ic6F6MZeqKQ6XxJxeLjtx1Aq1EPJs0NJZ6ZWuC+gGjzOx1+O00/4m+4MV6DNNv33lXQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=IL2OexmH;
-	arc=none smtp.remote-ip=74.125.227.138
-Received: from mail-pj2-f10.google.com (mail-pj2-f10.google.com [74.125.227.138])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=none header.from=kylinos.cn;
+	spf=pass smtp.mailfrom=kylinos.cn;
+	arc=none smtp.remote-ip=124.126.103.232
+Received: from mailgw.kylinos.cn (mailgw.kylinos.cn [124.126.103.232])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 82DBE606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 05:31:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 82DBE606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=IL2OexmH
-Received: by mail-pj2-f10.google.com with SMTP id 98e67ed59e1d1-3b4067446d7so676041a91.1
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 21:31:39 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795498299; x=1796103099; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from:references
-         :cc:to:subject:user-agent:mime-version:date:message-id:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=MHGUggYwA3gp5Hl40fLruxFZvaBCGWgXTV8JidRQovM=;
-        b=IL2OexmHvHFKYHluRIKtNYMqUEc5MTXHSaKYpwbh+Hj/xk9TMIYcyvQeRcQZBqGbLx
-         JvrRAPkJzFw22AtCCgQtKJTaef7PeUHoR84RpieUxP1PXls7QB3w9/r66UxCDpukSGB4
-         ReTmmwpM6RYXhALKZRMzc1Plj6nB8PoGLzkzXTS+Cgj4gsrYY+Ya7onI1BmnTaOLPyIn
-         3xdPootTOygbq5YGD5Gugw0IPDBsx29+1QlBAEBZD6otGftJu8Rmcb7+uvXGQ/kFU7t9
-         t1JTqcWTEoBb/hXzW9xSJk83RaFgh97gpXTz1R8zNB0szVMIZ3akveKMEiYVkKT+PbyA
-         +95w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795498299; x=1796103099;
-        h=content-transfer-encoding:content-type:in-reply-to:from:references
-         :cc:to:subject:user-agent:mime-version:date:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=MHGUggYwA3gp5Hl40fLruxFZvaBCGWgXTV8JidRQovM=;
-        b=fz0s9r9VIbpMNhHx8LhN54c1ueJrld5UNp4pOJ9kgDsRoeb/askXG46fWgrWO8YOZN
-         UlS1vhM3twasjEZwFnUugw1aoQcuUoylyjGCrxxXFwVxKVUQ81rE3yyVtbNn+DjFpcB9
-         ICpw5/8kkWVBb+a6qkI3hcOLumF02AJLJ9oCRaKwnBztX1pDLb+CcAwK4tRPr34Iuadt
-         ToDWZeYHsXSTU/yMz+mmNT9l9zHxoiPHlwJMHEwqWV4ZYkL5COQzCTLnHZ4ywVNg8euv
-         KJIvkRXRodei3O0ckMX0ywgQGnSwNfLUq6/R3bf8LrVvSUhlAtDcDbagf71B6AZdan1Y
-         j7rg==
-X-Forwarded-Encrypted: i=1; AL+hErEvOzF4XOqMEc3me8tylfwrlY9jtyZkyJa1EQjxfT6rMqzYMl1RTA5xqCMA4JAqx3pMnsMnPr+o93QwqRg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/r5HdlG1wDcuw1o2aool8jZAsMfLuyL0DA2toUtywLwY4p8p1F
-	ba62NjDfQFKCxiiZXsQx+gEmAlLdLoyTIL1Hdu4C1VV7DjLcYJH3RPzW
-X-Gm-Gg: AZFdTZdkC303PwpshMLopyqLBIIZq5WQkqSL14AhH5lmGeN7ywd/zqdrS0O/krVC8F1
-	sEk1wx/wBtDcAELwqT4NR/C8YS+TlWNfzPDYj+hxgeANVjGUI6ctrJaA8PpNQHET4WLsTFBlWGE
-	f0qGKovF6x2foVeWFC5uOIANoCJXX9G6w5GzNJ7RlYRC3EdJuqYYfKpgbV8Xc2fKr9sShCqS97o
-	+LXUUxx2nccKR4pyQ/gHI7wuelFTPbXkIVFb599sO5siXT+5njWwoUvSyyWQvhFLfAg+W+eQwHt
-	SuE4JStnvsf68IqZshIdTdE/4XNbpnmSIpHJVb7GKwxBoMja2xerXi1+jPcNKynssUZJ7AxRe+d
-	Bf/qNAx0plcUqUAWFr1jeIFr1ZTWEPAcDWPINmYPEwn8QKCLnTzJEXAk4w4Ds1eM0AHVe/VIe9y
-	oGbIneU6ZLm5seiN91oWAJdW3UB92daC22P1DrDdl/qINsIlLa5ynKGEZat3zRoYi5eXaZ1XjYv
-	jT7I60NjMU46A3N9ZspvQd5Hy5r6EewYES/H1b8K0SIhyoB0Adl2z4XV7uaQz1rXU0Dt0Qu3ugl
-	3MhxT8l8JUyydV6SyDwRXf+xYMOCKHhp/33c+nJ+OCwUf1lzmdyy
-X-Received: by 2002:a05:6a20:7d9b:b0:3e0:dc12:8908 with SMTP id adf61e73a8af0-4014e25b4f1mr12376756637.81.1795498298665;
-        Mon, 23 Nov 2026 21:31:38 -0800 (PST)
-Received: from [192.168.22.174] ([114.246.237.251])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde6c9c7dcbsm6562442a12.0.2026.11.23.21.31.31
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 23 Nov 2026 21:31:38 -0800 (PST)
-Message-ID: <286b4604-fb68-452c-b131-d3847669726f@gmail.com>
-Date: Tue, 24 Nov 2026 13:31:29 +0800
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5BCA3606A31E;
+	Tue, 24 Nov 2026 05:33:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5BCA3606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kylinos.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kylinos.cn
+X-UUID: 868fcc1ae7c811f19a56ed5b684f684d-20261124
+X-CTIC-Tags:
+	HR_CC_COUNT, HR_CC_DOMAIN_COUNT, HR_CC_NAME, HR_CC_NO_NAME, HR_CTE_8B
+	HR_CTT_MISS, HR_DATE_H, HR_DATE_WKD, HR_DATE_ZONE, HR_FROM_NAME
+	HR_SJ_LANG, HR_SJ_LEN, HR_SJ_LETTER, HR_SJ_NOR_SYM, HR_SJ_PHRASE
+	HR_SJ_PHRASE_LEN, HR_SJ_WS, HR_TO_COUNT, HR_TO_DOMAIN_COUNT, HR_TO_NAME
+	SA_EXISTED, SN_EXISTED, SPF_NOPASS, DKIM_NOPASS, DMARC_NOPASS
+	CIE_BAD, CIE_GOOD, CIE_GOOD_SPF, GTI_FG_BS, GTI_RG_INFO
+	GTI_C_BU, AMN_GOOD, ABX_MISS_RDNS
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.19,REQID:8d96ac46-4457-4771-b2c4-4ef09193619a,IP:10,
+	URL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:10
+X-CID-INFO: VERSION:1.3.19,REQID:8d96ac46-4457-4771-b2c4-4ef09193619a,IP:10,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:10
+X-CID-META: VersionHash:7db8b62,CLOUDID:3c603099da2a35e6db3e2fd92c955295,BulkI
+	D:261124133309JDDKGXM7,BulkQuantity:0,SF:17|19|38|66|78|102|127|153|850|86
+	5|898|915,TC:nil,Content:0|15|50|99,EDM:-3,IP:-2,URL:0,File:nil,RT:nil,Bul
+	k:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0
+	,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_FAS,TF_CID_SPAM_FSD,TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 868fcc1ae7c811f19a56ed5b684f684d-20261124
+X-User: maguicai@kylinos.cn
+Received: from localhost.localdomain [(36.106.123.207)] by mailgw.kylinos.cn
+	(envelope-from <maguicai@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 928427159; Tue, 24 Nov 2026 13:33:06 +0800
+From: Guicai Ma <maguicai@kylinos.cn>
+To: David Howells <dhowells@redhat.com>,
+	Jarkko Sakkinen <jarkko@kernel.org>
+Cc: keyrings@vger.kernel.org,
+	linux-security-module@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Paul Moore <paul@paul-moore.com>,
+	James Morris <jmorris@namei.org>,
+	"Serge E . Hallyn" <serge@hallyn.com>,
+	Guicai Ma <maguicai@kylinos.cn>
+Subject: [PATCH] KEYS: Protect the instantiate method against type removal
+Date: Tue, 24 Nov 2026 00:33:03 -0500
+Message-ID: <20261124053303.940216-1-maguicai@kylinos.cn>
+X-Mailer: git-send-email 2.47.3
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -90,97 +85,177 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 RESEND 2/5] KVM: riscv: Avoid THP adjustment for
- existing 4K G-stage leaves
-To: Jinyu Tang <jinyu.tang@linux.dev>, Anup Patel <anup@brainfault.org>,
- Anup Patel <apatel@ventanamicro.com>, Atish Patra <atish.patra@linux.dev>
-Cc: kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-kselftest@vger.kernel.org, Paolo Bonzini <pbonzini@redhat.com>,
- Sean Christopherson <seanjc@google.com>, Shuah Khan <shuah@kernel.org>,
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
- Andrew Jones <andrew.jones@oss.qualcomm.com>,
- Conor Dooley <conor.dooley@microchip.com>,
- Yong-Xuan Wang <yongxuan.wang@sifive.com>, Nutty Liu
- <nutty.liu@hotmail.com>, Jinyu Tang <tjytimi@163.com>,
- Gong Shuai <gong.shuai@sanechips.com.cn>
-References: <20260815102833.864330-1-jinyu.tang@linux.dev>
- <20260815103245.864925-1-jinyu.tang@linux.dev>
-From: Gong Shuai <gsh517025@gmail.com>
-In-Reply-To: <20260815103245.864925-1-jinyu.tang@linux.dev>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-Hi Jinyu,
+key_instantiate_and_link() reads key->type->def_datalen and ->preparse
+and calls ->instantiate without holding key->sem. A reference on the
+key keeps it alive, but does not pin the module that provides its type.
 
-On 8/15/2026 6:32 PM, Jinyu Tang wrote:
-> When dirty logging is disabled after a G-stage PMD mapping has been
-> split, the fault path may see a 4K G-stage leaf while the backing host
-> page is still THP-backed. The existing kvm_riscv_gstage_map_page()
-> comment says that this path should update the small leaf and leave huge
-> mapping recovery to a later ioctl path.
-> 
-> However, transparent_hugepage_adjust() runs before that G-stage lookup
-> and rewrites the fault GPA to the PMD base. If the original fault is not
-> at the PMD base, the lookup can find and update the wrong 4K leaf.
-> 
-> Check the original fault GPA in transparent_hugepage_adjust(). If it
-> already has a 4K G-stage leaf, skip THP adjustment and keep handling the
-> fault at PAGE_SIZE granularity.
-> 
-> Signed-off-by: Jinyu Tang <jinyu.tang@linux.dev>
-> ---
->   arch/riscv/kvm/mmu.c | 14 +++++++++++++-
->   1 file changed, 13 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
-> index bfd6168ebe30..2fabcd409991 100644
-> --- a/arch/riscv/kvm/mmu.c
-> +++ b/arch/riscv/kvm/mmu.c
-> @@ -500,10 +500,21 @@ static int get_hva_mapping_size(struct kvm *kvm,
->   
->   static unsigned long transparent_hugepage_adjust(struct kvm *kvm,
->   						 struct kvm_memory_slot *memslot,
-> +						 struct kvm_gstage *gstage,
->   						 unsigned long hva,
->   						 kvm_pfn_t *hfnp, gpa_t *gpa)
->   {
->   	kvm_pfn_t hfn = *hfnp;
-> +	u32 ptep_level;
-> +	pte_t *ptep;
-> +
-> +	/*
-> +	 * Keep the existing split G-stage leaf and update the original
-> +	 * faulting 4K page in the vCPU fault path.
-> +	 */
-> +	if (kvm_riscv_gstage_get_leaf(gstage, *gpa, &ptep, &ptep_level) &&
-> +	    !ptep_level)
-> +		return PAGE_SIZE;
->   
->   	/*
->   	 * Make sure the adjustment is done only for THP pages. Also make
-> @@ -730,7 +741,8 @@ int kvm_riscv_mmu_map(struct kvm_vcpu *vcpu, struct kvm_memory_slot *memslot,
->   	 * so do not promote them through the THP helper.
->   	 */
->   	if (!logging && !is_hugetlb && vma_pagesize == PAGE_SIZE)
-> -		vma_pagesize = transparent_hugepage_adjust(kvm, memslot, hva, &hfn, &gpa);
-> +		vma_pagesize = transparent_hugepage_adjust(kvm, memslot, &gstage,
-> +							   hva, &hfn, &gpa);
->   
->   	if (writable) {
->   		mark_page_dirty_in_slot(kvm, memslot, gfn);
+unregister_key_type() waits for the key GC to process every remaining
+key of the type. For each such key the GC takes key->sem for writing,
+switches key->type to key_type_dead and destroys the payload. A key
+that is still under construction is retyped as well: it stays in
+KEY_IS_UNINSTANTIATED and its authorisation key remains valid, so
+KEYCTL_INSTANTIATE from the upcall helper reaches
+__key_instantiate_and_link() and calls key_type_dead.instantiate,
+which is NULL:
 
-Thanks for your work.
+  Unable to handle kernel NULL pointer dereference at
+  virtual address 0000000000000000
+  Internal error: Oops: 0000000086000006 [#1] SMP
+  pc : 0x0
+  lr : __key_instantiate_and_link+0xb8/0x2f8
+  Call trace:
+   0x0 (P)
+   key_instantiate_and_link+0x2e8/0x36c
+   keyctl_instantiate_key_common+0x1cc/0x338
+   keyctl_instantiate_key+0xbc/0x120
+   __arm64_sys_keyctl+0x218/0x3f0
 
-Tested this patch on v7.4-rc4.
+If the module is unloaded while ->preparse or ->instantiate is running,
+execution can also return into freed module text, or skip
+->free_preparse after the key is retyped and leak the preparsed
+payload. While the request_key() syscall holds key_types_sem across the
+upcall, in-kernel request_key() callers such as dns_query() do not, so
+unregister_key_type() can run before KEYCTL_INSTANTIATE.
 
-FYI:
-https://lore.kernel.org/qemu-devel/95fe4c53-fe13-4e0c-abbc-bbb546850560@gmail.com/
+Hold key->sem for reading across key_instantiate_and_link() and return
+-EOPNOTSUPP if the type has no ->instantiate method. Since
+keyring_alloc() links a new keyring into a destination keyring with the
+new keyring's semaphore held at subclass 0, take the destination
+keyring's semaphore at subclass 1 in __key_link_lock(), matching the
+0 -> 1 order in __key_move_lock().
 
-Tested-by: Gong Shuai <gong.shuai@sanechips.com.cn>
+Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
+Cc: stable@vger.kernel.org
+Signed-off-by: Guicai Ma <maguicai@kylinos.cn>
+---
+Tested on 7.4.0-rc3 arm64 in QEMU with KASAN and lockdep enabled by
+unloading a test key-type module between an in-kernel request_key()
+upcall and KEYCTL_INSTANTIATE. Unpatched Oopses at pc=0 on the first
+round; patched returns -EOPNOTSUPP and passes 20 concurrent
+instantiate-vs-unload rounds and nested keyring creation cleanly.
 
-Best regards,
-Shuai
+ security/keys/key.c     | 39 +++++++++++++++++++++++++++++----------
+ security/keys/keyring.c |  9 ++++++++-
+ 2 files changed, 37 insertions(+), 11 deletions(-)
+
+diff --git a/security/keys/key.c b/security/keys/key.c
+index 3f1f0fc13710..12cbca31824c 100644
+--- a/security/keys/key.c
++++ b/security/keys/key.c
+@@ -422,9 +422,10 @@ static void mark_key_instantiated(struct key *key, int reject_error)
+ 
+ /*
+  * Instantiate a key and link it into the target keyring atomically.  Must be
+- * called with the target keyring's semaphore writelocked.  The target key's
+- * semaphore need not be locked as instantiation is serialised by
+- * key_construction_mutex.
++ * called with the target keyring's semaphore writelocked.  Either the target
++ * key's semaphore or key_types_sem must be held for reading so that the
++ * garbage collector cannot retype the key to key_type_dead while the type's
++ * methods are in use.
+  */
+ static int __key_instantiate_and_link(struct key *key,
+ 				      struct key_preparsed_payload *prep,
+@@ -496,7 +497,8 @@ static int __key_instantiate_and_link(struct key *key,
+  *
+  * If successful, 0 is returned, the authorisation token is revoked and anyone
+  * waiting for the key is woken up.  If the key was already instantiated,
+- * -EBUSY will be returned.
++ * -EBUSY will be returned.  If the key type no longer provides an instantiate
++ * method, -EOPNOTSUPP will be returned.
+  */
+ int key_instantiate_and_link(struct key *key,
+ 			     const void *data,
+@@ -509,6 +511,20 @@ int key_instantiate_and_link(struct key *key,
+ 	int ret;
+ 
+ 	memset(&prep, 0, sizeof(prep));
++
++	/*
++	 * A reference on the key does not pin the module that provides its
++	 * type.  unregister_key_type() waits for the garbage collector to
++	 * retype every remaining key of the type to key_type_dead, whose
++	 * ->instantiate is NULL, so the type must not change from here to the
++	 * instantiate call.
++	 */
++	down_read(&key->sem);
++
++	ret = -EOPNOTSUPP;
++	if (!key->type->instantiate)
++		goto out;
++
+ 	prep.orig_description = key->description;
+ 	prep.data = data;
+ 	prep.datalen = datalen;
+@@ -517,17 +533,17 @@ int key_instantiate_and_link(struct key *key,
+ 	if (key->type->preparse) {
+ 		ret = key->type->preparse(&prep);
+ 		if (ret < 0)
+-			goto error;
++			goto out_free_preparse;
+ 	}
+ 
+ 	if (keyring) {
+ 		ret = __key_link_lock(keyring, &key->index_key);
+ 		if (ret < 0)
+-			goto error;
++			goto out_free_preparse;
+ 
+ 		ret = __key_link_begin(keyring, &key->index_key, &edit);
+ 		if (ret < 0)
+-			goto error_link_end;
++			goto out_link_end;
+ 
+ 		if (keyring->restrict_link && keyring->restrict_link->check) {
+ 			struct key_restriction *keyres = keyring->restrict_link;
+@@ -535,19 +551,22 @@ int key_instantiate_and_link(struct key *key,
+ 			ret = keyres->check(keyring, key->type, &prep.payload,
+ 					    keyres->key);
+ 			if (ret < 0)
+-				goto error_link_end;
++				goto out_link_end;
+ 		}
+ 	}
+ 
+ 	ret = __key_instantiate_and_link(key, &prep, keyring, authkey, &edit);
+ 
+-error_link_end:
++out_link_end:
+ 	if (keyring)
+ 		__key_link_end(keyring, &key->index_key, edit);
+ 
+-error:
++out_free_preparse:
+ 	if (key->type->preparse)
+ 		key->type->free_preparse(&prep);
++
++out:
++	up_read(&key->sem);
+ 	return ret;
+ }
+ 
+diff --git a/security/keys/keyring.c b/security/keys/keyring.c
+index 357f56360810..f545f56c84e7 100644
+--- a/security/keys/keyring.c
++++ b/security/keys/keyring.c
+@@ -1262,7 +1262,14 @@ int __key_link_lock(struct key *keyring,
+ 	if (keyring->type != &key_type_keyring)
+ 		return -ENOTDIR;
+ 
+-	down_write(&keyring->sem);
++	/*
++	 * key_instantiate_and_link() links a newly allocated keyring into this
++	 * one while holding the new keyring's semaphore for reading as
++	 * subclass 0, so take the destination keyring at subclass 1 to keep
++	 * the same 0 -> 1 order that __key_move_lock() uses.  None of the
++	 * other callers of this function hold a key semaphore.
++	 */
++	down_write_nested(&keyring->sem, 1);
+ 
+ 	/* Serialise link/link calls to prevent parallel calls causing a cycle
+ 	 * when linking two keyring in opposite orders.
+-- 
+2.47.3
 
