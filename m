@@ -1,88 +1,108 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.227.15.19
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+Authentication-Results: smtp.subspace.kernel.org; arc=fail smtp.remote-ip=52.101.127.142
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=fail;
 	t=1795513174;
-	b=Ze9yQ8qGTfqXGm/bW6rL3P49ypqTeqknHrW7md5fGZLYB0WBPD+DHTZtwn2B3kly6UL0
-	 GtOMA8agXXl4CA5GANGGM4ImIxTEhsZpiR7K6Xy29g7WtWmvuGCJfubUCgvNtybqy+6W5
-	 m2mpS6YPu6VCQMZWY27SG3I32ahuFg98hPcDYfNtZ2gHk1Toh7XhOaMKXMqfWw9UhuOWB
-	 W/sp2qRQwJQ9mPW6566LWjLjBGX/DboI0PAf6rd3CEtfdpmgUN/SH84D6fTvrGaHqtPge
-	 iFV/CT+zQrHd0I1WC1YMjBuB6LRUFPc5sgWSM/KZnUkljOS+CmISqAloJZOyeRTFbjA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	b=jziRrlELKNKMAMwNw7F3tjbtDzqTBqYNKIe6X4XD6ttcfGl3MjpDuiyshSK5qyMiFR5D
+	 Iqkm2zVwokWp54mjbQZfMJkAtRf9SmQFvb2osPMflRqQ5mPqhHLGFYYNgGdz9LK/ZQ6Lo
+	 TIVrRaqQ1fqflier3BE8EJqtpRcZpySoR1aV4pVQAXLeqQgSk6FyueHOQ0zCNh31/5eFx
+	 YtAR/XmOWd0vciDY4vcKig+57bNeK7q0Mm926nlyLaKIqPDZnZvZ8/pBXCvSOp+QuttLk
+	 UKO96AhKfQ61RWGHpKAiX0l/VrPxVLi60OyFflsExDBJx07B4G08PVD2hxTds5M2rtg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795513174;
-	h=DMARC-Filter:DKIM2-Signature:Message-Instance:DKIM-Signature:
-	 X-UI-Sender-Class:Received:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:MIME-Version:Content-Transfer-Encoding:X-Provags-ID:
-	 X-Spam-Flag:UI-OutboundReport;
-	bh=Y9hLNvnj5t8dcfg9UUsbVfyqgtilHMmSoNdq8ajUf10=;
-	b=Hjfs17CwyCc4UC3oQd9NnAKLS9ClRp5WUynz0k4XJQJiIpsNAiC3yGoqjSRirlDr+8P+
-	 Y7Wb2h4otBWgaic3PZx75+UE029YD5woW9V9q1sCP1kjR2iA0OVcUmQGg2FGQts/jVw+k
-	 tvtWBmwjomRYk52vC1b7eJVpTvVpVE3sYqt1NLWCRjyGCrRZnIWFTFirrjEsnwi97SGsK
-	 9pJOA5Uf3OMPV0MNpEtwPndm7RI11/nj0Mzqq+8gGrnabqiP6jbvjpEM6HanDwNLQcl3C
-	 tF5ACUQFwz3rmDtZoiSO3ZhYDahvylMahr5t76pfzy4kU5UOjStWGt609agNm6uwRaA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmx.de;
-	spf=pass smtp.mailfrom=gmx.de;
-	dkim=pass header.d=gmx.de header.i=f3lix.dev@gmx.de header.a=rsa-sha256 header.s=s31663417 header.b="gVZpXSd/";
-	arc=none smtp.remote-ip=212.227.15.19
-Received: from mout.gmx.net (mout.gmx.net [212.227.15.19])
+	h=DMARC-Filter:Received:Received:X-MS-Exchange-Authentication-Results:
+	 Received-SPF:Received:Received:From:To:Cc:Subject:Date:Message-Id:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-EOPAttributedMessage:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:Content-Type:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=HMbR/+UYAsUUQqoIFylh6GXgKw+3iKCC7fBGfQpl/qM=;
+	b=VBq9K+yyQT9/IhdpFIIllfo8GtxcTvgFEdSp4BpArpXrPwxYzWKo3rdkZ0os1oe/fz+Z
+	 CQz2Nq/gBfbD6A95garWS34MMYHo82hBn9HjMXInr6ojsHjCoDL5eHdDvpymw5TmxPfRV
+	 7vhR1BPpj4IimCgbU7CPowjF/rJmf1j/Gbo/EWFY25zhljj10QoOkrM1MUSPJkeTDxdS0
+	 t1QMKiXIGGIh/u1LXt4f2oU1vQ5qObg6pLanW06Fu8qrI7sYJq71oMAE7iu75mBjmC7VR
+	 2VrpmnaRnNloAT517Nb6d9mICq/Mjz2c+nOa0cy95oDVW5aerG9SI9V5iXtOT/nYckA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=none header.from=cixtech.com;
+	spf=pass smtp.mailfrom=cixtech.com;
+	arc=fail smtp.remote-ip=52.101.127.142
+Received: from TYDPR03CU002.outbound.protection.outlook.com (mail-japaneastazon11023142.outbound.protection.outlook.com [52.101.127.142])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DCBC4606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:39:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DCBC4606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=gmx.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmx.de
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=gmx.de header.i=f3lix.dev@gmx.de header.a=rsa-sha256 header.s=s31663417 header.b=gVZpXSd/
-DKIM2-Signature:  i=1; m=1; t=1795513170;
- mf=PGYzbGl4LmRldkBnbXguZGU+;
- rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
- d=gmx.de;
- s=s31663417:rsa-sha256:o2kM5ha/SJBoxTPTxEBhcmD6BNZB
-   g3syJm5Qgpl4xKnedvtvyExyWj6LRm244SbLtlHg9VnxI1paHUSe2I/OKZrOE6hK4+qCkeCVJz8
-   /ISXCd+N6z3yl9OBY31B4IsvdQdcpzoNRqzywxIvWrXsVbap/UQtzG6aw24hRpWowhaAZu22tex
-   IineegEhMAR5LGPOonk7HdsnQvDVSXipHcfsZ/ZRs/ZUdIhAvtAvxLNanQhAohhZEHNlBDWVo4e
-   hdH/tSTWR5S7R4aJgiB9XSG3Fu368GHIuJNZsY/tJDl+eeC71fG2AlE2OBw8VoVwbornPCDBCJZ
-   QosAndLgi4CDzQ==;
-Message-Instance:  m=1;
- h=sha256:
-   ZsRi3WwdBDI2GwfxdfA0xWxOmFEoVkmF856qm3G8qJ4=:
-   mp+kwLmBeergVa56IbOSU1QsfAhWwGyHIHhSss1Rm24=,
-  sha512:
-   vaOPa7o79harAlK7Cih2BxX/JfOMOx+cI5b2VfTMXQkOkZ/3mS4MCHyVKtaNmvzuhPomfUF9jkz+hU14SFQXVw==:
-   d3xcGGLimED54m3mkl97qaaVlDOrNnaFCMuVPNazbaYTgr0u7mld693qrHdbqeTFwDyqIzEivkinZApgvzoVtA==;
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.de;
-	s=s31663417; t=1795513170; x=1796117970; i=f3lix.dev@gmx.de;
-	bh=Y9hLNvnj5t8dcfg9UUsbVfyqgtilHMmSoNdq8ajUf10=;
-	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-ID:
-	 MIME-Version:Content-Transfer-Encoding:cc:
-	 content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=gVZpXSd/F9xHlnLhvviyIHjJjBGndDb/2JDqok2TK5mAzSDv2tVAFmQl0MuAb1M1
-	 NoClZOh8KmeSZ0X2Xa7nW+WbSIDzFtgmD6UaxxinGzjD98Pu3hm79UyVpQbdVM+fy
-	 9ICTJ4yQ0kaaeKRkzwNePv16gpK6Y/Xz9yL8U2ky6dwwdx7fPgFBtQdVaqisbHFJh
-	 b68p+kNTUo+YURw8KlfVJ2bjra3LMuJSBI9EOH5ljBQAFO1lWnRUhcxXQh2bsozyg
-	 jRWTSlkLfF60nSNrZkvw438b4ipANeh4zFySru2LZLKJx71HYWCfvGBNklG9ciB0a
-	 HkN7QqTMdI2uqhSbNA==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from client.hidden.invalid by mail.gmx.net (mrgmx005
- [212.227.17.190]) with ESMTPSA (Nemesis) id 1N1wlv-1yXP7D2jY9-015Zxg; Tue, 24
- Nov 2026 10:39:30 +0100
-From: Felix Hoffmann <f3lix.dev@gmx.de>
-To: linux-x25@vger.kernel.org,
-	Martin Schiller <ms@dev.tdt.de>
-Cc: netdev@vger.kernel.org,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	linux-kernel@vger.kernel.org,
-	Willem de Bruijn <willemb@google.com>
-Subject: [PATCH net v2] net: x25: shut down T20 timer before freeing neighbour
-Date: Tue, 24 Nov 2026 10:39:22 +0100
-Message-ID: <20261124093922.39573-1-f3lix.dev@gmx.de>
-X-Mailer: git-send-email 2.43.0
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 08A96606A322
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:39:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 08A96606A322
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=cixtech.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cixtech.com
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=LWWyeBRHaQOEdR/jSbJcp3+rlNpe169OngBX+hWdL+PMigqCt+UVyMslJs19v7/33bAOykbCTO7qlBilG0SS6bbtOI2LE0+lc3Ta5PuGxTxbm3anHa5ZTytZtxYOGX8I27YnnBuzsAwANB+nTBO+ohqAdUQaLJM9m+jqJMfAG3C7xVDWntgjrNHIKO/NdHXpRYPntC+Emrm4N16voEf/HeA0w2GQo++rkan3QFFYcI3H6wYmPZJ4yiZS4zP83rINw1tgP2RDWaOcKn1wJKReMNRaA32Miv1eGqA4uLSjbycVSewvGUENIwU9lEgYRxx/G2wPHO24Mi3UafSvf9Cd6A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=HMbR/+UYAsUUQqoIFylh6GXgKw+3iKCC7fBGfQpl/qM=;
+ b=p/CsCi8oEVYgTOx7bGGvTyRK3HA9AvHNXs9cOfZDEQUtQdRUeTXO2pxQv+raRKRxMYppI7obGnTo3TJplbbIt8YbdHT/TUqj4uIhrjX8TmZtlzTnhoanF7Z1F/hUJxiw8nEtfPGGirx9G4wVbo2VoW2fIM68F/a10cHr1WWfVEMa4cUsl3aIgKMDR/tkPIn2xORk2eaTZosoAOO7ADwJPNJL1wuWrnMyC95qzH2ad2VxZ0oSOzAbpJ55o+bTrBcgccdqcaIMRMcsXQ/PVrE0hNKezHR++ak3pQWMOa2/6hRX7iks9dpSv6C08DUP8UqC8P/FLOVAJ6WmxZyPS4cQ6Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 222.71.101.198) smtp.rcpttodomain=arm.com smtp.mailfrom=cixtech.com;
+ dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
+ not signed); arc=none (0)
+Received: from SI6PR03CA0012.apcprd03.prod.outlook.com (2603:1096:4:285::18)
+ by TY1PPFA3F3F1487.apcprd06.prod.outlook.com (2603:1096:408::921) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.3; Tue, 24 Nov
+ 2026 09:39:30 +0000
+Received: from SG1PEPF000082E2.apcprd02.prod.outlook.com
+ (2603:1096:4:285:cafe::a) by SI6PR03CA0012.outlook.office365.com
+ (2603:1096:4:285::18) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.5 via Frontend Transport; Tue, 24
+ Nov 2026 09:39:29 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 222.71.101.198) smtp.mailfrom=cixtech.com; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
+Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
+ 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
+ client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
+Received: from smtprelay.cixcomputing.com (222.71.101.198) by
+ SG1PEPF000082E2.mail.protection.outlook.com (10.167.240.11) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.662.3 via Frontend Transport; Tue, 24 Nov 2026 09:39:29 +0000
+Received: from localhost.localdomain (unknown [172.16.66.33])
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 36BA7427EFD4;
+	Tue, 24 Nov 2026 17:39:28 +0800 (CST)
+From: Luo Liu <Luo.Liu@cixtech.com>
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Liviu Dudau <liviu.dudau@arm.com>,
+	Russell King <linux@armlinux.org.uk>,
+	dri-devel@lists.freedesktop.org
+Cc: Ayan Halder <Ayan.Halder@arm.com>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Kory Maincent <kory.maincent@bootlin.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v3 1/4] drm/komeda: Use the bridge connector
+Date: Tue, 24 Nov 2026 17:39:25 +0800
+Message-Id: <20261124093928.3220071-2-Luo.Liu@cixtech.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20261124093928.3220071-1-Luo.Liu@cixtech.com>
+References: <20261124093928.3220071-1-Luo.Liu@cixtech.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,168 +112,113 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:qsXB+iWSeAehumpa5RjYQq0JESEh2Y5THpnksBEgNT0KMvn77MP
- oRtVAQjH/gBLXel4YDSFUdhDR0Hz4+9qYreVqYkabn5azBd3UOtqJrtVsmQN8OLv2AGtbjv
- 7bnSAeByF3g9uq7YJbRAHI2XRm6T2WlFg2uaG5SXI1r37g6rqJYAw8qT4CMTouOERl7d7AM
- zSROpzSM0BgLcQK6h/Wjg==
-X-Spam-Flag: NO
-UI-OutboundReport: notjunk:1;M01:P0:Pz0/rk5CYZw=;G6lFVjBmFnv4hQryOs36waiziwW
- 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
- LHLPn7HOqwS3E=
+Content-Transfer-Encoding: 8bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SG1PEPF000082E2:EE_|TY1PPFA3F3F1487:EE_
+Content-Type: text/plain
+X-MS-Office365-Filtering-Correlation-Id: 3fda1087-32c5-460e-3274-08df4a0ed62b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|1800799024|7416014|376014|82310400026|23010399003|42112799006|36860700016|261028144727099003|10067099003|261026140227099003|56012099006|261009223027099003|261022075727099003|261009221227099003|261021123027099003|261009220027099003|261102123227099003|261022105027099003|261009223327099003|261021121427099003|261009221727099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info:
+	4o9/NeVs29l1pvrPC/b6afhBiXux2dwc7M+ECPf2MwbKUz1JmJIvAdnqZd2q6clRk1O2bBgYqYsghHAjegOCI6VPwlXA+oQ72FV7Lg4lydLWGg2a1xDrkNI8bZdz98AbqHr/O++20WapCRvnq439Dmwjn1v27XxvA4AeiDXFVXkMOVbK7K2JgHjg6LPmwyCK1JKVxYvsURrUF7C53eGmL8feqoL7/Cj5BolcTf8NrRMjY9RDdisbKg/kOOSTPGLft4xsix8Du7rgc9hqVpkB4v+UGsvZUrsldFSA/e0M4fpBl78c3kEi9+Ei8eycY4iH8Izvn5Wy3BWaXM0KF6zyeoigAdQu4evhya8VC9SCAJzMUKe4rUFPbDsY+qA6U+geZqVNcAmU6veqVuM4b2ccgF8rAqml6KPxPFRlf/OWWw87QvRWWxXBZRztD+TjqxpRV93TeJlPJ72UujgS7uNn37p9+5p1hYc/FZwg95YgwPMgs6XEhFrmKgX3dx2guKVj5EL+ddNiNuyOdPGDt3Os503fWeUzUY25ukswsqU3Zk7C7ffHwq08Rqf/HHKNux710Q1MDIgz3QHAhvouW65m3552rEsWlFEUs6JmmfLxfKU89O2t6SyXsbZXFZ4xRPqxeAIELEdSEVZldel9BE2CdD9+vJQoe5hwQGNnNsKBdnxQxn3A9xYkXih26591LvPqysB3bgCibHyuWASBAW+p9g==
+X-Forefront-Antispam-Report:
+	CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(82310400026)(23010399003)(42112799006)(36860700016)(261028144727099003)(10067099003)(261026140227099003)(56012099006)(261009223027099003)(261022075727099003)(261009221227099003)(261021123027099003)(261009220027099003)(261102123227099003)(261022105027099003)(261009223327099003)(261021121427099003)(261009221727099003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	ald3pRFDnndQmz4DnyJS0bxiOt2EOO1wcNHkUSHI70Dmnr/yinCibn8lwno4/brmrTqm6M89floKgbQ9NZ/5Rshuj/CaZXXCtHITnhr3je3eeinD73xUS9MyZg6uuLUUO3uUO1A1859PJXr5asFnA8AQQ1nr58Ez50xAPMbJKnYahg2U59iZ0yJxopee94tdh99+JVKOQwIMCozpe8t6o9byP6kmcY4Zq+j61pIhORdjuR3GpYKd7eG4fUoz3fLkh1DF+IMott1rsp4EuuFwhJVCLD5wDHUj211BxaVBG2TRouqCByiU9kCr6+38xyRL6IA1O7WegopF8iGrw5HJ0Dq3/aRrP99F6SyT4qmZ5gKbRPvIKDlmDI6FhVaSGuYm1YMQ1axCHvZppwPeeu1oBLi9HRECxAifg2nwOynZh/VVQ5z2jNSB+b1J2BJqlWx+
+X-OriginatorOrg: cixtech.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 09:39:29.1314
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3fda1087-32c5-460e-3274-08df4a0ed62b
+X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	SG1PEPF000082E2.apcprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY1PPFA3F3F1487
 
-x25_link_terminated() cancels the T20 restart timer with
-timer_delete(). If the callback is already running on another CPU, the
-cancel does not wait. The callback can then rearm the timer before
-x25_link_device_down() removes the neighbour and drops its last
-reference. This frees the neighbour while its embedded timer is active,
-leading to a use-after-free on expiry.
+Bridges following the new DRM bridge model no longer create a connector
+themselves: the display driver has to attach them with
+DRM_BRIDGE_ATTACH_NO_CONNECTOR and create one connector for the whole
+chain with drm_bridge_connector_init().
 
-Shut the timer down synchronously in __x25_remove_neigh() before
-dropping the list-owned reference. timer_shutdown_sync() also prevents
-the callback's unconditional rearm. The callback does not acquire
-x25_neigh_list_lock, so it is safe to wait while neighbour removal keeps
-the list protected.
+Convert komeda to that model, so it keeps working with bridges that
+have moved to the new one. The bridges komeda binds to in mainline
+support connector-less attach, so boards using them are unaffected.
 
-Also purge queued frames before releasing the neighbour, restoring the
-cleanup removed by commit 7eed751b3b2a ("net/x25: handle additional
-netdev events").
+Select DRM_BRIDGE_CONNECTOR for drm_bridge_connector_init() and
+DRM_DISPLAY_HELPER, as the bridge connector is only visible when the
+display helper is enabled.
 
-Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
-Cc: stable@vger.kernel.org
-Signed-off-by: Felix Hoffmann <f3lix.dev@gmx.de>
-Acked-by: Martin Schiller <ms@dev.tdt.de>
-=2D--
-Tested with a two-vCPU KASAN, timer debugobjects and lockdep kernel using
-a deterministic callback/teardown race. All 10 timer callbacks completed
-without a KASAN, debugobjects, lockdep, warning, oops, or panic report.
+Signed-off-by: Luo Liu <Luo.Liu@cixtech.com>
+---
+ drivers/gpu/drm/arm/display/Kconfig            |  2 ++
+ .../gpu/drm/arm/display/komeda/komeda_crtc.c   | 18 +++++++++++++++---
+ 2 files changed, 17 insertions(+), 3 deletions(-)
 
-Build-tested with W=3D1 under allmodconfig and allyesconfig.
-
-The reproducer is available privately on request.
-
- net/x25/x25_link.c | 2 ++
- 1 file changed, 2 insertions(+)
-
-diff --git a/net/x25/x25_link.c b/net/x25/x25_link.c
-index d1e8cd81c2143..b9f290616e3a8 100644
-=2D-- a/net/x25/x25_link.c
-+++ b/net/x25/x25_link.c
-@@ -299,6 +299,8 @@ void x25_link_device_up(struct net_device *dev)
- static void __x25_remove_neigh(struct x25_neigh *nb)
+diff --git a/drivers/gpu/drm/arm/display/Kconfig b/drivers/gpu/drm/arm/display/Kconfig
+index 415c10a6374b..d88fdd3808be 100644
+--- a/drivers/gpu/drm/arm/display/Kconfig
++++ b/drivers/gpu/drm/arm/display/Kconfig
+@@ -6,6 +6,8 @@ config DRM_KOMEDA
+ 	select DRM_CLIENT_SELECTION
+ 	select DRM_KMS_HELPER
+ 	select DRM_GEM_DMA_HELPER
++	select DRM_DISPLAY_HELPER
++	select DRM_BRIDGE_CONNECTOR
+ 	select VIDEOMODE_HELPERS
+ 	help
+ 	  Choose this option if you want to compile the ARM Komeda display
+diff --git a/drivers/gpu/drm/arm/display/komeda/komeda_crtc.c b/drivers/gpu/drm/arm/display/komeda/komeda_crtc.c
+index 0fd069fc3386..3d5f06e085fa 100644
+--- a/drivers/gpu/drm/arm/display/komeda/komeda_crtc.c
++++ b/drivers/gpu/drm/arm/display/komeda/komeda_crtc.c
+@@ -15,6 +15,7 @@
+ #include <drm/drm_print.h>
+ #include <drm/drm_vblank.h>
+ #include <drm/drm_bridge.h>
++#include <drm/drm_bridge_connector.h>
+ #include <drm/drm_panel.h>
+ 
+ #include "komeda_dev.h"
+@@ -617,6 +618,7 @@ static int komeda_attach_bridge(struct device *dev,
+ 				struct drm_encoder *encoder)
  {
- 	if (nb->node.next) {
-+		timer_shutdown_sync(&nb->t20timer);
-+		skb_queue_purge(&nb->queue);
- 		list_del(&nb->node);
- 		x25_neigh_put(nb);
- 	}
-=2D-=20
-2.43.0
+ 	struct drm_device *drm = encoder->dev;
++	struct drm_connector *connector;
+ 	struct drm_bridge *bridge;
+ 	int err;
+ 
+@@ -626,12 +628,22 @@ static int komeda_attach_bridge(struct device *dev,
+ 		return dev_err_probe(dev, PTR_ERR(bridge), "remote bridge not found for pipe: %s\n",
+ 				     of_node_full_name(pipe->of_node));
+ 
+-	err = drm_bridge_attach(encoder, bridge, NULL, 0);
+-	if (err)
++	err = drm_bridge_attach(encoder, bridge, NULL,
++				DRM_BRIDGE_ATTACH_NO_CONNECTOR);
++	if (err) {
+ 		drm_err(drm, "bridge_attach() failed for pipe: %s\n",
+ 			of_node_full_name(pipe->of_node));
++		return err;
++	}
+ 
+-	return err;
++	connector = drm_bridge_connector_init(drm, encoder);
++	if (IS_ERR(connector)) {
++		drm_err(drm, "bridge connector init failed for pipe: %s\n",
++			of_node_full_name(pipe->of_node));
++		return PTR_ERR(connector);
++	}
++
++	return 0;
+ }
+ 
+ static const struct drm_encoder_funcs komeda_encoder_funcs = {
+-- 
+2.25.1
 
