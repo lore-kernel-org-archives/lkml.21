@@ -1,91 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795541103;
-	b=5rqkufRAmgHFv0MY4A5/oP+I6S+Y9AL0HhT3q7XzOmejRfG5o0KnuU+K6Lv/SDAOwkyD
-	 TQlj2t+INtKVnhSCzg/KslI8QG1e/PuYwIkVHTHZ46Moqx0IW2afsg9X2bTSRlHwWj9ef
-	 4HoDdf0erbLaRbA9Q9N65xaU4hPy/tRIqGr8eu9P0W6BhYW4/xNStsNGFsYYc1GXIdO04
-	 T2beNoaQ+7BOfMfCAizFq/rqk/R+0vnLQauW/gOD+SrZrp15ZYRWAxByGSJCgpkUbJdQh
-	 iHNc72MAYXsnIYoGKMpSPbWxShkBlUivnxoTfM+F3EunwcD/clLB9suJOMtRHNoLkfQ==
+	t=1795541166;
+	b=xOA2cX1xQZC2iu3T1vuxffvAwHA0IciwZ65GJ4PmYZNeq6bB8Xb7+wpS51gZUYCLJFle
+	 HnNB6srFlZ6asmeVAkbXe7ME4mgz6Pu8NPnWAe4K2qMZf4hjUsdzptXbi16mhq5p8ZrRj
+	 EewQn5qTIAT0kyDj5xL4chqbhogW+W4C1USEtDXmwUF2dVsgeIgnGs1apRaw/PpDWrY1M
+	 PcltrAhvHKmaO2UkhPCFmX/ztp9nSg/gMwa7gGFouI7k3GKCaDdJFJ3bbdb47wXlk7715
+	 Jp4E7xVbHn0r3jujMDkyzXaLw19u8rpUJV6pw8OoysP+Tu0MK4rs4Tnd5/AZxFQkDUg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795541103;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
-	 Date:In-Reply-To:References:Autocrypt:Organization:Content-Type:
-	 User-Agent:MIME-Version;
-	bh=5+CTeAPHlaIrzOxsi+n6+brzSDzv5QqqwUg52jb6nl0=;
-	b=KKVYfy1tvhCMkkXnp68zFfLwdEntS11P8O+ZPcTtfI/7NRx7qVl0rIS5hC4wgK7FTyts
-	 sXnt/oDiO4h/QGpq8tkvFzGRXvN3syupV93Zt+I+0L7eJxGtmBkMA3U6Fcgre5dXZdFax
-	 aWZbPHhzjbF6R/eL9JEXC5w+cx2LU/YBD6jdrAAC4aYgzNHyxzKA1PnGzttI0GLshY1/e
-	 Tf8simmzkgeZbRBy2gR+Hbu6Q30ZCtuhigiF7fZ5I/shJoNeJQk4r+DDnZuX/IvkjGiUZ
-	 UEGKQ2RuYr7HQ03bL4HuKBEmHdHtaAMF1wLVeYKzetN83oiAmK084aME0Lvuaw/nTZg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795541166;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=pB0hPyMKD+vhgJUDCKouLHukFV8UEhyvi3gGX1fNKGI=;
+	b=sRbjzXnBnQIJaXSR/F+y9HUFHtj3vdogwHgMFraHjg/rPlDyCOcZSHrIMUlp8vd9m+wI
+	 y5D0KGJTXRdrRGzAGLUj+lyWtmfMIFD448dpBgTRUO9zdi4ULMYufB43WyiS8nafgthfh
+	 flTDBGKnxO7iJVaxA/EvxC0cJTHkktHYqRkPvOBBeBv09JM+SQpptN5AZOfC9NH6KjW11
+	 lBJozZRSLwA0FqJZKepoC0sHOuBtFDQlkCzUC3nQ/7q7wIKVbq6ZOBSFaiJct/NnjVDmc
+	 yOaAx4bAd3TBNdAtHru0N1XnFQFuBGjkvtm6YVxcyRx+A6q+1fhvIV9b2MTUMwcXUFg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=collabora.com;
-	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=PfClU7bE;
-	arc=none smtp.remote-ip=148.251.105.195
-Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Y8zCkc0+;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1CEE7606A31E;
-	Tue, 24 Nov 2026 17:25:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1CEE7606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8C069606A31E;
+	Tue, 24 Nov 2026 17:26:06 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=PfClU7bE
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1795541101;
-	bh=m07kO0w39ZGOpJ7N1oAJdrXNCV6zROzJBkUq6TvKKEw=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=PfClU7bENUiH3dPsxzpNT3P8oZ2zd+jYU51lg9/WdVuT8DtjQBOps63DLdwp+Td5B
-	 iYMvqXfK8xAQ9Qk2QPJI4x3FiOvlU0AxJq7hb/ky2j3WjaBrgvcAZvXHTBweUZ/qRR
-	 awgL3hY1rC4+/rjvTDGq4ndmJhCTKB4dNe537+Ln766hBvdiNrzEaiagzSOwZmYTYn
-	 kBeJFHuDVooR5zo+8V2J0SvqEVawXSg4CetbSYuH+EvUyGm7614o0VCKBfyN8w6np5
-	 8qLaEmdfDYZL62LVmBNnd+wSJfxjEKoDbK3tE+qzmLH0Sb0qKEo3ZCHsyk05liAg/4
-	 jjYzS0peNNuVA==
-Received: from [100.64.0.214] (unknown [100.64.0.214])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 433CC17E00E8;
-	Tue, 24 Nov 2026 18:24:59 +0100 (CET)
-Message-ID: <17ff7540be764241e6083ba2b6876f7a90787333.camel@collabora.com>
-Subject: Re: [PATCH v3 3/3] media: verisilicon: leave room for the JPEG
- header and one stream burst
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: shomenkow@gmail.com, Benjamin Gaignard
- <benjamin.gaignard@collabora.com>,  Philipp Zabel <p.zabel@pengutronix.de>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Hans Verkuil	
- <hverkuil@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Ezequiel Garcia	
- <ezequiel@vanguardiasur.com.ar>, Chen-Yu Tsai <wenst@chromium.org>, Hugues
- Fruchet <hugues.fruchet@foss.st.com>, Maxime Coquelin
- <mcoquelin.stm32@gmail.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, linux-media@vger.kernel.org, 
-	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-stm32@st-md-mailman.stormreply.com, linux-kernel@vger.kernel.org, 
-	stable@vger.kernel.org
-Date: Tue, 24 Nov 2026 12:24:57 -0500
-In-Reply-To: <20261124-hantro-buflimit-v3-3-780903970ca0@gmail.com>
-References: <20261124-hantro-buflimit-v3-0-780903970ca0@gmail.com>
-	 <20261124-hantro-buflimit-v3-3-780903970ca0@gmail.com>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-9hyBsZW3zMk+VaUuUSDf"
-User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Y8zCkc0+
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F5031F000C0;
+	Tue, 24 Nov 2026 17:26:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795541166;
+	bh=pB0hPyMKD+vhgJUDCKouLHukFV8UEhyvi3gGX1fNKGI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Y8zCkc0+9DGyKOLaZmgiI/zvuJpIqGArGooiio8dDQ8y0ZQMzzF6+WSFDgEvoEi/I
+	 tvKFVBR+9P8UZLZuzz4+PON5jL1tUEB8UgA8ZMNtbJ9XdZPS20a/JVrIaSRIPRH7r/
+	 aQqS7FXBR36BwXPAQrkI9plVuB0zVwYPqzzEOUCAZBWSZVCSVrsarp0Fy4v/x39AJk
+	 ci7/IOPmZZKkP8haGJfpEEQ97Agfnqu9KDDpVR3M8DOVqJ2Ec5eLTjhunyxtWyPQGf
+	 Ci7JHCiz3jniJf95hTT1gd1WWx69Pcq2Gy/BPjo0fn0X8qvFzARV0AA2YdhURM5Nqa
+	 9CDmXB4t+yAxQ==
+Date: Tue, 24 Nov 2026 17:25:59 +0000
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Jason Gunthorpe <jgg@ziepe.ca>
+Cc: Guanghui Feng <guanghuifeng@linux.alibaba.com>, linux-mm@kvack.org, 
+	alex@shazbot.org, alifm@linux.ibm.com, ankita@nvidia.com, dakr@kernel.org, 
+	fengchengwen@huawei.com, kevin.tian@intel.com, kvm@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, mattev@meta.com, ritesh.list@gmail.com, xinmengs@nvidia.com
+Subject: Re: [PATCH v2 2/2] vfio/pci: Align BAR mappings for huge page support
+Message-ID: <awXIcSgV_YOke9yW@gremlin>
+References: <20261124073048.268988-1-guanghuifeng@linux.alibaba.com>
+ <20261124124004.457441-1-guanghuifeng@linux.alibaba.com>
+ <20261124124004.457441-3-guanghuifeng@linux.alibaba.com>
+ <20261124135258.GK9566@ziepe.ca>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -95,127 +61,93 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261124135258.GK9566@ziepe.ca>
 
---=-9hyBsZW3zMk+VaUuUSDf
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+On Tue, Nov 24, 2026 at 09:52:58AM -0400, Jason Gunthorpe wrote:
+> On Tue, Nov 24, 2026 at 08:40:04PM +0800, Guanghui Feng wrote:
+> > +unsigned long vfio_pci_core_get_unmapped_area(struct vfio_device *core_vdev,
+> > +					      struct file *filp,
+> > +					      unsigned long addr,
+> > +					      unsigned long len,
+> > +					      unsigned long pgoff,
+> > +					      unsigned long flags)
+> > +{
+> > +	struct vfio_pci_core_device *vdev =
+> > +		container_of(core_vdev, struct vfio_pci_core_device, vdev);
+> > +	struct pci_dev *pdev = vdev->pdev;
+> > +	unsigned long align, off, off_end, off_align, len_align, addr_align;
+> > +	unsigned int index;
+> > +	u64 bar_len;
+> > +
+> > +	/* Don't interfere with explicit address requests or fixed mappings */
+> > +	if (addr || (flags & (MAP_FIXED | MAP_FIXED_NOREPLACE)))
+> > +		goto out;
+> > +
+> > +	index = pgoff >> (VFIO_PCI_OFFSET_SHIFT - PAGE_SHIFT);
+> > +	if (index >= VFIO_PCI_ROM_REGION_INDEX || !vdev->bar_mmap_supported[index])
+> > +		goto out;
+> > +
+> > +	bar_len = pci_resource_len(pdev, index);
+> > +	if (!bar_len)
+> > +		goto out;
+> > +
+> > +	/*
+> > +	 * Select the largest huge page size that the BAR physical alignment,
+> > +	 * mapping length, and arch support can all satisfy.  Only PMD and PUD
+> > +	 * orders are supported by vfio_pci_vmf_insert_pfn().
+> > +	 */
+> > +	if (IS_ENABLED(CONFIG_ARCH_SUPPORTS_PUD_PFNMAP) &&
+> > +	    bar_len >= PUD_SIZE && len >= PUD_SIZE)
+> > +		align = PUD_SIZE;
+> > +	else if (bar_len >= PMD_SIZE && len >= PMD_SIZE)
+> > +		align = PMD_SIZE;
+> > +	else
+> > +		goto out;
+> > +
+> > +	off = pgoff << PAGE_SHIFT;
+> > +	off_end = off + len;
+> > +	if (off_end < off)
+> > +		goto out;
+> > +	off_align = round_up(off, align);
+> > +
+> > +	/* The mapping has to span at least one fully aligned huge page */
+> > +	if (off_end <= off_align || off_end - off_align < align)
+> > +		goto out;
+> > +
+> > +	len_align = len + align;
+> > +	if (len_align < len)
+> > +		goto out;
+> > +
+> > +	/*
+> > +	 * Find an area that can hold the mapping plus the slack needed to
+> > +	 * shift it up to the next aligned address, then apply that shift.
+> > +	 * The shift preserves the relative alignment of the file offset,
+> > +	 * which is what makes the pfn alignment work out.
+> > +	 */
+> > +	addr_align = mm_get_unmapped_area(filp, addr, len_align, pgoff, flags);
+> > +	if (!IS_ERR_VALUE(addr_align)) {
+> > +		addr_align += (off - addr_align) & (align - 1);
+> > +		return addr_align;
+>
+>
+> PeterX was working on this previously and last time I was not excited
+> to see all this mm logic open coded in drivers.
+>
+> I was hoping to see that the core mm could provide some helper scheme
+> for drivers that already know what they want to map to get a vma
+> alignment that is optimal for the architecutre.
+>
+> Peter had a design that seemed like a good exploration at least..
 
-Le mardi 24 novembre 2026 =C3=A0 16:40 +0300, Sergei Khomenkov via B4 Relay=
- a =C3=A9crit=C2=A0:
-> From: Sergei Khomenkov <shomenkow@gmail.com>
->=20
-> hantro_try_fmt() keeps any non-zero CAPTURE sizeimage of the JPEG
-> encoder, however small. The CPU writes the 624-byte header into the
-> plane, and on the RK3026 the H1 then writes at least one 64-byte burst
-> even with a stream limit of 0, so a smaller plane is written past its
-> end. A plane smaller than the header also makes the WARN_ON() in
-> hantro_h1_jpeg_enc_set_buffers() fire on every job.
->=20
-> Add a minimum plane size to struct hantro_fmt, set it to header_size +
-> 64 in the JPEG encoder formats of the Rockchip and STM32MP25 variants,
-> and raise a smaller coded sizeimage to it in hantro_try_fmt().
->=20
-> Fixes: 775fec69008d ("media: add Rockchip VPU JPEG encoder driver")
-> Cc: stable@vger.kernel.org
-> Assisted-by: Claude:claude-opus-5-5
+Well you and Matthew and I were discussing something similar previously also?
 
-Drop if v4 needed.
+The AI fixgeddon is delaying any nice-to-haves of late, but in spirit yes, it's
+appalling to have this mm code duplicated and it clearly shows a gap in the API.
 
-> Signed-off-by: Sergei Khomenkov <shomenkow@gmail.com>
+>
+> Jason
 
-Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-
-> ---
-> Found with an LLM coding assistant while porting mainline Linux to a
-> Rockchip RK3026 board; the assistant also drafted this change. Tested
-> on that board: a sizeimage of 1 or 600 now reads back 688, and frames
-> that do not fit a 688-byte plane stop exactly at its end. Not tested on
-> other SoCs.
-> ---
->  drivers/media/platform/verisilicon/hantro.h           | 2 ++
->  drivers/media/platform/verisilicon/hantro_v4l2.c      | 3 +++
->  drivers/media/platform/verisilicon/rockchip_vpu_hw.c  | 1 +
->  drivers/media/platform/verisilicon/stm32mp25_vpu_hw.c | 1 +
->  4 files changed, 7 insertions(+)
->=20
-> diff --git a/drivers/media/platform/verisilicon/hantro.h b/drivers/media/=
-platform/verisilicon/hantro.h
-> index 0353de154a1e..f51beae79f1f 100644
-> --- a/drivers/media/platform/verisilicon/hantro.h
-> +++ b/drivers/media/platform/verisilicon/hantro.h
-> @@ -286,6 +286,7 @@ struct hantro_ctx {
->   * @codec_mode:=09Codec mode related to this format. See
->   *=09=09enum hantro_codec_mode.
->   * @header_size: Optional header size. Currently used by JPEG encoder.
-> + * @min_size:=09Optional minimum sizeimage, for bitstream formats.
->   * @max_depth:=09Maximum depth, for bitstream formats
->   * @enc_fmt:=09Format identifier for encoder registers.
->   * @frmsize:=09Supported range of frame sizes (only for bitstream format=
-s).
-> @@ -297,6 +298,7 @@ struct hantro_fmt {
->  =09u32 fourcc;
->  =09enum hantro_codec_mode codec_mode;
->  =09int header_size;
-> +=09u32 min_size;
->  =09int max_depth;
->  =09enum hantro_enc_fmt enc_fmt;
->  =09struct v4l2_frmsize_stepwise frmsize;
-> diff --git a/drivers/media/platform/verisilicon/hantro_v4l2.c b/drivers/m=
-edia/platform/verisilicon/hantro_v4l2.c
-> index 83af9fa1ce94..b3dbc0629d25 100644
-> --- a/drivers/media/platform/verisilicon/hantro_v4l2.c
-> +++ b/drivers/media/platform/verisilicon/hantro_v4l2.c
-> @@ -394,6 +394,9 @@ static int hantro_try_fmt(const struct hantro_ctx *ct=
-x,
->  =09=09 */
->  =09=09pix_mp->plane_fmt[0].sizeimage =3D fmt->header_size +
->  =09=09=09pix_mp->width * pix_mp->height * fmt->max_depth;
-> +=09} else {
-> +=09=09pix_mp->plane_fmt[0].sizeimage =3D
-> +=09=09=09max(pix_mp->plane_fmt[0].sizeimage, fmt->min_size);
->  =09}
-> =20
->  =09return 0;
-> diff --git a/drivers/media/platform/verisilicon/rockchip_vpu_hw.c b/drive=
-rs/media/platform/verisilicon/rockchip_vpu_hw.c
-> index d201b058e5e8..ab5abe2c78ad 100644
-> --- a/drivers/media/platform/verisilicon/rockchip_vpu_hw.c
-> +++ b/drivers/media/platform/verisilicon/rockchip_vpu_hw.c
-> @@ -50,6 +50,7 @@ static const struct hantro_fmt rockchip_vpu_enc_fmts[] =
-=3D {
->  =09=09.codec_mode =3D HANTRO_MODE_JPEG_ENC,
->  =09=09.max_depth =3D 2,
->  =09=09.header_size =3D JPEG_HEADER_SIZE,
-> +=09=09.min_size =3D JPEG_HEADER_SIZE + 64,=09/* header + one burst */
->  =09=09.frmsize =3D {
->  =09=09=09.min_width =3D 96,
->  =09=09=09.max_width =3D 8192,
-> diff --git a/drivers/media/platform/verisilicon/stm32mp25_vpu_hw.c b/driv=
-ers/media/platform/verisilicon/stm32mp25_vpu_hw.c
-> index 833821120b20..3f337554e936 100644
-> --- a/drivers/media/platform/verisilicon/stm32mp25_vpu_hw.c
-> +++ b/drivers/media/platform/verisilicon/stm32mp25_vpu_hw.c
-> @@ -83,6 +83,7 @@ static const struct hantro_fmt stm32mp25_venc_fmts[] =
-=3D {
->  =09=09.codec_mode =3D HANTRO_MODE_JPEG_ENC,
->  =09=09.max_depth =3D 2,
->  =09=09.header_size =3D JPEG_HEADER_SIZE,
-> +=09=09.min_size =3D JPEG_HEADER_SIZE + 64,=09/* header + one burst */
->  =09=09.frmsize =3D {
->  =09=09=09.min_width =3D 96,
->  =09=09=09.max_width =3D FMT_4K_WIDTH,
-
---=-9hyBsZW3zMk+VaUuUSDf
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCawXIaQAKCRDZQZRRKWBy
-9BOUAQDB13SGsNUp9oo0GULFzOq8ooFbMD+D1z8pwpgBhY3I/gD7BBun+nzgWLRF
-kcm+xZkcOJAH6AFAmIgpuo+y1l8swgM=
-=tHV6
------END PGP SIGNATURE-----
-
---=-9hyBsZW3zMk+VaUuUSDf--
+--
+Cheers, Lorenzo
