@@ -1,61 +1,45 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795531655;
-	b=SGmn9RJuv4LeuEdaA6LcPH3EMfrhMzxb90nPRY6cUgxUo8So/FDAxoTqtNcrH9dFoEUN
-	 j30XbyEbK+ETup5UYY7Lg4hssHqOBvVU9GYiNxUiJKKUvQjhDFvrPzrwfBq9EojGTXQ9Q
-	 qSCQk5RaSkMAYiT4hP4UDkvqTHR2VjbujbZgPgrfCwHp9n0paU7lT2b4P0dS9nKQWA3Z2
-	 V8EpeSfnF/3usPoF4C4gskAtqWvNzofaWgJ9VLR9gnA1s/WAuZk1Cd8VWbDeoB5HFbD6N
-	 dck99hj/QbsfdytuBaC6E6hVRh65RrzYji5eAd53XRK040we+QGd/cOR6jDZDwWt4vg==
+	t=1795531695;
+	b=u2ri/22AabyZ83qxc7/JtPjqG8cLrhPvk+siQq2yk6aqs1iw9w0gRcPoCENifnjjJu0R
+	 jLk3oEOKL5OhR3RTn+R34V6/UQOJ6joPWdGtlRM5fappXfWSSQSN4S2zS5Lx7OJfBRbGw
+	 1mt5sUhL6+czgDPFIDW92wnnzaS3vnq29RxNXIKwrwy8dg/A4+K80QrwQUM/7gNM1H+oA
+	 xdy4EVunbFqQ/cRSgnvIq/CA6EbwWgDxlKkpsLHq46iFKtmjZxemcNOcZFxAvBhWs/YwE
+	 vCuXRTWotfVrpjSYEtTASaORxQPXzCq4Jo9Jg7/+/zGhoClZpukooZO3fnAKmGWqvDw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795531655;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=yF49Z1BigzOsvjFQC+5yrWqssjl3iTCT5GlauHiBNgU=;
-	b=p0p3RfqzK3aIybqp1R6N2cZA+9ScY98h55sFA5oskn2rQslOsrZ2zHHqjrOwzEBTuHE1
-	 mmZiJGhliLl67wjdNfYkG7qWTyahZHvsfMUn0hmNl2yX6WmtSk10AdldVVScuSyS5FOHK
-	 B++f46FZXP9OMUcC0kqM9F1VW7Ij2lJdIPCvfGA8w78dDq7+KIidlI/SEl/QRNa7fEez8
-	 bQvBGsGwRm91IpITAnrzkh0f7t9wTiUPDHS7ulMB2DXbuTNNCqKFSU5JUxi+QPILsDX43
-	 YIngQfwKKyVa2rUlFzx2twTEutOeGR3VTT04MOrNMtFzxaS8oyiaiwt7EYQBf30/4ew==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795531695;
+	h=Received:DKIM-Signature:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:References:
+	 Date:Message-Id:X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=lyUEGhLGDykIVP/ED9acLT2Z8Hu6snwbttemda4QuYE=;
+	b=gHuj80VRL1QJJyS2GWjhxdWD2bDHpSAyi/sa/1Xpq78wWSgz92jUIpgBVn/Uoz2QThHE
+	 YGmBnAdBB6bcs84BfwjyXEvS8uA4ViPFTyWdln9BIOIftV8aXih0f3SffcvRL7d6dgW6r
+	 qk7BCcszLSjIoOvD+EcxTyqOtU89LBQ92DJN8zw/w9jroqTg01mIgaWJRol7Q51zxhYab
+	 eieWtF8LzEibpzQyTZwxQVWd/+tJbSbq9I/CXQs6WzngWoeDUmFrKf0IPwvvTGGChiP+p
+	 oQl1QOgKnhGGX5yvAosngFTK7KMo/2hf9RITilVTmizzUetNYSk6r4lZaky75KDk07g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JJURJPKz;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YXEQb5dc;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B01DC606A31E;
-	Tue, 24 Nov 2026 14:47:35 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7ECB8606A321;
+	Tue, 24 Nov 2026 14:48:15 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JJURJPKz
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 20B151F000C0;
-	Tue, 24 Nov 2026 14:47:34 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YXEQb5dc
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D0881F000CF;
+	Tue, 24 Nov 2026 14:48:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795531655;
-	bh=yF49Z1BigzOsvjFQC+5yrWqssjl3iTCT5GlauHiBNgU=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=JJURJPKzk5VxQ2NUQyKsRXz/HG+t2htw2wOXyITw2ENEnBufzQNwol4wUk6k2Yy7a
-	 L3iz//qxA2+y82R7MNQ5s7EfxM2/EY9RD7v6R6ws6GBLAG4BemPIRmOpQPEmy7jeof
-	 DUQB1uaEhwwOZTiACOqmtET9qmP4tIGos8LM9QZJB+LGmB+2t2FQOzBYJpYUYzvTek
-	 N0FIirMUoaq/AqOeBb5XYs5oZi7k8FoZZRZRvkw9y6O6zKqRvxWtDtL0k7g8cy54cY
-	 s/QdRiAN+f3hT9kv8zMAIgY97fcrAGvH0r4VVZMwk0q+ufQvAn0cdtx0TsmI/D+7Sw
-	 XYi1RPDUSvKHw==
-Subject: Re: [PATCH net v7] arp: Do not update neighbours from ARP in L2
- multicast/broadcast frames
-From: netdev-bot+sashiko@kernel.org
-To: starchang@google.com
-Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, willemb@google.com, horms@kernel.org, dsahern@kernel.org,
- idosch@nvidia.com, ja@ssi.bg, johannes@sipsolutions.net, corbet@lwn.net,
- skhan@linuxfoundation.org, rdunlap@infradead.org, netdev@vger.kernel.org,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, wangroger@google.com
-Date: Tue, 24 Nov 2026 14:47:33 +0000
-Message-ID: <179553165359.3135.5730863120205025514@kernel.org>
-In-Reply-To: <20261123144535.155300-1-starchang@google.com>
-References: <20261123144535.155300-1-starchang@google.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	s=k20260515; t=1795531694;
+	bh=lyUEGhLGDykIVP/ED9acLT2Z8Hu6snwbttemda4QuYE=;
+	h=Subject:From:To:Cc:In-Reply-To:References:Date;
+	b=YXEQb5dcxm1JxN5d6fK6F4oynjusGJRZv8vCmoMzvS89AoMaYdInrCBv05fE+jHUW
+	 fTL5hjlNbYu8MXPYgWqWC4eo9o2KkDFOle2aTYKqkJK4qy3nX8SBCSSwjqahRFLSyL
+	 vFuOzEKh6o1aUUCsfRe8eiUVb7F5DuD0xSpmiJwJPEqfu8qobdmLgHz1G6sOu3pUBf
+	 EKvY/YSA4Xj+O9LAOr4qg8BCOnQ2T3hT87mcHfZ6ODxe1m40otGD2ltuAVkkji8MkJ
+	 mrFY403fHKdzIXtXKhU01DwLQfwSTq1hFdb920DI5qMZvALxpZoiF4WWFstZjFZsHm
+	 MT6fjrxfaRT9Q==
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,180 +49,69 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH v2 05/20] ASoC: codecs: pcm1754: Add PCM1773 support
+From: Mark Brown <broonie@kernel.org>
+To: "H. Nikolaus Schaller" <hns@goldelico.com>
+Cc: Linus Walleij <linus.walleij@linaro.org>, 
+ Bartosz Golaszewski <brgl@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>, 
+ Daniel Thompson <danielt@kernel.org>, Jingoo Han <jingoohan1@gmail.com>, 
+ Pavel Machek <pavel@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, 
+ Mark Brown <broonie@kernel.org>, Aaro Koskinen <aaro.koskinen@iki.fi>, 
+ Andreas Kemnade <andreas@kemnade.info>, Kevin Hilman <khilman@baylibre.com>, 
+ Roger Quadros <rogerq@kernel.org>, Tony Lindgren <tony@atomide.com>, 
+ Russell King <linux@armlinux.org.uk>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
+ Helge Deller <deller@gmx.de>, Jaroslav Kysela <perex@perex.cz>, 
+ Takashi Iwai <tiwai@suse.com>, Peter Ujfalusi <peter.ujfalusi@gmail.com>, 
+ Jarkko Nikula <jarkko.nikula@bitmer.com>, 
+ Jessica Zhang <jessica.zhang@oss.qualcomm.com>, linux-gpio@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ dri-devel@lists.freedesktop.org, linux-leds@vger.kernel.org, 
+ linux-sound@vger.kernel.org, linux-omap@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-pwm@vger.kernel.org, 
+ linux-fbdev@vger.kernel.org, letux-kernel@openphoenux.org, 
+ kernel@pyra-handheld.com, Grond <grond66@riseup.net>
+In-Reply-To: <7e12ac0772314b256a253314a24b9d0ad50ba5f3.1795505160.git.hns@goldelico.com>
+References: <cover.1795505160.git.hns@goldelico.com>
+ <7e12ac0772314b256a253314a24b9d0ad50ba5f3.1795505160.git.hns@goldelico.com>
+Date: Tue, 24 Nov 2026 14:48:03 +0000
+Message-Id: <179553168322.264265.14757755735561826656.b4-review@b4>
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=930; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=ShazBqroLpfTImF2hfJrbg+0pBRZfzBJNJtZVfX1368=;
+ b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLJZFy/haI4yjItITLqY+Ty2yyZD584RZlGJmvZmw0XPf
+ X+VhF3tKGVhEONikBVTZInL4n5ZX/J6Dd/BhW0wc1iZQIYwcHEKwET6bBn+KR+6tNuJ1zepu2mZ
+ 1uoD51dGqZ/7e+NXo8bE7DKP3tdtRowM1yabiC52qP0vZvkoWqj6eZrRTTEj7tkbn79Lujp14rF
+ kPgA=
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
+> Extend the PCM1754 codec driver to support the related PCM1773 DAC.
+> Select the DAI name, supported formats and sample rate limits per
+> variant. Handle the different FMT pin polarity and an optional format
+> GPIO, avoiding GPIO writes when the format pin is not controlled by the
+> driver. Add an optional enable GPIO for the PCM1773 power-down input,
+> controlled by a DAPM supply event to enable the DAC after power-up and
+> disable it before power-down.
 
-Critical: 0 · High: 0 · Medium: 2 · Low: 1
+> +	case SND_SOC_DAIFMT_LEFT_J:
+> +		if (priv->variant != &pcm1773_variant ||
+> +		    (params_width(params) != 16 && params_width(params) != 24))
+> +			return -EINVAL;
+> +		format = 0;
+>  		break;
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [Medium] When drop_unicast_in_l2_multicast is set, every ARP frame that
-  arrives as L2 broadcast/multicast and that arp_process() does not…
-- [Medium] The patch reuses the existing IP-only
-  drop_unicast_in_l2_multicast knob to block all ARP neighbour learning…
-- [Low] The documentation and in-function comments do not match the new
-  behaviour.
-
---
-
-arp: Do not update neighbours from ARP in L2 multicast/broadcast frames
-
-This patch extends the drop_unicast_in_l2_multicast sysctl to ARP. When
-the sysctl is set, ARP packets received in link-layer broadcast or
-multicast frames are no longer passed to neigh_event_ns() or
-neigh_update(), so they cannot create or change neighbour entries.
-Requests for local and proxied addresses are still answered.
-
-> diff --git a/Documentation/networking/ip-sysctl.rst b/Documentation/networking/ip-sysctl.rst
-> index d3523c9064a22..fd2ffb2d28126 100644
-> --- a/Documentation/networking/ip-sysctl.rst
-> +++ b/Documentation/networking/ip-sysctl.rst
-> @@ -2302,7 +2302,9 @@ promote_secondaries - BOOLEAN
->  
->  drop_unicast_in_l2_multicast - BOOLEAN
->  	Drop any unicast IP packets that are received in link-layer
-> -	multicast (or broadcast) frames.
-> +	multicast (or broadcast) frames. ARP packets received in such
-> +	frames are not used to create or update neighbour entries,
-> +	but ARP requests for local addresses are still answered.
-
-[Severity: Low]
-This isn't a bug, but should this text also mention proxied addresses?
-
-The commit message says "Requests for local and proxied addresses are
-still answered". In arp_process(), the IN_DEV_FORWARD branch still handles
-BMC frames when arp_fwd_proxy(), arp_fwd_pvlan() or pneigh_lookup()
-matches. It either replies through arp_send_dst() or defers through
-pneigh_enqueue().
-
-Separately, the comment block above the request handling in arp_process()
-still says:
-
- *  and in the case of requests for us we add the requester to the arp
- *  cache.
-
-That is no longer true when bmc_no_learn is set. Could that comment be
-updated too?
-
-> diff --git a/net/ipv4/arp.c b/net/ipv4/arp.c
-> index 3bc8db6ccd68e..cc69ea07fc2de 100644
-> --- a/net/ipv4/arp.c
-> +++ b/net/ipv4/arp.c
-
-[ ... ]
-
-> @@ -794,6 +795,10 @@ static int arp_process(struct net *net, struct sock *sk, struct sk_buff *skb)
->  	    (!IN_DEV_ROUTE_LOCALNET(in_dev) && ipv4_is_loopback(tip)))
->  		goto out_free_skb;
->  
-> +	bmc_no_learn = (skb->pkt_type == PACKET_BROADCAST ||
-> +			skb->pkt_type == PACKET_MULTICAST) &&
-> +		       IN_DEV_ORCONF(in_dev, DROP_UNICAST_IN_L2_MULTICAST);
-> +
-
-[ ... ]
-
-> @@ -890,6 +902,10 @@ static int arp_process(struct net *net, struct sock *sk, struct sk_buff *skb)
->  		}
->  	}
->  
-> +	/* ARP received in L2 BMC frames must not change the neighbour table */
-> +	if (bmc_no_learn)
-> +		goto out_drop_dst;
-> +
->  	/* Update our ARP tables */
->  
->  	n = ipv4_neigh_lookup(dev, &sip);
-
-[Severity: Medium]
-Is this exit also meant to catch broadcast ARP replies and gratuitous ARP?
-
-ARPOP_REPLY never enters the request branch. So every reply or
-announcement that arrives in a BMC frame now leaves here, before the
-neigh_update() block. That also skips the existing handling for broadcast
-replies further down:
-
-		if (arp->ar_op != htons(ARPOP_REPLY) ||
-		    skb->pkt_type != PACKET_HOST)
-			state = NUD_STALE;
-		neigh_update(n, sha, state,
-			     override ? NEIGH_UPDATE_F_OVERRIDE : 0, 0);
-
-On hosts that already have drop_unicast_in_l2_multicast enabled (commonly
-Wi-Fi clients), some behaviour seems to change:
-
-IPv4 link-local peers that broadcast their ARP replies, as RFC 3927
-section 2.5 requires, would never resolve. Our INCOMPLETE entry never gets
-an lladdr and goes to FAILED. Before this patch, the broadcast reply
-resolved it as NUD_STALE.
-
-Gratuitous ARP and announcements sent after an IP takeover or MAC change
-are ignored. Examples are arp_notify, bonding, VRRP/keepalived failover
-and VM migration. Traffic keeps going to the old MAC until NUD probing
-fails.
-
-arp_accept no longer has any effect for BMC frames on such interfaces.
-
-This changes the semantics of an existing IP-only knob, and the patch
-carries a Fixes: tag, so it will likely be backported to stable. Should
-the commit message and the ip-sysctl.rst text describe these effects?
-
-> @@ -953,6 +969,9 @@ static int arp_process(struct net *net, struct sock *sk, struct sk_buff *skb)
->  	dst_release(reply_dst);
->  	return NET_RX_SUCCESS;
->  
-> +out_drop_dst:
-> +	dst_release(reply_dst);
-> +
->  out_free_skb:
->  	kfree_skb(skb);
->  	return NET_RX_DROP;
-
-[Severity: Medium]
-Should these packets be consumed instead of dropped?
-
-With the sysctl set, every BMC ARP that arp_process() does not answer now
-takes goto out_drop_dst. Ordinary broadcast who-has requests for other
-hosts on the LAN are the common case. They end in kfree_skb() with
-SKB_DROP_REASON_NOT_SPECIFIED and return NET_RX_DROP. Before this patch,
-the same frames went through consume_skb() and returned NET_RX_SUCCESS.
-
-Normal background ARP would then show up as unexplained drops in
-drop_monitor, dropwatch and the skb:kfree_skb tracepoint.
-
-NF_HOOK returns the okfn result, so arp_rcv() also returns NET_RX_DROP to
-netif_receive_skb(). Drivers that count that return value would then
-increment rx_dropped. One example is rx_default_dqrr() in dpaa_eth.c:
-
-	if (unlikely(netif_receive_skb(skb) == NET_RX_DROP)) {
-		percpu_stats->rx_dropped++;
-
-arp_rcv() in the same file avoids this on purpose for ARP that it
-ignores:
-
-	/* do not tweak dropwatch on an ARP we will ignore */
-	if (dev->flags & IFF_NOARP ||
-	    skb->pkt_type == PACKET_OTHERHOST ||
-	    skb->pkt_type == PACKET_LOOPBACK)
-		goto consumeskb;
-
-The other users of the same sysctl, ip_rcv_finish_core() and
-ip6_rcv_core(), use SKB_DROP_REASON_UNICAST_IN_L2_MULTICAST when they
-drop.
-
-The ip-sysctl.rst text and the commit message say these ARP packets are
-not used for neighbour entries. Neither says they are dropped. The v6
-changelog does say "Drop the frame and release reply_dst on that path", so
-the drop looks intentional.
-
-If the drop is intended, could it at least use a specific drop reason?
-Otherwise, could this path go to out_consume_skb, so the frame is consumed
-and NET_RX_SUCCESS is returned?
+If you've got a struct describing the variant it is obviously not
+tasteful to open code a check based on the address of the variant struct
+rather than looking at something inside the description of the variant.
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261123144535.155300-1-starchang%40google.com
+Mark Brown <broonie@kernel.org>
