@@ -1,67 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.67.36.66
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795504826;
-	b=kBxZmSMPsUZu5DwZLxTnJ7Lg99LizcWzxSJlDSUWt2MWLeRNEQUkNMnHeUFh1SCBDqe1
-	 5Vr+TQdGp/BOs9Y7noZfbQpeyIjQ8C2zVymNz4t1SHwyKUy/457sR598bxOl362Y4XXbN
-	 po2Phq9lu1exZCsdRIM1OBlZknPEbu/V1xntFYpujCSVTiuoIAB1MeJ6KQPt8NpZom92W
-	 fBdjrclFD2R5jwL3amhvlOtAUjEgaOmzLCDRKwzLVmQzLVALxqF22QUpuMY3vFuZtNavx
-	 Z62AuLXqmgvZrY0ZoCpCCmnSZC6Khv1QYlJdQd0cnBSeMoCc4SmM5103gfL1Gur6h7g==
+	t=1795504842;
+	b=4pHaT7qxuJNLVHbrjtt4QB6QlAy6o2xRO3Rqv76PWe2PBI37ivq+5DfDSFtPKbSdwx0M
+	 RUw28kP/2fzoRIJeFkUw7goiLYhUsrYBisVe1QFO9squi7znFs+xIAdJ1yD8tVBul+HKT
+	 36w8ZgncC72kxP/uQoaG6v5Impn2XUA120h8yptphy51pr8JcPE5+x96697ucuPUaO+yQ
+	 IXcM95d4bHojN5hV4BpxE1thweAx3lLpiAoUbEvrfHirVL7KkQCG+GxGUU/rBJ1SC0+OI
+	 zrlIgSOclFCvC7IMd5PR/9333pP4DKsbpGQzVnQJS8qf0PVXcQo2ZnjMTGPyCicFu3A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795504826;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=zxTLm5lJGRMPxpsJjM7sJqqCXC6eU9hPG2t9xFY1cv4=;
-	b=ZaOue7vluJWTuOQnwfYLT+cONHtr2nCZfpOeTBoB0H2TpsYjg40LBEVjDZqDifKi3eGR
-	 0ZGrI19B1TZJCa/ntcY27c5TatrRryDGP2en/zlXrDOQ3QluYHBdpJY9fweRz4cEgUiNX
-	 UZHxljZpJf/DxX+ES+zc2mvuIJesDuutJiws92YWjSWfxJqsQIg2K5JQL6rp11mjv9xv6
-	 T8gNq66AYofuhwkbS+5pPfSwx3gRsQ3yim4iw/slKrscsVBSz58tx/b0ru4jnMUIxp5A5
-	 A0w4rXVVMTuyykQq/3s4iP/YchTuleBvfR0AYYocjTjrdY5Lg22A73tprdSri3T+QWw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795504842;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:MIME-Version:Date:From:
+	 To:Cc:Subject:In-Reply-To:References:Message-ID:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=tHvSxvXCf5VkLnPhHQoHOjXTPcUMHCtMx3XeIE3rH08=;
+	b=nNpHJqYggrBMBOS5gfGEKqnBhidCwQEF+QS6MaCxPeAqFF8zCIpMTixxy9voDtZfrVDP
+	 50QvsFOZdX6QE+J8n0cPMrj/WaCd6b7ZHQ2YOEMn1+aUZwyccpMM7sIxTA4fqFD1IuWew
+	 qFSLyXB3PJJlPyvo6Z2EVNcY0YcrrpnGt5lDxS7XsEOR2xV4/BDPVgBiIyFtrpkhSOHGS
+	 Dn7+redSeVuXLZVWNT3gDdzuDXuWM1mIYWXWzQmEPdRkxixmfNyKIB0Hsc3a+AK9oR/cK
+	 ytD1yahS0aj8YzRkLcvOJ5taNaDbQKbL9hPE5lFO1hapUpVTDAMvTLAhfDMUevLgyTg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ilbhi57f;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=posteo.de;
+	spf=pass smtp.mailfrom=posteo.de;
+	dkim=pass header.d=posteo.de header.i=@posteo.de header.a=rsa-sha256 header.s=1984.8680eb header.b=CsoC5hck;
+	arc=none smtp.remote-ip=185.67.36.66
+Received: from mout02.posteo.de (mout02.posteo.de [185.67.36.66])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0740E606A31E;
-	Tue, 24 Nov 2026 07:20:25 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D7D23606A327
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 07:20:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D7D23606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=posteo.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=posteo.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ilbhi57f
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D18271F000C6;
-	Tue, 24 Nov 2026 07:20:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795504825;
-	bh=zxTLm5lJGRMPxpsJjM7sJqqCXC6eU9hPG2t9xFY1cv4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ilbhi57fNFUpkGZ+JIoxoqI0lk8jEp3HLMD3uJVYpZJnuONnN0Fmsz8VkO4WGMVeq
-	 aNcpOUtJD81qsFOHAv1+zojV+p/PNPWdRQH05DVSx43672VGg5gSBus998w2oF3LLQ
-	 mi3RWAgT+7UOh8xwpiOk96Cgps46R7yHbe71UonGv486IOdH/rxSB/N5FnKmw5r8h/
-	 kpXJjaH5iy56+7ED+DeMCB6TlSB12TGBV3oDjpr9t6RCkFnMT+91gZmbWQJGpHwhzp
-	 gFfCUm0FVqO0i+C8oi2NzeMvZ36V3c3ke1cz8YoJ19n8usWNp8i5M9BLC5xKFvKpY1
-	 8ty8ORRfChtuQ==
-Date: Tue, 24 Nov 2026 12:50:21 +0530
-From: Vinod Koul <vkoul@kernel.org>
-To: Krishna Kurapati <krishna.kurapati@oss.qualcomm.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Mark Brown <broonie@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, linux-phy@lists.infradead.org,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	Linux Next Mailing List <linux-next@vger.kernel.org>
-Subject: Re: linux-next: build failure in the final build
-Message-ID: <awU6tez-f_pEi0Ag@parshuram>
-References: <awR7nSOWkxRm-iP6@sirena.org.uk>
- <c631c19d-4fcc-4881-a6ec-9dad24419fe4@kernel.org>
- <b7fda918-8355-46da-b7f4-40e1a104279b@sirena.org.uk>
- <2fd6f05a-6dfe-40c9-a7ad-44c28af8584b@kernel.org>
- <0af7abff-2c33-4920-835f-9c5abe73b143@sirena.org.uk>
- <7ee4f5c9-58cd-4238-be2e-f092acf3c137@kernel.org>
- <680fcf4e-4e5f-41fd-868a-a0ce58ed77d5@oss.qualcomm.com>
+	dkim=pass (2048-bit key, unprotected) header.d=posteo.de header.i=@posteo.de header.a=rsa-sha256 header.s=1984.8680eb header.b=CsoC5hck
+Received: from submission (posteo.de [185.67.36.169]) 
+	by mout02.posteo.de (Postfix) with ESMTPS id E5C64240104
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 08:20:39 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=posteo.de;
+	s=1984.8680eb; t=1795504839;
+	bh=tHvSxvXCf5VkLnPhHQoHOjXTPcUMHCtMx3XeIE3rH08=;
+	h=MIME-Version:Date:From:To:Cc:Subject:Message-ID:Content-Type:
+	 Content-Transfer-Encoding:From;
+	b=CsoC5hcktA08PIURAy8uvdKnj1gYgr5vDUKTQma8mgYzRrKQ38bWNDlB8LJ97gi4w
+	 rK3727e8WOkEgU7XgZnOg5EMSySyOKmfVb+C061+W1AJ1wOCmg57Pf/VPG0Nu5uKCS
+	 fvlhYRQ5MLZBJbHORM3Jd6++PHSsXpnqSBCX6D8BqSn4lhRIfkJtynDJ/B2akwqWFQ
+	 P0ojy/ceRnTi8T7tf0dZOtuJJ3dh1xCbAQb7HN6/Iw+TgDU6Ixqwm87X5HSYG+0jnM
+	 GhsAsP7OioCl6JweO0wkLN68Xr2dqc4pvyorANu2ykPcgwb4lF9xBJ9uAkxoDu1Wtj
+	 iHKlpdzmsrTCQ==
+Received: from customer (localhost [127.0.0.1])
+	by submission (posteo.de) with ESMTPSA id 4jYZ3B1gqXz6tsb;
+	Tue, 24 Nov 2026 08:20:38 +0100 (CET)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,65 +59,105 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <680fcf4e-4e5f-41fd-868a-a0ce58ed77d5@oss.qualcomm.com>
+Date: Tue, 24 Nov 2026 07:20:39 +0000
+From: Tobias Laas <tobias.laas@posteo.de>
+To: Niklas Cassel <cassel@kernel.org>
+Cc: Damien Le Moal <dlemoal@kernel.org>, Jens Axboe <axboe@kernel.dk>,
+ regressions@lists.linux.dev, linux-block@vger.kernel.org,
+ linux-ide@vger.kernel.org, iommu@lists.linux.dev,
+ linux-kernel@vger.kernel.org, David Woodhouse <dwmw2@infradead.org>, Lu
+ Baolu <baolu.lu@linux.intel.com>, Joerg Roedel <joro@8bytes.org>, Will
+ Deacon <will@kernel.org>
+Subject: Re: [REGRESSION] DMAR fault by Intel H97 SATA controller since
+ "block: Increase =?UTF-8?Q?BLK=5FDEF=5FMAX=5FSECTORS=5FCAP=22=20=28=36=2E?=
+ =?UTF-8?Q?=31=37-rc=31=29?=
+In-Reply-To: <awSs5Cw3hFkf4O4T@ryzen>
+References: <5ad27a97aafbc08a8702d5b90d09cd59@posteo.de>
+ <awSs5Cw3hFkf4O4T@ryzen>
+Message-ID: <572a3776f303846961d9897c55421a0e@posteo.de>
+Content-Type: text/plain; charset=US-ASCII;
+ format=flowed
+Content-Transfer-Encoding: 7bit
 
-On 24-11-26, 03:08, Krishna Kurapati wrote:
+Am 23.11.2026 22:15 schrieb Niklas Cassel:
+> Hello Tobias,
 > 
+> On Mon, Nov 23, 2026 at 06:51:03PM +0000, Tobias Laas wrote:
+>> One way forward could be to a new entry to __ata_dev_max_sec_quirks
+>> similarly to the recent commit 
+>> a12cc63129380a5364e787d92b30a3257f66c250
+>> ("ata: libata-core: Add max sector quirk to INTEL SSDSCKKB240G8"). 
+>> However,
+>> I wonder, whether that would fix the underlying issue or rather be a
+>> workaround, because 4088 does not fit the pattern of all other 
+>> entries,
+>> which specify either a power of 2 or a power of 2 minus 1.
 > 
-> On Tue, Nov 24, 2026 at 12:31 AM Krzysztof Kozlowski <krzk@kernel.org>
-> wrote:
-> > 
-> > On 23/11/2026 19:58, Mark Brown wrote:
-> > > helpful to have better compile test coverage for these drivers to help
-> > > avoid such issues, the easier it is to get the code built the better.
-> > 
-> > I'll fix the missing compile test for that driver.
-> > 
+> Your attached kernel log shows that you have a
+> Samsung SSD 860 PRO 1TB, FW: RVM02B6Q
 > 
-> Apologies. I didn't build it for allyesconfig. I did uncover this issue
-> recently when testing on a different branch where the said driver was
-> enabled. I was planning on sending a proper fix along with v9.  There were
-> some fresh comments that came up from maintainer Vinod last week [1].
-> 
-> I was planning on doing two things:
-> 1) Fix up the build error when sending v9.
-> 2) Send on top of phy next [2].
-> 
-> I will take care not to let such things happen from next time from my end.
-> Sorry for the inconvenience caused.
-> 
-> As per mixing phy and usb patches, I know that usb subsystem prefers not
-> mixing up usb patches with others, but in this case, I thought that we must
-> send a complete series instead of sending 4 phy patches and then sending a
-> separate usb patch marking the dependency on phy patches. In that case, I
-> would have had to send usb patch once phy patch was in linux next so that no
-> build error would come up when Greg would have picked usb patch into his
-> tree. Let me know what is preferable in this case.
-> 
-> In case Vinod is fine with the implementation and comments replied to on
-> [1], then this series need not be reverted and the build error can be fixed
-> by Sasha's patch sent today [3]. Else, Greg, please do help revert the
-> series from usb tree. I will rebase v9 on top of phy next after addressing
-> the comments from Vinod.
+> This SSD is probably quite common, so I somewhat doubt that it is the
+> SSD that is at fault here.
+Hello Niklas,
 
-No i dont think I am fine with the approach surprised that it got picked
-up (I guess with usb).
-
-IF there is no dependencies please split the stuff... It just make it
-harder.
-I guess if Greg can drop offending commit, that might be better way
-
-
+thanks for the the quick reply. Indeed the Samsung SSD 860 PRO series is 
+quite common.
 > 
-> [1]: https://lore.kernel.org/all/6ed0793c-76ce-4d04-af5f-8987311c5c0f@oss.qualcomm.com/
-> [2]: https://lore.kernel.org/all/6851ca2b-775e-44d7-b437-d04fd4ea4f21@oss.qualcomm.com/
-> [3]: https://lore.kernel.org/all/20261122152857.1113943-1-sashal@kernel.org/
+>> 
+>> Furthermore, the first error messages are DMAR faults, and a SATA SSD 
+>> that
+>> isn't functioning properly shouldn't cause any DMAR faults, because 
+>> the SATA
+>> controller should never read from or write to areas outside its memory
+>> region.
+>> Since the issue with mounting the rootfs disappears with 
+>> intel_iommu=off, I
+>> wonder, whether there is a limitation on the maxmium block size either 
+>> by
+>> the hardware or from the configuration of the IOMMU and SATA 
+>> controller by
+>> the kernel.
 > 
-> Regards,
-> Krishna
+> Considering how common your SSD is, my guess is that it is somehow an
+> IOMMU or a BIOS/ACPI bug (since the BIOS generates specific ACPI tables 
+> -
+> DMAR on Intel).
+> 
+> 
+> We have seen similar reports here:
+> https://bugzilla.kernel.org/show_bug.cgi?id=220693
+> https://bugzilla.kernel.org/show_bug.cgi?id=221713
+Thanks for the pointer. The first report sounds as if it discusses 
+several issues. I agree with Ivan's comment at 
+https://bugzilla.kernel.org/show_bug.cgi?id=220693#c42 .
 
--- 
-~Vinod
+I am afraid the second report is specific to HP server mainboards. In 
+contrast to the logs in the Debian bug report, I have never seen the 
+following error:
+DMAR: DRHD: handling fault status reg 2
+DMAR: [INTR-REMAP] Request device [01:00.0] fault index 0x1c [fault 
+reason 0x26] Blocked an interrupt request due to source-id verification 
+failure.
+On my mainboard, I have only observed DMAR errors with [fault reason 
+0x0c] non-zero reserved fields in PTE.
+> 
+> Does it work if you 
+> revert:https://posteo.de/webmail/?_task=mail&_id=4553111306b0538dd90e75&_action=compose#
+> d373449d8e97 ("iommu/vt-d: Use the generic iommu page table") ?
+To be honest I built many kernel versions between the increase in 
+BLK_DEF_MAX_SECTORS_CAP (~ 6.17-rc1) and HEAD for the bisection, and 
+since the change you mention was not included until 6.19-rc1, I have 
+tested kernels with and without this change, so I doubt a revert would 
+help.
+
+Best regards,
+Tobias Laas
+> 
+> It would be nice if we could involve some Intel IOMMU experts.
+> 
+> If the ACPI DMAR is at fault, perhaps it is possible for the kernel to
+> patch the ACPI DMAR for your platform.
+> 
+> 
+> Kind regards,
+> Niklas
