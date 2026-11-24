@@ -1,119 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.219.46
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795553892;
-	b=JCUMCMsSxdW1DrtTAliya3sLHvyWvvNFg6adflRb9om7Rr5vfCpgcl6abhuTvczq5TW0
-	 JRcGEYgXkSmOKmMskn5pbvfbu2hi45cjlr0pHw+MX5xSSmtC+/cAl46WUUchaetAxXG7m
-	 ggrlqOEjG+PJ0BqJrkF7E5TpziJ5BWTYTDjd+sDBR7RlT2jocazjvCy1xkr8KIiY6Yd5a
-	 dtEAV16DO3Mav66vbhFHKduw9yEYGcAowJylSrnukTGhUb50Z+xCEdzGavx+R/hBLFQ15
-	 ytUPovYnSrPQrYtDDDLQEmraBva8YOqmMXnTOjX/qN7O0RN5Ggk/0k0ygGSARtp/rtw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795553892;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Subject:Date:Message-ID:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=9lR7+FZK4pMd/mVqImDERZx+vy1vSfASfONjlk0tOlI=;
-	b=pF05rnIpKvgwESJ8n4E8rp2EsZKVLwGaUcbaJillzUtJY7Ff8zRE1i4uqtBvaplDDixf
-	 XaUVlzPna2DurP9yOSrnXIINAstOA8q31xh34IlnGHkUkMI/81nHgnolsipor0j/MfAWQ
-	 9vsEY5ynsCkQlxmpp4whUd8UO3U8c43ddhjM/GU+jvXXpiDN/rIHWwj99ZTD9NzpM5ZP2
-	 fjUJJ+GTBy55Jlp5dglJFd8QnOZEjfz0tjOqEzjELMsa43mRfyAt29iSnsZ8N+h/xw2pu
-	 SLzv2xdPsjplqQOsG9p56u5q5VFrvlazZQnIvVlJK1JxclI/T+r7hZafVDt/Np7WIxA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=soleen.com;
-	spf=pass smtp.mailfrom=soleen.com;
-	dkim=pass header.d=soleen.com header.i=@soleen.com header.a=rsa-sha256 header.s=google header.b=ihnZRG2g;
-	arc=none smtp.remote-ip=209.85.219.46
-Received: from mail-qv1-f46.google.com (mail-qv1-f46.google.com [209.85.219.46])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.61.70
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795553972;
+	b=tBYrnUlB7aLWCrEsmoaiDswYZMOW9zcZgqNn0hzN6beCeqyKFBK7NiPsTdDliqzoybVH
+	 hkeXHe7qQxKJvuXwcBhwoRxYBT5IalfKHgwI818BtoYPpakPDDwF2Pc2uBloeF7aseH0Q
+	 DgWKedjFUvYWBR/91Z32PTPV0chuGwjOLA/B1ltDtopt8P8TGMZ/aMboorCQqrkWdvTWs
+	 iZ3IydfA/4CtzvXxM+WXWVa/vDM0N8gOPycxln54XHJuuRVGu1pXH1bTDlJNQH12f4mFH
+	 1ushDVCyzKGjD9DlMKUZtNoLryEfdDXCkezkjy3rE6AQHWLqugY28vWtP7H3Cr96f2g==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795553972;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:Content-Type:Content-Disposition:
+	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=baLgjYF8vkCZ2TR5W/xiToug9KyQA3hq04nAH0LQAcw=;
+	b=fNPQvMA0amEBgs6zipBXNHK3UHdDLdk2JVnl+3OO0nAAXQ645yFM2V2GN1opJZWz2FNt
+	 fsKpHYzEO4UNDc3ueQ2Ydn5Ns+uF9cPhQsN9KcujXMXYkF9tdYOxBogdM3vrXMJlJaNzs
+	 UYYczIs6ISPwY+1DlJBjYdaHGVIKOE4ezIRerN6DgpzM9chWSpnV62ZbxlIGTo676bf21
+	 Rl0s7P4vEcXN/C9ubigwbhh2SQVn65EVzV1aQnMcpv/+xYjOf/MFbUzkM6NyHCnEBPfI1
+	 tqWRVIJ5EoKRMSibA2qxjOGvdLduj7/OrmK2QUtpG8yP1Rrk8vUIX3ZKfSPGsFL3l5A==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=ehM0JP7t;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.61.70
+Received: from DM1PR04CU001.outbound.protection.outlook.com (mail-centralusazon11010070.outbound.protection.outlook.com [52.101.61.70])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6EAA7606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 20:58:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6EAA7606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=soleen.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=soleen.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 32D40606A31E;
+	Tue, 24 Nov 2026 20:59:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 32D40606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=soleen.com header.i=@soleen.com header.a=rsa-sha256 header.s=google header.b=ihnZRG2g
-Received: by mail-qv1-f46.google.com with SMTP id 6a1803df08f44-92125687442so49705656d6.2
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 12:58:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=soleen.com; s=google; t=1795553891; x=1796158691; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=9lR7+FZK4pMd/mVqImDERZx+vy1vSfASfONjlk0tOlI=;
-        b=ihnZRG2gf8B2yRsf4VSdENQNYH0yRoPnHblrg5tpFmxciJle3fv4jTODmP2g6gwhIi
-         rzp3BJGh+r18P1pklKkcx6oluYpx8nOGsDT//xI5kVXSzV+J5bf4CeZ0SmNB7OCLrm8c
-         EfknrcVztWjnv42XKgxpSKsX0/9q4zohHTMYCl2fendQCmu6yk3JS49uVTnJ0WhHSFRs
-         aUMg0cnLfUbL6HyIoOZZVIwIbxyP0LBuKXvSF8Yp5QYZoLlyvjDFXbYoscMFg/l8Uow3
-         SLAWQJ/FJpGsclswOAeNxvQ1wdmg+5GXuNHovHvXSvJ1f7fcSkLP3hNl/VRdTzXdNB/d
-         iIkQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795553891; x=1796158691;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=9lR7+FZK4pMd/mVqImDERZx+vy1vSfASfONjlk0tOlI=;
-        b=PVtqyZb6J19Xt0FlWMkA9cD53gsNZCePacxmoouQu7Vflldu1I3VsNTmoQQoLH4g/Z
-         CfmOaf2sHB0B62c9GLSX8MfYV06dUmHCEqvnr+otnXJoVyKKCbzQAc8jWatiURjhpFoz
-         ohbzW0LuecLjs2PlpjB2hb7+sqIngz8HAPD4slHxagrZsyyGs3DI7MdomkLWnJiweobf
-         MZenbyCqm0tkibmbFo5EHMjuGZT0dsGd/kpZq5QPBtNgaVIbYSqc9QJxPjvzyejCxN2T
-         UKlz2q1tIFxActE1rMXjDEFCi2iS7Hd3OAxBliSbhi9uTLwpzMvIa1tmMK34TyOmbMJo
-         4LZQ==
-X-Forwarded-Encrypted: i=1; AL+hErFBMnidYiLyWFidpK6IdFap+/o4kNDguyES3jxV3nqYtzCL5QaR/3IhgunVBdLyvFNNjZwziNq5WrgFTgc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/g9ccd8qgS4536gjJ/H398pP9bKPh8AiAGbMm4tPzLZ6vuPuEZ
-	3AELXA04qn/r9qOMhPLyHoe6IQXeD9XSSWTl+4OQ6vORrf13d1Yo6Zq87OE2PcPiOHM=
-X-Gm-Gg: AZFdTZdBBQQVR51YtGBCkrI4N8IFk4YcYIWQPt9aVCKUftX/HMqzko0w1ZFZ0I0jEII
-	7Ie2EagHPWleddwhwc11Cf5OGlr2tLfc76U7qcN3gJSivkd2FKa0cqjxNfDROtboNv0GhcXWqUl
-	4rokXXRXaGwoM3RGOdsjYu3kOzttmRlwL5C9sM/gnLAGNy0jIycKYfLSqfNUkvw/x8X2f4O37ow
-	1g11tXOQnNNjV4I+juHOVSQfApVJwinQZImMhpQYLwx29f/69VsctSHp9G3h0Q/SryQOMaoZYBh
-	Pgy0r9KeFz4MFwJ6lKfjenRGhWAh+gJ5JZ6+oeb1YkCZy4LZahx9yq2jsNKzxMscdfdV75URo7C
-	Asb8SOfMMixjrWjSwvE6GAk1uxaxzKyUbggemF7ZEPS8t/CcB+WT30SWB2vpA/rqGfx/7tWm0g9
-	lPxQForCo3Hnih5+rtC3Eatjjc7PTG7cHq+jYkYJpgUu54TvrdeJgJ707NA6CQvA7TNzD0ZbGLL
-	3yEOY6mAzi6oqRazOcBnnU0BiqTLeHBSWRbJPSOfjrskcg/HP2n1WnciXq28qDfB4uiFlTaM1Gb
-	VzVPXr8HTnB9ctfEOxdoEG8y2ErFaYr4CpNqh/oP4A3VB0NZL2nKp8LUYfpnzu0caP3+QfAjtWZ
-	W5lGNDklocP+IzqgkYsPBnnY/pOMjqnfmwDEFgTTVlAkT+6ariEe60785RtuRmR9QpQ60yH9rSw
-	==
-X-Received: by 2002:a05:6214:3382:b0:921:27a1:a4e5 with SMTP id 6a1803df08f44-92134a9a0b6mr276905586d6.28.1795553891171;
-        Tue, 24 Nov 2026 12:58:11 -0800 (PST)
-Received: from soleen.c.googlers.com.com (57.233.150.34.bc.googleusercontent.com. [34.150.233.57])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-921349d0f6bsm145562816d6.21.2026.11.24.12.58.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 12:58:10 -0800 (PST)
-From: Pasha Tatashin <pasha.tatashin@soleen.com>
-To: Pasha Tatashin <pasha.tatashin@soleen.com>,
-	Alexander Graf <graf@amazon.com>,
-	"Andersen, Tycho" <Tycho.Andersen@amd.com>,
-	Anthony Yznaga <anthony.yznaga@oracle.com>,
-	Baolu Lu <baolu.lu@linux.intel.com>,
-	Chris Down <chris@chrisdown.name>,
-	David Hildenbrand <david@kernel.org>,
-	David Matlack <dmatlack@google.com>,
-	"Heyne, Maximillian" <mheyne@amazon.de>,
-	James Gowans <jgowans@amazon.com>,
-	Jason Gunthorpe <jgg@nvidia.com>,
-	Mike Rapoport <rppt@kernel.org>,
-	Pankaj Gupta <pankaj.gupta.linux@gmail.com>,
-	Pratyush Yadav <pratyush@kernel.org>,
-	Praveen Kumar <kpraveen.lkml@gmail.com>,
-	Sagi Shahar <sagis@google.com>,
-	Tarun Sahu <tarunsahu@google.com>,
-	Vipin Sharma <vipinsh@google.com>,
-	Vishal Annapurve <vannapurve@google.com>,
-	"Woodhouse, David" <dwmw@amazon.co.uk>,
-	Luca Boccassi <luca.boccassi@gmail.com>,
-	Samiullah Khawaja <skhawaja@google.com>,
-	Jork Loeser <jloeser@linux.microsoft.com>,
-	Chenghao Duan <duanchenghao@kylinos.cn>,
-	Zhu Yanjun <yanjun.zhu@linux.dev>,
-	Sourabh Jain <sourabhjain@linux.ibm.com>,
-	linux-mm@kvack.org,
-	kexec@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [Hypervisor Live Update] Notes from November 16, 2026
-Date: Tue, 24 Nov 2026 15:58:05 -0500
-Message-ID: <20261124205808.4097419-1-pasha.tatashin@soleen.com>
-X-Mailer: git-send-email 2.56.1.831.g720f3f5937-goog
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=ehM0JP7t
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=VkSGwkd4fsrn1F4BiIE0hhMtl2XFAztWzhvesLLlymY3s8zdlXecE/aTa56UnGw96NmVg6DWEOgOwtzxpAYq56kExM6UvIerUh53jz1NNVT1QH84516mj65YMXMpj5D+Eqauob3sY3vKTN/it9Mfej73zyo9nfxH22nA5MqpRMdONd4J6DbrjcS6rqqHNTOd3fwskwzjzlDgclifQwvsMLBm66Qd4u+91UPBtRA+vt7iGMaoaJs+vrar/3M3q69wXduvhorL0hf/sQfkMYDf6oelpMrwMVCpmQ808Jfo8YZ2hVWtFBe3mD8K6jsf7IJbTNDkwtuvt5UV9noUbEge9w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=baLgjYF8vkCZ2TR5W/xiToug9KyQA3hq04nAH0LQAcw=;
+ b=yiLNX0o/xNqKOEhPDg6i5YZ85aI2c4N8qq0h0fngEJxSxvF0DaP5yhyv88dKGA3C2s4pGuX7IBCK4ZiBaulOLTIiEcFukrnh8vcMFuOOGUUs8yU5z+u/CsnCymN4jHPfWdAzI+5JDfIvJIangwdHdH/R6e1VKp+6W4lToGcs4lzkKjTtLgHZL7NZ8u/VqYtD8pxPxq5DdgFzXusmB8cqkVvFc/5Rgaj6hwDVI6hf64W7texFmNH4LQCTvWoNAfShsz52qbt8qE0ucN1AhfjnAJXr65Y6wBG+uw653ELSWgFN9FeYevu113xEvD0Qoaer3QX17j/j0r7WyfVGSoR44w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=baLgjYF8vkCZ2TR5W/xiToug9KyQA3hq04nAH0LQAcw=;
+ b=ehM0JP7tcUM2Zpo/FhmG/JwOwJUtzU0QhV6tXF4Bh8lNccQuxy8DbmJ/k8wMD3CC80kpmxwFVc9Ha/BkEt6jm0XcS7c7yEuX9ty2X2rvskayOJsFZDWh3HzzFpGWb4T0WRglxZceneWqJBz5gVxcmmj+6wpytv0YNnnsVmc7cbZBsvHFihJVyrv0T2DHORXgXXPsn0At9h1nhWB5O3Va5C/6IRyTrsSgXb3Gc7lBuY3N3rxBf7U+by3240z0bPgQmD+fUwohDqwh3Ie3CzqcKPAkCxBO2KMb9zgHVN70sv1gvk4vRPtQJjRdoYqcz7aH8eGcxqvFuUaZxDQdjqXO+Q==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from SN6PR12MB2814.namprd12.prod.outlook.com (2603:10b6:805:72::33)
+ by LV3PR12MB9257.namprd12.prod.outlook.com (2603:10b6:408:1b7::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.4; Tue, 24 Nov
+ 2026 20:57:27 +0000
+Received: from SN6PR12MB2814.namprd12.prod.outlook.com
+ ([fe80::9a18:413c:9702:8f59]) by SN6PR12MB2814.namprd12.prod.outlook.com
+ ([fe80::9a18:413c:9702:8f59%6]) with mapi id 15.21.0639.012; Tue, 24 Nov 2026
+ 20:57:27 +0000
+Date: Tue, 24 Nov 2026 15:57:25 -0500
+From: Yury Norov <ynorov@nvidia.com>
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: linux-kernel@vger.kernel.org, Yury Norov <yury.norov@gmail.com>,
+	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
+	Jonathan Cameron <jic23@kernel.org>, Chris Li <sparse@chrisli.org>,
+	Luc Van Oostenryck <luc.vanoostenryck@gmail.com>,
+	linux-sparse@vger.kernel.org
+Subject: Re: [PATCH v1 1/1] bitmap: Refactor bitmap_read() and bitmap_write()
+ to avoid too big shift
+Message-ID: <awXABlb61Bq3NKID@yury>
+References: <20261119191530.1716850-1-andriy.shevchenko@linux.intel.com>
+ <av9eAde6AKlAKWaH@yury>
+ <av9kOeZtIjOtH2yp@ashevche-desk.local>
+ <av9ofhBTAcMJud_-@yury>
+ <awAH8F_UXdcftgV6@ashevche-desk.local>
+ <awBcWKvDGV8sLcGu@yury>
+ <awVVRTuvDLLVmRlS@ashevche-desk.local>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <awVVRTuvDLLVmRlS@ashevche-desk.local>
+X-ClientProxiedBy: BN9PR03CA0905.namprd03.prod.outlook.com
+ (2603:10b6:408:107::10) To SN6PR12MB2814.namprd12.prod.outlook.com
+ (2603:10b6:805:72::33)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -123,236 +105,99 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SN6PR12MB2814:EE_|LV3PR12MB9257:EE_
+X-MS-Office365-Filtering-Correlation-Id: 74dc0538-2eb8-4fcf-3afe-08df4a6d8c3e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|10070799003|366016|1800799024|376014|22082099003|18002099003|4143699003|5023799004|11063799006|56012099006|261021135927099003|261102123227099003|10067099003|261022105027099003|261026121527099003|261021121427099003|261026140227099003|261028144727099003;
+X-Microsoft-Antispam-Message-Info:
+	IbB41wzPSr/jgeFIUsjkLpwoSOTNfMFYpSDW15eJxs5XBUU9o9MWSqd/E+QBO0fqPlKKBOgdzk4BtqVTkjgZ7P5lxPPIU532hZ8kZfolb0/0hDeJywkKo9cSvkOSlThoHnB/HVBWLQ30uY/PkxgZngyFXL3T61l8y4p3P2Q4KzE3UgUVeQZKTUIlIR8335zgxdI+i15Jh+G0fgLNoGmOl5/qKn0A9eNjnngBhiFnoxdBVSsbvq29wk9ZfhwHNajbXu07sr0P8qfJN2VDASaUnQMA5EZ4Wjv70OrJnoKKAuZRT75pJUO6o/7ONHSqrWAIxPCvHNsCVV/ddYyIMXkuBGmvdb5a0X0KaO/4HP6df0tvLO/ibG3dXZBQXyVJ3qIucaboGOZNuk8RWJKi5iNFbV9RaVPSUqnzxXqy01uVbVQFAOV3nkN6M8EyH5XGk9Jr/ZrXSlVtlZtZNY83oko9IynBWrJPPJ2bOrF9zUbqfe0UY1CmlAyMt1+QYni7TLwb45lNKM4O2TQw0+3KP1P/hD5HpHccRP6piykRYLdbLiOpWFy9/05EjZXftIygW6i1G5JijkE+xaOJShtvenvBalHFXxo/1O0ukz43bT1ApDEaKwyvwWAfkLZql82VwKv/ijp3aRvs2pLWs/YqWq9TDWNRvDqr87iNKAkiMSVYOP4=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SN6PR12MB2814.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(10070799003)(366016)(1800799024)(376014)(22082099003)(18002099003)(4143699003)(5023799004)(11063799006)(56012099006)(261021135927099003)(261102123227099003)(10067099003)(261022105027099003)(261026121527099003)(261021121427099003)(261026140227099003)(261028144727099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?TmkSOTBKDExD6OZVaLrD5AulbxoTrkds+nbgw9d7r2an6ktBzrxwVN6Ho++R?=
+ =?us-ascii?Q?RdzV+PV8EDMq+yHF4eRZbStDISODOkgu/L6xTHoGqnmbMua0i7czEXm1ppbV?=
+ =?us-ascii?Q?SZtG/tS+ij+smw3B5Sa8g72KXp+PcjI5CLW9aGtjY77vOvkYSVVKCWt6Fphg?=
+ =?us-ascii?Q?YAKKMLq5CGruTb3yOR9AMxrnBUOCmRHCt4GDCGZHmbWDdQJJ7fi+SRgUtHbG?=
+ =?us-ascii?Q?XjO1VGjcS2gEyAozKqAwcl8OIxFxvC3+UtQ+A5h1asDDyocB5cPN5l73ccsm?=
+ =?us-ascii?Q?Tp5ellW0Fft2AD0g09z7XlQ00gCpAL1bMwAuHmnLm1axic1D1sT+L2kkGxau?=
+ =?us-ascii?Q?jEFkIGEtGRkBArRKkyvPuwh1QnOqRffToI7V3+uUR2K3YXFYFBpZgKhRktyG?=
+ =?us-ascii?Q?4c8tpyUN+D+ViexkkP7O0uRKletKQGuRM8DgjHhlWS0kiYU64vs3znQ1mNvh?=
+ =?us-ascii?Q?zoHjL8dAPsSCao6QZZ5r3VLKpNHTSnxZAcmIrP9vrU+Ws63hm63W9HQhFrM5?=
+ =?us-ascii?Q?DwoWbXgaNdMPT2uBmJo3Ub/50xMuP3rAO75hpelmFp4qdPL8YAw0lN0Nt7/m?=
+ =?us-ascii?Q?aks1LhOp/EKJ5f8edIS8NYUDjIskqLoTs+t+CccOG6iW2nIQeC7IugDeUQ+L?=
+ =?us-ascii?Q?9xlRQ6qrzwxIs9XA/crk9nw3pHuuEfIL/fdANN1yJy//M7RVrm9XjYR98/G2?=
+ =?us-ascii?Q?VRPeUeD3sT8f9L9VpmE/yEULE5ONGjOP1alV6v26JFQ2ZaReZEmoqLTuaVgB?=
+ =?us-ascii?Q?8JmUONjk6is50kmN0Calab44uJAAdihpXGnS6hH2A1Pow7hDGpPi7pELz20C?=
+ =?us-ascii?Q?/9lFxY7ZAIZ0jG5pH8fbdC0axQ1+AUGRgWFAFNpznVwfdZb1Heav0I9DFUxs?=
+ =?us-ascii?Q?snFgSArU4/mP11k+JfEZ4Y/duyVK2o14obdjMlmCN+uTw7NReTWd13wePwcW?=
+ =?us-ascii?Q?kfHeVb5/0g+stDNm8cA3aJB25SmY5MTK3skOIMBnbm5n7aEqEZtLaNUk1MKl?=
+ =?us-ascii?Q?7nMVBYqAr3cIIjsxsrodJV2JT1Q9njt/NDT0XQncALUa85MMDX/W0F9DNYBj?=
+ =?us-ascii?Q?DKI/5yunSmrXKPBy893lXx4alRH8Jo8GsuoyV/0nYuo4SEk5HY0Yjcdpvg7L?=
+ =?us-ascii?Q?zQWvidjquXJAxZqrFE+p/05kkpuHX0Fthx3OcWGk/+nE31900IWfm06ujUi3?=
+ =?us-ascii?Q?rrVdhVISDQ3DFIY2Hiffkeh+yniaHwgNWMONatHPy9Ubyckn2PxtT0RFB+rE?=
+ =?us-ascii?Q?j2HRhEUTl4khv//k8n+RR6x84i6I/hdhxfZv1woKS0kUC/XuAxgn1H/uBy75?=
+ =?us-ascii?Q?5a0L+LFrTPgSR61digawxHVwVzTkF8iBZDR2L0b9T8oYdoy53tDDOoj2eIbB?=
+ =?us-ascii?Q?dm6c/24YMT83mCQ3vvUcPZJFbQgW+1rLV86LSeYOaM9epmRGlHZFalaRoOzd?=
+ =?us-ascii?Q?n8oRjjLvhB9HT9x+tzI+vCqlvTgI/YNQB3XpnAqki5VZCmmcg8Pd9Nc7r906?=
+ =?us-ascii?Q?DbI0UIBfK4rDUGHJV73o6Fsc+5/qb36tycR2wWjm66ZmENB5NPcSgVw1iVS4?=
+ =?us-ascii?Q?7ReNQkW3Y1cm/L1j4SwDvxJPsTdxxiqmUmwkKEkKbJI92i1btmBKd33AAZR2?=
+ =?us-ascii?Q?5WgXfbkS7DWt8FVxsJFUruO35DCBwHam96Eio1vXCVqzz+EIb6Oyry9DYDwh?=
+ =?us-ascii?Q?t474Bybai0nkAqteJOLdzo1YmMpht0OiLcKDeRo2SKd4y4BhxHuRDIWoLR7S?=
+ =?us-ascii?Q?vz54tHY4HRdX7dzGpm9PzXp3HzzZzwar3vswUGVd2dQm+amn7spJ?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 74dc0538-2eb8-4fcf-3afe-08df4a6d8c3e
+X-MS-Exchange-CrossTenant-AuthSource: SN6PR12MB2814.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 20:57:27.6379
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: FqPlCW0iSUBvPDAAqAcHumFfLG7JTwu4KYUjaRkkNwuKNaOXS0HuUnSR5f4Ds3nE+2hlnh0/GDHw0zak2hgnYw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV3PR12MB9257
 
-Hi everybody,
+On Tue, Nov 24, 2026 at 11:13:41AM +0200, Andy Shevchenko wrote:
+> On Fri, Nov 20, 2026 at 09:42:32AM -0500, Yury Norov wrote:
+> > On Fri, Nov 20, 2026 at 10:42:24AM +0200, Andy Shevchenko wrote:
+> > > On Thu, Nov 19, 2026 at 04:22:06PM -0500, Yury Norov wrote:
+> > > > On Thu, Nov 19, 2026 at 11:03:53PM +0200, Andy Shevchenko wrote:
+> > > > > On Thu, Nov 19, 2026 at 03:37:33PM -0500, Yury Norov wrote:
+> > > > > > On Thu, Nov 19, 2026 at 08:15:30PM +0100, Andy Shevchenko wrote:
+> 
+> ...
+> 
+> > > > > > I guess... Let's keep the patch minimal?
+> > > > > > 
+> > > > > > > -	mask = BITMAP_LAST_WORD_MASK(nbits);
+> > > > > > > -	value &= mask;
+> > > > > > > -	offset = start % BITS_PER_LONG;
+> > > > > > > -	space = BITS_PER_LONG - offset;
+> > > > > > > -	fit = space >= nbits;
+> > > > > > 
+> > > > > > I don't like this 'fit' thing, and would like to drop it. But
+> > > > > > let's find a better motivation to do that?
+> > > > > 
+> > > > > Why? The fit keeps the check I want to refactor, since it makes it twice
+> > > > > the code with that ternary looks ugly and unreadable. This is exactly the
+> > > > > chance to kill two birds with one stone.
+> > > > 
+> > > > That's what I meant regarding the motivational part and minimizing the
+> > > > patch.
+> > > 
+> > > OK. So refactoring bitmap_write() to make it look like bitmap_read() can be
+> > > done after your nice below patch.
+> > 
+> > Sure, I'll take the patch with the tags suggested.
+> 
+> In the Linux Next it uses Link instead of Closes. Perhaps you still have
+> a chance to amend that?
 
-Here are the notes from our Hypervisor Live Update call held on November 16.
-These notes are intended to bring those who could not attend up to speed
-and to keep the momentum going between meetings.
+It's not a fix, nothing to close.
 
-Starting with this meeting, we introduced an "Upstream Review Overview"
-section at the top of the agenda to track recent mailing list activity from
-the past two weeks, followed by our rotating subsystem workstreams. We also
-began maintaining each call's agenda and notes as dated tabs in the shared
-Hypervisor Live Update document.
-
------>o-----
-Cross-Subsystem Versioning & Feature Header (kho_header_ser v4)
-
-* Review Feedback & Struct Versioning Policy: Tarun Sahu reported that review
-  comments on v4 of the expandable feature header series are largely minor
-  and formatting-related, with no major design objections:
-  https://lore.kernel.org/all/20261110050202.529473-1-tarunsahu@google.com/
-
-  Responding to David Matlack's question on whether secondary serialized
-  structures (such as memfd_folio_ser and pci_dev_ser) should each carry a
-  kho_header_ser or defer to their parent struct's feature flags, Pasha,
-  David, and Pratyush Yadav aligned on two rules:
-  - Any separate serialized struct referenced by pointer (e.g., memfd
-    pointing to folio state, or a generic KVM struct pointing to an
-    arch-specific struct) should carry its own kho_header_ser. At 8–16 bytes,
-    versioning is cheap and ensures uniform static size checks and
-    independent evolution.
-  - Serialized structs should generally not be embedded directly inside
-    another serialized struct, as embedded structs cannot grow later. Callers
-    wanting to avoid allocating a dedicated page for a secondary struct can
-    pack it after the parent struct in the same preserved page and reference
-    it via pointer (as memfd does for kho_vmalloc).
-
-* Separate Metadata Header for kho_block Sets: David Matlack noted that v4
-  repeated entry_size and the serialization header on every page in a
-  kho_block linked list, even though all entries in a block set share a
-  single entry size and version. After weighing special-casing block 0 vs.
-  separating the metadata from the data blocks (matching kho_vmalloc and
-  upcoming radix-tree / KHO map structures whose root pages hold child
-  pointers with no room for inline headers), the group aligned on Pratyush's
-  proposal:
-  - Move block-set metadata (KHO's own versioning header, entry_size, pointer
-    to the first block, and the single shared feature header for the array's
-    payload entries) into a separate block-set metadata header struct that
-    callers place either in its own page or packed alongside their parent
-    struct.
-  - Remove the per-block serialization header from individual 1-page data
-    blocks so all blocks in the chain are uniform.
-
-* FLB Early-Boot Versioning: Pasha highlighted Chris Down's review comment
-  that File Lifecycle Bound (FLB) incoming data is accessed very early in
-  boot—before file handlers initialize—so FLB versioning must be validated
-  when retrieving incoming FLB state.
-
------>o-----
-Upstream Review Overview (tmpfs, IOMMU, VFIO, PCIe, KHO & LUO)
-
-* tmpfs File Preservation (v4): David Matlack posted v4, returning to the
-  "retrieve into an existing file" model per Christian Brauner's feedback
-  (which simplifies the implementation) and splitting the selftests into
-  smaller commits for easier review:
-  https://lore.kernel.org/all/20261111002358.1842967-1-dmatlack@google.com/
-
-* IOMMU Persistence (v7 -> v8): Samiullah Khawaja collected Reviewed-by tags
-  from Baolu Lu and Ankit Soni on v6, posted v7, and received follow-up
-  feedback from Baolu that he will address in v8:
-  https://lore.kernel.org/all/20261110040828.1774343-1-skhawaja@google.com/
-
-* VFIO PCI Live Update (v6 -> v7 Split): Vipin Sharma is addressing David
-  Matlack's reviews on v6—evaluating the "retrieve into" user-provided FD
-  model (for consistency with LUO APIs) and a dedicated locking scheme:
-  https://lore.kernel.org/all/20261102153656.1431701-1-vipinsh@google.com/
-  Per discussions with David and Alex Williamson (at KVM Forum), Vipin will
-  split the 27-patch v6 series into two smaller series for v7: ~14 core VFIO
-  patches and a separate VFIO selftests series (which David can review in
-  parallel while Alex reviews core VFIO). Alex also noted that stacking on
-  in-flight dependencies prevents Sashiko bot reviews from running, and
-  encouraged broader upstream VFIO code participation from the team.
-
-* PCIe Live Update, Save State Refactor & P2P DMA Selftest:
-  - PCI Save State Refactor v2: Pasha and David agreed this ~90% PCI core
-    refactor should merge via the PCI tree. David is gathering initial
-    reviews from Pranjal Shrivastava and Vipin before pinging Bjorn Helgaas:
-    https://lore.kernel.org/all/20261106004218.604799-1-dmatlack@google.com/
-  - VFIO P2P DMA Selftest RFC: General VFIO selftest extending Vipin's DMA
-    test to validate peer-to-peer DMA across live update:
-    https://lore.kernel.org/all/20261111192411.4133780-1-dmatlack@google.com/
-  - PCI Core Live Update v10: David posted Bjorn's requested pci_dev_ser
-    allocation/release refactor as a standalone follow-up patch on top of v10
-    to avoid churning linux-next; only two ACS save/restore patches remained
-    awaiting Bjorn's Ack:
-    https://lore.kernel.org/all/20261109174009.735309-1-dmatlack@google.com/
-
-* Early Session Freeze (v5 -> v6): Per Mike Rapoport's feedback on v5, Pasha
-  will move Linux caretaker-specific logic out into the read-only KHO/LUO
-  caretaker series and post v6 as a pure LIVEUPDATE_SESSION_FREEZE series:
-  https://lore.kernel.org/all/20261105050053.3063001-1-pasha.tatashin@soleen.com/
-
-* KHO Bootmem Sizing, Observability, RISC-V & memfd_luo Fixes:
-  - Bootmem Sizing v3 (Mike Rapoport): Reviewed and ready to land:
-    https://lore.kernel.org/all/20261112-kho-bootmem-sizing-v3-0-f0c8d00295d5@kernel.org/
-  - KHO/LUO Observability (Chris Down): Strong support for observability.
-    Pasha and Pratyush discussed sysfs vs. debugfs ABI stability: LUO
-    UAPI-visible state (e.g., outgoing/incoming sessions and FDs) fits sysfs,
-    whereas KHO internal bootmem/scratch details are still evolving (and KHO
-    should be made more flexible rather than cementing internal bootmem
-    layout as stable sysfs ABI prematurely):
-    https://lore.kernel.org/all/cover.1794383544.git.chris@chrisdown.name/
-  - RISC-V KHO v3 (Chen Pei): Clean implementation; reviewed by Pasha and
-    Mike, awaiting prerequisites:
-    https://lore.kernel.org/all/20261106071459.2003-1-cp0613@linux.alibaba.com/
-  - memfd_luo Fixes (Pratyush Yadav): Pratyush will check Chris Down's note
-    on "keep memfd frozen until finish" v2 (already reviewed by Pasha and
-    Samiullah), and will send v3 of "don't use memfd_pin_folios()" addressing
-    Mike's wording comments:
-    https://lore.kernel.org/all/20261110175855.2437084-1-pratyush@kernel.org/
-    https://lore.kernel.org/all/20261103172251.2348370-1-pratyush@kernel.org/
-
------>o-----
-Orphaned VMs & Linux Caretaker
-
-* Read-Only KHO & Dedicated Caretaker Mapping Code: Mike Rapoport raised
-  concerns on the read-only KHO series about exposing raw physical addresses
-  (design alternatives still under discussion). On the memfd side, rather
-  than adding a caretaker-specific read-only retrieval mode into generic
-  memfd code, Pasha and Pratyush agreed to place caretaker-specific memfd
-  retrieval/mapping logic in a dedicated caretaker file under
-  kernel/liveupdate/ so the intent is clear. Pasha plans to combine the next
-  version of read-only KHO, read-only LUO, and initial caretaker mapping code
-  into one cohesive series so reviewers can evaluate the end-to-end design.
-
-* Updating the KVM Community on the Linux Caretaker Pivot: David Matlack
-  noted that KVM maintainers from LPC may still expect the standalone
-  KVM-based caretaker RFC to be the active path. Pasha agreed to post an
-  update replying to the original Orphaned VMs RFC cover letter explaining
-  why the Linux caretaker approach is being pursued first (more generic,
-  supports VMM/virtio exits, easier bring-up) while keeping the KVM-only
-  model in mind as a potential future security-hardened option:
-  https://lore.kernel.org/all/20260920193650.3373435-1-pasha.tatashin@soleen.com/
-
------>o-----
-KVM Forum Recap & Meeting Logistics
-
-* KVM Forum: David Matlack and Vipin Sharma reported from KVM Forum that
-  Paolo Bonzini highlighted Live Update on his "what's coming in KVM"
-  roadmap slide, and Vipin aligned with Alex Williamson on splitting the VFIO
-  live update series.
-
-* Community Growth & Potential Schedule Adjustment: Pasha noted growing
-  upstream interest from Meta and other companies and will invite engineers
-  working on live update to join the call. Because Mike Rapoport has a
-  recurring biweekly LPC committee conflict at the current Monday 8am PT
-  slot, Pasha will check with the expanded group to see whether shifting the
-  meeting day/time accommodates more participants.
-
-* Shared Agenda Document Link: Going forward, agendas and notes will live in
-  dated tabs inside the public Hypervisor Live Update Google Doc. Pasha will
-  add the document link to the internal calendar invite as well.
-
------>o-----
-Agenda Rotation for Next Meeting
-
-* Deferred Deep-Dive Topics First: Because the Upstream Review Overview
-  (including the kho_header_ser / kho_block design discussion) and Orphaned
-  VMs update filled the hour, Pasha will rotate the agenda so that unreached
-  deep-dive topics—KHO & Boot Memory (including Pratyush's KHO map RFC),
-  PowerPC/LoongArch/RISC-V KHO Support, Resource Accounting & Session
-  Handover, Guest Memory (guest_memfd) / KVM & Confidential VMs, and TDX
-  Module & VM Preservation—are covered at the start of the next call.
-
------>o-----
-Action Items & Next Steps
-
-Tarun:
-* Post kho_header_ser v5 using a separate block-set metadata header for
-  kho_block (removing per-block headers), retaining kho_header_ser on
-  pointer-referenced structs, and addressing Chris Down's FLB early-boot
-  versioning comment.
-
-Pasha:
-* Post LIVEUPDATE_SESSION_FREEZE v6 as a standalone session freeze series
-  (moving caretaker-specific pieces to the read-only KHO/LUO caretaker
-  series).
-* Combine read-only KHO, read-only LUO, and initial kernel/liveupdate/
-  caretaker mapping code into a cohesive next revision, and continue
-  discussing the physical-address exposure feedback with Mike Rapoport.
-* Reply to the Orphaned VMs RFC cover letter updating the KVM community on
-  the shift to the Linux caretaker approach.
-* Invite interested engineers from Meta and other organizations, explore a
-  conflict-free time slot (for Mike Rapoport and others), and add the shared
-  Hypervisor Live Update doc link to the internal invite.
-
-David M:
-* Follow up with Bjorn Helgaas on the remaining two ACS save/restore patches
-  in PCI Live Update v10.
-* Coordinate reviews from Pranjal Shrivastava and Vipin Sharma on PCI save
-  state refactor v2 before pinging Bjorn.
-
-Vipin:
-* Split VFIO Live Update v7 into separate core VFIO (~14 patches) and VFIO
-  selftests series, and evaluate "retrieve into" FD semantics and locking per
-  David Matlack's review feedback.
-* Review David's PCI save state refactor v2 series.
-
-Samiullah:
-* Address Baolu Lu's review comments on IOMMU persistence v7 and post v8.
-
-Pratyush:
-* Check Chris Down's comment on "memfd_luo: keep memfd frozen until finish"
-  v2 and post v3 of "mm/memfd_luo: don't use memfd_pin_folios()" addressing
-  Mike's wording feedback.
-
-The Group:
-* Review David's tmpfs preservation v4 series, Pratyush's KHO map RFC, and
-  Chris Down's KHO/LUO observability series on the mailing list.
-
------>o-----
-
-Next meeting will be on Monday, November 30 at 8am PST (UTC-8), everybody is
-welcome!
-
-Join Here: https://meet.google.com/rjn-dmzu-hgq
-
-Please let me know if you'd like to propose additional topics for
-discussion, thank you!
-
-Best regards,
-Pasha
+The patch is not about comforting sparse. Mentioning it in the commit
+log is there to *highlight* the problem to sparse people, not to 'fix'
+the kernel against that false positive report.
