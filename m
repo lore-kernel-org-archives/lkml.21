@@ -1,74 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.151
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.53
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795483931;
-	b=lkH4JBxK/aETOgKuLNl1D+/dLDZOyRXEpFEowwTSLiQqHxtnmjRQYp2jkjZmvR0Tqo2D
-	 SRz4LhtCXBMbEo9g5Uc6buWBRTmCO75vPcb9QJ87PN/vN8hmyKuiFR7NsvNQXgpj157Bz
-	 zWo2em7okwnRn9Wzu6xfxzl4VaR+9ZBCalOjZ6yULuVJbyq4NKzHrgZZhBIqWHO1ODTtf
-	 hrC0kYtCrdoUd8vw9Gf9l4iPAcgbbT4jDJiVba/xb503jwJ1I2cm1He6V9UMYlNCFcUJN
-	 MuRIJI+N092Qy7bPKj2zQSAtZS3VZ1/WXFgetk027EZ50XUrDJFfIlgPD1hFxGa8PcQ==
+	t=1795483943;
+	b=c+P8h21A9GQsniwMCWIq+1d1tsblkmuWGk1vwVjJhM+ahBgBcy88HBq+S0ASCgyXkjbb
+	 BNJWGWlmIYz1CZhCSGg8K06Yh+oB2kmG1JuhPb93OgEIxztunvPhOuFPAugunrV3F3h0k
+	 WqywgcJoG054kbCblKmFQBK3Fe4UQrUjd4qHoSLCm372aE8w+DhwvwE2mBpd5lTKgDL0T
+	 SEsUKIGyeUQ7MSiCw2PRDecd0sjPhJT7fmlfG+HVG+RXnsFsG0z3EWt1ioBCPdoFn3Y9K
+	 GZbSD957WiJQPNE3vsVmHvyvQ0IVLquBxE5AJKDIABblvLeIGx705agUArbkzZknHlg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795483931;
-	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
-	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
-	 To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=8DQfScVI/a0jrYgdwlW/mGWFJDrVQPcoX+a6zQaOWRA=;
-	b=1ewx7olXkoC4yFG2B30IjaN5k6XXx7DfgmfhGX2+ei4vSLPbU8QwgOjbKDKMDzqb8Bwy
-	 2zdQk/aFqZqxAttHP6pUlJPq3AHy41G25YM+lwT9x7NXBnKxSnR9QGgaLTIcrR2+bSqgB
-	 gHz7M+kcEfscy5Q64O27ythdPDoUM3UXUhK01miT23vQEIcs8ruvTxcHGGgdd1SWsJmn6
-	 X+qC7w4DF1rFdRw25MQC1X2HTJvqs+QP0BC6ChNh0lonALwdF5zA4pJFK6KqN/CzEUYsU
-	 hMD4MpcyxNgRyM1dElxa+QaMFmKKBlroXt4SzHb7ZchP0eCgNqTv/FqMa99lRWk+nxA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795483943;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=nAKiNemk2GJJwDYP8p1zRplDTIqlR1poJkDMNc9BGdA=;
+	b=Aua8J4RlemiNhPp5B57PN38txLQo8nGKtKP1goYzb75vxS9LUh4/0IDdh2SV8qhqHcIf
+	 gnU4uIyW8cgu99Ubi9xpxEThYR4QF7V2EAyhYNr+o18Stp9O3VZz4bdAqKRBVodWeVO5m
+	 5ByY6miJ0QFIA6JlVCdYCKBIeYAzRHUq45PMatXFR47M64cMBvM66mdHgo1BmAHC5X+DM
+	 8WZJ1y7WhDK3rddBGhg3vhttL4g2hUO5JjCVn+PRgyRNE/3F3Yg23xcPeqJgRXP7tW2zI
+	 TDER9TKbVRo2tfzEgZIGl60DXrNJIg1KiYOWp/0COnbna5N3aI23msbc4Mfqod8kQ+A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cmss.chinamobile.com;
-	spf=pass smtp.mailfrom=cmss.chinamobile.com;
-	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=cNS8qiJb;
-	arc=none smtp.remote-ip=111.22.67.151
-Received: from cmccmta8.chinamobile.com (cmccmta8.chinamobile.com [111.22.67.151])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id B4D77606A334;
-	Tue, 24 Nov 2026 01:32:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B4D77606A334
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fgZSWi0C;
+	arc=none smtp.remote-ip=74.125.82.53
+Received: from mail-dl1-f53.google.com (mail-dl1-f53.google.com [74.125.82.53])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A8EBF606A334
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 01:32:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A8EBF606A334
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=cNS8qiJb
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fgZSWi0C
+Received: by mail-dl1-f53.google.com with SMTP id a92af1059eb24-14394530ec6so5736363c88.1
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 17:32:22 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=cmss.chinamobile.com; s=default; l=0;
-	h=from:subject:message-id:to:cc:mime-version;
-	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
-	b=cNS8qiJbNOoQAQOqdVNfukYzECZdFweXlnDycQnHnpb3hs1kV2DFWl7AQozhQEWLAnJd/rOvwSbCx
-	 dMdCPPxzrGO2yXBlsvB9ttxxUDIW9Osc8rxwqcxPFJpuA0bc+JPTNzvBZeY7SI9kgur8wk9QTZ8TQf
-	 FZUhyh+ReL4Gplqc=
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
-	by rmmx-syy-dmz-app06-12006 (RichMail) with SMTP id 2ee66b04e910faa-0e47d;
-	Tue, 24 Nov 2026 09:32:02 +0800 (CST)
-X-RM-TRANSID:2ee66b04e910faa-0e47d
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from  (unknown[104.224.130.48])
-	by rmsmtp-syy-appsvr02-12002 (RichMail) with SMTP id 2ee26b04e8edf00-0e06c;
-	Tue, 24 Nov 2026 09:32:02 +0800 (CST)
-X-RM-TRANSID:2ee26b04e8edf00-0e06c
-From: Haishuang Yan <yanhaishuang@cmss.chinamobile.com>
-To: netdev@vger.kernel.org
-Cc: David Ahern <dsahern@kernel.org>,
-	Ido Schimmel <idosch@nvidia.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Shuah Khan <shuah@kernel.org>,
-	Alice Mikityanska <alice.kernel@fastmail.im>,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net-next 2/6] gre: Enable BIG TCP packets
-Date: Mon, 23 Nov 2026 17:31:20 -0800
-Message-ID: <20261124013124.3693-3-yanhaishuang@cmss.chinamobile.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261124013124.3693-1-yanhaishuang@cmss.chinamobile.com>
-References: <20261124013124.3693-1-yanhaishuang@cmss.chinamobile.com>
+        d=gmail.com; s=20260707; t=1795483942; x=1796088742; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=nAKiNemk2GJJwDYP8p1zRplDTIqlR1poJkDMNc9BGdA=;
+        b=fgZSWi0CfA8PjW8babAeGvHSPwaWYbL89BEAHJy+ktqIoYDUEZME1smhCOfnnxW0+v
+         AFjfxviZRLBb005A2J+N/u36TKD+8tMxY/1SOdJbY7xYvu/hKN6jekjXk0e1gaIPmd74
+         QPSr+c9G1gHQukDwmEGlBUeunAbqz5t0Vbq4EqemoslU1kmBx3b8CA+HoBhDsv0ArvYq
+         U+QjlfzW1u1efaiUDglKRnzWqaBCiPSsx7ev1Q6t8ZLwrCeywfWkt5bYPmdbipveu3Tw
+         bK8aaKxc3z/js/1HAmRkiAQn8uwcnzE+jUkhP05Jyge0CHDjEMfxgwhiIi2bShYoInug
+         rYsg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795483942; x=1796088742;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=nAKiNemk2GJJwDYP8p1zRplDTIqlR1poJkDMNc9BGdA=;
+        b=VhuffzkkdAYg8iHQYwPqa+CnTP8Ue9C7R3fqQ+NfIC/0MoSQC3+vCQd7jrU5huzlrw
+         dK4WNxJ3VPYj2PbE/L7uRE/UVKgDJ4KSjKzd3ptRkz1bjSEjKRw/kySPaXKMm4umVTxp
+         iWla3BKmpEcBrs+9sslEWdPzBNp11TBj7vgc1lUrXhQZEjX+xfIH8Bq1S5iSPKWcosKi
+         Di9Cw/UevBPbQWa31Z1JKc417Cu9BVd0e+4Fj7iUtj1tMrD7HNJ1qNDRi8n8nkvfN0dn
+         VqCMHU4YqW6uEhUZcXc+p+dHLhUDe35R5XU2Ctv763O5L2YuE1o1uL0EsuaUeCD2tJOZ
+         0Opw==
+X-Forwarded-Encrypted: i=1; AL+hErFc+X83TCN26ie7BVJRzH5jFzhm9sEyNEA/+zZNLQHb1+a+A/a/Z70M/7t9uBRG646MjDEf6Y/iyHqWiaQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9U0Ot3q+fuBt9fyWemHpfxATbcUNW9nDbvPMsBfljbCqQrUmWl
+	BECGJgzPnQI5le1qVha9XRwGo21wEicpJ4JOoRmTHke1LyZq2YN+l63g
+X-Gm-Gg: AZFdTZfllo7mE7rcM7PVhaWlz49TIIiJXdBKzEfA+1pc6v14m2JbWVJ+Bwsg1y2rmXR
+	Jj9HXODBTnPpHcnrQDYZP6VXcY+4p392zAxnOLIMyXlCCR0icGS7R9xz0n/HDgcbmA9Ra5wM6rb
+	hogA1BSSc9EwgFx6FnNty++zEUOqbDStqyZCCJ6VF2wEC29cfcUszYd7VyeF9EEcTpDdlJjdC8r
+	GNzLYawhMIR8Nn+AZiXEKoR3Oj/XhE4Tgj/vq1B7mx2t2ZArEaZnKqKfXoegyQbMTOucbwma2Qz
+	g7BJ7v9CDE7n3acioCUJaRGhH937ypJ2UpaAIUewe0hHMfOI69Twrlo/tGLw23b+DX0QrvkRqJb
+	EOfnJQZ2AGkPHurA8RNxL12lOYKnaF9FTGF+7SUnIFWYn5Sg+bJ2/ZELFD3Vv7aCmwEgSNYRThC
+	q5O2D1lyaeIk3lhi6fUAQnz8onx2nel53lTJL400lqZEiGPwZmdB85gy+gz4B1T6wAgshRAPu/l
+	Y812BfWHEn3Pmsh+U564vg0D5mjSPCLfWrv8bu9q7RripRmArk0qgUp187awQHB8Zdw0ETA8526
+	J0uIfgozXCUyE4rdWXluKZ7IZkGtDr/CFTBUTwF+H/oPj8fONBRHgeJvhvqv9RZT+mx93pg=
+X-Received: by 2002:a05:7022:f90b:b0:18d:5ef2:1644 with SMTP id a92af1059eb24-1b5568ebfaamr12146790c88.30.1795483941534;
+        Mon, 23 Nov 2026 17:32:21 -0800 (PST)
+Received: from google.com ([2a00:79e0:2ebe:8:4121:d698:201c:9274])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5567ff27bsm34017451c88.6.2026.11.23.17.32.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 17:32:20 -0800 (PST)
+Date: Mon, 23 Nov 2026 17:32:18 -0800
+From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+To: Guo Zihao <guozh23@xiaopeng.com>
+Cc: Markus Armbruster <armbru@redhat.com>, 
+	Thomas Gleixner <tglx@kernel.org>, linux-input@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	stable@vger.kernel.org
+Subject: Re: [PATCH v2] Input: xen-kbdfront - bound the backend-supplied
+ keycode
+Message-ID: <awTpHuucnYYCHdx7@google.com>
+References: <20261106014957.4130059-1-guozh23@xiaopeng.com>
+ <20261106020217.48481-1-guozh23@xiaopeng.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,62 +99,44 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261106020217.48481-1-guozh23@xiaopeng.com>
 
-Commit f3d0f753f066 ("vxlan: Enable BIG TCP packets") and
-commit 03ebe91b0f61 ("geneve: Enable BIG TCP packets") allowed BIG TCP
-on UDP tunnels. gre and gretap can carry BIG TCP packets as well: the
-outer IPv4 header gets its total length from iph_set_totlen() on output,
-the GRE header has no length field, the GSO and GRO paths already handle
-IPv4 BIG TCP, and FOU and GUE encapsulation set the UDP length with
-udp_set_len() since commit 47282504ad21 ("udp: Support BIG TCP GSO
-packets where they can occur").
+On Fri, Nov 06, 2026 at 10:02:17AM +0800, Guo Zihao wrote:
+> Keycodes arrive from the shared ring the backend writes:
+> 
+> 	if (test_bit(key->keycode, info->ptr->keybit)) {
+> 		dev = info->ptr;
+> 	} else if (test_bit(key->keycode, info->kbd->keybit)) {
+> 		...
+> 	} else {
+> 		pr_warn("unhandled keycode 0x%x\n", key->keycode);
+> 		return;
+> 	}
+> 
+> The keycode is a plain u32 from the ring page, while the keybit
+> bitmaps it is tested against are sized for the KEY_CNT keycode bits
+> declared to the input core. A backend that sends a keycode at or
+> above KEY_CNT makes test_bit() read past the bitmap to decide which
+> device gets the event, and no keycode at or above KEY_MAX is a valid
+> EV_KEY code in the first place.
+> 
+> Since the event sits in memory the backend keeps writing access to,
+> the keycode must also be fetched exactly once: re-reading key->keycode
+> after the bounds check would let a concurrent backend write feed an
+> unchecked value to test_bit() and input_event(). Snapshot the keycode
+> into a local variable with READ_ONCE() before validating it, and use
+> the snapshot (as well as the already snapshotted pressed value)
+> throughout.
+> 
+> Ignore keycodes the bitmaps cannot hold.
+> 
+> Fixes: 4ee36dc08e5c ("xen pvfb: Para-virtual framebuffer, keyboard and pointer driver")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Guo Zihao <guozh23@xiaopeng.com>
 
-Bump tso_max_size up to GSO_MAX_SIZE so that the admin can use BIG TCP
-with gre and gretap. erspan is left alone. The default gso_max_size and
-gso_ipv4_max_size stay at 64KB, so nothing changes unless they are
-raised explicitly.
+Applied, thank you.
 
-iperf3 TCP over gre and gretap between two netns connected by veth,
-without encapsulation, 3 runs of 10 seconds each, in a KVM guest with 8
-vCPUs on an Intel Core i7-14700 host:
-
-  gre,    65536:   92.9,  94.2,  93.0 Gbit/s
-  gre,    196608: 130.6, 128.6, 123.3 Gbit/s (+37%)
-  gretap, 65536:  105.5, 106.6, 106.6 Gbit/s
-  gretap, 196608: 124.7, 129.7, 127.5 Gbit/s (+20%)
-
-A later patch in this series extends big_tcp_tunnels.sh to cover gre and
-gretap with IPv4 and IPv6 traffic, without encapsulation, and with FOU
-and GUE.
-
-Signed-off-by: Haishuang Yan <yanhaishuang@cmss.chinamobile.com>
----
- net/ipv4/ip_gre.c | 2 ++
- 1 file changed, 2 insertions(+)
-
-diff --git a/net/ipv4/ip_gre.c b/net/ipv4/ip_gre.c
-index f8a7c435350..41ec54dcbfd 100644
---- a/net/ipv4/ip_gre.c
-+++ b/net/ipv4/ip_gre.c
-@@ -1007,6 +1007,7 @@ static void ipgre_tunnel_setup(struct net_device *dev)
- {
- 	dev->netdev_ops		= &ipgre_netdev_ops;
- 	dev->type		= ARPHRD_IPGRE;
-+	netif_set_tso_max_size(dev, GSO_MAX_SIZE);
- 	ip_tunnel_setup(dev, ipgre_net_id);
- }
- 
-@@ -1394,6 +1395,7 @@ static void ipgre_tap_setup(struct net_device *dev)
- 	dev->netdev_ops	= &gre_tap_netdev_ops;
- 	dev->priv_flags &= ~IFF_TX_SKB_SHARING;
- 	dev->priv_flags	|= IFF_LIVE_ADDR_CHANGE;
-+	netif_set_tso_max_size(dev, GSO_MAX_SIZE);
- 	ip_tunnel_setup(dev, gre_tap_net_id);
- }
- 
 -- 
-2.43.0
-
-
-
+Dmitry
