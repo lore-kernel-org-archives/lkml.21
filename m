@@ -1,111 +1,86 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.155
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.17
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795537832;
-	b=4nTYwGxwFyt+x07MG2cHpG22zXawfKkJisavMotGrD2sURlM2I4Ojiif7iLZEQcglrV0
-	 7LqnZCBmTtNF5gu8irOpKblUbV8X8Ip2m7c5lmILkvxaGKJ5KRUdM77GxEoYs3U71quex
-	 b14oy4HyrMGo2XWXuk2TA8g9d8X9vCagUBmcSWAH+7iGgmXvyVxgRzKh4nmo11nmyvmpP
-	 xpK57mX+51C32Jppet7c3xvTylJLlEGMZ1i7pWWVAbi8Dx/U5Hh1KZHZ38YsUF7gf7hy5
-	 pQcdrkbMveQZ15R/+n4P6ZWYESz5MaeEmk/C4fRXxCGf4is81EtdkBhTfaoJHMXxLZg==
+	t=1795537861;
+	b=2gilPxhlP500tdcuWPUdzkWYbHi9hFXbV78gIs3jAQcL7l+x//lH5yfg0P8zW5J8bvpj
+	 Gj8xm+OnoUUtcARRIS2ejmqHbJElFtv6SCMchstQ72CGnjdC7+1URpxMqZ+vgyduVnWNh
+	 PhSxHdeoK0j0goDoUITWWa2qYYiFpLEVRnBZHA6zZwwig3OCtAEAe4ru6YKcqxlV/yVVI
+	 hnfF7wq2izMsitxaOdbSKX2Q4Phja6C7VbWZYIxOFwcNIL0GrjFofE72GVtDezMcsFqLe
+	 jbyDxfOrrVwnbIjvniRHMHQpo/F8CZItvLAKiclXYC40OpTKbA4qunEW62C2ECKeWaA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795537832;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
-	 MIME-Version:X-ThreadId:Date:From:To:Cc:Message-Id:In-Reply-To:
-	 References:Subject:Content-Type:Content-Transfer-Encoding;
-	bh=CTbz0+BpeE85Uf+P9q0EUbXcqUPW14MouI7LDRHs9Gc=;
-	b=o/XhICSfUeRSNqsNrOla1CRdddIFevS8LjuFNkVaK79kulb0mkastVbV5H3Op5zaLH4y
-	 JiwBTA+xOCgdaKSL7MWHNYv72WxfmU8ewy9V69RRdKAeF3hgnwhy8+85sekZMfaQR+7/i
-	 wzVgwfUkIIkH1jAT0jfCFxYgbBmDtTDNzijR7fjV50uJoHBRJCdAzAB47USDptkN5F8Kj
-	 93NLiafx19iIs95w8fPqztgEua2ABdpD3NGFBBqT1l6PX5XRyrZFyz0fNp2qVfm0g+T9s
-	 qJQhEPpUx83W/sN929OIlm50sk9iN82WSjFw607mt/uDkXhG0stF9KIC0Baz7rrDWtg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795537861;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
+	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To;
+	bh=+bJn/rVe34M62HCQtQL32PKc5v6Nz8H16aexelnaA7I=;
+	b=EuX98S4VZNUKTJ3Mz3RaBEhQOtuPgL5gloJl7lve6zJ0z54Sn5x0GV5q2EevCWABdFpt
+	 83kDhiI9pC5Z5pjT7LYmPNq6JAnDZQF5E3V7rXC0jz6lU9V17UVQS2q+Y5ICmUbEuu6lY
+	 lJYerunUXXvOq1zZedRGvNfQ+qY3DagunmvBbP32vKduDLxx3gCDXSQaiEwk07XlU0fqp
+	 +X/YIjP3xCb6wqbit1thy6h+ySYnX2vFjz8ys/6yRrt7QzrGpble6F0RoDqF0seBsUJRN
+	 k0vnbsILf4y8tqKqUO2MKJKm+Y84TbF2Fc1bH13Dot6n/WsvvM2CAVEoBz738G0TpeQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arndb.de;
-	spf=pass smtp.mailfrom=arndb.de;
-	dkim=pass header.d=arndb.de header.i=@arndb.de header.a=rsa-sha256 header.s=fm2 header.b=KIfB01Wb;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=gz9YzrZN;
-	arc=none smtp.remote-ip=103.168.172.155
-Received: from fhigh-a4-smtp.messagingengine.com (fhigh-a4-smtp.messagingengine.com [103.168.172.155])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b="Fy/o9u0i";
+	arc=none smtp.remote-ip=192.198.163.17
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.17])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 62C20606A321
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 16:30:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 62C20606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arndb.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arndb.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 835AD606A321;
+	Tue, 24 Nov 2026 16:31:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 835AD606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=arndb.de header.i=@arndb.de header.a=rsa-sha256 header.s=fm2 header.b=KIfB01Wb;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=gz9YzrZN
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id 51A6A14002F2
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 11:30:31 -0500 (EST)
-Received: from ams-imap-03 ([10.64.2.23])
-  by ams-compute-02.internal (MEProxy); Tue, 24 Nov 2026 11:30:31 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1795537822;
-	 x=1795624222; bh=CTbz0+BpeE85Uf+P9q0EUbXcqUPW14MouI7LDRHs9Gc=; b=
-	KIfB01WbbT60QouGgqoyFMo0Dm0qwHukr3dP4zcXigfjqZgWbd1DKTJKgRuYAlUb
-	FDwJmQIXcEjJYHCjCFAufhUYCkzz7R/rQEeQf1qAKyHUYTHAsPPFTIzcbkEnJ7Eo
-	Fxed4Gq2a9TL+ZGD8HIbQIag3u6sM2YmaLN+Pt0XvLlJexhOh3ALXqiqgSpCRiiL
-	qGXt6Vvja2zUGf3Qsy7zqJei6WMA/G7V6Vpav27dI42Jl1E4tuxs5VHr5tIQrtWy
-	T2Gu0+c+GDw22RzdTHVwDfgPCJL1eR/nFuF8vVQI5YJRssVIOs43MtymzpksgB5M
-	xJEcqU9CCnrkMjFyHurNkQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795537822; x=
-	1795624222; bh=CTbz0+BpeE85Uf+P9q0EUbXcqUPW14MouI7LDRHs9Gc=; b=g
-	z9YzrZNNVpmUMo/p2AHRytByCoSNgNktBxJxVzSNCDLwFhR1QczCELoRbMvcQnZp
-	+/cPxVwXmFf17ip6K9oYyc176gZ2bjKgYbnyzcLgNTpnvXxiW6umKS2K75/toKGg
-	N5jt/LGmAMnB9tHIiZAptvis3blCGrLbhtBAqKVfJF9rFme1hV5VaCq6RaXeV4E2
-	MllBvYqxZLoAWioRdV9imMZyHOmGMEkhkqtAg2zCD4YDPdD1ZB0/BAfNcpWyFdcE
-	F8tQHF3bFeK/vZs+ogcyvNHxCjaeQPTO+Bjtz/+1h1Zcgl3XsEt0h9EckTiO1mRo
-	k8u+Rvbmilmwao9EmgSKw==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=arndb.de a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795537822; d=arndb.de;
-	mf=PGFybmRAYXJuZGIuZGU+;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm2:rsa-sha256:Io1nixeY76YnNeGb4kZkFSkJK+XyYpVjR5zA7pJTbqCyCmI
-	urxpSsmIu0cHpnLEk5fFa/w1ptPljzQH1DXMrc9cTqv+Eq/tMuQklXhOLTBV27ql
-	qtcTborc5nnMWFsWH952cwQgvXPHyB9dsdaMzLtsKd8pyX7rFw8IPHNM+pnv3rj6
-	xITu2la3pl9OaNZm5dD0qbF51wj0cx7OB69CHoB7/3Yd2JudIaSPhA9bWXTxXU2H
-	zvqHnfJ1MHFayDUYjY1RtgDlVfbi3FKMMOjwx8aXVSXPXqt39xNuE9bczSsYTZf/
-	glzBOCecSkWAGxSbHdfA+GppluvrNbwEe0Bn9Xw==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=12;
-	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
-	from,in-reply-to,message-id,mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:980aYwIJKINX/gz4l3IUqsZXhOnrDZYIdrLIPyVIuzU=:rSduc7uGIjYvoyk/9XoJLPSt+QxsoryMmuCdSICNC+8=;
-X-ME-Sender: <xms:mLsFa0OZcgz8AQcROZxAwwF05_XyiwK3zgbMLTOaUHwSW3LN8NAMVw>
-    <xme:mLsFa1xH0IFO2d1nIyeMXxlpxOsZOLv6L9Z59doZwdIqqVTYKhWUvgPwoxQ9vAAra
-    Q2FssVPyr2IUzhSRtzDjokU2Brb2cRQMHngaXOZ84fFdV_z9QnZvdk>
-X-ME-Proxy-Cause: dmFkZTFfM29LN9oi+uls4uA7bJ82R2voNMmneloS9Yl8C82woxnJ9InPeuZsT75rjx2f/c
-    2S2JVkvyRmwb5Uqq+KHHSX28pU/OSqqhUU2HZPLL9FJxrEffux4ZOs4sbjeS0Gutr6dgSe
-    9u91JVLr9ePCvPxHnG2Vx/y42SYkBfF0FRgHgzaDRgv0Hp5C9UgVUY3PEDzsq0RJd73yzl
-    Fe9dojY9h/SLyOfS19e18yixMp4zKHwYHkc74bA9F7mD6D3D7YQasxuKXHnUiiKIe8otv7
-    qq6Tp+f/OwC8NFGFQO2Uw5MAYlnkSZPdo7VcOnYh/JYMF9F8UXSmFcs318U95styRaVpWf
-    2g9aVDRlXsY2lpadbqWJpAz95It6i/7IVu9SMgPfkHY1Geu9IjfXMOTptCgQZXXEL+f2cP
-    nkzAfTc+8XfQnftNWBA8Wb+BRRpzWigPnbCkKxOfHJ9MTHIM3chUTU4L49QjqICWBh6a5j
-    ngD/St/DVG5TP23SfwImEHI+5pDYsUmwZYPF3sxyNlg66ZcyYQGCLNftBS6FI3FlgcaAK5
-    wy9e9Ig/1u3Kp55vZ0LPwPJbNVPanVj7huTxI1BetZ6M3LCsNh6mN/VD7Sqjd/4cnQFNAF
-    u7mvZ+y4n1Hv/paIpEFyEItxD1oktJiEZiLqADw3BK/Cc+DxD8lLH6x3XAyg
-X-ME-Proxy: <xmx:m7sFa8aFDhAs5k9zrApnb1of7AOg3oVh7WG6YTjexPO0GwFJ8RBHgA>
-    <xmx:m7sFazWYKzK2u0jN4XLUbc6Ed8i-PV4g72xM5vZC48uZ8uDtcKiqMA>
-    <xmx:m7sFa9EIDZHiNxMfx5-dzWOX7PCfpsJVeq2rxasJ6a8TILjXSGme4g>
-    <xmx:m7sFa9BfyvlW6v2H8o8fb-Bx_u8eaZ4Z10q4cZq6NdK1V14gclr_0Q>
-    <xmx:nrsFawCeCB3BEnLU8xQ4H3_Z1Dzvu3HuPYdvUauWcGwGdlhSrLMsaArt>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id 885AC32A0099; Tue, 24 Nov 2026 11:30:16 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Fy/o9u0i
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795537860; x=1827073860;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=0XP5Vh+zLzYYHkYfvDQkd5XbCzGpeW4L1WH/p/viaag=;
+  b=Fy/o9u0iHpsn4AvI+iutL2drVVF4HxN9Qo+/iQDzXBKHgtb/IaR0Eu2z
+   qcUZoBwIQLTO+PfTZZkoHKMlPRRYTD+SHTp8G2cC4KrOjzKB23CORfpiM
+   T4o9LQSDy3rDmG/c1kk+ubwDdOO4iyfFBGlpGoQfjySr9DZ1Kpz/XWjs6
+   r2oZ7nQWPQfK0bnrRY6YeNSO2X2xFBXPogzcneXyYI8mhE/TjgSB1vunz
+   7R6KczBPZA8FCEDmTqIW8Mg+sFcpwJgLqj6+PUhguk2tTs3eTQHn+nsMp
+   78/Gdzk1ozQd6q+aPOT2RcahDsD4lqX47D47F2JvBsLb2U8Qzsd4JWdMY
+   g==;
+X-CSE-ConnectionGUID: dkX0VgXUT12ueMxtGU/abw==
+X-CSE-MsgGUID: oZwHsRRlRXGdwcVmKZoO5Q==
+X-IronPort-AV: E=McAfee;i="6800,10657,11976"; a="4375175"
+X-IronPort-AV: E=Sophos;i="6.27,231,1787036400"; 
+   d="scan'208";a="4375175"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 08:06:23 -0800
+X-CSE-ConnectionGUID: H3u+Mbq0QCeQs5UBjgpbbA==
+X-CSE-MsgGUID: Y5lZgkRBRjO5FUCSAQ2QGw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,231,1787036400"; 
+   d="scan'208";a="11597515"
+Received: from black.igk.intel.com ([10.91.253.5])
+  by orviesa007.jf.intel.com with ESMTP; 24 Nov 2026 08:06:15 -0800
+Received: by black.igk.intel.com (Postfix, from userid 1001)
+	id 9900394; Tue, 24 Nov 2026 17:06:13 +0100 (CET)
+Date: Tue, 24 Nov 2026 17:06:13 +0100
+From: Mika Westerberg <mika.westerberg@linux.intel.com>
+To: Chunfeng Yun <chunfeng.yun@mediatek.com>
+Cc: Mika Westerberg <westeri@kernel.org>,
+	Andreas Noever <andreas.noever@gmail.com>,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+	Sven Peter <sven@kernel.org>,
+	Yehezkel Bernat <YehezkelShB@gmail.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH v3 3/8] thunderbolt: Make PCIe NHI support opt-in
+Message-ID: <20261124160613.GS229695@black.igk.intel.com>
+References: <20261123113705.2297329-1-chunfeng.yun@mediatek.com>
+ <20261123113705.2297329-4-chunfeng.yun@mediatek.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -115,40 +90,150 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-ThreadId: Aq77c9iO0VUs
-Date: Tue, 24 Nov 2026 17:29:56 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Nikolay Borisov" <nik.borisov@suse.com>, x86@kernel.org
-Cc: "Michal Hocko" <mhocko@suse.com>, "Kirill A. Shutemov" <kas@kernel.org>,
- "Lorenzo Stoakes" <ljs@kernel.org>, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org, "Dan Williams" <dan.j.williams@intel.com>,
- "Kees Cook" <kees@kernel.org>, "Ingo Molnar" <mingo@kernel.org>,
- "Vishal Annapurve" <vannapurve@google.com>,
- "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>,
- "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
- "Michael Ellerman" <mpe@ellerman.id.au>,
- "Suzuki K Poulose" <suzuki.poulose@arm.com>,
- "Dave Hansen" <dave.hansen@linux.intel.com>,
- "Naveen N Rao" <naveen@kernel.org>
-Message-Id: <c6ad8f8e-9dc8-4fdb-968e-107795e2e15f@app.fastmail.com>
-In-Reply-To: <20261124160025.738362-2-nik.borisov@suse.com>
-References: <20261124160025.738362-2-nik.borisov@suse.com>
-Subject: Re: [RESEND PATCH] x86/devmem: Drop /dev/mem access for confidential guests
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20261123113705.2297329-4-chunfeng.yun@mediatek.com>
 
-On Tue, Nov 24, 2026, at 17:00, Nikolay Borisov wrote:
-> From: Dan Williams <dan.j.williams@intel.com>
->
-> Resending this with the hope of either getting it accepted or arriving 
-> at a consensus
-> what exactly is missing so that I can take it from there and eventually 
-> get something
-> merged. As previously mentioned this results in real problems for 
-> confidential
-> guests both on TDX as well as SEV-SNP.
+On Mon, Nov 23, 2026 at 07:36:50PM +0800, Chunfeng Yun wrote:
+> From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+> 
+> Currently, the USB4/Thunderbolt subsystem directly depends on PCI,
+> tightly bundling the core framework with the PCIe-attached Native Host
+> Interface (NHI) driver (pci.c) and the Intel Connection Manager (icm.c)
+> into a single module (thunderbolt.o).
+> 
+> With support for platform/SoC-attached USB4 host controllers coming in
+> (such as on ARM64 systems), the core USB4 framework should no longer
+> have a hard dependency on PCI. Furthermore, embedded or SoC systems
+> without PCIe-attached host routers should be able to omit PCIe NHI
+> support to reduce kernel footprint.
+> 
+> Decouple the PCIe NHI and ICM drivers from the core framework:
+> 
+> 1. Kconfig & Makefile:
+>    - Remove "depends on PCI" from CONFIG_USB4.
+>    - Introduce CONFIG_USB4_PCI to build PCIe NHI and ICM support as
+>      a separate module (thunderbolt_pci.ko).
+> 
+> 2. Driver Registration:
+>    - Make the core thunderbolt module standalone by converting
+>      tb_domain_init/exit() to postcore_initcall() and module_exit().
+>    - Register the PCIe driver in thunderbolt_pci via module_pci_driver().
+> 
+> 3. Connection Manager Selection:
+>    - Add an optional .select_cm() hook to struct tb_nhi_ops so that the
+>      PCIe driver can invoke icm_probe() for legacy/firmware-CM controllers
+>      without hardcoding ICM calls into the core nhi.c.
+> 
+> 4. Symbol Exports:
+>    - Export necessary APIs required by pci and platform drivers.
+> 
+> Signed-off-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+> Signed-off-by: Chunfeng Yun <chunfeng.yun@mediatek.com>
+> ---
+> v3:
+> Added 'default USB4' to CONFIG_USB4_PCI in Kconfig;
+> Exported tb_xdomain_remove symbol immediately after its definition;
+> 
+> v2:
+> cherry-pick the patch of Konrad to fix the issues of this series, and
+> also do some changes:
+> 
+> * Renamed CONFIG_USB4_PCIE and thunderbolt_pcie.ko to CONFIG_USB4_PCI
+>   and thunderbolt_pci.ko.
+> * Updated exported NHI symbols to standard tb_ / tb_ring_ prefixes
+>   (e.g., ring_msix → tb_ring_msix, nhi_msi → tb_nhi_isr).
+> * Eliminated exports for nhi_mailbox_* and nhi_interrupt_work by
+>   keeping them internal/static (handled by preparatory patches in v2).
+> * Added missing trailing semicolon to module_pci_driver(nhi_driver);.
+> * Expanded the commit message;
+> * Fix cherry-pick conflict caused by .reset_interface();
+> ---
+>  drivers/thunderbolt/Kconfig   | 12 ++++++++++-
+>  drivers/thunderbolt/Makefile  |  7 +++++--
+>  drivers/thunderbolt/ctl.c     |  6 +++++-
+>  drivers/thunderbolt/domain.c  | 14 +++++++++++--
+>  drivers/thunderbolt/nhi.c     | 14 ++++++-------
+>  drivers/thunderbolt/nhi.h     |  2 ++
+>  drivers/thunderbolt/pci.c     | 39 +++++++++++++----------------------
+>  drivers/thunderbolt/switch.c  |  9 ++++++++
+>  drivers/thunderbolt/tb.h      |  2 --
+>  drivers/thunderbolt/tunnel.c  |  1 +
+>  drivers/thunderbolt/xdomain.c |  5 +++++
+>  11 files changed, 71 insertions(+), 40 deletions(-)
+> 
+> diff --git a/drivers/thunderbolt/Kconfig b/drivers/thunderbolt/Kconfig
+> index 294b3227a545..80960555a364 100644
+> --- a/drivers/thunderbolt/Kconfig
+> +++ b/drivers/thunderbolt/Kconfig
+> @@ -1,7 +1,6 @@
+>  # SPDX-License-Identifier: GPL-2.0-only
+>  menuconfig USB4
+>  	tristate "Unified support for USB4 and Thunderbolt"
+> -	depends on PCI
+>  	select APPLE_PROPERTIES if EFI_STUB && X86
+>  	select CRC32
+>  	select CRYPTO_LIB_SHA256
+> @@ -18,6 +17,17 @@ menuconfig USB4
+>  
+>  if USB4
+>  
+> +config USB4_PCI
+> +	tristate "Support for PCIe-attached USB4 and Thunderbolt controllers"
+> +	depends on PCI
+> +	default USB4
+> +	help
+> +	  Say Y here to add support for the USB4 and Thunderbolt host
+> +	  routers attached over the PCIe bus, commonly found on x86 PCs.
+> +
+> +	  To compile this driver a module, choose M here. The module will be
+> +	  called thunderbolt_pci.
+> +
+>  config USB4_CONFIGFS
+>  	def_tristate USB4
+>  	depends on CONFIGFS_FS && !(USB4=y && CONFIGFS_FS=m)
+> diff --git a/drivers/thunderbolt/Makefile b/drivers/thunderbolt/Makefile
+> index beb054c3126b..a563bf2b0345 100644
+> --- a/drivers/thunderbolt/Makefile
+> +++ b/drivers/thunderbolt/Makefile
+> @@ -1,10 +1,13 @@
+>  # SPDX-License-Identifier: GPL-2.0-only
+>  ccflags-y := -I$(src)
+>  obj-${CONFIG_USB4} := thunderbolt.o
+> -thunderbolt-objs := nhi.o ctl.o tb.o switch.o cap.o pci.o path.o tunnel.o eeprom.o
+> -thunderbolt-objs += domain.o dma_port.o icm.o property.o xdomain.o lc.o tmu.o usb4.o
+> +thunderbolt-objs := nhi.o ctl.o tb.o switch.o cap.o path.o tunnel.o eeprom.o
+> +thunderbolt-objs += domain.o dma_port.o property.o xdomain.o lc.o tmu.o usb4.o
+>  thunderbolt-objs += usb4_port.o nvm.o retimer.o quirks.o clx.o
+>  
+> +obj-${CONFIG_USB4_PCI} += thunderbolt_pci.o
+> +thunderbolt_pci-y := pci.o icm.o
+> +
+>  thunderbolt-${CONFIG_ACPI} += acpi.o
+>  thunderbolt-$(CONFIG_DEBUG_FS) += debugfs.o
+>  thunderbolt-$(CONFIG_USB4_CONFIGFS) += configfs.o
+> diff --git a/drivers/thunderbolt/ctl.c b/drivers/thunderbolt/ctl.c
+> index 965988b18608..96717a0a94b1 100644
+> --- a/drivers/thunderbolt/ctl.c
+> +++ b/drivers/thunderbolt/ctl.c
+> @@ -9,7 +9,6 @@
+>  #include <linux/crc32.h>
+>  #include <linux/delay.h>
+>  #include <linux/slab.h>
+> -#include <linux/pci.h>
+>  #include <linux/dmapool.h>
+>  #include <linux/workqueue.h>
+>  
+> @@ -96,6 +95,7 @@ struct tb_cfg_request *tb_cfg_request_alloc(void)
+>  
+>  	return req;
+>  }
+> +EXPORT_SYMBOL_GPL(tb_cfg_request_alloc);
 
-I do think we should go further than this, but the patch solves
-a real problem and it doesn't stop us from doing more later, so
+Why these need to be exported? All the config stuff happens inside USB4
+fabric and that's not dependent on how the controller is connected to the
+SoC.
 
-Acked-by: Arnd Bergmann <arnd@arndb.de>
+Can we get the absolute minimum that is needed? The platform/PCI sides pretty
+much need to get the resources/interrupts and then call the core driver.
