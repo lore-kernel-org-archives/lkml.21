@@ -1,79 +1,79 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795520747;
-	b=1dN0LhCAP5u1eWyaNvGbY2wwcLRWb0VT/KhEL6qRRrQUHyeDmaz2XUU3nv8PyoziuRqL
-	 LWiDfAQ7ZaKl2RmcwTbCmWOe+SZYjqXgnaCpP3rvz/5QEKMC83/9GuX44f41rInoeAS35
-	 fiWJ+ZMiB1b/H9hA97ICzFuxpwO/4UFw7J6katl+yg1pyavG6i2h8WmbLHlsUtwTcz80S
-	 E4vA+9BJ3nK8bALR7Y/rR/A8YRLUfdhvFEBrMV/lpTLxLbzkkP6Rrsa5tJUlgNsyI4blp
-	 uBI9qwVk+n/o5R0/p3svrU4xhLsh9CxkgeWIwlHGihah4BYl1F50ygvV6rMbH9mGa0w==
+	t=1795520753;
+	b=s1sdhhZch46hGctDK7GljIc1R+gC94A0QvzZ+6GIyoBOMLqHjQya+OElIEtxvejIuItA
+	 7AlAmq9nRH4XmKfMeZuf+tJfLn1LFJTs4BpipRmNMq3TNfRflfcailOOZ7jExUvjwSs35
+	 7O5jrYIIx2AGu43B21UcAgRqsEfQcvSUc/Zq3/Kth/seLCiuC3WEuUdu9CvwVCXVze64G
+	 SNI0tSihRr0FoQR8Yiv2M2dVM/yrAGwAnKZEZXXFuvOTJYN+UCjq0e9+UPvU3NBrzKEPp
+	 oxMka8NZn6PjXnNf4T+kLJHvsXkFEB3C2ZMNh0+EklzqbTzu43QV4ZIRenokhsXCL/A==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795520747;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795520753;
 	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
 	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=Ots3WAFDPR2PYg+mjIwzB9jpyCmnpV1ZAB8Z4JBu2L8=;
-	b=1gZiCk9RLyTgBVIHx9NgMSIHlWr9NeVE9QUy2bmAhkEav/m4F8n9GRV7lWNHbHAlVzw4
-	 ch/LzU6pJ2MKyIvMAWyal4lDZF58awBME12Iiozl7013koWT/6ALEKgfTbUPyNVIG6qpx
-	 xXPH+5uvsIcv91YhpIhWllHP1gHmgWqeJbbGcMg4xMj+7APCxzhL+rD5XCjshM4yMA2XI
-	 oLcy+W9P7yxXaG+5jz7XiCAPeZFWJ9eMdesi8i5bMIpF/G6qwlKdZPtKCNXPjLYMWhZKB
-	 KM5l5g8UZu0rEmtCYh4UAHPg306AjaM3Q3itjkAI0HYlqKzLoEzKCRYIHccAuc/CRBA==
+	bh=1cURh+cWjXvoC2szq8gQr/Fkr90VJ750fgGr+ihKYe4=;
+	b=4njXUJUKb9obZyoFdEBAa8zgQg0axx0RxsMm383S/7Btk9xgkctfr6UNlJ/ZLDtymbY5
+	 KpvqevHDWU2AfArpF29T8XeoFjYsbGfCy2TLUGdTO2QI3fftiHe1sMbF9qvEKxVYXa4tp
+	 jO5FJy/W0QwTGxGv1aFvDFPpNZPTbPk37sDgQuCJZBT8TaB/034UUJrXCTNlNG+MSbjXI
+	 nh4yTSu2xKcEsnXR0F0OPw5LI5+FuGW2zCOIjgWNhvBajs1paGjxA9RrwbwY05nYpN4ly
+	 690YzcpQGI//NrrwHIEMfiewgtrjnvOoK8ZrDjRAKnlMdD0t78B7wEy8OpCQNZofFqA==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=e0zksxXp;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RWhY64mj;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 74936606A689;
-	Tue, 24 Nov 2026 11:45:47 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 71DA8606A680;
+	Tue, 24 Nov 2026 11:45:53 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=e0zksxXp
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RWhY64mj
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795520747;
-	b=Oold0Sxq7Ud0IZHMV8lZNaNBmmHS310TqdDuf/8Tkoc/M6tbe6xVZsf/fWfDShyFmvI6
-	 CHCGeFgVkyq6GRMKzffq7nn6zhryxxHgcbUDarno9rRH8My1x44p5UhpkKmmlB8a/lwkq
-	 FKPurIRC32sXN9sbgmAdXLCYcmY+sFedyYqXOZpspWS/REe/akn6ydGMz1GQ6SdpA6YiK
-	 3MWlOJacxWgofVhrGRxre7O2NaEa7xOe2D9lBYW1olLwyo0Mahv+w/Xw05idoENtgOqgh
-	 kF2UvLTmDniKf6fd4VvZJX9h/A9xg1za7Kp3x49C7zzqdma9egQMZgcv1KlN5mglh2A==
+	t=1795520753;
+	b=Ys5P4A/3NQ1pi7jZxK0SWhtBWQUdeLufRAYQx2iz8dO3elD4Pl9MgdWY3PDZY5Z792qU
+	 Vm/ZqDfAE1Zj9OYq51CILvFDaVo9pCOAGNjQcECu87ImNdLCoX3IRG4k0QSz2WvKb/fqj
+	 VkuXsi5m8P4wmM+7K7R/bABoSELohGaM6uBgek69YsQl0WOJgessdZvmYuF93VUeRNfgM
+	 +PShBdBzrOSENP9EstEftTfs2ZKhzie04Vurmm+gukFzLA2AvhmVA3ni6Q3W3OFXifwPm
+	 KY1gOYjwi63Kylq2+GF3wDLyENgLSBBJu78/K0GXU0TVrRjK0pxIcGDrRi8XJDLa5mg==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795520747;
+	c=relaxed/relaxed; t=1795520753;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=Ots3WAFDPR2PYg+mjIwzB9jpyCmnpV1ZAB8Z4JBu2L8=;
-	b=OB58gbjWJ9BG5IPm0NYxXTFdYR858AaUcu+yE/MEYYlbIKL6apk3FwGBuTieRKP+ul87
-	 c5LIl73myk9X4IrsrwKc6sly4Y9xVMpni1kXhnurrvJdiwDgeCKxTTWs4bLYd7bXwOKEm
-	 jXcQf94E4Y6LaDcPfumGFA7te51KoyiaMlA8rhA7N8gET85Ggy3xu6V1ILrIdoX9K5LWe
-	 QS87VhOqiBaLpPNgTEsqbNAz2TxqUjNDy3aYF0EoiyzPk9ELnqkxVWl2BiINDUT2zPPfu
-	 OxB4TETqjLxRj9d4gclObvvBUKC9Ic0fQ+O4K4FEVVjgFcG/3ht8Nopx58Gz9LI2QLQ==
+	bh=1cURh+cWjXvoC2szq8gQr/Fkr90VJ750fgGr+ihKYe4=;
+	b=D/MxLom7vaT8iKxu37wyNY0m8MGBTdWIQ5DnFhjnbJHXd+tGYwgygbJsd6O5YChHYdZx
+	 luoZnDrin21OoK2Bv3N9V0Ed+hlg6oczctbM4+3R6mwQulJ/g4mTpXOWG8ubu0z8SsfiR
+	 aJ6nQuk16+JH5q+LFhwYXOq0Y5AIlzVj+fXRLYDfnk/kcTcEcq9LrNwxg/zfWacNKkHEo
+	 pP0USiNYMkf2/6ETvh96kaYdWTy5ZNjyoxb24HlJziI3HSR0aATEFc/gQ28qJQxWShReb
+	 7/WBnF93a0mgAGgs7j76X8aaeTvwxNAXAFekhoHzjnO1Hb3uh4u6u3TkxAHXrBEfHBg==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 952221F000D3;
-	Tue, 24 Nov 2026 11:45:36 +0000 (UTC)
+	by smtp.kernel.org (Postfix) with ESMTPS id 5639F1F01570;
+	Tue, 24 Nov 2026 11:45:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795520747;
-	bh=Ots3WAFDPR2PYg+mjIwzB9jpyCmnpV1ZAB8Z4JBu2L8=;
+	s=k20260515; t=1795520753;
+	bh=1cURh+cWjXvoC2szq8gQr/Fkr90VJ750fgGr+ihKYe4=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=e0zksxXpJOPwkjxsQEorcZAvvbK6FBu2ER4NCfS9GNjqHRlTjAWvK9JbMkqNfBFbx
-	 n3xAvAG1x3TeSqn59TAzm3bI/PONmnlWhy+FjAH0JVl8O8oHrnVcV2/2PYBBAi+gye
-	 /1yMw31QDeaBQWuD+kfg5Dm0OQbOtJqC3UKfJkGu+uEOSQmuxcRP2Fgxltm06bmEnq
-	 bte2dZ9CNgYuKoIDAusNPImFpV1Esf2p/Up0dUbMGoMju+0QgDCIyAEN5lduTAnA06
-	 jSYXexQZ903NEqcf3/xMyRLJxSeDmPvbD9cGdGuiViKdHsnzoR31Sl5PdIR6pE1uPG
-	 409ZNhohOWQ1w==
+	b=RWhY64mjJWKnXzC7L2N1uiBecYM/3Xc6M6a6zPj2y66bugy4LaG4PHb1z9ALygcLw
+	 GSnAwa4YVpGhdM3pJOCatCHmi9bauv+OBv8k21VOGufA59UHvyn6p4zBlO66HTxvPR
+	 W00jRqJFK4ZnYpjkXXywZsR5rl/KUoKTR7T3NjBdGQaTz3MeVyWH6W7+J8Pz/iPOiL
+	 zFcfg5EHp1O4YxiXJgXJPMwkEYL0doWHQmqo3ChlPu09VAphqCMyVIjWMQTTJsBJUw
+	 zkrv2AATqmEjAsBzSr+HthoImbP/z5fH+t9aiVjde067a1wlKJK0fbcQdlDFAq5by0
+	 xfSxyrAKUyZbw==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 99A8F4CA03;
-	Tue, 24 Nov 2026 11:45:27 +0000 (UTC)
+	by lkml.kernel.org (Postfix) with ESMTP id 13EE04CA13;
+	Tue, 24 Nov 2026 11:45:28 +0000 (UTC)
 From: Sai Sree Kartheek Adivi via B4 Relay <devnull+s-adivi.ti.com@kernel.org>
-Date: Tue, 24 Nov 2026 17:15:09 +0530
-Subject: [PATCH v13 07/20] dmaengine: ti: k3-udma: Add variant-specific
- function pointers to udma_dev
+Date: Tue, 24 Nov 2026 17:15:13 +0530
+Subject: [PATCH v13 11/20] dmaengine: ti: k3-udma: move inclusion of
+ k3-udma-private.c to k3-udma-common.c
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,7 +84,7 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261124-dma-upstream-v13-v13-7-bd4251fdc6d4@ti.com>
+Message-Id: <20261124-dma-upstream-v13-v13-11-bd4251fdc6d4@ti.com>
 References: <20261124-dma-upstream-v13-v13-0-bd4251fdc6d4@ti.com>
 In-Reply-To: <20261124-dma-upstream-v13-v13-0-bd4251fdc6d4@ti.com>
 To: Vignesh Raghavendra <vigneshr@ti.com>, Vinod Koul <vkoul@kernel.org>, 
@@ -94,14 +94,13 @@ To: Vignesh Raghavendra <vigneshr@ti.com>, Vinod Koul <vkoul@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>
 Cc: dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
- sebin.francis@ti.com, Sai Sree Kartheek Adivi <s-adivi@ti.com>, 
- Frank Li <Frank.Li@nxp.com>
+ sebin.francis@ti.com, Sai Sree Kartheek Adivi <s-adivi@ti.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795520723; l=10558;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795520724; l=1324;
  i=s-adivi@ti.com; s=20261124; h=from:subject:message-id;
- bh=4M8T7KkPXsvWkJD69g3DX42CQArerjghpVbY6qtdGd4=;
- b=RAFS4XmRc0vojszchHsL5bVx5o7VZTz9ERaO3bRssmW9kwE3KMDrCUhpv/7auXxMlpVav3eSn
- Bju7zI3uCrVDiAAAmQ9/ucCZ6SOC9pwcu1fSnFFe9fg6zvqhFJbyCRq
+ bh=VVeX4J/dXs4ejzP8B+9y6agBzE8c91pMInXbG2KOEqo=;
+ b=G5PdmSp8RSYF5NzncygzFsSMzW67ZfiKQUY+NSuy3NcWVq2sjPmFK/I8ws2RgOSrEUIBFpUdY
+ 7Lus++NIQk1BybdBJ9jnqS4iRSZ5Cy9HruugryauVnPjfDIm63SnK2W
 X-Developer-Key: i=s-adivi@ti.com; a=ed25519;
  pk=EtOwVxmXDuYMgw3DqFtPDBpf8ZvbO89w1fJm4w5yPI8=
 X-Endpoint-Received: by B4 Relay for s-adivi@ti.com/20261124 with
@@ -112,304 +111,40 @@ Content-Transfer-Encoding: 7bit
 
 From: Sai Sree Kartheek Adivi <s-adivi@ti.com>
 
-Introduce function pointers in the udma_dev structure to allow
-variant-specific implementations for certain operations.
-This prepares the driver for supporting multiple K3 UDMA variants,
-such as UDMA v2, with minimal code duplication.
+Relocate the #include directive for k3-udma-private.c from k3-udma.c to
+k3-udma-common.c so that the code can be shared between other UDMA
+variants (like k3-udma-v2). This change improves modularity and
+prepares for variant-specific implementations.
 
-No functional changes intended in this commit.
+No functional changes intended.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
 Signed-off-by: Sai Sree Kartheek Adivi <s-adivi@ti.com>
 ---
- drivers/dma/ti/k3-udma-private.c | 10 ++++--
- drivers/dma/ti/k3-udma.c         | 66 ++++++++++++++++++++++------------------
- drivers/dma/ti/k3-udma.h         | 12 ++++++++
- 3 files changed, 57 insertions(+), 31 deletions(-)
+ drivers/dma/ti/k3-udma-common.c | 3 +++
+ drivers/dma/ti/k3-udma.c        | 2 --
+ 2 files changed, 3 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/dma/ti/k3-udma-private.c b/drivers/dma/ti/k3-udma-private.c
-index 624360423ef17..44c097fff5ee6 100644
---- a/drivers/dma/ti/k3-udma-private.c
-+++ b/drivers/dma/ti/k3-udma-private.c
-@@ -8,13 +8,19 @@
+diff --git a/drivers/dma/ti/k3-udma-common.c b/drivers/dma/ti/k3-udma-common.c
+index 7c44f5dcb117c..ff5c9aedaecf3 100644
+--- a/drivers/dma/ti/k3-udma-common.c
++++ b/drivers/dma/ti/k3-udma-common.c
+@@ -2538,3 +2538,6 @@ EXPORT_SYMBOL_GPL(k3_udma_setup_resources);
  
- int xudma_navss_psil_pair(struct udma_dev *ud, u32 src_thread, u32 dst_thread)
- {
--	return navss_psil_pair(ud, src_thread, dst_thread);
-+	if (ud->psil_pair)
-+		return ud->psil_pair(ud, src_thread, dst_thread);
+ MODULE_DESCRIPTION("Texas Instruments K3 UDMA Common Library");
+ MODULE_LICENSE("GPL v2");
 +
-+	return 0;
- }
- EXPORT_SYMBOL(xudma_navss_psil_pair);
- 
- int xudma_navss_psil_unpair(struct udma_dev *ud, u32 src_thread, u32 dst_thread)
- {
--	return navss_psil_unpair(ud, src_thread, dst_thread);
-+	if (ud->psil_unpair)
-+		return ud->psil_unpair(ud, src_thread, dst_thread);
-+
-+	return 0;
- }
- EXPORT_SYMBOL(xudma_navss_psil_unpair);
- 
++/* Private interfaces to UDMA */
++#include "k3-udma-private.c"
 diff --git a/drivers/dma/ti/k3-udma.c b/drivers/dma/ti/k3-udma.c
-index 2fba734616272..fbcf976d7a668 100644
+index c5de54d2a24a6..8a8e2b5e0f473 100644
 --- a/drivers/dma/ti/k3-udma.c
 +++ b/drivers/dma/ti/k3-udma.c
-@@ -40,7 +40,7 @@ static const char * const mmr_names[] = {
- 	[MMR_TCHANRT] = "tchanrt",
- };
+@@ -2850,5 +2850,3 @@ module_platform_driver(udma_driver);
+ MODULE_DESCRIPTION("Texas Instruments UDMA support");
+ MODULE_LICENSE("GPL v2");
  
--static int navss_psil_pair(struct udma_dev *ud, u32 src_thread, u32 dst_thread)
-+int navss_psil_pair(struct udma_dev *ud, u32 src_thread, u32 dst_thread)
- {
- 	struct udma_tisci_rm *tisci_rm = &ud->tisci_rm;
- 
-@@ -50,8 +50,8 @@ static int navss_psil_pair(struct udma_dev *ud, u32 src_thread, u32 dst_thread)
- 					      src_thread, dst_thread);
- }
- 
--static int navss_psil_unpair(struct udma_dev *ud, u32 src_thread,
--			     u32 dst_thread)
-+int navss_psil_unpair(struct udma_dev *ud, u32 src_thread,
-+		      u32 dst_thread)
- {
- 	struct udma_tisci_rm *tisci_rm = &ud->tisci_rm;
- 
-@@ -329,7 +329,7 @@ static int udma_start(struct udma_chan *uc)
- 	}
- 
- 	/* Make sure that we clear the teardown bit, if it is set */
--	udma_reset_chan(uc, false);
-+	uc->ud->reset_chan(uc, false);
- 
- 	/* Push descriptors before we start the channel */
- 	udma_start_desc(uc);
-@@ -521,8 +521,8 @@ static void udma_check_tx_completion(struct work_struct *work)
- 		if (uc->desc) {
- 			struct udma_desc *d = uc->desc;
- 
--			udma_decrement_byte_counters(uc, d->residue);
--			udma_start(uc);
-+			uc->ud->decrement_byte_counters(uc, d->residue);
-+			uc->ud->start(uc);
- 			vchan_cookie_complete(&d->vd);
- 			break;
- 		}
-@@ -554,7 +554,7 @@ static irqreturn_t udma_ring_irq_handler(int irq, void *data)
- 		}
- 
- 		if (!uc->desc)
--			udma_start(uc);
-+			uc->ud->start(uc);
- 
- 		goto out;
- 	}
-@@ -576,8 +576,8 @@ static irqreturn_t udma_ring_irq_handler(int irq, void *data)
- 				vchan_cyclic_callback(&d->vd);
- 			} else {
- 				if (udma_is_desc_really_done(uc, d)) {
--					udma_decrement_byte_counters(uc, d->residue);
--					udma_start(uc);
-+					uc->ud->decrement_byte_counters(uc, d->residue);
-+					uc->ud->start(uc);
- 					vchan_cookie_complete(&d->vd);
- 				} else {
- 					schedule_delayed_work(&uc->tx_drain.work,
-@@ -612,8 +612,8 @@ static irqreturn_t udma_udma_irq_handler(int irq, void *data)
- 			vchan_cyclic_callback(&d->vd);
- 		} else {
- 			/* TODO: figure out the real amount of data */
--			udma_decrement_byte_counters(uc, d->residue);
--			udma_start(uc);
-+			uc->ud->decrement_byte_counters(uc, d->residue);
-+			uc->ud->start(uc);
- 			vchan_cookie_complete(&d->vd);
- 		}
- 	}
-@@ -1654,7 +1654,7 @@ static int udma_alloc_chan_resources(struct dma_chan *chan)
- 
- 	if (udma_is_chan_running(uc)) {
- 		dev_warn(ud->dev, "chan%d: is running!\n", uc->id);
--		udma_reset_chan(uc, false);
-+		ud->reset_chan(uc, false);
- 		if (udma_is_chan_running(uc)) {
- 			dev_err(ud->dev, "chan%d: won't stop!\n", uc->id);
- 			ret = -EBUSY;
-@@ -1663,7 +1663,7 @@ static int udma_alloc_chan_resources(struct dma_chan *chan)
- 	}
- 
- 	/* PSI-L pairing */
--	ret = navss_psil_pair(ud, uc->config.src_thread, uc->config.dst_thread);
-+	ret = ud->psil_pair(ud, uc->config.src_thread, uc->config.dst_thread);
- 	if (ret) {
- 		dev_err(ud->dev, "PSI-L pairing failed: 0x%04x -> 0x%04x\n",
- 			uc->config.src_thread, uc->config.dst_thread);
-@@ -1718,7 +1718,7 @@ static int udma_alloc_chan_resources(struct dma_chan *chan)
- 	uc->irq_num_ring = 0;
- 	uc->irq_num_udma = 0;
- err_psi_free:
--	navss_psil_unpair(ud, uc->config.src_thread, uc->config.dst_thread);
-+	ud->psil_unpair(ud, uc->config.src_thread, uc->config.dst_thread);
- 	uc->psil_paired = false;
- err_res_free:
- 	udma_free_tx_resources(uc);
-@@ -1821,7 +1821,7 @@ static int bcdma_alloc_chan_resources(struct dma_chan *chan)
- 
- 	if (udma_is_chan_running(uc)) {
- 		dev_warn(ud->dev, "chan%d: is running!\n", uc->id);
--		udma_reset_chan(uc, false);
-+		ud->reset_chan(uc, false);
- 		if (udma_is_chan_running(uc)) {
- 			dev_err(ud->dev, "chan%d: won't stop!\n", uc->id);
- 			ret = -EBUSY;
-@@ -1849,8 +1849,8 @@ static int bcdma_alloc_chan_resources(struct dma_chan *chan)
- 		uc->use_dma_pool = true;
- 	} else if (uc->config.dir != DMA_MEM_TO_MEM) {
- 		/* PSI-L pairing */
--		ret = navss_psil_pair(ud, uc->config.src_thread,
--				      uc->config.dst_thread);
-+		ret = ud->psil_pair(ud, uc->config.src_thread,
-+				    uc->config.dst_thread);
- 		if (ret) {
- 			dev_err(ud->dev,
- 				"PSI-L pairing failed: 0x%04x -> 0x%04x\n",
-@@ -1910,8 +1910,8 @@ static int bcdma_alloc_chan_resources(struct dma_chan *chan)
- 	uc->irq_num_udma = 0;
- err_psi_free:
- 	if (uc->psil_paired)
--		navss_psil_unpair(ud, uc->config.src_thread,
--				  uc->config.dst_thread);
-+		ud->psil_unpair(ud, uc->config.src_thread,
-+				uc->config.dst_thread);
- 	uc->psil_paired = false;
- err_res_free:
- 	bcdma_free_bchan_resources(uc);
-@@ -2014,7 +2014,7 @@ static int pktdma_alloc_chan_resources(struct dma_chan *chan)
- 
- 	if (udma_is_chan_running(uc)) {
- 		dev_warn(ud->dev, "chan%d: is running!\n", uc->id);
--		udma_reset_chan(uc, false);
-+		ud->reset_chan(uc, false);
- 		if (udma_is_chan_running(uc)) {
- 			dev_err(ud->dev, "chan%d: won't stop!\n", uc->id);
- 			ret = -EBUSY;
-@@ -2037,7 +2037,7 @@ static int pktdma_alloc_chan_resources(struct dma_chan *chan)
- 	uc->use_dma_pool = true;
- 
- 	/* PSI-L pairing */
--	ret = navss_psil_pair(ud, uc->config.src_thread, uc->config.dst_thread);
-+	ret = ud->psil_pair(ud, uc->config.src_thread, uc->config.dst_thread);
- 	if (ret) {
- 		dev_err(ud->dev, "PSI-L pairing failed: 0x%04x -> 0x%04x\n",
- 			uc->config.src_thread, uc->config.dst_thread);
-@@ -2083,7 +2083,7 @@ static int pktdma_alloc_chan_resources(struct dma_chan *chan)
- err_irq_free:
- 	uc->irq_num_ring = 0;
- err_psi_free:
--	navss_psil_unpair(ud, uc->config.src_thread, uc->config.dst_thread);
-+	ud->psil_unpair(ud, uc->config.src_thread, uc->config.dst_thread);
- 	uc->psil_paired = false;
- err_res_free:
- 	udma_free_tx_resources(uc);
-@@ -2123,7 +2123,7 @@ static void udma_issue_pending(struct dma_chan *chan)
- 		 */
- 		if (!(uc->state == UDMA_CHAN_IS_TERMINATING &&
- 		      udma_is_chan_running(uc)))
--			udma_start(uc);
-+			uc->ud->start(uc);
- 	}
- 
- 	spin_unlock_irqrestore(&uc->vc.lock, flags);
-@@ -2265,7 +2265,7 @@ static int udma_terminate_all(struct dma_chan *chan)
- 	spin_lock_irqsave(&uc->vc.lock, flags);
- 
- 	if (udma_is_chan_running(uc))
--		udma_stop(uc);
-+		uc->ud->stop(uc);
- 
- 	if (uc->desc) {
- 		uc->terminated_desc = uc->desc;
-@@ -2297,11 +2297,11 @@ static void udma_synchronize(struct dma_chan *chan)
- 			dev_warn(uc->ud->dev, "chan%d teardown timeout!\n",
- 				 uc->id);
- 			udma_dump_chan_stdata(uc);
--			udma_reset_chan(uc, true);
-+			uc->ud->reset_chan(uc, true);
- 		}
- 	}
- 
--	udma_reset_chan(uc, false);
-+	uc->ud->reset_chan(uc, false);
- 	if (udma_is_chan_running(uc))
- 		dev_warn(uc->ud->dev, "chan%d refused to stop!\n", uc->id);
- 
-@@ -2355,7 +2355,7 @@ static void udma_free_chan_resources(struct dma_chan *chan)
- 
- 	udma_terminate_all(chan);
- 	if (uc->terminated_desc) {
--		udma_reset_chan(uc, false);
-+		ud->reset_chan(uc, false);
- 		udma_reset_rings(uc);
- 	}
- 
-@@ -2374,8 +2374,8 @@ static void udma_free_chan_resources(struct dma_chan *chan)
- 
- 	/* Release PSI-L pairing */
- 	if (uc->psil_paired) {
--		navss_psil_unpair(ud, uc->config.src_thread,
--				  uc->config.dst_thread);
-+		ud->psil_unpair(ud, uc->config.src_thread,
-+				uc->config.dst_thread);
- 		uc->psil_paired = false;
- 	}
- 
-@@ -3677,6 +3677,14 @@ static int udma_probe(struct platform_device *pdev)
- 		ud->soc_data = soc->data;
- 	}
- 
-+	// Setup function pointers
-+	ud->start = udma_start;
-+	ud->stop = udma_stop;
-+	ud->reset_chan = udma_reset_chan;
-+	ud->decrement_byte_counters = udma_decrement_byte_counters;
-+	ud->psil_pair = navss_psil_pair;
-+	ud->psil_unpair = navss_psil_unpair;
-+
- 	ret = udma_get_mmrs(pdev, ud);
- 	if (ret)
- 		return ret;
-diff --git a/drivers/dma/ti/k3-udma.h b/drivers/dma/ti/k3-udma.h
-index 1777f0e1f085e..59170714f53cc 100644
---- a/drivers/dma/ti/k3-udma.h
-+++ b/drivers/dma/ti/k3-udma.h
-@@ -349,6 +349,15 @@ struct udma_dev {
- 	u32 psil_base;
- 	u32 atype;
- 	u32 asel;
-+
-+	int (*start)(struct udma_chan *uc);
-+	int (*stop)(struct udma_chan *uc);
-+	int (*reset_chan)(struct udma_chan *uc, bool hard);
-+	void (*decrement_byte_counters)(struct udma_chan *uc, u32 val);
-+	int (*psil_pair)(struct udma_dev *ud, u32 src_thread,
-+			 u32 dst_thread);
-+	int (*psil_unpair)(struct udma_dev *ud, u32 src_thread,
-+			   u32 dst_thread);
- };
- 
- struct udma_desc {
-@@ -586,6 +595,9 @@ int udma_push_to_ring(struct udma_chan *uc, int idx);
- int udma_pop_from_ring(struct udma_chan *uc, dma_addr_t *addr);
- void udma_reset_rings(struct udma_chan *uc);
- 
-+int navss_psil_pair(struct udma_dev *ud, u32 src_thread, u32 dst_thread);
-+int navss_psil_unpair(struct udma_dev *ud, u32 src_thread, u32 dst_thread);
-+
- /* Direct access to UDMA low lever resources for the glue layer */
- int xudma_navss_psil_pair(struct udma_dev *ud, u32 src_thread, u32 dst_thread);
- int xudma_navss_psil_unpair(struct udma_dev *ud, u32 src_thread,
+-/* Private interfaces to UDMA */
+-#include "k3-udma-private.c"
 
 -- 
 2.55.0
