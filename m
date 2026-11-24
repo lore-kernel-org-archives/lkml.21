@@ -1,49 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=52.13.214.179
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795553272;
-	b=QIhoma/NuueNdI0slzfpDW2WwEIrN7OmdhEcI4MTQXs7xvredPksQ30HCJkJu1xEptGQ
-	 emvK1qYniR3SIpwM8PAsVL7vR3yst/R48V1uYeH4V2EZBQD4KPOsXtPMZaUquCkx4vgob
-	 nx7xXIMCwtVnn5rLniRAGPrAV3AzaaoeW6J/5j0wEWv60119uVRm1KkvfL0eLVlD5mDoZ
-	 HhtlKS8LNlwz3Rvde88bYo27n21GJFDMlrEGQZ94RW2nBBSlruD5ge9Mr1yRmfpd0SKut
-	 QSxpjsgQa1RwZfh9NWigBkxQgw40MzGIndXoaDsTIo8Em05iKx1NzhOtAPW2oGocT/A==
+	t=1795553388;
+	b=V5STpDqnEfJNZ4Z7/io+omZdK6q3Fzy40mogspFNyrwrOyckQ2Y7pD8MovA/q5TCt0e2
+	 LVVOUneBs1IYGueB+Yz2Y6newUjYaeagPIvVpU+YRCgWjU+GXwMjz56D1CrdhIdLAexh9
+	 hRX6X4yaVNW+jnxJp/a4g1YCkK5VOg8JNyKM+tEDavKDOUedgUOGrJ/+iT+qhdXLuyL4J
+	 VZLwGiS4YWsg7XnhwGDphGqjWW/cVDFk20BxUXb1yoydJ5aJKuq5AaCOlV1IP/mtoZOJX
+	 LXedx8NY4AbAWrJah6W2F7HGX5eN4jczNiJW9lzpGtv60fPcj9Ui3Ux7aqGDMViaMqw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795553272;
-	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
-	 X-Mailer;
-	bh=72w/uy+f5wWGqnSM2pK+VaVIFbQMfx9mKsgX5oNVoEs=;
-	b=5eZ0zEFBWluFZBxCHkgADJ72qbvl85njxYUYDR67WhxtszVce85hoXidATgw75AOyYBI
-	 gWsG9QGlNKl7wxwabJfC+wl6IqmZ1QDRUhLJwIHxHwiIencrJp0aO3EeQuQUWgd+WpaN5
-	 6bHOW1iMww0kDhkKrOaaqUrFr3VrwM5mlf3nXzaGtZk4qz1MrL0GngppC+6VA7CYjBpIJ
-	 7oCERP056vmU1NgobUcCRKnNNhHV0kNLlqXJSu/6n/cRHyMSjXObDNGjaHRjq8oVvz9OM
-	 ZpWzu7QKpl+RBU79ySOBx2iAmGDdPhBkjtkHSS2T7dTGMREu2rTQhXMInHCDXeUmgaQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795553388;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:Received:Received:X-Farcaster-Flow-ID:Received:Received:
+	 From:To:CC:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding:Content-Type:X-Originating-IP:
+	 X-ClientProxiedBy;
+	bh=aZOxy3IDrLOi1f5Dp27umugLMwQwEKzdDvwJBP8P0fg=;
+	b=d6jTICzEeHpjl0JIgLMjhqPv6bs/LH6RA8NpZ2i16fRxhCF0ZywpWoLJjWW7rSosabqs
+	 a1p2iykIwBvpwrjUd1xzWTj2QIi49jg4o33SenwTHRh79ECTxdmj2eFMgWdEvnsNa/ACF
+	 1iT6DKKnR882JcpIOmnkhBkg5RmYr/JvHiNTmbOVzyH81poUvizgAT7clu0ZtSs3zYYmG
+	 cyd/OkT8rs8o4PdrwpeBaw3yzsPKJdPQuRUPCxPwYDjQyOD9efv4FRUsFCL2KCn0kLdfQ
+	 ZtKwv4wuqr1OTS+NCAw5fiQXieXWiheFf32xnfaeI38kuHZJBWmbyqmWhK6aS0keDtg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dyrsCgOj;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=amazon.com;
+	spf=pass smtp.mailfrom=amazon.com;
+	dkim=pass header.d=amazon.com header.i=@amazon.com header.a=rsa-sha256 header.s=amazoncorp2 header.b="SMUuO/7h";
+	arc=none smtp.remote-ip=52.13.214.179
+Received: from pdx-out-005.esa.us-west-2.outbound.mail-perimeter.amazon.com (pdx-out-005.esa.us-west-2.outbound.mail-perimeter.amazon.com [52.13.214.179])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 087A5606A333;
-	Tue, 24 Nov 2026 20:47:51 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A8E6B606A31E;
+	Tue, 24 Nov 2026 20:49:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A8E6B606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amazon.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=amazon.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dyrsCgOj
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 58B601F000D1;
-	Tue, 24 Nov 2026 20:47:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795553271;
-	bh=72w/uy+f5wWGqnSM2pK+VaVIFbQMfx9mKsgX5oNVoEs=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=dyrsCgOjmuEKWyjNNGk3LuLWLYWbDf6F0GSPWima2dkrHzNmxhnrTCh0zMlI0D79h
-	 j5RuiiJDjxUqBbZs5Xzohl4GI8kAyV0O2AJ+N8ztR2QpgGwyVRcxL7bV1PIsBL8Luu
-	 r2UrtfEZ2BAwIvVO3sKaaJP1dY01M1h0rcZB5v3baUJrn1bdN7zRKgLBn9TiwC9H9s
-	 jFoIGlZs7TtPrfTIhcemvmYJYGwgyHJ3TLxv3j/0epfqHcexFyYc+rrqHjy6xwrL8a
-	 tlvibwVgVXirGb4ttTgMSIfAavEV0jHdv1AzN/nGktyKiUWm6a3aqgZCmaLD3SnR1n
-	 K5AN8iB4CoOgw==
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Date: Tue, 24 Nov 2026 14:46:42 -0600
-Subject: [PATCH v2 9/9] arm64: dts: marvell: ac5-98dx25xx: Rework
- 'behind-32bit-controller' bus
+	dkim=pass (2048-bit key, unprotected) header.d=amazon.com header.i=@amazon.com header.a=rsa-sha256 header.s=amazoncorp2 header.b=SMUuO/7h
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
+  t=1795553387; x=1827089387;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=aZOxy3IDrLOi1f5Dp27umugLMwQwEKzdDvwJBP8P0fg=;
+  b=SMUuO/7hyDGMjebWkVlFB9qja2A0+AoniVYOH0S+R8pvJzgzBWP18OtK
+   zVjs587XAWwGKwQANswYzJcxROzbkaV4Y4EERBKXdbTuGqY0mPu33m7Zx
+   irPpOF0MW53R9vfV7W1C8Fm0S+mAS6MVJz4OlvmwnvjD6TJ0Lx31d1XUE
+   HTQqtDbHm43m4eF2PJvKTGYilcTleZbcqzLwwdfxrkC1WfNQWuR6WCPoV
+   iiZ+i6bA/ga3uT8ugeZlgL2Piwj6N8QBy2OAzFyc+jTqSKkPr4pPcXNKO
+   jHVHettnNJJupEjJ8Oqh828POT256+EjsGYpQQunw7fil23YdS3OIf9LP
+   Q==;
+X-CSE-ConnectionGUID: jm7m2KLtTyyolTeZiPjZXA==
+X-CSE-MsgGUID: i0WwmFTtS5iYMjGreeTecw==
+X-IronPort-AV: E=Sophos;i="6.27,231,1787011200"; 
+   d="scan'208";a="34997886"
+Received: from ip-10-5-6-203.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.6.203])
+  by internal-pdx-out-005.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 20:49:45 +0000
+Received: from EX19MTAUWC002.ant.amazon.com [205.251.233.111:25607]
+ by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.27.12:2525] with esmtp (Farcaster)
+ id fd423222-3303-469a-bd87-676a79badd10; Tue, 24 Nov 2026 20:49:44 +0000 (UTC)
+X-Farcaster-Flow-ID: fd423222-3303-469a-bd87-676a79badd10
+Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
+ EX19MTAUWC002.ant.amazon.com (10.250.64.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.57;
+ Tue, 24 Nov 2026 20:49:44 +0000
+Received: from dev-dsk-surenkj-2b-416930d2.us-west-2.amazon.com (10.169.26.94)
+ by EX19D001UWA001.ant.amazon.com (10.13.138.214) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.57;
+ Tue, 24 Nov 2026 20:49:44 +0000
+From: Surendran Kanagaraj <surenkj@amazon.com>
+To: <jarkko@kernel.org>
+CC: <corbet@lwn.net>, <graf@amazon.de>, <gunnarku@amazon.com>, <jgg@ziepe.ca>,
+	<joshlev@amazon.com>, <leitao@debian.org>, <linux-doc@vger.kernel.org>,
+	<linux-integrity@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<nh-open-source@amazon.com>, <noodles@earth.li>, <peterhuewe@gmx.de>,
+	<rdunlap@infradead.org>, <skhan@linuxfoundation.org>, <surenkj@amazon.com>
+Subject: Re: [RFC PATCH v4 4/8] tpm: Bound core and CRB waits by the limits table
+Date: Tue, 24 Nov 2026 20:49:41 +0000
+Message-ID: <20261124204941.18416-1-surenkj@amazon.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <awA7ns3kfuOBanxW@kernel.org>
+References: <awA7ns3kfuOBanxW@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,226 +87,37 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261124-dtbs-marvell-v2-9-663009a769da@kernel.org>
-References: <20261124-dtbs-marvell-v2-0-663009a769da@kernel.org>
-In-Reply-To: <20261124-dtbs-marvell-v2-0-663009a769da@kernel.org>
-To: Lee Jones <lee@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Andrew Lunn <andrew@lunn.ch>, 
- Gregory Clement <gregory.clement@bootlin.com>, 
- Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>
-Cc: mfd@lists.linux.dev, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-X-Mailer: b4 0.16-dev
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: EX19D031UWC004.ant.amazon.com (10.13.139.246) To
+ EX19D001UWA001.ant.amazon.com (10.13.138.214)
 
-The 'behind-32bit-controller@7f000000' node doesn't follow
-standard naming and overlaps with the 'bus@7f000000' node address. The
-reason for the 2 buses was separating the DMA capable blocks which need
-'dma-ranges' translation, but there's no reason that needs to be a
-separate bus. Merge the nodes in 'behind-32bit-controller@7f000000' to
-the 'bus@7f000000' node. Doing this requires increasing the
-'#address-cells' and '#size-cells'.
+Hi Jarkko,
+Thanks for the review.
 
-Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
----
-v2:
- - New patch
----
- arch/arm64/boot/dts/marvell/ac5-98dx25xx.dtsi | 101 +++++++++++---------------
- 1 file changed, 44 insertions(+), 57 deletions(-)
+On Fri, Nov 20, 2026 at 02:22:54PM +0200, Jarkko Sakkinen wrote:
+> On Wed, Nov 18, 2026 at 07:38:48AM +0000, Surendran Kanagaraj wrote:
+> > Polls in tpm_try_transmit() still use fixed 1 ms sleeps and
+> > tpm_transmit() stops retrying once the next backoff would pass
+> > TPM2_DURATION_LONG and tpm_crb always waits TPM2_TIMEOUT_C.
+> > A value set through ->adjust_limits() reaches neither the retry
+> > loop nor the crb waits.
+> >
+> > [...]
+> > ---
+> >  drivers/char/tpm/tpm-interface.c | 57 +++++++++++++-------------
+> >  drivers/char/tpm/tpm-limits.c    | 19 +++++++++
+> >  drivers/char/tpm/tpm.h           |  2 +-
+> >  drivers/char/tpm/tpm_crb.c       | 70 +++++++++++++++++---------------
+> >  4 files changed, 87 insertions(+), 61 deletions(-)
+> >
+> > [...]
+>
+> Is it possible to slice this to more intermediate steps, or not?
 
-diff --git a/arch/arm64/boot/dts/marvell/ac5-98dx25xx.dtsi b/arch/arm64/boot/dts/marvell/ac5-98dx25xx.dtsi
-index 4878773883c9..13aa557c8571 100644
---- a/arch/arm64/boot/dts/marvell/ac5-98dx25xx.dtsi
-+++ b/arch/arm64/boot/dts/marvell/ac5-98dx25xx.dtsi
-@@ -79,16 +79,17 @@ soc {
- 		ranges;
- 
- 		bus@7f000000 {
--			#address-cells = <1>;
--			#size-cells = <1>;
-+			#address-cells = <2>;
-+			#size-cells = <2>;
- 			compatible = "simple-bus";
- 			/* 16M internal register @ 0x7f00_0000 */
--			ranges = <0x0 0x0 0x7f000000 0x1000000>;
-+			ranges = <0x0 0x0 0x0 0x7f000000 0x0 0x1000000>;
-+			dma-ranges = <0x0 0x0 0x2 0x0 0x1 0x0>;
- 			dma-coherent;
- 
- 			uart0: serial@12000 {
- 				compatible = "snps,dw-apb-uart";
--				reg = <0x12000 0x100>;
-+				reg = <0x0 0x12000 0x0 0x100>;
- 				reg-shift = <2>;
- 				interrupts = <GIC_SPI 83 IRQ_TYPE_LEVEL_HIGH>;
- 				reg-io-width = <1>;
-@@ -98,7 +99,7 @@ uart0: serial@12000 {
- 
- 			uart1: serial@12100 {
- 				compatible = "snps,dw-apb-uart";
--				reg = <0x12100 0x100>;
-+				reg = <0x0 0x12100 0x0 0x100>;
- 				reg-shift = <2>;
- 				interrupts = <GIC_SPI 84 IRQ_TYPE_LEVEL_HIGH>;
- 				reg-io-width = <1>;
-@@ -108,7 +109,7 @@ uart1: serial@12100 {
- 
- 			uart2: serial@12200 {
- 				compatible = "snps,dw-apb-uart";
--				reg = <0x12200 0x100>;
-+				reg = <0x0 0x12200 0x0 0x100>;
- 				reg-shift = <2>;
- 				interrupts = <GIC_SPI 85 IRQ_TYPE_LEVEL_HIGH>;
- 				reg-io-width = <1>;
-@@ -118,7 +119,7 @@ uart2: serial@12200 {
- 
- 			uart3: serial@12300 {
- 				compatible = "snps,dw-apb-uart";
--				reg = <0x12300 0x100>;
-+				reg = <0x0 0x12300 0x0 0x100>;
- 				reg-shift = <2>;
- 				interrupts = <GIC_SPI 86 IRQ_TYPE_LEVEL_HIGH>;
- 				reg-io-width = <1>;
-@@ -126,17 +127,9 @@ uart3: serial@12300 {
- 				status = "disabled";
- 			};
- 
--			mdio: mdio@22004 {
--				#address-cells = <1>;
--				#size-cells = <0>;
--				compatible = "marvell,orion-mdio";
--				reg = <0x22004 0x4>;
--				clocks = <&cnm_clock>;
--			};
--
- 			i2c0: i2c@11000 {
- 				compatible = "marvell,mv78230-i2c";
--				reg = <0x11000 0x20>;
-+				reg = <0x0 0x11000 0x0 0x20>;
- 				#address-cells = <1>;
- 				#size-cells = <0>;
- 
-@@ -155,7 +148,7 @@ i2c0: i2c@11000 {
- 
- 			i2c1: i2c@11100 {
- 				compatible = "marvell,mv78230-i2c";
--				reg = <0x11100 0x20>;
-+				reg = <0x0 0x11100 0x0 0x20>;
- 				#address-cells = <1>;
- 				#size-cells = <0>;
- 
-@@ -174,7 +167,7 @@ i2c1: i2c@11100 {
- 
- 			gpio0: gpio@18100 {
- 				compatible = "marvell,orion-gpio";
--				reg = <0x18100 0x40>;
-+				reg = <0x0 0x18100 0x0 0x40>;
- 				ngpios = <32>;
- 				gpio-controller;
- 				#gpio-cells = <2>;
-@@ -189,7 +182,7 @@ gpio0: gpio@18100 {
- 			};
- 
- 			gpio1: gpio@18140 {
--				reg = <0x18140 0x40>;
-+				reg = <0x0 0x18140 0x0 0x40>;
- 				compatible = "marvell,orion-gpio";
- 				ngpios = <14>;
- 				gpio-controller;
-@@ -201,44 +194,6 @@ gpio1: gpio@18140 {
- 				interrupts = <GIC_SPI 79 IRQ_TYPE_LEVEL_HIGH>,
- 					     <GIC_SPI 80 IRQ_TYPE_LEVEL_HIGH>;
- 			};
--		};
--
--		mmc_dma: bus@80500000 {
--				compatible = "simple-bus";
--				ranges;
--				#address-cells = <0x2>;
--				#size-cells = <0x2>;
--				reg = <0x0 0x80500000 0x0 0x100000>;
--				dma-ranges = <0x0 0x0 0x2 0x0 0x0 0x80000000>;
--				dma-coherent;
--
--				sdhci: mmc@805c0000 {
--					compatible = "marvell,ac5-sdhci",
--						     "marvell,armada-ap806-sdhci";
--					reg = <0x0 0x805c0000 0x0 0x1000>;
--					interrupts = <GIC_SPI 92 IRQ_TYPE_LEVEL_HIGH>;
--					clocks = <&emmc_clock>, <&cnm_clock>;
--					clock-names = "core", "axi";
--					bus-width = <8>;
--					non-removable;
--					mmc-ddr-1_8v;
--					mmc-hs200-1_8v;
--					mmc-hs400-1_8v;
--				};
--		};
--
--		/*
--		 * Dedicated section for devices behind 32bit controllers so we
--		 * can configure specific DMA mapping for them
--		 */
--		behind-32bit-controller@7f000000 {
--			compatible = "simple-bus";
--			#address-cells = <0x2>;
--			#size-cells = <0x2>;
--			ranges = <0x0 0x0 0x0 0x7f000000 0x0 0x1000000>;
--			/* Host phy ram starts at 0x200M */
--			dma-ranges = <0x0 0x0 0x2 0x0 0x1 0x0>;
--			dma-coherent;
- 
- 			eth0: ethernet@20000 {
- 				compatible = "marvell,armada-ac5-neta";
-@@ -249,6 +204,14 @@ eth0: ethernet@20000 {
- 				status = "disabled";
- 			};
- 
-+			mdio: mdio@22004 {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+				compatible = "marvell,orion-mdio";
-+				reg = <0x0 0x22004 0x0 0x4>;
-+				clocks = <&cnm_clock>;
-+			};
-+
- 			eth1: ethernet@24000 {
- 				compatible = "marvell,armada-ac5-neta";
- 				reg = <0x0 0x24000 0x0 0x4000>;
-@@ -273,6 +236,30 @@ usb1: usb@a0000 {
- 			};
- 		};
- 
-+		mmc_dma: bus@80500000 {
-+				compatible = "simple-bus";
-+				ranges;
-+				#address-cells = <0x2>;
-+				#size-cells = <0x2>;
-+				reg = <0x0 0x80500000 0x0 0x100000>;
-+				dma-ranges = <0x0 0x0 0x2 0x0 0x0 0x80000000>;
-+				dma-coherent;
-+
-+				sdhci: mmc@805c0000 {
-+					compatible = "marvell,ac5-sdhci",
-+						     "marvell,armada-ap806-sdhci";
-+					reg = <0x0 0x805c0000 0x0 0x1000>;
-+					interrupts = <GIC_SPI 92 IRQ_TYPE_LEVEL_HIGH>;
-+					clocks = <&emmc_clock>, <&cnm_clock>;
-+					clock-names = "core", "axi";
-+					bus-width = <8>;
-+					non-removable;
-+					mmc-ddr-1_8v;
-+					mmc-hs200-1_8v;
-+					mmc-hs400-1_8v;
-+				};
-+		};
-+
- 		pinctrl0: pinctrl@80020100 {
- 			compatible = "marvell,ac5-pinctrl";
- 			reg = <0 0x80020100 0 0x20>;
+Yes. I will split the changes in the next rev:
+- tpm_try_transmit() and tpm_transmit() changes to use the limits table
+- tpm_crb driver waits to use the limits table
 
--- 
-2.53.0
-
+Thanks,
+Surendran
