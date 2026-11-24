@@ -1,107 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.179
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.16
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795510231;
-	b=YsNgTVWicshDcfJW064n+saj9kvC90RUAIRhFDo6W3V4gA/KebPWeQt9/aDK2qrm30VV
-	 BaAbOo37Wkr7wzbgWBwJI6j5SUTNQuGEQnl7dyJAB9KNd5us/N85/+HDc6+ruUzdccZAd
-	 kA59saihFZuCuufriELta2UUpoQ4hoe6P+2wPMT7JeTXJgVgtH8qVqCCsxaJS+Ngupp8Z
-	 fof6FFaEyuyblFg7kebN4oXz6RVDimt6j3Ubyexi/S+1Z9115EadZ0hcosAaIxbylLikG
-	 FxVbQtUBUb+2a1CQheNdSFyqMwRMtxWRuO97UMxGTgO7DTF3oEwORZ/EBDAI3K1R8mw==
+	t=1795510239;
+	b=sJ0Q/kpV1v0P3MJaOmDNlkQ9GgijaLJU+SKPrW+LK5pCpIZwcfUFBf/02lxTCVTzUyGI
+	 gmNrQ249OqUUB5PcUcMOEyDKfDufkugH7MLtO8G+lSYt7/7yKfVCT7/wscoOdQQeBj7n4
+	 7h/FPMWKjStr2W9+/TRX64gRVgCbSNcwuX5iy7qpwuxO56XFfS7AJbCxmrbtYf/vi/GNi
+	 FmiF6ENyc8eSgva506tv1NDLaQgPOiPiMqitwBuB1Wcrk6DIabz1r+isyI0mmlRbwCfKm
+	 XSb7hDwGqLT5e/Lw8W04GDMtSB7k49zq9EpGI+qjRUBOrIaES8ef0zGUw1rmPdYvt0g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795510231;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Content-Type:Date:Message-Id:Subject:From:To:Cc:In-Reply-To:
-	 References:MIME-Version:Content-Transfer-Encoding:X-Correlation-ID;
-	bh=Ytx/MmCKq4L7Gfy8rXv0iAOzT1xtWn9s97+5u9XXrhk=;
-	b=2puHaQsluRp0DlDiPQlZ1zjBAsX/Ni2txwfL7xFcp/M9mx3fNEWIl2akIevGOF5sUjdk
-	 ejwgAHO0J4PGX/sADwrWrASFuflY+ur6uiSS1GUzpS2TsyMZHOKsEwor8GU4YRqfJokLD
-	 I/ylG0ds+M82KzMUdnKQ8Ac6iIS/FbGPoe0xSh5+dZb2sfnzVQ/XExJpepB3k4t5RGV8V
-	 50McWV6JzvckEwZyWWHi9OvD/Rsoer8I2k8MUf2VyXq5w/9ddJkG66bPaEbztdW4zivvD
-	 NDO9jr8TIpkLBX4JlPPNJYDKQEpKhwn+XTypfvlGG6G4y4o8NkCzG/G9IzNo/mKZ5ug==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795510239;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
+	 Date:Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=pZxSNV99eQQD7nI0RHK3EiKTCxoH4Q/YUIR/xnmC9yM=;
+	b=kXAF+ZinQoz2Aq5FJ7O7sgDz7cOBv81/CO12cSmfH7Rb9oTw+ZTe6PMl7Y3drjLsua1W
+	 IMR+Ba+pVBXV5ikBGeebRh9MWH3+0e1hQBmeCYmTB5srnjvfSS3SwJIfyTccOYYCVOtfH
+	 OVOr5veMcmbHEsiCoR1stHes15+1u62qR4tZG1LZmy+c8hxpv8s9yvVqQqiot2advRxzn
+	 l2XPKAOYBk1BESGvvCoazstYlbKT93ao/uEe/hJ5fcJjSuVhU5+pD27+OBCMQZONzOXYk
+	 O4MoVoT+Yk6VaoYmRfoneQ2eCqcRDksY15zZ9LCvYn05Cqc3H8HeJZOTz+E4x3oBXZw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=IwghTiG1;
-	arc=none smtp.remote-ip=209.85.214.179
-Received: from mail-pl1-f179.google.com (mail-pl1-f179.google.com [209.85.214.179])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b="Biz/pg0z";
+	arc=none smtp.remote-ip=192.198.163.16
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.16])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A654A606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 08:50:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A654A606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8F997606A321;
+	Tue, 24 Nov 2026 08:50:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8F997606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=IwghTiG1
-Received: by mail-pl1-f179.google.com with SMTP id d9443c01a7336-2f05b465cd1so20104595ad.3
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 00:50:30 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795510230; x=1796115030; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to:cc:to
-         :from:subject:message-id:date:content-type:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Ytx/MmCKq4L7Gfy8rXv0iAOzT1xtWn9s97+5u9XXrhk=;
-        b=IwghTiG1toayCj+xAgXK+k7p1cSV2MCa+Uh7VOhYwrBfMiEnGgj4R1SOZ2YePkWuTc
-         MbW1zL6qvozZ64o0mUz1nYj+fb14MAiqrC27FUOBPpI/cUTF5OuDKxqIYzyYeLKzRREt
-         2kCkUzFyn/3v28hWN2TK14tfcvCwIa7S4V2IIz0+wQC4TBQBDmsermQN4UJcrx6rvmNn
-         3/8EAkX6z6f/OcFNpD6sl61nEAfMG+Cn7o3TLFbJSysmk5yloxbhfyhRTOtKJworbsI2
-         kSzvraXhHu9f5uQpVccYhvXqnpMImKthFTZhjpLF8YOFlrn9HJvNREJIS4dgqHA0ZxQS
-         k6zA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795510230; x=1796115030;
-        h=content-transfer-encoding:mime-version:references:in-reply-to:cc:to
-         :from:subject:message-id:date:content-type:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Ytx/MmCKq4L7Gfy8rXv0iAOzT1xtWn9s97+5u9XXrhk=;
-        b=y8wYzkq9iek00pP1Bks2Aw2Jgen1admTL0WngCEaEgokWE3oaAqHZuPpv6M4OrogEg
-         EEqCgHbdcdFhc4k/CtdLQJTXlTh2/5UjPbht1AzxIRjqZ6CESk3sJ1bta7zmIqvwlNFR
-         By4us6k20YUlRee9AVTSGVKH0h3vcZUJSrJKTRypKrrJf5bj7W0aUKyskKJe7YbMfIPz
-         XpiEoe8TH0uTohb0EwTojWI84jQVoCouxYB1FpJfA1fExMFRkGa7yB1k/KfdGtVMQalz
-         T90rg9Kcj0MPkGQW+HquIk0O2l2qskhwma1KK3SEDEh8Fh4aw4VSsZovwcJxpSaA18li
-         GC/g==
-X-Forwarded-Encrypted: i=1; AL+hErF06HU0XUweQexD9wjT/+0NOl5hEUDE1rK9v8gwEe4s5Ng76PmTkJQu6mQuIlAL94z8ZUpd5m3LTNdkcBY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9+Winta9a3mTzQ+BSgWr3GOstqrAe/6KX9cbL/7CiNfTD6+JOv
-	9i2q1LNCp41t6GicmXWaQx8uumVJ6wD7q/xaonLAPtvjCHC/3Wkp/ISb
-X-Gm-Gg: AZFdTZfFRhrPpOPttvKk2Vsyu0c2bQy7vqu9ETE+Znji8QmnPpIpGytZndblLz3BKdV
-	rKd9YorTHFLSZ65vBVeO55KMjYy/19yFpHkGUXGRG+qWotmDOccXPQ/8fB0d8X85eBe4auZVSqs
-	rpDHD4ddDirSWAIHGVvrDdMBQ/HLMbnRZ7xFk0wiovzMU+sx+hg4r4Pf7kKKGTDVMMOuffakKrA
-	j1ZjOBGZanWBeLBzm7l4NPRgf0Nc39nVrbt6dFwAfO+kIDcvGjC03RrY3PBi8HNKesVcZ3l63Le
-	Q1kXpV27sZncy3b2S8q0MTYWCzg4Gwu2nAUm6XfSxBkmpWO7nA4OuwE4oYtXuxpjHfSZ95kAK4w
-	xtS8ENPKEo+G9qwB9USe5HvFfuc93DM1H97GEkzFOMwt3B87Jj/qW/vqjKdHLF73XApIOQSbiEI
-	KdwgYaUWAPP4hOtj6QtDHW8BuObzJQ/xVLc3y/6bGdHsQOtr/WFP1DoPWMLZ2eDScfTtZaud7uN
-	7t6ZXlQE68qIhmIY43resqFLJnw5CATuGI/xs0SR92/rmda7Ke/rs1lxMheKxv0aEV2tam2Quvn
-	psUu0erUFr7MVUSBNk3MdrclTA==
-X-Received: by 2002:a17:902:d54f:b0:2ed:21fb:e762 with SMTP id d9443c01a7336-2f03f118afdmr122301645ad.12.1795510229878;
-        Tue, 24 Nov 2026 00:50:29 -0800 (PST)
-Received: from localhost ([2001:8004:1ee0:986a:826:47b4:7374:22bb])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f146b84sm65630815ad.71.2026.11.24.00.50.18
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 24 Nov 2026 00:50:29 -0800 (PST)
-Content-Type: text/plain; charset=UTF-8
-Date: Tue, 24 Nov 2026 16:50:16 +0800
-Message-Id: <DN3B92I0MGTB.BJYABJ1HG9XS@gmail.com>
-Subject: Re: [PATCH 1/4] platform/x86: clevo-laptop: add minimal WMI driver
- skeleton and Kbuild plumbing
-From: "Nick Dowsett" <nick42d@gmail.com>
-To: "Werner Sembach" <wse@tuxedocomputers.com>, <nick42d@gmail.com>, "Hans
- de Goede" <hansg@kernel.org>, =?utf-8?q?Ilpo_J=C3=A4rvinen?=
- <ilpo.jarvinen@linux.intel.com>, "Miguel Ojeda" <ojeda@kernel.org>, "Boqun
- Feng" <boqun@kernel.org>, "Gary Guo" <gary@garyguo.net>,
- =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, "Benno Lossin"
- <lossin@kernel.org>, "Andreas Hindborg" <a.hindborg@kernel.org>, "Alice
- Ryhl" <aliceryhl@google.com>, "Trevor Gross" <tmgross@umich.edu>, "Danilo
- Krummrich" <dakr@kernel.org>, "Daniel Almeida"
- <daniel.almeida@collabora.com>, "Tamir Duberstein" <tamird@kernel.org>,
- "Alexandre Courbot" <acourbot@nvidia.com>, =?utf-8?q?Onur_=C3=96zkan?=
- <work@onurozkan.dev>
-Cc: "Armin Wolf" <W_Armin@gmx.de>, <linux-kernel@vger.kernel.org>,
- <platform-driver-x86@vger.kernel.org>, <rust-for-linux@vger.kernel.org>
-In-Reply-To: <b5f96ec9-ee4c-44c8-8451-9f40bed43290@tuxedocomputers.com>
-References: <20261122-clevo-laptop-v1-0-881debf4d4b0@gmail.com>
- <20261122-clevo-laptop-v1-1-881debf4d4b0@gmail.com>
- <b5f96ec9-ee4c-44c8-8451-9f40bed43290@tuxedocomputers.com>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Biz/pg0z
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795510239; x=1827046239;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=1fRo1a0dLF78exZbhSV0DUhDGiKNw/pnDJfveyQyjwE=;
+  b=Biz/pg0zXhr0rqvxPk70aC09U5BQGC2qXZp1SO14lVnJ6JWwgjUHj3dt
+   VndP/txLFUfDHYCOU0VcTDW+Ks/wWluW26YilDtMxET6J+W690zTzOdL9
+   PcxQCAAIACDt8SXAG9gs9FcpDPxBiRXPNA8/3tvKRKsHX1Swv4UGV1F7V
+   IbDvhjNyuEyimt/8BfYEsMLZABALyVrSM+cu+U2/kcLMtkopx1YamNKXa
+   qp6ntOyCisUwHgZTXxkgDTLLg8HxVdA42eMGntDlPPPF6HdgpEoEXLAKh
+   JtYhApbiG9MhS5yswfR95Vl90BjUCifo1IfYiABG8ff9SqatJU4IouNG0
+   Q==;
+X-CSE-ConnectionGUID: 1dLKM7FvQZqnpCEEHmq5Wg==
+X-CSE-MsgGUID: wILnpVV2R+W0K7eKMnngIw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11975"; a="4377196"
+X-IronPort-AV: E=Sophos;i="6.27,230,1787036400"; 
+   d="scan'208";a="4377196"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 00:46:36 -0800
+X-CSE-ConnectionGUID: Leh/wT4iSS2fbKldD79aCQ==
+X-CSE-MsgGUID: qYBeCo/5QjSHPyzSn0XYww==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,230,1787036400"; 
+   d="scan'208";a="11892453"
+Received: from ubu2204-pxg.bj.intel.com ([10.238.152.105])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 00:46:34 -0800
+From: Xiange Pi <xiange.pi@intel.com>
+To: Kees Cook <kees@kernel.org>,
+	Alexander Viro <viro@zeniv.linux.org.uk>,
+	Christian Brauner <brauner@kernel.org>
+Cc: Jan Kara <jack@suse.cz>,
+	linux-mm@kvack.org,
+	linux-fsdevel@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] exec: annotate lockless tsk->comm update with data_race()
+Date: Tue, 24 Nov 2026 16:38:48 +0800
+Message-Id: <20261124083848.1430527-1-xiange.pi@intel.com>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -111,73 +81,73 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-Correlation-ID: <DN30VXQ0GPTS.KZ91F75HTGGQ@gmail.com>
+Content-Transfer-Encoding: 8bit
 
-On Mon Nov 23, 2026 at 10:12 PM AWST, Werner Sembach wrote:
->> diff --git a/drivers/platform/x86/Kconfig b/drivers/platform/x86/Kconfig
->> index 9ce384e0475e..18aa4550c9f4 100644
->> --- a/drivers/platform/x86/Kconfig
->> +++ b/drivers/platform/x86/Kconfig
->> @@ -1059,6 +1059,23 @@ config OXP_EC
->> =C2=A0
->> =C2=A0 source "drivers/platform/x86/tuxedo/Kconfig"
->> =C2=A0
->> +config CLEVO_LAPTOP
->> +=C2=A0=C2=A0 tristate "Clevo Laptop Platform Driver"
->> +=C2=A0=C2=A0 depends on RUST
->> +=C2=A0=C2=A0 depends on ACPI_WMI=3Dy
->> +=C2=A0=C2=A0 depends on DMI
->> +=C2=A0=C2=A0 depends on LEDS_CLASS
->> +=C2=A0=C2=A0 help
->> +=C2=A0=C2=A0=C2=A0=C2=A0 This driver provides platform support for Clev=
-o barebones and
->> +=C2=A0=C2=A0=C2=A0=C2=A0 rebranded laptops (Tuxedo, Metabox, Sager, XMG=
-, etc.).
->> +=C2=A0=C2=A0=C2=A0=C2=A0 Currently only Clevo NLx0AU boards (e.g. Metab=
-ox Edge NL57AU)
->> +=C2=A0=C2=A0=C2=A0=C2=A0 with a 5-step white keyboard backlight are sup=
-ported over WMI.
->> +=C2=A0=C2=A0=C2=A0=C2=A0 It is intended to be extended with additional =
-Clevo models and
->> +=C2=A0=C2=A0=C2=A0=C2=A0 EC features over time.
->> +
->> +=C2=A0=C2=A0=C2=A0=C2=A0 To compile this driver as a module, choose M h=
-ere: the module
->> +=C2=A0=C2=A0=C2=A0=C2=A0 will be called clevo-laptop.
->> +
->=20
-> TUXEDO is officially all caps.
->=20
-> Technically all clevo barebones are rebranded and it is sometimes more th=
-en just
-> rebranding.
->=20
-> Maybe just drop everything behind the "and".
+KCSAN reports a data race between prctl(PR_SET_NAME) and a lockless
+reader of tsk->comm such as the sched_stat_runtime tracepoint:
 
-No concerns from my side, happy to amend this in v2. Please have a think
-also about how you would like code license attributed to TUXEDO.
+ BUG: KCSAN: data-race in __set_task_comm / strlen
 
->> +impl kernel::InPlaceModule for ClevoLaptopModule {
->> +=C2=A0=C2=A0=C2=A0 fn init(module: &'static ThisModule) -> impl PinInit=
-<Self, Error> {
->> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 pin_init::pin_init_scope(mov=
-e || {
->> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 if d=
-mi::get_system_info(dmi::Field::BoardName)
->> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0 .is_none_or(|board| !SUPPORTED_BOARDS.contains(&board=
-))
->=20
-> We most likely need more complex matching here in the future.
->=20
-> Is dmi_system_id table matching available in rust for the linux kernel?
+ read to 0xffff88800d1787d8 of 1 bytes by task 3929 on cpu 1:
+  strlen+0x19/0x40
+  trace_event_raw_event_sched_stat_runtime+0x5a/0x150
+  update_se+0x14f/0x3b0
+  ...
+ write to 0xffff88800d1787d8 of 10 bytes by task 3417 on cpu 0:
+  __set_task_comm+0x78/0x180
+  __se_sys_prctl+0xcb3/0x13b0
 
-Not currently, but I believe this would be a relatively straightforward
-binding to write if needed, or it may even be idiomatic to write the
-complex matching directly in this driver since Rust makes iteration
-and string matching simpler. I'd consider this out-of-scope for the MVP
-unless you have some other tested boards with the same requirements as
-the NLx0AU.
+The race is benign by design: since commit 3a3f61ce5e0b ("exec: Make
+sure task->comm is always NUL-terminated") the last byte of comm is
+never overwritten with a non-NUL value, so lockless readers see at worst
+a mix of old and new name. Annotate the writes in __set_task_comm()
+with data_race() to tell KCSAN that the lockless access is intentional.
+As nearly all updates of comm go through this function, this covers the
+lockless readers without having to annotate each of them.
 
-Cheers Nick
+Reported-by: syzbot+98baf51f5cc36dcbe2f7@syzkaller.appspotmail.com
+Closes: https://syzkaller.appspot.com/bug?extid=98baf51f5cc36dcbe2f7
+Signed-off-by: Xiange Pi <xiange.pi@intel.com>
+---
+Test environment:
+  - Baseline: torvalds/linux.git (git://git.kernel.org/pub/scm/linux/
+    kernel/git/torvalds/linux.git) commit fc1c25014ff8, with and
+    without this patch
+  - Kernel config: the .config provided on the syzbot bug page
+    (CONFIG_KCSAN=y)
+  - Method: QEMU guest, running syz-execprog and syz-executor with the
+    reproducer in the background, plus a script that enables the
+    sched_stat_runtime tracepoint
+  - Without the patch: "KCSAN: data-race in __set_task_comm / strlen"
+    reproduced in every run
+  - With the patch: not reproduced in 10 out of 10 runs
+
+ fs/exec.c | 12 ++++++++++--
+ 1 file changed, 10 insertions(+), 2 deletions(-)
+
+diff --git a/fs/exec.c b/fs/exec.c
+index a5269b5e00df..4b03bb2fcb95 100644
+--- a/fs/exec.c
++++ b/fs/exec.c
+@@ -1100,8 +1100,16 @@ void __set_task_comm(struct task_struct *tsk, const char *buf, bool exec)
+ 	size_t len = strnlen(buf, sizeof(tsk->comm) - 1);
+ 
+ 	trace_task_rename(tsk, buf);
+-	memcpy(tsk->comm, buf, len);
+-	memset(&tsk->comm[len], 0, sizeof(tsk->comm) - len);
++	/*
++	 * tsk->comm is read locklessly by many users (e.g. tracepoints,
++	 * printk). comm[TASK_COMM_LEN - 1] is never written with a non-NUL
++	 * byte, so concurrent readers see a bounded, NUL-terminated string;
++	 * at worst a mix of the old and new name. Mark the update as
++	 * intentionally racy.
++	 */
++	data_race(memcpy(tsk->comm, buf, len));
++	/* Same as above: lockless readers tolerate a partially updated comm. */
++	data_race(memset(&tsk->comm[len], 0, sizeof(tsk->comm) - len));
+ 	perf_event_comm(tsk, exec);
+ }
+ 
+-- 
+2.43.0
+
