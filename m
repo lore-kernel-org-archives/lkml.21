@@ -1,100 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.173
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.54
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795554304;
-	b=m8A2hc6icSsJpAoJgnFnqpQNN1b/bnWh9g0fQEla0NskeumquLbKFpXM3zrHS+Sa7GHL
-	 d5QoOdt/aC6BtfdDjR3BZZWyNGndeUNeHC9nhHZEqnwBxdm3sNcR/HBMJd6FBLEFuYkDa
-	 yoC93UruVQlZb8dUFNKlCQxPFcyXVYZa6I6iiZddfImfYiqrUJgtDJI/sYRk5xxbofddl
-	 oLJOOCsb+OklRuKO5L9urJiR+iNF+LAoMVkjOoUqALxGpS8udZ54YMhXA7ckHHoiwXxgH
-	 qTpx8rgyoZiETg0x+dIXXQoNAOf2RRxINdIugicoyMMxbNDc36Adv/UJlezikxp1ryA==
+	t=1795554310;
+	b=gOv+dz7l297cS6quZPRF7OAX9aK7wmyA8zfAOBD7oYZTZB2jR2+7XYgY0PdvRIALwcua
+	 AGjLyB7nsEwiqq8f5GBNPPwCDvFpZD3YCXWVE8yaVHsrJuQEzY9a/9LXqRc4Z3tsQoPlv
+	 6oQqDuIiTWTNY0qs8nQ9Lo2KT1KLG9+ZOlOeJeBOUw8oAfNJ8Gfuznz7gXz4aUqUCgTXp
+	 vjVkqFs0lJYkavXvdUIfglcTT24UH1VxjGVMU1tbk8lKHfcZ29k4ApUJGIiutMquWGgvw
+	 JciRRrPrqxRoTVxf7ibr5Cj+KJJ1M7QCXUEUjSe1P5m95spOz2PCVSQrBKri+KHVYqA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795554304;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795554310;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=8989DAIhEGp2+SqiqOgHbnDP3tqjvddGwcJYPtRttbc=;
-	b=pzpNmYIYONlyAn1hl+dHerDTEWyPGT0lj25BBPo/j+AHRCAqUDS0xsX7QHPVS0e7I9/g
-	 cVZzJjY6W5E6UQeK6blfrKUGuS+bb0J4yQX4cnZTgFgzu6ftugbTKKgTF0oDumuwUbysk
-	 ljQFS+eZMvNzUSpRJ79XHOjQ0hW2/tP7VHe+sFNLtcwsyzz6L4eba7Dg+ubbqbaHzQR4N
-	 ED8J5Ma1i9matDvZSer+9Rm+BvNFntDN0u6/CAdQXUTnTsE3PG/Id1s+elTvaxr7X2dN8
-	 r7lY5wXrNNKCWTa5xxPfM1UTpXKefZX44dfw+gcoNiDww/kFzCMfols1GL8jgos/Ovw==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=pkpq8GK0gZhArObYbGxp6BFjgE9VIEQP5FZ3dfj6SyI=;
+	b=rMGqhB6Li92DnIuTAWpO6Mj/k5PcnkENug477077AIaIBoAPmRjngm2M8powF1lb9kNE
+	 PiIaa24XtowE84aqqM2Z4LQTh32+tJU2gbYwD44PF0QwChRvmhYAohRNkPyIEmRyhAyW1
+	 c2f1RM7erz0uR2Di8VDNuJhxlBvhzLr2LiO/cloliL4XjIA1KkdOnhZMh15XwqrnwNowy
+	 mycwFvlbxlh5OiAJ9q2tiJh+jC0VSmVLPK8XDdjOMuujbCtzahnbIYb9FJib/4pcc90Di
+	 ei1CxgVsfNJwhvLMzy7n52UQVGErU/4w03Hm+KEjpcEFDjYMcPtRBp8LtHcUsxQ4OYA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Zk43yelt;
-	arc=none smtp.remote-ip=209.85.214.173
-Received: from mail-pl1-f173.google.com (mail-pl1-f173.google.com [209.85.214.173])
+	dmarc=pass header.from=blockcast.net;
+	spf=pass smtp.mailfrom=blockcast.net;
+	dkim=pass header.d=blockcast.net header.i=@blockcast.net header.a=rsa-sha256 header.s=google header.b="TY1/C6MC";
+	arc=none smtp.remote-ip=74.125.82.54
+Received: from mail-dl1-f54.google.com (mail-dl1-f54.google.com [74.125.82.54])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 67298606A326
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 21:05:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 67298606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B9BCC606A33D
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 21:05:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B9BCC606A33D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=blockcast.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=blockcast.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Zk43yelt
-Received: by mail-pl1-f173.google.com with SMTP id d9443c01a7336-2f048bc09d7so229955ad.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:05:04 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=blockcast.net header.i=@blockcast.net header.a=rsa-sha256 header.s=google header.b=TY1/C6MC
+Received: by mail-dl1-f54.google.com with SMTP id a92af1059eb24-1b5786e099cso3052642c88.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:05:09 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795554304; x=1796159104; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=8989DAIhEGp2+SqiqOgHbnDP3tqjvddGwcJYPtRttbc=;
-        b=Zk43yelt/tm8w8qrnUw/rYu8FoZfnG9Xcmo++SabJlb6abZbjfVjnfXI9XBZw/hv16
-         t9J8gTLH1sX5tjg/It/0QBr2WzKZaY4XroMeHNijrqAwKoXlcMeh8MCUjdw4+fKdt+md
-         RJ362duEdbPSO3k5gsNh20PW+bipuMnBbFmth+eRATzNg7Dyn1iPORbToeVVtiu2b6AI
-         hm4eeLQByAl4SS2/bYpWwJkDm00JSFY4WW83me9on7ZD4LR2C0L+7ip0ebIuUjbEEJKB
-         R3YRFTxd2ka1it3eIloE22crT1tiIze58b8gMdGr/dFPC5uLraumWlzqrK3w/8ZePRfc
-         zyHQ==
+        d=blockcast.net; s=google; t=1795554309; x=1796159109; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=pkpq8GK0gZhArObYbGxp6BFjgE9VIEQP5FZ3dfj6SyI=;
+        b=TY1/C6MClitj3g7ZFW8jz1IBUox0fftxB68Lv2pLQEPfo3k+LnsCT0m4x90lxryPGY
+         bQtrKyS3s1EOtgdj2HDepS2YwikFjB0BpYZkK+mDMukbVENqnnE1YytNB/Wp2uKa229f
+         1OL6U0He+djX+9JkuDaDexNzrdlAuAjmJaSwoDnWsaELKKSKLD1lLNyiwS2PrBCyMWQl
+         00wLpPo1fkPK8jg67CXFzAKh/5mOdL9zJHYD535CgsygjMymtd2MctTa/KxQvzsxpQ1d
+         QvInikWTR9I9IcX5vjtaC4w5lQKQUb20oqVr//IsOS7u9ffjAP6hZMhmRR7ddOMiug7L
+         767Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795554304; x=1796159104;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=8989DAIhEGp2+SqiqOgHbnDP3tqjvddGwcJYPtRttbc=;
-        b=yqD8GBI7H48IfOsLu/J9AC19bXTs1QNVf908/6LJYhgznKpZGe1s9Ph1LDY12/0Obb
-         wmOfB4T+nwxFgVmQ/Yq65UPPrg5e5vizw8KUN8jWqXwwJTGcqsv3sVEqBe6DWUy3fsEJ
-         w9RA+VJUmhY51OkEnfgzECIK8xMGWObF4O+Dc21l5ukJVqaRSDhXH7WCa05OPAU5W664
-         GyHiDJtDz4ze1pRYBKGkMNg8Elmkbqm6/sS82yTelhmyfwrxBRPHWhbhBI/HAMUopSLt
-         CzZHk2xvKMbApqSsZq0iywQOTq23zNTPnRKdRvQ74xwy/Abac7vkROsvYiKZrTLrn8OI
-         gmOw==
-X-Forwarded-Encrypted: i=1; AL+hErGQ6xERUe3XnWx/AOcLHtv81NyIMc40TgnrFpgXSaSpBWK63f+P+Eeh0XEoIj7ZZkDBGEe7NNtl5eUE8zA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z92Mhw3UrtlEStf+9CRT1CP7cSKCYSTe3q9H3MueOwvAFnYBmKv
-	qYetJGNFOTUDFq+3buZpVuViCwuyrH+MAS3Gwe6V992iA590Yf0VSBGVsxDc9Zzaqg==
-X-Gm-Gg: AZFdTZeHoKvHBTqawf1JXlai9B6Pr/hK6Z/xifOpMJZmk7NfLr8YagjULs7OGDLVWoX
-	wRpgi3NSLwDjcJUyMC4tYGI1248tIKl1XxnhVKtwpefjx6hAk5chSYaEhhSqFKXklcxO+DtWNA9
-	zBd0BykFYnc+kln2mets8ePnEUYQ/D0NL+8NZ0C7y1XCEZFgnfcMdPnTceJrzhzoox0BeEnRis3
-	k+71cMelSrK06i5iBTAQcF9dTAUj4v6lDRBDZiEvwSCREieWTSUJuHz72bls/0Lr1ihf9NINcGz
-	JUBf0Y9aOo3Awt7EvL99qLjrG6niUTjzNkoUsv+3tjShC+bH3MEbcS9r9YI7E+S2YVlaa1uDoGy
-	ctLy4bMACCykSiDINvDfljT3NQ4MaBL6aFFflTwTb1ASM4iOF+1dOLIDwazmU2lP7CYUlre9AaY
-	UjVV2hdISSSd5OSzfcW7mV/2IkGXXiT2LeL2j9pZIzo3Xjel9bC66o675SuYH8J2pc6RCeE46Nl
-	FwuhWaG+OndarLgVX60y4suTDvC9ZEC4Ew4uQww6D5WLJMdRW3gugD6M3k8/KUFGFQoHVsGsLkK
-	l7wad03ilRSSOhwNZT17T9i2tEpe0X73afoMFZaspN9bu5LhRZ2WRwY+lqkLIb4TKccrgCxkg7H
-	KNiHaOX/euHVztSZHqqhFNA==
-X-Received: by 2002:a17:903:3887:b0:2e2:d665:6ad8 with SMTP id d9443c01a7336-2f062b6ecb2mr14518045ad.4.1795554303196;
-        Tue, 24 Nov 2026 13:05:03 -0800 (PST)
-Received: from google.com (25.75.145.34.bc.googleusercontent.com. [34.145.75.25])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41abb1b66sm25196583a91.1.2026.11.24.13.04.59
+        d=1e100.net; s=20260707; t=1795554309; x=1796159109;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=pkpq8GK0gZhArObYbGxp6BFjgE9VIEQP5FZ3dfj6SyI=;
+        b=W89MeFqu43Bbup7L7d0/TF856dIYNuepPbsCkNRFtNzVpiUx0WDscnSxMGjJg7/7kM
+         We5oH5tca7OPJkyAzpbjRWAf8/7eB87h58+4a/3++2myeVZu2B6ZqF6Qs0OEUGtXiRBZ
+         VZfpPywld2MVo0Vro4VKjNjOm5KfaaOL3dJLmabSXji7Foq1Xzm0nyJHSLIxqyuBkgMZ
+         sr8vi1avm/xRTT/L/oiIsZ4UozH7867GOkJo2i6lCZkW23L1gKqCmK1ldoBaIaFQNic6
+         I9h4Ur6CkquohZ8NxqcJwfwrFwiH6STe2nx+1ugzxaEkSS4C3/w6uzWXReWW7u3lGjn6
+         4dlw==
+X-Forwarded-Encrypted: i=1; AL+hErHHyXbXbT0uuYBijermo6OenTcdDTbkPEzJ00KD8/1LElLlvuQJJkYDMiyOftNRoa6yMw5uTzYiNOG2SxI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9cVAKxqoB4l/nbp//LcnFm3zwPkgIH9HTVL2s867XmfuTFGiJK
+	rptifn/orR26ATBI1uY6FLzoP4lz1HQYOdm3c4qJMhFoD2ozgYUwdK4cRWDP8/p0cjQ=
+X-Gm-Gg: AZFdTZfjAp+TIn9DTNL7PpC1uiK00h4rVNr5+DFctZmdLenuGCswEkLKrhqgoqm8WEa
+	KmQ2dItQszMTvjpNZX0i9Us2/0PZUOGzZhejWslQpqYHvzs0IV5On73/4QXK0RO8Qi47Vvv8L7p
+	JTuvnvziwgDaNJjtHEfaOh/1xRNmEYvSJ1cM2ChomcvuS5mvrGhGbNYRxsNuot4uddPzUnvI9KT
+	IBlAOAcI9y+xS07BBAQ6sINYFHbztjG26gof7GC6ooclwEPwNo8L9gHphf7IVEtMSleu1TbiBA7
+	hQIKLXkkzFjgJ2fY2BZt6y4s89vIuoQVNDH9YRN4iLfyR20YnMz0XhziWw2WTej9V0xpWZXi+5B
+	ECTDrCcbVCm+wPQaLgQV8JGqm4lSBSx89zGacLoYHidmbc6Z8KqII39krPI96xhq2vQmXU9GJw6
+	EEeCwvLEjUE4F6x0c6V6pPYLpY2gGe2iFZtr0mUrCI4rsSQM7pJz912ICzMc03uaa1jqA8pf8n9
+	Wlb9/QSgmC78uxpBzZ5o7DHkS6FQyj29Zfc/KKbzxlijkzVWB+rwajpVWG2cYSsqyfe6ZRP0fwc
+	Hmyjf4bgeaHymoJDA29Mizosx1DZRmRTkA6NsthNVnjsE+BpXUHQYn9vbP0rtWGUXbOMGSGgqno
+	j0HW0MfRrvy53Wm4/c4AiXKUyExkthcc+TPOAsotiKpSSGSl2uOWTKGYFGUfIyLHJGjbIFb/8
+X-Received: by 2002:a05:7022:ea8d:b0:163:c5eb:d42f with SMTP id a92af1059eb24-1b5567c02b5mr15256299c88.5.1795554308666;
+        Tue, 24 Nov 2026 13:05:08 -0800 (PST)
+Received: from devbox.ts.blockcast.net ([69.25.95.32])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386c7c62a91sm5577813eec.17.2026.11.24.13.05.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 13:05:00 -0800 (PST)
-Date: Tue, 24 Nov 2026 21:04:57 +0000
-From: Samiullah Khawaja <skhawaja@google.com>
-To: Alex Williamson <alex@shazbot.org>
-Cc: Bjorn Helgaas <bhelgaas@google.com>, Kevin Tian <kevin.tian@intel.com>, 
-	Jason Gunthorpe <jgg@ziepe.ca>, Anthony Pighin <anthony.pighin@nokia.com>, 
-	Dave Jiang <dave.jiang@intel.com>, Dan Williams <dan.j.williams@intel.com>, kvm@vger.kernel.org, 
-	linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH] vfio/pci: Only lock the upstream bridge if the reset may
- need it
-Message-ID: <awXedVCoT7M79Rk5@google.com>
-References: <20261112235700.2029562-1-skhawaja@google.com>
- <20261118163706.7138d246@shazbot.org>
- <20261119143237.4bf54796@shazbot.org>
- <awC5Ldqmue6DiO44@google.com>
- <20261124084852.661dd7c1@shazbot.org>
+        Tue, 24 Nov 2026 13:05:08 -0800 (PST)
+From: Omar Ramadan <omar@blockcast.net>
+To: Taehee Yoo <ap420073@gmail.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>
+Cc: netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Simon Horman <horms@kernel.org>
+Subject: [PATCH net-next v4 3/3] amt: make the per-tunnel group and source limits configurable
+Date: Tue, 24 Nov 2026 21:05:01 +0000
+Message-ID: <20261124210501.70394-4-omar@blockcast.net>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261124210501.70394-1-omar@blockcast.net>
+References: <20261124210501.70394-1-omar@blockcast.net>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,147 +104,186 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii; format=flowed
-Content-Disposition: inline
-In-Reply-To: <20261124084852.661dd7c1@shazbot.org>
+Content-Transfer-Encoding: 8bit
 
-On Tue, Nov 24, 2026 at 08:48:52AM -0700, Alex Williamson wrote:
->On Fri, 20 Nov 2026 22:21:16 +0000
->Samiullah Khawaja <skhawaja@google.com> wrote:
->
->> On Thu, Nov 19, 2026 at 02:32:37PM -0800, Alex Williamson wrote:
->> >On Wed, 18 Nov 2026 16:37:06 -0800
->> >Alex Williamson <alex@shazbot.org> wrote:
->> >
->> >> On Thu, 12 Nov 2026 23:57:00 +0000
->> >> Samiullah Khawaja <skhawaja@google.com> wrote:
->> >>
->> >> > Commit 962ae6892d8b ("vfio/pci: Lock upstream bridge for
->> >> > vfio_pci_core_disable()") makes vfio_pci_core_disable() trylock the
->> >> > upstream bridge before resetting the device, and skips the reset if the
->> >> > trylock fails.
->> >> >
->> >> > All VFs of a PF have the same upstream bridge. Take a device with two
->> >> > VFs, both used by one process. When the process is killed, both VFs can
->> >> > be released at the same time. The first one takes the bridge lock and
->> >> > does its FLR, the second one fails the trylock and is never reset.
->> >> >
->> >> > The bridge lock is only needed for a bus reset, which is done through
->> >> > the bridge. A VF is reset with FLR, and pci_parent_bus_reset() never
->> >> > resets the bus for it because the PF and the other VFs are on the same
->> >> > bus.
->> >> >
->> >> > Add pci_reset_needs_bridge_lock(), which returns true if any reset
->> >> > method enabled for the device is a bus reset, and only lock the bridge
->> >> > in vfio_pci_core_disable() when it does.
->> >> >
->> >> > Fixes: 962ae6892d8b ("vfio/pci: Lock upstream bridge for vfio_pci_core_disable()")
->> >> > Cc: stable@vger.kernel.org
->> >> > Signed-off-by: Samiullah Khawaja <skhawaja@google.com>
->> >> > ---
->> >> > Tested in QEMU with an igb PF behind a PCIe root port, bound to vfio-pci
->> >> > with two VFs. Both VFs are opened through VFIO and then closed from two
->> >> > threads at the same time, counting FLRs with a kprobe on pcie_flr().
->> >> > Without this patch one VF missed its FLR in 50 of 50 rounds, with it
->> >> > both VFs were reset in every round. I will send a VFIO selftest for this
->> >> > separately.
->> >> > ---
->> >> >  drivers/pci/pci.c                | 28 ++++++++++++++++++++++++++++
->> >> >  drivers/vfio/pci/vfio_pci_core.c |  3 ++-
->> >> >  include/linux/pci.h              |  1 +
->> >> >  3 files changed, 31 insertions(+), 1 deletion(-)
->> >> >
->>
->> [snip]
->>
->> >> > +
->> >> > +		if (pci_reset_fn_methods[m].reset_fn == pci_reset_bus_function ||
->> >> > +		    pci_reset_fn_methods[m].reset_fn == cxl_reset_bus_function)
->> >>
->> >> This looks like a maintenance nightmare.  What if instead we did
->> >> something like:
->> >>
->> >> bool pci_parent_bus_reset_possible(struct pci_dev *dev)
->> >> {
->> >> 	struct pci_dev *pdev;
->> >>
->> >> 	if (pci_is_root_bus(dev->bus) || dev->subordinate ||
->> >> 	    !dev->bus->self || dev->dev_flags & PCI_DEV_FLAGS_NO_BUS_RESET)
->> >> 		return false;
->> >>
->> >> 	list_for_each_entry(pdev, &dev->bus->devices, bus_list)
->> >> 		if (pdev != dev)
->> >> 			return false;
->> >>
->> >> 	return true;
->> >> }
->> >> EXPORT_SYMBOL_GPL(pci_parent_bus_reset_possible);
->> >>
->> >> static int pci_parent_bus_reset(struct pci_dev *dev, bool probe)
->> >> {
->> >> 	if (!pci_parent_bus_reset_possible(dev))
->> >> 		return -ENOTTY;
->> >>
->> >> 	if (probe)
->> >> 		return 0;
->> >>
->> >> 	return pci_bridge_secondary_bus_reset(dev->bus->self);
->> >> }
->> >>
->> >> Where we'd then condition acquiring the bridge lock on whether it's
->> >> even possible for a function scoped reset to perform a bus reset.
->> >>
->> >> It's a bit broader of a test than whether we actually have the necessary
->> >> methods in our reset_fn list, but since we're not locking the reset_fn
->> >> list between test and function-reset, it's also safer.  Thanks,
->> >
->> >After exploring Ionut's patch[1], what I propose above is probably
->> >wrong.  We don't have any guarantees that the sibling topology is
->> >static and this bus-reset-possible function presents it as immutable.
->> >The existing bus-reset function has the same race, but the gap is
->> >smaller, let's not make it bigger.
->> >
->> >There are however immutable properties we can test that cover a fair
->> >number of cases.  For example:
->> >
->> >bool pci_reset_function_needs_bridge_lock(struct pci_dev *dev)
->> >{
->> >	return pci_upstream_bridge(dev) &&
->> >		!(dev->dev_flags & PCI_DEV_FLAGS_NO_BUS_RESET) && !dev->is_virtfn;
->> >}
->> >EXPORT_SYMBOL_GPL(pci_reset_function_needs_bridge_lock);
->> >
->> >We should be able to use this as a condition on whether we acquire the
->> >bridge device lock, in pci_reset_function() and in vfio-pci code.
->> >Thanks,
->>
->> This sounds good and it will also fix the bug that I am seeing.
->>
->> The only caveat is that pci_dev_wait() might fail during VF reset and
->> then it might try to do a bus reset if the VF is behind a pciehp or CXL
->> port. I would prefer to do it only for vfio-pci code as that is where
->> the reset skip issue is. pci_reset_function() takes the lock and
->> serializes the VF reset. Are you ok with doing it just for vfio-pci?
->
->I think the test I'm proposing precludes a bus reset, ie. there is no
->upstream bridge, the device flags prevent it, or we're provided with a
->VF.  It's only those cases where we can't do a bus reset anyway, that
->we can skip the bridge device lock.  I think that means it's useful in
->PCI-core as well as vfio-pci.  Did I miss something?
+A relay caps the state one gateway tunnel can hold at AMT_MAX_GROUP (32)
+group records and AMT_MAX_SOURCE (128) source records, counted across
+all of the tunnel's groups. Both are compile-time constants. An SSM
+receiver uses a source record for every (S,G) it joins, so a gateway that
+needs more than 32 groups or 128 channels through one tunnel has the
+excess joins dropped, and the relay operator cannot raise either limit.
 
-Yes, the slot reset probe doesn't account for the VFs and will allow
-reset of the slot when hotplug is enabled.
+Add IFLA_AMT_MAX_GROUPS and IFLA_AMT_MAX_SOURCES, read when the link is
+created, like IFLA_AMT_MAX_TUNNELS. Zero or an absent attribute keeps the
+current defaults. Gateways drive these allocations, so the policy caps
+them at 512 groups and 4096 sources per tunnel, and strict_start_type
+has it validate them, and any attribute added after them, strictly.
+Report both limits in amt_fill_info().
 
-I think that is probably a fix that needs to be done orthogonal to this.
-I will send a v2 of this by doing the needs_bridge_lock() as you
-mentioned above.
+The group and source hashes keep their AMT_HSIZE (256) buckets. Sizing
+them from max_sources would push every group node and tunnel node into
+kmalloc-8k once max_sources passed 2048, doubling per-group memory; at
+4096 sources in one group a chain averages 16 entries, which only makes
+a lookup longer.
 
->
->I do see that cxl_reset_bus_function() only does a cursory test for
->probe, but then calls pci_reset_bus_function() when it executes, which
->is an inconsistency issue of its own.  Thanks,
->
->Alex
+Raising the limits also raises the previous patch's bound on the work of
+one Membership Update, twice what refreshing every group the tunnel may
+hold costs: about 2.0 million bucket and source visits at 512 groups and
+4096 sources, 17 times the default 120,320. Cap it at what one
+legitimate report can cost. A host splits its report to the MTU, so a
+report names at most mtu / 8 groups, IGMPv3 records being the smallest.
+On a 1500-byte stream link (relay MTU 1460) that caps one Update at
+about 416,000 visits at the ceilings, 3.5 times the default, above the
+roughly 348,000 that the largest legitimate report costs. The defaults
+keep the previous bound. A report larger than the relay's own MTU, from
+a gateway on a jumbo link to a relay on a standard one, has the records
+past the bound ignored at high limits, as an over-budget report already
+does.
 
-Thanks,
-Sami
+Assisted-by: LLM
+Signed-off-by: Omar Ramadan <omar@blockcast.net>
+---
+ drivers/net/amt.c        | 48 +++++++++++++++++++++++++++++++---------
+ include/net/amt.h        |  9 ++++++++
+ include/uapi/linux/amt.h |  8 +++++++
+ 3 files changed, 54 insertions(+), 11 deletions(-)
+
+diff --git a/drivers/net/amt.c b/drivers/net/amt.c
+index 177bc0b..fd907eb 100644
+--- a/drivers/net/amt.c
++++ b/drivers/net/amt.c
+@@ -2167,18 +2167,33 @@ static u64 amt_rec_cost(const struct amt_dev *amt, u32 nr_sources, u16 nsrcs)
+ 	       (u64)AMT_REC_LOOKUPS * nsrcs;
+ }
+ 
+-/* The most work one Membership Update may cause: twice what refreshing
+- * every group the tunnel may hold, with every source, costs.  The packet
+- * length used to be the only bound, and a report that names one full
+- * group many times costs far more than one that refreshes the whole
+- * tunnel.
++/* The work of a report naming @recs groups, each walked in full, plus two
++ * passes over every source the tunnel may hold and a lookup per source.
++ */
++static u64 amt_report_cost(const struct amt_dev *amt, u64 recs)
++{
++	return (u64)AMT_REC_WALKS *
++	       (recs * amt->hash_buckets + 2 * (u64)amt->max_sources) +
++	       (u64)AMT_REC_LOOKUPS * amt->max_sources;
++}
++
++/* The most work one Membership Update may cause.  The packet length used
++ * to be the only bound, and a report that names one full group many times
++ * costs far more than one that refreshes the whole tunnel.
++ *
++ * Twice what refreshing every group the tunnel may hold costs, but never
++ * more than a report as large as this device's MTU can legitimately cost:
++ * a host splits its report to the MTU (RFC 3376 s4.2.16, RFC 3810
++ * s5.2.15), so one report names at most mtu / 8 groups, IGMPv3 records
++ * being the smallest.  The second bound is what limits the work at high
++ * IFLA_AMT_MAX_GROUPS; at the defaults the first is the smaller.
+  */
+ static u64 amt_report_budget(const struct amt_dev *amt)
+ {
+-	return 2 * ((u64)AMT_REC_WALKS *
+-		    ((u64)amt->max_groups * amt->hash_buckets +
+-		     2 * amt->max_sources) +
+-		    (u64)AMT_REC_LOOKUPS * amt->max_sources);
++	u64 recs = READ_ONCE(amt->dev->mtu) / sizeof(struct igmpv3_grec);
++
++	return min(2 * amt_report_cost(amt, amt->max_groups),
++		   amt_report_cost(amt, recs));
+ }
+ 
+ static void amt_igmpv3_report_handler(struct amt_dev *amt, struct sk_buff *skb,
+@@ -3583,6 +3598,7 @@ static void amt_link_setup(struct net_device *dev)
+ }
+ 
+ static const struct nla_policy amt_policy[IFLA_AMT_MAX + 1] = {
++	[IFLA_AMT_UNSPEC]	= { .strict_start_type = IFLA_AMT_MAX_GROUPS },
+ 	[IFLA_AMT_MODE]		= { .type = NLA_U32 },
+ 	[IFLA_AMT_RELAY_PORT]	= { .type = NLA_U16 },
+ 	[IFLA_AMT_GATEWAY_PORT]	= { .type = NLA_U16 },
+@@ -3591,6 +3607,8 @@ static const struct nla_policy amt_policy[IFLA_AMT_MAX + 1] = {
+ 	[IFLA_AMT_REMOTE_IP]	= { .len = sizeof_field(struct iphdr, daddr) },
+ 	[IFLA_AMT_DISCOVERY_IP]	= NLA_POLICY_EXACT_LEN(sizeof(__be32)),
+ 	[IFLA_AMT_MAX_TUNNELS]	= { .type = NLA_U32 },
++	[IFLA_AMT_MAX_GROUPS]	= NLA_POLICY_MAX(NLA_U32, AMT_MAX_GROUP_LIMIT),
++	[IFLA_AMT_MAX_SOURCES]	= NLA_POLICY_MAX(NLA_U32, AMT_MAX_SOURCE_LIMIT),
+ };
+ 
+ static int amt_validate(struct nlattr *tb[], struct nlattr *data[],
+@@ -3657,8 +3675,10 @@ static int amt_newlink(struct net_device *dev,
+ 
+ 	spin_lock_init(&amt->lock);
+ 	seqcount_spinlock_init(&amt->key_seq, &amt->lock);
+-	amt->max_groups = AMT_MAX_GROUP;
+-	amt->max_sources = AMT_MAX_SOURCE;
++	amt->max_groups = nla_get_u32_default(data[IFLA_AMT_MAX_GROUPS], 0) ?:
++			  AMT_MAX_GROUP;
++	amt->max_sources = nla_get_u32_default(data[IFLA_AMT_MAX_SOURCES], 0) ?:
++			   AMT_MAX_SOURCE;
+ 	amt->hash_buckets = AMT_HSIZE;
+ 	amt->nr_tunnels = 0;
+ 	get_random_bytes(&amt->hash_seed, sizeof(amt->hash_seed));
+@@ -3774,6 +3794,8 @@ static size_t amt_get_size(const struct net_device *dev)
+ 	       nla_total_size(sizeof(__u16)) + /* IFLA_AMT_GATEWAY_PORT */
+ 	       nla_total_size(sizeof(__u32)) + /* IFLA_AMT_LINK */
+ 	       nla_total_size(sizeof(__u32)) + /* IFLA_MAX_TUNNELS */
++	       nla_total_size(sizeof(__u32)) + /* IFLA_AMT_MAX_GROUPS */
++	       nla_total_size(sizeof(__u32)) + /* IFLA_AMT_MAX_SOURCES */
+ 	       nla_total_size(sizeof(__be32)) + /* IFLA_AMT_DISCOVERY_IP */
+ 	       nla_total_size(sizeof(__be32)) + /* IFLA_AMT_REMOTE_IP */
+ 	       nla_total_size(sizeof(__be32)); /* IFLA_AMT_LOCAL_IP */
+@@ -3804,6 +3826,10 @@ static int amt_fill_info(struct sk_buff *skb, const struct net_device *dev)
+ 			goto nla_put_failure;
+ 	if (nla_put_u32(skb, IFLA_AMT_MAX_TUNNELS, amt->max_tunnels))
+ 		goto nla_put_failure;
++	if (nla_put_u32(skb, IFLA_AMT_MAX_GROUPS, amt->max_groups))
++		goto nla_put_failure;
++	if (nla_put_u32(skb, IFLA_AMT_MAX_SOURCES, amt->max_sources))
++		goto nla_put_failure;
+ 
+ 	rcu_read_unlock();
+ 	return 0;
+diff --git a/include/net/amt.h b/include/net/amt.h
+index 82aaa6b..fa3a61d 100644
+--- a/include/net/amt.h
++++ b/include/net/amt.h
+@@ -392,6 +392,15 @@ struct amt_dev {
+ #define AMT_GC_KICK		2048
+ #define AMT_MAX_GROUP		32
+ #define AMT_MAX_SOURCE		128
++/* Upper bounds for IFLA_AMT_MAX_GROUPS and IFLA_AMT_MAX_SOURCES. Gateways
++ * drive these allocations: at the bounds one tunnel holds about 2 MiB of
++ * group nodes (each a kmalloc-4k object with AMT_HSIZE bucket heads) and
++ * under 1 MiB of source nodes, and max_tunnels multiplies that.  The work
++ * one Membership Update may cause is bounded separately, by
++ * amt_report_budget().
++ */
++#define AMT_MAX_GROUP_LIMIT	512
++#define AMT_MAX_SOURCE_LIMIT	4096
+ /* Per group record, an upper bound on the passes the mode handlers plus
+  * amt_cleanup_srcs() make over a group's buckets and sources, and on the
+  * hash lookups they make per record source.  The handlers need at most 5
+diff --git a/include/uapi/linux/amt.h b/include/uapi/linux/amt.h
+index 2dccff4..a106d7a 100644
+--- a/include/uapi/linux/amt.h
++++ b/include/uapi/linux/amt.h
+@@ -54,6 +54,14 @@ enum {
+ 	IFLA_AMT_DISCOVERY_IP,
+ 	/* This attribute specify number of maximum tunnel. */
+ 	IFLA_AMT_MAX_TUNNELS,
++	/* Maximum number of group records one tunnel may hold.
++	 * Zero or absent means the default of 32.
++	 */
++	IFLA_AMT_MAX_GROUPS,
++	/* Maximum number of source records one tunnel may hold, counted
++	 * across all of its groups. Zero or absent means the default of 128.
++	 */
++	IFLA_AMT_MAX_SOURCES,
+ 	__IFLA_AMT_MAX,
+ };
+ 
+-- 
+2.43.0
+
