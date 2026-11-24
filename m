@@ -1,100 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.41
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795506038;
-	b=nhRZZUI2Lv2xhXBc9GD8A3JPUl1iRUd21+ODwo1AOd2wLipaBKlqUUdF6qsHSQFoetSx
-	 zRvtS6XXma2AIgpwmM4CwQy80Xy+n6maRqErj9gLURe2BNYrs+BIlEiW/bRbwGP9Xc+xy
-	 dP0hL7oG+3POVSd7dTgUEXgOm8VtWiUYbWxBmNzdDS88XAp++H7QJ+Ajml1QPQlI1jLNG
-	 vNKm5UTNz7bmQQDXWPwckvhQxR93ckToy0h2c2VcJs7IjwnnAQDjL616vRLwX9t08Ry36
-	 jhxfX39JCzLW9C8X+R2yvHMzBOjf6VvOIHieD5bA7Nkm3K+yybWvztUiS3Z0YQ+XoVw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795506038;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.53
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795506054;
+	b=L8LUMd7EXesjNkaehOZ+xBvswkoYwNb4hUOxNYY1VB9xH/Lho/XQNGS4AIDZmLPaqRhR
+	 R47TGuIIK5Fjfzoh4RCuN3Zxs3cq5ZMtB28n244eVbc9kUOKE+XHwNFgwMYpqmwlMawYt
+	 nI8E8XOKXjJsCvZ/3oItXXomAUPSq2OyXnbTX6BvIEq2FDr+fvEunxnnreicDdHIF7zag
+	 tycWn/zbvCyeWJdnMhq8gls6iMHrSmjW75UVMvUPaqaSrncZibS5f2e5YMeIYZBZ7kHSR
+	 FCq8rG+YivT5ZKHlbSNaSijhc85erD9ujnwb8lOOau+aUPpnjDx830Btse4HsfV3Rsg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795506054;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=4CXeOR2kr0QWxwXVJ8kgxv8jpZ3ULeKkBDrgo80WNA8=;
-	b=hZ+59t/7VAg+gWY3aMJ0hjhend3EI9bqNpSLq/Odz3I05hBSDoCle+AR02pZBYv8lYnq
-	 9Sk0gdEIccges0C9CHVk9FmxQSlsRcfEwZ44m3IVnWSYh6RSVQk3GbmNTQZpTUX4sVIgn
-	 tqqzbWYB5JXTPoa+xzWxkC5LaZ0Ee56KfOiiLHTBKcQyszJDfUq2TMwl3+1AHY8Bdzh/T
-	 schvWodQw+X1646Wp71UPWwR4BH0qMmz73bq5MdHjSC1RdAm8/9A3xjsKW8SfO6n2UfXK
-	 Ud+N79ADIkgZfD1Avi2LPufYhQ+MT4hD/IcSqsMeEJWWx+ZQNX1uiRnNXYrLbzW13Xw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=oxkH3z6S;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.41
-Received: from mail-ed1-f41.google.com (mail-ed1-f41.google.com [209.85.208.41])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=yq9KtC/Vr6jX4nQrqLEI9ETBwLEZhdEPTg6w69t4M3Q=;
+	b=MhzsCyPe9vENETDBjbv8DzJpnFV/tHx4Sxk8Mz1Q+/QW15N7t7pzxkdnKvr3TJGnJ1vD
+	 3RqSlCcHBPHweNvvzv74x1ipcoVS2RECKPULQmKKbAxupZbTfCsilh9GX5FTb1Q4AYZLf
+	 ESBqW5/qRWOcgzJkEEiBle1Jd7yn1Mse4NJFih77OKOzIbiX8ok0ea4HDMcb9fnz8JYVG
+	 dLwvoejlQHZkg+uUCryoNlQ5qUZ9uHOSlo4S4f7FaJKLHo33pzEQEk1qqMtAIRa52ikS3
+	 F6LTQuVcHkuu/O2upvkO5YiX7PlYDqMLunXBvEVmb9GTGjKGQEFXt8c7lOfqxe6Szkw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=chromium.org;
+	spf=pass smtp.mailfrom=chromium.org;
+	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=QOBMnuCc;
+	arc=none smtp.remote-ip=209.85.216.53
+Received: from mail-pj1-f53.google.com (mail-pj1-f53.google.com [209.85.216.53])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0B97A606A32A
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 07:40:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0B97A606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5FCC9606A322
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 07:40:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5FCC9606A322
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chromium.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chromium.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=oxkH3z6S
-Received: by mail-ed1-f41.google.com with SMTP id 4fb4d7f45d1cf-6ba12b00c76so4304296a12.0
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 23:40:37 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795506036; cv=none;
-        d=google.com; s=arc-20260327;
-        b=jHDes0Luu7kQFBZIYSOMzwbHcSk6mKtJ6R8cXH+UaxuLD2Im+Q2NN4HW6WJFRFamM7
-         63UuKN52qmkiSOGPdkMRpA0DAqTqPw2MiFbwunhkCMhJUcT4UU4nuh2SM6RZgcGPUnp0
-         dm37bD5YzIlhyjAXaBL8i7wyXikMIkMLh+TpmEHDWWf+DGPK43oHrFsRCnj3K8Q/80iw
-         bhzmJfKUaLlfq6jguIDFuHAdeyoagLWih0CXpYqMfrVwcgZhuEJz4RX99DdrSm+DbpC2
-         m/jd9TtKsj9yPP1yByS7H5WXUZKPfm3IvLBv784KAC2B14Tf2j2u6IOwb7dfAXQPKHQn
-         QqVg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=4CXeOR2kr0QWxwXVJ8kgxv8jpZ3ULeKkBDrgo80WNA8=;
-        fh=LTXH8A6MGzuGQHx1qsvUYY3oLkfPLLo4fvicmwHe3ls=;
-        b=Zv1YOF5GvtU0gActiRo6oy50TMHFjHPh4H71mQLBwTymP7wAlSsy9HcbLyi0oEbvaG
-         j3yresdiNJRgWHOmQpb1Wef9RJiqoSoKJHpHczUj6f8MeAEZToGLtM8Hs9/TlITrMdDk
-         HTxQ5qS3x9uvo3n7Tr2+hVbgZcIaGOLYxVeheKHwJMti+wH1Ri0v42H3waNbbiffG6/f
-         AARvfgnMwNVknhqyadhHksodbbacaLBz+pZXRRcBNItlCpmaICtd0AIgyzrB68U32gvT
-         w1rBEwN7Qyss4u2Cal5CKO7SRT9e2IF8rGEF1PSdTN1yrcnKEvMv0RR0HDBjwFZR4uyu
-         X0Jw==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (1024-bit key, unprotected) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=QOBMnuCc
+Received: by mail-pj1-f53.google.com with SMTP id 98e67ed59e1d1-3ada4c06b7bso2220335a91.2
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 23:40:54 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795506036; x=1796110836; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=4CXeOR2kr0QWxwXVJ8kgxv8jpZ3ULeKkBDrgo80WNA8=;
-        b=oxkH3z6S5oobQJgtcXfQH0GuAqd/cenjkfGF1tqjc2+bcqwAyKj8T7knhO8Wa1HZ8J
-         uHfRO40Eae11V11jsAbdsmulEYbPqQhxYRMLo1h9iaHOAO4jYvm0wj0QlDzhsxzvvxSN
-         I5pFOem1W3Se5Tbtt8oQA1wjRqxkCkU2/v1La2JpxDv/tFUTE0O5Ws3eaBWAJZrqe8a3
-         ARZvrho7IB/gJodkTfuzAUlT5BqaCnVdmjMEHe1Ys8XmrqZFl8aqpXNQcqzLj4N24S/w
-         9ueWzbVdR8tQh8YGttAdCgtLjPNNCKA2Z1Uosr8S569Tg7/c3OBwQfq4sovDsqeJ3hXl
-         B69g==
+        d=chromium.org; s=google; t=1795506054; x=1796110854; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=yq9KtC/Vr6jX4nQrqLEI9ETBwLEZhdEPTg6w69t4M3Q=;
+        b=QOBMnuCciKZxMC6+SJMbmUhhZCgddCHcgEcOm+CVxeRmCEd9IT2bxMyjdvPuIjIVyA
+         RN9pXiRnP9Whj08zCnF6R/5nWYLsBk/VY4K8EV/mrDi2OPs+vpkMcPsyqP4ExND5yNq2
+         ONa3jfHVqpAz16tLaH8KVa1Z7fsj4zlVXY95Q=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795506036; x=1796110836;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=4CXeOR2kr0QWxwXVJ8kgxv8jpZ3ULeKkBDrgo80WNA8=;
-        b=syQh6/PAu7DDQzkQ1IyvH8H/D2neryj3eS+tvCi2q8bpSUe0R8S26Mri0aW3/O+iL1
-         lAHKGVhtfgI0OTmTxc4dsklzRnXRiH2WTxPDz8HBidD1twDu0RielMI89skMz8FMK45Z
-         tc4jlRdqKzqGjlZZqG9qHBlG7nZvOPZcJRuXSR4klZeh+TxoZgVJFY/YWiUy9uIGLCpa
-         2Iez+QS30yz1mJaAn7lv/g1DCsvklbmoI6eMdYncLA1sN5HkkjtMWW6i/TXeTGRK4b48
-         m/UGOoCA6KRdfWGUMMTUfojW0GzDiahJDm1hP52H5dwVkMyVWr5WpIAFiCx4zCFtwj3n
-         +kUw==
-X-Forwarded-Encrypted: i=1; AL+hErEVOR1bx7temES2HKUiY98ZZGG0GtWysmTkVk8JFuF4QZhONbD7jD6dIdaoHtLhZqkQTSHg0xE0OnyxQcI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z82ErsyZHS5a5x1x8YCbTM6r9vWJUD9OW2g9hJUBFmzTX4znMaG
-	o+lPm8nL09iNGNPUcw8z5SSF0cmaOe1s3tAh5BI8nBFvRbp2rS8YZ3N/qxJzUMV0lHICQfyM1xa
-	SwE5MXrba/zpATDejdoS8xNdgUn05CtM=
-X-Gm-Gg: AZFdTZeOm/nzwQuEVjMw3dnJ3LP9ASYGxtuaOwDgkq0vKSwM3YrhK6rQhO/htoxITOE
-	LAWOxiUVf+cWrusLmzR5gxuIzf9MdXy1krNKJasOY/EoN1syz0c01aTp3T8643/pIf1qf94mWtF
-	mP2Lx73OKd5nkFsectAG1bxPt/a79rl+NwwJonb1vBXpeWvIcSMd6xNqlle1NCTVu1DwDqlqrS7
-	9sqcVTFV+IJD7fEOSiq4jdlL8j7DFZu09txspG79II72TJkM3KwUg7rCvdoWDFmwY24F3PKG2q5
-	wXP/n1TvyXz3XXAXq7GGXTKfGV6lk5snT6UIRAmfUThFuXIDoM00lPJWoHd15H7Cwc4y3syiU6b
-	avi/v+ZkbrWHIud24gPs2Tlfo1aBU51o3P/nWeG1WlDHvN9HzinXDpb8TdJI2Cg/cYW82wqA=
-X-Received: by 2002:a05:6402:90d:b0:6ba:6654:6a6f with SMTP id
- 4fb4d7f45d1cf-6ba66546ba7mr5596605a12.10.1795506036198; Mon, 23 Nov 2026
- 23:40:36 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795506054; x=1796110854;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=yq9KtC/Vr6jX4nQrqLEI9ETBwLEZhdEPTg6w69t4M3Q=;
+        b=g5RAvDCdrLqOB3WYHg+72oqKwAJJVa5xBfEMyzPJ1Zf5vzpIcrznp0ZcOsxhRrmvpn
+         EQqkqWUfvd/seKrX/S7519oyatB/rtLLVaSNUySKAuNR2ry+uFDSiJFBAeL6WQ+mSIQW
+         uWyCQ77Ply3DxE9q5VoAa9NhCaFQhSu/AwSWXaCTlzRC3oiAPRrGqEBWjcL7pAlA04UB
+         lVdKZfjDTZtBu2u8kxcK0buNbh+6tdPZNWvdTLo/be1E/IMxSs4TnZoByOIxazWafYuj
+         FvdKBYg9cwUbl/oM8pAvUzTK7JPA+K8MStY8BlPwwAPtXxHTGt2uevqISEFBgM7uOF5j
+         sDJw==
+X-Forwarded-Encrypted: i=1; AL+hErH7VCcu87007kYhiEIMbtBryCBKp+aUjMjjk+7Qi2+8+krC0gjgqe7mXpmqRsYu376jI+fWuHJUFJTBi1A=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8YcZMwA8XtJAliCAwn8VdzSehW07IkyqaMP7AJUhYl3XlqM7g9
+	+PdGSOCAQ5RmqlFkTjMIZGPSmTFhCKPXRrX9jC5WZ/JE7xwti8V2MF6VR5Dcwt/JWA==
+X-Gm-Gg: AZFdTZf7YeBco6cTk5AgipqDa4aHMsobpz3JxW9Aeo4UvMDnUlqfuDPXupmKoeJqWjK
+	DUxnGgJUDCGO2Nt93dNG0NM+dxoagVMGkd+fWt8pUGb+x3IbX44NAUBVGMUFLCRDMCQVK8adxuG
+	R06yg15tvOLhiWsUi0zMhtxI3J1U3Ud5EZf9Q503scIQRMekZ91hKKYpwmC9b7SUp111fwCKdPj
+	IwCdPK9iiZpkuypPjZq77mJVxIvEZoAFxsrXK008fKRAdqKN5rOAamXhlzOJb+ekgWyLMOGgMIh
+	ErKlzSmn5hwbvO1mNMDtRdWbCuX9fHcxyObEOKTYoFWKYf8xVNH6TnZ6Br2XyPWG2Z0hq9OTLFH
+	VaHX96iXDpTKRDl5T46m8KmIqwqessMQoCRPBKGXc/A4Pnip1aamjKvrW9f2n00mtpErqfnI34/
+	paPAgQHJ0bZ+Uf7dAn5tOkWGkaIcch1qb6DZoA3bB03vsDf+jlFzpaECiwXP+8jqnQksErQHIyA
+	tg6/yS7HDOKjZpPVGjOBa37KPH8bmxGyLNEtU2e21VMMPCRkEDPJhCISOJdKRmahkV3VdV/WfU8
+	0bWjPzXTdjI9imkf2dMm+K1DTkacPymlWSB+cfTJ0rM+8OIbxP114BFbDJHS
+X-Received: by 2002:a17:90b:5289:b0:3b3:8094:321d with SMTP id 98e67ed59e1d1-3b41c9080bamr13617140a91.32.1795506053661;
+        Mon, 23 Nov 2026 23:40:53 -0800 (PST)
+Received: from localhost ([2a00:79e0:203d:7:8f32:8910:4727:ea03])
+        by smtp.gmail.com with UTF8SMTPSA id 41be03b00d2f7-cde84cd5ed8sm3771777a12.10.2026.11.23.23.40.50
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 23 Nov 2026 23:40:53 -0800 (PST)
+From: Chen-Yu Tsai <wenst@chromium.org>
+To: Liu Ying <victor.liu@nxp.com>,
+	Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>,
+	Lucas Stach <l.stach@pengutronix.de>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej@kernel.org>,
+	Samuel Holland <samuel@sholland.org>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>
+Cc: Chen-Yu Tsai <wenst@chromium.org>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	linux-sunxi@lists.linux.dev,
+	imx@lists.linux.dev,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH RFT v3 0/5] drm: Add and use drm_fb_dma_get_gem_clipped_addr() helper
+Date: Tue, 24 Nov 2026 15:39:28 +0800
+Message-ID: <20261124074041.115251-1-wenst@chromium.org>
+X-Mailer: git-send-email 2.56.1.809.ga0b61035b5-goog
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,58 +105,83 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261123-delegts-fixes-v2-0-960ce0fb2fed@kernel.org> <20261123-delegts-fixes-v2-4-960ce0fb2fed@kernel.org>
-In-Reply-To: <20261123-delegts-fixes-v2-4-960ce0fb2fed@kernel.org>
-From: =?UTF-8?Q?Aur=C3=A9lien_Couderc?= <aurelien.couderc2002@gmail.com>
-Date: Tue, 24 Nov 2026 08:39:00 +0100
-X-Gm-Features: Aa3M54pDAnp4nzuVx3_sk6ZGaLciZePtabVFiusFMvgfv9iLGaYf856NyG1jvWs
-Message-ID: <CA+1jF5rbGGB3iqc5FObbTYLyhT_gN18f1QfHRCuuOuBeJXLitw@mail.gmail.com>
-Subject: Re: [PATCH v2 04/11] nfsd: don't grant write delegations to NFSv4.0
- clients on CLAIM_PREVIOUS
-To: Jeff Layton <jlayton@kernel.org>
-Cc: Chuck Lever <cel@kernel.org>, NeilBrown <neil@brown.name>, 
-	Olga Kornievskaia <okorniev@redhat.com>, Dai Ngo <Dai.Ngo@oracle.com>, Tom Talpey <tom@talpey.com>, 
-	Christian Brauner <brauner@kernel.org>, linux-nfs@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-On Mon, Nov 23, 2026 at 1:59=E2=80=AFPM Jeff Layton <jlayton@kernel.org> wr=
-ote:
->
-> nfs4_open_delegation() refuses delegations for NFSv4.0 write opens on
-> CLAIM_NULL and CLAIM_FH, as its comment explains, but CLAIM_PREVIOUS
-> skips the check. An NFSv4.0 client reclaiming a write open during grace
-> can therefore get a write delegation, and NFSD can never complete a
-> GETATTR that the client sends before DELEGRETURN in the same compound.
->
-> Apply the same check to CLAIM_PREVIOUS.
->
-> Fixes: 1d3dd1d56ce8 ("NFSD: Enable write delegation support")
-> Signed-off-by: Jeff Layton <jlayton@kernel.org>
-> ---
->  fs/nfsd/nfs4state.c | 3 +++
->  1 file changed, 3 insertions(+)
->
-> diff --git a/fs/nfsd/nfs4state.c b/fs/nfsd/nfs4state.c
-> index 5c2151b329c4..4b28553efc8d 100644
-> --- a/fs/nfsd/nfs4state.c
-> +++ b/fs/nfsd/nfs4state.c
-> @@ -7533,6 +7533,9 @@ nfs4_open_delegation(struct svc_rqst *rqstp, struct=
- nfsd4_open *open,
->         open->op_recall =3D false;
->         switch (open->op_claim_type) {
->                 case NFS4_OPEN_CLAIM_PREVIOUS:
-> +                       if (open->op_share_access & NFS4_SHARE_ACCESS_WRI=
-TE &&
-> +                           clp->cl_minorversion =3D=3D 0).
+Hi,
 
-Thank you.
+This is v3 of my drm_fb_dma_get_gem_clipped_addr() series.
 
-You can add a Reviewed-By: Aur=C3=A9lien Couderc
-<aurelien.couderc2002@gmail.com>, please
+Changes since v2:
+- Change drm_framebuffer_get_block_offset() offset variable and return
+  type to u64, and use mul_u32_u32() to avoid 32-bit overflow (Thomas)
 
-Aur=C3=A9lien
---=20
-Aur=C3=A9lien Couderc <aurelien.couderc2002@gmail.com>
-Big Data/Data mining expert, chess enthusiast
+Changes since v1:
+- Add and use new drm_framebuffer_get_block_offset() helper (Thomas)
+
+
+This series adds a helper to retrieve the buffer starting address of a
+"clipped" framebuffer. This contrasts with drm_fb_dma_get_gem_addr(),
+which gives the address of the full buffer.
+
+Some drivers program their hardware with clipped dimensions, so they
+should be using the clipped buffer address as well, unless the hardware
+can advance the scanout directly. (Side note: many drivers still use
+the non-clipped dimensions.)
+
+While at it, also pull out the offset calculation of drm_fb_dma_get_gem_addr()
+into a separate helper in drm_framebuffer.[ch], thereby separating
+responsibilities.
+
+The sun4i driver was recently incorrectly converted to use the unclipped
+drm_fb_dma_get_gem_addr() helper. This broke offsets into subsampled
+pixel groups, but also exposed the mismatch between the dimensions used
+vs the buffer address. Two other drivers were also touched.
+
+
+Patch 1 adds a new helper to return the byte offset into a framebuffer
+for the start of the pixel block of the given pixel coordinates.
+
+Patch 2 adds the new helper to return the buffer address based on
+clipped coordinates.
+
+Patch 3 switches the sun4i driver to the new helper, and fixes the
+luma plane buffer address offset for subsampled YUV formats.
+
+Patch 4 converts the imx/dc driver to use the new helper. This fixes a
+mismatch between the programmed coordinates and the buffer address.
+
+Patch 5 replaces the open coded buffer address calculation in the
+imx/dcss driver with the new helper. Existing behavior, which might be
+wrong, is preserved.
+
+
+Please help test. The series is only compile tested on my end. The sun4i
+changes should revert its behavior to before the drm_fb_dma_get_gem_addr()
+helper was adopted. The imx/dcss changes should not have any behavioral
+difference.
+
+
+Thanks
+ChenYu
+
+Chen-Yu Tsai (5):
+  drm: Split framebuffer pixel offset calculation from
+    drm_fb_dma_get_gem_addr()
+  drm/fb-dma-helper: Add drm_fb_dma_get_gem_clipped_addr()
+  drm/sun4i: layers: Fix VI buffer address for clipped offsets
+  drm/imx/dc: plane: Switch to drm_fb_dma_get_gem_clipped_addr()
+  drm/imx/dcss: plane: Switch to drm_fb_dma_get_gem_clipped_addr()
+
+ drivers/gpu/drm/drm_fb_dma_helper.c    | 61 ++++++++++++++------------
+ drivers/gpu/drm/drm_framebuffer.c      | 46 +++++++++++++++++++
+ drivers/gpu/drm/imx/dc/dc-plane.c      |  4 +-
+ drivers/gpu/drm/imx/dcss/dcss-plane.c  | 34 ++++++--------
+ drivers/gpu/drm/sun4i/sun8i_ui_layer.c |  2 +-
+ drivers/gpu/drm/sun4i/sun8i_vi_layer.c | 16 ++++++-
+ include/drm/drm_fb_dma_helper.h        |  4 ++
+ include/drm/drm_framebuffer.h          |  3 ++
+ 8 files changed, 119 insertions(+), 51 deletions(-)
+
+-- 
+2.56.1.809.ga0b61035b5-goog
+
