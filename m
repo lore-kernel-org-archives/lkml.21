@@ -1,78 +1,106 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.130
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795525807;
-	b=yYsSTAkPnjG7ZxRaJqoprsEpC2FxwuuCYepL8wLCcsaXkh1I0bxMBWzWpO4jiKMSs+OV
-	 6FBqsPXWVezPYK/BL9PcHqmTFPWC9aU6nDij7O5vRh4Q9kgUqyh98QxtyPFXMgx2/2osR
-	 HYeGtQ9BsP7Y5IvyTmMtNVe9byYyzuh36YapxVqg0NoQgZe8WglR+CIuzXIqrYGk+BEXL
-	 raZxhmRuSOikEUeILuVxiotgXhZy5Zbz1d+P934PuMWcGKUMaoK88O3riZ4rhMuUyd9Nx
-	 VU4GTSvslLGPSU90AoYEFDr/wDaaL+idfhAMeOaNolbxRtR97zZ8z3788ESdHbK63Ig==
+	t=1795525878;
+	b=xFYCO/TKr/djcGU/o5t4XiJMx8yHBEbZvFQ0HWeXL3agwHG3Nh3ar8tm+CT+sZPJ3k7K
+	 CKmVmATIrhq0kf0jhiE4SZ6jFklh9jJZax7jzERfkH4iCYC3bjFBzcoa2fnp/7fZzuhKl
+	 I82xCyvNmnMl3ihHwYAXfeIEu3RRArqJ3itr0Lbv2E0Yiv66l4l0EsX3QxmIRuYkobrnf
+	 L1JhcishqnI8LuvAkfcTlo876lgZQNMMF50L2vImPTMK/VlvsZmzC+bkUhEaz9UIDeAAM
+	 VfDBnwW+Fk2J+OLvDDfPgb2zYjgfaTqZTxWiZ4BiJ/1f2RKQiwum1aOzeDHSBcOv1uA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795525807;
-	h=Received:DKIM-Signature:Received:Date:Message-ID:From:To:Cc:Subject:
-	 In-Reply-To:References:User-Agent:MIME-Version:Content-Type:
-	 X-SA-Exim-Connect-IP:X-SA-Exim-Rcpt-To:X-SA-Exim-Mail-From:
-	 X-SA-Exim-Scanned;
-	bh=Z3NWK5cLOijzuItkhwXkwNPbHwJin1fTuYBbbki6ORI=;
-	b=PAU9V0fWjy2Mqq5P5VPW+TpCOhtqSKZHuXDYcXAjLauRaDDUljVqnUXphDTFP33hagA0
-	 5fIT3PAo3mmCKCVORnM6agWtKUenhO3O6yHT4hAZ+tzgcRcAYcKE5bGwsP+BQtyNZUBY9
-	 CJ/a2DfMolvx3hlhTNDhLoSdk8eC1fH3+POF53rNkZBNuEWtr5Qi5kPrxDhFpt22p0pwF
-	 rkpd8v4nSm1Ow3mKre3pJdREdceWy1xs8ykC7lgXxjGfF4Ilk9MCWL2j/Pe7Iel/jkry+
-	 4omZCsmj2v4vVLFKkPXL47+iKZSLA9gAjeA28U/a/VYeUZhAeDIN3qMXfDx9gcYW5QQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795525878;
+	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
+	 DKIM-Signature:Received:Received:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
+	 X-Spamd-Result:X-Spam-Score:X-Spam-Level:X-Spam-Flag;
+	bh=Un7OFeotv/cgwVEZk3ji5A5Uvj3bLR4SzF33G0c+QYI=;
+	b=kImpN243il/m6cW85e/gH4bVqjy4IhF4ylFKjsc2Ui/juirsceKl5rrKkUjiNKCRMzvP
+	 xF0QAX5Yr3GlNvJmu6bROjtLIZhSMckrgoVKM1iM60ST9Ua/RCpXxq/8JqRyQNwIkdq84
+	 m5+0SMHATQYGmMu/O6lXQV73j7WopB8iz7OQLEey8DykYa9llWQ7RGBbtRxrlEBUniJ3Y
+	 w/foR/zn92Rdrm8rLM2t30oHv5lG5dR6ilPwdSr31jN2vOLADLjoQadNIUOsMHTi1fqKS
+	 L96pcYGcXZ+SxacsPjPy5rpKAGZ2hSMaOuYFMVag1Tzo0qivxjstUP2hziLYNQZUtIw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=X0QNvToG;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=suse.de;
+	spf=pass smtp.mailfrom=suse.de;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=rb5wOvWb;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=EeUYJByg;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=rb5wOvWb;
+	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=EeUYJByg;
+	arc=none smtp.remote-ip=195.135.223.130
+Received: from smtp-out1.suse.de (smtp-out1.suse.de [195.135.223.130])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B3976606A31E;
-	Tue, 24 Nov 2026 13:10:07 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6B098606A31E;
+	Tue, 24 Nov 2026 13:11:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6B098606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=suse.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=X0QNvToG
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0D851F000C0;
-	Tue, 24 Nov 2026 13:10:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795525807;
-	bh=Z3NWK5cLOijzuItkhwXkwNPbHwJin1fTuYBbbki6ORI=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=X0QNvToGXtckZFbW+UoARbViFoCfBnXhVDDwI1XkbcWrUksYFrngLCyTtTIWGQpsk
-	 0BQnnXr6ZkOsAVYrbETr1rus/d1lTaP5rV+4gAwivLWSscyewP5X2zeBtjJWtjJkCo
-	 FEDWLwCynU6pD7wQDBtu2QsYMNcuhvEdFh2IoosoP1mG9SqZUTiyH7ceumcWZVEpCI
-	 7reSYgJq/P13bLyt9pTNx356QSA2Hjw60m3NJgdg3425aNSw7qRTpifjo0d0GJszaz
-	 dDyvlyeq62OUngXQI0oG2S80VBVIFeVItu6x3L+iG3u//4Od2x1r6JxbVsNIOZjKZO
-	 mmqLk4B5CutYA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1xVqHc-00000002aNR-3azu;
-	Tue, 24 Nov 2026 13:10:04 +0000
-Date: Tue, 24 Nov 2026 13:10:04 +0000
-Message-ID: <867bi2z87n.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Colton Lewis <coltonlewis@google.com>
-Cc: Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Fuad Tabba <fuad.tabba@linux.dev>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Wei-Lin Chang <weilin.chang@arm.com>,
-	Dan Carpenter <dan@pereq.eu>,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/2] KVM: arm64: nv: Discard undersized TTL hints in compute_tlb_inval_range()
-In-Reply-To: <20261123232647.3733149-2-coltonlewis@google.com>
-References: <20261123232647.3733149-1-coltonlewis@google.com>
-	<20261123232647.3733149-2-coltonlewis@google.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=rb5wOvWb;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=EeUYJByg;
+	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=rb5wOvWb;
+	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=EeUYJByg
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 9F40C21FDD;
+	Tue, 24 Nov 2026 13:11:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1795525876; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Un7OFeotv/cgwVEZk3ji5A5Uvj3bLR4SzF33G0c+QYI=;
+	b=rb5wOvWbiiQFQufaaSQ6BhFGSvCEohd4nZR+CQo4KfMnxUX/jKgoquVwMwELJj2awY61aH
+	siLKadWiKTIL8cEQ1IA5VX1COpvGbtTnMb/YwAc698svrqR3Ex6JetzQyK1eq26CquRo+x
+	kTqpmWj4804vqch1ZhSuPS240hA90po=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1795525876;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Un7OFeotv/cgwVEZk3ji5A5Uvj3bLR4SzF33G0c+QYI=;
+	b=EeUYJBygel5fY8HrGoffaBTuMuyzXz8uIOK6uwho7Wcybt9v6VWfU/4ukG+s5rFwn4sayM
+	3KpicyNzRDxErmDA==
+Authentication-Results: smtp-out1.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1795525876; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Un7OFeotv/cgwVEZk3ji5A5Uvj3bLR4SzF33G0c+QYI=;
+	b=rb5wOvWbiiQFQufaaSQ6BhFGSvCEohd4nZR+CQo4KfMnxUX/jKgoquVwMwELJj2awY61aH
+	siLKadWiKTIL8cEQ1IA5VX1COpvGbtTnMb/YwAc698svrqR3Ex6JetzQyK1eq26CquRo+x
+	kTqpmWj4804vqch1ZhSuPS240hA90po=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1795525876;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Un7OFeotv/cgwVEZk3ji5A5Uvj3bLR4SzF33G0c+QYI=;
+	b=EeUYJBygel5fY8HrGoffaBTuMuyzXz8uIOK6uwho7Wcybt9v6VWfU/4ukG+s5rFwn4sayM
+	3KpicyNzRDxErmDA==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 016BF13505;
+	Tue, 24 Nov 2026 13:11:15 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id Imu+MPOMBWvkMwAAD6G6ig
+	(envelope-from <pfalcato@suse.de>); Tue, 24 Nov 2026 13:11:15 +0000
+Date: Tue, 24 Nov 2026 13:11:14 +0000
+From: Pedro Falcato <pfalcato@suse.de>
+To: "David Hildenbrand (Arm)" <david@kernel.org>
+Cc: Yi Wen <shicenci@gmail.com>, linux-mm@kvack.org, 
+	linux-kernel@vger.kernel.org, linux-ext4@vger.kernel.org, Jan Kara <jack@suse.cz>, 
+	John Hubbard <jhubbard@nvidia.com>
+Subject: Re: [BUG] mm/gup: WARNING: mm/page-writeback.c:2678 at
+ __folio_mark_dirty on v7.4-rc3
+Message-ID: <awWMsf-5RMa-TdGu@pedro-suse.tail5790ac.ts.net>
+References: <CAPHJ_V+_=Av8pAM+N+oc4JRmtqBjhcimh3B_pSy_N+5qecm6Mg@mail.gmail.com>
+ <f8cc1652-7577-4ace-97ed-081ecd65a031@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -81,42 +109,88 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: coltonlewis@google.com, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, fuad.tabba@linux.dev, seiden@linux.ibm.com, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, weilin.chang@arm.com, dan@pereq.eu, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <f8cc1652-7577-4ace-97ed-081ecd65a031@kernel.org>
+X-Spamd-Result: default: False [-13.30 / 50.00];
+	SUSE_INTERNAL_BYPASS(-9.00)[];
+	BAYES_HAM(-3.00)[100.00%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	RCVD_TLS_ALL(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	ARC_NA(0.00)[];
+	MISSING_XM_UA(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	RCPT_COUNT_SEVEN(0.00)[7];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	FROM_HAS_DN(0.00)[];
+	FREEMAIL_CC(0.00)[gmail.com,kvack.org,vger.kernel.org,suse.cz,nvidia.com];
+	TO_DN_SOME(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo]
+X-Spam-Score: -13.30
+X-Spam-Level: 
+X-Spam-Flag: NO
 
-On Mon, 23 Nov 2026 23:26:46 +0000,
-Colton Lewis <coltonlewis@google.com> wrote:
+On Sat, Nov 21, 2026 at 05:44:34PM +0100, David Hildenbrand (Arm) wrote:
+> On 11/21/26 15:49, Yi Wen wrote:
+> > Hi,
+> > 
+> > I am reporting a kernel WARNING triggered by a syzkaller reproducer on
+> > Linux v7.4-rc3.
+> > 
+> > The reproducer triggers a WARNING in ext4_dirty_folio() when
+> > process_vm_writev() writes to a file-backed mapping.
+> > 
+> > The call trace shows that the warning occurs during the GUP page
+> > unpinning and dirtying path:
+> > 
+> > process_vm_writev()
+> >   -> process_vm_rw_core()
+> >     -> unpin_user_pages_dirty_lock()
+> >       -> folio_mark_dirty()
+> >         -> ext4_dirty_folio()
+> > 
+> > A second WARNING is subsequently triggered in __folio_mark_dirty() in
+> > mm/page-writeback.c.
+> > 
+> > This appears to be related to the interaction between GUP-based page
+> > dirtying and filesystem-managed folio metadata. In particular, the GUP
+> > dirtying path may mark a file-backed folio dirty without ensuring that
+> > the filesystem-specific metadata required by its dirty_folio()
+> > implementation remains available.
+> > 
+> > This may be related to the known issue where GUP-based page dirtying
+> > does not properly notify the filesystem through page_mkwrite(), as
+> > well as the interaction between GUP dirtying and
+> > filemap_release_folio().
+> > 
+> > Before these warnings, all four ext4 loop devices also report delayed
+> > block allocation errors and abnormal free block accounting. These
+> > errors may indicate an additional filesystem inconsistency and are
+> > included in the console log for further investigation.
+> > 
 > 
-> When an L1 guest issues TLBI IPAS2E1 with a non-zero TTL hint,
-> compute_tlb_inval_range() takes it at face value. If the hinted size is
-> smaller than the actual mapping (for example, a 4kB L3 hint on a 2MB
-> block), kvm_pgtable_stage2_unmap() clears the entire block while
-> kvm_remove_guest_s2_mappings() leaves its stale tracking entry behind in
-> guest_s2_mappings. On 16kB or 64kB hosts, a 4kB hint also triggers
-> WARN_ON(size & ~PAGE_MASK) in kvm_stage2_unmap_range().
+> Hi,
 > 
-> A TTL hint smaller than PAGE_SIZE or the mapped entry is wrong. Check
-> it against PAGE_SIZE, the shadow stage-2 leaf size, and the guest block
-> size encoded in KVM_NV_GUEST_MAP_SZ. If it is too small, ignore the hint
-> and fall through to the unhinted invalidation path.
+> thanks for the report.
 > 
-> When falling back to the maximum mapping extent with stage-2 disabled,
-> size it from PAGE_SIZE rather than VTCR_EL2.TG0 so 1:1 shadow blocks are
-> still covered.
+> Did you only find this through syzcaller or by the help of an LLM?
 > 
-> Fixes: d1de1576dc21 ("KVM: arm64: nv: Handle FEAT_TTL hinted TLB operations")
-> Signed-off-by: Colton Lewis <coltonlewis@google.com>
+> I'm asking because the timing is interesting; this should be one of the problems
+> discussed by:
+> 
+> https://lore.kernel.org/r/20261119-gup-dirty-what-v1-0-236d69f25c24@suse.de
+> 
+> CCing Pedro, John und Jan.
 
-What's the advantage doing all this dance over the patch proposed at
-[1]?
-
-	M.
-
-[1] https://lore.kernel.org/all/20261123182312.4842-1-maz@kernel.org/
+Yep, looks likely to be the same bug.
 
 -- 
-Without deviation from the norm, progress is not possible.
+Pedro
