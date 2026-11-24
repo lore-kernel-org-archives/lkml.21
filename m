@@ -1,54 +1,107 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.54
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795536102;
-	b=H4bgjFI1X0tGrirN8uM9bkv9thMoSTP+pstaAYrQeY/CCDeT+pJQwTKa23NSFfh84AOe
-	 dmk3hb6KZ+iMXHSqLDV2i5x/DQAQk1G1CVzFcom2kD81N96PTw9VBb1zYQiHmMPIN5aQk
-	 Gqv6qS/fK4gjPro6GKdoO8/KhaEbXIvjGgowTKkYtLvNgEP/B5UL/RiEO1rQTXbbS2VPM
-	 nGFASWNBZc5PcK1M7AzMJkTmQoQVpvDX7vG2UWeq6DzU3Cwb9s6fo/kSIfnb2kXembhuo
-	 wOoFPKXc/ta6gwLYCDPv/Zib6NMeKOgZ82W7FZsu4tnyGV4wV/Lcya8/R0ziGrX8qUQ==
+	t=1795536172;
+	b=YTgafPLRBcNF89FGIlJpJHfKzRvHjflUf34h+NZFw0UeYN1RMaC448fBpoD63JXq4IGn
+	 EIxYmLgttbf5r9FKcwH98t9OFYrRVTDP7H3q0rGbXKn50xWBmR6vvGg/zp+kDn43zEjG6
+	 w5CUlT7wsfP1tBnKa1ydWYw2fkyr1SQUJ1b3PNYdQzlSWNvOc2rAgYrkEsMO6BoZkdbyA
+	 VwTztyjd9/3bDIxArbb0xLDvgMdtRWSJgnNMJZboU7wSIBYS3oCH9d4NjphvlZQ84vNui
+	 G5Rz/pXySwJGVd4gxNmFRX0klwIA/So6q9czCXGqvPdng2LtWDkmoscrA86R3dZmK+w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795536102;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=2o0NRUXa36p7/7MQArim177sfK4nNzNGivQ0/WA95tg=;
-	b=nMbMYG/N7B2yzgP/oRcNDa3iQEkJPmhpiMLBJDf6H40JAaHOa9gdKEXPJFp1bpCzzgvk
-	 PPXBd8QEfBTsJs3LWHniTQuGgWX72KpbCZqzsq5g4xqPZiN1zMyEX5EUkAMBKtreCCGJP
-	 JGmv0YvBPdwmhiSrFXml8lYlXlQrMDncFxmxrUIp53DBLv0V3IIHEXtPA4C9YDWGpnTvs
-	 ZuUta9V0AP9j+XRxUBLZaBg/Ep74dkZRe8sOBwZ4igpTsM5lShNIiTT/h+L6G1Suv5/Bv
-	 bWaBOlNaXk3Nx5Ydj5/yB2dqplHWzLN/tnk/hrplg9kf8pF+AvsvZbeD3poeIfsroJQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795536172;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:Content-Transfer-Encoding:
+	 In-Reply-To;
+	bh=VIP6J/fBo0uMkDHJLPjC6lz8Vse963XInWutXlvbkwI=;
+	b=GKN+HthhBhChc1isRaZ5nGoEFUpnRufaJhL8apzNDBIPp3b86GNrEug3K3gnR7oMYKft
+	 w/Ron/1UW672ogN37KHPqrfp9DIqViMukrRpIAyeKj9SjyEVbskrPnRYRn/b/pPUu+sfs
+	 hWrAyqiMRkpLsOxMGiMzCC/L0DpxL9UdQohFS8yp8hoGAkp5204V7f9WEOxOKvT5xgNM0
+	 vtJAjflcIiE1/aGIg1bk4zxMNtrIPkk+e1LjvDu8pVamBs5knj9xL3WLzPeJcjOQ4Co0B
+	 u7NFo1IXvTI/MaWcKgKeQf01b0djiygf48eAJn9+CPcmdoEKY7MrGUVi157Q+tGcbcw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=e67q5T6s;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=b7ro8bt8;
+	arc=none smtp.remote-ip=209.85.221.54
+Received: from mail-wr1-f54.google.com (mail-wr1-f54.google.com [209.85.221.54])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0D95B606A321
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 16:01:41 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6FA69606A336
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 16:02:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6FA69606A336
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=e67q5T6s
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 277771F000C6;
-	Tue, 24 Nov 2026 16:01:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795536101;
-	bh=2o0NRUXa36p7/7MQArim177sfK4nNzNGivQ0/WA95tg=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=e67q5T6sXlmIKNvmkTj+iv7SayIcavBdBOSm0bMZ3+cnPnEHb1nAsZN+GG+XUSNbF
-	 QLQbgol/FkA1BAMWaWgCRYv5Igv12yYrz2wu3YTapX2LyxjxWbJCy9qLOwKcM9QxRd
-	 IGLNZiIum07AWZ+cP2ZE6M0WJdMXstyX7LXw4kJPY3Vzcp69Tls78MToHYYkYwwltt
-	 KSDf93Pc4IRLm6Uz++apEFcZOCEAYmtIAVzsxiWU6rgsh70OtusdEbwGu2EH8tRGZo
-	 HXHG+Czpem+0gOAovbqJYUNpEiVuFLcgQZM9YyCSWx+noWtJkvllnAzmL5M2XVRltX
-	 N4AvaImetUnnA==
-From: SJ Park <sj@kernel.org>
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: SJ Park <sj@kernel.org>,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH mm-new 1/4] MAINTAINERS: change DAMON SCM tree to mm/damon.git
-Date: Tue, 24 Nov 2026 08:01:19 -0800
-Message-ID: <20261124160124.93482-2-sj@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261124160124.93482-1-sj@kernel.org>
-References: <20261124160124.93482-1-sj@kernel.org>
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=b7ro8bt8
+Received: by mail-wr1-f54.google.com with SMTP id ffacd0b85a97d-4a358881793so2429581f8f.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 08:02:52 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795536171; x=1796140971; darn=vger.kernel.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=VIP6J/fBo0uMkDHJLPjC6lz8Vse963XInWutXlvbkwI=;
+        b=b7ro8bt8s6WZ6goSKdTR9/b7UJZ+ETxzxEOK0KkeYo2eflpr8rt0OF6cFwV0jnuChQ
+         viEH1Te3AgIKQ6/QUdTLdEwn45BzlMSO/KkLMybo1MY4sV3bcqBM7pg4YLoF32KwKm8H
+         +lcVjh6X8y92UVgcXyfso+WFDHxbnhGvk/TeyGE0zkXdEfaCDi3p98b1jci2sgSm31fl
+         w6EvnZhsiX8/R6QD+XjTHNd9kIQqXTn+eL5AzVDkjKo8hRdiCQHd+U+rWOPGf06yuLs7
+         RNL0Mlb4kz0rsO68sTFR1NAJ/TSvmlvW+vAqvMMDbROXjbVQwWAddk9yPnDXxED9W8sD
+         MA1Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795536171; x=1796140971;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=VIP6J/fBo0uMkDHJLPjC6lz8Vse963XInWutXlvbkwI=;
+        b=kxhj4JXuGTduAqc19CserxHCnAA7BXjdEdNG06j74VoU3K7YHa0fm9YVkPnTBbHnMW
+         APna2D6OpWavsfExgs/pxjaX4v2lOeTrvRWkPXhJeMg+3Ceje66lPis/Ta+8FzUbFA/5
+         m/2yjEE/LGSUH5FgqtDWiG9DBZRXi8uW9uDDMvjk536plY5pslSA+YjO1PGfgEGOgCg4
+         kGRsnBIVY/lWvAJRVis9r351UVg4kSiTTNElLfPgW/H7fW8CnsQtwSZWO6Yzb+4wkZ4q
+         E3k4yKaC7guOn8zpsincktNGsNIcA8IyVkjjcLrZXjvLlLm38RXG+pTT20WH3E6Ihj9Y
+         omMw==
+X-Forwarded-Encrypted: i=1; AL+hErF1D5q8Cfi32CxyVYl5rEVJsQViWd73kkjF01JF2ipdU9cKXV/CYCAB0CBJbEyHzUpRJ9BtwBjaNk3kfms=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+6Mwj2vgtxYsIHtQ63NQmCFvruO13X8tO2ZfEzIpOMDTq8dPXf
+	SWfVEo5AFoLF/okyWNiMvAdbeVNxVCo8I0f/Jm343V8DDVN5yXK5GjuaS+o7GAj8dw==
+X-Gm-Gg: AZFdTZewtymsq1guM7uBZOXUfVe65QtenDBls1o7kN3x+dXgYvSI9dPWdTN2ieflfew
+	H7oqWc483hwIpLzc3DG8knF2E0d3Gmzi7B0AoKIFALYZyj3lJZPN3OLNzzVxP2GcSyMpUWMZwyG
+	hNt+8kl1ZLvVyJltGmf6xWbjs0eyR2XAT0wPteHsFiG3X5j7Uxzl25GUeNcxNLux7o7JEpnmTNq
+	0r1mi35gIn3SRIkVX0UfdQsSU1Mn+En7sCPxQbHvDo0nn09zfDxWigEBv2A+62MQthTEkbdZPCu
+	PQsZLi+iDti2Za6yWWJDozwGxoP0vx45Dy1YqIao3vlcdb4hlwlYDjqQLnxp3VdcmU4lbpdWpOu
+	vsUPB70B3TVrtSMY07qqW4ctkxITVyy+wDcal2zNReOtjH3IjIDiYDq9cT8+KtuOX4uTS7u0S8k
+	BCnxUbVZ7NZ9iCAkF2sUbMP/lYSzzx1mz6zHkwKF5ZHaJm4NdeKRpYzsA2tEyuvwMkgFukRUEe8
+	Wd42Hq9wm7rO5MJxQ+1MEJDYhZoIdh0iaPl7IX8WqGOZgegXeSD2+bMp9HYqMNEDvIK3dgYvFbo
+	dBfaJK4KAVMDRrjoJyJxs4DpiHlRt+uPN7fevxyCSLFGcWn4uap68Miq9vNT
+X-Received: by 2002:a05:6000:4541:b0:4aa:d196:f329 with SMTP id ffacd0b85a97d-4abb4c7afc6mr19740332f8f.27.1795536170162;
+        Tue, 24 Nov 2026 08:02:50 -0800 (PST)
+Received: from google.com ([2a00:79e0:288a:8:d01b:9df4:1123:37e8])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab658e2d1bsm30145984f8f.8.2026.11.24.08.02.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 08:02:49 -0800 (PST)
+Date: Tue, 24 Nov 2026 17:02:44 +0100
+From: =?utf-8?Q?G=C3=BCnther?= Noack <gnoack@google.com>
+To: =?utf-8?Q?Micka=C3=ABl_Sala=C3=BCn?= <mic@digikod.net>
+Cc: =?utf-8?Q?G=C3=BCnther?= Noack <gnoack3000@gmail.com>,
+	Christian Brauner <brauner@kernel.org>,
+	Oleg Nesterov <oleg@redhat.com>, Tejun Heo <tj@kernel.org>,
+	Bart Van Assche <bvanassche@acm.org>, Cen Zhang <blbllhy@gmail.com>,
+	James Morris <jmorris@namei.org>,
+	Lee Seong Hyeon <ihopenre@gmail.com>,
+	Marco Elver <elver@google.com>, NeilBrown <neil@brown.name>,
+	Nickolai Zeldovich <nickolai@csail.mit.edu>,
+	Paul Moore <paul@paul-moore.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	"Serge E . Hallyn" <serge@hallyn.com>,
+	Yihan Ding <dingyihan@uniontech.com>, linux-kernel@vger.kernel.org,
+	linux-security-module@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH] landlock: Do not hold exec_update_lock across the TSYNC
+ wait
+Message-ID: <awW1JBtrZUoBcwJq@google.com>
+References: <20261120151554.2651743-1-mic@digikod.net>
+ <20261121.bd9ab1ba5f9f@gnoack.org>
+ <20261123.RailieV3ePah@digikod.net>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,76 +111,77 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <20261123.RailieV3ePah@digikod.net>
 
-Right after 7.5-rc1, DAMON will onboard the mm-next transition.  The
-major change is that it will use mm/damon.git [2] as its SCM tree.
-Update the DAMON subsystem SCM tree section on the MAINTAINERS file for
-that.  Together, rename the section to have 'MEMORY MANAGEMENT - '
-prefix, to be consistent with other mm components.  Because the name is
-changed, move the section on the file to be alphabetically sorted.
+On Mon, Nov 23, 2026 at 10:37:22AM +0100, Mickaël Salaün wrote:
+> On Sat, Nov 21, 2026 at 10:46:49PM +0100, Günther Noack wrote:
+> > On Fri, Nov 20, 2026 at 04:15:52PM +0100, Mickaël Salaün wrote:
+> > > landlock_restrict_sibling_threads() write-locks
+> > > current->signal->exec_update_lock to serialize TSYNC callers, and holds
+> > > it until every sibling thread has run its task_work.  This wait is
+> > > unbounded: TWA_SIGNAL does not wake a TASK_KILLABLE sleeper, so a
+> > > sibling blocked as a vfork() parent runs it only once its child execs or
+> > > exits.
+> > > 
+> > > Meanwhile, readers of this lock block, mostly in D state:
+> > > /proc/<pid>/stat, mm_access(), pidfd_getfd(), kcmp(), perf_event_open(),
+> > > etc.  An unprivileged process can thus stall tools run by other users,
+> > > including root, such as ps and top.
+> > > 
+> > > Only a per-process "TSYNC in progress" marker is needed.  Use an unused
+> > > signal_struct.flags bit, protected by sighand->siglock, which is held
+> > > only to set or clear the marker.  A second caller still restarts the
+> > > syscall, and a cleanup class releases the marker on every return.
+> > > 
+> > > Like de_thread(), treat a group exit or an ongoing exec as a held
+> > > marker: a group exit may overwrite the flags, and both kill the other
+> > > threads, which the restart lets the caller handle.
+> > > 
+> > > Add KUnit tests for taking a free marker and for rejecting a held one.
+> > > A concurrent TSYNC caller cannot be started deterministically from user
+> > > space, but a KUnit thread has no sibling and can hold the marker itself.
+> > > 
+> > > Cc: Christian Brauner <brauner@kernel.org>
+> > > Cc: Günther Noack <gnoack@google.com>
+> > > Cc: Nickolai Zeldovich <nickolai@csail.mit.edu>
+> > > Cc: Oleg Nesterov <oleg@redhat.com>
+> > > Cc: Tejun Heo <tj@kernel.org>
+> > > Cc: Yihan Ding <dingyihan@uniontech.com>
+> > > Cc: stable@vger.kernel.org
+> > > Reported-by: Lee Seong Hyeon <ihopenre@gmail.com>
+> > > Suggested-by: Lee Seong Hyeon <ihopenre@gmail.com>
+> > > Fixes: ff88df67dbf7 ("landlock: Serialize TSYNC thread restriction")
+> > > Signed-off-by: Mickaël Salaün <mic@digikod.net>
+> > > ---
+> > > 
+> > > Changes since the initial report from Lee Seong Hyeon:
+> > > - Rewrite the fix, storing the marker in an unused signal_struct.flags
+> > >   bit protected by sighand->siglock instead of adding a signal_struct
+> > >   field.
+> > > - Treat group exit and ongoing exec as a held marker, because group exit
+> > >   may overwrite the flags.
+> > > - Release the marker with a cleanup class.
+> > 
+> > It's not clear to me why the cleanup class and the fix are bundled in
+> > one commit here.  (I do find the cleanup class useful, but shouldn't a
+> > bugfix commit be as minimal as possible so that it is easy for people
+> > to apply to their downstream kernels?)
+> 
+> I included the cleanup class because we needed to change the up_write()
+> call anyway, so it's a good opportunity to use an automatic cleanup
+> mechanism instead of replacing it with an explicit lock + flag change.
+> 
+> I also moved the initial check before the initialization because it
+> makes more sense there and it was a good opportunity to do it now (I
+> updated the comment as well).
+> 
+> This extra cleanup doesn't have any impact on backporting.
 
-[1] https://lore.kernel.org/bed81e01-7303-4957-bd7d-38e3a094e96f@kernel.org/
-[2] https://git.kernel.org/pub/scm/linux/kernel/git/mm/damon.git/
+Fair enough, sounds good.
 
-Signed-off-by: SJ Park <sj@kernel.org>
----
- MAINTAINERS | 36 +++++++++++++++++-------------------
- 1 file changed, 17 insertions(+), 19 deletions(-)
+Acked-by: Günther Noack <gnoack@google.com>
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 8fd9991739547..5c06967640fd7 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -7366,25 +7366,6 @@ S:	Maintained
- W:	https://docs.dasharo.com/
- F:	drivers/platform/x86/dasharo-acpi.c
- 
--DAMON
--M:	SJ Park <sj@kernel.org>
--L:	damon@lists.linux.dev
--L:	linux-mm@kvack.org
--S:	Maintained
--W:	https://damonitor.github.io
--P:	Documentation/mm/damon/maintainer-profile.rst
--T:	git git://git.kernel.org/pub/scm/linux/kernel/git/akpm/mm
--T:	quilt git://git.kernel.org/pub/scm/linux/kernel/git/akpm/25-new
--T:	git git://git.kernel.org/pub/scm/linux/kernel/git/sj/linux.git damon/next
--F:	Documentation/ABI/testing/sysfs-kernel-mm-damon
--F:	Documentation/admin-guide/mm/damon/
--F:	Documentation/mm/damon/
--F:	include/linux/damon.h
--F:	include/trace/events/damon.h
--F:	mm/damon/
--F:	samples/damon/
--F:	tools/testing/selftests/damon/
--
- DAVICOM FAST ETHERNET (DMFE) NETWORK DRIVER
- L:	netdev@vger.kernel.org
- S:	Orphan
-@@ -17563,6 +17544,23 @@ F:	mm/vmstat.c
- F:	scripts/gdb/linux/mm.py
- N:	include\/linux\/page[-_][a-zA-Z]*
- 
-+MEMORY MANAGEMENT - DAMON
-+M:	SJ Park <sj@kernel.org>
-+L:	damon@lists.linux.dev
-+L:	linux-mm@kvack.org
-+S:	Maintained
-+W:	https://damonitor.github.io
-+P:	Documentation/mm/damon/maintainer-profile.rst
-+T:	git git://git.kernel.org/pub/scm/linux/kernel/git/mm/damon.git for-next
-+F:	Documentation/ABI/testing/sysfs-kernel-mm-damon
-+F:	Documentation/admin-guide/mm/damon/
-+F:	Documentation/mm/damon/
-+F:	include/linux/damon.h
-+F:	include/trace/events/damon.h
-+F:	mm/damon/
-+F:	samples/damon/
-+F:	tools/testing/selftests/damon/
-+
- MEMORY MANAGEMENT - EXECMEM
- M:	Andrew Morton <akpm@linux-foundation.org>
- M:	Mike Rapoport <rppt@kernel.org>
--- 
-2.47.3
+—Günther
