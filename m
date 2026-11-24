@@ -1,79 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=62.96.220.36
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=210.61.82.184
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795501077;
-	b=y17DMe6+4mCwogLvStZczhGe3uRWqjPJMN82e7crEG8TRYyJPtOZ8WfKa5Q7TTteDd/B
-	 NTVneVWRJaNXGdjPAI8QOL3so00OhXZewoBu8qhqZKWUGYZS4OFSkA0KUQ8fnR5o3ML4z
-	 BDi5cuaJcUfjkG61LeiVGx0P1MSn2Db05tzIkXbnlJMA0NjIP7PUGY19cTrwBCi5558DD
-	 TeB4R/nLTPzQSpbevy6iCaDuA8n6fJVPwWcyAqPdbGXUafrh/wHYo2wyAUncAwwBN7YOU
-	 Tpm4BunRHwbs8Ip5hjp4kXFXw0qeHyp3dU9OYITdFaI71aG1zps5fwXMUn/baOElUbA==
+	t=1795501225;
+	b=gUh6Kg0/1nrX6gGvk9QSXCg+4GCfqN841Cnz15v/1tE9kJNhpxp3ckcsoRAzcRcjtOjT
+	 IxhF8qoJLHr4XElG7j0ASX9TRrza6hHZY4vPspCsg4oD5TNvelehI+gOLK3wIT1RTJBjG
+	 VSmCAwiGlPwoi8DgeOgX4VZJp07EW7oG433NBulAmVe/9iW4LL4VaE9gH75n5zcMaajHq
+	 AzTExlUlDWJk/suy5sAGR5iOr6uQM5u151U9TDgOGuBfqnksY2BKMvQSAuSi3mY+nx9H2
+	 ASRXgc/sbIvdPk9fGmNhy97ytSEDo4NOjLv6J/unqSVWNZFC/58Gqy/HoYe/MGDQ1eA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795501077;
-	h=DMARC-Filter:Received:X-Virus-Scanned:Received:Received:DKIM-Filter:
-	 DKIM-Signature:Received:Received:Date:From:To:CC:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
-	 X-ClientProxiedBy;
-	bh=Fns5KSeLA1lAqdtuoDUdCMp8WJ8wrSCmXQUe1et8xFI=;
-	b=qHuJfeb+JirhuzX7H+573cDeeDRUggI4y+F3i2KOAQwzisgLexcol5a+i0kmiH/4/YO3
-	 0eucuuL0QX3J3vHk9Tfl0U1Qud+eoAcfYW5ja96Qz9tAG2D3UiWOOnnux3PXZKAbQ4wRC
-	 bwXY/bASJIthUss1KXQ2TEsXU1wr+GyPIuLawKS7GnL8wpp3TuJaJgIGfhrkMdKCAYHfe
-	 LGHz+O0pADslJ9r4zcYGKDx0zKTiM4CwSoJBxmQL02/5SqUmP74YZNHYHKbKkdVEnVX/K
-	 NzGz/UwUBtWGXrSoq4sSMRafrDjP8PSRLYtAXBmFcP2p3RuSj3JeA8kLqpf0soOBuqQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795501225;
+	h=DMARC-Filter:X-UUID:DKIM-Signature:X-CID-P-RULE:X-CID-O-INFO:
+	 X-CID-META:X-CID-BVR:X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:Received:
+	 Received:Received:Message-ID:Subject:From:To:CC:Date:In-Reply-To:
+	 References:Content-Type:Content-Transfer-Encoding:User-Agent:
+	 MIME-Version:X-MTK;
+	bh=pFydmauB6ggL5C9+bC/CYNxk+CX+tmvYGSas2+jHwA8=;
+	b=HMY3mnwVckOqYQ36ML5rXJ3rfHmK5pvvPcKfIqV7d62fvTgjsD5OrsgazGWF2Ip8ysUG
+	 05gpjVHsjym1scLFVvU4NiyqVeUVEkMFDpfn0E07i30xtQgAuSh6nE1U6bF0vSsNnPs/x
+	 QCEOpwcYgetqHMrE5FZfIjIT+zSE/61FQdS0ABD0kSpK7pnFRzEp58GkHipBvlLyvSTAH
+	 eHVN8bRufj47EQQrbUTzfU8kdw78iKzli+wRIi5IYX6qXJGBcdZYHYdUIejqHDMaccpt5
+	 ibCLGxlGSFM4FxJUhGCrroERTWuaHiih1fVpwMY/MBwyFytTYJj7Hv+eJOAWRlzhzVw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=secunet.com;
-	spf=pass smtp.mailfrom=secunet.com;
-	dkim=pass header.d=secunet.com header.i=@secunet.com header.a=rsa-sha256 header.s=202301 header.b=CuMNmgBk;
-	arc=none smtp.remote-ip=62.96.220.36
-Received: from mx1.secunet.com (mx1.secunet.com [62.96.220.36])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=mediatek.com;
+	spf=pass smtp.mailfrom=mediatek.com;
+	dkim=pass header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=p304Nbaa;
+	arc=none smtp.remote-ip=210.61.82.184
+Received: from mailgw02.mediatek.com (unknown [210.61.82.184])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3425D606A321;
-	Tue, 24 Nov 2026 06:17:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3425D606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=secunet.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=secunet.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DA37A606A31E;
+	Tue, 24 Nov 2026 06:20:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DA37A606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mediatek.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mediatek.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=secunet.com header.i=@secunet.com header.a=rsa-sha256 header.s=202301 header.b=CuMNmgBk
-Received: from localhost (localhost [127.0.0.1])
-	by mx1.secunet.com (Postfix) with ESMTP id F0989206D0;
-	Tue, 24 Nov 2026 07:17:53 +0100 (CET)
-X-Virus-Scanned: by secunet
-Received: from mx1.secunet.com ([127.0.0.1])
- by localhost (mx1.secunet.com [127.0.0.1]) (amavisd-new, port 10024)
- with ESMTP id 72SRn53h-tJp; Tue, 24 Nov 2026 07:17:53 +0100 (CET)
-Received: from EXCH-01.secunet.de (rl1.secunet.de [10.32.0.231])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mx1.secunet.com (Postfix) with ESMTPS id 580BD201C7;
-	Tue, 24 Nov 2026 07:17:53 +0100 (CET)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mx1.secunet.com 580BD201C7
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=secunet.com;
-	s=202301; t=1795501073;
-	bh=Fns5KSeLA1lAqdtuoDUdCMp8WJ8wrSCmXQUe1et8xFI=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To:From;
-	b=CuMNmgBkP7qTfM6MdxNUQ6ZyVyFsrN51hj1M1RaCrS/5jRfJkAFbqvLG2UzS3NtM/
-	 Lcg5KAuLcfVffLvgrX+EcXiVUgPrMB6Oenm9MyxVshBWaox4J5C6JNKRglv9dctAQw
-	 5XJ0IxPDsK3bZEa1qDH/MWmz5iQF78pJFMvPRjp6bhKCFczY1u3b4ZqDbBkBs36oj/
-	 BPhB8a9Ix0gI/uXi8R6tdQuT0h5c/Jv99Q6w98eIRyNkIEnzvHc1E5Wk2hf08UOwYJ
-	 yQjiFDbvwvAA225xSuKdx17rxcb50t8f3ugwLxr2wZh0t7xClgswJGTE+v3rjaB3ev
-	 Bkv3vBs4jrdSA==
-Received: from gauss4 (10.182.7.102) by EXCH-01.secunet.de (10.32.0.171) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Tue, 24 Nov
- 2026 07:17:51 +0100
-Received: (nullmailer pid 3202217 invoked by uid 1000);
-	Tue, 24 Nov 2026 06:17:52 -0000
-Date: Tue, 24 Nov 2026 07:17:52 +0100
-From: Steffen Klassert <steffen.klassert@secunet.com>
-To: Kyuwon Cho <kyuwoncho18@gmail.com>
-CC: Herbert Xu <herbert@gondor.apana.org.au>, "David S. Miller"
-	<davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski
-	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman
-	<horms@kernel.org>, <netdev@vger.kernel.org>, <ipsec@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [BUG] xfrm: ESP SA in route optimization mode hits WARN_ON_ONCE
- in xfrm_state_mtu() and xfrm_input()
-Message-ID: <awUsEE7XZIFwc0Ws@gauss4>
-References: <179493154245.3969421.1349059390749040254@gmail.com>
+	dkim=pass (1024-bit key, unprotected) header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=p304Nbaa
+X-UUID: 1d60dfcae7cf11f18dc8c9802ae25ab1-20261124
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=MIME-Version:Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:CC:To:From:Subject:Message-ID; bh=pFydmauB6ggL5C9+bC/CYNxk+CX+tmvYGSas2+jHwA8=;
+	b=p304NbaaddcDYoRBhdxU1ymOoCdA/hUxJctsFG5xi717iYW0zuDpPPWHif0w2N1QNnBX61wJUfTpet56C/KWmHHewzLHitQmka6Nvm6OOtGGwzVft/RoZdocOYEMYPZvfglUZn+4Tg0xwUjfFyrb7eDVLmQMu6eNQfSjizYLqM8=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.21,REQID:140a6d9d-5db2-49c8-bec5-dfb0396119c0,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:b0318ac,CLOUDID:644412ed-0ff0-4c47-975b-86f238fbd439,B
+	ulkID:nil,BulkQuantity:0,SF:80|81|82|83|102|136|836|865|888|898,TC:-5,Cont
+	ent:0|15|50|99,EDM:-3|-100,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:
+	nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 1d60dfcae7cf11f18dc8c9802ae25ab1-20261124
+Received: from mtkmbs14n1.mediatek.inc [(172.21.101.75)] by mailgw02.mediatek.com
+	(envelope-from <peter.wang@mediatek.com>)
+	(Generic MTA with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1688684968; Tue, 24 Nov 2026 14:20:16 +0800
+Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
+ mtkmbs13n2.mediatek.inc (172.21.101.108) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Tue, 24 Nov 2026 14:20:14 +0800
+Received: from [10.233.130.16] (10.233.130.16) by mtkmbs11n2.mediatek.inc
+ (172.21.101.73) with Microsoft SMTP Server id 15.2.2562.56 via Frontend
+ Transport; Tue, 24 Nov 2026 14:20:14 +0800
+Message-ID: <25172401d7a116a37df7eaf5c7ba06c10abb89d8.camel@mediatek.com>
+Subject: Re: [PATCH v2 2/2] scsi: ufs: core: Add debugfs for PA TFS/FEC
+ error counters
+From: Peter Wang <peter.wang@mediatek.com>
+To: Po-Wen Kao <powenkao@google.com>, <linux-scsi@vger.kernel.org>
+CC: Konstantin Vyshetsky <vkon@google.com>, Alim Akhtar
+	<alim.akhtar@samsung.com>, Bart Van Assche <bvanassche@acm.org>, Bean Huo
+	<beanhuo@micron.com>, Stanley Jhu <stanleyjhu@google.com>, "James E . J .
+ Bottomley" <James.Bottomley@HansenPartnership.com>, "Martin K . Petersen"
+	<mkp@kernel.org>, Can Guo <can.guo@oss.qualcomm.com>,
+	<linux-kernel@vger.kernel.org>, John Garry <john.garry@linux.dev>, Li Qiang
+	<liqiang01@kylinos.cn>
+Date: Tue, 24 Nov 2026 14:20:14 +0800
+In-Reply-To: <20261124012951.3143833-3-powenkao@google.com>
+References: <20261124012951.3143833-1-powenkao@google.com>
+	 <20261124012951.3143833-3-powenkao@google.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.52.3-0ubuntu1.1 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,96 +91,47 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <179493154245.3969421.1349059390749040254@gmail.com>
-X-ClientProxiedBy: EXCH-02.secunet.de (10.32.0.172) To EXCH-01.secunet.de
- (10.32.0.171)
+X-MTK: N
 
-On Tue, Nov 17, 2026 at 08:05:46AM -0800, Kyuwon Cho wrote:
-> Hi Steffen, Herbert,
-> 
-> While testing v7.4-rc3 with an LLM-guided test generator that we are
-> developing as a research prototype, we found that XFRM_MSG_NEWSA accepts
-> an ESP state with mode XFRM_MODE_ROUTEOPTIMIZATION, and that one packet
-> through it hits two WARN_ON_ONCE()s. An unprivileged user can do this
-> from its own user and network namespace. Sending the packet:
-> 
->   WARNING: net/xfrm/xfrm_state.c:3264 at xfrm_state_mtu+0x239/0x3d0, CPU#1: test/107
->   CPU: 1 UID: 65534 PID: 107 Comm: test Not tainted 7.4.0-rc3 #1 PREEMPT(lazy) 
->   RIP: 0010:xfrm_state_mtu+0x239/0x3d0
->   Call Trace:
->    <TASK>
->    xfrm_bundle_create+0x1560/0x2340
->    xfrm_resolve_and_create_bundle+0x158/0x2d0
->    xfrm_lookup_with_ifid+0x483/0x18e0
->    xfrm_lookup_route+0x1e/0x180
->    ip6_dst_lookup_flow+0x196/0x1e0
->    udpv6_sendmsg+0x163b/0x2d70
->    __sys_sendto+0x2b1/0x3c0
->    __x64_sys_sendto+0xdb/0x1b0
->    do_syscall_64+0x116/0x630
->    entry_SYSCALL_64_after_hwframe+0x77/0x7f
->    </TASK>
-> 
-> and receiving it:
-> 
->   WARNING: net/xfrm/xfrm_input.c:449 at xfrm_input+0x2176/0x5f50, CPU#1: test/107
->   CPU: 1 UID: 65534 PID: 107 Comm: test Tainted: G        W           7.4.0-rc3 #1 PREEMPT(lazy) 
->   RIP: 0010:xfrm_input+0x2176/0x5f50
->   Call Trace:
->    <IRQ>
->    xfrm6_esp_rcv+0x83/0x1c0
->    ip6_protocol_deliver_rcu+0xc71/0x13d0
->    ip6_input_finish+0x192/0x3f0
->    ip6_input+0xcb/0x220
->    __netif_receive_skb_one_core+0x114/0x1b0
->    process_backlog+0x3c6/0x12c0
->    __napi_poll.constprop.0+0x9c/0x5c0
->    net_rx_action+0x48e/0xe30
->    handle_softirqs+0x22d/0x980
->    do_softirq+0x43/0xa0
->    </IRQ>
-> 
-> verify_newsa_info() accepts XFRM_MODE_ROUTEOPTIMIZATION for any
-> protocol; only IP-TFS is limited to ESP. esp6_init_state() treats every
-> mode other than BEET and TUNNEL as transport:
-> 
-> 	switch (x->props.mode) {
-> 	case XFRM_MODE_BEET:
-> 		...
-> 	default:
-> 	case XFRM_MODE_TRANSPORT:
-> 		break;
-> 
-> so the state is created. The ESP paths then reach code that assumes
-> route optimization never comes with ESP. xfrm_state_mtu() has no case
-> for it and falls to:
-> 
-> 	default:
-> 		if (x->mode_cbs && x->mode_cbs->get_inner_mtu)
-> 			return x->mode_cbs->get_inner_mtu(x, mtu);
-> 
-> 		WARN_ON_ONCE(1);
-> 
-> and xfrm_inner_mode_input() has
-> 
-> 	case XFRM_MODE_ROUTEOPTIMIZATION:
-> 		WARN_ON_ONCE(1);
-> 		break;
-> 
-> The packet is dropped on input, so the effect is the warnings, which
-> panic a machine with panic_on_warn. Both WARN_ON_ONCE()s date from the
-> 2019 xfrm mode cleanup (c2d305e51038, c7b37c769d2a).
-> 
-> Accepting XFRM_MODE_ROUTEOPTIMIZATION only for the Mobile IPv6 types
-> (IPPROTO_ROUTING and IPPROTO_DSTOPTS) in verify_newsa_info(), as it
-> already limits IP-TFS to ESP, or rejecting it in esp6_init_state()
-> (route optimization exists only for IPv6 states), should avoid it. We
-> have not tested either change.
+On Tue, 2026-11-24 at 09:29 +0800, Po-Wen Kao wrote:
+> From: Brian Kao <powenkao@google.com>
+>=20
+> MIPI UniPro v3.0 introduces the Transport Framing Structure (TFS)
+> with
+> Reed-Solomon Forward Error Correction (FEC) in the Physical Adapter
+> (PA) layer, along with five PA MIB attributes (0x15C3-0x15C7) that
+> count TFS frames with uncorrectable FEC errors, TFS CRC errors, TFS
+> format errors, and 64-bit corrected FEC symbols. Exposing these
+> counters allows observing pre-FEC symbol correction and framing
+> errors
+> for HS-G6 (1b1b) link-margin diagnostics without dropping the link.
+>=20
+> Define the PA_TFS_* attributes in include/ufs/unipro.h and expose
+> them
+> under debugfs:
+>=20
+> =C2=A0 /sys/kernel/debug/ufshcd/<dev>/pa_err_stats/{host,device}/
+> =C2=A0=C2=A0=C2=A0 - fec_err_cnt
+> =C2=A0=C2=A0=C2=A0 - crc_err_cnt
+> =C2=A0=C2=A0=C2=A0 - format_err_cnt
+> =C2=A0=C2=A0=C2=A0 - recovered_fec_symbols
+>=20
+> Skip creation entirely on hosts setting UFSHCD_QUIRK_BROKEN_UIC_CMD.
+> Otherwise gate each subdirectory independently: host/ is created when
+> UFSHCI >=3D 5.0, and device/ is created when wSpecVersion >=3D 0x0500
+> (the
+> pa_err_stats parent directory is omitted if neither is supported).
+>=20
+> Each file reads the local (host) or peer (device) PA attribute and
+> resets it to 0 when '0' is written. Writing PA_TFS_RecErrorCountL
+> clears the full 64-bit PA_TFS_RecErrorCount counter per MIPI UniPro
+> v3.0 Section 5.6.7, and reads sample the high/low words with a
+> bounded
+> hi-lo-hi retry loop to avoid 32-bit rollover tearing. Positive UIC
+> command result codes are translated to standard negative errno
+> values.
+>=20
+> Signed-off-by: Brian Kao <powenkao@google.com>
+> ---
 
-I think adding a guard to verify_newsa_info() makes sense. Can you
-submit a fix?
-
-Thanks!
-
+Reviewed-by: Peter Wang <peter.wang@mediatek.com>
