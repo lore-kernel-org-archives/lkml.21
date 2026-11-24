@@ -1,54 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.198
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795495555;
-	b=d+oT21cu0fA4NMUHLaCIAZ1TrTNr06bk94WxrMnN1ttkRi4EQreyfKKdeRC51AuG8pJR
-	 wzEV1IJ9yQC6t2BWIwrJXW63IFPMrp372gghA/Tk4qhKmqTqF+EPw9E3576L0CvDcR53j
-	 hUG2T2ek48W9WNdC5v4UVQevidA2gnTqKZGcQ929R1D01kFuPbUEhdr+Pi96fdq8uRmBj
-	 U8BtX3xyGt1WJkyRErTquLWf72JYS+ObjjKBT4Y8kfAj4AAwYLQn9h+ExjtJMQDvmJBPC
-	 0Gq1qi7UBxx2WAO/klJDBViOMkCWJKm1yNTPQZs1phkzZ/DIl2vXwrLxzlHb1YFwYyg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795495555;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:MIME-Version:X-Received:Date:In-Reply-To:
-	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
-	 Subject:From:To:Content-Type;
-	bh=uyV6ROrO1CtSDtUiRySsm1MrJZ9iaX3jNj12OZgR3iU=;
-	b=tf/xIWQOp2juXKiX9VAO38fufyLLTteif2oBWlXcWeH5A63OWtrXVeGgU+aivpbyUuzm
-	 HGJDVPjZyv7Cma9eGujYKsCUoV2PKr3+peCsBJUxQmVvda6D6rCTMY1Ajk9kpMsldJRjo
-	 uLHhZc5gDgFnsufhHeS/UuES34PDARiBOFCj5UNTLl/tKHKMNfomM+muM1ADmvjq8rSPQ
-	 ecpRT8lKx1C9Fun1V6osU1q2A94bV2KVrbjQCeNbdbwdUEgYxvqvMIv0/ILZ64cSm2xWU
-	 3Remk8Ko+l5scQKkrEnRnBMMQUlwB9n9hFwkYRV2FeCxNabvZ34ZvrWQVY0A88pR6vQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=syzkaller.appspotmail.com;
-	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
-	arc=none smtp.remote-ip=209.85.167.198
-Received: from mail-oi1-f198.google.com (mail-oi1-f198.google.com [209.85.167.198])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795495632;
+	b=1FBVMzJysaN02ijVPz+eOx8Ax/UIskBg5zHC/6dnNqZiff9p0PBr9QBgip2Dg8UCH/mR
+	 rxYNgOSvpyvEqcOSPeGarzeFgsIxhCYy+aXTgL2JTJ7GMkos9WWyNDQK0x7EHpYSBz3a1
+	 C3jM+qvZkCyLZtpfbBcZ8dpteQLRNwAxSxQ18DebkHPFBszUHmnvjFa0jvLtzSXvUZ/iK
+	 udiYM5m5cLL86k2vp2O0fmNlOI2Y+vwc4jazrcaeGTynY2PeQDHgk44ASwkv6rznFfXZ5
+	 hYPQVjKZ+A8po0Hf6BLYrfKnNC5aooXexItcSvgcFI0/rXK0O+u3anDs4ORQywW8G9Q==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795495632;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
+	 X-Endpoint-Received:X-Original-From:Reply-To;
+	bh=1Q9Idu/BDrRLsyvIqbFJ0rTBe43Ed9KRtwgCLPenha8=;
+	b=gm2xv4ijvKsumRqArsGklOePybMA6IDwnKKnUKZnIeTqDa76w9g/BGTRLB8YdWYJAE4L
+	 wf1Q5zSiELZtVkJXWeO1y7RzQTGXHV2g6QRMZLHN2c228yxZkpPSJajd59WsIvVORKxe0
+	 RxNPnVI5RDHa2fjBa90JnbMa8KjolYIQc9pBg9WL7SN+/xDHK1tadO4s0wYOWQ/IXzbhQ
+	 DMgB4j4qAx+i1O7/mlUhbcHNMstP7F+AOPW67JfgZ+4NEVQmxFqQSRfPkf/2yRtDknjmZ
+	 8I1XgQ/fl5G319/WspMII54tQB/8fergyAIX6ABL4UCPq+97HrwcHNkhPzSch/BZ30w==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Rh+Oi7CZ;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 45632606A31E;
+	Tue, 24 Nov 2026 04:47:12 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Rh+Oi7CZ
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795495632;
+	b=ZJ3tGrpePXgpEd1q0UGwUOF961+OGVn2SLLGfHkrO032O/l61CeQ6zn3Cgskkbpp7Rwp
+	 iXT4K+bObp0aJYYdTGSSZRwWtgq5EensJVQBFKeUMX6b/khPKJgZMtj+SwXvUXjbYhDfk
+	 BcR5PhohpepMAIqjX420YbevwbzZLCfDr2LuLa3b9ztFwL2bfUhVpFqkodWeb1aAqgTKU
+	 VpPh6gRB5Q82/PYIUa5sAVen+OzNDLopT6o8WL5Ldb15xr+VUJM+dELxhILJA9PiPjC29
+	 rJDCbj3gim2GU2FUyN710QE6cUGysgtyDzHFka3VuRlxuZgPxkwRovm41l18z54zvPw==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795495632;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=1Q9Idu/BDrRLsyvIqbFJ0rTBe43Ed9KRtwgCLPenha8=;
+	b=pfciPBv4JbhFTJJjTI5Lm0PEsXmSCN7xTAY0ecS1VLpLyWWZ4iBz+niduwPbab7IQOFU
+	 SO+/abRQc100cY9eoQb5nP85BGDKpSgv/Pk1VsFnLSG6sqcIGwYZ0lgRvNsLKJliQPUt6
+	 cqnHuHIkBLjALa14BVcKwHRC5OCmDpPRoB33BN5cYWOX4/s5eo4roNE85HsyBUVaEG74t
+	 yKvdWh3tNVg+R9xt4S5FRINbe3t5NQqph9HgH2Cm8TChti7SXQq2Iv0pVqf2jtDXY2T+6
+	 3OYpwWEerKgO5pv8mmdpg5m+2OCBeSEW7p3y64lkrTUYfNLMFf/55szP6nthgzsz6dA==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F12A4606A322
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 04:45:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F12A4606A322
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
-Received: by mail-oi1-f198.google.com with SMTP id 5614622812f47-4cc89e86e4dso5029460b6e.2
-        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 20:45:54 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795495554; x=1796100354;
-        h=content-type:to:from:subject:message-id:in-reply-to:date
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=uyV6ROrO1CtSDtUiRySsm1MrJZ9iaX3jNj12OZgR3iU=;
-        b=TqOQfX1z9Y7dayKMxu7tQRgpli2rJtj3/XBZxPAd/21SQ5LaASZe7T4JRdsPotNov7
-         kmVtbFTcQ/mw4GGfYib5hD52YS2nnWx1f4bUNKY1mnH8oY1WY6hkKMx4Jd7QMwvDEhWB
-         yXuVJw6C9ikhO2PZ9IwPs40TdDkwAsO+g8AP+F4SnzdKGWYAibVXjqTuPWztLhqeLYXD
-         T2tTD7vASJ6wwdvv5GPhwkpiFpFRuiW+L8lDY6hnt08druzp6DU1upvAZsclEwa500fj
-         CiIz21luYHYgR23wgTWfyW7m8Vf+29iZl2UNh6GH6MgckotBrdjQXfyuCIaUzDxvOpPj
-         xW9Q==
-X-Forwarded-Encrypted: i=1; AL+hErGf6PMw/wfNIIFUJZmi40ZOn7gqgHJGW/OCME054xcmzj1GE9STObYZ35+XTHdD0S4lHENL2ufOKLBxQsQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+9QODluGW6jpiRZa72zhSOy1ldmsFO7gYmLn4OPNPMe5adRVoT
-	/OQQCd+2XIq53Loj/QLkYxMBq+IzTD4/gU+egymR2jzL2x8tyiFlw1sGJxAVuz+0qhAbDAaqhua
-	NzB1S17N5UAEzJihH2pZvHMF5OPA4z4ZRJaL/RcO2p36Z4t2fAqXD7z59Uwg=
+	by smtp.kernel.org (Postfix) with ESMTPS id B09241F000C0;
+	Tue, 24 Nov 2026 04:47:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795495632;
+	bh=1Q9Idu/BDrRLsyvIqbFJ0rTBe43Ed9KRtwgCLPenha8=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=Rh+Oi7CZ5Sl0gly4Hr0bfUqNsokxEBt3ui97bpJSIWywmBfVzmXg+6xsGhWHqO5Vv
+	 1b4v3bxtRInZwdSTTMPrQI/TDQF79UtEasYBvL4QDtWUHGOSyceZ3O7bFexvh9ldOD
+	 GrhPuDv/qoJjlxxRnjiXVJCGghOFDPvROdmAuO+HVXOr/2ABHUit2cmsHI3Siice90
+	 FDLlHcekcDgF61lHfvi+NumHD0diQzfOZduaUXu1SCfMbSPaCDhFtTT/Uahr2tb1UU
+	 L0ucgoj3DH9A5dhr1Rj+IOjE9K/8nCXfp6LOIiz4WnFqO91NIjNzInZYbvbemS+DMp
+	 DR4OQlF+PVUDA==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 158044C88A;
+	Tue, 24 Nov 2026 04:47:08 +0000 (UTC)
+From: Suyuan Wang via B4 Relay <devnull+shyckless.gmail.com@kernel.org>
+Date: Tue, 24 Nov 2026 04:47:07 +0000
+Subject: [PATCH] ALSA: mixart: Don't touch the mailbox when the BAR mapping
+ failed
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,118 +83,75 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Received: by 2002:a05:6808:f07:b0:4cb:f21b:6f91 with SMTP id
- 5614622812f47-57a0a719e9bmr15482730b6e.36.1795495554014; Mon, 23 Nov 2026
- 20:45:54 -0800 (PST)
-Date: Mon, 23 Nov 2026 20:45:53 -0800
-In-Reply-To: <673fdc18.050a0220.363a1b.012c.GAE@google.com>
-X-Google-Appengine-App-Id: s~syzkaller
-X-Google-Appengine-App-Id-Alias: syzkaller
-Message-ID: <6b051681.58b41460.7037.0590.GAE@google.com>
-Subject: Re: [syzbot] [tomoyo?] [mm?] INFO: rcu detected stall in
- security_file_ioctl (9)
-From: syzbot <syzbot+b6f8640465bdf47ca708@syzkaller.appspotmail.com>
-To: akpm@linux-foundation.org, andrii@kernel.org, ast@kernel.org, 
-	bpf@vger.kernel.org, brauner@kernel.org, daniel@iogearbox.net, jack@suse.cz, 
-	jmorris@namei.org, linux-fsdevel@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-mm@kvack.org, 
-	linux-security-module@vger.kernel.org, netdev@vger.kernel.org, 
-	paul@paul-moore.com, penguin-kernel@I-love.SAKURA.ne.jp, serge@hallyn.com, 
-	syzkaller-bugs@googlegroups.com, takedakn@nttdata.co.jp, 
-	tomoyo-users_en@lists.sourceforge.net, viro@zeniv.linux.org.uk
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261124-mixart-free-v1-1-13765d8d445b@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAMoWBWsC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzNDQyMT3dzMisSiEt20otRUXQuTNEvz1GTDJDMLEyWgjoKi1LTMCrBp0bE
+ QfnFpUlZqcgnICKXaWgBdPnQNbwAAAA==
+X-Change-ID: 20261124-mixart-free-84f97ec1b684
+To: tiwai@suse.com, perex@perex.cz
+Cc: linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795495627; l=1657;
+ i=shyckless@gmail.com; s=default; h=from:subject:message-id;
+ bh=KroNMBNLmqXWTwC1spkNnjxXDnIiXoTFsmYu+3KeonU=;
+ b=GAspBgd8YPw6ltv7qrF8nA9eRiO3UmTQ86OaVDcOYWUL9OEtz7qm3/FnRkjgzwyP1GrQWhvdI
+ CQD7uD8ekRuDKHyPBA5WVmjASfUJe4xJ9jw1zXLq/4Q8f4QbCulLwug
+X-Developer-Key: i=shyckless@gmail.com; a=ed25519;
+ pk=pMtccVGiWES3bV+7YBFuBclkvq2n2HBHQ5azaBrK2lY=
+X-Endpoint-Received: by B4 Relay for shyckless@gmail.com/default with
+ auth_id=1498
+X-Original-From: Suyuan Wang <shyckless@gmail.com>
+Reply-To: shyckless@gmail.com
 
-syzbot has found a reproducer for the following issue on:
+From: Suyuan Wang <stevewong@hust.edu.cn>
 
-HEAD commit:    3896ae4adf5f tun: complete the zerocopy buffer of packets ..
-git tree:       net
-console output: https://syzkaller.appspot.com/x/log.txt?x=16305bbe580000
-kernel config:  https://syzkaller.appspot.com/x/.config?x=d44b06612b68f56
-dashboard link: https://syzkaller.appspot.com/bug?extid=b6f8640465bdf47ca708
-compiler:       Debian clang version 22.1.8 (1~deb13u4), Debian LLD 22.1.8
-syz repro:      https://syzkaller.appspot.com/x/repro.syz?x=1740f363580000
-C reproducer:   https://syzkaller.appspot.com/x/repro.c?x=11305bbe580000
+snd_mixart_probe() calls snd_mixart_free() when pci_ioremap_bar() fails
+for either BAR. snd_mixart_free() then unconditionally calls
 
-Downloadable assets:
-disk image: https://storage.googleapis.com/syzbot-assets/ca6f81eb80f4/disk-3896ae4a.raw.xz
-vmlinux: https://storage.googleapis.com/syzbot-assets/e88582fee6d7/vmlinux-3896ae4a.xz
-kernel image: https://storage.googleapis.com/syzbot-assets/a978638f7ba7/bzImage-3896ae4a.xz
+	snd_mixart_exit_mailbox(mgr);
 
-IMPORTANT: if you fix the issue, please add the following tag to the commit:
-Reported-by: syzbot+b6f8640465bdf47ca708@syzkaller.appspotmail.com
+which masks the outbound mailbox interrupts by writing to
+MIXART_REG(mgr, MIXART_PCI_OMIMR_OFFSET), i.e. through mgr->mem[1].virt.
+mem[1].virt is still NULL if either BAR mapping fails, so the error
+path oopses on a write near address 0 instead of returning -EBUSY.
 
-rcu: INFO: rcu_preempt self-detected stall on CPU
-rcu: 	0-....: (10499 ticks this GP) idle=f474/1/0x4000000000000000 softirq=18751/18751 fqs=4770
-rcu: 	         hardirqs   softirqs   csw/system
-rcu: 	 number:     5264          0            0
-rcu: 	cputime:      138      52351           25   ==> 52490(ms)
-rcu: 	(t=10500 jiffies g=18789 q=10129 ncpus=2)
-CPU: 0 UID: 0 PID: 5837 Comm: syz-executor Not tainted syzkaller #0 PREEMPT(full) 
-Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 11/06/2026
-RIP: 0010:__raw_spin_unlock_irqrestore include/linux/spinlock_api_smp.h:211 [inline]
-RIP: 0010:_raw_spin_unlock_irqrestore+0x47/0x80 kernel/locking/spinlock.c:221
-Code: f7 e8 3d d4 99 f5 f7 c3 00 02 00 00 74 05 e8 10 79 c6 f5 9c 58 a9 00 02 00 00 75 29 f7 c3 00 02 00 00 74 01 fb bf 01 00 00 00 <e8> c4 c4 8a f5 65 48 8b 05 8c 0d d7 08 48 85 c0 74 18 5b 41 5e e9
-RSP: 0018:ffffc90000007e18 EFLAGS: 00000206
-RAX: 0000000000000002 RBX: 0000000000000287 RCX: 0000000000000101
-RDX: 0000000000000003 RSI: ffffffff8e6a85cd RDI: 0000000000000001
-RBP: ffff88807ed35538 R08: ffffffff91be1bbf R09: 1ffffffff237c377
-R10: dffffc0000000000 R11: fffffbfff237c378 R12: ffff8880b8228600
-R13: ffffffff89fd0480 R14: ffff8880b8228600 R15: 1ffff1101704514a
-FS:  000055557acc5500(0000) GS:ffff8881233ff000(0000) knlGS:0000000000000000
-CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
-CR2: 00005612e0743768 CR3: 0000000077760000 CR4: 00000000003526f0
-Call Trace:
- <IRQ>
- __run_hrtimer kernel/time/hrtimer.c:2075 [inline]
- __hrtimer_run_queues+0x2bf/0xa10 kernel/time/hrtimer.c:2136
- hrtimer_run_softirq+0x1e3/0x2e0 kernel/time/hrtimer.c:2153
- handle_softirqs+0x265/0x8d0 kernel/softirq.c:669
- __do_softirq kernel/softirq.c:703 [inline]
- invoke_softirq kernel/softirq.c:542 [inline]
- __irq_exit_rcu+0xc6/0x220 kernel/softirq.c:786
- irq_exit_rcu+0x9/0x30 kernel/softirq.c:809
- instr_sysvec_apic_timer_interrupt arch/x86/kernel/apic/apic.c:1062 [inline]
- sysvec_apic_timer_interrupt+0xa6/0xc0 arch/x86/kernel/apic/apic.c:1062
- </IRQ>
- <TASK>
- asm_sysvec_apic_timer_interrupt+0x1a/0x20 arch/x86/include/asm/idtentry.h:674
-RIP: 0010:lock_acquire+0x232/0x350 kernel/locking/lockdep.c:5947
-Code: ff ff ff e8 50 07 64 0a f7 44 24 10 00 02 00 00 0f 84 38 ff ff ff 65 48 8b 05 12 e1 3d 13 48 3b 44 24 50 75 33 fb 48 83 c4 58 <5b> 41 5c 41 5d 41 5e 41 5f 5d c3 cc cc cc cc cc 48 8d 3d 37 27 1d
-RSP: 0018:ffffc9000326f700 EFLAGS: 00000296
-RAX: 3c7ff0ca9698f600 RBX: 0000000000000000 RCX: 0000000000000046
-RDX: 000000000e8f2ff9 RSI: ffffffff8e936150 RDI: ffffffff8c8e9880
-RBP: ffff8880281e8000 R08: ffffffff817889cf R09: 0000000000000000
-R10: ffffc9000326f838 R11: ffffffff81b3b880 R12: ffffffff9015a2e0
-R13: 0000000000000002 R14: 0000000000000000 R15: 0000000000000246
- rcu_lock_acquire include/linux/rcupdate.h:309 [inline]
- rcu_read_lock include/linux/rcupdate.h:849 [inline]
- class_rcu_constructor include/linux/rcupdate.h:1216 [inline]
- unwind_next_frame+0xac/0x2550 arch/x86/kernel/unwind_orc.c:495
- arch_stack_walk+0x11b/0x150 arch/x86/kernel/stacktrace.c:25
- stack_trace_save+0xa9/0x100 kernel/stacktrace.c:122
- kasan_save_stack mm/kasan/common.c:57 [inline]
- kasan_save_track+0x3f/0x90 mm/kasan/common.c:79
- kasan_save_free_info+0x40/0x50 mm/kasan/generic.c:599
- poison_slab_object mm/kasan/common.c:267 [inline]
- __kasan_slab_free+0x70/0x90 mm/kasan/common.c:299
- kasan_slab_free include/linux/kasan.h:239 [inline]
- slab_free_hook mm/slub.c:2780 [inline]
- slab_free mm/slub.c:6637 [inline]
- kfree+0x1c7/0x650 mm/slub.c:6930
- tomoyo_path_number_perm+0x4ba/0x5f0 security/tomoyo/file.c:741
- security_file_ioctl+0xc3/0x2a0 security/security.c:2534
- __do_sys_ioctl fs/ioctl.c:592 [inline]
- __se_sys_ioctl+0x47/0x170 fs/ioctl.c:584
- do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
- do_syscall_64+0x171/0x540 arch/x86/entry/syscall_64.c:89
- entry_SYSCALL_64_after_hwframe+0x77/0x7f
-RIP: 0033:0x7f2e4e9a91ab
-Code: 00 48 89 44 24 18 31 c0 48 8d 44 24 60 c7 04 24 10 00 00 00 48 89 44 24 08 48 8d 44 24 20 48 89 44 24 10 b8 10 00 00 00 0f 05 <89> c2 3d 00 f0 ff ff 77 1c 48 8b 44 24 18 64 48 2b 04 25 28 00 00
-RSP: 002b:00007fffff379100 EFLAGS: 00000246 ORIG_RAX: 0000000000000010
-RAX: ffffffffffffffda RBX: 0000000000000005 RCX: 00007f2e4e9a91ab
-RDX: 00007fffff379160 RSI: 0000000000008933 RDI: 0000000000000005
-RBP: 00007f2e4ea394f3 R08: 0000000000000000 R09: 00007fffff379470
-R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000003
-R13: 00007f2e4f764620 R14: 0000000000000006 R15: 0000000000000000
- </TASK>
-sched: DL replenish lagged too much
+Only call snd_mixart_exit_mailbox() when the register BAR is mapped. The
+rest of snd_mixart_free() already copes with a partly set up manager:
+iounmap() accepts NULL, and the IRQ and DMA buffers are checked before
+release.
+
+Found with a static analysis tool and checked by hand.
+
+Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
+Cc: stable@vger.kernel.org
+Co-developed-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
+Signed-off-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
+Signed-off-by: Suyuan Wang <stevewong@hust.edu.cn>
+---
+Compile tested on x86_64 (W=1, no new warnings). I don't have a miXart board.
+---
+ sound/pci/mixart/mixart.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/sound/pci/mixart/mixart.c b/sound/pci/mixart/mixart.c
+index f451554cff5f..0266467734ca 100644
+--- a/sound/pci/mixart/mixart.c
++++ b/sound/pci/mixart/mixart.c
+@@ -1066,8 +1066,9 @@ static int snd_mixart_free(struct mixart_mgr *mgr)
+ 			snd_card_free(mgr->chip[i]->card);
+ 	}
+ 
+-	/* stop mailbox */
+-	snd_mixart_exit_mailbox(mgr);
++	/* stop mailbox, unless the register BAR was never mapped */
++	if (mgr->mem[1].virt)
++		snd_mixart_exit_mailbox(mgr);
+ 
+ 	/* release irq  */
+ 	if (mgr->irq >= 0)
+
+
+
+
