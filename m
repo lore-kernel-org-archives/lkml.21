@@ -1,97 +1,129 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.41
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795535923;
-	b=xLRzoP3HrvoMiq6xoibjV9awzWQ3ielo/CldBF3C+z3kRcKYNvrx0M2wQahhapwpFJxN
-	 j667kMTW3n6mxEEcSDLEmjuER80yMfAy5yOlqM7I3sIv0kb6/RcA274fGU6PhQjdKpYMT
-	 xETeDeY9LL1ajn1uO490EPX0tEOKeCFxP7pZcgALuGsAnExgGHN8877gE2GJ66ij2UACX
-	 ikmbClsjgqdkzDTpP640j/JNgbzOUC26uSuxxbB3L7Y+4nTRIxq6N/snPS9GOv6QaUIOS
-	 /N26c+TFP+GrkuXpcRhbvFsqqSuKYlyMEdydE78NtHAGnP4+XSS0VmUKIVCnYebzzgQ==
+	t=1795535967;
+	b=ESrmBlFIMl+GDPUnbXxg8YxZ90lUmqL8SB5CkdkmcvZjJzLJYuRVM2Ki1Xyr3Wzgcsuh
+	 osMaTRMKQTpiuVhPq9vkYY+tznmoMsuG+iHL8jg+DncnDtojiAulzCiM2e0gkaoiCHeV+
+	 nDGxDdAL+8J2ZDOG+JaXe9gIcUHzZxi1BzaYGcJ8XNU3a4NstYQ/Z7CMgpPbsG3uQVuae
+	 b7FxPAL3CtR0qQNJSmRaisb+VzjCToxNrhpLB5gLT3Yq5WyTPEB4bNZCK1mqQaYZGLEO9
+	 eBqS+EzxhA9S/xiPGcsKEsdtgpGNZJcilrxsRqoNRxXyVpSNutYTEnEv+gCe4RU6FCw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795535923;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=eDmWsXhPBYZY/Mx/SOcZ92wFv5oQpu2+A0EXYzERrQo=;
-	b=Gc1GawhfgiOcSnXjYp47mjh67QCIYVg/BZkaQYuuY58It/QjKIwgwZ7QJuTHy/2Rbi+C
-	 EnJGYSf/HwkzkdKp8yG6nF+htgoCcLG8iOR3CHZJVmdRpRZrtHl1leu+qYVDlXH82jGu3
-	 KEJ8RlRdU7c/ZYmTNpyR1t5bqAVvDIhK7cEW04fGjMzk+dUoR9pMtcfLaxG4W6bg7ST5E
-	 dsRHOQZgHuFQ/UrK6nupCc/QF8BUtuo32NiwZzMBbPBf1oCHriOLJJFGLrARk4lf4uHpD
-	 uITNP5qk9SE1k3ZXtrBcrNEhPjC4PH8WD5XN0okxxGj7PmHRQR7unshadF0tDmQtcyw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795535967;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Date:From:
+	 To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:
+	 X-Proofpoint-Spam-Details-Enc:X-Authority-Analysis:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=/ymgP2Pu7WfrUuR0Fy4lwiaAA6A/0Te6Ej2xHmS0V/M=;
+	b=HwAMa+wgwtjvyxREKj+t3quUarwTK4qEXhLdvkWxQRxHRbbXcjr9ayIRze/UuwXUghQe
+	 dpEjMDbmmc02hf5eL9t6a7eZ7gSEYuh6NnazIoIK0QKCpg/m/j36OUJzh87W2oFxMec5g
+	 71LSLcsEYt8OTmPfsUdV6++03fqQvKvqDciHpnMJYDAUuCAv6gG/0byzazb6Z2D0jq+xT
+	 r7Oi6Rt1Mndi4jCUB210GCCWQtbA/5b8adW/o9K4DXBO5/w2jIFbqiGUpoc2GZ0InyqoD
+	 817erkyibza6LlJ6PkZpTmCZRClWqgMNyGMzECH7Pab4cuYzyTMzPzI8npqRWhKduGg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=PM0Psqvf;
-	arc=none smtp.remote-ip=209.85.210.41
-Received: from mail-ot1-f41.google.com (mail-ot1-f41.google.com [209.85.210.41])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=hlANYajG;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=ZXEY6UqO;
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5F419606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 15:58:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5F419606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8D4F6606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 15:59:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8D4F6606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=PM0Psqvf
-Received: by mail-ot1-f41.google.com with SMTP id 46e09a7af769-86103aaac12so3115681a34.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 07:58:43 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=hlANYajG;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=ZXEY6UqO
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AOFtm1H1684099
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 15:59:25 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=/ymgP2Pu7WfrUuR0Fy4lwiaA
+	A6A/0Te6Ej2xHmS0V/M=; b=hlANYajGAwfzuQtkjL7Z1sepk81sTBNe0e2I1s0g
+	lynqJzSIsIMASN5QUcRZJ3hEQLW74fxs95U3LTmEgFJeC1g0/1NTguzQWv8JPI0W
+	Pf+pjLSfu5d+AIzshnM11SLo+mraXwnvYXC9BSFWIGkB1/3IXHnDSVDs3iXyK5aq
+	Y+9NiJc/sfQN9NV8isFfuce2snRaXJlCTA5qtoZmKnYaKGspOq4p5Ym4PaCzsW9a
+	2GybjN1B2vQYl1dLxj7QfF/9l43uezRjguqc9Tw4IYviS6tWdp6DI4n3he+qtuqW
+	ow03grJ7k4LSUxyAKMr4qHr2BikAUly016ub9E7Vx0wAdw==
+Received: from mail-dy1-f198.google.com (mail-dy1-f198.google.com [74.125.82.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j5dngg0k5-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 15:59:25 +0000 (GMT)
+Received: by mail-dy1-f198.google.com with SMTP id 5a478bee46e88-386c3309469so866129eec.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 07:59:25 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795535922; x=1796140722; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=eDmWsXhPBYZY/Mx/SOcZ92wFv5oQpu2+A0EXYzERrQo=;
-        b=PM0PsqvfYDluIDPaRGnjOU10Fe92gpx/pNuoC0DXrzGZgmG3483UoGFlky/KAA6PJg
-         GcJ5DaCAzaSBV2r21eOOCGkBafruYhLDpOyl4DSGjNrrgA/4mKcyT1dkEBTOWCxl7h80
-         ksp8ktatBWFTk6Voc68tyBqwYAo8rUcvoALoja8+NR4iAUDKzbz1xWEQcctaYQi0HpZW
-         IwimJViVMMITpdFbPMHs+BZX/ttgOgLyLjmHHGntY5g3k2iGA1Tvs+pDvjKoyAT1FAPp
-         gly+VC4f7jY6AVCNKqD3jok9z/JkDDUNa/J4FKTCPnmbnPdVFaE49lbKX+yzdVyi3XLR
-         4fQg==
+        d=oss.qualcomm.com; s=google; t=1795535965; x=1796140765; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=/ymgP2Pu7WfrUuR0Fy4lwiaAA6A/0Te6Ej2xHmS0V/M=;
+        b=ZXEY6UqOpXHPWqcmAM5ep6Skv4usENTr9hn632ibSgocWlHAFS/iCvuPKJ+nSPEqkW
+         O6ChHdRD646MrlGTYwD2pstJ+zolm8dy3XoYppm5R4rhykxCOdaieq+oSJlnvLWVQhgO
+         TLZqvm/TTpan6TvVOHDfKT2x15qJb53l3M5v0gd7efrH2P5GFtO+5aSz0H92qKttD8yW
+         PkRuwvC6khJfnbsjkZ1nRHrjSQMErRy6sxv/EfLQVMPJ+kleWOoPIrV0qFk1xp2apX02
+         Qalr9cTBAIpZHjVmMKst7NA5t6+5cUKzExyKjAbXGFD2+vWfCYOV71doXReb5Y/lm/VQ
+         c/jA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795535922; x=1796140722;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=eDmWsXhPBYZY/Mx/SOcZ92wFv5oQpu2+A0EXYzERrQo=;
-        b=M5DKdvFw5UtI7mgn468M8CIYnPZyAWRvUSNOWlHF3nDQBKmQsG56oUyJsAgWCDLUdR
-         nm1c4JRXzBT4N+NlS4XQ4s0A5GcICSGzjcR8cYCQMVe+HZcyXy/jrlMEcu+QUu5I4EkP
-         iNXS8MDaGHxuTraAKGHxI68p+6UOfYut80/kHlRx53qMie6ad3Xej+U7vq/R5R1wLpfc
-         WCFFtRWF0sSqxyl+ZvVv4e+se6yIjp9zTludBgBaJrXBjBVsE+cc9sfmeP2U/Pe8eGJG
-         vF0+rQgTRdZyhbCNdmEU1hve7og43YDnI+LwxEpF5tyXvgqzb6BhZqui8h4tgyH0jAlS
-         6p7g==
-X-Forwarded-Encrypted: i=1; AL+hErGi+m3smefgD41j7T6U2kzIKDGVa4on/lNvRCGSHmZX7g1+uWDjLglbxcnNhCxBw666lbI215ZdIdqVTPE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8/qZI7ULDTIzNJI157OsNIHvlupvjxrdJbwj4C15v+n3KrZIgH
-	mIf1Us4/PH5+ouWeNi+StDEeiE6LdGc3EOqqqNtvO3h/I1xaWdvv15Ss
-X-Gm-Gg: AZFdTZfy8Y/Jph3PHdMecuL04s0EbtmULUAPnaTCLYgJjErz0dTuFf+cC3ngDlZOClo
-	thm+JQMBG8HWnOGDm8q41y3dejfBIFB6UgnPMI+fNUuqyNNMqkG/nJ8k677yMkmxMGnwWxH3QS8
-	9kz3bnuwMEaikflpIzsxV7DaGSIZg4db+1Wx7g7HstCwbnUnbp1vsKIWKZsPXLJFwutiLENWIhe
-	dlNQ36oE6VQErHiftm6uoMMJL+DO9QirevqN/2Dsm0Kl/K1ogRIajnm4QVMA7UlPyzFZIe4sPZ9
-	JYRwnonOfm0L901rmAzmOmWAc3B4Z7COrb8MrNwH020FC3LhTalgDCP9weCwfoCkefXDK2rYcR8
-	Lc5pwcU+aOMMxEtyFNv+aGkqrBvfYVjDU5YmyMFq3c2bVC1RClwpKsSOk2njX00HUZOUS1etU2K
-	Zj5sU2Frmhk0fgW+42IbJlceN0HlhoJamP6UE4OTbyKFE5Oia6d2ME4LoO7O1tEVzC3bndFDEHY
-	Y4SHZaghxHPz+ULlNfAgLGc8z9MEN8mQ2p5lSSnFp6L8atM9u3DG5g+rt8Mt/S5kaODeJz+LKEM
-	Uv4lFqvJuY9oeed2LztsZHw8F9tMSbVGZZLfU5RA0qaVQGH0Y6hf52d3bSWskZFAn37ycTuUmlz
-	vea1bIRCMdoGhWSo5KyzGtG2F1s0bM+YXxkVoy3Qz/GEdgeIhDjgMsudztsUTvT3B0NTNzdDVwB
-	yNjIFUZt0kP49i
-X-Received: by 2002:a05:6830:310c:b0:862:8871:5bd3 with SMTP id 46e09a7af769-86309309ab8mr13573667a34.37.1795535922312;
-        Tue, 24 Nov 2026 07:58:42 -0800 (PST)
-Received: from tempest-testimage-cc-centos9-stream-server-1191361818 (chi-dyn-129-114-108-164.tacc.chameleoncloud.org. [129.114.108.164])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-863168f784fsm11128168a34.16.2026.11.24.07.58.41
+        d=1e100.net; s=20260707; t=1795535965; x=1796140765;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=/ymgP2Pu7WfrUuR0Fy4lwiaAA6A/0Te6Ej2xHmS0V/M=;
+        b=ixO/mZJhwpWXfhnVdHMuOO+7zcKWYjK2CcmHwDXqKe0cvE59vB+iPHavrZNtTJxPQ3
+         p3FtmBLqPaGvj6d9Bw0B8+K42DKjGI5canaShBBlFA4apsBfHpc96uMtuG5iI6eyWwpE
+         7m2kXOWtu9rYtcKUNhLZykTwt06k6HVVNmYThLq6o5F1GQvjwtG+HABjUQBU0sKsZgEy
+         7OJiSfjf+LJZUJYMZ++feFAcV5aSge9k1W1ZSUIaXiDQhaKSux1UMKaFLYZy0RH9fLNI
+         Li0nvnR+570sDrd1eQEQoyeiCtCWtPZk2r9bMyKp3z7ZOG/ey5vrE8Q0Sb5egGc9YSYJ
+         3mPA==
+X-Forwarded-Encrypted: i=1; AL+hErFT9bi4sEPco5vNotKABgWRKeIjp913TVq6/wW85ldgZLSV3sii1MmKCtZU6SC9UEWRPMJ64BcNrjiwNqg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9FvDAGW8RIjrcPddjRwpk97Nbh9HsN4WRZL/+Ne8cA4Y28sCBB
+	zRsYhgmAkUZtFW/gNrsC2bA4THahvv0wQbrdVO4mPylQ6DUZgK0UaosRs+/YVdBgBbm3zA4l8sp
+	5k5jcZ9/e2OP7LxCx+24EMxmxSNJAjftr1Tqi04pgKN8mIcb6jQHvqngcWmBKAdUGzG4=
+X-Gm-Gg: AZFdTZeLnHmv6xFpQDFr/6x+kMQquAl+QEP9OUJl3FDGNwuPz0G+U28+3qd+d8F0O9D
+	eIJQ5j5R65evZuy/8v6FxHNmnD2tdGjKq31W+YkiLwJ/Q2yHlGnf7QgGI+d72dq38g3wATMWyIP
+	4CQyHFhO1UpIojnxqLDxnSBlHGR0caf+P5vZzncbJK9+zgTW5tvbZCLe8afhM/LduRGftYjl2Um
+	4oKOdKAzNjbXjAvu4ShDEYRR0bb8QriuuKCyPlNmTAITt3ejivs8IkACnZYgOQ64HwwDlAeAN6G
+	4ziMlQL/GWKabhfR/aiP90jti/N8vhCmNEma+eXTG2lGXRoSbt9QolzWSMwB1lY74X5PcOFHM9X
+	S+gAdYPD6Gow98rSwCNqSqg0m48diXFyC43GOyhze+kORQAXN6Ober/NmPEtHlYw=
+X-Received: by 2002:a05:7300:de44:b0:375:c5e1:931d with SMTP id 5a478bee46e88-3857073ebabmr15332076eec.25.1795535964821;
+        Tue, 24 Nov 2026 07:59:24 -0800 (PST)
+X-Received: by 2002:a05:7300:de44:b0:375:c5e1:931d with SMTP id 5a478bee46e88-3857073ebabmr15332040eec.25.1795535964046;
+        Tue, 24 Nov 2026 07:59:24 -0800 (PST)
+Received: from oss.qualcomm.com ([202.46.23.25])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38566cd46c5sm56303922eec.11.2026.11.24.07.59.18
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 07:58:41 -0800 (PST)
-From: Yuho Choi <oss.patchbox@gmail.com>
-To: Sudeep Holla <sudeep.holla@kernel.org>,
-	Liviu Dudau <liviu.dudau@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Linus Walleij <linusw@kernel.org>
-Cc: Russell King <linux@armlinux.org.uk>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Yuho Choi <oss.patchbox@gmail.com>
-Subject: [PATCH] ARM: vexpress: Fix SCU mapping leak in vexpress_smp_dt_prepare_cpus()
-Date: Tue, 24 Nov 2026 15:58:35 +0000
-Message-ID: <20261124155839.388319-2-oss.patchbox@gmail.com>
-X-Mailer: git-send-email 2.56.1
+        Tue, 24 Nov 2026 07:59:23 -0800 (PST)
+Date: Tue, 24 Nov 2026 21:29:15 +0530
+From: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
+To: Gopikishan Thawre <gopikishan.thawre@oss.qualcomm.com>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Abel Vesa <abelvesa@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Richard Cochran <richardcochran@gmail.com>,
+        linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+        Vishnu Saini <vishnu.saini@oss.qualcomm.com>,
+        Khalid Faisal Ansari <khalid.ansari@oss.qualcomm.com>,
+        Ajinkya Inchure <ainchure@qti.qualcomm.com>,
+        Anuj Tripathi <anuj.tripathi@oss.qualcomm.com>,
+        Sushrut Shree Trivedi <sushrut.trivedi@oss.qualcomm.com>,
+        Wei Deng <wei.deng@oss.qualcomm.com>,
+        Karthik S <karthik.s@oss.qualcomm.com>
+Subject: Re: [PATCH v4 3/3] arm64: dts: qcom: lemans: Add LeMans Draco EVK
+ board
+Message-ID: <awW0U9S/bzxf2k3h@oss.qualcomm.com>
+References: <20261123-lemans-draco-final-changes-bringup-v4-0-dbfc15cd0883@oss.qualcomm.com>
+ <20261123-lemans-draco-final-changes-bringup-v4-3-dbfc15cd0883@oss.qualcomm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,56 +133,93 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261123-lemans-draco-final-changes-bringup-v4-3-dbfc15cd0883@oss.qualcomm.com>
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI0MDA2MiBTYWx0ZWRfX9P3VJOlCLwTU
+ tIHx07zqRe5Rqn8rxVqGLsvRN9be3BdHtvcnFDfsbz956LJy+osP8p1p4UPnl1o5e+f/juiNKGu
+ BnvdcZO6GHNSb56vA0gaOvXXXSQatkI=
+X-Proofpoint-ORIG-GUID: iXtd9zKP-Azs0p0fSJ5gaEYYO3JB6xu4
+X-Proofpoint-GUID: iXtd9zKP-Azs0p0fSJ5gaEYYO3JB6xu4
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI0MDA2MiBTYWx0ZWRfX2m9oFsc/WUMr
+ LnaOHj1apV71KOnE4F2D4qVQ2BpMJmGEt1wU/gnCbPTMZkxHPyKeYE9eJfRqYMlIqbQvRNGZT6I
+ /bfAg6lexezWfvdiXbogq/cxm0G5HgvhgH3PSV3fAt4GMaWcV53q8cGdlwmpUTInUhf/gZh3ecm
+ ZXKbgMNcvWja9pUwOQjCu1uG0thnq2tm7dBTW2MIBxqtzk28DCWCNe1sWU2ngLlKdbSO6yMo/hn
+ 1eqOTGY5psUHNw/GJANkQdKZ4zmljVDBjt979yu8RHgHmw1sxwCEvEd5u7grwdYJFsz1q623BcC
+ x0SYIErcO4evi7O9UVb7JunM16Q36XiQeMy1YlNXJhKuQg+8bRybxMVrYMtDsYj4KC4NHIzVIKi
+ KSguIcN+Z2LmYxAt8ik5vE7rjY2YJj3nz3XUsDSeZKRsozWQLAWCdXmpdLvHCt2m09ATfFjpXnP
+ +l+281OQTUD9N4crPoA==
+X-Authority-Analysis: v=2.4 cv=U9cHnuru c=1 sm=1 tr=0 ts=6b05b45d cx=c_pps
+ a=wEP8DlPgTf/vqF+yE6f9lg==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
+ a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22
+ a=EUspDBNiAAAA:8 a=sHvua49BMD8LeQgnyuYA:9 a=CjuIK1q_8ugA:10
+ a=bBxd6f-gb0O0v-kibOvt:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-24_04,2026-11-23_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ lowpriorityscore=0 adultscore=0 priorityscore=1501 spamscore=0 phishscore=0
+ malwarescore=0 bulkscore=0 impostorscore=0 clxscore=1015 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611240062
 
-vexpress_smp_dt_prepare_cpus() maps the SCU with of_iomap() only to
-pass it to scu_enable(), and never unmaps it. scu_enable() does not
-keep the address, and nothing else in the vexpress SMP code uses the
-SCU, so the mapping is leaked. The function runs once while bringing up
-the secondary CPUs, so a single mapping is leaked at boot.
+On Mon, Nov 23, 2026 at 04:23:12PM +0530, Gopikishan Thawre wrote:
+> Add the device tree for the LeMans Draco EVK platform which combines
+> the LeMans Draco EVK SoM and Draco carrier board.
+> 
+> This device tree adds board-specific peripheral configuration on top
+> of the SoM, including:
+> 
+> - I2C GPIO expanders (TCA6416/PCA9534) on i2c2 and i2c18
+> - EEPROM with MAC address nvmem layout on i2c18
+> - Native DisplayPort output (DP0-DP3)
+> - Dual Ethernet (ethernet0/ethernet1) with HSGMII PHY over SerDes
+> - ST33HTPM TPM over SPI16
+> - AMC6821 fan controller on i2c4
+> - PCIe0 (connects to NTN3 switch) and PCIe1 (routable to x4 slot
+>   or M.2 M-key depending on dip switch configuration)
+> - M.2 E-key connectivity slot with always-on 3.3V supply, PCIe and
+>   UART graph connections for Wi-Fi/BT via pwrseq-pcie-m2
+> - Audio playback and capture via max98091 codec (Tertiary MI2S) and
+>   VA macro for DMIC capture
+> 
+> Co-developed-by: Vishnu Saini <vishnu.saini@oss.qualcomm.com>
+> Signed-off-by: Vishnu Saini <vishnu.saini@oss.qualcomm.com>
+> Co-developed-by: Khalid Faisal Ansari <khalid.ansari@oss.qualcomm.com>
+> Signed-off-by: Khalid Faisal Ansari <khalid.ansari@oss.qualcomm.com>
+> Co-developed-by: Ajinkya Inchure <ainchure@qti.qualcomm.com>
+> Signed-off-by: Ajinkya Inchure <ainchure@qti.qualcomm.com>
+> Co-developed-by: Anuj Tripathi <anuj.tripathi@oss.qualcomm.com>
+> Signed-off-by: Anuj Tripathi <anuj.tripathi@oss.qualcomm.com>
+> Co-developed-by: Sushrut Shree Trivedi <sushrut.trivedi@oss.qualcomm.com>
+> Signed-off-by: Sushrut Shree Trivedi <sushrut.trivedi@oss.qualcomm.com>
+> Co-developed-by: Wei Deng <wei.deng@oss.qualcomm.com>
+> Signed-off-by: Wei Deng <wei.deng@oss.qualcomm.com>
+> Co-developed-by: Karthik S <karthik.s@oss.qualcomm.com>
+> Signed-off-by: Karthik S <karthik.s@oss.qualcomm.com>
+> Signed-off-by: Gopikishan Thawre <gopikishan.thawre@oss.qualcomm.com>
+> ---
+> ...
+> +
+> +&serdes0 {
+> +	phy-supply = <&vreg_l5a>;
+> +
+> +	status = "okay";
+> +};
 
-Unmap the SCU after enabling it, as hisi_enable_scu_a9() does. Also
-skip scu_enable() when of_iomap() fails, instead of passing it a NULL
-pointer.
+phy-supply is deprecated. The SerDes PHY on Lemans/Monaco actually has
+two supplies, so this node should use vdda-0p9-supply and
+vdda-1p2-supply to describe them.
 
-Fixes: d2606f81d563 ("ARM: vexpress: Simplify SMP operations for DT-powered system")
-Signed-off-by: Yuho Choi <oss.patchbox@gmail.com>
----
-Tested on QEMU vexpress-a9 (-smp 4) with multi_v7_defconfig, on top of
-8dac6df92a2e. Without this patch, /proc/vmallocinfo still lists the SCU
-mapping after boot:
 
-  8192 vexpress_smp_dt_prepare_cpus+0x28/0x54 phys=0x1e000000 ioremap
+> +
+> +&serdes1 {
+> +	phy-supply = <&vreg_l5a>;
+> +
+> +	status = "okay";
+> +};
 
-With it, that entry is gone, and all four CPUs still come online
-("SMP: Total of 4 processors activated").
+Same here.
 
- arch/arm/mach-versatile/platsmp-vexpress.c | 10 ++++++++--
- 1 file changed, 8 insertions(+), 2 deletions(-)
-
-diff --git a/arch/arm/mach-versatile/platsmp-vexpress.c b/arch/arm/mach-versatile/platsmp-vexpress.c
-index b810ad50b98c..e373d75653cf 100644
---- a/arch/arm/mach-versatile/platsmp-vexpress.c
-+++ b/arch/arm/mach-versatile/platsmp-vexpress.c
-@@ -64,8 +64,14 @@ static void __init vexpress_smp_dt_prepare_cpus(unsigned int max_cpus)
- 	struct device_node *scu __free(device_node) =
- 		of_find_matching_node(NULL, vexpress_smp_dt_scu_match);
- 
--	if (scu)
--		scu_enable(of_iomap(scu, 0));
-+	if (scu) {
-+		void __iomem *scu_base = of_iomap(scu, 0);
-+
-+		if (scu_base) {
-+			scu_enable(scu_base);
-+			iounmap(scu_base);
-+		}
-+	}
- 
- 	/*
- 	 * Write the address of secondary startup into the
-
-base-commit: 8dac6df92a2e66e2098bbc69061964cfe7e8375b
--- 
-2.56.1
-
+	Ayaan
