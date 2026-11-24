@@ -1,61 +1,112 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.228
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795551223;
-	b=fkNsK1kW/6UPMMfhLxiKr7d1LXtpyNrWKIzkH3Eh+22K5STLdwCAvjIjK0/HjqoyfjmB
-	 hCsIx8TYtm7Ih4uBs7IeT/Cy/Ts/cbuNRx93HdU5/K6+nnh195E7k7zt8OhQ2FnYhzEES
-	 bArK1lcRkJtMR7M1aQIjjOCg6rHiByfHJXufUxHI54/V7r+sFeDHUeN/9r6h6wEEfUG66
-	 F6g81hApwJTEaSZCOcLhuhI6vXitt28IalEqopYFT3ZymRFOE7e3achxJfNac4eaqnXyt
-	 WjwCCbVevmlvWQXvYvuJg2v3OXjpv0NFR1FUOVhUo88iFWwdaEw4+0oYe+Ca0R6WZmw==
+	t=1795551231;
+	b=YoUN50BzN7+QRjRkxjAABEEwFVlS39uP91NBabAfRqKfEkCM9iwWQqwQY0OhkZ4XZ/71
+	 ho/8qUsemdpTrx3e56vwSMwAumXiZgY5k+yizrtZABWV9Q53z6LyzdAxHpZWCc6TO1fDr
+	 XUJ91R+6IBpJoLjbl9oWSbIVXBEmXTBUwIM2KjAd6hU5dffKZzT2s+/ROr7aXiRtCPiKh
+	 5DgI7xR5vlSKEvcXKK2X0rSNtxhvurZl3MdHxto2BlbWofUkP7LDussSCe+3BknPfYHdj
+	 0ZI1g0A0wO0s/dPM8Ur5LS6Zvzx9nOaez7iwKkkiDeBpdmUNpuKDc1gYuFATpQ80bmg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795551223;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=8WKbn4TeqqYmpHwpZgCuGW4cCB31ueQLaWCo1miFO6w=;
-	b=J6gDW2yXadoDr4CJHVplmkMk3tC1Tjv19vGNfc2E8/K4vZY1lJWFPwwGzltP+9mC1l29
-	 p2jMeC/J6WDm/Tta2YYOkQMAR34NYGLQF5h7GbQo3fClBdOJbxKog029JcHh+jzmSGThE
-	 Y8c3TJT5vJVxI4Rd8P97juWw4TTm9NiU18greMUsvfYBncp7bepxbiEexnGrjID2SvQfz
-	 BlbC3DsPlSIKMpt/VvDSwILbMSgmoymTD0bjcCX4L5GmxZnymC07Jhbtz8cwNOufh+B1e
-	 L1NhU00d8fQAm0SfUs5e6L58alBDnQ0nx18M5BHMaE5jXWqU2tu3yehRjkYadIc4GFA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795551231;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:X-Relaying-Domain:
+	 X-CFilter-Loop:Received:DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Received:X-Received:Received:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-DetectorID-Processed;
+	bh=rlWIHX9NSm3ZvbB1YngE7yXcr1uevNuXKUdmXs9oPKQ=;
+	b=YtKD5TFtRtxGGyTvuPetP/uCosNL9nyBeDF91O3FcYlfmHCjNO6SMRqTM8c+LPRK69t/
+	 TWJ+/c0yxvQ9tdmslKYZ0PjXHCqHb2mT6ChrFCbXFld6TfZ9CHxmXSOrNdcc2ERhwm3YW
+	 7Twk8KnCPC9aikn32Z5YizAAkcEpxLtI7QBXk88sCDtRPAjEMlj6xI2PLPYOeLRInMmAu
+	 rJruQfs0eOVFVqmBYqLa8PJ1rZiJmv/mKqoqrCYZT5+LlJr7M1CD0v6Nki+6wX8ncSRpw
+	 UkiM6KHajNjl4AFZcNPJBF0Mw3JXvflAdb9MJN0w1UqfEvbHeS1BfqdbmgQjPsEdMGg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LFjxjvZ4;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=broadcom.com;
+	spf=fail smtp.mailfrom=broadcom.com;
+	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b="M7HGd/3T";
+	arc=none smtp.remote-ip=209.85.222.228
+Received: from mail-qk1-f228.google.com (mail-qk1-f228.google.com [209.85.222.228])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EF671606A31E;
-	Tue, 24 Nov 2026 20:13:42 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 64EC6606A6B0
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 20:13:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 64EC6606A6B0
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LFjxjvZ4
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BADB21F000ED;
-	Tue, 24 Nov 2026 20:13:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795551222;
-	bh=8WKbn4TeqqYmpHwpZgCuGW4cCB31ueQLaWCo1miFO6w=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=LFjxjvZ4Q60U6mgcpBjDltcgaiZ3AU/a0WKDiA+gWTPD1r/iRk97+9N+SbsIEnpC0
-	 dfDCiAufmmnUEROgAzJv3HFqUu6y7OGx99aYjjWpgAfdSj9WHS11zU9bOIX9gYuhbE
-	 /mYQnCBUVYU7RixvacgEFcfJ3aMzlF3Zfd9dyffxFux5ZrFgXkF5huVrlD6HlODpf2
-	 C3i2Egc3rN0DILgQ47sB47QaHy8QRZjmxjT8P69MGZU30xkcHeR2kmhvrPxT9rIYru
-	 1sdwX+fcPgeEl6B+hpk0fN81a/GZ0FKvxgdV2D2bL8VvnOVV1/w1tzv+QPg1di/ut8
-	 0xCkxsgpdT6Zw==
-From: Chuck Lever <cel@kernel.org>
-To: NeilBrown <neil@brown.name>,
-	Olga Kornievskaia <okorniev@redhat.com>,
-	Dai Ngo <Dai.Ngo@oracle.com>,
-	Tom Talpey <tom@talpey.com>,
-	Christian Brauner <brauner@kernel.org>,
-	Jeff Layton <jlayton@kernel.org>
-Cc: =?UTF-8?q?Aur=C3=A9lien=20Couderc?= <aurelien.couderc2002@gmail.com>,
-	linux-nfs@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 00/12] nfsd: various delegated timestamp fixes
-Date: Tue, 24 Nov 2026 15:13:38 -0500
-Message-ID: <179555119841.1515463.4777099034111650338.b4-ty@b4>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261124-delegts-fixes-v3-0-6fe4ba705aef@kernel.org>
-References: <20261124-delegts-fixes-v3-0-6fe4ba705aef@kernel.org>
+	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=M7HGd/3T
+Received: by mail-qk1-f228.google.com with SMTP id af79cd13be357-949589c1495so439989485a.3
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 12:13:51 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795551230; x=1796156030;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:dkim-signature:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=rlWIHX9NSm3ZvbB1YngE7yXcr1uevNuXKUdmXs9oPKQ=;
+        b=xfhX/ERacqZYL11pTiwcYmfsPBBAStFcCEGxr0IlMJ+7RTgV02kO4XUUW1ijLMYEK3
+         6jTdvE4VMKgNcHISAfX9OyX7cnNq0Aa20Sl8h9iG+Kb/s/yor3Wzj5Vt1ZXlyNrCizyA
+         NbIZIU17YjZg3jmW4bKCycpDoqnmMh6tK+KYuyLcmdl1Dipo98XKbsEsQPHFqNHzk67C
+         kYQZCV1bpyEcfXStywI1HFM8x6zRaEqkAE2SSW33AHYS2vdXkQgU6uIZ+Bnmr54yNut2
+         F81aAnk4Glv8JP5yJIGif055dzR7OJJMgYKGdLXDqDX7q1zgIL19lCIm2g4y60jlOkwk
+         S14w==
+X-Forwarded-Encrypted: i=1; AL+hErEuTMXSiyTs3of+qWD9v9ydpIkw+onQD6/Bboyldk8RMokXqoKDrNyGZfFqn5ksYPRjsyZ+Zo2Bbwl+6V8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/DgnK1QErKP6/Smw7j73C/sNMs4F5+1PyW/cewJm19K5v0KNUg
+	HX91FqorYM75cUF2mSjxHMU6GtSHfzCEVSq3x0oL7OArPvTF2m1nra+HV1UScMmuv83tbak4tA+
+	xYl6CicYEJh5O9B6KeUOBtBFHDiZtjtQF7t34Od7v8N1A0Ok03dAw2AteVp2nOuLGfVS+H1XePF
+	H5Sso/HUFm8NbJRwtysajmMnMqtIKoKRYc1j0BpDdhJZ+kBmMqXg5GvQdZ61GbZ23vEi37TULU0
+	AyJudCDu9thgYtcFEef3VR/gg==
+X-Gm-Gg: AZFdTZcqPUpxyRD7KGnip3qbWPuxwUvp3V2pTbaDcbnFi0XsQnz0vdjWK6sx/bYrG7u
+	X8pEw+gmcRN4m7hopIzgF2V40l9Cc5H+nC66X3hHSqZvgHHiQDiYKpMY9zN0Tnb0uqI+c5MroYp
+	Tr8vbn6gmpWV1Tm48UG/zTumOEVagT0YKeJpacEW72DJcv3ACiW/mjdM2a7g5XJMh/mVFpxPEs/
+	61Cc7y1ysb8OfwtavnBl2eQYjTurgkn6o2j3S2XW9NW+D6ZyFYfeSbxpWBBfOT8EnMfRxcB3sxr
+	PE3UFEBen/l0eEatarhT7webRmPCl5E6Rj5iFpk3x6/9IkSnil3eRzMI8buFzC7Awb990GE0j8I
+	IsUfK0wkbXtkr2pEg33v9ykojO6pTQPXbYxOWWsqdiu/kOFgks0q9hSxo1jXpPHzXYiC8jiKl9l
+	Y3fzbKykAWP9mlw4X1fH2cZZmsD1gt2vPnjykTNVqaRg==
+X-Received: by 2002:a05:620a:6c18:b0:949:61fc:88a1 with SMTP id af79cd13be357-949ba81a55cmr2501755085a.10.1795551230222;
+        Tue, 24 Nov 2026 12:13:50 -0800 (PST)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-123.dlp.protect.broadcom.com. [144.49.247.123])
+        by smtp-relay.gmail.com with ESMTPS id af79cd13be357-949bb3f55d3sm105799185a.18.2026.11.24.12.13.49
+        for <linux-kernel@vger.kernel.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 24 Nov 2026 12:13:50 -0800 (PST)
+X-Relaying-Domain: broadcom.com
+X-CFilter-Loop: Reflected
+Received: by mail-ua1-f72.google.com with SMTP id a1e0cc1a2514c-9806e283b0eso3122491241.3
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 12:13:49 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1795551228; x=1796156028; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=rlWIHX9NSm3ZvbB1YngE7yXcr1uevNuXKUdmXs9oPKQ=;
+        b=M7HGd/3TpBUGPZ1clDzQQjzBjwjIe6K59CWkQ19W7DcpRKGoYxib6Nw4UvURpwY46W
+         P7RQLVK3DQThTzGVosGY8a2qKmfAgLpYza7ErvdKnxU6jZNGbqNoS7QddvvuVhky7fYq
+         VtV3S41abudzT03vJbRYSr3XM9eemBqp2m7Qk=
+X-Forwarded-Encrypted: i=1; AL+hErEMfTw9KCRy3ZHm9E6C4jgylWX9vVIad1J3zh8Kezj1Ug/zI1Mf5lpkIZS3Ui6v6rVLd7yeYnJFXRp5ihY=@vger.kernel.org
+X-Received: by 2002:a05:6102:f97:b0:7cc:226a:f977 with SMTP id ada2fe7eead31-7d7396157a3mr7708535137.36.1795551228583;
+        Tue, 24 Nov 2026 12:13:48 -0800 (PST)
+X-Received: by 2002:a05:6102:f97:b0:7cc:226a:f977 with SMTP id ada2fe7eead31-7d7396157a3mr7708490137.36.1795551228151;
+        Tue, 24 Nov 2026 12:13:48 -0800 (PST)
+Received: from bld-bun-02.bun.broadcom.net ([192.19.176.227])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-921347a0b6bsm140905426d6.1.2026.11.24.12.13.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 12:13:47 -0800 (PST)
+From: Arend van Spriel <arend.vanspriel@broadcom.com>
+To: Maoyi Xie <maoyixie.tju@gmail.com>
+Cc: Arend van Spriel <arend.vanspriel@broadcom.com>,
+	linux-wireless@vger.kernel.org,
+	brcm80211@lists.linux.dev,
+	brcm80211-dev-list.pdl@broadcom.com,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH wireless 1/2] wifi: brcmfmac: fwsignal: bound the AMPDU reorder indices
+Date: Tue, 24 Nov 2026 21:13:43 +0100
+Message-ID: <20261124201344.3494326-1-arend.vanspriel@broadcom.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20261115185843.64633-2-maoyixie.tju@gmail.com>
+References: <20261115185843.64633-2-maoyixie.tju@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,48 +116,38 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 
-On Tue, 24 Nov 2026 14:48:39 -0500, Jeff Layton wrote:
-> v3 fixes two problems in the v2 freeze protection and SETATTR ctime
-> patches, and adds a patch for the same ctime bug in CB_GETATTR.
-> 
-> While I was reworking NFSD's delegated timestamp support, LLM review
-> found several bugs in the existing code. This series fixes them.
-> 
-> The timestamp rework is still a work in progress. These fixes can go in
-> ahead of it.
-> 
-> [...]
+On Mon, 16 Nov 2026 02:58:42 +0800, Maoyi Xie <maoyixie.tju@gmail.com> wrote:
+> brcmf_fws_rxreorder() allocates max_idx + 1 slots when a reorder flow
+> starts. It then uses the indices of each frame without a check.
+>
+> 	rfi->pktslots[rfi->cur_idx] = pkt;
+>
+> A cur_idx above the allocated maximum makes the driver write and read
+> past pktslots[]. An exp_idx above max_idx makes
+> brcmf_rxreorder_get_skb_list() read past the array or loop forever.
+>
+> Store the allocated maximum in the flow. Bound max_idx by it and the
+> other indices by max_idx. Deliver a frame that fails the check without
+> reordering.
+>
+> This was found with a static analysis tool that we develop. A userspace
+> harness that compiles the fwsignal.c functions unchanged runs under
+> AddressSanitizer. It shows the out-of-bounds accesses and the endless
+> loop before this patch, but not after it. No hardware was available for
+> testing.
+>
+> Fixes: 87edd8916ee2 ("brcmfmac: add AMPDU reordering functionality")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Maoyi Xie <maoyixie.tju@gmail.com>
+> ---
+>  .../broadcom/brcm80211/brcmfmac/core.h        |  2 ++
+>  .../broadcom/brcm80211/brcmfmac/fwsignal.c    | 24 ++++++++++++++++---
+>  2 files changed, 23 insertions(+), 3 deletions(-)
 
-Applied to nfsd-testing, thanks!
+Acked-by: Arend van Spriel <arend.vanspriel@broadcom.com>
 
-[01/12] nfsd: don't hold inode_lock while waiting for a delegation in nfsd_setattr()
-        commit: 6f51f933294bbcff53fb6c7231f356ae8f1a6467
-[02/12] nfsd: take freeze protection before updating delegation timestamps
-        commit: e65caea9feff1cce8a270b518e2f4475d6167423
-[03/12] nfsd: count a delegation in cl_delegs_in_recall only once
-        commit: 266f9a2a591f084149e58e1143374a4d1638a230
-[04/12] nfsd: don't grant write delegations to NFSv4.0 clients on CLAIM_PREVIOUS
-        commit: d4445ca4e442dc09f4eab20afdafb9d8337860ef
-[05/12] nfsd: set ctime when a SETATTR with delegated times changes other attributes
-        commit: 1baa7cda2fba4238c193a5262a97f1dfdbf8d099
-[06/12] nfsd: pin the client while a GETATTR holds a conflicting delegation
-        commit: aa8a7d572d5b9788784038e6a3b7d0bc805e0acf
-[07/12] nfsd: recall when a CB_GETATTR reply omits the size
-        commit: 2b67daa277211096e5c3dbab460b09df89f74f32
-[08/12] nfsd: apply delegated times in a separate times-only setattr
-        commit: 74ca288461569f71b86028e72120f8f2fbabff41
-[09/12] nfsd: grant a plain read delegation when timestamps are wanted on a read open
-        commit: 92a3bf098f0738080cb7869427510364ab6a4d0f
-[10/12] nfsd: check fi_had_conflict under deleg_lock before hashing a delegation
-        commit: 971425a24fe5961611060799392fff93e8c10804
-[11/12] nfsd: take the write delegation grant stat before hashing
-        commit: 68c7e0626beace91513d74c0407264a51a127740
-[12/12] nfsd: move ctime when CB_GETATTR applies a delegated mtime
-        commit: 6f174a0eca19e69a14c34b0ed56b60d484f22fd6
-
---
-Chuck Lever
-
+Regards,
+Arend
