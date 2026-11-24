@@ -1,109 +1,105 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.70.24
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795552369;
-	b=p+nYJxzaRsOIwkdsplHXTIJbZHQ51bieNjVy6yUcNrX+ECKNO3k38G3LktYYo4pDEfk3
-	 Qqz8U9x2Ye3UAQdXzSSeRCXi3G/lETuxSJFvXoDypnSnohdMkQyethD3psOR+plOg4YEq
-	 tl9XdixYqPvemQLiXU7u8PC1XzwaJNY+s2qhVNFhXHjPx5CZwyY5iPeDxd+7Flih/ldxF
-	 y5nanp59XucfH7qWXHvu4Mb4kKPmlPbGm6pqEhUqQyKn6JbfGSydCmN3K+F2oOlIYcqhP
-	 AeASL8/PDYUqtV9LpPjOAiF2zo58ZRt/NxrVeOv876ksuDtB35auOAyKCpugry7MCDQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795552369;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:Content-Type:
-	 Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=IeN7EtCxFjFyK9Cyolxr882yiwzOGhdWlX+Fhc8chJM=;
-	b=3eUkevZzm/c+xIwoz6Vyv8UvXylQ5PAmgB96VlOX60oyc9AUjjrJuxK95MOhtZhVkkOJ
-	 lSw6S4iUAWPfh+IDWQDznCJFKssusdnRfOIBpr9hLT3q90lYxDKM8MqKQ1zre8NAhLbNE
-	 P+G5QJQPvRvDomd3aQa2DBL1ck9v2CLXnzBbjjXoHqS/npWhG4k0pLCQG5i2jpdaoKz0J
-	 POfhL/wtyCURRNlxzJtEcQQKmxbyeeAowfc3GWEDme7IxYclBbovN8eGq/iviUJf41kSW
-	 Ny8CQqlE9SQ+PPaSiXLi827DcFUD+fHomzSk/81/szWt5mRw8ZmMpVfUFi6WHMcII0w==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.nxp.com;
-	spf=pass smtp.mailfrom=oss.nxp.com;
-	dkim=pass header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=EQlrv0Pj;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.70.24
-Received: from AS8PR04CU009.outbound.protection.outlook.com (mail-westeuropeazon11011024.outbound.protection.outlook.com [52.101.70.24])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.177
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795552475;
+	b=EOf0aapovRnvZLd2mngFpue1tZAXI1IwM5g7EKtgpqx4vJZxr8rduQ1G8tsfPTfTc5Wj
+	 PcJnYfJiyWL9v7Mxqu5AtJAxndsO8QZGYqnb6+9dUZgI3Np9FQ+3Iz7HbzOwPZdklRnke
+	 lfASjOhQK+Oj5W4zpOIPKQAIcU+VGXmxtuov2Azm5WEtfSr7E0cEIHbgqXPH9jtdSR3ua
+	 TqxW/O2Oh10oZyB/VqJL8tzl2fgPbnsfmD6MZURdgv5aCJ240wWzUALL0ckMRPAX5a2/p
+	 /soG9C2UpEVjONrWG+13EixFU9tEiCIC6Lo+fXoa0rLnndWfRDSjlcXMZBIembx7pyg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795552475;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:Mail-Followup-To:References:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=0gGPj4kTELj+B35v7ZlhFCknxenwumFRIKQjKFG/xkU=;
+	b=WwDlf65W2el9HP4/HbT69QF8dJ5Pn2Uf2BCX/6dSGJ/dYb9NamVI71HlaVax7jA+sVWg
+	 oe8c6TPUkC1zfpCfkXQn2mC3R5iHkb1Sn/EuCJt5VP//SrnanflqQ1Da2fIjrlXtGD7gK
+	 TmwZU+AGtQ981xqFemN/rlSoBeJJyEDqHGFv9NEknOUxRuzmjkKKXRU5igd6Po16BUb8p
+	 +QtrgRROJU+1HBH4zcNUuqtquuwgdTjJAUGltCstJ4bb+Y/SNd4LKZr62E/ggHDKvVhS6
+	 cOrfT2MdemW3aBOEah1cUfYwu3oObzzqjrxKtiNoDdYitZLH2nD9w8+am9VW4xWBdLQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=none header.from=dama.to;
+	spf=none smtp.mailfrom=dama.to;
+	dkim=pass header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=IWFzJg6x;
+	arc=none smtp.remote-ip=209.85.210.177
+Received: from mail-pf1-f177.google.com (mail-pf1-f177.google.com [209.85.210.177])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 39A16606A31E;
-	Tue, 24 Nov 2026 20:32:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 39A16606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.nxp.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.nxp.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C38BE606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 20:34:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C38BE606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=dama.to
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=dama.to
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=EQlrv0Pj
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=j1N5+pQFVfC/PZ4COyUwI0yJud9rgCPEaqOcZHRl4i3jlDWtlEY5a0sK3txNyy4MQC+I+BBNDB5qH0gcVIZMMizvHMFT6CS15mSGBOEoZIRvgQyA+xzQzaRpQr1ssehvvBkLjc9FTxIIx1fs1kYTZybWuVH69d8hQtjd3UFj0q1APnMZLr7qYcGIH3jxWSfXT8ZdxhX36DaZhV3jwoFjWSs54eO/rHl1/8HdRRNQDhAGIERso98PAfrYt2SHN9iuCHFXOVdCRr06aW+UI46REDTYAejFLkNhuuHFUbpp4t1YmozQtCHRJivaOrYUKRc04nxNafvn7vCCRJrpQlk8lQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=IeN7EtCxFjFyK9Cyolxr882yiwzOGhdWlX+Fhc8chJM=;
- b=w5Ee1TnhED211Z/IsfFF6VmvlnimxP6IVp8nHAuGy6gjl68dEyQLpSQQs4Er9Qh9RiQ8lT5s9ef5EBshbym7MzEFxpKiN9izYKv0Y2KfrSK0gjy3xMZmAkK6lHgzZz+Jf2v2S8MSai3OOMMjteA80Z8rbJyZp/0Kb5bYW1nKkCAw6I9AcQDdXVRR4vUg5Eulp2654dzDArUUKhNZNUzhnVw2qHVL6/nJ/RMXr9r8DRw6bPjDXLxLyT0O+6EvbRTjsH1+2LC5YcusX0iKaNnFicwgikNmc1jcYB773CP++S0Cl/bv4SEzML7KZsxIfzlZHJeH0olV1cESHdrtyWijCQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=IeN7EtCxFjFyK9Cyolxr882yiwzOGhdWlX+Fhc8chJM=;
- b=EQlrv0Pjhlgf970LMxqE1y6ZGe/m/6GXrUHkGHmZqBU2N4RHahlBMyWN7yFfePNP/RtCC3SM378+35LITmx65jZMmoBaNLXa5jr20tyq7C9pgad1O9+FknQVjnhoNIccGYk264U/YB9jnU0lvUujtCmxCUBOdQlC3gvJSYjRvLTVacNmDQbWkNkcTedBJV4zwE2eJo4NV1QZkUgpycGIkVnKM9RmSwRUA/Ebfni8svyotHtDu7SqefBNBjkAfZdRHh2InoBSmoxI2Y7z8PqDwBhjJkT1/WEM72dAs3ZdW6QahiSk3Nf1DQtxhI2p3ke1yGdwQQpRksQNP9yiha3PqA==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
- by MMZPR04MB618476.eurprd04.prod.outlook.com (2603:10a6:190:4f::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Tue, 24 Nov
- 2026 20:32:46 +0000
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b%4]) with mapi id 15.21.0662.004; Tue, 24 Nov 2026
- 20:32:46 +0000
-From: Frank.Li@oss.nxp.com
-To: Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Michael Walle <mwalle@kernel.org>,
-	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Frank Obergfell <frank.obergfell@bytesatwork.ch>
-Cc: Frank Li <Frank.Li@nxp.com>,
-	Daniel Baluta <daniel.baluta@nxp.com>,
-	Jessica Zhang <jesszhan0024@gmail.com>,
-	Fabio Estevam <festevam@gmail.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Alexander Forsch <alexander.forsch@bytesatwork.ch>,
-	dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: (subset) [PATCH v3 0/5] arm64: dts: freescale: Add support for bytesatwork byteDEVKIT i.MX93
-Date: Tue, 24 Nov 2026 15:32:37 -0500
-Message-ID: <179555227333.1032701.11663881152667132012.b4-ty@b4>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261111133119.1063210-1-frank.obergfell@bytesatwork.ch>
-References: <20261111133119.1063210-1-frank.obergfell@bytesatwork.ch>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: PH8PR07CA0007.namprd07.prod.outlook.com
- (2603:10b6:510:2cd::23) To MI3PR04MB12438.eurprd04.prod.outlook.com
- (2603:10a6:290:76::14)
+	dkim=pass (2048-bit key) header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=IWFzJg6x
+Received: by mail-pf1-f177.google.com with SMTP id d2e1a72fcca58-8b9c51097e2so1860834b3a.1
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 12:34:34 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dama-to.20260707.gappssmtp.com; s=20260707; t=1795552474; x=1796157274; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:mail-followup-to:message-id:subject:cc:to:from:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=0gGPj4kTELj+B35v7ZlhFCknxenwumFRIKQjKFG/xkU=;
+        b=IWFzJg6xpnqE4fcFC7weA1Yt35QZia/OaODNyYpNfPHlDKe0Py4VliVOwLl30ZXM/Y
+         N+YBqMG8efYJZB6sQZYB5qvsE/372NF6ZWJc+K38zWbYDIpeixDJY7E0J3KLm9BOj8hG
+         WaKLpRnlE3VQ2Bct0Ay2E9OiYX50z8SfFs5kPD2gwmTnopgePSS7rSSy64a80RZgJqdH
+         Zmv4/W4qoZ1rAffs7KAl8Q8ltprdw6EeCJ/ZAoUznQCkqUJo/gzMs9G4tYd0k3KSphVv
+         n4W7wLHLm45uGgX1eC0sljKcuI6sFhWrGX3MFAMQgehHHvoY6IfeNWyWy/2r7yCsKbFz
+         2+eQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795552474; x=1796157274;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:mail-followup-to:message-id:subject:cc:to:from:date
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=0gGPj4kTELj+B35v7ZlhFCknxenwumFRIKQjKFG/xkU=;
+        b=RtnBwipPXwUpI0VkCX8rOPPHVMxCylpOsqAfopVm5zR58LnKGIeZIgIjW85/dPF5qk
+         95jCocQyqw+Ti62rThdmwDxN+km67cUAUdrgAxtITZc9o1LFO1ZcBPtvox5YZk794yuO
+         aYnrIV/N6UEPMwEIetadZmK0LFYmLtirTmLyLzYuEiKDhbupGPnC0sFDUbPBESgpP3n4
+         ERBQx20MlKG76DCC1W5Yttx+myEAksuAl8AwrFS8TEdJ78CIdIO09wgyPVEzN3bIHlmH
+         R/4hA1Dxl+s/Jbp8a40BP+dKa6LsSMudmpOIBEuRXbZ89GvM9+PKMQXrnLRNLT/6YeC+
+         repA==
+X-Forwarded-Encrypted: i=1; AL+hErG/71ZklXcXAvaYZ7MIo5Nj1sUlx9bWn9ZGpGHp+wB0SLLR+ovgDWUVB34y9PK6dJT6EjxzD29/gU7K/CI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+zcZvJWCUXTrlIV9O88LjlVTinyv3AbHuFSyC+8Ku1Mt2s/xVq
+	zlLCVZ+QUKt5ThsNs1cEYF9UTih7CEa4RquvZRkS83KZleG8xOUpUpdExwzFCMsYDhU=
+X-Gm-Gg: AZFdTZeaG/c8lMw1mzKWoYfx55/LA/2rPj1lyr9FTk6DHnfl5ccksWp5Eifik+uBAck
+	DDWbwwVJKl4V6AF0K2Z0XlKees6i82eKSXHURKuqG4m32bW04/yY679os6XiRZhooOj4FD5LOOe
+	IApeaRiT+PyEKyYCOOJ5/2b9OdOrGgiqcE/f2qMPIpZx/aVUfheMfNjwjUOlraI6hDTvIk9mY5Q
+	CC2PYdG5ZPdDe3ZxeAtqM8Qz1WCbLwQ9UNJ/qen9QZ4fmDk3Tor0/Ik8kF7fOPUu311Snbg+l2t
+	7/FX26kKSJpeNtL2361ilghru10nM8ipezGNR1bVV7oTsQjQlyRT3LxezJzfFkfbS/Av29rm82J
+	fUX2/a85trj5KoBn9J4bINKmcaB4K4DTY9aiz7Ha98MunUtgH5+VeegyR7gDBm/781RTL2X+jdg
+	Wp/mwMjdH+6fg35EU+4nh/7OcL3iIA1qguQaXTRvaQ+rn6hvegqYluR6tWwMNfTuCEwYfVJS8+7
+	PJc62tthMmOCcOIHkDaNcEKzP1dl/zm0w9aRFBPf520QRZRO0Zohfv4Lca3W58rv7svxGX6L3TK
+	B+fdl61aLTKBqOeGk1+V2T//yQBdZEI0CwcnHl/tr+0=
+X-Received: by 2002:a05:6a00:4518:b0:89e:f2d2:1eab with SMTP id d2e1a72fcca58-8c87cf2a12amr12263594b3a.42.1795552474083;
+        Tue, 24 Nov 2026 12:34:34 -0800 (PST)
+Received: from localhost ([2a03:2880:2ff:4b::])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87343f726sm8048209b3a.36.2026.11.24.12.34.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 12:34:33 -0800 (PST)
+Date: Tue, 24 Nov 2026 12:34:31 -0800
+From: Joe Damato <joe@dama.to>
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: Narcisa Vasile <narcisav.kernel@gmail.com>,
+	netdev-bot+sashiko@kernel.org, michael.chan@broadcom.com,
+	pavan.chebbi@broadcom.com, andrew+netdev@lunn.ch,
+	davem@davemloft.net, edumazet@kernel.org, pabeni@redhat.com,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next] eth: bnxt: report TX HW GSO queue stats
+Message-ID: <awX01xqN2suPZqE1@devvm20253.cco0.facebook.com>
+Mail-Followup-To: Joe Damato <joe@dama.to>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Narcisa Vasile <narcisav.kernel@gmail.com>,
+	netdev-bot+sashiko@kernel.org, michael.chan@broadcom.com,
+	pavan.chebbi@broadcom.com, andrew+netdev@lunn.ch,
+	davem@davemloft.net, edumazet@kernel.org, pabeni@redhat.com,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20261116204313.23023-1-narcisav.kernel@gmail.com>
+ <179499144094.3136.198428718668517773@kernel.org>
+ <av/RAwaDfiQnPmbF@gmail.com>
+ <20261120154835.0f56c410@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -113,101 +109,53 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|MMZPR04MB618476:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4fbe9ee0-7c03-425f-bef7-08df4a6a193f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|19092799006|1800799024|366016|7416014|23010399003|376014|18002099003|22082099003|56012099006|11063799006|261028144727099003|261022105027099003|261009223027099003|261026140227099003|261022075727099003|261026121527099003|10067099003;
-X-Microsoft-Antispam-Message-Info:
-	LJVSJYycpYP2MawB7bpvpj0aYVgAUBKNpWumRsCYxuJ197H0SoVVWxMqf4zaUuS02EkkNAJN/i1bxa3Z61uXuZSu/wsrzzFWzks+K3/7XNk1T2ydipJEGi4LMgdLwjAfcwycG0hmgtnVbAEVZxaUzo1SLZvNb+P1tIton6LwAPI3g9kZH24V8dUJuJRE11rGrF1uQ5CDT3tZ2C/F2DGlbY+3IizsPDg5b0Fqxps4Rr+QyxXiay6EaA7WygUgHjLd1SHWzW4dzM2ZdLtCkM0qT/GO2YzZqIuFdD6oTdfpRfF0tYtnPo/XULgwqev91MArBf166wMprA4TRToPY7TJ8oLGBqi4Dy3+GMmB0BZyav0J751d+neHi/NflQQBKQGgk6+64SopvIuk/JOM5hN9ZDRknn7dbf3quGnkA8GNq0RDI2xOB7PsfmlC7iIsi4O0zZHC8/6J2VacpmXKZB6cll4cx129b0OKyngjrgeY6/pBMKRCsHSIe5qN+MkjIyWprXBPmQK9l/jlvSCYuzT/HadWmbIhOxM7ydptM5E77nu6Cy1C8HP/rOKrdkdx1/Whp2HIuZMcw+Qm9l270aD7+agNIQ8u9UfN0jelsANjezRBfTcQfqP+ZB1sSoAWpGFMLqj/ip4v8wEOH0CdYtyP1xgXjUjSJDP4vuAmZW0XPWQ=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(366016)(7416014)(23010399003)(376014)(18002099003)(22082099003)(56012099006)(11063799006)(261028144727099003)(261022105027099003)(261009223027099003)(261026140227099003)(261022075727099003)(261026121527099003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?VTZmVTNiUDJ3b1R2MmJqL0ZkZTF6UGxucDhNZ0c3TlVBRnFlR2svdVJNSCsx?=
- =?utf-8?B?TFhUaFhRVWx6YkR4NEdscUpxYXQ0YncxN056bmxmRWdaOTNWTVhVTG01L0gw?=
- =?utf-8?B?cC94Z2I1alVqSUw2TU5iV3JOT2JrMjlVcjRnekNUREI2SVdnRTdDU3hvek9Q?=
- =?utf-8?B?ZUQ1dkNsa2hUTHpNK1pVSkhyMDRyL25BRno1TU9adkhxam9TczkyWW8xdCtG?=
- =?utf-8?B?Z3Q5cUMySkNoc2ZBQnAwc2VxQng1MDljZ2IzaktDZ0xDTlkzQ2Y5RmJ1dExp?=
- =?utf-8?B?cFpZY0xoUXFzYXEvK0k5ME96T3J0NldsdzB4dEV3bUplTysxNUI4QTU2eis2?=
- =?utf-8?B?LzBCL3Z3bWZHSm1jV2JVclBYWW82N0tqK3JVcFdlL0EyWXYzL0xMU3E2Snkz?=
- =?utf-8?B?V3VnSW51QUJGUm5yL25wL0ozbzh6LzFxK1VZTzUvaEYxclVxOGJ5d3VKZ2xO?=
- =?utf-8?B?Vm04L3ZXdFpucWRxT0hHZnBKSlp5RjZSZkF0VEQya1Nqb3VCdUJZZlhtcXli?=
- =?utf-8?B?L2RaaUVGTjdObk54ZFRzY2hlT3phRkpnamJRaWZQbmhFd0tIczdTbEFkMjRl?=
- =?utf-8?B?aHphTzQ1MTV5TUU4bVhWNVlKUzcraWo0MTkwbE5HVm5DZVdnaVF2NkZTK251?=
- =?utf-8?B?cjNlWldvOTR6clJnM01PSWVsb2ZWWktSRkJ2c1dNSHhTVStyYXlvNVhOMEVq?=
- =?utf-8?B?dzhjbEpMVC94Zi8rQ2h2MGRiNXNLem5HdDE0djh6TGV2Mm9vNHcwVDZhSlor?=
- =?utf-8?B?REdtWStZb2FTSWh5RTFkYlZrZUlwQVFNcm9RSDBLbXlKb2g1dnVud3dodHdD?=
- =?utf-8?B?K1MxajFBWksvNHhQQ1J2MUZYRTEzTWRVYWlrY3VhcWdickJJdW5qeEw5RktW?=
- =?utf-8?B?aUZVSlNUOHprZ3duQ0ZyejJhOGEwMFBEeVA1UHFkN0R1V1pwQTd1cEticEZp?=
- =?utf-8?B?cHpYS2dUbTZBbU9VUXhHVGZTdDA4WWVUZFo3RjNrSGFDZ3VlVnJZK2ZER2lR?=
- =?utf-8?B?WGhVWVg2OHFiVjlxQ3RCNTlYUzdEbElLbWFDVjR5dzFlWkFqa3g4VGVmQnVj?=
- =?utf-8?B?U1Mza1pBTDAyL0FnRzNUSlJMc0R2Z1V6WkxDc256SC9vd09uZnhnZmt4bmJk?=
- =?utf-8?B?NUJCa1hJTDhIdFlKL2xHWFdEc05xeGRuSzNyV0dRZmxtMkRtRllNSGhnd1ZM?=
- =?utf-8?B?NzA3Wi9CMzhyT1Vob1RtZzJKUTJZamdmMkhpL21ONzlRZGVTcklMUnEvaDNQ?=
- =?utf-8?B?dmVISTFoeEQrQnMzN3BRbXFJcHZkN2F6Y0Yza2RWTUxGek1mSnAxaVZCUXFz?=
- =?utf-8?B?MnMzc3FkdFVHQmV4K1l5WGRzbmRLK205MG9maGsxSUtvRnVBT2ZZZGwrU2xl?=
- =?utf-8?B?aTgrTGt2b0lwTHFQbXAwNW5NbmhibVRVbUJadkcrblRGdXY1eEZoT21tdVlF?=
- =?utf-8?B?UFZ1cHZwS0tnOW96VTNxcDdpdy9CNlRuNjhVdXBxUGZuVWVOWEl4eGtvVDNm?=
- =?utf-8?B?R0lzVGEwc3FBcjhoMW5FQ0w0RnpLSGhKYVRydXhydzdmcHVMTU9iZi8vQUhU?=
- =?utf-8?B?OHRtOElYSWlNdkdkYTk4MWhuS1JrRXZ6R2RGd0prbVRUWG9RQ3FLVXpEUDVG?=
- =?utf-8?B?aklHM3FUZkY4cW81eGk0VVM2aUVoL0ZvNEVhbGU5c0ozMXpuTVhVK1RoejVD?=
- =?utf-8?B?WDBkdGltRnFxNGIwaWdHN1prem55SUJ3SytUMFJ4bXExYmh6c0FYdzRVdE9V?=
- =?utf-8?B?ZEJXZmdsUXZRTHRTUnZRci9MWWM4RXVyWW01RE1XeDdYMWJLSmpLTjRaRFEx?=
- =?utf-8?B?bUdERmkzaHZETUpOR3NMay9SNTNnakNJVG1QcTUyRVdRME8vejF4dUpRTTNa?=
- =?utf-8?B?cTFadzRGRzN4c2dkcGxZOGczZVBDMCtjSUZSWVh3SUgwUjl5NkZ5Wlh0aEFa?=
- =?utf-8?B?TDZaY0tsc1lkWVdlMXF1eHJ6STdEVUtwa0ROc1ZONEZkRFhjUkUySXJhZTkx?=
- =?utf-8?B?WHpQOVlCLzF2eUVGNWlJdjV4dHRkYXpJcUJCTHV0ZkVaeDB1YmJ1S1dRMElX?=
- =?utf-8?B?Uk5ZNHBNZVJJVGpPY2NNSEpuWkZpb1NXK3lGYSt1K2Zvd3o3UndGR3lrWTla?=
- =?utf-8?B?MXBOaCtXam1adFZxekQvUXFGUEZqK3FReGJiYmFIMFpQcy9Yc2NJWG5STThy?=
- =?utf-8?B?L1B2MElDamtWazZZSmxOUVdEejhoWXpHaFBKc3gvSEhlMnp4VmlpMmtxcE1Z?=
- =?utf-8?B?RjFvci9EUUJld3hJb3pTSGdoK0xNT3ZhNDcyOFlVMUJZTWxEUGFXWW9lbXlj?=
- =?utf-8?B?YWs5czd1aFFRUHdjakZISm9USldLT3RYT1ZRN1FaS29kaUw5Vi9GTUQwT2VJ?=
- =?utf-8?Q?zh+JdkLEzMpmJvGSWl4CEUMgC3X7dF9eHmCOC?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4fbe9ee0-7c03-425f-bef7-08df4a6a193f
-X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 20:32:46.1350
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: uqGHMTWaF41XDjnIb9daV9xTq1FAnSjlISLAr4C3cjae2ihvKMJZdpniqud5r88BgB4eDL05Bs2ICnjUzNO9uWiW/kvyT2W+zk4HaOZS/2WQ5zz+PdRSiFuvyBU5ImXs
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MMZPR04MB618476
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261120154835.0f56c410@kernel.org>
 
-From: Frank Li <Frank.Li@nxp.com>
+On Fri, Nov 20, 2026 at 03:48:35PM -0800, Jakub Kicinski wrote:
+> On Thu, 19 Nov 2026 20:48:03 -0800 Narcisa Vasile wrote:
+> > > [Severity: Medium]
+> > > Can this over-count wire packets for GSO skbs that were sent through the
+> > > TX push path?
+> > > 
+> > > This block runs before the is_push early-out. It treats every completed
+> > > skb with skb_is_gso() && !is_sw_gso as segmented by the hardware.
+> > > However, the push path gate in bnxt_start_xmit() does not exclude GSO
+> > > skbs:
+> > > 
+> > > 	if (free_size == bp->tx_ring_size && length <= bp->tx_push_thresh &&
+> > > 	    skb_frags_readable(skb) && !lflags) {
+> > > 
+> > > The push BDs never set TX_BD_FLAGS_LSO or tx_bd_mss, so the NIC sends
+> > > the skb as a single frame.
+> > > 
+> > > Take an idle ring with tx_push_thresh at 164 and a GSO skb of 164 bytes
+> > > or less. Two examples are TCP with a peer-advertised MSS of 48 and 96
+> > > bytes of payload, or UDP_SEGMENT with gso_size=8 and 80 bytes of
+> > > payload. Either skb would be counted as 1 hw_gso_packet plus gso_segs
+> > > hw_gso_wire_packets, even though only one frame went on the wire.
+> > > 
+> > > tso.py reads these counters, so could this give misleading results
+> > > there? Fixing the push path issue described below would also fix this.
+> > 
+> > This couldn't give misleading results there, since no GSO skb in tso.py
+> > can be 164 bytes or less, so none can take the push path.
+> 
+> Fair, but UDP segmentation may sneak in there. I will check with Joe.
+> Either way, I agree that this is orthogonal.
 
+I think this is a bug, yea.
 
-On Wed, 11 Nov 2026 14:31:14 +0100, Frank Obergfell wrote:
-> This series introduces support for the bytesatwork byteENGINE i.MX93
-> System on Module (SoM) and the carrier board byteDEVKIT.
-> It also adds display support for the integrated Youritech et050fw01-kt
-> MIPI-DSI panel by extending the existing ILI9806E panel driver.
->
-> Changes in v3:
-> - Patches 1 & 4:
->   - Added Reviewed-by tag from Daniel Baluta.
-> - Patch 5:
->   - Added imx mailing list (imx@lists.linux.dev) to MAINTAINERS entry.
->   - Moved controller activation (&lpi2c2, &mu1, &mu2, &usdhc1, &wdog3) from
->     imx93-byteengine.dtsi to imx93-bytedevkit.dts.
->   - Removed unused LVDS backlight (lcd_bl), disabled lpi2c1 node, and unused
->     LVDS pinctrl groups.
-> - Patches 2 & 3:
->   - No changes.
->
-> [...]
+I think HW USO can hit it. A small gso_size with UDP_SEGMENT can fit under the
+push threshold and that skbw ould go out unsegmented. I think this would
+affect Thor2 devices that have HW USO.
 
-Applied, thanks!
+I don't think SW USO is affected, though, since it segments before the push
+path.
 
-[3/5] arm64: dts: freescale: imx93: Add MIPI DSI controller node
-      commit: e9d67b72ffcbfa53c76092827ea084ebd7259436
+I'm gonna update uso.py to test a small MSS which should trigger this on a
+thor2 nic.
 
-Other patches wait for panel patch pick up.
-
-Best regards,
---
-Frank Li <Frank.Li@nxp.com>
+Narcisa were you planning to send a fix for this bug? If not, I can, but I
+didn't want to step on your toes if you were about to send something :)
