@@ -1,57 +1,93 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795519827;
-	b=16ig3r6oFEHd3X502/2bzqZscv/Ew4zMG/vv6wFy8iSk8bIXg3Tn1y3nJw7JGI4vgMc2
-	 JabMDFdtGTkPZaVIKZ5HxLP3fqBkdCVMSzs6HmJplhytgWGyaqE7jm7uu5TFMVyW7llee
-	 K3rzB5lMNdntByXPs3IwEbPHxPvz7twoywO63bgmAJ98tREK4qq9Tw8PGXYOqn36aUc8F
-	 aU3uST3WIokrAxl5RxwjUw0w0+Wp7wA5pGMyAHbFooFp+RQlbrKNBVqxWCkIUTcy8zV+G
-	 /H6TJsQM4Iu13e4aWXupOqPj/NNqT54F+xopCqW+ZxJfnSim/ElzZvx5PhSfYxq6vKA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795519827;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:From:Content-Language:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=x4iAMBhsUqAiaUCQj/SSCDJ/lo5qATWvSvv8yn5M/Yc=;
-	b=lnbPs2ss+SjpP3ySoUNqzW3Vz+o25ylnzKeQOo2tmpgqrZs0MZeP8dnXXPPCRKa0xVAr
-	 RwRjDAp52tw9I/kKCd+5mJPI9sR35soL3Ls/94UjOtt7yOhsscPM+BHTBWby0vJoTwxjQ
-	 9Z2zGMuK+5TMjE1ls0phGUoeqI7MwhvSgP5WFkb3N8wYPmi/q3uqUsdOpYHutsysHXeaB
-	 3rWcbeDAsG0cduNahnrZtD+Vo0zl+eCgGrvIAAFnWsikmtUPeX2wTXDDN+GovHj2Y3lYY
-	 dX99yrtcfbTpiwkd01oVovDpuk6HFm4qBAHXgaWT+0LCDP4DQf1OM4qZAZ0maJGcZFQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=collabora.com;
-	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=Vwsy8IRY;
-	arc=none smtp.remote-ip=148.251.105.195
-Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.52.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795519883;
+	b=fXgQ74rE/oP246lVK6Qb7VZNAQ88ReZfwiPhN/2KqY2mzxlF8fKfi8A4xs07lVX/Vrf4
+	 CsMZkc+bfc2HBUVSkYhTx/Py1eGjJmCevrcOpCOrQSPUPtOJ8M+DjvDqfUR25v2IXOPDC
+	 G/wzavYFRsY1QBIMVyPZ47LoAkOSvTn5CDTKWo0C8b0dzpDXfujVb90fF4NHmUi9goLIr
+	 8ltCNnKsIDOM2KO4YeaOBreuoncZPXbt1ZgHQ+yQ1GXSzmWnabddxrGuVu9TLQgw6BRqo
+	 nRO8UlDgYFahpXeB1r+S5nck4vcsCfI+NQQx58lAEEfhwh6uHgIGyJfrZFGFQtvYXqA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795519883;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:Content-Type:Content-Disposition:
+	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=7bjaiy1SE3xpmHiTS9z48paGZ4A4OsrVATHeP6Nv+iU=;
+	b=ENTNqcJsWoIMHoedPW/ZNRdCfiUChUSk4Sb0qtd2UALyfa1je5KRnRq+pbtxRDeZUiPT
+	 0PewTMqZ5s6Xw1ohz+4/7Ql70Pky7g4EzWkWDMIpDks0A2uzwwWJQrkZmREVdkfnq3Mhx
+	 7SDGvgGJjfEFtfyf7pik+f+hwcJKXsOtZMBtb8tl+yOnF5Ope6OChywZDob4lNvoMdL/y
+	 i01wB4eQAb6BYMEUQ+HQ3AoQbODv2rrl7vQ9Qpi9oSqiRV92mWhGRpX0L/UA7OZWYI1fA
+	 xRdZ4bdFkIvlnpcy/+1LyOeYxbCcO3CkqwSBcYX9P0A2NfB8sTmbDfLMM/wU8PcYjvQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=ENNNkfRU;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.52.18
+Received: from BL2PR02CU003.outbound.protection.outlook.com (mail-eastusazon11011018.outbound.protection.outlook.com [52.101.52.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DF235606A321;
-	Tue, 24 Nov 2026 11:30:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DF235606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 93CEC606A321
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 11:31:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 93CEC606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=Vwsy8IRY
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1795519824;
-	bh=8tQgckJyHzwBcIyuNBAxi4U/A6ePfJobteegYPxxY6U=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Vwsy8IRY0BgH0NLhGJzFsARXKAW/OZOSc2UR1I7YTb39swVau6FG+iFAWiXFsFCAT
-	 glS/+s6UF8gppkUh99mztcjrzEsLgKVAVfdySOuW8ynKaq8RCV3HqOG2xMYAZ/US5Y
-	 S8kpIAhpIu8vHFk5CmzUBWITG2lPOqCx4m/STzuG1+NTmrBt6b156TN7cPjjtpFqE4
-	 HU9BYdeIUSXcq+GWlgvGWa3J98ZoNvAO7XvTrTtbUW5uD0AOjkhBo1XtA3lGqTmdUs
-	 x6F3HtXcT9ruEk+tCVjGlOailmTqMtzSQl37XAPy9FC69uTSSvo6kbJPlyLmxtD32d
-	 aWLnBUx5/y4VA==
-Received: from [100.64.1.21] (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 850F217E010E;
-	Tue, 24 Nov 2026 12:30:23 +0100 (CET)
-Message-ID: <dd19d7e8-456c-48f1-baf0-3494081e23ad@collabora.com>
-Date: Tue, 24 Nov 2026 12:30:23 +0100
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=ENNNkfRU
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=oYEYYyBOQqJHe4Z/b11RMkC6S5bZfx6X7E9wQl8VrcraUTX4QeOp3TF8sfOdqmIkRAlXSzvHSzqJLFXqL3zPFiT7kSPNO2e+4oXjC8ttLf2iq2VVfXxFWVzAQFAag++r/tO4/rOlpUs1k3tZfDfCarxJ3H5Z5chIAmYboYCFcjTJGA+AB8zbca/6+H3JUd/el1ijPvNfJXEC2xdmEiQgBNT//N4AB52RkCaNVD2j5MQR9SlFdZ9zzJXhTeGSKqVU9FxmZjr5BRpC/NJ1YJHiIPZgRdzKITsF5S6VDEk8Ex6zWg2d1VY5UQnh6DHG/uiyFYdqujSyUjMfIhUbkTcghg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=7bjaiy1SE3xpmHiTS9z48paGZ4A4OsrVATHeP6Nv+iU=;
+ b=EVoKAm4u8yl1uKiV3/phJE5nZ+cVCnT/aegmDkPHh9skapz1Ik84v0aFOJxJlUr+GV/t3nzeTxhPpojMKalkdNpfjevi5gAeUUa0rhGSb/W64Gs4/4aqNxuJ0O9v/aL3VApZJAbnHAjwPkCf9JrjSp0posLG3wh58rcLQPc1dIPEGbUStR2+f6kTpFjjdCvsUFBZmONblmq9rxhFRmNGugHvIMxPkNoGbG+1fWsUgqN/V1hAPY4wVqoyz54krj8lcPs35DQ3dW26z6rIYagUmuh30myJnwZYD73izNk1yaXJubeEZnxyJSs+sHvFFLD3v4reNmdVRUfG2S5/VMovXQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=7bjaiy1SE3xpmHiTS9z48paGZ4A4OsrVATHeP6Nv+iU=;
+ b=ENNNkfRUxgRq93gz2+zoHH7iv6OpwQhiIDQxfNP9yeoP3TzNS07O92mYb9cMAzbE2g+KcAvoz2ddaZBUAGLI/5Poi2TZ1VOK3m30Q4r6bi6tBrQD+L1SCPr0clVL3Ea/Y1tFWkcnm/tMCcTKxlY3yQqHVj/oo1qh0BLNaMcJnZ5/PiqzJYPp7YWQRsKRGIKOOgTdyb3swRz1sW3DfTeerK+LYT5hNjzqO/PEg7Tz62l/IpMlQjMUl1IZhKm20gAadQ+3Gmw3Lk/0lym0e70Ysf0z+WWn4aZ5AqSsGcfQZy1wkVeeIcz47CaaNTJ+5xk6YXz/JQ25l6Irow0z6dZDZA==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from BL1PR12MB5174.namprd12.prod.outlook.com (2603:10b6:208:31c::19)
+ by SA1PR12MB6750.namprd12.prod.outlook.com (2603:10b6:806:257::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Tue, 24 Nov
+ 2026 11:31:17 +0000
+Received: from BL1PR12MB5174.namprd12.prod.outlook.com
+ ([fe80::58de:822b:868:96e9]) by BL1PR12MB5174.namprd12.prod.outlook.com
+ ([fe80::58de:822b:868:96e9%6]) with mapi id 15.21.0639.012; Tue, 24 Nov 2026
+ 11:31:17 +0000
+Date: Tue, 24 Nov 2026 12:31:08 +0100
+From: Andrea Righi <arighi@nvidia.com>
+To: Kuba Piecuch <jpiecuch@google.com>
+Cc: Tejun Heo <tj@kernel.org>, David Vernet <void@manifault.com>,
+	Changwoo Min <changwoo@igalia.com>, Ryan Newton <newton@meta.com>,
+	sched-ext@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 sched_ext/for-7.4-fixes] sched_ext: Fix suspicious RCU
+ usage in KF_RCU_PROTECTED kfuncs
+Message-ID: <awV1fKEL2vbN8tf1@gpd4>
+References: <20261124103043.339553-1-jpiecuch@google.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261124103043.339553-1-jpiecuch@google.com>
+X-ClientProxiedBy: ZR0P278CA0042.CHEP278.PROD.OUTLOOK.COM
+ (2603:10a6:910:1d::11) To BL1PR12MB5174.namprd12.prod.outlook.com
+ (2603:10b6:208:31c::19)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -61,168 +97,171 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 27/46] dt-bindings: display: mediatek: Introduce
- Digital Video Output HW
-To: =?UTF-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>,
- "chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>
-Cc: "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "robh@kernel.org" <robh@kernel.org>,
- "tzimmermann@suse.de" <tzimmermann@suse.de>,
- "simona@ffwll.ch" <simona@ffwll.ch>, "mripard@kernel.org"
- <mripard@kernel.org>, "kernel@collabora.com" <kernel@collabora.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
- "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- =?UTF-8?B?SmFzb24tSkggTGluICjmnpfnnb/npaUp?= <Jason-JH.Lin@mediatek.com>,
- "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
- "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
- "maarten.lankhorst@linux.intel.com" <maarten.lankhorst@linux.intel.com>,
- "airlied@gmail.com" <airlied@gmail.com>,
- =?UTF-8?B?SnVzdGluIFllaCAo6JGJ6Iux6IyCKQ==?= <Justin.Yeh@mediatek.com>,
- "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
- "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-References: <20260714114414.184512-1-angelogioacchino.delregno@collabora.com>
- <20260714114414.184512-28-angelogioacchino.delregno@collabora.com>
- <98cde7319f539cab9f72ec370d309b26569889c9.camel@mediatek.com>
- <33cf13e4-6df0-45f8-b621-ffe3f43419c9@collabora.com>
- <3ab396c26424834e9fa591a86ba7ff8f5561f847.camel@mediatek.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <3ab396c26424834e9fa591a86ba7ff8f5561f847.camel@mediatek.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL1PR12MB5174:EE_|SA1PR12MB6750:EE_
+X-MS-Office365-Filtering-Correlation-Id: ffac2e1d-d3c6-468b-3818-08df4a1e7467
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|366016|1800799024|376014|260925022911599003|260925021911599003|11063799006|5023799004|10067099003|260925021311599003|56012099006|261026140227099003|261028144727099003|261022105027099003|261026121527099003|261021121427099003|261022075727099003|261021123027099003|261102123227099003|261009223027099003|18002099003|22082099003|6133799003;
+X-Microsoft-Antispam-Message-Info:
+	tVKrPIsZKrZqHdzMMGNKTUNNwZ6kl7mxmzTxM5Nur0tDzrcFp4ArQ6x5o+RqrAgKfoBIE9W8sq6pwTSTmT+svNPU+39aN18xLZnVF1VLSlaiytAE75QIm6P9eQRDjyouI2J2VQgxaLxYpnqLgKkFh0lyFxrpr5wKhjheNeAUzb7gGuJyGkeifE+MEC6PoUXZxSTj+9SuiUcwF/pmNhpzAuKpWp7lZMDJM6M232prMmsvwH+ybEzXGeADu85MSIhJueFiTbKLJZYG6iYeH+Ch/bWMp89uh0NSx4ow9TD3F0P3jx6W11/l9nAHT0NSKJT15vfDi9rvMEm9V4hvoLfA+5OeJ2MH1CfCt2xi03Wn6gMqcsm1ivV7DfcvZLMJXpLg6qJlsKC2o9dQNXWPLxQFEPog5HbO9lM+CO8WsLaEIGYgtfJv/hTmD+t3etdEwF1Gw2HgOSZjzY7kBcOKYUx5c4Eo5RloP2v1ts0J5fksKtuwsNhc1Nkc3/CqZT1e4h4FTX/mag46HG0u0D3b4Yl5MlFqruPn4Nqac9VJirSnEUAurfq197mQZ0xls9KFyI3fWUPKy+hxq5JcONQiDTJoDuxWQr5Ac7Guq4Es+r6u2JlYGX+StxhgDzyJBmGOBqRNeCt1WVgP2DNQ3cGOOb1qJ37s+3DOaJbI2l5i70BPHK0=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BL1PR12MB5174.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(376014)(260925022911599003)(260925021911599003)(11063799006)(5023799004)(10067099003)(260925021311599003)(56012099006)(261026140227099003)(261028144727099003)(261022105027099003)(261026121527099003)(261021121427099003)(261022075727099003)(261021123027099003)(261102123227099003)(261009223027099003)(18002099003)(22082099003)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?cR8hY+9fiNIy32uAm57zkCJNF7PdeqW2/RuQzXO4RAaZFAMqiO5Zf7TyQ4L9?=
+ =?us-ascii?Q?3XQvVX48N0fgujYd5HWUJNCzM6StPswBRKGkNgKCXrUG02JX5vgHOaQp88cF?=
+ =?us-ascii?Q?2DIx2wQ6ZiuptAczy7MSMncxNQygl93qy+yWcdQmMFVMNHZu+P3rX+Uo3qlS?=
+ =?us-ascii?Q?hxeb2sdrkTLRTTvk7ylR6r7sTuKhmjN756iBzHknrBhhUM8KkBICpsuM9gTr?=
+ =?us-ascii?Q?Jb2qtWAu7coWDNiIGhSXdPnUQsa5fayZ05bnHwva2SK2o3C6BpWnVn1zJC/J?=
+ =?us-ascii?Q?HVh18df2/cz5tYX/yewxUW2TAphVmYTPbyVToxKLu+ZmU7x1NvnnAXZkgQNf?=
+ =?us-ascii?Q?s5mRJz9PrbdN2EGQE5T4YSpLprsAZCh56dVRqjXqyYTMz7wzSNB5NvT5R+yN?=
+ =?us-ascii?Q?NUkg0GZ0hmhrVKaZDd4siXHO4r0aRxN2Q2J+dOTzBqSB1iTBQ16VLzNydV4g?=
+ =?us-ascii?Q?D42MwdR+xagHY6UeL6MKq9vZSsF0PprKgSWgBgsyzfNfafxglmwGNUUhB3s7?=
+ =?us-ascii?Q?KfI/gY/jJwv9Rl0HS8SqrDRiLDjUI7oe1tEuNvKxr0YqOVQmM4wMxtazBh+t?=
+ =?us-ascii?Q?IVkOD6FXtcSbGoJy2QTgkZO5721Dx9kSGFN4YZnSgAFIQeHm5+zJKHybQUmx?=
+ =?us-ascii?Q?+sQXcwjeW+0XX7RVdoSPgu4Rr82lUrejXv825iKiznKWnhcaIy4nTnoUDogd?=
+ =?us-ascii?Q?RMQApuVtwIVnSgTrj2pnjMt8NJCk6D5Y4WIyDjwQjSPGDQuzuMMrau6JTXlS?=
+ =?us-ascii?Q?n2iNg7ly94HKPM0N5m3pIXWTFA64I82oOiOSvwCzcHdSs8Pkduv7gk0A251y?=
+ =?us-ascii?Q?lqwLIAV3AV5Pxa6DRJ9VJlCTte1HScIPvnrKnA8Byiv8GYbGuVx8mFxq+9bA?=
+ =?us-ascii?Q?ZmGqlpw5QlbOGlJuzWiForGwkjiEVudtDPINkx71bV1Z4roADWdNBKhhPMeR?=
+ =?us-ascii?Q?0AF9q4nVxACAP18tN9jVtPVMD4R2zbzGFjzpwJapq6DPrAttkg5reT9sWD2E?=
+ =?us-ascii?Q?zWauN/VWEtVXE74Fa4V7dD2ak0Or/qbzNLEhdGmw6HCwI3CT05T8pyyPTXax?=
+ =?us-ascii?Q?A2UWH0MnUuAgvy9zu45m4EjE6roT7bJEcccQmDaVRN4kN7XCUvU5J+yWCVir?=
+ =?us-ascii?Q?q9yaIN63SZJUfl3A/FivJexuCigUmbhbY7Ckii3oPOBSRrj1GjUK2FbH95E9?=
+ =?us-ascii?Q?sQwKA4u2bcYDFTAkn/HLKlCSB3Y/5AmBZN3m+kMnkpXoUbBZiM0OI3VtngO5?=
+ =?us-ascii?Q?XM1VUp/CtkbLseGAqW22s5lEbpwn4mAqpTPH1trh1k2XXQvNV//m7FpUNT+c?=
+ =?us-ascii?Q?w9CpEOGgImuKRnpnrd134iJR2Dr3Qkl4IAgWLhtp3/QqA5NYbU2KaTCgVKoH?=
+ =?us-ascii?Q?4cee6G8HpvHu77IAHIhOrIDSzufdSMateu/yEe0a59HAhdbU1SzO8PoctilD?=
+ =?us-ascii?Q?kedaLpVuTgoioOMVLyXkXoPiLmuFMVJmN6xe3dev/L6bDr9Msq/qjz74avSB?=
+ =?us-ascii?Q?unACyBekH/i8cZ/hKL0cQOxPGMws55u3r1ejTa61m3xaIvhKPzsJvZ1f4cNc?=
+ =?us-ascii?Q?8oRsdDmwNNJhVrMQ1Bemph36RO0RHFtn9ZdoBDuNKHuooaIbgSmk3BUiMPGY?=
+ =?us-ascii?Q?mLMDyfVPnlyHEDMgFuhaLooSLYTdMcPwcmOUOWtO8rwX6lVokNaL3TE35JX0?=
+ =?us-ascii?Q?7lZVWKEWaSHYXcRkFzzrbQa8R0/azQTxQGXOdt3YJGCH4MeOJuJgT+H1KIcY?=
+ =?us-ascii?Q?kle5xAYm+g=3D=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ffac2e1d-d3c6-468b-3818-08df4a1e7467
+X-MS-Exchange-CrossTenant-AuthSource: BL1PR12MB5174.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 11:31:17.4598
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 3S0FoiciTyoYcjnK3OrpoSZBx2aPkZ/ZkX0kJvEisIe+N4QkPkEPa2HZxJV+fTTJme2zkslHB2BIgZKWawYDXQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB6750
 
-On 11/24/26 07:13, CK Hu (胡俊光) wrote:
-> On Mon, 2026-11-23 at 11:05 +0100, AngeloGioacchino Del Regno wrote:
->> On 11/20/26 03:17, CK Hu (胡俊光) wrote:
->>> On Tue, 2026-07-14 at 13:43 +0200, AngeloGioacchino Del Regno wrote:
->>>> Add documentation for the Digital Video Output (DVO) IP found in
->>>> the newer generation SoCs MT8196, MT8189 and their variants.
->>>>
->>>> This is effectively a more capable block replacing the DisplayPort
->>>> Interface (DPI/DP_INTF) one found in older SoCs.
->>>>
->>>> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
->>>> ---
->>>>    .../display/mediatek/mediatek,mt8196-dvo.yaml | 143 ++++++++++++++++++
->>>>    1 file changed, 143 insertions(+)
->>>>    create mode 100644 Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-dvo.yaml
->>>>
->>>> diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-dvo.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-dvo.yaml
->>>> new file mode 100644
->>>> index 000000000000..b38960327ca1
->>>> --- /dev/null
->>>> +++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-dvo.yaml
->>>
->>> This file would include multiple SoC dvo, so it's better to use mediatek,dvo.yaml.
->>
->> Devicetree bindings maintainers will disagree with this statement ;-)
+On Tue, Nov 24, 2026 at 10:31:14AM +0000, Kuba Piecuch wrote:
+> scx_bpf_dsq_peek() and scx_bpf_tid_to_task() call rcu_dereference()
+> without taking rcu_read_lock() and rely on KF_RCU_PROTECTED instead.
+> However, the verifier treats every non-sleepable program as being in an
+> RCU read-side section, including bpf_timer callbacks. bpf_timer_cb()
+> runs those from hrtimer softirq without rcu_read_lock(), so calling
+> either kfunc from a bpf_timer callback triggers:
 > 
-> Oh, it seems many mediatek display binding document should change file name.
+>   WARNING: suspicious RCU usage
+>   kernel/sched/ext/ext.c:11170 suspicious rcu_dereference_check() usage!
+>   ...
+>    scx_bpf_dsq_peek+0x7d/0xd0
+>    bpf_timer_cb+0xf9/0x130
 > 
+> The same happens from a sleepable program inside bpf_preempt_disable().
+> Both contexts are RCU readers, so this is a lockdep false positive, not
+> a use-after-free.
+> 
+> Every context accepted by KF_RCU_PROTECTED satisfies
+> rcu_read_lock_any_held(). Use rcu_dereference_all() in both kfuncs,
+> matching scx_prog_sched() and rhashtable_lookup(), and convert
+> scx_bpf_cpu_curr() and scx_bpf_cid_curr() from guard(rcu)() +
+> rcu_dereference() to rcu_dereference_all() as well to avoid redundant
+> per-call RCU read-side lock/unlock overhead.
+> 
+> This patch was written with the help of an AI coding assistant.
+> 
+> Fixes: 44f5c8ec5b9a ("sched_ext: Add lockless peek operation for DSQs")
+> Fixes: 41e3312861ea ("sched_ext: add p->scx.tid and SCX_OPS_TID_TO_TASK lookup")
+> Signed-off-by: Kuba Piecuch <jpiecuch@google.com>
 
-Yeah, but changing file names should be an ABI breakage (is it?), so we just avoid
-adding more "wrong" files :-)
+Looks good to me.
 
->>
->>>
->>>> @@ -0,0 +1,143 @@
->>>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->>>> +%YAML 1.2
->>>> +---
->>>> +$id: https://urldefense.com/v3/__http://devicetree.org/schemas/display/mediatek/mediatek,mt8196-dvo.yaml*__;Iw!!CTRNKA9wMg0ARbw!n3pk94kKoN-7zfem5SHfJn_ixDmAleFOW2dJwmZ8W5gJz-iEQGAN6yOkpupaMXAvAlr3KfAndB5Fjy57tNXsxA_uvNy3$
->>>> +$schema: https://urldefense.com/v3/__http://devicetree.org/meta-schemas/core.yaml*__;Iw!!CTRNKA9wMg0ARbw!n3pk94kKoN-7zfem5SHfJn_ixDmAleFOW2dJwmZ8W5gJz-iEQGAN6yOkpupaMXAvAlr3KfAndB5Fjy57tNXsxNztWOiH$
->>>> +
->>>> +title: MediaTek Digital Video Output (DVO) Controller
->>>> +
->>>> +maintainers:
->>>> +  - AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
->>>> +
->>>> +description:
->>>> +  The MediaTek Digital Video Output (DVO) hardware provides 120-bits (4P) data,
->>>> +  video timing and info data for the Embedded DisplayPort, hardware-abstracting
->>>
->>>   From the compatible listed below, DVO not only for eDP, but also DP, right?
->>>
->>
->> Yeah, on MT8189 it's also for DP.
-> 
-> So the description should be:
-> 
-> The MediaTek Digital Video Output (DVO) hardware provides 120-bits (4P) data,
-> video timing and info data for the (Embedded) DisplayPort
-> 
->>
->>>> +  the previous generation Display Port Interface (DPI/DP_INTF) blocks, other
->>>> +  than providing new capabilities.
->>>
->>> No new capability? But what you list below is new capability or the same as DPI/DP_INTF?
->>>
->>
->> The new capabilities include PSR and MSO, other than the 4T1R in output (as DP_INTF
->> did support that but only for very specific configurations).
-> 
-> My English is not good. I just thought 'other than' means 'not'.
-> 
+Reviewed-by: Andrea Righi <arighi@nvidia.com>
 
-Haha, no worries!!
+Thanks,
+-Andrea
 
->>
->>>> +  This hardware block supports 1/2/4 pixels per iteration in both its input and
->>>> +  output and provides 8/10-bit RGB, YUV422 and YUV444 data formats in output,
->>>> +  other than supporting input/output video window cropping and padding.
->>>> +  Digital Video Output also provides Panel Self Refresh (PSR) and Multi-SST
->>>> +  Operation (MSO) features for eDP 1.3/1.4.
->>>> +
->>>> +properties:
->>>> +  compatible:
->>>> +    enum:
->>>> +      - mediatek,mt8189-dp-dvo
->>>> +      - mediatek,mt8189-edp-dvo
->>>
->>> This series is so large, so it's better to drop any thing that is not related to mt8196 and you could add them back later.
->>
->> Are you sure you want me to drop that?
->>
->> It's just 10 lines of code and some platform data really, I don't think it's all
->> that much to justify dropping it?
+> ---
+> Changes in v2:
+> - Use rcu_dereference_all() instead of guard(rcu)() in
+>   scx_bpf_dsq_peek() and scx_bpf_tid_to_task(), and convert
+>   scx_bpf_cpu_curr() and scx_bpf_cid_curr() to match (Andrea).
+> - Drop patch 2 ("sched_ext: Take rcu_read_lock() explicitly in sub-cap
+>   kfuncs") (Andrea).
 > 
-> If you keep mt8189 compatible here, you should describe what's the difference of these compatible.
-> Maybe every reviewer see this would ask you again because this series is for mt8196.
-> Remove them is much easier. If you keep them, introduce them.
-
-I understand what you're trying to do here, thank you.
-
-Adding a simple phrase in the commit description for this binding saying what is
-the difference between 8196 and 8189 shouldn't be a big deal though...
-
-Removing the MT8189 code takes more time compared to just adding a phrase here! :-)
-
-Cheers,
-Angelo
-
+> v1: https://lore.kernel.org/all/20261123145927.577162-1-jpiecuch@google.com/
 > 
-> Regards,
-> CK
+>  kernel/sched/ext/ext.c | 12 ++++--------
+>  1 file changed, 4 insertions(+), 8 deletions(-)
 > 
->>
->> Cheers,
->> Angelo
->>
->>>
->>> Regards,
->>> CK
->>>
->>>> +      - mediatek,mt8196-edp-dvo
->>>> +
->>>> +  reg:
->>>> +    maxItems: 1
->>>> +
->>>> +  interrupts:
->>>> +    maxItems: 1
->>>> +
->>>>
->>>
+> diff --git a/kernel/sched/ext/ext.c b/kernel/sched/ext/ext.c
+> index e8c30a21e03e..b8702b81782a 100644
+> --- a/kernel/sched/ext/ext.c
+> +++ b/kernel/sched/ext/ext.c
+> @@ -11167,7 +11167,7 @@ __bpf_kfunc struct task_struct *scx_bpf_dsq_peek(u64 dsq_id,
+>  		return NULL;
+>  	}
+>  
+> -	return rcu_dereference(dsq->first_task);
+> +	return rcu_dereference_all(dsq->first_task);
+>  }
+>  
+>  /**
+> @@ -11908,8 +11908,6 @@ __bpf_kfunc struct task_struct *scx_bpf_cpu_curr(s32 cpu, const struct bpf_prog_
+>  {
+>  	struct scx_sched *sch;
+>  
+> -	guard(rcu)();
+> -
+>  	sch = scx_prog_sched(aux);
+>  	if (unlikely(!sch))
+>  		return NULL;
+> @@ -11917,7 +11915,7 @@ __bpf_kfunc struct task_struct *scx_bpf_cpu_curr(s32 cpu, const struct bpf_prog_
+>  	if (!scx_cpu_valid(sch, cpu, NULL))
+>  		return NULL;
+>  
+> -	return rcu_dereference(cpu_rq(cpu)->donor);
+> +	return rcu_dereference_all(cpu_rq(cpu)->donor);
+>  }
+>  
+>  /**
+> @@ -11933,15 +11931,13 @@ __bpf_kfunc struct task_struct *scx_bpf_cid_curr(s32 cid, const struct bpf_prog_
+>  	struct scx_sched *sch;
+>  	s32 cpu;
+>  
+> -	guard(rcu)();
+> -
+>  	sch = scx_prog_sched(aux);
+>  	if (unlikely(!sch))
+>  		return NULL;
+>  	cpu = scx_cid_to_cpu(sch, cid);
+>  	if (cpu < 0)
+>  		return NULL;
+> -	return rcu_dereference(cpu_rq(cpu)->donor);
+> +	return rcu_dereference_all(cpu_rq(cpu)->donor);
+>  }
+>  
+>  /**
+> @@ -11958,7 +11954,7 @@ __bpf_kfunc struct task_struct *scx_bpf_tid_to_task(u64 tid)
+>  	struct sched_ext_entity *scx;
+>  
+>  	if (!scx_tid_to_task_enabled()) {
+> -		struct scx_sched *sch = rcu_dereference(scx_root);
+> +		struct scx_sched *sch = rcu_dereference_all(scx_root);
+>  
+>  		if (sch)
+>  			scx_error(sch, "scx_bpf_tid_to_task() called without SCX_OPS_TID_TO_TASK");
+> 
+> base-commit: 2f7928516314f37d7cb334675656b4412edc8be3
+> -- 
+> 2.56.1.831.g720f3f5937-goog
 > 
