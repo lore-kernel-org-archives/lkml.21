@@ -1,80 +1,129 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.10
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.47
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795530007;
-	b=MlQcMWl/vwHLqzGHZ27naPfS60d1bK5vyV8UwuliFDJiZg9UBdrgLMqwH/F9TazZohvz
-	 htXYfvYzC6dF+QXqUwH9AvAKlldJ3Hr6/zoSSh3Yc9i/2CUXHZq7r7KhBF/2FKfh+xolU
-	 6IxCEZ07yQLHXI9KjxWa4eWt22Y/qsAiondL5S4uFxEcq7GO9uMxXH/GvWedxFvQj+fPD
-	 2rwlFzz29llbn3Q0+lNsTKB/C9mcirci28VSDSPdpDrAa36++E8V3QokG53Frl8RuR7x8
-	 wmmnxsFSUqEGfc3njN4y7rUE5lrzJn5eB6VMsHiW3k0w6kMhmgvoiyZ48OsnC2iiKQA==
+	t=1795530037;
+	b=Dd88geaCVAiIVUUjBBLekdCTM8BjSwBLCULjHL83wvSVZELeYNSSQm3BGyNTV1Ew+bNP
+	 osVNTWrD1CQNWWJLNuzmbkR4m5vxTglhsd5SFfPzdY41/9YxsYObu4+KgT/GdAsVwVb20
+	 2+7vUnmxO0mMfM2r1VUkTXj1MrmZKUQ+pVwd1ZnOh5S6UhxdzgImkoDg+/otAG1IeAON7
+	 n6EXnkfde4WYXIt2ee5pNcVXAqzrw+62irRgPGqlKH9aRL3MLPNZ720i0tGRfQKY166Ek
+	 4b9muromHgwAspBrweoJLChtUkYoE2n8df9OVxHdCerylIvO7ZzMAp5U+ZrWzzsdJCQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795530007;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:Date:To:cc:
-	 Subject:In-Reply-To:Message-ID:References:MIME-Version:Content-Type:
-	 Content-ID;
-	bh=ZX14mWVlFUFvAroRXVoq9BmZQ5674+JrtoPFJUzJT2E=;
-	b=e4F5RYD5+qgBaZpUujXuXSuqZm6GSI6XKAWtas3oXnsrEtMAjVF6sLxSlRgBuY5WoiTR
-	 CnmD06kvVRItZKNxIApwGC9EU5k2tr/cqe1dC398ZGP5OIZgjI9MpZnFyu5KkxOExWvP/
-	 lVDDGWEPHx5Cn5qu1kZMqmjGt0Rf6eYtMFwlWYKJi8aqwqYtcf5o3KpCTsR6rrcsW4vqL
-	 O9vNNWD2iagUWHp/2qID1KHLUA6YqVynPXUntUolibA7IFwPeSkREZVu4mPumMwbWDz5v
-	 0Jc/W0qW8MBNmkYt62L9yCVrkAJ4bJjWFvJT3B5T7DQhRr1Dg0dJPwhs+45KRrznomA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795530037;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:Content-Transfer-Encoding:
+	 In-Reply-To;
+	bh=Hoa2uDGRiz+jXLxbcD4HBQF2SzMfWsHt0csEQeOTfAo=;
+	b=2yzbijTquuXEaZcmGfoJRtD2CzE8vMGlMde+XGWqKacyA8o8Wc9CdHuFU+hxQGhSHZ4q
+	 ItEexN5g6Jk7jcrmLa8qU70n4Z+h8SmusiA90d18ofqcypuSmCtKdvsa2zstOPhuW9lTt
+	 V6hluoViHKFyym6Xt6US58+LoLyVZGa2fGQN0jOcEo0Fmc4ntan6nGjo+Z3GEWr1NHXVF
+	 DlNvpj6/d8uEMTsxbHpPnr8pl6I4XyVqMdjnBwWNKRucjXMaZ+WNFvV8fz0RzCcLNMFu1
+	 Fk2F/Z4RGolk8pH3sGBTxYD7o6sL3GxYTlm7/v3AESJQiOjAjq82Lcw7EkLTr5gJVmA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=nrHOo9ok;
-	arc=none smtp.remote-ip=198.175.65.10
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.10])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=none header.from=ziepe.ca;
+	spf=pass smtp.mailfrom=ziepe.ca;
+	dkim=pass header.d=ziepe.ca header.i=@ziepe.ca header.a=rsa-sha256 header.s=google header.b=jBiTgo2W;
+	arc=none smtp.remote-ip=209.85.218.47
+Received: from mail-ej1-f47.google.com (mail-ej1-f47.google.com [209.85.218.47])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F013C606A338;
-	Tue, 24 Nov 2026 14:20:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F013C606A338
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9AD50606A326
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 14:20:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9AD50606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=ziepe.ca
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ziepe.ca
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=nrHOo9ok
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795530007; x=1827066007;
-  h=from:date:to:cc:subject:in-reply-to:message-id:
-   references:mime-version:content-id;
-  bh=IE8hHtc50kPBPBJMlwFyegjl7tVOJnTXdX1VwtXzJ4k=;
-  b=nrHOo9okdTbJzm21xp84ImNXTzghboJ4Kqd1rMt/whLWQGeXlxax2q7E
-   84f2xnHPZZEhOfNpwv88+3G+s7VDaAN//VYrbqrH1/PoWwPzmpCBFRoMH
-   8h7ahw4sIQIfVt0RYeJkRG2033/3ZcHaBxl6WIlNNk4WIVrS0OszRXmw6
-   zOfY8+RAV+fjWneqXO4jFrKp66W2iUBF2b/UtqugeaRrvfz+TEIciagnn
-   nsh+7zSaTqt3QOFQ8OZ4A860gETvNV1T3y0E1UuQuHL7i5A2L51qkV+0G
-   n2SsWX6mX0yKggAAfds7BoNXZdDD3M8NHQ6LnEA0CH7qP2Sx1U3xUWDet
-   Q==;
-X-CSE-ConnectionGUID: JgdGAZf+SseFgAyX0N5EXQ==
-X-CSE-MsgGUID: pb1KKsgIQHyG98kCgn8UCA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11976"; a="4287036"
-X-IronPort-AV: E=Sophos;i="6.27,231,1787036400"; 
-   d="scan'208";a="4287036"
-Received: from fmviesa005.fm.intel.com ([10.60.135.145])
-  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 06:20:06 -0800
-X-CSE-ConnectionGUID: 7JmhZtc8QliHqxwgbiKajA==
-X-CSE-MsgGUID: M1v1GBUjRBe8g3pwkKughQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,231,1787036400"; 
-   d="scan'208";a="11694762"
-Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.190])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 06:20:04 -0800
-From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-Date: Tue, 24 Nov 2026 16:20:00 +0200 (EET)
-To: Rosen Penev <rosenp@gmail.com>
-cc: Matthew Garrett <mjg59@srcf.ucam.org>, 
-    =?ISO-8859-15?Q?Pali_Roh=E1r?= <pali@kernel.org>, 
-    Hans de Goede <hansg@kernel.org>, 
-    Gabriele Mazzotta <gabriele.mzt@gmail.com>, 
-    Darren Hart <dvhart@linux.intel.com>, platform-driver-x86@vger.kernel.org, 
-    LKML <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2 3/3] platform/x86: dell-laptop: Parse the charge end
- threshold as an int
-In-Reply-To: <CAKxU2N8cn+hbUH4iwP2w6myQV28LM1+djvmQfN92A8z1G9Y5Tw@mail.gmail.com>
-Message-ID: <ce0f3108-ef9e-08a7-9b5c-b0a330159988@linux.intel.com>
-References: <cover.1795219225.git.rosenp@gmail.com> <6abac23d8f9985b55282ee56c97155a67076257c.1795219225.git.rosenp@gmail.com> <51f6631e-62df-0e64-b358-805d343475b7@linux.intel.com> <CAKxU2N8cn+hbUH4iwP2w6myQV28LM1+djvmQfN92A8z1G9Y5Tw@mail.gmail.com>
+	dkim=pass (2048-bit key) header.d=ziepe.ca header.i=@ziepe.ca header.a=rsa-sha256 header.s=google header.b=jBiTgo2W
+Received: by mail-ej1-f47.google.com with SMTP id a640c23a62f3a-c50ac25cdd4so605935366b.1
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 06:20:36 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1795530035; x=1796134835; darn=vger.kernel.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Hoa2uDGRiz+jXLxbcD4HBQF2SzMfWsHt0csEQeOTfAo=;
+        b=jBiTgo2WnjFhpkgbIBu6On5by8ux66WiKBLBzWJdf4Pf6RCn1pmz1agYiK7SMfaxFg
+         3/2YrNhOySAcSPgNeJdOxPH8P45jGqKY5S64rDyy/GqimZuTwtSLFUBdu/5vJlpZdzzr
+         s4bwl1Rg4R2P3YXWI3cJVNf2474sYNB2WqyefKmd2Q9zmRyjanVGbBx1PSJBmR/NBbVb
+         Em8am7TBb+PrC/eYOYbEaS+JpnHnvhpW0bM+eu6neOm7LPUdBWC1Zs5EIHxnkkBtcy2S
+         FqTLqasaecjeohA6M/KuBjaSrElM71neIK7tdakJn6qod53aVVQSxRc62gnUmZLJzDVT
+         ZSLg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795530035; x=1796134835;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=Hoa2uDGRiz+jXLxbcD4HBQF2SzMfWsHt0csEQeOTfAo=;
+        b=glnUrTIODnnz7/zM67MqgiYaxyaIhqMgYxgvOv2sSd8GCzCARWbJXHbyLJFqAAaP/q
+         i5OFK/1z31fA2tufBIfsAavvbnXOYdqIu9tslDgJBM7G86FgRnP9ddbIWvv1glBoVGRh
+         M3sKoVDXVcl8wOqH+4Ibl3Wxqyv3vDy8KBf/yMABh3torBE/AUKPC5a9FmUJb4WmUp1j
+         d3oinqC41wL3qdBzPYSNXIjogbzzjzoHQv3Eojnpc8qypEmym1sn6zD9l9oXjUDUkN9Y
+         jUeO/96CKfv71iW7lekIkpmUGhkjBVhH7OHNB6wRSlm8y1SIV76toNJ/TbzlxzmedaJh
+         GiFQ==
+X-Forwarded-Encrypted: i=1; AL+hErExHSQRe0DBcvg/4+SB9P3v/5xvIfJ4ao4rO4YQjQuruHLZJDRBPHuaRUYu5yN1ugCI8/P6zy7qnPAq698=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/fYJCKc0/BsOjNlcPfUu31+KSy6OghdKTq70sriX/561+Kuo/8
+	CZ8Ju0NwZ7ovserBTVWj7tQgqe3yf089U5/hKQ1804CjRlGv5rcXTEngQbqM27QJqaI=
+X-Gm-Gg: AZFdTZcK9U3vzyknETjJo7DbzGdkKpbmO/pwhcdodD+BBD+g7l3GZklGWx/p4ZFxvR3
+	J+vEtpAumIY7cIH2x9sQVTg1qrD1wTuUOZnNNK4oBxljuZQOWqotDaAMZVG4Qg/wNXriulIS3qL
+	eCA3rkhLDmRTiU/aBy5D67xkvbX/pa3inALP8+pADyvAK+NQMG6oIGjlAV82Z2AKYZf/ESJeHpz
+	iUIQSz36I77lVPlbiHFSFfu5jA7KAT9OLAUiSQfPad1bqy8FPrLd3G1XlzZo8r49+mCqhT+dUst
+	tJOw5xhZ9VQbDN+is8XQSs7rKTvgOBAwiva4poe7npUs/HqanywF2FD/Fx3vKx6BhtZtzM0tCep
+	pXrEpGOCoYN2ZyuGLlyb+t7jymTZdO24xj3orRw/bL29QTagm04m8UZjee/uQYDLJF/7SGw0pLj
+	V18hyTK05qWmiOrk0DjnDmV2YUm0sYZ2KEIXmGePdAQoqc/Ou01xgmnH8HL0nl1/g5V9JAMTPOO
+	8vw8F2Yf8/NM86ZXbiWf/PyDpIYVzD4SHoctPD+7GPaJ3SomhP8eSFqYf1f7sl3YTJAzgO+PA0X
+	T8BWGaXKYPL8mBLVzLPh6QQDj2c=
+X-Received: by 2002:a17:906:eec9:b0:c51:5589:35a1 with SMTP id a640c23a62f3a-c515589d211mr891019366b.5.1795530034479;
+        Tue, 24 Nov 2026 06:20:34 -0800 (PST)
+Received: from ziepe.ca ([142.177.118.84])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513ae8dc60sm518286266b.34.2026.11.24.06.20.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 06:20:33 -0800 (PST)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1xVrNo-00000000RS3-1UVp;
+	Tue, 24 Nov 2026 10:20:32 -0400
+Date: Tue, 24 Nov 2026 10:20:32 -0400
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>
+Cc: Alistair Popple <apopple@nvidia.com>,
+	Sumit Semwal <sumit.semwal@linaro.org>,
+	Thomas =?utf-8?Q?Hellstr=C3=B6m?= <thomas.hellstrom@linux.intel.com>,
+	Simona Vetter <simona.vetter@ffwll.ch>,
+	Matthew Brost <matthew.brost@intel.com>,
+	Vivek Kasireddy <vivek.kasireddy@intel.com>,
+	Dongwon Kim <dongwon.kim@intel.com>,
+	Kevin Tian <kevin.tian@intel.com>,
+	Xu Yilun <yilun.xu@linux.intel.com>,
+	Karl Mehltretter <kmehltretter@gmail.com>,
+	Baolu Lu <baolu.lu@linux.intel.com>,
+	Felix Kuehling <felix.kuehling@amd.com>,
+	Alex Deucher <alexander.deucher@amd.com>,
+	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
+	intel-xe@lists.freedesktop.org, amd-gfx@lists.freedesktop.org,
+	linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org,
+	linux-rdma@vger.kernel.org, iommu@lists.linux.dev,
+	Keith Busch <kbusch@kernel.org>, Jens Axboe <axboe@kernel.dk>,
+	Christoph Hellwig <hch@lst.de>, Sagi Grimberg <sagi@grimberg.me>,
+	linux-nvme@lists.infradead.org,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Mina Almasry <almasrymina@google.com>, netdev@vger.kernel.org,
+	Alexey Kardashevskiy <aik@amd.com>, zhipingz@meta.com,
+	treding@nvidia.com, jhubbard@nvidia.com, chaitanyak@nvidia.com,
+	Leon Romanovsky <leon@kernel.org>
+Subject: Re: [PATCH v3 03/24] dma-buf: Add the SGT DMA mapping type
+Message-ID: <20261124142032.GN9566@ziepe.ca>
+References: <20261120-dma_mapping_type_v4-v3-0-c0183a409bdf@nvidia.com>
+ <20261120-dma_mapping_type_v4-v3-3-c0183a409bdf@nvidia.com>
+ <ad46d60a-189d-4dd5-9ad8-ecfd3c90f9d9@amd.com>
+ <20261123165716.GM179082@ziepe.ca>
+ <7ac7edd0-5c38-440a-b26a-21bcbb6f4702@amd.com>
+ <awT8prWsj11TBdmP@nvdebian.thelocal>
+ <63eb7b6e-e0a8-4443-a434-0301ed59beae@amd.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,71 +133,54 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/mixed; BOUNDARY="8323328-414250409-1795529647=:1182"
-Content-ID: <f590003e-111a-cb9b-e8da-ccf1ca6af971@linux.intel.com>
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <63eb7b6e-e0a8-4443-a434-0301ed59beae@amd.com>
 
-  This message is in MIME format.  The first part should be readable text,
-  while the remaining parts are likely unreadable without MIME-aware tools.
+On Tue, Nov 24, 2026 at 01:36:21PM +0100, Christian König wrote:
+> > The core then negotiates compatible types and adds converters between them,
+> 
+> I have strong objections to that plan and would potentially NAK it.
+> 
+> DMA-buf should *NEVER* accept CPU physical addresses nor provide
+> conversion between different address types.
+> 
+> Keep in mind that DMA-buf is solely a container for DMA addresses,
+> nothing else and it should not provide any mapping functionality
+> whatsoever.
 
---8323328-414250409-1795529647=:1182
-Content-Type: text/plain; CHARSET=UTF-8
-Content-Transfer-Encoding: QUOTED-PRINTABLE
-Content-ID: <065521a9-8536-430e-7dbc-b75d7d7f3972@linux.intel.com>
+dmabuf needs to provide support for drivers to help them use the
+interface, and going from physical to dma_addr_t is absolutely a
+common task every driver must do. I don't care how you call it, but it
+is a service that must be provided by *something* and matched to the
+needs of dmabuf.
 
-On Mon, 23 Nov 2026, Rosen Penev wrote:
+I will definitely NAK any direction to open code dma mapping in every
+driver again. If we are going away from SGT then we are fixing all the
+DRM mistakes, including the wrong open coded DMA mapping, sketchy use
+of SGT, and abuse of P2P that seems to be endemic in drm.
 
-> On Mon, Nov 23, 2026 at 12:32=E2=80=AFAM Ilpo J=C3=A4rvinen
-> <ilpo.jarvinen@linux.intel.com> wrote:
-> >
-> > On Fri, 20 Nov 2026, Rosen Penev wrote:
-> >
-> > > charge_control_end_threshold_store() passes a pointer to an int to
-> > > kstrtouint(), which only builds because the kernel disables
-> > > -Wpointer-sign, and makes the following "end < 0" check dead code.
-> > > Use kstrtoint() like charge_control_start_threshold_store(). Values
-> > > outside 0 to 100 are rejected either way.
-> >
-> > Why the <0 check has to be kept on the driver side?
->
-> It's currently a one line change instead of three.
+Meaing the exporter constructs a phys_addr list, gets a P2P provider,
+and some common code constructs what is passed to the importer. I
+don't care if this is in "dmabuf" or some "dmabuf library" or
+*whatever* but it must exist as common shared code.
 
-Huh!?! What criteria is that?! :-/
+dma_buf_phys_vec_to_sgt() is the template how to implement this
+transformation.
 
-=2E..Could you then, like change those three lines instead. Please.
+> > and having SGT as a type is what allows that. It only exists for unconverted
+> > exporters and importers and eventually goes away once everything is converted.
+> > The idea being we don't have to convert everything all at once, whilst also being
+> > able to add support for different interconnect types. Are you ok with the SGT
+> > type if it is just transitional?
+> 
+> Not really, it just complicate things.
+> 
+> What we should do with the mapping interface is to add the
+> information in which domain the DMA addresses are to be used.
 
---
- i.
+You need to negotiate the actual C data types too, especially if you
+want to do that nasty idea where dmabuf populates an iommu domain.
 
-> >
-> > Why not change the variable type instead and remove the then dead code
-> > check?
-> >
-> > It's somewhat disappointing this even has to be pointed out by review.
-> >
-> > > Signed-off-by: Rosen Penev <rosenp@gmail.com>
-> > > ---
-> > >  drivers/platform/x86/dell/dell-laptop.c | 2 +-
-> > >  1 file changed, 1 insertion(+), 1 deletion(-)
-> > >
-> > > diff --git a/drivers/platform/x86/dell/dell-laptop.c b/drivers/platfo=
-rm/x86/dell/dell-laptop.c
-> > > index eca348497ac3..c512267be4c4 100644
-> > > --- a/drivers/platform/x86/dell/dell-laptop.c
-> > > +++ b/drivers/platform/x86/dell/dell-laptop.c
-> > > @@ -2382,7 +2382,7 @@ static ssize_t charge_control_end_threshold_sto=
-re(struct device *dev,
-> > >  {
-> > >       int ret, end;
-> > >
-> > > -     ret =3D kstrtouint(buf, 10, &end);
-> > > +     ret =3D kstrtoint(buf, 10, &end);
-> > >       if (ret)
-> > >               return ret;
-> > >       if (end < 0 || end > 100)
-> > >
-> >
-> > --
-> >  i.
-> >
->=20
---8323328-414250409-1795529647=:1182--
+Jason
