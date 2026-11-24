@@ -1,44 +1,44 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795546014;
-	b=viZw79mjaTN3Bn4eI98USC/fjAtNTsgaaUG83UeMkK9O76jiy3gEssCHrWKlTNgyDEJf
-	 lk91Z3jjGdwghv8lpv85aS05LH8ko7jTVYX/bXz+HdCIBwCz/0KfYXrpvGjaa0LwTRZw3
-	 DnuDN2cNsYUvcIdHrCt0EtLMEHwK0YzolITgGxRCf03D44RAUdsUxOzyqiQF6V+PX8JA8
-	 6Pn212Ok+bldXu44WEWbbKavPf/1bcXIZnXcuuvQOpbswE3pBibSbHuaD7rhL2SZnnh/e
-	 vfF2ZmUyQj5vpKBUBG12vxd20AVO4sbTUCeCIc0wGh2bEz6MNPeqWpsGh3GxY4prpYQ==
+	t=1795546021;
+	b=CvXxm8q+W+ibG/PV6SxGHCKsPJ9LYZxNivsvTbCx0F4n6DPt+nwBUdDPvQlvbzFukZX8
+	 UtyfJvU7eXz1R0wPuI8qfcnB7t4b/BzlMUlZJm8Bi323G6x0f3sEUaTELPdxtE3Qq8Iy7
+	 Tko0E3ZNQ/vBbD22M0OmqENykIb3z/oxOfzJOK+Kypv//Yj1yG91JAA68ZdU8zCH+fNGm
+	 2FxqKdjPW+QWYGrJJolzsF4ZSexWLqOLT+xNR03Ip0MBx3EGwLSdyU0le6D7IABHCWwpF
+	 AamkdBS4wAF3kLK9NoXOw2QZoxfbSKOr6xDIvGp1ddCh9bPS1B7x2XEGWGeB1wdMJ8Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795546014;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795546021;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
 	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=QvyEdwrAMP2lCmFAfksJVVycTqwR35YTVP+wei2fX2c=;
-	b=srT6BDZg/8ja/H/gtFVihkdPhUyv7pFFN2HDKoDoBHRajymqW1oRO2AJui1NgO0WcJ3g
-	 J5+c0wj7eRxlwRD8QtA/b8Y0Nf8Ah4PiV2kSahNDE+nSCk0QTd1WNPsznKpDO6yN0GPgY
-	 CyoaX9jy6ji3b3pmKN05e83LiC+BsnehJ8GO4mPYfaAqlMtMrMWPuseXS+B2PMcmFDn61
-	 Zjl2BfQwdLuYPMURFQGMjdNu5n1YWRVvx9wuQTZkagro048t1OrLbwzpRPDVJkJmQsv6o
-	 lmrpWH3emi9gBZPfjkKUgqMVPqri05M103lxsI4lOXNqcky8Ev3ePbwyTQrnhnh3dEA==
+	bh=qm3hKmf/R0IakqyPcH/0Ia+Ukjs/ke23vwMPF/3cQLs=;
+	b=jz9eTlZP/Tbhu9zXXoIS60PqRexNKpOK2V976oiRDzimLw+9qWyOfQgBxk51mHLuSoNc
+	 J6dOdceYDKZnq3eVMsIfQyLHHMhOACnnHRjaZTkRLM6A7kIZUe+t+6xnacj46eFblnJ+C
+	 1kvB3oSe5uzUOoh/vg2un5wHNxvckipcXiQ5Yyc2NsOMqWElTYouhBqhm5EO7yAvTQ/0a
+	 wkVy60dkFeNCzTRx90FHv4prdyyL4uBl2TkxoTJdtsvEDyFzt+MP4isXdQqZ8BwxQ6lQ3
+	 QAykVCrsdUKw1rq9pO2bQdSKO/q1u6mlQHxVHQRjSziTApT6/aZ6Sz0rGXYuRFvvvwg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GpjXgwyB;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Dffkm91U;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4840A606A323;
-	Tue, 24 Nov 2026 18:46:54 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B8756606A31E;
+	Tue, 24 Nov 2026 18:47:01 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GpjXgwyB
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 611771F000C0;
-	Tue, 24 Nov 2026 18:46:51 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Dffkm91U
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8BF121F000C4;
+	Tue, 24 Nov 2026 18:46:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795546014;
-	bh=QvyEdwrAMP2lCmFAfksJVVycTqwR35YTVP+wei2fX2c=;
+	s=k20260515; t=1795546021;
+	bh=qm3hKmf/R0IakqyPcH/0Ia+Ukjs/ke23vwMPF/3cQLs=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=GpjXgwyBaGQkN1al9qReUlgsvB8nidvkYun232dZBuzqqotdmShI7H3M6AQruGOFx
-	 fm3qmNOatlcvgOzxJ9I2LNzir1Ux8IcZJsz5mWMODTQp51/reYiEXF06hM1S4VswqX
-	 rrpM3oAmJ2PPFbiq28QSug8BaGFKW4QMd5FWElOOO/vuZJnkJY6BgY2+4Og084/Kc+
-	 c1/jaSC/K7y+9j2JTLv2Mxlp7NBjRDfN7qHFFr6jRJZvv06HW++27mfNMVmNyBduoU
-	 5co34ww+jhYZxct7O9mbb2eAXlZ8FOWacJcADnrq4rqa/Ox4wIOihUhp2mC+P9FV+/
-	 wJHbA5H/8GhSg==
+	b=Dffkm91UY3bmZ5BDKKzj/434PGhm8nyyTdX8XnCGIfGn86dfXcK8mYs1MCMereCoG
+	 QGezWwrt7TA5ApUUT8uHAq8A0VrjJ11kwe4NW6NgGkctlXNeR2jLzGfujK2rkIJDNk
+	 ZkDDFkZZ2qJIpIi18oRVG5WxztkklW4lMUNo4TDzIBORNSULZAtzchXa96ntz2IVvw
+	 6yM1daBrImRp+/I8NDk1dAQKC+IsVBQy1V8cU73AhTV9WIGgDB6T72VTcVzs06/1nh
+	 UJrbRuiKGFMjf93GiQhV1dAYrOFUglqALlUi1cU1S51CEWXjZiX6SSnFi2VThCJxuO
+	 79vqn4izUS1LA==
 From: Arnaldo Carvalho de Melo <acme@kernel.org>
 To: Namhyung Kim <namhyung@kernel.org>
 Cc: Ingo Molnar <mingo@kernel.org>,
@@ -51,9 +51,9 @@ Cc: Ingo Molnar <mingo@kernel.org>,
 	linux-kernel@vger.kernel.org,
 	linux-perf-users@vger.kernel.org,
 	Arnaldo Carvalho de Melo <acme@redhat.com>
-Subject: [PATCH v1 12/17] perf tests timechart: Exercise the report options
-Date: Tue, 24 Nov 2026 15:45:59 -0300
-Message-ID: <20261124184604.24983-13-acme@kernel.org>
+Subject: [PATCH v1 14/17] perf tests bench: Add smoke tests for perf bench
+Date: Tue, 24 Nov 2026 15:46:01 -0300
+Message-ID: <20261124184604.24983-15-acme@kernel.org>
 X-Mailer: git-send-email 2.56.1
 In-Reply-To: <20261124184604.24983-1-acme@kernel.org>
 References: <20261124184604.24983-1-acme@kernel.org>
@@ -70,77 +70,153 @@ Content-Transfer-Encoding: 8bit
 
 From: Arnaldo Carvalho de Melo <acme@redhat.com>
 
-Run the report with width, process count, topology, highlight,
-process, power and tasks only, io and force options.
+Run the numa, sched, futex, epoll, syscall, mem, internals, breakpoint
+and uprobe benchmarks with small workloads, including the numa
+convergence, perturbation and single node variants, and skip the ones
+that need root or hardware that is not present.
 
 Signed-off-by: Arnaldo Carvalho de Melo <acme@redhat.com>
 ---
- tools/perf/tests/shell/timechart.sh | 46 +++++++++++++++++++++++++++++
- 1 file changed, 46 insertions(+)
+ tools/perf/tests/shell/bench.sh | 130 ++++++++++++++++++++++++++++++++
+ 1 file changed, 130 insertions(+)
+ create mode 100755 tools/perf/tests/shell/bench.sh
 
-diff --git a/tools/perf/tests/shell/timechart.sh b/tools/perf/tests/shell/timechart.sh
-index 40072b32171a9a1c..ec592e304cdedfd8 100755
---- a/tools/perf/tests/shell/timechart.sh
-+++ b/tools/perf/tests/shell/timechart.sh
-@@ -59,6 +59,33 @@ test_timechart() {
- 	echo "perf timechart ${NAME} test [Success]"
- }
- 
-+test_timechart_report_option() {
-+	NAME=$1
+diff --git a/tools/perf/tests/shell/bench.sh b/tools/perf/tests/shell/bench.sh
+new file mode 100755
+index 0000000000000000..7f5bca2c126a58aa
+--- /dev/null
++++ b/tools/perf/tests/shell/bench.sh
+@@ -0,0 +1,130 @@
++#!/bin/bash
++# perf bench tests
++# SPDX-License-Identifier: GPL-2.0
 +
-+	shift 1
-+	echo "perf timechart report ${NAME} test"
++set -e
 +
-+	if ! perf timechart -i "${perfdata}" -o "${output}" "$@" > /dev/null 2>&1; then
-+		echo "perf timechart report ${NAME} test [Failed: perf timechart command failed]"
-+		err=1
-+		return
-+	fi
++err=0
++out=$(mktemp /tmp/__perf_test_bench.out.XXXXX)
 +
-+	if [ ! -s "${output}" ]; then
-+		echo "perf timechart report ${NAME} test [Failed: output file is empty or missing]"
-+		err=1
-+		return
-+	fi
++cleanup() {
++	rm -f "${out}"
 +
-+	if ! grep -q "svg" "${output}"; then
-+		echo "perf timechart report ${NAME} test [Failed: output doesn't look like SVG]"
-+		err=1
-+		return
-+	fi
-+
-+	echo "perf timechart report ${NAME} test [Success]"
++	trap - EXIT TERM INT
 +}
 +
- if ! perf check feature -q libtraceevent ; then
- 	echo "perf timechart is not supported. Skip."
-         cleanup
-@@ -69,5 +96,24 @@ test_timechart "Basic" ""
- test_timechart "IO-only" "-I"
- test_timechart "Backtrace" "-g"
- 
-+if [ ! -s "${perfdata}" ]; then
-+	echo "perf timechart report options [Skipped: no recorded data]"
++trap_cleanup() {
++	echo "Unexpected signal in ${FUNCNAME[1]}"
 +	cleanup
-+	exit 0
++	exit 1
++}
++trap trap_cleanup EXIT TERM INT
++
++# Some benchmarks need root, others only report that the hardware is
++# not there, so treat the environment as a skip and a missing result
++# as a failure.
++bench_skip_reasons="No hardware support|perf_event_open: Permission denied"
++
++run_bench() {
++	local name="$1" expect="$2"
++
++	shift 2
++	echo "Bench ${name}"
++	if ! perf bench "$@" > "${out}" 2>&1; then
++		if grep -qE "${bench_skip_reasons}" "${out}"; then
++			echo "Bench ${name} [Skipped: not supported here]"
++			return
++		fi
++		echo "Bench ${name} [Failed: perf bench failed]"
++		cat "${out}"
++		err=1
++		return
++	fi
++	# A benchmark can also decline to run and exit 0, printing that
++	# the hardware is not there, as the breakpoint ones do; that is a
++	# skip, not a success
++	if grep -qE "${bench_skip_reasons}" "${out}"; then
++		echo "Bench ${name} [Skipped: not supported here]"
++		return
++	fi
++	if ! grep -qE "${expect}" "${out}"; then
++		echo "Bench ${name} [Failed missing '${expect}']"
++		cat "${out}"
++		err=1
++		return
++	fi
++	echo "Bench ${name} [Success]"
++}
++
++run_bench numa/mem "GB/sec" numa mem -p 2 -t 2 -P 2 -T 1 -s 1 -l 1
++run_bench numa/mem/options "GB/sec" numa mem -p 1 -t 1 -P 2 -s 1 -l 1 -c -d -r -z -B -R -W
++run_bench numa/mem/init "GB/sec" numa mem -p 1 -t 1 -P 2 -s 1 -l 1 -I -H 1 -S -u 1 -B -r -z -Z
++if taskset -c 0 true > /dev/null 2>&1; then
++	run_bench numa/mem/bind "GB/sec" numa mem -p 2 -t 2 -P 2 -T 1 -s 1 -l 1 -C 0,1 -M 0,0
++else
++	echo "Bench numa/mem/bind [Skipped: cpu 0 not available]"
++fi
++run_bench numa/mem/convergence "GB/sec" numa mem -p 1 -t 1 -P 512 -l 1 -s 1 -c -m
++run_bench numa/mem/perturb "GB/sec" numa mem -p 1 -t 1 -P 512 -l 1 -s 1 -x 1 -S -d -d
++run_bench numa/mem/zero "GB/sec" numa mem -p 1 -t 2 -T 64 -l 1 -s 1 -C 0 -M 0 -B -Z -H -1
++run_bench sched/messaging "Total time" sched messaging -g 1 -l 10
++run_bench sched/pipe "ops/sec" sched pipe -l 1000
++run_bench sched/seccomp-notify "ops/sec" sched seccomp-notify -l 10
++run_bench futex/hash "operations/sec" futex hash -t 2 -r 1 -s
++run_bench futex/wake "Wokeup" futex wake -t 2
++run_bench futex/wake-parallel "Avg per-thread latency" futex wake-parallel -t 2 -w 1
++run_bench futex/requeue "Requeued" futex requeue -t 2
++run_bench futex/lock-pi "operations/sec" futex lock-pi -t 2 -r 1
++run_bench epoll/wait "operations/sec" epoll wait -r 1 -t 2
++run_bench epoll/ctl "operations" epoll ctl -r 1 -t 2
++run_bench syscall/basic "ops/sec" syscall basic -l 100
++run_bench syscall/getpgid "ops/sec" syscall getpgid -l 100
++run_bench syscall/fork "ops/sec" syscall fork -l 10
++run_bench syscall/execve "ops/sec" syscall execve -l 10
++run_bench mem/memcpy "Copying" mem memcpy -s 4KB -l 1
++run_bench mem/memset "Copying" mem memset -s 4KB -l 1
++run_bench mem/mmap "Copying" mem mmap -s 4KB -l 1
++run_bench internals/synthesize "Average data synthesis took" internals synthesize -s -i 1
++run_bench internals/synthesize-mt "Average synthesis took" internals synthesize -t -m 1 -M 2 -I 1
++run_bench internals/kallsyms-parse "Average kallsyms__parse took" internals kallsyms-parse -i 1
++run_bench internals/inject-build-id "Average build-id injection took" internals inject-build-id -i 2 -m 2 -n 2
++run_bench internals/pmu-scan "Average PMU scanning took" internals pmu-scan -i 1
++run_bench breakpoint/thread "Created/joined" breakpoint thread -t 2 -b 2 -p 1
++run_bench breakpoint/enable "Enabled/disabled" breakpoint enable -p 1 -a 1
++run_bench uprobe/baseline "usecs/op" uprobe baseline -l 2
++
++if [ "$(id -u)" = 0 ]; then
++	run_bench internals/evlist-open-close "Number of events" internals evlist-open-close -i 2
++else
++	echo "Bench internals/evlist-open-close [Skipped: no root permission]"
 +fi
 +
-+# Reuse the data recorded by the last test to exercise the report options.
-+test_timechart_report_option "width" -w 1024
-+test_timechart_report_option "proc-num" -n 4
-+test_timechart_report_option "topology" -t
-+test_timechart_report_option "highlight time" --highlight 1
-+test_timechart_report_option "highlight name" --highlight true
-+test_timechart_report_option "process" -p true
-+test_timechart_report_option "power-only" -P
-+test_timechart_report_option "tasks-only" -T
-+test_timechart_report_option "io options" --io-min-time 1us \
-+	--io-merge-dist 1us --io-skip-eagain
-+test_timechart_report_option "force" -f
++# The uprobe programs attach to usleep in libc, which needs BPF and,
++# on distributions using musl, is not available by that name.
++if perf version --build-options | grep -q 'bpf_skeletons: *\[ on' && [ "$(id -u)" = 0 ]; then
++	for mode in empty trace_printk empty_ret trace_printk_ret; do
++		echo "Bench uprobe/${mode}"
++		if ! perf bench uprobe "${mode}" -l 2 > "${out}" 2>&1; then
++			if grep -qE 'Failed to (attach bench uprobe|load and verify BPF skeleton)' "${out}"; then
++				echo "Bench uprobe/${mode} [Skipped: no uprobe support]"
++				continue
++			fi
++			echo "Bench uprobe/${mode} [Failed: perf bench failed]"
++			cat "${out}"
++			err=1
++			continue
++		fi
++		if ! grep -q "usecs/op" "${out}"; then
++			echo "Bench uprobe/${mode} [Failed missing result]"
++			cat "${out}"
++			err=1
++			continue
++		fi
++		echo "Bench uprobe/${mode} [Success]"
++	done
++else
++	echo "Bench uprobe [Skipped: needs root and BPF skeletons]"
++fi
 +
- cleanup
- exit $err
++cleanup
++exit $err
 -- 
 2.56.0
 
