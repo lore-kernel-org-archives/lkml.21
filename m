@@ -1,93 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.52.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795519883;
-	b=fXgQ74rE/oP246lVK6Qb7VZNAQ88ReZfwiPhN/2KqY2mzxlF8fKfi8A4xs07lVX/Vrf4
-	 CsMZkc+bfc2HBUVSkYhTx/Py1eGjJmCevrcOpCOrQSPUPtOJ8M+DjvDqfUR25v2IXOPDC
-	 G/wzavYFRsY1QBIMVyPZ47LoAkOSvTn5CDTKWo0C8b0dzpDXfujVb90fF4NHmUi9goLIr
-	 8ltCNnKsIDOM2KO4YeaOBreuoncZPXbt1ZgHQ+yQ1GXSzmWnabddxrGuVu9TLQgw6BRqo
-	 nRO8UlDgYFahpXeB1r+S5nck4vcsCfI+NQQx58lAEEfhwh6uHgIGyJfrZFGFQtvYXqA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795519883;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:Content-Type:Content-Disposition:
-	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=7bjaiy1SE3xpmHiTS9z48paGZ4A4OsrVATHeP6Nv+iU=;
-	b=ENTNqcJsWoIMHoedPW/ZNRdCfiUChUSk4Sb0qtd2UALyfa1je5KRnRq+pbtxRDeZUiPT
-	 0PewTMqZ5s6Xw1ohz+4/7Ql70Pky7g4EzWkWDMIpDks0A2uzwwWJQrkZmREVdkfnq3Mhx
-	 7SDGvgGJjfEFtfyf7pik+f+hwcJKXsOtZMBtb8tl+yOnF5Ope6OChywZDob4lNvoMdL/y
-	 i01wB4eQAb6BYMEUQ+HQ3AoQbODv2rrl7vQ9Qpi9oSqiRV92mWhGRpX0L/UA7OZWYI1fA
-	 xRdZ4bdFkIvlnpcy/+1LyOeYxbCcO3CkqwSBcYX9P0A2NfB8sTmbDfLMM/wU8PcYjvQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=ENNNkfRU;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.52.18
-Received: from BL2PR02CU003.outbound.protection.outlook.com (mail-eastusazon11011018.outbound.protection.outlook.com [52.101.52.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.158.5
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795519887;
+	b=EHUwtnPI4qr57SQwXLv8hQKyA34AE2qn5fvnlPJ8O88xV6XJraoZ49WGhQIEzLdeL2w3
+	 5DBpHAg+g/Nzs4iRWl8dfvPOsC7JMcygqKnIn5I+5gKdnhaCL9P7UfSsiieYE0x9YEQyK
+	 DNg7mXXExPOcnuoryQJdRdppZ6pVz+OvToKElXB+EWDqcSDwwCXo/7NvjMYnoj2uTfXe8
+	 gQUm8248BYEGIL7DD48LXBr8sC1Wa266pbONjhsguz5a/bHgYmhnRlJV3poSJgcv61riy
+	 zKIb9RGx2PIRREe+A5ZkxfecAS7btRauG00KOU10SvNmeMdu0RHaUVeQXaXXiPPTlkw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795519887;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
+	 Received:Received:Received:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-TM-AS-GCONF:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-GUID:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
+	 X-Authority-Analysis:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=bchnnE9POzl5YmBnyDD/UmWF64NOv7cDBQ3Ldu7Wbkc=;
+	b=chOvJs71eIIV/amslusljrtpAx3/Hh0pk70n0Ed/AUu5ylzE7We3zXGw395/KNsbRQMG
+	 CIpNu3NqtZtYz+IqFegGxzmwSFfD/BhH53p4kZZ8QRkjP20JB/CkMCC9+iuPOK9OYJfHk
+	 z9E/gYfMM8MBawvXM29sR3G+2CsmKiWXOpMqVpMal6fD0/WlTjMwA+MTypb9IYH5iDrpC
+	 6jSREKyinHYMfX1i78pCos+MqaYsVWkwE9qfpdLNK72RoprqPNQl4U9ZhANg8TmMDA8pf
+	 otDISdBQYlFpOiXfDEAme2SnMsjW36jk1z18JGcfxhTga9v/5/Bd/UwfXJyAdrodOqw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linux.ibm.com;
+	spf=pass smtp.mailfrom=linux.ibm.com;
+	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=YhPQP3eV;
+	arc=none smtp.remote-ip=148.163.158.5
+Received: from mx0b-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com [148.163.158.5])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 93CEC606A321
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 11:31:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 93CEC606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3F89A606A321
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 11:31:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3F89A606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=ENNNkfRU
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=oYEYYyBOQqJHe4Z/b11RMkC6S5bZfx6X7E9wQl8VrcraUTX4QeOp3TF8sfOdqmIkRAlXSzvHSzqJLFXqL3zPFiT7kSPNO2e+4oXjC8ttLf2iq2VVfXxFWVzAQFAag++r/tO4/rOlpUs1k3tZfDfCarxJ3H5Z5chIAmYboYCFcjTJGA+AB8zbca/6+H3JUd/el1ijPvNfJXEC2xdmEiQgBNT//N4AB52RkCaNVD2j5MQR9SlFdZ9zzJXhTeGSKqVU9FxmZjr5BRpC/NJ1YJHiIPZgRdzKITsF5S6VDEk8Ex6zWg2d1VY5UQnh6DHG/uiyFYdqujSyUjMfIhUbkTcghg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=7bjaiy1SE3xpmHiTS9z48paGZ4A4OsrVATHeP6Nv+iU=;
- b=EVoKAm4u8yl1uKiV3/phJE5nZ+cVCnT/aegmDkPHh9skapz1Ik84v0aFOJxJlUr+GV/t3nzeTxhPpojMKalkdNpfjevi5gAeUUa0rhGSb/W64Gs4/4aqNxuJ0O9v/aL3VApZJAbnHAjwPkCf9JrjSp0posLG3wh58rcLQPc1dIPEGbUStR2+f6kTpFjjdCvsUFBZmONblmq9rxhFRmNGugHvIMxPkNoGbG+1fWsUgqN/V1hAPY4wVqoyz54krj8lcPs35DQ3dW26z6rIYagUmuh30myJnwZYD73izNk1yaXJubeEZnxyJSs+sHvFFLD3v4reNmdVRUfG2S5/VMovXQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=7bjaiy1SE3xpmHiTS9z48paGZ4A4OsrVATHeP6Nv+iU=;
- b=ENNNkfRUxgRq93gz2+zoHH7iv6OpwQhiIDQxfNP9yeoP3TzNS07O92mYb9cMAzbE2g+KcAvoz2ddaZBUAGLI/5Poi2TZ1VOK3m30Q4r6bi6tBrQD+L1SCPr0clVL3Ea/Y1tFWkcnm/tMCcTKxlY3yQqHVj/oo1qh0BLNaMcJnZ5/PiqzJYPp7YWQRsKRGIKOOgTdyb3swRz1sW3DfTeerK+LYT5hNjzqO/PEg7Tz62l/IpMlQjMUl1IZhKm20gAadQ+3Gmw3Lk/0lym0e70Ysf0z+WWn4aZ5AqSsGcfQZy1wkVeeIcz47CaaNTJ+5xk6YXz/JQ25l6Irow0z6dZDZA==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from BL1PR12MB5174.namprd12.prod.outlook.com (2603:10b6:208:31c::19)
- by SA1PR12MB6750.namprd12.prod.outlook.com (2603:10b6:806:257::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Tue, 24 Nov
- 2026 11:31:17 +0000
-Received: from BL1PR12MB5174.namprd12.prod.outlook.com
- ([fe80::58de:822b:868:96e9]) by BL1PR12MB5174.namprd12.prod.outlook.com
- ([fe80::58de:822b:868:96e9%6]) with mapi id 15.21.0639.012; Tue, 24 Nov 2026
- 11:31:17 +0000
-Date: Tue, 24 Nov 2026 12:31:08 +0100
-From: Andrea Righi <arighi@nvidia.com>
-To: Kuba Piecuch <jpiecuch@google.com>
-Cc: Tejun Heo <tj@kernel.org>, David Vernet <void@manifault.com>,
-	Changwoo Min <changwoo@igalia.com>, Ryan Newton <newton@meta.com>,
-	sched-ext@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 sched_ext/for-7.4-fixes] sched_ext: Fix suspicious RCU
- usage in KF_RCU_PROTECTED kfuncs
-Message-ID: <awV1fKEL2vbN8tf1@gpd4>
-References: <20261124103043.339553-1-jpiecuch@google.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261124103043.339553-1-jpiecuch@google.com>
-X-ClientProxiedBy: ZR0P278CA0042.CHEP278.PROD.OUTLOOK.COM
- (2603:10a6:910:1d::11) To BL1PR12MB5174.namprd12.prod.outlook.com
- (2603:10b6:208:31c::19)
+	dkim=pass (2048-bit key, unprotected) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=YhPQP3eV
+Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AOB4h33980098;
+	Tue, 24 Nov 2026 11:31:19 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=bchnnE
+	9POzl5YmBnyDD/UmWF64NOv7cDBQ3Ldu7Wbkc=; b=YhPQP3eVOC3b//zEplJEa3
+	dQA0Q8y7LhG+O1hhNpJ9HiO2agEA/1mD5lwCh6MftOrzFfocCUW00OJK5FbG9Dek
+	BLWivEZA+wxYJDy10jbVdOAtpa9veg4kz7IOLq+ooHhcA+GT/R7aSarq9GULQbqS
+	hBP9dh7kpVkNuV08DjaBETi54w0XEyqLhdBNnqT5sQXtIr6GpwR/dF79VMKCMTLz
+	G2gSMJlgB/lDltRSdjoMjGbnL8XfrZNIhoJYwTWpqxgndZ0UVoq5+uXOTRmXcAUU
+	2b6zjNs7xpNXR2VDC11dT2xRAfAet4d+vn23WL+qle5POxqUsh/Ngkhq/btccpEA
+	==
+Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j34p4evw2-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Tue, 24 Nov 2026 11:31:19 +0000 (GMT)
+Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma11.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AOB4Fg03362858;
+	Tue, 24 Nov 2026 11:31:18 GMT
+Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
+	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4j3rayj30j-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 24 Nov 2026 11:31:18 +0000 (GMT)
+Received: from smtpav01.fra02v.mail.ibm.com (smtpav01.fra02v.mail.ibm.com [10.20.54.100])
+	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AOBVEg425625332
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 24 Nov 2026 11:31:15 GMT
+Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id CB92320040;
+	Tue, 24 Nov 2026 11:31:14 +0000 (GMT)
+Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 4FA1C2004B;
+	Tue, 24 Nov 2026 11:31:13 +0000 (GMT)
+Received: from [9.123.4.64] (unknown [9.123.4.64])
+	by smtpav01.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Tue, 24 Nov 2026 11:31:13 +0000 (GMT)
+Message-ID: <07b4a247-6313-4124-bab1-feb84738238e@linux.ibm.com>
+Date: Tue, 24 Nov 2026 17:01:12 +0530
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -97,171 +86,229 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL1PR12MB5174:EE_|SA1PR12MB6750:EE_
-X-MS-Office365-Filtering-Correlation-Id: ffac2e1d-d3c6-468b-3818-08df4a1e7467
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|366016|1800799024|376014|260925022911599003|260925021911599003|11063799006|5023799004|10067099003|260925021311599003|56012099006|261026140227099003|261028144727099003|261022105027099003|261026121527099003|261021121427099003|261022075727099003|261021123027099003|261102123227099003|261009223027099003|18002099003|22082099003|6133799003;
-X-Microsoft-Antispam-Message-Info:
-	tVKrPIsZKrZqHdzMMGNKTUNNwZ6kl7mxmzTxM5Nur0tDzrcFp4ArQ6x5o+RqrAgKfoBIE9W8sq6pwTSTmT+svNPU+39aN18xLZnVF1VLSlaiytAE75QIm6P9eQRDjyouI2J2VQgxaLxYpnqLgKkFh0lyFxrpr5wKhjheNeAUzb7gGuJyGkeifE+MEC6PoUXZxSTj+9SuiUcwF/pmNhpzAuKpWp7lZMDJM6M232prMmsvwH+ybEzXGeADu85MSIhJueFiTbKLJZYG6iYeH+Ch/bWMp89uh0NSx4ow9TD3F0P3jx6W11/l9nAHT0NSKJT15vfDi9rvMEm9V4hvoLfA+5OeJ2MH1CfCt2xi03Wn6gMqcsm1ivV7DfcvZLMJXpLg6qJlsKC2o9dQNXWPLxQFEPog5HbO9lM+CO8WsLaEIGYgtfJv/hTmD+t3etdEwF1Gw2HgOSZjzY7kBcOKYUx5c4Eo5RloP2v1ts0J5fksKtuwsNhc1Nkc3/CqZT1e4h4FTX/mag46HG0u0D3b4Yl5MlFqruPn4Nqac9VJirSnEUAurfq197mQZ0xls9KFyI3fWUPKy+hxq5JcONQiDTJoDuxWQr5Ac7Guq4Es+r6u2JlYGX+StxhgDzyJBmGOBqRNeCt1WVgP2DNQ3cGOOb1qJ37s+3DOaJbI2l5i70BPHK0=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BL1PR12MB5174.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(376014)(260925022911599003)(260925021911599003)(11063799006)(5023799004)(10067099003)(260925021311599003)(56012099006)(261026140227099003)(261028144727099003)(261022105027099003)(261026121527099003)(261021121427099003)(261022075727099003)(261021123027099003)(261102123227099003)(261009223027099003)(18002099003)(22082099003)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?cR8hY+9fiNIy32uAm57zkCJNF7PdeqW2/RuQzXO4RAaZFAMqiO5Zf7TyQ4L9?=
- =?us-ascii?Q?3XQvVX48N0fgujYd5HWUJNCzM6StPswBRKGkNgKCXrUG02JX5vgHOaQp88cF?=
- =?us-ascii?Q?2DIx2wQ6ZiuptAczy7MSMncxNQygl93qy+yWcdQmMFVMNHZu+P3rX+Uo3qlS?=
- =?us-ascii?Q?hxeb2sdrkTLRTTvk7ylR6r7sTuKhmjN756iBzHknrBhhUM8KkBICpsuM9gTr?=
- =?us-ascii?Q?Jb2qtWAu7coWDNiIGhSXdPnUQsa5fayZ05bnHwva2SK2o3C6BpWnVn1zJC/J?=
- =?us-ascii?Q?HVh18df2/cz5tYX/yewxUW2TAphVmYTPbyVToxKLu+ZmU7x1NvnnAXZkgQNf?=
- =?us-ascii?Q?s5mRJz9PrbdN2EGQE5T4YSpLprsAZCh56dVRqjXqyYTMz7wzSNB5NvT5R+yN?=
- =?us-ascii?Q?NUkg0GZ0hmhrVKaZDd4siXHO4r0aRxN2Q2J+dOTzBqSB1iTBQ16VLzNydV4g?=
- =?us-ascii?Q?D42MwdR+xagHY6UeL6MKq9vZSsF0PprKgSWgBgsyzfNfafxglmwGNUUhB3s7?=
- =?us-ascii?Q?KfI/gY/jJwv9Rl0HS8SqrDRiLDjUI7oe1tEuNvKxr0YqOVQmM4wMxtazBh+t?=
- =?us-ascii?Q?IVkOD6FXtcSbGoJy2QTgkZO5721Dx9kSGFN4YZnSgAFIQeHm5+zJKHybQUmx?=
- =?us-ascii?Q?+sQXcwjeW+0XX7RVdoSPgu4Rr82lUrejXv825iKiznKWnhcaIy4nTnoUDogd?=
- =?us-ascii?Q?RMQApuVtwIVnSgTrj2pnjMt8NJCk6D5Y4WIyDjwQjSPGDQuzuMMrau6JTXlS?=
- =?us-ascii?Q?n2iNg7ly94HKPM0N5m3pIXWTFA64I82oOiOSvwCzcHdSs8Pkduv7gk0A251y?=
- =?us-ascii?Q?lqwLIAV3AV5Pxa6DRJ9VJlCTte1HScIPvnrKnA8Byiv8GYbGuVx8mFxq+9bA?=
- =?us-ascii?Q?ZmGqlpw5QlbOGlJuzWiForGwkjiEVudtDPINkx71bV1Z4roADWdNBKhhPMeR?=
- =?us-ascii?Q?0AF9q4nVxACAP18tN9jVtPVMD4R2zbzGFjzpwJapq6DPrAttkg5reT9sWD2E?=
- =?us-ascii?Q?zWauN/VWEtVXE74Fa4V7dD2ak0Or/qbzNLEhdGmw6HCwI3CT05T8pyyPTXax?=
- =?us-ascii?Q?A2UWH0MnUuAgvy9zu45m4EjE6roT7bJEcccQmDaVRN4kN7XCUvU5J+yWCVir?=
- =?us-ascii?Q?q9yaIN63SZJUfl3A/FivJexuCigUmbhbY7Ckii3oPOBSRrj1GjUK2FbH95E9?=
- =?us-ascii?Q?sQwKA4u2bcYDFTAkn/HLKlCSB3Y/5AmBZN3m+kMnkpXoUbBZiM0OI3VtngO5?=
- =?us-ascii?Q?XM1VUp/CtkbLseGAqW22s5lEbpwn4mAqpTPH1trh1k2XXQvNV//m7FpUNT+c?=
- =?us-ascii?Q?w9CpEOGgImuKRnpnrd134iJR2Dr3Qkl4IAgWLhtp3/QqA5NYbU2KaTCgVKoH?=
- =?us-ascii?Q?4cee6G8HpvHu77IAHIhOrIDSzufdSMateu/yEe0a59HAhdbU1SzO8PoctilD?=
- =?us-ascii?Q?kedaLpVuTgoioOMVLyXkXoPiLmuFMVJmN6xe3dev/L6bDr9Msq/qjz74avSB?=
- =?us-ascii?Q?unACyBekH/i8cZ/hKL0cQOxPGMws55u3r1ejTa61m3xaIvhKPzsJvZ1f4cNc?=
- =?us-ascii?Q?8oRsdDmwNNJhVrMQ1Bemph36RO0RHFtn9ZdoBDuNKHuooaIbgSmk3BUiMPGY?=
- =?us-ascii?Q?mLMDyfVPnlyHEDMgFuhaLooSLYTdMcPwcmOUOWtO8rwX6lVokNaL3TE35JX0?=
- =?us-ascii?Q?7lZVWKEWaSHYXcRkFzzrbQa8R0/azQTxQGXOdt3YJGCH4MeOJuJgT+H1KIcY?=
- =?us-ascii?Q?kle5xAYm+g=3D=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ffac2e1d-d3c6-468b-3818-08df4a1e7467
-X-MS-Exchange-CrossTenant-AuthSource: BL1PR12MB5174.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 11:31:17.4598
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 3S0FoiciTyoYcjnK3OrpoSZBx2aPkZ/ZkX0kJvEisIe+N4QkPkEPa2HZxJV+fTTJme2zkslHB2BIgZKWawYDXQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB6750
+User-Agent: Mozilla Thunderbird
+Subject: Re: [BUG] selftests/powerpc/eeh: eeh-basic breaks the device hosting
+ rootfs, ext4 goes read-only and the test harness crashes
+To: Venkat Rao Bagalkote <venkat88@linux.ibm.com>,
+        Madhavan Srinivasan <maddy@linux.ibm.com>,
+        Ritesh Harjani <riteshh@linux.ibm.com>,
+        Shrikanth Hegde <sshegde@linux.ibm.com>,
+        Christophe Leroy <christophe.leroy@csgroup.eu>, nandinih@linux.ibm.com
+Cc: LKML <linux-kernel@vger.kernel.org>,
+        linuxppc-dev <linuxppc-dev@lists.ozlabs.org>
+References: <9113e399-ddd0-405e-9abb-69a9785c726c@linux.ibm.com>
+Content-Language: en-US
+From: Narayana Murty N <nnmlinux@linux.ibm.com>
+In-Reply-To: <9113e399-ddd0-405e-9abb-69a9785c726c@linux.ibm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI0MDA0MyBTYWx0ZWRfX3XhT5p5kO0yi
+ 8t6CesB4yHBC4i6BE1545ycSJVS7KxOVczy5epaPkZB1MHZLVe8TKrs5xsCcZOBzKmzH7JYQHs3
+ dwDBmjgH2pTHafop9xXtjz0YtMfrK8s=
+X-Proofpoint-GUID: V28uYCeAv5bMiPw2ESc0rLLKxq-DVgD-
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI0MDA0MyBTYWx0ZWRfX1Urck6RB/Q3A
+ Bh54lG02Ett1DmPsR/mQhRo+4kH+45NN3XG9fLxTtr6a8sxthDIiSyYUUa6eIF8yr48mxqxJ3Cq
+ LIu+CPu4uPDwWnqGL4MMAlXWNIOFHIRnZoxhO0tgdBxn/5dTtAPakt/QzQoLzojitAL4B9QzmP0
+ SuWeBS9apjeFvg5KxPpFcvzqCXFiGETyi6SDvSa3kPoQ5MmGP7mwcLa4lXe5W/3Mwd2RgpQ7IMH
+ 5w2D7SEocyJdv3RlmJYaSR/Ob6W7CoglywJayy8j7jDc3TinHJ9730vKQ25wVcetLMibCabJcIu
+ 9XL95G9wts2J4sBLirDUhXtF1JU4Rr07W3BeyM/A5hl0ZbloXNMA4ted3G2MMsTHtnxKMPkwOIB
+ gw3bHWd6oQEVAqcc0O0ZM/+J/I3b0WkNWJDjXa1J+OqopavixwHukHvGoMS7rd/pmBPTEeRgyPq
+ kmtQoD6TRhrOq70QaSw==
+X-Proofpoint-ORIG-GUID: V28uYCeAv5bMiPw2ESc0rLLKxq-DVgD-
+X-Authority-Analysis: v=2.4 cv=QabzLcbv c=1 sm=1 tr=0 ts=6b057587 cx=c_pps
+ a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
+ a=6EctlgBVgvUV7dFz:21 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22 a=V8glGbnc2Ofi9Qvn3v5h:22
+ a=iLn-Ndydp9YEVDFGA9cA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-24_02,2026-11-23_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 phishscore=0 lowpriorityscore=0 suspectscore=0 adultscore=0
+ bulkscore=0 priorityscore=1501 clxscore=1015 malwarescore=0 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611240043
 
-On Tue, Nov 24, 2026 at 10:31:14AM +0000, Kuba Piecuch wrote:
-> scx_bpf_dsq_peek() and scx_bpf_tid_to_task() call rcu_dereference()
-> without taking rcu_read_lock() and rely on KF_RCU_PROTECTED instead.
-> However, the verifier treats every non-sleepable program as being in an
-> RCU read-side section, including bpf_timer callbacks. bpf_timer_cb()
-> runs those from hrtimer softirq without rcu_read_lock(), so calling
-> either kfunc from a bpf_timer callback triggers:
-> 
->   WARNING: suspicious RCU usage
->   kernel/sched/ext/ext.c:11170 suspicious rcu_dereference_check() usage!
->   ...
->    scx_bpf_dsq_peek+0x7d/0xd0
->    bpf_timer_cb+0xf9/0x130
-> 
-> The same happens from a sleepable program inside bpf_preempt_disable().
-> Both contexts are RCU readers, so this is a lockdep false positive, not
-> a use-after-free.
-> 
-> Every context accepted by KF_RCU_PROTECTED satisfies
-> rcu_read_lock_any_held(). Use rcu_dereference_all() in both kfuncs,
-> matching scx_prog_sched() and rhashtable_lookup(), and convert
-> scx_bpf_cpu_curr() and scx_bpf_cid_curr() from guard(rcu)() +
-> rcu_dereference() to rcu_dereference_all() as well to avoid redundant
-> per-call RCU read-side lock/unlock overhead.
-> 
-> This patch was written with the help of an AI coding assistant.
-> 
-> Fixes: 44f5c8ec5b9a ("sched_ext: Add lockless peek operation for DSQs")
-> Fixes: 41e3312861ea ("sched_ext: add p->scx.tid and SCX_OPS_TID_TO_TASK lookup")
-> Signed-off-by: Kuba Piecuch <jpiecuch@google.com>
+Hi Venkat,
 
-Looks good to me.
+On 12/11/26 11:36 AM, Venkat Rao Bagalkote wrote:
+> Hello!!!
+> 
+> IBM CI has hit a failure that takes down the test harness, While running 
+> the powerpc EEH selftest on a bare-metal POWER system.
+> 
+> The selftest injects an error into the PCI device that hosts the root 
+> filesystem. The filesystem goes read-only and the run dies.
+> 
+> [ 1112.079091] EEH: Frozen PHB#3-PE#1fd detected
+> [ 1112.079905] aacraid 0003:01:00.0: aacraid: PCI error detected 2
+> [ 1112.140830] I/O error, dev sdb, sector 3906906472 op 0x1:(WRITE) ...
+> [ 1112.140957] Aborting journal on device sdb2-8.
+> [ 1112.140977] EXT4-fs error (device sdb2) in ext4_dirty_inode:7656: IO 
+> failure
+> [ 1112.176664] EXT4-fs error (device sdb2): 
+> ext4_journal_check_start:98: ... Detected aborted journal
+> [ 1187.736385] aacraid 0003:01:00.0: aacraid: PCI error - slot reset
+> [ 1217.244306] EXT4-fs (sdb2): Remounting filesystem read-only
+> [ 1220.583495] aacraid 0003:01:00.0: aacraid: PCI error - resume
+> 
+> We need to make appropriate changes to selftest, so that it skips the 
+> adapter, if rootfs is hosted on it.
+> 
+> 
+> SetUp:
+> 
+> System: IBM 9006-22C (POWER9), PowerNV, bare metal
+> Firmware: skiboot-v6.8-45-g8246de863
+> Kernel: 7.4.0-rc2+, upstream master at 067c5c24cef2 ("Merge tag 
+> 'page_alloc-for-7.4-rc2'", 2026-11-10)
+> 
+> 
+> Issue1: Selftest should skip the adapter that host the rootfs
+> 
+> eeh_can_break() already skips ahci, for similar reason, but has no check 
+> for a device that backs /. A friendly LLM has suggested
+> 
+> below change, which I tested and it works.
+> 
+> 0003:01:00.0, Skipped: hosts the root filesystem
+> 
+> Other adapters are tested as before and the run completes
+> 
+> diff --git a/tools/testing/selftests/powerpc/eeh/eeh-functions.sh b/ 
+> tools/testing/selftests/powerpc/eeh/eeh-functions.sh
+> index 70daa3925dcb..f9db1f9be05a 100644
+> --- a/tools/testing/selftests/powerpc/eeh/eeh-functions.sh
+> +++ b/tools/testing/selftests/powerpc/eeh/eeh-functions.sh
+> @@ -62,6 +62,42 @@ eeh_test_prep() {
+>       echo 5000 > /sys/kernel/debug/powerpc/eeh_max_freezes
+>   }
+> 
+> +# Print the resolved sysfs path of a block device followed by the paths of
+> +# every device stacked underneath it (dm, md, etc).
+> +eeh_blk_sysfs_paths() {
+> +    local sys="$1"
+> +    local s
+> +
+> +    realpath "$sys"
+> +    for s in "$sys"/slaves/* ; do
+> +        if [ -e "$s" ] ; then
+> +            eeh_blk_sysfs_paths "$s"
+> +        fi
+> +    done
+> +}
+> +
+> +# Succeeds if the root filesystem lives on a disk behind any function 
+> of the
+> +# slot containing the given PCI device.
+> +eeh_hosts_rootfs() {
+> +    local slot="${1%.*}"
+What if the PE contains multiple PCI devices that do not necessarily 
+belong to the same slot?
 
-Reviewed-by: Andrea Righi <arighi@nvidia.com>
+Since EEH isolation and recovery happen at PE granularity, injecting an 
+error into another device belonging to the same PE could still affect 
+the device hosting the root filesystem.
+
+Shouldn't we traverse all the devices belonging to the PE and skip error 
+injection if any of them hosts the root filesystem, rather than limiting 
+the check to the functions within the same slot?
+
+> +    local majmin src sys
+> +
+> +    # Use the last "/" entry so an initramfs rootfs entry is ignored.
+> +    majmin="$(awk '$5 == "/" { mm = $3 } END { print mm }' /proc/self/ 
+> mountinfo)"
+> +    src="$(awk '$5 == "/" { for (i = 6; i < NF; i++) if ($i == "-") s = 
+> $(i + 2) } END { print s }' /proc/self/mountinfo)"
+> +
+> +    if [ -e "/sys/dev/block/$majmin" ] ; then
+> +        sys="/sys/dev/block/$majmin"
+> +    elif [ -b "$src" ] ; then
+> +        # e.g. btrfs reports an anonymous major:minor
+> +        sys="/sys/class/block/$(basename "$(realpath "$src")")"
+> +    else
+> +        return 1
+> +    fi
+> +
+> +    eeh_blk_sysfs_paths "$sys" 2>/dev/null | grep -q "/${slot}\.[0-7]/"
+
+Perhaps we could use eeh_pe_config_addr along with the PHB identity to 
+identify the devices belonging to the same PE and skip the entire PE if 
+any of them backs the root filesystem.
 
 Thanks,
--Andrea
+Narayana Murty.
 
-> ---
-> Changes in v2:
-> - Use rcu_dereference_all() instead of guard(rcu)() in
->   scx_bpf_dsq_peek() and scx_bpf_tid_to_task(), and convert
->   scx_bpf_cpu_curr() and scx_bpf_cid_curr() to match (Andrea).
-> - Drop patch 2 ("sched_ext: Take rcu_read_lock() explicitly in sub-cap
->   kfuncs") (Andrea).
+> +}
+> +
+>   eeh_can_break() {
+>       # skip bridges since we can't recover them (yet...)
+>       if [ -e "/sys/bus/pci/devices/$dev/pci_bus" ] ; then
+> @@ -78,6 +114,14 @@ eeh_can_break() {
+>           return 1;
+>       fi
 > 
-> v1: https://lore.kernel.org/all/20261123145927.577162-1-jpiecuch@google.com/
+> +    # Breaking the device that hosts the root filesystem makes I/O fail
+> +    # during recovery, which can abort the journal and leave / read-only
+> +    # (and kill the test harness). Leave it alone.
+> +    if eeh_hosts_rootfs "$1" ; then
+> +        log "$1, Skipped: hosts the root filesystem"
+> +        return 1;
+> +    fi
+> +
+>       # Don't inject errosr into an already-frozen PE. This happens with
+>       # PEs that contain multiple PCI devices (e.g. multi-function cards)
+>       # and injecting new errors during the recovery process will probably
 > 
->  kernel/sched/ext/ext.c | 12 ++++--------
->  1 file changed, 4 insertions(+), 8 deletions(-)
 > 
-> diff --git a/kernel/sched/ext/ext.c b/kernel/sched/ext/ext.c
-> index e8c30a21e03e..b8702b81782a 100644
-> --- a/kernel/sched/ext/ext.c
-> +++ b/kernel/sched/ext/ext.c
-> @@ -11167,7 +11167,7 @@ __bpf_kfunc struct task_struct *scx_bpf_dsq_peek(u64 dsq_id,
->  		return NULL;
->  	}
->  
-> -	return rcu_dereference(dsq->first_task);
-> +	return rcu_dereference_all(dsq->first_task);
->  }
->  
->  /**
-> @@ -11908,8 +11908,6 @@ __bpf_kfunc struct task_struct *scx_bpf_cpu_curr(s32 cpu, const struct bpf_prog_
->  {
->  	struct scx_sched *sch;
->  
-> -	guard(rcu)();
-> -
->  	sch = scx_prog_sched(aux);
->  	if (unlikely(!sch))
->  		return NULL;
-> @@ -11917,7 +11915,7 @@ __bpf_kfunc struct task_struct *scx_bpf_cpu_curr(s32 cpu, const struct bpf_prog_
->  	if (!scx_cpu_valid(sch, cpu, NULL))
->  		return NULL;
->  
-> -	return rcu_dereference(cpu_rq(cpu)->donor);
-> +	return rcu_dereference_all(cpu_rq(cpu)->donor);
->  }
->  
->  /**
-> @@ -11933,15 +11931,13 @@ __bpf_kfunc struct task_struct *scx_bpf_cid_curr(s32 cid, const struct bpf_prog_
->  	struct scx_sched *sch;
->  	s32 cpu;
->  
-> -	guard(rcu)();
-> -
->  	sch = scx_prog_sched(aux);
->  	if (unlikely(!sch))
->  		return NULL;
->  	cpu = scx_cid_to_cpu(sch, cid);
->  	if (cpu < 0)
->  		return NULL;
-> -	return rcu_dereference(cpu_rq(cpu)->donor);
-> +	return rcu_dereference_all(cpu_rq(cpu)->donor);
->  }
->  
->  /**
-> @@ -11958,7 +11954,7 @@ __bpf_kfunc struct task_struct *scx_bpf_tid_to_task(u64 tid)
->  	struct sched_ext_entity *scx;
->  
->  	if (!scx_tid_to_task_enabled()) {
-> -		struct scx_sched *sch = rcu_dereference(scx_root);
-> +		struct scx_sched *sch = rcu_dereference_all(scx_root);
->  
->  		if (sch)
->  			scx_error(sch, "scx_bpf_tid_to_task() called without SCX_OPS_TID_TO_TASK");
 > 
-> base-commit: 2f7928516314f37d7cb334675656b4412edc8be3
-> -- 
-> 2.56.1.831.g720f3f5937-goog
+> Issue2: Some adapters take longer time to recover.
 > 
+> 
+> Once the rootfs device was skipped, the run completed, but with the 
+> default 60 s wait three adapters were reported as Failed to recover!,
+> and the summary was 3 devices failed to recover (6 tested). Checking the 
+> PE state afterwards showed them healthy .
+> I re-ran with EEH_MAX_WAIT=240, and all of them recovered:
+> 
+> Result with the 240 s limit: 0 devices failed to recover (6 tested).
+> 
+> BRCM/Mellonox/Intel Adapters took 78s/77s/75s respectively to recover. 
+> So I think its better to increase default timeout to 120s.
+> 
+> diff --git a/tools/testing/selftests/powerpc/eeh/eeh-functions.sh b/ 
+> tools/testing/selftests/powerpc/eeh/eeh-functions.sh
+> index 70daa3925dcb..1f1d1c8d73bc 100644
+> --- a/tools/testing/selftests/powerpc/eeh/eeh-functions.sh
+> +++ b/tools/testing/selftests/powerpc/eeh/eeh-functions.sh
+> @@ -110,13 +110,13 @@ eeh_one_dev() {
+>       # is a no-op.
+>       echo $dev >/sys/kernel/debug/powerpc/eeh_dev_check
+> 
+> -    # Default to a 60s timeout when waiting for a device to recover. This
+> +    # Default to a 120s timeout when waiting for a device to recover. This
+>       # is an arbitrary default which can be overridden by setting the
+>       # EEH_MAX_WAIT environmental variable when required.
+> 
+>       # The current record holder for longest recovery time is:
+> -    #  "Adaptec Series 8 12G SAS/PCIe 3" at 39 seconds
+> -    max_wait=${EEH_MAX_WAIT:=60}
+> +    #  "Broadcom / LSI SAS3008" at 78 seconds
+> +    max_wait=${EEH_MAX_WAIT:=120}
+> 
+>       for i in `seq 0 ${max_wait}` ; do
+>           if pe_ok $dev ; then
+> 
+> 
+> Please let me know, if the fix for the two issues are good enough, I can 
+> send a formal patch.
+> 
+> 
+> 
+> Regards,
+> 
+> Venkat.
+> 
+
