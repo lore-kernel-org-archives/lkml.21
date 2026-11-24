@@ -1,114 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.149
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=13.77.154.182
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795502536;
-	b=EJDrS/9DbO2Vfhd1/g4SDSKoAXknT/3nukOC+hTPH4TEBs/JFn0HIRJbGdblY4gD1+3w
-	 2TMqcZ4QNOskO9lCvH5IdGcxpsc6mhVPHzZEjb/SeDeR5ODeLoITTpiUQqbiYrpraHBLj
-	 i4nnKmMjBoakiMOdtLe/LVoJw5sAyeKxcq3a6G7hqom91zaNcom6kPiSsbPktBsgodFl1
-	 7FU8jEPDCrm5zl5TK2Vvd5yvQkEG/+EQgKFPeMD0cci3fsE/S4LjHDPuo+I6b/VAU3jYT
-	 TWf5AaIEkKyZomeG+Eg7bwuVBg4oyugPMJeyIko1lSKIW8Q7pp40XLKA0E+JO2IbCVQ==
+	t=1795502602;
+	b=lRsIoGeNJx0qMp6673rrYtxn8B7D+C52zRtke9/BX5umxK7TL2Q+PEoK4djx6r3OJKUp
+	 UJu2Q3CzvSGMrF2iecEnW/9qlyE0E1bjcPotGR9sFiRMig2gXzZ7+JFkaUbsRYGwutw4C
+	 EVJ6+mcTUsi4Ui0k/moKTAPvpMRteRjxt7Z6vOVlx3Zr+VjyBU8gkybBc4hTmYgGeg+QX
+	 gVrS2WXWxz7Zd2fGj1lx5k9OzWxgHjX+JMObVCht15J51GfbZgFeq+gOvWwhQtFsugz52
+	 /azw4uaiIupLXynNVnpGIh7B6WjU6F2d6xphkEoM2/s+gz2YLM/LrfDiCnWBwHmxLCg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795502536;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
-	 Received:Content-Type:Content-Transfer-Encoding:MIME-Version:From:To:
-	 Cc:Subject:In-reply-to:References:Date:Message-id:Reply-To;
-	bh=hBv6+ewP0DjV1+qVc42GVCNnOm9jAOPktJFymHxBRAI=;
-	b=iJubi0a07zKCv1N/lPEkH95oZygeZCxWJrRk0xzcgILFnXoP6XQ739LLgMpWXcLceBal
-	 +DotZjKwAVoSXcsy0tDp8FtnLF+QWFoFT2DOn18xBurbk/ZT+HSGZ1Agkj+No9wSXonx8
-	 Kj+GNZJvZU9vpuhZ35o5H8A/0JMDmhlDD+CGBgNubOH2Cs4VzazpZ9V9pZoAqHkjdsezA
-	 JAzmwUUVsYwBkTDjhd0l4xSBfb7skoW4sKXlpKnIbnzpLUzcfpIMJ2xeMJ/cCr9nye9pp
-	 Ce13g3yLnMxdmrqiETpbVWiuKzSSsAdEkCELwZ6G6nNkWU0uXzY7WvzTC5O2VGoirAQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795502602;
+	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
+	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding:X-Spam-Status:
+	 X-Spam-Checker-Version;
+	bh=/FIMUk4DjdqAEpPRiRceY+ufT5ushr8GpAhLItS8WTk=;
+	b=bVbEMTinwG2ndVsxkbfuZ62cKtjQ3RWocxxSnVqfgl6leabeX/Ir8SsUPr+bbNP29POX
+	 AKDVFNTIiUcbipf4AevLI2ROH3voJrt2Jo1cqSXMnZY6pWTZYngkN/GnlZKNgXZjQOoLG
+	 OrsmfvV8/qRJ7Ms5NTPWkciTIZpdG7/LmKSsN4O0X8F2tkszi9rDR4Gimb8wwBrdlMIuc
+	 mkMPUd5O20VWV+FJjFwoqVAWiDgqpYkRGB8xWRRVukL5ArRBnLMp/vLJwwR7WeEdXMXqp
+	 I4n808vUhdvxByAGUAyyPJnaBU5tmsY3IIip7V6ZOyjLgU4Nheha1iIkZc0zFV1yRaA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ownmail.net;
-	spf=pass smtp.mailfrom=ownmail.net;
-	dkim=pass header.d=ownmail.net header.i=@ownmail.net header.a=rsa-sha256 header.s=fm3 header.b=SghkeuiG;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=3D8toBcl;
-	arc=none smtp.remote-ip=202.12.124.149
-Received: from fout-b6-smtp.messagingengine.com (fout-b6-smtp.messagingengine.com [202.12.124.149])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2DAB4606A32E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 06:42:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2DAB4606A32E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ownmail.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ownmail.net
+	dmarc=pass header.from=linux.microsoft.com;
+	spf=pass smtp.mailfrom=linux.microsoft.com;
+	dkim=pass header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=NRT8GEqJ;
+	arc=none smtp.remote-ip=13.77.154.182
+Received: from linux.microsoft.com (linux.microsoft.com [13.77.154.182])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id E2A79606A31E;
+	Tue, 24 Nov 2026 06:43:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E2A79606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.microsoft.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.microsoft.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=ownmail.net header.i=@ownmail.net header.a=rsa-sha256 header.s=fm3 header.b=SghkeuiG;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=3D8toBcl
-Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
-	by mailfout.stl.internal (Postfix) with ESMTP id 537251D004A8
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 01:42:14 -0500 (EST)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-05.internal (MEProxy); Tue, 24 Nov 2026 01:42:14 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ownmail.net; h=
-	cc:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:reply-to:subject:subject:to:to; s=fm3; t=
-	1795502534; x=1795588934; bh=hBv6+ewP0DjV1+qVc42GVCNnOm9jAOPktJF
-	ymHxBRAI=; b=SghkeuiGUyKvx3AQe40FpTXeImbcOWBu8BYuOFddVJaQrbBlVWh
-	K7PziW9DDdT6fKVS5T5u+47es4VhCdLU4F/x3b9Fm/m/6lthZkE0iRmyX3czA9GA
-	HApCWOPVIojLiCcWgzjWjJOsPKuE3tQUxA8lr7v6DfabmeoZQnVGuvDzp9aR96kU
-	+t7WhhjcyefEH5+rVeXgm4MI/TXXe92LZCv2TjL7YFVu5GqmypFNwIJ+SoBKDqqD
-	WDJPDnuIm6co1ROwwvY8oCZNb2xeQc+ddFUF9Kz6Zh4Le2BU73HMN6JvQqu8HsB9
-	Hm9whuDAhd0QppOdCyccurGMURLVjzPt91A==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795502534; x=
-	1795588934; bh=hBv6+ewP0DjV1+qVc42GVCNnOm9jAOPktJFymHxBRAI=; b=3
-	D8toBclI9jkfKULH1AKPSNsC0cks1T6skK5zJB32VFnelX3P+6jytUaDERqtX3Ox
-	t5NfBjPWXr8I8cmetP/0dgmAw57FG9ij9Kn5uStYH8+D0BhYVat4NLgj9g9QDu8N
-	hnZ5GOVpgkBeQUEN5Ttnap4ggAVx00Rl9UjCQcGmIlnDsdyI4qB/hKQ677Aw2Zcv
-	8UWzM4OA41s7rM60SpRdS258aI0JZFMbUYNfCSZjz5b+ScBX5zqD8WrAm3eRRXbe
-	h7B3K87hoSNn4F6BPrIm/e9KCIArBQ2/dfUSC+k0Mk0tYOaZWtrpuGoVg5X46HGz
-	rfCU9QfXdIhTeodcrzEPQ==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=ownmail.net a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795502534; d=ownmail.net;
-	mf=PG5laWxiQG93bm1haWwubmV0Pg==;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm3:rsa-sha256:SUhrW481qMLRFMMayhV9ad3AG45wSF36xD7HxtW1XMjEJBo
-	SXw+oFLUSVqRgP+j2ZMQ0Vy939YXXHaS3vXCKV2aJ4GgYVhmqkgXgOPY5e2lLnmt
-	K1M/008jYzQIJjhrgJRsXDwlEOGACzn6qVPr4QrT/l1YK8ExjBZ5ihPrwLH+ubI5
-	V0VGsx0q8DoHs91DPqfhAd3YOw9PqwlxhTsRmiYf79y3UqIpDGbun33guDJkA3Gc
-	9jly4scKqKvjXvYkz1/rDbz8QmYxayGANct9B/OKyq6VnSLBOw7Z/dnJ1LWBUkJK
-	9CmQSnQwrHw556CjXCbsI8GArbISakX8owVcOzQ==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=13;
-	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
-	from,in-reply-to,message-id,mime-version,references,reply-to,
-	subject,to;
-Message-Instance: m=1; h=sha256:AaTRc1yajw2oA3elYV7isJIou6VrbdqknEC09Efel+M=:S2g4KmR/BKRm7uYQ2YhxZXwF86/RC39pouWHfZJy1Ww=;
-X-ME-Sender: <xms:xTEFa5kX0Uum0m8tzyE4e-j6x8aRlQX1_X01ryVt5omymu2B9R8Rdg>
-    <xme:xTEFa3Zi-sSxeks13rdRcMeO9RcmH-7RfX3C5aRjut4PE0gVfkCUNJo-kVYse_fQ6
-    bIUhy3pvemW-AKM7dKF85gFbo7ZuppUUt8ln0dlwS4H7QBmo9A>
-X-ME-Received: <xmr:xTEFazTF93Jlg9XzlvEovHaO_mClscBZla0XnaXfdN8Cm3fYROg6sFaXh5K-UP-BKw>
-X-ME-Proxy-Cause: dmFkZTGQ2o4iZUrCPKJl+gpYbLaJvXi1m3kMpkM53l1l/50yILm8tVGN+skIHvuGHrB2XG
-    nTvPfo+Ka3phzv6PVjOsad1AFgcyavliy7maFZyuTR++L/WeqebCtl+p1pjNDf/W1sVJxe
-    27f/8a6zd+Fd2Nk7iutqyg7mj5ES9YrigRSMsVDEILfDTFqQK7ZhKMxX9A3SZ8mdxlU/wN
-    69sj7uQ48tPzq8UnSBcKvO7m0OTzoxyPWDVoZo7O3s5rRnCCYRIlBpYVyQmnUSW6qaCCGI
-    fJkpR5LGXYt/DNK1VI+/wKexwbU5yR1NVC5BRsXiLwqgmhHLkc4LH8lVaFvxz3DgZ3PFGa
-    SmrWehlpj8NmjL1Z3dnOyeElsDcGUl/tCp/dwq1Z5BTgqDGujTsMc/N1EhXHN1rJhZojLz
-    TnGP0c3GS7zPJUw+WbS2JYJfADcpHXtx8SiSVVBEv0RMzB8M9Zh9VKGPQ6vPtwsDQz/BRD
-    7JcWeorfFV9fwV5/RmxMT/uoYaFtiOcHjQsXwoJ/3ObGk8Zu6arJKVOzFvYM2p49QhboR8
-    pT7W0VJg+qpvmgXqspzg0F5acvaFrw8CIRkzQEA2J/9AnrrXzaJipUfJNR08iCOzLs+YnQ
-    6tEG2006qCXjA0MEVvqZcb53z4HmccLZmcd1g7huw5yuZwiWdrp/1aYP8xTw
-X-ME-Proxy: <xmx:xTEFa5tkKICodEMR_teZjGa9LigSmDn4COi9-nT3IlylUrclgyMq1g>
-    <xmx:xTEFa9FH-oWduQJ1HX3YTd9YHvBb5RHjn-bRensE5zhsUt-PdFy0ig>
-    <xmx:xTEFaywQZGwPDuuKv4K5fBZCvPYyVHoqqPNkbg9lGDQYJByfvFUFhg>
-    <xmx:xTEFa_1muea2blhtmFT5RJh8p3Z9-cLIlUMXm0zkvlKrmIZcmXlA4Q>
-    <xmx:xjEFa0WrrwA29s3OdoIsAEh_BMHqddZXwXx4gn-OJgZxKMC0Pc9_3mTg>
-Feedback-ID: i9d664b8f:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
- 24 Nov 2026 01:42:10 -0500 (EST)
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+	dkim=pass (1024-bit key, unprotected) header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=NRT8GEqJ
+Received: from [10.95.64.197] (unknown [4.194.122.136])
+	by linux.microsoft.com (Postfix) with ESMTPSA id D5EC820B7167;
+	Mon, 23 Nov 2026 22:43:11 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com D5EC820B7167
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1795502597;
+	bh=/FIMUk4DjdqAEpPRiRceY+ufT5ushr8GpAhLItS8WTk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=NRT8GEqJguK14ivZip1z9Km23R+8pHydunM5DtF9c/uWnqkl/HG3wLL6zd7eWksUd
+	 B8u90YwGruBJPlv5RsszwDtNgESyENaag+EEH+Qn0CfcLw3zQ9R4WuwMBwWyjSAhxO
+	 8hgdVKNXg7mBa4Sw8DYinkaPNbxGi04GUpqOflYI=
+Message-ID: <4ff748e6-78b0-4ce6-b787-f102e4f8c6b2@linux.microsoft.com>
+Date: Tue, 24 Nov 2026 12:13:13 +0530
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -118,88 +53,142 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-From: NeilBrown <neilb@ownmail.net>
-To: "Alexander Viro" <viro@zeniv.linux.org.uk>,
- "Christian Brauner" <brauner@kernel.org>, "Jan Kara" <jack@suse.cz>,
- "Amir Goldstein" <amir73il@gmail.com>
-Cc: linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org,
- "Ian Kent" <raven@themaw.net>, "Jake Edge" <jake@lwn.net>
-Subject: Re: [PATCH v6 0/5] Fix easy bits of the negative dentry problem
-In-reply-to: <20261123221410.3328780-1-neilb@ownmail.net>
-References: <20261123221410.3328780-1-neilb@ownmail.net>
-Date: Tue, 24 Nov 2026 17:42:06 +1100
-Message-id: <179550252639.1728055.4014817916838632741@noble.neil.brown.name>
-Reply-To: NeilBrown <neil@brown.name>
-
-On Tue, 24 Nov 2026, NeilBrown wrote:
-> This v6:
->  - fixes the autofs changes in 1/5
-
-Sashiko says this is racy.  I think it is but the original code was just
-as racy.  Maybe the race isn't relevant.  I haven't properly understood
-it yet.
-
->  - updates d_duplicate() in 1/5
-
-The fix was seriously broken.  Sorry.
-
->  - uses a new version of 2/5 from Amir
-
-Sashiko has something to say about this
-
-    Can clearing FSNOTIFY_CONN_FLAG_UPDATE_CHILDREN and dropping conn->lock
-    before fsnotify_set_children_dentry_flags() finishes allow a concurrent
-    watch-adding syscall to return to userspace before the children's
-    DCACHE_FSNOTIFY_PARENT_WATCHED flags have been set?
-
-Thoughts?
-
-thanks,
-NeilBrown
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 0/5] x86/hyperv: Account for lazy mm_cpumask
+ maintenance
+To: Michael Kelley <mhklinux@outlook.com>,
+ "haiyangz@microsoft.com" <haiyangz@microsoft.com>,
+ "wei.liu@kernel.org" <wei.liu@kernel.org>,
+ "decui@microsoft.com" <decui@microsoft.com>,
+ "tglx@kernel.org" <tglx@kernel.org>, "mingo@redhat.com" <mingo@redhat.com>,
+ "bp@alien8.de" <bp@alien8.de>,
+ "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
+ "x86@kernel.org" <x86@kernel.org>, "luto@kernel.org" <luto@kernel.org>,
+ "peterz@infradead.org" <peterz@infradead.org>
+Cc: "hpa@zytor.com" <hpa@zytor.com>, "riel@surriel.com" <riel@surriel.com>,
+ "bigeasy@linutronix.de" <bigeasy@linutronix.de>,
+ "zhouchuyi@bytedance.com" <zhouchuyi@bytedance.com>,
+ "houwenlong.hwl@antgroup.com" <houwenlong.hwl@antgroup.com>,
+ "qq570070308@gmail.com" <qq570070308@gmail.com>,
+ "bastien.curutchet@bootlin.com" <bastien.curutchet@bootlin.com>,
+ "dianders@chromium.org" <dianders@chromium.org>,
+ "jgross@suse.com" <jgross@suse.com>, "hawk@kernel.org" <hawk@kernel.org>,
+ "linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+References: <20261117091507.2088642-1-namjain@linux.microsoft.com>
+ <MN2PR02MB6863FA48FAC9BF8447B305A3D4442@MN2PR02MB6863.namprd02.prod.outlook.com>
+Content-Language: en-US
+From: Naman Jain <namjain@linux.microsoft.com>
+In-Reply-To: <MN2PR02MB6863FA48FAC9BF8447B305A3D4442@MN2PR02MB6863.namprd02.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
 
 
->  - Fixes the skipping of cursors in 4/5
+On 11/24/2026 5:44 AM, Michael Kelley wrote:
+> From: Naman Jain <namjain@linux.microsoft.com> Sent: Tuesday, November 17, 2026 1:15 AM
+>>
+>> Lazy mm_cpumask maintenance leaves CPU bits set after switching to another
+>> address space, with stale memberships removed by native flush callbacks.
+>> Successful Hyper-V TLB flush hypercalls do not run those callbacks, so
+> 
+> I'm not sure what the "Successful" qualifier means here.  See comments
+> in later patches of the series.
+> 
+>> historical memberships can persist and cause unnecessary remote flushes.
+>> If the mask covers all present CPUs, the backend selects an all-processor
+>> flush before reaching its per-CPU lazy-TLB checks.
+> 
+> As noted in subsequent patches, "backend" is very vague.
 
-At least this bit seems to be ok :-)
+Acked.
 
 > 
-> Thanks,
-> NeilBrown
+>>
+>> This was found while investigating a regression between Linux 6.8 and 7.0
+>> in SuperBench's eight-GPU PyTorch LSTM training on Azure MI300X VMs.
+>> Recreating DataLoader workers each epoch caused host-to-GPU copy stalls
+>> and timeouts. The reported bisection identified commit 209954cbc7d0
+>> ("x86/mm/tlb: Update mm_cpumask lazily"). This is distinct from lazy TLB
+>> mode: a CPU actively running another address space need not be lazy.
+>>
+>> Patches 1-3 prepare for target filtering in patch 4 while patch 5 adds
+>> immediate cleanup.
+>>
+>> Patch 1 rejects VP-set conversion failures that return zero, allowing
+>> native fallback rather than issuing an empty-target extended hypercall.
+>>
+>> Patch 2 makes the native target predicate reusable, retaining its
+>> context-switch ordering and adding a clearly named callback wrapper.
+>>
+>> Patch 3 uses native callbacks for requested mask trimming and global ASID
+>> transitions. The latter need guest callbacks to switch CPUs still using
+>> local ASIDs; a Hyper-V invalidation does not do that.
+>>
+>> Patch 4 filters targets before selecting either hypercall format or the
+>> all-processors shortcut. Page-table-freeing flushes remain unfiltered.
+>>
+>> Patch 5 separately requests best-effort cleanup when no remote target
+>> remains after filtering. Lazy memberships may survive this cleanup.
+>> The cleanup policy remains open for discussion.
+>>
+>> The suggested mask-weight > mm_users heuristic was tested as a replacement
+>> for patch 5's approach on a 32-vCPU Hyper-V VM. With three remote readers,
+>> mm_users was 4 while lazy memberships kept mask weights at 26-32. The
+>> heuristic requested trimming for all 10,000 flushes, and each reader
+>> received 10,000 remote callbacks. The scoped approach used Hyper-V
+>> hypercalls instead. A doubled threshold or rate-limited policy has not
+>> been tested.
+>>
+>> Earlier testing of the monolithic patch reduced the 32-vCPU all-history
+>> reproducer from 17.235 us to 1.622 us per iteration (two mprotect() calls
+>> and a write). The reporter's application hit the 600-second timeout on the
+>> unpatched 96-vCPU VM and completed in 424 and 436 seconds with the patch.
+>>
+>> Changes since v1:
+>> https://lore.kernel.org/all/20261029064234.362385-1-namjain@linux.microsoft.com/
+>> * Split the change into five patches with separate explanations (Dave).
+>> * Add the workload and regression context (Michael).
+>> * Explain the ASID fallback separately from the reported regression (Dave).
+>> * Keep related predicate/wrapper names and comment the definition rather
+>>    than the header declaration (Dave).
+>> * Explain target filtering, page-table freeing, and the no-remote-target
+>>    cleanup condition. Document the const copy and lazy-membership limit
+>>    (Dave).
+>> * Test the mm_users heuristic and retain scoped cleanup as a separate
+>>    policy discussion (Dave).
+>> * Omit Fixes tags and stable requests (Dave).
+>> * Rebase onto next-20261116.
 > 
-> Original intro - revised:
+> I've provided comments on the remaining patches in the series, mostly
+> around the AI-speak in the commit messages and code comments. I
+> still intend to look more closely at how/when to initiate trimming, and
+> may follow with additional comments on that topic.
+
+Acked. Thanks for reviewing. I'll wait a couple more days before sending 
+the next version with the changes.
+
+Regards,
+Naman
+
 > 
->  I was reading about the negative dentry problem in
->  https://lwn.net/Articles/1079407/ and thought I would have a go at the
->  easy bits.  Given how involved some of that was I'm glad I didn't try
->  the tricky bits!
+> Michael
 > 
->  So I didn't try to reduce the number of negative dentries or handle
->  them differently to positive dentries.  I just tried to address
->  specific symptoms.
-> 
->  This series addresses two reported symptoms.
->   1/ refcounts on parents can potentially overflow if there are billions
->      of (negative) children.  This was the easiest easy bit.  The first
->      patch is all that is needed.
-> 
->   2/ Walking the ->d_children list can take arbitrarily long and can
->      trigger soft lockups.  I haven't addresses the "arbitrarily long"
->      part, but the "soft lockups" is relatively easy.
->      With this in place I would feel more confident addressing
->      the "arbitrarily long" part if that seemed worth while.
-> 
->  The core idea is to use a common helper for all walking of
->  ->d_children, and teach it to drop the lock and schedule when needed,
->  inserting a cursor to keep its place.  This simple idea requires that
->  nothing should be holding any other lock while walking ->d_children
-> 
-> 
->  [PATCH v6 1/5] VFS: don't count references through ->d_parent
->  [PATCH v6 2/5] fsnotify: update children flags only when parent
->  [PATCH v6 3/5] fsnotify: don't hold i_lock while walking d_children
->  [PATCH v6 4/5] Add d_for_each_positive_child family of iterators
->  [PATCH v6 5/5] Use d_for_each_positive_child() in fsnotify.
-> 
-> 
+>>
+>> Naman Jain (5):
+>>    x86/hyperv: Reject unrepresentable TLB flush VP sets
+>>    x86/tlb: Make the conditional flush predicate reusable
+>>    x86/hyperv: Use native callbacks for trimming and ASID transitions
+>>    x86/hyperv: Filter TLB targets before building hypercalls
+>>    x86/hyperv: Request mask cleanup when no remote target remains
+>>
+>>   arch/x86/hyperv/mmu.c           | 71 +++++++++++++++++++++++----------
+>>   arch/x86/include/asm/tlbflush.h |  1 +
+>>   arch/x86/mm/tlb.c               | 18 +++++++--
+>>   3 files changed, 65 insertions(+), 25 deletions(-)
+>>
+>>
+>> base-commit: 749a4de370409464cf8501ec5b2451df45c84eb4
+>> --
+>> 2.43.0
 
