@@ -1,88 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795560666;
-	b=2r6x11k0bVc3PlBtmTxVlrZ7CRo1VtagEI1WhWXdAn108G0rfBQNvYslLJAd5E4RdWGe
-	 AeCLHUebWd3MuvnBAz834+bjYI3Q+/0EG2537HHvB//GP2jzxFpgrHiPDIG5dfyfOLeqb
-	 UtbhbH+ouRixMOZk8aScuXI7Osf2mgbwMAQRcpgmAehjU1vL3O9vGAQ34gXEMqJpswiSn
-	 HKovMi+kVI+wmfNhRY+oPBjGgOrUov6iQ1RJ4dT8/BwWs+b93IG1IhqPutPOEfjBFjwhZ
-	 zo3MwBofoLqCxZ5S5zEiEpIK7+9bq4kkixmNod83SnDv/7cXpTgihGEfRUIa7MOEQDg==
+	t=1795560668;
+	b=3GifpV/U2gyvyJYt/Gd/cYghcyBLm7Vz3gj4FfeB1ehnM9YU/vvDJm2WwjFzwJTwRR4d
+	 DQmqNkwX3+ybvt75yzgBWnX8Zlj9gmc/fzlJCO2oXARDLllg4ciZsagPFztCBgDjgyX0j
+	 jX3rS6hJGLb+ANRp9Oss7D5edo/vo+HN5xd0aKEeLusvGdb/+2VIkwe57m+FCESv1VVfH
+	 iRd7UlNz9Qe6ft8NxTPwxGjLS11y90rG8Y2qExOYlszfNpk04Xvf4akrtchGH4Q5r2oKf
+	 77QzmDohfNxZNBnTwcIC9hWx8B2dvvP42J8NyZVEniEVP7YNBJJTtFFJOOI8H3Et/ZA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795560666;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795560668;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=ODGhYIIYNFU8UQMeuzcpsug8h5Njy7gCjB7swzLesxY=;
-	b=x1vY+iB+FJDpoazoshLf+PESTVJjcQNHXbSA3Z5p6e2OnAfCChW/r7WZaeJVUZpLMY0F
-	 oU3phXaHtZ35/ODDVFp4XlJ1ifwr5UxHBwnIinrm7yt3iEmpJWc/jcmtOW8ua9T3D71KK
-	 OUWnT6CCT+pa28bjOf/i4FRkxAdYPZatvJ3hvnqzqn7qruH1gwMdxm7CI7euS+oX57hUo
-	 VvSuHvqmK2rc1Aeg8VI9xaVGLNMcRaZxwk3lqE4K9MBogmJ9T9b2safULuEfRJ1y9d/hx
-	 06o9E8WC7cBjnsXeSZPTjBQaweIyEgRE04CAFBXFMeAnYuQQY0t2+3C3Fr+yjNIyK+w==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=jrigqiEu/nUvTtr8hgpZahiDD4O3PEjOJSdql4Qjodk=;
+	b=gWruBIE3QNoddFFNaZpIfZa1uFr6va5RzEqvZhJW3KCskcueFlINFUKEnYfzIGeyAlWT
+	 Rwt0mMZ3NLJmLvaLOicQIHfevBBWIU8Z5XC8A74LPXcopkD/C8O2YWEbfQ2a8cL9NNY/R
+	 f/Q6z15Vw68V8ie/f8ys0Rcr9hDfsPK06E0IuucBgz2UJ3iMHM8byDL08g/YWxzDQ7qVa
+	 M0f2lk+4ZQXUvVZhfSKQwm54+t52PeTcke3/7BeXOK0f17U/Kw0ERj1fW8SU8EcGrJ/IC
+	 hw9B936/jgFbgYi6nbWR8QzitcDa383HmPg0MH/AIoo4KxNVe1jP+cjT2BIirgDWDmA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="qTp/BsIc";
-	arc=none smtp.remote-ip=209.85.128.49
-Received: from mail-wm1-f49.google.com (mail-wm1-f49.google.com [209.85.128.49])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=IwU9Qbho;
+	arc=none smtp.remote-ip=209.85.128.43
+Received: from mail-wm1-f43.google.com (mail-wm1-f43.google.com [209.85.128.43])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 47324606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 22:51:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 47324606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E6DFB606A33F
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 22:51:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E6DFB606A33F
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qTp/BsIc
-Received: by mail-wm1-f49.google.com with SMTP id 5b1f17b1804b1-4bb72b44a97so44180315e9.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 14:51:06 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=IwU9Qbho
+Received: by mail-wm1-f43.google.com with SMTP id 5b1f17b1804b1-4b467581b98so49631985e9.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 14:51:07 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795560665; x=1796165465; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=ODGhYIIYNFU8UQMeuzcpsug8h5Njy7gCjB7swzLesxY=;
-        b=qTp/BsIc4HSUr/a/efb4ZfI8s76HJe2q/L3mrsg6HT+xfczyQ422bq9vkIWYaGphRu
-         OEovo9d47tz5RxgXJKea2DfI0kqymDyuRWooJWiJqfUKVJeIvFvkQ5RNIzv/FgyN/kY2
-         MSdpzvEl4WrPPpaJy2oKUviyBM3mFa7DmMcyiak4lN9PkElw/iFlonkEp8uiP2UL+k+s
-         GMyYokK7Murf/aKXahzFTG+Y9TlJajJlOgY+HX8PmmSB8hcB5wpXlLNg4cMdTqe2Nf9W
-         QDeVbdaWbkhsB3ch/LqwHdcKEkdxxvHvmHruhICT9EnPF1D7RwS2w2OoOLjyIWcA352s
-         TmQg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795560665; x=1796165465;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+        d=gmail.com; s=20260707; t=1795560666; x=1796165466; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=ODGhYIIYNFU8UQMeuzcpsug8h5Njy7gCjB7swzLesxY=;
-        b=2aMjVPYNARTFg0prtUAqcPMrTg94lCUhKJzU1cwu+XecbXte+EXitLElSDLm/aZols
-         eZfQLikPR9WDJEXV9NOfTZhl5orcO2IHAteYeAGyVlnmoeVXcygN/NFEMJNk4CHFvtY6
-         V3gOYVPTG8EwfJaRb4V4AbCp1hMBr7TevK/rC9gigwF795AjGPmizIYPF9/QfYO0ncg9
-         HuZIHsq6GlWc+ufeJhGXHpqCu+ZH+nOYiGYLyY1kkqY39rN0beuIATYBvXHMsSveGsng
-         thQqAzMuYhybClYvC+exMsCzZDth+o95m2za9X0RTjn65wvKSUyMbdmhqcaZ8jw2OIXS
-         vtsA==
-X-Forwarded-Encrypted: i=1; AL+hErGtMtG6497GCYw6G8R3ZsG6pwqjg7RQqBRF2jerKlvyTKjpZ+JccR/oBtJU0XskS+A8Cjewz7ol//m8MuY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9NaCnZNhQgAmc4dEMgztwT4TUUvaoUMApOP3woXLug4d+tE55K
-	L1MStGdcDvo4opLF3nfbKvIEhIYzE7HI0zf42T8rA2AA9IgciSWpkO4=
-X-Gm-Gg: AZFdTZdwAVc1knTVw13YWYgpfBW4kt28pAFH+PM776VX/IXlqrqoagcy0oIlN0nARtt
-	OfLSa2E9P8OilMNI1DWFF5RMZU9rduRJCd8rUWvpV0bUBlHj4PKf1xcJaopegHFSUH10xwX2q2H
-	wxfyI839bFlXT9zpeu1Rst+ooBPAh9utnsHeILbi356uTcRNHj/NvOPChJhlVxaEjX8he4X5nXj
-	TPeMRLdjxzzPxkFl04V+vuI8Puwfp8Wm6WdwibIvoAxeJkDKVTrs4emiI7UjkGR2LUB52yyphZB
-	5gO3m5oyaDcjdXUUvhG56OCWAt7zQXB7noIuH+Oxs1I8NqjJhjdfAzAIdKz2V5JygX+gQnpox8u
-	ERA7rB8ILYIz8L4WAKjvNMYwr9duMleD/76oU7i5uiuot9qnrPHNwSXdlYc/BGFf1t2ig+Y5MFX
-	DOFj41zIfu2BZpnhhcsWKCsDt8bZw9xdYFlHvVbXx/sMlKtJqcQNDkLdF0HSpyCGZmXMv4dGkip
-	sY1aCzRnN1pDvJSFkPaycfxEPGJI/eh6GO2z+2KbTL2Sf5g7+6N5jaG/vs6xc7m2vBdal0JzKTA
-	fjrarp9lqZBecTQWacSB6a5yG28+muVA298VkoYWFydf8APgTnMy4iOyyZ3AyU4IF1JLLfW3msL
-	IlIVugBHZuMDwKxUOj62QJFvHZONIUeVlBLMocUBHzmw9NhrBu1SqI6eM836ziSwndnb0QFugH3
-	mNBNXtctRh7eaSNXSpYrK7INiplbH/vRAw
-X-Received: by 2002:a05:600c:848d:b0:4ac:86c9:b09c with SMTP id 5b1f17b1804b1-4bb88811da9mr336204505e9.13.1795560664476;
-        Tue, 24 Nov 2026 14:51:04 -0800 (PST)
+        bh=jrigqiEu/nUvTtr8hgpZahiDD4O3PEjOJSdql4Qjodk=;
+        b=IwU9QbhodXzlLDRauWBLrFbli/b9ei5ev5Yr6svDKdoANACaA9KLxcnMoSiHjB2uQL
+         Fcdp5U9gh74slg4rFlwZHdSadfT6fhg4WDhi1i3MABxRtGG6ZDLzyDi7/+7EHkmIEl34
+         S8KIhqYfbkxrK85wMruIrUnGuvmWJKChn7HwavPJsaDZ8C89ZfgYugOKlQjmdbHR7GcC
+         HXjCYimCXcEMPCd7mKCxsIf90YhibXQBMus2F3VR+zJLk/Sy8ZBoqsmldO6zjOstdVyD
+         l3ZweCwHPPW5c4cDA2tRXMo+yhYDHUqNsc2Qomy96/mVnHn5FtmOKe8Fy3oNPk/cubNM
+         bVwg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795560666; x=1796165466;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=jrigqiEu/nUvTtr8hgpZahiDD4O3PEjOJSdql4Qjodk=;
+        b=ahuFhkRI9zvShZMFYFj7dEOmKCJDqw6fe00BJWxUoNgOx1ezIXTKl98D0ZgWqsVZm3
+         Z+S+FE+MFoSnMubRfV/Mb03Sj/sk3BjgihdKjqvzyUwg/rz1qHKH6NH+aypUqFf2wep5
+         byE72uHj6ZKykm8zP/CGUxknbAeIahjzeF5f3omuq+D+UoKwu3Lyv+U6MBBMQ7AD7WxO
+         iaIHZKWRqF6M0aHqB/w0I/jPYPFDjff9Pbu/JJrc+4Oy2Bs24WpIq7HcukUaK02MRpKt
+         k/i2df+pIC9OQ24zAiacb7d1WuLzDKvo2bA+uVydYzunDwdFuUKTLdzB1aHJqyKPBgvV
+         Cgww==
+X-Forwarded-Encrypted: i=1; AL+hErGRs7/Sxe22u1C0SXE8m8gs8vmGZr9fic6XWKFYdCYHlSp+X3H7fxXtAdzjRn3H8XvLS25AWOR9wDUaZaI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8/fBizHRb+BecFdM5xUKMszLGQcfVQbP/KfcnH24aA3lkJS28v
+	/Y3APbe3d9fUsX4q7HczTwBGTU8TJ1B8O7wrTt/yiu9HDanh+HZClSs=
+X-Gm-Gg: AZFdTZeekqOYybd++A6VGR14TjQXFzFgK2qLeylQxRdI3FuzVyHsFzXu5gs+4leWJTM
+	dMoxb0cWCRlVaHhEB0CjsMsBIUlys9/KwUclreyHhjfHwpmJUCn1O3Vd2Rvh8/vCSKI+SGgl/8Y
+	d46DysFGWIFZP9N5xvkcp2BXTjQJzEjBIyGFtQ6mkXczY8BsFzbAyWWviZdQmDtS1rYoguhJQ6w
+	0HJOcgx3UkqFVO6ZWB5k5kCsZnKptWrqLhArLLcnAU1zN02Ti2+h+TKd1ZFP0E2iaX91XF9k62C
+	oISfRwf83ZphtV/s1tZ9YMq9yn/06chcuTjQ6xjI5eJ+OW69mw3H6jQN+A/jfuOnw0TFuSsLFH/
+	vV62J/jR2ienH/5aNype28/JxQpro4sfI3nL5dq5BtjdRE/QDzVCZInBe5wzIbx0alxxFnw14iE
+	WGfXGBHJaGwvJZyoAYLHd4cFZ4rdV7SLDcskbPC+Pwm5ovdPW9PE98LEOyt6ERFOUTC2Re4E+5J
+	1b+DHuNRV/Jq7855uFF2UpOHjwMltWwkRTkgZ04tZ1fx2v0w1mnbQRutEIqn6fG1e6fd9trzatI
+	X05LseWi2S9fe1NQ50vJk+hsGJbLAKVUcFykU1bW3hIONsRS+axWA7YIuHL7HM24A1wYYYvYYa8
+	h1q4FSt++bZMRP7MLkIy2Elh2zn5THcMd1sQ8ZTNLdWjfle5llTaJs6UjXmaB8LYP9j3jpjoqRB
+	aMQ21AjUOg6V+gkUdETw99h4bC1pom/U2F
+X-Received: by 2002:a05:600c:3b8a:b0:4a3:59c9:a754 with SMTP id 5b1f17b1804b1-4bb8892da25mr318594355e9.22.1795560666345;
+        Tue, 24 Nov 2026 14:51:06 -0800 (PST)
 Received: from localhost.localdomain (dynamic-2a02-3100-2ec1-8a00-a10d-4335-1e05-e7ae.310.pool.telefonica.de. [2a02:3100:2ec1:8a00:a10d:4335:1e05:e7ae])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853a1e8bsm393839525e9.9.2026.11.24.14.51.01
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853a1e8bsm393839525e9.9.2026.11.24.14.51.04
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Tue, 24 Nov 2026 14:51:02 -0800 (PST)
+        Tue, 24 Nov 2026 14:51:05 -0800 (PST)
 From: Tobias Philipp <tphilipp@gmail.com>
 To: bpf@vger.kernel.org
-Cc: Tobias Philipp <tphilipp@gmail.com>,
+Cc: Felix Fietkau <nbd@nbd.name>,
 	Alexei Starovoitov <ast@kernel.org>,
 	Daniel Borkmann <daniel@iogearbox.net>,
 	Andrii Nakryiko <andrii@kernel.org>,
@@ -100,17 +101,19 @@ Cc: Tobias Philipp <tphilipp@gmail.com>,
 	"David S. Miller" <davem@davemloft.net>,
 	Jakub Kicinski <kuba@kernel.org>,
 	Shuah Khan <shuah@kernel.org>,
-	Felix Fietkau <nbd@nbd.name>,
 	=?UTF-8?q?Thibaut=20VAR=C3=88NE?= <hacks@slashdirt.org>,
 	Stijn Tintel <stijn@linux-ipv6.be>,
 	Daniel Mack <daniel@zonque.org>,
 	netdev@vger.kernel.org,
 	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH bpf-next v2 0/4] bpf: Fix 8-byte alignment of map values
-Date: Tue, 24 Nov 2026 23:50:51 +0100
-Message-ID: <20261124225055.87344-1-tphilipp@gmail.com>
+	linux-kernel@vger.kernel.org,
+	Tobias Philipp <tphilipp@gmail.com>
+Subject: [PATCH bpf-next v2 1/4] bpf: Fix alignment of memory allocator objects on 32-bit archs
+Date: Tue, 24 Nov 2026 23:50:52 +0100
+Message-ID: <20261124225055.87344-2-tphilipp@gmail.com>
 X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20261124225055.87344-1-tphilipp@gmail.com>
+References: <20261124225055.87344-1-tphilipp@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -123,139 +126,96 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-The verifier checks the alignment of BPF_DW atomics and 64-bit
-load-acquire/store-release on PTR_TO_MAP_VALUE only against the offset
-within the value. It assumes that the value itself is 8-byte aligned.
-That does not hold for all map types. Address of the value mod 8, as
-measured on bpf-next (see Testing below):
+From: Felix Fietkau <nbd@nbd.name>
 
-                                    64-bit    32-bit
-  lpm_trie, key_size 8 (IPv4)          4         0 (by accident)
-  lpm_trie, key_size 20 (IPv6)         0         4
-  hash, rhash (BPF_F_NO_PREALLOC)      0         4
-  devmap, devmap_hash                  4         4 (harmless, see patch 3)
+The BPF memory allocator prefixes each object with a header that holds
+struct llist_node while the object sits on a free list, and a pointer
+to the owning bpf_mem_cache while it is allocated. The header size was
+sizeof(struct llist_node), so on 32-bit architectures the memory handed
+out was offset by 4 bytes from the 8-byte aligned kmalloc allocation.
 
-On arm64 the JIT emits LSE atomics or LDXR/STXR loops, LDAR and STLR
-for these instructions. All of them fault on misaligned addresses.
-FEAT_LSE2 relaxes that for LSE atomics that stay within a 16-byte
-block, and for LDAR/STLR only if SCTLR_EL1.nAA is set, which Linux
-does not do. On arm32 the interpreter uses atomic64_*(), i.e.
-LDREXD/STREXD, which require 8-byte alignment. On x86-64 a locked
-8-byte access at 4 mod 8 that crosses a cache line is a split lock,
-which is fatal in kernel mode on CPUs with split lock detection. None
-of these faults is fixed up.
+The verifier assumes that allocated objects are 8-byte aligned and
+allows BPF_DW atomic instructions on their u64 fields, e.g. on values
+of non-preallocated hash maps, objects from bpf_obj_new() and local
+storage. On arm32 the JIT does not implement atomics, and the
+interpreter executes them via atomic64_*(), which are implemented with
+LDREXD/STREXD on ARMv6K and later. Those instructions require 8-byte
+aligned addresses; a misaligned address raises an alignment fault and
+crashes the kernel.
 
-Patch 1 is Felix Fietkau's fix for bpf_mem_alloc on 32-bit [1]. It was
-posted in July and is not applied yet. It is included unchanged apart
-from a rebase, because patch 2 depends on it. It fixes the hash and
-rhash rows and the node alignment of lpm_trie on 32-bit. The Sashiko
-review of that posting points out a pre-existing 8-byte load of the
-4-byte percpu pointer in the bpf_per_cpu_ptr()/bpf_this_cpu_ptr()
-fixup on 32-bit. Patch 1 neither causes nor fixes it, and this series
-does not address it. Among the 32-bit JITs only x86 supports kfuncs,
-so only x86-32 can reach it. Using BPF_SIZEOF(void *) for that load
-would fix it.
+Pad the header to 8 bytes to preserve the alignment provided by
+kmalloc. Store the percpu pointer of percpu objects at the new header
+offset instead of assuming the header is pointer-sized, and update the
+copy of the header size used by the hash map memory usage accounting.
 
-Patch 2 pads the lpm_trie key to a multiple of 8 bytes, like hashtab
-does.
+Fixes: 7c8199e24fa0 ("bpf: Introduce any context BPF specific memory allocator.")
+Reported-by: Thibaut VARÈNE <hacks@slashdirt.org>
+Reported-by: Stijn Tintel <stijn@linux-ipv6.be>
+Signed-off-by: Felix Fietkau <nbd@nbd.name>
+Link: https://lore.kernel.org/all/20260717183632.99195-1-nbd@nbd.name/
+[tphilipp: rebased onto bpf-next, adjusted context in hashtab.c.
+ Local storage no longer uses bpf_mem_alloc in bpf-next. On 32-bit
+ this patch moves an IPv4 lpm_trie value from 0 to 4 mod 8; the next
+ patch fixes that, so both have to be applied together.]
+Signed-off-by: Tobias Philipp <tphilipp@gmail.com>
+---
+ kernel/bpf/hashtab.c  | 2 +-
+ kernel/bpf/memalloc.c | 8 ++++----
+ 2 files changed, 5 insertions(+), 5 deletions(-)
 
-Patch 3 aligns the devmap value.
-
-Patch 4 adds a selftest that checks the address of the value returned
-by bpf_map_lookup_elem() for lpm_trie, hash and devmap. It executes no
-instruction that needs alignment, so on an affected kernel it fails
-instead of crashing.
-
-Patches 1 and 2 have to be applied together: on 32-bit, either one
-alone misaligns the IPv4 lpm_trie value (see "arm32 + patch 1" in the
-table below), and both commit messages say so. I kept them separate to
-keep Felix's authorship; they can be squashed if that is preferred.
-
-The other map types that hand a value pointer to programs return 8-byte
-aligned values. cpumap has its value at offset 20 on 32-bit, but the
-verifier does not let programs look it up.
-
-Testing, in disposable QEMU VMs:
-
-- arm64, defconfig + selftests/bpf config, QEMU with HVF on an Apple
-  M-series host (FEAT_LSE2): map_value_align fails on bpf-next
-  (lpm_value_align: 4, devmap_value_align: 4) and passes with the
-  series. With the series, test_maps passes the lpm_trie basic_ops,
-  batch_ops and get_next_key tests and the hash and array tests, and
-  test_progs passes pinning_devmap_reuse and xdp_devmap_attach
-  subtests 2 and 3.
-
-- arm32, multi_v7_defconfig + BPF_SYSCALL, QEMU virt with Cortex-A15
-  (TCG): test_progs is hard to cross-build for armhf, so a small static
-  program does the same check as the selftest: an XDP program looks up
-  each map and stores the value pointer in an array map. Address mod 8:
-
-                         lpm IPv4  lpm IPv6  hash  rhash  devmap
-    arm32 bpf-next           0         4       4     4      4
-    arm32 + patch 1          4         0       0     0      4
-    arm32 + patches 1-4      0         0       0     0      0
-    arm64 bpf-next           4         0       0     0      4
-    arm64 + patches 1-4      0         0       0     0      0
-
-- pahole matches the layouts in the commit messages: devmap val at
-  offset 52 -> 56 (arm64, size stays 64) and 28 -> 32 (arm32), and
-  lpm_trie_node data[] at 24 (arm64) and 16 (arm32).
-
-- W=1 builds of the four touched kernel files on x86_64, arm64 and
-  arm32 produce no warnings.
-
-Not tested: runtime on x86_64; test_progs on arm32; selftests that need
-CONFIG_FTRACE or bpf_testmod, which my configuration lacked. That
-includes xdp_devmap_attach subtests 1 and 4 and the bpf_obj_new and
-percpu allocation tests; they failed to load in the same way with and
-without the series. Patch 1 does not change anything on 64-bit. The
-LDAR/STLR behaviour with FEAT_LSE2 and the x86 split lock case come
-from the Arm ARM (SCTLR_EL1.nAA) and arch/x86/kernel/traps.c; I did
-not trigger them.
-
-The lpm_trie bug was found with AI assistance while trying to verify
-the correctness of map value accesses with formal methods. Patches 2-4
-and this cover letter were written with the help of an AI coding
-assistant (Claude Opus 5.5).
-
-[1] https://lore.kernel.org/all/20260717183632.99195-1-nbd@nbd.name/
-
-Changes in v2:
-- Target bpf-next (Alexei).
-- Fix the 32-bit node misalignment at its root in bpf_mem_alloc by
-  including Felix's patch. v1 rounded data_size up on top of a node
-  at 4 mod 8 on 32-bit and so misaligned the IPv4 value there, which
-  is aligned today (Alexei).
-- Drop "data[] __aligned(8)". data[] is at offset 24 or 16 already and
-  the annotation changed nothing (Alexei). Add a BUILD_BUG_ON() for
-  that offset instead.
-- Add the devmap fix (Alexei).
-- Add a selftest (Alexei).
-- Correct the commit message, which claimed that the IPv4 value is at
-  4 mod 8 on all architectures.
-
-v1: https://lore.kernel.org/bpf/20261119155317.11469-1-tphilipp@gmail.com/
-
-Felix Fietkau (1):
-  bpf: Fix alignment of memory allocator objects on 32-bit archs
-
-Tobias Philipp (3):
-  bpf: Align lpm_trie map values to 8 bytes
-  bpf: Align devmap values to 8 bytes
-  selftests/bpf: Check that map values are 8-byte aligned
-
- kernel/bpf/devmap.c                           |  5 +-
- kernel/bpf/hashtab.c                          |  2 +-
- kernel/bpf/lpm_trie.c                         | 19 ++++---
- kernel/bpf/memalloc.c                         |  8 +--
- .../bpf/prog_tests/map_value_align.c          | 51 +++++++++++++++++++
- .../selftests/bpf/progs/map_value_align.c     | 48 +++++++++++++++++
- 6 files changed, 121 insertions(+), 12 deletions(-)
- create mode 100644 tools/testing/selftests/bpf/prog_tests/map_value_align.c
- create mode 100644 tools/testing/selftests/bpf/progs/map_value_align.c
-
-
-base-commit: a58375b858fac35afb78a3dd68ad6a19c01799eb
+diff --git a/kernel/bpf/hashtab.c b/kernel/bpf/hashtab.c
+index a2d0bfd4c..b84911054 100644
+--- a/kernel/bpf/hashtab.c
++++ b/kernel/bpf/hashtab.c
+@@ -2594,7 +2594,7 @@ static u64 htab_map_mem_usage(const struct bpf_map *map)
+ 		else if (!lru)
+ 			usage += sizeof(struct htab_elem *) * num_possible_cpus();
+ 	} else {
+-#define LLIST_NODE_SZ sizeof(struct llist_node)
++#define LLIST_NODE_SZ ALIGN(sizeof(struct llist_node), 8)
+ 
+ 		num_entries = bpf_map_sum_elem_count(map);
+ 		usage += (htab->elem_size + LLIST_NODE_SZ) * num_entries;
+diff --git a/kernel/bpf/memalloc.c b/kernel/bpf/memalloc.c
+index 15684d0fc..29d62d864 100644
+--- a/kernel/bpf/memalloc.c
++++ b/kernel/bpf/memalloc.c
+@@ -33,7 +33,7 @@
+  * Every allocated objected is padded with extra 8 bytes that contains
+  * struct llist_node.
+  */
+-#define LLIST_NODE_SZ sizeof(struct llist_node)
++#define LLIST_NODE_SZ ALIGN(sizeof(struct llist_node), 8)
+ 
+ #define BPF_MEM_ALLOC_SIZE_MAX 4096
+ 
+@@ -148,7 +148,7 @@ static struct llist_node notrace *__llist_del_first(struct llist_head *head)
+ static void *__alloc(struct bpf_mem_cache *c, int node, gfp_t flags)
+ {
+ 	if (c->percpu_size) {
+-		void __percpu **obj = kmalloc_node(c->percpu_size, flags, node);
++		void *obj = kmalloc_node(c->percpu_size, flags, node);
+ 		void __percpu *pptr = __alloc_percpu_gfp(c->unit_size, 8, flags);
+ 
+ 		if (!obj || !pptr) {
+@@ -156,7 +156,7 @@ static void *__alloc(struct bpf_mem_cache *c, int node, gfp_t flags)
+ 			kfree(obj);
+ 			return NULL;
+ 		}
+-		obj[1] = pptr;
++		*(void __percpu **)(obj + LLIST_NODE_SZ) = pptr;
+ 		return obj;
+ 	}
+ 
+@@ -262,7 +262,7 @@ static void alloc_bulk(struct bpf_mem_cache *c, int cnt, int node, bool atomic)
+ static void free_one(void *obj, bool percpu)
+ {
+ 	if (percpu)
+-		free_percpu(((void __percpu **)obj)[1]);
++		free_percpu(*(void __percpu **)(obj + LLIST_NODE_SZ));
+ 
+ 	kfree(obj);
+ }
 -- 
 2.54.0 (Apple Git-157)
 
