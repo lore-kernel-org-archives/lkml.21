@@ -1,62 +1,53 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795517866;
-	b=cAsHFrw7036O3ms90qyBVLIX15xtgoi2xKDGA9xUZi8PlwFSd22tAj4Yor1dt3r5Cjzm
-	 DFECza5atSW7gYzypD34L4kP+dMEj+rHwhSdb2zxa5q8m3LbtGd9ZUg4K4jOuHLLFG/0y
-	 fzhioVMXp6en04ELp3v3YBPcB/Ra975zFjAznvLH/GbUBkF1H5K1HwllTCeJ+AEBt4qfs
-	 DLo/1adm+VBQzJnR9dtjKouleFDz4OUGQ6oExZrcP+XhwRPUBOyTdM9CsU9JZJaoXM7AY
-	 zFxEjEiVN40kn7i+ONncH6jbVuIYUvWvf81+mQaaZ+qHcjdpAuYdCL5Ws8lYqemD3iA==
+	t=1795517996;
+	b=A88nDVgDCf9Gbq/7YIMbOZnl6Oz5eAf+p567MinwEGdPtA1DaVg/EmWTlQVdHKH/0pW/
+	 ykbjzu1nERzjYptmDN+dJ9Ql6BA+MAKJkQPC+YDz2J1spYLfmO0yOF4IfgS/6j00zVCsD
+	 BAyH1MqWmkc/dRY1nG41WIrjATcJwgnaoSwcTusw2M4tSMv5scyNAFUisgPzT3E3BUPnv
+	 2xpAUvNb0Ic7Q1td6fIuh9WU1NCgcDyT7GyD/I26qdmf7g6ZVOiFxWruAnri19SUHvpCH
+	 Or3A96WlxhQVzo3UsICMRr/MFRHDju1WdpDOeG0ysUWHCWkEJe0sPt9RuiKcNXjIPTg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795517866;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=MInfQnrnLXxM8M2N5OHhWzB2hL0u2EMS41BZ8oPo2/Y=;
-	b=Erure7ysWv5Gi4gLffdc/uxmYvxBe3r5i+IOlINVtELF2t0+l0158jXgLLm9hTTS/8rn
-	 bRQ3BHbq+VEZ3AgKeCKOY3wulGyjrGSyR0F2OcZVFGV+vrcC0Id1QcH5beEMUf2ZH1X72
-	 oPDnbgxPvCdAFCHtCD1/QoRSHd2Jz6uCkXJPDNuhoQDNaz0a9fU9FTsuDsTYbFiQABrsr
-	 cXmOUWgpYEGkf85PWvSOhuyFow9sCsoEU3iGrYLv1b9toJ2+ACZu1GWTqx0jZ85qLgAFW
-	 bEeKBPoACYAuzJb+rwEjik3EFxBZfLlUn8tfkqMg+oW276VgR++bNFZ4UaymBV0if3Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795517996;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=cF/6djvTEEZ8CwvBNurkZV9cycUNuzsQhk1QXHo3YTE=;
+	b=p+dkuNL0UjL5v9/dFfvuxOtDZfgDUSwLfleNl/dF4lL8GS/jWI488O3sS4UVm8Dspj2R
+	 WGzYk+cf9Yb5ZdK7G83Q1D01iEzyBaJSZ/UEYFVLzqrbDmc/7ag4UBPiDJhVZY5lPXM8U
+	 sSPCM79J9AFot31qp29a+OfeZ33gn9KOZlyeak6E26FUyseQvvk6jT+BsboT2dtIf04ch
+	 264QTB2Gakad/7jUuGq9qCYdSRHlhwTeBjALt/XgPUeLwAoCiGLxNnpa6F9bnb8npILmi
+	 v9xCWdsDB7pjU+iYi3VHvcp+LM8P95jtRBzSQ9VJWpcRpa35Qh2/U3Xx8UEtwRlhcjA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oMDa9B3s;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=S5lkZfm+;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A44FC606A338;
-	Tue, 24 Nov 2026 10:57:46 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4D337606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 10:59:56 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oMDa9B3s
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4BA7D1F01562;
-	Tue, 24 Nov 2026 10:57:45 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=S5lkZfm+
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F1BD1F000C0;
+	Tue, 24 Nov 2026 10:59:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795517866;
-	bh=MInfQnrnLXxM8M2N5OHhWzB2hL0u2EMS41BZ8oPo2/Y=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=oMDa9B3sGTcUgHEJJmlixx80WLqwiNntaDgF48tg4noGc5i7pnBozS6ojTTYyrkdm
-	 eFfzL/2LFY4e9W6Ophv4iomm5Gt45h+QJiGf6mx97XCXFAR1uSxQ7TKzqpKzM4glkZ
-	 oTB0RVrJmijUoba4Itra4SE6agp75LEbSZPTCkUPciTpSS4MhMWkLEpXygwn/qH7nR
-	 n+IUJ9PDdnX75jm/n2O2qTpQiJCoudf1eRCihUeFJy0v7HIv8dvO1go/LUS3lENjjR
-	 i2nbIH9d8/UG5HpQATlzlZ1nCM+YhNXQ4TJexuaoufkIXUzTVljbBeb0ESv0PnWg2o
-	 ll1DiJxgNzQag==
-Subject: Re: [PATCH net-next v2 1/2] net: stmmac: dwmac-motorcomm: remove the
- device at shutdown
-From: netdev-bot+sashiko@kernel.org
-To: magnusleatti@kernelriot.com
-Cc: me@ziyao.cc, maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
- g.nespolino@gmail.com, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Date: Tue, 24 Nov 2026 10:57:44 +0000
-Message-ID: <179551786477.3135.6652175828683602957@kernel.org>
-In-Reply-To: <20261120102754.778283-2-magnusleatti@kernelriot.com>
-References: <20261120102754.778283-2-magnusleatti@kernelriot.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	s=k20260515; t=1795517995;
+	bh=cF/6djvTEEZ8CwvBNurkZV9cycUNuzsQhk1QXHo3YTE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=S5lkZfm+MFeGOIpNjApOliu/J4XeoGuotqSW8wK/f7ig32L8dv3OhCmRrlU6jVo2b
+	 U9IaMqlp2njS6zluMCSHW58wHBZq9UF+PZusz+GfV1WtBYwTMQDxIWiI3DeDHNQTl+
+	 jrlMVuM/nBJ1lu/K37kbL4Q+CWfKqDAM5CyMnYt55k2yMjHyoZ/SNDkaW8g+OUxKFP
+	 8KLRQ0f8HQVbAaXcf6t+nJGAB5Rdr06S2PN8EkLY6iuYqkPku2UaUGoTDUwramM8Xg
+	 pfGvshmv1XsOvMaKul6u9Ke9pFmxfAUomnHM78JU83/452AoIrnEKYZFq1LL+wnNsO
+	 O0hIIYTkg4vqQ==
+Date: Tue, 24 Nov 2026 16:29:51 +0530
+From: Vinod Koul <vkoul@kernel.org>
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	linux-phy@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] phy: ti: Convert to subsys_platform_driver()
+Message-ID: <awVuJ2z1N1ZTGFCy@parshuram>
+References: <20261104113337.1634199-1-peng.fan@oss.nxp.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,121 +57,17 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261104113337.1634199-1-peng.fan@oss.nxp.com>
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+On 04-11-26, 19:33, Peng Fan (OSS) wrote:
+> From: Peng Fan <peng.fan@nxp.com>
+> 
+> Replace the open-coded subsys_initcall()/module_exit() platform driver
+> registration with subsys_platform_driver().
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 1
-
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [Medium] The patch wires `.shutdown` to the full driver teardown:
-  `motorcomm_remove()`, which calls `stmmac_dvr_remove()`.
-- [Low] The commit message describes a defect: without .shutdown, reboot,
-  kexec and power-off leave the MAC and DMA running.
-
---
-
-net: stmmac: dwmac-motorcomm: remove the device at shutdown
-
-This commit sets the .shutdown callback of the Motorcomm YT6801 PCI glue
-driver to motorcomm_remove(). As a result, stmmac_dvr_remove() runs on
-reboot, kexec and power-off, so the interface is closed and the DMA and
-MAC are stopped before the next kernel or power state.
-
-> No .shutdown here, so reboot, kexec and power-off leave the MAC and
-> DMA running. This chip keeps its registers through S5 too.
-
-[Severity: Low]
-Should this carry a Fixes: tag?
-
-The problem described here is real for kexec. motorcomm_probe() calls
-pci_set_master() before motorcomm_reset(), and pci_device_shutdown()
-only clears bus mastering without resetting the DMA engine.
-
-The dwmac_motorcomm_pci_driver struct without a .shutdown callback
-came in with:
-
-Fixes: 02ff155ea281 ("net: stmmac: Add glue driver for Motorcomm YT6801 ethernet controller")
-
-Without the tag, stable trees that carry this driver won't pick up
-the change. A backport of this patch as written would also bring in
-the double teardown described below.
-
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-motorcomm.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-motorcomm.c
-> index 42f0b11a7b606..63ce2301a0f69 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-motorcomm.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-motorcomm.c
-> @@ -374,6 +374,7 @@ static struct pci_driver dwmac_motorcomm_pci_driver = {
->  	.id_table = dwmac_motorcomm_pci_id_table,
->  	.probe = motorcomm_probe,
->  	.remove = motorcomm_remove,
-> +	.shutdown = motorcomm_remove,
-
-[Severity: Medium]
-With this change, can stmmac_dvr_remove() run twice on the same
-binding?
-
-device_shutdown()->pci_device_shutdown() only calls drv->shutdown().
-It does not unbind the driver. device_lock(dev) is released as soon
-as the callback returns, and drvdata still points to the
-devm-allocated net_device.
-
-The device is still bound, so a later .remove can still happen.
-Examples are a sysfs unbind, rmmod, or a pciehp/Thunderbolt surprise
-removal handled by the parent port. The parent port is shut down
-after its children, because device_shutdown() walks the device list
-backwards. Any of these goes through:
-
-pci_device_remove()
-  motorcomm_remove()
-    stmmac_dvr_remove()
-      unregister_netdev(ndev)
-
-stmmac_dvr_remove() is not safe to call twice:
-
-drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:stmmac_dvr_remove() {
-    ...
-	unregister_netdev(ndev);
-    ...
-	phylink_destroy(priv->phylink);
-    ...
-	destroy_workqueue(priv->wq);
-	mutex_destroy(&priv->lock);
-	mutex_destroy(&priv->est_lock);
-	bitmap_free(priv->af_xdp_zc_qps);
-    ...
-}
-
-It clears none of these pointers and sets no flag to record that
-teardown has already happened. On the second call,
-unregister_netdevice_many_notify() would hit this with rtnl_mutex
-held:
-
-	BUG_ON(dev->reg_state != NETREG_REGISTERED);
-
-With CONFIG_BUG=n, the second call would instead lead to:
-
-  - a use-after-free and double free of the phylink in
-    phylink_destroy()
-  - a use-after-free in destroy_workqueue()
-  - a double bitmap_free()
-
-The follow-up patch "net: stmmac: dwmac-motorcomm: support Wake-on-LAN
-from S5" still calls stmmac_dvr_remove() unconditionally from
-motorcomm_shutdown(). The problem is therefore still present at the
-end of the series.
-
-For comparison, the shutdown hook in dwmac-sun8i only quiesces the
-hardware. Could this driver use a shutdown that only quiesces the
-device instead? That would mean detaching and closing the interface
-under rtnl, stopping DMA and MAC, and powering down or arming the
-PHY. Another option would be to make the remove path safe to call
-twice.
+You should have split by driver. I have picked similar change from Brian
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261120102754.778283-1-magnusleatti%40kernelriot.com
+~Vinod
