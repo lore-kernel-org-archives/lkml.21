@@ -1,79 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795542186;
-	b=p3pn95ktGLJumrdFjX0U9uipah92kqsmJgvc5dh9xGhFPiQFTobGtf+M3QXgKrbmpmEA
-	 ZnrHdNurPFGmFl9pByhuZGRn+b/axvzZ+br7p9bxPRAO+vUoYEdhEj7uGHjf0ELQDJL1e
-	 nGZtMFEy1OTuACTu6PKuoqQadLxmGlGejzfwLNK0XTofUAyvmxpgYW9GBEageer4yooxN
-	 tutwuiBbLN0R+jZgpUX1OjT4qptEeZFe7hiB2nmGxNJiPOAPnEesTPvTWQDe+ixa5k169
-	 2Bv5G88w7RlyQOI+gHzzj5tT5q+dH+w/o3a8ppFsEUbp5UwHiELfFXEvA437Pxrg+rQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795542186;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=BmeSP8HjYQ5cRDtQ/CR1hWVAr3pmfYIadN9wiyMqhmA=;
-	b=5NHKTXIRHhSX3gk99rihH/eJuH4+uOotIW/3S8qAK6YvWy0P57bImoPXkXgV4UGPPXny
-	 K/BhBwwHjFpGxi35zI93P0ko3h+8asu67kmzziTSn6+kp3lEcphScHyHsXhRsHFaMDv8P
-	 AkU/8GAtqxvyjPyWfLg3LCwf2wnp7fs00kNmB+pAtaSqIG6QnAUZNr5xg2NyBnDiQMZxI
-	 pjgrFLss8i6TOORBG+WiaiKdaJBJNSEgNc+4xFxa4bY+9eucu/HZM8EHybW69lvKWs4Jo
-	 L0cFfzS2oNxzoGyAzWJaZDptH14ZLn9O0fQU84GTvl7SVINm2ixqh7QBTF5JyFAQCNA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fFvQ2bAV;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6A46B606A329;
-	Tue, 24 Nov 2026 17:43:06 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fFvQ2bAV
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795542185;
-	b=RINpyr8yd4hQ9KgU5l/nGIukTvOjXkEeuzW+OroX+tzeX5yQTL1m4VEHXr0q7oEqX6DV
-	 gW4F+A4R1tsr+F4jjm+M9E76azMeQVNcMbgTsBRJ1xU/Kr994YOEJqzuqv8qvXL5x+ysR
-	 oim7L+JVDXCPLDRAWVm7XIrAGMkyavAccaxlQ0DY3FUrN6gB5qken3OyuIzitN21a4jf0
-	 jGbxAqAekCGrj3m0a2bouIIVrDDn7Jpt7qENE3/xXDDLl6l3MrfSpUK1gO2IrKBn1z5Hb
-	 Ytvr5IhcSmT69bpIDRRTjljb+ZkCiPQ98Acd1UB5mC7TZBBo+pO4q018+NZmIBQ3PHQ==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795542185;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=BmeSP8HjYQ5cRDtQ/CR1hWVAr3pmfYIadN9wiyMqhmA=;
-	b=OEiq7KtG/Xt2J0kupC9nyzYReHdBqPJMmqm53Bdev6yxBQlcSNPqijdS00C/N1qwZlR5
-	 jPvY60qfETQmn9KmzV1CqBWZCTxnjOF870toetsuWWffPLiQDEpVPquvBV5bcIu8+qm/j
-	 SjSAT0QbhNuVtn4NIdenf0h3on/Ifj4Tr54omHIenmXwwTaTI2MGBFI8cRrPaWt3BiUBd
-	 7Zd1d4IS8vy0bYiVkwm3bv4s6tsMohFMF4LHCqxeaqiW7MFGBlLrX1ziaOOjRTq7fgeK+
-	 Mu/TAYxjVBIsZ2T94GL0Ibb3iaRF6DbzdQ4+UrTUps29Y9kqWepBzlar2maZzVl+p+Q==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.51
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795542193;
+	b=H5qRPPy6Mi1+rD2Uj1piTaOOF3SSdoMnP7303jPaFVns+lANXCSnwpqu4WRJy2iKLIM2
+	 qKLN0M/79NFa5PXbiCzheX2j1JWbgkEbwRF1mookMUH3KflryVuxX9Za/kGEiLUWfMyiM
+	 /cmUxOMX5IXIKEX9bvmTQIVoUUB506JewySJbUaSAbIM5aDwMh1K+mN6/5TbG81Gg/8yV
+	 VssCeC5Q9fqV5uiBkyhuiQSao7h+D13hH8VLsGnXjjiRdPArA7Q9QctJyaSDhw5dhgRSZ
+	 5nV6xwuwV+76003KdBFd//1i7Wc4SYCOEw2NpJR8mPnf9gMTGh/PW6zesoYaCTuoCXQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795542193;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Received:X-Forwarded-Encrypted:X-Received:Received:From:In-Reply-To:
+	 References:MIME-Version:Date:X-Gmail-Original-Message-ID:
+	 X-Gm-Features:Message-ID:Subject:To:Cc:Content-Type;
+	bh=sGwL+rAjN7ROYVGUA8Ywk3WhpiIIp3H2Jwa6afAFCVc=;
+	b=g9oprSnZ8FQE75a6JdMNS2CwGoZkehuntQOD95Avo0nJtq4r9mr1mNh6EbQ2aWbzSouD
+	 vk7mSiIu5JbgX3/pu6IYlIB3HQder2CToPbnGshbsNfWxPvZtL6zq39a+TE7+KnLwjV06
+	 k7Oci66jbLJd/8zsQ5ueddGQVm62nD6YZnUXKGJcNQ0UBHICPHRGem/TAzKhBg8+BPV9i
+	 lYu5UFNPorqFdvj2L8NyE3M/w4f8grWSuoLYnKvGO+ew07sRQ2Ai7n6LIfqrL7yilhWhz
+	 IjIl+TGzav+H0QFA2v2GRo6BKkZpRgvdd4WW7VOLqFKXNUZk+9Sv6jGnY/67CArUlyA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=none header.from=linux-foundation.org;
+	spf=pass smtp.mailfrom=linuxfoundation.org;
+	dkim=pass header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=google header.b=Bm4z767w;
+	arc=none smtp.remote-ip=209.85.218.51
+Received: from mail-ej1-f51.google.com (mail-ej1-f51.google.com [209.85.218.51])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 5F5C31F000CA;
-	Tue, 24 Nov 2026 17:43:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795542185;
-	bh=BmeSP8HjYQ5cRDtQ/CR1hWVAr3pmfYIadN9wiyMqhmA=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=fFvQ2bAVAF3MKnHzqR9W6Vp/N3LJUbEcNKj70Chd5j/L1jHRMyDJBhQxlcQ9O4dva
-	 xSSPawI4DpdmczlGkE5V1ML1vLWN/mU5e0EGCNV4sU5VSAuJxan3hn5aI1DM/HyDVN
-	 jR96aIhqMLzJ+25+RBNYbHZFOISf6O+Dfv2GCuvieSLQ1rftVtV2QDxT8W/25wvejP
-	 /hBBTXQKQclXJ2Vok7y2cxPyIo3dXxnOQO1mqlY/Kkw48xeFtnr+hguWWYt5JcednF
-	 k4lInRWFJU+jfyki/frlI7xg9foqhM6kHSfFh5BdoTJ1RSDGf2lzG9xIdr4+YhXwSN
-	 8sDMR8bU00oEA==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id D92FF4CB13;
-	Tue, 24 Nov 2026 17:43:00 +0000 (UTC)
-From: Armandas Kvietkus via B4 Relay <devnull+armandas.kvietkus.proton.me@kernel.org>
-Date: Tue, 24 Nov 2026 18:43:00 +0100
-Subject: [PATCH 1/4] firmware: qcom: scm: Add QSEE app start, shutdown and
- services image load
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 897ED606A32C
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 17:43:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 897ED606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=linux-foundation.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linuxfoundation.org
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key) header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=google header.b=Bm4z767w
+Received: by mail-ej1-f51.google.com with SMTP id a640c23a62f3a-c5126505cb3so623041166b.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:43:11 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linux-foundation.org; s=google; t=1795542190; x=1796146990; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:mime-version:references
+         :in-reply-to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=sGwL+rAjN7ROYVGUA8Ywk3WhpiIIp3H2Jwa6afAFCVc=;
+        b=Bm4z767wH6sKdGF1dg8gpYJbGb9K8flm48M9Aw2Sx8MKkoLSiawioVLFYNkWy4XjPe
+         Jp5HwzhBcxsPDX8WC9hCrBD7Sq+RQ/LWenCE59EnPcM5PE+XCD+VqW48CdLAVAtQ7WZT
+         KishY9+GAL2PBhHxTCqRUmYDMdrxnunZumlX4=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795542190; x=1796146990;
+        h=content-type:cc:to:subject:message-id:date:mime-version:references
+         :in-reply-to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=sGwL+rAjN7ROYVGUA8Ywk3WhpiIIp3H2Jwa6afAFCVc=;
+        b=SFbcjXB9KpXyErL8X6TiO2zV22Oi6QeIBITUywxD+w0FHtY13gMvqYcw2UTU13VFw5
+         KP8Vec8owlS2lcgXG9bsj+39RAYgOoxw7Xk/ngaCNz1AXARVJMvrpPcEsnq7FXZJIA83
+         984oOoBly51h8nQ1rDqNlOUC13b8nm8DOBHrF/p8viL6QhfmHFE4LPHWgnujZo0FKYav
+         afsGX0i+OhIhEJesF+8wTmlD8tBxrX9xuELqMrADGO0hDuFGNuwh7aLswmtZ78uK9bPy
+         zDHY/IPG+OjyQPbjWkwUrazECvtdGJMELTHpYUd6t6bfNUqy4aYJEX7M28GwF14fwb7a
+         XTQw==
+X-Forwarded-Encrypted: i=1; AL+hErFLAtLyc5vIrtK+RlPfNdoK/ycXwMUpKqOvP9/Br0jkBFCwk0XA6YjBnDloExG8x2vTAES1vgSLcVjoNcQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+SRbjFeSbubaQQt7N68EQGsuh8jBJLuPhoG6R/D0l/TF8jzjof
+	nCxnBW6AoKTQGMypOuVGfgWbwepHqYSsg3kPgoix49Z3uufd21P3s6Oahm/EInRG9Coj0t5CDKX
+	QMaMePG2E+A==
+X-Gm-Gg: AZFdTZdFF9rmZO+beleGR6i19qYXQuaymvqpM5uIP8BMrWWfoW819xivOJioi+ZBLKy
+	ya7l8Yi1GLs9GrUXw9bQzoEWXlA23RLD8PjZENZbIbgns69QnQAOxwDH1BRv77rfnyM0LAZDWFV
+	vT8v8OiM1+8ppL18VWWifjK11EIZb5jr9nehHc68nocrD0oKi/xWK9rcnJD1mKMlSlnNHXZ5Py3
+	puCtHDXSZvYilF5j7g1X7h4ve4VaL3pRAhOqnkwR0Gv090fxrk0f/DiXZY2nyGtUXlWmdavoytk
+	JFBUQOc97ap049pA/Sk5brSJGFZjm06RFbUh38avN+HJVkmpUf2MyeT6CgSCB00c7mSCOwONeHI
+	Te4E1ALEa6u/x3tPRUWE1YlNjOuZcoTg9pONBK6mjht4aBjAqV2dcwU+A0VHX/SPjx0VVJpcaTq
+	9d9gsnhq+kLoxas9N6vCDhZPm1ldCNgko3/O5qzjq/lXQmKFVDRhsQMZxGiWQXsWf7y5Ee3IBkL
+	ntPdqffdTH+bZyt4sDt5yHHYMfH2DSLmvuOOiH04/7qUDbgZLrUglzjlT7awxogmIqdDKCfTugv
+	ff8clrhUlKo6AecoKYRjVGRt8AdMXSOr7V1Wjp4UMgvLwnXcZUXyMKSq9bM/SVuNlvYB6ano6qh
+	YH/8=
+X-Received: by 2002:a17:906:3b04:b0:c29:3c97:c994 with SMTP id a640c23a62f3a-c513ab47f35mr979494366b.35.1795542190468;
+        Tue, 24 Nov 2026 09:43:10 -0800 (PST)
+Received: from mail-ej1-f45.google.com (mail-ej1-f45.google.com. [209.85.218.45])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513acff65bsm564347366b.4.2026.11.24.09.43.09
+        for <linux-kernel@vger.kernel.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 24 Nov 2026 09:43:09 -0800 (PST)
+Received: by mail-ej1-f45.google.com with SMTP id a640c23a62f3a-c4d581da0aaso673706366b.2
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:43:09 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErGQx3Yq9pbvtR4aOl6fSJNU5FG/+hy+qLFyGTBag+mOLFvt0TUDKdYe90eMN52rJr6TRE04Ahyphk39xXg=@vger.kernel.org
+X-Received: by 2002:a17:907:a88e:b0:c42:5363:38dc with SMTP id
+ a640c23a62f3a-c513ab0e03fmr1346144566b.25.1795542189561; Tue, 24 Nov 2026
+ 09:43:09 -0800 (PST)
+Received: from 425495914135 named unknown by gmailapi.google.com with
+ HTTPREST; Tue, 24 Nov 2026 09:43:09 -0800
+From: Linus Torvalds <torvalds@linux-foundation.org>
+In-Reply-To: <CAHk-=wgYc9vFEmyV0Ch_e49j6GOhUCMQMnMV4f1FLLvumZOmRw@mail.gmail.com>
+References: <20261122-b4-sched-wait-intr-head-v2-0-4a764b64e8ce@columbia.edu>
+ <20261122-b4-sched-wait-intr-head-v2-1-4a764b64e8ce@columbia.edu>
+ <CAHk-=wj_eqNh+gNhCQh3exrL5Pmo5hbZBcL0W-4Ah_Nw0Kegzw@mail.gmail.com>
+ <awWSwmvaTwBxfU-r@redhat.com> <CAHk-=wj3GCXZohdFWWPAOkC_LHno4X0oQW+0sQFJzRMvjpODUg@mail.gmail.com>
+ <CAHk-=wgYc9vFEmyV0Ch_e49j6GOhUCMQMnMV4f1FLLvumZOmRw@mail.gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,190 +103,79 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261124-fpc1540-tee-v1-1-6c6985f05b06@proton.me>
-References: <20261124-fpc1540-tee-v1-0-6c6985f05b06@proton.me>
-In-Reply-To: <20261124-fpc1540-tee-v1-0-6c6985f05b06@proton.me>
-To: Bjorn Andersson <andersson@kernel.org>, 
- Konrad Dybcio <konradybcio@kernel.org>, Abel Vesa <abelvesa@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
- Shuah Khan <skhan@linuxfoundation.org>, 
- Randy Dunlap <rdunlap@infradead.org>, Arnd Bergmann <arnd@arndb.de>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-doc@vger.kernel.org, 
- Armandas Kvietkus <armandas.kvietkus@proton.me>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795542180; l=4679;
- i=armandas.kvietkus@proton.me; h=from:subject:message-id;
- bh=kiEq95ST1or3ds4W0ln0vId1q7/z6qUKlXQN7xs7Bnw=;
- b=mibjb2GFW5pUbiegvhXEERwzhRGEtTzhh30gjZSjZIUx33OnOAhq/S1LNjdcEGM5APLCKpsvZ
- 3wo/0RLRLKwAlWq74G8V9CsmoPGYABt6T3ZEQgVfypJzz1yzUN4O9pY
-X-Developer-Key: i=armandas.kvietkus@proton.me; a=ed25519;
- pk=wuqmImJ9sKlDVcwALOvfGhjj7G8EBjjM4TpCdmlrAf8=
-X-Endpoint-Received: by B4 Relay for armandas.kvietkus@proton.me/default
- with auth_id=974
-X-Original-From: Armandas Kvietkus <armandas.kvietkus@proton.me>
-Reply-To: armandas.kvietkus@proton.me
-Content-Transfer-Encoding: 7bit
+Date: Tue, 24 Nov 2026 09:43:08 -0800
+X-Gmail-Original-Message-ID: <CAHk-=wiBBNtcLyu2fq47oXi-v2hX02m2=xFiG7tNa_hssaMNTw@mail.gmail.com>
+X-Gm-Features: Aa3M54qKnfQZwxI-mjKB8QHeQk1--kc11z_QwsMG6NLOaQrTy8GdH9me-KahpT4
+Message-ID: <CAHk-=wiBBNtcLyu2fq47oXi-v2hX02m2=xFiG7tNa_hssaMNTw@mail.gmail.com>
+Subject: [PATCH 1/7] sctp: don't let a blocked reader take write-space wakeups
+To: Oleg Nesterov <oleg@redhat.com>
+Cc: mt4022@columbia.edu, Jens Axboe <axboe@kernel.dk>, 
+	Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Christian Brauner <brauner@kernel.org>, Michal Nazarewicz <mina86@mina86.com>, Wen Yang <wen.yang@linux.dev>, 
+	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	tz2294@columbia.edu, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-From: Armandas Kvietkus <armandas.kvietkus@proton.me>
+From: Linus Torvalds <torvalds@linux-foundation.org>
+Date: Mon, 23 Nov 2026 17:33:14 -0800
+Subject: [PATCH 1/7] sctp: don't let a blocked reader take write-space wakeups
 
-qseecom can only talk to apps that are already running in QSEE. Add
-the app manager calls to start an app from an image, shut it down and
-load a services image such as cmnlib64.
+sctp_wait_for_packet() waits exclusively on sk_sleep() with the default
+autoremove wake function, so it accepts any wakeup and consumes it.
 
-Signed-off-by: Armandas Kvietkus <armandas.kvietkus@proton.me>
+Then __sctp_write_space() sends EPOLLOUT with a wake-one wakeup:
+sctp_wait_for_packet() wakes up, finds no data, goes back to sleep, and
+the walk stops.
+
+End result: anybody else queued behind it that was waiting for EPOLLOUT
+will never see it.
+
+Filter on EPOLLIN | EPOLLERR like receiver_wake_function() in
+net/core/datagram.c.  State changes (using sock_def_wakeup()) use an
+unkeyed wake-all and still get through and will ignore the exclusive
+nature of sctp_wait_for_packet().
+
+Cc: Oleg Nesterov <oleg@redhat.com>
+Cc: Marcelo Ricardo Leitner <marcelo.leitner@gmail.com>
+Cc: Xin Long <lucien.xin@gmail.com>
+Cc: Eric Dumazet <edumazet@kernel.org>
+Cc: Jakub Kicinski <kuba@kernel.org>
+Cc: Paolo Abeni <pabeni@redhat.com>
+Signed-off-by: Linus Torvalds <torvalds@linux-foundation.org>
 ---
- drivers/firmware/qcom/qcom_scm.c       | 83 ++++++++++++++++++++++++++++++++++
- include/linux/firmware/qcom/qcom_scm.h | 23 ++++++++++
- 2 files changed, 106 insertions(+)
+ net/sctp/socket.c | 11 ++++++++++-
+ 1 file changed, 10 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/firmware/qcom/qcom_scm.c b/drivers/firmware/qcom/qcom_scm.c
-index fcb04441dd52..979e101280b6 100644
---- a/drivers/firmware/qcom/qcom_scm.c
-+++ b/drivers/firmware/qcom/qcom_scm.c
-@@ -119,6 +119,12 @@ enum qcom_scm_qseecom_tz_cmd_app {
- 	QSEECOM_TZ_CMD_APP_LOOKUP		= 3,
- };
- 
-+enum qcom_scm_qseecom_tz_cmd_app_mgr {
-+	QSEECOM_TZ_CMD_APP_START		= 1,
-+	QSEECOM_TZ_CMD_APP_SHUTDOWN		= 2,
-+	QSEECOM_TZ_CMD_SERVICES_IMAGE_LOAD	= 7,
-+};
-+
- enum qcom_scm_qseecom_tz_cmd_info {
- 	QSEECOM_TZ_CMD_INFO_VERSION		= 3,
- };
-@@ -2220,6 +2226,83 @@ int qcom_scm_qseecom_app_send(u32 app_id, void *req, size_t req_size,
+diff --git a/net/sctp/socket.c b/net/sctp/socket.c
+index bc68af88e271..85ac4952e9cb 100644
+--- a/net/sctp/socket.c
++++ b/net/sctp/socket.c
+@@ -9070,6 +9070,15 @@ static int sctp_msghdr_parse(const struct
+msghdr *msg, struct sctp_cmsgs *cmsgs)
+ 	return 0;
  }
- EXPORT_SYMBOL_GPL(qcom_scm_qseecom_app_send);
- 
-+static int qcom_scm_qseecom_image_call(u32 cmd, phys_addr_t image,
-+				       size_t mdt_len, size_t img_len,
-+				       struct qcom_scm_qseecom_resp *res)
+
++/* Don't take wakeups for other events, e.g. EPOLLOUT from write space. */
++static int sctp_receiver_wake_function(wait_queue_entry_t *wait,
++				       unsigned int mode, int sync, void *key)
 +{
-+	struct qcom_scm_desc desc = {};
-+	int status;
-+
-+	desc.owner = QSEECOM_TZ_OWNER_QSEE_OS;
-+	desc.svc = QSEECOM_TZ_SVC_APP_MGR;
-+	desc.cmd = cmd;
-+	desc.arginfo = QCOM_SCM_ARGS(3);
-+	desc.args[0] = mdt_len;
-+	desc.args[1] = img_len;
-+	desc.args[2] = image;
-+
-+	status = qcom_scm_qseecom_call(&desc, res);
-+	if (status)
-+		return status;
-+
-+	if (res->result != QSEECOM_RESULT_SUCCESS)
-+		return -EIO;
-+
-+	return 0;
++	if (key && !(key_to_poll(key) & (EPOLLIN | EPOLLERR)))
++		return 0;
++	return autoremove_wake_function(wait, mode, sync, key);
 +}
-+
-+int qcom_scm_qseecom_app_start(phys_addr_t image, size_t mdt_len,
-+			       size_t img_len, u32 *app_id)
-+{
-+	struct qcom_scm_qseecom_resp res = {};
-+	int status;
-+
-+	status = qcom_scm_qseecom_image_call(QSEECOM_TZ_CMD_APP_START, image,
-+					     mdt_len, img_len, &res);
-+	if (status)
-+		return status;
-+
-+	if (res.resp_type != QSEECOM_SCM_RES_APP_ID)
-+		return -EIO;
-+
-+	*app_id = res.data;
-+	return 0;
-+}
-+EXPORT_SYMBOL_GPL(qcom_scm_qseecom_app_start);
-+
-+int qcom_scm_qseecom_app_shutdown(u32 app_id)
-+{
-+	struct qcom_scm_desc desc = {};
-+	struct qcom_scm_qseecom_resp res = {};
-+	int status;
-+
-+	desc.owner = QSEECOM_TZ_OWNER_QSEE_OS;
-+	desc.svc = QSEECOM_TZ_SVC_APP_MGR;
-+	desc.cmd = QSEECOM_TZ_CMD_APP_SHUTDOWN;
-+	desc.arginfo = QCOM_SCM_ARGS(1);
-+	desc.args[0] = app_id;
-+
-+	status = qcom_scm_qseecom_call(&desc, &res);
-+	if (status)
-+		return status;
-+
-+	if (res.result != QSEECOM_RESULT_SUCCESS)
-+		return -EIO;
-+
-+	return 0;
-+}
-+EXPORT_SYMBOL_GPL(qcom_scm_qseecom_app_shutdown);
-+
-+int qcom_scm_qseecom_services_image_load(phys_addr_t image, size_t mdt_len,
-+					 size_t img_len)
-+{
-+	struct qcom_scm_qseecom_resp res = {};
-+
-+	return qcom_scm_qseecom_image_call(QSEECOM_TZ_CMD_SERVICES_IMAGE_LOAD,
-+					   image, mdt_len, img_len, &res);
-+}
-+EXPORT_SYMBOL_GPL(qcom_scm_qseecom_services_image_load);
 +
  /*
-  * We do not yet support re-entrant calls via the qseecom interface. To prevent
-  + any potential issues with this, only allow validated machines for now.
-diff --git a/include/linux/firmware/qcom/qcom_scm.h b/include/linux/firmware/qcom/qcom_scm.h
-index a0a6bc0229c4..1027907e27b0 100644
---- a/include/linux/firmware/qcom/qcom_scm.h
-+++ b/include/linux/firmware/qcom/qcom_scm.h
-@@ -143,6 +143,11 @@ int qcom_scm_shm_bridge_delete(u64 handle);
- int qcom_scm_qseecom_app_get_id(const char *app_name, u32 *app_id);
- int qcom_scm_qseecom_app_send(u32 app_id, void *req, size_t req_size,
- 			      void *rsp, size_t rsp_size);
-+int qcom_scm_qseecom_app_start(phys_addr_t image, size_t mdt_len,
-+			       size_t img_len, u32 *app_id);
-+int qcom_scm_qseecom_app_shutdown(u32 app_id);
-+int qcom_scm_qseecom_services_image_load(phys_addr_t image, size_t mdt_len,
-+					 size_t img_len);
- 
- #else /* CONFIG_QCOM_QSEECOM */
- 
-@@ -158,6 +163,24 @@ static inline int qcom_scm_qseecom_app_send(u32 app_id,
- 	return -EINVAL;
- }
- 
-+static inline int qcom_scm_qseecom_app_start(phys_addr_t image, size_t mdt_len,
-+					     size_t img_len, u32 *app_id)
-+{
-+	return -EINVAL;
-+}
-+
-+static inline int qcom_scm_qseecom_app_shutdown(u32 app_id)
-+{
-+	return -EINVAL;
-+}
-+
-+static inline int qcom_scm_qseecom_services_image_load(phys_addr_t image,
-+						       size_t mdt_len,
-+						       size_t img_len)
-+{
-+	return -EINVAL;
-+}
-+
- #endif /* CONFIG_QCOM_QSEECOM */
- 
- int qcom_scm_qtee_invoke_smc(phys_addr_t inbuf, size_t inbuf_size,
+  * Wait for a packet..
+  * Note: This function is the same function as in core/datagram.c
+@@ -9078,7 +9087,7 @@ static int sctp_msghdr_parse(const struct msghdr
+*msg, struct sctp_cmsgs *cmsgs)
+ static int sctp_wait_for_packet(struct sock *sk, int *err, long *timeo_p)
+ {
+ 	int error;
+-	DEFINE_WAIT(wait);
++	DEFINE_WAIT_FUNC(wait, sctp_receiver_wake_function);
+
+ 	prepare_to_wait_exclusive(sk_sleep(sk), &wait, TASK_INTERRUPTIBLE);
 
 -- 
-2.56.0
-
-
+2.56.0.313.g975a75ca90
