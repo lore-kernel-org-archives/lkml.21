@@ -1,67 +1,110 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=147.229.8.13
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795555165;
-	b=4JsVnJd0YhtfT2ELnFVi54ysWI+wLQHBMm5xwUG6dIJqs5aGxoN6ePWZCe9/rkqginvT
-	 3LPkAEOpDqT0t9BIMJskreJNVuxkpUWaXDiuthmj+8fX/tFx06Hbat48e20kDaq+A98SN
-	 l1tXPziYcn25LKEnz4AVBqwUERcKFKRs/agc6F1vl8yL0yrI76OTgp2dMcdP4iO4ZJri8
-	 RXQrK96QPnsp9Oe5R2LIDUdB92ioaPITMo50aSUjDOMXYKY+sP/sh0fXfhO/ACOvyhO07
-	 S8Xw33o85tZLNzmN7NpGd3Od1t2kiH1Wrp95fVj00hDLu4Ey5O35mKs//qg7rV9BbwA==
+	t=1795555192;
+	b=ETEteafnzqMw2PhDkL++Fr2dwtRc8AL/qmz6EN/FW31zQ3A6wvqLduAeYpFF87xeLMTh
+	 r/QKj1eW8jOFXd9QQwMQ9ZvfxPHA0pge58G4oJ5x6SoazvIhAi+qJVXi4g1o8VyF9pX8V
+	 5uq5J/pRSGh3Cc8G4WjsY0PgxYnNfuVutyD5qAXYutClm4SsCJ/t39hNwawpYZED9515+
+	 SoRmMVj6vQV7HasIX7QpvW6XWjKwpFSEhrFFKp63nea5cWJPC6PtTqtRnwXIpZ5clWkl8
+	 8LqdiFD6GU+vHhQPy1a08bKkdkVPZ/607zoFJMOgKGZ91UwysN3qJoLtH+VPmYUMGPQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795555165;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-Virus-Scanned:X-Virus-Status:X-Spam-Status:X-Spam-Checker-Version;
-	bh=D6ZHYEI070EvMU4ryionbOt3ndI7Wv+kJj983byjX+M=;
-	b=23WLc880Mavp79tGfzVihUiLYk0GZFiQ7YCFNupZ3u/sTsUXw7V+WzvCfQ0agpivwMOr
-	 YgAxysaEsRGK9dFI3IGrCFWSpeVHbQYiewdf8nxLAQ7uL+G2+WS7xoVFYRZUC1qZWVd/x
-	 Fo5ZK1347YKChB7hgx4dffcc5yNb3ejDw8+z2Ihvl7n9uc9QVuuEIkesE/YRjUomQIQt0
-	 AOB80KubBjyF5/yE/eXMj5fn8VnweWpV8TQIpo0CT8i/DqyeEWSOvgRb/gij8vOI98Jge
-	 g1ikirJ2+x/vnEzYTiEElIGg2jqqkukeRzGT17VbxHufa/3izKFhxREyMjZGIjGEtDg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795555192;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-GUID:
+	 X-Proofpoint-ORIG-GUID:X-Authority-Analysis:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=Jmc8x/uklGXQnfhDsK8nj9eRcxikV5Zu+dZzBzl6ZvY=;
+	b=cQEFXJZ/e64PZATyOUvecLxXpTs2B9Y6SKb0pc0GkbY5F2+HHbnyGcpJXh150H3gcVgk
+	 okeF/tbN20OYZ+gIPi46wjnhSHxBkPLm68dC3ZzhguvN5IdpbA6flRh15WeRMb4addD7g
+	 n4ycBNZKqA/Pk/0IBxA9NcesHqik1Y5ECOXU1PILpTscTFBeivayyFDBzNMUC3W80BVnW
+	 2UG4AQCxf05BNeWmrnt6Qo4RGUpS4AwT39u0TgFpWh5VKo6AQQph4HTNNi6tYXd3t602M
+	 USdapC/JR+YFCULtzmIoSO/KhQIXjRwMo1UJ5jEhED5MZJum/n5jmatcRUQ/M4ciOHQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=fit.vut.cz;
-	spf=pass smtp.mailfrom=fit.vut.cz;
-	dkim=pass header.d=fit.vut.cz header.i=@fit.vut.cz header.a=rsa-sha256 header.s=a2025 header.b=gvmdE4hi;
-	arc=none smtp.remote-ip=147.229.8.13
-Received: from adela.fit.vutbr.cz (adela.fit.vutbr.cz [147.229.8.13])
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=ACr7VcTZ;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=J9iQ8GUd;
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AE5EA606A331;
-	Tue, 24 Nov 2026 21:19:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AE5EA606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=fit.vut.cz
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fit.vut.cz
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 17C58606A330
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 21:19:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 17C58606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=fit.vut.cz header.i=@fit.vut.cz header.a=rsa-sha256 header.s=a2025 header.b=gvmdE4hi
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=fit.vut.cz; s=a2025;
-	t=1795555151; bh=ryF2cRoqhRQLhwKI7awrvQor3e+pqAG0UR4cvEwkDwQ=;
-	h=From:To:Cc:Subject:Date:From;
-	b=gvmdE4hiccdHUep/rpfCfJm5vzu7yYTOBV/TDRmcrWGOpjUYxPrI7rgT4Z9Gp4r3p
-	 NV+7MudJiYfpJDfFCWT67tKnQ6IWGE5ag7C4A5SG1ryMCcvvAJqqHLpixrTJ0qW/E4
-	 7nPgXC/XoeQVbvsFKDlj0ND6F9MNvXZKmCmd4+AMqLOw5zetWeim7v7IdCLL1Wy1AI
-	 MQZkrAEXiha/urzvXkJZftY4bJjY/YCWj58Meq9C1OnDP/uuL9XI5jCe6eaLsaIOOD
-	 RfvHrDqCqvAVs5pjI3mNYX0BJV4ejKRPHtFnCd/bt+p12AgQobpus3DvwJRP+JDAZT
-	 NL0S7OnZMnWBg==
-Received: from tomoka (unknown [100.72.76.61])
-	(Authenticated sender: inguyen)
-	by adela.fit.vutbr.cz (Postfix) with ESMTPSA id 4F90B260127;
-	Tue, 24 Nov 2026 22:19:11 +0100 (CET)
-From: Nguyen Le Duy <inguyen@fit.vut.cz>
-To: gregkh@linuxfoundation.org,
-	arve@android.com,
-	tkjos@android.com,
-	brauner@kernel.org,
-	cmllamas@google.com,
-	aliceryhl@google.com
-Cc: ojeda@kernel.org,
-	linux-kernel@vger.kernel.org,
-	rust-for-linux@vger.kernel.org,
-	Nguyen Le Duy <inguyen@fit.vut.cz>,
-	stable@vger.kernel.org
-Subject: [PATCH v2] rust_binder: make work items of a deleted node a no-op
-Date: Tue, 24 Nov 2026 22:18:09 +0100
-Message-ID: <20261124211809.3692554-1-inguyen@fit.vut.cz>
-X-Mailer: git-send-email 2.56.1
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=ACr7VcTZ;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=J9iQ8GUd
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AOIXM7W2306283
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 21:19:49 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	Jmc8x/uklGXQnfhDsK8nj9eRcxikV5Zu+dZzBzl6ZvY=; b=ACr7VcTZT7KgMvkb
+	f/riEMLagAVttUZbXJQup8HmnwrVymJIAFwa1DlqcPXhoe5vnTScPac8m4AKp6MG
+	Wwo71pqbg2nr8WOm78tevSJMr9hh/gKJYpT/n55WKYDlgEr8D+2xA4zLt1qoDxwh
+	j9wMpBH1fzo0O8XkldvjDMaYMKMtuikJBYz4I8Rs5z4EfSEjAqy5184Qi5NxMgG2
+	T2FAQohhcUxLTvN3iD1vewKWOUOlPu6QySCGEB8mSWitYMNTdm1BC3j5yEmDPUUV
+	8Zci2JF67xUD7Hl6KEmywPb3nvRfchAhnlWlibk/yqpWPRNbk0071XbvXU2VFKzZ
+	E2BrCQ==
+Received: from mail-dy1-f200.google.com (mail-dy1-f200.google.com [74.125.82.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j5cxk9k3j-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 21:19:49 +0000 (GMT)
+Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-33713e5e6daso8613219eec.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:19:49 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795555189; x=1796159989; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Jmc8x/uklGXQnfhDsK8nj9eRcxikV5Zu+dZzBzl6ZvY=;
+        b=J9iQ8GUdeibdU1Wjeznw7m9HsNzfcWpKaQ+61MvGHCTODfIxD0XWgSQTmo9ttJHD2Q
+         iN1sEztG68jUGDXGrxjXzerDJOlfIRrnlGzPEkW+16kptvbDQyaNly9mT3AryjqXAL33
+         b7xFM2s0pxZ5tvbCYYiyQLrNqDyq3CrdU5Y7gxvFNJ1VH1sZVQVShadTo/u0Y6htdvES
+         XJrCTPCaumgaHfgnRBNt1zyLZTwRMWAbF+xOEwfFoYcjVFz3S0L/gA4Zz9ROOk0sgt0R
+         fosPNrH8U5N3/m1PIADsvNbhC/Zmh+mbJqpV/+3V9ktniaZV255OhSI5vqvKvgZWP4vP
+         C1jw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795555189; x=1796159989;
+        h=content-transfer-encoding:content-type:in-reply-to:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Jmc8x/uklGXQnfhDsK8nj9eRcxikV5Zu+dZzBzl6ZvY=;
+        b=ctY+b2prhqbpyA/oD4xEkRHUmeX9s8ApTf7UyFD3QEMsfrVdPkdOl4xr5vQqgMTGxb
+         K/xStPmRAI9O4dFatYIm9kkfFAQ7mK+dIKwFOOFRv1zhlU5in0jf4j0C9B1KLXQVbrF9
+         aL44nWR+VzC+WZKxEDZuTcbr2mUWA7XoJIGkcVrqQK2G16TZig6dGlugCJwQLxgNAB1C
+         wg3nwCapqm+J6QVXol0HGvYz/kLlgQFYTYPjtPaNaeORD28T5014z1vubfCT19XwaNR0
+         em1mdWwGyhTV+kFf57jypiC/101MAoXrr4/mDi9LWoLQf9nxmWYQAgzzCRXmVUkxfK3K
+         zokQ==
+X-Forwarded-Encrypted: i=1; AL+hErFG003KXlPg8vQkMfBARa+1Gjs4RP2YlYbzQNKVq9W1004GnF7gfLfHBXRJAnLeedp1CPr/WQuFibQEsrI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/O7aCeneTgzpHXjKmjKWTT0crYSVLpVqr5/wLC1rZZXsf+vtcw
+	wYxZgDZlxryalZOzpaDOlQLSXEGJJdc2Ukdh9uvNQXFUKdVHhJFXbMsiLcRNy5RxZhqbNJyuRzI
+	f9gPzpMaN2nvunpI8vLDhMsa+FtHWodDgCquUknFGhvqoYf8GgprII5Hz93KhTyWLHso=
+X-Gm-Gg: AZFdTZcKKHGuxEP/MaN0vtMdG5lY/zkT2TMMd9hJ9zOz9QYo9eE+o3wXpZqSL8o8S5a
+	m7baupdtzQIV5qgVuTXL+vMQlminDz3VLt+YTnT2OVHOo+bexQBMLv9uNWMnf/NN9WuDHatTqZT
+	hOCRzHXWx+9K9Cd74x73Svu44ffBdCu0912hArj7a58r9kB2SEGPVVKbgdq81UtsSsZH1o80Q/e
+	ZEchlHE//U5YJkHMjBV5srPHtidSSuEDSseW0rCBp8fhqihA8FgG0wB22Hv6jyrpUIPp0o1bWC+
+	BQcpl8p7fyAqAtLpSvSPitPCgVov0r+l6l7GGXJWDF3YpMWCyRgyExJepqTCCHGOyKfCWQykA0J
+	V6+lXiAdgj5odaQhdZxzisj/+qcT8BbMiwkst/WLgaNRfY+QuqJAx2quoGdDccvz/JBkAgL0pUd
+	jyE+Z4Zje014n+Cg6m
+X-Received: by 2002:a05:7300:b089:b0:386:9c9f:83d8 with SMTP id 5a478bee46e88-3869c9f86bbmr12711152eec.17.1795555188367;
+        Tue, 24 Nov 2026 13:19:48 -0800 (PST)
+X-Received: by 2002:a05:7300:b089:b0:386:9c9f:83d8 with SMTP id 5a478bee46e88-3869c9f86bbmr12711127eec.17.1795555187818;
+        Tue, 24 Nov 2026 13:19:47 -0800 (PST)
+Received: from [192.168.11.103] ([124.123.81.254])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386b9bdafb5sm14506896eec.9.2026.11.24.13.19.45
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 24 Nov 2026 13:19:47 -0800 (PST)
+Message-ID: <e5864418-b181-40b9-8718-2815d84d453e@oss.qualcomm.com>
+Date: Wed, 25 Nov 2026 02:49:43 +0530
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,151 +114,153 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Virus-Scanned: clamav-milter 1.4.6 at adela
-X-Virus-Status: Clean
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH ath-next 3/7] wifi: ath12k: fix
+ ath12k_mac_op_change_vif_links() for active-link updates
+To: Miaoqing Pan <miaoqing.pan@oss.qualcomm.com>, jjohnson@kernel.org
+Cc: ath12k@lists.infradead.org, linux-wireless@vger.kernel.org,
+        linux-kernel@vger.kernel.org
+References: <20261118025520.39269-1-miaoqing.pan@oss.qualcomm.com>
+ <20261118025520.39269-4-miaoqing.pan@oss.qualcomm.com>
+From: Rameshkumar Sundaram <rameshkumar.sundaram@oss.qualcomm.com>
+Content-Language: en-US
+In-Reply-To: <20261118025520.39269-4-miaoqing.pan@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI0MDA4MyBTYWx0ZWRfX5QP3ZQlWrRNr
+ qpp4B/3IOOIyg9l2BBgpAVIg6kVPD+KTPxLtZtM1aBIkYjfDfHeeHrUEKhFh5i7K7Vk+8OuT52d
+ 2X615gNP5cZx6j7mhikVmGpEE9AFQc88Sl2BWCNKoqojCBhwpNFx/UFb1DoWdh+DQX3+LPWm5kX
+ AnhuE8bhA4QeNKmysDkNNjxynXMldE0M8wZgHRPrd0B+3su6hdw0c0T37REoTtTp/cLknmZQ7Ee
+ Lwmxrbgs0c8cxtBxAomHizWqvZWa2Hr28GXWLMNdW5NShasbzVNoR3r0/HGdfm0VZyaENhqQCS7
+ g7zjPSqItIH+CWuz2FKgV5jvrefzLSI+9DX89RMxSb9lxn5JMH5Ex9/gF2ymZnrE6Z4lp8l4rMS
+ CCuJYRu0Ixfhp/GJRGeTcQBktVZPqzzzhOL0d6SmAJUUGzFGaTxGEYNi9KOYzAuXMJsb5pZz5Cr
+ sOWBOX7SffXACRlAIww==
+X-Proofpoint-GUID: wg33NEixnKqqvq0R6h_K7QvZM6Ggr2ne
+X-Proofpoint-ORIG-GUID: wg33NEixnKqqvq0R6h_K7QvZM6Ggr2ne
+X-Authority-Analysis: v=2.4 cv=TLbQ2Fla c=1 sm=1 tr=0 ts=6b05ff75 cx=c_pps
+ a=PfFC4Oe2JQzmKTvty2cRDw==:117 a=WcLwt0pvHDAIUQ3iVSLIEw==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22
+ a=EUspDBNiAAAA:8 a=AXF9_A-i7_gDoTK9JAcA:9 a=QEXdDO2ut3YA:10
+ a=6Ab_bkdmUrQuMsNx7PHu:22
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI0MDA4MyBTYWx0ZWRfX8evPV6KTOVOb
+ xFHBB2h2RbmTK3GwE8KXWWpzyAoItFjHLac5X7Z/F6b1T5GXORp2srbcph9tov/0CYO77sN+l0J
+ JYgBw4IxfkyHFU6qqGBoBiq8TJxg4qI=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-24_05,2026-11-23_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 impostorscore=0 spamscore=0 clxscore=1015 suspectscore=0
+ malwarescore=0 priorityscore=1501 lowpriorityscore=0 adultscore=0 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611240083
 
-When a node has no references left, do_work_locked() removes it from
-the owner's nodes tree. However, a Node work item may still be queued
-at that point. This happens when a strong zero2one increment is
-scheduled through a NodeWrapper while the Node is already queued, all
-references are dropped again, and the wrapper runs first and deletes
-the node.
+On 11/18/2026 8:25 AM, Miaoqing Pan wrote:
+> Currently, ath12k_mac_op_change_vif_links() derives the links to add and
+> remove from the old_links/new_links arguments: it creates a link vif
+> (arvif) for each link in ~old_links & new_links and frees the arvif of
+> each link in old_links & ~new_links.
+> 
+> However, mac80211 invokes drv_change_vif_links() both when the valid
+> links change and when the active links change. In the first case
+> old_links/new_links are the valid links. In the second case they are
+> only the active links, while vif->valid_links is not modified. A link
+> that is deactivated is therefore reported as removed, although it is
+> still a valid link of the MLD.
+> 
+> To fix this, derive the arvif lifetime from vif->valid_links, which
+> mac80211 updates before calling the driver and which an active-link
+> change leaves untouched. Create an arvif for each link in
+> valid_links & ~links_map and remove those in links_map & ~valid_links.
+> A link that is only deactivated keeps its arvif. On disconnect
+> (valid_links == 0) every remaining arvif is removed. The WARN_ON() for
+> adding a link that already has an arvif is dropped, since links already
+> in links_map are not selected for creation.
+> 
+> Tested-on: QCC2072 hw1.0 PCI WLAN.COL.1.0.c2-00277-QCACOLSWPL_V1_TO_SILICONZ-1
+> Tested-on: WCN7850 hw2.0 PCI WLAN.HMT.1.1.c7-00108-QCAHMTSWPL_V1.0_V2.0_SILICONZ_UPSTREAM-3
+> 
+> Fixes: 315d80be304a ("wifi: ath12k: allocate new links in change_vif_links()")
+> Signed-off-by: Miaoqing Pan <miaoqing.pan@oss.qualcomm.com>
+> ---
+>   drivers/net/wireless/ath/ath12k/mac.c | 18 +++++++++---------
+>   1 file changed, 9 insertions(+), 9 deletions(-)
+> 
+> diff --git a/drivers/net/wireless/ath/ath12k/mac.c b/drivers/net/wireless/ath/ath12k/mac.c
+> index 3f106ac6141c..28cb549b1f46 100644
+> --- a/drivers/net/wireless/ath/ath12k/mac.c
+> +++ b/drivers/net/wireless/ath/ath12k/mac.c
+> @@ -4377,9 +4377,8 @@ ath12k_mac_op_change_vif_links(struct ieee80211_hw *hw,
+>   			       struct ieee80211_bss_conf *ol[IEEE80211_MLD_MAX_NUM_LINKS])
+>   {
+>   	struct ath12k_vif *ahvif = ath12k_vif_to_ahvif(vif);
+> -	unsigned long to_remove = old_links & ~new_links;
+> -	unsigned long to_add = ~old_links & new_links;
+>   	struct ath12k_hw *ah = ath12k_hw_to_ah(hw);
+> +	unsigned long to_remove, to_add;
+>   	struct ath12k_link_vif *arvif;
+>   	u8 link_id;
+>   
+> @@ -4389,14 +4388,15 @@ ath12k_mac_op_change_vif_links(struct ieee80211_hw *hw,
+>   			   "mac vif link changed for MLD %pM old_links 0x%x new_links 0x%x\n",
+>   			   vif->addr, old_links, new_links);
+>   
+> -	for_each_set_bit(link_id, &to_add, IEEE80211_MLD_MAX_NUM_LINKS) {
+> -		arvif = wiphy_dereference(hw->wiphy, ahvif->link[link_id]);
+> -		/* mac80211 wants to add link but driver already has the
+> -		 * link. This should not happen ideally.
+> -		 */
+> -		if (WARN_ON(arvif))
+> -			return -EINVAL;
+> +	/*
+> +	 * Link objects follow vif->valid_links, which mac80211 updates before
+> +	 * calling us. old_links/new_links only describe the active links and
+> +	 * must not be used to decide object lifetime.
+> +	 */
 
-When the stale work item runs later, do_work_locked() calls
-remove_node(self.ptr) again. If userspace has created a new node with
-the same ptr in the meantime, this removes the new node from the tree.
-The owner can then no longer look it up, so BR_RELEASE and BR_DECREFS
-are never sent for it, and the next BINDER_TYPE_BINDER with that ptr
-creates yet another node. Since update_node() looks nodes up by ptr,
-freeing a buffer that refers to the hidden node decrements the other
-one, and a later NodeRef::absorb() hits:
+This seems quite ambiguous from the mac80211 code flow,
 
-  rust_kernel: panicked at drivers/android/binder/node.rs:822:17:
-  assertion `left != right` failed
-    left: 0
-   right: 0
-  kernel BUG at rust/helpers/bug.c:7!
-  Call Trace:
-   NodeRef::absorb
-   Process::insert_or_update_handle
-   AllocationView::transfer_binder_object
-   Thread::copy_transaction_data
-   Transaction::new
-   Thread::transaction
+Consider a 2-link STA associated with an AP, where one link is removed 
+by the AP:
+wlan0: MLO Reconfiguration: work: valid=0x3, removed=0x2
 
-No race is needed, and with CONFIG_USER_NS=y an unprivileged user can
-trigger this with a binderfs mount in its own user namespace.
+In ieee80211_ml_reconf_work(),
+Initially:
+valid_links = 0x3
+active_links = 0x3
 
-Fix this by tracking in NodeInner whether the node has been deleted,
-and making Node::do_work() and Node::cancel() only clear the delivery
-state of a deleted node. A node is only deleted once it has no
-references, so any BR_RELEASE and BR_DECREFS were already sent, and no
-new reference can be taken on it. NodeWrapper::do_work() does not need
-the check, since the node is never deleted while the wrapper is queued.
+ieee80211_set_active_links() first removes the link from active_links:
+valid_links = 0x3
+active_links = 0x1
 
-The delivery state is cleared by a new DeliveryState::node_done(), which
-also replaces the open-coded reset that Node::do_work() already had.
+This calls drv_change_vif_links() with 0x3 -> 0x1, but ath12k would not 
+remove the corresponding arvif/arsta since vif->valid_links is still 0x3.
 
-Found with the Kani model checker. Tested with a reproducer on v7.4-rc3
-in QEMU, x86_64 only.
+Subsequently, ieee80211_vif_set_links() removes the link from valid_links:
+valid_links = 0x1
+active_links = 0x1
 
-Fixes: eafedbc7c050 ("rust_binder: add Rust Binder driver")
-Cc: stable@vger.kernel.org
-Suggested-by: Alice Ryhl <aliceryhl@google.com>
-Signed-off-by: Nguyen Le Duy <inguyen@fit.vut.cz>
----
-Changes in v2:
-- Make the work items of a deleted node a no-op instead of checking the
-  tree entry in remove_node(), as suggested by Alice
-- Add DeliveryState::node_done() to clear the Node's delivery state
-- Link to v1: https://lore.kernel.org/r/20261122191322.929005-1-inguyen@fit.vut.cz
+However, the call to drv_change_vif_links() uses:
+old_links & old_active
+new_links & sdata->vif.active_links
 
-The reproducer was sent to the maintainers separately. The Kani
-harnesses that found the bug pass with this patch.
+which evaluates to:
+0x3 & 0x1 = 0x1
+0x1 & 0x1 = 0x1
+Since old_links == new_links, drv_change_vif_links() returns without 
+calling the driver.
 
-I used an AI assistant (Claude) for the analysis, the reproducer, the
-code and the changelog. The fix follows Alice's suggestion.
+After this, mac80211 removes/frees its link object, while ath12k still 
+seems to retain the corresponding arvif/arsta. Is this expected?
 
- drivers/android/binder/node.rs | 28 +++++++++++++++++++++++++---
- 1 file changed, 25 insertions(+), 3 deletions(-)
+> +	to_add = vif->valid_links & ~ahvif->links_map;
+> +	to_remove = ahvif->links_map & ~vif->valid_links;
+>   
+> +	for_each_set_bit(link_id, &to_add, IEEE80211_MLD_MAX_NUM_LINKS) {
+>   		arvif = ath12k_mac_assign_link_vif(ah, vif, link_id);
+>   		if (WARN_ON(!arvif))
+>   			return -EINVAL;
 
-diff --git a/drivers/android/binder/node.rs b/drivers/android/binder/node.rs
-index efdafc2..1f2bab6 100644
---- a/drivers/android/binder/node.rs
-+++ b/drivers/android/binder/node.rs
-@@ -124,6 +124,13 @@ impl DeliveryState {
-         self.has_pushed_wrapper = true;
-         self.has_strong_zero2one = true;
-     }
-+
-+    /// The `Node` was delivered or dropped, and the wrapper is not scheduled.
-+    fn node_done(&mut self) {
-+        self.has_pushed_node = false;
-+        self.has_weak_zero2one = false;
-+        self.has_strong_zero2one = false;
-+    }
- }
- 
- struct CountState {
-@@ -178,6 +185,8 @@ struct NodeInner {
-     active_inc_refs: u8,
-     /// List of `NodeRefInfo` objects that reference this node.
-     refs: List<NodeRefInfo, { NodeRefInfo::LIST_NODE }>,
-+    /// Set when `do_work_locked` removes the node from the owner's `nodes` tree.
-+    is_deleted: bool,
- }
- 
- use kernel::bindings::rb_node_layout;
-@@ -238,6 +247,7 @@ impl Node {
-                     has_oneway_transaction: false,
-                     active_inc_refs: 0,
-                     refs: List::new(),
-+                    is_deleted: false,
-                 },
-             ),
-             debug_id: super::next_debug_id(),
-@@ -636,6 +646,7 @@ impl Node {
-         }
-         if no_active_inc_refs && !weak {
-             // Remove the node if there are no references to it.
-+            inner.is_deleted = true;
-             guard.remove_node(self.ptr);
-         }
-         drop(guard);
-@@ -727,9 +738,13 @@ impl DeliverToRead for Node {
-             return Ok(true);
-         }
- 
--        inner.delivery_state.has_pushed_node = false;
--        inner.delivery_state.has_weak_zero2one = false;
--        inner.delivery_state.has_strong_zero2one = false;
-+        inner.delivery_state.node_done();
-+
-+        if inner.is_deleted {
-+            // Nothing is pending for a deleted node, and userspace may already have reused its
-+            // address for a new node, so leave the tree alone.
-+            return Ok(true);
-+        }
- 
-         self.do_work_locked(writer, owner_inner)
-     }
-@@ -743,6 +758,13 @@ impl DeliverToRead for Node {
-             return;
-         }
- 
-+        let inner = self.inner.access_mut(&mut owner_inner);
-+        if inner.is_deleted {
-+            // A deleted node has nothing to deliver, so don't requeue it.
-+            inner.delivery_state.node_done();
-+            return;
-+        }
-+
-         // If BINDER_THREAD_EXIT is invoked on a thread with a pending node refcount update, we
-         // should move ourselves to ensure the refcount update is still delivered.
-         if let Some(node) = ListArc::try_from_arc_borrow(self.as_arc_borrow()) {
 
-base-commit: 4405c18c95d2d0f99f6c581ef0ee8591a1aa6ccd
 -- 
-2.56.1
-
+Ramesh
