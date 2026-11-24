@@ -1,45 +1,45 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795525048;
-	b=ZFmqVCI5hyQd1LY6mM9rYdJKEtmLq20urIBVAraSI7qB1mebDXWqD2LVjYFkZfGPRSB+
-	 ngWLyy7WZW0ZvimahwG6JUbHHHWLIAqMIUGQV2XW2PH0ZpkqFwqpvwy5DGE4fMsRd+Tgy
-	 jdA8y91HoT34Vp5O+pJSt+WOSg1rVHUb9LpCa9iknUbsXyhvDAXrSCLuOQ5ZzzHcOpQEh
-	 t6T7eor+JzUnukL7LKF4/OJ8CSLWHoX+RTnVK65fK2nppJddU+Js1cmbhuCPcApxAMmq+
-	 lGMB6KKJTjycCIqj5F5933Y4rHN/Ba/zTxYB8Rwrv71B2GcMaKsOkILicczS0uuvp8g==
+	t=1795525072;
+	b=2ELrbTgmNITLFp8hBgw2UbC9k7+eVTuCjMASYFMkaLd6G5xYL3y1WP3Oi9eZ9eINtZi4
+	 2vUPe4uS082wqFeIIF4nkYG5rVVeX9hbHotzhtiWE7KYUSS01rIAvzoFagD5Vfz15Ic0r
+	 F0v6wj7glAVWjExBzPdBTDIWjZYJAg8ghl9BJ1HukGra866Kti0AiDfuzW6tftpPlO5HE
+	 zE188c8TPhg2aKheUDHqBR7f5CP6Kt+VTFX/4tOxzySuMk/22d0D7xtOlfquAOMeuJmbs
+	 slZAv0/sZVKEh7K5yEoky7okvT9eospTOexYRXf/FzAVlHFySPUmbqEa9aYAyhGj04w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795525048;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795525072;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
 	 In-Reply-To:References:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=dNNwywQJbTsZXg/w5rJJ/5JqisBmDi3sRrbjcHK3wFI=;
-	b=d5cFrg/rmRCEIE7UtKOda7XXXK07l9QzFAhzZEepxJhfIKK9TrehRj3zXlXBDTTbMgwL
-	 K4qLxUzx7U0nbMttpGiAmqdyQXhHUVPAgSR7RpYvg4RotdVAwOJPWoec/xc88PLyUfAsY
-	 Tmg8zWfnyzXi/vE6tJFn3NPypLQ0ALTXoRB4njqpLyVYZC7sv2w4XDEHf2wZXkwng6O2O
-	 82oYDHOolqDRjL+cMjrPKYs0SKKnwZOtfCZ/tWfJSHX1stkk3mBI6yqfu2vxzBUs/lXLP
-	 1iwhlxnw1xgDPwOrsEOsZw1hXzsbf5ft0mSwE/ptroOj/Z+pXmDk1RjkNEUQG/vPauQ==
+	bh=D1yRI2yItmD+irGFKYrlKRL9eZ4pOJtSvhWJj7f6yqk=;
+	b=PU+Fd+vvwS8DfpZajmjE5BsLkNy9Feop6FboUU3KY536DBncr+3mH9uSj1qt0ptn6T9g
+	 EhCb93RQemTc6QMIM3ajOncBbUCUs4oONGfE5ceAOKZZVwRZsbOw8smAuhtUBhjRRSrJg
+	 2SwYTCNRbdMYvTEFhrnm/x3ZKn64iaip0OCyJKAcJvf48u0i4pwggL4ou1TcOI8j6DtIO
+	 cjXqQT5KGyQnG3yRfnbGIuQ3i0yU6QDgqBW8Ab1JN61TK82TCFinRCVgri/39NpQnnIhV
+	 a7MzMGaMezEsalkuemLNKliqJhldVPE9nkoMek5lUAo27RaJK6r0CjCuL0WwFsS8ihw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RITCRP94;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PCjZ+DFd;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2D3CF606A31E;
-	Tue, 24 Nov 2026 12:57:28 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EBA80606A31E;
+	Tue, 24 Nov 2026 12:57:51 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RITCRP94
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7FEA51F000D8;
-	Tue, 24 Nov 2026 12:57:16 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PCjZ+DFd
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23DEF1F000D1;
+	Tue, 24 Nov 2026 12:57:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795525047;
-	bh=dNNwywQJbTsZXg/w5rJJ/5JqisBmDi3sRrbjcHK3wFI=;
+	s=k20260515; t=1795525071;
+	bh=D1yRI2yItmD+irGFKYrlKRL9eZ4pOJtSvhWJj7f6yqk=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=RITCRP94VvGO4yKZt0Mc2EcdoIJbRPKkygZKiYEXUC62oX65zzxJGW+g0nf5HePbL
-	 PGeUarp0OhFoqURnm96f7IledVu7c4FlRPUkYORRD3SQ9yS9k0dq3kwFensDxqQr3f
-	 SDlANCSzwy5mB+SKo/8YPyNKTUtsO81jpD5EqhVUuVyGfqywVmwdhwneN2iSUmEepp
-	 mOuwN82PRrFLy96Hcb7HvR3fUB9ZOdQljO5g44VyYiqdvxEPIIX8AEbOOdgKmSQoh0
-	 ludlwWiniWUwo8QmedTZYseZiYZkp2QXqOmg7JT0xCm7YqXvoFpPzEFF+uKlK+Hh+T
-	 Rc/m9v+KjiV7Q==
+	b=PCjZ+DFdac0b8hSXOatNivr3xZhSoAAzyg1PcEvtZf6tvB0KuFQ+W+6FhunjfSNj5
+	 dmkdTFFof5w5PklZ9d2S/pP32loY5K5wJfEGOOcwp/YRcyngSGJezZ1VwSJpBKLnVG
+	 eOT6RogktDgQgSD8zHsHE8HA5BeQUpcvXIfgU4snii+IYx7I6R/Q2Kq0hVQ+3rEyeK
+	 lr39PQiMSUf7qlieqXMhh6w/aoB0nRw0rbUWNo0a8NhU4oUoHIqXCXkfFdW1LW3YGD
+	 48TqiMt+pwYxCEO2m9eDwDlm0PNIokQdOSlciXxbqExFGuRBqkDA1JOhacobICUiPc
+	 Bg3ErF6zYKjRg==
 From: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>
 To: Magnus Karlsson <magnus.karlsson@intel.com>,
 	Maciej Fijalkowski <maciej.fijalkowski@intel.com>,
@@ -99,9 +99,9 @@ Cc: Stuart Clark <stuclar@meta.com>,
 	linux-kselftest@vger.kernel.org,
 	linux-doc@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH net-next 02/15] xdp: Keep the shared info of a buffer in kernel memory
-Date: Tue, 24 Nov 2026 13:56:37 +0100
-Message-ID: <20261124125654.183091-2-bjorn@kernel.org>
+Subject: [PATCH net-next 04/15] page_pool: Let memory providers take back net_iovs
+Date: Tue, 24 Nov 2026 13:56:39 +0100
+Message-ID: <20261124125654.183091-4-bjorn@kernel.org>
 X-Mailer: git-send-email 2.56.1
 In-Reply-To: <20261124112707.118678-1-bjorn@kernel.org>
 References: <20261124112707.118678-1-bjorn@kernel.org>
@@ -117,178 +117,125 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-Currently, the shared info of an XDP buffer, with the fragment list of
-a multi-buffer packet, lives at the end of the buffer's frame, in
-memory that the device writes. Helpers follow its fragments, drivers
-free them through it, and frame and skb conversion copy it, so memory
-that others may write while the kernel uses it must not hold it.
-Classic AF_XDP zero copy keeps it in the tail of a UMEM chunk, where
-userspace can rewrite it.
+Currently, the only provider hook on the last put of a net_iov is
+release_netmem(), which takes it out of its page pool. The AF_XDP
+sink, later in this series, gives a chunk back to userspace only once
+the device is done with it too, so it must see that last put. With
+release_netmem(), the pool would take the chunk in again each time
+userspace lends it back.
 
-Let an RX queue keep the shared info of its buffers in kernel memory.
-The queue gets one from xdp_rxq_info_reg_ext_sinfo(), and
-xdp_rxq_info_unreg_mem_model() frees it. A buffer with the new
-XDP_FLAGS_SINFO_EXT finds its shared info there.
+Let a provider mark a net_iov so that its last put goes to the
+provider's hand_off() instead of the page pool cache, still charged to
+the pool, for the provider to put back later.
 
-Whoever prepares a buffer sets the flag before adding fragments. The
-queue NAPI builds one buffer at a time, so one shared info per queue
-is enough. It is valid until the buffer is redirected, dropped or
-copied. Frame conversion and skb construction refuse buffers with the
-flag, as a frame or an skb would keep its shared info in the buffer.
-Nothing sets the flag until later in this series.
-
-xdp_data_hard_end() reserves no shared-info tailroom for such a
-buffer, so its data may reach the end of the frame. frame_sz then
-bounds every write past the data, such as tail growth and
-bpf_xdp_pull_data(), so the frame must not cover memory of other
-buffers. Drivers may then pack such buffers tighter.
+The hand-off also covers the fragment allocator draining a marked
+net_iov. Providers that mark net_iovs must implement hand_off(), and
+nothing changes for others, as the mark is clear by default. Also give
+providers a byte of their own in the net_iov, in the cache line they
+touch anyway.
 
 Signed-off-by: Björn Töpel <bjorn@kernel.org>
 ---
- include/net/xdp.h | 41 +++++++++++++++++++++++++++++++++++------
- net/core/xdp.c    | 30 ++++++++++++++++++++++++++++++
- 2 files changed, 65 insertions(+), 6 deletions(-)
+ include/net/netmem.h                    |  8 ++++++++
+ include/net/page_pool/memory_provider.h |  6 ++++++
+ net/core/page_pool.c                    | 20 +++++++++++++++++++-
+ 3 files changed, 33 insertions(+), 1 deletion(-)
 
-diff --git a/include/net/xdp.h b/include/net/xdp.h
-index 1629e347b71f..944418111a86 100644
---- a/include/net/xdp.h
-+++ b/include/net/xdp.h
-@@ -65,6 +65,11 @@ struct xdp_rxq_info {
- 	u32 reg_state;
- 	struct xdp_mem_info mem;
- 	u32 frag_size;
-+	/* Shared info of buffers with %XDP_FLAGS_SINFO_EXT, in kernel
-+	 * memory, see xdp_rxq_info_reg_ext_sinfo(). The queue builds one
-+	 * such buffer at a time.
+diff --git a/include/net/netmem.h b/include/net/netmem.h
+index 4cf4ee1cd55d..1be7298ac6d9 100644
+--- a/include/net/netmem.h
++++ b/include/net/netmem.h
+@@ -97,6 +97,12 @@ enum net_iov_type {
+ struct net_iov {
+ 	struct netmem_desc desc;
+ 	enum net_iov_type type;
++	/* The last put hands it to its memory provider instead of the page
++	 * pool cache, see &memory_provider_ops.hand_off
 +	 */
-+	struct skb_shared_info *ext_sinfo;
- } ____cacheline_aligned; /* perf critical, avoid false-sharing */
- 
- struct xdp_txq_info {
-@@ -81,6 +86,15 @@ enum xdp_buff_flags {
- 	 * XDP program is not attached.
- 	 */
- 	XDP_FLAGS_FRAGS_UNREADABLE	= BIT(2),
-+	/* The shared info lives in &xdp_rxq_info.ext_sinfo, in kernel memory,
-+	 * not at the end of the frame. For memory that someone outside the
-+	 * kernel may write. Whoever prepares the buffer sets it before adding
-+	 * fragments, on a queue that has ext_sinfo. The queue NAPI builds one
-+	 * such buffer at a time: its shared info is valid until the buffer
-+	 * is redirected, dropped or copied. The data may reach the end of the
-+	 * frame, see xdp_data_hard_end(): the frame must hold nothing else.
-+	 */
-+	XDP_FLAGS_SINFO_EXT		= BIT(3),
++	bool mp_hand_off;
++	/* Owned by the memory provider */
++	u8 mp_state;
+ 	struct net_iov_area *owner;
  };
  
- struct xdp_buff {
-@@ -212,17 +226,27 @@ xdp_prepare_buff(struct xdp_buff *xdp, unsigned char *hard_start,
- 
- /* Reserve memory area at end-of data area.
-  *
-- * This macro reserves tailroom in the XDP buffer by limiting the
-- * XDP/BPF data access to data_hard_end.  Notice same area (and size)
-- * is used for XDP_PASS, when constructing the SKB via build_skb().
-+ * This reserves tailroom in the XDP buffer by limiting the XDP/BPF data
-+ * access to data_hard_end.  Notice same area (and size) is used for
-+ * XDP_PASS, when constructing the SKB via build_skb(). Buffers with
-+ * %XDP_FLAGS_SINFO_EXT keep the shared info elsewhere and reserve none.
-  */
--#define xdp_data_hard_end(xdp)				\
--	((xdp)->data_hard_start + (xdp)->frame_sz -	\
--	 SKB_DATA_ALIGN(sizeof(struct skb_shared_info)))
-+static __always_inline void *xdp_data_hard_end(const struct xdp_buff *xdp)
-+{
-+	u32 tailroom = SKB_DATA_ALIGN(sizeof(struct skb_shared_info));
-+
-+	if (xdp->flags & XDP_FLAGS_SINFO_EXT)
-+		tailroom = 0;
-+	return xdp->data_hard_start + xdp->frame_sz - tailroom;
-+}
- 
- static inline struct skb_shared_info *
- xdp_get_shared_info_from_buff(const struct xdp_buff *xdp)
+@@ -132,6 +138,8 @@ static inline void net_iov_init(struct net_iov *niov,
  {
-+	/* Kernel structures stay out of memory that userspace may write */
-+	if (unlikely(xdp->flags & XDP_FLAGS_SINFO_EXT))
-+		return xdp->rxq->ext_sinfo;
-+
- 	return (struct skb_shared_info *)xdp_data_hard_end(xdp);
+ 	niov->owner = owner;
+ 	niov->type = type;
++	niov->mp_hand_off = false;
++	niov->mp_state = 0;
  }
  
-@@ -454,6 +478,10 @@ int xdp_update_frame_from_buff(const struct xdp_buff *xdp,
- 		return -ENOSPC;
- 	}
- 
-+	/* A frame keeps its shared info in the buffer */
-+	if (unlikely(xdp->flags & XDP_FLAGS_SINFO_EXT))
-+		return -EFAULT;
-+
- 	xdp_frame->data = xdp->data;
- 	xdp_frame->len  = xdp->data_end - xdp->data;
- 	xdp_frame->headroom = headroom - sizeof(*xdp_frame);
-@@ -533,6 +561,7 @@ bool xdp_rxq_info_is_reg(struct xdp_rxq_info *xdp_rxq);
- int xdp_rxq_info_reg_mem_model(struct xdp_rxq_info *xdp_rxq,
- 			       enum xdp_mem_type type, void *allocator);
- void xdp_rxq_info_unreg_mem_model(struct xdp_rxq_info *xdp_rxq);
-+int xdp_rxq_info_reg_ext_sinfo(struct xdp_rxq_info *xdp_rxq);
- int xdp_reg_mem_model(struct xdp_mem_info *mem,
- 		      enum xdp_mem_type type, void *allocator);
- void xdp_unreg_mem_model(struct xdp_mem_info *mem);
-diff --git a/net/core/xdp.c b/net/core/xdp.c
-index 1d679e8fd649..3472b03ee661 100644
---- a/net/core/xdp.c
-+++ b/net/core/xdp.c
-@@ -142,6 +142,8 @@ void xdp_rxq_info_unreg_mem_model(struct xdp_rxq_info *xdp_rxq)
- 	}
- 
- 	xdp_unreg_mem_model(&xdp_rxq->mem);
-+	kfree(xdp_rxq->ext_sinfo);
-+	xdp_rxq->ext_sinfo = NULL;
+ /* netmem */
+diff --git a/include/net/page_pool/memory_provider.h b/include/net/page_pool/memory_provider.h
+index d52c7a450c68..bfc284158222 100644
+--- a/include/net/page_pool/memory_provider.h
++++ b/include/net/page_pool/memory_provider.h
+@@ -36,6 +36,12 @@ enum mp_flags {
+ struct memory_provider_ops {
+ 	netmem_ref (*alloc_netmems)(struct page_pool *pool, gfp_t gfp);
+ 	bool (*release_netmem)(struct page_pool *pool, netmem_ref netmem);
++	/* Takes a free net_iov marked mp_hand_off that stays charged to the
++	 * pool; the provider puts it back later. Returns false to have the
++	 * pool recycle it instead. Called where the pool puts netmem, outside
++	 * hard IRQ context. Needed by providers that mark net_iovs.
++	 */
++	bool (*hand_off)(struct page_pool *pool, netmem_ref netmem);
+ 	int (*init)(struct page_pool *pool);
+ 	void (*destroy)(struct page_pool *pool);
+ 	int (*nl_fill)(void *mp_priv, struct sk_buff *rsp,
+diff --git a/net/core/page_pool.c b/net/core/page_pool.c
+index 8a1ea21ccdcd..200b0569b9fe 100644
+--- a/net/core/page_pool.c
++++ b/net/core/page_pool.c
+@@ -840,6 +840,16 @@ static bool __page_pool_page_can_be_recycled(netmem_ref netmem)
+ 		!page_is_pfmemalloc(netmem_to_page(netmem)));
  }
- EXPORT_SYMBOL_GPL(xdp_rxq_info_unreg_mem_model);
  
-@@ -368,6 +370,30 @@ int xdp_rxq_info_reg_mem_model(struct xdp_rxq_info *xdp_rxq,
- 
- EXPORT_SYMBOL_GPL(xdp_rxq_info_reg_mem_model);
- 
-+/**
-+ * xdp_rxq_info_reg_ext_sinfo - keep the shared info of buffers in the queue
-+ * @xdp_rxq: registered RX queue
-+ *
-+ * For buffers in memory that someone outside the kernel may write: those
-+ * with %XDP_FLAGS_SINFO_EXT keep their shared info in kernel memory of
-+ * @xdp_rxq instead of at the end of their frame.
-+ * xdp_rxq_info_unreg_mem_model() frees it.
-+ *
-+ * Return: 0 on success, or a negative errno.
++/* A memory provider takes back a free net_iov it marked, see
++ * &memory_provider_ops.hand_off
 + */
-+int xdp_rxq_info_reg_ext_sinfo(struct xdp_rxq_info *xdp_rxq)
++static bool page_pool_hand_off(struct page_pool *pool, netmem_ref netmem)
 +{
-+	if (xdp_rxq->reg_state != REG_STATE_REGISTERED) {
-+		WARN(1, "Missing register, driver bug");
-+		return -EFAULT;
-+	}
-+
-+	if (!xdp_rxq->ext_sinfo)
-+		xdp_rxq->ext_sinfo = kzalloc_obj(*xdp_rxq->ext_sinfo);
-+	return xdp_rxq->ext_sinfo ? 0 : -ENOMEM;
++	return netmem_is_net_iov(netmem) &&
++	       unlikely(netmem_to_net_iov(netmem)->mp_hand_off) &&
++	       pool->mp_ops->hand_off(pool, netmem);
 +}
-+EXPORT_SYMBOL_GPL(xdp_rxq_info_reg_ext_sinfo);
 +
- /**
-  * xdp_reg_page_pool - register &page_pool as a memory provider for XDP
-  * @pool: &page_pool to register
-@@ -638,6 +664,10 @@ struct sk_buff *xdp_build_skb_from_buff(const struct xdp_buff *xdp)
- 	u32 nr_frags = 0;
- 	int metalen;
+ /* If the page refcnt == 1, this will try to recycle the page.
+  * If pool->dma_sync is set, we'll try to sync the DMA area for
+  * the configured size min(dma_sync_size, pool->max_len).
+@@ -852,6 +862,10 @@ __page_pool_put_page(struct page_pool *pool, netmem_ref netmem,
+ {
+ 	lockdep_assert_no_hardirq();
  
-+	/* An skb keeps its shared info in the buffer */
-+	if (unlikely(xdp->flags & XDP_FLAGS_SINFO_EXT))
-+		return NULL;
++	/* The provider takes the net_iovs it marked */
++	if (page_pool_hand_off(pool, netmem))
++		return 0;
 +
- 	if (unlikely(xdp_buff_has_frags(xdp))) {
- 		sinfo = xdp_get_shared_info_from_buff(xdp);
- 		nr_frags = sinfo->nr_frags;
+ 	/* This allocator is optimized for the XDP mode that uses
+ 	 * one-frame-per-page, but have fallbacks that act like the
+ 	 * regular page allocator APIs.
+@@ -1051,6 +1065,9 @@ static netmem_ref page_pool_drain_frag(struct page_pool *pool,
+ 	if (likely(page_pool_unref_netmem(netmem, drain_count)))
+ 		return 0;
+ 
++	if (page_pool_hand_off(pool, netmem))
++		return 0;
++
+ 	if (__page_pool_page_can_be_recycled(netmem)) {
+ 		page_pool_dma_sync_for_device(pool, netmem, -1);
+ 		return netmem;
+@@ -1067,7 +1084,8 @@ static void page_pool_free_frag(struct page_pool *pool)
+ 
+ 	pool->frag_page = 0;
+ 
+-	if (!netmem || page_pool_unref_netmem(netmem, drain_count))
++	if (!netmem || page_pool_unref_netmem(netmem, drain_count) ||
++	    page_pool_hand_off(pool, netmem))
+ 		return;
+ 
+ 	page_pool_return_netmem(pool, netmem);
 -- 
 2.56.1
 
