@@ -1,47 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.192
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795514814;
-	b=Jk3oDUPARdGRe7j9+M44rTOw2auRoctasJC2+SpE3lbwsj7PqXNWROkfIO8ocPC9yhwJ
-	 mRf1ROvfbkmMyT0GnZro52td6mn9ciyv8MrsGAOxI7VDSa0IHMsU7Q3FRJFzixYXW4x9l
-	 egAW51dRnRTNYJ3tmd25izhIBVgZPhx5kHMjqulo7zeI5BM2wNidVURXfF9JIFO3I/tNk
-	 5b26q+P5P4kn4T3WsRC7o0+PF1cBLl58atMsLvOoxuxe9g4OIbEANlKaDAAnFajGu8BTx
-	 35oeguZKPizk0aD+NmGJYbbhPctZQASoIApiJetBo3dr6tURB/ekfYs0E3a3iZfBt+g==
+	t=1795514817;
+	b=QYxRzF9yAm1Xosv/xpXh/re9FIma/WFPDSZOVg8Ta5rx7/MA8UHgIBdp6clE9CCI/LbD
+	 fFW+vplVUsgof5C4meq1thCvQQkpudPMG7kgZRcFZtK6WD+cJU5jpuXKsfZsOmqUuFEyS
+	 4EW3YKFtYtTKxTAhGtdfWCL4/ieZZnXvT1gX53v6u53tyEIpBIQ8UoJW2a3++oIZnfhRo
+	 +VcL5C+ZqF+VFW8Cz6k9556oH1e38T2Dk+pmPDUh/DpYXoAgsFfjfLHoTDs2FL9PwuOSl
+	 gasbGdUSkr6bGxzj4fkkMJ17OCx0yAtrFr2Op8Mj8oPYbOI3cQHSYgEE2ZuT2+rlucg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795514814;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795514817;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
 	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
 	 Content-Type:Content-Transfer-Encoding;
-	bh=SXEF56RrG5y5FAdKWjS4+NoaPcHn0Sj4aJ75nFCxeYA=;
-	b=mEv/kVPW41Zciwq8q7n6h+hJ1Wk/HuIFtAU0Ezln+HH7dh3GjrjR3SKFNL5fYiy/FSfP
-	 xVcK7kJ2hKLC3XDC99eubIDb51CC/XjMzTagQTnm5yxonFuz7HE5dNMjiwHxdNwQ0i2aV
-	 xrmaANNeyR7KyZrwfwznzb/xVJDuM0WJ2QAsH9Se5QhB1U/WpX8ZFaaUz93IPO6THuhNC
-	 O7bK9hf+Zc5jh8Cdfr6Wc0ptyaAYSStS4Rf3OYJalaU6zVzRtb7HWfP8wAfBZSAg7oKB+
-	 eM5a+z8VRqDlF5T7K+75f8Sr2LSHxOb/kyTzCuxCVjHAInQCAIRA4pPC+Nhz0FtUSPA==
+	bh=SPdpyfE1HWRnsvTxbeiugbn90kA/dX96AegfRSmK+b8=;
+	b=g0rpyoGj4Ywn8MSegLZo4V0kZeZSHbozssBQRJXug/hTcrdw0xmabZTNy3JA58A/LOEA
+	 bY2PM70ZmD48xu9ZkcUGub/Wp7kPIriNpdNU8aJPcGkbGYBEaKyU97K6M1KyGQePJeSCx
+	 g7Q1y/HLq2vzSsRETExnymTdRyhX4QEMYRIo1pvokOHocJzFOPOfiSzXmTPEVhLT02YIY
+	 Nxd2H0t/ayCdHSvXDiHQKDzuyIJ5xB3pYHgX1fd9Ep4oPAaXYEXMUNHit7K9lVSLRQrRg
+	 JkhCKSYyq8h9nfPo4HSlrEYj3MtgyHtFrvSZavEAzIIiC5HnTcrSb07ODge0aUjmNSA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=flCBnIDd;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=MlLzpEVB;
+	arc=none smtp.remote-ip=95.215.58.192
+Received: from mta1.migadu.com (out-192.mta1.migadu.com [95.215.58.192])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A03AC606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 10:06:54 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 01EEA606A331
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 10:06:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 01EEA606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=flCBnIDd
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D1481F000C4;
-	Tue, 24 Nov 2026 10:06:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795514813;
-	bh=SXEF56RrG5y5FAdKWjS4+NoaPcHn0Sj4aJ75nFCxeYA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=flCBnIDdaewb+skQc1KO+Zef0Qf1B9wCc2dAgiever4x7MW5nx9zb/+o4sW1y0BxP
-	 H+IOx5Xu65qNlumufAS1gkDIpdCSgTbtLOpDv8tw1OOoe6sRtQUhl1VkzLwcJaER3j
-	 md4cj3iCazQGmmzT1pC9W4eHz46jAvTCt5kXrutsUJNG9Hn6yl+H93EbOFLtLKCB0t
-	 OpWPUQuqHCCtHYm0v+p0KZP71uiro0wOGOEd01kh4kRj+pxmoaSCrDg5ktTjqQc7KJ
-	 xcYJ6y4kVJ2/YQsZcE8pS2hwRrk+OqSFVdQabFF3FIuXMEmv7AI8WviQ9Ug/FIUJxz
-	 ZklrsoCYmQ7DQ==
-Message-ID: <0a6fbbd8-6339-444d-bcb0-a74980fb77c8@kernel.org>
-Date: Tue, 24 Nov 2026 11:06:47 +0100
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=MlLzpEVB
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=YPGU1SINjNaGBg7pnT2MKcQEc9iGIgNnZDDzouMsAPQ=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795514814; v=1; x=1796119614;
+ b=MlLzpEVBcZucMBEmEWDnf08shNM0f9psvhXQv3jDHBkkFrmkHYYLOCq4/V1DpB/3I1KlKTRJ
+ ZztR000BAGmlbpyL0kSY90WOpc5Dg4C3m/4zuTMfdwVGkxPgffYA+aEbX7EMM13gDh7d0KVn6CU
+ 6C2WHA9dDzsi/u+dTJaTB53g=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id a282bc42fc97d6e8;
+	Tue, 24 Nov 2026 10:06:53 +0000
+X-Mizu-Trace-ID: a282bc42fc97d6e8
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <833af431-3580-4a7d-987f-30d8d60893a3@linux.dev>
+Date: Tue, 24 Nov 2026 18:06:39 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -52,145 +59,122 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCHv2 1/3] powerpc/execmem: Don't leave kprobes insn pages W+X
- when CONFIG_MODULES=n
-To: "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
- linuxppc-dev@lists.ozlabs.org
-Cc: Madhavan Srinivasan <maddy@linux.ibm.com>,
- Venkat Rao Bagalkote <venkat88@linux.ibm.com>, linux-kernel@vger.kernel.org,
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- Shrikanth Hegde <sshegde@linux.ibm.com>,
- Hari Bathini <hbathini@linux.ibm.com>
-References: <cover.1794572365.git.ritesh.list@gmail.com>
- <f75f2cf97f44375fd2c8820e0caeab703cdb371c.1794572365.git.ritesh.list@gmail.com>
- <9a7963a6-0033-45ab-90d5-b1f580a4882c@kernel.org>
- <v75v752e.ritesh.list@gmail.com>
-Content-Language: fr-FR
-From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-In-Reply-To: <v75v752e.ritesh.list@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Subject: Re: [PATCH v5 03/12] cpuset: introduce partition_update()
+To: Ridong Chen <ridong.chen@linux.dev>, Waiman Long <longman@redhat.com>,
+ Tejun Heo <tj@kernel.org>, Johannes Weiner <hannes@cmpxchg.org>,
+ =?UTF-8?Q?Michal_Koutn=C3=BD?= <mkoutny@suse.com>
+Cc: Guopeng Zhang <zhangguopeng@kylinos.cn>, cgroups@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Ridong Chen <chenridong@xiaomi.com>
+References: <20261114083124.1340140-1-ridong.chen@linux.dev>
+ <20261114083124.1340140-4-ridong.chen@linux.dev>
+Content-Language: en-US
+From: Guopeng Zhang <guopeng.zhang@linux.dev>
+In-Reply-To: <20261114083124.1340140-4-ridong.chen@linux.dev>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-Hi Ritesh,
 
-Thanks for your patience,
 
-Le 17/11/2026 à 18:15, Ritesh Harjani a écrit :
-> "Christophe Leroy (CS GROUP)" <chleroy@kernel.org> writes:
+在 2026/11/14 16:31, Ridong Chen 写道:
+> From: Ridong Chen <chenridong@xiaomi.com>
 > 
->> Le 13/11/2026 à 13:31, Ritesh Harjani (IBM) a écrit :
->>> commit 2e83e2ce34ff ("arch, mm: promote DEBUG_WX to CHECK_WX"), made
->>> CHECK_WX default STRICT_KERNEL_RWX.
->>>
->>> Now on powerpc, when we boot with CONFIG_KPROBES=y and CONFIG_MODULES=n,
->>> we can see the following warning splat at boot:
->>>
->>>       powerpc/mm: Found insecure W+X mapping at address 000000002ea08992/0xc008000000000000
->>>       WARNING: arch/powerpc/mm/ptdump/ptdump.c:194 at note_page+0x4dc/0x4fc, CPU#0: swapper/0/1
->>>       NIP [c0000000000ac204] note_page+0x4dc/0x4fc
->>>       LR [c0000000000ac200] note_page+0x4d8/0x4fc
->>>       Call Trace:
->>>        note_page+0x4d8/0x4fc (unreliable)
->>>        ptdump_pte_entry+0x70/0x94
->>>        walk_pte_range_inner+0x15c/0x260
->>>        walk_pgd_range+0x6d8/0xd5c
->>>        walk_page_range_debug+0xa4/0xf0
->>>        ptdump_walk_pgd+0xec/0x304
->>>        ptdump_check_wx+0xd8/0x154
->>>        kernel_init+0x94/0x26c
->>>        ret_from_kernel_user_thread+0x14/0x1c
->>>       Checked W+X mappings: FAILED, 1 W+X pages found
->>>
->>> This happens because CHECK_WX noted a writeable + executable mapping.
->>>
->>> This happens because execmem_arch_setup(), checks for
->>> struct_modules_rwx_enabled(), while kprobes depenency on modules was
->>> earlier removed via commit:
->>>       7582b7be16d0 ("kprobes: remove dependency on CONFIG_MODULES")
->>> Since the insn slots are only written with patch_instruction(), which
->>> does not need this mapping to be writable. This patch fixes it by
->>> checking for strict_kernel_rwx_enabled() instead.
->>>
->>> Fixes: 7582b7be16d0 ("kprobes: remove dependency on CONFIG_MODULES")
->>> Signed-off-by: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
->>> ---
->>>    arch/powerpc/mm/mem.c | 2 +-
->>>    1 file changed, 1 insertion(+), 1 deletion(-)
->>>
->>> diff --git a/arch/powerpc/mm/mem.c b/arch/powerpc/mm/mem.c
->>> index b617b69452cd..77b63b52d8f2 100644
->>> --- a/arch/powerpc/mm/mem.c
->>> +++ b/arch/powerpc/mm/mem.c
->>> @@ -388,7 +388,7 @@ static void prealloc_execmem_pgtable(void) { }
->>>    
->>>    struct execmem_info __init *execmem_arch_setup(void)
->>>    {
->>> -	pgprot_t kprobes_prot = strict_module_rwx_enabled() ? PAGE_KERNEL_ROX : PAGE_KERNEL_EXEC;
->>> +	pgprot_t kprobes_prot = strict_kernel_rwx_enabled() ? PAGE_KERNEL_ROX : PAGE_KERNEL_EXEC;
->>>    	pgprot_t prot = strict_module_rwx_enabled() ? PAGE_KERNEL : PAGE_KERNEL_EXEC;
->>
->> Looking at this, I'd use PAGE_KERNEL_X instead of PAGE_KERNEL_EXEC.
->>
->> Then we could get rid of PAGE_KERNEL_EXEC completely for powerpc.
->>
+> Introduce partition_update() to centralize updates to key cpuset structures
+> during a partition update, including:
+> 1. effective_xcpus
+> 2. exclusive_cpus
 > 
-> I think it's best if we keep the definition of PAGE_KERNEL_EXEC on
-> powerpc as PAGE_KERNEL_X, I think the core expects the arch to define
-> this, if not, then it defaults to PAGE_KERNEL e.g. see this:
-
-Yes, which is consistent with what powerpc does when strict modules rwx 
-is enabled.
-
-And indeed it doesn't matter, because module code does a rw allocation 
-at the begining then convert it to ROX or X later in 
-module_enable_text_rox(). See comment :
-
-/*
-  * Since some arches are moving towards PAGE_KERNEL module allocations 
-instead
-  * of PAGE_KERNEL_EXEC, keep module_enable_x() independent of
-  * CONFIG_STRICT_MODULE_RWX because they are needed regardless of 
-whether we
-  * are strict.
-  */
-
-So really PAGE_KERNEL is what is expected nowadays.
-
+> Key operations performed:
+> 1. Adding and removing exclusive CPUs via partition_xcpus_add()/del()
+> 2. Synchronizing the effective exclusive CPUs mask
+> 3. Updating the exclusive CPUs mask when modification is required
+> 4. Triggering scheduler domain rebuilds
 > 
-> include/linux/pgtable.h:
->    #ifndef PAGE_KERNEL_EXEC
->    # define PAGE_KERNEL_EXEC PAGE_KERNEL
->    #endif
+> For a local partition, the CPUs to be added or deleted are restricted to
+> those in the parent's effective_xcpus, as the parent may have shrunk.
+> The function returns early if nothing is to be changed.
 > 
-> Also mm/execmem references PAGE_KERNEL_EXEC in __execmem_init().
-> Although it references only when execmem_arch_setup() is not defined by
-> the arch (which is not true for powerpc).
+> The partition root state is unchanged by this function, so no partition
+> change notification is sent.
 > 
+> Signed-off-by: Ridong Chen <chenridong@xiaomi.com>
+> ---
+>  kernel/cgroup/cpuset.c | 52 ++++++++++++++++++++++++++++++++++++++++++
+>  1 file changed, 52 insertions(+)
 > 
-> However, even though nothing breaks today, but later if there are other
-> users of PAGE_KERNEL_EXEC, then PAGE_KERNEL does not have X (execute) bit
-> enabled, so it might break in future. Plus looking at above, I believe
-> there is no harm in keeping it - since core expects the platform to
-> define it's own definition - due to all the other references it has.
-> 
-> Thoughts?
+> diff --git a/kernel/cgroup/cpuset.c b/kernel/cgroup/cpuset.c
+> index 12bdcaeb8ae5..c66864faab32 100644
+> --- a/kernel/cgroup/cpuset.c
+> +++ b/kernel/cgroup/cpuset.c
+> @@ -1824,6 +1824,58 @@ static void __maybe_unused partition_disable(struct cpuset *cs, int new_prs,
+>  	update_sibling_cpumasks(parent, cs, tmp);
+>  }
+>  
+> +/**
+> + * partition_update - Update an existing partition configuration
+> + * @cs: The cpuset to update
+> + * @prs: Partition root state (must be positive)
+> + * @xcpus: New exclusive CPUs mask for the partition (NULL to keep current)
+> + * @excpus: New effective exclusive CPUs mask
+> + * @tmp: Temporary masks
+> + *
+> + * Updates partition-related fields. The tmp->addmask is the CPU mask that
+> + * will be added to the subpartitions_cpus and removed from parent's
+> + * effective_cpus, and the tmp->delmask vice versa.
+> + */
 
-Yes but PAGE_KERNEL not having X is on purpose, module first allocates 
-non-X mem, sets up everything then converts to X or ROX. I don't think 
-there will be any more users of PAGE_KERNEL_EXEC in the future. It is 
-going in the other direction I think.
+My understanding is that tmp->addmask is added to subpartitions_cpus
+only when the resource parent is top_cpuset. For remote partitions,
+NULL represents that resource parent.
 
-> 
-> However, if you still think we should remove it (?) - then I feel let's
-> do that as a separate cleanup patch. Since this keeps the usage of EXEC
-> same between prot and kprobes_prot variables in patch-1, which we also
-> need to backport.
+For a nested local partition, this helper updates the parent's
+effective_cpus without changing subpartitions_cpus.
 
-At least we should stop using it in our own arch, it would help with 
-readability. And really I think we shoud drop it completely. But OK to 
-have it as a separate patch not to be back-ported.
+Is my understanding correct? Please correct me if I'm missing something.
 
-By the way I also see CONFIG_ARCH_HAS_EXECMEM_ROX, maybe we should 
-investigate in using it on powerpc.
+Thanks,
+Guopeng
 
-Christophe
+> +static void __maybe_unused partition_update(struct cpuset *cs, int prs, struct cpumask *xcpus,
+> +					    struct cpumask *excpus, struct tmpmasks *tmp)
+> +{
+> +	struct cpuset *parent;
+> +
+> +	lockdep_assert_cpuset_lock_held();
+> +	WARN_ON_ONCE(!cpuset_v2());
+> +	WARN_ON_ONCE(prs <= 0);
+> +
+> +	parent = is_remote_partition(cs) ? NULL : parent_cs(cs);
+> +
+> +	/*
+> +	 * Only CPUs owned by the parent can be taken from or given back to
+> +	 * it, the parent may have shrunk. A remote partition gets its CPUs
+> +	 * from top_cpuset which owns all the CPUs.
+> +	 */
+> +	if (parent) {
+> +		cpumask_and(tmp->addmask, tmp->addmask, parent->effective_xcpus);
+> +		cpumask_and(tmp->delmask, tmp->delmask, parent->effective_xcpus);
+> +	}
+> +	if (cpumask_empty(tmp->addmask) &&
+> +	    cpumask_empty(tmp->delmask) &&
+> +	    cpumask_equal(cs->effective_xcpus, excpus))
+> +		return;
+> +
+> +	spin_lock_irq(&callback_lock);
+> +	partition_xcpus_add(prs, parent, tmp->addmask);
+> +	partition_xcpus_del(prs, parent, tmp->delmask);
+> +	/*
+> +	 * Need to update effective_xcpus and exclusive_cpus now as
+> +	 * update_sibling_cpumasks() called by the callers afterwards may
+> +	 * iterate back to the same cs.
+> +	 */
+> +	cpumask_copy(cs->effective_xcpus, excpus);
+> +	if (xcpus)
+> +		cpumask_copy(cs->exclusive_cpus, xcpus);
+> +	spin_unlock_irq(&callback_lock);
+> +	cpuset_force_rebuild();
+> +}
+> +
+>  /*
+>   * remote_partition_enable - Enable current cpuset as a remote partition root
+>   * @cs: the cpuset to update
+
