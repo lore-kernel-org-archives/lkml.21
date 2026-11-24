@@ -1,65 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.239
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.153
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795525712;
-	b=YKu/9wFWblVZxGGpEyXL1LYr/kpuz4qfeJPnMZpFPzSRU1e5lkO/67U343Ho1Y4qyHqt
-	 UzOCfmCPNfTfUiVB4xWPP7FZ5/jiez/N08VpQ9u1ffEO5aCiPZf0h6MrnEgnDuWjQI/jD
-	 cRcPkwQAzO6vzPBoYgw99p/jvNon+LYlFEFoUEMRZdrJ10ct+2jF8sTq7GfQkX5G5htAb
-	 si+kl0f/21c8FHEWiHyuWhVfA2vM05D2rwC9u5KZnQ/DV0Kpp6bUUbLXWLJRVIpwgvgyM
-	 8ZnmofkQv4M1pu46gMA0JJkvVVGmqsD6I8TPwGoWb3iPTzNZ5txG94mOYEm5kQaV2hw==
+	t=1795525717;
+	b=mgLE5GRSTVQIMcLP9vvoB6vTFCm07NJc80YBdWBozViXzdGUfjcIkjOffttkDf7oKz/y
+	 RhHFURxE6NcX7wVCevypgfTYkRwk5Z/G524UCCN30tihjmbLxQM6Sw1zocQglL+wNBfsg
+	 qZOsPVC86xjhPvY/6aC1sd+Bo3EtO1fopPpaaY+zTsJE4+t/dpS/+IRIYHKTYJCByiquo
+	 WInFP2+4ltg+M3gG/iZX4Y09dOMU49wpsgyuIKwD3/7cPVH2g1BlF75NM7dxXBb9mRLid
+	 3DO8887KaBFmd3YSYkh4Y63n7n9HD5Y1fNYH5FnMuocti8mrnQvnrhKTUkx8cnBahxA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795525712;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795525717;
 	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=SKndPVf6fv+vcZFs47JjiUiTdf9OsnJiNfTCpP00Ae4=;
-	b=hk02K7np7qVMLEI5qD5itmMMSbnd96PCcANVmbPqt3Fz/cloOnISNTYv3nDDs4GalCp2
-	 yv3cVVJc/ykLt2C6qD+QR33FBsjEWopUPKpGxtMHyK3Xcv+ZH6XD7hDKWwKvezONEnH5h
-	 ToFb2+pkkNdINKsQOCUia67WbECJ46K3XkkMnghlsiQf40AgAL+sCHutD31xdkW34Q0Ff
-	 PW0MI3RYa62TJQGYbUurwtvNPbEI7FOQuFpVY3+a4G15fOtKM7nXwbwDSOzkcjqIrqNPb
-	 jddjT1bmj8fN3JkDpYS8TY9JjXSDKlGhWrCLouEBQIPplxTObuu07oH1z37k0Ff8VIQ==
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=RQ3YF1RfEqs94cp9dLMIze3uhjn7zFoDvRCz3CbVmv8=;
+	b=aUiZGHhPJ+SMBXl9BR1ofm2wo5kjy2vJLxd/vtT+9rIq0Te9GWjFRiX8yPo55WjjgWjt
+	 9Wq94FqFyOhpCcMKZX37rGjMcFg16r0wlW35y2SkmxsoyazVD46hHZR6Nq5MibURFtf5m
+	 HlUrRR/glnq67YbC40sHzufwo5+JSkhhWtzusEr2pC4dLs7aDtMlTzTpBxAyV7I0fhCj3
+	 pHUJWHiezGDZqy7MWe4cd9MBNddiPUbyF4pcs7KSJoBWOxf5gquRkRwJojZkpwqf0jaD0
+	 NbIVT7rZNeVMmFb4/9x4lfjGE4Cln1tPsIDA7N0AMFVAGLOGu6EbYpnoZRgPRhcvlzQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linux.dev;
 	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=QT3py5ik;
-	arc=none smtp.remote-ip=95.215.58.239
-Received: from mta1.migadu.com (out-239.mta1.migadu.com [95.215.58.239])
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=oR3lIa81;
+	arc=none smtp.remote-ip=91.218.175.153
+Received: from mta0.migadu.com (out-153.mta0.migadu.com [91.218.175.153])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9A7C1606A321
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:08:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9A7C1606A321
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 80B7A606A321
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:08:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 80B7A606A321
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=QT3py5ik
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=oR3lIa81
 X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=HPXWZ66xG0/7jSLpD6luU5x0piuUjMnwo5mW3igEPTg=;
+DKIM-Signature: a=rsa-sha256; bh=nji5A2XjSCYxW4EpPuWPD3nn2/76/ynnUfE5sAmbOEw=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795525709; v=1; x=1796130509;
- b=QT3py5ikqum6bM+tON3uCk1BgKwC+nXCTH9JFf5IxbJZHlvVY5BfdrswDUNwjzvMKw+4WiY2
- Xy8a+2nLTF/aXyJEMwSNdwizW5/1QG46RJd8MlPXtjG1ofv8K9t4ATNZO1sqSrl+AFafsrJTqO0
- mZyiKQ40aIaT+GXfslxRlZaY=
+ t=1795525714; v=1; x=1796130514;
+ b=oR3lIa81Ip6PgF7APxT9LAO91m++WqKzt8FAV2PFHux+GWJn04KEwKULNkCkbO+SjUnrH6Ac
+ b+9CG0eR2VzYoOVDPZ6FWxv6C1Lj6dsW2yofWpoK+7RrYo2ZcJy0F8HB8M52dtmh9aqxu+plSDk
+ YNWLOB3qKCp23btyNMsBDFFQ=
 X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id a71e5be8c34d1f0a;
-	Tue, 24 Nov 2026 13:08:29 +0000
-X-Mizu-Trace-ID: a71e5be8c34d1f0a
+Received: by smtp.migadu.com with ESMTPS id 052fed434da67c83;
+	Tue, 24 Nov 2026 13:08:34 +0000
+X-Mizu-Trace-ID: 052fed434da67c83
 X-Migadu-Flow: FLOW_OUT
-Date: Tue, 24 Nov 2026 14:08:23 +0100
-From: "Pankaj Raghav (Samsung)" <pankaj.raghav@linux.dev>
-To: Daejun Park <daejun7.park@samsung.com>
-Cc: Dave Chinner <dgc@kernel.org>, Carlos Maiolino <cem@kernel.org>, 
-	"linux-xfs@vger.kernel.org" <linux-xfs@vger.kernel.org>, Christoph Hellwig <hch@lst.de>, 
-	Dave Chinner <david@fromorbit.com>, "Darrick J. Wong" <djwong@kernel.org>, 
-	Amir Goldstein <amir73il@gmail.com>, Brian Foster <bfoster@redhat.com>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: (2) [PATCH v2 0/2] xfs: skip redundant fsync cache flushes
-Message-ID: <awWJ54ztH1pWu61B@quentin>
-References: <avQPb5z4ExBOiEJq@dread>
- <20261111-xfs-fsync-flush-seq-v2-0-b5c00c25d276@samsung.com>
- <CGME20261111064724epcas2p11498de70e50f2fbf4e21d5e7a723e01d@epcms2p5>
- <20261117023345epcms2p5117009330b6c600f68c598d5e08aef5e@epcms2p5>
+From: Xuanqiang Luo <xuanqiang.luo@linux.dev>
+To: netdev@vger.kernel.org
+Cc: "David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Emil Tsalapatis <emil@etsalapatis.com>,
+	Ihor Solodrai <ihor.solodrai@linux.dev>,
+	Matthieu Baerts <matttbe@kernel.org>,
+	Mat Martineau <martineau@kernel.org>,
+	Geliang Tang <geliang@kernel.org>,
+	David Ahern <dsahern@kernel.org>,
+	Ido Schimmel <idosch@nvidia.com>,
+	Stanislav Fomichev <sdf@fomichev.me>,
+	Neal Cardwell <ncardwell@google.com>,
+	Kuniyuki Iwashima <kuniyu@google.com>,
+	Pablo Neira Ayuso <pablo@netfilter.org>,
+	Florian Westphal <fw@strlen.de>,
+	Phil Sutter <phil@nwl.cc>,
+	bpf@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	mptcp@lists.linux.dev,
+	netfilter-devel@vger.kernel.org,
+	coreteam@netfilter.org,
+	Xuanqiang Luo <luoxuanqiang@kylinos.cn>
+Subject: [PATCH net-next v1 5/6] tcp: avoid a stack canary in tcp_rcv_established()
+Date: Tue, 24 Nov 2026 22:06:30 +0900
+Message-ID: <20261124130631.1886963-6-xuanqiang.luo@linux.dev>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261124130631.1886963-1-xuanqiang.luo@linux.dev>
+References: <20261124130631.1886963-1-xuanqiang.luo@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,58 +98,299 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261117023345epcms2p5117009330b6c600f68c598d5e08aef5e@epcms2p5>
+Content-Transfer-Encoding: 8bit
 
-On Tue, Nov 17, 2026 at 11:33:45AM +0900, Daejun Park wrote:
-> On Wed, Nov 11, 2026 at 05:47:11PM +1100, Dave Chinner wrote:
-> > On Wed, Nov 11, 2026 at 12:17:10PM +0900, Daejun Park via B4 Relay wrote:
-> [...]
-> > > 16 fio jobs of 4k append + fsync in a QEMU guest: 1111 -> 4498
-> > > fsyncs/s.
-> 
-> Correction: fio preallocated these files by default, so they were not
-> appends. Real appends (--fallocate=none) on the same disk give
-> 1311 -> 3416 fsyncs/s.
-> 
-> [...]
-> > Hence the numbers look promising for low concurrency fsync
-> > workloads, but I'd really like to know waht happens at the high end
-> > when log force count rather than per-file fsync latency is the
-> > performance limiting factor. I suspect that it will improve
-> > performance by further mitigating the number of log writes and/or
-> > cache flushes that need to be done, but it really needs to be
-> > tested....
-> 
-> Thanks. When flushes are expensive, v2 is faster from 128 to 512
-> clients but writes more log per fsync. When flushes are cheap, v2 sends
+From: Xuanqiang Luo <luoxuanqiang@kylinos.cn>
 
-It looks like the delay caused by flush acted as a group commit delay
-which allowed for more batching and optimization before the logs were
-written out?
+tcp_rcv_established() passes the address of a local boolean to
+tcp_queue_rcv(), to know if skb->head was stolen while coalescing.
 
-> 60-80% fewer flushes and changes throughput and log writes per fsync
-> by under 5%.
-> 
-> Setup: dbench 4.00 -t 30 in a QEMU guest (40 GiB) on a 990 PRO
-> partition, for-next 48326a2382d8 without and with v2, three runs each,
-> execute phase only.
-> 
-> 1) virtio-blk cache=none, volatile write cache on, 8 vCPUs:
-> 
-> clients  MB/s          log writes/fsync  max_latency ms
-> 128      1963 -> 6886  0.10 -> 0.12        433 -> 331
-> 256      3173 -> 6282  0.11 -> 0.38        312 -> 1956
-> 512      4696 -> 5294  0.13 -> 0.37        468 -> 20595
-> 1024     4466 -> 4751  0.28 -> 0.38      11128 -> 28947
-> 2048     3973 -> 4043  0.25 -> 0.38      21153 -> 21225
-> 
+With CONFIG_STACKPROTECTOR_STRONG=y, this forces a stack canary in
+tcp_rcv_established(), which is paid for every received packet,
+including pure ACKs. tcp_data_queue() has the same issue.
 
-Could you detail your setup and how you measure log writes/fsync and the
-latency numbers?
+Change tcp_try_coalesce(), tcp_ooo_try_coalesce() and tcp_queue_rcv()
+to return this information by value, in a new enum tcp_eaten.
 
-I can also try to reproduce it locally.
+$ scripts/bloat-o-meter -t vmlinux.old vmlinux.new
+add/remove: 0/0 grow/shrink: 1/5 up/down: 16/-215 (-199)
+Function                                     old     new   delta
+tcp_validate_incoming                       2487    2503     +16
+tcp_send_rcvq                                502     490     -12
+tcp_try_coalesce                             359     336     -23
+tcp_queue_rcv                                752     723     -29
+tcp_data_queue                              4425    4350     -75
+tcp_rcv_established                         3287    3211     -76
+Total: Before=24067604, After=24067405, chg -0.00%
 
+Signed-off-by: Xuanqiang Luo <luoxuanqiang@kylinos.cn>
+---
+ net/ipv4/tcp_input.c | 99 +++++++++++++++++++++++---------------------
+ 1 file changed, 52 insertions(+), 47 deletions(-)
+
+diff --git a/net/ipv4/tcp_input.c b/net/ipv4/tcp_input.c
+index 801c76744ed8..3d0a8b7e883e 100644
+--- a/net/ipv4/tcp_input.c
++++ b/net/ipv4/tcp_input.c
+@@ -5276,41 +5276,47 @@ static void tcp_sack_remove(struct tcp_sock *tp)
+ 	tp->rx_opt.num_sacks = num_sacks;
+ }
+ 
++/* Result of an attempt to merge an skb to a prior one. */
++enum tcp_eaten {
++	TCP_NOT_EATEN,
++	TCP_EATEN,
++	TCP_EATEN_STOLEN,	/* skb->head was stolen */
++};
++
+ /**
+  * tcp_try_coalesce - try to merge skb to prior one
+  * @sk: socket
+  * @to: prior buffer
+  * @from: buffer to add in queue
+- * @fragstolen: pointer to boolean
+  *
+  * Before queueing skb @from after @to, try to merge them
+  * to reduce overall memory use and queue lengths, if cost is small.
+  * Packets in ofo or receive queues can stay a long time.
+  * Better try to coalesce them right now to avoid future collapses.
+- * Returns true if caller should free @from instead of queueing it
++ *
++ * Return: TCP_NOT_EATEN if @from has to be queued. Otherwise the caller
++ * should free @from with kfree_skb_partial().
+  */
+-static bool tcp_try_coalesce(struct sock *sk,
+-			     struct sk_buff *to,
+-			     struct sk_buff *from,
+-			     bool *fragstolen)
++static enum tcp_eaten tcp_try_coalesce(struct sock *sk,
++				       struct sk_buff *to,
++				       struct sk_buff *from)
+ {
++	bool fragstolen;
+ 	int delta;
+ 
+-	*fragstolen = false;
+-
+ 	/* Its possible this segment overlaps with prior segment in queue */
+ 	if (TCP_SKB_CB(from)->seq != TCP_SKB_CB(to)->end_seq)
+-		return false;
++		return TCP_NOT_EATEN;
+ 
+ 	if (!tcp_skb_can_collapse_rx(to, from))
+-		return false;
++		return TCP_NOT_EATEN;
+ 
+ 	/* Nothing follows a FIN. */
+ 	if (unlikely(TCP_SKB_CB(to)->tcp_flags & TCPHDR_FIN))
+-		return false;
++		return TCP_NOT_EATEN;
+ 
+-	if (!skb_try_coalesce(to, from, fragstolen, &delta))
+-		return false;
++	if (!skb_try_coalesce(to, from, &fragstolen, &delta))
++		return TCP_NOT_EATEN;
+ 
+ 	atomic_add(delta, &sk->sk_rmem_alloc);
+ 	sk_mem_charge(sk, delta);
+@@ -5325,15 +5331,14 @@ static bool tcp_try_coalesce(struct sock *sk,
+ 		skb_hwtstamps(to)->hwtstamp = skb_hwtstamps(from)->hwtstamp;
+ 	}
+ 
+-	return true;
++	return fragstolen ? TCP_EATEN_STOLEN : TCP_EATEN;
+ }
+ 
+-static bool tcp_ooo_try_coalesce(struct sock *sk,
+-			     struct sk_buff *to,
+-			     struct sk_buff *from,
+-			     bool *fragstolen)
++static enum tcp_eaten tcp_ooo_try_coalesce(struct sock *sk,
++					   struct sk_buff *to,
++					   struct sk_buff *from)
+ {
+-	bool res = tcp_try_coalesce(sk, to, from, fragstolen);
++	enum tcp_eaten res = tcp_try_coalesce(sk, to, from);
+ 
+ 	/* In case tcp_drop_reason() is called later, update to->gso_segs */
+ 	if (res) {
+@@ -5359,9 +5364,10 @@ static void tcp_ofo_queue(struct sock *sk)
+ {
+ 	struct tcp_sock *tp = tcp_sk(sk);
+ 	__u32 dsack_high = tp->rcv_nxt;
+-	bool fin, fragstolen, eaten;
+ 	struct sk_buff *skb, *tail;
++	enum tcp_eaten eaten;
+ 	struct rb_node *p;
++	bool fin;
+ 
+ 	p = rb_first(&tp->out_of_order_queue);
+ 	while (p) {
+@@ -5387,13 +5393,13 @@ static void tcp_ofo_queue(struct sock *sk)
+ 		bpf_tcp_ops_call_flag(enqueue_rcvq, RCVQ, sk, skb);
+ 
+ 		tail = skb_peek_tail(&sk->sk_receive_queue);
+-		eaten = tail && tcp_try_coalesce(sk, tail, skb, &fragstolen);
++		eaten = tail ? tcp_try_coalesce(sk, tail, skb) : TCP_NOT_EATEN;
+ 		tcp_rcv_nxt_update(tp, TCP_SKB_CB(skb)->end_seq);
+ 		fin = TCP_SKB_CB(skb)->tcp_flags & TCPHDR_FIN;
+ 		if (!eaten)
+ 			tcp_add_receive_queue(sk, skb);
+ 		else
+-			kfree_skb_partial(skb, fragstolen);
++			kfree_skb_partial(skb, eaten == TCP_EATEN_STOLEN);
+ 
+ 		if (unlikely(fin)) {
+ 			tcp_fin(sk);
+@@ -5460,8 +5466,8 @@ static void tcp_data_queue_ofo(struct sock *sk, struct sk_buff *skb)
+ 	enum skb_drop_reason reason;
+ 	struct rb_node **p, *parent;
+ 	struct sk_buff *skb1;
++	enum tcp_eaten eaten;
+ 	u32 seq, end_seq;
+-	bool fragstolen;
+ 	int rmem;
+ 
+ 	tcp_save_lrcv_flowlabel(sk, skb);
+@@ -5504,15 +5510,15 @@ static void tcp_data_queue_ofo(struct sock *sk, struct sk_buff *skb)
+ 	/* In the typical case, we are adding an skb to the end of the list.
+ 	 * Use of ooo_last_skb avoids the O(Log(N)) rbtree lookup.
+ 	 */
+-	if (tcp_ooo_try_coalesce(sk, tp->ooo_last_skb,
+-				 skb, &fragstolen)) {
++	eaten = tcp_ooo_try_coalesce(sk, tp->ooo_last_skb, skb);
++	if (eaten) {
+ coalesce_done:
+ 		/* For non sack flows, do not grow window to force DUPACK
+ 		 * and trigger fast retransmit.
+ 		 */
+ 		if (tcp_is_sack(tp))
+ 			tcp_grow_window(sk, skb, true);
+-		kfree_skb_partial(skb, fragstolen);
++		kfree_skb_partial(skb, eaten == TCP_EATEN_STOLEN);
+ 		skb = NULL;
+ 		goto add_sack;
+ 	}
+@@ -5561,9 +5567,10 @@ static void tcp_data_queue_ofo(struct sock *sk, struct sk_buff *skb)
+ 						SKB_DROP_REASON_TCP_OFOMERGE);
+ 				goto merge_right;
+ 			}
+-		} else if (tcp_ooo_try_coalesce(sk, skb1,
+-						skb, &fragstolen)) {
+-			goto coalesce_done;
++		} else {
++			eaten = tcp_ooo_try_coalesce(sk, skb1, skb);
++			if (eaten)
++				goto coalesce_done;
+ 		}
+ 		p = &parent->rb_right;
+ 	}
+@@ -5614,18 +5621,16 @@ static void tcp_data_queue_ofo(struct sock *sk, struct sk_buff *skb)
+ 		tcp_rcvbuf_grow(sk, tp->rcvq_space.space);
+ }
+ 
+-static int __must_check tcp_queue_rcv(struct sock *sk, struct sk_buff *skb,
+-				      bool *fragstolen)
++static enum tcp_eaten __must_check tcp_queue_rcv(struct sock *sk,
++						 struct sk_buff *skb)
+ {
+ 	int rmem = atomic_read(&sk->sk_rmem_alloc);
+ 	struct sk_buff *tail = skb_peek_tail(&sk->sk_receive_queue);
+-	int eaten;
++	enum tcp_eaten eaten;
+ 
+ 	bpf_tcp_ops_call_flag(enqueue_rcvq, RCVQ, sk, skb);
+ 
+-	eaten = (tail &&
+-		 tcp_try_coalesce(sk, tail,
+-				  skb, fragstolen)) ? 1 : 0;
++	eaten = tail ? tcp_try_coalesce(sk, tail, skb) : TCP_NOT_EATEN;
+ 	tcp_rcv_nxt_update(tcp_sk(sk), TCP_SKB_CB(skb)->end_seq);
+ 	if (!eaten) {
+ 		tcp_add_receive_queue(sk, skb);
+@@ -5637,10 +5642,10 @@ static int __must_check tcp_queue_rcv(struct sock *sk, struct sk_buff *skb,
+ 
+ int tcp_send_rcvq(struct sock *sk, struct msghdr *msg, size_t size)
+ {
++	enum tcp_eaten eaten;
+ 	struct sk_buff *skb;
+ 	int err = -ENOMEM;
+ 	int data_len = 0;
+-	bool fragstolen;
+ 
+ 	if (size == 0)
+ 		return 0;
+@@ -5674,8 +5679,9 @@ int tcp_send_rcvq(struct sock *sk, struct msghdr *msg, size_t size)
+ 	TCP_SKB_CB(skb)->end_seq = TCP_SKB_CB(skb)->seq + size;
+ 	TCP_SKB_CB(skb)->ack_seq = tcp_sk(sk)->snd_una - 1;
+ 
+-	if (tcp_queue_rcv(sk, skb, &fragstolen)) {
+-		WARN_ON_ONCE(fragstolen); /* should not happen */
++	eaten = tcp_queue_rcv(sk, skb);
++	if (eaten) {
++		WARN_ON_ONCE(eaten == TCP_EATEN_STOLEN); /* should not happen */
+ 		__kfree_skb(skb);
+ 	}
+ 	return size;
+@@ -5697,8 +5703,7 @@ static void tcp_data_queue(struct sock *sk, struct sk_buff *skb)
+ {
+ 	struct tcp_sock *tp = tcp_sk(sk);
+ 	enum skb_drop_reason reason;
+-	bool fragstolen;
+-	int eaten;
++	enum tcp_eaten eaten;
+ 
+ 	/* If a subflow has been reset, the packet should not continue
+ 	 * to be processed, drop the packet.
+@@ -5756,7 +5761,7 @@ static void tcp_data_queue(struct sock *sk, struct sk_buff *skb)
+ 			sk_forced_mem_schedule(sk, skb->truesize);
+ 		}
+ 
+-		eaten = tcp_queue_rcv(sk, skb, &fragstolen);
++		eaten = tcp_queue_rcv(sk, skb);
+ 		if (skb->len)
+ 			tcp_event_data_recv(sk, skb);
+ 		if (TCP_SKB_CB(skb)->tcp_flags & TCPHDR_FIN)
+@@ -5777,8 +5782,8 @@ static void tcp_data_queue(struct sock *sk, struct sk_buff *skb)
+ 
+ 		tcp_fast_path_check(sk);
+ 
+-		if (eaten > 0)
+-			kfree_skb_partial(skb, fragstolen);
++		if (eaten)
++			kfree_skb_partial(skb, eaten == TCP_EATEN_STOLEN);
+ 		if (!sock_flag(sk, SOCK_DEAD))
+ 			tcp_data_ready(sk);
+ 		return;
+@@ -6815,8 +6820,7 @@ void tcp_rcv_established(struct sock *sk, struct sk_buff *skb)
+ 				goto discard;
+ 			}
+ 		} else {
+-			int eaten = 0;
+-			bool fragstolen = false;
++			enum tcp_eaten eaten;
+ 
+ 			if (tcp_checksum_complete(skb))
+ 				goto csum_error;
+@@ -6847,7 +6851,7 @@ void tcp_rcv_established(struct sock *sk, struct sk_buff *skb)
+ 			__skb_pull(skb, tcp_header_len);
+ 			tcp_ecn_received_counters(sk, skb,
+ 						  len - tcp_header_len);
+-			eaten = tcp_queue_rcv(sk, skb, &fragstolen);
++			eaten = tcp_queue_rcv(sk, skb);
+ 
+ 			tcp_event_data_recv(sk, skb);
+ 
+@@ -6864,7 +6868,8 @@ void tcp_rcv_established(struct sock *sk, struct sk_buff *skb)
+ 			__tcp_ack_snd_check(sk, 0);
+ no_ack:
+ 			if (eaten)
+-				kfree_skb_partial(skb, fragstolen);
++				kfree_skb_partial(skb,
++						  eaten == TCP_EATEN_STOLEN);
+ 			tcp_data_ready(sk);
+ 			return;
+ 		}
 -- 
-Pankaj
+2.43.0
+
