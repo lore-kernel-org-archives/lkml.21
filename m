@@ -1,59 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.71
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795489606;
-	b=MSuMKxod6XNVvC6ffM1P1/DFk12cVuVak00akswHPEuBormv+BhqpgxF6gwHdugCTI4u
-	 KuIWra28Iy3Rj1M1AX1uTkIZzm1YYlpOk9HXmLE+cS/laj16XLs2wj9h5eQQ7znq+Ey1u
-	 sBjSC8JwG7/1B4xwzI/ovw+Xt9e6JfjEYK1snv3nRRxzmdqY+T+U+3DW0QDX97rgI2BSm
-	 GLF91EcXa7dwmpTxyXM3kvX9wP1aedG0aBC/ZdG46yOpEj7LMXIsvw+fbktgVJ9i9U5OL
-	 ICzSpKaWTwspKsRW5+Vz8JPdy5dxUkSpbX/pr4XC+0y+EynuwZ6gjoCRU6kMfryjJDg==
+	t=1795489796;
+	b=OPbdB5J+Q+gSBvQvY/pG8NUIv54vNWyHTm+2QSI7XBBxAlhA3w7IB8cdWALaBHlwROYP
+	 ECwo5RQEaFpkiaUqqPxJyRvzGUW7IV0+6/lY8lDj2VmgTlJwiZwm/hAhpn1BrfDrG0YeV
+	 7SBmvO9zSGUDYRVQu//hGK3f3DrWfdahlxk8As+nJD7NwVGdt2T/d3ZZ3Uw73xKaKtRIu
+	 lGjSY+x6U126zND8vZbw5Zpr6khlPBsU754yJIYqMYO2nBCcJbJG7Kjt+bIkb38UvRf2S
+	 wssRFWcr9A92dz8v52gSY/LshORMGrQgLR8EWq0uIEJVoPzEAlrS2IwLGUjffjxLaUQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795489606;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=yu7XWjdcB3FrFp5fh4tNhmpBZj491YNS8CW9/bACFIQ=;
-	b=XciTYepjj8j21tqod6UtYULdfs+dxCcq1/9KMs4E/mPgDTtA/cK87u7Ahf3NVl2Jr69l
-	 lNWdqiPz3BRsIHQlAh7iAfs+jUlftqVwwr5v7hJu6b3Kw6yLfaQrGYIn01mie9Yl+2izQ
-	 SEIfiVy3Aq4bDRL7bxYtn0KXLQsq6Xf6gNGjTQd6GB7dAmZboH52SSO2QYoI/zTYhCrtv
-	 LYJbWCeNyxWX09MdAtscK0sFePgF2xbvWKwIZK7i39+NEVnJErDXgV9BtJWZHgMkdZKqK
-	 3TqmlGIEcqL3Ma7nmXT1gWLWIBLYh40GskMHzapE+ttkkXeBVkUHMCwKl9Y8/jhop0w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795489796;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=LeVH1Wb7I2cz1kvArxz3Yqt1F/X3e5c7jawrva0ZrZ0=;
+	b=mBaYjWQWlT3WY5r6Xz9DLjcJcSQcoe4+HBOKQz2LJWknBK2WldTGD4r1aYeY+dXbivwW
+	 C4jIlJafoe7kkX20dDX3B1x/YHw6fUwFXqxUy64fG8ADe1bpxJTgUrQiwnyP9CeBNAdc/
+	 I+W1POaledWbEIgwWmsCZZ/Pvw9kh3wtpH38mmr1TcWpBHDwgX0Qu5TKWsJymy++dTjdm
+	 /FIyC3fbM8SDZu1Koe07KYTUIl+PG6fxtfcrDnuZj39EAwa7bDUQbyvCJ5020RVzRt/mf
+	 s0agcNTZG50GqmREzBRjho1ZwOUZIrYnqErQOsf55X3jjKAwgNbNOtJ1513ouCm+XnA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Xsc75njp;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=piESi2If;
+	arc=none smtp.remote-ip=91.218.175.71
+Received: from mta0.migadu.com (out-71.mta0.migadu.com [91.218.175.71])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9D1FF606A31E;
-	Tue, 24 Nov 2026 03:06:46 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7E106606A32C
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 03:09:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7E106606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Xsc75njp
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 719DE1F000C6;
-	Tue, 24 Nov 2026 03:06:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795489605;
-	bh=yu7XWjdcB3FrFp5fh4tNhmpBZj491YNS8CW9/bACFIQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Xsc75njpAB6rLKxIN0opjTCCX3m2uWghW2tDvRKQD8zv7l+qQz9uSd5N0YrmLJIeg
-	 WKsvkwx2ZeXqAfvCsC7bX7q44O42jKZwcrIHfiqsBXxpNFztkM3/2VYFVsW8k10sib
-	 RhLKV8t3xpvTlkO3Y24LxzPDmVtHtWLm91FKuMWXI3XNRoXJ0Y+A0iUl8ejGgoBkGI
-	 Jqt1dDeuiqnz9YSY1IcGMEEGN/OfH466wZ+klrV4qWtcQgfeO94MUz0ao7crYT34xF
-	 M7YObgDHk7AcpHtarCoCFyjEK0H2/sTFcCoXvuRLCdnagsmgcNTp+FwqmGe0TLS5Pk
-	 hKDB8DgRO2rjg==
-Date: Mon, 23 Nov 2026 20:06:41 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: Sasha Levin <sashal@kernel.org>
-Cc: Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Abel Vesa <abelvesa@kernel.org>,
-	Julian Braha <julianbraha@gmail.com>, Arnd Bergmann <arnd@arndb.de>,
-	Sumit Garg <sumit.garg@oss.qualcomm.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] firmware: qcom: Build the TrustZone memory allocator
- into qcom-scm
-Message-ID: <20261124030641.GA2738970@ax162>
-References: <20261122152843.1113882-1-sashal@kernel.org>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=piESi2If
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=OgGjLcQqQkF/sMaNd876V9rWHHm4sRIP4rYDo2hI4Zw=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795489792; v=1; x=1796094592;
+ b=piESi2IfxfWUbEXHDYg5846LTjpUQxvAF5h+6RANrJRN4BvjlTiP4ePP4NbIQN3J7v+EnWEQ
+ de7/u54/6QeKbG15VJGCwQhOcgPGKGdN0XR8lr97XjBX7pa2oAsvfyO0wMIi5Ljlet0YwpacuIY
+ EPc3vp3X+sHINKDQ+TA2C+dQ=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 72f020aafd17f071;
+	Tue, 24 Nov 2026 03:09:52 +0000
+X-Mizu-Trace-ID: 72f020aafd17f071
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <ed325697-76b3-4859-906c-8755532bb54c@linux.dev>
+Date: Tue, 24 Nov 2026 11:09:43 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,84 +58,141 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261122152843.1113882-1-sashal@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH-next v2 2/3] sched/isolation: Forbid the boot CPU from
+ being domain isolated
+To: Waiman Long <longman@redhat.com>, Tejun Heo <tj@kernel.org>,
+ Johannes Weiner <hannes@cmpxchg.org>, =?UTF-8?Q?Michal_Koutn=C3=BD?=
+ <mkoutny@suse.com>, Jonathan Corbet <corbet@lwn.net>,
+ Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
+ <rdunlap@infradead.org>, Ridong Chen <ridong.chen@linux.dev>,
+ Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
+ Juri Lelli <juri.lelli@redhat.com>,
+ Vincent Guittot <vincent.guittot@linaro.org>,
+ Dietmar Eggemann <dietmar.eggemann@arm.com>,
+ Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>,
+ Mel Gorman <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>,
+ K Prateek Nayak <kprateek.nayak@amd.com>,
+ Anna-Maria Behnsen <anna-maria@linutronix.de>,
+ Frederic Weisbecker <frederic@kernel.org>, Thomas Gleixner <tglx@kernel.org>
+Cc: cgroups@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+References: <20261123041209.382726-1-longman@redhat.com>
+ <20261123041209.382726-3-longman@redhat.com>
+Content-Language: en-US
+From: Guopeng Zhang <guopeng.zhang@linux.dev>
+In-Reply-To: <20261123041209.382726-3-longman@redhat.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-On Sun, Nov 22, 2026 at 10:28:43AM -0500, Sasha Levin wrote:
-> With QCOM_TZMEM_MODE_SHMBRIDGE=y, qcom_tzmem.ko calls
-> qcom_scm_shm_bridge_enable(), qcom_scm_shm_bridge_create() and
-> qcom_scm_shm_bridge_delete() in qcom-scm.ko, and qcom-scm.ko calls
-> qcom_tzmem_alloc() and friends. With QCOM_SCM=m the two modules depend
-> on each other, neither can be loaded first, and modules_install fails:
+
+
+在 2026/11/23 12:12, Waiman Long 写道:
+> It is reported that with CONFIG_CPUSETS=n, a kernel booted with
+> isolcpus=domain,0 hits the BUG() in select_fallback_rq() during boot
+> [1]. At boot time, cpu 0 is the only CPU online and an unbound kworker
+> cannot be run on a domain isolated CPU causing kernel panic.
 > 
->   depmod: ERROR: Cycle detected: qcom_scm -> qcom_tzmem -> qcom_scm
->   depmod: ERROR: Found 2 modules in dependency cycles!
+> Sashiko also reports that domain isolating the boot CPU can break system
+> suspend and trigger a BUG_ON() [2]. So it is problematic if the boot CPU
+> is domain isolated.
 > 
-> This has been possible since SHM Bridge mode was added. Since commit
-> 35abc3cd8ab6 ("tee: remove TZMEM_MODE_GENERIC") it also happens for
-> every QCOMTEE=m build with QCOM_SCM=m, because QCOMTEE's select of
-> QCOM_TZMEM_MODE_SHMBRIDGE now takes effect.
+> There may be other kernel subsystems that have problem if the boot CPU
+> is domain isolated as most of them won't take into account the fact that
+> boot CPU is currently allowed to be domain isolated. Given the fact
+> that the boot CPU is likely to be disallowed from the nohz_full list,
+> it makes sense that we should not allow the boot CPU from being set in
+> the isolcpus boot parameter as well. This will also avoid the kind of
+> problems listed above.
 > 
-> QCOM_TZMEM is selected only by QCOM_SCM, so the two always have the
-> same value. Build qcom_tzmem.o into qcom-scm.ko, and drop the
-> MODULE_DESCRIPTION() and MODULE_LICENSE() that qcom-scm already has.
+> Do that by clearing the boot CPU from the isolcpus range when it is
+> specified in the boot command line. A warning may also be printed when
+> that happens. If the users want to have boot CPU in the managed_irq
+> or nohz isolation list, a standalone isolcpus boot parameter will be
+> needed instead of combining domain and other flags in the same isolcpus
+> boot parameter.
 > 
-> Fixes: f86c61498a57 ("firmware: qcom: tzmem: enable SHM Bridge support")
-> Reported-by: Nathan Chancellor <nathan@kernel.org>
-> Closes: https://lore.kernel.org/all/20261122051636.GA2630332@ax162/
-> Signed-off-by: Sasha Levin <sashal@kernel.org>
+> This is indeed a change in behavior which is customer visible. So the
+> kernel-paremeters.txt is updated to mention the fact that boot CPU
+> cannot be isolated.
+> 
+> [1] https://lore.kernel.org/lkml/20261117144817.265109-1-mathieu.desnoyers@efficios.com
+> [2] https://sashiko.dev/#/patchset/20261108180849.1268263-1-longman%40redhat.com
+> 
+> Signed-off-by: Waiman Long <longman@redhat.com>
 > ---
+>  .../admin-guide/kernel-parameters.txt         |  7 +++---
+>  kernel/sched/isolation.c                      | 22 +++++++++++++++----
+>  2 files changed, 22 insertions(+), 7 deletions(-)
 > 
-> Tested on arm64 with allnoconfig plus: Nathan's fragment; ARCH_QCOM=y
-> QCOM_SCM=m SHMBRIDGE=y; ARCH_QCOM=y QCOM_SCM=m QCOMTEE=m; QCOM_SCM=y
-> QCOMTEE=m; QCOM_SCM=m SHMBRIDGE=n. All build without warnings and pass
-> modules_install. Without the patch, Nathan's fragment and the QCOMTEE=m
-> QCOM_SCM=m config fail depmod with the cycle above.
-> 
->  drivers/firmware/qcom/Makefile     | 3 +--
->  drivers/firmware/qcom/qcom_tzmem.c | 2 --
->  2 files changed, 1 insertion(+), 4 deletions(-)
-> 
-> diff --git a/drivers/firmware/qcom/Makefile b/drivers/firmware/qcom/Makefile
-> index 88ce74d74c3e2..74c655856b0c2 100644
-> --- a/drivers/firmware/qcom/Makefile
-> +++ b/drivers/firmware/qcom/Makefile
-> @@ -4,9 +4,8 @@
->  #
+> diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
+> index 930cee4de79a..1c8bf3583b0b 100644
+> --- a/Documentation/admin-guide/kernel-parameters.txt
+> +++ b/Documentation/admin-guide/kernel-parameters.txt
+> @@ -2954,11 +2954,12 @@ Kernel parameters
 >  
->  obj-$(CONFIG_QCOM_SCM)		+= qcom-scm.o
-> -qcom-scm-objs += qcom_scm.o qcom_scm-smc.o qcom_scm-legacy.o
-> +qcom-scm-objs += qcom_scm.o qcom_scm-smc.o qcom_scm-legacy.o qcom_tzmem.o
->  CFLAGS_qcom_scm-smc.o := -I$(src)
-> -obj-$(CONFIG_QCOM_TZMEM)	+= qcom_tzmem.o
+>  			  You can move a process onto or off an "isolated" CPU via
+>  			  the CPU affinity syscalls or cpuset.
+> -			  <cpu number> begins at 0 and the maximum value is
+> -			  "number of CPUs in system - 1".
+> +			  <cpu number> begins at 0 and the maximum value
+> +			  is "number of CPUs in system - 1". However boot
+> +			  CPU (cpu 0) cannot be domain isolated as it
+> +			  may cause problem with some kernel subsystems.
+>  
+>  			managed_irq
+> -
+>  			  Isolate from being targeted by managed interrupts
+>  			  which have an interrupt mask containing isolated
+>  			  CPUs. The affinity of managed interrupts is
+> diff --git a/kernel/sched/isolation.c b/kernel/sched/isolation.c
+> index c0c8b8862cbd..de8152351450 100644
+> --- a/kernel/sched/isolation.c
+> +++ b/kernel/sched/isolation.c
+> @@ -231,6 +231,7 @@ static int __init housekeeping_setup(char *str, unsigned long flags)
+>  {
+>  	cpumask_var_t non_housekeeping_mask, housekeeping_staging;
+>  	unsigned int first_cpu;
+> +	int boot_cpu = smp_processor_id();
+>  	int err = 0;
+>  
+>  	if ((flags & HK_FLAG_KERNEL_NOISE) && !(housekeeping.flags & HK_FLAG_KERNEL_NOISE)) {
+> @@ -253,12 +254,25 @@ static int __init housekeeping_setup(char *str, unsigned long flags)
+>  
+>  	first_cpu = cpumask_first_and(cpu_present_mask, housekeeping_staging);
+>  	if (first_cpu >= nr_cpu_ids || first_cpu >= setup_max_cpus) {
+> -		__cpumask_set_cpu(smp_processor_id(), housekeeping_staging);
+> -		__cpumask_clear_cpu(smp_processor_id(), non_housekeeping_mask);
+> +		__cpumask_set_cpu(boot_cpu, housekeeping_staging);
+> +		__cpumask_clear_cpu(boot_cpu, non_housekeeping_mask);
+>  		if (!housekeeping.flags) {
+> -			pr_warn("Housekeeping: must include one present CPU, "
+> -				"using boot CPU:%d\n", smp_processor_id());
+> +			pr_warn("Housekeeping: must include one present CPU, using boot CPU:%d\n",
+> +				boot_cpu);
+>  		}
+> +	} else if ((flags & HK_FLAG_DOMAIN) &&
+> +		   cpumask_test_cpu(boot_cpu, non_housekeeping_mask)) {
+> +		/*
+> +		 * If the same isolcpus boot parameter covers both domain and
+> +		 * managed_irq/nohz, the boot CPU will also be removed from the
+> +		 * managed_irq/nohz isolation list. Users have to use a separate
+> +		 * isolcpus boot parameter for them if they want to include the
+> +		 * boot CPU.
+> +		 */
+> +		pr_warn("Housekeeping: Boot CPU must not be domain isolated, clearing %d from isolcpus range\n",
+> +			 boot_cpu);
+> +		__cpumask_set_cpu(boot_cpu, housekeeping_staging);
+> +		__cpumask_clear_cpu(boot_cpu, non_housekeeping_mask);
+>  	}
+>  
+>  	if (cpumask_empty(non_housekeeping_mask))
 
-This basically makes CONFIG_QCOM_TZMEM pointless, it should probably
-just be collapsed into CONFIG_QCOM_SCM formally.
+Built and boot-tested on a 32-vCPU x86-64 VM with CONFIG_CPUSETS=y/n.
+Verified CPU 0 handling with combined and separate domain/managed_irq
+parameters, including a successful boot with CONFIG_CPUSETS=n and
+isolcpus=domain,0. The cpuset selftests passed with CONFIG_CPUSETS=y.
 
-diff --git a/drivers/firmware/qcom/Kconfig b/drivers/firmware/qcom/Kconfig
-index 3ad22f8fc3e5..54b9abfb6aad 100644
---- a/drivers/firmware/qcom/Kconfig
-+++ b/drivers/firmware/qcom/Kconfig
-@@ -28,16 +28,12 @@ config QCOM_PAS_TEE
- config QCOM_SCM
- 	tristate "Qualcomm PAS SCM interface driver" if ARCH_QCOM || COMPILE_TEST
- 	select QCOM_PAS
--	select QCOM_TZMEM
--	default y if ARCH_QCOM
--
--config QCOM_TZMEM
--	tristate
- 	select GENERIC_ALLOCATOR
-+	default y if ARCH_QCOM
- 
- config QCOM_TZMEM_MODE_SHMBRIDGE
- 	bool "TrustZone interface memory allocator: SHM Bridge"
--	depends on QCOM_TZMEM
-+	depends on QCOM_SCM
- 	help
- 	  Use Qualcomm Shared Memory Bridge as memory allocator. The memory has the
- 	  same alignment as in the 'Generic' allocator, which is used when this option
--- 
-Cheers,
-Nathan
+Acked-by: Guopeng Zhang <zhangguopeng@kylinos.cn>
+Tested-by: Guopeng Zhang <zhangguopeng@kylinos.cn>
