@@ -1,95 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.54
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=79.135.106.30
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795515581;
-	b=fc3qnrjQ9QZeFoouhJmSZDfeAPNE2NFcnHa6IgBI8v5bdLsrvAC2WO5dKAgxrc9bHt7L
-	 nGnjAJ2yg+a1q23ctOzsxQ8p2E+CDQM9qEdbqzfYDs7qZMENL9aKJhvnriUSicoFE9roo
-	 +6m7Bk9TJhm1WXz9c5FPgNfGrF68MwUNJAZDTt9X+e3FKQU7Qsvwn4R4AYSjQgDJ8ua5k
-	 SGbqjuSKR6Yk7OV11JkUrG79w/qesU6ff3rRnxvRoPsfxVr7HW0CDsf80F1kbZn6nB820
-	 07UDIxy1+5BOMcxKVBYNV2iPC7rHJ9D2Fq7rcCPE7qjTGcD3N+JfFezzRWVAL1XE1Fg==
+	t=1795515584;
+	b=IDMJKSujSZ77rI9Wn1fWFJpWyyhjuI9URZk/9Okk2rDmd+XGiJ5N53wIqmHGEABxDNuC
+	 LhH+j6oDK0+JhF7xnC6Blb6wPc4i2USd7XqE3DqUUkRtwkZgpOYHS1fAyzyaeY5H+1oJE
+	 4VDcrCnEyvaPHQ+5Xkf/Yav2vflTiaK1z1qKJBzd57irP/+6OckicZG4hI5Cj14QTers/
+	 qi/fGFzyc5UYUyNVjYmHv0bTlBjyKNq3oLW8K+cnYum+o9IkFVquzUhJhX6qb9CdQJvvH
+	 syIkiIvIDbZn9Zek1szZa5Yvdq87jOa4XHMq8kc9tMICpCHs7FP0h2WdPs0lDeoN4vw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795515581;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=vH6drgK9ot5njBsE/YZMMEhVCDG/kWSIdnxHYLHlo8o=;
-	b=a+Tj0x94wl7SLxl2nh0c6qRGWF9M0wudwnQtDdpBoHPdZa1Pukyt2dh81Auo3txs3ojI
-	 otbLYYZntRCb/xkF97EevAaSSnkijFaop7ti5Lr/vZ/WsEDHYdZK8abwtFFScK2i5qePo
-	 uoFfCGBquUrOHYChwZveW52WBGMdhS3na+mWu9fYL2IjCXAPyeuJHf9CJrPxpDntHsmXv
-	 rjaQmaPEKaDEmD9nuL5LIo3l6FPG6O446kdzmbLGu1NHwG/kP+i9qv6vIFhxPuHZei4g7
-	 FKhykGCOXr9f6vfxYc5JgqP8UMLZ8YAy85InD7aWcu5QXrBWuy10obTHOURDd3otirQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795515584;
+	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
+	 Feedback-ID:X-Pm-Message-ID:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=MSiiqzjYsStKdL0yI/w6hAU+IWlaakRZaMTGNaLVLoE=;
+	b=3+esjUux6H1fnONFC7Bv4a+IgKYOevUOdbWnc5YY6pQ0Qyi9dlgZPruqrBqlXKyJmhjA
+	 tp6Wo2CxdqVlRYBSI6yAXYy6dQ/r1u6QbwS7cOI5O2omr7++n9fatbQ62Qb+V26Xg/GGn
+	 0FDMgnrM8td3ONeXzNVqz6ujuj4uVUdK7lm0PRlG0XGG4yDRf9e1uU9Aw6zEsQF7UBScH
+	 7LXqnV8JjljCEzeRRiW6SZmmys/yiQyWTmnLWD1poG+OPTbmUtSHRCJP+FLspfnwU7j8H
+	 /xynVCLpfTk+uyTuLatnJH99gcBGy93rJO2ibMPhFnY/5bmE/8KtVc5Il+ccPmwjRFg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.com;
-	spf=pass smtp.mailfrom=suse.com;
-	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=CCBzgWcz;
-	arc=none smtp.remote-ip=209.85.128.54
-Received: from mail-wm1-f54.google.com (mail-wm1-f54.google.com [209.85.128.54])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=protonmail.com;
+	spf=pass smtp.mailfrom=protonmail.com;
+	dkim=pass header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=DQ4aZVHx;
+	arc=none smtp.remote-ip=79.135.106.30
+Received: from mail-10630.protonmail.ch (mail-10630.protonmail.ch [79.135.106.30])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 737C5606A327
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 10:19:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 737C5606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 68366606A333
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 10:19:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 68366606A333
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=protonmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=protonmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=CCBzgWcz
-Received: by mail-wm1-f54.google.com with SMTP id 5b1f17b1804b1-4bb9d8e8e90so14169035e9.3
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 02:19:40 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1795515579; x=1796120379; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=vH6drgK9ot5njBsE/YZMMEhVCDG/kWSIdnxHYLHlo8o=;
-        b=CCBzgWczWBb1kZ3TuM4Dp29a38K2U2kDAwWI496ao/dWSmJEtRHKA13urE7B3rBpWV
-         sves6Cc7iY44Ex0aeoR4LqIsTJEuHLI4I9Y+UAdazwNa5EkZY/nOag8DfjjrwT0/B6FD
-         qYkBEfdkov2AWijcBuMpGixvl39TLsNd0pHfuFrTDYFT5thqopMtdRc1BK/7Fu75HxRA
-         tvvaWNpzZwxbNlBzQLPxAot5OR3tEsQOIhZtsK/dngf+JMKBO11E9im1iTN1KKxaCF6H
-         tAXnEFQJ1FQJ+mfl8dCl9PDiW7KZcE1sRoeeOLRXDrrVOobcELDw0D1rh4ozCyJZ8eRZ
-         5/rg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795515579; x=1796120379;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=vH6drgK9ot5njBsE/YZMMEhVCDG/kWSIdnxHYLHlo8o=;
-        b=q3be1WkSsXhA2bDD4LL/wxiOnCAHJ0Uv9Jyh3YVNSsLE207PvIIe2E2/y9B2NxC+PX
-         gxSQVKurnu87Pm3oKt3g69bkxXoqMzauQaXCLCuJKyBqQO94Hsli9tsKV5u6V1BnKg0u
-         Goz3oBz3CzobqghO8CxPKY2NSc3bAG75cmJGJZs+5txAQ8tnZBfJaRgy7ZYaZKm/HR85
-         68NkNOIs0Qogi+w7Q/HFL5dmkATnfDNgbRVb8KMpqb2XRtDC7Lr/uVVx1nSGGQxndunn
-         0ExZOLPxwaEau8mvvmKN7Zs5eSRuarhlNr47o6mYYCc/mQD/zQSHio+IeqVcxynCObhD
-         OelA==
-X-Forwarded-Encrypted: i=1; AL+hErEhi95vc0VypaqqtTEvNlCG+Pqi8vwIm6BMZjdvJpczkvc6+E0zSQ9MPOrMrfz4GIM6auUhiAr1nb/1VBM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/7qcxTy3k5GY2LWD8SjZDacCExDxPQycOzFJFVn3duMBGwwGSU
-	/E5k685FiZh7ikbuk2hfvAcY0NqmsgAijm9cAuRP9CsaZA6y/oA6/oCdHyRhyEX1m7w=
-X-Gm-Gg: AZFdTZcvdmxgi3FTR9SDPpI9a1jJaHRbu5Ew/JOdye5NT4ckjI0G5TlHufobto4kY/z
-	9a8/ypYF9Nw+0DvDuf6fxFaAz9ObySKBr5sZwcAgOtRZu8XGM1F4vxdHJRv1a4rNyc7HkE60w8H
-	Fy993OcFCOraKMKbMgmAjnfJBLStbuM/KXNszs2r1PXk27KEshUlFBqFyF81tCOn5mlSXDZsUrk
-	PJvE1vSnGX/XjOFJjXNg91dNU12m8R/9DvCUNEPkegY7VcGr2qD2ZDeS8Ygc6u6KRryrMmHuDAn
-	QSe7lDIAjwwFYwuSAIis8KKm5v9ibvong96h3ZD3s7nhuwXo5dT+syFdbFpBExao+ln1h6I9ivN
-	AkVund6VJsli5IATHU+0rI3ruZIZ8KdQCjNZkCSsy479/Otzuu9fDrHr9U3NK8a0/NvX4/pOnZv
-	eC3/ULd8WDgm6QN/WTCHULBW2UhOot3IRcXsbW6OtnVD54ESJqdkmDVPqLsvitW8MOzcIqvXp6K
-	Pa/FGAs1OyL4QbHhocSSl4salNkOASc4V/Gz55KneuCcLlQ8uNT5xhuSGe5JhlbYKICbmP8RoxB
-	uT79IjxmBPtChJzVZc/iB8iDD6JDyKQ=
-X-Received: by 2002:a05:600c:4f50:b0:4a2:1612:637a with SMTP id 5b1f17b1804b1-4bb888063f3mr353813745e9.16.1795515578920;
-        Tue, 24 Nov 2026 02:19:38 -0800 (PST)
-Received: from pathway.suse.cz ([176.114.240.130])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb88442995sm437410945e9.2.2026.11.24.02.19.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 02:19:38 -0800 (PST)
-Date: Tue, 24 Nov 2026 11:19:36 +0100
-From: Petr Mladek <pmladek@suse.com>
-To: Avi Weiss <thnkslprpt@gmail.com>
-Cc: Chris Down <chris@chrisdown.name>,
-	John Ogness <john.ogness@linutronix.de>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Sergey Senozhatsky <senozhatsky@chromium.org>,
-	printk@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] printk: Fix skipped entries after index iterator restart
-Message-ID: <awVkuPWD6DHnuV98@pathway.suse.cz>
-References: <20261116085609.476250-2-thnkslprpt@gmail.com>
+	dkim=pass (2048-bit key) header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=DQ4aZVHx
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
+	s=protonmail3; t=1795515580; x=1795774780;
+	bh=MSiiqzjYsStKdL0yI/w6hAU+IWlaakRZaMTGNaLVLoE=;
+	h=Date:To:From:Cc:Subject:Message-ID:Feedback-ID:From:To:Cc:Date:
+	 Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
+	b=DQ4aZVHxxKQj0exhLxUAXKDmx1EqPabvnNAGkYACWllJOL7gDK7+N4dPufYN1xZlZ
+	 4ISFRX6hzVT/+euDgfIGBZkkEwvLrm/3Bc+vFlUPLqpTud8eFGh30TWvErB1IMwECg
+	 pLxVmm6IlzP6ja7pCcfLCkGFtwUPgHWQrEGOPDS3kQQQGz9SP7fOCHJwGBQzg0o2ZR
+	 hJwFpt3hKEcCqXvoUmal9TmnS/qTSDQ4wXfbCCF0clhVTVVWgi7QzCOSKB1AEidY81
+	 +0TIAcNfQDR57XuO+VpSx17i95pSnPjfNXWPU87557R4MicpZUpELKVwmr8B8VksPm
+	 AUxSSmKRcDlaA==
+Date: Tue, 24 Nov 2026 10:19:31 +0000
+To: Zhiqi Song <songzhiqi1@huawei.com>, Longfang Liu <liulongfang@huawei.com>
+From: Ryan Prinz <rc4d5a@protonmail.com>
+Cc: Herbert Xu <herbert@gondor.apana.org.au>, "David S . Miller" <davem@davemloft.net>, linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org, Ryan Prinz <rc4d5a@protonmail.com>
+Subject: [PATCH] crypto: hisilicon/hpre - fix ECDH compute_shared_secret dst_len requirement
+Message-ID: <20261124101912.1718740-1-rc4d5a@protonmail.com>
+Feedback-ID: 190731814:user:proton
+X-Pm-Message-ID: 93b1c5b9310d57c8a9b0670d0768977bda8535c8
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,55 +61,214 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261116085609.476250-2-thnkslprpt@gmail.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-On Mon 2026-11-16 10:56:10, Avi Weiss wrote:
-> seq_read_iter() can advance the iterator before the next record
-> fits in the read buffer. When iteration resumes, pi_start() calls
-> pi_next() at the saved position and advances past the pending printk
-> index entry. As a result, index reads can silently omit formats.
->
-> Return the entry corresponding to the saved position without
-> advancing the iterator.
+hpre_ecdh_msg_request_set() requires req->dst_len to be at least
+2 * ctx->key_sz, regardless of which operation is being performed.
+The generic KPP convention only needs that much for
+generate_public_key(); a shared secret is conventionally just the X
+coordinate, ctx->key_sz bytes.
 
-Great catch!
+Both in-tree callers of the generic ecdh-nist-pNNN names provide
+exactly that smaller buffer for compute_shared_secret():
+net/bluetooth/ecdh_helper.c's compute_ecdh_secret() allocates
+secret[32] for P-256, and drivers/char/tpm/tpm2-sessions.c's session
+salt derivation does kpp_request_set_output(req, d, EC_PT_SZ). Both
+calls fail with -EOVERFLOW on HPRE hardware before the peer's public
+key is looked at.
 
-But honestly, I was a bit confused by the description. I think that
-it is not easy to describe it a reasonable way. Well, I wonder
-if the following is more clear:
+Found by Sashiko's automated review of a related patch, as a
+pre-existing issue that patch doesn't introduce.
 
-<proposal>
-seq_read_iter() calls pi_next() until it reads the last entry or until
-the given read buffer gets full. The it calls pi_stop() in both
-situations.
+Fixed by requiring only the curve's own coordinate size for
+compute_shared_secret(), and using a bounce buffer for that case:
+hpre_ecdh_dst_data_init() DMA-maps an internal 2 * key_sz buffer
+instead of the caller's, and hpre_ecdh_hw_data_clr_all() copies the
+X coordinate to the caller's destination. generate_public_key() is
+unaffected; it still requires, and writes directly into, a
+2 * key_sz-sized caller buffer. areq->dst_len is also now set to
+whatever was written (curve_sz or 2 * key_sz) instead of reporting
+2 * key_sz.
 
-The next seq_read_iter() calls pi_start() to (re)start the session.
-pi_start() is supposed to either start from the the beginning or
-return the last entry which did not fit into the read buffer.
+Fixes: 05e7b906aa7c ("crypto: hisilicon/hpre - add 'ECDH' algorithm")
+Signed-off-by: Ryan Prinz <rc4d5a@protonmail.com>
+---
+No HiSilicon HPRE hardware was available to reproduce this. Verified
+by building the modified driver against an unmodified kernel tree,
+confirming the module compiles and links cleanly with no new
+warnings. Verified the sizing and offset arithmetic in a standalone
+test across all three supported curves (P-192, P-256,
+P-384): the new compute_shared_secret() minimum (curve_sz) and
+unchanged generate_public_key() minimum (2 * key_sz) come out
+distinct and correct for each, and every read/write offset used by
+both the bounce-buffer copy-out and the existing direct-buffer
+compaction stays inside its respective buffer.
 
-By other words, pi_start() should not call pi_next() which would return
-the next entry. Instead it should return the entry which did not fit
-into the buffer last time. Otherwise, the entry would get skipped.
+AI Disclosure: An AI assistant was used to assist with the
+analysis and testing. I have verified the vulnerability, the fix, and
+the test results myself and take responsibility for this contribution,
+per Documentation/process/coding-assistants.rst.
 
-Note that *pos is off-by-one because "0" position is used for the
-title string (struct seq_operations). So that pr_start() should
-return the *pos - 1 entry.
-</proposal>
+ drivers/crypto/hisilicon/hpre/hpre_crypto.c | 70 +++++++++++++++++++++++--=
+----
+ 1 file changed, 56 insertions(+), 14 deletions(-)
 
-> Fixes: 337015573718 ("printk: Userspace format indexing support")
-> Signed-off-by: Avi Weiss <thnkslprpt@gmail.com>
+diff --git a/drivers/crypto/hisilicon/hpre/hpre_crypto.c b/drivers/crypto/h=
+isilicon/hpre/hpre_crypto.c
+index 66a276786a7d..a3fec7c7549d 100644
+--- a/drivers/crypto/hisilicon/hpre/hpre_crypto.c
++++ b/drivers/crypto/hisilicon/hpre/hpre_crypto.c
+@@ -1390,9 +1390,11 @@ static void hpre_ecdh_hw_data_clr_all(struct hpre_ct=
+x *ctx,
+ =09=09=09=09      struct scatterlist *dst,
+ =09=09=09=09      struct scatterlist *src)
+ {
++=09unsigned int curve_sz =3D hpre_ecdh_get_curvesz(ctx->curve_id);
+ =09struct device *dev =3D ctx->dev;
+ =09struct hpre_sqe *sqe =3D &req->req;
+ =09dma_addr_t dma;
++=09char *p;
 
-Otherwise the patch looks good to me. With the updated commit
-message:
+ =09dma =3D le64_to_cpu(sqe->in);
+ =09if (unlikely(dma_mapping_error(dev, dma)))
+@@ -1405,8 +1407,24 @@ static void hpre_ecdh_hw_data_clr_all(struct hpre_ct=
+x *ctx,
+ =09if (unlikely(dma_mapping_error(dev, dma)))
+ =09=09return;
 
-Reviewed-by: Petr Mladek <pmladek@suse.com>
+-=09if (dst)
++=09if (req->dst) {
++=09=09/*
++=09=09 * Bounce buffer for compute_shared_secret(): holds the
++=09=09 * hardware's full, hw-slot-padded X||Y output. Copy out
++=09=09 * just the tightly-packed X coordinate to the caller's
++=09=09 * own (possibly smaller) buffer.
++=09=09 */
++=09=09p =3D req->dst;
++=09=09if (dst)
++=09=09=09scatterwalk_map_and_copy(p + ctx->key_sz - curve_sz,
++=09=09=09=09=09=09 dst, 0, curve_sz, 1);
++=09=09dma_free_coherent(dev, ctx->key_sz << 1, req->dst, dma);
++=09} else if (dst) {
+ =09=09dma_unmap_single(dev, dma, ctx->key_sz << 1, DMA_FROM_DEVICE);
++=09=09p =3D sg_virt(dst);
++=09=09memmove(p, p + ctx->key_sz - curve_sz, curve_sz);
++=09=09memmove(p + curve_sz, p + (ctx->key_sz << 1) - curve_sz, curve_sz);
++=09}
+ }
 
-Best Regards,
-Petr
+ static void hpre_ecdh_cb(struct hpre_ctx *ctx, void *resp)
+@@ -1416,12 +1434,11 @@ static void hpre_ecdh_cb(struct hpre_ctx *ctx, void=
+ *resp)
+ =09struct hpre_asym_request *req =3D NULL;
+ =09struct kpp_request *areq;
+ =09u64 overtime_thrhld;
+-=09char *p;
+ =09int ret;
 
-PS: I am going to wait few days for potential feedback. Then I will
-    commit the patch with the updated commit messages unless anyone
-    complains in the meantime.
+ =09ret =3D hpre_alg_res_post_hf(ctx, resp, (void **)&req);
+ =09areq =3D req->areq.ecdh;
+-=09areq->dst_len =3D ctx->key_sz << 1;
++=09areq->dst_len =3D req->dst ? curve_sz : ctx->key_sz << 1;
+
+ =09overtime_thrhld =3D atomic64_read(&dfx[HPRE_OVERTIME_THRHLD].value);
+ =09if (overtime_thrhld && hpre_is_bd_timeout(req, overtime_thrhld))
+@@ -1430,10 +1447,6 @@ static void hpre_ecdh_cb(struct hpre_ctx *ctx, void =
+*resp)
+ =09/* Do unmap before data processing */
+ =09hpre_ecdh_hw_data_clr_all(ctx, req, areq->dst, areq->src);
+
+-=09p =3D sg_virt(areq->dst);
+-=09memmove(p, p + ctx->key_sz - curve_sz, curve_sz);
+-=09memmove(p + curve_sz, p + areq->dst_len - curve_sz, curve_sz);
+-
+ =09kpp_request_complete(areq, ret);
+
+ =09atomic64_inc(&dfx[HPRE_RECV_CNT].value);
+@@ -1446,7 +1459,17 @@ static int hpre_ecdh_msg_request_set(struct hpre_ctx=
+ *ctx,
+ =09struct hpre_sqe *msg;
+ =09void *tmp;
+
+-=09if (req->dst_len < ctx->key_sz << 1) {
++=09if (req->src) {
++=09=09unsigned int curve_sz =3D hpre_ecdh_get_curvesz(ctx->curve_id);
++
++=09=09if (!curve_sz)
++=09=09=09return -EINVAL;
++
++=09=09if (req->dst_len < curve_sz) {
++=09=09=09req->dst_len =3D curve_sz;
++=09=09=09return -EOVERFLOW;
++=09=09}
++=09} else if (req->dst_len < ctx->key_sz << 1) {
+ =09=09req->dst_len =3D ctx->key_sz << 1;
+ =09=09return -EOVERFLOW;
+ =09}
+@@ -1503,12 +1526,15 @@ static int hpre_ecdh_src_data_init(struct hpre_asym=
+_request *hpre_req,
+ }
+
+ static int hpre_ecdh_dst_data_init(struct hpre_asym_request *hpre_req,
+-=09=09=09=09   struct scatterlist *data, unsigned int len)
++=09=09=09=09   struct scatterlist *data, unsigned int len,
++=09=09=09=09   bool is_shared_secret)
+ {
++=09gfp_t gfp =3D hpre_req->flags & CRYPTO_TFM_REQ_MAY_SLEEP ? GFP_KERNEL :=
+ GFP_ATOMIC;
+ =09struct hpre_sqe *msg =3D &hpre_req->req;
+ =09struct hpre_ctx *ctx =3D hpre_req->ctx;
+ =09struct device *dev =3D ctx->dev;
+ =09dma_addr_t dma;
++=09void *ptr;
+
+ =09if (unlikely(!data || !sg_is_last(data))) {
+ =09=09dev_err(dev, "data is illegal!\n");
+@@ -1516,10 +1542,26 @@ static int hpre_ecdh_dst_data_init(struct hpre_asym=
+_request *hpre_req,
+ =09}
+
+ =09hpre_req->dst =3D NULL;
+-=09dma =3D dma_map_single(dev, sg_virt(data), ctx->key_sz << 1, DMA_FROM_D=
+EVICE);
+-=09if (unlikely(dma_mapping_error(dev, dma))) {
+-=09=09dev_err(dev, "dma map data err!\n");
+-=09=09return -ENOMEM;
++
++=09/*
++=09 * compute_shared_secret() may be given a buffer sized for just
++=09 * the X coordinate, per the generic KPP convention, but the
++=09 * hardware always produces both X and Y. Use a bounce buffer so
++=09 * the output has somewhere safe to land; hpre_ecdh_hw_data_clr_all()
++=09 * copies out just X afterward.
++=09 */
++=09if (is_shared_secret) {
++=09=09ptr =3D dma_alloc_coherent(dev, ctx->key_sz << 1, &dma, gfp);
++=09=09if (unlikely(!ptr))
++=09=09=09return -ENOMEM;
++=09=09hpre_req->dst =3D ptr;
++=09} else {
++=09=09dma =3D dma_map_single(dev, sg_virt(data), ctx->key_sz << 1,
++=09=09=09=09     DMA_FROM_DEVICE);
++=09=09if (unlikely(dma_mapping_error(dev, dma))) {
++=09=09=09dev_err(dev, "dma map data err!\n");
++=09=09=09return -ENOMEM;
++=09=09}
+ =09}
+
+ =09msg->out =3D cpu_to_le64(dma);
+@@ -1552,7 +1594,7 @@ static int hpre_ecdh_compute_value(struct kpp_request=
+ *req)
+ =09=09msg->in =3D cpu_to_le64(ctx->ecdh.dma_g);
+ =09}
+
+-=09ret =3D hpre_ecdh_dst_data_init(hpre_req, req->dst, req->dst_len);
++=09ret =3D hpre_ecdh_dst_data_init(hpre_req, req->dst, req->dst_len, !!req=
+->src);
+ =09if (unlikely(ret)) {
+ =09=09dev_err(dev, "failed to init dst data, ret =3D %d!\n", ret);
+ =09=09goto clear_all;
+--
+2.51.2
 
