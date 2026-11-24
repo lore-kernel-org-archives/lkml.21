@@ -1,111 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.137
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795557762;
-	b=mmNK2K59Nb7Gf4T/ausf3GeXTXtXGxeEWpR/caJw2ye42/5U7/GnUbI7OcPL+vBE2fIB
-	 reqSbUTRw3fcGNv/M7ISmyT3CXGLBTOhKOMGR3Vr7lOR45t1zaL2oZ5EVsjqVZrlThXnD
-	 +YFJY53PP+XYyNDXLwyE24Ijx8nifcGFM0WDtWRLSo8a1l4FMy5TJ26Jc8b7Avn8jQzL1
-	 kgPsH/9Db7GZ3BgBCs4z6jbX2JYyp4HXPrPo2RATwJwHRwlXklqrgIVNMBnXDmZtjwYYS
-	 6GEuWqmOFLqWTN3W5h4EjMXi5wn+VZiswEDbYJKLqnR8HKiNLq+NprWu8yn3gPWkt0w==
+	t=1795557775;
+	b=WEa7vheMxSrSq1DZjK7KTjfFDpXhIhfwvzckVBiHBQqt6T9CBB/JKen33zl0Fm3HEz9Y
+	 Is0MTAzB4Q6YyLBq5tiFUH1YR/wyzo5MEHPyEcd5bn5PkFH2rDNs+t3nvNiaOVX/tQSMB
+	 Jq4AmslKJCVeGwUOUnHbfHukxIJXD4CJ9oimK5pAEmh18g/mXiane9QyJx3c1fz5f0wwZ
+	 DClNt9vda7piobsalMPG4pQQPM3OtSpgPlPs5aNy3Xyvdbqz6lb8EGZOpzrLPNf4pwEv8
+	 bDYnNM++05ANrHL2GvC934wMA/qhpZ0Ft7HOQSOPDswRrfmrGR22Qsei7OVPO0WpAjg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795557762;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
-	 MIME-Version:X-ThreadId:Date:From:To:Cc:Message-Id:In-Reply-To:
-	 References:Subject:Content-Type:Content-Transfer-Encoding;
-	bh=xqSGxC68OuGq0f3lY+sfYUCqjXoRvtvCw0BSPI+8ZKw=;
-	b=eAHnhUZ4h/PYoV2Dm8BLzkRs27EHs2WWpzq0rJpZusIyPahYSfpjJs5uNdIxRb+FoOvj
-	 To//Boh412uHqqkDpctZcqhqn0wtlKopvH0UmDo4Izph6y3LBsOGUYMVcMQkO4N/oo2T9
-	 DkZgrQ1LHOBn4vGe6Boxnl3nRsH/Y0FnVAfKuPP7dJyPnLTrzeJqIbnnxyDeXg+KoKBuN
-	 t9P4okBSpausfg8D1P5XKjGMgUh8Joqf4zPgmykJ1vZNLp09pcrH1u96CENND4xei/uA1
-	 6wuyyN3wncewWLMNhse1huhCrbJDt3Df/XEE/mMZpltGayCbpssQqRgoc9ho/V2G8Yw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795557775;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=MTsG6ObX1QZphRq69WtSXAGO8I5Qp7B9rjGutUJIVt0=;
+	b=lPy5822EXYqgi6Q1p4Nb/ejWy95yo1gNezKEXeNj9Dw/o5jBH8RvKWTrsIta0D3K0ykT
+	 N7FCt0R3OXY89wECPy4hqZcjOP757gMDhPTduijyhsKTFINtBF6OIdc5CTXoxNie9bbgA
+	 c/LMVxTmSRYfamQXYjbSn1wIwHwxzvJnkjD9U++xbaqhMOmfo/pD5W+RO0k92AZUCiEjk
+	 vsTrGrHDlRi1d5jLnj3q7ONLQd2O487upEx+lOTeMKe0RKhldO1J/XFPtRkjwZ3o6N0iF
+	 R33biEwqoJMYM3PeTaDQcipfEq+5Pslh/a2InPvD4Z9HSxGzP9gDlh6jUs1F4TS1ALw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arndb.de;
-	spf=pass smtp.mailfrom=arndb.de;
-	dkim=pass header.d=arndb.de header.i=@arndb.de header.a=rsa-sha256 header.s=fm2 header.b=mfnJGR8Z;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=wbnBnHyI;
-	arc=none smtp.remote-ip=103.168.172.137
-Received: from flow-a2-smtp.messagingengine.com (flow-a2-smtp.messagingengine.com [103.168.172.137])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="Hz7o8//i";
+	arc=none smtp.remote-ip=209.85.210.46
+Received: from mail-ot1-f46.google.com (mail-ot1-f46.google.com [209.85.210.46])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B4ABE606A33B
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 22:02:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B4ABE606A33B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arndb.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arndb.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0471C606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 22:02:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0471C606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=arndb.de header.i=@arndb.de header.a=rsa-sha256 header.s=fm2 header.b=mfnJGR8Z;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=wbnBnHyI
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailflow.phl.internal (Postfix) with ESMTP id C9E1313803C7
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 17:02:40 -0500 (EST)
-Received: from ams-imap-03 ([10.64.2.23])
-  by ams-compute-02.internal (MEProxy); Tue, 24 Nov 2026 17:02:40 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1795557742;
-	 x=1795564942; bh=xqSGxC68OuGq0f3lY+sfYUCqjXoRvtvCw0BSPI+8ZKw=; b=
-	mfnJGR8ZvkU0LMsvLhbkB2aWWyYvVftk34Igv9f+VSyWFZL75F98YRJInsubsg5N
-	ErWkbpwwYR8PYwwytDXrBO4Zv5tmqL7Kcd99KBzFrH3plirHNa3BF91ghYHg1G2X
-	OmIzUeu9alCUMqYdLPe3t6xGqQDeBJFNzjBkCZdXLIRdfSfdGAENAvBoCa2Hd/va
-	6GViewBlkNAzICD3R2R+FvuW+BnNIr3jT+Fl9ot6DTCUyPwgXgiOAE7gr65RUlWF
-	zTV1eaMMqoKhfcdTawq7FOwHVOJ7hDxNDHC9/0HIOAI9uDObbhkabN2JM4I0uCwd
-	iklYqFK06JlPTifavsWnwQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795557742; x=
-	1795564942; bh=xqSGxC68OuGq0f3lY+sfYUCqjXoRvtvCw0BSPI+8ZKw=; b=w
-	bnBnHyIX27rhdSGfAc5H4g5+m7drm11Zac2njlCmzN4mbo2YQ6EhH6D3pD/8PeWY
-	8GHoNQCNetXraVudoAhL0qYFTYu9qtXjJhzOx0LKjAdkofjkzwVdOhVC1J2hwfwt
-	VGDOiyN7FwH93as5zO5o+8QJnGBEUiUslUd724GRZXy/EKfZPjLZu/8oWwovMRB0
-	gqyKbJtAxmz5Ye7KI5rrGabmlFjzzdpLjwI7iCre5OXCavuM7GUe/YusH3YuhrsM
-	tEnsRe06oXURbQM9aMsO08wVojk5ODAx8uWqDju1VwkBgXeAY+UL/ydC1j0YZtCu
-	KfHp2BvZEv/a3sOge7mDw==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=arndb.de a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795557742; d=arndb.de;
-	mf=PGFybmRAYXJuZGIuZGU+;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm2:rsa-sha256:eTxWX9qkn47PvIWVBHBl9rh08TffHNot2IAmYLtZE5gRBs1
-	rm10rDM+lnlI65c8kohBv+GhvdBNYjSzifH+w8lLaVThyUmzJdG1rpkUG+fZwGR1
-	FbesWWVe6TcXUp1tscTc4IhUK4TupPC/cqEYdm9/szJnDRC4vpKYkKjgNsQsHZN6
-	UQN3dCpIxddOMgm/WS2UuF7pZywA3WXbvlENqy4deePAtkTYeWqcsphrx47bBA7V
-	fHwqP2Rm4qLuoB6F0AZQw8NnSynuN3kxsQZBGRll4hPa5YWITPgHFi/ltMZiFuUT
-	+/pmhx4BCPUJORkydG+IX3h5Q3G/NkEQtgzw3Mw==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=12;
-	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
-	from,in-reply-to,message-id,mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:Y1L9ZRjDVf0ae1O5OLJmIEMJoJINj3g0qWcfqpumaM8=:uV7HNzlAfzr4LTvQgcdWBWGhD8P70PVpTMD/LBLagBw=;
-X-ME-Sender: <xms:ZAkGa2S1qU5q8Tt4P59rLUZLMDcdcz9MhGSLBcV29aA_t5jwHSVpFQ>
-    <xme:ZAkGa2nn-MLHHH5bsIrtUn53Bm6dbM7HMZKuIRmjk9pvX9DAb9jnrJeBrNTX2ODRl
-    wAAtRHYTqQ6S0lkRVQTlORopD_RQ-qt5BuiOtcQDZFWBrRtGC248laJ>
-X-ME-Proxy-Cause: dmFkZTFRHh3IY7AQpE2sOB2PLJi3AuimKZDL9H1tXPiO9loafbcw/DGlO/Xoejw+8P82CU
-    LZtGPx5Dw2fehVmppW39nh7aiKQqHD4K4dz4hhwMbfJ/rvud1uNRBqKqwpOM3ItmC7aGg2
-    A+GKbJZ0q/HAUhCKq8KTriq2kSTLiR4BY395K6QXzmGZqOgGBQCeI+/qZ5DjTPzrKb+KCk
-    fWxNoXXTvO6/Q9umpMuH+R2tl9qmfexdyWMyjNVwhUtZI0siPxAVzMuaiN62cXkT1LxPsl
-    ivdDM2jUMgnHoUAdJkJTv2Cd0wNryoNWCgNqfkM9sF+PCCJ+n2SVasPPSYcFY35/BtjUi/
-    TlJok52x6K/qFFOH5y2f4B3BhSmPbdoGhxzStq5W26pndjLaCuALLGrZUSxDowPZL8Uxm9
-    tq8OcCqqLGoNK4Gz1S9oU6o18yltNNQA8ylIOP1GM8y9zFzH4ACeaKMpbIKk59CrU6mG5p
-    r7Vqugsc+zPL78L05eqJ+Dv566UPYEBjuKKkv+Kuz7Ek+Vcjrk5P3BBEWeI5xh7lI87c+k
-    EGduRPaTIxc7VwNPWY7uJsLAvKDYRTBcjLlbz5kr2cdl14XqqH/o219lKVdPi2m4ANFlMt
-    HKT2MGXWfnbkl4Zcq1AAqLM5PN7cFVRnArfJggG7bcTT8iycB6wsrFxURFsA
-X-ME-Proxy: <xmx:aQkGa5ADK0kQBKydW-jsYQL2owm6ypApuRcgesYyb9gfGqwkudPKNw>
-    <xmx:aQkGawu6ACeRQkfy1MUQnkSHymWoFOBsVAuxGxAvsiDY-MRkdjhslw>
-    <xmx:aQkGa41LhutcH3hl071xdqmfJ1-SyaJRtJWCEsdFZTLgpNQKlsyu9g>
-    <xmx:aQkGa5jbcusQENaD1VV6mJUEOIOUF73AiAns-Bfib3Jpb0Xg437OxQ>
-    <xmx:bgkGa4awIhQYBbKzBAjp50sAI32cG5KibTRETI3OZH4oHKFRGLB2KqwC>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id EEB3B32A009C; Tue, 24 Nov 2026 17:02:11 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Hz7o8//i
+Received: by mail-ot1-f46.google.com with SMTP id 46e09a7af769-8629ef8613aso2000684a34.3
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 14:02:54 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795557774; x=1796162574; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=MTsG6ObX1QZphRq69WtSXAGO8I5Qp7B9rjGutUJIVt0=;
+        b=Hz7o8//ifyypD2vcRuajMaBRFCCt7gq5hVxY4h34XSTuCklaUZjCviBkF/B6bk/hf3
+         hctWcH7ztS2urkic7Jlkz9DF0pVagybCHw1UQ88mMHivAfyyKW5+g1+FDOr4vIAFFMTh
+         C6K7wmKqxX7zD3McLzBVfxzWF0Tmo2/QUETVMRntMNrwbQILhPLUg/BFc7ze/Q7bldsO
+         jqM9BRbs94s1/Dv0Y8Kz3nxiZRKTT2tIgkrEjM+ObxB2erd4R10JUdCFdt67Uj+wEVK1
+         qnghUqKs225CQJsJlw07EKkVs0cE6y0yDyMxEyuHmpXx8XbTe9kTTB3eSQ0l53mc9yFN
+         6BDQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795557774; x=1796162574;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=MTsG6ObX1QZphRq69WtSXAGO8I5Qp7B9rjGutUJIVt0=;
+        b=pLYLQdqsQcBRUuIpDOwvdsMxaEij01EPInl3gxhZ1U75iY1yXRDiuFF3llT2qu+faH
+         MoS0Y919s2WgockjidSU4gjRaNY82A/pQl/KGon0nzrbNGFq17SuwcbnpVTVX8WuwynA
+         pwF8WsAgOKZoqov3f3tU0PIZjoH81IKMnleGmtP/BgaavfZQNpRft6uVl+fBkYyO7UeM
+         9XdynD6y1xQIy1RHgPmnUGBRJPtZz6HXw1HbgWXMTrakD3EaXsdeEL1lPHzo8zaR2XF0
+         3vQehSVHaFe4xwufAVXcRzkMIjdqrizg1lAsCvZvPFwTQA7s90I/51pPLNBROWeWZiPi
+         mQ7g==
+X-Forwarded-Encrypted: i=1; AL+hErHqSaimvL6fCf8+2ehALcbad3s1Aq3knC+6n8/Gl+IXJpa7ARcn8LtgKSUeJmp/bFPs3UMjewKaoZdz1UA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+5LXE0mlrQx+HNlzHc8PrMRKxEuTebcYQ9LGw4NkDzPaL3UPec
+	o0UZqSEXIP7u3p5P1lcnhAB/ofpyHl1LcqFAz8BrsmAYDSFl2ultd5Z9
+X-Gm-Gg: AZFdTZekZnIiL40aQCX+z0b7mnVmQoFctlXKjrEKXGCFYYQn2Pm9VKNIQ1YmDkkgmCR
+	8BtkrQKzvD2raab2rCy9V//jY2UfpVJklXTK2hYksGAnaY1/YhjOlOPqlaK3f9RE8IQS5RLaygR
+	fyQuRuocjOKyj+jqC6ngd/QvyQUnwb90yGYT6+Bd7x457R/YHLeUYTPi5Tzfm9amEjTbzgR/QDb
+	qCjkb7Rwy8JTdgjwUfNlV/4S+CSXRmHGGi6Jx6N+UaDaiXJxjfp0Mrp8BgUwmrhdRQ0NIF1mgiC
+	BOvlEhcIZoJBkC6pRYpbP7Ccb9j1GtdaUMSHUbBhNicWi7CVn5kkoUdmxveN5oA7koNn7Lmgwbw
+	Fr7MUxOvceKYdPArwVbzksPyVakpa07wC3NBmYulpJ90NSwSQ4zKKsY6oVrlzG2G1fP3HlebKjy
+	1AEixp+A6+DKpybJalZ8YRGT2X8Iu0w6tw80HAx+tFQwmBbsYBZ6363y+m7JvHZp3Kj2aTWqjAj
+	leAJ99r1hKZ26ppxXmVgufHbjdlcK23CR6ZyTU4v+W7BgQbz9xxwfh2lgfeYzFVcD3YRhukEGGu
+	+7takl1hOIM7f2jmXq0Dnq5qmkM=
+X-Received: by 2002:a05:6830:4119:b0:862:f05c:2fd with SMTP id 46e09a7af769-863152c5e83mr17966959a34.3.1795557773847;
+        Tue, 24 Nov 2026 14:02:53 -0800 (PST)
+Received: from localhost ([2a03:2880:31ff:52::])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-863168c1bc5sm11180539a34.6.2026.11.24.14.02.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 14:02:53 -0800 (PST)
+From: Mohsin Bashir <mohsin.bashr@gmail.com>
+To: netdev@vger.kernel.org
+Cc: saeedm@nvidia.com,
+	leon@kernel.org,
+	tariqt@nvidia.com,
+	mbloch@nvidia.com,
+	cjubran@nvidia.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	mohsin.bashr@gmail.com,
+	linux-rdma@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net-next v3] net: mlx5: Allow police as the last action of a TC rule
+Date: Tue, 24 Nov 2026 14:02:51 -0800
+Message-ID: <20261124220251.776944-1-mohsin.bashr@gmail.com>
+X-Mailer: git-send-email 2.53.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -115,109 +105,232 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-ThreadId: AUJ1OXWu3nCJ
-Date: Tue, 24 Nov 2026 23:01:51 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "James Houghton" <jthoughton@google.com>
-Cc: "James E . J . Bottomley" <James.Bottomley@hansenpartnership.com>,
- "Arnaldo Carvalho de Melo" <acme@kernel.org>,
- "Andrew Morton" <akpm@linux-foundation.org>,
- "Pavel Begunkov" <asml.silence@gmail.com>,
- "Alexei Starovoitov" <ast@kernel.org>, "Jens Axboe" <axboe@kernel.dk>,
- bpf@vger.kernel.org, "Daniel Borkmann" <daniel@iogearbox.net>,
- "David Hildenbrand (Red Hat)" <david@kernel.org>,
- "David Sterba" <dsterba@suse.com>, io-uring@vger.kernel.org,
- "Jim Mattson" <jmattson@google.com>,
- "John Fastabend" <john.fastabend@gmail.com>,
- "Josh Poimboeuf" <jpoimboe@kernel.org>, "Kees Cook" <kees@kernel.org>,
- kvm@vger.kernel.org, "Liam R. Howlett" <liam@infradead.org>,
- linux-btrfs@vger.kernel.org, linux-fsdevel@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-mm@kvack.org,
- linux-perf-users@vger.kernel.org, linux-scsi@vger.kernel.org,
- linux-trace-kernel@vger.kernel.org, "Lorenzo Stoakes" <ljs@kernel.org>,
- "Chris Mason" <mason@kernel.org>,
- "Mathieu Desnoyers" <mathieu.desnoyers@efficios.com>,
- "Masami Hiramatsu" <mhiramat@kernel.org>, "Michal Hocko" <mhocko@suse.com>,
- "Ingo Molnar" <mingo@redhat.com>, "Martin K. Petersen" <mkp@kernel.org>,
- "Namhyung Kim" <namhyung@kernel.org>, "Paolo Bonzini" <pbonzini@redhat.com>,
- "Peter Zijlstra" <peterz@infradead.org>,
- "Steven Rostedt" <rostedt@goodmis.org>, "Mike Rapoport" <rppt@kernel.org>,
- "Sean Christopherson" <seanjc@google.com>,
- "Suren Baghdasaryan" <surenb@google.com>,
- "Thomas Gleixner" <tglx@kernel.org>,
- "Vlastimil Babka (SUSE)" <vbabka@kernel.org>,
- "Alexander Viro" <viro@zeniv.linux.org.uk>
-Message-Id: <1a99e5fc-129e-41e3-8420-101bcf04b366@app.fastmail.com>
-In-Reply-To: 
- <CADrL8HX5vb1PGDpWzp-eR0rNfsMCVUhFa9vp_WZZx2eJZ+dfXQ@mail.gmail.com>
-References: <ac22215d-3e58-4aab-851e-47c30836e058@app.fastmail.com>
- <20261027231728.1466446-1-jthoughton@google.com>
- <32fad21b-5bad-4640-97df-ef0f638cd9e9@app.fastmail.com>
- <CADrL8HX5vb1PGDpWzp-eR0rNfsMCVUhFa9vp_WZZx2eJZ+dfXQ@mail.gmail.com>
-Subject: Re: [RFC PATCH 00/10] uaccess: Refuse and warn on user accesses when
- current->mm is NULL
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-On Tue, Nov 24, 2026, at 22:10, James Houghton wrote:
-> On Wed, Oct 28, 2026 at 7:14=E2=80=AFPM Arnd Bergmann <arnd@arndb.de> =
-wrote:
->> On Wed, Oct 28, 2026, at 00:17, James Houghton wrote:
+From: Mohsin Bashir <hmohsin@meta.com>
 
-> So now in v2, the _nofault() helpers themselves do not check current->=
-mm.
->
-> I've uploaded a draft version of v2 here, in case you want to take a l=
-ook:
->   https://github.com/48ca/linux uaccess-v2-wip
+In switchdev mode, mlx5 does not offload a rule where police is the last
+action, although TC needs no other action for such a rule. The upcoming
+selftest series relies on these rules. With nothing after police, the
+police result alone decides where the packet goes, so each result must
+be offloaded as TC executes it. The driver does not do that today. An ok
+result is handled as pipe and runs the actions after police, a pipe
+result always returns to the post action table, and a jump is counted
+from police while TC counts it from the start of the action list. A rate
+police is also rejected by verify_attr_actions(), as its forward to the
+post meter table is added only after the check.
 
-I read through this now and it all looks good to me so far.
+Make the offloaded rule behave as it does in TC. An ok result ends
+processing in TC. A pipe result does the same when police is the last
+action. Send both to the end of the TC chains as the driver already does
+for gact ok. For jump, offload only the simple case where police is the
+first action and the skipped actions are all drop or all ok. Reject the
+rest. Existing rules where police is followed by other actions also
+change. An ok result now accepts the packet instead of running those
+actions. Finally set the forward to the post meter table while parsing
+police. This is already done for police with mtu and lets a police-only
+rule pass verify_attr_actions().
 
->> Since in principle every user access should go through both
->> access_ok/mask_user_address and current->mm check at some point,
->> so combining the two as much as possible should help long-term
->> maintainability.
->
-> You're right, and v2 has been restructured like this.
->
-> - The check is in access_ok() itself: the generic version, plus the
-> arm64 and riscv versions. __access_ok() remains a plain range check.
-> - The callers of mask_user_address()/masked_user_*_access_begin()
-> check current->mm explicitly. There are about a dozen such callers.
-> - The unchecked accessors, __copy_{from,to}_user()
-> and__copy_{from,to}_user_inatomic() (and arm64's
-> copy_from_user_flushcache(), which also relies on an earlier
-> access_ok()), keep an explicit check for now. Once their users are
-> converted to the checked versions, those checks can be dropped.
+Tested on a ConnectX-7 in switchdev mode with the commands below. The
+hardware drop counter showed that the rules are offloaded and limit the
+traffic to the configured rate, that the second police only sees the
+packets conforming to the first, and that the jump lands on its target.
 
-Ok, sounds all good. If we get more than handful of mask_user_address()
-and masked_user_*_access_begin(), we can always revisit that interface
-to make sure the check can't be skipped, but for now this seems
-like a good tradeoff.
+  tc filter add dev eth0 ingress pref 100 protocol ipv6 flower skip_sw \
+    ip_proto udp dst_port 5201 \
+    action police rate 100mbit burst 1m conform-exceed drop/ok
 
-> Compared to v1, this also covers get_user()/put_user()/clear_user() on
-> arm64, powerpc, riscv and the asm-generic architectures, and arch code
-> like signal frame setup that uses access_ok() followed by __put_user()
-> or unsafe_*(). user_access_begin() no longer needs its own check.
->
-> What's still not covered: x86's get_user()/put_user(), which do their
-> own range check in asm, a few architecture-specific paths that call
-> __access_ok() directly (e.g. on alpha and sparc32), and arch code that
-> calls __get_user()/__put_user() without access_ok(), mostly trap
-> handlers for user-mode faults. Probably best tackled later.
+  tc filter add dev eth0 ingress pref 100 protocol ipv6 flower skip_sw \
+    ip_proto udp dst_port 5201 \
+    action police rate 200mbit burst 1m conform-exceed drop/pipe \
+    action police rate 100mbit burst 1m conform-exceed drop/pipe
 
-ok
+  tc filter add dev eth0 ingress pref 100 protocol ipv6 flower skip_sw \
+    ip_proto udp dst_port 5201 \
+    action police rate 100mbit burst 1m conform-exceed drop / jump 2 \
+    action drop action ok
 
->> There are probably few enough of these that we could address them
->> by either adding current->mm checks or converting them to use
->> the full versions instead where that is an obvious change like
->> that usb gadget driver.
->
-> Sounds good. I'll send a separate series converting the obvious ones,
-> starting with the usb gadget driver. I think that will be useful.
-> Let's see how far I can get; hopefully I can drop
-> __copy_{from,to}_user() completely.
+Cc: Carolina Jubran <cjubran@nvidia.com>
+Signed-off-by: Mohsin Bashir <hmohsin@meta.com>
+---
+Changelog:
+v3:
+  - Offload jump only when police is the first action, the target is a
+    later action, the skipped actions are all drop or all ok, and the
+    same action is not used twice in a row, as discussed on v2:
+    https://lore.kernel.org/netdev/5c493bd0-31f5-430a-844a-ad011a5f0ba8@nvidia.com
+  - Update commit message
 
-Ok, perfect!
+v2: https://lore.kernel.org/netdev/20261119040010.1405900-1-mohsin.bashr@gmail.com
+v1: https://lore.kernel.org/netdev/20261117031337.4126403-1-mohsin.bashr@gmail.com
+---
+ .../mellanox/mlx5/core/en/tc/act/police.c     | 59 ++++++++++++++++++-
+ .../net/ethernet/mellanox/mlx5/core/en_tc.c   | 26 +++++---
+ 2 files changed, 75 insertions(+), 10 deletions(-)
 
-      Arnd
+diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c b/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c
+index 1bd1c94fb977..f03a992cbc27 100644
+--- a/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c
++++ b/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c
+@@ -37,6 +37,52 @@ static int police_act_validate(const struct flow_action_entry *act,
+ 	return 0;
+ }
+ 
++static bool
++police_act_can_offload_jump(struct mlx5e_tc_act_parse_state *parse_state,
++			    const struct flow_action_entry *act,
++			    int act_index, u32 target)
++{
++	const struct flow_action *flow_action = parse_state->flow_action;
++	struct netlink_ext_ack *extack = parse_state->extack;
++	const struct flow_action_entry *prev, *entry;
++	u32 i;
++
++	if (act_index) {
++		NL_SET_ERR_MSG_MOD(extack,
++				   "Jump is only supported when police is the first action");
++		return false;
++	}
++
++	if (!target || target >= flow_action->num_entries) {
++		NL_SET_ERR_MSG_MOD(extack, "Jump target must be a later action");
++		return false;
++	}
++
++	prev = act;
++	for (i = 1; i <= target; i++) {
++		entry = &flow_action->entries[i];
++
++		if (i < target &&
++		    ((entry->id != FLOW_ACTION_DROP &&
++		      entry->id != FLOW_ACTION_ACCEPT) ||
++		     entry->id != flow_action->entries[1].id)) {
++			NL_SET_ERR_MSG_MOD(extack,
++					   "Jump can only skip actions that are all drop or all ok");
++			return false;
++		}
++
++		if (entry->id == prev->id && entry->hw_index == prev->hw_index) {
++			NL_SET_ERR_MSG_MOD(extack,
++					   "Jump over the same action twice in a row is not supported");
++			return false;
++		}
++
++		prev = entry;
++	}
++
++	return true;
++}
++
+ static bool
+ tc_act_can_offload_police(struct mlx5e_tc_act_parse_state *parse_state,
+ 			  const struct flow_action_entry *act,
+@@ -49,6 +95,16 @@ tc_act_can_offload_police(struct mlx5e_tc_act_parse_state *parse_state,
+ 	if (err)
+ 		return false;
+ 
++	if (act->police.exceed.act_id == FLOW_ACTION_JUMP &&
++	    !police_act_can_offload_jump(parse_state, act, act_index,
++					 act->police.exceed.extval))
++		return false;
++
++	if (act->police.notexceed.act_id == FLOW_ACTION_JUMP &&
++	    !police_act_can_offload_jump(parse_state, act, act_index,
++					 act->police.notexceed.extval))
++		return false;
++
+ 	return !!mlx5e_get_flow_meters(parse_state->flow->priv->mdev);
+ }
+ 
+@@ -94,13 +150,14 @@ tc_act_parse_police(struct mlx5e_tc_act_parse_state *parse_state,
+ 		      MLX5_FLOW_STEERING_CAP_MATCH_RANGES))
+ 			return -EOPNOTSUPP;
+ 
+-		attr->action |= MLX5_FLOW_CONTEXT_ACTION_FWD_DEST;
+ 		attr->flags |= MLX5_ATTR_FLAG_MTU;
+ 	} else {
+ 		attr->action |= MLX5_FLOW_CONTEXT_ACTION_EXECUTE_ASO;
+ 		attr->exe_aso_type = MLX5_EXE_ASO_FLOW_METER;
+ 	}
+ 
++	attr->action |= MLX5_FLOW_CONTEXT_ACTION_FWD_DEST;
++
+ 	return 0;
+ }
+ 
+diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c b/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
+index 1d35c97aea0b..7e7111e6d058 100644
+--- a/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
++++ b/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
+@@ -3874,7 +3874,7 @@ static int
+ alloc_branch_attr(struct mlx5e_tc_flow *flow,
+ 		  struct mlx5e_tc_act_branch_ctrl *cond,
+ 		  struct mlx5_flow_attr **cond_attr,
+-		  u32 *jump_count,
++		  u32 *jump_count, bool last,
+ 		  struct netlink_ext_ack *extack)
+ {
+ 	struct mlx5_flow_attr *attr;
+@@ -3891,11 +3891,17 @@ alloc_branch_attr(struct mlx5e_tc_flow *flow,
+ 	case FLOW_ACTION_DROP:
+ 		attr->action |= MLX5_FLOW_CONTEXT_ACTION_DROP;
+ 		break;
+-	case FLOW_ACTION_ACCEPT:
+ 	case FLOW_ACTION_PIPE:
+-		err = set_branch_dest_ft(flow->priv, attr);
+-		if (err)
+-			goto out_err;
++		if (!last) {
++			err = set_branch_dest_ft(flow->priv, attr);
++			if (err)
++				goto out_err;
++			break;
++		}
++		fallthrough;
++	case FLOW_ACTION_ACCEPT:
++		attr->action |= MLX5_FLOW_CONTEXT_ACTION_FWD_DEST;
++		attr->flags |= MLX5_ATTR_FLAG_ACCEPT;
+ 		break;
+ 	case FLOW_ACTION_JUMP:
+ 		if (*jump_count) {
+@@ -3967,7 +3973,7 @@ dec_jump_count(struct flow_action_entry *act, struct mlx5e_tc_act *tc_act,
+ static int
+ parse_branch_ctrl(struct flow_action_entry *act, struct mlx5e_tc_act *tc_act,
+ 		  struct mlx5e_tc_flow *flow, struct mlx5_flow_attr *attr,
+-		  struct mlx5e_tc_jump_state *jump_state,
++		  struct mlx5e_tc_jump_state *jump_state, bool last,
+ 		  struct netlink_ext_ack *extack)
+ {
+ 	struct mlx5e_tc_act_branch_ctrl cond_true, cond_false;
+@@ -3980,7 +3986,7 @@ parse_branch_ctrl(struct flow_action_entry *act, struct mlx5e_tc_act *tc_act,
+ 	tc_act->get_branch_ctrl(act, &cond_true, &cond_false);
+ 
+ 	err = alloc_branch_attr(flow, &cond_true,
+-				&attr->branch_true, &jump_count, extack);
++				&attr->branch_true, &jump_count, last, extack);
+ 	if (err)
+ 		goto out_err;
+ 
+@@ -3988,7 +3994,7 @@ parse_branch_ctrl(struct flow_action_entry *act, struct mlx5e_tc_act *tc_act,
+ 		jump_state->jumping_attr = attr->branch_true;
+ 
+ 	err = alloc_branch_attr(flow, &cond_false,
+-				&attr->branch_false, &jump_count, extack);
++				&attr->branch_false, &jump_count, last, extack);
+ 	if (err)
+ 		goto err_branch_false;
+ 
+@@ -4052,7 +4058,9 @@ parse_tc_actions(struct mlx5e_tc_act_parse_state *parse_state,
+ 
+ 		dec_jump_count(act, tc_act, attr, priv, &jump_state);
+ 
+-		err = parse_branch_ctrl(act, tc_act, flow, attr, &jump_state, extack);
++		err = parse_branch_ctrl(act, tc_act, flow, attr, &jump_state,
++					flow_action_is_last_entry(flow_action, act),
++					extack);
+ 		if (err)
+ 			goto out_free_post_acts;
+ 
+-- 
+2.53.1-Meta
+
