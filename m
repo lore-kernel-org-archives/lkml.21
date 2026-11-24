@@ -1,48 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.8
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795509997;
-	b=VTfR7hDls0qpiphfTBCew77zpS4LfNFMQXdMmVch6fAVXjKirb9Em2YRAxzuk/6DwMhc
-	 NjonHxzoqT8IuaSP06EN0JlU2RvVBjcL/A2+8gFSc4EWy0QzfDNwIR5Xi5RfFSkj0gufp
-	 fCGb36Wnm4YvnlEpDTTZfniUF3KFmsMBd6SVIlzwVYC2T3hpSOmkSgXcEGnkWfWfmvi1F
-	 nj3n8vS1siOiOoJFCy4ru/GJdyegVDW9su2H45rrn31WxSn+u0WSQTz+K8Ir8hJEKEAo9
-	 qNv3m04n6n3//xJDF9S0JzQgwRBJP91GLeIrMAiJUVXlOf1uwPZIIvivJLRIqjcpsqA==
+	t=1795510020;
+	b=MZHt8S2rq7daeBPI/udrjYN8b3224e69JaRWSxo05oncXoXDqbVruJTawCr7l7ij+eUV
+	 X777Y+u0++heqJa4WFjpF6mmQEZMQKA6DDJ62Lcn6jzPvAoYY/zozNDjlXBNrSYYF+Np5
+	 AJVr6YXJv3u0nrQBQ6iJXlWTqmWI4KaEepWBsAaFkL3Wp7J5P1jaDvtDq5HIxlvV42uFS
+	 vSwev1qkHFPSxvxTchuYZ2S7p8UUVWCyF8oKXUjlarcT7HFwY5CIYicTh8A6wPBA4u6+C
+	 qsfsFhgvXuMjkDIpAAgDIb/yFaHReX5G2s+7iec2aBPoejibCe2FVGD31CpbG1hvwmg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795509997;
-	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=gB0t6lsEAvPLKP9TexVyZaTQIG5MDeT3iJA9FNr8QoU=;
-	b=YoTUKiYHMBja3i0ZCXgpwlTa/qLky+wQVs+eEuRrQp83gTjtvHu9JUTCkrcAXMb7ssXZ
-	 JdlGAp80r1kaWOKyS0MIW/1XqSHdCEZ9hxmSjdA+VxRXASUSz4zlzl0oz8nWMQXlsu7uR
-	 94OBC/qikCJ0TTEcIFvpCkHNxprMx07FPp1LmqZnZzhRXTL3rGJ/vYJ63V9A61i9qdJ5s
-	 vV5juAjn5LQ1f7JOplmTYyriVSDPjuzfDZJvHkXXcHxdODjkhu/xnJ1nrs43riYin1M0I
-	 fMfiHy9RUujUHebEP/T1PU9zYTHKNyULJ09AOWNxI6JCZvJh4Mknaqpx02CZXt6S8tA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795510020;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:Organization;
+	bh=VicFn4lVZUmbmwNsi8pCR0se7gsROCvTE9OiCVouf8g=;
+	b=Gv84ecvuJGakPf4KK3eRrlTV0QYODgEBMiyhNyvTJusszJdF7ywSfkZNQbJzaq/THOAg
+	 1S6zxclOiTSe6FNds3YtCxEXQ26jSCRxPcZ+XIpYSzcz+1gCiUPCe57zVwYynIqfQUZm5
+	 SsGrr8qkQpx6qAZmLmuo3WjYsO7xp7n1Y9sh6u7cPINaummdlXm+Cq25lzvrpRbefQwrP
+	 N/ddJRKzhzAeaFZVpldOZXQfrdRenQ60cudFC6m7sE/xuOQKvSk//joAcbQVEoTp7+UQ/
+	 ztQ0OkqzqomXJZ504MKPPqpIeJjgKqsEE3HI9Q31giHp8BLV++htiXnXV7lFnu1uX6Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=luuUbUMx;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=CmTKvdWH;
+	arc=none smtp.remote-ip=192.198.163.8
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.8])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 96235606A31E;
-	Tue, 24 Nov 2026 08:46:37 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8AD0C606A31E;
+	Tue, 24 Nov 2026 08:46:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8AD0C606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=luuUbUMx
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A98101F000C6;
-	Tue, 24 Nov 2026 08:46:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795509997;
-	bh=gB0t6lsEAvPLKP9TexVyZaTQIG5MDeT3iJA9FNr8QoU=;
-	h=From:Date:Subject:To:Cc;
-	b=luuUbUMxrkhNLvzR/ykSVOJC0ShGEA8Tnjhh9MfUuaBnKFEnkl7Dp/FDDOjre+mjQ
-	 Uu497cKyKMvHJ8hnvog5pv4/bEXilrV4uHJiB69mVnbqOjSGHtmKOO+0rDhQis//ga
-	 N7Aavq45Mrt77U3fPddWXtqsb4sxP9sXnwM2Uc7kulWLHaC29lv2Y5QKZ5rwho3lK7
-	 nZFonkMJ2Szzdyu+D4FuzXZbsTptt+KhZX2l/arvF18REdm6q5oF2V6DZvRBqQOy5/
-	 LaT9OUOG3lhwvZ3X6+/u9Q+bEAjXGiWS31xqQ17KIWcYo1uz4Flt0fR4huFIxDe/PY
-	 yLxrG3zdfn8fg==
-From: Christian Brauner <brauner@kernel.org>
-Date: Tue, 24 Nov 2026 09:46:22 +0100
-Subject: [PATCH] x86/shstk: don't warn when the shadow stack is freed twice
+	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=CmTKvdWH
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795510019; x=1827046019;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=GMCmewBzBcfOkv8aULQ/+EyHsAV8VLb9fhCrS1cy0g8=;
+  b=CmTKvdWHuTP2mH4IRB8YZlwwSZ45FPZ1DLUJ5OkOsMbCPjtfE/iN7J8/
+   Ibhbghr4C0see8u2RgXdwh1vvUTiEXvfvc6v2HgiXe7YRhQTiMWsjg4K0
+   oknla30jm96kmj+RvzcZvC4o5Vg55Tujc0VAfil6UC3ojg0fa8gkMEwS5
+   Rf5SeZRAeWFKsWR4DjBTzFwhBlYinQ3cm2PC5xPn+/IFdh9yTUp8DAuJ8
+   /TQUBuDe1Yh1zB+ylOOSl+9OazFKN/Eiry8e0bM35hLwXXfec3Jt5O4MO
+   hGZmPSX8Vai2IU8hcrFJToMO7qnxSth72SYGfNaQapo3gsMcF0uRjHMnK
+   w==;
+X-CSE-ConnectionGUID: rPe/55r6QqSkytrizfK0mQ==
+X-CSE-MsgGUID: FkhuDY5CSFqNwvezUtaRkA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11975"; a="4232009"
+X-IronPort-AV: E=Sophos;i="6.27,230,1787036400"; 
+   d="scan'208";a="4232009"
+Received: from orviesa003.jf.intel.com ([10.64.159.143])
+  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 00:45:24 -0800
+X-CSE-ConnectionGUID: mB6oKL7aQsCW5ZDEBy/kUw==
+X-CSE-MsgGUID: dLJqyAEARx2GvCvMnv9sFw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,230,1787036400"; 
+   d="scan'208";a="11403884"
+Received: from hrotuna-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.245.125])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 00:45:20 -0800
+Date: Tue, 24 Nov 2026 10:45:18 +0200
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
+Cc: Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Arnd Bergmann <arnd@kernel.org>, Rich Felker <dalias@libc.org>,
+	Yoshinori Sato <ysato@users.sourceforge.jp>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+	linux-sh@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
+	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 0/5] sh: mach-rsk: rsk7203: switch to using static
+ device property, drop legacy gpio API
+Message-ID: <awVOnsIRDtAsE2Sk@ashevche-desk.local>
+References: <20260929-rsk7203-properties-v3-0-02f84aeb8e47@gmail.com>
+ <3a51385d-9649-4bd7-87b3-0caf9e462b2e@app.fastmail.com>
+ <arzKNhmoL6yiGrzH@ashevche-desk.local>
+ <dea00f90c205f8359baca729d8b0f31a@gmail.com>
+ <ce838102be497ee6eab490b4454095b96e16d015.camel@physik.fu-berlin.de>
+ <2e4f0d32c05d841feb367741bf8802fc@gmail.com>
+ <awU4aqWbKEs4Qhyg@ashevche-desk.local>
+ <6eb2202457d5703192a513b4e898dfe6653c1b0f.camel@physik.fu-berlin.de>
+ <awVMk-aGMRug22ss@ashevche-desk.local>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -52,97 +94,40 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261124-work-x86-shstk_free-v1-1-fc456c538e70@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/0XMQQ7CIBCF4as0s3ZIoQ0pXsUYAzgVbEINU7VJ0
- 7sLunD5T958GzDlSAzHZoNMr8hxTiXkoQEfbLoRxmtpUK3SUqoO33OecB00cuBluoyZCDujnB5
- Mr1vTQ/l8ZBrj+lVP51/z093JL5WqC2eZ0GWbfKinioqCij8q6gT2/QMnZelVogAAAA==
-X-Change-ID: 20261123-work-x86-shstk_free-392b68946094
-To: Thomas Gleixner <tglx@kernel.org>, Borislav Petkov <bp@alien8.de>
-Cc: Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
- linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
- "Christian Brauner (Amutable)" <brauner@kernel.org>
-X-Mailer: b4 0.17-dev-04696
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2811; i=brauner@kernel.org;
- h=from:subject:message-id; bh=dvX2CcTQ7JihDgSkIo829jeueQbOyQefB2Hl7suGYzo=;
- b=owGbwMvMwCU28Zj0gdSKO4sYT6slMWSz+r3g1F4uqdvn/2Tls91PzCa//tzi1yigGehteuaxh
- 6mX0uGujlIWBjEuBlkxRRaHdpNwueU8FZuNMjVg5rAygQxh4OIUgIkslWBk6Dm/8dyGlBcy0xb/
- 79ojUKfNvIDBqC5G3Lqp+YPDUcnGfEaGrsIHS4zXzzHKLEw56OEn0V3x4te66oy1WziErju8ftz
- FDAA=
-X-Developer-Key: i=brauner@kernel.org; a=openpgp;
- fpr=4880B8C9BD0E5106FC070F4F7B3C391EFEA93624
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <awVMk-aGMRug22ss@ashevche-desk.local>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 
-exec frees the shadow stack of the old image when it releases the old
-mm in mm_exit_exec_release(). That happens right before it takes
-exec_update_lock and before it switches to the new mm. If the exec fails
-after that the task exits with the old mm and exit_mm() calls
-mm_exit_exec_release() a second time. shstk_free() notices that the
-shadow stack is gone already as shstk->size is zero and warns:
+On Tue, Nov 24, 2026 at 10:36:41AM +0200, Andy Shevchenko wrote:
+> On Tue, Nov 24, 2026 at 09:27:22AM +0100, John Paul Adrian Glaubitz wrote:
+> > On Tue, 2026-11-24 at 09:10 +0200, Andy Shevchenko wrote:
+> > > ...or even remove the board support completely (would be interesting
+> > > to see somebody investing time in this HW to fix all what listed and
+> > > not listed above).
+> > 
+> > Can I as the SH maintainer at least have the last word on this? I'm not
+> > really happy with the fact that corporate developers are chasing hobbyists
+> > in the kernel developments all the time.
+> 
+> I'm not objecting that! I just expressed the concern that with pointed earlier
+> lack of time (did I misinterpreted that?) and list of problems it really needs
+> a time investment (note, I haven't used the word 'waste').
+> 
+> > You people are being paid to do this, of course you can work on the kernel
+> > on every weekday. But that doesn't mean hobbyist developers have to pick
+> > that workload as well.
+> 
+> I'm not getting paid for reviewing, say ARM related stuff or stuff that is
+> unlikely to appear on say x86 platform, so I'm pretty much understand your
+> pain. Please, check the history of changes I have done in the kernel before
+> judging, okay?
 
-  WARNING: arch/x86/kernel/shstk.c:472 at shstk_free+0x7d/0x90, CPU#7: shstk-exec/120
-  RIP: 0010:shstk_free+0x7d/0x90
-  Call Trace:
-   mm_exit_exec_release+0x21/0x110
-   do_exit+0x1e8/0xc30
-   do_group_exit+0x2e/0xd0
-   get_signal+0xd11/0xd20
-   arch_do_signal_or_restart+0x72/0x2b0
-   exit_to_user_mode_loop+0xd8/0x560
-   do_syscall_64+0x412/0x600
-   entry_SYSCALL_64_after_hwframe+0x77/0x7f
+Btw, if you need a help in reviewing something, don't hesitate to Cc me.
 
-All it takes is a SIGKILL while the task waits for exec_update_lock or
-for the mmap lock of the old mm. Both are taken killable. And a task
-that sleeps in a page fault while it holds the exec_update_lock of the
-exec'ing task for reading, e.g., in readlink() of /proc/<pid>/ns/mnt,
-makes that wait as long as it likes.
+-- 
+With Best Regards,
+Andy Shevchenko
 
-Nothing is unmapped twice as shstk_free() returns in that case. So just
-don't warn about it.
-
-Fixes: 509ff51ee652 ("x86/shstk: Add warning for shadow stack double unmap")
-Cc: stable@vger.kernel.org
-Signed-off-by: Christian Brauner (Amutable) <brauner@kernel.org>
----
-This removes a warning that a task with a user shadow stack triggers
-when its exec is killed while it waits for a lock. I have a reproducer.
----
-Hey,
-
-This also fell out of my exec massage. I was unsure whether it should go
-to sec or on the list but it's just a WARN() that we need to drop. I
-have a reproducer if that's needed.
-
-Thanks!
-Christian
----
- arch/x86/kernel/shstk.c | 9 +++++----
- 1 file changed, 5 insertions(+), 4 deletions(-)
-
-diff --git a/arch/x86/kernel/shstk.c b/arch/x86/kernel/shstk.c
-index eb690ba90180c..df5576d8d7d2b 100644
---- a/arch/x86/kernel/shstk.c
-+++ b/arch/x86/kernel/shstk.c
-@@ -465,11 +465,12 @@ void shstk_free(struct task_struct *tsk)
- 
- 	/*
- 	 * shstk->base is NULL for CLONE_VFORK child tasks, and so is
--	 * normal. But size = 0 on a shstk->base is not normal and
--	 * indicated an attempt to free the thread shadow stack twice.
--	 * Warn about it.
-+	 * normal. size = 0 on a shstk->base means that the thread
-+	 * shadow stack has been freed already. That happens when an
-+	 * exec fails after it released the old mm as the task then
-+	 * exits with the old mm and gets here a second time.
- 	 */
--	if (WARN_ON(!shstk->size))
-+	if (!shstk->size)
- 		return;
- 
- 	unmap_shadow_stack(shstk->base, shstk->size);
-
----
-base-commit: 666539eecdf4db623f5e3c3e55cf9f2dfad24aa4
-change-id: 20261123-work-x86-shstk_free-392b68946094
 
