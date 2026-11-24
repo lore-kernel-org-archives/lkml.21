@@ -1,61 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795541532;
-	b=j6MqbRxbxlIUGi0uB/8RVBBGB/X9wwJMGq9oA2zpH/fJAvh1W4AHd3pxx/7wOSy8hiwC
-	 q3WrW4ByKPYMZUBuC1B4i6tSmZRmPYF5HsE3mZYROqAtUz6VX9RZUhqAKMw2x0yhxJ6IS
-	 Eo6/Oek8krFnhXU2wcdBbNbodcNa1I0KOcNlnVWY9fzm76iqO94x6QliuCA3nG2Sp41rO
-	 lqE/kElcAsD8GawPN8CGVbqeMs/OQ+NIhfmfaltvOAtNcgCnWCFTvd6X9Z8Yiw65eEi9i
-	 aBxIT71EGlAENpjy1+rmKRGfPfnUzL7NKl5Zm+4P8IG4UP3xGj79ZLcAQrPh0VClKrw==
+	t=1795541544;
+	b=MzWN0smG8tYSWK9gyIGvFECwpMDNM6vkhfjusvnsQuLmaQnLUtWLfyowcO7/aMfWeZ+C
+	 BusJ07HwVXrNMKE4R/6QAPYMVkFfmP4+xNdEpUvN4SClLj8MqI6KxQYs8dc7VBcOYHDai
+	 fZA7jcc3X3tGiBYmBAULFZ9ufIEXW483fSdXNb8xit4zlnz8+82biI4HwtwFs2DHXANDy
+	 Tn2WM7AFlrDOga4aYTEQ8bTdbKAodZibBkFFCFEGldTxV1KeyUlZDK0y9mBqJT02sygyd
+	 6y6NQ4MFXlxW/egxBIHZzst24UgykJGkqYUguEHNQRqJYUP+5p2+Rii63tUAtysrjLg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795541532;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To;
-	bh=BTVY4aU3/L8miJpqzvWLyd9xWFkG1Y6BaRFcJkDciFA=;
-	b=qNiAjLovHzPyNVlsbftBclLnfe+vj+AzTYvm7jUrC8Ovnoy5l4ShEcOs6OmJr0kO/mX8
-	 8MxdbBXHi+JIcxbWD/629P9ZcdnAY/V8uTWo5et7ufeouQ8Ex+WC6j0q6hUUZ9jIvu+Sj
-	 EzmUIh1TFV4SwoPaoM61Q0X9rCUY3dBbAMMeT6+kMSkqWhTpRlYhnh+O62iJNfa+QgVWN
-	 xkc1EZggkz9fhxIXWsN1955nsRb7mmNttmq1d4Nzdjj1tErvX/QZzz1CAb8oGEbVTv9Ou
-	 3Qt2TRv0Swzi4vb8rWp6nrlfxoKmcq4bATccF6XKntX8+bVoqDnZI44cbqcCuNkXFDQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795541544;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:Subject:Date:Message-Id:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key;
+	bh=s1azRMWLpG4NyK3G2APpIsgZDDXxyzylBu8YLqP38kU=;
+	b=SvbZ79p6spN7gk+n6ekKy/r+GH2+nXI+7UqauZhj8ML/u5U0TtJPy/rO8BQzFh5T7/Df
+	 /0zrIJ5KvyyHybeuUTagOYGhgt287ZuBb0cGRlA3BzfEadUIlrI0qTBziYp/CH0Obvxhd
+	 TjiF07aqO4FqhBK99Knpso1HCfNFQ0UfafgNozuCKfonqLcbRHswMPuH3FjA0cItNHqbc
+	 I+KCJ7Kj2J5dS+qJSnbkX4a4qYJYAl1CB0jTg1mmrK/qKpRnjcRRtcAQxKvCsWZ19NUA3
+	 PxEWSpvINRAQvjWwjnZ9HLX+wMH5fsmKtXKL5Fg9CQQmrn+tLDuN+/rXzyBxbEs1rPg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=QbzCjmMm;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id EF1F3606A335;
-	Tue, 24 Nov 2026 17:32:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EF1F3606A335
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dmarc=pass header.from=linaro.org;
+	spf=pass smtp.mailfrom=linaro.org;
+	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=eZlA0T5O;
+	arc=none smtp.remote-ip=209.85.221.45
+Received: from mail-wr1-f45.google.com (mail-wr1-f45.google.com [209.85.221.45])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0405D606A337
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 17:32:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0405D606A337
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=QbzCjmMm
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 42FC9339;
-	Tue, 24 Nov 2026 09:32:08 -0800 (PST)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DC4F13F763;
-	Tue, 24 Nov 2026 09:32:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795541531; bh=y+ueAXDgxzoT7mF7z9hhxx0rxTk5jOpaLKQ8IkUeO1c=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=QbzCjmMmg7TyLgKT+xUclxK1kp6FLshpTNpBNLnf/txH31j5v82n1H9jT1ZN8Cqk4
-	 k0Apd8y126QCGBt6QIwo6PVAveC3op3lmv7p8Kta4VZlDXiSV8enXJVvD13SBAg/Hs
-	 M1GcEsgah8M9GWmhbRHZQIf0g70tPUsSnJPRadCQ=
-Date: Tue, 24 Nov 2026 17:32:06 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: =?utf-8?B?6buE5Y2O5oiQ?= <1112433017@e.gzhu.edu.cn>
-Cc: linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
-	will <will@kernel.org>, "mark.rutland" <mark.rutland@arm.com>,
-	broonie <broonie@kernel.org>,
-	"szabolcs.nagy" <szabolcs.nagy@arm.com>,
-	"yury.khrustalev" <yury.khrustalev@arm.com>,
-	linux-kernel <linux-kernel@vger.kernel.org>,
-	stable <stable@vger.kernel.org>
-Subject: Re: [PATCH 1/1] arm64: gcs: bind signal GCS restore to the live
- GCSPR_EL0
-Message-ID: <awXKFu9PAifaCay5@arm.com>
-References: <tencent_122AB752205D1FCC2B359940@qq.com>
+	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=eZlA0T5O
+Received: by mail-wr1-f45.google.com with SMTP id ffacd0b85a97d-4a2f4ca0dcfso2778607f8f.1
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:32:22 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1795541541; x=1796146341; darn=vger.kernel.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=s1azRMWLpG4NyK3G2APpIsgZDDXxyzylBu8YLqP38kU=;
+        b=eZlA0T5OLr8mCTgtbQ2f6F/NCjrKgzSwWfk0Py8tAiX4sC5T/I5CsDVAKlkpYEQVfj
+         EBk51tpP21LEXyV7BGFPSKv2cKv9I3nERWu94o2Gxw3KkTkPLSZlRhmBKQFwMkjY9cOb
+         /A2rsKR4oODiHtPeYERuwi4J8anEvPpYLPIYsZwsXA3fOBkXsblYLvANI/WmXgtq5kkJ
+         6R3NoASFRcpOolHleKXeUzExuf20L3ajUs5i6X83HVmQ0Z/X9x6ZkDLX4q2eXJZC9B/A
+         HKjqOJSo72vZzkINdDQ9nkKTCd64T4fWNMdL1Kp9ZwnMnzG8ZJbESbAjBy6DKd0RQtRS
+         ocRw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795541541; x=1796146341;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=s1azRMWLpG4NyK3G2APpIsgZDDXxyzylBu8YLqP38kU=;
+        b=X8vU4lpBsYGIivclQu9p99Rxu5WbQtR1mOBMjvCILJSy4YMyW6BXo8yIW54H/LqXo+
+         y5pOgGk/dc/z6wp+hGkDNYqFOdm2WZ9ugj7XGzr0KMn6fTiQ+DAcKkiHwW3dAKoFhErY
+         eJjjDI4Hg9sAFCfBE6hh7gT4uctwfheuCMj15yujrTlek33Jn8fPZvBOV8FunA/PGtZ3
+         yL9LUlE/bgTxwRS3swqBhy1H2HbapW/fM/MH33/RE91MlVHzAp848K6OgOI0kiPhi13q
+         3oKgHvumHmoL26AV11e4Zx7UBgol8RC+HhQatF8mJxjvvtwPoQO4wZELPm4a26CQJw1j
+         2dYg==
+X-Forwarded-Encrypted: i=1; AL+hErHBwUdJFdCwEzmOPIx+gcyCWkb34wpJQzRZj+FKo99jvJWf6rALmtAdgcScjPSonKbxkk89LD5SedCh2KY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+n5xZIcE29WKCvvXoUufmVdyF2uZjlrHxexVjo50kWaPtXE8kT
+	huKOS0qsqgD0BeQnxbii+eukcw1ljEmvPlwWsD9HpQfkhCnIO5rPdyaqYjNrpWY2JBA=
+X-Gm-Gg: AZFdTZftSPKqZd9uySBDikaQN1+KE89v47h1AJcYxTiC3VX+lIvb7NNLgipRjxIuGsx
+	9Xv70ZPCR3/MOwmkL3e1aiy5ahFI+9Q5toKzJi6Qsy0xZ8t6FOy52Np+ssZynAlQyFMpYaXGF8J
+	IKlw/+1CjV4ZTpMO+A3skWgIacNDQYUhFupj4CAZjNDMiCWnMigGjmxdog5/Q2YSXJCVpzJSPtX
+	zBOjfj3vcmNYPlZQb8b2JnDdwKZUrvPQ0qrw0r9RwSDyyE41EiV84vnoViyAYmV6YpCtU+e+Nsu
+	0DqrSvXZOOQOamDRhcm8xv9uRTzGFZC/897dXgY7zEXD92FUGU1u/XzICkAGrx4ggCTF/a5rjIg
+	l4IJY/yXfOW+KGnA2bZu3pL1D9v3XqBZ4RkZOwXgfQ5A/AvItetd4KPO1PEucQogjQAuwuJzxbm
+	Jj4iJXIXD/XRs8ZfC3WpUQDT8KDXNZMWq8wtHr9x0dyP8p8OLnqbMivNvZAh+3uBa0pjpUX0Oog
+	Csg0FwDYO7a5knsJR+ZgUX8ElDzNLb+CQMRnKOLb7jg1WaWTsZzwq6SriBasM7YpWmKyGg/LTov
+	v5Qu71tf4bxTzDwjv0xS3n+O59tnEQQtkGtDVgTDUNsNLSVVkA==
+X-Received: by 2002:a5d:6f1b:0:b0:4b9:15d1:46c9 with SMTP id ffacd0b85a97d-4b915d146fbmr468809f8f.5.1795541541132;
+        Tue, 24 Nov 2026 09:32:21 -0800 (PST)
+Received: from arrakeen.starnux.net ([2a01:e0a:106d:1080:8261:5fff:fe11:bdda])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b9add26sm29560057f8f.44.2026.11.24.09.32.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 09:32:20 -0800 (PST)
+From: Neil Armstrong <neil.armstrong@linaro.org>
+Subject: [PATCH v2 00/19] arm64: qcom: enable SM8650 audio without ADSP
+ firmware
+Date: Tue, 24 Nov 2026 18:32:07 +0100
+Message-Id: <20261124-topic-sm8650-el2-v2-0-174e159f0f69@linaro.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,29 +93,135 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <tencent_122AB752205D1FCC2B359940@qq.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIABfKBWsC/32NQQ6CMBBFr0Jm7RhapKAr72FYlHEKY5CSFomGc
+ HcB9y5f8v77M0QOwhEuyQyBJ4ni+xX0IQFqbd8wyn1l0Kk2SqkMRz8IYXyWJk+RO41kyLqTzgq
+ yBayzIbCT9568VT+Or/rBNG6dzWgljj589s9Jbd6f/KQwxVyVmTPW1mdH1056G/zRhwaqZVm+W
+ bU44MMAAAA=
+X-Change-ID: 20261113-topic-sm8650-el2-c6caf4237ca7
+To: Srinivas Kandagatla <srini@kernel.org>, 
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+ Srinivasa Rao Mandadapu <quic_srivasam@quicinc.com>, 
+ Venkata Prasad Potturu <quic_potturu@quicinc.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Rohit kumar <quic_rohkumar@quicinc.com>
+Cc: linux-sound@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Sashiko <sashiko-bot@kernel.org>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5191;
+ i=neil.armstrong@linaro.org; h=from:subject:message-id;
+ bh=sfORcuqdazip624HbZDZO7QVlTTKHcb3EIMKahqmR9A=;
+ b=owEBbQKS/ZANAwAKAXfc29rIyEnRAcsmYgBrBcoZl8vOEKEI3pcW5Q77cyprkWxywmhKFvd5yeA3
+ yagw0YCJAjMEAAEKAB0WIQQ9U8YmyFYF/h30LIt33NvayMhJ0QUCawXKGQAKCRB33NvayMhJ0f86EA
+ CIf4MNCyZqgFFBAzoH42Phfo+hb9+M2fOI9hkPNnNFRxGp67FN6q5RH5SfPOqw+3qEP837/3Ebt3E5
+ 51f/hNLxwEKW4zFggk/bA3dSHw4OUhSrlSd8rkEymaADrk+P39rEeEnIhKVZTdqa2v7on4ocBRmgZY
+ b5MRupc4wPCwWUAXdSHnvTY+t6qT7eab43Vgm05PCty5IlmRLr9991Ws1oyi7JQGafcGzcbirKBV6K
+ KVzdQ0ZlGyIFUDpROzOgiQZLQRdD2Ep2jbcaSeFAQI+HispgcvriDWLzDxJSuw2wOuhlls9ZrYsUwd
+ AY85MJjEygV6JY8TGT5MMCUqcgbYXyiKquJBujcm38pVwpuG0XUv45hJaC0XrcHRSvUfx0Cyw0Ndp+
+ 2l4VeY07NKFgURNZqJjS6tINckY4AqdFZT2+JlwWe+xuVQKxCcC/ulG0+3yTEkr0sQWkLQozkA5AcW
+ j/ceUKAAi7OarZpH/T+YGtAgf/gwJSIfpKVcNzuO7G3IY9y0yuVeXjVM2kIlHyTaxcN4MxBO7qF8pv
+ n3rkG0PXrbzCYw8c3sv5+F98FhKMR8eo4KugH10oQ043SMbbuCWUQPbRXngYplo6ATQQZrmeYG21w0
+ JajsZNsSN1hvzXmbJnVLDTJxV0wZFG4zT5GCwEwd/a/nl/QxeWaDE/2z1FvQ==
+X-Developer-Key: i=neil.armstrong@linaro.org; a=openpgp;
+ fpr=89EC3D058446217450F22848169AB7B1A4CFF8AE
 
-On Mon, Nov 23, 2026 at 11:56:52PM +0800, 黄华成 wrote:
-> Bind the restore to the live, kernel-visible GCSPR_EL0: for every
-> legitimate restore at every nesting depth the innermost frame's gcspr
-> equals the live GCSPR_EL0 (the handler's return pops its trampoline
-> record before rt_sigreturn).  Userspace cannot move the live GCSPR_EL0
-> without executing GCS instructions, which are themselves checked.
+This patchset is part of a serie adding the necessary plumbing to
+drive the SM8650 audio interfaces directly from Linux.
+This is required for boards like the Valve Deckard that boot Linux at EL2
+without the ADSP audio firmware, meaning the audio interfaces must be driven
+directly by the application processor through lpass-cpu.
 
-(that's a pretty malformed patch, missing sign-off, lines not wrapped,
-based on an older tree)
+Without the ADSP firmware, the LPASS clocks, memory zones and audio
+controlers must be controlled by Linux
 
-Changing GCSPR_EL0 via sigreturn is the intended ABI (see
-preserve_gcs_context() and Documentation/arch/arm64/gcs.rst). Any valid
-signal cap token is acceptable, including an outer context's token.
+To support this, the series introduces the following changes:
+- ASoC LPASS core: Prepares the lpass and lpass-cdc-dma drivers to
+  handle multiple LPAIFs for I2S ports, allocates and maps LPM buffer
+  memory for DAIs, and adds support for the optional WSA interface
+  and Senary/Septenary MI2S ports.
+- ASoC SM8650: Introduces the SM8650 lpass-cpu variant and allows the
+  sc8280xp machine driver to be used with lpass-cpu to keep sound card
+  bindings working.
 
-The patch would also break handlers that call rt_sigreturn directly,
-user-space stack switching and checkpoint/restore.
+The patchset starts with 2 fixes reported on the v1 patchset by Sashiko.
 
-In conclusion, NAK.
+Signed-off-by: Neil Armstrong <neil.armstrong@linaro.org>
+---
+Changes in v2:
+- Added 2 fixes reported by Sashiko
+- Add WSA regmaps callbacks instead of reusing the RXTX ones
+- Fix irq disable for WSA like it was fixed for RXTX & VA
+- Check IRQSTAT regmap read return
+- Add missing LPASS_CDC_DMA_WSA_TX4 case in lpass-cdc-dma
+- Only enable mem1 at first for initial WSA support
+- Fail initializing lpass-cpu daiops when no I2S dai is registered in DT
+- Add va_enable along wsa_enable to check if VA dai is registered in DT
+- Move MI2S lpm prealloc in a separate function and handle VA clock
+- Use proper offset for LPASS_CDC_DMA_RX0 and LPASS_CDC_DMA_TX0
+- Only allocate VA memory if VA is enabled
+- Use correct size for remain LPM memory check
+- Use VA mem clock if MI2S uses VA LPAIF
+- Check mem clock set_rate and enable return values
+- Add missing set_bit(chan) for rxtx and wsa channels in sm8650 lpass
+- Use LPASS_RXTX_CDC_LPM for lpass-rxtx-lpaif
+- Correct rxtx/wsa dma channels count
+- Fix reusing the sc8280xp card with lpass-cpu by detecting non-dynamic DAIs
+- Link to v1: https://patch.msgid.link/20261113-topic-sm8650-el2-v1-0-5183f6aab9fc@linaro.org
 
--- 
-Catalin
+---
+Neil Armstrong (19):
+      ASoC: qcom: lpass-cpu: fix RXTX WRDMA current address register readability
+      ASoC: qcom: lpass-platform: disable the RXTX & VA DMA interrupts on stop
+      ASoC: dt-bindings: qcom,lpass: add Senary & Septenary MI2S ids
+      ASoC: dt-bindings: qcom,lpass: add WSA RX and TX channels ids
+      ASoC: dt-bindings: qcom,lpass-*-macro: document less clock when ADSP is not used
+      ASoC: dt-bindings: qcom,lpass-cpu: document the SM8650 LPASS
+      ASoC: codecs: lpass-wsa-macro: handle the macro & dcodec power domains
+      ASoC: qcom: lpass-cpu: get the optional codec_mem3 clock
+      ASoC: qcom: lpass: add support for optional WSA interface
+      ASoC: qcom: lpass-cdc-dma: add support for WSA codec DMA
+      ASoC: qcom: lpass: prepare to handle multiple lpaifs for i2s
+      ASoC: qcom: lpass: add support for MI2S_SENARY & MI2S_SEPTENARY
+      ASoC: qcom: lpass: support mapping I2S ports to multiple LPAIFs
+      ASoC: qcom: lpass: support LPM memory type for I2S LPAIFs
+      ASoC: qcom: lpass: allocate LPM buffer memory to DAIs
+      ASoC: qcom: lpass: enable the right codec_mem clock when usin LPM memory
+      ASoC: qcom: add SM8650 LPASS CPU driver
+      ASoC: qcom: sdw: allow LPASS_CDC_DMA_WSA_RX0 as soundwire dai
+      ASoC: qcom: sc8280xp: allow using the sc8280xp card with lpass-cpu
+
+ .../devicetree/bindings/sound/qcom,lpass-cpu.yaml  |  74 ++-
+ .../bindings/sound/qcom,lpass-rx-macro.yaml        |  17 +-
+ .../bindings/sound/qcom,lpass-tx-macro.yaml        |  20 +-
+ .../bindings/sound/qcom,lpass-va-macro.yaml        |  13 +-
+ .../bindings/sound/qcom,lpass-wsa-macro.yaml       |  29 +-
+ include/dt-bindings/sound/qcom,lpass.h             |  24 +
+ sound/soc/codecs/lpass-wsa-macro.c                 |   9 +
+ sound/soc/qcom/Kconfig                             |  12 +
+ sound/soc/qcom/Makefile                            |   2 +
+ sound/soc/qcom/common.c                            |  43 +-
+ sound/soc/qcom/common.h                            |   9 +
+ sound/soc/qcom/lpass-apq8016.c                     |   9 +-
+ sound/soc/qcom/lpass-cdc-dma.c                     |  48 +-
+ sound/soc/qcom/lpass-cpu.c                         | 463 ++++++++++++---
+ sound/soc/qcom/lpass-lpaif-reg.h                   |  51 +-
+ sound/soc/qcom/lpass-platform.c                    | 499 ++++++++++++++--
+ sound/soc/qcom/lpass-sc7180.c                      |  10 +-
+ sound/soc/qcom/lpass-sc7280.c                      |  10 +-
+ sound/soc/qcom/lpass-sm8650.c                      | 653 +++++++++++++++++++++
+ sound/soc/qcom/lpass.h                             | 199 ++++++-
+ sound/soc/qcom/sc8280xp.c                          |  88 +++
+ sound/soc/qcom/sdw.c                               |  42 +-
+ 22 files changed, 2069 insertions(+), 255 deletions(-)
+---
+base-commit: 909ef7a9a30fa139e69e555e3606680f5cca7726
+change-id: 20261113-topic-sm8650-el2-c6caf4237ca7
+
+Best regards,
+--  
+Neil Armstrong <neil.armstrong@linaro.org>
+
