@@ -1,108 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.62.44
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795503641;
-	b=ahf2K8hQtd3daS6X/1p07twLOH3cJoaQzuNctmbQsDmrGbcXTsz/U33I6kuLoLiSVrM5
-	 P5oDbm875LTx9YnpE5OJZyMbmIcKJ1S2PNgpcvLGTdb7j79jMpoge5vcBLB/kykEoxAji
-	 XmI9n+Ix548C+YYIQGB3x/8KN79xq88OTkb4SAzVJp4LinR9yb8F0KQOTJsut8Jn+RQ5C
-	 kHd34PgbJmBbeJ602R5MFQkapaU3ExHDZ4tRzOvEtLjkAQTnJfUU7x1EvQy7tCySa2YDQ
-	 1YeOvG7stiNST0wv/pLttBPwstJEAu2UILnrmWd87z8AHXIc56PCW1OKgKKriTWt+Dg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795503641;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 Content-Transfer-Encoding:Content-Type:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=OK8dpi252IPkfh9VsPtEH4UrDTMMf1Y9fXdXlohCeBw=;
-	b=EW/JGtmmXuMh5uFlIMVV44fZojR+odZTqlLC3Hb14r7MT1hXpP6J65U++IURx5eTtnXt
-	 k5JPzkIUf6o0Cz+4FH1AnQDsToHil1r8VLkw9ga3DmQ49RcjxXNsB6fUq2OugWNbmB4yB
-	 dXxnfD7JhqpworAuHkjkXlfQbn3mJwlnjcoZzWmkFRU+BRfZTp2jJuOQ7K66WO4j283j0
-	 q/w+2gxVQZa5IzfN8eqC2dS9cgdcCnwxB0I/xw/RWPaleBvW0e8VjWPKLPnlxF/o9UBVT
-	 DGk1xoG1JhJK4GEl3xwpSseZtkvhR/o33ss3KZJj88vlelxZpjPGv1M/vrInQguJVtw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=Zge9+92Q;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.62.44
-Received: from DM5PR21CU001.outbound.protection.outlook.com (mail-centralusazon11011044.outbound.protection.outlook.com [52.101.62.44])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795503688;
+	b=nJV1M0ZgM+bn8DAwAVnsV2VUJfrS6VlivF7fZP2IeRFM1Ph9SUEFc9J6LZEiXZctZzQx
+	 xGMg1CfDrlA7nMK/CEHACroE+G6uHJ5GHIIs1NqxcGvEWCUcYRGBIBSox9ZFj5HDVgdG5
+	 Mfn/DN3NtTy11p9tHFUs7YJM1sqad3LOgsgEpbYPVvxEr3i6o2JB2OZTU2hyBw/Pue4xj
+	 t9vK5iac7DDOcYVKwIMjEdXo/APwxC6UotBeOw8E6ckyObNyTLNSq/9PHkmuRv9iQKGkf
+	 QpV/+/xGpt9yWWaDXNrB767yi+zQL9Gc7l1kGTjROXncTBhY318KkMuZOUea++5lTeQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795503688;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=E/+uN0FVh/Zngjaw7BuQLway1eJuoVshOm3+K4xRT+Q=;
+	b=DMzM/CyuwuaZ30umTdUqDjwZGFYpfqSGv31xgWsCtX8CgFNfq5ktac4GqmZyPSYdk+LE
+	 OYCbRzJYE3ZfIKespTMRsCBZZflJntw+bnm8oVmwuBT7XF1jJtSgyOTg2BZp0AUVkY9Q/
+	 tPVuL8Z3TaStOSU6AwUhnctjpJSasRhiFI+eWj3HRyoj0hCtW4+73KdVUiS/OO0nqlpB4
+	 US+MxpYjztO3y9cjnk8NR+DR/j1cAunNEe/1NYBWxUeeXA8W281J4IlUnnWbQCDOeQ3Y9
+	 nHF+sLiUuOVKsTNgsw8UWZwudus36oEM69/v1ND1VSjOGJLYZ0jBKDUiP4hjVcHpCsg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BYT2e97e;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A003D606A684
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 07:00:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A003D606A684
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CDF25606A31E;
+	Tue, 24 Nov 2026 07:01:28 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=Zge9+92Q
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=U7L6Soso2XwkbnMowA+24c3YArnKDDGjr/6xWrUBop18x4Jknt9MxwWUaEIVK15Xdbkm2sXdqDMRnlzfJv4uJc1ol4V0AFmm9cG+Ww11WnsLC/QfwIVmtCGJKAplsTqHYc+pP4RUIL3nMSaX3ufZzmrK364CaAmhqgA2/LFSfhfMO735oUJ2z1vuPnz3cHpFfFYJx52SIZQpmNpFTGeFFHjlq45IFfP8VtPgYXBM4QFG9Wfie0N6Eyd8AfHvVoud2j9A8kZerbhZIlzREbOy8+s/VgeGlLxPvee2s8+kh1tJAHzJ9IwMXaRzyXPRPczxPbd8r2ul4AP0Ckl2g7y5pA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=OK8dpi252IPkfh9VsPtEH4UrDTMMf1Y9fXdXlohCeBw=;
- b=G87jrAP+gupVJyHx8InUePsuEbIS7iT1tUyCqTCIiGUeQOhOgXOLi03SXw6YdKo7rGB2pZTC/zQCuswjd60FMJpYSpcanMvOXnb6gFOKgHhrCgHJ9cF+wt766gchOJuY0SJpbXPGEzUQX/9ZFSYMmQxiqfs5XRm+4wGIpQi6NKdEAd9U0wC3GxeDBmKF4wlLh7BP0I9oV+dse8h3SjRCjMXAzWV0qAIaZuTqk7kac30mNecD5+YbMKmaHPqvQo/ROF0GgYikGOgiaAh9HVynRW4dwoYxkI3oLm1FBZZqDPw48LsiF1x3UscdByvqRkH57p0dQ6E1nJxkRZuBKxm+PA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=OK8dpi252IPkfh9VsPtEH4UrDTMMf1Y9fXdXlohCeBw=;
- b=Zge9+92QkLgtPh0fjiruB7niTk06D19613gP3o6sUOKmG5XEZWsGvi6hm+aPqH4DPM4Vkg5KNGh5Z+S6xh0viq9e0fnFDR/2R5DUF738SaOHs99ZPBppoXLia4o3P4UjkZ/f5rfP8TL3NRz0nlWp+N7En+EZnWXSiujAFYTVB+iSSpWDlU0Hphgtenwpeb9w8tw+j7ZVrBOlRpiA2H8+xcnMom/6I8hMGMh8zAkVS34Guq6qAegjJBxAjzdalmMSTvBTw2Octr5po+VKyf8/LcUSYwijrw2DvUiKXHytprzarR4Yg6VgYzhsQt3zou+Io4co4XPzXE+YJHGSnddEmQ==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from BL1PR12MB5174.namprd12.prod.outlook.com (2603:10b6:208:31c::19)
- by LY0PR12MB782425.namprd12.prod.outlook.com (2603:10b6:404:22d::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Tue, 24 Nov
- 2026 07:00:28 +0000
-Received: from BL1PR12MB5174.namprd12.prod.outlook.com
- ([fe80::58de:822b:868:96e9]) by BL1PR12MB5174.namprd12.prod.outlook.com
- ([fe80::58de:822b:868:96e9%6]) with mapi id 15.21.0639.012; Tue, 24 Nov 2026
- 07:00:28 +0000
-From: Andrea Righi <arighi@nvidia.com>
-To: Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>
-Cc: Juri Lelli <juri.lelli@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ben Segall <bsegall@google.com>,
-	Mel Gorman <mgorman@suse.de>,
-	Valentin Schneider <vschneid@redhat.com>,
-	K Prateek Nayak <kprateek.nayak@amd.com>,
-	Tejun Heo <tj@kernel.org>,
-	Vladimir Vdovin <deliran@verdict.gg>,
-	Gregory Price <gourry@gourry.net>,
-	David Dai <david.dai@linux.dev>,
-	Balbir Singh <balbirs@nvidia.com>,
-	Lee Trager <ltrager@nvidia.com>,
-	linux-mm@kvack.org,
-	sched-ext@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 3/3] sched/numa: Only pick a fair task as a swap partner
-Date: Tue, 24 Nov 2026 07:59:09 +0100
-Message-ID: <20261124070011.2498455-4-arighi@nvidia.com>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261124070011.2498455-1-arighi@nvidia.com>
-References: <20261124070011.2498455-1-arighi@nvidia.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BYT2e97e
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 663EE1F000C0;
+	Tue, 24 Nov 2026 07:01:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795503688;
+	bh=E/+uN0FVh/Zngjaw7BuQLway1eJuoVshOm3+K4xRT+Q=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=BYT2e97e1KNX30veFsfEvAzH+X6iZtaCu//FRhvw+HkZsrY7C2ED4SqQ/AOvM30Lz
+	 1/HaGs5lCYUZhddDPiC6x2QpAt0ZivzaNE7YPI7lDOzgJUAT2/gjJDu2ppxOibjEyu
+	 r2rT3jJ+FdNpVrys6cJLlEzxO6hrWwYBht7p/xnJIaHvwZQAADgoJna/FsD/JtCl0E
+	 szzIWaejrluhjAJbAqpyN/Y+napP30AVfxY7j6Z0yl0IP7uIA/ZxOfcwGEWg9bCM95
+	 lug86nGQgk71Y3VG/uWRnWNf1kg2LfQ1kXKtnGC4tANwCUjncU69+G3kZ41+cwsJwv
+	 u+SOZm0VTQLBA==
+Subject:
+ Re: [PATCH net] ipv6: route: fix use-after-free in ip6_confirm_neigh()
+From: netdev-bot+sashiko@kernel.org
+To: n0ps1edzz@gmail.com
+Cc: netdev@vger.kernel.org, dsahern@kernel.org, idosch@nvidia.com,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ horms@kernel.org, hangbin.liu@linux.dev, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org
+Date: Tue, 24 Nov 2026 07:01:26 +0000
+Message-ID: <179550368695.3135.12579094604954175182@kernel.org>
+In-Reply-To: <20261123133000.1.n0ps1edzz@gmail.com>
+References: <20261123133000.1.n0ps1edzz@gmail.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: MI3PEPF00007549.ITAP293.PROD.OUTLOOK.COM
- (2603:10a6:298:1::4d2) To BL1PR12MB5174.namprd12.prod.outlook.com
- (2603:10b6:208:31c::19)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -112,108 +64,203 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL1PR12MB5174:EE_|LY0PR12MB782425:EE_
-X-MS-Office365-Filtering-Correlation-Id: c1786394-68d1-4d39-af95-08df49f89f57
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|376014|366016|7416014|1800799024|23010399003|22082099003|18002099003|3023799007|56012099006|261028144727099003|11063799006|261021121427099003|261026140227099003|261026121527099003|261102123227099003|261021123027099003|261022105027099003|261022075727099003|10067099003;
-X-Microsoft-Antispam-Message-Info:
-	Gr4tgkuOAhUirytIp7gvTwloqJseHilmqzLxW46Moceh2v+6vpR/shs6+dVs+0WVlXlG+8lR+iii+JPlM1nRefxJXoFOtCqSDC+ODn2hLaT1Chj33sQZ9WtFNAwDIgjkceIn8HYz9smflM8WUI22cKSHCmRUOiLL1HPa2boPIqykJ8wAYRlKNw0uSzyXCL+09/98hZCnveEx1wx0t5PKUhtv6CXYBLtTUzLnulE30SjGm7uuwpNCUz8Om0cM9OerIdPHu7MAfaurC5nJKbhOtJ6K2w4yfPa/8K52HBkDgKFgXZ/kq5JeZtOwqvfZ+fihqcbBB61qp1K18pulBYbiiJZn/cWJLS40hzU77WiTVMloklGu6c95p30NZjnWEOEd3lZcMN8pAzQfmSjHnFyAtnu60o6KkNq2RztGGBkBv1SANILD9LIV2IoIQr5ZO8lBIpX7rUyYQbEgBha/koMXdVya4VMW6EoT5fGXVXXYLo7cOXrv6AfRbZIXlaeLtOhaVYX4XPrW0AuMOltF1OkqgWwrm4k2vt/RmEIQ1i/9OS2IJA/fO+IWq9m9XJFqAkZw0EXExcLP9WUPhS44dzCkFDKTKt+JCePFAJeIo/WMYlAwNoRpcdDlseH/LSau2VY91lfoVTAqEwMkyPU5ZCIcdiISdqfy13JofxqF8xFaDcc=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BL1PR12MB5174.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(7416014)(1800799024)(23010399003)(22082099003)(18002099003)(3023799007)(56012099006)(261028144727099003)(11063799006)(261021121427099003)(261026140227099003)(261026121527099003)(261102123227099003)(261021123027099003)(261022105027099003)(261022075727099003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?k6nBJrRCrAoql/qUuaa1YUOieAoW0Ar14xDOWKSKziu0FfWUTM3URLvaYn5v?=
- =?us-ascii?Q?CtLPw+nphxCFZyuJ/iYImZIjfi/wr5zEx8MBruXHhsihGqKHFFbtWb4MOu55?=
- =?us-ascii?Q?c9EdaoxM5EXWyWgCrG2b99oHksZQ6Npgue9tKTSmU7IsIhnMoXERGS0Sbl6z?=
- =?us-ascii?Q?p29x+teqdWt7QonkpQBW6Gd5dHh7Dy/uoO8DX8kibshHZp+Tz2dZolJ3lNAK?=
- =?us-ascii?Q?GiLnsQaogQiFkKWHAg+NshNUpuPkryOdrWRmFROtjnFNe4Zy5Jx3XjS5UC32?=
- =?us-ascii?Q?HqJpdBT1VTIHt3pFmW1kcLr0tsmJLdfj0sVjnqtduyGuvBmdNy6SWUuu5jsu?=
- =?us-ascii?Q?LfjNL7auvQWs+LQC68lcYy6IAR3bjsaTHSyYnW7AT3laJDdFIm0nTAQXa249?=
- =?us-ascii?Q?2vz5iEj8IONFgT2i/9TJ9rxIygZQBBZG7GxYL//F3FV/5YIngGM1pVT+p7dQ?=
- =?us-ascii?Q?WctpOWaP0JHWnhSXKv+sI+d6kxa4tPie4/0ImSQV4Uv/MF1YgqYM81wm7vVq?=
- =?us-ascii?Q?FLfAGq74D66d7YW+676HCC+A0Bhz4/HNxOYSAvCRW/5WkpF0bC9LrhO5sm0b?=
- =?us-ascii?Q?G0fxrzOFiJ61id/vfFVLmE8zTJw8wyO6YfoGtrRsUrEFUxQLtzhH6qHg8mms?=
- =?us-ascii?Q?E1d/5c5JewiQNbz338Pn3MzT972bUsE9tgPBysYrCVii0aJCE5wi6I0TUjux?=
- =?us-ascii?Q?AGauKYpYOTeDHGIQdGD0q0B1YAIHkCBq9YH8pmjL8ZUq63iCMxPcp0fhP7ed?=
- =?us-ascii?Q?xP7QjPqj8VtjBBFirgBO6NJZkdr/KFGbH3ZKUuCkiawQsm9/H8/HsW+9uthx?=
- =?us-ascii?Q?w7XYgpmitNKTejRWLveFQN2+t7c7d+Zn7ngun+o5u3fPuQGungE7Y2mmWZ1U?=
- =?us-ascii?Q?pu/6lzY7R5e++P0y4DDfoDs9cNuhHuyMyPUMy+ePDXDc6YYTwxvyeIq7hxJA?=
- =?us-ascii?Q?eXjUd9w9JGqJVg1qgD6iRWMD7QZEyGqSZILrjdfYUxMu2G6lfLZxF/KKLOsw?=
- =?us-ascii?Q?gPHjYQ7cK0MvT3N0B0470OJBzQhqz0tCNUInLMJYez/riSBXukpeMZ3tm9Ps?=
- =?us-ascii?Q?+a8XYeRzyGH4SbbgEVNSJGuq0W4XSPEeR4HdL9na5ggA+Se0DAAXwCXZmP5d?=
- =?us-ascii?Q?hyPYrFAi0FFIxmGVaxovtW2KDuHHHYVNlAAOCWz4ESZjRl0COiXHY/5MUlEs?=
- =?us-ascii?Q?3Mdl5x7HlJXmRnpnZwaKhFK1uxQILqQseBsReXiTCoYxJknWjqn1jGf80Xjv?=
- =?us-ascii?Q?PE3U1p/1HkeevLE3XS7OdTp66NmV8jFQIPyG83/irKPg8kYiXT7gOjd8buqI?=
- =?us-ascii?Q?sd/n4GrH3+aZlaXqExspdW5lXoH+rA9X4dyhjbw+6gjVcaAOwJ7s7eAamv2x?=
- =?us-ascii?Q?q+ZI6YIA9NjG6+hR/GrIS6TqI9HSTTAalPAGoeprK4AAMnTHsvqkDh8tAzRX?=
- =?us-ascii?Q?UwSxAWQH7euevm70eYJCI9IcXpmJ6SleNHQCSq2YcAXgCHZKRXfwAarFFecY?=
- =?us-ascii?Q?blznvm8ynhJgMoS7nS1dqkJlEDrJKFT7dDcnr4OgjwfBaUG/GBj00iUif5bg?=
- =?us-ascii?Q?LuGKkI9c/xf70rUX6Tj7dvrywKOnd0HlqgE16btKNmt+nTg/zTZMjgBQBayy?=
- =?us-ascii?Q?47nn4OVGG6asnrn7T+IDwxeI0aV/dmZfXRNUPYN6CECBHGIPLnoaNfH/c1vH?=
- =?us-ascii?Q?S8Z1D1GEKUM1YTulCs6kuJg8pG7zGPFQiiUob5mBvLeHLNRg?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c1786394-68d1-4d39-af95-08df49f89f57
-X-MS-Exchange-CrossTenant-AuthSource: BL1PR12MB5174.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 07:00:28.4917
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: XblkaVxKFWzjmbmvIIELK9khp6I/fT3uFRRLn2gP3k+kD4MJQcP6xFdHzwC/bU0cdSrje9PEKOn7DQEoX6pRmQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LY0PR12MB782425
 
-When NUMA balancing migrates a fair task, task_numa_compare() considers
-the task currently running on the destination CPU as a swap partner and,
-if it picks it, migrate_swap() moves that task to the source CPU.
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-The task running on the destination CPU may belong to a different
-scheduling class: an RT or deadline task, or, with sched_ext in partial
-mode, a task owned by a BPF scheduler. Moving such a task is wrong for
-two reasons:
+Critical: 0 · High: 1 (2) · Medium: 0 · Low: 0
 
- - its placement is driven by its own class (push/pull for RT and
-   deadline, the BPF scheduler for sched_ext), which fair would override;
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
- - the swap is weighed on task_h_load(cur), but the load average of a
-   task outside the fair class isn't updated, so the decision is based on
-   whatever load the task had when it left fair.
+- [High] The RCU protection this patch adds to ip6_confirm_neigh() does
+  not cover the uncached-route flush, which is one of the two teardown…
 
-Treat a task outside the fair class like a kthread: never swap it, but
-still allow the migrating task to move to the destination CPU alone.
+Pre-existing issues:
+- [High] This problem wasn't introduced by this patch, but the IPv4
+  sibling callback ipv4_confirm_neigh() (net/ipv4/route.c:441-457) has…
+- [High] This problem wasn't introduced by this patch, but
+  ip6_dst_neigh_lookup(), the IPv6 dst_ops->neigh_lookup callback in the…
 
-Fixes: fb13c7ee0ed3 ("sched/numa: Use a system-wide search to find swap/migration candidates")
-Suggested-by: Peter Zijlstra <peterz@infradead.org>
-Reported-by: Vladimir Vdovin <deliran@verdict.gg>
-Link: https://lore.kernel.org/r/20261002124559.10367-1-deliran@verdict.gg
-Signed-off-by: Andrea Righi <arighi@nvidia.com>
----
- kernel/sched/fair.c | 8 +++++++-
- 1 file changed, 7 insertions(+), 1 deletion(-)
+--
 
-diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
-index 5f420141c3026..fa0cfd48a133f 100644
---- a/kernel/sched/fair.c
-+++ b/kernel/sched/fair.c
-@@ -3223,8 +3223,14 @@ static bool task_numa_compare(struct task_numa_env *env,
- 
- 	rcu_read_lock();
- 	cur = rcu_dereference_all(dst_rq->curr);
-+	/*
-+	 * Only swap with a fair task: the placement of a task in any other
-+	 * class is driven by that class, and its load, which the swap is
-+	 * weighed on, isn't tracked by fair. Moving the task alone to the
-+	 * destination is still allowed.
-+	 */
- 	if (cur && ((cur->flags & (PF_EXITING | PF_KTHREAD)) ||
--		    !cur->mm))
-+		    !cur->mm || cur->sched_class != &fair_sched_class))
- 		cur = NULL;
- 
- 	/*
+ipv6: route: fix use-after-free in ip6_confirm_neigh()
+
+This commit takes rcu_read_lock() in ip6_confirm_neigh(), loads the device
+with dst_dev_rcu() and holds the section through the dev->flags test and
+__ipv6_confirm_neigh(). It is meant to stop a use-after-free when route
+teardown swaps dst->dev to blackhole_netdev and the old net_device is freed.
+That race is reached from rawv6_sendmsg() and udpv6_sendmsg() with
+MSG_CONFIRM|MSG_PROBE.
+
+> diff --git a/net/ipv6/route.c b/net/ipv6/route.c
+> index 1b2dcc066e198..6bdd4423ce784 100644
+> --- a/net/ipv6/route.c
+> +++ b/net/ipv6/route.c
+> @@ -257,16 +257,21 @@ static struct neighbour *ip6_dst_neigh_lookup(const struct dst_entry *dst,
+>  static void ip6_confirm_neigh(const struct dst_entry *dst, const void *daddr)
+>  {
+>  	const struct rt6_info *rt = dst_rt6_info(dst);
+> -	struct net_device *dev = dst_dev(dst);
+> +	struct net_device *dev;
+> +
+> +	rcu_read_lock();
+> +	dev = dst_dev_rcu(dst);
+
+[Severity: High]
+Does this RCU section cover the uncached-route flush that the commit
+message names as one of the two teardown paths?
+
+Since commit f12d2907992db7 ("ipv6: Batch rt6_uncached_list_flush_dev() in
+netdev_run_todo()."), rt6_uncached_list_flush_dev(dev) returns early when
+dev->dismantle is set. During unregister, the pointer swap now happens
+from netdev_run_todo(), after that function's only rcu_barrier():
+
+net/core/dev.c:netdev_run_todo() {
+    ...
+	if (!list_empty(&list))
+		rcu_barrier();
+    ...
+	if (!list_empty(&list)) {
+		rt_flush_dev(NULL);
+		rt6_uncached_list_flush_dev(NULL);
+	}
+
+	cnt = 0;
+	while (!list_empty(&list)) {
+		...
+		dev = netdev_wait_allrefs_any(&list);
+		...
+		kobject_put(&dev->dev.kobj);
+    ...
+}
+
+rt6_uncached_list_flush_dev(NULL) does:
+
+	rcu_assign_pointer(rt->dst.dev_rcu, blackhole_netdev);
+	netdev_ref_replace(rt_dev, blackhole_netdev,
+			   &rt->dst.dev_tracker,
+			   GFP_ATOMIC);
+
+netdev_wait_allrefs_any() returns as soon as netdev_refcnt_read(dev) == 1.
+kobject_put() then reaches netdev_release(), which frees the device right
+away:
+
+	/* no need to wait for rcu grace period:
+	 * device is dead and about to be freed.
+	 */
+	kfree(rcu_access_pointer(dev->ifalias));
+	kvfree(dev);
+
+free_netdev() only reaches synchronize_net() through netdev_napi_exit()
+when the device has NAPI instances. Dummy devices have none.
+
+As far as I can tell, nothing between the swap and the free waits for
+current RCU readers. Can a task that loaded the old device here with
+dst_dev_rcu() just before the swap still read dev->flags, or dev_net(dev)
+in __ipv6_neigh_lookup_noref(), after the device has been freed?
+
+User space can get such a dst. rawv6_sendmsg() sets FLOWI_FLAG_KNOWN_NH for
+hdrincl sockets, and ip6_pol_route() then puts the route on
+rt6_uncached_list. MSG_CONFIRM|MSG_PROBE then reaches dst_confirm_neigh().
+This is the same rawv6_sendmsg() path as in the KASAN report.
+
+The dst_dev_put() path looks covered, because the NETDEV_UNREGISTER
+notifiers are followed by synchronize_net() in
+unregister_netdevice_many_notify().
+
+Would netdev_run_todo() need a synchronize_net() or synchronize_rcu() after
+the rt_flush_dev(NULL)/rt6_uncached_list_flush_dev(NULL) batch, before the
+device can be freed, to close the uncached-flush case?
+
+>  
+>  	daddr = choose_neigh_daddr(rt6_nexthop(rt, &in6addr_any), NULL, daddr);
+>  	if (!daddr)
+> -		return;
+> +		goto out;
+>  	if (dev->flags & (IFF_NOARP | IFF_LOOPBACK))
+> -		return;
+> +		goto out;
+>  	if (ipv6_addr_is_multicast((const struct in6_addr *)daddr))
+> -		return;
+> +		goto out;
+>  	__ipv6_confirm_neigh(dev, daddr);
+> +out:
+> +	rcu_read_unlock();
+>  }
+
+[Severity: High]
+This isn't a bug introduced by this patch, but does the IPv4 callback
+ipv4_confirm_neigh() in net/ipv4/route.c have the same use-after-free?
+
+net/ipv4/route.c:ipv4_confirm_neigh() {
+	const struct rtable *rt = container_of(dst, struct rtable, dst);
+	struct net_device *dev = dst_dev(dst);
+	...
+	} else if (IS_ENABLED(CONFIG_IPV6) && rt->rt_gw_family == AF_INET6) {
+		return __ipv6_confirm_neigh(dev, &rt->rt_gw6);
+	...
+	__ipv4_confirm_neigh(dev, *(__force u32 *)pkey);
+}
+
+The device is loaded with a plain dst_dev() outside RCU.
+__ipv4_confirm_neigh() and __ipv6_confirm_neigh() only take
+rcu_read_lock() after that load. They then dereference the pointer:
+dev_net(dev) and dev->flags in __ipv4_neigh_lookup_noref(), or
+dev_net(dev) in __ipv6_neigh_lookup_noref().
+
+IPv4 teardown drops the dst's device reference in the same way.
+rt_flush_dev() does rcu_assign_pointer(rt->dst.dev_rcu, blackhole_netdev)
+and then netdev_ref_replace(). During unregister this runs from
+netdev_run_todo() through rt_flush_dev(NULL).
+
+udp_sendmsg(), raw_sendmsg() and ping_v4_sendmsg() all reach
+dst_confirm_neigh() with MSG_CONFIRM|MSG_PROBE. None of them holds RCU or a
+device reference, and the UDP path needs no privilege.
+
+The neighbouring ipv4_dst_neigh_lookup() already uses rcu_read_lock() with
+dst_dev_rcu(). Should ipv4_confirm_neigh() be converted the same way? It
+would also depend on the missing grace period in netdev_run_todo()
+described above.
+
+[Severity: High]
+This is a pre-existing issue, but ip6_dst_neigh_lookup(), just above this
+hunk, still uses the unpinned load that this patch removes from
+ip6_confirm_neigh():
+
+net/ipv6/route.c:ip6_dst_neigh_lookup() {
+	const struct rt6_info *rt = dst_rt6_info(dst);
+
+	return __ip6_dst_neigh_lookup(rt6_nexthop(rt, &in6addr_any),
+				      dst_dev(dst), skb, daddr);
+}
+
+__ip6_dst_neigh_lookup() calls __ipv6_neigh_lookup(dev, daddr), which only
+takes rcu_read_lock() after the pointer was loaded. On a cache miss it
+calls ipv6_neigh_create(dev, daddr), which leads to ___neigh_create():
+
+net/core/neighbour.c:___neigh_create() {
+    ...
+	n->dev = dev;
+	netdev_hold(dev, &n->dev_tracker, GFP_ATOMIC);
+    ...
+}
+
+After that it calls dev->netdev_ops->ndo_neigh_construct.
+
+Suppose dst_dev_put() or the uncached-route flush moves the dst to
+blackhole_netdev, and the old device is freed between the load and these
+uses. Could netdev_hold() then increment a refcount in a freed net_device?
+
+Some callers get here holding only a dst reference. For example,
+irdma_addr_resolve_neigh_ipv6() in drivers/infiniband/hw/irdma/cm.c calls
+dst_neigh_lookup() after ip6_route_output() without rcu_read_lock().
+
+The IPv4 counterpart ipv4_dst_neigh_lookup() already holds rcu_read_lock()
+around dst_dev_rcu() and the lookup/create.
+
 -- 
-2.56.1
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261123133000.1.n0ps1edzz%40gmail.com
