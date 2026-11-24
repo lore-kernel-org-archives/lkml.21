@@ -1,79 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.176
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795555260;
-	b=JLWiOkG3vtZk8cVglT/xlFT/0vUiwigYZZS14Du0vVaXckw8NWlVZql0b4ScD0rkgmlY
-	 BgiuveKaSVeOM/q6nSa5nggbydDl6z3oKYuAWF7VxAgWLU6uluab2k9UgNyB7IzG3+b33
-	 CYMbJnSYleBRPYs1vFiqLo1bO1l1x+AathevvPUT4jrJj6o5uggyAMx4HOOmMYK/WFYxZ
-	 Wq43cPcFoktVJB0wAL6GG2Tyao97F606pmJvjNHrxERG7tLpei89SBTOPs5WfoLmooANu
-	 wzPV9TabSZrpBw9vFBFudfssaJ7Tw+TgJImJkeVhbH57WkJ7GT1KFOzMgY4TlyVQkhg==
+	t=1795555305;
+	b=tay0d8xDAW1+hBLcLjozzTpN5HIFO/17UXfLmGAZjcRQ3imrqy+yzbW0gLKE2KKBzcxq
+	 vJygcG0k26gZIjOiv5S/emaLxUgcaJV6OW49rg9qFZpUr0UBHLolTG4emsEt61Sq21O+x
+	 bpGjOzCFRPSWEl+GkssyjqCF5gYLqo0Ta87IQ3719FxIfm5HJjDTgPT9DsbAAW7Ake5pI
+	 eCgkqXBz+a+9Re81vEsfKZEbLZFpPXYaJXnva+GeJEZh70ZtHp4BWQ3NWZoKD5Uq0tCeT
+	 +o+DYeKSRSe+BIkXUnP3W0iRcCq5TKGun0xR1V4opqEDl1jBtYmZCDp7dejg4aj4Utg==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795555260;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=CAtKq77gs0BR/Cws+RXFDjTb8Jty3Q6oIejbW8lqGGw=;
-	b=kLkHWCBC/oYWflG7EaXSFGrLOCqMowg4+aSjNkF7XS5pMiDIGxyaAFX1O20qbPto1TtP
-	 V1suOkm52tP9R1UezRiqpH22NuJdyzy8TnxGI8BtSwseKmQU8OqyEOZAJyQwMn+LCSyo7
-	 jJwwwna3HDqB2mTdMjbQYx7/Dw/mjXiQbCkfZOhOa4s5N1UxY+PUG58EATCqzPhkAoc39
-	 8I83jEMi6PoRwbztK3jAeEQ/9Txwt9lqqXtMjuic/czwNxkf5SCKn7rfl+WdPQnkBaK/O
-	 zaX61PwGL78bCFjcG7mvwei0+/6DCbUYyXd8zS/8MEwzMfa2EsLQIzzQ5bXgEGPFmBQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795555305;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=Kz0XauTGdOgnd6tw9kPNk/ldh50fDY3LEXEPBQT0ngw=;
+	b=VL1Xclnea9ERPjyWoYu8u+nEAwEy2GYpL893+E38IH803fI0VTdht78b9LDM4Yb01Sr4
+	 kI4QD5r2V57c823d57D+aHVJtx1KkliO2TiAjH0FhINmJe0rdjoCFDMKO34nCdcYLs5vN
+	 OxMdA5iCu7dZWX6eVcmT6vVyspra0XN9/kYIzRa76thbj8JFgg4TvUYGnZsfK+js/AMOQ
+	 yop9uzmqODY7Bw6F1cXyZ+FDodIybO56eH6UNy6Tm2i9AN1wUWIzH5CqgCFOCSyxyT4+G
+	 BoLS9pyWV8zZmf7TwgS+Qxhq6d6/Eb4Sg/7jXU+M0kQ36WKIaWV8phXmDU6ADww38Vw==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YQ2PYKLE;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 24230606A31E;
-	Tue, 24 Nov 2026 21:20:59 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YQ2PYKLE
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795555259;
-	b=ZlCJvfkp+VIwiJHkxOFDB0VAOpavU7xbVuSoPKAE8f27dn4cGLP9fcaX9WKEdPnfoJuD
-	 YZd/FKQD2Gh9yUk6xRsEH0adK+kaU7Cd6397CHpCN07yzSWrxELUgogfxuCnsWHm5A9qt
-	 /dKWmqkXP2FBD8KZF1sNR4mwqpF3Ukxb2oQkCbsZvn5sGLmObJdSOxnyTo41JlwnKIxfU
-	 6lPIOIAw+ufdL33yyiwdfD2igSi4sSzmtS+yvDRNcWRnOcm3Nq95M1SLBnbNOrdKd/igH
-	 4kVKV+RulEYuiCALc4NCeOyGxO2AK+zDlno4uqfBil72TNnNDFPrmwHz4T3vuGBqz9w==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795555259;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=CAtKq77gs0BR/Cws+RXFDjTb8Jty3Q6oIejbW8lqGGw=;
-	b=jXdzXJjgunu1CELCYDS74jKiNhvBlaYrpdr9iHmtDf2KcO4TqUTeVzGYIissqaCSOgQw
-	 A9/0EH0iUHZukD4PYvpRLAUNL7u42K8cLEDf8MsKAbqnX+Y8YA3Th3/UCruVUlL7jbMjf
-	 V5XefveAaQR45GfmpiFwKt3L9XjPSOaDzjEesEAqcsmTYdxY/hq3vgAUqwxJwGF9Jl/5s
-	 tP+Q5VtnHDE/Ktsre2Yn/SZyNMvaO2ShnmyfbCfIOjT7OEDy8iDhgwWc5ty2ze9/M/2k1
-	 w7C6O30HHUNR8cmKHC08732TLDScrxB57PeHhIdYJ0hc6KfUR7hnI4kEpAqnBDC3zkQ==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=googlemail.com;
+	spf=pass smtp.mailfrom=googlemail.com;
+	dkim=pass header.d=googlemail.com header.i=@googlemail.com header.a=rsa-sha256 header.s=20260707 header.b=YI+KcRB8;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.176
+Received: from mail-yw1-f176.google.com (mail-yw1-f176.google.com [209.85.128.176])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id C8E9D1F000C4;
-	Tue, 24 Nov 2026 21:20:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795555259;
-	bh=CAtKq77gs0BR/Cws+RXFDjTb8Jty3Q6oIejbW8lqGGw=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=YQ2PYKLEoPgUCSPZs6gnv29HsqW86+mcE/EFw0rtDWnOyh9odhcVXyv5Gwd4GO9yj
-	 80dP7q2LHs5z9tJIcFrlatNRItDGMBc6x/iy3Kuto0ZkEFaKAIOsKoprlU7ugAwE0g
-	 G8k95aqAiqR0SfV2eHeyFzG5ovrWG5PRsGHufD1Luk/fw+2CrynpLsCy3bqIQ3Stsv
-	 R+ZQa20u+ZR1p3hoZXiBAEioxUsNr6IYCD/100UWFlZ5mrlB7hcgKOS9gRtfsXHNlO
-	 VWFFqmj5vpKM5sxHoAZ++ntYt3EOavLVNiZeyPZhhPo7n37PB6lY59kSvV6m0mj6A+
-	 G4NnMidOtpcZQ==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 2E09E4CBAD;
-	Tue, 24 Nov 2026 21:20:56 +0000 (UTC)
-From: Dennis Rijsdijk via B4 Relay <devnull+hello.dennis.gg@kernel.org>
-Date: Tue, 24 Nov 2026 22:20:43 +0100
-Subject: [PATCH] ALSA: usb-audio: Add generic implicit feedback quirk for
- Elgato Wave:3
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DE3CF606A323
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 21:21:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DE3CF606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=googlemail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=googlemail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=googlemail.com header.i=@googlemail.com header.a=rsa-sha256 header.s=20260707 header.b=YI+KcRB8
+Received: by mail-yw1-f176.google.com with SMTP id 00721157ae682-8b335ef6441so36334807b3.3
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:21:44 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795555304; cv=none;
+        d=google.com; s=arc-20260327;
+        b=MuHE9yMYdjGDiMOs+3i/P/MRaPuekj6HinPUW4lFchEp1rXvyac7GY6YxImvhIEcOJ
+         BVvxniWJSBcOQxf11HXjAV9/nMpRmnTP4VxZ00PJA4xgOW6Diaxx3d6xC18OJ7Sb5ucq
+         Roy7XO/8glgyWvsiYsfUrv2SFpyVuLBWRBBw1CqXtgt4TQUmozOAHjrYMn96cOCTacYu
+         vrwde68PAm2r9emR32KLnz2CqmkPg4hwL0+KQME/4B12D8cS3/3ZAw9DbbvDKz8OXvpW
+         CXyBkPI5mLub87QVXDGTbeaqoaOY2TeJEv0GZTZMhINl18dxoDpK17vUeiBlFBsLWV2b
+         z35w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=Kz0XauTGdOgnd6tw9kPNk/ldh50fDY3LEXEPBQT0ngw=;
+        fh=k7UFxeCeO41/jKFFj78DmOqIVCqBazI3MtCe5rIF28o=;
+        b=ot9xfZIuGy7x12xDxSVQPWoxCb9GT/BjL2DkG79FN2HLvD7Zs5578QxKVKyc3DXlr+
+         3E1bXw4ipCm7Mful67lzNJBpcUSPSjHKBTIPPlfr7XWmj2Dcwj/dIn/gvMbrD6xlswO5
+         8PG/1uCV/urdHtY/n+PG+CoL+yIiqjrbluIcqRKCc8VwPMj/uXxAo7BTlXkRSZ5yupdh
+         nRtluW6/JJqpU3rdNeAAv96VxUcIIy2fo7Q3qOEsnA0RuIrQxRHso6uqRs8pLp2MtgeB
+         h9vUIky1fLXinXjXWAdTfLhx9wz28TfI2Uk0zX2EiK6Rfnf6+Y7BRqv32oYdMdctpFoo
+         aZbA==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlemail.com; s=20260707; t=1795555304; x=1796160104; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=Kz0XauTGdOgnd6tw9kPNk/ldh50fDY3LEXEPBQT0ngw=;
+        b=YI+KcRB8+lAE9AY5pSod3xhKPrtxh2vzQXySdKNHgIsa/d5VW56FCDTYBIXj4Yd+vf
+         XtPdVN4LsEWfC0NcrPhBRyn8Zs/EHBcZuDttbTCGszkcRGZIBfnuwTiNwLF88AuUZwsK
+         WM4X4BboEaxjz/5rvZIfiY1YuivEiVlvsPjsxcqN2ljh62EKE/MzIuXiUEJz0U8Qb6bv
+         yZtl8Q8TJ+Kd25h+TvhE7cPrN7htZZMDtHLRw6VpWyYBbBCh4Bi+H1VH5oSZQHANrxNv
+         NZVvkw79EUuHYxMmw8Fd7BjHdqAliEIsrVaWpUaUm3dGS8wJI9spy8UVJjh5QnnZBv0Z
+         qTSw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795555304; x=1796160104;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Kz0XauTGdOgnd6tw9kPNk/ldh50fDY3LEXEPBQT0ngw=;
+        b=XVgTtojQij4w3s/tFrqh+n9ixrtb6PXkctidWH+we6yCaLrmJD6QMM5Khaw+O40WY2
+         xnkMK+L8Ek7RioygmJS4m3ZqjumPanJyQaSXJ32m/mH9LOgCT4YW5SXMoIF86g7Zy6Nd
+         L2TziXOA0KER6P/0m3ulaRbqrcEfMkzl24H6l4dQZyQOpfvho6yXVlvDcvnuTx2BYP6k
+         sGsJbdC8G7QSVNYpzZQt5xw7U9C2qJeEnqsOkfRJyK9DUh6pwtCp6yhi32VFScicdvSU
+         otuRux+e6BZwuYOvNHAaFWNSD/XNcNbfEHyWs22j4VBevZoVgTxd5kn9TStR/xW3dh/n
+         7c0Q==
+X-Forwarded-Encrypted: i=1; AL+hErGiMn8qayUvsEEQwTgZU/XYZihMUXwWFHjfGXI5mErOzMZGk6Neux/VVpy4n1L+4dmVG+pcbU5Advu0fo8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8Ziqdwg7OvxEljlj4wFXl/LVL2i25DO0NHCe7t8OcfDYAeYK9c
+	JtOnvz4kVFCI6EV0D7RJJeLqLCk93PijGojGMbqyXKj8Bqu+DW8BW/c2xyzPQxzfqNLxB8QSOoH
+	zlH4o6QVmA5Ia+weNL3q6K2CR/CQgYVQ=
+X-Gm-Gg: AZFdTZeWDObCiMYZ+pX3xI9kfGCmPwxImsdoNMoBXcFv9TjougPTvW8aPkM5ZGIE3GD
+	WSfj/qKAsBw150cet5viXL61r4NNCoaD8ntn++CLUTZtJQOTNdBA9XMUHR1gA5pUiNGyKl1gNZY
+	w94CORmcRy5RzsyBSrwnjysj4iOs/ieV+JlJG3uXaCZNlL7e4abXgC2AM3hKbehBCbzVfoZvTgY
+	2/652TacsTi4iijx1F+Zl6oIfS/O9CqMag4crmjMomvIOC/ups8WFaP/C/DrxJLxYffmFtcU4UU
+	goxH0e/zZZyXKUpFBNuEbeot9VL3G7DWw936sfZ7HQckqb4T0g1aL85wbJDQVlexhrXyRsZCM8D
+	4y0RiE+5jUKtxz4x+kKFgrTXBdGyUpmQBx0Em/upGdtQcb/D04YPUA1rzkIazAUgV9U2WTw==
+X-Received: by 2002:a05:690c:6213:b0:8b4:dd2b:10dd with SMTP id
+ 00721157ae682-8b52050f0demr45322637b3.64.1795555303828; Tue, 24 Nov 2026
+ 13:21:43 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,100 +104,61 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261124-b4-implicit-fb-v1-1-99c0526a01f0@dennis.gg>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMTQ5AMBBA4avIrE2iDYKriIW2U0b8pUUk4u6K5
- bd47wJPjslDFV3g6GDPyxwg4gh0384dIZtgkInMhZApqhR5WkfWvKFVaE3ZmqRQNjMEIVodWT6
- /Yd389rsaSG/vBe77AQvbFslyAAAA
-X-Change-ID: 20261124-b4-implicit-fb-fd9ad08bf5de
-To: Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>
-Cc: linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Dennis Rijsdijk <hello@dennis.gg>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795555255; l=3251;
- i=hello@dennis.gg; s=20261124; h=from:subject:message-id;
- bh=CzYUiFQBTbT9Wdib/6UNKHXDgSKzREc3eNWxs3jvMew=;
- b=DbonznYWejqOtUOztk3MIPT4LAC+q7AltktqxAfi3MCSaeBL99sZx5Y9WcajOEkxaar4VC5fW
- qyPiAOczWkUAcVDc7cxy8SkrZJzjpTzhl10IF0SUlea4Cu4C3zCSIGh
-X-Developer-Key: i=hello@dennis.gg; a=ed25519;
- pk=/uxm3Y6aevSpcZaCD38mlhmVoNlmJW2YgX3OS0SRGuM=
-X-Endpoint-Received: by B4 Relay for hello@dennis.gg/20261124 with
- auth_id=1632
-X-Original-From: Dennis Rijsdijk <hello@dennis.gg>
-Reply-To: hello@dennis.gg
-Content-Transfer-Encoding: 7bit
+References: <20261018-audin-v5-0-4b8cc13a1b22@baylibre.com>
+ <20261018-audin-v5-6-4b8cc13a1b22@baylibre.com> <CAFBinCA12FvOi=9gB1xj3MDvNWstx1N4TtyyrrndJ_JT5eLX=Q@mail.gmail.com>
+ <0949591a-63cb-4bb3-a7de-cf59ddbaafb7@baylibre.com>
+In-Reply-To: <0949591a-63cb-4bb3-a7de-cf59ddbaafb7@baylibre.com>
+From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Date: Tue, 24 Nov 2026 22:21:33 +0100
+X-Gm-Features: Aa3M54qIikBwR4PI-ZQunVxuxoqfwLNl1dfjIK5NjVa_KqUN1kcswl51cnQYi_s
+Message-ID: <CAFBinCAjFb7yS4VQp+BqLw2dG61To+iU4aiBvaVE9B9bWe=oUQ@mail.gmail.com>
+Subject: Re: [PATCH v5 6/7] ASoC: meson: gx-card: add support for audin FIFO
+To: Valerio Setti <vsetti@baylibre.com>
+Cc: Jerome Brunet <jbrunet@baylibre.com>, Liam Girdwood <lgirdwood@gmail.com>, 
+	Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, linux-sound@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-From: Dennis Rijsdijk <hello@dennis.gg>
+On Tue, Nov 17, 2026 at 12:06=E2=80=AFAM Valerio Setti <vsetti@baylibre.com=
+> wrote:
+>
+> On 11/15/26 10:28 PM, Martin Blumenstingl wrote:
+> > On Sun, Oct 18, 2026 at 12:18=E2=80=AFPM Valerio Setti <vsetti@baylibre=
+.com> wrote:
+> > [...]
+> >> +       if (gx_card_cpu_identify(dai_link->cpus, DT_PREFIX "gxbb-audin=
+", "FIFO"))
+> >> +               return meson_card_set_fe_link(card, dai_link, np, fals=
+e);
+> > I suggest using the "audin" prefix. AIU / audin seem close enough on
+> > all supported SoCs that we don't need a SoC generation prefix  in
+> > there to handle this differently.
+>
+> Do you mean using "meson,audin" instead of "meson,gxbb-audin" for the
+> compatible?
+> If so I'm not sure this is allowed nowadays. As far as I understood
+> "meson,aiu" is a sort of legacy naming. 'writing-binidings.rst' says
+>
+>    "DO use a SoC-specific compatible for all SoC devices [...]"
+Let me use an example as I realize that I wasn't very clear:
+  compatible =3D "amlogic,gxbb-audin", "amlogic,audin";
+Does fulfill the criteria (as far as I understand it).
+What doesn't work is "amlogic,audin" alone.
 
-The Elgato Wave:3 (0fd9:0070) records digital silence from its
-microphone when capture is started while playback to its headphone
-jack is already running. Starting capture first works. With PipeWire
-this makes the microphone go silent when an application starts
-recording while audio is playing.
+The GXL example then would be:
+  compatible =3D "amlogic,gxl-audin", "amlogic,gxbb-audin", "amlogic,audin"=
+;
 
-The Elgato XLR Dock had the same problem and was fixed by enforcing the
-generic implicit feedback mode. The same flag fixes the Wave:3: with it,
-capture returns audio in both start orders. One case remains at 96 kHz,
-which the device advertises but Elgato's specifications do not list
-(only 48 kHz): when playback starts first right after the device ran at
-48 kHz, capture is still occasionally silent (2 of 10 tries, against
-every try without the flag). At a steady rate, and at 48 kHz in all
-cases tried, it did not happen.
+And for Meson8/8b (sorry, I didn't get around to testing) I would then use:
+  compatible =3D "amlogic,meson8-audin", "amlogic,audin";
+  compatible =3D "amlogic,meson8b-audin", "amlogic,meson8-audin", "amlogic,=
+audin";
 
-Add a quirk entry for the device.
-
-The patch and this description were prepared with an AI coding
-assistant (Claude Code, Claude Opus 5.5); I reproduced the problem and
-tested the fix on the device.
-
-Link: https://lore.kernel.org/all/CAOUQ8cqoTYm-0xeh1jk6bPo7Qd81+rFBz+my-ByMudzZ_6E0wQ@mail.gmail.com/
-Signed-off-by: Dennis Rijsdijk <hello@dennis.gg>
----
-Tested on v7.4-rc4 with the stock driver and
-quirk_flags=0fd9:0070:generic_implicit_fb (same effect as this entry),
-Wave:3 firmware bcdDevice 1.24. Silence below means all-zero samples.
-
-- aplay/arecord on hw: directly, playback started first:
-  - 48 kHz: silent every time without the flag; with it, 0 silent in 60+
-    starts, also right after the device ran at 96 kHz.
-  - 96 kHz: silent without the flag; with it, 0 silent in 30 starts at a
-    steady rate, but 2 of 10 silent when a 48 kHz stream ran just before
-    (and 4 of 23 in runs where WirePlumber reopened the device at 48 kHz
-    in between).
-  - Capture-first, and stopping/restarting playback during capture, had
-    audio throughout at both rates.
-- PipeWire 1.6.10: capture started while music played had audio in 6/6
-  tries at 48 kHz and 8/8 with the clock forced to 96 kHz (it was silent
-  every time before), and after a WirePlumber restart.
-- No audible glitches on the headphones during listening sessions.
-
-Unrelated to this patch, also without the flag: at 96 kHz the first
-~12 ms of a capture that starts the endpoint are full-scale noise; this
-does not happen at 48 kHz.
----
- sound/usb/quirks.c | 2 ++
- 1 file changed, 2 insertions(+)
-
-diff --git a/sound/usb/quirks.c b/sound/usb/quirks.c
-index bcc93e50b..bd00db820 100644
---- a/sound/usb/quirks.c
-+++ b/sound/usb/quirks.c
-@@ -2684,6 +2684,8 @@ static const struct usb_audio_quirk_flags_table quirk_flags_table[] = {
- 		   QUIRK_FLAG_FIXED_RATE),
- 	DEVICE_FLG(0x0fd9, 0x0008, /* Hauppauge HVR-950Q */
- 		   QUIRK_FLAG_SHARE_MEDIA_DEVICE | QUIRK_FLAG_ALIGN_TRANSFER),
-+	DEVICE_FLG(0x0fd9, 0x0070, /* Elgato Wave:3 */
-+		   QUIRK_FLAG_GENERIC_IMPLICIT_FB),
- 	DEVICE_FLG(0x0fd9, 0x00a6, /* Elgato XLR Dock */
- 		   QUIRK_FLAG_GENERIC_IMPLICIT_FB),
- 	DEVICE_FLG(0x1038, 0x1294, /* SteelSeries Arctis Pro Wireless */
-
----
-base-commit: c3c132d63840093a3ca4bd09e7434614c1bd07e3
-change-id: 20261124-b4-implicit-fb-fd9ad08bf5de
 
 Best regards,
---  
-Dennis Rijsdijk <hello@dennis.gg>
-
-
+Martin
