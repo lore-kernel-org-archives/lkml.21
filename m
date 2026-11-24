@@ -1,79 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=fail smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=fail;
-	t=1795527633;
-	b=NWNq4lNSuJnwplVNIwLlW+ke9EgjRxbplEy4V/iOBhNrnSTRYE1hli0zalfQG3W+oHbc
-	 7uJ15G5lcnZxNNt7kWveIpoko8ad3ONmKFlwSsT5RmeCfxSSe1uT0bx5PXeqGgJZ9PEyh
-	 6on5jLabfBVGJsMUya/oDMxl1tnFyJ1ivLVLHBhNSNDqauie9lduGe79I4xDHVl0rfH4X
-	 YFj1HMWqztPUsQnyNBCLCZeL5Xpz+EUaV3XGLyetcm/+7NaszfdifDxzqG2tQVqFpDGv4
-	 PkH1rbHNX4rneJIq2NevITeGD6pn9gauJPcgwm0PUYVFTSi2fKs8txb2qI8VwQ3CVPQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795527633;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=nzFWxb9EM1aBm69mxNmKrGLCe/kN+fOhobHOhwqxJug=;
-	b=gGvB+Zj/E36KNPdm9kImJOKDWhRS5tacY1tPOZerGMVl1PWrhmYw11nfAXixn4P09PtA
-	 2qRVmaWK16GBXA6gAe+2gX+uzUJgTOv8bayh3xgUswWEzkQi8dVrqraEf8/lC3MJbicj0
-	 l+69WpclQ6JWw71mH9vD9YsRFaAyp5eAHlACyE7/g7aGEi9zJ5plZ1MScyPaTSOuO5qKJ
-	 ZUfMHzDVnyHDIWBuicTrjBp/DVbbxGlMytaEQbIDECQFKJjeo03LkmvX1QVpBHJnZPn+x
-	 YWtXAaSRhD3y8jRrP/3xv+Q7DiQ7TkKqHWYRDyl+lXVkx1a7kMcTlYmTiwHz46VJrMQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IQzbiJRR;
-	arc=fail smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 70CD0606A330;
-	Tue, 24 Nov 2026 13:40:33 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IQzbiJRR
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795527633;
-	b=zgEo+fL0Q3aqdVW68IzFQB73cC2DNjQxkFKIMQ69SYuyaqn5K+/jjdPElZJb0csjahqO
-	 HqQJyGHtGwnh/XHj7ukGgvJHozbH6zB1XjfGTIzJ8JFlwrRHPy9ZqOpQFJzjYo7SgT+Fm
-	 Ju/2OL7vQ3BcRTEK+j1Wi/Lsst2c5EeyCP6GY08IIMSIT/cng5Fgilrzn70mhqWPn2eWS
-	 DeSwzFs7Vs/MkCLP/rEU9MzHmBZJGeFjCRX4DbIK4kf9DviuQpd51ObmFkB2El1K7hJGr
-	 BSd/B5Wktz+URN3qewDy7qB32p6U99cqufGCT49gVk1vvZPWdi3OAXupYMepRB+2Jaw==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795527633;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=nzFWxb9EM1aBm69mxNmKrGLCe/kN+fOhobHOhwqxJug=;
-	b=Zjw5sovYicyrdntzPYqbFUmYF0OFGxFDnJ3/PTwHGRezk/PAttwjEvSHe4S/QE0yihKM
-	 cxEw0wAQK98taYEOduaz0Rk2BWitOoBmXp2Z65le3F9VSN9jJPxtvhY3MDK7fxRK8GFOW
-	 mUdKlhDFphqX44xTn/g8TJPaV/EDMHvlndxVjWR/VAkhWXlskK1lVoK2zGRinv6DCEQjs
-	 bGo+aDnZa7UQqxt4Vz7WA3LrouIulIq7tD6cUfNs53pSir0DBbE8hmuS7ibQVAa9OgZEV
-	 nB02xIllkm0D+arHi7i/hjeQxQoQcbPMgKebYcglv3eiznd69OY9NnSpiVwC1rbmygQ==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.41
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795527659;
+	b=1d/yIJS2uJCUXmDcG5feteMnNpRr18Vi4+c2fut27kU8cUwazS9qAwXfHIMqYggt4Q1a
+	 Kl3vNeIGpK/BsveyhF6qM1qk2cDy1cwmXb1eKshkXffDioDNLF1voHDMynDQQOoo5362o
+	 RVn7rgp/fb4UyvNvOdGECyZ666nLlW3INWQP7Ml8POjjP6I3Snlsb6msPK3yVyiJEDG2t
+	 6jd7UhHFaYX+9XWAdUUMwfKS3EB3WIFdkfIgVeYx/uAfE2IYVV7PQ2SHBagKzJx91HPcT
+	 KaOamk4IFTa3ftDluH9ooIsVn/13pA3USplymAFvp46apxkzIUm5Vo9S3OzH887EdRg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795527659;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:From:Reply-To:Subject:To:Cc:
+	 References:Content-Language:Autocrypt:Organization:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=M+Df03Fx4+itYz4J38HagOcF0QG4sU4+kJ8QrdfzfKM=;
+	b=kZ9b1oYgBk315tFbykdmDkDsBO+f/jEo53R/j+V2+Riunpregk5u79ZZZO4/5YFz2u+i
+	 PB0+ONzhemeRa9qRUa4qBE2ULTCQBVK+42sfynu2z9kSnschR45fcMzjZnlM1sQTk3fPH
+	 3/5S7ZR2LBVbr3sJdYeGWrbXT7RCkziwKLckGxOo9HKRdL9eK97dM4ugocd+BMTOBCHyG
+	 sc6+T9gFjz9GpjBsqanrY6MsSUTv31t9a7rvN75ZLh7tSd203j/qJ32yxqGWBsnudhepB
+	 +ljAJyVWi9AGHpFuMCGdwBxZ+6RHc57P42fkP8UtwGxsZ6igsrPzD3gYAmnrfvGnWhQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linaro.org;
+	spf=pass smtp.mailfrom=linaro.org;
+	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=QT73COJj;
+	arc=none smtp.remote-ip=209.85.128.41
+Received: from mail-wm1-f41.google.com (mail-wm1-f41.google.com [209.85.128.41])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id E5AEC1F000D0;
-	Tue, 24 Nov 2026 13:40:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795527633;
-	bh=nzFWxb9EM1aBm69mxNmKrGLCe/kN+fOhobHOhwqxJug=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=IQzbiJRRK7qyKdQ3oGuG0+e4Alpy1TEE4X6RCtRz7vDH4DiwQKuVT1Iim4Ta248hf
-	 YTvhmXgLV5xKmmMVOg226oUt1My5sOCJJHNuzWlsI4NzOdfnvaox8ayugnT9/sE0Zz
-	 rFo7+CZA4UEP6VKM7e+U3XOhjpflhR9xblwQVphfIXhT9j1EcAGFLpT9ribIr0V3/1
-	 L5HConGX7zMwQmiw8k25BgceuuR9K1GN/Azi4lWAEkMO87ZUJjNB2tBZxmRDPo6E2C
-	 vgRQubzNCner6CFpxK0rOcgIyM4G5xEzlTHA/LrzT5q/5CHLIjPMOOe8ODIxdMnD0f
-	 6U/GJlg5xNWdA==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 77BB84CA5F;
-	Tue, 24 Nov 2026 13:40:21 +0000 (UTC)
-From: Sergei Khomenkov via B4 Relay <devnull+shomenkow.gmail.com@kernel.org>
-Date: Tue, 24 Nov 2026 16:40:18 +0300
-Subject: [PATCH v3 2/3] media: verisilicon: program the JPEG encoder stream
- limit in 64-bit words
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9E4F0606A322
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 13:40:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9E4F0606A322
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=QT73COJj
+Received: by mail-wm1-f41.google.com with SMTP id 5b1f17b1804b1-4bb64ef5a00so36281655e9.3
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 05:40:58 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1795527657; x=1796132457; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:organization
+         :autocrypt:content-language:references:cc:to:subject:reply-to:from
+         :user-agent:mime-version:date:message-id:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=M+Df03Fx4+itYz4J38HagOcF0QG4sU4+kJ8QrdfzfKM=;
+        b=QT73COJjUjEN0cDmUNtGuSh6DXbiOd+LIuDl2tdWJ4Xo+TvUwOV9Wccr49zcIh5Dzx
+         glh2FnEXPoM1H0+kQC3+XnBG5m1BZTzSJw1tawEOCDWtwfA3/rl99DSbZO8P02eDe3ji
+         PATSkvcN89p82fCbvuZChqe5UjnUFAL2LQ+Do6cz0fgMbq9juU3FfPiHTBoRSpY4pJIo
+         DK5dQ+eXVpdkraAPG0OBMM/04rV+qccjDWygJMPazMi21SQldPv3K/6pxaLExByBqRrH
+         WthVaY7Nxv1YFZWV3rdRpzUdQmepcSX/H8UgQ3V3shFKkPIWTB7oc0Q13u0FXu6X9x85
+         v+Yg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795527657; x=1796132457;
+        h=content-transfer-encoding:content-type:in-reply-to:organization
+         :autocrypt:content-language:references:cc:to:subject:reply-to:from
+         :user-agent:mime-version:date:message-id:x-gm-gg:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=M+Df03Fx4+itYz4J38HagOcF0QG4sU4+kJ8QrdfzfKM=;
+        b=DIm4iqVHpUWDP4U+y9klpD6O2kLCSRxS9BTykX/JFtZL5ororjRwNICoK6E0bzVm/R
+         c9+VtDGBL+uxf8bJUT68L3M71AHmzvXKIdfdDAOFoH756l+/HIIRXcbaeuCRhvsfdDce
+         NQM9Hicnc425BiDTCNfsD+wBEU6dnIFcafzOUuA2gfc6ciRnLkTKhptV0+odepHa9vuS
+         epmOvb6L8+SwDg8wmT4pnzyxYp5iHFY2qrNnmfiBPu9rT1gkHtSo9gfFFRSSYHpISg52
+         p2FJ7ktUnFeSQ892/8ciFd4Shix+iEpri+b3SWiAa78nxtoBx3B1oT1hNGd5/8dIHpvO
+         JnBA==
+X-Forwarded-Encrypted: i=1; AL+hErFRDuTtTWogVoj2MSZrOB9mCgP1XBGVSd4eOpaZpyXGgwU23jupmnpSQI7x5ygcJc/ibli4B9ICStA6eDU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/y/1oqbxD56Du6/txqkLkso9JZidnFfEmacJOOMvoAyy+z9n6d
+	le8Ozctflq0CcxyeFiJnrRdmtQnpwkxjU9rQWld57qTZobiXFjydHImgXfwGtB+kWX0=
+X-Gm-Gg: AZFdTZeBJ2CEc5zqfsqejI+cUTv45htQEpt+XjBaYUH+Vk2LK94TQ9YNHH6Izlh7WcX
+	joIjjpzDUAeUZbEeoQSlshcQXG3U8xHs1w+icLPQygc1N1n4Hn5qt+INW+CvSA2qbdvqP87reL3
+	kgOM4L5vD0Ihz9hDrCFZldDKdk3SAfTzRkLOkjcQQRGLYeqU/Lc23YlzfJcp5p5+sY6QbM7vWq9
+	RnKtCWzjmc/Zh9fPfNOMAFUryHEQ1TiYxAe8c/fxd3AK4aPCErIC0U9u6p30H6E6QkwLnUCcSMy
+	38pWRxpVMIMzg6FuSd3DDRppDvyjq39jEI2sKH7gTfm2lw0DdqsmjMjtA1SGwjhZm7ClgALePST
+	cCmZXbiQ7LmHnXSlg3e9V8mf0VUzMvb71FVcmQ3bvHG9G+l3JyvO2IvUamDMit7Qyi2/d+fGHu3
+	MGfce0O9vbYQHHDHl9FCyyfBUC9XPWSk/XBD75QU2QrO7hwi2BYekIkqw9eymG+pwu/HXbVvG7G
+	/xGbE2la9UjKFGneZUysLcrQlIvY/VRm85TtYMVvcetYKbO9LMSsviyxUbxYeKIFFNKQ39HZ6VV
+	uDZW/TuF6rPPhOH2WIOz7bm3SRVU8WobLll6HcHjCOMSFgJHKaU9p3Ih+0Ed4f1nKHyCeoQCiT0
+	UG+E3HdGx
+X-Received: by 2002:a05:600c:64c8:b0:4a0:1c0e:b057 with SMTP id 5b1f17b1804b1-4bb887e2380mr277520385e9.4.1795527656673;
+        Tue, 24 Nov 2026 05:40:56 -0800 (PST)
+Received: from ?IPV6:2a01:e0a:106d:1080:ac27:24a0:7b1a:dd94? ([2a01:e0a:106d:1080:ac27:24a0:7b1a:dd94])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb906cdcc1sm229886835e9.2.2026.11.24.05.40.56
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 24 Nov 2026 05:40:56 -0800 (PST)
+Message-ID: <9bc15d77-2a56-4e64-8b73-163c44bcf5ea@linaro.org>
+Date: Tue, 24 Nov 2026 14:40:55 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,108 +93,126 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261124-hantro-buflimit-v3-2-780903970ca0@gmail.com>
-References: <20261124-hantro-buflimit-v3-0-780903970ca0@gmail.com>
-In-Reply-To: <20261124-hantro-buflimit-v3-0-780903970ca0@gmail.com>
-To: Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
- Benjamin Gaignard <benjamin.gaignard@collabora.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Hans Verkuil <hverkuil@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, 
- Chen-Yu Tsai <wenst@chromium.org>, 
- Hugues Fruchet <hugues.fruchet@foss.st.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, 
- linux-stm32@st-md-mailman.stormreply.com, linux-kernel@vger.kernel.org, 
- stable@vger.kernel.org, Sergei Khomenkov <shomenkow@gmail.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795527620; l=3597;
- i=shomenkow@gmail.com; s=20261104; h=from:subject:message-id;
- bh=biQGrB6UYPvhg65jUpDgSfn1YhBxiYA0k15PHlCqCLk=;
- b=P5pNeXlKk5cfoFc6oXQ0j5mBRlqXJJwCmuZ2j/huGy6S5VX16cLw9qmvdyeaWZf4mr/NJV6lN
- V8/NCe6s+/ICjb9cvrhYg3ULwwHNjWcpWWCHX+0sSk4Vq+DaDS7Cm4L
-X-Developer-Key: i=shomenkow@gmail.com; a=ed25519;
- pk=FwuHDVe7aiISDMLmQEcMC+RflEIJ6kEp/ekwznWXmI8=
-X-Endpoint-Received: by B4 Relay for shomenkow@gmail.com/20261104 with
- auth_id=1409
-X-Original-From: Sergei Khomenkov <shomenkow@gmail.com>
-Reply-To: shomenkow@gmail.com
+User-Agent: Mozilla Thunderbird
+From: Neil Armstrong <neil.armstrong@linaro.org>
+Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
+Subject: Re: [PATCH v2] arm64: dts: amlogic: khadas-vim3: add SPI NOR flash
+ overlay
+To: Jose Nieto <jnieto.alaber@gmail.com>, Kevin Hilman
+ <khilman@baylibre.com>, linux-amlogic@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org
+Cc: Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20261103164730.160593-1-jnieto.alaber@gmail.com>
+ <20261124111333.33734-1-jnieto.alaber@gmail.com>
+Content-Language: en-US, fr
+Autocrypt: addr=neil.armstrong@linaro.org; keydata=
+ xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
+ GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
+ BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
+ qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
+ 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
+ AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
+ OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
+ Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
+ YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
+ GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
+ UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
+ GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
+ yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
+ QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
+ SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
+ 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
+ Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
+ oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
+ M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
+ 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
+ KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
+ 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
+ QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
+Organization: Linaro
+In-Reply-To: <20261124111333.33734-1-jnieto.alaber@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 
-From: Sergei Khomenkov <shomenkow@gmail.com>
+On 11/24/26 12:13, Jose Nieto wrote:
+> The Khadas VIM3 has a 16 MiB SPI NOR flash (W25Q128) whose data lines are
+> shared with the eMMC D4-D7 lines. Add an overlay that restricts the eMMC to
+> 4-bit mode and enables the SPI NOR controller, exposing the flash as an MTD
+> device.
+> 
+> The flash HOLD#/WP# lines are wired to the eMMC D3/D7 nets, so the
+> nor_hold_wp_pins pinctrl group is intentionally not used.
+> 
+> Signed-off-by: Jose Nieto <jnieto.alaber@gmail.com>
+> ---
+> Changes in v2:
+> - Keep the original BayLibre copyright and mention the U-Boot
+>    meson-khadas-vim3-u-boot.dtsi origin (Neil Armstrong).
+> 
+>   arch/arm64/boot/dts/amlogic/Makefile          |  2 ++
+>   .../dts/amlogic/meson-khadas-vim3-spifc.dtso  | 28 +++++++++++++++++++
+>   2 files changed, 30 insertions(+)
+>   create mode 100644 arch/arm64/boot/dts/amlogic/meson-khadas-vim3-spifc.dtso
+> 
+> diff --git a/arch/arm64/boot/dts/amlogic/Makefile b/arch/arm64/boot/dts/amlogic/Makefile
+> index 57bc440fa55c..3714cbaaa03e 100644
+> --- a/arch/arm64/boot/dts/amlogic/Makefile
+> +++ b/arch/arm64/boot/dts/amlogic/Makefile
+> @@ -23,6 +23,7 @@ dtb-$(CONFIG_ARCH_MESON) += meson-g12a-u200.dtb
+>   dtb-$(CONFIG_ARCH_MESON) += meson-g12a-x96-max.dtb
+>   dtb-$(CONFIG_ARCH_MESON) += meson-g12b-a311d-bananapi-m2s.dtb
+>   dtb-$(CONFIG_ARCH_MESON) += meson-g12b-a311d-khadas-vim3.dtb
+> +dtb-$(CONFIG_ARCH_MESON) += meson-g12b-a311d-khadas-vim3-spifc.dtb
+>   dtb-$(CONFIG_ARCH_MESON) += meson-g12b-a311d-khadas-vim3-ts050.dtb
+>   dtb-$(CONFIG_ARCH_MESON) += meson-g12b-bananapi-cm4-cm4io.dtb
+>   dtb-$(CONFIG_ARCH_MESON) += meson-g12b-bananapi-cm4-mnt-reform2.dtb
+> @@ -104,5 +105,6 @@ dtb-$(CONFIG_ARCH_MESON) += meson-sm1-x96-air.dtb
+>   # Overlays
+>   meson-g12a-fbx8am-brcm-dtbs	:= meson-g12a-fbx8am.dtb meson-g12a-fbx8am-brcm.dtbo
+>   meson-g12a-fbx8am-realtek-dtbs	:= meson-g12a-fbx8am.dtb meson-g12a-fbx8am-realtek.dtbo
+> +meson-g12b-a311d-khadas-vim3-spifc-dtbs := meson-g12b-a311d-khadas-vim3.dtb meson-khadas-vim3-spifc.dtbo
+>   meson-g12b-a311d-khadas-vim3-ts050-dtbs := meson-g12b-a311d-khadas-vim3.dtb meson-khadas-vim3-ts050.dtbo
+>   meson-sm1-khadas-vim3l-ts050-dtbs	:= meson-sm1-khadas-vim3l.dtb meson-khadas-vim3-ts050.dtbo
+> diff --git a/arch/arm64/boot/dts/amlogic/meson-khadas-vim3-spifc.dtso b/arch/arm64/boot/dts/amlogic/meson-khadas-vim3-spifc.dtso
+> new file mode 100644
+> index 000000000000..9f57d9433ee8
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/amlogic/meson-khadas-vim3-spifc.dtso
+> @@ -0,0 +1,28 @@
+> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> +/*
+> + * Copyright (c) 2020 BayLibre, SAS
+> + * Author: Neil Armstrong <narmstrong@baylibre.com>
+> + * Copyright (c) 2026 Jose Nieto <jnieto.alaber@gmail.com>
+> + *
+> + * The Khadas VIM3 on-board SPI NOR flash shares its data lines with the
+> + * eMMC data lines 4-7. Restrict the eMMC to 4-bit mode to free D4-D7 and
+> + * enable the SPI NOR controller, exposing the flash as an MTD device.
+> + *
+> + * Derived from the U-Boot arch/arm/dts/meson-khadas-vim3-u-boot.dtsi file.
+> + *
+> + * The flash HOLD#/WP# lines are wired to the eMMC D3/D7 nets, so the
+> + * nor_hold_wp_pins pinctrl group is intentionally not used.
+> + */
+> +
+> +/dts-v1/;
+> +/plugin/;
+> +
+> +&sd_emmc_c {
+> +	pinctrl-0 = <&emmc_ctrl_pins>, <&emmc_data_4b_pins>, <&emmc_ds_pins>;
+> +	bus-width = <4>;
+> +};
+> +
+> +&spifc {
+> +	status = "okay";
+> +};
+> +
 
-H1_REG_STR_BUF_LIMIT counts 64-bit words, but the driver writes the room
-left in the CAPTURE plane in bytes. A stream that does not fit, such as
-a quality 100 frame of noise in a default-sized buffer, is then written
-past the end of the plane, up to eight times its size.
+Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
 
-Write the limit in 64-bit words, rounded down to whole 64-byte bursts:
-the encoder finishes a burst it has started, so an unrounded limit lets
-it write up to 56 bytes past it. rockchip_vpu2_jpeg_enc_set_buffers()
-has the same bug with VEPU_REG_STR_BUF_LIMIT, which
-rockchip_vpu2_jpeg_enc_done() reads back as a bit count; give the VEPU2
-the same limit.
-
-Fixes: 775fec69008d ("media: add Rockchip VPU JPEG encoder driver")
-Cc: stable@vger.kernel.org
-Assisted-by: Claude:claude-opus-5-5
-Signed-off-by: Sergei Khomenkov <shomenkow@gmail.com>
----
-Found with an LLM coding assistant while porting mainline Linux to a
-Rockchip RK3026 board; the assistant also drafted this change. Tested
-on that board (its H1 is Rockchip's VEPU1): overflowing frames now
-stop at the programmed limit without writing past the plane (a canary
-after the plane stays intact), and frames that fit are byte for byte
-the same as before. Not tested on other SoCs, including the STM32MP25,
-which shares the H1 code. The VEPU2 change is not tested: there is no
-VEPU2 on the RK3026.
-
-Rockchip's MPP programs VEPU_REG_STR_BUF_LIMIT the same way ("limit >>=
-3; limit &= ~7" in hal_h264e_vepu2_v2.c). Patch 1 stops the encoder
-only in the VEPU1 interrupt handler; the VEPU2 and STM32MP25 handlers do
-not: if those encoders pause on a full buffer as the RK3026 H1 does, the
-next job may time out.
----
- drivers/media/platform/verisilicon/hantro_h1_jpeg_enc.c        | 4 +++-
- drivers/media/platform/verisilicon/rockchip_vpu2_hw_jpeg_enc.c | 4 +++-
- 2 files changed, 6 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/media/platform/verisilicon/hantro_h1_jpeg_enc.c b/drivers/media/platform/verisilicon/hantro_h1_jpeg_enc.c
-index 86cc1a07026f..cbf0e3d034f6 100644
---- a/drivers/media/platform/verisilicon/hantro_h1_jpeg_enc.c
-+++ b/drivers/media/platform/verisilicon/hantro_h1_jpeg_enc.c
-@@ -55,7 +55,9 @@ static void hantro_h1_jpeg_enc_set_buffers(struct hantro_dev *vpu,
- 	vepu_write_relaxed(vpu, vb2_dma_contig_plane_dma_addr(dst_buf, 0) +
- 				ctx->vpu_dst_fmt->header_size,
- 			   H1_REG_ADDR_OUTPUT_STREAM);
--	vepu_write_relaxed(vpu, size_left, H1_REG_STR_BUF_LIMIT);
-+	/* In 64-bit words; the encoder finishes a started 64-byte burst. */
-+	vepu_write_relaxed(vpu, round_down(size_left, 64) / 8,
-+			   H1_REG_STR_BUF_LIMIT);
- 
- 	if (pix_fmt->num_planes == 1) {
- 		src[0] = vb2_dma_contig_plane_dma_addr(src_buf, 0);
-diff --git a/drivers/media/platform/verisilicon/rockchip_vpu2_hw_jpeg_enc.c b/drivers/media/platform/verisilicon/rockchip_vpu2_hw_jpeg_enc.c
-index 61621b1be8a2..ab976c762239 100644
---- a/drivers/media/platform/verisilicon/rockchip_vpu2_hw_jpeg_enc.c
-+++ b/drivers/media/platform/verisilicon/rockchip_vpu2_hw_jpeg_enc.c
-@@ -82,7 +82,9 @@ static void rockchip_vpu2_jpeg_enc_set_buffers(struct hantro_dev *vpu,
- 	vepu_write_relaxed(vpu, vb2_dma_contig_plane_dma_addr(dst_buf, 0) +
- 				ctx->vpu_dst_fmt->header_size,
- 			   VEPU_REG_ADDR_OUTPUT_STREAM);
--	vepu_write_relaxed(vpu, size_left, VEPU_REG_STR_BUF_LIMIT);
-+	/* In 64-bit words, in whole 64-byte bursts as on the H1. */
-+	vepu_write_relaxed(vpu, round_down(size_left, 64) / 8,
-+			   VEPU_REG_STR_BUF_LIMIT);
- 
- 	if (pix_fmt->num_planes == 1) {
- 		src[0] = vb2_dma_contig_plane_dma_addr(src_buf, 0);
-
--- 
-2.53.0
-
-
+Thanks,
+Neil
