@@ -1,94 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.201.39
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795507382;
-	b=wapy0RUQV8bwbVSZ7hFoxI+SSlNCBWENNg4f/xlN1ChUZ8PsV9EACAhG5ja89IxUWMI+
-	 AJlUtKxSD6fWyZA10xF4TIPPD48xnTgZqKD9IWvg2CCpc2hp0AO0SJNBJ8dJReotn1gwf
-	 U0JdrZA3HbALsG0yiGI+NKD60nxDwco3S13JtnGO2x0jK9qjjl3UdnRuPqhTcuAXWhRgu
-	 kd1HViEt0JszivzKFKIu2lwipd/eWmqzC0hLLmqKSf45XXjUQ/4naA8EqxOJMIAMEEKxl
-	 hG+MUin0cvvTaAOrE03//d1m+IeABDl90vjh2/Y/UlJ4YpjmHbzCJvT2QwRoFsrNljA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795507382;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:Content-Type:Content-Disposition:
-	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=B33fLrYpcCoGBkLiRRKN/GuENQqIUYW7DM+kFPkUoxk=;
-	b=WmD/izVaRWhDsxHdIxkeLK6Qv2GzyUhYecSpLmqfMjgY/DHEkHccwh1kXlAlukWERqL3
-	 jvYs459CTSgTpdxiZvfTfx32ma4130wnEwRB2vn+d+h3G/xFBVMDQxS7jsEbbmCx+gWf+
-	 RnPH5ylExXPfDxFfYQZJ/2FGQrTkh+z+QoTf3+WT4+eJNFU0mcwEFLLuQ/uyxgKotEgMV
-	 QcSDtAGtZGEHT/q2RPm3VE+IwybwIB5BcpOqOPN8rj9S8eq5SRDYjL3eHjI7ZCQEsr01q
-	 +dEu5BY9nEIzQH5Vz74WIr1Nx9X/g5C01ve33+EeZOTyJfEpt6qTz5bM6PVecWm3MVQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b="Woph/rBR";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.201.39
-Received: from CH4PR04CU002.outbound.protection.outlook.com (mail-northcentralusazon11013039.outbound.protection.outlook.com [40.107.201.39])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.15
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795507441;
+	b=BWSa8vKAbYxCs498LJtvb/xcxCHMCpvK6TwkdkyvL3CSjpwPXbfF5o0GJTRq0ybR4IvN
+	 Csv4SkqGQnQdY/Dfe/zbD8xsTUyELszlQ54O7bGt1UP+cfOuyBJYd3vD3ykpfLFj1tR6w
+	 0qi50BRCpm4v/O1JllMP4+5X2KV0Gu5XORYyreVBwrhpKJpMojdlBv1xll3bB5/sIKj2I
+	 BzD0w0MQMUy+BeUHLxm32fDozh0EbBDtIJ8pdPWPHqAU6dUUwYjmM8SJARnHbaBMEJhBG
+	 5FryOJebDSSiX/4yUeFABy9WNnyjMUzFERu3+nIzQ+UMeQg0HyruuFLP1ydieVrUhPw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795507441;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:Organization;
+	bh=ty5cqjNyK85YYJMHAIHN7yEchHLHhVB7ktGsNKA60TE=;
+	b=b9L/49MJkOelWQJj4DP27vgC+oqd2XIow51bRTv6SmXuZwdXapNPWs4TRTLgSuRAkv0Z
+	 Hx1KQzx8S8msDnOLBD3HPG48SJW8K+rXh5uvFDIPxYOPJ5lr728kYRn9cAA4dztV4kNnk
+	 bVjfqjjsEOTVPYJ7oxnepQG74t+D5pPuuz3LSYr3mWdHTfL8Vxvq+A1dmOANwPMbk6qan
+	 Ku36uMt8x0IplGq6qMjSIUT3zbfIkSOilyxIl4L28lx4zxVq3iU5imGPSnmuo8n6zxgd4
+	 hs6+j1TjRU75vvgKfX+5BMG03AGtESda4mn18RCcn4HgIQ2vXDVvMiF9Mu1xxaBjY+g==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b="G1og/NtT";
+	arc=none smtp.remote-ip=192.198.163.15
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.15])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 83BD4606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 08:03:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 83BD4606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E3DFA606A31E;
+	Tue, 24 Nov 2026 08:04:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E3DFA606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=Woph/rBR
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=w6RwDo8OaHkesnhMJoceR9A08fNNUd/6TgxBSNcW3VV5VTQ+lmjBXpX1AKOfpTF/IX+KnvP4tEWcvW3WDSXVekNl1bU73gAMyPu/oIXzCAJTHYc+2bRau9lmQEfSLm126BjYAnGysf0vW0/shqczrVMWOTGEwHHQfQ05bMRZri4v/M59qFKxEQ014zCXI6Tb3h3pmtKRYxniGPL8BnBlbwmS8v44/H06KN6Q75VBYhHbw1YJJajQBoiRZHUB0suYGwjSv1uDxPBlukQJMqIkfPAKdaEMQiP7eUG2nzHrCHLS5xUs/2fEU01bq2kxCRHLdeY3AyOlnYEzSXTEV8zbNQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=B33fLrYpcCoGBkLiRRKN/GuENQqIUYW7DM+kFPkUoxk=;
- b=fPfzxcb6hz9pGIZv/M96ltafjkW3hrd8P020/815VnSyxtgwIJPqHuF58AyA8oQMBEuA4rPkXXMGz0rnUQoPJBAjZHj3QsUm8km1wkt4salSiQeZHIPUVhFSN0WpL2rJgNBDVUZxe4SwZowaQBVHp+vGqa6U+lYYogGB8SbNup0JJU5dXGa9En9ejZBokO7bEn+ma5a6CxHERwSaUzjIfP4Nt5AsLFNVlFzujvrauUtw1YPM0iBoOtrAXzKvaUFq8pWpl2NOhbtDY5KEsvnSAkqgIdw1psCzdK6fm+BO23LpVIHVxW/gwGjnwdwh+c8pF1uTzfsb1FeYArMh72mmpg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=B33fLrYpcCoGBkLiRRKN/GuENQqIUYW7DM+kFPkUoxk=;
- b=Woph/rBRAteB0Cv+xluU4IKFcXlJbCH37JIE6DXcZXhrjGpPJq+21/Js0LGOTv+A6FgXybznVsPNsOM3M1i+OpWkLC4FPUz1gMFxbhd1OmDnelMdMzhdB111y2FqA1HgxM5G28AHwByPFc4SIYKBYWlLqvQQgLzHMRZONz+OHQD5zwSTTRXvFMEs5DCZtB9S9zHymPTeJRaEtnzYfI9M4+PbPvgC7UaojhBzPrgEBEUXKjmQapQl+r3COScfY5ZkasjLl0cP9eQGGx6HK4Eiqu6Y4zi2UgawYYVEzuCvscSm7tj7cZNyCYVGsziMYMkux0myppl7yY761//NrO0AMA==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from BL1PR12MB5174.namprd12.prod.outlook.com (2603:10b6:208:31c::19)
- by DS0PR12MB7780.namprd12.prod.outlook.com (2603:10b6:8:152::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Tue, 24 Nov
- 2026 08:02:52 +0000
-Received: from BL1PR12MB5174.namprd12.prod.outlook.com
- ([fe80::58de:822b:868:96e9]) by BL1PR12MB5174.namprd12.prod.outlook.com
- ([fe80::58de:822b:868:96e9%6]) with mapi id 15.21.0639.012; Tue, 24 Nov 2026
- 08:02:52 +0000
-Date: Tue, 24 Nov 2026 09:02:48 +0100
-From: Andrea Righi <arighi@nvidia.com>
-To: Kuba Piecuch <jpiecuch@google.com>
-Cc: Tejun Heo <tj@kernel.org>, David Vernet <void@manifault.com>,
-	Changwoo Min <changwoo@igalia.com>, Ryan Newton <newton@meta.com>,
-	sched-ext@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/2] sched_ext: Take rcu_read_lock() explicitly in
- sub-cap kfuncs
-Message-ID: <awVEqEZdHReap399@gpd4>
-References: <20261123145927.577162-1-jpiecuch@google.com>
- <20261123145927.577162-3-jpiecuch@google.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261123145927.577162-3-jpiecuch@google.com>
-X-ClientProxiedBy: GV0P278CA0011.CHEP278.PROD.OUTLOOK.COM
- (2603:10a6:710:26::21) To BL1PR12MB5174.namprd12.prod.outlook.com
- (2603:10b6:208:31c::19)
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=G1og/NtT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795507441; x=1827043441;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=E5dgahambSGUcoN2iRad+Hmh4wYWLOf4NK+W8gtw7iA=;
+  b=G1og/NtTcFNlVXL+6KGE9HxJdQlPMuonYNj7ZRXdKMTBcEs3iLFwQvTH
+   3agVLZkTViTnXcvZLei9uxcbRntwuf/oMS6auTk5dTCGICdPOFFnRkKMA
+   OxLdAxJPWz4plXKA+wsq/EdjmW2O1eZRkNYTcjpnNze6Gb4Dp768to0Dl
+   Q8BYMkUSIGbjJguAHBN+OzC5IglRRusUEBiviOWADwtLteBVQLy9UfXko
+   VwyTKHtgLlGTblSHMm1+a+qo2TOzQfmrhVaUL1CMHyrcWyeHAV9VZpn8c
+   uHzkQu1oX6j4SA7hgO0znP+wAOIiiBvcpYuJAJcmKO9DfNb1+63hT9sWY
+   A==;
+X-CSE-ConnectionGUID: xy7FLl10TWGM7pMCvwbfHA==
+X-CSE-MsgGUID: x4tcaFTrT6Oj8loXSAHWRw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11975"; a="4318309"
+X-IronPort-AV: E=Sophos;i="6.27,230,1787036400"; 
+   d="scan'208";a="4318309"
+Received: from orviesa009.jf.intel.com ([10.64.159.149])
+  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 00:04:00 -0800
+X-CSE-ConnectionGUID: RGB8bA6GQIuyRMqK9wnJwA==
+X-CSE-MsgGUID: km51ox+9RkuhmelZ2iaWvg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,230,1787036400"; 
+   d="scan'208";a="11818785"
+Received: from hrotuna-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.245.125])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 00:03:57 -0800
+Date: Tue, 24 Nov 2026 10:03:54 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Gerard Marull-Paretas <gerard@teslabs.com>
+Cc: Jonathan Cameron <jic23@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>, Frank Li <Frank.li@nxp.com>,
+	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 2/4] iio: magnetometer: mmc5633: Reference the
+ datasheet for the SET/RESET wait
+Message-ID: <awVE6simCJqi52Dg@ashevche-desk.local>
+References: <20261123202616.17334-1-gerard@teslabs.com>
+ <20261123202616.17334-3-gerard@teslabs.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -98,124 +86,40 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL1PR12MB5174:EE_|DS0PR12MB7780:EE_
-X-MS-Office365-Filtering-Correlation-Id: a9d834d5-66aa-46b6-be9b-08df4a0156f5
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|1800799024|376014|366016|23010399003|6133799003|18002099003|22082099003|3023799007|261021123027099003|261021121427099003|261022105027099003|261022075727099003|261026140227099003|261026121527099003|261028144727099003|56012099006|4143699003|10067099003|261102123227099003|11063799006;
-X-Microsoft-Antispam-Message-Info:
-	+NiO4NKrifUKuzb1o/W4zzCn/s8ul4jjQb31VGpWw8YRJGk76h0xjNToBF4iYCJtA3s0wY+Mw/wRSSKZSKW3y9Im3hixtRFOg3JgGsf/xMzFiu8TvgLcFaIWYEFla/FdG2vHzsgCBpgS2zCBT9k8C0JyUBfsUXLxW1XUSKC89YHf1YIRsKfPcNwBm5xSZM3l/BnaIf4/CaI2RKp3cDeYjri3sll2C+LKxHr4fkRXzGLZ/WGLPiX6PBxKrXFCtLqQ33TrauaaPglv/PDLdP3/OO5oQE2WEMVjX4Ctacma8aMsKObUdMQzG0snkHnC5eSjSCM/+qapXpV15FNw+fsP+m79Juc72czLsHijGBfrrORF2FCJKdP4P7mjEVIr6ASdizUgRSsK9zgawTxqzrJJJGctigy2RF3yuLjyBmIDv9RY0hHyfPePpbOwb+ApHGSjPvZ60Q7I2JwuDphzp30Z5MhmxiNrvDHACkcFjVysIQHOlvw8VqaUA3VAjxYb5zfF16Kk1WghwNpOtW/NSwJGr/YiYr8Mj/voQeFcv49axtvENLfb7//kJCYdlAuMCxN6m2fjSqFVYIVj5pq2tDh38b53OeOUZkkWQywWLqoOFN+D4ezSq7/EZzzAmh1n1sg7KvQD8fAAvVrwfREbBGKULtWIC02WifxotiNP9csO6VE=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BL1PR12MB5174.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(23010399003)(6133799003)(18002099003)(22082099003)(3023799007)(261021123027099003)(261021121427099003)(261022105027099003)(261022075727099003)(261026140227099003)(261026121527099003)(261028144727099003)(56012099006)(4143699003)(10067099003)(261102123227099003)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?riWid1mAjeS2xaVbue3lTbc5pDVRuw9aietbXog8RYCbSQTYtyNjHmmboSfi?=
- =?us-ascii?Q?MGzBK4uppcTbWxXjQmD60cfNIT4lEtE9G6WqPRtbZMmAFSMZcIyxzLN5zdRz?=
- =?us-ascii?Q?RL3+4UiNXs8gHKSsK5JT9GawSGeDq5382riX3MNpxH5nGAdsahmgETaJ4OgG?=
- =?us-ascii?Q?VAk++FQQiG+ULDtKXL5eRLdpP25b+2z0QrxzgRc9KoBg3sj8qTefjtFlwPWi?=
- =?us-ascii?Q?psyNKeRxdRhJpvJfCSth1emRpF6YbGzYJNeYtLgEV72tHcTZIblUvpDtPOs4?=
- =?us-ascii?Q?l1qJXsHYbSOB1FGDw9muu5Yg4JexavaO0oVWdQEJ2IMabUliJQ5VGEky7hDT?=
- =?us-ascii?Q?F+I86llAXY9aHAmIO1Sfu8k+asrNL9wfRA9006mvXHxXPi0d/Z+tlYTaozuD?=
- =?us-ascii?Q?+T0dSVAXbXlN7KAwmqlqFqQeDBVchsGYJcO15RocqZELO6+oNpl4kvv/4clg?=
- =?us-ascii?Q?yylDQTBgY6W950bXyQutGy2nXv9ndy+0bSHk3+AnCK5UzYEi6p/KuEhKclAl?=
- =?us-ascii?Q?Mu2vJWloNXJCelIAO1GMdJ1UZD418I8S+3nsm+mJgkqmIK68BwipdmY/vKL2?=
- =?us-ascii?Q?krcUg4C09D2Lpu6xxxME98Jd/xuA1IEH2kPrff+sH01gdEFGESIJPDwx4B6V?=
- =?us-ascii?Q?FvdjMZ5bOlbPX9tsQ731GlYSJz7rXDZi+LVmwqFxb7cskOoVt5An23SI12lD?=
- =?us-ascii?Q?Ix796mhXU19tRRzMVL2cNvopw1f25IdG6mFUeMd8z/zFRRG8CKfxqV9c9xOc?=
- =?us-ascii?Q?QQxCHFmdt9/T66dZpuknkfDXau3mpWdYG9Z8KI+JTIHrefnvFo6+X6xC/j5I?=
- =?us-ascii?Q?DtWMxUQw/utD9+XHYv5e2Wl+PjvazNJJxHQsl99u4rjG0i6RXo8o9gl5qSdn?=
- =?us-ascii?Q?wkE/7+zL6j75roL9JM473EDCH0VQg4+aQm/KWhjEyOzonjZiOqLWgQ94mSqW?=
- =?us-ascii?Q?b/dIaOA8RaDiHbC7vOjXB/o95DTSPl0a+2PPCBDhFgO9hfddL8FE2aoKqb+4?=
- =?us-ascii?Q?jmFhI7eljs+VLwapJKF6PctgqEdeWTb9LKhiAGyc77iW65pBtkQZVVPyLw0z?=
- =?us-ascii?Q?OHsMBIH1yxI5SOQiSIBgYVNLI8CimGjr3PC4oEfphpkI2JYCLO2QHDZh+tZk?=
- =?us-ascii?Q?pGoNgmQrm2uiX0O8tUpoRxBrAXTL0wwyzhFoLrXc1K77ss6UakNcAK1Jo8BI?=
- =?us-ascii?Q?iqHkWbtPRO6F52YEt7uySzb5vT6CdhIXDUTPOLvdxNlcLi4o3cz/YIf2O4nI?=
- =?us-ascii?Q?2YUc0xAJlhBpYAyV0wuDmjKBoH9+usMhTjVZeoRztBTIJMd15axzQZ80meAU?=
- =?us-ascii?Q?bJ1LdIYzq3pQwhWY/3466BN0GH6YZYxnkoQAPz5M8WNRqG5eMhEC3ifZYpRY?=
- =?us-ascii?Q?E6O6iEiE9deOzfZvBl99m8yH5VJSP5wA7t5VykII3TpzO7RIeTyhokJ4H87r?=
- =?us-ascii?Q?9vM9jJFC51enOJ0YMa95+YNNgMYtZXvb8Z/85aq/+EDOKO4Xbp2iSLOvHlEZ?=
- =?us-ascii?Q?klodWtyzN6Fw3HprzEtQ+JYR43DlIVduo3SUR0WsntXmAi7boPEtEcnQJkxP?=
- =?us-ascii?Q?V7ljV7NvUxA8EmVWgYvo1Z6cbBqKZ9PEGD4p+gdtuizwJHN/4wsOfKS4zpT5?=
- =?us-ascii?Q?nkwy97s2ku0bqRFAmuBqNgATDh2S/w+6xJGXdHjnx/j1pHYbOSE3vTaeXAnk?=
- =?us-ascii?Q?m4Ph06zbntHjqKnXVAc37g5r1O2oiNrSa9894/4sx/aDyLqR?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a9d834d5-66aa-46b6-be9b-08df4a0156f5
-X-MS-Exchange-CrossTenant-AuthSource: BL1PR12MB5174.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 08:02:52.5624
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: br3VS8csJP71l5B0jLm4Z2QEuA98G9brl2bdQlJrgZtr10KKE0RZ1/Ium1Qu+uruUzE0W8aY4t4+9uKXtXygng==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB7780
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261123202616.17334-3-gerard@teslabs.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 
-Hi Kuba,
+On Mon, Nov 23, 2026 at 09:26:13PM +0100, Gerard Marull-Paretas wrote:
+> The 1 ms wait after a SET or RESET is tSR in the Operating Timing Diagram
+> section of both datasheets. Describe it where it is defined, with the
+> revision and page of each datasheet, in place of the comment at its use
+> that pointed at the datasheet without either.
 
-On Mon, Nov 23, 2026 at 03:00:38PM +0000, Kuba Piecuch wrote:
-> scx_bpf_sub_grant(), scx_bpf_sub_revoke() and scx_bpf_sub_caps() look up
-> scheds via scx_prog_sched() and scx_find_sub_sched(), read the cid
-> tables and, in revoke, walk ->children while holding only
-> guard(irqsave)(). They can be called without rcu_read_lock(), e.g. from
-> sleepable ops or bpf_timer callbacks.
-> 
-> This works only because IRQs are disabled and none of the RCU checks on
-> these paths require rcu_read_lock_held(). A plain rcu_dereference()
-> added to these paths would trigger a lockdep splat when called without
-> rcu_read_lock().
-> 
-> Take guard(rcu)() as scx_bpf_sub_dispatch() and scx_bpf_sub_kill_bstr()
-> already do. No functional change.
+...
 
-I'd drop this patch. The IRQ-disabled region already provides the
-required lifetime protection and the existing checks recognize it.
+> +/*
+> + * tSR, minimum time between SET or RESET and other operations, per MMC5603NJ
+> + * datasheet (Rev. B, page 15) and MMC5633NJL datasheet (Rev. A, page 23),
+> + * Operating Timing Diagram section.
+> + */
 
-If a future change introduces another dereference here, it should use
-the check appropriate to that protection, such as rcu_dereference_all().
+Thanks, much better, but I would amend a formatting style a bit
 
-I think we don't want to introduce additional RCU read-side bookkeeping
-on every call to accommodate that possibility.
+/*
+ * tSR, minimum time between SET or RESET and other operations, per
+ * Operating Timing Diagram section in
+ * - MMC5603NJ datasheet (Rev. B, page 15)
+ * - MMC5633NJL datasheet (Rev. A, page 23)
+ */
 
-Thanks,
--Andrea
+With that,
+Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
 
-> 
-> Signed-off-by: Kuba Piecuch <jpiecuch@google.com>
-> ---
->  kernel/sched/ext/sub.c | 3 +++
->  1 file changed, 3 insertions(+)
-> 
-> diff --git a/kernel/sched/ext/sub.c b/kernel/sched/ext/sub.c
-> index d2a20114eaa2..45aaa333f9c2 100644
-> --- a/kernel/sched/ext/sub.c
-> +++ b/kernel/sched/ext/sub.c
-> @@ -2870,6 +2870,7 @@ __bpf_kfunc s32 scx_bpf_sub_grant(u64 cgroup_id, u64 caps,
->  	LIST_HEAD(to_deliver);
->  	s32 si, ret;
->  
-> +	guard(rcu)();
->  	guard(irqsave)();
->  
->  	ret = sub_cap_preamble(cgroup_id, caps, aux, &parent, &child);
-> @@ -2999,6 +3000,7 @@ __bpf_kfunc void scx_bpf_sub_revoke(u64 cgroup_id, u64 caps,
->  	LIST_HEAD(to_deliver);
->  	s32 si, ret;
->  
-> +	guard(rcu)();
->  	guard(irqsave)();
->  
->  	if (sub_cap_preamble(cgroup_id, caps, aux, &parent, &child))
-> @@ -3092,6 +3094,7 @@ __bpf_kfunc s32 scx_bpf_sub_caps(u64 cgroup_id, u64 caps, struct scx_cmask *out_
->  	struct scx_pshard **pshard;
->  	s32 si, ret;
->  
-> +	guard(rcu)();
->  	guard(irqsave)();
->  
->  	sch = scx_prog_sched(aux);
-> -- 
-> 2.56.1.750.gf70dc682cf-goog
-> 
-> 
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
