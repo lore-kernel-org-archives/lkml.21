@@ -1,72 +1,58 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795522639;
-	b=L9VRodQg3u1E0mYTZoeEhvecMTAwX5r2BjKjFKyLzx8Ev56dmRSJ/OUuxV3GxwXNN9aV
-	 9gWXG9JZ6Rbe6nGBhbPOU9mpA0pUwsonFxi3GIrF4DE+n/szuwxZd5KNWfQVKgs8nQbOh
-	 VQtkaHvRPqe/4gDRT1lOYfbIlsHVdypvNig/h1TR1h9zp9cEHY/PqvKjuMLkfQvoi/JGU
-	 +rRAkyBVCUuKuubaO7SJdbeOh9fP4SacMgJ3p/k/bM4WqEU85+x2Y6fElC8LeS0vVcGRx
-	 +PsDTAcUtTwmsrSeopIBUMIu5+LkSXoTQmX7fRl4IkGM5zj/XfdaV8L9pgiXfYNjAlA==
+	t=1795522644;
+	b=cyVE8qJ3E14+mKmRBMqs3OX9u5IQ2gR69HZzuvjXitq7uiW77+e8en0EcUiuPGrojYhf
+	 yOGNA3Y7aSq+fMaDdn8svmQpGe6jPIzyArbulu7cMlgrPcK7DkYRawYaWaQt8IIyM7AVZ
+	 uho0YTX/kXowUtppW9R0Kik7E3iea88i29Ggl5ffdg4biv9pVNBVs1ERaLj6PSfsoXrf0
+	 5Y7yEvDMX17Zd0Obex1ZPNhzFv9mwzFw6CTjWwzncj+8GdbRIaj+uJM2DmuSrHTwIOEB+
+	 ZGVkYQJDBGr6E1zTBgop3EFNSbrF8O/z1qIRjlq8il6rkqrbErCAQMABiic0EIbYpXQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795522639;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795522644;
 	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
 	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=K4EnFxFC4PDvd8ivvt8rNRDO8iCMImH8zv+uN9ufduc=;
-	b=1PRyWCk4R5/SFx/SgPoBIIzFck0geRBldKca6ukbOOV3k7BTGadVMtTmxmpBbo3ntmRl
-	 RFeBWUcgn7AR/8GvzRtMeyBC/pOkVCeddMTFqxsEVJgw26JFpe5rKl/kt140tset+8iiW
-	 ZFyPsYYYAtdKUf7qdt1qfcMNz2PXEJAjj4E+FdEdwQiVjOd0l8OqrvctCRl+PF1m4xouK
-	 OBsDfszLn2o3exj7D4KgjtfVGhOxvpkn/i5PoW3CD03i8QCtgCy2lAR+pKkWecx8JlLM/
-	 TyDgc1CeZW0v8dojzBWv7pRklOISIH8eTzqjWmv1hcXRg2WWwYF86/r/YqiP/8c0cKw==
+	bh=Ck6kiCUJ2Nnh4S9Lexj7ozDGtWc6otailWEPqpSNlOA=;
+	b=1cP+DtCfSZiep6GQYn2aNWwHqfX8dsSPGacJQ2reNECdJWYs5dY8M0qcFaJ/OP9LD5TJ
+	 tz/gXHyBXjjsH9dUY+qyofKIE0ebWeChrp6Wgr6SUx3caNkMqfnhdxbuTf5Hc9pn+YHbT
+	 bwCKWtxiIqyyK/yzQQbPcJIxNfot7yBL8G2zY/ANuZXI5NtCU25FmULRBB7zj+R9kEJdF
+	 a28Ev1KHWolgjs3yJJANJrd5q/1pg0SrAW/3fLQqUupj5YE54ABuDPG1671wrSUiuaDmH
+	 0XQ0mi9QW+cHUBKZJZ1KZcceqnEQo2WAdEeRyn/kNWR3HhU54o/jt614bMbb+dw7jWw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WnAoqbFz;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=J9HZe9Ar;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 5DDE6606A31E;
-	Tue, 24 Nov 2026 12:17:19 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CBF0A606A31E;
+	Tue, 24 Nov 2026 12:17:24 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WnAoqbFz
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 710EC1F000C0;
-	Tue, 24 Nov 2026 12:17:18 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=J9HZe9Ar
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C369D1F000D0;
+	Tue, 24 Nov 2026 12:17:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795522639;
-	bh=K4EnFxFC4PDvd8ivvt8rNRDO8iCMImH8zv+uN9ufduc=;
+	s=k20260515; t=1795522644;
+	bh=Ck6kiCUJ2Nnh4S9Lexj7ozDGtWc6otailWEPqpSNlOA=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=WnAoqbFz+YLrbfP0Zrozx4Qcqp/gIvbX9LIVPuj0g1isdPOWXose5KpPxYG3Sepkz
-	 sOs3C1dEV+1QhmmeNn/q9ajSZDth6iQrx7JyHZsMTVQJy9uzZTQ+dtEOKUkqoj6gTu
-	 x8A3b1v4Uo3OB/w86CpjXA+bQq4ztCmYwCMIQTu44qYx9MhmP07L3XPJVFyeNRBHoM
-	 89FlYjbhO3kBLdduuI//QsVaHtDXfal7MGtF2pvKzN1eNwTE2C5r9V+KzTOSFjHrtO
-	 1yA3zvtoBBAY8VJ/i2L4AxHY9JO+A0cL8aOSYPcEe7XaUGvh75sqG38bJThbpSIYi0
-	 V8CdALnbCGFlg==
-Date: Tue, 24 Nov 2026 14:17:15 +0200
-From: Jarkko Sakkinen <jarkko@kernel.org>
-To: keyrings@vger.kernel.org
-Cc: dm-devel@lists.linux.dev, linux-crypto@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-integrity@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-security-module@vger.kernel.org,
-	Alasdair Kergon <agk@redhat.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Benjamin Marzinski <bmarzins@redhat.com>,
-	David Howells <dhowells@redhat.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	David Woodhouse <dwmw2@infradead.org>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Ignat Korchagin <ignat@linux.win>,
-	James Bottomley <James.Bottomley@hansenpartnership.com>,
-	James Morris <jmorris@namei.org>, Jason Gunthorpe <jgg@ziepe.ca>,
-	Jonathan Corbet <corbet@lwn.net>, Lukas Wunner <lukas@wunner.de>,
-	Mike Snitzer <snitzer@kernel.org>,
-	Mikulas Patocka <mpatocka@redhat.com>,
-	Mimi Zohar <zohar@linux.ibm.com>, Paul Moore <paul@paul-moore.com>,
-	Peter Huewe <peterhuewe@gmx.de>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	"Serge E. Hallyn" <serge@hallyn.com>,
-	Shuah Khan <skhan@linuxfoundation.org>
-Subject: Re: [PATCH 6/9] KEYS: Factor out KEYCTL_PKEY
-Message-ID: <awWASz8TBV-tFh93@kernel.org>
-References: <20261124120044.1481752-1-jarkko@kernel.org>
- <20261124120044.1481752-7-jarkko@kernel.org>
+	b=J9HZe9ArwAdfTWLIwlK9s0zK1LcZwdcKQ4gsPQwYmKB9MTEZnzoAcJkBDQG8yUWfr
+	 j9Bszdn+JpK5gIhYJNUlNaIedgsdA7F+G3cQrSy4jTjVHhIjNPpqTIN8MkLCBW7Lbb
+	 C18yk3Sw6KZt2kRtXRiLBz6dPDzA2A7/9h9sZYp3/3XX4ZG8Mse7Eg6q87crDIGTZx
+	 YZqsYb1CCQPsW+bJsgmB+9R6qZ6uYIeyqj7fjDCDauWDTGQNL8PvkKZ02adzrP0dPM
+	 G42Q/0dpxz4cnGnBNzIvK3XYeTFxrSUFwIPTLKg+rtVP50w+oowInrBhFuBTCHGSxI
+	 wRhTmi6GtBAsQ==
+Date: Tue, 24 Nov 2026 12:17:21 +0000
+From: Yixun Lan <dlan@kernel.org>
+To: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/5] riscv: dts: spacemit: k3-com260-ifx: Drop wrong SD
+ card vmmc-supply
+Message-ID: <20261124121721-GKK100890@kernel.org>
+References: <20261105-k3-com260-module-sd-nor-mac-v1-0-138b39d74602@linux.spacemit.com>
+ <20261105-k3-com260-module-sd-nor-mac-v1-1-138b39d74602@linux.spacemit.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -76,21 +62,46 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20261124120044.1481752-7-jarkko@kernel.org>
+In-Reply-To: <20261105-k3-com260-module-sd-nor-mac-v1-1-138b39d74602@linux.spacemit.com>
 
-On Tue, Nov 24, 2026 at 02:00:41PM +0200, Jarkko Sakkinen wrote:
-> Factor out CONFIG_KEYCTL_PKEY from CONFIG_ASYMMETRIC_KEY_TYPE so key
-> types other than asymmetric can select keyctl public-key operations
-> without pulling in crypto/asymmetric_keys/.
+
+On 08:23 Thu 05 Nov     , Troy Mitchell wrote:
+> The SD card VDD on the K3 CoM260 module comes from a fixed, always-on
+> 3.3 V rail that software cannot control. ALDO4 of the P1 PMIC does not
+> supply the card, so referencing it as vmmc-supply describes the wrong
+> power wiring.
 > 
-> Signed-off-by: Jarkko Sakkinen <jarkko@kernel.org>
+> Drop the vmmc-supply property. It is optional for a card powered by a
+> fixed supply, and the SDHCI core then uses the voltages advertised by
+> the controller.
+> 
+> Fixes: 055044260e7a ("riscv: dts: spacemit: k3: Enable SD card support")
+> Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
 
-This is really the only "innovation" in the new series. Everything else
-follows from this change.
+Reviewed-by: Yixun Lan <dlan@kernel.org>
 
-E.g., the very last patch is relocation for the most part, when compared
-to the previous series.
+> ---
+>  arch/riscv/boot/dts/spacemit/k3-com260-ifx.dts | 1 -
+>  1 file changed, 1 deletion(-)
+> 
+> diff --git a/arch/riscv/boot/dts/spacemit/k3-com260-ifx.dts b/arch/riscv/boot/dts/spacemit/k3-com260-ifx.dts
+> index fadcf28389be..6e295bc6f196 100644
+> --- a/arch/riscv/boot/dts/spacemit/k3-com260-ifx.dts
+> +++ b/arch/riscv/boot/dts/spacemit/k3-com260-ifx.dts
+> @@ -122,7 +122,6 @@ &sdhci0 {
+>  	no-sdio;
+>  	disable-wp;
+>  	cap-sd-highspeed;
+> -	vmmc-supply = <&aldo4>;
+>  	vqmmc-supply = <&aldo1>;
+>  	sd-uhs-sdr25;
+>  	sd-uhs-sdr50;
+> 
+> -- 
+> 2.56.0
+> 
 
-Br, Jarkko
+-- 
+Yixun Lan (dlan)
