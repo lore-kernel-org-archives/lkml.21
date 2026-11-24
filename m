@@ -1,88 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.44
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795540291;
-	b=siPntfhzsACylUqw0u9ZUThSzgEZT19vyfmkXHzwZxtjqSeGg6JUXBiNzvcB4p3nhG67
-	 XTDCYfKPLlSgvFnNLisboYbxT6PhDdGy0TrvmzRw7f8aZkXxyLxxwHL5u2sALStUU/u5M
-	 RF+Jb29Mqew30GBI8oFXONEMscU8aI22WtjA+WeVucWcNe1F1DdXtLqz44tUP4JSIC2gw
-	 NF2L393GbHAgnZxNlINLHAcN6Kln1NknNedQGvMfUtfbiST0wIxwDFi9AZdW6NGYkUkIK
-	 5QjaY2GCyJ7c96i0YzBXN5JaYNJRb0VnUcss7xlmCTKjlrxQYbOjXNYSSzmJ7sMlurA==
+	b=KnCywj08WO8sLMNbFWGOaiNj1p3ASSkGkD/Dklj/9VFEptAkOZaSWqGkVwjHzGLWeeGt
+	 CWeOeWN5hAo+AooP8gDP1dNoonJq2djb8XhKYzvcbQKxRt76Kw61C0SfUROjXbBkjyeIi
+	 IWGVX5jWSLGIxKNc8NKtIP7gC2QwRVkAMFqiQsVHADvtx4OvP2oG50vmQZDszYGoj1gSA
+	 Zah6OzsQ9WTo6mAd/GnTgv3BcT0eahdotWv9V8fVZDeQgKAx5y5LAAHF8OWUifUFDFTIO
+	 GT6q+ZM5tbysE64MNCCQgCYtnW/XHCbU91Kf0dUkwk1Z1CZxsKIDRcZFJt/JyTddDjA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795540291;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
-	bh=gnWF9t6Ikmgl21AYsFaDMu1qgmT/r8tnqfNnG1PTC8E=;
-	b=3GyOI7QIYhFPLUVzDJWtepSbd1/K6ke26gD6P2sUJ9vidxcO4uOZbB65hASA1ddCKll7
-	 Y7aQIpWDK5iX8yJatVEbNu0ZKXJN+Oxlwk93L2pfclYcCoB4oddDqKHavxaov+/0uBwiY
-	 72eZYpbBS+aBwL/imRNJI5zF9/SUaPxlDbw4D4GWJwZfu/5w8EGVCD6CvrkhFEBF4GPJH
-	 Rak5mI/9RFobFXzvKlMp8goFo1em6WSfBIAqd+P6xqhqdiwPcHiwjps0w5ytjQrxaSxbo
-	 wK7E4oHrfhz3pqSuDZ9K0yeYwEuII1IQ24UrizdD3jP7ZFK2Hh0ozIG+6Wh4DxQ3OaA==
+	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=QldWE4w0TVdbt2gDvBD2hdwiIfOJOYra+WZwlAsjtw8=;
+	b=QydzaNmJi6HVoGCnVtNCmwx0o8k3vLDa69R/x3zNnaB+r6MhqGj5mysyvMdqXMGHBink
+	 bp0lOP1wOvpRxQOP1yrl2tuIlGkVeNLZByUA0S/ezgRbSyKuDxqFIVswWain0QuyzBrbx
+	 nTIW7IhmUynW6CRY2tk/VWEn92XciBzlpiQsUyCpe8boNRhXtynlz5cBHKil2vk8fzZTY
+	 rJnzayjLRsP9qMLJXy2aUtqIFqKPGeZX9CavWkUEnweOw/ebh/Fh7iFMqBgQ3AmgNV/1Y
+	 vSdwTZsoznrOeO4eWXZt4ZUcYpB6zzwu+xA3BuHykiJXE5wDIU75Q1NsujLhDrg6DfQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uwT6ARen;
-	arc=none smtp.remote-ip=209.85.210.44
-Received: from mail-ot1-f44.google.com (mail-ot1-f44.google.com [209.85.210.44])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FAWDg5Vd;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BBC80606A31E
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 17:11:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BBC80606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E7EDD606A6B9;
+	Tue, 24 Nov 2026 17:11:30 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uwT6ARen
-Received: by mail-ot1-f44.google.com with SMTP id 46e09a7af769-862b090e41eso2532023a34.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 09:11:30 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795540290; x=1796145090; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=gnWF9t6Ikmgl21AYsFaDMu1qgmT/r8tnqfNnG1PTC8E=;
-        b=uwT6ARenn0C576iVXiEC3I8K1VLP1hiSiBsK95HubxUIJCLGG/LQR6hgTnThzGDrVT
-         AaXzCM+bAobpKun8qIgCsKt3Vi2wgr37FP+NnmDwdH8WI1T/549ub8x05pRzglj8ECQK
-         b/yYwj6mPNmbDnKBE0zDLvPW1gVRCHF9wltSxlMv1FEs0k+3fwxOGbgBQomF7YHF4Vpr
-         nOUDeZrb2j4aH8pqgfuyDTSVutozOMSOz1hNzXw5biFSi+olenGaSWibGbUOiSXQ6kLN
-         syhmADK4zCm0EmUiVwlPlDviICDvtudy2SGi0MHFf1Xft7twGD8Ly3TPemtOe1KG0CxZ
-         bZ5Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795540290; x=1796145090;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=gnWF9t6Ikmgl21AYsFaDMu1qgmT/r8tnqfNnG1PTC8E=;
-        b=dC7DDjBvFHwDic3XW0GVzklkKiF4DSuo1w6AeodqKf824DkhZ+6Qy0c3ygtAkzNVBS
-         2d9qQRr3/QzIXwt5dFACVeMDJKIlWwRx1q67sA9R7j+Ri4FNJJF8Xv23AQ8pZ4uFZnvD
-         i7mTlN5Tb0zIl+fywfsx873KS7eO7K04q1YJc4fGAUEoq/gTPTQu83aLqrquuBfRguf7
-         L6wMalTuNbDOvmut2wS5rdPLoa7stNi9YbG17VuoL4DDb7gO3LhEBrX5wGbUP20yfiPT
-         O7UVSxk14LXPZ8cUKckej8otcBuuUQA9VBpkRdVW0JB4oP8OarGCOtX2Q1ekLtRO/RVQ
-         k+PQ==
-X-Forwarded-Encrypted: i=1; AL+hErGB6k/++CAw/um+8Q6/3aAopD+9c/oW/knSqP6ofnLFXRlkYDoZ2+WSzp56Q7oibO4k6eMG38F74gowZFA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8DnHyHKzRqFTahnPsOpWKere1zzo9+3cx9QMJp3aaoSHJgD7VI
-	dunCCyzeXCyT3j/OfziOdPYu2MTk5bwlT8rU9AbkE/bw1rqK1eSPg35Q
-X-Gm-Gg: AZFdTZeH6UtoD9dn/t5oinfveOTGHyjKJ+mrCzvlDcWdAUUXAsy2O6K1B9CDm1fdsPc
-	/K11RlGB0yPWXNVvEwJ2k1GJsQSoG1lJoBNqG9pnp2u+slqPdixRRoWllmotnj4X4QnoCa5Do5W
-	aLnzWPgiAb3q235aCAhgh9nhhBtzTn+1AmKU9Tge/EG9sflPniV0wzylYTRwguvcUA+SXOXiFDP
-	TPeZcsXBFxkV1KIds4TyaxVOjdWsJ8QEw9c9qIk9S6GHRM3SOPsfelN0MlXNajLlT4AOVLz8eaV
-	vefUInzBTdcXH8gQqYb9Il63R0frSngcXf3nX5QYnoFxzxTMlnC5DrQOT+qoCHyibHzzP18Xyv7
-	81Oq8iLnCbAzf5giUYxMafnVrQWn8lKOueQf0ik97o2II/66rynvgDxpcHnobtxriHEhIVOeEML
-	4ynpNf74In08X7yWiV99a+bzRVrCAFciyuL4UIFPp0XCm5CtMguJCjg/uBb2sD/Q58BtN/WZyoI
-	NWVoB+Vkhom3ZXrl9nvgetJhfiYE4p0E3EC5Ea21Xs3Z1rpkLOgCfHJGcFIIrZWIkol70Jezdec
-	vC0+9SjNSuqNM+gnU6MlJUkTmtDIJQ==
-X-Received: by 2002:a05:6830:6512:b0:862:acfe:9281 with SMTP id 46e09a7af769-86315979898mr17123473a34.15.1795540289528;
-        Tue, 24 Nov 2026 09:11:29 -0800 (PST)
-Received: from [127.0.1.1] ([150.117.174.129])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-863168dd6besm11131021a34.11.2026.11.24.09.11.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 09:11:29 -0800 (PST)
-From: Gary Wang <is0124@gmail.com>
-Date: Wed, 25 Nov 2026 01:10:39 +0800
-Subject: [PATCH v2 5/5] pinctrl: upboard: add device id INTC1055 & INTC1057
- & INTC105E based UP boards support
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FAWDg5Vd
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EA0571F00A01;
+	Tue, 24 Nov 2026 17:11:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795540290;
+	bh=QldWE4w0TVdbt2gDvBD2hdwiIfOJOYra+WZwlAsjtw8=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=FAWDg5VdpmSx8rQ4lXebaV7SUMn+/W07Xst8eBB+3X2tL8rSRKmUXHCIMftwFSPK1
+	 goeF2p68x4zrFVqN7xqOVkVerTS4zXG+4wTxWabsWpEHq49685dHDsGi1uixY9oNEF
+	 yw1zPDt3FpEF4KEpItK8x54ojy5MOVI2n3NR48J8lK+HvY3W2yz5ioRrupk/rL/gsw
+	 JnWTskNHr9Jv8Q4/CtMgZye6VMx5Qdrm165YtlCl9x7rSsx1acUmvoIxrlN3N+Jtxs
+	 QVVD0egk+QCVnvxAMlVDhkBS8CqDmQHE2ldeU1c9PlzXCKOKpXgrqszLMrksKwsM2j
+	 jQ/sEhDIaDEQA==
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Date: Tue, 24 Nov 2026 17:08:01 +0000
+Subject: [PATCH v2 09/11] apparmor: convert VMA flag tests to use
+ vma_flags_t
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,155 +55,100 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261125-upboard-pinctrl-add-intc1057-intc105e-support-v2-5-c8079f8f569f@gmail.com>
-References: <20261125-upboard-pinctrl-add-intc1057-intc105e-support-v2-0-c8079f8f569f@gmail.com>
-In-Reply-To: <20261125-upboard-pinctrl-add-intc1057-intc105e-support-v2-0-c8079f8f569f@gmail.com>
-To: Mika Westerberg <mika.westerberg@linux.intel.com>, 
- Andy Shevchenko <andy@kernel.org>, Linus Walleij <linusw@kernel.org>, 
- Thomas Richard <thomas.richard@bootlin.com>, 
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: Daniele Cleri <danielecleri@aaeon.eu>, 
- JunYingLai <junyinglai@aaeon.com.tw>, Louis Chen <louischen@aaeon.com.tw>, 
- BillyChou <BillyChou@aaeon.com.tw>, linux-gpio@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Gary Wang <is0124@gmail.com>
-X-Mailer: b4 0.13.0
+Message-Id: <20261124-late-2026-vma-flags-v2-9-bf3fade93064@kernel.org>
+References: <20261124-late-2026-vma-flags-v2-0-bf3fade93064@kernel.org>
+In-Reply-To: <20261124-late-2026-vma-flags-v2-0-bf3fade93064@kernel.org>
+To: Andrew Morton <akpm@linux-foundation.org>, 
+ David Hildenbrand <david@kernel.org>, Jason Gunthorpe <jgg@ziepe.ca>, 
+ John Hubbard <jhubbard@nvidia.com>, Peter Xu <peterx@redhat.com>, 
+ "Matthew Wilcox (Oracle)" <willy@infradead.org>, Jan Kara <jack@suse.cz>, 
+ Rik van Riel <riel@surriel.com>, "Liam R. Howlett" <liam@infradead.org>, 
+ Vlastimil Babka <vbabka@kernel.org>, Harry Yoo <harry@kernel.org>, 
+ Jann Horn <jannh@google.com>, Lance Yang <lance.yang@linux.dev>, 
+ Zi Yan <ziy@nvidia.com>, Matthew Brost <matthew.brost@intel.com>, 
+ Joshua Hahn <joshua.hahnjy@gmail.com>, Byungchul Park <byungchul@sk.com>, 
+ Gregory Price <gourry@gourry.net>, 
+ Ying Huang <ying.huang@linux.alibaba.com>, 
+ Alistair Popple <apopple@nvidia.com>, 
+ Baolin Wang <baolin.wang@linux.alibaba.com>, 
+ Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>, 
+ Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>, 
+ Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>, 
+ Xu Xin <xu.xin@linux.dev>, Chengming Zhou <chengming.zhou@linux.dev>, 
+ Madhavan Srinivasan <maddy@linux.ibm.com>, 
+ Nicholas Piggin <npiggin@gmail.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
+ "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>, 
+ Shrikanth Hegde <sshegde@linux.ibm.com>, Pedro Falcato <pfalcato@suse.de>, 
+ Kairui Song <kasong@tencent.com>, Qi Zheng <qi.zheng@linux.dev>, 
+ Shakeel Butt <shakeel.butt@linux.dev>, 
+ Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>, 
+ Wei Xu <weixugc@google.com>, Baoquan He <baoquan.he@linux.dev>, 
+ Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
+ Michal Hocko <mhocko@suse.com>, Leon Romanovsky <leon@kernel.org>, 
+ SJ Park <sj@kernel.org>, Rakie Kim <rakie.kim@sk.com>, 
+ David Rientjes <rientjes@google.com>, 
+ Alexander Viro <viro@zeniv.linux.org.uk>, 
+ Christian Brauner <brauner@kernel.org>, 
+ Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+ Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
+ Adrian Hunter <adrian.hunter@intel.com>, 
+ James Clark <james.clark@linaro.org>, 
+ Masami Hiramatsu <mhiramat@kernel.org>, Oleg Nesterov <oleg@redhat.com>, 
+ John Johansen <john.johansen@canonical.com>, 
+ Georgia Garcia <georgia.garcia@canonical.com>, 
+ Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>, 
+ "Serge E. Hallyn" <serge@hallyn.com>, Mimi Zohar <zohar@linux.ibm.com>, 
+ Roberto Sassu <roberto.sassu@huawei.com>, 
+ Dmitry Kasatkin <dmitry.kasatkin@gmail.com>, 
+ Eric Snowberg <eric.snowberg@oracle.com>, Fan Wu <wufan@kernel.org>, 
+ Stephen Smalley <stephen.smalley.work@gmail.com>, 
+ =?utf-8?q?Ondrej_Mosn=C3=A1=C4=8Dek?= <omosnacek@gmail.com>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
+ linux-fsdevel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+ kvm@vger.kernel.org, damon@lists.linux.dev, 
+ linux-trace-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, 
+ apparmor@lists.ubuntu.com, linux-security-module@vger.kernel.org, 
+ linux-integrity@vger.kernel.org, selinux@vger.kernel.org, 
+ "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=852; i=ljs@kernel.org;
+ h=from:subject:message-id; bh=Fq9T8hwtRsQLwO0WpGmIyYpdIofCGHG7KaF/EUohnCo=;
+ b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLJZj+SVzZ+tY/pliVFg7/PJFXOrpYolpPnfcfUpLJ9Xq
+ Hrm/5JjHaUsDGJcDLJiiizPv4jvDxIJm9d5wd8NZg4rE8gQBi5OAZjIlT2MDH/Ubjy1mjJp2/eW
+ Zf+bX7xfEBQ0kWFv7ptlrTMschv3y6YxMtyfM+G4ub3U1Evcyzr+7Ar/vXfCg2O9KeJfXsm9Cjp
+ dw8EKAA==
+X-Developer-Key: i=ljs@kernel.org; a=openpgp;
+ fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
 
-Add support "UP Xtreme ARL","UP Xtreme i14","UP Squared Pro 7000",
-"UP Squared i12","UP 7000" and I2C/PWM/UART/SPI pins mapping data.
+Replace use of the legacy vm_flags_t flags with vma_flags_t values in the
+AppArmor mprotect LSM hook.
 
-Signed-off-by: Gary Wang <is0124@gmail.com>
+No functional change intended.
+
+Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+Reviewed-by: Lance Yang <lance.yang@linux.dev>
 ---
- drivers/pinctrl/pinctrl-upboard.c | 102 ++++++++++++++++++++++++++++++++++++--
- 1 file changed, 97 insertions(+), 5 deletions(-)
+ security/apparmor/lsm.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/pinctrl/pinctrl-upboard.c b/drivers/pinctrl/pinctrl-upboard.c
-index 090316349331..6b53d6fd5996 100644
---- a/drivers/pinctrl/pinctrl-upboard.c
-+++ b/drivers/pinctrl/pinctrl-upboard.c
-@@ -912,7 +912,7 @@ static const struct upboard_pinctrl_map upboard_pinctrl_map_apl01 = {
- 	.nmaps = ARRAY_SIZE(pinctrl_map_apl01),
- };
+diff --git a/security/apparmor/lsm.c b/security/apparmor/lsm.c
+index eaebc3c60c5a..9ff9096b6199 100644
+--- a/security/apparmor/lsm.c
++++ b/security/apparmor/lsm.c
+@@ -591,7 +591,7 @@ static int apparmor_file_mprotect(struct vm_area_struct *vma,
+ 				  unsigned long reqprot, unsigned long prot)
+ {
+ 	return common_mmap(OP_FMPROT, vma->vm_file, prot,
+-			   !(vma->vm_flags & VM_SHARED) ? MAP_PRIVATE : 0);
++			   !vma_test(vma, VMA_SHARED_BIT) ? MAP_PRIVATE : 0);
+ }
  
--static const struct pinctrl_map pinctrl_map_adl[] = {
-+static const struct pinctrl_map pinctrl_map_upxadlp[] = {
- 	PIN_MAP_MUX_GROUP_DEFAULT("upboard-pinctrl", "INTC1055:00", "i2c0_grp", "i2c0"),
- 	PIN_MAP_MUX_GROUP_DEFAULT("upboard-pinctrl", "INTC1055:00", "i2c1_grp", "i2c1"),
- 	PIN_MAP_MUX_GROUP_DEFAULT("upboard-pinctrl", "INTC1055:00", "pwm0_grp", "pwm0"),
-@@ -920,9 +920,61 @@ static const struct pinctrl_map pinctrl_map_adl[] = {
- 	PIN_MAP_MUX_GROUP_DEFAULT("upboard-pinctrl", "INTC1055:00", "ssp2_grp", "ssp2"),
- };
- 
--static const struct upboard_pinctrl_map upboard_pinctrl_map_adl = {
--	.maps = &pinctrl_map_adl[0],
--	.nmaps = ARRAY_SIZE(pinctrl_map_adl),
-+static const struct upboard_pinctrl_map upboard_pinctrl_map_upxadlp = {
-+	.maps = &pinctrl_map_upxadlp[0],
-+	.nmaps = ARRAY_SIZE(pinctrl_map_upxadlp),
-+};
-+
-+static const struct pinctrl_map pinctrl_map_upsadlp[] = {
-+	PIN_MAP_MUX_GROUP_DEFAULT("upboard-pinctrl", "INTC1055:00", "i2c0_grp", "i2c0"),
-+	PIN_MAP_MUX_GROUP_DEFAULT("upboard-pinctrl", "INTC1055:00", "i2c1_grp", "i2c1"),
-+	PIN_MAP_MUX_GROUP_DEFAULT("upboard-pinctrl", "INTC1055:00", "pwm0_grp", "pwm0"),
-+	PIN_MAP_MUX_GROUP_DEFAULT("upboard-pinctrl", "INTC1055:00", "ish_uart_grp", "ish_uart"),
-+	PIN_MAP_MUX_GROUP_DEFAULT("upboard-pinctrl", "INTC1055:00", "ssp2_grp", "ssp2"),
-+};
-+
-+static const struct upboard_pinctrl_map upboard_pinctrl_map_upsadlp = {
-+	.maps = &pinctrl_map_upsadlp[0],
-+	.nmaps = ARRAY_SIZE(pinctrl_map_upsadlp),
-+};
-+
-+static const struct pinctrl_map pinctrl_map_upadln[] = {
-+	PIN_MAP_MUX_GROUP_DEFAULT("upboard-pinctrl", "INTC1057:00", "i2c0_grp", "i2c0"),
-+	PIN_MAP_MUX_GROUP_DEFAULT("upboard-pinctrl", "INTC1057:00", "i2c1_grp", "i2c1"),
-+	PIN_MAP_MUX_GROUP_DEFAULT("upboard-pinctrl", "INTC1057:00", "pwm0_grp", "pwm0"),
-+	PIN_MAP_MUX_GROUP_DEFAULT("upboard-pinctrl", "INTC1057:00", "uart0_grp", "uart0"),
-+	PIN_MAP_MUX_GROUP_DEFAULT("upboard-pinctrl", "INTC1057:00", "ish_spi_grp", "ish_spi"),
-+};
-+
-+static const struct upboard_pinctrl_map upboard_pinctrl_map_upadln = {
-+	.maps = &pinctrl_map_upadln[0],
-+	.nmaps = ARRAY_SIZE(pinctrl_map_upadln),
-+};
-+
-+static const struct pinctrl_map pinctrl_map_upnadln[] = {
-+	PIN_MAP_MUX_GROUP_DEFAULT("upboard-pinctrl", "INTC1057:00", "ish_i2c0_grp", "i2c0"),
-+	PIN_MAP_MUX_GROUP_DEFAULT("upboard-pinctrl", "INTC1057:00", "ish_i2c1_grp", "i2c1"),
-+	PIN_MAP_MUX_GROUP_DEFAULT("upboard-pinctrl", "INTC1057:00", "pwm0_grp", "pwm0"),
-+	PIN_MAP_MUX_GROUP_DEFAULT("upboard-pinctrl", "INTC1057:00", "uart0_grp", "uart0"),
-+	PIN_MAP_MUX_GROUP_DEFAULT("upboard-pinctrl", "INTC1057:00", "ish_spi_grp", "ish_spi"),
-+};
-+
-+static const struct upboard_pinctrl_map upboard_pinctrl_map_upnadln = {
-+	.maps = &pinctrl_map_upnadln[0],
-+	.nmaps = ARRAY_SIZE(pinctrl_map_upnadln),
-+};
-+
-+static const struct pinctrl_map pinctrl_map_upxarl[] = {
-+	PIN_MAP_MUX_GROUP_DEFAULT("upboard-pinctrl", "INTC105E:00", "i2c0_grp", "i2c0"),
-+	PIN_MAP_MUX_GROUP_DEFAULT("upboard-pinctrl", "INTC105E:00", "i2c1_grp", "i2c1"),
-+	PIN_MAP_MUX_GROUP_DEFAULT("upboard-pinctrl", "INTC105E:00", "pwm0_grp", "pwm0"),
-+	PIN_MAP_MUX_GROUP_DEFAULT("upboard-pinctrl", "INTC105E:00", "uart0_grp", "uart0"),
-+	PIN_MAP_MUX_GROUP_DEFAULT("upboard-pinctrl", "INTC105E:00", "spi0_grp", "spi0"),
-+};
-+
-+static const struct upboard_pinctrl_map upboard_pinctrl_map_upxarl = {
-+	.maps = &pinctrl_map_upxarl[0],
-+	.nmaps = ARRAY_SIZE(pinctrl_map_upxarl),
- };
- 
- static const struct dmi_system_id dmi_platform_info[] = {
-@@ -940,7 +992,47 @@ static const struct dmi_system_id dmi_platform_info[] = {
- 			DMI_EXACT_MATCH(DMI_SYS_VENDOR, "AAEON"),
- 			DMI_EXACT_MATCH(DMI_BOARD_NAME, "UPX-ADLP01"),
- 		},
--		.driver_data = (void *)&upboard_pinctrl_map_adl,
-+		.driver_data = (void *)&upboard_pinctrl_map_upxadlp,
-+	},
-+	{
-+		/* UP Squared i12 */
-+		.matches = {
-+			DMI_EXACT_MATCH(DMI_SYS_VENDOR, "AAEON"),
-+			DMI_EXACT_MATCH(DMI_BOARD_NAME, "UPS-ADLP01"),
-+		},
-+		.driver_data = (void *)&upboard_pinctrl_map_upsadlp,
-+	},
-+	{
-+		/* UP Squared Pro 7000 */
-+		.matches = {
-+			DMI_EXACT_MATCH(DMI_SYS_VENDOR, "AAEON"),
-+			DMI_EXACT_MATCH(DMI_BOARD_NAME, "UPN-ADLN01"),
-+		},
-+		.driver_data = (void *)&upboard_pinctrl_map_upnadln,
-+	},
-+	{
-+		/* UP 7000 */
-+		.matches = {
-+			DMI_EXACT_MATCH(DMI_SYS_VENDOR, "AAEON"),
-+			DMI_EXACT_MATCH(DMI_BOARD_NAME, "UP-ADLN01"),
-+		},
-+		.driver_data = (void *)&upboard_pinctrl_map_upadln,
-+	},
-+	{
-+		/* UP Xtreme i14  */
-+		.matches = {
-+			DMI_EXACT_MATCH(DMI_SYS_VENDOR, "AAEON"),
-+			DMI_EXACT_MATCH(DMI_BOARD_NAME, "UPX-MTL01"),
-+		},
-+		.driver_data = (void *)&upboard_pinctrl_map_upxarl,
-+	},
-+	{
-+		/* UP Xtreme ARL  */
-+		.matches = {
-+			DMI_EXACT_MATCH(DMI_SYS_VENDOR, "AAEON"),
-+			DMI_EXACT_MATCH(DMI_BOARD_NAME, "UPX-ARL01"),
-+		},
-+		.driver_data = (void *)&upboard_pinctrl_map_upxarl,
- 	},
- 	{ }
- };
+ #ifdef CONFIG_IO_URING
 
 -- 
-2.43.0
+2.56.1
 
