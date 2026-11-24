@@ -1,68 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=124.126.103.232
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.75
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795488338;
-	b=pfZ1YevwqWMiaDZYMXy7e00LyuvlUZkpx+nTEjFUdbJ+rQvhPbzpDNwvlVoNODa+CdvC
-	 7oZYjlcRN2swIknw09msMlChyzoCejHqiD5CZETyfOhp1sAyvmEtAF5YPMFdFR5GQMXEJ
-	 a6X5u3+1V7FOYq5KfDC8mdWJceYDzjVvV4AyZ/sXE2BIV+pCP6KEFqHUt+WFu7yj2ZUKT
-	 iiYljQI0tPfY5NmdHcmGbR2u3LI5oOpeDKRcTA+GuggKsPY779t8bGj7hPzolTcJvsxAE
-	 5Q2ahrvy1qh3WGnEFiP43Po8kvkhCwEwBVCO0bF70kr3f+cuY9S1dBOT6N6u02GI4WQ==
+	t=1795488348;
+	b=I31d8Xd9dxqPrnZyJnxse3ozV57IIWDwUggvk3jsYbcKRabNzttq82NPH8OFsV8BGmez
+	 KkwuxTJ/QDFNx8oOJEXYajW7YmR8qcyYsN4bK+DCcRbQqjDjAGWEn4FnJvjx3LbXJDwYD
+	 BvNM+rYxp2r7gWM+gRticovN0GmgybeRDohBEB0QnDI3x80mNesDr2nrpzqXYLMV8u4q4
+	 cRJtSp0DC4DE23XnaJdTfRmLKzcE0p6A4/8j7btHxmM3bJAm+ZW27kAGCpIfrJj6uqRDQ
+	 G8URyHv5611Z9aaEUSndWkVRJkQwXSgrBDirgtHIFDyS+SA1wXsLR8gUz/7hfTDWksQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795488338;
-	h=DMARC-Filter:X-UUID:X-CID-CACHE:X-CID-P-RULE:X-CID-O-INFO:X-CID-META:
-	 X-CID-BVR:X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:X-User:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=fgpttzXHXOwMzQVloHp+GVdUMpOqfpnhZMTL9/tKDM4=;
-	b=oXb6WXxYHaZdFg3JNt9+5qtdEYOBQE0+XklLmBm0GyYtYvIW0GAyGfDOypRlVXQStWDr
-	 yml1jkJVmGElkY7OYMq64o0x9nGSw6vRQykUOZhTl0/d3Swur4/ckqt53S0y6Qp1YNtEp
-	 4/Yfj0HMfPfJ0mDqiEVOR9p55k4WEwYIqndv0b1UUkR/bdk8noLA28PIOXm3rC3z6w0TN
-	 lrLhhTXGBmMYNS6Bbr6SbFfCExsFkHR4enHwOq++LkvPwLlOIRDxTLIHoDjJxB6BmsBJz
-	 WHFYjbMfRmXYdc7uoZ710NQXXGWZbpuI+TP2mJTBEdeCmU8VwYyd0ksRRAOalR0k+5g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795488348;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:Date:Subject:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
+	 In-Reply-To:To:Cc:X-Mailer;
+	bh=yaYHO1oIUImCUU9cwe2iK7VU7fd58ViuOl0ZzvsW4bE=;
+	b=Z3RGUmbE3QOalv+xnCLyHqbp705QlBLKwyQqIkY+P7H31wVkoUFp6sTXCuLG4Exxezrp
+	 kDyqQlszf+Bheweq6zcpL0M/ED0CNhr3myDOJeFlRbwtBO+/0lnrEVVy1nFuasTART2/m
+	 yXzgwkmD2mYNLOW+p5nEggoSnS7KXVS2ieJSLH/nB0KCAx8JCBlfLnfVK3YcXp6M5yKgx
+	 znvrI2fh5J7LggMtjSsAxHIbW//SDIdwBBcc1p9xzpgil8NF1nUIqcaIfCMh/5unXnUeo
+	 wjlDIe6IjPPrMbC7bzpgpE+rDRlmi3VtyYF1GaKCguEnYNh4IkC80iGdDqLSFLyZK9A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=kylinos.cn;
-	spf=pass smtp.mailfrom=kylinos.cn;
-	arc=none smtp.remote-ip=124.126.103.232
-Received: from mailgw.kylinos.cn (mailgw.kylinos.cn [124.126.103.232])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=l8bdwhGJ;
+	arc=none smtp.remote-ip=95.215.58.75
+Received: from mta1.migadu.com (out-75.mta1.migadu.com [95.215.58.75])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F0888606A321;
-	Tue, 24 Nov 2026 02:45:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F0888606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kylinos.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kylinos.cn
-X-UUID: 188c0ab0e7b111f19a56ed5b684f684d-20261124
-X-CID-CACHE: Type:Local,Time:202611241040+08,HitQuantity:1
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.19,REQID:8e27f014-2349-4788-96ee-a2b033117f39,IP:0,U
-	RL:0,TC:0,Content:0,EDM:25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:25
-X-CID-META: VersionHash:7db8b62,CLOUDID:a1994da0e658bd37d7b78e0e0f45c24a,BulkI
-	D:nil,BulkQuantity:0,SF:102|850|865|898,TC:nil,Content:0|15|50|99,EDM:5,IP
-	:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,
-	LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 188c0ab0e7b111f19a56ed5b684f684d-20261124
-X-User: huyuming@kylinos.cn
-Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <huyuming@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 959411961; Tue, 24 Nov 2026 10:45:23 +0800
-From: Yuming Hu <huyuming@kylinos.cn>
-To: hminas@synopsys.com,
-	gregkh@linuxfoundation.org
-Cc: linux-usb@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Thinh.Nguyen@synopsys.com,
-	stable@vger.kernel.org,
-	Yuming Hu <huyuming@kylinos.cn>
-Subject: [PATCH] USB: dwc2: shut down the wakeup timer before removing the HCD
-Date: Tue, 24 Nov 2026 10:45:16 +0800
-Message-Id: <20261124024516.2621743-1-huyuming@kylinos.cn>
-X-Mailer: git-send-email 2.25.1
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 83D40606A321
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 02:45:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 83D40606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=l8bdwhGJ
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=qzpTQoDwS6cLGZFWNs52zI9mgbGStu6J7WvVy1Ad8aQ=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795488345; v=1; x=1796093145;
+ b=l8bdwhGJOV2vct01XP7BGjpirV3yy9MLuJxOSpO/pWutOmkBQ8woLZD4t3VqUND22dlv6Xjl
+ FxCDselGfgNpAJjZDpdp0/kSKPdLrRKHZF506N0nUs/VeKUAXDJkv6jH4eKQFTzJWT8QT5zNg7w
+ WLamZUF7khKbloGN65oeE/oM=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 0ed6ca40b76e6384;
+	Tue, 24 Nov 2026 02:45:45 +0000
+X-Mizu-Trace-ID: 0ed6ca40b76e6384
+X-Migadu-Flow: FLOW_OUT
+From: Qiliang Yuan <qiliang.yuan@linux.dev>
+Date: Mon, 23 Nov 2026 21:45:02 -0500
+Subject: [PATCH v2 3/3] selftests/udmabuf: test mapping a huge page backed
+ udmabuf
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,53 +60,171 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261123-feat-udmabuf-huge-pfnmap-v2-3-3254f801fc36@linux.dev>
+References: <20261123-feat-udmabuf-huge-pfnmap-v2-0-3254f801fc36@linux.dev>
+In-Reply-To: <20261123-feat-udmabuf-huge-pfnmap-v2-0-3254f801fc36@linux.dev>
+To: Sumit Semwal <sumit.semwal@linaro.org>, 
+ =?utf-8?q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
+ Philipp Stanner <phasta@kernel.org>, Gerd Hoffmann <kraxel@redhat.com>, 
+ Vivek Kasireddy <vivek.kasireddy@intel.com>, Shuah Khan <shuah@kernel.org>
+Cc: =?utf-8?q?Thomas_Hellstr=C3=B6m?= <thomas.hellstrom@linux.intel.com>, 
+ "T.J. Mercier" <tjmercier@google.com>, Philip Yang <Philip.Yang@amd.com>, 
+ linux-media@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+ linaro-mm-sig@lists.linaro.org, linux-kernel@vger.kernel.org, 
+ linux-kselftest@vger.kernel.org, Qiliang Yuan <qiliang.yuan@linux.dev>, 
+ Natalie Vock <nat@pixelcluster.dev>
+X-Mailer: b4 0.13.0
 
-The wakeup timer is armed from hardirq context (WKUPINT, 71 ms) and its
-callback dwc2_wakeup_detected() ends up calling
-usb_hcd_resume_root_hub(hsotg->priv) when the port is suspended.
+udmabuf maps the ranges of a buffer that are backed by huge pages with
+PMDs, provided the mapping covers whole PMDs at an aligned address.
 
-dwc2_hcd_remove() invokes usb_remove_hcd() and clears hsotg->priv before
-it reaches dwc2_hcd_release(), where fd772af9512c ("USB: dwc2: shut down
-wakeup timer before freeing HCD state") performs the
-timer_shutdown_sync().  If the timer expires inside that window, or its
-callback is in flight while hsotg->priv is being cleared,
-dwc2_hcd_rem_wakeup() passes the NULL hcd to
-usb_hcd_resume_root_hub(), which dereferences it without a NULL check
-and oopses in softirq context.
+The existing tests of huge page backed buffers only map a few pages, so
+they never get a PMD mapping or check what is read through one.
 
-Shut the timer down before usb_remove_hcd(), so that an in-flight
-callback always observes a valid hsotg->priv and any later rearm attempt
-is ignored by the timer core.  The timer_shutdown_sync() call in
-dwc2_hcd_release() is idempotent and keeps covering the probe error
-path.
+Map a 64 MiB udmabuf backed by 2 MiB huge pages and read back what was
+written to the memfd, with a different pattern in each huge page: through
+a mapping of the whole buffer, which must be PMD aligned for a 64-bit
+task when THP support is built in, through a mapping at an unaligned
+offset, and from a forked child that inherits the mapping of the whole
+buffer.
 
-Fixes: 7359d482eb4d ("staging: HCD files for the DWC2 driver")
-Cc: stable@vger.kernel.org
-Signed-off-by: Yuming Hu <huyuming@kylinos.cn>
+Signed-off-by: Qiliang Yuan <qiliang.yuan@linux.dev>
 ---
- drivers/usb/dwc2/hcd.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
+ tools/testing/selftests/drivers/dma-buf/udmabuf.c | 97 ++++++++++++++++++++++-
+ 1 file changed, 96 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/usb/dwc2/hcd.c b/drivers/usb/dwc2/hcd.c
-index 2e1927dfa..0d6549832 100644
---- a/drivers/usb/dwc2/hcd.c
-+++ b/drivers/usb/dwc2/hcd.c
-@@ -5377,6 +5377,14 @@ void dwc2_hcd_remove(struct dwc2_hsotg *hsotg)
- 	if (!IS_ERR_OR_NULL(hsotg->uphy))
- 		otg_set_host(hsotg->uphy->otg, NULL);
+diff --git a/tools/testing/selftests/drivers/dma-buf/udmabuf.c b/tools/testing/selftests/drivers/dma-buf/udmabuf.c
+index d78aec662586b..6eaef1b3aee01 100644
+--- a/tools/testing/selftests/drivers/dma-buf/udmabuf.c
++++ b/tools/testing/selftests/drivers/dma-buf/udmabuf.c
+@@ -14,6 +14,7 @@
+ #include <sys/ioctl.h>
+ #include <sys/syscall.h>
+ #include <sys/mman.h>
++#include <sys/wait.h>
+ #include <linux/memfd.h>
+ #include <linux/udmabuf.h>
+ #include "kselftest.h"
+@@ -130,6 +131,98 @@ static int compare_chunks(void *addr1, void *addr2, off64_t memfd_size)
+ 	return ret;
+ }
  
-+	/*
-+	 * Shut down the wakeup timer before the HCD is removed: its callback
-+	 * reaches usb_hcd_resume_root_hub(hsotg->priv), which must never see
-+	 * hsotg->priv == NULL.  The call in dwc2_hcd_release() is idempotent
-+	 * and still covers the probe error path.
-+	 */
-+	timer_shutdown_sync(&hsotg->wkp_timer);
++#define HPAGE_SIZE	(2UL << 20)
++#define HUGE_BUF_SIZE	(32 * HPAGE_SIZE)
 +
- 	usb_remove_hcd(hcd);
- 	hsotg->priv = NULL;
++/* Check that @len bytes mapped at @addr match @mem at @off */
++static bool check_huge_mapping(char *addr, char *mem, off_t off, size_t len)
++{
++	size_t i;
++
++	for (i = 0; i < len; i += getpagesize()) {
++		if (addr[i] != mem[off + i])
++			return false;
++	}
++	return true;
++}
++
++/* Check that @len bytes of @buf at @off read back what was written to @mem */
++static bool check_huge_range(int buf, char *mem, off_t off, size_t len)
++{
++	char *addr;
++	bool ok;
++
++	addr = mmap(NULL, len, PROT_READ, MAP_SHARED, buf, off);
++	if (addr == MAP_FAILED)
++		return false;
++
++	ok = check_huge_mapping(addr, mem, off, len);
++	munmap(addr, len);
++	return ok;
++}
++
++/*
++ * Map a udmabuf backed by 2MB huge pages, which can be mapped with PMDs, and
++ * read it back from a PMD-aligned address, a sub-range at an unaligned offset
++ * and a forked child that inherits the mapping.
++ */
++static void test_huge_mapping(int devfd)
++{
++	struct udmabuf_create create = {};
++	int memfd, buf, status;
++	bool thp, aligned, ok;
++	char *mem, *addr;
++	pid_t pid;
++	size_t i;
++
++	memfd = create_memfd_with_seals(HUGE_BUF_SIZE, true);
++	mem = mmap_fd(memfd, HUGE_BUF_SIZE);
++	/* Give each huge page its own pattern */
++	for (i = 0; i < HUGE_BUF_SIZE; i += getpagesize())
++		mem[i] = (char)(i / getpagesize() + i / HPAGE_SIZE);
++
++	create.memfd = memfd;
++	create.size = HUGE_BUF_SIZE;
++	buf = ioctl(devfd, UDMABUF_CREATE, &create);
++	if (buf < 0) {
++		ksft_test_result_fail("%s: [FAIL,test-8]\n", TEST_PREFIX);
++		ksft_test_result_skip("%s: [SKIP,test-9]\n", TEST_PREFIX);
++		goto out;
++	}
++
++	/* The address is only aligned for 64-bit tasks with THP support */
++	thp = sizeof(long) == 8 &&
++	      !access("/sys/kernel/mm/transparent_hugepage", F_OK);
++	addr = mmap(NULL, HUGE_BUF_SIZE, PROT_READ, MAP_SHARED, buf, 0);
++	aligned = addr != MAP_FAILED &&
++		  (!thp || !((unsigned long)addr % HPAGE_SIZE));
++	ok = aligned && check_huge_mapping(addr, mem, 0, HUGE_BUF_SIZE);
++	if (ok)
++		ksft_test_result_pass("%s: [PASS,test-8]\n", TEST_PREFIX);
++	else
++		ksft_test_result_fail("%s: [FAIL,test-8]\n", TEST_PREFIX);
++
++	ok = check_huge_range(buf, mem, HPAGE_SIZE + getpagesize(),
++			      5 * HPAGE_SIZE + 3 * getpagesize());
++	pid = addr == MAP_FAILED ? -1 : fork();
++	if (!pid)
++		_exit(check_huge_mapping(addr, mem, 0, HUGE_BUF_SIZE) ? 0 : 1);
++	if (pid < 0 || waitpid(pid, &status, 0) != pid ||
++	    !WIFEXITED(status) || WEXITSTATUS(status))
++		ok = false;
++	if (addr != MAP_FAILED)
++		munmap(addr, HUGE_BUF_SIZE);
++	if (ok)
++		ksft_test_result_pass("%s: [PASS,test-9]\n", TEST_PREFIX);
++	else
++		ksft_test_result_fail("%s: [FAIL,test-9]\n", TEST_PREFIX);
++
++	close(buf);
++out:
++	munmap(mem, HUGE_BUF_SIZE);
++	close(memfd);
++}
++
+ int main(int argc, char *argv[])
+ {
+ 	struct udmabuf_create create;
+@@ -138,7 +231,7 @@ int main(int argc, char *argv[])
+ 	void *addr1, *addr2;
  
+ 	ksft_print_header();
+-	ksft_set_plan(7);
++	ksft_set_plan(9);
+ 
+ 	devfd = open("/dev/udmabuf", O_RDWR);
+ 	if (devfd < 0) {
+@@ -268,6 +361,8 @@ int main(int argc, char *argv[])
+ 
+ 	close(buf);
+ 	close(memfd);
++
++	test_huge_mapping(devfd);
+ 	close(devfd);
+ 
+ 	ksft_print_msg("%s: ok\n", TEST_PREFIX);
+
 -- 
-2.25.1
+2.43.0
 
