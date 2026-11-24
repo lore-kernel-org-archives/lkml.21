@@ -1,88 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.9
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795557213;
-	b=XyCX1tJUNwqiWi/kmDQKNyLtWHIs42oDeq+QDNTOmRLkvuMK4o4LAqBzU2QCUWJnEbJx
-	 RcDleE71o9P1lRExxE9BGzMb479FY1wwge1L0CLmw5s7hoBxKOVnf46zz/EqMOwYF8miW
-	 xqnt3p1S8Z5fQBUEcYDCFVWDgSdWhbz31du0gi8nThKQWmV/MBQSth0nh7cck0m/IVcAM
-	 CF6nwYtD1uqEw+fiIe5oNtONZ3pMQAcX/tYHGp2Dr8OTzYFzZHtdJEsjhBnk8wUDFOEsi
-	 HD0duYhYjK+yPBa9jpLmmm5iC1eFz0SZ4sFcRChWnflqSm4h9Kw6yMg1zL9yB4qa6RQ==
+	t=1795557263;
+	b=GU1jU1h39Y1dJ1A0Gj9c4vcQRnGaBJNzYvxlRpyBZ4VuFLx9YGo6WW3vnHW5iLTryHlX
+	 TjuQeWcTjnK+o21w6pds+W8iYSG45YW59UBUWmpId9jY24MFzQqf+0js4ta3LeVbOsgej
+	 KPYBHihFr+1hwveB0X6GWSHzByJtoXPijBAbvO9LK9tuBbfk7kVCA5VikJxg9FwT1HDDU
+	 fdM72khfIdOFvYVw1v6TBlplWOBEX/YIIv18JGOA3U2e1ZNv2KueCTUo2RPhHKGeEMWfR
+	 K+uf/rOpcP2t5JchjEI96/HsPOP0V9F1UbwnRwi02YGtwNY6AMz2JycwAlfbBA9dX7w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795557213;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795557263;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=j7B1YaM6MKmQ9VO/CYs4WRTaUXI726RdX1hVNvUA3Nw=;
-	b=RHg+4OFVLWiLskJWVgII9cO+FV9FUIRyUAJnTe0CgCMR1zzUFKwxhHmPUn4+CatgVJwZ
-	 0pXVcahjHwabXQb0wpvnA9J7OXd14SQnq7dpt0RD4/fytu7qBMJfNGdn9I3Big/X3Iatv
-	 actvS+bvI/83fSgSNMlTnXtOkNl6hFS3F+v5itf9lacoM0Drm8i1N1Y2jOvs2S0gRE8m8
-	 +w5fPc9eerVvatLYQ69np68KDILmHgsRFgheIiFplID6pam8Nq9VeJixZq8s/Ghpl73vw
-	 X78bk7PGXnsyytUl3aWYQOaMbQWZRa3NhdVlkMIA43DvXdF7PGRS8T6jZknqV/Yeo7w==
+	bh=DPI6tqsOsb2ZW56JDaO2GTE8unnmk4hX2IzeaebFPY8=;
+	b=swJC9D/uQN0scQ0VH93xzcdpNj1tnJy5ZfWsv4y5ulBfoV0WyyE3dy1fA17lDvnbAxto
+	 8QEKW6nd3AFncXlW2i0P/OIkdR//xYkj6EBbe8qOS+EmIG3y+89FgGGTnVVvw3cN6f2o6
+	 B+kLkB0BApT4w4jw6WWTnLOaEY3S37YtrTN4xiZoutv/DZg2NeyZchZyuIdrEttOs5BN3
+	 aaOentWmPvDS3TSeHdn6FfAEstbjtjC36P6PAbqN8Awvc5CqyRVgHcD738k6opig7yEj3
+	 LkYmTjytmvP30/i0fkXB1FS7hpspt7/qOaKIr4JkAGo1h2G4i18Srcd2m4aeHwAgMag==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b="HL/UB8Bh";
-	arc=none smtp.remote-ip=192.198.163.9
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.9])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bXFhp55B;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 64BD160A5BE8;
-	Tue, 24 Nov 2026 21:53:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 64BD160A5BE8
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3548F606A321;
+	Tue, 24 Nov 2026 21:54:22 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=HL/UB8Bh
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795557213; x=1827093213;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=eQWWJ27TC+fI3UePadAEfcg7sAhLKXL/RJJPcQugzLA=;
-  b=HL/UB8BhTPzMLHX7rgbi+qMcGHRReddv3kquRm8rfA1m6VBx6c9OGzMs
-   4WhxqoOJpGOHLq+wXPcZf5wXlOBID0WdRJ0Im+njlYDGWkz80yWEkFHBY
-   JBF3nY9TgajQ/r8H0xdLy/3dxDn5TapUcJQ6u/plHrUa8DGO7AuNuP8/J
-   agloYJb9jWKTfR+vo/XWAKXK+HS3xFTyDmQtfU1QBgbsbtQue3lArVSjQ
-   BU6oDzrV3Iq0Zue2YVBidxPGRUJIbZ8/RD8XIrVTs8/VuMk6hPTN0RmOx
-   ykY4Yecbo/lVau4I3OYfodw9uc9laXpZk8HXQzcTsJWe5GvILZFuRNP3s
-   g==;
-X-CSE-ConnectionGUID: GJc10XvDSIW8Liqn/NLzhQ==
-X-CSE-MsgGUID: kuZKZgk4Qz2OsHLvx8ue6A==
-X-IronPort-AV: E=McAfee;i="6800,10657,11976"; a="4306082"
-X-IronPort-AV: E=Sophos;i="6.27,231,1787036400"; 
-   d="scan'208";a="4306082"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 13:53:31 -0800
-X-CSE-ConnectionGUID: W9gLWzkfT6CPmOycjIUAug==
-X-CSE-MsgGUID: lW4u8qxkTa+JNWqoVsi14g==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,231,1787036400"; 
-   d="scan'208";a="12271964"
-Received: from 9cc2c43eec6b.jf.intel.com ([10.54.77.29])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 13:53:31 -0800
-From: Zide Chen <zide.chen@intel.com>
-To: Sean Christopherson <seanjc@google.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Peter Zijlstra <peterz@infradead.org>
-Cc: kvm@vger.kernel.org,
-	Jim Mattson <jmattson@google.com>,
-	Yosry Ahmed <yosry@kernel.org>,
-	Andi Kleen <ak@linux.intel.com>,
-	Stephane Eranian <eranian@google.com>,
-	linux-kernel@vger.kernel.org,
-	Mingwei Zhang <mizhang@google.com>,
-	Zide Chen <zide.chen@intel.com>,
-	Das Sandipan <Sandipan.Das@amd.com>,
-	Shukla Manali <Manali.Shukla@amd.com>,
-	Dapeng Mi <dapeng1.mi@linux.intel.com>,
-	Xudong Hao <xudong.hao@intel.com>
-Subject: [PATCH v10 16/18] KVM: selftests: Rework PMU guest measurement asm operands
-Date: Tue, 24 Nov 2026 14:38:59 -0700
-Message-ID: <20261124213901.120572-17-zide.chen@intel.com>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261124213901.120572-1-zide.chen@intel.com>
-References: <20261124213901.120572-1-zide.chen@intel.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bXFhp55B
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB6941F000D4;
+	Tue, 24 Nov 2026 21:54:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795557262;
+	bh=DPI6tqsOsb2ZW56JDaO2GTE8unnmk4hX2IzeaebFPY8=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=bXFhp55BRMGD++RNx51CBV20nnzegnzuSlx7ez2NhMn5T6YIc3AtRcoqD0RAgK+Df
+	 qVuyfEWuClCod7ceqfnu6sCbJXeHVv1X9vhOBIX/zXzo9bTkqt1yNvnRWdBVhNUtLz
+	 R3w/4oBcis0gm9WdcD+bJ6qC552UJ8IV/su9NZ4Wk14TNW5utCMKlfsZhPmdB8oFow
+	 /HgG4hllHw4Hmr9I6vBNWRj+uU2GSGAJsj+ZuF0V1GteQObSno3wfFMRy5ojRXyAQ5
+	 lv1OKJOdi1QisyP4Oc1eh2BJsAwAsX0X7w6Fz7JaLPmyHAMJMEYzybLsSrUFkg59Hj
+	 C2aN9U/bqeizg==
+From: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
+To: Zhu Jun <zhujun2@cmss.chinamobile.com>
+Cc: rostedt@goodmis.org, linux-trace-kernel@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] tools/bootconfig: Reject short reads of configuration data
+Date: Wed, 25 Nov 2026 06:54:19 +0900
+Message-ID: <undine-1795557259610595967-b07838a664370b81@undined.local>
+X-Mailer: UndineD 0.1
+In-Reply-To: <20261120061912.98156-1-zhujun2@cmss.chinamobile.com>
+References: <20261120061912.98156-1-zhujun2@cmss.chinamobile.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,130 +58,47 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: 8bit
 
-GUEST_MEASURE_EVENT() hardcodes symbols specific to pmu_counters_test,
-preventing it from being safely shared with other PMU tests.
+On Fri, 20 Nov 2026 14:19:12 +0800, Zhu Jun <zhujun2@cmss.chinamobile.com> wrote:
+> load_xbc_fd() places the terminator at the requested size even when
+> read() returns less. Its initrd caller then computes a checksum over
+> bytes that were never read, while the plain file callers can parse a
+> partial configuration. Reject a short read and release the allocated
+> buffer on both read failure paths.
+>
+> Fixes: 950313ebf79c ("tools: bootconfig: Add bootconfig command")
+> Signed-off-by: Zhu Jun <zhujun2@cmss.chinamobile.com>
 
-Flush and reload a local dummy stack variable instead of
-kvm_pmu_version. Because the dummy variable resides on the stack,
-pass its address in %rsi ("S") to remain immune to %rsp and %rbp
-changes caused by "enter $0, $0".
+OK, this looks good to me.
 
-Also mark %rax/%rdx/%rcx as read-write outputs (+a/+d/+c) and add "cc"
-to clobbers since the asm modifies them, pass loop count via an
-immediate operand ("i"), and fix the "CLFUSH" typo in the comment.
+Thanks!
 
-No change in what the test measures.
+> ---
+>  tools/bootconfig/main.c | 8 ++++++--
+>  1 file changed, 6 insertions(+), 2 deletions(-)
+>
+> diff --git a/tools/bootconfig/main.c b/tools/bootconfig/main.c
+> index d3f840c5adce..a3935e1a8c6b 100644
+> --- a/tools/bootconfig/main.c
+> +++ b/tools/bootconfig/main.c
+> @@ -190,8 +190,12 @@ static int load_xbc_fd(int fd, char **buf, int size)
+>  		return -ENOMEM;
+>  
+>  	ret = read(fd, *buf, size);
+> -	if (ret < 0)
+> -		return -errno;
+> +	if (ret != size) {
+> +		ret = ret < 0 ? -errno : -EIO;
+> +		free(*buf);
+> +		*buf = NULL;
+> +		return ret;
+> +	}
+>  	(*buf)[size] = '\0';
+>  
+>  	return ret;
+>
 
-Signed-off-by: Zide Chen <zide.chen@intel.com>
----
-v10: new patch.
----
- .../selftests/kvm/x86/pmu_counters_test.c     | 81 ++++++++++---------
- 1 file changed, 45 insertions(+), 36 deletions(-)
-
-diff --git a/tools/testing/selftests/kvm/x86/pmu_counters_test.c b/tools/testing/selftests/kvm/x86/pmu_counters_test.c
-index c3e784e16348..5ae7f2d15d04 100644
---- a/tools/testing/selftests/kvm/x86/pmu_counters_test.c
-+++ b/tools/testing/selftests/kvm/x86/pmu_counters_test.c
-@@ -221,51 +221,60 @@ static void guest_assert_event_count(u8 idx, u32 pmc, u32 pmc_msr)
- 
- /*
-  * Enable and disable the PMC in a monolithic asm blob to ensure that the
-- * compiler can't insert _any_ code into the measured sequence.  Note, ECX
-- * doesn't need to be clobbered as the input value, @pmc_msr, is restored
-- * before the end of the sequence.
-+ * compiler can't insert _any_ code into the measured sequence.
-  *
-- * If CLFUSH{,OPT} is supported, flush the cacheline containing (at least) the
-- * CLFUSH{,OPT} instruction on each loop iteration to force LLC references and
-- * misses, i.e. to allow testing that those events actually count.
-+ * If CLFLUSH{,OPT} is supported, flush and reload a dummy cacheline on each
-+ * loop iteration to force LLC references and misses, i.e. to allow testing
-+ * that those events actually count.
-  *
-  * If forced emulation is enabled (and specified), force emulation on a subset
-  * of the measured code to verify that KVM correctly emulates instructions and
-  * branches retired events in conjunction with hardware also counting said
-  * events.
-  */
--#define GUEST_MEASURE_EVENT(_msr, _value, clflush, FEP)				\
--do {										\
--	__asm__ __volatile__("wrmsr\n\t"					\
--			     " mov $" __stringify(NUM_LOOPS) ", %%ecx\n\t"	\
--			     "1:\n\t"						\
--			     FEP "enter $0, $0\n\t"				\
--			     clflush "\n\t"					\
--			     "mfence\n\t"					\
--			     "mov %[m], %%eax\n\t"				\
--			     FEP "leave\n\t"					\
--			     FEP "loop 1b\n\t"					\
--			     FEP "mov %%edi, %%ecx\n\t"				\
--			     FEP "xor %%eax, %%eax\n\t"				\
--			     FEP "xor %%edx, %%edx\n\t"				\
--			     "wrmsr\n\t"					\
--			     :: "a"((u32)_value), "d"(_value >> 32),	\
--				"c"(_msr), "D"(_msr), [m]"m"(kvm_pmu_version)	\
--	);									\
-+#define GUEST_MEASURE_EVENT(_msr, _value, clflush, FEP, _loops)		\
-+do {									\
-+	u32 _a = (u32)(_value), _d = (u32)((_value) >> 32);		\
-+	u32 _c = (_msr);						\
-+	u32 _dummy = 0;							\
-+									\
-+	__asm__ __volatile__("wrmsr\n\t"				\
-+			     "mov %[loops], %%ecx\n\t"			\
-+			     "1:\n\t"					\
-+			     FEP "enter $0, $0\n\t"			\
-+			     clflush "\n\t"				\
-+			     "mfence\n\t"				\
-+			     "mov (%[ptr]), %%eax\n\t"			\
-+			     FEP "leave\n\t"				\
-+			     FEP "loop 1b\n\t"				\
-+			     FEP "mov %%edi, %%ecx\n\t"			\
-+			     FEP "xor %%eax, %%eax\n\t"			\
-+			     FEP "xor %%edx, %%edx\n\t"			\
-+			     "wrmsr\n\t"				\
-+			     : "+a"(_a), "+d"(_d), "+c"(_c)		\
-+			     : "D"(_msr), [ptr]"S"(&_dummy),		\
-+			       [loops]"i"(_loops)			\
-+			     : "memory", "cc"				\
-+	);								\
- } while (0)
- 
--#define GUEST_TEST_EVENT(_idx, _pmc, _pmc_msr, _ctrl_msr, _value, FEP)		\
--do {										\
--	wrmsr(_pmc_msr, 0);							\
--										\
--	if (this_cpu_has(X86_FEATURE_CLFLUSHOPT))				\
--		GUEST_MEASURE_EVENT(_ctrl_msr, _value, "clflushopt %[m]", FEP);	\
--	else if (this_cpu_has(X86_FEATURE_CLFLUSH))				\
--		GUEST_MEASURE_EVENT(_ctrl_msr, _value, "clflush  %[m]", FEP);	\
--	else									\
--		GUEST_MEASURE_EVENT(_ctrl_msr, _value, "nop", FEP);		\
--										\
--	guest_assert_event_count(_idx, _pmc, _pmc_msr);				\
-+#define GUEST_TEST_EVENT(_idx, _pmc, _pmc_msr, _ctrl_msr, _value, FEP)	\
-+do {									\
-+	wrmsr(_pmc_msr, 0);						\
-+									\
-+	if (this_cpu_has(X86_FEATURE_CLFLUSHOPT))			\
-+		GUEST_MEASURE_EVENT(_ctrl_msr, _value,			\
-+				    "clflushopt (%[ptr])",		\
-+				    FEP, NUM_LOOPS);			\
-+	else if (this_cpu_has(X86_FEATURE_CLFLUSH))			\
-+		GUEST_MEASURE_EVENT(_ctrl_msr, _value,			\
-+				    "clflush (%[ptr])",		\
-+				    FEP, NUM_LOOPS);			\
-+	else								\
-+		GUEST_MEASURE_EVENT(_ctrl_msr, _value, "nop",		\
-+				    FEP, NUM_LOOPS);			\
-+									\
-+	guest_assert_event_count(_idx, _pmc, _pmc_msr);			\
- } while (0)
- 
- static void __guest_test_arch_event(u8 idx, u32 pmc, u32 pmc_msr,
 -- 
-2.56.1
-
+Masami Hiramatsu (Google) <mhiramat@kernel.org>
