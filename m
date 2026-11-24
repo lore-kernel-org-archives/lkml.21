@@ -1,62 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=34.202.193.197
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795554189;
-	b=GDWr8j1fSWx2VPN+q7Onlz2Tgnt8J0fVatVOJ913z8CtMzvukMdv3MiTlP818rENOiM9
-	 r8lLmdjw4RwXMEcc/ImZ/WFN+m+vJ1HwiUqMGzQjwRrpjrC+53LebI/XOAD4xLieylOX9
-	 dpchq4yPrXUzDbFdfc/Uq1Lh13yHCTHz54bYHmSSP/z6cN3kUlkxM1yNp7etbWb/vkcd7
-	 MPydSw+6DrsQwzj77j2R5zMbh8F49PQ2YWkzTVkqMr5t/w1aS9MD8Yo1SHDLGi7baO8ke
-	 FBb1zn99G6HWW2+DvJ9Kjv810a+7A2jgOqnf+JxOW/jKgrN92Wl5ralOFZQw+TJKz8g==
+	t=1795554249;
+	b=3zHlGC6xGF8OyPsDZ55gkn1mKIEM9KIhtZpueSUj9fuNSId/HI6Tk2YrrucJSzZ/Wxp6
+	 qf/z6u1jAjTb475cUHoymNe/SlepqA/Bo3lmOwL9bZ/HJZDJJTTgva3r8rZNiX7uL1wYu
+	 2dXeAO4yx1I+U3pjXm2kQ2eoVHbNFONbkd2OEzR7EW/4dFQRx/9sRx6ZWW0dm80QuIIB5
+	 KfCLTW+LqREoZ4UmnfCB2jIcDEYP9Xz3MtVzxMM/S2vP4NzJXmeyqFGpLfzpfl2kIGlfk
+	 N447PZ/9L4e4YRL2FzK8Aq9UmcckMnPOmKUNcHwf6F0VWlUwiB3ee0nxB3KNzATnTYw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795554189;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=ftZV1FGzI6Rq/bD5tKIyrVuBA66/zH6lfQJBVPZqDy8=;
-	b=fzhv2UxNrrqOmPtoUai4URvRGvOCRCL3NMmvK1/5g8Nh4jcQ//kdP+LzFUoeE5fpAPF3
-	 p2MaXdQ2FUOCB7Y9Pm0bX6iBbdh6DwfVcf7SW+tKEFo6FXaHAqROtCaGsjCktWaN1EyWb
-	 gR3k2m2bl+/O3o2p5SLf1iF3HZGU/vCoofWHRygxWEuHcuse42kZIj16oSfS4IF9f20FW
-	 al//7w1uSBqXXFg2TB8+A/EjvGcPCCSXmG8hKB1n+di2K8QKisVnnOntZoy6pU2SnIxGG
-	 uVxMYq7EoHxJNU2FaIVXJz4uGGpuoujSde0Bx663HtCB/3PuDTrI55RclOAcDZbNpag==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795554249;
+	h=DMARC-Filter:DKIM-Signature:DKIM-Signature:Feedback-ID:
+	 X-Pm-Original-To:Received:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To:X-MIME-Autoconverted;
+	bh=f1LrI4F2sKsO306nzg/h2ovN7/3ZcOp7p0chdwD8VeA=;
+	b=d+PsLFtLyGxRAdh5tHi2ruo3ELkvLDbe4QD+Hnejwe2zdCuDWWaFJamCull4dFmK6JKL
+	 JlxhwC/ev8+LtFzFJ6PVVmxqqUvafGwKMbQhH+TvymcM7syog4iFBS8a1FQ4pQZhDSzCE
+	 wpFb7NzsWRj4Qtjy58d2xvVf+s0TrOdrzyNLNf5LymcnpbZaVlWOq0w8he6csScipzsH8
+	 dDAEUGvgeH2JK2X+TdntSuu8aenTZ+lTnvYiX5ku9+abdPu6PhOzWn8kzW21CabzNNr1i
+	 GY0bqdFIRTVZB//rYw1LdtxyO7blHtbsU5E/yWFuuQdDvDstelQOlh59ipqP5o/dNGw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aeIcMqZn;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=atomlin.com;
+	spf=pass smtp.mailfrom=atomlin.com;
+	dkim=pass header.d=atomlin.com header.i=@atomlin.com header.a=rsa-sha256 header.s=purelymail2 header.b=bvY+kW9s;
+	dkim=pass header.d=purelymail.com header.i=@purelymail.com header.a=rsa-sha256 header.s=purelymail2 header.b=NV3pbREF;
+	arc=none smtp.remote-ip=34.202.193.197
+Received: from sendmail.purelymail.com (sendmail.purelymail.com [34.202.193.197])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C9AEB606A31E;
-	Tue, 24 Nov 2026 21:03:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B5EE2606A31E
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 21:04:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B5EE2606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=atomlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=atomlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aeIcMqZn
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 225E31F000C6;
-	Tue, 24 Nov 2026 21:03:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795554189;
-	bh=ftZV1FGzI6Rq/bD5tKIyrVuBA66/zH6lfQJBVPZqDy8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=aeIcMqZnVRcPW7B8Ciq1HD6e62S8VDEs4RiM+PfLpr265eDow7z+F1S0Z2FnjFgV9
-	 zo+Oz3HokP7cN1TCVzBOU2XZ6qjpZh9+Wp7AWHuqu6x1pRQoSI7O/86pRIHy7J47f7
-	 rQdJ1fz7lmrgpDoHJWrjlJurkEFs6z7X0Ed4UFwCQkLGP1+MEiNe/ykYW4hqdb7cqj
-	 kf/WzF0PvKHM8bCoX4WowVfr/Xy+F7W+5W0ienlj89iQqDkczUQImePdFa5cpoF/Ud
-	 5alD7/VHxnSa1ITuxVmOVoUjezCApcE3/1ayhHGsWJd/IgZCFuA3EvARbtb2ZlZQ3x
-	 1Q9zQg62E/3iw==
-Date: Tue, 24 Nov 2026 13:03:07 -0800
-From: Namhyung Kim <namhyung@kernel.org>
-To: Yao Zhao <dragonlinux@gmail.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	James Clark <james.clark@linaro.org>,
-	Jin Yao <yao.jin@linux.intel.com>,
-	Ravi Bangoria <ravi.bangoria@amd.com>,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 RESEND] perf annotate: fix annotate crash for fused
- instructions
-Message-ID: <awX7ix4V3NZocdTp@google.com>
-References: <sashiko-outbox-214904@kernel.org>
- <20261116165438.694835-1-dragonlinux@gmail.com>
+	dkim=pass (2048-bit key, unprotected) header.d=atomlin.com header.i=@atomlin.com header.a=rsa-sha256 header.s=purelymail2 header.b=bvY+kW9s;
+	dkim=pass (2048-bit key, unprotected) header.d=purelymail.com header.i=@purelymail.com header.a=rsa-sha256 header.s=purelymail2 header.b=NV3pbREF
+DKIM-Signature: a=rsa-sha256; b=bvY+kW9smQ/USSNTgGxUuIjv7MH+/vcE3aruhQ3qL5AJS471/M00i6PR9yIqof3dDsH+yvfsKhhymID5zTPUHJcso/W9qory1BilPTnB0rBdjzxUWmkFqakHISanXgAMu8xlEqQlEGpBfyOq+F3JUjIvSDrjVlfhOI8eb+WXYGoqIk9kGzQPAYeDHKIl4ehMndr4wpa4cw1IweczFimpUxNuTNy9QM9k20cfTPwt9QEO0Jh6xPyp76WsQkkWhqWWz8GDirX/FBIAgf0ndnqUbsGLF13YDOxFdB8xsMn7RqdBEQwJ72PAEMDftEk3BMbvjBWz1vwINeOn0ZJPVpYqpA==; s=purelymail2; d=atomlin.com; v=1; bh=LBTIbpSasOIttazXOXIKcClliW3GfeA4oLmDKjXQ628=; h=Received:Date:From:To:Subject:Message-ID;
+DKIM-Signature: a=rsa-sha256; b=NV3pbREFn0LmAuGk5gPXW0P/M6HzawY5DFxLnmR/wb6GoOcr+7EseirwQ0rRCTKihZ/IxJ0vyjZ/9cGp/WP+ivzlS8+PBT++F6C3r9LRVdw4VwzVOwmmFiVSBwWNmBI6WzdYskgAkPx1WJglBNEhwvm0pWUFaSy0i9C9Wp6yOvzks3PK5hCGRPJBu0yiH88iGuFw4TLTBdwUXRgCXVip1Ikia+ZvzBTZf1/18lIw1dSEahWNxSPC3k7aMLkcPrcr20+h//Y/iVr+/Ms1rQonZu3INGQ5Kofcbj9dmLFMll+hfXO+RncjNtyS02XNqJ+Pal+NGYZqMoVPru4Ir73KxQ==; s=purelymail2; d=purelymail.com; v=1; bh=LBTIbpSasOIttazXOXIKcClliW3GfeA4oLmDKjXQ628=; h=Feedback-ID:Received:Date:From:To:Subject:Message-ID;
+Feedback-ID: 1802931:67223:null:purelymail
+X-Pm-Original-To: linux-kernel@vger.kernel.org
+Authentication-Results: purelymail.com; auth=pass
+Received: by smtp.purelymail.com (Purelymail SMTP) with ESMTPSA id 1233994586;
+          (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384);
+          Tue, 24 Nov 2026 21:03:22 +0000 (UTC)
+Date: Tue, 24 Nov 2026 16:03:21 -0500
+From: Aaron Tomlin <atomlin@atomlin.com>
+To: Marco Crivellari <marco.crivellari@suse.com>
+Cc: axboe@kernel.dk, tom.leiming@gmail.com, hare@suse.de, dwagner@suse.de, 
+	emilne@redhat.com, frederic@kernel.org, tj@kernel.org, sean@ashe.io, 
+	linux-block@vger.kernel.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH v5] blk-mq: dispatch kworker to housekeeping CPU when
+ hctx cpumask is empty
+Message-ID: <b7vpfd7x6mqmxlu2kqpdzx4oeyxvak7tiit7xslkjdrqblcoh4@aujkhfpmwqnh>
+References: <20261121235203.811792-1-atomlin@atomlin.com>
+ <CAAofZF5D+ycbtMxsnUgZjhUbfD+_ZD6kYyci95OTdXug_aw-dQ@mail.gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -68,45 +66,59 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20261116165438.694835-1-dragonlinux@gmail.com>
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <CAAofZF5D+ycbtMxsnUgZjhUbfD+_ZD6kYyci95OTdXug_aw-dQ@mail.gmail.com>
+X-MIME-Autoconverted: from 8bit to quoted-printable by Purelymail
 
-On Mon, Nov 16, 2026 at 11:54:36AM -0500, Yao Zhao wrote:
-> Function is_fused tries to find the previous fused instruction with the
-> current conditional jump instruction in the annotate_line list.
-> disasm_line is the container of annotate_line.
-> The annotate_line list uses list_head and the head is in annotated_source:
-> notes->src which is not an annotate_line, so it couldn't walk without
-> checking the list_head. If so it will read annoted_source neighbour memory
-> mistakenly and most likely cause crash.
-> 
-> Fix the case where current instruction is a conditional jump and it is
-> the first instruction in the disassembled list, the original code will
-> walk to the head and treats it as disasm_line which is not.
-> 
->     -------- backtrace --------
->     #0 0x564dd8d5d5cd in ui__signal_backtrace setup.c:0
->     #1 0x7f1737e3e6f0 libc.so.6[3e6f0]
->     #2 0x7f1737ec10b1 strstr-sse2-unaligned.S:41
->     #3 0x564dd8d625ef in intel__ins_is_fused annotate-x86.c:0
->     #4 0x564dd8d4bcde in annotate_browser__refresh annotate.c:0
->     #5 0x564dd8d49bd6 in __ui_browser__refresh.isra.0 browser.c:0
->     #6 0x564dd8d4a960 in ui_browser__run ??:0
->     #7 0x564dd8d4cbcf in __hist_entry__tui_annotate ??:0
->     #8 0x564dd8d50a91 in do_annotate hists.c:0
->     #9 0x564dd8d58bb1 in evsel__hists_browse hists.c:0
->     #10 0x564dd8d5a7fa in evlist__tui_browse_hists ??:0
->     #11 0x564dd8bf7a98 in cmd_report help.c:109
->     #12 0x564dd8c713e4 in handle_internal_command help.c:109
->     #13 0x564dd8bd6ac2 in main ??:0
->     #14 0x7f1737e27781 libc_start_call_main.h:83
->     #15 0x7f1737e278b9 in __libc_start_main libc-start.c:127
->     #16 0x564dd8bd7095 in _start help.c:109
-> 
-> Fixes: 7efbcc8c075c ("perf annotate: Fix fused instr logic for assembly functions")
-> 
-> Signed-off-by: Yao Zhao <dragonlinux@gmail.com>
+On Mon, Nov 23, 2026 at 11:47:47AM +0100, Marco Crivellari wrote:
+> Hi Aaron,
 
-Applied to perf-tools-next, thanks!
+Hi Marco,
 
-Best regards
-Namhyung
+>=20
+> On Sun, Nov 22, 2026 at 12:52=E2=80=AFAM Aaron Tomlin <atomlin@atomlin.co=
+m> wrote:
+> >
+> > [...] In real-time environments, an active SCHED_FIFO workload will
+> > starve this SCHED_NORMAL worker and stall hardware dispatch, whilst als=
+o
+> > introducing unwanted latency jitter on nohz_full cores, defeating that
+> > commit's original objective.
+>=20
+> I would phrase this differently. cpu_is_isolated() checks HK_TYPE_DOMAIN,
+> so the jitter argument holds only when the nohz_full CPU is also
+> domain isolated (isolcpus=3Ddomain or an isolated cpuset partition). With
+> nohz_full alone, or isolcpus=3Dnohz without domain, this patch does not
+> apply and the behavior is unchanged.
+
+Agreed, that distinction is much clearer. Since both commit a46c27026da1
+and blk_mq_hctx_unbound_cpu() test cpu_is_isolated() (HK_TYPE_DOMAIN), CPUs
+configured solely with nohz_full=3D or isolcpus=3Dnohz without domain isola=
+tion
+(or an isolated cpuset partition) remain unaffected. I will reword the
+commit log in the next iteration to clarify that this applies specifically
+to domain-isolated CPUs (including when combined with nohz_full).
+
+>=20
+> > +static inline int blk_mq_hctx_unbound_cpu(void)
+> > +{
+> > +#ifdef CONFIG_CPU_ISOLATION
+> > +       if (static_branch_unlikely(&housekeeping_overridden)) {
+> > +               int cpu;
+> > +
+> > +               guard(preempt)();
+> > +               if (!cpu_is_isolated(raw_smp_processor_id()))
+> > +                       return WORK_CPU_UNBOUND;
+>=20
+> Since preemption is disabled by guard(preempt)(), you can use
+> smp_processor_id() here instead of raw_smp_processor_id().
+
+Oops! raw_smp_processor_id() was a leftover from v4 before guard(preempt)()
+was moved ahead of cpu_is_isolated(). I will switch to smp_processor_id()
+in the next iteration.
+
+Thank you for the review!
+
+Kind regards,
+--=20
+Aaron Tomlin
