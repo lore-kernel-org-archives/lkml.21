@@ -1,76 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.44
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795483699;
-	b=lIUwg84VrnGe9DCmz/uO6Vd87HiRl5XVUyHdbsKeOhj3VyTzWXvoZn5V+TrGrk1laaL0
-	 03mRD51F0vJojULPfVOdaL6aUWeFqBmHKcMDx1BV02+ag/XSg9vh7YoPa+Hvk29iHlmiv
-	 SwS2vSbSsEfmMRPpFHyDUzjaOifWmGc4yMtBGJd46yHfX4MprIVjyP9VgjyLKE4QYEack
-	 giPDh5RTH/et427+2t+scxQvlvON6P77xWMOlYo2yfBWK8Z0fwvhemZGVUmqLCESvCXDC
-	 XdDMZ78AP9OLAwOgxYM7cqrwjBITGpyee0QojKGizii8Qmg+crRF3rE3SC+N1pE0/Pw==
+	t=1795483706;
+	b=xAbtGjPXdeSWvmfhJ2CRPRUlC+BMGFAfZS0+08GpeyrBjdjjTJoIj4o2i6GveJ25t75d
+	 ekgY5PnG9XeFohVwX5KzfPpn7Gr7P1d4Qzr2xUmasQpV/7V5tuzDg5qREoTiVZBZIgfdq
+	 2lQhQ/z8aaYBEjk8DustguDIyDvm5KgaBuzxWiee2eQDuOyDUrARjJuivMizCt8uprgAX
+	 mgG9uJ16f8X5Dq85IXZAaK/9wyzb5v7itUK2gnud1NiMBuz4xOrxJaj8bJ1mqgEsmDykA
+	 y5EbPFBy3f870onR3PCeNK16qhSmC9ZY8Oh3zRGS1b+k+s9+rNOuXT8QYH7im3ioYkg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795483699;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=rR3LoSS/CnHxEjvm/yoRjwsCnx6t2+6QYn8uLZ0saD0=;
-	b=tMN4xXCS0H7P3ZTQ2JSV9aB6CnVRmzvjG5HOgoYMmuDGXT9PB0eWoVZg1tUIpBNsiL2a
-	 VxgN4hvAaNffHE1kuF1poJKfuq2lP+zaS1in/svrTQk0mIQqsyw7bl/xzYX5VmrZaeW9P
-	 C4CBbsTxwuaX+ekIxTwOEgPmOGL/rbOHaYHovDVs1DHXBed9J1O4aNpqVt0go6mC7XUeJ
-	 DiZ3s54XwTEAkCUP72C3tisgZhKQW3+tv6SKLIUXax215qauuiBjC3KqMdiLJQyeZwG8r
-	 otQa0aLURaAtXthtWyYCOR/KMKt1H6iLUDvkoQLEiZoxwau382tr7yPS1BfoSvXX7yA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795483706;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:Message-ID:From:To:Cc:Subject:In-Reply-To:References:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Content-Disposition;
+	bh=IqUna2kjFHvMrIO1OLa0ykP6eHWf+y9XmdVhagHZuFA=;
+	b=RFtictGEICXIQnB4ifeNzvyd9/I5v0KO06ECIxPry56lO7AZX4KRWAu9b9AAejiPS21Q
+	 vua+UFglLPK1DJRWYV4szYZoHgYMY7BtgDzt5aFcd9Bqx4y8M0aXS6OLEE5h1hzX4j6Fr
+	 ochCLAHLz+syFnhQIFol1JyW9mCyGld/F8nImzQI8uYPA/YR0ReBFsf46DYTMNWLMJ3V+
+	 Qj9Yg8sTYDfD0Y8H8FmmqXN1vs7D91rxaZ5OqlBQekhHfn45a42dq4rLqd+MW/0yi5lIM
+	 +EEjikLDTYDaHmG8Aej4h2QFZMrJSqu/kT04pB/KlSekew5hrf/fyVydhy3Obal6urg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MhiLjCcn;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=muDl+jhc;
+	arc=none smtp.remote-ip=74.125.82.44
+Received: from mail-dl1-f44.google.com (mail-dl1-f44.google.com [74.125.82.44])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 512B7606A31E;
-	Tue, 24 Nov 2026 01:28:19 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 86FDC606A322
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 01:28:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 86FDC606A322
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MhiLjCcn
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 5186A1F000C4;
-	Tue, 24 Nov 2026 01:28:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795483699;
-	bh=rR3LoSS/CnHxEjvm/yoRjwsCnx6t2+6QYn8uLZ0saD0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=MhiLjCcnHp95T7HuSLpsxG3/eXdkRaSIRPl4sr8N1U5eHtYO0TTNagpfp9FvmkyLY
-	 poVwlubetpPDij/MC3k1nK/9BUf5UjQy69XH3Y/lHA+UmTSurdUcg8YSSYFXRbKlTD
-	 jcbh79HqiPBRN4crGCI4oilTmV8umW0Wa4zCjU7Akv5fnudGwO1FhYCxPW8ulDClTP
-	 6fMW/Dcsm2g3xZssBeJt/iJjwdDF3L/cHmN6TjWY3Hoes81OGCWTlNSXOZmWrEz+K0
-	 9hcKPTnRxdqfj1RyZC5Qoh8kkYy8ExXwELZeyHET1akIkufbVIPoo5520mFH4jAWpG
-	 gH3wNwAHcfRDA==
-Date: Tue, 24 Nov 2026 03:28:15 +0200
-From: Jarkko Sakkinen <jarkko@kernel.org>
-To: linux-fsdevel@vger.kernel.org
-Cc: bpf@vger.kernel.org, containers@lists.linux.dev,
-	linux-api@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, linux-mm@kvack.org,
-	linux-security-module@vger.kernel.org,
-	Aleksa Sarai <aleksa@amutable.com>,
-	Alexander Mikhalitsyn <alex@amutable.com>,
-	Alexander Viro <viro@zeniv.linux.org.uk>,
-	Andy Lutomirski <luto@amacapital.net>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Christian Brauner <brauner@kernel.org>,
-	David Howells <dhowells@redhat.com>,
-	Eric Biggers <ebiggers@kernel.org>,
-	Giuseppe Scrivano <giuseppe@scrivano.org>,
-	Hugh Dickins <hughd@google.com>, Jan Kara <jack@suse.cz>,
-	Jeff Layton <jlayton@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-	Josef Bacik <josef@toxicpanda.com>, Kees Cook <kees@kernel.org>,
-	KP Singh <kpsingh@kernel.org>,
-	Lennart Poettering <lennart@poettering.net>,
-	Neal Gompa <neal@gompa.dev>, Oleg Nesterov <oleg@redhat.com>,
-	Paul Moore <paul@paul-moore.com>,
-	Pavel Tikhomirov <ptikhomirov@virtuozzo.com>,
-	Serge Hallyn <sergeh@kernel.org>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Zygmunt Krynicki <zygmunt.krynicki@canonical.com>
-Subject: Re: [RFC PATCH v7 00/26] userland: Userland containers
-Message-ID: <awToL2PFNKVgIfqs@kernel.org>
-References: <20261122193539.3334213-1-jarkko@kernel.org>
- <awTmJIErjasO4lqq@kernel.org>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=muDl+jhc
+Received: by mail-dl1-f44.google.com with SMTP id a92af1059eb24-1b3ada81853so4566811c88.0
+        for <linux-kernel@vger.kernel.org>; Mon, 23 Nov 2026 17:28:26 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795483706; x=1796088506; darn=vger.kernel.org;
+        h=content-disposition:content-transfer-encoding:content-type
+         :mime-version:references:in-reply-to:subject:cc:to:from:message-id
+         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=IqUna2kjFHvMrIO1OLa0ykP6eHWf+y9XmdVhagHZuFA=;
+        b=muDl+jhcQiYfn6XCWnNAla5FGzr50gZWXWL0cAb2YlZP3RtU+V7fpngMFhyrAdvs3X
+         /si1j1peUcZf/Q4j1Ky1wqmRsNN/6Ge/pGnDuB0Wb9xN7Wl6d+JFaQKMNoLRbdFrdeTi
+         dOIKXzyvkRsPNZDfjBstBqczObYyj0j4syH7MokVEJwpQphJZQByJVR/pwMuBnsTcnL5
+         6TXWhnKg6Ri9sZ8+orR0ozhAE//kcOdJIcxi98EqUfqQqngYg6/YAtO2gL9xr+mzIh4R
+         BqadFhFMoGKnijJF8XoPNP8r8/RmtVMhPztG7I2boitz2LxnIRskqUqcw5CbacNWElaD
+         Z8gQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795483706; x=1796088506;
+        h=content-disposition:content-transfer-encoding:content-type
+         :mime-version:references:in-reply-to:subject:cc:to:from:message-id
+         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=IqUna2kjFHvMrIO1OLa0ykP6eHWf+y9XmdVhagHZuFA=;
+        b=eWHanGNk0YgZr+5XLc6Q8AK2ZSNjKA5l7cc7GWl37W3qybq3wGKT8AdIJ+NHQRoEBR
+         uWqqNc3nZTUFvLlBgv8CaZxwRlD696/Rh+XS/oYWQBSWqU0kOoKx1owEQJ8M725iobkD
+         oTpWvmB98+NhFmcTONogZLsDV6EYAa8vZIQfkHsBiNVJZBqRoLU6d55CqU1/rfWQM32p
+         Ns/1DFHLzWkKKr6lqRTZ3c/DkK1VJWByyXLenS+dF9BqhqRzGnQ0fMurxDkpIvLhbv+w
+         fnUpGO/fiHKHcZH6cJIrG1f0h4wS3JjMCGChYG2+twD7rAiU0gwd/F1UrdwtsPTG/3yT
+         wM+Q==
+X-Forwarded-Encrypted: i=1; AL+hErHu3Qcd70jN3GBEQJhus2OgjXMASRr3P7taX7O9EGx/eR6NnVpcEIT6cLiPTvhuVdjtxXsWWJugquCLfao=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8VlDktFCFrVqGjvY5kDOP4pePS1W8gL3RjTYwLoeIAcxIuTO76
+	scKqF61ZCot1PY4vg4+WEIuHDQQ5aHiRSU2b1btTYy1it27oERc8DUPg
+X-Gm-Gg: AZFdTZcOP660mOR6vbnHdgN3g5n6ap/xenkMRVkRb8HUyJYFNecZzhJWkCLEjrbBCWm
+	ghyvxw4W7/dCm3389uBrfrXKV24maywK8pwfr5NXQmP8c8wXmFUHBA7SJQiwg2YecYEzWqr8Nn/
+	odlaCSQspEFBRdwoXTmhUgYmjXs2VN9ccRS65aLiAwPgX9mWkDzXZngf3hVNvAP+a4s6gOpHqlr
+	YgV1l9ZDgcXJWvZ0UxbkwpAHeJZ86mFhsByWYY/lZ17FB+HVLEi7KyAEi4VrHxzODkxrDCbmi9j
+	lw1nyxorr6BHy0CvTfX+Y7G3O+80q7YxCxRFJUhS4KPVYX3aWxckC2cRQTyybj8HC86izWjoch1
+	qOdidtE2j4c6Mtu7YjjgGA+u9wY4Ijt5Yw7qGtlwV0tRGXSd/wSkhw3EwtwnRkjeqp6ETuM6Y3a
+	ZQlLyKMqTOMcfNOEH51uwzq7VpXDbXNtDA54Jh3EqCu+PrpUCFYG6PIRogR+xCQe5GeDkyR475O
+	2PCm7REma770UTZMFfmFfD+ZSsO+ZMPIf6rL1dmk7Da3wklmNVosVUFsTpOU5ng0++7YIsDKSqC
+	WtcoTMIK+AtGZqRQLemBGH2wHFC1OwW/A0TYQuaog/x+COlst3xTtfknfhRwaMwAV62SAQ==
+X-Received: by 2002:a05:7022:5e09:b0:1a0:b8f5:872d with SMTP id a92af1059eb24-1b5567c13a5mr12621491c88.4.1795483705400;
+        Mon, 23 Nov 2026 17:28:25 -0800 (PST)
+Received: from localhost ([2a00:79e0:2ebe:8:4121:d698:201c:9274])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5566c3052sm31126403c88.1.2026.11.23.17.28.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 17:28:24 -0800 (PST)
+Date: Mon, 23 Nov 2026 17:28:23 -0800
+Message-ID: <84b917b9feb4a934e67d0e8f25707cc1@gmail.com>
+From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+To: ahmad baghereslami <ahmad.b1995@gmail.com>
+Cc: linux-input@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3] Input: synaptics - support the touchpad LED on RMI function $30
+In-Reply-To: <20261116071906.30110-1-ahmad.b1995@gmail.com>
+References: <7f9d0adf1f49c5a2b3919130caf0acb7@gmail.com> <20261116071906.30110-1-ahmad.b1995@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -81,47 +99,47 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
 Content-Disposition: inline
-In-Reply-To: <awTmJIErjasO4lqq@kernel.org>
 
-On Tue, Nov 24, 2026 at 03:19:36AM +0200, Jarkko Sakkinen wrote:
-> On Sun, Nov 22, 2026 at 09:35:13PM +0200, Jarkko Sakkinen wrote:
-> > SYSCALLS
-> > ========
-> > 
-> > Two new system calls are proposed:
-> > 
-> > 1. userland_open(): open an opaque staircase-initialized container
-> >    object (modeled on Intel SGX enclave initialization with separate
-> >    build and live states) with no embryonic state, opting selected
-> >    shared namespaces in via an allow-list instead of unshare semantics.
-> > 2. userns_set_idmap(): configure all UID, GID, and project ID map
-> >    extents for a container user namespace in a single atomic system
-> >    call.
-> 
-> I played on patching systemd and userns_set_idmap() alone does already
-> a lot of good. I'm figuring out userland_open() integration next.
-> 
-> For the test implementation I probe the opcode's and dependening on that
-> use either "userland path" or "fallback path".
-> 
-> This auto-probing is done so that I can commit the patches to my kernel
-> test harness, which already has systemd, and try them out when built
-> against userland-enabled kernel (via LINUX_OVERRIDE_SRCDIR):
-> 
-> https://git.kernel.org/pub/scm/linux/kernel/git/jarkko/linux-tpmdd-test.git/tree/?h=main
-> 
-> The project builds a hybrid ISO, which is a bootable bootc/composefs
-> based operating system, and has toolbx bundled i.e., a reasonable test
-> environment for all of this. It is also device-installable via "npx
-> @puu/install"
-> 
-> I had to level the harness up a lot so that I could realistically test
-> lockdown-hibernate but it is is also pretty good emulation environment
-> for any possible container features.
+Hi Ahmad,
 
-Kernel is ukified and systemd-boot is used as the boot loader i.e., for
-kernel testing purposes corresponds to something like Silverblue except
-not using GRUB.
+On Mon, Nov 16, 2026 at 10:49:06AM +0330, ahmad baghereslami wrote:
+...
+> The reason I kept it on PS/2 is a side effect on this laptop: the
+> embedded controller turns the keyboard backlight back on when it sees
+> PS/2 input after the backlight has timed out. Over SMBus the touchpad's
+> traffic no longer passes through the EC, so touching the touchpad no
+> longer wakes the keyboard backlight; only typing does. Nothing else
+> differed in daily use.
+>
+> If you still prefer the RMI4 route, I can send a series that adds
+> "SYN3040" to smbus_pnp_ids[] and implements LED class support in
+> rmi_f30.c, and drop the PS/2 backdoor. Or, if the backlight behaviour
+> is a reason to keep this touchpad on PS/2, I would keep the current
+> approach. Which would you prefer?
 
-Br, Jarkko
+I would definitely prefer the RMI4 route: adding "SYN3040" to
+smbus_pnp_ids[] and implementing LED class support in rmi_f30.c.
+
+We already enable InterTouch on several other HP laptops in
+smbus_pnp_ids[], and implementing F30 LED support in rmi_f30.c benefits
+all RMI4 touchpads (over SMBus, I2C, SPI, or HID) without duplicating
+RMI4 PDT scanning and register access over the PS/2 command backdoor or
+having to deactivate the PS/2 stream and export psmouse_mutex on every
+LED update.
+
+Keyboard backlight management should be handled separately from the
+touchpad transport: relying on the EC snooping legacy PS/2 traffic is
+just an incidental side effect (an external USB/Bluetooth mouse or an
+I2C-HID touchpad already bypasses the EC in the same way). Ideally the
+keyboard backlight is exposed as a standard LED class device by the HP
+platform driver (hp-wmi) and managed by userspace policy monitoring
+input activity, or (if an in-kernel mechanism is desired) driven by
+ledtrig-input-events (the "input-events" LED trigger) or an input
+observer in the platform driver.
+
+Thanks.
+
+-- 
+Dmitry
