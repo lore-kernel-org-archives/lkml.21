@@ -1,54 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.98
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.216
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795594691;
-	b=PnDpJEn9Gya09103HW/ga2juxhC/wJN54NzQLpuKNQsUYMKy8Mkf7N0+teoO4H2YjtAc
-	 C4jWahZON2FU253J4lwC+G6B2pQhTGLMcUZGlr7ZQ+5y8LeHTcH3Hqqca5oTxKvz+JO5V
-	 IzoXhea5JxT7r9g41p/aDbQsqx4OpxhDLk/l5nnFqQ3GueGRTGdHcLMO+ltJnRi/50jBN
-	 OxhtLjbUUFx4erziviQrq8Jwg5VOQezmx5f5uKQJqzjXwru6wDK583IVt4bFIQ/Mlh4Qw
-	 6OZIwSdz4Fya1Rkkl5K3F1FSDPs928OOB5TpBq2WxjqiXse8ELmykEQNLRx38E0UUbA==
+	t=1795594693;
+	b=35FQmQA2ySmb8KSfPPwlyMU3+QdGV8aTe+djUAS/EvFxNzBAR0neSz8EjC1lnVm0jyWi
+	 5wXW7jmKSew2myjiQZZANh6AwvFZhjd4+9O1SnFg8GgYp0pbsDk8iPp2DWUoyRgeWJXS3
+	 wqUMrtzCjEOmHsTWdDps6EhXC1FVg91UFCIozN93W6Ub3M0RKdVQ5eKKKrzCjDq2EY3a2
+	 2qdKWuZihYbe1y4ARdp667Z5IsoIw4Jhgw2AAx4BFnKjw/jcuiRQzG5vuvN70hXSLpFNn
+	 ZYAqtUlEB2vyEm2UiDFJI47VsVKGJtJm2kjhZXG9hrOzWWS6JLNZM4tKSEuSpq+iE6w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795594691;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=zQ4PDN/+IecVCHWBDQ0v0hwYyubU4Qhpq8q9f1QbpYY=;
-	b=wSrDAM8UALZH//yXphkBiy/h+NU84HK8sWKsgy4DO+usMD++tmnlAkAIfgiaJLahKEvU
-	 DWQYrK3jlf0TemfmpFO3gr15Am3Y7IsoWagbVixLGIcM98nQPvxIJD3WB39mMHlz/9Ftq
-	 Wyzil3QxAmfs1pZseIIFrYJ9z4uZ8CmeuKW7m6JO6fjMYirRElIwwdVuabhld/yTJo+C1
-	 Ojs+sywaZfpnZ6erjxQsma6vD2PIP0cXE8prP3yo3KcK8+Y0W610Yt7gZ2Rwc9/1OYrGS
-	 dD+EpiCNgFD6RFHjJQb+3eohQGpGxaVsKRvwHF9rCtdngI7RMruKsbSM9TC27P5PlFw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795594693;
+	h=DMARC-Filter:dkim-signature:Received:Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:CC:References:From:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding:X-Originating-IP:
+	 X-ClientProxiedBy;
+	bh=MbyGB8U9YRrniG9snzlWgjemL8IXXkOYk25rFewhrkE=;
+	b=zcGDSqfdkexhsYqIX0HuTFYOWsFhwpn7kALZWHzjq4nocJTntyK9qAOj2WkwJarGcO9u
+	 L7MhDOrlhJKYEZ8P+IZ6ADWJ/scSSLI5Vp8IPg/N7oNMN1TRDrOQu4nvfGToqaQv+Zpp/
+	 CNAUmH7Kj1E3NtFs5xQaJB5T56OilqX0b77z6H12W/e6WK88fNjsHfvS2MPGzRMRY6A/T
+	 EoGiBAq1OhLZkxXprgJ/Y2ILjXlGT2DjFnAtISPqyYuNYR3S3xBwmeSmZehefBHaFkvW8
+	 UqunvrKQa7Occerx3vDasNBkwMlkCAeXMRvahwLLgb53ULhxYue4FLYKCn5Dh6JclbQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=JL3SfCjV;
-	arc=none smtp.remote-ip=95.215.58.98
-Received: from mta1.migadu.com (out-98.mta1.migadu.com [95.215.58.98])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=huawei.com;
+	spf=pass smtp.mailfrom=huawei.com;
+	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=Ycn2FL+t;
+	arc=none smtp.remote-ip=113.46.200.216
+Received: from canpmsgout01.his.huawei.com (canpmsgout01.his.huawei.com [113.46.200.216])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 593D4606A326
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:18:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 593D4606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3AEEA606A327;
+	Wed, 25 Nov 2026 08:18:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3AEEA606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=JL3SfCjV
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=Hnn1Upm6og0+ZrW88GDMEcGJ/ZGLLay+qcflC5gxlL0=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795594688; v=1; x=1796199488;
- b=JL3SfCjV4080nOi9CL2Q+K936t6S+au5atuKD6XAd3apiOOESRAHmZ0x4F4NXgGc98kRpCxq
- bwK9DlYtw/+U5IMNNX+628MFduzZMqzlSkJYE/Ma8ZgafwvwYunoQzceNShRRKkN5A4TWWH81Ab
- uERyIbgFjLMa6/H3/tiucj8o=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id eba729f2d53511cd;
-	Wed, 25 Nov 2026 08:18:08 +0000
-X-Mizu-Trace-ID: eba729f2d53511cd
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <195d7fbd-5538-41ee-828a-92e5f400917c@linux.dev>
-Date: Wed, 25 Nov 2026 16:17:49 +0800
+	dkim=pass (1024-bit key) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=Ycn2FL+t
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=MbyGB8U9YRrniG9snzlWgjemL8IXXkOYk25rFewhrkE=;
+	b=Ycn2FL+tIkW1u9EHTKdSwJpvHnV15x8giz6KN/9y5ezCzneFIfeGfOxKe4NyUIApTEOQh4Dla
+	LDNrQ2Y+DenE39xInHvztvM4CrczFu3AC2fGRJ0QkdpSEvvHRHQzV4rNgKxvGBpKQNhuzM2DgTF
+	oYFztxIbNZ16gF5xCo2eLRc=
+Received: from mail.maildlp.com (unknown [172.19.162.197])
+	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4jZCG62Fvmz1T4fK;
+	Wed, 25 Nov 2026 16:17:18 +0800 (CST)
+Received: from kwepemk300018.china.huawei.com (unknown [7.202.194.246])
+	by mail.maildlp.com (Postfix) with ESMTPS id F249F40579;
+	Wed, 25 Nov 2026 16:18:07 +0800 (CST)
+Received: from [10.34.206.67] (10.34.206.67) by kwepemk300018.china.huawei.com
+ (7.202.194.246) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 25 Nov
+ 2026 16:18:07 +0800
+Message-ID: <bbc7ff8b-ef89-45e1-9f6c-3596c5e5c921@huawei.com>
+Date: Wed, 25 Nov 2026 16:18:06 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,89 +63,117 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 02/18] mm/memcontrol: allow update of LRU statistic
- without holding LRU lock
-To: kasong@tencent.com, linux-mm@kvack.org
-Cc: Andrew Morton <akpm@linux-foundation.org>,
- Johannes Weiner <hannes@cmpxchg.org>, Muchun Song <muchun.song@linux.dev>,
- Qi Zheng <qi.zheng@linux.dev>, Ying Huang <ying.huang@linux.alibaba.com>,
- Chris Li <chrisl@kernel.org>, Baoquan He <baoquan.he@linux.dev>,
- Nico Pache <nico.pache@linux.dev>, Usama Arif <usama.arif@linux.dev>,
- Michal Hocko <mhocko@kernel.org>, Roman Gushchin <roman.gushchin@linux.dev>,
- Shakeel Butt <shakeel.butt@linux.dev>, David Hildenbrand <david@kernel.org>,
- Lorenzo Stoakes <ljs@kernel.org>, "Liam R. Howlett" <liam@infradead.org>,
- Barry Song <baohua@kernel.org>, Axel Rasmussen <axelrasmussen@google.com>,
- Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>,
- Vlastimil Babka <vbabka@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
- Nhat Pham <nphamcs@gmail.com>, Youngjun Park <youngjun.park@lge.com>,
- Zi Yan <ziy@nvidia.com>, Gregory Price <gourry@gourry.net>,
- "Matthew Wilcox (Oracle)" <willy@infradead.org>,
- Baolin Wang <baolin.wang@linux.alibaba.com>,
- Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>,
- Lance Yang <lance.yang@linux.dev>, Hugh Dickins <hughd@google.com>,
- SJ Park <sj@kernel.org>, David Rientjes <rientjes@google.com>,
- Yu Zhao <yuzhao@google.com>, Vernon Yang <vernon2gm@gmail.com>,
- Zicheng Wang <wangzicheng@honor.com>, Tal Zussman <tz2294@columbia.edu>,
- Kairui Song <ryncsn@gmail.com>, Xiang Liu <liuxiang.277@bytedance.com>,
- Ehab Ababneh <ehab.ababneh@intel.com>,
- Zhao Zhenzhuo <zhaozhengzhuo@uniontech.com>, Lian Wang
- <lianux.mm@gmail.com>, Joanne Koong <joannelkoong@gmail.com>,
- Kunwu Chan <kunwu.chan@gmail.com>, Hui Zhu <hui.zhu@linux.dev>,
- Maxim Muzafarov <maxmuzaf@gmail.com>, linux-kernel@vger.kernel.org,
- cgroups@vger.kernel.org, damon@lists.linux.dev, linux-doc@vger.kernel.org,
- Tianyi Chen <hi@tychen.cc>
-References: <20261124-mglru-fg-v6-0-8ffea39934a6@tencent.com>
- <20261124-mglru-fg-v6-2-8ffea39934a6@tencent.com>
-From: Ridong Chen <ridong.chen@linux.dev>
-In-Reply-To: <20261124-mglru-fg-v6-2-8ffea39934a6@tencent.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Subject: Re: [PATCH -next -v2 6/8] lockdown: bound the status string with
+ scnprintf
+To: Cai Xinchen <caixinchen1@huawei.com>,
+	<nicolas.bouchinet@oss.cyber.gouv.fr>, <xiujianfeng@huawei.com>,
+	<paul@paul-moore.com>, <jmorris@namei.org>, <serge@hallyn.com>,
+	<shuah@kernel.org>, <kalevi@kolttonen.fi>
+CC: <linux-security-module@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-kselftest@vger.kernel.org>, <bpf@vger.kernel.org>,
+	<lujialin4@huawei.com>
+References: <20261110132818.2231593-1-caixinchen1@huawei.com>
+ <20261110132818.2231593-7-caixinchen1@huawei.com>
+From: Xiu Jianfeng <xiujianfeng@huawei.com>
+In-Reply-To: <20261110132818.2231593-7-caixinchen1@huawei.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ kwepemk300018.china.huawei.com (7.202.194.246)
 
-
-
-On 11/24/2026 2:52 AM, Kairui Song via B4 Relay wrote:
-> From: Kairui Song <kasong@tencent.com>
+On 11/10/2026 9:28 PM, Cai Xinchen wrote:
+> Use scnprintf() instead of sprintf() when composing the lockdown status
+> string in lockdown_read().  The current set of levels fits well within the
+> 80 byte buffer, but sprintf() provides no protection if more or longer
+> labels are added later.  scnprintf() makes the buffer bounds explicit.
 > 
-> To enable moving file pages in folio_mark_accessed directly and lazily
-> for MGLRU, allow updating the LRU statistic atomically without holding a
-> lock. It may cause temporary counter underflow, which should be fine as
-> the counter is eventually consistent and only serves as an estimate.
+> Store the level label strings in named arrays and point the matching
+> lockdown_reasons[] entries at them.  Their sizes are compile-time
+> constants, so a BUILD_BUG_ON() can verify that the status buffer is large
+> enough for all level labels, their trailing spaces, and the brackets
+> around the active one.
 > 
-> Reviewed-by: Barry Song <baohua@kernel.org>
-> Reviewed-by: Kunwu Chan <kunwu.chan@gmail.com>
-> Tested-by: Andrew Morton <akpm@linux-foundation.org>
-> Acked-by: Muchun Song (ByteDance) <muchun.song@linux.dev>
-> Reviewed-by: Lian Wang <lianux.mm@gmail.com>
-> Signed-off-by: Kairui Song <kasong@tencent.com>
+> Signed-off-by: Cai Xinchen <caixinchen1@huawei.com>
 > ---
->   include/linux/mm_inline.h | 5 ++---
->   1 file changed, 2 insertions(+), 3 deletions(-)
+>   security/lockdown/lockdown.c | 28 +++++++++++++++++++++++-----
+>   1 file changed, 23 insertions(+), 5 deletions(-)
 > 
-> diff --git a/include/linux/mm_inline.h b/include/linux/mm_inline.h
-> index 2395ca8ee305..2edb9beef6d3 100644
-> --- a/include/linux/mm_inline.h
-> +++ b/include/linux/mm_inline.h
-> @@ -47,12 +47,11 @@ static __always_inline void __update_lru_size(struct lruvec *lruvec,
->   {
->   	struct pglist_data *pgdat = lruvec_pgdat(lruvec);
+> diff --git a/security/lockdown/lockdown.c b/security/lockdown/lockdown.c
+> index 84efd533fe5a..26cac7628a48 100644
+> --- a/security/lockdown/lockdown.c
+> +++ b/security/lockdown/lockdown.c
+> @@ -14,13 +14,17 @@
+>   #include <linux/lsm_hooks.h>
+>   #include <uapi/linux/lsm.h>
 >   
-> -	lockdep_assert_held(&lruvec->lru_lock);
->   	WARN_ON_ONCE(nr_pages != (int)nr_pages);
+> +static const char lockdown_label_none[] = "none";
+> +static const char lockdown_label_integrity[] = "integrity";
+> +static const char lockdown_label_confidentiality[] = "confidentiality";
+> +
+>   /*
+>    * These are descriptions of the reasons that can be passed to the
+>    * security_locked_down() LSM hook, used for the denial message and the
+>    * securityfs status file.
+>    */
+>   static const char *const lockdown_reasons[LOCKDOWN_CONFIDENTIALITY_MAX + 1] = {
+> -	[LOCKDOWN_NONE] = "none",
+> +	[LOCKDOWN_NONE] = lockdown_label_none,
+>   	[LOCKDOWN_MODULE_SIGNATURE] = "unsigned module loading",
+>   	[LOCKDOWN_DEV_MEM] = "/dev/mem,kmem,port",
+>   	[LOCKDOWN_EFI_TEST] = "/dev/efi_test access",
+> @@ -41,7 +45,7 @@ static const char *const lockdown_reasons[LOCKDOWN_CONFIDENTIALITY_MAX + 1] = {
+>   	[LOCKDOWN_DBG_WRITE_KERNEL] = "use of kgdb/kdb to write kernel RAM",
+>   	[LOCKDOWN_RTAS_ERROR_INJECTION] = "RTAS error injection",
+>   	[LOCKDOWN_XEN_USER_ACTIONS] = "Xen guest user action",
+> -	[LOCKDOWN_INTEGRITY_MAX] = "integrity",
+> +	[LOCKDOWN_INTEGRITY_MAX] = lockdown_label_integrity,
+>   	[LOCKDOWN_KCORE] = "/proc/kcore access",
+>   	[LOCKDOWN_KPROBES] = "use of kprobes",
+>   	[LOCKDOWN_BPF_READ_KERNEL] = "use of bpf to read kernel RAM",
+> @@ -50,7 +54,7 @@ static const char *const lockdown_reasons[LOCKDOWN_CONFIDENTIALITY_MAX + 1] = {
+>   	[LOCKDOWN_TRACEFS] = "use of tracefs",
+>   	[LOCKDOWN_XMON_RW] = "xmon read and write access",
+>   	[LOCKDOWN_XFRM_SECRET] = "xfrm SA secret",
+> -	[LOCKDOWN_CONFIDENTIALITY_MAX] = "confidentiality",
+> +	[LOCKDOWN_CONFIDENTIALITY_MAX] = lockdown_label_confidentiality,
+>   };
 >   
->   	mod_lruvec_state(lruvec, NR_LRU_BASE + lru, nr_pages);
-> -	__mod_zone_page_state(&pgdat->node_zones[zid],
-> -				NR_ZONE_LRU_BASE + lru, nr_pages);
-> +	mod_zone_page_state(&pgdat->node_zones[zid],
-> +			    NR_ZONE_LRU_BASE + lru, nr_pages);
->   }
+>   static enum lockdown_reason kernel_locked_down;
+> @@ -137,6 +141,16 @@ static ssize_t lockdown_read(struct file *filp, char __user *buf, size_t count,
+>   	char temp[80] = "";
+>   	int i, offset = 0;
 >   
->   static __always_inline void update_lru_size(struct lruvec *lruvec,
-> 
+> +	/*
+> +	 * Size the buffer for the worst case: the active level is
 
-Reviewed-by: Ridong Chen <ridong.chen@linux.dev>
-Thanks.
+The comment is incorrect, the total length is the same whichever level 
+is active.
 
--- 
-Best regards
-Ridong
+> +	 * confidentiality, with brackets and trailing spaces, plus the
+> +	 * terminating NUL.  The label sizeof() values include their own
+> +	 * NULs, so only three more bytes are needed.
+> +	 */
+> +	BUILD_BUG_ON(sizeof(temp) < sizeof(lockdown_label_none) +
+> +				    sizeof(lockdown_label_integrity) +
+> +				    sizeof(lockdown_label_confidentiality) + 3);
+> +
+>   	for (i = 0; i < ARRAY_SIZE(lockdown_levels); i++) {
+>   		enum lockdown_reason level = lockdown_levels[i];
+>   
+> @@ -144,9 +158,13 @@ static ssize_t lockdown_read(struct file *filp, char __user *buf, size_t count,
+>   			const char *label = lockdown_reasons[level];
+>   
+>   			if (kernel_locked_down == level)
+> -				offset += sprintf(temp+offset, "[%s] ", label);
+> +				offset += scnprintf(temp + offset,
+> +						    sizeof(temp) - offset,
+> +						    "[%s] ", label);
+>   			else
+> -				offset += sprintf(temp+offset, "%s ", label);
+> +				offset += scnprintf(temp + offset,
+> +						    sizeof(temp) - offset,
+> +						    "%s ", label);
+>   		}
+>   	}
+>   
 
