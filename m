@@ -1,84 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.126
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=65.109.113.108
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795572834;
-	b=ElRj0Q9dAaJX1/Dp8R7ANASe/QX/YRADpOZKmWxF2l4gv/x6HM+CkNmBs/lx6I7orQEp
-	 Q5nLp6CzV/Eg0QX0U5Lojchfl1LmZN+1UG7dinEi7KR8hTLdCrg19BLTbDfRBAj7PJcxz
-	 o7egBV+x+ujMBfbXOZ1od7cIZ0GiuqV1N4Q5B+uHrQVWQL5r32ycGOPviPjBMXt8ro9J+
-	 ojtoWfkmFR0kAjR2/DEKfYXQbUi9VwOtn4RcnQpX0giupqw4bJZ3qVZamhjIhFqIr6v4h
-	 SiFvokVhZTnTvHSgoDAAhzWbo2oJZv4YCRZOSCtnp53PNknG6F/6tR5VP4oJ9rl8ljQ==
+	t=1795573089;
+	b=m3ru0hjH83zxCKLG4LtR1bezAsJqYCjKPChwlTrejcF0Tp1C1OLkh15eHscm9X6bRriJ
+	 1Te/oukzDC4tfC2xgh5zQ4fwaRlYk9TFmSF/WRbV9WQCpZnqx2J4mauSyp6fTMsc0tIed
+	 o1v/sY8Scbhwne5yUzjh2yWnZ2R/cYV/RPLiGIulvZORBMsDIDGdaFMC8jR4Y/N99MoW2
+	 DXKNChTGJgpKWaxBHEYXMwSgR7HSzVhgYYQNl63mYTEQHppkNT/SpoH0XS9H95wozaSYD
+	 XlCDOpoajrA/i1E6e11cM3zyY1wlywWWjx/7os6sWsrRfKlByKgacTwOOSeDQIPiSLA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795572834;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-Id:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=mR75b2s1mWNZlecKjEzTGrzm1QNi2Di7hyQA/N1UDPw=;
-	b=edOlMw3UKtTitgSGBOiyb6uypa8u/WR4Bb6jl6+bCBBl27GrKzQICiE9xAgO8VkOv0mR
-	 /fvIrjs4I2idd29sugvtjsmrr8TOOFHovOwZ9Dd57OB+i9wNmll6PbRyD4JezjSWmhTzT
-	 3dmbfVXVRd76ffWV6hXvP//l8cIvMiH8GHeDlIyRLxWB6hJtm1M8mm8njv5hJAwGf61ss
-	 2wfCH/MXHuXlgRGSkpKBioHs5hi1a+8M3Q8z31gQddr/icWRcYfA+Ox77CoGo8XlrTS+V
-	 H/GOm7k5nfOtM7Nbr9jNWwhR0kdAN/2KokGCgJ+0Ky9gKTXwLcCBhnc2LZ3pMbHEiwQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795573089;
+	h=DMARC-Filter:Received:X-Virus-Scanned:Received:DKIM-Signature:
+	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=5BmiEAABX0YkZtzL3ymjPboNK9Dk3Xskgw0XpD/U9ic=;
+	b=4NxbPQzDxCW4WDDYv8Zm2SY+3M+/+NOyC/lD2AjCdsw5pPKa97EonK4URroXd8Eypyvq
+	 5hY225jEdn31mrBBg+mxrCGf3C3XChSxMU9c6m/MJKnwcfdJvQZnHPiLepSPpGuud3rGS
+	 IquysPiq+wT4xtA7ZfAeZFxezPKHIqikefqZjqxPNyLP/ds8Ase1KyM2cr5J1Mf+Nzmkk
+	 TIJz04HFuLCoJ0kHCSSUKI/oawfhJaI4qBO2j2fRb0lJ0VABF2/GcDFvrgVZGnZPhM/Ku
+	 uheM4YweGoZ/K2CTm14zCRxEeiyqinCceyY8pOrTuTtDOQsBfjbVyMlu6pAgKDr/Mmg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=TKIcPLRi;
-	arc=none smtp.remote-ip=91.218.175.126
-Received: from mta0.migadu.com (out-126.mta0.migadu.com [91.218.175.126])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=alien8.de;
+	spf=pass smtp.mailfrom=alien8.de;
+	dkim=pass header.d=alien8.de header.i=@alien8.de header.a=rsa-sha256 header.s=alien8 header.b=SZ0zxJnS;
+	arc=none smtp.remote-ip=65.109.113.108
+Received: from mail.alien8.de (mail.alien8.de [65.109.113.108])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DB81B606A31E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 02:13:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DB81B606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 08D3D606A31E;
+	Wed, 25 Nov 2026 02:18:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 08D3D606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=alien8.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=alien8.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=TKIcPLRi
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=/wCihSMxaGc1SlzGU4LTrs2HdI1tRtEU07xbfbw90YY=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795572831; v=1; x=1796177631;
- b=TKIcPLRiQdBI9FOqQuNoL62zEIKv2eSYJB9lJzAomqVZWkeQcJJj+51U7ZfxlxK8/+Mo/Lox
- T42BrOC8MwsE4CzTw0AMVd2TokR+3uxTve4ftGrV4dlcO2jWgKAO3SNtfg7hFr7i5803ww12k/d
- C9LHUAMz2KRxAIp9ZMkC2Pqw=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by mta12.migadu.com with ESMTPS id 59fdfd6286176d23;
-	Wed, 25 Nov 2026 02:13:51 +0000
-X-Mizu-Trace-ID: 59fdfd6286176d23
-X-Migadu-Flow: FLOW_OUT
-From: "Xu Xin (vivo)" <xu.xin@linux.dev>
-To: nico.pache@linux.dev
-Cc: aarcange@redhat.com,
-	akpm@linux-foundation.org,
-	apopple@nvidia.com,
-	baohua@kernel.org,
-	baolin.wang@linux.alibaba.com,
-	byungchul@sk.com,
-	chengming.zhou@linux.dev,
-	david@kernel.org,
-	dev.jain@arm.com,
-	gourry@gourry.net,
-	joshua.hahnjy@gmail.com,
-	kas@kernel.org,
-	lance.yang@linux.dev,
-	liam@infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org,
-	matthew.brost@intel.com,
-	ryan.roberts@arm.com,
-	usama.arif@linux.dev,
-	usamaarif642@gmail.com,
-	xu.xin@linux.dev,
-	ying.huang@linux.alibaba.com,
-	yuzhao@google.com,
-	ziy@nvidia.com
-Subject: Re: [PATCH v3] mm/ksm: prevent zero-page remapping during ksmd-triggered THP splits
-Date: Wed, 25 Nov 2026 10:13:30 +0800
-Message-Id: <20261125021330.54446-1-xu.xin@linux.dev>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261122-b4-ksm_fixv2-v3-1-f78ea7779746@linux.dev>
-References: <20261122-b4-ksm_fixv2-v3-1-f78ea7779746@linux.dev>
+	dkim=pass (4096-bit key, unprotected) header.d=alien8.de header.i=@alien8.de header.a=rsa-sha256 header.s=alien8 header.b=SZ0zxJnS
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTP id 9FF9340E01E1;
+	Wed, 25 Nov 2026 02:17:59 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at mail.alien8.de
+Authentication-Results: mail.alien8.de (amavisd-new); dkim=pass (4096-bit key)
+	header.d=alien8.de
+Received: from mail.alien8.de ([127.0.0.1])
+	by localhost (mail.alien8.de [127.0.0.1]) (amavisd-new, port 10026)
+	with ESMTP id h4jS9kRgljvp; Wed, 25 Nov 2026 02:17:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=alien8;
+	t=1795573075; bh=5BmiEAABX0YkZtzL3ymjPboNK9Dk3Xskgw0XpD/U9ic=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=SZ0zxJnSQ2E9IDoOQnutqoDmh1YGpIbtrhm7bo90SpFTCs9Wcqt8uAhHF+Nta9qTx
+	 UoQhmJ4LkwoRpI3zFT89TK7JFfxDoGMXqV/roY8bkPUI1uC3dG2uBOwn8dKtn7B97B
+	 MaTPUft5Dw+rw1+dtTeYZixRQOhpwbx47ZHpmqXH51gVpgPskatWRiUP2PI8kuIkc+
+	 gF9ReAOqzKuIzs7wpjYmbJf9ZT7CH9z4NZ7sCGVqjRm8toJXfWiF3nJqq0J6Ogq3Vf
+	 2ukP0MjEsFoiuzQGzlBzRHzOSiXqy/sa0MOqU902b6KDYOAwLAyFdwciK7v8NOm9t+
+	 wqTPO2+hwWFo6WFe5VCgbGA+Se36lLIT1eEF49uhBodo4LeSmTFKB2dUE6MCpkEoKE
+	 tFO/WrC7h5x9V+5MjmGqAHWhfOFRs7aqMZYnxOTmOUEg44J49lb3PHHJEXLeczqwqU
+	 ql6ZeiPY+OP289YMlvPLAvlujGiptxTrvEAUNaLATcxUrgXF4b82xCeAGOvNBRAO+Q
+	 R5E4GZniXeS+RAJLn+BQjUa/Hysnd274bdbhfq/VfAuuYIbCc69jDl0mrRjh2DxPl7
+	 efo2bbRe2DR5oxlGqDSKJMFBu9Isxot18loVSUJQoDaDr+Q7yGVHlznnt5zw/jrW16
+	 i052oh/x/gw31YJKXZ0HksRY=
+Received: from stx.tnic (unknown [IPv6:2600:1700:38ca:c00::2b])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature ECDSA (P-256) server-digest SHA256)
+	(No client certificate requested)
+	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id 2106840E0218;
+	Wed, 25 Nov 2026 02:17:37 +0000 (UTC)
+Date: Tue, 24 Nov 2026 18:17:33 -0800
+From: Borislav Petkov <bp@alien8.de>
+To: Alexei Starovoitov <alexei.starovoitov@gmail.com>
+Cc: Kumar Kartikeya Dwivedi <memxor@gmail.com>, bpf@vger.kernel.org,
+	Puranjay Mohan <puranjay@kernel.org>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Emil Tsalapatis <emil@etsalapatis.com>,
+	Ihor Solodrai <ihor.solodrai@linux.dev>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Andy Lutomirski <luto@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	kkd@meta.com, kernel-team@meta.com, x86@kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH bpf-next v1 1/3] x86/mm: Resolve BPF exception fixups for
+ user address faults under SMAP
+Message-ID: <20261125021733.GAawZFPYeXUtqNINJ2@fat_crate.local>
+References: <DM0ESVBT9553.2S1RWK1W7M8WW@gmail.com>
+ <20261122200848.GBawNL0FcQoK918YDI@fat_crate.local>
+ <CAP01T746W=8FFiJJUM3H-Qv09uRO6-XEi9B-8pjSgtpAPBx4EA@mail.gmail.com>
+ <20261123003036.GCawOJLKK1iX47XTDm@fat_crate.local>
+ <CAP01T77EgbuyhP=zU9L1hwYL6rHaSbrqQZGJR_+9AQgSWLe7Nw@mail.gmail.com>
+ <20261123025529.GDawOrIQcDOPhgWwF6@fat_crate.local>
+ <CAP01T75Qps8bKFZAU2gN-3UJTB1aWw46NG5c-sm6K028rSc9sA@mail.gmail.com>
+ <DN2E8Q9V38IF.3O738M7NGLSAL@gmail.com>
+ <20261123185124.GAawSLLMoWwJ71nq5j@fat_crate.local>
+ <DN386F271FUR.35EWQWGMEMX7K@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -88,119 +100,88 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <DN386F271FUR.35EWQWGMEMX7K@gmail.com>
 
-> Since commit b1f202060afe ("mm: remap unused subpages to shared zeropage
-> when splitting isolated thp"), splitting an anonymous THP remaps all
-> zero-filled subpages to the shared zeropage via TTU_USE_SHARED_ZEROPAGE.
-> This flag is set unconditionally for every anonymous folio split,
-> including splits triggered by KSM.
+On Tue, Nov 24, 2026 at 06:25:45AM +0000, Alexei Starovoitov wrote:
+> On Mon, Nov 23, 2026 at 10:51 AM Borislav Petkov <bp@alien8.de> wrote:
+> > Look here, our mails crossed last night:
+> >
+> > https://lore.kernel.org/r/20261123043409.GFawPCQT2M-hz0mvZP@fat_crate.local
 > 
-> When KSM is enabled with THP=always, this causes two regressions:
-> 
-> 1. use_zero_pages=1: KSM calls try_to_merge_one_page() which triggers
->    split_huge_page(). The split remaps all 512 zero-filled subpages to
->    the shared zeropage at once, freeing the entire 2MB THP when KSM only
->    intended to process a single 4KB page. This bypasses KSM's
->    pages_to_scan rate limiting, causing ~1GB to be freed almost
->    instantly.
-> 
-> 2. use_zero_pages=0: The same split side-effect occurs through the
->    stable/unstable tree merge paths. Each pages_to_scan iteration
->    triggers an expensive split_huge_page() that silently frees 2MB,
->    while the scanner wastes cycles on tree searches for zero-filled
->    pages that were already freed as a side-effect.
-> 
-> Introduce current_is_ksmd(), to check if the current task is the KSM
-> thread. Use it in try_to_map_unused_to_zeropage() to skip zero-page
-> remapping when the split is triggered by ksmd. Allow remapping during
-> reclaim running in ksmd's context.
-> 
-> Fixes: b1f202060afe ("mm: remap unused subpages to shared zeropage when splitting isolated thp")
-> Signed-off-by: Nico Pache (Red Hat) <nico.pache@linux.dev>
-> ---
-> This patch fixes a bug in KSM where the pages_to_scan limit is
-> bypassed and the policy (use_zero_pages) is ignored.
-> 
-> Commit b1f202060afe ("mm: remap unused subpages to shared zeropage when
-> splitting isolated thp") added zero-page remapping when an anonymous
-> folio is split, including splits triggered by KSM.
-> 
-> Skip zero-page remapping when ksmd triggers the split, while allowing
-> remapping during reclaim running in ksmd's context.
-> 
-> Changes in v3:
-> - Drop the patch gating zero-page remapping on shrink_underused.
-> - Allow zero-page remapping during reclaim running in ksmd's context
-> - Add a comment explaining the ksmd check (David Hildenbrand).
-> 
-> V2: https://lore.kernel.org/all/20261025-b4-ksm_fixv2-v2-0-8b61ad0491f1@linux.dev
-> V1: https://lore.kernel.org/all/20260609114619.144416-1-npache@redhat.com/
-> RFC: https://lore.kernel.org/all/20260508170509.640851-1-npache@redhat.com/
-> ---
->  include/linux/ksm.h | 6 ++++++
->  mm/ksm.c            | 5 +++++
->  mm/migrate.c        | 8 ++++++++
->  3 files changed, 19 insertions(+)
+> hmm. I thought my diff answered it already, but ok. Here the answers spelled out.
 
-LGTM, so
+That's very much appreciated - much better than telling me that I don't
+understand BPF and I should not ask questions.
 
-Acked-by: Xu Xin (vivo) <xu.xin@linux.dev>
+> diff --git a/arch/x86/mm/fault.c b/arch/x86/mm/fault.c
+> index aa88370..9fe8705 100644
+> --- a/arch/x86/mm/fault.c
+> +++ b/arch/x86/mm/fault.c
+> @@ -1263,7 +1263,16 @@ void do_user_addr_fault(struct pt_regs *regs,
+>                      !(error_code & X86_PF_USER) &&
+>                      !(regs->flags & X86_EFLAGS_AC))) {
+>                 /*
+> -                * No extable entry here.  This was a kernel access to an
+> +                * The CPU refused the access. If the BPF JIT marked this load
+> +                * as one that may fault, skip it and zero the destination.
+> +                */
+> +               if (!user_mode(regs) && !(error_code & X86_PF_WRITE) &&
+> +                   ex_get_fixup_type(regs->ip) == EX_TYPE_BPF &&
 
-> 
-> diff --git a/include/linux/ksm.h b/include/linux/ksm.h
-> index a0d358a1feb6..23c8e9f60118 100644
-> --- a/include/linux/ksm.h
-> +++ b/include/linux/ksm.h
-> @@ -17,6 +17,7 @@
->  #ifdef CONFIG_KSM
->  int ksm_madvise(struct vm_area_struct *vma, unsigned long start,
->  		unsigned long end, int advice, vm_flags_t *vm_flags);
-> +bool current_is_ksmd(void);
->  vma_flags_t ksm_vma_flags(struct mm_struct *mm, const struct file *file,
->  			  vma_flags_t vma_flags);
->  int ksm_enable_merge_any(struct mm_struct *mm);
-> @@ -144,6 +145,11 @@ static inline int ksm_madvise(struct vm_area_struct *vma, unsigned long start,
->  	return 0;
->  }
->  
-> +static inline bool current_is_ksmd(void)
-> +{
-> +	return false;
-> +}
-> +
->  static inline struct folio *ksm_might_need_to_copy(struct folio *folio,
->  		struct page *page, struct vm_area_struct *vma, unsigned long addr)
->  {
-> diff --git a/mm/ksm.c b/mm/ksm.c
-> index d24b129932bf..60656b05419a 100644
-> --- a/mm/ksm.c
-> +++ b/mm/ksm.c
-> @@ -2873,6 +2873,11 @@ static int ksm_scan_thread(void *nothing)
->  	return 0;
->  }
->  
-> +bool current_is_ksmd(void)
-> +{
-> +	return kthread_func(current) == ksm_scan_thread;
-> +}
-> +
->  static bool __ksm_should_add_vma(const struct file *file, vma_flags_t vma_flags)
->  {
->  	if (vma_flags_test(&vma_flags, VMA_MERGEABLE_BIT))
-> diff --git a/mm/migrate.c b/mm/migrate.c
-> index 65869b8acec5..b0949f43ed5c 100644
-> --- a/mm/migrate.c
-> +++ b/mm/migrate.c
-> @@ -305,6 +305,14 @@ static bool try_to_map_unused_to_zeropage(struct page_vma_mapped_walk *pvmw,
->  	if (PageCompound(page) || PageHWPoison(page))
->  		return false;
->  
-> +	/*
-> +	 * When a split is triggered by KSM, let KSM take care of scanning for
-> +	 * and deduplicating the shared zeropage. Reclaim in the ksmd context
-> +	 * should still be able to reclaim zero-filled pages.
-> +	 */
-> +	if (current_is_ksmd() && !current->reclaim_state)
-> +		return false;
-> +
+Ok, I see the JIT is marking exception table entries with that in those
+arenas.
+
+So if someone would try to exploit this, then something must've jitted
+a binary blob just right in order to bypass that complex conditional.
+
+> SMAP stays enabled in that case too.
+
+All I mean is, this is the first scenario where one can bypass it. The
+exception fixup thing.
+
+> The fixup doesn't touch CR4.SMAP or AC, and it doesn't retry the load.
+> ex_handler_bpf() writes 0 into the destination register and moves regs->ip
+> past the load. User memory is not read.  A jump straight to that load with
+> a user address in the register gets zero too.  The range check gives the
+> same result today: zero and no oops.  My diff has no is_bpf_text_address().
+> It checks the type of the extable entry of the faulting insn.
+
+Yes, I guess, even if it were a malicious blob, what ex_handler_bpf() is doing
+to it is limited so I guess that's fine-ish. I mean, if the machine is already
+loading bpf programs from userspace, the risk is already there.
+
+> The diff has one check, and it's on the type of the extable entry.
+> error_context() does the same for #MC with ex_get_fixup_type().
+> fixup_exception() has EX_TYPE_BPF already.
+
+Yes, that's a bit better.
+
+> A JITed bpf prog is not a user space program.
+
+I meant, it is a user program which gets loaded and runs in the kernel at
+CPL0. We're on the same page.
+
+> It's kernel text in ring 0 with an extable, like a module.  The bar is the
+> extable: kernel text, an entry for the faulting insn, and a type that says
+> "load from any address, skip it on a fault".  That's an inlined
+> get_kernel_nofault(). It isn't specific to bpf.  If you prefer a generic
+> type instead of EX_TYPE_BPF, that works for me.  Then get_kernel_nofault()
+> can use it too, and copy_from_kernel_nofault_allowed() can drop its user
+> address checks under SMAP.
+
+The hurdles are more, which is better. I guess we can try it and see what
+catches fire.
+
+Next time, when you decide to touch core arch functionality like the #PF
+handler, please include us in the design *early* too so that we can chime in
+and check the sanity of such proposals.
+
+Thanks!
+
+-- 
+Regards/Gruss,
+    Boris.
+
+https://people.kernel.org/tglx/notes-about-netiquette
