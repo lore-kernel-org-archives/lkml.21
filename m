@@ -1,58 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.222
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.226
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795594807;
-	b=GqfWS3MRh2mP+3ObTPM9TDsTLZ5cGz5y0fMw4CEcvs5UnfbD4m2R4ndVmURAlAKIe23D
-	 5WntXCK2NTwZtMkHUD0X8RXk+wWWY2azcFaBajnA5gpF83i8sh/ncZX2R8hvBebHavGCs
-	 0Gw0NT5n90s01cg+3X31R2jnSnsYOtt8LvCcLWLZ+Tlrw0SGeVwjDFM02ooHA6q3giSrz
-	 iWhXKLEzf0+orHpQJOJhQMNr7BdJqd86XhYG3o6TlYDxmw9MmCo9Y44xAGq51d7XBlsYt
-	 f7dwlgipPDkGo2cA7PHMCQoV5xm3lkEKjNlOLtrAa6VYK3Mp1tVcpjAQAT+s42Xofhg==
+	t=1795594818;
+	b=Nn6oQvc8i+6EYluNw25X+1lejZOVhpyjhstZ/QoDgWn6jJcokF9WcBefi4Xy6qW/XKuj
+	 JnCzaiKDDuOYoIjutWnTb67cR7xHdu8gtC8ETot9sW0b1zdS7qbp4BEKbx6tmIcPD4oIL
+	 lmms5rhjwwby8Pbi47+8zcYZg8VnYDAkEQ1mzkpD7C+7SZcsCnwIyvHsm7huXCl2RWKsV
+	 C4OQ/TTk9BMQryzY3OXShEXdBMsIidGy2vUzP/9N+q8VpWYGOUJlOldeslCVUDwzN9wFj
+	 Q856GpNxVCnbDJQxU9l3j95AVYhpKmBd8kYZ/XXjP4i86M0WTQcBFvX8fsHkgEVivCQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795594807;
-	h=DMARC-Filter:dkim-signature:Received:Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:References:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-Originating-IP:
-	 X-ClientProxiedBy;
-	bh=ZGnQfFlvxPPEZ0MP7hE50eiuegTJEhafWunhgxWNytI=;
-	b=OcP9vLogin7odX91HCBNmoPCMtZaarjlt48biDl3j6PPjbVJmnAuO2aSbtBeIq9nyzPx
-	 UsYkNg6QVzl3dC8hDbw6aLyI2oMehYYOewYBFEczKctgqw5PqcEuwgInQFrI2z6lijjEX
-	 dJoRUjXcOkLunj8z42ylLDd6/SRyvvG9XYwTg9Yx2VjMDtoJOZujn2Sg60PEsygxsTz1G
-	 P99r/HVvFSM4enmnAR8Zn18A1ELRwFPwB54x7pIwlVynch5AU17883Xgvz8JcRsiSjAhc
-	 nOmrzExQteMIEjIuALGODwwD3slIq3DmhGBgQHixxdwuwWBmsAprf+ofeOd8CParQ1g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795594818;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:From:To:Cc:References:Content-Language:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=QfZ3lG2uOxeiODVkla0mMOvEHpv7y5P99cIsSRHzDec=;
+	b=fjXB9/gAk/wvLIblDkKJYv17Fd56rLp26wJR6grqsL1KPbO1cIbUlNotWN63C+6U0Y07
+	 F8CVqEShHFOVdXpimCZrJlwqA97XCNgh1bCtVzoxdLcMscQ8a7m9Mcy+LulYC4jAWNkZs
+	 itE7sPZf13kOo3tb00Yz4rWCPG29RdF3t3qyGFd1+rg/3b7pSWkfjZdLyprW9A5KzwGzj
+	 nVH4NGKwuP111bpttVLfWduCbq7lpx03ppJJu8J4jQQBNMda1krh43o2/AuyZbMF7taVu
+	 9gD0S/mhj37WmrpilFqqPErn9poOjF++q4F48Z9f8Xaz5vVZZdcfYKt/B0ekLxaKUzA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=huawei.com;
-	spf=pass smtp.mailfrom=huawei.com;
-	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=Kth5NXw6;
-	arc=none smtp.remote-ip=113.46.200.222
-Received: from canpmsgout07.his.huawei.com (canpmsgout07.his.huawei.com [113.46.200.222])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Y0E4pc8T;
+	arc=none smtp.remote-ip=95.215.58.226
+Received: from mta1.migadu.com (out-226.mta1.migadu.com [95.215.58.226])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DE2F1606A31E;
-	Wed, 25 Nov 2026 08:20:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DE2F1606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CB86B606A326
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:20:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CB86B606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=Kth5NXw6
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=ZGnQfFlvxPPEZ0MP7hE50eiuegTJEhafWunhgxWNytI=;
-	b=Kth5NXw6Om7wzvvgj3ZNXLYRW0wjwXjeU4BqIXYJ+rs/LEy3vKd1pdaP9OOxR9PmEZ/mJjaAM
-	grW4Ll6HBwDHJBIsMk8xpxyaACoNJEUgGvbAP1FGJvULdapR8YX3M7Ta7679oVholbdtjWSvYGJ
-	AlX3wBmVfJ8OsPIZFqFmrmc=
-Received: from mail.maildlp.com (unknown [172.19.162.92])
-	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4jZCJp4XFXzLlXx;
-	Wed, 25 Nov 2026 16:19:38 +0800 (CST)
-Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
-	by mail.maildlp.com (Postfix) with ESMTPS id 7CBA540586;
-	Wed, 25 Nov 2026 16:20:02 +0800 (CST)
-Received: from [10.67.110.68] (10.67.110.68) by kwepemk200008.china.huawei.com
- (7.202.194.74) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 25 Nov
- 2026 16:20:01 +0800
-Message-ID: <41c7ebe2-07e4-45c2-94e4-5ce65e550062@huawei.com>
-Date: Wed, 25 Nov 2026 16:20:01 +0800
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Y0E4pc8T
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=/919UxKRMyPlULBGJtfj9Q5QU8pqqMoGwH6XL9fnwpU=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795594815; v=1; x=1796199615;
+ b=Y0E4pc8THdsEx1zmo1BBP1WSc46ylAD4u0nTAgDtqG+t0su8WW+lI+cyTilfJ0oZVaOsXiaY
+ b5OJVJM/YiiPlgPIP0OrTfAqBPxcc6ry8HEK+Wmd4iEoV3S+nb6+bpIjxtUnKalLAlQGtR0Kqm0
+ UXj1DIgOXIPph2m4lvGVvtuc=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 523a68c985d1740f;
+	Wed, 25 Nov 2026 08:20:11 +0000
+X-Mizu-Trace-ID: 523a68c985d1740f
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <b63bc354-0f29-49fb-84ec-313bf4283360@linux.dev>
+Date: Wed, 25 Nov 2026 16:20:00 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,195 +59,215 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 5/6] fs/resctrl: Release the limbo RMIDs when the CDP
- state changes
-To: Reinette Chatre <reinette.chatre@intel.com>, Ben Horgan
-	<ben.horgan@arm.com>, <tony.luck@intel.com>, <Dave.Martin@arm.com>,
-	<james.morse@arm.com>, <babu.moger@amd.com>, <corbet@lwn.net>,
-	<skhan@linuxfoundation.org>, <rdunlap@infradead.org>, <bp@alien8.de>,
-	<tan.shaopeng@fujitsu.com>, <gshan@redhat.com>, <jic23@kernel.org>,
-	<fenghuay@nvidia.com>, <zengheng4@huawei.com>, <x86@kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-doc@vger.kernel.org>
-References: <20261119094858.813874-1-ruanjinjie@huawei.com>
- <20261119094858.813874-6-ruanjinjie@huawei.com>
- <6dd79d09-576b-4086-ba5c-7f8663292a6e@arm.com>
- <390433eb-30d8-442a-8d7e-30f15bbe8f9d@huawei.com>
- <03bd150c-f44a-4ae6-b544-3f819e4bb7f2@arm.com>
- <4712b9de-811f-44f8-8ee4-54cd0df8892c@intel.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <4712b9de-811f-44f8-8ee4-54cd0df8892c@intel.com>
-Content-Type: text/plain; charset="UTF-8"
+Subject: Re: [PATCH v5 02/11] mm/kmsan: undo the shadow mapping when the
+ origin mapping fails
+From: Hao Ge <hao.ge@linux.dev>
+To: Suren Baghdasaryan <surenb@google.com>
+Cc: Uladzislau Rezki <urezki@gmail.com>, Dev Jain <dev.jain@arm.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+ "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
+ Shrikanth Hegde <sshegde@linux.ibm.com>,
+ Alexander Potapenko <glider@google.com>, Marco Elver <elver@google.com>,
+ Dmitry Vyukov <dvyukov@google.com>, Dennis Zhou <dennis@kernel.org>,
+ Tejun Heo <tj@kernel.org>, Christoph Lameter <cl@gentwo.org>,
+ linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+ kasan-dev@googlegroups.com, linux-mm@kvack.org, stable@vger.kernel.org
+References: <20261116071325.263682-1-hao.ge@linux.dev>
+ <20261116071325.263682-3-hao.ge@linux.dev>
+ <CAJuCfpHOZS6mp_no3wKmU3-S4HKspnbriUw8Mwtxf3nmw0-pfw@mail.gmail.com>
+ <CAJuCfpFv=sCeib+SDWJNW6oqbNnhT+m3YjnfKh8jNkquzuYORg@mail.gmail.com>
+ <793d63ff-c48b-431d-8a2a-4044feb45721@linux.dev>
+ <81b05a10-1b20-4132-8cc6-c71b88f21414@linux.dev>
+Content-Language: en-US
+In-Reply-To: <81b05a10-1b20-4132-8cc6-c71b88f21414@linux.dev>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
- kwepemk200008.china.huawei.com (7.202.194.74)
 
-Hi Reinette and Ben,
+Hi Suren
 
-在 2026/11/25 2:03, Reinette Chatre 写道:
-> Hi Ben and Jinjie,
+
+On 2026/11/23 18:15, Hao Ge wrote:
 > 
-> On 11/23/26 2:07 AM, Ben Horgan wrote:
->> On 23/11/2026 01:53, Jinjie Ruan wrote:
->>> 在 2026/11/20 0:49, Ben Horgan 写道:
->>>> On 19/11/2026 09:48, Jinjie Ruan wrote:
->>>>> On MPAM the counter of an RMID is selected by the PARTIDs of the CLOSID
->>>>> that owned it. Without CDP, CLOSID c is PARTID c; with CDP it is
->>>>> PARTIDs 2c and 2c+1. An RMID that stays in limbo across an unmount and
->>>>> a mount that changes the CDP state is read through the PARTIDs of the
->>>>> new state, which are not the PARTIDs its cache lines are tagged with.
->>>>>
->>>>> With 5 PARTIDs:
->>>>>
->>>>>   mount                  CDP off, CLOSID c -> PARTID c
->>>>>   mkdir g1..g4           CLOSIDs 1..4
->>>>>   umount                 RMIDs enter limbo with CLOSIDs 1..4
->>>>>   mount -o cdp           CDP on, CLOSID c -> PARTIDs 2c, 2c+1
->>>>>   limbo handler          reads CLOSID 2 as PARTID 5 > PARTID_MAX 4
->>>>>                          MSC error interrupt, mpam_disable()
->>>>>
->>>>> The other direction is worse because nothing reports it. If resctrl is
->>>>> mounted with CDP and mounted again without it, CLOSID c is read as
->>>>> PARTID c, which is in range, so the limbo handler silently tests the
->>>>> occupancy of the PARTID of a different CLOSID and frees or keeps the
->>>>> RMIDs based on it.
->>>>>
->>>>> Where the RMID depends on the CLOSID, as on MPAM, release the RMIDs in
->>>>> limbo without reading them when a mount changes the CDP state, instead
->>>>> of restarting the limbo handler. Cache lines that still carry those
->>>>> RMIDs are accounted to the next user of each RMID. Where the RMID does
->>>>> not depend on the CLOSID, as on x86, the CDP state does not change how
->>>>> an RMID is read and the limbo handler is restarted as before.
->>>>>
->>>>> Compare the CDP state of every resource, not just the L3: on MPAM, CDP
->>>>> enabled on any resource gives every CLOSID two PARTIDs in all MSCs, so
->>>>> mounting with -o cdpl2 alone also changes how the L3 monitors read a
->>>>> CLOSID, and cache levels beyond the L3 would too.
->>>>>
->>>>> Reproduced on QEMU with the sequence above:
->>>>>
->>>>>   mpam:__mpam_irq_handler: error irq from msc:1 'MSMONCFG_ID_RANGE', partid:5, pmg: 0, ris: 0
->>>>>   mpam:mpam_disable: MPAM disabled due to hardware error interrupt
->>>>>
->>>>> With the change the sequence completes without an error.
->>>>>
->>>>> Fixes: 6789fb99282c ("arm_mpam: resctrl: Add CDP emulation")
->>>>> Suggested-by: Ben Horgan <ben.horgan@arm.com>
->>>>> Suggested-by: Reinette Chatre <reinette.chatre@intel.com>
->>>>> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
->>>>> Cc: <stable@vger.kernel.org>
->>>>> ---
 > 
-> ...
-> 
->>>>> ---
->>>>>  fs/resctrl/monitor.c | 35 +++++++++++++++++++++++++++++++++--
->>>>>  1 file changed, 33 insertions(+), 2 deletions(-)
->>>>>
->>>>> diff --git a/fs/resctrl/monitor.c b/fs/resctrl/monitor.c
->>>>> index ede1708b920e..2c8c60138768 100644
->>>>> --- a/fs/resctrl/monitor.c
->>>>> +++ b/fs/resctrl/monitor.c
->>>>> @@ -70,6 +70,13 @@ static u32 *closid_num_dirty_rmid;
->>>>>   */
->>>>>  static unsigned int rmid_limbo_count;
->>>>>  
->>>>> +/*
->>>>> + * @limbo_cdp_enabled - True if the RMIDs in limbo were placed there while CDP
->>>>> + *     was enabled. Only used when CONFIG_RESCTRL_RMID_DEPENDS_ON_CLOSID is
->>>>> + *     defined.
->>>>> + */
->>>>> +static bool limbo_cdp_enabled;
->>>>> +
->>>>>  /*
->>>>>   * @rmid_entry - The entry in the limbo and free lists.
->>>>>   */
->>>>> @@ -1044,12 +1051,15 @@ int setup_rmid_lru_list(void)
->>>>>   * cqm_resume_limbo_handler() - Restart the limbo handler after a mount.
->>>>>   *
->>>>>   * The limbo handler stops while resctrl is unmounted. Restart it on every
->>>>> - * domain that still has RMIDs in limbo.
->>>>> + * domain that still has RMIDs in limbo. Where the RMID depends on the CLOSID
->>>>> + * and the mount changed the RMID index a CLOSID is monitored with, the RMIDs
->>>>> + * in limbo can no longer be read: release them instead.
->>>>>   */
->>>>>  void cqm_resume_limbo_handler(void)
->>>>>  {
->>>>>  	struct rdt_resource *r = resctrl_arch_get_resource(RDT_RESOURCE_L3);
->>>>>  	struct rdt_l3_mon_domain *d;
->>>>> +	bool release = false;
->>>>>  
->>>>>  	lockdep_assert_cpus_held();
->>>>>  	lockdep_assert_held(&rdtgroup_mutex);
->>>>> @@ -1057,6 +1067,24 @@ void cqm_resume_limbo_handler(void)
->>>>>  	if (!r->mon_capable || !resctrl_is_mon_event_enabled(QOS_L3_OCCUP_EVENT_ID))
->>>>>  		return;
->>>>>  
->>>>> +	/*
->>>>> +	 * Where the RMID depends on the CLOSID, the RMIDs in limbo can only
->>>>> +	 * be read with the CDP state they were freed under. Check every
->>>>> +	 * resource because CDP enabled on any resource changes how every
->>>>> +	 * CLOSID is monitored, so CDP on another resource alone also changes
->>>>> +	 * how the L3 monitors are read.
->>>>> +	 */
->>>>> +	if (IS_ENABLED(CONFIG_RESCTRL_RMID_DEPENDS_ON_CLOSID)) {
->>>>> +		struct rdt_resource *res;
->>>>> +		bool cdp_enabled = false;
->>>>> +
->>>>> +		for_each_rdt_resource(res)
->>>>> +			cdp_enabled |= resctrl_arch_get_cdp_enabled(res->rid);
->>>>> +
->>>>> +		release = cdp_enabled != limbo_cdp_enabled;
->>>>> +		limbo_cdp_enabled = cdp_enabled;
->>>>> +	}
->>>>> +
->>>>>  	list_for_each_entry_rcu(d, &r->mon_domains, hdr.list,
->>>>>  				lockdep_is_cpus_held()) {
->>>>>  		if (!has_busy_rmid(d))
->>>>> @@ -1067,7 +1095,10 @@ void cqm_resume_limbo_handler(void)
->>>>>  		 * it is queued again on a CPU picked now.
->>>>>  		 */
->>>>>  		cancel_delayed_work(&d->cqm_limbo);
->>>>> -		cqm_setup_limbo_handler(d, 0, RESCTRL_PICK_ANY_CPU);
->>>>> +		if (release)
->>>>> +			release_limbo_rmids(d);
+> On 2026/11/23 16:12, Hao Ge wrote:
+>> Hi Suren
+>>
+>> On 2026/11/21 05:49, Suren Baghdasaryan wrote:
+>>> On Fri, Nov 20, 2026 at 9:14 PM Suren Baghdasaryan <surenb@google.com> wrote:
 >>>>
->>>> Rather than release all the rmids don't we want to check them all to see which are busy?
+>>>> On Mon, Nov 16, 2026 at 7:13 AM Hao Ge <hao.ge@linux.dev> wrote:
+>>>>>
+>>>>> kmsan_vmap_pages_range_noflush() first maps the shadow pages and then
+>>>>> the origin pages. If the second mapping fails, the first one is left
+>>>>> mapped, and the callers do not roll it back. The next vmap of the
+>>>>> same metadata range hits the stale PTEs again and fails with a
+>>>>> WARN_ON() and -EBUSY in vmap_pages_pte_range().
+>>>>>
+>>>>> Undo the shadow mapping on that error path, the same way
+>>>>> kmsan_ioremap_page_range() cleans up after a partial failure.
+>>>>> __vunmap_range_noflush() only clears the PTEs; nothing has touched
+>>>>> the shadow mapping, so no TLB flush is needed.
 >>>
->>> We can not read them here using resctrl_arch_rmid_read(). On MPAM, the
->>> RMID occupancy is read through the PARTID of its CLOSID, and the CDP
->>> state maps one to the other.
+>>> After a second thought, kmsan_ioremap_page_range() does not skip TLB
+>>> flushing. __vunmap_range_noflush() comment at
+>>> https://elixir.bootlin.com/linux/v7.4-rc1/source/mm/vmalloc.c#L497
+>>> says:
 >>>
->>> After the mount operation flips the CDP, this mapping disappears, so the
+>>> The caller is responsible for calling flush_cache_vmap() before
+>>> calling this function, and flush_tlb_kernel_range after it has
+>>> returned successfully ...". There are no mentions of guarantees that
+>>> mapped PTEs require explicit access to be cached. Please double-check
+>>> if this is safe.
 >>
->> Yes, the old indexing becomes invalid. The user visible effects of limbo
->> handler running between mounts should be maintained. As such, if the
->> limbo handler can't just be simply resumed I would expect that the array
->> of dirty rmid was recreated. If we put all the rmid (except for the
->> default rmid) in the dirty rmid array then the limbo handler will take
-
-That make sense for me.
-
->> care of releasing those that are free. How does this sound to you?
+>> That's a subtle detail. I've looked up the relevant documentation.
+>> You are right, and my "no TLB flush is needed" was wrong.
 >>
-> Thank you very much Ben. I think this is a better solution that better matches
-> what the limbo list aims to solve. It looks to me like the trigger for this
-> rebuild of the list should be the CDP change by itself, not whether there is
-> anything in limbo (so no has_busy_rmid(d) test).
-> Ben already states this with "all the rmid" but I think it is worth highlighting
-> that this also includes RMID considered free.
-
-Thank you both. I'll do this in v7: when a mount changes the CDP state,
-discard the previous dirty state and put every RMID except the default
-one back in limbo, so the limbo handler checks each of them with the
-PARTIDs it is now read with before it can be reused which includes the
-RMIDs that were on the free list.
-
-> Consider the scenario:
-> - Under CDP the default group's CLOSID 0 selects PARTIDs 0 and 1, so its
->   code accesses tag cache lines with PARTID 1, PMG 0.
-> - re-mounted without CDP, CLOSID 1 is PARTID 1, so a new group given CLOSID 1
->   and RMID 0 starts out counting the default group's leftover code lines.
->   That RMID was never in limbo.
+>> The Arm "Learn the architecture" AArch64 memory management guide says it
+>> in "TLBs and Changing translations":
+>>
+>> https://support.arm.com/documentation/101811/0106/TLBs-and-Changing-translations
+>>
+>> If you change a translation table entry, or the controls that affect how entries
+>> are interpreted, then you need to invalidate the affected entries in the TLB. If
+>> you do not invalidate those entries, then the processor might continue to use the
+>> old translation.
+>>
+>> The undo changes the shadow PTEs, so the TLB has to be invalidated.
+>>
+>> I also checked the Arm Architecture Reference Manual:
+>> https://support.arm.com/documentation/ddi0487/md/-Part-D-The-AArch64-System-Level-Architecture/-Chapter-D8-The-AArch64-Virtual-Memory-System-Architecture/-D8-16-Translation-Lookaside-Buffers
+>> rule R SQBCS:
+>>
+>> If a stage of translation is enabled for a translation regime that is not out-of-context,
+>> any translation table entry for that stage that does not cause a Translation fault,
+>> an Address size fault, or an Access flag fault is permitted to be cached in a TLB or
+>> intermediate TLB caching structure as the result of an explicit or speculative access.
+>>
+>> So it may already be cached by speculative access even if there was no explicit access.
+>>
+>> For the kernel side,  Documentation/core-api/cachetlb.rst
+>> https://elixir.bootlin.com/linux/v7.4-rc1/source/Documentation/core-api/cachetlb.rst
+>> says that The "TLB" is abstracted under Linux as something the cpu uses to cache
+>> virtual-->physical address translations obtained from the software page tables.
+>> Meaning that if the software page tables change, it is possible for stale translations
+>> to exist in this "TLB" cache. Therefore when software page table changes occur, the kernel will
+>> invoke one of the following flush methods _after_ the page table changes occur:
+>>
+>> The condition there is the page table change, not whether the range was accessed.
+>>
+>> Likewise, I believe flush_cache_vmap() is also required.
+>> The sequence in cachetlb.rst is
+>> flush_cache_range()
+>> change_range_of_page_tables()
+>> flush_tlb_range()
+>> so the cache flush has to happen before the unmap.
+>> This is exactly the contract that the __vunmap_range_noflush() comment you quoted spells out,
+>> the caller is responsible for calling flush_cache_vmap() before the call and flush_tlb_kernel_range()
+>> after it.
+>>
+>> The code will do:
+>>
+>> --- a/mm/kmsan/shadow.c
+>> +++ b/mm/kmsan/shadow.c
+>> @@ -258,6 +258,13 @@ int kmsan_vmap_pages_range_noflush(unsigned long start, unsigned long end,
+>>                                             o_pages, page_shift);
+>>         kmsan_leave_runtime();
+>>         if (mapped) {
+>> +               /* Undo the shadow mapping set up above. */
+>> +               flush_cache_vmap(shadow_start, shadow_end);
 > 
-> Reinette
+> Sorry, this should be flush_cache_vunmap.
+> 
+>> +               kmsan_enter_runtime();
+>> +               __vunmap_range_noflush(shadow_start, shadow_end,
+>> +                                      gfpflags_allow_blocking(gfp_mask));
+>> +               kmsan_leave_runtime();
+>> +               flush_tlb_kernel_range(shadow_start, shadow_end);
+>>                 err = mapped;
+>>                 goto ret;
+>>         }
+>>
+>> Thanks a lot for catching this, I learned quite a bit about the TLB
+>> along the way. 
+>>
 
+Let's revisit this. Unless I'm missing something, the unmap counterpart,
+kmsan_vunmap_range_noflush(), appears to be missing its TLB flush.
+
+Taking vmalloc as the example:
+
+vmalloc
+    __vmalloc_area_node()
+        vmap_pages_range()
+            vmap_pages_range_noflush()
+                kmsan_vmap_pages_range_noflush()
+		    installs the shadow/origin and flushes
+		    their TLB at the tail /* flushed */
+
+vfree
+    remove_vm_area
+        free_unmap_vmap_area
+            vunmap_range_noflush /*shadow/origin PTEs cleared,
+				   no TLB flush */
+            free_vmap_area_noflush() /* area -> lazy list
+
+    ... later, when the lazy list is settled: 
+    __purge_vmap_area_lazy
+        flush_tlb_kernel_range(start, end);
+        /* no shadow/origin tlb flush */
+
+So unlike the normal paths, KMSAN performs the TLB flush when the range
+is reused and re-mapped, rather than flushing it immediately after unmap.
+
+I'm not sure this is safe. Reading the documentation, this should not be safe,
+perhaps I have misinterpreted the documentation.
+If this was intentional, maybe a TLB flush is not required here, but if so I would
+expect it in the purge instead, together with the main range. After all, vmalloc is
+frequently called, and lazy TLB flushing is an existing optimization for vmalloc.
+
+Would you mind taking a look at this concern, or letting me know who I could ask?
+This would be a good opportunity for me to brush up on my TLB knowledge, and I would
+greatly appreciate your input.
+
+Thanks
+Best Regards
+Hao
+
+>> Thanks
+>> Best Regards
+>> Hao
+>>>
+>>>>>
+>>>>> Fixes: 47ebd0310e89 ("mm: kmsan: handle alloc failures in kmsan_vmap_pages_range_noflush()")
+>>>>> Cc: stable@vger.kernel.org
+>>>>> Suggested-by: Suren Baghdasaryan <surenb@google.com>
+>>>>> Signed-off-by: Hao Ge <hao.ge@linux.dev>
+>>>>
+>>>> Reviewed-by: Suren Baghdasaryan <surenb@google.com>
+>>>>
+>>>>> ---
+>>>>>  mm/kmsan/shadow.c | 5 +++++
+>>>>>  1 file changed, 5 insertions(+)
+>>>>>
+>>>>> diff --git a/mm/kmsan/shadow.c b/mm/kmsan/shadow.c
+>>>>> index 0c88d89bf0d6..212449db34a1 100644
+>>>>> --- a/mm/kmsan/shadow.c
+>>>>> +++ b/mm/kmsan/shadow.c
+>>>>> @@ -258,6 +258,11 @@ int kmsan_vmap_pages_range_noflush(unsigned long start, unsigned long end,
+>>>>>                                             o_pages, page_shift);
+>>>>>         kmsan_leave_runtime();
+>>>>>         if (mapped) {
+>>>>> +               /* Undo the shadow mapping set up above. */
+>>>>> +               kmsan_enter_runtime();
+>>>>> +               __vunmap_range_noflush(shadow_start, shadow_end,
+>>>>> +                                      gfpflags_allow_blocking(gfp_mask));
+>>>>> +               kmsan_leave_runtime();
+>>>>>                 err = mapped;
+>>>>>                 goto ret;
+>>>>>         }
+>>>>> --
+>>>>> 2.25.1
+>>>>>
