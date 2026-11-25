@@ -1,65 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795584114;
-	b=SBFELr5PEbpC2oPuvB697rQEbnQy8wdzixA9FBmDrmg9mFVd4Qax6lN4uCWMbIFa2i7c
-	 9ncXIIEkjK305U1vlIcLsjVA2TuDiIHjO9w+4gc2cebiGaGXCXfUz/zVLZ1thKKV9ZEck
-	 1z0KgiuyPVRmZphc1u57xmowQ5K1F9VaeNJt1Frk4LfjsMLGSGUH9UqQoj/S+K9NWbS8q
-	 4dcCccWFRP8jgLSfXlugN5L7iFnuQQ2RzZTKMISwzYTHZcwBCD7KnS+m5/LYPZzh+dGqV
-	 sJqh/vcL2mSp1qsiGDcpHHHJ8/4gI1oQ3YsXs9vJiUMQ0opBsB6Fot6Zuz5xTdUT65A==
+	t=1795584124;
+	b=kkfZ+cUDSl4UAfY4/lUeTmqlmQg1ki0eDj+/+C6kVyuVG6mzqZ0B9xNqocsT34LFlPCN
+	 HzQCBlThA6JjtHLygEd4mfkt06ZkLuygw0oKlZ+/8pL9BqVTvbVBIqM1F+6o9sLlhKxWS
+	 JtDcQ16PY3ge8PVL4G5U9ThwLVD5mWR1+MTJwg4+X02t9FEoV1nzIxvokIYBzDm9sGl57
+	 n2N/MEPiGaEw/EiDkYp9QtbO14KspA+cW/Gx7ZyQEEez04t5qtg/cOvaFeWVDepuQ1W6J
+	 zU33xsTy8qZ3cYya6UGdJRPRepqo3GOXAOGy+S6Es2fs/QLanUo8BVNzQlp3F1OHSTQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795584114;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795584124;
 	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
 	 X-Mimecast-MFC-AGG-ID:Received:Received:From:To:Cc:Subject:Date:
 	 Message-ID:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding:X-Scanned-By;
-	bh=mc34D2q5COVmhcIQilRs646YUBq9QiIuhNDucN9niMI=;
-	b=QgiNCCdKWJi6KQL2eRjvfmXy58iB6GHMAHUBEzOVXSZG2F2BM9t+pAf/q1zSzsPQqW4U
-	 vldDC+u8jpPzC7gkAx8H8G+khrVNDB5CqWb7XOL6pna8InRQljM8fDdCIPZvcnEXVkFzm
-	 6nmZlIv36i/ucfZh+IKp1AlA4XndgGuZuorAILhRBRdLUOtml1Z7TQWMAMAVRYaUrgQ05
-	 6jSlkAkF6K8lw0+NBBKHNB+ipj5XO1x5mUyKPkRx698sTrW05rk2lZzVQM+EfPXEolWjC
-	 o19kiLpT93od5CQB9O8UgITz1Ky1Gnohl4EYNcHYtAh+97XcLbjGTJbFJv0LpzZplkA==
+	bh=yPBfEKahhfYei6glmdPdejVYAgGYQtYkDSj3W5f5X7s=;
+	b=Xp/+Kh1ZQoSAweEWOrBbCMaJ6xP3RwtSy8YcFZ4CG5VzdwoSJcgHGCBjCrnDuGVpSj6V
+	 htaKjTZcw5ru1eRMzyNurtJAaDN8DG8HNdL9vnQZ6/WFYz3dyhSsXhXjxKEtHV+JBTDDD
+	 PjVBEmaZ2IHRN24nTRtqHWCt82pRY+M0fOc3WhVHXrJablfd0XejZfyEIBkN3ZeOG3WEo
+	 sXVMDDE2r44tS7HkUTVc2zP6/UrEVBOob+hjza7ipnhgOXkZZRbp7WFpASXMmCiJ4eWp8
+	 FCqpYKXtehfiIXtx1lGA1qzOuoMO/XOg+GkYna/kg6u09IwTtAIeELmm5iKQ4L5eDpA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=redhat.com;
 	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=XHtYWZNA;
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=b4JXv+03;
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 37FDB606A6AA
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 05:21:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 37FDB606A6AA
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C0A2B606A321
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 05:22:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C0A2B606A321
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=XHtYWZNA
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=b4JXv+03
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795584113;
+	s=mimecast20190719; t=1795584122;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=mc34D2q5COVmhcIQilRs646YUBq9QiIuhNDucN9niMI=;
-	b=XHtYWZNAAOBJSkxQ2ld+H/b/E2zZ7nkwADPFaJXrXc9fbAI1PTYQWx8jxDRhkJyaAyS7o4
-	9ES+ieIL2mhCwTRjkXFpjjmUGi4kbE+O/dseIdyXT2qXgXFHjgjP04ZnsRKDQcmRKfgg8M
-	D7ExSPKqYxSvRX0BXW4i7xAWsKzWFxU=
-Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
+	bh=yPBfEKahhfYei6glmdPdejVYAgGYQtYkDSj3W5f5X7s=;
+	b=b4JXv+03TcTemsHZt1WI6sUy9KyCsmi433/AnVw0E/NU1IHlYNJvbEsuIPN7JuPopVIF7b
+	JbtF0kjAc9k4d9Ai95XMVR/jsGiyTeOBPvtYypnMqVR8TCAW6Se0CnO5FFhqgKizdIpNH8
+	FMkNZLvN2euGcf+srp71k2JBVrfgKPE=
+Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
  (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-106-VWAiq1_kOUGuqk1gp2G78g-1; Wed,
- 25 Nov 2026 05:21:48 +0000
-X-MC-Unique: VWAiq1_kOUGuqk1gp2G78g-1
-X-Mimecast-MFC-AGG-ID: VWAiq1_kOUGuqk1gp2G78g_1795584107
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-13--Lgl4R6kM0ehwoHe7oyfPg-1; Wed,
+ 25 Nov 2026 05:21:47 +0000
+X-MC-Unique: -Lgl4R6kM0ehwoHe7oyfPg-1
+X-Mimecast-MFC-AGG-ID: -Lgl4R6kM0ehwoHe7oyfPg_1795584106
 Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id AD73419560B8;
-	Wed, 25 Nov 2026 05:21:47 +0000 (UTC)
-Received: from mlevitsk-thinkpadt14gen3.ibmmarkh.csb (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
-	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id AE7021956088;
+	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 7504C195422C;
 	Wed, 25 Nov 2026 05:21:46 +0000 (UTC)
+Received: from mlevitsk-thinkpadt14gen3.ibmmarkh.csb (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
+	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 791001956088;
+	Wed, 25 Nov 2026 05:21:45 +0000 (UTC)
 From: Maxim Levitsky <mlevitsk@redhat.com>
 To: kvm@vger.kernel.org
 Cc: Sean Christopherson <seanjc@google.com>,
@@ -67,9 +67,9 @@ Cc: Sean Christopherson <seanjc@google.com>,
 	Paolo Bonzini <pbonzini@redhat.com>,
 	x86@kernel.org,
 	Maxim Levitsky <mlevitsk@redhat.com>
-Subject: [PATCH v4 5/5] KVM: x86: nVMX: fix races in delivery of nested posted interrupts
-Date: Wed, 25 Nov 2026 00:21:39 -0500
-Message-ID: <20261125052139.362046-6-mlevitsk@redhat.com>
+Subject: [PATCH v4 4/5] KVM: x86: nVMX: move nested APICv state to nested_guest_state
+Date: Wed, 25 Nov 2026 00:21:38 -0500
+Message-ID: <20261125052139.362046-5-mlevitsk@redhat.com>
 In-Reply-To: <20261125052139.362046-1-mlevitsk@redhat.com>
 References: <20261125052139.362046-1-mlevitsk@redhat.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
@@ -84,300 +84,212 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
 
-If a nested posted interrupt races with a L0 vm exit on a target vCPU,
-that is reflected to L1, then this nestedf posted interrupt is currently
-neither processed nor delivered to L1 as a regular interrupt.
+Replace vmx->nested.pi_pending,pi_active and posted_intr_nv with
+KVM_NESTED_PI_VECTOR_MASK,KVM_NESTED_PI_ACTIVE,KVM_NESTED_PI_PENDING
+flags of nested_guest_state.
 
-Since it is not possible to know if APICv hardware has processed
-the interrupt, opt to always process it a moment before nested VM exit.
-(call vmx_complete_nested_posted_interrupt)
+Since the nested state is cleared as a whole to 0, on each nested VM exit,
+explicit clearing of vmx->nested.posted_intr_nv and vmx->nested.pi_pending
+was dropped.
 
-To ensure that vmx_deliver_nested_posted_interrupt and
-vmx_complete_nested_posted_interrupt don't race do the following:
-
-Have a cmpxchg based loop in vmx_deliver_nested_posted_interrupt that
-atomically checks that target vCPU is in nested mode and has suitable
-posted interrupt configuration, and then set KVM_NESTED_PI_PENDING.
-
-If the above cmpxchg loop succeeds, this means that even if the target vCPU
-is in process of exiting the nested guest, it will notice this
-KVM_NESTED_PI_PENDING flag when it reaches its
-vmx_complete_nested_posted_interrupt, and then it will process it.
-
-If it fails, it means that the target vCPU is no longer in the guest
-mode, and thus it is safe to deliver the interrupt as a normal interrupt.
-
-Apply a similar logic on the receiving side:
-Use xchg to snapshot the old value of guest state in leave_guest_mode,
-and by using this snapshot, determine if we need to process
-the posted interrupts.
-
-Also delay publish to of the nested posted interrupt state to
-KVM_REQ_GET_NESTED_STATE_PAGES to avoid dealing with a situation where
-vm exit causes a L2->L2 vm exit before nested APICv pages were mapped.
-
-Fixes: 705699a13994 ("KVM: nVMX: Enable nested posted interrupt processing")
+Also, since nested entry sets nested_guest_state to KVM_NESTED_IN_GUEST,
+the publishing of KVM_NESTED_PI_VECTOR_MASK,KVM_NESTED_PI_ACTIVE is delayed
+to happen after enter_guest_mode().
 
 Suggested-by: Paolo Bonzini <pbonzini@redhat.com>
 Signed-off-by: Maxim Levitsky <mlevitsk@redhat.com>
 ---
- arch/x86/kvm/regs.h       |  5 ++--
- arch/x86/kvm/vmx/nested.c | 63 ++++++++++++++++++++++++++-------------
- arch/x86/kvm/vmx/vmx.c    | 60 ++++++++++++++++++-------------------
- 3 files changed, 76 insertions(+), 52 deletions(-)
+ arch/x86/include/asm/kvm_host.h |  5 ++++-
+ arch/x86/kvm/vmx/nested.c       | 33 +++++++++++++++++++--------------
+ arch/x86/kvm/vmx/vmx.c          |  7 +++----
+ arch/x86/kvm/vmx/vmx.h          |  2 --
+ 4 files changed, 26 insertions(+), 21 deletions(-)
 
-diff --git a/arch/x86/kvm/regs.h b/arch/x86/kvm/regs.h
-index b36254db1b8f..4a507e15134b 100644
---- a/arch/x86/kvm/regs.h
-+++ b/arch/x86/kvm/regs.h
-@@ -461,9 +461,9 @@ static inline void enter_guest_mode(struct kvm_vcpu *vcpu)
- 	vcpu->stat.guest_mode = 1;
- }
+diff --git a/arch/x86/include/asm/kvm_host.h b/arch/x86/include/asm/kvm_host.h
+index 78fcc7fcece7..43acc724b8e4 100644
+--- a/arch/x86/include/asm/kvm_host.h
++++ b/arch/x86/include/asm/kvm_host.h
+@@ -757,7 +757,10 @@ struct kvm_vcpu_arch {
+ 	u64 arch_capabilities;
+ 	u64 perf_capabilities;
  
--static inline void leave_guest_mode(struct kvm_vcpu *vcpu)
-+static inline int leave_guest_mode(struct kvm_vcpu *vcpu)
- {
--	atomic_set(&vcpu->arch.nested_guest_state, 0);
-+	int old_value = atomic_xchg(&vcpu->arch.nested_guest_state, 0);
+-#define KVM_NESTED_IN_GUEST	BIT(8)
++#define KVM_NESTED_PI_VECTOR_MASK	0xFF
++#define KVM_NESTED_IN_GUEST		BIT(8)
++#define KVM_NESTED_PI_ACTIVE		BIT(9)
++#define KVM_NESTED_PI_PENDING		BIT(10)
+ 	/* Non zero when the guest is executing a nested guest */
+ 	atomic_t nested_guest_state;
  
- 	if (vcpu->arch.load_eoi_exitmap_pending) {
- 		vcpu->arch.load_eoi_exitmap_pending = false;
-@@ -471,6 +471,7 @@ static inline void leave_guest_mode(struct kvm_vcpu *vcpu)
- 	}
- 
- 	vcpu->stat.guest_mode = 0;
-+	return old_value;
- }
- 
- static inline bool is_guest_mode(struct kvm_vcpu *vcpu)
 diff --git a/arch/x86/kvm/vmx/nested.c b/arch/x86/kvm/vmx/nested.c
-index 1b4483dd6354..d350ea2ffdb5 100644
+index bff719dce07d..1b4483dd6354 100644
 --- a/arch/x86/kvm/vmx/nested.c
 +++ b/arch/x86/kvm/vmx/nested.c
-@@ -3434,7 +3434,18 @@ static bool nested_get_evmcs_page(struct kvm_vcpu *vcpu)
- }
- #endif
+@@ -351,7 +351,6 @@ static void free_nested(struct kvm_vcpu *vcpu)
+ 	vmx->nested.smm.vmxon = false;
+ 	vmx->nested.vmxon_ptr = INVALID_GPA;
+ 	free_vpid(vmx->nested.vpid02);
+-	vmx->nested.posted_intr_nv = -1;
+ 	vmx->nested.current_vmptr = INVALID_GPA;
+ 	if (enable_shadow_vmcs) {
+ 		vmx_disable_shadow_vmcs(vmx);
+@@ -2445,13 +2444,9 @@ static void prepare_vmcs02_early(struct vcpu_vmx *vmx, struct loaded_vmcs *vmcs0
+ 			 ~PIN_BASED_VMX_PREEMPTION_TIMER);
  
--static bool nested_get_vmcs12_pages(struct kvm_vcpu *vcpu)
-+static void nested_vmx_enable_posted_interrupts(struct kvm_vcpu *vcpu)
-+{
-+	struct vmcs12 *vmcs12 = get_vmcs12(vcpu);
+ 	/* Posted interrupts setting is only taken from vmcs12.  */
+-	vmx->nested.pi_pending = false;
+-	if (nested_cpu_has_posted_intr(vmcs12)) {
+-		vmx->nested.posted_intr_nv = vmcs12->posted_intr_nv;
+-	} else {
+-		vmx->nested.posted_intr_nv = -1;
++	if (!nested_cpu_has_posted_intr(vmcs12))
+ 		exec_control &= ~PIN_BASED_POSTED_INTR;
+-	}
 +
-+	WARN_ON_ONCE(vmcs12->posted_intr_nv & ~KVM_NESTED_PI_VECTOR_MASK);
-+
-+	atomic_or(KVM_NESTED_PI_ACTIVE |
-+		 (vmcs12->posted_intr_nv & KVM_NESTED_PI_VECTOR_MASK),
-+		  &vcpu->arch.nested_guest_state);
-+}
-+
-+static bool nested_get_vmcs12_pages(struct kvm_vcpu *vcpu, bool from_vmentry)
- {
- 	struct vmcs12 *vmcs12 = get_vmcs12(vcpu);
- 	struct vcpu_vmx *vmx = to_vmx(vcpu);
-@@ -3503,6 +3514,9 @@ static bool nested_get_vmcs12_pages(struct kvm_vcpu *vcpu)
- 				offset_in_page(vmcs12->posted_intr_desc_addr));
- 			vmcs_write64(POSTED_INTR_DESC_ADDR,
- 				     pfn_to_hpa(map->pfn) + offset_in_page(vmcs12->posted_intr_desc_addr));
-+
-+			if (!from_vmentry)
-+				nested_vmx_enable_posted_interrupts(vcpu);
- 		} else {
- 			/*
- 			 * Defer the KVM_INTERNAL_EXIT until KVM tries to
-@@ -3543,7 +3557,7 @@ static bool vmx_get_nested_state_pages(struct kvm_vcpu *vcpu)
- 	}
- #endif
+ 	pin_controls_set(vmx, exec_control);
  
--	if (is_guest_mode(vcpu) && !nested_get_vmcs12_pages(vcpu))
-+	if (is_guest_mode(vcpu) && !nested_get_vmcs12_pages(vcpu, false))
- 		return false;
- 
- 	return true;
-@@ -3674,7 +3688,7 @@ enum nvmx_vmentry_status nested_vmx_enter_non_root_mode(struct kvm_vcpu *vcpu,
- 	prepare_vmcs02_early(vmx, &vmx->vmcs01, vmcs12);
- 
- 	if (from_vmentry) {
--		if (unlikely(!nested_get_vmcs12_pages(vcpu))) {
-+		if (unlikely(!nested_get_vmcs12_pages(vcpu, true))) {
- 			vmx_switch_vmcs(vcpu, &vmx->vmcs01);
- 			return NVMX_VMENTRY_KVM_INTERNAL_ERROR;
- 		}
-@@ -3704,6 +3718,9 @@ enum nvmx_vmentry_status nested_vmx_enter_non_root_mode(struct kvm_vcpu *vcpu,
- 			vmcs12->exit_qualification = failed_index;
- 			goto vmentry_fail_vmexit_guest_mode;
- 		}
-+
-+		if (nested_cpu_has_posted_intr(vmcs12) && vmx->nested.pi_desc)
-+			nested_vmx_enable_posted_interrupts(vcpu);
- 	} else {
- 		/*
- 		 * The MMU is not initialized to point at the right entities yet and
-@@ -3715,9 +3732,6 @@ enum nvmx_vmentry_status nested_vmx_enter_non_root_mode(struct kvm_vcpu *vcpu,
+ 	/*
+@@ -3720,6 +3715,9 @@ enum nvmx_vmentry_status nested_vmx_enter_non_root_mode(struct kvm_vcpu *vcpu,
  		kvm_make_request(KVM_REQ_GET_NESTED_STATE_PAGES, vcpu);
  	}
  
--	if (nested_cpu_has_posted_intr(vmcs12))
--		atomic_or(KVM_NESTED_PI_ACTIVE | vmcs12->posted_intr_nv,
--			  &vcpu->arch.nested_guest_state);
++	if (nested_cpu_has_posted_intr(vmcs12))
++		atomic_or(KVM_NESTED_PI_ACTIVE | vmcs12->posted_intr_nv,
++			  &vcpu->arch.nested_guest_state);
  	/*
  	 * Re-evaluate pending events if L1 had a pending IRQ/NMI/INIT/SIPI
  	 * when it executed VMLAUNCH/VMRESUME, as entering non-root mode can
-@@ -4024,22 +4038,15 @@ static void vmcs12_save_pending_event(struct kvm_vcpu *vcpu,
- 	}
- }
- 
--static int vmx_complete_nested_posted_interrupt(struct kvm_vcpu *vcpu)
-+static int __vmx_complete_nested_posted_interrupt(struct kvm_vcpu *vcpu)
- {
- 	struct vcpu_vmx *vmx = to_vmx(vcpu);
- 	int max_irr;
+@@ -4033,13 +4031,15 @@ static int vmx_complete_nested_posted_interrupt(struct kvm_vcpu *vcpu)
  	void *vapic_page;
  	u16 status;
  
--	int nested_state = atomic_read(&vcpu->arch.nested_guest_state);
--
--	if (!(nested_state & KVM_NESTED_PI_PENDING))
--		return 0;
--
+-	if (!vmx->nested.pi_pending)
++	int nested_state = atomic_read(&vcpu->arch.nested_guest_state);
++
++	if (!(nested_state & KVM_NESTED_PI_PENDING))
+ 		return 0;
+ 
  	if (!vmx->nested.pi_desc)
--		goto mmio_needed;
--
--	atomic_andnot(KVM_NESTED_PI_PENDING, &vcpu->arch.nested_guest_state);
-+		return -ENXIO;
+ 		goto mmio_needed;
+ 
+-	vmx->nested.pi_pending = false;
++	atomic_andnot(KVM_NESTED_PI_PENDING, &vcpu->arch.nested_guest_state);
  
  	/*
  	 * Don't test the value of PID.ON.
-@@ -4056,7 +4063,7 @@ static int vmx_complete_nested_posted_interrupt(struct kvm_vcpu *vcpu)
- 	if (max_irr > 0) {
- 		vapic_page = vmx->nested.virtual_apic_map.hva;
- 		if (!vapic_page)
--			goto mmio_needed;
-+			return -ENXIO;
+@@ -4191,6 +4191,8 @@ static bool vmx_has_nested_events(struct kvm_vcpu *vcpu, bool for_injection)
+ 	void *vapic = vmx->nested.virtual_apic_map.hva;
+ 	int max_irr, vppr;
  
- 		__kvm_apic_update_irr(vmx->nested.pi_desc->pir,
- 			vapic_page, &max_irr);
-@@ -4071,10 +4078,22 @@ static int vmx_complete_nested_posted_interrupt(struct kvm_vcpu *vcpu)
- 	kvm_vcpu_map_mark_dirty(vcpu, &vmx->nested.virtual_apic_map);
- 	kvm_vcpu_map_mark_dirty(vcpu, &vmx->nested.pi_desc_map);
- 	return 0;
-+}
-+
-+static int vmx_complete_nested_posted_interrupt(struct kvm_vcpu *vcpu)
-+{
 +	int nested_state = atomic_read(&vcpu->arch.nested_guest_state);
-+	int ret;
- 
--mmio_needed:
--	kvm_handle_memory_failure(vcpu, X86EMUL_IO_NEEDED, NULL);
--	return -ENXIO;
-+	if (!(nested_state & KVM_NESTED_PI_PENDING))
-+		return 0;
 +
-+	atomic_andnot(KVM_NESTED_PI_PENDING, &vcpu->arch.nested_guest_state);
+ 	if (nested_vmx_preemption_timer_pending(vcpu) ||
+ 	    vmx->nested.mtf_pending)
+ 		return true;
+@@ -4217,7 +4219,7 @@ static bool vmx_has_nested_events(struct kvm_vcpu *vcpu, bool for_injection)
+ 	if ((max_irr & 0xf0) > (vppr & 0xf0))
+ 		return true;
+ 
+-	if (vmx->nested.pi_pending && vmx->nested.pi_desc) {
++	if ((nested_state & KVM_NESTED_PI_PENDING) && vmx->nested.pi_desc) {
+ 		max_irr = pi_find_highest_vector(vmx->nested.pi_desc);
+ 		if (max_irr > 0 && (max_irr & 0xf0) > (vppr & 0xf0))
+ 			return true;
+@@ -4448,7 +4450,7 @@ static int vmx_check_nested_events(struct kvm_vcpu *vcpu)
+ 	}
+ 
+ 	if (kvm_cpu_has_interrupt(vcpu) && !vmx_interrupt_blocked(vcpu)) {
+-		int irq;
++		int irq, nested_state;
+ 
+ 		if (!nested_exit_on_intr(vcpu)) {
+ 			if (block_nested_events)
+@@ -4481,6 +4483,8 @@ static int vmx_check_nested_events(struct kvm_vcpu *vcpu)
+ 			goto no_vmexit;
+ 		}
+ 
++		nested_state = atomic_read(&vcpu->arch.nested_guest_state);
 +
-+	ret = __vmx_complete_nested_posted_interrupt(vcpu);
-+	if (ret == -ENXIO)
-+		kvm_handle_memory_failure(vcpu, X86EMUL_IO_NEEDED, NULL);
-+	return ret;
- }
+ 		/*
+ 		 * If the IRQ is L2's PI notification vector, process posted
+ 		 * interrupts for L2 instead of injecting VM-Exit, as the
+@@ -4489,7 +4493,8 @@ static int vmx_check_nested_events(struct kvm_vcpu *vcpu)
+ 		 * through the local APIC trigger posted interrupt processing,
+ 		 * and enabling posted interrupts requires ACK-on-exit.
+ 		 */
+-		if (irq == vmx->nested.posted_intr_nv) {
++		if ((nested_state & KVM_NESTED_PI_ACTIVE) &&
++			((nested_state & KVM_NESTED_PI_VECTOR_MASK) == irq)) {
+ 			/*
+ 			 * Nested posted interrupts are delivered via RVI, i.e.
+ 			 * aren't injected by KVM, and so can be queued even if
+@@ -4498,7 +4503,8 @@ static int vmx_check_nested_events(struct kvm_vcpu *vcpu)
+ 			if (block_non_injected_events)
+ 				return -EBUSY;
  
- static void nested_vmx_inject_exception_vmexit(struct kvm_vcpu *vcpu)
-@@ -5089,6 +5108,7 @@ void __nested_vmx_vmexit(struct kvm_vcpu *vcpu, u32 vm_exit_reason,
- {
- 	struct vcpu_vmx *vmx = to_vmx(vcpu);
- 	struct vmcs12 *vmcs12 = get_vmcs12(vcpu);
-+	int old_nested_state;
- 
- 	/* Pending MTF traps are discarded on VM-Exit. */
- 	vmx->nested.mtf_pending = false;
-@@ -5120,7 +5140,10 @@ void __nested_vmx_vmexit(struct kvm_vcpu *vcpu, u32 vm_exit_reason,
- 	if (enable_ept && is_pae_paging(vcpu))
- 		vmx_ept_load_pdptrs(vcpu);
- 
--	leave_guest_mode(vcpu);
-+	old_nested_state = leave_guest_mode(vcpu);
+-			vmx->nested.pi_pending = true;
++			atomic_or(KVM_NESTED_PI_PENDING, &vcpu->arch.nested_guest_state);
 +
-+	if (old_nested_state & KVM_NESTED_PI_PENDING)
-+		__vmx_complete_nested_posted_interrupt(vcpu);
+ 			kvm_apic_clear_irr(vcpu, irq);
+ 			goto no_vmexit;
+ 		}
+@@ -5587,7 +5593,6 @@ static inline void nested_release_vmcs12(struct kvm_vcpu *vcpu)
+ 		copy_shadow_to_vmcs12(vmx);
+ 		vmx_disable_shadow_vmcs(vmx);
+ 	}
+-	vmx->nested.posted_intr_nv = -1;
  
- 	if (nested_cpu_has_preemption_timer(vmcs12))
- 		hrtimer_cancel(&to_vmx(vcpu)->nested.preemption_timer);
+ 	/* Flush VMCS12 to guest memory */
+ 	kvm_vcpu_write_guest_page(vcpu,
 diff --git a/arch/x86/kvm/vmx/vmx.c b/arch/x86/kvm/vmx/vmx.c
-index e6dd37a3ac44..4a5adb1507ce 100644
+index 612ab07d4100..e6dd37a3ac44 100644
 --- a/arch/x86/kvm/vmx/vmx.c
 +++ b/arch/x86/kvm/vmx/vmx.c
-@@ -4370,41 +4370,41 @@ void vmx_recalc_intercepts(struct kvm_vcpu *vcpu)
+@@ -4370,7 +4370,7 @@ void vmx_recalc_intercepts(struct kvm_vcpu *vcpu)
  static int vmx_deliver_nested_posted_interrupt(struct kvm_vcpu *vcpu,
  						int vector)
  {
--	int nested_state = atomic_read(&vcpu->arch.nested_guest_state);
-+	int old = atomic_read(&vcpu->arch.nested_guest_state);
-+
-+	while (true) {
-+		if ((old & (KVM_NESTED_PI_ACTIVE | KVM_NESTED_PI_VECTOR_MASK)) !=
-+		    (KVM_NESTED_PI_ACTIVE | vector))
-+			return -1;
-+
-+		WARN_ON_ONCE(!(old & KVM_NESTED_IN_GUEST));
-+
-+		if (atomic_try_cmpxchg(&vcpu->arch.nested_guest_state,
-+		    &old, old | KVM_NESTED_PI_PENDING))
-+			break;
-+	}
+-	struct vcpu_vmx *vmx = to_vmx(vcpu);
++	int nested_state = atomic_read(&vcpu->arch.nested_guest_state);
  
  	/*
--	 * DO NOT query the vCPU's vmcs12, as vmcs12 is dynamically allocated
--	 * and freed, and must not be accessed outside of vcpu->mutex.  The
--	 * vCPU's cached PI NV is valid if and only if posted interrupts
--	 * enabled in its vmcs12, i.e. checking the vector also checks that
--	 * L1 has enabled posted interrupts for L2.
-+	 * If a posted intr is not recognized by hardware,
-+	 * we will accomplish it in the next vmentry.
+ 	 * DO NOT query the vCPU's vmcs12, as vmcs12 is dynamically allocated
+@@ -4380,12 +4380,12 @@ static int vmx_deliver_nested_posted_interrupt(struct kvm_vcpu *vcpu,
+ 	 * L1 has enabled posted interrupts for L2.
  	 */
--	if (is_guest_mode(vcpu) &&
--	    vector == (nested_state & KVM_NESTED_PI_VECTOR_MASK)) {
--		/*
--		 * If a posted intr is not recognized by hardware,
--		 * we will accomplish it in the next vmentry.
--		 */
--		atomic_or(KVM_NESTED_PI_PENDING, &vcpu->arch.nested_guest_state);
--		kvm_make_request(KVM_REQ_EVENT, vcpu);
-+	kvm_make_request(KVM_REQ_EVENT, vcpu);
+ 	if (is_guest_mode(vcpu) &&
+-	    vector == vmx->nested.posted_intr_nv) {
++	    vector == (nested_state & KVM_NESTED_PI_VECTOR_MASK)) {
+ 		/*
+ 		 * If a posted intr is not recognized by hardware,
+ 		 * we will accomplish it in the next vmentry.
+ 		 */
+-		vmx->nested.pi_pending = true;
++		atomic_or(KVM_NESTED_PI_PENDING, &vcpu->arch.nested_guest_state);
+ 		kvm_make_request(KVM_REQ_EVENT, vcpu);
  
--		/*
--		 * This pairs with the smp_mb_*() after setting vcpu->mode in
--		 * vcpu_enter_guest() to guarantee the vCPU sees the event
--		 * request if triggering a posted interrupt "fails" because
--		 * vcpu->mode != IN_GUEST_MODE.  The extra barrier is needed as
--		 * the smb_wmb() in kvm_make_request() only ensures everything
--		 * done before making the request is visible when the request
--		 * is visible, it doesn't ensure ordering between the store to
--		 * vcpu->requests and the load from vcpu->mode.
--		 */
--		smp_mb__after_atomic();
-+	/*
-+	 * This pairs with the smp_mb_*() after setting vcpu->mode in
-+	 * vcpu_enter_guest() to guarantee the vCPU sees the event
-+	 * request if triggering a posted interrupt "fails" because
-+	 * vcpu->mode != IN_GUEST_MODE.  The extra barrier is needed as
-+	 * the smb_wmb() in kvm_make_request() only ensures everything
-+	 * done before making the request is visible when the request
-+	 * is visible, it doesn't ensure ordering between the store to
-+	 * vcpu->requests and the load from vcpu->mode.
-+	 */
-+	smp_mb__after_atomic();
+ 		/*
+@@ -5019,7 +5019,6 @@ static void __vmx_vcpu_reset(struct kvm_vcpu *vcpu)
  
--		/* the PIR and ON have been set by L1. */
--		kvm_vcpu_trigger_posted_interrupt(vcpu, POSTED_INTR_NESTED_VECTOR);
--		return 0;
--	}
--	return -1;
-+	/* the PIR and ON have been set by L1. */
-+	kvm_vcpu_trigger_posted_interrupt(vcpu, POSTED_INTR_NESTED_VECTOR);
-+	return 0;
- }
- /*
-  * Send interrupt to vcpu via posted interrupt way.
+ 	vcpu_setup_sgx_lepubkeyhash(vcpu);
+ 
+-	vmx->nested.posted_intr_nv = -1;
+ 	vmx->nested.vmxon_ptr = INVALID_GPA;
+ 	vmx->nested.current_vmptr = INVALID_GPA;
+ 
+diff --git a/arch/x86/kvm/vmx/vmx.h b/arch/x86/kvm/vmx/vmx.h
+index dc8517f15bc4..0632cd8908b3 100644
+--- a/arch/x86/kvm/vmx/vmx.h
++++ b/arch/x86/kvm/vmx/vmx.h
+@@ -151,8 +151,6 @@ struct nested_vmx {
+ 	struct kvm_host_map pi_desc_map;
+ 
+ 	struct pi_desc *pi_desc;
+-	bool pi_pending;
+-	u16 posted_intr_nv;
+ 
+ 	struct hrtimer preemption_timer;
+ 	u64 preemption_timer_deadline;
 -- 
 2.56.1
 
