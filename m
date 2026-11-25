@@ -1,101 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.181
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795574218;
-	b=l94XC0LN3CH1rH7uFieykNk//4Y5bekjbXEIWeEx3gEapKJKncU9aXGkcWi6hpXny4gw
-	 GtKRcP7HWwhB211k+hJP/EBHiVBGy2Xm7X3V8OHfM7ieU16o0+Fl+4guYvgV2YXF/HtqL
-	 tuQ4kwao61lPxbsf2NtXtD7Oof7C+fGWroX1I8LdC0c+MxSayxh0kXahM8pJivXLQb5oW
-	 bnzqO+lDAZsCYFVxAApYN6SEytcNewG4au+Ef+pZjEZuSYcZs5cvDh03Z+mz4DH4xo+Cz
-	 Bxh1AS+rQJP8fhaK9gnbq3KVt5S8tLHFcys1h11gSS9M6DO7FlFucvq33Qa4WC6oMRw==
+	t=1795574230;
+	b=gqDDDfeH0ufHUsi+z7sjMC2lSs/JcIPWO1K5qceyskiv7NtTDirk3wjvfyWtwGrUpnQ+
+	 xFhKACOyiA6WyEYsbVmheG8WJ5VI8T3OzjBdXDM/sOjFG6R6AwhmIw88tTYu2cKtjzGGn
+	 A076m6wINgNGAQtiRDvA6DDHvtsmTMLdqR27B61KEClG+flDPmuP0VuRjv0gDO4iqaJIX
+	 mmrmKdAVvJyXoG4pm0Q950eFCuBTlPv2ELaHV/yVHQUCcFcdvvo2eJoWbDWCYU79ADW9Z
+	 1RH3vI0ldcvQVxIYLxr4FXTvt3gt6PcLNjZEdZKx39utlyabnPF6RZJvB7lQHsAjj+w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795574218;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795574230;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=qcscy56M/CoCoEWONbNvA0WraoTWByCF8svZRDgoSrY=;
-	b=37MqBLFVoLg9tnA+73C+JRjP/RNMZMt499ZZlF7Tgvm+STg2oHsEcG/wjmPCrKeE8iDk
-	 RkEdSw+2TsSF32+c4J7CCFUwLRZW8oXRHBOqUErQpwTkI73SgaC/kf3OsUUvwBEoA2VmB
-	 l77Piz3Y032+p1sEdNm4m/o5ReWSH6A0/nO56WZ4zKiO/YmFSIv9Zd2p6FhbtXFxtPURQ
-	 JFra5fSWHdQaoEyjTMngfMOQe9Q4jGTWreRS1C+4kuaiCfbblTncF6G1hp6iUzd3U4ltw
-	 txtl5bLg8Ryh1IGt7wpase7gb1dxK9GGsViUOmnR5tqkDGhUEuUNGkogBM5ztq6HOEg==
+	 From:To:Cc:Subject:Date:Message-ID:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=F3FjnUi2pwPR5DHsF2bq9Hbvyd0STLH+1ds5EmTt9Js=;
+	b=UBWqTbjJ1D4DiSiv8ibrMKlUTnkvdfBBCsnq12CSMIUyCmp3ihrfHO8WSP8lCNbF441q
+	 COOOxXP1p07QRjUqn+eTELRMSlMWYWKTvB4QCjs3jQ3NUk+wNJ0upMmAcyUgMAWNuaqu6
+	 etvxyNWB1/j39kIxMX3APGD88b3XxA3i6byuSYG+/g/d8LdTFIhK9OqOJG1IK9DRKf2OO
+	 d6jm5waLMh+cJDAhTVwbngG+erwN4xOjxmzQ8UAkbEtAfplRl5LTWmCNLeI9QL1+9lzTT
+	 lzptenp3zjCpGZDqxKWJOa2Luc7ekRPlvbXZU2fFLxtlcsCl8EHrywc68CwViaLK27w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=w6JkcNuZ;
-	arc=none smtp.remote-ip=209.85.210.181
-Received: from mail-pf1-f181.google.com (mail-pf1-f181.google.com [209.85.210.181])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ydkvx2eV;
+	arc=none smtp.remote-ip=209.85.216.49
+Received: from mail-pj1-f49.google.com (mail-pj1-f49.google.com [209.85.216.49])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E04A0606A337
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 02:36:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E04A0606A337
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ACE53606A326
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 02:37:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ACE53606A326
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=w6JkcNuZ
-Received: by mail-pf1-f181.google.com with SMTP id d2e1a72fcca58-8b271e573adso2232798b3a.2
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 18:36:57 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ydkvx2eV
+Received: by mail-pj1-f49.google.com with SMTP id 98e67ed59e1d1-3b40d23e1adso3582031a91.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 18:37:09 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795574217; x=1796179017; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=qcscy56M/CoCoEWONbNvA0WraoTWByCF8svZRDgoSrY=;
-        b=w6JkcNuZetKNcfvjGYEZkRJSqOX99DtTgjmY/t9hV67fWOF43XdsPIeBTYmmEN7tqo
-         Oe4rl6Gskg3nN9WTVaMEDs+7cBe4MJVpRtuNMoxtbhfM5NAriK7aRrMxnlZ/g3vOB28C
-         FLqHPHweaSbTAWnKlIs3HXSRSEwQkUpswJ/BR0/SkW8cgxumMCpw7qcVlpPQYAXRldso
-         8qywPQ4QDcRL5YHtCn43ETUlfTBX/JRE4sN72uFkWO+gFJ9SAfauQKhPkpDwDZsAcKV9
-         SHQp/N5GieLUvJfNMx2lrBqv6vw4aQ7rTo2wgxdRNRzJPzfL4WEB8cDmLQ86+WHbmTQm
-         gnwg==
+        d=gmail.com; s=20260707; t=1795574229; x=1796179029; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=F3FjnUi2pwPR5DHsF2bq9Hbvyd0STLH+1ds5EmTt9Js=;
+        b=ydkvx2eVZ1SYN0AGPGkusWDplW/SfOGDcd5OfQBObHQnLrHbSw0fzQlSIXCrCIZXTm
+         K2KlE2LIYer9CHk8vMx8QuIa6NwO9Lfu2l3ESmJs8vD7QOBSaRUw5K0u+RKDQm9OI6Yc
+         4D6Zw6iinMmyCodrKXDmi/FxW98GYNSkedMPL5oukF3R3g0DWqgs/StnCBNCpIs0TqUO
+         9k9mn4ZzVs5hpCZ512ehLMGBhLvhgc4rfGwANX73o8ytoXYgCyv5TZSdrFEtGD4tdNal
+         iTHHq3YUbLhBxWIuHpFaAOTdEsShsMz/UoO7BqBi5RPGSLnl+yGm8A7jrRr0wQ2MuPKt
+         YUzA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795574217; x=1796179017;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=qcscy56M/CoCoEWONbNvA0WraoTWByCF8svZRDgoSrY=;
-        b=BV2F/loyiwhc5HBifAXCF7JdWL+DJw5A3CMKOpJtAqWWVJX2mJ03VSewraXcEexgj2
-         KEJHYPAKLzJAnfD1IzDLFfY/up7AqcGZ/yJno4d3gE4YcpIAmhg5+Lh82WbfABZv7Ff7
-         XMJzniOcBLGCimc2idVtFaDLJhY3O0WYfm+ajxboYHROFuBmatXAPbgisRNgwAf4TCxS
-         +jRHBjJqI8SGI3pYQQ/qZQB4YdRhXQe7J/e3UEOi5tg2MdDwfk0+oVIK9wA4HULvuMJp
-         jFkRgM9s77FEkipwIggv+oCAD5wQuZQ5tQstbmDuoaks4smTPWRZLU6/wwYFkQOYiFCp
-         MRcg==
-X-Forwarded-Encrypted: i=1; AL+hErHTtrzv0p5m2szHJ3glo/Gv2Wt7eFB3yTnH+TLSedeq2EvaTISi6OhNG1nF1lm/VooGfC/u8Nm1PXMfhn4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9AYnHMzCsTUXgdiI27GpuKjfzTGwueUCiyux1Xb5dh+D99529K
-	e8nmGdnfNphgcVYV4/AH/Z0yieC+ChCpxiz7KgllucN0AG2nb1N7uvmH
-X-Gm-Gg: AZFdTZeJxTft2hR7KUB/HcLQL8yWfrE1Xdex6KSww5BuWwJKA9XPUn8p4AlVNNcjM1C
-	IhW4SILLScL4gRZNrrbHfyxHUlw1e51XXn59JsFXsHLqmeetfXe6leuinZ1y5HaJX0ZLK9B+Qc5
-	qOos1M3y5ZyiAq0tV5PZwr2XH8EmiaDnDf2p4NIwPyG+7ixKBFrwya0CxBaoioXQIBM74d/yklo
-	yvjeW8MBinDZchBAPeILccY42fW0zhYbfVzHQJb6y6qPy+vLQUcJM7l/oNdXitk26dM2XfIW/mt
-	VC7Se6UT3KeSF9I5OlDUfcQYRKdAGlsXQzo2gR/076QSmdl5cV5rV8tm+P0xxBoIe+qYzAk0Sb+
-	D2Q0rD6hUiy6bQaGt83Sa1JwtBaXe+g/krZQAC2bPQKj270+mHZGW8cm8rXYNNPyzuBdsXiDXMz
-	c69Ze0Q4Nz2+qUoDK2cLJdvVdZFw3SPDwNqjYVfBwTK7uas6dQlW4ke2qHeXn0xhkm9kYIUbRLz
-	Y1nUfIKRQujSzA28xocjQtQhApvmV4N2e1EP/FQ+lzv/gtngZv+KwoB15y8sWGSoxotKAJWtloG
-	sbDAhZGbC5JdS54ovKOSVvI74LgmkWLlRGO/ZZ3zJIGWYAA/QRqhMXKgJa7YYvslGGs=
-X-Received: by 2002:a05:6a00:1820:b0:8b1:1b86:71d2 with SMTP id d2e1a72fcca58-8c87bfa766cmr14875130b3a.22.1795574217152;
-        Tue, 24 Nov 2026 18:36:57 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795574229; x=1796179029;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=F3FjnUi2pwPR5DHsF2bq9Hbvyd0STLH+1ds5EmTt9Js=;
+        b=tUS+zG9HLEqAErIFNxDyLVzWjoggK8nSLU75/tAhUN5bmPANL7lkhgDVfmILhAaUqa
+         m6DAJJLrqwGhh4xr6czA3X4TdIgt3Zx3kYKtDJc0AV473oq/QnGVo/7YPA76a7EiIpxL
+         YtmtbLkt0CLKdYX8umnexurmTRi15WGuRGrfkX/mV2dPAN7VqFdHhIsIY/IoLcUqH1rR
+         3rzecdhsXeZ7GSr8gTJIEghaTD9uA7VSWVpEaLccd0cwIUrOxWMhkLmCjzsEpadGkN0A
+         tD4zZSRvjY/FJsZERowNqfZQjHl+uTD2AhrAhNFEYt0ijsFG7aH3Znc4Oqo4BJLYcVSG
+         HtuA==
+X-Forwarded-Encrypted: i=1; AL+hErEj3heJKmeBWdF8hZ+LMeFAzY5UrrLObPRV5wgwuNW4nRFIm8rd5sJMmPA6XbdEKkJ08Ds/UBISWEYerZw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/yGar9WedumGE5TDPqTCwG9Oih4+faMDmw5xt9Hi6QvoTmj5XR
+	qEkmDxO1USlJhrq1UaR6U6e8vLEAPgiKW9aR1DR0wA86V9oi4cw90SIr
+X-Gm-Gg: AZFdTZeijOcanUuVMrr3u66sIErz4ydgbySziKmQdik38OP99SRB6rmnXG9hOvdBjt9
+	Q0WqEP+CUpr5Kasa1ft7ext+5SjgN/fkXcSuVvwfHEjfU2WhBvI8Twnbik7n2sXHbb6RVvn9AFR
+	g7vYShFtlUwGRml/sdN8RDr1R3JWeW+x67v6slATSAn8rQyobbwP6nPWfWz0n/FJjfDrhNEi45M
+	rhow2OQGtLeI5tzlj8fvSwEt3ccE0DdzgDIRH8LVBfjoDO+XJ8YZJV5gzAM40Bx1C5kZkyS+Ck+
+	u0QyfNfMkASDiPDnxo4zrCw1IJmqv7mHJhGtObdbcYNYucbrJfkEFvYTLpfEDzD22fNj+i5VxyD
+	ayHfRKMxJHkJ5V/rTuP7Zbc3i7kOhv8QYRZJPf+n+KYonc+4Rso/8j6uVVdqGw0oEnCjotz9TqO
+	RY+giSjhBmd1jGgT2NtR24Whxge0sk0qLMn1D0my4jF/L2V1Kee8efLyFv+O0v5KeIayADd4YuO
+	FOYaBkGVX6yqP566pss180RpZBMX+fDWtSjJ/tyAZVj4vNL6QDNvSSKT5kzLaAqbRkp0waak18N
+	Ch3MnIUKOdNL28AQGywtihQ/T1AmArcqQGiBx3CRRZLu5ciJzvF+nFNCLkwIipIWcXQ=
+X-Received: by 2002:a17:90b:52:b0:3b4:f457:9e5d with SMTP id 98e67ed59e1d1-3b4f457a24amr1003392a91.9.1795574229078;
+        Tue, 24 Nov 2026 18:37:09 -0800 (PST)
 Received: from d20be28ee783.tail196be.ts.net (vldb.skku.ac.kr. [115.145.173.180])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c908a56acfsm7294885b3a.23.2026.11.24.18.36.54
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad0b2c4sm24946594a91.4.2026.11.24.18.37.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 18:36:56 -0800 (PST)
+        Tue, 24 Nov 2026 18:37:08 -0800 (PST)
 From: Kyuwon Cho <kyuwoncho18@gmail.com>
-To: Xin Long <lucien.xin@gmail.com>
-Cc: Marcelo Ricardo Leitner <marcelo.leitner@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
+To: Steffen Klassert <steffen.klassert@secunet.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>
+Cc: "David S. Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@kernel.org>,
 	Jakub Kicinski <kuba@kernel.org>,
 	Paolo Abeni <pabeni@redhat.com>,
 	Simon Horman <horms@kernel.org>,
-	Willem de Bruijn <willemb@google.com>,
-	Jun Yang <junvyyang@tencent.com>,
-	linux-sctp@vger.kernel.org,
+	Florian Westphal <fw@strlen.de>,
+	Sabrina Dubroca <sd@queasysnail.net>,
+	Hui Peng <benquike@gmail.com>,
 	netdev@vger.kernel.org,
+	ipsec@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH net v4 1/1] sctp: fail the association when the INIT-ACK cannot be processed
-Date: Wed, 25 Nov 2026 11:36:50 +0900
-Message-ID: <5d2a09ae8d660d10091942d426c0c8f1f82c1705.1795572890.git.kyuwoncho18@gmail.com>
-In-Reply-To: <cover.1795572890.git.kyuwoncho18@gmail.com>
-References: <cover.1795572890.git.kyuwoncho18@gmail.com>
+Subject: [PATCH ipsec v2 0/2] xfrm: refuse route optimization mode for ESP
+Date: Wed, 25 Nov 2026 11:37:01 +0900
+Message-ID: <cover.1795573672.git.kyuwoncho18@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -107,69 +105,50 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-sctp_sf_do_5_1C_ack() queues SCTP_CMD_PEER_INIT and SCTP_CMD_ASSOC_SHKEY.
-If either fails, sctp_cmd_interpreter() stops there, but the association
-stays: with the peer marked AUTH capable and asoc->shkey still NULL, a
-chunk that the peer wants authenticated, such as the ABORT built by
-close() with SO_LINGER {1, 0}, takes a reference on the NULL key:
+From: ChoKyuWon <kyuwoncho18@gmail.com>
 
-  BUG: KASAN: null-ptr-deref in sctp_auth_shkey_hold (net/sctp/auth.c:113)
-  Write of size 4 at addr 0000000000000018
-  Call Trace:
-   sctp_auth_shkey_hold (net/sctp/auth.c:113)
-   sctp_control_set_owner_w (net/sctp/sm_make_chunk.c:112)
-   sctp_make_abort_user (net/sctp/sm_make_chunk.c:1016)
-   sctp_close (net/sctp/socket.c:1564)
+An ESP state in route optimization mode can be created, and its first
+packet hits the WARN_ON_ONCE()s in xfrm_state_mtu() and
+xfrm_inner_mode_input(). Patch 1 accepts the mode in
+verify_newsa_info() only for DSTOPTS and ROUTING, as in v1. Patch 2,
+as Sabrina suggested, also makes ah_init_state(), esp_init_state() and
+esp6_init_state() refuse the modes they do not support, like
+ah6_init_state() already does.
 
-Process the INIT-ACK and set up the association key directly in
-sctp_sf_do_5_1C_ack(), and abort the association with
-sctp_stop_t1_and_abort() if either step fails, as is done when the
-INIT-ACK fails verification. This also aborts when sctp_process_init()
-rejects a peer that is ASCONF capable but not AUTH capable, which used
-to drop the INIT-ACK and leave T1-init to expire. SCTP_CMD_PEER_INIT
-and SCTP_CMD_ASSOC_SHKEY have no other users, so remove them.
+To Sabrina's questions: XFRM_MODE_IN_TRIGGER is already refused by
+verify_newsa_info() ("Unsupported mode"). AH or ESP over IPv4 cannot
+get route optimization mode at all: xfrm4_mode_map has no entry for it,
+so __xfrm_init_state() fails with -EPROTONOSUPPORT before
+ah_init_state() runs. So only ESP over IPv6 reaches these WARNs, and
+the IPv4 part of patch 2 is for consistency.
 
-Fixes: 1b1e0bc99474 ("sctp: add refcnt support for sh_key")
-Suggested-by: Xin Long <lucien.xin@gmail.com>
-Signed-off-by: Kyuwon Cho <kyuwoncho18@gmail.com>
----
- net/sctp/sm_statefuns.c | 16 ++++++++++------
- 1 file changed, 10 insertions(+), 6 deletions(-)
+The issue was found by an LLM-guided test generator that we are
+developing as a research prototype.
 
-diff --git a/net/sctp/sm_statefuns.c b/net/sctp/sm_statefuns.c
-index fd9f94c12d42..206fa0b6cd4b 100644
---- a/net/sctp/sm_statefuns.c
-+++ b/net/sctp/sm_statefuns.c
-@@ -605,9 +605,11 @@ enum sctp_disposition sctp_sf_do_5_1C_ack(struct net *net,
- 
- 	if (!sctp_process_init((struct sctp_association *)asoc, chunk,
- 			       sctp_source(chunk), initchunk, GFP_ATOMIC)) {
--		sctp_add_cmd_sf(commands, SCTP_CMD_INIT_FAILED,
--				SCTP_PERR(SCTP_ERROR_NO_RESOURCE));
--		return SCTP_DISPOSITION_CONSUME;
-+		if (err_chunk)
-+			sctp_chunk_free(err_chunk);
-+		return sctp_stop_t1_and_abort(net, commands,
-+					      SCTP_ERROR_NO_RESOURCE, ENOMEM,
-+					      asoc, chunk->transport);
- 	}
- 
- 	/* SCTP-AUTH: generate the association shared keys so that
-@@ -615,9 +617,11 @@ enum sctp_disposition sctp_sf_do_5_1C_ack(struct net *net,
- 	 */
- 	if (sctp_auth_asoc_init_active_key((struct sctp_association *)asoc,
- 					   GFP_ATOMIC)) {
--		sctp_add_cmd_sf(commands, SCTP_CMD_INIT_FAILED,
--				SCTP_PERR(SCTP_ERROR_NO_RESOURCE));
--		return SCTP_DISPOSITION_CONSUME;
-+		if (err_chunk)
-+			sctp_chunk_free(err_chunk);
-+		return sctp_stop_t1_and_abort(net, commands,
-+					      SCTP_ERROR_NO_RESOURCE, ENOMEM,
-+					      asoc, chunk->transport);
- 	}
- 
- 	/* Reset init error count upon receipt of INIT-ACK.  */
+v2:
+- Patch 1: say that esp6_init_state() accepts any mode instead of
+  "treats" an unknown mode as transport (Sabrina).
+- Patch 2 is new (Sabrina, Steffen).
+v1: https://lore.kernel.org/netdev/179550330841.535592.4607028415857424638@gmail.com/
+
+The patches were written with LLM assistance; we reviewed and tested
+them on the ipsec tree. ESP over IPv6 in route optimization mode is
+refused with -EINVAL with patch 1, with patch 2 alone, and with both,
+and the reproducer no longer warns. ESP and AH in transport, tunnel and
+BEET mode over IPv4 and IPv6, and DSTOPTS and ROUTING states in route
+optimization mode, are still accepted.
+
+Kyuwon Cho (2):
+  xfrm: allow route optimization mode only for DSTOPTS and ROUTING
+    states
+  xfrm: refuse modes that AH and ESP do not support
+
+ net/ipv4/ah4.c       | 11 ++++++++++-
+ net/ipv4/esp4.c      | 18 +++++++++++++++---
+ net/ipv6/esp6.c      |  6 +++++-
+ net/xfrm/xfrm_user.c |  9 ++++++++-
+ 4 files changed, 38 insertions(+), 6 deletions(-)
+
 -- 
 2.43.0
 
