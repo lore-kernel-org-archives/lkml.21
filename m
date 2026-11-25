@@ -1,63 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=45.79.88.28
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795624727;
-	b=StdFhZ8XFr6quNPmy73QCQY8b15ul0nm2uskeHnFDwcSR+AxraBf3b1i+dILf9AfYNva
-	 P0vE7Irix01jNNCXuV9UrSjiTKxEqHq5/7BLDgAd1XWXoqYOR7VDbJ/HN/+8XY1Kn3Y1Y
-	 gr9Uxjg8hWcOfTgiBIjTF8DfN54/uYiYxsGgPYpD17MTqmOSLI03UC3bM8cYmBqNWrP6A
-	 8Y7uZBXbcX1xMkZ3dLYCIJQ71fbYRnokbdda6DkEbSHyugrXKiRQ5d8Z6KIlskWx1ksv/
-	 c/G7P4tRIJVR2Z5qbVcpbtUX5kQ3t58C7NLpeKJuPMQ+96kVytnfESNt2Dm803t286w==
+	t=1795624736;
+	b=LtHIauYb5M9T+OUL7yVT128K0OpAfEMraP7UwUJmGfQK1QGVrMBmGNJCM68/iFhc3b5m
+	 GP4Dw2bE4s/zEWLuYbtNUWcAL2XskbNhvMpK+CuLSaI4P0tCZHARXcmWd8jEwiEwScl1y
+	 tdnYgdD0IjSjYMxqPZI51AprcTz7YWYoEKupymQaJr69+Bfi0OvwVOP9wSzet1ty+5GHp
+	 3Lah4M+EUOX1GoEiek5rOFgoSR72lMT+q2NpPP8J0VI4e0MBOoXu2KwggGCinB2WxXjf4
+	 /gqJiDLkE49Z9oFBLIxqvauHwExCn230WG5RbejnzA8yMPvRT5VlGFMQIk+SWjoSHHQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795624727;
-	h=DMARC-Filter:DKIM-Filter:DKIM-Signature:Received:From:To:Cc:Subject:
-	 In-Reply-To:References:Date:Message-ID:MIME-Version:Content-Type;
-	bh=c1S+s22mzATJCTCCL5DTXHxYL44AP7LTE1ouMin7MxA=;
-	b=WlwlHlpkRcMsRG5GevURYB7ovYg6zgwVzGDoIFhY07KWTJ3L7Z9MjLbFS/ly8UVc8ppV
-	 5mWMCbPISebe9eOBPo3qbBbx+NgMQ9cjH+hEYjJ2ZbqlMlET6mIBFdvkT1lGygDDRL5nG
-	 WwJOm/qAoQqYZIt+pxg2JJfYJT/1yk2xX6UqBZzgjyFlTjms4lwBjRFfh38sEyRbD9d9R
-	 SO+5t8UwnIXeTwm7l/DDmnLFRrPRARVBg9dRBYHa8Fh+59fwBHQEngCzxHs8kAZ0PrHkJ
-	 8ZN0Psnnd2EzxJ/p/Osp3HQqgtj+3/qAGjcj6tZvQjKw8pRWDAxDEmnSgtWbMa/VRZQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795624736;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=XGZJDvX95X3i/OHk7sTVZ+Tez/XWAvUK1k5Ca8yfA3g=;
+	b=unvrdgbpAB3bhgNpeP73WECp/9w10qgShWWCfekqZ+pyDZAUbm5xkJL/fvy/w7EvdAhQ
+	 2y7/5X6fTS5G2xvydNOwmglTLBpFFPl1lYjofr9/hcv+VTwF6iC22n98alDYkFPLhgvCG
+	 sXUqOflRGjVa6PZ7iFW5LBmXQlbZ0F5vmAw52pXAq4g/vmmpA9+5HPc7SFuioFZXyixUc
+	 +xo+ndNYM1CLNN1y1/hDW//p9lLFT0LconBS1tUw6asxFyaMhahsVhaY++RUjfpH55jM0
+	 lWE8JDocdlgM+pgyeyTgYc3adGDAszwSdnCUz33OmPezHCw8+lHy51GmRAMn2p276AA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lwn.net;
-	spf=pass smtp.mailfrom=lwn.net;
-	dkim=pass header.d=lwn.net header.i=@lwn.net header.a=rsa-sha256 header.s=20201203 header.b=ahJGAWac;
-	arc=none smtp.remote-ip=45.79.88.28
-Received: from ms.lwn.net (ms.lwn.net [45.79.88.28])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Gb+KB40p;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 25BD5606A33C;
-	Wed, 25 Nov 2026 16:38:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 25BD5606A33C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lwn.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lwn.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5E641606A33C;
+	Wed, 25 Nov 2026 16:38:56 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lwn.net header.i=@lwn.net header.a=rsa-sha256 header.s=20201203 header.b=ahJGAWac
-DKIM-Filter: OpenDKIM Filter v2.11.0 ms.lwn.net 57C31410D3
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lwn.net; s=20201203;
-	t=1795624726; bh=c1S+s22mzATJCTCCL5DTXHxYL44AP7LTE1ouMin7MxA=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=ahJGAWacWI0LFUGOaFd3KgTS6CLTAsQSrwKIrK/wfW0l6o1e+IdGSxueBPXrEptPD
-	 Am6weIgBDpeCJi+SSX3eIqh5MfE9BlZBCyNkCgYjn1sT01nx2kKQpDoqXNV0GCxfUj
-	 JXntC9xAmxIrTjmbfgyldr8fhfVf6FjKOPzTNEDqzKNQtSjd2TFd3ByckXFYSoVvD8
-	 N46O0inKx3ROYcHa/76xmJw/B321KD/cGjpK8yg3rJsSIcI2Qi6V1qHHszjWID1RGU
-	 Q4lm/fmUou3RBxw3gfKHZ02Vga5mKw8dXl6PFWBpiM7k4aM4deeozecO6VzQhO4Le+
-	 8KhtTyZ6kGcEw==
-Received: from localhost (unknown [205.220.129.44])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by ms.lwn.net (Postfix) with ESMTPSA id 57C31410D3;
-	Wed, 25 Nov 2026 16:38:45 +0000 (UTC)
-From: Jonathan Corbet <corbet@lwn.net>
-To: Mauro Codella <mauro.codella@pm.me>
-Cc: Mauro Codella <mauro.codella@pm.me>, skhan@linuxfoundation.org,
- rdunlap@infradead.org, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] docs: sysfs: Align example callback names with __ATTR_RW
-In-Reply-To: <20261109204724.37838-1-mauro.codella@pm.me>
-References: <20261109204724.37838-1-mauro.codella@pm.me>
-Date: Wed, 25 Nov 2026 09:38:38 -0700
-Message-ID: <87ecc8x3w1.fsf@trenco.lwn.net>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Gb+KB40p
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EDBDF1F000CF;
+	Wed, 25 Nov 2026 16:38:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795624736;
+	bh=XGZJDvX95X3i/OHk7sTVZ+Tez/XWAvUK1k5Ca8yfA3g=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Gb+KB40pRfWiJmkNIILhDy9LLczCpQWfSNnSqZlycpdUhKP7rgCyI7irBk6fPJztV
+	 uwyQQ6Ead+6YXdHiJKcD0hfodluisTywhkRj792ZEbIJeNdaFp0knyJIwx/39Gu93c
+	 +uiknKSdIzfMEsNbNJnSCFHu5Omh3neML62SLcaabCXZIKPEYeMOt3wvwTZytOqAYj
+	 mDKfmOApgA/88EUqXocIo1rt3oNwAX04HxhfNv7Fh2gnp2m6/ixO5F9RWL+pyNsq5F
+	 5Iol1b6BmujgTOKnIV9e/SsYfpRexUGoakP0Ry5+zvSRxij5lKRwqw0EKGotUIb8mh
+	 +9m0w7GvJYpwA==
+Date: Wed, 25 Nov 2026 16:38:51 +0000
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: "chenglong.ma" <longpareto@gmail.com>
+Cc: "Michael S . Tsirkin" <mst@redhat.com>, 
+	Jason Wang <jasowangio@gmail.com>, Eugenio =?utf-8?B?UMOpcmV6?= <eperezma@redhat.com>, 
+	Xuan Zhuo <xuanzhuo@linux.alibaba.com>, Xie Yongji <xieyongji@bytedance.com>, 
+	virtualization@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] vduse: don't set VM_IO on the domain file mapping
+Message-ID: <awcNt5C6jkZQLy0M@gremlin>
+References: <20261125160128.796-1-longpareto@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,29 +58,100 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261125160128.796-1-longpareto@gmail.com>
 
-Mauro Codella <mauro.codella@pm.me> writes:
+This isn't how you send patches in the kernel...
 
-> The sysfs guide presents __ATTR_RW(foo) as a shorthand for the preceding
-> DEVICE_ATTR declaration and explicit struct device_attribute initializer.
-> Both preceding examples use show_foo and store_foo, but __ATTR_RW(_name)
-> uses token pasting with _name##_show and _name##_store, so __ATTR_RW(foo)
-> references foo_show and foo_store instead. Switching to the shorthand
-> without renaming the callbacks would fail to compile.
+See https://docs.kernel.org/process/submitting-patches.html
+
+This is a v2 of the original patch. It should say [PATCH v2].
+
+You shouldn't send a respin so quickly.
+
+On Thu, Nov 26, 2026 at 12:01:28AM +0800, chenglong.ma wrote:
+> Commit bb2e6f166547 ("vduse: fix VA/PA confusion in the coherent page fault path")
+> set VM_IO on the domain file mapping so that
+> vhost_vdpa_va_map() would skip it. Since 99fd6bf43d5d, mm refuses VM_IO
+> on mm-managed mappings: mmap() of the domain file fails with a
+> WARN_ON_ONCE() and -EINVAL, which breaks VDUSE userspace.
 >
-> Rename the callbacks in both preceding examples to foo_show and foo_store
-> so all three examples agree. No kernel behavior is changed.
+> VDUSE is currently broken in 7.4 because of this. Please treat this as
+> a hotfix for 7.4.
+
+You should say that it's broken and the patch fixes it in the commit message,
+and leave commentary about it being a hotfix for below the ---.
+
 >
-> Codex identified the mismatch and assisted with the change and commit
-> message after a request to find a small kernel contribution.
+> VM_IO is not needed. vduse_domain_set_map() already rejects vhost-vdpa
+> entries backed by the domain file, and the file check in
+> vduse_domain_get_coherent_page() keeps any other entry from being
+> translated as a physical address. A self-referencing mapping now
+> reaches vduse_domain_set_map() and is refused with -EINVAL.
 >
-> Fixes: 44a47f0e3ec2 ("sysfs.txt: add note on available attribute macros")
-> Signed-off-by: Mauro Codella <mauro.codella@pm.me>
+> Fixes: bb2e6f166547 ("vduse: fix VA/PA confusion in the coherent page fault path")
+
+Cc: stable?
+
+You shouldn't be using VM_IO anywhere.
+
+> Reported-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+> Closes: https://lore.kernel.org/r/awWOpS3HR_2FTN3I@gremlin
+> Suggested-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+
+You failed to propagate my Reviewed-by tag...
+
+> Signed-off-by: chenglong.ma <longpareto@gmail.com>
+
+This Signed-off-by seems invalid, there shouldn't be a '.' there I don't think?
+
+(Also gmail isn't really recommended for kernel stuff either, they drop a lot of
+kernel mail).
+
+Anyway, I assume Michael can pick this up and fix it up a bit?
+
+For the patch itself:
+
+Reviewed-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+
 > ---
->  Documentation/filesystems/sysfs.rst | 6 +++---
->  1 file changed, 3 insertions(+), 3 deletions(-)
+>
+> Notes:
+>     Tested on v7.4-rc2 (commit 7475ea8b58616b33c04afb976cf0fbaad9dd63fb).
+>
+>     Control, without this patch: mmap() of the VDUSE domain file fails,
+>     with the WARN_ON_ONCE() from 99fd6bf43d5d.
+>
+>     With this patch applied: mmap() of the domain file succeeds, and
+>     importing that mapping through vhost-vdpa is refused by
+>     vduse_domain_set_map() with -EINVAL.
+>
+>     Dynamic tests also confirmed that vduse_domain_get_coherent_page()
+>     refuses to translate entries backed by any file other than the domain
+>     file, and that legitimate coherent vring mappings are still translated.
+>
+>  drivers/vdpa/vdpa_user/iova_domain.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/drivers/vdpa/vdpa_user/iova_domain.c b/drivers/vdpa/vdpa_user/iova_domain.c
+> index 28a977248a0d..3c6fa18703b4 100644
+> --- a/drivers/vdpa/vdpa_user/iova_domain.c
+> +++ b/drivers/vdpa/vdpa_user/iova_domain.c
+> @@ -588,7 +588,7 @@ static int vduse_domain_mmap(struct file *file, struct vm_area_struct *vma)
+>  {
+>  	struct vduse_iova_domain *domain = file->private_data;
+>
+> -	vm_flags_set(vma, VM_IO | VM_DONTDUMP | VM_DONTEXPAND);
+> +	vm_flags_set(vma, VM_DONTDUMP | VM_DONTEXPAND);
+>  	vma->vm_private_data = domain;
+>  	vma->vm_ops = &vduse_domain_mmap_ops;
+>
+>
+> base-commit: 44293796526f4343639f87b2acc53811c78b5d54
+> --
+> 2.45.2.windows.1
+>
 
-Applied, thanks.
-
-jon
+--
+Cheers, Lorenzo
