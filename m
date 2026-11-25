@@ -1,49 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.180
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795618718;
-	b=4d79bDBPv7xcddZ9rfScskgfRuudwdxoNBfArwntl7XNrX9oQIEyY5tQA91o+U6VNhue
-	 t6RJ/fdk4kMuYgz2zJsMLDPC7nQf9avSLp2iw3H//l74zJyRxMdRUP63nJyGNqtCmHZud
-	 Y851J5gXMXErCdy3qj+qOstvMvegMkZQc0DPL23bZ3yUbOf8HW0PXh1GCWjWi1zQqZvtr
-	 wXE9IT/zVaK4RtTZ2FSRoB5l5TISelhbkgGuCOH4XdtGA/ZaMDjhWVGMO9LBcm/odoJDF
-	 SkrTRdlM/zZI4HeYgoemb1l9kWOmWuOM7gdE2AHgRJ6dgWPHP/JuePh8Fsrhkrdd8ZQ==
+	t=1795618754;
+	b=fOmy6f0APto7drScdJsadlh8pnMn+Rg9vGbhhznvdOAbuwynv+avmHG+Emk3F9t43op2
+	 ni1jSkWefY9dEozwuq1FxNr7t1KQsXyk2cGgqsKtBCFHe1/vAweL3TbtoIT1/xRConvEk
+	 vAU2f9kf1D590C5Wc8AgzEJmtXeMDXfH/hREfJed4mg0RdPuUeUFT33hhJwcUgRycHD/2
+	 l5G0VwI12M6q6zVL2CcUxQO+YHyxm0JrE4uqqC8eHdYBs2DqvVY4mn4Bf1XkII1mQ7GW2
+	 VpXOFsToSDNWJuzr+MheeQTLs30SEsIqGe+A8d/+bB/h0/SMDWszTOKkY0SBuByceug==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795618718;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=X3zNXgFcgKkRvrebQOQS0iqgUmCxBf+Rl6iIn0IF0a4=;
-	b=sdW1sRnAFoP8Y5Yvaf5ej5UsF+iIsVpMRJMtFwZ7UuiVvTf0AAwWWsyZWohfR51wVbuZ
-	 jR3LNkOhJerZxNe9GDcOILRu3mvGUcHMJSIfgSXkcTC7uOCfYdg8uFRJQXyj2ncqIe143
-	 srkDylVbVZBrfDWSsokZJsb8oZ6YWss2MF9TgF2FLrkGCbUkJTiVhcU3EzjI88TNtw54k
-	 W9Ey3i0JeduciE1k7A+CfnsveCMs+9b4INQgIOLQwsJ8Xe1FI0GyxaaJz4wQPZjHrMKtz
-	 YYoWgARYyzHHR95V1yUNxTxPx0X1ki7RgsKBJWGlOnEpe+OLDTVOt6U8P8oOlhWijdg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795618754;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=4OeI5EFvoaAXtoZ5Eb5FS6GHhurfl3MoetK4e4Eh3dw=;
+	b=OjRrSdG2FPqG5XyxVDwTWQYRcd7+od7ZROJPCUz01CjnRV0VNuM5QEabMKw1JFDgg+hU
+	 Rmw3I6s/NDhFEqbnRoILNrjA03VAl/t79pOyE/YgYwkjT72r8SWA87nlkvuaBMo0Qcxya
+	 kid+A8fKDlHlxA5iagFj3pQB520/NRvoaPElDUTDeigZT1hMTuGWrr4gL5AOYXVEzuU38
+	 Pevz09wlaxtoDL6o3pfz1JG6om4G5XETXWQI4jiYk+Z46WZ0iCLso9AebNA/O1lzHITc9
+	 ij3st5+ViIMOP6O6l/3I6OZkr4NsqSTJAuxhovgGjVa1cge5LVleWHTH5cPzCp57KZw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=ZoJs1Pdu;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 353AA606A321;
-	Wed, 25 Nov 2026 14:58:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 353AA606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dmarc=fail header.from=isslab.korea.ac.kr;
+	spf=none smtp.mailfrom=isslab.korea.ac.kr;
+	dkim=pass header.d=isslab-korea-ac-kr.20260707.gappssmtp.com header.i=@isslab-korea-ac-kr.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=CBhd6DgH;
+	arc=none smtp.remote-ip=209.85.210.180
+Received: from mail-pf1-f180.google.com (mail-pf1-f180.google.com [209.85.210.180])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3E898606A323
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:59:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3E898606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=isslab.korea.ac.kr
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=isslab.korea.ac.kr
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=ZoJs1Pdu
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8E0592F;
-	Wed, 25 Nov 2026 06:58:33 -0800 (PST)
-Received: from [10.2.197.99] (ewhatever.cambridge.arm.com [10.2.197.99])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2ECBB3F632;
-	Wed, 25 Nov 2026 06:58:33 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795618716; bh=D/n+P8rGctWCPmcRxey9aK7QCr6PlKd7Fo3q+ESxtX8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ZoJs1PduoU0ULUyP6YVRCRXGnlHrzR4tGX0ZOcuxgF6JCfnSb+OxspbajzsG32Dkt
-	 1Z730FRcVZHXhbCFzLBFONsxqLNfCmyWjC9hIcdqTHJqPbmaKso6xMf1aEIsjGw9Wq
-	 eAw3xOv2uegtqNUIFjfCGzV9mXZb+s9Cr4kaU0jc=
-Message-ID: <e4108d4f-e84c-444c-aa7a-18e823816eae@arm.com>
-Date: Wed, 25 Nov 2026 14:58:31 +0000
+	dkim=pass (2048-bit key, unprotected) header.d=isslab-korea-ac-kr.20260707.gappssmtp.com header.i=@isslab-korea-ac-kr.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=CBhd6DgH
+Received: by mail-pf1-f180.google.com with SMTP id d2e1a72fcca58-8b66d1a08ccso4066629b3a.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 06:59:12 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=isslab-korea-ac-kr.20260707.gappssmtp.com; s=20260707; t=1795618752; x=1796223552; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=4OeI5EFvoaAXtoZ5Eb5FS6GHhurfl3MoetK4e4Eh3dw=;
+        b=CBhd6DgHuGdiZI5Oz0U/8bGNQ9GMoNWd4ttlUDNJcJSuZadOjCzJZlKhRZlVst6LLF
+         ndNXo84hT8haJN1EhEialmAmTjK/3GyvlUkpjcvNxVYpIgloftCal8dYNUjdWD3HoFQs
+         Np0kWeLl+c/IjPaCrnDeqRqpCZYXaYxR0mUsMvXuZU0DB/kK3C3Ewgaur9QsQblzsHQR
+         96MJ7XIqYc23OrERRq8clgqpzgUAfvqgdqNWqL3N/X66LZaJ3cVhtb28s5qj0gfbS0wk
+         hX1yDaiKha0NPnkrbE4aZeHHI996JOG4q+GpgGI38mKSgj+nY4XnG98DkzYtYQTQc6g/
+         QaBw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795618752; x=1796223552;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=4OeI5EFvoaAXtoZ5Eb5FS6GHhurfl3MoetK4e4Eh3dw=;
+        b=BaRaeCP2gYoV0lvB/5R7QkTTnElsq5+2nA0lpC2hVihuB2MiUahdOmSxIYQUwxlAM5
+         BEr8GMDb7uNlaQkuHgpN8AhD6Uif0fuoOvec8+gJtgbUc9sxGK5lU+ZCak3RroGNX+Xg
+         c4NHP4xGBCp83+bj5LRpslsmWtgaSzjImkR+206w/K4dvLls75uoTglH+uzGQBks4tvV
+         +zvzsix7b1V6lCoY2KTMrsE7uswRkmrJJR2anE7kGFjLHHvuhEjCQ+w0zYe9bo0R7/VB
+         cJVuwuJUVCv5hzYX/0re7e9P5I9/7Za+wcdcHom8I0UvzhjCkV4Gi3CGprGrNfVr9eBf
+         GkfQ==
+X-Forwarded-Encrypted: i=1; AL+hErHknEvNgJiajhr4QwJW/dawGqwTxZk6prpWyL4N8zvx+U7+ezAdOB6TQAehZjgqFaAVryW2mIeKGQMT9rE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9Oyk8MWbSJSOyxMNJ48IIB8wqr09hr2ZJK+rhGq2tgS92RaKj7
+	CzxN9gfv5VpHipIJ24DXaXA62QumNbdfiAvLitBatSVJnNL92+SMerWpBSPwYJYzP0VRc4MF9/K
+	zjDXCRiY=
+X-Gm-Gg: AZFdTZeODkpytO4Bt/zl/BNduKBZWZGKhwe82DiWjVWeonR8xeMZm204MW+9Jkh0lxp
+	nLS2w2LBP5KizQb2BGgSamSGSIZYvq1lSABKB4bxBfopskR+vXOUxt0ENS9WXt9iENvWX7OxgOE
+	lXduDFDKwSKXdyRkei2L6Ds81u5JZZesC6SgIG0pPDHDVaNWHEit3uiPYWvyYBE4rzhTL2S7BmV
+	BYLjNhR7bRG5IHEgFtvsDdiQh0zA5JWZvQBr7250J0TLsrVw00glZk91vroeq07RlyJ0uqcNodG
+	m1VQqMeZGMyH4rM+o5SSK/Bfb4tn1D6sQUwKQLoNRCmS4yqe8gff+Rj6tT+7S+NpuY3RyX/gixt
+	CAyiYxCCle0Olt28J0Jw4/hy8HUaCdRT3a8hp2O4UhHdrr7YlNBFv2/YdFiN2d1/a1jC2ktXEKS
+	/p3dLAx0V9hsWixkP8pAivblyK1elSm7rWdf5X3v7ghwsKfMlZ/gu68YZqVTZ9Ryqv0e9x71uho
+	idzPGtfI1Xy9PrQ17zat6CJZHL/18hjqO56Enhm1uzRTzSp3z41HDSRchQEYQOCstOwvY+Z8WZk
+	7JFp7pPJ0KxKXXtbpTy8/qkOM86wXyrWNv9S39UFAFlBucySlPsAkb2d3Ryhn1j4i6KASTYuAe/
+	eDglC6nbjNj5DdzKiHRmCQv0vEstiqmkQmNjaWA==
+X-Received: by 2002:a05:6a00:410f:b0:89e:71df:d6da with SMTP id d2e1a72fcca58-8c8796a7bbcmr14809643b3a.5.1795618752315;
+        Wed, 25 Nov 2026 06:59:12 -0800 (PST)
+Received: from localhost.localdomain ([2406:5900:1044:110c:6ad4:29a9:2f98:35a3])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c872e45756sm9117488b3a.27.2026.11.25.06.59.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 06:59:11 -0800 (PST)
+From: Yehyeong Lee <yhlee@isslab.korea.ac.kr>
+To: hch@lst.de,
+	kbusch@kernel.org,
+	sagi@grimberg.me
+Cc: kamaljit.singh@opensource.wdc.com,
+	linux-nvme@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] nvme: reject a controller type change on reinitialization
+Date: Wed, 25 Nov 2026 23:59:02 +0900
+Message-ID: <20261125145902.254297-1-yhlee@isslab.korea.ac.kr>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261124133122.4167640-1-yhlee@isslab.korea.ac.kr>
+References: <20261124133122.4167640-1-yhlee@isslab.korea.ac.kr>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,229 +102,103 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 09/11] KVM: arm64: CCA: Prevent memslot modifications
- after Realm creation
-To: Ackerley Tng <ackerleytng@google.com>, Steven Price
- <steven.price@arm.com>, kvm@vger.kernel.org, kvmarm@lists.linux.dev,
- Catalin Marinas <catalin.marinas@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
- <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
- Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
- <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
- Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Kohei Enju <enju.kohei@fujitsu.com>
-References: <20261123104233.95710-1-steven.price@arm.com>
- <20261123104233.95710-10-steven.price@arm.com>
- <CAEvNRgFQ5BXqU3KfPFT8bfZTW=RyvBw25z3GZtr3JA=Wv3Yqfw@mail.gmail.com>
-Content-Language: en-US
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <CAEvNRgFQ5BXqU3KfPFT8bfZTW=RyvBw25z3GZtr3JA=Wv3Yqfw@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-Hi Ackerley
+nvme_init_identify() caches id->cntrltype on every initialization, and the
+Identify Controller data is read again on every reconnect.  A fabrics
+controller that reported itself as an I/O controller on the first connect
+can therefore report itself as an administrative controller on a reconnect,
+after its namespaces are in use.
 
-On 25/11/2026 00:09, Ackerley Tng wrote:
-> Steven Price <steven.price@arm.com> writes:
-> 
->> From: Suzuki K Poulose <suzuki.poulose@arm.com>
->>
->> Once the Realm is created, prevent changes to guest_memfd backed
->> memslots, which can provide private memory. Validate these changes
->> before KVM invalidates the old memslot, so a rejected deletion leaves
->> its stage-2 mappings intact. Realm stage-2 faults will also validate
->> the private memory backing in a later commit.
->>
->> Require Realm memslots to lie in the lower half of the IPA space, as the
->> upper, shared half aliases the lower, protected half.
->>
->> Define kvm_arch_has_private_mem() so generic KVM recognizes Realm VMs
->> as supporting private memory. Defining the macro also makes
->> gmem_in_place_conversion true for every arm64 VM, so guest_memfd
->> memslots are marked gmem-only even for non-Realm VMs. A well-formed
->> KVM_SET_MEMORY_ATTRIBUTES2 request on a non-Realm guest_memfd now
->> reaches the VM check and returns -EINVAL instead of -ENOTTY.
->>
->> Additionally, similar to pKVM, do not support dirty logging or
->> read-only memslots.
->>
-> 
-> Imo this could be split into a few patches
-> 
-> 1. Add the constraints wrt realm memslots and being in the lower half of
->     the IPA space
-> 2. Defining arm's support for private mem
-> 3. Imposing rules on memslot changes
-> 4. Maybe some others, maybe I'm misunderstanding the patch
+nvme_init_ctrl_finish() then overrides queue_count to 1, so the transport
+skips I/O queue setup and the queues that error recovery freed are never
+reallocated, leaving queue->sock NULL.  The controller is switched to LIVE
+anyway with the namespaces still present, and nvme_check_ready() lets any
+request through once the state is LIVE, so blk-mq dispatches to the freed
+queue:
 
-Agree
+  Oops: general protection fault, probably for non-canonical address 0xdffffc0000000003: 0000 [#1] SMP KASAN NOPTI
+  KASAN: null-ptr-deref in range [0x0000000000000018-0x000000000000001f]
+  CPU: 0 UID: 0 PID: 81 Comm: kworker/0:1H Not tainted 7.4.0-rc4 #1 PREEMPT(lazy)
+  Workqueue: kblockd blk_mq_run_work_fn
+  RIP: 0010:selinux_socket_sendmsg+0x76/0x2f0
+  RSP: 0018:ffffc900008ef528 EFLAGS: 00010206
+  RAX: dffffc0000000000 RBX: ffffc900008ef730 RCX: ffffffff822ab089
+  RDX: 0000000000000003 RSI: 0000000000000000 RDI: ffffc900008ef738
+  RBP: 0000000000000000 R08: 0000000000000005 R09: 0000000000000000
+  R10: 0000000000000001 R11: ffffffff84c14740 R12: 0000000000000000
+  R13: 0000000000000018 R14: 0000000000000000 R15: 0000000000000000
+  FS:  0000000000000000(0000) GS:ffff8880e6931000(0000) knlGS:0000000000000000
+  CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+  CR2: 00007f52b4001b78 CR3: 0000000009275003 CR4: 0000000000770ef0
+  PKRU: 55555554
+  Call Trace:
+   <TASK>
+   security_socket_sendmsg+0x6f/0x90
+   sock_sendmsg+0x117/0x390
+   nvme_tcp_try_send_cmd_pdu+0x4b7/0x9d0
+   nvme_tcp_try_send+0x20e/0xbf0
+   nvme_tcp_queue_rq+0x1148/0x1510
+   blk_mq_dispatch_rq_list+0x3e3/0x1e30
+   __blk_mq_sched_dispatch_requests+0x218/0x15c0
+   blk_mq_sched_dispatch_requests+0xd7/0x1b0
+   blk_mq_run_work_fn+0xe4/0x190
+   process_one_work+0x747/0x11c0
+   worker_thread+0x57c/0xcb0
+   kthread+0x327/0x430
+   ret_from_fork+0x394/0x770
+   ret_from_fork_asm+0x1a/0x30
 
+Reject any controller type change on a controller that has already been
+initialized.
 
-> 
->> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
->> Signed-off-by: Steven Price <steven.price@arm.com>
->>
->> ---
->> Changes since v3:
->> - Explain the arm64-wide in-place conversion effect and keep the
->>    general IPA limit comment.
->>
->> Changes since v1:
->> - Preserve private mappings if KVM invalidates a Realm guest_memfd
->>    slot before the prepare hook rejects its deletion.
->> ---
->>   arch/arm64/include/asm/kvm_host.h |  2 ++
->>   arch/arm64/kvm/mmu.c              | 37 ++++++++++++++++++++++++-------
->>   2 files changed, 31 insertions(+), 8 deletions(-)
->>
->> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
->> index 3ddeddfacd06..55673d08e3eb 100644
->> --- a/arch/arm64/include/asm/kvm_host.h
->> +++ b/arch/arm64/include/asm/kvm_host.h
->> @@ -1607,6 +1607,8 @@ struct kvm *kvm_arch_alloc_vm(void);
->>
->>   #define kvm_vm_is_realm(kvm)		((kvm)->arch.vm_flavor == VM_REALM)
->>
->> +#define kvm_arch_has_private_mem(kvm) kvm_vm_is_realm(kvm)
->> +
->>   #define kvm_has_mte(kvm)					\
->>   	(system_supports_mte() &&				\
->>   	 test_bit(KVM_ARCH_FLAG_MTE_ENABLED, &(kvm)->arch.flags))
->> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
->> index 800333a345cd..9af5fe6d87f0 100644
->> --- a/arch/arm64/kvm/mmu.c
->> +++ b/arch/arm64/kvm/mmu.c
->> @@ -2861,17 +2861,32 @@ int kvm_arch_validate_memory_region(struct kvm *kvm,
->>   {
->>   	lockdep_assert_held(&kvm->slots_lock);
->>
->> -	if (kvm_vm_is_protected(kvm)) {
->> +	if (kvm_vm_is_protected(kvm) && new &&
->> +	    (new->flags & (KVM_MEM_LOG_DIRTY_PAGES | KVM_MEM_READONLY)))
->> +		return -EPERM;
-> 
-> gmem is already generically mutually exclusive with
-> KVM_MEM_LOG_DIRTY_PAGES and KVM_MEM_READONLY, so before this change,
-> pKVM is saying no to KVM_MEM_LOG_DIRTY_PAGES and KVM_MEM_READONLY for
-> all memslots, gmem or not, so this check makes sense.
-> 
->> +
->> +	switch (kvm->arch.vm_flavor) {
->> +	case VM_PROTECTED_PKVM:
->>   		/* Cannot modify memslots once a pVM has run. */
->>   		if (pkvm_hyp_vm_is_created(kvm) &&
->> -		    (change == KVM_MR_DELETE || change == KVM_MR_MOVE)) {
->> +		    (change == KVM_MR_DELETE || change == KVM_MR_MOVE))
->>   			return -EPERM;
->> -		}
->> +		break;
-> 
-> Not sure why pKVM doesn't allow deleting a memslot after the vm is
-> created, but this is no change from before this patch, the removal of {}
-> here is mixed in with the other changes in this patch.
+Fixes: e715b8733df60a ("nvme: add capability to connect to an administrative controller")
+Cc: stable@vger.kernel.org
+Signed-off-by: Yehyeong Lee <yhlee@isslab.korea.ac.kr>
+---
+v1: https://lore.kernel.org/linux-nvme/20261124133122.4167640-1-yhlee@isslab.korea.ac.kr/
 
-IIRC, pKVM relies on pinning the stage2 until the teardown ?
-ed
-from the Stage2 unless we d
+Changes in v2, after review feedback:
+- Generalize the check and move it.  v1 rejected the change from inside
+  the administrative-controller override in nvme_init_ctrl_finish(), and
+  only for the I/O-to-administrative direction.  v2 checks in
+  nvme_init_identify(), immediately before ctrl->cntrltype is overwritten,
+  and rejects any controller type change on an already initialized
+  controller.  That also covers administrative-to-I/O and changes to or
+  from a discovery controller, both of which v1 let through.
+- Cut the commit message down to the basics: drop the walkthrough of the
+  resulting state, the CVE references and the note about the other fabrics
+  transports.
+- The subject changed with the generalization ("an administrative
+  controller type" -> "a controller type change"); say so and it goes back
+  to the v1 wording.
 
-> 
->> +	case VM_REALM:
->> +		/*
->> +		 * Once the Realm is created, we cannot modify any slots that
->> +		 * could be providing private memory. i.e., guest_memfd backed
->> +		 * slots.
->> +		 * TODO: Handle trusted device private memory slots
->> +		 */
->> +		if (!kvm_realm_is_created(kvm))
->> +			break;
->>
->> -		if (new &&
->> -		    new->flags & (KVM_MEM_LOG_DIRTY_PAGES | KVM_MEM_READONLY)) {
->> +		if (kvm_slot_has_gmem(old) || kvm_slot_has_gmem(new))
->>   			return -EPERM;
->> -		}
->> +		break;
-> 
-> Imo this should be written the same way as the pKVM branch for clarity,
-> like
-> 
-> if (kvm_realm_is_created() &&
->      (kvm_slot_has_gmem(old) || kvm_slot_has_gmem(new)))
->          return -EPERM;
-> 
-> but that aside,
-> 
-> 1. Why block creating memslots after realm is created?
-> 
-> Does ARM CCA have no way to add pages after a VM starts? This isn't
-> blocked for TDX and SNP so I think this constraint seems unnecessary.
+ drivers/nvme/host/core.c | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
-This and (2) was triggered by the following thread, raised by Catalin.
-
-https://lore.kernel.org/all/aqrGPK0lFBFXL2qY@arm.com
-
-But having said that, since then, we now have :
-
-1) All private faults must be serviced by realm_gmem_abort(), which 
-mandates Guest memfd slot. (See Patch 11, realm_mem_abort())
-
-2) realm_gmem_abort() matches the "private" attribute for a "protected"
-fault, failing which causes a memory fault exit.
-
-So I think we can remove these memslot restrictions.
-
-> 
-> 2. Why block deleting memslots after realm is created?
-> 
-> This also seems like an artificial constraint, and it constrains the way
-> the userspace VMM operates when stopping a VM, like the memslots can't
-> be removed ever, the VM just has to be closed? (something like that)
-
-As mentioned above, I think we are good to remove the restrictions.
-
-Suzuki
-
-
-> 
->> +	default:
->> +		break;
->>   	}
->>
->>   	return 0;
->> @@ -2883,6 +2898,7 @@ int kvm_arch_prepare_memory_region(struct kvm *kvm,
->>   				   enum kvm_mr_change change)
->>   {
->>   	hva_t hva, reg_end;
->> +	gfn_t ipa_limit;
->>   	int ret = 0;
->>
->>   	if (change != KVM_MR_CREATE && change != KVM_MR_MOVE &&
->> @@ -2891,9 +2907,14 @@ int kvm_arch_prepare_memory_region(struct kvm *kvm,
->>
->>   	/*
->>   	 * Prevent userspace from creating a memory region outside of the IPA
->> -	 * space addressable by the KVM guest IPA space.
->> +	 * space addressable by the KVM guest IPA space. Realm shared IPAs alias
->> +	 * the corresponding private IPAs, so Realm memslots must reside entirely
->> +	 * in the lower half of that space.
->>   	 */
->> -	if ((new->base_gfn + new->npages) > (kvm_phys_size(&kvm->arch.mmu) >> PAGE_SHIFT))
->> +	ipa_limit = kvm_phys_size(&kvm->arch.mmu) >> PAGE_SHIFT;
->> +	if (kvm_vm_is_realm(kvm))
->> +		ipa_limit >>= 1;
->> +	if (new->base_gfn + new->npages > ipa_limit)
->>   		return -EFAULT;
->>
->>   	/*
->> --
->> 2.43.0
+diff --git a/drivers/nvme/host/core.c b/drivers/nvme/host/core.c
+index f43582e5f6c4a9..ffe6a63d24e1dc 100644
+--- a/drivers/nvme/host/core.c
++++ b/drivers/nvme/host/core.c
+@@ -3736,6 +3736,18 @@ static int nvme_init_identify(struct nvme_ctrl *ctrl)
+ 	ctrl->max_namespaces = le32_to_cpu(id->mnan);
+ 	ctrl->ctratt = le32_to_cpu(id->ctratt);
+ 
++	/*
++	 * The controller type fixes whether the controller has I/O queues,
++	 * so it must not change while the controller is in use.
++	 */
++	if (ctrl->identified && ctrl->cntrltype != id->cntrltype) {
++		dev_err(ctrl->device,
++			"controller type changed from %u to %u on reinitialization\n",
++			ctrl->cntrltype, id->cntrltype);
++		ret = -EINVAL;
++		goto out_free;
++	}
++
+ 	ctrl->cntrltype = id->cntrltype;
+ 	ctrl->dctype = id->dctype;
+ 
+-- 
+2.43.0
 
