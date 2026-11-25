@@ -1,75 +1,115 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.71
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795614379;
-	b=y3a8dWiYzoHtfI2ouuD5Ha2aQsAnbiuaPhMt2I75U0U8NC8O53quZ1Me7dzq8ozMcmV+
-	 bfuOOHygL603/Cxu3iq/WSeQiUbzbVI+u2TPwer2uuHAbYgc+zgcjGZvTHO8vhVu+3nKt
-	 SPbCPa1qK+NNC7r3sSz20YBAYITSp3C7HmaWWjX2d97elBYHUTiAcpcI21onN0hyjz8cq
-	 OOIldi4wKZYlM+6CZDx5eAIC3ZhyKmj6V8RK3G0U47iCh9m4ZHdG5dY3yf1Z5on2UuB20
-	 hrXRzEzmaIqz3vkvQWwhVabxrxPvji2pzIJzRuLx5Hih6V6y6hF8W7InclUqHMh8sYw==
+	t=1795614460;
+	b=GgTk2uLTlVo6mtt8ZAD4OWajLDDKO+PUP41lB6unzUHW7SjF5toT34aExnhvGsZM3Cjw
+	 PMieEjV3PRq1Cgw1Se/HZjIeTHcQgihf3M22p5VA/FxPD4oq+syQMz9hmImh+pympoo2C
+	 Ut3/rrX3F/32/nvnV6onwHvxGAaQUKS+FG2XpBMfO06J3LhGleJeYtixUqjWldk1OL1AW
+	 xPCK59tVsh7o5wg888I8YKVs//R9UjXgw1Fel88uIoE28vtAzK1PzN30jy+0cuZj+//CM
+	 +BQdsHGZIEJKylnxCyyj1L8c0rq4xFp0B7SKt06m4ujX3Ck6UwtktaqxkZKJqgRoQJw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795614379;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795614460;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
-	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
-	 Content-Type;
-	bh=hkC7knUlQ5bvCCnLhIKdyMONWGi8riIRNrWMCj0qGvQ=;
-	b=YdCIBwA/r5qFCddczjXeUbGIKxFdmwYO1K42AqGO3jbnoGG/oi7n23l2Ye/yZyYHaoi2
-	 U7+teW4m9zDaVBY2KVwqqY01UhhFiiLUyBs/+BiKj9Ox7wyrx3slDh+ooUBRo2qBi0B7S
-	 0VpKV9FDRZu9Df6tjK5qFGPoE4jvgewP/9nNeGfimtMbeqEn6ofqXgUBI/iEL5lbPUekt
-	 A9y5h9Fxnp8dWeHEy+sFAEPE6fGaOQW1o7MTkt8d/H4yWP4d5xvqSpTc2eZCMX63Ac9aL
-	 ojeXlA/pqxC8Cp0Pmk1hODgEU4OyPzWj9riuzSEe/EyhM2hcsjHTRA0HhU4j2pn+f5A==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=tNd0IbaZQFJuxJS+R9ayDKLW68Bcl2zYZx6i5ipU+qg=;
+	b=O9+kBczrV7aN9oIOiC0C7iYcSziWhEhBwCiWk9EYfy1w84QtHNK36w0eWbVjp7TuZrdU
+	 wxs6kKadxQeCWk8l1zehj59CUkOj/r7jP+HBkCtma5veqffg1KHasKmI0PSPvBNW7STP1
+	 J4HspNR2Sk6WoeNiuAzOtIYLqmjwgWmoi4aOX7Gj+NeqRBzJmBwqGrOsWhGIhzkOeCkld
+	 /3fkqxAX48p3fwKFtHMa9obcn0DLfN4gDRZKKbHjBOeTl3Cb85+81nyfSL5qwLi7q1Ez7
+	 DA3RjfWMrsMbumMRv9P8Cc5MqsH4aZeD8bAQOgrwOFuL12A8eHy1954dByjR8S2TCMg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--jpiecuch.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=ZDhQP62j;
-	arc=none smtp.remote-ip=209.85.128.71
-Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com [209.85.128.71])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=VuYMKNxx;
+	arc=none smtp.remote-ip=209.85.216.43
+Received: from mail-pj1-f43.google.com (mail-pj1-f43.google.com [209.85.216.43])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CFAF3606A32C
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 13:46:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CFAF3606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--jpiecuch.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 24CC3606A326
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 13:47:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 24CC3606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=ZDhQP62j
-Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-4bb69d84053so41966205e9.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 05:46:18 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=VuYMKNxx
+Received: by mail-pj1-f43.google.com with SMTP id 98e67ed59e1d1-3ae6b4c669fso5455210a91.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 05:47:38 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795614377; x=1796219177; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=hkC7knUlQ5bvCCnLhIKdyMONWGi8riIRNrWMCj0qGvQ=;
-        b=ZDhQP62jtCOk4l7aNG8WaBNp/pzufubi/wHj0w/HPcpin7qDUZyx/LA3GDjdRnCk34
-         winwZUoaO0YK1CHJOxUZ0nYvmp7OSWQk1aB50W75pjk/PZV8PJHc6v1AwT3f3avuyt+C
-         3wjLQxURd4yr4CKeUzWr/JzTVGTXZ7Cww6D4ybrcRIsG1GVg9iepMmCVWfGDqnavqQtw
-         oiDCmLpm/+iVuVF77yQindIzEjYIzb4vXVVJ84g3jYESyvtxsu/E+bUrN5OK/Oj+vzvc
-         rWJpQHEtV/oHFtuPPokAd4Pjq00Xk6wlaKBgOZbXId4RPsRbFcGY86QZ3KC50ubkibLF
-         e54A==
+        d=gmail.com; s=20260707; t=1795614458; x=1796219258; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=tNd0IbaZQFJuxJS+R9ayDKLW68Bcl2zYZx6i5ipU+qg=;
+        b=VuYMKNxxv+Zu001gmt0ClbtMscwdHC0CE2MvHQonG1WroM5WNV3+4ev5P/ikq9yzaN
+         /z3DPQvGaBWTyXrWy/2CiALGqaY+6I4sQzGc6sQd4ciwPTy7HSpE88zRhePRLmfB+gFW
+         URxUqWndcDH9Lnsq2OS1nW/Bju1TMfKWYwQh8UWOmr5+ZWXXPszX0GwG+fV/XiKM2pgX
+         K4zNTgkaAPFBB6NL7Ll5ngyD8IITuEpfDCw3cQvuzjk71Kof+4DP9fciXTONoaiKzwtT
+         36JN6x3tbK3xBpujkfjvg3gME9POl7NyxTuQRiDuzVfveQ1jTgXg/r5lFpzw0R1z+9bl
+         H6QA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795614377; x=1796219177;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=hkC7knUlQ5bvCCnLhIKdyMONWGi8riIRNrWMCj0qGvQ=;
-        b=cami7Yl/X1fOQjgxLF4JqPsI/0vP0B41ybnJ1+XGp+7CskaYW70DHuG5mdNh8ptd8h
-         Cr2QVIG1HTFkIatHpNYoLM5TtX9d7ECHFK1yNPUBg8vBt6E7119K5KQgXJO4iKIjZGTt
-         diuCKxuRH9eQ1tOVD+jThwPnm1oz6A1VlkxUrqDmvOcAcJwccwzTbq3TWXg2MBqyHyvs
-         /eIB3ZX8zpPce+f0n+mi1i0hwgAHutMY49IQCRdaiaTB7iUUm99LyN/Hi7R+4rBdMBGF
-         HqoKBs/m5RVhPNedde8gMBoh6kSgnqQjJWc3q2Wj9ljtUs/Ii7I7Pfz23Wi6Nnk7jhnT
-         Brpw==
-X-Forwarded-Encrypted: i=1; AL+hErFvoKr7F8KjuyDQ94Yb6u2hrOTuU25wZB6ridpYXzs8QrTYLLS5LnqEWO3CjuiqfCPcsi5st0FzD9P73Ow=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/VkW+5kIKKg/ONSHCZJZCapUQ9NAi2PC2NM1sVlyZnJmUW8ZOX
-	D2w1c/qM/L6euu3mLtr5j9hVge6sGwg5iUK/io8nT5UQn4tPvr3/KNj4BU0MpQthehU9WkanuP5
-	HujYjX6Iad78aTQ==
-X-Received: from wmcn22.prod.google.com ([2002:a05:600c:c0d6:b0:4a1:f1e1:c6d6])
- (user=jpiecuch job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:5487:b0:4bb:5de1:e92c with SMTP id 5b1f17b1804b1-4bb88813157mr368724395e9.26.1795614376787;
- Wed, 25 Nov 2026 05:46:16 -0800 (PST)
-Date: Wed, 25 Nov 2026 13:46:16 +0000
-In-Reply-To: <2026112535-handcraft-glance-0edb@gregkh>
+        d=1e100.net; s=20260707; t=1795614458; x=1796219258;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=tNd0IbaZQFJuxJS+R9ayDKLW68Bcl2zYZx6i5ipU+qg=;
+        b=2NGd5iFsfYsCSVRLFU1kuA/qXyEzl+GfFR0Q7O/swTmfW1X29jIMmU30zx0xszRRo2
+         4M844aXbGImjZgnvVQhXOTOemjBCeZDVyKjoCSSjOMXCpD5ocgrarZdc6FslquAzaxoe
+         HwoIKAUhBhAdwuzLN5i67cSUTfmQHHSBsFIVyCEJj/9U1c9Pq2aoF4gdIa1Vl+Xe3fIs
+         VbBsvQJzcXWDc3SJn9/Byps5aYXkUOaB8ntZLAtpLToFMSNdlIw+F1mnKs8uMPHeADbw
+         vFH5tRTlj6sgbFsRBu6/Jn43AkYpHTzG5q8FmzIwhVUlWiqBRFdCd+tusMaoYkV1eEg6
+         ZC1w==
+X-Forwarded-Encrypted: i=1; AL+hErEMk6SOfjqkQdGciBpmoRUHN7ccDzVGTO5aaydKEBpW0+124+3l+qe3SipSgb6Lt1DpGdkqQ0qPNQJ7Uos=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+pPaHjqDWTucXlFlAeWvvON9yhQa06qDolF4ADG1peO9bpJUaj
+	UvHUbW+L8d99JU3AMSH8oK88Bqq9DtNydGEs5qeswp33ZoIXi87wtEqf
+X-Gm-Gg: AZFdTZcntFi87yH1eeOhg6GarPQ01B4v8V8Eg1JpyF14vyRbxoY0CHdJOGzrhLBhV3p
+	Q5nFjoOY3zdW0l+DS7NvKXslxfngH7gOEVrXxp+bh9FVvI3KrAs7HJ2Olir1yXaq2KOOmuLp21x
+	+icV3nXzpprRF8wEgI7ztTLkSa5fTH1Gj+5NDixYSoSsjSodVynKYRFqyQHjyr8y0i7+GMCg/Oz
+	JTQofK0YM5erD+ehdXD7O5lwbl+kOBHgs+Sf9on2BVj1ryfUhVUUZ7R0/NnXuhIj9EdDc5kNWpY
+	zY1Jcb3wvxLjnkA7otSLRMZgA63HauD39XoC4IBoesp/QrwHdo16rOhnr3NmuE+UWflqPniP+6e
+	vyr3mVIIm0kOO5hiN3iTappEWG5G87oywOmPG7jjWb9z8SOiBeT5nN/NB4TPqnnPBxZKKzcZtiB
+	7BbWCKN48ExL7rzYRWfxAScx/ghcgMyLOja6QkgywxQGryv0G9k06VlVb3y4ptbPO1jUjZC2fim
+	Cpvo5c05ANg0/P40zUADFQylAZupJ+007kBpJ/1NhglgosYXCCj+ZUX3Zv4CzkaKLJhqmn5BjKS
+	le+0kq6LoztLgCnR8nQbXFDXRq7Eb38JOcYtwJ5MmC/S
+X-Received: by 2002:a17:90a:d2cf:b0:3a0:e568:ed63 with SMTP id 98e67ed59e1d1-3b41c8e0507mr11255737a91.8.1795614458296;
+        Wed, 25 Nov 2026 05:47:38 -0800 (PST)
+Received: from localhost.localdomain ([240e:b8f:1df9:a600:c693:b19f:ada0:748])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b44b7d36bcsm11786323a91.3.2026.11.25.05.47.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 05:47:37 -0800 (PST)
+Date: Wed, 25 Nov 2026 21:47:18 +0800
+From: Vernon Yang <vernon2gm@gmail.com>
+To: kasong@tencent.com
+Cc: linux-mm@kvack.org, Andrew Morton <akpm@linux-foundation.org>, 
+	Johannes Weiner <hannes@cmpxchg.org>, Muchun Song <muchun.song@linux.dev>, 
+	Qi Zheng <qi.zheng@linux.dev>, Ying Huang <ying.huang@linux.alibaba.com>, 
+	Chris Li <chrisl@kernel.org>, Baoquan He <baoquan.he@linux.dev>, 
+	Nico Pache <nico.pache@linux.dev>, Usama Arif <usama.arif@linux.dev>, 
+	Michal Hocko <mhocko@kernel.org>, Roman Gushchin <roman.gushchin@linux.dev>, 
+	Shakeel Butt <shakeel.butt@linux.dev>, David Hildenbrand <david@kernel.org>, 
+	Lorenzo Stoakes <ljs@kernel.org>, "Liam R. Howlett" <liam@infradead.org>, 
+	Barry Song <baohua@kernel.org>, Axel Rasmussen <axelrasmussen@google.com>, 
+	Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>, Vlastimil Babka <vbabka@kernel.org>, 
+	Suren Baghdasaryan <surenb@google.com>, Nhat Pham <nphamcs@gmail.com>, 
+	Youngjun Park <youngjun.park@lge.com>, Zi Yan <ziy@nvidia.com>, Gregory Price <gourry@gourry.net>, 
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>, Baolin Wang <baolin.wang@linux.alibaba.com>, 
+	Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, Lance Yang <lance.yang@linux.dev>, 
+	Hugh Dickins <hughd@google.com>, SJ Park <sj@kernel.org>, David Rientjes <rientjes@google.com>, 
+	Yu Zhao <yuzhao@google.com>, Zicheng Wang <wangzicheng@honor.com>, 
+	Tal Zussman <tz2294@columbia.edu>, Kairui Song <ryncsn@gmail.com>, 
+	Xiang Liu <liuxiang.277@bytedance.com>, Ehab Ababneh <ehab.ababneh@intel.com>, 
+	Zhao Zhenzhuo <zhaozhengzhuo@uniontech.com>, Lian Wang <lianux.mm@gmail.com>, 
+	Joanne Koong <joannelkoong@gmail.com>, Kunwu Chan <kunwu.chan@gmail.com>, Hui Zhu <hui.zhu@linux.dev>, 
+	Maxim Muzafarov <maxmuzaf@gmail.com>, linux-kernel@vger.kernel.org, cgroups@vger.kernel.org, 
+	damon@lists.linux.dev, linux-doc@vger.kernel.org, Tianyi Chen <hi@tychen.cc>, 
+	Ridong Chen <ridong.chen@linux.dev>
+Subject: Re: [PATCH v6 10/18] mm/mglru, gup: mark folios referenced via a
+ fast helper
+Message-ID: <6c3d32a9-3004-4a17-b854-7088e69f164a@gmail.com>
+References: <20261124-mglru-fg-v6-0-8ffea39934a6@tencent.com>
+ <20261124-mglru-fg-v6-10-8ffea39934a6@tencent.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,99 +118,144 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-References: <2026112535-handcraft-glance-0edb@gregkh>
-X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
-Message-ID: <20261125134541.3432982-1-jpiecuch@google.com>
-Subject: [PATCH 6.18.y] sched_ext: Read exit_kind before flushing in scx_flush_disable_work()
-From: Kuba Piecuch <jpiecuch@google.com>
-To: stable@vger.kernel.org
-Cc: Kuba Piecuch <jpiecuch@google.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Tejun Heo <tj@kernel.org>, David Vernet <void@manifault.com>, Andrea Righi <arighi@nvidia.com>, 
-	Changwoo Min <changwoo@igalia.com>, Sashiko <sashiko-bot@kernel.org>, sched-ext@lists.linux.dev, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261124-mglru-fg-v6-10-8ffea39934a6@tencent.com>
 
-scx_disable_workfn() sets exit_kind to SCX_EXIT_DONE before it tears the
-scheduler down. scx_flush_disable_work() reads exit_kind after syncing
-disable_irq_work and flushing disable_work, so it can observe DONE from
-a disable_work that was queued after its flush and return while the
-teardown is still running:
+On Tue, Nov 24, 2026 at 02:53:02AM +0800, Kairui Song via B4 Relay wrote:
+> From: Kairui Song <kasong@tencent.com>
+>
+> Introduce folio_inc_lru_refs_fast(): raise refs from 0 to
+> LRU_REFS_REFERENCED via cmpxchg, or just set PG_referenced for the
+> classical LRU as before. No counter update or promotion is needed,
+> nonzero MGLRU refs are left unchanged.
+>
+> The classical path is taken for a folio that is off the gen lists while
+> MGLRU is off, not on lru_gen_enabled() alone: while MGLRU is being
+> turned off, a folio can still be on a gen list after the static key
+> flips, and setting PG_referenced there would bump its refs count.
+>
+> That check uses lru_get_gen_flags(), so move the helper out of the
+> CONFIG_LRU_GEN block, it is now built with the option off, where
+> LRU_GEN_WIDTH is 0 and LRU_GEN_MASK is zero. Keep the decoded value in
+> an int so the subtraction of the offset-by-one encoding cannot fold to
+> ULONG_MAX before it happens to avoid -Woverflow error with CONFIG_WERROR.
+>
+> This helper only aims to be fast, it exists so the gup fast path can
+> stay a fast path. The new helper doesn't account for refs above
+> LRU_REFS_REFERENCED but that's fine for now as GUP never used that
+> or anything similar for CLRU either.
+>
+> Convert the gup fast-path sites. No behavior change for classical LRU,
+> no regression for MGLRU either. Just prepare for the following changes
+> by providing a helper that follows the new convention.
+>
+> Tested-by: Zhao Zhenzhuo <zhaozhengzhuo@uniontech.com>
+> Reviewed-by: Kunwu Chan <kunwu.chan@gmail.com>
+> Signed-off-by: Kairui Song <kasong@tencent.com>
+> ---
+>  include/linux/mm_inline.h | 62 +++++++++++++++++++++++++++++++++++------------
+>  mm/gup.c                  |  6 ++---
+>  2 files changed, 49 insertions(+), 19 deletions(-)
+>
+> diff --git a/include/linux/mm_inline.h b/include/linux/mm_inline.h
+> index b15c3618a1f2..13c8b6bce349 100644
+> --- a/include/linux/mm_inline.h
+> +++ b/include/linux/mm_inline.h
+> @@ -105,6 +105,22 @@ static __always_inline enum lru_list folio_lru_list(const struct folio *folio)
+>  	return lru;
+>  }
+>
+> +/**
+> + * lru_get_gen_flags - Return the LRU generation number from folio flags.
+> + * @flags: folio flags
+> + *
+> + * Returns: A number between 0 and (MAX_NR_GENS - 1), inclusive. Returns
+> + * -1 if the flags indicate the folio is off the list (e.g., isolated).
+> + */
+> +static inline int lru_get_gen_flags(unsigned long flags)
+> +{
+> +	int gen = (int)((flags & LRU_GEN_MASK) >> LRU_GEN_PGOFF);
+> +
+> +	/* The gen is stored offset by one, so zero means off-list */
+> +	VM_WARN_ON_ONCE(gen > MAX_NR_GENS);
+> +	return gen - 1;
+> +}
+> +
+>  #ifdef CONFIG_LRU_GEN
+>
+>  static inline bool lru_gen_switching(void)
+> @@ -168,22 +184,6 @@ static inline void lru_set_gen_flags(unsigned long *flags, int gen)
+>  	*flags |= (gen + 1UL) << LRU_GEN_PGOFF;
+>  }
+>
+> -/**
+> - * lru_get_gen_flags - Return the LRU generation number from folio flags.
+> - * @flags: folio flags
+> - *
+> - * Returns: A number between 0 and (MAX_NR_GENS - 1), inclusive. Returns
+> - * -1 if the flags indicate the folio is off the list (e.g., isolated).
+> - */
+> -static inline int lru_get_gen_flags(unsigned long flags)
+> -{
+> -	int gen = ((flags & LRU_GEN_MASK) >> LRU_GEN_PGOFF) - 1;
+> -
+> -	/* Exclude the legal -1 from the unsigned MAX_NR_GENS comparison */
+> -	VM_WARN_ON_ONCE(gen != -1 && gen >= MAX_NR_GENS);
+> -	return gen;
+> -}
+> -
+>  static inline int folio_lru_gen(const struct folio *folio)
+>  {
+>  	return lru_get_gen_flags(READ_ONCE(*const_folio_flags(folio, 0)));
+> @@ -483,6 +483,36 @@ static inline bool lru_gen_del_folio(struct lruvec *lruvec, struct folio *folio,
+>  }
+>  #endif /* CONFIG_LRU_GEN */
+>
+> +/**
+> + * folio_inc_lru_refs_fast - Bump folio refs count without promotion.
+> + * @folio: the folio
+> + *
+> + * Raise refs from 0 to LRU_REFS_REFERENCED and leave hotter folios
+> + * untouched. For a folio off the gen lists with MGLRU off, a plain
+> + * PG_referenced set.
+> + */
+> +static __always_inline void folio_inc_lru_refs_fast(struct folio *folio)
+> +{
+> +	unsigned long new_flags, old_flags = READ_ONCE(*folio_flags(folio, 0));
+> +	unsigned int refs;
+> +
+> +	do {
+> +		refs = lru_get_refs_flags(old_flags);
+> +		if (lru_get_gen_flags(old_flags) < 0 && !lru_gen_enabled()) {
+> +			/* For CLRU, just do folio_set_referenced() */
+> +			if (refs & LRU_REFS_REFERENCED)
+> +				break;
+> +			refs |= LRU_REFS_REFERENCED;
+> +		} else {
+> +			if (refs)
+> +				break;
+> +			refs = LRU_REFS_REFERENCED;
+> +		}
+> +		new_flags = old_flags;
+> +		lru_set_refs_flags(&new_flags, refs);
+> +	} while (!try_cmpxchg(folio_flags(folio, 0), &old_flags, new_flags));
+> +}
 
-  CPU A                          CPU B
-  -----                          -----
-  scx_vexit()
-    scx_claim_exit() -> true
-                                 bpf_struct_ops_map_link_detach()
-                                   bpf_scx_unreg()
-                                     scx_disable()
-                                       scx_claim_exit() -> false
-                                     scx_flush_disable_work()
-                                       irq_work_sync()      // not queued
-                                       kthread_flush_work() // not queued
-    irq_work_queue()
-  scx_disable_irq_workfn()
-    kthread_queue_work()
-  scx_disable_workfn()
-    exit_kind = SCX_EXIT_DONE
-    scx_root_disable()
-                                       atomic_read() -> SCX_EXIT_DONE
-                                   bpf_map_put()
+The implementation code of this function looks a bit convoluted.
+Would it be better to simplify it into the following code?
 
-Once bpf_scx_unreg() returns, its caller drops the struct_ops map
-reference, and the struct_ops trampolines can be freed while
-scx_root_disable() is still running and can still call into the BPF
-scheduler, e.g. ops.exit().
+	do {
+		bool clru = !lru_gen_enabled() && lru_get_gen_flags(old_flags) < 0;
 
-Read exit_kind before syncing and flushing, with acquire ordering paired
-with the atomic_try_cmpxchg() in scx_disable_workfn(). DONE is only set
-from disable_work, so once it is observed, the following
-kthread_flush_work() sees the queued work and waits for the teardown to
-finish.
+		refs = lru_get_refs_flags(old_flags);
+		if (clru ? (refs & LRU_REFS_REFERENCED) : refs)
+			break;
+		new_flags = old_flags;
+		lru_set_refs_flags(&new_flags, refs | LRU_REFS_REFERENCED);
+	} while (!try_cmpxchg(folio_flags(folio, 0), &old_flags, new_flags));
 
-This patch was created with the help of an AI coding assistant.
-
-Fixes: d99f7a32f09d ("sched_ext: Fix scx_flush_disable_work() UAF race")
-Cc: stable@vger.kernel.org # v7.1+
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Closes: https://lore.kernel.org/all/sashiko-outbox-195908@kernel.org/
-Signed-off-by: Kuba Piecuch <jpiecuch@google.com>
-Reviewed-by: Andrea Righi <arighi@nvidia.com>
-Signed-off-by: Tejun Heo <tj@kernel.org>
-(cherry picked from commit 3133107d98057595c0af39ff907c852134926912)
-[ jpiecuch: applied kernel/sched/ext/ext.c hunk to kernel/sched/ext.c;
-  kept error_irq_work instead of disable_irq_work. ]
-
-Signed-off-by: Kuba Piecuch <jpiecuch@google.com>
----
- kernel/sched/ext.c | 9 ++++++++-
- 1 file changed, 8 insertions(+), 1 deletion(-)
-
-diff --git a/kernel/sched/ext.c b/kernel/sched/ext.c
-index af5828f09304..882e06a76a16 100644
---- a/kernel/sched/ext.c
-+++ b/kernel/sched/ext.c
-@@ -4247,10 +4247,17 @@ static void scx_flush_disable_work(struct scx_sched *sch)
- {
- 	int kind;
- 
-+	/*
-+	 * scx_disable_workfn() sets SCX_EXIT_DONE before tearing down. Read
-+	 * exit_kind with acquire ordering (paired with atomic_try_cmpxchg() in
-+	 * scx_disable_workfn()) before syncing and flushing so that, once DONE
-+	 * is seen, the following flush observes the queued work and waits for
-+	 * the teardown to finish.
-+	 */
- 	do {
-+		kind = atomic_read_acquire(&sch->exit_kind);
- 		irq_work_sync(&sch->error_irq_work);
- 		kthread_flush_work(&sch->disable_work);
--		kind = atomic_read(&sch->exit_kind);
- 	} while (kind != SCX_EXIT_NONE && kind != SCX_EXIT_DONE);
- }
- 
-
-base-commit: 4700e3adf3b24b39dd4929e9c6d62811ba3ccea8
--- 
-2.56.1.839.g22a8290db9-goog
-
+--
+Cheers,
+Vernon
