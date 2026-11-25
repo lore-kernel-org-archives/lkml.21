@@ -1,86 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.48
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.96
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795621201;
-	b=gEyH9gV4KQj9zEAGkKczjm7BztIls1WvWEAAXoQRyw5ipJdOnn98VBliGnCxdMIZ0WjF
-	 D9BBRN1s8YuTi5CGQdw8rAEbhomUhnJMrVJ++AEOfhEiPkVL7H6ELUGso61FEpr6L/Jgr
-	 Bu4Gea0/Dk01miFk8hZCiC0qzdi6iVzGYACPO0lAytCbzh+G3bp6O5GbggMd5kCi9FzQb
-	 a7jTEu4ZU0IMx7lh69ynKWLVVQumuHKFmOh6H7JPW1iVjMPE0sX3AbYhj8yNtZfHgo5rr
-	 MNGze4kgrJq4z2x4frChlNXsAJWjWMY72nqJKPbanHA4wLBSwnrF465HRX4GeAk6lRg==
+	t=1795621197;
+	b=KaabI9EbLojwgimmuM/3zDqxhkRHBbwBbsNuH40+XajjvsFmNDEXbTLm9Yw4D5my5oJ/
+	 fiOupli7eGA7oLH22XBzKPsvuEtY58qkVy+HXSvThz8gmz4ADkJ9B1IwdfxiY5Wd5itAO
+	 gaVrdkv/5E3PaKARjN7sgalidSibCl/ADUb8Z2lZMZTgBT7CO9WX56qXz2zrZQWKupbED
+	 lfN5a6CiO0Ci2KUDFL+5NIsk8/gCfyklYAg01fyOGyiqk8ZBBH6wUGXAArhZLfLRLQdHw
+	 lqAf4VV1nzVa8zvB/qrXuIh0UA6e+SYj3h4cW1wTnwUyujS9+tfzodbZ3LkphzKr9FQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795621201;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=gqUeEhyGjKq93ahPeMI4CffMFtMuuHUd8X1hC7MuE8c=;
-	b=rOG3JNy5tqvnqjnCEk1SeqoMmoaNE/DSqrJTs5UmGN2GFkZI62UFZMCLauV32ol+5/fc
-	 3vDclmolPJs1kRwtJxZ6BwfT7UHUWL1ed27JIe/B7iAHvq+PK2brpVttzTJLxGxyFpF6X
-	 tSX72mZuB3iVTFq6TgCBMi9aFROy6aPSiN/XtLPRd06+jVe+QvmXewM9Hc8LnrlAY22nV
-	 89yirXUQj8QP42LPPgnsl60cyVvN7zAY2OtNQH9rnGchjJctnpQ+Jgt5laYSipxagXCDt
-	 ImR6XFOUJdpAcufHhP4355WmgZe9y1Lzz8+ug25AbBGHK7dI20u6U5vv1G5ZnwUit/g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795621197;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=AHWtWicFYQTSZ+pv8ha5Ysqf1whC+s2crZfNfys75SU=;
+	b=ugPsNPM/QZ/vNvhTkJuLQuRM3BRuB5XFKELlRZWrPW8SNXt969pSEQZb5Cu7MwROgnDX
+	 NSuO12C6F4XGWl1kkoU0Mjmw3S8cxYUzSMJl6eZ+uVLVpPXCHTUQ9RwmJo2s1rhCeFjE2
+	 GKC4Q85VESdHmPq4nT9faK6V4LAKatC49HCNFNmeZ/t408JP8Et92QKLKBHEjDYiAtWfe
+	 cTM9gdUl35w8CXX8syR4J9e1wpnlXOHl7FtigHZOh3QBfQPX8qrG8NHj04BNAxYKUZcdr
+	 KfNmzAMuXiOqFg8Pan7QrKF30CBWZ5FM9tDzOIBtNxjf/cxTs5vB0egtUMrYVR0WMxQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linaro.org;
-	spf=pass smtp.mailfrom=linaro.org;
-	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=RjxdsfKw;
-	arc=none smtp.remote-ip=209.85.128.48
-Received: from mail-wm1-f48.google.com (mail-wm1-f48.google.com [209.85.128.48])
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=dJqgTga1;
+	arc=none smtp.remote-ip=95.215.58.96
+Received: from mta1.migadu.com (out-96.mta1.migadu.com [95.215.58.96])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E4E6A606A68F
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:40:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E4E6A606A68F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 033C4606A6A4
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:39:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 033C4606A6A4
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=RjxdsfKw
-Received: by mail-wm1-f48.google.com with SMTP id 5b1f17b1804b1-4a214c5c4c0so56646545e9.3
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 07:40:00 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1795621199; x=1796225999; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=gqUeEhyGjKq93ahPeMI4CffMFtMuuHUd8X1hC7MuE8c=;
-        b=RjxdsfKwvvddGpQSiNhRsMhHqK+KznqtEzdvJlHNkNxRcNDDOnVVWr0obg9T1+w5YF
-         IXSVqRD72Kt14j7/vOch3js9XRZ+MOQav6q+WBeAvgDXBYU5UAlDmPZTqqj8maE6QTzk
-         RH8OhZMEzGRWmI13DO0mVDzTjznLEvNsLJudBVG0o/2U0CAzCh/p18Eis767vb0mWFkt
-         wOdRWWP4FXylRdYfohZkobSdmX/jcRRrz2lvpCrUBmEAS1NrPXbhC2X+VCfPh1YPFPHV
-         tgqR26Le1ES5fcDtsnSZid+RMgOyE6a704dSJca23QAMgNQkjO3J1mJm4VtXdQs4IgSd
-         E3Tw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795621199; x=1796225999;
-        h=content-transfer-encoding:content-type:in-reply-to:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=gqUeEhyGjKq93ahPeMI4CffMFtMuuHUd8X1hC7MuE8c=;
-        b=0rfl2rvnztp3uFpsTtsP3nSI8wU18dvjXAzav08TT0qAyFM8vbHGBNeTJ5/ofY4toV
-         82JDaI4Aw0kvBmlIKcojfahVQo8dsSEsFAZONoO/SrhgGEFL5wUoKrgzaBgbPgWAxq6j
-         lHrWtvqxl2vaDEHlHn4G6+Ny2uU6stMqSRuRLi9lhSHy4PcGOlVdzOeCJOE51HmaZAdc
-         Viq0CarlfbW4n9SdszJtG96VTsj1xm6rnPvVWqyG1K+xz6VSFraGI94w6ZLwbia5DXAh
-         /baldT8YQFIqlndeyJv7cBJ//CH+aC9fAxaN8l6djcg+caUZ/b0uU5fZyzv212F6ZH7p
-         yHYQ==
-X-Forwarded-Encrypted: i=1; AL+hErEkZctH1WcFwGM9cI5cVpNOswTxNJTuKI/O1O6i/fmDjzoa9sTqR4uZ+V1wiHn5Q4gtMpCG+s6vK7mjXCY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/cMNHmidjq8jOHxWgwFiDIPUflVeZkMk219f7a4JV8n1DqNVk4
-	YMs5TCRUjH/ARkqVcEhoOgebbEcQhzJlei2SduYjIpjBJsYHEAi5WWVNGmxA4u1fqS4=
-X-Gm-Gg: AZFdTZdXl0a9QnzmMoPWLbQHYVXSVUgfwKq6coCaUfur+Ymd5hwyCHwcBPvUs3hmuBf
-	aza2LTd3EDHtztr2Gl+6T4dD3laaDwex1Ms4krbU5EiOCmDHyHNxBoz66tiC4bRLTg139LQv5KI
-	2Hq5yqljRxX7746eoXzgHYa2BFQfD2Xy/nsAdbGzFAQ+ZjXkji2PV0ajnOkfTe/quXE4o31Dfdd
-	pJ5wNsYiwxT/uN/D4P2OEiEaZPsh/oZWUMUICjanG4hOwz3aRf9+aq0HaQ5wK39N8UQpdFoTl1V
-	rMF0Rf7eyz7ml7VLC9ONX2c9pv4use41BsBq6nbHQ6iHL58ulBY6Bjf7WKKwANHMkJaes/azMoL
-	oc7vArFKFig8Kntdm7l4Kn7nfgmIssStiV+769pFIUF/Cy/d26p50FRSSn9UyfSZnJcewOX2tVA
-	bStqHPUW/pLa1qXT3cJW08D4YNskrrptR4RsDObncqPuJ7urVZegs/qUtF9XLzrqsC3IwQVzXvg
-	X5fsdc36QCDaXUr4ip12CBQXz5Ljb0jxj5oMaHeAvJMBr3cgNFdM4tu2FqnCkP+vdJUZgGbGnv1
-	WBi077Odedgpj632LJ4AJZC9TmvXgjVuo9zU3w==
-X-Received: by 2002:a05:600c:3ba9:b0:4a2:1050:aff with SMTP id 5b1f17b1804b1-4bb8881c741mr427623865e9.6.1795621199120;
-        Wed, 25 Nov 2026 07:39:59 -0800 (PST)
-Received: from [10.229.50.9] ([90.82.202.178])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4b3415763f7sm14255031f8f.9.2026.11.25.07.39.57
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 25 Nov 2026 07:39:58 -0800 (PST)
-Message-ID: <8a9a4fe1-0fa5-4c48-aa88-f61b3a01739f@linaro.org>
-Date: Wed, 25 Nov 2026 16:39:57 +0100
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=dJqgTga1
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=VasWsmKzmIjzdgB+tnchbPGMfZU/P7HS7PhkSGjv9OQ=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795621194; v=1; x=1796225994;
+ b=dJqgTga1laKHG54NBY5wrr/2hR+KkHBoD/2xyXgNW7/q5J+4z+/8Awe+FDHaVOizfiAOKZIz
+ 2vjha9q2GgktwA8kYH7kwprbjmRHSmSoLT2EmbZdZ3s6l+CLVbT8wuG03a8AqpJiu4A1LDoGJjO
+ 57zADTO0lXdDRqmYyrLWSAHA=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id cc9b23bc0178ea10;
+	Wed, 25 Nov 2026 15:39:53 +0000
+X-Mizu-Trace-ID: cc9b23bc0178ea10
+X-Migadu-Flow: FLOW_OUT
+From: Fuad Tabba <fuad.tabba@linux.dev>
+To: Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	Fuad Tabba <tabba@google.com>,
+	kvm@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 08/20] KVM: arm64: Move the VM's FGU initialisation into config.c
+Date: Wed, 25 Nov 2026 15:38:59 +0000
+Message-ID: <20261125153911.106793-9-fuad.tabba@linux.dev>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261125153911.106793-1-fuad.tabba@linux.dev>
+References: <20261125153911.106793-1-fuad.tabba@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -90,73 +78,106 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/5] drm/panel: lg-sw43408: use the full DCS brightness
- range
-To: david@ixit.cz, Abel Vesa <abelvesa@kernel.org>,
- Bjorn Andersson <andersson@kernel.org>,
- Casey Connolly <casey.connolly@linaro.org>,
- Conor Dooley <conor+dt@kernel.org>, David Airlie <airlied@gmail.com>,
- Dmitry Baryshkov <lumag@kernel.org>, Jessica Zhang <jesszhan0024@gmail.com>,
- Konrad Dybcio <konradybcio@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Marijn Suijten <marijn.suijten@somainline.org>,
- Maxime Ripard <mripard@kernel.org>, Rob Herring <robh@kernel.org>,
- Simona Vetter <simona@ffwll.ch>, Sumit Semwal <sumit.semwal@linaro.org>,
- Thomas Zimmermann <tzimmermann@suse.de>, Vinod Koul <vkoul@kernel.org>
-Cc: devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
- linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org,
- phone-devel@vger.kernel.org
-References: <20261125-fix-blueline-panel-v3-0-914b4a30b73e@ixit.cz>
- <20261125-fix-blueline-panel-v3-1-914b4a30b73e@ixit.cz>
-From: Neil Armstrong <neil.armstrong@linaro.org>
-Content-Language: en-US
-In-Reply-To: <20261125-fix-blueline-panel-v3-1-914b4a30b73e@ixit.cz>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
+The first time one of a VM's vCPUs runs, kvm_calculate_traps() computes
+the VM's fine-grained UNDEF masks from its ID registers, one
+compute_fgu() call per FGT group, and sets KVM_ARCH_FLAG_FGU_INITIALIZED
+so that it computes them once. The next patch computes the same masks
+for protected VMs at EL2.
 
+Move the calls and the flag into kvm_init_fgu() in config.c, so that a
+group added later is computed at EL2 too. compute_fgu() then has no
+caller outside config.c, so make it static.
 
-On 11/25/26 14:08, David Heidelberg via B4 Relay wrote:
-> From: David Heidelberg <david@ixit.cz>
-> 
-> The vendor changed the value multiple times. Last value for production
-> devices was 900. HBM can go up to 1023, but keep value safe for now.
-> 
-> Fixes: 069a6c0e94f9 ("drm: panel: Add LG sw43408 panel driver")
-> Signed-off-by: David Heidelberg <david@ixit.cz>
-> ---
->   drivers/gpu/drm/panel/panel-lg-sw43408.c | 3 ++-
->   1 file changed, 2 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/gpu/drm/panel/panel-lg-sw43408.c b/drivers/gpu/drm/panel/panel-lg-sw43408.c
-> index 822318f546ef3..92cab6478ea61 100644
-> --- a/drivers/gpu/drm/panel/panel-lg-sw43408.c
-> +++ b/drivers/gpu/drm/panel/panel-lg-sw43408.c
-> @@ -197,17 +197,18 @@ static const struct backlight_ops sw43408_backlight_ops = {
->   };
->   
->   static int sw43408_backlight_init(struct sw43408_panel *ctx)
->   {
->   	struct device *dev = &ctx->link->dev;
->   	const struct backlight_properties props = {
->   		.type = BACKLIGHT_PLATFORM,
->   		.brightness = 255,
-> -		.max_brightness = 255,
-> +		/* HBM can go up to 1023, stay safe for now */
-> +		.max_brightness = 900,
->   	};
->   
->   	ctx->base.backlight = devm_backlight_device_register(dev, dev_name(dev), dev,
->   							     ctx->link,
->   							     &sw43408_backlight_ops,
->   							     &props);
->   
->   	if (IS_ERR(ctx->base.backlight))
-> 
+No functional change intended.
 
-Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+---
+ arch/arm64/include/asm/kvm_host.h |  2 +-
+ arch/arm64/kvm/config.c           | 20 +++++++++++++++++++-
+ arch/arm64/kvm/sys_regs.c         | 17 +----------------
+ 3 files changed, 21 insertions(+), 18 deletions(-)
 
-Thanks,
-Neil
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index 97332ffcb1300..82ba4bb9573f1 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -1748,7 +1748,7 @@ static inline bool kvm_arch_has_irq_bypass(void)
+ }
+ 
+ void kvm_idregs_enforce_dependencies(struct kvm *kvm);
+-void compute_fgu(struct kvm *kvm, enum fgt_group_id fgt);
++void kvm_init_fgu(struct kvm *kvm);
+ struct resx get_reg_fixed_bits(struct kvm *kvm, enum vcpu_sysreg reg);
+ void check_feature_map(void);
+ void kvm_vcpu_load_fgt(struct kvm_vcpu *vcpu);
+diff --git a/arch/arm64/kvm/config.c b/arch/arm64/kvm/config.c
+index adaf26ab93b85..c65cf1dd27330 100644
+--- a/arch/arm64/kvm/config.c
++++ b/arch/arm64/kvm/config.c
+@@ -1586,7 +1586,7 @@ static u64 compute_fgu_bits(struct kvm *kvm, const struct reg_feat_map_desc *r)
+ 	return resx.res0 | resx.res1;
+ }
+ 
+-void compute_fgu(struct kvm *kvm, enum fgt_group_id fgt)
++static void compute_fgu(struct kvm *kvm, enum fgt_group_id fgt)
+ {
+ 	u64 val = 0;
+ 
+@@ -1630,6 +1630,24 @@ void compute_fgu(struct kvm *kvm, enum fgt_group_id fgt)
+ 	kvm->arch.fgu[fgt] = val;
+ }
+ 
++void kvm_init_fgu(struct kvm *kvm)
++{
++	if (test_bit(KVM_ARCH_FLAG_FGU_INITIALIZED, &kvm->arch.flags))
++		return;
++
++	compute_fgu(kvm, HFGRTR_GROUP);
++	compute_fgu(kvm, HFGITR_GROUP);
++	compute_fgu(kvm, HDFGRTR_GROUP);
++	compute_fgu(kvm, HAFGRTR_GROUP);
++	compute_fgu(kvm, HFGRTR2_GROUP);
++	compute_fgu(kvm, HFGITR2_GROUP);
++	compute_fgu(kvm, HDFGRTR2_GROUP);
++	compute_fgu(kvm, ICH_HFGRTR_GROUP);
++	compute_fgu(kvm, ICH_HFGITR_GROUP);
++
++	set_bit(KVM_ARCH_FLAG_FGU_INITIALIZED, &kvm->arch.flags);
++}
++
+ struct resx get_reg_fixed_bits(struct kvm *kvm, enum vcpu_sysreg reg)
+ {
+ 	struct resx resx;
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index c7d91138a6d49..2cbbae81c07c4 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -5841,22 +5841,7 @@ void kvm_calculate_traps(struct kvm_vcpu *vcpu)
+ 	vcpu_set_hcr(vcpu);
+ 	vcpu_set_ich_hcr(vcpu);
+ 	vcpu_set_hcrx(vcpu);
+-
+-	if (test_bit(KVM_ARCH_FLAG_FGU_INITIALIZED, &kvm->arch.flags))
+-		goto out;
+-
+-	compute_fgu(kvm, HFGRTR_GROUP);
+-	compute_fgu(kvm, HFGITR_GROUP);
+-	compute_fgu(kvm, HDFGRTR_GROUP);
+-	compute_fgu(kvm, HAFGRTR_GROUP);
+-	compute_fgu(kvm, HFGRTR2_GROUP);
+-	compute_fgu(kvm, HFGITR2_GROUP);
+-	compute_fgu(kvm, HDFGRTR2_GROUP);
+-	compute_fgu(kvm, ICH_HFGRTR_GROUP);
+-	compute_fgu(kvm, ICH_HFGITR_GROUP);
+-
+-	set_bit(KVM_ARCH_FLAG_FGU_INITIALIZED, &kvm->arch.flags);
+-out:
++	kvm_init_fgu(kvm);
+ 	mutex_unlock(&kvm->arch.config_lock);
+ }
+ 
+-- 
+2.47.3
+
