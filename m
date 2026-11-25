@@ -1,60 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795618375;
-	b=LYYnOjcWMmZrBFDTjZH2m8wJv6utCUUJHds6WjM5Wsotodq8wSl1m8gHn02N2JCjT+q4
-	 EuYCn8mfhg4uvmEZLBVNz+R90lAv9i//ZL9YNptL5hy+ZPuFvBxD2hkAmJNnZ0M7fHJeG
-	 62cUHJ/dx9ADjzZ0VhhCxhWDF+jkKi0ihxQFL+WX1A+mKzRHqNzJPDieDpvRFMVa4oVp+
-	 aR6jvV0h78I2h7zvbcHRcTiFOvQpqCPtMSqXHwQQ/jkKvcHI4Co9HmM0o0zRnu77lhUMM
-	 ouu+NXakHE/+ocUf0XsqvTPRMKbb+YDWH2M1+JW+Cag9WSaQUk+p8KFGW1oYlB30iTg==
+	t=1795618377;
+	b=uyNojphsaBb8qqjIGopAbOwf0oavmfn1a1aKqCs4Z819Cv04Tst9DjF2D7U5gNX0Asex
+	 f/5S9KImG/jBvYLhrm+rWMPTNnxN7eWbFleXkBfulxH5/yV0Gr/GNu0v3SfrzRRH4JWdC
+	 qn4auAP1OVIlnOWK9sSICnCYnKQy4MrLVe61ndSVavBw7N6YIP6fKn6C0zZRwSsmKDcUH
+	 tDDFQ/byjQ/k1hP0qooOq4hxts2hk9QSIf1PRAWRTWHatIl/+uiK2jnfvZuVMhxOWigCM
+	 FrAvF/2HKhG/bR/lgVpLykAo7OhmF1zz3iDesJhVEpEfvsZluqwlXgWBJ61UaHRsvZQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795618375;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=CcswUBkdOVJ3jfZCtD7+HEJ8VJztw/DF4w3AKz5CVc8=;
-	b=sK17IhnZFScH05yHIW4fSFmCawditSHA73RuzMPlXt96gdEBgLMwJWLxGuso/Xh/Jv5t
-	 hJw8ePM2yN9/oaIU1Og+RDnu7zF2DIPNx+XnIvif+5T1cj34JWi8Qt9kjZ5ZpCubXpDfj
-	 veZ7k99gH+HkC7Q3q4vw+fNeZfg3m5x1Yhv2kNgPeIjqMVtpKoOL8xNe6j1EKAhu6hgzQ
-	 rcl0fzfp3frXRiYENHFAU08c+pVDLn9KWPKH+1k3qXfOzm3Oi5dczEQVIpwB048ipL28n
-	 7jx6ABEMkGxl9gC+L0wLxAj1DSZ5Xopuu08ZsbQXxO1wkz6AR2jrr3O0PAWztYHw9qQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795618377;
+	h=DMARC-Filter:Date:DKIM-Signature:DKIM-Signature:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To;
+	bh=ZWAKGYG4Z1IF5pQgZgTA9pPvQYi3Ny9K1VwNmhnSKGs=;
+	b=YLjROBYo5mTVGHHg8n2m+vrcxol7v+7FMRdbKJ3Ji0JOxk6JC3M3jIvuQg/YxFT9J7Xm
+	 pceCiRkyop0YU+fz7cDd3DbJjiZ8NYjhl+D992tt+6YYPLgpxgg1XThAeDE/s77j7vaKO
+	 Wrrw4LULqk3SQw6RH35zCVx9l2xrM2nmIi0Cv9l4Y/BqaV44M/GGUM7UWlzlEcKWri7gf
+	 oLHx4dC9juX3ZjyCTRshBI5IXGJDb9cXjq5rrtjJ9Lex3nVD1GJQKH/7iXgXM2e4Rumdl
+	 mpfhF/CbAMnM30up197XW5mIbWxSud6gQ6BnJpcyMwPC9YSUFUGhLg3nN8CIQxtLw3w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WvF86e0l;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=linutronix.de;
+	spf=pass smtp.mailfrom=linutronix.de;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=n61Zo3Oq;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=ZWEzA1Sk;
+	arc=none smtp.remote-ip=193.142.43.55
+Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 353D4606A321;
-	Wed, 25 Nov 2026 14:52:55 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 00D1C606A32D;
+	Wed, 25 Nov 2026 14:52:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 00D1C606A32D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WvF86e0l
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 605B31F000D8;
-	Wed, 25 Nov 2026 14:52:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795618374;
-	bh=CcswUBkdOVJ3jfZCtD7+HEJ8VJztw/DF4w3AKz5CVc8=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=WvF86e0loGSlgSCyt5HjzgqYgA6jEFMt27nx6NHaVomCm8lw7FEM8SxDBiVddEvkH
-	 lb84Zv/fNTw4s1l1CPV/ExkpUmy8hWWavhOPmlIFWO5qPODypdNPUZJ4ZtWwXi5Kty
-	 K0vN9R4ZfCsDW9oaNlxJ32+MZ/0IRS2oGfQaxwa4xZqQwq6qRmoxPPmWOidUipM1Vn
-	 0YyVq/HFEElsfl/QsPei2Ls0QDvk++/ifg02Pv6V4+ZicrlQvy45FywFp5XtVgLx7L
-	 3KSV6olFS0sFE9OEhNoVK1DUk88YeqwseVf5vsex6Ujgt2OODWA2hHorvuPZIKfhHJ
-	 YXdcas1u20V8g==
-Subject: Re: [PATCH net-next v3] net: mdio: handle broken-turn-around for
- non-PHY MDIO devices
-From: netdev-bot+sashiko@kernel.org
-To: bage@debian.org
-Cc: andrew@lunn.ch, hkallweit1@gmail.com, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- linux@armlinux.org.uk, olteanv@gmail.com, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Date: Wed, 25 Nov 2026 14:52:53 +0000
-Message-ID: <179561837388.3135.1742234801401474384@kernel.org>
-In-Reply-To: <20261121193655.225520-1-bage@debian.org>
-References: <20261121193655.225520-1-bage@debian.org>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=n61Zo3Oq;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=ZWEzA1Sk
+Date: Wed, 25 Nov 2026 15:52:53 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1795618375;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ZWAKGYG4Z1IF5pQgZgTA9pPvQYi3Ny9K1VwNmhnSKGs=;
+	b=n61Zo3Oq7lJu1Byb8ITxBeen+HqdPiVw+d6fYK/CdN0vBYC3tvCDR5aKPgsrYUwKwCajKn
+	lnQ/7v2USObuKTY+07pqHb4K4yvqQpiwMm0f/E1kONNrMssm1iPR80nRVeWb4u/DuwVo25
+	aEoPlBaIiqCibCKMHo9xb+6OQm7pZIxvEEKO0ZsZlutHmdWuoSWFmeNqlQimEXIVkAaX6B
+	uqvWFvpqv9FXvp8rjX9hBgAoS767WiyWp4vxxdfTL4tevw1h0co/ylMmCj3EncfsxFkdTi
+	xJtWHY4PWjVUaukDO/95wt7w/MO5zDN/Qxu0IT7xJwm8WLOR4FnKafh/5OiKsw==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1795618375;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ZWAKGYG4Z1IF5pQgZgTA9pPvQYi3Ny9K1VwNmhnSKGs=;
+	b=ZWEzA1Sksy7xECTxewVcqo69ohY7RXAIWHoryUAEXMKwGqBHrA+UKajrFt21oAy+9fPbSD
+	k84jr29aVYjPSXBA==
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+To: Frederic Weisbecker <frederic@kernel.org>
+Cc: Zixin Wang <w1355457260@gmail.com>, linux-doc@vger.kernel.org,
+	linux-rt-devel@lists.linux.dev, darwi@linutronix.de,
+	john.ogness@linutronix.de, clrkwllms@kernel.org,
+	rostedt@goodmis.org, corbet@lwn.net, wagi@monom.org,
+	atomlin@atomlin.com, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v6] Documentation: real-time: Add runtime tuning guide
+Message-ID: <20261125145253.iWfxNCmy@linutronix.de>
+References: <20261125074658.33117-1-w1355457260@gmail.com>
+ <awbgq0xQyJATel0_@localhost.localdomain>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,200 +77,85 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <awbgq0xQyJATel0_@localhost.localdomain>
 
-Thank you for your contribution! Sashiko AI review found 6 potential
-issue(s) to consider.
+On 2026-11-25 14:20:43 [+0100], Frederic Weisbecker wrote:
+> Le Wed, Nov 25, 2026 at 07:46:58AM +0000, Zixin Wang a =C3=A9crit :
+> > +CPU isolation
+> > +=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+>=20
+> Isn't it kind of duplicating Documentation/admin-guide/cpu-isolation.rst ?
 
-Critical: 0 · High: 0 · Medium: 3 · Low: 3
+That is why you are here. I would suggest a minimum here to make sense
+and point the details to that one.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+> > +
+> > +.. caution::
+> > +
+> > +  CPU isolation is best effort.  Work that is explicitly bound to an
+> > +  isolated CPU, such as per-CPU kernel threads, bound workqueues, and
+> > +  interrupts, may still run there unless it is steered away.  Measure
+> > +  the resulting latency with tools such as ``osnoise``, ``timerlat``,
+> > +  and ``rtla`` rather than assuming that an isolated CPU is free of
+> > +  kernel noise.  See Documentation/timers/no_hz.rst and
+>=20
+> And cpunoise but that's all in Documentation/admin-guide/cpu-isolation.rst
+>=20
+> > +RCU callback offloading
+> > +=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+> > +
+> > +``CONFIG_RCU_NOCB_CPU`` in
+> > +Documentation/core-api/real-time/kernel-configuration.rst enables supp=
+ort
+> > +for offloading RCU callback invocation from selected CPUs to per-CPU
+> > +``rcuo`` kthreads.  The offload is selected with ``rcu_nocbs=3D``, imp=
+lied
+> > +by ``nohz_full=3D``, or enabled for all CPUs by
+> > +``CONFIG_RCU_NOCB_CPU_DEFAULT_ALL`` when neither parameter is given.
+> > +
+> > +``rcu_nocbs[=3Dcpu-list]``
+> > +  Offload RCU callback invocation from the listed CPUs to the
+> > +  corresponding ``rcuo`` kthread, which can run on a housekeeping CPU.
+> > +  This reduces callback-processing jitter on the CPU that enqueued the=
+m.
+> > +  On a non-real-time kernel this also moves invocation out of softirq
+> > +  context; with PREEMPT_RT, callbacks already run in kthread context
+> > +  because ``rcutree.use_softirq`` is false, and the offload only chang=
+es
+> > +  where they run.  If the parameter is given without a CPU list, no CPU
+> > +  is offloaded at boot; the mode can still be toggled at runtime throu=
+gh
+> > +  cpusets.  The parameter takes precedence over
+> > +  ``CONFIG_RCU_NOCB_CPU_DEFAULT_ALL``.
+> > +
+> > +``rcu_nocb_poll``
+> > +  Make the ``rcuo`` kthreads poll for callbacks instead of requiring t=
+he
+> > +  offloaded CPUs to wake them.  This improves the real-time response at
+> > +  the cost of higher power consumption, because the kthreads wake up
+> > +  periodically to do the polling.  Consider this option only when wake=
+up
+> > +  latency matters more than power.
+>=20
+> Does nocb polling really improve real time response?
+> I have doubts.
+>=20
+> It checks callbacks and grace periods every jiffy instead of waiting
+> for actual callbacks and grace period events.
+>=20
+> This means introducing jiffy worst case latencies.
 
-- [Medium] Regression on the auto-scan path for PHY nodes that have no
-  `reg` property.
-- [Medium] Regression for PHYs registered through the exported helper
-  of_mdiobus_phy_device_register() /…
-- [Medium] The fix only sets BIT(addr) for the child's `reg` address
-  (of_mdio.c:169).
-- [Low] The patch changes when the mask bit is set for PHYs, and the
-  commit message only describes the non-PHY fix.
-- [Low] The commit author metadata is malformed.
-- [Low] The patch fixes a mismatch between binding and implementation.
+The wording is the old "RCU documentation" and it is a bit strong. The
+"power consumption" comes from the part that the RCU threads are woken
+up to check for work. The better improved "real-time response" response
+comes the fact things like call_rcu() do less work (in their IRQ-off
+section, including waking a task) so the critical section is smaller.
+I wouldn't expect a huge difference except on small HW where every
+opcode becomes visible.
 
---
+> Thanks.
 
-net: mdio: handle broken-turn-around for non-PHY MDIO devices
-
-This patch moves parsing of the "broken-turn-around" DT property out of
-fwnode_mdiobus_phy_device_register() and into __of_mdiobus_parse_phys().
-The goal is to apply the property to non-PHY MDIO devices such as DSA
-switches as well as to PHYs.
-
-[Severity: Low]
-This isn't a bug, but the author field of this commit reads:
-
-  Author: Signed-off-by: Bastian Germann <bage@debian.org>
-
-Is the "Signed-off-by:" prefix meant to be part of the author name? It
-looks like a malformed From: line, and git am would record it as the
-author identity.
-
-> The "broken-turn-around" property is documented in mdio.yaml for any
-> MDIO device, but the MDIO core currently parses it only for PHY devices
-> in fwnode_mdiobus_phy_device_register(). Non-PHY devices, such as DSA
-> switches, are registered through of_mdiobus_register_device(), where the
-> property is ignored, so MDIO bus drivers that rely on phy_ignore_ta_mask
-> still treat the turn-around/read failure as an error.
-
-[Severity: Low]
-This paragraph describes a mismatch between the mdio.yaml binding and
-of_mdiobus_register_device(). Should the commit carry a Fixes: tag, or
-say whether it targets net or net-next? Without that, backporters can't
-tell where it applies.
-
-> diff --git a/drivers/net/mdio/fwnode_mdio.c b/drivers/net/mdio/fwnode_mdio.c
-> index ba70915182654..129481e8a910a 100644
-> --- a/drivers/net/mdio/fwnode_mdio.c
-> +++ b/drivers/net/mdio/fwnode_mdio.c
-> @@ -89,9 +89,6 @@ int fwnode_mdiobus_phy_device_register(struct mii_bus *mdio,
->  		phy->irq = mdio->irq[addr];
->  	}
->  
-> -	if (fwnode_property_read_bool(child, "broken-turn-around"))
-> -		mdio->phy_ignore_ta_mask |= 1 << addr;
-> -
-
-[Severity: Medium]
-Does this break broken-turn-around for PHY nodes that have no reg
-property?
-
-In __of_mdiobus_parse_phys(), of_mdio_parse_addr() returns a negative
-value for such a child. The loop then hits this continue before it
-reaches the new check:
-
-    addr = of_mdio_parse_addr(&mdio->dev, child);
-    if (addr < 0) {
-        /* Skip scanning for invalid ethernet-phy-package node */
-        if (scanphys)
-            *scanphys = true;
-        continue;
-    }
-
-__of_mdiobus_register() later registers those children from its
-auto-scan loop:
-
-    if (of_mdiobus_child_is_phy(child)) {
-        ...
-        rc = of_mdiobus_register_phy(mdio, child, addr);
-
-That call goes through:
-
-    of_mdiobus_register_phy()
-      -> fwnode_mdiobus_register_phy()
-        -> fwnode_mdiobus_phy_device_register()
-
-The lines removed here were the only place this path set
-phy_ignore_ta_mask.
-
-Take a reg-less node with compatible = "ethernet-phy-idXXXX.XXXX" and
-broken-turn-around. phy_device_create() registers it without any
-register reads, so it worked before this patch.
-
-After this patch, would every later read of that PHY return 0xffff on
-mdio-bitbang, or fail on mdio-bcm-unimac and mdio-pic64hpsc?
-
-The commit message says the property is parsed "once in
-__of_mdiobus_parse_phys(), before the PHY and non-PHY registration paths
-diverge". The auto-scan path never reaches that check, though.
-
-[Severity: Medium]
-Can this also drop the property for callers that use the exported
-of_mdiobus_phy_device_register() and fwnode_mdiobus_phy_device_register()
-helpers without going through __of_mdiobus_parse_phys()?
-
-tja1102_p1_register() in drivers/net/phy/nxp-tja11xx.c walks the children
-of the TJA1102 port 0 PHY node and registers port 1 directly:
-
-    phy = phy_device_create(bus, addr, PHY_ID_TJA1102, false, NULL);
-    ...
-    ret = of_mdiobus_phy_device_register(bus, phy, child, addr);
-
-__of_mdiobus_parse_phys() only visits direct children of the bus node
-and of ethernet-phy-package nodes, so it never sees this nested node.
-
-ethernet-phy.yaml documents broken-turn-around for every ethernet-phy
-node, but after this change it is silently ignored for TJA1102 port 1.
-Could the parse stay in fwnode_mdiobus_phy_device_register() as well?
-Setting the bit twice is harmless.
-
-> diff --git a/drivers/net/mdio/of_mdio.c b/drivers/net/mdio/of_mdio.c
-> index b8d298c04d3ff..fe321fa161888 100644
-> --- a/drivers/net/mdio/of_mdio.c
-> +++ b/drivers/net/mdio/of_mdio.c
-> @@ -164,6 +164,10 @@ static int __of_mdiobus_parse_phys(struct mii_bus *mdio, struct device_node *np,
->  			continue;
->  		}
->  
-> +		/* Common to PHYs and other MDIO devices */
-> +		if (of_property_read_bool(child, "broken-turn-around"))
-> +			mdio->phy_ignore_ta_mask |= BIT(addr);
-
-[Severity: Medium]
-Is masking only the reg address enough for the DSA switches that the
-commit message mentions?
-
-Bus drivers check the mask against the address of each transfer. For
-example, mdiobb_read_common() does:
-
-    !(bus->phy_ignore_ta_mask & (1 << phy))) {
-
-b53_mdio_probe() accepts mdiodev->addr == 0, but b53_mdio_op() sends all
-traffic to BRCM_PSEUDO_PHY_ADDR (0x1e):
-
-    v = mdiobus_read_nested(bus, BRCM_PSEUDO_PHY_ADDR,
-                            REG_MII_ADDR);
-
-With reg = <0> and broken-turn-around, bit 0 gets set but every access
-uses address 30. Wouldn't the busy-poll in b53_mdio_op() still see
-0xffff and hit the WARN_ON(i == 5)?
-
-mv88e6xxx in single-chip mode has the same gap. It uses
-mv88e6xxx_smi_direct_read(), which calls
-mdiobus_read_nested(chip->bus, dev, reg) with port and global block
-addresses that differ from reg.
-
-For these switches, would the problem described in the commit message
-still be there?
-
-> +
->  		if (of_mdiobus_child_is_phy(child))
->  			rc = of_mdiobus_register_phy(mdio, child, addr);
-
-[Severity: Low]
-This also changes when the bit gets set for PHYs.
-
-Before, it was set in fwnode_mdiobus_phy_device_register(), after
-fwnode_mdiobus_register_phy() had already read the PHY ID:
-
-    if (is_c45 || fwnode_get_phy_id(child, &phy_id))
-        phy = get_phy_device(bus, addr, is_c45);
-
-Now get_phy_device() runs with TA failures ignored. A broken-TA PHY
-without an ID compatible may now be detected, where get_phy_device()
-used to return -ENODEV.
-
-The bit also stays set for an address whose registration fails in
-get_phy_device() or fwnode_find_mii_timestamper().
-
-Is this intended? If so, could the commit message mention the effect on
-PHY ID probing?
-
->  		else
-
-[ ... ]
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261121193655.225520-1-bage%40debian.org
+Sebastian
