@@ -1,59 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=80.12.242.78
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795644525;
-	b=K0tkWSYr10JyyiMtEpqASOfj1xt/oUMUZP4BgrCCCRYCR2OgMSMCy7vi1vozBcA4Bo1a
-	 fTmdagoZXfvbS9tuo+wzt80Hfg7HAjsdnbVXyiJs4EH2fHHGsqNdF2LpKi+j81+BcRd4/
-	 fUIViJUz+k3kmEtuMRjenGiy3rmxoH2hRRX8yhy+e41YsFoOmiDngXNNrpOpctF9Xe829
-	 c9eU3QHROeDpQl7u4DCawPSziJBM5tedE7v0Mw2Lxf6UvVRc74LCPgBI+Ey6RZmE7ExnL
-	 FVykWIZoXBuUCC7r/fGoS4RgMxzwvgMOsBMbnIb5FklFUKUVztjPwvPAV6c6KAWhVXg==
+	t=1795644633;
+	b=zbINbZDTIm358XMssYkPhKrB9LMwGQf+m8rOgPoCBf1krT7sBOGRTFoF1cD+hXS8/V07
+	 gBNXXkW47FLNJ4SZ0rVaLB1+4fEbszbIdJM38OxXmHAshdUI+z1lb4tIzVRHsG3bSEhUt
+	 nMKYGTqaZhQ214+slxRvbRout7Gn3dDLbQCa5e5uub/FyrHZ4CSDGngACR2gJOEXO88RV
+	 Xf6cxcL/KsNAdGCS3cFDdop3otvBwizXZXlSxMvg+dzuH5VD71gHgar9jvY3eaciooT3+
+	 qSqm88WyLeD9lFPYQcKmc9b5QEY62yXBPXacD1vowVcm5i2n5stKkf+DWNXXph+MtXw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795644525;
-	h=DMARC-Filter:Received:DKIM-Signature:X-ME-Helo:X-ME-Auth:X-ME-Date:
-	 X-ME-IP:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
-	 References:From:Content-Language:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=YC2VK93HkvqMATxvGGmq5SS6Vul75+B1jHNnpTCePKU=;
-	b=xHUQn8EuPhibXmw3fEbBbY87I52VDMHOAu2wWuxkrjlcACsX4aoNWnrmgddh0ib6u/LL
-	 VsOYX/XIMTqS/SuKPoXG/+dCTz/vkWYC3rLRoEfeViRoWYJNluJOqE/z5RMc56LEFtd0I
-	 oyIRECOWyODwdw6xs4sa3kI3ySNBqHCsQBnF7aYB+XU0EAa0T0ChpvkPenL1x0lFs1+tH
-	 EwPcMO5M6i5KP9NoLrWu7Q5lB2W1I2iKc8g3FwvQQW26xljjiotQBzd/74APMXuQ3cRCV
-	 g14k9wvPMsTQVI6lC9kQOhvw69icL5PzKgTS9BAfzG8BJG/MFDglDOvMvYltZgeNEEA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795644633;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=HSHUYSAKe2yMTBtSGFVKjWD8rNTq+HH3Hx/MlNX0q80=;
+	b=bDCoraCuNjbV2N0rvC6aczeQByE3CSJu8sV1LByYU3ji28ygCF2o08NgyonH2oTl/tjV
+	 pjPH8FctFl/5iz3Gn6sL7wEy0Sc4Xmvp9GH7lXyevDm8Ur0LJT/Re7BoQjFMwfV6g4XFP
+	 mAmIKyhIirmB8g8Eoxx+sKLWC+7uu4CeOUpXzmoq8RA/fUfiuSlRM+93UEi1FL7INjtyY
+	 0FbiLnkmI0WAOWhoydE+Q59AZjvzROXoR4wIlEhu4CsA/3z0/VEnCXC+xVYqMNKmV/f9F
+	 u+WC2na/3PIWCDXJf5SIQpFYMkVEco2ttVGb+reARXRkkTZ/NsCum7OXZrY/9OHAuag==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=wanadoo.fr;
-	spf=pass smtp.mailfrom=wanadoo.fr;
-	dkim=pass header.d=wanadoo.fr header.i=@wanadoo.fr header.a=rsa-sha256 header.s=t20230301 header.b=C0Z4QEfh;
-	arc=none smtp.remote-ip=80.12.242.78
-Received: from smtp.smtpout.orange.fr (smtp-78.smtpout.orange.fr [80.12.242.78])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hf+8p3yj;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 96737606A321;
-	Wed, 25 Nov 2026 22:08:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 96737606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=wanadoo.fr
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=wanadoo.fr
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id D2ED1606A32A;
+	Wed, 25 Nov 2026 22:10:33 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=wanadoo.fr header.i=@wanadoo.fr header.a=rsa-sha256 header.s=t20230301 header.b=C0Z4QEfh
-Received: from [IPV6:2a01:cb10:785:b00:9f13:a1ff:dc18:901b]
- ([IPv6:2a01:cb10:785:b00:9f13:a1ff:dc18:901b])
-	by smtp.orange.fr with ESMTPSA
-	id WLAGxbx73qZBYWLAHxXej8; Wed, 25 Nov 2026 23:08:37 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wanadoo.fr;
-	s=t20230301; t=1795644517;
-	bh=YC2VK93HkvqMATxvGGmq5SS6Vul75+B1jHNnpTCePKU=;
-	h=Message-ID:Date:MIME-Version:Subject:To:From;
-	b=C0Z4QEfhJGa1UxoE+RYk06DuFaVwb6AfeMBe6psWBbwOWxy+tXi9apwxBsJFn2FzU
-	 jesEWH94S7sjXxvBFpGjoNLYMJn+gvRvFh06a+DDz4N++1ppxT3gTcE/cLdg3FicyZ
-	 zc6KnH4082wk0IgcE5/KgxwxZbzmYw8p/p3X3XFNxfSOcWjE8Cjl9ndXTz/Ly5m2M2
-	 oyogI0F44mEEPOqJYb58s3v2yVT3HSQmzqSaWmcC9RUeV6pQwySkuhCDMhAu0IiGu6
-	 IxXCkNoLOihWpxGRl0/DmSszvQXNpj+Lda8bREEjnuf4iYYdyQf8VfpR8lYkOBVeue
-	 IyhRN7rZB1WZw==
-X-ME-Helo: [IPV6:2a01:cb10:785:b00:9f13:a1ff:dc18:901b]
-X-ME-Auth: Y2hyaXN0b3BoZS5qYWlsbGV0QHdhbmFkb28uZnI=
-X-ME-Date: Wed, 25 Nov 2026 23:08:37 +0100
-X-ME-IP: 2a01:cb10:785:b00:9f13:a1ff:dc18:901b
-Message-ID: <9c26b213-aa58-4c27-99c7-926c6b4d5275@wanadoo.fr>
-Date: Wed, 25 Nov 2026 23:08:31 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hf+8p3yj
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 9AC521F000C4;
+	Wed, 25 Nov 2026 22:10:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795644633;
+	bh=HSHUYSAKe2yMTBtSGFVKjWD8rNTq+HH3Hx/MlNX0q80=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=hf+8p3yjBQmkFdqzDqRGCdc/Kw7VJnWjauP4BWPSdrBnME5F+/8HwAiVOwwK5FLYR
+	 nxN9Rau8JRv4oGJrBX6RBc/HO9ObnB9LezNhFVoULBNWVC0czVcf0VTdeS23VxLG5n
+	 xOveEKOcE8jFKJdHBIJokiTLhRU/e1DaTMYVfX0wOhOAFsX33ADJ7wSeF6tnIcYcKM
+	 kkArb/irEn1RhrVBegtpBUPtjT1OsDtJQzFQAl9fJ5kZUrUMUaeHmQpUEChD03IDOU
+	 BaspgZhpp689cUVYVu6ruJOowfU02VCiSLEnwUg65EGHFe7LDxpDgQBOlKEqD65eWY
+	 jUh/a2jbUDX9w==
+Date: Thu, 26 Nov 2026 00:10:29 +0200
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: David Laight <david.laight.linux@gmail.com>
+Cc: keyrings@vger.kernel.org, dm-devel@lists.linux.dev,
+	linux-crypto@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-integrity@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-security-module@vger.kernel.org,
+	Ahmad Fatoum <a.fatoum@pengutronix.de>,
+	Alasdair Kergon <agk@redhat.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Benjamin Marzinski <bmarzins@redhat.com>,
+	David Gstir <david@sigma-star.at>,
+	David Howells <dhowells@redhat.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	David Woodhouse <dwmw2@infradead.org>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	Ignat Korchagin <ignat@linux.win>,
+	James Bottomley <James.Bottomley@hansenpartnership.com>,
+	James Morris <jmorris@namei.org>,
+	James Prestwood <prestwoj@gmail.com>,
+	Jason Gunthorpe <jgg@ziepe.ca>, Jonathan Corbet <corbet@lwn.net>,
+	Lukas Wunner <lukas@wunner.de>, Mike Snitzer <snitzer@kernel.org>,
+	Mikulas Patocka <mpatocka@redhat.com>,
+	Mimi Zohar <zohar@linux.ibm.com>, Paul Moore <paul@paul-moore.com>,
+	Peter Huewe <peterhuewe@gmx.de>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	"Serge E. Hallyn" <serge@hallyn.com>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Sumit Garg <sumit.garg@kernel.org>
+Subject: Re: [PATCH v2 2/9] lib/asn1_encoder: Add asn1_encode_integer_bytes()
+Message-ID: <awdc1TmFwwICFmR7@kernel.org>
+References: <20261124194043.1651679-1-jarkko@kernel.org>
+ <20261124194043.1651679-3-jarkko@kernel.org>
+ <20261125091921.4bf40279@pumpkin>
+ <awcBD-bp27JCVpc-@kernel.org>
+ <20261125213333.23eedef1@pumpkin>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,47 +84,46 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: bcm63xx_enet: Use devm_clk_get_enabled() in two probe functions
-To: Markus Elfring <Markus.Elfring@web.de>, netdev@vger.kernel.org,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Hemanth Selam <hemanth.selam@gmail.com>, Jakub Kicinski <kuba@kernel.org>,
- Jonas Gorski <jonas.gorski@gmail.com>, Paolo Abeni <pabeni@redhat.com>,
- Simon Horman <horms@kernel.org>
-Cc: LKML <linux-kernel@vger.kernel.org>, kernel-janitors@vger.kernel.org,
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Florian Fainelli <f.fainelli@gmail.com>, Frank Li <Frank.Li@kernel.org>
-References: <d293609b-c8cd-4993-a243-89c6d1ace4a0@web.de>
- <ac10d9ef-b193-487c-b4c1-6126aa770c6f@wanadoo.fr>
- <603d7ea7-5d7d-49c4-a01b-a7805e88c361@web.de>
-From: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-Content-Language: en-US, fr-FR
-In-Reply-To: <603d7ea7-5d7d-49c4-a01b-a7805e88c361@web.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261125213333.23eedef1@pumpkin>
 
-Le 25/11/2026 à 19:42, Markus Elfring a écrit :
->> Why changing only one devm_clk_get()?
-> The change relevance is varying for the involved clocks of the affected Linux drivers,
-> isn't it?
+On Wed, Nov 25, 2026 at 09:33:33PM +0000, David Laight wrote:
+> On Wed, 25 Nov 2026 17:38:55 +0200
+> Jarkko Sakkinen <jarkko@kernel.org> wrote:
+> 
+> > On Wed, Nov 25, 2026 at 09:19:21AM +0000, David Laight wrote:
+> > > On Tue, 24 Nov 2026 21:40:36 +0200
+> > > Jarkko Sakkinen <jarkko@kernel.org> wrote:
+> > >   
+> > > > Add a helper encoding a positive integer from a byte array in big-endian
+> > > > format.  
+> > > 
+> > > Interesting...
+> > > You allow for integer values longer than 127 bytes but don't allow for the
+> > > much more common likelyhood of the encoding being 'implicit'.  
+> > 
+> > This is the first thing I wrote in 2024 and have not touched since
+> > without further feedback :-)
+> 
+> I wrote an ASN.1 encoder/decoder for a tcap library a few years back.
+> Pretty much everything was implicit and some of the tags exceed 5 bits.
+> About the only things that needed multi-byte lengths were constructed.
+> Oh - and you can't fit in a maximal length SMS if you use the indefinite
+> length for constructed items between 128 and 255 bytes, you have to use
+> the two-byte encoding.
+> 
+> There were a few functions for 'add item to buffer', but I didn't need
+> this one.
 
-Your patch is related to bcm_enet_probe().
+TCAP/SMS has pretty much the opposite profile from crypto DER in the
+kernel, which deals with big numbers.
 
-See L1754 and L1791. These 2 calls are related to 2 
-clk_disable_unprepare() calls in the error handling path and in the 
-remove function.
-
-Why only update one place, and keep one clk_disable_unprepare()?
+None of the other primitives in lib/asn1_encoder.c take an IMPLICIT tag
+override either, so better to leave that out until something in-tree
+actually needs it.
 
 > 
-> * bcm_enet_probe()
->    https://elixir.bootlin.com/linux/v7.4-rc1/source/drivers/net/ethernet/broadcom/bcm63xx_enet.c#L1711-L1898
-> 
-> * bcm_enetsw_probe()
->    https://elixir.bootlin.com/linux/v7.4-rc1/source/drivers/net/ethernet/broadcom/bcm63xx_enet.c#L2641-L2735
-> 
-> 
-> Regards,
-> Markus
+> David
 
+Br, Jarkko
