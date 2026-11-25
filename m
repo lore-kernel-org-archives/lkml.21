@@ -1,62 +1,112 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795601462;
-	b=qg7/9mMbCGFzBBbBNGzKa3KVIEnJzAk0lgv81QNdJ+dVEueNb6oc0iIKhQt18l9uwkuH
-	 /pN0KQk5MpVMG9kLCH8y0ZRia1aqfammArGNW3raMg7QFonpLz6EiQkjQ6ZO3swF5TrvE
-	 CSL773hJj4BhqeAde8NAzgVlusw7ciE1vhFF3AMAsDhi1Ki65aJny2rn6k3RkCVrrFYw4
-	 ngMYgg90QsBCvi6i0gZK21LVIC8zgp/yTR6qEOPV3jhXLBLLe3xlptWrV09c1N88xEU6u
-	 WJ2Mf9/qktxfyoPuIR8w86v2IQDJr/y2kPIhXOMnYGIvRB5O5/cAECVUovJVWbaBy6A==
+	t=1795601472;
+	b=SUeVRpFxLYlDIzMT9pAGCF4xkm4k4sRLBWVkjPt27eai+3hXkR2mRwXfRAwHMxkdPfk2
+	 RGU13CDsBZEYoyWeJU28rscki5MNb7bXDoXNXkvXbD6cYBS5/LuZubtnPRIM3iCApXaY3
+	 JMzBZdeeMm97Y8bik86EtF5fIAEXY27NsE+B5H46e1j5dGcljczHvKBBF85VBgCS0RjKb
+	 dFtALKme1Y7PX6C41/vUif0xajFmFuJjot+6H55rmFQWNBZOo+GXa2BO7TBUmRZVHIqDY
+	 +glJ1Z7hplmleb0Uquf7Ke6lPk2FC+BqiFShr4mK73Km6vYdrK3ATfyX8i6yct78VFg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795601462;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=BaF2y941KHDdVq/TCyzQzvb+LdOgdRdyfJjxbTxcEfE=;
-	b=Sce1suvtGxCouipP0zIZt3CDABnDAw7h0DlS9alqLxq5PgagkcKSGEDo1ix7joMgMqz+
-	 tYT9bE4lOI2a6ZnkO2H6XvEZbLX/eUOc3RgkrYQcsFILappgP22F1RqdNoIWHq36pLX/G
-	 fmN0EcYvRmRAJCm/h8TxD2xHdxKUrnFIJuuMQbbcvfORASECpEYVOROJlnAGdzsda5YMl
-	 wMWR2/nY1WnzZBII5t88tSo7tOM9eIfzvxwxZdeQ7xSZYD0Xer3pzZTQqTOJp/cYATm0P
-	 fZWaj6xQj57i7emurZ85dBf94hwYM/CHsSJfOgZIUc1+3SxqbthxG5+wT9we4xOSPvA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795601472;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Authority-Analysis:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-GUID:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=JgcgT2ipWJ2y4mvlC42PtcSP9A6DEckQPx5rrYOfk0g=;
+	b=RxQDhvxPK3lV3fknbfODJaH4fTrwm4S7VuOBE5qpj7D0tCsF+4lxEyU41M0ZhT4eoHEC
+	 Ag9qQHFODuzTC2zg5E9RpTeFwWr68M5doSfp8TnKz9QdPMcxDVUYPmQUeESzgLsnaU71o
+	 d/ag8r/K5/HuKK+/Tcj4e2pahB78V+LtjJoqxs2zHvnwprv4cVr7wiRbZBKVVNlAhU2Zf
+	 DzhiuPwKxQuHOq9J4z+pWMjJKW9lXZA0OMRzUJjVV4VpDgYtLpmKnjghwCtQsu5RcNgrG
+	 RJU9qRFgsPKDYcfBTDbcFBJpq3N8eAanZ0TmN581hQ8FYWy2JNf0GPODpBY0oglZQUg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VnHfrSIT;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=XMjLozre;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=RVRYn5rk;
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C8420606A31E;
-	Wed, 25 Nov 2026 10:11:02 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 97C2C606A329
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:11:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 97C2C606A329
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VnHfrSIT
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E45121F000C6;
-	Wed, 25 Nov 2026 10:11:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795601462;
-	bh=BaF2y941KHDdVq/TCyzQzvb+LdOgdRdyfJjxbTxcEfE=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=VnHfrSITWV9Ws1hlo2hFlxZlsLTRcWeJRZjMNpyg1FXRnzV4vsCAShBP61Ocx1zhP
-	 HXCddZyw9ddGjL3vPqHptfCA16EWst0mQdqKWS0CC2UCkVU629Ra0UHfY0RfQX82FF
-	 p3gylN9hDN/QG0SgaFHaGtP12i58WCnHIlx+7KWdzhFN/x9qRz8VYI7jlUzz7n85w+
-	 G9JxwhlsqYHaGZyXggFi9vOaOxUg4+85XPglls1q366nyKsvlIRi/dBOhOMXOZLqyu
-	 hT486ffaUn+42UkmkQtqtkizkm3YDtYoVYQumDoYpC2FCZDmnq1AJZjrZO+QAA/TJd
-	 5Be4atrOMSApw==
-Subject:
- Re: [PATCH net-next 2/2] bnge: Add support for ethtool -d register dump
-From: netdev-bot+sashiko@kernel.org
-To: ramakrishna.koduri@broadcom.com
-Cc: davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
- pabeni@redhat.com, andrew+netdev@lunn.ch, horms@kernel.org,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- vsrama-krishna.nemani@broadcom.com, vikas.gupta@broadcom.com,
- bhargava.marreddy@broadcom.com, ajit.khaparde@broadcom.com,
- dharmender.garg@broadcom.com, kumar.mudide@broadcom.com
-Date: Wed, 25 Nov 2026 10:11:01 +0000
-Message-ID: <179560146141.3135.3852070914350759699@kernel.org>
-In-Reply-To: <20261124100751.179270-3-ramakrishna.koduri@broadcom.com>
-References: <20261124100751.179270-3-ramakrishna.koduri@broadcom.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=XMjLozre;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=RVRYn5rk
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AP9mPBT2121252
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:11:10 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	JgcgT2ipWJ2y4mvlC42PtcSP9A6DEckQPx5rrYOfk0g=; b=XMjLozreDz8YnShd
+	T2K7aVz/9tDfu+Hv4BLU1M6xdfCWHACfDZgpOydPe0kHfW3eayn9Wx/rVDKUiLv2
+	B6cHEXQdIsZZ5y6ef/H2sJZ7ms5HNd3b87IqvslZYkxuw/Ybj+LxOu9iIVsocRft
+	NdKnZ13Qzu8XeKw4kfoDyRlvfi4fbs9fS8U0RYLHXYp06UJlnP1R3Yuiq6ZPXdO8
+	9uyb7Jbo36oxNWynGdfTi9GnHHKnHiL/01TvMW41N30jndCapiaxrtc0wZLKl3zQ
+	aTKWKcb6lZzXRzOp+KoAb/5aVBhdBClQruV0Uea2wa2xIqI3w5qdBoxun7QKkTlB
+	GVY85g==
+Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com [209.85.216.70])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j5vukr9rq-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:11:10 +0000 (GMT)
+Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-3ada6ccd402so4649536a91.2
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 02:11:10 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795601469; x=1796206269; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=JgcgT2ipWJ2y4mvlC42PtcSP9A6DEckQPx5rrYOfk0g=;
+        b=RVRYn5rkf+0VVEq8gtKYFJFguuSfkaLBWwsb1Mei2ph88+EQ0wK1pDtCimXelCBIqJ
+         ANmBYUTrl+XG8UpY2psdoaXTE4mz1N1/pLGUdb98Wx425SwJPM4jftmbBN1dPVdoWk1P
+         h9WCmW/iJetKmgrOM4QFhhU38f3iJHkfoUtiHatx77k/idmaHLWfvgJNyY573advkBLY
+         fZJoT11zgsPNRHbJlPUMI3Wa0kd5sJs3XvIk9W1p/z16SEiwkq+Ix7+39FPR5BS3aDo7
+         r6HW5KvHs/Ju3hWQ0zxc2bUkD9gDDRk4U9X6mieVPd2LDL1VBlcCm5yrOQyNCuSfoxJo
+         +sbA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795601469; x=1796206269;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=JgcgT2ipWJ2y4mvlC42PtcSP9A6DEckQPx5rrYOfk0g=;
+        b=y+nNp1ESFFk6c/QC35EBrfXXimm12OZVS75bBeWXqzdeDxby7XxH1RH+RYtycm+e3k
+         SzFXfI+dZ08zXbytHokZOGvyqmoYvuekilUq+K2JpwNmHAx1vxMV8LieDFANXYdPGcAD
+         75H/6dwSxOWUo6Vy+yH1Haupzq/zWopuZ38godS/PQhUqVNBJph9tg878T1bqryI16qy
+         ABf53ud3ujhRO17QBb5OeMrvR3etlqoAGsqrRVEeoANRaU96DmEcYalVBgaoWnRARzI4
+         ZMRRWiZuEvCB0SnRpybIHPLE0ENO2CDEEl6vYo5t3HyAKR09s/RsD0vv2qfUU1CzN7xb
+         qlLA==
+X-Forwarded-Encrypted: i=1; AL+hErG6a0EOtAbUTe5jKedIUKScL1eMl3iXVUBM1Tz96nCB1Pskh7nCZItBGewKhsXU2KswrCDIb39wbR1fD3g=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8mkGTe9QSQkavRe5cFZGLaS3dCk3p1bhvK1e+yurv6nj5MlRlC
+	NtKIlCoBr7f5lUJTrElA0XNoJpZ8bFcXxVQFA5iZrpe9xI9LkMfyP5ThrheUOLE6DYyXnwoY+69
+	lqbrXIZzl5t0EHQ0WnYJiBHYMpbMvvbpmnVWPA29pTlyHppiJe5aAyGIEaNFvUD+J6cc=
+X-Gm-Gg: AZFdTZeP2bVr06V1j9igZjpmXegvEq4QbHQi9PFahQt2jEfDT187sRe+ZkngHqxsg3P
+	rDVLMQDRYnDw5/Q7thm6AaUJZcC3sBuTRr+2evGB96kWsx4sQFFvVpnH2bqUt5m/B7TsLGkztDU
+	cXXnK6zYYFSdLN/XwmQatGrvqIdKKjgK1KYsAURH5uoL8RoUZPNipKMNU/2zgI7YqEDM65CypS+
+	+5kMoGocnW2Eo0qlN2H5PowHSshvxJv4wI7ZKOy3MG8QXPpSCgs8YQ+h0ggLeyRqAmBqd83qCcf
+	s7ha50HaBrGAMa7FXbqwJmCqJLnO4zVISAnQvn8zv3y95m21WLBt3Hny4yx5CYE3BBA+BP3jamX
+	9ozSYWCIfSq7W8mxK4yY9Z9BldEw0gJD5bAckRE3k2z6m9S5Q3BZTHzPpp8QQSYBe+3V86u39Te
+	hw2b5DYRvXlrWSHpaXe2zR4JX28IZgiCUoF4Dyhg==
+X-Received: by 2002:a17:90b:1802:b0:3ac:a139:1b13 with SMTP id 98e67ed59e1d1-3b41c93ccf9mr16179599a91.29.1795601469366;
+        Wed, 25 Nov 2026 02:11:09 -0800 (PST)
+X-Received: by 2002:a17:90b:1802:b0:3ac:a139:1b13 with SMTP id 98e67ed59e1d1-3b41c93ccf9mr16179571a91.29.1795601468716;
+        Wed, 25 Nov 2026 02:11:08 -0800 (PST)
+Received: from [10.133.33.142] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b4dfbe54a2sm5931651a91.17.2026.11.25.02.11.04
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 25 Nov 2026 02:11:08 -0800 (PST)
+Message-ID: <f2cc0d77-3a5d-4d82-a697-456488bee6cf@oss.qualcomm.com>
+Date: Wed, 25 Nov 2026 18:11:03 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,247 +116,105 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: dts: qcom: shikra: Mark cti_riscv device as failed
+To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Abel Vesa <abelvesa@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+        Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+        Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+References: <20261116-disable_riscv_cti_for_shikra-v1-1-d7cc81f901e0@oss.qualcomm.com>
+ <30485a94-cc85-4c64-8593-a2218a3aa59d@oss.qualcomm.com>
+Content-Language: en-US
+From: Jie Gan <jie.gan@oss.qualcomm.com>
+In-Reply-To: <30485a94-cc85-4c64-8593-a2218a3aa59d@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Authority-Analysis: v=2.4 cv=KfVHIgYD c=1 sm=1 tr=0 ts=6b06b43e cx=c_pps
+ a=0uOsjrqzRL749jD1oC5vDA==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22
+ a=EUspDBNiAAAA:8 a=C-wyTywGbBTeqauinx8A:9 a=QEXdDO2ut3YA:10
+ a=mQ_c8vxmzFEMiUWkPHU9:22
+X-Proofpoint-ORIG-GUID: CszrNFA-1_af8Q0h7KMbqHTRbaArXdbJ
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI1MDA0MCBTYWx0ZWRfX/WrWB1lhav6d
+ 0U3JyO0rOE6fnqNX487kB08UxZX3jlPYUBS7ip1umcArwUSAg55aeotrw++o/30YZLvp6mQN+KJ
+ CH91EAsIV4duYRi7RLA9Zsoe9XRv68Y=
+X-Proofpoint-GUID: CszrNFA-1_af8Q0h7KMbqHTRbaArXdbJ
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI1MDA0MCBTYWx0ZWRfX22PIOEu/ZKwm
+ OxTNnZ9EKuaPZqkktIvQWxbuxzX9YeHVkmuuHT/zRiZEyrNBaJvwJipZMB4EedezkSKvT35eufU
+ +nA2DcgBjrRZi00u0+YWf2UytVQ8R5Q+TcKsl4UPeawh6UzDElu31I0RSLGgC83fJLMAF78I7/t
+ FxzBZwO1FPLACK0kdhe+PBTtRUDks5Fs7+UMqRVyYyQjPFao2ZrvV0/sO6KTPYyqWZwfY99ssMK
+ zZA4HhK6T2tImr4Otf7WhjDhOdPfOdttsuVPZ5EyWHL1flN/o+3pJ2ipGlFa5Rvna7WxXfW3tZ8
+ 6VJUrvAERC5dQh1NGdJqIncnUPKV4BQ3gszgWey5itBXZdFfo8PL+l7/Du1WRuhKDbYcMjWxaOt
+ 30cVL7DiHUU+rUWzuPPsgylO6/mhWb09OujLZNXwdCauQ+wg3nApj1YGDWyICZ7l7+aOt8EgbQu
+ SW4KIXTRTbsIi6nCHtg==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-25_03,2026-11-23_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ adultscore=0 suspectscore=0 priorityscore=1501 clxscore=1015 bulkscore=0
+ impostorscore=0 lowpriorityscore=0 malwarescore=0 phishscore=0 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611250040
 
-Thank you for your contribution! Sashiko AI review found 4 potential
-issue(s) to consider.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 3
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+On 11/25/2026 5:53 PM, Konrad Dybcio wrote:
+> On 11/16/26 12:03 PM, Jie Gan wrote:
+>> The cti_riscv device is suspected to have a clock vote issue on the
+>> KVM enabled path, which causes the device to crash during bootup. Mark
+>> the node with status = "fail" for now to avoid the crash.
+>>
+>> Fixes: eed738c6dd0c ("arm64: dts: qcom: shikra: Add coresight nodes")
+>> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
+>> ---
+> 
+> That would mean Gunyah is enabling some clock that the TZ itself isn't,
+> which would be solveable through a clock driver patch. Do we have more
+> details here?
+>
 
-- [Medium] bnge_get_pcie_regs() sets regs->version to 1, 2 or 3 from the
-  PCIe stats size firmware actually returned (`min(resp->pcie_stat_size,…
-- [Low] In bnge_hwrm_dbg_qcaps()
-  (drivers/net/ethernet/broadcom/bnge/bnge_hwrm_lib.c), the comment says…
-- [Low] The commit message lists only the categories of data that are
-  dumped.
-- [Low] In bnge_pcie_reg[]
-  (drivers/net/ethernet/broadcom/bnge/bnge_ethtool.c, line 786),…
+We are currently debugging this issue. What we have found so far is that 
+the RISC-V core is not powered on when the AMBA bus attempts to read the 
+PID from the device registers, which causes the system to crash.
 
---
+Normally, the RISC-V core is powered on by remoteproc much later in the 
+boot sequence. However, we have not observed this issue with either the 
+UEFI or ABL boot stack.
 
-bnge: Add support for ethtool -d register dump
+One possibility is that the RISC-V core is powered on during UEFI or ABL 
+and remains powered on when control is handed over to the kernel.
 
-This commit adds get_regs and get_regs_len ethtool callbacks to the bnge
-driver. The dump has three parts: PXP registers read through
-HWRM_DBG_READ_DIRECT, PCIe statistics from HWRM_PCIE_QSTATS, and adaptive
-QoS RX/TX MBUF data. It also adds HWRM_DBG_QCAPS discovery at probe time and
-reads new capability flags from FUNC_QCAPS.
+Thanks,
+Jie
 
-> Implement get_regs and get_regs_len ethtool callbacks to provide
-> register dump support for the BNGE driver. This includes support
-> for PXP registers, PCIe signal integrity, PCIe Latency Histogram
-> and Adaptive QoS TX/RX MBUF registers.
+> Konrad
+> 
+>>   arch/arm64/boot/dts/qcom/shikra.dtsi | 1 +
+>>   1 file changed, 1 insertion(+)
+>>
+>> diff --git a/arch/arm64/boot/dts/qcom/shikra.dtsi b/arch/arm64/boot/dts/qcom/shikra.dtsi
+>> index 0a95ad5a5582..5f5a786fbd2c 100644
+>> --- a/arch/arm64/boot/dts/qcom/shikra.dtsi
+>> +++ b/arch/arm64/boot/dts/qcom/shikra.dtsi
+>> @@ -3996,6 +3996,7 @@ cti@982b000 {
+>>   			clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
+>>   			clock-names = "apb_pclk";
+>>   			label = "cti_riscv";
+>> +			status = "fail";
+>>   		};
+>>   
+>>   		tpdm@9860000 {
+>>
+>> ---
+>> base-commit: 84abb955b1015477aa11a96e2f3ac1b938b77f48
+>> change-id: 20261116-disable_riscv_cti_for_shikra-574ac8895dea
+>>
+>> Best regards,
 
-[Severity: Low]
-Could the commit message describe the dump layout and the version numbers?
-Both become visible to userspace once this is merged.
-
-The layout is:
-
-- PXP registers at offset 0
-- PCIe stats at BNGE_PXP_REG_LEN (0x3110)
-- RX MBUF data at 0x3800
-- TX MBUF data at:
-
-#define BNGE_TX_MBUF_REG_OFFSET	(BNGE_RX_MBUF_REG_OFFSET + 0x64 + \
-				 sizeof(struct queue_adptv_qos_rx_info))
-
-What is the 0x64 byte gap between the RX and TX blocks? BNGE_MBUF_REG_LEN
-(0x12c) seems to include it.
-
-regs->version can be anything from 0 to 4, and version 4 does not exist in
-bnxt. The comment in bnge_get_regs() says "Version 4 is required for the
-userspace ethtool decoder". DRV_NAME is "bng_en", though, so ethtool will not
-use its existing bnxt decoder. Is a bng_en decoder available or planned?
-
-The patch also adds a new HWRM_DBG_QCAPS query at probe time, through
-bnge_func_qcaps()->bnge_hwrm_dbg_qcaps(). The commit message doesn't mention
-this either.
-
-> diff --git a/drivers/net/ethernet/broadcom/bnge/bnge_ethtool.c b/drivers/net/ethernet/broadcom/bnge/bnge_ethtool.c
-> index 2467e44de291a..3ada50832c6d9 100644
-> --- a/drivers/net/ethernet/broadcom/bnge/bnge_ethtool.c
-> +++ b/drivers/net/ethernet/broadcom/bnge/bnge_ethtool.c
-
-[ ... ]
-
-> @@ -740,6 +742,170 @@ static int bnge_set_pauseparam(struct net_device *dev,
-
-[ ... ]
-
-> +#define BNGE_PCIE_REG_SIZE(reg)		\
-> +	sizeof_field(struct pcie_ctx_hw_stats_v2, pcie_##reg)
-> +
-> +static const struct bnge_reg_desc bnge_pcie_reg[] = {
-> +	{ BNGE_PCIE_REG_SIZE(pl_signal_integrity), 8 },
-> +	{ sizeof(__le16), 4 }, /* pcie_equalization_time: 4x __le16 */
-
-[Severity: Low]
-Does this entry match the HSI definition? include/linux/bnge/hsi.h declares
-the field as a single 64-bit value, in both pcie_ctx_hw_stats and
-pcie_ctx_hw_stats_v2:
-
-	__le64	pcie_equalization_time;
-
-Every other entry in this table takes its size from the struct through
-BNGE_PCIE_REG_SIZE(). This one hardcodes 2 bytes instead.
-
-The difference shows up on big-endian hosts. Converting four __le16 values
-swaps the bytes inside each 16-bit part but leaves the parts in their
-original order. A single le64_to_cpu() also reverses the order of the parts.
-bnxt_get_regs() converts this field as one u64.
-
-Should the HSI describe the field as __le16[4]? Or should this entry use
-BNGE_PCIE_REG_SIZE(equalization_time) with a count of 1?
-
-> +	{ BNGE_PCIE_REG_SIZE(ltssm_histogram[0]), 4 },
-> +	{ BNGE_PCIE_REG_SIZE(recovery_histogram), 1 },
-> +	{ BNGE_PCIE_REG_SIZE(tl_credit_nph_histogram[0]), 94 },
-> +	{ BNGE_PCIE_REG_SIZE(posted_packet_count), 5 },
-> +	{ BNGE_PCIE_REG_SIZE(rd_latency_histogram[0]), 14 },
-> +};
-
-[ ... ]
-
-> +static void bnge_get_pcie_regs(struct bnge_dev *bd, struct ethtool_regs *regs,
-> +			       u8 *dst)
-> +{
-
-[ ... ]
-
-> +	len = min_t(int, le16_to_cpu(resp->pcie_stat_size),
-> +		    sizeof(struct pcie_ctx_hw_stats_v2));
-> +	if (len <= 0)
-> +		goto drop_req;
-> +
-> +	if (len <= sizeof(struct pcie_ctx_hw_stats))
-> +		regs->version = 1;
-> +	else if (len < sizeof(struct pcie_ctx_hw_stats_v2))
-> +		regs->version = 2;
-> +	else
-> +		regs->version = 3;
-
-[ ... ]
-
-> +static void bnge_get_regs(struct net_device *dev, struct ethtool_regs *regs,
-> +			  void *_p)
-> +{
-> +	struct bnge_net *bn = netdev_priv(dev);
-> +	struct bnge_dev *bd = bn->bd;
-> +	u8 *p = _p;
-> +
-> +	regs->version = 0;
-> +
-> +	if (BNGE_NO_FW_ACCESS(bd))
-> +		return;
-> +
-> +	if (!(bd->fw_dbg_cap & DBG_QCAPS_RESP_FLAGS_REG_ACCESS_RESTRICTED)) {
-> +		int rc;
-> +
-> +		rc = bnge_dbg_hwrm_rd_reg(bd, 0, BNGE_PXP_REG_LEN / 4, _p);
-> +		if (rc)
-> +			netdev_warn(dev, "Failed to read PXP regs: %d\n", rc);
-> +	}
-> +
-> +	if (bd->stats_cap & BNGE_STATS_CAP_PCIE)
-> +		bnge_get_pcie_regs(bd, regs, p + BNGE_PXP_REG_LEN);
-> +
-> +	if (bd->fw_cap & BNGE_FW_CAP_MBUF_DATA) {
-> +		int rc_rx, rc_tx;
-
-[ ... ]
-
-> +		rc_rx = bnge_hwrm_rx_mbuf_data(bd,
-> +					       p + BNGE_RX_MBUF_REG_OFFSET);
-> +		rc_tx = bnge_hwrm_tx_mbuf_data(bd,
-> +					       p + BNGE_TX_MBUF_REG_OFFSET);
-> +		if (!rc_rx || !rc_tx)
-> +			regs->version = 4;
-
-[Severity: Medium]
-Doesn't this assignment throw away the PCIe layout version that
-bnge_get_pcie_regs() just set?
-
-bnge_get_pcie_regs() picks version 1, 2 or 3 from the size firmware returned
-in resp->pcie_stat_size. That version is the only thing that tells userspace
-how much of the PCIe region holds real data.
-
-If BNGE_FW_CAP_MBUF_DATA is set and either MBUF query succeeds, the version
-becomes 4. That happens in all of these cases:
-
-- the PCIe stats were v1 sized
-- the PCIe stats were v2 sized or full v2
-- HWRM_PCIE_QSTATS failed
-- PCIe stats were never queried because BNGE_STATS_CAP_PCIE isn't set
-
-The ethtool core zero-fills the buffer. A decoder that sees version 4 would
-treat the unwritten tail as real TL credit and latency histogram values.
-bnxt_get_regs() uses the same 1/2/3 scheme but never overwrites it.
-
-A related point: when bnge_dbg_hwrm_rd_reg() fails, the only sign is the
-netdev_warn() above. The zeroed 0x3110 byte PXP region is still reported as
-register contents, and neither version nor len tells userspace about the
-failure. bnxt behaves the same way today.
-
-> +	}
-> +}
-
-[ ... ]
-
-> diff --git a/drivers/net/ethernet/broadcom/bnge/bnge_hwrm_lib.c b/drivers/net/ethernet/broadcom/bnge/bnge_hwrm_lib.c
-> index 227de771f2ef6..9b8cb39dbe164 100644
-> --- a/drivers/net/ethernet/broadcom/bnge/bnge_hwrm_lib.c
-> +++ b/drivers/net/ethernet/broadcom/bnge/bnge_hwrm_lib.c
-
-[ ... ]
-
-> @@ -597,12 +598,45 @@ int bnge_hwrm_func_resc_qcaps(struct bnge_dev *bd)
->  	return rc;
->  }
->  
-> +void bnge_hwrm_dbg_qcaps(struct bnge_dev *bd)
-> +{
-> +	struct hwrm_dbg_qcaps_output *resp;
-> +	struct hwrm_dbg_qcaps_input *req;
-> +	int rc;
-> +
-> +	bd->fw_dbg_cap = 0;
-> +	if (!(bd->fw_cap & BNGE_FW_CAP_DBG_QCAPS))
-> +		return;
-> +
-> +	/* Discovery failure is treated as restricted so we never attempt
-> +	 * direct register reads without confirmation from firmware.
-> +	 */
-
-[Severity: Low]
-Does the early return above match this comment? If firmware doesn't advertise
-FUNC_QCAPS_RESP_FLAGS_DBG_QCAPS_CMD_SUPPORTED, fw_dbg_cap stays 0.
-bnge_get_regs() only checks the restricted bit:
-
-	if (!(bd->fw_dbg_cap & DBG_QCAPS_RESP_FLAGS_REG_ACCESS_RESTRICTED)) {
-		...
-		rc = bnge_dbg_hwrm_rd_reg(bd, 0, BNGE_PXP_REG_LEN / 4, _p);
-
-So HWRM_DBG_READ_DIRECT is sent for 0xc44 words in exactly the case where
-firmware has confirmed the least. If firmware rejects the request, every
-ethtool -d logs "Failed to read PXP regs".
-
-bnxt_hwrm_dbg_qcaps() also treats missing DBG_QCAPS as unrestricted. Should
-the comment be changed to match? Or should this branch also set
-DBG_QCAPS_RESP_FLAGS_REG_ACCESS_RESTRICTED?
-
-> +	rc = bnge_hwrm_req_init(bd, req, HWRM_DBG_QCAPS);
-> +	if (rc) {
-> +		bd->fw_dbg_cap = DBG_QCAPS_RESP_FLAGS_REG_ACCESS_RESTRICTED;
-> +		return;
-> +	}
-
-[ ... ]
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261124100751.179270-1-ramakrishna.koduri%40broadcom.com
