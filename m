@@ -1,98 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.176
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795635048;
-	b=fsJJJb7y+xhkqQ+/8rMyi1ApGPAAZBLEM8Eg0nBSwzMJterwEluU8UGZ60iAgIwdWsVw
-	 JTF2ZHfP6k9UIjd7wmKwjbibusHRrjOxZ/4CYu9Xx4BXb8q1PG4rbKSHrKQjlAwdXsT+9
-	 +tytfJLiSv/Eid3v4TgK1lHb60c3IyOADpeBQHorKaIJw7FD9cnGbT0NEqPWwnE4NsbRJ
-	 /wpUl2cj5HpxpG31uyALC7FAJ0xqHZnvu7fkM2GfHvlrPZuK534dFYepbYCGlUa0qboRl
-	 KSr7EOBQMltpejY82459DlpuJQYxSV8neaA2UNuMBrgT7FakuVtb7Iy16kxKtVb8ljw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795635048;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.41
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795635164;
+	b=LvagOPoHwvi29TSgtziuS0O4jTChiOaJDy6Vk0GEpxJbRtsYusbI0cIUkXehC0dJ6+sp
+	 GP3pjVnB0lhrKsKg9hhtyyMI8NBFaYEfLpzjwnXdsuSYCYQUvjJ05js125YOFKjNrASkf
+	 636VAushLaOVFholIrB1i+ilduJQvqEMgPHme7pefr7irq3DsUBh6FSsVHB4AKCSHqLAS
+	 UpFi+LBwJVwmBc0KEZU6UOmlUj3mNHTsDU579n4Sq5GdtJv2rb+54lh7nWHDrjJXIKNuD
+	 I2CY5kgwEUoAo+NGTB4HhxZHAvseiifieSN+KvVFsAL+RuQbronGW2mQpm+ZvrrLxsA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795635164;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=4c1FYCoWuV0D5AZnd9JhUkc3urYu3tiqyGnrAo0dVsQ=;
-	b=VPaeHBS3PRc148OoBo/AkuuRHVbW4mq79YgOY6w3fc5ZmaoRVav1ZALHQ3RAQt3x4teJ
-	 xw78XKMnRyToGeu0hgjW1rPdqkELZWE0fIO4uRYxzLx+jwY47k9lVkbmsv7DH3zo6O+vl
-	 TJV4A2dLNgQJemtIT/KFVuKyLve+0NF8m4d2gPDklx0OpbnwsWjRPTMXODnCaLGnuDMwf
-	 KxwpohEcFTAczzl2YTUYGCsrLFdTRzaighMVFozzfTjRkR6SHVlKnD2ZHSMBiNH+9T5vw
-	 TyLLLJbJxIfphtNkuKAzn/JOxLt41DBvRKkjWM0o3KrYR9Dzy67tp28zdGIF4IpAEUQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tdCXUk2b;
-	arc=none smtp.remote-ip=209.85.214.176
-Received: from mail-pl1-f176.google.com (mail-pl1-f176.google.com [209.85.214.176])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=X9M4PV8SNdlzGSgquLvXH/wlU/lqxuN+YYGaruhCqiI=;
+	b=jlwG6hxYwjuNoTQSVUkkyEkb4t1/eBOLxGTgrdTwd/qeY3YMBva4j5U1rcPtsc4WJYVs
+	 ok3GaHhqLC07fgoH89onMuVjdA84tXvBU7QQOvBbjIObM4K03VkexcBOiQh64LVLkiLfA
+	 E2XcgzZQvpIAyDZ2hgAp8SOZIckDW28kYIfIh0YVWv87vtkyva1pBNnV1PWJhfUvdBvAm
+	 1ny4NsvRs20hjTF/FeTYVD2kQl3HzkEBolyC1Du6KmFLvZRZ8WA5vlaLNMwNIrTDaF9vk
+	 ia1ZLKreYt80wqRJPO20SitSZ8r8kdVyzi8ctxwayg9Vfho7pb8dGrr+PbPfxf35BIg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=bGGc29Pk;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.41
+Received: from mail-wr1-f41.google.com (mail-wr1-f41.google.com [209.85.221.41])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4147A606A31E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 19:30:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4147A606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7E200606A337
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 19:32:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7E200606A337
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tdCXUk2b
-Received: by mail-pl1-f176.google.com with SMTP id d9443c01a7336-2f02ee04378so49708425ad.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:30:48 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=bGGc29Pk
+Received: by mail-wr1-f41.google.com with SMTP id ffacd0b85a97d-4aa5833c263so5954177f8f.2
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:32:44 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795635163; cv=none;
+        d=google.com; s=arc-20260327;
+        b=LSyQIKQ0hRUBvOZBqdvnrBQJigwhQxx8q/EYdh/Aci/u+8uRvLaHFoBZkGLCcBDALa
+         Er/V6Jo2KXiFuVm+6c3vF6AaEoOmE4wQ9/780+CLKB0ulLKIRiDf7w8wiU6Kfiq5As/r
+         IvEKh+1G41PFFGBPp/Wp4OvK57CwV40R7TvocPbyehL8rm2Uwn2shYUg6irrbtGZGlko
+         TV8Yeo2uyy8HTNcQvsZVtSZOWQI1+Zg8zV/sahBhZEdgnc5KYN8DY9LGpm59RUTj95U0
+         5WREUmx2sUeUb3sRKSC8NuTKR7sWKPhtJAqVs6j3v9jwBrvGfXRk+PnKL3/MqGsyerjT
+         Ax1Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=X9M4PV8SNdlzGSgquLvXH/wlU/lqxuN+YYGaruhCqiI=;
+        fh=72X6CxiT/AF/b9rI/qLGmLa9T9n3/6dbxamrBAwaY0k=;
+        b=rdsL+lOSuPVFe7jH81d5VruOuHPpDIo/mCxMmMCvlsGw3k+125PTOQr5J2HyleqvJI
+         SPg7+7DQFLU7qt3IGw5IRTaQo8Myg4LlKDP1wB3F8b1wnPdXViB3GmPyeC1sOMPiRntx
+         3ofBEbzkm+IMD5baqNYGaVFkeP2YHC7Xw+Pm3MkqJGGY0Ad8l74xLZ2mJ1g+STflfiVW
+         IQniVY+aWoYe4A+ghJF5f7YjYbD9Zs7HFyinSw4WsW/7vu5d4p3h1Rm2B1f/0SxOfyeK
+         AACW+WjyMPO6dm1cRiFSQTX89kTYTdlk/dD4ebuvBlnumHhA0sxBsOC49FXYk/gOKt/u
+         W6fg==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795635047; x=1796239847; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=4c1FYCoWuV0D5AZnd9JhUkc3urYu3tiqyGnrAo0dVsQ=;
-        b=tdCXUk2bln2JaFny46JeCc5ZMNDw/3+qR+WmADxAJaxlBXAqX0v7O+dGqHDQ7i9OSO
-         HbGkyILfSoi2nqfk8zUQWh5tDLUrxLt3p6sOytd4oLf7WVgE71Wp5Lihy5FPwPFaBdLh
-         AlZc4yBCwG/sE+NOF4koYCSIT//r7D3Kb041g2LQMvdiJa97tXnZREWzUbqsDTNvvk09
-         t3r5BXnhfp4OWgjpsu7ninDi+MrCPp05mwXwwCH3+hMI10yLSwnsYAf2X+Vz71K2i1ps
-         +D5udO8qxBudO1hPoqXH+t9LpgyRwdoRTAkmaN3dxj/FOvhXutPMEGExsJqi+wVE5f6D
-         R3sQ==
+        d=google.com; s=20260707; t=1795635163; x=1796239963; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=X9M4PV8SNdlzGSgquLvXH/wlU/lqxuN+YYGaruhCqiI=;
+        b=bGGc29PkecU5bqRWEOkPd4+b4f8KEaLuIdujN4I50RP6BhsiSAPlpPTDbqrZt+H48Z
+         mnZsDm44PVahA9C5cpsw4zAKuLSji/bOdsMFwAButV9RLV1Fqb5AbVWWaislnXeRjgQ1
+         JaMwai1anktQmbljd1hNIsKg2DHy5BG4dNVPMptnvyXTpbWaEHDh7NyvbttSq6j7Y3eB
+         5N9LbHUCfYlba9Q+EPcSMUTnCCqQWiCNwqRl3TZun1XTjutFJWbPkrzmLTiqGBB3LNCf
+         9U27pVDGssOUyQFhBXdwpp1NS2qzp/O+Liz9x5iUXiN8KXHKnQb9QyoG2G+z/HAiffTq
+         1fTw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795635047; x=1796239847;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=4c1FYCoWuV0D5AZnd9JhUkc3urYu3tiqyGnrAo0dVsQ=;
-        b=f0lxhEsylBMiDVU5CqEreSP15ELpBRdDbucRHUNpCX5lO+5pxaVj9jPtaMvMZxet3v
-         t3aXrFgClqYiPuuMZKOgyx963PNBa4muQl+Hvbnrrm9Vxh/XfDoLbOc7tThjjteziIFV
-         293CHWpnG8SblErYyp2+bmRGnbq//K+fqAEjJbh/ODzCuiD5ABWg9nqp/Igh6Szpgo/Y
-         48hhsMN3+JAWRyBri6JmFRwHwq6TpPAFB93oBVnW4l4mueFjATDLqh60m82XTrOwTlj/
-         04LCvN7XQ3zlPkyycEjcigoZ84bWHOjCzSNmp6J74W8k6ZZZ088ZnIb8gcMm5+qVigZ6
-         fLeQ==
-X-Forwarded-Encrypted: i=1; AL+hErGYKjTwgeNS80WRU4HJdz9NaDxls3O+h1jdw9BN66S/K2MUlPwJ+TWemPEvcjri/G4YTAPSO2Z6+83qax8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8oCyBwxdrNiV6UoQJET6JMi4dI2IGHuvbkf6Z1H3w7j7uz4OMB
-	zYbZOkFE3hMnUzK6DACsM79NuIwESZDrilDuy50udX9hl9cJzk0mKb9SEjLnGtcH
-X-Gm-Gg: AZFdTZdfm8k4XC3QBmU8pEIGkuwV3HEsJrghPGaSapKXy/0AQegTVVtOt/anS8VqzVa
-	q0BUPToa8siQ9LzDSEVpkF9REHVe95RLilShk0pwU6oZkd9tWAf7ESikZfZOz7vSGk8eI129TT0
-	Awe+miz2ofaqQ++seQBGpPPC1vmdl7GoMhPBJpZo0TMo/utBhMz5TfwyDSBV1YLtU9ipnMQV5cA
-	GsKDacBuCutgHcYkwb9nV02XASum0DaHUbjpUMhjqcVuoH7K3195ue6xouJuU2qmnK8DIM51wIn
-	cVhbC8zC9dWkWhU43FNJJmPqN3MeLQ55cEoSKB3e4qf+Zh4tDaPhownZ6m5CykE2n6pgr/DnoIJ
-	WNO1wLdYP7Daxva0J1Fl5ZDQdrn7RksTtIA3GoxQyvOPJCo2WltjIUpZ1PS66WBxGYupJKP0MF3
-	5cGRqRF81JpqyKuuGIbrjNo8MRJKX8SPm36XEH/4M9pefsgCWdULrywz+ba8aX0LvsiRIhjFFkW
-	eJYo2Lstd03FdsOPPfeRHytYkXUXzglXCW9JciehKW9B6E4J9Qq848kvrTWcaS4QK3i5S4IP2Ju
-	F1aKBmD6WI1zRZjHBdSV
-X-Received: by 2002:a17:903:19cb:b0:2e9:3dd0:c8d with SMTP id d9443c01a7336-2f03f1cf44emr208593395ad.14.1795635047369;
-        Wed, 25 Nov 2026 11:30:47 -0800 (PST)
-Received: from a1-free ([2603:c021:8021:f000:0:1865:8c38:18fc])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03ee84425sm93698535ad.6.2026.11.25.11.30.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 11:30:46 -0800 (PST)
-From: TAKANO Mitsuhiro <takano32@gmail.com>
-To: Jonathan Corbet <corbet@lwn.net>,
-	linux-doc@vger.kernel.org
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	David Hildenbrand <david@kernel.org>,
-	Oscar Salvador <osalvador@suse.de>,
-	Dan Williams <djbw@kernel.org>,
-	Jonathan Cameron <jic23@kernel.org>,
-	linux-mm@kvack.org,
-	linux-cxl@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	TAKANO Mitsuhiro <takano32@gmail.com>
-Subject: [PATCH] docs: Fix the name of the memory hotplug online type configs
-Date: Wed, 25 Nov 2026 19:30:39 +0000
-Message-ID: <20261125193039.2437025-1-takano32@gmail.com>
-X-Mailer: git-send-email 2.53.0
+        d=1e100.net; s=20260707; t=1795635163; x=1796239963;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=X9M4PV8SNdlzGSgquLvXH/wlU/lqxuN+YYGaruhCqiI=;
+        b=XRAbGv5vOCr2vzDfjdUkKwJKnWkrPUz/imUaLZgsSROGK8Re6yoHAGA44G8ZPSkPRR
+         RR9XhqKDbrYe5QTKf4z5qZL7gFg/P/dwVbkckhW+xzuVyPQ/E/WPsegm7JTCEyn5ub/8
+         zCBg3V4gqmrYuLqS3BygzfVhsTgwwQTJP3uSX5HeCBp58Sr3bxs+ToPn22OxcgBxBLf0
+         idEWdUokY48VTRymIXKVDzgDuqVrRTIq1FDAFrSrTIjuFhYV1MeQErJ0Lwp3Dzb7OC03
+         Gu61yP9UCMza4O8pC9aDHJXy/v9bZPYiAH0f7Cr3IgLRgRZM79qRURxtP8xURl4/tGo+
+         AYnw==
+X-Forwarded-Encrypted: i=1; AL+hErGxYbC1ayOLVX9HKkSKojxOSUljEYWuUl+/+/3oSg88a5Apa81qnCy19FOaoZQyt9aD2zeUJeGMo8othfw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+UvlK0zYS/fCF8jbBOyjJNLR7HMGj06+pIgMCYqduDl+IAoeBR
+	V3dR88PIZdQlthtJLK6/ZsdAINkyu2HLPA7I4/+4a9mChZ+vMcELNLfhPcHPGdnDc5CA7gxwfP3
+	9qKCbp2qTFJ9pz3rlN9xoly2s1qRKabcy14G5agSD
+X-Gm-Gg: AZFdTZfN5XJ2MIbH5bi4heCZjBkc4ysr3phGguZarJ0O9yZzGtHHtjbBoPJDVRM9qWz
+	4M7dlq0yXgnZ4ywBL4lDljuv0J8bClxwU62k+dStzF7Eg7pEz1zdZs1mnY1E45TV90WVIWpHY0j
+	IU4Q6AoMfPVlgJiY5EDj0D37/URBpewHz/5QUnlLJO1KCIrbLyeO+bBvcB27rRmt3yajc1LPBTp
+	a50G9ycNe6MXGzFwf39J+T5VL3V3VWCsx96J9rjvkCeQ3VM+iW5Pw/BSdlp3A8LoKQc0BDBz7tw
+	MQXCcRuJxvnR99GKuiM+Nt1cLs/RllOeqSM1gdh64+iHKso5V2Zy63zjjgYQ3dJmFeEy40SOfTa
+	EIejL83iRZ5u5SV6pf/HuLJiEfp8hZ/C3GvRWizNsHtWcAlhDct2kkpMby4GEbeohHVv18082hk
+	GDBHLyPHkL1QWHJN+Z7/j8enfx29rdY0b/Wq/33YvVEEspLgS88WsSEd+NzBNkyOWiLq9vjixTu
+	M6VefzoapO8Hp41HNqDBG3SaXnDW9D6lCckBA==
+X-Received: by 2002:a5d:6f06:0:b0:4a6:8d5b:7338 with SMTP id
+ ffacd0b85a97d-4abb3a4d35fmr38121765f8f.37.1795635162216; Wed, 25 Nov 2026
+ 11:32:42 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,116 +106,52 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20261125-topology-wunsequenced-v3-1-efa3db7e0bf8@kernel.org> <20261125094643.GY2668804@noisy.programming.kicks-ass.net>
+In-Reply-To: <20261125094643.GY2668804@noisy.programming.kicks-ass.net>
+From: Nick Desaulniers <ndesaulniers@google.com>
+Date: Wed, 25 Nov 2026 11:32:31 -0800
+X-Gm-Features: Aa3M54rVQ8eJKNwIoeqgCfcnaPCAwUQ4sJvYenMtBURouDlRSqpiVSf8nOBT24w
+Message-ID: <CAKwvOdmyGdn4ES6Ku+Yovd7a5imzmtmYtd7KB=OMCqKpv1X8rg@mail.gmail.com>
+Subject: Re: [PATCH v3] sched/topology: Avoid unsequenced accesses to jiffies
+ in sd_init()
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: Nathan Chancellor <nathan@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
+	Juri Lelli <juri.lelli@redhat.com>, Vincent Guittot <vincent.guittot@linaro.org>, 
+	Dietmar Eggemann <dietmar.eggemann@arm.com>, Steven Rostedt <rostedt@goodmis.org>, 
+	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>, 
+	Valentin Schneider <vschneid@redhat.com>, K Prateek Nayak <kprateek.nayak@amd.com>, 
+	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, linux-kernel@vger.kernel.org, 
+	llvm@lists.linux.dev, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-The default online type is a Kconfig choice, so the symbols it defines
-are CONFIG_MHP_DEFAULT_ONLINE_TYPE_OFFLINE, _ONLINE_AUTO,
-_ONLINE_KERNEL and _ONLINE_MOVABLE.  There is no
-CONFIG_MHP_DEFAULT_ONLINE_TYPE symbol, but five files name one:
+On Wed, Nov 25, 2026 at 1:46=E2=80=AFAM Peter Zijlstra <peterz@infradead.or=
+g> wrote:
+>
+> On Wed, Nov 25, 2026 at 12:23:35AM -0700, Nathan Chancellor wrote:
+> > Clang's warning is ultimately pointing out that jiffies may have two
+> > separate values in this initializer because it is volatile and accessed
+> > twice and the order of these accesses is not specified. This could
+> > result in unexpected or inconsistent behavior depending on the code
+> > author's intent and whether they realized the variable was volatile or
+> > not.
+> >
+> > As two separate accesses is not necessary here, add a local variable to
+> > hold the value of jiffies before the designated initializer so that a
+> > consistent value is used for initializing both members, clearing up the
+> > warning.
+>
+> None of this tells me why we should not just disable that warning and
+> get on with life.
 
-  Documentation/admin-guide/kernel-parameters.txt
-  Documentation/admin-guide/mm/memory-hotplug.rst
-  Documentation/driver-api/cxl/linux/early-boot.rst
-  Documentation/driver-api/cxl/linux/memory-hotplug.rst
-  Documentation/driver-api/cxl/linux/overview.rst
+Nathan has provided you 3 different ways to do so. (Could also do ugly
+pragma's around this code; disable it for this entire source file via
+-Wno-unsequenced-volatile in the Makefile, and finally this diagnostic
+was forked into a group; it's now -Wunsequenced-volatile under the
+-Wunsequenced group, that could go in W=3D1).  Pick one?
 
-Spell the family with a trailing _* so that a reader looking the symbol
-up in a .config finds one that exists.
-
-early-boot.rst also gives the zone choices as _NORMAL and _MOVABLE.
-The symbols are _ONLINE_KERNEL and _ONLINE_MOVABLE, so write those.
-
-Verification: a build of the tree defines
-CONFIG_MHP_DEFAULT_ONLINE_TYPE_OFFLINE and no bare
-CONFIG_MHP_DEFAULT_ONLINE_TYPE in include/generated/autoconf.h, and
-grep finds no reference to the bare symbol under Documentation/ after
-the change.
-
-Signed-off-by: TAKANO Mitsuhiro <takano32@gmail.com>
----
- Documentation/admin-guide/kernel-parameters.txt       | 2 +-
- Documentation/admin-guide/mm/memory-hotplug.rst       | 2 +-
- Documentation/driver-api/cxl/linux/early-boot.rst     | 4 ++--
- Documentation/driver-api/cxl/linux/memory-hotplug.rst | 2 +-
- Documentation/driver-api/cxl/linux/overview.rst       | 2 +-
- 5 files changed, 6 insertions(+), 6 deletions(-)
-
-diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-index 176648941aec..8580099b98c1 100644
---- a/Documentation/admin-guide/kernel-parameters.txt
-+++ b/Documentation/admin-guide/kernel-parameters.txt
-@@ -3948,7 +3948,7 @@ Kernel parameters
- 			[KNL] Set the initial state for the memory hotplug
- 			onlining policy. If not specified, the default value is
- 			set according to the
--			CONFIG_MHP_DEFAULT_ONLINE_TYPE kernel config
-+			CONFIG_MHP_DEFAULT_ONLINE_TYPE_* kernel config
- 			options.
- 			See Documentation/admin-guide/mm/memory-hotplug.rst.
- 
-diff --git a/Documentation/admin-guide/mm/memory-hotplug.rst b/Documentation/admin-guide/mm/memory-hotplug.rst
-index 0207f8725142..c7de458a962f 100644
---- a/Documentation/admin-guide/mm/memory-hotplug.rst
-+++ b/Documentation/admin-guide/mm/memory-hotplug.rst
-@@ -280,7 +280,7 @@ The following files are currently defined:
- 		       blocks; configure auto-onlining.
- 
- 		       The default value depends on the
--		       CONFIG_MHP_DEFAULT_ONLINE_TYPE kernel configuration
-+		       CONFIG_MHP_DEFAULT_ONLINE_TYPE_* kernel configuration
- 		       options.
- 
- 		       See the ``state`` property of memory blocks for details.
-diff --git a/Documentation/driver-api/cxl/linux/early-boot.rst b/Documentation/driver-api/cxl/linux/early-boot.rst
-index 414481f33819..be9d5e510f99 100644
---- a/Documentation/driver-api/cxl/linux/early-boot.rst
-+++ b/Documentation/driver-api/cxl/linux/early-boot.rst
-@@ -34,7 +34,7 @@ which dictate how memory will be managed by Linux during early boot.
-   * Linux Build config option that dictates whether the kernel supports
-     Specific Purpose memory.
- 
--* CONFIG_MHP_DEFAULT_ONLINE_TYPE
-+* CONFIG_MHP_DEFAULT_ONLINE_TYPE_*
- 
-   * Linux Build config that dictates whether and how Specific Purpose memory
-     converted to a dax device should be managed (left as DAX or onlined as
-@@ -61,7 +61,7 @@ SystemRAM.  This will expose the memory to the kernel page allocator in
- If `Specific Purpose` is set and supported, :code:`CONFIG_MHP_DEFAULT_ONLINE_TYPE_*`
- dictates whether the memory is onlined by default (:code:`_OFFLINE` or
- :code:`_ONLINE_*`), and if online which zone to online this memory to by default
--(:code:`_NORMAL` or :code:`_MOVABLE`).
-+(:code:`_ONLINE_KERNEL` or :code:`_ONLINE_MOVABLE`).
- 
- If placed in :code:`ZONE_MOVABLE`, the memory will not be available for most
- kernel allocations (such as :code:`struct page` or page tables).  This may
-diff --git a/Documentation/driver-api/cxl/linux/memory-hotplug.rst b/Documentation/driver-api/cxl/linux/memory-hotplug.rst
-index af368c2bc9cf..df27520b193f 100644
---- a/Documentation/driver-api/cxl/linux/memory-hotplug.rst
-+++ b/Documentation/driver-api/cxl/linux/memory-hotplug.rst
-@@ -19,7 +19,7 @@ Default Online Behavior
- The default-online behavior of hotplug memory is dictated by the following,
- in order of precedence:
- 
--- :code:`CONFIG_MHP_DEFAULT_ONLINE_TYPE` Build Configuration
-+- :code:`CONFIG_MHP_DEFAULT_ONLINE_TYPE_*` Build Configuration
- - :code:`memhp_default_state` Boot parameter
- - :code:`/sys/devices/system/memory/auto_online_blocks` value
- 
-diff --git a/Documentation/driver-api/cxl/linux/overview.rst b/Documentation/driver-api/cxl/linux/overview.rst
-index 648beb2c8c83..d567353e1dab 100644
---- a/Documentation/driver-api/cxl/linux/overview.rst
-+++ b/Documentation/driver-api/cxl/linux/overview.rst
-@@ -17,7 +17,7 @@ are generated.
- 
-     i) EFI_MEMORY_SP
-     ii) CONFIG_EFI_SOFT_RESERVE
--    iii) CONFIG_MHP_DEFAULT_ONLINE_TYPE
-+    iii) CONFIG_MHP_DEFAULT_ONLINE_TYPE_*
-     iv) nosoftreserve
- 
-   b) Memory Map Creation
-
-base-commit: b6a9fa34ce4187cb69d3c588a4bbffc31ce5db8f
--- 
-2.53.0
-
+I think the warning has value generally across the tree, even if this
+particular single instance "isn't a bug, per se."
+--=20
+Thanks,
+~Nick Desaulniers
