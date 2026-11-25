@@ -1,75 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.198
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.70
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795585823;
-	b=BVom2sJdqrN3r6eP7G+saHdGbLJBI+jIQTbyjH2DkvfDcuxiA7L+oQh2MzU/dHgMt9PF
-	 AZ7D+6hvZ2SpOP1nJiOjy1vj1PSDwGpENZhhY0BQvDqhcdZFABmoKuAfjFcz5OM4saofE
-	 nUULE2L3lLJM0s7SWWe545h+euhB3rk/2OWcno0d2Ni/FeCIFdx7RE5GOt+WX+cSioRhj
-	 xSfMuZk0prdM3VZ6PF+F0nLl5K/ARCU4YDiGbOC3JYego8Vi4n+eUkr3RrsPfU9gl/7X0
-	 SwIPXRfsx3yFCec+B4t1xBxmL4zmM83VRk4zEnqa+P4vXYtIUkgOT2DIFimyJ2U6+NA==
+	t=1795585821;
+	b=G/PzQu6R6ddG7TGOH9ebb6LFDvfyiafwssd6LsiO3ScKwzOSd3wzHFqXm+Wi7lm6nfiP
+	 3AAUzUIe9s3c1OMn64komL/n5DeFoFNW0hR2tX5Ce0hrbGR7VoC2KvKo+C125gQL2zFZl
+	 H4HvAcwBvZ93pTQmnkwK/JuSG00PNLsF4UuL7Kon6/HOGiYHLRbw6HLenWXOnFRqfKLik
+	 +iiSnVJMJr4rNVxmj85tKY30/B/00Jd5As+BqgTZyvhgVaAgmIaijXc1aRVbPXBdiXJkO
+	 mwXWOHoMrHlkSDsfHmCrBWESamW6Wzg181sdsn3H53GNjAvFKCMfLX8ulkIV6rBFSHQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795585823;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795585821;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
-	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
+	 X-B4-Tracking:X-Change-Id:X-Mailer:Message-ID:Subject:From:To:Cc:
 	 Content-Type;
-	bh=lwMWYldW2xiMuu7J2YEbh/F+RKn5zxewQscmpZkZiL8=;
-	b=SwedgNgE33qCN3v8/MFvonkh/vKdBO3as9YdLfFmnaDhniyOm5LFN6s8KJuy/cRPXLKS
-	 EdHmTeRfkpwntXtz4haiz//kUTgcAG+KEFP2hRve1Qf9Re4TIj844/IAfe/NYCcRBQYya
-	 kGfhqp+d1RSUdKd5KNl/OCVlhhfDHBxzZ/bP0nd/TFQ7HiXO4dx8ZBsxaYSZss2Lvex5i
-	 0IybIv0Aps58SQRF8oSNjjFOQhisxJVQFB0CosG18VSSqbb1/PK0o3eDtMWyf6eg8yvYS
-	 RV/JnzntJFcSb+m7s+zmN815clUC406iU9CiWhoeRtXzYS8V8Tjjdoih+E/AYQRl1cw==
+	bh=7TuopKGkuXxe9F8oaxjlU1CyosEDfE9sI6BY0c1BuLY=;
+	b=J1O5HONbJ3d2DZJGHBezZO9IGV5K5iqFFUfCz5WdgbH5VJfEFBt3OG+g1NYIac9ZwRyD
+	 9mepUE8hgWSBoe8oSL1ikNQOTxSCtrpCkMKFDEIxuhKmhu6v9F+QxkfmXnoFxliLNR+Rp
+	 k2wEiQeDf6IruHmfYil2JIfIaXQarAqvvF2FfyHSwuploMZs0O5AQAx+xLeSh727/5FFO
+	 zoH5PoYWp3Sj5JthIb38XR7lNjpyMAPj3qeepD9fGxuOa/1t4tdwCPUB+pBAOSXZ/gwR6
+	 acNPBO02KEtrtt8q94luxZbzS+Pd+7ttYjn5tGi2gKPFDwD4uRKE9Z2mU6t498cigfw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--rathodpriyank.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=LgJcHJPf;
-	arc=none smtp.remote-ip=209.85.214.198
-Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com [209.85.214.198])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=cuW89rUp;
+	arc=none smtp.remote-ip=209.85.216.70
+Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com [209.85.216.70])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 81705606A68B
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 05:50:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 81705606A68B
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BC864606A327
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 05:50:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BC864606A327
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--rathodpriyank.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=LgJcHJPf
-Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-2efe8f2bdc0so42789255ad.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 21:50:22 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=cuW89rUp
+Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-3b40b011aa4so6484247a91.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 21:50:20 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795585822; x=1796190622; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=lwMWYldW2xiMuu7J2YEbh/F+RKn5zxewQscmpZkZiL8=;
-        b=LgJcHJPf8kPihW3NLuY7ldBrz09nRKVB+VuXffwFw1AFP7vRl23aymQjZAvD9R3JJx
-         2bb3H7e/cxFARp6Epj2CRRF7R5kY92WMvq3XOjHkAqWNc7SjIksfR8Iu7ROMQTjcmJ/g
-         NooOKKI+u2PBHuAfvDNd+4AXOiFiA5xb+eygl8CIYcvBSVt/dGcb1muGrhkT+in8rKBH
-         oZJfEom0vuklUlvHXpVctU+qHBWtWg4xNsAqPIzCHy1Ulms7jVLLIp9UJRA7fdhDMDPj
-         T7xRAzCFvGd2GcuZ0VSbDptVuXEOhQdPvrzlgGXMDp4hST0SldHadlyrFOxXyeW4x1Vi
-         gB8g==
+        d=google.com; s=20260707; t=1795585820; x=1796190620; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=7TuopKGkuXxe9F8oaxjlU1CyosEDfE9sI6BY0c1BuLY=;
+        b=cuW89rUp/FqYJRm/IMeV89comPbS6z6Qk0gl3XG9nNwuD/NuWN/D4n1iVC5cJkXl+n
+         PTLFpe1GTLmXaBv7OTnL8YYmE0MrhG25p6Iub04WRKi6CuqX9LSxy7JnDkIizZkavVig
+         s5Y+WBceuSzfHfSY/GlstoStuG7TqGVUIW50fRV5iQU3hQJ60tHgN4nzE124qDYt8uCI
+         Uw5ljvmoQf4uWRPfeE7fXUjININwaxlOk9PU6iRpXEPAxdN22YZ3o0B9T9r/3Y66riC0
+         jz+1if7RB2Ozg8XlLOzM4/mMvblq8A4In47rffGrg8o3pTmePdKVJh5lLeuSIiCSho5p
+         M+DQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795585822; x=1796190622;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=lwMWYldW2xiMuu7J2YEbh/F+RKn5zxewQscmpZkZiL8=;
-        b=ktF2RWdEdj5OvuunLIM7U54tKoEQczZL9jR2Tf/Psw1jFpcRW/Y7zjvQyKOZSigoly
-         4RB0sCAMefAEyWqDAa6D87UH7CU/lvOG8OCOfAQZBVRSXtXZjgfoojDpCO4xvKDnQlq7
-         tMh2RgSsG+oNuzy5py4EIjc2yMNWJKknDaX4I10YS6mi3GhmIHxpgucUMEAHOARRPXIi
-         PLc1vXnOtKeHwc5BluSmCzzn5nCn7YV4Z5jRS++LFSd6iOCbA1cC2ay4OBnvR4OVYNFL
-         gfE56Qw9NdYrxcAogY0iJJIrcOCXbgE7iTdQqB9prPEGqHx9uXiX7jPehYFr6+1c5lRu
-         LB9Q==
-X-Forwarded-Encrypted: i=1; AL+hErFpYFA3d+Tw+FRnPjvsb3hm0Rlhc0k3gouN5xL8L/VM7QDMO68/b7dw3+ByeyBkzIdDzZSvk9kBvZnhhhA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9sf0sU4lAxhIAtdDc5K5mKff0w4Nl6DXDIuzVCRY/2SqKcH28k
-	HVd91zCr3By6oEGVO5I/359AnFh9UtR2QQerZMt46idWrLuh7zXxnigdpBbHioIlf4U8j9evPtT
-	+hIgLbm/awEYc2XM4XIUNYDlzt9kuke6xfw==
-X-Received: from plrc4.prod.google.com ([2002:a17:902:aa44:b0:2f0:43fa:d088])
+        d=1e100.net; s=20260707; t=1795585820; x=1796190620;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=7TuopKGkuXxe9F8oaxjlU1CyosEDfE9sI6BY0c1BuLY=;
+        b=isHjo2Ogobju3KLzfS+T2NO5yH697G3ALwNPGoHPh5QyOK2Irv5vKiyv4oRDMYryQ0
+         XipCgxRHq/2KYFOjBW1PdyZxFh/C1/rEyTDkGcURPQCxQ0SvZYpxiRWHnc8ECOKjBLCw
+         aoR+S4QuNlcXoVScO13odggB9spWWFhu/ora2nX28Dyv1fmaAtnY3S9VMEHlM81mHqWh
+         BKA97UDVjWnJl/bfEpRAq1GbW2Epa42s+U4FNEaQD5Y+mnndNE5v8LglRg/Q0gcgctiq
+         P+2ZTJrKl9gf1gxONFfuLC+EaU+Ws+jhjTzWvWL5px5iCiwm+L7z5pCQGct/cdCTbICH
+         xnPQ==
+X-Forwarded-Encrypted: i=1; AL+hErGnhc3TYG3bpRQLD24iurEXbpHMu4ogBFmlZ/v50hVX8Z9e95Yr5pYZ3U/aLLYBMKGDojGrrXOVfF8Us/Q=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8Lx9ApExMzv3Ib6OGzieOz0e8SDjD2moKuR/ibU10Cme64cZi9
+	HtsbrgkoHRHBPC9CJGERa53JVk6/T65VTD2IBhTpM5XNU6xpFo4X8mVUqOk6o3rOW0bTm9AInsj
+	ML/yoILZNMVoIVMUf/5LY+w8Cc0+iaBdLFg==
+X-Received: from plhi8.prod.google.com ([2002:a17:903:2ec8:b0:2f0:4052:30d0])
  (user=rathodpriyank job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:902:d54e:b0:2ef:ec63:320c with SMTP id d9443c01a7336-2f03f156128mr164458005ad.16.1795585821668;
- Tue, 24 Nov 2026 21:50:21 -0800 (PST)
-Date: Wed, 25 Nov 2026 05:50:20 +0000
-In-Reply-To: <20261125-fix-aer-mask-override-v2-0-fb5931dc9462@google.com>
+ 2002:a17:90b:2fcd:b0:3b3:fa20:f83b with SMTP id 98e67ed59e1d1-3b41c954553mr17029147a91.40.1795585819921;
+ Tue, 24 Nov 2026 21:50:19 -0800 (PST)
+Date: Wed, 25 Nov 2026 05:50:18 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -79,11 +77,13 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 Mime-Version: 1.0
-References: <20261125-fix-aer-mask-override-v2-0-fb5931dc9462@google.com>
+X-B4-Tracking: v=1; b=H4sIABp3BmsC/4WNTQ7CIBCFr9LM2jGADY2uvIfpAmGkE20xgyGah
+ ruLvYB5q+/l/ayQSZgynLoVhApnTksDs+vAT26JhBwag1HGaqUN3viNjgRnl++YColwILTXIfT
+ a+kMYPLTuU6gFt93L2Hji/Ery2W6K/rn/FotGhf3RqTA4alLnmFJ80N6nGcZa6xdxuHrzuwAAA A==
+X-Change-Id: 20261012-fix-aer-mask-override-6b7d416c3d7c
 X-Mailer: b4 0.14.3
-Message-ID: <20261125-fix-aer-mask-override-v2-2-fb5931dc9462@google.com>
-Subject: [PATCH v2 2/2] Documentation: PCI: Document aer_inject's
- aer_mask_override parameter
+Message-ID: <20261125-fix-aer-mask-override-v2-0-fb5931dc9462@google.com>
+Subject: [PATCH v2 0/2] PCI/AER: Fix and document aer_inject's aer_mask_override
 From: Priyank Rathod <rathodpriyank@google.com>
 To: Bjorn Helgaas <bhelgaas@google.com>
 Cc: Lukas Wunner <lukas@wunner.de>, 
@@ -96,52 +96,34 @@ Cc: Lukas Wunner <lukas@wunner.de>,
 	Jonathan Cameron <jic23@kernel.org>
 Content-Type: text/plain; charset="utf-8"
 
-aer_inject has had the aer_mask_override module parameter since commit
-457d9d088b02 ("PCI: aer-inject: Override PCIe AER Mask Registers"), but
-the AER HOWTO never mentioned it.  Describe what it is for (injecting
-errors that the device masks, in particular those masked by default)
-and how it behaves now that it works: the device's Mask registers are
-left alone, the injected bits are only reported as unmasked while they
-are pending, and the hidden Mask bits stay set in writes until the
-module is unloaded.
+aer_inject's aer_mask_override=1 module parameter is supposed to allow
+injecting errors that the device masks in PCI_ERR_COR_MASK or
+PCI_ERR_UNCOR_MASK, but the hardware masks are corrupted with "&= !"
+and restored before the AER interrupt handler reads them.  Fix
+aer_mask_override by emulating it in config space accesses instead of
+writing the hardware Mask registers, and document it in the AER HOWTO.
+
+Changes in v2:
+- Shorten Patch 1/2 commit description and add a blank line after
+  aer_inj_read() in aer_inj_read_config() (Bjorn Helgaas)
+- Use Internal Errors instead of Poisoned TLP Egress Blocked in the
+  Patch 2/2 documentation example (Daniel Pereira)
+- Link to v1: https://lore.kernel.org/r/20261012-fix-aer-mask-override-v1-0-49a0d7aeaea0@google.com
 
 Signed-off-by: Priyank Rathod <rathodpriyank@google.com>
 ---
- Documentation/PCI/pcieaer-howto.rst | 23 +++++++++++++++++++++++
- 1 file changed, 23 insertions(+)
+Priyank Rathod (2):
+      PCI/AER: Make aer_mask_override effective for injected errors
+      Documentation: PCI: Document aer_inject's aer_mask_override parameter
 
-diff --git a/Documentation/PCI/pcieaer-howto.rst b/Documentation/PCI/pcieaer-howto.rst
-index 90fdfddd3ae5..8994cbf9611a 100644
---- a/Documentation/PCI/pcieaer-howto.rst
-+++ b/Documentation/PCI/pcieaer-howto.rst
-@@ -265,3 +265,26 @@ from:
- 
- More information about aer-inject can be found in the document in
- its source code.
-+
-+Injecting masked errors
-+-----------------------
-+
-+By default aer_inject refuses, with -EINVAL, to inject an error that the
-+device masks in its Correctable or Uncorrectable Error Mask register,
-+because the AER driver would ignore it just like a real masked error.
-+To exercise the handling of such errors anyway, e.g., of those that are
-+masked by default like Header Log Overflow or Internal Errors, load the
-+module with::
-+
-+    modprobe aer_inject aer_mask_override=1
-+
-+or boot with aer_inject.aer_mask_override=1 if it is built in.
-+
-+The device's Mask registers are not modified.  Instead, as long as the
-+injected error bits are pending in the emulated Status registers, reads
-+of the Mask registers through the PCI core report them as unmasked, so
-+the AER driver handles the injected error as if the device had it
-+unmasked.  The Mask register bits hidden this way are kept set in
-+writes to the Mask registers until aer_inject is unloaded, so that a
-+value saved through the emulation (e.g., by pci_save_state()) cannot
-+unmask them in the device.
+ Documentation/PCI/pcieaer-howto.rst | 23 ++++++++++++
+ drivers/pci/pcie/aer_inject.c       | 74 +++++++++++++++++++++++++------------
+ 2 files changed, 74 insertions(+), 23 deletions(-)
+---
+base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
+change-id: 20261012-fix-aer-mask-override-6b7d416c3d7c
 
+Best regards,
 -- 
-2.56.1.831.g720f3f5937-goog
+Priyank Rathod <rathodpriyank@google.com>
 
