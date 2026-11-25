@@ -1,72 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.12
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795624673;
-	b=rstxnsOurbRuc1Ue6rj5CM3Lj7h4R9AflVEFwapNAPWgq2MfCx+7US8AVne93rcVGmak
-	 awmA1TcGZlGIjByzr01d3/AC9c2T16YTgHBSFuU2gpfjNaj5jFegfFdvfYOOUneRuVLL9
-	 IE1+Ua7cccUtMJa+OX78nU5ygeDDpyohoCDAZfdpykWrwXOsgkw0xNe52BhRqHku+/uyJ
-	 02u7118kgbWMKU0lDdX0ckFuanr568Yr9zAbxY6Eh3E9KliU6kcY0skbIxsbP4k3mhwnr
-	 luG1a7/Aiu+mqt9467Yky1gJ+YUQmJ4JB3NW0L2QGMJBcmXyc7NNmQNal6rUmjLgfrg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795624673;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To:X-Zoho-Virus-Status:X-Zoho-AV-Stamp:X-ZohoMailClient;
-	bh=wZU6CfzaUrTUM9Uw9d24QCgARMhh95qEdCVI0vhQmpg=;
-	b=L7jmZoINbfM9Os5peT/Ivh5Dv5q77QepkU5Q1ojr/kIuUEDTldr0kYEYYoTRUQks5eOD
-	 FxMzECVwbNnkcZdvKABQ+iJyLbtRBQGGoxFDIfm1E4Q4vpmvq93jLTNl2pJ34Smf0RD3H
-	 51u15ysIoIMI9Nkn1FOk7GxV1uW6Gkk84j2RGdasCPENAGNAdJUtR3t4JmECfr7MPG4Sr
-	 aERULmvTxiEL4xU22jZPnd4rkOq5FaVJ436daWMM4pAhF0rqg6zw29oZw1V7DPVAc/2uj
-	 DM6tCtjb61r/ekSwrXFP3jp1wmMuSZJWkRGvyYLycvw62DGmTz90GjvTKRjGGuLas+A==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ziyao.cc;
-	spf=pass smtp.mailfrom=ziyao.cc;
-	dkim=pass header.d=ziyao.cc header.i=@ziyao.cc header.a=rsa-sha256 header.s=zmail header.b=Jc6+q7o4;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.12
-Received: from sender5-op-o12.zoho.com (sender5-op-o12.zoho.com [165.173.182.12])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=45.79.88.28
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795624727;
+	b=StdFhZ8XFr6quNPmy73QCQY8b15ul0nm2uskeHnFDwcSR+AxraBf3b1i+dILf9AfYNva
+	 P0vE7Irix01jNNCXuV9UrSjiTKxEqHq5/7BLDgAd1XWXoqYOR7VDbJ/HN/+8XY1Kn3Y1Y
+	 gr9Uxjg8hWcOfTgiBIjTF8DfN54/uYiYxsGgPYpD17MTqmOSLI03UC3bM8cYmBqNWrP6A
+	 8Y7uZBXbcX1xMkZ3dLYCIJQ71fbYRnokbdda6DkEbSHyugrXKiRQ5d8Z6KIlskWx1ksv/
+	 c/G7P4tRIJVR2Z5qbVcpbtUX5kQ3t58C7NLpeKJuPMQ+96kVytnfESNt2Dm803t286w==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795624727;
+	h=DMARC-Filter:DKIM-Filter:DKIM-Signature:Received:From:To:Cc:Subject:
+	 In-Reply-To:References:Date:Message-ID:MIME-Version:Content-Type;
+	bh=c1S+s22mzATJCTCCL5DTXHxYL44AP7LTE1ouMin7MxA=;
+	b=WlwlHlpkRcMsRG5GevURYB7ovYg6zgwVzGDoIFhY07KWTJ3L7Z9MjLbFS/ly8UVc8ppV
+	 5mWMCbPISebe9eOBPo3qbBbx+NgMQ9cjH+hEYjJ2ZbqlMlET6mIBFdvkT1lGygDDRL5nG
+	 WwJOm/qAoQqYZIt+pxg2JJfYJT/1yk2xX6UqBZzgjyFlTjms4lwBjRFfh38sEyRbD9d9R
+	 SO+5t8UwnIXeTwm7l/DDmnLFRrPRARVBg9dRBYHa8Fh+59fwBHQEngCzxHs8kAZ0PrHkJ
+	 8ZN0Psnnd2EzxJ/p/Osp3HQqgtj+3/qAGjcj6tZvQjKw8pRWDAxDEmnSgtWbMa/VRZQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=lwn.net;
+	spf=pass smtp.mailfrom=lwn.net;
+	dkim=pass header.d=lwn.net header.i=@lwn.net header.a=rsa-sha256 header.s=20201203 header.b=ahJGAWac;
+	arc=none smtp.remote-ip=45.79.88.28
+Received: from ms.lwn.net (ms.lwn.net [45.79.88.28])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1EC4D606A331;
-	Wed, 25 Nov 2026 16:37:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1EC4D606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=ziyao.cc
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ziyao.cc
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 25BD5606A33C;
+	Wed, 25 Nov 2026 16:38:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 25BD5606A33C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lwn.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lwn.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=ziyao.cc header.i=@ziyao.cc header.a=rsa-sha256 header.s=zmail header.b=Jc6+q7o4
-ARC-Seal: i=1; a=rsa-sha256; t=1795624635; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=fn8wmiECVHUD3QkyvELPPxKwwuZ9DNuC5BsZ/LyEsXtY8cg2aYjoBxEJgwLN+3JYGlUBQKiSs3HmFqpwYHfmyMXKcBzyl+8S8QravXTlQ+rw2jrUs8q5t1a7q53p7LzuUkgpSyyLv+VJAlOvU5NrIEklfwjwfx5QW2+onexAftU=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1795624635; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=wZU6CfzaUrTUM9Uw9d24QCgARMhh95qEdCVI0vhQmpg=; 
-	b=kUmBJtZoJjiy/JIw5a8E5V4T6B6xWVXg7fwLLgn1GiEt4TaGh2Od91Iak/9qP4iGZNp3Zx9PBhiT7fhQ8Bk4Ky/mHZ2QlPXpfwSnSkiB4w11tIefldkFFQzddMRS+FchMJ7yvzOgdl/Bf8HkGNxast9SSTj/IRN3BYXewdCk9Eo=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=ziyao.cc;
-	spf=pass  smtp.mailfrom=me@ziyao.cc;
-	dmarc=pass header.from=<me@ziyao.cc>
-DKIM-Signature: a=rsa-sha256; b=Jc6+q7o4s8WHJKTxEGWlOILKLZcb5akXj8pQFhixA8NBV12hkF+n5+8amlMh/gP12gne7slcWjdD3t+XTcJSIQZMar5ML3PLiGY75We8IDTMUCvZXteDOZmNSts4HFe3nYeuf40049rpe1P4JusK/SeIjBsqUUGo5/DqAgqRYd0=; c=relaxed/relaxed; s=zmail; d=ziyao.cc; v=1; bh=wZU6CfzaUrTUM9Uw9d24QCgARMhh95qEdCVI0vhQmpg=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 1795624633139428.14929217459655;
-	Wed, 25 Nov 2026 08:37:13 -0800 (PST)
-Date: Wed, 25 Nov 2026 16:37:02 +0000
-From: Yao Zi <me@ziyao.cc>
-To: Magnus Leatti <magnusleatti@kernelriot.com>,
-	netdev-bot+sashiko@kernel.org
-Cc: Yao Zi <me@ziyao.cc>, Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Giuseppe Nespolino <g.nespolino@gmail.com>, netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next v2 1/2] net: stmmac: dwmac-motorcomm: remove the
- device at shutdown
-Message-ID: <awcOrnah0sKdqqSn@pie>
-References: <20261120102754.778283-2-magnusleatti@kernelriot.com>
- <179551786477.3135.6652175828683602957@kernel.org>
- <20261124130610.3254004-1-magnusleatti@kernelriot.com>
+	dkim=pass (2048-bit key) header.d=lwn.net header.i=@lwn.net header.a=rsa-sha256 header.s=20201203 header.b=ahJGAWac
+DKIM-Filter: OpenDKIM Filter v2.11.0 ms.lwn.net 57C31410D3
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lwn.net; s=20201203;
+	t=1795624726; bh=c1S+s22mzATJCTCCL5DTXHxYL44AP7LTE1ouMin7MxA=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=ahJGAWacWI0LFUGOaFd3KgTS6CLTAsQSrwKIrK/wfW0l6o1e+IdGSxueBPXrEptPD
+	 Am6weIgBDpeCJi+SSX3eIqh5MfE9BlZBCyNkCgYjn1sT01nx2kKQpDoqXNV0GCxfUj
+	 JXntC9xAmxIrTjmbfgyldr8fhfVf6FjKOPzTNEDqzKNQtSjd2TFd3ByckXFYSoVvD8
+	 N46O0inKx3ROYcHa/76xmJw/B321KD/cGjpK8yg3rJsSIcI2Qi6V1qHHszjWID1RGU
+	 Q4lm/fmUou3RBxw3gfKHZ02Vga5mKw8dXl6PFWBpiM7k4aM4deeozecO6VzQhO4Le+
+	 8KhtTyZ6kGcEw==
+Received: from localhost (unknown [205.220.129.44])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by ms.lwn.net (Postfix) with ESMTPSA id 57C31410D3;
+	Wed, 25 Nov 2026 16:38:45 +0000 (UTC)
+From: Jonathan Corbet <corbet@lwn.net>
+To: Mauro Codella <mauro.codella@pm.me>
+Cc: Mauro Codella <mauro.codella@pm.me>, skhan@linuxfoundation.org,
+ rdunlap@infradead.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] docs: sysfs: Align example callback names with __ATTR_RW
+In-Reply-To: <20261109204724.37838-1-mauro.codella@pm.me>
+References: <20261109204724.37838-1-mauro.codella@pm.me>
+Date: Wed, 25 Nov 2026 09:38:38 -0700
+Message-ID: <87ecc8x3w1.fsf@trenco.lwn.net>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -76,41 +67,29 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261124130610.3254004-1-magnusleatti@kernelriot.com>
-X-Zoho-Virus-Status: 1
-X-Zoho-AV-Stamp: zmail-av-0.2.13.1.5.4/295.600.19
-X-ZohoMailClient: External
+Content-Type: text/plain
 
-On Tue, Nov 24, 2026 at 10:06:10AM -0300, Magnus Leatti wrote:
-> On Tue, Nov 24, 2026 at 10:57:44AM +0000, netdev-bot+sashiko@kernel.org wrote:
-> > [Severity: Low]
-> > Should this carry a Fixes: tag?
-> 
-> No. I never saw anything break without the hook, so it's not a fix.
-> net-next, no tag.
+Mauro Codella <mauro.codella@pm.me> writes:
 
-However, I do think this deserves a fixes tag, for the reason I stated
-in replies to v1 of the series[2].
+> The sysfs guide presents __ATTR_RW(foo) as a shorthand for the preceding
+> DEVICE_ATTR declaration and explicit struct device_attribute initializer.
+> Both preceding examples use show_foo and store_foo, but __ATTR_RW(_name)
+> uses token pasting with _name##_show and _name##_store, so __ATTR_RW(foo)
+> references foo_show and foo_store instead. Switching to the shorthand
+> without renaming the callbacks would fail to compile.
+>
+> Rename the callbacks in both preceding examples to foo_show and foo_store
+> so all three examples agree. No kernel behavior is changed.
+>
+> Codex identified the mismatch and assisted with the change and commit
+> message after a request to find a small kernel contribution.
+>
+> Fixes: 44a47f0e3ec2 ("sysfs.txt: add note on available attribute macros")
+> Signed-off-by: Mauro Codella <mauro.codella@pm.me>
+> ---
+>  Documentation/filesystems/sysfs.rst | 6 +++---
+>  1 file changed, 3 insertions(+), 3 deletions(-)
 
-> > [Severity: Medium]
-> > With this change, can stmmac_dvr_remove() run twice on the same
-> > binding?
-> 
-> Only if something unbinds or unplugs the NIC *after* .shutdown ran, in
-> the middle of a power-off. funeth, otx2, nfp VF and ps3_gelic wire
-> .shutdown to their remove the same way, and it's the design that came
-> out of the v1 review [1]. Keeping it.
-> 
-> [1] https://lore.kernel.org/netdev/avsebFtnIASV-KpV@pie/
-> 
-> Magnus
+Applied, thanks.
 
--- 
-Thanks,
-Yao Zi
-
-Meow-mrrp-mrow, I'm a cat.
-
-[2]: https://lore.kernel.org/netdev/avsTEglKKD_wl_Fi@pie/
+jon
