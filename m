@@ -1,74 +1,71 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=23.83.222.40
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=23.83.222.58
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795575491;
-	b=GD4s/9p+jL6xdiAHUDKavDUL+aQmnPnDVQ6nXi7dgmqfMHY8dDkPKyrWunDj3NlFtD2y
-	 dAGJOmOAdhVa+slzjE6T7h+/jxS71tAwKil8EI+pHxlJ1DhymOuPWrQMNcguoAvEGw2P8
-	 LDMeNsGjmE59jW+b4u3XlAIFvDjPpbihjHPguM9rKh+NuJ9L6w8+nMK7sYTPj2Bl6TxKA
-	 JLG/zIToKnmxczEw89N6NzXlya10/9nTonu72jOeLeIdV4LynfWI1KS1Pe3fXeUNq5QJk
-	 g4mFLWWkEHi+HFeVzM4oEfxhWh7JG8yQ/GhBL8EZ6kMbapWZR+bUdEP/fjhtyG5Oymw==
+	t=1795575521;
+	b=V3ci/Nw92swRJhc9QUPSDDMoSVFAtOHPjAmED9YAm1Ou3k24ReEz2/2cbglRtuy2Q+nO
+	 b2qrA6BEWsAfBi6ubErg2rQJ9iQgehjVwJsnAC1RnboL+xtcUoc3Sz6jThqgP9iDymq8w
+	 3/2suFDt9cra+D0TjRipGxZHJTQX/e1ki/BrcNDWof7CGQEeIdfDK8YC7To0ymLfg9vqN
+	 XO3dywOSRb6Jie497s4q8cH0D8ENBE19uq472PMvnVhw1jxm9wPV4Qx1zWjQfGDVQxYKc
+	 XzSx+gGuEc6CodNlcI2W5UgYekmOgjYQd1CksJZE51rxLv7CgPhiHYGfYV38xxgOxBw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795575491;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795575521;
 	h=DMARC-Filter:X-Sender-Id:Received:Received:X-Sender-Id:X-MC-Relay:
-	 X-MC-Copy:X-MailChannels-SenderId:X-MailChannels-Auth-Id:
-	 X-Cellar-Cellar:X-MC-Loop-Signature:X-MC-Ingress-Time:Received:
-	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 X-MailChannels-SenderId:X-MailChannels-Auth-Id:X-Harbor-Fearful:
+	 X-MC-Loop-Signature:X-MC-Ingress-Time:Received:Received:From:To:Cc:
+	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding:X-AuthUser;
-	bh=hsWRqvlnSPIR2F6gY8CRs4jFUdQZq/jxCGYtqXKn8TE=;
-	b=ijKTnJq4V7QYRGzNC9+b8qKq0s9+sr1EpjD4+FW5FzNRzIHDsnMHq1V609i1D/AD1Zkz
-	 Q9Gj2MKYWArtpOGuRM193d0Bv+hR9NAiQETu6ndXLSLiAiAfjjfcNXU4NmQWmVMEhl7fp
-	 NMkDmHWeyLr6DvZa6RRL77FlSPMGlgAJuUaYMcXQNoom4FhWumPVAAOCKmtVdHCE47hWC
-	 fdoTHnxWz1lnGhWLAQ+mehfK0zlAPn6iCOkI2cnnE5mInzho271YjN4cKcoDBJOzsOXrl
-	 jbh6g4GJ35bEHuO19DcASEy8Tb3wwG9a6Z71IqSLhrUQd8AvHTdPET0gYJHqLEMyC8Q==
+	bh=Fk7nJXxJFLmiwoCypaRQUIjeIoYCMrQUBCirL/0Tp8s=;
+	b=SwS5OMSqjF1K6SMZu76GsWkJMl1JBLmJDDI84pnPsiR1V+kL5u6bjYe/ScWnns1Wt0f9
+	 j7nC0pKHjjR29ZlEdLWBR3M5wedUwl7iJy+aCShtWyd6+3Pwv7FLPkHV2ComdCdQ3eJG1
+	 aI7sy1osQfWGD3eQ2RrAL7BufwcwI4PfyyjfwmlINVA8kf5yat1WMSKRhlLo/IhkW+U4r
+	 5We0EGILNmIrC13VeY9NkuTlnGFBXtl6bStqcv/NwODE+yQtx+2QiOJb+wH3i8duGvSJg
+	 OoW53Z95rz4wqyjGR/yEXAFaWifIPs9dr/lekbBRtIz4CnSgiLbF0aFIRq+EhHBAwOQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=sim.vu;
 	spf=pass smtp.mailfrom=sim.vu;
-	arc=none smtp.remote-ip=23.83.222.40
-Received: from cornsilk.ash.relay.mailchannels.net (cornsilk.ash.relay.mailchannels.net [23.83.222.40])
+	arc=none smtp.remote-ip=23.83.222.58
+Received: from fennec.ash.relay.mailchannels.net (fennec.ash.relay.mailchannels.net [23.83.222.58])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E388F606A321;
-	Wed, 25 Nov 2026 02:58:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E388F606A321
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 632E8606A31E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 02:58:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 632E8606A31E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=sim.vu
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=sim.vu
 X-Sender-Id: instrampxe0y3a|x-authuser|brad@sim.vu
 Received: from relay.mailchannels.net (localhost [127.0.0.1])
-	by relay.mailchannels.net (Postfix) with ESMTP id 31ADC4019B2;
-	Wed, 25 Nov 2026 02:58:04 +0000 (UTC)
-Received: from cpanel-010-lon.hostingww.com (trex-green-5.trex.outbound.svc.cluster.local [100.96.23.111])
+	by relay.mailchannels.net (Postfix) with ESMTP id 1C23238153C;
+	Wed, 25 Nov 2026 02:58:33 +0000 (UTC)
+Received: from cpanel-010-lon.hostingww.com (trex-green-2.trex.outbound.svc.cluster.local [100.96.4.162])
 	(Authenticated sender: instrampxe0y3a)
-	by relay.mailchannels.net (Postfix) with ESMTPA id CD7704012AD;
-	Wed, 25 Nov 2026 02:57:58 +0000 (UTC)
+	by relay.mailchannels.net (Postfix) with ESMTPA id 1D18238134F;
+	Wed, 25 Nov 2026 02:58:31 +0000 (UTC)
 X-Sender-Id: instrampxe0y3a|x-authuser|brad@sim.vu
 X-MC-Relay: Neutral
-X-MC-Copy: stored-urls
 X-MailChannels-SenderId: instrampxe0y3a|x-authuser|brad@sim.vu
 X-MailChannels-Auth-Id: instrampxe0y3a
-X-Cellar-Cellar: 27dacd100249e60e_1795575483987_1197842351
-X-MC-Loop-Signature: 1795575483987:1605370920
-X-MC-Ingress-Time: 1795575483987
+X-Harbor-Fearful: 43dfbfa3666e5809_1795575512989_2441478636
+X-MC-Loop-Signature: 1795575512989:85526249
+X-MC-Ingress-Time: 1795575512989
 Received: from cpanel-010-lon.hostingww.com (cpanel-010-lon.hostingww.com
  [18.130.191.2])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384)
-	by 100.96.23.111 (trex/8.0.2);
-	Wed, 25 Nov 2026 02:58:03 +0000
-Received: from 162-195-230-196.lightspeed.wchtks.sbcglobal.net ([162.195.230.196]:41714 helo=epyc.attlocal.net)
+	by 100.96.4.162 (trex/8.0.2);
+	Wed, 25 Nov 2026 02:58:32 +0000
+Received: from 162-195-230-196.lightspeed.wchtks.sbcglobal.net ([162.195.230.196]:51640 helo=epyc.attlocal.net)
 	by cpanel-010-lon.hostingww.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.100.1)
 	(envelope-from <brad@sim.vu>)
-	id 1xW3Ck-0000000BJbh-1ytC;
-	Wed, 25 Nov 2026 02:57:56 +0000
+	id 1xW3DI-0000000BJhc-1Lqj;
+	Wed, 25 Nov 2026 02:58:29 +0000
 From: Brad Hawthorne <brad@sim.vu>
 To: linux@armlinux.org.uk,
 	linux-arm-kernel@lists.infradead.org
-Cc: kees@kernel.org,
-	gustavoars@kernel.org,
-	linux-hardening@vger.kernel.org,
+Cc: vladimir.murzin@arm.com,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH] ARM: xip: end _etext before the read-only data
-Date: Tue, 24 Nov 2026 20:56:50 -0600
-Message-ID: <20261125025650.1159785-1-brad@sim.vu>
+Subject: [PATCH 0/5] ARM: NOMMU: fix PMSAv7/v8 MPU setup on M-class
+Date: Tue, 24 Nov 2026 20:57:52 -0600
+Message-ID: <20261125025757.1159931-1-brad@sim.vu>
 X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -82,58 +79,51 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-AuthUser: brad@sim.vu
 
-The XIP linker script sets _etext after the read-only data, while
-vmlinux.lds.S sets it at the end of the text. Hardened usercopy
-refuses any copy to user space from _stext to _etext, so with
-XIP_KERNEL=y and HARDENED_USERCOPY=y, copying a const string from
-.rodata to user space ends in BUG(). The first readdir() of /dev is
-enough:
+With CONFIG_ARM_MPU=y, a Cortex-M3 kernel under QEMU (mps2-an385)
+panics before its console comes up. Patch 1 fixes that: the M-class
+region base register has VALID and REGION in its low bits, so the
+R-class probe selects a region that does not exist. After that,
+allocate_region() can return one region too many (2),
+mpu_setup_region() accepts a number one past the end (3), and
+try_split_region() can return a base not aligned to its size (4).
+Patch 5 fixes the same off-by-one as patch 3 in pmsa-v8.c.
 
-  usercopy: Kernel memory exposure attempt detected from kernel text (offset 2955300, size 1)!
-   __check_object_size from filldir+0xd6/0xfc
-   filldir from dir_emit_dots+0x34/0x80
+Patches 2 to 4 also run on R-class.
 
-Commit 14c4a533e099 ("ARM: 8583/1: mm: fix location of _etext") moved
-_etext in vmlinux.lds.S for the same reason; the XIP script was
-missed. Set _etext at the end of the text there too.
+I know the Cortex-M platforms are going in 7.5. These are for the
+stable kernels that still carry them, and for the v8-M core while its
+future is discussed.
 
-Tested under QEMU (mps2-an385) and on an RP2350 board, both XIP: the
-BUG is gone and directories list normally.
+Not fixed here: on M-class, pmsav7_setup() rewrites regions with the
+MPU on, so for a moment a region has its new base and old size, and
+QEMU faults when it covers the running code (an385, 0x3f9000 of RAM).
+Turning the MPU off around the rewrite works only where the default
+memory map matches the kernel's. Vladimir, how would you want this
+handled?
 
-This patch was written with an AI coding assistant (Claude Opus 5.5,
-Anthropic): it found the cause of the usercopy report, wrote the fix
-and this changelog, and ran the QEMU and board tests; I reviewed the
-reasoning and the test results.
+Testing: I have no PMSAv7 hardware, so patches 1 to 4 are tested
+under QEMU only (mps2-an385, several memory layouts; every prefix
+builds with W=1). Patch 5 is tested under QEMU (mps2-an505) and on an
+RP2350 board (Cortex-M33). A test on any Cortex-M3/M4/M7 or Cortex-R
+board with CONFIG_ARM_MPU=y would help; the line to check is "Using
+ARMv7 PMSA Compliant MPU ... Used N of M regions", with N no larger
+than M.
 
-Fixes: dfd45b6103c9 ("ARM: uaccess: Enable hardened usercopy")
-Cc: stable@vger.kernel.org
-Signed-off-by: Brad Hawthorne <brad@sim.vu>
----
- arch/arm/kernel/vmlinux-xip.lds.S | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+This series was written with an AI coding assistant (Claude Opus 5.5,
+Anthropic), as each patch says; I reviewed the reasoning and the test
+results.
 
-diff --git a/arch/arm/kernel/vmlinux-xip.lds.S b/arch/arm/kernel/vmlinux-xip.lds.S
-index 5afb725998ec..76e024cc50c9 100644
---- a/arch/arm/kernel/vmlinux-xip.lds.S
-+++ b/arch/arm/kernel/vmlinux-xip.lds.S
-@@ -58,6 +58,8 @@ SECTIONS
- 		ARM_TEXT
- 	}
- 
-+	_etext = .;			/* End of text section */
-+
- 	RO_DATA(PAGE_SIZE)
- 
- 	. = ALIGN(4);
-@@ -71,8 +73,6 @@ SECTIONS
- 	ARM_UNWIND_SECTIONS
- #endif
- 
--	_etext = .;			/* End of text and rodata section */
--
- 	ARM_VECTORS
- 	INIT_TEXT_SECTION(8)
- 	.exit.text : {
+Brad Hawthorne (5):
+  ARM: NOMMU: pmsa-v7: Do not probe the region order on M-class
+  ARM: NOMMU: pmsa-v7: Do not allocate more RAM regions than the limit
+  ARM: NOMMU: pmsa-v7: Fix off-by-one in mpu_setup_region()
+  ARM: NOMMU: pmsa-v7: Align a split region's base to its size
+  ARM: NOMMU: pmsa-v8: Fix off-by-one in __pmsav8_setup_region()
+
+ arch/arm/mm/pmsa-v7.c | 29 ++++++++++++++++++-----------
+ arch/arm/mm/pmsa-v8.c |  2 +-
+ 2 files changed, 19 insertions(+), 12 deletions(-)
+
 
 base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
 -- 
