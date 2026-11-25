@@ -1,89 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.48
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795624142;
-	b=hO/pjDeZt47c37aarWcWdwFuASPZQEZN0xsGYUEO0K+OM4C1VsZ730STDfT4jKpeZ80E
-	 ZVAIBZ2kACsiE/sZ3OO6MuYQPFOnyqUhZUgZnLWIc0JcTBMwvJ1IWJ3Hqnx4aWw6uUmo+
-	 mjwgqYe1v1g/3FvANZhY02w3lJ2SnHmzBM1/W3P0FYN6MLtkK07dHtdvcbEGFqYK2VICa
-	 g47su58Ytdx6oZ+eaaYNbKgk0n2ebKdz2mbgUUs3/be1ThxXymWhghrKYtPDClBdztiL7
-	 Mz7eSuDxldtO2gKANGhfdcEcuoXBcIzxRqYJZ2xAL2JVszOk0lPr+vJz/KKDM37bUKw==
+	t=1795624162;
+	b=h6d3/Jg2DEg+t7G47QyNOJ5pGiik/SDqobTnCG3daeVb6DqwjbtOveHLo3KCT9ih7ZrN
+	 Y1hL7K7rY5OIiFvFBABpQbNTBjtZohO1pqa5SKSw0wa/L2iRRJvACinNk4sQLwm9IAp7d
+	 oDM0915tmPAyTXBF5VkaBg0zcfFtBFARTIoyE8Zv9JsNwMFlX5qNiNSOiKEpOYcas3El6
+	 +MTa3O+VKN9cWgQmJo4ujyDEsT2OOeCWYR4HLVAV56eLqE+AGqDGxMsBpY5zc+u3EVKfL
+	 9F3uURXzmOOTt0bqWw4ix8N9gj9B6oW9D6dDBXSxUYwUYNY4IBZynPzIC4DXwszzZRw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795624142;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key;
-	bh=b3zipjW6FCv6jer+zbTeZRYq6wiTPflhk4lNUgGm5Zc=;
-	b=TLtH7qtwpOjs7vmV8x9xozIdgc7vceHOaksFLxE8mgRbfK+2jkF7JJETRolfsFNSWFWe
-	 aG/qQ/y/IFb6VlkyIHBfiLfoJqXne1EkXXbGh6THkU7MaWlVI5jpkJB8X218GccPfmO7Q
-	 3BvTc0lbWPMODe9R2Q8ULzIrlTGvU+LUiQMUeGI0t4TLUIzk5O75K8ZKXDiVQggB8se3S
-	 673G9hpbaSSXAuog7vj03UtmiBqjQSJNNBcvLHLaJCfis9Xwlf8gKyzPt4fKxZDQag841
-	 pi9frI60iKWF1g0Sb4reyrw7uKFooGDOvlZIb9yarmJhk/PDGeX0s0d99LpvKQS7gQQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795624162;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
+	 X-Cookie;
+	bh=ZrosOMGIOcHHN3BqdFDa4C8cbxplNSyD3akiBcmH7gY=;
+	b=z3faQrsvWOJuopY6+otFc/LrzwkBqetnx7MPQSAF79ueiQofkhV57t/qyTQezxmH1c3/
+	 1U+a6GLkf6UKTG/S+n1vfL9KwwgQ6MYM+Ap1MAHWF1Qzkp6CTDKYSFAl5so6zIVq2zDqL
+	 f5fRqwkrX+odddWbi2gg1bpHTwtpketk+RvqO8yMXoD0MEcuyAd75LKwKFQa3jAh8hsJD
+	 gG1IIsSEEZzruGLOIQfMEdUJmXndpK9w0OFRk0AFI7/Joa4MsbhWT56STmD/THpCPMxiK
+	 cEHS3Q5j+27CgygWXSviojSixGHZAJPSbMEp0DNhZFxSeOHodi7QP1dliBzi0aLqcjg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=thegoodpenguin.co.uk;
-	spf=pass smtp.mailfrom=thegoodpenguin.co.uk;
-	dkim=pass header.d=thegoodpenguin-co-uk.20260707.gappssmtp.com header.i=@thegoodpenguin-co-uk.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=JuDHlVhA;
-	arc=none smtp.remote-ip=209.85.128.48
-Received: from mail-wm1-f48.google.com (mail-wm1-f48.google.com [209.85.128.48])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MFVW7YqN;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 102F3606A321
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 16:29:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 102F3606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=thegoodpenguin.co.uk
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=thegoodpenguin.co.uk
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 46067606A321;
+	Wed, 25 Nov 2026 16:29:22 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=thegoodpenguin-co-uk.20260707.gappssmtp.com header.i=@thegoodpenguin-co-uk.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=JuDHlVhA
-Received: by mail-wm1-f48.google.com with SMTP id 5b1f17b1804b1-4bb6adaf0f1so52620995e9.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:29:01 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=thegoodpenguin-co-uk.20260707.gappssmtp.com; s=20260707; t=1795624140; x=1796228940; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=b3zipjW6FCv6jer+zbTeZRYq6wiTPflhk4lNUgGm5Zc=;
-        b=JuDHlVhArm+WGJekmJ5knaQDjynikJO1Q9f94INqpk/0Vl8Y7TwOcAzM6OGcoNE4cD
-         FLuK6XeTAaQXww64JN6iSIABmPaKi8gg7IVN1kw8Hx8vZAbeQKcf2UUIWSuVi+dSM3M1
-         3P5NINhC5cH9YqeNYR8689AZf+NbCtKBU7ADgzFr/7QG1Ix1R0ppKAhiRkKgZhj1KYUM
-         oxYokX6lKTeL3nqPOb5Kg+lmfmU2yMEqx3L2IPpYL5iLc2bffFk1CiS6xZyuKm+12E+P
-         AunDFeN2xuCb6CUh0O+ee8KdbzBZMshzNbq1XLhYE0zI2H0jxK/17ZmuXnnqf/7g0UI7
-         PM3g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795624140; x=1796228940;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=b3zipjW6FCv6jer+zbTeZRYq6wiTPflhk4lNUgGm5Zc=;
-        b=eEmP3iIv8W2xdSuNtq7ZpwKwLEYSLNUz2eafA/3ksPF/3a+jshBd7yR4znhQqtJyVA
-         DE8D9zQS1gFuUhYtQdTd36eSm/NCqbkK5XkBwk90hSlylTtQ3Vn4Sx1/IpG2no1cA4h5
-         sGDo5OFWFfypcQvBFqbACOmSGP/JDl53zp/1+tLzNYhDdZV/HgRPfLYIvpZyfaT7tPQB
-         l5g6tMySCTpnMTiTXs7LwLYnBQ9OYQvH0Uu3UMbWHDANoHwdGbzLtrlZCN/R8sx5e58s
-         tRhX0W73eyNkUzzy2tMNUu4hQgQNYLhOMJcusIPJ0P+MDbt2nohFKGpgQPhZRzlhiKbG
-         gqcA==
-X-Forwarded-Encrypted: i=1; AL+hErEy4foAOWHVknnkaoocZJrq39aJEhPCmPP3oUzaKl8wsRxmoHE5x3lX6yTpYZFtgCRXdjKMOFoGQmjNi9A=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9A7Px80OWfa1a5n0DJZvJ0WSYyJPVWHjYw6FkzPOIWL8ptvCmP
-	ApFGGQc4MWueoifpWLCYBUkZ3zatroJM9tOvCaSKnk7k7QKAKapyvgjfjoncVSfD4b4=
-X-Gm-Gg: AZFdTZeFeM0iyAeFEAabD52csh49wZ4ZhhwH/YvcLlqmxOIGAR5NFUa/Q/LOymBpXKm
-	EryS2ScMtRoF7XaeLjEKzIX5+adhnbS9gEkVRSj+0yE+rPmrEBjPgs7P7QnZaTWqhD73Zr+nk88
-	5HrRJ8GE0QcfBpVEJiyrL9/mqxmA5zcf8nPw5G4gPkF9HGkxqsCBelOBJh8vC5BcgobeW78Ndu/
-	sO9hmdz3PTL9uPKRzVZP2K8l63oEOCTkrOdtXCqhc2r9YzCbQN9I3AobzD22RwTlCiHZKCPRMuc
-	XdnyNUBbTIPVAtDed3rvzN/BjuoVqUzY93zUYczw1n8TyxxAAqzmVUbMUUrycLvxIwJcdWJunzX
-	L4FBPHnrjj3hNNH6gNEwY5yvFWqXkFSTuF5YlNumzVLbwdyHvZVM2XdeK2Z/Iarz2usei0YEHY6
-	iM95ucV7lXZzkRPShk9WIEVD/ioqz28HsiZutZVuws7EvqGoooRoLMQqVc83t7j+k0mw1kN2n1b
-	8xuZDFHN4djIJTPlIfQYZsDJFhxJTF2L0nckrkC0/GReyiSQQVXeDhd8IlcW51G2/7oMqUerIZi
-	K5Kxq2Jlp2p5GWHKDoA/On97HZfxrZtjwx60BrvpdRGJjQ==
-X-Received: by 2002:a05:600c:4f0f:b0:4bb:87f4:3674 with SMTP id 5b1f17b1804b1-4bb8880ef40mr469106785e9.15.1795624140547;
-        Wed, 25 Nov 2026 08:29:00 -0800 (PST)
-Received: from [10.42.0.1] ([2a00:23c7:1d1a:9c01:f716:ba19:8aaa:f1c2])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853368d3sm527336375e9.1.2026.11.25.08.28.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 08:29:00 -0800 (PST)
-From: Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>
-Date: Wed, 25 Nov 2026 16:28:36 +0000
-Subject: [PATCH 10/10] mtd: parsers: Unify list terminator for of_device_id
- lists
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MFVW7YqN
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6EBCA1F000F2;
+	Wed, 25 Nov 2026 16:29:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795624161;
+	bh=ZrosOMGIOcHHN3BqdFDa4C8cbxplNSyD3akiBcmH7gY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=MFVW7YqNlbU9Exr6tC9CWOwHhJ/X1XuwjGHUaFTmtLBLQs/aLGIznC1lpbaJr51lB
+	 OrVjW15pnRmqnVSe6gGEtv/D2wPnWLuyun9cgt9xpJiY4wf7Zja+/UfaxDWfHvQ1wx
+	 xwCi5hhZAENQP9854cDHA8vvs+oGaQkpuLNRpRNRGCqSuVcN9HXPHRB8fz3U95xvV7
+	 PAMGe+AIHWY+c8xZp6OFFyi1yt+I/bTOohayY+wQc5798C0amqAvHLH3KE7vepSTtY
+	 S6dEgyD7uCLyAZqmKTfSbMJPY16EsH7pHf9Xo7Wfih70qH1f56gXM6L0X/hHQFC9da
+	 nP8nvZqw2aIUw==
+Date: Wed, 25 Nov 2026 16:29:17 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Bradley Morgan <bradley.morgan@linux.dev>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH 1/2] arm64/fpsimd: signal: Require ZA context when
+ restoring ZT context
+Message-ID: <63d23d7a-da2f-431c-81cb-1509670fa8ab@sirena.org.uk>
+References: <20261110221836.3265929-1-bradley.morgan@linux.dev>
+ <20261110221836.3265929-2-bradley.morgan@linux.dev>
+ <ee1998f2-69dc-419a-b388-dd4e08cc68d6@sirena.org.uk>
+ <a5b278b7-9e9e-43d0-9fcb-a937d3e2a0b5@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,227 +63,51 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261125-acpi-mtd-v1-10-42ad2f645bee@thegoodpenguin.co.uk>
-References: <20261125-acpi-mtd-v1-0-42ad2f645bee@thegoodpenguin.co.uk>
-In-Reply-To: <20261125-acpi-mtd-v1-0-42ad2f645bee@thegoodpenguin.co.uk>
-To: Miquel Raynal <miquel.raynal@bootlin.com>, 
- Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
- Pratyush Yadav <pratyush@kernel.org>, Michael Walle <mwalle@kernel.org>, 
- Takahiro Kuwano <takahiro.kuwano@infineon.com>, 
- Vladimir Zapolskiy <vz@mleia.com>, Robert Jarzmik <robert.jarzmik@free.fr>, 
- Alexander Usyskin <alexander.usyskin@intel.com>, 
- Joern Engel <joern@lazybastard.org>, 
- Madhavan Srinivasan <maddy@linux.ibm.com>, 
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
- "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
- "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>, 
- Shrikanth Hegde <sshegde@linux.ibm.com>, 
- Michal Simek <michal.simek@amd.com>, 
- Nicolas Ferre <nicolas.ferre@microchip.com>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, 
- Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
- Brian Norris <computersforpeace@gmail.com>, 
- Kamal Dasu <kamal.dasu@broadcom.com>, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
- William Zhang <william.zhang@broadcom.com>, 
- Anand Gore <anand.gore@broadcom.com>, 
- Kursad Oney <kursad.oney@broadcom.com>, 
- Florian Fainelli <florian.fainelli@broadcom.com>, 
- =?utf-8?q?Rafa=C5=82_Mi=C5=82ecki?= <rafal@milecki.pl>, 
- Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
- Han Xu <han.xu@nxp.com>, Paul Cercueil <paul@crapouillou.net>, 
- Harvey Hunt <harveyhuntnexus@gmail.com>, 
- Keguang Zhang <keguang.zhang@gmail.com>, 
- Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>, 
- Liang Yang <liang.yang@amlogic.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Manivannan Sadhasivam <mani@kernel.org>, 
- Heiko Stuebner <heiko@sntech.de>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, Stefan Agner <stefan@agner.ch>, 
- Lucas Stach <dev@lynxeye.de>, Thierry Reding <thierry.reding@kernel.org>, 
- Jonathan Hunter <jonathanh@nvidia.com>, Jacky Huang <ychuang3@nuvoton.com>, 
- Shan-Chun Hung <schung@nuvoton.com>, 
- Tudor Ambarus <tudor.ambarus@linaro.org>, Linus Walleij <linusw@kernel.org>, 
- Kyungmin Park <kyungmin.park@samsung.com>
-Cc: linux-mtd@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- linuxppc-dev@lists.ozlabs.org, imx@lists.linux.dev, 
- linux-mips@vger.kernel.org, linux-amlogic@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org, 
- linux-arm-msm@vger.kernel.org, linux-rockchip@lists.infradead.org, 
- linux-stm32@st-md-mailman.stormreply.com, linux-sunxi@lists.linux.dev, 
- linux-tegra@vger.kernel.org, 
- Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>, 
- =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795624113; l=5774;
- i=pzalewski@thegoodpenguin.co.uk; s=20260430; h=from:subject:message-id;
- bh=KOogzIvhzR8eYf+iMlhb8/yYFLWrj/S1PvoHnBRgitM=;
- b=VkPD+ID7sV7Ml7e/hOXMxbv8kZ5YRPTjrP5CRzexH7lH8bYIAqCXSWUv8DDuCLt6WWwVQ34Le
- OZotULTBoziBXkpCQurbY5qTiNItaA5MiH9TUJN3r3pgeSN9ESNfpKu
-X-Developer-Key: i=pzalewski@thegoodpenguin.co.uk; a=ed25519;
- pk=vHq4n9IonORH2GTzLv8r6CWAFHzgfBuNkQPXA8NSly0=
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="rqQd8qHAhqzWc2jc"
+Content-Disposition: inline
+In-Reply-To: <a5b278b7-9e9e-43d0-9fcb-a937d3e2a0b5@linux.dev>
+X-Cookie: -- Owen Meredith
 
-Unify the list terminator to have a single space between the brackets and
-no trailing comma. This change doesn't introduce any diffs between
-pre/post to the compiled binaries of the modified drivers and just aligns
-these to the common style with other *_device_id arrays.
 
-Signed-off-by: Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>
----
- drivers/mtd/parsers/afs.c               | 2 +-
- drivers/mtd/parsers/bcm47xxpart.c       | 2 +-
- drivers/mtd/parsers/bcm63xxpart.c       | 2 +-
- drivers/mtd/parsers/brcm_u-boot.c       | 2 +-
- drivers/mtd/parsers/parser_imagetag.c   | 2 +-
- drivers/mtd/parsers/parser_trx.c        | 2 +-
- drivers/mtd/parsers/qcomsmempart.c      | 2 +-
- drivers/mtd/parsers/redboot.c           | 2 +-
- drivers/mtd/parsers/scpart.c            | 2 +-
- drivers/mtd/parsers/tplink_safeloader.c | 2 +-
- 10 files changed, 10 insertions(+), 10 deletions(-)
+--rqQd8qHAhqzWc2jc
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-diff --git a/drivers/mtd/parsers/afs.c b/drivers/mtd/parsers/afs.c
-index 7ab3d50f565e..eb6abf5330ca 100644
---- a/drivers/mtd/parsers/afs.c
-+++ b/drivers/mtd/parsers/afs.c
-@@ -386,7 +386,7 @@ static int parse_afs_partitions(struct mtd_info *mtd,
- 
- static const struct of_device_id mtd_parser_afs_of_match_table[] = {
- 	{ .compatible = "arm,arm-firmware-suite" },
--	{},
-+	{ }
- };
- MODULE_DEVICE_TABLE(of, mtd_parser_afs_of_match_table);
- 
-diff --git a/drivers/mtd/parsers/bcm47xxpart.c b/drivers/mtd/parsers/bcm47xxpart.c
-index a412c0e7bd4e..ee7c81894b9c 100644
---- a/drivers/mtd/parsers/bcm47xxpart.c
-+++ b/drivers/mtd/parsers/bcm47xxpart.c
-@@ -301,7 +301,7 @@ static int bcm47xxpart_parse(struct mtd_info *master,
- 
- static const struct of_device_id bcm47xxpart_of_match_table[] = {
- 	{ .compatible = "brcm,bcm947xx-cfe-partitions" },
--	{},
-+	{ }
- };
- MODULE_DEVICE_TABLE(of, bcm47xxpart_of_match_table);
- 
-diff --git a/drivers/mtd/parsers/bcm63xxpart.c b/drivers/mtd/parsers/bcm63xxpart.c
-index 6e7b1ae8f58f..78fbe8a681cb 100644
---- a/drivers/mtd/parsers/bcm63xxpart.c
-+++ b/drivers/mtd/parsers/bcm63xxpart.c
-@@ -153,7 +153,7 @@ static int bcm63xx_parse_cfe_partitions(struct mtd_info *master,
- 
- static const struct of_device_id parse_bcm63xx_cfe_match_table[] = {
- 	{ .compatible = "brcm,bcm963xx-cfe-nor-partitions" },
--	{},
-+	{ }
- };
- MODULE_DEVICE_TABLE(of, parse_bcm63xx_cfe_match_table);
- 
-diff --git a/drivers/mtd/parsers/brcm_u-boot.c b/drivers/mtd/parsers/brcm_u-boot.c
-index cd78e432f1de..d48d8ed73ca0 100644
---- a/drivers/mtd/parsers/brcm_u-boot.c
-+++ b/drivers/mtd/parsers/brcm_u-boot.c
-@@ -70,7 +70,7 @@ static int brcm_u_boot_parse(struct mtd_info *mtd,
- 
- static const struct of_device_id brcm_u_boot_of_match_table[] = {
- 	{ .compatible = "brcm,u-boot" },
--	{},
-+	{ }
- };
- MODULE_DEVICE_TABLE(of, brcm_u_boot_of_match_table);
- 
-diff --git a/drivers/mtd/parsers/parser_imagetag.c b/drivers/mtd/parsers/parser_imagetag.c
-index fab0949aabba..686ef88e3099 100644
---- a/drivers/mtd/parsers/parser_imagetag.c
-+++ b/drivers/mtd/parsers/parser_imagetag.c
-@@ -202,7 +202,7 @@ static int bcm963xx_parse_imagetag_partitions(struct mtd_info *master,
- 
- static const struct of_device_id parse_bcm963xx_imagetag_match_table[] = {
- 	{ .compatible = "brcm,bcm963xx-imagetag" },
--	{},
-+	{ }
- };
- MODULE_DEVICE_TABLE(of, parse_bcm963xx_imagetag_match_table);
- 
-diff --git a/drivers/mtd/parsers/parser_trx.c b/drivers/mtd/parsers/parser_trx.c
-index cf3bc9735238..db1129919084 100644
---- a/drivers/mtd/parsers/parser_trx.c
-+++ b/drivers/mtd/parsers/parser_trx.c
-@@ -120,7 +120,7 @@ static int parser_trx_parse(struct mtd_info *mtd,
- 
- static const struct of_device_id mtd_parser_trx_of_match_table[] = {
- 	{ .compatible = "brcm,trx" },
--	{},
-+	{ }
- };
- MODULE_DEVICE_TABLE(of, mtd_parser_trx_of_match_table);
- 
-diff --git a/drivers/mtd/parsers/qcomsmempart.c b/drivers/mtd/parsers/qcomsmempart.c
-index 1591aea48b28..d46555138978 100644
---- a/drivers/mtd/parsers/qcomsmempart.c
-+++ b/drivers/mtd/parsers/qcomsmempart.c
-@@ -180,7 +180,7 @@ static void parse_qcomsmem_cleanup(const struct mtd_partition *pparts,
- 
- static const struct of_device_id qcomsmem_of_match_table[] = {
- 	{ .compatible = "qcom,smem-part" },
--	{},
-+	{ }
- };
- MODULE_DEVICE_TABLE(of, qcomsmem_of_match_table);
- 
-diff --git a/drivers/mtd/parsers/redboot.c b/drivers/mtd/parsers/redboot.c
-index 120b2eab21fc..f8d421a88748 100644
---- a/drivers/mtd/parsers/redboot.c
-+++ b/drivers/mtd/parsers/redboot.c
-@@ -312,7 +312,7 @@ static int parse_redboot_partitions(struct mtd_info *master,
- 
- static const struct of_device_id mtd_parser_redboot_of_match_table[] = {
- 	{ .compatible = "redboot-fis" },
--	{},
-+	{ }
- };
- MODULE_DEVICE_TABLE(of, mtd_parser_redboot_of_match_table);
- 
-diff --git a/drivers/mtd/parsers/scpart.c b/drivers/mtd/parsers/scpart.c
-index ad6e9d5c3daa..e0bed5ef04d8 100644
---- a/drivers/mtd/parsers/scpart.c
-+++ b/drivers/mtd/parsers/scpart.c
-@@ -229,7 +229,7 @@ static int scpart_parse(struct mtd_info *master,
- 
- static const struct of_device_id scpart_parser_of_match_table[] = {
- 	{ .compatible = "sercomm,sc-partitions" },
--	{},
-+	{ }
- };
- MODULE_DEVICE_TABLE(of, scpart_parser_of_match_table);
- 
-diff --git a/drivers/mtd/parsers/tplink_safeloader.c b/drivers/mtd/parsers/tplink_safeloader.c
-index b770f41ef874..e9b25e236eb9 100644
---- a/drivers/mtd/parsers/tplink_safeloader.c
-+++ b/drivers/mtd/parsers/tplink_safeloader.c
-@@ -138,7 +138,7 @@ static void mtd_parser_tplink_safeloader_cleanup(const struct mtd_partition *ppa
- 
- static const struct of_device_id mtd_parser_tplink_safeloader_of_match_table[] = {
- 	{ .compatible = "tplink,safeloader-partitions" },
--	{},
-+	{ }
- };
- MODULE_DEVICE_TABLE(of, mtd_parser_tplink_safeloader_of_match_table);
- 
+On Mon, Nov 16, 2026 at 11:07:13PM +0000, Bradley Morgan wrote:
+> On 11/16/26 10:48 PM, Mark Brown wrote:
 
--- 
-2.53.0
+> > though as the Sashiko report identifies we still leave ZA untouched if
+> > both ZA and ZT are omitted from the signal frame.  I'm not sure if it's
+> > safer to reject any attempt to return from a signal with PSTATE.ZA set
+> > but no ZA signal frame or if we should restore PSTATE.ZA to 0, the
+> > former is safer but the latter is more in line with the handling here.
 
+> Thx, do you suggest any remedies, id say sashiko is correct, but id hate for
+> code
+
+Probably the safest thing is to add something that disables PSTATE.ZA
+during signal return if we're missing a ZA record in the signal frame,
+that's less likely to break a userspace that's doing something like
+fully synthesizing a signal frame to return to.  We should be able to
+implement that by just disabling PSTATE.ZA before restoring the state I
+think, I'm struggling to see a use case for sigreturn with PSTATE.ZA set
+anyway so in practical use it'd just be enforcing the already current
+state.
+
+--rqQd8qHAhqzWc2jc
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmsHDN0ACgkQJNaLcl1U
+h9C4fgf/Z07pvMy1eTwb7q1NrkNWarLQ7ksHbK4sfw59+1CXhNUbtkmmram95Cun
+MPEWgl0j4Md/tbrZFEjCinWrE7UdyPVGogICUwV1+tbRHIvW98m5iIs8mGeo3yTq
+1asbqdUq2qO2oYEXNLGZHoNJKihxSnsLQYPR3XyH7Zjom2YckpseTCsFhPjwCTEj
+m1C45teGThtBJv4qlk36Y3yteHpBBZW/Eji8aHAiU/4JA5ddiat9VhkBvOJUBANy
+jYklGetr4TYi2btZIXVkIK9ICj/sPwu894gMbNkzGsQuWVBaNsFqn2ojr8wlTyGr
+3NxTIYtdgw6bwUg3HDAVIEAkUwNr4Q==
+=5saD
+-----END PGP SIGNATURE-----
+
+--rqQd8qHAhqzWc2jc--
