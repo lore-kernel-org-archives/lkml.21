@@ -1,102 +1,108 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795621415;
-	b=zZ9MX565TSK4jaJSPQxXIm62QFr3CdMtMLCgMgHa5PaVGDeZSWZvv0jQ+6ciezDSzP4x
-	 Ji/GtmE+SnH1UTxy2zUcASZvK5zxhVwTrtr3JFe5WGc2wx8EQyiYPiCXySx+N5cTfMV6Q
-	 LxegeIpxNbl9R+bvXWjxhf/kKaweqmuozaprIDsj8FVZfBughIEv33U3RjzYgquB8zRti
-	 jJtTmnEQLOT9odbLRJcygfA0Jtew4sXInqySqmTjFRuh3b/0bNpBOTj5F/eadaimLs2LM
-	 9fWpOCLjsDCpAXvGlXEQYd2HmwpNNepHsZqwR5a7PAZhaYm/+6v3A9pcYWlO+cbrM+w==
+	t=1795621458;
+	b=BsoJYD9lwBoMzA/YpZ38nXJbpkfDHmkNjqqRMzKabBqis/4zCmtVSnxE18U4QxoTofpU
+	 pptso2W5FZReRYVaAQlkrHJ/aOR9grY80pHdKxvy6/FojrZkyJrUdzCS/AtSe4llZwDIr
+	 zOW7iDPVMn0X5tqQ902vXlcYjYd7oD10nlg7i7AbPi4c8kupIfJWaImzYVhYIt6T5RRiT
+	 eaqzaGWuHog6eDzVHlUnQJGYldHOH5mfeMdxKl+N9/6FOIYXUVQRAn1AgCu0wnkiCceUb
+	 IH/gAQvulXWXr44ZqejlnT436qvujFL6VmFLXzruzhnDR+/gqgddrAGwsf9yqxeA5KA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795621415;
-	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
-	 DKIM-Signature:Received:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-Spam-Flag:X-Spam-Level:
-	 X-Spamd-Result:X-Spam-Score;
-	bh=IPWf29Ud9WhaTTrAL8Sio6mm9zTZA1n/ebtoOZ/3hzA=;
-	b=5l8DmQoEXdIN43v/j5F/1ZUrNvyFP2NxU4qQI4yF/Mn1T2xbSQ3uEMO+prOf0QnQ1f66
-	 26Fdq7q/zzcVitpMj9dPXigS9kcirQiKoB63XA8R7DoX7z3YGNN5bPaAtKd5N4QwbW6HI
-	 zAxoNZcbnPTtf5vudqeHeRjtZAyULs44v6YkuOTL7hUBiwb0nuiTkmd1h6tJjsQ3VQDl+
-	 +0kI921QLDCjq0jzN7EGNrnEQzGBdQA1M5xcLNV3ahY8UIaL1zdd7m4V/wJlxWLXkGAmd
-	 OU40XGSfzZcp5fIrVA1lsAtkbNgHIhZSxq7chQ/efQhW88Vyh9oZGnXgz545Lu6XosQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795621458;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:Message-ID:Date:MIME-Version:User-Agent:Subject:
+	 To:Cc:References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=iC7ojDwFiN7+I6mTjomu3O4mbkOEaFgiVWGSsXUSLq0=;
+	b=uilof9sxohQaCeLW+nb3IvBvVIXSiqXoosAD1Fb2Z2JIXVkkaj+cn8nNdCOjtBf2e0zV
+	 qMP0ModC5mw6IhKz/BIRm2nyPks3KYqBN6i4sBXETjYz8nFInWAkK8y6ZHf2H6L4Xu1FA
+	 eUa9AoImKuj8EDB+D+Sz/vnfT0+1B9qpmY+g3tN0gcs+tH0q7yupq45Icc+gOk8X8syWC
+	 gX3W/cVGZcbYltjPqNcEa9FPXSM3J5K9oMrKjEN22aal621CD+Yoi6rzTs7T+9BmUvycB
+	 1bC6aIDZquq7zYdxVcZ1GKwB+eow7Wbqabx8ISybLN4KylsP9eYi28XnJg5yDt1EeZQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.de;
-	spf=pass smtp.mailfrom=suse.de;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=PSgnByZw;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=J25ShKko;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=PSgnByZw;
-	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=J25ShKko;
-	arc=none smtp.remote-ip=195.135.223.131
-Received: from smtp-out2.suse.de (smtp-out2.suse.de [195.135.223.131])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=ISpPVjVM;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b="KX5Ys/n4";
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2965C606A327;
-	Wed, 25 Nov 2026 15:43:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2965C606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=suse.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5E4F2606A329
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:44:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5E4F2606A329
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=PSgnByZw;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=J25ShKko;
-	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=PSgnByZw;
-	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=J25ShKko
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 338161F855;
-	Wed, 25 Nov 2026 15:43:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1795621413; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=ISpPVjVM;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=KX5Ys/n4
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795621457;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=IPWf29Ud9WhaTTrAL8Sio6mm9zTZA1n/ebtoOZ/3hzA=;
-	b=PSgnByZwB70WlhPqQ1ZfFGP6kqEymEQM1aeRCnTyoIgL82qHayBMh8UI3if65skg1gcEXX
-	4jMhrTsuL1vMTA1U2gmwmdwN3JeRqMhDF/0uLpNCA3UF2KalQqm9YWTuzWQmvOe3oaxKwD
-	WmtN886VnWSKqiY+Vha3hsctDuhK2Z4=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1795621413;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=IPWf29Ud9WhaTTrAL8Sio6mm9zTZA1n/ebtoOZ/3hzA=;
-	b=J25ShKkozirXFEnmi/SBbmFOlqoUXJ6gC0cFrABl05JubDLAyndyiYeSJLqeGxWO9FujUw
-	TOqvx3MY7Hxn5rCQ==
-Authentication-Results: smtp-out2.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1795621413; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=IPWf29Ud9WhaTTrAL8Sio6mm9zTZA1n/ebtoOZ/3hzA=;
-	b=PSgnByZwB70WlhPqQ1ZfFGP6kqEymEQM1aeRCnTyoIgL82qHayBMh8UI3if65skg1gcEXX
-	4jMhrTsuL1vMTA1U2gmwmdwN3JeRqMhDF/0uLpNCA3UF2KalQqm9YWTuzWQmvOe3oaxKwD
-	WmtN886VnWSKqiY+Vha3hsctDuhK2Z4=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1795621413;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=IPWf29Ud9WhaTTrAL8Sio6mm9zTZA1n/ebtoOZ/3hzA=;
-	b=J25ShKkozirXFEnmi/SBbmFOlqoUXJ6gC0cFrABl05JubDLAyndyiYeSJLqeGxWO9FujUw
-	TOqvx3MY7Hxn5rCQ==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id C6D631339F;
-	Wed, 25 Nov 2026 15:43:32 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id VqI3JyQCB2vjNAAAD6G6ig
-	(envelope-from <hare@suse.de>); Wed, 25 Nov 2026 15:43:32 +0000
-Message-ID: <18f90b98-470e-4693-bf28-64d7cf3df078@suse.de>
-Date: Wed, 25 Nov 2026 16:43:32 +0100
+	bh=iC7ojDwFiN7+I6mTjomu3O4mbkOEaFgiVWGSsXUSLq0=;
+	b=ISpPVjVM0IfDMRAzsKQFVsk0Jf03agTxOgaC7YbhfmnYp4vYDjvPGtVJJN4t28kA8aw2N/
+	HKjrUadNbDeLjzJU+/MBEiGW3punruWB0617tCIWvHRBfZhU/8z6OudmkE/6jjX7MkKC/a
+	+MXH0IuS5yVbaOcUS5AQZ7oYbDusyKE=
+Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
+ [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-434-ei8LNe7rPxiB1FipijoE6A-1; Wed, 25 Nov 2026 15:44:15 +0000
+X-MC-Unique: ei8LNe7rPxiB1FipijoE6A-1
+X-Mimecast-MFC-AGG-ID: ei8LNe7rPxiB1FipijoE6A_1795621450
+Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-4a9be7586ccso3257747f8f.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 07:44:11 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=redhat.com; s=google; t=1795621450; x=1796226250; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=iC7ojDwFiN7+I6mTjomu3O4mbkOEaFgiVWGSsXUSLq0=;
+        b=KX5Ys/n49pTEdZfZdjbMiqQnSPDEpnUKjhFx1Aksr37iezPafiZW00icmLZtWoRIld
+         RFi7eK0gP8JXkcTtfq0UmnkPRxXM+YYffLWTyLbgQscto659f/FE/ZfKaFZY0EALuzo8
+         lDXXtHOClS0W1N5mUQ+eU5PL19px5ymyUzmSrDs9wsUYSMrvUnMxOQ1NJsYv2J+xie6N
+         AHrT9wNGClUOl74NEpE7IMR58LkasitOdQz31oSgxhIfRbiOU5n9hKJ8zktAk5h0qiUh
+         BEUL+JTRcW0xDX1kQ8ozi74HEzvBJdEBZLTLfcDo0+mqm0nCjRPQtuG9DZ5Pz5GbAoGI
+         1mpA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795621450; x=1796226250;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=iC7ojDwFiN7+I6mTjomu3O4mbkOEaFgiVWGSsXUSLq0=;
+        b=hjpNmQeVn5+bRhjlaDYAMVWl+4jkkP2ch4RzZERhq3m3GK1DSkJ8Cun3U1IntJUqja
+         DXGsv2gciao5TYgHhMTL5voXRLkYdTFZbojJ11KPtmA8EZBTAIEcgdthliziZY60SDdK
+         FMf0as0GtpkhVQfoNCnJiu1gzwlGBvL5JNmUKoXXBUnfKUuzCg9vTNlNivQqKKYMUemP
+         zuSmuZAdFxdZ3VSBB/Y/U09sXbQLMsiqmSW2RKkm1dgA6P9hWm3BPOg0mge8W+VTYKKJ
+         zDRk+6xHkhPGXbYmmYL1hF74WahjbUIGh3RpxYt5B6X1l7HYp6q8y+IErjCm1/PLC2qL
+         hpCQ==
+X-Forwarded-Encrypted: i=1; AL+hErGsmgc9aM5d1zsjmGG5hzpkDrB+qpUg1/W+nwPR70LD3PzLvBm1py5y4+dn8SN45qAc3LQFEO54laFT67k=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/atE8q3e0F2c0BqroS/v77tItHeUsen9Mvm9ZMapKwWuXEQmrI
+	c7v54/9mcCrVfBgZcX3uvjISj+JEjslS9LCswNA+zilGArJLVTwmYwi70tAgj5mFzmy0rhAg7oi
+	6/kl4ixuvxqwwZ1Y29qzvBL7zEURIbcauMezb4DhfNlzGlSvDOLYx0gpo0ggE68arBg==
+X-Gm-Gg: AZFdTZeDMxWn/04HLJtPz19ILwgSyVD7CsKkGmifQ505oewJlwKVlLlQS6C8/6TrTaQ
+	j39yzUYXMAPs9hCNKLE+gfek3UqpGCtja6QTJBTV4H62eAq8PJ7svJW3HJWZgoBxGm7KhkQSIoX
+	u8/AyLxp12dDWKXquOR/Nfdomc0L3//Ewg+plvfz1bcaP1xGi9Wt6loHhLdEozTLaYUCUBl8mt5
+	DEMnSgtkyqwvaG//zFwhNMEkugdRtg0JeiXbDKLC7jvfCvx40+jg6V643t3NFNI7Nh+yqEqFhZl
+	7okrNGkZv/b/wdBbx3yX9JgsWUQTtNhx6rMH1zRaitqwOX8biRuOHPOh0JUGUo+jb2n4PxC2E94
+	pW82wJtvAdVC2gls73EVEF9SwSIAcV/V+UnraMjzUZNNKCNMSaPifV512rvytORTKyFtq032Hmz
+	sHTSa/DlsF48Nqo/pBbWeFGJzwJdf3coUiJJp1uo0BjDWq
+X-Received: by 2002:a05:6000:40ce:b0:488:8347:a110 with SMTP id ffacd0b85a97d-4abafd02fa0mr38342900f8f.7.1795621450467;
+        Wed, 25 Nov 2026 07:44:10 -0800 (PST)
+X-Received: by 2002:a05:6000:40ce:b0:488:8347:a110 with SMTP id ffacd0b85a97d-4abafd02fa0mr38342866f8f.7.1795621450098;
+        Wed, 25 Nov 2026 07:44:10 -0800 (PST)
+Received: from [192.168.88.30] (ip231-128-192-82.pool-bba.aruba.it. [82.192.128.231])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6c61f558sm35600520f8f.58.2026.11.25.07.44.08
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 25 Nov 2026 07:44:09 -0800 (PST)
+Message-ID: <711567da-17c3-4ced-b7c6-e6e6b9376155@redhat.com>
+Date: Wed, 25 Nov 2026 16:44:08 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -107,125 +113,46 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 0/9] nvme-auth: switch to use the kernel keyring
-To: Martin Belanger <martin.nvme.dev@gmail.com>,
- Eric Biggers <ebiggers@kernel.org>
-Cc: Hannes Reinecke <hare@kernel.org>, Keith Busch <kbusch@kernel.org>,
- Jens Axboe <axboe@kernel.dk>, Christoph Hellwig <hch@lst.de>,
- Sagi Grimberg <sagi@grimberg.me>, Chaitanya Kulkarni <kch@nvidia.com>,
- linux-nvme@lists.infradead.org, linux-kernel@vger.kernel.org,
- keyrings@vger.kernel.org
-References: <20261123-dhchap-keyring-v4-v6-0-5082a49715ab@kernel.org>
- <20261123212105.GA18468@google.com>
- <692e91cc-e2ea-47cc-926f-6639952fb195@suse.de>
- <20261124201152.GA2227373@google.com>
- <851e3fa5-ad88-4470-877f-e977bb1a6ad9@gmail.com>
- <20261124213222.GD2227373@google.com>
- <c2163003-948c-49fa-815e-b1f91814a80a@gmail.com>
- <561e1abd-2430-4808-af99-cbdd3fd86d31@suse.de>
- <a71a3d9f-0f19-45f4-bc98-a5663ad537b2@gmail.com>
+Subject: Re: [PATCH net] tipc: validate peer address attributes in
+ tipc_nl_peer_rm()
+To: Ian Rogers <irogers@google.com>, Jon Maloy <jmaloy@redhat.com>,
+ Tung Quang Nguyen <tung.quang.nguyen@est.tech>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>
+Cc: Simon Horman <horms@kernel.org>, netdev@vger.kernel.org,
+ tipc-discussion@lists.sourceforge.net, linux-kernel@vger.kernel.org,
+ llvm@lists.linux.dev, Elkin Cruz <elkin@google.com>
+References: <20261119170556.1518068-1-irogers@google.com>
 Content-Language: en-US
-From: Hannes Reinecke <hare@suse.de>
-In-Reply-To: <a71a3d9f-0f19-45f4-bc98-a5663ad537b2@gmail.com>
+From: Paolo Abeni <pabeni@redhat.com>
+In-Reply-To: <20261119170556.1518068-1-irogers@google.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Spam-Flag: NO
-X-Spam-Level: 
-X-Spamd-Result: default: False [-11.79 / 50.00];
-	SUSE_INTERNAL_BYPASS(-9.00)[];
-	BAYES_HAM(-3.00)[100.00%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	XM_UA_NO_VERSION(0.01)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	ARC_NA(0.00)[];
-	FREEMAIL_TO(0.00)[gmail.com,kernel.org];
-	MIME_TRACE(0.00)[0:+];
-	RCVD_TLS_ALL(0.00)[];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	TO_DN_SOME(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	RCPT_COUNT_SEVEN(0.00)[11];
-	MID_RHS_MATCH_FROM(0.00)[];
-	TAGGED_RCPT(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,suse.de:email]
-X-Spam-Score: -11.79
+Content-Transfer-Encoding: 7bit
 
-Hey Martin,
+On 11/19/26 18:05, Ian Rogers wrote:
+> tipc_nl_peer_rm() documents TIPC_NLA_NET_ADDR and TIPC_NLA_NET_NODEID as
+> mutually exclusive ways to identify the peer to remove, but implements
+> them as two independent if-blocks with no fallback check. If a
+> TIPC_NL_PEER_REMOVE netlink request provides an empty nested TIPC_NLA_NET
+> attribute (or only unrelated TIPC_NLA_NET_* attributes), 'addr' remains
+> uninitialized on the stack and is passed into in_own_node() and
+> tipc_node_find(). Conversely, if both attributes are supplied, the second
+> silently overwrites the first.
+> 
+> Return -EINVAL when both attributes are present or when neither is
+> present.
+> 
+> Found via an x86_64 LLVM=1 (Clang 21.1.8) allyesconfig audit with
+> -Wconditional-uninitialized enabled; fix and changelog drafted with an AI
+> coding assistant. Build-tested under LLVM=1 W=1 and
+> -Wconditional-uninitialized; not runtime-tested over TIPC netlink.
 
-On 11/25/26 1:18 PM, Martin Belanger wrote:
-> 
-> 
-> On 11/25/26 02:26, Hannes Reinecke wrote:
->> And the other problem with your approach is that DH-CHAP
->> key don't actually have 'names'; they are just binary blobs.
->> If we want to refer to them by name we first would need to
->> agree on what the name actually _is_.
->>
->> What we could do is to store the key serial in struct
->> nvmf_ctrl_options; that would allow keysd to provision
->> the keys and rotate them via 'keyctl update' (or whatever
->> it's doing internally). And would get away from the
->> business of having to come up with a name for the key.
-> 
-> Yes, a key serial works for me. The kernel then needs no name for
-> the key. The key description stays a userspace matter:
-> 
-> - The admin names each secret in the configuration: the connection
->    configuration of nvme-cli or nvme-discoverd refers to the secret by
->    that name, and nvme-keysd's configuration (or the KMIP server) holds
->    the secret under the same name.
-> - At boot, nvme-keysd adds each secret to the keyring with
->    add_key("dhchap", <name>, ...). The name becomes the key
->    description.
-> - At connect, libnvme takes the name from the connection
->    configuration, looks up the serial with keyctl_search() and passes
->    the serial to the kernel, as tls_key= does for TLS. libnvme already
->    does this lookup today, to check that the key exists before the
->    connect.
-> 
-> For rotation, the serial must stay the same when the secret changes,
-> so that a connected controller uses the new secret at its next
-> authentication. For this, v7 needs an .update operation in the
-> dhchap key type (user_update() should do). nvme-keysd then rotates a
-> secret with add_key() under the same description, which replaces the
-> payload of the existing key. nvme-keysd does not need to know which
-> controllers use the key, and no sysfs or configfs write is needed.
-> 
-Okay, good point. Will be doing that.
+Testing your own patch is actually required. There are a few exceptions
+(i.e. h/w dependency with unavailable H/W), but this is not one of them.
 
-> For the sysfs and configfs attributes:
-> 
-> - For a key from the keyring, a read returns the key serial, as
->    tls_key and tls_configured_key do. The serial names the key the
->    controller uses. The description is available with keyctl describe.
-> - A write of a serial is rejected. The serial is set at connect, and
->    after that the keyring is the only way to change the secret. I do
->    not want a second way to change a key: a writable serial would be
->    one, and it would let a write point the controller at any dhchap
->    key on the system.
-> - A write of a raw secret (DHHC-1:...) keeps the current behavior,
->    because existing tools use it.
-> 
-> The same applies to dhchap_key and dhchap_ctrl_key in nvmet configfs.
-> 
-Okay, I see to get this included for the next round.
-I will also move keyring handling towards linking any additional keyring
-into the .nvme keyring for in-kernel usage. That will get us away from
-the problem of not being able to access users-specified keyrings, and
-also makes the internal interfaces easier.
+Please resubmit in a few days, after actually testing the patch.
 
-Cheers,
+Thanks,
 
-Hannes
--- 
-Dr. Hannes Reinecke                  Kernel Storage Architect
-hare@suse.de                                +49 911 74053 688
-SUSE Software Solutions GmbH, Frankenstr. 146, 90461 Nürnberg
-HRB 36809 (AG Nürnberg), GF: I. Totev, A. McDonald, W. Knoblich
+Paolo
+
