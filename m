@@ -1,85 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.13
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=51.159.59.229
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795648314;
-	b=yeoOZXSfJ7KOMsYLajiGBHUuBKzVdj/yWinPFowRA3HxpOKMRDe727oVnf5FEUYS+5A4
-	 mFRWJ/v+Me3muvo4o3Dd87mM89WWD1iZV6mUYoupnqVfBB1k2s8zScAfzY3ML1u9r9xnH
-	 ng7jmORcGMOZ2UcfnJlHXZXS5ZYeAgTuNYznjNwArbmF7DqrKNUOmRFZcmnxIQ/qO5pBR
-	 nQluzURO6JlWGvAbv/c5Mci/oYddeallELsr9K/4dlS9G90jvZP7aZpHVxJAMNif6xolf
-	 b4AU7NKjKP6TXCzLTnlvV7pl291hvOiqhyBHRQS6Sgx137nqkfBdLD8jg3of25DJ+tw==
+	t=1795648322;
+	b=qUVsdE2cGGeMg7qBsVyry34kHLF9YhBg4hXR5HSZoNyX2VNAC+b0VezOM3MUpyRHUJ0l
+	 +JnQY5m81o1qa9HvqsF8X1sKFxUexbstx4NZ57Ov83W19vLjal9KlFQ8i6lNfTuV8CSbp
+	 CP327raY1p4jdhW3r1PeTBK47bNPD0ih1XLAOyQko1gxH1+hwQSvnSt2dhgocs7inQ+Ym
+	 Jey5yLCbDjjGvwUNEkuMF5S2sof1kB4mhOu6DVS9/gbALkOAzOz2OspE9qh3oSm1K8Umk
+	 Jx5EM9fkfGaD4sDaVK+Le2GjQvYrPvH5aX5yNDepFIXWJ5KwOhKRmyLLYFMI9P+YV4g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795648314;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=xei6wpjeykoKjkdwpsJIscvNqWsoeVhdm4F9rN4EARM=;
-	b=Ae0NlUgC3cnluFZBbZR6iuLm30L0cWDvQW5zCDEQExzxvEikkrHapv+czz5NZoEOmXOV
-	 aF5h49JuUcuj1nMEkg8mejtmO5+J0t8k5TUlGvjy8hSRH6nBIceLqQOxGPSezQaKPL3cQ
-	 u+KHAzB9/Gz6OWtcYVJb7ZK2GLu6omZVXlT/dqupJTAm1LQr0ppZbh6u942Wforlbrbp8
-	 dnq2x67NvtNJDXc3fe0aTzdEDy0DnOLdCaRWwUx67ZqipdfNh/I79rN8d9lkBIoT79aYy
-	 xt2cze/CqQg2q3Up4T86gzcq/TA2AwNtDfmt8nV0p9HTrFztgcx8baifsM2xZcIIbRA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795648322;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=WoJMC9k45nXduaeGWiikgSM0h/+EJXvbBhCZ69eOchM=;
+	b=WBoTPlzAe76jg+BgS8BRolOGmjt67UE1++xd5JMMSSCuf1VVPeLzg9UllO7j6gBwfwyj
+	 yC+B75L/0/LviSdjUagQWYeCrluxHmNU/X4+7rL95iHZUOekz+XfW7DX/LVbRWhjSY5ZY
+	 jNZndVVRHE6OyCuXcwsi0KIyuz3G6DUF1v0q3o20VBVX+O2simIarjbMLx66S1NXif6v+
+	 he4kGJaBNzweYdp/ytj3bgYUHDvw5AK84U56XHG4/rW9VYAArSM3Vhh7QQPQ992UVSzQ4
+	 ewVpPnulCu0f5vgIT00ZZLv0GBxSeAZ0OGxaw9pXDYatfnsPSR89FQ51JBo+AF9035Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=KPKguQPo;
-	arc=none smtp.remote-ip=198.175.65.13
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.13])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=1wt.eu;
+	spf=pass smtp.mailfrom=1wt.eu;
+	dkim=pass header.d=1wt.eu header.i=@1wt.eu header.a=rsa-sha256 header.s=mail header.b="Wl/eduvZ";
+	arc=none smtp.remote-ip=51.159.59.229
+Received: from mta1.formilux.org (mta1.formilux.org [51.159.59.229])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A6E58606A32C;
-	Wed, 25 Nov 2026 23:11:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A6E58606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 922B5606A326;
+	Wed, 25 Nov 2026 23:12:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 922B5606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=1wt.eu
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=1wt.eu
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=KPKguQPo
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795648313; x=1827184313;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=dzUiYw7RDREZjYycHCyL464Tmr8VJwaBAZHAwVtU6ZM=;
-  b=KPKguQPo8udx7QEo6TSeZLa5Lpm7/Ti4mvTiIfhONVJnhoUota9y1k3K
-   xH6uwj6MhL2+B2K7Lu2RGwGV4jJoZZUz8gLo2bJmZ4r/tQ9Z7pGCQnULI
-   M4THyC9FFZA0CYcmULZq6mX1Kj5A2jGbudwpHqwJ5s69UqcY2tzFEuntj
-   0W+y6XgwT7VHH91ES3h0J4zo3dIxNupnLkFUagxVGPpxV/Y6SkRGlY7K5
-   yghL+Bg3H1MC84mT0GfuAV7MKeSFytL2Flw8EKwYC323CpxXycYLmHVTT
-   77lDvO7+jLSB7Zn9fcgvlrZfWwDm7lPFDrGHuPQfe/bbZ6qWn7/bG3rUZ
-   Q==;
-X-CSE-ConnectionGUID: 3YYHfpiaSBmXhT7Pn4FOQA==
-X-CSE-MsgGUID: 28Y9emnaTISdG4gx/7JoUA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4451826"
-X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
-   d="scan'208";a="4451826"
-Received: from orviesa005.jf.intel.com ([10.64.159.145])
-  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 15:11:50 -0800
-X-CSE-ConnectionGUID: +eVxzqAmRsCPSRlK11uPcw==
-X-CSE-MsgGUID: beHvVDKIROaw91HVJryJew==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
-   d="scan'208";a="11874527"
-Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.96])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 15:11:45 -0800
-From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-To: linux-pci@vger.kernel.org,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>,
-	Rob Herring <robh@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
-	David Matlack <dmatlack@google.com>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
-	Helge Deller <deller@gmx.de>,
-	linux-parisc@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-Subject: [PATCH v3 13/17] parisc/PCI: Convert to pci_assign_unassigned_bus_resources()
-Date: Thu, 26 Nov 2026 01:09:12 +0200
-Message-ID: <20261125230925.2441-14-ilpo.jarvinen@linux.intel.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261125230925.2441-1-ilpo.jarvinen@linux.intel.com>
-References: <20261125230925.2441-1-ilpo.jarvinen@linux.intel.com>
+	dkim=pass (1024-bit key, unprotected) header.d=1wt.eu header.i=@1wt.eu header.a=rsa-sha256 header.s=mail header.b=Wl/eduvZ
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=1wt.eu; s=mail;
+	t=1795648319; bh=WoJMC9k45nXduaeGWiikgSM0h/+EJXvbBhCZ69eOchM=;
+	h=From:Message-ID:From;
+	b=Wl/eduvZLVdy8IHIaB5qrLv64bYycFfEYyWVUbPAYUW/eT6/m1NvOmh5doisIiEB/
+	 VXwQf+znWQnPVdwLZPI56VVWgN/mXhe0ivSSHy0r8oNOseL6AJx01vsMvaxD4RF3I8
+	 0lzeeunpPOoShcqmBUOYcCQ3/FkQ8hkBQBIuEKa4=
+Received: from 1wt.eu (ded1.1wt.eu [163.172.96.212])
+	by mta1.formilux.org (Postfix) with ESMTP id 25E86C0701;
+	Thu, 26 Nov 2026 00:11:59 +0100 (CET)
+Date: Thu, 26 Nov 2026 00:11:58 +0100
+From: Willy Tarreau <w@1wt.eu>
+To: Bagas Sanjaya <bagasdotme@gmail.com>
+Cc: Jonathan Corbet <corbet@lwn.net>, skhan@linuxfoundation.org,
+        Randy Dunlap <rdunlap@infradead.org>, workflows@vger.kernel.org,
+        linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+        netdev@vger.kernel.org, gregkh@linuxfoundation.org,
+        Johan Hovold <johan@kernel.org>,
+        "David S. Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>
+Subject: Re: [PATCH v2 05/14] docs: security-bugs: explain how to send a fix
+ that can be applied
+Message-ID: <awdrPui-KI-SK_5N@1wt.eu>
+References: <20261114190014.17826-1-w@1wt.eu>
+ <20261114190014.17826-6-w@1wt.eu>
+ <awdqgBF62SOKaU0Q@archie.me>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -89,37 +68,33 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <awdqgBF62SOKaU0Q@archie.me>
 
-The Dino PCI bus driver assigns resources using
-pci_bus_assign_resources(). That function makes bridge window sizing
-disjoint from the assignment phase and is going to be removed.
+On Thu, Nov 26, 2026 at 06:08:54AM +0700, Bagas Sanjaya wrote:
+> On Sat, Nov 14, 2026 at 08:00:05PM +0100, Willy Tarreau wrote:
+> > +Most fixes sent along with reports cannot be applied as-is because they were
+> > +damaged by the mailer or lacking a commit message, forcing maintainers to ask
+> > +for a resend. A fix must be applicable using ``git am``, which is most easily
+> > +achieved by letting git produce and send the messages (see
+> > +Documentation/process/submitting-patches.rst).
+> > +
+> > +When the fix is meant to only be sent privately, the preferred method is to
+> > +send the report as a cover letter of a series, followed by the fix::
+> 
+> Documentation/process/submitting-patches.rst guidelines also applies to
+> privately-sent fixes, no?
 
-Convert pci_bus_assign_resources() to
-pci_assign_unassigned_bus_resources(). If no other bridges are involved,
-the extra sizing should be a no-op.
+Yes, why this question ?
 
-Tested-by: Helge Deller <deller@gmx.de>
-Signed-off-by: Ilpo Järvinen <ilpo.jarvinen@linux.intel.com>
-Acked-by: Helge Deller <deller@gmx.de>
----
- drivers/parisc/dino.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+> > +
+> > +  $ git format-patch --cover-letter -1
+> > +  (edit 0000-cover-letter.patch and replace the subject and text with the
+> > +   report's subject and text)
+> replace the subject and message body placeholder as appropriate for the report
 
-diff --git a/drivers/parisc/dino.c b/drivers/parisc/dino.c
-index 286f4f75dba7..da75ba15faf4 100644
---- a/drivers/parisc/dino.c
-+++ b/drivers/parisc/dino.c
-@@ -1050,7 +1050,7 @@ static int __init dino_probe(struct parisc_device *dev)
- 	 * if it isn't, this global bus number count will fail
- 	 */
- 	dino_current_bus = max + 1;
--	pci_bus_assign_resources(bus);
-+	pci_assign_unassigned_bus_resources(bus);
- 	pci_bus_add_devices(bus);
- 	return 0;
- }
--- 
-2.47.3
+That's a wording detail / preference, not going to respin a series for that!
 
+Thanks,
+Willy
