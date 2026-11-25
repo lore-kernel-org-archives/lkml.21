@@ -1,111 +1,109 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795600399;
-	b=a5tHSdGLQxZJvPx/WylXtJgHH9C4n1E4nLHq2Z8MuFK/uF9vUXn665l3lPOqISaV57fr
-	 cd6I3b0sssnVCBm0dx0ihnZ0Tg4ic18nBMY8w7dvu1++hRuFWXQbrnnNOWO8IOVhNYCpx
-	 Z7TyHG0sc8nNoA6NnJ72AnbCtHVxTuJ5L6HRRnmZJAJiwDXAt00M6EpovnOFxqHablor4
-	 0T1NkZy12D8VwaeXz3u3i+2rMmxjYJV0MjVZ+U7RhRiOO73dcxE6OBiaa5T4D5Yilv7pw
-	 WRt+QJBsdDp6PK5t99hnfwWxZPpj83steV9k8lZB0daoO0cqx69AHvA45b0r/6SdMuQ==
+	t=1795600457;
+	b=bv7z8FGZXCxNj+SCIlmN3bG9DMqEGIVBF8EhM1V8lJJQZnacFz3o0FC2eBlGskm+cCTt
+	 qSBidIyzOSDwfMA6u/0au9Iz22LTlFc1YYKh9R6QdBJ3xVXfyDhKmLUTOY5QazQSVAUtv
+	 jyt+a77sA+QT3DrSxXnTw1lgidm4owRXiEh9FUJYmccxfDsHWEz3iccrIY0ExMBDbkcUO
+	 LtnTc2+PqNebwwyU2uGdpScgS2ywie2GOHO92nYq74S/vOuYOI4czPGs77G2KRMawnIg/
+	 4jU5RaU2Ug6u2Iz02FMR+pfOJMfsB7zXqkN5FckfaS9/P4kfo8sk3UGJKko/RAKzHNA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795600399;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=B9V0PzERPQ/DZr9vQmTdOy6qbAlEsvFj55AbXqdY/4M=;
-	b=q+W2dGeUYFAskSZMa4/1epp5dk/Ci9Kbva001CzB3e1+A+APSSsTbr5ykupbm94cGEzs
-	 uYxXTOQMyrRtszHa57XvQJsuTi+IpYhM3n15Uco57SsuTW5Lmod5m6qwb1t2rZZ1b4q85
-	 gh2r88Z85R/gGvMOC2GhQSx1NHW2MwCkOfvKYFD9S7LPbo2eHlrYQ7KBvJo9jTxN2QMca
-	 aQAx1C5GnkMcdLbkDMlgHZ2eOCy3UpioKPXlJ7ZMEyxS90oIaJawkBnzqQyR0mBEuj4Ev
-	 eU1+3ervlU4ES9tdYKOYmsdhmqPqsAFcKmm/24mr7yEexNw95xdbInFTH2ZgygIBysA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795600457;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:Message-ID:Date:MIME-Version:User-Agent:Subject:
+	 To:Cc:References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=8j77gnC9f+YQDzQiii69TniEPAX1CGFfmc9mLCWwyuA=;
+	b=EAY+FahqbhITp/uoBgObf5CiWF9fPDFAVUMZ9HOkI2uvn4nrqZI26bXL0kIYO+SY/0SX
+	 5iY2Za/1TkUkVdKAXJ0LRrdvvcSr540rjJNxdQxc8n9WpV42liDM8Ao3f8PYhKtMMkSUX
+	 le6MRTQss/7AKikotT/kw3W+MlegRvMg/vQ+D5gL1N+gqE1B6roXhlOKSoqTquK0PExLe
+	 /3zq18XrlJ5y5IUxD+MWyi1DR5xW3BliDFoZ9eQKURpgPh6KdRXE2MICP8f7eirKqg7OG
+	 bhPdrhsnVrsx2Xjkr//EgpI88MntVSdIifgoPEgruV/1YkqsMItQsUrHcCkwMZ3xSOg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=c90SPQ0D;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=R7EbDZjP;
-	arc=none smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=OVLK3Opq;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=lGPeFG0c;
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6E345606A31E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 09:53:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6E345606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3CFC6606A321
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 09:54:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3CFC6606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=c90SPQ0D;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=R7EbDZjP
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AP9mGSL3126484
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 09:53:18 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	B9V0PzERPQ/DZr9vQmTdOy6qbAlEsvFj55AbXqdY/4M=; b=c90SPQ0DmhnIfA3r
-	fBrKNi5CwIVs9Q8Y8e8HNHuZfGGLUTD2ALfns6N3iIW/vOOtX7VuYnZj5H11z8CC
-	zw6ViY0s1Px6n7wqZlubqL/Wa2dOIJhkuhnIyl7ZLROz+HFrWuJfYuH2oekxqtRj
-	5ioWP54l+lu+gYEHXfKxwZy0SeDJnMPLAZa0I3GbdpXiseygAHC5tej/p5sLK6/E
-	fS4s0bp7PoCZgum5wnkiAzhWNFtktcXCHYSYQrhgsQ3lz00vazOJPXSEu0MbdTIz
-	yYBAEo5sJswRwCP/AUxrb+tlJS/RMRLWRDCrJ8BplFv50zlyUIwZFaeFKDypjQb2
-	+sT2Iw==
-Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j5eydbhq7-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 09:53:18 +0000 (GMT)
-Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-949d87937d8so29083985a.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 01:53:18 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=OVLK3Opq;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=lGPeFG0c
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795600456;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=8j77gnC9f+YQDzQiii69TniEPAX1CGFfmc9mLCWwyuA=;
+	b=OVLK3OpqPZ1PbW4YzsjZL1srx4DJiiDmin7qScR8QJwA8Uu1Rs14f9qPohv7P2GHulfZA7
+	u6KFHEEUWbJ62peWvhbSKqOORhB3SjqNIRKcKNZXL0GewMpRUelU2qsy/n4fM5vUB1CKpt
+	DNLCDbXitLV6uDjr3kMj3vXeRpzx2D8=
+Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
+ [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-551-0jfX5_WiPHKHh2H_MGVrfg-1; Wed, 25 Nov 2026 09:54:14 +0000
+X-MC-Unique: 0jfX5_WiPHKHh2H_MGVrfg-1
+X-Mimecast-MFC-AGG-ID: 0jfX5_WiPHKHh2H_MGVrfg_1795600453
+Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-4a82fb7e71eso3068643f8f.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 01:54:14 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795600398; x=1796205198; darn=vger.kernel.org;
+        d=redhat.com; s=google; t=1795600453; x=1796205253; darn=vger.kernel.org;
         h=content-transfer-encoding:content-type:in-reply-to:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=B9V0PzERPQ/DZr9vQmTdOy6qbAlEsvFj55AbXqdY/4M=;
-        b=R7EbDZjPGaEBase9KgRYE0IHmnWVQOwuCZ/YImwh36sGP4vesRKRgQCV9jtegfXoXn
-         tdWHE9TPqkQK79g8jh+Ci9nxN4Yf36BtVPT4YtpkZHuaRzyPWhDLEyV5o+B4UdUxTW6a
-         5uP6Ji5oEepSlVy7aZipzvFEWl5wagXuBI//5PK9zCgpk6tPtSe9dVzWSeH+s+3g//fv
-         9Pr4oU6uLkAeGW5F2IlXJbrCl3RVyEgsY6tadBwv7lx2GBOgbOUgbW6AWzFSsqsEgDzY
-         T5Vr9bBtWlApPl5F70Ttjnso1NmgXXe+6Lu3QmSUte2EVWLn/Fg5XujPp6ILAQGbDBey
-         6zZw==
+        bh=8j77gnC9f+YQDzQiii69TniEPAX1CGFfmc9mLCWwyuA=;
+        b=lGPeFG0cRCQh9LMxzgDoeNiPhYWke8l4sBHYOldXpF7zOUVAYWWSA65C1zDnNKYOYr
+         H3w/aMztZbScZcTP5vZxLG7FVj8rblV2nn01PmRZv7xAJiSX3RXhvNOlv72TDEljhDm/
+         5ZFB85WG9CJ3jqv1thHn/gTp9yKXh8neTDZS3PCCK9TK/ofTMPrEEhMplRBBUEVw1ggL
+         dBQmbNyZcLn988SGNRGHhSYjME2eb/aNZKHJj5CRzX0tOrsYBXBC3Mqtseg5d3vbWM9e
+         dZFZI/UCV79kuc41GqE8wE54RDph9ScEf5CKrdOf1zbrsEIT1frw9++VdpDdgwCzC6LH
+         Prqw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795600398; x=1796205198;
+        d=1e100.net; s=20260707; t=1795600453; x=1796205253;
         h=content-transfer-encoding:content-type:in-reply-to:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=B9V0PzERPQ/DZr9vQmTdOy6qbAlEsvFj55AbXqdY/4M=;
-        b=1Q8sLT4Z35Gx5oztplrJ1kiwmt0moXkYfFUBDyFCug2Jq8Y1iQb/r7m4S0vMnmSGqm
-         n+w2KT5N0osnxA6ViyuYU+gDy5VJ1eV6iW4LGDpHyUly666sx9L/jrzBN88EScFhiBFt
-         HZ2PUMs1AMN0FmOeEwjtXVRraVobsDaMSNZPDSxo/+gbmINmPeoCb+dhZ1fsxNDwqpPm
-         ULPDitE5OSiq5wrX2yxTsh1jJGrd5geRqHg5nMlYAEQ0k7Ystjwjtm/I66VAtw4Qu5mb
-         cwgb0aeoV3Cc+VRrGqSHJvsD/Y3J9Mpp9fdksOjRIXAe7IrRfJqSlI/xnHcZnuRr6bXm
-         QVmg==
-X-Forwarded-Encrypted: i=1; AL+hErGYzus1BA5r/Xh+yokH0b83kPJqDsEkiWJr4jUr9QY5q7OkNzT+3ZkI5afCqMGAGtXrtQkiU1qWKT20huo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+RsdK96vjSn0PCHbbawQsDhQ4iO5jaz0thb7dDmfSqQW61cQDa
-	lKlJ4oQoy7a/6XmAqMpfqCzQAq/3xIb8SqOHa58VJsF7xUu+RT2HNNWJniuzM8ytCQ+8xx/CwyB
-	A/Kl1eu1OKo/B27VWK+efHIjr7fRlNLM48PTFEWSWeJCagaOKj7cwj1Ic0ldEeVWyB6Y=
-X-Gm-Gg: AZFdTZeu58Pk+GzBKTPl2DuLM48QtIq3Sv6E8nDJ8V8Mig/2UvVyuCDNUs9q3/rg5hI
-	+XgQhZbkiw6zlb1zQKKKrTtWEh+r+k3DDOsLiHokmEHzku5HDzFbMgsJdsW1zWOoacapbzaD4us
-	iF1fZ4aQS5NbsGai1jxAuWKMX4WOQ9Rm4EGcU9SfDlFEbEQAd/2eI+tSKYWbaip+2sVEnNGie8D
-	aw3PzEEwDZ2C6NeRyEkmqH6uEpOP44qfaC4eSgbWFF4SR+/+nyaRHRyWIkPu3UzpaNOGX6+di6/
-	IqjOuo9n0qCW1bNB1q5d8q0KK9wkGVy2kgF6IEapF/aI7TuuLR9pJ2tT94N8Tp8EiX5n8l/mRdw
-	cm+GEXzZ9N4GQTFEy+XmAXS/uC4I/qQr3yFa4zPnIMU1UbWXZ4nSXQfEzLTWeOkd6jYOD+nY=
-X-Received: by 2002:a05:620a:6f8a:20b0:945:ede4:d247 with SMTP id af79cd13be357-949ba82824dmr2847962985a.1.1795600397639;
-        Wed, 25 Nov 2026 01:53:17 -0800 (PST)
-X-Received: by 2002:a05:620a:6f8a:20b0:945:ede4:d247 with SMTP id af79cd13be357-949ba82824dmr2847960185a.1.1795600397077;
-        Wed, 25 Nov 2026 01:53:17 -0800 (PST)
-Received: from [192.168.226.72] ([178.235.128.140])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513ae68802sm622707866b.28.2026.11.25.01.53.14
+        bh=8j77gnC9f+YQDzQiii69TniEPAX1CGFfmc9mLCWwyuA=;
+        b=v3fGi7Tl3N9p04XVPQh167EOl36avN/tHXM2rFXfUETJeb0IKm3Ua1IAHgAbjhTo0+
+         GeMAQ+5lqMqOSJVGlht9qU8fm8XSvTb89gyyvwF608LaJ9n0sc1y8m8ZaUyQ86AqhT6H
+         y7A8Y7gYMV5pgN9uamQmOSDn/zLskPr4QtuV4cnUk2Kr7QNJqOI2wI9ACD0arQNfhabr
+         TapPMX5mKf/erIyoljT5Ht/SZkk32TfGxgTaV827SLUElyn8ARC4wXxDXR0fICxIEYst
+         kQZGk6oztn2trbgo8vLVHBMIprQjwlNRVrk+UClYhvUjHKrVK5NzpKW9AjBJMlioxZcl
+         RFNA==
+X-Forwarded-Encrypted: i=1; AL+hErEVYY0IdaYy0xKmLWcxYL1meOUpou0K5kCeGZBPHQIqWpz7fgEZuTiKzgCZAFRPiJu6I0gGiAFjWEZlmZI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z94fvXP8Zm4n8XWPiDxV9Ui8jH1vWUUD+HUrOfvtJ+nucTJwFBz
+	jPIQ688hFhp79pcXRDJeL63L4eyiOLlV5i7GWg41qBd4+b5Nwy4yIsJzpSLXm7fqp0f12KB7Ygt
+	/f6RehgLLmy8vyfm4G8PAFzZHROlDQ7E57MsS+Vg9O32jWLCqD4O4g0l7NzMndy9kQ/JjeVv/hw
+	==
+X-Gm-Gg: AZFdTZef1EIfPhewaY/el3503W7tx+/09AhF4ouYi5PI4uA4TGFXCKdVzwGfjMwGwcm
+	1g3ZKfSHla4hEH28soV3G5Z2OYmpxIGtv+jrs+eCCC5iGQruwMuGB1lavc4SHKYx4Sui5FX254z
+	TJNSOoVt9QiOUeNKTvfUN7vfPv983fPUCPzwz93+Dd0Rp6nCNGOuLMih/jjV0HZ6lHV7ycviZFf
+	KUl/vPnQ+zXMDeRCaSB/kVI1Hx7TYzVziBpZXeVa5zPc2JzOIhDfiRE9zM5fHDakNitTNxh8SUB
+	eaqreuaixaoWc6V9OylwTRbzeu6EaEuELRbUqZCJytUU2E7B0xETXilDq79ocjt5VIypRCyRCEv
+	HYF2BDLE5jViceZmDkf85LODtW+Ykn52wI/7Y9q/O832Hk/RER9mKNwVkntxLYthK4L24fWcqGJ
+	Du9fdrYxlzaFlouA1LZ57lOLGulzATy2JwuWfIQn70vLX5
+X-Received: by 2002:a05:6000:490f:b0:492:a72:9303 with SMTP id ffacd0b85a97d-4abb47b242fmr33264156f8f.22.1795600452971;
+        Wed, 25 Nov 2026 01:54:12 -0800 (PST)
+X-Received: by 2002:a05:6000:490f:b0:492:a72:9303 with SMTP id ffacd0b85a97d-4abb47b242fmr33264099f8f.22.1795600452493;
+        Wed, 25 Nov 2026 01:54:12 -0800 (PST)
+Received: from [192.168.88.30] (ip231-128-192-82.pool-bba.aruba.it. [82.192.128.231])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab9cf005f2sm27250433f8f.45.2026.11.25.01.54.11
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 25 Nov 2026 01:53:16 -0800 (PST)
-Message-ID: <30485a94-cc85-4c64-8593-a2218a3aa59d@oss.qualcomm.com>
-Date: Wed, 25 Nov 2026 10:53:13 +0100
+        Wed, 25 Nov 2026 01:54:11 -0800 (PST)
+Message-ID: <05ca76ec-3a6d-4ab4-ad88-86f95a793369@redhat.com>
+Date: Wed, 25 Nov 2026 10:54:10 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -116,86 +114,200 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: qcom: shikra: Mark cti_riscv device as failed
-To: Jie Gan <jie.gan@oss.qualcomm.com>,
-        Bjorn Andersson
- <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Abel Vesa <abelvesa@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
- <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-        Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
-        Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-References: <20261116-disable_riscv_cti_for_shikra-v1-1-d7cc81f901e0@oss.qualcomm.com>
+Subject: Re: [PATCH net v2] vsock: only undo SS_CONNECTING when connect()
+ fails
+To: Bobby Eshleman <bobbyeshleman@meta.com>
+Cc: Michal Luczaj <mhal@rbox.co>, Stefano Garzarella <sgarzare@redhat.com>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Simon Horman <horms@kernel.org>,
+ George Zhang <georgezhang@vmware.com>, Andy King <acking@vmware.com>,
+ Dmitry Torokhov <dtor@vmware.com>, virtualization@lists.linux.dev,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Kyle Zeng <kylebot@openai.com>
+References: <20261117-vsock-connect-close-v2-1-db5388323770@meta.com>
+ <ed28d36a-682e-4db5-abf4-1339734e7c57@rbox.co>
+ <awTJ8EOl52W0ph1K@devvm29614.prn0.facebook.com>
+ <ebb9c249-85bf-4737-841f-ab6ddcaab5a9@redhat.com>
+ <awXz6yo12ZOQPE8E@devvm29614.prn0.facebook.com>
 Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <20261116-disable_riscv_cti_for_shikra-v1-1-d7cc81f901e0@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
+From: Paolo Abeni <pabeni@redhat.com>
+In-Reply-To: <awXz6yo12ZOQPE8E@devvm29614.prn0.facebook.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI1MDAzOCBTYWx0ZWRfX2r5i2CEZCCox
- XswPjrWeYZFX87qlPmRJV8jYvM8J/Sfh5KwQrugPBEdamb9UuN27EWfADgLyCLbixwFgvCxd1L6
- RbLCkGKp2W7T6xp8z3PstBaTKxPeWkE=
-X-Proofpoint-ORIG-GUID: xEnFsjm8rzf5bHPsYbZED1PphKo7Qc7e
-X-Proofpoint-GUID: xEnFsjm8rzf5bHPsYbZED1PphKo7Qc7e
-X-Authority-Analysis: v=2.4 cv=GIGdgeNK c=1 sm=1 tr=0 ts=6b06b00e cx=c_pps
- a=hnmNkyzTK/kJ09Xio7VxxA==:117 a=PRfkaYvzSr8QmIIGAkY2Sg==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22
- a=EUspDBNiAAAA:8 a=K9kiO-SBJ6ozCPIvxsMA:9 a=QEXdDO2ut3YA:10
- a=PEH46H7Ffwr30OY-TuGO:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI1MDAzOCBTYWx0ZWRfX0PRp4eNkvi8T
- 3OtU597d7j2gQAfQz2JkTM46w0MlKYbB0YfVlQsLkEPerhTFiUf1fZsP0WIsuQxj9WUqBNkJVKI
- DqaEcHCaDvea9ZIzi5CWS1dLjQkAp3AE7KFmThTPL1hfS6Wx77+yHI8bPqKF8Nv0QhXSjz4zn/V
- u4fH9VktjbV/4DhSXDXtYnN27plu/cnsZxY3iIPbypqo1OmdKtTVGRFd84QQxJcVCG3HXK9l/Wu
- NLonGUvOaxhQR6eb9em8tquDBzu4TSnAVAbsHFxsO/dsKbEf2L9+f3h+nDAFI1E2Yq3TVOJH/OT
- cQx6O7OJ9qLiNjNn7eX5sn64p0f/H2yDFwmjiayfxw9QUN20hycxTnn6ayLw2hOKdwqqP0dNwZV
- e6QVZ22E5Nnemt76AphSCq+zjYvtY4Di4pYZSVpPkSjt6p6fA2ux2PNMLcPLXoQ+staeIKSZkbi
- eVj8fgYOeniP627U3hQ==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-25_03,2026-11-23_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 adultscore=0 lowpriorityscore=0 suspectscore=0 clxscore=1015
- spamscore=0 priorityscore=1501 bulkscore=0 malwarescore=0 impostorscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611250038
 
-On 11/16/26 12:03 PM, Jie Gan wrote:
-> The cti_riscv device is suspected to have a clock vote issue on the
-> KVM enabled path, which causes the device to crash during bootup. Mark
-> the node with status = "fail" for now to avoid the crash.
+On 11/24/26 21:30, Bobby Eshleman wrote:
+> On Tue, Nov 24, 2026 at 03:39:17PM +0100, Paolo Abeni wrote:
+>> On 11/24/26 00:19, Bobby Eshleman wrote:
+>>> On Sat, Nov 21, 2026 at 07:32:15PM +0100, Michal Luczaj wrote:
+>>>> On 11/18/26 02:34, Bobby Eshleman wrote:
+>>>>> vsock_connect() sleeps with the socket unlocked. Meanwhile the transport
+>>>>> can complete the handshake, setting sock->state to SS_CONNECTED, and then
+>>>>> reset the connection, e.g. in vhost_vsock_reset_orphans(),
+>>>>> virtio_vsock_reset_sock() or vmci_transport_handle_detach(). When
+>>>>> connect() gets the lock back, it finds sk_err set and moves the socket
+>>>>> back to SS_UNCONNECTED. Userspace can then connect() the socket again,
+>>>>> and a connect() to a CID on another transport makes
+>>>>> vsock_assign_transport() release the transport the socket was connected
+>>>>> on.
+>>>>>
+>>>>> Only move the socket back to SS_UNCONNECTED if it is still
+>>>>> SS_CONNECTING. A socket that got connected stays SS_CONNECTED, and
+>>>>> another connect() fails with -EISCONN.
+>>>>>
+>>>>> Likewise, only move sk_state to TCP_CLOSE if it is still TCP_SYN_SENT.
+>>>>> Otherwise a second thread blocked in connect() on the same socket can
+>>>>> time out after the first one failed and called listen(), and overwrite
+>>>>> TCP_LISTEN.
+>>>>
+>>>> Ohh, this took me a while.
+>>>>
+>>>>> +/* Avoid breaking the socket when another thread has changed its state while
+>>>>> + * we were asleep.
+>>>>> + */
+>>>>> +static void vsock_connect_close(struct socket *sock)
+>>>>> +{
+>>>>> +	struct sock *sk = sock->sk;
+>>>>> +
+>>>>> +	if (sk->sk_state == TCP_SYN_SENT)
+>>>>> +		sk->sk_state = TCP_CLOSE;
+>>>>> +	if (sock->state == SS_CONNECTING)
+>>>>> +		sock->state = SS_UNCONNECTED;
+>>>>> +}
+>>>>
+>>>> I was wondering why not
+>>>>
+>>>> 	if (sk->sk_state == TCP_SYN_SENT) {
+>>>> 		sk->sk_state = TCP_CLOSE;
+>>>> 		sock->state = SS_UNCONNECTED;
+>>>> 	}
+>>>>
+>>>> and I think the only reasons we can't say "SYN_SENT iff CONNECTING" is
+>>>> because shutdown() can flip SYN_SENT/CONNECTING to SYN_SENT/DISCONNECTING.
+>>>> On connect's failure, the blocking path kinda-ignores such shutdown() and
+>>>> resets the socket to UNCONNECTED anyway, while the non-blocking (i.e.
+>>>> vsock_connect_timeout()) also consults sk_shutdown != SHUTDOWN_MASK.
+>>>>
+>>>> So how about being consistent:
+>>>>
+>>>> static void vsock_connect_close(struct socket *sock)
+>>>> {
+>>>> 	struct sock *sk = sock->sk;
+>>>>
+>>>> 	// we follow vsock_connect_timeout():
+>>>> 	// TCP_SYN_SENT implies SS_{DIS,}CONNECTING;
+>>>> 	// and we do check sk_shutdown
+>>>> 	//
+>>>> 	// or am I missing something?
+>>>>
+>>>> 	if (sk->sk_state == TCP_SYN_SENT &&
+>>>> 	    sk->sk_shutdown != SHUTDOWN_MASK) {
+>>>> 		sk->sk_state = TCP_CLOSE;
+>>>> 		sock->state = SS_UNCONNECTED;
+>>>> 	}
+>>>> }
+>>>>
+>>>> What do you think?
+>>>
+>>> I think we could say TCP_SYN_SENT implies SS_{DIS,}CONNECTING, but
+>>> probably not the reverse... without a peer on the other end our connect
+>>> request gets an RST reply, switching to TCP_CLOSE but leaving untouched
+>>> SS_CONNECTING. Using only TCP_SYN_SENT then skips resetting
+>>> SS_CONNECTING to SS_UNCONNECTED, and future connect() retries hit
+>>> -EALREADY forever.
+>>>
+>>> It seems to work for vsock_connect_timeout() because that function only
+>>> needs to test if the attempt to connect is still pending (if yes, then
+>>> close everything up), but vsock_connect_close() needs to know more
+>>> precisely if the socket still holds the state that this current connect
+>>> attempt changed... so it separately checks "Did we set TCP_SYN_SENT? if
+>>> so, set to TCP_CLOSE.  Did we set SS_CONNECTING?  If so, set to
+>>> SS_UNCONNECTED."
+>>>
+>>> I think it might even make more sense to consolidate in the other
+>>> direction and make vsock_connect_timeout() a caller of the new
+>>> vsock_connect_close(), since it appears there is a similar edge case
+>>> there...
+>>>
+>>> connect(), O_NONBLOCK
+>>>     transport->connect()  /* OP_REQUEST */
+>>>     mod_delayed_work(connect_work)
+>>>
+>>> shutdown(SHUT_RDWR)
+>>>     sock->state = SS_DISCONNECTING
+>>>     sk_shutdown = SHUTDOWN_MASK
+>>>
+>>> vsock_connect_timeout()
+>>>     skips the socket because of SHUTDOWN_MASK
+>>>     /* still TCP_SYN_SENT / SS_DISCONNECTING */
+>>>
+>>> late OP_RESPONSE, virtio_transport_recv_connecting()
+>>>     sk_state = TCP_ESTABLISHED
+>>>     sock->state = SS_CONNECTED
+>>>     vsock_insert_connected()
+>>>
+>>> So the attempt never times out, and a late OP_RESPONSE connects a
+>>> socket the user already shut down, overwriting SS_DISCONNECTING with
+>>> SS_CONNECTED. I think that's a separate bug for a separate patch,
+>>> though.
+>>>
+>>> Or am I off track / missing something?
+>> I have slightly different question: is the 'multiple threads
+>> connecting/disconnecting the same socket concurrently' a
+>> relevant scenario? Otherwise if final state is self-consistent
+>> (i.e. _NOT_ TCP_SYN_SENT + SS_DISCONNECTING) I think there is
+>> nothing to fix here.
+>>
+>> /P
 > 
-> Fixes: eed738c6dd0c ("arm64: dts: qcom: shikra: Add coresight nodes")
-> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
-> ---
+> To your point, the only user-facing issue I can see with
+> vsock_connect_timeout() would be seen in pretty rare cases.... Since it
+> skips the socket when sk_shutdown == SHUTDOWN_MASK, if the peer never
+> responds with RST the connect attempt never times out, the socket sits
+> in TCP_SYN_SENT + SS_DISCONNECTING (connect() returning -EINVAL) until
+> close(). But I'm pretty sure this could only happen on the vhost side if
+> the guest was unresponsive/crashed or on the virtio side if maybe
+> vhost's RST dropped during VM migration when vhost's send queue is
+> purged. IMHO this should probably be fixed, but I don't think its worth
+> turning the code upside down for.
+> 
+> Looking at this connect()/shutdown() sequence again today... with
+> O_NONBLOCK, there is some inconsistent behavior that although is not
+> caused by vsock_connect_timeout(), I'd like to mention here since its
+> come up. It exists even for a single thread making both calls. Playing
+> w/ vsock_loopback and bpftrace, it does end up with SS_DISCONNECTING +
+> TCP_SYN_SENT, but I think the most unexpected thing from the user's
+> perspective is that it temporarily flips to SS_CONNECTED even after
+> shutdown() and a number of syscalls present the socket as connected:
+> 
+>    repro    connect()     -> -EINPROGRESS  SS_CONNECTING     TCP_SYN_SENT
+>    repro    shutdown()    -> 0             SS_DISCONNECTING  TCP_SYN_SENT
+>    repro    getpeername() -> -ENOTCONN     SS_DISCONNECTING  TCP_SYN_SENT
+>    repro    connect()     -> -EINVAL       SS_DISCONNECTING  TCP_SYN_SENT
+>    repro    recv()        -> -ENOTCONN     SS_DISCONNECTING  TCP_SYN_SENT
+>    repro    SO_ERROR      =  0
+>    repro    poll()        -> IN|HUP|RDHUP  SS_DISCONNECTING  TCP_SYN_SENT
+>    kworker  recv_pkt(OP_RESPONSE)          SS_CONNECTED      TCP_ESTABLISHED
+>    ^ the switch to connected is here
+> 
+>    repro    getpeername() -> 0             SS_CONNECTED      TCP_ESTABLISHED
+>    repro    connect()     -> -EISCONN      SS_CONNECTED      TCP_ESTABLISHED
+>    repro    recv()        -> 0             SS_CONNECTED      TCP_ESTABLISHED
+>    repro    SO_ERROR      =  0
+>    ^ the socket starts partially acting like it's connected/established
+> 
+>    repro    poll()        -> IN|HUP|RDHUP  SS_CONNECTED      TCP_ESTABLISHED
+>    kworker  recv_pkt(OP_RST)               SS_CONNECTED      TCP_CLOSING
+>    ^ eventually RST shows up and shuts things down
+> 
+> TCP handles this better... shutdown() on SYN_SENT socket aborts the
+> connect attempt w/ tcp_disconnect() resulting in TCP_CLOSE,
+> SS_UNCONNECTED, sk_err = ECONNRESET, and the late SYN-ACK doesn't push
+> it into established, and users see POLLERR/SO_ERROR.
+> 
+> I think the TCP approach also fixes that edge case with
+> vsock_connect_timeout(), since the user would at least see the errors.
+Ok, it looks worth addressing. But possibly for net-next? since 'broken from
+the beginning', not critical and possibly some functional change implied.
 
-That would mean Gunyah is enabling some clock that the TZ itself isn't,
-which would be solveable through a clock driver patch. Do we have more
-details here?
+/P
 
-Konrad
-
->  arch/arm64/boot/dts/qcom/shikra.dtsi | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/arch/arm64/boot/dts/qcom/shikra.dtsi b/arch/arm64/boot/dts/qcom/shikra.dtsi
-> index 0a95ad5a5582..5f5a786fbd2c 100644
-> --- a/arch/arm64/boot/dts/qcom/shikra.dtsi
-> +++ b/arch/arm64/boot/dts/qcom/shikra.dtsi
-> @@ -3996,6 +3996,7 @@ cti@982b000 {
->  			clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
->  			clock-names = "apb_pclk";
->  			label = "cti_riscv";
-> +			status = "fail";
->  		};
->  
->  		tpdm@9860000 {
-> 
-> ---
-> base-commit: 84abb955b1015477aa11a96e2f3ac1b938b77f48
-> change-id: 20261116-disable_riscv_cti_for_shikra-574ac8895dea
-> 
-> Best regards,
