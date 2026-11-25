@@ -1,49 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.240.27.116
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795595172;
-	b=lHaf/+tzT6Sk6RaMFUjMa0Q6kEbRH83OaBxsESjKvJ3nMVQDS2y/0NgXTr1L0p5GNHgA
-	 JUGzojcAkhqXGjpiGvmw76TfnLJrG8muTb5yshjeoV/10nw/nUQbJ0PNYE3tEDyd5kjoh
-	 TIrGuZObbsnTb8c2fo7rgph+nQ02if0hwxbLaNmuP8oQTx4ImKhqBaRplkp1c/L9KDS+Q
-	 vMx5gp7d7pkZjjh3031FJpxcsfiD+X3ssFTDVsOD9y+GwMcTkOcxFxHcRlE9lkcvHMGD8
-	 DP8yzwK8bx+CQ6J0xs40vmJcwOo+AmU+K1anEB2z8gm7YtymhdFzelxGYow89IMUSCw==
+	t=1795595205;
+	b=YSoggfxNLNscPvxudsQdM293BQ5vHuoo5MaDN6Zey6LNbov69FFPhiCMVyAHhk5uxHdZ
+	 FT07UhQncN+XrCs+qj4MP+2myyly5fyhZJqvYnr0zUM1rapaQVvnicyMynvWRSXLAOIJ+
+	 VLdeXgKx7JHE/EfSZBooR5AV7yrh7j7hQPYuApynuuElb24kOJgjyfLl3RRMZiqkucTAv
+	 StqpgH7juP9NLuz9BjoioF/Aa2fVJlqm7gEQ3v0Rh2vXfLEjKYk02Ueu1ycs7dmpfNprR
+	 SYR9upejI73v/ejWNCu/Ob8kN76D9plfWhPJkXiJIFsj4qomdzpEXJSnd1ws5yRn3cA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795595172;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=JkhOqWjoE3Q+BjDXMq8ste1yWf8Gndm7wkosFGmn9TY=;
-	b=xVtG2z6k/4/687Zp3PL8qhfehSJIqfufSH+IvYbU058lnruGbWUTBhLn4EutwdytASFq
-	 ZGsh+gztZW51If3CjqimQHZ9eDFajNV8FimoQJMq0TJk0ZuakS0pc54rEBt6U/Yr9QgpE
-	 XmEi+S6/vo8iPJvvNduai4OkFcLjy63BBE9lERZ1LtO2UGraKjRuBXaIfODRIZO2rCOFr
-	 s9Tq0uI9kbH6hu0+5EHwiItQ6XOGuayYrVx7RHXDI17aYCdCLpLN35PL2Ty4ZqPa5LE9F
-	 mwTZa15UiVsXfeRkOcjKP36Mg8KIT7EsttTOnFrG57IevZYvNlBUCERfHcjQYxJ/PRg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795595205;
+	h=DMARC-Filter:DKIM-Signature:DKIM-Signature:DKIM-Signature:
+	 X-Virus-Scanned:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:Feedback-ID:
+	 X-SES-Outgoing;
+	bh=UOyc68vA6BEakrLuic9uR2R1xZi5FE3xdpAVEWeeyKM=;
+	b=Av9MapQKFynvwC20II7bK8WMLL7+yRan8Bec/Cr3D6/c/oCMKZ/9hU4eWAr7+eYkDO+7
+	 ysq03YsNfN6j09EPbOPZ8PJc65rM8DdZb4raXnHya1/mIYKKhw/+CeoSLAst88NTuSF1r
+	 SH3B0MEv7MO6t3+t6sLlk5iGt8leG36IGbseu8vSdBGBuO13+e7zZEeFXSyVFmWPFtSlb
+	 MX6QlUG1lPAgL9zjUSGWky6/7LpJzXhiPQAWfsY5f4IMLMs5j3U32WX6r80YIFQMh27hh
+	 +kox5dprlnRp8SrUAh6A6mWFxsvVJS1cBcVl6bgyrpEktXXd2wMoUZtlbgGaJOt67Tw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=i0Iy827z;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id B3FB1606A326;
-	Wed, 25 Nov 2026 08:26:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B3FB1606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dmarc=pass header.from=retsim.com;
+	spf=pass smtp.mailfrom=us-west-2.amazonses.com;
+	dkim=pass header.d=retsim.com header.i=@retsim.com header.a=rsa-sha256 header.s=abaygg6onarqet2uti4t4yyiczbpngnf header.b=0zeNhUQ1;
+	dkim=pass header.d=amazonses.com header.i=@amazonses.com header.a=rsa-sha256 header.s=hsbnp7p3ensaochzwyq5wwmceodymuwv header.b="DvQ8w/45";
+	dkim=temperror header.d=retsim.com header.i=@retsim.com header.a=rsa-sha256 header.s=dkim header.b=VyWiak+B;
+	arc=none smtp.remote-ip=54.240.27.116
+Received: from a27-116.smtp-out.us-west-2.amazonses.com (a27-116.smtp-out.us-west-2.amazonses.com [54.240.27.116])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1D15D606A321
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:26:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1D15D606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=retsim.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=us-west-2.amazonses.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=i0Iy827z
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DD71D14BF;
-	Wed, 25 Nov 2026 00:26:07 -0800 (PST)
-Received: from [10.57.72.178] (unknown [10.57.72.178])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DB62F3F86C;
-	Wed, 25 Nov 2026 00:26:06 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795595170; bh=2sushVC0kbf5QBS5mCE2ZCkoDnbD9EMcF9gJb4NY3vk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=i0Iy827zQElVSRE1WZTvCP7nzk37SNygK4WpEPMEM5vWV00cZVz3RXAx5KrFPNDtg
-	 KDCY749HPcsEm2N2iAB09/n17iF+twdpfqsa5lriKibhXdk2bBKbkO/eE9rfbPNyr8
-	 HLccYr3CS2ExnkOLz1QNKqb4a53Yokss+m4A6qv8=
-Message-ID: <86b5a9f8-70f3-4a5f-b023-c9fb1a2faf83@arm.com>
-Date: Wed, 25 Nov 2026 08:26:04 +0000
+	dkim=pass (1024-bit key, unprotected) header.d=retsim.com header.i=@retsim.com header.a=rsa-sha256 header.s=abaygg6onarqet2uti4t4yyiczbpngnf header.b=0zeNhUQ1;
+	dkim=pass (1024-bit key, unprotected) header.d=amazonses.com header.i=@amazonses.com header.a=rsa-sha256 header.s=hsbnp7p3ensaochzwyq5wwmceodymuwv header.b=DvQ8w/45;
+	dkim=temperror header.d=retsim.com header.i=@retsim.com header.a=rsa-sha256 header.s=dkim header.b=VyWiak+B
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=abaygg6onarqet2uti4t4yyiczbpngnf; d=retsim.com; t=1795595204;
+	h=From:To:Cc:Subject:Date:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=qsGFfntf6lM+OdsemqqtNR29nCSCQOpdhIf05lfqyx8=;
+	b=0zeNhUQ1EiGw8qJZ25K10IVq8qWUCJ/isVu/1RorX1FuGpjMchUbLK0El1TsvfZT
+	SBKUO1IwZOY9fvMUfFXvCMjbbc6cxDUYYDsZfgsoh7b5MhKuCwqgfBX2SgE9zvZ0vin
+	Dh0JhcikqtEGMvPTuR/8LbfE2uEF+7Z5OLB9rOuE=
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=hsbnp7p3ensaochzwyq5wwmceodymuwv; d=amazonses.com; t=1795595204;
+	h=From:To:Cc:Subject:Date:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:Feedback-ID;
+	bh=qsGFfntf6lM+OdsemqqtNR29nCSCQOpdhIf05lfqyx8=;
+	b=DvQ8w/45i35SNcQUENKsBcju11mV1XOKFa0kvZOvV3xlRwZq+/dNWTVwmMmWiV4/
+	3LgVs1eVVeKI/zX5EuoJTetDON/sHHrRBGAiFHXvUlytABhFoKmUqw1By5c4N7ZwcQl
+	WTX3NUfb4deWnu5WEXcemsv08eNB5RI+Gi6eVhrk=
+Authentication-Results: mailserver.retsim.com (amavis); dkim=pass
+ reason="pass (just generated, assumed good)" header.d=retsim.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=retsim.com; h=
+	content-transfer-encoding:content-type:mime-version:x-mailer
+	:message-id:date:subject:to:from; s=dkim; t=1795595197; x=
+	1798187198; bh=qsGFfntf6lM+OdsemqqtNR29nCSCQOpdhIf05lfqyx8=; b=V
+	yWiak+BtiyYaFf55DS0Q/YozqJhel0pipO673sj1sQ3lFphWoGjDoro+9osFbxei
+	Vp/hIMzs+0kbjlBxaGlM4pmLWTI4Lm9sesGBkVfuSXHszZUcmRyjEqjSzZe2Px16
+	92IaM/yCkqK+DUpWZTQ2OTbvFj6z8hXZs7CvWM3Hwn7FwGRVUe+eoPrJKnGXj66M
+	/ppYegYoj0iEX+9TymACbdTlWLAmzYszwknqw/ZCealMKvv7dYs7+evpXsbGNKti
+	axUZgj03hpK5whFKZpztmWkCaZ5Sl/HRXsLfkUmUb/QRDi6LpSBVX/TRPY1acCp7
+	ouKjoHhNgDOyL3mb1U6kg==
+X-Virus-Scanned: Debian amavis at 
+From: Lewis Lakerink <lewis@retsim.com>
+To: imagination@lists.freedesktop.org
+Cc: Alessio Belle <alessio.belle@imgtec.com>, 
+	Luigi Santivetti <luigi.santivetti@imgtec.com>, 
+	Ryan Brue <ryanbrue.dev@gmail.com>, dri-devel@lists.freedesktop.org, 
+	linux-kernel@vger.kernel.org, Lewis Lakerink <lewis@retsim.com>
+Subject: [PATCH 0/2] drm/imagination: fix teardown use-after-free after removal
+Date: Wed, 25 Nov 2026 08:26:44 +0000
+Message-ID: <010101a211d07799-e2fbeacd-595a-4f44-b860-29ed38ed8a40-000000@us-west-2.amazonses.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,82 +84,86 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] cpufreq: schedutil: Run irq_work in hardirq context on
- PREEMPT_RT
-To: Zhongqiu Han <zhongqiu.han@oss.qualcomm.com>, rafael@kernel.org,
- viresh.kumar@linaro.org, mingo@redhat.com, peterz@infradead.org,
- juri.lelli@redhat.com, vincent.guittot@linaro.org, dietmar.eggemann@arm.com,
- rostedt@goodmis.org, bsegall@google.com, mgorman@suse.de,
- vschneid@redhat.com, kprateek.nayak@amd.com, bigeasy@linutronix.de,
- clrkwllms@kernel.org
-Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-rt-devel@lists.linux.dev
-References: <20261125080613.1138573-1-zhongqiu.han@oss.qualcomm.com>
-From: Christian Loehle <christian.loehle@arm.com>
-Content-Language: en-US
-In-Reply-To: <20261125080613.1138573-1-zhongqiu.han@oss.qualcomm.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: quoted-printable
+Feedback-ID: ::1.us-west-2.jZ+gdeR9TqNTaB6Dq50UPG8S0IjuYZETsFsi7SlhF6Q=:AmazonSES
+X-SES-Outgoing: 2026.11.25-54.240.27.116
 
-On 11/25/26 08:06, Zhongqiu Han wrote:
-> On PREEMPT_RT, an irq_work not marked IRQ_WORK_HARD_IRQ runs in the
-> per-CPU irq_work/N thread at SCHED_FIFO priority 1. The schedutil slow
-> path queues its irq_work on the local CPU, so the wakeup of the
-> SCHED_DEADLINE sugov thread is delayed until no other RT or DL task is
-> runnable on that CPU.
-> 
-> Meanwhile work_in_progress stays set, so no new frequency update is
-> queued for any CPU of the policy: one busy RT task can freeze the
-> frequency of its whole policy.
-> 
-> sugov_irq_work() only calls kthread_queue_work(), which only takes raw
-> spinlocks and is safe in hard interrupt context on PREEMPT_RT, so mark
-> the irq_work IRQ_WORK_HARD_IRQ, as commit f8d958880933 ("srcu: Use
-> IRQ_WORK_INIT_HARD for srcu's irq_work") did for srcu.
-> 
-> Tested on a Qualcomm SM8850 board running PREEMPT_RT, with SCMI cpufreq
-> forced into the slow path. With a SCHED_FIFO 10 stress-ng worker on CPU1
-> (30% load, 50 ms slices, 15 runs of 5 s each), sugov_irq_work() now runs
-> within 15 us of irq_work_queue() instead of waiting for the RT burst to
-> end (up to 212 ms), and the policy frequency is no longer frozen. The
-> irq_work latency below is measured from irq_work_queue() to the entry of
-> sugov_irq_work(). The cost is that the kthread wakeup now runs in the
-> irq_work IPI handler, as it does on !PREEMPT_RT. In a separate cpufreq
-> stress test with cyclictest (SCHED_FIFO 90) on all CPUs, this raises the
-> average IRQ work IPI time from ~0.5 us to ~1.3 us, with no change in the
-> number of IPIs, and the cyclictest per-CPU worst case by ~2 us.
-> 
->   PREEMPT_RT                           before              after
->   ---------------------------------    -------------       ----------
->   irq_work latency on CPU1, max        130 - 212 ms        <= 14.5 us
->   policy0 frozen, total per 5 s run    0.57 - 1.25 s       none
->   cyclictest max, CPU1-5               13 - 16 us          14 - 18 us
-> 
-> On !PREEMPT_RT, cyclictest and IRQ work IPI duration are unchanged. No
-> lockdep or DEBUG_ATOMIC_SLEEP splat on either PREEMPT_RT or !PREEMPT_RT.
-> 
-> Signed-off-by: Zhongqiu Han <zhongqiu.han@oss.qualcomm.com>
+Hi all,
 
-Missing a fixes tag then?
-FWIW
-Reviewed-by: Christian Loehle <christian.loehle@arm.com>
+These two patches fix use-after-free crashes when DRM files, syncobj
+fences, or in-flight jobs outlive the PowerVR platform device:
 
-> ---
->  kernel/sched/cpufreq_schedutil.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/kernel/sched/cpufreq_schedutil.c b/kernel/sched/cpufreq_schedutil.c
-> index 14405a614991..b2e9ac7e3517 100644
-> --- a/kernel/sched/cpufreq_schedutil.c
-> +++ b/kernel/sched/cpufreq_schedutil.c
-> @@ -726,7 +726,7 @@ static int sugov_kthread_create(struct sugov_policy *sg_policy)
->  	else
->  		kthread_bind_mask(thread, policy->related_cpus);
->  
-> -	init_irq_work(&sg_policy->irq_work, sugov_irq_work);
-> +	sg_policy->irq_work = IRQ_WORK_INIT_HARD(sugov_irq_work);
->  	mutex_init(&sg_policy->work_lock);
->  
->  	wake_up_process(thread);
+  1. drm/imagination: guard fence release against device removal (13+/1-)
+  2. drm/imagination: quiesce queues before device teardown (135+/6-)
 
+pvr_remove() currently calls pvr_device_fini() and
+pvr_queue_device_fini() before drm_dev_unplug(), and leaves scheduler
+workers and timers running.  Unbinding the device while a client holds
+an open DRM file or syncobj crashes on fd close in __queue_work() on
+the destroyed sched_wq (from both drm_syncobj_release() and
+pvr_queue_kill()) and in pvr_meta_vm_unmap() on the freed
+kernel_vm_ctx.
+
+Patch 1 guards pvr_queue_fence_release() with drm_dev_enter().  Patch 2
+depends on patch 1 for <drm/drm_drv.h> in pvr_queue.c (the series
+applies cleanly with plain git am), stops the watchdog and calls
+drm_dev_unplug() first when !READ_ONCE(pvr_dev->lost), quiesces active
+and idle queues via drm_sched_entity_fini() + drm_sched_fini(), guards
+postclose/destroy_context/timedout_job, and flushes sched_wq before
+device teardown.  Device objects on files or fences that outlive
+removal are deliberately leaked (reported by the existing WARN_ON()
+checks) rather than reworked around drmm_/refcounted device lifetime
+here so the fixes remain backportable.
+
+Overlap with pending work:
+Ryan Brue's unmerged system-suspend series ("[PATCH v3 0/4]
+drm/imagination: fix system suspend, and the callback design underneath
+it") also moves pvr_watchdog_fini() and drm_dev_unplug() (guarded by
+!pvr_dev->lost) earlier in pvr_remove() (patches 2/4 and 3/4).  This
+series leaves pvr_power.c untouched so it applies cleanly on
+drm-misc-next independently of the system-sleep rework; happy to rebase
+onto v4 of that series if maintainers prefer to land it first.
+
+Tested on MediaTek MT8173 (PowerVR Rogue GX6250, arm64) on v7.3.6 with
+a Vulkan client and sysfs unbind across close-only, idle unbind, 6
+in-flight unbind/rebind cycles (3 runs across explicit close and
+SIGKILL), and module unload (rmmod): 0 oopses/faults, with the expected
+leaked-object WARN_ONs.  (An earlier revision without the !lost guard
+also passed a 75 s post-unbind hold past SCHED_TIMEOUT_PERIOD.)
+
+Known limits:
+- Compiled (arm64 defconfig, powervr.ko) on drm-misc-next (a2853fd);
+  runtime-tested on v7.3.6 (arm64, MT8173) only.
+- Runtime PM on remove is left untouched (see patch 2): a
+  runtime-active GPU remains powered after removal.
+- Foreign fences outliving both removal and the last drm_file close, and
+  unpopped entity jobs blocked on external fences (deferred to system_wq
+  by drm_sched_entity_kill()), still require a full device-lifetime
+  rework.
+
+Stable notes:
+- Patch 1 (Cc: stable # 6.14+) also affects 6.12.y, which carries
+  df1a1ed5e1bd by backport.
+- Patch 2 (Cc: stable # 6.8+) tracks bug provenance; pre-7.x branches
+  need backport adjustments in pvr_queue_timedout_job() and pre-6.12
+  postclose.
+
+Disclosure: analysis and patches were drafted with an LLM coding
+assistant (Assisted-by: LLM on both patches; no sparse, smatch, or
+coccinelle pass was run).  I reviewed the changes and ran the hardware
+builds and tests.
+
+Signed-off-by: Lewis Lakerink <lewis@retsim.com>
+
+Lewis Lakerink (2):
+  drm/imagination: guard fence release against device removal
+  drm/imagination: quiesce queues before device teardown
+
+ drivers/gpu/drm/imagination/pvr_drv.c   | 73 ++++++++++++++++++++--
+ drivers/gpu/drm/imagination/pvr_queue.c | 80 ++++++++++++++++++++++++-
+ drivers/gpu/drm/imagination/pvr_queue.h |  2 +
+ 3 files changed, 148 insertions(+), 7 deletions(-)
+
+--=20
+2.43.0
