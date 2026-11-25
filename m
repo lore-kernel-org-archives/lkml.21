@@ -1,85 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=60.244.123.138
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.70
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795587397;
-	b=DtjEAXWgTkCwjLkajUUNHs6u6vi9DFuXTVMOhasqafrtkRoJ5LzmTHi05bAPOJlC18Vq
-	 4JAdeISN9S0uBAVuUzHor6t5g440qqy7qgj6ayqr3PixKDR891S78wyyfXx42TmpM354q
-	 tmat9NzBMIWYwSnWWpTvC8nt1JWfrKGV264DssnoCfBPYzCZoWXuUeDKvKZf86vyI8Zi0
-	 hwdJILslgqx5pR17YiKsALKp+v68A0r+mZk9CL4ds8ZkGC02ZaOOmg/+UJGwE+432qKwS
-	 ds+gR/Nv3kC45MXk5pBb0dGtu7l2hK9Hu+NuJns5YHCUzru2roNDkNW5xbl6TCvX3iA==
+	t=1795587408;
+	b=BNuAmXC69XpTSGIDxz41yC3DGFOdaJOY0n8eHy1J0aTMY2yTbvnVP1pxxlgE2pTRbzbu
+	 79CXMcjvHmtmhz2s83Uu9s14u91/91Q1maapPtF1Lyp2o9lrnXBNR1YWQsWC8lfyPWDqu
+	 2EC1nEimKatsOlMgb0pdVtBj0YsCODWntoKf23OxLa4ExD0MmakfBqV8vF83r03zbRnD+
+	 QfKYXrIw0vyH5sxago62KVve6s6lJuuP2ehrOX2kqoVLDhpcYy6BwEh+Q+/wNFSM1AAis
+	 ujLskq+kgLf6p83DesrtHdutv7ECA4LC/rHDrhAuuLLsJFw+I+WLCNyN/mGQHmYzvzA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795587397;
-	h=DMARC-Filter:X-UUID:DKIM-Signature:X-CID-P-RULE:X-CID-O-INFO:
-	 X-CID-META:X-CID-BVR:X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:Received:
-	 Received:Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:
-	 Content-Type:X-MTK;
-	bh=+knOiHqZcONjVV8iMyBXY+v3ChEvFqVMtV4ztBjfQjM=;
-	b=D6RKRQjXdFyK3xpmueQCJPDoqGNRbbbJ8GlsKZ8taSlKqqhBllhdG7FcArBrhVGy4XXJ
-	 Zqkbd2j0R+I+ww6p29PPQpiYk1qjQmYmkLn/aV3+ZrvP7tTN8tCJsXy5jinaIWi4K4c83
-	 pjO9w4sUTijzGCHgmiEKR35xAT3cpGG8+r+ocmq6QOBNANDCRHXGZsXD6G60OkCYiUl53
-	 xmp48+I3xTnb6ekryx433H68eCbzkxVacYfM3Og/oPZM2puVS+u61v55LSiyuX909dmAg
-	 nWAl/8ahbIoNJ0I5mqlNlYEovicRtFFU+IuWYal7iYQblDWrfPZrSe3yk/J3klFNK+Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795587408;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Received:Date:In-Reply-To:Mime-Version:
+	 References:X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=XJ5Bj2HUeqnSIN+0jmezTl4ea1LIGCfrIoPbd+y7XVY=;
+	b=zppSwvSIgQDR+ue8ZuLci1843Ted+uwhW16dYFRhk1qRNumoA8urdK6Vje3fu/uTa46g
+	 rAPpTpOFd1qYhqzzWzcRN5yurO6K9+hWDnkwe/MhSypUN2wOLnITLgw9mpu6Nc+wOjxP5
+	 ge222/2zGDGz+1RaL/snqd/CIVb4+EI3RLGsofOreUtiGsOwK8M8hjHhzXH/mGK1fhSSN
+	 hYwtKOw4ximO4diGmBhXsYmGLIZoxCY5Nl2CJyzlE/YS9xVDPZ85C31/3Hu/CibMha/wH
+	 7XsRDc9o1RQ2+2/bbGWf2ATdkelLHdMxP9CFieiuu85bdsgIpUGwRHJChFIleTh+F8w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=mediatek.com;
-	spf=pass smtp.mailfrom=mediatek.com;
-	dkim=pass header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=Q5phc6yk;
-	arc=none smtp.remote-ip=60.244.123.138
-Received: from mailgw01.mediatek.com (unknown [60.244.123.138])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=A2pTrFMJ;
+	arc=none smtp.remote-ip=74.125.82.70
+Received: from mail-dl1-f70.google.com (mail-dl1-f70.google.com [74.125.82.70])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D1875606B3F2;
-	Wed, 25 Nov 2026 06:16:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D1875606B3F2
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mediatek.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mediatek.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7A844606DE58
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 06:16:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7A844606DE58
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=Q5phc6yk
-X-UUID: c10a9e40e89711f1b1788b6acf885367-20261125
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=+knOiHqZcONjVV8iMyBXY+v3ChEvFqVMtV4ztBjfQjM=;
-	b=Q5phc6ykhJ0MS1eemdt/9DD3nm9fVXEl4M1hLZ9tKMUsRVTqqfgZ+P/6S6P/r5z4c1KCYE8CLUUhVM0GF9amB9zxhSg3sK6IfDnWSb7vn6Fyq8qpP0rY+NYRJSv+NgoSU+mpQyWREmI8/i9B+CugJYg2K5npZO8ZX8mKksdfH9Y=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.21,REQID:45f99c8d-7879-41a2-826e-9c5f85b4069c,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:b0318ac,CLOUDID:07145131-f289-4656-bb36-27baf4489f11,B
-	ulkID:nil,BulkQuantity:0,SF:81|82|102|836|865|888|898,TC:-5,Content:0|15|5
-	0|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0
-	,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: c10a9e40e89711f1b1788b6acf885367-20261125
-Received: from mtkmbs11n2.mediatek.inc [(172.21.101.187)] by mailgw01.mediatek.com
-	(envelope-from <kyrie.wu@mediatek.com>)
-	(Generic MTA with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1035769348; Wed, 25 Nov 2026 14:16:30 +0800
-Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
- MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Wed, 25 Nov 2026 14:16:29 +0800
-Received: from gcnsap21.gcn.mediatek.inc (10.17.81.22) by
- mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.2562.56 via Frontend Transport; Wed, 25 Nov 2026 14:16:29 +0800
-From: Kyrie Wu <kyrie.wu@mediatek.com>
-To: Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Bin Liu <bin.liu@mediatek.com>,
-	kyrie wu <kyrie.wu@mediatek.corp-partner.google.com>, Hans Verkuil
-	<hverkuil@kernel.org>, irui wang <irui.wang@mediatek.com>, Nicolas Dufresne
-	<nicolas.dufresne@collabora.com>, <linux-media@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
-CC: Kyrie Wu <kyrie.wu@mediatek.com>
-Subject: [PATCH v20 09/15] dt-bindings: mfd: syscon: Add MT8196 JPEG SMMU compatible
-Date: Wed, 25 Nov 2026 14:16:12 +0800
-Message-ID: <20261125061618.2544386-10-kyrie.wu@mediatek.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261125061618.2544386-1-kyrie.wu@mediatek.com>
-References: <20261125061618.2544386-1-kyrie.wu@mediatek.com>
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=A2pTrFMJ
+Received: by mail-dl1-f70.google.com with SMTP id a92af1059eb24-1383723dfddso5633044c88.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 22:16:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795587408; x=1796192208; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=XJ5Bj2HUeqnSIN+0jmezTl4ea1LIGCfrIoPbd+y7XVY=;
+        b=A2pTrFMJIfsCkS+FQGT671ur2Mpg3phgQVSo+9pmmEK/kDi+RicDzAm8UjcOxLv9DR
+         AybPZBi6Y+YuhtClXyN8ZamlY8PXM6mVORzZnlcdPtBI66DKDm+UOEGp8v3ddu6/1DVA
+         AfALevxeVBpIYk00sNHVb/r2xPOvmgJa40SuT81YOoeNUveMVAen4g2b/P9k+UNw758h
+         poWfHwmbONsayWFaGylPvNwzADThwwn2Bp6VGZ1uhkk2EMIxxS/tMKL3J/0N4CD7GJNo
+         FHP7/p8Sm0bKjfes0PV8ZmvMVRV9GvtY26teD+BMwZqA/z5VrrQsXD91XBVRa4JR4Gqe
+         p3Fw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795587408; x=1796192208;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=XJ5Bj2HUeqnSIN+0jmezTl4ea1LIGCfrIoPbd+y7XVY=;
+        b=gz3kNYKUC8iAB5unmrxnxAiWObIPooDj7aN13Ti93U4Qw68Yhh5MhaFBRV+V6WIjfo
+         J9kRtvtdF2KpfnhkeMYliZRvTSPH6eWIoBiuZsi3Z5gjzy7/PRrMCwwEupPP5tKNUfxW
+         2EKLAnD1SWxuaKkZA7b7XjQpf1xy/M0uKgo0HEcmhuiMlj5VHMgrZBoc8dNYjL9AIX0n
+         YIQlb5OLbnSKwx8m3IRsUMJ96iIg4UyyFibSOW5V5gBLCvNecH2+g6bWvAox7jTB5P5C
+         bbLZbH9i05MBA7sBA5qLTGR3sUKnsv/LSsOpi5DGbL6JX8Vm/Mwo2hpOLpTXE6KRWK/4
+         whcQ==
+X-Gm-Message-State: APuU4Z/do/a7gD8EK5wuOCDN7ERjAZObfQdwCgFmYx5xNfbRtfP64f1m
+	Oq7PdGNzFhN50gZeSkQNAz+hv0ulG+Dy+nAm3gpcq4SbBYIuOB/Pqsh5sQWIF6m6LAe+MW/A4ST
+	XqrcB8Big4K1lG5elot99z6jStLLcW2CgGWWNZgz2FLdH6iOXEDu8rZlFFXbySiqvyGEBA+SafZ
+	gs2f7TBP6o5sH+fGz7StqtEMQa0XbWWyDJ0HwLTzRNBVMIXUES7A==
+X-Received: from dlar8.prod.google.com ([2002:a05:701b:21c8:b0:1b5:345d:ed30])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:701a:cc88:10b0:151:6e80:ba7e
+ with SMTP id a92af1059eb24-1b5567dcec1mr15970822c88.4.1795587407220; Tue, 24
+ Nov 2026 22:16:47 -0800 (PST)
+Date: Tue, 24 Nov 2026 22:15:18 -0800
+In-Reply-To: <20261125061523.1540234-1-irogers@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -88,45 +77,56 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
+Mime-Version: 1.0
+References: <20261125061523.1540234-1-irogers@google.com>
+X-Mailer: git-send-email 2.56.1.831.g720f3f5937-goog
+Message-ID: <20261125061523.1540234-26-irogers@google.com>
+Subject: [RFC PATCH v2 25/30] tools include: Add linux/uaccess.h stub for
+ userspace tools
+From: Ian Rogers <irogers@google.com>
+To: linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org, 
+	linux-arch@vger.kernel.org
+Cc: jpoimboe@kernel.org, rostedt@goodmis.org, peterz@infradead.org, 
+	mingo@redhat.com, tglx@kernel.org, bp@alien8.de, dave.hansen@linux.intel.com, 
+	x86@kernel.org, catalin.marinas@arm.com, will@kernel.org, 
+	mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, pjw@kernel.org, 
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, 
+	linux-riscv@lists.infradead.org, acme@kernel.org, namhyung@kernel.org, 
+	linux-perf-users@vger.kernel.org, mhiramat@kernel.org, ast@kernel.org, 
+	daniel@iogearbox.net, andrii@kernel.org, bpf@vger.kernel.org, 
+	nathan@kernel.org, llvm@lists.linux.dev, nsc@kernel.org, 
+	linux-kbuild@vger.kernel.org, ojeda@kernel.org, 
+	rust-for-linux@vger.kernel.org, ardb@kernel.org, linux-efi@vger.kernel.org, 
+	maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, shuah@kernel.org, 
+	linux-kselftest@vger.kernel.org, indu.bhagat@oracle.com, jremus@linux.ibm.com, 
+	wnliu@google.com, dylanbhatch@google.com, Ian Rogers <irogers@google.com>
+Content-Type: text/plain; charset="UTF-8"
 
-Add the MT8196 JPEG SMMU configuration compatible to the common syscon
-binding. JPEG decoder and encoder cores use this shared register block
-to configure their SMMU stream IDs through its GUSER_ID fields.
+Add a minimal tools/include/linux/uaccess.h providing a no-op
+might_fault() stub so userspace tools under tools/ can compile shared
+kernel code that includes <linux/uaccess.h>.
 
-Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
+Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- Documentation/devicetree/bindings/mfd/syscon.yaml | 1 +
- MAINTAINERS                                       | 1 +
- 2 files changed, 2 insertions(+)
+ tools/include/linux/uaccess.h | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+ create mode 100644 tools/include/linux/uaccess.h
 
-diff --git a/Documentation/devicetree/bindings/mfd/syscon.yaml b/Documentation/devicetree/bindings/mfd/syscon.yaml
-index 80ff0e1ca..cd22af4d4 100644
---- a/Documentation/devicetree/bindings/mfd/syscon.yaml
-+++ b/Documentation/devicetree/bindings/mfd/syscon.yaml
-@@ -91,6 +91,7 @@ properties:
-               - mediatek,mt8135-pctl-a-syscfg
-               - mediatek,mt8135-pctl-b-syscfg
-               - mediatek,mt8173-pctl-a-syscfg
-+              - mediatek,mt8196-jpeg-smmu
-               - mediatek,mt8365-infracfg-nao
-               - mediatek,mt8365-syscfg
-               - microchip,lan966x-cpu-syscon
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 742c4e6b2..6690f1efa 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -17063,6 +17063,7 @@ F:	include/dt-bindings/memory/mt*-port.h
- MEDIATEK JPEG DRIVER
- M:	Bin Liu <bin.liu@mediatek.com>
- S:	Supported
-+F:	Documentation/devicetree/bindings/media/mediatek,mt8195-jpeg*.yaml
- F:	Documentation/devicetree/bindings/media/mediatek-jpeg-*.yaml
- F:	drivers/media/platform/mediatek/jpeg/
- 
+diff --git a/tools/include/linux/uaccess.h b/tools/include/linux/uaccess.h
+new file mode 100644
+index 000000000000..5a9e6bf4cfb5
+--- /dev/null
++++ b/tools/include/linux/uaccess.h
+@@ -0,0 +1,9 @@
++/* SPDX-License-Identifier: GPL-2.0-only OR MIT */
++#ifndef _TOOLS_INCLUDE_LINUX_UACCESS_H
++#define _TOOLS_INCLUDE_LINUX_UACCESS_H
++
++#ifndef might_fault
++#define might_fault() do { } while (0)
++#endif
++
++#endif /* _TOOLS_INCLUDE_LINUX_UACCESS_H */
 -- 
-2.51.0.windows.2
+2.56.1.831.g720f3f5937-goog
 
