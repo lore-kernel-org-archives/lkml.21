@@ -1,60 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795629150;
-	b=ikuYAdWa5a4cReMmnzJQHALl1S7tsEuHe23xkVRSgubQCpRKZdkU0q3jCQB2Lrt4iknn
-	 t8YGzlZzx6SZAMHLd6wib5wMCX3tG5Rq+Oq2nQY7+E342c6J9J737wh1CkyEbDye8TcpE
-	 0Qp9QTfvLh7e5MaHltushUSnlZNZ523l7w6fbpmdXjChlr+0VDnYJLvO4Oq7XW8yMvayA
-	 ndJemwY8FRWCEmcAYfS4+U/7cIgYziKFNFOBc1eeEalOntHQuN8IQADSmuNXIERBmceKG
-	 1TR9fisGSn0bQB0UvXE4u4RbZaehIT7DmVOHg5yQE8GHoXLM4vOqLw0EKdragEQvgOA==
+	t=1795629154;
+	b=grL+2vBw32r2xIKeCZ/jEQ7IHZr6Tj+1jPYBjWDCPR+qUaU9HHvLTFoQknySIPCI4y3+
+	 6xjkHztwLl8FcfvvdDfmXmBkozThYXfM9PUFXqiFZ37OShO/qxIAv/51vmsGMP2Y7+xXN
+	 Hvu1P7WCpDiZHiYXpMXAAbt7A2/bmwB6KxuP//8sPLJreZ5wwOHoYhv5fjNN1faKDs50f
+	 EaWHTLWzJ2poaxHQtVumpbC/aNpQwzGv9WIbqb6SMMfaXV6ARctHWWxnNLAmu4MDEATvV
+	 r15U1ZFxB7ETCvTvI5zIfv19I4szn0iw0pdrH6QzvHgA4yenSIKwD0oeAYjesWPAuCA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795629150;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795629154;
 	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Date:
 	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Last-TLS-Session-Version;
-	bh=QlrE5mBL+sk/TnfM70HTegEzQ7rLoCN6a4MXTiwJpyA=;
-	b=4gY2M523nEAkycCY8cpKTdh+kCPPxCJuophbfRQqTAGmnqnq+wkFvvlOOuDW4mAipPOj
-	 x6VAE89+ymSnjO6U8vDvLXsDKHDbsyNlxHnIxebtThbspSa6udVhIkwQ+KJ+aWCzmEiKR
-	 IWj2+qWoiNWm2F2ragqSwm7TJe0NZ2DPZvG92a0FsxmFZ4e+0exxtyO2sDFGko5BTUvyK
-	 C3VGpcVM5/tj7lXjFpp9Xn/Yl+0vIA+A+j0VZxL5cRz5w6/sKocTKjCr+t2d+9l8uUJ40
-	 Ogog4sw+TEuNN/sGqpLT43QIlKdbJ3+Oq+UKaKX7g0Nj1S1xTs8mJ+7h4vAdgwMQZug==
+	bh=ixszZ7M0PTlVyltcKUJakePlFubDowyK1dd2rUosb7c=;
+	b=zXDjbEm52xWzI3xfpv9yZrVkNGc1QFOAJgcjQjSO1IjJEoiWNt91wOlDtYooquMDHXbb
+	 r5Bydg10kFEp0h6vmSLv8v+11JWzzCD/DP26zytamCAGtZmRTfM2TsWJRiiF0KIwdPJso
+	 PXujH+RJCw44PN6f8cvo3ttOCdSnw421pWieoDKA+DlGWGoKO0UwmFtjqsMdtnjTlF4OO
+	 VVM2YtzxNB+GmBKoxWbXOqPQW0rgPoa0ebcTCpHV6Nie2gPY1+j+z+sRlDZY8PMnrKZgA
+	 Ea6Iy3MIaHxOOg8sgcju63GX/65ytV6NpzqCYjMkSsCILq8T0SjZRQ3BpYbnF+E9iqw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=bootlin.com;
 	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=LeqpW+TR;
-	arc=none smtp.remote-ip=185.171.202.116
-Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=K5f7lKnd;
+	arc=none smtp.remote-ip=185.246.84.56
+Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 07D39606A32D
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 17:52:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 07D39606A32D
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D2892606A32D;
+	Wed, 25 Nov 2026 17:52:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D2892606A32D
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=LeqpW+TR
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=K5f7lKnd
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 95132C2BB3E;
-	Wed, 25 Nov 2026 17:52:36 +0000 (UTC)
+	by smtpout-02.galae.net (Postfix) with ESMTPS id B284D1A17FD;
+	Wed, 25 Nov 2026 17:52:32 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 9C8A0604C0;
-	Wed, 25 Nov 2026 17:52:28 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 7100B11E6B0AE;
-	Wed, 25 Nov 2026 18:52:18 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 8543A60480;
+	Wed, 25 Nov 2026 17:52:32 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 36F4D11E6B0D0;
+	Wed, 25 Nov 2026 18:52:25 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795629145; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1795629150; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=QlrE5mBL+sk/TnfM70HTegEzQ7rLoCN6a4MXTiwJpyA=;
-	b=LeqpW+TRrMDEt/rbXtYezm3oHPBhPmsojnvsPVKifaA9dA0XqWhiHVTWVbFcOHF65jsb5W
-	sqWYAZfJ6LmfdPyqF0fYL1k0s+Ieh4AQbnNnMjorwfu/gZIVLPbdk8/hM9vDx0Xgl8y9M0
-	D3M1gDa8Qac82TIdVuNJcbV9MdOgIk5GC5tRYnnam/wV0xST0Ixv6iBMuyU7Gsq2H22Dz3
-	LCUNEL/0pU8G8CjzeKQU0NULvpWQNAKe1Ws2BPs/SBV3U991KWjuvyNSTsV2/l1fYLuGKq
-	w2FWwPD/WiAi6Zi6cRQ+G8Ik0O6MZQz29ToxPAubHSxbMbJZnc2texefqvX+Dw==
-From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Wed, 25 Nov 2026 18:50:27 +0100
-Subject: [PATCH v4 14/32] drm/bridge: ti-sn65dsi86: protect device
- resources on unplug
+	bh=ixszZ7M0PTlVyltcKUJakePlFubDowyK1dd2rUosb7c=;
+	b=K5f7lKndckyVqW7Oldk429u4bv4WzY7Lj1lCMkhTI/QOdQr/M87qeBuLpSAFZQUr+8xpl5
+	loh0VZBh2Fm2JaBcNjnlEOq91CpycSzoMnzKKE6e50Dg70I0ydm32AlBhvhypCjWu+8vdk
+	hU6H7TWfF2PZjJawR4wTFH7ZZvIw+gnWs5PFfl4dTgknS4z8MeldZPh7JWxNo2KUqy20Ig
+	LeIuWWuLCeYQzPUWfLiMJvjhNUw94ohk26HqHQbttU/vVfU2FTf2azJ2Cyx/wuLVe7FAA2
+	JGPFzq96IcuSF2HZAiSCxemes67V2qyv7kJnf2BdhG33b0mWY9F30Yn+qgRBug==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+Date: Wed, 25 Nov 2026 18:51:23 +0100
+Subject: [PATCH RFC 09/16] spi: microchip-core-qspi: Consume dummy cycles
+ directly
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,247 +66,77 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261125-drm-bridge-hotplug-v4-14-822722850492@bootlin.com>
-References: <20261125-drm-bridge-hotplug-v4-0-822722850492@bootlin.com>
-In-Reply-To: <20261125-drm-bridge-hotplug-v4-0-822722850492@bootlin.com>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Inki Dae <inki.dae@samsung.com>, Jagan Teki <jagan@amarulasolutions.com>, 
- Marek Szyprowski <m.szyprowski@samsung.com>, 
- Jessica Zhang <jesszhan0024@gmail.com>, 
- Douglas Anderson <dianders@chromium.org>, Marek Vasut <marex@denx.de>, 
- Stefan Agner <stefan@agner.ch>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: Javier Martinez Canillas <javierm@redhat.com>, 
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
- Hui Pu <Hui.Pu@gehealthcare.com>, Ian Ray <ian.ray@gehealthcare.com>, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>, 
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-X-Mailer: b4 0.16.0
+Message-Id: <20261125-macronix-upstreaming-spi-mem-cycles-v1-9-fd036402fd37@bootlin.com>
+References: <20261125-macronix-upstreaming-spi-mem-cycles-v1-0-fd036402fd37@bootlin.com>
+In-Reply-To: <20261125-macronix-upstreaming-spi-mem-cycles-v1-0-fd036402fd37@bootlin.com>
+To: Mark Brown <broonie@kernel.org>, Liang Yang <liang.yang@amlogic.com>, 
+ Feng Chen <feng.chen@amlogic.com>, Xianwei Zhao <xianwei.zhao@amlogic.com>, 
+ Han Xu <han.xu@nxp.com>, Conor Dooley <conor.dooley@microchip.com>, 
+ Valentina Fernandez <valentina.fernandezalanis@microchip.com>, 
+ Daire McNamara <daire.mcnamara@microchip.com>, 
+ Haibo Chen <haibo.chen@nxp.com>, Jyan Chou <jyanchou@realtek.com>, 
+ Yu-Chun Lin <eleanor.lin@realtek.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Pratyush Yadav <pratyush@kernel.org>, Michael Walle <mwalle@kernel.org>, 
+ Takahiro Kuwano <takahiro.kuwano@infineon.com>, 
+ Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>
+Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ Alvin Zhou <alvinzhou@mxic.com.tw>, 
+ Cheng Ming Lin <chengminglin@mxic.com.tw>, linux-spi@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-amlogic@lists.infradead.org, 
+ imx@lists.linux.dev, linux-riscv@lists.infradead.org, 
+ linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, linux-mtd@lists.infradead.org, 
+ Miquel Raynal <miquel.raynal@bootlin.com>
+X-Mailer: b4 0.14.3
 X-Last-TLS-Session-Version: TLSv1.3
 
-To support hot-unplug of this bridge we need to protect access to device
-resources in case device removal happens concurrently to other code.
+The spi-mem layer is now capable of providing the dummy phase in cycle
+units rather than bytes, provided that drivers advertize the dummy_cycle
+capability. Since this controller is consuming cycles and currently
+converts bytes into cycles, flag it capable to consume cycles directly
+and drop the extra conversions.
 
-Some care is needed for the case when drm_bridge_unplug() happens before
-ti_sn_bridge_atomic_post_disable(), so the latter cannot release supplier
-resources taken by ti_sn_bridge_atomic_pre_enable(): runtime PM (and in
-turn regulators) and refclk.
-
-To ensure those resources are released exactly once on device removal:
-
- * move the code to release them to a dedicated function
- * register that function when the resources are taken in
-   ti_sn_bridge_atomic_pre_enable()
- * if ti_sn_bridge_atomic_post_disable() happens before drm_bridge_unplug()
-   (typical non-hot-unplug case):
-   * ti_sn_bridge_atomic_post_disable() can enter the critical section
-     (drm_bridge_enter() returns 0) -> it releases and executes the
-     devres action
- * if ti_sn_bridge_atomic_post_disable() happens after drm_bridge_unplug()
-   (typical hot-unplug case):
-   * ti_sn_bridge_remove() -> drm_bridge_unplug() defuses
-     ti_sn_bridge_atomic_post_disable() so it cannot execute the devres
-     action
-   * the devres action is executed just after ti_sn_bridge_remove()
-
-Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
-
+Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
 ---
+ drivers/spi/spi-microchip-core-qspi.c | 8 ++------
+ 1 file changed, 2 insertions(+), 6 deletions(-)
 
-Changes in v4:
-- protect from register access in ti_sn_bridge_detect() and
-  ti_sn_bridge_edid_read() too
-
-New patch in v3
-
-This commit basically replicates the same change done on the ti-sn65dsi83
-driver, now upstream:
-https://lore.kernel.org/all/20251112-drm-bridge-atomic-vs-remove-v3-2-85db717ce094@bootlin.com/
----
- drivers/gpu/drm/bridge/ti-sn65dsi86.c | 74 +++++++++++++++++++++++++++++++----
- 1 file changed, 67 insertions(+), 7 deletions(-)
-
-diff --git a/drivers/gpu/drm/bridge/ti-sn65dsi86.c b/drivers/gpu/drm/bridge/ti-sn65dsi86.c
-index 48b83df9aed6..38318113a534 100644
---- a/drivers/gpu/drm/bridge/ti-sn65dsi86.c
-+++ b/drivers/gpu/drm/bridge/ti-sn65dsi86.c
-@@ -827,9 +827,15 @@ static void ti_sn_bridge_atomic_disable(struct drm_bridge *bridge,
- 					struct drm_atomic_commit *state)
+diff --git a/drivers/spi/spi-microchip-core-qspi.c b/drivers/spi/spi-microchip-core-qspi.c
+index c0ea65014d2e..2fc1df738062 100644
+--- a/drivers/spi/spi-microchip-core-qspi.c
++++ b/drivers/spi/spi-microchip-core-qspi.c
+@@ -420,7 +420,6 @@ static int mchp_coreqspi_setup_clock(struct mchp_coreqspi *qspi, struct spi_devi
+ 
+ static void mchp_coreqspi_config_op(struct mchp_coreqspi *qspi, const struct spi_mem_op *op)
  {
- 	struct ti_sn65dsi86 *pdata = bridge_to_ti_sn65dsi86(bridge);
-+	int idx;
-+
-+	if (!drm_bridge_enter(bridge, &idx))
-+		return;
+-	u32 idle_cycles = 0;
+ 	int total_bytes, cmd_bytes, frames, ctrl;
  
- 	/* disable video stream */
- 	regmap_update_bits(pdata->regmap, SN_ENH_FRAME_REG, VSTREAM_ENABLE, 0);
-+
-+	drm_bridge_exit(idx);
- }
+ 	cmd_bytes = op->cmd.nbytes + op->addr.nbytes;
+@@ -459,11 +458,7 @@ static void mchp_coreqspi_config_op(struct mchp_coreqspi *qspi, const struct spi
+ 	writel_relaxed(frames, qspi->regs + REG_FRAMESUP);
+ 	frames = total_bytes & BYTESLOWER_MASK;
+ 	frames |= cmd_bytes << FRAMES_CMDBYTES_SHIFT;
+-
+-	if (op->dummy.buswidth)
+-		idle_cycles = op->dummy.nbytes * 8 / op->dummy.buswidth;
+-
+-	frames |= idle_cycles << FRAMES_IDLE_SHIFT;
++	frames |= op->dummy.ncycles << FRAMES_IDLE_SHIFT;
+ 	ctrl = readl_relaxed(qspi->regs + REG_CONTROL);
  
- static void ti_sn_bridge_set_dsi_rate(struct ti_sn65dsi86 *pdata,
-@@ -1099,11 +1105,16 @@ static void ti_sn_bridge_atomic_enable(struct drm_bridge *bridge,
- 	int ret = -EINVAL;
- 	int max_dp_lanes;
- 	unsigned int bpp;
-+	int idx;
-+
-+	if (!drm_bridge_enter(bridge, &idx))
-+		return;
+ 	if (ctrl & CONTROL_MODE12_MASK)
+@@ -601,6 +596,7 @@ static const struct spi_controller_mem_ops mchp_coreqspi_mem_ops = {
  
- 	connector = drm_atomic_get_new_connector_for_encoder(state,
- 							     bridge->encoder);
- 	if (!connector) {
- 		dev_err_ratelimited(pdata->dev, "Could not get the connector\n");
-+		drm_bridge_exit(idx);
- 		return;
- 	}
+ static const struct spi_controller_mem_caps mchp_coreqspi_mem_caps = {
+ 	.per_op_freq = true,
++	.dummy_cycles = true,
+ };
  
-@@ -1167,6 +1178,7 @@ static void ti_sn_bridge_atomic_enable(struct drm_bridge *bridge,
- 	}
- 	if (ret) {
- 		DRM_DEV_ERROR(pdata->dev, "%s (%d)\n", last_err_str, ret);
-+		drm_bridge_exit(idx);
- 		return;
- 	}
- 
-@@ -1176,26 +1188,57 @@ static void ti_sn_bridge_atomic_enable(struct drm_bridge *bridge,
- 	/* enable video stream */
- 	regmap_update_bits(pdata->regmap, SN_ENH_FRAME_REG, VSTREAM_ENABLE,
- 			   VSTREAM_ENABLE);
-+
-+	drm_bridge_exit(idx);
-+}
-+
-+/*
-+ * Release resources taken by ti_sn_bridge_atomic_pre_enable().
-+ *
-+ * Invoked by ti_sn_bridge_atomic_post_disable() normally, or by devres
-+ * after ti_sn_bridge_remove() in case this happens befora
-+ * atomic_post_disable.
-+ */
-+static void ti_sn_bridge_release_resources(void *data)
-+{
-+	struct ti_sn65dsi86 *pdata = (struct ti_sn65dsi86 *)data;
-+
-+	if (!pdata->refclk)
-+		ti_sn65dsi86_disable_comms(pdata);
-+
-+	pm_runtime_put_sync(pdata->dev);
- }
- 
- static void ti_sn_bridge_atomic_pre_enable(struct drm_bridge *bridge,
- 					   struct drm_atomic_commit *state)
- {
- 	struct ti_sn65dsi86 *pdata = bridge_to_ti_sn65dsi86(bridge);
-+	int idx;
-+
-+	if (!drm_bridge_enter(bridge, &idx))
-+		return;
- 
- 	pm_runtime_get_sync(pdata->dev);
- 
- 	if (!pdata->refclk)
- 		ti_sn65dsi86_enable_comms(pdata, state);
- 
-+	devm_add_action(pdata->dev, ti_sn_bridge_release_resources, pdata);
-+
- 	/* td7: min 100 us after enable before DSI data */
- 	usleep_range(100, 110);
-+
-+	drm_bridge_exit(idx);
- }
- 
- static void ti_sn_bridge_atomic_post_disable(struct drm_bridge *bridge,
- 					     struct drm_atomic_commit *state)
- {
- 	struct ti_sn65dsi86 *pdata = bridge_to_ti_sn65dsi86(bridge);
-+	int idx;
-+
-+	if (!drm_bridge_enter(bridge, &idx))
-+		return;
- 
- 	/* semi auto link training mode OFF */
- 	regmap_write(pdata->regmap, SN_ML_TX_MODE_REG, 0);
-@@ -1204,17 +1247,21 @@ static void ti_sn_bridge_atomic_post_disable(struct drm_bridge *bridge,
- 	/* disable DP PLL */
- 	regmap_write(pdata->regmap, SN_PLL_ENABLE_REG, 0);
- 
--	if (!pdata->refclk)
--		ti_sn65dsi86_disable_comms(pdata);
-+	devm_release_action(pdata->dev, ti_sn_bridge_release_resources, pdata);
- 
--	pm_runtime_put_sync(pdata->dev);
-+	drm_bridge_exit(idx);
- }
- 
- static enum drm_connector_status
- ti_sn_bridge_detect(struct drm_bridge *bridge, struct drm_connector *connector)
- {
- 	struct ti_sn65dsi86 *pdata = bridge_to_ti_sn65dsi86(bridge);
-+	enum drm_connector_status status = connector_status_disconnected;
- 	int val = 0;
-+	int idx;
-+
-+	if (!drm_bridge_enter(bridge, &idx))
-+		return status;
- 
- 	/*
- 	 * Runtime reference is grabbed in ti_sn_bridge_hpd_enable()
-@@ -1225,16 +1272,29 @@ ti_sn_bridge_detect(struct drm_bridge *bridge, struct drm_connector *connector)
- 
- 	regmap_read(pdata->regmap, SN_HPD_DISABLE_REG, &val);
- 
--	return val & HPD_DEBOUNCED_STATE ? connector_status_connected
--					 : connector_status_disconnected;
-+	status = val & HPD_DEBOUNCED_STATE ? connector_status_connected
-+					   : connector_status_disconnected;
-+
-+	drm_bridge_exit(idx);
-+
-+	return status;
- }
- 
- static const struct drm_edid *ti_sn_bridge_edid_read(struct drm_bridge *bridge,
- 						     struct drm_connector *connector)
- {
- 	struct ti_sn65dsi86 *pdata = bridge_to_ti_sn65dsi86(bridge);
-+	const struct drm_edid *edid;
-+	int idx;
- 
--	return drm_edid_read_ddc(connector, &pdata->aux.ddc);
-+	if (!drm_bridge_enter(bridge, &idx))
-+		return NULL;
-+
-+	edid = drm_edid_read_ddc(connector, &pdata->aux.ddc);
-+
-+	drm_bridge_exit(idx);
-+
-+	return edid;
- }
- 
- static void ti_sn65dsi86_debugfs_init(struct drm_bridge *bridge, struct dentry *root)
-@@ -1475,7 +1535,7 @@ static void ti_sn_bridge_remove(struct auxiliary_device *adev)
- 	if (!pdata)
- 		return;
- 
--	drm_bridge_remove(&pdata->bridge);
-+	drm_bridge_unplug(&pdata->bridge);
- 
- 	of_node_put(pdata->host_node);
- }
+ static int mchp_coreqspi_unprepare_message(struct spi_controller *ctlr, struct spi_message *m)
 
 -- 
-2.56.1
+2.56.0
 
