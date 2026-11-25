@@ -1,50 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.4
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795615712;
-	b=01l4vK2/8z3jZ3C6jk1rTxhrQwAEAGhqzgEPg/5mT2Q2vc2GR1/EhDI0ipy7Vq6XQKh4
-	 etn/z6D075HwPz9Pd/CBTXTXMUAxYTrXqAaLdsYv3ffgVQ6dubYRC+9KXolrpM9YPAE3X
-	 HnqrpWCONy2ubpsbq4eR5jXTdoeQPYXodNupXtA1wLrQsQ0Wf8bM8Vdz0iYKPaS+HNqtM
-	 cygt/2WG+t6KIMaS1b/SooHBK7aNd0T5Xx0LFjQ2zHTxeTg19RCJLhXIjFGXhHqYW6nKv
-	 p9McwT+BjuiwpkRUsW/gkN1QN/ha5cjY6cSP9iuEELB2Q7PQsDioYFEq3FShT2pPzPA==
+	t=1795615708;
+	b=Ql9J6nvb2/xqD9FkDZ7HU/IWJThz7KNXaPNlDKyxUjGRk7Rd6BhMOVodvMYv+UnowwPT
+	 4LOxhmCPJKed9oKlQY8Pd9JYkRLzsUK3So2GNCRI0LoY8L7fMu+NSr1ZDTL7m0sLXJY9w
+	 7PXohWwKnnT2PUozb3ucSyMaZR0wTi9F8ULbNW13boxqyO2KY+inXVIVfUZKpS+kDss9C
+	 6mpK/gjlrdaect9eI0HwI+dSMC4WmxjeAfi0tXWFFhgZAAMisyGel+7DfzCBAmljWogAu
+	 C3Z/imRYGOjX7VpgiCOrtxbSAD8ifdtqIYX9U+YVZmfA/6O9S5Z3oSLTxWuLe1st5lg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795615712;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-CM-TRANSID:
-	 X-Coremail-Antispam:X-Originating-IP:X-CM-SenderInfo;
-	bh=GL2gpFtpLlptdo9lvbb/9IszouY72jtLocH1GX5+UFs=;
-	b=HblQ1pPUMoLfSWLDKI1M9+bFAMKGixBqyPHbojPiwwyXQPTUpBubXFZJItBgyNFHNHn1
-	 AbQFKQkaEj6y2HGwVF4OoHIWDA0cPXocUdrzNmuipEw/K9harMZAP90eWrX5i1HQz3yB9
-	 K7yrxrmK1xe3f5YKhObiMJ3TCWgCP6NEdPjCgVKovqJFxBWX9bnUU1OB0yIJdgJTpjVr+
-	 fgaL0HeBNMp64cnSEvMnfL3ki3e3lZ3Gz6W6X0pT+KhadB/c1s1fhyMjb/LkfbIp0JzY6
-	 pWKQbjGz/dr+slT+j7ya1PBST4QxuFK+CxmuzfdouafsNt0bmXsc+ci0oW/AW1GY8pw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795615708;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=VOxw1fDPc2KUOtXD8ctqx98CYltJSNe0uDtdCmLWsow=;
+	b=BbqNLYTwFoHnLR+5Nfq8nscGNvgGBorF+j9foXy+4wLBLJE2T3l9/ztEamzQmxKrsC2I
+	 qqAeJhs4k2gjn15vpNATLlwh29QtNmwMeFa7OK5gawAM/6nzHON7TZccuGdcjbGN/+JEG
+	 rzyEmS4VVhK/e9i3VHI8iIvsiKJUe62N3dbToDTKhDbm7dGLbXqmgzkCWqUOCQgNn2XgC
+	 JbAvMQSGNiRlD8QB8vg/gSEh5d11Lc4xkqmC9y9qc2i0/6D8h7dECNyBXdgX8ZVCW4Glm
+	 p5wMlqAh1yX7Q4NbyBH9lJ5ODHL/0LwVCoKtWXwSq4WveXCnmxmfGZApEpShqiy7ybw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=163.com;
-	spf=pass smtp.mailfrom=163.com;
-	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=QTAjbWO6;
-	arc=none smtp.remote-ip=220.197.31.4
-Received: from m16.mail.163.com (m16.mail.163.com [220.197.31.4])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oYesgiLO;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 61454606A698
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:08:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 61454606A698
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D8127606A69C;
+	Wed, 25 Nov 2026 14:08:28 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=QTAjbWO6
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Message-ID:Date:MIME-Version:Subject:To:From:
-	Content-Type; bh=GL2gpFtpLlptdo9lvbb/9IszouY72jtLocH1GX5+UFs=;
-	b=QTAjbWO69UDiZxIFamb9e/V7Ciw7AldGwtJSqUXGqNVDji7rLAsaQTzW1wwiAv
-	ytPQa9AbmWrsItaTpgzhjVMVpE2lYsgPL2wOrATr57pEe8LxGO0YN4KCXKkm+Fgs
-	kjWQH3f2Z8BzEOh1dHa2FAIx5Xzhyk/fc6UboMipI6b8Y=
-Received: from [IPV6:2409:8900:1a90:8163:5fb3:f207:88ec:aa89] (unknown [])
-	by gzga-smtp-mtada-g0-3 (Coremail) with SMTP id _____wDXXxXD6wZrg3FNKQ--.33468S2;
-	Wed, 25 Nov 2026 22:08:04 +0800 (CST)
-Message-ID: <19c9d7b7-c280-46ce-9ab6-1840bdb428f1@163.com>
-Date: Wed, 25 Nov 2026 22:08:03 +0800
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oYesgiLO
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C1DB1F000C6;
+	Wed, 25 Nov 2026 14:08:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795615708;
+	bh=VOxw1fDPc2KUOtXD8ctqx98CYltJSNe0uDtdCmLWsow=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=oYesgiLOgwnbQAI6JWR6H366w4MngC1MAv9b+imrigZe/egTIcocXV9ZxvM4SeFOv
+	 aaqe/k0VsOKPYfvlpYvkz2tGHFcDp6ibkZitGUmmTaF8AxtG6ww8DACXii7C3op1Ie
+	 RP+VtamtBLdnIb8cEgyTHQGMzulh4KZxMDRNV3qShrcVZ2IxGC63roUcIN1ybOBdkW
+	 BUlGf322U9vspQUw2OJg7gKEMLrlEKMNJiSBnbeEmmm8hauX1591s25PFuExNQKDsk
+	 uMRBEfGJb96icFjG+NQzu64MHV9KvNFjXIuu9++EImCcd6+zk+AsfJ0owSTRnAfZ0f
+	 7aKawQ83SJuKQ==
+Subject: Re: [PATCH net-next 08/15] xsk: Receive in the device's buffer layout
+From: netdev-bot+sashiko@kernel.org
+To: bjorn@kernel.org
+Cc: magnus.karlsson@intel.com, maciej.fijalkowski@intel.com,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ andrew+netdev@lunn.ch, ast@kernel.org, daniel@iogearbox.net, hawk@kernel.org,
+ john.fastabend@gmail.com, andrii@kernel.org, eddyz87@gmail.com,
+ memxor@gmail.com, ilias.apalodimas@linaro.org, alexanderduyck@fb.com,
+ saeedm@nvidia.com, tariqt@nvidia.com, mbloch@nvidia.com, leon@kernel.org,
+ michael.chan@broadcom.com, pavan.chebbi@broadcom.com, corbet@lwn.net,
+ shuah@kernel.org, bpf@vger.kernel.org, netdev@vger.kernel.org,
+ stuclar@meta.com, sdf@fomichev.me, horms@kernel.org, martin.lau@linux.dev,
+ almasrymina@google.com, song@kernel.org, yonghong.song@linux.dev,
+ jolsa@kernel.org, emil@etsalapatis.com, ihor.solodrai@linux.dev,
+ rdunlap@infradead.org, kernel-team@meta.com, dimitri.daskalakis1@gmail.com,
+ bobbyeshleman@meta.com, mohsin.bashr@gmail.com, kees@kernel.org,
+ leitao@debian.org, maxime.chevallier@bootlin.com, cuitao@kylinos.cn,
+ vadim.fedorenko@linux.dev, mike.marciniszyn@gmail.com, kuniyu@google.com,
+ jiayuan.chen@linux.dev, mkarsten@uwaterloo.ca, razor@blackwall.org,
+ dw@davidwei.uk, asml.silence@gmail.com, linux-rdma@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Date: Wed, 25 Nov 2026 14:08:24 +0000
+Message-ID: <179561570478.3135.6883565218778603025@kernel.org>
+In-Reply-To: <20261124125654.183091-8-bjorn@kernel.org>
+References: <20261124125654.183091-8-bjorn@kernel.org>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -54,395 +78,301 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 4/6] ntfs: update the in-memory sizes under the size lock
-To: Hongling Zeng <zenghongling@kylinos.cn>, linkinjeon@kernel.org,
- hyc.lee@gmail.com
-Cc: ntfs@lists.linux.dev, linux-kernel@vger.kernel.org, zhongling0719@126.com
-References: <20261125073547.154150-1-zenghongling@kylinos.cn>
- <20261125073547.154150-5-zenghongling@kylinos.cn>
-Content-Language: en-US
-From: liubaolin <liubaolin12138@163.com>
-In-Reply-To: <20261125073547.154150-5-zenghongling@kylinos.cn>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:_____wDXXxXD6wZrg3FNKQ--.33468S2
-X-Coremail-Antispam: 1Uf129KBjvAXoWfGr18Ww4UXry7WrW5Zr4UCFg_yoW8XrWkAo
-	WfAFWa9w1kuFyYy3yv9w4DXryDu3yDK3y5JFZ8ZrsrCFnYgw4j9347Ww1rWr4fC345Kr1j
-	gF1ftFWkCF47tFyxn29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7v73VFW2AGmfu7bjvjm3
-	AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxU0E_MDUUUU
-X-CM-SenderInfo: xolxutxrol0iasrtmqqrwthudrp/xtbC6gSIU2sG68QBwAAA32
 
+Thank you for your contribution! Sashiko AI review found 6 potential
+issue(s) to consider.
 
+Critical: 0 · High: 1 · Medium: 2 · Low: 3
 
-在 2026/11/25 15:35, Hongling Zeng 写道:
-> The runtime mutation paths update data_size, initialized_size and
-> allocated_size without size_lock, racing with the readers that use
-> the lock to obtain a coherent snapshot.
-> 
-> Protect the shrink and expand tails, make-resident and resident-resize
-> paths, insert/collapse range, KEEP_SIZE rollback, internal initialized
-> size updates, preallocation trimming, and the compressed size
-> recalculation. Group assignments that form one logical size-state
-> update into the same critical section where possible.
-> 
-> The inode load, creation, and eviction paths are unchanged because the
-> inode is not concurrently visible there. Existing inode and MFT locks
-> serialize writers; size_lock synchronizes publication of the resulting
-> state to readers.
-> 
-> All affected mutation paths are already serialized against one another by
-> the inode lock or the relevant MFT record lock; size_lock is added only to
-> synchronize publication to readers.
-> 
-> LOCKING PROTOCOL:
-> - size_lock protects: data_size, initialized_size, allocated_size,
->    itype.compressed.size (allocated size for compressed files)
-> - itype.compressed.block_size, block_size_bits, block_clusters are NOT
->    protected by size_lock (reader and writer access patterns confirmed)
-> 
-> Signed-off-by: Hongling Zeng <zenghongling@kylinos.cn>
-> ---
->   fs/ntfs/attrib.c | 48 +++++++++++++++++++++++++++++++++++++++++++-----
->   fs/ntfs/file.c   |  3 +++
->   fs/ntfs/inode.c  | 42 ++++++++++++++++++++++++++++++------------
->   3 files changed, 76 insertions(+), 17 deletions(-)
-> 
-> diff --git a/fs/ntfs/attrib.c b/fs/ntfs/attrib.c
-> index 6ee6b6bcac1d..081ce3e829f2 100644
-> --- a/fs/ntfs/attrib.c
-> +++ b/fs/ntfs/attrib.c
-> @@ -2436,6 +2436,7 @@ int ntfs_attr_set_initialized_size(struct ntfs_inode *ni, loff_t new_size)
->   	struct ntfs_attr_search_ctx *ctx;
->   	struct ntfs_inode *base_ni = ntfs_base_inode(ni);
->   	int err = 0;
-> +	unsigned long flags;
->   
->   	if (!NInoNonResident(ni))
->   		return -EINVAL;
-> @@ -2450,7 +2451,9 @@ int ntfs_attr_set_initialized_size(struct ntfs_inode *ni, loff_t new_size)
->   		goto out_ctx;
->   
->   	ctx->attr->data.non_resident.initialized_size = cpu_to_le64(new_size);
-> +	write_lock_irqsave(&ni->size_lock, flags);
->   	ni->initialized_size = new_size;
-> +	write_unlock_irqrestore(&ni->size_lock, flags);
->   	mark_mft_record_dirty(ctx->ntfs_ino);
->   out_ctx:
->   	ntfs_attr_put_search_ctx(ctx);
-> @@ -3729,6 +3732,7 @@ static int ntfs_attr_update_meta(struct attr_record *a, struct ntfs_inode *ni,
->   		struct ntfs_inode *locked_ni, bool defer_attrlist)
->   {
->   	int sparse, err = 0;
-> +	unsigned long flags;
->   	struct ntfs_inode *base_ni;
->   	struct super_block *sb = ni->vol->sb;
->   
-> @@ -3834,7 +3838,9 @@ static int ntfs_attr_update_meta(struct attr_record *a, struct ntfs_inode *ni,
->   			goto out;
->   		}
->   
-> +		write_lock_irqsave(&ni->size_lock, flags);
->   		ni->itype.compressed.size = new_compr_size;
-> +		write_unlock_irqrestore(&ni->size_lock, flags);
->   		a->data.non_resident.compressed_size = cpu_to_le64(new_compr_size);
->   	}
->   
-> @@ -4271,6 +4277,7 @@ static int ntfs_attr_make_resident(struct ntfs_inode *ni, struct ntfs_attr_searc
->   	struct attr_record *a = ctx->attr;
->   	int name_ofs, val_ofs, err;
->   	s64 arec_size, freed;
-> +	unsigned long flags;
->   
->   	ntfs_debug("Entering for inode 0x%llx, attr 0x%x.\n",
->   			(unsigned long long)ni->mft_no, ni->type);
-> @@ -4376,8 +4383,10 @@ static int ntfs_attr_make_resident(struct ntfs_inode *ni, struct ntfs_attr_searc
->   	ni->flags &= ~FILE_ATTR_SPARSE_FILE;
->   	NInoClearEncrypted(ni);
->   	ni->flags &= ~FILE_ATTR_ENCRYPTED;
-> +	write_lock_irqsave(&ni->size_lock, flags);
->   	ni->initialized_size = ni->data_size;
->   	ni->allocated_size = ni->itype.compressed.size = (ni->data_size + 7) & ~7;
-> +	write_unlock_irqrestore(&ni->size_lock, flags);
->   	ni->itype.compressed.block_size = 0;
->   	ni->itype.compressed.block_size_bits = ni->itype.compressed.block_clusters = 0;
->   	return 0;
-> @@ -4401,6 +4410,8 @@ static int ntfs_non_resident_attr_shrink(struct ntfs_inode *ni,
->   	s64 first_free_vcn;
->   	s64 nr_freed_clusters;
->   	int err;
-> +	unsigned long flags;
-> +	bool update_initialized;
->   	struct ntfs_inode *base_ni;
->   	bool runlist_locked = locked_ni == ni;
->   
-> @@ -4493,12 +4504,16 @@ static int ntfs_non_resident_attr_shrink(struct ntfs_inode *ni,
->   		}
->   
->   		/* Prepare to mapping pairs update. */
-> +		write_lock_irqsave(&ni->size_lock, flags);
->   		ni->allocated_size = ntfs_cluster_to_bytes(vol, first_free_vcn);
-> +		write_unlock_irqrestore(&ni->size_lock, flags);
->   
->   		if (NInoSparse(ni) || NInoCompressed(ni)) {
->   			if (nr_freed_clusters) {
-> +				write_lock_irqsave(&ni->size_lock, flags);
->   				ni->itype.compressed.size -=
->   					ntfs_cluster_to_bytes(vol, nr_freed_clusters);
-> +				write_unlock_irqrestore(&ni->size_lock, flags);
->   				VFS_I(base_ni)->i_blocks = ni->itype.compressed.size >> 9;
->   			}
->   		} else
-> @@ -4531,12 +4546,15 @@ static int ntfs_non_resident_attr_shrink(struct ntfs_inode *ni,
->   	}
->   
->   	/* Update data and initialized size. */
-> +	write_lock_irqsave(&ni->size_lock, flags);
->   	ni->data_size = newsize;
-> -	ctx->attr->data.non_resident.data_size = cpu_to_le64(newsize);
-> -	if (newsize < ni->initialized_size) {
-> +	update_initialized = newsize < ni->initialized_size;
-> +	if (update_initialized)
->   		ni->initialized_size = newsize;
-> +	write_unlock_irqrestore(&ni->size_lock, flags);
-> +	ctx->attr->data.non_resident.data_size = cpu_to_le64(newsize);
-> +	if (update_initialized)
->   		ctx->attr->data.non_resident.initialized_size = cpu_to_le64(newsize);
-> -	}
->   
->   	/*
->   	 * Drop any page-cache folios that now lie beyond the shrunk
-> @@ -4808,7 +4826,9 @@ static int ntfs_non_resident_attr_expand(struct ntfs_inode *ni, const s64 newsiz
->   		}
->   
->   		/* Prepare to mapping pairs update. */
-> +		write_lock_irqsave(&ni->size_lock, flags);
->   		ni->allocated_size = ntfs_cluster_to_bytes(vol, first_free_vcn);
-> +		write_unlock_irqrestore(&ni->size_lock, flags);
->   		if (ni->type == AT_ATTRIBUTE_LIST && !runlist_locked) {
->   			/*
->   			 * Making room for the list's mapping pairs can resize
-> @@ -4854,7 +4874,9 @@ static int ntfs_non_resident_attr_expand(struct ntfs_inode *ni, const s64 newsiz
->   	}
->   
->   	/* Update data size. */
-> +	write_lock_irqsave(&ni->size_lock, flags);
->   	ni->data_size = newsize;
-> +	write_unlock_irqrestore(&ni->size_lock, flags);
->   	ctx->attr->data.non_resident.data_size = cpu_to_le64(newsize);
->   	/* Update data size in the index. */
->   	if (ni->type == AT_DATA && ni->name == AT_UNNAMED)
-> @@ -4900,7 +4922,9 @@ static int ntfs_non_resident_attr_expand(struct ntfs_inode *ni, const s64 newsiz
->   			ntfs_error(sb, "Failed to restore old mapping pairs");
->   
->   		if (NInoSparse(ni) || NInoCompressed(ni)) {
-> -			ni->itype.compressed.size =  org_compressed_size;
-> +			write_lock_irqsave(&ni->size_lock, flags);
-> +			ni->itype.compressed.size = org_compressed_size;
-> +			write_unlock_irqrestore(&ni->size_lock, flags);
->   			VFS_I(base_ni)->i_blocks = ni->itype.compressed.size >> 9;
->   		} else
->   			VFS_I(base_ni)->i_blocks = ni->allocated_size >> 9;
-> @@ -4936,6 +4960,7 @@ static int ntfs_resident_attr_resize(struct ntfs_inode *attr_ni, const s64 newsi
->   	struct ntfs_volume *vol = attr_ni->vol;
->   	struct super_block *sb = vol->sb;
->   	int err = -EIO;
-> +	unsigned long flags;
->   	struct ntfs_inode *base_ni, *ext_ni = NULL;
->   
->   attr_resize_again:
-> @@ -4984,10 +5009,12 @@ static int ntfs_resident_attr_resize(struct ntfs_inode *attr_ni, const s64 newsi
->   					newsize);
->   		if (!err) {
->   			/* Update attribute size everywhere. */
-> +			write_lock_irqsave(&attr_ni->size_lock, flags);
->   			attr_ni->data_size = attr_ni->initialized_size = newsize;
->   			attr_ni->allocated_size = (newsize + 7) & ~7;
->   			if (NInoCompressed(attr_ni) || NInoSparse(attr_ni))
->   				attr_ni->itype.compressed.size = attr_ni->allocated_size;
-> +			write_unlock_irqrestore(&attr_ni->size_lock, flags);
->   			if (attr_ni->type == AT_DATA && attr_ni->name == AT_UNNAMED)
->   				NInoSetFileNameDirty(attr_ni);
->   			goto resize_done;
-> @@ -5789,6 +5816,7 @@ int ntfs_non_resident_attr_insert_range(struct ntfs_inode *ni, s64 start_vcn, s6
->   	struct ntfs_attr_search_ctx *ctx;
->   	int ret;
->   	size_t new_rl_count;
-> +	unsigned long flags;
->   
->   	if (ni->type != AT_DATA)
->   		return -EOPNOTSUPP;
-> @@ -5830,10 +5858,12 @@ int ntfs_non_resident_attr_insert_range(struct ntfs_inode *ni, s64 start_vcn, s6
->   	ni->runlist.rl =  rl;
->   	ni->runlist.count = new_rl_count;
->   
-> +	write_lock_irqsave(&ni->size_lock, flags);
->   	ni->allocated_size += ntfs_cluster_to_bytes(vol, len);
->   	ni->data_size += ntfs_cluster_to_bytes(vol, len);
->   	if (ntfs_cluster_to_bytes(vol, start_vcn) < ni->initialized_size)
->   		ni->initialized_size += ntfs_cluster_to_bytes(vol, len);
-> +	write_unlock_irqrestore(&ni->size_lock, flags);
->   	ret = ntfs_attr_update_mapping_pairs_locked(ni, 0, ni);
->   	up_write(&ni->runlist.lock);
->   	if (ret)
-> @@ -5871,6 +5901,8 @@ int ntfs_non_resident_attr_collapse_range(struct ntfs_inode *ni, s64 start_vcn,
->   	int dst_cnt;
->   	int ret;
->   	size_t new_rl_cnt;
-> +	unsigned long flags;
-> +	s64 allocated_size;
->   
->   	if (ni->type != AT_DATA)
->   		return -EOPNOTSUPP;
-> @@ -5904,6 +5936,7 @@ int ntfs_non_resident_attr_collapse_range(struct ntfs_inode *ni, s64 start_vcn,
->   	ni->runlist.rl = rl;
->   	ni->runlist.count = new_rl_cnt;
->   
-> +	write_lock_irqsave(&ni->size_lock, flags);
->   	ni->allocated_size -= ntfs_cluster_to_bytes(vol, len);
->   	if (ni->data_size > ntfs_cluster_to_bytes(vol, start_vcn)) {
->   		if (ni->data_size > ntfs_cluster_to_bytes(vol, (start_vcn + len)))
-> @@ -5918,8 +5951,10 @@ int ntfs_non_resident_attr_collapse_range(struct ntfs_inode *ni, s64 start_vcn,
->   		else
->   			ni->initialized_size = ntfs_cluster_to_bytes(vol, start_vcn);
->   	}
-> +	allocated_size = ni->allocated_size;
-> +	write_unlock_irqrestore(&ni->size_lock, flags);
->   
-> -	if (ni->allocated_size > 0) {
-> +	if (allocated_size > 0) {
->   		ret = ntfs_attr_update_mapping_pairs_locked(ni, 0, ni);
->   		if (ret) {
->   			up_write(&ni->runlist.lock);
-> @@ -6029,6 +6064,7 @@ int ntfs_attr_fallocate(struct ntfs_inode *ni, loff_t start, loff_t byte_len, bo
->   	int err = 0;
->   	struct runlist_element *rl;
->   	bool balloc;
-> +	unsigned long flags;
->   
->   	if (ni->type != AT_DATA)
->   		return -EINVAL;
-> @@ -6076,7 +6112,9 @@ int ntfs_attr_fallocate(struct ntfs_inode *ni, loff_t start, loff_t byte_len, bo
->   				err = -EIO;
->   				goto out_unmap;
->   			}
-> +			write_lock_irqsave(&ni->size_lock, flags);
->   			ni->data_size = old_data_size;
-> +			write_unlock_irqrestore(&ni->size_lock, flags);
->   			i_size_write(VFS_I(ni), old_data_size);
->   			if (NInoNonResident(ni))
->   				ctx->attr->data.non_resident.data_size =
-> diff --git a/fs/ntfs/file.c b/fs/ntfs/file.c
-> index 7d93a520566e..70a86d6fee6b 100644
-> --- a/fs/ntfs/file.c
-> +++ b/fs/ntfs/file.c
-> @@ -93,6 +93,7 @@ static int ntfs_trim_prealloc(struct inode *vi)
->   	s64 vcn_ds, vcn_tr;
->   	ssize_t rc;
->   	int err = 0;
-> +	unsigned long flags;
->   
->   	inode_lock(vi);
->   	mutex_lock(&mrec_ni->mrec_lock);
-> @@ -119,7 +120,9 @@ static int ntfs_trim_prealloc(struct inode *vi)
->   			ni->runlist.rl = NULL;
->   			ntfs_error(vol->sb, "Preallocated block rollback failed");
->   		} else {
-> +			write_lock_irqsave(&ni->size_lock, flags);
->   			ni->allocated_size = ntfs_cluster_to_bytes(vol, vcn_tr);
-> +			write_unlock_irqrestore(&ni->size_lock, flags);
->   			err = ntfs_attr_update_mapping_pairs_locked(
->   					ni, 0, ni);
->   			if (err)
-> diff --git a/fs/ntfs/inode.c b/fs/ntfs/inode.c
-> index 7d7bb741455e..0d97633b3e4b 100644
-> --- a/fs/ntfs/inode.c
-> +++ b/fs/ntfs/inode.c
-> @@ -3844,18 +3844,22 @@ static inline int ntfs_enlarge_attribute(struct inode *vi, s64 pos, s64 count,
->   	struct super_block *sb = vi->i_sb;
->   	unsigned long flags;
->   	s64 old_data_size;
-> +	s64 new_initialized_size = pos + count;
-> +	s64 initialized_size;
-> +	s64 data_size;
->   	int ret;
->   
->   	/*
-> -	 * Snapshot the old data_size under size_lock: it is the rollback
-> -	 * target, the other sizes are updated by ntfs_attr_truncate()
-> -	 * itself
-> +	 * Snapshot the old sizes under size_lock: data_size is the
-> +	 * rollback target, initialized_size is compared below, the other
-> +	 * sizes are updated by ntfs_attr_truncate() itself
->   	 */
->   	read_lock_irqsave(&ni->size_lock, flags);
->   	old_data_size = ni->data_size;
-> +	initialized_size = ni->initialized_size;
->   	read_unlock_irqrestore(&ni->size_lock, flags);
->   
-> -	if (pos + count <= ni->initialized_size)
-> +	if (new_initialized_size <= initialized_size)
->   		return 0;
->   
->   	if (NInoEncrypted(ni) && NInoNonResident(ni))
-> @@ -3864,7 +3868,7 @@ static inline int ntfs_enlarge_attribute(struct inode *vi, s64 pos, s64 count,
->   	if (NInoCompressed(ni))
->   		return -EOPNOTSUPP;
->   
-> -	if (pos + count > old_data_size) {
-> +	if (new_initialized_size > old_data_size) {
->   		ret = ntfs_attr_truncate(ni, pos + count);
->   		if (ret) {
->   			ntfs_debug("Failed to truncate attribute");
-> @@ -3914,25 +3918,39 @@ static inline int ntfs_enlarge_attribute(struct inode *vi, s64 pos, s64 count,
->   		}
->   	}
->   
-> +	/* ntfs_attr_truncate() may have updated data_size, re-read it */
-> +	read_lock_irqsave(&ni->size_lock, flags);
-> +	data_size = ni->data_size;
-> +	read_unlock_irqrestore(&ni->size_lock, flags);
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [High] Since this patch, a process with only CAP_NET_RAW in the
+  device's netns can install an XDP-only memory provider on an RX queue.
+- [Medium] With an XDP_UMEM_DRV_LAYOUT UMEM, a bind that passes
+  XDP_ZEROCOPY succeeds, but the socket is not reported or treated as…
+- [Medium] xsk: skipped synchronous unbind in xsk_sink_release() for TX-
+  only pool
+- [Low] xsk_sink_wakeup() (net/xdp/xsk_sink.c) is the first lockless
+  reader of rxq->napi.
+- [Low] The commit message of "xsk: Receive in the device's buffer
+  layout" lists the new bind rules in detail: one receiver, -EBUSY,…
+- [Low] (Baseline: rejected.) The concern was that XDP_UMEM_DRV_LAYOUT
+  and XDP_RX_CHUNK_FREE have no documentation or selftests.
+
+--
+
+xsk: Receive in the device's buffer layout
+
+This patch accepts XDP_UMEM_DRV_LAYOUT at UMEM registration and installs
+the xsk_sink memory provider when a socket with such a UMEM binds to a
+queue. A queue in this mode has one receiving socket, and the provider is
+removed when that socket closes. recvmsg() and poll() now schedule the
+queue NAPI when the RX need_wakeup flag is set.
+
+> diff --git a/net/xdp/xdp_umem.c b/net/xdp/xdp_umem.c
+> index cd8643360eb3a..5989e5e0e17e5 100644
+> --- a/net/xdp/xdp_umem.c
+> +++ b/net/xdp/xdp_umem.c
+> @@ -153,6 +153,7 @@ static int xdp_umem_account_pages(struct xdp_umem *umem)
+>  		XDP_UMEM_UNALIGNED_CHUNK_FLAG | \
+>  		XDP_UMEM_TX_SW_CSUM | \
+>  		XDP_UMEM_TX_METADATA_LEN | \
+> +		XDP_UMEM_DRV_LAYOUT | \
+>  	0)
+
+[Severity: High]
+
+With this flag accepted, can a process that has only CAP_NET_RAW in the
+device's netns take over an RX queue that the administrator's native XDP
+program runs on?
+
+xsk_create() only checks:
+
+	if (!ns_capable(net->user_ns, CAP_NET_RAW))
+		return -EPERM;
+
+The bind path xsk_bind()->xp_assign_dev()->xsk_sink_bind() checks device
+features, queue leasing and dev_xdp_drv_prog_held(). It does not check
+privilege before:
+
+	err = netif_mp_open_rxq(dev, queue_id, &p, NULL);
+
+Once the provider is installed, bpf_prog_run_xdp() overrides the
+program's verdicts for every buffer on that queue:
+
+	if (static_branch_unlikely(&xdp_sink_key) && xdp_buff_is_sink(xdp) &&
+	    (act == XDP_PASS || act == XDP_TX))
+		act = XDP_DROP;
+
+While dev_has_xdp_only_mp() is true, dev_xdp_attach() also refuses with
+-EBUSY to detach the native program. If netif_mp_close_rxq() fails at
+socket close, xsk_sink_unbind() calls netif_close() on the whole device.
+
+The other memory provider install paths require CAP_NET_ADMIN. io_uring
+zcrx uses capable(CAP_NET_ADMIN), and the devmem netlink bind is admin
+only. Classic AF_XDP zero copy under CAP_NET_RAW does not override
+XDP_PASS or XDP_TX on the queue.
+
+Should xsk_sink_bind() require CAP_NET_ADMIN in the device's netns before
+it installs the provider?
+
+[Severity: Low]
+
+This isn't a bug, but this change makes XDP_UMEM_DRV_LAYOUT (and
+XDP_RX_CHUNK_FREE) usable from userspace before they have documentation
+or selftests.
+
+Two later patches in the series close this gap:
+
+  "selftests: net: xsk: Test the device's RX buffer layout" adds -D mode
+  to xskxceiver.
+
+  "Documentation: networking: Describe AF_XDP RX in the device's layout"
+  adds a Device Buffer Layout section to af_xdp.rst.
+
+[ ... ]
+
+> diff --git a/net/xdp/xsk_sink.c b/net/xdp/xsk_sink.c
+> index 9f1f7cf822667..2c23fecb59d41 100644
+> --- a/net/xdp/xsk_sink.c
+> +++ b/net/xdp/xsk_sink.c
+
+[ ... ]
+
+> @@ -501,6 +501,10 @@ int xsk_sink_bind(struct xsk_buff_pool *pool, struct net_device *dev,
+>  	struct xsk_sink *sink;
+>  	int err;
+>  
+> +	/* Without a wakeup, a queue that used up the FILL ring stays dry */
+> +	if (!(flags & XDP_USE_NEED_WAKEUP))
+> +		return -EINVAL;
 > +
->   	if (!NInoNonResident(ni)) {
-> -		if (likely(i_size_read(vi) < ni->data_size))
-> -			i_size_write(vi, ni->data_size);
-> +		if (likely(i_size_read(vi) < data_size))
-> +			i_size_write(vi, data_size);
->   		return 0;
->   	}
->   
->   	/* Named streams initialize gaps after dropping the MFT record lock. */
->   	if (ntfs_inode_is_named_stream(ni)) {
-> -		if (i_size_read(vi) < ni->data_size)
-> -			i_size_write(vi, ni->data_size);
-> +		if (i_size_read(vi) < data_size)
-> +			i_size_write(vi, data_size);
->   		return 0;
->   	}
->   
-> -	if (pos + count > ni->initialized_size) {
-> +	/* Re-read to avoid race after possible truncate */
-> +	read_lock_irqsave(&ni->size_lock, flags);
-> +	initialized_size = ni->initialized_size;
-> +	read_unlock_irqrestore(&ni->size_lock, flags);
-> +
-> +	if (new_initialized_size > initialized_size) {
->   		ctx->attr->data.non_resident.initialized_size = cpu_to_le64(pos + count);
->   		mark_mft_record_dirty(ctx->ntfs_ino);
-> +
-> +		write_lock_irqsave(&ni->size_lock, flags);
->   		ni->initialized_size = pos + count;
-> -		if (i_size_read(vi) < ni->initialized_size)
-> -			i_size_write(vi, ni->initialized_size);
-> +		write_unlock_irqrestore(&ni->size_lock, flags);
-> +
-> +		if (i_size_read(vi) < new_initialized_size)
-> +			i_size_write(vi, new_initialized_size);
->   	}
->   	return 0;
->   }
 
-Looks good to me.
+[Severity: Low]
 
-Reviewed-by: Baolin Liu <liubaolin@kylinos.cn>
+The commit message lists the new bind rules: one receiver, -EBUSY,
+XDP_COPY fails, no fallback. It does not mention this new -EINVAL for a
+bind without XDP_USE_NEED_WAKEUP.
 
+It also does not mention that the pool->uses_need_wakeup checks are
+removed from xsk_sink_bind() and xsk_sink_alloc_netmems(). Those checks
+were added by "xsk: Lend UMEM chunks to the page pools of a queue".
+
+The UAPI comment on XDP_UMEM_DRV_LAYOUT in include/uapi/linux/if_xdp.h
+only lists the registration constraints ("Needs aligned page-sized chunks
+and no headroom").
+
+af_xdp.rst documents the EINVAL later in the series, so this only affects
+the description of this patch. Could the commit message mention that
+XDP_USE_NEED_WAKEUP is now required, and why the uses_need_wakeup guards
+are removed?
+
+>  	if (flags & XDP_USE_SG)
+>  		needed |= NETDEV_XDP_ACT_RX_SG;
+>  	if (flags & XDP_COPY || !dev->queue_mgmt_ops ||
+
+[Severity: Medium]
+
+XDP_COPY is rejected here. What happens with XDP_ZEROCOPY?
+
+xp_assign_dev() sends every DRV_LAYOUT pool to xsk_sink_bind(). It
+returns before the force_zc and zero copy setup:
+
+	if (pool->umem->flags & XDP_UMEM_DRV_LAYOUT) {
+		err = xsk_sink_bind(pool, netdev, queue_id, flags);
+		...
+		return 0;
+	}
+
+So umem->zc stays false, and xsk_bind() then sets xs->zc = xs->umem->zc.
+
+A bind with XDP_ZEROCOPY | XDP_USE_NEED_WAKEUP therefore succeeds. After
+that, getsockopt(XDP_OPTIONS) does not report XDP_OPTIONS_ZEROCOPY, and
+TX goes through xsk_generic_xmit() in copy mode.
+
+Documentation/networking/af_xdp.rst says "the XDP_ZEROCOPY flag will
+force the socket into zero-copy mode or fail". The section added at the
+end of the series says these sockets transmit in copy mode. It does not
+say what XDP_ZEROCOPY means for them.
+
+Should xsk_sink_bind() also reject XDP_ZEROCOPY? Otherwise, should the
+documented semantics be updated before this becomes ABI?
+
+[ ... ]
+
+> @@ -591,6 +594,22 @@ void xsk_sink_unbind(struct xsk_buff_pool *pool)
+>  	xsk_sink_detach(pool);
+>  }
+>  
+> +int xsk_sink_wakeup(struct xsk_sink *sink)
+> +{
+> +	struct netdev_rx_queue *rxq;
+> +	struct napi_struct *napi;
+> +
+> +	rxq = READ_ONCE(sink->rxq);
+> +	napi = rxq ? READ_ONCE(rxq->napi) : NULL;
+
+[Severity: Low]
+
+Does this lockless read of rxq->napi pair with anything on the writer
+side?
+
+struct netdev_rx_queue documents napi as "ops protected". Other readers,
+such as xsk_bind() and netdev-genl, hold the instance lock. This one is
+reached from recvmsg() and poll() through xsk_wakeup() with only
+rcu_read_lock() held.
+
+The writer, netif_queue_set_napi(), does a plain store:
+
+	rxq->napi = napi;
+
+Drivers call it during queue restarts, for example in
+mlx5e_activate_channel() and mlx5e_deactivate_channel(). A poll() that
+races with an ethtool ring change would then be an unannotated data race
+that KCSAN reports.
+
+The lifetime of the napi_struct is also not tied to the sink:
+
+  The synchronize_net() in xsk_sink_stop() covers sink->rxq, not the
+  NAPI.
+
+  __netif_napi_del_locked() does not clear rxq->napi.
+
+mlx5, bnxt and fbnic all clear rxq->napi and go through synchronize_net()
+before they free the NAPI. The core does not document or enforce that.
+
+Would this need WRITE_ONCE() in netif_queue_set_napi() and a documented
+RCU rule for rxq->napi?
+
+> +	if (!napi)
+> +		return -ENETDOWN;
+> +
+> +	local_bh_disable();
+> +	napi_schedule(napi);
+> +	local_bh_enable();
+> +	return 0;
+> +}
+
+[ ... ]
+
+> diff --git a/net/xdp/xsk.c b/net/xdp/xsk.c
+> --- a/net/xdp/xsk.c
+> +++ b/net/xdp/xsk.c
+> @@ -1585,6 +1605,29 @@ static void xsk_delete_from_maps(struct xdp_sock *xs)
+>  	}
+>  }
+>  
+> +/* The pool may outlive the socket, see xp_put_pool(). A queue in the
+> + * device's buffer layout stops receiving when its receiving socket goes,
+> + * so that its program can go right after.
+> + */
+> +static void xsk_sink_release(struct xdp_sock *xs)
+> +{
+> +	struct xsk_buff_pool *pool = READ_ONCE(xs->pool);
+> +	struct net_device *dev;
+> +
+> +	if (!pool || !READ_ONCE(pool->sink))
+> +		return;
+> +
+> +	rtnl_lock();
+> +	dev = pool->netdev;
+> +	if (dev) {
+> +		netdev_lock_ops(dev);
+> +		if (pool->sink && xsk_sink_sock(pool->sink) == xs)
+> +			xsk_sink_unbind(pool);
+> +		netdev_unlock_ops(dev);
+> +	}
+> +	rtnl_unlock();
+> +}
+> +
+>  static int xsk_release(struct socket *sock)
+>  {
+>  	struct sock *sk = sock->sk;
+
+[Severity: Medium]
+What happens when the socket that creates a DRV_LAYOUT pool has no RX
+ring?
+
+xsk_bind() only requires xs->rx or xs->tx. A TX-only socket with a
+FILL and COMPLETION ring can therefore create its own pool, either
+with its own UMEM or through XDP_SHARED_UMEM on another queue or
+device. xp_assign_dev() then hands the pool to xsk_sink_bind() without
+looking at xs->rx, and netif_mp_open_rxq() installs the provider on
+the RX queue. xsk_sink_add_sock() only records a socket that has an RX
+ring, so sink->xs stays NULL.
+
+While that socket is open, the queue runs with the provider, but its
+packets reach no socket.
+
+When it closes, xsk_sink_release() compares xsk_sink_sock(pool->sink)
+with xs. The sink socket is NULL, so xsk_sink_unbind() is skipped.
+
+The provider then stays until the pool itself goes:
+
+  The socket is SOCK_RCU_FREE, so its destructor runs after a grace
+  period.
+
+  The destructor drops the pool with xp_put_pool(), which defers
+  xp_release_deferred() to system_freezable_wq.
+
+  Other TX-only sockets that share the pool keep it longer still.
+
+Until then dev_has_xdp_only_mp() stays true, and dev_xdp_attach()
+refuses to detach the program with -EBUSY.
+
+The commit message says the provider goes with the receiving socket so
+that the program can be detached right after. That does not hold when
+no receiving socket ever bound.
+
+Should xsk_sink_bind() refuse a bind without an RX ring? Or should
+xsk_sink_release() also unbind when sink->xs is NULL and xs is the
+last socket of the pool? The -EBUSY check in xsk_bind() lets a later
+RX socket join a sink that has no receiver yet, so it is not clear
+which of the two is intended.
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261124112707.118678-1-bjorn%40kernel.org
