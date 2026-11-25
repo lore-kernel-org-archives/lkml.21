@@ -1,67 +1,45 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=13.77.154.182
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795592618;
-	b=et0rxpt4lyWz0GrBDTspK2ddD5VebUK5WpRIb/18OaKCEzPIT6zEksTmJDaYGhzeGRnk
-	 1kPh4BWMi0xTHHPjEkTQHOT0byQ7eAxj24npOSeg648BjfkmferSxwyCdIRP5mde4dig3
-	 sTreQEDbLeP/H0V+Mt5lqpVmLOaKsWlDf0zLTQWn7oXz5RoxHEzO2rDgimiytRhufpBe1
-	 qA445mzQj1S9jGy1ueb7VKE34vk/6ikqBvGAvgFFIQztDLCDECj+NB2yn8VI/iRmZwcvI
-	 Iang15KJU7iuyfNsKHKm0tLzfgngh6WWWgwCiCjZfdTbLM+9j2pSGlPh2Ll8oxDafOQ==
+	t=1795592630;
+	b=KlavzJL2gT00FmP32JvSLr0X/J0/2VbbLbVxpjoj7kpYO/B7eTfGLW/A5a9Z8Avqi10l
+	 IkdPBp8w/v53vUIiOVgYRjUezNK7Z8C9fkcU+2aSCY25gNe3mG+h9J0265of89NJ9XtqW
+	 ITh9ztSj0kURE+EhsoM7rfSKpw49evNNZkvQizChUU4/9y1YvrNrFZsTi/SSDZNF1gBPW
+	 LeZRXyL47APXn5jY4EUvVYQCe6aYAwVt69DB6bLiBKo9D+t3zLE/tD8YTPEny8VNfL3c4
+	 BSzSpjGEg7Jg4qnS1oZF4x7TNdADS//I/Dxp05sYl5HNgQF7l9oIvZye1ZEZkhPfzGA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795592618;
-	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-Spam-Status:X-Spam-Checker-Version;
-	bh=MvidlHPU8zvIqyySx25kBpinAsib8zkl7VX76ecSDBw=;
-	b=ysE/5t6AWqDlyd6gqpfebxBdF85FvJX5T7AVyn9rJT3VvKl9SYcXoOKZb/CkGmF1FTO5
-	 55qqho9quvXjSGINQtXZ3TrZex9VDbOTqVF49Ry4GrAg4G0zkhq3C2AALZYR1tQ+Y9BnW
-	 /Gtjllp/3WhUaYD9FJT5fGoqHeTehChCBmipyNd3vTJ3YlSx7wvOwjkHTDdlEJ00sjDXb
-	 upMbGnhEankoWeehhyr9sqk1xuSa4gzvHZO00k5lVnl5qcxVm5oD3nP/L5VW9X7Lb76GF
-	 a2fRlAPCEUWpd/MZMKp72036paW9hEJ2Ztvca7eN749Qu/o9bDoQbUONl3lOrS8yV0g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795592630;
+	h=Received:DKIM-Signature:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:References:
+	 Date:Message-Id:X-Mailer;
+	bh=vUXThiVJ6bMe52lRwX1g6CBsmoON8XesHCjvBEoaDQA=;
+	b=JDXW7jk6CycNppwASKKnwiWeP/I5n52yomnGEoFuoTBFYF4jog3vYDlUXNhbWEbCMpFZ
+	 kbQphe/yNtQmquQlHAFE/bxObsCafVoln4En+o2+cSczHcEHhJFP804gN0aE0Ld4EN6le
+	 6BR03vL5A7b7yLW5QPZhqCTRLniPho7DxnRQfLLZy3ZfsY1rwM1y9Ua4uGe8kaLDV7PyX
+	 wHalm01MugopnXVaciE11HnD25VfQu3s1xLc24enDZ/wunX64q5qrmBBKNtpEtN3lMNqI
+	 JpfS3h2XSyJ9MhJo9ze6Pldh+6mc0wiAJOYfGhxHEtmI+9jCYB4xAhNovpFsAQ+GVig==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.microsoft.com;
-	spf=pass smtp.mailfrom=linux.microsoft.com;
-	dkim=pass header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b="gL6+D7/t";
-	arc=none smtp.remote-ip=13.77.154.182
-Received: from linux.microsoft.com (linux.microsoft.com [13.77.154.182])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 32DC1606A31E;
-	Wed, 25 Nov 2026 07:43:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 32DC1606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.microsoft.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.microsoft.com
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=i+N+Jel0;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 38780606A31E;
+	Wed, 25 Nov 2026 07:43:50 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=gL6+D7/t
-Received: from zhangyu-hyperv.mshome.net (unknown [167.220.233.38])
-	by linux.microsoft.com (Postfix) with ESMTPSA id BC16120B7170;
-	Tue, 24 Nov 2026 23:43:29 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com BC16120B7170
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1795592613;
-	bh=MvidlHPU8zvIqyySx25kBpinAsib8zkl7VX76ecSDBw=;
-	h=From:To:Cc:Subject:Date:From;
-	b=gL6+D7/tP+NARCMQe/7ktmUFQv32T7IljpieRbSaIBU++NmAwQ82xDvAtFFD3NxW9
-	 dQCF3x5x9QbVptO4OasySrQxmMTJPQoCsqh9/axGmDklVzNpGFF1NpAb4JbzYba9Mu
-	 lvUHfkrnBFn7IXcISE/wmWUf/asbWv0WB9yb3azE=
-From: Yu Zhang <zhangyu1@linux.microsoft.com>
-To: Joerg Roedel <joro@8bytes.org>,
-	Will Deacon <will@kernel.org>
-Cc: Robin Murphy <robin.murphy@arm.com>,
-	Jason Gunthorpe <jgg@nvidia.com>,
-	Jacob Pan <jacob.pan@linux.microsoft.com>,
-	Easwar Hariharan <easwar.hariharan@linux.microsoft.com>,
-	Tianyu Lan <Tianyu.Lan@microsoft.com>,
-	Mukesh R <mrathor@linux.microsoft.com>,
-	Thara Gopinath <tgopinath@linux.microsoft.com>,
-	Wei Liu <wei.liu@kernel.org>,
-	Haiyang Zhang <haiyangz@microsoft.com>,
-	Dexuan Cui <decui@microsoft.com>,
-	Michael Kelley <mhklinux@outlook.com>,
-	iommu@lists.linux.dev,
-	linux-hyperv@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] MAINTAINERS: Add dedicated entry for Hyper-V IOMMU
-Date: Wed, 25 Nov 2026 15:43:30 +0800
-Message-ID: <20261125074331.25190-1-zhangyu1@linux.microsoft.com>
-X-Mailer: git-send-email 2.52.0
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=i+N+Jel0
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 04B591F000C0;
+	Wed, 25 Nov 2026 07:43:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795592629;
+	bh=vUXThiVJ6bMe52lRwX1g6CBsmoON8XesHCjvBEoaDQA=;
+	h=Subject:From:To:Cc:In-Reply-To:References:Date;
+	b=i+N+Jel04pnI42CpZWHeFN1FoGpya+vih+ogo2zO2HAttQ88xS5X/gkqMOi4hXRg1
+	 ih7ySjq+dmIS3ApCkUHFnKhxHP1GywJjCrz0ucrlq2Pp9Gs1bQEE/KdQUlhA2Lm6Cq
+	 hI+VrBz9f33wDeiGNkJghRFV3m5AFHL1ibmX8OWnW/C0FOb/hMEfKYk8GpDSU/MT44
+	 kBu9dZzEHu3lQaB54n9TN5O5GFrYpfdgUOyvKSBFo1w0Dz5ixndV5AP5sL+YmWettM
+	 FiDNoUDv65WHXrhIqr3BayR/wyx2fCN6bHMRQ3Sk1Er1mQ7OXMGEumzg7s3NNFZAXT
+	 z4US67F+IOfKQ==
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,60 +49,40 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH 1/2] dt-bindings: iio: light: add ams OSRAM TCS3430
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Robert Ijtsma <robertijtsma@gmail.com>
+Cc: Jonathan Cameron <jic23@kernel.org>, 
+ David Lechner <dlechner@baylibre.com>, 
+ =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, 
+ Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, linux-iio@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Krzysztof Kozlowski <krzk@kernel.org>
+In-Reply-To: <20261124-iio-tcs3430-v1-1-0f2a38a6a4c1@gmail.com>
+References: <20261124-iio-tcs3430-v1-0-0f2a38a6a4c1@gmail.com>
+ <20261124-iio-tcs3430-v1-1-0f2a38a6a4c1@gmail.com>
+Date: Wed, 25 Nov 2026 08:43:46 +0100
+Message-Id: <179559262610.14607.7329551323239028527.b4-reply@b4>
+X-Mailer: b4 0.17-dev
 
-Changes under drivers/iommu/hyperv/ are merged through the IOMMU
-subsystem tree, while MAINTAINERS currently lists the directory under
-"Hyper-V/Azure CORE AND DRIVERS" pointing to the Hyper-V tree.
+On 2026-11-24 23:46 +0100, Robert Ijtsma wrote:
+> Add Devicetree binding schema for the ams OSRAM TCS3430 ambient light
+> and CIE 1931 XYZ tristimulus color sensor.
+> 
+> Signed-off-by: Robert Ijtsma <robertijtsma@gmail.com>
+> ---
+>  .../devicetree/bindings/iio/light/ams,tcs3430.yaml | 52 ++++++++++++++++++++++
+>  MAINTAINERS                                        |  6 +++
+>  2 files changed, 58 insertions(+)
 
-Move drivers/iommu/hyperv/ into a dedicated "HYPER-V IOMMU DRIVER"
-entry pointing to the IOMMU tree, with Yu Zhang as maintainer and Jacob
-Pan, Easwar Hariharan, and Tianyu Lan as reviewers. Keep
-linux-hyperv@vger.kernel.org on the mailing list entries so the Hyper-V
-community stays copied on patches.
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-Suggested-by: Jacob Pan <jacob.pan@linux.microsoft.com>
-Signed-off-by: Yu Zhang <zhangyu1@linux.microsoft.com>
----
-Easwar, Tianyu: please let me know if you have any other thoughts or
-suggestions.
+Best regards,
+Krzysztof
 
-Wei, Haiyang, Dexuan: feel free to chime in if you have any feedback on
-moving drivers/iommu/hyperv/ out of the Hyper-V core section.
-
- MAINTAINERS | 12 +++++++++++-
- 1 file changed, 11 insertions(+), 1 deletion(-)
-
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 44540a1eb2b8..dcdc73e9ce6d 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -12448,6 +12448,17 @@ L:	linux-media@vger.kernel.org
- S:	Maintained
- F:	drivers/media/i2c/hi847.c
- 
-+HYPER-V IOMMU DRIVER
-+M:	Yu Zhang <zhangyu1@linux.microsoft.com>
-+R:	Jacob Pan <jacob.pan@linux.microsoft.com>
-+R:	Easwar Hariharan <easwar.hariharan@linux.microsoft.com>
-+R:	Tianyu Lan <Tianyu.Lan@microsoft.com>
-+L:	iommu@lists.linux.dev
-+L:	linux-hyperv@vger.kernel.org
-+S:	Supported
-+T:	git git://git.kernel.org/pub/scm/linux/kernel/git/iommu/linux.git
-+F:	drivers/iommu/hyperv/
-+
- Hyper-V/Azure CORE AND DRIVERS
- M:	Haiyang Zhang <haiyangz@microsoft.com>
- M:	Wei Liu <wei.liu@kernel.org>
-@@ -12470,7 +12481,6 @@ F:	drivers/clocksource/hyperv_timer.c
- F:	drivers/hid/hid-hyperv.c
- F:	drivers/hv/
- F:	drivers/input/serio/hyperv-keyboard.c
--F:	drivers/iommu/hyperv/
- F:	drivers/net/ethernet/microsoft/
- F:	drivers/net/hyperv/
- F:	drivers/pci/controller/pci-hyperv-intf.c
 -- 
-2.52.0
-
+Krzysztof Kozlowski <krzk@kernel.org>
