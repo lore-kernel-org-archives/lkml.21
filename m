@@ -1,54 +1,66 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.197
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.108.3.23
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795568039;
-	b=aIgc7dro2n2A9Yj7USKOmaOPNBSmMxueCqM96jE4lCLwux5/gW7QgPZcleWIOCOcY8so
-	 7Z79A2Tn4cEV72OU1we3oEu5oG1wH8ZCgcp/7gApBJDCb2Go0brWeXspR8ptnX2QlKRkb
-	 B3Tn7e2cFJ9MvmH/Bp2uRv/MeQFqQ+MkhHLQg4xKSwJK2zgIXyWhi2T9iTt/Gtiia57bP
-	 YWZcq4NCFxdGmW5qbcUW1l7FxYlAAZwy6fjBp3o+EUJikK5EJXnm8OURhQI3GLXMwCgvq
-	 cudmD6kCqIv8iTrfgrhZGc0mK/BHV971qsdkzpomrCmAtJt6s8SqsNYbEmgKxvwUHsg==
+	t=1795568060;
+	b=Am5PAEKtfzd275QxV5lpIn9OlAeXqGYRPmGt+a+u8Ptha5uVUrA/L1jXLKA4BmpEP6Sz
+	 ZhvTt9oMgpyDKdF7JNd5AX8R2my8sqNu9ikUkBkH2bT2lcvpgTtfHXYauAgx7LM4kZBuN
+	 6aI8tvfP5NuKbjjVmEGGR2ent661GO9lXzG8MbqFdFArcPFS4BDOEUUmrc3bCQSUxYmxW
+	 Z7SZyzV1+2iCj8RjEaa6UBTenj2ibzxSVCglMiWhtirOBuN94eHDgA3q0QvGBm3jJNhuH
+	 BdVAfHjdDkuUbaey45RROrWLmcbAf8PctOcdIvkJQ6kT/2GCstdqyxzVjfduZ8ACT7g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795568039;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:MIME-Version:X-Received:Date:
-	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
-	 Subject:From:To:Content-Type;
-	bh=LKUhl2vfu8qY8Xs2R02bqfFtv08jhN3q+ez3lxFZo7U=;
-	b=nvawCfKshZLpH8JQgS/5k6M5AzVsifwLX+ROWTtxX+FUuWZLvQHIVEoqNOtIjXuxdUHR
-	 +jziz3p0C/SAZuPDTOMoVVzHV9FnsEi2F36/lapNsPqp718LyTZ2UjqYwm59lkAOOPRfK
-	 2tvlRm0i9cEHldsXa4b4uLhHCX1cI/vTzwxd1rMpRAjhbAOjxOUPKQAZSs6GDMMf4+dyD
-	 9HThnPPV3+7n/L4XBD9TZCQjhejPhofudebuqld/uFanA0cxsSEJjmZMOkStKRdueTbLh
-	 9efyiEZvSwzlFZ6tVDPSQPJ2m+rFznEy+YB3V7VSEaJToipSZL2KQyIdtrX9Xf9KmeQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795568060;
+	h=DMARC-Filter:DKIM-Signature:X-SMAIL-HELO:Received:X-Sender:X-Auth-ID:
+	 X-SMAIL-MID:X-SMAIL-UIID:From:To:Cc:Subject:Date:Message-ID:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
+	bh=h1N+AeVI+PflUoCbWUxNsgJmzWp5PNqAd2zKDZGX4m0=;
+	b=BGAS/4zoi/Qt4YwUEZe15yV6npKxIh8Ca3O6H36ngbVo9Q+wpvVXWjDl2s9osWEA9zF2
+	 Dn3ZpHkof7rF8cCTdBpSUgX43tgzEDzYvxumk2cDGukJPn1A0gEFUEgttozut49T6xt0+
+	 OX2pz7/362pXLbQKhBFZdGlcuD2MwscYh5x5V9UGQWGtmQF7PZGTrN3Nnw+lxONmegwi+
+	 Y+OAh09J1ABNMDrP2Dt6ZyJFkzFr82Ki2ff1UMdBE7GJP+syXIHWTK7VuY6XEeU/nj2m8
+	 ANkjeOI4N5DNgf7aTbKIw8W6vZkaGpVi6ALm2CavkdIiYo8QPys12HT2DRoMaJHCThQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=syzkaller.appspotmail.com;
-	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
-	arc=none smtp.remote-ip=209.85.167.197
-Received: from mail-oi1-f197.google.com (mail-oi1-f197.google.com [209.85.167.197])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=sina.com;
+	spf=pass smtp.mailfrom=sina.com;
+	dkim=pass header.d=sina.com header.i=@sina.com header.a=rsa-sha256 header.s=201208 header.b="G/VUaUFb";
+	arc=none smtp.remote-ip=202.108.3.23
+Received: from r3-23.sinamail.sina.com.cn (r3-23.sinamail.sina.com.cn [202.108.3.23])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C9EE0606A321
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 00:53:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C9EE0606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
-Received: by mail-oi1-f197.google.com with SMTP id 5614622812f47-4f8281066c4so6262288b6e.2
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 16:53:58 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795568038; x=1796172838;
-        h=content-type:to:from:subject:message-id:date:mime-version
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=LKUhl2vfu8qY8Xs2R02bqfFtv08jhN3q+ez3lxFZo7U=;
-        b=jnhL/vZudSCTOPLlcbx0ScYmiOXSL9vsDgEmdaQNh0W5bsV266UBoXfK4nKO8ycjS/
-         af+rbZu0UlE6gu1mAYT45teQVv6pd71KU8Bj+Z/geSczQDhz8BMLVaHv/des722hjVRN
-         XctWEJEuITPpta5UdgMMHXHzagCRxHuyYhOm1rL1ZYB6G8zEAIxqf3Sr4yyWRQd4Jam4
-         6QTWO2EIsOKVxifeJ/lXRihcgue7/SjveG9cUdpqgs3bJVYJ4BlHdbjh5NMGi/Z6TBy6
-         bg/zmQZu7TiWiLAw08SEBmS2AodrijtrpGEpPa+aFIz2Zs7wrypvPOhd6ePVn3RuMGeM
-         l0fw==
-X-Forwarded-Encrypted: i=1; AL+hErEY0IVsqHDSNC6KeTWh/A1Hlb7yZ22Mj4oerQ5VdFY2CGRd2TvezaATOCpbCo3WpoCmMjFZJh5w05tnThI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z838D/CphFO+1qGIyaxcC8lwyXmofavh6HYAZ934TvQTfZOBcij
-	alQc40IwNL6XeEYiXZUktWyyB/G/nfmEzUDf2RNnoeHd66g19w2Mzhn/eE4XJn5GubhpvhzaJ7u
-	os2i3ANSLalZXx3jWktqGPwk6SQjjE/j9OT+Buc6FT+7DVYiI5SKn7P9HHwo=
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 874A6606A31E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 00:54:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 874A6606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=sina.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=sina.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key, unprotected) header.d=sina.com header.i=@sina.com header.a=rsa-sha256 header.s=201208 header.b=G/VUaUFb
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sina.com; s=201208; t=1795568058;
+	bh=h1N+AeVI+PflUoCbWUxNsgJmzWp5PNqAd2zKDZGX4m0=;
+	h=From:Subject:Date:Message-ID;
+	b=G/VUaUFbTzSUAzA61pxcy+G44dVFQeV/D0+9ME9JTM8WheK3bK1oNA5X4aciI3Blf
+	 UQlrOJVnt0sTnSXhDc9F6699vZOxdwyj38TwxINHODtseUNvsxBCuDzDRzZEQupcpT
+	 XRkBuR4nro5/kL0v/8CSFXXVCjAmV01etuY18hIQ=
+X-SMAIL-HELO: localhost.localdomain
+Received: from unknown (HELO localhost.localdomain)([114.244.128.109])
+	by sina.com (10.54.253.31) with ESMTP
+	id 6B0631AD000035FB; Wed, 25 Nov 2026 08:54:09 +0800 (CST)
+X-Sender: hdanton@sina.com
+X-Auth-ID: hdanton@sina.com
+Authentication-Results: sina.com;
+	 spf=none smtp.mailfrom=hdanton@sina.com;
+	 dkim=none header.i=none;
+	 dmarc=none action=none header.from=hdanton@sina.com
+X-SMAIL-MID: 1500086816305
+X-SMAIL-UIID: A7DDFD60D8604DCD85FE7D40D185317A-20261125-085409-1
+From: Hillf Danton <hdanton@sina.com>
+To: syzbot <syzbot+97fde463a8ffb9e839d2@syzkaller.appspotmail.com>
+Cc: jack@suse.cz,
+	linux-kernel@vger.kernel.org,
+	Tejun Heo <tj@kernel.org>,
+	syzkaller-bugs@googlegroups.com
+Subject: Re: [syzbot] [ext4?] BUG: workqueue lockup in update_super_work
+Date: Wed, 25 Nov 2026 08:53:56 +0800
+Message-ID: <20261125005359.521-1-hdanton@sina.com>
+In-Reply-To: <6b0576ba.a481e175.27cf24.0027.GAE@google.com>
+References: 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,118 +70,234 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Received: by 2002:a05:6808:308d:b0:573:b907:d55c with SMTP id
- 5614622812f47-57a077150cbmr19544453b6e.7.1795568037944; Tue, 24 Nov 2026
- 16:53:57 -0800 (PST)
-Date: Tue, 24 Nov 2026 16:53:57 -0800
-X-Google-Appengine-App-Id: s~syzkaller
-X-Google-Appengine-App-Id-Alias: syzkaller
-Message-ID: <6b0631a5.eee51036.26eb72.03da.GAE@google.com>
-Subject: [syzbot] [bpf?] KCSAN: data-race in bcmp / htab_lru_map_update_elem
-From: syzbot <syzbot+542d2bc50fc9545a27d6@syzkaller.appspotmail.com>
-To: andrii@kernel.org, ast@kernel.org, bpf@vger.kernel.org, 
-	daniel@iogearbox.net, eddyz87@gmail.com, emil@etsalapatis.com, 
-	ihor.solodrai@linux.dev, jolsa@kernel.org, linux-kernel@vger.kernel.org, 
-	martin.lau@linux.dev, memxor@gmail.com, song@kernel.org, 
-	syzkaller-bugs@googlegroups.com, yonghong.song@linux.dev
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 
-Hello,
-
-syzbot found the following issue on:
-
-HEAD commit:    b6a9fa34ce41 Linux 7.4-rc4
-git tree:       upstream
-console output: https://syzkaller.appspot.com/x/log.txt?x=17783865580000
-kernel config:  https://syzkaller.appspot.com/x/.config?x=886d2ddd2d6b664e
-dashboard link: https://syzkaller.appspot.com/bug?extid=542d2bc50fc9545a27d6
-compiler:       Debian clang version 22.1.8 (1~deb13u4), Debian LLD 22.1.8
-
-Unfortunately, I don't have any reproducer for this issue yet.
-
-Downloadable assets:
-disk image: https://storage.googleapis.com/syzbot-assets/1cd533522ae8/disk-b6a9fa34.raw.xz
-vmlinux: https://storage.googleapis.com/syzbot-assets/19d6c1c369e3/vmlinux-b6a9fa34.xz
-kernel image: https://storage.googleapis.com/syzbot-assets/dfb541770724/bzImage-b6a9fa34.xz
-
-AI-generated root cause summary:
-Lockless RCU lookups in `BPF_MAP_TYPE_LRU_HASH` maps (`__lookup_elem_raw()`)
-traverse `hlist_nulls` buckets and compare `l->key` via `memcmp()` without
-waiting for an RCU grace period when elements are recycled. Concurrently,
-`htab_lru_map_update_elem()` -> `prealloc_lru_pop()` evicts/pops an element `l`
-via `bpf_lru_pop_free()` (which unlinks it with `hlist_nulls_del_rcu()` and
-immediately writes the new `hash`) and overwrites `l->elem.key` with `memcpy()`.
-An RCU reader that already loaded `l` and observes `htab_elem_hash(l) == hash`
-concurrently executes `memcmp(&l->key, key, key_size)` against the in-progress
-`memcpy()`, triggering a KCSAN data race and allowing torn key comparisons.
-
-full analysis:  https://syzkaller.appspot.com/x/ai_root_cause?x=542d2bc50fc9545a27d6
-
-IMPORTANT: if you fix the issue, please add the following tag to the commit:
-Reported-by: syzbot+542d2bc50fc9545a27d6@syzkaller.appspotmail.com
-
-==================================================================
-BUG: KCSAN: data-race in bcmp / htab_lru_map_update_elem
-
-write to 0xffff88811ee5cda0 of 280 bytes by task 12413 on cpu 0:
- prealloc_lru_pop kernel/bpf/hashtab.c:407 [inline]
- htab_lru_map_update_elem+0x223/0x7d0 kernel/bpf/hashtab.c:1516
- bpf_map_update_value+0x4f7/0x570 kernel/bpf/syscall.c:297
- generic_map_update_batch+0x4e6/0x700 kernel/bpf/syscall.c:2125
- bpf_map_do_batch+0x26a/0x3b0 kernel/bpf/syscall.c:5849
- __sys_bpf+0x784/0xc50 kernel/bpf/syscall.c:-1
- __do_sys_bpf kernel/bpf/syscall.c:6582 [inline]
- __se_sys_bpf kernel/bpf/syscall.c:6579 [inline]
- __x64_sys_bpf+0x69/0x80 kernel/bpf/syscall.c:6579
- x64_sys_call+0xf26/0x2550 arch/x86/include/generated/asm/syscalls_64.h:322
- do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
- do_syscall_64+0x11e/0x3a0 arch/x86/entry/syscall_64.c:89
- entry_SYSCALL_64_after_hwframe+0x77/0x7f
-
-read to 0xffff88811ee5ce88 of 8 bytes by task 12419 on cpu 1:
- memcmp lib/string.c:665 [inline]
- bcmp+0x23/0x90 lib/string.c:697
- memcmp include/linux/fortify-string.h:675 [inline]
- __lookup_elem_raw kernel/bpf/hashtab.c:827 [inline]
- lookup_nulls_elem_raw kernel/bpf/hashtab.c:865 [inline]
- __htab_lookup kernel/bpf/hashtab.c:889 [inline]
- __htab_map_lookup_elem+0x246/0x390 kernel/bpf/hashtab.c:906
- __htab_lru_map_lookup_elem kernel/bpf/hashtab.c:973 [inline]
- htab_lru_map_lookup_elem_sys+0x1d/0x60 kernel/bpf/hashtab.c:991
- bpf_map_copy_value+0x442/0x500 kernel/bpf/syscall.c:-1
- map_lookup_elem+0x511/0x700 kernel/bpf/syscall.c:1847
- __sys_bpf+0x683/0xc50 kernel/bpf/syscall.c:6440
- __do_sys_bpf kernel/bpf/syscall.c:6582 [inline]
- __se_sys_bpf kernel/bpf/syscall.c:6579 [inline]
- __x64_sys_bpf+0x69/0x80 kernel/bpf/syscall.c:6579
- x64_sys_call+0xf26/0x2550 arch/x86/include/generated/asm/syscalls_64.h:322
- do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
- do_syscall_64+0x11e/0x3a0 arch/x86/entry/syscall_64.c:89
- entry_SYSCALL_64_after_hwframe+0x77/0x7f
-
-Reported by Kernel Concurrency Sanitizer on:
-CPU: 1 UID: 0 PID: 12419 Comm: syz.0.3950 Not tainted syzkaller #0 PREEMPT(lazy) 
-Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 11/06/2026
-==================================================================
+> Date: Tue, 24 Nov 2026 03:36:26 -0800
+> Hello,
+> 
+> syzbot found the following issue on:
+> 
+> HEAD commit:    a041bdbe1f3a arm64: Drop stdint.h type overrides from asm/..
+> git tree:       git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git
+> console output: https://syzkaller.appspot.com/x/log.txt?x=1410c1d9580000
+> kernel config:  https://syzkaller.appspot.com/x/.config?x=4e8e6c1701ad8af2
+> dashboard link: https://syzkaller.appspot.com/bug?extid=97fde463a8ffb9e839d2
+> compiler:       Debian clang version 22.1.8 (1~deb13u4), Debian LLD 22.1.8
+> userspace arch: arm64
+> C reproducer:   https://syzkaller.appspot.com/x/repro.c?x=17576985580000
+> 
+> AI-generated root cause summary:
+> The workqueue watchdog detected a 35-second lockup on CPU 0's per-CPU worker
+> pool (`pool 2`), where all four busy workers (`update_super_work`,
+> `smc_ib_port_event_work`, `srcu_invoke_callbacks`, and `wg_packet_tx_worker`)
+> are in `TASK_RUNNING` (`state:R`) and switched out at `__switch_to`, unable to
+> be scheduled onto CPU 0 while CPU 1 (`pool 6`) continues running normally.
+> Because `srcu_invoke_callbacks` and `smc_ib_port_event_work` (which blocked on
+> `rtnl_lock`) cannot resume on CPU 0, the stall cascades to
+> `fsnotify_mark_destroy_workfn` (`synchronize_srcu`), `cfg80211_wiphy_work`,
+> `reg_todo`, and `batadv_tt_purge`. The exact code currently monopolizing CPU 0
+> cannot be conclusively determined from this report because
+> `show_cpu_pool_busy_workers()` checks `task_is_running()` rather than whether a
+> worker is actively executing on the CPU, and therefore skipped
+> `trigger_single_cpu_backtrace(0)`.
+> 
+Incorrect, given the print -- The pool might have trouble waking an idle worker.
 
 
----
-This report is generated by a bot. It may contain errors.
-See https://goo.gl/tpsmEJ for more information about syzbot.
-syzbot engineers can be reached at syzkaller@googlegroups.com.
-
-syzbot will keep track of this issue. See:
-https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
-
-If the report is already addressed, let syzbot know by replying with:
-#syz fix: exact-commit-title
-
-If you want to overwrite report's subsystems, reply with:
-#syz set subsystems: new-subsystem
-(See the list of subsystem names on the web dashboard)
-
-If the report is a duplicate of another one, reply with:
-#syz dup: exact-subject-of-another-report
-
-If you want to undo deduplication, reply with:
-#syz undup
+> full analysis:  https://syzkaller.appspot.com/x/ai_root_cause?x=97fde463a8ffb9e839d2
+> 
+> IMPORTANT: if you fix the issue, please add the following tag to the commit:
+> Reported-by: syzbot+97fde463a8ffb9e839d2@syzkaller.appspotmail.com
+> 
+> BUG: workqueue lockup - pool cpus=0 node=0 flags=0x0 nice=0 stuck for 5s!
+> Showing busy workqueues and worker pools:
+> workqueue events: flags=0x100
+>   pwq 2: cpus=0 node=0 flags=0x0 nice=0 active=6 refcnt=8
+>     in-flight: 4867:update_super_work for 6s
+>     pending: refresh_vm_stats BAR(5070), vmstat_shepherd, 2*nsim_dev_hwstats_traffic_work, free_obj_work
+>   pwq 6: cpus=1 node=0 flags=0x0 nice=0 active=1 refcnt=2
+>     in-flight: 24:request_firmware_work_func for 42s
+> workqueue mm_percpu_wq: flags=0x108
+>   pwq 2: cpus=0 node=0 flags=0x0 nice=0 active=1 refcnt=2
+>     pending: vmstat_update
+> workqueue kblockd: flags=0x118
+>   pwq 3: cpus=0 node=0 flags=0x0 nice=-20 active=2 refcnt=3
+>     pending: 2*blk_mq_timeout_work
+> pool 2: cpus=0 node=0 flags=0x0 nice=0 hung=5s workers=5 idle: 1171 10 1104 9
+> pool 6: cpus=1 node=0 flags=0x0 nice=0 hung=0s workers=6 idle: 26 4849 876 4848 4769
+> Showing backtraces of busy workers in stalled worker pools:
+> pool 2:
+> task:kworker/0:4     state:R  running task     stack:0     pid:4867  tgid:4867  ppid:2      task_flags:0x4208060 flags:0x00000010
+> Workqueue: events update_super_work
+> Call trace:
+>  __switch_to+0x2b4/0x6e4 arch/arm64/kernel/process.c:792 (T)
+>  context_switch kernel/sched/core.c:5583 [inline]
+>  __schedule+0x1368/0x2b50 kernel/sched/core.c:7382
+>  __schedule_loop kernel/sched/core.c:7459 [inline]
+>  schedule+0x13c/0x20c kernel/sched/core.c:7474
+>  io_schedule+0x1c/0xe0 kernel/sched/core.c:8146
+>  bit_wait_io+0x1c/0xe8 kernel/sched/wait_bit.c:258
+>  __wait_on_bit+0xb8/0x178 kernel/sched/wait_bit.c:52
+>  out_of_line_wait_on_bit+0x130/0x184 kernel/sched/wait_bit.c:67
+>  wait_on_bit_io include/linux/wait_bit.h:106 [inline]
+>  __wait_on_buffer+0x6c/0x7c fs/buffer.c:118
+>  wait_on_buffer include/linux/buffer_head.h:476 [inline]
+>  ext4_commit_super+0x2b4/0x458 fs/ext4/super.c:6417
+>  update_super_work+0x2dc/0x384 fs/ext4/super.c:817
+>  process_one_work kernel/workqueue.c:3495 [inline]
+>  process_scheduled_works+0x91c/0x1250 kernel/workqueue.c:3578
+>  worker_thread+0x798/0xbd0 kernel/workqueue.c:3659
+>  kthread+0x304/0x3d4 kernel/kthread.c:436
+>  ret_from_fork+0x10/0x20 arch/arm64/kernel/entry.S:854
+> BUG: workqueue lockup - pool cpus=0 node=0 flags=0x0 nice=0 stuck for 8s!
+> BUG: workqueue lockup - pool cpus=0 node=0 flags=0x0 nice=-20 stuck for 3s!
+> Showing busy workqueues and worker pools:
+> workqueue events: flags=0x100
+>   pwq 2: cpus=0 node=0 flags=0x0 nice=0 active=7 refcnt=9
+>     in-flight: 4867:update_super_work for 9s
+>     pending: refresh_vm_stats BAR(5070), vmstat_shepherd, 2*nsim_dev_hwstats_traffic_work, free_obj_work, psi_avgs_work
+>   pwq 6: cpus=1 node=0 flags=0x0 nice=0 active=1 refcnt=2
+>     in-flight: 24:request_firmware_work_func for 45s
+> workqueue events_dfl_long: flags=0x2
+>   pwq 8: cpus=0-1 flags=0x4 nice=0 active=1 refcnt=2
+>     pending: defense_work_handler
+> workqueue mm_percpu_wq: flags=0x108
+>   pwq 2: cpus=0 node=0 flags=0x0 nice=0 active=1 refcnt=2
+>     pending: vmstat_update
+> workqueue kblockd: flags=0x118
+>   pwq 3: cpus=0 node=0 flags=0x0 nice=-20 active=2 refcnt=3
+>     pending: 2*blk_mq_timeout_work
+> pool 2: cpus=0 node=0 flags=0x0 nice=0 hung=8s workers=5 idle: 1171 10 1104 9
+> pool 6: cpus=1 node=0 flags=0x0 nice=0 hung=0s workers=6 idle: 4849 26 876 4848 4769
+> Showing backtraces of busy workers in stalled worker pools:
+> pool 2:
+> task:kworker/0:4     state:R  running task     stack:0     pid:4867  tgid:4867  ppid:2      task_flags:0x4208060 flags:0x00000010
+> Workqueue: events update_super_work
+> Call trace:
+>  __switch_to+0x2b4/0x6e4 arch/arm64/kernel/process.c:792 (T)
+>  context_switch kernel/sched/core.c:5583 [inline]
+>  __schedule+0x1368/0x2b50 kernel/sched/core.c:7382
+>  __schedule_loop kernel/sched/core.c:7459 [inline]
+>  schedule+0x13c/0x20c kernel/sched/core.c:7474
+>  io_schedule+0x1c/0xe0 kernel/sched/core.c:8146
+>  bit_wait_io+0x1c/0xe8 kernel/sched/wait_bit.c:258
+>  __wait_on_bit+0xb8/0x178 kernel/sched/wait_bit.c:52
+>  out_of_line_wait_on_bit+0x130/0x184 kernel/sched/wait_bit.c:67
+>  wait_on_bit_io include/linux/wait_bit.h:106 [inline]
+>  __wait_on_buffer+0x6c/0x7c fs/buffer.c:118
+>  wait_on_buffer include/linux/buffer_head.h:476 [inline]
+>  ext4_commit_super+0x2b4/0x458 fs/ext4/super.c:6417
+>  update_super_work+0x2dc/0x384 fs/ext4/super.c:817
+>  process_one_work kernel/workqueue.c:3495 [inline]
+>  process_scheduled_works+0x91c/0x1250 kernel/workqueue.c:3578
+>  worker_thread+0x798/0xbd0 kernel/workqueue.c:3659
+>  kthread+0x304/0x3d4 kernel/kthread.c:436
+>  ret_from_fork+0x10/0x20 arch/arm64/kernel/entry.S:854
+> pool 3: no worker in running state, cpu=0 is busy (nr_workers=2 nr_idle=2)
+> The pool might have trouble waking an idle worker.
+> Backtrace of last woken worker:
+> task:kworker/0:1H    state:R  running task     stack:0     pid:4368  tgid:4368  ppid:2      task_flags:0x4208060 flags:0x00000010
+> Workqueue:  0x0 (kblockd)
+> Call trace:
+>  __switch_to+0x2b4/0x6e4 arch/arm64/kernel/process.c:792 (T)
+>  context_switch kernel/sched/core.c:5583 [inline]
+>  __schedule+0x1368/0x2b50 kernel/sched/core.c:7382
+>  __schedule_loop kernel/sched/core.c:7459 [inline]
+>  schedule+0x13c/0x20c kernel/sched/core.c:7474
+>  worker_thread+0x924/0xbd0 kernel/workqueue.c:3674
+>  kthread+0x304/0x3d4 kernel/kthread.c:436
+>  ret_from_fork+0x10/0x20 arch/arm64/kernel/entry.S:854
+> Sending NMI from CPU 1 to CPUs 0:
+> NMI backtrace for cpu 0
+> CPU: 0 UID: 0 PID: 5064 Comm: syz-executor298 Not tainted syzkaller #0 PREEMPT 
+> Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 11/06/2026
+> pstate: 00001000 (nzcv daif -PAN -UAO -TCO -DIT +SSBS BTYPE=--)
+> pc : 0000ffff92d12354
+> lr : 0000ffff92c64e84
+> sp : 0000ffffd134ccf0
+> x29: 0000ffffd134ccf0 x28: 0000ffff92cb3000 x27: 0000ffff92cb3000
+> x26: 0000ffff92cb3000 x25: 0000ffff92cb3000 x24: 0000000000000004
+> x23: 0000ffffd134cdd0 x22: 0000000000000001 x21: 0000ffff92d00000
+> x20: 0000ffffd134ce90 x19: 0000ffff92d01000 x18: 0000000001503538
+> x17: 0000000ca3baf921 x16: 0000000000000017 x15: 0000000000800000
+> x14: 0000000ca3c7df44 x13: 0000000000002490 x12: 000000007fffffff
+> x11: 0000000000000001 x10: 0000000000000001 x9 : 0000ffff92d0e010
+> x8 : 0000ffff92d0e000 x7 : 0000000000000000 x6 : 0000000000000000
+> x5 : 0000000000000000 x4 : 0000000000002490 x3 : 0012c684c0000000
+> x2 : 0000ffff92d12310 x1 : 0000ffffd134ce90 x0 : 0000000000000001
+> BUG: workqueue lockup - pool cpus=0 node=0 flags=0x0 nice=0 stuck for 11s!
+> BUG: workqueue lockup - pool cpus=0 node=0 flags=0x0 nice=-20 stuck for 6s!
+> Showing busy workqueues and worker pools:
+> workqueue events: flags=0x100
+>   pwq 2: cpus=0 node=0 flags=0x0 nice=0 active=7 refcnt=9
+>     in-flight: 4867:update_super_work for 12s
+>     pending: refresh_vm_stats BAR(5070), vmstat_shepherd, 2*nsim_dev_hwstats_traffic_work, free_obj_work, psi_avgs_work
+>   pwq 6: cpus=1 node=0 flags=0x0 nice=0 active=1 refcnt=2
+>     in-flight: 24:request_firmware_work_func for 48s
+> workqueue events_unbound: flags=0x2
+>   pwq 8: cpus=0-1 flags=0x4 nice=0 active=3 refcnt=4
+>     pending: nsim_dev_trap_report_work, toggle_allocation_gate, nsim_dev_trap_report_work
+> workqueue mm_percpu_wq: flags=0x108
+>   pwq 2: cpus=0 node=0 flags=0x0 nice=0 active=1 refcnt=2
+>     pending: vmstat_update
+> workqueue kblockd: flags=0x118
+>   pwq 3: cpus=0 node=0 flags=0x0 nice=-20 active=2 refcnt=3
+>     pending: 2*blk_mq_timeout_work
+> pool 2: cpus=0 node=0 flags=0x0 nice=0 hung=11s workers=5 idle: 1171 10 1104 9
+> pool 6: cpus=1 node=0 flags=0x0 nice=0 hung=0s workers=6 idle: 4849 26 876 4848 4769
+> Showing backtraces of busy workers in stalled worker pools:
+> pool 2:
+> task:kworker/0:4     state:R  running task     stack:0     pid:4867  tgid:4867  ppid:2      task_flags:0x4208060 flags:0x00000010
+> Workqueue: events update_super_work
+> Call trace:
+>  __switch_to+0x2b4/0x6e4 arch/arm64/kernel/process.c:792 (T)
+>  context_switch kernel/sched/core.c:5583 [inline]
+>  __schedule+0x1368/0x2b50 kernel/sched/core.c:7382
+>  __schedule_loop kernel/sched/core.c:7459 [inline]
+>  schedule+0x13c/0x20c kernel/sched/core.c:7474
+>  io_schedule+0x1c/0xe0 kernel/sched/core.c:8146
+>  bit_wait_io+0x1c/0xe8 kernel/sched/wait_bit.c:258
+>  __wait_on_bit+0xb8/0x178 kernel/sched/wait_bit.c:52
+>  out_of_line_wait_on_bit+0x130/0x184 kernel/sched/wait_bit.c:67
+>  wait_on_bit_io include/linux/wait_bit.h:106 [inline]
+>  __wait_on_buffer+0x6c/0x7c fs/buffer.c:118
+>  wait_on_buffer include/linux/buffer_head.h:476 [inline]
+>  ext4_commit_super+0x2b4/0x458 fs/ext4/super.c:6417
+>  update_super_work+0x2dc/0x384 fs/ext4/super.c:817
+>  process_one_work kernel/workqueue.c:3495 [inline]
+>  process_scheduled_works+0x91c/0x1250 kernel/workqueue.c:3578
+>  worker_thread+0x798/0xbd0 kernel/workqueue.c:3659
+>  kthread+0x304/0x3d4 kernel/kthread.c:436
+>  ret_from_fork+0x10/0x20 arch/arm64/kernel/entry.S:854
+> pool 3: no worker in running state, cpu=0 is busy (nr_workers=2 nr_idle=2)
+> The pool might have trouble waking an idle worker.
+> Backtrace of last woken worker:
+> task:kworker/0:1H    state:R  running task     stack:0     pid:4368  tgid:4368  ppid:2      task_flags:0x4208060 flags:0x00000010
+> Workqueue:  0x0 (kblockd)
+> Call trace:
+>  __switch_to+0x2b4/0x6e4 arch/arm64/kernel/process.c:792 (T)
+>  context_switch kernel/sched/core.c:5583 [inline]
+>  __schedule+0x1368/0x2b50 kernel/sched/core.c:7382
+>  __schedule_loop kernel/sched/core.c:7459 [inline]
+>  schedule+0x13c/0x20c kernel/sched/core.c:7474
+>  worker_thread+0x924/0xbd0 kernel/workqueue.c:3674
+>  kthread+0x304/0x3d4 kernel/kthread.c:436
+>  ret_from_fork+0x10/0x20 arch/arm64/kernel/entry.S:854
+> Sending NMI from CPU 1 to CPUs 0:
+> NMI backtrace for cpu 0
+> CPU: 0 UID: 0 PID: 5064 Comm: syz-executor298 Not tainted syzkaller #0 PREEMPT 
+> Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 11/06/2026
+> pstate: 00001000 (nzcv daif -PAN -UAO -TCO -DIT +SSBS BTYPE=--)
+> pc : 0000ffff92d12364
+> lr : 0000ffff92c64e84
+> sp : 0000ffffd134ccf0
+> x29: 0000ffffd134ccf0 x28: 0000ffff92cb3000 x27: 0000ffff92cb3000
+> x26: 0000ffff92cb3000 x25: 0000ffff92cb3000 x24: 0000000000000004
+> x23: 0000ffffd134cdd0 x22: 0000000000000001 x21: 0000ffff92d00000
+> x20: 0000ffffd134ce90 x19: 0000ffff92d01000 x18: 0000000001503538
+> x17: 0000000d5ab774a1 x16: 0000000000000017 x15: 0000000000800000
+> x14: 0000000d5ac496d8 x13: 00000000000026f6 x12: 000000007fffffff
+> x11: 0000000000000001 x10: 0000ffffd134ccf0 x9 : 0000ffff92d0e010
+> x8 : 0000ffff92d0e000 x7 : 0000000000000000 x6 : 0000000000000000
+> x5 : 0000000000000000 x4 : 00000000000026f6 x3 : 0014dc9380000000
+> x2 : 0000ffff92d12310 x1 : 0000ffffd134ce90 x0 : 0000000000000001
