@@ -1,98 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.170
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.13
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795650929;
-	b=0rebIxcbCFS+f7Oupb+gLRLQgQwvPc7C7HcJeAyN/YZ/hTUxs0bop3XOTfd9dSuH+4b0
-	 K9wSAKafCetA6N2Mgj3Smr0+9FvcfW1p+CS9aubaj3/OOt0Bo813Nc3LFhU3H/PWcZi6W
-	 k8cU1SY2to21Wx9Y09vs8iN980uni9pctQdY4XxNBUkR587Kjrclgd5UPKIXvPFFGcPdi
-	 FCXx8YzLPq41GcJQDAOjXpO5v3pgy3im5TcGnnjeajYJx56Krm08sAIgN892FllqZmPV4
-	 cmXMmKqN3y4ImqJBrSNpWasoAS+jGJGSIoi5qWQUgCYaJTAt2EB0CjwzcoNxWGoKXuA==
+	t=1795650991;
+	b=ajngN12n6b2iu7ocNrCLui/NE8G1e3E7o5fjxS6DLYg051uV9TR2tGEHLCzbPvv7bYyM
+	 lBJgbsLfDswKlvKh6uWRFzjKi28opnDgCFITTHzAJH2DnT2zfhfayu6VDrdvbtarUgg7a
+	 qjs1P0l3fmbqEaCv804aaD1YLA1N7VlxnIW+jiDtaHW4dbkoYByE+23i/WZAkdXmxYQlE
+	 EhEMG37rsYnc5/ueDmeiRMxq32qlgK5U0xnunHXKVT8S5nj9COJ2+PpOTf5lzLd34aazh
+	 QEb0FYiW52D7ctg54lMa0fE7dAk/QeBRNqU7gq4DEOrzKcbf8MhSn0kvU5j1/WCObHw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795650929;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=Y17RY7lnW2W3s1gLYweIbHY4WwiCO5fusa3god85Tng=;
-	b=elRllG2nANb2oMCwijesLXrFy0CiFZXHQPJT0dwrQCws7pYr02aC8BWN6H+FozbS+LE1
-	 QXdbBwAwFRL6N1+hHmkaJcaQEBKCunS/tq2iDmAjBM8nlkwlv9psUAOq5qgZCOByqpIMR
-	 DVSP31jU3JznZpHLHf7shggkySFCEGhuZKm3XnLYgheNoPmXjdIhF2LQ6m5KIdfPLSZcJ
-	 PCjwfB1e8NsSnu8Up+bYbCCvF4eYTWW+QHAey+zQJ4Ey8HBNzVGn6v+KUwy/Dckvun+Bk
-	 LOY08v9YJ9ktu8H0dfHVsutGfKiBvDnsfRz0IpctX1sW7owsxZVTzWKP5UDzxnePdxg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795650991;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:Date:To:cc:
+	 Subject:In-Reply-To:Message-ID:References:MIME-Version:Content-Type;
+	bh=nzmbmUrdM9CoB+LD3uDLv1+sNLFM9+y+EQrSvwS43eY=;
+	b=1ZCfQZlI00etLvW5ZcBoJJn9Jl9ybzWYC+c+u2RhS38LFhuWiUGy68Ab3Xjcjn+bvQsF
+	 msczAGv+rnn293xh3m+To70hCA3kxnJwbYPSXYnIPkvtAjuAddN7H6O+PidFy/pbB9ZI7
+	 bLwCzy7xU57efUKJ7Wauq/nmvgmiW3CaFZ7yg/ab6uDc6p9aTC9t/97e3K+myEaPfIirN
+	 s8MkP7lb21D1/IT++5fTz0Q1b3+NGF3WJqPetAwsbjmuHTrOLkM4JxGDe7wcTxz2oLEc5
+	 8gYtxp1VT4dJ8RtNJ8NvbBlSDv/mfwQWg3kshZKcnM89nae0y13k4a9V2HwfPdg3vhQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=asu.edu;
-	spf=pass smtp.mailfrom=asu.edu;
-	dkim=pass header.d=asu.edu header.i=@asu.edu header.a=rsa-sha256 header.s=google header.b="P+DYusK/";
-	arc=none smtp.remote-ip=74.125.82.170
-Received: from mail-dy1-f170.google.com (mail-dy1-f170.google.com [74.125.82.170])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=giXcuoHj;
+	arc=none smtp.remote-ip=198.175.65.13
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.13])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 161BF606A321
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 23:55:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 161BF606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=asu.edu
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=asu.edu
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EEC99606A31E;
+	Wed, 25 Nov 2026 23:56:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EEC99606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=asu.edu header.i=@asu.edu header.a=rsa-sha256 header.s=google header.b=P+DYusK/
-Received: by mail-dy1-f170.google.com with SMTP id 5a478bee46e88-386c4d2e2ccso3902564eec.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:55:27 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=asu.edu; s=google; t=1795650927; x=1796255727; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Y17RY7lnW2W3s1gLYweIbHY4WwiCO5fusa3god85Tng=;
-        b=P+DYusK//Rj533Zkh+1bXxaooxu2+GSPa/j6qooTwFz/U13kBHC0S5f3+D9QRd3Wk+
-         mXLXI5DBmWoFKsj9WGOz/yMKXI4EQJCxgORYnhUIqmU/xFF0VrfkDTtHxADB4qOjEN/P
-         e6Y6tIBVS2zrulh/9h9/V3P6sSTVejkM8JgECx4EPe1RZDsBlG0ceefEj/VRlbQUKJ9/
-         p1GycljUbIDPJ9mK6v7rxzw6HN3o8dgmXxBzQAjxAcv1cHTmd6GhqLm2d8gnvxd8PXBf
-         9fYzd/fz+ksmv9SdZLe4DMw+aZD+oTQJDBapvYsEWnHWuCibywWr/7LsWgWlyciyD/Hw
-         Mh3A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795650927; x=1796255727;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Y17RY7lnW2W3s1gLYweIbHY4WwiCO5fusa3god85Tng=;
-        b=RUtl0P6f35Bhk4dJrroQ3bbpx8TRhFTIWGV4BEiEH0+vKTYfxAAILa9D0bA7pQsyRC
-         R+/T5Z7Izv78tYudQGREMirJa/uD2emNS7NgBjZF6xnhf0gKnULDNJWMtX5/Vt+bE89L
-         EZJy15/zLfHv+eJWYzz5nK8EklbIRJudGbC0A3U3KO1Zfr6ddh84KWb/58NMeQ4qJVYx
-         YoYhUHIhN08T7cTbE3HHiN4Edhi9RqDs0MYXk63omV4euVAj126IfUYJE0ZBD1SUQlEO
-         tUZCESazUPJseqgSgj/y5qWzRZUB0jX3v/wZh9ReRGpfF0masBeXxgGXxUOuL6rSqnfz
-         HEOQ==
-X-Forwarded-Encrypted: i=1; AL+hErFQlEvY+qzwHrMNc2HYyO7k3FMIJvPIkOpGfjsylZ0IB2Qi5bUXOqfKeXqv1ahrNrjrU85uBIS6a1k3D/c=@vger.kernel.org
-X-Gm-Message-State: APuU4Z86pmuax83y/DpZzO4c7Z6zqfyJ9dDfwzXF4MHk/BSGGxqaJrKc
-	4+CMoUJTrdOVD/D1NZMwNbEnNA7Kd59DvQoq9/ax/4weW0jQTPc5hrzA1A1E5ux+bqU7PtzfQq8
-	WpcP3/A==
-X-Gm-Gg: AZFdTZd4SSqkRuXtXJ4LJlWiVBvAR4KK1oVE6rJOaJY8gktYuByNmpZb2c7AG+T1pmO
-	h8fgudYf7bCCFn9K9HhdBs9XmuP37cXkoxYZ9Nfm2pEVRRyTjGi1B4MXlhzSjGlKtq0MMhYb30A
-	eewyDQBgisAViFneXbZ3EBiiXKQ4V64HoZv8+fRj/XfvmpsxIaB7+1/AKAeSAS7gvLK+0rDAAh4
-	OVEgtwXCXFcFkxsnSCp3GPn6NzJXr+xReYpQ/oY/3rcFlbGdab5clmklq3bDAEFKRvKVU7k1KeK
-	LLeGxqjXy8nliPLf3y5BdsQrPC5BHwyi90TQK2ZAh90M8svTb34aKyYc4A3eXQ9/BxsFFyXU0N8
-	FvKjKr+Ey4IssmxwaWL8KftQ9w5L5i5DKVeT1EqX08j36ilL6IeOz8aSey6YGypFE9yKbJpm/He
-	3Z9XvZm4ZvCuqL7+iIK1owMfQcMpXRXPX9yJqu+o8hjmAftj1fzVthTf8Y3cyUCQHNRBWy6Vag4
-	KL5zCE7WGaajJwszakK0V3Cy6gKWWA6Cy8EZUcGnwjitymEWLVdd+DeAwiM5Q73nGPviUYnf8mZ
-	NMBXiyOsX5A60FYGMef+47w6rq26CcKESRhM/t36rR0W3q5txU7ZlsPMLCY+Bo7uOIAs
-X-Received: by 2002:a05:7301:7187:b0:386:bd8:7ab3 with SMTP id 5a478bee46e88-3860bd88965mr19027537eec.29.1795650927153;
-        Wed, 25 Nov 2026 15:55:27 -0800 (PST)
-Received: from p1.. (209-147-138-4.nat.asu.edu. [209.147.138.4])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385646633d0sm101477297eec.3.2026.11.25.15.55.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 15:55:26 -0800 (PST)
-From: Xiang Mei <xmei5@asu.edu>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>
-Cc: netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	co+80332c538f1d1a9d@bugs.sh,
-	Xiang Mei <xmei5@asu.edu>
-Subject: [PATCH net] geneve: fix out-of-bounds read in the DF inherit path
-Date: Wed, 25 Nov 2026 16:55:24 -0700
-Message-ID: <20261125235524.4139551-1-xmei5@asu.edu>
-X-Mailer: git-send-email 2.43.0
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=giXcuoHj
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795650991; x=1827186991;
+  h=from:date:to:cc:subject:in-reply-to:message-id:
+   references:mime-version;
+  bh=3SZySGmGZ/6zaBV/zxbuC06d9SCUvUnwpfXqYO3xQQM=;
+  b=giXcuoHju6EkFJ/A84YDUGW2uf6MUDvDvRwOvqPxHrBOEP2JH5xSoxQg
+   aC+D4e8M4DpR8tlgGxKLagjnokqQGo/l97kASHMRKFz67v+dQCwlibuxm
+   HK1VVAVsl5Rg0WUFWbJO1QL78cm3wK2lRS6tscXJ/nUyHb6UYeeZm8JgT
+   BPqQdh3NyaEmbTZgud2ANjuMd51JgG1zGmVMVORAcFYxf1EsRswCX/JdU
+   a37N5su6vVKYNn7zla0j/p0RQsZdwSRRGpAxwpAX2N24KuTcACpHjEC2Q
+   En5hh+fWfN+ht/IBydgmPREKVu8/hxClcUzrcBzaQux4w/qtsfwAoi0RJ
+   w==;
+X-CSE-ConnectionGUID: 6DPRbxj2RqSWWoYDl6POtw==
+X-CSE-MsgGUID: kyA+FjxOSB6/JVdLN/rV2A==
+X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4454400"
+X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
+   d="scan'208";a="4454400"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 15:56:31 -0800
+X-CSE-ConnectionGUID: uQvXQlThQjmt+ZS/8eZAUg==
+X-CSE-MsgGUID: pCKsUiAgT/mAnb4vEcF+fw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
+   d="scan'208";a="12008787"
+Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.96])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 15:56:29 -0800
+From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
+Date: Thu, 26 Nov 2026 01:56:25 +0200 (EET)
+To: Srinivas Pandruvada <srinivas.pandruvada@linux.intel.com>
+cc: Hans de Goede <hansg@kernel.org>, platform-driver-x86@vger.kernel.org, 
+    LKML <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 2/2] platform/x86/intel-uncore-freq: Fix deadlock when
+ removing attributes
+In-Reply-To: <20261115014948.2517688-3-srinivas.pandruvada@linux.intel.com>
+Message-ID: <4ff9e62f-db67-6eb5-94e1-8d8e36a2756e@linux.intel.com>
+References: <20261115014948.2517688-1-srinivas.pandruvada@linux.intel.com> <20261115014948.2517688-3-srinivas.pandruvada@linux.intel.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,64 +79,81 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
 
-The GENEVE_DF_INHERIT branch of geneve_xmit_skb() decides the inner
-packet is IPv4 from skb_eth_hdr(skb)->h_proto and then reads
-ip_hdr(skb)->frag_off, but skb_vlan_inet_prepare() only pulled an IPv4
-header if skb_protocol(skb, true) is ETH_P_IP. For AF_PACKET/SOCK_RAW the
-two are independent: a 14-byte frame with h_proto 0x0800 sent with
-sll_protocol ETH_P_ARP passes the pull with only ETH_HLEN and the DF test
-reads 6 bytes past skb->tail. The stale tailroom bit is copied into the
-outer IPv4 DF bit on the wire, leaking one bit of slab memory per packet
-to a user holding CAP_NET_ADMIN/CAP_NET_RAW in a user namespace. With
-inner_proto_inherit there is no inner Ethernet header at all, so the
-h_proto test is wrong there too.
+On Sat, 14 Nov 2026, Srinivas Pandruvada wrote:
 
-The leak was observed. A PoC plants a known byte in a freed
-skbuff_small_head object and reads it back one bit per probe from the
-outer DF bit:
+> uncore_freq_remove_die_entry() holds uncore_lock while removing the
+> attribute group of an entry. Removing attributes waits for active sysfs
+> callbacks of these attributes to finish. But the show and store callbacks
+> take uncore_lock, which results in an ABBA deadlock:
+> 
+>   CPU0                              CPU1
+>   ----                              ----
+>   kernfs_fop_read_iter()
+>     show_attr()                     uncore_freq_remove_die_entry()
+>                                       mutex_lock(&uncore_lock)
+>       mutex_lock(&uncore_lock)        delete_attr_group()
+>                                         sysfs_remove_group()
+>                                           waits for CPU0
+> 
+> Mark the entry as not valid with an invalid control CPU under
+> uncore_lock, and remove the attribute group after releasing it. Free
+> the seqnum_id after the attribute group is removed, so that the name
+> can't be used by a new entry while the old attributes still exist.
+> 
+> Adding and removing the same entry is serialized by the callers: CPU
+> hotplug callbacks in the MSR based driver, and device probe and remove
+> in the TPMI driver. Callbacks running before the attributes are removed
+> are safe: the MSR based driver returns -ENXIO for an invalid control CPU,
+> and the TPMI driver MMIO is unmapped only after the device is removed.
+> 
+> Fixes: ae7b2ce57851 ("platform/x86/intel/uncore-freq: Use sysfs API to create attributes")
+> Signed-off-by: Srinivas Pandruvada <srinivas.pandruvada@linux.intel.com>
+> ---
+>  .../uncore-frequency-common.c                 | 19 +++++++++++++------
+>  1 file changed, 13 insertions(+), 6 deletions(-)
+> 
+> diff --git a/drivers/platform/x86/intel/uncore-frequency/uncore-frequency-common.c b/drivers/platform/x86/intel/uncore-frequency/uncore-frequency-common.c
+> index 6051aa040abf..22019099a857 100644
+> --- a/drivers/platform/x86/intel/uncore-frequency/uncore-frequency-common.c
+> +++ b/drivers/platform/x86/intel/uncore-frequency/uncore-frequency-common.c
+> @@ -313,17 +313,24 @@ void uncore_freq_remove_die_entry(struct uncore_data *data)
+>  {
+>  	mutex_lock(&uncore_lock);
+>  	/* Nothing to remove, if the entry was not added or already removed */
+> -	if (!data->valid)
+> -		goto uncore_unlock;
+> +	if (!data->valid) {
+> +		mutex_unlock(&uncore_lock);
+> +		return;
+> +	}
+>  
+> -	delete_attr_group(data, data->name);
+>  	data->control_cpu = -1;
+>  	data->valid = false;
+> +	mutex_unlock(&uncore_lock);
 
-  planted=0xff recovered=0xff  MATCH
-  planted=0xa5 recovered=0xa5  MATCH
-  planted=0x5a recovered=0x5a  MATCH
-  planted=0xc3 recovered=0xc3  MATCH
-  phase B: 8/8 planted bytes recovered exactly (8 bits each)
+Please redo with scoped_guard() to avoid having to split unlock.
 
-With this patch every probe reads 0 (1/8, only the 0x00 pattern), while
-the df=set/unset controls are unchanged.
+> +
+> +	/*
+> +	 * Removing the attributes waits for active sysfs callbacks, which take
+> +	 * uncore_lock. So this can't be done while holding uncore_lock.
+> +	 */
+> +	delete_attr_group(data, data->name);
+> +
+> +	/* Free the ID after the attributes with the name using it are removed */
+>  	if (data->domain_id != UNCORE_DOMAIN_ID_INVALID)
+>  		ida_free(&intel_uncore_ida, data->seqnum_id);
+> -
+> -uncore_unlock:
+> -	mutex_unlock(&uncore_lock);
+>  }
+>  EXPORT_SYMBOL_NS_GPL(uncore_freq_remove_die_entry, "INTEL_UNCORE_FREQUENCY");
+>  
+> 
 
-Test skb_protocol(skb, true), the value the pull was keyed on, as the
-TOS/TTL inheritance already does via ip_tunnel_get_dsfield() and
-ip_tunnel_get_ttl().
-
-Cc: stable@vger.kernel.org
-Fixes: a025fb5f49ad ("geneve: Allow configuration of DF behaviour")
-Reported-by: co+80332c538f1d1a9d@bugs.sh
-Signed-off-by: Xiang Mei <xmei5@asu.edu>
----
- drivers/net/geneve.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/net/geneve.c b/drivers/net/geneve.c
-index 0ab729f055ea..74e9509598cf 100644
---- a/drivers/net/geneve.c
-+++ b/drivers/net/geneve.c
-@@ -1471,11 +1471,11 @@ static int geneve_xmit_skb(struct sk_buff *skb, struct net_device *dev,
- 		if (cfg->df == GENEVE_DF_SET) {
- 			df = htons(IP_DF);
- 		} else if (cfg->df == GENEVE_DF_INHERIT) {
--			struct ethhdr *eth = skb_eth_hdr(skb);
-+			__be16 inner_proto = skb_protocol(skb, true);
- 
--			if (ntohs(eth->h_proto) == ETH_P_IPV6) {
-+			if (inner_proto == htons(ETH_P_IPV6)) {
- 				df = htons(IP_DF);
--			} else if (ntohs(eth->h_proto) == ETH_P_IP) {
-+			} else if (inner_proto == htons(ETH_P_IP)) {
- 				struct iphdr *iph = ip_hdr(skb);
- 
- 				if (iph->frag_off & htons(IP_DF))
 -- 
-2.43.0
+ i.
 
