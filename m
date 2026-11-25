@@ -1,54 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795593206;
-	b=e36+Dfq+ZSco7M8O82yBaXSDYRk3TFloyqrko9/3DrgAFkTU0V9p7iR8yrGNDtGIdb0X
-	 rPWVuerybYUTEtOoI7MFA3lYuMPPOwH0hyzO4p9VJsyVZvyuS6t7Fwlz4Z66djFfnciyL
-	 9UkFXo3YEdRsrGMlSxCoKGcQBEbFNsDulGL2i+sScwWRv1dS46XdkbRvfOgdoKU04MzzD
-	 6hSx/fJ84J6pmJUnNZEFYHGhHteO+5p6RipRQknfmZVqsEPJk/sg7nMUh3kiaTCmgAiTR
-	 9uU3cp3S6XSbGaIIVQcLtgfEMMduAy5mKey5Xb/eOHaxcreMHntSNJ+9q7KuLzGKhcw==
+	t=1795593209;
+	b=eLps+hM4UJ8cFolgYSXQLKy59xKAheIlh/drOUX0+p4jnbn2YtEIHSjIslvxWh6DM2Bi
+	 zoFWBbs785VYCvP7Hpbtr6qCLdapBZzW0sRVudH0THnMMuVmM18SNTiUOA1ItUXT6C1IP
+	 2dkgXtsdbfTM0ZDiGEvahXipfeb20lfETxE7Fo/myfSskg2Pz4lK5wXXbdIPn6uz6NQm7
+	 9WyjIIeYDMDg+Qh57XOsIh6U5/BUduLg+YaBCA59a/IVY6ASSPExoxk4+7QyWo1DgCYUo
+	 O4vIgUH80/vb4wJkc8rA53c1gVefOOIiX7n817wwCSevHlInHvIuZW8nqbloGqm6oGw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795593206;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=LxZT7ZjAx5dLugEibQIK7MHwJ1X97KSE7N0NP3JiYOo=;
-	b=v3M+2iwB3Au9wjSnKhn7V/Ew6k7ULUiu402O4bk74oVJs6SCgEDmEdkjBv6Kox5mZSdX
-	 43sYDE1E6fJV995KfjKc8lv+PlGYqKYdGbI8kDcTRDRPqcAiLpahbnk0cBUIEaxjnQmvu
-	 qGAcSCttRxtvq/pucN6fPFsZxESPWfk6kmrwUCTMjGwq2VSUN9iyiaeXo8kgxCaK7UoGA
-	 HHySa7Hie10FjaHOYA+DLUFxJE5EMLm3/O2AkoxQ+H31Le4HTqJ8hR9p2NVVRnt9QOFyT
-	 9EilWycEPxbw4k5NbAsc2fHbB2+aAkY3G2TbZuEqVAPqEj8zXvoQR3md1IbybLbW+cg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795593209;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=asAIkoqL4rWRijwrcZTmejrceLoeC5xA34MCJHZUYsY=;
+	b=O/soh0EYgq7MJInzZHCfToCKaVtkH3bbp4hEYA/dTTqiuHynHMEWKXi0lxuY1gGb7u4u
+	 lgXAtdcSlN982dwgTIyLQRkeKZDq3C/8u6trhcunmOdxiocNI2qZcJOd6OMmASqI7tBfs
+	 eImrJ4Ax/YMCZ/XkwbiAaXFfWcOjUhKR/LZSXAm9kM/jxaKwHk7Pp50T2TvOL8DqX+8ey
+	 jrEx9SZaxsvZ/eZzQgIRjHYOybeQZYic6PwjRMONEZOr6bFaT1ZhNeAvuIBBaPKmKT4PE
+	 j6eHWTpuqmaH/5ybOyvn59tezwquagqOnl4JfYIOzhGG/4Jdh0VYfRABTgemkyhsduw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=GdblKYot;
-	arc=none smtp.remote-ip=91.218.175.53
-Received: from mta0.migadu.com (out-53.mta0.migadu.com [91.218.175.53])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bkYtNNeX;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 370E8606A321
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 07:53:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 370E8606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1E169606A321;
+	Wed, 25 Nov 2026 07:53:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=GdblKYot
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=MAslaRM54tE3XjgvOR0kxLBY4cJjVeHgCxJcmnBGZE8=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795593203; v=1; x=1796198003;
- b=GdblKYot6vc+2CPrL89l1kq1SfRpLgdzHn/okgT2I+pD6oSGHSpPmqBPj9r5OZ4QUIDP4L4s
- dXoax4R6n89k6m+Gf1gNPlUvhiMqMTE4it07jVOPKqhcuKAQePmhWZ49/f78hbgKSw3rXQmeVFC
- dUtEUtWTk3Z7tEm/b7tcFgtw=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 34eb167e6bfe3a5d;
-	Wed, 25 Nov 2026 07:53:23 +0000
-X-Mizu-Trace-ID: 34eb167e6bfe3a5d
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <75457f63-70fb-4675-bb7f-0a22bc193446@linux.dev>
-Date: Wed, 25 Nov 2026 15:53:18 +0800
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bkYtNNeX
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24F5F1F000E1;
+	Wed, 25 Nov 2026 07:53:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795593208;
+	bh=asAIkoqL4rWRijwrcZTmejrceLoeC5xA34MCJHZUYsY=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=bkYtNNeXnbcRSV1hUxf42xU6Ba9CPJEBbGlyH3DbeNlfe9Caz59rNZxIhKSHaRgb6
+	 B2kmw+qxnTlAZWVtnAxmXzwQXs4wDgxaLwMM13ONtXuLAjqxP1839ac/NPTS/njthS
+	 ge7BGDVDcJEBtr2/v9vOJoRRHUaYBfOGkfx3BkIzja+RsUjOoVGK9u7rlsFt3Z8wQq
+	 Ktgt5cQWoeS4efAkx1qh3BVzF2Nkui0/OgOY+1qnjpx+1JoJARqSirNwQ5eKInYMUK
+	 zLKGS7a39N2wTHaNu77td4dduWIIzd7SyPqB1vrh+H78tK+YCokTH2vUUZFX9G+fJO
+	 Zlk3bIUwKVGiA==
+Subject:
+ Re: [PATCH net v2] r8169: clear RxOverflow before unmasking interrupts
+From: netdev-bot+sashiko@kernel.org
+To: jure.rebernik@luxonis.com
+Cc: hkallweit1@gmail.com, nic_swsd@realtek.com, netdev@vger.kernel.org,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, sgoutham@marvell.com,
+ jacob.e.keller@intel.com, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org
+Date: Wed, 25 Nov 2026 07:53:27 +0000
+Message-ID: <179559320769.3135.10021676764558133789@kernel.org>
+In-Reply-To: <20261121073652.410916-1-jure.rebernik@luxonis.com>
+References: <20261121073652.410916-1-jure.rebernik@luxonis.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,154 +65,169 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 03/12] cpuset: introduce partition_update()
-To: Guopeng Zhang <guopeng.zhang@linux.dev>, Waiman Long
- <longman@redhat.com>, Tejun Heo <tj@kernel.org>,
- Johannes Weiner <hannes@cmpxchg.org>, =?UTF-8?Q?Michal_Koutn=C3=BD?=
- <mkoutny@suse.com>
-Cc: Guopeng Zhang <zhangguopeng@kylinos.cn>, cgroups@vger.kernel.org,
- linux-kernel@vger.kernel.org, Ridong Chen <chenridong@xiaomi.com>
-References: <20261114083124.1340140-1-ridong.chen@linux.dev>
- <20261114083124.1340140-4-ridong.chen@linux.dev>
- <833af431-3580-4a7d-987f-30d8d60893a3@linux.dev>
-From: Ridong Chen <ridong.chen@linux.dev>
-In-Reply-To: <833af431-3580-4a7d-987f-30d8d60893a3@linux.dev>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
 
+Thank you for your contribution! Sashiko AI review found 3 potential
+issue(s) to consider.
 
+Critical: 0 · High: 1 · Medium: 0 · Low: 2
 
-On 11/24/2026 6:06 PM, Guopeng Zhang wrote:
-> 
-> 
-> 在 2026/11/14 16:31, Ridong Chen 写道:
->> From: Ridong Chen <chenridong@xiaomi.com>
->>
->> Introduce partition_update() to centralize updates to key cpuset structures
->> during a partition update, including:
->> 1. effective_xcpus
->> 2. exclusive_cpus
->>
->> Key operations performed:
->> 1. Adding and removing exclusive CPUs via partition_xcpus_add()/del()
->> 2. Synchronizing the effective exclusive CPUs mask
->> 3. Updating the exclusive CPUs mask when modification is required
->> 4. Triggering scheduler domain rebuilds
->>
->> For a local partition, the CPUs to be added or deleted are restricted to
->> those in the parent's effective_xcpus, as the parent may have shrunk.
->> The function returns early if nothing is to be changed.
->>
->> The partition root state is unchanged by this function, so no partition
->> change notification is sent.
->>
->> Signed-off-by: Ridong Chen <chenridong@xiaomi.com>
->> ---
->>   kernel/cgroup/cpuset.c | 52 ++++++++++++++++++++++++++++++++++++++++++
->>   1 file changed, 52 insertions(+)
->>
->> diff --git a/kernel/cgroup/cpuset.c b/kernel/cgroup/cpuset.c
->> index 12bdcaeb8ae5..c66864faab32 100644
->> --- a/kernel/cgroup/cpuset.c
->> +++ b/kernel/cgroup/cpuset.c
->> @@ -1824,6 +1824,58 @@ static void __maybe_unused partition_disable(struct cpuset *cs, int new_prs,
->>   	update_sibling_cpumasks(parent, cs, tmp);
->>   }
->>   
->> +/**
->> + * partition_update - Update an existing partition configuration
->> + * @cs: The cpuset to update
->> + * @prs: Partition root state (must be positive)
->> + * @xcpus: New exclusive CPUs mask for the partition (NULL to keep current)
->> + * @excpus: New effective exclusive CPUs mask
->> + * @tmp: Temporary masks
->> + *
->> + * Updates partition-related fields. The tmp->addmask is the CPU mask that
->> + * will be added to the subpartitions_cpus and removed from parent's
->> + * effective_cpus, and the tmp->delmask vice versa.
->> + */
-> 
-> My understanding is that tmp->addmask is added to subpartitions_cpus
-> only when the resource parent is top_cpuset. For remote partitions,
-> NULL represents that resource parent.
-> 
-> For a nested local partition, this helper updates the parent's
-> effective_cpus without changing subpartitions_cpus.
-> 
-> Is my understanding correct? Please correct me if I'm missing something.
-> 
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Yes, that's right, the comment is inaccurate. partition_xcpus_add/del()
-only touch subpartitions_cpus when the parent is top_cpuset, which
-covers remote partitions and local partitions directly under
-top_cpuset. For a nested local partition, only the parent's
-effective_cpus is changed.
+- [High] In rtl8169_poll()
+  (drivers/net/ethernet/realtek/r8169_main.c:5673-5680), RxOverflow is…
+- [Low] The changelog says "On this tree the patch was only built, not
+  run; rtl8169_poll() is the same here as in v7.2." That is wrong.
+- [Low] r8169_init_napi() registers rtl8169_poll() for every device with
+  irq_nvecs <= 1.
 
-I'll update the comment in v6 as below:
+--
 
-/**
-* partition_update - Update an existing partition configuration
-* @cs: The cpuset to update
-* @prs: Partition root state (must be positive)
-* @xcpus: New exclusive CPUs mask for the partition (NULL to keep current)
-* @excpus: New effective exclusive CPUs mask
-* @tmp: Temporary masks
-*
-* Updates partition-related fields. The CPUs in tmp->addmask are taken
-* from the effective_cpus of the parent, or of top_cpuset for a remote
-* partition, and the CPUs in tmp->delmask are given back to it. If that
-* parent is top_cpuset, subpartitions_cpus is updated accordingly.
-*/
+r8169: clear RxOverflow before unmasking interrupts
 
+The patch clears RxOverflow in rtl8169_poll() once NAPI completes, just
+before interrupts are re-enabled. Without this, the RTL8125B stays stopped
+after it runs out of RX descriptors. That stall comes from 6994520a3328,
+which removed RxOverflow from the interrupt sources.
 
-> 
->> +static void __maybe_unused partition_update(struct cpuset *cs, int prs, struct cpumask *xcpus,
->> +					    struct cpumask *excpus, struct tmpmasks *tmp)
->> +{
->> +	struct cpuset *parent;
->> +
->> +	lockdep_assert_cpuset_lock_held();
->> +	WARN_ON_ONCE(!cpuset_v2());
->> +	WARN_ON_ONCE(prs <= 0);
->> +
->> +	parent = is_remote_partition(cs) ? NULL : parent_cs(cs);
->> +
->> +	/*
->> +	 * Only CPUs owned by the parent can be taken from or given back to
->> +	 * it, the parent may have shrunk. A remote partition gets its CPUs
->> +	 * from top_cpuset which owns all the CPUs.
->> +	 */
->> +	if (parent) {
->> +		cpumask_and(tmp->addmask, tmp->addmask, parent->effective_xcpus);
->> +		cpumask_and(tmp->delmask, tmp->delmask, parent->effective_xcpus);
->> +	}
->> +	if (cpumask_empty(tmp->addmask) &&
->> +	    cpumask_empty(tmp->delmask) &&
->> +	    cpumask_equal(cs->effective_xcpus, excpus))
->> +		return;
->> +
->> +	spin_lock_irq(&callback_lock);
->> +	partition_xcpus_add(prs, parent, tmp->addmask);
->> +	partition_xcpus_del(prs, parent, tmp->delmask);
->> +	/*
->> +	 * Need to update effective_xcpus and exclusive_cpus now as
->> +	 * update_sibling_cpumasks() called by the callers afterwards may
->> +	 * iterate back to the same cs.
->> +	 */
->> +	cpumask_copy(cs->effective_xcpus, excpus);
->> +	if (xcpus)
->> +		cpumask_copy(cs->exclusive_cpus, xcpus);
->> +	spin_unlock_irq(&callback_lock);
->> +	cpuset_force_rebuild();
->> +}
->> +
->>   /*
->>    * remote_partition_enable - Enable current cpuset as a remote partition root
->>    * @cs: the cpuset to update
-> 
+> On this tree the patch was only built, not run; rtl8169_poll() is the
+> same here as in v7.2.
+
+[Severity: Low]
+
+Is this statement accurate? In this tree, parts of rtl8169_poll() come
+from the multi-queue rework:
+
+36af5aac9545 ("r8169: prepare for multi irqs and napi")
+5df447aee076 ("r8169: refactor RX path to prepare for multi-queue")
+
+For example, rtl_rx() now takes a pointer to a single RX ring:
+
+	/* rtl8169_poll() is used only when there is a single RX ring. */
+	work_done = rtl_rx(dev, tp, &tp->rx_ring[0], budget, napi);
+
+Also, rtl_ack_events() now has an irq_nvecs > 1 branch that writes
+ISR_VEC_MAP_REG.
+
+The single-vector path still writes IntrStatus_8125/IntrStatus as before,
+so the logic looks functionally equivalent. However, the A/B results were
+measured on different code than what is submitted.
+
+With Cc: stable and Fixes: 6994520a3328, the context line above does not
+exist in any stable tree, so each backport will need to be adapted by
+hand.
+
+Could the changelog say that the code that was tested differs from the
+code submitted here?
+
+> diff --git a/drivers/net/ethernet/realtek/r8169_main.c b/drivers/net/ethernet/realtek/r8169_main.c
+> index f151ab6813932..99b0a410f58e4 100644
+> --- a/drivers/net/ethernet/realtek/r8169_main.c
+> +++ b/drivers/net/ethernet/realtek/r8169_main.c
+> @@ -5670,8 +5670,14 @@ static int rtl8169_poll(struct napi_struct *napi, int budget)
+>  	/* rtl8169_poll() is used only when there is a single RX ring. */
+>  	work_done = rtl_rx(dev, tp, &tp->rx_ring[0], budget, napi);
+>  
+> -	if (work_done < budget && napi_complete_done(napi, work_done))
+> +	if (work_done < budget && napi_complete_done(napi, work_done)) {
+
+[Severity: High]
+
+Should the RxOverflow ack depend on napi_complete_done() returning true?
+
+napi_complete_done() returns false early while busy polling:
+
+net/core/dev.c:napi_complete_done() {
+	if (unlikely(n->state & (NAPIF_STATE_NPSVC |
+				 NAPIF_STATE_IN_BUSY_POLL)))
+		return false;
+    ...
+}
+
+It also returns false while defer_hard_irqs_count > 0 and a
+gro_flush_timeout is set.
+
+With threaded busy-poll enabled on the NAPI instance, napi_threaded_poll()
+keeps NAPI_STATE_IN_BUSY_POLL set while the kthread polls:
+
+net/core/dev.c:napi_threaded_poll() {
+    ...
+		want_busy_poll = val & NAPIF_STATE_THREADED_BUSY_POLL;
+		in_busy_poll = val & NAPIF_STATE_IN_BUSY_POLL;
+    ...
+		if (want_busy_poll != in_busy_poll)
+			assign_bit(NAPI_STATE_IN_BUSY_POLL, &napi->state,
+				   want_busy_poll);
+    ...
+}
+
+In that mode, rtl8169_poll() is called in a loop and never reaches
+rtl_ack_events(tp, RxOverflow) or rtl_irq_enable().
+
+The first interrupt has already masked interrupts:
+
+rtl8169_interrupt() {
+    ...
+	rtl_irq_disable(tp);
+	napi_schedule(napi);
+out:
+	rtl_ack_events(tp, status);
+    ...
+}
+
+So the interrupt handler, the only other code that acks status bits, does
+not run again.
+
+If the 256-entry ring overruns in this mode, does the RTL8125B latch
+RxOverflow and stay stopped until busy-poll is turned off or the interface
+is reset? Every incoming frame would be counted in rx_missed.
+
+Socket busy polling (napi_busy_loop()), defer_hard_irqs/gro_flush_timeout
+and irq-suspend look like they cause the same stall. In those cases it
+only lasts until the busy-poll or deferral window ends.
+
+The descriptors are already back with the NIC whenever rtl_rx() stops at
+a NIC-owned descriptor (work_done < budget), whether or not NAPI completes.
+
+Could the ack be tied to work_done < budget and moved out of the
+napi_complete_done() condition?
+
+> +		/* After running out of RX descriptors the chip does not
+> +		 * receive again until RxOverflow is cleared. The ring is
+> +		 * empty now, so clear it before unmasking.
+> +		 */
+> +		rtl_ack_events(tp, RxOverflow);
+
+[Severity: Low]
+
+This isn't a bug, but the comment presents this as general chip behavior.
+The changelog only describes and tests RTL8125B.
+
+r8169_init_napi() registers rtl8169_poll() for every single-vector device:
+
+	} else {
+		netif_napi_add(tp->dev, &tp->rtl8169_napi[0], rtl8169_poll);
+
+get_max_irq_nvecs() only allows more than one vector for
+RTL_GIGA_MAC_VER_80. So this extra IntrStatus write now happens on every
+NAPI completion for RTL8169/8168/8101/8125/8126 as well.
+
+6994520a3328 was tested on RTL8168h, on the premise that running out of
+descriptors needs no special handling.
+
+Could the changelog and the comment say whether this RxOverflow behavior
+is specific to RTL8125B or also applies to older chips? Could they also
+say that the change affects all chip generations but was tested only on
+RTL8125B?
+
+>  		rtl_irq_enable(tp);
+> +	}
+>  
+>  	return work_done;
+>  }
 
 -- 
-Best regards
-Ridong
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261121073652.410916-1-jure.rebernik%40luxonis.com
