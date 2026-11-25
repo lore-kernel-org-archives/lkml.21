@@ -1,60 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795632291;
-	b=xeQPsKUUFOqedtrizJw/KyAfcpM+SHQMa9Abb4RRQ7H4sGXs0nwYm5oN50LlrFZoXR/1
-	 V9yyw0OpWzx+U6ENs1xA2dxoNcVa9ry7w7VU/O2j32QK7UUNfGcMt2sYR2psJhVqLN7TZ
-	 2xb9Z9SYXcBT00Q7dMpZosMjVCKSiNnTmIemw5FoosER+us6/JwCFwgUnzBR+ZPcP6KJ1
-	 Xpb6hFjgywDKOZEM38aGX+tzR5TyzKH4eARvzWMSfLxeX6SxucLEFeIymBi/5JLABGqcl
-	 z1Zwyp1i585teo4Ba0iOuXBCu3rP4pOccWMvzdeXlV5Ttkty1TcZlHuY+81OWtUdHVA==
+	t=1795632297;
+	b=BT+DNoC9TdKdZsAOrp9LM/1nK3vRvgcb6Kn613pn4jWaIAmhe0nECShuwEf8lK6NiAu0
+	 SSGPVHzT+ZGt47lGPgthYqTraeSAEa0vrFA40XvfLTuSeiTcW0M7UR+y+2qwUvXq7HYRm
+	 pRYJQFT29CI2mBP/Kbrwm/c1QebJ3nFF6ZS+lWu4fx4/wv7NoEI6W81wroFXyao4BsGf6
+	 RtVxUnR0v1gmJ61l60v8DzgshNXgj3B/sUh1mVGZnzkM5sOP+Es/+1tuc3XZAgJx6Udzg
+	 eqzGZgLB2gx0RSKB52mTQwLtD2z4aP25F0XfbFRgzDIJ98soPrd19kOvjhGQc24kE3Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795632291;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=BKhPGN180RFu2/grQW2UNifbxv0N3gAL244P7zoLa5U=;
-	b=cI8+1iFgo1oweL61kGVbf+/+xYcvkb1LX0+9Cmg3oxhJ8k9xXmLizDbGhUEJWMFBVODi
-	 3OJTFLThG2E7UfgHuZ81MQ6WRgMqSWl+/azAdM7Px0NEapdzKUJ5YgtjS/j4pGBMYOWf9
-	 NxICAWZ3zWpb3RCVD5oH4lBqqfgFBf09waGZNAKcoiOLRd4HvPUCDsqS2iQ8iKBqnFvR1
-	 M89PYsu4qfH/3ls9kqB0of+vlxyHPVEcvhTDe+GItuhRvQUC6mUPZArr5zWfFk/UYpsph
-	 rgHdFEHGdH5kXjdwbkTVW1JN5RZ2Ibe/qVYlphJ/e+qWtRqLHBfY7iuW7GiqyAdou0g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795632297;
+	h=DMARC-Filter:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
+	 In-Reply-To:To:Cc:X-Mailer;
+	bh=lztRdkoEfHXfPLjrWU6dsJpmXlIzrR9WYIGBZGJqNOI=;
+	b=uAgrsTUFs7CaiSCBzHN9Wt0/6T2vLtSUdnThG5Oav1DSUU8DWLQWQkCgRBI4cRYoKVLv
+	 jG9WGAJ9mDUwGgr2NnQ6DHz0+AthNstxobWoT+ZqkAAAWEng9PNSKxEkRFgnhcjDnt6Jp
+	 xsvYtYXu1Z1LIBJdPRcZBIKA/zZh/tnmHOzDcnJIH3M2wbZRUpIaoDSkEaiHU7BYsrtKO
+	 75OT9C8CjsIH5htk93BATBtUbTCVPwZmJRYwENNUvrawC3v+iB+mRHU9t7W8hACCW6UBU
+	 hxfHlHlDjhH9NoIQlqmgJ7gbenh/txBQNAXrplNT5LVvgxYGlhJiFfzptGm5gB1Rhhw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YqYUcRPh;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=H+0tWgFZ;
+	arc=none smtp.remote-ip=148.251.105.195
+Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 72E11606A334;
-	Wed, 25 Nov 2026 18:44:51 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 35537606A68E;
+	Wed, 25 Nov 2026 18:44:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 35537606A68E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YqYUcRPh
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D9371F000E1;
-	Wed, 25 Nov 2026 18:44:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795632291;
-	bh=BKhPGN180RFu2/grQW2UNifbxv0N3gAL244P7zoLa5U=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=YqYUcRPhWCNTKfN4EJu8R56acer6B6KI+ptFHNE0xPPVN1yLnnV8DQu7tSNR1rIAn
-	 IAHxcFH3UjYBRKS7/0jV6aBIJm5OnCZoljAfNR5TDvvJ6b/bv2YZyna/m1gEQgwyJb
-	 pM4vVNW5jKdxcJuB4/HM6I36Ws6RC60eQ0eoB2fnJAIatxsSRiKnON0OtZuXVkCwJP
-	 M8vRF120gDWrLt6BV2sDs/77+DZ5DNdjPvffJRk1ksRK2T9i58gWbVn2+OK7lF6aFe
-	 ZnyPlXtMT4BluLV/foFfPzVLEY8QTONG/UZY+8X/gSFZtbUcMztNe2ZgJVyB/BFNlG
-	 7B7fgrWaWylqQ==
-Date: Wed, 25 Nov 2026 15:44:48 -0300
-From: Arnaldo Carvalho de Melo <acme@kernel.org>
-To: Namhyung Kim <namhyung@kernel.org>
-Cc: Ingo Molnar <mingo@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
-	James Clark <james.clark@linaro.org>, Jiri Olsa <jolsa@kernel.org>,
-	Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Clark Williams <williams@redhat.com>, linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org,
-	Arnaldo Carvalho de Melo <acme@redhat.com>
-Subject: Re: [PATCH v12 02/19] perf annotate: Handle absolute addressing in
- data type profiling
-Message-ID: <awcsoGb_RJsvg-OM@phoenix2>
-References: <20261123220024.14891-1-acme@kernel.org>
- <20261123220024.14891-3-acme@kernel.org>
- <awYM6TM47djixK5N@google.com>
+	dkim=pass (2048-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=H+0tWgFZ
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1795632295;
+	bh=/9vfGQcY27HGY4BnTzA1JyrGpZYrrGs5WU0br6myPH8=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=H+0tWgFZHaXyTs0SeNGvu9d+37Lsgps8h+kvZ5ttWpoJww4ses4gXabpCnihydBLu
+	 Y7ffi4NKRTKrR3bx6ajJYvpqsI7lSN/KiWb+I8quemZnXuB5gzAMKGGGc3orXNgxWN
+	 rJaTfDFnR66FD1jKCkWTJz+Bzc3fVl36ZX892b7gUwScaoydzaIz3BoEjh+Rg5YMKK
+	 xFc6Gs/SGAguFwlnV49CLBfr2QSZWbTw18odj5x+1M/chtVIOK+tAQb+Pt6pw1mc23
+	 THZab79pYejPYq18ycRun7f9qUBh/Py+rwdrG6N/Z2IMevsWIVsQPdcDPG2LqwFes+
+	 RgIVQIfpy9c4Q==
+Received: from [192.168.0.15] (unknown [100.64.0.170])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: detlev)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id BB30A17E10D0;
+	Wed, 25 Nov 2026 19:44:53 +0100 (CET)
+From: Detlev Casanova <detlev.casanova@collabora.com>
+Date: Wed, 25 Nov 2026 13:33:25 -0500
+Subject: [PATCH v3 3/9] media: Add tgid and fd fields in v4l2_fh struct
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,74 +62,124 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <awYM6TM47djixK5N@google.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261125-v4l2-add-ftrace-v3-3-1d1db48372ed@collabora.com>
+References: <20261125-v4l2-add-ftrace-v3-0-1d1db48372ed@collabora.com>
+In-Reply-To: <20261125-v4l2-add-ftrace-v3-0-1d1db48372ed@collabora.com>
+To: Daniel Almeida <daniel.almeida@collabora.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Steven Rostedt <rostedt@goodmis.org>, 
+ Masami Hiramatsu <mhiramat@kernel.org>, 
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
+ Benjamin Gaignard <benjamin.gaignard@collabora.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, Heiko Stuebner <heiko@sntech.de>
+Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
+ linux-trace-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, kernel@collabora.com, 
+ Detlev Casanova <detlev.casanova@collabora.com>
+X-Mailer: b4 0.15.2
 
-On Tue, Nov 24, 2026 at 02:17:13PM -0800, Namhyung Kim wrote:
-> On Mon, Nov 23, 2026 at 07:00:07PM -0300, Arnaldo Carvalho de Melo wrote:
-> > From: Arnaldo Carvalho de Melo <acme@redhat.com>
-> > 
-> > x86 code accesses globals with absolute addresses, and 64-bit code also
-> > uses the same encoding for MMIO: the 64-bit kernel's
-> > __default_send_IPI_dest_field uses a disp32 the CPU sign extends, an
-> > absolute SIB with no base and no index.  From an allmodconfig clang build,
-> > arch/x86/kernel/ipi.o:
-> > 
-> >   890:  8b 04 25 00 c3 5f ff    mov    0xffffffffff5fc300,%eax
-> >   8b1:  89 3c 25 10 c3 5f ff    mov    %edi,0xffffffffff5fc310
-> 
-> Oh, is it reading and writing to the address 0xffffffffff5fc300?  That's
-> unfortunate and probably it needs to parse the encoding then.  IIUC we
-> cannot distinguish it from "mov 0x1, %eax" and treat it as memory access.
+These fields will be used in traces to help userspace tracing tools
+identify streams.
 
-Yeah, we better stop using output from tools to parse and derive our
-logic, but while we still rely on parsing output from llvm/clang and
-gcc/gnu output:
+The tgid field will keep the PID of the process that opened the video
+file.
+That is needed because trace calls can happen in IRQs, for which there is
+no current PID.
 
-commit a49c0a8cc5d9402d01531938955f5f606f7ee765
-Author: Arnaldo Carvalho de Melo <acme@redhat.com>
-Date:   Sat Nov 14 14:05:53 2026 -0300
+The fd field helps identify the context in case the same process opens the
+video device multiple times.
+Note that the fd field is set in the __video_do_ioctl() function.
+That is because the file descriptor has not been allocated yet when
+v4l2_open() is called.
 
-    perf annotate: Handle absolute addressing in data type profiling
+Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
+Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+---
+ drivers/media/v4l2-core/v4l2-fh.c    |  1 +
+ drivers/media/v4l2-core/v4l2-ioctl.c | 17 +++++++++++++++++
+ include/media/v4l2-fh.h              |  4 ++++
+ 3 files changed, 22 insertions(+)
 
-    x86 code accesses globals with absolute addresses, and 64-bit code also
-    uses the same encoding for MMIO: the 64-bit kernel's
-    __default_send_IPI_dest_field uses a disp32 the CPU sign extends, an
-    absolute SIB with no base and no index.  From an allmodconfig clang build,
-    arch/x86/kernel/ipi.o:
+diff --git a/drivers/media/v4l2-core/v4l2-fh.c b/drivers/media/v4l2-core/v4l2-fh.c
+index b184bed8aca9..9c2ddd1c2137 100644
+--- a/drivers/media/v4l2-core/v4l2-fh.c
++++ b/drivers/media/v4l2-core/v4l2-fh.c
+@@ -37,6 +37,7 @@ void v4l2_fh_init(struct v4l2_fh *fh, struct video_device *vdev)
+ 	INIT_LIST_HEAD(&fh->available);
+ 	INIT_LIST_HEAD(&fh->subscribed);
+ 	fh->sequence = -1;
++	fh->tgid = current->tgid;
+ 	mutex_init(&fh->subscribe_lock);
+ }
+ EXPORT_SYMBOL_GPL(v4l2_fh_init);
+diff --git a/drivers/media/v4l2-core/v4l2-ioctl.c b/drivers/media/v4l2-core/v4l2-ioctl.c
+index 17ba1ae70735..5d7fbaa1b41a 100644
+--- a/drivers/media/v4l2-core/v4l2-ioctl.c
++++ b/drivers/media/v4l2-core/v4l2-ioctl.c
+@@ -9,6 +9,7 @@
+  */
+ 
+ #include <linux/compat.h>
++#include <linux/fdtable.h>
+ #include <linux/mm.h>
+ #include <linux/module.h>
+ #include <linux/slab.h>
+@@ -3063,6 +3064,16 @@ void v4l_printk_ioctl(const char *prefix, unsigned int cmd)
+ }
+ EXPORT_SYMBOL(v4l_printk_ioctl);
+ 
++static int _file_iterate(const void *priv, struct file *filp, unsigned int fd)
++{
++	const struct file *fh_filp = priv;
++
++	if (fh_filp == filp)
++		return fd;
++
++	return 0;
++}
++
+ static long __video_do_ioctl(struct file *file,
+ 		unsigned int cmd, void *arg)
+ {
+@@ -3083,6 +3094,12 @@ static long __video_do_ioctl(struct file *file,
+ 		return ret;
+ 	}
+ 
++	if (unlikely(!vfh->fd)) {
++		vfh->fd = iterate_fd(current->files, 0, _file_iterate, file);
++		if (!vfh->fd)
++			vfh->fd = -1;
++	}
++
+ 	/*
+ 	 * We need to serialize streamon/off/reqbufs with queueing new requests.
+ 	 * These ioctls may trigger the cancellation of a streaming
+diff --git a/include/media/v4l2-fh.h b/include/media/v4l2-fh.h
+index aad4b3689d7e..080cb00e3867 100644
+--- a/include/media/v4l2-fh.h
++++ b/include/media/v4l2-fh.h
+@@ -28,6 +28,8 @@ struct v4l2_ctrl_handler;
+  * @vdev: pointer to &struct video_device
+  * @ctrl_handler: pointer to &struct v4l2_ctrl_handler
+  * @prio: priority of the file handler, as defined by &enum v4l2_priority
++ * @tgid: process id that initialized the v4l2_fh
++ * @fd: file descriptor associated to this v4l2_fh for the process id in tgid
+  *
+  * @wait: event' s wait queue
+  * @subscribe_lock: serialise changes to the subscribed list; guarantee that
+@@ -44,6 +46,8 @@ struct v4l2_fh {
+ 	struct video_device	*vdev;
+ 	struct v4l2_ctrl_handler *ctrl_handler;
+ 	enum v4l2_priority	prio;
++	u32			tgid;
++	int			fd;
+ 
+ 	/* Events */
+ 	wait_queue_head_t	wait;
 
-      890:  8b 04 25 00 c3 5f ff    mov    0xffffffffff5fc300,%eax
-      8b1:  89 3c 25 10 c3 5f ff    mov    %edi,0xffffffffff5fc310
+-- 
+2.56.1
 
-    These accesses are local APIC MMIO, but demonstrate the absolute SIB
-    encoding.  Absolute global accesses in 32-bit code can be resolved to
-    types as well.
-
-    llvm-objdump prints the same displacements as -0xa03d00 and -0xa03cf0.
-    The operand parser only recognized offset(reg), so the resolver skipped
-    the access as not a memory reference.
-
-    Parse a bare hex number as an absolute memory operand, including the
-    negative disp32 llvm-objdump prints, and use the address in the resolver.
-    The displacement is sign extended for 64-bit objects and zero extended
-    for 32-bit ones; values that do not fit, zero and relocatable addends are
-    skipped.  A bare number is an address only in AT&T output, where an
-    immediate carries $; Intel syntax prints both bare, so there it is not
-    taken for an address.  Branch targets do not come through the operand
-    strings at all: call and jump operands are resolved by their own parse
-    methods.
-
-    An absolute global load records the type in the destination register, so
-    the state is TSR_KIND_TYPE; a POINTER state records the address itself.
-    Guard the comparisons that made a -1 frame base equal the -1 "no
-    register" of an absolute operand.  A no-register operand is not looked up
-    as a variable, but the %gs:40 kernel stack canary is still recognized;
-    other segment-relative operands are skipped.
-
-    Signed-off-by: Arnaldo Carvalho de Melo <acme@redhat.com>
-
-The code addressing that will be in the v13 post, which should be out
-soon.
-
-- Arnaldo
