@@ -1,88 +1,51 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.227.15.19
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=114.242.206.163
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795602752;
-	b=xUE8a8uHFe2XurViW5WIylTCxFzKhKj4FjcaJNoDYXSvd+ovCnrz9eXxlpyB5PbFlowY
-	 bhsD5yap3MW0lQoMdGh2azbLBe6uEuas9gXimgXI3i12+ScOk7WmoOzyu0SBj17dRyCZ5
-	 nwCNZckGaZcGTNSMhQQiK32qxAcblpK6Vbu5J/da057dtZw9BuPrQcXbz6Wc12qXI+HK/
-	 EQ8i8HiXS5wIVVRQwR1K4PUS7ay9MQWuyKRmSKYAng0UMMTW1r4tHJ5/QMC/BTFqqm3qD
-	 7RRy3JdI2MIjiv8n10gLjJU7nB2eNfcMUTAsOfFPd4VizPN0I/K7NWnNfkJdpyB34dQ==
+	t=1795602756;
+	b=bR3lVerKO6817kmEDO1EMOBY6XUIVkb2Q7UwHYSWDXVCA8B8XWSmdhBM2/x+mp6prkAU
+	 TWecxFUx7ffgE/US29qUC30XLnZ/0mMkBA3v5gwgyGtalUTArd4iTh1pohUsDbHihD1E9
+	 jNRZSi2o4N349Mw24KaqdxH9kPO0M7sVK1//qHrgaSVAm1MEQL6g/8xPW4/A30PC3NXlR
+	 rGBI1ZCLahD92fq+tjvbYpY7PP2OaTm8N4c9P6JCnLU4vo/va/7o5Rb9+O7r2++IgxD2b
+	 /HhGMGmrNeRk3AkxEAXBW4GsKld3genq04bkUSbxQDJq5p25pQIK3vxDxjJOCcRyk1g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795602752;
-	h=DMARC-Filter:DKIM2-Signature:Message-Instance:DKIM-Signature:
-	 X-UI-Sender-Class:Received:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:MIME-Version:Content-Transfer-Encoding:X-Provags-ID:
-	 X-Spam-Flag:UI-OutboundReport;
-	bh=Z58PHH26Cd/VL7PAOM+Xxh8hOf8VnRk32CR2MEiIXSY=;
-	b=fxrhTgiSfl0mujnw0vUIoNO+H2PpV4CzDvhKdJUVgNFuW+tGWMwiuEDvvPHfbSYXS47x
-	 urWlSXA5/LenLJUxMbWivj7jxy5w7Q+ELbZG1dRw1MQQS7SKBDn/GZwz8Nj3EP2S1Pcqn
-	 HLeI1EjlLqc2HeGjZB81QZqIw7uZWCsVeKx+0gBMBwY/JljZ+cWuJnVbEinTe+V4AdwTN
-	 Sx0kYiI9FNGrzyW1oE+TN3w53uZA6iJrRJba8ROK5b5ZUv7zt2NIxNy/0jGDAjzUg0OnI
-	 NP/kI1y/ce55EGZJr6ljJk8+MRlBDOn6mJeGpxF6vimnmc/VQL4Er0K9yixKoLv2KeQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795602756;
+	h=DMARC-Filter:Received:Received:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding:X-CM-TRANSID:
+	 X-CM-SenderInfo:X-Coremail-Antispam;
+	bh=87gTgiD7MR15A5o/DOYg98octD+Ko4H+zSK7DmZdHPI=;
+	b=tGecOB1V14ENXrLAQmYgAoeij1umeM7oAzzCEpG2aAZEQg4/5KkgewkPIhRNBvbQPqJs
+	 Fz9bFKzm2HzaJf+bTD+u7dfKoJIVVjBPwv+r355zT/EMCBa3+e+GExhzFH82LvjGmA7KG
+	 972gwzKtQK/LPiCQCJewX93XzblLpo44ntcur/QFRC/7UPo4PrwzITpZvCIR9WhOfBqQk
+	 kQDHidjaR7QQ7gl6NdkxFMKBtMsylcpG58L5gBNty5wUl9eAduUGy3V2Q8G9ERzkkVK8o
+	 2NW9kDyO4ShDDxZ0vZfLOEODaTl4gHkRON6CL/B/YvecVBHl0BoPLZAySZRlucI0BPQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmx.de;
-	spf=pass smtp.mailfrom=gmx.de;
-	dkim=pass header.d=gmx.de header.i=f3lix.dev@gmx.de header.a=rsa-sha256 header.s=s31663417 header.b=W7JT5TbJ;
-	arc=none smtp.remote-ip=212.227.15.19
-Received: from mout.gmx.net (mout.gmx.net [212.227.15.19])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 72165606A321
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:32:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 72165606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=gmx.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmx.de
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=gmx.de header.i=f3lix.dev@gmx.de header.a=rsa-sha256 header.s=s31663417 header.b=W7JT5TbJ
-DKIM2-Signature:  i=1; m=1; t=1795602749;
- mf=PGYzbGl4LmRldkBnbXguZGU+;
- rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
- d=gmx.de;
- s=s31663417:rsa-sha256:RD3iyQ6cjM50rSTV/qZJpwIt7Uhr
-   NhMZgfIfxQuCW2SmNRdJsMTm5s/5k8pgovweO3V7mnG7pS6OtzeHmE698LaGys8Tn+wkuRsz8jz
-   6UkgueD0OCWS8puHjQgtAW+ixhR6WBBlF3U83OHiIivHBcOfEbvTqBx+mErZ8jj7eS/Co2xjBHA
-   G+wkOT5RirTb9RKUHh7vppK1ZphG2FRrnzvQujJIy/TIPvh/EMKbKwulHjJxkQ2PSAiRmVMnA5n
-   +wzbsZdum3rznhcCe6LB1k9hM2Q6nlykuAYMeXz6onRoV32+ycWnhrYPlstPg35whnFmEE6gznU
-   LCMx4UvNz6YCDg==;
-Message-Instance:  m=1;
- h=sha256:
-   TcOTmVdqB5f0E/DBY16Wv+Y/voMgyb19jMV0O+WtxZ0=:
-   lmQazu1c6YkVw2zbCt7xacH+aCznnqsM98FNKO4qQE4=,
-  sha512:
-   ut1TrjFK0Lca8m5f3DV3RADWqfLnLwfZbkwMb130OOy3aeJAuKLtYSovxHvVzNFOL1NZMyWhNFUEbkS6220V+A==:
-   6QygDQJndhW1pUNDcUxDSsrcLfPrBkU+cXbJoTH0Og0hXUe8GrPzkxwpBs2X/urV+LT0cMtcT0pTp2/MK9Fycw==;
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.de;
-	s=s31663417; t=1795602719; x=1796207519; i=f3lix.dev@gmx.de;
-	bh=Z58PHH26Cd/VL7PAOM+Xxh8hOf8VnRk32CR2MEiIXSY=;
-	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-ID:
-	 MIME-Version:Content-Transfer-Encoding:cc:
-	 content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=W7JT5TbJiiiL5XNnfmlM0nMUV00AziaBkGKpcijNsdzFVLLUeOPs2MoAkZWKRUdn
-	 CuZZYebV7PGGe6EXkRyMExCxfkMRtRPpzfRLuKk9cuFYz8QSqsPjjtodQYFtUIO2y
-	 IIhcLoC2ZpE0sIh05CVXLXRn+simMtUcH7/zPZSR1xZ6bChGTOFfMfgec0h1+74BD
-	 Apb/y4O9ob+82jTtR6z1gkYLd7bsHBZgrdZENHw2k7DrsqM30Wz6tXs1diWa13ZpQ
-	 ZbzG6daIPqiprqu49XD/SHkNu1BIU4agFpX6fuFYfvLe1K4EOVWMf+tksCDp6dovR
-	 Gd4u+yd7jz84ocVmvg==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from client.hidden.invalid by mail.gmx.net (mrgmx004
- [212.227.17.190]) with ESMTPSA (Nemesis) id 1MbzyP-1y630K2ket-00ocif; Wed, 25
- Nov 2026 11:31:59 +0100
-From: Felix Hoffmann <f3lix.dev@gmx.de>
-To: linux-x25@vger.kernel.org,
-	Martin Schiller <ms@dev.tdt.de>
-Cc: netdev@vger.kernel.org,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	linux-kernel@vger.kernel.org,
-	Willem de Bruijn <willemb@google.com>
-Subject: [PATCH net v3] net: x25: shut down T20 timer before freeing neighbour
-Date: Wed, 25 Nov 2026 11:31:53 +0100
-Message-ID: <20261125103153.53012-1-f3lix.dev@gmx.de>
-X-Mailer: git-send-email 2.43.0
+	dmarc=none header.from=loongson.cn;
+	spf=pass smtp.mailfrom=loongson.cn;
+	arc=none smtp.remote-ip=114.242.206.163
+Received: from mail.loongson.cn (mail.loongson.cn [114.242.206.163])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 94113606A336;
+	Wed, 25 Nov 2026 10:32:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 94113606A336
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=loongson.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=loongson.cn
+Received: from loongson.cn (unknown [123.138.236.242])
+	by gateway (Coremail) with SMTP id _____8AxZ7U6uQZrz+UiAA--.5694S3;
+	Wed, 25 Nov 2026 18:32:26 +0800 (CST)
+Received: from linux.localdomain (unknown [123.138.236.242])
+	by front1 (Coremail) with SMTP id qMiowJBxpMwouQZrBEs3AA--.17721S2;
+	Wed, 25 Nov 2026 18:32:09 +0800 (CST)
+From: Tiezhu Yang <yangtiezhu@loongson.cn>
+To: Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>
+Cc: bpf@vger.kernel.org,
+	loongarch@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH bpf-next v1] selftests/bpf: Restrict JIT tests to 64-bit LoongArch
+Date: Wed, 25 Nov 2026 18:32:08 +0800
+Message-ID: <20261125103208.15242-1-yangtiezhu@loongson.cn>
+X-Mailer: git-send-email 2.42.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,209 +55,527 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:Bndw/HGosKB4JVpPJgzwJs0BpY58mkaamq1LH0wKOURUHwbhRZL
- PJiXLgdoglIf0I6s4K3+BlfCRk1gYcuNbInZ8J2hIMTBpMeRI7TgMhl5lwiHm6aMfD7etZj
- /jUrr5I/YZMvujAumY/USk8CR9QgPbMXeRUk9uAvig5mFc3mknHrVIg+vFjcK2jMrXbBRZd
- XmoqdxFSWEML+kAEZwvvg==
-X-Spam-Flag: NO
-UI-OutboundReport: notjunk:1;M01:P0:47Q5vpdwIcg=;sTJf9aKkVa7vNWb53bBfZF5n0VM
- X1cFUdPLZ5TDWJiJ252vwlKMQbJnL7DJFv4w/JWm05Uw6t4IIk9NZwLcZpkXNK22Be8s8hFd0
- O6rzAroBSV1c9Fzp3s+kuGIEtpbCj5iJP/e920hF0nxODv8rP0I9muFqam2RZoFwFjT6sl+CZ
- O/rkYA36t8Qmm4si3G5EJoKGOuCpUSX4Ml3lYdMZNpXyoBL4L4ucaxQdooRM5bgTEAywj7WSH
- FAFWAI3JveMOqT7qvtWElFnyz1JdRaKR5HIX9L/vzAr+CZX+M34uFwuT3+u2EEw5uQ9Ji+o1D
- C/41oJi5PHAnOm63yTuhMgDBNEO9KM60kS1Ef61kJbCbvrg3AKhGAR01tfHeBMjRdnw1TJ4gy
- KTOBCemj2EICBeXenkCwBA7XteQzZdNP2XRsGV3tCM2pkaXSUbJpkfFYCks/BxvVkitEUy1IP
- PsPLl9W1/VdEle5xsAKw45CUr/N1HQkDRdkjKn388VD7z6fn6zk/7xQ/J/0VCibCl4vIZA+A7
- rL5QjoOoru5Nk4PBI4x7YAvqLoTgU44VKNarOyYoNouL1zXsi6EKTiXL/NRz9zvL3BBLulST1
- bcSZoCReXNE23zInoj1JRhOugLuY7PQ1LbaPvtpXQxpQOy5cjAUU3u/3jUs8gbOVjKh92yt+T
- YoPOKzMIG5YtmLcbjtG3yF0zIQ8eyGVTxZlRSJCIUDq9MfTqgeFifRpjhazEM+4GHmfC049H/
- YajuXAHU3xiFSvHHpWXtfn3ALplHV8qh+WKEfEcz17H7B1U8rcIOyjJMAWwbJUp2DL+ceDtXh
- qvPB8+DuG7xR+aAzHaOueLUI8GpmTw03d7OYhfWPYWxI6NDi5f8zTHu8p29kpskH4N5/x5wPq
- NfjEt/FvXjtDd8qBZixsQDU1Dixk1Kerr0JRBybxv7UeO+cVRvdNGjw1klKY6Z17m78tSNaeY
- uNB73/6toU450eRx/7gvQPunBjwPR6HWSNpwSOKK/EoDlNHKkSKvM7UrEbq/JxBYM7thhImsc
- g5DuTm5LFu1Ok2N4aOAy7baZkUiczDdy4voXbhifoe1cL53Z+CR3Jpi9AvGhbHWErpqx4bi6a
- hrucOtTr3BWroOE6noRrfxAE/cJM2tiF8UqPny1s/vatPWvkdCnkVBTqZnocXkCTAKFifPZPB
- sTC6GKRkzob1bD1ZfhGYnIrGwwE3kCVDagIm7YwswW5TybQr/VoPCPaekzJOJY6iw5zcrPcWz
- 86j4N8sMHuYN5KP9LldRiSuEGRzVZLoAG/FmMiyXozHoLh46UU5ByOTYA6DGJaUVjlecXkYKi
- VIBfwWwlSGnNURwgw0+EpNfnJgeGglySkovObj4pJQ7rsyWohPLYmLUkax88kQKFau9L01yvR
- 5bIX2upsUaTiWW4m9BcymBRsM/euAyYMfKQoZpJOvwRZqf39BQ+8kloJweW1YpPYXtFUxSsbD
- EyKGafouGYqZanQArnW1pdbar+dzjxOA8YV7vCDIc6A8DXHxXHxe6q52Bvt+MKJssM+Vp7Vie
- rB+uo+C/OVoaFQkd1CbaE6p3Jz1wlSr4Lce1AxjzwiT0RvsGAseRcFRmjBD11UuLhVsXj70AQ
- 5G28m0LwHvtDAqEcZ05Ph+Ooj9NWUJ32lHPvCTfdtT6jJFpzJlQD3rA/dMPd34hsvrM3ch/rT
- j46j3BDaQ9tLVTLR66qsVLDw3cXtOiCM7C7xxXuXIysuZtOQbUcvq7oITr+qUr3+WZkWxqtPl
- hGLxnk8MXoyEiJSNjyoS/9rF4/B6rwrto3xefL5TET3t7swHRxIsHrezl75zQxJWvvkk9z4fo
- OmV2cIHOKd+VGYs1VXR9wcIRQABMoSvd5u4/D5QqRmuIV8icskBO8BOEUHYLx4boxytGMUNvj
- RlGqOfFoMmsObNRtW4CkZs0RchOOEaELnshh2UmpCQOAXOGJCimnu07A/bC4VmcS5+aI9tWFu
- 4MebnruxFOpx6AhrdixZsCm02RZxTYCMVahAhxr4LX6OeFWSuAkFVhMP1Pk0RUJ90mrOA+cHt
- q3JYrAWX26oBKyIcn0QBjv5Ib8V1QFfW/DZlIuOi99zg9cPYWar+pPggKY1bIzCX4Y4dmRV5q
- btk5b1z9dWHlEAniLUfbTIqJstPRVE3aTO4FfRZOnBnnuWz7JObs9NyX2TBZSo0l+NNeHA0yS
- I15zz9gicW2mxQIyWR68yCqgBIMPk2C0Llqtt15B0twNF9o3J/WVSb2pSsgs+oWLbLILUam1Y
- k9/oHrx7q2f37WTyAa60v/rw5dTJLtky31OeO1HEHpSVay7xiBxPDJsNG6xjhwF5K5zw8JiUh
- x05nLtpWlwamLCwffU2FwrZuk7P8qEb2rBgSbgdes4BRvqdCG0B001KRaOgPMB1VOLetKjmPP
- uvMKb23mklMM+sOnEFp97GgIpMvounWR5ZZR4RU615U8mbpYc1WV3Ilgfcl/yURMm4qj6esvI
- y2buYy0yzjPbP2saMmQXBOTi6kNlVIqmxUdnLCi/B09ZJXOo5FmjU3PpCLeLNOsCTdsIRsEUE
- tOjjpLoL/I9J62nEEiUwTvYCc/u49pbsfU9t1Y+ziGTTxswClxgPX3MrAgBU64/sbS+l5cOGv
- VWztTnmhdFKzL4VZkWbwynOS26bkwuVgn9QUk+1Z82XmWvZWnWoFl28Mw22DCs1rxmZ4AgLu7
- svRKcQsUAa/4J6cSobyATEk3vMp8JJ0Ke9X8MroUr2HyZteWfHL2GYBs8c1/16u457xvDG5mQ
- 9x+I4kD88blii49LdD2ZW6mzItrK6JMvc7B7OJid3pGX57sHcCtZIPf83G9itSCg6d/9ddTpO
- sbMX7CBiZ1A3zWsBYl4476S8OmptEWhzFzRceHbGx/eG6hd0Q1NKqO8RPos6shOz1GvUSnbXd
- CBTSqfoK9s1OCJwcv435dZDNxd9Y0aZcL2nYG+AbB+SN55IhoFs+CueGHU+yq4JrUx5K5NQw2
- NugQUZKU+nOiuwieJJpDXzA3qZx43xCTi7BnE0NrUM94Yf5GLhWpqNXftv+OVG7yeIXJNg3zU
- xl+dGQEAL5PgQ8vHNbVbM7xsX4r1iUoy7vEmna0KvmPjw5OUDW/0EuKrbFJv67dNXlva+pzu9
- n5QMBMvMN2k+Ac7wWWhHxxbhJABQpgAaWsM1cgyfOgX99+ssLuAHTlvUv0RRr7bfqzLK8oSLM
- rUF0/Kmi7biWvqSqoEP9qDlt90uAa0eOD5iHJ7TZwFq6tliGbFEGPYClmltSa72m8LJHTba6p
- KB+PHMWUZEfSNZr4JDJEkIoKBsy8hIpddGMLq8NcQqseH9w0QXl4pWwc7IQhQOxuYgBsMcS1I
- 5sIgxsVVJVpu6E0o0qY/Hx5SoMyWh/ccPpH1Yo6AZe42m9jDYuI8cvgwk7uXJD/K6KwqY3vGN
- Ak190o/0jxivNDP7TlYGuDZhVGnFvfXtjd+FuenVGQzqlIdzJeLev9Q+6Ee95E6r5LamxVz5l
- JnwuI6htbTCVZW26kHpG/n3GzczERgD7rSWOCWeLfBQ0iRzRal6Ibfj21mLj6qmCjMm1p5f7A
- lPRfaU9aBAmH3URCWkcywH2x4d3BeYrU6IrpY6eyD0ZeI91iNISItUXy2xG/6KTFcBsRvHNUL
- gyldvFVm8547vz3Yroq5WVP1Y41cfxez7+78jOQa5qMteRppXv930ckp0J07MO5MRdNQLBrcQ
- x9o5LSt6oI+/ukI8Z8K0PH4K656GSRALoUr8NLwFICJc+Yq4DnK2kgY84C0qpm2lS1sjVuX8u
- yyFo4+gxvmRhM6kroJtCINlozBtbySvFASlEctcxr1+GLuFe6ejaSXOj+TZuDEEOen7Wend52
- 6CdCQAaQ/rumWUh3rhb0XQtxM3lKX4BFUHeLnvdaRwY2YSNh7x8a7fJOeSUiPPt1e3aAeZ08Z
- XMFTek8vXWqL0CtfsNiJL124fz0DM3mAsbHxX+P/Z1amq1RKdwydxEirqkq6jMscj8PnycBcj
- LYunbSP7f2itn7TkHUzN8gr+PW1B7Pod+00xtMn3kkmp/+UoGnw4XA/qt0abYC7gTcTIM1Dmp
- pHJPwoFxAPDEct7Xe9KHaMUK0hMb7cBl0hjNDZyhl9oJv047gIErdwYtLbqSfgrURi2sFQV2a
- k7lm2c2BSGc6xHHWXV5Ih6QB1PwcHwihkt0hj5ws3erLMQxLf3LYQuT28PTzgll9Vx/E9mNta
- jThn+7hpYqwgo2AETU0lf1B8CdNX8w2WyuA+Gyo1A5yIyZNzl1yRBD5LuOrVfL3jwlh3YtF5A
- R7md8n5gHfdWz4yF/oY1d9nKOLcFVsFfkKRBqguUMmR0dBp1KT7P351ocr6w7OqBfNK+h3F6s
- dY00GsH5SiKPzpqA5EZyF7yIR9UfIMuslpbIDwTUH5az5E8dvOcSl8JFaVEJtSQak8kFhdA/D
- xDMPrUsnl7enX2FW3sI1tutUCybDMZXCgODlFDYcgMg1Ihukam0tb5zfYPkhzznIB8lfhFiHJ
- 97PnkBmVynqVIQIINKnrWdNhV1WSRZvy7k6vi5LiOQPNaYjjPVtVXawF/Lx5EbW/Gdqy5eoNn
- a8q9rk8lgyynDK1G/Bhm0VX9dUa0eHdAS51CzNFjzFnQnQj2RegMciE735okyUG9Bgs0pDliA
- gTbv7+uPS/x5krRg5fdpemLesEDzQTcCo+Thf9Axv/vlKGFfjxpd9Sfbu8RWI8tVsC9YirZMk
- zqmjEEMynQljqL2yP0j1SeorMcUJ2sRkX5Rf2N5LH0bGSTY7fSOTnA0lfAM7d+W4XevnUxMuJ
- /jbhEXTSTl0qr9UcjzgCxQIN33XlB1vPdRStpBUEjC+wP4pFzBqFwAIPuCny9Scy4l/e7rvab
- UibZPvjInJQM+M0wMJBUR917wvN4ModmRIai+OTCdrol96y/h1Hmu/2T5DmEgJf/S6ls7voLp
- NEXtw52epfoewHLAY1RtnuD9HUn5YOzQknuwp3yG+o4YISJT+HMT72EIDoTZaKUPMNUKxoZgL
- rrP4PI1hOS00MqYrNjXoO1Y1SnexLUBT/0vW4DVKUzyIfTmNQptjA1hduqaeuXscOYNVTAjVo
- SrO/TGDKYgK4aSqMvhH44ijwxX5l915oqzPNWXTL52pCjE/564E558QL/YTqbxfbnMh76fuR2
- BZp8FzzghapfcqIqKs6mbGtnrEZqjqz//Okbtns9Pm4QsL8Zi+rXDEg8hNm/vKsokCPVlQBZs
- Tzq7xASrWiYJY+aqKnZfUA53iQiquiPk9LeMGBqI4OBX+sFegN2LBpbu9wRzn/yfw+BKEFojn
- hsXSeLoqy10gs2MfjlE9aBVtBxmVvp+JZfNvctUb4Ony7O/IYrBR94W9RmwnEVTgRl8+hE26e
- yA+S817A+Lb3oGAzQypkNN9kIUSYdWVf7SBkKSzg+HwK+o4JNFhlqv7t4hAof4arGx+2IKpkI
- Y8jXigUiWEJH3Dz4zIosM42Yw63ZlRY+zvVWD2VaCrEPDWf6U2XEzFan9b02TGMeM0ma7bvma
- QtRCwjyVBRM9CnmEBmL9ESG2Q0yX/wZnaiRU6nfVjzMqWOfKlJ3GVY/M1CbPy1qn2djiAUfhq
- h9LfajPXgbONIU2ZiXXKzCeZlnZz8k0xLJzdwdi15VIRgGCtIL44bFZ2A8L70Wh/3uZeLNvtb
- 62wdvBCPf26nJeUCx0GrUuxZarwQt/Q8e8yYDV0FyAvMBH4mDhn+kCOzA7fq9vBz9WfYa189n
- tnGkTUkWxb9ZGb9yWAIf8PAOw/lHLd0A2/WAsANfzMlYzTB1R4J6na8pGOoYxkwdAyC1KkJC7
- yAIQFU9d3IA7BQujJFuFmKTSRcMaJrzAVwkqYLCfRKqq8/lGkXG3vzqAiMRg1Ka4JWIVSzW0/
- 3t0KFElTdiz96I77GlQmLCaL63z49mzr1LbGhqTIsqK7pDSwN9RRXwM9o2ikJYAkMOL8UUCbQ
- Nvjqq7vxDvtzGQzT31QQP8onsM/dVsoe6V3d4itXMgil1c3pTSfVdMgshVfPx+xj3LUxzT9SK
- 1R8WuCe3vvpsFvoDkhazdFrOJFB4ZvSX+9cqPOfbBpNq+MU77njQkZq4zRdidBPaN32prcDXF
- SNsDIzWlR+xY4rUOdHSozRl+s5PUwhZKfOYtsCb/zWgWY9j9/vHSYAUWHyNAEcG8VOXlIOh5d
- Aa8Po+Z+oF65946FrEC3zTWiS6keTCmGPPG6sMvpltmDsM1UUl4LEU4QcnSIfCWzF6YOhxXYP
- s/IQX0toGhJKHZplqQF7dPvVnYvhDUWoFGNPKm8eBKY2rFs08CblVHCWGm4OfI8zxeA81fgyv
- Gie/zhNhTWrrwiwmiWoAVdpDXqkrc+lV3IYuqlheFA+xfUhfXMx8GOCQGpCq3dMixVuJyd5ts
- +uEsTLjCpL56iStqF0S9xLeznF01+I7eOJmS30vHyIIDkG3cr/uurT99dCh9damF/BqoSSZ+A
- Y6XxBJYivmSNbjsCXGIqdonFdy1BORsaVhzr/qWGtoLm88tA4NEDc5PhCZRCqkWzlz47MOcRM
- nQpO7d30MrD3WNdKUGI/9Xgu330KddMONUP/DQL2Gu8SFoN8tNhYRNK9kNrmsN6DgiWou1lrt
- tS1PDeaR8hOZ41cimXcsWjrGw4/VCytEQwNtM8lpcla7V5QQ5nfZinWviaEiAqG6f9GGun4vq
- pVH7U+cc5Nx3W1ofXAqBn/RxPRsfFcANOdMUFZ7Lr46m53/HIcjZXrjq5OTM5rPAo3NeaOCge
- YsUbq736Kk9qokYKA5BPdvT6RIZO9e49Mi5YheEmP1LI+IGjURiLL/5CbsZFk4UM4hD0zCRjV
- yZp0TjxAh8nqIOi/AWdSJTYXO/gFgZ5/JbP9AlcprA1zkV0IiwVzSU/zvHzApPsok/TXMqOq/
- rpr2lNXrURlijQIzeiouz9HD32XN7ph4Hka5GInpNHC3AvjmpP7olrYgJ43y5/DAgT1vivf5t
- /TxiCVODQPEghSdocqiw4jQV3rcP+c0hNmMsGHnMRTlih9rx8I3HD5bY0Pi2EHT2rGBEvEI/F
- YNUWlcHIKz9eMt55cNElogBKS441MCgu3n4ZFMamUHzxCGPIlW8yKlzXMpPCfJxIfltvmoGAW
- HuwylHgpw3RWe4HmG4vwK0OrPFsmAeD9dJ4Ldw1KbAcokCuvNG1iibnsfQCtGxK9QMO3DyB2c
- zNJxBfXCHmMon/72hIEBG4oJrUNdHlAte9/xjOzsZJIseBd4F8KcxGUbb7fkWqLMuUB3QU4yZ
- Tfuwk5LF6i4oZ8LWlRLttuux8lH4O3QPfDhabJNX7TgAL1/XJfwEriT1ZdcSsuPzkem04FCN2
- OJHmAT40hmuIO4YYCG/pO/5enCC8WWP0R+Ud/Lxe2mNO6Wtgv0BHB72O8qFp1SJ7eiIH+yEXC
- i1YI/tDHAYJZU6/UApMo+n53SmUHs1mNZQR7U+10jKpBVTOnRcH7NZzzE+8gMyH5cRV0oDDlH
- W3LrsKRL+1moLm+i6YUQ9hs+zzHvoDt/b6JdE/xvJA1SqmGz4xFk+cXyeKV/MbnjxdumaCZei
- jtYFGmGFRPuEF38INSWP0sLB+WUcnpsxyNGFqRXB3snM2ViLlayN2JaC9PHfc1FRREfbPskhM
- XU/7Op8fihf4thWVqqtLmAcsSWyXAk6+sggKUSjnPwCsxn0vVr1yDNf0FeFVPfxptPTWWygNs
- sT1pZbbXh5BEoMubnCdxTxxWF/pCXbMZSnIktlImvuTb5qnX6a6cKeowhfmBNcrcmvtbAhrQv
- v+ERzQDH6URJA=
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:qMiowJBxpMwouQZrBEs3AA--.17721S2
+X-CM-SenderInfo: p1dqw3xlh2x3gn0dqz5rrqw2lrqou0/
+X-Coremail-Antispam: 1Uk129KBj9fXoWfZF13trW8ur47Wr13CrW5twc_yoW8ZFWxuo
+	W3KFZIvw1UGw4UZrWa9r1fJryxXryjkr95XFW7Wa4rCFsrGr15CryUCws5ur4aq398Wayq
+	ga47CasFvFZ7GF1kl-sFpf9Il3svdjkaLaAFLSUrUUUU1b8apTn2vfkv8UJUUUU8wcxFpf
+	9Il3svdxBIdaVrn0xqx4xG64xvF2IEw4CE5I8CrVC2j2Jv73VFW2AGmfu7bjvjm3AaLaJ3
+	UjIYCTnIWjp_UUUYy7kC6x804xWl14x267AKxVWUJVW8JwAFc2x0x2IEx4CE42xK8VAvwI
+	8IcIk0rVWrJVCq3wAFIxvE14AKwVWUXVWUAwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xG
+	Y2AK021l84ACjcxK6xIIjxv20xvE14v26r1I6r4UM28EF7xvwVC0I7IYx2IY6xkF7I0E14
+	v26r1j6r4UM28EF7xvwVC2z280aVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIEc7CjxVAF
+	wI0_Gr1j6F4UJwAaw2AFwI0_Jrv_JF1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqjxCEc2
+	xF0cIa020Ex4CE44I27wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_
+	Jrv_JF1lYx0Ex4A2jsIE14v26r4j6F4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x
+	0EwIxGrwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwCFI7km07C267AK
+	xVWUXVWUAwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67
+	AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI
+	42IY6xIIjxv20xvEc7CjxVAFwI0_Jr0_Gr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMI
+	IF0xvEx4A2jsIE14v26r4j6F4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVF
+	xhVjvjDU0xZFpf9x07jFa0PUUUUU=
 
-x25_link_terminated() cancels the T20 restart timer with
-timer_delete(). If the callback is already running on another CPU, the
-cancel does not wait. The callback can then rearm the timer before
-x25_link_device_down() removes the neighbour and drops its last
-reference. This frees the neighbour while its embedded timer is active,
-leading to a use-after-free on expiry.
+Now that 32-bit LoongArch support has been added to the kernel while the
+eBPF JIT remains 64-bit only (HAVE_EBPF_JIT depends on 64BIT), limit the
+BPF JIT-specific test cases and architecture macros to 64-bit LoongArch.
 
-Shut the timer down synchronously in __x25_remove_neigh() before
-dropping the list-owned reference. timer_shutdown_sync() also prevents
-the callback's unconditional rearm. The callback does not acquire
-x25_neigh_list_lock, so it is safe to wait while neighbour removal keeps
-the list protected.
+Pass -D__loongarch_grlen to the BPF program compiler in Makefile, so that
+it is able to guard the BPF test cases with __loongarch_grlen == 64 under
+progs.
 
-Purge queued frames when the last neighbour reference is dropped. A
-socket can take a reference before list removal and queue a frame after
-the list-owned reference is gone, so purging during list removal is too
-early. Purging at the final put also restores the cleanup removed by
-commit 7eed751b3b2a ("net/x25: handle additional netdev events").
+Furthermore, rename the macro __arch_loongarch to __arch_loongarch64 in
+its definition and callers.
 
-This issue was found while auditing protocol timer teardown paths for
-callbacks that can rearm themselves after a non-synchronous timer
-deletion. It was reproduced on a two-CPU KASAN kernel with timer
-debugobjects and lockdep by delaying x25_t20timer_expiry() and deleting
-the backing veth after the callback started. Timer debugobjects reported
-an active timer being freed; with timer debugobjects disabled, KASAN
-reported a slab use-after-free write in __run_timer_base().
+Signed-off-by: Tiezhu Yang <yangtiezhu@loongson.cn>
+---
+This is a cleanup patch, inspired by Sashiko AI review:
+https://lore.kernel.org/bpf/sashiko-outbox-228693@kernel.org/
 
-Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
-Cc: stable@vger.kernel.org
-Signed-off-by: Felix Hoffmann <f3lix.dev@gmx.de>
-=2D--
-Changes since v2:
-- move the queue purge to the final neighbour put;
-- document why __x25_remove_neigh() shuts down the timer;
-- describe how the issue was found and reproduced in the commit message;
-- drop Martin's Acked-by pending another review.
+ tools/testing/selftests/bpf/Makefile          |  2 +-
+ tools/testing/selftests/bpf/progs/bpf_misc.h  |  6 ++--
+ tools/testing/selftests/bpf/progs/stream.c    |  2 +-
+ .../selftests/bpf/progs/test_ldsx_insn.c      |  3 +-
+ .../bpf/progs/verifier_bpf_fastcall.c         |  2 +-
+ .../selftests/bpf/progs/verifier_bswap.c      |  2 +-
+ .../selftests/bpf/progs/verifier_jit_inline.c |  4 +--
+ .../selftests/bpf/progs/verifier_ldsx.c       |  2 +-
+ .../selftests/bpf/progs/verifier_may_goto_1.c | 10 +++---
+ .../selftests/bpf/progs/verifier_movsx.c      |  2 +-
+ .../selftests/bpf/progs/verifier_patch_list.c |  4 +--
+ .../selftests/bpf/progs/verifier_precision.c  |  3 +-
+ .../selftests/bpf/progs/verifier_sdiv.c       | 34 +++++++++----------
+ .../selftests/bpf/progs/verifier_stack_arg.c  |  4 +--
+ .../selftests/bpf/progs/verifier_var_off.c    |  4 +--
+ tools/testing/selftests/bpf/test_loader.c     | 10 +++---
+ 16 files changed, 48 insertions(+), 46 deletions(-)
 
-Tested with a two-CPU KASAN, timer debugobjects and lockdep kernel using
-a deterministic callback/teardown race and a test-only one-second delay
-in x25_t20timer_expiry(). All 10 timer callbacks completed without a
-KASAN, debugobjects, lockdep, warning, oops, or panic report.
-
-Build-tested the complete instrumented kernel and the X.25 objects with
-W=3D1 under allmodconfig and allyesconfig.
-
-The reproducer is available privately on request.
-
- include/net/x25.h  | 4 +++-
- net/x25/x25_link.c | 3 +++
- 2 files changed, 6 insertions(+), 1 deletion(-)
-
-diff --git a/include/net/x25.h b/include/net/x25.h
-index 414f3fd99345..28cc36ff48b5 100644
-=2D-- a/include/net/x25.h
-+++ b/include/net/x25.h
-@@ -246,8 +246,10 @@ static __inline__ void x25_neigh_hold(struct x25_neig=
-h *nb)
-=20
- static __inline__ void x25_neigh_put(struct x25_neigh *nb)
+diff --git a/tools/testing/selftests/bpf/Makefile b/tools/testing/selftests/bpf/Makefile
+index ef6736d930e3..7c3d54305a4b 100644
+--- a/tools/testing/selftests/bpf/Makefile
++++ b/tools/testing/selftests/bpf/Makefile
+@@ -364,7 +364,7 @@ define get_sys_includes
+ $(shell $(1) $(2) -v -E - </dev/null 2>&1 \
+ 	| sed -n '/<...> search starts here:/,/End of search list./{ s| \(/.*\)|-idirafter \1|p }') \
+ $(shell $(1) $(2) -dM -E - </dev/null | grep '__riscv_xlen ' | awk '{printf("-D__riscv_xlen=%d -D__BITS_PER_LONG=%d", $$3, $$3)}') \
+-$(shell $(1) $(2) -dM -E - </dev/null | grep '__loongarch_grlen ' | awk '{printf("-D__BITS_PER_LONG=%d", $$3)}') \
++$(shell $(1) $(2) -dM -E - </dev/null | grep '__loongarch_grlen ' | awk '{printf("-D__loongarch_grlen=%d -D__BITS_PER_LONG=%d", $$3, $$3)}') \
+ $(shell $(1) $(2) -dM -E - </dev/null | grep -E 'MIPS(EL|EB)|_MIPS_SZ(PTR|LONG) |_MIPS_SIM |_ABI(O32|N32|64) ' | awk '{printf("-D%s=%s ", $$2, $$3)}')
+ endef
+ 
+diff --git a/tools/testing/selftests/bpf/progs/bpf_misc.h b/tools/testing/selftests/bpf/progs/bpf_misc.h
+index 6b930cb48f8d..2a617e9a51ed 100644
+--- a/tools/testing/selftests/bpf/progs/bpf_misc.h
++++ b/tools/testing/selftests/bpf/progs/bpf_misc.h
+@@ -185,7 +185,7 @@
+ #define __arch_arm64		__arch("ARM64")
+ #define __arch_riscv64		__arch("RISCV64")
+ #define __arch_s390x		__arch("s390x")
+-#define __arch_loongarch	__arch("LOONGARCH")
++#define __arch_loongarch64	__arch("LOONGARCH64")
+ #define __caps_unpriv(caps)	__test_tag("test_caps_unpriv=" EXPAND_QUOTE(caps))
+ #define __prepare_priv		__test_tag("test_prepare_priv")
+ #define __load_if_JITed()	__test_tag("load_mode=jited")
+@@ -285,7 +285,7 @@
+ #if (defined(__TARGET_ARCH_arm64) || defined(__TARGET_ARCH_x86) ||	\
+      (defined(__TARGET_ARCH_riscv) && __riscv_xlen == 64) ||		\
+      defined(__TARGET_ARCH_arm) || defined(__TARGET_ARCH_s390) ||	\
+-     defined(__TARGET_ARCH_loongarch)) &&				\
++     (defined(__TARGET_ARCH_loongarch) && __loongarch_grlen == 64)) &&	\
+ 	(__clang_major__ >= 18 || defined(__BPF_FEATURE_GOTOL))
+ #define CAN_USE_GOTOL
+ #endif
+@@ -300,7 +300,7 @@
+ 	 (defined(__TARGET_ARCH_riscv) && __riscv_xlen == 64) ||	\
+ 	 defined(__TARGET_ARCH_s390) ||					\
+ 	 defined(__TARGET_ARCH_powerpc) ||				\
+-	 defined(__TARGET_ARCH_loongarch))
++	 (defined(__TARGET_ARCH_loongarch) && __loongarch_grlen == 64))
+ #define CAN_USE_LOAD_ACQ_STORE_REL
+ #endif
+ 
+diff --git a/tools/testing/selftests/bpf/progs/stream.c b/tools/testing/selftests/bpf/progs/stream.c
+index 8c49a130150b..beba861803be 100644
+--- a/tools/testing/selftests/bpf/progs/stream.c
++++ b/tools/testing/selftests/bpf/progs/stream.c
+@@ -71,7 +71,7 @@ __arch_x86_64
+ __arch_arm64
+ __arch_s390x
+ __arch_riscv64
+-__arch_loongarch
++__arch_loongarch64
+ __success __retval(0)
+ __stderr("ERROR: Timeout detected for may_goto instruction")
+ __stderr("CPU: {{[0-9]+}} UID: 0 PID: {{[0-9]+}} Comm: {{.*}}")
+diff --git a/tools/testing/selftests/bpf/progs/test_ldsx_insn.c b/tools/testing/selftests/bpf/progs/test_ldsx_insn.c
+index 2a2a942737d7..4c58d00eb89d 100644
+--- a/tools/testing/selftests/bpf/progs/test_ldsx_insn.c
++++ b/tools/testing/selftests/bpf/progs/test_ldsx_insn.c
+@@ -7,7 +7,8 @@
+ 
+ #if (defined(__TARGET_ARCH_arm64) || defined(__TARGET_ARCH_x86) || \
+      (defined(__TARGET_ARCH_riscv) && __riscv_xlen == 64) ||       \
+-     defined(__TARGET_ARCH_s390) || defined(__TARGET_ARCH_loongarch)) && \
++     (defined(__TARGET_ARCH_loongarch) && __loongarch_grlen == 64) || \
++     defined(__TARGET_ARCH_s390)) && \
+      __clang_major__ >= 18
+ const volatile int skip = 0;
+ #else
+diff --git a/tools/testing/selftests/bpf/progs/verifier_bpf_fastcall.c b/tools/testing/selftests/bpf/progs/verifier_bpf_fastcall.c
+index 2120f4e71fb8..b9e3c5741cf9 100644
+--- a/tools/testing/selftests/bpf/progs/verifier_bpf_fastcall.c
++++ b/tools/testing/selftests/bpf/progs/verifier_bpf_fastcall.c
+@@ -979,7 +979,7 @@ __naked void may_goto_interaction_x86_64(void)
+ SEC("raw_tp")
+ __arch_arm64
+ __arch_riscv64
+-__arch_loongarch
++__arch_loongarch64
+ __log_level(4)
+ __msg("subprog 0 (may_goto_interaction) main {{.*}} stack 8")
+ /* may_goto counter and timestamp */
+diff --git a/tools/testing/selftests/bpf/progs/verifier_bswap.c b/tools/testing/selftests/bpf/progs/verifier_bswap.c
+index 48ffb5b242d2..73e5465ee0cc 100644
+--- a/tools/testing/selftests/bpf/progs/verifier_bswap.c
++++ b/tools/testing/selftests/bpf/progs/verifier_bswap.c
+@@ -7,7 +7,7 @@
+ #if (defined(__TARGET_ARCH_arm64) || defined(__TARGET_ARCH_x86) || \
+ 	(defined(__TARGET_ARCH_riscv) && __riscv_xlen == 64) || \
+ 	defined(__TARGET_ARCH_arm) || defined(__TARGET_ARCH_s390) || \
+-	defined(__TARGET_ARCH_loongarch)) && \
++	(defined(__TARGET_ARCH_loongarch) && __loongarch_grlen == 64)) && \
+ 	(__clang_major__ >= 18 || defined(__BPF_FEATURE_BSWAP))
+ 
+ SEC("socket")
+diff --git a/tools/testing/selftests/bpf/progs/verifier_jit_inline.c b/tools/testing/selftests/bpf/progs/verifier_jit_inline.c
+index 5b92da2ab75c..89a2c27358ba 100644
+--- a/tools/testing/selftests/bpf/progs/verifier_jit_inline.c
++++ b/tools/testing/selftests/bpf/progs/verifier_jit_inline.c
+@@ -12,7 +12,7 @@ __arch_arm64
+ __jited("	mrs	x8, SP_EL0")
+ __arch_riscv64
+ __jited("	mv	t6, tp")
+-__arch_loongarch
++__arch_loongarch64
+ __jited("	move	$a5, $tp")
+ int inline_bpf_get_current_task(void)
  {
--	if (refcount_dec_and_test(&nb->refcnt))
-+	if (refcount_dec_and_test(&nb->refcnt)) {
-+		skb_queue_purge(&nb->queue);
- 		kfree(nb);
-+	}
+@@ -23,7 +23,7 @@ int inline_bpf_get_current_task(void)
+ 
+ SEC("fentry/bpf_fentry_test2")
+ __success __retval(0)
+-__arch_loongarch
++__arch_loongarch64
+ __jited("	ld.wu	$a5, $tp, 16")
+ int inline_bpf_get_smp_processor_id(void)
+ {
+diff --git a/tools/testing/selftests/bpf/progs/verifier_ldsx.c b/tools/testing/selftests/bpf/progs/verifier_ldsx.c
+index 232082428cb9..6d06a3e61c92 100644
+--- a/tools/testing/selftests/bpf/progs/verifier_ldsx.c
++++ b/tools/testing/selftests/bpf/progs/verifier_ldsx.c
+@@ -8,7 +8,7 @@
+ #if (defined(__TARGET_ARCH_arm64) || defined(__TARGET_ARCH_x86) || \
+ 	(defined(__TARGET_ARCH_riscv) && __riscv_xlen == 64) || \
+ 	defined(__TARGET_ARCH_arm) || defined(__TARGET_ARCH_s390) || \
+-	defined(__TARGET_ARCH_loongarch)) && \
++	(defined(__TARGET_ARCH_loongarch) && __loongarch_grlen == 64)) && \
+ 	(__clang_major__ >= 18 || defined(__BPF_FEATURE_LDSX))
+ 
+ SEC("socket")
+diff --git a/tools/testing/selftests/bpf/progs/verifier_may_goto_1.c b/tools/testing/selftests/bpf/progs/verifier_may_goto_1.c
+index 8d231fb2a317..35e7054dc78f 100644
+--- a/tools/testing/selftests/bpf/progs/verifier_may_goto_1.c
++++ b/tools/testing/selftests/bpf/progs/verifier_may_goto_1.c
+@@ -12,7 +12,7 @@ __arch_x86_64
+ __arch_s390x
+ __arch_arm64
+ __arch_riscv64
+-__arch_loongarch
++__arch_loongarch64
+ __xlated("0: r0 = 1")
+ __xlated("1: exit")
+ __success
+@@ -34,7 +34,7 @@ __arch_x86_64
+ __arch_s390x
+ __arch_arm64
+ __arch_riscv64
+-__arch_loongarch
++__arch_loongarch64
+ __xlated("0: r0 = 1")
+ __xlated("1: exit")
+ __success
+@@ -58,7 +58,7 @@ __arch_x86_64
+ __arch_s390x
+ __arch_arm64
+ __arch_riscv64
+-__arch_loongarch
++__arch_loongarch64
+ __xlated("0: r0 = 1")
+ __xlated("1: exit")
+ __success
+@@ -87,7 +87,7 @@ __arch_x86_64
+ __arch_s390x
+ __arch_arm64
+ __arch_riscv64
+-__arch_loongarch
++__arch_loongarch64
+ /* the main prog sets count, timestamp, owner */
+ __xlated("0: r0 = ")
+ __xlated("2: r0 = &(void __percpu *)(r0)")
+@@ -132,7 +132,7 @@ __arch_x86_64
+ __arch_s390x
+ __arch_arm64
+ __arch_riscv64
+-__arch_loongarch
++__arch_loongarch64
+ __success
+ __retval(0)
+ __naked void timed_may_goto_preserves_regs(void)
+diff --git a/tools/testing/selftests/bpf/progs/verifier_movsx.c b/tools/testing/selftests/bpf/progs/verifier_movsx.c
+index 0197c2c21b8e..f038cd4c1d6b 100644
+--- a/tools/testing/selftests/bpf/progs/verifier_movsx.c
++++ b/tools/testing/selftests/bpf/progs/verifier_movsx.c
+@@ -7,7 +7,7 @@
+ #if (defined(__TARGET_ARCH_arm64) || defined(__TARGET_ARCH_x86) || \
+ 	(defined(__TARGET_ARCH_riscv) && __riscv_xlen == 64) || \
+ 	defined(__TARGET_ARCH_arm) || defined(__TARGET_ARCH_s390) || \
+-	defined(__TARGET_ARCH_loongarch)) && \
++	(defined(__TARGET_ARCH_loongarch) && __loongarch_grlen == 64)) && \
+ 	(__clang_major__ >= 18 || defined(__BPF_FEATURE_MOVSX))
+ 
+ SEC("socket")
+diff --git a/tools/testing/selftests/bpf/progs/verifier_patch_list.c b/tools/testing/selftests/bpf/progs/verifier_patch_list.c
+index 80d08d93b625..0bcea2f07ba2 100644
+--- a/tools/testing/selftests/bpf/progs/verifier_patch_list.c
++++ b/tools/testing/selftests/bpf/progs/verifier_patch_list.c
+@@ -129,7 +129,7 @@ __naked void patch_list_may_goto(void)
+ /* the JITs that support gotol */
+ #if defined(__TARGET_ARCH_x86) || defined(__TARGET_ARCH_arm64) || \
+ 	defined(__TARGET_ARCH_powerpc) || defined(__TARGET_ARCH_s390) || \
+-	defined(__TARGET_ARCH_loongarch) || \
++	(defined(__TARGET_ARCH_loongarch) && __loongarch_grlen == 64) || \
+ 	(defined(__TARGET_ARCH_riscv) && __riscv_xlen == 64)
+ 
+ /* The patches turn 8200 divisions into 32800 insns, too far for a 16-bit offset. */
+@@ -400,7 +400,7 @@ __arch_x86_64
+ __arch_s390x
+ __arch_arm64
+ __arch_riscv64
+-__arch_loongarch
++__arch_loongarch64
+ __success
+ __xlated("23: call pc+7")
+ __xlated("...")
+diff --git a/tools/testing/selftests/bpf/progs/verifier_precision.c b/tools/testing/selftests/bpf/progs/verifier_precision.c
+index d48daefd7b7b..d17ca3fe4f43 100644
+--- a/tools/testing/selftests/bpf/progs/verifier_precision.c
++++ b/tools/testing/selftests/bpf/progs/verifier_precision.c
+@@ -69,7 +69,8 @@ __naked int bpf_end_to_be(void)
+ #if (defined(__TARGET_ARCH_arm64) || defined(__TARGET_ARCH_x86) || \
+ 	(defined(__TARGET_ARCH_riscv) && __riscv_xlen == 64) || \
+ 	defined(__TARGET_ARCH_arm) || defined(__TARGET_ARCH_s390) || \
+-	defined(__TARGET_ARCH_loongarch)) && __clang_major__ >= 18
++	(defined(__TARGET_ARCH_loongarch) && __loongarch_grlen == 64)) && \
++	__clang_major__ >= 18
+ 
+ SEC("?raw_tp")
+ __success __log_level(2)
+diff --git a/tools/testing/selftests/bpf/progs/verifier_sdiv.c b/tools/testing/selftests/bpf/progs/verifier_sdiv.c
+index 02e2065c9669..fd7c82abebb8 100644
+--- a/tools/testing/selftests/bpf/progs/verifier_sdiv.c
++++ b/tools/testing/selftests/bpf/progs/verifier_sdiv.c
+@@ -8,7 +8,7 @@
+ #if (defined(__TARGET_ARCH_arm64) || defined(__TARGET_ARCH_x86) || \
+ 	(defined(__TARGET_ARCH_riscv) && __riscv_xlen == 64) || \
+ 	defined(__TARGET_ARCH_arm) || defined(__TARGET_ARCH_s390) || \
+-	defined(__TARGET_ARCH_loongarch)) && \
++	(defined(__TARGET_ARCH_loongarch) && __loongarch_grlen == 64)) && \
+ 	(__clang_major__ >= 18 || defined(__BPF_FEATURE_SDIV_SMOD))
+ 
+ SEC("socket")
+@@ -775,7 +775,7 @@ SEC("socket")
+ __description("SDIV64, overflow r/r, LLONG_MIN/-1")
+ __success __retval(1)
+ __arch_x86_64
+-__arch_loongarch
++__arch_loongarch64
+ __xlated("0: r2 = 0x8000000000000000")
+ __xlated("2: r3 = -1")
+ __xlated("3: r4 = r2")
+@@ -811,7 +811,7 @@ SEC("socket")
+ __description("SDIV64, r/r, small_val/-1")
+ __success __retval(-5)
+ __arch_x86_64
+-__arch_loongarch
++__arch_loongarch64
+ __xlated("0: r2 = 5")
+ __xlated("1: r3 = -1")
+ __xlated("2: r13 = r3")
+@@ -841,7 +841,7 @@ SEC("socket")
+ __description("SDIV64, overflow r/i, LLONG_MIN/-1")
+ __success __retval(1)
+ __arch_x86_64
+-__arch_loongarch
++__arch_loongarch64
+ __xlated("0: r2 = 0x8000000000000000")
+ __xlated("2: r4 = r2")
+ __xlated("3: r2 = -r2")
+@@ -868,7 +868,7 @@ SEC("socket")
+ __description("SDIV64, r/i, small_val/-1")
+ __success __retval(-5)
+ __arch_x86_64
+-__arch_loongarch
++__arch_loongarch64
+ __xlated("0: r2 = 5")
+ __xlated("1: r4 = r2")
+ __xlated("2: r2 = -r2")
+@@ -891,7 +891,7 @@ SEC("socket")
+ __description("SDIV32, overflow r/r, INT_MIN/-1")
+ __success __retval(1)
+ __arch_x86_64
+-__arch_loongarch
++__arch_loongarch64
+ __xlated("0: w2 = -2147483648")
+ __xlated("1: w3 = -1")
+ __xlated("2: w4 = w2")
+@@ -927,7 +927,7 @@ SEC("socket")
+ __description("SDIV32, r/r, small_val/-1")
+ __success __retval(5)
+ __arch_x86_64
+-__arch_loongarch
++__arch_loongarch64
+ __xlated("0: w2 = -5")
+ __xlated("1: w3 = -1")
+ __xlated("2: w4 = w2")
+@@ -959,7 +959,7 @@ SEC("socket")
+ __description("SDIV32, overflow r/i, INT_MIN/-1")
+ __success __retval(1)
+ __arch_x86_64
+-__arch_loongarch
++__arch_loongarch64
+ __xlated("0: w2 = -2147483648")
+ __xlated("1: w4 = w2")
+ __xlated("2: w2 = -w2")
+@@ -986,7 +986,7 @@ SEC("socket")
+ __description("SDIV32, r/i, small_val/-1")
+ __success __retval(-5)
+ __arch_x86_64
+-__arch_loongarch
++__arch_loongarch64
+ __xlated("0: w2 = 5")
+ __xlated("1: w4 = w2")
+ __xlated("2: w2 = -w2")
+@@ -1009,7 +1009,7 @@ SEC("socket")
+ __description("SMOD64, overflow r/r, LLONG_MIN/-1")
+ __success __retval(0)
+ __arch_x86_64
+-__arch_loongarch
++__arch_loongarch64
+ __xlated("0: r2 = 0x8000000000000000")
+ __xlated("2: r3 = -1")
+ __xlated("3: r4 = r2")
+@@ -1040,7 +1040,7 @@ SEC("socket")
+ __description("SMOD64, r/r, small_val/-1")
+ __success __retval(0)
+ __arch_x86_64
+-__arch_loongarch
++__arch_loongarch64
+ __xlated("0: r2 = 5")
+ __xlated("1: r3 = -1")
+ __xlated("2: r4 = r2")
+@@ -1071,7 +1071,7 @@ SEC("socket")
+ __description("SMOD64, overflow r/i, LLONG_MIN/-1")
+ __success __retval(0)
+ __arch_x86_64
+-__arch_loongarch
++__arch_loongarch64
+ __xlated("0: r2 = 0x8000000000000000")
+ __xlated("2: r4 = r2")
+ __xlated("3: w2 = 0")
+@@ -1094,7 +1094,7 @@ SEC("socket")
+ __description("SMOD64, r/i, small_val/-1")
+ __success __retval(0)
+ __arch_x86_64
+-__arch_loongarch
++__arch_loongarch64
+ __xlated("0: r2 = 5")
+ __xlated("1: r4 = r2")
+ __xlated("2: w2 = 0")
+@@ -1117,7 +1117,7 @@ SEC("socket")
+ __description("SMOD32, overflow r/r, INT_MIN/-1")
+ __success __retval(0)
+ __arch_x86_64
+-__arch_loongarch
++__arch_loongarch64
+ __xlated("0: w2 = -2147483648")
+ __xlated("1: w3 = -1")
+ __xlated("2: w4 = w2")
+@@ -1150,7 +1150,7 @@ SEC("socket")
+ __description("SMOD32, r/r, small_val/-1")
+ __success __retval(0)
+ __arch_x86_64
+-__arch_loongarch
++__arch_loongarch64
+ __xlated("0: w2 = -5")
+ __xlated("1: w3 = -1")
+ __xlated("2: w4 = w2")
+@@ -1183,7 +1183,7 @@ SEC("socket")
+ __description("SMOD32, overflow r/i, INT_MIN/-1")
+ __success __retval(0)
+ __arch_x86_64
+-__arch_loongarch
++__arch_loongarch64
+ __xlated("0: w2 = -2147483648")
+ __xlated("1: w4 = w2")
+ __xlated("2: w2 = 0")
+@@ -1206,7 +1206,7 @@ SEC("socket")
+ __description("SMOD32, r/i, small_val/-1")
+ __success __retval(0)
+ __arch_x86_64
+-__arch_loongarch
++__arch_loongarch64
+ __xlated("0: w2 = 5")
+ __xlated("1: w4 = w2")
+ __xlated("2: w2 = 0")
+diff --git a/tools/testing/selftests/bpf/progs/verifier_stack_arg.c b/tools/testing/selftests/bpf/progs/verifier_stack_arg.c
+index c642675dd92b..b4f219dfeb92 100644
+--- a/tools/testing/selftests/bpf/progs/verifier_stack_arg.c
++++ b/tools/testing/selftests/bpf/progs/verifier_stack_arg.c
+@@ -42,7 +42,7 @@ SEC("tc")
+ __description("stack_arg: static subprog takes less than its prototype says")
+ __success __retval(15)
+ __load_if_JITed()
+-__arch_x86_64 __arch_arm64 __arch_riscv64 __arch_s390x __arch_loongarch
++__arch_x86_64 __arch_arm64 __arch_riscv64 __arch_s390x __arch_loongarch64
+ __naked void less_than_prototype(void)
+ {
+ 	asm volatile ("r2 = %[jmp_table] ll; r3 = 0; call %[bpf_tail_call];"
+@@ -1162,7 +1162,7 @@ __naked void stack_arg_precision_fallback(void)
+ SEC("tc")
+ __description("stack_arg: r11 where JIT has no stack arguments")
+ __failure __msg("JIT does not support stack arguments")
+-__arch_s390x __arch_loongarch
++__arch_s390x __arch_loongarch64
+ __naked void r11_no_jit_support(void)
+ {
+ 	asm volatile (".8byte %[st_r11]; r0 = 0; exit;"
+diff --git a/tools/testing/selftests/bpf/progs/verifier_var_off.c b/tools/testing/selftests/bpf/progs/verifier_var_off.c
+index bc45adafca33..4f2c1454a009 100644
+--- a/tools/testing/selftests/bpf/progs/verifier_var_off.c
++++ b/tools/testing/selftests/bpf/progs/verifier_var_off.c
+@@ -762,7 +762,7 @@ __naked void variable_offset_stack_access_ok(void)
+ /* The next two need bpf_jit_bypass_spec_v1() */
+ SEC("socket")
+ __description("variable-offset stack write of a pointer")
+-__arch_loongarch
++__arch_loongarch64
+ __success __caps_unpriv(CAP_BPF) __failure_unpriv
+ __msg_unpriv("R1 leaks addr into stack")
+ __naked void stack_write_ptr_var_off(void)
+@@ -785,7 +785,7 @@ __naked void stack_write_ptr_var_off(void)
+ 
+ SEC("socket")
+ __description("variable-offset stack pointer at the header of a loop")
+-__arch_loongarch
++__arch_loongarch64
+ __success __caps_unpriv(CAP_BPF) __success_unpriv
+ __naked void stack_ptr_var_off_in_loop(void)
+ {
+diff --git a/tools/testing/selftests/bpf/test_loader.c b/tools/testing/selftests/bpf/test_loader.c
+index d24e4fedae46..a4ca7a76c240 100644
+--- a/tools/testing/selftests/bpf/test_loader.c
++++ b/tools/testing/selftests/bpf/test_loader.c
+@@ -386,7 +386,7 @@ enum arch {
+ 	ARCH_ARM64	= 0x4,
+ 	ARCH_RISCV64	= 0x8,
+ 	ARCH_S390X	= 0x10,
+-	ARCH_LOONGARCH	= 0x20,
++	ARCH_LOONGARCH64 = 0x20,
+ };
+ 
+ static int get_current_arch(void)
+@@ -399,8 +399,8 @@ static int get_current_arch(void)
+ 	return ARCH_RISCV64;
+ #elif defined(__s390x__)
+ 	return ARCH_S390X;
+-#elif defined(__loongarch__)
+-	return ARCH_LOONGARCH;
++#elif defined(__loongarch__) && __loongarch_grlen == 64
++	return ARCH_LOONGARCH64;
+ #endif
+ 	return ARCH_UNKNOWN;
  }
-=20
- /* x25_out.c */
-diff --git a/net/x25/x25_link.c b/net/x25/x25_link.c
-index d1e8cd81c214..2ef759832e10 100644
-=2D-- a/net/x25/x25_link.c
-+++ b/net/x25/x25_link.c
-@@ -294,11 +294,14 @@ void x25_link_device_up(struct net_device *dev)
-  *	@nb: - neigh to remove
-  *
-  *	Remove neighbour from x25_neigh_list. If it was there.
-+ *	Shut down the T20 timer before dropping the list reference so its
-+ *	callback cannot rearm the timer after the neighbour is freed.
-  *	Caller must hold x25_neigh_list_lock.
-  */
- static void __x25_remove_neigh(struct x25_neigh *nb)
- {
- 	if (nb->node.next) {
-+		timer_shutdown_sync(&nb->t20timer);
- 		list_del(&nb->node);
- 		x25_neigh_put(nb);
- 	}
-=2D-=20
-2.43.0
+@@ -605,8 +605,8 @@ static int parse_test_spec(struct test_loader *tester,
+ 				arch = ARCH_RISCV64;
+ 			} else if (strcmp(val, "s390x") == 0) {
+ 				arch = ARCH_S390X;
+-			} else if (strcmp(val, "LOONGARCH") == 0) {
+-				arch = ARCH_LOONGARCH;
++			} else if (strcmp(val, "LOONGARCH64") == 0) {
++				arch = ARCH_LOONGARCH64;
+ 			} else {
+ 				PRINT_FAIL("bad arch spec: '%s'\n", val);
+ 				err = -EINVAL;
+-- 
+2.42.0
 
