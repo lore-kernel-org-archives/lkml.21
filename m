@@ -1,63 +1,119 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795617424;
-	b=BjqzcRgHhd4dsEXdHts50AGIJ6URnGzb7fnmvkb3cmXzj+QlrRReAXZHMWZrxjB5DnmI
-	 d2NxsqkA43VDEyLN+zY1bHwjCtpurqPv5T5lP2HMj6IxnSndGyLTyy+S+ejPCZkH0ci7P
-	 9jLMr4pz2p9gC3zkct/vPa/6lqmcZFHYmSWNjN444JSAWCuSJNnrjnd7fUe0R0lLCQf9b
-	 xbtM2+teKvvDg860buY2kaERBQLrOVH141Uk9B2gaENbD6YzOUIQMdfvnojEtbmWmYxg0
-	 MOzBG3mr5PSpGRWnbE/pnb0R9QeoEUfGBv7GqC76hXG2bi29bkVoI+4OLxSBQXrJB+w==
+	t=1795617437;
+	b=N/NjCYL+CfwEMuJfOK8Kj3gVjO0Qr0AIbDUMJs9Reqiq/71dchzd9HRv9xDzNEOPgVbq
+	 tkXVpc5edyqLMndEXQZXlsM9mWE/GNtOMkcZWJk3IKZ/dbPXqYq8kHbNTdm6unWadQ+nn
+	 svi868Hf0jxjS2V7MXk+HVppjJe0LMIkve5UpFFktnS9c72zQuU+lFsgN6TCSX5plzLBu
+	 +4ja0qZ1N9/qEVnFmxPbgwyNy5SKQC3hYplPv5rmu1kyEmCAni2+9YQRFSQMsmPiH2fKD
+	 0+/X2BBcmOB12PnSxk8fXvlaS0swvfhLE4xg0Ppcl07xVX4g8+evl2nq/cs8jAB7xnQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795617424;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=Ntm+4YZ5zXeTUCr55OFzUjV2Ud773hYRmG/JzK3KOAM=;
-	b=ZikHkZ8s6Y3+NN+/9r31aNCuaUOTyMeDeVFUPAbHkaWEH5rTVPzk0p86o2H0cF4tELje
-	 vSxzS2Ad07RF1cJHcqmvc9fSDX7OUtfsodyCkr93fa3a0/N0Vzh5FChth1sQFwib33ThH
-	 fAW0viNAvAte+X5d/psnBrESmwchV3wcOLVdUcCVNvEvU7cotPWmYjGghNTVPBIsmQDjH
-	 DfEzEE8FfZze83JV3/pk7oCOgZ7Pce76ln3u2hz1P7jV377ExrgVA0+mYsV1qZ0wU+GUU
-	 4zy4i33CuJrpV5raT3/LyOwLDcPDyZTvrpuvT6WEkc2u1rIVx+NW+mBJKIQkL27DP4Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795617437;
+	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
+	 DKIM-Signature:Received:Received:Date:Message-ID:From:To:Cc:Subject:
+	 In-Reply-To:References:User-Agent:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-Spamd-Result:X-Rspamd-Server:
+	 X-Rspamd-Action:X-Spam-Flag:X-Spam-Score:X-Spam-Level:
+	 X-Rspamd-Queue-Id;
+	bh=a1z6mFKNN7mwM3tDmuN0B/RHnl21libnt36QuB0wxAU=;
+	b=4mQjHRQq/hQwo7etVr/NglsjtoaFQJvu5UVQZcO60j4MI1TcEZwLIkgGWMywRurUoIhx
+	 Flqc0v+uVRc/+reZwSgNOeDerOvzWNXbHulZNMNeCCzQvQwZ/IF46YpLJzHAjCR+L0SZy
+	 k8O6Mh5Qp1FzrdgAxMRdn/QTNt4L9LiUtntIuuz8ZvwbOVjsWsiS4AGLLu4JZAynjRJKm
+	 axppebo4/2khQu2dGU1pjPcqA3ffLlryD+O3nyxVAaXaEwr9loWUqFTkkz8upMiOqpNnJ
+	 Xl3ouQ5T7+QzsyEZ2/Dko0FlViO/0oHeLaTej3uFYL0DOMYnZgrGvQISIONQR59hkkQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KCVvNIOc;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=suse.de;
+	spf=pass smtp.mailfrom=suse.de;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=Aad4DSn7;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=Wnu6LJMx;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=Aad4DSn7;
+	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=Wnu6LJMx;
+	arc=none smtp.remote-ip=195.135.223.131
+Received: from smtp-out2.suse.de (smtp-out2.suse.de [195.135.223.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EB802606A321;
-	Wed, 25 Nov 2026 14:37:03 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4D43A606A33C;
+	Wed, 25 Nov 2026 14:37:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4D43A606A33C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=suse.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KCVvNIOc
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 251B61F000CF;
-	Wed, 25 Nov 2026 14:37:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795617423;
-	bh=Ntm+4YZ5zXeTUCr55OFzUjV2Ud773hYRmG/JzK3KOAM=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=KCVvNIOcJY8bDOI+cfTQF/97tClJmObBRjvrZI1GfohB3Zz4g6xhFZr9LN2R+IHtm
-	 JyMiKnd1uNzMlTigRLaZNc9vsvBn7A9+UZd8fOsMXA70HxOnLqKGpx5BXnB/8DYuXz
-	 lb+pA3f8jqgrIjRYGqxB1s6mdExCJfIqP0PKeRX4TrpBM420qqK+fBpHfdc6ofwNdQ
-	 CIQdSne8LD9Y/S7q36r5SygNv/rpH/fugQ3McS+xn2jCKataw8wLweoCesBSuPd3gq
-	 qKEb53zrUFJvWom/HNmQTCdp2IgB2Z5+VtuKs2UP93QPjpkl3YdxQY90gKJhFIVP2i
-	 9Jpjx7TVwnSFw==
-Subject: Re: [PATCH net-next v2 1/7] net: lan743x: check DMA channel stop and
- reset results
-From: netdev-bot+sashiko@kernel.org
-To: cbabroski@nvidia.com
-Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- bryan.whitehead@microchip.com, UNGLinuxDriver@microchip.com,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, richardcochran@gmail.com,
- linux@armlinux.org.uk, Raju.Lakkaraju@microchip.com,
- maxime.chevallier@bootlin.com, yuiko.oshino@microchip.com, nb@tipi-net.de,
- woojung.huh@microchip.com
-Date: Wed, 25 Nov 2026 14:37:01 +0000
-Message-ID: <179561742163.3135.1760016027745827288@kernel.org>
-In-Reply-To: <b1dc6a8037ab596053cc60c065a9b447982118df.1795027003.git.cbabroski@nvidia.com>
-References: <b1dc6a8037ab596053cc60c065a9b447982118df.1795027003.git.cbabroski@nvidia.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=Aad4DSn7;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=Wnu6LJMx;
+	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=Aad4DSn7;
+	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=Wnu6LJMx
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id 39DA21F7A2;
+	Wed, 25 Nov 2026 14:37:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1795617434; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=a1z6mFKNN7mwM3tDmuN0B/RHnl21libnt36QuB0wxAU=;
+	b=Aad4DSn7C9kBUnsH5l1VtAD2EV77wEFF5qpflP4kmwkoc6HORtGPPcfzYmK0N0AAKOfXDx
+	HtumUH2u8ctpwe06WHgs3aUthnu/kTV5HLLxUVsZxWsPjLf+kJuM/OdWyG9SZrN8fACAwT
+	rNG2+/kPWv0IW7zzRNqufRomDN/XndU=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1795617434;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=a1z6mFKNN7mwM3tDmuN0B/RHnl21libnt36QuB0wxAU=;
+	b=Wnu6LJMxwKdzfPNcaz4l4j2OxKmO+H9UfcS0JUF9AoUvUc6zbECOYujJF/XSSn31E5CSLP
+	ZyBP0jouMESzygDg==
+Authentication-Results: smtp-out2.suse.de;
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=Aad4DSn7;
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=Wnu6LJMx
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1795617434; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=a1z6mFKNN7mwM3tDmuN0B/RHnl21libnt36QuB0wxAU=;
+	b=Aad4DSn7C9kBUnsH5l1VtAD2EV77wEFF5qpflP4kmwkoc6HORtGPPcfzYmK0N0AAKOfXDx
+	HtumUH2u8ctpwe06WHgs3aUthnu/kTV5HLLxUVsZxWsPjLf+kJuM/OdWyG9SZrN8fACAwT
+	rNG2+/kPWv0IW7zzRNqufRomDN/XndU=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1795617434;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=a1z6mFKNN7mwM3tDmuN0B/RHnl21libnt36QuB0wxAU=;
+	b=Wnu6LJMxwKdzfPNcaz4l4j2OxKmO+H9UfcS0JUF9AoUvUc6zbECOYujJF/XSSn31E5CSLP
+	ZyBP0jouMESzygDg==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id CA64B134E8;
+	Wed, 25 Nov 2026 14:37:13 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id 8vL3JpnyBms5bgAAD6G6ig
+	(envelope-from <tiwai@suse.de>); Wed, 25 Nov 2026 14:37:13 +0000
+Date: Wed, 25 Nov 2026 15:37:13 +0100
+Message-ID: <87ecc96kpy.wl-tiwai@suse.de>
+From: Takashi Iwai <tiwai@suse.de>
+To: =?GB2312?B?0Ozqz8/o?= <xuhx@hust.edu.cn>
+Cc: "Krzysztof Kozlowski" <krzk@kernel.org>,
+	perex@perex.cz,
+	tiwai@suse.com,
+	linux-sound@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] Re: Re: sound: core: rawmidi input close can re-queue event_work after cancel_work_sync() (UAF)
+In-Reply-To: <5a5b96e3.569.1a212bd09ac.Coremail.xuhx@hust.edu.cn>
+References: <4c7f9772.192e1.1a17d5c2ed5.Coremail.xuhx@hust.edu.cn>
+	<2026102727-data-sequel-ce41@gregkh>
+	<2033d529.2ad1b.1a2023ca712.Coremail.xuhx@hust.edu.cn>
+	<c53ccf5f-7973-4b11-b7ea-7972bc87df97@kernel.org>
+	<5a5b96e3.569.1a212bd09ac.Coremail.xuhx@hust.edu.cn>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) Emacs/30.2 Mule/6.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,143 +122,155 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=GB2312
+Content-Transfer-Encoding: 8bit
+X-Spamd-Result: default: False [-12.51 / 50.00];
+	SUSE_INTERNAL_BYPASS(-9.00)[];
+	BAYES_HAM(-3.00)[100.00%];
+	MID_CONTAINS_FROM(1.00)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	URIBL_BLOCKED(0.00)[perex.cz:email,suse.de:dkim,imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,suse.com:email,hust.edu.cn:email];
+	MIME_TRACE(0.00)[0:+];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	TO_DN_SOME(0.00)[];
+	ARC_NA(0.00)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	RCVD_TLS_ALL(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	FROM_EQ_ENVFROM(0.00)[];
+	RCPT_COUNT_FIVE(0.00)[6];
+	DWL_DNSWL_BLOCKED(0.00)[suse.de:dkim];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
+	DKIM_TRACE(0.00)[suse.de:+];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.com:email,suse.de:dkim,imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,perex.cz:email,hust.edu.cn:email]
+X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
+X-Rspamd-Action: no action
+X-Spam-Flag: NO
+X-Spam-Score: -12.51
+X-Spam-Level: 
+X-Rspamd-Queue-Id: 39DA21F7A2
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+On Wed, 25 Nov 2026 13:45:08 +0100,
+–ÏÍœœË wrote:
+> 
+> close_substream() cancelled the input event work before clearing
+> substream->opened, but snd_rawmidi_receive() serializes only against
+> the opened store: a driver that delivers input in that window
+> re-queued event_work after the cancellation, and the work then ran
+> on the runtime freed by snd_rawmidi_runtime_free() (KASAN UAF in
+> snd_rawmidi_input_event_work()).
+> 
+> Cancel the work a second time after opened is cleared and before
+> the runtime is freed.  Also restore the per-substream disconnected
+> flag: snd_rawmidi_dev_disconnect() marks input substreams
+> disconnected under substream->lock and drains the event work, so a
+> driver that keeps calling snd_rawmidi_receive() after the
+> disconnect cannot re-queue the work either (snd_rawmidi_receive()
+> and snd_rawmidi_input_trigger() check the flag).
 
-Critical: 0 ¬∑ High: 1 ¬∑ Medium: 0 ¬∑ Low: 1
+This should have been already addressed in the recent upstream code.
+Please verify whether you still see the issue.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
 
-- [High] The fix does not finish its own error path.
-- [Low] In lan743x_tx_close(), the return value of the new
-  lan743x_tx_fifo_disable() is discarded, and `if (stop_failed)‚Ä¶
+thanks,
 
---
+Takashi
 
-net: lan743x: check DMA channel stop and reset results
-
-This patch checks the DMA channel stop result in lan743x_tx_close() and
-lan743x_rx_close(). If the channel is still stop-pending or started, it
-issues a channel soft reset before the rings are freed. It also moves the
-channel and TX FIFO reset sequences into helpers, and lan743x_tx_open()
-and lan743x_rx_open() now fail when those resets time out.
-
-> diff --git a/drivers/net/ethernet/microchip/lan743x_main.c b/drivers/net/ethernet/microchip/lan743x_main.c
-> index 82d3ec20ba259..92cdc13495fe9 100644
-> --- a/drivers/net/ethernet/microchip/lan743x_main.c
-> +++ b/drivers/net/ethernet/microchip/lan743x_main.c
-
-[ ... ]
-
-> @@ -2218,14 +2248,63 @@ static int lan743x_tx_ring_init(struct lan743x_tx *tx)
-
-[ ... ]
-
->  static void lan743x_tx_close(struct lan743x_tx *tx)
+> ---
+>  sound/core/rawmidi.c    | 23 +++++++++++++++++++++--
+>  include/sound/rawmidi.h |  1 +
+>  2 files changed, 22 insertions(+), 2 deletions(-)
+> 
+> diff --git a/sound/core/rawmidi.c b/sound/core/rawmidi.c
+> --- a/sound/core/rawmidi.c
+> +++ b/sound/core/rawmidi.c
+> @@ -215,7 +215,7 @@
+>  
+>  static void snd_rawmidi_input_trigger(struct snd_rawmidi_substream *substream, int up)
 >  {
->  	struct lan743x_adapter *adapter = tx->adapter;
-> +	bool stop_failed = false;
-> +	int ret;
+> -	if (!substream->opened)
+> +	if (!substream->opened || substream->disconnected)
+>  		return;
+>  	substream->ops->trigger(substream, up);
+>  	if (!up)
+> @@ -557,6 +557,14 @@
+>  		substream->opened = 0;
+>  		substream->append = 0;
+>  	}
+> +	/* Drain the input event work that a racing snd_rawmidi_receive()
+> +	 * may have queued after the earlier cancellation in
+> +	 * snd_rawmidi_input_trigger(): receive() serializes only against
+> +	 * the opened=0 store above, not against the earlier cancel, so the
+> +	 * work can be pending again here.  It must not outlive the runtime
+> +	 * free below. */
+> +	if (substream->stream == SNDRV_RAWMIDI_STREAM_INPUT)
+> +		cancel_work_sync(&substream->runtime->event_work);
+>  	substream->ops->close(substream);
+>  	if (substream->runtime->private_free)
+>  		substream->runtime->private_free(substream);
+> @@ -1151,7 +1159,7 @@
+>  	struct snd_rawmidi_runtime *runtime;
 >  
->  	lan743x_csr_write(adapter,
->  			  DMAC_CMD,
->  			  DMAC_CMD_STOP_T_(tx->channel_number));
-> -	lan743x_dmac_tx_wait_till_stopped(adapter, tx->channel_number);
-> +	ret = lan743x_dmac_tx_wait_till_stopped(adapter, tx->channel_number);
-> +	if (ret < 0 || ret == DMAC_CHANNEL_STATE_STARTED) {
-> +		stop_failed = true;
-> +		netdev_warn(adapter->netdev,
-> +			    "TX channel %d failed to stop, resetting it\n",
-> +			    tx->channel_number);
-> +	}
+>  	guard(spinlock_irqsave)(&substream->lock);
+> -	if (!substream->opened)
+> +	if (!substream->opened || substream->disconnected)
+>  		return -EBADFD;
+>  	runtime = substream->runtime;
+>  	if (!runtime || !runtime->buffer) {
+> @@ -2065,6 +2073,17 @@
+>  		list_for_each_entry(s, &rmidi->streams[dir].substreams, list) {
+>  			if (s->runtime)
+>  				wake_up(&s->runtime->sleep);
+> +			/* mark input substreams disconnected and drain the
+> +			 * event work: a driver that keeps calling
+> +			 * snd_rawmidi_receive() after the disconnect must
+> +			 * not re-queue the work on a runtime that the close
+> +			 * path is about to free */
+> +			if (s->stream == SNDRV_RAWMIDI_STREAM_INPUT) {
+> +				scoped_guard(spinlock_irqsave, &s->lock)
+> +					s->disconnected = true;
+> +				if (s->runtime)
+> +					cancel_work_sync(&s->runtime->event_work);
+> +			}
+>  		}
+>  	}
 >  
->  	lan743x_csr_write(adapter,
->  			  DMAC_INT_EN_CLR,
-> @@ -2235,11 +2314,9 @@ static void lan743x_tx_close(struct lan743x_tx *tx)
->  	napi_disable(&tx->napi);
->  	netif_napi_del(&tx->napi);
->  
-> -	lan743x_csr_write(adapter, FCT_TX_CTL,
-> -			  FCT_TX_CTL_DIS_(tx->channel_number));
-> -	lan743x_csr_wait_for_bit(adapter, FCT_TX_CTL,
-> -				 FCT_TX_CTL_EN_(tx->channel_number),
-> -				 0, 1000, 20000, 100);
-> +	lan743x_tx_fifo_disable(tx);
-> +	if (stop_failed)
-> +		lan743x_dmac_tx_reset(adapter, tx->channel_number);
-
-[Severity: Low]
-The return value of lan743x_tx_fifo_disable() is dropped here. The channel
-SWR is issued based on stop_failed alone, even if FCT_TX_CTL_EN_ never
-cleared.
-
-The commit message says:
-
-    the TX channel should only be reset once its FIFO is stopped.
-
-This patch targets a wedged channel. On that path, the FIFO is probably
-the part most likely to also miss the 100 ms disable poll. Should the FIFO
-disable result be checked before DMAC_CMD_TX_SWR_ is written? Another
-option is a FIFO reset with FCT_TX_CTL_RESET_ at that point.
-
->  
->  	lan743x_tx_release_all_descriptors(tx);
->  
-
-[Severity: High]
-What happens here if lan743x_dmac_tx_reset() also times out?
-
-The helper returns -ETIMEDOUT and logs "TX channel %d reset timed out".
-That return value is dropped, and lan743x_tx_close() continues into two
-calls:
-
-- lan743x_tx_release_all_descriptors(), which unmaps and frees the TX
-  skbs.
-- lan743x_tx_ring_cleanup(), which calls dma_free_coherent() on the
-  descriptor ring and the head write-back buffer.
-
-The commit message says the reset is issued "before anything is freed",
-so that memory the channel "may still be fetching from or writing to" is
-not released. If a wedged channel can ignore STOP_T, can it also ignore
-SWR? The open path in this patch already treats an SWR timeout as a real
-failure.
-
-lan743x_rx_close() follows the same pattern:
-
-	ret = lan743x_dmac_rx_wait_till_stopped(adapter, rx->channel_number);
-	if (ret < 0 || ret == DMAC_CHANNEL_STATE_STARTED) {
-		...
-		lan743x_dmac_rx_reset(adapter, rx->channel_number);
-	}
-	...
-	lan743x_rx_ring_cleanup(rx);
-
-On the RX side, an engine that is still running could write incoming
-frame data, descriptor status and the head index into memory that has
-already gone back to the allocator.
-
-Older code makes this worse on the next open. The call chain
-lan743x_rx_ring_init()->lan743x_rx_init_ring_element()->
-lan743x_rx_update_tail() writes RX_TAIL before lan743x_rx_open() resets
-the channel. At that point RX_BASE_ADDR still points at the ring that was
-freed.
-
-This also looks unchanged after the later patch in the series, "net:
-lan743x: reset the device on TX timeout". That patch runs
-lan743x_dmac_init() only after lan743x_netdev_close() has already freed
-the rings.
-
-Could the close paths check the reset result and, if it failed, leak the
-DMA memory instead of freeing it? Escalating to a full DMAC or PCI reset
-would be another option.
-
-[ ... ]
-
--- 
-Sashiko AI review ¬∑ https://netdev-ai.bots.linux.dev/sashiko/#/patchset/cover.1795027003.git.cbabroski%40nvidia.com
+> diff --git a/include/sound/rawmidi.h b/include/sound/rawmidi.h
+> --- a/include/sound/rawmidi.h
+> +++ b/include/sound/rawmidi.h
+> @@ -84,6 +84,7 @@
+>  	int stream;			/* direction */
+>  	int number;			/* substream number */
+>  	bool opened;			/* open flag */
+> +	bool disconnected;		/* device disconnected flag */
+>  	bool append;			/* append flag (merge more streams) */
+>  	bool active_sensing;		/* send active sensing when close */
+>  	unsigned int framing;		/* whether to frame input data */
+> -- 
+> 
+> 
+> > -----‘≠ º” º˛-----
+> > ∑¢º˛»À: "Krzysztof Kozlowski" <krzk@kernel.org>
+> > ∑¢ÀÕ ±º‰:2026-11-24 22:52:58 (–«∆⁄∂˛)
+> >  ’º˛»À: –ÏÍœœË <xuhx@hust.edu.cn>, perex@perex.cz, tiwai@suse.com
+> > ≥≠ÀÕ: linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org
+> > ÷˜Ã‚: Re: sound: core: rawmidi input close can re-queue event_work after cancel_work_sync() (UAF)
+> > 
+> > On 22/11/2026 08:50, –ÏÍœœË wrote:
+> > > 
+> > >   Please keep me in Cc; I am not subscribed to the lists.
+> > 
+> > 
+> > Why? You never responded to any other query we asked for the last month!
+> > 
+> > 
+> > Best regards,
+> > Krzysztof
