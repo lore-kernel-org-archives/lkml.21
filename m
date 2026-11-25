@@ -1,82 +1,110 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.19
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.147
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795603225;
-	b=nHkcClF8LlFRwHi3zeGriTw3Qdve0W7YkqTWgvdMunMHDJgUjhMEJNx1Zwb50prrckIa
-	 7Sk5hgpG0wLNReA0nhwuu5twZ7929mYJa3tC0u2CTbfcKk0WQxiVE/Inp2lDwcB6L9S3R
-	 bQnt9jqAc4lUjAvmYKgf1hssNHhjGbcKKa7BuNMgmgjHBxI54AYEjZFi5sozQVQdsOtc+
-	 oTGelM4IILb1xhbXRR756EMY+7AvoXaeywB4/KK8G416vGkjj32wiRPAgl4Cmx/K58/D3
-	 uWWcmL2dpT3yivQJcpU3BPDtuevc1nTahFuPsDRl3EHDQflhu+vdQbyYUWpwwj5k9Rg==
+	t=1795603235;
+	b=PVN8MQYWH4PK54bdEDHnckOeVJsNQzt7PqVSCxOnzFrqqzExWx69QheHxeG0bM/ujgeQ
+	 SmlLoDhmtCRy3SGVon8hGLyvNJJNwb0zr7P+faoPXsXPMZebBu8ROsYO9aFWFiEZLluGF
+	 m45BsXvBc0fQSau7zHeRs4/mD5oAxfFne0tk4Q9AmG6dCGYH+PhqG1d1exzXExwg5Ysqw
+	 W+73SefTSEUwwTYw8sA/cCp+u/PXwNTKiBWM7IRhMqzXo1B6OETxwgd9txw7ZGHCQ8TV0
+	 fUmrqGGPx83YGlyMDdvWLdFov0PgivISEoxhfgf55Dxsdl0jZXZOs2sFFUro9DnAXWA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795603225;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To:
-	 Organization;
-	bh=0KVXe8Lkr/kGAMBYqLm7ET+oALgq+U+OX2EzfHpkcFc=;
-	b=zFXgUt3jVwYcwt6N8cn47/Orq8EFMWPfayh0QwKbwnd0eHKaUd6baQ/7vRX7GtcXgYNf
-	 n2k/5bWyycZvkh9px3NzQJXFILAeuLz1zXIMmlfshUP106Q79/JxI1bDEEGc/6ixfSl0V
-	 tYUlYwEcjfA8PH6+BoOZaaXjhuL2j/xKFAYdSWZrngZLAbgqFI0aTcKBNCh21Nyu5MRJe
-	 +qH81l2qR2iRfhhu9/XzB3hvMfgXSDZTtFRhfBwnxpRbOxofXOmSCiY2gG/RMY0JY7U21
-	 Har4vjywgulFt56rGuPKFGKu1yHGcIxJAMApvY2ceYgoDdy5POfVND5cPBIXT/IXbMw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795603235;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
+	 MIME-Version:Date:From:To:Cc:Message-Id:Subject:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=fqmyTamj/9dbh6JDDHhPH2OGj8ho3WHvjuwZrgDskzs=;
+	b=dP3HE1SF4Xv6Im7/OfCg+um4uyitG5qPEPLU0iizvYfLnhuFJkGwiE8cRLOk5yvoCXG8
+	 No2Yu7SK45qYTK6gwPPaNp+hQGgQ5jDvC/y4gQQa555ZLW2wcJtkXzxY/K6qjgRi7Lyy4
+	 QDobuBF17Djgs//gkAzN7Ikj2H0DSfSc3SrAAvMxfr4unzc8rIn/54qbFQl5dbywZ1hQa
+	 YKlm49IHy5ijXcCS0xzRLl6ApVns3XkqG5Itd78+iT/1Ff7f0/JxjyGq64SubD2JuO6df
+	 iqP0Rq9imrpvhn6uxWwn0ameQuLXK4BbNuyNfYzi6e0wC9MAvPytBJI0rAOHs+FV81g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b="bcd/z861";
-	arc=none smtp.remote-ip=198.175.65.19
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.19])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=arndb.de;
+	spf=pass smtp.mailfrom=arndb.de;
+	dkim=pass header.d=arndb.de header.i=@arndb.de header.a=rsa-sha256 header.s=fm3 header.b="OSr/PIGl";
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=tbJWeage;
+	arc=none smtp.remote-ip=103.168.172.147
+Received: from fout-a4-smtp.messagingengine.com (fout-a4-smtp.messagingengine.com [103.168.172.147])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E79DB606A332;
-	Wed, 25 Nov 2026 10:40:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E79DB606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E976C606A32C
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:40:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E976C606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arndb.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arndb.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=bcd/z861
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795603226; x=1827139226;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=lr7DVcLoOJoDi6HPqizu0PiuEetBut//Pv+Huh4+i4A=;
-  b=bcd/z8616IfR64ixtIihvnOD7212wCPNooDafxYAiOB5g/WIlyyX85e8
-   f5J/gMgvmy2eeXCAiLSThl4xmUGggPyxeVMgccMKDEAsSLUIz/5PA/xMl
-   BhbbH3DjCjeJa+wIZdqcvNUJgXrbLXVGq4mRsSkDc1gGdWiuJ8bg2y7/a
-   gZ15U7cU90c02fTHLxK3J8Hke9WWH3uDkLEDD1BtKfYI4yRMHU8+H2ppi
-   JOUce6FePh32ryQ58p2xKU/nGuQ7AJ6xFpKEHqCyU8GSnEglWOxBxzjy6
-   m+SVuueqXa455ge0/TykpHMO34C6XLjsy2H8+FxpQRvV0YC1B6VPmL/gi
-   w==;
-X-CSE-ConnectionGUID: TCYDTewHQluHq32T80mznw==
-X-CSE-MsgGUID: tTOeFen0TbeI9YzhNQkkWw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11976"; a="4537499"
-X-IronPort-AV: E=Sophos;i="6.27,232,1787036400"; 
-   d="scan'208";a="4537499"
-Received: from fmviesa012.fm.intel.com ([10.60.135.152])
-  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 02:40:24 -0800
-X-CSE-ConnectionGUID: UrDy2hW4Q3e1PRZ32Z2dEw==
-X-CSE-MsgGUID: rIarLVJ4RiGslCKzZhrVSg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,232,1787036400"; 
-   d="scan'208";a="13505894"
-Received: from conormcd-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.244.73])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 02:40:20 -0800
-Date: Wed, 25 Nov 2026 12:40:18 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>
-Cc: linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, linux@analog.com,
-	Michael Hennerich <Michael.Hennerich@analog.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Arnd Bergmann <arnd@arndb.de>
-Subject: Re: [PATCH 4/6] iio: adc: ad7791: drop platform data support
-Message-ID: <awa7ErQjuKbtV_RH@ashevche-desk.local>
-References: <20261125-iio-adi-legacy-platdata-v1-0-54e4c8830b57@analog.com>
- <20261125-iio-adi-legacy-platdata-v1-4-54e4c8830b57@analog.com>
+	dkim=pass (2048-bit key, unprotected) header.d=arndb.de header.i=@arndb.de header.a=rsa-sha256 header.s=fm3 header.b=OSr/PIGl;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=tbJWeage
+Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
+	by mailfout.phl.internal (Postfix) with ESMTP id 06F45EC0BE5
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 05:40:33 -0500 (EST)
+Received: from ams-imap-03 ([10.64.2.23])
+  by ams-compute-02.internal (MEProxy); Wed, 25 Nov 2026 05:40:34 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:message-id:mime-version:reply-to
+	:subject:subject:to:to; s=fm3; t=1795603231; x=1795689631; bh=fq
+	myTamj/9dbh6JDDHhPH2OGj8ho3WHvjuwZrgDskzs=; b=OSr/PIGlUWYwTUbL70
+	UlTGEn2AIwteGk3qkY2muNYV3fn27J4AjK+0d7eOSJ/c/llHodA+eaFV2gflp61/
+	FcaG9VrHC9urF+0XGLAPUfRZZ01EturyKbUrIOLjwAIx9oZ4F1dsURkuCNjqex26
+	tV5w6XDsqehu+OB96SDdW1vpzNM7dSHEJ7DGoOYOl0UgoaJIOvkyKTv3XYJTVqKJ
+	7wvfgBcohFBukpzSIAqcSBMHhHnbBWNSCUpP0cM2Xmx5lRVA6jCqlXVg7h5JQqqg
+	eBJh3SxFO3N17g7EO/+l7ji44+lzBu5tivENlZAAlpHb3l6HolnzF24Nwswdhyq0
+	s5BA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:message-id:mime-version:reply-to:subject
+	:subject:to:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
+	fm3; t=1795603231; x=1795689631; bh=fqmyTamj/9dbh6JDDHhPH2OGj8ho
+	3WHvjuwZrgDskzs=; b=tbJWeageAkHOii7fe+uMCknVNpGnyTn3eum9+3eyK9lO
+	+qynlF4G/x3yMQoSWLP22G0VGQNV8E6Lhkya9fIny4DMEQ04OUi3wpx/1YFnn36e
+	uxLrg4JFdvDGWLBGDG/W70cm7+0fqbSlKXpZBi5QgE+4fzAwX9ZkHkgdrAiKQ5RZ
+	d7RUGQ2JgJo4wdUqUQF0Esq1P4Sve6PywcPMV9S6Za6oeQFqxNUZnzP0frUqCuAT
+	jCUZjwjuFlYGFOQRQC014F/KLeVQkTQnDNmWkXD+GTi/qXFcWWGJ8KUQRRQzaP3b
+	6FfAUNi2HtvFBcssRXpHTZiIAySxXTk0RacW6abIqA==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=arndb.de a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795603231; d=arndb.de;
+	mf=PGFybmRAYXJuZGIuZGU+;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm3:rsa-sha256:HVr7k/lM+HJS9PzdHVLs8OA5LIPSTkqveKBetXwsPiroxll
+	9bQvJOICKoak561hskNL4CDI0jb1Ovb9Cy1Gov/B9znRJEWfJurtOkxdB1bzyRbz
+	vQVInYHlllojRP5YoQELtBjIPiyPQ+Josgkg94/tEr80e6F0WTPAqqE1N2/zRfzl
+	/uesjZEjZXnY4vSyyzhAiCH1N6sktWmbUsPrRIKrohzSeZQVRZnA8H1Hb9J0HhCa
+	D9dbK/hx+eCTaskc5hmXQGSEWuV4ZxIwqMVNkLl5VgNfVu+BtBgy6jeXRWe1G2KU
+	19XTObo088UJTm9fkrk5fRLoqUqqt8SkbfXvs3Q==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=10;
+	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
+	from,message-id,mime-version,subject,to;
+Message-Instance: m=1; h=sha256:IbO2G+UXx6r8Y3u+1YqV0mlkYNU3pyWFEuZyDRr8VQI=:yXJ5AJvKZGxYyhTM5H9MBV2KI8HyqbPWu9/lIp5SAmE=;
+X-ME-Sender: <xms:HbsGa-SOs_SGWZWFXsBk-j6xnwcgcz8dkKCQykBYEkcP2hI1HXj4Wg>
+    <xme:HbsGa-mCk9DOvNsyypDUqKMJoJ7QUcPYDQkztrRFErLKsmb-7U3qpJlqcEU3QvHlB
+    55g1slmXr67oDsrlz12auT0dYhrpz2CaqOXamNvhiqq45Y5MbUoduQr>
+X-ME-Proxy-Cause: dmFkZTGG7pEf92M/k8EnbFR/QDWdwgdoMT9W5oAR3eTtYQQkuLhLHoq7ZlzRQi3hgni6MA
+    1c2R28TkvSpXAKG5guJgmteKSN1CbczPrgDQ1JVscGgM6a4NF42On/jBq+yRSINrbizSms
+    HLqJiaWDfglaRcY5nkKSqspcsqyBOf6OiicrBEStbS3b/0PY7W/LAPRaWiSLOlG8broeda
+    JKQ4Y0Lot/3hyoM8QybumokZ7Y4UEwx37GDLhXuBCntCGcbs7yFdmX5nVRT+I+jlmG1R3H
+    vOUoWJMdCG9mhBjdUfW6UeLr4/oM5vPjBnxbG4MxzUbRsME90k0hY/2E699ZKfzv+zjFrs
+    QTz39rgiYCs8UoUJxyLLIxhlfJzWjAG/oxNrvIMZj7WPkhafeW5Zs8JOleF5C7B5A8F1ZS
+    FT5sBvCih1RtcwMxNTmnJxuAxj9QbSC7KnLz69f3fLexVXxM8+ukWyY03cnhM7CVaIqD2K
+    ttxt5rBDLKwI/FUUvI7tU9CTaAs/B9GoqhpcVu01mjZ87FS43p+zCWrd1BOb0mYu/w6LQw
+    BRSOBEjwlTzdjOjBJV3zu6DI60GdA7gRLQ+lstTsFHHoocf0I0KmoXgKSLgeaBOBBywFly
+    AaFoOfVK5MK+1Au2UiAw8uatLMDTifnL/MqYJgsSbtBl7ACkfV54S1swlIxA
+X-ME-Proxy: <xmx:HrsGa3_rAIZGE7KVk4owgjGe6b444PL5OTmnJTtscIencqCOyZ5JMA>
+    <xmx:HrsGa6lFOTint0KexQim_qLI9UAx3Z2J-HQuw1wN1DUv-66L9gweHw>
+    <xmx:HrsGa9UR180LLEGQyfXkyNdPdV2Zq-fxeR1_WQIpHaLhkH5fG7lNhw>
+    <xmx:HrsGa_EflYozTrpwcjovLg-vbw_GQD-mtsmRsurwBxU_r6rosiBAaw>
+    <xmx:H7sGa_3AMbmXhCyyFvHysQHhElbj-nbIMNkL0f6-3hbt-74L1ADztV1O>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.ams.internal (Postfix, from userid 501)
+	id 9147832A0099; Wed, 25 Nov 2026 05:40:29 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,28 +114,200 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20261125-iio-adi-legacy-platdata-v1-4-54e4c8830b57@analog.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Date: Wed, 25 Nov 2026 11:40:08 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Linus Torvalds" <torvalds@linux-foundation.org>
+Cc: soc@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Message-Id: <53b178d5-27b2-4718-8630-16f83a736227@app.fastmail.com>
+Subject: [GIT PULL] soc: fixes for 7.4
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 
-On Wed, Nov 25, 2026 at 10:19:20AM +0000, Nuno Sá wrote:
-> There are no in-tree users of struct ad7791_platform_data. Without it,
-> the driver already keeps the power-on reset configuration: buffered
-> mode (on parts that have a buffer), bipolar mode and no burnout
-> current.
-> 
-> Drop the platform data header together with the code applying it. As a
-> result, ad7791_setup() can no longer fail, so make it return void.
+The following changes since commit aebb7274476403040d582c61478df8f4a7bf9cd3:
 
-I would move 'a' to the next line.
+  Linux 7.4-rc3 (2026-11-15 14:30:11 -0800)
 
-Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
+are available in the Git repository at:
 
--- 
-With Best Regards,
-Andy Shevchenko
+  https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git soc-fixes-7.4
 
+for you to fetch changes up to 30275e284469c6f8bb2e1bf7a666b065a81b46c9:
 
+  Merge tag 'stm32-dt-for-v7.4-fixes-1' of git://git.kernel.org/pub/scm/linux/kernel/git/atorgue/stm32 into arm/fixes (2026-11-24 17:25:45 +0100)
+
+----------------------------------------------------------------
+soc: fixes for 7.4
+
+There are once more lots of individual device driver fixes across
+several subsystems, and most of them look like they were found with
+the help of LLM services looking more closely at corner cases that
+had been missed before:
+
+ - Multiple SCMI firmware fixes for probing device nodes and mailboxes
+
+ - Notifications on Arm FFA firmware with hash conflicts
+
+ - Out-of-bounds access to i.MX SCMI firmware data from userspace
+
+ - Several error handling and probe fixes for reset controllers,
+   along with a circular locking problem and one NULL pointer
+   dereference
+
+ - Multiple error handling fixes for memory controller drivers
+
+ - A probe order fix for Raspberry Pi firmware
+
+For the devicetree source files, there are relatively few fixes
+so far, mainly for Samsung and ST SoC based machines, and mainly
+covering broken functionality.
+
+ - Suspend issues across ST SoCs
+
+ - Boot time panic on one ST based board from accessing firmware
+   memory
+
+ - One revert for a regression caused by enabling IOMMU for
+   USB on an i.MX8 based board.
+
+ - Corrections for harmless mismatches to the actual boards
+   from Arm and ST.
+
+ - Broken Bluetooth and/or Wi-Fi on older Samsung Exynos based
+   products
+
+----------------------------------------------------------------
+Arnd Bergmann (9):
+      Merge tag 'arm-fw-fixes-7.4' of git://git.kernel.org/pub/scm/linux/kernel/git/sudeep.holla/linux into arm/fixes
+      Merge tag 'renesas-fixes-for-v7.4-tag1' of git://git.kernel.org/pub/scm/linux/kernel/git/geert/renesas-devel into arm/fixes
+      Merge tag 'samsung-fixes-7.4' of https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux into arm/fixes
+      Merge tag 'imx-fixes-7.4' of https://git.kernel.org/pub/scm/linux/kernel/git/frank.li/linux into arm/fixes
+      Merge tag 'arm-soc/for-7.4/maintainers-fixes' of https://github.com/Broadcom/stblinux into arm/fixes
+      Merge tag 'memory-controller-drv-fixes-7.4' of https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux-mem-ctrl into arm/fixes
+      Merge tag 'arm-soc/for-7.4/drivers-fixes' of https://github.com/Broadcom/stblinux into arm/fixes
+      Merge tag 'reset-fixes-for-v7.4' of git://git.kernel.org/pub/scm/linux/kernel/git/pza/linux into arm/fixes
+      Merge tag 'stm32-dt-for-v7.4-fixes-1' of git://git.kernel.org/pub/scm/linux/kernel/git/atorgue/stm32 into arm/fixes
+
+Artem Utkin (1):
+      ARM: dts: samsung: exynos4412-p4note: allow powering off the wifi card
+
+Dario Binacchi (1):
+      arm64: dts: st: add firmware reserved memory to Engicam MicroGEA-STM32MP257
+
+David Cemin (1):
+      firmware: arm_ffa: Compare notify_id when looking up notifier callbacks
+
+Frank Li (1):
+      Revert "arm64: dts: imx8qm-ss-conn: add usbotg3 iommu information"
+
+Geert Uytterhoeven (3):
+      firmware: arm_scmi: Update ARM_SCMI_HAVE_TRANSPORT rationale
+      firmware: arm_scmi: Fix grammar s/thing/things/
+      perf/renesas: Remove remaining RISCV_ALTERNATIVE references
+
+Hung-Chun Tseng (1):
+      reset: spacemit: Fix the RCPU2 PWM reset registers
+
+Jiri Slaby (1):
+      MAINTAINERS: fix bouncing {sbranden,rjui}@broadcom.com
+
+Julian Braha (2):
+      firmware: smccc: Provide stubs for HAVE_ARM_SMCCC_DISCOVERY=n
+      irqchip/gic-v3: Select HAVE_ARM_SMCCC_DISCOVERY only on arm64
+
+Krzysztof Kozlowski (2):
+      memory: atmel-ebi: Disable SMC clock on probe failure
+      memory: fsl_ifc: Clear fsl_ifc_ctrl_dev on probe failure and removal
+
+Kunihiko Hayashi (1):
+      reset: scmi: Set the device for the reset controller
+
+Marek Szyprowski (2):
+      ARM: dts: samsung: exynos4210-universal_c210: fix BCM4330 Bluetooth GPIOs
+      ARM: dts: samsung: exynos4210-trats: fix BCM4330 Bluetooth GPIOs
+
+Marek Vasut (3):
+      arm64: dts: st: Move Bluetooth to USART2 on STM32MP23xx DHCOS SoM
+      arm64: dts: st: Update gpio-line-names on STM32MP23xx DHCOS SoM
+      ARM: dts: stm32: Fix STM32MP15xx DHCOM SoM PicoITX overlay application
+
+Martin Wetterwald (1):
+      platform/raspberrypi: vchiq: register bus at subsys_initcall
+
+Myeonghun Pak (1):
+      memory: tegra: Shut down Tegra210 EMC timers before teardown
+
+Patrick Delaunay (3):
+      arm64: dts: st: add PSCI idle state to STM32MP25 CPU domains
+      arm64: dts: st: add PSCI idle state to STM32MP23 CPU domains
+      arm64: dts: st: mark STM32MP23 timer as stopping in suspend
+
+Rob Herring (Arm) (1):
+      arm64: dts: arm: corstone1000-a320: Fix GIC redistributor region size
+
+Runyu Xiao (1):
+      memory: fsl_ifc: guard optional NAND IRQ cleanup
+
+Sasha Levin (1):
+      memory: fsl_ifc: Do not dereference the unset global pointer in probe
+
+Selby Mashiki (1):
+      memory: tegra: fix device_node leak in tegra186_mc_probe_device()
+
+Sudeep Holla (10):
+      firmware: arm_scmi: Avoid protocol devices in exclusive raw mode
+      firmware: arm_scmi: Skip requests for standard protocol devices
+      pinctrl: imx: Match the standard SCMI pinctrl device
+      firmware: arm_scmi: Skip unused performance-domain devices
+      firmware: arm_scmi: Drop redundant ACPI configuration guard
+      firmware: arm_scmi: imx: Track copied syslog words
+      firmware: arm_scmi: imx: Validate MISC control response size
+      firmware: arm_scmi: Unregister notifier on enable failure
+      firmware: arm_scmi: Free mailbox state on mapping failure
+      Merge branches 'for-next/smccc/fixes', 'for-next/scmi/fixes', 'for-next/ffa/fixes' and 'for-next/juno/fixes' of git://git.kernel.org/pub/scm/linux/kernel/git/sudeep.holla/linux
+
+Tzung-Bi Shih (2):
+      reset: Fix reset_control leak when put after controller unregister
+      reset: Fix circular locking dependency in reset_controller_unregister()
+
+Yang Siyuan (1):
+      reset: core: honour optional resets when the GPIO fallback returns -ENOENT
+
+ MAINTAINERS                                        |  10 +-
+ arch/arm/boot/dts/samsung/exynos4210-trats.dts     |  11 ++-
+ .../boot/dts/samsung/exynos4210-universal_c210.dts |  13 ++-
+ arch/arm/boot/dts/samsung/exynos4412-p4note.dtsi   |   1 +
+ arch/arm/boot/dts/st/Makefile                      |   4 +-
+ arch/arm64/boot/dts/arm/corstone1000-a320.dtsi     |   2 +-
+ arch/arm64/boot/dts/freescale/imx8qm-ss-conn.dtsi  |   4 -
+ arch/arm64/boot/dts/st/stm32mp231.dtsi             |  16 ++-
+ arch/arm64/boot/dts/st/stm32mp233.dtsi             |   1 +
+ arch/arm64/boot/dts/st/stm32mp23xx-dhcos-som.dtsi  |  70 +++++++++++--
+ arch/arm64/boot/dts/st/stm32mp251.dtsi             |  14 +++
+ arch/arm64/boot/dts/st/stm32mp253.dtsi             |   1 +
+ .../boot/dts/st/stm32mp257-engicam-microgea.dtsi   |  12 +++
+ arch/arm64/boot/dts/st/stm32mp25xx-dhcos-som.dtsi  |  47 +++++++++
+ arch/arm64/boot/dts/st/stm32mp2xxx-dhcos-som.dtsi  |  45 ---------
+ drivers/firmware/arm_ffa/driver.c                  |  11 ++-
+ drivers/firmware/arm_scmi/Kconfig                  |   2 +-
+ drivers/firmware/arm_scmi/bus.c                    | 110 ++++++++++++---------
+ drivers/firmware/arm_scmi/driver.c                 |   4 -
+ drivers/firmware/arm_scmi/notify.c                 |   4 +-
+ drivers/firmware/arm_scmi/transports/Kconfig       |   2 +-
+ drivers/firmware/arm_scmi/transports/mailbox.c     |   7 +-
+ .../firmware/arm_scmi/vendors/imx/imx-sm-misc.c    |  18 +++-
+ drivers/irqchip/Kconfig                            |   2 +-
+ drivers/memory/atmel-ebi.c                         |  27 +++--
+ drivers/memory/fsl_ifc.c                           | 106 ++++++++++++--------
+ drivers/memory/tegra/tegra186.c                    |   1 +
+ drivers/memory/tegra/tegra210-emc-core.c           |  16 +--
+ drivers/perf/Kconfig                               |   2 +-
+ drivers/pinctrl/freescale/pinctrl-imx-scmi.c       |   2 +-
+ .../raspberrypi/vchiq-interface/vchiq_arm.c        |   2 +-
+ drivers/reset/core.c                               |  71 +++++++++----
+ drivers/reset/reset-scmi.c                         |   1 +
+ drivers/reset/spacemit/reset-spacemit-k1.c         |  18 ++--
+ drivers/soc/renesas/Kconfig                        |   1 -
+ include/linux/arm-smccc.h                          |   7 ++
+ include/linux/firmware/imx/sm.h                    |   6 ++
+ 37 files changed, 455 insertions(+), 216 deletions(-)
