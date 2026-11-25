@@ -1,72 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=211.75.126.72
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795597440;
-	b=brhJpeynA8BrLAPs5BWDd5MphgIptjEYQai//7ROP3zPy06sq4Sl6/T4UTWMkT+uycZ3
-	 /1UhF91mRuH0dl1LRXLX6DS/ON+xmLlSwL/0yYhJ6LecOL9m/Wyu9i/3H2g5tkW5Agtbc
-	 0TY5VjMbJNH0E0FQGaBJQloWD7Vnx2xil8SsOHb2OLiOtnF3+Z19s820SMHbnQmzs7pAD
-	 1RWYlnTImidtvyn5rkT3rlXZh1mZ7AaCLCZ3ldMBkF2vTpxhDnFuP0H9Z2nD/pHC2D3yI
-	 Rq9yIfYeGFCdhCWdYayRiyo1LBBIXJGVrSseQTHeaDr+DalGa6ASEUeR/IZzhOvDyhA==
+	t=1795597563;
+	b=dpU7HW4DeGxE79sFMnLmTvZg3yCAVupJaJbpr7tn97RNlMca6WtNNm+iO/c/p8H4GkvO
+	 HC+QR55psOKNesCjpfbKaKKZnKjR/HGuvZ+lD2B+TNLIWmaTfhJSuXF8QSPbl6QQ/B24l
+	 EW/tmvGUq3fnF6L/r4A1SFAt+cWpnEnmmCD58dI8131ejjsi0YpEeFKCifGcKEiPJ7lIE
+	 E2e7pY7EKrL4tQP03+eQPNAQcjee4Ozq3NSqDXtDY6SXnVg5MMa41m3/tDVLfT95DerYH
+	 KIuF+A6MD1fPkFo3M6p8koE36AAsfY3qriWxjDQERyCndb9qNUHHF9I1ZR8XkO483tg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795597440;
-	h=DMARC-Filter:X-SpamFilter-By:DKIM-Signature:Received:Received:
-	 Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding:Content-Type;
-	bh=MVBydwRcG6MGXgYOnie0k6yGtkab2A/hQX2IXRDfl+w=;
-	b=unyyN7Sm+sVcMY9k4z8GoaRDeF5xYIW8R3JmwtQPJgK6SmxsZOr632d0UZtmaei89sl+
-	 O2nFmBNdufzRodrtaxRX+JKHECNv4Yg1wrYCgnJbj/MDDayUO3Kpf6jR2lgsQdzrDbWJE
-	 eM0/UMLgoImVmg6OtyTYLeOvpQ/Le7XWvRbxU2nABZhmuTf9bS9kRUQ5G6qiLq4KPrAbX
-	 BRxxC5PaJZto1f09P7kfP/nc9aL26dsjNB34GeLsNlBw9PrvhtCEUWdAFqRPTUi6CtNpe
-	 fXe6yxE/+d6YPrOSpKBQaM8hdh4mDjHifMRxI4Bg0zmoUEi2jUl5FqV6Y9LH1+KY//Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795597563;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=2R+ptACluYa/01MSznZHoJj0o1fxIPmKw66p6dBKggI=;
+	b=SlxQoXOmG+8MJODa1WaUblK99cyzrS/NSfdgN6Mp99+3I/4eCt8rRjTgwfPv9JRyGQB5
+	 mj9TKQ3BUH/sxs6A+EXvXwHJqAzDv4D8GsLlx+feBscmssk8pHwYzFVkj5T8fkSlkRDld
+	 d/MHrcAncUvg/5mymmC+slh5f12Fre973eHVIlHadxX4WntWkD2GRJFI1eTJa8GsU4QEc
+	 HHIQ3UF7H+QS3mIPvvoNO7Agu3nhTeRyc6oiutqiXna3E9qiGS3CCQoP+DgPw8i72Ad+V
+	 Oi4di4fdYPWvKEK67yVdOqrsuNEKTmO61TkBXr18/oOswe0Verz8byXS9ZPsVuMJHzA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=realsil.com.cn;
-	spf=pass smtp.mailfrom=realsil.com.cn;
-	dkim=pass header.d=realsil.com.cn header.i=@realsil.com.cn header.a=rsa-sha256 header.s=dkim header.b=pv5jtlwf;
-	arc=none smtp.remote-ip=211.75.126.72
-Received: from rtits2.realtek.com.tw (rtits2.realtek.com [211.75.126.72])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PL5jRQyT;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 14FE2606A32C;
-	Wed, 25 Nov 2026 09:03:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 14FE2606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=realsil.com.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=realsil.com.cn
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 83FB0606A326
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 09:06:03 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=realsil.com.cn header.i=@realsil.com.cn header.a=rsa-sha256 header.s=dkim header.b=pv5jtlwf
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6AP92IvxC3330654, This message is accepted by code: ctloc85258
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realsil.com.cn;
-	s=dkim; t=1795597338;
-	bh=MVBydwRcG6MGXgYOnie0k6yGtkab2A/hQX2IXRDfl+w=;
-	h=From:To:CC:Subject:Date:Message-ID:MIME-Version:
-	 Content-Transfer-Encoding:Content-Type;
-	b=pv5jtlwfQNYNRDrXCbPMUHNxF5DrDJRAV9y4Mj37Zd/KZODnTb6Aj4li3dEaQKjIx
-	 qkPee0dJK0pDHs7Atgk7qqelJbGSTHoqk7knrws4pAXH4ZpjNvkB6Rtry/dFTWS6qw
-	 UmMpIi72PJ9Pa470N4FtRu8fzzGjH6VgzWPU3FJeP4EKgwKSBbK09Zp1/oDqzbtRav
-	 lT4ZJbt01MwmWw2Fp2zEQOcMmEyiCZgd5F9lE5p3rZ/7MQUt94/x+eVctDOsd/+TO5
-	 0+aYn1phpjGddkTFn4zirXrEcqXBvbN0hzkgF1uJ4a81Y1q0dirIf1X1W6MwTxARqP
-	 m9XT8TKazWvPg==
-Received: from RS-EX-MBS3.realsil.com.cn ([172.29.17.103])
-	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 6AP92IvxC3330654
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Wed, 25 Nov 2026 17:02:18 +0800
-Received: from RS-EX-MBS2.realsil.com.cn (172.29.17.102) by
- RS-EX-MBS3.realsil.com.cn (172.29.17.103) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Wed, 25 Nov 2026 17:02:18 +0800
-Received: from 172.29.37.154 (172.29.37.152) by RS-EX-MBS2.realsil.com.cn
- (172.29.17.102) with Microsoft SMTP Server id 15.2.2562.56 via Frontend
- Transport; Wed, 25 Nov 2026 17:02:18 +0800
-From: javen <javen_xu@realsil.com.cn>
-To: <andrew@lunn.ch>, <hkallweit1@gmail.com>, <linux@armlinux.org.uk>,
-	<davem@davemloft.net>, <edumazet@google.com>, <kuba@kernel.org>,
-	<pabeni@redhat.com>, <nb@tipi-net.de>, <maxime.chevallier@bootlin.com>
-CC: <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<daniel@makrotopia.org>, <vladimir.oltean@nxp.com>, Javen Xu
-	<javen_xu@realsil.com.cn>
-Subject: [PATCH net-next v4 0/3] net: phy: realtek: add PTP support for RTL8127a
-Date: Wed, 25 Nov 2026 17:02:13 +0800
-Message-ID: <20261125090217.1198-1-javen_xu@realsil.com.cn>
-X-Mailer: git-send-email 2.50.1.windows.1
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PL5jRQyT
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4BD201F0089F;
+	Wed, 25 Nov 2026 09:05:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795597562;
+	bh=2R+ptACluYa/01MSznZHoJj0o1fxIPmKw66p6dBKggI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=PL5jRQyTyVyrXpi/UQCp0SAZ5Rchq22JsMf8JtkfUEclVT/HrpzW+NhkTwOu38wSV
+	 hlxnljqJMWSjkXM3ToJ5iInI5nybl4G/SwBWi72IRYsbwfyggoCibrRkCkRAGWTlqx
+	 Wdyg8uHlgPSQnZGokMlzAQG1L5QCycFjlgRroHxy/FbGtni24f2tZ0vWX6MfTWwvGc
+	 qIGpy23cMtrGBpzUCARq6Iryt7Yl20wTLEIESrFcsN3HYPlcIOaemt0ROf5skxJ+Br
+	 sWU2g4vG94mVOQ17r5QCw2SDrzsPnCEZTIoGLBZJgxNAWgaRr/ZFzTWuyAQ69USbUJ
+	 WBX9t55Zbeq0A==
+Date: Wed, 25 Nov 2026 11:05:55 +0200
+From: Mike Rapoport <rppt@kernel.org>
+To: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>
+Cc: "luto@kernel.org" <luto@kernel.org>, "x86@kernel.org" <x86@kernel.org>,
+	"dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
+	"peterz@infradead.org" <peterz@infradead.org>,
+	"bp@alien8.de" <bp@alien8.de>,
+	"mingo@redhat.com" <mingo@redhat.com>,
+	"tglx@kernel.org" <tglx@kernel.org>,
+	"hpa@zytor.com" <hpa@zytor.com>,
+	"thomas.lendacky@amd.com" <thomas.lendacky@amd.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 2/9] x86/mm: don't set kernel_set_to_readonly when write
+ protecting fails
+Message-ID: <awak8ysyQqt6jQ06@kernel.org>
+References: <20261112-fixes-x86-v1-0-791adb8d6670@kernel.org>
+ <20261112-fixes-x86-v1-2-791adb8d6670@kernel.org>
+ <afbc0c7a79e880947962fec09885a9a8937ba7df.camel@intel.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -76,29 +66,45 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <afbc0c7a79e880947962fec09885a9a8937ba7df.camel@intel.com>
 
-From: Javen Xu <javen_xu@realsil.com.cn>
+On Tue, Nov 24, 2026 at 11:01:06PM +0000, Edgecombe, Rick P wrote:
+> On Thu, 2026-11-12 at 18:31 +0200, Mike Rapoport (Microsoft) wrote:
+> > mark_rodata_ro() ignores the result of write protecting the kernel text
+> > and rodata. It can fail when CPA cannot allocate a page table to split a
+> > large page, and then a part of the text and rodata stays writable.
+> 
+> Seems like something very unlikely to happen before the kernel has even finished
+> booting. Probably other worse problems are coming in that case.
 
-The PTP block of the RTL8127A resides in its internal PHY (RTL8261C).
-Therefore, this series adds PTP support to the Realtek PHY driver
-instead of the r8169 MAC driver.
+Yeah, most probably we'll crash a few cycles later :)
+ 
+> > kernel_set_to_readonly is set anyway, and CPA enforces the static
+> > protections of rodata from then on. On 64-bit the next call,
+> > set_memory_nx() for the data, may find the writable rodata and warn
+> > about a conflict with the static protections, which does not say what
+> > actually went wrong.
 
-Javen Xu (3):
-  r8169: hold MDIO bus lock while loading firmware
-  net: phy: realtek: add PTP clock support for RTL8127a
-  net: phy: realtek: add hardware timestamping for RTL8127a
+But here we'll see the failure where it happened rather than a
+static_protection's WARN a bit later.
 
- drivers/net/ethernet/realtek/r8169_main.c |   5 +
- drivers/net/phy/realtek/Kconfig           |  13 +
- drivers/net/phy/realtek/Makefile          |   1 +
- drivers/net/phy/realtek/realtek.h         |  25 +
- drivers/net/phy/realtek/realtek_main.c    |  25 +-
- drivers/net/phy/realtek/realtek_ptp.c     | 829 ++++++++++++++++++++++
- 6 files changed, 897 insertions(+), 1 deletion(-)
- create mode 100644 drivers/net/phy/realtek/realtek_ptp.c
+Another thing is that hopefully we'll be able to make set_memory_*()
+__must_check everywhere Really Soon.
+
+s390 are already doing it:
+
+https://lore.kernel.org/linux-s390/20261118144709.202520-1-hca@linux.ibm.com/
+
+> > 
+> > Report the failure and set kernel_set_to_readonly only when write
+> > protecting succeeds.
+> > 
+> > Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> 
+> 
 
 -- 
-2.43.0
-
+Sincerely yours,
+Mike.
