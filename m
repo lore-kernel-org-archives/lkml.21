@@ -1,79 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795647996;
-	b=E6V7ZufsfDLdYgPyOpXuQq7i0V3+jnEZuSTTGhfVXnhpDiL25gE79riJ3/MT2qfSY4+L
-	 77/JP2NZrhP6532FIBxTbi7GqQb3C4/hLJPkiioOyw+seDs8ZuMEH4CQmYbfaI8eCaLlw
-	 zj8DvddeuXNT9jKrdTmD0o51mUeYVRxJklct1zNQXZ+oKgBndw6pnh7b5TOrpMNjmZvNd
-	 fNNjGnQX/a4sW+9pBHIxyzSGpENojBxEFbG20Zfhxnl/sFqQQYgOT1bgA8TT3rl/I1ie3
-	 vLiuUzRxE2aT99M/pVeN8RTwGiHfPdB/hdmpVi/dbpI8Kf+ti5HqdUhsGfSmEBU4Gqw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795647996;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=MCU1hyXnqlzSyru55X8RjiRxlqURXvrM/c8OHkhnVlE=;
-	b=gA80ndeaRLEfrazxVB9l2ovyy4SvqTgIZpXUErg75XBhJ0dTKaKdGMhcQGrbVaVoE+xZ
-	 2i2Z6NP3TTSx726d0PjWFyaR13kgk+brun8ilhUvQOlBAJbTQeeA6bLNqrTAds/mQB3/R
-	 xGIJQxysUPG/kozf6k/WSIm/GCheO3YwohDIemqUGUzViRkFkODmMQZUjL5y7YXFQFbZZ
-	 Mx/05YeE+M9QCt3j2VD+wfL56472ueqDmO4MpIz3iuUYCGSBvjprXLmhk1Hpq+yUd/ztN
-	 HwzdrI1C/VGJDtfuZ6SZM4ibR0wySsJPNU8VbbFm+qjgLLRCqaRw9IBmp5hwN0/fqEA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HVm3rNos;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F1368606A31E;
-	Wed, 25 Nov 2026 23:06:35 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HVm3rNos
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795647995;
-	b=dvQqKTr70kvT560uzgp+UgPRIDTtNwFKkrOgamXxYj3yGWChb1vaCG6i+hJEwdfwc1X1
-	 r6nn+oH/HHzGZQCL2rGafpvTm05KodLH9ELCXlkKqQibv9vdZyApUy2a0jbISLL2+Rk6p
-	 qIVInwSjKzD7LDTPqZUO7eKsCIDIQg6TkXleiQm6e8/ybBBIHXK2M0y4/hNrKALtJ50Hv
-	 XC/VsasfulEftwn/SUaBe4pl7N7oVUuRPnmIs2sHXxaEk8qXmY3FOVrGl9ZgOpzzcw9Q3
-	 WocDm3CLODJXScfh8OcNsb++B0Xxliyqc5udbUmzGxhxzvLC1f9hdtiLEOipRx1gKNA==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795647995;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=MCU1hyXnqlzSyru55X8RjiRxlqURXvrM/c8OHkhnVlE=;
-	b=akRPPWrE14yf+QVoRJCs+3LInl4/dgdhYApRorjNlREeFICnJSdzpEPiV4zVAIFMEoIY
-	 bljtNlQWFml6ii2VBJ5CzyGo+TJZXDS+ClXdEPrrwVu2aapfxgE9MAk46Vz020dMKcytN
-	 7ISJYsrHXycV/7FiRmlg8LoyNYm3JBQA9+GyTIRalcEaNNPhZkk2ABBYJKxAl7JeCQpK1
-	 RsltFM4Hc6XkvPKNsKiwdjSiqQoovw4YXdGECiu7Pr+z3K9sk+xPPqhvbk6VMIOKzbBR3
-	 oHBcpyFDxPNB4HMbO86W6/2Nk7g0bNxf9KOso9PoSaxJN1Go8sCDqsyMXnAmQjH0coA==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.181
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795648140;
+	b=5UFmISCMzvjB+vs4K3xFwV0nG+Tq36LjKhb81TrCdmz9exccFvvS538rCfZjK7tYKgB9
+	 jTQ86eoRUeQNiHN5ZB3crfsKSbrRUyLEcTiZlgF7YqDaOXKaC0HSlNKToY9SIIhx/PFcK
+	 ULwL0Cj/uVgKXomgv3YoANo/N1nYPWWCwbp5i2xqSdSTu6vRfA10WuPauizCLcP7IpEEz
+	 6wJMvtCfYly9g8h8D2CWdvw1Se8vEoc0wQkbaM1m/m1HL4fsikYYgX8Ep9hG8GwH5gn+Z
+	 Iyx10UBXEh4Nghdw7DM49001t86D6d9mcZmu9aYfM7i9/pux1zYr/i0t0JN/lsp5aAQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795648140;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=EorhezSB3H7kybqBFg7VnnNzD79YcoCZdwMFraja7fw=;
+	b=4W+iCCE9wYq7rCTv83lyDqwJLz1kxqb3VXwEHQs1RUNBR4fkMtJrQQo3aIr4F0rvSeS6
+	 ntcAOjCrsVu/p/SCS6pIkPxXNPADvJI2AsurB31rs+0OqbHUgJz/3q0lanKe1ZDvheuWV
+	 TwjQYiAdIevBr+ejcryODLt6iL4r0BXsljB2fAXBUepjVqJlSb3Kx6Ooc78DCEuOzqKYz
+	 tgYaG2gU/Nprj18D8zrkue/zL6u8AHEYiETNg1jXBWdAg4adjW9sMLnZE0837e0YYFokd
+	 8DT/Pr7y6VsLQVYwf5HmjqUSJkoIO+KfscWBvqdCu1TBN1JE6pnPPjWeri9roqHC2gA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MgEQxPvq;
+	arc=none smtp.remote-ip=209.85.214.181
+Received: from mail-pl1-f181.google.com (mail-pl1-f181.google.com [209.85.214.181])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 8AAD81F000C6;
-	Wed, 25 Nov 2026 23:06:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795647995;
-	bh=MCU1hyXnqlzSyru55X8RjiRxlqURXvrM/c8OHkhnVlE=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=HVm3rNosm+24Rma3HTP/pxUgMAAaxgpww14fGxWms2JjU5ps7luvFSkLkfj1ufG2o
-	 dXb+Y+X/WjhFYhaODJ2HmrMDf2HqNkvdt5ut5H8hFl8k4xKw7XuXG64ZmlQa39O9kF
-	 3Jz9s6G5N8gltxzyXT41SSXRWEHOSnG9ufEV1kw+wpOgrwDNcLkBO+xmrIxcNdMbYD
-	 imONC2nVwFCHmrSuC8Hsetw4LVhT1Y5Dp/3yMW40CHFOkugkyLSQNo+MnqS/+GwtdQ
-	 7rClv2gOAvqnxig9zsYolmVJNpC80NHGqejmP2yLyqMhwnQeaKFo2CtbzhOYgm040T
-	 3VSpPsjZ1ME8g==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id DA70C4D0A1;
-	Wed, 25 Nov 2026 23:06:30 +0000 (UTC)
-From: Alexis Calin via B4 Relay <devnull+alexiscalin.protonmail.com@kernel.org>
-Date: Thu, 26 Nov 2026 00:06:12 +0100
-Subject: [PATCH] platform/x86: panasonic-laptop: Support the hardware
- wireless switch
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D3648606A326
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 23:08:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D3648606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MgEQxPvq
+Received: by mail-pl1-f181.google.com with SMTP id d9443c01a7336-2f045b921caso37523915ad.3
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:08:59 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795648139; x=1796252939; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=EorhezSB3H7kybqBFg7VnnNzD79YcoCZdwMFraja7fw=;
+        b=MgEQxPvqyytLZXf90OJPdh9PK1QbYUQGR9tBs/gU/iq2JMuoIc1EOF5PMb/JixBK+Z
+         wZdsRu1GceHsqwSdB+3O2/7Uf7ghDdLNUL7SLKmR8/BiYzlM1mkLX6XZUrB07Tev7973
+         X7MksrtBfscb8nNYJbxGM+eNYzSr71x9jR0MLpzAgaxAa53nHoo9ysokjg+ydCbjgkum
+         arsJzwe58DZENu8fxE6FjTT5rKBGlRJsyFCeIjUGG4w0BdBAA0Jpn1+K96zKAZvSAaz2
+         90vgLS9ls0SHShj4sXXg5R8AEfgvAuPpE5qByrYdt2raTvSBo95lFHi8Jk2qURMPkz7v
+         cZbg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795648139; x=1796252939;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=EorhezSB3H7kybqBFg7VnnNzD79YcoCZdwMFraja7fw=;
+        b=Ba+UtOuI3+rAcTFl/UfG96JA4d4Ktzo+m6ThLin+q5FZE0LjiwCP9b6rRENal81a/m
+         TU9KyLD3U35xP4p7ucS+ei5jXp+nYI/u48soLcCZaPiu5KJ/I+1vwUIge0qACG/XQxgN
+         7IgaMytziotOKwRoWuWkASherbiExDuL672zvCEGO2JoXzOypePT4YCdfKox4WocOoLa
+         YrLyJRNo3txUYHY95J5zBelJVN3ATSutdavWbWyvFaZK3D0FnVGN86nsX7LxnSMdIS3y
+         9UNXfeyBtC0R7l4KFaxFBtfyS2Peby8J7/h2xFVzcWRwbEOcFoRM6ZdXuUHX+pOmDZ4E
+         KueA==
+X-Forwarded-Encrypted: i=1; AL+hErGZ8kyKshn9YvWT/415VzHUtvsstYTLwltE+IzIX1cb80LUDvRtDMsY6H6u76lcLtAStMu0zVIMo4Jaouw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9Wc4lWAhHWdgjJQ1FAYwOQUvjfCTEmZKS0KxP/VNcTQIoqnM82
+	zsy4Vk2BGY30Ah/eguSMvX3lz6SpFDVAuLBDjh564VEZm4VpK5RzrLKr
+X-Gm-Gg: AZFdTZdSl0XSiwxp8698Ltz4XaEb+LV6iwHkfY+53oTGjKWBJH0pxvaOsyVenaqi9Yt
+	ugS+NY8z3UHEJrcOGW7qweVdQFHOPxwHyTjSypBKLRY9lbvPHiW4N4D0fAnyANJUqwGogcjoMtB
+	OJtkTyh1OzVnQ1C6kTvd+hEiRtEnIvLxRXaL7pCOLWGXiMVoObAogrifmIO91wbof+O2WAkb1Vc
+	zfKVegYe9mJtCzU70IgugE7vF5LcTo2n8QMpCubdJRugLc54eT2FMUkjxEL/MCdCYl3XJuVGhBu
+	ssd7ES3eSDD2njhQfoVIee97q6dpxw7z3cUmwgbh1XsgSmT+hmZmt1AT71pZYGMnIAt5fNlky1I
+	clNLYKAkRnT0jC1KK7NbA3cZMitMCOc6+idBDCX3HqsCmz0y1Omyofaz+UhuEDnGjKXZG8T5FZ3
+	Nu0nxfn4jfCCDbPL3G9wMrTB5ydpjixkxUmHjim0cSfpJX91yQgEY8CNKSaHA009MqdGFusX2g0
+	GuINf5UAlrm+FY6GzLZd3WVLga3JUlGL3uE1fnTCSiOPFqAQVQtVyxk9ieFNpgQZNPpO684ECwo
+	RM+zY+Z8BbE/7LaI0u/y3Pem/KWGSP1wyICCYD9GdZOHkX9+
+X-Received: by 2002:a17:903:19e7:b0:2ed:b7e4:f5b with SMTP id d9443c01a7336-2f03f18a7d9mr181302175ad.40.1795648139044;
+        Wed, 25 Nov 2026 15:08:59 -0800 (PST)
+Received: from archie.me ([210.87.74.117])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde6d02ba46sm9395193a12.21.2026.11.25.15.08.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 15:08:57 -0800 (PST)
+Received: by archie.me (Postfix, from userid 1000)
+	id 78DBD420A76D; Thu, 26 Nov 2026 06:08:54 +0700 (WIB)
+Date: Thu, 26 Nov 2026 06:08:54 +0700
+From: Bagas Sanjaya <bagasdotme@gmail.com>
+To: Willy Tarreau <w@1wt.eu>, Jonathan Corbet <corbet@lwn.net>
+Cc: skhan@linuxfoundation.org, Randy Dunlap <rdunlap@infradead.org>,
+	workflows@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+	gregkh@linuxfoundation.org, Johan Hovold <johan@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>
+Subject: Re: [PATCH v2 05/14] docs: security-bugs: explain how to send a fix
+ that can be applied
+Message-ID: <awdqgBF62SOKaU0Q@archie.me>
+References: <20261114190014.17826-1-w@1wt.eu>
+ <20261114190014.17826-6-w@1wt.eu>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,324 +106,54 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261126-panasonic-wireless-switch-v1-1-97f4e3a207da@protonmail.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAA/x3MWwqDMBAF0K0M99sBk1If2Yr0I00ndUCiZKQWx
- L0XehZwTphUFUOgE1U+aroWBHINIc2xvIX1hUDwre+c83feYom2Fk18aJVFzNgO3dPMQ+zG/pb
- 7/BwEDWGrkvX7v6fHdf0AQFGnEmsAAAA=
-X-Change-ID: 20261125-panasonic-wireless-switch-8a6973f7fb8e
-To: Hans de Goede <hansg@kernel.org>, 
- =?utf-8?q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
- Kenneth Chan <kenneth.t.chan@gmail.com>
-Cc: Alex Yeo <alexyeo362@gmail.com>, platform-driver-x86@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Alexis Calin <alexiscalin@protonmail.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795647990; l=10330;
- i=alexiscalin@protonmail.com; s=20261114; h=from:subject:message-id;
- bh=cpAQygnhRQC+zvGun1GukJAWmpC+SrBXmDzkX7bdkVc=;
- b=mAqfCFNP0Gw3eOpN7pzwsUMNIUKNhbfqx7rRgUirdxk3vmlFgdrRJSRUeX0mD0VXd4Ds6aNMA
- 123GOROxdjmAnrF1wV2nsLLkQH85mExOlRzk9f5N4nQwn4dkU6k7Q4Z
-X-Developer-Key: i=alexiscalin@protonmail.com; a=ed25519;
- pk=oNYBG1X8+3bGmJMn0tnt+BbJC1vI7dgqomx4pGPM+4c=
-X-Endpoint-Received: by B4 Relay for alexiscalin@protonmail.com/20261114
- with auth_id=1528
-X-Original-From: Alexis Calin <alexiscalin@protonmail.com>
-Reply-To: alexiscalin@protonmail.com
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="/uqKRyynA7J8RM0T"
+Content-Disposition: inline
+In-Reply-To: <20261114190014.17826-6-w@1wt.eu>
 
-From: Alexis Calin <alexiscalin@protonmail.com>
+--/uqKRyynA7J8RM0T
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-The Let's Note CF-SV7 has a hardware wireless switch and an ACPI device
-MAT0028 ("WLSW"). When the switch is flipped, the firmware queues hotkey
-index 0x50 on the HKEY device, which this driver reports as "Unknown
-hotkey event: 0x0050". If a driver for MAT0028 is loaded, the vendor
-ASL notifies that device instead; no such driver exists in Linux. The
-firmware itself cuts Bluetooth but leaves Wi-Fi on, so under Linux the
-switch only turns Bluetooth off.
+On Sat, Nov 14, 2026 at 08:00:05PM +0100, Willy Tarreau wrote:
+> +Most fixes sent along with reports cannot be applied as-is because they =
+were
+> +damaged by the mailer or lacking a commit message, forcing maintainers t=
+o ask
+> +for a resend. A fix must be applicable using ``git am``, which is most e=
+asily
+> +achieved by letting git produce and send the messages (see
+> +Documentation/process/submitting-patches.rst).
+> +
+> +When the fix is meant to only be sent privately, the preferred method is=
+ to
+> +send the report as a cover letter of a series, followed by the fix::
 
-The switch position is available as SINF[0x0B]: the firmware returns
-0xC0 when the radios are enabled and 0x80 when they are disabled (vendor
-HKEY.SGET(0x0B), from an EC status bit). Bit 7 is used as a check that
-the entry is a wireless switch, bit 6 as its position.
+Documentation/process/submitting-patches.rst guidelines also applies to
+privately-sent fixes, no?
 
-When MAT0028 is present and SINF[0x0B] has bit 7 set:
-- register a read-only rfkill device whose hard block follows the
-  switch, as dell-rbtn does for its slider; NetworkManager and GNOME,
-  which take over rfkill handling from rfkill-input, honour it;
-- report SW_RFKILL_ALL on the hotkey input device, for systems that
-  rely on rfkill-input.
-Both are updated at probe, on each 0x50 event and after resume.
+> +
+> +  $ git format-patch --cover-letter -1
+> +  (edit 0000-cover-letter.patch and replace the subject and text with the
+> +   report's subject and text)
+replace the subject and message body placeholder as appropriate for the rep=
+ort
 
-SINF is now read before the input device is registered, because the
-switch capability depends on it.
+Thanks.
 
-Tested on a CF-SV7 (BIOS V3.00L14) only, with this change backported to
-Debian's 6.12.118: with GNOME and NetworkManager, Wi-Fi is disabled
-while the switch is off and reconnects after it is switched back on,
-and evtest shows SW_RFKILL_ALL following the switch.
+--=20
+An old man doll... just what I always wanted! - Clara
 
-Assisted-by: LLM
-Signed-off-by: Alexis Calin <alexiscalin@protonmail.com>
----
-Notes beyond the changelog:
+--/uqKRyynA7J8RM0T
+Content-Type: application/pgp-signature; name=signature.asc
 
-A first version reported only SW_RFKILL_ALL. It had no effect on Wi-Fi
-under GNOME, because gsd-rfkill disables rfkill-input and does not act on
-the switch event; hence the rfkill hard block, as in dell-rbtn.
+-----BEGIN PGP SIGNATURE-----
 
-The meaning of SINF[0x0B] comes from the CF-SV7 DSDT (HKEY.SGET(0x0B),
-WLSW/MAT0028). I checked that the EC status bit behind it (EC RAM 0xA6
-bit 0, read with ec_sys) follows the switch, and that the driver, loaded
-while the switch is off, starts with the rfkill device hard-blocked.
+iHUEABYKAB0WIQSSYQ6Cy7oyFNCHrUH2uYlJVVFOowUCawdqgAAKCRD2uYlJVVFO
+o8cvAP0UI4UPI69NykSfDcgis1xBWe2etCvfNQGcwSBb/jIkFAEAk4tq4aFkzzMk
+UKJQhOV/RP0fTwz7if/m457ISve37wU=
+=72sa
+-----END PGP SIGNATURE-----
 
-Built with W=1, with CONFIG_RFKILL=y and =n, on platform-drivers-x86
-for-next. Not checked with sparse. checkpatch flags the Assisted-by
-trailer as a non-standard signature.
-
-The code and the changelog were drafted with an LLM coding assistant,
-which also did the DSDT and firmware analysis behind them. I reviewed
-the change and ran the tests on my machine.
-
-Alex, Cc'ing you since you have several Let's Note models: if any of
-them has a MAT0028 device, a test there would be very welcome. This is
-independent of your pending platform_profile RFC, but both touch probe.
----
- drivers/platform/x86/Kconfig            |   1 +
- drivers/platform/x86/panasonic-laptop.c | 126 ++++++++++++++++++++++++++++++--
- 2 files changed, 122 insertions(+), 5 deletions(-)
-
-diff --git a/drivers/platform/x86/Kconfig b/drivers/platform/x86/Kconfig
-index 78e39cafea91..6ee410f4d490 100644
---- a/drivers/platform/x86/Kconfig
-+++ b/drivers/platform/x86/Kconfig
-@@ -677,6 +677,7 @@ config PANASONIC_LAPTOP
- 	depends on BACKLIGHT_CLASS_DEVICE
- 	depends on ACPI_VIDEO=n || ACPI_VIDEO
- 	depends on SERIO_I8042 || SERIO_I8042 = n
-+	depends on RFKILL || RFKILL = n
- 	select INPUT_SPARSEKMAP
- 	help
- 	  This driver adds support for access to backlight control and hotkeys
-diff --git a/drivers/platform/x86/panasonic-laptop.c b/drivers/platform/x86/panasonic-laptop.c
-index ef2ada1ba627..6d24dc0f8363 100644
---- a/drivers/platform/x86/panasonic-laptop.c
-+++ b/drivers/platform/x86/panasonic-laptop.c
-@@ -132,6 +132,7 @@
- #include <linux/kernel.h>
- #include <linux/module.h>
- #include <linux/platform_device.h>
-+#include <linux/rfkill.h>
- #include <linux/seq_file.h>
- #include <linux/serio.h>
- #include <linux/slab.h>
-@@ -157,6 +158,15 @@ MODULE_LICENSE("GPL");
- #define METHOD_HKEY_SSET	"SSET"
- #define METHOD_ECWR		"\\_SB.ECWR"
- #define HKEY_NOTIFY		0x80
-+/*
-+ * Hardware wireless switch (Let's Note models with a MAT0028 "WLSW" device,
-+ * e.g. CF-SV7). Each flip queues hotkey index 0x50 and SINF[SINF_WIRELESS_SW]
-+ * reports the position: bit 7 = switch present, bit 6 = radios on.
-+ */
-+#define PCC_WIRELESS_SW_HID	"MAT0028"
-+#define PCC_WIRELESS_SW_KEY	0x50
-+#define PCC_WIRELESS_SW_PRESENT	BIT(7)
-+#define PCC_WIRELESS_SW_ON	BIT(6)
- #define ECO_MODE_OFF		0x00
- #define ECO_MODE_ON		0x80
- 
-@@ -178,6 +188,7 @@ enum SINF_BITS { SINF_NUM_BATTERIES = 0,
- 		 SINF_MUTE,
- 		 SINF_RESERVED,
- 		 SINF_ECO_MODE = 0x0A,
-+		 SINF_WIRELESS_SW = 0x0B,
- 		 SINF_CUR_BRIGHT = 0x0D,
- 		 SINF_STICKY_KEY = 0x80,
- 	};
-@@ -247,6 +258,8 @@ struct pcc_acpi {
- 	int			ac_brightness;
- 	int			dc_brightness;
- 	int			current_brightness;
-+	bool			has_wireless_sw;
-+	struct rfkill		*wireless_sw_rfkill;
- 	struct acpi_device	*device;
- 	struct input_dev	*input_dev;
- 	struct backlight_device	*backlight;
-@@ -838,6 +851,85 @@ static const struct attribute_group pcc_attr_group = {
- 
- /* hotkey input device driver */
- 
-+/* Returns 1 if the switch enables the radios, 0 if not, -errno on error. */
-+static int acpi_pcc_wireless_sw_on(struct pcc_acpi *pcc)
-+{
-+	if (!acpi_pcc_retrieve_biosdata(pcc))
-+		return -EIO;
-+
-+	return !!(pcc->sinf[SINF_WIRELESS_SW] & PCC_WIRELESS_SW_ON);
-+}
-+
-+/*
-+ * Report the switch position as the rfkill master switch (for rfkill-input)
-+ * and as the hard block of a read-only rfkill device (for userspace that
-+ * takes over rfkill handling, such as NetworkManager and GNOME). On the
-+ * CF-SV7 the firmware does not cut the Wi-Fi radio itself.
-+ */
-+static void acpi_pcc_report_wireless_sw(struct pcc_acpi *pcc)
-+{
-+	int on;
-+
-+	if (!pcc->has_wireless_sw)
-+		return;
-+
-+	on = acpi_pcc_wireless_sw_on(pcc);
-+	if (on < 0)
-+		return;
-+
-+	if (pcc->wireless_sw_rfkill)
-+		rfkill_set_hw_state(pcc->wireless_sw_rfkill, !on);
-+
-+	input_report_switch(pcc->input_dev, SW_RFKILL_ALL, on);
-+	input_sync(pcc->input_dev);
-+}
-+
-+static int acpi_pcc_wireless_sw_set_block(void *data, bool blocked)
-+{
-+	/* the switch is read-only, it has no soft block */
-+	return -EINVAL;
-+}
-+
-+static const struct rfkill_ops acpi_pcc_wireless_sw_ops = {
-+	.set_block = acpi_pcc_wireless_sw_set_block,
-+};
-+
-+static void acpi_pcc_wireless_sw_rfkill_init(struct pcc_acpi *pcc)
-+{
-+	struct rfkill *rfkill;
-+
-+	if (!pcc->has_wireless_sw)
-+		return;
-+
-+	/* the switch acts on all radios; rfkill has no "any" type, use WLAN */
-+	rfkill = rfkill_alloc("panasonic-wireless-sw", &pcc->device->dev,
-+			      RFKILL_TYPE_WLAN, &acpi_pcc_wireless_sw_ops, pcc);
-+	if (IS_ERR_OR_NULL(rfkill))
-+		return;
-+
-+	/* pcc->sinf was just read by probe */
-+	rfkill_set_hw_state(rfkill,
-+			    !(pcc->sinf[SINF_WIRELESS_SW] & PCC_WIRELESS_SW_ON));
-+
-+	if (rfkill_register(rfkill)) {
-+		pr_warn("Couldn't register the wireless switch rfkill device\n");
-+		rfkill_destroy(rfkill);
-+		return;
-+	}
-+
-+	pcc->wireless_sw_rfkill = rfkill;
-+}
-+
-+static void acpi_pcc_wireless_sw_rfkill_exit(struct pcc_acpi *pcc)
-+{
-+	if (!pcc->wireless_sw_rfkill)
-+		return;
-+
-+	rfkill_unregister(pcc->wireless_sw_rfkill);
-+	rfkill_destroy(pcc->wireless_sw_rfkill);
-+	pcc->wireless_sw_rfkill = NULL;
-+}
-+
- static int sleep_keydown_seen;
- static void acpi_pcc_generate_keyinput(struct pcc_acpi *pcc)
- {
-@@ -857,6 +949,11 @@ static void acpi_pcc_generate_keyinput(struct pcc_acpi *pcc)
- 	key = result & GENMASK(6, 0);
- 	updown = result & BIT(7); /* 0x80 == key down; 0x00 = key up */
- 
-+	if (key == PCC_WIRELESS_SW_KEY && pcc->has_wireless_sw) {
-+		acpi_pcc_report_wireless_sw(pcc);
-+		return;
-+	}
-+
- 	/* hack: some firmware sends no key down for sleep / hibernate */
- 	if (key == 7 || key == 10) {
- 		if (updown)
-@@ -965,6 +1062,9 @@ static int acpi_pcc_init_input(struct pcc_acpi *pcc)
- 		goto err_free_dev;
- 	}
- 
-+	if (pcc->has_wireless_sw)
-+		input_set_capability(input_dev, EV_SW, SW_RFKILL_ALL);
-+
- 	error = input_register_device(input_dev);
- 	if (error) {
- 		pr_err("Unable to register input device\n");
-@@ -996,6 +1096,9 @@ static int acpi_pcc_hotkey_resume(struct device *dev)
- 	if (pcc->num_sifr > SINF_CUR_BRIGHT)
- 		acpi_pcc_write_sset(pcc, SINF_CUR_BRIGHT, pcc->current_brightness);
- 
-+	/* the switch may have been flipped while suspended */
-+	acpi_pcc_report_wireless_sw(pcc);
-+
- 	return 0;
- }
- #endif
-@@ -1039,17 +1142,24 @@ static int acpi_pcc_hotkey_probe(struct platform_device *pdev)
- 	pcc->handle = device->handle;
- 	device->driver_data = pcc;
- 
-+	/* read before the input device is set up: it decides the switch capability */
-+	if (!acpi_pcc_retrieve_biosdata(pcc)) {
-+		result = -EIO;
-+		pr_err("Couldn't retrieve BIOS data\n");
-+		goto out_hotkey;
-+	}
-+
-+	pcc->has_wireless_sw = pcc->num_sifr > SINF_WIRELESS_SW &&
-+			       (pcc->sinf[SINF_WIRELESS_SW] & PCC_WIRELESS_SW_PRESENT) &&
-+			       acpi_dev_present(PCC_WIRELESS_SW_HID, NULL, -1);
-+
- 	result = acpi_pcc_init_input(pcc);
- 	if (result) {
- 		pr_err("Error installing keyinput handler\n");
- 		goto out_hotkey;
- 	}
- 
--	if (!acpi_pcc_retrieve_biosdata(pcc)) {
--		result = -EIO;
--		pr_err("Couldn't retrieve BIOS data\n");
--		goto out_input;
--	}
-+	acpi_pcc_report_wireless_sw(pcc);
- 
- 	if (acpi_video_get_backlight_type() == acpi_backlight_vendor) {
- 		/* initialize backlight */
-@@ -1110,6 +1220,9 @@ static int acpi_pcc_hotkey_probe(struct platform_device *pdev)
- 	}
- 
- 	i8042_install_filter(panasonic_i8042_filter, NULL);
-+
-+	/* not fatal: the SW_RFKILL_ALL event still works without it */
-+	acpi_pcc_wireless_sw_rfkill_init(pcc);
- 	return 0;
- 
- out_platform:
-@@ -1146,6 +1259,9 @@ static void acpi_pcc_hotkey_remove(struct platform_device *pdev)
- 	acpi_dev_remove_notify_handler(device, ACPI_DEVICE_NOTIFY,
- 				       acpi_pcc_hotkey_notify);
- 
-+	/* after the notify handler is gone: switch events use the rfkill */
-+	acpi_pcc_wireless_sw_rfkill_exit(pcc);
-+
- 	sysfs_remove_group(&device->dev.kobj, &pcc_attr_group);
- 
- 	backlight_device_unregister(pcc->backlight);
-
----
-base-commit: 61c0dac952b9308884936d05cce97565a5c89af4
-change-id: 20261125-panasonic-wireless-switch-8a6973f7fb8e
-
-Best regards,
--- 
-Alexis Calin <alexiscalin@protonmail.com>
-
-
+--/uqKRyynA7J8RM0T--
