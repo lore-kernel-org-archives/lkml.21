@@ -1,80 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=13.77.154.182
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795641916;
-	b=sOjc/SFSv9fHr+qwVjcVkXxesevT/hUquV57Z4vc1AkMMgWa2hTtbY8H+W6dV85s2VNu
-	 DNEUl8vwsBzo20jfIPTvfjK7XtNKkVnSs0lBcqRN2KlpMNNe6HGb/tn5P8Fd5Ttz3lmTM
-	 k8ReqhFHjTMQOpVpRcKcYxIls/4AeypKH7V+vnNIsetwoT6PKKuN4YYk1fIkxY0BG7URo
-	 g71NNQyDUDdQWus0qclNpvPRTd++UAXsIAe227BcGIcZVh9XygExc6b0SARk8t+jYoXGj
-	 OF1s9Ub3Yjj3PCivGodtyISrlUWuLsP4101QUnJaF9eZLyibz+cCS+n6LNtqiuBeOSA==
+	t=1795641918;
+	b=2Ikn4ZJxAzZYqHKLZDD7l9UGQBIyePtf54lypuAvdlye/Bts8tjl91fFNypbKPLUE1eA
+	 ihrmpF+EL43c+dmCxjPg/MTIPyNrpe0VbM9LRmHgaMGi2oXSjp2a991cW2ufRBPWmawoB
+	 eIxECVw/+k9bnAeBdU1mNpNol7wkRy3XwD3jlOirrWcXgEHPt53JvPtmwzCN/nKukTlLH
+	 dcVnEkwmAU9FuVmmGjr1WbZXeBWO8E5OtgLb9OKFl3PMrmFYvxjJfnimlEgZG/5JXR+iP
+	 WCxcHh8pPPk9nJrrs6XE5NYWCX1GXURaQ8tnoPWqAHLnuYs4M79GaVGE/jdTkqajKgw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795641916;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=TqW72sqF2Ix7p9Aq00fDLCTE7CkGbgZAXL0cSxjcpII=;
-	b=bDDtduz66xDDiAIIFOG2HXuNlrXzHblmipNel+MJaNmpygMiws9RJvbcB42zWhKuiQyd
-	 Oop7GnZJc3icF/crRsXyH1Q88Xn+d04xP8ASRIGcf02OEADdqr8H+iL4WYZ5q8+LpmVTB
-	 km7gmzLbznIz6td+ijfLS4t88UNABzAzLM9BQe5QAeaY+hUa9e8inyQEF3YdX7EcDMipd
-	 qYhkpj81rpJOzWneGg6w7eiLTkFFd1hgdgyvvvZuZDvb3XidKfNfyVXutphjGnAXUulaG
-	 /25grYhxYM/rJcFEu/c7RSJSqHsAg5b4Cj1XzxKo1iGzvzO1XZD4Z62sk1r/900w2qQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795641918;
+	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=nrCWVRLjyyop0c1uePgg3TaFXcH8ltMa7BihsfqT1TE=;
+	b=eeWGowFhUaDsIn5Al8v+lz12GbErBbwxr8++CsBj1a3mXoQiV92RRUYSw5jXDTtAhgGl
+	 YtUZudb6MepPrtqnba6vvD5Ap36SVDFxhALSkrnzxht8g09L/FJ38kWSC6OQAl3EHFIIa
+	 gv9f8V+ZH6ZwE4ZdTqqOSUdaUo4R1okIEyeZ58xpxDCq6+c2PuGyJ3TKR96QotfpQO9nm
+	 s/60fpCN3coc4O6wsz7VATzBNvDOdnxA/qnzN4oEnt4MYdSPYNT+zIV4axykdVz+NvdQr
+	 8lyUq96nQMcLkhh+0TKLpQ7E/wKRAibknCfA1EFQLDzO5t6f/ZbavabUyR9/x7Fop+A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZZwbG0o5;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 44C06606A321;
-	Wed, 25 Nov 2026 21:25:16 +0000 (UTC)
+	dmarc=pass header.from=linux.microsoft.com;
+	spf=pass smtp.mailfrom=linux.microsoft.com;
+	dkim=pass header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=hgCe4r2B;
+	arc=none smtp.remote-ip=13.77.154.182
+Received: from linux.microsoft.com (linux.microsoft.com [13.77.154.182])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 40456606A683;
+	Wed, 25 Nov 2026 21:25:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 40456606A683
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.microsoft.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.microsoft.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZZwbG0o5
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 161531F000CF;
-	Wed, 25 Nov 2026 21:25:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795641915;
-	bh=TqW72sqF2Ix7p9Aq00fDLCTE7CkGbgZAXL0cSxjcpII=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ZZwbG0o5VnXPwi4yrKQKwNBYGo1ziXuMju5ZxuBT1yxn9EG0PM0wuGB27mxnfwKVw
-	 OlwxUkWlP3il3XxqElvhtMpCIV5HHlOTlDReE7BDQ3D8J7BB5pk4LWX8ALhAzg0ti/
-	 iVxGlxufet4uNziBy41IHO3jTqQ9zSAS9AX9UMy4YVBi6x6sX4GyPEnCGvNm8QcBfc
-	 h+3wSHZL2P9com++ScpK9YrtL9hX5czW/F/XT+gOoQqa8epuPyAAT0JwQkrMjfqRYM
-	 EHCfEb/ZajCX6bBp0NgLPVEWUJ6GxdycWxH0zBeciSBk4mMk3n7wjDmi2YEaG0RexU
-	 T1JxT/dZvvTDA==
-Date: Wed, 25 Nov 2026 23:25:12 +0200
-From: Jarkko Sakkinen <jarkko@kernel.org>
-To: keyrings@vger.kernel.org,
-	Marek =?iso-8859-1?Q?Beh=FAn?= <kabel@kernel.org>
-Cc: dm-devel@lists.linux.dev, linux-crypto@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-integrity@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-security-module@vger.kernel.org,
-	Ahmad Fatoum <a.fatoum@pengutronix.de>,
-	Alasdair Kergon <agk@redhat.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Benjamin Marzinski <bmarzins@redhat.com>,
-	David Gstir <david@sigma-star.at>,
-	David Howells <dhowells@redhat.com>,
-	David Laight <david.laight.linux@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	David Woodhouse <dwmw2@infradead.org>,
-	Eric Biggers <ebiggers@kernel.org>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Ignat Korchagin <ignat@linux.win>,
-	James Bottomley <James.Bottomley@hansenpartnership.com>,
-	James Morris <jmorris@namei.org>,
-	James Prestwood <prestwoj@gmail.com>,
-	Jason Gunthorpe <jgg@ziepe.ca>, Jonathan Corbet <corbet@lwn.net>,
-	Lukas Wunner <lukas@wunner.de>, Mike Snitzer <snitzer@kernel.org>,
-	Mikulas Patocka <mpatocka@redhat.com>,
-	Mimi Zohar <zohar@linux.ibm.com>, Paul Moore <paul@paul-moore.com>,
-	Peter Huewe <peterhuewe@gmx.de>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	"Serge E. Hallyn" <serge@hallyn.com>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Sumit Garg <sumit.garg@kernel.org>
-Subject: Re: [PATCH v3 9/9] KEYS: trusted: Add asymmetric key support for TPM2
-Message-ID: <awdSOLvJoBOmSg4h@kernel.org>
-References: <20261125180616.1854753-1-jarkko@kernel.org>
- <20261125180616.1854753-10-jarkko@kernel.org>
- <awdQePZNGZQhNP5K@kernel.org>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=hgCe4r2B
+Received: by linux.microsoft.com (Postfix, from userid 1216)
+	id 1B47620B7170; Wed, 25 Nov 2026 13:25:07 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 1B47620B7170
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1795641907;
+	bh=nrCWVRLjyyop0c1uePgg3TaFXcH8ltMa7BihsfqT1TE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=hgCe4r2B0HNVbeoD1MgrzFkhCAhHF7AwSM+7RoMW9yopoWJvFazYIJdVl8g/7fbYW
+	 1Er6kTSclnY6WZiis2fxryVIV7i9rvOUpQGUKJqM/HFODCio5OjeoA4eXtKD9J6Le6
+	 cuSh6uVdUBd3+FRX3rlwg5nmtR7wLI4WqKEKetwc=
+Date: Wed, 25 Nov 2026 16:25:07 -0500
+From: Hamza Mahfooz <hamzamahfooz@linux.microsoft.com>
+To: Lee Jones <lee@kernel.org>
+Cc: Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>,
+	Dexuan Cui <decui@microsoft.com>, Jiri Kosina <jikos@kernel.org>,
+	Benjamin Tissoires <bentiss@kernel.org>,
+	Michael Bommarito <michael.bommarito@gmail.com>,
+	"K. Y. Srinivasan" <kys@microsoft.com>,
+	linux-hyperv@vger.kernel.org, linux-input@vger.kernel.org,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH 06/10] HID: hyperv: Validate VMBus packet and payload
+ bounds on receive
+Message-ID: <awdSMw88Be4RKJA9@linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net>
+References: <20261123155138.2907049-1-lee@kernel.org>
+ <20261123155138.2907049-7-lee@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,36 +66,71 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <awdQePZNGZQhNP5K@kernel.org>
+In-Reply-To: <20261123155138.2907049-7-lee@kernel.org>
 
-On Wed, Nov 25, 2026 at 11:17:49PM +0200, Jarkko Sakkinen wrote:
-> On Wed, Nov 25, 2026 at 08:06:15PM +0200, Jarkko Sakkinen wrote:
-> > Extend the TPM 2.0 trusted key backend to load OID_TPMLoadableKey
-> > (2.23.133.10.1.3) RSA (2048/3072/4096) and ECC (NIST P-256/P-384/P-521)
-> > keys and expose query, sign, verify, and RSA encrypt/decrypt operations
-> > through key_type_trusted.
-> > 
-> > The feature is enabled with opt-in CONFIG_TRUSTED_KEYS_ASYMMETRIC.
-> > 
-> > Co-developed-by: James Prestwood <prestwoj@gmail.com>
-> > Signed-off-by: James Prestwood <prestwoj@gmail.com>
-> > Signed-off-by: Jarkko Sakkinen <jarkko@kernel.org>
+On Mon, Nov 23, 2026 at 03:50:50PM +0000, Lee Jones wrote:
+> mousevsc_on_receive() dereferences pipe_msg and hid_msg_hdr without
+> verifying hv_pkt_datalen(packet), passes the untrusted pipe_msg->size
+> to mousevsc_on_receive_device_info() without checking that the VMBus
+> packet actually contains pipe_msg->size bytes, and copies up to
+> sizeof(input_dev->input_buf) (16 KiB) from input_report->buffer in
+> SYNTH_HID_INPUT_REPORT without checking input_report->header.size
+> against the received packet buffer.
 > 
-> It might make even sense to make TPM user space device opt-in through
-> kernel command-line option in the case if these ops are useful for
-> other backends.
+> Validate that hv_pkt_datalen(packet) covers the pipe and SynthHID
+> headers, that pipe_msg->size fits within the received VMBus packet, and
+> that input_report->header.size fits within pipe_msg->size.
 > 
-> Thinking more like embedded busybox space than enterprise systemd
-> space. If it is possible rely keychains only to trusted keys, then
-> the software stack can be translated between hardware platforms,
-> even with different security chips.
+> Fixes: b95f5bcb811e ("HID: Move the hid-hyperv driver out of staging")
+> Fixes: 934b7778aa7b ("HID: hyperv: validate initial device info bounds")
+> Closes: https://sashiko.dev/#/bug/linux-03d64dd2-820e-44e2-ba9e-b4a70f1e55ec
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Lee Jones <lee@kernel.org>
 
-This is actually *weakly* Turris related.
+Reviewed-by: Hamza Mahfooz <hamzamahfooz@linux.microsoft.com>
 
-Could Turris signing key translated as trusted key subtype, if it had
-these asym ops? 
-
-This is just a good constraint to check so the right things will
-be done right...
-
-Br, Jarkko
+> ---
+>  drivers/hid/hid-hyperv.c | 12 ++++++++++++
+>  1 file changed, 12 insertions(+)
+> 
+> diff --git a/drivers/hid/hid-hyperv.c b/drivers/hid/hid-hyperv.c
+> index cfc061dbdd24..1de03e38f363 100644
+> --- a/drivers/hid/hid-hyperv.c
+> +++ b/drivers/hid/hid-hyperv.c
+> @@ -272,14 +272,22 @@ static void mousevsc_on_receive(struct hv_device *device,
+>  	struct synthhid_msg_hdr *hid_msg_hdr;
+>  	struct mousevsc_dev *input_dev = hv_get_drvdata(device);
+>  	struct synthhid_input_report *input_report;
+> +	u32 pkt_len = hv_pkt_datalen(packet);
+>  	size_t len;
+>  
+> +	if (pkt_len < sizeof(struct pipe_prt_msg) + sizeof(struct synthhid_msg_hdr))
+> +		return;
+> +
+>  	pipe_msg = (struct pipe_prt_msg *)((unsigned long)packet +
+>  						(packet->offset8 << 3));
+>  
+>  	if (pipe_msg->type != PIPE_MESSAGE_DATA)
+>  		return;
+>  
+> +	if (pipe_msg->size < sizeof(struct synthhid_msg_hdr) ||
+> +	    pipe_msg->size > pkt_len - sizeof(struct pipe_prt_msg))
+> +		return;
+> +
+>  	hid_msg_hdr = (struct synthhid_msg_hdr *)pipe_msg->data;
+>  
+>  	switch (hid_msg_hdr->type) {
+> @@ -317,6 +325,10 @@ static void mousevsc_on_receive(struct hv_device *device,
+>  		if (!input_dev->init_complete)
+>  			break;
+>  
+> +		if (input_report->header.size >
+> +		    pipe_msg->size - sizeof(*input_report))
+> +			break;
+> +
+>  		len = min(input_report->header.size,
+>  			  (u32)sizeof(input_dev->input_buf));
+>  		memcpy(input_dev->input_buf, input_report->buffer, len);
+> -- 
+> 2.56.1.750.gf70dc682cf-goog
+> 
