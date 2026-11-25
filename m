@@ -1,58 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=51.159.59.229
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795626748;
-	b=dsBLywFR2rhw6UscUi9gtjuqGTDwe9aBulIbYBIHTpbeerontlVg1jetPOUgayFRRC8O
-	 e53nECuBSeaPq4lmc8bWt5lcclVDsWJcP/fu8bI0lshWBAwf9tJHQNw+pNl44Y7cm9lcS
-	 sXzjPpK5x4sqbShzHJgyQ95Dl+7jagOCj9JxcVLZY13GX2c0Xldghyy2TluOTITm/NDBw
-	 7d/zhPA+f11W4zS3UqNXEtclh0M7vbxsZ6KOSt9etDU7forAjN62qaeavO34HntHgyTup
-	 e1Ru3xLaC4iSgLJbhK/8x5qvyjTznBUtOtFQCATc3WCZbLCoEg/VD5FSyDSbuCpLcvQ==
+	t=1795626756;
+	b=viI2A5vgRggAtaj8JuX2jcQd4s6XpXkY8Wi5lh+V8cSc+31q9VmT1fsibvoAbrSsjm+1
+	 y4N2vFASfqhDb01+kBNXFtldO4mXcTuzyqfGr8hlhTZ3fUHwixClWomvfi9MlkHZCuVvQ
+	 fDR75CcoqnU7J616Vpo9/ZwxaiZF1OE3AVx4SDxrmdraNg6nB1BEy0Y/UwFfdleySkvRl
+	 r0ok5OyVRTOXRsJKEuZVRRTlAQAfr19/ZXihnRCYKPlabP3NihILjcC3AE+5pNMI2ctXj
+	 2BChUTWQtx8D7W1JLcX6TgBIansqv6jyoSasgSYwiTJ88nE32cKHAlE8HwZAlzJF6bQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795626748;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=CmI4gF1v4gfSZFdEA1fQ5HqbT1EPHRHpAelUvk2pnzg=;
-	b=hC+1jNCGmHm4js714TiRvOtFzgjRbdRQyT50BXPJVzU7yBtyXvbY2dmLELlEKieR4X+G
-	 rDssfxAqZISAw8qaz8s9sSuueToNDtoZgRdHx+fWU/bLWoZkGpyuh+Qg6T+223eE7Ujtu
-	 OkC47vCbhJpUb3O8FFUHizIx7vWXw1f9ANVa2NNFodsAyoqp+nGoQ2xggfTNxAMQB2qHB
-	 aiZTre3BntCeI42rnKDSv0PofQ5//lGX3SPAdkQd2sBqgGtzkupyZXpZyMxDiRZgfDEid
-	 DAdZ8lVvhTjm4T6DIK8Fn2jObKBCFYF+i/6Fgm9lzNDrP1Ai+lIBVATtCd3Qhx/nG5w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795626756;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=0PlivHjJFe8Czsts+P/E3iVHCWO3TXwLQfQtarBKz68=;
+	b=Ziwgk+m7msv3W/lOYd9bOmLtQPPOpjQP6KhsD0x7I8JvGDcsx10UsaF00IRiU+WTPKGV
+	 dCdb5/30IwAwIIDobcxJIsNHxctO4hrBoH/rrgiTIJN4MZstTVeazJI1IV/CZ2EuHW+kq
+	 +PkjTzxmz2xh8KKdFjANCx7a2xpZ+GzIFyOZhPkhRI8kmLZfkZaDwSJ/R5ZiXvTR+lBt2
+	 onB8ZK55noLiREC7cc893r0xLe35My7RG4kTJUEiRYguasqgAim3SLWwxFH4wT6UkEVuB
+	 UWZIBTG+SE53nQIaq+aXwlg/5h9KSbw05pbz2QEjJjUkPgFRLJAM0e5+m/nyVyAqm2Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OSBU24or;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=1wt.eu;
+	spf=pass smtp.mailfrom=1wt.eu;
+	dkim=pass header.d=1wt.eu header.i=@1wt.eu header.a=rsa-sha256 header.s=mail header.b=XDBF+K9b;
+	arc=none smtp.remote-ip=51.159.59.229
+Received: from mta1.formilux.org (mta1.formilux.org [51.159.59.229])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 1A2A8606A32A;
-	Wed, 25 Nov 2026 17:12:28 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C1FC0606A68E;
+	Wed, 25 Nov 2026 17:12:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C1FC0606A68E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=1wt.eu
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=1wt.eu
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OSBU24or
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 4544E1F000D1;
-	Wed, 25 Nov 2026 17:12:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795626748;
-	bh=CmI4gF1v4gfSZFdEA1fQ5HqbT1EPHRHpAelUvk2pnzg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=OSBU24orBb2h+abc9nmR0BnvWemEUxhA07jx5a4SduGYHRslNM62NgJjSPdH4UcNT
-	 p2AxEzeKwDX0xPVxkxoow1dDFuPzS35IxrrKopjSf2s6ZW/8NU9IBZVNowBErDJ6t+
-	 Kw7S5HkKM1H5izF4opst8iCJ5dnVOAh3s743x97tEWeHJuPj0R3c0PQMforGhFxAUk
-	 tbyn06l45fV4aY2l/S2h8xktZrOdldgCkXVNLtjD7K2GrJLcLnAj7wl41qAvWa3lj3
-	 kiiLpUurU9W+1hsRUD2gmzPD+yQ5zH6MH2FxYLolPUJNyHj5eDDfTI0JfX275zIh7S
-	 qzJ+z+hi1PpOQ==
-Date: Wed, 25 Nov 2026 19:12:23 +0200
-From: Jarkko Sakkinen <jarkko@kernel.org>
-To: Rustam Mustafin <rmustafin@cloudlinux.com>
-Cc: Peter Huewe <peterhuewe@gmx.de>, Jason Gunthorpe <jgg@ziepe.ca>,
-	Shuah Khan <shuah@kernel.org>, Jaewon Yang <yong010301@gmail.com>,
-	linux-integrity@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 1/2] tpm: Do not allow io_uring for /dev/tpm0 and
- /dev/tpmrm0
-Message-ID: <awcW90qZvOim7dbh@kernel.org>
-References: <awXHzblUfp05jZSQ@kernel.org>
- <20261125065429.1483868-1-rmustafin@cloudlinux.com>
- <awcT0WnnJ-fyovnn@kernel.org>
+	dkim=pass (1024-bit key, unprotected) header.d=1wt.eu header.i=@1wt.eu header.a=rsa-sha256 header.s=mail header.b=XDBF+K9b
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=1wt.eu; s=mail;
+	t=1795626746; bh=0PlivHjJFe8Czsts+P/E3iVHCWO3TXwLQfQtarBKz68=;
+	h=From:Message-ID:From;
+	b=XDBF+K9b6mgGmvq1g7kdd/smij+GTnyAWGuoDpdZ0hN4OkPHNDXRN/1R0iTzfUREP
+	 2xW6zek1IrNf5ahY0H77SLkycD3uhfx0MulbEx3ecUqMhynUr/q8FSV/1UcaFIP4lR
+	 nR5P0/1tEzN/vnXte416bQF7QJuZIS+41TQ26QoQ=
+Received: from 1wt.eu (ded1.1wt.eu [163.172.96.212])
+	by mta1.formilux.org (Postfix) with ESMTP id 11044C0716;
+	Wed, 25 Nov 2026 18:12:26 +0100 (CET)
+Date: Wed, 25 Nov 2026 18:12:24 +0100
+From: Willy Tarreau <w@1wt.eu>
+To: Jonathan Corbet <corbet@lwn.net>
+Cc: skhan@linuxfoundation.org, Randy Dunlap <rdunlap@infradead.org>,
+        workflows@vger.kernel.org, linux-doc@vger.kernel.org,
+        linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+        gregkh@linuxfoundation.org, Johan Hovold <johan@kernel.org>,
+        "David S. Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>
+Subject: Re: [PATCH v2 00/14] security-bugs doc updates
+Message-ID: <awcW-AsAJ89rcJu3@1wt.eu>
+References: <20261114190014.17826-1-w@1wt.eu>
+ <87zeuwx4nr.fsf@trenco.lwn.net>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,86 +65,30 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <awcT0WnnJ-fyovnn@kernel.org>
+In-Reply-To: <87zeuwx4nr.fsf@trenco.lwn.net>
 
-On Wed, Nov 25, 2026 at 06:59:02PM +0200, Jarkko Sakkinen wrote:
-> On Wed, Nov 25, 2026 at 01:54:28PM +0700, Rustam Mustafin wrote:
-> > io_uring passes its own file offset to the TPM character devices, although
-> > they are opened with nonseekable_open(): IORING_OP_READ copies sqe->off
-> > into ki_pos without checking FMODE_PREAD. The devices also keep a single
-> > command and response per open file, which does not fit asynchronous
-> > requests.
-> > 
-> > Add tpm_common_read_iter() and tpm_common_write_iter(), which fail io_uring
-> > and AIO requests with -EIO. A multishot read uses a synchronous kiocb, so
-> > also reject IOCB_NOWAIT and io-wq workers. The callbacks call
-> > tpm_common_read() and tpm_common_write() once per iovec, so readv() can
-> > still split a response into the header and the body.
-> > 
-> > Signed-off-by: Rustam Mustafin <rmustafin@cloudlinux.com>
+Hi Jon!
+
+On Wed, Nov 25, 2026 at 09:22:00AM -0700, Jonathan Corbet wrote:
+> Willy Tarreau <w@1wt.eu> writes:
 > 
-> Checkpatch with strict afaik already complains about assisted-by and
-> it is not a discussion topic for me. I make people do enough effort
-> to the patches so that they can call them of their own :-)
+> > Hi,
+> >
+> > Here comes the v2 of a new batch of updates for the security bugs
+> > doc, essentially to make it more readable and to address some of
+> > its apparent contradictions for those not reading it entirely. Some
+> > additions were made to explain how to send a patch and a reproducer
+> > separately, and to ask that first-time reporters send a single report
+> > at once first.
 > 
-> Br, Jarkko
+> Would you like me to pick this up, or did you have another path in mind?
 
-b4 shazam for the message-id:
+Oh yes please, I would appreciate it if you pick them up. Do you think
+it's reasonable to have them for the current release, given that as
+always they help us on the sec list by responding with links to the
+doc ?
 
- mutt -e "source ~/.mutt/muttrc.kernel"
-Grabbing thread from lore.kernel.org/all/20261125065429.1483868-1-rmustafin@cloudlinux.com/t.mbox.gz
-Checking for newer revisions
-Grabbing search results from lore.kernel.org
-Analyzing 8 messages in the thread
-WARNING: duplicate messages found at index 1
-   Subject 1: tpm: Do not allow io_uring for /dev/tpm0 and /dev/tpmrm0
-   Subject 2: tpm: Do not allow io_uring for /dev/tpm0 and /dev/tpmrm0
-  2 is not a reply... assume additional patch
-WARNING: duplicate messages found at index 2
-   Subject 1: selftests: tpm2: test that io_uring reads are rejected
-   Subject 2: tpm: Do not allow io_uring for /dev/tpm0 and /dev/tpmrm0
-  2 is not a reply... assume additional patch
-Analyzing 0 code-review messages
-Checking attestation on all messages, may take a moment...
----
-  ✓ [PATCH v3 1/2] tpm: Do not allow io_uring for /dev/tpm0 and /dev/tpmrm0
-    ✓ Signed: DKIM/cloudlinux.com
-    + Link: https://lore.kernel.org/r/20261124142432.368943-2-rmustafin@cloudlinux.com
-    + Signed-off-by: Jarkko Sakkinen <jarkko@kernel.org>
-  ✓ [PATCH v3 2/2] selftests: tpm2: test that io_uring reads are rejected
-    ✓ Signed: DKIM/cloudlinux.com
-    + Link: https://lore.kernel.org/r/20261124142432.368943-3-rmustafin@cloudlinux.com
-    + Signed-off-by: Jarkko Sakkinen <jarkko@kernel.org>
-  ✓ [PATCH v3 1/2] tpm: Do not allow io_uring for /dev/tpm0 and /dev/tpmrm0
-    ✓ Signed: DKIM/cloudlinux.com
-    + Link: https://lore.kernel.org/r/20261125065429.1483868-1-rmustafin@cloudlinux.com
-    + Signed-off-by: Jarkko Sakkinen <jarkko@kernel.org>
-  ERROR: missing [4/2]!
----
-Total patches: 3
----
-WARNING: Thread incomplete!
-Applying: tpm: Do not allow io_uring for /dev/tpm0 and /dev/tpmrm0
-Applying: selftests: tpm2: test that io_uring reads are rejected
-Applying: tpm: Do not allow io_uring for /dev/tpm0 and /dev/tpmrm0
-Patch failed at 0003 tpm: Do not allow io_uring for /dev/tpm0 and /dev/tpmrm0
-error: patch failed: drivers/char/tpm/tpm-dev-common.c:13
-error: drivers/char/tpm/tpm-dev-common.c: patch does not apply
-error: patch failed: drivers/char/tpm/tpm-dev.c:62
-error: drivers/char/tpm/tpm-dev.c: patch does not apply
-error: patch failed: drivers/char/tpm/tpm-dev.h:28
-error: drivers/char/tpm/tpm-dev.h: patch does not apply
-error: patch failed: drivers/char/tpm/tpmrm-dev.c:49
-error: drivers/char/tpm/tpmrm-dev.c: patch does not apply
-hint: Use 'git am --show-current-patch=diff' to see the failed patch
-hint: When you have resolved this problem, run "git am --continue".
-hint: If you prefer to skip this patch, run "git am --skip" instead.
-hint: To restore the original branch and stop patching, run "git am --abort".
-hint: Disable this message with "git config advice.mergeConflict false"
-Press any key to continue...
-
-
-Br, Jarkko
+Thanks!
+Willy
