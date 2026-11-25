@@ -1,58 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.220
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.135
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795573297;
-	b=YXeOZMA72WLjDZuM32SFbQPHiq+kb6Kp0/ptIxkyCZFGj8LdxVAqeef+bUJWgh8ZJYzf
-	 jt6dt3QhyaK/PhZHlomTJ3Vdzai+5hVdAUd+Z9Tr9Wr6j6E1qs/1MMRpj4JTZmHEv2YJB
-	 0v4WHwtMHX/91hD8VQoalCFMnNWNBF7Xe+rQi2cuzwgRLq/tuJOnuYzVfpToerlY+bZMS
-	 86A3ndxUplegwtpSeBttSfE+vsb5+TBQZRt0NERTzVdbD+7umBpWgCrez8fJI/UoucG7q
-	 V1T+LNRZgUd+M1bCpeFGI0dj1H9CIp+cyDsdlsLVUglNRg90vbXjbA+zsYTLd4GENSQ==
+	t=1795573358;
+	b=NX1dEzq78+yJLiyll1U7/R4OaWDn19ne6mTw0r4XGP1+VBcOAfgf0JedNOWWH8UA0/JZ
+	 uckYEYScVGPLyF+fNSK1QvAkwLdAWCj4OwTwAx0ve0cFbwbHrXtnFMjtK/pe4bruYMVkN
+	 Y2f/MujAgfa2Gt2K8b8VaEw9r34LwsZHz4nCha/pUWqF4p+ChbHWQg9VM0KXYAmlxKWSo
+	 4P5pcyw+8XCPO4ge3nRnUItn2vmeGKGpgxSecS89E+HDsZNKgSM6HtPjadZvWtZSuoCPA
+	 HRg3lpbUTJVifns4U8yckj17BqswZFIVINxpReILTlYubAvfBAXd0vO0VPehXhATUPw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795573297;
-	h=DMARC-Filter:dkim-signature:Received:Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:CC:References:From:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding:X-Originating-IP:
-	 X-ClientProxiedBy;
-	bh=hXyGjoxmupuH9Uxjyc6eDIpIRfNyYCAFQUdO+AkdUwE=;
-	b=HSQMF16MVd24aZVELzJ/0VnwTuEVMW1rW+c/iVX6NLEKF/n7UcRxu6xNA58KcpO85JFv
-	 zyZ2eFEWbQ/WIykgHpmZXGyesgH1b74wpi+9YF3Clu2I7wpVMBddE/YT1ujS2cXxuT4Uq
-	 Tp8sjGQZNdSRQgPIZnwqw7Sm7ko0YlJAOmxbZEcRvuIVXCYfyIQckvWPrVoExgECCS8NJ
-	 ZpPj1jTHrAehByRp6d0/qEtmlADRFA6lZZ4LskLvEopA1kohIs7+an1SHZJihnBUBasSK
-	 j5FkwbRwS/62p0o0+pj+QmXBWTCpvM1Sh1Ii2x/hgTUQMSFlN43rgBv9lHEcUmTEkFQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795573358;
+	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
+	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
+	 To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=VZUPOUml8Z7QMmIQLAEErFWrTkqLYi47llUNz2Msvxc=;
+	b=hhnx7mwj7SYamZHLKBidF29JvsEvNPda7Ax8lo5z2/k5R3iiBXrd7V4sHNH/t1udD6v2
+	 GW6z9oUhy48TmQN/GkxvEyyyBsKobKUlE63hSjjbHtj1ELAg0svzK8h7kScTXBhJa76AH
+	 XouNrX9kH4h5gOmITOQPYM2Xwn+iv5VOIelRDWy/HFUpmNcAIz1FUOk2nMOJRbTMSuMPs
+	 Pehb/diQZ9duqQMImFYJF2gLHW+tdhGGpj6TRxy668rcZ0CDtyFXsRTaoXFI3Jk1jv5dn
+	 /yslL/m+yJddSLt8LMlbIXD7saE+oGP/JlSKEOEv2qxd2Fj2ECwrA6yhaLhDO66pz3g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=huawei.com;
-	spf=pass smtp.mailfrom=huawei.com;
-	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=yM2krInt;
-	arc=none smtp.remote-ip=113.46.200.220
-Received: from canpmsgout05.his.huawei.com (canpmsgout05.his.huawei.com [113.46.200.220])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AFED5606A323
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 02:21:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AFED5606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
+	dmarc=pass header.from=cmss.chinamobile.com;
+	spf=pass smtp.mailfrom=cmss.chinamobile.com;
+	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=AE2PYD0e;
+	arc=none smtp.remote-ip=111.22.67.135
+Received: from cmccmta2.chinamobile.com (cmccmta2.chinamobile.com [111.22.67.135])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 16C50606A329;
+	Wed, 25 Nov 2026 02:22:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 16C50606A329
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=yM2krInt
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=hXyGjoxmupuH9Uxjyc6eDIpIRfNyYCAFQUdO+AkdUwE=;
-	b=yM2krIntX4cuWuCww800LKQQaJX8o9jPBHeV2zWhBzk/VF4tTPi5qXB+yHWSIx3TNZh0wC8h+
-	7qoj8T/+QYwBWPTRtXcF65J5PB5QJZ5O3DfxvgXMj3HdN+4Bv+q5OSR/NTJ8cmquS7teTGynGeo
-	UbVAgd4iwO31Mom/NVrF61w=
-Received: from mail.maildlp.com (unknown [172.19.162.144])
-	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4jZ3Lf4NsNz12LH0;
-	Wed, 25 Nov 2026 10:20:42 +0800 (CST)
-Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
-	by mail.maildlp.com (Postfix) with ESMTPS id EB53540538;
-	Wed, 25 Nov 2026 10:21:30 +0800 (CST)
-Received: from [10.67.110.68] (10.67.110.68) by kwepemk200008.china.huawei.com
- (7.202.194.74) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 25 Nov
- 2026 10:21:30 +0800
-Message-ID: <e5890cea-2bc8-467a-9cd9-cad5d0820c74@huawei.com>
-Date: Wed, 25 Nov 2026 10:21:29 +0800
+	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=AE2PYD0e
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=cmss.chinamobile.com; s=default; l=0;
+	h=from:subject:message-id:to:cc:mime-version;
+	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
+	b=AE2PYD0eraeDlLOYUxzctfs7qLEwOmOqlhLCD5sID96ASmIpkE6dmw9zmWCNdIfSV44R6gNsX1fVA
+	 X0hGk17CmtCx7sFcwtdXxZNtlGKpEgM+YQ9o4SdpurV3F/NP/DLx+Oqxtp87lg0vUoQ77uXQPo+Bds
+	 Qgv37vDlcWGUZxBw=
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
+	by rmmx-syy-dmz-app07-12007 (RichMail) with SMTP id 2ee76b064668378-4d5fe;
+	Wed, 25 Nov 2026 10:22:33 +0800 (CST)
+X-RM-TRANSID:2ee76b064668378-4d5fe
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from DESKTOP-3K8GUTQ (unknown[223.108.79.98])
+	by rmsmtp-syy-appsvr01-12001 (RichMail) with SMTP id 2ee16b064667cc8-35135;
+	Wed, 25 Nov 2026 10:22:33 +0800 (CST)
+X-RM-TRANSID:2ee16b064667cc8-35135
+From: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
+To: chester.a.unal@arinc9.com
+Cc: daniel@makrotopia.org,
+	andrew@lunn.ch,
+	olteanv@gmail.com,
+	sean.wang@mediatek.com,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	netdev-bot+sashiko@kernel.org,
+	Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
+Subject: [PATCH v5] net: dsa: mt7530: enable the regulators in probe() and unwind on error
+Date: Wed, 25 Nov 2026 10:22:31 +0800
+Message-ID: <20261125022231.1936-1-laixiangwu@cmss.chinamobile.com>
+X-Mailer: git-send-email 2.50.1.windows.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,83 +73,168 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/2] firmware: arm_sdei: Fix NMI backtrace lockups on idle
- CPUs
-To: "Kiryl Shutsemau (Meta)" <kas@kernel.org>, Catalin Marinas
-	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Mark Rutland
-	<mark.rutland@arm.com>, James Morse <james.morse@arm.com>
-CC: Vladimir Murzin <vladimir.murzin@arm.com>, Ada Couprie Diaz
-	<ada.coupriediaz@arm.com>, Marc Zyngier <maz@kernel.org>, Lorenzo Pieralisi
-	<lpieralisi@kernel.org>, Liao Chang <liaochang1@huawei.com>, Ashok Raj
-	<ashok.raj@oss.qualcomm.com>, Doug Anderson <dianders@chromium.org>, Yin
- Fengwei <fengwei_yin@linux.alibaba.com>, Pengjie Zhang
-	<zhangpengjie2@huawei.com>, Cong Wang <cwang@multikernel.io>,
-	<kernel-team@meta.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-References: <20261124194707.1030653-1-kas@kernel.org>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20261124194707.1030653-1-kas@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- kwepemk200008.china.huawei.com (7.202.194.74)
+
+mt7530_setup() enables the core and io regulators of the MT7530, but the
+only matching regulator_disable() calls live in mt7530_remove(), which
+never runs when the probe fails.  A failure anywhere between the enables
+and a fully registered switch - the remaining steps of mt7530_setup(),
+the IRQ chip or MDIO bus registration in mt753x_setup() (both can also
+return -EPROBE_DEFER), the SGMII PCS creation, or the DSA core itself -
+therefore leaves both regulators enabled.  The devm-acquired handles
+are then released with a non-zero enable_count, which triggers the
+WARN_ON() in _regulator_put(), and each probe deferral grows the count
+further.
+
+Move the enables to mt7530_probe(), right after the regulators are
+acquired, and unwind them with plain error labels if a later step in
+the probe fails.  mt7530_setup() and mt7530_remove() keep their original
+shape, so the enables and disables stay balanced in every combination of
+probe, setup and unbind: a failed probe always unwinds, and a switch
+that stays bound is always disabled exactly once by mt7530_remove().
+
+On the boards that hold the switch in reset with a GPIO
+(mt7623n-bananapi-bpi-r2 and mt7623n-rfb-emmc, which wire the supplies
+inline), the reset line has been asserted since it was acquired in
+mt7530_probe() with GPIOD_OUT_LOW, so the rails come up while the chip
+is held in reset.
+
+On the MCM boards (mt7623a-rfb-emmc and mt7623a-rfb-nand, which get
+mediatek,mcm and the supplies from mt7623a.dtsi) there is no reset
+GPIO; the reset control handle is only acquired in mt7530_probe() and
+the first reset pulse still happens at the top of mt7530_setup().  With
+the enables moved to probe, the chip therefore runs on its power-on
+defaults during the window between the probe and that pulse.  The
+window spans dsa_register_switch() up to the switch setup, it repeats
+on every -EPROBE_DEFER retry, and it is unbounded while a multi-switch
+tree waits for its other members.  The pulse at the start of
+mt7530_setup() re-initializes the chip, so the window behaves like a
+cold boot whose external reset arrives late; no configuration is lost.
+
+All of these boards connect the supplies to switchable MT6323 PMIC
+outputs, so a failed probe would otherwise leave them on and trip the
+WARN_ON(enable_count) splat when the devm handles are released.  MT7621
+does not have these supplies and is skipped by the priv->id ==
+ID_MT7530 guards, and the MT7988 MMIO variant has no regulators at all.
+
+Found by code inspection; the issue has not been triggered at runtime
+and no MT7530 hardware was available for testing.
+
+Fixes: b8f126a8d543 ("net-next: dsa: add dsa support for Mediatek MT7530 switch")
+Suggested-by: Andrew Lunn <andrew@lunn.ch>
+Signed-off-by: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
+---
+Changes in v5:
+
+- Rewrite the commit message safety argument.  The previous version
+  claimed the reset line is always asserted since probe, which is only
+  true for the boards with a reset GPIO.  On the MCM boards the reset
+  control is only acquired in probe and the first reset pulse still
+  happens at the start of mt7530_setup(), so the chip runs on its
+  power-on defaults between probe and setup; this window is now
+  described as it is instead of being masked by a wrong claim.
+- Fix the list of affected boards: mt7623n-bananapi-bpi-r2 and
+  mt7623n-rfb-emmc include mt7623n.dtsi and wire the supplies and the
+  reset GPIO inline; the boards that get mediatek,mcm and the supplies
+  from mt7623a.dtsi are mt7623a-rfb-emmc and mt7623a-rfb-nand.
+
+No code change; the diff is identical to v4.
+
+Link: https://lore.kernel.org/r/20261124013422.1408-1-laixiangwu@cmss.chinamobile.com
+
+ drivers/net/dsa/mt7530-mdio.c | 38 ++++++++++++++++++++++++++++++++---
+ drivers/net/dsa/mt7530.c      | 18 -----------------
+ 2 files changed, 35 insertions(+), 21 deletions(-)
+
+diff --git a/drivers/net/dsa/mt7530-mdio.c b/drivers/net/dsa/mt7530-mdio.c
+index 0be107dc6..b1daefc90 100644
+--- a/drivers/net/dsa/mt7530-mdio.c
++++ b/drivers/net/dsa/mt7530-mdio.c
+@@ -210,18 +210,50 @@ mt7530_probe(struct mdio_device *mdiodev)
+ 		priv->io_pwr = devm_regulator_get(&mdiodev->dev, "io");
+ 		if (IS_ERR(priv->io_pwr))
+ 			return PTR_ERR(priv->io_pwr);
++
++		regulator_set_voltage(priv->core_pwr, 1000000, 1000000);
++		ret = regulator_enable(priv->core_pwr);
++		if (ret < 0) {
++			dev_err(&mdiodev->dev,
++				"Failed to enable core power: %d\n", ret);
++			return ret;
++		}
++
++		regulator_set_voltage(priv->io_pwr, 3300000, 3300000);
++		ret = regulator_enable(priv->io_pwr);
++		if (ret < 0) {
++			dev_err(&mdiodev->dev,
++				"Failed to enable io pwr: %d\n", ret);
++			goto err_disable_core_pwr;
++		}
+ 	}
+ 
+ 	rc.lock_arg = &priv->bus->mdio_lock;
+ 	priv->regmap = devm_regmap_init(priv->dev, &mt7530_regmap_bus,
+ 					priv, &rc);
+-	if (IS_ERR(priv->regmap))
+-		return PTR_ERR(priv->regmap);
++	if (IS_ERR(priv->regmap)) {
++		ret = PTR_ERR(priv->regmap);
++		goto err_disable_powers;
++	}
+ 
+ 	if (priv->id == ID_MT7531)
+ 		priv->create_sgmii = mt7531_create_sgmii;
+ 
+-	return dsa_register_switch(priv->ds);
++	ret = dsa_register_switch(priv->ds);
++	if (ret)
++		goto err_disable_powers;
++
++	return 0;
++
++err_disable_powers:
++	if (priv->id == ID_MT7530)
++		regulator_disable(priv->io_pwr);
++
++err_disable_core_pwr:
++	if (priv->id == ID_MT7530)
++		regulator_disable(priv->core_pwr);
++
++	return ret;
+ }
+ 
+ static void
+diff --git a/drivers/net/dsa/mt7530.c b/drivers/net/dsa/mt7530.c
+index 7781a63b4..b669a94d4 100644
+--- a/drivers/net/dsa/mt7530.c
++++ b/drivers/net/dsa/mt7530.c
+@@ -2411,24 +2411,6 @@ mt7530_setup(struct dsa_switch *ds)
+ 	ds->ageing_time_min = 2 * 1000;
+ 	ds->ageing_time_max = (AGE_CNT_MAX + 1) * (AGE_UNIT_MAX + 1) * 1000;
+ 
+-	if (priv->id == ID_MT7530) {
+-		regulator_set_voltage(priv->core_pwr, 1000000, 1000000);
+-		ret = regulator_enable(priv->core_pwr);
+-		if (ret < 0) {
+-			dev_err(priv->dev,
+-				"Failed to enable core power: %d\n", ret);
+-			return ret;
+-		}
+-
+-		regulator_set_voltage(priv->io_pwr, 3300000, 3300000);
+-		ret = regulator_enable(priv->io_pwr);
+-		if (ret < 0) {
+-			dev_err(priv->dev, "Failed to enable io pwr: %d\n",
+-				ret);
+-			return ret;
+-		}
+-	}
+-
+ 	/* Reset whole chip through gpio pin or memory-mapped registers for
+ 	 * different type of hardware
+ 	 */
+-- 
+2.50.1.windows.1
 
 
-
-在 2026/11/25 3:47, Kiryl Shutsemau (Meta) 写道:
-> The SDEI NMI backtrace signals event 0 to every other CPU, including the
-> ones in a power-down idle state, where the kernel has SDEI masked. TF-A
-> acknowledges the SGI behind event 0 on a masked PE and never ends it,
-> and the PE takes no Non-secure interrupt again. Jinjie hit it on a
-> 384-CPU HIP12, where one sysrq-l locked up the machine.
-> 
-> Patch 1 keeps event 0 away from masked PEs. Patch 2 sends the regular
-> backtrace IPI to the CPUs that SDEI refused, which wakes them.
-> 
-> TF-A v2.13 and later refuse to signal a masked PE, but a PE that masks
-> right after the check still takes the SGI. The TF-A fix is under review:
-> 
->   https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/55414
-> 
-> Tested under QEMU TCG with TF-A built without that check, 4 CPUs. One
-> CPU masks and unmasks SDEI in a loop, through cpu_pm, the mask calls and
-> CPU hotplug, while another signals it; sysrq-l afterwards. Signalling
-> with plain SMCs, as the kernel does now, wedges the target. With the
-> series every run passed, lockdep included, and a panic in the middle of
-> it completes.
-> 
-> Jinjie ran an earlier version on HIP12 with the power-down state
-> enabled: sysrq-l got 384/384 answers every run. The handshake has
-> changed since; Jinjie, could you give this one a run as well?
-
-Tested-by: Jinjie Ruan <ruanjinjie@huawei.com>
-
-On HIP12 (SDEI v1.0 firmware), v7.4-rc3 plus the two patches, SDEI
-active, acpi_idle with state1 = CorePowerdown enabled: sysrq-l answered
-on all 384 CPUs on every run, nine runs total, three of them under load.
- No "still haven't responded", no SDEI_EVENT_SIGNAL failures, no "did
-not arrive within 1ms" warnings, no lockups.
-
-State1/usage shows the CPUs really did go through CorePowerdown, so the
-handshake and the IPI fallback were exercised.
-
-Thanks,
-Jinjie
-
-> 
-> Kiryl Shutsemau (Meta) (2):
->   firmware: arm_sdei: Do not signal event 0 to a masked PE
->   firmware: arm_sdei_nmi: Send the backtrace IPI to CPUs with SDEI
->     masked
-> 
->  arch/arm64/include/asm/nmi.h    |   7 ++
->  arch/arm64/kernel/smp.c         |   2 +-
->  drivers/firmware/arm_sdei.c     | 130 ++++++++++++++++++++++++++++++--
->  drivers/firmware/arm_sdei_nmi.c |  30 ++++++--
->  include/linux/arm_sdei.h        |   4 +-
->  5 files changed, 157 insertions(+), 16 deletions(-)
-> 
-> 
-> base-commit: b6a9fa34ce4187cb69d3c588a4bbffc31ce5db8f
 
