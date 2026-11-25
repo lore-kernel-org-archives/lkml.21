@@ -1,84 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.170
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.175
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795617924;
-	b=4u6GqjQQU62uOcrkX3TI5c+C2zyhEKERoK7xvQW/2N2gArO/PSxKIn0XkaHSngCd88c+
-	 cuWX42vNfGhuOok5GgobxJVWOWQ9zpMlZSfhRlqtr2g4uhn6psqqE0i/EOBSluHqa+kJc
-	 gW0RLrnqXlKIbg2MD1QjM6IRAzZ7nvPM7VSybAByxc/mspWkmgDDEmUsZ5yEygbO+Icr4
-	 WGQaplJdfWVb9/wTDBii0+i2OBOzZ336jhnxTkGddOWm0WRhVe9WabOZ9rwUDmmDHcGCt
-	 XMPj8cT1LEGeUMKb/NA/CFEQ8n/GTMpCDYussap7VjSQatpJg7uI5vtsEAECV3MJDiw==
+	t=1795617930;
+	b=RvlRBUOEXfzM9WI0j8UD++RfHp7V68wHd5B3I/xXknImQKuCTwrY7qrr9RgkRotfBhDB
+	 qGzfQLS9ZIZlTamezwDfmJIUX8/7y99yXveRQ0H/up1x0BLdQ95gQG9j7zMMeyMD7nl3d
+	 KOUtyauN3EoiwJ8zz0R7jOd95GxlMTwHY6uwtSdkf4Yqn5ppnh9qCa5TcIItJJ/nAHZ8b
+	 CyKucpHGdCdeNLeKMkXLZEuBfdEPQ0b9Tz0jw6kO6ukbV0rO+PT/c6Ajuv1ye29ktOal9
+	 6Zd5+z+8KK+1hdgidjivGG2YJKngtv2QTdoPeMgFom9S38pHKDlFlCOT0V5pebFJbCw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795617924;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795617930;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=TZZGnQrheCo8IwMaTwJvzugJ+PAdxbUJ+yLbatzIT1U=;
-	b=s3o7EFo8vQ/blU6+r1rT284MK1yR7uAEqmLSLcIbUX+tISfAduI4Mi5WM49BTRUToVfS
-	 oh+jZ9End+vqreZeE1MOQVT64ZSb7CS9qE4vP6RKUHJrOHC3WkEZx6+RuRgx5TWp+2kXc
-	 4oA2RTIkLYIrrsdO9PjRq1R+t2a0/e+mC0gGHFxJCW/iVCaDnSixFdKIFC/vwHWeD7oIJ
-	 iI9cHvRzx+BhuLJf98CaMPtvvapuWoR59ii8hOUwk5s6cJDa+Rlcb3L+5ZbXG0860H0DU
-	 TAklWHxloMBnjsUDTsbB/b2NuxUBySWlEBZKHxK9kB8scMvO16hCb25GySMbZnUGCjg==
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=hznFWbWvFOaXuVUd+3ixFiuNbdML6L6UHVu/kgMSL3M=;
+	b=wckiUTHGVAekXLA90VrTNyJoovsX5w72JmGpRuvuf6+OEMyyZ79hJsLC2utKvrKu73pJ
+	 tQ/hgFIoNeHecrpLd9z0yJkcm2b33roM5U83e1VKAhRfTsCvGiQzDLA2bxX6WR0lLE4at
+	 fZCyV5U3hUPoKI8oOKj09KlAICmWPe754o03mEiInwzIUfrqlQHF+e4GYlfrP6l175hf6
+	 pRwKUs4u+DxaoYFJSfyCp4iLgs8bowthk7zd23Kf/NQrVfY36ZnTi0zcdceTxHTFDIkxF
+	 5KyL7HBIBy9pDXPdGPFM7c6ZdmsxSxoc+SQIGcehr9E1n4ZG4O1B7XGi5TlWVEl0Mww==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mMmwuHsQ;
-	arc=none smtp.remote-ip=74.125.82.170
-Received: from mail-dy1-f170.google.com (mail-dy1-f170.google.com [74.125.82.170])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="m/qcKfE/";
+	arc=none smtp.remote-ip=74.125.82.175
+Received: from mail-dy1-f175.google.com (mail-dy1-f175.google.com [74.125.82.175])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 67636606A334
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:45:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 67636606A334
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EF490606A326
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:45:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EF490606A326
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mMmwuHsQ
-Received: by mail-dy1-f170.google.com with SMTP id 5a478bee46e88-38644aedba1so8886998eec.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 06:45:24 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=m/qcKfE/
+Received: by mail-dy1-f175.google.com with SMTP id 5a478bee46e88-386c4d2e2ccso3094033eec.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 06:45:29 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795617923; x=1796222723; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=TZZGnQrheCo8IwMaTwJvzugJ+PAdxbUJ+yLbatzIT1U=;
-        b=mMmwuHsQTz9kmNflAogL29vlIOmuNtu8dbedOUK2++NCoCfHO/vByKQkLx8ikeA9go
-         fnH8zjdx9zlapJlv2iSns8wdZx1jqOIejPtOPia0Kptnj2nBI2D3wuVLZPj0pnbgQpYH
-         vZFb9H+Fo2BfMY7kPYh3bDridF5wqwVs+8wccnHIabthKG1dDR01qm4MJGt9IaDBiDOH
-         POE7EuO6lGXK5NgGPYbxjOG/fuQaGP6vpNPjBX4bFm8JkBXfWRnEtzEIlV8yQ6kfT+tH
-         N8/xtSsAZnJIhUK2AvaOKbWEbozf80IwTrF7//wr4wYPLVG2kn7p8XqVyO/0ueqdL+75
-         oeiQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795617923; x=1796222723;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20260707; t=1795617929; x=1796222729; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=TZZGnQrheCo8IwMaTwJvzugJ+PAdxbUJ+yLbatzIT1U=;
-        b=s09DV1kzjbVhlRI2rLhN75OXrYjCN8MjGw0raApvlOMuvAFpX95HPKeg0T7jq+Ljtk
-         qWbv8DbjCIliEP8yCv0Z9wCGjgRfpPQ7iXzzABESwdgq8k0UCMYl33cScAdGB2ER31t4
-         R6JUS4OKTblUVbHc8vzyxKeiBvwZPQhjWJio9q5vHVewr/cKGWYgvMzgOfiUQsb51KgH
-         C4ulv7fqnTtJ8ZlVywR6Gnzfgp6xlEtRIIU6sUaHL5/mA0XxWim0Uq6oJqcGI5zrUrPl
-         A/mF5x7c/fhN6i6xKCapWXtCBRDbfpvjsoAygKiO4TSpoyHFvulolsNCCqd7vWu1f0t3
-         r0JA==
-X-Forwarded-Encrypted: i=1; AL+hErHW8JZnX557eJ+Xo/D8st7Tk6NnKpGFm/talLjbnS1NdvS0iCSEuYSJLpyUSHnsdiQLdh6kgLjrBBLwJEw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8IC6NtAPbAkfOR0b2OOlZWJNw2gitUMB5vESNef2La/xzvnuPy
-	mivnGPSEMHEzRRTOvW/gcWv72rmDDEjvZJemtEM9lfOv6rjzJfB3J4M6
-X-Gm-Gg: AZFdTZeBLFbJxpXEw4h/uR7pWKlYPtlwpz+QtxWewkmZVhmQUvgsSWo3oJuiNeWOhY3
-	mKzmUz2neA0RlK1pZ30bj1agsMR9KxCV1ss6/ZkA9kIb/83tsvUIRiPyKDX4kPqhjG7qn25cfsL
-	ryfRRtoIMcg6dpEdscKyYhMkdtRG+nGYHzMxbGxWCFK7kRrYrceS2ll/FvphnJ4EIBtDGiNLX3u
-	xugGHI4CGVYPuRCtDaLJX1nJPAX9lBiWu/2JfvrnKPst03DMYV8Vjw++kKRvZsFpiF+qqdb5/wR
-	Ko+T4UUuUPX7oEFNDkd+RSUk6oAT3z+i+lqIbT5yWpFMthDacgwfoWmYa4rl96wDybP93F2GCp+
-	nfvMHlt+gqvhnba6Fju+krom97xIZVpZZqpgSFkkWbbQ0LNfqjezaUsQXSUm0NtPJIoxwA9jLLv
-	X91GBbvAsmJ6VYB/JDk28bqPsHetIh+iIXbF0fQOYDN3rSEr3vCizng9MT2Z9pUXNDt/JrkFLuI
-	KDl806uGXPQ1NtAM9ZppBSxiTx2s9j8tVk1Q6QVnQnf5u6oVp8B/Dz4AWKBg+p5LqdOBVxhbZ7w
-	rKiSIvXgOWRnMJi6ybzWLiV1Ab0PNoetZC5kTlP2nTYRThUQgor2f5GaKCRIwOfNWuh20Vt+vCL
-	1FXcDPEhEBNhIvQOBi6ZhzKBn5ht05czoOr/ooT+VNIuX+GiSwvNYUwqU8CAsmwR8tKfi+HsK2Q
+        bh=hznFWbWvFOaXuVUd+3ixFiuNbdML6L6UHVu/kgMSL3M=;
+        b=m/qcKfE/GXu8G+yiXOSULJHlUG62GMnvxJ5jcZv/Z5AJkOKAoM3rUyywvGTps1ClVf
+         54na3AyT9L+QXeBJeNQy137zdOaUDZ5yF4actVJDyH0LLywOfuQYMPnXh7CQGwU2APTR
+         kJfF5B7CeG6ZhqLforOavDqRg8Ejex5fDJT7yutI58syJ/Tuq1mpoGpaKYueTa61tIr3
+         UXNuyYcUZr8p1MpcUZQ7Bcp0qioW0orOhFoMkkmPR09954IyLZVHqMN/MBVrk6E2l4X4
+         6TaneeNB/VasWV0NlIr0iHNQe9tQEjU1Lr7jcEwR+NJMZKz2/2JZJU+XNUU5ZASit3ey
+         cvdw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795617929; x=1796222729;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=hznFWbWvFOaXuVUd+3ixFiuNbdML6L6UHVu/kgMSL3M=;
+        b=D63SC5oX3I7guaxD/cw0jHsO6C8IIGxagY0d+X3ktDnhZVq4kymvPmVGCuVISHNKmc
+         FWaJJ44j1wXbSQzGjdV2UD8TyacjD62yCjUhWdYJMsMQJum9GCFg4vOkqknqjDB356d+
+         hnQ5y6GfwEOYG99A0u83Nv4HqFlW8yLUfg1Zb3Vkum3QEEzCQ5EjeIxJZsYmLOOLwr3q
+         SM+hClNlPzzqdZP7AfG7dobLT/OqVo4gWzKonDz8VI/FLECFmRPmlPwGGYD9bAhIO7Uu
+         Z0rmFw+rZSHYMFEpLdxSLqnk2d8oRVCQKd/BD1+SO3rHuXMrOKkHcnOOPxgudQo+20Ys
+         l/4w==
+X-Forwarded-Encrypted: i=1; AL+hErG3Pjcdb83SS4FJF5s1zL7sU4fg3HAMiZFs/0FbdhAdBocahl2TJxe5mEOGnKC99laOxbIrR5wSqs0L6bg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/uiaRYLcgpz3kX44n6sXIJ6Olk8zXUE9/tFvWgZYrIjddt0Hp1
+	+FpfKl3oVaMRh76wDYPbgg0H5FUsbo9tgUaUkXgqEmX61GzAiSVpt52i
+X-Gm-Gg: AZFdTZdrfGliiHzBIYy33etj6AdRF+APupAViaKdSN7rCpBLDDu+KRy2snYAxmb7FTT
+	ZmTuKBu6L/o+FLxWyZT7ui0MbBp35G1Eed11xAcc0qMY5Z0avTXjnOY+77Eh06Y54x+2SGhSZXl
+	GgN9z3RoRY2W3a/beknruBeKWtvQWGbAV6s5HUc2s3IxBCxbFVb3C2NZQMXYyRrF06JmifuwvV+
+	0/1nDPYKighbLl9lEG68rhVYmP03nRMe0nPydQX8feWrjBpPBbWQ9PcWfB3G5XTm+F0FdUmPuwf
+	02KQc8L7MLrmqOSQYW2dsvk3WWDIZt9CRLSJV6lAtGDuIX4rXDwPmJjdJU0Ok9suUv3qknPtjFV
+	6yC+dkSBZ1LmhAZpShbR5OSxQgB1sr1Hho5uk+KiONRRqBDFgF7RegEmpRkawfd1O8zlltZkxsy
+	fh5pwI9NwVZjDRfoswjjW2XMtg4zJpWK1wmuulWXD5NjGVjCydEuvJoSagdh+FHuxWA/sE5PjUe
+	7wYjF5IP71KPYDbH0SwdYJ2hMgsbgb5iWvJVL7Xs+IMHYCl/3aFjQNHc/ybs6s6UbJNLQVX5uIR
+	ekrTxJvvUXNswSyc2GN/N7bvicI2R4d+8PyZzDCAAae5rC8JqgDm2eGFFRp/LJTxFcIHzrNlgBt
+	2wH0e0qOfN5K7bLVwQf9fYqbcpR2vSt8OwsIqlwaXpkymlRsmC35Pl95427imJonBsmXbCK1lCQ
 	==
-X-Received: by 2002:a05:693c:88d4:20b0:386:a8de:2bfc with SMTP id 5a478bee46e88-386a8de2f67mr11085085eec.6.1795617922809;
-        Wed, 25 Nov 2026 06:45:22 -0800 (PST)
+X-Received: by 2002:a05:693c:8859:b0:386:b494:864e with SMTP id 5a478bee46e88-386b4948821mr7204800eec.15.1795617928749;
+        Wed, 25 Nov 2026 06:45:28 -0800 (PST)
 Received: from ramen-dev-security-2.asia-south1-c.c.ramen-dev-345017.internal (90.156.200.35.bc.googleusercontent.com. [35.200.156.90])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38567daaf70sm57121181eec.28.2026.11.25.06.45.17
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38567daaf70sm57121181eec.28.2026.11.25.06.45.23
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 06:45:22 -0800 (PST)
+        Wed, 25 Nov 2026 06:45:28 -0800 (PST)
 From: Anil Kaushik <anilkaushikwireless@gmail.com>
 To: netdev@vger.kernel.org
 Cc: davem@davemloft.net,
@@ -99,10 +100,12 @@ Cc: davem@davemloft.net,
 	shuah@kernel.org,
 	linux-kselftest@vger.kernel.org,
 	anilkaushikwireless@gmail.com
-Subject: [PATCH net v9 0/2] genetlink: Reject joining multicast groups no family owns
-Date: Wed, 25 Nov 2026 14:45:12 +0000
-Message-Id: <20261125144514.2717012-1-anilkaushikwireless@gmail.com>
+Subject: [PATCH net v9 1/2] genetlink: Reject joining multicast groups no family owns
+Date: Wed, 25 Nov 2026 14:45:13 +0000
+Message-Id: <20261125144514.2717012-2-anilkaushikwireless@gmail.com>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20261125144514.2717012-1-anilkaushikwireless@gmail.com>
+References: <20261125144514.2717012-1-anilkaushikwireless@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -114,53 +117,140 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-genl_bind() lets any user join a multicast group ID that no family owns.
-A family registered later can get that ID, and the socket stays a member
-without a capability check. Patch 1 makes genl_bind() return -ENOENT for
-such an ID. Patch 2 adds a selftest for it.
+genl_bind() checks the GENL_MCAST_CAP_* flags of a group only when a
+family owns it. For a group ID that no family owns, it returns 0, so any
+user can join it.
 
-v9:
-- In the selftest, find the initial network namespace with its fixed
-  nsfs inode number, not by comparing with PID 1, which is in the same
-  namespace as the test in a container (Sashiko).
-- Unload drop_monitor at the end of the selftest, so that the next run
-  does not skip that check (Sashiko).
-- Patch 1 is unchanged. The Sashiko point on it in v8, a family
-  unregistered during the join, is the window the commit message
-  describes. The fix for it was patch 2 of v5, which was not accepted.
+A family registered later can get that ID, and the socket stays a member:
+nothing checks it again. An unprivileged user can join the free IDs, load
+a family module with CTRL_CMD_GETFAMILY, which calls request_module(),
+and then receive the notifications of a group with
+GENL_MCAST_CAP_NET_ADMIN or GENL_MCAST_CAP_SYS_ADMIN. For example the
+drop_monitor "events" group always gets ID 1, and is free until the
+drop_monitor module is loaded.
 
-v8: https://lore.kernel.org/netdev/20261123155503.2497063-1-anilkaushikwireless@gmail.com/
-- In the selftest, read the group memberships in host byte order, so it
-  also works on big-endian (Sashiko).
-- Skip the selftest outside the initial network namespace: the family
-  dump there does not list the families that are not netnsok, so it
-  could take one of their groups as free (Sashiko).
-- Close the selftest sockets, also when a check is skipped (Sashiko).
-- Skip the drop_monitor check when NET_DM gets no group ID that was
-  free, so it cannot pass without testing anything (Sashiko).
-- Rebase on net.
+Fix by returning -ENOENT from genl_bind() when no family owns the group.
+There are no group flags to check before the family registers, so this
+applies to privileged callers too: a program that joins a fixed ID such
+as NET_DM_GRP_ALERT before the family is loaded no longer gets its
+messages. I don't know of a program that does this. One that resolves
+the family first still joins. Say so in the comments on the static
+IDs.
 
-v7: https://lore.kernel.org/netdev/20261116124030.1595567-1-anilkaushikwireless@gmail.com/
+bind() takes a mask of groups, and most IDs in it can have no owner. Such
+a mask used to work, so keep it working: netlink_bind() skips an ID when
+the bind callback returns -ENOENT, and joins the others. Only genl_bind()
+returns -ENOENT. A skipped ID is not joined, so it is no longer in the
+groups that getsockname() and NETLINK_LIST_MEMBERSHIPS report.
+setsockopt() returns the error, as it asks for one group.
 
-I used an LLM to help write and review the code, the tests and the
-commit messages of this series. I checked and tested every change
-myself.
+This does not cover a family that is unregistered between the check and
+the point where the membership bit is set. Hitting it needs a
+privileged module unload at the same time, and the capability check
+already has the same window.
 
-Anil Kaushik (2):
-  genetlink: Reject joining multicast groups no family owns
-  selftests: net: test joining genetlink groups no family owns
+Found by the Sashiko review of the gtp multicast group fix. Tested as an
+unprivileged user who joins all free IDs, then loads gtp and
+drop_monitor:
 
- include/linux/netlink.h                      |   3 +
- include/uapi/linux/net_dropmon.h             |   2 +
- net/netlink/af_netlink.c                     |   6 +
- net/netlink/genetlink.c                      |   5 +-
- tools/testing/selftests/net/Makefile         |   1 +
- tools/testing/selftests/net/nl_genl_mcast.py | 128 +++++++++++++++++++
- 6 files changed, 144 insertions(+), 1 deletion(-)
- create mode 100755 tools/testing/selftests/net/nl_genl_mcast.py
+Before:
+  joins: ok=62 EPERM=2
+  gtp/gtp (ID 15): member
+  NET_DM/events (ID 1): member
 
+After:
+  joins: ok=19 ENOENT=43 EPERM=2
+  gtp/gtp (ID 15): not member
+  NET_DM/events (ID 1): not member
+  bind(), an owned group and free IDs: ok, member of the owned group only
 
-base-commit: 7b0c5f0c757cb61e28dc4128633877aaa8f6f9bd
+genl_bind() was added, with its first capability check, in the commit
+in the Fixes tag.
+
+Link: https://lore.kernel.org/netdev/179324692107.3134.14443689892607921337@kernel.org/
+Fixes: 4d54cc32112d ("mptcp: avoid lock_fast usage in accept path")
+Signed-off-by: Anil Kaushik <anilkaushikwireless@gmail.com>
+---
+ include/linux/netlink.h          | 3 +++
+ include/uapi/linux/net_dropmon.h | 2 ++
+ net/netlink/af_netlink.c         | 6 ++++++
+ net/netlink/genetlink.c          | 5 ++++-
+ 4 files changed, 15 insertions(+), 1 deletion(-)
+
+diff --git a/include/linux/netlink.h b/include/linux/netlink.h
+index 882e9c1b6c1d..b4eb873850e7 100644
+--- a/include/linux/netlink.h
++++ b/include/linux/netlink.h
+@@ -48,6 +48,9 @@ struct netlink_kernel_cfg {
+ 	unsigned int	groups;
+ 	unsigned int	flags;
+ 	void		(*input)(struct sk_buff *skb);
++	/* -ENOENT means no one owns the group: bind() skips it and joins the
++	 * others, setsockopt() returns the error.
++	 */
+ 	int		(*bind)(struct net *net, int group);
+ 	void		(*unbind)(struct net *net, int group);
+ 	void            (*release) (struct sock *sk, unsigned long *groups);
+diff --git a/include/uapi/linux/net_dropmon.h b/include/uapi/linux/net_dropmon.h
+index 87cbef48d4c7..4f2fee982c8a 100644
+--- a/include/uapi/linux/net_dropmon.h
++++ b/include/uapi/linux/net_dropmon.h
+@@ -58,6 +58,8 @@ enum {
+ 
+ /*
+  * Our group identifiers
++ *
++ * The group can be joined only after the NET_DM family is registered.
+  */
+ #define NET_DM_GRP_ALERT 1
+ 
+diff --git a/net/netlink/af_netlink.c b/net/netlink/af_netlink.c
+index 69bb951b5fb8..ee573ba6396d 100644
+--- a/net/netlink/af_netlink.c
++++ b/net/netlink/af_netlink.c
+@@ -1033,6 +1033,12 @@ static int netlink_bind(struct socket *sock, struct sockaddr_unsized *addr,
+ 			err = nlk->netlink_bind(net, group + 1);
+ 			if (!err)
+ 				continue;
++			/* no one owns this group, still join the others */
++			if (err == -ENOENT) {
++				__clear_bit(group, &groups);
++				err = 0;
++				continue;
++			}
+ 			netlink_undo_bind(group, groups, sk);
+ 			return err;
+ 		}
+diff --git a/net/netlink/genetlink.c b/net/netlink/genetlink.c
+index 5cc1037d4917..e5d4f3c4e22a 100644
+--- a/net/netlink/genetlink.c
++++ b/net/netlink/genetlink.c
+@@ -85,6 +85,8 @@ static DEFINE_IDR(genl_fam_idr);
+  * cater to that by giving it a static family and group ID.
+  * Bit 18 is marked as already used since the PMCRAID driver
+  * did the same thing as the VFS quota code (maybe copied?)
++ * These IDs can be joined only after the family that owns them
++ * is registered.
+  */
+ static unsigned long mc_group_start = 0x3 | BIT(GENL_ID_CTRL) |
+ 				      BIT(GENL_ID_VFS_DQUOT) |
+@@ -1825,7 +1827,7 @@ static int genl_bind(struct net *net, int group)
+ {
+ 	const struct genl_family *family;
+ 	unsigned int id;
+-	int ret = 0;
++	int ret = -ENOENT;
+ 
+ 	down_read(&cb_lock);
+ 
+@@ -1841,6 +1843,7 @@ static int genl_bind(struct net *net, int group)
+ 			continue;
+ 
+ 		grp = &family->mcgrps[i];
++		ret = 0;
+ 		if ((grp->flags & GENL_MCAST_CAP_NET_ADMIN) &&
+ 		    !ns_capable(net->user_ns, CAP_NET_ADMIN))
+ 			ret = -EPERM;
 -- 
 2.25.1
 
