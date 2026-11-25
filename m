@@ -1,124 +1,91 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.175
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795581464;
-	b=m8Qw4q3ZVOJ0RgvD1pAc7xCc3mqfFv8rVZj/OHgc+CBNc2N/cappAWbfPW8VRceLcEyq
-	 G38JTTd4b5DSsDmD/GX0Gena/chIy7jZDWAdqCZ5ECvE866F9zdGEHxIqN14iHebA5tBy
-	 UxE7M5U/2AET6M+/pBjsBAC+xGPPQNukKbWkTFpxP/YUqw8Gww3I9SQQHJPoga2FAZAnr
-	 ErmoK23q7rMF0ToUOALdpZaB5sqlXj4zxeKko3p6o+0bxGZ0Tmcy+X8EG1yulCZlcztNW
-	 84riPIdthhk7EKgurti8Fq4Ehgxcl+ZiszPXVwx5IXahNTPjiHHgYCz71JPuLeZSM5g==
+	t=1795581499;
+	b=Lg6Wprn0dH4FKsF3CGwNP0m95ToqcO+l+9rb5+5D82tTcayuHtrSCUJSBA7O1yWxwhI2
+	 fe/sjau+7sayN+PXdfkuLQnZyo8mt7V8tohgPf3apOIYAugSMAN4l2Subws1fGxfJz+CA
+	 mie7IPxetbEqWlKKgn3Q9lxIr08KT6prVpe9zYITzHdRW8+hnnV3AO5iwJryVl1e+4cej
+	 Ik04m1q3dyAUuKdlfyyyjQgeGqVLvBCx7P4rEz+XJd5T57xtGm3DKgaw5JcTMPkJd5jSj
+	 3Yu6iaSZ59+my9Rtj7YkwGgIlpBw93HeHXhYIcK4ImRR2XONnYeNceAmmW8n0e3rtdw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795581464;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795581499;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=Th0U5TzJmX7EaDDFA+PHgDoYo8RCe0k6TY8cW8gRTLA=;
-	b=O9j6k1TaqK49ZggRsYvMhiRt8eaep5HEPYXDWBcTPzaFHezdNCUEXhpmIuloOaABoUCY
-	 CaoJ5p+PZCgin6EWn4vP08hmIC5Rk5786FOJQ3IvY1l6xSkA9VfE6qqg2aUb1OPZGXpPQ
-	 EsNjaYxX7G3vM6xucM2XL1/QfHfMDssBJLgjMhlOBXjOp57b59qGBQIQAsBTyMf4FJvDJ
-	 PiMlOjCFNmyin36CbiN+Q5T+hJPcy98Dfp4BcSevTlollpSim3UGStLkMVxJ3pK4DGJjr
-	 RB6os5cDEKVEOgC/CEU2WuwZEXDh9tmEALzfifkxVr5vWjJruljVy5OGezunpbnPB/A==
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=UstZVkNfG9M8ON4DvEUF4Bp0cm0chz64PPbrwu3nxEg=;
+	b=lF9doU0BRfxNLKp+WiTJeMekdnV4n1aI/V39hstplyByHakOuIujG0SLPMxckgcw67mM
+	 +W8NXlEA3mOFg7+gQCxCyKYQj8SpL4XUcpjfy8+xqhLMDwYBYZma1HsjdCJHQGTUqYVeK
+	 KNPVLr1dDaU/DbIHQ7ihGrt2M8A0LP6bqtLseuuVK7wJNGGLDQQidCnO9LyfCytPL2fj+
+	 WYQHNbhpukUZUHx7GoZ5knD27eJVwblFkk2xclCl9vW2ysJxapJxxPoJjORYwJtxR+DCK
+	 NTGbtgCQ1826p8/5Kq1pWJyZ6fBm3IzXiJPbMVovgYv39HXgDLFRgp/nQNsWEQPISKw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ydZwfXs4;
+	dmarc=none header.from=iiitd.ac.in;
+	spf=pass smtp.mailfrom=iiitd.ac.in;
+	dkim=pass header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=Op4m8DPe;
 	arc=none smtp.remote-ip=209.85.214.175
 Received: from mail-pl1-f175.google.com (mail-pl1-f175.google.com [209.85.214.175])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 56622606A331
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 04:37:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 56622606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4ACC1606A326
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 04:38:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4ACC1606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=iiitd.ac.in
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=iiitd.ac.in
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ydZwfXs4
-Received: by mail-pl1-f175.google.com with SMTP id d9443c01a7336-2f046b0adc0so29223455ad.1
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 20:37:43 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=Op4m8DPe
+Received: by mail-pl1-f175.google.com with SMTP id d9443c01a7336-2f0481b35c9so30582015ad.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 20:38:11 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795581462; x=1796186262; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Th0U5TzJmX7EaDDFA+PHgDoYo8RCe0k6TY8cW8gRTLA=;
-        b=ydZwfXs4itqQiYJPjgaUOOO0SQIyr1DBTGTbktl7OG2/yC5Dblolhcn3IS42km/rf+
-         tVkzDsddKnEt2tLiPCLnhOg/KKr6yW0dYeWYUUgzJl+Ubn1XLTHgYqH3xvldlSDKy2rA
-         mD+BT3arUSXfXqCSlhE6qWm+2gP4E+jZ5pXeU9aQeWLR3wE4JdQZxV7uIxsB3wpYRzBa
-         VYiMQTNNXsMnGgJYUeP9YCSVmibS06kpZzwaCLjiheizhm32L19Q8c0lXmlLsUeVVl9T
-         Jt/d2ovu1QdMREbgiVNGZzR+No7PtC13I9Il5FbUY3Vu+/PQ+P1iBCilGgZUYlrjlKzo
-         ZWuA==
+        d=iiitd.ac.in; s=google; t=1795581491; x=1796186291; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=UstZVkNfG9M8ON4DvEUF4Bp0cm0chz64PPbrwu3nxEg=;
+        b=Op4m8DPe/Y1pt97LAG3LtYi/WEkx9jRIBBIzCSWuxxkYCUfqlDvme15EoeEAb+inqT
+         UWN4qJRHo4NtlsIsR0oABmKPRwiuNUAOKCOvvSEUmBUYGzY8A94odTtZxKBm4wo9UUpI
+         j1TF/w3mbNta3KXQ3vojbWKCUyjBOGfNK8XMo=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795581462; x=1796186262;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Th0U5TzJmX7EaDDFA+PHgDoYo8RCe0k6TY8cW8gRTLA=;
-        b=1QHD109KolD5cxZU67pl1kOxjZkzNRL0mDOFh+u7HSntH3d1dFSeRxLHEFevTjYOoy
-         h4PX6aI4sryRmfG+rvrUd+XLpacz9vcV1pmGjZmQ1EzoSGugPoIGmiRvB+SZOGv1vCcl
-         8E6oeK3WdEV3pclLOZzefaoRdiNzr0A/nw50h1M9KoZzeWB31+IgqFY+Za0PywRySEJX
-         Ij0hEw70lseUsbRMx3K6BIQ4Ni5h8EZ8ODVoQZi22C2O3SVvfSmu7CMd7pq/t+1xylOH
-         /sPt1x6bB4oM6caC/FD0aZ3BE2J/PFNMmM+IOWkP7gyLHhAbedbcmqoSrORByG9K7jSn
-         vU1Q==
-X-Forwarded-Encrypted: i=1; AL+hErFBXyxp+ORUP1vgbugCKoHdJm4bVpM1AbcRDgoB90TFcymYplK9rpzofxzrdACXLbPmNdh0SFBi5l887F0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z90ySsi4gsvXFeFOc9gPfyscf1CZ/2a0HlvlZUpRgTOpGNQpYhs
-	eLAFFV3Hm9XopAWnioAEkOXgYGMiZzzLE8TuBF9yeu4ayBY6pnhPHNjy
-X-Gm-Gg: AZFdTZew8gBUItfGJGi6To3xTTfL46mwSBOIbzR64DrDqYD6GobBvLmzj+lN7xApJzP
-	M2Q99k13QZMzkEJ8KxSpNkBbrd3t/vPTWqcU9Qj0OuJAbmssHUh5Nkhh1BlOzlIAQrxsnyKAVip
-	GXLqsKz+GqYlO0/E7SumbJF0FxUB653jJCT4EvSlYKiwM4ixbjtGuqhIj+aovw48B1+dtja7NJZ
-	ANVb+l8njm0myfPOdEv4xBxf32KcqaWlAZLKyzWpz/aaYkRyrqpxchwCgfWSZkcHjteUNux1Hbv
-	3lQtP7Hal50C+yQr/Kwg94aluzTZUKJ46Fe6h2XNRcEzbc93t3sy+DgnK2QTtzOs5bHHapUIkIf
-	CtbfXY/g4MOk6xDPyGlc5mftHSUYWr2+DMBTo1B+0tBKv1O1awYPzhlj327vYRXK4wzcehNHohs
-	WQ8ywSPp2rCZdXXv75wG6sEfkzSCdILZb7Ua+18vbKHLh68Y1aqfFNiUe0kAjNdq9EN4wdAV+EE
-	aFBEMncaAT+8GtGcys0VWkxTbVpD6XQ/xTuT2Ow++H7FHaxus/slmyxYNn/oszxfLoE3tWB5IiO
-	+T5PzCDoDiMzcinW9RoefmJcIFV0ZCOgyPac7QsOJL2tiiDG
-X-Received: by 2002:a17:903:294f:b0:2ed:630:40ad with SMTP id d9443c01a7336-2f03f11826cmr93907705ad.19.1795581461579;
-        Tue, 24 Nov 2026 20:37:41 -0800 (PST)
-Received: from localhost ([2001:19f0:8000:4ce8:5400:7ff:fe0e:e6b2])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f0c2ad2sm78350235ad.16.2026.11.24.20.37.40
+        d=1e100.net; s=20260707; t=1795581491; x=1796186291;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=UstZVkNfG9M8ON4DvEUF4Bp0cm0chz64PPbrwu3nxEg=;
+        b=Ebs8j0kBM7EUs5VrM7Mumkqa2hr+9Kp+N3ie43+rDY8q6l2tJDSfiuPZ73WnUYuzKI
+         m5bPzg7kxkFDwtEMtWI6Vs3cR2pGpVewu80GWp5H5YZNesbXD/aFjLE/9tYZeWKB+ZC9
+         cJ1DCO3ogzkAIFBgRv6tuQXdk0N6JuffcUdDFMSLxq96Ar5Z0hThQrpTKKzglA2PB4R8
+         Dj4x32LOuvD6hsNQh1koPTcXxRx6yHTCuLtGF+KnfrI2nPlc7Wkr904qZEsh+jvohk9k
+         +jk+oMscqQ3zQ0A+D+fH2S7gxARZ4QZIfhSmsjLHtrhd6AzoY4Zy8cOxbG51/fGgXlEl
+         RpPg==
+X-Forwarded-Encrypted: i=1; AL+hErHaSJCe2RE4rAG85PkaVibW+q/5egopeu2gT/knAoN0f7RQByl4JbtAomDYkcPtLT85dlLHuyxeqOcFhWo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9CdIq8yWbjmS85dd0x6amRVkspjF2LQiaHz/Uxwcq2Q2TJTSWe
+	5kNuudclbZzyB8aswHBoC5pcIyfTd2JMFEGM/zp0eDZe2gs5ZnTwOYimRzfIgMKa3b8=
+X-Gm-Gg: AZFdTZfKowXo2ca+UV2zksLyfEw8syewbd+//diIvhKzQ+Jr7OBGilgllfrcWOhuHGX
+	dUhPACvThHhC+GB8DFbxJ0sUPVtKzAj7Jn4VavuQF9TWr+yfeYeAFvmmHPIPZ5sBfSEIXDYVvPA
+	mlUdlc1ad0SB4sDTmKuQ718scEBjtbOeSsi7EnpC0w1fKVCRfeJFnKwO4g+Wo/rrIxcBjPvzhY/
+	8W2nOKSVrOreWPIRuCLvupdZAzZiXDztAm5e79vzWFs6Hxo3sqC5pyK+JeS8UgtsoGfAACCRsz7
+	PeDCNeB7lrSX/ibHzKi8BQpiEYQ/0zdUHbNhddcGTeJ1cTVHP8usRfe2CQ7Xnn791gHLkV6Z2X5
+	D8LoF9VMPuIFO/9a8VIZW7XeHY9h/kdenMNvgK1nfuDvYji5iJOhIn9AENWNpwG5b/cSFDs7bye
+	fBqkBMxfdeI63eVScoXvhK4/icGAa2adN+xxtz4f/k+ddPU6xTRdAzhnBh+wFvU5HoMRfDQyNxi
+	NMyKs5xjV28EyTIWUqrQfUAfiI9F5XpRK/VXGl/GL53BDxr5wVuY3sc/tnfJ5rEuOkYBce4ov1Z
+	d1YmuFGPKabop2fXuyXV34XkklcB8ZDPne/hfPbrV8Ywy1B5KbWGznFilBpGV4bIhol4sIf2hZC
+	Y6T2glJlqDimJy9ItLLfurOAJGAHFLX26dXHhccMLx9l5p+FSsrxNijogNuWX5dmw
+X-Received: by 2002:a17:902:e802:b0:2ef:d9b8:469 with SMTP id d9443c01a7336-2f03f21e8b9mr153010385ad.43.1795581490808;
+        Tue, 24 Nov 2026 20:38:10 -0800 (PST)
+Received: from iiitd-S2600STB.iiitd.edu.in ([103.25.231.160])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f120016sm78706445ad.58.2026.11.24.20.38.08
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 20:37:41 -0800 (PST)
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Damien Le Moal <dlemoal@kernel.org>,
-	Niklas Cassel <cassel@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Aksh Garg <a-garg7@ti.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Inochi Amaoto <inochiama@gmail.com>,
-	Rhys Tumelty <rhys@tumelty.co.uk>,
-	Manikandan K Pillai <mpillai@cadence.com>,
-	"vladimir.oltean@nxp.com" <vladimir.oltean@nxp.com>,
-	Qiang Yu <qiang.yu@oss.qualcomm.com>,
-	Hans Zhang <18255117159@163.com>,
-	Yao Zi <me@ziyao.cc>
-Cc: linux-doc@vger.kernel.org,
+        Tue, 24 Nov 2026 20:38:10 -0800 (PST)
+From: Piyus Kedia <piyus@iiitd.ac.in>
+To: Johannes Berg <johannes@sipsolutions.net>,
+	linux-wireless@vger.kernel.org
+Cc: netdev@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	linux-ide@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-pci@vger.kernel.org,
-	linux-phy@lists.infradead.org,
-	Yixun Lan <dlan@gentoo.org>,
-	Longbin Li <looong.bin@gmail.com>
-Subject: [PATCH v5 8/8] ata: ahci_imx: Use bulk PHY APIs for calibration PHYs
-Date: Wed, 25 Nov 2026 12:36:39 +0800
-Message-ID: <20261125043639.249525-9-inochiama@gmail.com>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261125043639.249525-1-inochiama@gmail.com>
-References: <20261125043639.249525-1-inochiama@gmail.com>
+	Kapil Vaswani <kapil@presceralabs.ai>,
+	stable@vger.kernel.org
+Subject: [PATCH wireless v2] wifi: mac80211: do not copy the mesh RSN IE twice into the beacon
+Date: Wed, 25 Nov 2026 10:08:05 +0530
+Message-Id: <20261125043805.883952-1-piyus@iiitd.ac.in>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -130,139 +97,179 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The i.MX8QM SATA PHY relies on the first two HSIO lanes for shared
-impedance calibration. Store these calibration PHYs in a bulk array
-and acquire them by name with devm_phy_bulk_get().
+mesh_add_rsn_ie() searches the whole of the user's mesh IE blob for an RSN
+element, and mesh_add_vendor_ies() copies everything from the first vendor
+element to the end of that blob verbatim:
 
-Initialize both calibration PHYs before powering them on in lane order,
-then keep the SATA PHY initialization, mode selection and power-on
-separate. Use the bulk helpers to release the calibration PHYs after
-SATA startup and to unwind failures without repeating power-off after
-a failed bulk power-on.
+	data = cfg80211_find_ie(WLAN_EID_RSN, ifmsh->ie, ifmsh->ie_len);
+	...
+	skb_put_data(skb, data, len);
 
-Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+	offset = ieee80211_ie_split_vendor(ifmsh->ie, ifmsh->ie_len, 0);
+	...
+	skb_put_data(skb, ifmsh->ie + offset, len);
+
+So an RSN element placed BEHIND a vendor element is copied by both, while
+ieee80211_mesh_build_beacon() reserved room for one copy:
+
+	tail_len = ... + ifmsh->ie_len;
+	bcn = kzalloc(sizeof(*bcn) + head_len + tail_len, GFP_KERNEL);
+	...
+	bcn->tail_len = skb->len;
+	memcpy(bcn->tail, skb->data, bcn->tail_len);
+
+The builder skb is allocated separately and rounds up to a kmalloc bucket,
+so the skb_tailroom() checks pass; bcn->tail_len is then taken from what
+was actually assembled, and the memcpy writes the excess past the end of
+the kzalloc()ed block.  KASAN reports a slab-out-of-bounds write in
+ieee80211_mesh_build_beacon().
+
+The blob is NL80211_MESH_SETUP_IE, nested inside NL80211_ATTR_MESH_SETUP,
+which nl80211_parse_mesh_setup() stores and copy_mesh_setup() kmemdup()s.
+One NL80211_CMD_JOIN_MESH carrying a vendor element followed by an RSN
+element is enough.
+
+Search only the part of the blob that comes before the first vendor
+element, so the two emitters cover disjoint ranges and their combined
+output fits the budget.  An RSN element behind a vendor element is still
+emitted, as part of that verbatim vendor range.
+
+The bound is clamped to ifmsh->ie_len, which matters and is not belt and
+braces: ieee80211_ie_split_vendor() advances one whole element at a time,
+
+	while (pos < ielen && ies[pos] != WLAN_EID_VENDOR_SPECIFIC)
+		pos += 2 + ies[pos + 1];
+
+so it returns a position past ielen whenever ielen ends inside an element.
+That is reachable, because ifmsh->ie_len is a u8 in struct
+ieee80211_if_mesh while NL80211_MESH_SETUP_IE is policy-capped at
+IEEE80211_MAX_DATA_LEN, and copy_mesh_setup() assigns the size_t length to
+it:
+
+	ifmsh->ie_len = setup->ie_len;
+
+A 257-byte blob holding a 255-byte RSN element then leaves ifmsh->ie_len
+at 1, and an unclamped search bound of 255 would copy 255 bytes into a
+one-byte budget - the same overrun by another route.  With the clamp the
+bound is never wider than the one this search had before it was narrowed,
+and cfg80211_find_ie() returns only an element lying wholly inside its
+bound (for_each_element() requires 2 + datalen to fit), so the copy fits.
+The truncating assignment itself is a separate pre-existing problem.
+
+This also changes Mesh Peering Open/Confirm frames, which
+mesh_plink_frame_tx() builds with the same two helpers - mesh_add_rsn_ie()
+after the extended supported rates, mesh_add_vendor_ies() at the end.  An
+RSN element behind a vendor element used to appear twice there as well,
+once in order and once in the trailing vendor block; now it appears once,
+in the trailing block, after the Mesh ID, Mesh Config, MPM, HT, VHT, HE
+and EHT elements.  Element order in a management frame is not something a
+receiver may rely on - 802.11 parsers walk elements by id - and the
+alternative is emitting the element twice, which is the bug.  A
+configuration that puts its RSN element before its vendor elements, which
+is what the ordering in these frames was built around, is unaffected.
+
+Found by AI-driven fuzzing built on top of syzkaller, and reproduced on
+mainline 7.4-rc3 and 7.3.1 with a 72-line program: one interface in mesh
+point mode, one JOIN_MESH whose NL80211_MESH_SETUP_IE holds a vendor
+element followed by an RSN element.
+
+Fixes: 2b5e19677592 ("mac80211: cache mesh beacon")
+Cc: stable@vger.kernel.org
+Signed-off-by: Kapil Vaswani <kapil@presceralabs.ai>
+Signed-off-by: Piyus Kedia <piyus@iiitd.ac.in>
 ---
- drivers/ata/ahci_imx.c | 57 ++++++++++++++++--------------------------
- 1 file changed, 21 insertions(+), 36 deletions(-)
+Link: https://lore.kernel.org/all/20261124003526.78471-2-piyus@iiitd.ac.in/
 
-diff --git a/drivers/ata/ahci_imx.c b/drivers/ata/ahci_imx.c
-index 6aaa18e29abc..18faa033e44f 100644
---- a/drivers/ata/ahci_imx.c
-+++ b/drivers/ata/ahci_imx.c
-@@ -25,6 +25,8 @@
- 
- #define DRV_NAME "ahci-imx"
- 
-+#define NUM_CALIPHY		2
-+
- enum {
- 	/* Timer 1-ms Register */
- 	IMX_TIMER1MS				= 0x00e0,
-@@ -66,8 +68,7 @@ struct imx_ahci_priv {
- 	struct clk *ahb_clk;
- 	struct regmap *gpr;
- 	struct phy *sata_phy;
--	struct phy *cali_phy0;
--	struct phy *cali_phy1;
-+	struct phy_bulk_data cali_phys[NUM_CALIPHY];
- 	bool no_device;
- 	bool first_time;
- 	u32 phy_params;
-@@ -428,30 +429,20 @@ static int imx8_sata_enable(struct ahci_host_priv *hpriv)
- 	 * Initialize the first two lane PHYs here, although only the
- 	 * third lane PHY is used by SATA.
- 	 */
--	ret = phy_init(imxpriv->cali_phy0);
-+	ret = phy_bulk_init(NUM_CALIPHY, imxpriv->cali_phys);
- 	if (ret) {
- 		dev_err(dev, "cali PHY init failed\n");
- 		return ret;
- 	}
--	ret = phy_power_on(imxpriv->cali_phy0);
-+	ret = phy_bulk_power_on(NUM_CALIPHY, imxpriv->cali_phys);
- 	if (ret) {
- 		dev_err(dev, "cali PHY power on failed\n");
--		goto err_cali_phy0_exit;
--	}
--	ret = phy_init(imxpriv->cali_phy1);
--	if (ret) {
--		dev_err(dev, "cali PHY1 init failed\n");
--		goto err_cali_phy0_off;
--	}
--	ret = phy_power_on(imxpriv->cali_phy1);
--	if (ret) {
--		dev_err(dev, "cali PHY1 power on failed\n");
--		goto err_cali_phy1_exit;
-+		goto err_cali_phy_exit;
- 	}
- 	ret = phy_init(imxpriv->sata_phy);
- 	if (ret) {
- 		dev_err(dev, "sata PHY init failed\n");
--		goto err_cali_phy1_off;
-+		goto err_cali_phy_off;
- 	}
- 	ret = phy_set_mode(imxpriv->sata_phy, PHY_MODE_SATA);
- 	if (ret) {
-@@ -465,10 +456,8 @@ static int imx8_sata_enable(struct ahci_host_priv *hpriv)
- 	}
- 
- 	/* The cali_phy# can be turned off after SATA PHY is initialized. */
--	phy_power_off(imxpriv->cali_phy1);
--	phy_exit(imxpriv->cali_phy1);
--	phy_power_off(imxpriv->cali_phy0);
--	phy_exit(imxpriv->cali_phy0);
-+	phy_bulk_power_off(NUM_CALIPHY, imxpriv->cali_phys);
-+	phy_bulk_exit(NUM_CALIPHY, imxpriv->cali_phys);
- 
- 	/* RxWaterMark setting */
- 	val = readl(hpriv->mmio + IMX8QM_SATA_AHCI_PTC);
-@@ -480,14 +469,10 @@ static int imx8_sata_enable(struct ahci_host_priv *hpriv)
- 
- err_sata_phy_exit:
- 	phy_exit(imxpriv->sata_phy);
--err_cali_phy1_off:
--	phy_power_off(imxpriv->cali_phy1);
--err_cali_phy1_exit:
--	phy_exit(imxpriv->cali_phy1);
--err_cali_phy0_off:
--	phy_power_off(imxpriv->cali_phy0);
--err_cali_phy0_exit:
--	phy_exit(imxpriv->cali_phy0);
-+err_cali_phy_off:
-+	phy_bulk_power_off(NUM_CALIPHY, imxpriv->cali_phys);
-+err_cali_phy_exit:
-+	phy_bulk_exit(NUM_CALIPHY, imxpriv->cali_phys);
- 
- 	return ret;
- }
-@@ -839,19 +824,19 @@ static const struct scsi_host_template ahci_platform_sht = {
- 
- static int imx8_sata_probe(struct device *dev, struct imx_ahci_priv *imxpriv)
+This respins 1/2 of the v1 series only - the one this review covered.  2/2
+("wifi: mac80211: widen the mesh IE offsets a u8 cannot hold") drew its own
+review and is answered in its own thread.
+
+Changes in v2, all from the review of v1 1/2:
+
+ - THE CLAMP, which is the reason for this respin.  The review found that
+   v1 added a second route to the very overrun it was fixing:
+   ieee80211_ie_split_vendor() walks one whole element at a time, so it
+   returns a position past the length it was given whenever that length ends
+   inside an element, and ifmsh->ie_len being a u8 assigned from the size_t
+   that NL80211_MESH_SETUP_IE carries makes that reachable.  A 257-byte blob
+   holding a 255-byte RSN element leaves ifmsh->ie_len at 1 while the search
+   bound became 255, so 255 bytes were copied into a one-byte budget - no
+   vendor element needed.  v1's claim that "the split returns an element
+   boundary that is not past ifmsh->ie_len" was simply wrong.  v2 clamps the
+   bound to ifmsh->ie_len, which restores the bound the search had before it
+   was narrowed, and the commit message now says why that is sufficient:
+   cfg80211_find_ie() returns only an element that fits wholly inside its
+   bound, because for_each_element() requires 2 + datalen to fit.
+
+ - The right netlink attribute.  v1 said NL80211_ATTR_IE; nl80211_join_mesh()
+   does not read that attribute at all.  The blob is NL80211_MESH_SETUP_IE,
+   nested inside NL80211_ATTR_MESH_SETUP, parsed by nl80211_parse_mesh_setup()
+   and copied by copy_mesh_setup().  That matters beyond pedantry: it is the
+   NL80211_MESH_SETUP_IE policy that allows IEEE80211_MAX_DATA_LEN bytes,
+   which is what the u8 truncates.
+
+ - The peering frames.  v1 did not mention that mesh_plink_frame_tx() builds
+   Mesh Peering Open/Confirm with the same two helpers, so this patch moves
+   an RSN element behind a vendor element out of its usual position there
+   too.  The commit message now describes that and says why it is acceptable:
+   a receiver walks elements by id, and the alternative is emitting the
+   element twice, which is the bug.
+
+Not changed here: the truncating "ifmsh->ie_len = setup->ie_len" itself.  The
+review is right that the follow-up patch does not fix it either - it widens
+local variables in mesh.c, and its commit message's claim that ifmsh->ie_len
+is a size_t is wrong; the field is still a u8.  That is answered in that
+patch's own thread.  This patch is safe without it: the clamp makes the bound
+no wider than ifmsh->ie_len whatever ifmsh->ie_len happens to be.
+
+Measured, and not: the original overrun was reproduced on mainline 7.4-rc3
+and on 7.3.1, and KASAN reports a slab-out-of-bounds write in
+ieee80211_mesh_build_beacon().  The route the review found - the truncated
+length with no vendor element at all - has NOT been run here; it comes from
+reading the code, as the review's does.  mesh.o builds clean and checkpatch
+--strict reports nothing.
+---
+ net/mac80211/mesh.c | 20 +++++++++++++++++++-
+ 1 file changed, 19 insertions(+), 1 deletion(-)
+
+diff --git a/net/mac80211/mesh.c b/net/mac80211/mesh.c
+index 8f8814125375..c86be97bc921 100644
+--- a/net/mac80211/mesh.c
++++ b/net/mac80211/mesh.c
+@@ -377,14 +377,32 @@ int mesh_add_vendor_ies(struct ieee80211_sub_if_data *sdata,
+ int mesh_add_rsn_ie(struct ieee80211_sub_if_data *sdata, struct sk_buff *skb)
  {
-+	int ret;
-+
- 	imxpriv->sata_phy = devm_phy_get(dev, "sata-phy");
- 	if (IS_ERR(imxpriv->sata_phy))
- 		return dev_err_probe(dev, PTR_ERR(imxpriv->sata_phy),
- 				     "Failed to get sata_phy\n");
+ 	struct ieee80211_if_mesh *ifmsh = &sdata->u.mesh;
++	size_t prefix;
+ 	u8 len = 0;
+ 	const u8 *data;
  
--	imxpriv->cali_phy0 = devm_phy_get(dev, "cali-phy0");
--	if (IS_ERR(imxpriv->cali_phy0))
--		return dev_err_probe(dev, PTR_ERR(imxpriv->cali_phy0),
--				     "Failed to get cali_phy0\n");
--	imxpriv->cali_phy1 = devm_phy_get(dev, "cali-phy1");
--	if (IS_ERR(imxpriv->cali_phy1))
--		return dev_err_probe(dev, PTR_ERR(imxpriv->cali_phy1),
--				     "Failed to get cali_phy1\n");
-+	imxpriv->cali_phys[0].id = "cali-phy0";
-+	imxpriv->cali_phys[1].id = "cali-phy1";
+ 	if (!ifmsh->ie || !ifmsh->ie_len)
+ 		return 0;
+ 
++	/* Only the part before the first vendor element: mesh_add_vendor_ies()
++	 * emits everything from there to the end verbatim, so searching the
++	 * whole blob here makes an RSN element behind a vendor element be
++	 * copied by both, and ieee80211_mesh_build_beacon() reserved room for
++	 * one copy.
++	 *
++	 * CLAMPED, because ieee80211_ie_split_vendor() walks one whole element
++	 * at a time and returns a value past ifmsh->ie_len when the length
++	 * ends inside an element - which ifmsh->ie_len being a u8 truncated
++	 * from the size_t the netlink attribute carries makes reachable.  With
++	 * the clamp the bound is never wider than it was before this search
++	 * was narrowed, and cfg80211_find_ie() only returns an element lying
++	 * wholly inside its bound, so the copy below still fits the budget.
++	 */
++	prefix = ieee80211_ie_split_vendor(ifmsh->ie, ifmsh->ie_len, 0);
++	prefix = min_t(size_t, prefix, ifmsh->ie_len);
 +
-+	ret = devm_phy_bulk_get(dev, NUM_CALIPHY, imxpriv->cali_phys);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "Failed to get cali_phy\n");
- 	return 0;
- }
+ 	/* find RSN IE */
+-	data = cfg80211_find_ie(WLAN_EID_RSN, ifmsh->ie, ifmsh->ie_len);
++	data = cfg80211_find_ie(WLAN_EID_RSN, ifmsh->ie, prefix);
+ 	if (!data)
+ 		return 0;
  
 -- 
-2.56.1
+2.34.1
 
