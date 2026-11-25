@@ -1,71 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=90.155.50.34
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.53
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795618891;
-	b=TAP1AKaxnRXVUmL/cL9c++AKDW9SvzJqXMkAzXbTaHRXxfjXAjyiRQT1zbbQHifwgg/C
-	 iY+44ytQcbpIFop1xQxdON6SZJIL4D14ewpYtekw4OFRrCGkZ+qSctirK63Mzw+brjPFU
-	 LTK6iO8loGNFgmJIpAbdo7llQ3UANPfBzcMqMPjDQNA959YKo3wi337AleGJiJCenEFbx
-	 Y4BqADrRJX98opZxCgcfsk8I2OGtCiFZMRRUbFzHR5HjLpM/ljGgeTwjxyDz32bnw4X+E
-	 zQIbbSJhTsFLZ2B4J8I4RI9U429dkFzb3fuDYfACx8BfzphY60ywoC7FJj2L3FAwt6A==
+	t=1795618902;
+	b=KnmxpsAwTrXRpIpIRzniTbjgk0osH8w+IkwJJfrrcN8bZZ3AwPEJMgV3O0ozmQ+l64WV
+	 R2oVXS8xIYj4ZRhMFmM4DUuNCs+5yyZFYY3tKxgkzHx6/qax4rY43sLiJ05708UMR2B0F
+	 ILGKuAXTwQYhoqNf42oNOW17fHHum29ITOsV8fp7L0r6EniuPGoclBB2txRNRmdj1TUPF
+	 8WVFz8faR2gDT3i5GZdcAKuA4oLTcgLYYAJsZX7e67U3hqs+Kq6dTnTDYxk2Wpy7rkFJc
+	 HY1bK2SyncI3ByTCtJv8Z0m7UULQ/j9BNWtInxao7ENUTrchxOfp2ayHL1syeXQePCg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795618891;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
-	 Date:In-Reply-To:References:Content-Type:User-Agent:MIME-Version:
-	 X-SRS-Rewrite;
-	bh=IkADng/l4Z8H3hkfoEhQoHEQBniUbrZ9k0nNnkDcv2w=;
-	b=QqtPsgK8NbswfrEa267yEYI2wSBJNno/CBIyw71DuDrMLG5Y8W1VYPyXuPhoT3u+2dqk
-	 jPH9OCK3yzIOsghCatxJB+ZegbSxQSOcV54pWzld6uskIyRfDyqbDxmsqaSvQOAr3FBY5
-	 eemH81qZkgbdhdF1oQZVyiivF74MPKDihr/KWbYmoxgrumbzRi3Sc90NKcODotiLNCaJ2
-	 WVAht2z8BDgjLRKolKcgcaIRKqsJRbGsjgx4CSTvHsX+aSXwFxAYj5WyugHy6x0CRwcKf
-	 rp0gbgRn7pzy7OswXUMP8t0YEXgHler2SV0If7/VCiHhNibnBhlhcJOHWokns6rnrfQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795618902;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Mime-Version:Content-Type:Date:Message-Id:Cc:Subject:From:To:X-Mailer:
+	 References:In-Reply-To;
+	bh=B5/TBBQPuILJ99V5x8tyq+8dEb1sqbcLQBtADawkVtQ=;
+	b=Ch2Bn9gt0Vbhpo7zt09zZ1m/LAZ9x0ZtGbpBbFJPdg/uIWuTyN6NkR9J1jsB3pJp9afY
+	 n9Qyp+v1tmFm5Yv+k6PjKKWJfNCdfI6eCXydXV+nJ6WbLhmZq7r61EcL4klyZ5aolfmh3
+	 JMp+aqQNqJNFIyTU2oTOOPCt8RIufzWnn/hB0XF9blzE2p3SRmjUDTOYsBZrb2/stG01q
+	 dvDxEE2P55ySbcnumJEia3zrqaGKoSuhBr99+03p+2kvVKLbgup57D6rqBGLZtce0tFEP
+	 3nFRQGQ5nyGQztoQ4xprBJev/ujuhhriP5U/zU49B5Uk0Hnvixzy6JaiFi7W8v4Aegw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=infradead.org;
-	spf=none smtp.mailfrom=casper.srs.infradead.org;
-	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=casper.20170209 header.b=vGqWfDWX;
-	arc=none smtp.remote-ip=90.155.50.34
-Received: from casper.infradead.org (casper.infradead.org [90.155.50.34])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=kvorXzgE;
+	arc=none smtp.remote-ip=209.85.128.53
+Received: from mail-wm1-f53.google.com (mail-wm1-f53.google.com [209.85.128.53])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DCDD1606A330;
-	Wed, 25 Nov 2026 15:01:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DCDD1606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=casper.srs.infradead.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D724D606A326
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:01:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D724D606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=casper.20170209 header.b=vGqWfDWX
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=MIME-Version:Content-Type:References:
-	In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=IkADng/l4Z8H3hkfoEhQoHEQBniUbrZ9k0nNnkDcv2w=; b=vGqWfDWXADy6QJdQtNfQuBH96V
-	OSBBYpuAFgobtyv+qLH0HpvAymftUgR6LXUa57oRzSHXWJh9hV1XU6Kqh4Q4OtwOt2pWd3Ojzqu7c
-	49b5Y3+tpPzr01gJShgDddUrQhjaAQ3rpiY7Dxg8LgcqutSVt6ML3i/G1K5e0Z3YuzoKKGWMglh2D
-	tDIf+SjtpDLlLjrmwlDKLfqMJGDcfxDm20+UMM8o/mpJrZuHGvadjVGwy1nIG98UuL2uzbNEc+TpJ
-	NdDz0vFi3mnhMnPWcf6W2h54dZCcqxUXTEjVOWeM/NEpkImplYelkcL9etv020FjPbKYrZv60zYrm
-	z7uClcag==;
-Received: from 54-240-197-238.amazon.com ([54.240.197.238] helo=freeip.amazon.com)
-	by casper.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWEUn-0000000GLOm-3Iza;
-	Wed, 25 Nov 2026 15:01:18 +0000
-Message-ID: <a724a94bef81dec39150a2d24201194e98ecc096.camel@infradead.org>
-Subject: Re: [PATCH net v3] ptp: vmclock: keep the device state until the
- last file is closed
-From: David Woodhouse <dwmw2@infradead.org>
-To: Paolo Abeni <pabeni@redhat.com>, Chad Aldreda <ca@modelmiser.com>, 
- Richard Cochran <richardcochran@gmail.com>, Wen Gu <guwen@linux.alibaba.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>,  Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski
- <kuba@kernel.org>, Shuangpeng Bai	 <shuangpeng.kernel@gmail.com>,
- netdev@vger.kernel.org, stable@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Date: Wed, 25 Nov 2026 15:01:16 +0000
-In-Reply-To: <fdc005b9-e48a-4550-b66b-0f58db82babe@redhat.com>
-References: <20261119061517.1142436-2-ca@modelmiser.com>
-	 <1f77fa9014f8dfafb2be9cf15a66c5541880656a.camel@infradead.org>
-	 <fdc005b9-e48a-4550-b66b-0f58db82babe@redhat.com>
-Content-Type: multipart/signed; micalg="sha-256"; protocol="application/pkcs7-signature";
-	boundary="=-ifNNgHR31pmqYObLjYoP"
-User-Agent: Evolution 3.62.0-0ubuntu1~ppa1~24.04 
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=kvorXzgE
+Received: by mail-wm1-f53.google.com with SMTP id 5b1f17b1804b1-4bb6c7b6dbdso54682915e9.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 07:01:41 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795618900; x=1796223700; darn=vger.kernel.org;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:mime-version:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=B5/TBBQPuILJ99V5x8tyq+8dEb1sqbcLQBtADawkVtQ=;
+        b=kvorXzgEaytoSYih50VsTBoBAgWWh/E3y6fLS/hmw6vSaHzqG3JI3/DWHBM4Xbmc2Y
+         z8Nka6aDYtqKSi4ilekxKwOrN9DeRbD9LbpAlNHAuUvJbdLFJE3kyli4v39y3yHZzTYE
+         bB4i9qWd9jBjrjEasloW5pv+M4YUoByjMiCes84nRxBBFJ/3W4dVfL2gSUWV5xKQwRL2
+         c3ynA4Wzl/aSCI00LmBvKsFN264rd3WTAcwmuBpL7ExQ+ptHgOFHASTTkNGc3waKr+AN
+         gDEUhEvWBXRAfdrg0Ec2qv0O0DCLsJ0Lis779bX3ejhfKD92/TrMvpKx2A4Rl+SFumsy
+         q/2w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795618900; x=1796223700;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=B5/TBBQPuILJ99V5x8tyq+8dEb1sqbcLQBtADawkVtQ=;
+        b=uzEBpISScH874f7mg5F2I6a/WXDytrdCOgkENyy/N8Qywz9kBx8M/R4T3YYY6edbJP
+         oMf0Td3whkX0tPkF8LAv5yIevI+WaXR/TrrFJQdIFodAZ/JI75i2WKx/+cnfXXfkfMuV
+         CK9ubDrlzRQlSL7zzFgC2psoJ5IWu2zfE7+9qZqCXgMEJ2Tq2XVFzcFOb7Bgnb1UkgSm
+         3gBJ9xoXI+D8Zd188PF2zp+cPL58MsoapIIDER8ZOH7HjFVlBK2jB1uttN0jc+leOx8K
+         IynNUFAirv20WnGHu3jxICAvDpPi0kdFlrTsewoRhfE5HDzQb52/eF60tkNVQjXL3FL6
+         wkbg==
+X-Forwarded-Encrypted: i=1; AL+hErE9DESJwSUZ99mCWbsw+VwRTD8qEbjXPhXtLY9oX3TBip2vcj8nQNtN09xy4CYImqygwuaPSIZ7HcXCvS4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/iIksAK1qD0VAu/Pu8ILaxN+UKNypJhV327IMyJXiniG7cG274
+	YRWZZcEDiwGU6pwvGxm7oPICqXInoUACZIgsmLtUwGxLlJDjtXEjg0qn
+X-Gm-Gg: AZFdTZdyFq/I6XEEMEIyH5q4AJ9x2G5riyEeOlLOwQY5DoIIHaOjW0vHaPAHu+3n238
+	Vb/ZxGigRAwJprgPsr0CHKj6QvInqYLtUnfghevDqnkKaHKLCcNaY4wOvn78JT50/Q3OoVp5VFW
+	yJeNESWthQrHDW31j/e5AjVw5YY84PPz1/O1eduYHyTGf1VYFiYbYQu6cHM5c3kz+n3DzklU/o6
+	HKF4Gn7gRrC90Wvx0hwHcmNM9tk2aHC8w/1hVvQ1sthtQdBR5vQDGWkW9xoV3ztcwZJ3LwCpVxd
+	17x7wZM+ZWTf7MxTtoAxO8eMNUtOMLXqZLtZewv/O+4wOqDhD4oovidE1EOUX5qmazixdy5XJY3
+	cyd0LVftLR7aBCOOLsUGeIXatoY9+YEi6UQWGt+nIFpNcDqp0P7fbgpNhVsy3rHi86sdH705KuR
+	p76rZWPanqEV9BvP0CjiyM/PLQkWKEehXrz6NjLDGuMxfNJkbnwXwHccCn6LqmcdykZN0cB4AbL
+	dDQZ9mCeL9I3B3Wk2JjlGbjY+mly7JCZyj8UoEgV7ApCxiI0CjxC8RdYN8Ie5rqdHGD2XUWPRap
+	1/mVlW5pW6R42k55afJ8dfA4atOHk8l3osNbguvdX7BNsFPAYyCuB8yI0B+TS/HKRCfX8Mk4L8i
+	CJJ8r/dVuAACP
+X-Received: by 2002:a05:600c:3b94:b0:4bb:6f41:39be with SMTP id 5b1f17b1804b1-4bb8880ca3cmr461004845e9.15.1795618899873;
+        Wed, 25 Nov 2026 07:01:39 -0800 (PST)
+Received: from localhost (mob-176-246-240-189.net.vodafone.it. [176.246.240.189])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8960068fsm199919685e9.4.2026.11.25.07.01.35
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 25 Nov 2026 07:01:37 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -74,207 +87,223 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-X-SRS-Rewrite: SMTP reverse-path rewritten from <dwmw2@infradead.org> by casper.infradead.org. See http://www.infradead.org/rpr.html
+Mime-Version: 1.0
+Content-Type: multipart/signed;
+ boundary=63a562d6577b3515b9b86b9d4d44e07b4a48b768beedbf2d083915e409e8;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+Date: Wed, 25 Nov 2026 16:01:31 +0100
+Message-Id: <DN4DRUYPHYMP.20U4DYV5VBN7P@gmail.com>
+Cc: "Namjae Jeon" <linkinjeon@kernel.org>, "Hyunchul Lee"
+ <hyc.lee@gmail.com>, "Alexander Viro" <viro@zeniv.linux.org.uk>, "Christian
+ Brauner" <brauner@kernel.org>, "Chuck Lever" <cel@kernel.org>, "Jeff
+ Layton" <jlayton@kernel.org>, "Jan Kara" <jack@suse.cz>, "Darrick J . Wong"
+ <djwong@kernel.org>, "Andrey Albershteyn" <aalbersh@kernel.org>,
+ =?utf-8?q?Pali_Roh=C3=A1r?= <pali@kernel.org>, "Lauri Gates"
+ <lauri.gates@gmail.com>, "Christoph Hellwig" <hch@infradead.org>, "Dave
+ Chinner" <dgc@kernel.org>, <linux-btrfs@vger.kernel.org>,
+ <linux-xfs@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <linux-fsdevel@vger.kernel.org>, <ntfs@lists.linux.dev>,
+ <linux-nfs@vger.kernel.org>, <linux-api@vger.kernel.org>
+Subject: Re: [PATCH 2/3] vfs: add xflags mask to fileattr API
+From: "koraynilay" <koray.fra@gmail.com>
+To: "Amir Goldstein" <amir73il@gmail.com>, "koraynilay"
+ <koray.fra@gmail.com>
+X-Mailer: aerc 0.22.0-0-gc2f86b7abde3
+References: <20261122000856.536902-1-koray.fra@gmail.com>
+ <20261122000856.536902-3-koray.fra@gmail.com>
+ <CAOQ4uxhegn1z=41_MHL1Zu2hXuPtzNhC=x4gd371oaeJE4-weQ@mail.gmail.com>
+ <DN2N6A68PBO1.2QT8ZOARF4I6L@gmail.com>
+ <CAOQ4uxhDQqEQ3T9NveBFpUmSU032BxrNV5D+_zHj8u9LOQY+qg@mail.gmail.com>
+In-Reply-To: <CAOQ4uxhDQqEQ3T9NveBFpUmSU032BxrNV5D+_zHj8u9LOQY+qg@mail.gmail.com>
 
-
---=-ifNNgHR31pmqYObLjYoP
-Content-Type: text/plain; charset="UTF-8"
+--63a562d6577b3515b9b86b9d4d44e07b4a48b768beedbf2d083915e409e8
 Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-On Wed, 2026-11-25 at 12:38 +0100, Paolo Abeni wrote:
-> On 11/24/26 20:44, David Woodhouse wrote:
-> > On Thu, 2026-11-19 at 06:15 +0000, Chad Aldreda wrote:
-> > > vmclock_probe() allocates struct vmclock_state with devm_kzalloc_obj(=
-)
-> > > and maps the shared page with devm_memremap(), so both are released
-> > > when the driver is unbound, but an open /dev/vmclockN keeps using the=
-m
-> > > through its file state. After an unbind, read() runs on the freed
-> > > struct and reads through the released mapping, and a poll() in
-> > > progress sleeps on a wait queue in the freed struct. KASAN reports a
-> > > slab-use-after-free in vmclock_miscdev_read(). In testing, the same
-> > > read() faulted on the unmapped page once the device had been bound
-> > > again.
-> > >=20
-> > > Allocate the state with kzalloc_obj() and map the page with memremap(=
-),
-> > > and release both on the last reference: open() takes a reference and
-> > > release() drops it, and a devm action drops the device's own referenc=
-e
-> > > after vmclock_remove() has called misc_deregister(). misc_open() call=
-s
-> > > open() with misc_mtx held, and misc_deregister() takes misc_mtx, so
-> > > open() always runs while the device's reference is held.
-> > >=20
-> > > vmclock_remove() now marks the device as removed and wakes every wait=
-er
-> > > on the wait queue. A read() or mmap() on a file that is still open fa=
-ils
-> > > with -ENODEV once it sees the mark. On a device that supports
-> > > notifications, poll() returns EPOLLHUP | EPOLLERR, including a poll()
-> > > that was already waiting; it tests the mark after poll_wait(), so it
-> > > cannot miss the wake-up. The wake-up uses wake_up_interruptible_all()=
-,
-> > > because no later notification will reach a waiter that the remove-tim=
-e
-> > > wake-up skips, such as a second epoll instance that registered the fi=
-le
-> > > with EPOLLEXCLUSIVE. Without notifications poll() already returns
-> > > POLLHUP.
-> > >=20
-> > > Separately from the report below, the bug was also found by a
-> > > Coccinelle script that reports device nodes in devm-allocated memory,
-> > > posted at
-> > > https://lore.kernel.org/r/20261106193517.3267013-2-ca@modelmiser.com,
-> > > and reproduced in QEMU 10.2.4 with -device vmclock. There is no acces=
-s
-> > > to EC2 hardware with this device, so the fix has only been tested in
-> > > QEMU. QEMU's device has no notifications, so the poll() path was test=
-ed
-> > > with a local change that lets poll() wait without them.
-> > >=20
-> > > Fixes: 205032724226 ("ptp: Add support for the AMZNC10C 'vmclock' dev=
-ice")
-> > > Reported-by: Shuangpeng Bai <shuangpeng.kernel@gmail.com>
-> > > Closes: https://lore.kernel.org/all/178144969601.60470.14493569608271=
-069160@gmail.com/
-> > > Cc: stable@vger.kernel.org=C2=A0# 7.0+
-> > > Signed-off-by: Chad Aldreda <ca@modelmiser.com>
-> >=20
-> > Reviewed-by: David Woodhouse <dwmw@amazon.co.uk>
-> >=20
-> > We did have a plan to pull the PHC-only drivers out into drivers/phc
-> > and leave only the *real* PTP in drivers/ptp. I kind of stalled on that
-> > because I wasn't sure I had consensus especially from Richard and the
-> > net maintainers. Shall I revive that and repost it?
->=20
-> I'm sorry but that conversation is way of my context window. Do you have =
+On Mon Nov 23, 2026 at 4:29 PM CET, Amir Goldstein wrote:
+> On Mon, Nov 23, 2026 at 2:58=E2=80=AFPM koraynilay <koray.fra@gmail.com> =
+wrote:
+>>
+>> On Mon Nov 23, 2026 at 2:24 PM CET, Amir Goldstein wrote:
+>> > On Sun, Nov 22, 2026 at 1:09=E2=80=AFAM koraynilay <koray.fra@gmail.co=
+m> wrote:
+>> >>
+>> >> Add fa_xflags_rw_mask and fa_xflags_ro_mask to struct file_attr and
+>> >> equivalent masks to struct file_kattr.
+>> >>
+>> >> Also add has_masks selector to struct file_kattr so we can know when =
 a
-> pointer to the prior discussion? why such separation would be useful?
+>> >> user of this API (userspace or filesystem) supports them.
+>> >>
+>> >> This lets filesystems advertise their support for specific xflags, li=
+ke
+>> >> statx.stx_attributes_mask does, and userspace can specify only which
+>> >> xflags it wants to change without needing a RMW cycle:
+>> >> - on GET: each filesystem that wants to support this new API fills th=
+e
+>> >>   masks according to its supported and read-only xflags, then:
+>> >>   * for boolean xflags: it fills fsx_xflags with the current on-disk =
+value
+>> >>   * for value xflags: it sets the xflag bit to 1 in fsx_xflags and th=
+e
+>> >>     xflag value in the struct field;
+>> >> - on SET: userspace fills the rw_mask with the bits of the xflags it
+>> >>   wants to change, then:
+>> >>   * for boolean xflags: it provides the xflag value as a bit in fa_xf=
+lags
+>> >>   * for value xflags: it sets the xflag bit to 1 in fa_xflags and the=
+n
+>> >>     provides the value in the struct field; if the xflag bit is set t=
+o 0
+>> >>     instead, this informs the kernel to unset/clear that value.
+>> >>
+>> >> Since fa_xflags_rw_mask means "I want to change the xflags specified =
+in
+>> >> here", if userspace specifies fa_xflags_rw_mask =3D 0, only check for
+>> >> permissions and fileattr support without checking any xflags.
+>> >>
+>> >> Behaviour of older programs that already use file_[gs]etattr() is
+>> >> preserved by checking against FILE_ATTR_SIZE_VER*.
+>> >>
+>> >> Also add the missing FS_XFLAG_PROJID xflag, to allow userspace to set
+>> >> the projid using file_[gs]etattr() by leveraging the new masks.
+>> >>
+>> >> Finally, in order to prevent the legacy FS_IOC_FSSETXATTR from accept=
+ing
+>> >> FS_XFLAG_PROJID, add a FS_FILE_ATTR_XFLAGS_MASK to support new xflags
+>> >> and use it to validate/clamp both the _xflags fields and the masks.
+>> >>
+>> >> Assisted-by: Gemini:3.8-flash-high antigravity-cli-1.5.11
+>> >> Signed-off-by: koraynilay <koray.fra@gmail.com>
+>> >> ---
+> ...
+>> >>         err =3D fileattr_set_prepare(inode, &old_ma, fa);
+>> >> @@ -424,6 +504,14 @@ SYSCALL_DEFINE5(file_getattr, int, dfd, const ch=
+ar __user *, filename,
+>> >>                 return error;
+>> >>
+>> >>         fileattr_to_file_attr(&fa, &fattr);
+>> >> +       /*
+>> >> +        * Remove xflags added in or after VER1 so userspace programs=
+ compiled
+>> >> +        * against VER0 don't try to write xflags they don't know abo=
+ut (since
+>> >> +        * they do RMW).
+>> >> +        */
+>> >> +       if (usize < FILE_ATTR_SIZE_VER1)
+>> >> +               fattr.fa_xflags &=3D FS_XFLAGS_MASK;
+>> >> +
+>> >
+>> > This looks odd.
+>> > old struct size with new flags should be -EINVAL not silently drop the=
+m
+>>
+>> Right, and the GET path should strip any new flags, so old programs
+>> doing RMW will never see them, correct?
+>>
+>
+> Yes, I think so.
+>
+>> >
+>> >>         error =3D copy_struct_to_user(ufattr, usize, &fattr,
+>> >>                                     sizeof(struct file_attr), NULL);
+>> >>
+>> >> @@ -460,10 +548,6 @@ SYSCALL_DEFINE5(file_setattr, int, dfd, const ch=
+ar __user *, filename,
+>> >>         if (error)
+>> >>                 return error;
+>> >>
+>> >> -       error =3D file_attr_to_fileattr(&fattr, &fa);
+>> >> -       if (error)
+>> >> -               return error;
+>> >> -
+>> >>         CLASS(filename_maybe_null, name)(filename, at_flags);
+>> >>         if (!name && dfd >=3D 0) {
+>> >>                 CLASS(fd, f)(dfd);
+>> >> @@ -479,6 +563,30 @@ SYSCALL_DEFINE5(file_setattr, int, dfd, const ch=
+ar __user *, filename,
+>> >>                         return error;
+>> >>         }
+>> >>
+>> >> +       /*
+>> >> +        * Userspace said "I don't want to change any flag", so be it=
+ I guess.
+>> >> +        * Still check for fileattr support and permissions, also in =
+case this
+>> >> +        * is just a probe.
+>> >> +        */
+>> >> +       if (usize >=3D FILE_ATTR_SIZE_VER1 && fattr.fa_xflags_rw_mask=
+ =3D=3D 0) {
+>> >> +               struct inode *inode =3D d_inode(filepath.dentry);
+>> >
+>> >
+>> > No No this is not what this userspace said!
+>> >
+>> > This user space is the same old chattr programs recompiled with a new
+>> > fs.h header file
+>> > installed.
+>>
+>> Oh, right, I did not think about this case, I hope it doesn't break too
+>> much of the new code I changed already for v2 :(
+>>
+>> > When userspace does not set anything is masks it means "old API"
+>>
+>> And so a modern program using masks that passes rw_mask as 0 should be
+>> also interpreted as "old API", even if it kinda goes against the
+>> definition of rw_mask right?
+>
+> Yes, but it is not a problem to describe this backward compat exception:
+> When (rw_mask | ro_mask) =3D=3D 0, it means "no mask" "set everything"
+> but then vfs will not accept new xflags that were not supported in v0
+> syscall.
 
-I think
-https://lore.kernel.org/netdev/20251127083610.6b66a728@kernel.org/ is
-the key answer to that.
+Uhm, since we have no way to know on the GET path if the caller is mask
+aware or not, on mask aware filesystems and legacy programs recompiled
+against VER1, file_getattr() will return rw_mask !=3D 0, when the program
+does RMW, so calling file_setattr() with the old struct which has
+rw_mask !=3D 0, vfs will think that the caller is mask aware.
 
-The latest update (which I'm suggesting I should dust off) is at
-https://lore.kernel.org/all/14969e704fb8e70deb549b2e1c8670f6756a8da7.camel@=
-infradead.org/
+This causes problems when that legacy program changes the projid, since
+vfs will see rw_mask =3D PROJID but fsx_xflags will not have PROJID, vfs
+will clear it even tho the program wanted to set it to some value.
 
---=-ifNNgHR31pmqYObLjYoP
-Content-Type: application/pkcs7-signature; name="smime.p7s"
-Content-Disposition: attachment; filename="smime.p7s"
-Content-Transfer-Encoding: base64
+Unless I'm missing something, there is no way for us to know if a caller
+of file_getattr() is a new mask aware program or just a recompiled legacy
+program.
 
-MIAGCSqGSIb3DQEHAqCAMIACAQExDzANBglghkgBZQMEAgEFADCABgkqhkiG9w0BBwEAAKCCE8Ew
-ggWvMIIEl6ADAgECAhANkOKMSmGXhF5eMl0rsRhvMA0GCSqGSIb3DQEBDAUAMGUxCzAJBgNVBAYT
-AlVTMRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdpY2VydC5jb20xJDAi
-BgNVBAMTG0RpZ2lDZXJ0IEFzc3VyZWQgSUQgUm9vdCBHMjAeFw0yNDAzMTMwMDAwMDBaFw0zNDAz
-MTIyMzU5NTlaMGIxCzAJBgNVBAYTAlVTMRcwFQYDVQQKEw5EaWdpQ2VydCwgSW5jLjE6MDgGA1UE
-AxMxRGlnaUNlcnQgQXNzdXJlZCBHMiBTTUlNRSBSU0E0MDk2IFNIQTM4NCAyMDI0IENBMTCCAiIw
-DQYJKoZIhvcNAQEBBQADggIPADCCAgoCggIBAOfSIeC0vv1xPQ+dgSxbIIrkaru6skAWJYaGFzmv
-q4Kq+2wU2jxhcWlJg/JeP5jEkq/LM3pn5aaLao79j+XRmS7J1ZpJKUODJVoM4s9MQJhTMvo4qS5Z
-S64g6QR7Obkz3I1Lr3aWeSBmDDEyzue+NKtuWZ1Cxy3RdXo/w5HgRc3l2AercOM3Gt1XonTzEtTb
-Z/Hwc0Sn9Gz8RmGRK6Ka4hVDl8q/2l110KaV233Kh5etP0csXS8MIMdVRfRu3sc5hp13DG7lCKzK
-72a2GEpI8Wpl26G6I1/LMzz/98T+FqjTqxsdquk7Cj7m2vKGLW1BorpQH7WFGPdJQXJe1hfbfiZA
-CcVdCtl4nAacFacmsiArZBfX7AQGL7isvHUwwYFEtcApyGW4p2Lt+t8nvU0CANA6BHOpOz1xOP8W
-mAESbUriIjyuTUf3fJ9oDNCurVqhASMJCDaWI3lYX/QAoiAzt6akqbbZxo2ujW7mGGqc0KxqE2cs
-h2T79v7pC8aUtHBfwNrTR19GnZVxE0eQ7ViIQhR6mpSaUQFA9sG+cmD2G8TnCgYsLa0q8De6F61a
-CBevQGHNzrbZ3JAMneveYg/Jy1XxQHDRcvrMfWKe0jjcWbdKYlaGVPm5V1ILwYz7Yv5ewo3NUrxI
-GJiywe9qPhuJSDZs7VehTuI0FxGIsgKzVjgbAgMBAAGjggFcMIIBWDASBgNVHRMBAf8ECDAGAQH/
-AgEAMB0GA1UdDgQWBBT3m6JO05fF9DQPQw6Bhc6RkzKv+TAfBgNVHSMEGDAWgBTOw0q5mVXyuNtg
-v6l+vVa1lzan1jAOBgNVHQ8BAf8EBAMCAYYwHQYDVR0lBBYwFAYIKwYBBQUHAwQGCCsGAQUFBwMC
-MHkGCCsGAQUFBwEBBG0wazAkBggrBgEFBQcwAYYYaHR0cDovL29jc3AuZGlnaWNlcnQuY29tMEMG
-CCsGAQUFBzAChjdodHRwOi8vY2FjZXJ0cy5kaWdpY2VydC5jb20vRGlnaUNlcnRBc3N1cmVkSURS
-b290RzIuY3J0MEUGA1UdHwQ+MDwwOqA4oDaGNGh0dHA6Ly9jcmwzLmRpZ2ljZXJ0LmNvbS9EaWdp
-Q2VydEFzc3VyZWRJRFJvb3RHMi5jcmwwEQYDVR0gBAowCDAGBgRVHSAAMA0GCSqGSIb3DQEBDAUA
-A4IBAQA+b8Uw53sDspdZgukU+qzLyyHkcjlxGGhHlP+zrmDLKm1wEFvCRS2pili3Hy67i8N4N5NU
-vw5Rg6kv3lxb9S9Rktxk43k+tvm68pl7OxQE55ZjVY87P0lUPGwEqOOwLLyH02ZQcsfq5p5LrOH9
-0JvmvZ1yy73HS+VpDAqOlytE0NSvTIRqFFkKQGQwfjvtql9YflujuNNvJztjBaHKYZsnNSg+J38o
-jYq4TP3pSg3UdVH0PncVjPQyqxC9xef5Xae92Kbkzol3x7Nel3A1bwAkalrDMspvTHvey6LfiBks
-FIqviTnoy7fgjaRAJgHS+RXx/cmuRd3rUAclSVVrYu8RMIIHAzCCBOugAwIBAgIQAzUotrsybJHx
-HTjKOIVdIDANBgkqhkiG9w0BAQsFADBiMQswCQYDVQQGEwJVUzEXMBUGA1UEChMORGlnaUNlcnQs
-IEluYy4xOjA4BgNVBAMTMURpZ2lDZXJ0IEFzc3VyZWQgRzIgU01JTUUgUlNBNDA5NiBTSEEzODQg
-MjAyNCBDQTEwHhcNMjYwNzE4MDAwMDAwWhcNMjgwMTA0MjM1OTU5WjAeMRwwGgYDVQQDDBNkd213
-MkBpbmZyYWRlYWQub3JnMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEA2pYux73kdbYX
-sWF8f1u6DJP91qcqaZetsyfPkZk0B+MmXmAEv0kVes5n15V2mbDThOnpoPFly0UugQO9JYqLfrtD
-tKD5yL58fgrDB9Dw+LQikgrHafl6YSCds5AvUu/8hw2J6noKrcOLJpKlKn9Fl/4IB9Q3JIdLx5aa
-EtTqMalIPqHFOlgrJ7s+aua8xbB8YQ9ahqYBXWRJNv3P/2b1DYtdrz1oqZPE3CcB8Pc6Gf2a1Tcm
-6TAgtEx7Cf1BFcrsrMz7TWHmGQITieNb2r9UYWSc2Gp+GtYFNJCgT0JJXKUBIauPMKBLteYrL8Fo
-ff/uY44dC/mDWjdCP/5x0qelPQjlBvWdHL5zvBTOj06rJ0m3HNI/hnIcDh0Qu2j9reb9rLVcdym6
-bWmBM4uDEB8Zv9Ph0KTBFSy1IosyakuD1j1Os30EzjGfbi0EUXIvnOcYbTBAbM5UAzrxEHMhBvoX
-Pvnx+OyvjJmc9tWxTX6AcSz+m40esbT17URBeZS18afgieiikm5TynlUYP1LciR3hSgGVzvGXnKO
-02VDFR5itGWdRKZ2W5wIShNfWfhSa0D0K5UdIDt5Qc7sjzwK1Yb1sY5Tu0uA5mhIS82q1ov83uxB
-sFkriNnhGv/M1NCDVLBiOMsHu73qUM+yKmgKLwF9Hfn9WI25glbAMI4S5r3hYzcCAwEAAaOCAfcw
-ggHzMB8GA1UdIwQYMBaAFPebok7Tl8X0NA9DDoGFzpGTMq/5MB0GA1UdDgQWBBRcYhqbcGzn1jrT
-JOZaB8O7qllDpzAwBgNVHREEKTAngRNkd213MkBpbmZyYWRlYWQub3JngRBkYXZpZEB3b29kaG91
-LnNlMBQGA1UdIAQNMAswCQYHZ4EMAQUBAjAOBgNVHQ8BAf8EBAMCBeAwHQYDVR0lBBYwFAYIKwYB
-BQUHAwIGCCsGAQUFBwMEMIGpBgNVHR8EgaEwgZ4wTaBLoEmGR2h0dHA6Ly9jcmwzLmRpZ2ljZXJ0
-LmNvbS9EaWdpQ2VydEFzc3VyZWRHMlNNSU1FUlNBNDA5NlNIQTM4NDIwMjRDQTEuY3JsME2gS6BJ
-hkdodHRwOi8vY3JsNC5kaWdpY2VydC5jb20vRGlnaUNlcnRBc3N1cmVkRzJTTUlNRVJTQTQwOTZT
-SEEzODQyMDI0Q0ExLmNybDCBjQYIKwYBBQUHAQEEgYAwfjAkBggrBgEFBQcwAYYYaHR0cDovL29j
-c3AuZGlnaWNlcnQuY29tMFYGCCsGAQUFBzAChkpodHRwOi8vY2FjZXJ0cy5kaWdpY2VydC5jb20v
-RGlnaUNlcnRBc3N1cmVkRzJTTUlNRVJTQTQwOTZTSEEzODQyMDI0Q0ExLmNydDANBgkqhkiG9w0B
-AQsFAAOCAgEAocabrh1cPd5s3vY5rnlBVQSTc7zs2ZWs67dAIltR+05WELrYClVzzUhMs/LOJPlr
-EUo45UDDomXq38DxFepaPd9+iNLjXfn33EX/IG44j04lU/oF/Rg9VeQILkYLbCZ/x9wOjNHZc4SN
-ydY7Dhvf/sT5aBz88u7D5+azZJ7Qf1U57wYseCH1Mt0nDrtr5y19IJ8D9xJJ33RFL6vfpHZBBAQ8
-+3RqkKNxLoV2aFvQhxdhjNLDqTv3LjUIdicwPraN7JkxEu7CV2Lka7eRqJgkWL7SK0YmBjGpRafs
-+icP/ON5RCCKTTb6VlX8eTG2sJJfsFhvJNCCt6xexbWzWtIrfP7NvPBvwBB737AyEGBZkS5aNizT
-McURJGTv9UKvBh1LF/+tNhYtLvPCN7oecGzhCHht9jcwSkygTo3Y6YlK3QgOu+ncmiBbfeuwlLZ1
-LxbYvG6hgNqXv7u6YyADbYajAQJXJ2OQen39pm3Q/AQSyLYG+B8lDglWsM8tYXPlEdrYJcksGK6F
-nqIX6Bumn43rBooLJdiZp4WmfWdL2pxe+LxRDjprmqu1WprixDxULSTOKJZoqTlugs6y3Bc+if+s
-gHnBBtz9WQ6MtPHkh7zONDAFIKcBmv8OqPQCx0F3Wv3OEybwMpXx0OsKgK8wLldaX1pXcMuyDgTL
-Sqs0AV0OHUgwggcDMIIE66ADAgECAhADNSi2uzJskfEdOMo4hV0gMA0GCSqGSIb3DQEBCwUAMGIx
-CzAJBgNVBAYTAlVTMRcwFQYDVQQKEw5EaWdpQ2VydCwgSW5jLjE6MDgGA1UEAxMxRGlnaUNlcnQg
-QXNzdXJlZCBHMiBTTUlNRSBSU0E0MDk2IFNIQTM4NCAyMDI0IENBMTAeFw0yNjA3MTgwMDAwMDBa
-Fw0yODAxMDQyMzU5NTlaMB4xHDAaBgNVBAMME2R3bXcyQGluZnJhZGVhZC5vcmcwggIiMA0GCSqG
-SIb3DQEBAQUAA4ICDwAwggIKAoICAQDali7HveR1thexYXx/W7oMk/3Wpyppl62zJ8+RmTQH4yZe
-YAS/SRV6zmfXlXaZsNOE6emg8WXLRS6BA70liot+u0O0oPnIvnx+CsMH0PD4tCKSCsdp+XphIJ2z
-kC9S7/yHDYnqegqtw4smkqUqf0WX/ggH1Dckh0vHlpoS1OoxqUg+ocU6WCsnuz5q5rzFsHxhD1qG
-pgFdZEk2/c//ZvUNi12vPWipk8TcJwHw9zoZ/ZrVNybpMCC0THsJ/UEVyuyszPtNYeYZAhOJ41va
-v1RhZJzYan4a1gU0kKBPQklcpQEhq48woEu15isvwWh9/+5jjh0L+YNaN0I//nHSp6U9COUG9Z0c
-vnO8FM6PTqsnSbcc0j+GchwOHRC7aP2t5v2stVx3KbptaYEzi4MQHxm/0+HQpMEVLLUiizJqS4PW
-PU6zfQTOMZ9uLQRRci+c5xhtMEBszlQDOvEQcyEG+hc++fH47K+MmZz21bFNfoBxLP6bjR6xtPXt
-REF5lLXxp+CJ6KKSblPKeVRg/UtyJHeFKAZXO8Zeco7TZUMVHmK0ZZ1EpnZbnAhKE19Z+FJrQPQr
-lR0gO3lBzuyPPArVhvWxjlO7S4DmaEhLzarWi/ze7EGwWSuI2eEa/8zU0INUsGI4ywe7vepQz7Iq
-aAovAX0d+f1YjbmCVsAwjhLmveFjNwIDAQABo4IB9zCCAfMwHwYDVR0jBBgwFoAU95uiTtOXxfQ0
-D0MOgYXOkZMyr/kwHQYDVR0OBBYEFFxiGptwbOfWOtMk5loHw7uqWUOnMDAGA1UdEQQpMCeBE2R3
-bXcyQGluZnJhZGVhZC5vcmeBEGRhdmlkQHdvb2Rob3Uuc2UwFAYDVR0gBA0wCzAJBgdngQwBBQEC
-MA4GA1UdDwEB/wQEAwIF4DAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwQwgakGA1UdHwSB
-oTCBnjBNoEugSYZHaHR0cDovL2NybDMuZGlnaWNlcnQuY29tL0RpZ2lDZXJ0QXNzdXJlZEcyU01J
-TUVSU0E0MDk2U0hBMzg0MjAyNENBMS5jcmwwTaBLoEmGR2h0dHA6Ly9jcmw0LmRpZ2ljZXJ0LmNv
-bS9EaWdpQ2VydEFzc3VyZWRHMlNNSU1FUlNBNDA5NlNIQTM4NDIwMjRDQTEuY3JsMIGNBggrBgEF
-BQcBAQSBgDB+MCQGCCsGAQUFBzABhhhodHRwOi8vb2NzcC5kaWdpY2VydC5jb20wVgYIKwYBBQUH
-MAKGSmh0dHA6Ly9jYWNlcnRzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEFzc3VyZWRHMlNNSU1FUlNB
-NDA5NlNIQTM4NDIwMjRDQTEuY3J0MA0GCSqGSIb3DQEBCwUAA4ICAQChxpuuHVw93mze9jmueUFV
-BJNzvOzZlazrt0AiW1H7TlYQutgKVXPNSEyz8s4k+WsRSjjlQMOiZerfwPEV6lo9336I0uNd+ffc
-Rf8gbjiPTiVT+gX9GD1V5AguRgtsJn/H3A6M0dlzhI3J1jsOG9/+xPloHPzy7sPn5rNkntB/VTnv
-Bix4IfUy3ScOu2vnLX0gnwP3EknfdEUvq9+kdkEEBDz7dGqQo3EuhXZoW9CHF2GM0sOpO/cuNQh2
-JzA+to3smTES7sJXYuRrt5GomCRYvtIrRiYGMalFp+z6Jw/843lEIIpNNvpWVfx5Mbawkl+wWG8k
-0IK3rF7FtbNa0it8/s288G/AEHvfsDIQYFmRLlo2LNMxxREkZO/1Qq8GHUsX/602Fi0u88I3uh5w
-bOEIeG32NzBKTKBOjdjpiUrdCA676dyaIFt967CUtnUvFti8bqGA2pe/u7pjIANthqMBAlcnY5B6
-ff2mbdD8BBLItgb4HyUOCVawzy1hc+UR2tglySwYroWeohfoG6afjesGigsl2JmnhaZ9Z0vanF74
-vFEOOmuaq7VamuLEPFQtJM4olmipOW6CzrLcFz6J/6yAecEG3P1ZDoy08eSHvM40MAUgpwGa/w6o
-9ALHQXda/c4TJvAylfHQ6wqArzAuV1pfWldwy7IOBMtKqzQBXQ4dSDGCBCAwggQcAgEBMHYwYjEL
-MAkGA1UEBhMCVVMxFzAVBgNVBAoTDkRpZ2lDZXJ0LCBJbmMuMTowOAYDVQQDEzFEaWdpQ2VydCBB
-c3N1cmVkIEcyIFNNSU1FIFJTQTQwOTYgU0hBMzg0IDIwMjQgQ0ExAhADNSi2uzJskfEdOMo4hV0g
-MA0GCWCGSAFlAwQCAQUAoIIBezAYBgkqhkiG9w0BCQMxCwYJKoZIhvcNAQcBMBwGCSqGSIb3DQEJ
-BTEPFw0yNjExMjUxNTAxMTZaMC8GCSqGSIb3DQEJBDEiBCBOOqybDwTHK2P2XdsuzODG10YESyb1
-P5/OX/WrpJ/2mTCBhQYJKwYBBAGCNxAEMXgwdjBiMQswCQYDVQQGEwJVUzEXMBUGA1UEChMORGln
-aUNlcnQsIEluYy4xOjA4BgNVBAMTMURpZ2lDZXJ0IEFzc3VyZWQgRzIgU01JTUUgUlNBNDA5NiBT
-SEEzODQgMjAyNCBDQTECEAM1KLa7MmyR8R04yjiFXSAwgYcGCyqGSIb3DQEJEAILMXigdjBiMQsw
-CQYDVQQGEwJVUzEXMBUGA1UEChMORGlnaUNlcnQsIEluYy4xOjA4BgNVBAMTMURpZ2lDZXJ0IEFz
-c3VyZWQgRzIgU01JTUUgUlNBNDA5NiBTSEEzODQgMjAyNCBDQTECEAM1KLa7MmyR8R04yjiFXSAw
-DQYJKoZIhvcNAQEBBQAEggIAeZ/ed+OPxioQ5fn61Ma8/k+2AV7NflPIY0CB26rNNZnE/lbvn9Dz
-iYp74efeyVeVpxVKqjrOpKQSdEpWI/Id0c1ZDwwaFCb3V5fjx7J68d55c+pWdAdKYxDDr5djPGMu
-nKKLyNxhWrv/6T9tf7d0UBZVDXoAPB6sxCrbQrb04urfp0eu6lB8k6Km14BsFf4ZPUn0gNGjzVbk
-aouhGO6SZXcZHG6tf+ehOPyGXpDmz852EhXsMAzW25hgI2LOtGrPnLNojmU16QfRppnblQSU5aNK
-ht7rqnxVPzC7UO//0I6aPvEILhbHpEQQuw79CO9isBY6gygH1ohQfSZkA+/9K877WQ50vrhBtrmQ
-w8QLHaY1TnJXeWUXyC09+5Ng+8lzQdBA9mHTxZrUc8lKDCRUAm9WvrhFxx7NOXPJ8JFs8Z+WWdan
-EMf4huUjVxy6mFOUdoeeUWQyqcXGe5ZvN6LH4h5qgHhMhOPvEvAyJB8nEc1U0RIzgiVHZ6Jp04+l
-qRn5i4QRq5HxUba73p0rwtGOL4DlgPljISkmDpC7cv/UGnV37vg7UbI8ZBNTIIy9WaXw4ORiz2IE
-dWOQ32truXVTByRuQvBtJsRLm3Jmc4MBWJUbT7WRIKw77KGg4qSCfK4MUSvMabW1YG/e7VpjmW+d
-yI0hlaaNiLgkI8rK1W70b/IAAAAAAAA=
+My robot proposed 2 fixes: either don't introduce FS_XFLAG_PROJID
+(which, eh, not the best imo) or add a new flag to be used in at_flags,
+like AT_FILEATTR_MASKS, which would resolve all our legacy vs non-legacy
+problems, but it would be in *at*_flags, so doesn't really make sense
+semantically (but it would work well since file_getattr already rejects
+unknown at_flags, so it wouldn't cause problems for old programs).
+
+Thanks,
+koraynilay
+
+>> And other than VER there is no way to know if it's a SETFLAGS compiled
+>> against modern fs.h or fileattr VER1 explicitly setting rw_mask to 0,
+>> right?
+>>
+>
+> SETFLAGS with explicit 0 rw_mask is not useful and does not make
+> sense, so there is no reason to support this in any other meaning than
+> legacy programs.
+>
+> Thanks,
+> Amir.
 
 
---=-ifNNgHR31pmqYObLjYoP--
+
+--63a562d6577b3515b9b86b9d4d44e07b4a48b768beedbf2d083915e409e8
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRJ2XvJtXGwULYEerQ0bnTtJTDoOAUCawb4SwAKCRA0bnTtJTDo
+OK0uAP9ueb1Rn7jI3JdReZ1mTTKoolNf16q49mc0W8NxgzwV0gEAor4cmldmQIAj
+JpbZxXhVkMCA3/AL1lxksQ6xU5wQowQ=
+=UQBy
+-----END PGP SIGNATURE-----
+
+--63a562d6577b3515b9b86b9d4d44e07b4a48b768beedbf2d083915e409e8--
