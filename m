@@ -1,121 +1,107 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=170.10.129.124
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795634233;
-	b=wiAZELohk95IO4CgCMLqR/Y9tJfkR7ZRji8cCrjovacVQMHACQC7bGd7FLD65irwWnbk
-	 C4A0q+ox+SpZR6Izenmci1M/JVymcp8d3Dhq81j5/ZqDpGpp19UON4EFltQhJoSMW3WKU
-	 iQcV0j51EbkbdxyrVatyzCxNspwmRCISx30In3j0z/uWF6ORCFW36aLWWDY99Ruj9LRRr
-	 HGFAX/d7CP7BadQhg/b1xIm0kRGPDPFUq9CyzIjbFT5EOAyzoAJBlA+99fq916UHmEjxZ
-	 sNkVdmF3JpQb8aubvLlNGpr3n4gnmcSERWLbtbr3J/ZxbBDBzg7Z4Rzrka7IVDNLYNg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795634233;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:MIME-Version:References:In-Reply-To:From:Date:
-	 X-Gm-Features:Message-ID:Subject:To:Cc:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=6zdB/rQeLDq3D894FluXdu2Y35sjCX21XfyveRyDSBA=;
-	b=J1HZ0Vtbu3+/n4vZZve7qvPHV39p7S3KO6+cR+k5aS+1FkFcf15w9Xxq9tH0seHrQhsc
-	 wn3a17ompX8ThL6cLdLJAOHIuO5rXqw6cgn7KANrNyftZ50NfWRXO9pErIqwqn9ptvqEc
-	 HkuGqiIgtJSuNLURw2oQKPvfC01QKprolj7DprTTsxUBcrcSLDDJb18MlrLuzNAuWnE94
-	 9DaSjdW2TcQa9KmCx3AtdzE0TxnaSojhIsrqrHCK5FeyXSqQrIR3mBHKpZ3R/4AUikfIE
-	 g6IJ/1/XSP6J1b/qUeMThWWWSJ4hZTcvK4B8WFP2LNklLr7WbXT2zotS7Ll/0DXdwbg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=DxoEcY39;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=oSCRW3SU;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.182
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795634356;
+	b=j3em79OLe70AA0VH7csAWaSVXbJOcWLExeqw0OKSM1TlD1B6WElp/TY2kvqWlztfTFDr
+	 W+kjBME1h5C+EQN6i3VSO0Hf3TpfnyHe23cFglG6wy3m7hJ3QTC7ihVy3iW1/kV9igQy8
+	 d1BjcXa7lW9iD7M1Ow0cGGU4dU964dNF9QsRuyhBrPAzCJbrXG+KYDeeIyQLhVDMoZ0Q+
+	 KoIxnB1iFwkFBEy9uBlqBNsCqQ7v+kAJUqYnYJvgPyF+9r6XDkRCPOkUJ9f0JFphXeD9F
+	 Ag+kzVqYXinojBttiPKZVNAooy7BxzzDIeNu9DayPkj8cODIoo8gFWnjXpTAXW6yVBA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795634356;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:Content-Transfer-Encoding:
+	 In-Reply-To;
+	bh=CDQbjZRD5r2LD7/4BjsL2T12qmTPHlWO1n2mr1qyPAs=;
+	b=SPDimUaDHOlY2QWW1e9MGZGlozgR+4iZgpL+QLBgs2w80FpPTctuaIT7NUEJWei1MXVD
+	 7yWtLypiH2Hix5vzhwbH+bKgiQSKzfdzIfbbxWBEuzksEvJn20qKA5mG1eTpN3IoKT2c4
+	 mv8eMQXNnNN3gcCVZ/vecMrAOuxOjukw7YY7yBER2eU5A3TZgW1LNCt0KV7/lRXsysRJS
+	 fa3JpdaEkavvSuG/3fsQkj4HcczjuaSRD8ZEYZnYHvfIFPpGmjgGZ3us1TGvrAny3iNdV
+	 9C0zRz2F9r5ikhzpdqNSequjGE/LztPo8GbNVkjLFeApY5B5KGJWkE8PkzwriGySpbg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=chromium.org;
+	spf=pass smtp.mailfrom=chromium.org;
+	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b="AMecBw/O";
+	arc=none smtp.remote-ip=209.85.214.182
+Received: from mail-pl1-f182.google.com (mail-pl1-f182.google.com [209.85.214.182])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EAE84606A323
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 19:17:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EAE84606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E9C6A606A327
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 19:19:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E9C6A606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chromium.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chromium.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=DxoEcY39;
-	dkim=pass (2048-bit key, unprotected) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=oSCRW3SU
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795634231;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=6zdB/rQeLDq3D894FluXdu2Y35sjCX21XfyveRyDSBA=;
-	b=DxoEcY395e9jYyMMvqxn1Kskt1p6w5ftW8jvN0tZWATYcVoirDINh9Yjs9jy1YJvn0qXjp
-	SHkGfKreOSIIows3wMT1gM/Qt8CHzSuUnbR/Sh31hI/Ch+BwHoQwe6Kmj2yjO7y6y1KFI0
-	tTHJAweZfazVdpAwqMUJ+ASBRVNcuuU=
-Received: from mail-lf1-f72.google.com (mail-lf1-f72.google.com
- [209.85.167.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-553-HwmnXno9MOSg_vWM3d6q5Q-1; Wed, 25 Nov 2026 19:17:10 +0000
-X-MC-Unique: HwmnXno9MOSg_vWM3d6q5Q-1
-X-Mimecast-MFC-AGG-ID: HwmnXno9MOSg_vWM3d6q5Q_1795634229
-Received: by mail-lf1-f72.google.com with SMTP id 2adb3069b0e04-5be43747161so2790201e87.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:17:09 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795634228; cv=none;
-        d=google.com; s=arc-20260327;
-        b=H0AApGLZq26U/EZr6ee3PaJS7xyTL7TT1No0h4QoeuaUM+yKpuTASWhju4+SWIenSj
-         W6g+lxd5eVT1SDnGkG3k4jRnXe12KkD+HANsPtSVzvHHackOdNcW5h9+VTXZi85iOCQO
-         pggEYK4JGfKFx8vZAp2mFKRyZfA80fxWoP3yAK3p9OB67YOXWVITGEJO3q359DWgP7ES
-         fLhzy8FT2iyNck/B3JmkAM9QjiqnaXjYni4qVoS/dHaqZiHIzyKU0XrgCiBzv1A3gT3s
-         85AAdjEzHjoLsDLADvK2lU1BuXvU9pHdzHR8IYIZ/WsmCVnMofb8FF4WKAqmrFfbO8ov
-         HBNg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=6zdB/rQeLDq3D894FluXdu2Y35sjCX21XfyveRyDSBA=;
-        fh=hKO0Ls6vHKfCxvSt0GkyZf1bIDFKvvT30/sov4A0jKQ=;
-        b=ol7faf2MICmfLrB24qxTtuDSZ7o5oGRs+W6UhA1A3FDhbQcZi17gvBdQkX9tP+LqBp
-         Ak4a2xYVmJSCy900Mx440GtkMrwrdZ/snXCsD4jZE5jvTZcf5RonzFRQqEdhVWNie2kO
-         fE7F5rsB5cRmmZsUprV0PvICVaUmLL9SppSdDcaNVI2snh9UNioxkq7WJf3FW+agJBh7
-         jdRaaKKkNy4uHPXsL5HS+PAt6w5SvAcLEobSIxh0KaEX+3ItQNwWMzZjRQfUVn9rEEIY
-         J2+QgF7XgvY85L1TE1497TmDu3BCrxogrO65KChzepPX4qCU6aEAUa5pKvg3n3s0AR4R
-         yqrQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (1024-bit key) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=AMecBw/O
+Received: by mail-pl1-f182.google.com with SMTP id d9443c01a7336-2f04ad2c46dso38663215ad.2
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:19:15 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795634228; x=1796239028; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=6zdB/rQeLDq3D894FluXdu2Y35sjCX21XfyveRyDSBA=;
-        b=oSCRW3SU+XVThO7Kye4978us7jRRSrpkMEnLAof0Eu/KIR8HsDbWGC7moFOGTMpYG2
-         5L85JVEV23Sigp5s0SvgyyLSu3DwjfAuFnqNMfdDdKLaZybCo8kfv/csPdMZrByzH3Bz
-         wwwcrhGiCjfjcS9NrOLTU/3D8tyQoZx6i9lwXkNjbKmFJu80ySpRuZ2nCaXQtqs8c9hd
-         8qXz2CBulleqLTN9KLUBSEgu7Abd5ztlBoshdiJtgxv4uhzrH3teBU51e7c30NOTHY+x
-         8m/aSQpt6zz9dnea3TKJokwOCB5eARNBPv+9pr8lrxptqzv5vnpUulKdjyzLH+htzO/7
-         rGZA==
+        d=chromium.org; s=google; t=1795634355; x=1796239155; darn=vger.kernel.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=CDQbjZRD5r2LD7/4BjsL2T12qmTPHlWO1n2mr1qyPAs=;
+        b=AMecBw/OeClvoiGfo4CBS0vwu3d45iyTlSHTdmQzaMi4s/WEAxD7o+i1BbLKkhtvmY
+         i/G4pf7qbzvLrWIo/CIQbAVTuhqj0fDs0YDVEdvlpSm3ii6/q5HgItZpFVr/X6pWiP6j
+         8h8AqkDhyr2qybSh1bBir5+GZm7WaXm5wg1WA=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795634228; x=1796239028;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=6zdB/rQeLDq3D894FluXdu2Y35sjCX21XfyveRyDSBA=;
-        b=RSE6l+6jm7ptkvSmpx1gp8lGDm26ZZuMo4DFC18J21IwBFeDyIpTBRy8MxUFcZvEOu
-         j58ATvisFZpujZaMDfiASH5kSvjdhSc3FAQtWY+qr1da4M3CtYbGPeEixwrvvRtOkauX
-         Pb7witlxVrPLwkXm9NeWM92xkhDZmCmhzf/0Y1/ijvX2Ok1BmvLUJge87l1czsPwRTY4
-         RcG0e43GthdQwqh/MIl3eLftHYaWzoLijuNlV8E0rcvnRucjH4PiSA3xKk+7UNap8LIK
-         Cj32nHxyt7vMjKWgr5nlW2EMqx2MFwl2P6JYf7IoCPiMf4PnZaMdTeUdZS4VGbY4GiBA
-         0nTg==
-X-Forwarded-Encrypted: i=1; AL+hErF9dxemPIkE3HluWud8s1U2v1Vywxy6incNGLVto4zcOKIapSKrnA/ZcZY/i7yZdg52AYggsk01S9wfXFw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/rGx7KRmufUw+E6V+ARvEUxvdtP30eTWDjXcV36r8gpSymMqiu
-	exPoXsUPTr5SyJqMKeG8k/4jw3SYi3sbC0yJhCTzrt3o9MVLi88lrwQTMj9qAwzSb58cQtgHFSt
-	dRC4/72hGycYC20YWBD4AaOB6dZpOMi2hJHT9VcX9Mar50anyrmWV/VaxgTPzPgtnW6PEHuMvlE
-	QILDoQZlBoP89y3YTHM6a2bWRASZZJNstF0KB18+M=
-X-Gm-Gg: AZFdTZcl9nqNfZQUfZb1Ucv0xXm9Pp6ffgLZAyRNoZaIQvLIBn9eyXWMsoC5OuhvFrl
-	HqppVA0VhG8OaqMGZs5mf9PzhUJ0GIoFn7nIRBg5hfK2/d7XIyhcAiXYiy0d8IEaK5EwmHu20Ke
-	zzziOxNFfkoguE0BXR3OmGOYwOLuOTus9ZCMUOe+gRDf0SB0sf/NBs5GnaGCiTjH3016CM+CbIi
-	czzYlY1CzJwN4sylnFx6g5q64Nj9CEeyga5EODMosadzW2/PsFruqYe7fUXfZ59ErIZI1LF/CE=
-X-Received: by 2002:a05:6512:33ca:b0:5c1:57b6:5ffd with SMTP id 2adb3069b0e04-5c1bc552d9emr6331062e87.0.1795634228572;
-        Wed, 25 Nov 2026 11:17:08 -0800 (PST)
-X-Received: by 2002:a05:6512:33ca:b0:5c1:57b6:5ffd with SMTP id
- 2adb3069b0e04-5c1bc552d9emr6331053e87.0.1795634228074; Wed, 25 Nov 2026
- 11:17:08 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795634355; x=1796239155;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=CDQbjZRD5r2LD7/4BjsL2T12qmTPHlWO1n2mr1qyPAs=;
+        b=11HJdpkVRagKc2LEkdC9uEzQyFo3Y/xuWnUB5poWrVaY1BRxxqDhCDRnJotIIVSGHo
+         VjNgjdfNdXhpCsdP++Hj1lyETlr81hhF2WKWpHSg/BVqe4xBC3ObOt0mRc+L9XLmspKO
+         LCDAFuMoYalAfui6YGQC7XMfSIFXkPcij/Sa5GHyAPJfKGLp5RiOQldZztrBf5lyIXSe
+         NMYRdnYwPGjdHEfcK9C2pygSK5O2hy9LhHLNhs5r2rYLlGTZyt1oly0qHFt1cAUFuQ/F
+         yF2FXFoabb/Yt5tPiGxaC6PnEa8R9xVAC8ldAwVO1zOAu6xYvlmcMqJMdQ7Wa57Dtn72
+         v+EA==
+X-Forwarded-Encrypted: i=1; AL+hErEYxeGii9JvXPisIQgHVTmA/1nvk7eh5YCIAak31itOQhX11cDaTNgyGFyzsxo6lbh+WQTqvVCYAoBMoFE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9FUYbfiqKjduwjXVijZ1gKDw92z/qs6h0BhXc7MNb0U9gdl4NW
+	BYac8TT/umNWc2uyS9btpv+AAFtk92FX/bbr0wl4vrCO29z+wPobWkTzfWk2anhTUQ==
+X-Gm-Gg: AZFdTZfE91k4kcWrPAQFH0BVxwCWVXImZFJoX72Dw9tX8HP1Z9DqgJFr5hyQzBq1Hze
+	Aq12SELL/QHjDJvsoIay4mckVdR3BDeJpZbzxOxK6cQ339JmfkKilQYPMTQ1Hw9x2xtaEOlXHzj
+	LBrlyNDUuW8UcxqJtPmh21OnC0usqkcBy7AxR0qBkptZbY4da14+Tb9W6coBC0qMGRFzniY/Gmp
+	Tu39qCL7V2aZUwu2DWGIi7hwj7kbAuSRRWw0A6Jk4puUwaCy4Jt5rOEv7A3bJyHCEEPqQq+jvsB
+	pnugcmttb4RVu4wJM4dCsQDOCHxalZOVuIEPHIZFIVMLd4lFnS2nZGX0UTwjqzK4clJPeV0H5Jw
+	qiBavySGM7tHJpyqsVegizFQqb+CKHU3QYiwWoqcbYtuta5UN24FIbmrdbM0f1kmy1csqzEwcMz
+	AIUKokjXTTJd0grOx8TYZPz4Hj4DmhOC5du9tBe6DEDysWmyFNMW5IC8cQFWaoUgug9CA1+RDPu
+	62wzetSH4XiHTL3z24At2IdC82T1hXDBLkxKcuwYtaHdPX1HdawUaL6PYy0GX8CiVvhgurhTRu9
+	yhRJyhT0uQ6wH9QQHXevd8RWcHg93qbJJOa+rZKbLp8fDjS0r+b37RrMvQd/sYXpUPo=
+X-Received: by 2002:a17:902:d511:b0:2f0:446d:30cd with SMTP id d9443c01a7336-2f0446d33f4mr180619865ad.31.1795634355343;
+        Wed, 25 Nov 2026 11:19:15 -0800 (PST)
+Received: from localhost ([2a00:79e0:2e7c:8:d0a2:f616:6ba:a1ce])
+        by smtp.gmail.com with UTF8SMTPSA id d9443c01a7336-2f03ee84364sm93389045ad.5.2026.11.25.11.19.13
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 25 Nov 2026 11:19:14 -0800 (PST)
+Date: Wed, 25 Nov 2026 11:19:12 -0800
+From: Brian Norris <briannorris@chromium.org>
+To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>
+Cc: Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Thomas Gleixner <tglx@kernel.org>, Ulf Hansson <ulfh@kernel.org>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	Tudor Ambarus <tudor.ambarus@linaro.org>,
+	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Radu Rendec <radu@rendec.net>,
+	Jakub =?utf-8?B?R8WCb3dhY2tp?= <jglow@google.com>,
+	linux-clk@vger.kernel.org, Douglas Anderson <dianders@chromium.org>,
+	devicetree@vger.kernel.org, linux-pm@vger.kernel.org,
+	Mariano Marciello <mmarciello@google.com>,
+	google-soc@lists.linux.dev
+Subject: Re: [PATCH v2 5/9] reset: google: Add CPM reset driver
+Message-ID: <awc0sBl6q6A2Reaq@google.com>
+References: <20261125000349.3385325-1-briannorris@chromium.org>
+ <20261124160343.v2.5.I0b1ad34a718a9b5f667d2481041970ea45989dd3@changeid>
+ <f89e293688feb3f9bcdce0f1b6fed0ee424e5cd8.camel@pengutronix.de>
+ <awbJUwrBQw5TnowW@monoceros>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -125,117 +111,41 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261119-bug-dm-thin-rcu-gp-v3-0-c80ecc475e1e@linux.dev> <20261119-bug-dm-thin-rcu-gp-v3-2-c80ecc475e1e@linux.dev>
-In-Reply-To: <20261119-bug-dm-thin-rcu-gp-v3-2-c80ecc475e1e@linux.dev>
-From: Ming Hung Tsai <mtsai@redhat.com>
-Date: Thu, 26 Nov 2026 03:16:55 +0800
-X-Gm-Features: Aa3M54pe6gUnH3xtgi3WUj1GWiGz9BVqRKh8waNkvHN9vH0Lj5E79L-u9RV6F0w
-Message-ID: <CALjSBEtdn0PUx0WNsSDojK976JGg66ZqjEmUutuB-XwH1n=q4g@mail.gmail.com>
-Subject: Re: [PATCH v3 2/3] dm thin: keep a thin on active_thins until its
- last reference is dropped
-To: dm-devel@lists.linux.dev
-Cc: Alasdair Kergon <agk@redhat.com>, Mike Snitzer <snitzer@kernel.org>, 
-	Mikulas Patocka <mpatocka@redhat.com>, Benjamin Marzinski <bmarzins@redhat.com>, linux-kernel@vger.kernel.org, 
-	Qiliang Yuan <qiliang.yuan@linux.dev>, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <awbJUwrBQw5TnowW@monoceros>
 
-On Thu, Nov 19, 2026 at 7:12=E2=80=AFPM Qiliang Yuan <qiliang.yuan@linux.de=
-v> wrote:
->
-> get_first_thin() and get_next_thin() let the pool worker process the
-> thins on pool->active_thins without holding rcu_read_lock() while it
-> does: they take a reference on a thin under the lock, and
-> get_next_thin() continues from that thin in a new read-side section.
-> thin_dtr() takes the thin off the list, waits for a grace period and
-> then for the references still held.
->
-> Once thin_dtr() has removed a thin that the worker holds, nothing
-> updates its list.next pointer any more. If the thin after it is removed
-> and freed before the worker calls get_next_thin(), the walk continues
-> from freed memory:
->
->   BUG: KASAN: slab-use-after-free in get_next_thin+0x8b/0x240 [dm_thin_po=
-ol]
->   Write of size 4 at addr ff11000116371cc8 by task kworker/u128:0/13
->   Workqueue: dm-thin do_worker [dm_thin_pool]
->   Call Trace:
->    get_next_thin+0x8b/0x240 [dm_thin_pool]
->    process_deferred_bios+0x34/0x650 [dm_thin_pool]
->    do_worker+0x2b7/0x4f0 [dm_thin_pool]
->    process_one_work+0x8ce/0x1850
->    worker_thread+0x639/0x1190
->   Allocated by task 2290:
->    thin_ctr+0x130/0x1260 [dm_thin_pool]
->    dm_table_add_target+0x65f/0xf60 [dm_mod]
->    table_load+0x1c2/0x480 [dm_mod]
->   Freed by task 2391:
->    kfree+0x15d/0x550
->    thin_dtr+0x21c/0x2c0 [dm_thin_pool]
->    dm_table_destroy+0x13c/0x570 [dm_mod]
->    __dm_destroy+0x2eb/0x5d0 [dm_mod]
->    dev_remove+0x2f1/0x3c0 [dm_mod]
->
-> Mark the thin as dying in thin_dtr() instead of removing it, and take it
-> off the list only after the last reference is dropped, so that removing
-> its neighbours keeps its list.next valid. Take references with
-> refcount_inc_not_zero() and skip dying thins, so that thin_dtr() only
-> waits for the references already taken, and have requeue_bios() and
-> error_retry_list_with_code() skip dying thins as they skipped the thins
-> already off the list.
+On Wed, Nov 25, 2026 at 12:43:40PM +0100, Uwe Kleine-König wrote:
+> On Wed, Nov 25, 2026 at 09:48:04AM +0100, Philipp Zabel wrote:
+> > > +#include <linux/mod_devicetable.h>
+> > 
+> > Please include the specific <linux/device-id/*.h> that is needed
+> > instead of all of <linux/mod_devicetable.h>.
+> 
+> Or better still, rely on the bus headers to provide the needed
+> *_device_id structures. (That is <linux/platform_device.h> provides
+> of_device_id (for patch #2)
 
-The code looks correct to me. These notes are only for the record. The
-two checks in thin_tryget() have different roles.
+Only very indirectly:
 
-refcount_inc_not_zero() is what makes the patch correct. Once the
-count reaches zero, no walker can take the thin again, so
-list_del_rcu() is safe after wait_for_completion() returns.
+  <linux/platform_device.h>
+  -> <linux/device.h>
+    -> <linux/device/driver.h>
+      -> <linux/device-id/of.h>
 
-The dying flag is only a hint. As Ben said, it is racy. It keeps the
-old behavior of taking the thin off the list early, so thin_dtr()
-mostly waits for the references already taken. For the ref-less
-readers (requeue_bios() and error_retry_list_with_code()), the dying
-check keeps most of them away, but their actual safety comes from the
-synchronize_rcu() after list_del_rcu().
+> and <linux/auxiliary_bus.h> provides
+> auxiliary_device_id and of_device_id (for patches #3 - #6)).
 
-> With a test-only 3 s msleep() added to the worker after each thin it
-> processes, thins 1 and 2 of a pool with three thins are suspended and
-> then removed while the worker holds thin 1. Trials in which KASAN reports
-> a slab-use-after-free in get_next_thin():
->
->                  before (trials)   after (trials)   change
->   KASAN report            3 of 3           0 of 5     -100%
+Also quite indirectly.
 
-Two thins are enough. Suspend both thins, let the worker sleep while
-it holds thin 1, and then remove thin 1 and thin 2. When the worker
-wakes up, get_next_thin() follows thin 1's stale list.next to the
-freed thin 2:
+I'm not sure how to take this advice. I tend to see "include what you
+use" feedback (and not rely on implicit includes) elsewhere, which
+suggests I should *not* do what you say here. Do I just need to guess at
+when an implicit include should be deemed intentional?
 
-    dmsetup suspend thin_1
-    dmsetup suspend thin_2
-    # make the worker sleep while it holds thin_1
-    dmsetup remove thin_1 &    # thin_dtr() unlinks thin_1, then waits
-    dmsetup remove thin_2      # thin_dtr() unlinks and frees thin_2
+At the moment, I plan to simply go with Philipp's advice, as I don't see
+the harm in targeted, explicit #include.
 
-The suspend step is needed on kernels before v6.19. Before
-be4addb1914f ("dm: Fix deadlock when reloading a multipath table"),
-thin_postsuspend() always called noflush_work(), which queues a work
-item on the ordered pool workqueue and waits for it. Removing an
-active device runs the presuspend and postsuspend hooks, so the
-removal waited until the worker returned. By then the worker had
-dropped thin 1, so the bug did not trigger. A suspended device skips
-the hooks on removal and goes straight to thin_dtr().
-
-The walkers in pool_suspend_active_thins() and
-pool_resume_active_thins() hit the same bug. To reproduce it there,
-put the sleep in those walkers instead. It then runs in the dmsetup
-process, not on the pool workqueue, so the suspend step is not needed.
-
-> Fixes: 17181fb7a0c3 ("dm thin: fix a race in thin_dtr")
-> Cc: stable@vger.kernel.org
-> Reported-by: Benjamin Marzinski <bmarzins@redhat.com>
-> Closes: https://lore.kernel.org/r/avz7qDWd2g-uubmL@redhat.com
-> Co-developed-by: Benjamin Marzinski <bmarzins@redhat.com>
-> Signed-off-by: Benjamin Marzinski <bmarzins@redhat.com>
-> Signed-off-by: Qiliang Yuan <qiliang.yuan@linux.dev>
-
+Regards,
+Brian
