@@ -1,124 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=205.220.180.131
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795602930;
-	b=T0nzXONpa/+wXirGXD4kpE2eknpmz0kk9cEpTwK/QALIkDEIPoBVIVelehTgxdVXBQ2K
-	 GdtVZdYdCqpSvBwZ4gbrzRp2BEr8V096nx/hR2yLjx9ZyTbxgvYkbQY6Harsbp2zMwMcL
-	 MXYLcC39XCFZSPGYEvY3zvMPWwjfBubYU3Rc/inp01z0jzbmSv4VrOCerFKocj1l8LztO
-	 7v7H6aQFjFAftZjPGcvMJl5hWyW81KoouhIqD+t9qDPTvmEtsY27RzHttnvt3SGO2hiuP
-	 qmI88qqzfPF7UEvMMerClPqAJY9aEdrmgWLRrMYFqxyIOcuyBUop8SFGewvS7KNkpXQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795602930;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:MIME-Version:
-	 References:In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:
-	 Cc:Content-Type:Content-Transfer-Encoding:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-GUID:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=QlCvBinW+taD1U2DNQUvK7SZc9L/PjkEBBiRA/zNd6U=;
-	b=kIXrvh2jFKcMy0rRG8tHygbChTaAQp2giVSGvpurku5X9a+lm696iQAd8U5jgHeAcbDp
-	 9QOXhY4vLsARnHVALGRMCvkQZ4AljqEuneLUHOtGsy+lgtEL2REyZfXf9xiaNX+PUVgRV
-	 gN30noPlHt+X1rcPLeLF+HQCHqSC63x/3pJHDHdPvgUhnYPR0LR/eV0SpRARWuF7rVeuc
-	 i5Zv9eB8gLECW2H47AgSPbbqNKvbTDy8MHcpG4EDQoKj6GMFsn0nqLerKA3bT5iC1hYjG
-	 fmJCF/XfN8IcNiJLvjwHB5Sc3W2MSty6lwAjGmCyV6rMDr/m7RF8rdM8Gi29ulySbZw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=kPS8S8Ii;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=WgkaCQ+j;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=205.220.180.131
-Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.45
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795602966;
+	b=sBb+Zi2BzB5rzKUOmITXI/dCOg4byG1PB1cdTnp93V1+F7imy5ijNVXuKVj3Qw68UEDo
+	 Z30YE2dpPQ4djvglu30DKkwS/OXKQuk14SrNjtjdgM2dgfBR9Z9zi96kKJPaQquWg262n
+	 f2zNK1U3N0mLvrBgagTOJhLqsBG4AtKsrZ6JzRR2Fz/xlnjEQpUGV33et5NULyIMz/GFm
+	 0QgtLXcY1wLtXqnHdpsBRiDjBHwOTWj+0d8yQP8+K8VEzxXn+sEDXrfmjfbKRbY98tjz8
+	 gwvNPKC60lA5t4gs3IILKeDoEqXqkn3IhiW3bblL69UtfnHjuIgA3AlX8yBRDR4dv4Q==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795602966;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=L63JJ2Ypd0n14icsjMGD3F1OXiYfHiYHbWPvy6KkKKU=;
+	b=jIZUlbHkZRBkpNFPZ+S0jmoWx/iy/olxp6ZAwRzXBGspEGNM6cO6u2g67FqueLjpSt1e
+	 YT+2pRK61Z+a8IuBWQikYGN7IbCYTqQtiiHTBhb9pG56wiJBGtixaZ7aBaMrJKqjdnZ/u
+	 csQjpRVvcsnV1QQzQ4jY+hZ6kMPnpGKm+B+oRv99tDzqfgSVVVUdXUN5np71OlxaCurom
+	 SXQg3pnDB7QWN4p1QGXaO/GRYnYWqw7AZfwm6QsLws/yaH985mh6vzqQzPpJrz/pDkWPj
+	 Am2ure1XObnmpChhkTzWUZKjHHMrmU943dCy3oiNechRI+K6djeHVv4BsjA6t/At+wQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=izWYyzf6;
+	arc=none smtp.remote-ip=209.85.221.45
+Received: from mail-wr1-f45.google.com (mail-wr1-f45.google.com [209.85.221.45])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2FDE3606A327
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:35:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2FDE3606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9BA2C606A321
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:36:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9BA2C606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=kPS8S8Ii;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=WgkaCQ+j
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AP9nkbb1505181
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:35:29 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	QlCvBinW+taD1U2DNQUvK7SZc9L/PjkEBBiRA/zNd6U=; b=kPS8S8IigwGwHRGX
-	S3Zsyb2MOD8LzaMZmtRaGhenxVSZg3ws2mnfSLq6/b7sCEhuK56sZRtoMbhTHWxV
-	VSY01FTKZ3U+1F9uj73+Kyc9WLR3iHq0x9dl4w54ZGuZedR6eD4gG1fYGcckN5uI
-	XhEuH+cinRpmOnzAaz04ZBYbrgsKur9f78LY5sfWld9wQWRjMZaaUIWIkFPCK4LU
-	/eaU4AS9QThcWtz0HjQm3WidZRCXqEcVVegn/R9gKFYGcR7hS+eeJhmwhGwx5qRA
-	+q7vgEDGPNGVaXzy+OC1lHabZ0bM6FbzfpcpacqI/ha0fj46EOOGkO9J3+lzyzii
-	aZG0LA==
-Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j5qa29s6a-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:35:29 +0000 (GMT)
-Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-93f2373e9b4so627783585a.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 02:35:29 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795602928; cv=none;
-        d=google.com; s=arc-20260327;
-        b=TnFd/9utWCrujxx/l8jCDryn2F9N0ge/nsmIEgJvRYAxTaJMA1ldYHqyS7d8KkDQXN
-         sDkcGtCO0QMBW5w8WH5T3LiSOl20AIcfM7D1tMTGpjCSZq6DXM0f/nwyseu5HOSgA0WQ
-         aiFn5H8wEoRlpIxjr0AdmDwgRY/RsIReNAKHNjg5WlJ0Rz04jgOGpwGac6XCRfLqT/rJ
-         lggwL3BnE/qD83IJ25sLsbMbCHpi0l5uh/t2oUy4RSOkiYHAqM6KaFvduMi2/hd33XY5
-         /GHM9y6XSTWhS3rN1xZI/EAg7B0GKFWgVnov3e+irisAfbAzTcpNhf8WIlew/RYwa+vq
-         eh8g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=QlCvBinW+taD1U2DNQUvK7SZc9L/PjkEBBiRA/zNd6U=;
-        fh=COkYn7NJVZwLtS0zOhy8QSsoEr3rKcCedK/l4XPwvp4=;
-        b=YY+3SsQKfwDjVzxLkzHHRBapr28XbWq/G8lwy9PihEibc48Rndk3r8aRjt/Pm9AKwa
-         SnmaRF7Tl5fbO4Fse2zVtSbqkes2l0DEsx1uA3jjQ0TZALRvJMDYwOHDPynNy1aQKbjZ
-         yCHzdk1QpPnupAnkUxtEzHqALhvaoqgxxh1/IXRdL67zNVlf2q5VA9azJh3R9YCykEtZ
-         A632PNMFEbPVH5pedra9MAe/90+BKrxXBw3sFaCq8M9p0HdtfPupjh/CNflkEu3YZBtg
-         LxtvvnGH1sYOi/RDerWTEa7TkhyAgoLgw9jBMi6Cx+LmT/nareHRB7+W+qlHmdibKYlQ
-         N2dA==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=izWYyzf6
+Received: by mail-wr1-f45.google.com with SMTP id ffacd0b85a97d-48ff6bd58b8so545217f8f.2
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 02:36:05 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795602928; x=1796207728; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=QlCvBinW+taD1U2DNQUvK7SZc9L/PjkEBBiRA/zNd6U=;
-        b=WgkaCQ+jmbEeceL/Y7/bwqn1WXNgzubFaYXiTjWZw7w/FHHghXEcHO87W+oUdZJqGu
-         y+bCW27aM4uzEyvNyyLQa+va9Q1lqPttgq+3YklTOSMEiWdyntXf4fOa7+9UNHQWlsrK
-         MXsl9Ben1IXXPDMooBWcpcGz5qf9MdZo7aCih5GKRfkb9rOVQ5nSNEoha2f18mrNewvI
-         s9VsV/xFVZO/8huyOCAx96PVeJjdQx9UP/2LzQ7U/Um7MeDFzLq9sOCpBm0JU++Ax6IH
-         +1ZsyUkVOdETEQDohCHAvkcMplzDYRgHdEP4XSt+nRBsYCIzi/1JjEJw2VUZ0ggm8auP
-         dA2g==
+        d=gmail.com; s=20260707; t=1795602964; x=1796207764; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=L63JJ2Ypd0n14icsjMGD3F1OXiYfHiYHbWPvy6KkKKU=;
+        b=izWYyzf6PChk4NVQlxdRlyz0h1SXPl0F/x+SYQEqa/wcfWOEeY4QMPoCyVafM8Lmgo
+         VuZyTy2eFfALuv8dknN5coY6zg/EmDZEOgF9K5cnuyQpuO6r9f0Kg8SEgrBJ7YX0SWq8
+         EoldlxLOa/VnAdwNgXu979nMIMFsDnJPV/6P4yLugkdci0bcd3pmkPiPiBzN4uz8cUPN
+         PVTSgBxqri4AJgHb6NyrPn0Htpjpdks0PI0Aba2oo8Oumz31oEsxyQKlvLHxnRf/oKwO
+         S+dguKdKv78EOOLTyhFqMU2l1mQl0VDdccDnuwhyn1kUuYYnBniFgcNnf3tJFve2+wza
+         jCiw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795602928; x=1796207728;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=QlCvBinW+taD1U2DNQUvK7SZc9L/PjkEBBiRA/zNd6U=;
-        b=Gunxg/LoaDgYoEz8S/XGywo2Jt5GmDW+zrmFpFSXC+UbyETBElkxo3za2XjEkp3957
-         8KF4ovfTg6YjZmUHPGccsNddg4SPxUYnqXymu6EczQfklhIQkTkyRonKBObiLsJ9S5zU
-         OZDjbI3zyLeupObUY4XhIz/c4JHbB4hULUmAiLKlifNQ3aAUJzRk1zRyVvYyqQ2X47ih
-         xbkg5FTrJga+4qcVWXsPoR/8cP4ufgyj4GOlYtFrl2n+as2QBEFZ+C/sr7fKct/P6sSr
-         CnTJ2BPBdkFyU4/uMV+D3A8b5ZI4rFdGosSLO0w7jDgbRl6AVizLUhIo6UlQuuBJp5dO
-         lN9A==
-X-Forwarded-Encrypted: i=1; AL+hErHJuK40l/6Q+sD8x/rGEteTE9bMNkt2xGNssN/NOzIjoKtZtDN2xbKxka8RDFJ9smCGhjwbwA3SMF+90v8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/d9yMNRopn3XEQe366BMNnWL1qm5AFBrfSvYXhI/+aZ4EFa55u
-	Hz6N4E5a6VuD39nMUSIwcAgbt9aLDIeeovHE7Kbcwm2x8TgLHhUlJqtsx22mGubOTSONs7wlALt
-	717OFMF9cFirRGcJeDxXH17fV8kPrvLSE9WUaH4otP+DsgzgMy91KkTJZnUBOph8c0rtssMQNtd
-	iW2OSVZ57pNtQwhffBqHc7lQcW00Igk4JTF8mGJ6bR2+YcID1WUxBazZE=
-X-Gm-Gg: AZFdTZfxql56+HAbh45zSb83hbhpQyN3Z1io9h/1x0G2JpLxbO6V+89LfTDgPLRj9os
-	hdKglylQA6FCs0rOv3xUszp5xYWc+DmFnd173FbsAfsX7tEkyHoio6XtieaDyc8xFnQesK/0Wze
-	QlY/FsVTXWqcOFSWzI8HlqT0OROD9EV3dM8N7NtNm71PoSmfc0ZBU3l2HFlp+O1UtCXJ4ANY3aK
-	sDLlDLgNCI3MkNEZw+U5S9eS3omUng/Z2HkXDMM24Wy8Vh3njO9zimmn90VmqLf7yiEgEfSqOM=
-X-Received: by 2002:a05:620a:4543:b0:949:65fe:b727 with SMTP id af79cd13be357-949ba9b99a7mr3132210285a.26.1795602928320;
-        Wed, 25 Nov 2026 02:35:28 -0800 (PST)
-X-Received: by 2002:a05:620a:4543:b0:949:65fe:b727 with SMTP id
- af79cd13be357-949ba9b99a7mr3132207785a.26.1795602927857; Wed, 25 Nov 2026
- 02:35:27 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795602964; x=1796207764;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=L63JJ2Ypd0n14icsjMGD3F1OXiYfHiYHbWPvy6KkKKU=;
+        b=1c7tY/ZZpPk3UyjaeNdu5ucHv9m9sJk9BljOxn4MJF0q1aKtRceGB96WwJYRuJjez8
+         b+Y6eNvtxglwtPCtDtWoutrwDmfJcIW989sOChBKRVyvsp+nhJ2sSK4OQ7ddvlT+OIN7
+         qem0XtVwmAw3Ui27/nvqjZ8GvXk7YZfobLvFn4YFQw3lIJFKDnc4jP4zVC6boxTSyVbt
+         I8uPR3qdy+LFZy1/3C2IrqvjJ63AjdPoBqLVKbB0Pvr7rjpVlXMPivRGo6BulSt8UYQr
+         K9rlBdqUwO6Pw1nEVZpRU++OETUmQOYKk2CbJSNCNs4rsFhckwtUQrxwcSbdvB1c2IBq
+         o25g==
+X-Forwarded-Encrypted: i=1; AL+hErHBF/vdV7kfMis9Yhl26bKXnAcBtoQdfrMv94bWIOkkRtc8mzS66meEZERPjceBRVn4I4uaAzwDh40iVFg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+opYwZwKmDvetZOvyyf7H3XO3UvEd49oIgj1o1tpmw/hDjHmyI
+	eB819up6Jf5mC4P4IFjqBQ6x8yQK+DmHShHMH+GuCli3HkG1Pa3CjjaA
+X-Gm-Gg: AZFdTZfJsk/tKgAkoF+BLYPjoBF1O9jal95Uah1NxmXV2Hjy0m4pbVoR1i7bNOttHb5
+	HXNWrXCO4kJeAR2rSPFjcdPIxj5zSjb/5hPabUFGEvoEclmz+s5Shqkly49vEWzNFcAzblGVnl4
+	o/hKjImVnKtZUXbteg04nSLKrQDhVaI4N4ohfa+ITPQWau56CxYhiQ1lkZUyo/02mUvsL/IUtIQ
+	LTJ2VykzPRIYVONItWH58sY/4KwwVKR2RsLwxnuf0oypigFl9brK52hg5ymPxWr5W9jwG/SBjlV
+	xNrGIcFdlyNpMHSspX2qjGdUZShLSpoX54VpkEQO+wEH6QeN+DSEAfnWOPcjd/xfjZLJBPKHb4F
+	YUCd3DDaYSKvftbr1/+UsQOyVwl9b7qbJhfd4BcXw9iyoul+yeyo827HyX+5/hXCu+wVslsjgs6
+	axa+WTsnesFBPmke+Hf/K7PRx3HCgphCXhICF4fB/9y9KG/SztK6DIN0CPP0OiX6bTNQCrBx1Kf
+	83fG04mzHhEWt6G4I91AoKfmSRiDRquiM9uKe4Pu/5D0RUZZuFK1e2mf3Brw7BKiOHP9Za6jnRO
+	SC0x8gTnr2BaI2oIWow9mr5NiP5b81ckfcJQuLkPbpwrzJHZGSZW1Akp27Rc1RtzDmSLjauub7i
+	tueND0HV9eDzG3TDr9Z0=
+X-Received: by 2002:a5d:5888:0:b0:49d:2e96:4d55 with SMTP id ffacd0b85a97d-4abb46bc931mr31985965f8f.6.1795602963822;
+        Wed, 25 Nov 2026 02:36:03 -0800 (PST)
+Received: from thomas-precision3591.paris.inria.fr (wifi-pro-83-006.paris.inria.fr. [128.93.83.6])
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-4ab6b10b2c9sm34661276f8f.31.2026.11.25.02.36.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 02:36:03 -0800 (PST)
+From: Thomas Fourier <fourier.thomas@gmail.com>
+To: 
+Cc: Thomas Fourier <fourier.thomas@gmail.com>,
+	Jaegeuk Kim <jaegeuk@kernel.org>,
+	Chao Yu <chao@kernel.org>,
+	linux-f2fs-devel@lists.sourceforge.net (open list:F2FS FILE SYSTEM),
+	linux-kernel@vger.kernel.org (open list)
+Subject: [PATCH] f2fs: fix use after iput() of inode in gc_data_segment()
+Date: Wed, 25 Nov 2026 11:34:54 +0100
+Message-ID: <20261125103502.30568-2-fourier.thomas@gmail.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -128,136 +98,38 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261120-recovery-v4-v4-0-53d6a04490e0@oss.qualcomm.com> <20261120-recovery-v4-v4-4-53d6a04490e0@oss.qualcomm.com>
-In-Reply-To: <20261120-recovery-v4-v4-4-53d6a04490e0@oss.qualcomm.com>
-From: Loic Poulain <loic.poulain@oss.qualcomm.com>
-Date: Wed, 25 Nov 2026 11:35:17 +0100
-X-Gm-Features: Aa3M54re0FQ_0fXLMt1bXHOoqkxsP0SiwM0GqLy5xHbvAlYSumBJKK5qN-6KKNM
-Message-ID: <CAFEp6-3zK1=Fsrkmtmuq7Q3xnNMuCE1R0J8Pe-rAJun9igCcJg@mail.gmail.com>
-Subject: Re: [PATCH ath-next v4 04/10] wifi: ath10k: also wake remaining
- blocked waiters
-To: Kang Yang <kang.yang@oss.qualcomm.com>
-Cc: Jeff Johnson <jjohnson@kernel.org>,
-        Baochen Qiang <baochen.qiang@oss.qualcomm.com>,
-        Jeff Johnson <jeff.johnson@oss.qualcomm.com>,
-        linux-wireless@vger.kernel.org, ath10k@lists.infradead.org,
-        linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-Proofpoint-ORIG-GUID: jEqPntlZbytIaZYVeGkIu4FS_E61-KbJ
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI1MDA0MSBTYWx0ZWRfX7sTVvfYtVR/R
- cmTWLjiyERquXt2lolr1anYnC2kazcEH+1ITaUwyOhIqjkmPw99JMYVdouZ4HvLVGiNFR6OWsI+
- ElcY7MrZINVgealQqpe6EN1KffruEeo=
-X-Proofpoint-GUID: jEqPntlZbytIaZYVeGkIu4FS_E61-KbJ
-X-Authority-Analysis: v=2.4 cv=CKu/zhrD c=1 sm=1 tr=0 ts=6b06b9f1 cx=c_pps
- a=hnmNkyzTK/kJ09Xio7VxxA==:117 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
- a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
- a=3WHJM1ZQz_JShphwDgj5:22 a=EUspDBNiAAAA:8 a=pfe4PHYFt_2W75ZQFz8A:9
- a=QEXdDO2ut3YA:10 a=PEH46H7Ffwr30OY-TuGO:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI1MDA0MSBTYWx0ZWRfX9+khbYTkmpYX
- o9AO2eiJ7wkADmmhro06+KozwxNOK+yphsFkKVlCrdWHYAq0U4Ic2hXa4MOkZsnrekNvcRUulyY
- 8SI/bQ/BpITixihEP6aZY4HMtBcOFvqt8/4mC02V0U6dBHt5haorMf+/VzLWt21WD+ggngjz/fo
- L8c0eumkOV0xQuITTq6X0AzCr2xFOl+LBrvJbpKPilY9dZ3WOYrMCyPUaIwUovLNePqlirBnt8s
- f1ljHK8u8eWG26iNbQcVCCARFhdzt5FpYUYutjyN0t3Jg6nKRaxLpdnGfgjvZohx0vFXeAVi0tY
- Y+vI1iSA1SXK9rO6P//1MBdHsO8gX7mg/iJoqP7MHkqQsGFqdhWDsgsG41P/GVVmz0bbP1Mam7n
- zKfzqpzhKwwS4wl1Uuc02BZvJqOYiBj2XRcCfkLJRYxOTr2SOjClV3DklhqD9gw1m502gkgKixm
- 0Su2Sx945wgi9NzeZpw==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-25_03,2026-11-23_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 lowpriorityscore=0 clxscore=1015 malwarescore=0 bulkscore=0
- spamscore=0 phishscore=0 impostorscore=0 suspectscore=0 priorityscore=1501
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611250041
+Content-Transfer-Encoding: 8bit
 
-On Fri, Nov 20, 2026 at 9:42=E2=80=AFAM Kang Yang <kang.yang@oss.qualcomm.c=
-om> wrote:
->
-> ath10k_core_wake_all_waiters() still misses several completions,
-> leaving their callers blocked after the driver has given up on the
-> device.
->
-> In particular, callers waiting on peer_delete_done, target_suspend,
-> wow.wakeup_completed, peer_stats_info_complete or wmi.radar_confirm
-> continue sleeping until their individual timeouts expire even though
-> no further progress is possible. The WoW and suspend waits are on the
-> suspend and resume paths, where these delays consume watchdog budget.
->
-> Add the missing completions to ath10k_core_wake_all_waiters() so the
-> callers are released immediately.
->
-> peer_delete_done is not otherwise reinitialized before every wait.
-> A completion left signaled by recovery would therefore make a later
-> peer-delete wait return immediately. Reinitialize it before sending
-> each peer-delete command.
->
-> Tested-on: QCA6174 hw3.2 PCI WLAN.RM.4.4.1-00288-QCARMSWPZ-1
-> Tested-on: QCA6174 hw3.2 SDIO WLAN.RMH.4.4.1-00189
->
-> Signed-off-by: Kang Yang <kang.yang@oss.qualcomm.com>
-> ---
->  drivers/net/wireless/ath/ath10k/core.c | 5 +++++
->  drivers/net/wireless/ath/ath10k/mac.c  | 3 +++
->  2 files changed, 8 insertions(+)
->
-> diff --git a/drivers/net/wireless/ath/ath10k/core.c b/drivers/net/wireles=
-s/ath/ath10k/core.c
-> index 3bb4d2742c30..99960f12dc66 100644
-> --- a/drivers/net/wireless/ath/ath10k/core.c
-> +++ b/drivers/net/wireless/ath/ath10k/core.c
-> @@ -2542,7 +2542,12 @@ static void ath10k_core_wake_all_waiters(struct at=
-h10k *ar)
->         complete(&ar->install_key_done);
->         complete(&ar->vdev_setup_done);
->         complete(&ar->vdev_delete_done);
-> +       complete(&ar->peer_delete_done);
-> +       complete(&ar->target_suspend);
-> +       complete(&ar->wow.wakeup_completed);
-> +       complete(&ar->peer_stats_info_complete);
->         complete(&ar->thermal.wmi_sync);
-> +       complete(&ar->wmi.radar_confirm);
->         complete(&ar->bss_survey_done);
->         wake_up(&ar->htt.empty_tx_wq);
->         wake_up(&ar->wmi.tx_credits_wq);
-> diff --git a/drivers/net/wireless/ath/ath10k/mac.c b/drivers/net/wireless=
-/ath/ath10k/mac.c
-> index 74aca0af11c8..695df1821e5c 100644
-> --- a/drivers/net/wireless/ath/ath10k/mac.c
-> +++ b/drivers/net/wireless/ath/ath10k/mac.c
-> @@ -843,6 +843,7 @@ static int ath10k_peer_delete(struct ath10k *ar, u32 =
-vdev_id, const u8 *addr)
->
->         lockdep_assert_held(&ar->conf_mutex);
->
-> +       reinit_completion(&ar->peer_delete_done);
->         ret =3D ath10k_wmi_peer_delete(ar, vdev_id, addr);
->         if (ret)
->                 return ret;
-> @@ -5897,6 +5898,7 @@ static int ath10k_add_interface(struct ieee80211_hw=
- *hw,
->  err_peer_delete:
->         if (arvif->vdev_type =3D=3D WMI_VDEV_TYPE_AP ||
->             arvif->vdev_type =3D=3D WMI_VDEV_TYPE_IBSS) {
-> +               reinit_completion(&ar->peer_delete_done);
->                 ath10k_wmi_peer_delete(ar, arvif->vdev_id, vif->addr);
->                 ath10k_wait_for_peer_delete_done(ar, arvif->vdev_id,
->                                                  vif->addr);
-> @@ -5959,6 +5961,7 @@ static void ath10k_remove_interface(struct ieee8021=
-1_hw *hw,
->
->         if (arvif->vdev_type =3D=3D WMI_VDEV_TYPE_AP ||
->             arvif->vdev_type =3D=3D WMI_VDEV_TYPE_IBSS) {
-> +               reinit_completion(&ar->peer_delete_done);
->                 ret =3D ath10k_wmi_peer_delete(arvif->ar, arvif->vdev_id,
->                                              vif->addr);
+In phase 3 of gc_data_segment(), if f2fs_has_inline_data(inode) is true,
+inode may be freed by iput() before the error message reads
+inode->i_ino.
 
-So it would probably be cleaner to have a helper such as
-__ath10k_peer_delete() that performs both the reinit_completion() and
-the ath10k_wmi_peer_delete() call. Avoiding duplication.
+Report the error before dropping the reference.
 
->                 if (ret)
->
-> --
-> 2.34.1
->
+Signed-off-by: Thomas Fourier <fourier.thomas@gmail.com>
+Fixes: fc01008c92f4 ("f2fs: fix to do sanity check on F2FS_INLINE_DATA flag in inode during GC")
+---
+ fs/f2fs/gc.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/fs/f2fs/gc.c b/fs/f2fs/gc.c
+index 0a00180c21dc..c7dc65acd052 100644
+--- a/fs/f2fs/gc.c
++++ b/fs/f2fs/gc.c
+@@ -1650,12 +1650,12 @@ static int gc_data_segment(struct f2fs_sb_info *sbi, struct f2fs_summary *sum,
+ 			}
+ 
+ 			if (f2fs_has_inline_data(inode)) {
+-				iput(inode);
+ 				set_sbi_flag(sbi, SBI_NEED_FSCK);
+ 				f2fs_err_ratelimited(sbi,
+ 					"inode %llu has both inline_data flag and "
+ 					"data block, nid=%u, ofs_in_node=%u",
+ 					inode->i_ino, dni.nid, ofs_in_node);
++				iput(inode);
+ 				continue;
+ 			}
+ 
+-- 
+2.53.0
+
