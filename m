@@ -1,90 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.44
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.70
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795606077;
-	b=KO1KaguUX4CqrRJTxmSAHiS6BR8nCjZQxRR3cMVEToRadDJJJPDbyvgtVJtOclpZ83xl
-	 lhz4oFZ5foRGqccVIt96XIBWSe/r2SDhZhiqcnl56qSgk2R4rJ9ePwiPUC5oDDL7kvY7u
-	 xc7Ya7+uN5p8EEkc4GtzWn6xPm+TKAW/kZwlCKvpoHJ5tHJ5HWqepbduw6H4Y+n94RIn5
-	 nE94ZnLWTBUPthWQMiit3nu0FLVscYkfbEAbRlUFXgzkQxHGqute69K1Kc6v5MjPsJxMG
-	 vJ3GbCzAZfaDFoyEeNyVsswz9o9nf/l/JXprMEHX5JW7ZYE4xvhF3sbxMYb+rQxQ1vA==
+	t=1795606121;
+	b=jr5m1cF3+zdb27aVeMh0Sg8TWswmoX18PqylnfkAhzECeBB2mCjduX4k6Ni5K4E9GWYe
+	 Xk00LuqgxIt48EI01xWr9E/jDn/8bdoahk+6HhxwOnD3sch39UFEYpcz0P8jKJ090RU2w
+	 SHEFxPnphpTnBqlKqo38uBjD/C3m/hSVdy/TO71zJv+ioKJb0dUd2bUbYOU+n5N9DrPWA
+	 HpFXevDpQadGSWzFWpV5sbbGCFHEN0NezCwZCH5uQ2h6p4K5jNv1LguhFObQm5BUEAyS2
+	 +8mmBoREOiRwGqyMuB/GDRjQR1V7f0R5iQIQFILwggk7DwpZCqrEFcUxGg/twbAPekw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795606077;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795606121;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:MIME-Version:Content-Type:
-	 Content-Disposition;
-	bh=6CgTfiZOL+WTnVSNydqbdz+GPzYfHdE/NBvMC5F7pDU=;
-	b=TpHqwJ0gy63vnzRRDHqwwOA/Rvqc6iWMWIvkq9BK60daMetMGiQzfA3IKIHl80Z1m3Mu
-	 RHAChgAJ28dcsWm5nnSlFW3pc4+qsQKkyx50KW1r1CG7QH0G0Z1drvNBrLfeHfF8hFd6T
-	 G6xh6xmdFWW8fEHDIa0r8c4xozpOENo7/SL1UGj4g+i5bGoqdDj8sDrw3Wg1HncicgcHz
-	 bgPmuY/PmaAcUG6Al4qPxdr5OF88+Q6g2S+miJEiUJpFAl9pp6EFEZRxgaOMBjYcOB6zn
-	 rEOgF9N3DHK2rR3RfYtNn4sQUY65rlQ2nj5XH0MxitA0H6Ty4YU9uUgWlYbPl9Nym6g==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
+	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=ZYZwLQfYchu10NlP8wZM+iDrPykFs3AzjnpE4jR9w34=;
+	b=mmVtmfXeo+lp/SL84llTAUIeHx1ys8qq0I99g4qkHbLgNCtGUP1he+Apzx+/HGfLVf9b
+	 q1FB6qV3pjPE4glkeKrQ85jmME+6hS8xfD4lfaJ/a8Xh6YhdNjKDNsQ0yMORheIEI9bYa
+	 XJza69EemrVH3VxGpAfCMCtsxeRN102cVJH7MXsDU446Zzg/ECMkJSXZAT8ckahDJk0oe
+	 N4BsRp6ZV9NAsEJNaEVeR1UtRg3laQc1armSUmuclwDi2JaNYN2dAiLkGABNZdqcI07D8
+	 bG6OGq+uEUFjIq0FfVgmJMgT2rwwVSdYuCgONRPpH+YURtl9WAKMUA5DSajbaXav+oQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=KAnZomgn;
-	arc=none smtp.remote-ip=209.85.128.44
-Received: from mail-wm1-f44.google.com (mail-wm1-f44.google.com [209.85.128.44])
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--jpiecuch.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b="cD0cn/qs";
+	arc=none smtp.remote-ip=209.85.221.70
+Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com [209.85.221.70])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B1451606A326
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:27:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B1451606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 80C34606A329
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:28:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 80C34606A329
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--jpiecuch.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=KAnZomgn
-Received: by mail-wm1-f44.google.com with SMTP id 5b1f17b1804b1-4a5177d78c7so55757665e9.2
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 03:27:56 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=cD0cn/qs
+Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-48e011829easo3401310f8f.3
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 03:28:41 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795606075; x=1796210875; darn=vger.kernel.org;
-        h=content-disposition:content-type:mime-version:message-id:subject:cc
-         :to:from:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=6CgTfiZOL+WTnVSNydqbdz+GPzYfHdE/NBvMC5F7pDU=;
-        b=KAnZomgnWCxR8C5xW1D1ca3xwrSNNGJ1YDZHJr+nIMsk2zIcRtIRo+87NfYGZkZwD9
-         pO1scVf/DftdoPKfcEdfMay1VLfGesUz9bM6NpShWV0NpNLdw6pG0nwiBwNTDpv5rQ2N
-         H1E/dJvkNN1sIj1cJ54DvrP9axa4A0xsFZ7zvBrQLE8eZHfpWGBFVN90mq5yqWSyUOdv
-         SRXnIi3NDLryXlCGLx82mrm9Nrj5gDFFc/Nc7eDrZk/G9SkIrxVA9V9RVx9uGhj/6Ly3
-         4wzyM0zsTw5dWYTV+Rc21fzEwhOJEJclfIWzToHSrRFALYcyAe8oTBeiuIVFggxSzZXB
-         9w0Q==
+        d=google.com; s=20260707; t=1795606120; x=1796210920; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=ZYZwLQfYchu10NlP8wZM+iDrPykFs3AzjnpE4jR9w34=;
+        b=cD0cn/qsIDIDQttTrW/fdVDa4M6smWYt3mmHlGLWAVhG6v2h0FA3cxaMY5l6fUjqJ8
+         HlmsTj+g620qKsEaqke8X0EIHxDDCkNk/CR5b0Bgego88U1U7/G9ESc/3ga+8bbnt7M4
+         QNKa0V6EL74o1FmhNcuyEFLmL0ywTX9Tk2bWAs1q88lJSvBvgAwI32mkzUdfRlyWNTD4
+         6g0RLzn+6qC3l95yJgkIvFQCKfg3+Jc2mYMm3/7bwjK2ixjImvsUA/3R0ooOKczmA4FK
+         uR0ca1SuoHyWv/PdrZEJsU/FlDwZgz0tHdhzTGZRqTLv+6XmXN/+gUMV7nMW3JCgucbK
+         t/QQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795606075; x=1796210875;
-        h=content-disposition:content-type:mime-version:message-id:subject:cc
-         :to:from:date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=6CgTfiZOL+WTnVSNydqbdz+GPzYfHdE/NBvMC5F7pDU=;
-        b=Vxmo9WZssP3P0kCFMr8+Z03RVaVyx5ecVDGsciEZ48irM8l+VBmJEQ2p/413rANgkw
-         wdZGK62oIhFeba+Hab5f7SSSXgdHhCAkNOotjy2nI+SWFHN5RCTNtzQeCP4aBZgFezBJ
-         Bixmuf8a5FfTAwQ3TcVJC8VcPyGvvW3v/Vzyff/oiDKW0+4u9PlWOAQQxJBAcgWAcJw6
-         2zdQHwcEflOw5h2KSvmj9fRu1i5D2r/0+D9h+YkgRTugnytDtzWC/g8jryMEe3P+AkHF
-         8umrsKUE2TmSTaXjmNwj63KFRzqltnGF8MUMQZlKEVQJeukboeNbej4l7XdEa+nJ2Q/h
-         ve/Q==
-X-Forwarded-Encrypted: i=1; AL+hErEIpFOmXDOXTEPR+QFIqflD1ZsZqILu6G6kPy2CJvt1wG4HU6rImbWIjn9aeSCmpWszrel3eqFut1SesNs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8FT5EojT6PauozFarKoAPT0ewAZG6O/xlmcxFz9f4+T0ytkIfe
-	VVMdtktfZ4qny2gwlQy4D2RRVXSPtp8qoBZ6YBRwUBjhAkINoE5FZkcEhsZnZw==
-X-Gm-Gg: AZFdTZekcrLbzJ7RwxgCu9xK/oKnqV6LKofBf1RCqO1BuYaapPmmsscAW156jQiHG1z
-	6FFyC1fpSty4B+ZLXP8k1EXC2Q5Uf5qiYhc9F1pq1k0wz6g11JX16+shf5+er23gvvknDtM8XOD
-	YSP+QX4RCvaLuGpEcoV1BMmiu6HPRHnJZLx5sp5yGDVuW/xs9em7ix42ff1vITRD53w4ESnMedP
-	8mQZJQlp+kb4vr9J99yI3/P9swQOA0BCCeC/PNFYx0Lz5Ovzk72LdFVJDl9+NiNXTXphpxYleBK
-	So8T5UjDw/rNx75UXjMD6fWhMn5jrL9qXt3Iv3XeAnvP3R5hk2vPbG1U07+EOQu9deiVylVEBRo
-	55b0iDFH6kTrmOasI4yXkTiwpLCJXaEasUPREGSAw5Lpdzj2O8PAWYJaYt7DRLPJt1MnqmaLHYX
-	oObE4Er1OZUrFd4isS4YEOl9LaBynDtAJ4K581UJS1ENhHOIb25uZ1UcpmzGTEqQQFm30a2weii
-	ziw8dAOqGBQvlDLChytHpyixQYYgmCb38p3GLhkobtgIfdcOF2hu/3MNImFcq5u4038AijjfhHa
-	VwEDz4XH3bJX8mc86tul2YUgLufUX254sj6z7PKvtVbo+jQ84i1dSz+HPXvqsVuV
-X-Received: by 2002:a05:600c:4f84:b0:4bb:8701:a2df with SMTP id 5b1f17b1804b1-4bb88809950mr360052035e9.17.1795606074854;
-        Wed, 25 Nov 2026 03:27:54 -0800 (PST)
-Received: from michalis-linux (adsl-75.176.58.251.tellas.gr. [176.58.251.75])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853b2437sm729734405e9.13.2026.11.25.03.27.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 03:27:54 -0800 (PST)
-Date: Wed, 25 Nov 2026 13:27:53 +0200
-From: Michail Tatas <michail.tatas@gmail.com>
-To: amit@kernel.org, arnd@arndb.de, gregkh@linuxfoundation.org,
-	fan.jiaming@hotmail.com
-Cc: virtualization@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: [PATCH RESEND] virtio_console: Put device on failure
-Message-ID: <awbGObIpMjR21JSC@michalis-linux>
+        d=1e100.net; s=20260707; t=1795606120; x=1796210920;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ZYZwLQfYchu10NlP8wZM+iDrPykFs3AzjnpE4jR9w34=;
+        b=beOv0VtkTkh74pc7kU9xN7TENEtE6l5uASeZX+o2aCjUwPOYob/MaaGm62icQ37iss
+         kvUdftv2LSjPFfsxq5318HPYF0hjhmiiuXAxkRQWtH27cPK/umQk3oJz6UF4VfnMf93K
+         FK+9XizIVJ3KyimsXf+T5aefm3jZLsx+gPxIs0AL1T/JpHHKl8CntaPRkRmtAI0836rq
+         AI1nFM9ng0avfXqCGHdOpL18OCo2B2efyDbnYwGYURCQ0IUET4izH6wbwYHV/iM+fvbn
+         kBbYogTJa37VUKM8JO5fSl8F7WrfhHtZwNg1RN6TvKTPFZISaLUSDOAygwfIJ5VcQCJ4
+         OyNA==
+X-Forwarded-Encrypted: i=1; AL+hErEbXg35upEoVc8HagQeb7ENYHE19lcJfgQMM808r74shfOHs0iCehl7H4e11rFW47nl/n5DTxL9KpTpSbA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9cLB3Dy8/9HWf8fpOzO0b9g+diZYKIeVMnsc+omZTS4BLMJXIy
+	LJDwxsnealbOCX+hLIWQJl+xH35hbLz3KDA2VU91Kgqi8+xUYQvbTMu8SZKt5Ut6CUAL09PgNLZ
+	MkqADmvZy/t0xcQ==
+X-Received: from wrpg9.prod.google.com ([2002:adf:f3c9:0:b0:4b7:8eec:f673])
+ (user=jpiecuch job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6000:4812:b0:4a6:bc53:247f with SMTP id ffacd0b85a97d-4abb7d45e6cmr30551834f8f.48.1795606119414;
+ Wed, 25 Nov 2026 03:28:39 -0800 (PST)
+Date: Wed, 25 Nov 2026 11:28:34 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,48 +75,136 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
+Message-ID: <20261125112553.1539758-1-jpiecuch@google.com>
+Subject: [PATCHSET v2 sched_ext/for-7.4-fixes] sched_ext: Fix ops_state and
+ ops.dequeue() locking in dispatch
+From: Kuba Piecuch <jpiecuch@google.com>
+To: Tejun Heo <tj@kernel.org>, David Vernet <void@manifault.com>, Andrea Righi <arighi@nvidia.com>, 
+	Changwoo Min <changwoo@igalia.com>
+Cc: Kuba Piecuch <jpiecuch@google.com>, fangqiurong <fangqiurong@kylinos.cn>, 
+	sched-ext@lists.linux.dev, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-If dma_alloc_coherent() fails, the buffer is freed but not the
-reference which is acquired before calling dma_alloc_coherent().
-Fix by calling put_device in the error path.
+finish_dispatch() hands a task claimed in SCX_OPSS_DISPATCHING to
+scx_dispatch_enqueue(), which inserts it into the target DSQ and only
+then, after dropping the DSQ lock and (for SCX_DSQ_GLOBAL) after calling
+ops.dequeue(), stores SCX_OPSS_NONE. When the task is remote,
+finish_dispatch() holds the dispatching CPU's rq lock, not the task's.
+This causes three problems.
 
-Signed-off-by: Michail Tatas <michail.tatas@gmail.com>
----
- drivers/char/virtio_console.c | 8 ++++++--
- 1 file changed, 6 insertions(+), 2 deletions(-)
+1) The task is visible on the DSQ while still DISPATCHING. Another CPU
+   can consume and requeue it before the dispatcher's final store, which
+   then overwrites the new state. Without the waits described below:
 
-diff --git a/drivers/char/virtio_console.c b/drivers/char/virtio_console.c
-index 62eecfa61646..de83a8a61a8f 100644
---- a/drivers/char/virtio_console.c
-+++ b/drivers/char/virtio_console.c
-@@ -451,18 +451,22 @@ static struct port_buffer *alloc_buf(struct virtio_device *vdev, size_t buf_size
- 		/* Increase device refcnt to avoid freeing it */
- 		get_device(buf->dev);
- 		buf->buf = dma_alloc_coherent(buf->dev, buf_size, &buf->dma, gfp);
-+		if (!buf->buf)
-+			goto free_buf_and_put_dev;
- 	} else {
- 		buf->dev = NULL;
- 		buf->buf = kmalloc(buf_size, gfp);
-+		if (!buf->buf)
-+			goto free_buf;
- 	}
- 
--	if (!buf->buf)
--		goto free_buf;
- 	buf->len = 0;
- 	buf->offset = 0;
- 	buf->size = buf_size;
- 	return buf;
- 
-+free_buf_and_put_dev:
-+	put_device(buf->dev);
- free_buf:
- 	kfree(buf);
- fail:
+     CPU 0 (finish_dispatch(), rq0)        CPU 1 (rq1 == task_rq(p))
+     ------------------------------        ------------------------------
+     QUEUED -> DISPATCHING
+     insert p into global_dsq, unlock
+     ops.dequeue(p) ...
+                                           scx_consume_global_dsq()
+                                             moves p to local DSQ
+                                           reenq_local()
+                                             ops.enqueue(p)
+                                             ops_state = QUEUED(qseq')
+     ops_state = NONE
+       -> QUEUED(qseq') is lost, later
+          finish_dispatch()es of p see
+          NONE and drop it, p stalls
+
+   Commit 7de9a6fb44ea ("sched_ext: Wait for SCX_OPSS_DISPATCHING before
+   reenqueueing a task") and commit 2935062be771 ("sched_ext: Wait for
+   SCX_OPSS_DISPATCHING before moving tasks off DSQs") paper over this
+   with scx_wait_dispatching() at every place that takes a task off a
+   DSQ. Consuming a task from the global DSQ then busy-waits, with the
+   task's rq lock held and IRQs off, until the dispatching CPU returns
+   from ops.dequeue(). Lockdep can't see that dependency.
+
+2) For a remote task dispatched to SCX_DSQ_GLOBAL (or to a destroyed
+   user DSQ, which falls back to the global DSQ), task_leave_custody()
+   does an RMW of p->scx.flags without the task's rq lock. DISPATCHING
+   keeps dequeues away, but other paths update p->scx.flags under the rq
+   lock without dequeueing:
+
+     CPU 0 (finish_dispatch(), rq0)        CPU 1 (scx_sub_enable_workfn())
+     ------------------------------        ------------------------------
+     QUEUED -> DISPATCHING
+     lock global_dsq, insert p
+     tmp = p->scx.flags
+                                           task_rq_lock(p)
+                                           p->scx.flags |= SUB_INIT
+                                           task_rq_unlock(p)
+     p->scx.flags = tmp & ~IN_CUSTODY
+       -> SCX_TASK_SUB_INIT is lost
+
+3) In the same case ops.dequeue() runs with scx_locked_rq() pointing at
+   the dispatching CPU's rq, although SCX_CALL_OP_TASK() promises the
+   task's rq is locked. kfuncs that operate on the locked rq then act on
+   the wrong CPU, e.g.:
+
+     scx_dispatch_sched()                       /* CPU 0, rq0 locked */
+       ops.dispatch()
+         scx_bpf_dsq_insert(p, SCX_DSQ_GLOBAL)  /* task_cpu(p) == 1 */
+       scx_flush_dispatch_buf()
+         finish_dispatch()
+           scx_dispatch_enqueue(rq0, global_dsq, p)
+             ops.dequeue(p)
+               scx_bpf_cpuperf_set(1, ...)
+                 scx_error("Invalid target CPU 1")
+
+Patch 1 factors the holding_cpu + SCX_OPSS_NONE + switch_rq_lock()
+handoff out of dispatch_to_local_dsq() into
+release_dispatching_and_lock_task_rq() with no functional change.
+
+Patch 2 clears ops_state in scx_dispatch_enqueue() while the target DSQ
+(or rq) is still locked and before ops.dequeue(), so a task found on a
+DSQ is never DISPATCHING. finish_dispatch() now inserts a remote task
+into the global DSQ under the task's rq lock via
+dispatch_remote_task_to_global_dsq(), using
+release_dispatching_and_lock_task_rq(). On a destroyed user DSQ,
+scx_dispatch_enqueue() clears ops_state after scx_error() and returns
+without falling back to the global DSQ, leaving scx_bypass() to recover
+the task. SCX_TASK_IN_CUSTODY is only set with the task's rq locked,
+lockdep assertions are added, and the now impossible QUEUED &&
+!IN_CUSTODY retry in ops_dequeue() and a stale comment in scx_bypass()
+are dropped.
+
+Patch 3 removes scx_wait_dispatching() and all its callers, as it can no
+longer find a DISPATCHING task. ops_dequeue() keeps its own wait.
+
+Patch 4 makes dequeue_remote check in ops.dequeue() that
+scx_bpf_locked_rq() is the task's rq, and adds a scenario that inserts
+tasks into SCX_DSQ_GLOBAL from remote CPUs. dequeue_remote fails without
+patch 2.
+
+The patches were written with the help of an AI coding assistant.
+
+Changes in v2:
+- Split release_dispatching_and_lock_task_rq() extraction out into a
+  separate preparatory patch (Patch 1) (Tejun).
+- Patch 2: On a destroyed user DSQ in scx_dispatch_enqueue(), clear
+  ops_state and return instead of falling back to the global DSQ,
+  letting scx_bypass() recover the task and dropping the bool return and
+  finish_dispatch() retry (Tejun).
+
+v1: https://lore.kernel.org/all/20261123170846.3165648-1-jpiecuch@google.com/
+
+Kuba Piecuch (4):
+  sched_ext: Factor out release_dispatching_and_lock_task_rq()
+  sched_ext: Fix ops_state and ops.dequeue() locking races in dispatch
+  sched_ext: Remove scx_wait_dispatching()
+  selftests/sched_ext: Test that ops.dequeue() runs with the task's rq
+    locked
+
+ kernel/sched/ext/ext.c                        | 264 ++++++++++--------
+ kernel/sched/ext/internal.h                   |   1 -
+ .../selftests/sched_ext/dequeue_remote.bpf.c  |  34 ++-
+ .../selftests/sched_ext/dequeue_remote.c      |  37 ++-
+ 4 files changed, 208 insertions(+), 128 deletions(-)
+
+
+base-commit: 97e1c7d467d07734f8f5c8c64730e1f7c415bd46
 -- 
-2.43.0
+2.56.1.839.g22a8290db9-goog
 
