@@ -1,149 +1,117 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.229.62
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795617808;
-	b=F8vT8+YKSO82dKuOlsFmHjlCqsVfNGQLMx/ZkV99S9aMIp6vWs9FKbRuKCf6TIwocPbL
-	 2/PWmKBMK9eueRiWWmlSFRKuXC9lD2ZP5SfTkb7VwsK6BTqB6byeXGXr5l4PcpfAxYujN
-	 QlNA6GLyZqo61QVwJLnCzb1xZDfylXxo9rLqdWFFVj3smRhHm8/T4aZmyFaLrIGC5f3eO
-	 sNF3poa5A35RztDuBjhPD4Ty4Wk8Dih9NRNbGhwnMZ+EHbZerHQS9o9drkjWSWmkV6/Oj
-	 a6jPinzTHG7t+xWZ9TcQZtG6RqSG1C62cJrfuqKq9Rp2myBAHzH5YrGXcg3M0MODqQw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795617808;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:CC:Subject:
-	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
-	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
-	 x-ms-publictraffictype:x-ms-traffictypediagnostic:
-	 x-ms-office365-filtering-correlation-id:x-ms-exchange-senderadcheck:
-	 x-ms-exchange-antispam-relay:x-microsoft-antispam:
-	 x-microsoft-antispam-message-info:x-forefront-antispam-report:
-	 x-ms-exchange-antispam-messagedata-chunkcount:
-	 x-ms-exchange-antispam-messagedata-0:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-originalarrivaltime:
-	 X-MS-Exchange-CrossTenant-fromentityheader:
-	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
-	 X-MS-Exchange-CrossTenant-userprincipalname:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=bV92rH+bG4YRQ2nDulXzGyi6iqZ60esAK/FYPCj2V4M=;
-	b=ChIY4w/ArCHsBwkw3Rc5qqXt2DftjlmcttFv90o+5j4eqd5zduDq6MmYJVOKm1tFN65L
-	 jVtANZBn+7ZgoZMtv74qq4PEdqtjo3NSZJwUP34u6uNbDHGvOIGE96eCRYW1wGGkQNshs
-	 TCvyefFyBDbdn9Rg7ACuKTGrP3ZVkhUwrbwdKBVl0z8pStVwzu4KeejEypGxZUWKDxAR6
-	 arEEC0+r/vEpdy7zg+b+oTwKs6JS5IzGtucAxRMIQdZhezjIWmrKRwYWZMr6adgyP+gui
-	 Kp5CruQhQ3GQG6VHlw11KalgiRL++8ZO0SRJcROq7F586BjMLrfc43IifSwZH0Nn+1Q==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bp.renesas.com;
-	spf=pass smtp.mailfrom=bp.renesas.com;
-	dkim=pass header.d=bp.renesas.com header.i=@bp.renesas.com header.a=rsa-sha256 header.s=selector1 header.b=AyS3g83N;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.229.62
-Received: from TY3P286CU002.outbound.protection.outlook.com (mail-japaneastazon11010062.outbound.protection.outlook.com [52.101.229.62])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.130
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795617833;
+	b=vW0a5487K/XlgEj6RkzxSjoAVn6fXcsKiFLf+S9lQCtNkFCEO7FxIKDaeCrHrZFiXRqw
+	 76vRTq8t3FgPk9nrm7rEgiZsu49cpvucZpZ6KkmXtEGSl84EVErzR3S3AAm1SwOHVYzr2
+	 4aNkIn5CHcNiRNV0J13yae2P/9qEdEPgUT88MY8/Op6o8hv6MdaQ+ZXfSw8vfAh7yDpA4
+	 WXDM6wJcBAPj8OqFO+ZVCqxEZxriYbLkKwTjZayjKiaHVtSWOn6Mbgcae1AVXmedBaoD0
+	 /aqajPd1JcSTwqW6NRTjBoFNYSMuJvOHI7N6rAesCYpITIiQu+JxGY/q+tYf+qWdFdw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795617833;
+	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
+	 DKIM-Signature:Received:Received:Date:Message-ID:From:To:Cc:Subject:
+	 In-Reply-To:References:User-Agent:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-Spamd-Result:X-Rspamd-Server:
+	 X-Rspamd-Action:X-Spam-Flag:X-Spam-Score:X-Spam-Level:
+	 X-Rspamd-Queue-Id;
+	bh=VeYq3Tu1ASHlN7oSA4+VfsVIQfo63WP5vAo770LlUAc=;
+	b=Uq7xmHkRutyr4cbNwnnWx4brqvEGawI2G13jqx6x2Hz2/ZlbaG2lgf98kN00wh4D0La/
+	 b3kfcJhyMQrLFxwA6tEA1G95Hc/3K1hrwHV6d/VzSSsOF2IskK0FKp8WN6i1wFx/ZwcHb
+	 r3G6G6Zt/F2+wH5BMvKiZxKboNKVKn49n+o4WP2xsnwBEi//CeP9lhE7cJ8YQz8d+wI2i
+	 LYQ9L8SGPELRmHkHRfeuhl68lfuqL2LN4BUwrusQvJW6KxcD6QCDEurAt7vbDxtRUkmTS
+	 AXQyNkN27OnBe4xCDjuVRSRS46pS352OhalBpVZwN3WuvofGVXkweCnSODrrguT9/SQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=suse.de;
+	spf=pass smtp.mailfrom=suse.de;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=rCKvy4q4;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=vRKABZQr;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=rCKvy4q4;
+	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=vRKABZQr;
+	arc=none smtp.remote-ip=195.135.223.130
+Received: from smtp-out1.suse.de (smtp-out1.suse.de [195.135.223.130])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D3CAC606A326
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:43:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D3CAC606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=bp.renesas.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bp.renesas.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BF16A606A321;
+	Wed, 25 Nov 2026 14:43:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BF16A606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=suse.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=bp.renesas.com header.i=@bp.renesas.com header.a=rsa-sha256 header.s=selector1 header.b=AyS3g83N
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=AZtgGAlzG7KWWydf8G3AULadN2wvhPmK8OiaPnEQ/JAKSVz2eRhIZaYgyZzYhtXm3m9tijRZeWaFajrdUwGGg1oz3C3sW4uGZObezQsNyrA2C0/YDoUJxiaQ4b4lAhC2HT2BvlRHK+XUtgfukJsVU0hMEMJpHKV7cguxe5H7F7NdVLX1ykib94vRaiBULdOMd1wSN/IkP3V8Ml90gFkHdD1VQTswubdT+5A+cZYcOmPkq+zyNM9qIBquXWJjIwm0xPPX/CtfWPKMog3qVS21KGUwznsEVRmQRrfUAoWn2zGky2rn8AGwmQn9z2dC8cgcoSQx7XAA6XHKTwyyG24uaA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=bV92rH+bG4YRQ2nDulXzGyi6iqZ60esAK/FYPCj2V4M=;
- b=rDSUulhetCLj0En9cqj2A0dz7K7+UBSSlZefJHVJudb4SeZ4ofksQYHY8r+Bhds5A6/Qjr2XzdbQLAYw8BJIhkfHUdxmho3BEU7FCXzXUPqg5VHG+Pwo1s+TS001hoIJ16mAa0lIo5Bdll1/u9LsoSFcUubAlitBMUFIFkXQ6Qqv40z5z8teSsvLhilaJ7H2t7NSUSkzRWkkXCk8PZTXfnoe6n/OTf8TBTbIPhD+CBY7Q4SrG5CFSh8RndLDAllGQ3MI0nl+XZNk/qrkeojKfNbk5usFD1QOAkqTU3OhabeQGBNyHeSO5mD+nlrcUKDR2iQZSSTVTcSBqiar77tNbA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=bp.renesas.com; dmarc=pass action=none
- header.from=bp.renesas.com; dkim=pass header.d=bp.renesas.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bp.renesas.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=bV92rH+bG4YRQ2nDulXzGyi6iqZ60esAK/FYPCj2V4M=;
- b=AyS3g83NB62DYWKLaWrh67G8IDGB0eDf5HXqXiOi17/8hk8JG/jB4iAm6rVKp2yuDlYIzfVH/tT0EcvO2yVdVcJNsDjIlG4bIvJwfrKrezdsJMGKGl10yxCJ4MS8cysazUmJ2p2NtRb2fIN3lP7bfxBTf3kpUm+6c3kKWlqjUcg=
-Received: from TY4PR01MB443929.jpnprd01.prod.outlook.com
- (2603:1096:403:707::18) by TYYPR01MB7975.jpnprd01.prod.outlook.com
- (2603:1096:400:fd::12) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.7; Wed, 25 Nov
- 2026 14:43:23 +0000
-Received: from TY4PR01MB443929.jpnprd01.prod.outlook.com
- ([fe80::82b2:2570:827b:3e2a]) by TY4PR01MB443929.jpnprd01.prod.outlook.com
- ([fe80::82b2:2570:827b:3e2a%5]) with mapi id 15.21.0639.012; Wed, 25 Nov 2026
- 14:43:16 +0000
-From: Prabhakar Mahadev Lad <prabhakar.mahadev-lad.rj@bp.renesas.com>
-To: Vlad Poenaru <vlad.wing@gmail.com>, Prabhakar
-	<prabhakar.csengg@gmail.com>, Ingo Molnar <mingo@redhat.com>
-CC: Peter Zijlstra <peterz@infradead.org>, Juri Lelli <juri.lelli@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>, Dietmar Eggemann
-	<dietmar.eggemann@arm.com>, Steven Rostedt <rostedt@goodmis.org>, Ben Segall
-	<bsegall@google.com>, Mel Gorman <mgorman@suse.de>, Valentin Schneider
-	<vschneid@redhat.com>, K Prateek Nayak <kprateek.nayak@amd.com>, Chen Yu
-	<yu.c.chen@intel.com>, Christian Loehle <christian.loehle@arm.com>, Alexey
- Charkov <alchark@flipper.net>, Prabhakar
-	<prabhakar.csengg+renesas@gmail.com>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "kernel-team@meta.com" <kernel-team@meta.com>
-Subject: RE: [PATCH] sched/fair: Fix h_nr_runnable leak in dequeue_hierarchy()
-Thread-Topic: [PATCH] sched/fair: Fix h_nr_runnable leak in
- dequeue_hierarchy()
-Thread-Index: AQHdet9SwwK0sZTucU2wIY0K97T0b7c+3HSAgAADm7A=
-Date: Wed, 25 Nov 2026 14:43:16 +0000
-Message-ID:
- <TY4PR01MB4439291AF94A62433D8B56E932AA432@TY4PR01MB443929.jpnprd01.prod.outlook.com>
-References: <20261123001213.7609-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20261125142729.3161777-1-vlad.wing@gmail.com>
-In-Reply-To: <20261125142729.3161777-1-vlad.wing@gmail.com>
-Accept-Language: en-US, en-GB
-Content-Language: en-US
-X-MS-Has-Attach:
-X-MS-TNEF-Correlator:
-authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=bp.renesas.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: TY4PR01MB443929:EE_|TYYPR01MB7975:EE_
-x-ms-office365-filtering-correlation-id: ff9f72ff-0af8-42f6-e3e1-08df4b0270bc
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam:
- BCL:0;ARA:13230040|366016|23010399003|376014|7416014|1800799024|38070700021|10067099003|56012099006|11063799006|261022105027099003|261026121527099003|261026140227099003|261028144727099003|261021123027099003|261009223027099003|22082099003|18002099003|4143699003;
-x-microsoft-antispam-message-info:
- WhGsas/LAH7FULBob88/Agp0wp7iKzkupY9V46CWb3bydcunKe8bG1DIN1j+RM9Ri6H4PbC1/AYsAjh0ft95+me5lG0NnXQkrBcQZV220mdMuaxNWemN03MGqJGEN4NWOPWDEvo4Y8CYU0vKx6WeXXYPKko/WF8GxETI4Cv4KAcem7LbUhGnGNnY70YvIf5rMbUHNn+Z549rSK3oaAhgOVJKnYvzK4Z8ZKUZWmPbPXQtnKt9TkuaXwVZ3UapICSmvkhTgMtXEQXMcB8X7D42KTtoPFj/7KWTFXDG7ciPOAIR+pox1fhqwKyHTZY/UhyOg+SXwofmgam3c2R5IThaOpUJDFpLhnUru7L6w5TOMxGACWODnFaHAGWFXcd2oM+/6/KWurbie9JuHA1QxClAItr8lFoOKAXM3c7yH02lQaBz1QO6RH5ZOiDm0Y1CFkn1r0eEgmhT/rjlsD5KkdVFaUDezoPRAXaAsoocKQwcFdR483GR9faa1HuQ5NKeIuE/4f+gEjNc9pWK/DfY9k/vv2KgDx/IycaLRrEiDUC0QsgylMMYuq1/XwDYO7wtA3bn9WmpHu3NhS9vU8PZyCa13eeLIi19PBTAnIn3fD97Cy1P77UsFv9iIFuh6F5xHcMPlizCtcUkHCytW1r8VasHkXMYG7xJcC0K5CWHiJhFastAQs8etn1nfXYbmctDufoBi9QJduCCUjCaUBdsD/Uy3ukEHY3WQBTxMJn66huIBFc=
-x-forefront-antispam-report:
- CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY4PR01MB443929.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(376014)(7416014)(1800799024)(38070700021)(10067099003)(56012099006)(11063799006)(261022105027099003)(261026121527099003)(261026140227099003)(261028144727099003)(261021123027099003)(261009223027099003)(22082099003)(18002099003)(4143699003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0:
- =?us-ascii?Q?j/r6CHS4oGNm8sPN3lS0QIwi3ha+RFnz8npgXZk+/YDLpeMarPdctSn2QBOY?=
- =?us-ascii?Q?MsE6yWLo3yAJ17y70twNcnRX+s/Gua5r4+mVB8e/wBHkjrWikbbM1d6DfkBV?=
- =?us-ascii?Q?HxGvAgpiyjhK0Vc5uFWZgw7GZ7brkqLbN0tzOGq5Bkk5aTnxmFlCggJYXIo5?=
- =?us-ascii?Q?k+BS9ovt35ubrOKWCy1BJDba3qS+meKb/dWGFqFVzkB2xkCFQ6cQTyYrKlys?=
- =?us-ascii?Q?pqN03/eL5dXer/+x1f2Y1pZVBlRP5Ei3iMUS6CHpQRVDzDcyvsQPgVFpTFql?=
- =?us-ascii?Q?k9ApNmyDTuACnlh0kFD3r7f8+S7QydxEnQ+0DPBnCtmDVy7BYRdi0c1hM3tz?=
- =?us-ascii?Q?MePtEf/c2U2BEq/qRT/jGxdgdRG4lcBC7jB0R3KqjXtxORzFmBwSFrwx7j2l?=
- =?us-ascii?Q?uNBYGgrBb3Yc4TNEvz19CahjYDlImWBcLDipxxHmojqE64C0f7tHz+Cd2Kid?=
- =?us-ascii?Q?LYx4lsVfIYoKm506Wl7uGqxu4RdaFgXSaYniJY9/Qvv2DK0qEA/f64EuyiBo?=
- =?us-ascii?Q?uePM93jGlI8RUV+/VCy8q1yAdYfO6bXG3VfYFMFwtf7BRT0Ykna4yQWZRyDP?=
- =?us-ascii?Q?JQBs2MPRZ6OQdkDwpqqb2sg4jxAxlG4HoryBLc5xnbl+1PmhV5CAQMMGGFFJ?=
- =?us-ascii?Q?Wu858D8rK0aQS6dv4za7Mfi+1cXByRj9Qf7N/uWgFsuvqHrvGW1IIcQquSmo?=
- =?us-ascii?Q?zvs8f6HcdHnVASJD3nJ3AUhJceVqA16KFlmHxWyvPKXQ+fgE4DuQ/TdSAbY4?=
- =?us-ascii?Q?DyPoSQqHbZlSgxfzcXEURe8QkhJmX99Xr1IfFx9v/qmNSB8TjwhbPWH+UI/R?=
- =?us-ascii?Q?MQ/TJFPvD7jhZKQDOqc91SUOflakguWDEGl+IjsrdIWVZrno60WKZIbvlXJ8?=
- =?us-ascii?Q?qF/uf/NGk3TgQvE1sW24WW4byij2LmYsryWHZtonYy8QTUYEc8W94rXkHb/c?=
- =?us-ascii?Q?3i803EWo3I1NcYgeYdQoc28p4vZ2Bqz83Dzf3UyoxOvB24e6j+Szxz2SlxLN?=
- =?us-ascii?Q?apc5c3hablSLaQ8+7AnWONOZoGQyCtwV4E6BYKNO7EfUe4GY2d5wtTr/2Idk?=
- =?us-ascii?Q?bbmHLJhMd2/+Jzx0ErPK15fNm5u4evK1LRc6dG07W4hBT01V/60qjcoz9wa7?=
- =?us-ascii?Q?AXSi/SXlB3G8KiHwbQUVXHRTH6WM8xt7QsjSDOzOvKjA3klZV5cQ4+pSvO8X?=
- =?us-ascii?Q?hig7bM/65zYECwqPg6CcNmgS+N++rVwYuelUnLov4BkTDpnnHI2ppNAkigdP?=
- =?us-ascii?Q?IOqgiH5+2kgcV1Bc38UYVbxJM4C3fKmb1dP5REs2cjWKQDaw+eicUgUF3Jgl?=
- =?us-ascii?Q?7drgWoi/8GAfxx5Twk2V5bCubKF+Pk332woXpr+Ml1yKCPfSiVecxnKesvQw?=
- =?us-ascii?Q?U3xyyG0Bby0NW076+6VQfYbrqVWIx9tvRKnTQvokI3B4MPmmRHBZajCPykyw?=
- =?us-ascii?Q?MiZnluaiUv5d0wt2hS+I3yhhwhlskWm2rmaHsUQm5IB51Yo/180NP6fcxkT1?=
- =?us-ascii?Q?tj9425RQ1WBeT7iInLADuVQWI9wmgPdCQsBVdr7PHqpIvxUmiFXO660JhRHM?=
- =?us-ascii?Q?t+oq/FUbJJ6QwqP/x8ZT1L06X9N0zHC03kC/WWa7EMMBo65N3F0+IzwEayCa?=
- =?us-ascii?Q?laAvDWpIBKkvNwLOnMIglmiV4Uophkwef/dCdKyAkF//ZLW804q6rIJJSvks?=
- =?us-ascii?Q?xal6z7+UNQt6DYU5o5/XllQqfm86CCISa2xhlfhXwAbtX7TnTj0hEAaBtC1U?=
- =?us-ascii?Q?xORxAdWlt6KbbhZcip3M2gYDDfCSLF65jH521EVpS0Ifr4CoBr8A?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=rCKvy4q4;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=vRKABZQr;
+	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=rCKvy4q4;
+	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=vRKABZQr
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id AEFA521F53;
+	Wed, 25 Nov 2026 14:43:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1795617830; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=VeYq3Tu1ASHlN7oSA4+VfsVIQfo63WP5vAo770LlUAc=;
+	b=rCKvy4q4iGVGq69Hpvtyi/dCooMSQb7REe4nmV3hYOASFhge5rJ9hQITablLGv7cY9xe5D
+	lsMRQBE7QoiRdF5A+70M7Bk1nugq14Ht13VFEOorsqzlywz9nU+X4WaJKVz5hB29wyiqvv
+	khYjoVx8L2g8r+hQgaZqHXGyWuQbiGs=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1795617830;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=VeYq3Tu1ASHlN7oSA4+VfsVIQfo63WP5vAo770LlUAc=;
+	b=vRKABZQrbKrl2LAZ1rdSPUd+d1AAKsJjDaq58a2FxET1GVjJ8m9PvKSUQpmZiLTIttR536
+	MeaGTySxHG5hNTBg==
+Authentication-Results: smtp-out1.suse.de;
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=rCKvy4q4;
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=vRKABZQr
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1795617830; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=VeYq3Tu1ASHlN7oSA4+VfsVIQfo63WP5vAo770LlUAc=;
+	b=rCKvy4q4iGVGq69Hpvtyi/dCooMSQb7REe4nmV3hYOASFhge5rJ9hQITablLGv7cY9xe5D
+	lsMRQBE7QoiRdF5A+70M7Bk1nugq14Ht13VFEOorsqzlywz9nU+X4WaJKVz5hB29wyiqvv
+	khYjoVx8L2g8r+hQgaZqHXGyWuQbiGs=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1795617830;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=VeYq3Tu1ASHlN7oSA4+VfsVIQfo63WP5vAo770LlUAc=;
+	b=vRKABZQrbKrl2LAZ1rdSPUd+d1AAKsJjDaq58a2FxET1GVjJ8m9PvKSUQpmZiLTIttR536
+	MeaGTySxHG5hNTBg==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 65880134CA;
+	Wed, 25 Nov 2026 14:43:50 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id 0DmaDyb0BmsidQAAD6G6ig
+	(envelope-from <tiwai@suse.de>); Wed, 25 Nov 2026 14:43:50 +0000
+Date: Wed, 25 Nov 2026 15:43:49 +0100
+Message-ID: <87cxrt6key.wl-tiwai@suse.de>
+From: Takashi Iwai <tiwai@suse.de>
+To: =?GB2312?B?0Ozqz8/o?= <xuhx@hust.edu.cn>
+Cc: perex@perex.cz,
+	tiwai@suse.com,
+	linux-sound@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] Re: ALSA: asihpi: free IRQ before snd_card_free()/HPI delete on HPI6205 removal (UAF)
+In-Reply-To: <2c1d9b73.57c.1a212c1b142.Coremail.xuhx@hust.edu.cn>
+References: <4c7f9772.192e1.1a17d5c2ed5.Coremail.xuhx@hust.edu.cn>
+	<2026102727-data-sequel-ce41@gregkh>
+	<358caed8.262e3.1a1d4cbccec.Coremail.xuhx@hust.edu.cn>
+	<2c1d9b73.57c.1a212c1b142.Coremail.xuhx@hust.edu.cn>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) Emacs/30.2 Mule/6.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -152,84 +120,198 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-X-OriginatorOrg: bp.renesas.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TY4PR01MB443929.jpnprd01.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ff9f72ff-0af8-42f6-e3e1-08df4b0270bc
-X-MS-Exchange-CrossTenant-originalarrivaltime: 25 Nov 2026 14:43:16.2558
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 53d82571-da19-47e4-9cb4-625a166a4a2a
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: rqihCFyD7Z6Otewig8f7rXpzFiU4e2SFk13fGtXbXdSzpX74M3mMFeAJXTm/6CRLtO3LQWRIWTuRS37992IJ3erw+m8YGCRTR4c+XbeTVZwIf7k/Y3gvvR27WeFoyqF8
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYYPR01MB7975
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=GB2312
+Content-Transfer-Encoding: 8bit
+X-Spamd-Result: default: False [-12.51 / 50.00];
+	SUSE_INTERNAL_BYPASS(-9.00)[];
+	BAYES_HAM(-3.00)[100.00%];
+	MID_CONTAINS_FROM(1.00)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
+	ARC_NA(0.00)[];
+	TO_DN_SOME(0.00)[];
+	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	MIME_TRACE(0.00)[0:+];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	RCVD_TLS_ALL(0.00)[];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	RCPT_COUNT_FIVE(0.00)[5];
+	RCVD_COUNT_TWO(0.00)[2];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:dkim,hust.edu.cn:email,imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,suse.com:email,perex.cz:email];
+	URIBL_BLOCKED(0.00)[hust.edu.cn:email,perex.cz:email,suse.com:email,imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,suse.de:dkim];
+	DKIM_TRACE(0.00)[suse.de:+]
+X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
+X-Rspamd-Action: no action
+X-Spam-Flag: NO
+X-Spam-Score: -12.51
+X-Spam-Level: 
+X-Rspamd-Queue-Id: AEFA521F53
 
-Hi Vlad,
+On Wed, 25 Nov 2026 13:50:13 +0100,
+徐晗翔 wrote:
+> 
+> snd_asihpi_remove() freed the ALSA card and then sent
+> HPI_ADAPTER_DELETE (kfree()ing the HPI6205 phw) BEFORE free_irq():
+> both the primary handler (adapter_irq_query_and_clear() reads
+> phw->prHSR) and the threaded handler (snd_card_asihpi_isr() reads
+> a->snd_card->private_data) could run against freed memory.
+> 
+> free_irq() -- the first operation that waits for the in-flight
+> primary and threaded handlers -- now runs before snd_card_free()
+> and before HPI_ADAPTER_DELETE, with hpi->irq cleared so the existing
+> if (pa->irq) guard in asihpi_adapter_remove() does not double-free
 
-> From: Vlad Poenaru <vlad.wing@gmail.com>
-> Sent: 25 November 2026 14:27
-> To: Prabhakar <prabhakar.csengg@gmail.com>; Prabhakar Mahadev Lad
-> <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> Cc: Ingo Molnar <mingo@redhat.com>; Peter Zijlstra <peterz@infradead.org>=
-;
-> Juri Lelli <juri.lelli@redhat.com>; Vincent Guittot
-> <vincent.guittot@linaro.org>; Dietmar Eggemann <dietmar.eggemann@arm.com>=
-;
-> Steven Rostedt <rostedt@goodmis.org>; Ben Segall <bsegall@google.com>; Me=
-l
-> Gorman <mgorman@suse.de>; Valentin Schneider <vschneid@redhat.com>; K
-> Prateek Nayak <kprateek.nayak@amd.com>; Chen Yu <yu.c.chen@intel.com>;
-> Christian Loehle <christian.loehle@arm.com>; Alexey Charkov
-> <alchark@flipper.net>; Prabhakar <prabhakar.csengg+renesas@gmail.com>;
-> linux-kernel@vger.kernel.org; kernel-team@meta.com
-> Subject: Re: [PATCH] sched/fair: Fix h_nr_runnable leak in
-> dequeue_hierarchy()
->=20
-> [You don't often get email from vlad.wing@gmail.com. Learn why this is
-> important at https://aka.ms/LearnAboutSenderIdentification ]
->=20
-> On Mon, Nov 23, 2026 at 12:12:13AM +0000, Prabhakar wrote:
-> > h_nr_runnable is therefore always 0, so dequeuing a task that is not
-> > delayed no longer decrements cfs_rq->h_nr_runnable. The count only
-> > grows, which inflates se->runnable_weight and skews PELT runnable_avg
-> > and load balancing.
->=20
-> The leak also crashes machines. In Meta's kernel testing, a one-hour
-> stress-ng soak on 176-CPU x86_64 machines hits a divide error on our
-> internal kernels based on v7.4-rc4:
->=20
->   Oops: divide error: 0000 [#1] SMP NOPTI
->   RIP: 0010:update_load_avg+0x267/0x800
->   Call Trace:
->    task_tick_fair
->    hrtick
->    __hrtimer_run_queues
->    hrtimer_interrupt
->=20
-> 15 of the 16 machines that ran the soak on these kernels crashed this way=
-,
-> and the 16th left no crash record. None of the soak runs on
-> v7.4-rc3 based kernels crashed.
->=20
-> The divisor in update_tg_cfs_load() is
-> scale_load_down(gcfs_rq->load.weight) truncated to u32. That weight was
-> 0xfff8000000000000, so the u32 divisor is 0. Once the leaked count pushes
-> tg->runnable_avg >> 10 past INT_MAX, tg_tasks() returns a negative int.
-> calc_concur_shares() then gives clamp_t() a negative upper bound, and tha=
-t
-> becomes the group entity weight.
->=20
-Thank you for testing.
+This sounds like a wrong solution and likely breaking something.
+HPI_ADAPTER_DELETE is a command that has to be sent to a board.
 
-> This patch is based on sched/core and does not apply to sched/urgent or t=
-o
-> Linus' tree, where 486c3d06b902 ("sched/fair: Avoid transient double
-> accounting for delayed tasks") is part of v7.4-rc4. In those trees the
-> h_nr_runnable line comes before the h_nr_idle line.
->=20
-@Ingo please let me know on which branch should I rebase this patch.
+IOW, what should be fixed is rather the order of the call in
+snd_asihpi_remove().  asihpi_adapter_remove() should be called at
+first, followed by snd_card_free().  But maybe for synchronization, we
+should call snd_card_disconnect(), sync, then remove the resources.
 
-Cheers,
-Prabhakar
 
+thanks,
+
+Takashi
+
+> ---
+>  sound/pci/asihpi/asihpi.c | 14 ++++++++++++++
+>  1 file changed, 14 insertions(+)
+> 
+> diff --git a/sound/pci/asihpi/asihpi.c b/sound/pci/asihpi/asihpi.c
+> --- a/sound/pci/asihpi/asihpi.c
+> +++ b/sound/pci/asihpi/asihpi.c
+> @@ -2927,6 +2927,20 @@
+>  			HPI_ADAPTER_PROPERTY_IRQ_RATE, 0, 0));
+>  	}
+>  
+> +	/* Free/quiesce the IRQ before the card and the HPI adapter objects
+> +	 * go away: free_irq() is the first (and only) operation that waits
+> +	 * for the in-flight primary and threaded handlers.  Afterwards
+> +	 * snd_card_free() releases the card private area (read by
+> +	 * snd_card_asihpi_isr() through a->snd_card->private_data) and
+> +	 * asihpi_adapter_remove() sends HPI_ADAPTER_DELETE, which kfree()s
+> +	 * the phw whose prHSR the primary handler dereferences through
+> +	 * adapter_irq_query_and_clear().  asihpi_adapter_remove() keeps its
+> +	 * if (pa->irq) guard, so this is not a double free_irq(). */
+> +	if (hpi->irq) {
+> +		free_irq(hpi->irq, hpi);
+> +		hpi->irq = 0;
+> +	}
+> +
+>  	snd_card_free(hpi->snd_card);
+>  	hpi->snd_card = NULL;
+>  	asihpi_adapter_remove(pci_dev);
+> 
+> 
+> > -----原始邮件-----
+> > 发件人: 徐晗翔 <xuhx@hust.edu.cn>
+> > 发送时间:2026-11-13 20:04:48 (星期五)
+> > 收件人: perex@perex.cz, tiwai@suse.com
+> > 抄送: linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org
+> > 主题: ALSA: asihpi: free IRQ before snd_card_free()/HPI delete on HPI6205 removal (UAF)
+> > 
+> > `snd_asihpi_remove()` frees the ALSA card and then sends HPI_ADAPTER_DELETE
+> > (which frees the HPI6205 `phw`) before `free_irq()`.  Both the primary IRQ
+> > handler and the threaded handler can therefore run against freed memory:
+> > the primary handler dereferences `phw->prHSR` through
+> > `adapter_irq_query_and_clear()`, and the threaded callback dereferences
+> > `a->snd_card->private_data` after the card private area has been freed.
+> > 
+> > The detailed description:
+> > 
+> > * Test environment / affected version
+> > 
+> >   Linux 7.3.0 source tree.  Affected hardware path: ASI6205/HPI6205 in
+> >   interrupt mode (`low_latency_mode && irq_supported`, `interrupt_mode=1`).
+> >   HPI6000 does not set `irq_query_and_clear` and is polled, so it is not part
+> >   of this report.
+> > 
+> > * Mechanism
+> > 
+> >   `snd_asihpi_remove()` (`sound/pci/asihpi/asihpi.c:2919-2933`):
+> > 
+> >     hpi->interrupt_callback = NULL;          /* if interrupt_mode */
+> >     ... send HPI IRQ rate 0 ...
+> >     snd_card_free(hpi->snd_card);            /* line 2930 */
+> >     hpi->snd_card = NULL;                    /* line 2931 */
+> >     asihpi_adapter_remove(pci_dev);          /* line 2932 */
+> > 
+> >   `asihpi_adapter_remove()` (`hpioctl.c:520-555`) then sends IRQ rate 0,
+> >   sends `HPI_ADAPTER_DELETE` (537-540), and only afterwards calls
+> >   `free_irq(pa->irq, pa)` (542-543).
+> > 
+> >   HPI6205 `adapter_delete()` (`hpi6205.c:491-510`) -> `delete_adapter_obj()`
+> >   (`hpi6205.c:675-704`) does `kfree(phw)` at 703 without clearing
+> >   `pao->priv`, then `hpi_delete_adapter()` (`hpicmn.c:96-108`) memsets the
+> >   registry object at 106.  The primary handler `asihpi_isr()`
+> >   (`hpioctl.c:311-335`) checks `a->adapter->irq_query_and_clear` and calls
+> >   it; HPI6205 installs that handler at `hpi6205.c:662`, and
+> >   `adapter_irq_query_and_clear()` (`hpi6205.c:708-722`) does
+> >   `ioread32(phw->prHSR)` at 714.
+> > 
+> >   Window A (phw UAF): the handler loads the function pointer before
+> >   `delete_adapter_obj()` frees `phw`, and executes after the free.
+> > 
+> >   Window B (NULL deref): the handler executes after `hpi_delete_adapter()`
+> >   memsets the registry, so `pao->priv` is NULL and `phw->prHSR` is a NULL
+> >   dereference.
+> > 
+> >   Window C (card private UAF): `asihpi_isr_thread()` (`hpioctl.c:337-344`)
+> >   calls `a->interrupt_callback(a)`; `snd_card_asihpi_isr()`
+> >   (`asihpi.c:898-907`) reads `a->snd_card->private_data` and
+> >   `asihpi->llmode_streampriv`.  The card private area is allocated by
+> >   `snd_card_new(..., sizeof(struct snd_card_asihpi), ...)`
+> >   (`asihpi.c:2794-2799`) and freed by `snd_card_do_free()`
+> >   (`sound/core/init.c:584-611`, `kfree(card)` at 610).  After
+> >   `hpi->snd_card = NULL`, the same callback can also return NULL from the
+> >   `snd_card` load and hit the WARN_ON/NULL path.
+> > 
+> > * Why existing synchronization does not close the window
+> > 
+> >   asihpi never sets `card->sync_irq`, so `snd_card_disconnect()` does not call
+> >   `synchronize_irq()`.  `snd_card_free()` waits for open files and the card
+> >   release completion, not for the IRQ handler/thread.  `free_irq()` is the
+> >   first operation that quiesces the IRQ, and it happens after `snd_card_free()`
+> >   and after HPI_ADAPTER_DELETE has freed `phw`.
+> > 
+> > * Trigger model
+> > 
+> >   HPI6205 device in IRQ mode; remove/unbind the PCI device.  Root is needed
+> >   for unbind/remove.  Consequence: UAF/NULL deref in hard IRQ or threaded IRQ
+> >   context; crash or memory corruption.  The report does not claim a
+> >   concurrent user ioctl path: the card file drain prevents that, and only the
+> >   single remove path sends HPI_ADAPTER_DELETE.
+> > 
+> > * Suggested direction 
+> > 
+> >   Free/quiesce the IRQ before `snd_card_free()` and before sending
+> >   HPI_ADAPTER_DELETE:
+> > 
+> >     if (hpi->irq) {
+> >         free_irq(hpi->irq, hpi);
+> >         hpi->irq = 0;
+> >     }
+> >     snd_card_free(hpi->snd_card);
+> > 
+> >   Keep the existing `if (pa->irq)` guard in `asihpi_adapter_remove()` to avoid
+> >   a double free.  Alternatively set `card->sync_irq` and perform an explicit
+> >   `synchronize_irq()` before releasing the card private data, but freeing the
+> >   IRQ first is simpler and also covers the `phw` window.
+> > 
+> > 
+> > 
+> > Please keep me in Cc; I am not subscribed to the lists.
+> > 
+> > 
+> > Regards,
+> > Hanxiang Xu
+> > xuhx@hust.edu.cn
