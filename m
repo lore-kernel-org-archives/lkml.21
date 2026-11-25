@@ -1,169 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.61.58
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795623151;
-	b=WJLmQzwjuYo9Eoiok/hkjOR5J3CRXslQHuVL/rEYRqT7p+NKbUToNNAXiWGqL5yl3V9q
-	 PcE4st6/yjHQpPdt10qtDkXWIq0TWISFgNvf1gPZQFWQ6+nAfPTiXytBIT6HjxSneqHqD
-	 upruNf/trllJLt36OmkfdHfY3iMjcAFtMHZwyOm43d9ihYbRSqafltN0mraFTJKDzz8+E
-	 FJ2kxVKiAEiRmpQLiolc8Hn+LVRUsgFptKtQWakd3WRdQXPJy+wCZZ2bZ0be7rHrijrt6
-	 wmA2R5RJNTNehXOCgtapIvH/Xj0u9PCDntZAi194WjQvWCc9ATxGn5DX0pIxwqrD/KQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795623151;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:CC:Subject:
-	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
-	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
-	 x-ms-publictraffictype:x-ms-traffictypediagnostic:
-	 x-ms-office365-filtering-correlation-id:x-ms-exchange-senderadcheck:
-	 x-ms-exchange-antispam-relay:x-microsoft-antispam:
-	 x-microsoft-antispam-message-info:x-forefront-antispam-report:
-	 x-ms-exchange-antispam-messagedata-chunkcount:
-	 x-ms-exchange-antispam-messagedata-0:Content-Type:Content-ID:
-	 Content-Transfer-Encoding:MIME-Version:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-originalarrivaltime:
-	 X-MS-Exchange-CrossTenant-fromentityheader:
-	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
-	 X-MS-Exchange-CrossTenant-userprincipalname:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=RUPZr3lJEpurGCSkGWIEufzy8zm+PT5Nzerewm7EPO4=;
-	b=k6NeAqOBCnc9tPLMjUAqbHCyCeiklDUT03lscIJJ79tljR0Q9Xo1zxXM+innkwku+Q8Q
-	 x/9Hia76Y7WdG78+iPzZWpeYsIB/SOguxIvoYHFnedTLnitHYeiFrMG85pEhRA9W16cHG
-	 dpyeOiVP/nyNCBc82rWJIq+V5yef/XBD8a7KNTvdjhWF5f7vr43hcVfyeoAdobapyxAYX
-	 O6BQj3Xm2uC9goTzKF+rU6k/3fIcxQjYgt4rew/A2NnB+uZTjT5NsjMjqjHasnQQCBa9p
-	 4zcvGq2+059POv7kU6hZDWHm5icceCN/ljD22d7IEgWZ+YU7PlY4Xmmv+qd5A7k79UQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=amd.com;
-	spf=fail smtp.mailfrom=amd.com;
-	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=s+Yqqy8p;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.61.58
-Received: from DM1PR04CU001.outbound.protection.outlook.com (mail-centralusazon11010058.outbound.protection.outlook.com [52.101.61.58])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 29DED606A321;
-	Wed, 25 Nov 2026 16:12:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 29DED606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=s+Yqqy8p
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=vO5davv+rE1lODQ7haJxGENHBomb3zv3ToNxPHhxV/XBY4paAyvZEPUCwhm8bnYod3n9MgD9dPSwBKzJY7RKHLNfCbpj0UlrpyLpjja3GY5VJ9w4bUaakwPrRNdSV7pI0S9d4rCK1qVVuRbzh8JtbORwcrBxSFK7Z+6BbR/UUNr/TQE/1glk8XPFiBy/jEiRLQSKxQ14NzQPksw6PBZOuru0k23k+dCYMdQcXxLWF/1LLup3I15evbRPLxArN2tJqbCjKw2VobpBBMkg3zFvYgBhE2hFXYO8uIGpfa6QuYTil19X3ei1oRCRsi9A9bzI6qX4WVPypKUYnBPv9VNuWA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=RUPZr3lJEpurGCSkGWIEufzy8zm+PT5Nzerewm7EPO4=;
- b=Fp4JE7kZvB1dxw0l7ab1osxANviFBTgkKrvg5SYuuRAxIwugrFEY0q3nPTLGSrk2nyC3gl4pHmq0W8L5IUKhCUJjjwz1elnb3pwMWY4kd15ZdLDTg7nMQ//jKbTy9tsJm5SXtFhOu6g4xM2IAuw4wWv/jk9FMcjzYtVRL3q+oxq3Ts2O8yOkGizgS48Cuor6Ncbhxxgdknxhh8P6ZE23TZ00KniRSRJw897T6PJAJXR95VEE9PcPQdZ2SiN1i4AW6O/+5Ww5dcst1foc4OGW10ByjU5qtpi4fxxwt465czfRKT/CjaXK0XfMs5IS6k5Pu7lP85Dt0iY9pfW2wIn82w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=RUPZr3lJEpurGCSkGWIEufzy8zm+PT5Nzerewm7EPO4=;
- b=s+Yqqy8p8vbwh/9DPyKl1vfA+loMETKkAnoLoIk7Ckwim4+mvVYiLix3yp01D7Kp5/jv3AO7dFUp5T0tBr96idM6Hslk1Ui8yAjN2zA7779KFPMoFYc+1vcQMx30Y8VldtGCwAs+z7dbN0f5Od+duxvkOZBMuLoD9HuCO5q7LWg=
-Received: from BN9PR12MB5259.namprd12.prod.outlook.com (2603:10b6:408:100::17)
- by PH7PR12MB8795.namprd12.prod.outlook.com (2603:10b6:510:275::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Wed, 25 Nov
- 2026 16:11:51 +0000
-Received: from BN9PR12MB5259.namprd12.prod.outlook.com
- ([fe80::122c:cca7:c2b3:90ed]) by BN9PR12MB5259.namprd12.prod.outlook.com
- ([fe80::122c:cca7:c2b3:90ed%6]) with mapi id 15.21.0662.001; Wed, 25 Nov 2026
- 16:11:51 +0000
-From: "Garg, Shivank" <shivankg@amd.com>
-To: "usama.anjum@arm.com" <usama.anjum@arm.com>, "nico.pache@linux.dev"
-	<nico.pache@linux.dev>, "rppt@kernel.org" <rppt@kernel.org>,
-	"shuah@kernel.org" <shuah@kernel.org>, "Rao, Bharata Bhasker"
-	<bharata@amd.com>, "yintirui@gmail.com" <yintirui@gmail.com>,
-	"vbabka@kernel.org" <vbabka@kernel.org>, "emmir@google.com"
-	<emmir@google.com>, "danjwade95@gmail.com" <danjwade95@gmail.com>,
-	"david@kernel.org" <david@kernel.org>, "akpm@linux-foundation.org"
-	<akpm@linux-foundation.org>, "dev.jain@arm.com" <dev.jain@arm.com>,
-	"pgofman@codeweavers.com" <pgofman@codeweavers.com>, "surenb@google.com"
-	<surenb@google.com>, "peterx@redhat.com" <peterx@redhat.com>,
-	"usama.arif@linux.dev" <usama.arif@linux.dev>, "kas@kernel.org"
-	<kas@kernel.org>, "ziy@nvidia.com" <ziy@nvidia.com>, "ryan.roberts@arm.com"
-	<ryan.roberts@arm.com>, "baohua@kernel.org" <baohua@kernel.org>,
-	"liam@infradead.org" <liam@infradead.org>, "mhocko@suse.com"
-	<mhocko@suse.com>, "ljs@kernel.org" <ljs@kernel.org>, "lance.yang@linux.dev"
-	<lance.yang@linux.dev>, "baolin.wang@linux.alibaba.com"
-	<baolin.wang@linux.alibaba.com>, "wine-devel@winehq.org"
-	<wine-devel@winehq.org>, "avagin@gmail.com" <avagin@gmail.com>
-CC: "linux-mm@kvack.org" <linux-mm@kvack.org>,
-	"linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 0/3] mm: fix soft-dirty false positives in mprotect() of
- large folios
-Thread-Topic: [PATCH 0/3] mm: fix soft-dirty false positives in mprotect() of
- large folios
-Thread-Index: AQHdfOGHEUgq95w8VUOHW+Vokl59fLc+zCWAgAAhPgCAAAgzgA==
-Date: Wed, 25 Nov 2026 16:11:51 +0000
-Message-ID: <8b1a6f9da685a0e0ef44c67e92e98e37f37bd42f.camel@amd.com>
-References: <20261125-b4-mm-soft-dirty-fixes-v1-0-538e3cdb618c@amd.com>
-	 <380e029a-2d9a-43ee-9048-c4b490c11f41@kernel.org>
-	 <0308f0ef-9989-4a9b-aaa4-2a3169ac1f02@codeweavers.com>
-In-Reply-To: <0308f0ef-9989-4a9b-aaa4-2a3169ac1f02@codeweavers.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach:
-X-MS-TNEF-Correlator:
-authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: BN9PR12MB5259:EE_|PH7PR12MB8795:EE_
-x-ms-office365-filtering-correlation-id: 5f452acd-0294-4e3f-7b15-08df4b0ed101
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam:
- BCL:0;ARA:13230040|376014|1800799024|366016|7416014|23010399003|921020|38070700021|10067099003|11063799006|56012099006|4143699003|261026121527099003|18002099003|22082099003;
-x-microsoft-antispam-message-info:
- Nckaq0Qd0ultOiOI8z/A4e+j38EMNqEtDwt64s8N8DGRfzDyyCQBoty0L6V6A/Vm+KOGyAn55p9vhtjitb2Vm9lOUBw8EvqHnWPXwftsLjCTP3JlChZLZSxBqk1BW01VuQqJS/C1JsQc3oRfR3v0yNbrUPJ3ArSWHC0QFCP48uIZfVn4F2AHJ51pM2cb9TBSMrk0o6SLjuu8CX3ouhqSrvtbNdNVka+2lk5NP3WkWqrmFkV0m0hs9/jsBGMZXDPAZzuyweeZnvXPSnzIHUChHdMYk25Dz8coUoXr8JjgEAJDUsHTi2Ae/teB6zs7HsvIP6xEQaolFTGgONDr6ohbDpy2y+YNGK61nmXHEXj5cGbM0VLSjlGmvyY62C7DqPoLx82RBSAr42ZdyDPkAAJ6UBM+/VvqsLvdshOqxegHD2v3RY/yXIyOIXfbdtByAVVOHcY30UxQKe14ijO9fopI3xWvGBRRuNZIL/9An0p6trSX+BbEhsZ7pGZOy6AXzMXEjwwKPcuXMa0+tqNpz8fgXOXVzLt8RndEjtGaINa9lXwA3BeNASbConC7raGMjNYWpsQB/vcDw1v4thMnJLtkA+iLJknUFJkfw2g8MGL2Hxx0GqUea9QA0AQn03SiRPMbc5XIxkc+9jXuYuVZqJhvUfTJ9oDSQGepvSkoj9KrhHh3y790U/Yh1Vyiax3FFw3SX9GRyABWzEVBfh+kYuvUQDWzb3Zvo9X2MEuSuTCBLqQ=
-x-forefront-antispam-report:
- CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN9PR12MB5259.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(7416014)(23010399003)(921020)(38070700021)(10067099003)(11063799006)(56012099006)(4143699003)(261026121527099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0:
- =?utf-8?B?dXdMYVNod1V5aElRZUUzTEdxdEJaenFuQmlyRStzNkZwa0YvbVNmRVFpSG1z?=
- =?utf-8?B?R1BidkVzRmJONy9MSDdXaUdiOG1HL1ZyRE9hUWs1NXhnQ3pIWE9ZWXI0ZlIy?=
- =?utf-8?B?cGgvU2lkTWlaVGk3NEsrUUNHbnRQTHE5ZXA3Ti80ay8vK21QWVVZQ0t6TTR4?=
- =?utf-8?B?R1I1WlZMdmJqYXBPalhlYkxyd2xhb0Q4UWw5QWlWUmJPUjVnMVJaS045citG?=
- =?utf-8?B?SHlETCszS2NPRklQa2JsbmpLVWZYRWlneHJxSFdqdGZvUFhKMkF1eU1XY3l1?=
- =?utf-8?B?dU5NdVR0ZWNkc2pvRjQ3dEg3dDRBckthWFZKNVNKM3Z4WGlEdy9pNFFBUEQz?=
- =?utf-8?B?TmhZUjg0Uk9PWFl3Q2RSYkZuQjJ4UURzbGl0clFIeXR4cjJiN0xMNVpFL2ti?=
- =?utf-8?B?WHFVRTFGS0RKVElxVU1vZjdVdkJ5eS9lVWdDSUVsOE1DNWcvaTF0VmQ1TkZZ?=
- =?utf-8?B?MVhZVnhuMXhwT0NYOW1qQjlpTW9UWW1HeFpPMEhDNW4rL3hrRm1wWURwbDlt?=
- =?utf-8?B?TlY3VGYyaCswb1FtSmJIbVluVFMrVk96RUxiUDEvbTVGMDF6MVRCNGt6cUVz?=
- =?utf-8?B?cHZUcVlmT2ovY2U2K2RXRitHQ3BJRGhlT1BlS2p5ejI4SXMxbEV5UWZERlRL?=
- =?utf-8?B?dmJVbHMzb2o0bGQ1OTJTZ0dwNi9UQjNhYy9YdkxGa3hrYW8xTlpLUWN5YUFk?=
- =?utf-8?B?Z08vOVBxOFNXUGtPYUtYTk1uMDR1R0xXM0RKV2hKY3hoVU1sNGowZFFncjRi?=
- =?utf-8?B?Vm9tNmVqbGlSQTdOVzJEMkp1a1ZDamRNblQyL3FOM0VPb2FNb0xHUmhWWVdE?=
- =?utf-8?B?WkFhUEJRUGI1cEp4MzQ5dmhNVklJajVmUWNPR21jTXlvbFIyVWNmd0FyQVM0?=
- =?utf-8?B?YzNwZDFSaHpQeFc0Z0tacmR1bm1EM2NmQTdMR1h1QWxNWHBWSktzejhtazJM?=
- =?utf-8?B?cW1FSlNRY2Y2V1RXenFaYVFBUHZERXAvOUFBOG00OWFSdjhvWTJFdWtlM25T?=
- =?utf-8?B?UmxqVTAzVFIzK1JqMzZkREl4cDdvKy90dWVCcFdBbTFCSHhYQUNLVGE0eGhC?=
- =?utf-8?B?SmNvSGptdHNmcWRJdzBuYno2S1lKMURzWFNqdjhWSzdjMU5ZYUVKSjZieDlw?=
- =?utf-8?B?ZnVyV0d3Nk1LYlFNQ1VRSlY2WWljWGFCMHZCZnZEVWY1cm90dW42TnVRdEZV?=
- =?utf-8?B?RlNleS9ZVGFucklMQkp1bkxVVlpJb1VwQXJUajBoSHE4VWRYVHdMMlV6Rkh5?=
- =?utf-8?B?Ui9vblIxa0hsenowQmNPS1Zod2E4MnhrODk4cmhmc2V5NEVjVXJBaEYzdERh?=
- =?utf-8?B?citPaitCQ1h6WjRWNHBvekprelR2TzBzU3cyL3RrK0IwVXRiN0xsekU4bUly?=
- =?utf-8?B?aHc3OGkwcGZTR29lV2xNNmp2OXNXZHZ6RUxKbFQ2OUN4OFJwc1lMb2hrREdI?=
- =?utf-8?B?ZW1JOHp4dEpZcWxKb1hXc090WWhvejZzamlkMlkwNno5SWF6M3lWM29pWExh?=
- =?utf-8?B?eDJzbXRlVGVUMFdMQ0ZGN1hWaVE3MDJZclo2Wk55N1FLdGlzREsxUU5JZ2xM?=
- =?utf-8?B?czNIQkpMdjMyTlhSRjRIaTJ5SWRnK211N0pVaU5wRW1zSTNxNTNvZ05hTXhR?=
- =?utf-8?B?dzdwMDFndHN3eG9GVGQwL1NyT2lzNDZXVTFkaU1tMm56S1REZlBlYUwyWkNY?=
- =?utf-8?B?RmNIcGhCbEZibzNGK1Ewem9OTmxwN1lxSUJDS1ZIaVBqc1Jub3pXYUVnK2x3?=
- =?utf-8?B?bXVJK2hBQXgzc3diM1d6Q2pwdHoyLytBNDJTMmRIbnpUWHgvUzNpcWVkS3Q3?=
- =?utf-8?B?cENXL21lWU54Um5mSjdYZStZd2Y0eFI5aXN0Rzh1SFJmM3RHbUtuczBVTFNK?=
- =?utf-8?B?T1c0WlhCVXRaQ0NpczhxV2p3TmhZSm9TQlJvR2laY2FORlo4d1Y5ekc0MzRi?=
- =?utf-8?B?N1FMOEtzVnorVi8rSUpiQVdGL2dOZG4yRVp2a3B5TUJJTFNSaWpQS2FoaEQw?=
- =?utf-8?B?bjRJczBzTlM5bk5XSC9jeFFnUWxoWUkxYVUrVC82ek04cUY2VzA4cVZ4T3hn?=
- =?utf-8?B?QkRZUmlBOUUvMTNHVlNwcm5YMXB0TGtpY1FSV1gzOHhjVFdxblJRaFN3MXJw?=
- =?utf-8?B?d1dPMCtpUElCWkNKMzZHVlFWYUk4SHRuampvZFBneVh3SiszWGNmZ1g5UitF?=
- =?utf-8?B?ZFFsRmM4anFXWFBOV25nWDFrSlNMRnN0bnh6Ym1OOGFpZEw5THp1cGNGQ3Jr?=
- =?utf-8?B?NEJnVlpRT1JZUTZYWjhqR1ZGeE9MRFBJQll3ZnozUjZnOE5lQml4cG1JMHVu?=
- =?utf-8?B?RXQwalR5YnhuRWordU81OHN2bUk4SzBqanNQV0dSdlZ0RjQxek16UT09?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <9F232C3D1F7A7D4B9D720FF7F9672010@namprd12.prod.outlook.com>
-Content-Transfer-Encoding: base64
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=23.90.104.147
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795623164;
+	b=Z59uOvJp6pfZ5Z8qHWO7P/I5gbyuqUCJnf8L/Z3m7mZb9G/gc2je/W8MsFUB63Pxbwdw
+	 pnHgJFuPJS8Zm92uUXfvkxZzdlnYsLUgq5zJXKD877QLnUnWPiVdICZzNUgm92eFdmGeT
+	 ZZBBwbEtn/6CNgkzh9uUcsyKVIpKkVsMSKw3u2gpmpp14zRg0XChoePPfub92Ct7BTzVR
+	 Z8SCZeubrNVVbNG6SkfEm6Vx9D4EzVym84amrMoV4saFd6Mt0Q8aBJSF17vhdZkN52esb
+	 BrskynUmZzL5mcUvXADF5JYJo8RiqFKG5yWGP1bvs9hiykaRk641p1U6zKPvW0NZkdg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795623164;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-Amp-Result:X-Amp-File-Uploaded:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:Received:Received:From:Subject:Date:Message-Id:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer;
+	bh=awO1h/PsVxaBgw8sGTVlKtRB3AZEVT1WSAHJtpIZSf4=;
+	b=PHwmWq59KDlQPA2Rn9kDd90OxEDVfavnDsWPIx741Lr7QkQHOF+8EF1+fgBSGnQIR3ki
+	 j3YisX+FB5ZlbJlAPCae8CZzh7/5Ry3KtNkYcX7aPyW/P3UkbzjBJMTPDGDQSRAnk0IRT
+	 PMtqH1sBe6Qyw36k1/RrJDVTTb/WDltNnnB/JoRtmzuAKm7ReSnGsyXvUB5hPS8zNLFrE
+	 A5HhJKPOW3ByYTEHVANkzJuFERW42GfQIDuvhFP6GDkzcM9bQ/gx2EqNt1vK2wPEgYDRB
+	 jiS22IV0C9nphIx7HK6GjLCzgxvsmLHkXicG5vuHw4SlZp5kyvRIbjuoAWCL0WxnwjA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=mobileye.com;
+	spf=pass smtp.mailfrom=mobileye.com;
+	arc=none smtp.remote-ip=23.90.104.147
+Received: from esa2.hc555-34.eu.iphmx.com (esa2.hc555-34.eu.iphmx.com [23.90.104.147])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 7DBB5606A323;
+	Wed, 25 Nov 2026 16:12:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7DBB5606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mobileye.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mobileye.com
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=mobileye.com; i=@mobileye.com; q=dns/txt; s=MoEyIP;
+  t=1795623170; x=1827159170;
+  h=from:subject:date:message-id:mime-version:
+   content-transfer-encoding:to:cc;
+  bh=CnhhFMklWzjd95oYOPU/3D5K5rD8MM8uGI8AKlVW5kQ=;
+  b=WDcytfQFD2VVm6LWiqG/gWiVTDucVu0kU1VhmiBhrMPbHBI+qvMieoAq
+   RmXby6H2iIe+FN63re+5MWYuAGIysVQEo4Pl32zdTo9HSjeKOQgEpjMVQ
+   4+OoBWIM8x0qh56/Mhd/umTCIEuu6uD0Uvr8eYr6u5/CeV7XCGVPAB3IH
+   Rm9wKCfwYzgaLo1iTJ8cX0Dzere+Qic3dw7m+VkihfH/HewsgkwYCs9KP
+   4vaiU4LAUvIoNr6alMklJ+DuPnpzum7UvBy9Z2wudwSOy/0F6aQbwkS0z
+   fwP1X4lt5/y551MTJOVGCoZKJK0TkSQvweoufZ9KrxfJ9SqGdQkATtdhV
+   w==;
+X-CSE-ConnectionGUID: 68gFUhiVSEeRj4swVpyeQw==
+X-CSE-MsgGUID: HPMZQ6cORWy9x3Ueje+hmg==
+X-Amp-Result: SKIPPED(no attachment in message)
+X-Amp-File-Uploaded: False
+Received: from unknown (HELO ces02_data.me-corp.lan) ([146.255.191.134])
+  by esa2.hc555-34.eu.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 18:12:41 +0200
+X-CSE-ConnectionGUID: YCXxgs58RB2YjqznLCUEEg==
+X-CSE-MsgGUID: J1QBbANCSGSym1h8odoI2g==
+Received: from unknown (HELO epgd071.me-corp.lan) ([10.154.54.3])
+  by ces02_data.me-corp.lan with SMTP; 25 Nov 2026 18:20:56 +0200
+Received: by epgd071.me-corp.lan (sSMTP sendmail emulation); Wed, 25 Nov 2026 18:12:32 +0200
+From: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
+Subject: [PATCH v5 0/3] riscv: probes: check for LR/SC sequence
+Date: Wed, 25 Nov 2026 18:12:16 +0200
+Message-Id: <20261125-probes-in-lrsc-v5-0-38a32e53fcc2@mobileye.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -173,35 +66,116 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: BN9PR12MB5259.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5f452acd-0294-4e3f-7b15-08df4b0ed101
-X-MS-Exchange-CrossTenant-originalarrivaltime: 25 Nov 2026 16:11:51.7465
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: ZXkcK7CtjjHUJzUS8lDOPv3HccDzwfkr+r7kDuDuQpmgBvq+0bYcjEanM2Qca2tAAibpJSq3OO+0NOr8N0966Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB8795
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAOAIB2sC/33NTQ7CIBAF4KsY1o4pFBBceQ/jogNTxWgxoI3G9
+ O5S3Rj/ZveS9765sUwpUGaLyY0l6kMOsStBTSfMbZtuQxB8yUxUQvNycEwRKUPoYJ+yA+mcJ+2
+ wlbVmZXRM1IbLA1ytnzmfcUfuNCpjYxvyKabr42PPx95PvOfAQbbWek+NarVZHiKGPV1p5uKBj
+ X4v/gsCKkChhMI5cTL0RahfBfEh1EVorKqMNUo0fP5FkK+C+hBkEaRBi1Wt0XP/JgzDcAdhrwS
+ LhwEAAA==
+X-Change-ID: 20261111-probes-in-lrsc-4ccde6cbf436
+To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+ Masami Hiramatsu <mhiramat@kernel.org>, Oleg Nesterov <oleg@redhat.com>, 
+ Peter Zijlstra <peterz@infradead.org>, Guo Ren <guoren@kernel.org>, 
+ Pekka Enberg <penberg@kernel.org>, 
+ =?utf-8?q?Patrick_St=C3=A4hlin?= <me@packi.ch>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-trace-kernel@vger.kernel.org, 
+ Palmer Dabbelt <palmerdabbelt@google.com>, 
+ Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>, 
+ Sashiko <sashiko-bot@kernel.org>, 
+ Xiaofeng Yuan <yuanxiaofeng@eswincomputing.com>
+X-Mailer: b4 0.16.0
 
-T24gV2VkLCAyMDI2LTExLTI1IGF0IDA5OjQyIC0wNjAwLCBQYXVsIEdvZm1hbiB3cm90ZToNCj4g
-T24gMTEvMjUvMjYgMDc6NDMsIERhdmlkIEhpbGRlbmJyYW5kIChBcm0pIHdyb3RlOg0KPiA+IE9u
-IDExLzI1LzI2IDE0OjMyLCBTaGl2YW5rIEdhcmcgd3JvdGU6DQo+ID4gPiBtcHJvdGVjdCgpIGhh
-bmRsZXMgdGhlIFBURXMgb2YgYSBsYXJnZSBmb2xpbyBhcyBvbmUgYmF0Y2gsIGFuZCBtYXJrcyB0
-aGUNCj4gPiA+IHdob2xlIGJhdGNoIGRpcnR5IHdpdGggcHRlX21rZGlydHkoKSBpZiBhbnkgb2Yg
-aXRzIFBURXMgaXMgZGlydHkuICBPbg0KPiA+ID4geDg2LCBwb3dlcnBjLCByaXNjdiBhbmQgczM5
-MCwgcHRlX21rZGlydHkoKSBhbHNvIHNldHMgdGhlIHNvZnQtZGlydHkNCj4gPiA+IGJpdCwgc28g
-YWZ0ZXIgY2xlYXJfcmVmcywgbXByb3RlY3QoKSBtYXJrcyB1bndyaXR0ZW4gcGFnZXMgc29mdC1k
-aXJ0eS4NCj4gPiA+IFdpdGggNjRLIG1USFAgb24geDg2LTY0LCBhbGwgMjQwIHVud3JpdHRlbiBw
-YWdlcyBvZiBhIDFNaUIgcmVnaW9uIGFyZQ0KPiA+ID4gcmVwb3J0ZWQgc29mdC1kaXJ0eTsgd2l0
-aCBteSBmaXgsIG5vbmUgYXJlLg0KPiA+IFdoeSBkbyB3ZSBjYXJlPyBKdXN0IG92ZXItaW5kaWNh
-dGUgc29mdC1kaXJ0eS4gSXQncyB2YWxpZCwgYW5kIHRoZSB3aG9sZSBmZWF0dXJlDQo+ID4gaXMg
-ZnVsbCBvZiBob2xlcyBhbmQgYnVnZ3kgYXMgaGVsbC4NCj4gPiANCj4gRG8gSSB1bmRlcnN0YW5k
-IGNvcnJlY3RseSB0aGF0IHRoZXNlIGlzc3VlcyBvbmx5IGFmZmVjdCB0aGUgb2xkIHNvZnQgDQo+
-IGRpcnR5IGZlYXR1cmUgYW5kIG5vdCBVRkZEIFdQIGFzeW5jIChVRkZEX0ZFQVRVUkVfV1BfQVNZ
-TkMpPyANCj4gT3Zlci1pbmRpY2F0aW5nIHdyaXR0ZW4gcGFnZXMgd2l0aCB0aGUgbmV3ZXIgVUZG
-RCBzdXBwb3J0IGlzIG5vdCANCj4gZXhwZWN0ZWQgYW5kIFdpbmUgdXNhZ2Ugb2YgdGhlIGZlYXR1
-cmUgcmVxdWlyZXMgdGhhdC4gQnV0IEkgZ3Vlc3MgaXQgaXMgDQo+IG5vdCB3aGF0IGlzIGNvbmNl
-cm5lZCBoZXJlPw0KDQpZZXMsIHJpZ2h0LiBUaGlzIG9ubHkgYWZmZWN0IHRoZSBzb2Z0LWRpcnR5
-IGJpdCwgYW5kIG5vdCB1ZmZkLXdwIGZlYXR1cmUuDQo=
+Patch 1 fixes page fault reported by sashiko-bot@kernel.org that
+existed before this patch series
+
+Patch 2 rejects probes inside the LR/SC sequence. This commit was
+initially submitted as patch 1 of the series [1].
+Detaching it from that series because it is not depending on other stuff.
+Do a Call Flow Graph analysis to correctly detect reachable SC
+instructions
+
+Patch 3 adds KUnit test, suggested by
+Xiaofeng Yuan <yuanxiaofeng@eswincomputing.com> in [2]
+
+[1] https://patch.msgid.link/20261110-lrsc-only-v6-0-bafc3cc0fcae@mobileye.com
+[2] https://lore.kernel.org/linux-riscv/20261019134121.1763-3-yuanxiaofeng@eswincomputing.com/
+
+---
+Changes in v5:
+- add KUnit tests for text literals inside code and exit branches in the
+  LR/SC loop, both forward and backward (patch 3)
+- Do a Control Flow Graph analysis to correctly detect reachable SC
+  (patch 2)
+- allow backward branch inside LR/SC sequence, it can be on exit
+  path of the valid LR/SC sequence
+- fix LR/SC loop maximum size (patches 2 and 3), reported by
+  Xiaofeng Yuan <yuanxiaofeng@eswincomputing.com>
+- Link to v4: https://patch.msgid.link/20261115-probes-in-lrsc-v4-0-48b9b036bd1d@mobileye.com
+
+Changes in v4:
+- Add KUnit test as suggested by Guo Ren <guoren@kernel.org>, based on
+  work by Xiaofeng Yuan <yuanxiaofeng@eswincomputing.com>
+- Scan for SC up to maximum possible sequence length. CPU does not know
+  about symbols, it is not correct to stop scanning at the end of
+  symbol. Globally visible symbol placed within LR/SC sequence should
+  not turn probe within the sequence into acceptable.
+- Link to v3: https://patch.msgid.link/20261112-probes-in-lrsc-v3-0-a95089852a17@mobileye.com
+
+Changes in v3:
+- Fix lr/sc loop detection logic for lr at probe position
+- Add "Fixes" trailers as suggested by sashiko-bot@kernel.org
+- Link to v2: https://patch.msgid.link/20261111-probes-in-lrsc-v2-0-b2525b7e1e8e@mobileye.com
+
+Changes in v2:
+- Allow kprobe on the LR itself unless it is part of the LR/SC loop.
+- Fix error (reported by sashiko-bot@kernel.org) where
+  arch_prepare_kprobe() returns -EILSEQ for LR/SC probes.
+  Make codes returned by arch_check_kprobe to indicate -EINVAL
+  if probe falls within the LR/SC loop, consistent with the case when
+  INSN_REJECTED returned by riscv_probe_decode_insn
+- add patch fixing out-of-bounds read in riscv_probe_decode_insn()
+  reported by sashiko-bot@kernel.org (as patch 1)
+- Link to v1: https://patch.msgid.link/20261111-probes-in-lrsc-v1-1-4f99ddea5f68@mobileye.com
+
+To: Paul Walmsley <pjw@kernel.org>
+To: Palmer Dabbelt <palmer@dabbelt.com>
+To: Albert Ou <aou@eecs.berkeley.edu>
+To: Alexandre Ghiti <alex@ghiti.fr>
+To: Masami Hiramatsu <mhiramat@kernel.org>
+To: Oleg Nesterov <oleg@redhat.com>
+To: Peter Zijlstra <peterz@infradead.org>
+To: Guo Ren <guoren@kernel.org>
+To: Pekka Enberg <penberg@kernel.org>
+To: Patrick Stählin <me@packi.ch>
+Cc: linux-riscv@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-trace-kernel@vger.kernel.org
+Cc: Palmer Dabbelt <palmerdabbelt@google.com>
+Signed-off-by: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
+
+---
+Vladimir Kondratiev (3):
+      riscv: kprobes: fix out-of-bounds read in riscv_probe_decode_insn
+      riscv: probes: reject probes inside an LR/SC sequence
+      riscv: kprobes: add KUnit test for LR/SC sequence rejection
+
+ arch/riscv/include/asm/insn.h                      |  29 ++++
+ arch/riscv/kernel/probes/decode-insn.c             | 171 +++++++++++++++++++++
+ arch/riscv/kernel/probes/decode-insn.h             |   7 +
+ arch/riscv/kernel/probes/kprobes.c                 |  39 +++--
+ arch/riscv/kernel/probes/uprobes.c                 |  31 ++++
+ arch/riscv/kernel/tests/kprobes/test-kprobes-asm.S | 148 ++++++++++++++++++
+ arch/riscv/kernel/tests/kprobes/test-kprobes.c     |  32 ++++
+ arch/riscv/kernel/tests/kprobes/test-kprobes.h     |   6 +
+ 8 files changed, 453 insertions(+), 10 deletions(-)
+---
+base-commit: c03c1a14507dfaf8b856c2608f9ac216021fc222
+change-id: 20261111-probes-in-lrsc-4ccde6cbf436
+
+Best regards,
+--  
+Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
+
