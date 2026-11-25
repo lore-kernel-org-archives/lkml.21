@@ -1,115 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795629987;
-	b=lzxJjANXNZhxkqNsN/AM/P5J0wXyqPgrILsimaPkxFrfwWY7uBzTdcrSFJF6krgpur/9
-	 ATguLdyg4LJBy+bvYGYZIt1KF+EZRfC7ujFnYLiAos7lMJ6K2ZTHQwyWOF9E36GEeRddX
-	 L3zkxFExM/n2FLX3r4qrufXNjtpyiIzx0UznpfmEAUAHmXWFmvENsZ9XnAVqXSPZDM0d5
-	 ixei+kvORivqW93vcewSRT2mxpqNPLbXbymE7rqIwwZMpQ8vqMhH0EtJx217kMFQy9Wsf
-	 EtdvR5QpZPIJpVNeqPa40QNERI7dy5CvJXVr5IHxub+yG7YTGEyGawtyCPPvZnzTERg==
+	t=1795629989;
+	b=sY81MHrdJ2UvspfO7Ov87nXCyqij0Y8KPpuF8neTi4gHZlyFuW1TpWbtuzsJzrAChCgy
+	 Y8ynoztbpkTcM8gkxHG3iV/tWjGOzB0YGiwz9/E/+sqH5kP4XQo+oDPvRs4pJkrNLbk+U
+	 YEXA9pxFgas/JH/LTaQr+i8FSjuRdt61BKQ5tceOEUMDmtcQF9cm8i7dqn+KA3H8PtiwR
+	 j7mWHLXU7PL8I53R13kHqRrL0SondzAI57LH3x0xd3/luuSZA1+LT5qvEhN7nT4aG0epp
+	 bzvOXjn6CBt20hM4YaYhztShyNYb3hmZPemBWHU3fs6M2mjW6Kw5lyry+fXnCqs+yGg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795629987;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:Received:Date:From:To:Cc:Subject:Message-ID:References:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=R+Af9eWwgldLTUDD7Otvu3vGqJ6bqfzJqODBgc++zE4=;
-	b=2GGz4PjjlUkv6oxTHn4qyfYqAVF+UE6QPYiWlX/y1W/SBDSiNIvpec4Cye8VBu8u2OXR
-	 yfQmHvEKDEZ93yyKdeNej5CTyeD1EjaRAeFOJ6gGBtDbucCiCADnx7mVHkI2TJVTMWZaD
-	 VDcoyJQTjGRlUHAOW+SjhNTkvBVDPin/NOyNUF+atda8uB2q/t4S0iy4k/Pj04kTp+UBX
-	 cojrKcaVYgMF62uDnLwclq2PRkmgrm/AzW9J7UK51oIVa1wuR2wKUqZGHHHX1YGwtnCDd
-	 7+Rkf66iuKNEqZ8q18nKcl6IkfMpRJ9VnK+fmXRMtGdBjlCeCD5jbaYUBy3vNKUtlrQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795629989;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=vwVW9YYt52UiA2UrUYRcnOGpfUWCz+wNtn31rCLdqFI=;
+	b=D5okhRcwNq3o7dTpVPl4NvFxYYajxXHcg2whabO01poH/piQo+FPs1QokaNGTTJFELQE
+	 G46qgurx3AFn14E+3Y9Toc3yWt8ruafb8J1v20yugvBuWEvnPgCkmWPo00vXXYJejly6A
+	 nJWCWtI4m+L33Fzi19m/XtB6fBQcFaD2tSFVQIBnggFc77u0pT6/KAqxT+hGv082h5xoT
+	 nsZycQUrwn+G0s+Omc7Px8b0f6eSBzrDJkFXvWzavKMaCebyIsB3+VBtUVP3H0hkcH7qG
+	 bq2PHsTBwQw89/4SF7lwZSTXlGYdj4g4/SfFdd6/1My1Bq5reHJ9Sno7cj9qm8SX7Qg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=GE8M4sfL;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=Jr3xhjPh;
-	arc=none smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dvLsqJg7;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5FC22606A31E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:06:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5FC22606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 9AED5606A32C;
+	Wed, 25 Nov 2026 18:06:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=GE8M4sfL;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=Jr3xhjPh
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795629985;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=R+Af9eWwgldLTUDD7Otvu3vGqJ6bqfzJqODBgc++zE4=;
-	b=GE8M4sfL0RPyCgV3UfnzuMVnt8sCJaWgJUOk3dtaWJ0mtkV5SJFxSWpAxXC0ewwsvVpQfI
-	BZEjO2HVZQSFz7u4X3XVVkOBY8Uap0p7tL4lQH4GFq0jT6qeuoCwVrW4RQ9Bz/DvJE1l/k
-	1eJmAGcG6E0lEipcZJhpfkr8Wbet2dA=
-Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
- [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-427-9O6t_xM5PveynNfazdxqJQ-1; Wed, 25 Nov 2026 18:06:21 +0000
-X-MC-Unique: 9O6t_xM5PveynNfazdxqJQ-1
-X-Mimecast-MFC-AGG-ID: 9O6t_xM5PveynNfazdxqJQ_1795629980
-Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-4a1f03f2e8aso53475135e9.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:06:21 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795629980; x=1796234780; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=R+Af9eWwgldLTUDD7Otvu3vGqJ6bqfzJqODBgc++zE4=;
-        b=Jr3xhjPh+bq1MRRmg7RNC/l4XwYSW0YJwOUumeTb8pyM7P50WZLRYnUUH67FsJ+BFO
-         kCpCfXfre9tHlfaXMIs0OOyJAr1Il5LNKUeo0qtzt20ZowdyfPEju7JD75A0HnMPxfzq
-         LEAzDgHzy5GYVbz4Pg4TbieaYNeT3T0g6yXHeuEyb5t4OFuLmdPPLTwnJln8ac4pSjAb
-         5I5anQnwB951iOFiYXN1Fw/FSOs7vknEJeD8Mvv+PQwy4hLDiH6HvuIoVj2U9itu14gY
-         BjNi3QUMzkko4TLapiXQxEjAcCPan0IRxkz420skShtRCCFcd+AJJ1jxQ9e0ILGZQFzW
-         sn6g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795629980; x=1796234780;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=R+Af9eWwgldLTUDD7Otvu3vGqJ6bqfzJqODBgc++zE4=;
-        b=U7HQE6wzxW32+6QsCiyBXY5dmxKE6wRVljAATFp23fs/xCfEorRAkGtYwOl+QvDgY+
-         iNJ7a01xkpaTpZ8aR943iUwbV18J+OuvgB8bbyBdscaltQot3HiA1P6YiJ9N4zJuMuaK
-         6hM+uHfHvCc2nYUfYF1+np7E8ePVTg9u96rR/haI0gOz3XDKTSObCL6I9QxYQ+pwCdHp
-         LQ4SB+xdJxbWnQqqQdUgUHCI8hkcUGGUHgaMl+he5BPX6Ks0XX8o5AppBkePqv/XPNbn
-         cbdipJqTsX5IBfPZAkX4LrD/b0yr2q2IC7jFnWkkKAPR6Q6S1xec/BRURbRj8F9xzUQG
-         00uQ==
-X-Forwarded-Encrypted: i=1; AL+hErHSPBLcu5xiJv/rFtyddnxHyh2sa1upUnwApUWH/HejnTQo+r4J3H93+41O6d6GMlg/F7pQUcW4/d3BLHs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8xXZJ0c0U6V+4Vyou8hOaNgwX8CdpP7nXdre9Hn17FvMghWfox
-	JoSGfjFfefId4f7girWx3KFrn9OyJlagGwBECGq1w1V+hRy+bRcyB1IA+DZ8z/NDh1g+4Ndrnx0
-	aBZTrQ6iPZbqvLyY6dHs7pkx6DJx5XNjtW6ISSo8/nl/mBhjdDyQZDUqhEzgciLh1eQ==
-X-Gm-Gg: AZFdTZdIiyFrSRWTBQ4gS00/cbFhbrzRe/R9qzQhmbMyzjXMpORv9/6BTDR/nOGdvRk
-	Db7zkspAZlwfobMdvw4P1rQM5/ZJCiYUwDi5hfzg4R3mYii57j/QAofy0LG33JdffWbmnFeFsjZ
-	ZQ0jtP/W0ncjU+bi8uQSNUxCBDKn1Rg79G+7uWNCWUhCqPAq25xYFeZXhLF82pLJfcS1ysuaxaT
-	9N83xGmexOGyhR81LWKWRRQlxro04/Fwf7g7JprRV1xULojzpIRm6eInb7iX8s4oChYN68Xmyyz
-	+K6BHinhL2QU9Ia37DY8wmoymnh/Y1mQFwJqFJEVP01eNbmJD7LQ1PTjpja4eruZW/LZf+bcC2s
-	2TGGfz1vUR8ZB2PAnVsYtLs+v8kS7Ge4NwfdwSIkSEUU=
-X-Received: by 2002:a05:600d:82c5:b0:4a3:5aee:2c25 with SMTP id 5b1f17b1804b1-4bb88822642mr424523985e9.31.1795629979899;
-        Wed, 25 Nov 2026 10:06:19 -0800 (PST)
-X-Received: by 2002:a05:600d:82c5:b0:4a3:5aee:2c25 with SMTP id 5b1f17b1804b1-4bb88822642mr424523545e9.31.1795629979374;
-        Wed, 25 Nov 2026 10:06:19 -0800 (PST)
-Received: from redhat.com ([2a0d:6fc0:1529:2e00:86ec:bef7:c309:ba1f])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8538b3a7sm597334515e9.3.2026.11.25.10.06.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 10:06:18 -0800 (PST)
-Date: Wed, 25 Nov 2026 13:06:15 -0500
-From: "Michael S. Tsirkin" <mst@redhat.com>
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Cc: "chenglong.ma" <longpareto@gmail.com>,
-	Jason Wang <jasowangio@gmail.com>,
-	Eugenio =?iso-8859-1?Q?P=E9rez?= <eperezma@redhat.com>,
-	Xuan Zhuo <xuanzhuo@linux.alibaba.com>,
-	Xie Yongji <xieyongji@bytedance.com>,
-	virtualization@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] vduse: don't set VM_IO on the domain file mapping
-Message-ID: <20261125130547-mutt-send-email-mst@kernel.org>
-References: <20261125160128.796-1-longpareto@gmail.com>
- <awcNt5C6jkZQLy0M@gremlin>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dvLsqJg7
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 7DF011F000D8;
+	Wed, 25 Nov 2026 18:06:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795629989;
+	bh=vwVW9YYt52UiA2UrUYRcnOGpfUWCz+wNtn31rCLdqFI=;
+	h=From:To:Cc:Subject:Date;
+	b=dvLsqJg73toqPo0JCwKO5eJMco5MqUX3xpeeKN1JNRHYm5qAoXjaNrEkqBYKxxpoW
+	 TwN9wfxMVbTQWwgny92HNmGs1UN3epIx8rSqPfxUOTutiuywAix/arXzHfTHbWIb0+
+	 MEBPc1JwFvirC0CwP9OpY59WXyOf/6KjBOgm+vB05WD2Wm60nfvp240y8EJzI/o2kP
+	 +6UONVFj8voG9q/lOVvpNVh2oUNALlb+Zls3I/eZhgSP8as407R/Wgk3BOpK3gqVPB
+	 4TLPncSNJFagiTT0LLYSashWMdkV4DjBOcWJ10PT6CWs3U7eXnySX1b+AFIMguI9rS
+	 hwduqdbq/R+Rg==
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: keyrings@vger.kernel.org
+Cc: Jarkko Sakkinen <jarkko@kernel.org>,
+	dm-devel@lists.linux.dev,
+	linux-crypto@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-integrity@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-security-module@vger.kernel.org,
+	Ahmad Fatoum <a.fatoum@pengutronix.de>,
+	Alasdair Kergon <agk@redhat.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Benjamin Marzinski <bmarzins@redhat.com>,
+	David Gstir <david@sigma-star.at>,
+	David Howells <dhowells@redhat.com>,
+	David Laight <david.laight.linux@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	David Woodhouse <dwmw2@infradead.org>,
+	Eric Biggers <ebiggers@kernel.org>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	Ignat Korchagin <ignat@linux.win>,
+	James Bottomley <James.Bottomley@HansenPartnership.com>,
+	James Morris <jmorris@namei.org>,
+	James Prestwood <prestwoj@gmail.com>,
+	Jason Gunthorpe <jgg@ziepe.ca>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Lukas Wunner <lukas@wunner.de>,
+	Mike Snitzer <snitzer@kernel.org>,
+	Mikulas Patocka <mpatocka@redhat.com>,
+	Mimi Zohar <zohar@linux.ibm.com>,
+	Paul Moore <paul@paul-moore.com>,
+	Peter Huewe <peterhuewe@gmx.de>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	"Serge E. Hallyn" <serge@hallyn.com>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Sumit Garg <sumit.garg@kernel.org>
+Subject: [PATCH v3 0/9] KEYS: trusted: asymmetric keys
+Date: Wed, 25 Nov 2026 20:06:06 +0200
+Message-ID: <20261125180616.1854753-1-jarkko@kernel.org>
+X-Mailer: git-send-email 2.47.3
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -119,104 +88,129 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <awcNt5C6jkZQLy0M@gremlin>
+Content-Transfer-Encoding: 8bit
 
-On Wed, Nov 25, 2026 at 04:38:51PM +0000, Lorenzo Stoakes (ARM) wrote:
-> This isn't how you send patches in the kernel...
-> 
-> See https://docs.kernel.org/process/submitting-patches.html
-> 
-> This is a v2 of the original patch. It should say [PATCH v2].
-> 
-> You shouldn't send a respin so quickly.
-> 
-> On Thu, Nov 26, 2026 at 12:01:28AM +0800, chenglong.ma wrote:
-> > Commit bb2e6f166547 ("vduse: fix VA/PA confusion in the coherent page fault path")
-> > set VM_IO on the domain file mapping so that
-> > vhost_vdpa_va_map() would skip it. Since 99fd6bf43d5d, mm refuses VM_IO
-> > on mm-managed mappings: mmap() of the domain file fails with a
-> > WARN_ON_ONCE() and -EINVAL, which breaks VDUSE userspace.
-> >
-> > VDUSE is currently broken in 7.4 because of this. Please treat this as
-> > a hotfix for 7.4.
-> 
-> You should say that it's broken and the patch fixes it in the commit message,
-> and leave commentary about it being a hotfix for below the ---.
-> 
-> >
-> > VM_IO is not needed. vduse_domain_set_map() already rejects vhost-vdpa
-> > entries backed by the domain file, and the file check in
-> > vduse_domain_get_coherent_page() keeps any other entry from being
-> > translated as a physical address. A self-referencing mapping now
-> > reaches vduse_domain_set_map() and is refused with -EINVAL.
-> >
-> > Fixes: bb2e6f166547 ("vduse: fix VA/PA confusion in the coherent page fault path")
-> 
-> Cc: stable?
-> 
-> You shouldn't be using VM_IO anywhere.
-> 
-> > Reported-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
-> > Closes: https://lore.kernel.org/r/awWOpS3HR_2FTN3I@gremlin
-> > Suggested-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
-> 
-> You failed to propagate my Reviewed-by tag...
-> 
-> > Signed-off-by: chenglong.ma <longpareto@gmail.com>
-> 
-> This Signed-off-by seems invalid, there shouldn't be a '.' there I don't think?
-> 
-> (Also gmail isn't really recommended for kernel stuff either, they drop a lot of
-> kernel mail).
-> 
-> Anyway, I assume Michael can pick this up and fix it up a bit?
+OVERVIEW
+========
 
-I'd rather see a fixed up patch on list.
+Extend TPM 2.0 trusted keys to load ASN.1 TPMKey [1] asymmetric keys
+(OID_TPMLoadableKey, 2.23.133.10.1.3) and expose keyctl pkey-operations
+directly on key_type_trusted. In addition there are some TPMKey
+interoperability fixes.
 
-> For the patch itself:
-> 
-> Reviewed-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
-> 
-> > ---
-> >
-> > Notes:
-> >     Tested on v7.4-rc2 (commit 7475ea8b58616b33c04afb976cf0fbaad9dd63fb).
-> >
-> >     Control, without this patch: mmap() of the VDUSE domain file fails,
-> >     with the WARN_ON_ONCE() from 99fd6bf43d5d.
-> >
-> >     With this patch applied: mmap() of the domain file succeeds, and
-> >     importing that mapping through vhost-vdpa is refused by
-> >     vduse_domain_set_map() with -EINVAL.
-> >
-> >     Dynamic tests also confirmed that vduse_domain_get_coherent_page()
-> >     refuses to translate entries backed by any file other than the domain
-> >     file, and that legitimate coherent vring mappings are still translated.
-> >
-> >  drivers/vdpa/vdpa_user/iova_domain.c | 2 +-
-> >  1 file changed, 1 insertion(+), 1 deletion(-)
-> >
-> > diff --git a/drivers/vdpa/vdpa_user/iova_domain.c b/drivers/vdpa/vdpa_user/iova_domain.c
-> > index 28a977248a0d..3c6fa18703b4 100644
-> > --- a/drivers/vdpa/vdpa_user/iova_domain.c
-> > +++ b/drivers/vdpa/vdpa_user/iova_domain.c
-> > @@ -588,7 +588,7 @@ static int vduse_domain_mmap(struct file *file, struct vm_area_struct *vma)
-> >  {
-> >  	struct vduse_iova_domain *domain = file->private_data;
-> >
-> > -	vm_flags_set(vma, VM_IO | VM_DONTDUMP | VM_DONTEXPAND);
-> > +	vm_flags_set(vma, VM_DONTDUMP | VM_DONTEXPAND);
-> >  	vma->vm_private_data = domain;
-> >  	vma->vm_ops = &vduse_domain_mmap_ops;
-> >
-> >
-> > base-commit: 44293796526f4343639f87b2acc53811c78b5d54
-> > --
-> > 2.45.2.windows.1
-> >
-> 
-> --
-> Cheers, Lorenzo
+I.e. this my old series with a twist: instead of introducing a separate
+subtype for asymmetric keys, factor out pkey-operations into a separate
+CONFIG_KEYCTL_PKEY-feature, and wire asymmetric operations to
+key_type_trusted.
+
+This work was originally derived from [3] and is direct offspring of
+[2].
+
+[1] https://www.hansenpartnership.com/draft-bottomley-tpm2-keys.html
+[2] https://lore.kernel.org/linux-integrity/20240520184727.22038-1-jarkko@kernel.org/
+[3] https://lore.kernel.org/all/20200518172704.29608-1-prestwoj@gmail.com/
+
+CHANGES
+=======
+
+v3:
+- KEYS: Move CONFIG_KEYCTL_PKEY factoring to the beginning of the series
+  and make it an off-by-default prompt instead of selecting it from
+  CONFIG_ASYMMETRIC_KEY_TYPE.
+- trusted: Make CONFIG_TRUSTED_KEYS_ASYMMETRIC depend on
+  CONFIG_KEYCTL_PKEY instead of selecting it.
+- trusted: Use unsigned int instead of u16 for data_len and min_len in
+  tpm2_unseal_cmd().
+- asn1: The reason for not supporting implicit tags was that it follows
+  what other functions do in asn1_encoder.c, and is that way coherent.
+
+v2:
+- lib/asn1_encoder: Remove unreachable !bytes_len branch in
+  asn1_encode_integer_bytes().
+- tpm: Bounds-check ECC coordinates, defer state updates until after
+  validation, and verify subsequent TPM2_RH_NULL primaries against
+  chip->null_key_name in tpm2_parse_create_primary().
+- trusted: Reject trailing or truncated TPM2B bytes in tpm2_key_decode() so
+  tpm2_load_cmd() and tpm2_asym_load() pass the same blob length.
+- trusted: Avoid 32-bit param_size wraparound in tpm2_asym_rsa_decrypt()
+  and tpm2_asym_parse_signature().
+
+VERSIONS
+========
+
+v2: https://lore.kernel.org/keyrings/20261124194043.1651679-1-jarkko@kernel.org/
+v1: https://lore.kernel.org/keyrings/20261124120044.1481752-1-jarkko@kernel.org/
+
+Cc: dm-devel@lists.linux.dev
+Cc: keyrings@vger.kernel.org
+Cc: linux-crypto@vger.kernel.org
+Cc: linux-doc@vger.kernel.org
+Cc: linux-integrity@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-security-module@vger.kernel.org
+Cc: Ahmad Fatoum <a.fatoum@pengutronix.de>
+Cc: Alasdair Kergon <agk@redhat.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>
+Cc: Benjamin Marzinski <bmarzins@redhat.com>
+Cc: David Gstir <david@sigma-star.at>
+Cc: David Howells <dhowells@redhat.com>
+Cc: David Laight <david.laight.linux@gmail.com>
+Cc: "David S. Miller" <davem@davemloft.net>
+Cc: David Woodhouse <dwmw2@infradead.org>
+Cc: Eric Biggers <ebiggers@kernel.org>
+Cc: Herbert Xu <herbert@gondor.apana.org.au>
+Cc: Ignat Korchagin <ignat@linux.win>
+Cc: James Bottomley <James.Bottomley@HansenPartnership.com>
+Cc: James Morris <jmorris@namei.org>
+Cc: James Prestwood <prestwoj@gmail.com>
+Cc: Jarkko Sakkinen <jarkko@kernel.org>
+Cc: Jason Gunthorpe <jgg@ziepe.ca>
+Cc: Jonathan Corbet <corbet@lwn.net>
+Cc: Lukas Wunner <lukas@wunner.de>
+Cc: Mike Snitzer <snitzer@kernel.org>
+Cc: Mikulas Patocka <mpatocka@redhat.com>
+Cc: Mimi Zohar <zohar@linux.ibm.com>
+Cc: Paul Moore <paul@paul-moore.com>
+Cc: Peter Huewe <peterhuewe@gmx.de>
+Cc: Randy Dunlap <rdunlap@infradead.org>
+Cc: "Serge E. Hallyn" <serge@hallyn.com>
+Cc: Shuah Khan <skhan@linuxfoundation.org>
+Cc: Sumit Garg <sumit.garg@kernel.org>
+
+Jarkko Sakkinen (9):
+  KEYS: Factor out opt-in KEYCTL_PKEY
+  KEYS: trusted: Allow ASN.1 TPM2 sealed data shorter than MIN_KEY_SIZE
+  lib/asn1_encoder: Add asn1_encode_integer_bytes()
+  tpm: Export tpm2_create_primary()
+  tpm: Add persistent hierarchies to tpm2_create_primary()
+  KEYS: trusted: Extend TPMKey support
+  KEYS: trusted: Reject zero-length keys in symmetric consumers
+  KEYS: trusted: Factor out TPM2 blob loading
+  KEYS: trusted: Add asymmetric key support for TPM2
+
+ .../security/keys/trusted-encrypted.rst       |   25 +-
+ crypto/af_alg.c                               |    2 +
+ drivers/char/tpm/Kconfig                      |    2 +-
+ drivers/char/tpm/tpm2-sessions.c              |  239 +--
+ drivers/md/dm-crypt.c                         |    2 +-
+ include/keys/trusted-type.h                   |    5 +-
+ include/keys/trusted_tpm.h                    |   16 +-
+ include/linux/asn1_encoder.h                  |    3 +
+ include/linux/tpm.h                           |    2 +
+ include/linux/tpm_command.h                   |   13 +
+ lib/asn1_encoder.c                            |   56 +
+ security/keys/Kconfig                         |    9 +
+ security/keys/Makefile                        |    2 +-
+ .../keys/encrypted-keys/masterkey_trusted.c   |    5 +
+ security/keys/internal.h                      |    2 +-
+ security/keys/keyctl.c                        |    2 +-
+ security/keys/trusted-keys/Kconfig            |   10 +
+ security/keys/trusted-keys/tpm2key.asn1       |   19 +
+ security/keys/trusted-keys/trusted_core.c     |   20 +-
+ security/keys/trusted-keys/trusted_tpm1.c     |   26 +
+ security/keys/trusted-keys/trusted_tpm2.c     | 1341 +++++++++++++++--
+ 21 files changed, 1591 insertions(+), 210 deletions(-)
+
+--
+2.47.3
 
