@@ -1,82 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.12
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.200
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795606452;
-	b=LuWgicSmsKHO/O1A7lSu9KnU3UHmC0ls5J0dpzMc0TstD7Iunfh2VoIRNPsGkVwr6+rq
-	 o+nzatKr52CN619HH1pFy6FJ+LnroZqe9xnoVlkaNiiHiOAqPJZS5pLnXbujoR11wXjA9
-	 xWC3SadQSmqk+ORv44RcJ5qwMRLBJq+0IIfPieBsHEZvpbq7MITiU4bjIfKPGR3SSgsLt
-	 MxY/BAuNi5hI5NFgSkYGXsuJkdSEclORrmnUKWSVgsYVI04B9LMN314zJAa8mSx/cM/jr
-	 3mZ+VyCmNIrDx4A/AIw6HK1mXX7VIWeOWueAxwnqxy/Z9HOCz7/QrtrbydEiBdhKFkw==
+	t=1795606479;
+	b=Fyb5uwKD1k1SM25pxuFOEmcOLvoGJHkH9RfGG6UeBlvaOvylQqKhjkLoXuipA8H6BSup
+	 eQz4ttSbALcwWpBwdqOA2PqAc/JUpiKj+WKtd9aFnnGn8e51LXaSBpDApWNXW1QsQmNEv
+	 n74+ABlajRbBil2nM1s7uHDPoa/CPdaoRvaW+XWy2lBVmyjHzuhggZLBuCmroAGiC5D+o
+	 OJxvGPcHu1sJRzn5YWl0q3Y5VXgh/CsbbGRNQdyDGpgHHv5CIHC26lZ8a9Eal9bBo/JeK
+	 4HZCuV+I8NGiW0s+RJgeV/hfsAG0juYmTT01XZvv4qnnWVULH7UrbB2sBZKnpwSJYIg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795606452;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:
-	 Organization:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=G9DtsXcfz4y+IZgCUkf0GaIAzu44qcRml02dPTNgx/8=;
-	b=qJ8oB4XIqikGBUnSKBMLlAkuxrvb9b0e5bJDRUWTLwFZFe1MMC3gASLXP2ZrbM67pAwZ
-	 nluaeSvLwLuQ4x+sulK32AaBd2GSW2CqP0drheTIS5YXOOqWRlVDvkjhniAyfcksMpFXW
-	 aqunWgevNqwlde5vI8K/XhkntvozLYYhcrnnE5dOXQLI0NQEp4e4K3oWnICVn043fNIMk
-	 MJ3v0+p0isC6Wk/9OFg5U5XWWtTlWZBvIwy4QIHrUu/5fbh/NlkUbsn+Di4bmmnc/cnbC
-	 IIBuIHQiATzlBxoFnEIh7Ygzwa+9DYjOJmDsl7r5j15xclHtPtt2GxEExjrkW0s58Ww==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795606479;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
+	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=61AAU+vu7fdoI9/33C3yVl5TzGMNl01fQ5U7CEh62QE=;
+	b=GGo/v/CSc89Fw0d8vafG8CU9hvYnoPPvnhP/DIZ3YsoXNdH/f4h0cOk/XkBNl/kyA87v
+	 kha08yeC37OfI5aDJLRC6p1BkWOScnbXNY0vRd5ZWmUvmWOPJC2lWrYFihc2+AAhLf8Hx
+	 /IffO2eby8XK0R46n02gjryEEZjGbg6ULqYrZdOfBrkCfsJO74zv8av1KHN8aZhBkTOjz
+	 QoHBZq4ZOagRPP0nkrPZXIueZF5d38h6bquELzvaUq0XWte/TKLZGiFyhwJhCd5D/rF04
+	 XMG5rjRSMpywIYyUJFvan6Hepmf1ejdqR6YnDFhR9gkMeuOoqMwuzVkGU/ivqRCFrhw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=mCB1hAko;
-	arc=none smtp.remote-ip=192.198.163.12
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.12])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--powenkao.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b="EOyauq/5";
+	arc=none smtp.remote-ip=209.85.210.200
+Received: from mail-pf1-f200.google.com (mail-pf1-f200.google.com [209.85.210.200])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 00BC9606A333;
-	Wed, 25 Nov 2026 11:34:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 00BC9606A333
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0B5F2606A331
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:34:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0B5F2606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--powenkao.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=mCB1hAko
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795606452; x=1827142452;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=fMsAeJ0c7n73+oW7qS3cdLS2Wtgb2G4gCGLgjIUYl98=;
-  b=mCB1hAkof/qAkU/YUshoYcncwF1o24IYqxTGmFA0gvFxaH1ZYeloofqE
-   +DqIVKdaYQ+QB3TuRAgrFfqUbvkr21IsD0sps46WWDGtmQco/vTeamx43
-   0mwGpq33Hvxr6bJFOlNyHwl6++JVAmyb+2KRZjfYplOW14oNppTAAm6Ma
-   IyAPfm+qDzrhXEyo5w+CeLn/M8cjteoYTafKUKknM179tmPbpDAakATcm
-   MRkyc3dteXGxJS28OUasIMGR5/83/1y10mITVTfge4/+BlZWtojmRFYWn
-   nzsrsyFHNOF6WhH7yvbzGCu2FK0zxcCT0lurcY8JUXoi30WIwZ8nyTMq9
-   Q==;
-X-CSE-ConnectionGUID: v9I3QGsdTICG7YwFiaZBdA==
-X-CSE-MsgGUID: /nM14pTvQ5a4weCQ1WTVJg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11976"; a="4360646"
-X-IronPort-AV: E=Sophos;i="6.27,232,1787036400"; 
-   d="scan'208";a="4360646"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 03:34:11 -0800
-X-CSE-ConnectionGUID: ZhjG67rZRPKeRun9bRDfUw==
-X-CSE-MsgGUID: o17WY9CCQAG8Z3ghnBYZ1w==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,232,1787036400"; 
-   d="scan'208";a="11954522"
-Received: from alekseim-mobl.ger.corp.intel.com (HELO kekkonen.fi.intel.com) ([10.245.244.36])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 03:34:09 -0800
-Received: from kekkonen.localdomain (localhost [IPv6:::1])
-	by kekkonen.fi.intel.com (Postfix) with SMTP id A76F411F920;
-	Wed, 25 Nov 2026 13:34:12 +0200 (EET)
-Date: Wed, 25 Nov 2026 13:34:12 +0200
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6 krs, Bertel Jungin Aukio 5, 02600 Espoo
-From: Sakari Ailus <sakari.ailus@linux.intel.com>
-To: YuanZhe Liu <25031212351@stu.xidian.edu.cn>
-Cc: Lixu Zhang <lixu.zhang@intel.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org, Bin Yu <byu@xidian.edu.cn>,
-	Cheng Wen <wencheng@xidian.edu.cn>
-Subject: Re: [PATCH] usb: ljca: fix NULL pointer dereference on events for
- callback-less clients
-Message-ID: <awbHtFvxuSfbO4rw@kekkonen.localdomain>
-References: <20261120150143.2591-1-25031212351@stu.xidian.edu.cn>
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=EOyauq/5
+Received: by mail-pf1-f200.google.com with SMTP id d2e1a72fcca58-8b647bbf8a9so5119584b3a.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 03:34:38 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795606478; x=1796211278; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=61AAU+vu7fdoI9/33C3yVl5TzGMNl01fQ5U7CEh62QE=;
+        b=EOyauq/5Z9V3fRPTUvrk4T2ff+my56KA+lTB9XWquEQZSAkhnODJZn5gf3KYkBAZjP
+         Es0qaV8tAbj1eFRn4034orG4NoMcJ1VUvxUuSU8Xi4LokF4w3zKeuq5LsFXONi6n1qCk
+         /NZlkPOANbKXr2TOFCcXmLOVCaEGqAK4ry8RKxAQ8peUJ71tFUt7uSS3Bmyo1RFif3+k
+         bcVgJxbeS114yjBsK/GmriuoK+cieDMipuqzYsJUJDSZ0LdFFimqLD8YNfak4PuS41Ye
+         7VawVXRXrESocVwPaLXJvuZVZuAZEnp9cGuHbCzj/+USWKoW41rFnPeGJOUyv3qqWPGX
+         7KWA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795606478; x=1796211278;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=61AAU+vu7fdoI9/33C3yVl5TzGMNl01fQ5U7CEh62QE=;
+        b=kC4x5A1DdzHNTlAq9nEDHWz1jA2CIKiKciMcyC0R7bJwtltH4KlXcUuu2lkxPdi6j1
+         qSE52atjGr0ljf9wNRn4kKS2Z6+FywIc5FXARR0TYVb62WPQyjEB61mF0LUcpUDuaNj3
+         otnmmAAnttLRzo0Jo+wsEhpwcqmwFpVJsv6Vo83htNH6zaNs/u2PIjPLJda3h3ihL1cJ
+         mBA1wvlTHQm1xL/t8bwknCwstUDsfLFG7OEidiDNIf7xANdQzGayfMGcXSufQo0oj25D
+         GHn0qrIlcM0y7Z8w7gJCnlu1XMJ2HE9JgpX5NMAkQoOnsqW4rQiPpHckfS08S7dioFp7
+         +G7g==
+X-Forwarded-Encrypted: i=1; AL+hErFPG3pDatWYZ2HKGiHz+AI1kN4423qm/MadzFf6A5H5RcosxVfzRSx2X07GcuAZLSPcZCqZM62QuhBIHvc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9hckL7xS0zgLsqRDyEhhdFdr1H2ehBk0NZo+yc/3l5Yz+eCduc
+	gACB7wRzvz9WkIpNRPqfThw48PxDMKIMqn806ks/kxSGb8QoymsN93yRlCCicPdg6CxFAAuFZZy
+	BA1aqAbetJycLZQ==
+X-Received: from pfbig16.prod.google.com ([2002:a05:6a00:8b90:b0:8c5:614:d2c8])
+ (user=powenkao job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6a20:734f:b0:3e2:6f90:b54c with SMTP id adf61e73a8af0-4014c350660mr19069811637.47.1795606478059;
+ Wed, 25 Nov 2026 03:34:38 -0800 (PST)
+Date: Wed, 25 Nov 2026 19:33:58 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -85,47 +75,69 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261120150143.2591-1-25031212351@stu.xidian.edu.cn>
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
+Message-ID: <20261125113435.1426680-1-powenkao@google.com>
+Subject: [PATCH v3 0/3] scsi: ufs: core: Add debugfs for PA TFS/FEC error counters
+From: Po-Wen Kao <powenkao@google.com>
+To: linux-scsi@vger.kernel.org
+Cc: Konstantin Vyshetsky <vkon@google.com>, Randall Huang <huangrandall@google.com>, 
+	Alim Akhtar <alim.akhtar@samsung.com>, Bart Van Assche <bvanassche@acm.org>, 
+	Bean Huo <beanhuo@micron.com>, Stanley Jhu <stanleyjhu@google.com>, 
+	"James E . J . Bottomley" <James.Bottomley@HansenPartnership.com>, 
+	"Martin K . Petersen" <mkp@kernel.org>, Peter Wang <peter.wang@mediatek.com>, 
+	Can Guo <can.guo@oss.qualcomm.com>, linux-kernel@vger.kernel.org, 
+	Brian Kao <powenkao@google.com>
+Content-Type: text/plain; charset="UTF-8"
 
-On Fri, Nov 20, 2026 at 11:01:43PM +0800, YuanZhe Liu wrote:
-> ljca_handle_event() dispatches an incoming event message to the first
-> client whose type matches the message type and calls that client's event
-> callback without checking that a callback is registered.  Only the GPIO
-> client calls ljca_register_event_cb(); the I2C and SPI clients never do,
-> so their event_cb stays NULL for as long as the adapter is bound, while
-> they are present in adap->client_list.
-> 
-> A device that sends a message without LJCA_ACK_FLAG and with the type of
-> such a client therefore makes the driver call a NULL function pointer
-> from the URB completion handler:
-> 
->   BUG: kernel NULL pointer dereference, address: 0000000000000000
->   #PF: supervisor instruction fetch in kernel mode
->   RIP: 0010:0x0
->   Call Trace:
->    ljca_handle_event drivers/usb/misc/usb-ljca.c:217 [inline]
->    ljca_recv+0x651/0x850 drivers/usb/misc/usb-ljca.c:295
->    __usb_hcd_giveback_urb+0x238/0x550 drivers/usb/core/hcd.c:1657
-> 
-> Check event_cb under client->event_cb_lock and skip the call when no
-> callback is registered.  The same lock is taken by
-> ljca_register_event_cb() and ljca_unregister_event_cb(), so the check
-> cannot be invalidated before the call.
-> 
-> Fixes: acd6199f195d ("usb: Add support for Intel LJCA device")
-> Cc: stable@vger.kernel.org
-> Co-developed-by: Bin Yu <byu@xidian.edu.cn>
-> Signed-off-by: Bin Yu <byu@xidian.edu.cn>
-> Co-developed-by: Cheng Wen <wencheng@xidian.edu.cn>
-> Signed-off-by: Cheng Wen <wencheng@xidian.edu.cn>
-> Signed-off-by: YuanZhe Liu <25031212351@stu.xidian.edu.cn>
+From: Brian Kao <powenkao@google.com>
 
-Thanks!
+This series exposes the MIPI UniPro v3.0 PA layer TFS/FEC error
+counters (0x15C3-0x15C7) under debugfs:
 
-Acked-by: Sakari Ailus <sakari.ailus@linux.intel.com>
+  /sys/kernel/debug/ufshcd/<dev>/pa_err_stats/{host,device}/
 
+Patch 1 fixes an existing teardown race by removing debugfs and
+disabling debugfs_ee_work before scsi_remove_host() removes the WLUN.
+Patch 2 defers debugfs creation until after device init while keeping
+debugfs_ee_work initialization before IRQs are enabled. Patch 3 adds
+the PA_TFS_* and UniPro 2.0/3.0 definitions and creates
+pa_err_stats/{host,device}/ based on PA_LOCALVERINFO / PA_REMOTEVERINFO.
+
+Changes in v3 (suggested by Bart Van Assche):
+- Split the ufshcd_remove() teardown fix into patch 1 with Fixes and
+  stable tags.
+- Patch 2: Initialize debugfs_ee_work and debugfs_ee_rate_limit_ms
+  before IRQs are enabled via ufs_debugfs_ee_init(), and document the
+  later fault-injection attribute initialization.
+- Patch 3: Gate host/ and device/ on UniPro version (PA_LOCALVERINFO /
+  PA_REMOTEVERINFO >= UFS_UNIPRO_VER_3_0), merge the duplicated host
+  and device attribute arrays into one via debugfs_create_file_aux_num(),
+  update the hba_from_file() comment, and clarify the 64-bit read/reset
+  comments.
+
+Changes in v2:
+- Defer ufs_debugfs_hba_init() until after device init (suggested by
+  Peter Wang).
+- Create pa_err_stats/host/ and device/ only when supported instead of
+  returning -EOPNOTSUPP on read/write.
+
+Link: https://lore.kernel.org/linux-scsi/20261124012951.3143833-1-powenkao@google.com/
+Link: https://lore.kernel.org/linux-scsi/20261123025745.1743640-1-powenkao@google.com/
+
+Brian Kao (3):
+  scsi: ufs: core: Remove debugfs before removing SCSI host
+  scsi: ufs: core: Defer debugfs init until after device init
+  scsi: ufs: core: Add debugfs for PA TFS/FEC error counters
+
+ drivers/ufs/core/ufs-debugfs.c | 244 ++++++++++++++++++++++++++++++++-
+ drivers/ufs/core/ufs-debugfs.h |   2 +
+ drivers/ufs/core/ufshcd.c      |   8 +-
+ include/ufs/unipro.h           |   9 +-
+ 4 files changed, 252 insertions(+), 11 deletions(-)
+
+
+base-commit: 08fec21faae44fe002467976befd68e6e62969b5
 -- 
-Sakari Ailus
+2.56.1.839.g22a8290db9-goog
+
