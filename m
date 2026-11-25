@@ -1,101 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.216.46
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795593817;
-	b=oJzOl33u1lPE3pI45CrdXRlhngJRZYmm1AeczGDmwi20thbvnaCyqzYOQpbzH/jAKfcj
-	 TpxkOSOBUqe+AdRmldhjND0NLyseHbwGL92Xoy59eFCkw7zI2I51iulxy8z0fk2M/n03l
-	 Nf5rcE6UjbDyPvwHSzcNRgONgDusg5hK0zm5yFFsRMGsItgwD/slwefH6vKy671B8TvMI
-	 tePz/svD/yxpz7mPHf28hEt6UTHYZh+8OTyFiLrsRlov54JYykufObQaAiEQ6n/lErEEN
-	 Ln2RCQV4HesAvdxv8Kyge2IzqSBm94ZvkLDEFhMb7s0Bt2pEMWFTEZtWgOG4mmvtpFQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795593817;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=QNDs9IQfET5nPgzLBLhmWzmWUMfQlNAVK09is5NvctM=;
-	b=FJWoEwRIzG9+Cr+cM0HcvmEw2X7zATtFZtc13r2CHjK2jOKns55J2KuKeEGvcn7fwoX8
-	 r/R1lqpN0PpOzjy+UWglfLqYmOgV0IBFWzWxZz6A5X14syW9AGKUJvEhdQ1AjNm5dvn9P
-	 vgAafORIwNBo+8NOEkeI6YhHO8hp/ewDmrKubNWlSMC4Z0zhfLfy9A3zvitUVbFbq3P3J
-	 6F//u/tqxsI2VxWbtGqjk2om2bxqPfroTRexjGUF2SNbQlDUrXQEes22nWWquSR78lt1I
-	 dDidJzi6bWCQ+fqHpaWJGgpbWXZer8cZ1oCjWbuZ/dBPqCLZ2ypr3qft7y2kgJCS8vQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=QsT74Ym7;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.216.46
-Received: from mail-pj1-f46.google.com (mail-pj1-f46.google.com [209.85.216.46])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795593849;
+	b=OteRvN9wrQbd58tzZud1cBESxhyzxOgprdjuPTytcLYZK1GZyv2332T9PkCd8ufksj1G
+	 jqcJqIL0f7b8NRPFAfAXNZ6IRX5GonMBYgcv8fgX8zTLX0q6pkpsADz+TftVrCqUDbCml
+	 nJ6eVXRQEmV3KE2Z7FSWHZixiyRG5o+elUIYE8LNrIOLJDVX1Yt2FT6MPLZ9fhXuUegFf
+	 C3JMA+GL61H7iGXSOEBYLk7qvaYmKIMfsosVM4Vj3FGqgtxN1oFW4OACvrG1E100kDlwr
+	 L7WPvW3+qcinBJL+yyAWBuXWfPt0Qej1SzgstDJXOFGIhlGATDAJpbt+mC6M90Wmzxw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795593849;
+	h=Received:DKIM-Signature:Received:Received:X-ME-Sender:
+	 X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
+	 MIME-Version:Date:From:To:Cc:Message-Id:In-Reply-To:References:
+	 Subject:Content-Type:Content-Transfer-Encoding;
+	bh=uJIkBK2PHpdfxzIQ1VFxbtN31D06EwP128WyTvyAIWw=;
+	b=Q2p9UGpCR1LNHDYIeqAR+6spedAk0Kv4AJf5WQxUAVhOEpNtN31yyH5xMQ/7G680wpgg
+	 VSHoBuuUszbzhsz0azgsADrEgWs2Mauq+kWKCzgD9vyD2rR6tyvhWUDQA6TuJzmdWWdBJ
+	 blfxpApHy/2wXLyB+SzfxmXSfNxXJjXidatn6dxeEsvg1a9Ci/FAMSndms+ZaAFuVBaRO
+	 znpX9BZAr6SjleI3XmkRyvjUADVAfQJ33u3u3U3IhdWgRYV2WZxw3/1cwr4aKhgQj0wVb
+	 wP6f7Jvm+AB8LrUp4IFIdtlVSVtpdSMddqJ1Fuc8aoyZrl385/9l0ACYBGtXenuyhQw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iMExeYxN;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C879C606A323
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:03:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C879C606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E13B6606A327;
+	Wed, 25 Nov 2026 08:04:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=QsT74Ym7
-Received: by mail-pj1-f46.google.com with SMTP id 98e67ed59e1d1-3b4ab53a966so485612a91.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 00:03:36 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795593816; cv=none;
-        d=google.com; s=arc-20260327;
-        b=sdOAyuv4fzqv5tYp5tIRymMdXEMonGdu0DrzQ7vbj5ZlC9OUZosI767GS28Bty9YzR
-         eiezXHMNoZmCYV4kVVKMPVLRJWvv6jrHtkmVmRCsd4vKSXGfniNKkamTi8dJVITgCXFe
-         YgVezJ7qXc2LP8RupWVa+D34AiAZ9HIv2PhiqR+Kl2j9vaVb4JiktTsQmPg+PuPYhMTz
-         lNas07nk/skEt/+e87V7klkrs8teVZEVRd6MclK47d/jSJ1dRaLR2PO9AStHAB5RlT5c
-         tJn0f8ASYauCr4iGr5z0ypsBJIW2tEl8g/Oe6AUqFC+9XOsFyji/xFhYQwcB96a51NQB
-         5ULQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=QNDs9IQfET5nPgzLBLhmWzmWUMfQlNAVK09is5NvctM=;
-        fh=quF8On505Aaa6MPL84pOLSeTjEcbX1Ye75jnvfJrPeY=;
-        b=mJkppQZ0mEEQgO1mIuCutpN/vGiwYivai4cGevyeU3FJcJMnAj6hCCihP5I+8kVWLk
-         DR/pSzwtZBm0nRLyhnIVO/GEkFaZGK43qK9rE7V/UzDbkCsS4X+8zktE74TJfUrxoCsA
-         dN4BDV0alkZFCIqPEmWagGsQc7hvhu7rZXUIz9wOzLWVaukl+eVWLNW0hGdeoIqV61i4
-         K9ysRDVEi2iQI4hXdvwpfg+5SnZCbP/2H7K0Zfkdm/e+AZSCmoqEwf8K5DeGdQAV8Fpa
-         +JKd74Mo9QtNwDIEj+7t3OYjvDLKfsVcRhGfKl/S0ItqK47AOqhn+wIYaT44PRPhklFG
-         8t8A==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795593816; x=1796198616; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=QNDs9IQfET5nPgzLBLhmWzmWUMfQlNAVK09is5NvctM=;
-        b=QsT74Ym7+3TyXp2dV83SedYUGSDXGAqU/hCnuZE203eYoa9pPPSiwSSm4X8fouj5Td
-         VX51KwzHDER8i4T6898iGBOqfRWCVSTE4YF3SM278YCX6tdPXq9Iw6YJKl6I5yugyH6b
-         rPkdDzJDbC0eQ2wL2WkrtQ0eG241DqEZQOyFdozfUz6nrONncp68ssQJLUAB5RuNHlfn
-         SNfVtcUbxSngc3F7juZmp1/ADMp8uVG8RHCAA724y6uLw28tdo18bWV9f0D87DeASvEG
-         SMan3Zvg/qI4YeYDKOpDRU/xzqc2T6a+twgEXe9riWNmaZC7g7lOvaROoc3ZWXxUDgcJ
-         p77Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795593816; x=1796198616;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=QNDs9IQfET5nPgzLBLhmWzmWUMfQlNAVK09is5NvctM=;
-        b=KORZAcWj71PTsn+be0toeMFhnwnFwQWsPNC9s5NekMSgqRuMhbUS4+DO6D3JWe5GTl
-         bJjtapL2JPuDKEKUmVPfMV+ufJNb1GwKYWPMY0NT0ZAadl9ymY7WVjKKLtMv43sm3zlm
-         tjIPcIIIfDyuTpd8tHgvUA3czTM8CU6UQaz1ekYsTHF8OQKysCU9Z9yOCMe0F67OxwN2
-         3dteekrJ5k/CeIFCDl17sNxFEQRDLCs3OjNpW+FpJe/eVtir2BNbW9kO05/ioLWtSyLv
-         miJL2kXOCvLo51U20U0CCeODVMFIDDRSxMIOkelsOle/VhMWoANfOvF3YrxwlXFSZrxU
-         LF4Q==
-X-Forwarded-Encrypted: i=1; AL+hErFpLsY40HPdgyt8IJcwM3CL9ooe6nw+MuxKt+v3mdV4Jpe8p0zSpbcSvRr/iVNmB9xqsa98FrteFlem87k=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/LREE11czhrQU4cUpeoyQOGZt9LoAJe03WMExExykVrTowuXKG
-	H6gjqvIBFIq/AwkoC7lah9fWhPqtJSdfjgAMNIZqqNP3nRDhHr3UTk0D+eadzcltqcbIt1h0L3/
-	Vu07soKFlVxnrU31PXdHNIpAUQxw/7VQ=
-X-Gm-Gg: AZFdTZeeD0iKE1QWMtY1zO/v28QFm8EWFNmkM1MpepSbiXdBWmik7pkQjG7c4bURldm
-	PtzsFDdn3yUE1hmd/9xaCgS/sQwVi1zbtqtpfD3Bz++M4mN7KYtT65qk9sJPuCmgDKV9o8qTpM+
-	OVyKJkzSXLU9Y7DQvy3Bu3iZ1zwPRchb8GsdNeszmaP80gjkKvMtoFOqkUtcfo9/ziHKT93xYaG
-	l9S5KphG5vqbmKVKoDh8ZJEx0QvBK41PerwxwkDVCve/BgO04l9rw4e8PEbJcOtz+SP5efrGq40
-	BPjC1k3oCxC8Owl/FL1FNrePG0Ito41q4SkNnTHrwg+YgHMlRQS+RWFy+hfnEjE67//6/UGl8cn
-	AVfYRMt7bGyoqd3zW2zaTDXmJjuG4HNrpy/+xRYhj4nwfSCC2tqOecKQvBW7NIoIfBNZyngnGSM
-	iMAF+RunMj5c/J
-X-Received: by 2002:a17:90b:442d:b0:3b0:d0be:f02c with SMTP id
- 98e67ed59e1d1-3b41c98a095mr26505625a91.6.1795593816031; Wed, 25 Nov 2026
- 00:03:36 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iMExeYxN
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C4C01F000CA;
+	Wed, 25 Nov 2026 08:04:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795593848;
+	bh=uJIkBK2PHpdfxzIQ1VFxbtN31D06EwP128WyTvyAIWw=;
+	h=Date:From:To:Cc:In-Reply-To:References:Subject;
+	b=iMExeYxNUM1rjw51fpGv5pqq5nBOB55Q1kb0P3aWCqqyTGgKxYyCAkAUlhXEupXve
+	 aHnXGA8FpUz66QLqM0b/rcqVNitd4a37eHNL1/pnhxZYdUon3MED3CDdLoYWWvHg7j
+	 IjrzzxgqshvaOfClLjgMKrlippsjhEp8rsvANBeGhZ0ALrcrEOyoxrr0XO4FQ5K6Oh
+	 qgdxueqjv2oSUIswXW5R/dsRDo7qHV9DXxTcHQIpbmBZahQxBiXHjWvesMSXO0FgSy
+	 l8uRAkepw2VN2I58s/OkZJcE2QkUJP5m5pHGZd13Mx3U9Cbu7ZA2/CTE8kHp73MP80
+	 cumb8l1E94Ubw==
+Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
+	by mailfauth.ams.internal (Postfix) with ESMTP id 88B5B198004A;
+	Wed, 25 Nov 2026 03:04:05 -0500 (EST)
+Received: from ams-imap-11 ([10.64.2.31])
+  by ams-compute-02.internal (MEProxy); Wed, 25 Nov 2026 03:04:05 -0500
+X-ME-Sender: <xms:c5YGa4wlCMMrVuFyb9ZVzUq1HnrtwiA0KNeSBOESlkyFwN2g9rBXVg>
+    <xme:c5YGa3GY0jxxSJ1D8HIRciJoRcutMxhgTLO83hGwEwWZPqffQ8TYtxjIZnq50C71B
+    5NgWbSijbudaC240auItTLYpfRWQoniS7l6xwhrXw7GRsylzBHi0dOL>
+X-ME-Proxy-Cause: dmFkZTEGEvs2jPgYuYT3HWVkTVwAn3k/jfHeglJAkg4XZfMFe6vOOyp+rpdfClmuQ0BEDF
+    Ovxv8tXPiAfIDjuKqdQWZqXbBkqOhKhou20+hD8oh85WYtXs10I4xBo42xrtV/7b9lp1iE
+    lBRx5S30tHiuf+y0l91VEVb4pCMcjOvHI+AchWQHT4ok6gNNsX0/npVrvhoYkwpP300DO0
+    NAXlUR6y80OZArraudPaSuxiL7ri89TvntvayVZOGgNTRc17MUkpTn1iUdtKxpR59SPvNo
+    p1Z/6MqYrVkxP9pm/Wwcr8Siw8GC9xKTiSlBS6LCfmBCFG9WlNrzmOwl6VXLw3smxnCCdG
+    3o67F1JQ41FFDlNX6KvpjNrPapzftNYLzxGccBWU7SxRjwLoe/pgaK5INkdZZdgfVwXUE5
+    3UL1/xwh3vlaWxjRAGfIiJo/R42R8JsFAhT9EX2PRHN0/6Y8/JPA5jrPI/7NXxOXuxZtZA
+    f5ICnFryrMwnVuhtYR5bxOFNq6c7q0rhrMJj79537Eldri/5k04EmQZPTxNmGR/JKuVoqy
+    nGN0HizhS12FHTAP0KYHvfEe0gFu5MsInDFcKR8Tbbe7Fi9aAIxOBam6X0mAT8FAKNY2Ju
+    oIdU8FkDuNWfKjt7nQrXWDvGw4G34Sr222SyuIZvuMSOUGvlJgzScOrQPYUw
+X-ME-Proxy: <xmx:dZYGa1nD0wQI63lF1YYFmr5bnGiZw6TwFqwuQ4NH_PAZJ2a8fSQ7WQ>
+    <xmx:dZYGa9huYqFENtwaWJVRjoIdl9sa5Qkgl25SwHGPsj5EZQs2oDMZqw>
+    <xmx:dZYGa_gkjR_9yhabRu7df31WF_3BiCRKL9xHLVY-rDh2-ZHDaE4b3Q>
+    <xmx:dZYGa_uAtQAXNOQ8aNAhymE5nNuTbr0_ryLcvOB3dP3Km6OQtSModw>
+    <xmx:dZYGa3u6BLh_2MOEX5sioNgOxA2dnPcc6wcmwgSq3wccoe7flayeMkdO>
+Feedback-ID: ice86485a:Fastmail
+Received: by mailuser.ams.internal (Postfix, from userid 501)
+	id 13062F80093; Wed, 25 Nov 2026 03:04:03 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,63 +77,120 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261117015409.25492-1-q.h.hack.winter@gmail.com>
- <56be2b4e-aefb-413b-8f72-0bea1f9e96db@linux.intel.com> <CAH78GvuUtU=zhe-Qbn9k73D3U5n1Ye1=8wtQqR7vCEpDzgNUJg@mail.gmail.com>
- <aceb9e9f-7ba3-48e2-8945-95179f22581d@linux.intel.com> <CAH78Gvubo20uU4ntOxzd-+B6GHpUovL_wYQt9yahF-8=x3sEVA@mail.gmail.com>
- <4420a997-82e9-43e6-8ceb-5ede44594c51@linux.intel.com> <ecc47f2f-d0ff-4aa5-9d46-6a0b9ed8c468@amd.com>
-In-Reply-To: <ecc47f2f-d0ff-4aa5-9d46-6a0b9ed8c468@amd.com>
-From: Qihang <q.h.hack.winter@gmail.com>
-Date: Wed, 25 Nov 2026 16:03:24 +0800
-X-Gm-Features: Aa3M54oVnmxp-GwpSucJqDs0BCYTl-BITaPoTpOvLRhz7vPVh1iZnm8zpKOg-jw
-Message-ID: <CAH78Gvvf92NrPTYU=hMs92FavwX67NpgeHBRqZ6TDziNg45-tA@mail.gmail.com>
-Subject: Re: [PATCH 0/2] iommu/io-pgfault: reject partial faults after device removal
-To: Vasant Hegde <vasant.hegde@amd.com>
-Cc: Baolu Lu <baolu.lu@linux.intel.com>, Joerg Roedel <joro@8bytes.org>, 
-	Will Deacon <will@kernel.org>, Jason Gunthorpe <jgg@nvidia.com>, Robin Murphy <robin.murphy@arm.com>, 
-	iommu@lists.linux.dev, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Date: Wed, 25 Nov 2026 09:03:42 +0100
+From: "Ard Biesheuvel" <ardb@kernel.org>
+To: "Nick Desaulniers" <ndesaulniers@google.com>
+Cc: "Sebastian Andrzej Siewior" <bigeasy@linutronix.de>,
+ "Bill Wendling" <morbo@google.com>, "Ard Biesheuvel" <ardb+git@google.com>,
+ linux-kernel@vger.kernel.org, "Peter Zijlstra" <peterz@infradead.org>,
+ "Ingo Molnar" <mingo@redhat.com>, "Will Deacon" <will@kernel.org>,
+ "Boqun Feng" <boqun@kernel.org>, "Waiman Long" <longman@redhat.com>,
+ "Nathan Chancellor" <nathan@kernel.org>,
+ "Justin Stitt" <justinstitt@google.com>, llvm@lists.linux.dev
+Message-Id: <c508e8c9-29ad-4157-bf64-40532b708067@app.fastmail.com>
+In-Reply-To: 
+ <CAKwvOdn=FjiYgiB9wdut2=2FwivPUXiNOG2F=uOeEkycrtoVUw@mail.gmail.com>
+References: <20261122105646.2223131-2-ardb+git@google.com>
+ <CAKwvOdkOjGkGajGMKtqcHpRSrpXC9UZrH9XPsiv5Rpcdte5tJQ@mail.gmail.com>
+ <73d50ff0-36db-4dcc-ad1e-c34bf3ebbce6@app.fastmail.com>
+ <CAKwvOdnh-0nOBdU=J+R-yDE7wrP_K2BZ7mY1icrL-nOQ3Bk=og@mail.gmail.com>
+ <20261124163905.tkkaLhJ2@linutronix.de>
+ <CAKwvOd=KbZgizb1VhD-zq4S1jRGCxUaLM+VHeRNhTFQf+KMrRQ@mail.gmail.com>
+ <1d4d7a84-d0b8-4b81-adb5-4fcecd1e19a1@app.fastmail.com>
+ <CAKwvOdn=FjiYgiB9wdut2=2FwivPUXiNOG2F=uOeEkycrtoVUw@mail.gmail.com>
+Subject: Re: [PATCH] locking/local_lock: Don't evaluate the per-CPU lock pointer if
+ unused
+Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
 
-Thanks, Vasant. Patches 11 and 12 cover the teardown paths I was
-missing.
 
-One question on patch 12: when the completion wait in dev_update_dte()
-returns, can a PPR accepted under the old DTE still appear in the log
-after the drain has observed it empty?
 
-Happy to pick this up when you post the follow-up series.
+On Tue, 24 Nov 2026, at 23:44, Nick Desaulniers wrote:
+> On Tue, Nov 24, 2026 at 2:25=E2=80=AFPM Ard Biesheuvel <ardb@kernel.or=
+g> wrote:
+>>
+>>
+>>
+>> On Tue, 24 Nov 2026, at 20:32, Nick Desaulniers wrote:
+>> > On Tue, Nov 24, 2026 at 8:39=E2=80=AFAM Sebastian Andrzej Siewior
+>> > <bigeasy@linutronix.de> wrote:
+>> >>
+>> >> On 2026-11-23 13:52:09 [-0800], Nick Desaulniers wrote:
+>> >> > On Mon, Nov 23, 2026 at 1:23=E2=80=AFPM Ard Biesheuvel <ardb@ker=
+nel.org> wrote:
+>> >> > >
+>> >> > >
+>> >> +/*
+>> >> + * Only evaluate @lock if it is actually used, i.e., for local_tr=
+ylock_t, or
+>> >> + * when lock debugging is enabled (see local_lock_acquire() above=
+).
+>> >> + */
+>> >>  #define __local_lock_acquire(lock)                               =
+      \
+>> >>         do {                                                      =
+      \
+>> >> -               local_trylock_t *__tl;                            =
+      \
+>> >> -               local_lock_t *__l;                                =
+      \
+>> >> -                                                                 =
+      \
+>> >> -               __l =3D (local_lock_t *)(lock);                   =
+        \
+>> >> -               __tl =3D (local_trylock_t *)__l;                  =
+        \
+>> >>                 _Generic((lock),                                  =
+      \
+>> >>                         local_trylock_t *: ({                     =
+      \
+>> >> +                               local_trylock_t *__tl =3D (local_t=
+rylock_t *)(lock); \
+>> >> +                                                                 =
+      \
+>> >
+>> > Why do we need the temporary?
+>> >
+>>
+>> Because 'lock' is a macro argument that we should evaluate only once.
+>
+> Ah, right!  Don't we have __auto_type or something for that though?
+> Maybe cleaner than the cast? Ah, that also doesn't work for the same
+> reason as below.
+>
+>>
+>> >>                                 lockdep_assert(__tl->acquired =3D=3D=
+ 0);    \
+>> >>                                 WRITE_ONCE(__tl->acquired, 1);    =
+      \
+>> >> +                               local_lock_acquire((local_lock_t *=
+)__tl); \
+>> >>                         }),                                       =
+      \
+>> >> -                       local_lock_t *: (void)0);                 =
+      \
+>> >> -               local_lock_acquire(__l);                          =
+      \
+>> >> +                       local_lock_t *: ({                        =
+      \
+>> >> +                               local_lock_acquire((local_lock_t *=
+)(lock)); \
+>> >
+>> > Is this cast necessary?
+>> >
+>>
+>> Surprisingly, yes.
+>>
+>> https://godbolt.org/z/E8rGchfev
+>
+> What the f...
+>
+> Anyways, with the additional context (git trailers) linking to the
+> clang bugs (and missed optimizations):
+>
+> Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
 
-On Tue, Nov 24, 2026 at 4:53=E2=80=AFPM Vasant Hegde <vasant.hegde@amd.com>=
- wrote:
->
-> On 11/22/2026 1:09 PM, Baolu Lu wrote:
-> > On 11/21/2026 10:13 AM, Qihang wrote:
-> >> Hi Baolu,
-> >>
-> >> Thanks for confirming the VT-d ordering bug. I'll keep this series
-> >> withdrawn and won't resend it.
-> >>
-> >> I still have one question about AMD. detach_device() calls
-> >> iopf_queue_flush_dev() just before amd_iommu_iopf_remove_device().
-> >> That flush only waits on the iopf workqueue, while the PPR IRQ thread
-> >> runs amd_iommu_poll_ppr_log() and reports the fault through
-> >> iommu_report_device_fault() directly. What ensures that the thread has
-> >> finished reporting faults for this device, and cannot report another
-> >> one, before the device is removed from the IOPF queue?
-> >
-> > + Vasant
->
-> Yes. Its a bug in AMD driver. In fact we have bunch of issues in AMD driv=
-er.
->
-> Below series fixes some of them.
->
-> https://lore.kernel.org/linux-iommu/20261105044801.399466-1-vasant.hegde@=
-amd.com/
->
-> I have another series which handles draining. I will post it once above s=
-eries
-> settles.
->
-> -Vasant
->
+It turns out we should be able to work around this treewide by using
+__seg_gs only for __raw_cpu_read(). I'll send that out and we can
+discuss there.
+
