@@ -1,93 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.20
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=45.79.88.28
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795622064;
-	b=D8fJHufCm+sEm8v2Ue7llntMqWIgPSztp01VKlypmSWnhPjV5AkPCVxWcZHr3W3gLbg3
-	 82PRzIUoMUagYF79gLw7NWGn/f/ztroePkz55s5ZoY+wbFmrF9wFjntnkCBCZWn1gb3gX
-	 BSCOyDZQYNS7ENwgvEPRW9M/70Xerb+NpVHUs1IK2B9XwxyNtPbyds521peIeQf2Bhtlc
-	 3/bKuu6yU8rH/nwh+uwJLCd0HW3VSXqMLaxN2zP5IFbqp/IeaTp1r2XGI/bo1hGOF9w7V
-	 PWddAhEKv3kaRZakO6w0rYxW9Nl1R1qP0WeMt9KTGznQswAhJqQeeH8HewcdcyuNyzg==
+	t=1795622147;
+	b=gz8uicve2lmttGbE1fENdUNz7VJIxSe9bpQmuDoftVCd0ZXeNJkuNX6Jwi2HjFeLNykW
+	 ja3eArnHf66mnlyDz8i/CciQX+Jk7OIhZqNqkUINwbJwmCahKRrz2JJ0Bu/2XEwsay4Qc
+	 Uf1Qt/cCPk5QSZp8lKvCriTY4B3WkmwWfvfEIZvYaLagOismtqD9G7/rCJZZLaRwg1tw4
+	 UqdI+KZ41beEahZJYpkvPhgRLoVSUqZAKbUaLQcCaYMj3Nh90UYRy5fMrBrevQF6XF4Xa
+	 3ieYZtEir1puf1bSFko78/FM3TlpB7s+znl2oUA0IyPz8p0kECeufHDQA4dOqmxEEMQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795622064;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
-	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To;
-	bh=3FlJZ/CAWurtSaOLBMEz6RZ4/h9sq0M8KRdP3OxNTL4=;
-	b=2IcihRC6RWMFnJMIVd6WKPQ5G5eWryC7TgpM60o3J1UghEhKjGFjye5Rifp6jB7Ng0KX
-	 MNphWqt6EIH7ICrNKt/um4H0KP9Pbiwb13AJDgKVMGgd/PZhT3u6K6J8TGPrgdiMYIHxI
-	 B8aieAUYXB9QeSujKC3wzVYe9IV84bVfjyAvbBwdCphJNARFOEcPKlRPh8KtaTQnwaJ74
-	 YC7mSmLTsqEisRh4MOvR9LgwTQ/xQFignvmHs4UWR6VL1/jYoOT0QeTINlIPl8SITaUaN
-	 wty18e0ZpXi6Wr++rcCzjYOq888ECo9JdhqTRpHAS1klnNO7QctGpfZ59J1ULqWWcAg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795622147;
+	h=DMARC-Filter:DKIM-Filter:DKIM-Signature:Received:From:To:Cc:Subject:
+	 In-Reply-To:References:Date:Message-ID:MIME-Version:Content-Type;
+	bh=ODlkvh1jgAsfCEKAh2uwTJVhaz2a05aAUn81MDeLjRc=;
+	b=fMw7BC+VhUoCK1l989nRiptRohZoIJeSoRVMnjKCn1pTkQrwVPvVIzGXSKOAzVTduGlO
+	 ZukvHfgYe6jbQZFYRyVfYIJbLlvocYktCat5qNCBwwCbngqowB+WqChXz/lzVCL4LuDTP
+	 2S9HpucepQM8SefkQcnt3RTuRran2YBRujInNH/SS6DndS9orFTTCDaDn7IgRmYi7lvwJ
+	 edtjJ++eIk6Xkfyfh1Twk54nppb4CPTcNt1eZ55bfaDPv/Na55KOKrEPlKercR0bhnq2C
+	 Xk9Ualm9fs956UvJlCdBg+FebPb7sWENA2dF39TEl7NWGkOKZnBfr4532DBEoviv3pw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=hDk78Ybo;
-	arc=none smtp.remote-ip=198.175.65.20
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.20])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=lwn.net;
+	spf=pass smtp.mailfrom=lwn.net;
+	dkim=pass header.d=lwn.net header.i=@lwn.net header.a=rsa-sha256 header.s=20201203 header.b=Szct5RHV;
+	arc=none smtp.remote-ip=45.79.88.28
+Received: from ms.lwn.net (ms.lwn.net [45.79.88.28])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EFDA5606A336;
-	Wed, 25 Nov 2026 15:54:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EFDA5606A336
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E9B25606A31E;
+	Wed, 25 Nov 2026 15:55:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E9B25606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lwn.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lwn.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=hDk78Ybo
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795622064; x=1827158064;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=hjSr7SgRgTbE6i2Ru3XkpgPQfpXJyuH/UfVwCd63LqI=;
-  b=hDk78YboAlJrTCqen6UVAlItKVyKJAhOQCxbDDokc5w+6o3lJZAix+fG
-   x7ubLVvpOiZ6jtcsNBCLefbsztk9t2ZKCM5hzI2JUwlLDqJa8ZVgmFlid
-   OedPDu+slpWq4bYNOp2YtFU9SKZA4V/pGedAXxGR5XHvDONUbzpMyzoUd
-   1g+WTJCI3fvB7oYec8VirW2oN30uXXS/KnnekCxuHu+BW1YA30CmBQZjF
-   a+FkPmVGNKx2J173ZEYY4vSTDGRhHGxdk6j+CPVu+U736qGF/XvKBX4QQ
-   XuhaNt9syV89i3Y5RvQRah2cz95KM0VZHmO9edLMmisNxq7oPSbriTCGI
-   Q==;
-X-CSE-ConnectionGUID: y9tw+EBNQ/6wqbvE3mL0NQ==
-X-CSE-MsgGUID: QsFf+sV1TvSsMhnLbgPxmA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4562623"
-X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
-   d="scan'208";a="4562623"
-Received: from fmviesa011.fm.intel.com ([10.60.135.151])
-  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 07:33:04 -0800
-X-CSE-ConnectionGUID: ayMkt3kPQRSYl1gL5vV2Zw==
-X-CSE-MsgGUID: cogWUJDbRDWJN0vYyqCcrw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
-   d="scan'208";a="13698255"
-Received: from black.igk.intel.com ([10.91.253.5])
-  by fmviesa011.fm.intel.com with ESMTP; 25 Nov 2026 07:33:01 -0800
-Received: by black.igk.intel.com (Postfix, from userid 1001)
-	id 3476D98; Wed, 25 Nov 2026 16:33:00 +0100 (CET)
-Date: Wed, 25 Nov 2026 16:33:00 +0100
-From: Mika Westerberg <mika.westerberg@linux.intel.com>
-To: Tobias Heath <heathtobias@gmail.com>
-Cc: Andreas Noever <andreas.noever@gmail.com>,
-	Mika Westerberg <westeri@kernel.org>,
-	Yehezkel Bernat <YehezkelShB@gmail.com>,
-	Sukhdeep Singh <sukhdeeps@marvell.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	linux-usb@vger.kernel.org, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] thunderbolt: add opt-in to preserve tunnels across
- s2idle
-Message-ID: <20261125153300.GI191152@black.igk.intel.com>
-References: <8fbb5876-e556-45a1-96b5-4a8061de9e5d@gmail.com>
- <31d3413a-9aa0-4208-8e15-3ba85829ef79@gmail.com>
- <20261125132228.GE191152@black.igk.intel.com>
- <a08cb3e1-10a0-4a35-9258-cd510b91985e@gmail.com>
- <20261125143531.GG191152@black.igk.intel.com>
- <8e87af01-02a8-4714-827a-62c5beb6f4e4@gmail.com>
- <20261125145207.GH191152@black.igk.intel.com>
- <d05aa4e7-5c58-4311-a85e-6bfe9c31c62c@gmail.com>
+	dkim=pass (2048-bit key) header.d=lwn.net header.i=@lwn.net header.a=rsa-sha256 header.s=20201203 header.b=Szct5RHV
+DKIM-Filter: OpenDKIM Filter v2.11.0 ms.lwn.net 86E1D410D3
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lwn.net; s=20201203;
+	t=1795622145; bh=ODlkvh1jgAsfCEKAh2uwTJVhaz2a05aAUn81MDeLjRc=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=Szct5RHVBtpHwWUWp5mx6P0Gz0c6tltDbqKL0aZXWh3XcNBxRuqjV/NmUCcueupmc
+	 lKV5IMbDIWrItA4Hpu6YsnMckADzbgGON3nrvXoCzayxWfDbSxY8+rilY/t1KEGvDC
+	 NGfc1opGJES556XGYF2C3O5/of0syeMJy9x7sC+qV3rlEufTYEylNu9nwhZMMfLiy4
+	 W0KMOmF6vzOC4hqbC702CvYmJx3yKkE/wdvgJPd3hKoET4KWWZb69eo8A7QHl3Wt+u
+	 Gm3OQ+7l6exsmkN4kXKKF0N4CtNF/89dlpBbcxP6RDjgKfWbUaGZbV7kKlpCiLLyUV
+	 PDMfZBwFYmGgQ==
+Received: from localhost (mdns.lwn.net [45.79.72.68])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by ms.lwn.net (Postfix) with ESMTPSA id 86E1D410D3;
+	Wed, 25 Nov 2026 15:55:42 +0000 (UTC)
+From: Jonathan Corbet <corbet@lwn.net>
+To: Gabriel Ribeiro <ic.gabrielribeiro@gmail.com>, linux-doc@vger.kernel.org
+Cc: danielmaraboo@gmail.com, skhan@linuxfoundation.org,
+ rdunlap@infradead.org, linux-kernel@vger.kernel.org, Gabriel Ribeiro
+ <ic.gabrielribeiro@gmail.com>
+Subject: Re: [PATCH v2] docs: translations: pt_BR: add researcher guidelines
+In-Reply-To: <20261115140631.70601-1-ic.gabrielribeiro@gmail.com>
+References: <20261115140631.70601-1-ic.gabrielribeiro@gmail.com>
+Date: Wed, 25 Nov 2026 08:55:33 -0700
+Message-ID: <87h5h4ykga.fsf@trenco.lwn.net>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -97,34 +67,22 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <d05aa4e7-5c58-4311-a85e-6bfe9c31c62c@gmail.com>
+Content-Type: text/plain
 
-Hi,
+Gabriel Ribeiro <ic.gabrielribeiro@gmail.com> writes:
 
-On Wed, Nov 25, 2026 at 03:16:26PM +0000, Tobias Heath wrote:
-> Mika,
-> 
-> That's clarifying, thank you — I hadn't understood the two-paths
-> distinction. The behaviour I want on lid-close is Path 2 (runtime-idle S0ix
-> / Modern Standby), not Path 1 with the TB fabric preserved. My patch is a
-> workaround that patches Path 1 to behave like Path 2, rather than using Path
-> 2.
-> 
-> On AMD Ryzen AI 9 HX 370, I'll inspect amd_pmc debugfs (I assume the AMD
-> counterpart of pmc_core) to confirm whether runtime S0ix is entered when the
-> system is idle, and whether any particular device is preventing it. If Path
-> 2 can be made to work on this hardware, the TB patch is probably not needed.
-> I'll drop it in that case and keep only the atlantic fix.
+> Translate the kernel researcher guidelines into Brazilian Portuguese and
+> link the page from the pt_BR process index.
+>
+> Signed-off-by: Gabriel Ribeiro <ic.gabrielribeiro@gmail.com>
+> ---
+> Changes in v2:
+> - Preserve the existing toctree indentation when adding the new entry.
+>
+>  Documentation/translations/pt_BR/process/index.rst |   1 +
+>  .../pt_BR/process/researcher-guidelines.rst         | 176 ++++++++++++++++++
+>  2 files changed, 177 insertions(+)
 
-Yea, it's not exactly trivial to get all the ingredients right but distros
-typically have all the drivers + firmwares shipped so that may be good
-starting point and just see what is missing (if anything).
+Applied, thanks.
 
-> Would you prefer I withdraw PATCH 1/2 now and respin as a single-patch
-> atlantic submission, or leave the series open while I investigate?
-
-I would leave the TB patch out of it because in that shape it's not
-something I'm comfortably taking as is anyway.
+jon
