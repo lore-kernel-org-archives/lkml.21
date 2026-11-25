@@ -1,59 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=101.204.27.37
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795592795;
-	b=qb0yDSram76HbSoX0xCFVO/lfJiOngpOQn08EPK7zL9mxylbgBBp+0IwKotYISZDgqcq
-	 aEM59yDC3SJr0HrVt14iHc/1c86vUkhCQRZ+/H1Di1n0eUDJSKtfnEqIbXbSQkw2wlD4P
-	 n9xg8xulgBGeyxQljb/KOn3Il3Ay+W4l3UILfH2Nq+tB1joiFkYbfQaQup1FH0jRbtxUY
-	 w57tohOVBf4IbjvXI+ma/FUZdU/tDCY25HxJviC99d/kqgQPJHfJYOSr8GjajWhLMnRFf
-	 8u32Fqu97QL7vHeX4ixon56ASSmQw4hXGmV6ptD9w8ha+cZ2HJsYWDIfG4bxWjGh2yw==
+	b=ihBiY7enDMRz+M3HJHyw+DZE7XC2k5Ngl8MrX43gdyqDa/xvlAlebXzHlrADrfF/t+BG
+	 P/7ICbP3ho0fmpJPcIxa8zKDI8U6pgWXQ8YYWqW3RuVcsdjX3seWby4rBSMF4OBmKNJOV
+	 b/Iv7ukuFPVHjAw0JUHa21FLTFFEIUlh0uAij3xiliFpoYCJZZbiWkPhfcGLcflWqVSJJ
+	 DXq18EuDTSDQXRFdnYJGS5b59J/I72fv/hfYYz0OqgPVKQNiZT/sU4Pnn91FCtgyNSgOq
+	 7wJOFmUNgGcoAjP5AcSJaVrvimd2nQyI44fQSI8rNkDjhxse/yiqY23QGc49SBL8AEg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795592795;
-	h=DMARC-Filter:Received:Received:Received:Received:From:To:CC:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
-	 X-ClientProxiedBy;
-	bh=iVGNWXxllBHd7EdQJg7ldmdQ+3GVjGXPgvFVzNqtowc=;
-	b=lCPoi2M94FOOyDxvOnLtG3yOH0GQKVE66Ugci05Y+b6w8uM1LLq4J2piFlnMfSYt92vN
-	 DKqS+LonpcRSoP/1remLIrA8hzRBw854chihGIwLrTB0+Tf7eEzIuMz5Enqq9cTENuAor
-	 3UH/gicDYmupkoKAKyH9AggD6n4RO4FgIP1lkO30j/obuvcE8mmnUzKGtqcPtsc5hek1y
-	 i24FE7SWcfddgh8WaQaLyW1c+SLNKBALntUQTfYR/EjIllwHxvxhf02tQOLt+oBqIqueB
-	 Cq+HctQIi27SVMIIWwCdCLF4cfjx2DsApRLgBsguXuu00VvXXvXY3bINRPPbmarJvkg==
+	h=Received:DKIM-Signature:From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
+	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=wyzL7xSHwG07AHAVXIarfFNMx2ryQoGUjtaQKy+SekM=;
+	b=zmouKDfjdBASTmooyvftqk/ocpFg/DSwV/AbR0Arpl+s9eC0TAJBFwglrGXUl91S1AZc
+	 sfcUD4defhbmrtZeReOiusaVsE7FDi9PkiANUGp4weRvi836nQx3QkstEsYFssjp/alKA
+	 lQdsbm0mW5UPOVxEBIRC9ND0wJztBVISz5zBfwvt80JB/Lsg5h0YNquiiXgwjwUEyLRdt
+	 59EWsl6akmESSJjaqUzYQY/5Z5idPJj8cpApwXZBPqNFR5dHqEj+fA22DzUOg0r71qbD8
+	 mPDaOB4dGQU2YsyfvO7t4H65Vi8oL5cPHcz1W3vEjOZiRi7eLXuKv8CdkN36fGsZqCw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=hygon.cn;
-	spf=pass smtp.mailfrom=hygon.cn;
-	arc=none smtp.remote-ip=101.204.27.37
-Received: from spam01.hygon.cn (unknown [101.204.27.37])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 28C24606A31E;
-	Wed, 25 Nov 2026 07:46:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 28C24606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=hygon.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=hygon.cn
-Received: from maildlp1.hygon.cn (unknown [127.0.0.1])
-	by spam01.hygon.cn (Postfix) with ESMTP id 4jZBZc6DxLzVcB5;
-	Wed, 25 Nov 2026 15:46:32 +0800 (CST)
-Received: from maildlp1.hygon.cn (unknown [172.23.18.60])
-	by spam01.hygon.cn (Postfix) with ESMTP id 4jZBZb57bPzVcB5;
-	Wed, 25 Nov 2026 15:46:31 +0800 (CST)
-Received: from cncheex04.Hygon.cn (unknown [172.23.18.114])
-	by maildlp1.hygon.cn (Postfix) with ESMTPS id 1CD3C7741;
-	Wed, 25 Nov 2026 15:46:25 +0800 (CST)
-Received: from hygon.hygon.cn (172.25.24.133) by cncheex04.Hygon.cn
- (172.23.18.114) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Wed, 25 Nov
- 2026 15:46:31 +0800
-From: Depei Yang <yangdepei@hygon.cn>
-To: <linux-crypto@vger.kernel.org>
-CC: Tom Lendacky <thomas.lendacky@amd.com>, Herbert Xu
-	<herbert@gondor.apana.org.au>, "David S. Miller" <davem@davemloft.net>, Gary
- R Hook <gary.hook@amd.com>, <linux-kernel@vger.kernel.org>, Depei Yang
-	<yangdepei@hygon.cn>, Shan Chen <chenshan@hygon.cn>, Yongwei Xu
-	<xuyongwei@hygon.cn>, Xiaochen Shen <shenxiaochen@hygon.cn>
-Subject: [PATCH 03/11] crypto: ccp - add engine capability and version information
-Date: Wed, 25 Nov 2026 15:46:01 +0800
-Message-ID: <2512ecc20c8969a2d51403d8f184bf2f3260cc29.1795588986.git.yangdepei@hygon.cn>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <cover.1795588986.git.yangdepei@hygon.cn>
-References: <cover.1795588986.git.yangdepei@hygon.cn>
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Uib7j0Nd;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 92828606A69F;
+	Wed, 25 Nov 2026 07:46:35 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Uib7j0Nd
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 25F261F000CA;
+	Wed, 25 Nov 2026 07:46:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795592795;
+	bh=wyzL7xSHwG07AHAVXIarfFNMx2ryQoGUjtaQKy+SekM=;
+	h=From:Subject:Date:To:Cc;
+	b=Uib7j0NdX1D+qDVQjzoYbda9gGP9cz0zWCeDkmvuoT6VOI47SofU7L02PbTC/F7xT
+	 0O4jz+wXGbw0pMMam7qmq+Q8v+lPFANKN68intuSGbZlXid1sAOHlKdniVUEIFSfdd
+	 D45jGJFEw9NhFbaoPn614zm7LPHSBkHdCAlcUpEIuoe8CNMUJHygEpGYPVO1QcWR3d
+	 z4g+7J0GxFvBmB6r/qO/6j1vUUgzIkEo0vp8PCZlX0Oeoib6ScAXxB7A7Zto0H1Qfj
+	 Jz9HdLkwdHlu6JnRBvpleuNIRJ4qtT3rULHBaUrXAJAH5ezRyEUyEFYjmeFibKOuEj
+	 Nyrm5NhqRpA+A==
+From: Yixun Lan <dlan@kernel.org>
+Subject: [PATCH 0/4] riscv: dts: spacemit: Some minor improvements to K3
+Date: Wed, 25 Nov 2026 07:46:13 +0000
+Message-Id: <20261125-09-k3-dt-minor-misc-v1-0-dd887a8eb326@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,269 +53,61 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: cncheex05.Hygon.cn (172.23.18.115) To cncheex04.Hygon.cn
- (172.23.18.114)
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yWMQQqDMBBFryKzdiBJi2KvIi5sMtFRGiWTloJ49
+ 07bzYfH570DhDKTwK06INOLhbekYOsK/DymiZCDMjjjGmvdFU2H6wVDwQenLeuKxxhIXxNd0xK
+ ouWeK/P5V++HP8rwv5Ms3Bef5AUQ9KN53AAAA
+X-Change-ID: 20261124-09-k3-dt-minor-misc-fde2610f267e
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, 
+ Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ Yixun Lan <dlan@kernel.org>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=849; i=dlan@kernel.org;
+ h=from:subject:message-id; bh=16U7h0aKOarFfxiA3lDLd7920xWf8TsRkzBLdHH6oTo=;
+ b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBrBpJH5QbFc2ugtaJyOGAfzadyJFj0f9xjO3wvM
+ 2TuMJekOluJAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCawaSRxsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMiwyLDJfFIAAAAAALgAoaXNzdWVyLWZwckBub3RhdGlvbnMub3BlbnBncC5
+ maWZ0aGhvcnNlbWFuLm5ldEI1QkFCOEM5QzMxQjcxMTU2NzAyMjNEQzMxQUFFQTQ3NTk0REJCRU
+ QACgkQMarqR1lNu+3zKQ//UVzoytlvzLKEn8GUoC5vVljYFBlGqUThDcXrKWXQzBJkaAmxatmNw
+ m89mLvm22ttJbLCptAghfXV0dmJGj9FsEQnlI2/NTAL9Ug2uVe1TOBABEMlICTUA3QpjiuXXTcx
+ LsQalHp9iuRf/p/OFZlAqW3FiWQCGrBW3+UZX6ShRldbz1hrTtgl9d8GR2eu79qmvfr93p5ndHE
+ oy3ebRDs7F8naF6x4B1pcSQdkZv9WHwemsJVAdfc3tVbX/bfyCZK75Z209iwG/I+kFJmx021UdW
+ HvFHv7Rgz+VfJWpJOJyakPEvQTI/gyXzkU93w3Q4UcQ4JhjTXWSXXcO3K/w+HHWaPRQ39wQgVg5
+ niQP2R2G4nUcxAH7aSkxs5Te+71Jpfn8iJUD0GyEEFO7EDoJ3rlrF2/isV6EM8UHgUgTPCBO3ks
+ aYtQO+E9Ij6zuLe+V9TYtQQvVMaNy/7Acw+n59tC2yyidJ4C/ETB9wEAarZ65JJG8frRUUZOESs
+ LHNX+54ft6i4YUT/Ecqg9FfOiLV1kTlWfORKDKPpMrqpZP5MmcIV7JuelWH6DohVh5L6MA81w5b
+ VxPeRR9FDINLmP3ZCLJ4COT6xNIhXXgex3D9Fzl0dqjPNIlyQfben36MBEx51pbQR0XKBM0uS22
+ dFsNHyKos81+r0PiOW0L73fZPckcW8=
+X-Developer-Key: i=dlan@kernel.org; a=openpgp;
+ fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
 
-Add a struct ccp_caps to struct ccp_device to record which engines a
-device implements, together with the CCP and engine versions.  The
-versions are not used yet; they are needed to tell features of the same
-engine apart, for example whether an SM4 engine can run XTS.
+Some misc changes combined in this series, the first three
+patches are quite minor and obvious, the CD pin patch fix
+an issue in U-Boot side which request explicit bias settings.
 
-A get_caps callback fills the set at probe time, after the register
-mapping and device setup, so a device can derive it from a register
-instead of a table.  Capabilities are BIT(enum ccp_engine) behind the
-CCP_CAPS_* helpers, so the engine id in a command descriptor and its
-capability bit cannot drift apart; ccp_has_cap() requires a single
-device to provide every bit in the mask.
-
-No algorithm registration is gated on this yet.
-
-Reviewed-by: Shan Chen <chenshan@hygon.cn>
-Tested-by: Yongwei Xu <xuyongwei@hygon.cn>
-Signed-off-by: Depei Yang <yangdepei@hygon.cn>
+Signed-off-by: Yixun Lan <dlan@kernel.org>
 ---
- drivers/crypto/ccp/ccp-dev-v3.c | 12 +++++++++++
- drivers/crypto/ccp/ccp-dev-v5.c | 16 ++++++++++++++
- drivers/crypto/ccp/ccp-dev.c    | 37 +++++++++++++++++++++++++++++++++
- drivers/crypto/ccp/ccp-dev.h    |  2 ++
- drivers/crypto/ccp/sp-dev.h     | 12 +++++++++++
- include/linux/ccp.h             | 22 ++++++++++++++++++++
- 6 files changed, 101 insertions(+)
+Yixun Lan (4):
+      riscv: dts: spacemit: k3: Rename PMIC node
+      riscv: dts: spacemit: k3: Use Pin Macro
+      riscv: dts: spacemit: k3: Add alias for MicroSD Card
+      riscv: dts: spacemit: k3: Set CD pin bias
 
-diff --git a/drivers/crypto/ccp/ccp-dev-v3.c b/drivers/crypto/ccp/ccp-dev-v3.c
-index 02f7575e8f9b..b4715b694b53 100644
---- a/drivers/crypto/ccp/ccp-dev-v3.c
-+++ b/drivers/crypto/ccp/ccp-dev-v3.c
-@@ -587,12 +587,23 @@ static const struct ccp_actions ccp3_actions = {
- 	.irqhandler = ccp_irq_handler,
- };
- 
-+/* Engines implemented for the v3 CCP.  3DES is not wired up for it. */
-+#define CCP3_BASE_ENGINES	(CCP_CAPS_AES | CCP_CAPS_AES_XTS |	\
-+				 CCP_CAPS_SHA | CCP_CAPS_RSA |		\
-+				 CCP_CAPS_PASSTHRU | CCP_CAPS_ECC)
-+
-+static void ccp3_get_caps(struct ccp_device *ccp)
-+{
-+	ccp->caps.engines = CCP3_BASE_ENGINES;
-+}
-+
- const struct ccp_vdata ccpv3_platform = {
- 	.version = CCP_VERSION(3, 0),
- 	.setup = NULL,
- 	.perform = &ccp3_actions,
- 	.offset = 0,
- 	.rsamax = CCP_RSA_MAX_WIDTH,
-+	.get_caps = ccp3_get_caps,
- };
- 
- const struct ccp_vdata ccpv3 = {
-@@ -601,4 +612,5 @@ const struct ccp_vdata ccpv3 = {
- 	.perform = &ccp3_actions,
- 	.offset = 0x20000,
- 	.rsamax = CCP_RSA_MAX_WIDTH,
-+	.get_caps = ccp3_get_caps,
- };
-diff --git a/drivers/crypto/ccp/ccp-dev-v5.c b/drivers/crypto/ccp/ccp-dev-v5.c
-index bf76743845e3..372ccf7d1c8b 100644
---- a/drivers/crypto/ccp/ccp-dev-v5.c
-+++ b/drivers/crypto/ccp/ccp-dev-v5.c
-@@ -1118,12 +1118,27 @@ static const struct ccp_actions ccp5_actions = {
- 	.get_free_slots = ccp5_get_free_slots,
- };
- 
-+/*
-+ * Engines implemented by the AMD v5 CCP variants.  They are described
-+ * statically, there is no engine presence register to read.
-+ */
-+#define CCP5_BASE_ENGINES	(CCP_CAPS_AES | CCP_CAPS_AES_XTS |	\
-+				 CCP_CAPS_DES3 | CCP_CAPS_SHA |		\
-+				 CCP_CAPS_RSA | CCP_CAPS_PASSTHRU |	\
-+				 CCP_CAPS_ECC)
-+
-+static void ccp5_get_caps(struct ccp_device *ccp)
-+{
-+	ccp->caps.engines = CCP5_BASE_ENGINES;
-+}
-+
- const struct ccp_vdata ccpv5a = {
- 	.version = CCP_VERSION(5, 0),
- 	.setup = ccp5_config,
- 	.perform = &ccp5_actions,
- 	.offset = 0x0,
- 	.rsamax = CCP5_RSA_MAX_WIDTH,
-+	.get_caps = ccp5_get_caps,
- };
- 
- const struct ccp_vdata ccpv5b = {
-@@ -1133,4 +1148,5 @@ const struct ccp_vdata ccpv5b = {
- 	.perform = &ccp5_actions,
- 	.offset = 0x0,
- 	.rsamax = CCP5_RSA_MAX_WIDTH,
-+	.get_caps = ccp5_get_caps,
- };
-diff --git a/drivers/crypto/ccp/ccp-dev.c b/drivers/crypto/ccp/ccp-dev.c
-index aff3348b8351..ceaeca3d755a 100644
---- a/drivers/crypto/ccp/ccp-dev.c
-+++ b/drivers/crypto/ccp/ccp-dev.c
-@@ -242,6 +242,40 @@ int ccp_present(void)
- }
- EXPORT_SYMBOL_GPL(ccp_present);
- 
-+/**
-+ * ccp_has_cap - check whether any CCP device provides a capability
-+ *
-+ * @cap: mask of BIT(enum ccp_engine) values
-+ *
-+ * Returns true if at least one registered CCP device provides all the
-+ * engines in @cap.
-+ *
-+ * Commands are dispatched to the devices by round-robin without checking
-+ * their capabilities, so a caller may only rely on this result when all
-+ * the CCP devices of the system provide the same engines, as they do when
-+ * they are instances of the same hardware.  A system mixing devices with
-+ * different engines would need per-command capability filtering in the
-+ * dispatch path.
-+ */
-+bool ccp_has_cap(unsigned int cap)
-+{
-+	struct ccp_device *dp;
-+	unsigned long flags;
-+	bool ret = false;
-+
-+	read_lock_irqsave(&ccp_unit_lock, flags);
-+	list_for_each_entry(dp, &ccp_units, entry) {
-+		if ((dp->caps.engines & cap) == cap) {
-+			ret = true;
-+			break;
-+		}
-+	}
-+	read_unlock_irqrestore(&ccp_unit_lock, flags);
-+
-+	return ret;
-+}
-+EXPORT_SYMBOL_GPL(ccp_has_cap);
-+
- /**
-  * ccp_version - get the version of the CCP device
-  *
-@@ -634,6 +668,9 @@ int ccp_dev_init(struct sp_device *sp)
- 	if (ccp->vdata->setup)
- 		ccp->vdata->setup(ccp);
- 
-+	if (ccp->vdata->get_caps)
-+		ccp->vdata->get_caps(ccp);
-+
- 	ret = ccp->vdata->perform->init(ccp);
- 	if (ret) {
- 		/* A positive number means that the device cannot be initialized,
-diff --git a/drivers/crypto/ccp/ccp-dev.h b/drivers/crypto/ccp/ccp-dev.h
-index 83350e2d9821..ef88962ff6e6 100644
---- a/drivers/crypto/ccp/ccp-dev.h
-+++ b/drivers/crypto/ccp/ccp-dev.h
-@@ -23,6 +23,7 @@
- #include <linux/interrupt.h>
- #include <linux/irqreturn.h>
- #include <linux/dmaengine.h>
-+#include <linux/ccp.h>
- 
- #include "sp-dev.h"
- 
-@@ -340,6 +341,7 @@ struct ccp_device {
- 	struct list_head entry;
- 
- 	struct ccp_vdata *vdata;
-+	struct ccp_caps caps;
- 	unsigned int ord;
- 	char name[MAX_CCP_NAME_LEN];
- 	char rngname[MAX_CCP_NAME_LEN];
-diff --git a/drivers/crypto/ccp/sp-dev.h b/drivers/crypto/ccp/sp-dev.h
-index a83751cfd006..2513a3e92631 100644
---- a/drivers/crypto/ccp/sp-dev.h
-+++ b/drivers/crypto/ccp/sp-dev.h
-@@ -35,6 +35,17 @@
- 
- /* Structure to hold CCP device data */
- struct ccp_device;
-+
-+/*
-+ * Engines implemented by a CCP device, plus the CCP and engine
-+ * versions.  A version of 0 means that it is not known.
-+ */
-+struct ccp_caps {
-+	unsigned int engines;		/* BIT(enum ccp_engine) */
-+	unsigned int ccp_version;
-+	unsigned int engine_version;
-+};
-+
- struct ccp_vdata {
- 	const unsigned int version;
- 	const unsigned int dma_chan_attr;
-@@ -42,6 +53,7 @@ struct ccp_vdata {
- 	const struct ccp_actions *perform;
- 	const unsigned int offset;
- 	const unsigned int rsamax;
-+	void (*get_caps)(struct ccp_device *ccp);
- };
- 
- struct sev_vdata {
-diff --git a/include/linux/ccp.h b/include/linux/ccp.h
-index e6c599243f11..06c3b14a1eb6 100644
---- a/include/linux/ccp.h
-+++ b/include/linux/ccp.h
-@@ -11,6 +11,7 @@
- #ifndef __CCP_H__
- #define __CCP_H__
- 
-+#include <linux/bits.h>
- #include <linux/scatterlist.h>
- #include <linux/workqueue.h>
- #include <linux/list.h>
-@@ -30,6 +31,13 @@ struct ccp_cmd;
-  */
- int ccp_present(void);
- 
-+/**
-+ * ccp_has_cap - check whether any CCP device provides a capability
-+ *
-+ * Returns: true if at least one registered CCP device provides it.
-+ */
-+bool ccp_has_cap(unsigned int cap);
-+
- #define	CCP_VSIZE 16
- #define	CCP_VMASK		((unsigned int)((1 << CCP_VSIZE) - 1))
- #define	CCP_VERSION(v, r)	((unsigned int)((v << CCP_VSIZE) \
-@@ -79,6 +87,11 @@ static inline unsigned int ccp_version(void)
- 	return 0;
- }
- 
-+static inline bool ccp_has_cap(unsigned int cap)
-+{
-+	return false;
-+}
-+
- static inline int ccp_enqueue_cmd(struct ccp_cmd *cmd)
- {
- 	return -ENODEV;
-@@ -630,6 +643,15 @@ enum ccp_engine {
- 	CCP_ENGINE__LAST,
- };
- 
-+/* Engine capability bits, indexed by enum ccp_engine */
-+#define CCP_CAPS_AES		BIT(CCP_ENGINE_AES)
-+#define CCP_CAPS_AES_XTS	BIT(CCP_ENGINE_XTS_AES_128)
-+#define CCP_CAPS_DES3		BIT(CCP_ENGINE_DES3)
-+#define CCP_CAPS_SHA		BIT(CCP_ENGINE_SHA)
-+#define CCP_CAPS_RSA		BIT(CCP_ENGINE_RSA)
-+#define CCP_CAPS_PASSTHRU	BIT(CCP_ENGINE_PASSTHRU)
-+#define CCP_CAPS_ECC		BIT(CCP_ENGINE_ECC)
-+
- /* Flag values for flags member of ccp_cmd */
- #define CCP_CMD_MAY_BACKLOG		0x00000001
- #define CCP_CMD_PASSTHRU_NO_DMA_MAP	0x00000002
--- 
-2.34.1
+ arch/riscv/boot/dts/spacemit/k3-com260-ifx.dts | 1 +
+ arch/riscv/boot/dts/spacemit/k3-com260.dtsi    | 4 ++--
+ arch/riscv/boot/dts/spacemit/k3-pico-itx.dts   | 8 ++++----
+ 3 files changed, 7 insertions(+), 6 deletions(-)
+---
+base-commit: da3f64e708a342ab2804754fa26fb4a132dc1809
+change-id: 20261124-09-k3-dt-minor-misc-fde2610f267e
 
+Best regards,
+--  
+Yixun Lan <dlan@kernel.org>
 
