@@ -1,81 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.12
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.151
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795571115;
-	b=kR2EeGtGIUND9sahs9CAsnRHSpAmPK5kHWKlKZ7lymUI+pZCZOTWZoQzk8IgBbIiTDUB
-	 zMuM8lpk/HFl+gKoNbS6Fjoai/V+/CDdNuBsxrSBgyLHh/sDSNRbZMP+gFRbZuSAaHWRG
-	 Prp256+o8djbcIY2wBrlOYbEFs8y1HyI1EO0rIx9uQtbaO2Z1IbtsxJVx9Z3p4ILUfrO/
-	 1gol0kCGjeofT8dRMDe3VZLF383gAvmYd0SoqY35PS33u6x1kGexsxaHl6fl3Ox2iE8pv
-	 d5Bj42HocQpyy5Ymwk2zucDG7t0Cgm9BwGLkjz6X40CEB+7WU4ydJ1pBfqItKulDzkg==
+	t=1795571163;
+	b=LE89wWctrVqg0qZwhhU1zTZu03j+uEjwSXUIi6fa0HGwePFfHFmE6F2jcfzdNItB5NFT
+	 CselWA7ZMa0AWaTNbgUj3LpTREXx3CkLEyrI5wSLd2WAjvSt5TPeSX4Uy/JF/dRcb6VhT
+	 E+n4KJwL2sPjpvuuC4FbmCfEjZJR+wZYm99+GSOSNQXCpebRTeUuNH4hNc0TYU8FrmXUM
+	 yjHL8nGEaiaNU2EiiMf4LwzFZxh7bonR30UEorETyIJaYy5Rz1FPfc1YRkvTKVHrwZQDY
+	 tJnrQXkWdT9SaN+TSwnhAPpUNZSd1IHLkI+w5JiMaxAM6dbK3U6nz47kjVAL8y+zmTA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795571115;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
-	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=oE5Uy4JTY2dhQ+PHpBbfRSLItBKwxPOAG7EcvajU7/E=;
-	b=MujDPcTWLRr7wecQCobu5v1b5xVhwFmXihdWXwiauOscBRK9sHXRkGteTKpDR58DfnDt
-	 QAaooFXAwRFovCs/aJu4A8ydd+0YKrXgam3r/+/57nJLwTgSj4MPquOXV9spSCMOhuCHD
-	 rwlIakbue4QGd9EJ1D77kWEpaCrpRgvpy6CweAlTJcHK7FHqfqtIBKQL+Qr2hCHv9w1Wm
-	 V/3hjRxVTto9U2aDMK8wulBgw3CLS0ovKnkBLl1s0d7y1et6D4gv/MMKcLvIgVNJotQPD
-	 /l0FrxmofkHgv3iN/OSph4CLU5sauhWHTcxm6jUMwtRyzNIveylQZq1TKsS2QLPSMcg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795571163;
+	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
+	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
+	 To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=TeTnovkauwzR0I7HmMwDZdwEJRwZzHMfctTgYRdrwFc=;
+	b=0XYHgt92txjq1DuJ1MV+z8fTnegfD1ENl4BFKTUAQ0vWjJHjOK+zojWvdjcCo3PQN7ce
+	 O6yFKsoAX5RaYM5CBIMzQZ50foHg+lSYJdcMPZGR+05TlIKob35KUq8CzMtShLNZwO/HJ
+	 nJ2BZygxyyHKGuT4E1KjLB8V6ixLFSsczxPRynWW784RoiaO7Wf/xQu15dxEXKgol2btJ
+	 4IcbURzhtG597vYqQXiwAEgJIMds90FB8wteYka+eRgEtfY76Kfcw2Ksk2dZeRUztvSQE
+	 Pd5OjmZZrgemljznpyUJLjaDrEtqniuq3oiO0rROYM47EJNF4oTc1hO8riO3zAJ5G6w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=V4jgBtVZ;
-	arc=none smtp.remote-ip=198.175.65.12
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.12])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B46B3606A321;
-	Wed, 25 Nov 2026 01:45:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B46B3606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	dmarc=pass header.from=cmss.chinamobile.com;
+	spf=pass smtp.mailfrom=cmss.chinamobile.com;
+	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=BxcXtQJs;
+	arc=none smtp.remote-ip=111.22.67.151
+Received: from cmccmta8.chinamobile.com (cmccmta8.chinamobile.com [111.22.67.151])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 03843606A321;
+	Wed, 25 Nov 2026 01:46:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 03843606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=V4jgBtVZ
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795571113; x=1827107113;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=qaxtKRtzjluJFgLeD+jCQamcgyCOTLDoz+vU29I2d5g=;
-  b=V4jgBtVZhs5xFUHxwC9/c3nBTHNQt25O8JusDRvBnghHFjmxIV9W0KaG
-   kdMAMICgldd6q/jkEnA8f5cl3fd1wGSvq8OH/F7LvFrnwAmiTmTXsDkYo
-   5XuyzybiV5Zdm5bejCuNYpRvAB2tLds/g5mVmVAHZGL8kh1mqYTWjdDMl
-   yYc+yEt9ojf5kXCLbI2+SJnDtwbrIcKutzs+F4mUNukCnRpVu3su9G2Jy
-   UfI+SLxeSN2sTVAQQBGi01eB4F9C3OINTDSb7dWdxxcWxn8emgWqcBqA7
-   I2gIZHu+BcDx0veBj+RUrAjYyFnASdddL9wodMEic6CzXJ5RT7aWkjzxT
-   g==;
-X-CSE-ConnectionGUID: oeRLjVjgTxWk3VtMHpneMw==
-X-CSE-MsgGUID: iuKZ5mXfTTqU3v1YoQd8vw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11976"; a="4334048"
-X-IronPort-AV: E=Sophos;i="6.27,231,1787036400"; 
-   d="scan'208";a="4334048"
-Received: from fmviesa007.fm.intel.com ([10.60.135.147])
-  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 17:45:13 -0800
-X-CSE-ConnectionGUID: OPNKmngkRuyQW0LFsChLhQ==
-X-CSE-MsgGUID: MSDQ13MQQPOSj6avr7MSJg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,231,1787036400"; 
-   d="scan'208";a="12062149"
-Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
-  by fmviesa007.fm.intel.com with ESMTP; 24 Nov 2026 17:45:12 -0800
-Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1xW24K-00000001Qdu-2rj1;
-	Wed, 25 Nov 2026 01:45:08 +0000
-Date: Wed, 25 Nov 2026 09:44:55 +0800
-From: kernel test robot <lkp@intel.com>
-To: Mark Brown <broonie@kernel.org>, Simona Vetter <simona.vetter@ffwll.ch>,
-	Intel Graphics <intel-gfx@lists.freedesktop.org>,
-	DRI <dri-devel@lists.freedesktop.org>
-Cc: oe-kbuild-all@lists.linux.dev,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	Linux Next Mailing List <linux-next@vger.kernel.org>
-Subject: Re: linux-next: build failure after merge of the drm-misc tree
-Message-ID: <20261125093804.Ygd8f4XE-lkp@intel.com>
-References: <awXJ__-grexFFPb4@sirena.org.uk>
+	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=BxcXtQJs
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=cmss.chinamobile.com; s=default; l=0;
+	h=from:subject:message-id:to:cc:mime-version;
+	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
+	b=BxcXtQJsZZmCOCIjtV6GeLiztmJ9hmD2+R6zQ7rYoD029if891/u03F/pTi4vn3lopKRFXPF6HC90
+	 zouc4En/7B/TRFXZx+Lei/LM5ne4v2mg7T7uPc+Qaygdwa6rnIc9JXbSv5kJAe1SsV1TKdcov0O5pM
+	 UXfljaSxhnnota5U=
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
+	by rmmx-syy-dmz-app02-12002 (RichMail) with SMTP id 2ee26b063dd6b9d-88402;
+	Wed, 25 Nov 2026 09:45:59 +0800 (CST)
+X-RM-TRANSID:2ee26b063dd6b9d-88402
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from DESKTOP-3K8GUTQ (unknown[223.108.79.98])
+	by rmsmtp-syy-appsvr02-12002 (RichMail) with SMTP id 2ee26b063dd5b07-33fad;
+	Wed, 25 Nov 2026 09:45:59 +0800 (CST)
+X-RM-TRANSID:2ee26b063dd5b07-33fad
+From: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
+To: Adrian Hunter <adrian.hunter@intel.com>
+Cc: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>,
+	Ulf Hansson <ulfh@kernel.org>,
+	linux-mmc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] mmc: sdhci-acpi: Fix free_irq() of a never requested IRQ
+Date: Wed, 25 Nov 2026 09:45:57 +0800
+Message-ID: <20261125021500.258-2-laixiangwu@cmss.chinamobile.com>
+X-Mailer: git-send-email 2.50.1.windows.1
+In-Reply-To: <a3fd82c9-4c71-4b7e-af62-8381110b0a71@intel.com>
+References: <a3fd82c9-4c71-4b7e-af62-8381110b0a71@intel.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -85,73 +71,24 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <awXJ__-grexFFPb4@sirena.org.uk>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-Hi Mark,
+Hello Adrian,
 
-kernel test robot noticed the following build errors:
+On 24/11/2026 11:50, Adrian Hunter wrote:
+> You can send V2 with a correct SOB and my Ack
 
-[auto build test ERROR on next-20261123]
-[cannot apply to drm-tip/drm-tip linus/master v7.4-rc4 v7.4-rc3 v7.4-rc2 v7.4-rc4]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+Thank you. V2 is out:
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Mark-Brown/linux-next-build-failure-after-merge-of-the-drm-misc-tree/20261124-173143
-base:   next-20261123
-patch link:    https://lore.kernel.org/r/awXJ__-grexFFPb4%40sirena.org.uk
-patch subject: linux-next: build failure after merge of the drm-misc tree
-config: parisc-randconfig-1001-20261125 (https://download.01.org/0day-ci/archive/20261125/20261125093804.Ygd8f4XE-lkp@intel.com/config)
-compiler: hppa-linux-gcc (GCC) 11.5.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261125/20261125093804.Ygd8f4XE-lkp@intel.com/reproduce)
+  [PATCH v2] mmc: sdhci-acpi: Fix free_irq() of a never requested IRQ
+  https://lore.kernel.org/all/20261125014043.258-1-laixiangwu@cmss.chinamobile.com/
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/20261125093804.Ygd8f4XE-lkp@intel.com/
+It is content-identical to V1 apart from the Signed-off-by line, which
+now reads "Xiangwu Lai" to match the sender, and your Acked-by carried
+over verbatim.
 
-All errors (new ones prefixed by >>):
-
-   drivers/platform/raspberrypi/vc-sm-cma/vc_sm.c: In function 'vc_sm_clean_up_dmabuf':
->> drivers/platform/raspberrypi/vc-sm-cma/vc_sm.c:217:17: error: implicit declaration of function 'dma_buf_unmap_sgt_unlocked'; did you mean 'dma_buf_vunmap_unlocked'? [-Werror=implicit-function-declaration]
-     217 |                 dma_buf_unmap_sgt_unlocked(buffer->attach, buffer->sgt,
-         |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~
-         |                 dma_buf_vunmap_unlocked
-   drivers/platform/raspberrypi/vc-sm-cma/vc_sm.c: In function 'vc_sm_cma_import_dmabuf_internal':
->> drivers/platform/raspberrypi/vc-sm-cma/vc_sm.c:437:15: error: implicit declaration of function 'dma_buf_map_sgt_unlocked'; did you mean 'dma_buf_vmap_unlocked'? [-Werror=implicit-function-declaration]
-     437 |         sgt = dma_buf_map_sgt_unlocked(attach, DMA_BIDIRECTIONAL);
-         |               ^~~~~~~~~~~~~~~~~~~~~~~~
-         |               dma_buf_vmap_unlocked
-   drivers/platform/raspberrypi/vc-sm-cma/vc_sm.c:437:13: warning: assignment to 'struct sg_table *' from 'int' makes pointer from integer without a cast [-Wint-conversion]
-     437 |         sgt = dma_buf_map_sgt_unlocked(attach, DMA_BIDIRECTIONAL);
-         |             ^
-   cc1: some warnings being treated as errors
+Best regards,
+Xiangwu Lai
 
 
-vim +217 drivers/platform/raspberrypi/vc-sm-cma/vc_sm.c
-
-   208	
-   209	/*
-   210	 * Cleans up imported dmabuf.
-   211	 * Should be called with mutex held.
-   212	 */
-   213	static void vc_sm_clean_up_dmabuf(struct vc_sm_buffer *buffer)
-   214	{
-   215		/* Handle cleaning up imported dmabufs */
-   216		if (buffer->sgt) {
- > 217			dma_buf_unmap_sgt_unlocked(buffer->attach, buffer->sgt,
-   218						   DMA_BIDIRECTIONAL);
-   219			buffer->sgt = NULL;
-   220		}
-   221		if (buffer->attach) {
-   222			dma_buf_detach(buffer->imported_dma_buf, buffer->attach);
-   223			buffer->attach = NULL;
-   224		}
-   225	}
-   226	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
