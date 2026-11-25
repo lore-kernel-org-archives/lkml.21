@@ -1,56 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.11
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.11
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795646883;
-	b=NBu3PTAx018C0X7HhXOQ0Sg9U+v6LtDogI7JWCo7CEoXWwBxl4XDCcWy71w43TS3hEGN
-	 o8PqIpifqYQw7eND8nUTW/2Lm4D+v9mNr0VE5NUDNiePUCgcd3n1RSdU1GaCWWb841dpm
-	 X/s0o+j5Y0NQ9vk9IQTIBShCcg6LvzK1KXXJTBqUqs9c6AsMfIGIbJAU6SyUfDdzlDyCX
-	 uIrCYr3hZ0yhUqbohTpDM4juGGyUVcE/9Tga8KzUJAKsWYVWfv1RqJ5cuGjyGTpbRT7pq
-	 iJ5u098N/AjPDGC861FEcZ1ybcNVP9Ra8ChB434DFT0scsdl0FjpycbFaEjJRem71kw==
+	t=1795646892;
+	b=vDPNWVHne79JBHKDEX0kDXnQULZXh5M7lvpSldXjxbQ1L52nh7VFwgE5I/f/tAV0JSla
+	 1CDNoNcpqN3Vx4sbt0+zby8g5uC+QkB3Csmq/DGcwOH2pne6Cz4XP2ycdic75RjzuPg4P
+	 s8VoSVQY+Y9DJDh9Tiw/k81Y0F6eN3u6J9/ssJHw9iuJvUKNkLVsnX+MOu2fCFOG+5xjf
+	 LjcJovgWCcoM6Upvwqos1FaQRtGtIG8YmO9nxqlS8onGoXZSGKsukg5542hgUwztFM+FS
+	 8OwsllYpYoXvtsn2TBMRK5knFPkvJNwMpvZb0ckBdW4/qU+KhpuzVRobEtEYCVqt/sA==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795646883;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795646892;
 	h=DMARC-Filter:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
 	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
 	 In-Reply-To:To:Cc:X-Mailer:X-ZohoMailClient;
-	bh=oyf1Ba7uOLMZNhpIzJe7ZwyMF7MLDDOOqAlfIKIFlO8=;
-	b=VZaqgysl+GucaityNYkG8IHj3aCLU6SlVQGfMXsYP2TZ7hFewqagQZ7Av9311SRX7XLT
-	 0yENCqTtxNTEnwGaPogSEmXacjQEgVVwD1vC7zOu1UbwccfWCvEN9cjMYoOazK89rmQ9D
-	 I4PjS1j2+NsdRaUbCww5d+sOwi7xhO2bKXT3lBYnIYAW+SRJP44Mt2GR+suhSHgOg3h1G
-	 lrCK3cOZZRjNZ9+P464ep6iR8JORPTOtayqRzh0C5jNx8ZCLZcLkipF0VSCOoXHB2FfZJ
-	 XrV6xrWbCBVVUl8DdxVgY17opKrxzF1EIh+mgH1e2JvmKBiBs8mMGVW0ofrONT+CCnw==
+	bh=HZGAJYpwTB/v4VHmxVqDeHNbyDXVR7TGeBAEavECqGs=;
+	b=mxVL/jHi4JwNw2rGC0+hlvAG32J+wvqVZrOUBfM3gph5HF/PHxK2VYt9cTLQ5dBb/xTT
+	 c+njgqpVyRelaM7SgIJ03e0RZ5l8l8+wjSo7mFJW9HndAzr5qmye+hUtEgke/LluDjCXj
+	 g5oGMv3w5qCUQ9cJEKnHxpRP4SnCOxKUWnSE5WU2Owf5538ZEmA5hhPyVbBWPMgUMPRTX
+	 fAqV7/XRtlhAlhFbxDJVN5tFqbEU6ojSPT2NbDurHx39KqYIQhRjhThAnf+PTCf5d7gHA
+	 1V33dts7RgQOQ9lBNyoafqLzrDF7yRCimoVaNw2hrR+yXFY8mBqgdYBxonjTFfG4Z7A==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=collabora.com;
 	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=HjUMR54I;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.11
-Received: from sender5-op-o11.zoho.com (sender5-op-o11.zoho.com [165.173.182.11])
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b="E/DKcIhK";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.11
+Received: from sender6-op-o11.zoho.com (sender6-op-o11.zoho.com [165.173.180.11])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3D49D606A68C;
-	Wed, 25 Nov 2026 22:48:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3D49D606A68C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 38125606A696;
+	Wed, 25 Nov 2026 22:48:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 38125606A696
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=HjUMR54I
-ARC-Seal: i=1; a=rsa-sha256; t=1795646843; cv=none; 
+	dkim=pass (1024-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=E/DKcIhK
+ARC-Seal: i=1; a=rsa-sha256; t=1795646857; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=GcH9Vp6CU1ED8YNzdFNZu/sNdRopYC8GWq+kvQO2KwIedRr5UNDXkv8izOgreElxtWC0nv+nmr+4J7AIMTKXcrDkV94bo33Lzk0O6mDdwdwVCSRS0p0xB1IFOSDmV2O6bPKvY3aNJqMuRSQzzFwxINo42sFML8ri0IChulA4+s4=
+	b=SRj58EkMKTHr7v1Dbg+ylCtFleNp0Ha87AXPY6Lc4d1VjxeKghJGiVFnY0Ztjul6qmq+s9NRVnVtw/ZMgli46M1ok9yfVUN/QtsXOO6OAIeOJK3wgkboeqYZXLsSDAdQFdC5PFsBmS8inmwHrsVLehqg+z2zfJ5HyBJAX92T+fc=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1795646843; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=oyf1Ba7uOLMZNhpIzJe7ZwyMF7MLDDOOqAlfIKIFlO8=; 
-	b=WFcfeM0tiYxKvEXQWaEqHmxcX7kE+KvVk7i5bD83KJtJ9J8coYps9/9E1+SFH7Xg4gmWvbPorann+3F6FLE3uWf+eoaLWXrh3Ytkea9oFx7hlbTpnl4Mrehml9p8izcrD+AE+PiXa2yVhw4Z7yjw0T/u9tbzKxaalhT5KjdgTYk=
+	t=1795646857; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=HZGAJYpwTB/v4VHmxVqDeHNbyDXVR7TGeBAEavECqGs=; 
+	b=IlMyhm9+ppN/vzQoTuCA0hnDT4yFx+8on5M8z2e2EAFdojsdHzEYTnUbZE+K81spWEWMP6YrK0un4QTIF2Xy91ODJVjlcJ3oqSzrD+5aQYFdYYwEalpK2MHSQp4g1q50ZEj/kNpvK3UgJZq+9Y8CbDeHm3+ECEPjOQ374XH/jvU=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=daniel.almeida@collabora.com;
 	dmarc=pass header.from=<daniel.almeida@collabora.com>
-DKIM-Signature: a=rsa-sha256; b=HjUMR54ItSE4LcaTq/Xgogoc+AMMk4iaankM2Tx569/MJ0obxeU8IOV6FrrLbKIPRep2kunYzGeAmQXaHi6qBOZyx7m5jkDpiD2sFKM47nPBkqFp6Jk1UGyuDfFyNRfSLIk0V+rFwDjQbI/GYLFBSvLOAY3pBO5AoSP4S1E71f0=; c=relaxed/relaxed; s=zohomail; d=collabora.com; v=1; bh=oyf1Ba7uOLMZNhpIzJe7ZwyMF7MLDDOOqAlfIKIFlO8=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 1795646842109819.1062793227454;
-	Wed, 25 Nov 2026 14:47:22 -0800 (PST)
+DKIM-Signature: a=rsa-sha256; b=E/DKcIhKXipsWboPnR+r9s/A5bgKJiAqruMJuTKhOr/jRsFYWktQFe6cPUJIKG2S9a1jOBMBWxffsIZ9te5J22bCvQO2QYuIfcY+s7H/GOxBmk5KaprwMRt3x5Tyw/7DeleHJGa2GyTfR50ammjKzMy4aOqG8B7Gt5o2KT/bE5s=; c=relaxed/relaxed; s=zohomail; d=collabora.com; v=1; bh=HZGAJYpwTB/v4VHmxVqDeHNbyDXVR7TGeBAEavECqGs=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zohomail.com with SMTPS id 1795646856604270.62478483278574;
+	Wed, 25 Nov 2026 14:47:36 -0800 (PST)
 From: Daniel Almeida <daniel.almeida@collabora.com>
-Date: Wed, 25 Nov 2026 19:46:54 -0300
-Subject: [PATCH 03/13] drm/tyr: convert the lock region exponents from u8
- to u32
+Date: Wed, 25 Nov 2026 19:46:57 -0300
+Subject: [PATCH 06/13] drm/tyr: replace lossless `as` casts with From and
+ FromSafeCast
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -61,8 +61,8 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20261125-b4-tyr-as-casts-v1-3-2b2f53164d86@collabora.com>
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261125-b4-tyr-as-casts-v1-6-2b2f53164d86@collabora.com>
 References: <20261125-b4-tyr-as-casts-v1-0-2b2f53164d86@collabora.com>
 In-Reply-To: <20261125-b4-tyr-as-casts-v1-0-2b2f53164d86@collabora.com>
 To: Daniel Almeida <daniel.almeida@collabora.com>, 
@@ -82,50 +82,151 @@ X-ZohoMailClient: External
 
 An `as` cast silently drops the bits that do not fit the target type,
 and nothing at the cast shows whether that can happen. As part of a
-larger effort to reduce the number of `as` casts in Tyr, convert the
-lock region exponents in `as_start_update()` from `u8` to `u32`.
+larger effort to reduce the number of `as` casts in Tyr, replace the
+casts from `usize` to `u64`, from `u32` to `usize` and from a
+`Bounded<u64, 8>` to `u8` with conversions that cannot lose bits:
 
-`as_start_update()` works out the size of the region to lock as a power
-of two. It takes the exponents from `trailing_zeros()` and
-`leading_zeros()`, which return `u32`, and narrows them to `u8` with
-`as`. The result is then widened back to `u32` for `checked_shl()`.
+    mapped as u64            ->  u64::from_safe_cast(mapped)
+    fw_header.size as usize  ->  usize::from_safe_cast(fw_header.size)
+    val.get() as u8          ->  u8::from(val)
 
-Keep the exponents as `u32`, which removes the casts.
+`FromSafeCast` is only implemented where no value is lost on any
+architecture, and `From` for a `Bounded` only where all its bits fit.
 
 No functional change intended.
 
 Signed-off-by: Daniel Almeida <daniel.almeida@collabora.com>
 ---
- drivers/gpu/drm/tyr/mmu/address_space.rs | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ drivers/gpu/drm/tyr/fw.rs        |  9 ++++++---
+ drivers/gpu/drm/tyr/fw/parser.rs | 11 +++++++----
+ drivers/gpu/drm/tyr/regs.rs      |  2 +-
+ drivers/gpu/drm/tyr/vm.rs        |  9 +++++----
+ 4 files changed, 19 insertions(+), 12 deletions(-)
 
-diff --git a/drivers/gpu/drm/tyr/mmu/address_space.rs b/drivers/gpu/drm/tyr/mmu/address_space.rs
-index a388c0087b20..f6ccb0d7e3ed 100644
---- a/drivers/gpu/drm/tyr/mmu/address_space.rs
-+++ b/drivers/gpu/drm/tyr/mmu/address_space.rs
-@@ -362,7 +362,7 @@ fn as_start_update(&mut self, as_nr: usize, region: &Range<u64>) -> Result {
-         // Count the number of trailing zero bits (zeros at the right/least-significant
-         // end of the binary representation). For a power-of-two value, this equals the
-         // base-2 exponent (e.g., 32 KiB = 2^15 → 15).
--        let lock_region_min_size_log2 = lock_region_min_size.trailing_zeros() as u8;
-+        let lock_region_min_size_log2 = lock_region_min_size.trailing_zeros();
+diff --git a/drivers/gpu/drm/tyr/fw.rs b/drivers/gpu/drm/tyr/fw.rs
+index aea151ff1f93..14cfe2884d5a 100644
+--- a/drivers/gpu/drm/tyr/fw.rs
++++ b/drivers/gpu/drm/tyr/fw.rs
+@@ -26,7 +26,10 @@
+         poll,
+         Io, //
+     },
+-    num::Bounded,
++    num::{
++        casts::FromSafeCast,
++        Bounded, //
++    },
+     prelude::*,
+     str::CString,
+     sync::{
+@@ -238,8 +241,8 @@ pub(crate) fn new(
+                     parsed.vm_map_flags,
+                 )?;
  
-         // XOR the first and last addresses to identify which bits differ between them.
-         // The highest set bit in the result determines the exponent of the smallest
-@@ -373,11 +373,11 @@ fn as_start_update(&mut self, as_nr: usize, region: &Range<u64>) -> Result {
-         //   highest set bit in 0x3FFF is bit 13
-         //   minimum region size = 2^(13 + 1) = 16 KiB
-         let addr_xor = region.start ^ (region.end - 1);
--        let region_size_log2 = 64 - addr_xor.leading_zeros() as u8;
-+        let region_size_log2 = 64 - addr_xor.leading_zeros();
+-                let section_start = parsed.data_range.start as usize;
+-                let section_end = parsed.data_range.end as usize;
++                let section_start = usize::from_safe_cast(parsed.data_range.start);
++                let section_end = usize::from_safe_cast(parsed.data_range.end);
+                 let mut data = KVec::new();
  
-         let lock_region_log2 = core::cmp::max(region_size_log2, lock_region_min_size_log2);
+                 // Ensure that the firmware slice is not out of bounds.
+diff --git a/drivers/gpu/drm/tyr/fw/parser.rs b/drivers/gpu/drm/tyr/fw/parser.rs
+index 6ff681aa78d1..6576bc870982 100644
+--- a/drivers/gpu/drm/tyr/fw/parser.rs
++++ b/drivers/gpu/drm/tyr/fw/parser.rs
+@@ -18,7 +18,10 @@
+ use kernel::{
+     bitfield,
+     device::Device,
+-    num::Bounded,
++    num::{
++        casts::FromSafeCast,
++        Bounded, //
++    },
+     prelude::*,
+     sizes::SizeConstants, //
+ };
+@@ -182,7 +185,7 @@ pub(super) fn new(dev: &'a Device, data: &'a [u8]) -> Self {
+     /// in the binary, extracting section information needed for loading.
+     pub(super) fn parse(&mut self) -> Result<KVec<ParsedSection>> {
+         let fw_header = self.parse_fw_header()?;
+-        let header_end = fw_header.size as usize;
++        let header_end = usize::from_safe_cast(fw_header.size);
  
--        let lock_region_size = 1u64.checked_shl(lock_region_log2.into()).ok_or(EINVAL)?;
-+        let lock_region_size = 1u64.checked_shl(lock_region_log2).ok_or(EINVAL)?;
-         // Align the LOCKADDR base address down to the lock region size (1 << lock_region_log2).
-         //
-         // The MMU ignores the low lock_region_log2 bits of LOCKADDR base, so ensure
+         let mut parsed_sections = KVec::new();
+         while self.cursor.pos() < header_end {
+@@ -210,7 +213,7 @@ fn parse_fw_header(&mut self) -> Result<FirmwareHeader> {
+             }
+         };
+ 
+-        if fw_header.size as usize > self.cursor.len() {
++        if usize::from_safe_cast(fw_header.size) > self.cursor.len() {
+             dev_err!(self.cursor.dev, "Firmware image is truncated");
+             return Err(EINVAL);
+         }
+@@ -323,7 +326,7 @@ fn parse_section_entry(
+             return Err(EINVAL);
+         }
+ 
+-        if section_hdr.data.end as usize > firmware_size {
++        if usize::from_safe_cast(section_hdr.data.end) > firmware_size {
+             dev_err!(
+                 entry_cursor.dev,
+                 "Firmware data range {:#x}..{:#x} exceeds firmware size {:#x}",
+diff --git a/drivers/gpu/drm/tyr/regs.rs b/drivers/gpu/drm/tyr/regs.rs
+index 69c901afb28f..603a9052c439 100644
+--- a/drivers/gpu/drm/tyr/regs.rs
++++ b/drivers/gpu/drm/tyr/regs.rs
+@@ -1154,7 +1154,7 @@ impl TryFrom<Bounded<u64, 8>> for MMU_MEMATTR_STAGE1 {
+             type Error = Error;
+ 
+             fn try_from(val: Bounded<u64, 8>) -> Result<Self, Self::Error> {
+-                Ok(Self::from_raw(val.get() as u8))
++                Ok(Self::from_raw(u8::from(val)))
+             }
+         }
+ 
+diff --git a/drivers/gpu/drm/tyr/vm.rs b/drivers/gpu/drm/tyr/vm.rs
+index 72c8593c489e..d15db120352b 100644
+--- a/drivers/gpu/drm/tyr/vm.rs
++++ b/drivers/gpu/drm/tyr/vm.rs
+@@ -41,6 +41,7 @@
+         ARM64LPAES1, //
+     },
+     new_mutex,
++    num::casts::FromSafeCast,
+     prelude::*,
+     sizes::SizeConstants,
+     sync::{
+@@ -616,7 +617,7 @@ fn sm_step_map<'op>(
+         // end of the GEM buffer itself.
+         let gem_range_end = op.gem_offset().checked_add(op.length()).ok_or(EINVAL)?;
+ 
+-        if gem_range_end > op.obj().size() as u64 {
++        if gem_range_end > u64::from_safe_cast(op.obj().size()) {
+             dev_err!(
+                 context.dev,
+                 "Requested GEM range ends at {} which is beyond the GEM buffer size {}",
+@@ -891,7 +892,7 @@ fn pt_map(
+             return Err(ENOMEM);
+         }
+ 
+-        segment_mapped += mapped as u64;
++        segment_mapped += u64::from_safe_cast(mapped);
+     }
+ 
+     Ok(segment_mapped)
+@@ -937,8 +938,8 @@ fn pt_unmap(dev: &Device, pt: &IoPageTable<'_, ARM64LPAES1>, range: Range<u64>)
+             return Err(EINVAL);
+         }
+ 
+-        bytes_left_to_unmap -= unmapped as u64;
+-        iova += unmapped as u64;
++        bytes_left_to_unmap -= u64::from_safe_cast(unmapped);
++        iova += u64::from_safe_cast(unmapped);
+     }
+ 
+     Ok(())
 
 -- 
 2.56.0
