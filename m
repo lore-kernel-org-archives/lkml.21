@@ -1,47 +1,111 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=124.71.94.104
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795601041;
-	b=dX6AnEYt9wHu+hRBfyMexCpBQ1wvzEXRJRRe7QD6f2/Jx1x7V/C++2ij2/3YZ5eOhSzu
-	 qKrvCu/0VE0QDLaAjAfrNn5ZdCw8w3d/QBQFV59szyCVc908S6OTdmhr9vDEk95qLklkt
-	 M+BC2OTtT2l+AtfUV1GlkKfd1PL92tP6tjGKsWiDbPKu/v4pvLU2n9AHg6dmWyZWkuZ2t
-	 K7NBrLyFIN3T/VAFI6QMnhBwKTNx77dE7Q5RyqFn3LoZYRq4LhVOqvQ48BDLuZlm/4MXs
-	 bAO0iGz6BIx9qOuTKSJCah4X0X8ty0vzs3XH1Q+VvdXI5iX3oBgrJP2xTENj+3Pr4oQ==
+	t=1795601092;
+	b=is9sernYn2wrb1aQamzQ6U2q1TJ8mDSoePy0Ze0HBakV2eXZM6piHNps2oKdKc5v65vH
+	 7ra9pJv0ktX8BbGQ1dG+gVaUd9IrnbzRoP1ZnpzQKPiB5tgM27coYP565YCoqiaM/vOzP
+	 TeHnCoOnM32sqv/Eu//uWQ2oGIDVmZhyUwQrq2dVh8hdcBVBX6X39Fii/e0cQu6pdMRQf
+	 2Mhcx913tiadEW0ggBTDsLoGQvT4udrVhOeRV8+CZLgb1tVQwujbaJjlZ+eqBsnB03AsH
+	 JCjXLgktQBuyyIaS6gkspBKcDjjyzhxaHj1NzQXgwBjJoCgHkyZQZKHpjtBTRBrrLfw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795601041;
-	h=DMARC-Filter:Received:Received:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-CM-TRANSID:
-	 X-Coremail-Antispam:X-CM-SenderInfo;
-	bh=aKp9ulANN8ZsCem3hOzSiHB1VBEpB1+IrEIaum/OfA4=;
-	b=AkqHrymB5T5tsuGrmwhtkYSyXCZQdN2ZLtXT9zsKVy6XlM7RTUzh/gyBJh+2QJpalcgN
-	 1T7gpjUX1ictJ7zBa/EsKsgt9n6tdVIg/cEL3U9mU5NkuuKj4VF2U4c1DHWDu6fSUnDhW
-	 mRbUU23UApIwNM6T7DxuIpHxwex+Do+/02Usji9CLWygqnFFIQGYedOpzDiActHy4ar+c
-	 JgqKY64lXmILJnehquxbo1CS+visjWPaawWR8y6/f0twu/0K893BFDv3oWFyuojy7AvJ5
-	 9TmPvdcjmj/hIh8t2HIlmFi/Vxlz7DTI2SGbVnSlY+gr4uqbuKq245uY6Yk/lNKbgPw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795601092;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:X-Authority-Analysis:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=etGgwq6UQispo3f+AA3xA57FPijjtc6+G4aS1BXg2q0=;
+	b=MSyrB06SVBMbSxiS3suHU3aO1DQl8j7gRBN6j193aShL1TjqWgUpbRITnRbUPK9rDz+Y
+	 rnMkq0V0te80COUHjqe6uFtBeG3xwU5ue+sPzaDfaTUvl8A5IwI9ZVQMqmaRiXXsPjUDr
+	 Ls734Sc/eBXcgKyHozZfLRcF0JDMEJ+ePM+9w73VOaGSqefBTdKNBk3h2h+8RzLNpt5Zv
+	 WM5WIHQEi6zlw/NMeQ8GmUCnPn3Jjcysov0f+MumgqXZPuIPkaVywT4Z/93kzxFoYzLHH
+	 Uv+5hQXCVJ1ykuFEkdhsogUBFARNC0QNoaXzZP3IA5yZqSbQteo/QmmjbG6YAjqvEDw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=huaweicloud.com;
-	spf=pass smtp.mailfrom=huaweicloud.com;
-	arc=none smtp.remote-ip=124.71.94.104
-Received: from dggmsgout13.his.huawei.com (dggmsgout13.his.huawei.com [124.71.94.104])
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=AWyHI9ZB;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=cTPPO0Nn;
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 07814606A321;
-	Wed, 25 Nov 2026 10:03:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 07814606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=huaweicloud.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huaweicloud.com
-Received: from mail.maildlp.com (unknown [172.19.163.170])
-	by dggmsgout13.his.huawei.com (SkyGuard) with ESMTP id 4jZFcz3sfkz1rr0b;
-	Wed, 25 Nov 2026 18:03:47 +0800 (CST)
-Received: from mail02.huawei.com (unknown [10.116.40.112])
-	by mail.maildlp.com (Postfix) with ESMTP id 9E9E640561;
-	Wed, 25 Nov 2026 18:03:50 +0800 (CST)
-Received: from [10.67.110.36] (unknown [10.67.110.36])
-	by APP1 (Coremail) with UTF8SMTPA id cCh0CgDnOtCFsgZr_eaeFg--.57557S2;
-	Wed, 25 Nov 2026 18:03:50 +0800 (CST)
-Message-ID: <c9c2c4df-a748-4787-b686-1fe6bc6564db@huaweicloud.com>
-Date: Wed, 25 Nov 2026 18:03:49 +0800
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9770A606A323
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:04:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9770A606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=AWyHI9ZB;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=cTPPO0Nn
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AP9mdZY3127767
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:04:51 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	etGgwq6UQispo3f+AA3xA57FPijjtc6+G4aS1BXg2q0=; b=AWyHI9ZBVqSnO/8k
+	s3R6QLL3aKZGyrRk5UlNvJVHYDWxafTzttqw4QBV1iA96nd3BLw9fVK8FAJnZcqi
+	axca9mszpX78SmLVrir0fVI+BBcl2NQeGrU+p4L5oPGPF7pWuS/qY1/dYpP69V8p
+	9PUYs8SlGoiIgkE89vJ8aBQao+xjY0ntcNR0lB1uld1LyrFImjgg0JZHR1JKJY79
+	/VJlLk88S7JXR72o6q2DPQ9YlPOTdAlNoLd/Vr7CJJhvJI6S/eqHVrVfU+5qXapw
+	t+OcWzfEPAm/poP3YnUOt/OjeoQ01UaXQ5z3nS4xN0lEV9ejPKqfZHCLOVX+7hom
+	Vjs3lw==
+Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j5eydbk7y-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:04:50 +0000 (GMT)
+Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-94964828890so70503285a.3
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 02:04:50 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795601090; x=1796205890; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=etGgwq6UQispo3f+AA3xA57FPijjtc6+G4aS1BXg2q0=;
+        b=cTPPO0NnqHqKUDwYrHMKGsGrVX6rwWQOmjw7+9iRvAkrri1q+4LN0bAsBxYseoeE1L
+         JhnYcHJbaBB/lg0+1NfB7oeHRT7SjOG6whF/HvRRT1vBm3rF9fVblrCHZNJ14ZdU+NqX
+         K//NQguJvyebTmGacZjGFSKlJgLT6UXKOo279PMAMOqS7Ut/JkYbJJDN61RZomwwZ2ah
+         bZBsrvzjMZENE5e2wKVbcFLuaghCEAD26Aq+0iZafiPjJeF06cnyL1ZGRBHEpKPi4kaJ
+         5P6rcKFC0g87f5CVEklIIJa/oN57yskH90hfVoGnzFqQqoe62zF6tDOyq6Zagvpn3whX
+         8eiA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795601090; x=1796205890;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=etGgwq6UQispo3f+AA3xA57FPijjtc6+G4aS1BXg2q0=;
+        b=SD7QkSgi4Xb3dlNGroHfT6ldZe+VKFri2eNWk+Y+b9E/owD6UGPSVvYdfgzEVmW7iN
+         a56ihHokVC5YziDpgwlWjhOuGGpg5wM873uC2nQGM34Q8qnBKpgZuVJR7WbvmG0cpC7o
+         O0EvNHNezAsgOci9bxb5Hua3D9KcqreA9CspE4xA2FU8hNgXATvE2GBoTY1X0bYzq4jl
+         zQ866epXLW+5rcsDb62w8PFbxjwmhWtzeUD4rcRblbHrCqDDkIbmhkztUFRakou02V0R
+         AMvszV69hWTWIDI2MVXgvTE8S2MTs+soGlkvsDZsZpKNVsihfCmUtuJ63Vfoh6yCloU5
+         XOwg==
+X-Forwarded-Encrypted: i=1; AL+hErEFLkmlTqMA6OGGbvFdU6kHl4+CTGLR64gcH9/TltIUEIbOFKq9DnbqF2gUBXM601rvVpaULSRR2NQwCW8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+mK2gRst/CXldtLQu+50hP0CPbaru51TzE5u8HCke+K8gqfHxL
+	8xgpcUxOtBPpKSe2sGLHKj2nyiMnOLizzhF9ExINikLqU3lpbvCE9j77M4j1czXmlL4w++zHa/B
+	ZYISmOn8lQ02UpVeP7twYgiTzAMu9xoewZhtAAandiID4CTUx/kE+fcE47hrY0PapDgw=
+X-Gm-Gg: AZFdTZfSfW/IB8VnFx7MiC83oBJdEaOi8HTSK70sBuwX1+mBwWBJLik+Y2+Zgh4pphF
+	S5jWJv6YnaZbydVF9HxgFJ2hmESwG6syLccPXE7EJLG0tPzaaq44S6SscBb9jMcKCy0NDdCJ/Y4
+	bIMgXG/OEHHPBIU7RTnllU7XijlizwVCtJn4lWgcdNtd/OocXp24X+Mk8S5deoUUCFjMiebUoWw
+	vYsU3PUlSmGTRPUEl4XW0NeK+O1VLBy8CX6mQnGmdyppYRK9JA4Tf49L7LAU1n6sumya+GIHaHJ
+	oU+Ah2QGq18x7w4REDTyPbFtDtxEHNENm+p7g3nDtcG2JcNxT769/GTS7M5vDOvieOrNTilE1tf
+	KwcIE1EVpSFwaIaV9jv3FLt49wsv+7jcrFn+lWmOmfQ1gB97Jdg3v/LvU1GlyyXQIqf78Z9Q=
+X-Received: by 2002:a05:620a:864c:20b0:949:728b:51f with SMTP id af79cd13be357-949bab797a6mr2862182385a.6.1795601089712;
+        Wed, 25 Nov 2026 02:04:49 -0800 (PST)
+X-Received: by 2002:a05:620a:864c:20b0:949:728b:51f with SMTP id af79cd13be357-949bab797a6mr2862177785a.6.1795601089242;
+        Wed, 25 Nov 2026 02:04:49 -0800 (PST)
+Received: from [192.168.226.72] ([178.235.128.140])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513ad01b0bsm614267866b.10.2026.11.25.02.04.47
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 25 Nov 2026 02:04:48 -0800 (PST)
+Message-ID: <439e3917-3125-4602-a81b-26aae8233595@oss.qualcomm.com>
+Date: Wed, 25 Nov 2026 11:04:46 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -52,118 +116,65 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 2/2] perf/core: Disable context fast-swap for sigtrap
- events
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
- Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
- Adrian Hunter <adrian.hunter@intel.com>, James Clark
- <james.clark@linaro.org>, linux-perf-users@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <cover.1795053619.git.wutengda@huaweicloud.com>
- <55b1a2845b0ad34a874a7653644e34af9eb068d3.1795053619.git.wutengda@huaweicloud.com>
- <20261120173706.GC2668564@noisy.programming.kicks-ass.net>
- <20261120174606.GM2669272@noisy.programming.kicks-ass.net>
- <5507e48c-4e98-4e76-8d3f-4630a2655085@huaweicloud.com>
- <c9ff579b-a7eb-481f-bb8d-489a4469c397@huaweicloud.com>
- <20261125090809.GW2668804@noisy.programming.kicks-ass.net>
- <4d17dd3b-df73-45c0-8113-f4ca259d549b@huaweicloud.com>
- <20261125093836.GX2668804@noisy.programming.kicks-ass.net>
+Subject: Re: [PATCH] remoteproc: qcom_q6v5_mss: Save the need_pas_mem_setup
+ into qproc
+To: david@ixit.cz, Bjorn Andersson <andersson@kernel.org>,
+        Mathieu Poirier <mathieu.poirier@linaro.org>,
+        =?UTF-8?B?QmFybmFiw6FzIEN6w6ltw6Fu?= <barnabas.czeman@mainlining.org>,
+        Bryan O'Donoghue <bod@kernel.org>
+Cc: linux-arm-msm@vger.kernel.org, linux-remoteproc@vger.kernel.org,
+        linux-kernel@vger.kernel.org, Sashiko <sashiko-bot@kernel.org>
+References: <20261117-qcom_q6v5_mss_msm8953-v1-1-0fdaea2855ff@ixit.cz>
 Content-Language: en-US
-From: Tengda Wu <wutengda@huaweicloud.com>
-In-Reply-To: <20261125093836.GX2668804@noisy.programming.kicks-ass.net>
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <20261117-qcom_q6v5_mss_msm8953-v1-1-0fdaea2855ff@ixit.cz>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CM-TRANSID:cCh0CgDnOtCFsgZr_eaeFg--.57557S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxJr4UAw1fZFWDGF4kWrW7Arb_yoW5JF4Dpr
-	Z3CF45trWDtrW7Wwsxt3WDZFy5trW7trs8Wr1kGayxArn0vry7XF48JrW5CF9Ivw18JFW3
-	tr4jga47W34jva7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvjb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k2
-	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
-	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xIIjxv20xvEc7Cj
-	xVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I
-	0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40E
-	x7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x
-	0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AF
-	wI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4
-	xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43
-	MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I
-	0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWU
-	JVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjxUF1
-	v3UUUUU
-X-CM-SenderInfo: pzxwv0hjgdqx5xdzvxpfor3voofrz/
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI1MDAzOCBTYWx0ZWRfX/KQeZL80TctL
+ toRYyaVjboj7rv69SujTkHJbWHEjcQCdd/3YZZHGF0F4y7we3XviYi6eUBQSB0/exZ5NJkckWrl
+ 65d8LXEm+CBd99OHRBlc9o/b1SeVJY8=
+X-Proofpoint-ORIG-GUID: _C3WXoivsS7h75K28C2WUVa79k21lRPx
+X-Proofpoint-GUID: _C3WXoivsS7h75K28C2WUVa79k21lRPx
+X-Authority-Analysis: v=2.4 cv=GIGdgeNK c=1 sm=1 tr=0 ts=6b06b2c2 cx=c_pps
+ a=qKBjSQ1v91RyAK45QCPf5w==:117 a=PRfkaYvzSr8QmIIGAkY2Sg==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22
+ a=c92rfblmAAAA:8 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=LNBVZBixs3kL4_gL8vEA:9
+ a=QEXdDO2ut3YA:10 a=NFOGd7dJGGMPyQGDc5-O:22 a=GvGzcOZaWPEFPQC_NcjD:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI1MDAzOCBTYWx0ZWRfX1WE0e4rmwiJq
+ lWq6OWn7mi1Of2TytYgCexs1bUc9iNGFH49J2+BkaNtbeJlGwjH2ZUkkZKeBCbAGsMarFD7mHzn
+ 72MUbUrgKEQUbJkJ8hY1JdhsgLEhUQMVKwMyMX993eyqEFaiH9wFieRJc+IMnieRu2tl1LYv65b
+ CX1jWUmfFPQR4Cyi79i8Yx++CRDI+oo6fvuBh9V/Un+/Rl6G9XKMGAdKvfzfdSNxKi+ASnl6AsV
+ PzX0IUD13vBvDvt57KXmPDpGnCshpXYF5fGUBBichiv177wU9HG1wahyqsy0lpv7DGroZnNKgEq
+ bt3cdEZjN9rADluwOpESDL250oHgvN1IG2NIZZJ5DH4rwW18aUBr5LyDvQi/NxhzJM2WYEu4nNT
+ Cw31FJU+3AreX2Ml2BkOgenaOJTlvVwPaLDoCDL4uQCHjq13p/xfWXb2mFG83h41wXTlS+W0AnS
+ +JdGMb2lQQ5iI0Wfb0g==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-25_03,2026-11-23_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 adultscore=0 lowpriorityscore=0 suspectscore=0 clxscore=1015
+ spamscore=0 priorityscore=1501 bulkscore=0 malwarescore=0 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611250038
 
-
-
-On 2026/11/25 17:38, Peter Zijlstra wrote:
-> On Wed, Nov 25, 2026 at 05:29:38PM +0800, Tengda Wu wrote:
->>
->>
->> On 2026/11/25 17:08, Peter Zijlstra wrote:
->>> On Tue, Nov 24, 2026 at 04:42:34PM +0800, Tengda Wu wrote:
->>>
->>>> From the stack, we can see:
->>>>
->>>> perf_event_context_sched_out
->>>>         // fast path
->>>>         perf_ctx_enable(ctx, 0);
->>>>                 perf_pmu_enable
->>>>                         if (!--(*count))  // equals 0
->>>>                                 pmu->pmu_enable(pmu);
->>>>                                         __intel_pmu_enable_all.constprop
->>>>                                                 do_trace_write_msr
->>>>                                                         perf_tp_event
->>>>
->>>> In perf_tp_event():
->>>>         if (perf_tp_event_match(event, &raw, regs)) {
->>>>                 if (!perf_pmu_enabled(event->pmu)) return 0; // not satisfied, continue downward
->>>>                 perf_swevent_event
->>>>                         __perf_event_overflow
->>>>                                 task_work_add  // event->ctx->task mismatches 'current'
->>>>         }
->>>>
->>>> Because pmu_disable_count is already 0, the subsequent perf_tp_event_match()
->>>> cannot block it via perf_pmu_enabled(), so the problem can be reproduced.
->>>
->>> Right, but at this point there isn't really a problem, all the pointers
->>> have been swapped already and state should be consistent again.
->>>
->>> I *think* the problem is that task_work_add() is using current while it
->>> should be using ctx->task. In that case the above will enqueue on the
->>> next task, which is correct.
->>>
->>
->> I considered this before, but it involves the issue of whether the count
->> overflow in the sched_out stage should be attributed to the current or next
->> task, and I wasn't very confident about it, so I didn't adopt it.
+On 11/17/26 8:51 PM, David Heidelberg via B4 Relay wrote:
+> From: David Heidelberg <david@ixit.cz>
 > 
-> All of switch_fast suffers that problem. Mostly we've ignored it since
-> kernel events around a context switch are hard to attribute to any one
-> particular task, so a little fuzz left or right of the switch doesn't
-> matter too much, as long as its consistent.
+> On hardware requiring Peripheral Authentication Service (PAS) for modem
+> memory setup (e.g., SDM632), the remoteproc subsystem skips hardware memory
+> authentication because q6v5_probe() fails to copy the need_pas_mem_setup
+> flag to the allocated device instance.
 > 
-
-Thanks for the clarification.
-
->>> Disabling switch_fast really hurts performance; doing that should be a
->>> last resort. I think I can fix this. Let me try and see if the
->>> reproducer works for me so I can more easily poke at this.
->>>
->>
->> OK. Just a reminder that the PoC I provided needs to be run in an Intel
->> environment, so that the tracepoint can be hit when pmu_enable is executed.
+> Original commit didn't save the value into the structure thus quietly
+> skipping if (qproc->need_pas_mem_setup) condition.
 > 
-> Ah, I'm currently running it on an SPR Xeon; do I need to use
-> non-default arguments or just run the thing in a loop and drink tea
-> until it goes pop?
+> Reported-by: Sashiko <sashiko-bot@kernel.org>
+> Closes: https://sashiko.dev/#/bug/linux-83fcbc28-236c-48e4-a6bd-731f4361f9ae
+> Fixes: f56052f4d87c ("remoteproc: qcom_q6v5_mss: Introduce need_pas_mem_setup")
+> Signed-off-by: David Heidelberg <david@ixit.cz>
+> ---
 
-No need to pass any other arguments; running it as follows should be enough:
+Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 
-  for i {1..100}; do ./fast_swap ; done
-
-Thanks,
-Tengda
-
+Konrad
