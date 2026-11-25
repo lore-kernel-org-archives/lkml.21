@@ -1,44 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=47.251.158.199
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795613632;
-	b=F/5N1+L9HzFMyEmjZY68eK+rh3i3UYxuZP1rDKVLIZZG8f0WvozPNJd1kN9MPJ+hTAn0
-	 cwDv9XOtce8JPoWs2HLf5UnkLFbg252a5pkTAYRjkLYilgczkdMotwkrMj6hefXcqo2Ju
-	 T73nlw0zbdiWBXH544jv+dxkCvKt90vwKascEWQsHQfLr5dlIUq6SbgiZE+lx5+UKYRt1
-	 lchafPByMbqP1VI8KedAbQgnew2vHKhMmDinoI0QQYHNrIVt6GacJj51ipj4/oeSKS/x/
-	 fSnqq6P4Rdjc/I1IQMtfTkwO3uPL5Dnu+sfM6IdesjaCwgc7cowCInsIIX7ZLFOTPOQ==
+	t=1795613672;
+	b=Q8DwR/on7AnqoX+ennHBhNKECWH3G/YMzQRySUkeHgGBB8S7F54O1cbAWAC+3JS5Q6/o
+	 2PwORv3UkAD2lToFx11GvZnOomjo2cY1ZJ+PdTuVSYWR0ANGE/TMu1z3/FQZMB6Xik3Ol
+	 hKzcSLgt0vpr50sfkJqp35DgLGMWeRIxsmj3BoubFJtlqACurtQvxBP6gSOsBhMwiCA/u
+	 h+gYVKAqddEiNept3ZcYenTHPp2yqh/4nkCpahxjHYeOoKYs6kXbWun7rKpIloIxJMr5C
+	 iRO/Sqi6TLrQBIlLvFNvcECcPhgXTySbdk7g6Xclq0/9cqsl4ACDFhBfVEgaY3kIFig==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795613632;
-	h=DMARC-Filter:Received:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-HM-Tid:X-HM-MType:
-	 X-HM-Spam-Status:DKIM-Signature;
-	bh=xN9G4ryMMM9+3du3bk45iP+b6+/ThJuYMnDmmu96Klc=;
-	b=bzmXlf4B2SeeNfuc+WWZqKzUG/8eqPrQ3bwg+WDb+TkCC2/CGV+GJ8GK5Cg6WeRv/X6L
-	 GwhjWpGvBgTFj2P4vGOZPXFkR4lRR1wtcz298IH/h2hVW78tbahG1US1omY5TdurfQ8cA
-	 CFq8VLRRPudYu9/ANaYzOyKrsJYvo1H2T70JuUPRhKTKhBAVxNjzkTzTrma31GFSzmpXr
-	 cxuJfzmh+nD2I0BiaDxBLQ8HWykRxw6ByUa/97z19ZYnm2nrvD23trGTYaMiwE1xWt1eM
-	 /VM+//oNbEAxN+D66MAHJ10KJGz62xtQGxP+P7Vr5wuQrvDWq2TGGAqqlmqClR6oD1w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795613672;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=+QxvqoRWAdTvGHzN9pmero8HVg+ufb9PCPakJyTvPbk=;
+	b=sT/uoYB93mHQle2iBxWDESuYOvajPLr7boIpBTnJHR8QnZUxel379u06I7tvqfGvks2u
+	 esX+nx72HyCv9ZaZS82KtokqzMBQ/F7+vUZna9iuwBZwvsbszTNznTD0XE128Js9LszHO
+	 7UzBNLLPzxHnrZoCAxqvKg+pK0fq2C5nEMQeqDLIQ3gYwrQGc/Weg5Q/Yok+GcnWKzaMY
+	 aRjC79vT886+ZS+Um0EP5ZfOrlZ7zvpJc6os0lO6jtz2/cVuDZ51XTTarzDN6cdhjFsfw
+	 tNz1mckiqHSF3SV7Fs9h8e7hN/GCmZVjyp4DNIr/NWbUubtXtnMJ59npClRbd+Ldllg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=rock-chips.com;
-	spf=pass smtp.mailfrom=rock-chips.com;
-	dkim=pass header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b=Fbu7h1EG;
-	arc=none smtp.remote-ip=47.251.158.199
-Received: from mail-m158199.netease.com (mail-m158199.netease.com [47.251.158.199])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UOMSRAFo;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CD5FF606A321
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 13:33:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CD5FF606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=rock-chips.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rock-chips.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DBC6E606A31E;
+	Wed, 25 Nov 2026 13:34:32 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b=Fbu7h1EG
-Received: from [172.16.12.74] (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 55facbdab;
-	Wed, 25 Nov 2026 21:33:37 +0800 (GMT+08:00)
-Message-ID: <cb5cc4d5-150a-4215-a894-3b9c66db06fd@rock-chips.com>
-Date: Wed, 25 Nov 2026 21:33:37 +0800
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UOMSRAFo
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 909E11F000D0;
+	Wed, 25 Nov 2026 13:34:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795613672;
+	bh=+QxvqoRWAdTvGHzN9pmero8HVg+ufb9PCPakJyTvPbk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=UOMSRAFooc/HXqX2SGYIBjoNPbn5apQ8Q/8BHms4W4i47xj8BMApTVPSl8/e/lMC2
+	 9ALDXEqT/tPLd4WGqO/oLdNHIHXCByQFWBqTqoTojZN+KiwMAciLs18LnEzb+1xvFg
+	 zzbEJIbqrrW8LlI3k/xAROR9sW4onAmf1+4PXKjvBGnXVMNSwve3ztjgI2wvo4VUJV
+	 reNgEZDGL93l8VPs8IgIXLodQ45X7NCt5cnf3bpUXlZ+K4NoU4VQHpJ6qeiQeL02cF
+	 x9sxAXGVaQ280EyG6dYQL20wJUa7SJ1jfdvp5P7pqP5O3a17pl71IKnuLykqgUOGZU
+	 zYwr2NwhPFEAQ==
+Date: Wed, 25 Nov 2026 14:34:25 +0100
+From: Thorsten Blum <blum@kernel.org>
+To: Borislav Petkov <bp@alien8.de>
+Cc: Dave Hansen <dave.hansen@intel.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>, Jesse Barnes <jbarnes@hobbes.lan>,
+	Lukas Wunner <lukas@wunner.de>, Ingo Molnar <mingo@elte.hu>,
+	linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH RESEND v2] x86/early-quirks: Scan all functions in
+ early_pci_scan_bus()
+Message-ID: <awbj4V167BPw0Er-@kernel.org>
+References: <20261106004343.457087-2-blum@kernel.org>
+ <av3v7KY64vjxDCk1@kernel.org>
+ <be480966-3b68-44f5-9afa-f88b3c203092@intel.com>
+ <av4bS1QEZpniwlb3@kernel.org>
+ <20261118222141.GBav4k9eZ5-QMjOem4@fat_crate.local>
+ <awJLsDWI0OgdWhph@kernel.org>
+ <20261122191512.GAawM_QHC5IxcZywvs@fat_crate.local>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -48,78 +68,28 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/3] drm/rockchip: analogix_dp: Disable pclk if setting
- eDP mode fails
-To: Nikita Zhandarovich <n.zhandarovich@fintech.ru>,
- Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>
-Cc: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Luca Ceresoli <luca.ceresoli@bootlin.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
- Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
- <heiko@sntech.de>, Andy Yan <andyshrk@163.com>,
- Alexandre Marquet <tb@a-marquet.fr>,
- Marek Szyprowski <m.szyprowski@samsung.com>,
- linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- lvc-project@linuxtesting.org
-References: <20261125114319.1089186-1-n.zhandarovich@fintech.ru>
- <20261125114319.1089186-3-n.zhandarovich@fintech.ru>
-Content-Language: en-US
-From: Damon Ding <damon.ding@rock-chips.com>
-In-Reply-To: <20261125114319.1089186-3-n.zhandarovich@fintech.ru>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-HM-Tid: 0aa212e96d3f03a8kunm52d5496e780fb0
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlCTUsYVhhDGksaTBgdHkxLQ1YVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSU
-	9PT0hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=Fbu7h1EGwVDk53lKVh4LIyAnmsdPnxl4yb1tAARl8moDFvuRqvHebHDAjcY7+ygNmqCfvDDBJiNNAOaHcoq8fBe/S5EVONIj4Cf1Jrq4wwq77bM70T+jzX4C/wVtulDYJ8blQbhqpMb/0b/mv1bXa+gErk6lQF9Bzt2qTcW3/0g=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=xN9G4ryMMM9+3du3bk45iP+b6+/ThJuYMnDmmu96Klc=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261122191512.GAawM_QHC5IxcZywvs@fat_crate.local>
 
-Hi Nikita,
-
-On 11/25/2026 7:43 PM, Nikita Zhandarovich wrote:
-> The eDP-mode register write via rockchip_grf_field_write() call can
-> fail after pclk has been enabled. To prevent this, disable pclk before
-> returning that error so the platform power_on callback, in turn,
-> releases the clock reference it acquired on failure.
+On Sun, Nov 22, 2026 at 11:15:12AM -0800, Borislav Petkov wrote:
+> On Sun, Nov 22, 2026 at 02:56:00AM +0100, Thorsten Blum wrote:
+> > I never suggested the patch had to be taken immediately. And 3+ months
+> > doesn't seem particularly immediate to me for a bug either.
 > 
-> Fixes: 729f8eefdcad ("drm/rockchip: analogix_dp: Add support for RK3588")
-> Signed-off-by: Nikita Zhandarovich <n.zhandarovich@fintech.ru>
-> ---
->   drivers/gpu/drm/rockchip/analogix_dp-rockchip.c | 4 +++-
->   1 file changed, 3 insertions(+), 1 deletion(-)
+> Did you not read my mail?
 > 
-> diff --git a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
-> index 3a80600eece1..a9056303a987 100644
-> --- a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
-> +++ b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
-> @@ -145,8 +145,10 @@ static int rockchip_dp_poweron(struct analogix_dp_plat_data *plat_data)
->   	}
->   
->   	ret = rockchip_grf_field_write(dp->grf, &dp->data->edp_mode, 1);
-> -	if (ret != 0)
-> +	if (ret != 0) {
->   		DRM_DEV_ERROR(dp->dev, "failed to set edp mode %d\n", ret);
-> +		clk_disable_unprepare(dp->pclk);
-> +	}
->   
->   	return ret;
->   }
+> "So just from looking at the diff, that patch will definitely NOT go to stable
+> but needs to stay in tip for at least a cycle so that it is tested as widely
+> as possible.
+> 
+> Because if you break other systems with it, we will have to revert and fix up
+> after you."
 
-For the earlier rockchip_dp_pre_init(), I think a goto-based error path
-might be cleaner.
+I never suggested an immediate stable backport either.
 
-Best regards,
-Damon
+And I agree that the patch needs wider testing before it can be
+backported to stable or merged upstream. That's precisely why I'd like
+to see it in tip and linux-next.
 
+Please let me know if there's anything I can do to help get it there.
