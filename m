@@ -1,72 +1,123 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=129.217.128.51
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795620227;
-	b=3OF9W/YxNj4oMWu67bRfpD68sLNJtW/hRU2/VZiUv7vtlDhi1czIcLmTTEcnEveGMUwX
-	 O40yGdVI7LlX6Mps8PJDzAvC1LHz0e/Ig6Qzh2/jVJtjIlJDug9JGMU1uOFmZrf1Mh0pP
-	 jIxO21OQmIAXxJjZvSTAuZqHJ5IRnVcZMxx5V8am+Th+nMadwx9n807ecINX578Gw+8vC
-	 2G19QU5XMzlgMl5kbIxIUYDJuXye9+wIJYcZIjys6LbdBNtJS2lOO3rq4Ff42JpeRUvaR
-	 bTIV40sOYBnPUewjBozkJD3aXrcjdQEPLT62phWk2DhDfBkgCBp9KwPf4VpekKA7FsA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795620227;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=7lqxMl9LQqYx+IM7aMsw8LkEd2OcKYcJGIX+toZz4gI=;
-	b=op5NpzzqFCKumc9maH+E4j1z/MdraJWug5LNr5p9y5+0SHPJ0qeU7/Sp/GKWw3G8rCqU
-	 vaIs9NH5DKSGrdNURbq9IQmYAB523zGzkR/nuiPatzGU2x8xfqdyZdQMM/laVNPuXXlz9
-	 MuYPpyQ1REncsgDfNrnluXYrwSAkkI8QC/hxbiKLtNij0TAgawLuyYVVon0HKi0z4v6gE
-	 aut46r3FKjn4iJMm7oKhJjKBwkGlfeYy1arg7c+8418hF2A1pik7vZ8iELnzNt1RyVhI/
-	 aAf0n+tst44uOs1JkaKaMqR5ZBgQnEGWwzahSVfAGZJIHShf7TqxIXtUZxzlQX/p1VQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=tu-dortmund.de;
-	spf=pass smtp.mailfrom=tu-dortmund.de;
-	dkim=pass header.d=tu-dortmund.de header.i=@tu-dortmund.de header.a=rsa-sha256 header.s=unimail header.b=oMXXhGa6;
-	arc=none smtp.remote-ip=129.217.128.51
-Received: from unimail.uni-dortmund.de (mx1.hrz.uni-dortmund.de [129.217.128.51])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=205.220.180.131
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795620273;
+	b=1mpZkWVpNoY7Am0iB5e7ABIibwjPLYC73rTd7HNyHPkj5+HCRH+48WgR2Xy+wGIv1hW/
+	 NzulDijrpqdfXNbkhxjx8e3npPUD9FZawGnnEchAxpsHXk49PXcNwQdYQOit1Tab5BrKw
+	 Jj8AeiddEH+fScdJDRZleV3HEbqN/Yz/SlY664+aflMoRdberDNwnWeHSwLW/6Gcx6q+8
+	 F++2fZ80id8OcMpOe5nZoCltVKfSG0yOqn7FEll3oN8xOO5Ud2wmj3ocJFQH+wR3I/0rG
+	 9A2CYp30VannCSWSaQkhkdXQX8egOkyh2MWKWXMXpMQth3wRjg4ZxxV2bbHjRmWY6hw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795620273;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:MIME-Version:
+	 References:In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:
+	 Cc:Content-Type:Content-Transfer-Encoding:X-Authority-Analysis:
+	 X-Proofpoint-GUID:X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=4PCqqxbAPdHLMDmL/jc+BeC5eGbqxuOHjdxp6tKk8VQ=;
+	b=mGU2LWMzj7SY6WaW/sdtBq4SdgmvazMbrLYl0wgmm7uguQIWfvkkyqp/bmxECRucKxfm
+	 n5f4JEkbbdIs5yPYN4vQ6ub8uEUpg/mSVCcpow/vcS4lvHVaOEPCUYs9NWDfzraurZb4Z
+	 MNq6QOjBicQSR6P5GVHPFjBLkpwb0STUImqZfKP431YN7VhkqW02QMscNOFRjECyPsvWQ
+	 jjqtGU9EVk6rC3kMIiHNytEAMUlzSvHCSyzrfWoItFW4r/qz4sItT59Ntnq/4iW93y1cF
+	 qN4PA+NpY2urTBYR7D1YUH50lg4sbFAAU/AfqX5cZerXVV+VKNgntpK5ykyIYAij2/w==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=XOigGna7;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=VOB2S497;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8A87F606A31E;
-	Wed, 25 Nov 2026 15:23:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8A87F606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=tu-dortmund.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tu-dortmund.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D20B2606A326
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:24:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D20B2606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=tu-dortmund.de header.i=@tu-dortmund.de header.a=rsa-sha256 header.s=unimail header.b=oMXXhGa6
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tu-dortmund.de;
-	s=unimail; t=1795620200;
-	bh=7lqxMl9LQqYx+IM7aMsw8LkEd2OcKYcJGIX+toZz4gI=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=oMXXhGa6Pz9YwLcLMEvsUzRfNd0vuSx8r6LH1gd0iYeAIV/qUnfZuC93MhGTMATu6
-	 j+hSIpontklgWBjGbD4qdumPffr1vHuSv71LBY8dwyzWxOijFFrShIUizV0LT/JwMM
-	 KJ/ArCASgkDC83da9jbglh3nbXCIOnJ0aTKIJ0qs=
-Received: from simon-Latitude-5450.cni.e-technik.tu-dortmund.de ([129.217.186.207])
-	(authenticated bits=0)
-	by unimail.uni-dortmund.de (8.19.0.2/8.19.0.2) with ESMTPSA id 6APFNERO004665
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Wed, 25 Nov 2026 16:23:18 +0100 (CET)
-From: Simon Schippers <simon.schippers@tu-dortmund.de>
-To: netdev@vger.kernel.org
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller" <davem@davemloft.net>,
-        Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>,
-        Jesper Dangaard Brouer <hawk@kernel.org>,
-        Tim Gebauer <tim.gebauer@tu-dortmund.de>,
-        =?UTF-8?q?Jonas=20K=C3=B6ppeler?= <j.koeppeler@tu-berlin.de>,
-        "Michael S. Tsirkin" <mst@redhat.com>,
-        Jason Wang <jasowangio@gmail.com>, Alexei Starovoitov <ast@kernel.org>,
-        Daniel Borkmann <daniel@iogearbox.net>,
-        John Fastabend <john.fastabend@gmail.com>,
-        Stanislav Fomichev <sdf@fomichev.me>, bpf@vger.kernel.org,
-        linux-kernel@vger.kernel.org,
-        Simon Schippers <simon.schippers@tu-dortmund.de>
-Subject: [PATCH net-next 2/3] veth: wake the peer txq in the middle of the NAPI poll
-Date: Wed, 25 Nov 2026 16:23:10 +0100
-Message-ID: <20261125152311.805325-3-simon.schippers@tu-dortmund.de>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261125152311.805325-1-simon.schippers@tu-dortmund.de>
-References: <20261125152311.805325-1-simon.schippers@tu-dortmund.de>
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=XOigGna7;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=VOB2S497
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6APEM4fK539720
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:24:31 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	4PCqqxbAPdHLMDmL/jc+BeC5eGbqxuOHjdxp6tKk8VQ=; b=XOigGna7XHOQIbMm
+	GNzcHCAVLmMSg3BMLWbKcIUDcT4fSVApjAmbklR+6DTRGWWZT4QeGyR/gSwXXGNz
+	FtcIyrW53cY55DrAMJDwJ5vq+delAmX6I/3VTWHa9nXj9HpG1rxVYRKxYOHOnh2d
+	6R0rQN8nvkR22MxYoqwvFMhPEyne814gQ9NFPl2raSuMMZi7a3yfwORcxgkme5cY
+	j2tEr8Mo8VkHJjBSDS/DTbPrBulmOBFf+egCVCLnhY0CZhkE7zUGwysTuh/Kx4ma
+	sVhObKkDO1nIE/t1DhpV/cI0SUTmWOBbJlbo9yLeudytEokGWbTjPHAzF1c45Bpy
+	mEAkig==
+Received: from mail-pg1-f197.google.com (mail-pg1-f197.google.com [209.85.215.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j5vuhshmn-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:24:31 +0000 (GMT)
+Received: by mail-pg1-f197.google.com with SMTP id 41be03b00d2f7-cc7361c62b9so3724472a12.3
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 07:24:31 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795620271; cv=none;
+        d=google.com; s=arc-20260327;
+        b=PwTRPYUIvJe+FRdosprYL3EHw6TGovqUya/siV/QjXng5ij0sGoDy9WEe6E3h9vK/S
+         hf9K9mFcO7uh6i+CC8SjhFC6BSWd4nWCoR95Gx8bsyJlmMmruh73nmOFho+zI8+NHW2J
+         MBvCHXadwJ1PyDE9Gg35U1hjPSiYwoVWzEzlq8lreJAY1uwgN3DRsvQmk7K0MD+677dz
+         t62Xq7+ULyLFjBQ8JMiRGusIJkOnc2cAD3Tl8vnsVbzZRn4F+Xb5FPhklwo3mjDVcu2+
+         PYQz/2YG0MipivVRFROGtdhjlabNaKa/BzoMzHWzslhjruLJf2KbvPM91jnDeUDkjJ72
+         iJfA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=4PCqqxbAPdHLMDmL/jc+BeC5eGbqxuOHjdxp6tKk8VQ=;
+        fh=K5d+kqdmM9ixl2aZWtabGVtzODobKj6oN1zxzCbWK7E=;
+        b=hQbnx+MJUhCJ0yPFCaNZ3AYEtYpNz56M5VRBOSgniJEx+OGRnCR8s55lQ/KKZhl/Vm
+         3JXVAaDjSUhV24IcBpcEXSn4xppNsuUH8/M67fOcw0F25tKGoTP5Qxi8YYAGEegbH5Oo
+         H+VCnPwHXtwNQJzDg482iLn8D6/AwiIyZx8eNsFzuj3TSkX5OGV/VheYfmc2ipBQJXA/
+         s6XkY21DyMzdp9QzDFCKHPTnKIKL2XoqoU2Y2lLMUK7kCpjYprikY39IBIljMkGFIa0a
+         JZk2N8hWeY+EHcYSc88WVuxEsLto+5Povmm3IAQJNlyiI4evSAJnXbLxCfBpBwU9WlFQ
+         JlvQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795620271; x=1796225071; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=4PCqqxbAPdHLMDmL/jc+BeC5eGbqxuOHjdxp6tKk8VQ=;
+        b=VOB2S497wqCcvZUYyT9461tnP47i/P4MfiYOK46CZjJv5X5NLhXKYAKmgbdOV1Nv0S
+         Yo/clmaAnfKxZnBKsRqoIPoiJh7GVDU8TslMQi31LDmRWSpE1nWRc8ZD3sYw+S69t1tD
+         bNFGEL3xVL8lOgq64lQHofFq2fJN1Xh271IRt2ck6bSywYMjq9cLELLzhaZKiHZx8+f8
+         0J/o2Qzdmyel9tQME0Tj821ZKymmuJM+yFenSG0ObME05cBOWY4G5qDTAuoRaAI/GY/F
+         +lEhjBVqoWocbw4z2h/YGIF1cMI9Pk+XB0DZoozKzpzrFBZqu3vhp+Rk5YjMRyPJa/N0
+         gdJg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795620271; x=1796225071;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=4PCqqxbAPdHLMDmL/jc+BeC5eGbqxuOHjdxp6tKk8VQ=;
+        b=ftSJ2M6JfwvNzMX8t4URTb7TfWid5Pav3l2ETqY7rwFBks5gTiBqUb1gU1ZhezUCGu
+         j+2H+E8ahWlH63xd8SqH/shaPXXQEe3Lt6UG0PZtywSEp5FKP+Syj9bBeNI5InW6Qr7i
+         03kTDa+cZASbtJE4bxJ23CBpSuXanZqUBU2vezEws0FFMOBIyvDdqRYXXbmdP6u2+tpE
+         wDiFSfROKFiiXjBH7bG+Og/mtRzAhWvlyfegDqpPOGHziDOFkI83LfebIHP/GaKskPfZ
+         wTl2Q2PRAdUQajyDmNMKaRYmRohKktlLpXZCSFWGd0GvDIsX0G4uB0TDQeM21Oh3sqQc
+         +rOg==
+X-Forwarded-Encrypted: i=1; AL+hErFHVRk3pYPdjh8hkE0dV9SxpI3f8Ocgf2nrRy6QWrOn2W/qBlMsd6Hgzj3vQEcfjeHi9RTc93c6FVrUWqg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8azJGV41Epf6RNHmP51XS5DomjzF49OZHXFjN+ZtTICt3yFvCO
+	XM3w1FGEMH7KJqC79qUEmw5dBeIEghKYQ8c/06NDksRLGLWszUg0qhyKlVPik7L1Y8UhfQPPeRE
+	o45bPWepL5BzI/6G1K0t0rm2Jp4rg3bh47M9ZVwGhl32jx5etvT04HVNgxacqyhX1IJ/jyXeo6t
+	qxACYyWcGdsgJOMGlb6CiUOJ+Vxi23h8vm0HtBTKSgPA==
+X-Gm-Gg: AZFdTZcnDwLB9f9En2FYt2Op4SH5cI2C+8dtGZLYpFbg8vdtYzansIj0+CQNP42hOe5
+	qQsguS2eZmLZA4ypflzapbQKEydl5JbtWnet8wUKmS60patdEi7zy/j/+ch1a3NEksgrGKUzemf
+	T+JjIM+27ABKCtmmiCpYzEfB7X6HI67NTQi+pUsquV7Aa2NeQkPCxYjhJ4/g==
+X-Received: by 2002:a17:903:b4b:b0:2e2:d09f:d770 with SMTP id d9443c01a7336-2f03f18fcdbmr179271775ad.26.1795620270880;
+        Wed, 25 Nov 2026 07:24:30 -0800 (PST)
+X-Received: by 2002:a17:903:b4b:b0:2e2:d09f:d770 with SMTP id
+ d9443c01a7336-2f03f18fcdbmr179271375ad.26.1795620270479; Wed, 25 Nov 2026
+ 07:24:30 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -76,137 +127,79 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <cover.1795094118.git.geert+renesas@glider.be>
+In-Reply-To: <cover.1795094118.git.geert+renesas@glider.be>
+From: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
+Date: Wed, 25 Nov 2026 16:24:18 +0100
+X-Gm-Features: Aa3M54pJ48YM6_SXlU_kkTSYJ2hI-57deYpRMNsa0r9P3GyWSoliI7hEQs8n9Ag
+Message-ID: <CAPx+jO9dY9yuJ5VUmuNi7t63nPNuYj3A7EWkwzsrmrZbiUQQFw@mail.gmail.com>
+Subject: Re: [PATCH 0/3] pmdomain: ti/core: Miscellaneous cleanups
+To: Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: Nishanth Menon <nm@ti.com>, Santosh Shilimkar <ssantosh@kernel.org>,
+        Tero Kristo <kristo@kernel.org>, Kevin Hilman <khilman@baylibre.com>,
+        Tony Lindgren <tony@atomide.com>, Ulf Hansson <ulfh@kernel.org>,
+        "Rafael J . Wysocki" <rafael@kernel.org>,
+        linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
+        linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-Authority-Analysis: v=2.4 cv=FPmOVOos c=1 sm=1 tr=0 ts=6b06fdaf cx=c_pps
+ a=rz3CxIlbcmazkYymdCej/Q==:117 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
+ a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
+ a=gowsoOTTUOVcmtlkKump:22 a=61mVU_RYb79rVc1cBGUA:9 a=QEXdDO2ut3YA:10
+ a=bFCP_H2QrGi7Okbo017w:22
+X-Proofpoint-GUID: 5CWKT2_di9duAMPXGKRF-Abqa1JyUKdx
+X-Proofpoint-ORIG-GUID: 5CWKT2_di9duAMPXGKRF-Abqa1JyUKdx
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI1MDA2MSBTYWx0ZWRfXyEKtPgTzNlva
+ GByUenRncbFSz1earWEHg7aYoEh5D2ydGC7+GsCWdpogGI4C5wOk0QftxVsuQ3RGQw24CC2u2Y9
+ I79Nchdqy80VjZd8TZdOkPEav+U2dfY=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI1MDA2MSBTYWx0ZWRfX1AgCaetm3KuK
+ 3A+lCawgsAel2KoThpM5kiZjuPKNfoA44Ibjs5Fypi+xfOB7q+YXH5wDXasEWXO/YjGdWIov3qa
+ JG1x0ZbnRvZm8xo+MIoBc6eE3thYx1PAa2ivFZ0owlWDlSr6bxw04KS3tn8S63LzPs2yGgM1NTG
+ shCIN2aDUKg6tY209b278kZAl3NiStHT+WuJQDEkP+d33AW9Fs9wJG6WnjaRjVJ2gVZl1F+5iL+
+ JAaO3uOb6E60ksqqePWiNk5pKwrZ4iDEHq4133qSRnXCHIUYTANsjsIvIJkwXQ8k6doHpOSEKW2
+ CVMEguF4GAvToHviwSpSgDm3Z8FGsS4oyW6jRkatha6r8A1elY1ix2NhNuXDtMg1Xv2uCiCVByQ
+ xY0O+ymct8eMA8zPsAl6jBG9qDt5Qy6DeboNAORgjcP8K/232/V/Elu8oJmhOUSSYaV1wer5vTQ
+ y05cKQnrMCsqdHKQ5Cg==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-25_04,2026-11-23_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ lowpriorityscore=0 bulkscore=0 malwarescore=0 suspectscore=0 impostorscore=0
+ priorityscore=1501 adultscore=0 phishscore=0 clxscore=1015 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611250061
 
-Since commit dc82a33297fc ("veth: apply qdisc backpressure on full
-ptr_ring to reduce TX drops") veth_poll() wakes a stopped peer txq at the
-end of every poll. netif_tx_wake_queue() raises NET_TX_SOFTIRQ on the
-local CPU, and it runs right after the poll when BHs are enabled again.
-The consumer CPU then dequeues from the qdisc and refills the ring
-itself, while the producer finds the qdisc running or the txq stopped
-again. Under a flood the consumer spends that time on the refill instead
-of on consuming.
+On Thu, Nov 19, 2026 at 2:23=E2=80=AFPM Geert Uytterhoeven
+<geert+renesas@glider.be> wrote:
+>
+>         Hi all,
+>
+> This patch series contains two cleanups for the TI OMAP2+ PRM driver,
+> and removes a now-unused generic_pm_domain_data member.
+>
+> This has been tested on BeagleBone Black.
+>
+> Thanks for your comments!
+>
+> Geert Uytterhoeven (3):
+>   pmdomain: ti: omap_prm: Use pm_clk_no_clocks()
+>   pmdomain: ti: omap_prm: Remove dummy generic_pm_domain_data handling
+>   pmdomain: core: Remove unused generic_pm_domain_data.data
+>
+>  drivers/pmdomain/ti/omap_prm.c | 15 +--------------
+>  include/linux/pm_domain.h      |  1 -
+>  2 files changed, 1 insertion(+), 15 deletions(-)
+>
+> --
+> 2.43.0
+>
+> Gr{oetje,eeting}s,
+>
+>                                                 Geert
+>
 
-Wake the txq after PTR_RING_BATCH entries of the poll instead, if it
-was stopped when the poll started. That is 16 on 64-bit architectures
-with 64 byte cache lines. The softirq then stays pending until the poll
-ends, and the producer refills the ring on its own CPU while the
-consumer goes on. All entries consumed by then were consumed after the
-stop, so the ptr_ring has freed at least one batch of slots and the
-producer does not find it full again right away.
+Applied for next, thanks!
 
-At the end of the poll the txq is woken only when the ring has run dry,
-so that NAPI does not go idle with the txq stopped. A stop during a poll
-is picked up by the next one. Budgets up to PTR_RING_BATCH, as with busy
-polling, cannot consume a batch before the wake and keep the wake at the
-end of every poll.
-
-The position of the wake is what matters. Waking only at the end of a
-poll, once 128 entries had been consumed with the txq stopped, gave
-about 3% in a short pktgen test, against about 25% for the wake in the
-middle of the poll.
-
-pktgen (64 byte UDP, queue_xmit) and iperf3 into fq_codel on a veth pair
-with GRO on and TSO off, so that all traffic takes the NAPI ptr_ring
-path, as with an XDP program on the peer. In a virtme-ng VM with 4 vCPUs
-pinned to isolated cores of an AMD Ryzen 9 9950X, all on the same CCX,
-at a fixed 4.3 GHz. 50 boots per kernel, 95% confidence intervals, with
-the qdisc requeues per 10 s run:
-
-  threaded NAPI     before          after           requeues
-  pktgen            1078122 pps     +24.6 +-0.5%     169038 -> 210594
-  iperf3 TCP          32682 Mbit/s   +1.3 +-0.7%     579184 -> 4587
-  iperf3 UDP            362 Mbit/s   +0.2 +-0.5%         14 -> 14
-
-pktgen requeues one skb per 64 packets, before and after. The next patch
-removes these requeues.
-
-With softirq NAPI and a single sender the consumer runs on the sender's
-CPU and the ring does not fill. The changes of pktgen and iperf3 there
-range from -0.7% to +0.4%, with confidence intervals of 0.4% to 0.9%.
-
-With two iperf3 senders on one queue, each on its own CPU, the ring
-fills with softirq NAPI too. 40 boots per kernel, 6 vCPUs:
-
-  two senders       before          after           requeues
-  TCP, softirq        25798 Mbit/s  +52.1 +-0.9%    6024998 -> 799805
-  TCP, threaded       22480 Mbit/s  +16.4 +-1.8%    6741008 -> 5910785
-  UDP, threaded         701 Mbit/s  +14.4 +-0.5%     152298 -> 81520
-
-With softirq NAPI, TCP through fq_codel was 36% slower than with
-noqueue before and is 2% slower after.
-
-A wake after 32 entries instead of 16 gave the same throughput, except
-for TCP with two senders and threaded NAPI, which gained only 8.3%.
-
-Signed-off-by: Simon Schippers <simon.schippers@tu-dortmund.de>
----
- drivers/net/veth.c | 27 ++++++++++++++++++++++-----
- 1 file changed, 22 insertions(+), 5 deletions(-)
-
-diff --git a/drivers/net/veth.c b/drivers/net/veth.c
-index 2051f6e044327..02ffc7ba59ab2 100644
---- a/drivers/net/veth.c
-+++ b/drivers/net/veth.c
-@@ -912,11 +912,19 @@ static struct sk_buff *veth_xdp_rcv_skb(struct veth_rq *rq,
- 
- static int veth_xdp_rcv(struct veth_rq *rq, int budget,
- 			struct veth_xdp_tx_bq *bq,
--			struct veth_stats *stats)
-+			struct veth_stats *stats,
-+			struct netdev_queue *peer_txq)
- {
--	int i, done = 0, n_xdpf = 0;
-+	int i, done = 0, n_xdpf = 0, wake_at = 0;
- 	void *xdpf[VETH_XDP_BATCH];
- 
-+	/* Wake a stopped peer txq in the middle of the poll, so that the
-+	 * producer refills the ring while this poll goes on.
-+	 */
-+	if (budget > PTR_RING_BATCH && peer_txq &&
-+	    netif_tx_queue_stopped(peer_txq))
-+		wake_at = PTR_RING_BATCH;
-+
- 	for (i = 0; i < budget; i++) {
- 		void *ptr = __ptr_ring_consume(&rq->xdp_ring);
- 
-@@ -952,6 +960,11 @@ static int veth_xdp_rcv(struct veth_rq *rq, int budget,
- 			}
- 		}
- 		done++;
-+
-+		if (done == wake_at) {
-+			txq_trans_cond_update(peer_txq);
-+			netif_tx_wake_queue(peer_txq);
-+		}
- 	}
- 
- 	if (n_xdpf)
-@@ -988,7 +1001,7 @@ static int veth_poll(struct napi_struct *napi, int budget)
- 		   netdev_get_tx_queue(peer_dev, queue_idx) : NULL;
- 
- 	xdp_set_return_frame_no_direct();
--	done = veth_xdp_rcv(rq, budget, &bq, &stats);
-+	done = veth_xdp_rcv(rq, budget, &bq, &stats, peer_txq);
- 
- 	if (stats.xdp_redirect > 0)
- 		xdp_do_flush();
-@@ -1007,9 +1020,13 @@ static int veth_poll(struct napi_struct *napi, int budget)
- 		}
- 	}
- 
--	/* Release backpressure per NAPI poll */
-+	/* Release backpressure before NAPI may go idle, and after every poll
-+	 * that veth_xdp_rcv() cannot wake in the middle of
-+	 */
- 	smp_rmb(); /* Paired with netif_tx_stop_queue set_bit */
--	if (peer_txq && netif_tx_queue_stopped(peer_txq)) {
-+	if (peer_txq && netif_tx_queue_stopped(peer_txq) &&
-+	    (budget <= PTR_RING_BATCH || done < budget ||
-+	     __ptr_ring_empty(&rq->xdp_ring))) {
- 		txq_trans_cond_update(peer_txq);
- 		netif_tx_wake_queue(peer_txq);
- 	}
--- 
-2.43.0
-
+Kind regards
+Uffe
