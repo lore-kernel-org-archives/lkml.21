@@ -1,63 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.38.64.46
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795598010;
-	b=kKiCDCQTWEubVtep8wk7yD9NrDErXt3ViIGSgXENaiQyG8iay5k5w2YTnWQ8MHUASPJE
-	 xlGIeu312bfMvQ8TcDtoKntD0eR5qM7Cu6UZdPss829OwmuHfNsxu4gv/LrYl75u5ZQfj
-	 /GPZ53ZHK16M67VXFMG3y/m7E7rEhZYfF0eH/10LvkIbZrwivbgxW+QIJc77mM/Opq8vk
-	 AKIp4wvs6pzm/fyofg1I7323hRpxVQUgDcfz0+KM+k5TOqvvFR1loV+hlXp6crnsUwfy6
-	 /WAbgyFjyAXC2TuEvzI3GYg9+dOcinOMWwU9CNT/2DghBX/zLOsHnk7nfkJ0dj3t7Hg==
+	t=1795598119;
+	b=VAlGPN2lYihikkB6/4p+s25tMVBpxWWmMBWCzHq4HrYyThSJaF8AS+hlArfEkLD6aKXP
+	 z7B+7k1Rfa1Zzz02QKBpTEF7bUzmB5M0MjuZQSfeUkWRI1g4ziC6GfsSYx4P8ZT/4dz4I
+	 P6uYq02buzZKBXEcVMu6z7BLmVsOKR2wfPsMo9o7hFC++Snotvuf57+Qkz5mvHMWwWKXi
+	 SuB756E5zn9s9SPvuSrK6uI7Tnw0SmVZkyB2EDSMVGzH7v6juFy9KZWkJq0iiWeM/1+EW
+	 y38u8OKLXzLcrjYSvQbkJ86XRd0aj5749BmMXdFucifYD9tn+en9MsrfpXfYTYDteYA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795598010;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
-	 X-CM-SenderInfo;
-	bh=IzEVRrO0pFosIAfEqY11D4XmUFo7TXTMtIkPzobNCwE=;
-	b=rz1RerztuZrCPqjB1GDhWuYHeSkqkXm1ZXSbNG0Wi457zFOFdBTa2sBYNNb+Tt64uYqD
-	 CCpDQphPJf3ERpKbwAWNn9tH/K3S1V+ZJEuZPEVBBemQ2i7LN2OBsM2p9uKEarB2NwTAH
-	 3ywPkARy8UdnGNhjpNI6hVYQGF/X3RlbxPPJ9uwR3DmHGJtTLlqJKiqUlywdUVEqFdyZS
-	 s/m9EMGehlygzr1E1Tm85V16I6Gi+nPPoARfd/ojT8ifhXK7OV7v8vZp37k5OBQRX1MVx
-	 DyvVWb7cBQDPGBO5o65S6M8aDxMeLJamU0Z4QOPe4A7u4lOLVrbWmYxEDUayKuRdm3w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795598119;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:Content-Language:To:Cc:References:From:Autocrypt:Organization:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=At1d4DsGvoBkrkeqmLrpO5m115sUYRFdd0heKIcaWwI=;
+	b=ZaObDTpAQslR6KqUjonqTifuCJAYD4axPS+Oab5Zjdcda9iVpAC2uXzgGAGl/B4YZThq
+	 PAJp77DWQiqRo2NgnErYJUPfhheNFN654m/Q+QC+DBFKJnu0Yn33makNBGzd3T7NSn8Cs
+	 FXmHXSCz/aKjYRQlO2zsUxkeuCjBq5yF1kzd3KQeJ2zxy0UjtHpCmkxOfMmV64NEspPbu
+	 5HpAbh3JcDzPBT9/h2OzEtcHnK25cpSbgOH/5B8gEL+MREbQSxA0SYa2GlUP9pUqFhLoN
+	 kmy6766hO3QGUdKILtf43pU4VRUM5hfpT1rd4Q7LMJo3gzOgNW4vcwNbvdJvA6Ku/hA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=mail.ustc.edu.cn;
-	spf=pass smtp.mailfrom=mail.ustc.edu.cn;
-	dkim=pass header.d=mail.ustc.edu.cn header.i=@mail.ustc.edu.cn header.a=rsa-sha256 header.s=dkim header.b=oWJXagNp;
-	arc=none smtp.remote-ip=202.38.64.46
-Received: from ustc.edu.cn (smtp.ustc.edu.cn [202.38.64.46])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 982E8606A688;
-	Wed, 25 Nov 2026 09:13:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 982E8606A688
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mail.ustc.edu.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mail.ustc.edu.cn
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QQVEFCae;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 76B35606A33A;
+	Wed, 25 Nov 2026 09:15:19 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=mail.ustc.edu.cn header.i=@mail.ustc.edu.cn header.a=rsa-sha256 header.s=dkim header.b=oWJXagNp
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=mail.ustc.edu.cn; s=dkim; h=Received:From:To:Cc:Subject:Date:
-	Message-ID:In-Reply-To:References:MIME-Version:
-	Content-Transfer-Encoding; bh=IzEVRrO0pFosIAfEqY11D4XmUFo7TXTMtI
-	kPzobNCwE=; b=oWJXagNpQvfIKg8nNoGprj63GlbpZpYOo6lgV5v4PrWsm3VbMG
-	mmI5dbLk/cn0np5tJmIKvnzzHKjgDxlDNDYeW3G4jaxpizo2Nn1lVlQbYY4SQROX
-	QqXKTTImVQIgnOIjHd2IyuXeFGf/iWuqD8G+VBoTS7TSMT1CyvKImT4/A=
-Received: from xuqianhui.ustc.edu.cn (unknown [114.214.177.196])
-	by mailimap2024 (Coremail) with SMTP id 3pYKCgCHCT6lpgZrtr_2AA--.2407S4;
-	Wed, 25 Nov 2026 17:13:17 +0800 (CST)
-From: Qianhui Xu <xiaqinghuan@mail.ustc.edu.cn>
-To: andersson@kernel.org,
-	konradybcio@kernel.org
-Cc: abelvesa@kernel.org,
-	mitltlatltl@gmail.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v8 2/2] arm64: dts: qcom: sm8750-lenovo-elden: add Lenovo Legion Y700 Gen4, a Qualcomm SM8750-based tablet
-Date: Wed, 25 Nov 2026 17:13:09 +0800
-Message-ID: <20261125091309.124354-3-xiaqinghuan@mail.ustc.edu.cn>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261125091309.124354-1-xiaqinghuan@mail.ustc.edu.cn>
-References: <20261125091309.124354-1-xiaqinghuan@mail.ustc.edu.cn>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QQVEFCae
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98DEF1F000CF;
+	Wed, 25 Nov 2026 09:15:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795598119;
+	bh=At1d4DsGvoBkrkeqmLrpO5m115sUYRFdd0heKIcaWwI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=QQVEFCaevC7OTekhbBH2fgLn4bFnpcyHnzmYrRUGMUcC5JrLTKUIxKjfqOj6VPeg3
+	 LTXhE4pmeFxRUkpOluQWzi6TDDsfzXAfeUT+fLVZ+ovCyKffXaTIm/kLqEBHDL6JM6
+	 MTxr7UOGEI5GVWqAY/LonJF9cdbdWEof0Xc3rPwNJLTQi1NB+muhq6qViOsqiW3uH4
+	 yaUK/haeqkqCJDEYjt61wNoMxmdD/DYMYUj4GwXtUAeQ+VFTPZmQJ0K/Xfu6aVoWKP
+	 J8mcQEsbf0ni5BgSbLUyy5ILwP8q1f206/aWTNEXSLqHCpPGdSjBvl5wpSYtnJ+Edu
+	 STtAhutLpek8A==
+Message-ID: <16abfc2d-daf1-477b-87a0-7a6993370b6f@kernel.org>
+Date: Wed, 25 Nov 2026 10:15:13 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,197 +51,105 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:3pYKCgCHCT6lpgZrtr_2AA--.2407S4
-X-Coremail-Antispam: 1UD129KBjvJXoWxXw4ftrWUZr17uw1xWF13CFg_yoW7Jw1fpF
-	srZrs3Gr9Y9F1rKw45W3yI9an5Wan5CaykCryqkFWrCrWYkFykGFsFyF1rAFy8JrZ7uw4F
-	yFZxZr92yFn7Z3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUPGb7Iv0xC_tr1lb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI
-	8067AKxVWUXwA2048vs2IY020Ec7CjxVAFwI0_Gr0_Xr1l8cAvFVAK0II2c7xJM28CjxkF
-	64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVWDJVCq3wA2z4x0Y4vE2Ix0cI8IcV
-	CY1x0267AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv
-	6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c
-	02F40Ex7xfMcIj6xIIjxv20xvE14v26r1Y6r17McIj6I8E87Iv67AKxVWUJVW8JwAm72CE
-	4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7
-	CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1l
-	x2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14
-	v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IY
-	x2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87
-	Iv67AKxVW8JVWxJwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIF
-	yTuYvjxUxYFADUUUU
-X-CM-SenderInfo: 50ld1x5qjk3t3q6ptxnoox23vfohv3gofq/
+User-Agent: Mozilla Thunderbird Beta
+Subject: Re: [BUG] mptcp: pm: WARNING in mptcp_check_listen_stop() when listen
+ fails on a new endpoint listener
+Content-Language: fr
+To: Kyuwon Cho <kyuwoncho18@gmail.com>
+Cc: Mat Martineau <martineau@kernel.org>, Geliang Tang <geliang@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+ Simon Horman <horms@kernel.org>, mptcp@lists.linux.dev,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <179502042942.2742790.17887994424282536144@gmail.com>
+ <5d651146-b21d-44da-9f15-860f0c9c2dc5@kernel.org>
+ <179502653236.3033236.9177220287548482679@gmail.com>
+From: Matthieu Baerts <matttbe@kernel.org>
+Autocrypt: addr=matttbe@kernel.org; keydata=
+ xsFNBFXj+ekBEADxVr99p2guPcqHFeI/JcFxls6KibzyZD5TQTyfuYlzEp7C7A9swoK5iCvf
+ YBNdx5Xl74NLSgx6y/1NiMQGuKeu+2BmtnkiGxBNanfXcnl4L4Lzz+iXBvvbtCbynnnqDDqU
+ c7SPFMpMesgpcu1xFt0F6bcxE+0ojRtSCZ5HDElKlHJNYtD1uwY4UYVGWUGCF/+cY1YLmtfb
+ WdNb/SFo+Mp0HItfBC12qtDIXYvbfNUGVnA5jXeWMEyYhSNktLnpDL2gBUCsdbkov5VjiOX7
+ CRTkX0UgNWRjyFZwThaZADEvAOo12M5uSBk7h07yJ97gqvBtcx45IsJwfUJE4hy8qZqsA62A
+ nTRflBvp647IXAiCcwWsEgE5AXKwA3aL6dcpVR17JXJ6nwHHnslVi8WesiqzUI9sbO/hXeXw
+ TDSB+YhErbNOxvHqCzZEnGAAFf6ges26fRVyuU119AzO40sjdLV0l6LE7GshddyazWZf0iac
+ nEhX9NKxGnuhMu5SXmo2poIQttJuYAvTVUNwQVEx/0yY5xmiuyqvXa+XT7NKJkOZSiAPlNt6
+ VffjgOP62S7M9wDShUghN3F7CPOrrRsOHWO/l6I/qJdUMW+MHSFYPfYiFXoLUZyPvNVCYSgs
+ 3oQaFhHapq1f345XBtfG3fOYp1K2wTXd4ThFraTLl8PHxCn4ywARAQABzSRNYXR0aGlldSBC
+ YWVydHMgPG1hdHR0YmVAa2VybmVsLm9yZz7CwZEEEwEIADsCGwMFCwkIBwIGFQoJCAsCBBYC
+ AwECHgECF4AWIQToy4X3aHcFem4n93r2t4JPQmmgcwUCZUDpDAIZAQAKCRD2t4JPQmmgcz33
+ EACjROM3nj9FGclR5AlyPUbAq/txEX7E0EFQCDtdLPrjBcLAoaYJIQUV8IDCcPjZMJy2ADp7
+ /zSwYba2rE2C9vRgjXZJNt21mySvKnnkPbNQGkNRl3TZAinO1Ddq3fp2c/GmYaW1NWFSfOmw
+ MvB5CJaN0UK5l0/drnaA6Hxsu62V5UnpvxWgexqDuo0wfpEeP1PEqMNzyiVPvJ8bJxgM8qoC
+ cpXLp1Rq/jq7pbUycY8GeYw2j+FVZJHlhL0w0Zm9CFHThHxRAm1tsIPc+oTorx7haXP+nN0J
+ iqBXVAxLK2KxrHtMygim50xk2QpUotWYfZpRRv8dMygEPIB3f1Vi5JMwP4M47NZNdpqVkHrm
+ jvcNuLfDgf/vqUvuXs2eA2/BkIHcOuAAbsvreX1WX1rTHmx5ud3OhsWQQRVL2rt+0p1DpROI
+ 3Ob8F78W5rKr4HYvjX2Inpy3WahAm7FzUY184OyfPO/2zadKCqg8n01mWA9PXxs84bFEV2mP
+ VzC5j6K8U3RNA6cb9bpE5bzXut6T2gxj6j+7TsgMQFhbyH/tZgpDjWvAiPZHb3sV29t8XaOF
+ BwzqiI2AEkiWMySiHwCCMsIH9WUH7r7vpwROko89Tk+InpEbiphPjd7qAkyJ+tNIEWd1+MlX
+ ZPtOaFLVHhLQ3PLFLkrU3+Yi3tXqpvLE3gO3LM7BTQRV4/npARAA5+u/Sx1n9anIqcgHpA7l
+ 5SUCP1e/qF7n5DK8LiM10gYglgY0XHOBi0S7vHppH8hrtpizx+7t5DBdPJgVtR6SilyK0/mp
+ 9nWHDhc9rwU3KmHYgFFsnX58eEmZxz2qsIY8juFor5r7kpcM5dRR9aB+HjlOOJJgyDxcJTwM
+ 1ey4L/79P72wuXRhMibN14SX6TZzf+/XIOrM6TsULVJEIv1+NdczQbs6pBTpEK/G2apME7vf
+ mjTsZU26Ezn+LDMX16lHTmIJi7Hlh7eifCGGM+g/AlDV6aWKFS+sBbwy+YoS0Zc3Yz8zrdbi
+ Kzn3kbKd+99//mysSVsHaekQYyVvO0KD2KPKBs1S/ImrBb6XecqxGy/y/3HWHdngGEY2v2IP
+ Qox7mAPznyKyXEfG+0rrVseZSEssKmY01IsgwwbmN9ZcqUKYNhjv67WMX7tNwiVbSrGLZoqf
+ Xlgw4aAdnIMQyTW8nE6hH/Iwqay4S2str4HZtWwyWLitk7N+e+vxuK5qto4AxtB7VdimvKUs
+ x6kQO5F3YWcC3vCXCgPwyV8133+fIR2L81R1L1q3swaEuh95vWj6iskxeNWSTyFAVKYYVskG
+ V+OTtB71P1XCnb6AJCW9cKpC25+zxQqD2Zy0dK3u2RuKErajKBa/YWzuSaKAOkneFxG3LJIv
+ Hl7iqPF+JDCjB5sAEQEAAcLBXwQYAQIACQUCVeP56QIbDAAKCRD2t4JPQmmgc5VnD/9YgbCr
+ HR1FbMbm7td54UrYvZV/i7m3dIQNXK2e+Cbv5PXf19ce3XluaE+wA8D+vnIW5mbAAiojt3Mb
+ 6p0WJS3QzbObzHNgAp3zy/L4lXwc6WW5vnpWAzqXFHP8D9PTpqvBALbXqL06smP47JqbyQxj
+ Xf7D2rrPeIqbYmVY9da1KzMOVf3gReazYa89zZSdVkMojfWsbq05zwYU+SCWS3NiyF6QghbW
+ voxbFwX1i/0xRwJiX9NNbRj1huVKQuS4W7rbWA87TrVQPXUAdkyd7FRYICNW+0gddysIwPoa
+ KrLfx3Ba6Rpx0JznbrVOtXlihjl4KV8mtOPjYDY9u+8x412xXnlGl6AC4HLu2F3ECkamY4G6
+ UxejX+E6vW6Xe4n7H+rEX5UFgPRdYkS1TA/X3nMen9bouxNsvIJv7C6adZmMHqu/2azX7S7I
+ vrxxySzOw9GxjoVTuzWMKWpDGP8n71IFeOot8JuPZtJ8omz+DZel+WCNZMVdVNLPOd5frqOv
+ mpz0VhFAlNTjU1Vy0CnuxX3AM51J8dpdNyG0S8rADh6C8AKCDOfUstpq28/6oTaQv7QZdge0
+ JY6dglzGKnCi/zsmp2+1w559frz4+IC7j/igvJGX4KDDKUs0mlld8J2u2sBXv7CGxdzQoHaz
+ lzVbFe7fduHbABmYz9cefQpO7wDE/Q==
+Organization: NGI0 Core
+In-Reply-To: <179502653236.3033236.9177220287548482679@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-The Lenovo Legion Y700 Gen4 (TB322FC) is an SM8750 tablet.  Add its
-devicetree with the board compatible, the chassis type, the GPIOs the boot
-firmware reserves and the board clocks, which the SM8750 dtsi consumes: the
-XO and sleep clocks and the two divided CXO derivatives, as on the other
-SM8750 boards.
+Hi Kyuwon,
 
-The camera devices are powered by a WL2868C camera PMIC on i2c10: LDO1
-feeds the rear sensor DVDD, LDO2 the front sensor DVDD, LDO3 the front
-sensor AVDD, LDO4 the rear sensor AVDD, LDO5 the VCM VDD, LDO7 the DOVDD of
-both sensors and the VCM VDDIO, all at fixed voltages including the offsets
-programmed by the stock firmware.  LDO6 is not wired out on this board.
+On 18/11/2026 19:31, Kyuwon Cho wrote:
+> Hi Matt,
+> 
+> On 18/11/2026 19:18, Matthieu Baerts wrote:
+>> Please always decode stacktraces with ./scripts/decode_stacktrace.sh.
+> 
+> I'll keep that in mind and decode them in my next reports.
+> 
+>> Out of curiosity: if your LLM has already analysed the root cause and
+>> has a reproducer, why not ask to generate a fix and send this patch
+>> instead of the bug report?
+> 
+> I'm more used to communities like LLVM, which are cautious about
+> LLM-generated patches, and I was hesitant to send a fix for code I
+> don't know well, made in a way I couldn't fully judge. So I only sent
+> the root cause analysis. Thanks for explaining; I'll send a tested
+> patch with later reports when I can.
 
-This is one logical action - "add this new hardware" - so the board and the
-regulators it carries are described in a single commit.
+Thanks!
 
-Signed-off-by: Qianhui Xu <xiaqinghuan@mail.ustc.edu.cn>
----
-Changes in v8:
-- No change to the device tree itself; the series is now two patches, with
-  the board binding entry first.  See the cover letter.
+> For this one we do have a small candidate fix, tested with the
+> reproducer: it puts the MPTCP socket back to TCP_CLOSE when
+> __inet_listen_sk() fails. Since you already have a fix for v2, would it
+> still help if we posted it, or should we leave it to your series?
 
-Still open from the v6 thread (unchanged here, no way to validate them):
-SPMI PMIC, RPMh regulators and console are not described, so this is still
-the boot-infrastructure-less skeleton the v6 review commented on.
+In the meantime, I guess you saw the patch I sent to the MPTCP ML:
 
-diff --git a/arch/arm64/boot/dts/qcom/Makefile b/arch/arm64/boot/dts/qcom/Makefile
-index 88230c4e00..e0b65a36c5 100644
---- a/arch/arm64/boot/dts/qcom/Makefile
-+++ b/arch/arm64/boot/dts/qcom/Makefile
-@@ -453,6 +453,7 @@ dtb-$(CONFIG_ARCH_QCOM)	+= sm8650-hdk.dtb
- dtb-$(CONFIG_ARCH_QCOM)	+= sm8650-mtp.dtb
- dtb-$(CONFIG_ARCH_QCOM)	+= sm8650-qrd.dtb
- dtb-$(CONFIG_ARCH_QCOM)	+= sm8650-valve-deckard.dtb
-+dtb-$(CONFIG_ARCH_QCOM)	+= sm8750-lenovo-elden.dtb
- dtb-$(CONFIG_ARCH_QCOM)	+= sm8750-mtp.dtb
- dtb-$(CONFIG_ARCH_QCOM)	+= sm8750-qrd.dtb
- dtb-$(CONFIG_ARCH_QCOM)	+= talos-evk.dtb
-diff --git a/arch/arm64/boot/dts/qcom/sm8750-lenovo-elden.dts b/arch/arm64/boot/dts/qcom/sm8750-lenovo-elden.dts
-new file mode 100644
-index 0000000000..73f4452f46
---- /dev/null
-+++ b/arch/arm64/boot/dts/qcom/sm8750-lenovo-elden.dts
-@@ -0,0 +1,129 @@
-+// SPDX-License-Identifier: BSD-3-Clause
-+/*
-+ * Copyright (c) 2026, Qianhui Xu <xiaqinghuan@mail.ustc.edu.cn>
-+ */
-+
-+/dts-v1/;
-+
-+#include <dt-bindings/gpio/gpio.h>
-+#include "sm8750.dtsi"
-+
-+/ {
-+	model = "Lenovo Legion Y700 Gen4";
-+	compatible = "lenovo,elden", "qcom,sm8750";
-+	chassis-type = "tablet";
-+
-+	clocks {
-+		xo_board: xo-board {
-+			compatible = "fixed-clock";
-+			clock-frequency = <76800000>;
-+			#clock-cells = <0>;
-+		};
-+
-+		sleep_clk: sleep-clk {
-+			compatible = "fixed-clock";
-+			clock-frequency = <32000>;
-+			#clock-cells = <0>;
-+		};
-+
-+		bi_tcxo_div2: bi-tcxo-div2-clk {
-+			compatible = "fixed-factor-clock";
-+			#clock-cells = <0>;
-+
-+			clocks = <&rpmhcc RPMH_CXO_CLK>;
-+			clock-mult = <1>;
-+			clock-div = <2>;
-+		};
-+
-+		bi_tcxo_ao_div2: bi-tcxo-ao-div2-clk {
-+			compatible = "fixed-factor-clock";
-+			#clock-cells = <0>;
-+
-+			clocks = <&rpmhcc RPMH_CXO_CLK_A>;
-+			clock-mult = <1>;
-+			clock-div = <2>;
-+		};
-+	};
-+
-+	/*
-+	 * VSYS of the camera PMIC is the always-on system rail of the tablet.
-+	 * The SPMI PMICs that generate it are not described yet, so it is
-+	 * modelled as a fixed regulator without a voltage constraint.
-+	 */
-+	wl2868c_vsys: regulator-vsys {
-+		compatible = "regulator-fixed";
-+		regulator-name = "wl2868c_vsys";
-+		regulator-always-on;
-+	};
-+};
-+
-+&gpi_dma2 {
-+	status = "okay";
-+};
-+
-+&qupv3_2 {
-+	status = "okay";
-+};
-+
-+&i2c10 {
-+	status = "okay";
-+
-+	pmic@2f {
-+		compatible = "willsemi,wl2868c";
-+		reg = <0x2f>;
-+		reset-gpios = <&tlmm 126 GPIO_ACTIVE_LOW>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&camera_pmic_default>;
-+		vsys-supply = <&wl2868c_vsys>;
-+
-+		regulators {
-+			/* Voltages include the offsets programmed by stock firmware. */
-+			camera_ldo1: ldo1 {
-+				regulator-name = "camera_ldo1";
-+				regulator-min-microvolt = <1128000>;
-+				regulator-max-microvolt = <1128000>;
-+			};
-+
-+			camera_ldo2: ldo2 {
-+				regulator-name = "camera_ldo2";
-+				regulator-min-microvolt = <1288000>;
-+				regulator-max-microvolt = <1288000>;
-+			};
-+
-+			camera_ldo3: ldo3 {
-+				regulator-name = "camera_ldo3";
-+				regulator-min-microvolt = <2816000>;
-+				regulator-max-microvolt = <2816000>;
-+			};
-+
-+			camera_ldo4: ldo4 {
-+				regulator-name = "camera_ldo4";
-+				regulator-min-microvolt = <2824000>;
-+				regulator-max-microvolt = <2824000>;
-+			};
-+
-+			camera_ldo5: ldo5 {
-+				regulator-name = "camera_ldo5";
-+				regulator-min-microvolt = <2808000>;
-+				regulator-max-microvolt = <2808000>;
-+			};
-+
-+			/* LDO6 is not wired out on this board. */
-+			camera_ldo7: ldo7 {
-+				regulator-name = "camera_ldo7";
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+			};
-+		};
-+	};
-+};
-+
-+&tlmm {
-+	gpio-reserved-ranges = <39 1>, <74 1>;
-+
-+	camera_pmic_default: camera-pmic-default-state {
-+		pins = "gpio126";
-+		function = "gpio";
-+		bias-disable;
-+	};
-+};
+
+https://lore.kernel.org/20261121-mptcp-cmason-fixes-v2-36-00327fd1de1f@kernel.org
+
+If the fix was different and your reproducer still see the WARN with the
+patch I sent, feel free to share yours.
+
+Cheers,
+Matt
+-- 
+Sponsored by the NGI0 Core fund.
 
