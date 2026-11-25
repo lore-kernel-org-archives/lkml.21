@@ -1,97 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.169
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=210.61.82.184
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795586313;
-	b=G5wwjPOC7esR/eSHhCPjaTi/wZi/oiMNQ4xc7bmfSp6aC9PUZRwUAdE3Ck/IBs2Ntuhu
-	 EZ8zSdDoMkFtZkjoO+MI63I4M/oO0ppGUWKTuMKh4IZmKfZtREh7G8BZbY5DGpFlqZ7sy
-	 AAbeq7jxNPHhQXNCqpWwMpUACPX/SlFmFRHqCqOJrii97gxv55JKu9rVyoA0/gwgsV5JD
-	 ArzcnWtbisknI4AC0QkrLuRu5TCOFR5Q8hglg8PX0DV9pZMTw3Oe2mCqjZ8508rsF1Ej8
-	 gPsYpnCwqt2MLx44AJDxTwqe3BQ7g6RYv2c8ARhJQMLksJC+TsDR/AjdBHVTttRZgxg==
+	t=1795586456;
+	b=SBnK+zsQMmdqhwM9rZD666Hm1Ccz9y4G5ormCoOy8t3wWJMbzyKtYZC9DA+6w8Ac9omB
+	 npwyxszFnuPG7EWij7RDsoELwltMmj+d/qJD86ElpxJkq0eM8tq92PI7estc/D2SFIqtE
+	 DVocPUpZsjIRoUDuoztJkYsofsxMRdneNrxVDDSOimTyS5MY1yVKOasZ3WxA/fJsHT0Xq
+	 3QgWyfBIHGKGQn7DqrgeBF2TJZl5yWJ08bEaXNGhC/UyeyiAeSqCWENFMYDUgZKyVpb2r
+	 9/bmVWF2ZCVeMfhGDBvvM6lJJtCTUiC5B5QCNw0hQdcDLEVqtUzomGrjLsqWOrpmfPg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795586313;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=xFMuh8nwFoEFZnPvdlHZ2jAd51FcFwkpbhkwnf+oNII=;
-	b=sVlJszCNdiI/TcAetO6GXrT7ve52/drgFAhFIP/8nzB9GJnTr6kKru1OXD0+b/BuBcoY
-	 NROYqNTnL+fpmIFmqtKnihG1iUPx0iGYC7dxPx1jUSFCV5mSE4zhSlpqwVc5qCw4stbqv
-	 f10ot5+wjnaHyt6v3bi1z6olvuHoCKFQ5vfLESrGATlrCkBYSiLNA7hzDLEwKq3azCCPN
-	 ym77RlKca3Fd8V4XyF4p0r3HiJcWeuFuxU78Z0WDv9alDL3A6GgaT+zhy04rr91eio1uw
-	 NUolFxWllGyjFdRmV8mZZuQWTskGB1lHtOAMFLV3/iDyRsTRWmNF+NfnI4aJck2CzPg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795586456;
+	h=DMARC-Filter:X-UUID:DKIM-Signature:X-CID-P-RULE:X-CID-O-INFO:
+	 X-CID-META:X-CID-BVR:X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:Received:
+	 Received:Received:From:To:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:
+	 Content-Type;
+	bh=DJ87lMtIEjrR51mZJkFz/vkD5C108fNlWDaTyP3AJig=;
+	b=Xl/6wDmUJtVfvTlwWlfN3L1SAsRTZGIHcoRbfqrIluWm1pWchevX6A+AbTGHKo4Q7VO3
+	 6Wnx7P1yUZcxY2F0FothyEfB14aBe8bOjIVNM0Dy8VLEF77az5jS2nFjlRa7DynvlP5jp
+	 ALyJD1Gwt7MxNp1BmUbsUvCMmyiWeP/90l52/NFNME1Kj3MdWaymN9Q1jZrkKIBCb54pF
+	 u7eaaindb5g2+UXljhLt3aXTr9USr8efZPNQRNTOp3QsWrcoF1UJnCTiwnm0AtpwQP2sE
+	 l9ENaQDklQMiD4zeNBOFYT4fQS5LMA+id0WZ4zu7twFbZauucSip6NLjbTJK/pz/rqA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rOd1aXUB;
-	arc=none smtp.remote-ip=209.85.215.169
-Received: from mail-pg1-f169.google.com (mail-pg1-f169.google.com [209.85.215.169])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=mediatek.com;
+	spf=pass smtp.mailfrom=mediatek.com;
+	dkim=pass header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=hLF6TkzV;
+	arc=none smtp.remote-ip=210.61.82.184
+Received: from mailgw02.mediatek.com (unknown [210.61.82.184])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1C796606A321
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 05:58:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1C796606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4A467606A321;
+	Wed, 25 Nov 2026 06:00:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4A467606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mediatek.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mediatek.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rOd1aXUB
-Received: by mail-pg1-f169.google.com with SMTP id 41be03b00d2f7-cde0daf3a2aso2275550a12.3
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 21:58:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795586312; x=1796191112; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=xFMuh8nwFoEFZnPvdlHZ2jAd51FcFwkpbhkwnf+oNII=;
-        b=rOd1aXUBZU1T2we1TSD1gMFrYvw84I4NgnIVgnPjgI6ToFrPmCcGvY+wbLifcAt+L2
-         C2bFeCLYJopHDrOZgWP6+fKsHCT08PKfroIX+E1sCjl2scMS10jbWqM4dOlIDfhZ+6DD
-         uIgt7imTPy9cMT42Mr68S2in82+QG4XSAaes9wJx5GyqqAJROcKVBdokUy24gYo5Glgm
-         JpqfBKAK2uwB//jl3IGJdQ79xsighQpfjsxVOqHxGPyd1J/ZFsRYTgX8p2CKuaM+kqCE
-         qfluF6oW+jwLmuxnULOgetV1QlI2M+hK+9kfLbHckyJ8vqA9OoSNnJPN+9O/VgRE15bv
-         Wc5A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795586312; x=1796191112;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=xFMuh8nwFoEFZnPvdlHZ2jAd51FcFwkpbhkwnf+oNII=;
-        b=uWLcI0CE0s1pyNrm3Y22UGCuIlb/VmclKSoTXKjvH1BxojlJKYWS3vwDUR73vrZPXn
-         2TXleDmgLPdNZjiejNkPR5f/6n0xKBiOlaSd6MSkdVSd+55PXITN3hPDeFlG0ClA7hAm
-         C8bx3QsssEPmc+faSCUCnlhwZx8T7+8Y+xr6RaVmVuruw3wDCSanER6I1nQZTMJRamcR
-         PMrzn8JSr4wYVaOqS5zNEEPVMSqi8SMen/n3hQ4McBQlPWaezYVfOrD97E3oOIwStpRI
-         ye37htjBrbuglnmfuJc1WYQoYKPTdZUH9xRk23e7rtBADnXYZpujzMAN9qXhMuiMuD8g
-         UXHA==
-X-Forwarded-Encrypted: i=1; AL+hErHitqE8eu8MvfyFenZpFpgz4uFmXG6h6rf0Zv8pScIeS67VPI1SpK3auSurR12ATtYG6MJC1w+9hue9AAY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9tG61jJMLxOodHwlkZ4XkBQKP97aWv7Sq2qkViRVxQ32iIS4kx
-	i1vuq/kNgeQOwDzZHt/AGoy3hgN8Ad1QegrqTdg40wRPQgZWh/jbfpjf
-X-Gm-Gg: AZFdTZfiVY8VTx5nV77YOH1xwM8YpHH5A7a61jas9O5uFMymKRWZdKncAPRw+Qt+UgP
-	WOOqB09/HJWIh5iHDEVq6vqzNsj3jlGdv5MnQdp096voWbVT5UdfgA/pvXNsSbXhXComaJ4J17O
-	M//rGsVPOoyz8J5vAi1nzvrzxb+6/ZLqCw1wvPPVuvLEPh/44yknDmjFXxv3gUG+UOQ+6o0GQsM
-	w7wQGPek+8HXO7Dkz/H0N3nBqHEpBDJm9hc6c5daoF8aNFinkp04zAnaIe2yGpbRaHAMuim2jqo
-	1SJqj7D86KmkUP49/jWgPBpyThv6234UahY6ar9JG1gwTFS/5C4cBDISoLXbup74f7acz36kxTP
-	AKCV+2bxNTRn3Tjj03+cLwYAxstCNMLei2HgZ9+bcXQ30hWRWQkQuNxxLXwFvWCLlsN8MIfuood
-	K3Rc02et0vyOYbdnlD68h9ABZQbgF20JAU2Oe6v3/1QbPzTonc9AXyaMqfd9ImBmWg3e93z+2K1
-	FJC7FI4gWBAs+YdjQbv8fJutXpzEFos/bfo1aV8l23SEJnFRh7rxsUWTxGHMqH1UfZK4Equx+H6
-	awUjLT+ACcZuifDOEHrwjkhwE4gnJadnPo5f/cKT2sJL+bn5I5iU4YXZ69fTngdW5o23Ek5C9jM
-	kXz0CrfQeyA5Y9wGnMH3aig==
-X-Received: by 2002:a17:902:da8e:b0:2f0:3647:6224 with SMTP id d9443c01a7336-2f03f261825mr147681875ad.61.1795586312275;
-        Tue, 24 Nov 2026 21:58:32 -0800 (PST)
-Received: from li-1a3e774c-28e4-11b2-a85c-acc9f2883e29.ibm.com ([122.161.51.99])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03ee84294sm78212685ad.9.2026.11.24.21.58.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 21:58:31 -0800 (PST)
-Date: Wed, 25 Nov 2026 11:28:26 +0530
-From: Mukesh Kumar Chaurasiya <mkchauras@gmail.com>
-To: "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>
-Cc: linuxppc-dev@lists.ozlabs.org, 
-	Madhavan Srinivasan <maddy@linux.ibm.com>, Venkat Rao Bagalkote <venkat88@linux.ibm.com>, 
-	linux-kernel@vger.kernel.org, chleroy@kernel.org, Michael Ellerman <mpe@ellerman.id.au>, 
-	Nicholas Piggin <npiggin@gmail.com>, Shrikanth Hegde <sshegde@linux.ibm.com>, stable@vger.kernel.org
-Subject: Re: [PATCHv3 4/4] powerpc/kvm-hv-pmu: Free hostwide stats buffers if
- perf_pmu_register() fails
-Message-ID: <awZ4ZhK1GFHKi9Tr@li-1a3e774c-28e4-11b2-a85c-acc9f2883e29.ibm.com>
-References: <cover.1795441238.git.ritesh.list@gmail.com>
- <a9e4029d0e11b3c944f4b4cb781fc5ff1696709b.1795441238.git.ritesh.list@gmail.com>
+	dkim=pass (1024-bit key) header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=hLF6TkzV
+X-UUID: 90d983a0e89511f18dc8c9802ae25ab1-20261125
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From; bh=DJ87lMtIEjrR51mZJkFz/vkD5C108fNlWDaTyP3AJig=;
+	b=hLF6TkzV+NKQlZoqLToaS5DnH/0Xq6t7q1+VFBnpwMtae3Sq1RvOu98LaKBL9atI8DNUy5Cc957JYsa3UILVnWwQbJngRtVy70DGX+CU6nrWPIXQ8rwRORgR/tTfaqbQbPHt/B7S0w03g+67Fx6zLOh/qAI7M4C2PagpXgzvShg=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.21,REQID:3f39f7b6-e4b9-4684-bd96-abf624915c19,IP:0,U
+	RL:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
+	N:release,TS:-25
+X-CID-META: VersionHash:b0318ac,CLOUDID:e737badc-cd93-4271-b1c5-c14ee34c3ca6,B
+	ulkID:nil,BulkQuantity:0,SF:81|82|102|836|865|888|898,TC:-5,Content:0|15|5
+	0|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0
+	,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 90d983a0e89511f18dc8c9802ae25ab1-20261125
+Received: from mtkmbs13n2.mediatek.inc [(172.21.101.108)] by mailgw02.mediatek.com
+	(envelope-from <echo.zhang@mediatek.com>)
+	(Generic MTA with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 437036546; Wed, 25 Nov 2026 14:00:50 +0800
+Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
+ MTKMBS09N1.mediatek.inc (172.21.101.35) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Wed, 25 Nov 2026 14:00:49 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.2562.56 via Frontend Transport; Wed, 25 Nov 2026 14:00:48 +0800
+From: Echo Zhang <echo.zhang@mediatek.com>
+To: Echo Zhang <echo.zhang@mediatek.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>, Jerome Brunet
+	<jbrunet+clk@baylibre.com>, Nathan Chancellor <nathan@kernel.org>, Nick
+ Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>, MMDVFS Team
+	<linux-mediatek@lists.infradead.org>, <kyrie.wu@mediatek.com>,
+	<ming-fan.chen@mediatek.com>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-clk@vger.kernel.org>, <llvm@lists.linux.dev>
+Subject: [PATCH 1/7] dt-bindings: clock: mediatek: add MT8196 MMDVFS clock IDs
+Date: Wed, 25 Nov 2026 14:00:06 +0800
+Message-ID: <20261125060037.649659-2-echo.zhang@mediatek.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261125060037.649659-1-echo.zhang@mediatek.com>
+References: <20261125060037.649659-1-echo.zhang@mediatek.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,49 +91,101 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <a9e4029d0e11b3c944f4b4cb781fc5ff1696709b.1795441238.git.ritesh.list@gmail.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 
-On Mon, Nov 23, 2026 at 07:21:53PM +0530, Ritesh Harjani (IBM) wrote:
-> kvmppc_register_pmu() calls kvmppc_init_hostwide(), which allocates
-> gsm_l0_stats and gsb_l0_stats. It then registers the pmu. If
-> perf_pmu_register() fails we return without freeing them.
-> 
-> Call kvmppc_cleanup_hostwide() on that error path.
-> 
-> Fixes: f0c9c49c5067 ("powerpc/kvm-hv-pmu: Implement GSB message-ops for hostwide counters")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
-> ---
->  arch/powerpc/perf/kvm-hv-pmu.c | 4 +++-
->  1 file changed, 3 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/powerpc/perf/kvm-hv-pmu.c b/arch/powerpc/perf/kvm-hv-pmu.c
-> index a58634f656e9..ec05b4855736 100644
-> --- a/arch/powerpc/perf/kvm-hv-pmu.c
-> +++ b/arch/powerpc/perf/kvm-hv-pmu.c
-> @@ -402,8 +402,10 @@ static int __init kvmppc_register_pmu(void)
-> 
->  		/* Register the pmu */
->  		rc = perf_pmu_register(&kvmppc_pmu, kvmppc_pmu.name, -1);
-> -		if (rc)
-> +		if (rc) {
-> +			kvmppc_cleanup_hostwide();
-Just a question.
-Inside this function, should we also take lock just to set the pointers
-NULL rather than putting the whole logic(free also) inside the lock like
-we did in previous patch?
+Add clock IDs for the MT8196 MMDVFS clock provider.
 
-Apart from this, all looks good.
+These IDs describe the clocks exposed by the MMDVFS block and are used by
+device tree consumers to request multimedia performance levels through the
+standard clock framework.
 
-Reviewed-by: Mukesh Kumar Chaurasiya (IBM) <mkchauras@gmail.com>
->  			goto out;
-> +		}
-> 
->  		pr_info("Registered kvm-hv pmu");
->  	}
-> --
-> 2.39.5
-> 
+Signed-off-by: Echo Zhang <echo.zhang@mediatek.com>
+---
+ .../clock/mediatek,mt8196-mmdvfs.h            | 74 +++++++++++++++++++
+ 1 file changed, 74 insertions(+)
+ create mode 100644 include/dt-bindings/clock/mediatek,mt8196-mmdvfs.h
+
+diff --git a/include/dt-bindings/clock/mediatek,mt8196-mmdvfs.h b/include/dt-bindings/clock/mediatek,mt8196-mmdvfs.h
+new file mode 100644
+index 000000000000..428d8a35abdb
+--- /dev/null
++++ b/include/dt-bindings/clock/mediatek,mt8196-mmdvfs.h
+@@ -0,0 +1,74 @@
++/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
++/*
++ * Copyright (c) 2024 MediaTek Inc.
++ * Author: MediaTek MMDVFS Team
++ */
++
++#ifndef _DT_BINDINGS_MMDVFS_CLK_MT8196_H
++#define _DT_BINDINGS_MMDVFS_CLK_MT8196_H
++
++/*
++ * MMDVFS Clock IDs for MT8196
++ *
++ * These IDs are used by multimedia clients in device tree to reference
++ * MMDVFS virtual clocks for DVFS voting.
++ *
++ * MT8196 uses HWCCF (Hardware Clock Control Fabric) architecture.
++ *
++ * Usage in device tree:
++ *   clocks = <&mmdvfs MMDVFS_USER_VDEC>;
++ *   clock-names = "mmdvfs";
++ */
++
++/* Core user clocks used by multimedia hardware drivers */
++#define MMDVFS_USER_DISP	0	/* user-disp */
++#define MMDVFS_USER_MDP		1	/* user-mdp */
++#define MMDVFS_USER_MML		2	/* user-mml */
++#define MMDVFS_USER_SMI		3	/* user-smi */
++#define MMDVFS_USER_JPEGDEC	4	/* user-jpegdec */
++#define MMDVFS_USER_JPEGENC	5	/* user-jpegenc */
++#define MMDVFS_USER_VENC	6	/* user-venc */
++#define MMDVFS_USER_VFMT	7	/* user-vfmt */
++#define MMDVFS_USER_IMG		8	/* user-img */
++#define MMDVFS_USER_CAM		9	/* user-cam */
++#define MMDVFS_USER_VCORE	10	/* user-vcore */
++#define MMDVFS_USER_VMM		11	/* user-vmm */
++#define MMDVFS_USER_VDISP	12	/* user-vdisp */
++#define MMDVFS_USER_VDEC	13	/* user-vdec */
++#define DUMMY_USER_DIS		14	/* dummy-dis */
++#define DUMMY_USER_MDP		15	/* dummy-mdp */
++#define DUMMY_USER_MML		16	/* dummy-mml */
++#define DUMMY_USER_SMI		17	/* dummy-smi */
++#define DUMMY_USER_VEN		18	/* dummy-ven */
++#define DUMMY_USER_VDE		19	/* dummy-vde */
++#define DUMMY_USER_IMG		20	/* dummy-img */
++#define DUMMY_USER_CAM		21	/* dummy-cam */
++#define MMDVFS_USER_CAM_SMI	22	/* user-cam-smi */
++#define MMDVFS_USER_VCP_SMI	23	/* user-vcp-smi */
++
++/* AP voter clocks (24-33) - System level control */
++#define MMDVFS_AP_CAM		24
++#define MMDVFS_AP_CAMTM		25
++#define MMDVFS_AP_VDE		26
++#define MMDVFS_AP_IMG		27
++#define MMDVFS_AP_IPE		28
++#define MMDVFS_AP_DIS		29
++#define MMDVFS_AP_MML		30
++#define MMDVFS_AP_SMI		31
++#define MMDVFS_AP_VEN		32
++#define MMDVFS_AP_MDP		33
++
++/* VCP voter clocks (34-43) - VCP firmware control */
++#define MMDVFS_VCP_CAM		34
++#define MMDVFS_VCP_CAMTM	35
++#define MMDVFS_VCP_VDE		36
++#define MMDVFS_VCP_IMG		37
++#define MMDVFS_VCP_IPE		38
++#define MMDVFS_VCP_DIS		39
++#define MMDVFS_VCP_MML		40
++#define MMDVFS_VCP_SMI		41
++#define MMDVFS_VCP_VEN		42
++#define MMDVFS_VCP_MDP		43
++
++#define MMDVFS_USER_NUM		44
++#endif /* _DT_BINDINGS_MMDVFS_CLK_MT8196_H */
+-- 
+2.45.2
 
