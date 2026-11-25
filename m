@@ -1,112 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.17
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795590784;
-	b=3hFXhtrfo6Kr3ru5bGM8TJrVpwY5MU8ur/acLw4V8Rq9ATIxhoCyUzsM7vzIwPTnMRwq
-	 R0ohXBwtgB1xYZqEWmfd98POnSuwzCznWhFv5gWj+laxpX43Y0CsC2UYmYiUDWwqzw89V
-	 /XwBe1OMavm58GCP6c3xc9ZTJ+tN1e4SKA4rS4UP/XX81OaclmIFox0vgnoMvlpEcQazw
-	 irll4GiDudsSCNISgQbmhkJ7sqO5xoqXRjRiofUHUhVfrwP2un+PUlZzgzJDyelizK3Lf
-	 PnsDi3/UuJ9pN3EpdnkUp8NCxpdu2jVr5uGkiTCZPIxgJ+rGDAEBrKRsI5RX1aRzWNw==
+	t=1795590786;
+	b=OBUtKAiJY4W+8tF5kpqkxdrJyuZJYf+rIkz2J4g1KG/4iTyXn6mxw7hXpoaD84YhVZn9
+	 xfTa85ThyhC9rdqZBeBWhxGT4AJif1SPRIGCeEv9gN/985HBnp5xwvAD4h7yrwei9xiC1
+	 ERwsI68vtyas95X1UcnShL0I3TF3bpxlchWUFRGe73gVgj2YoHqvJ6zmM77MnzXBFVfQu
+	 YBR2grYsQYj6ma5KQVbEsPJcMFpCdoDqzASabM4A3/SR1eK/KmZLtxEA5PSZiyn7u57OH
+	 Vm2Yo4dwWZvQPs8EGZ0yw0zuOq5OrLQ6U6jXXriFQqNGbpUMxex6DpnQVnQSAMF3VhA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795590784;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:X-Authority-Analysis:
-	 X-Proofpoint-GUID:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=gPjw1xtHWAs/xNDsXrmoiy6x8JhonHhuXCnUR8V7CdQ=;
-	b=zG9ZHLCij6sDzS5hoK8xXA+65HjIgOIRXsUPKe/OcxqUat4Q4aAw2WliplqYN9Ul+5DW
-	 BD/BCt3uOJYtQd0AbMt1J+LVNGtIkIrs5ahpmhdx+10XT40eVTVWP0UM78k+qwiImG6VV
-	 8cw9XMnWbOFV64lBq+q78V4XUGR9QbyPQ/TW6Ebj1RypvVHQeLWtisYjUN4pdRPyIL71h
-	 xXzwlpBclG76M7OfDvreLv91okiwElVudw00hU0610K5TyykHL2lpr5FT/0AisjwAXUqR
-	 p8ZNsGtUC4YzQ1yjizB688RZv28CHcf57HNjWYgEWTwK4HCbV5spBVNzYEWQlLzFTsA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795590786;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
+	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To;
+	bh=zYavSeCQUXeOqjBEOsWlCt1Ej1YB9Ghr9MX6vU9qkiQ=;
+	b=bcfRspw3c7kcMkh+pc4P1R4NmL4VNcnoWjklcYfMrBBAZQA1ikwtPbTplcCUAO2E7lFn
+	 tgrSNRaQfZRGUWF/r4u3U9mZfP5Fv0L1cvAquzwHCY7jJSHlAiQ642a10BTcAqTQRlnGJ
+	 ph76uLUt5MG0u+VC8iB19Izk+22Lfxe7Q55RSQUUyLEJtgGYfUtHddFDoU98DmTJfRyIM
+	 Ve2TCC44ndni+q75vvzbAU+Jo7e7vwHvDoVr2XVKxzpytQSl56LudwWCC4iQ1m2kZpU5L
+	 dTxqxjbMh0jlB26QK31EM6ci7rUI83bw8LWCuEzzYMC7AtlLpJVuZqxveISN0YZh03Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=XZKG9h3Q;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=eCYmTRJP;
-	arc=none smtp.remote-ip=205.220.180.131
-Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=RgcHg4zM;
+	arc=none smtp.remote-ip=198.175.65.17
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.17])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3E154606A681
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 07:12:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3E154606A681
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 64763606A6A8;
+	Wed, 25 Nov 2026 07:13:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 64763606A6A8
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=XZKG9h3Q;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=eCYmTRJP
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AP68iZN3142902
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 07:12:59 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	gPjw1xtHWAs/xNDsXrmoiy6x8JhonHhuXCnUR8V7CdQ=; b=XZKG9h3QWx0Vs/q+
-	rbWbLtDn5gCVC6sWbVEjzhVRxaanfckBgqEqUL5Yg82g66QAnzQIJosS7MaDTRRB
-	pQj3C8cZg7IOKhohGXIdssLf5cY9w4jg+3E1nXdpQguzJw1ssDqpL5bnT6UmduTH
-	/3K8Jj6fp8CZu+Glx7fYWY0TLQXZbYnHnt4UROezU7jbEyOqu2BK9eIG9gxGX4LC
-	O7BUJB6QGEUgVrdNKZVSO3cWsD0D5cbBHNo3lTr0Hkf9yy7zQNc7h7fgEa+TnD81
-	sEZsBpT3xBDpcwAbxgB0ogj/Gr06Ad5wM2P2g3cc3DZJ7z1BkWu+iKCLHW29soV6
-	duqfrg==
-Received: from mail-pf1-f197.google.com (mail-pf1-f197.google.com [209.85.210.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j5mc29e79-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 07:12:59 +0000 (GMT)
-Received: by mail-pf1-f197.google.com with SMTP id d2e1a72fcca58-8bb1a7b0e52so3661831b3a.1
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 23:12:58 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795590778; x=1796195578; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=gPjw1xtHWAs/xNDsXrmoiy6x8JhonHhuXCnUR8V7CdQ=;
-        b=eCYmTRJP6YVkwWqHVk3xMT3qqHiLECzkmd/HYpEqPEEgfq86BuwFA+sO+zuMypW2/a
-         kHcQX6TLBCe0i6224dJ9Fx6PO2ZZpTMr6McvmYfXcNPbkP4ggakD9vGCUiUNwi/ZKLMm
-         s6fq1xK0sk7zqkz3yQ+/Dt8BVofKFlXLlmCnR7ZZNF0HYE4P3ELYe/ulqmdGOOc4aleI
-         Ju7cZOS12QgR65ACMCZ7ZA1eViigYT9wOplmJZ5zRuxHMC9Ndlv5dZB6hii2S+ItMsv7
-         mae7nUvZjttepPeNG6ymph/zL4NcUSS3CiOYYvIBKINFMn6XHYl1cP5KBlZrrMNnfW7r
-         dGHA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795590778; x=1796195578;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=gPjw1xtHWAs/xNDsXrmoiy6x8JhonHhuXCnUR8V7CdQ=;
-        b=OSOHMNJQ94vuCVoJm2aXr6lsQJndTYgiuEOkJozH2RnmjR1obsAhZ2ldZD91rHilfY
-         oqwPVjlgJ1zSbxcW1RiY3fMcnLc+IFMnbPNS3hvPUxOXVHSKvPCOHoiZ+AAaxV6UaMHG
-         Iz0yYJuBD5mQcBrvceVYycuabm8MvxbVfjCYSC0on2W9mN8ZguQWVZcBZN5YRFj1MdDR
-         JyzbfgKBmbqpbAdwwb0p8TYIlVRLVqapdZJPPejdNxvWDhZALX0ME6Py80sr/ojWWUzF
-         Txx75oQnJLZoongWBEGWL5xDV2SQy4Q/j8es13HQtct8sedsl7x+SAz+A5AHCwRS42QX
-         euZA==
-X-Forwarded-Encrypted: i=1; AL+hErEPFhaZXBpprkSBzPi5vs60zxyVFlMFpQfI72PT/B+6m5YMcbN2kB9cl887awGOAXQRjkib+LfeBL8Ombo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8yC4Ef404MOw2gymZQAJOc5AjvAYPZ6LpqdkQak0nQMf7gZfzH
-	Y+yD56/0zW6ghG/G9MBJJsLHZ3X/3o78MnEk3nEYeyLa75cQtpNAwmSZbkGWNmwOzwoXE3gicBe
-	ttMiBMDwETzQJYGW1LA0x39NYI19VbeKVshR/ejVH9qZddr2RPXbopa/+PZgOWeY4ehfLDCnTDH
-	c=
-X-Gm-Gg: AZFdTZep5C+vvHAYHxrMBgQlBceeJ8sLYzB7QrP/ycRsod5KgmdkB1GCo1JzAswUIXQ
-	IJVrlnE5flwp3LTjP9Bpd+zv2ToMapxgp6jWSNy87Uh8QGiszePG5ZAf+uSwrLV7vlC2D/SQiTb
-	uMfLk5zb/IMyZrTjrDykyQdHjkgB2SPRpuL43qYyG+cqk/UnJoJMLQYNScWjROmAZzeluCLXDhT
-	V9yfeLR7TeFYtXTKzNpPX6qUVmYBz4lINLx4YQKmzwirnXuF3iCqGLSdx0+OQdi2fPCyyZqg4sf
-	NFBGJL/OQIWu+hob+F9Z0niYE/nOWOI3NWm7K52Tnfztf5g0vbMulZ52Qyoxh/fXYMjJWRE+KJf
-	uDQvisrTbt66XtYjqgyFNSM1hUOPgmQ02mKNQfS3SVUz1pdWENvmoOgDp8QSGQkbBQ1PKXlQ=
-X-Received: by 2002:a05:6a21:3a41:b0:3e1:9071:acb6 with SMTP id adf61e73a8af0-4014c257439mr18382588637.46.1795590777969;
-        Tue, 24 Nov 2026 23:12:57 -0800 (PST)
-X-Received: by 2002:a05:6a21:3a41:b0:3e1:9071:acb6 with SMTP id adf61e73a8af0-4014c257439mr18382549637.46.1795590777455;
-        Tue, 24 Nov 2026 23:12:57 -0800 (PST)
-Received: from [10.213.104.249] ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde6d0575d9sm8224496a12.25.2026.11.24.23.12.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 23:12:57 -0800 (PST)
-From: Ruchira Revdekar <ruchira.revdekar@oss.qualcomm.com>
-Date: Wed, 25 Nov 2026 12:42:42 +0530
-Subject: [PATCH v4 2/3] arm64: dts: qcom: talos: Add Talos Lyra EVK SoM
- platform
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=RgcHg4zM
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795590786; x=1827126786;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=pUhfN28L2ucTd2H9ex1vTDJcXUGENUHQlpfC4H2Jf44=;
+  b=RgcHg4zMeTLy1RlM7GNylKq8QUAJ4NFiLyU+22bnas9Wp8l84VQ4OT0c
+   Hz5fT1EmlINp8W8BcStBXSr1d7VRpoHGEgnIhLCn2Jya1EBKYryPTvc5N
+   WA4aJf+73OZiBS5SylsZia3C/e4whlgmxAH35idixs2MOHR0jDEnba8za
+   /gEATTgwDt9x1XrFIMflIvCWEVkZECD2Kat87fSaryHaPfjNy2WEAhM3T
+   g5pR0w7bpeIRobIZMizuHhh4PazXeOu69grW46Y/+5PAMA/pOemq9UBqL
+   IWGfz0tPjGJnDwjS3VwjUam5XTUw69jhHKeY7ckrJzPqG7hRzP20PwOtD
+   g==;
+X-CSE-ConnectionGUID: InNjI77wS7qzo2KkF2nomw==
+X-CSE-MsgGUID: Q0rCXIJuTzq55rwaDa8++w==
+X-IronPort-AV: E=McAfee;i="6800,10657,11976"; a="4458214"
+X-IronPort-AV: E=Sophos;i="6.27,232,1787036400"; 
+   d="scan'208";a="4458214"
+Received: from fmviesa004.fm.intel.com ([10.60.135.144])
+  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 23:13:05 -0800
+X-CSE-ConnectionGUID: duVJl/mtSk2ytQA8dKATPg==
+X-CSE-MsgGUID: wwLwyDTZSaugKnl7BNHW/A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,232,1787036400"; 
+   d="scan'208";a="11776715"
+Received: from black.igk.intel.com ([10.91.253.5])
+  by fmviesa004.fm.intel.com with ESMTP; 24 Nov 2026 23:13:01 -0800
+Received: by black.igk.intel.com (Postfix, from userid 1001)
+	id 6C07E98; Wed, 25 Nov 2026 08:13:00 +0100 (CET)
+Date: Wed, 25 Nov 2026 08:13:00 +0100
+From: "mika.westerberg@linux.intel.com" <mika.westerberg@linux.intel.com>
+To: Chunfeng Yun =?utf-8?B?KOS6keaYpeWzsCk=?= <Chunfeng.Yun@mediatek.com>
+Cc: "konrad.dybcio@oss.qualcomm.com" <konrad.dybcio@oss.qualcomm.com>,
+	"linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>,
+	"westeri@kernel.org" <westeri@kernel.org>,
+	"gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	"YehezkelShB@gmail.com" <YehezkelShB@gmail.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"sven@kernel.org" <sven@kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"andreas.noever@gmail.com" <andreas.noever@gmail.com>,
+	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>
+Subject: Re: [PATCH v3 1/8] thunderbolt: Prefix NHI core functions with tb_
+ and tb_ring_
+Message-ID: <20261125071300.GA191152@black.igk.intel.com>
+References: <20261123113705.2297329-1-chunfeng.yun@mediatek.com>
+ <20261123113705.2297329-2-chunfeng.yun@mediatek.com>
+ <20261124161159.GT229695@black.igk.intel.com>
+ <1aa3fa77b7e96509db6779bbb0cc74ce7c9a4ffb.camel@mediatek.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -116,402 +94,65 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261125-talos-lyra-evk-v2-v4-2-73d768714a5a@oss.qualcomm.com>
-References: <20261125-talos-lyra-evk-v2-v4-0-73d768714a5a@oss.qualcomm.com>
-In-Reply-To: <20261125-talos-lyra-evk-v2-v4-0-73d768714a5a@oss.qualcomm.com>
-To: Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Abel Vesa <abelvesa@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>
-Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org,
-        Ruchira Revdekar <ruchira.revdekar@oss.qualcomm.com>,
-        Avaneesh Kumar Dwivedi <avaneesh.dwivedi@oss.qualcomm.com>,
-        Monish Chunara <quic_mchunara@quicinc.com>,
-        Rakesh Kota <rakesh.kota@oss.qualcomm.com>,
-        Sayali Lokhande <sayalil@qti.qualcomm.com>,
-        Nirmesh Kumar Singh <nirmesh.singh@oss.qualcomm.com>
-X-Mailer: b4 0.16.0
-X-Authority-Analysis: v=2.4 cv=aPJlOr9m c=1 sm=1 tr=0 ts=6b068a7b cx=c_pps
- a=rEQLjTOiSrHUhVqRoksmgQ==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22
- a=EUspDBNiAAAA:8 a=COk6AnOGAAAA:8 a=mHhvTSb-yjX7SZNcwzIA:9 a=QEXdDO2ut3YA:10
- a=2VI0MkxyNR6bbpdq8BZq:22 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-GUID: xDMJKYC6HfZxdHhhOw_bF_qR3EQhv5zw
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI1MDAyOCBTYWx0ZWRfXxJx0zmpzWdnk
- GF/P1WSgS1Q3fgd/klq436MGrK1vxqg7JZc9BXWlG3hR1/QGS1FXhjsWSVRhhRjsG/TkfFIBFGV
- NM3LCdHSleuHK7Sjj7iF/4c1uJjFDHvpU0cVJbnja0M/IVeHwEdRayeVrRitB+pysjmLABBtF0k
- IPZASyNN6W72LjpmypKadK66PF7KVkn70jl4BIRcxJLPpnoFZWx8X4vhZ5eRgoNaDndRwtEbWGm
- mcc7PWo0T3zwDRbE2ju18dSKTiWnsBpJ7UkB07R30fgmKF6FUFUm6haGkqG30RvbLnN725gnHEh
- XnPKr3g+G7JsDrcFbRZ5fUYeaKqNJLlJeEMfWFtVB98g8Ula0E/8WaOVJfhmPr39Sv9eFXV2/DW
- ogKu26mYbj3j6OE5E3qhLYReSESOks9c+4LrK6TuGcDUN843ly3kkFjS8Qei7+bqINYOSf9HdiY
- hEreOr5hNuINeHTHKSA==
-X-Proofpoint-ORIG-GUID: xDMJKYC6HfZxdHhhOw_bF_qR3EQhv5zw
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI1MDAyOCBTYWx0ZWRfX0THQmCn0HdS1
- epXYdUSVlB6fLKo8kdKsnsElzqZO4xsKC2yNFxRV2GQupxWiEBhAYN0fgSOCOiqtC0kpvPCyeQS
- gO+qz2lhL48taHZGBgHS3aBWOGdMpQQ=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-25_02,2026-11-23_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 impostorscore=0 phishscore=0 lowpriorityscore=0
- adultscore=0 spamscore=0 clxscore=1015 malwarescore=0 bulkscore=0
- suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
- definitions=main-2611250028
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <1aa3fa77b7e96509db6779bbb0cc74ce7c9a4ffb.camel@mediatek.com>
 
-From: Avaneesh Kumar Dwivedi <avaneesh.dwivedi@oss.qualcomm.com>
+On Wed, Nov 25, 2026 at 06:43:38AM +0000, Chunfeng Yun (云春峰) wrote:
+> On 二, 2026-11-24 at 17:11 +0100, Mika Westerberg wrote:
+> > On Mon, Nov 23, 2026 at 07:36:48PM +0800, Chunfeng Yun wrote:
+> > > In preparation for modularizing PCIe NHI support and allowing PCIe
+> > > and platform NHI drivers to be built as separate modules atop the
+> > > Thunderbolt core framework, several NHI functions and structures
+> > > will
+> > > need to be exported.
+> > > 
+> > > Currently, several of these functions lack standard subsystem
+> > > prefixes,
+> > > risking namespace pollution or collisions across the flat kernel
+> > > symbol
+> > > namespace:
+> > > 
+> > > - ring_msix() lacks any subsystem prefix and diverges from all
+> > > other
+> > >   exported ring functions in the driver, which use the "tb_ring_"
+> > > prefix.
+> > > - nhi_probe(), nhi_shutdown(), and nhi_pm_ops lack the standard
+> > > "tb_"
+> > >   prefix used across the Thunderbolt public interface (such as
+> > > struct
+> > >   tb_nhi and struct tb_nhi_ops).
+> > > - nhi_msi() is named after PCI MSI, even though the ISR simply
+> > > schedules
+> > >   the interrupt work and can serve as a generic ISR for non-PCIe
+> > > platform
+> > >   controllers as well.
+> > > 
+> > > Rename these functions and symbols to conform to Thunderbolt
+> > > subsystem
+> > > naming conventions before exporting them:
+> > > 
+> > > - ring_msix       -> tb_ring_msix
+> > 
+> > I think we can move MSI-X completely to pci.c. As far as I can tell
+> > ARM
+> > stuff is not going to need that. While there we can drop MSI, that
+> > has been
+> > never used (MSI-X was supported from day 0 by the HW).
+> If move MSI-X completely to pci.c, then will rename and export another
+> two functions:
+> __ring_interrupt()
+> ring_interrupt_index()
+> 
+> is it fine for you?
 
-Introduce the device tree for the QCS615-based Talos Lyra EVK SoM.
-Lyra EVK SoM is a compact compute module integrating the QCS615 SoC,
-PMIC, and essential connectivity, designed to mount on carrier boards.
+No that's even worse :( But I was thinking that we can do the same for MSIX
+as for regular interrupt in nhi.c:
 
-The initial SoM device tree includes basic support for:
+  nhi->irq set -> request_irq() for that
+  ring->irq set -> request_irq() for that
 
-- CPU and memory
-- PMIC and board-level regulators
-- UFS and SD card storage
-- QUPv3 (I2C/SPI/UART) instances
-- ADSP/CDSP remoteprocs
-- GPU
-- QSPI SPI-NOR flash
-- EEPROM (atmel,24c256) with nvmem-layout on i2c5
-
-Co-developed-by: Monish Chunara <quic_mchunara@quicinc.com>
-Signed-off-by: Monish Chunara <quic_mchunara@quicinc.com>
-Co-developed-by: Rakesh Kota <rakesh.kota@oss.qualcomm.com>
-Signed-off-by: Rakesh Kota <rakesh.kota@oss.qualcomm.com>
-Co-developed-by: Sayali Lokhande <sayalil@qti.qualcomm.com>
-Signed-off-by: Sayali Lokhande <sayalil@qti.qualcomm.com>
-Tested-by: Nirmesh Kumar Singh <nirmesh.singh@oss.qualcomm.com>
-Signed-off-by: Avaneesh Kumar Dwivedi <avaneesh.dwivedi@oss.qualcomm.com>
-Signed-off-by: Ruchira Revdekar <ruchira.revdekar@oss.qualcomm.com>
----
- arch/arm64/boot/dts/qcom/talos-lyra-evk-som.dtsi | 311 +++++++++++++++++++++++
- 1 file changed, 311 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/qcom/talos-lyra-evk-som.dtsi b/arch/arm64/boot/dts/qcom/talos-lyra-evk-som.dtsi
-new file mode 100644
-index 000000000000..94bf2e73889a
---- /dev/null
-+++ b/arch/arm64/boot/dts/qcom/talos-lyra-evk-som.dtsi
-@@ -0,0 +1,311 @@
-+// SPDX-License-Identifier: BSD-3-Clause
-+/*
-+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
-+ */
-+
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/regulator/qcom,rpmh-regulator.h>
-+#include "talos.dtsi"
-+#include "pm8150.dtsi"
-+/ {
-+	aliases {
-+		mmc0 = &sdhc_1;
-+		mmc1 = &sdhc_2;
-+		serial0 = &uart0;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial0:115200n8";
-+	};
-+
-+	clocks {
-+		sleep_clk: sleep-clk {
-+			compatible = "fixed-clock";
-+			clock-frequency = <32764>;
-+			#clock-cells = <0>;
-+		};
-+
-+		xo_board_clk: xo-board-clk {
-+			compatible = "fixed-clock";
-+			clock-frequency = <38400000>;
-+			#clock-cells = <0>;
-+		};
-+	};
-+};
-+
-+&apps_rsc {
-+	regulators-0 {
-+		compatible = "qcom,pm8150-rpmh-regulators";
-+		qcom,pmic-id = "a";
-+
-+		vreg_s4a: smps4 {
-+			regulator-name = "vreg_s4a";
-+			regulator-min-microvolt = <1800000>;
-+			regulator-max-microvolt = <1829000>;
-+			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
-+		};
-+
-+		vreg_l1a: ldo1 {
-+			regulator-name = "vreg_l1a";
-+			regulator-min-microvolt = <856000>;
-+			regulator-max-microvolt = <856000>;
-+			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
-+			regulator-allow-set-load;
-+			regulator-allowed-modes = <RPMH_REGULATOR_MODE_LPM
-+						   RPMH_REGULATOR_MODE_HPM>;
-+		};
-+
-+		vreg_l2a: ldo2 {
-+			regulator-name = "vreg_l2a";
-+			regulator-min-microvolt = <1800000>;
-+			regulator-max-microvolt = <2960000>;
-+			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
-+			regulator-allow-set-load;
-+			regulator-allowed-modes = <RPMH_REGULATOR_MODE_LPM
-+						   RPMH_REGULATOR_MODE_HPM>;
-+		};
-+
-+		vreg_l3a: ldo3 {
-+			regulator-name = "vreg_l3a";
-+			regulator-min-microvolt = <1000000>;
-+			regulator-max-microvolt = <1248000>;
-+			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
-+			regulator-allow-set-load;
-+			regulator-allowed-modes = <RPMH_REGULATOR_MODE_LPM
-+						   RPMH_REGULATOR_MODE_HPM>;
-+		};
-+
-+		vreg_l5a: ldo5 {
-+			regulator-name = "vreg_l5a";
-+			regulator-min-microvolt = <875000>;
-+			regulator-max-microvolt = <975000>;
-+			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
-+			regulator-allow-set-load;
-+			regulator-allowed-modes = <RPMH_REGULATOR_MODE_LPM
-+						   RPMH_REGULATOR_MODE_HPM>;
-+		};
-+
-+		vreg_l7a: ldo7 {
-+			regulator-name = "vreg_l7a";
-+			regulator-min-microvolt = <1800000>;
-+			regulator-max-microvolt = <1900000>;
-+			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
-+			regulator-allow-set-load;
-+			regulator-allowed-modes = <RPMH_REGULATOR_MODE_LPM
-+						   RPMH_REGULATOR_MODE_HPM>;
-+		};
-+
-+		vreg_l8a: ldo8 {
-+			regulator-name = "vreg_l8a";
-+			regulator-min-microvolt = <1150000>;
-+			regulator-max-microvolt = <1350000>;
-+			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
-+			regulator-allow-set-load;
-+			regulator-allowed-modes = <RPMH_REGULATOR_MODE_LPM
-+						   RPMH_REGULATOR_MODE_HPM>;
-+		};
-+
-+		vreg_l10a: ldo10 {
-+			regulator-name = "vreg_l10a";
-+			regulator-min-microvolt = <2950000>;
-+			regulator-max-microvolt = <3312000>;
-+			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
-+			regulator-allow-set-load;
-+			regulator-allowed-modes = <RPMH_REGULATOR_MODE_LPM
-+						   RPMH_REGULATOR_MODE_HPM>;
-+		};
-+
-+		vreg_l11a: ldo11 {
-+			regulator-name = "vreg_l11a";
-+			regulator-min-microvolt = <1232000>;
-+			regulator-max-microvolt = <1260000>;
-+			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
-+			regulator-allow-set-load;
-+			regulator-allowed-modes = <RPMH_REGULATOR_MODE_LPM
-+						   RPMH_REGULATOR_MODE_HPM>;
-+		};
-+
-+		vreg_l12a: ldo12 {
-+			regulator-name = "vreg_l12a";
-+			regulator-min-microvolt = <1800000>;
-+			regulator-max-microvolt = <1890000>;
-+			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
-+		};
-+
-+		vreg_l13a: ldo13 {
-+			regulator-name = "vreg_l13a";
-+			regulator-min-microvolt = <3000000>;
-+			regulator-max-microvolt = <3230000>;
-+			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
-+			regulator-allow-set-load;
-+			regulator-allowed-modes = <RPMH_REGULATOR_MODE_LPM
-+						   RPMH_REGULATOR_MODE_HPM>;
-+		};
-+
-+		vreg_l15a: ldo15 {
-+			regulator-name = "vreg_l15a";
-+			regulator-min-microvolt = <1800000>;
-+			regulator-max-microvolt = <1904000>;
-+			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
-+			regulator-allow-set-load;
-+			regulator-allowed-modes = <RPMH_REGULATOR_MODE_LPM
-+						   RPMH_REGULATOR_MODE_HPM>;
-+		};
-+
-+		vreg_l16a: ldo16 {
-+			regulator-name = "vreg_l16a";
-+			regulator-min-microvolt = <3000000>;
-+			regulator-max-microvolt = <3312000>;
-+			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
-+			regulator-allow-set-load;
-+			regulator-allowed-modes = <RPMH_REGULATOR_MODE_LPM
-+						   RPMH_REGULATOR_MODE_HPM>;
-+		};
-+
-+		vreg_l17a: ldo17 {
-+			regulator-name = "vreg_l17a";
-+			regulator-min-microvolt = <2950000>;
-+			regulator-max-microvolt = <3312000>;
-+			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
-+		};
-+	};
-+};
-+
-+&gpu {
-+	status = "okay";
-+};
-+
-+&gpu_zap_shader {
-+	firmware-name = "qcom/qcs615/a612_zap.mbn";
-+};
-+
-+&i2c5 {
-+	clock-frequency = <100000>;
-+
-+	status = "okay";
-+
-+	eeprom@50 {
-+		compatible = "atmel,24c256";
-+		reg = <0x50>;
-+		pagesize = <64>;
-+
-+		nvmem-layout {
-+			compatible = "fixed-layout";
-+			#address-cells = <1>;
-+			#size-cells = <1>;
-+		};
-+	};
-+};
-+
-+&qspi {
-+	status = "okay";
-+
-+	flash@0 {
-+		compatible = "jedec,spi-nor";
-+		reg = <0>;
-+		spi-max-frequency = <25000000>;
-+		spi-tx-bus-width = <2>;
-+		spi-rx-bus-width = <2>;
-+	};
-+};
-+
-+&qupv3_id_0 {
-+	status = "okay";
-+};
-+
-+&qupv3_id_1 {
-+	status = "okay";
-+};
-+
-+&remoteproc_adsp {
-+	firmware-name = "qcom/qcs615/adsp.mbn";
-+
-+	status = "okay";
-+};
-+
-+&remoteproc_cdsp {
-+	firmware-name = "qcom/qcs615/cdsp.mbn";
-+
-+	status = "okay";
-+};
-+
-+&sdhc_1 {
-+	pinctrl-0 = <&sdc1_state_on>;
-+	pinctrl-1 = <&sdc1_state_off>;
-+	pinctrl-names = "default", "sleep";
-+	bus-width = <8>;
-+	mmc-ddr-1_8v;
-+	mmc-hs200-1_8v;
-+	mmc-hs400-1_8v;
-+	mmc-hs400-enhanced-strobe;
-+	vmmc-supply = <&vreg_l17a>;
-+	vqmmc-supply = <&vreg_s4a>;
-+	non-removable;
-+	no-sd;
-+	no-sdio;
-+
-+	status = "okay";
-+};
-+
-+&sdhc_2 {
-+	pinctrl-0 = <&sdc2_state_on>;
-+	pinctrl-1 = <&sdc2_state_off>;
-+	pinctrl-names = "default", "sleep";
-+	bus-width = <4>;
-+	cd-gpios = <&tlmm 99 GPIO_ACTIVE_LOW>;
-+	vmmc-supply = <&vreg_l10a>;
-+	vqmmc-supply = <&vreg_l2a>;
-+
-+	status = "okay";
-+};
-+
-+&uart0 {
-+	status = "okay";
-+};
-+
-+&ufs_mem_hc {
-+	reset-gpios = <&tlmm 123 GPIO_ACTIVE_LOW>;
-+	vcc-supply = <&vreg_l17a>;
-+	vcc-max-microamp = <600000>;
-+	vccq2-supply = <&vreg_s4a>;
-+	vccq2-max-microamp = <600000>;
-+
-+	status = "okay";
-+};
-+
-+&ufs_mem_phy {
-+	vdda-phy-supply = <&vreg_l5a>;
-+	vdda-pll-supply = <&vreg_l12a>;
-+
-+	status = "okay";
-+};
-+
-+&usb_1_hsphy {
-+	vdd-supply = <&vreg_l5a>;
-+	vdda-pll-supply = <&vreg_l12a>;
-+	vdda-phy-dpdm-supply = <&vreg_l13a>;
-+
-+	status = "okay";
-+};
-+
-+&usb_2_hsphy {
-+	vdd-supply = <&vreg_l5a>;
-+	vdda-pll-supply = <&vreg_l12a>;
-+	vdda-phy-dpdm-supply = <&vreg_l13a>;
-+
-+	status = "okay";
-+};
-+
-+&usb_qmpphy {
-+	vdda-phy-supply = <&vreg_l5a>;
-+	vdda-pll-supply = <&vreg_l12a>;
-+
-+	status = "okay";
-+};
-+
-+&usb_qmpphy_2 {
-+	vdda-phy-supply = <&vreg_l5a>;
-+	vdda-pll-supply = <&vreg_l12a>;
-+
-+	status = "okay";
-+};
-
--- 
-2.43.0
-
+This would hopefully limit the number of functions we need to export. Maybe
+it allows us to get rid of the .request_ring_irq and the like in the
+tb_nhi_ops?
