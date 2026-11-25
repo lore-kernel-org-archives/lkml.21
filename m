@@ -1,64 +1,104 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.54.195.159
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.52
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795607024;
-	b=rXSEhUPhyJziZ/08Bo0ocuCGsO2aO1/b0P2rGG/NM9jAEwo+gDSYgtGLHVjgauVJUSEV
-	 wcGyYbD11LbXacQizpA7iZRPoXTIbxVQQYO9HfGJRuUIKtoxCf8DbxnpOokOWt5UDZTIO
-	 HKqkPmZy8szPEl8qoXSjHjXl3EAxsbwQCVB0ZyDcje9opj4IffpnX8mSfzjPBbfGlMPGE
-	 7cbapNxshvE0sSQNEFySWghohzxq7Qt3oc/0xFCiPy73nyDcZjgY6A2cn51gVo+nDD3kd
-	 4rdhyVemdQbk13ZfEFXvC565GbdzrLwTaGVPgx6EIz4nAnBsvEN2g7M+l6SE+UUboUg==
+	b=Eu1LEUzqO4Xd2Ue2eTXqCNGMGKeMvxYnpfZKf2kvWIwAgqYGhlh4jXo/lJwSfV69tJHX
+	 LAfAsfPp3iu0Ha+sVTeSgOHSXtjzRvdHseo6VcY7HRmnCs9OeG9qx/TJEys3rwnbK/Ihz
+	 CsuyiCP0S3hqrUcRwiFIPoz6btb3D/rjFZlShSWD+Ox3vSTPAsjtim+w85F88ox83LquL
+	 mEdlygPytGOEGOaXkoR6FNRLe8m7O7ctKX3a7KONo+FEkMoWJKAV6dId90nfit39qE3lZ
+	 Ysmtr1Qzz+KBTOFh6vR1EKwNvLPFLKoEywpWYh3c88zkjpne+RKmj6FMTHLX/jZCMng==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795607024;
-	h=DMARC-Filter:Received:Received:From:To:CC:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
-	 X-ClientProxiedBy;
-	bh=TVsxVXOB0tBfCCPyIxSXgdNyoM7T2Ytock3tTxOs4kY=;
-	b=XkXNnFcMF3BRzdvHk3jlIBGZ0q5DV7ciEfCm5GKDbaq+xT4IMrFBtWC+ID/NdZ4jqLGR
-	 X0K6+Wb0jO7AmmXSnsYARLV1ctRXLxry9DilHDCC/AFRX75wWMhA7AUIX2TtCmeAOZKvS
-	 jX2grszypUkKgghmR6zy/RR8H6xVnee/ADZOFGqXAYqbHZqxFBS2cv8oDQFJWvjf/ib6l
-	 eHxWTbSm8SV4eO0QLxC2bnWJnKXdodUft2/0Q4/s3RhcvsYoGq1kNJoMj4B2fKYBo7cph
-	 vhaNd+PCgghyNwwfVVSSebOLLudX2ttf1j6sulQ2jgjSDhmwLIL9xCX3nhanAHf+tjg==
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=orbQl2N4vlIOWiLrIf8SUWQ1uKxLJ8cjnJYad+kaD0M=;
+	b=Za44msd/AyEbnMMj7Zg9YtD1KLqwavtl4VqWhLyJcw6JqX1HpwW20u+hMZmZxSzBcIaw
+	 W5J08n+zf2lV1rncoZkCwPYHJCkcYHTJuKGH3i9W5ui0kEC3hd9zyfOBtZk2GEfeNMHaX
+	 EXPhm2wInyM/Y9lVWj0u5PFFUvBcev1DnkiMD9PMsI/jqU9fbr/mgVSblTroyWxx3k+xr
+	 VRcKkHaLs1rKT2prwXHLAAYk/fUcgIprDG1X1VbtpdPYl24kTYderj+3l9U92NCsjB5Qi
+	 soVIwcqa7NI/5cWYcjHKqqFoJja0xrwpHg7lPDx8DKnwngk+WKBPWflcCeHkf18l/6g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=fintech.ru;
-	spf=pass smtp.mailfrom=fintech.ru;
-	arc=none smtp.remote-ip=195.54.195.159
-Received: from exchange.fintech.ru (exchange.fintech.ru [195.54.195.159])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=baylibre.com;
+	spf=pass smtp.mailfrom=baylibre.com;
+	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=CMRkec4k;
+	arc=none smtp.remote-ip=209.85.128.52
+Received: from mail-wm1-f52.google.com (mail-wm1-f52.google.com [209.85.128.52])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EDCB8606A32E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:43:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EDCB8606A32E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=fintech.ru
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fintech.ru
-Received: from Ex16-01.fintech.ru (10.0.10.18) by exchange.fintech.ru
- (195.54.195.159) with Microsoft SMTP Server (TLS) id 14.3.498.0; Wed, 25 Nov
- 2026 14:43:38 +0300
-Received: from localhost (10.0.253.153) by Ex16-01.fintech.ru (10.0.10.18)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2242.4; Wed, 25 Nov
- 2026 14:43:37 +0300
-From: Nikita Zhandarovich <n.zhandarovich@fintech.ru>
-To: Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong
-	<neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>
-CC: Nikita Zhandarovich <n.zhandarovich@fintech.ru>, Laurent Pinchart
-	<Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>,
-	"Jernej Skrabec" <jernej.skrabec@gmail.com>, Luca Ceresoli
-	<luca.ceresoli@bootlin.com>, Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>, Damon Ding <damon.ding@rock-chips.com>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, Sandy Huang
-	<hjc@rock-chips.com>, =?UTF-8?q?Heiko=20St=C3=BCbner?= <heiko@sntech.de>,
-	Andy Yan <andyshrk@163.com>, Alexandre Marquet <tb@a-marquet.fr>, "Marek
- Szyprowski" <m.szyprowski@samsung.com>, <linux-rockchip@lists.infradead.org>,
-	<linux-arm-kernel@lists.infradead.org>, <dri-devel@lists.freedesktop.org>,
-	<linux-kernel@vger.kernel.org>, <lvc-project@linuxtesting.org>
-Subject: [PATCH 1/3] drm/bridge: analogix_dp: Check runtime resume before accessing hardware
-Date: Wed, 25 Nov 2026 14:43:13 +0300
-Message-ID: <20261125114319.1089186-2-n.zhandarovich@fintech.ru>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261125114319.1089186-1-n.zhandarovich@fintech.ru>
-References: <20261125114319.1089186-1-n.zhandarovich@fintech.ru>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 64BE6606A33D
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:43:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 64BE6606A33D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=baylibre.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=baylibre.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=CMRkec4k
+Received: by mail-wm1-f52.google.com with SMTP id 5b1f17b1804b1-49d05d51553so40593925e9.2
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 03:43:44 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1795607023; x=1796211823; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=orbQl2N4vlIOWiLrIf8SUWQ1uKxLJ8cjnJYad+kaD0M=;
+        b=CMRkec4k5ljHKroiikKHK4JTT+TkveMrUsH8OoShvX5KDi5dPTXWqpP2Mbk0Pfj+6J
+         Er7ZpXo+2y75226hO+joL+YszbhdM1NRWuxPLKAyEB8pQpjz1DidQalEl4a1lQ4YS7ED
+         PL4+0pNUumQ8wO10YMUGsK6lehpVDiG+BMkjoy4YS4BfEUqBSeD2540gXMl05mjpyHvn
+         Z6XMOy1+V20r7LVyADNHTgzJf7i9eoIe0AWaBGIGdOli5cuI7uHYFKWZYtWm8k16wUcQ
+         m7ZJwnhUp3g4R6xsVYm7WvLZ4+yPkzw5DHQ8jmCE/dx+daeVXeaBXSP0HABTudNC9Z+O
+         S0SQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795607023; x=1796211823;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=orbQl2N4vlIOWiLrIf8SUWQ1uKxLJ8cjnJYad+kaD0M=;
+        b=qJ1ktOcbsbDqNub4j6i2d7IzWMkvy+RtZXN7rzaKxANseeYbKEShfm6mIqJJj1dD2Y
+         xshC/RBQtzJyZsXFBrYAydT3CQNf8mw/DaRXzZ3yFKH8w7V2IPeWCIwO7WZPs28cTRHH
+         smQOoUol5K8HUvZAYSxZtBcteaQvjS8d/PNZeUWhp5uJYo3NuRxc1hjC1Az3tdJPGLEO
+         niHkKfXpU+WZury+qGJKX2uBFXe0UkYVanGprBJJ8dTu/N1P1oY05THrKU9d3sMWJ6t5
+         Gddl+z7dxUYQRjPVDzIH0TVHoU+EdGRB3TC9v4WqQgqJXzKfEehI1yAAoYHcM/d/iTRD
+         hqEQ==
+X-Forwarded-Encrypted: i=1; AL+hErHJeCtarlALk011ihTYc2sbntiHfdSM1ln4h5aI3TTgn223y9uU4VOushGyjo5VRmmDEdy78Xuj0RApL6g=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8kP3aZnJxMX+NGEYWZ7UzbBAD2FNw14olxWYddhBykmSjX6UNG
+	LS7cE9aohUEihhO2OuiRfgZX1/xvG5yyOOF/9LcC9DXCfaqUexnOxcPzsJ0+2q3ROV0=
+X-Gm-Gg: AZFdTZcvHKYqtdUxvFM4belwhp2WBjp3LwEW9JNlY68j5ilHhUbs9xPmumJQaFN3GOQ
+	q5CizZvHFxUi28bkbg6QzSFfJAizckLHQlKPe0poK/f8ubhrkknf4J67L6jEKrko0wJnkE4r8KN
+	L11TPlC1PvXKdSfHX+y+C576WnTmTty69e8WUYl5wxC9mNx9DgUxLuYryudVkEg8vYJOTK4+jL2
+	rs8qa7P/rF5RUUb5X3lfOa/o96SE0hfKoU8sM/ddXeWGmhs3QBENsNT5XtStkGId0XWGxyFpcOg
+	4+MIr6L6ehTdImwiZ+oLScB7X45P3fCkAIGJiSfWXEtYEoH9lJRh0KRmrDdDyGTyerHh0+RhR74
+	Qn0/JqeyvWYeoRbghB2tDwGqfgj93p3kKcfbN9xlSaXP+PsFf+iZpnfuWLxs8QaRtoAnc6w+qDs
+	YcxbLyjqiOYV46v/JlM2bFdlF1UdyM7x+Nwpjux2N28EIugl/4uT0ZYu6PxuagFmJvOlm7KoCZI
+	VJWkBGtxCEsy2QwgwuHIPiNWUwqzi4OVCrN+HmHipN505PdHZYD9Ju0JegVVJGi+o9CoQObfDA7
+	SU0KGED2JyT5nL0gLlP/P86r0rVrCjq5BQXlIYHE2sHRr5hRJiMwXY5lPUCfYvKJg87ILs7NchN
+	nj0SHMcDvKzyIr6Cw
+X-Received: by 2002:a05:600c:4e0d:b0:4bb:69b2:d3b3 with SMTP id 5b1f17b1804b1-4bb8881eea5mr364570665e9.27.1795607022789;
+        Wed, 25 Nov 2026 03:43:42 -0800 (PST)
+Received: from localhost (p200300f65f19a9043ef7230869dfba63.dip0.t-ipconnect.de. [2003:f6:5f19:a904:3ef7:2308:69df:ba63])
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4bb884865a2sm527753115e9.3.2026.11.25.03.43.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 03:43:41 -0800 (PST)
+Date: Wed, 25 Nov 2026 12:43:40 +0100
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: Brian Norris <briannorris@chromium.org>, 
+	Philipp Zabel <p.zabel@pengutronix.de>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
+	Jerome Brunet <jbrunet+clk@baylibre.com>, Thomas Gleixner <tglx@kernel.org>, Ulf Hansson <ulfh@kernel.org>, 
+	Peter Griffin <peter.griffin@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>, 
+	=?utf-8?B?QW5kcsOp?= Draszik <andre.draszik@linaro.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Radu Rendec <radu@rendec.net>, 
+	Jakub =?utf-8?B?R8WCb3dhY2tp?= <jglow@google.com>, linux-clk@vger.kernel.org, 
+	Douglas Anderson <dianders@chromium.org>, devicetree@vger.kernel.org, linux-pm@vger.kernel.org, 
+	Mariano Marciello <mmarciello@google.com>, google-soc@lists.linux.dev
+Subject: Re: [PATCH v2 5/9] reset: google: Add CPM reset driver
+Message-ID: <awbJUwrBQw5TnowW@monoceros>
+References: <20261125000349.3385325-1-briannorris@chromium.org>
+ <20261124160343.v2.5.I0b1ad34a718a9b5f667d2481041970ea45989dd3@changeid>
+ <f89e293688feb3f9bcdce0f1b6fed0ee424e5cd8.camel@pengutronix.de>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -68,71 +108,46 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: Ex16-02.fintech.ru (10.0.10.19) To Ex16-01.fintech.ru
- (10.0.10.18)
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="huwbq4lvetfh3uwf"
+Content-Disposition: inline
+In-Reply-To: <f89e293688feb3f9bcdce0f1b6fed0ee424e5cd8.camel@pengutronix.de>
 
-Check runtime resume before continuing with the bridge's initialization
-or accessing AUX registers. A failed resume may leave the controller
-clock disabled.
 
-Therefore, use pm_runtime_resume_and_get() so that an error return
-does not retain a runtime-PM usage reference.
+--huwbq4lvetfh3uwf
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v2 5/9] reset: google: Add CPM reset driver
+MIME-Version: 1.0
 
-Fixes: 3424e3a4f844 ("drm: bridge: analogix/dp: split exynos dp driver to bridge directory")
-Fixes: 8fb6c44fe846 ("drm/bridge: analogix_dp: Grab runtime PM reference for DP-AUX")
-Fixes: c8f0b7cb01ea ("drm/bridge: analogix_dp: Add support for &drm_dp_aux.wait_hpd_asserted()")
-Signed-off-by: Nikita Zhandarovich <n.zhandarovich@fintech.ru>
----
- drivers/gpu/drm/bridge/analogix/analogix_dp_core.c | 13 ++++++++++---
- 1 file changed, 10 insertions(+), 3 deletions(-)
+On Wed, Nov 25, 2026 at 09:48:04AM +0100, Philipp Zabel wrote:
+> > +#include <linux/mod_devicetable.h>
+>=20
+> Please include the specific <linux/device-id/*.h> that is needed
+> instead of all of <linux/mod_devicetable.h>.
 
-diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-index 6df6963740d2..9d77c1d54a6d 100644
---- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-+++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-@@ -19,6 +19,7 @@
- #include <linux/of.h>
- #include <linux/phy/phy.h>
- #include <linux/platform_device.h>
-+#include <linux/pm_runtime.h>
- 
- #include <drm/bridge/analogix_dp.h>
- #include <drm/display/drm_dp_aux_bus.h>
-@@ -994,7 +995,9 @@ static int analogix_dp_set_bridge(struct analogix_dp_device *dp)
- {
- 	int ret;
- 
--	pm_runtime_get_sync(dp->dev);
-+	ret = pm_runtime_resume_and_get(dp->dev);
-+	if (ret)
-+		return ret;
- 
- 	ret = analogix_dp_init_analog_func(dp);
- 	if (ret)
-@@ -1360,7 +1363,9 @@ static ssize_t analogix_dpaux_transfer(struct drm_dp_aux *aux,
- 	struct analogix_dp_device *dp = to_dp(aux);
- 	int ret;
- 
--	pm_runtime_get_sync(dp->dev);
-+	ret = pm_runtime_resume_and_get(dp->dev);
-+	if (ret)
-+		return ret;
- 
- 	ret = analogix_dp_detect_hpd(dp);
- 	if (ret)
-@@ -1383,7 +1388,9 @@ static int analogix_dpaux_wait_hpd_asserted(struct drm_dp_aux *aux, unsigned lon
- 	if (dp->force_hpd)
- 		return 0;
- 
--	pm_runtime_get_sync(dp->dev);
-+	ret = pm_runtime_resume_and_get(dp->dev);
-+	if (ret)
-+		return ret;
- 
- 	ret = readx_poll_timeout(analogix_dp_get_plug_in_status, dp, val, !val,
- 				 wait_us / 100, wait_us);
--- 
-2.43.0
+Or better still, rely on the bus headers to provide the needed
+*_device_id structures. (That is <linux/platform_device.h> provides
+of_device_id (for patch #2) and <linux/auxiliary_bus.h> provides
+auxiliary_device_id and of_device_id (for patches #3 - #6)).
 
+Best regards
+Uwe
+
+--huwbq4lvetfh3uwf
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmsGyeoACgkQj4D7WH0S
+/k7XEggAlcj2TrM3p6EXOwI/xsUxWXF252CxwyEWI8ZmPEpI6bAu6Q2vo1jWzU80
+RgNMuXczOoZoJ6+hJdkMeoqHuhp2FPvl718ZM9+ZXmIzmzCoBNWIn7I/StnNApVp
+CRTaJoMc3RQ58/iAEYs4Bd6kNCpJoojOnWxMnprqZsXFWDmYDOaKauDIqnRyeGSd
+Y/roBTL3HpvnWDZxm7b51fG8984ltXAM06Db+ZRdnLxyged3B5xdXwcFGLlqeoKG
+ti6pQXYhQnxuxJFTg8v+DdOAKp8wPe6CkjTN92KfVvWDgxJYHe7zwZ1V0TrgDqMQ
+p3mJ8Bmk3uxwBcQfM5lzAgDW6N8h4Q==
+=fqd8
+-----END PGP SIGNATURE-----
+
+--huwbq4lvetfh3uwf--
