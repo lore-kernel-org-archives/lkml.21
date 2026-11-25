@@ -1,87 +1,92 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.169
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.156.1
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795635561;
-	b=baWjhL7JGS3ffAnUKsWQrL37aRuLV3jr7Txn+8juQvvyZ+4KyAAyROD+g+cBoJXe4Lb3
-	 OXr5oxQzxKoV3m0AR/ae+eANd4LdohAZYvX4/TMIUjCUAFzGYXUilbHBRUIA+gAa742Uu
-	 iaOAdEw9oyy1S9D6eoHyOfDQ2m554oqQS90DtBIbvC1pe8rNzNzbpiwqtSF40yQdw9hAI
-	 S5vkwEf8TSjaBrznvVqP2SHQEbm94jzjSPF8mfn2LdY7N3d+0G0CdSasm89vZl0JzFeeq
-	 yI+z2zEdF+cPEUPci5zsy3ouDSx2qre5UvyzBEo7mKpUgokrO287etR1ywMr3ReVRNA==
+	t=1795635577;
+	b=o4v1NWqU08niEE2AuE3Rg0Ozr8EoV8EqFQbLMqxvjU5LtkWho/DfVNm1guH8rjed4btf
+	 lKLLnmYOEtsd6AZ2qfbpTbAwaNowkHOI6RxCaWonnac64eywQApXCTWTF/q1jkdlvE6jr
+	 nDXsPZ/38x12jnhhsRJY+nhxA4RosqbQ/X5l4I3tkxx5aoK86tlSjgfgfThHaxCyxcedl
+	 UMCDW3bTeMiz366pFH8A0WoTDueteKEQJxKcFVtPTH0tB8JQX7Dg5klOLzRQUsBhyIBRi
+	 xXKC26+m7raihYMHShl5K2NAwnS3mhr7o3wJMfmOXpfqIaCLLAOYv5vPVA2bPos94OA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795635561;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=WVx5Gqftnjtyz2vbbCDAxrIo5XSl3YV5aN07+6VrgUU=;
-	b=guySdLQvTyoOp4nn8aoWXpJyjubzMSxa+qnUBSeJs/gV4ejk1Hr4GorcrMkqkq6MmmYE
-	 prKvsZawdMWMD4zTL8hPsIAf8IRYmSJiblSQxOCwVeueX1iXukMoFcbGDKtilU1pjcVYB
-	 yaNNAAGpCdX0lPcJ/ozWFtO6MxJ+zHZbdzxa/TrjUWgb48eZkvqjbVPAubUb8xy5yMpIr
-	 N+IVE9lggRlaZJ2PZohKHIA3lY1MFHYSmmSpNtgEScJ5u7SHwjuoCatw+M+iRYks3CGsj
-	 C8TbbbHBgtb6AY7J+ABw2GN4Q8ufNVdM28/9Hh6NJ9bASkL+bMjEcw/w/Wt85tUyd6w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795635577;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
+	 Received:Received:Received:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To:X-TM-AS-GCONF:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
+	 X-Authority-Analysis:X-Proofpoint-GUID:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=3p6asDUa5lPHlXaVDZueUpMoU5hpnKaj2Ds/wZ3B/fI=;
+	b=o014fvvn8dJaXg0RzVXFlJkfbCsR2wp/Wp00oQCEvgGJePHcKBXp6jZFm6bcjZ/z34oY
+	 laMEDxzv1UlTEYmnBxyxtODfrY99EH1igJHncj1CsFOlnL1n6fJuomiomUEBis5q6p56R
+	 n+ebk6vHROlzyPuPYFdG9itdszotzAFhtih1NJuBDV/aLVovQKIrt4rIX6+SbGAnEDeTN
+	 tixjZsDvqvFxi8NS5VkleZ3i19clquDtYhKL+zAQ08cx/LkIn7YdTIhrpKbj/uO5dHnm8
+	 Tl5AzSEUKus5lsQ9FC3OUIf0vtnBw7m7owd4WM8KJBY+r1mAZS5qPPCOZa6UL43MQKw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linaro.org;
-	spf=pass smtp.mailfrom=linaro.org;
-	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=pZbTuoUd;
-	arc=none smtp.remote-ip=209.85.208.169
-Received: from mail-lj1-f169.google.com (mail-lj1-f169.google.com [209.85.208.169])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=linux.ibm.com;
+	spf=pass smtp.mailfrom=linux.ibm.com;
+	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=sRZ4rUJB;
+	arc=none smtp.remote-ip=148.163.156.1
+Received: from mx0a-001b2d01.pphosted.com (mx0a-001b2d01.pphosted.com [148.163.156.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7F19B606A323
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 19:39:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7F19B606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C54B9606A332
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 19:39:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C54B9606A332
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=pZbTuoUd
-Received: by mail-lj1-f169.google.com with SMTP id 38308e7fff4ca-3ad3ef75223so4305461fa.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:39:20 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1795635559; x=1796240359; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from:references
-         :cc:to:subject:user-agent:mime-version:date:message-id:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=WVx5Gqftnjtyz2vbbCDAxrIo5XSl3YV5aN07+6VrgUU=;
-        b=pZbTuoUdSAJLh2Oer9e2HrWRgMZr5zDSucwcrZtOXNa6DID1VfY6xiJQp5apWyc00Y
-         VWI/5GbqOnnPIg7XU4zeJqme1N0+sRi7RY1Les3CkolXNezn121ARAiuPAba8ACYA8Zv
-         S1GFWiDvULRpDNMuIKILBNBRZitruRtqf9JwsagYcrOQiAsDTuIL6ew6WlJi9CrEvuzS
-         p7ufqcekp1JSrjgj1TChFnTakdZ11cS68khCZ2LxiVxrJUOiXF63bmaY9Li1k0ZFG21M
-         pyRXQtfFHhp4tyvI+Q8BCCMkY5j7PIyMsmmiZv8pmIn7EYwQRX+0VjaC5aw0g74yLNXU
-         RIJw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795635559; x=1796240359;
-        h=content-transfer-encoding:content-type:in-reply-to:from:references
-         :cc:to:subject:user-agent:mime-version:date:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=WVx5Gqftnjtyz2vbbCDAxrIo5XSl3YV5aN07+6VrgUU=;
-        b=Ba9y9X+GTqtZTwYjYBZuP4CvqZouI1G8jghIHTeYLZuwhYZISnvRHjdrzT140m4gCA
-         xgqOcXM5zSp445rrYquDl9a0hWPVRLdZz3iijbaCoOnt7Po2BB5umJnyfUzR9FwcquSs
-         jMcxGhzT2SEoYzD9RaX3CNOpmNrdrZh55XeWasrQctO0OF8UD0UxZR3lQmMqiKoMGgE8
-         BU/UQyqJbChbsxTDhHD1E53wRsWQUM+7Ad0Vc07/SvIoI4RfZ+DMXy6zh2K8qZUMhyt0
-         GSGeoByWmPYv7QL7KKUk2F88f/eCBJQx6NxJCKAiHRH1mN2ThkAiBJDThA1zm4sSf11R
-         ES2Q==
-X-Forwarded-Encrypted: i=1; AL+hErHAu1ihLJhgkB5poqfWdU/p2w2wNumSUu2ZRERl5aIH1qNCuVHCMRf3akGkQDbnD5hRi9cRpDq8KUg2WvU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+Zv69l5+8spVXKMx4tW+2/gh3LROmhcFSBuFMNqmXwTgIjlyXA
-	7wxqxNMmylTx5yC+pk4DhHRnX2pAu9LaHHEd/hwT2qdR9l34YBLVM+tL6NcwEIbw760=
-X-Gm-Gg: AZFdTZdMLm3h/e5/rRatjFtqGCisJPnTLs/Hs4/GWxRE1ZYEsCTykSLxfZhGC5NZGwE
-	uKVkcWzFtzERQOdh5PmIWAYYQA3kL8VJ5lfr0bPVukh7C6H9OeyIhs4Pw6JS4GPfiY8QIQt2eao
-	FraNMh3xdrm/Twyjt2/iiySF0BTw2aMhtH15TMkrw0fQyzMrm5dIU1sLu/x92uU6BqcJN7Of1xZ
-	LpAlpK8rjUfiwL4vIDGEXq3Nat/Ej6tdBApzAMs+9KU58eDDDUrFrqtyRGyljwFPbeVbeiYn9mb
-	SrJVJNzrZaT8aS/DaFuX2D8QyEItHkinQr/JYzIvD3qNUaW3zbkEL6UHzCY0ODj5KzgqV+N6dC4
-	bx7tUpr5YT70h321jXoc+U5Tld/HDczbBwVCtD0i9N3PlEvQuvnZNLODAap4zNOi4YYgYsrnmEi
-	QmlmdFpxKYfE8sNTb/gV7XTJPUNtK9ICkJd9xIkanzeB6wP1xIdm1J6FQV2CvvKtYJh2Z/IdsFm
-	rRM+5cx+gUaJ3NrBdojXRWZpO/1rUC0BvoxzBQXfmAGBKeeJsRDG+ZMwxZCQ0/+PWag7ZWkmNRa
-	VqDNhsQD1ZMaS2c2K79Q0Z9gZIIkLNBfj9t8g79rPN+OUpx/qPvMRcxgKahEGtz4yOMKxbDcEhJ
-	/6ZftRx+U
-X-Received: by 2002:a05:6512:1048:b0:5c1:4e17:1ed6 with SMTP id 2adb3069b0e04-5c1bc80fd9cmr5765974e87.6.1795635558529;
-        Wed, 25 Nov 2026 11:39:18 -0800 (PST)
-Received: from [192.168.1.101] (91-159-24-186.elisa-laajakaista.fi. [91.159.24.186])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3ae804ef17dsm52215571fa.12.2026.11.25.11.39.17
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 25 Nov 2026 11:39:18 -0800 (PST)
-Message-ID: <ff986bbe-7cb6-4733-9f95-bf788f4f1f07@linaro.org>
-Date: Wed, 25 Nov 2026 21:39:17 +0200
+	dkim=pass (2048-bit key, unprotected) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=sRZ4rUJB
+Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6APJYjC32378103;
+	Wed, 25 Nov 2026 19:39:29 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=3p6asD
+	Ua5lPHlXaVDZueUpMoU5hpnKaj2Ds/wZ3B/fI=; b=sRZ4rUJBJveucf6syXZOyj
+	n7SGZzi8zarUClGETNGt9/Fy101Rzpz8PtcqSm5xf3sSIft9An5olyA9LEsJg3R3
+	W2tYjvEzeTxPWgntFDwYt7QZ42DukYpvOCa7+NgpycdXnCz6Jp1SADEUa/6ifUaj
+	SFz3pQVe5NnFaRESE5AA0FhqstjPEyNLnR8vxr/16OC2P8OMJqmHciTRm7FX1bmN
+	V2VOdrd5s4pODTxLefOw+tOtON2ck6NYExg3g06FoPe+Pb8C8ZfeSb4v0SOcfwmE
+	QpltuKuwcTZYrKmHkOryMrtuTze0Nch+YNBbqNgs/OiSGeBsc1N3SStIClWjfOAg
+	==
+Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j34faeb3d-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Wed, 25 Nov 2026 19:39:29 +0000 (GMT)
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma22.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6APJJKTt505588;
+	Wed, 25 Nov 2026 19:39:28 GMT
+Received: from smtprelay03.fra02v.mail.ibm.com ([9.218.2.224])
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4j5uxx24fx-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 25 Nov 2026 19:39:28 +0000 (GMT)
+Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
+	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6APJdOV640174044
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 25 Nov 2026 19:39:24 GMT
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 23D072004E;
+	Wed, 25 Nov 2026 19:39:24 +0000 (GMT)
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id A17F62005A;
+	Wed, 25 Nov 2026 19:39:20 +0000 (GMT)
+Received: from shivang.upadyay (unknown [9.67.112.155])
+	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Wed, 25 Nov 2026 19:39:20 +0000 (GMT)
+Date: Thu, 26 Nov 2026 01:09:16 +0530
+From: Shivang Upadhyay <shivangu@linux.ibm.com>
+To: Venkat Rao Bagalkote <venkat88@linux.ibm.com>
+Cc: Madhavan Srinivasan <maddy@linux.ibm.com>,
+        Ritesh Harjani <riteshh@linux.ibm.com>,
+        Shrikanth Hegde <sshegde@linux.ibm.com>,
+        Christophe Leroy <christophe.leroy@csgroup.eu>, nandinih@linux.ibm.com,
+        LKML <linux-kernel@vger.kernel.org>,
+        linuxppc-dev <linuxppc-dev@lists.ozlabs.org>
+Subject: Re: [BUG] selftests/powerpc/eeh: eeh-basic breaks the device hosting
+ rootfs, ext4 goes read-only and the test harness crashes
+Message-ID: <awc5ZMnS97T51Rpg@shivang.upadyay>
+References: <9113e399-ddd0-405e-9abb-69a9785c726c@linux.ibm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -91,89 +96,158 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/7] media: v4l2-event: Allow drivers to provide the
- event timestamp
-To: Loic Poulain <loic.poulain@oss.qualcomm.com>,
- "Gjorgji Rosikopulos (Consultant)" <gjorgji.rosikopulos@oss.qualcomm.com>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
- Bryan O'Donoghue <bryan.odonoghue@linaro.org>, linux-media@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org
-References: <20261125-camss-hw-ts-v2-0-24c955e43d75@oss.qualcomm.com>
- <20261125-camss-hw-ts-v2-1-24c955e43d75@oss.qualcomm.com>
- <3dd61a59-2376-414d-a136-287e2c26a3d6@oss.qualcomm.com>
- <CAFEp6-35qT9Ow8SOWWBxf75geq6s169+SPJmw27TnkkD3o0wow@mail.gmail.com>
-From: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
-In-Reply-To: <CAFEp6-35qT9Ow8SOWWBxf75geq6s169+SPJmw27TnkkD3o0wow@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <9113e399-ddd0-405e-9abb-69a9785c726c@linux.ibm.com>
+X-TM-AS-GCONF: 00
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI1MDA3OCBTYWx0ZWRfX+9714bEld4+1
+ DppQ1XwqdwOT54t3z+zaQzmOKcda8LToadqDMeZERFSBH2h5oMJFijJrMT9tJEI4CLfU87gAYCb
+ lkbkCbnvm/OSXIEjsqUXlbn9gf0juQosSOThPmIA2oyca1nvBzhdnTivBVf0660ZJwyDrY/wLLs
+ pobBE13T7uzl6+3YkaHGQX2okB4iOU6JDfKhIa5FwRMllEbx4psfSU3XfBL4im1sTtdWO6lpgQF
+ TqnCSwRGRe4vMqv8VJX/F/SXQJNL6NYu01/Jtp0eqxBHLhkl6oQYWCGABrmaixDfyMGWLgcHdlc
+ mLiEF27QqOlho9VrnVgQvPsP1GFiiYvdnZcE30dkH7wXKhqSKeAGKxP+Ooymcuubqrar5wMMcP2
+ GbSjGVn+Hj/In8Y3Rb86mTWW4t1Lqulr5jeFlKZW3ugNHEm9e5nYack5LBT7AAdD9AtZeTV38+l
+ rSavVEkVyAZvOh+4nbQ==
+X-Proofpoint-ORIG-GUID: Al7m6LqMcJUW5GR01b2KMsWjQYgX0GyG
+X-Authority-Analysis: v=2.4 cv=U6QHnuru c=1 sm=1 tr=0 ts=6b073971 cx=c_pps
+ a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
+ a=6EctlgBVgvUV7dFz:21 a=8nJEP1OIZ-IA:10 a=zJRp6_cAMcgA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22 a=iQ6ETzBq9ecOQQE5vZCe:22
+ a=YAcHw8vTPqq7ut5H_1wA:9 a=3ZKOabzyN94A:10 a=wPNLvfGTeEIA:10
+X-Proofpoint-GUID: Al7m6LqMcJUW5GR01b2KMsWjQYgX0GyG
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI1MDA3OCBTYWx0ZWRfX6c/FG7tr40j6
+ Sxs2kFpJXHSTRALOJDgmXPLcwK2/hO/4S4Qsp1x9t8zZ9edSgw7FozQSskDvtD7CdWSjXwENNbM
+ YrRKffGW95j7zZxXTTh+eO9WJ4wdwag=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-25_05,2026-11-25_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 lowpriorityscore=0 spamscore=0 impostorscore=0
+ clxscore=1011 bulkscore=0 suspectscore=0 adultscore=0 phishscore=0
+ malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
+ definitions=main-2611250078
 
-On 11/25/26 15:21, Loic Poulain wrote:
-> Hi Gjorgji,
+On Thu, Nov 12, 2026 at 11:36:36AM +0530, Venkat Rao Bagalkote wrote:
+> Hello!!!
 > 
-> On Wed, Nov 25, 2026 at 1:29â€¯PM Gjorgji Rosikopulos (Consultant)
-> <gjorgji.rosikopulos@oss.qualcomm.com> wrote:
->>
->> Hello,
->>
->> On 11/25/2026 12:19 PM, Loic Poulain wrote:
->>> The timestamp reported to userspace for a V4L2 event is taken when the
->>> event is queued, which for an event signalling a hardware occurrence is
->>> only as good as the latency between the two. A CSI decoder able to latch
->>> the start-of-frame against the system counter knows that time to within a
->>> few microseconds, whereas the interrupt handler that gets to queue the
->>> event can be hundreds of microseconds late and is not consistent about
->>> it.
->>>
->>> Take the timestamp from the event when the driver filled it in, falling
->>> back to the current time when the field is cleared. Drivers have had no
->>> reason to set it so far, and every in-tree caller either uses a
->>> designated initialiser or memsets the event, so the field reads as zero
->>> everywhere today.
->>>
->>> Signed-off-by: Loic Poulain <loic.poulain@oss.qualcomm.com>
->>> ---
->>>   drivers/media/v4l2-core/v4l2-event.c | 20 ++++++++++++++++++--
->>>   include/media/v4l2-event.h           |  9 ++++++++-
->>>   2 files changed, 26 insertions(+), 3 deletions(-)
->>>
->>> diff --git a/drivers/media/v4l2-core/v4l2-event.c b/drivers/media/v4l2-core/v4l2-event.c
->>> index 9dd2aaa95a67406bda3a257325442888895ed088..a35646c3a5c89febeb072d691ffd7853d9af714a 100644
->>> --- a/drivers/media/v4l2-core/v4l2-event.c
->>> +++ b/drivers/media/v4l2-core/v4l2-event.c
->>> @@ -150,6 +150,22 @@ static void __v4l2_event_queue_fh(struct v4l2_fh *fh,
->>>        wake_up_all(&fh->wait);
->>>   }
->>>
->>> +/*
->>> + * Hardware able to timestamp the event itself reports that time in the event,
->>> + * which is more accurate than the moment the driver gets to queue it. Fall
->>> + * back to the current time for the drivers that leave the field cleared.
->>> + */
->>> +static u64 v4l2_event_ts(const struct v4l2_event *ev)
->>> +{
->>> +     struct timespec64 ts = {
->>> +             .tv_sec = ev->timestamp.tv_sec,
->>> +             .tv_nsec = ev->timestamp.tv_nsec,
->>> +     };
->>> +     u64 ns = timespec64_to_ns(&ts);
->>> +
->>> +     return ns ? ns : ktime_get_ns();
->>> +}
->>
->> I think it makes sense to add an additional field for hardware-based timestamps.
->> Converting the timestamp to the monotonic time domain introduces precision loss,
->> so it's better to expose both to userspace and let userspace decide what to do with
->> them.
+> IBM CI has hit a failure that takes down the test harness, While running the
+> powerpc EEH selftest on a bare-metal POWER system.
 > 
-> There is no loss of precision. The timestamp is actually more tightly
-> aligned with the actual event. So I don't see the point of having two
-> values, with one being less precise than the other.
+> The selftest injects an error into the PCI device that hosts the root
+> filesystem. The filesystem goes read-only and the run dies.
+> 
+> [ 1112.079091] EEH: Frozen PHB#3-PE#1fd detected
+> [ 1112.079905] aacraid 0003:01:00.0: aacraid: PCI error detected 2
+> [ 1112.140830] I/O error, dev sdb, sector 3906906472 op 0x1:(WRITE) ...
+> [ 1112.140957] Aborting journal on device sdb2-8.
+> [ 1112.140977] EXT4-fs error (device sdb2) in ext4_dirty_inode:7656: IO
+> failure
+> [ 1112.176664] EXT4-fs error (device sdb2): ext4_journal_check_start:98: ...
+> Detected aborted journal
+> [ 1187.736385] aacraid 0003:01:00.0: aacraid: PCI error - slot reset
+> [ 1217.244306] EXT4-fs (sdb2): Remounting filesystem read-only
+> [ 1220.583495] aacraid 0003:01:00.0: aacraid: PCI error - resume
+> 
+> We need to make appropriate changes to selftest, so that it skips the
+> adapter, if rootfs is hosted on it.
+> 
+> 
+> SetUp:
+> 
+> System: IBM 9006-22C (POWER9), PowerNV, bare metal
+> Firmware: skiboot-v6.8-45-g8246de863
+> Kernel: 7.4.0-rc2+, upstream master at 067c5c24cef2 ("Merge tag
+> 'page_alloc-for-7.4-rc2'", 2026-11-10)
+> 
+> 
+> Issue1: Selftest should skip the adapter that host the rootfs
+> 
+> eeh_can_break() already skips ahci, for similar reason, but has no check for
+> a device that backs /. A friendly LLM has suggested
+> 
+> below change, which I tested and it works.
+> 
+> 0003:01:00.0, Skipped: hosts the root filesystem
+> 
+> Other adapters are tested as before and the run completes
+> 
+> diff --git a/tools/testing/selftests/powerpc/eeh/eeh-functions.sh
+> b/tools/testing/selftests/powerpc/eeh/eeh-functions.sh
+> index 70daa3925dcb..f9db1f9be05a 100644
+> --- a/tools/testing/selftests/powerpc/eeh/eeh-functions.sh
+> +++ b/tools/testing/selftests/powerpc/eeh/eeh-functions.sh
+> @@ -62,6 +62,42 @@ eeh_test_prep() {
+>      echo 5000 > /sys/kernel/debug/powerpc/eeh_max_freezes
+>  }
+> 
+> +# Print the resolved sysfs path of a block device followed by the paths of
+> +# every device stacked underneath it (dm, md, etc).
+> +eeh_blk_sysfs_paths() {
+> +    local sys="$1"
+> +    local s
+> +
+> +    realpath "$sys"
+> +    for s in "$sys"/slaves/* ; do
+> +        if [ -e "$s" ] ; then
+> +            eeh_blk_sysfs_paths "$s"
+> +        fi
+> +    done
+> +}
+> +
+> +# Succeeds if the root filesystem lives on a disk behind any function of
+> the
+> +# slot containing the given PCI device.
+> +eeh_hosts_rootfs() {
+> +    local slot="${1%.*}"
+> +    local majmin src sys
+> +
+> +    # Use the last "/" entry so an initramfs rootfs entry is ignored.
+> +    majmin="$(awk '$5 == "/" { mm = $3 } END { print mm }'
+> /proc/self/mountinfo)"
+> +    src="$(awk '$5 == "/" { for (i = 6; i < NF; i++) if ($i == "-") s = $(i
+> + 2) } END { print s }' /proc/self/mountinfo)"
+> +
+> +    if [ -e "/sys/dev/block/$majmin" ] ; then
+> +        sys="/sys/dev/block/$majmin"
+> +    elif [ -b "$src" ] ; then
+> +        # e.g. btrfs reports an anonymous major:minor
+> +        sys="/sys/class/block/$(basename "$(realpath "$src")")"
+> +    else
+> +        return 1
+> +    fi
+> +
+> +    eeh_blk_sysfs_paths "$sys" 2>/dev/null | grep -q "/${slot}\.[0-7]/"
+> +}
+> +
+>  eeh_can_break() {
+>      # skip bridges since we can't recover them (yet...)
+>      if [ -e "/sys/bus/pci/devices/$dev/pci_bus" ] ; then
+> @@ -78,6 +114,14 @@ eeh_can_break() {
+>          return 1;
+>      fi
+> 
+> +    # Breaking the device that hosts the root filesystem makes I/O fail
+> +    # during recovery, which can abort the journal and leave / read-only
+> +    # (and kill the test harness). Leave it alone.
+> +    if eeh_hosts_rootfs "$1" ; then
+> +        log "$1, Skipped: hosts the root filesystem"
+Well as per my understanding, Testing the device where rootfs is hosted on
+seems like a valid usecase for selftest. Maybe we should keep that ability.
+Atleast keep it as opt-in.
 
-The hardware produced timestamp may serve as another unique id associated
-with a data buffer, under the circumstances it might be helpful to receive
-and rely on this kind of information.
+The above freeze happened because write failed. Can we perhaps create our
+own freeze window so that none of
+filesystem write fail.
 
--- 
-Best wishes,
-Vladimir
+I am suggesting to test the following (suggested by Friendly LLM :),
+
+sync
+fsfreeze -f /      # flush dirty data and the journal, then block new writes
+# ... inject the error, wait for EEH recovery ...
+fsfreeze -u /      # thaw
+
+Thanks
+~Shivang
+
