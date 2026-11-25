@@ -1,83 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=203.205.221.239
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795602126;
-	b=EAB/e5LkgDoSRes4QqW+FbZiEJ8/yWsCJwrKnrvkOU0a4PfkPy2EMAPEkNPQASTGXKtn
-	 Kk3vaPSBJ6oOO5l6DTrMeOtvA6bppAnjYKXhe3zpi0EpDb0YCu+u2HHlqDYWaQCnBtQa2
-	 t8240dKC+f7iEqQZo2F2m/KROsFkG+xo7NYNLJD1qdRb7HgdqEANkK9pINfcXhrrQgL6L
-	 qCCSj36WzB9KhB8c2bBtvLZLDiHfn8Diut1ADgox7/55ehGpp96mNAO4P11rM2Q1QYby/
-	 oYPMf+ELznpMSZYAWRRMiLz13fMP+2GstSbJj3fzDhOzF+7FxCIT+56FWKe8Lpbal7A==
+	t=1795602165;
+	b=NoIsQGMX8g8ukVkszY9AG/7EL0bclL/TIbQN+ef+GnAXsUW0+wCU7BkH1zJApETlCZyw
+	 gzz0PP5s6fLBJZp0LlUBJnxHKgTJgnSNMDDRhbFnSDP50oP0ejk61DDgyEqgMsnhmaWF6
+	 hnf/S2PUzfWBakTjqfF8kwSDACpNxu57RPB71JKIHcVOzqVhbg9HV5ffdNxPGTnyKnm3d
+	 pJCIt4KYodHq/97NXBDgPQejqNDnCfY7UfpWm+nXbl7j3D5YWuRXfjdi+XTd/p5BVEF6d
+	 T23Uh2opqBehbyF1LHCSA0gxhpWQzDdFn1Ic8b1hkH7Mee9Hlf2Ju8evoc9Rlb3BJyw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795602126;
-	h=DMARC-Filter:DKIM-Signature:Received:X-QQ-mid:Message-ID:
-	 X-QQ-XMAILINFO:X-QQ-XMRINFO:From:To:Cc:Subject:Date:X-OQ-MSGID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=dg+oSNwX/7p+WyYwZc5+e2rGm/goQ4owkA+4LHREogs=;
-	b=1eaRUI2ai1L/poXYOPQjv85lAvc4rCRduqPV6ShWJQyMR681YHmm6YVkVMapVqd/oDm8
-	 tpF43ju2xMNYHpxj1hMM4VguwYiIDPBtIBnU4l8TTUnZKxCGR2FWyG01Xgwsks0vIwWV3
-	 hMHirFkni/62IIpXUMK3P8sArZ/QfEM+bqPBGfuF1JYI9t2fzy6ciDZtHF72ZoHNo0IWU
-	 kYyUYqFJMgKTpcc82aZNJtGetuLw6dS5uNNGqkNgsDdRClJoBNOsbzK0/NbXO0MflR56G
-	 /MvXSdiFZkw27rDw6sDVyS3+rHxWXPC3qRYP1bq/qZ0MuJOSIGWloEMVHBo7Aal3nWQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795602165;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=ijkPT1gsMM8wRBmH+8prLgdVJMEbcnJW1LjlDQCmSt8=;
+	b=f3zHVWOkEvkTLsBqrhfzBmI25SDX+doFigCXzHsmb5KqQv01DOgWkvQneGLY0ImailIV
+	 RMz6R5nBWp4COWa2cIMXy4nVS0HH6iTY8EADoJNpS8b54LtybC2kh8+LchV73w6fymG01
+	 SONgPNCcL4xkJ2g5wmPomXZ6nhcuCdqBw0RQqaR8CWcs9+hqCcKiFuworivdCmUqz93iH
+	 OhmRk+Le7Y06/q/4h6MWbjunnvYjYkmRgngWiRx5V3i+d0p3MxseqU6PdxAl9OC9z25on
+	 z+pk3tG+/Jmz2Fa21f91mIZJ/jSRlUW1JtfLuGmaElv5UeUSw8g+G6Qwofcu3pcAWWg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=qq.com;
-	spf=pass smtp.mailfrom=qq.com;
-	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=wcJtjNZb;
-	arc=none smtp.remote-ip=203.205.221.239
-Received: from out203-205-221-239.mail.qq.com (out203-205-221-239.mail.qq.com [203.205.221.239])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=suse.com;
+	spf=pass smtp.mailfrom=suse.com;
+	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=JPY6Sgb3;
+	arc=none smtp.remote-ip=209.85.128.42
+Received: from mail-wm1-f42.google.com (mail-wm1-f42.google.com [209.85.128.42])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 53965606A321;
-	Wed, 25 Nov 2026 10:22:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 53965606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=qq.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qq.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C7F00606A321
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:22:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C7F00606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=wcJtjNZb
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1795602098; bh=dg+oSNwX/7p+WyYwZc5+e2rGm/goQ4owkA+4LHREogs=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=wcJtjNZb0xk4Cr48Pk6IJauvMleHAtAjWLaOCwAfQsgeeJ8PUq/+ItMyUXluulDYg
-	 f7RF0zI/RGn6snx51BKt5Q4w3+IyenbH47MVdNdjHKWHpJiVS6cwnzOmbk7jG59qrl
-	 xyT1CAJK0KYaEWFOSc7VhSNGEFbxcxNDJ2B9hr2U=
-Received: from HF ([240e:47e:32f9:92c3:8064:1335:aef9:f3d1])
-	by newxmesmtplogicsvrszc43-0.qq.com (NewEsmtp) with SMTP
-	id 56009AF2; Wed, 25 Nov 2026 18:21:32 +0800
-X-QQ-mid: xmsmtpt1795602096tbloeeaqw
-Message-ID: <tencent_5FFF9F0A7E8550A3C6AB3F8AADF2BEBF0809@qq.com>
-X-QQ-XMAILINFO: OTR3aNS6beOJbSfoYyCM72//7Yplyq+8+11gkEOvAcqmyqeb7gv7aGw4Jx2wvn
-	 OqhWbWgpohuwmibYZTPTsLJVIKDuTY19QtCjzjaFEcTYpVf+8kdVhliso48MCajC9jXo+SnsLxK0
-	 3tm3RuWXsjMBRIpy9pNcQj7/Lo/syren3Ce9myneQYjFjx/WaEIpKpGvsi9zchGh+UEqpJ8mWu+6
-	 FvbCAd9W91JNUJGIlicwkZZkCjRZ0lj1ymLqzYW67VC3CDEruErzrd421/eajlG/yGxjFE9kF7Ya
-	 C+pWlPwsmevTpAFYnNRzG95ZK9ZHFRfG/ruRzJ0qVUloIauq6/ly+hKfv33aE7ltTJlTzg/Yd5wb
-	 yfCwwGETV0k+JVcR08TGhkHozNv5lA/zFHWDCirxuic3f/tK1ThoJijgnAY/6exSVbc+GaK4naZN
-	 8HDtcqALdlafBc7UHuzkUpUEb8A9eSWGsvTMVwbL+b+h2B7Wll5oRMe2f+E0vRboWq2GeBi2Zvz3
-	 Qnd/gFTZutMT2pFmNrvlZbeJnP+09i0jO7IrPXWQZBzGTeL6uLCMoHRlYCCK4EIhWdCuaJJX225b
-	 TwK6uNq5Wix1Ne3M4oKofdV29z8m2CWy6e7kWJGKC6FOeR18iB/Ct4jwnXUC/awakb+G0BdDGeXZ
-	 dh8vheM5EPvYWTt+xFmQoct2RxLAUk541bSU5nGtzEsEiSumGDIZcEjzpfFv3x4Cr98ZgpgNQmuf
-	 PUHm2kjwfgWdm/+gzNTHWKgPTjuD/6ykmv5FACoZAUWkf72JnBhJIw3PsTukGKvrb5Ci1N6S9rf2
-	 D5K0WrxdavraqVP6SusqF+HMidtU+RgY39uBgI7QWCLOMnejEEP+TWKY88boezBEnJDIYyQJSvCm
-	 poacN8alshbxABtzCvY4T36YVo8kZRpVlhzQ6LjSUvnuZqjWBlg+eWbHyW3rd/aSzggyRm95x+fh
-	 YHbhesIFyS5mYlEkOJ2MrmCwZLHzWYuDVbfycnd/4w6JZlOOG09ISbm/39ypDE48zMUUqfYsAtkx
-	 qUYTBIUitTKwB/a3KVI1FJsBA+fMMI69Y26a5epFr0oBANxl6JQhMb12Ta8SWc2n/05IvxKXszXM
-	 A71ZZ+j6lRFSvlh2jYQRbxfsrd5YfZOy6eOlc1VyVDk2vNJP3syplLxullvwWz35hse4ZhWjXDq3
-	 ODWR6bhkqrhNt0Cu4/Fyf0CDRR7uarfPZ8iLo=
-X-QQ-XMRINFO: MSVp+SPm3vtSI1QTLgDHQqIV1w2oNKDqfg==
-From: Hefei <3066883572@qq.com>
-To: dri-devel@lists.freedesktop.org
-Cc: linux-input@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	robh@kernel.org,
-	krzk@kernel.org,
-	conor+dt@kernel.org,
-	dmitry.torokhov@gmail.com,
-	Hefei <3066883572@qq.com>
-Subject: [PATCH v6 3/6] dt-bindings: backlight: add VIEWE 7KF82 I2C backlight
-Date: Wed, 25 Nov 2026 18:21:27 +0800
-X-OQ-MSGID: <20261125102130.256-4-3066883572@qq.com>
-X-Mailer: git-send-email 2.55.0.windows.5
-In-Reply-To: <20261125102130.256-1-3066883572@qq.com>
-References: <20261125102130.256-1-3066883572@qq.com>
+	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=JPY6Sgb3
+Received: by mail-wm1-f42.google.com with SMTP id 5b1f17b1804b1-4a5b2be99a8so47353685e9.2
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 02:22:44 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1795602163; x=1796206963; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=ijkPT1gsMM8wRBmH+8prLgdVJMEbcnJW1LjlDQCmSt8=;
+        b=JPY6Sgb3uf5xkA0lv/GQotrSDXNHqf2wEdanFDkfLk/1GLuOucpEOfu/49hLXIFk02
+         ahsres1qEgCrnJ+HXRnXtnXd4pp0pR83BFkzP4P8YCtBwAeNQioNZEUR54Y589MtaVXS
+         v7K3hdSBqWg/ts7pUVtV9dESY8cjOJpzX0cmViU6R0A+MLUC6qKCkzknvG05drgZmGx2
+         BKsA02QFQti6h2RfI/83M4ec+oMEAIorsyAGLjVvcjtudcLQDOomsuMXfuNqt6xHXKTJ
+         t64BJ1JcRbLn2YIxyJ6tu1LWuxx/h4gNKkGPCgmKdOFvaUAOMTyy5Y/uB3PpExf3Iomr
+         n61w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795602163; x=1796206963;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ijkPT1gsMM8wRBmH+8prLgdVJMEbcnJW1LjlDQCmSt8=;
+        b=YIgfc+G0/9EiT68jAxw4TIAuWKRJPwIBrIq8ZT5L/GRB8ScUeOml2FQXNDZKfUIYM8
+         hree95IblFWEIND/1gczzRN12CspsIonobDUjKzrlB2tU1ovhtkbBGsEHLkJRO3p8F5m
+         mOeFtA4lnHgDBHa2hTtkz32tdj0Zuz6GY4yQN+UjWodxvd8Rc39S7YRhQ8wlzdSxEAVk
+         znU3LULZBS7ZtCSEor2jO2RGrHPbD4XZOnSPkD0hcLOnbFmaLJ6MJXYAKgdjxwF24SEI
+         by0HkmV8CY3Hf80WynZss06cpuO94hxSb1UWyGj8u+SaLu9STEggoYj0vDKUbFR5xmwU
+         fylQ==
+X-Forwarded-Encrypted: i=1; AL+hErEPicn+B5ZQYrS+8MAuUvrrjD/VhdLCaRdr05NezvJcdTP1nrW9GLaCATKz0vaCFGzbu23rhgmxWYDp+zs=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+lhmCrTfaGVdXypIOnN9m7f0yFLT/Us5mhjolOCGUkaIEHBbto
+	dlv9p+t1X8HAtmlgza3ORukn3udtYDJZkZZV4kokgcpZgeeoAytU/f6+hUgx1JgNTdM=
+X-Gm-Gg: AZFdTZdPgwd6+IOHjSMlSzIfdJMeId44urGl+D79gT5m7qytkinLUk090+yCk7ZOHKg
+	en07fUTuJMRrZzNeBlccqWx1H7wRunARV636WWnHewhljqc5nWOHjH55NUfavjBMYAl9y80P/E8
+	4WRL6UY3QXgo2DNm0or0IuH5B9MWJ+0Ua5JbUKvep4DOSde12Uy3ozPH29qQtZ/5+ywJg37HGN6
+	7DTYIZQNepce2y76C+XCezn/3/CW/96NT43+IMd5a5xGDWqaMt5o8ZP9gjZy9TwNbN1syZwe8Zg
+	0WVHFhZsU3bgxHCc5A2h31UWYuOBlj7Wcpv9/0d6lz0Ydb9oZokPyQ4moIyeoVp0U7Yva2dh9fV
+	fdlzNJbKFTckZKoalSgjnFBl4Ei7FYfaK2m2VEsv8X4mx70OQP4+LZ0FyAxsDv7hPREfUFfBVZA
+	GVea828cVLYN4q/N5zZ/XfqdRIk157ypWVv00O5ybirFGOHBhp5gDDKPNZScGkGjY1KkXQx83OE
+	E8kJwrcemGbYQKpp4z1mNzJoXaqSQq3Wk9KNfBEaWXrdAE47NpM1k8OYfA4WZs8ET53k6ViwXxN
+	5NWpJVvHZ3ddb1eHs+rL/kJLkRBXuLc4o4AFt5IBBontvw==
+X-Received: by 2002:a05:600c:1548:b0:4bb:7347:d5df with SMTP id 5b1f17b1804b1-4bb88814405mr368785105e9.13.1795602163096;
+        Wed, 25 Nov 2026 02:22:43 -0800 (PST)
+Received: from pathway.suse.cz (nat2.prg.suse.com. [195.250.132.146])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb88442995sm526548365e9.2.2026.11.25.02.22.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 02:22:42 -0800 (PST)
+Date: Wed, 25 Nov 2026 11:22:40 +0100
+From: Petr Mladek <pmladek@suse.com>
+To: John Ogness <john.ogness@linutronix.de>
+Cc: Sergey Senozhatsky <senozhatsky@chromium.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Breno Leitao <leitao@debian.org>, printk@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH printk v4 5/8] printk: nbcon: Expand unsafe takeover
+ check for general unsafe
+Message-ID: <awa28PGg8L4rEDha@pathway.suse.cz>
+References: <20261121163557.963029-1-john.ogness@linutronix.de>
+ <20261121163557.963029-6-john.ogness@linutronix.de>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -87,69 +101,139 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261121163557.963029-6-john.ogness@linutronix.de>
 
-Document the I2C backlight MCU on the VIEWE 7KF82 module
-(address 0x45, register 0x86, brightness 0..255).
+On Sat 2026-11-21 17:41:53, John Ogness wrote:
+> Currently nbcon_allow_unsafe_takeover() is identifying if hostile
+> takeovers are permitted.
+> 
+> In order to support unsafe flush policies for CON_NBCON_ATOMIC_UNSAFE,
+> there needs to be a distinction between atomic flushing using an
+> unsafe implementation or atomic flushing via hostile takeover. The
+> former could be allowed in non-panic, whereas the latter is only
+> allowed on the panic CPU.
+> 
+> Rename nbcon_allow_unsafe_takeover() to nbcon_allow_unsafe() and
+> change its purpose to identify if unsafe console printing (in general)
+> is allowed. If yes, hostile takeover can be allowed when on the panic
+> CPU.
+> 
+> The comments for the WARN verifying no hostile takeover attempts
+> during non-panic have been expanded. The detailed description will
+> hopefully remind us of the necessity of restricting hostile takeovers
+> to the panic CPU.
+> 
+> This opens the door for unsafe flushing (with safe ownership) for
+> non-panic situations.
+> 
+> No functional change.
+> 
+> --- a/kernel/printk/nbcon.c
+> +++ b/kernel/printk/nbcon.c
+> @@ -1682,24 +1689,31 @@ static void __nbcon_atomic_flush_pending(enum pr_flush_reason reason, u64 stop_s
+>  		/*
+>  		 * Using variant of console_is_usable() to include consoles
+>  		 * with unsafe write_atomic() implementations. They might be
+> -		 * allowed depending on nbcon_allow_unsafe_takeover().
+> +		 * allowed depending on nbcon_allow_unsafe().
+>  		 */
+>  		if (!nbcon_is_unsafe_usable(con, flags))
+>  			continue;
+>  
+> -		allow_unsafe_takeover = nbcon_allow_unsafe_takeover(con, reason);
+> +		allow_unsafe = nbcon_allow_unsafe(con, reason);
+>  
+>  		/*
+>  		 * Since nbcon_is_unsafe_usable() was used, ensure @con does
+>  		 * not have an unsafe write_atomic() if this context expects
+>  		 * safe printing.
+>  		 */
+> -		if ((flags & CON_NBCON_ATOMIC_UNSAFE) && !allow_unsafe_takeover)
+> +		if ((flags & CON_NBCON_ATOMIC_UNSAFE) && !allow_unsafe)
+>  			continue;
+>  
+>  		if (nbcon_seq_read(con) >= stop_seq)
+>  			continue;
+>  
+> +		/*
+> +		 * Even if unsafe console printing is allowed, being able to
+> +		 * perform a hostile takeover additionally requires this CPU
+> +		 * to be in panic.
+> +		 */
+> +		allow_unsafe_takeover = allow_unsafe && panic_on_this_cpu();
 
-Signed-off-by: Hefei <3066883572@qq.com>
----
- .../leds/backlight/viewe,7kf82-backlight.yaml | 46 +++++++++++++++++++
- 1 file changed, 46 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/leds/backlight/viewe,7kf82-backlight.yaml
+I was a bit confused by this. Also I think that it is error prone. For
+example, it allows to use the unsafe_takeover for
+CON_NBCON_ATOMIC_UNSAFE consoles anywhere in panic(). But it should
+be allowed only for the final nbcon_atomic_flush_unsafe(PR_FLUSH_HANG).
 
-diff --git a/Documentation/devicetree/bindings/leds/backlight/viewe,7kf82-backlight.yaml b/Documentation/devicetree/bindings/leds/backlight/viewe,7kf82-backlight.yaml
-new file mode 100644
-index 000000000..e65aa4c22
---- /dev/null
-+++ b/Documentation/devicetree/bindings/leds/backlight/viewe,7kf82-backlight.yaml
-@@ -0,0 +1,46 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/leds/backlight/viewe,7kf82-backlight.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: VIEWE 7KF82 I2C panel backlight
-+
-+maintainers:
-+  - Hefei <3066883572@qq.com>
-+
-+description: |
-+  I2C backlight MCU used on the VIEWE 7KF82 DSI module. Protocol is device
-+  address 0x45, register 0x86, brightness 0..255. A discrete MCU part number
-+  is not exposed on the FPC silk; the binding is therefore keyed to the
-+  module.
-+
-+allOf:
-+  - $ref: common.yaml#
-+
-+properties:
-+  compatible:
-+    const: viewe,7kf82-backlight
-+
-+  reg:
-+    maxItems: 1
-+
-+required:
-+  - compatible
-+  - reg
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    i2c {
-+        #address-cells = <1>;
-+        #size-cells = <0>;
-+
-+        backlight@45 {
-+            compatible = "viewe,7kf82-backlight";
-+            reg = <0x45>;
-+            default-brightness = <200>;
-+        };
-+    };
-+...
--- 
-2.55.0.windows.5
+We should make this decision on a single place. I suggest to rename
+nbcon_allow_unsafe_takeover() to nbcon_check_unsafe() and pass
+*allow_unsafe_takeover as a parameter. I mean something like:
 
+/**
+ * nbcon_check_unsafe - Check if the console is safe or some unsafe handling
+ *	is allowed for the given context and reason.
+ *
+ * @con:	The console to check
+ * @reason:	The reason for the unsafe console printing
+ * @allow_unsafe_takeover: Decision whether unsafe_takeover is allowed (output)
+ *
+ * The function decides when either an unsafe write_atomic() callback is
+ * allowed or when all NBCON consoles are allowed to used the unsafe_takeover.
+ *
+ * Return:	True, when @con is either safe in all contexts or when it is
+ *	allowed to perform unsafe console printing.
+ *
+ *	In addition. the @allow_unsafe_takeover variable is set to "true"
+ *	when the console is allowed to perform the unsafe_takeover. Otherwise,
+ *	the variable is set to "false".
+ */
+static bool nbcon_check_unsafe(struct console *con, enum pr_flush_reason reason,
+			       bool *allow_unsafe_takeover)
+{
+	enum nbcon_prio prio = nbcon_get_default_prio();
+	bool ret = false;
+
+	*allow_unsafe_takeover = false;
+
+	switch (reason) {
+	case PR_FLUSH_RUNTIME:
+		/* Never unsafe flush during runtime. */
+		break;
+	case PR_FLUSH_HANG:
+		/* Always unsafe flush on panic hang. */
+		if ((prio == NBCON_PRIO_PANIC) && panic_on_this_cpu()) {
+			*allow_unsafe_takeover = true;
+			ret = true;
+		}
+		break;
+	}
+
+	return ret;
+}
+
+Then we could use the following in __nbcon_atomic_flush_pending():
+
+		if (!nbcon_check_unsafe(con, reason, &allow_unsafe_takeover))
+			continue;
+
+Note 1: We might want to refactor the function when we add the checks
+	where to allow the unsafe write_atomic() callbacks.
+
+Note 2: I thought about calling this directly in console_is_usable_unsafe().
+	But it would require passing the *allow_unsafe_takeover as a
+	parameter which is not needed in most situations when it is called
+	via the console_is_usable() wrapper. But it still might make
+	sense if we make the parameter optional (allow NULL).
+
+> +
+
+>  		nbcon_atomic_flush_pending_con(con, stop_seq, allow_unsafe_takeover);
+>  	}
+>  	console_srcu_read_unlock(cookie);
+
+Best Regards,
+Petr
