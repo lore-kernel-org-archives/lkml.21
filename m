@@ -1,72 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.198
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.176
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795645051;
-	b=NY8KbMmHmXcjD07BFtDEA6LHI6Yka2+ncxZmSfV5myfaX3LcQK2Qcknx+wKAFpu9bn5g
-	 AFJ6cf9qcPenOlnBCGNkAGCxmOxKUccBKwSKOZPPrnmV0n+yXHuyvUsgzndHb27uej7Lo
-	 ZCDGntyUTPkGghEaf2RnZU5hbPM7VF3ynWdlcCymXrrq0UIM7hfAjS4BF8GE9DYMICjqD
-	 +NKF4w0VNKSibz8h9vUjZF3vcAJpgmktM+VspXDfJNIhZs3ajGcljP7ozB+9ZpoBuUcXx
-	 9Cp75ijIUaRsm9nJXfZj9nu2C/JRkgBMGpUNxzeWgLnX5oDdiGBLU+hiMNH3MoMc5PA==
+	t=1795645083;
+	b=jdMwrSuSuwjNYUnY/OyVCL5oindL8zQSacsv4FK9t8QdUnfDezOo0rOlaUTSOBw2waM4
+	 kRW8zurtGu00VIw/fNH9YGCJcta81zLP5/teEOcVUu9cYs/KDoVlWKeMqkQtBh2JdACeH
+	 eyhsUR730qfRrt7hLmUi6QFfL8f7WRZetqZTFwEShGJhohdBgJ+VRlhGO52HaDOVOgJ2F
+	 DfDKmyu5L4P9Ef9ETZyRWTUb+A6xYiQPUA1fLCX9c7OtlPfn8qOv6cH1KjX3sRqn3soVX
+	 Yc5me/zj0U1uG+AcDT03JLlA+75XRyluwMYJH5BDQAqF7/3m4LtK98YNKOe1cUOIV6Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795645051;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795645083;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
-	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=Lv54m/y+dipKo9yg+wSMdMb5I16q7BiPD4/g2CnTvkE=;
-	b=Ih2+qmFXf0ZkE+cLV6xmq70+4x8C6BzMn5I+/dseMGGK7OxNiVbC61mdkrMqk5tXZGJJ
-	 il2pgC0iysY4CcUplgEUMP5YmIjeOKdrFeblyEJA9ru7orCQiONK6+FB6/G7UcrOTwwrd
-	 QwXT0b+PLmK3Vs56PU+wOHGO0kkzNJ7F9MVflsGmz7B9q/Cp7YWvRFnpYJcubwlqKTEVy
-	 X24uzCH115KMmrtmlaCl/nhRxp60KunZg8dvpAF46V3HI3bJgEr27PBkLVMr/dyJCs4AW
-	 qCilthEXUQffk/mKRfzW5ibMCObFu7Ue8Wh94WNkO8tgb+062p+jtNhqsR4a8NYMNBQ==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=BnNnCP79mIT11o498QX7t0hvFj8f/s/nQ+8DjF/+0o0=;
+	b=m+fF9MAczdUkRzDwhPo4vseUpZtJGp0UZATHI6l0ZkkNwJH/llXgfErEXBWRjCeVyc6U
+	 q7ActsxC26TpaA6Oabv7EVwAnD2aKjytHFOqzh1BYDzOieZ0VYfiKClOjKksQbU+MEKsk
+	 KkOMOmUOcLdMk88k42apOBUcVk62g6ewUo6NoLIhD28WVzuseq4GqD581vU8m6J8n3zXo
+	 30B3LTjgdEdyE/r/E9wyqgoKonDhn66QM0Ik4ZY1DwtdQtIvjAC7uWNASp5cMx47X2qIg
+	 bSrzLkHoqhtVQNWGiLB8dwz2QRgrzFILwlguxYUO8ypdcZEdJo1Ia1by6utE2VEurlw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--elkin.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=pUID44TT;
-	arc=none smtp.remote-ip=74.125.82.198
-Received: from mail-dy1-f198.google.com (mail-dy1-f198.google.com [74.125.82.198])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fZxGGnum;
+	arc=none smtp.remote-ip=74.125.82.176
+Received: from mail-dy1-f176.google.com (mail-dy1-f176.google.com [74.125.82.176])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CF253606A31E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 22:17:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CF253606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--elkin.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 824DA606A326
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 22:18:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 824DA606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=pUID44TT
-Received: by mail-dy1-f198.google.com with SMTP id 5a478bee46e88-38531c1a566so481623eec.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:17:30 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fZxGGnum
+Received: by mail-dy1-f176.google.com with SMTP id 5a478bee46e88-38431138772so8265023eec.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:18:03 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795645050; x=1796249850; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Lv54m/y+dipKo9yg+wSMdMb5I16q7BiPD4/g2CnTvkE=;
-        b=pUID44TTQ4/Fzfi/L0/1db/SVlq9R5gZ4HJCykAH2o+oN7qZAuRZ+iCImjKkUfLOdi
-         j7aP6gH68gmsMNHyX1KtYdbwSJ9iZAEwKsX/gjdJKMCAsEz7JGWRgV2CgVSN2hns/6jA
-         4Hd0quAzuHaBHazRpgxkx8Pz6R9QN1ZEXTsfFeMuhUoog+EOBsEGFbmhi1Mcd0tpELaY
-         I6fsAAA/6m3EzowDm+8GzlLrYAYAA9FZ7JTsPkXWIJc5cgZNOOeoPdWHQYfXV5pM1n0G
-         oP+AtkIU1G8RVRGeA5IvDOZsptI0naQ27ylBhMDkz450nBXuJ6GXKNT7I07htljxJnwJ
-         BEkg==
+        d=gmail.com; s=20260707; t=1795645082; x=1796249882; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=BnNnCP79mIT11o498QX7t0hvFj8f/s/nQ+8DjF/+0o0=;
+        b=fZxGGnumQ471hrV6MSOZ544ePTSYpR3Lpx1xjQjLGbLFi+CyEjoihhTrNFOnsUregf
+         PC9dfmFaXIseGu4FIHQknJd41iX+Pfjh+pVEa9givyLuAaa/QLXg6hZjapJd29+5FKQd
+         SeINeDM6vBzGE5p3mXaJRacxB7gjH+HgroTijO5ZiWPRCJUlOnihF9TN/DA2gQWygDHo
+         Dhm817XIYFjIozAp7hurJ/G7vqVyV55MLsjBP0W7ANa0kSpDD+CCgM3lZTXbkR41rR10
+         SGVpyeLQ678n98ApzY4dBaVcEPR4K6Ndqn6Qo6ZXJXg/iFEXXgD7UhMPSDkDWcAGwMTd
+         bJ8g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795645050; x=1796249850;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Lv54m/y+dipKo9yg+wSMdMb5I16q7BiPD4/g2CnTvkE=;
-        b=d+CjLPXh/8jRRcLPu1BYMB8PX5vXkjf5FDtxQnm6EuND1j6gqnSTJl3B7RZE5906ya
-         xj+qDGTkk6NSG4aXm0PDZLuLXMoXxRoO3wV/JZG6T2jZzx3xC9L0afPKCuNI9E7fwJf5
-         PF8hNLu9rpUxtenh8+rr9B+Yw5qET13cyeaGqaJlcE1nMeZMuxNyP73CrOonfsMV/8PQ
-         s5QHgi4EqkfIVr8cltrxXEhRnwxk3pkEEOHBP5qBi6Vb4ILCxoNo3E5AyU3yYPST6fXV
-         b11f6G0pgLGwXzTzgA382oV2Y2FsQrv9MV1cu+cBG1fdfgHjm2q5mgowVJirazYOp1fG
-         cFQw==
-X-Forwarded-Encrypted: i=1; AL+hErFlCikvmQObWhKY3cm1eLaROzCpWlVL1tQGaacWoikb9RFhdzVDYt0bP/FCaWOKg6P4Kj0d/heBWeGe7Es=@vger.kernel.org
-X-Gm-Message-State: APuU4Z81KT40y8zKOpwetWKkKekHnFlnyar/UaDepKTZQSvZ71GZhYq9
-	TQ6gS4pTaiOefc1DKt1C/ltIqXlXMZWIZIzDgjF5zeXjie5Qn/3Hn1Fz40T7l95lE2THSZth7wp
-	RCw==
-X-Received: from dybph20.prod.google.com ([2002:a05:7301:4194:b0:385:8165:80dc])
- (user=elkin job=prod-delivery.src-stubby-dispatcher) by 2002:a05:693c:8604:b0:386:b3e6:e741
- with SMTP id 5a478bee46e88-386b3e6e883mr8734453eec.26.1795645049680; Wed, 25
- Nov 2026 14:17:29 -0800 (PST)
-Date: Wed, 25 Nov 2026 22:16:58 +0000
+        d=1e100.net; s=20260707; t=1795645082; x=1796249882;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=BnNnCP79mIT11o498QX7t0hvFj8f/s/nQ+8DjF/+0o0=;
+        b=SM5fAWX9Sn2nhCUzGO1VcVoTLSxXI7K14URx/qCFoMMqKab7Ce74bOGVb7fuvRF6Uk
+         d0eWFKy5ry/GEmUlVDUVrNbTT90vT1OmGgKslCtCru0ixkKrN5VeY/HH6YHVYXyWQ4BL
+         uqMKwlBq+df8Cex2pXh8sU94tQyZvt4qdEHf3kpi4ROYRJdCoWS4n7LeVIuoKznQB8bo
+         geChDdxZjU6M8lWRFt3O43jrQoydMfQBiEoNVjPFdGXRvmsoxQry3o77nm3tCwHiWf4r
+         xsXZtv3ARXG8kbaAlQbl3i0UsT1h5blrGIQnOnkk3yrrx3rPGRN798SMudT9YVu7Nvfj
+         x8ag==
+X-Forwarded-Encrypted: i=1; AL+hErEB2e242Z+0mDSXoWUtrasKWbxCzhGWG2JRMbEbb9dig/PoR/NsG57h4og2z2BYVA6EMMVQR5Hvml4ajC8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9G+/LfQW/WQ0GctUrp4WQIHazHVizr1oz1kUME6A08UgfeJEEL
+	z/5LB+H4DBRTiXV0M7Z69axMv6cMm0Fn1IAh0qwfveCo07C/MFFkcmRJ
+X-Gm-Gg: AZFdTZfvs3F3ZtupZnFZArnWJmPipIcQERQGTH39jGgGylFIV447s7lQzjcbSIiF9CS
+	mFk49WH5VFC9ex75Vy5FSIcjbcSEEiT7wxzDCwVbCU83kzbcaeF0oDvxTlwHXeP01AGquidejKx
+	zp+QWxCzAHyv9ya+UCQ6lrHrZyYsu5Bav6yxp/aZirxWKIvFjlPBH3lJ7Slypc3I9B3n+qJfYSt
+	n/wnXWf2A94hxMXbliNxWiAn7M2g9Uj9yXzXrDlgOHGc59BD70Q4nTRAA++aypW4Cm+5IfUClHR
+	z9cHHSD2KKtxNuWY2PVwSSNA/e8SWXpgAp4S4KBI45ufdsSWy/JX2OSf976XLlPk17RH8JrEQ30
+	aaE7mR1LdENLTSgUEPwcdNS1GTeov7JT+cPVJz8Zs3DcK19DSW4h2xudnClz0gw6i0/vsb3mkme
+	kRrljoA2M7Sta8lOi60vLrIFHZZSVcIiQ5+acP2hL2vY2bM8oKla3PXj82XAkLpchNZxx7Ua3xg
+	noj8EYr5I92gXmAmmbUf5m1B0ComqukhSKeGOKBYY5D1PlOk6xh0uiB7YpAbr17uFDGkHuf5Sqy
+	Jbsuo88qlU9iQSs/OoMA
+X-Received: by 2002:a05:693c:87d8:b0:386:b896:319c with SMTP id 5a478bee46e88-386b8963d3amr8931010eec.35.1795645082138;
+        Wed, 25 Nov 2026 14:18:02 -0800 (PST)
+Received: from a1-free ([2603:c021:8021:f000:0:1865:8c38:18fc])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385666e99fdsm69581357eec.5.2026.11.25.14.17.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 14:18:01 -0800 (PST)
+From: TAKANO Mitsuhiro <takano32@gmail.com>
+To: Jonathan Corbet <corbet@lwn.net>,
+	linux-doc@vger.kernel.org
+Cc: Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
+	Jiri Kosina <jikos@kernel.org>,
+	Benjamin Tissoires <bentiss@kernel.org>,
+	linux-input@vger.kernel.org,
+	Hans de Goede <hansg@kernel.org>,
+	=?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	Vadim Pasternak <vadimp@nvidia.com>,
+	platform-driver-x86@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	TAKANO Mitsuhiro <takano32@gmail.com>
+Subject: [PATCH v2 0/3] docs: ABI: report a symbol that one file describes twice
+Date: Wed, 25 Nov 2026 22:17:55 +0000
+Message-ID: <20261125221758.2535044-1-takano32@gmail.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,57 +104,59 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
-Message-ID: <20261125221658.1420387-1-elkin@google.com>
-Subject: [PATCH net] nfp: fix use-after-free in nfp_ccm_mbox_skb_return()
-From: Elkin Cruz <elkin@google.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Nathan Chancellor <nathan@kernel.org>
-Cc: Simon Horman <horms@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, 
-	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, oss-drivers@corigine.com, 
-	netdev@vger.kernel.org, llvm@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	irogers@google.com, Elkin Cruz <elkin@google.com>, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-nfp_ccm_mbox_skb_return() casts skb->cb to struct nfp_ccm_mbox_cmsg_cb,
-frees skb via dev_kfree_skb_any() when cb->err is non-zero, and then
-reads cb->err from the freed skb to return it.
+check_issues() compares a symbol across files, but it skips the case
+where one file describes the same symbol twice: the loop returns as
+soon as the symbol has one file.  The ABI parser keys every entry on
+its own, so a repeated symbol on one file is visible as two entries
+that point at the same file.  Compare at that level.
 
-Read cb->err into a local variable before freeing skb.
+Doing so surfaces two entries that claim the same ABI:
 
-This issue was found while trying out new Clang static analysis checks for
-kernel bug classes. The finding was triaged and fixed, and this commit
-description was drafted with the help of AI, then verified by code
-inspection and compile-tested against linux-next (not reproduced and not
-runtime-tested on hardware).
+  - shutdown_unlock in sysfs-driver-mlxreg-io, described once in the
+    October 2021 block and again in May 2025 with a different default;
+  - the internal MCU protocol_version in sysfs-driver-hid-lenovo-go,
+    whose entry carries right_handle/, the group the removable
+    controller lives in.
 
-Fixes: d3e4dfe060cc ("nfp: add support for sending control messages via mailbox")
-Cc: stable@vger.kernel.org
-Signed-off-by: Elkin Cruz <elkin@google.com>
----
- drivers/net/ethernet/netronome/nfp/ccm_mbox.c | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
+The two documentation fixes come first, so the tree does not gain
+warnings in the middle of the series, and the checker is added last.
 
-diff --git a/drivers/net/ethernet/netronome/nfp/ccm_mbox.c b/drivers/net/ethernet/netronome/nfp/ccm_mbox.c
-index aa8aba4ff7aa..c0f1d84208a4 100644
---- a/drivers/net/ethernet/netronome/nfp/ccm_mbox.c
-+++ b/drivers/net/ethernet/netronome/nfp/ccm_mbox.c
-@@ -420,10 +420,11 @@ static void nfp_ccm_mbox_run_queue_unlock(struct nfp_net *nn)
- static int nfp_ccm_mbox_skb_return(struct sk_buff *skb)
- {
- 	struct nfp_ccm_mbox_cmsg_cb *cb = (void *)skb->cb;
-+	int err = cb->err;
- 
--	if (cb->err)
-+	if (err)
- 		dev_kfree_skb_any(skb);
--	return cb->err;
-+	return err;
- }
- 
- /* If wait timed out but the command is already in progress we have
+Four symbols are described by two files each.  That is legitimate when
+two drivers expose an attribute with the same name for different
+devices, as hid-lenovo-go and hid-lenovo-go-s do, so the cross-file
+case keeps being reported, but as information rather than as a
+warning.
+
+The first version was posted on 2026-11-25:
+
+https://lore.kernel.org/all/20261125190742.2420486-1-takano32@gmail.com/
+
+This version points the internal MCU entry at the top-level attribute,
+which is where sysfs_create_groups() puts it since mcu_attr_group has
+no name, and the checker keeps its warning for an entry that ends up
+without a file, counts lines rather than occurrences, and drops an
+unused loop key.
+
+An AI coding assistant found the two duplicate entries and drafted the
+checker.  The counts above come from running get_abi.py validate
+before and after; the paths and the group were read from the driver,
+not from the document being fixed.
+
+TAKANO Mitsuhiro (3):
+  docs: ABI: mlxreg-io: Drop the second shutdown_unlock entry
+  docs: ABI: hid-lenovo-go: Point one entry at the top-level attribute
+  docs: python: abi_parser: Detect a symbol repeated on one file
+
+ .../ABI/stable/sysfs-driver-mlxreg-io         | 12 -----
+ .../ABI/testing/sysfs-driver-hid-lenovo-go    |  2 +-
+ tools/lib/python/abi/abi_parser.py            | 48 ++++++++++++-------
+ 3 files changed, 33 insertions(+), 29 deletions(-)
+
+
+base-commit: b6a9fa34ce4187cb69d3c588a4bbffc31ce5db8f
 -- 
-2.56.1.839.g22a8290db9-goog
+2.53.0
 
