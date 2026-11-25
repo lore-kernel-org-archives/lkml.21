@@ -1,94 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.224.54
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.112
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
 	t=1795630217;
-	b=JsJJ2sAFBG6zFPUxgwRLSp9HOsM2kt0/LkHn+BoCFRKpZdOV4gth/VI05u3Gg6yG0LJU
-	 KHSqDGWvIUdtAHJF4QC0XRefIxWmYyVCOYDz1Zs3Tw7Z/4DC/gPX0MSWIsrGC6u1t6cq6
-	 FA32kCJW3oCe+KpizV8D9NSbkEUSMtDl4FSFCG6cvYGhyGwF8GZ9zmM95h/ckDODgzd06
-	 ooN7FnJMyej/u35dx/gNq5iS3PKAudIEhg2JLpAjmPiwmNQtvA2w0oSRCCys9DbxthjIx
-	 MKv1bGOx6F7jDP11pRMZjTkdulfV8Y1m8e4Q6WMkUauSDTlRkRmqQwB9uvCZzgvJgUw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	b=YFOs1/CNASD3RwZ+4q9ZUtZ2/p8SO9winwP3hpFsvMi4TDTjNtDzS0vH9IRAMJ1rd9xz
+	 yDubp6eAM/3JibCqSjeclwxjuxHCpYVyrG/r4kJB1EFUcSkmqyWXYhgRU7Zj3XUEO8zpj
+	 w8XtfTsVaWVAqmZaJ7gp0zzSqkoKvoGGM1zzjXw2gH2XgYGlpGmP+geuAr9LTBUf/F2q2
+	 QwDMnXbKTdzvsnaPEchs9PsbniLLqXp6vSyXsqeYGtHJGh7oyhv0i9n2PMg2wLp7rezK6
+	 DnVRYwK6+O7EuS+IskrLdzgHWvnmpJedKwiNDDHcj9Jtu35XdHzE2L/QizoCu2WMuHQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795630217;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=D3ALQHcgOfAhUAKhVbZdjihQ4c8Hm2EiPI8oXAafIGM=;
-	b=pMttqeP8JSJSmY/Oh0pzUE7ALlEvrLbl7E6fbn+m+n424hbs3TVlgqU+qhC2Sn+NGP/A
-	 n2n/36D4waozV4htaI1psfs9qCFWxbchSt0GMVm0AVODVR+5d9P2BkrgfOBfN6oLyMhhD
-	 Tpz2YtuOWLJHDj1E4OLBtjlstcdobM35J8XQwZFNXm9U70EQn7OB6OHbmUTz29oBdaX+k
-	 TSdxhGOJgzDqpxpTBaV3wL8rZCduC6img7cKclkKbQuKORuun9UcnOwPecMZvQ8qq+C/+
-	 ONVXjdFJJ6GHn/vuWYRfsLa8x4ncB7lCP9XkgnQiqAjwOeU2bFkw0K8LJJGsFpWcFHw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cs.unc.edu;
-	spf=pass smtp.mailfrom=cs.unc.edu;
-	dkim=pass header.d=cs.unc.edu header.i=@cs.unc.edu header.a=rsa-sha256 header.s=google header.b="YdXtTz/v";
-	arc=none smtp.remote-ip=74.125.224.54
-Received: from mail-yx1-f54.google.com (mail-yx1-f54.google.com [74.125.224.54])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	h=DMARC-Filter:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
+	 In-Reply-To:To:Cc:X-Mailer:X-ZohoMailClient;
+	bh=Rh5TF9rj/Jr8iw4gLPWoCY65AicKNGPAEjnmWnzX5xs=;
+	b=llpzRVLoky7DVogjNqsx83nefphWvZHbcvzz4IEhRlE94xWdPvVJz2Ep2dmZEdHqKxli
+	 WtlpQw5AE9kuCt+2jDLSdIIAKsa9z5hD0Km4eB6hWntoQivXgbo24Tvdc4u5pHvoiWf4q
+	 v/8h6OdYl2lvLd/tU+ffYj3NE3Fo/xbcA5hb2xtO0Kkn2YNzCuP9WPjDgP0j4MjDnjvlN
+	 o+zZJLgCnBQ8/Ct6G7pXkgzhQoP1UgC3iIEW+JrNWO8uhyXh66dhEuaY5QKJfcDwwUHj2
+	 36tYA3CeN4a67KfoQCTfc7LdYk9HpoYJSColplfW078UEiSnnwS5U4Ge5yTKIXhT1gQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=rong.moe;
+	spf=pass smtp.mailfrom=rong.moe;
+	dkim=pass header.d=rong.moe header.i=@rong.moe header.a=rsa-sha256 header.s=zmail2048 header.b=g1gGMbtB;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.112
+Received: from sender6-pp-f112.zoho.com (sender6-pp-f112.zoho.com [165.173.180.112])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2F7AB606A323
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:10:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2F7AB606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=cs.unc.edu
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cs.unc.edu
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EF31A606A31E;
+	Wed, 25 Nov 2026 18:10:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EF31A606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=rong.moe
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rong.moe
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=cs.unc.edu header.i=@cs.unc.edu header.a=rsa-sha256 header.s=google header.b=YdXtTz/v
-Received: by mail-yx1-f54.google.com with SMTP id 956f58d0204a3-6767d92cde6so6773311d50.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:10:17 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=cs.unc.edu; s=google; t=1795630216; x=1796235016; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=D3ALQHcgOfAhUAKhVbZdjihQ4c8Hm2EiPI8oXAafIGM=;
-        b=YdXtTz/v6Nm4qzgVyt4tU1Dm9vGEsroperK4W3BGilBnyGrVMOM6MIT5XJD2rcDogB
-         AWuqcPc7rOYnD9e+HpsWAPKiW9DYo6OEiOtdmUiLKvIuxOHtWDuJHlD/vCKafPsJxQLC
-         BXllwZhuRD1IwujoB6aBtVMXSWBjO++oCGjBlQYfo24feoz8A4QtCZhzrClzWJOySJkX
-         +xT/ureqEuqX7lIeo6TLrqv1qZbU8hEhJweFrf0dfdpjPJpNItgT6YU6OW4VThEXW6+m
-         cm09thM45wrjt173UXANGAdABSORsn4HM3CBs7dMDTus+al+tGpQ23jXx/OE/f0h4gvn
-         cJag==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795630216; x=1796235016;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=D3ALQHcgOfAhUAKhVbZdjihQ4c8Hm2EiPI8oXAafIGM=;
-        b=PvvKC/C8WMl8hNeAgm/BR7eUSVrp1Gq57GJn6W/KtGfWky1A/WSlPljbefEoD8b3XP
-         Qv3v03rd4UUbOs4QV1Xt6TVYZ7Bg4IT3PaKb3cnvwvyucVWX9CvolcNpxs7wF6sVlyCx
-         tjIRCezkVe6DF936HEmsu+/Pj4D2LvlKDJFCNwGkuRpFSUbKTnhxIbmGnV8sR8ufbaLe
-         v8ZUSfNL09bvo3LonrJ6kFBCjVBc/YpyHL6ITE9HjAKDs07MN1uVsdLeQc1J/Q5VVf6d
-         g3YmVktKvmFiP3HShBQgxqhb1kUToxoxIaiEVuEzS3O/3e23w6MEv8djZZiCsCQm2DJ+
-         IkJw==
-X-Forwarded-Encrypted: i=1; AL+hErHyQpdqa2aGZ7KSnp+UCjaPKISCgUeHtzw7gp2dAKWKDA4agVilUeNHF/aQcZfBU8C97GavLuLOmJyJTjs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/pWZDeTvZBlX//7vJUk8xaTYWGJ7alT7bdE64caMRxgcyhdlXy
-	EVKvXU0HeCw03JhAWfre5w+aRmUPJho88BMNjnmbExO7BclyfP0SojAtqmeBgORi/3TJUKG83K0
-	ZvXjplWqu
-X-Gm-Gg: AZFdTZfa1ZH91J9gY8oaBMmZeTKip5PxrHtdoP3V5j8kQA4MQGTh5lKdzRGIZPnBQFV
-	4EVSj/jskYXst7vXhu4+XfSy/COfNOHZe4hIdvw9jftoK7ETc4LRK0Yz2uc4642Og6JNl2L5EAM
-	PcAJAgE7ZqyNCxrFZFx6N6IIC4R32QfgtU6VVcQ9dtouAHYRu1h/0qhuM8RjTCxlMNPQU3M1WbC
-	Jr9gPcmI2g9ZrHoBWlKPOBJfrrpkjKT/3MMAH8xPTusCWlJc5/furJbzPFtjFpXGOESYGdUsWyd
-	ExpPG9AS4m6qPTve5i+bE2XmAMlm7R5kTDEjq5R+LM07exnU1mOSsb4xGKsDj+lbY1EmfZJ73YF
-	i+rgWEJRw0c1yFGnwXLExf+LaPZwtXwhhN189HwJK4dBVPTcauDC/lvdSSQovV7lRj5EkTpCrPR
-	7ouzymh7aKafE6Ekrnl8zLbb9FApURG8tMvoXKjyTYb7DizTj56pmfAKqdDoNsjBys+Od6cGJ3R
-	e7hiqBMdlJKe66nh9cSroThS1DOjI7KM61cZWSE/th+YtEzt4zcMdjTEb+DmcX6HHIp2rD3+Wff
-	SZxIt8e/oH5X87bcykSzCfYjZ6bWpw06sNTRG71TDymytR13EmynyA==
-X-Received: by 2002:a05:690e:400a:b0:67e:4934:63dd with SMTP id 956f58d0204a3-67e49347cb2mr1238903d50.15.1795630216103;
-        Wed, 25 Nov 2026 10:10:16 -0800 (PST)
-Received: from cobra01.cs.unc.edu (cobra01.cs.unc.edu. [152.2.130.143])
-        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-67df330bfb1sm9206152d50.6.2026.11.25.10.10.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 10:10:15 -0800 (PST)
-From: Hengyu Liang <hengyul@cs.unc.edu>
-To: Takashi Iwai <tiwai@suse.com>,
-	Jaroslav Kysela <perex@perex.cz>
-Cc: Pavel Hofman <pavel.hofman@ivitera.com>,
-	linux-sound@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH] ALSA: pcm: oss: Refine slave hw_params after setting format
-Date: Wed, 25 Nov 2026 13:10:05 -0500
-Message-ID: <20261125181005.3683575-1-hengyul@cs.unc.edu>
-X-Mailer: git-send-email 2.53.0
+	dkim=pass (2048-bit key) header.d=rong.moe header.i=@rong.moe header.a=rsa-sha256 header.s=zmail2048 header.b=g1gGMbtB
+ARC-Seal: i=1; a=rsa-sha256; t=1795630137; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=dWfLYQI8EpMnpx3Y0rpAHyiq0A9KqjasneLnW5zye09LnqiPUPhx1jW1UUpZ4r9Xn+Sn93QDbK10ffO3qTT80533ypbdKNMozyNoek+fXaa/HsjrCgAQ1Hf9JhffKJzVG6Q5wHLCQX1vbHFcP8Qi5ingqMXwui7GxRCityxLKc0=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1795630137; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=Rh5TF9rj/Jr8iw4gLPWoCY65AicKNGPAEjnmWnzX5xs=; 
+	b=Lx7szsbVBzJ8QFF+QGJebWCyGEC53inpLbt67J/T7zxUkhEgA4hznMDhvTO+tdh58xaSgNYbCU/WKsZBhYX5COXN87vhO1ooLAMUht4cebvnIr/ijvNjqN1ksHgEAlr/OEdXdIZBkISFlef6L0bGXdWDcdstoIZ+jIagspyXl2o=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=rong.moe;
+	spf=pass  smtp.mailfrom=i@rong.moe;
+	dmarc=pass header.from=<i@rong.moe>
+DKIM-Signature: a=rsa-sha256; b=g1gGMbtB6Syg7IVk4+qDsrdvkzaPxM144Tf0VXyFnRaom7kT1I3hOHlhO4v5xXqHb23QjhBBTCylsQeZFN+6x+AsfukQ7Ul2RJAYQyPcW3KAJj9hrG5QPTMPoOnvzXoliLr88NYBVu/FQVBd8UfjDaVFY8YsMEzE2L7gdo6jVun11idURP32W/krUp+GF2S2fpLzbPZ7fuZTj/U69WhKs9Ff9c/tEUNDK/oOaewBLfn18aall8qxDPH3QQ7GPho86zYp2h+3zORAoMCRHfFPmLUGrn3xacHitjXI20sfpkXsfQQTCO6izb36KZNhzCiOyq3PS+wmytW9kuLlV9yj8Q==; c=relaxed/relaxed; s=zmail2048; d=rong.moe; v=1; bh=Rh5TF9rj/Jr8iw4gLPWoCY65AicKNGPAEjnmWnzX5xs=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zohomail.com with SMTPS id 179563013478135.19282854649407;
+	Wed, 25 Nov 2026 10:08:54 -0800 (PST)
+From: Rong Zhang <i@rong.moe>
+Date: Thu, 26 Nov 2026 02:08:22 +0800
+Subject: [PATCH v3 4/8] platform/x86: lenovo-ymc: Modernize WMI driver and
+ factor out events
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -98,95 +60,330 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+Message-Id: <20261126-ymc-82yl-v3-4-e30842671ec3@rong.moe>
+References: <20261126-ymc-82yl-v3-0-e30842671ec3@rong.moe>
+In-Reply-To: <20261126-ymc-82yl-v3-0-e30842671ec3@rong.moe>
+To: Mark Pearson <mpearson-lenovo@squebb.ca>, 
+ "Derek J. Clark" <derekjohn.clark@gmail.com>, 
+ Hans de Goede <hansg@kernel.org>, 
+ =?utf-8?q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
+ Gergo Koteles <soyer@irl.hu>, Ike Panhc <ikepanhc@gmail.com>, 
+ Andrew Kallmeyer <kallmeyeras@gmail.com>
+Cc: Eduard Aliman <edialiman20@gmail.com>, 
+ platform-driver-x86@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Mahir Faisal <mahirfaisalantiq33@gmail.com>, Rong Zhang <i@rong.moe>
+X-Mailer: b4 0.17-dev-ce4c1
+X-ZohoMailClient: External
 
-Commit 93d7d38fa61d ("ALSA: aloop: add DSD formats") added DSD_U8 to
-the formats of snd-aloop. Before that, its narrowest format had 16 bits.
+The lenovo-ymc driver is a legacy WMI driver. It binds to the events
+GUID as a WMI driver but calls the query GUID with the deprecated GUID-
+based interface.
 
-However, snd_pcm_oss_change_params_locked() sets the slave format with
-_snd_pcm_hw_param_set(), which does not refine the parameters, while
-the access, rate and channels before it are set with refining helpers.
-snd_pcm_oss_period_size() then reads a buffer size maximum that is
-still computed for the narrowest format, now DSD_U8, so the OSS period
-doubles. With the default U8 client format, the doubled period no
-longer fits in the format plugin, and snd_pcm_plugin_alloc() returns
--ENOMEM. As of now, an OSS program that asks snd-aloop for 8 channels
-at 192 kHz gets ENOMEM from SNDCTL_DSP_SPEED and from every later
-ioctl on the same file.
+Handle YMC events in lenovo-wmi-event, and coordinate relevant drivers
+with notifier chains:
 
-The issue can be reproduced with this program, where card 1 is
-snd-aloop:
+                +---LWMI_EVENT_THERMAL_MODE---> wmi-gamezone
+                |
+  wmi-events ---+
+                |
+                +---LWMI_EVENT_YMC---> ymc ---IDEAPAD_LAPTOP_YMC_EVENT---> ideapad-laptop
 
-    #include <fcntl.h>
-    #include <stdio.h>
-    #include <sys/ioctl.h>
-    #include <sys/soundcard.h>
+Modernize the lenovo-ymc driver by adopting lwmi_dev_evaluate_int() from
+lenovo-wmi-helpers, which has adopted the modern WMI core interfaces and
+taken care of buffer's lifecycle. This should hopefully improve
+robustness on various firmware as it aligns with the Windows behavior
+that ACPI object type doesn't matter but the size does.
 
-    int main(void)
-    {
-            int fd = open("/dev/dsp1", O_WRONLY | O_NONBLOCK);
-            int ch = 8, rate = 192000, blk = 0;
+Note that the WMI core does not verify min_event_size for the legacy
+notify() callback (it only ensures the event has data). By factoring out
+YMC events to lenovo-wmi-events with the new notify_new() callback, now
+the WMI core can finally verify the size of event data:
 
-            ioctl(fd, SNDCTL_DSP_CHANNELS, &ch);
-            if (ioctl(fd, SNDCTL_DSP_SPEED, &rate) < 0)
-                    perror("SNDCTL_DSP_SPEED");
-            if (ioctl(fd, SNDCTL_DSP_GETBLKSIZE, &blk) < 0)
-                    perror("SNDCTL_DSP_GETBLKSIZE");
-            printf("block size %d\n", blk);
-            return 0;
-    }
+  [WmiDataId(1), read, Description("Lenovo Yoga Mode Change Event")] uint32 ModeDataVal;
 
-Before that commit, it prints "block size 65536". After that commit,
-the result is:
+With these changes, the lenovo-ymc driver become a no_singleton
+asynchronous-probe driver that only binds to the query GUID.
 
-    SNDCTL_DSP_SPEED: Cannot allocate memory
-    SNDCTL_DSP_GETBLKSIZE: Cannot allocate memory
-    block size 0
+Also ensure the EC is always triggered on valid events (i.e., passing
+the min_event_size check) and on probe. In this manner:
 
-This patch will set the format with snd_pcm_hw_param_set(), which
-refines the parameters, as is done for the channels just before.
+- on LENOVO_YMC_QUERY_METHOD success, everything is fine. Otherwise...
+- on probe, fall back to YMC_POSTURE_UNKNOWN
+  - sparse_keymap_report_event() becomes a no-op
+  - trigger the EC to ensure the keyboard and touchpad are enabled
+    (following changes), or else the user may be unable to input
+    anything
+- on event, fall back to the event data
+  - the event carries data as per the MOF (see above)
+  - the WMI core has verified that the event has 4-byte-or-more data
+  - if the event data is correct, everything is fine
+  - if the event data is bogus, it's probably either YMC_POSTURE_UNKNOWN
+    (0) or an undefined value (>4). In either case, trigger the EC to
+    ensure the keyboard and touchpad are enabled for the same reason
 
-Fixes: 93d7d38fa61d ("ALSA: aloop: add DSD formats")
-Cc: <stable@vger.kernel.org>
-Signed-off-by: Hengyu Liang <hengyul@cs.unc.edu>
+The input device's phys string also adopts the query GUID rather than
+the events one. It shouldn't break anything, as nothing actually matches
+the previous phys string.
+
+The DMI quirk tables are left untouched, as the contained devices should
+have both GUIDs.
+
+Reviewed-by: Mark Pearson <mpearson-lenovo@squebb.ca>
+Tested-by: Eduard Aliman <edialiman20@gmail.com>
+Signed-off-by: Rong Zhang <i@rong.moe>
 ---
-I found this while comparing the behavior of different kernel versions.
-I used an LLM to analyze the problem and to draft the patch and this
-message, and I analyzed the result myself.
+Changes in v2:
+- Rephrase the commit message (thanks Mark Pearson)
+---
+ drivers/platform/x86/lenovo/Kconfig      |  2 +
+ drivers/platform/x86/lenovo/wmi-events.c |  7 +++
+ drivers/platform/x86/lenovo/wmi-events.h |  1 +
+ drivers/platform/x86/lenovo/ymc.c        | 85 ++++++++++++++++++--------------
+ 4 files changed, 58 insertions(+), 37 deletions(-)
 
-The missing refine is older than that commit, so the patch also halves
-the default fragment size on other cards that offer a format narrower
-than the one in use. On snd-dummy (U8 and S16_LE) with S16_LE, one
-channel at 48 kHz now gets 4096 bytes instead of 8192.
-
-With "ALSA: pcm: oss: Compare max buffer size in bytes" in for-next,
-the program above no longer fails, but it prints "block size 131072"
-until this patch is applied.
-
-Tested on for-linus (5a6fcabe156e) and for-next (486060b97284) with
-KASAN and lockdep. On snd-aloop, a grid of 1 to 128 channels at 8 to
-192 kHz gives the same results as before that commit, and SETFRAGMENT,
-mmap and a playback and capture pair work as before.
-
- sound/core/oss/pcm_oss.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
-
-diff --git a/sound/core/oss/pcm_oss.c b/sound/core/oss/pcm_oss.c
-index 66162caa45d4..3c2ac8966d5e 100644
---- a/sound/core/oss/pcm_oss.c
-+++ b/sound/core/oss/pcm_oss.c
-@@ -921,7 +921,8 @@ static int snd_pcm_oss_change_params_locked(struct snd_pcm_substream *substream)
- 		goto failure;
- 	}
-  format_found:
--	err = _snd_pcm_hw_param_set(sparams, SNDRV_PCM_HW_PARAM_FORMAT, sformat, 0);
-+	err = snd_pcm_hw_param_set(substream, sparams,
-+				   SNDRV_PCM_HW_PARAM_FORMAT, sformat, 0);
- 	if (err < 0)
- 		goto failure;
+diff --git a/drivers/platform/x86/lenovo/Kconfig b/drivers/platform/x86/lenovo/Kconfig
+index 516594993073..f16b09bab082 100644
+--- a/drivers/platform/x86/lenovo/Kconfig
++++ b/drivers/platform/x86/lenovo/Kconfig
+@@ -63,6 +63,8 @@ config LENOVO_YMC
+ 	depends on INPUT
+ 	depends on IDEAPAD_LAPTOP
+ 	select INPUT_SPARSEKMAP
++	select LENOVO_WMI_EVENTS
++	select LENOVO_WMI_HELPERS
+ 	help
+ 	  This driver maps the Tablet Mode Control switch to SW_TABLET_MODE input
+ 	  events for Lenovo Yoga notebooks.
+diff --git a/drivers/platform/x86/lenovo/wmi-events.c b/drivers/platform/x86/lenovo/wmi-events.c
+index 01ad5bcf0437..a0ddea01213f 100644
+--- a/drivers/platform/x86/lenovo/wmi-events.c
++++ b/drivers/platform/x86/lenovo/wmi-events.c
+@@ -21,6 +21,7 @@
+ #include "wmi-helpers.h"
  
+ #define THERMAL_MODE_EVENT_GUID "D320289E-8FEA-41E0-86F9-911D83151B5F"
++#define YOGA_MODE_CHANGE_EVENT_GUID "06129D99-6083-4164-81AD-F092F9D773A6"
+ 
+ #define LWMI_EVENT_DEVICE(guid, type)                        \
+ 	.guid_string = (guid), .context = &(enum lwmi_events_type) \
+@@ -123,6 +124,7 @@ static void lwmi_events_notify(struct wmi_device *wdev, const struct wmi_buffer
+ 	struct lwmi_events_priv *priv = dev_get_drvdata(&wdev->dev);
+ 	void *notif_data = NULL;
+ 	int sel_prof;
++	u32 ymc_mode;
+ 	int ret;
+ 
+ 	switch (priv->type) {
+@@ -143,6 +145,10 @@ static void lwmi_events_notify(struct wmi_device *wdev, const struct wmi_buffer
+ 			return;
+ 		}
+ 		break;
++	case LWMI_EVENT_YOGA_MODE_CHANGE:
++		ymc_mode = le32_to_cpup(buf->data);
++		notif_data = &ymc_mode;
++		break;
+ 	default:
+ 		return;
+ 	}
+@@ -175,6 +181,7 @@ static int lwmi_events_probe(struct wmi_device *wdev, const void *context)
+ 
+ static const struct wmi_device_id lwmi_events_id_table[] = {
+ 	{ LWMI_EVENT_DEVICE(THERMAL_MODE_EVENT_GUID, LWMI_EVENT_THERMAL_MODE) },
++	{ LWMI_EVENT_DEVICE(YOGA_MODE_CHANGE_EVENT_GUID, LWMI_EVENT_YOGA_MODE_CHANGE) },
+ 	{}
+ };
+ 
+diff --git a/drivers/platform/x86/lenovo/wmi-events.h b/drivers/platform/x86/lenovo/wmi-events.h
+index cd34e886912c..592da08ff2a3 100644
+--- a/drivers/platform/x86/lenovo/wmi-events.h
++++ b/drivers/platform/x86/lenovo/wmi-events.h
+@@ -10,6 +10,7 @@ struct notifier_block;
+ 
+ enum lwmi_events_type {
+ 	LWMI_EVENT_THERMAL_MODE = 1,
++	LWMI_EVENT_YOGA_MODE_CHANGE = 2,
+ };
+ 
+ int lwmi_events_register_notifier(struct notifier_block *nb);
+diff --git a/drivers/platform/x86/lenovo/ymc.c b/drivers/platform/x86/lenovo/ymc.c
+index eba22600161e..cb3ae49dfd9e 100644
+--- a/drivers/platform/x86/lenovo/ymc.c
++++ b/drivers/platform/x86/lenovo/ymc.c
+@@ -3,22 +3,25 @@
+  * lenovo-ymc.c - Lenovo Yoga Mode Control driver
+  *
+  * Copyright © 2022 Gergo Koteles <soyer@irl.hu>
++ * Copyright © 2026 Rong Zhang <i@rong.moe>
+  */
+ 
+ #define pr_fmt(fmt) KBUILD_MODNAME ": " fmt
+ 
+-#include <linux/acpi.h>
+ #include <linux/bitfield.h>
+ #include <linux/bits.h>
+ #include <linux/cleanup.h>
++#include <linux/container_of.h>
+ #include <linux/dmi.h>
+ #include <linux/input.h>
+ #include <linux/input/sparse-keymap.h>
+ #include <linux/mutex.h>
++#include <linux/notifier.h>
+ #include <linux/wmi.h>
+ #include "ideapad-laptop.h"
++#include "wmi-events.h"
++#include "wmi-helpers.h"
+ 
+-#define LENOVO_YMC_EVENT_GUID	"06129D99-6083-4164-81AD-F092F9D773A6"
+ #define LENOVO_YMC_QUERY_GUID	"09B0EE6E-C3FD-4243-8DA1-7911FF80BB8C"
+ 
+ #define LENOVO_YMC_QUERY_INSTANCE 0
+@@ -61,8 +64,10 @@ static const struct dmi_system_id allowed_chasis_types_dmi_table[] = {
+ };
+ 
+ struct lenovo_ymc_private {
++	struct wmi_device *wdev;
+ 	struct input_dev *input_dev;
+ 	struct mutex mutex; /* Protects event handling. */
++	struct notifier_block nb;
+ };
+ 
+ static const struct key_entry lenovo_ymc_keymap[] = {
+@@ -75,49 +80,44 @@ static const struct key_entry lenovo_ymc_keymap[] = {
+ 	{ KE_END },
+ };
+ 
+-static void lenovo_ymc_notify(struct wmi_device *wdev, union acpi_object *data)
++static void lenovo_ymc_refresh(struct lenovo_ymc_private *priv, u32 code)
+ {
+-	struct lenovo_ymc_private *priv = dev_get_drvdata(&wdev->dev);
+-	u32 input_val = 0;
+-	struct acpi_buffer input = { sizeof(input_val), &input_val };
+-	struct acpi_buffer output = { ACPI_ALLOCATE_BUFFER, NULL };
+-	union acpi_object *obj;
+-	acpi_status status;
+-	int code;
++	struct wmi_device *wdev = priv->wdev;
++	u32 input = 0, output;
++	int ret;
+ 
+ 	guard(mutex)(&priv->mutex);
+ 
+-	status = wmi_evaluate_method(LENOVO_YMC_QUERY_GUID,
+-				LENOVO_YMC_QUERY_INSTANCE,
+-				LENOVO_YMC_QUERY_METHOD,
+-				&input, &output);
+-
+-	if (ACPI_FAILURE(status)) {
+-		dev_warn(&wdev->dev,
+-			"Failed to evaluate query method: %s\n",
+-			acpi_format_exception(status));
+-		return;
+-	}
+-
+-	obj = output.pointer;
+-
+-	if (obj->type != ACPI_TYPE_INTEGER) {
+-		dev_warn(&wdev->dev,
+-			"WMI event data is not an integer\n");
+-		goto free_obj;
+-	}
++	ret = lwmi_dev_evaluate_int(wdev, LENOVO_YMC_QUERY_INSTANCE, LENOVO_YMC_QUERY_METHOD,
++				    (unsigned char *)&input, sizeof(input), &output);
++	if (ret)
++		dev_warn(&wdev->dev, "Failed to invoke query method: %d\n", ret);
++	else
++		code = output;
+ 
+ 	/* strip upper bits (e.g. 0x50000) on newer devices */
+-	code = FIELD_GET(LENOVO_YMC_STATE_MASK, obj->integer.value);
++	code = FIELD_GET(LENOVO_YMC_STATE_MASK, code);
+ 
+ 	if (!sparse_keymap_report_event(priv->input_dev, code, 1, true))
+ 		dev_warn(&wdev->dev, "Unknown key %d pressed\n", code);
+ 
+-free_obj:
+-	kfree(obj);
+ 	ideapad_laptop_call_notifier(IDEAPAD_LAPTOP_YMC_EVENT, &code);
+ }
+ 
++static int lenovo_ymc_notify(struct notifier_block *nb, unsigned long action, void *data)
++{
++	struct lenovo_ymc_private *priv = container_of(nb, struct lenovo_ymc_private, nb);
++	const u32 *p = data;
++
++	switch (action) {
++	case LWMI_EVENT_YOGA_MODE_CHANGE:
++		lenovo_ymc_refresh(priv, *p);
++		return NOTIFY_OK;
++	default:
++		return NOTIFY_DONE;
++	}
++}
++
+ static int lenovo_ymc_probe(struct wmi_device *wdev, const void *ctx)
+ {
+ 	struct lenovo_ymc_private *priv;
+@@ -147,7 +147,7 @@ static int lenovo_ymc_probe(struct wmi_device *wdev, const void *ctx)
+ 		return err;
+ 
+ 	input_dev->name = "Lenovo Yoga Tablet Mode Control switch";
+-	input_dev->phys = LENOVO_YMC_EVENT_GUID "/input0";
++	input_dev->phys = LENOVO_YMC_QUERY_GUID "/input0";
+ 	input_dev->id.bustype = BUS_HOST;
+ 	input_dev->dev.parent = &wdev->dev;
+ 	err = sparse_keymap_setup(input_dev, lenovo_ymc_keymap, NULL);
+@@ -164,16 +164,24 @@ static int lenovo_ymc_probe(struct wmi_device *wdev, const void *ctx)
+ 		return err;
+ 	}
+ 
++	priv->wdev = wdev;
+ 	priv->input_dev = input_dev;
++	priv->nb.notifier_call = lenovo_ymc_notify;
+ 	dev_set_drvdata(&wdev->dev, priv);
+ 
++	err = devm_lwmi_events_register_notifier(&wdev->dev, &priv->nb);
++	if (err) {
++		dev_err(&wdev->dev, "Could not register YMC events notifier: %d\n", err);
++		return err;
++	}
++
+ 	/* Report the state for the first time on probe */
+-	lenovo_ymc_notify(wdev, NULL);
++	lenovo_ymc_refresh(priv, YMC_POSTURE_UNKNOWN);
+ 	return 0;
+ }
+ 
+ static const struct wmi_device_id lenovo_ymc_wmi_id_table[] = {
+-	{ .guid_string = LENOVO_YMC_EVENT_GUID },
++	{ .guid_string = LENOVO_YMC_QUERY_GUID },
+ 	{ }
+ };
+ MODULE_DEVICE_TABLE(wmi, lenovo_ymc_wmi_id_table);
+@@ -181,16 +189,19 @@ MODULE_DEVICE_TABLE(wmi, lenovo_ymc_wmi_id_table);
+ static struct wmi_driver lenovo_ymc_driver = {
+ 	.driver = {
+ 		.name = "lenovo-ymc",
++		.probe_type = PROBE_PREFER_ASYNCHRONOUS,
+ 	},
+ 	.id_table = lenovo_ymc_wmi_id_table,
+-	.min_event_size = sizeof(u32),
+ 	.probe = lenovo_ymc_probe,
+-	.notify = lenovo_ymc_notify,
++	.no_singleton = true,
+ };
+ 
+ module_wmi_driver(lenovo_ymc_driver);
+ 
+ MODULE_AUTHOR("Gergo Koteles <soyer@irl.hu>");
++MODULE_AUTHOR("Rong Zhang <i@rong.moe>");
+ MODULE_DESCRIPTION("Lenovo Yoga Mode Control driver");
+ MODULE_LICENSE("GPL");
+ MODULE_IMPORT_NS("IDEAPAD_LAPTOP");
++MODULE_IMPORT_NS("LENOVO_WMI_EVENTS");
++MODULE_IMPORT_NS("LENOVO_WMI_HELPERS");
 
-base-commit: 5a6fcabe156e91c6ef2435a74f2d16e6dd39f7c7
 -- 
-2.53.0
+2.55.0
 
