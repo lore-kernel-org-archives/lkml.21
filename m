@@ -1,79 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.49
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
 	t=1795638327;
-	b=uWNmC6ZNUr1OChu1juWIRfCWrfaV2hD3FRHYcdvNTjsE1WQ3yC7dgs27cJfA5k2pl3Uk
-	 DL20R5xlrLmnEz2jZV/ovng2fAwGIc3FMKE5YxEh5gSFZaw8zmj9j3bbvD7CiGDXtE5Hs
-	 axHiCyVI5mB0P60r4HU6ptfBk1x8kiNtW4hazy6Lm5971ahnxpBzY4Us8yoDoV/UgWu71
-	 ZBjCH20nhZYd1aKw5g87CzUD7aQvHfz6JG/6vJ7cOrC8aagt0m1KHMOkLZAEprVZ+nXAY
-	 vhk5Yya4GtIyUpYBSbtH7G29tR8HcqVlDOBZQdeDAGc9EybJRxZ8QO0FcYGEqakZ5iw==
+	b=13cnipzvSptRuk9rvQu2QBkjQL1wUYsu5MhSP6P6bv2MB0QDpbFI/uVOcp/8qWioLBOw
+	 4cZe+cZCZfGZv3Y0Y9BPrpid0AzmId2/urdbf7mQfvyB3vV26zZ42qK+lVexoqyEntmR5
+	 EIsIFaO8t5sWdKVnjR1WJTlFquaeHrXg/BdaDutDzvN+7OXjDFVmDL2EZ3nd7l8HZI+9P
+	 uj+D8iytOXC1nq5WPuTRtSpq/bszlNWIOKxdtmG3HhOlA1i9SZYU7XGxQjkTeuEMuCios
+	 Y6Aprov9eP6BFNgqvsyAdePK8L7e7nD+EkYjfI05U+mnrB5gERdZg3Mx16fvj4YAY5w==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795638327;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=mjvmaImFB+1XxEwcSJFzMYM546bN/yyEMMwuHcQOY1E=;
-	b=R+RP6mEAUYA55DzcYloJWsndxXniHH/iNlvoLLSevJqe1fJK4y1OZy3cQK2geHjlFLVG
-	 NpnzIQ/TEjinw+1Ul3xK2nLcDzW3rbSjp9/S8lUlfMgVjaO0YsLLkg4QVgwp37Bz1SLpQ
-	 GAePCha257ItHaslps2yBURpEXl4Tn6QdkrnSunRwVPjzO2LvvwnYS29/ZzDhLoBxaFOp
-	 tOKc6+yh7KskCp9ZqrnkKHljulHzTOu5YCoPN/xMhBlkylW113JJ2DmMEnWbprILH8mvB
-	 wi0sFS0qjvE23M/Lz8xNKoAwYj3/iZZeg4w2s9MDXbVm5KR3NTUdRrk4jDGmTqVLcBQ==
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=iLkN+MWQxnheW7WlW33tdTgTSE87b9Cd5EByIUSUt0Y=;
+	b=OBtTG+GxvSZl0mQ8LWXy32+jgjaIoR6ZhhdyoCdaIUYqsEKfuc6C0hmZ+6cfqPJlwh1L
+	 efFFpmuzDuSkZW2IJHmsNFkKfkbXNCtNrmA1mCEg5GJR44tDBGhEHq+ay0oG+GQC1ynpi
+	 1gKMU14mu3bVfgg4Wy45uYYk55l0cLP9XtCKw4hquHAQkEWtu60HDT4jwKSCjbzyw8+pD
+	 56bIRa2ntSSPG6SkBiTk7Yh5qXdMTWajEF5v+V4qhvO/dynOrPTv9NYt2fGe1siM382/W
+	 H1VvvSXNvLgws3o85Buv+uNtJxZ0u9zyFCzk+YCqRDod3ihMZdotGey0aXsJIrC3Yvw==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="CY4/B4UC";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 58B58606A683;
-	Wed, 25 Nov 2026 20:25:27 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CY4/B4UC
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795638327;
-	b=bYqqZfkkaoKRih6IMTV+5Ne+8jNOQVJAgVszUt0og+DQYMnfQq3Umao17y+gbIwPcSD+
-	 RbI4OeP3elljng8fGv/prn2mjhor26bQqZZHzFF4nT6VkUIXgo1eJZOqkSDQnSzQl3R4u
-	 0nLPfi0uMx8BN9jiA3bqO2azDCQOzD5vnk+4cgUccuRNqjrXXLVy0XD9w3gVpzHPyHGdS
-	 RDquLyUe1CsUnwFhOEv/GPzqcwKnoKLCDIY9gJfVpUu8TKrpyL5y7uDLzx2EDk1WsEAmO
-	 pp9svg6KRTOOub3gMS+2dMDcVnkS8HOhYRyJRYxzn7a8SCeaC6tJFRmNlgODxsbq9tg==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795638327;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=mjvmaImFB+1XxEwcSJFzMYM546bN/yyEMMwuHcQOY1E=;
-	b=bD6/jx+kvNacFoyMKU6EGWtbQdeUGJ1xuXb9dmF4EzM1WgTcuHdR4AtelLbWGzfx5he7
-	 DQZUcI2xVxHhX6/3r8hxAgKKx+0L8faEYFwdpffCBICwkviFluB1teLz6KRGc2gfiW/uH
-	 4BVOKWSX0ROmU6i3gMX+lqLjRnO4H0yNlacRPqpCGGQ2dP8h52ccAvk/Io5x4B2JDo+js
-	 WTod6EEBssk1QhlVbqSKcIVSGxBFOL0Iu1a0LXYRIw0QCGCPBGCZVsewtjypjQxc8Zc/x
-	 y75ROwlNbEVATTebmGB2HxCpOoE4K2y49gXTNzQKrf3LhQkguJuxKkygRJ3acu3hV2g==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=VGTkEe60;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.49
+Received: from mail-wr1-f49.google.com (mail-wr1-f49.google.com [209.85.221.49])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 4D78D1F000D4;
-	Wed, 25 Nov 2026 20:24:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795638327;
-	bh=mjvmaImFB+1XxEwcSJFzMYM546bN/yyEMMwuHcQOY1E=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=CY4/B4UCOuUHMh52U4HZ8Y2tdBDtbBPqfPkIjTU7pJUCOHexpRk/hQJNDYpyzOCX6
-	 9A/l0tbovBXxAuJ3Lhbpk1YYnc/1mOQ3VY1Z1LBCPFaL0SWNnOAk3sU0NtqFqCifLX
-	 yYOhE+YRrSAYXg2l4zVDRKkjrV+qyeW9AE9ajv+vxeEfYK6xS4gblmgjAD75L8fof4
-	 +iNK31GKLyPBZ2itzUC+5TDFNMsDwck/pCgM8ieWCnBoDhrJDUVxj+I83qWJlyFz0j
-	 uAuR7zkcTz1jSk3aZ5pNDX09GAg9+cvT7T73wfJrBR3QuBiPI67Hfl0OUuGPCLyWXZ
-	 BJVCS7OIs+1jQ==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id E2E2E4D035;
-	Wed, 25 Nov 2026 20:24:55 +0000 (UTC)
-From: Joseph Telaak via B4 Relay <devnull+joseph.telaak.dev@kernel.org>
-Date: Wed, 25 Nov 2026 15:24:53 -0500
-Subject: [PATCH v6 6/6] reset: Add Siflower SF19A2890 peripheral reset
- driver
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E7AD9606A33F
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 20:25:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E7AD9606A33F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=VGTkEe60
+Received: by mail-wr1-f49.google.com with SMTP id ffacd0b85a97d-49412eb1474so4049092f8f.3
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 12:25:26 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795638325; cv=none;
+        d=google.com; s=arc-20260327;
+        b=l5qw87NFjQ8Zd8BQUfb5AwEmpcusr9cLhD+XdrB2lmyFUaE0yO0hkPCfvyANFRPyoy
+         mjPNKDwzl3IPWPr6kccRrXYTAJvwyrkpS+yK8vb1e1cg9ZkKdieNkM8vlxIYj7xrhacR
+         acOhR8A6Ck1NADyD6hyl6ZyjE/HG3i+PKwBI9dDjfo3W90KX6HOKxdDq6o1FEIMkN5PZ
+         b4pjYkVi0JXboQrnY9NixSUq4XL36uEwk+su7tU7eAvRCwfiWqjeChWdPc8iz7kihScr
+         bcU5eZGPsKRqyJcywOJcahTH4Ssb95MDh2Ce0nva/GGY7psu7TO0rz/TpIbE/gt7g8rv
+         EnYQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=iLkN+MWQxnheW7WlW33tdTgTSE87b9Cd5EByIUSUt0Y=;
+        fh=m1MkNeAACuMr1lJBrllOE2blNFI3sUIJTiIwyE6XjD4=;
+        b=J0zfsMU+UUqZ2ryntW3scL2kDapUEpMIn+PfRZVTrCOLXNrMwgBzjtX6hMqZEsqRfg
+         mX+MPyr+k1RqrebqpQDNBcnmUXdsrFgQHZWPioPjGNdEDp9L3JheLQjRQrp5n4/yAGxE
+         nni2GnxUbBXKei4t8R80mqYarVLf0lm/iOzJpl9wbRj6N/hTlxrSYV8JZ3fM+0k44pad
+         tRtoIlnURNH2wjLeuZri/rCKrB30iYURdjuS9Q+nMaJJB+gC5cmqxjryAfGC4uK4szQa
+         KcckQVKw4oA6o3rHnNzqDz6dQ/nIUVHf3dC5yvISid24MhiatZuA0o4swhaabmCI+FRh
+         JjSw==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795638325; x=1796243125; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=iLkN+MWQxnheW7WlW33tdTgTSE87b9Cd5EByIUSUt0Y=;
+        b=VGTkEe60t+uBwP6aPNkx43z8z6QVDU++15cRElqDwWfUU1e3fenr6BMJd5yqV3dDA9
+         eA8oe5NrXkEHwUBl11jkg8wDy9tp6iawyGZI+I0+8a2wm/AuGn7WAhBNnP2di4ncRBvi
+         GP3YhRSf4B9UmdV7WIelY3jLTHdu0tTd4bRuWc/VAf3Fh8E191oj8H4DZfnmEdqvuSvf
+         lvk5witmPseoMyw5ddMdhJcD0iLXJtwNtHf9gbVkgQ0gxiXToJG0KG+IUwwsY4py2sxa
+         ccRb9lzGiloOKwBt5gcRe4juUs/njCMJygqqqKLSHmyPKP/n+m05YI4EMSm+xl9SMO+n
+         fT7w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795638325; x=1796243125;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=iLkN+MWQxnheW7WlW33tdTgTSE87b9Cd5EByIUSUt0Y=;
+        b=DYIiJ2oVIg1Ym3SfYpXVgIDXyIuBMwczq/MTTY65/ENe+HKMPVH7fTas4j4BU9fAKn
+         E+TdkD3uT21CwfHA9Js0vNLkDW85PvQyLxtG+UnIAaMLn5Ce10p0xSofe/3ssfV6z9av
+         KOl4GooNFWLDqxk2TDXOn0gDML4lPtxYGWhJlsQQzhFUZy9/n+QhfNPxcHLHn50GczeP
+         DBfbciTScwVLhrWYUpw9CIqc7tiDZap/paAJYykV7orUbm6RLqg7wZy3cwXD+25wHOGj
+         I3KizdkQbPNUfbAFx6odxOao4Nde/YPYnZI3tmJ4N6N3Ev/kT4fvgdQBKHAJ/qH/Fyd6
+         7Liw==
+X-Forwarded-Encrypted: i=1; AL+hErGZD886Sr+UUG/B1a6ZdN0GmkbaSaB/FuNv6ATwptaFfMmmJVOfGZo8DDQmUu7rvtsP6jNJa3ethz1erlc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+/x/YMrOzF5tt5mZZCwALaPGr9g6/Ix84nnw1Le3r4I3+++UVQ
+	STEsVzKnaHOy8E+2jx+ZYAeCRZl6O/w5qTlohgqFmXE/SEQQnQOuOA2MWJzslXCe6kliRk/69hj
+	H/UJTRK225HdCu5U+v7/VymRbMa1pkiw=
+X-Gm-Gg: AZFdTZdTgW0sb54XEJaSTK480isSwA3ehKAZ4qJ/TFbwoVkQXrnZShshVVrr58eHwwa
+	9R7KfesCU4lRfMwhwLKZtD1ck40J1HqyhKFV02U+ia17R1sCfTXoC7+FLgz3K9lRqv8rPx8kvne
+	4l4p0TRqQS3Orl8ILI9DYWDDd9dfMYFL79FXE9/ZfWVq4YN6M/7rTVWXnG5OWhMBnl0Msipa/zk
+	YYWUsNUffdOYy1xR0KV2Wp4mVc6AiO6wJmLZpHcUijaHdAeU8icE2B0iO3SFWskmiudcBVHnd19
+	191XfiyJo+Z6Elxoo+jpF4bCD17VggCTZaLh0yt/1vgIbFBPM2QJe5U6yG0yQX8Q3wzs0H8ne+H
+	7iLCFkDpirQWMLS5g08FcRYaNdel25UehheN9zstJ2UcVNcQAbWzDrE1llngPq0C1TeCnsh2JYF
+	qshPcT6hyT+YSHWCiIQQ8GLdLWfs0XmI73/2B2DaY=
+X-Received: by 2002:a05:600c:46cc:b0:4bb:6f41:399f with SMTP id
+ 5b1f17b1804b1-4bb888236a3mr398384805e9.24.1795638325248; Wed, 25 Nov 2026
+ 12:25:25 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,309 +105,199 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261125-sf19a2890-sysm-v6-6-181875c10682@telaak.dev>
-References: <20261125-sf19a2890-sysm-v6-0-181875c10682@telaak.dev>
-In-Reply-To: <20261125-sf19a2890-sysm-v6-0-181875c10682@telaak.dev>
-To: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
- Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>
-Cc: Paul Burton <paulburton@kernel.org>, 
- Jiaxun Yang <jiaxun.yang@flygoat.com>, Chuanhong Guo <gch981213@gmail.com>, 
- Yao Zi <me@ziyao.cc>, 
- =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
- linux-mips@vger.kernel.org, linux-clk@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Joseph Telaak <joseph@telaak.dev>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795638294; l=9822;
- i=joseph@telaak.dev; s=20261104; h=from:subject:message-id;
- bh=erSumJvPtRKGfELrVfiKPo+Ic3ADjyGrMETiodgT1qU=;
- b=qUlvUzdyDHOLQWJ+uGjBvWpd4CpunDZhcJtgA9+34BTJV84uypyIphRqWYF3plQ0+cXkMUUdn
- iCT1S8iR+XmCtXRbWPcbNhUWtNDwN5D5c/Nm1hxIbjzUrAqsPctkUgF
-X-Developer-Key: i=joseph@telaak.dev; a=ed25519;
- pk=oQI+UfddlZ0wK2ac4WKOGNjUl1ZEN8j9ZVFSqEDoNP0=
-X-Endpoint-Received: by B4 Relay for joseph@telaak.dev/20261104 with
- auth_id=1404
-X-Original-From: Joseph Telaak <joseph@telaak.dev>
-Reply-To: joseph@telaak.dev
-Content-Transfer-Encoding: 7bit
+References: <20261113221248.3535369-11-wusamuel@google.com> <20261113221248.3535369-19-wusamuel@google.com>
+In-Reply-To: <20261113221248.3535369-19-wusamuel@google.com>
+From: Andrii Nakryiko <andrii.nakryiko@gmail.com>
+Date: Wed, 25 Nov 2026 12:25:13 -0800
+X-Gm-Features: Aa3M54rCmMPBEx135c6vF9MhBqdEKKVbA2tVr-knpTqUbo_Og9Fm0v--QDk1gek
+Message-ID: <CAEf4Bza48tGhcUhFRhSSv3qijV0uF8YrAQcLM6Qv9az-8zvK_Q@mail.gmail.com>
+Subject: Re: [PATCH bpf-next v3 8/9] libbpf: Resolve typeless ksyms via
+ KALLSYMS_QUERY_BY_NAME ioctl
+To: Samuel Wu <wusamuel@google.com>
+Cc: Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
+	Randy Dunlap <rdunlap@infradead.org>, Luis Chamberlain <mcgrof@kernel.org>, 
+	Petr Pavlu <petr.pavlu@suse.com>, Daniel Gomez <da.gomez@kernel.org>, 
+	Sami Tolvanen <samitolvanen@google.com>, Aaron Tomlin <atomlin@atomlin.com>, 
+	Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, 
+	Andrii Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>, 
+	Ihor Solodrai <ihor.solodrai@linux.dev>, Alexei Starovoitov <ast@kernel.org>, 
+	Daniel Borkmann <daniel@iogearbox.net>, Kumar Kartikeya Dwivedi <memxor@gmail.com>, 
+	Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>, 
+	Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>, 
+	Emil Tsalapatis <emil@etsalapatis.com>, Nathan Chancellor <nathan@kernel.org>, 
+	Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>, 
+	Justin Stitt <justinstitt@google.com>, Andrew Morton <akpm@linux-foundation.org>, 
+	Petr Mladek <pmladek@suse.com>, David Laight <david.laight.linux@gmail.com>, kernel-team@android.com, 
+	linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
+	linux-doc@vger.kernel.org, linux-modules@vger.kernel.org, bpf@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, llvm@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-From: Joseph Telaak <joseph@telaak.dev>
+On Fri, Nov 13, 2026 at 2:14=E2=80=AFPM Samuel Wu <wusamuel@google.com> wro=
+te:
+>
+> libbpf parses all of /proc/kallsyms to resolve typeless ksyms.
+>
+> Use KALLSYMS_QUERY_BY_NAME instead: exact names, plus "<name>.llvm."
+> prefix matches. Ambiguous matches at different addresses fail the load.
+> A missing strong extern still fails and a missing weak extern is 0,
+> without a text scan.
+>
+> On any other error (e.g. -ENOTTY on older kernels, or -EPERM), fall back
+> to the text parser.
+>
+> Signed-off-by: Samuel Wu <wusamuel@google.com>
+> ---
+>  tools/lib/bpf/libbpf.c | 99 +++++++++++++++++++++++++++++++++++++++++-
+>  1 file changed, 97 insertions(+), 2 deletions(-)
+>
+> diff --git a/tools/lib/bpf/libbpf.c b/tools/lib/bpf/libbpf.c
+> index 44134421bd7d..f3f3475a64d3 100644
+> --- a/tools/lib/bpf/libbpf.c
+> +++ b/tools/lib/bpf/libbpf.c
+> @@ -59,6 +59,34 @@
+>  #define BPF_FS_MAGIC           0xcafe4a11
+>  #endif
+>
+> +#ifndef KALLSYMS_QUERY_BY_NAME
+> +/* 'f' is PROCFS_IOCTL_MAGIC */
+> +#define KALLSYMS_QUERY_BY_NAME _IOC(_IOC_READ | _IOC_WRITE, 'f', 48, 0)
+> +
+> +enum kallsyms_query_flags {
+> +       KALLSYMS_QUERY_NAME_PREFIX =3D 0x01,
+> +};
+> +
+> +struct kallsyms_query_sym {
+> +       __u64 sym_addr;
+> +       __u64 sym_size;
+> +       __u64 sym_name;
+> +       __u64 sym_name_len;
+> +       __u64 sym_module;
+> +       __u64 sym_module_len;
+> +};
+> +
+> +struct kallsyms_query_by_name {
+> +       __u64 size;
+> +       __u64 query_flags;
+> +       __u64 query_name;
+> +       __u64 module_filter;
+> +       __u64 pos;
+> +       __u64 sym;
+> +       __u64 sym_struct_size;
+> +};
+> +#endif
+> +
 
-Add a driver for the resets of the Siflower SF19A2890 peripheral clock
-and reset managers. It binds to the auxiliary device that their clock
-driver creates and uses the registers that driver has mapped. Where an
-IP has a reset line for each of its clock domains, as the PL011 UARTs
-and the PL022 SPI controller do, one reset drives all of them, since
-they have to be asserted together.
+there is no need for this, libbpf in kernel can use kernels' most up
+to date UAPI headers directly, and on Github we sync necessary UAPI
+headers into include/ directory, so libbpf source code can be built
+with latest definitions of kernel UAPI. So you can drop this part
 
-Based on the reset part of the driver in Chuanhong Guo's SF19A2890
-branch.
+>  #define MAX_EVENT_NAME_LEN     64
+>
+>  #define BPF_FS_DEFAULT_PATH "/sys/fs/bpf"
+> @@ -9421,8 +9449,75 @@ static int kallsyms_cb(unsigned long long sym_addr=
+, char sym_type,
+>         return 0;
+>  }
+>
+> -static int bpf_object__read_kallsyms_file(struct bpf_object *obj)
+> +static int query_ksym_by_name(int fd, struct extern_desc *ext, bool lto_=
+prefix)
+> +{
+> +       struct kallsyms_query_sym sym =3D {};
+> +       struct kallsyms_query_by_name q =3D {
+> +               .size =3D sizeof(q),
+> +               .query_flags =3D lto_prefix ? KALLSYMS_QUERY_NAME_PREFIX =
+: 0,
+> +               .query_name =3D ptr_to_u64(ext->name),
+> +               .sym =3D ptr_to_u64(&sym),
+> +               .sym_struct_size =3D sizeof(sym),
+> +       };
+> +       char prefix_buf[512];
+> +       int n;
+> +
+> +       if (lto_prefix) {
+> +               n =3D snprintf(prefix_buf, sizeof(prefix_buf), "%s.llvm."=
+, ext->name);
+> +               if (n < 0 || n >=3D sizeof(prefix_buf))
+> +                       return 0;
+> +               q.query_name =3D ptr_to_u64(prefix_buf);
+> +       }
+> +
+> +       while (!ioctl(fd, KALLSYMS_QUERY_BY_NAME, &q)) {
+> +               if (!ext->is_set) {
+> +                       ext->is_set =3D true;
+> +                       ext->ksym.addr =3D sym.sym_addr;
+> +                       pr_debug("extern (ksym) '%s': set to 0x%llx\n",
+> +                                ext->name, ext->ksym.addr);
+> +               } else if (sym.sym_addr !=3D ext->ksym.addr) {
+> +                       pr_warn("extern (ksym) '%s': resolution is ambigu=
+ous: 0x%llx or 0x%llx\n",
+> +                               ext->name, ext->ksym.addr,
+> +                               (unsigned long long)sym.sym_addr);
+> +                       return -EADDRNOTAVAIL;
 
-Link: https://github.com/981213/linux/commit/37c81bebaf54
-Co-developed-by: Chuanhong Guo <gch981213@gmail.com>
-Signed-off-by: Chuanhong Guo <gch981213@gmail.com>
-Signed-off-by: Joseph Telaak <joseph@telaak.dev>
----
- MAINTAINERS                               |   1 +
- drivers/reset/Kconfig                     |  12 ++
- drivers/reset/Makefile                    |   1 +
- drivers/reset/reset-sf19a2890-periphcrm.c | 195 ++++++++++++++++++++++++++++++
- 4 files changed, 209 insertions(+)
+I think there is ENOTUNIQ which we can utilize here
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 34ff7ec0b60e..ae47322d15dd 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -25706,6 +25706,7 @@ F:	Documentation/devicetree/bindings/clock/siflower,sf19a2890-clk.yaml
- F:	Documentation/devicetree/bindings/clock/siflower,sf19a2890-periph-crm.yaml
- F:	drivers/clk/siflower/clk-sf19a2890-periphcrm.c
- F:	drivers/clk/siflower/clk-sf19a2890.c
-+F:	drivers/reset/reset-sf19a2890-periphcrm.c
- F:	include/dt-bindings/clock/siflower,sf19a2890-clk.h
- F:	include/dt-bindings/clock/siflower,sf19a2890-periph-crm.h
- 
-diff --git a/drivers/reset/Kconfig b/drivers/reset/Kconfig
-index eda9c698a95f..fe7beb2530b2 100644
---- a/drivers/reset/Kconfig
-+++ b/drivers/reset/Kconfig
-@@ -295,6 +295,18 @@ config RESET_SCMI
- 	  This driver uses SCMI Message Protocol to interact with the
- 	  firmware controlling all the reset signals.
- 
-+config RESET_SF19A2890_PERIPHCRM
-+	tristate "Siflower SF19A2890 peripheral reset controller"
-+	depends on MACH_SIFLOWER_MIPS || COMPILE_TEST
-+	depends on OF
-+	select AUXILIARY_BUS
-+	default CLK_SF19A2890_PERIPHCRM
-+	help
-+	  Supports the resets of the peripheral clock and reset managers of
-+	  the Siflower SF19A2890, one manager for each peripheral block.
-+	  The driver binds to the auxiliary device that their clock driver
-+	  creates, so it needs CLK_SF19A2890_PERIPHCRM to do anything.
-+
- config RESET_SIMPLE
- 	bool "Simple Reset Controller Driver" if COMPILE_TEST || EXPERT
- 	default ARCH_ASPEED || ARCH_BCMBCA || ARCH_BITMAIN || ARCH_REALTEK || ARCH_SOPHGO || ARCH_STM32 || (ARCH_INTEL_SOCFPGA && ARM64) || ARCH_SUNXI || ARC
-diff --git a/drivers/reset/Makefile b/drivers/reset/Makefile
-index 489fafd6bbe3..d4b707505c3d 100644
---- a/drivers/reset/Makefile
-+++ b/drivers/reset/Makefile
-@@ -39,6 +39,7 @@ obj-$(CONFIG_RESET_RASPBERRYPI) += reset-raspberrypi.o
- obj-$(CONFIG_RESET_RZG2L_USBPHY_CTRL) += reset-rzg2l-usbphy-ctrl.o
- obj-$(CONFIG_RESET_RZV2H_USB2PHY) += reset-rzv2h-usb2phy.o
- obj-$(CONFIG_RESET_SCMI) += reset-scmi.o
-+obj-$(CONFIG_RESET_SF19A2890_PERIPHCRM) += reset-sf19a2890-periphcrm.o
- obj-$(CONFIG_RESET_SIMPLE) += reset-simple.o
- obj-$(CONFIG_RESET_SKY1) += reset-sky1.o
- obj-$(CONFIG_RESET_SKY1_AUDSS) += reset-sky1-audss.o
-diff --git a/drivers/reset/reset-sf19a2890-periphcrm.c b/drivers/reset/reset-sf19a2890-periphcrm.c
-new file mode 100644
-index 000000000000..17f24f773fac
---- /dev/null
-+++ b/drivers/reset/reset-sf19a2890-periphcrm.c
-@@ -0,0 +1,195 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Siflower SF19A2890 peripheral reset driver
-+ *
-+ * The peripheral clock and reset managers keep their resets in the first
-+ * register of the block. Their clock driver creates an auxiliary device for
-+ * them and passes the mapped registers in its platform data.
-+ */
-+
-+#include <linux/auxiliary_bus.h>
-+#include <linux/bits.h>
-+#include <linux/device.h>
-+#include <linux/io.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/reset-controller.h>
-+#include <linux/spinlock.h>
-+
-+#include <dt-bindings/clock/siflower,sf19a2890-periph-crm.h>
-+
-+#define REG_RESET	0x0
-+
-+struct sf19a2890_periphrst_data {
-+	/*
-+	 * A reset mask that covers several bits drives the reset lines of all
-+	 * the clock domains of one IP, which have to be asserted together.
-+	 */
-+	const u32 *masks;
-+	unsigned int num_resets;
-+};
-+
-+struct sf19a2890_periphrst {
-+	struct reset_controller_dev rcdev;
-+	void __iomem *base;
-+	spinlock_t lock;	/* serializes reset register updates */
-+	const u32 *masks;
-+};
-+
-+static inline struct sf19a2890_periphrst *
-+rcdev_to_periphrst(struct reset_controller_dev *rcdev)
-+{
-+	return container_of(rcdev, struct sf19a2890_periphrst, rcdev);
-+}
-+
-+static int sf19a2890_periphrst_update(struct reset_controller_dev *rcdev,
-+				      unsigned long id, bool assert)
-+{
-+	struct sf19a2890_periphrst *rst = rcdev_to_periphrst(rcdev);
-+	u32 reg;
-+
-+	guard(spinlock_irqsave)(&rst->lock);
-+	reg = readl(rst->base + REG_RESET);
-+	if (assert)
-+		reg |= rst->masks[id];
-+	else
-+		reg &= ~rst->masks[id];
-+	writel(reg, rst->base + REG_RESET);
-+
-+	return 0;
-+}
-+
-+static int sf19a2890_periphrst_assert(struct reset_controller_dev *rcdev,
-+				      unsigned long id)
-+{
-+	return sf19a2890_periphrst_update(rcdev, id, true);
-+}
-+
-+static int sf19a2890_periphrst_deassert(struct reset_controller_dev *rcdev,
-+					unsigned long id)
-+{
-+	return sf19a2890_periphrst_update(rcdev, id, false);
-+}
-+
-+static int sf19a2890_periphrst_status(struct reset_controller_dev *rcdev,
-+				      unsigned long id)
-+{
-+	struct sf19a2890_periphrst *rst = rcdev_to_periphrst(rcdev);
-+
-+	return !!(readl(rst->base + REG_RESET) & rst->masks[id]);
-+}
-+
-+static const struct reset_control_ops sf19a2890_periphrst_ops = {
-+	.assert = sf19a2890_periphrst_assert,
-+	.deassert = sf19a2890_periphrst_deassert,
-+	.status = sf19a2890_periphrst_status,
-+};
-+
-+#define RST_DATA(_name)							\
-+	static const struct sf19a2890_periphrst_data sf19a2890_##_name##_rst = { \
-+		.masks = sf19a2890_##_name##_masks,			\
-+		.num_resets = ARRAY_SIZE(sf19a2890_##_name##_masks),	\
-+	}
-+
-+static const u32 sf19a2890_single_masks[] = { BIT(0) };
-+
-+RST_DATA(single);
-+
-+/* The two sides of an asynchronous AXI bridge */
-+static const u32 sf19a2890_gmac_masks[] = { [RST_GMAC] = GENMASK(1, 0) };
-+
-+RST_DATA(gmac);
-+
-+/* The AXI slave, AXI master and platform domains */
-+static const u32 sf19a2890_wlan_masks[] = { GENMASK(2, 0) };
-+
-+RST_DATA(wlan);
-+
-+/* The DWC2 controller's clock domains, then the PHY's */
-+static const u32 sf19a2890_usb_masks[] = {
-+	[RST_USB] = GENMASK(2, 0),
-+	[RST_USB_PHY_POR] = BIT(3),
-+	[RST_USB_PHY] = BIT(4),
-+};
-+
-+RST_DATA(usb);
-+
-+/* The PL022's PRESETn and nSSPRST */
-+static const u32 sf19a2890_spi_masks[] = { [RST_SPI] = GENMASK(5, 4) };
-+
-+RST_DATA(spi);
-+
-+/* Each PL011's PRESETn and nUARTRST */
-+static const u32 sf19a2890_uart_masks[] = {
-+	[RST_UART0] = BIT(0) | BIT(4),
-+	[RST_UART1] = BIT(1) | BIT(5),
-+	[RST_UART2] = BIT(2) | BIT(6),
-+};
-+
-+RST_DATA(uart);
-+
-+static const struct of_device_id sf19a2890_periphrst_ids[] = {
-+	{ .compatible = "siflower,sf19a2890-gmac-crm", .data = &sf19a2890_gmac_rst },
-+	{ .compatible = "siflower,sf19a2890-gpio-crm", .data = &sf19a2890_single_rst },
-+	{ .compatible = "siflower,sf19a2890-i2c-crm", .data = &sf19a2890_single_rst },
-+	{ .compatible = "siflower,sf19a2890-pwm-crm", .data = &sf19a2890_single_rst },
-+	{ .compatible = "siflower,sf19a2890-rf-crm", .data = &sf19a2890_wlan_rst },
-+	{ .compatible = "siflower,sf19a2890-spi-crm", .data = &sf19a2890_spi_rst },
-+	{ .compatible = "siflower,sf19a2890-timer-crm", .data = &sf19a2890_single_rst },
-+	{ .compatible = "siflower,sf19a2890-uart-crm", .data = &sf19a2890_uart_rst },
-+	{ .compatible = "siflower,sf19a2890-usb-crm", .data = &sf19a2890_usb_rst },
-+	{ .compatible = "siflower,sf19a2890-wdt-crm", .data = &sf19a2890_single_rst },
-+	{ .compatible = "siflower,sf19a2890-wlan24-crm", .data = &sf19a2890_wlan_rst },
-+	{ .compatible = "siflower,sf19a2890-wlan5-crm", .data = &sf19a2890_wlan_rst },
-+	{ /* sentinel */ }
-+};
-+
-+static int sf19a2890_periphrst_probe(struct auxiliary_device *adev,
-+				     const struct auxiliary_device_id *id)
-+{
-+	const struct sf19a2890_periphrst_data *data;
-+	struct device *dev = &adev->dev;
-+	const struct of_device_id *match;
-+	struct sf19a2890_periphrst *rst;
-+
-+	/* The OF node is the parent's, so device_get_match_data() cannot be used */
-+	match = of_match_node(sf19a2890_periphrst_ids, dev->of_node);
-+	if (!match)
-+		return -ENODEV;
-+	data = match->data;
-+
-+	rst = devm_kzalloc_obj(dev, *rst);
-+	if (!rst)
-+		return -ENOMEM;
-+
-+	rst->base = (void __iomem __force *)dev_get_platdata(dev);
-+	if (!rst->base)
-+		return -EINVAL;
-+
-+	spin_lock_init(&rst->lock);
-+	rst->masks = data->masks;
-+	rst->rcdev.owner = THIS_MODULE;
-+	rst->rcdev.nr_resets = data->num_resets;
-+	rst->rcdev.ops = &sf19a2890_periphrst_ops;
-+	rst->rcdev.of_node = dev->of_node;
-+	rst->rcdev.dev = dev;
-+
-+	return devm_reset_controller_register(dev, &rst->rcdev);
-+}
-+
-+static const struct auxiliary_device_id sf19a2890_periphrst_aux_ids[] = {
-+	{ .name = "clk_sf19a2890_periphcrm.reset" },
-+	{ /* sentinel */ }
-+};
-+MODULE_DEVICE_TABLE(auxiliary, sf19a2890_periphrst_aux_ids);
-+
-+static struct auxiliary_driver sf19a2890_periphrst_driver = {
-+	.probe = sf19a2890_periphrst_probe,
-+	.id_table = sf19a2890_periphrst_aux_ids,
-+};
-+module_auxiliary_driver(sf19a2890_periphrst_driver);
-+
-+MODULE_AUTHOR("Chuanhong Guo <gch981213@gmail.com>");
-+MODULE_AUTHOR("Joseph Telaak <joseph@telaak.dev>");
-+MODULE_DESCRIPTION("Siflower SF19A2890 peripheral reset driver");
-+MODULE_LICENSE("GPL");
+> +               }
+> +               q.pos++;
+> +       }
+> +
+> +       return errno =3D=3D ENOENT ? 0 : -errno;
+> +}
+> +
+> +static int bpf_object__resolve_typeless_ksyms(struct bpf_object *obj)
+>  {
+> +       struct extern_desc *ext;
+> +       int err =3D 0;
+> +       int fd;
+> +       int i;
+> +
+> +       fd =3D open("/proc/kallsyms", O_RDONLY | O_CLOEXEC);
+> +       if (fd < 0) {
+> +               err =3D -errno;
+> +               pr_warn("failed to open /proc/kallsyms: %s\n", errstr(err=
+));
+> +               return err;
+> +       }
+> +
+> +       for (i =3D 0; i < obj->nr_extern && !err; i++) {
+> +               ext =3D &obj->externs[i];
+> +               if (ext->type !=3D EXT_KSYM || ext->ksym.type_id)
+> +                       continue;
+> +
+> +               /* Check exact name and then LTO .llvm.<hash> prefix */
+> +               err =3D query_ksym_by_name(fd, ext, false);
+> +               if (!err)
+> +                       err =3D query_ksym_by_name(fd, ext, true);
 
--- 
-Git-155)
+err =3D err ?: query_ksym_by_name(fd, ext, true /* lto_prefix */);
 
 
+> +       }
+> +       close(fd);
+> +       if (!err || err =3D=3D -EADDRNOTAVAIL)
+> +               return err;
+> +
+> +       /* Other errors (e.g. -ENOTTY, -EPERM): parse the text file */
+> +       pr_debug("KALLSYMS_QUERY_BY_NAME failed (%s), falling back to /pr=
+oc/kallsyms\n",
+> +                errstr(err));
+>         return libbpf_kallsyms_parse(kallsyms_cb, obj);
+>  }
+>
+> @@ -9699,7 +9794,7 @@ static int bpf_object__resolve_externs(struct bpf_o=
+bject *obj,
+>                         return -EINVAL;
+>         }
+>         if (need_kallsyms) {
+> -               err =3D bpf_object__read_kallsyms_file(obj);
+> +               err =3D bpf_object__resolve_typeless_ksyms(obj);
+>                 if (err)
+>                         return -EINVAL;
+>         }
+> --
+> 2.56.0.679.gc527c65306-goog
+>
