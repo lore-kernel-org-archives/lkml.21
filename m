@@ -1,109 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.47
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.121
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795621185;
-	b=rSiyMouMZ3gOrqevJq/r+R0rVUfD2W7//DI9zCgINvPOWKtlL1TlGk2kHGNyKYZU0LJ2
-	 zQJkuvjPvNSnaZ+JwC7bawavP0NkVrX5PsjoNzW0DPdz5aRSw/SfzbASYT0t7vcWFgy50
-	 HqdFoMa68Y8OhUKeviceahDAxhdtfDSKSyXwLy88upczQpZemTVZheFfpzUb5L5HKRA6n
-	 xIn54Tw56yjKZTdeJq5YJDYHpbj6honB4yVic2RcfnNReBGABRKs4PBW0GiFh+Av5bcUG
-	 zodY243ZmxLnPPHbktHA0RjTaLAw7j7bcUZ01EMt4pEX9B0GT3dzUDGlt0jAGrdhXoQ==
+	t=1795621187;
+	b=vGF7V4z6zhpL547/JNE/YPJY0dQ/zUbkG4qEmNKfWE5N6mZpZ1EchlOQ3P7yZHKOSI/N
+	 5j7zhMw+dY3NbykyXPtUhj4aBm4jlbrnFwhVHRRwiBLdW/eOQUKRxER7SKThdMSJrU3jF
+	 ZE+pd13Mdgkfu8SuwNMBYyYaZ0UikXEETT/gtYIrfwkebDnRLsJpjlRMKOtixEilysFy1
+	 JbeGrGhxJlYd+kEQN+8bzDCZS5PSvP+wugRRE0Mn772hJEkgpdjcbTXOfKOIugg/KiYw3
+	 nzKI3a0zrV05SjJp+fUlu86r0CAWD0LlzaBEdcuwFPpFEJt7lcz2GFFlSJmYhIdYk1g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795621185;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=03OK5Wux5qBQjFwf+S+X4PZ6SO+iKxNmDWiFlrnb6so=;
-	b=shW3tadQZFmBWWoxL7gDvtrKMDKHCY88FRrtxr7BYjlTPws4FBAbkqocxBSIVx2iob1x
-	 ITwVtMH+CDWQVVx8cGPXPg7tumUt0NYAgdJAjUkMXQHZDPpA6GW6bcDvpwwxAuglrMf7s
-	 Vj9ZKF/8aY2Cft5k4ImJPBIbhWkYsyNLzpS88b3j0WVn/VgdX8JisEgBJRoRBMVciLhjB
-	 97YbsomcjW4ZsAs6TP9aNCoHcaJq8h9nFOhAmWvaqjEMJ391Sy4h/KgMhL1u01h8omaO5
-	 5qhZO1ZRavwSlgxKrUdYzxhAlVTKPPHaQ+/colcaaOJt8C12g2mm3D6QCtcKFNRGWMw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795621187;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=dZq6fx5ackLq8SYaC0RSyUV+QvMuPrzJ354X+a2U30M=;
+	b=Ix45aF8+G7r+BctMypLDu+s8eXpIyFCcUHsJGm2LZ4eXzl9m4HBZVbhLVNl4Grw0FFk4
+	 +GkNcZUaHS93HjFlKogYW1tEkGAvVFdcveyCN9Cb7bk9Fh9pe7sGwNgcR0X0idyTmK8gZ
+	 HYpyR5BzuV8CCME4vfYduN1fMBrzFDWBgI3d4K8HcgiEfIJRSwPqMsawXLytU7yLFVJ/m
+	 yxKRzsIzm/J30OXPcHbsq8Wdvsb02Xn8pmsat/5DDSPCGVJQ2v2+Fc35eqQ0p5wUso0p2
+	 MWFb5b3blTHFU6x2tdELTKdyXt8pB8PKjQuLhl9hvXs0M3VU7EQdRi4vgpFKjZMayAA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=hZQkKpXf;
-	arc=none smtp.remote-ip=209.85.128.47
-Received: from mail-wm1-f47.google.com (mail-wm1-f47.google.com [209.85.128.47])
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=lczyu8oU;
+	arc=none smtp.remote-ip=91.218.175.121
+Received: from mta0.migadu.com (out-121.mta0.migadu.com [91.218.175.121])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D4BB5606A688
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:39:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D4BB5606A688
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 83828606A69B
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:39:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 83828606A69B
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=hZQkKpXf
-Received: by mail-wm1-f47.google.com with SMTP id 5b1f17b1804b1-4bb72b6e1b2so4292345e9.2
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 07:39:44 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795621183; x=1796225983; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=03OK5Wux5qBQjFwf+S+X4PZ6SO+iKxNmDWiFlrnb6so=;
-        b=hZQkKpXfoPCNOyIPGt3na6gHRDhBZ+SSP/SQA3rJHJZdqSm7Rqn+twjMd52AxubyQy
-         vFD0Pnc3F4zWRaYn9vD46oH+u3j/NCE+HNKmR1h2U/ppARV1FO/vO2BXMGPp/imJBe7u
-         CvqNLaHed8HmgawaaW54JlJPeoQuqrxdGP/0oHfFzObIHwATnPXumKuRH8eMi2ZyEhZ6
-         qP0qxR9hxQZg2cwbh3S5OEBOng0kR2oEwMCPDOam3vgu64CMxGn4YxodQgsb4zQSAWWB
-         wr6OLfgnXVJ2zeJLop02n0YA29iRtXdPDVrr2CDA9IG/r8zn0oKNfI/MqSZEr7K/Errl
-         bQpg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795621183; x=1796225983;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=03OK5Wux5qBQjFwf+S+X4PZ6SO+iKxNmDWiFlrnb6so=;
-        b=am7wzWtvel12QglWapYBmFf2GjUXAXuPW0donzq2GBveLlnBUG5LJk5yZsCQBfQuOb
-         laVRkaUVh/iyVxyD/gMtudTr7LPxA8lf+xeZzasnN16w0UIU2Y6oWSiydAlBBzvLMCQD
-         g7kxWnZgy5f+QNgFF+EOLdXT6+T79g79YztV1tq42HpXSTtP1Gdt7dUTQSisFHecq2Aj
-         QPH0X7DwaAvHtc+kWe+0icV/tgegZFo9issOjr+u2cL371l6QreAdYYjSyBKmX4xMBHm
-         trIijFadmWCTDuppdljnPxg2WOxSYJHhQUpdX7LU5n3OmUS37kwJj8ctxDCEOrma6rOE
-         81Gw==
-X-Forwarded-Encrypted: i=1; AL+hErEr3fjrnSdhWJFpCri/A0oZS/Kwf3cBzpAHqRkpk5oEleIdq4vA06m/z2IevYbtxUTWmVgfAaK+B4CTQ5I=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/RGU7PDw4j3dfbIGG5c7t8RYvs31IFqi+YlD4rTzxAR3cNs0bK
-	gj3Bpf0HdgRa7FzSMAhmcCn7ifmMhHw9JTohn2JYYLu1FCItk+fCiLLv
-X-Gm-Gg: AZFdTZd8B/yhQ5MCHmASedjR9h6nEkn8yCAoyUbin2oCgU5NhXbUt7hv4oTrYMo3JWE
-	7ts/VfvWX0WnDHDU6jbm34OqGigyMxnuDvmA3vcqYNUMTDfWaurUI9s/HTI+AhzIis/JAkXkJ87
-	U88JEKM0CCE6BCPGY84nCU7qrWquUeULVVM4JhQCcbKXRQ7IpCoeltuqg/vzuoesDTVmr9vs7o1
-	szNljJGh546D4BTgFwKRoFB+woTNWdQQa128R3DZ/JgSxgMHqgurA5YTnvAVepWjq0YUY4GObTd
-	n5MSgIAd/yBZPgBtb3sLjvLcBa4S4wdYYOUAUthvaMmiCLaEWyRoeaNduvfvzN2UE5YOLNHHYMb
-	roGYS1Maj5ouGWSesx0MZfTtmr7PUDdTtH7IaX1eGWSn6dU4SlungoEwXKpUZeMzMyDgkSF/Ie5
-	AClSxZi8q0fDGU31/0bGzu4f0F6+GcioNywVcia63GOSQ9AWpVtbN+R81ufhreCV1WrJrgtsO/G
-	/Av27XLHZ0guqoJMOeygXfebtKTN+rn0zKvHk7SAkwFUYfFr/BU18EK653SI57Eq5+FF+xgbFs6
-	RoCTH3AtQjY/1dQNJNuaKusHnbA=
-X-Received: by 2002:a05:600c:828e:b0:4bb:7ad9:2f22 with SMTP id 5b1f17b1804b1-4bb887853e1mr340731425e9.0.1795621183256;
-        Wed, 25 Nov 2026 07:39:43 -0800 (PST)
-Received: from skbuf ([2a02:2f04:d401:2601:d3cc:6bc:a861:f9da])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884a15absm474497565e9.9.2026.11.25.07.39.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 07:39:41 -0800 (PST)
-Date: Wed, 25 Nov 2026 17:39:38 +0200
-From: Vladimir Oltean <olteanv@gmail.com>
-To: Inochi Amaoto <inochiama@gmail.com>
-Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
-	Randy Dunlap <rdunlap@infradead.org>, Damien Le Moal <dlemoal@kernel.org>, 
-	Niklas Cassel <cassel@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Aksh Garg <a-garg7@ti.com>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Bjorn Helgaas <bhelgaas@google.com>, Vinod Koul <vkoul@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Rhys Tumelty <rhys@tumelty.co.uk>, 
-	Manikandan K Pillai <mpillai@cadence.com>, "vladimir.oltean@nxp.com" <vladimir.oltean@nxp.com>, 
-	Qiang Yu <qiang.yu@oss.qualcomm.com>, Hans Zhang <18255117159@163.com>, Yao Zi <me@ziyao.cc>, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-ide@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org, 
-	linux-phy@lists.infradead.org, Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH v5 8/8] ata: ahci_imx: Use bulk PHY APIs for calibration
- PHYs
-Message-ID: <awcBID5pfFm2FadY@skbuf>
-References: <20261125043639.249525-1-inochiama@gmail.com>
- <20261125043639.249525-1-inochiama@gmail.com>
- <20261125043639.249525-9-inochiama@gmail.com>
- <20261125043639.249525-9-inochiama@gmail.com>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=lczyu8oU
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=JkCtQAgNMyz6MxyA6TeVj2kcDGllBN1Cmp+JPaexw7k=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795621184; v=1; x=1796225984;
+ b=lczyu8oUPBtJD5sf8uTU8KXVvtX8gEFpwnpSLHqAsMmwjBuGgjz36kgJq2e1zAH8mtTHCTzd
+ mXoUbIROHP9lO0YGbsFwSZscUy+pGjcvjPaXIFncnxBfs3b9tMIYeCKrpFd5mJDEtr2zl65oYex
+ 8k7rmVGCbpRhX27iDOabXt7c=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 77b76b0e617b58cd;
+	Wed, 25 Nov 2026 15:39:44 +0000
+X-Mizu-Trace-ID: 77b76b0e617b58cd
+X-Migadu-Flow: FLOW_OUT
+From: Fuad Tabba <fuad.tabba@linux.dev>
+To: Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	Fuad Tabba <tabba@google.com>,
+	kvm@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 05/20] KVM: arm64: Allocate a protected vCPU's SVE state at EL2
+Date: Wed, 25 Nov 2026 15:38:56 +0000
+Message-ID: <20261125153911.106793-6-fuad.tabba@linux.dev>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261125153911.106793-1-fuad.tabba@linux.dev>
+References: <20261125153911.106793-1-fuad.tabba@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -113,23 +78,178 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261125043639.249525-9-inochiama@gmail.com>
- <20261125043639.249525-9-inochiama@gmail.com>
+Content-Transfer-Encoding: 8bit
 
-On Wed, Nov 25, 2026 at 12:36:39PM +0800, Inochi Amaoto wrote:
-> The i.MX8QM SATA PHY relies on the first two HSIO lanes for shared
-> impedance calibration. Store these calibration PHYs in a bulk array
-> and acquire them by name with devm_phy_bulk_get().
-> 
-> Initialize both calibration PHYs before powering them on in lane order,
-> then keep the SATA PHY initialization, mode selection and power-on
-> separate. Use the bulk helpers to release the calibration PHYs after
-> SATA startup and to unwind failures without repeating power-off after
-> a failed bulk power-on.
-> 
-> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
-> ---
+For a vCPU with SVE, EL2 pins the buffer the host allocated at
+KVM_ARM_VCPU_FINALIZE and saves the guest's SVE registers there. The
+host can still read and write that buffer, so it can't hold a protected
+vCPU's state.
 
-Reviewed-by: Vladimir Oltean <olteanv@gmail.com>
+Allocate a protected vCPU's SVE state from the hyp heap instead, and
+free it with the vCPU. When EL2 resets a protected vCPU, zero its SVE
+state and ZCR_EL1, as KVM does for a non-protected one. The host still
+allocates its own buffer, which KVM_{GET,SET}_ONE_REG access before the
+first run, but EL2 doesn't use it.
+
+For a protected vCPU, the host's sve_max_vl now sizes an EL2 allocation
+and is the guest's maximum vector length on every CPU. Give EL2 a copy
+of kvm_sve_max_vl, the largest length all CPUs can give a guest, and
+check every vCPU's sve_max_vl against it rather than clamping it to the
+host's own maximum. set_sve_vls() already keeps the host's value within
+that bound.
+
+Tested-by: Vincent Donnefort <vdonnefort@google.com>
+Reviewed-by: Vincent Donnefort <vdonnefort@google.com>
+Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+---
+ arch/arm64/include/asm/kvm_hyp.h   |  1 +
+ arch/arm64/kvm/hyp/nvhe/pkvm.c     | 41 ++++++++++++++++++++----------
+ arch/arm64/kvm/hyp/nvhe/sys_regs.c |  1 +
+ arch/arm64/kvm/reset.c             |  2 ++
+ 4 files changed, 31 insertions(+), 14 deletions(-)
+
+diff --git a/arch/arm64/include/asm/kvm_hyp.h b/arch/arm64/include/asm/kvm_hyp.h
+index 9a785a341090e..22601a4e36f4e 100644
+--- a/arch/arm64/include/asm/kvm_hyp.h
++++ b/arch/arm64/include/asm/kvm_hyp.h
+@@ -158,6 +158,7 @@ extern unsigned int kvm_nvhe_sym(kvm_arm_vmid_bits);
+ extern enum mitigation_state kvm_nvhe_sym(spectre_v2_state);
+ extern enum mitigation_state kvm_nvhe_sym(spectre_v4_state);
+ extern enum mitigation_state kvm_nvhe_sym(spectre_bhb_state);
++extern unsigned int kvm_nvhe_sym(kvm_sve_max_vl);
+ extern unsigned int kvm_nvhe_sym(kvm_host_sve_max_vl);
+ extern unsigned long kvm_nvhe_sym(hyp_nr_cpus);
+ extern unsigned int kvm_nvhe_sym(hyp_gicv3_nr_lr);
+diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+index 1d484da274c0e..fba8dfe6389d6 100644
+--- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
++++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+@@ -30,6 +30,7 @@ unsigned long __icache_flags;
+ /* Used by kvm_get_vttbr(). */
+ unsigned int kvm_arm_vmid_bits;
+ 
++unsigned int kvm_sve_max_vl;
+ unsigned int kvm_host_sve_max_vl;
+ 
+ /*
+@@ -479,7 +480,7 @@ static void unpin_host_vcpu(struct kvm_vcpu *host_vcpu)
+ 		hyp_unpin_shared_mem(host_vcpu, host_vcpu + 1);
+ }
+ 
+-static void unpin_host_sve_state(struct pkvm_hyp_vcpu *hyp_vcpu)
++static void teardown_sve_state(struct pkvm_hyp_vcpu *hyp_vcpu)
+ {
+ 	void *sve_state;
+ 
+@@ -487,8 +488,10 @@ static void unpin_host_sve_state(struct pkvm_hyp_vcpu *hyp_vcpu)
+ 	if (!sve_state)
+ 		return;
+ 
+-	hyp_unpin_shared_mem(sve_state,
+-			     sve_state + vcpu_sve_state_size(&hyp_vcpu->vcpu));
++	if (pkvm_hyp_vcpu_is_protected(hyp_vcpu))
++		hyp_free(sve_state);
++	else
++		hyp_unpin_shared_mem(sve_state, sve_state + vcpu_sve_state_size(&hyp_vcpu->vcpu));
+ }
+ 
+ static void unpin_host_vcpus(struct pkvm_hyp_vcpu *hyp_vcpus[],
+@@ -503,7 +506,7 @@ static void unpin_host_vcpus(struct pkvm_hyp_vcpu *hyp_vcpus[],
+ 			continue;
+ 
+ 		unpin_host_vcpu(hyp_vcpu->host_vcpu);
+-		unpin_host_sve_state(hyp_vcpu);
++		teardown_sve_state(hyp_vcpu);
+ 	}
+ }
+ 
+@@ -546,18 +549,25 @@ static int pkvm_vcpu_init_sve(struct pkvm_hyp_vcpu *hyp_vcpu, struct kvm_vcpu *h
+ 		return 0;
+ 	}
+ 
+-	/* Limit guest vector length to the maximum supported by the host. */
+-	sve_max_vl = min(READ_ONCE(host_vcpu->arch.sve_max_vl), kvm_host_sve_max_vl);
+-	sve_state = kern_hyp_va(READ_ONCE(host_vcpu->arch.sve_state));
+-
+-	if (!sve_vl_valid(sve_max_vl) || !sve_state)
++	sve_max_vl = READ_ONCE(host_vcpu->arch.sve_max_vl);
++	if (!sve_vl_valid(sve_max_vl) || sve_max_vl > kvm_sve_max_vl)
+ 		return -EINVAL;
+ 
+ 	sve_state_size = sve_state_size_from_vl(sve_max_vl);
+ 
+-	ret = hyp_pin_shared_mem(sve_state, sve_state + sve_state_size);
+-	if (ret)
+-		return ret;
++	if (pkvm_hyp_vcpu_is_protected(hyp_vcpu)) {
++		sve_state = hyp_alloc(sve_state_size);
++		if (!sve_state)
++			return hyp_alloc_errno();
++	} else {
++		sve_state = kern_hyp_va(READ_ONCE(host_vcpu->arch.sve_state));
++		if (!sve_state)
++			return -EINVAL;
++
++		ret = hyp_pin_shared_mem(sve_state, sve_state + sve_state_size);
++		if (ret)
++			return ret;
++	}
+ 
+ 	vcpu->arch.sve_state = sve_state;
+ 	vcpu->arch.sve_max_vl = sve_max_vl;
+@@ -646,7 +656,7 @@ static int init_pkvm_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu,
+ done:
+ 	if (ret) {
+ 		unpin_host_vcpu(host_vcpu);
+-		unpin_host_sve_state(hyp_vcpu);
++		teardown_sve_state(hyp_vcpu);
+ 	}
+ 	return ret;
+ }
+@@ -1018,7 +1028,7 @@ int __pkvm_init_vcpu(pkvm_handle_t handle, struct kvm_vcpu *host_vcpu)
+ 	ret = register_hyp_vcpu(hyp_vm, hyp_vcpu);
+ 	if (ret) {
+ 		unpin_host_vcpu(host_vcpu);
+-		unpin_host_sve_state(hyp_vcpu);
++		teardown_sve_state(hyp_vcpu);
+ 		goto unclaim;
+ 	}
+ 	goto unlock;
+@@ -1246,6 +1256,9 @@ int pkvm_reset_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu)
+ 			    PSCI_0_2_AFFINITY_LEVEL_ON) != PSCI_0_2_AFFINITY_LEVEL_ON_PENDING)
+ 		return -ECANCELED;
+ 
++	if (vcpu_has_sve(&hyp_vcpu->vcpu))
++		memset(hyp_vcpu->vcpu.arch.sve_state, 0, vcpu_sve_state_size(&hyp_vcpu->vcpu));
++
+ 	kvm_reset_vcpu_core(&hyp_vcpu->vcpu);
+ 	kvm_reset_pvm_sys_regs(&hyp_vcpu->vcpu);
+ 	kvm_load_pvm_debug(&hyp_vcpu->vcpu);
+diff --git a/arch/arm64/kvm/hyp/nvhe/sys_regs.c b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
+index 13209786d0a71..3b468ef619ed2 100644
+--- a/arch/arm64/kvm/hyp/nvhe/sys_regs.c
++++ b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
+@@ -782,6 +782,7 @@ static const struct sys_reg_desc_reset pvm_sys_reg_reset_vals[] = {
+ 	RESET_UNKNOWN(MAIR_EL1),
+ 	RESET_ZERO(AMAIR_EL1),
+ 	RESET_ZERO(MDSCR_EL1),
++	RESET_ZERO(ZCR_EL1),
+ 	RESET_ZERO(CNTV_CTL_EL0),
+ 	RESET_UNKNOWN(TTBR0_EL1),
+ 	RESET_UNKNOWN(TTBR1_EL1),
+diff --git a/arch/arm64/kvm/reset.c b/arch/arm64/kvm/reset.c
+index 10eb7249aa9e8..aaaa1b8634ba4 100644
+--- a/arch/arm64/kvm/reset.c
++++ b/arch/arm64/kvm/reset.c
+@@ -52,6 +52,8 @@ int __init kvm_arm_init_sve(void)
+ 		if (WARN_ON(kvm_sve_max_vl > VL_ARCH_MAX))
+ 			kvm_sve_max_vl = VL_ARCH_MAX;
+ 
++		kvm_nvhe_sym(kvm_sve_max_vl) = kvm_sve_max_vl;
++
+ 		/*
+ 		 * Don't even try to make use of vector lengths that
+ 		 * aren't available on all CPUs, for now:
+-- 
+2.47.3
+
