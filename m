@@ -1,51 +1,51 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.13
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.99
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795621158;
-	b=M7rbS0OQJDymns0UuFEokOGl21++orTBKRtf9BaIF7vrCbhZHDrfn3uBJ5sUqD9YLqfp
-	 jIT9HvSfID3zyrWWxkj4xK3k1/InvFaNT3HhcnK1TQ++3uK4z9eZKZj7MWnEr2XJP+SsY
-	 b90yD/XKzF5x3DYofOIqrVkcHC3CzxZ7FZ8awDBfLi43A50MGUc3cehAUvXPuVWFrZATO
-	 DzEGSqpRTgK8htkh3MdoJXOyk0R3KDU1CDWFFYCV+gEK0S/fAJMBmVJBqdbT1gxigAPZ/
-	 ndyglA8fqj2SJMnrFZ/mXFBUE4bNmH2PxV9BrRZSCgRehX1zeX5MAZU1IrwMMMBdUgg==
+	t=1795621159;
+	b=aGRJxZoXdNFc0xmyDItNU1vohhL3lTIHL8AVG0i3OU5l+1hJJfF/lHbsMoWeddIpCevx
+	 phCB54JlRrmZ5wj+yQpmhvdRSBdL1DqgDeU5/LGRFFNvdL+3vJ1JkKng56NqbDS/gkAVv
+	 14Agxse70mb0m0LJCnrZqah6X2ELOjJaFGSzsODEH3itdCi0rrLY4V73fHqLOqMYzd3Ha
+	 52AyNV+9Ha56rzhGRguL5iECCU+/XHlXtpRsvETp8cqhHdz4qLQopqLis6/hqMcOzpDbf
+	 7o5XQewaSFJh8TU3NxS6B8dV7jdMnmd52nzRXK8cIDjsaK7vPuFLSGXYgG2PSTbTsFQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795621158;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795621159;
 	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
 	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
 	 X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=eCGx1X8DR+pHjH9W44J3Lh82/2sl2cpI/RianqMEYjE=;
-	b=5dSBpUly8B/16dmrWILz8veI+hEtTYqXBpa+cef22gxzoGroPttnKwoXUFz4lM7K5oV7
-	 ycemwmTaAgtVyTFh838gAJmD6l+Hyl+K1avYXpwqU/37kQX2+YyKcBqhkmJOOQpcClUhM
-	 wILvegbm28G//FYzfGtkYA4976b05Y+1Gep+/PoVNH6G7NghV2Odg8LCNvFds+hxGKLFL
-	 tir5q3uIlblxmBlFBuRW3uu79goeZgH/kuQjy4wp5dl3vOIoZfvAUGR0nu5PEQsbYWFhZ
-	 ce4Uiqyo1os3Xl+gi7iNcaQJfk8Za/tudRp4pGMjEDIQihubICeBsm6lnLArDin2TaA==
+	bh=LCnVdHirYtBKX2t/3K8ljhm+P9aiBrtU685db8fTm+U=;
+	b=xVIXW+H+Srk7rNeXVRe9hT1JfripSAsKWNyxW8I5jkDWyseKgVDAD2UoNGPAq4KbAJ+T
+	 qu1cYUd0Tim+CoP0BxGM3yHiiUb8NVOzQRb0EVp3qasMPNxP1kOF9Ok5YJVvmMd2lfRU7
+	 plybH0QnxqZrBa68hhSjC7SjDx9g1L+oFNi7VEgxq7gAN9wX3AyvFT2rS4jvCrSTrx+Py
+	 hDKE44w14kJjhiAokC/uvZnkpxf2mjyENBCTky8SnhOs7Mn8B6BEJjdkxprAq02OI8xgH
+	 Q/vaANMmPp5MDvDgAOK6NLzfixYO9+6GfTHEXKJHAUwtcfjSd4LsS94ABNsHAL/6KRw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linux.dev;
 	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b="uEGoc/GK";
-	arc=none smtp.remote-ip=95.215.58.13
-Received: from mta1.migadu.com (out-13.mta1.migadu.com [95.215.58.13])
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=wALhDrPH;
+	arc=none smtp.remote-ip=91.218.175.99
+Received: from mta0.migadu.com (out-99.mta0.migadu.com [91.218.175.99])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 649BB606A32D
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:39:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 649BB606A32D
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B3A86606A33D
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:39:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B3A86606A33D
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=uEGoc/GK
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=wALhDrPH
 X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=plWnGSA+t40iciXF75RUGdCCByZ2c9Fur5xw/PdG3iQ=;
+DKIM-Signature: a=rsa-sha256; bh=o/SZfwEeYhSxZ5cZ93jBl6fDIchTpBEO/6emnlOmEC8=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795621155; v=1; x=1796225955;
- b=uEGoc/GKCvssycowstrnGLuAYNix5t8Pc/tsZFyFww3d1R3QZXd1AiauzmkCYdr5ziZAf+Rq
- DZivHihoNF5+liWvKQJuiUXgeO2xc6S/Wfmd7O9EAIweS5pW1AQ7WYrRyjUlRcr5UqVLh6NXpAm
- T8kirCGpv0l8GVxnfDEM08cU=
+ t=1795621156; v=1; x=1796225956;
+ b=wALhDrPHUWRg+PnqBIVx+mxcK8l9B5eVX7yhtcbiSL6rCAaOfbBky+29ZklmAUKpVE6l/uSW
+ 44X01pscOJFIM/bi3O9KlVHJPxOgE9E/lsPcaqvCb5h1OVtHFPy9Izhflf13+0gKlEKWyZPwl7y
+ ep/OCYkzSH14QmG7cg87eAIQ=
 X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id cccc4519f60a0c77;
-	Wed, 25 Nov 2026 15:39:15 +0000
-X-Mizu-Trace-ID: cccc4519f60a0c77
+Received: by smtp.migadu.com with ESMTPS id b3ce0fa6c33041ea;
+	Wed, 25 Nov 2026 15:39:16 +0000
+X-Mizu-Trace-ID: b3ce0fa6c33041ea
 X-Migadu-Flow: FLOW_OUT
 From: Fuad Tabba <fuad.tabba@linux.dev>
 To: Marc Zyngier <maz@kernel.org>,
@@ -63,9 +63,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Fuad Tabba <tabba@google.com>,
 	kvm@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 01/20] KVM: arm64: Only allow ptrauth for a pVM on a system with full ptrauth
-Date: Wed, 25 Nov 2026 15:38:52 +0000
-Message-ID: <20261125153911.106793-2-fuad.tabba@linux.dev>
+Subject: [PATCH v2 02/20] KVM: arm64: Don't advertise the host's MTE_frac to protected VMs
+Date: Wed, 25 Nov 2026 15:38:53 +0000
+Message-ID: <20261125153911.106793-3-fuad.tabba@linux.dev>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20261125153911.106793-1-fuad.tabba@linux.dev>
 References: <20261125153911.106793-1-fuad.tabba@linux.dev>
@@ -80,45 +80,35 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-EL2 allows a protected VM both ptrauth features whatever the system
-supports. An id_aa64isar1 override can leave a system with generic but
-not address auth. EL2 then doesn't trap the guest's key accesses, but
-it doesn't switch the keys either, since the switch is gated on
-ARM64_HAS_ADDRESS_AUTH. The host can read and write the guest's
-APGAKey.
+Protected VMs don't support MTE, so MTE_frac in their ID_AA64PFR1_EL1
+doesn't apply and is RES0, as it is for a non-protected VM without MTE.
 
-Only allow the ptrauth features when the system has full ptrauth, as
-the host does.
+Commit 3d7ff00700d1a ("KVM: arm64: Rework specifying restricted
+features for protected VMs") caps the field at NI in the pVM
+restriction table. However, NI is 0xF and the clamp is unsigned, so the
+cap does nothing and a protected guest sees the host's value. On a CPU
+with MTE2 but without FEAT_MTE_ASYNC, that value is 0xF.
 
-Fixes: b56680de9c648 ("KVM: arm64: Initialize trap register values in hyp in pKVM")
+Drop the entry so that the field reads as 0 again. It was the only
+entry capping an unsigned field at an NI other than 0.
+
 Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 ---
- arch/arm64/include/asm/kvm_pkvm.h | 11 +++++++----
- 1 file changed, 7 insertions(+), 4 deletions(-)
+ arch/arm64/kvm/hyp/nvhe/sys_regs.c | 1 -
+ 1 file changed, 1 deletion(-)
 
-diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
-index fd042d2b54624..155ac35069245 100644
---- a/arch/arm64/include/asm/kvm_pkvm.h
-+++ b/arch/arm64/include/asm/kvm_pkvm.h
-@@ -76,11 +76,14 @@ static inline void kvm_pkvm_vcpu_allowed_features(struct kvm *kvm,
- 	if (kvm_pkvm_ext_allowed(kvm, KVM_CAP_ARM_PMU_V3))
- 		set_bit(KVM_ARM_VCPU_PMU_V3, allowed);
+diff --git a/arch/arm64/kvm/hyp/nvhe/sys_regs.c b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
+index 32e82653ebf7e..e1749138f7507 100644
+--- a/arch/arm64/kvm/hyp/nvhe/sys_regs.c
++++ b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
+@@ -105,7 +105,6 @@ static const struct pvm_ftr_bits pvmid_aa64pfr0[] = {
+ static const struct pvm_ftr_bits pvmid_aa64pfr1[] = {
+ 	MAX_FEAT(ID_AA64PFR1_EL1, BT, IMP),
+ 	MAX_FEAT(ID_AA64PFR1_EL1, SSBS, SSBS2),
+-	MAX_FEAT_ENUM(ID_AA64PFR1_EL1, MTE_frac, NI),
+ 	FEAT_END
+ };
  
--	if (kvm_pkvm_ext_allowed(kvm, KVM_CAP_ARM_PTRAUTH_ADDRESS))
--		set_bit(KVM_ARM_VCPU_PTRAUTH_ADDRESS, allowed);
-+	/* Without address auth, EL2 doesn't switch the guest's keys. */
-+	if (system_has_full_ptr_auth()) {
-+		if (kvm_pkvm_ext_allowed(kvm, KVM_CAP_ARM_PTRAUTH_ADDRESS))
-+			set_bit(KVM_ARM_VCPU_PTRAUTH_ADDRESS, allowed);
- 
--	if (kvm_pkvm_ext_allowed(kvm, KVM_CAP_ARM_PTRAUTH_GENERIC))
--		set_bit(KVM_ARM_VCPU_PTRAUTH_GENERIC, allowed);
-+		if (kvm_pkvm_ext_allowed(kvm, KVM_CAP_ARM_PTRAUTH_GENERIC))
-+			set_bit(KVM_ARM_VCPU_PTRAUTH_GENERIC, allowed);
-+	}
- 
- 	if (kvm_pkvm_ext_allowed(kvm, KVM_CAP_ARM_SVE))
- 		set_bit(KVM_ARM_VCPU_SVE, allowed);
 -- 
 2.47.3
 
