@@ -1,74 +1,65 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795636979;
-	b=UiK1tHEUw50KTeVAG8pYv0oHCn2AgjME9SGY+t16ev8WKcMvZb9jh93H+mA5W7Fden1L
-	 6zdjHaHjvKa+Eu55pwgkkGw9SoCx0lXOiDKbfqe5WIOdn3wttZBJHvAxGJdpYmA0YtL4J
-	 8FqRuIVwMcPeL0h1bLjH7mMzwufATfsaIF2+kCIMlIN9TuYH5D9j/CMAMqyrbpgLFkSqy
-	 c8h63QBvu/kj+TCZ6SBSl49vwQTlGIeN03xP+ZPkQkJYkYHHlq7E6E5rEIuMLzrFzvQ7e
-	 AeWdH3nKqkU5gEb/6DjkT1HtQ+hnBLMKkkUvVNIye43yHvolB8WfgIpve1dT6Q96d4g==
+	t=1795636999;
+	b=OWO9AW42p4iVKPqIug+tAjcPy5i8Nk263HUacC3+SL1efz5TU12BBn0WWBUwT9UorXP2
+	 PzpyVg0MZs9flYni5OGS8VAD5RP1Gjq7RSL/BcUEZeHqmcuc8c6it/xE/k2lLbQe60Fzf
+	 Rshm4VUxAhBp2D028pSOQuNbwRbfforjIbOrRhlrcnF1s2gv8oFREO5vrRneV7sHjV6bd
+	 5uiGWaGOxFKmzLLEHa6mpkrD6rVE9+qt01SzoIal2jVjI69Wqow0kDZMp5CqH5iX0E7l+
+	 lik62i5oHa4aEbvXdzeSoz3x20bdHYHpwUI/nNdoTpXN+4ouNy7IQkgOaMZDju9VlEg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795636979;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:References:
-	 Date:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=NV3qax3E8dMyFntuLziYflS0O+a/VnhBgje6LaQOMxM=;
-	b=LiYUhYiZ1lphylD7tO0dhAuc5SLr/jRXMmMCvvbLjr2XodrOPM3DjyRljxmSQmay/Dga
-	 jvo+v9ObQ9reAb35ljCQCfUNQfM1Zpa1A/O7zloiqD2J9CUXqn0NoZZQAWItYp46FyE2O
-	 3zMZ9jOed3eOvhDsvlH8YBMEagyNJiMNqN+AorWAyLVizA5Th4/96G1L2eNghwBOJT7Pe
-	 pw+KRd5vvTUMqgbYJSHodL2NfUTdaRELeMbRg/D8fEmF0+LrNrI1nArXqAHyvHWzYN9XV
-	 RkvpS+odSVwCerPBbbDRdnSXrpVrb6e4ve5FyjRGzwvebtoX2u+awcm21HsXZCMIlEg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795636999;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To;
+	bh=A5nggYVq+8giAUpJT5r3lz72dFn0AiuWFrRV6uAF0kA=;
+	b=0AUcr0dgxQxBHvwwqEvqzn9163CDp9nG138tgPQb3Ou4y0hYDEW7KVrgkO+F0uozq4bX
+	 +3tgnwa4L7cLeNLHXlpf6lvzBpXcFqEJ+W04qvOp7UYXDh6Mf+xsPxiaDGiOmw5QZ3bvy
+	 Y3n5XuAMscNV+7neLIm0NeLetQE9XBaK3KolP4ueBJjc04hNcPbnDuBxYsk4gTOcdqYo7
+	 ZM48hQgc9JA0YsUKnLU3mZ+2WjDegRajCWKvLGeVa8PklyBNSUI6gNoHKdJldvVLjzPrr
+	 8NlJOHqSFVySVvYp7HCTobrzpvJ2tWjp4EcmkBIhgZvJseMOLQT7tOMkAeNT5ePrK4w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="nySpZ5/M";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OcYoE0Lp;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 39FE9606A32C;
-	Wed, 25 Nov 2026 20:02:59 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2BE31606A31E;
+	Wed, 25 Nov 2026 20:03:18 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nySpZ5/M
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 313FD1F000C4;
-	Wed, 25 Nov 2026 20:02:58 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OcYoE0Lp
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF5621F000C0;
+	Wed, 25 Nov 2026 20:03:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795636978;
-	bh=NV3qax3E8dMyFntuLziYflS0O+a/VnhBgje6LaQOMxM=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=nySpZ5/MW6+gjcbBaeaWrhgIi8D48C1+VVcEGsZagwxO/eo2C0gGTOJnMz+N1CbDq
-	 YPx4iCKqzaih8Sb847jrdY1J7c7xoYyRdY3irUMMAqnvHWsezNgcRtjXKeSuQrVdWP
-	 LRCE4i5lj8HLFTpn8v5EbVl8NN3MJx4ZDjJud5Mr8j0r1JILUx63+84n4LvAw/pFih
-	 o5GZXoRrUmfAs5KdlmhlgIinO67I2viMQSBSRtcCPykfqG9Z5qGZXrWB8p2mNvl0Nw
-	 UT76ALR9rLcaSWyzJ5J+32No4XEAZC/sUX6+qpx2+A+f8VxAc83WpE2O9KDM8fIetf
-	 rI/kh/72JPM6Q==
-From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-To: netdev-bot+sashiko@kernel.org
-Cc: magnus.karlsson@intel.com, maciej.fijalkowski@intel.com,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, andrew+netdev@lunn.ch, ast@kernel.org,
- daniel@iogearbox.net, hawk@kernel.org, john.fastabend@gmail.com,
- andrii@kernel.org, eddyz87@gmail.com, memxor@gmail.com,
- ilias.apalodimas@linaro.org, alexanderduyck@fb.com, saeedm@nvidia.com,
- tariqt@nvidia.com, mbloch@nvidia.com, leon@kernel.org,
- michael.chan@broadcom.com, pavan.chebbi@broadcom.com, corbet@lwn.net,
- shuah@kernel.org, bpf@vger.kernel.org, netdev@vger.kernel.org,
- stuclar@meta.com, sdf@fomichev.me, horms@kernel.org, martin.lau@linux.dev,
- almasrymina@google.com, song@kernel.org, yonghong.song@linux.dev,
- jolsa@kernel.org, emil@etsalapatis.com, ihor.solodrai@linux.dev,
- rdunlap@infradead.org, kernel-team@meta.com,
- dimitri.daskalakis1@gmail.com, bobbyeshleman@meta.com,
- mohsin.bashr@gmail.com, kees@kernel.org, leitao@debian.org,
- maxime.chevallier@bootlin.com, cuitao@kylinos.cn,
- vadim.fedorenko@linux.dev, mike.marciniszyn@gmail.com, kuniyu@google.com,
- jiayuan.chen@linux.dev, mkarsten@uwaterloo.ca, razor@blackwall.org,
- dw@davidwei.uk, asml.silence@gmail.com, linux-rdma@vger.kernel.org,
- linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next 06/15] xsk: Lend UMEM chunks to the page pools
- of a queue
-In-Reply-To: <179561569684.3135.6558736307763434214@kernel.org>
-References: <20261124125654.183091-6-bjorn@kernel.org>
- <179561569684.3135.6558736307763434214@kernel.org>
-Date: Wed, 25 Nov 2026 21:02:55 +0100
-Message-ID: <87pkvsn0gg.fsf@all.your.base.are.belong.to.us>
+	s=k20260515; t=1795636998;
+	bh=A5nggYVq+8giAUpJT5r3lz72dFn0AiuWFrRV6uAF0kA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=OcYoE0LpMA0MY8ILZ0Ho+IuI9QGNvJilswpaMoS4wS/KCLSN/ZJu3lKMPrx9Yednv
+	 NW2hZsfEr5YHIF44Yv9djyKjZvg5THecugBnDJ9wPEIF8ejjzbIc/FFG8Jpw311Aet
+	 4zuZbaK+2FlNA6n5iBzFxYYfiOE8Kpb6P7Iix1XOfjVzJLT3+Ex+2YOOvUv7SUc407
+	 3TvwZxKK7SH/YTVD2BgRvrbjwZBwKGKWzLaZage9DVR3SEOcoPN8a5534K5BmO6nHr
+	 sXZX8pHoUU9RXVg63EeFKD7r6w3nk/N/zzWOWCK6kVL7NSxEaJTImmBt0b1QVDQYxS
+	 PnoRrPk+/LzVQ==
+Date: Wed, 25 Nov 2026 13:03:11 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+	Juri Lelli <juri.lelli@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
+	Valentin Schneider <vschneid@redhat.com>,
+	K Prateek Nayak <kprateek.nayak@amd.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>, linux-kernel@vger.kernel.org,
+	llvm@lists.linux.dev, stable@vger.kernel.org
+Subject: Re: [PATCH v3] sched/topology: Avoid unsequenced accesses to jiffies
+ in sd_init()
+Message-ID: <20261125200311.GA3625068@ax162>
+References: <20261125-topology-wunsequenced-v3-1-efa3db7e0bf8@kernel.org>
+ <20261125094643.GY2668804@noisy.programming.kicks-ass.net>
+ <CAKwvOdmyGdn4ES6Ku+Yovd7a5imzmtmYtd7KB=OMCqKpv1X8rg@mail.gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -79,304 +70,110 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAKwvOdmyGdn4ES6Ku+Yovd7a5imzmtmYtd7KB=OMCqKpv1X8rg@mail.gmail.com>
 
-netdev-bot+sashiko@kernel.org writes:
+On Wed, Nov 25, 2026 at 11:32:31AM -0800, Nick Desaulniers wrote:
+> On Wed, Nov 25, 2026 at 1:46 AM Peter Zijlstra <peterz@infradead.org> wrote:
+> >
+> > On Wed, Nov 25, 2026 at 12:23:35AM -0700, Nathan Chancellor wrote:
+> > > Clang's warning is ultimately pointing out that jiffies may have two
+> > > separate values in this initializer because it is volatile and accessed
+> > > twice and the order of these accesses is not specified. This could
+> > > result in unexpected or inconsistent behavior depending on the code
+> > > author's intent and whether they realized the variable was volatile or
+> > > not.
+> > >
+> > > As two separate accesses is not necessary here, add a local variable to
+> > > hold the value of jiffies before the designated initializer so that a
+> > > consistent value is used for initializing both members, clearing up the
+> > > warning.
+> >
+> > None of this tells me why we should not just disable that warning and
+> > get on with life.
 
-> Thank you for your contribution! Sashiko AI review found 6 potential
-> issue(s) to consider.
->
-> Critical: 0 =C2=B7 High: 2 =C2=B7 Medium: 2 =C2=B7 Low: 2
->
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
->
-> - [High] When a DRV_LAYOUT UMEM is shared across two queues of one netdev
->   whose per-queue DMA devices differ, xsk_sink_bind() gives the second=E2=
-=80=A6
-> - [High] xsk: xsk_sink_take_fill() recycles old-pool chunks instead of
->   releasing them
-> - [Medium] The 'chunk lent twice' check only works inside one sink, so a
->   UMEM shared across queues or devices with XDP_SHARED_UMEM gets around=
-=E2=80=A6
-> - [Medium] xsk: xp_assign_dev() blocks standard zero-copy when
->   MP_XDP_ONLY is active
-> - [Low] A DRV_LAYOUT bind accepts XDP_ZEROCOPY but delivers neither zero-
->   copy TX nor a zero-copy report.
-> - [Low] xsk_sink_nl_fill() returns 0 and emits no attribute, so a page
->   pool backed by an AF_XDP sink cannot be identified in page-pool-=E2=80=
-=A6
->
-> --
->
-> xsk: Lend UMEM chunks to the page pools of a queue
->
-> This adds a sink memory provider. With it, the chunks of a UMEM
-> registered with XDP_UMEM_DRV_LAYOUT back the RX page pools of the bound
-> queue, and the device lays out RX buffers in those chunks as it does in
-> pages. FILL entries lend chunks to the kernel, the UMEM is DMA mapped
-> once at bind, and binding requires a held native XDP program.
->
->> diff --git a/net/xdp/xsk_buff_pool.c b/net/xdp/xsk_buff_pool.c
->> index 5ec092f7cb6f7..7ece7d9e39376 100644
->> --- a/net/xdp/xsk_buff_pool.c
->> +++ b/net/xdp/xsk_buff_pool.c
->
-> [ ... ]
->
->> @@ -211,6 +215,13 @@ int xp_assign_dev(struct xsk_buff_pool *pool,
->>  	 */
->>  	hlist_add_head(&pool->dev_node, &netdev->xsk_pools);
->>=20=20
->> +	if (pool->umem->flags & XDP_UMEM_DRV_LAYOUT) {
->> +		err =3D xsk_sink_bind(pool, netdev, queue_id, flags);
->> +		if (err)
->> +			goto err_unbind;
->> +		return 0;
->> +	}
->
-> [Severity: Medium]
-> After xsk_sink_bind() installs the provider on one queue,
-> dev_get_min_mp_channel_count() returns non-zero for the whole device.
-> It checks mp_params.mp_priv on every RX queue and does not skip
-> MP_XDP_ONLY providers. Further down, xp_assign_dev() still uses it to
-> gate classic zero copy:
->
-> 	if (dev_get_min_mp_channel_count(netdev)) {
-> 		err =3D -EBUSY;
-> 		goto err_unreg_pool;
-> 	}
->
-> So once a DRV_LAYOUT socket is bound to one queue, a regular AF_XDP
-> socket on another queue of the same device fails with -EBUSY if it
-> asked for XDP_ZEROCOPY. Without that flag it silently falls back to
-> copy mode.
->
-> Earlier in this series, dev_mp_blocks_xdp() replaced this helper in
-> dev_xdp_install(), netif_xdp_propagate() and the ethtool rings path,
-> because an MP_XDP_ONLY provider does not stop native XDP. Was this
-> caller left out on purpose? If not, would dev_mp_blocks_xdp() be the
-> right test here? A sink on the queue being bound is already caught by
-> the earlier xsk_get_pool_from_qid() check, so the device-wide test
-> only needs to catch providers that block XDP.
+See below, I believe this warning has general value (but maybe not
+here).
 
-Not on purpose, will fix!
+> (Could also do ugly pragma's around this code;
 
-> [Severity: Low]
-> This branch returns success without setting pool->umem->zc, so xsk_bind()
-> ends up with xs->zc =3D false. Should a bind that passes XDP_ZEROCOPY be
-> accepted here?
->
-> xsk_sink_bind() rejects XDP_COPY but lets XDP_ZEROCOPY through:
->
-> 	if (flags & XDP_COPY || !dev->queue_mgmt_ops ||
->
-> TX on such a socket still goes through xsk_generic_xmit(). Also,
-> getsockopt(XDP_OPTIONS) sets XDP_OPTIONS_ZEROCOPY only when xs->zc is
-> true, so it reports copy mode even though RX is zero copy through the
-> page pool.
->
-> So a bind that asks for forced zero copy succeeds, TX runs in copy mode,
-> and XDP_OPTIONS says the socket is not zero copy. The documentation patch
-> later in the series says these sockets transmit in copy mode. It does not
-> say that XDP_ZEROCOPY is accepted or what XDP_OPTIONS reports. Both become
-> uAPI once registration accepts the flag. Could this be made consistent,
-> either by rejecting XDP_ZEROCOPY or by reporting the RX mode?
+Comments could obviously be adjusted.
 
-It should be rejected. Will fix.
+diff --git a/kernel/sched/topology.c b/kernel/sched/topology.c
+index 99878da03bce..729171ccc9b2 100644
+--- a/kernel/sched/topology.c
++++ b/kernel/sched/topology.c
+@@ -1973,6 +1973,9 @@ sd_init(struct sched_domain_topology_level *tl,
+ #endif
+ 	sd_flags |= asym_cpu_capacity_classify(sd_span, cpu_map);
+ 
++	__diag_push();
++	__diag_ignore(clang, all, "-Wunknown-warning-option", "Next warning might be unsupported");
++	__diag_ignore(clang, all, "-Wunsequenced-volatile", "Doesn't matter for jiffies");
+ 	*sd = (struct sched_domain){
+ 		.min_interval		= sd_weight,
+ 		.max_interval		= 2*sd_weight,
+@@ -2008,6 +2011,7 @@ sd_init(struct sched_domain_topology_level *tl,
+ 		.child			= child,
+ 		.name			= tl->name,
+ 	};
++	__diag_pop();
+ 
+ 	WARN_ONCE((sd->flags & (SD_SHARE_CPUCAPACITY | SD_ASYM_CPUCAPACITY)) ==
+ 		  (SD_SHARE_CPUCAPACITY | SD_ASYM_CPUCAPACITY),
 
-> [ ... ]
->
->> diff --git a/net/xdp/xsk_sink.c b/net/xdp/xsk_sink.c
->> new file mode 100644
->> index 0000000000000..b78116f25e712
->> --- /dev/null
->> +++ b/net/xdp/xsk_sink.c
->
-> [ ... ]
->
->> +static u32 xsk_sink_take_fill(struct xsk_sink *sink, struct page_pool *=
-pp)
->> +{
->
-> [ ... ]
->
->> +	for (i =3D 0; i < entries; i++) {
->> +		addr =3D ring->desc[(cons + i) & mask];
->> +		niov =3D &niovs[array_index_nospec((u32)(addr >> PAGE_SHIFT),
->> +						 nr)];
->> +		/* A chunk lent twice would be in two places at once */
->> +		if (unlikely(addr >=3D (u64)nr << PAGE_SHIFT ||
->> +			     READ_ONCE(niov->mp_state) =3D=3D XSK_SINK_LENT)) {
->> +			fq->invalid_descs++;
->> +			continue;
->> +		}
->
-> [Severity: High]
-> Once the next patch hands chunks back to userspace while they stay
-> attached to the page pool that received into them, can this branch
-> starve a new page pool on a queue restart?
->
-> netdev_rx_queue_reconfig() calls ndo_queue_mem_alloc() and, for most
-> drivers, ndo_queue_start() before ndo_queue_mem_free() destroys the
-> old page pool. When the new pool pp first refills, every chunk that
-> userspace posts back on FILL still has the old pool as owner, and
-> sink->released is still empty.
->
-> For each such chunk, xsk_sink_take_fill() marks it XSK_SINK_LENT,
-> consumes the FILL entry and calls page_pool_put_unrefed_netmem() on
-> the old pool. For a net_iov, __page_pool_page_can_be_recycled() is
-> always true, so the chunk lands in owner->alloc.cache or owner->ring.
-> page_pool_return_netmem(), and with it xsk_sink_release_netmem(),
-> runs only when that ring is full. The chunk never reaches
-> sink->released.
->
-> So xsk_sink_take_fill() can consume up to PP_ALLOC_CACHE_SIZE FILL
-> entries and still return 0. xsk_sink_take_released() then finds
-> nothing, and xsk_sink_alloc_netmems() returns 0 and bumps
-> queue_empty_descs even though FILL was not empty. The driver's ring
-> fill in ndo_queue_mem_alloc() or ndo_queue_start() can then fail, or
-> the new queue comes up without buffers.
->
-> After page_pool_destroy() runs on the old pool, the chunks still held
-> by userspace keep it inflight. Its ring is then scrubbed only from
-> page_pool_release_retry(), once every DEFER_TIME. Until that happens,
-> each refill of the new pool keeps pushing FILL chunks into the ring
-> of a pool that is going away.
->
-> Should a chunk whose owner is not pp be released to the sink, or moved
-> to pp directly, rather than recycled into the old pool? Once a new
-> pool exists for the queue, does the old pool ever need these chunks
-> back?
+> disable it for this entire source file via -Wno-unsequenced-volatile in the Makefile
 
-Hmm, I'll try to address this.
+diff --git a/kernel/sched/Makefile b/kernel/sched/Makefile
+index b1f1a367034f..c1b2062d7356 100644
+--- a/kernel/sched/Makefile
++++ b/kernel/sched/Makefile
+@@ -30,6 +30,8 @@ ifdef CONFIG_TRACE_BRANCH_PROFILING
+ CFLAGS_build_policy.o += -DDISABLE_BRANCH_PROFILING
+ CFLAGS_build_utility.o += -DDISABLE_BRANCH_PROFILING
+ endif
++
++CFLAGS_build_utility.o += $(CONFIG_CC_OPT_WNO_UNSEQUENCED_VOLATILE)
+ #
+ # Build efficiency:
+ #
+diff --git a/scripts/Kconfig.toolchain b/scripts/Kconfig.toolchain
+index 1d68075f0469..dfd76b05b6bb 100644
+--- a/scripts/Kconfig.toolchain
++++ b/scripts/Kconfig.toolchain
+@@ -236,6 +236,9 @@ config CC_OPT_WNO_STRINGOP_TRUNCATION
+ config CC_OPT_WNO_CONSTANT_LOGICAL_OPERAND
+ 	def_string "$(cc-option-str,-Wno-constant-logical-operand)"
+ 
++config CC_OPT_WNO_UNSEQUENCED_VOLATILE
++	def_string "$(cc-option-str,-Wno-unsequenced-volatile)"
++
+ config CC_HAS_COUNTED_BY
+ 	bool
+ 	# clang needs to be at least 20.1.0 to avoid potential crashes
 
-> [Severity: Medium]
-> Does this check still hold when the UMEM is shared with XDP_SHARED_UMEM
-> across queues or devices?
->
-> xp_assign_dev_shared() now sends DRV_LAYOUT UMEMs into xp_assign_dev()
-> with flags =3D 0. A socket that shares the UMEM on another queue or device
-> gets its own xsk_buff_pool and its own FILL ring. Then
-> xsk_sink_bind()->xsk_sink_create() allocates a separate niov array over
-> the same umem->chunks:
->
-> 	sink->area.niovs =3D kvcalloc(nr, sizeof(*niov), GFP_KERNEL_ACCOUNT);
->
-> The mp_state checked here belongs only to this sink, and it is checked
-> under this sink's lock. Suppose userspace posts the same chunk address on
-> both FILL rings. Each sink sees XSK_SINK_USER and lends the chunk. Two RX
-> queues then DMA into the same UMEM page, and both sockets later get that
-> chunk back as free.
->
-> The commit message says:
->
->   A chunk that is lent twice, or lies outside the UMEM, counts as an
->   invalid FILL entry, so userspace cannot make the device use a chunk
->   twice.
->
-> Is this guarantee meant to cover the shared UMEM case? As far as I can
-> tell, the end of the series refuses a second receiving socket only on the
-> same pool. The cross-queue branch of xsk_bind() still creates a second,
-> independent sink.
+> and finally this diagnostic was forked into a group; it's now
+> -Wunsequenced-volatile under the -Wunsequenced group, that could go in
+> W=1).
 
-Partly. The check is per queue, but the kernel does not need more! Each
-sink has its own net_iovs, so a chunk on two FILL rings leaves the
-kernel state on both sinks consistent. Two devices then write the same
-chunk, which only correupts the application's OWN data. The kernel keeps
-nothing in the UMEM and takes no bounds from it.
+Moving this to W=1 won't really solve the problem because many people
+build with W=1 by default so you'll still get reports and patches trying
+to fix it. It either needs to be this patch or one of the ones above.
 
-Let's try to fix the commit message and af_xdp.rst to make it clearer.
+> I think the warning has value generally across the tree, even if this
+> particular single instance "isn't a bug, per se."
 
-> [ ... ]
->
->> +static int xsk_sink_nl_fill(void *mp_priv, struct sk_buff *rsp,
->> +			    struct netdev_rx_queue *rxq)
->> +{
->> +	return 0;
->> +}
->
-> [Severity: Low]
-> Should this emit an attribute that identifies the provider?
-> page_pool_nl_fill() calls:
->
-> 	if (pool->mp_ops && pool->mp_ops->nl_fill(pool->mp_priv, rsp, NULL))
->
-> That call is the only way a page-pool dump says which memory provider
-> backs a pool. In devmem, mp_dmabuf_devmem_nl_fill() emits
-> NETDEV_A_PAGE_POOL_DMABUF and NETDEV_A_QUEUE_DMABUF, and io_uring zcrx
-> emits its IO_URING nest.
->
-> With this stub, a page pool backed by UMEM chunks looks like an ordinary
-> pool in page-pool-get dumps. Queue dumps still show NETDEV_A_QUEUE_XSK
-> through rxq->pool, but the page-pool side has nothing. The function is
-> unchanged at the end of the series.
+Hard agree. Just because this particular instance is not a bug does not
+mean future instances won't be. We pay a small cost to silence the
+initial instances then we get to see what it flags in the future. If it
+turns out there are never bugs, we can just turn the warning off
+globally (we've done it before) but I'd rather have hard evidence of
+that first; to me, these initial instances don't count. No maintainer
+has objected to the other patches I have sent for the other instances of
+this warning and there were not all that many for how much code the
+kernel has.
 
-Maybe add an empty xsk nest?
-
-> [ ... ]
->
->> +int xsk_sink_bind(struct xsk_buff_pool *pool, struct net_device *dev,
->> +		  u16 queue_id, u16 flags)
->> +{
->
-> [ ... ]
->
->> +	/* The device of the queue's page pools, which may differ per queue */
->> +	dma_dev =3D netdev_queue_get_dma_dev(dev, queue_id, NETDEV_QUEUE_TYPE_=
-RX);
->> +	if (!dma_dev)
->> +		return -EOPNOTSUPP;
->> +
->> +	/* Without a program, drivers would build skbs from the buffers */
->> +	if (!dev_xdp_drv_prog_held(dev))
->> +		return -ENOENT;
->> +
->> +	err =3D xp_dma_map(pool, dma_dev, XSK_SINK_DMA_ATTR, pool->umem->pgs,
->> +			 pool->umem->npgs);
->
-> [Severity: High]
-> Can the second queue end up with IOVAs that were mapped for a different
-> struct device here?
->
-> Take a DRV_LAYOUT UMEM shared across two queues of one netdev.
-> xp_dma_map() first calls xp_find_dma_map(), which matches only on the
-> netdev:
->
-> 	if (dma_map->netdev =3D=3D pool->netdev)
-> 		return dma_map;
->
-> xp_init_dma_info() then copies that map's dma_pages into the pool and
-> sets pool->dev =3D dma_map->dev, which is the first queue's device. Nothi=
-ng
-> compares dma_dev with dma_map->dev.
->
-> xsk_sink_create() builds every net_iov DMA address from
-> pool->dma_pages[i], but stores sink->dev =3D dma_dev, the second queue's
-> device. So this check in xsk_sink_init() passes:
->
-> 	if (pp->p.dev !=3D sink->dev || pp->p.offset + pp->p.max_len > PAGE_SIZE)
->
-> The second queue's page pool then posts IOVAs from the first device's
-> mapping to the second device. xsk_sink_alloc_netmems() also calls
-> dma_sync_single_range_for_device(pp->p.dev, ...) on addresses that
-> pp->p.dev never mapped.
->
-> mlx5e_queue_get_dma_dev() returns ch->pdev, which differs per channel on
-> multi-PF and socket-direct NICs. The mlx5 patch later in this series lets
-> mlx5 RQs use this provider.
->
-> If the two functions sit in separate IOMMU domains, won't the second
-> device DMA to IOVAs that are unmapped in its domain, or mapped to
-> something else there?
->
-> The devmem bind path already rejects queues whose DMA devices differ, for
-> this reason. Should xsk_sink_bind() do the same?
-
-Probably. I'll try to address it.
-
-pw-bot: cr
-
+-- 
+Cheers,
+Nathan
