@@ -1,117 +1,71 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.130
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.65
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795616271;
-	b=ftJ+y8zdTWTkNXz42fKAgBCH59xMoffT/AyTUginmV+7GRhcEfqSlJFPLNHk8RCV5H+b
-	 /RJs8a2IuI4Ei2OfRA3Cn5bYQ9GdLJirlgSErZAGmRDM1fL0zXFdWDUD5Wn8cJF8KgGLM
-	 p69Spu6YQ51T41gz1ScLne/Lhtpa04JVvtE3NrVfmNIZdvMn7aJIQBDJU+RpVy/SP3hH7
-	 399a2zSm3WcGusOVcqqYugUbG0ZrozwEKGXtSg3iUKlB7d+46DMPu5JditCeAqf6myi2J
-	 LCzss4WdWGqluYz12XX9KGqm6a8f/gbNjni1DUI6wnZl94EMFGRTo28fL8WzFZd2g4w==
+	t=1795616283;
+	b=r4gsQRr2PYbxU3tM/9eXnhNxvLMpGtwqd//vSD47sZlXe7vUgEZ3g8teA531g9A79l07
+	 af29+mDalWO+0vjgm6FkOIEpO2rTeLEYOVNLGClYwx1Wscb5uQLOQQ2fi4DtrNdt3Pr7l
+	 LnPUQAH5tzdIhTyznKd58B8rS4iOT5W/S0tXXJ4XprV0VFGpZ6UhIVSPKo5tbVFKzuy8v
+	 4J1SZECo6at+IK5ygyFAL7+gImPxzteINHhFU3asBkJoDXJgQO8oD3B7gFSHe28grqU4q
+	 imeEIhAlRSX3dR6BvbNucbNABGoAnhJdVV7Q6pbwcxFFVSMnl14VlAsNNRs0AEEHCjw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795616271;
-	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
-	 DKIM-Signature:Received:Received:Date:Message-ID:From:To:Cc:Subject:
-	 In-Reply-To:References:User-Agent:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:X-Spamd-Result:X-Rspamd-Server:
-	 X-Rspamd-Action:X-Spam-Flag:X-Spam-Score:X-Spam-Level:
-	 X-Rspamd-Queue-Id;
-	bh=KZ9tB/MB0itcYykUYerLScFBEiwIEhnDw165gr1oiQ0=;
-	b=AFCQmuXHNu3m+s1QpQqFWSnRorVrHqjxpWXE3xbiVeswuT0XBDorLt1SFRUIjDOQP3Ky
-	 WXDhK/L8HWQEKbiX/yPZ82exvikAM8QFT3u6bqfgPMc+pmMaP1qcfhywMtyoo3/mXna2X
-	 vIFphg7CvbmqXOqdk7FsL7CMgvCZnHv0cJE/rugy4dfQ/BfpIiaAtHT/NNVB/JLsuQ8Q+
-	 /ejDJQzOvLBRt/Q+IBlZuAd7hJ29xp1H8ES1xICNY1PSf6dK7Mxkkz6Rsz8Rlx8Gy9mRz
-	 2WRF64XdliSVRH8QHBQLgO6LQBVa2qaqZFy5QOrhkdQngA6RVmD17oPUYM5mJlqG87Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795616283;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To;
+	bh=cz6q/stH72VoxzJvriTDyhchEoMpXYcJk6FPeliPcts=;
+	b=krxWPYPHv7FDUcPIEB3FkDfjGAMa04guddUINh0+IyqeCKWGQBo88eDhgwwmjt40ok8H
+	 hb71EoGrDQ/yWZVVGNiH1vvcGHZSoXCDmfmOADpPpF4t1zhpVUSe6LE/3bU4fAOCd/3u2
+	 V/Y5SPVI1ZaemG3EWdDj7zqPnSdCAkskgeefJ6ZCOhtqAu6H8dSsZ+elz8RUOtzJZxy61
+	 lYFHTNQUtSDiighQyT39XdFFZ4/JJwdRggdT5gPSHE+seZeuQ5+/CUfWhSnFJOs3iRoma
+	 NxgP/R6saE+l7uujtmFOBGQWVvlqqR4V5xIU82gPl8+iE8vVwlHcBwHA+LW0SxOS0Dg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.de;
-	spf=pass smtp.mailfrom=suse.de;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=DfSuLQxY;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=qs9YnITm;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=DfSuLQxY;
-	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=qs9YnITm;
-	arc=none smtp.remote-ip=195.135.223.130
-Received: from smtp-out1.suse.de (smtp-out1.suse.de [195.135.223.130])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=wyuan.org;
+	spf=pass smtp.mailfrom=wyuan.org;
+	dkim=pass header.d=wyuan.org header.i=@wyuan.org header.a=rsa-sha256 header.s=key1 header.b=TACvlVp5;
+	arc=none smtp.remote-ip=95.215.58.65
+Received: from mta1.migadu.com (out-65.mta1.migadu.com [95.215.58.65])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B343B606A31E;
-	Wed, 25 Nov 2026 14:17:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B343B606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=suse.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 659F1606A31E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:18:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 659F1606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=wyuan.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=wyuan.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=DfSuLQxY;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=qs9YnITm;
-	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=DfSuLQxY;
-	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=qs9YnITm
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id BE07E2220C;
-	Wed, 25 Nov 2026 14:17:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1795616268; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=KZ9tB/MB0itcYykUYerLScFBEiwIEhnDw165gr1oiQ0=;
-	b=DfSuLQxYKJ3uGWERDYvVJfVEvMSSG5w6fobDbqw7S1uBUcy5+pTw36khLu1La5NUIzPCAc
-	LAOPOCRZEvA/TCHuu+H7QpSof1Tcwek2AVScJCztVuvFgdnLQcZB3sXMwEUTJs8X4bh3rn
-	SxHAFsM+rKkdeI5ApSBVJdmXubt7EGU=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1795616268;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=KZ9tB/MB0itcYykUYerLScFBEiwIEhnDw165gr1oiQ0=;
-	b=qs9YnITms69N4MLlwhSoDcA+eF9v57Ez29z+MrzzGKP8d54JESC3Kf2oKi5rsHKei1ul66
-	XoxEzEmIqISLxrCg==
-Authentication-Results: smtp-out1.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=DfSuLQxY;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=qs9YnITm
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1795616268; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=KZ9tB/MB0itcYykUYerLScFBEiwIEhnDw165gr1oiQ0=;
-	b=DfSuLQxYKJ3uGWERDYvVJfVEvMSSG5w6fobDbqw7S1uBUcy5+pTw36khLu1La5NUIzPCAc
-	LAOPOCRZEvA/TCHuu+H7QpSof1Tcwek2AVScJCztVuvFgdnLQcZB3sXMwEUTJs8X4bh3rn
-	SxHAFsM+rKkdeI5ApSBVJdmXubt7EGU=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1795616268;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=KZ9tB/MB0itcYykUYerLScFBEiwIEhnDw165gr1oiQ0=;
-	b=qs9YnITms69N4MLlwhSoDcA+eF9v57Ez29z+MrzzGKP8d54JESC3Kf2oKi5rsHKei1ul66
-	XoxEzEmIqISLxrCg==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 7697E134CA;
-	Wed, 25 Nov 2026 14:17:48 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id WuzrEwzuBmvXWQAAD6G6ig
-	(envelope-from <tiwai@suse.de>); Wed, 25 Nov 2026 14:17:48 +0000
-Date: Wed, 25 Nov 2026 15:17:48 +0100
-Message-ID: <87ld6h6lmb.wl-tiwai@suse.de>
-From: Takashi Iwai <tiwai@suse.de>
-To: =?GB2312?B?0Ozqz8/o?= <xuhx@hust.edu.cn>
-Cc: perex@perex.cz,
-	tiwai@suse.com,
-	linux-sound@vger.kernel.org,
+	dkim=pass (2048-bit key, unprotected) header.d=wyuan.org header.i=@wyuan.org header.a=rsa-sha256 header.s=key1 header.b=TACvlVp5
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=CCa6MLPgSfC0gSv1/TwQ2U1xBZ9d9xJFhl1N8rsJZyk=;
+ c=simple/simple; d=wyuan.org;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795616280; v=1; x=1796221080;
+ b=TACvlVp5XJlw0i9zLKjIX6ViIxnQhY68D8+L3z1Qk9/0o7khe0XjfS8bdJNWYmDr35uQposF
+ yYsf6F31ATQ9+3UIjLRzQoFdRiAtcq1qSzz/NXX1aEXi0pA8jLcetAz2WdvRzoBdgsXmbx322JJ
+ rLod3cW9A+9PU+3UkuLXOnmoqhxQ/A+KhYiLOr+DZy6VnSIoauyZYYlVt+wxM55jEqIhQQl0kG+
+ +4lnyRoaeF+0s1NiCSJLOG2svU0H706jcGj457voz4sd8Ie9Z+R29r8Wf94kAE6O2rpm2ZOVV6L
+ 8e13TDpVgjeQ7WR8s6BlQ+oKuyoWNoE7zvOUEiJUFxnxg==
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 5990fbd04151478c;
+	Wed, 25 Nov 2026 14:18:00 +0000
+X-Mizu-Trace-ID: 5990fbd04151478c
+X-Migadu-Flow: FLOW_OUT
+Date: Wed, 25 Nov 2026 22:17:52 +0800
+From: Weijie Yuan <wy@wyuan.org>
+To: Dongliang Mu <dzm91@hust.edu.cn>
+Cc: Bruce Song <xiongwei.song@linux.dev>, alexs@kernel.org,
+	si.yanteng@linux.dev, corbet@lwn.net, skhan@linuxfoundation.org,
+	rdunlap@infradead.org, paulmck@kernel.org,
+	linux-doc@vger.kernel.org, rcu@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] Re: sound: timer: snd_utimer_fops lacks .owner, so an open user timer  fd does not pin snd-timer
-In-Reply-To: <4317d6a0.574.1a212bfe880.Coremail.xuhx@hust.edu.cn>
-References: <4c7f9772.192e1.1a17d5c2ed5.Coremail.xuhx@hust.edu.cn>
-	<2026102727-data-sequel-ce41@gregkh>
-	<1a84c621.2ad29.1a202429a8e.Coremail.xuhx@hust.edu.cn>
-	<4317d6a0.574.1a212bfe880.Coremail.xuhx@hust.edu.cn>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) Emacs/30.2 Mule/6.0
+Subject: Re: [PATCH v2 2/2] docs/zh_CN: Add RCU/whatisRCU.rst Chinese
+ translation
+Message-ID: <awbuEAiOpfpfov2b@wyuan.org>
+References: <20261118131636.5131-1-xiongwei.song@linux.dev>
+ <20261118131636.5131-3-xiongwei.song@linux.dev>
+ <09ef3d3d-0e68-49c6-a6a2-c754104ede9e@hust.edu.cn>
+ <946792d2-4241-445d-820b-301a570ee2c3@linux.dev>
+ <awZZVV3BlovD-xNf@wyuan.org>
+ <9d2b25e4-c5a0-4ef0-8698-1a622d05223e@hust.edu.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -120,178 +74,83 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=GB2312
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-Spamd-Result: default: False [-12.51 / 50.00];
-	SUSE_INTERNAL_BYPASS(-9.00)[];
-	BAYES_HAM(-3.00)[100.00%];
-	MID_CONTAINS_FROM(1.00)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	ARC_NA(0.00)[];
-	TO_DN_SOME(0.00)[];
-	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	RCVD_TLS_ALL(0.00)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	RCPT_COUNT_FIVE(0.00)[5];
-	RCVD_COUNT_TWO(0.00)[2];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[perex.cz:email,suse.de:dkim,hust.edu.cn:email,suse.com:email,imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo];
-	DKIM_TRACE(0.00)[suse.de:+]
-X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
-X-Rspamd-Action: no action
-X-Spam-Flag: NO
-X-Spam-Score: -12.51
-X-Spam-Level: 
-X-Rspamd-Queue-Id: BE07E2220C
+In-Reply-To: <9d2b25e4-c5a0-4ef0-8698-1a622d05223e@hust.edu.cn>
 
-On Wed, 25 Nov 2026 13:48:16 +0100,
-ÐìêÏÏè wrote:
+On Wed, Nov 25, 2026 at 10:00:26PM +0800, Dongliang Mu wrote:
 > 
-> snd_utimer_fops had no .owner, so the anonymous-inode fd created by
-> SNDRV_TIMER_IOCTL_CREATE did not hold a reference to the snd-timer
-> module: the module could be unloaded while the fd was open, and a
-> later SNDRV_TIMER_IOCTL_TRIGGER or close(fd) executed
-> snd_utimer_trigger()/snd_utimer_release() from unloaded module
-> text.  (utimer->timer->module is only consulted by snd_timer_open(),
-> which the fd never goes through.)
-> 
-> Add .owner = THIS_MODULE so anon_inode_getfile() pins the module
-> for the lifetime of the fd, as upstream does.
-
-Already fixed by the upstream commit f9e882ac8257.
-
-
-thanks,
-
-Takashi
-
-> ---
->  sound/core/timer.c |  1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/sound/core/timer.c b/sound/core/timer.c
-> --- a/sound/core/timer.c
-> +++ b/sound/core/timer.c
-> @@ -2173,6 +2173,7 @@
->  }
->  
->  static const struct file_operations snd_utimer_fops = {
-> +	.owner		=	THIS_MODULE,
->  	.llseek		=	noop_llseek,
->  	.release	=	snd_utimer_release,
->  	.unlocked_ioctl	=	snd_utimer_ioctl,
+> On 11/25/26 11:43 AM, Weijie Yuan wrote:
+> > On Tue, Nov 24, 2026 at 10:23:50PM +0800, Bruce Song wrote:
+> > 
+> > [...]
+> > 
+> > > > > +:ç¿»è¯‘:
+> > > > > +
+> > > > > + å®‹é›„å¾® Xiongwei Song <xiongwei.song@linux.dev>
+> > > > > +
+> > > > > +:æ ¡è¯‘:
+> > > > > +
+> > > > > +.. _zh_cn_whatisrcu_doc:
+> > > > 
+> > > > Please double check all the references. If one reference is not referred
+> > > > from other places, please remove it in the translation.
+> > > Ok, I will do that.
+> > Let's make it a rule or instruction, shall we?
+> > 
+> > I didn't find any specific rules for label usage in doc-guide dir. (only
+> > no more top-level label on list) But I suspect there must be unused
+> > labels in English docs.
+> > 
+> > We either:
+> > 
+> > (1) make it consistent, i.e. keep adding unused labels.
+> > 
+> > or
+> > 
+> > (2) check usused labels and do not create new labels for it.
+> > 
+> > 1 may be easier for manual translating jobs that you don't need to check
+> > every label manually. You just need to add a '_zh' before each original
+> > label. But apparently this will create tons of unused labels. So, no?
+> > 
+> > 2 may costs more attention, but I guess agents could handle this
+> > nowadays with proper prompts.
 > 
 > 
-> > -----Ô­Ê¼ÓÊ¼þ-----
-> > ·¢¼þÈË: ÐìêÏÏè <xuhx@hust.edu.cn>
-> > ·¢ËÍÊ±¼ä:2026-11-22 15:57:29 (ÐÇÆÚÈÕ)
-> > ÊÕ¼þÈË: perex@perex.cz, tiwai@suse.com
-> > ³­ËÍ: linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org
-> > Ö÷Ìâ: sound: timer: snd_utimer_fops lacks .owner, so an open user timer  fd does not pin snd-timer
+> I prefer this solution for some reasons:
+> 
+> 1. If I understand correctly, Jon asked us not to add useless labels in the
+> translations.
+
+Yes, true.
+
+> 2. The labels in original English documents may be invalid, we should
+> not inherit them blindly. Only if you find some place refers to this label,
+> you can add it to our translation.
+
+True. So I also hope that the English documentation includes a note (if
+there's no such): do not add unnecessary labels. This way, our new
+translations will not be added in correspondence with them.
+
+I will also try to troubleshoot unused labels in English articles when I
+have time. Sadly, Sphinx does not print out warnings for this, so I have
+to grep them.
+
+> > I forgot to mention this thing in Daniel's series [*], shall we mention
+> > this now, or send a RFC patch after they get merged?
+> 
+> If it is not merged, comment now.
+
+Sure, will draft soon. It is expected that his series will not be merged
+quickly.
+
+Thanks.
+
+> > And also, add a rule for English docs that _do_not_ write a label which
+> > is not used? This will make our job easier.
 > > 
-> > SNDRV_TIMER_IOCTL_CREATE creates a user-driven timer and returns an
-> > anonymous inode fd whose file_operations is snd_utimer_fops.  That
-> > structure has no .owner = THIS_MODULE.  anon_inode_getfile() only calls
-> > try_module_get(fops->owner) when owner is non-NULL, so the fd does not
-> > hold a reference to the snd-timer module.  The module can be unloaded
-> > while the fd is still open; a later ioctl(SNDRV_TIMER_IOCTL_TRIGGER) or
-> > close(fd) calls snd_utimer_trigger()/snd_utimer_release() in unloaded
-> > module text.
-> > 
-> > The module field does not save this path: utimer->timer->module is set
-> > to THIS_MODULE in snd_timer_new(), but try_module_get() is only called by
-> > snd_timer_open(), and a utimer fd never goes through snd_timer_open().
-> > snd_utimer_create() also calls snd_timer_new(NULL, ...), so with card ==
-> > NULL it does not go through snd_device_new(); snd_timer_global_register()
-> > (timer.c:1188-1194) only does the device-list insertion and takes no
-> > module reference.
-> > 
-> > This is a static report: the missing .owner and the anon_inode lifetime
-> > are unambiguous, but I did not build a dynamic reproducer (it requires
-> > CONFIG_SND_TIMER=m together with CONFIG_SND_UTIMER=y).
-> > 
-> > The detailed description:
-> > 
-> > * Test environment / affected version
-> > 
-> >   Source analysis against mainline 7.3; no dynamic reproducer was run
-> >   for this case.
-> > 
-> > * Root cause
-> > 
-> >   sound/core/timer.c:2175-2179:
-> > 
-> >     static const struct file_operations snd_utimer_fops = {
-> >         .llseek        = noop_llseek,
-> >         .release       = snd_utimer_release,
-> >         .unlocked_ioctl = snd_utimer_ioctl,
-> >     };
-> > 
-> >   Missing .owner = THIS_MODULE.
-> > 
-> >   sound/core/timer.c:2298:
-> > 
-> >     timer_fd = anon_inode_getfd(utimer->name, &snd_utimer_fops, utimer,
-> >                                 O_RDWR | O_CLOEXEC);
-> > 
-> >   fs/anon_inodes.c:141-142:
-> > 
-> >     if (fops->owner && !try_module_get(fops->owner))
-> >         return ERR_PTR(-ENOENT);
-> > 
-> >   owner == NULL -> no module reference.  utimer->timer->module =
-> >   THIS_MODULE (timer.c:2252) is only consulted by snd_timer_open(),
-> >   which the fd does not use; snd_timer_global_register() is just
-> >   list_add_tail() and does not take a module reference.
-> > 
-> >   Upstream snd_utimer_fops has .owner = THIS_MODULE.
-> > 
-> > * Failure model
-> > 
-> >   1. user ioctl SNDRV_TIMER_IOCTL_CREATE -> snd_utimer_create() ->
-> >      anon_inode_getfd() with the ownerless fops;
-> >   2. no other snd-timer user -> rmmod snd-timer succeeds;
-> >   3. user calls ioctl(SNDRV_TIMER_IOCTL_TRIGGER) or close(fd);
-> >   4. snd_utimer_ioctl()/snd_utimer_release() execute from the unloaded
-> >      module, and dereference utimer->timer / call snd_timer_interrupt().
-> > 
-> >   This is a module-lifetime race, not a data race on a shared field; the
-> >   concurrency is rmmod vs fd operation.
-> > 
-> > * Trigger model
-> > 
-> >   - CONFIG_SND_TIMER=m (module) and CONFIG_SND_UTIMER=y;
-> >   - a user creates a utimer fd via /dev/snd/timer;
-> >   - the module is unloaded before the fd is closed;
-> >   - the fd is used (trigger ioctl) or closed.
-> > 
-> >   Requires local access to /dev/snd/timer; no hardware.
-> > 
-> > * Impact
-> > 
-> >   - execution of unloaded module code: UAF execution, crash;
-> >   - if the module address range is reused, potential code execution;
-> >   - at minimum a local DoS / module-unload race.
-> > 
-> > * Suggested direction 
-> > 
-> >   Add .owner = THIS_MODULE to snd_utimer_fops.  Also consider whether the
-> >   anon-inode path should hold an explicit module reference for clarity;
-> >   .owner is the standard fix and matches upstream.
-> >  
-> > 
-> >   Please keep me in Cc; I am not subscribed to the lists.
-> > 
-> > Regards,
-> > Hanxiang Xu
-> > xuhx@hust.edu.cn
+> > [*] https://lore.kernel.org/linux-doc/20261119041009.63651-1-danielmaraboo@gmail.com/
+
