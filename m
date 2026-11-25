@@ -1,111 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.156.1
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795620762;
-	b=RgQI66FVnckuK6RPzzwWWSWL+GDDPERgNn+d46F0PbEQeGJ0zrjVIRAoZ3m7MyeFMOoj
-	 7Z0K+mk31/gtbq3+voIjtbdr5KY6uf05hrIBBcjRyH7KHzdI/e1SWlvz90YT7Mma8ihtk
-	 8nJ+fKsZDwpzxHc8ESsvADv7WM1fGxpew6rlMrXU+yy2lsRN/YDF4PfvLM/TxGommdqga
-	 oU156vVMJWpMK5IxfmzEQvVxgGHpIALlzIyVXyfpuGSWePn6464ziTt0tsiTP3C/SGvbT
-	 Yy5sTWPq6fTII0FzQ+2oAyn8VMXfT+OXnt2nCBeuwV6S8nRrhLoDj6IivlR3437EdGw==
+	t=1795620779;
+	b=0PeRaFTf8K5/Q7Js9qZTF9JoiqgVE++V6uDrGX4Dfz8UHj6vv5WmrboYLZvXvGMAvsTW
+	 anrrf44SJI1bUeLaHWM7lauvazDFCYiYCp2GM1TdxTjqVv8zaUs1TpsgdxixQesJBsBYZ
+	 CXY7JWpa4H6fqIBRu36drgX10ECmxJsNDoRUCEo2aK9uFJAXSbmFmKk1GYtp5GsGTBN0X
+	 I9E21sZGUAarK+OCsSi+QpCRwBwDYlhMXq73hyMfTsRait5b8fqHt9IE3JstsqODMlmpv
+	 KjdHIgQqZgYm2CgEe6sElVUJfqUtkVGRy7CyWq526Kyc1Ut/Hf+eB0b7f26qAGLUOWQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795620762;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:Received:Received:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To:X-TM-AS-GCONF:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:X-Authority-Analysis:
-	 X-Proofpoint-GUID:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=4pcbxCQpHnjfej2Pb47u9IiTlMLuBD74I8/PGaiLL2I=;
-	b=AA2c5rV+Orz5InR96pKVS4NfN2pviaBvwJ3dPLaFp1q8+eUzJESuwxwAYfjMZ45Vf2a1
-	 9B3npSh3hMeNtmsIKnTduS0zikvbg56GZ00OfdOCyyP3QeBfBaMW85oGyR1MlXIEhA8he
-	 R/afurKt2cdInGeWLh2ImYGUl3USN/pwbGVAq6MIenNMS8tzRmqYz39LOx8ux/wP1/+X3
-	 OP0T6/vEwbu0jZ/B6iS+Lj7bJZFL+fUwyspku2SPBLKd+QBv94FBCQnghuirAi6510/3C
-	 aLgch+tDMmSuNWfelbAcSAIRCudLwA7aTbgYm+RgizKQcFnf6NB1KfJVaeR4UUqq8Og==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795620779;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=P9ziKV8LpwywZ6keY4HAU4E3v0yjAaX5+ig0pbD9Vik=;
+	b=TSZ/Dw0D3rzkvepq7xu4EBcHRPwlSIS8iuuOjBENxZtPETThel7egTQwrXYRNRYW9eX1
+	 YzzQWCDec72jKS6V5lT6maqqyO703b9JUj/KzYtAu6wYR65lHZNyVJGr4cgS+aLAe5YQA
+	 woV9i6JzrVKmY5dfMD9qw5Q9zR8kO9b7wBszm/Wtv6Y006ZpVoMHSTG8x07VwFROdhmJ9
+	 3cK1Lk+QHPutQmt4Ah0qCovM/Cx0JOWedf0+3bRxqbdFZ+uRhWhqT8dpOG9Y1vYZCi8qB
+	 ONyQtb7SxjnicITY2c588YYoyPzqz5oYi/wmeNWslel0ZwpCYP4iu/ZggcKi879b9xg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.ibm.com;
-	spf=pass smtp.mailfrom=linux.ibm.com;
-	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=CK972qqv;
-	arc=none smtp.remote-ip=148.163.156.1
-Received: from mx0a-001b2d01.pphosted.com (mx0a-001b2d01.pphosted.com [148.163.156.1])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ILwnqsTJ;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 33D8A606A31E;
-	Wed, 25 Nov 2026 15:32:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 33D8A606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B86A9606A31E;
+	Wed, 25 Nov 2026 15:32:59 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=CK972qqv
-Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6APEYlFA1602794;
-	Wed, 25 Nov 2026 15:32:08 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=4pcbxCQpHnjfej2Pb47u9IiTlMLuBD
-	74I8/PGaiLL2I=; b=CK972qqvhHaY9mSoR1fN6G12TGcYlVYcYEqAT1Aq/e3IWS
-	ynI51DF7ld+ExOkn3RxrUa3gwcTO/KPC+LvPA6JpviEQonFriIk6eUoJMLb1drBM
-	ulMi25ezUrAp5fgiIe7fY8jfUDx7jyzgHAkPro0eAR+DO/Eo/oWnj3xvAE6A21uq
-	sYsUZjJHvCyoJrFHVqjWue1xS7jDF2z08QQc4+2LKY4rwvI+ebxCTvS9156cZhCg
-	cfABEgBfK8vjmHfhYx2gSHmz4R5Fbs42JXlbRBIgeev8obpElC8/7WTgdqnxvcpg
-	IODY/dyS0kiO2FeMY/kd7yZZJsXQKgeToTdmjONQ==
-Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j34fkn59d-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Wed, 25 Nov 2026 15:32:08 +0000 (GMT)
-Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma11.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6APEKXYX918513;
-	Wed, 25 Nov 2026 15:32:07 GMT
-Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
-	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4j5dcuuv8c-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 25 Nov 2026 15:32:07 +0000 (GMT)
-Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
-	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6APFW3SR47251732
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 25 Nov 2026 15:32:03 GMT
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id ABE732004B;
-	Wed, 25 Nov 2026 15:32:03 +0000 (GMT)
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 5167D20043;
-	Wed, 25 Nov 2026 15:32:03 +0000 (GMT)
-Received: from osiris (unknown [9.68.29.29])
-	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Wed, 25 Nov 2026 15:32:03 +0000 (GMT)
-Date: Wed, 25 Nov 2026 16:32:02 +0100
-From: Steffen Eiden <seiden@linux.ibm.com>
-To: Joey Gouly <joey.gouly@arm.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-        Fuad Tabba <fuad.tabba@linux.dev>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Zenghui Yu <yuzenghui@huawei.com>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-        Andreas Grapentin <gra@linux.ibm.com>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Janosch Frank <frankja@linux.ibm.com>,
-        Claudio Imbrenda <imbrenda@linux.ibm.com>,
-        David Hildenbrand <david@kernel.org>,
-        Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
-        Alexander Gordeev <agordeev@linux.ibm.com>,
-        Sven Schnelle <svens@linux.ibm.com>,
-        Friedrich Welter <fritz@linux.ibm.com>,
-        Gautam Gala <ggala@linux.ibm.com>,
-        Hariharan Mari <hari55@linux.ibm.com>,
-        Hendrik Brueckner <brueckner@linux.ibm.com>,
-        Nico Boehr <nrb@linux.ibm.com>,
-        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-        Arnd Bergmann <arnd@arndb.de>, Paolo Bonzini <pbonzini@redhat.com>,
-        linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-        linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
-        linux-s390@vger.kernel.org
-Subject: Re: [PATCH v3 03/23] arm64: sysreg: Convert OSLSR to automatic
- register generation
-Message-ID: <20261125153202.117976-B-seiden@linux.ibm.com>
-References: <20261106-sysreg-v3-0-75e95980fb10@linux.ibm.com>
- <20261106-sysreg-v3-3-75e95980fb10@linux.ibm.com>
- <awbuY0mETtZ_mQh3@e143914.arm.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ILwnqsTJ
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 11C791F000C4;
+	Wed, 25 Nov 2026 15:32:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795620779;
+	bh=P9ziKV8LpwywZ6keY4HAU4E3v0yjAaX5+ig0pbD9Vik=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=ILwnqsTJoTAX2y6yreyBSv7Ug5yv859gbc5ivHDIVIiyndf4xWNa3m/VfGPI0DL99
+	 6gFkrWdGw5l67ojlhP1I0mG6HuDXK7MYpGaXJ4/mhpgBzqcv9csTA63EjjPcJYp7VM
+	 zd1bRMFUPXTBVD4WIF+ATgxG7wh6LebcmSAsIaw7wIlmAtpj0YB86daZiYYipg/xOf
+	 9k3BQCDgFcoAvRsp1wiODXhIQ4a8wYfGFQB7msaKHKnYHfUnHEnKBdj4iMKDrRzyOG
+	 ST7+BxK9KYa8YfKIMqlD1LZN6QfEoeOny+w0NBKTzGb5Z0EJ3B73Dp7xyuJ87OVw3t
+	 IB5NC0uG0pr8g==
+Date: Wed, 25 Nov 2026 15:32:57 +0000
+From: Harry Yoo <harry@kernel.org>
+To: "Vlastimil Babka (SUSE)" <vbabka@kernel.org>
+Cc: Andrea Righi <arighi@nvidia.com>, Jan Kara <jack@suse.cz>, 
+	Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, 
+	Quan Liu <qualiu@nvidia.com>, Lee Trager <ltrager@nvidia.com>, 
+	Seth Forshee <sforshee@nvidia.com>, Gregory Price <gourry@gourry.net>, linux-fsdevel@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-mm@kvack.org, Hao Li <hao.li@linux.dev>
+Subject: Re: [PATCH] pipe: Prefer mempolicy node for metadata allocations
+Message-ID: <awb8v4sLglHQyHQ2@thinkstation>
+References: <20261110065219.894219-1-arighi@nvidia.com>
+ <hbkxlhc5y2jkvuov5o2kjgpisx2pavuo3ad4c4ydixeic7vaq6@mpzzfmhjvtof>
+ <avQP1aXhe7nQuzt9@gpd4>
+ <3f761a27-74df-4e19-878b-323164da5a69@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -117,65 +64,100 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <awbuY0mETtZ_mQh3@e143914.arm.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI1MDA2MCBTYWx0ZWRfX/NUMUPbHtYAt
- SBqPklk9AkJR3xQscWUb+f0DjxT6kV/kKyzTYS5sjH9ZUCJKAnevQu5lvkNmNh+mx00OUGUbkWv
- jjuibY0pkEKt11siKIMCPZBdMM7+kh87ZffPZTmOE+1PW1vJEFHSe9Pfr75pGwpU7SnJXK5D/fu
- Q6+6mflTmzly5fnjhelCX+ItgipPuvYH3MQVR9zJSeHPDz1rYtwO//md7N1hUElXhKmJmIImyKv
- hu7y/Qi6rk11KeIp3TsafWBK7TS1cItcezbca1z1MtwFvcu3WAKG1zGdSyB9uAC+ztihTfPcNeN
- Qmiiz5zhivgKFBWqy+ulxfuQ6SGFfRMPScr37x6z+08KJYZjxqxdCYnPFnTi4zUHCIf7Hluzgdz
- vseauTpOvxUOR56QY+uk4nNORRVOu97Z5QLioztStQoE+elhWx2xPbXw/pcIxQsZWLYTMitYBaH
- QVyQsynlLGhvzytPSIw==
-X-Proofpoint-ORIG-GUID: CDsbJr9gK51GZkzZX73S5vFuDg4Ga37W
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI1MDA2MCBTYWx0ZWRfX5OJB27YFMq71
- CL5nVKK5wn9aXa8dxUuOKVGJmZI2slPpKyMf+o5SEBSifgf+gSzy0to5MSBMpx3qm0etWUh0Tj6
- 4U3lgNkIfqMEYbQ1Ic+dIShZjB1aEQU=
-X-Authority-Analysis: v=2.4 cv=A9z5rKWG c=1 sm=1 tr=0 ts=6b06ff78 cx=c_pps
- a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
- a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=U7nrCbtTmkRpXpFmAIza:22 a=VnNF1IyMAAAA:8
- a=7CQSdrXTAAAA:8 a=kDbVKrEIACoO4ZT2jxoA:9 a=CjuIK1q_8ugA:10
- a=a-qgeE7W1pNrGK8U0ZQC:22
-X-Proofpoint-GUID: CDsbJr9gK51GZkzZX73S5vFuDg4Ga37W
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-25_04,2026-11-23_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 adultscore=0 phishscore=0 priorityscore=1501 impostorscore=0
- bulkscore=0 malwarescore=0 spamscore=0 lowpriorityscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611250060
+In-Reply-To: <3f761a27-74df-4e19-878b-323164da5a69@kernel.org>
 
-On Wed, Nov 25, 2026 at 02:19:15PM +0000, Joey Gouly wrote:
-> Hi,
-> 
-> On Fri, Nov 06, 2026 at 05:07:36PM +0100, Steffen Eiden wrote:
-> > Convert OSLSR to automatic register generation as per DDI0601. As
-> > OSLSR_OLSM is a composite field using bit 0 and bit 3 the combined
-> > values are still defined manually. While at it rename
-> > OSLSR_EL1_OSLM_IMPLEMENTED to OSLSR_EL1_OSLM_IMP to be consistent with
-> > the rest of the system register values.
+On Wed, Nov 11, 2026 at 09:12:44AM +0100, Vlastimil Babka (SUSE) wrote:
+> On 11/11/26 07:48, Andrea Righi wrote:
+> > Hi Jan,
 > > 
-> > No functional changes.
+> > On Tue, Nov 10, 2026 at 01:27:53PM +0100, Jan Kara wrote:
+> >> On Tue 10-11-26 07:52:19, Andrea Righi wrote:
+> >> > Generic slab allocations can reuse partial slabs from another NUMA node,
+> >> > even when a pipe workload is bound to one node. Pipe metadata is shared
+> >> > between senders and receivers and accessed throughout the pipe lifetime.
+> >> > Reusing remote metadata can therefore make an IPC workload pay remote
+> >> > access and coherence costs on every exchange.
+> >> > 
+> >> > The target use case is a workload that binds its workers and memory to
+> >> > one NUMA node with numactl. The policy node is then a useful placement
+> >> > hint for shared pipe metadata.
+> >> > 
+> >> > Allocate pipe_inode_info and its descriptor array on the node selected
+> >> > by the caller's memory policy. Apply the same preference when replacing
+> >> > slab-sized descriptor arrays during ring resizing. An explicit node lets
+> >> > SLUB try local allocations before reusing remote partial slabs.
+> >> > 
+> >> > For descriptor arrays larger than KMALLOC_MAX_CACHE_SIZE, pass
+> >> > NUMA_NO_NODE to keep the policy-aware page allocation path. An explicit
+> >> > node would otherwise lose the MPOL_BIND nodemask on fallback. Select the
+> >> > policy node only for slab-sized arrays, avoiding an extra advance of an
+> >> > interleave policy for large allocations.
+> >> > 
+> >> > Moving a pipe's users to another node doesn't migrate its existing
+> >> > metadata, so migration can still result in remote accesses regardless of
+> >> > this change. Generic allocations may reuse remote partial slabs, making
+> >> > initial placement dependent on allocator state. In contrast, preferring
+> >> > the policy node leverages the workload's placement hint to improve
+> >> > locality when users remain on the intended node.
+> >> > 
+> >> > Testing has been performed on a dual-socket NVIDIA Vera system, covering
+> >> > hackbench, pipe transfers, pipe creation and resizing, pipe_bench, and
+> >> > targeted stress tests.
+> >> > 
+> >> > The primary hackbench reproducer is:
+> >> > 
+> >> >   $ numactl --physcpubind=0-87 --membind=0 \
+> >> >       hackbench -P -p -g 10 -f 20 -s 100 -l 100000
+> >> > 
+> >> > Results (over 10 measured runs per case):
+> >> > 
+> >> >               avg       stdev
+> >> >    before     9.811s    0.130s
+> >> >    after      5.770s    0.058s
+> >> > 
+> >> > Before this change, allocations could reuse remote pipe metadata. With
+> >> > this change, both pipe objects and descriptor arrays are allocated on
+> >> > the requested node, improving locality and reducing hackbench runtime by
+> >> > approximately 41%.
+> >> > 
+> >> > Reported-by: Quan Liu <qualiu@nvidia.com>
+> >> > Signed-off-by: Andrea Righi <arighi@nvidia.com>
+> >> 
+> >> To me this makes sense so feel free to add:
+> >> 
+> >> Acked-by: Jan Kara <jack@suse.cz>
+> >> 
+> >> But IMHO it deserves a look from MM guys since this is more of an MM thing
+> >> than a filesystem one... Added to CC.
 > > 
-> > Co-developed-by: Andreas Grapentin <gra@linux.ibm.com>
-> > Signed-off-by: Andreas Grapentin <gra@linux.ibm.com>
-> > Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
+> > Thanks for taking a look, and good point about getting MM feedback.
+> > 
+> > Vlastimil, Gregory, do you think this SLUB locality and mempolicy
+> > aspects makes sense here? In particular, does preferring the policy node
+> > for slab-sized pipe metadata, while retaining the policy-aware path for
+> > larger arrays, look reasonable?
 > 
-> Need to do the Sashiko suggestion, it does fail to build.
->
+> It's not wrong, but feels a bit ad-hoc. If it's pipe metadata now, what's next?
 
-Will do. I'll update the tools copy as well. Thanks for the reminder.
+Good point.
 
-
-> Reviewed-by: Joey Gouly <joey.gouly@arm.com>
+> Slab will generally return objects from the cpu's local node even if it's
+> not specified. It's not guaranteed, but it's not guaranteed also when it's
+> specified by kmalloc_node() (unless __GFP_THISNODE forces it).
 > 
-> Thanks,
-> Joey
+> So the results above are surprising to me. Are they on recent kernels? Are
+> cpus 0-87 all local to node 0, or is membind 0 there to force a node that's
+> not local to some of them? If they are all local, I would expect the objects
+> to be from node 0 even without kmalloc_node(). So maybe we have some unknown
+> deficiency that should be investigated.
 
+This is the default behaviour of remote_node_defrag_ratio = 1000.
+When there's no slabs left on the local node, most likely it grabs
+objects from remote node before allocating slabs from the local node.
 
-Thank you, 
+This means quite some of allocations would have to be served from the
+remote nodes before the slab memory on the local node grows.
 
-	Steffen
-
+-- 
+Cheers,
+Harry / Hyeonggon
