@@ -1,61 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.136.65.228
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795593343;
-	b=M79WnIfvq0mnWMz169Sj4ym7SQXXix8hRavzC/9IvNIx6GNWb6uZheLS7zHDMZG4nDue
-	 axrFmGYkuA+ywoLBamo1OQ304abL4G1RrSBza4OspQ6W3smvIhfOeVWxTV+3xfLyYAzT9
-	 4SaFBRAmIkANK05b/FfeAHz6nqY6EMY1uNeo0MUr77wNhlgOw4HuhBPGxarU0QzWUDiXQ
-	 miFgVkVs1WKRpWP9EPWGYpswzQiN9tsEYqjd5KL0tTN3yy91k0d78OuruxTUlWbDUqc83
-	 fs6z97QmoE0m+NoadJ/nmRyhhunayj5iGkjNy78JpG8qFVsZLo81RmEucWdHXM/ex4g==
+	t=1795593448;
+	b=4ZgAwEg8HEz4R+bFCNsf8ipEODqSBX5H2LNIf8zsI3jWF+26G73SmMmo7ee+2DvWmd8T
+	 j4btLw+ted9Nq2DuyvfAxF+4wy6BzUpwtk4MB6bHdH/DP39IyQ7076qTsuNEEjJ+aTGjD
+	 h8XKbKZ+5BuyjkVjQjGJE2ibmRJ1TjLXFhrWrNCjE9H+ZuvJFhrfAzfbPux+TuCeRsoHr
+	 +8oVuCTEsozFmONuQEyRan4cxkgL7JzBTnKrzoLqve4wSPsFAztA7xP/NXJLyiehNWtCA
+	 FVzCk6lCVuy2FfdZyg3SgMH82MLX8YU7RgUFo6+l1Zui41mlxHXExjxeQKKD+nYRU1Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795593343;
-	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
-	 Message-ID:MIME-Version:Content-Transfer-Encoding:
-	 X-Flowmailer-Platform:Feedback-ID;
-	bh=3TTqrvGLbHBqP1YUi+0AwZv0HDH1EAefXi4rL26IN/M=;
-	b=kW9EmGALPCy5nK+Th/pAg3RTzgrz3ExnXTo9P3QhM+xjNY68v4UOrK75m04MAN/mrQ2g
-	 0BoE3vMNpavhCP+aRtpj/yzPuKPxvpn5RCqfdvG1u7HWw3oDziaeDtljlU10ZAAZObMq/
-	 tiSrskbEGV8x5jtgUgaqTbRRBw4IIxFlqptOz1cvG3IKpnJ8mZwnJr7+vela68sllP0bz
-	 CNdmFuNFTAn4cXeZYFbJ/gxmSlVAC2W876WYlbl2hLstMGlZTb5oFqY4BGXcDI5RTLfNt
-	 hGteFZrpPms7H7kTrQyHB1rSdMhpkoR0ba+FDY00GtqbpNG9S4aTFUEAVDo0KFbKdSg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795593448;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:From:
+	 Subject:To:Cc:References:Content-Language:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=dRKFkQXIG8m+atyaMLAkOlxeVT/IHF+910joBxs1ugY=;
+	b=sW8cjaM+77kvF8FK+zs31GLFW7o3MODZZf9AYuqAp6Aewk4k/xWlOP9RVHSKih6thjPF
+	 NlUzSA/YyadoEvO0TPmiD6RPdicbBTtH0D+4qoAicQc3d3MWJRp6W22VGlhpaheHCNEdG
+	 UU3P69QjTtG+fkKOkfYfKaJbbF9C2uUXF/SYINjEW6opnTFz5afFB16mnYNN5N5fWc5Bk
+	 sYRRZxSzVz1bkaPgqDL/wdJWHPpJ5lfSc8WwCl+IA9PSB3WRPhmhgNJd1bVuJ+3Bpa9og
+	 1+OSKjqO54LZYDnnGZV9wK0I7fvctZr7SW3J4PNTzINY55kP+oRYL95rjuIMbAZQjaA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=siemens.com;
-	spf=pass smtp.mailfrom=rts-flowmailer.siemens.com;
-	dkim=pass header.d=siemens.com header.i=alexander.sverdlin@siemens.com header.a=rsa-sha256 header.s=fm1 header.b=CaU98iu4;
-	arc=none smtp.remote-ip=185.136.65.228
-Received: from mta-65-228.siemens.flowmailer.net (mta-65-228.siemens.flowmailer.net [185.136.65.228])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cThvKIUX;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 06281606A31E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 07:55:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 06281606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=siemens.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rts-flowmailer.siemens.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9FF2D606A327;
+	Wed, 25 Nov 2026 07:57:28 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=siemens.com header.i=alexander.sverdlin@siemens.com header.a=rsa-sha256 header.s=fm1 header.b=CaU98iu4
-Received: by mta-65-228.siemens.flowmailer.net with ESMTPSA id 2026112507553323d2d5f4e60002079f
-        for <linux-kernel@vger.kernel.org>;
-        Wed, 25 Nov 2026 08:55:33 +0100
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; s=fm1;
- d=siemens.com; i=alexander.sverdlin@siemens.com;
- h=Date:From:Subject:To:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:Cc;
- bh=3TTqrvGLbHBqP1YUi+0AwZv0HDH1EAefXi4rL26IN/M=;
- b=CaU98iu43HqPZNX0crdrW46aUtVYj1nHLjiZybZl/O0QcL6ZB6Myf+wOvKDNEnnuYkPaUS
- UC/jU6rNuIj5oTX1JIGyHV9Zdy6qqtN0G/rcAAoLRhEoHk9EzHHVxEb1/aXaAPOL0DTFHvY3
- 4yBLH1jG8KSuUajSVkJL/OQ6LInFTvU2z7LR6428FFaEJDrUDe+mLaMDyfd+iYTqpoHcBEKJ
- qucrpJd0MhS0oQwpcHDRDHCGIYI4sB0mC53dIBIxU5PQeIyqG2UWM5n33EeaRsuFW9nwW1yY
- tEfa90ek8tVmM+4imomLlBFZRmF5U11ggevnBBb4GXtrGEpAFmXtZUAQ==;
-From: "A. Sverdlin" <alexander.sverdlin@siemens.com>
-To: dmaengine@vger.kernel.org
-Cc: Alexander Sverdlin <alexander.sverdlin@siemens.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Vinod Koul <vkoul@kernel.org>,
-	imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	Alessandro Zini <alessandro.zini@siemens.com>
-Subject: [PATCH] dmaengine: fsl-edma: don't call pm_runtime_allow() from terminate_all()
-Date: Wed, 25 Nov 2026 08:55:17 +0100
-Message-ID: <20261125075525.2640884-1-alexander.sverdlin@siemens.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cThvKIUX
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 999411F000C6;
+	Wed, 25 Nov 2026 07:57:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795593447;
+	bh=dRKFkQXIG8m+atyaMLAkOlxeVT/IHF+910joBxs1ugY=;
+	h=Date:From:Subject:To:Cc:References:In-Reply-To;
+	b=cThvKIUXt5RbRExeoZf2vOWO5eK3ixrpANH8wYZ5BgxiicLtyakgP4lZUnhYGm2uz
+	 TiddNuXsbF9f6fXPFGmRpdT4JhA6qFFRP+ofJTqq6PCARmRPkcl9xNPUcnZ2yD+fp6
+	 gZnLYn292ZGWeLXz1YhjxfrAo5EkobiFcyBYJ6NiLGIuAtEOkqKfCzvx3k0Ua/scZ0
+	 +YIWW48RBrV/2eOTXYv3EL/37NTVh8EKL4u2sK/o+UCWBkeZh+//Hmu6U+1g6eBRWz
+	 WjNcrEbQxSwFoy5HCIeGF6rNnCexkNdJM2pY5t6ZiH++4Z3R9yzBXUXNbu1IAms5Yx
+	 JVZngA0kX3c/g==
+Message-ID: <f8ade8c0-d967-412c-8046-96588ba0672c@kernel.org>
+Date: Wed, 25 Nov 2026 08:57:25 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,76 +51,89 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Flowmailer-Platform: Siemens
-Feedback-ID: 519:519-456497:519-21489:flowmailer
+User-Agent: Mozilla Thunderbird
+From: Hans Verkuil <hverkuil+cisco@kernel.org>
+Subject: Re: [PATCH] media: i2c: cx25840: guard media_entity_cleanup() calls
+To: Sakari Ailus <sakari.ailus@linux.intel.com>,
+ Zixin Wang <w1355457260@gmail.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Biren Pandya <birenpandya@gmail.com>, linux-media@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20261112085251.734109-1-w1355457260@gmail.com>
+ <avWDGi-IPsVEdyby@kekkonen.localdomain>
+Content-Language: en-US, nl
+In-Reply-To: <avWDGi-IPsVEdyby@kekkonen.localdomain>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-From: Alexander Sverdlin <alexander.sverdlin@siemens.com>
+On 12/11/2026 10:12, Sakari Ailus wrote:
+> Hi Zixin,
+> 
+> On Thu, Nov 12, 2026 at 04:52:51PM +0800, Zixin Wang wrote:
+>> sd->entity only exists when CONFIG_MEDIA_CONTROLLER is enabled, but the
+>> two media_entity_cleanup() calls added by commit 634be628b5cc
+>> ("media: i2c: cx25840-core: Add missing media_entity_cleanup()") are
+>> unconditional.  Building with CONFIG_MEDIA_CONTROLLER=n therefore fails:
+>>
+>>   drivers/media/i2c/cx25840/cx25840-core.c:3964:41: error:
+>>   'struct v4l2_subdev' has no member named 'entity'
+> 
+> How about instead turning media_entity_cleanup() into a macro that does
+> nothing with the arguments if MC is disabled?
 
-fsl_edma_terminate_all() may be called from atomic context via
-dmaengine_terminate_async(), which the dmaengine API explicitly allows
-(Documentation/driver-api/dmaengine/client.rst). pm_runtime_allow() must
-not be called from there, because it uses unconditional
-spin_{un,}lock_irq() and therefore re-enables interrupts.
+That would be inconsistent with the way the current include/media/media-entity.h
+header works.
 
-Calling dmaengine_terminate_async() from a UART interrupt handler on an
-i.MX8QXP triggers:
+I'll take this patch rather than changing the header.
 
-  DEBUG_LOCKS_WARN_ON(lockdep_hardirq_context())
-  WARNING: CPU: 0 PID: 0 at kernel/locking/lockdep.c:4404 lockdep_hardirqs_on_prepare+0x1a8/0x210
-  Call trace:
-   lockdep_hardirqs_on_prepare+0x1a8/0x210 (P)
-   trace_hardirqs_on+0x58/0xf8
-   _raw_spin_unlock_irq+0x38/0x80
-   pm_runtime_allow+0x34/0x140
-   fsl_edma_terminate_all+0x1d0/0x1e0
-   ...
+Regards,
 
-followed by the IRQ core warning that the handler enabled interrupts
-(kernel/irq/handle.c). Both warnings are one-shot, so this is only
-visible once per boot.
+	Hans
 
-In-tree, fsl_lpuart's lpuart_flush_buffer() calls
-dmaengine_terminate_async() with the port lock held and interrupts
-disabled, so the port interrupt can then deadlock on that lock.
-
-The call has no counterpart: pm_runtime_forbid() is never called in
-fsl-edma, so runtime_auto is always already true and pm_runtime_allow()
-does nothing except the illegal unlock. Just remove it.
-
-Fixes: 72f5801a4e2b ("dmaengine: fsl-edma: integrate v3 support")
-Cc: stable@vger.kernel.org
-Co-developed-by: Alessandro Zini <alessandro.zini@siemens.com>
-Signed-off-by: Alessandro Zini <alessandro.zini@siemens.com>
-Signed-off-by: Alexander Sverdlin <alexander.sverdlin@siemens.com>
----
- drivers/dma/fsl-edma-common.c | 4 ----
- 1 file changed, 4 deletions(-)
-
-diff --git a/drivers/dma/fsl-edma-common.c b/drivers/dma/fsl-edma-common.c
-index 513b0f4e5be21..1f1f5fb353cc8 100644
---- a/drivers/dma/fsl-edma-common.c
-+++ b/drivers/dma/fsl-edma-common.c
-@@ -10,7 +10,6 @@
- #include <linux/module.h>
- #include <linux/slab.h>
- #include <linux/dma-mapping.h>
--#include <linux/pm_runtime.h>
- #include <linux/pm_domain.h>
- 
- #include "fsl-edma-common.h"
-@@ -274,9 +273,6 @@ int fsl_edma_terminate_all(struct dma_chan *chan)
- 	spin_unlock_irqrestore(&fsl_chan->vchan.lock, flags);
- 	vchan_dma_desc_free_list(&fsl_chan->vchan, &head);
- 
--	if (fsl_edma_drvflags(fsl_chan) & FSL_EDMA_DRV_HAS_PD)
--		pm_runtime_allow(fsl_chan->pd_dev);
--
- 	return 0;
- }
- 
-
-base-commit: 2e02fb103be058cf8b2fb24112a74a2715e090f0
--- 
-2.56.1
+> 
+>>
+>> Guard both calls with #if defined(CONFIG_MEDIA_CONTROLLER), matching the
+>> existing media entity setup in cx25840_probe().
+>>
+>> The failure was reproduced with CONFIG_MEDIA_CONTROLLER=n.  After the
+>> change the driver builds with both CONFIG_MEDIA_CONTROLLER=n and =y.
+>>
+>> AI assistance: the fix and this changelog were drafted with the Qoder
+>> coding assistant; the sender reviewed the change and ran the builds.
+> 
+> This goes below the '---' line.
+> 
+>>
+>> Fixes: 634be628b5cc ("media: i2c: cx25840-core: Add missing media_entity_cleanup()")
+>> Link: https://bugzilla.kernel.org/show_bug.cgi?id=222245
+>> Signed-off-by: Zixin Wang <w1355457260@gmail.com>
+>> ---
+>>  drivers/media/i2c/cx25840/cx25840-core.c | 4 ++++
+>>  1 file changed, 4 insertions(+)
+>>
+>> diff --git a/drivers/media/i2c/cx25840/cx25840-core.c b/drivers/media/i2c/cx25840/cx25840-core.c
+>> index 7066b2252afd..91794ec59e2d 100644
+>> --- a/drivers/media/i2c/cx25840/cx25840-core.c
+>> +++ b/drivers/media/i2c/cx25840/cx25840-core.c
+>> @@ -3961,7 +3961,9 @@ static int cx25840_probe(struct i2c_client *client)
+>>  		int err = state->hdl.error;
+>>  
+>>  		v4l2_ctrl_handler_free(&state->hdl);
+>> +#if defined(CONFIG_MEDIA_CONTROLLER)
+>>  		media_entity_cleanup(&sd->entity);
+>> +#endif
+>>  		return err;
+>>  	}
+>>  	if (!is_cx2583x(state))
+>> @@ -3986,7 +3988,9 @@ static void cx25840_remove(struct i2c_client *client)
+>>  	cx25840_ir_remove(sd);
+>>  	v4l2_device_unregister_subdev(sd);
+>>  	v4l2_ctrl_handler_free(&state->hdl);
+>> +#if defined(CONFIG_MEDIA_CONTROLLER)
+>>  	media_entity_cleanup(&sd->entity);
+>> +#endif
+>>  }
+>>  
+>>  static const struct i2c_device_id cx25840_id[] = {
+> 
 
