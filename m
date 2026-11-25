@@ -1,56 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.112
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795630254;
-	b=I0HyUy/px2DkIMbKM/lrYZfqkLLjdnbgx1lzFvjK626oOmgYXU3sCi3Vrua1tSGzvJap
-	 +AmdQbTHbcyU4jJKWMseCb63hovXVoPyb5b2GpU/TvMxMtdqCuUcGpqdAKHIkVDyjxoeR
-	 Atcl+O5fCDKjadJPgL4rtoOQRbvOqMCsDJIVzAoP7hxGOlFuPOVDre9xSxKYBSu6/kGxl
-	 4bjbVtiSoPPRCQXF1Yvxh839yn/UhuA1w9YSDYbOX7bf975wA0GQc1m2Br28pcGsZHQH+
-	 wNSNNyMgwk5uB4+D8rdmMo1THb1tRtmQ7QT/qOUQt9/hCkPFyn+2ymCGSvbaKEa0GPw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795630254;
-	h=DMARC-Filter:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
-	 In-Reply-To:To:Cc:X-Mailer:X-ZohoMailClient;
-	bh=t+lLzmKzrIMqeEPBsBkvriUe8bpF1/8zOpYpQi5Ys64=;
-	b=rxFYWxgEMSh42O/9FxK+6k9uGPZFsqWd5n96fXz4evJUa/EPSwNKqRnnCrf7Jev8IXO6
-	 n2wMe+b25kzfnVI3GAkqIzQ7tATQZqsH+2AdZr2xDYxAlpUWm8dr+h4dSH6rKxfneJSAG
-	 T3m5QdzVsYAPnGVx7l+BRNXPzj4k7/kdBrmm2zZbC7/S8vPlikpqintcn9T7pucEVk2jK
-	 zSotRgEKpVZx9GqAtlF4haHs5WMS4etfxJ+lMUfZzoePQW9kIh3BnL36a01ttYztmMluP
-	 P74ZIoQXOkIE5tOeMm0byNgQXC8GPPe/aw6MYpLy6F8XO86RP+JEaPUPv+q7icXuMIw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=rong.moe;
-	spf=pass smtp.mailfrom=rong.moe;
-	dkim=pass header.d=rong.moe header.i=@rong.moe header.a=rsa-sha256 header.s=zmail2048 header.b=K5pi+VFm;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.112
-Received: from sender5-pp-f112.zoho.com (sender5-pp-f112.zoho.com [165.173.182.112])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795630260;
+	b=mCYgSJ8mqatokOROr4F7+Wky3CneTG0BTugdw1VzTu+sZ3dqvKuDGZud3XsZyO+yctJ1
+	 ySTzU+C668LgJ/Sy6LxvW6rKNvUckZI64CWZR6S6qptTynvrAKacmEJq++wmnWuxneZem
+	 in3DtQ8GXuQixVCPfhJ31CKsUoHlgPdla5w0hvMiKRjipa3ZARiQ967rTRTrEvKfqIzfO
+	 HqJnRJTQFAqAbDGWPuAst4ni49NBcY6PXGag2P+6W0ayxmFwD/K0rfCm8aXx9xl73m8v5
+	 LxlAt+xKIezCLZ5mwA7IPt8LD61ebSUZX2YkGlDeJvo0FlTPzl0ggDJKEsO3YyxsfBQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795630260;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=mWutYmcI+akmXQxpptAbrI1MPXq/0LbtGQvDAhb+8lc=;
+	b=TSMGrwOALKBdZ486G6F2MiC6tH8DJKosKzCh16o/gJ9ze/zincmcTK5PBq083WBvESPz
+	 DJuI10EfrguFXXAgL5UvVgx9GUPushXgs6g6kk9Wfc6aDm9/40m0DWHzPK/2zInVnnbvG
+	 oJYgT2HwgR6tjEp3jkBQ9FU6/mSq3AWQC1TIgJYXEMKYk9YIAs8acjraB2BfqUZtkec9w
+	 PYaXeuTwDomhneRWkwdkRoLDgr7L7Wyx14QiU4vV679gj1sY0/INIo8LzEHlukEZZMKfj
+	 fCqD7uhodtlATOadm6GP/di7oud6XZapd8MLmME3T5pUFbT4OvNZohWS/Zd6IMpa2BA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cryOxmxh;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 621DC606A683;
-	Wed, 25 Nov 2026 18:10:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 621DC606A683
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=rong.moe
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rong.moe
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 27DB1606A688
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:10:59 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=rong.moe header.i=@rong.moe header.a=rsa-sha256 header.s=zmail2048 header.b=K5pi+VFm
-ARC-Seal: i=1; a=rsa-sha256; t=1795630145; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=aaAC0wpp5DqBGVyl4JZOTsAW6Xjo4uQFaPl1kUl/7K9OfR+mNgaVoiYcZOGJAU5A5qJ16S7Lelj8K3KaW9ECO9rA6IESuP/Bi8Dg+frEov+Rkc4cPP7aFySJZLVAsr3i4Eb5R2MhUj0rWaPreG4qXs6jcx12boRdGaqoZDfPiQ8=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1795630145; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=t+lLzmKzrIMqeEPBsBkvriUe8bpF1/8zOpYpQi5Ys64=; 
-	b=mGLblOUmsOGLWrHO8NVDtQxCezmGarhbi0VOBn7Kqp/7QtfKf2VPnsjcc8Fr5O0opNC4mrd0qf9YDdPtr57bgLFTj6HVlhiJ+pR8TCOuM4V5+ow/rZEttKFE192yWv0LLDz+3hwT4rgiXamAmFLaURYcC3DZYDOTdlwZ0SfIbLY=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=rong.moe;
-	spf=pass  smtp.mailfrom=i@rong.moe;
-	dmarc=pass header.from=<i@rong.moe>
-DKIM-Signature: a=rsa-sha256; b=K5pi+VFmCWcsU+pROAv64Dpx2dx55ivfcyJZBIdMgGgcr2YJMmDTj7be3uT87ai20ellZvqheS8kTJJNeHGtwNDmPsxdOHA9PQfOvP1qdwoEsJd2clibo++OXP6SoXnYLAEKRQv3z4Uwf2C31kbOpUy/I9z9zaClKVDchi2VdcPYVPaZ7hFMwU5RC8UdHSjsB8ii1ba6i8h0rAn0m3zVo6ujRetxbeciWgWg6fApfGVmtYjSDQDDlsNkTyGqZBT4c2wSodl+VV8Yl+9pkwUj4R5Mp8F8mQFflnblI3ZZHv9GYIkrPnxOrXVk8CBMXlVs2+CG0VFFpXdOlTmPAeJtnA==; c=relaxed/relaxed; s=zmail2048; d=rong.moe; v=1; bh=t+lLzmKzrIMqeEPBsBkvriUe8bpF1/8zOpYpQi5Ys64=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 1795630143522343.0298093347674;
-	Wed, 25 Nov 2026 10:09:03 -0800 (PST)
-From: Rong Zhang <i@rong.moe>
-Date: Thu, 26 Nov 2026 02:08:25 +0800
-Subject: [PATCH v3 7/8] platform/x86: ideapad-laptop: Enable ymc_ec_trigger
- for Lenovo Yoga 7 14IRL8
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cryOxmxh
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 89A281F00A3D
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:10:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795630259;
+	bh=mWutYmcI+akmXQxpptAbrI1MPXq/0LbtGQvDAhb+8lc=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=cryOxmxhtxlO1KGB/8E7JN8u0pgaKXd3JfHXEiXiM3jywuj6bBaW4BgKUhlY0vOn5
+	 IRXgAVvaQEst61cU10Xf9IbAPGIF63V0ngPxRuWlorWxW/PXrORyW7RMkd+6gnIj4I
+	 sNBHuTav0OQ+N1FYkaYGb6y+HMWlbi09hcM/yHFxVfOF1O8AAyvTQl74HE86bBvMe1
+	 nAPONnqT8P7FU65MTtfMdc5sgAR86zMi9+zJCrcug0m1cp3GT9Qme9gYiu/dp8nm1Z
+	 jvxQ/mOzqfZLn2XIk9nSCZlxNvF77m00LYYlD1MzR/STyzH+FDQA1zPn3MUzFUAuCj
+	 YmL0d19DIxg0g==
+Received: by mail-lj1-f177.google.com with SMTP id 38308e7fff4ca-3adf9b1f5aeso61229921fa.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:10:59 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErE42b2iPdwVr95n5fkOj33DGB1olTK2E/kC2Gh9NVryfHA2vpDK5LwKsQrCNavFk2S8s521voAegNeCazM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8fS9HRq2hny6lSvqNyk3/MG7yLGhl79vS14zaZ5zbBB5LaFbkZ
+	98kefoq3/GEqrmYtgx/kCfBcjBrsBxCYTsW2iEeMtU8hYBfZKqJSwCTIBYn2spUI8f0j12w+3K6
+	HQMhDT3+XniGCOru14CCawG1tdptE5xg=
+X-Received: by 2002:a05:6512:4018:b0:5c1:56f5:da02 with SMTP id
+ 2adb3069b0e04-5c1b79fc73emr5241671e87.1.1795630258316; Wed, 25 Nov 2026
+ 10:10:58 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,56 +59,43 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261126-ymc-82yl-v3-7-e30842671ec3@rong.moe>
-References: <20261126-ymc-82yl-v3-0-e30842671ec3@rong.moe>
-In-Reply-To: <20261126-ymc-82yl-v3-0-e30842671ec3@rong.moe>
-To: Mark Pearson <mpearson-lenovo@squebb.ca>, 
- "Derek J. Clark" <derekjohn.clark@gmail.com>, 
- Hans de Goede <hansg@kernel.org>, 
- =?utf-8?q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
- Gergo Koteles <soyer@irl.hu>, Ike Panhc <ikepanhc@gmail.com>, 
- Andrew Kallmeyer <kallmeyeras@gmail.com>
-Cc: Eduard Aliman <edialiman20@gmail.com>, 
- platform-driver-x86@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Mahir Faisal <mahirfaisalantiq33@gmail.com>, Rong Zhang <i@rong.moe>
-X-Mailer: b4 0.17-dev-ce4c1
-X-ZohoMailClient: External
+References: <20261111114225.3977243-1-ruanjinjie@huawei.com> <20261111114225.3977243-16-ruanjinjie@huawei.com>
+In-Reply-To: <20261111114225.3977243-16-ruanjinjie@huawei.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Wed, 25 Nov 2026 19:10:43 +0100
+X-Gmail-Original-Message-ID: <CAD++jLkCmejeNE2dZASY0crxe-Q23QJ05fqvEvP69YuJrETYPw@mail.gmail.com>
+X-Gm-Features: Aa3M54oIDRMFXP1RpUMFXoUcM7tXj2uiaN-FyRQN7L3lknX3zpF2wKbegX-ttpU
+Message-ID: <CAD++jLkCmejeNE2dZASY0crxe-Q23QJ05fqvEvP69YuJrETYPw@mail.gmail.com>
+Subject: Re: [PATCH v21 15/15] selftests/arm64: Add ptrace single-step and
+ rseq syscall-exit tests
+To: Jinjie Ruan <ruanjinjie@huawei.com>
+Cc: catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, 
+	oleg@redhat.com, shuah@kernel.org, kees@kernel.org, luto@amacapital.net, 
+	wad@chromium.org, peterz@infradead.org, ada.coupriediaz@arm.com, 
+	kevin.brodsky@arm.com, anshuman.khandual@arm.com, thuth@redhat.com, 
+	james.morse@arm.com, yeoreum.yun@arm.com, vladimir.murzin@arm.com, 
+	broonie@kernel.org, ryan.roberts@arm.com, liqiang01@kylinos.cn, 
+	mathieu.desnoyers@efficios.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-The Lenovo Yoga 7 14IRL8's EC must be triggered by software on YMC
-events, or else the enable states of touchpad, keyboard, and keyboard
-backlight become out of sync.
+On Wed, Nov 11, 2026 at 12:43=E2=80=AFPM Jinjie Ruan <ruanjinjie@huawei.com=
+> wrote:
 
-Add a DMI quirk table entry for the said device.
+> Add tests for the arm64 syscall-exit and single-step behaviour fixed by
+> the following commits. Each test fails on a kernel without the fix it
+> covers and passes with it.
+(...)
+> Link: https://lore.kernel.org/all/20200710130702.30658-1-will@kernel.org/
+> Link: https://lore.kernel.org/all/20200524043827.GA33001@juliacomputing.c=
+om/
+> Link: https://lore.kernel.org/all/1eed6d69-d53d-9657-1fc9-c089be07f98c@li=
+naro.org/
+> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
 
-Reported-by: Mahir Faisal <mahirfaisalantiq33@gmail.com>
-Closes: https://msgid.link/CAGAHqH6o0TUa1HXMrNV6e+HNYwU3xxHkOM665756n8Cp3AzhVQ@mail.gmail.com
-Reviewed-by: Mark Pearson <mpearson-lenovo@squebb.ca>
-Signed-off-by: Rong Zhang <i@rong.moe>
----
- drivers/platform/x86/lenovo/ideapad-laptop.c | 7 +++++++
- 1 file changed, 7 insertions(+)
+This patch also looks like it should be sent in tandem with the other
+fix, patch 1/15.
 
-diff --git a/drivers/platform/x86/lenovo/ideapad-laptop.c b/drivers/platform/x86/lenovo/ideapad-laptop.c
-index f3467cd8df36..ec060bcb5c88 100644
---- a/drivers/platform/x86/lenovo/ideapad-laptop.c
-+++ b/drivers/platform/x86/lenovo/ideapad-laptop.c
-@@ -1873,6 +1873,13 @@ static const struct dmi_system_id ymc_ec_trigger_quirk_dmi_table[] = {
- 			DMI_MATCH(DMI_PRODUCT_NAME, "82N7"),
- 		},
- 	},
-+	{
-+		/* Lenovo Yoga 7 14IRL8 */
-+		.matches = {
-+			DMI_MATCH(DMI_SYS_VENDOR, "LENOVO"),
-+			DMI_MATCH(DMI_PRODUCT_NAME, "82YL"),
-+		},
-+	},
- 	{ }
- };
- 
-
--- 
-2.55.0
-
+Yours,
+Linus Walleij
