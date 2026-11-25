@@ -1,102 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.46
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.10
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795648231;
-	b=olsOJ7qwNrma4iwSfryrQsiH11mgEMiLBQToP1VgJHV9auNoROw8cKeGQQoZa3fMOjNI
-	 kUkedQ7zLwJUEz9r49RMs4U6QZx6sJETiNo3K6xiVM8Ltb7TwTivLJbptnez3HMKL44O3
-	 UWHZOR5JWBNpjQHZfmyj7dGgjrTbzSVTEYW+UljMG0Dze1HsPcpiire5b+uKT5QX8MKYp
-	 Don6g19/SI+oJjcPT5gczOSE+c/E36ZwFAIlJoy3+PlFdRVTq66etT/ROZU51mHX+xEO5
-	 C2abJKTObvu5RfyBCuZzpUCqkAEmV2QGCMijNBbiZtXe3z6Zk1iHENYtvunvpgZ1fjQ==
+	t=1795648243;
+	b=dyBhc8aPIvgmaxdyxmgyJaKmX6jbbqCyYL6EehaPH5L6n9+//tiy0igWsIO1Ekofg+st
+	 4jv9KqJTly0p0r/mTm//us0LfehvO8p057KY0tlUEqMfdc/euFKzX6hIOrDPgR96T0Yys
+	 ZE1MOuGUY9YA5vk82ySyAVJ8It3cRuYTFQK67wvN9eP0tKDC73KrD+usDwbIH5mre0oT+
+	 lZceFOdcvCdRtU/kuSSqr2i3xtdMnjqQvE0wvNL6zSgdnr/F2KM913/EzqpCftlE3Jd6L
+	 CquIc1kFGIyR93I3q7c1Y6A/46VHHdRSlM1fOpH8A50QXTuIPtJStMDRY32CqL0MiAQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795648231;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=zDfIlMf8Mgrk2zESztpa+SZeqsqrIyzEk/8t85wpnEE=;
-	b=ADoy0ZR7BtujnghsDLMISdB1sk/xfAub3aV/2zL6TlfwkJ6GhavA0L18edQIKvly0h5P
-	 Cwkx2NdXK1qmD4bh7UVbChIiOxJ5U589wEW3sJPSzW0n9sQy7ZCyqrZUtmGyBif8YVAJA
-	 XS7NYpu3bz2x16ewnC00GnOgoz7VMdQ2fJNrz9yXRePeXFiTpDp14sBbDAHsuwnYJL7Wz
-	 eNY5IFjGQTDlzY1UjbVrm8KK5NFV8BYdFuq98at9h6rG0jPE8tqxUdsV7HgwW57VRld6/
-	 sgV+LOJk5m6F/gDa/35HRLXRPEiVlhZibkDXnqJXRrHewnKKRhyzCsa83ngRuZxjDeQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795648243;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=oTH0T+j9mxYF9pgNoL09Y/KCz0muKuE0+CC2lvJMHlc=;
+	b=d/DpZ3dHaKqiz8cIpDN4rO/bJ92fRifoF3rtmr+xaFI9uM1E6f50C2YbAdklfNU0JRXF
+	 4DT2HAE4Sp48cVG8d0RMomKIaLeKCvYHZPCoM5popUy5ngE3sdIGxSVdz+vkw9sQGT9mh
+	 oPb6YXEKnspBoYeixICR8AdoJaQ6DJUU1+rvcn5lq2hayj8sHbCLQUd55IBYcFhqCRHR/
+	 e4QjxcnU2Uwam1XFc3EBd5WUTNQm44s8LVR4km/yKFx3TPTNgjUMEndjxG/fZQdi8miAy
+	 rpcJJKwx5KuOt6bgEGmQpp26mJdUbO9KRxgVDjIt+1iwkntgbb6Mit6B2tqfYrLr4Qw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=QiSPxi8R;
-	arc=none smtp.remote-ip=209.85.216.46
-Received: from mail-pj1-f46.google.com (mail-pj1-f46.google.com [209.85.216.46])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=kPaYig3M;
+	arc=none smtp.remote-ip=192.198.163.10
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.10])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C0EE9606A334
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 23:10:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C0EE9606A334
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CFD4C606A321;
+	Wed, 25 Nov 2026 23:10:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CFD4C606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=QiSPxi8R
-Received: by mail-pj1-f46.google.com with SMTP id 98e67ed59e1d1-3ada4c06b7bso3451130a91.2
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:10:30 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795648230; x=1796253030; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=zDfIlMf8Mgrk2zESztpa+SZeqsqrIyzEk/8t85wpnEE=;
-        b=QiSPxi8Ruze1+eJW6+Da2Pb69jLHtjp5IOjJBHZJcfCiPL+nrAc/PVojTPm/UyFnFr
-         2ToPnK8ovRrXR/aZZeKm9h6vS5pzLDPhzpjmuJqIQgCatKiLHY/V/nYzTPa1tUY8viLW
-         HHQsqwosd/i0t9dlJU4W0+xtuayQqbQoW+3ExNQxi7m24WsrgIN4teF5xobePoU7/i98
-         ptn05DfhDKV9mDYG2vp6RlRg7KE0UffcyutOQ0p3mu9OklqnnbBDA5e4zhg2rU8LLLYi
-         B0c7T89jS1Bxy6HJDKtQ1FHLhdUT0g0G6U9EDRLy7nHRlnfHPRxUhNV6NfEGeetdzMvk
-         idTw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795648230; x=1796253030;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=zDfIlMf8Mgrk2zESztpa+SZeqsqrIyzEk/8t85wpnEE=;
-        b=iej6GXxKIhRDOM+Syp5OJqhZmqGebTndnrVJX+hLfNaYz8ZpGecW25djZPtAgp5M7+
-         ofg8JaotiwNwiH/BIRrwgQRU3T2/fE060zYyASWACPqFPVIUg4Y+ZcZATCFdq+F7eOhb
-         IquejuJXusU9Ce6bQtoQqlEts3+UEqiV8qd/hTRacLibbKtFiSRGR6zEA1zpxKieC2us
-         7KZ49LVL4WOtrWv+D0NMfleqp1Ohy9gQ67YVZLBDfP4B1qOssXwEmHrRC38uzZkk5ilp
-         Yw7v/KpffbGgcqfHOMQ4uRNhaYgHjkR+6Zeo94qgTnPgzx7vYwN2ZWT4qCyKJzu7AMYd
-         u/3A==
-X-Forwarded-Encrypted: i=1; AL+hErGUQd9ZXM6SITvfN79qqyAYaaNiultohlsG5NAKn0ivufvMGtVLNdC2zmmAeSK/PO2Hf1bldbZcJZv76sE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/mtRHPGafWLOwDWyNpWbYt660Fztz6JdXl7NA8+lldcZctvk/Z
-	K4LneShOF1fXeFIxqfC3sNSNX3dfLZBW37QCntl5N1rLh5w3JkrkPycI
-X-Gm-Gg: AZFdTZe9VAXF15Cj7oV8RYANFiqKkq5a0rXuJ2bvPmH/82yg8q1uO3L0XAAapmY9AHU
-	w6ss42TLLtMdCKxIXX65L8oWBpe8WeWEIOV/FnKa6f6IuqHA70+qZeJ9Pg2vc1qijdBw+d8Rjko
-	ZK0VgX1D4XbhLc67J7euaKy2SmkGu8zp8GqQjlauB+GzIV5TW81TgeAKRjTDgQX7vSkR2oJVYcH
-	/eXaGn2zNBvTNGy0MKr/3X6YGGJ7xMHXnm16XkkCwsqS//d2ltY3U5TiNkC/gtT0D34ZMaV7j0u
-	dHNPI3Uqea6Q7Apfpj7F0oAgaUP/dv1fYRz5AZT82vB5kiwuA38H0o02z/5rvpbAPtt0hq6OC05
-	7n3JHctrCTb3ZPvnVbBjVYzKJMggXeA2XdZKCGaLbhdrejs4Cppq95zBcweZ/rphhPWnTCwJbNo
-	hFXTg0BFThu5YS/KlzHOxjoptnc0RH2Qj+ZZ7sRn9WDEUNpLvAOgM7zthlWY8ovu57UkXmeMR1H
-	Cu1A/dHzBJMYh0oCmmzZ96k8zI6OY5gT/f+tbYyBVngrEhUQPRBCLMlQ/jxGn6IAzUiqBJM9FWb
-	tTNk29OwmU8qWBcAFwQTV7faqp06
-X-Received: by 2002:a17:90b:2648:b0:3ab:17b6:9a93 with SMTP id 98e67ed59e1d1-3b41c95f127mr17871039a91.52.1795648229629;
-        Wed, 25 Nov 2026 15:10:29 -0800 (PST)
-Received: from archie.me ([210.87.74.117])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde84cd5ed8sm6822830a12.10.2026.11.25.15.10.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 15:10:28 -0800 (PST)
-Received: by archie.me (Postfix, from userid 1000)
-	id 19F1A420A76D; Thu, 26 Nov 2026 06:10:25 +0700 (WIB)
-Date: Thu, 26 Nov 2026 06:10:25 +0700
-From: Bagas Sanjaya <bagasdotme@gmail.com>
-To: Willy Tarreau <w@1wt.eu>, Jonathan Corbet <corbet@lwn.net>
-Cc: skhan@linuxfoundation.org, Randy Dunlap <rdunlap@infradead.org>,
-	workflows@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
-	gregkh@linuxfoundation.org, Johan Hovold <johan@kernel.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>
-Subject: Re: [PATCH v2 13/14] docs: submitting-patches: defer to
- security-bugs.rst for security fixes
-Message-ID: <awdq4PpsF0BiBpBf@archie.me>
-References: <20261114190014.17826-1-w@1wt.eu>
- <20261114190014.17826-14-w@1wt.eu>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=kPaYig3M
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795648243; x=1827184243;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=eAZIIz6Vqb0Uazy7AggTrqHt708HzfClkhEbTdowxR0=;
+  b=kPaYig3MV7xF8QGyEdEB2VFGeDAvUFcO/laTveO3KCDY/CSREg0NKnju
+   Rp1I9QDwWXWIP0AHwtqQwfjXOON6m+Fg8TB981qzPTPpNWE31HpY5ora4
+   fnz2PLbTvdcnNV4qTQOvhgoPb10HNNRKNaKyRixWT4bOO7PJIOvYI6aca
+   rH3MxfnHmUjwXPAqTrXhYyODe3vXsN1alJt7Otp27PfwhTEHyeieW3E2w
+   /wFhgdRY7U71EfN9gDqysofnJYf75RrXIhzQvqSwZw+pLKauqP9ntnFcZ
+   ZlWZe+pbwYWbOa4dFzhiWNIxuqEAgI3CE4+AFk4jIQA1V/Pos5TWu6pqd
+   w==;
+X-CSE-ConnectionGUID: rjfaFzihTo+AMvJuqc4tAA==
+X-CSE-MsgGUID: H/AR18P7QvSQYU6L4R8Lxg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4435193"
+X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
+   d="scan'208";a="4435193"
+Received: from fmviesa008.fm.intel.com ([10.60.135.148])
+  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 15:10:42 -0800
+X-CSE-ConnectionGUID: 0LIh+YUNRh+Q9qlKeUj3TQ==
+X-CSE-MsgGUID: SRk85ME0QHKNJgSvlLbI+w==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
+   d="scan'208";a="12283493"
+Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.96])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 15:10:39 -0800
+From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
+To: linux-pci@vger.kernel.org,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>,
+	Rob Herring <robh@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
+	David Matlack <dmatlack@google.com>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	linux-kernel@vger.kernel.org
+Cc: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	stable@vger.kernel.org
+Subject: [PATCH v3 06/17] PCI: Hold pci_bus_sem across sizing and assignment entrypoints
+Date: Thu, 26 Nov 2026 01:09:05 +0200
+Message-ID: <20261125230925.2441-7-ilpo.jarvinen@linux.intel.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261125230925.2441-1-ilpo.jarvinen@linux.intel.com>
+References: <20261125230925.2441-1-ilpo.jarvinen@linux.intel.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,51 +87,136 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="fXRipf5woL+m9ZeZ"
-Content-Disposition: inline
-In-Reply-To: <20261114190014.17826-14-w@1wt.eu>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
---fXRipf5woL+m9ZeZ
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+The bridge window sizing and resource assignment algorithm walks
+bus->devices and inserts resources of the found devices into the
+resource tree in many places. In addition, its internal datastructures
+hold references to devices and resources it encountered while walking.
 
-On Sat, Nov 14, 2026 at 08:00:13PM +0100, Willy Tarreau wrote:
-> -If you have a patch that fixes an exploitable security bug, send that pa=
-tch
-> -to security@kernel.org.  For severe bugs, a short embargo may be conside=
-red
-> -to allow distributors to get the patch out to users; in such cases,
-> -obviously, the patch should not be sent to any public lists. See also
-> -Documentation/process/security-bugs.rst.
-> +If you have a patch that fixes a bug with possible security implications=
-, you
-> +need to read Documentation/process/security-bugs.rst first: it explains =
-which
-> +bugs need to be handled privately, and whom to send them to.  Most such =
-fixes
-> +are posted publicly like any other fix, but their reproducers and exploi=
-ts must
-> +never be posted publicly.
-> =20
+Most entrypoints to the algorithm do not hold pci_bus_sem, and
+pci_assign_unassigned_bus_resources() drops it before the assignment
+phase.
 
-Looks good, thanks!
+pci_rescan_remove_lock is not held by all callers and cannot be taken
+by callers running under device_lock().
 
-Acked-by: Bagas Sanjaya <bagasdotme@gmail.com>
+Protect the walks by holding pci_bus_sem for read across the entire
+sizing and assignment operation right at the entrypoints.
 
---=20
-An old man doll... just what I always wanted! - Clara
+Signed-off-by: Ilpo Järvinen <ilpo.jarvinen@linux.intel.com>
+Cc: stable@vger.kernel.org
+---
+ drivers/pci/setup-bus.c | 26 +++++++++++++++++++-------
+ 1 file changed, 19 insertions(+), 7 deletions(-)
 
---fXRipf5woL+m9ZeZ
-Content-Type: application/pgp-signature; name=signature.asc
+diff --git a/drivers/pci/setup-bus.c b/drivers/pci/setup-bus.c
+index 7d135ddd93b2..966e0f243032 100644
+--- a/drivers/pci/setup-bus.c
++++ b/drivers/pci/setup-bus.c
+@@ -1459,6 +1459,7 @@ void __pci_bus_size_bridges(struct pci_bus *bus, struct list_head *realloc_head)
+ 
+ void pci_bus_size_bridges(struct pci_bus *bus)
+ {
++	guard(rwsem_read)(&pci_bus_sem);
+ 	__pci_bus_size_bridges(bus, NULL);
+ }
+ EXPORT_SYMBOL(pci_bus_size_bridges);
+@@ -1551,6 +1552,7 @@ void __pci_bus_assign_resources(const struct pci_bus *bus,
+ 
+ void pci_bus_assign_resources(const struct pci_bus *bus)
+ {
++	guard(rwsem_read)(&pci_bus_sem);
+ 	__pci_bus_assign_resources(bus, NULL, NULL);
+ }
+ EXPORT_SYMBOL(pci_bus_assign_resources);
+@@ -1839,7 +1841,7 @@ static enum enable_type pci_realloc_detect(struct pci_bus *bus,
+ 	if (host->preserve_config)
+ 		return auto_disabled;
+ 
+-	pci_walk_bus(bus, iov_resources_unassigned, &unassigned);
++	pci_walk_bus_locked(bus, iov_resources_unassigned, &unassigned);
+ 	if (unassigned)
+ 		return auto_enabled;
+ 
+@@ -2192,6 +2194,8 @@ void pci_assign_unassigned_root_bus_resources(struct pci_bus *bus)
+ 	int pci_try_num = 1;
+ 	enum enable_type enable_local;
+ 
++	guard(rwsem_read)(&pci_bus_sem);
++
+ 	/* Don't realloc if asked to do so */
+ 	enable_local = pci_realloc_detect(bus, pci_realloc_enable);
+ 	if (pci_realloc_enabled(enable_local)) {
+@@ -2260,14 +2264,15 @@ void pci_assign_unassigned_resources(void)
+ 	}
+ }
+ 
+-void pci_assign_unassigned_bridge_resources(struct pci_dev *bridge)
++static void pci_bridge_size_and_assign_resources(struct pci_dev *bridge)
+ {
+ 	struct pci_bus *parent = bridge->subordinate;
+ 	/* List of resources that want additional resources */
+ 	LIST_HEAD(add_list);
+ 	int tried_times = 0;
+ 	LIST_HEAD(fail_head);
+-	int ret;
++
++	guard(rwsem_read)(&pci_bus_sem);
+ 
+ 	while (1) {
+ 		__pci_bus_size_bridges(parent, &add_list);
+@@ -2294,6 +2299,13 @@ void pci_assign_unassigned_bridge_resources(struct pci_dev *bridge)
+ 		pci_prepare_next_assign_round(&fail_head, tried_times,
+ 					      whole_subtree);
+ 	}
++}
++
++void pci_assign_unassigned_bridge_resources(struct pci_dev *bridge)
++{
++	int ret;
++
++	pci_bridge_size_and_assign_resources(bridge);
+ 
+ 	ret = pci_reenable_device(bridge);
+ 	if (ret)
+@@ -2427,7 +2439,7 @@ static int __pci_do_resource_release_and_resize(struct pci_dev *pdev,
+ 			goto restore;
+ 	} else {
+ 		/* No bridge window to adjust; let the core reassign the bus. */
+-		pci_bus_assign_resources(bus);
++		__pci_bus_assign_resources(bus, NULL, NULL);
+ 
+ 		list_for_each_entry(dev_res, &saved, list) {
+ 			if (!resource_assigned(dev_res->res)) {
+@@ -2504,7 +2516,7 @@ void pci_assign_unassigned_slot_resources(struct pci_bus *bus, u16 slot)
+ 	/* List of resources that want additional resources */
+ 	LIST_HEAD(add_list);
+ 
+-	down_read(&pci_bus_sem);
++	guard(rwsem_read)(&pci_bus_sem);
+ 	for_each_pci_bridge(dev, bus) {
+ 		if (slot != PCI_SLOT_ALL_DEVICES &&
+ 		    PCI_SLOT(dev->devfn) != slot)
+@@ -2513,7 +2525,6 @@ void pci_assign_unassigned_slot_resources(struct pci_bus *bus, u16 slot)
+ 		if (pci_has_subordinate(dev))
+ 			__pci_bus_size_bridges(dev->subordinate, &add_list);
+ 	}
+-	up_read(&pci_bus_sem);
+ 	__pci_bus_assign_resources(bus, &add_list, NULL);
+ }
+ 
+@@ -2525,7 +2536,8 @@ EXPORT_SYMBOL_GPL(pci_assign_unassigned_bus_resources);
+ 
+ void pci_bus_size_and_assign_resources(struct pci_bus *bus)
+ {
+-	pci_bus_size_bridges(bus);
++	guard(rwsem_read)(&pci_bus_sem);
++	__pci_bus_size_bridges(bus, NULL);
+ 	__pci_bus_assign_resources(bus, NULL, NULL);
+ }
+ EXPORT_SYMBOL_GPL(pci_bus_size_and_assign_resources);
+-- 
+2.47.3
 
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQSSYQ6Cy7oyFNCHrUH2uYlJVVFOowUCawdq4AAKCRD2uYlJVVFO
-o6e0AP9gJNOsIP9zrW1e2mg+m5ED7Bg/2J+m6qHgcL361ELOsAD+JrY2Pd5C+/6o
-IZAvI+CqACZ8YZPx9icO9xBREbGGQAI=
-=9Bsp
------END PGP SIGNATURE-----
-
---fXRipf5woL+m9ZeZ--
