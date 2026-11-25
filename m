@@ -1,87 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795636220;
-	b=ddA1givSzULJOiXAfBAxYBhQYeH3BkD5VFFKeHPTPW7imh4dQ4kan9M4jA7cwc9gC/4F
-	 V6Zen9ZMN4EKBI1Fi+LLh14JWSgDAk7jWOJv9fdmoenhflh1lpwn0azRsLzomJSwf4gip
-	 Gd8CsCr6IzfQW5fLWn7ynRHCqhGSOdAOIaCttZLNKGoeVdzKx9C5jRZyMFSFJbilOEOdo
-	 onI6OWdKeoXLMIwkLIpzueSwOJdRxJkZvj7O23qGA+EJZwi8vBg1QzbcledM1dl858gGj
-	 Zyh+cJ7S7wjcDMgxkXvWJEjt8JozAr8IKwmlDjJdnLAf/EwaJHyXsxGnKTB4/FF4sKg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795636220;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:References:
-	 Date:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=QM3eA59kfAmko2h6w0lhdnOjVX+zvtHEYYmZknhRfY0=;
-	b=19QDIlDhbWMmslR5Vmc0M6/hqcP5UCD0DYevvNecq3vPt5AEyQwwcLs3ThxKWJBtROKi
-	 XM04ClavnTWplmKIFQuqVFBcFooG4CrAGTuKvLMzh3NCjmEXZdDwh4Z8wNLXnLcbateJr
-	 jgeBRPylWZi0112VrcScaKEAOYG+2Xp68Bi2vDL0uGwvrd7WBkgF/BERSHF/n96rcq2b8
-	 YIp9uYdfgJbPoAwigF+1O4GUbUtAm1kmUurvVOYmPPnjDLrHodoOAFxuVN9SCHpA6tt1Q
-	 EfglyAvlE8HdWk3le8/n78Mf1uFLq2DmTc48V6qTISzjNZznyrFvYMGOSP7LEFtLNrQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iGNhLSiM;
-	arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795636225;
+	b=Zsg5pUaZepcjN4JaUkz2kMuHhYPsbR6A5ufBzl+P7shSjPwBHTowZPGAlqy3Kzx13pvg
+	 2Lwoqv+Dm6U8aIxStjuf06Ew3jzJbqr64zQFKuztQPpM3pVMG8b/yoHKSsASOBUvdYY2g
+	 n8yf0zoNmgn4pzZoAJkcVGi16GB+MRhWlGkchlPKMhqPGh7dm94FSURJyzVOx8dQuNj0x
+	 pn1CWMaIzYh0KPL4O2OPARs0T2X/ulCD61OJYVzgHBFU0Lh/CdnzgQveXZ09ZsjrU3EvA
+	 Ltg3xje+JHsMx5iAPqMkAuiPQZPJ9WZJsQf/WgaYlrOPEw0GbH9ltG5WGGhQE0qivhw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795636225;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=VhO90SLyIbQBaRSyTllaC2yRuF0DVldYIy7jSq8Rzfk=;
+	b=boAH01qOPgQymKbDkMXhBojlOJQuJb3SBWDWFiF2T7AnZQNTe7B3DuWgbSiKoJhAnm6Q
+	 YtI9isw27t3Z0A6OYsY+OGZXFGBeRw7iqsQ12foTLmZ2s7QKJKqcTnV4TJEn8nZeALJfT
+	 DHp1wkF3kUux4NuVPQUlludapVaej6MvzGAPaVpLe4Yl4dlFuGdBkB6ShzlhVoqPL6Iw6
+	 zFA7hqGQQNkZGnmh2LSh7PdzdDMmrjwlW5OuUPhza0uklwP7LxIzA39B5zlGRe7z85HPM
+	 abJ7YgsTAQ8/H4P96WDF4oC5pJwXm6/y4Cmt0ZWHR+qc9eu8h4/H6aYx632ocNepoTA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LnyjzxLQ;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C74C9606A329;
-	Wed, 25 Nov 2026 19:50:20 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7A688606A31E;
+	Wed, 25 Nov 2026 19:50:25 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iGNhLSiM
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 652A41F000C6;
-	Wed, 25 Nov 2026 19:50:19 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LnyjzxLQ
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795636225;
+	b=QmW0EGlcd6BLGkQlzdDSthmSNieRtQje6pceHVFiZpkdedRDspU8KCgUI3u46SExgFKW
+	 NzxqMLUQMNStsn8BP2Kv2QVQlToSRm6/aXgmEElWXNN7Y3WeVfAUT9gnz4WVgx6q77xtP
+	 cLBV7lMp7p5YTum0T7A9w2Rg7M9jlOel21WYOLs6h0JALEoWpeU2sKS1tUBzrSQRrRSoE
+	 ji5cwExbIaCNp/VIw1snM1v+SieWiAHDgQcrni5Myqufdhkg7bmz0qsmDpL3opGIo8MPC
+	 ilUzuU7gyL/G7jouiX3X1X6vJeIWS6R4FEbbRPA4rbB1TZjIDnKOmp0Y6VYJZMS3csg==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795636225;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=VhO90SLyIbQBaRSyTllaC2yRuF0DVldYIy7jSq8Rzfk=;
+	b=yvNClgTak6trbYMMkPuaghDZa13gtdbq3bSJWFf0JdeM5hSGutm14ySwN664KcW54hWY
+	 TBBEyGgwCt0MoacPr15riSsTe3XMMklOg0DA6ejXXF7fYFsFtKHfbqw2Cf4Mo1zloxymg
+	 p8u5JqvGLtnPNxayxAm9ZIMoZHXtf+kPj/uh/k0tWO2jydbnSvq+snFg1uCCiqD9o6kGQ
+	 6QacTGeoBG8hRQ30QmhVqGBw5ied0GQImb67gqpYnVSaxrp5l82D2ZuIOTB1IsU4ol5/t
+	 SED/+7KCXKEFUk4Ldj9w0WG8wwK4HXZrQaOrzuOesDaVAIUOHJynC1QcaKLwzITxufQ==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id 736951F000E1;
+	Wed, 25 Nov 2026 19:50:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795636220;
-	bh=QM3eA59kfAmko2h6w0lhdnOjVX+zvtHEYYmZknhRfY0=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=iGNhLSiMgKF6+m0ChpnHIHvmkrkC3j2St+TRFQkyy+QkmYLtkwfmC5F30JYh3MPLf
-	 gyQF++J+IODjjeayKXffQghl4jIvlcZC21Sg3GNFn5cAT7PTdcxkuJBi2Vc/fqHDUY
-	 KFAlFD5Y5apAiMdynX2JJfi4mF8qAx6k37eY1+8K6IazzpmrtmTOKQIYw7uJMDQyWs
-	 R0UVQEq5tIQqLrMBGjzsZXdIAr2D9UURcNDAD4fDLiuJzPJiuKsPhQVqswyFFdbjA1
-	 Xs0TveRe4BmdYAvuuwb8WLBR5Q2m5ujSl4kBn1ty2VLp7l8eXk9yIur+hbWqy33HdT
-	 TLlbO8HV4M2Aw==
-From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-To: Maciej Fijalkowski <maciej.fijalkowski@intel.com>
-Cc: Magnus Karlsson <magnus.karlsson@intel.com>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski
- <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Andrew Lunn
- <andrew+netdev@lunn.ch>, Alexei Starovoitov <ast@kernel.org>, Daniel
- Borkmann <daniel@iogearbox.net>, Jesper Dangaard Brouer <hawk@kernel.org>,
- John
- Fastabend <john.fastabend@gmail.com>, Andrii Nakryiko <andrii@kernel.org>,
- Eduard Zingerman <eddyz87@gmail.com>, Kumar Kartikeya Dwivedi
- <memxor@gmail.com>, Ilias Apalodimas <ilias.apalodimas@linaro.org>,
- Alexander Duyck <alexanderduyck@fb.com>, Saeed Mahameed
- <saeedm@nvidia.com>, Tariq Toukan <tariqt@nvidia.com>, Mark Bloch
- <mbloch@nvidia.com>, Leon Romanovsky <leon@kernel.org>, Michael Chan
- <michael.chan@broadcom.com>, Pavan Chebbi <pavan.chebbi@broadcom.com>,
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
- bpf@vger.kernel.org, netdev@vger.kernel.org, Stuart Clark
- <stuclar@meta.com>, Stanislav Fomichev <sdf@fomichev.me>, Simon Horman
- <horms@kernel.org>, Martin KaFai Lau <martin.lau@linux.dev>, Mina Almasry
- <almasrymina@google.com>, Song Liu <song@kernel.org>, Yonghong Song
- <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>, Emil Tsalapatis
- <emil@etsalapatis.com>, Ihor Solodrai <ihor.solodrai@linux.dev>, Randy
- Dunlap <rdunlap@infradead.org>, kernel-team@meta.com, Dimitri Daskalakis
- <dimitri.daskalakis1@gmail.com>, Bobby Eshleman <bobbyeshleman@meta.com>,
- Mohsin Bashir <mohsin.bashr@gmail.com>, Kees Cook <kees@kernel.org>, Breno
- Leitao <leitao@debian.org>, Maxime Chevallier
- <maxime.chevallier@bootlin.com>, Tao Cui <cuitao@kylinos.cn>, Vadim
- Fedorenko <vadim.fedorenko@linux.dev>, "Mike Marciniszyn (Meta)"
- <mike.marciniszyn@gmail.com>, Kuniyuki Iwashima <kuniyu@google.com>,
- Jiayuan
- Chen <jiayuan.chen@linux.dev>, Martin Karsten <mkarsten@uwaterloo.ca>,
- Nikolay Aleksandrov <razor@blackwall.org>, David Wei <dw@davidwei.uk>,
- Pavel
- Begunkov <asml.silence@gmail.com>, linux-rdma@vger.kernel.org,
- linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next 05/15] xdp: Run programs on buffers that must
- not hold kernel structures
-In-Reply-To: <awb9GzkXa9Z9LxuP@boxer>
-References: <20261124112707.118678-1-bjorn@kernel.org>
- <20261124125654.183091-5-bjorn@kernel.org> <awb9GzkXa9Z9LxuP@boxer>
-Date: Wed, 25 Nov 2026 20:50:16 +0100
-Message-ID: <877bi0oflz.fsf@all.your.base.are.belong.to.us>
+	s=k20260515; t=1795636225;
+	bh=VhO90SLyIbQBaRSyTllaC2yRuF0DVldYIy7jSq8Rzfk=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=LnyjzxLQfFv+fu1uPB9AgI4isvEqNMIcjQjRKIo191/0srCbqSvGi2tS6aIqwCPQi
+	 YNKLAUNBhW3PqXugRNGfLRLbgfRn7mLHpO5Cyh7PV8GrTaueJK+V8WwGDRZn1zLSMi
+	 2635Q5qp/6P7bWu5qI9SCwJtYP2PdMrN7N6XNjoWstLKttBCbo8kK47knm8GPaibKk
+	 8edp5599PkMfj7oY245L7NVoAjCB0ASO11EUVh4j4/tBWJVxnSjXR64SMbe4xyYLoc
+	 QErG4kU+uGwzoLceo+rQfBjiRmsQlb9A8xeA+aGy3TGqddPn5wCOwGDErJKVsXK09F
+	 gc3wAJGKs2ANw==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id F3E134D00D;
+	Wed, 25 Nov 2026 19:50:09 +0000 (UTC)
+From: Victor Mora via B4 Relay <devnull+vjmoralesmora.protonmail.com@kernel.org>
+Date: Wed, 25 Nov 2026 20:50:03 +0100
+Subject: [PATCH] phy: qcom: edp: Fix v8 PLL and SSC configuration for RBR,
+ HBR and HBR2
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -91,77 +83,227 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261125-glymur-edp-pll-v1-1-068a4d95a12f@protonmail.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzNDQyNT3fScytzSIt3UlALdgpwc3WRzkyTLZLPUFINEUyWgpoKi1LTMCrC
+ B0bG1tQCM71O1YAAAAA==
+X-Change-ID: 20261125-glymur-edp-pll-c74b9c6ed0a5
+To: Vinod Koul <vkoul@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Manivannan Sadhasivam <mani@kernel.org>, Abel Vesa <abelvesa@kernel.org>, 
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Cc: linux-arm-msm@vger.kernel.org, linux-phy@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Ritesh Kumar <ritesh.kumar@oss.qualcomm.com>, 
+ Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, 
+ Nabige Aala <nabige.aala@oss.qualcomm.com>, 
+ Gopikrishna Garmidi <gopikrishna.garmidi@oss.qualcomm.com>, 
+ Victor Mora <vjmoralesmora@protonmail.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795636209; l=6678;
+ i=vjmoralesmora@protonmail.com; s=20261125; h=from:subject:message-id;
+ bh=qVbeo/jP78rlkyjkxHPovLbmwjPdXqdr2Ue/1EwP/2o=;
+ b=+ywXwrPPjb5pfkkpk1XDX9PZr6m2OwvqvR9SZ2xGaU8iOYC9NLdiQ1069m1bnukja57np3O6F
+ 7oXHRwpncKaBCRktkO56BnmJKYlkyX94swPyZjU/Y6zlGloBUeaZViu
+X-Developer-Key: i=vjmoralesmora@protonmail.com; a=ed25519;
+ pk=xX1yECoFrpZB2EbulsFDxl+S7K3ggttCl3mCaW5rSV8=
+X-Endpoint-Received: by B4 Relay for vjmoralesmora@protonmail.com/20261125
+ with auth_id=1642
+X-Original-From: Victor Mora <vjmoralesmora@protonmail.com>
+Reply-To: vjmoralesmora@protonmail.com
+Content-Transfer-Encoding: 7bit
 
-Maciej Fijalkowski <maciej.fijalkowski@intel.com> writes:
+From: Victor Mora <vjmoralesmora@protonmail.com>
 
-> On Tue, Nov 24, 2026 at 01:56:40PM +0100, Bj=C3=B6rn T=C3=B6pel wrote:
->> Currently, the core refuses native XDP programs next to a memory
->> provider. An AF_XDP sink needs XDP to steer its packets and to use the
->> RX metadata kfuncs. Its buffers are UMEM chunks that XDP may read
->> through the kernel mapping, but that userspace may write at any time,
->> also while the kernel reads them. If drivers build XDP buffers on them
->> as on pages, the core puts kernel structures into them, such as the
->> shared info of a multi-buffer packet, the xdp_frame of XDP_TX and
->> redirects, and the skb of XDP_PASS.
->>=20
->> Let programs run on sink buffers as on pages, and keep every kernel
->> structure out of them.
->>=20
->> A sink offers an XDP view of its UMEM, so drivers build the buffer as
->> for a page, while netmem_address() and skb_frag_address() still give
->> NULL for sink net_iovs. Programs and helpers read and write the packet
->> in place, fragments included. xdp_prepare_buff() tells a sink head by
->> its address, with one range check under a static key, and marks the
->> buffer before the driver adds fragments. Other buffers pay nothing
->> while no sink is bound.
->>=20
->> A marked buffer keeps its shared info in the queue, with
->> XDP_FLAGS_SINFO_EXT, set up when the driver registers a sink page pool
->> as its memory model.
->>=20
->> A sink buffer may only go to the AF_XDP socket of its queue. The core
->> turns XDP_TX and XDP_PASS into XDP_DROP, so drivers need no checks of
->> their own. XDP_ABORTED and invalid verdicts reach the driver, which
->> traces them and drops the packet. Frame conversion and skb
->> construction refuse sink buffers too, so devmap and cpumap drop them,
->> and sink net_iovs never become skb frags, so every net_iov frag stays
->> unreadable.
->>=20
->> As userspace may change the bytes meanwhile, the kernel takes bounds
->> only from its own fields, and only the program and its helpers read
->> the bytes. A helper that reads bytes twice must check a copy.
->>=20
->> Signed-off-by: Bj=C3=B6rn T=C3=B6pel <bjorn@kernel.org>
->> ---
->>  include/net/netmem.h          |  5 ++-
->>  include/net/page_pool/types.h |  7 ++--
->>  include/net/xdp.h             | 60 +++++++++++++++++++++++++++++++++--
->>  net/core/xdp.c                | 46 +++++++++++++++++++++++++--
->>  4 files changed, 108 insertions(+), 10 deletions(-)
->
->>  	xdp_frame->data =3D xdp->data;
->> @@ -763,6 +812,11 @@ static __always_inline u32 bpf_prog_run_xdp(const s=
-truct bpf_prog *prog,
->>  	 */
->>  	u32 act =3D __bpf_prog_run(prog, xdp, BPF_DISPATCHER_FUNC(xdp));
->>=20=20
->> +	/* Sink buffers go to the AF_XDP socket of their queue, or nowhere */
->> +	if (static_branch_unlikely(&xdp_sink_key) && xdp_buff_is_sink(xdp) &&
->> +	    (act =3D=3D XDP_PASS || act =3D=3D XDP_TX))
->> +		act =3D XDP_DROP;
->
-> I think it would be better to follow SEC(xdp.frags) approach and from
-> verifier POV disallow progs doing anything different than XDP_REDIRECT...?
->
-> Here you affect whole system.
+On Glymur, the eDP PHY PLL does not lock at RBR, HBR and HBR2, leaving
+the panel black. qcom_edp_com_configure_pll_v8() uses values for those
+rates that do not match the v8 DP PLL programming sequence, VCO_TUNE1/2
+are fixed to the HBR3 values, and the same SSC step size is used for
+every rate.
 
-This will go away once PASS/TX is supported in the follow up.
+Use the per-rate values from the v8 DP PHY tables posted for the QMP
+combo PHY [1], which use the same QSERDES COM register layout, and
+program VCO_TUNE1/2 and BIN_VCOCAL_HSCLK_SEL_1 per rate.
 
-> Also, I don't follow currently why xdp pass is not allowed, management
-> traffic gonna be dead on this queue.
+Tested on a Lenovo IdeaPad Slim 5 13Q8Y11 (Snapdragon X2 Plus,
+X2P-42-100) with a CSW MND307QS3-1 1920x1200 eDP panel, using a local
+devicetree based on kalambo-crd.dts. Without this patch the panel
+stays black. With it, and with the PHY status read from 0x114 instead
+of 0x0e0 (needed separately on this machine, see the Nord series [2]),
+link training succeeds at HBR (2.7 Gbps), 2 lanes. RBR, HBR2 and HBR3
+were not tested on hardware (the panel supports up to HBR).
 
-This is to keep the size of the series down, to make it reviewable.
-XDP_PASS and XDP_TX will be added in a follow up. You can have a look at
-the patches on the github branch I linked in the cover.
+Link: https://lore.kernel.org/r/20260828-glymur-phy-v3-v3-3-8e73ce7c4636@oss.qualcomm.com # [1]
+Link: https://lore.kernel.org/r/20261116-nord-drv-dt-v3-9-e3d3bf0e2c49@oss.qualcomm.com # [2]
+Fixes: add66a6673bc ("phy: qcom: edp: Add Glymur platform support")
+Assisted-by: LLM
+Signed-off-by: Victor Mora <vjmoralesmora@protonmail.com>
+---
+Hi,
+
+On Glymur, the eDP PHY PLL doesn't lock at RBR/HBR/HBR2, so the panel
+on my laptop stays black. This patch uses the per-rate values from the
+v8 DP combo PHY table update [1].
+
+Ritesh, Abel: could you confirm the eDP PHY should use the same values
+as the combo DP PHY?
+
+On this laptop the panel also needs the PHY status register at 0x114
+instead of 0x0e0. Since the Nord series [2] adds the per-SoC
+phy_status_reg field, I'll suggest setting it there for Glymur rather
+than sending a conflicting patch.
+
+I couldn't find an existing fix on the list; apologies if this is
+already being handled internally.
+
+[1] https://lore.kernel.org/r/20260828-glymur-phy-v3-v3-3-8e73ce7c4636@oss.qualcomm.com
+[2] https://lore.kernel.org/r/20261116-nord-drv-dt-v3-9-e3d3bf0e2c49@oss.qualcomm.com
+
+Thanks!
+---
+ drivers/phy/qualcomm/phy-qcom-edp.c                | 68 ++++++++++++++++------
+ .../phy/qualcomm/phy-qcom-qmp-qserdes-dp-com-v8.h  |  1 +
+ 2 files changed, 50 insertions(+), 19 deletions(-)
+
+diff --git a/drivers/phy/qualcomm/phy-qcom-edp.c b/drivers/phy/qualcomm/phy-qcom-edp.c
+index a3c893f72908..d7813cd8d5df 100644
+--- a/drivers/phy/qualcomm/phy-qcom-edp.c
++++ b/drivers/phy/qualcomm/phy-qcom-edp.c
+@@ -914,15 +914,20 @@ static int qcom_edp_com_configure_ssc_v8(const struct qcom_edp *edp)
+ 	u32 step1;
+ 	u32 step2;
+ 
++	/* Per-rate SSC step sizes from the v8 DP PLL programming sequence */
+ 	switch (dp_opts->link_rate) {
+ 	case 1620:
+-	case 2700:
+-	case 8100:
+-		step1 = 0x5b;
++		step1 = 0x83;
+ 		step2 = 0x02;
+ 		break;
+ 
++	case 2700:
+ 	case 5400:
++		step1 = 0x18;
++		step2 = 0x02;
++		break;
++
++	case 8100:
+ 		step1 = 0x5b;
+ 		step2 = 0x02;
+ 		break;
+@@ -953,31 +958,53 @@ static int qcom_edp_com_configure_pll_v8(const struct qcom_edp *edp)
+ 	u32 code1_mode0;
+ 	u32 code2_mode0;
+ 	u32 hsclk_sel;
++	u32 vco_tune1_mode0;
++	u32 vco_tune2_mode0;
+ 
++	/*
++	 * Per-rate PLL values from the v8 DP PLL programming sequence, as
++	 * used for the v8 DP PHY in the QMP combo PHY driver.
++	 */
+ 	switch (dp_opts->link_rate) {
+ 	case 1620:
+ 		hsclk_sel = 0x5;
+-		dec_start_mode0 = 0x34;
+-		div_frac_start2_mode0 = 0xc0;
+-		div_frac_start3_mode0 = 0x0b;
+-		lock_cmp1_mode0 = 0x37;
+-		lock_cmp2_mode0 = 0x04;
+-		code1_mode0 = 0x71;
+-		code2_mode0 = 0x0c;
++		dec_start_mode0 = 0x54;
++		div_frac_start2_mode0 = 0x00;
++		div_frac_start3_mode0 = 0x06;
++		lock_cmp1_mode0 = 0x1c;
++		lock_cmp2_mode0 = 0x02;
++		code1_mode0 = 0x8d;
++		code2_mode0 = 0x27;
++		vco_tune1_mode0 = 0xfe;
++		vco_tune2_mode0 = 0x00;
+ 		break;
+ 
+ 	case 2700:
+-		hsclk_sel = 0x3;
+-		dec_start_mode0 = 0x34;
+-		div_frac_start2_mode0 = 0xc0;
+-		div_frac_start3_mode0 = 0x0b;
+-		lock_cmp1_mode0 = 0x07;
++		hsclk_sel = 0x4;
++		dec_start_mode0 = 0x46;
++		div_frac_start2_mode0 = 0x00;
++		div_frac_start3_mode0 = 0x05;
++		lock_cmp1_mode0 = 0x08;
+ 		lock_cmp2_mode0 = 0x07;
+-		code1_mode0 = 0x71;
+-		code2_mode0 = 0x0c;
++		code1_mode0 = 0xf6;
++		code2_mode0 = 0x20;
++		vco_tune1_mode0 = 0xae;
++		vco_tune2_mode0 = 0x02;
+ 		break;
+ 
+ 	case 5400:
++		hsclk_sel = 0x3;
++		dec_start_mode0 = 0x46;
++		div_frac_start2_mode0 = 0x00;
++		div_frac_start3_mode0 = 0x05;
++		lock_cmp1_mode0 = 0x10;
++		lock_cmp2_mode0 = 0x0e;
++		code1_mode0 = 0xf6;
++		code2_mode0 = 0x20;
++		vco_tune1_mode0 = 0xae;
++		vco_tune2_mode0 = 0x02;
++		break;
++
+ 	case 8100:
+ 		hsclk_sel = 0x2;
+ 		dec_start_mode0 = 0x4f;
+@@ -987,6 +1014,8 @@ static int qcom_edp_com_configure_pll_v8(const struct qcom_edp *edp)
+ 		lock_cmp2_mode0 = 0x15;
+ 		code1_mode0 = 0x14;
+ 		code2_mode0 = 0x25;
++		vco_tune1_mode0 = 0xa0;
++		vco_tune2_mode0 = 0x01;
+ 		break;
+ 
+ 	default:
+@@ -1022,11 +1051,12 @@ static int qcom_edp_com_configure_pll_v8(const struct qcom_edp *edp)
+ 	writel(0x00, edp->pll + DP_QSERDES_V8_COM_VCO_TUNE_CTRL);
+ 	writel(0x1f, edp->pll + DP_QSERDES_V8_COM_BIAS_EN_CLKBUFLR_EN);
+ 	writel(0x00, edp->pll + DP_QSERDES_V8_COM_CORE_CLK_EN);
+-	writel(0xa0, edp->pll + DP_QSERDES_V8_COM_VCO_TUNE1_MODE0);
+-	writel(0x01, edp->pll + DP_QSERDES_V8_COM_VCO_TUNE2_MODE0);
++	writel(vco_tune1_mode0, edp->pll + DP_QSERDES_V8_COM_VCO_TUNE1_MODE0);
++	writel(vco_tune2_mode0, edp->pll + DP_QSERDES_V8_COM_VCO_TUNE2_MODE0);
+ 
+ 	writel(code1_mode0, edp->pll + DP_QSERDES_V8_COM_BIN_VCOCAL_CMP_CODE1_MODE0);
+ 	writel(code2_mode0, edp->pll + DP_QSERDES_V8_COM_BIN_VCOCAL_CMP_CODE2_MODE0);
++	writel(hsclk_sel, edp->pll + DP_QSERDES_V8_COM_BIN_VCOCAL_HSCLK_SEL_1);
+ 
+ 	return 0;
+ }
+diff --git a/drivers/phy/qualcomm/phy-qcom-qmp-qserdes-dp-com-v8.h b/drivers/phy/qualcomm/phy-qcom-qmp-qserdes-dp-com-v8.h
+index 93edabb830af..870835656f8f 100644
+--- a/drivers/phy/qualcomm/phy-qcom-qmp-qserdes-dp-com-v8.h
++++ b/drivers/phy/qualcomm/phy-qcom-qmp-qserdes-dp-com-v8.h
+@@ -45,6 +45,7 @@
+ #define DP_QSERDES_V8_COM_CORE_CLK_EN			0x170
+ #define DP_QSERDES_V8_COM_CMN_CONFIG_1			0x174
+ #define DP_QSERDES_V8_COM_SVS_MODE_CLK_SEL		0x180
++#define DP_QSERDES_V8_COM_BIN_VCOCAL_HSCLK_SEL_1	0x1a0
+ #define DP_QSERDES_V8_COM_CLK_FWD_CONFIG_1		0x2f4
+ #define DP_QSERDES_V8_COM_CMN_STATUS			0x314
+ #define DP_QSERDES_V8_COM_C_READY_STATUS		0x33c
+
+---
+base-commit: 495f98f8dc61da7c5d9ad11ac7d07ee2cd2154cc
+change-id: 20261125-glymur-edp-pll-c74b9c6ed0a5
+
+Best regards,
+-- 
+Victor Mora <vjmoralesmora@protonmail.com>
+
+
