@@ -1,83 +1,83 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795631871;
-	b=tJO/KELD4OkPuAQbSGoIsYRpLFsq3bo6HBJBcCKkULSjQzOBLAKZKZXaY8OSrOU75vpB
-	 TbKus9ASAahdcRE0U9eXi5rGPA8mkEnvDWvKlY7sLM/hhNQYx9fytL94uGh48gPqTkqkh
-	 lJ87axf4Wao2GyBBZ6C/wSJhLO2Z6J+0FYqhbz9mPBB7mMwuGEyYgoWm6Jcmo3+4H9JcB
-	 tu1oMR8dFLdfsWG+D7RdD2y20wGFj3VOVwpGfD+I5GJpRGEU2YkkLAa/xmBvTJn6a7yVa
-	 oMwoV/jf59Bi1Te7pVaAh05cTp/DHhZDrtCHu55yRfVvIM1xof4pIyc0jzNxBGdWrmw==
+	t=1795631875;
+	b=Szsv2r0stuuxqCeMs0Av14KAJuscLAVMu1VXdUG/Wt4Y0uGd9rITP6BEqGow+I/3nbMW
+	 DcAiH65cTVA7pHMDVWJWbVysCzDMBiR7TSHQ1dwNifvhauQ/0KG2WcQk9cdVq7XhQ/f84
+	 Rp+jmnIuoRPEREtc+dDhiSO4nJ5iFtJ59bjZuzAKr5v5tHzGedofMy4DXJV03/4ejlBog
+	 9tpNYfZ0gCnJ6GE4arKaSQUCbAIuimX3WUOL//dw6a0lVY5Askhm56KkNkMMR9QWUzUUV
+	 jWv/NzJwmIG0mTTzIeOH8Z213wG2mhSVOIkLtVhOLAopXJwVV2XZ/wIzIlW8APdQ5Yw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795631871;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795631875;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=Bsh30DvD4dl6hdEqW7rttLHSnbuBwkW1mxeTuDyZlIY=;
-	b=PsfahjIH+H/TCOD1lewXceWSi3pzr+5mMfQ/Zy/mC1qxSi+6ZY/0267wKUJHNnPKFkmu
-	 df1md9ZfR+TYWA5dTJ6R0YJNFG4+yn0WE8/4OqRioQDO6dG9XMtJkuOf/ahRuU6fazgOV
-	 /MC5x+8Viwgsk2ebAzb0GcAqn+kkqyaoltc3pXVvZzmrluRyj3FEp1KK656PHrzVkUq0V
-	 lUH0bpsX1UueDX3QPMEw4wJ31gGQ7AwfvJ7SwuSqlHFL/LAQC28XVKWUj6Iq/Vmj7uLdt
-	 hfgnx982MsP9Fk+JVTlpIG2H4Z9CqdBxasFWRlv0cRUmFZFhsDBDW1ntd+QyWk5mT+Q==
+	bh=u+kE/glxiZL+FWcRcULvyZPX6ySSXwBXh2dvsVZycgM=;
+	b=VfMe1N96XueTfZUi0TqkwmnEdAVKdG65HyqX+LLNvDtxwv59ROjU1+s/YIM10HBEwPTq
+	 3N5CQo905pu54ha7rVVfGbQzc0tiW1LWf2hRDziG1xVX1kD0mXuf1MWO57VLnlXU0SsiC
+	 7FNpmKolItLfZV4/WLZ1EPZrkZMG9eyIaZiFGeYHoCatBcc/Wwgy4/H1QdIeE36r2lumR
+	 uLNJ7pqsjsGYvbT8JtZfz+SPOkRPYAr6y5tCm8YQJLnXETpXoRgJJgQZMK4sv1B41Mvpi
+	 COdvsNLwswNA6fT7B5WasegoFy+V2/aixS+kgsfPzjbYqNB/A2i8S55hhRt/RiQ0Bhw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=IB9x4XiB;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tVMgo1wv;
 	arc=none smtp.remote-ip=209.85.167.43
 Received: from mail-lf1-f43.google.com (mail-lf1-f43.google.com [209.85.167.43])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 02B5D606A323
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:37:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 02B5D606A323
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 405B8606A327
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:37:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 405B8606A327
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=IB9x4XiB
-Received: by mail-lf1-f43.google.com with SMTP id 2adb3069b0e04-5c1a947b4adso5104255e87.2
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:37:50 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tVMgo1wv
+Received: by mail-lf1-f43.google.com with SMTP id 2adb3069b0e04-5bfbc67991cso4185983e87.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:37:55 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795631869; x=1796236669; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795631873; x=1796236673; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=Bsh30DvD4dl6hdEqW7rttLHSnbuBwkW1mxeTuDyZlIY=;
-        b=IB9x4XiBn42WWx+a0IBFuOzPdoDFdOA9Q77g7vg5kei7js7nO/TgRpsHZWTHGqJDGh
-         lqDcuMbNXTNwIpYOPoQT4UpO4L7/bfYHXWwh6CJadd1zKFSOPi2A1B7Jgf63XAun17UU
-         d8yPhsGID7+V4GH7ujTExMUsBR/5DbEMAJUSG3ojSiPT4Lwv6tWBubT4BqG/nPqJrbiM
-         uhLLg15uderoCOhiArWZKExx/On0zEzZiW/G+hEvORcpjMDWfI1GeKzcutweF9kwZjHy
-         uyO1j8XKq/GE2cRDEEJe7kbr6YBH+3hotZH/RzHZ9BG212rd4H+/lZgfAJL9s/tMxC4G
-         enzw==
+        bh=u+kE/glxiZL+FWcRcULvyZPX6ySSXwBXh2dvsVZycgM=;
+        b=tVMgo1wvOydSdU6EuLzJk26IqUHQ2YuGbWyv5g4rGxWZuQf72rG4EIOBxt0/NVni+9
+         AVONjoxdxV9M0W6Mfy31JyDzgTA9AFSl3FYi1UPm1JTrRaii88BbVuForeNIjkamXwdr
+         B5UEWnhMEMNj7x4QZZ9Zze0FZShrN4VLjHlI1cRq2yVQ7VzAT3ayB1i6JUbBc3Y53Pui
+         mMBLqpWHKMRCK0d3ej2O9hpeWL5NeB3Ezfd16Icrc/1e/qMv3AirnqOYJoB6Hx7sxhKS
+         NnblJWdfPMMI44PIty77wp7YNJG8qGV3geL1jffpnqlHF+Wp5JLQUWYofYUVRj3WiEHO
+         dmnw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795631869; x=1796236669;
+        d=1e100.net; s=20260707; t=1795631873; x=1796236673;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Bsh30DvD4dl6hdEqW7rttLHSnbuBwkW1mxeTuDyZlIY=;
-        b=Gc7YA4e61+xvxqZcC1eD+lxP35TY6450ZVS/EYoDddegt0BPLAfy6CtDaH/AhJR1Ku
-         b7i7YltDDMZtTLD+EfxkTIbrM360sETSJSbkaSoR2ySc11Jty15qbHrC2FkTL/oLQBlG
-         NVFiYPbX8y5C+ItNmJAOGBqrvStFGehbOlCnJ0K872slxc7dMzwv6kLRxRBub5gnM0o6
-         RlbwXvpueOQ22HeZ1qJs1GMazCwsd5Ybj9A80ECVx1TQU+inHqVXZd9q3eWc+G8iqkCJ
-         TSQf+bM8k7uJud2hafApxgSi61TlBELnqMOt7FFUhN74JG9HfKDyf3nuiJQuaXjzz8jD
-         tYug==
-X-Forwarded-Encrypted: i=1; AL+hErEONmY8GVE2ZmQg+YnU2JGYbf9jEjEWdne/CjFGaOaezRWBc9Ddy1Z+CEO8sjxE5tufIPPdquoHWi5vfwg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9o5UWA1dOIlu8wbmpaTVxnxa2LuBxICGNVQoR+siBb3Qi4Bnke
-	L8t66rRIyEZk5F931H0iAZZLPCGlkq32YEaZwrTkfU5f0iCPWlySOJG2
-X-Gm-Gg: AZFdTZde/vIftqkpCf0fRlqlihd/HsOoDPyhkyXPfUFR/B9sOiYIM7FvP6YB+jd/4Lw
-	6Ixbp6PM8HJezCcBeAb2iiW/zDyeW/xsu205VxPSbsGizndbAT3VQmIwDamk1A21z6sKbwKmOHQ
-	zSNHi9nTcgFakjFyPpYOLBcoK0fHIzaD/r5aHjz5LoZAMTPJDEsAWpxvff0GDrrlJo0TxTOY9sL
-	X2Xr+XEumDmywkmRcKtAOq8eOzom0cYhB85TSXsO574xZsCfGaMdjSeBUXoYgfZX/ncd8zrbWVb
-	0E8fIJn9jK7b80qW2zKUzPA+Fpb8ibMZHHXbAMvGzeNNqK3hz7C6gqs6KxeoCnobric+wYmzXzN
-	bDAv5B5OuKDdb2aDt/brENiQquL2oNnWWR9XzFtfoE4e5e5tqciINrkPs+JaYQWXMerREzIAPil
-	Fr6P5s0NihQto4LFXY30ZFTTKAPoKttXyxyux7GekW5+N70xOr4F7wl5igGKvxumJ67jt6RBiee
-	puPS1T8fIcDc+DCHpxMyLrXI8YbLZH0pSMUh5Sco8MaLGPQE2MsFpz7A2XPmPYd7utDG2X+xZHP
-	vLKOux0Ild7TGuF0JTe6bHVyD8UebqUn2hv0P18EjxUPN4FT7Sl7G/ohRSIAC9J1/6Greg==
-X-Received: by 2002:a05:6512:104d:b0:5c1:5a83:2fd7 with SMTP id 2adb3069b0e04-5c1bc907072mr5651830e87.66.1795631868971;
-        Wed, 25 Nov 2026 10:37:48 -0800 (PST)
+        bh=u+kE/glxiZL+FWcRcULvyZPX6ySSXwBXh2dvsVZycgM=;
+        b=rkzpm3icoE6ErnYtVVdgqSLRKgpa4GxB0CYoa6HURGUjO85mFsasZRC0fgIQ1BodlC
+         KInJCZ0UsruApbSRSOjm2Ri9pjagh9cnobGhPIIeiY/ChUWKE2fBY92VZ/efdAhcZnC6
+         /lHfZOELXkQ5k2tzydT9oyJmsitO50PfjpoLbwJjlQQ4Z9jw7G6zLoj2/DYt9rkGSLR3
+         YSyZyTkjoTHeD90GTZc7s7SqJIFRL21lFWIobwLSkfI7Fq2ubGynq286w4qVNkLORvU8
+         UtYNwDrCuUoeRwRqeZ5XP47rvWKb5KhLtY6Re8DuVCKvctDwg410FDljFmkIhTs0zuYA
+         C+Xg==
+X-Forwarded-Encrypted: i=1; AL+hErHMyU0NeGMncwgD7UIb9x8RGt0t5GCdDyPSGrjzPnROzMjlukll/U7l6WvNqdI/fCQRm9T2xZWYZj+knPo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/DGRSK2VS2CE45KV677kQWIPFX5LvTcMpWmICZ/EakTo1HvA3e
+	GxGmuZH7gxs960+SOXVhnmgKS0wJzhx24oHUl8BYXzwtaylDKp7mLWcl
+X-Gm-Gg: AZFdTZdqk0UgyYIbbw4OeWxOPGV0FLMKewrTvHh5+yjk+Ad8PmLJB+3u56PsnVK49QO
+	jukpmVpDIVzCnk/1xBmQE9Lqeav6YXaUh3bCjnb9XBeGFVHl1UfSsG+9zCkpNYIDDeyJXToMARQ
+	HtPWocDylz+7u1X2NaV44KlNPudRij0qwh6tI80g6/1qLg9tHronTQkABJVWA16I1AbP/dj7Vzt
+	UrZo731adCGwCZP3taV3vqwh9lgAAuJHZ+oJVrvd7CqkllinHuLV8E123HGesniipDItD8ZZrPK
+	rZ3X8YMQxPL+CV1xmpq0uPPJ4VyAYFwITbhXeAtidxiGLnMy9pdhxyEecEiteNOI7mLGy8kOi4O
+	xf8fePdlyoYkt3n8IwaZZB69vADoZRq2ddTY6B7X04dHq47gvAmWs1H3KiuGkLu9rLvjqi0mFuJ
+	WT8vtN2Jj9Ol2qFu6SLjZSDiDeK/eQqO/6CHVrVYJe82pQYfzYc10d/dC8qZx8JbZOXRQN6Nk74
+	w1BdE2zEFeUp/6anlhCvPanoTDqMShFSHgWQ9hU32sUZVuDdZPJjlttGcIhA7/kGDL+/zv0QbXe
+	+4ePP3URl0Zgqt9N9ByQ0FhscZrkgINUemH6mqFop7C+VBk=
+X-Received: by 2002:a05:6512:1585:b0:5c0:4e3:a416 with SMTP id 2adb3069b0e04-5c1bc68009emr5204787e87.1.1795631873243;
+        Wed, 25 Nov 2026 10:37:53 -0800 (PST)
 Received: from NB-6746.corp.yadro.com ([188.243.183.76])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5c1bd05051bsm4650755e87.62.2026.11.25.10.37.48
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5c1bd05051bsm4650755e87.62.2026.11.25.10.37.52
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 10:37:48 -0800 (PST)
+        Wed, 25 Nov 2026 10:37:52 -0800 (PST)
 From: Artem Shimko <a.shimko.dev@gmail.com>
 To: andrew@lunn.ch,
 	hkallweit1@gmail.com,
@@ -96,9 +96,9 @@ Cc: Artem Shimko <a.shimko.dev@gmail.com>,
 	devicetree@vger.kernel.org,
 	linux-leds@vger.kernel.org,
 	netdev@vger.kernel.org
-Subject: [PATCH net-next v6 1/3] net: phy: dap8211r: fix kernel-doc comments for extended register helpers
-Date: Wed, 25 Nov 2026 21:37:36 +0300
-Message-ID: <20261125183742.3039752-2-a.shimko.dev@gmail.com>
+Subject: [PATCH net-next v6 3/3] net: phy: dap8211r: add PHY LED control support
+Date: Wed, 25 Nov 2026 21:37:38 +0300
+Message-ID: <20261125183742.3039752-4-a.shimko.dev@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261125183742.3039752-1-a.shimko.dev@gmail.com>
 References: <20261125183742.3039752-1-a.shimko.dev@gmail.com>
@@ -113,39 +113,323 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The kernel-doc comments for dap8211r_read_ext() and dap8211r_modify_ext()
-incorrectly state that the caller must hold the MDIO bus lock.
+Add support for hardware-controlled LEDs and brightness on the DAP8211R
+PHY. The chip exposes three LEDs that can be programmed to react to link,
+speed, duplex, and TX/RX activity or be driven via the force mode.
 
-Remove the misleading sentence from both comments since the functions
-lock MDIO internally by themselves.
+Add the dap8211r_write_ext() helper to access extended registers via the
+PHY indirect access registers, and implement callbacks for:
+led_brightness_set(), led_hw_is_supported(), led_hw_control_set(),
+led_hw_control_get().
 
-Fixes: d90265e75584d ("net: phy: add DAPU Telecom DAP8211R(I) Gigabit Ethernet PHY driver")
 Signed-off-by: Artem Shimko <a.shimko.dev@gmail.com>
 Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 ---
- drivers/net/phy/dap8211r.c | 2 --
- 1 file changed, 2 deletions(-)
+ drivers/net/phy/dap8211r.c | 263 +++++++++++++++++++++++++++++++++++++
+ 1 file changed, 263 insertions(+)
 
 diff --git a/drivers/net/phy/dap8211r.c b/drivers/net/phy/dap8211r.c
-index 0bf770f8ebbb..1fe20efd394d 100644
+index 1fe20efd394d..b029b53dc7ba 100644
 --- a/drivers/net/phy/dap8211r.c
 +++ b/drivers/net/phy/dap8211r.c
-@@ -69,7 +69,6 @@ static const int dap8211r_internal_delay[] = {0, 150, 300, 450, 600, 750, 900,
-  * @reg: Extended register address
-  *
-  * Reads a PHY extended register using the indirect access method.
-- * The caller must hold the MDIO bus lock.
-  *
-  * Return: Register value on success, or negative error code
+@@ -12,6 +12,7 @@
   */
-@@ -97,7 +96,6 @@ static int dap8211r_read_ext(struct phy_device *phydev, u16 reg)
-  *
-  * Modifies a PHY extended register using the indirect access method.
-  * New value = (old value & ~mask) | set.
-- * The caller must hold the MDIO bus lock.
-  *
-  * Return: 0 on success, or negative error code
+ 
+ #include <linux/bitfield.h>
++#include <linux/bitops.h>
+ #include <linux/errno.h>
+ #include <linux/ethtool.h>
+ #include <linux/kernel.h>
+@@ -57,6 +58,56 @@
   */
+ #define DAP8211R_DEFAULT_DEL_SEL	0xD
+ 
++#define DAP8211R_LED_ID_0		0
++#define DAP8211R_LED_ID_1		1
++#define DAP8211R_LED_ID_2		2
++
++/*
++ * LED_COMCON force mode bits, per LED:
++ * bit 2 - FORCE_EN (enable force mode for this LED)
++ * bit 1:0 - FORCE_MODE: 00 = OFF, 01 = ON, 10 = blink mode1, 11 = blink mode2
++ *
++ * Only ON/OFF is supported.
++ */
++#define DAP8211R_LED_COMCON		0xA00B
++#define DAP8211R_LED_FORCE_MODE_EN	BIT(2)
++#define DAP8211R_LED_FORCE_MODE_MASK	GENMASK(1, 0)
++#define DAP8211R_LED_FORCE_MODE_ON	FIELD_PREP(DAP8211R_LED_FORCE_MODE_MASK, 1)
++
++#define DAP8211R_LED_FORCE_EN(idx)	(DAP8211R_LED_FORCE_MODE_EN << 3 * (idx))
++#define DAP8211R_LED_FORCE_ON(idx)	(DAP8211R_LED_FORCE_MODE_ON << 3 * (idx))
++#define DAP8211R_LED_FORCE_MASK(idx)	(DAP8211R_LED_FORCE_MODE_MASK << 3 * (idx))
++
++#define DAP8211R_LED_0_CON		0xA00C
++#define DAP8211R_LED_ACT_BLINK		BIT(13)
++#define DAP8211R_LED_FULL_DUPLEX	BIT(12)
++#define DAP8211R_LED_HALF_DUPLEX	BIT(11)
++#define DAP8211R_LED_TX			BIT(10)
++#define DAP8211R_LED_RX			BIT(9)
++#define DAP8211R_LED_LINK_1000		BIT(6)
++#define DAP8211R_LED_LINK_100		BIT(5)
++#define DAP8211R_LED_LINK_10		BIT(4)
++
++#define DAP8211R_LED_LINK		(DAP8211R_LED_LINK_10	| \
++					DAP8211R_LED_LINK_100	| \
++					DAP8211R_LED_LINK_1000)
++
++#define DAP8211R_LED_SUPPORTED_TRG	(BIT(TRIGGER_NETDEV_LINK)	| \
++					BIT(TRIGGER_NETDEV_LINK_10)	| \
++					BIT(TRIGGER_NETDEV_LINK_100)	| \
++					BIT(TRIGGER_NETDEV_LINK_1000)	| \
++					BIT(TRIGGER_NETDEV_TX)		| \
++					BIT(TRIGGER_NETDEV_RX)		| \
++					BIT(TRIGGER_NETDEV_HALF_DUPLEX)	| \
++					BIT(TRIGGER_NETDEV_FULL_DUPLEX))
++
++#define DAP8211R_LED_SUPPORTED_MASK	(DAP8211R_LED_ACT_BLINK		| \
++					DAP8211R_LED_FULL_DUPLEX	| \
++					DAP8211R_LED_HALF_DUPLEX	| \
++					DAP8211R_LED_TX			| \
++					DAP8211R_LED_RX			| \
++					DAP8211R_LED_LINK)
++
+ static const int dap8211r_internal_delay[] = {0, 150, 300, 450, 600, 750, 900,
+ 					      1050, 1200, 1350, 1500, 1650, 1800,
+ 					      1950, 2100, 2250};
+@@ -87,6 +138,31 @@ static int dap8211r_read_ext(struct phy_device *phydev, u16 reg)
+ 	return ret;
+ }
+ 
++/**
++ * dap8211r_write_ext() - Write extended register
++ * @phydev: PHY device structure
++ * @reg: Extended register address
++ * @data: Data to write
++ *
++ * Writes a PHY extended register using the indirect access method.
++ *
++ * Return: 0 on success, or negative error code
++ */
++static int dap8211r_write_ext(struct phy_device *phydev, u16 reg, u16 data)
++{
++	int ret;
++
++	phy_lock_mdio_bus(phydev);
++	ret = __phy_write(phydev, DAP8211R_EXT_ADD, reg);
++	if (ret < 0)
++		goto out;
++
++	ret = __phy_write(phydev, DAP8211R_EXT_DATA, data);
++out:
++	phy_unlock_mdio_bus(phydev);
++	return ret;
++}
++
+ /**
+  * dap8211r_modify_ext() - Modify extended register bits
+  * @phydev: PHY device structure
+@@ -114,6 +190,189 @@ static int dap8211r_modify_ext(struct phy_device *phydev, u16 reg, u16 mask, u16
+ 	return ret;
+ }
+ 
++/**
++ * dap8211r_led_brightness_set() - Modify the LEDs common control register
++ * @phydev: PHY device structure
++ * @index: LED index
++ * @value: ON/OFF value for force mode of the LED
++ *
++ * Enables force mode and sets the LED to ON/OFF state.
++ * It will be disabled when hardware LED control is requested.
++ *
++ * Return: 0 on success, -EINVAL for an invalid LED index, or a negative error code
++ */
++static int dap8211r_led_brightness_set(struct phy_device *phydev, u8 index,
++				       enum led_brightness value)
++{
++	u16 set, mask;
++
++	switch (index) {
++	case DAP8211R_LED_ID_0 ... DAP8211R_LED_ID_2:
++		mask = DAP8211R_LED_FORCE_MASK(index);
++		set = DAP8211R_LED_FORCE_EN(index);
++		break;
++	default:
++		return -EINVAL;
++	}
++
++	if (value != LED_OFF)
++		set |= DAP8211R_LED_FORCE_ON(index);
++
++	return dap8211r_modify_ext(phydev, DAP8211R_LED_COMCON, mask, set);
++}
++
++/**
++ * dap8211r_led_hw_is_supported() - Check if the requested LED rules are supported
++ * @phydev: PHY device structure
++ * @index: LED index
++ * @rules: Bitmask of requested netdev trigger rules
++ *
++ * Validates the requested combination of rules which can be represented in the
++ * hardware register.
++ *
++ * Return: 0 on success, -EINVAL for an invalid LED index,
++ *         or -EOPNOTSUPP if any requested rule is not supported by the PHY
++ */
++static int dap8211r_led_hw_is_supported(struct phy_device *phydev, u8 index, unsigned long rules)
++{
++	switch (index) {
++	case DAP8211R_LED_ID_0 ... DAP8211R_LED_ID_2:
++		break;
++	default:
++		return -EINVAL;
++	}
++
++	return (rules & ~DAP8211R_LED_SUPPORTED_TRG) ? -EOPNOTSUPP : 0;
++}
++
++/**
++ * dap8211r_led_hw_control_set() - Write the LED control register
++ * @phydev: PHY device structure
++ * @index: LED index
++ * @rules: Bitmask of requested netdev trigger rules
++ *
++ * Disables force mode and translates the requested trigger rules into
++ * the corresponding bit positions of the LED control register and writes
++ * the resulting value to the PHY.
++ *
++ * Note that the ACT_BLINK bit (13) must be set together with TX/RX rules,
++ * otherwise the LED will not blink on traffic if no other rule (such as
++ * link or duplex) is active.
++ *
++ * Return: 0 on success, -EINVAL for an invalid LED index, or a negative error code
++ */
++static int dap8211r_led_hw_control_set(struct phy_device *phydev, u8 index, unsigned long rules)
++{
++	u16 led_mode = 0, led_reg;
++	int ret;
++
++	switch (index) {
++	case DAP8211R_LED_ID_0 ... DAP8211R_LED_ID_2:
++		led_reg = DAP8211R_LED_0_CON + index;
++		break;
++	default:
++		return -EINVAL;
++	}
++
++	if (test_bit(TRIGGER_NETDEV_LINK, &rules))
++		led_mode |= DAP8211R_LED_LINK;
++
++	if (test_bit(TRIGGER_NETDEV_LINK_10, &rules))
++		led_mode |= DAP8211R_LED_LINK_10;
++
++	if (test_bit(TRIGGER_NETDEV_LINK_100, &rules))
++		led_mode |= DAP8211R_LED_LINK_100;
++
++	if (test_bit(TRIGGER_NETDEV_LINK_1000, &rules))
++		led_mode |= DAP8211R_LED_LINK_1000;
++
++	if (test_bit(TRIGGER_NETDEV_RX, &rules))
++		led_mode |= DAP8211R_LED_RX | DAP8211R_LED_ACT_BLINK;
++
++	if (test_bit(TRIGGER_NETDEV_TX, &rules))
++		led_mode |= DAP8211R_LED_TX | DAP8211R_LED_ACT_BLINK;
++
++	if (test_bit(TRIGGER_NETDEV_HALF_DUPLEX, &rules))
++		led_mode |= DAP8211R_LED_HALF_DUPLEX;
++
++	if (test_bit(TRIGGER_NETDEV_FULL_DUPLEX, &rules))
++		led_mode |= DAP8211R_LED_FULL_DUPLEX;
++
++	ret = dap8211r_write_ext(phydev, led_reg, led_mode);
++	if (ret)
++		return ret;
++
++	return dap8211r_modify_ext(phydev, DAP8211R_LED_COMCON,
++				   DAP8211R_LED_FORCE_EN(index), 0);
++}
++
++/**
++ * dap8211r_led_hw_control_get() - Read the current LED configuration
++ * @phydev: PHY device structure
++ * @index: LED index
++ * @rules: Pointer to a bitmask where the current rules will be stored
++ *
++ * Reads the LED control register and translates the hardware bit
++ * positions back into the corresponding netdev trigger rules bitmask.
++ *
++ * Return: 0 on success, -EINVAL for an invalid LED index, -EOPNOTSUPP if the
++ *         current hardware configuration cannot be represented in rules, or a
++ *         negative error code
++ */
++static int dap8211r_led_hw_control_get(struct phy_device *phydev, u8 index, unsigned long *rules)
++{
++	u16 led_reg;
++	int led_mode = 0;
++
++	switch (index) {
++	case DAP8211R_LED_ID_0 ... DAP8211R_LED_ID_2:
++		led_reg = DAP8211R_LED_0_CON + index;
++		break;
++	default:
++		return -EINVAL;
++	}
++
++	led_mode = dap8211r_read_ext(phydev, led_reg);
++	if (led_mode < 0)
++		return led_mode;
++
++	if (led_mode & ~DAP8211R_LED_SUPPORTED_MASK)
++		return -EOPNOTSUPP;
++
++	if (!!(led_mode & DAP8211R_LED_ACT_BLINK) !=
++	    !!(led_mode & (DAP8211R_LED_RX | DAP8211R_LED_TX)))
++		return -EOPNOTSUPP;
++
++	if ((led_mode & DAP8211R_LED_LINK) == DAP8211R_LED_LINK) {
++		__set_bit(TRIGGER_NETDEV_LINK, rules);
++	} else {
++		if (led_mode & DAP8211R_LED_LINK_10)
++			__set_bit(TRIGGER_NETDEV_LINK_10, rules);
++
++		if (led_mode & DAP8211R_LED_LINK_100)
++			__set_bit(TRIGGER_NETDEV_LINK_100, rules);
++
++		if (led_mode & DAP8211R_LED_LINK_1000)
++			__set_bit(TRIGGER_NETDEV_LINK_1000, rules);
++	}
++
++	if ((led_mode & DAP8211R_LED_RX) &&
++	    (led_mode & DAP8211R_LED_ACT_BLINK))
++		__set_bit(TRIGGER_NETDEV_RX, rules);
++
++	if ((led_mode & DAP8211R_LED_TX) &&
++	    (led_mode & DAP8211R_LED_ACT_BLINK))
++		__set_bit(TRIGGER_NETDEV_TX, rules);
++
++	if (led_mode & DAP8211R_LED_HALF_DUPLEX)
++		__set_bit(TRIGGER_NETDEV_HALF_DUPLEX, rules);
++
++	if (led_mode & DAP8211R_LED_FULL_DUPLEX)
++		__set_bit(TRIGGER_NETDEV_FULL_DUPLEX, rules);
++
++	return 0;
++}
++
+ /**
+  * dap8211r_config_init() - Initialize PHY
+  * @phydev: PHY device structure
+@@ -202,6 +461,10 @@ static struct phy_driver dap8211r_driver[] = {
+ 		.config_aneg	= genphy_config_aneg,
+ 		.suspend	= genphy_suspend,
+ 		.resume		= genphy_resume,
++		.led_brightness_set	= dap8211r_led_brightness_set,
++		.led_hw_is_supported	= dap8211r_led_hw_is_supported,
++		.led_hw_control_set	= dap8211r_led_hw_control_set,
++		.led_hw_control_get	= dap8211r_led_hw_control_get,
+ 	},
+ };
+ module_phy_driver(dap8211r_driver);
 -- 
 2.43.0
 
