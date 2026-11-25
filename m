@@ -1,65 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795638523;
-	b=L9d5RZ549WmvjmEJkOQoUe97YaQI2/MhPVwEkwwOJ0AsQoZzDLLUL7U0SNcgqKd//4Bw
-	 6VjjGOa8HQU37UAPjcRBWg278+khgTyuwa9TmMKTlCniNzZkTrWhnACEeF+lmlypBe9nb
-	 apPPBeaj1RRltoLx0jep2NCIjgavD6KIf0h3Tq3lAcYx3L1HLrCi4qinKQcaIb1XRZ1xb
-	 cv+7NTkucxKE6wOY6smc5hWXyTvDiTEj8R5m3jG9HljMYk9bb8kFHm9qjOL+LVc1vIjxZ
-	 cxdnHc9c9poUnVexDWdZwH+xm/E0Eg93n9LcZnRmrwF17dwt/tbV6M9TCpmicVmdvqA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795638523;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=mlda20IdlBMocoURp9TWLKJ60Nes7uXkahJoHZw/DJ8=;
-	b=0x2a/t0vJRhwbeWsufFfLSLh7VC0Rox5TY9PvLjK1JE94PNRY95g2UCFL2ShLNnGw/IC
-	 aNDrYlOo3zo5AmALtiCIVWjLKARunEEXHmi8+A6dLxkW+iYL+zjg5q0+ZySiSFqdytl65
-	 AB+Xp8XvWUgW4obKgaaEOSDDsHeK89GSly2rxGsyepChucjIgXniR12+9258w+Kzk+X27
-	 wGmgu1wSINqiL6rsQYmW/lF6rGQn56N+rDeLQifLIR00Nvl6GdY2dOZRjhRght7FfGdU7
-	 8pyRdQFTXqXOqhKqFJZDFEHN8KwEc+9DzvJUCa0F0lYKjXkUn6Uy6zIoZSMDVWABdVA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DiG1zZbi;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.11
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795638534;
+	b=z3rR7YhCGHYyCyexThLVH1YJZtCos5qVIfYJ2+17WN5j/kCntMYpzkRQmniGtYXox5/f
+	 D8nN0vOPpadYH9f7SJbOjdAcXbRBDgwUeDwqWtGkiIqzXQp3hxYHDVSQ2BnBpD6vb6zQ6
+	 X76mGliOpFUoGSf3kRsCYREeU79sLCtX7E8qW8Thmz9nTDI6WCr7JqWmEx46ainQZ2rry
+	 QmAAmQejcwT1r3ET/R2eqwyWwlES1ZSnF3v+LlT7KpQeUBAlPwsBZ3kJmGwVpdopyJ/X3
+	 LZsW18KT2MtkNt2BQlEPTZKMc1rztlvXWxQ9ln8bJoNFOD0O5Sa5yoBHIqaL96yhNUw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795638534;
+	h=DMARC-Filter:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=JOYAa7fLf3e5taKaH7vZHli1+lb0DGOTCK/mKOpNivA=;
+	b=H6phGHBcWYu+txAIOeN7egjxdqp1xjVzSmLtUac/dGjd7Gskgm/aBj1HYASjqkKmPuT6
+	 nA4MMCqwJPj4zgDrYavFjqZ5A0eGkNVaydLefHfVAH5XFdRmaUD322T/LgEmn/RNakLOj
+	 zQ9J9iiievCmTUNLYDkohRsns9Un66YE8ioyH3qdFusT3dfOYgj5iTzCpOzzG+tFMG72y
+	 nXGuaSznDDYe8UYhlujxOMphu4W4rya1MvZK/5b9hJLah06rDs8A4JRQ/M3feZXERfn4p
+	 1I2s3l1Tbdewu6VDprNXA9Xp9rX3gxuQegqmHhyAGP/yNo/Iyofz+MaakIjb4wmvg+g==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b="E0t/jPCt";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.11
+Received: from sender6-op-o11.zoho.com (sender6-op-o11.zoho.com [165.173.180.11])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8BA53606A31E;
-	Wed, 25 Nov 2026 20:28:43 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D1D62606A31E;
+	Wed, 25 Nov 2026 20:28:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D1D62606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DiG1zZbi
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB2F81F000C0;
-	Wed, 25 Nov 2026 20:28:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795638523;
-	bh=mlda20IdlBMocoURp9TWLKJ60Nes7uXkahJoHZw/DJ8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=DiG1zZbiN1Nq+gt8o+cgdM/UN1yJvF1qwZse1G7KAnup1sujHnyoFtzcOWe3ZZWTR
-	 EdhpB1HDHsmI7s9wz3CNpzV2hozro1iLh1e6FG6B5Nq7Vf5IW10LVGAYtsG2+Y2tEm
-	 c5zT0hOpzYoM4m8xsxZOAEUMhGGLm9CQqx84ELTXx35rFZSl1zSDA0gjcKp1YaTdqb
-	 j7/gjZRyeJ+FOFyxzQzuRMUCZ3jYFXxGzw+XUcLC0mKFLdZcC2W6+dgqEMWZxtHRvE
-	 o94HB+WULzeZOXt+XQp1GlKbbTEPuJh/pusich2ZIqHAw+KzhuixEZ0YSLVDwZoHRR
-	 WI2/16RJgbdUQ==
-Date: Wed, 25 Nov 2026 13:28:37 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: Thomas =?iso-8859-1?Q?Wei=DFschuh?= <linux@weissschuh.net>
-Cc: Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Nicolas Schier <nsc@kernel.org>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	Julian Braha <julianbraha@gmail.com>, linux-kernel@vger.kernel.org,
-	llvm@lists.linux.dev, linux-kbuild@vger.kernel.org,
-	stable@vger.kernel.org,
-	Linus Torvalds <torvalds@linux-foundation.org>
-Subject: Re: [PATCH v3 1/2] kbuild: Introduce CONFIG_CROSS_COMPILING
-Message-ID: <20261125202837.GB3625068@ax162>
-References: <20261124-x86-no-march-native-on-non-x86_64-v3-0-268354149c5f@kernel.org>
- <20261124-x86-no-march-native-on-non-x86_64-v3-1-268354149c5f@kernel.org>
- <25eaa926-c244-40a5-b7b9-e5182e601446@t-8ch.de>
+	dkim=pass (1024-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=E0t/jPCt
+ARC-Seal: i=1; a=rsa-sha256; t=1795638511; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=bVjUtopT3JmDHTvh9Azp17CvVtPb5q4EQix/Rasg38yoXcuyv9rdM54fYEHXY3PYSKk7sOHFAW5gVqcVvn9NtxxbrLgWfbIDMTOK4Em1pRUM7HGRmASU6BRSmXYn37jgAHiweoknbCQvWASlFZsRBJcbomvNE6kt2Qz/eEgbwso=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1795638511; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=JOYAa7fLf3e5taKaH7vZHli1+lb0DGOTCK/mKOpNivA=; 
+	b=OSzJDmTZCeop6vjVmMmsaRIQquaAuX2pzXfNkHR1a/x+OW5bejuc8uhYPc2fOS4f5d9UdBhilU3skOl/j5TbGztmksIvQia7Kcf8vc5VzI9p40sApkzWhDeWCCUdjIbboXZJoUWrao7QAGRpKuRkiSq6NZeSCdl3Y2790L3224o=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=deborah.brouwer@collabora.com;
+	dmarc=pass header.from=<deborah.brouwer@collabora.com>
+DKIM-Signature: a=rsa-sha256; b=E0t/jPCtXGtbb6JaguDNhXG1M4TpVUu9A8qf+uw6GCu6dZl9p34wDOVn1IM6B2q078APwQ/1/XEZ5i1KoWOhylrI1V5c3DdNHBmC1A4Un59GTkgJSvynnXd+mOZG8se8VZ/vZ9U+wh7aLnRVaOK9QeRejLbrL7Arjv8pVji8OvM=; c=relaxed/relaxed; s=zohomail; d=collabora.com; v=1; bh=JOYAa7fLf3e5taKaH7vZHli1+lb0DGOTCK/mKOpNivA=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zohomail.com with SMTPS id 1795638509259683.9981897561948;
+	Wed, 25 Nov 2026 12:28:29 -0800 (PST)
+From: Deborah Brouwer <deborah.brouwer@collabora.com>
+Date: Wed, 25 Nov 2026 13:28:20 -0700
+Subject: [PATCH] drm/tyr: clamp va_bits to available bits
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,65 +59,83 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <25eaa926-c244-40a5-b7b9-e5182e601446@t-8ch.de>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261125-b4-va_bits_clamp-v1-1-07e2bb33eb50@collabora.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzNDQyNT3SQT3bLE+KTMkuL45JzE3AJdk8Q000RLo2TDVDMLJaC2gqLUtMw
+ KsJHRsbW1AAZORVliAAAA
+X-Change-ID: 20261125-b4-va_bits_clamp-4af5a92c1e68
+To: Daniel Almeida <daniel.almeida@collabora.com>, 
+ Alice Ryhl <aliceryhl@google.com>, Danilo Krummrich <dakr@kernel.org>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>
+Cc: dri-devel@lists.freedesktop.org, rust-for-linux@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, sunke@kylinos.cn, 
+ Deborah Brouwer <deborah.brouwer@collabora.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2484;
+ i=deborah.brouwer@collabora.com; h=from:subject:message-id;
+ bh=xNf252I664eRJisbxhiMQd/tqwpzVUUADtcDYFaeWQ4=;
+ b=owGbwMvMwCVWuULzOU9c7WvG02pJDNnsLm++z2sQDzij+oWvtEG2t/fxQ70ky9c6VmpcTx9Ob
+ U1YyRTVUcrCIMbFICumyHLW3qhHvOq9ke78/80wc1iZQIYwcHEKwERe/WJkeO3eO2E745TdDj3L
+ NtX9XvnbrPaad8DqzI1nNwu+ut70XZqR4TzLPcv1ERHP7xmbXz2RsfhS9p4AJbOPWmrff72KYjR
+ cwgQA
+X-Developer-Key: i=deborah.brouwer@collabora.com; a=openpgp;
+ fpr=CD3F328C177AEF322D9FFF8379A829E70C5E7DEB
 
-On Wed, Nov 25, 2026 at 11:27:10AM +0100, Thomas Weißschuh wrote:
-> The expansion to bit width and endianess will be a lot of busy-work.
-> See the CC_CAN_LINK infrastructure.
+Tyr creates a virtual memory space using the number of bits supported in
+virtual addresses as reported by the gpu. But the page table mapping
+operations limit the width of the input virtual addresses to unsigned
+long. This can result in tyr creating a virtual memory space that is
+larger than a 32-bit system can support.
 
-Yeah, fair enough.
+Check if the virtual address space bits supported by the gpu are larger
+than the width of unsigned long, and if so, clamp the virtual address
+space bits to this smaller size.
 
-> We already have host-architecture detection in kbuild through
-> scripts/subarch.include. So CC_HAS_MARCH_NATIVE could depend on
-> $(ARCH) = $(SUBARCH), after exporting SUBARCH. Or maybe give the
-> variable a better name, like HOSTARCH.
-> 
-> This would avoid the introduction of a new, not-really-correct flag
-> and also the whack-a-mole that Boris complained about.
+This reproduces the clamping that already occurs in panthor_mmu_init().
 
-Ah, thanks a lot for reminding me about SUBARCH! In looking around, I
-noticed that Kbuild already checks if SRCARCH = SUBARCH and exports
-cross_compiling=1 in that case, which means this patch should just
-become
+Link: https://sashiko.dev/#/patchset/20261122-tyr-ioctls-v7-0-3a2af624b992%40linux.dev
+Signed-off-by: Deborah Brouwer <deborah.brouwer@collabora.com>
+---
+ drivers/gpu/drm/tyr/gpu.rs | 11 ++++++++++-
+ 1 file changed, 10 insertions(+), 1 deletion(-)
 
-diff --git a/scripts/Kconfig.toolchain b/scripts/Kconfig.toolchain
-index 2acbd40a38f1..a8b5258eac7e 100644
---- a/scripts/Kconfig.toolchain
-+++ b/scripts/Kconfig.toolchain
-@@ -97,6 +97,9 @@ config RUSTC_CLANG_LLVM_COMPATIBLE
- 	  LTO) require the same LLVM major version to work properly. For best
- 	  compatibility it is recommended that the exact same LLVM is used.
+diff --git a/drivers/gpu/drm/tyr/gpu.rs b/drivers/gpu/drm/tyr/gpu.rs
+index 820de9d60c19..058863a6b70b 100644
+--- a/drivers/gpu/drm/tyr/gpu.rs
++++ b/drivers/gpu/drm/tyr/gpu.rs
+@@ -36,6 +36,15 @@
  
-+config CROSS_COMPILING
-+	def_bool $(success,test "$(cross_compiling)" = "1")
+ impl GpuInfo {
+     pub(crate) fn new(io: &IoMem<'_>) -> Self {
++        let mut mmu_features = io.read(MMU_FEATURES);
 +
- config ARCH_HAS_CC_CAN_LINK
- 	bool
- 
---
++        // In io_pgtable_ops, input virtual addresses can't exceed unsigned long.
++        // Check that the virtual address bits reported by the gpu are
++        // architecturally supported and, if not, clamp them to the available bits.
++        if mmu_features.va_bits().get() > usize::BITS {
++            mmu_features = mmu_features.with_const_va_bits::<{ usize::BITS }>();
++        }
++
+         Self(uapi::drm_panthor_gpu_info {
+             gpu_id: io.read(GPU_ID).into_raw(),
+             gpu_rev: io.read(REVIDR).into_raw(),
+@@ -43,7 +52,7 @@ pub(crate) fn new(io: &IoMem<'_>) -> Self {
+             l2_features: io.read(L2_FEATURES).into_raw(),
+             tiler_features: io.read(TILER_FEATURES).into_raw(),
+             mem_features: io.read(MEM_FEATURES).into_raw(),
+-            mmu_features: io.read(MMU_FEATURES).into_raw(),
++            mmu_features: mmu_features.into_raw(),
+             thread_features: io.read(THREAD_FEATURES).into_raw(),
+             max_threads: io.read(THREAD_MAX_THREADS).into_raw(),
+             thread_max_workgroup_size: io.read(THREAD_MAX_WORKGROUP_SIZE).into_raw(),
 
-unless we did not want the separate symbol, in which case patch two
-could just become
+---
+base-commit: 7402dd230f4497954b465145a22cff7a5a488629
+change-id: 20261125-b4-va_bits_clamp-4af5a92c1e68
 
-diff --git a/arch/x86/Kconfig.cpu b/arch/x86/Kconfig.cpu
-index 6e7a366f0798..b40aaff6867d 100644
---- a/arch/x86/Kconfig.cpu
-+++ b/arch/x86/Kconfig.cpu
-@@ -217,6 +217,7 @@ config RUSTC_HAS_APXF
- config X86_NATIVE_CPU
- 	bool "Build and optimize for local/native CPU"
- 	depends on X86_64
-+	depends on $(success,test "$(cross_compiling)" = "")
- 	depends on CC_HAS_MARCH_NATIVE
- 	depends on !RUST || RUSTC_HAS_APXF
- 	help
---
-
--tip folks, preferences?
-
+Best regards,
 -- 
-Cheers,
-Nathan
+Deborah Brouwer <deborah.brouwer@collabora.com>
+
