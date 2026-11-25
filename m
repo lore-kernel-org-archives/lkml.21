@@ -1,88 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.178
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795600677;
-	b=uilm48KHS173CubGLbyYw3eUdhmdunhbBVpw+HtD6Ew3fzL8pFkntPBfVLLJrw7de0l2
-	 OdHfyflUgCVP0oG7jknwbHgtT8MmNDnPAqDkiRSYATz/hcZQxeCP6wmqXvh4ZcB/9UJip
-	 Na7k/HPsDvOMH4j0rMNrLKvIayENZhdd39M0uHqrXT08g012+rqSFcdqyi/7UtOtyKjWd
-	 1UGnD8vyJ2bJtT0qG94+hB6ObundQjHzj3CttcbeGfojD9lnbUEEs9VGkfHZtVr47eSSA
-	 RPN93bGLqAc8nNWPHnerwL2lZtIzn2mH/Su5Lam2/t2iwEqJEbM72P6QiWGu59WK1Tg==
+	t=1795600718;
+	b=Frpxpq5wHrzkztVnOyEKFg9sfb5LgR76CRlU3ggzhjtP2g3abvy6mXO2Hf0lCvpjwrjZ
+	 3IAkfLKEjv38dxkwGNs3viv6ROGXEnqooiGIb70+UYUlUHdA8jmfwvJxC3XmeZNtiTajT
+	 xLosdnlm0x0VO6eV0YMgiNxTSWvAidGO5uH8/E+0DKcfJ7sEhDhq79Ezbalr/AgmEdS5W
+	 JhmOyFr5EZdXoG+0VOelVNsBXnLv8gkFa18jXmVIr2AfPROtZUSr3v4NkANMuX/M+zTaD
+	 X4W+VdbzZ3vr9+4oOha67le7VrRPGfvP1ar1bs0hF01Wl7smbwM+UMDVvtQZRJXK7GQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795600677;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795600718;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=k6KEcTl/pyiQsKyyg/2eQ+l+POB59ejsRYmW+NNyeA8=;
-	b=xakHUUz6ougpPhgvUrXDWLWwRF2kisqZkSPCrHC9my7OjvFuWiTdzL2lEN3MKKP5MOAh
-	 eXwEzQZ//6qvEdZAU+kDcqgLyBMadSi/UUV6ncUM1dO0E9A8Yhb0jAtPE48TB5a5TSfcA
-	 BxFcITSqyhgMDrAFrsHDRfT037TSJoj0Wv/b4gut1xdG+ySgUnFbZ1rtfXHsEqhygF6on
-	 EpdbSy/VX+j2x4z2P4T/klXggcU9dHjBOUNzvXULfGn+G7grMF8x2o8D9Lb8qav0qAQkf
-	 8V7JLrawCcTty8UtKOiptbINcrEAQoxLAsCHzPKSCtsusByk7EpMCGU+2AO621Gf57g==
+	 From:To:Cc:Subject:In-Reply-To:Date:Message-ID:References;
+	bh=1UD/fxzUT0tjfssdFOdd5M1pCrEUV3tIjK+qrLIpIpw=;
+	b=M2T5J+gmNaC5Yy23wFGteHsWfI0XkabPvnXNvwIutitv6vQkC9FhT8q3+NXIGNO+D9Tf
+	 gE/xLMOzx/qRtNKx8jU+QjS15YgOvXPcYqTLim358lzy6FsmAve0KeO3RyGcL7vJygMhU
+	 OGvDtGfXZLuVWu9juYX/ozqKQQADkVUmPap9Ti5k+z3gvpqWatbLmueLTd3whfSb3ntSP
+	 cYEa7zrPWgtDxFwNVAWyJbENdNi55844dFxPhPFq5DHnvodjEuTz8zR2/C6jBJnx7XWIC
+	 Y3Re4BzMekD2PZKTYF9RaEO6gfC//I5iYlkUiWD5X9zGB4Sv+qv5W5DCj1zA304ZfYA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linaro.org;
-	spf=pass smtp.mailfrom=linaro.org;
-	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=U4ho5SIW;
-	arc=none smtp.remote-ip=209.85.221.52
-Received: from mail-wr1-f52.google.com (mail-wr1-f52.google.com [209.85.221.52])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="fys/RInJ";
+	arc=none smtp.remote-ip=74.125.82.178
+Received: from mail-dy1-f178.google.com (mail-dy1-f178.google.com [74.125.82.178])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 675FF606A321
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 09:57:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 675FF606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A1684606A323
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 09:58:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A1684606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=U4ho5SIW
-Received: by mail-wr1-f52.google.com with SMTP id ffacd0b85a97d-4a34ffd3e39so3013538f8f.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 01:57:57 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fys/RInJ
+Received: by mail-dy1-f178.google.com with SMTP id 5a478bee46e88-38431138772so7172728eec.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 01:58:37 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1795600676; x=1796205476; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=k6KEcTl/pyiQsKyyg/2eQ+l+POB59ejsRYmW+NNyeA8=;
-        b=U4ho5SIWBLfAJh6L5LxddeznA40KG8rNkgKkmJbUOGnKML97JS7z0daSK34Zyvnr9Z
-         emW4BnhTJPTGzn7MDO/XQ6XFuGAkn8PqfR9lmVM0j/npQJm39KhqnCc5mQozsg9zFA+k
-         nTSmV7GBL+NT8vrX+Pa7YX6Ru7xTGU3qM4CTFBA8YOieDt6N4g/1BiI6yxOrWS2aEow8
-         FD4gXsInN6ZPK2FqjU/gAVh5kZCCcJGd27RWkC3rnlR+1ThU7hUb+s02kJRgG7hQmeZ7
-         re6IrPGN9TT1ywerZEdUzP/LM47cfXwtQjFH72RWIUB23Wx/B17BIfb9f+7Dj7GSHpJO
-         SiKw==
+        d=gmail.com; s=20260707; t=1795600717; x=1796205517; darn=vger.kernel.org;
+        h=references:message-id:date:in-reply-to:subject:cc:to:from:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=1UD/fxzUT0tjfssdFOdd5M1pCrEUV3tIjK+qrLIpIpw=;
+        b=fys/RInJOM+KHowyp/0+bp6mIOdw17l/KGAP5Hu8FUU9jepLarKea785/2Unj5x2zX
+         PKfyXjkBIquOhWWotnJNPdSocuX5G+ajBq27L0xeZvW1xoZwiCDunhgwui+vT3Ko+xdf
+         2RChKewf23S27TRhHB86w9pUuXg0RVmEUOpFVHY1WPqwxKva8qIc/EwuDOH0PzPjavoz
+         pLzkl44Gr8M58NQ6EVZ9BK19KXOARF36lK8q7Xu126oWzJVMP9hfLMNmhM02W7Et+Ym1
+         /CK+3hx0rW+i2D+/rfPpARvlQI9b2hxoBGYUFhARasRTp5BJNKv/xuG/kbvsuo2upaw/
+         bVag==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795600676; x=1796205476;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=k6KEcTl/pyiQsKyyg/2eQ+l+POB59ejsRYmW+NNyeA8=;
-        b=gKk0WiNFIeDA6vIpY6yUktEf5/ZJQcddKKi8xG64qIdUdh83vr/0B2q4YfeQPKqLjX
-         vZUNfmzNfTkR7J5wUx8TK8Zjqedzvipwp/O/kYp9vOnHweeBHydimXMXBYvYGB5NaoHi
-         xjFtjxK+Gp+hjfu/KzE0nNEsnuazJWrjBJF54k0V4uYOv6Ds+NV2CX9d+4msi1gyRDLp
-         Mn3LSgj6h+/RcvwVrpnX8w6VWjHvU+AYlP+KgtLr4p1UZBmEANWWFNT8vWyXRVj4tcpV
-         CeMjuvwJxRFkzYd+lCUBucFXfo0L9NncliswWhPgbHPF8GC5cArgAja4EcmFf+i4SMbf
-         JqKA==
-X-Forwarded-Encrypted: i=1; AL+hErF6xSJxOO3FF2oBQdX6uB30FVlr8xTMyWK5PdOkMNNurrrX2LgX38UTCZXcBxO9euI8pYQBQ98MPN+LkdA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/gplocMoZXOcaTCIkg+b5ygD4lE+2Urpr2fX8RR7wwv9+AfcDr
-	WrzyffR5qYBfbcKXDHSv4G2RrshQyOXBeAK3qKDS/1fXFPOrFsNhKLMBg6aMRvulPME=
-X-Gm-Gg: AZFdTZeK4B5sMGNZNDinCxKe5FBdAJG8GBYK2p5a9wZCT3QbJP1FQiqoM3ROdzXhD5Z
-	zUGSMJD6JJ6GWGWre/bl5xzzN0AzuCIfMM4SVTCbozZ7wIyu7Zs7gmm3IBeQlilMzwPMZq7Txep
-	6mulK8PY4KtTuBXttAogHNNdD4qDEfpLJWhQsCQsugWAbkb0rKNpJrAdCmSxfltkjE7+GbA2UXz
-	v6pFnA/o5N/jbLzr/gIQqWzGmyhWljZH9Q3J/SnEsehsFhPoW0oy78bSSXB60jVo55GIB6MtpXN
-	tmhI2o4asrgNqi8b81LcCC0lBKtM5RWqkn74EBEtvqP+rOf0xezNtK4zM50RSy29P6fL9LK2SMw
-	/IHdsDGed0xbULJEkqGTDqjSGy8KbLMB9v3haDF5abAIIq/g2PiFZiy2P9X0+q+Ck9tCXvtcZPi
-	6ZuWYPXRWw07zTjX3Ntj3RRVGep2xV96KbSyL8VQwn8N7Yjvf9nGHdfW+OozimoNjvWFiI6eyzP
-	K6rpnWIPlKeK/ijt1HOMcBTf29kPG56OzSS0qlCa/K/v4zs9K9e7qOn5gNl80aCITm6snk23oM2
-	iBu7UpbiiE0xgVHJIoW+H4Su+LT7kDuHVg==
-X-Received: by 2002:a5d:64c9:0:b0:488:88ec:59c3 with SMTP id ffacd0b85a97d-4abb0f3c071mr35368426f8f.14.1795600675654;
-        Wed, 25 Nov 2026 01:57:55 -0800 (PST)
-Received: from [192.168.1.3] ([37.18.141.193])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab69bf6804sm32730070f8f.10.2026.11.25.01.57.54
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 25 Nov 2026 01:57:55 -0800 (PST)
-Message-ID: <d2ae7970-63cb-4c8a-8c04-483d88fcbffb@linaro.org>
-Date: Wed, 25 Nov 2026 09:57:53 +0000
+        d=1e100.net; s=20260707; t=1795600717; x=1796205517;
+        h=references:message-id:date:in-reply-to:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=1UD/fxzUT0tjfssdFOdd5M1pCrEUV3tIjK+qrLIpIpw=;
+        b=knBc4Nxmrp/u1oCJLcRYKJBc9k/w4x0Xfp3/AYiySusuKFrHWXFxpGQukxdkKhNFeV
+         PXJoJCSSF9U+WDibDQlUeQOdkKeFCL2ieNyrThNeyw59qrpbm5NnGQHdVrlVjwq1dD1J
+         iSMkq8kpSYS4sCFD223pmLgEot4Ci9U51/itYEImYEGz45uQsax89CGhutv0t8ubokp2
+         msOosVlrlP8AkClxH7JK0ZzgU9WUwAY+0h84E13728E99pKmYwnXUjdorqihixbWtFvA
+         6EMZaFKztxX6T87Eb3nDFE3LkIPTC8zJTVQ4iUBrxjo33ST/Lmz+te6xhGaEtkJnOeCj
+         eGKg==
+X-Forwarded-Encrypted: i=1; AL+hErHBhmfN9FXH9LtpiV6Lwsjstl0nTkDkOKdo62o6xNzYRMzA2i+j+60QU2zRTB8nqaXf/WtDLvfBN9Q+3ow=@vger.kernel.org
+X-Gm-Message-State: APuU4Z98SQVm/NcPdaAJPiIIWrjMX26507x7D4wrNeToM7SJhQUy5oUq
+	stpGzezL9mn7WkH02W4A3DKhjdvMKaKDdLWZnBMGNceQcjpQ3L6277QG
+X-Gm-Gg: AZFdTZcnvaVPw+8MbkKZhwtzBqN/7Ix64if1kQ3Efw2m0PuhR7gGvUky7Aj0znKfaWV
+	6ddtI1HPWsE9AvxIzOlDAiApHmga+bLuVG2vzdcHpdh7ViJDP8ZdELiL4FB2gtNxSbqxQ7pI5AV
+	HmEL0vvcCmHldqQEqcKS8jZ37O4Zi8sgJfNUuxtIMkx4w6Khw4LlXr3J80rJLxSdhCBENXRvkHu
+	FToiYZpevw+L2f+3BQ6mvs4WxOlGCyBqKV/xJRGLEOroVBneZMbf6l3o8o0tKf7RIdo7ZvZMtnu
+	1yWjA0n06yRSiy5dKo1N9xO64Bu+jEkG2sjtYsDLR+MQq1tTJKwfLshixNPEauQA88T6q8qKXM/
+	Si97U9TKHLWl68wawsC7/LeOMv9k0CTZm6HohFPLuO3RxODV8H93H03lLCYtQaHyFi0cxsneDt4
+	rxzxyOTwqN1XBxsG/10elkpESAH3LltF+qQmRzBY/NGLmFLKVqazmLIGNtkYRJv3X7PR5n61QkL
+	CXRhdLh75FC3bxk2ndT3kje6pr6Aacx2gaDD88vjBKDHz8XLgf6TuWXr4DfEBIj0fs6bzJp9yZ0
+	K2s+08xkOOSnKO3kQkYZwq5lkKyl
+X-Received: by 2002:a05:7301:e103:b0:385:496e:80ac with SMTP id 5a478bee46e88-3856fe59334mr19973566eec.8.1795600716629;
+        Wed, 25 Nov 2026 01:58:36 -0800 (PST)
+Received: from pve-server ([49.205.216.49])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386aaae4960sm26470301eec.18.2026.11.25.01.58.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 01:58:35 -0800 (PST)
+From: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
+To: Mukesh Kumar Chaurasiya <mkchauras@gmail.com>
+Cc: linuxppc-dev@lists.ozlabs.org, Madhavan Srinivasan <maddy@linux.ibm.com>, Venkat Rao Bagalkote <venkat88@linux.ibm.com>, linux-kernel@vger.kernel.org, chleroy@kernel.org, Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, Shrikanth Hegde <sshegde@linux.ibm.com>, stable@vger.kernel.org
+Subject: Re: [PATCHv3 4/4] powerpc/kvm-hv-pmu: Free hostwide stats buffers if perf_pmu_register() fails
+In-Reply-To: <awZ4ZhK1GFHKi9Tr@li-1a3e774c-28e4-11b2-a85c-acc9f2883e29.ibm.com>
+Date: Wed, 25 Nov 2026 15:18:30 +0530
+Message-ID: <pkvtjl75.ritesh.list@gmail.com>
+References: <cover.1795441238.git.ritesh.list@gmail.com> <a9e4029d0e11b3c944f4b4cb781fc5ff1696709b.1795441238.git.ritesh.list@gmail.com> <awZ4ZhK1GFHKi9Tr@li-1a3e774c-28e4-11b2-a85c-acc9f2883e29.ibm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -91,72 +92,60 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 15/19] perf auxtrace: cs-etm: Capture wrapped snapshots
-To: Adrian Hunter <adrian.hunter@intel.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
- <mike.leach@arm.com>, Leo Yan <leo.yan@arm.com>,
- Will Deacon <will@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
- Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
- Mathieu Poirier <mathieu.poirier@linaro.org>,
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
- Suyash Mahar <smahar@meta.com>, Amir Ayupov <aaupov@fb.com>,
- linux-arm-kernel@lists.infradead.org, coresight@lists.linaro.org,
- linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
- Arnaldo Carvalho de Melo <acme@redhat.com>, linux-doc@vger.kernel.org,
- John Garry <john.garry@linux.dev>, Leo Yan <leo.yan@linux.dev>
-References: <20261105-james-cs-unformatted-per-thread-fix-v4-0-7759e0ce2449@linaro.org>
- <20261105-james-cs-unformatted-per-thread-fix-v4-15-7759e0ce2449@linaro.org>
- <8b37f5ea-9427-43f6-8abf-07a36a9bbb72@intel.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <8b37f5ea-9427-43f6-8abf-07a36a9bbb72@intel.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+
+Mukesh Kumar Chaurasiya <mkchauras@gmail.com> writes:
+
+> On Mon, Nov 23, 2026 at 07:21:53PM +0530, Ritesh Harjani (IBM) wrote:
+>> kvmppc_register_pmu() calls kvmppc_init_hostwide(), which allocates
+>> gsm_l0_stats and gsb_l0_stats. It then registers the pmu. If
+>> perf_pmu_register() fails we return without freeing them.
+>> 
+>> Call kvmppc_cleanup_hostwide() on that error path.
+>> 
+>> Fixes: f0c9c49c5067 ("powerpc/kvm-hv-pmu: Implement GSB message-ops for hostwide counters")
+>> Cc: stable@vger.kernel.org
+>> Signed-off-by: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
+>> ---
+>>  arch/powerpc/perf/kvm-hv-pmu.c | 4 +++-
+>>  1 file changed, 3 insertions(+), 1 deletion(-)
+>> 
+>> diff --git a/arch/powerpc/perf/kvm-hv-pmu.c b/arch/powerpc/perf/kvm-hv-pmu.c
+>> index a58634f656e9..ec05b4855736 100644
+>> --- a/arch/powerpc/perf/kvm-hv-pmu.c
+>> +++ b/arch/powerpc/perf/kvm-hv-pmu.c
+>> @@ -402,8 +402,10 @@ static int __init kvmppc_register_pmu(void)
+>> 
+>>  		/* Register the pmu */
+>>  		rc = perf_pmu_register(&kvmppc_pmu, kvmppc_pmu.name, -1);
+>> -		if (rc)
+>> +		if (rc) {
+>> +			kvmppc_cleanup_hostwide();
+> Just a question.
+> Inside this function, should we also take lock just to set the pointers
+> NULL rather than putting the whole logic(free also) inside the lock like
+> we did in previous patch?
+>
+
+In the previous patch, we brought GFP_KERNEL (sleepable) allocation
+outside of atomic context. However, in here, there is no harm in keeping
+the lock to assign the null values to pointers. But I guess what you are
+suggesting is - Do we need to keep the lock around in the cleanup? Looks
+like no, we don't, since if the perf pmu register failed then we won't
+get a perf pmu update event for this - which is the only other user of
+this lock which can race.
+
+However, this patch is mostly an error handling fix (reported as a bug
+by Sashiko). One can pickup the cleanup of that path as a separate
+patch.  There is also a powerpc wide clang's context analysis work that
+is going on, so as part of that - we could maybe optimize away taking of
+the lock in kvmppc_cleanup_hostwide() as well. As for this patch series,
+I think let's go with this, as most of the patches in the series are
+with Fixes tag to be backported.
 
 
+> Apart from this, all looks good.
+>
+> Reviewed-by: Mukesh Kumar Chaurasiya (IBM) <mkchauras@gmail.com>
 
-On 24/11/2026 20:41, Adrian Hunter wrote:
-> On 05/11/2026 13:45, James Clark wrote:
->> find_snapshot() isn't implemented for Coresight, so when a wrap occurs
->> we only save from offset 0 to current head, modulo buffer size, rather
->> than capturing the whole buffer. Coresight drivers currently use a
->> monotonic head pointer even in snapshot mode, which gives a lot more
->> information for taking snapshots than a wrapped pointer. It means we
->> don't need to search for data at the end of the buffer to guess if a
->> wrap has occurred, and we can go back to saving partial buffers after a
->> wrap by checking if the next size to take is less than the buffer
->> size.
->>
->> The drivers will always be able to generate a monotonic head because
->> TRBE has a bytes written counter, so even if we stop generating an AUX
->> record on every overflow, we can check if the counter indicated an
->> overwrite and offset head by a whole buffer size if it wrapped. This
->> forces userspace to read the whole buffer rather than between last and
->> current head. ETR and other sinks use software double buffering, so can
->> continue as they are.
->>
->> Add auxtrace_record__monotonic_find_snapshot() and use it for Coresight.
->> A monotonic head can't be auto-detected in the default find_snapshot()
->> by checking if head > buffer size, because before the first wrap a
->> monotonic head looks the same as a wrapped one. The search would then
->> falsely detect a wrap when head is near the end of the buffer, and the
->> wrapped pointer fixup moves 'old' and 'head' a whole buffer ahead of the
->> driver's head. With a wrapped head that doesn't matter because only the
->> offset within the buffer is used, but with a monotonic head the next
->> snapshot would either save already saved data again or drop up to a
->> buffer's worth of new data.
->>
->> Reviewed-by: Leo Yan <leo.yan@arm.com>
->> Tested-by: Leo Yan <leo.yan@arm.com>
->> Signed-off-by: James Clark <james.clark@linaro.org>
-> 
-> Reviewed-by: Adrian Hunter <adrian.hunter@intel.com>
-> 
-
-Thanks!
+Thanks for the review!
 
