@@ -1,226 +1,86 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=fail smtp.remote-ip=148.163.158.9
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=fail;
-	t=1795568630;
-	b=wLu4j7sxBvsoi8KrCyCT8g5zTiKe6CbB2cN/l3n8J7BsDLK+STLGSKEHHKDLO7oRgy6m
-	 8m7t+/QL/qCKHDg1FEgufs6Mpn+gKEDk4hWNLE9QNjGK9gMCarGEy7hvJJY9zXhu4PvRW
-	 Cds/xQ5t2JcvOdxALrHt5XamPRzZMSlEX0Nv7MbC4+Zdm4ZLRrrwGA9xDyVr6FQBSpoG1
-	 RiQK5phLDwo8Bzc09RC3rzBKIb1BQs9biERGBjbZdDnCpPBrEg+3DmJhVFEIIiX2lptwW
-	 d6nUGoRtBcPl8296tP3gcYQP+hqVjdWV2kX6K6qJpxuWR6N3iOaTdlyApMSSnEq8KHA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795568630;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:DKIM-Signature:
-	 Received:Received:Received:DKIM-Signature:Received:Received:
-	 X-SNPS-Relay:From:To:CC:Subject:Thread-Topic:Thread-Index:Date:
-	 Message-ID:References:In-Reply-To:Accept-Language:Content-Language:
-	 X-MS-Has-Attach:X-MS-TNEF-Correlator:x-ms-publictraffictype:
-	 x-ms-traffictypediagnostic:x-ms-office365-filtering-correlation-id:
-	 x-ms-exchange-senderadcheck:x-ms-exchange-antispam-relay:
-	 x-microsoft-antispam:x-microsoft-antispam-message-info:
-	 x-forefront-antispam-report:
-	 x-ms-exchange-antispam-messagedata-chunkcount:
-	 x-ms-exchange-antispam-messagedata-0:Content-Type:Content-ID:
-	 Content-Transfer-Encoding:MIME-Version:
-	 X-Exchange-RoutingPolicyChecked:
-	 X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-originalarrivaltime:
-	 X-MS-Exchange-CrossTenant-fromentityheader:
-	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
-	 X-MS-Exchange-CrossTenant-userprincipalname:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:
-	 X-Proofpoint-ORIG-GUID:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-GUID:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=ll/5dIh4f9eVCpzncG2dcnMYzhgw941nt9dwGzCsaWM=;
-	b=Hl+eZsPwnlTGapsmETq+xfe1bFRbyv+svgFmUXCQ94odIfwzkBEcoQGEIgUj/x2Fn+sL
-	 SmO3DOTroCxOckNq+TD5VUNycsln9d282AlLYj0JXedBWELE++EHYmWw21yXBTnH7PjmY
-	 5CqE8ElF5bba+GUsX6pXMn2LWP9X7y8l+ZprI4BzYxDkTGKrDcqFr1tAcE1vChj4cq5et
-	 1bdZjFOp5ohwwYql+Vl0uHnmBFkR/qzR6owefGi2e6ptQYJkawJ4lt/NbfyLbIiWVkWYM
-	 rwckIkhWfdgqQeAxl2QlQ4uzqZgwaaaBPoNcfApbS76A2vpwNxSHRxJkIzSm8KBBqdQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=synopsys.com;
-	spf=pass smtp.mailfrom=synopsys.com;
-	dkim=pass header.d=synopsys.com header.i=@synopsys.com header.a=rsa-sha256 header.s=pfptdkimsnps header.b=Ziits5TB;
-	dkim=pass header.d=synopsys.com header.i=@synopsys.com header.a=rsa-sha256 header.s=mail header.b=UVkxI03x;
-	dkim=fail reason="signature verification failed" header.d=synopsys.com header.i=@synopsys.com header.a=rsa-sha256 header.s=selector1 header.b=swiMfqZJ;
-	arc=fail smtp.remote-ip=148.163.158.9
-Received: from mx0b-00230701.pphosted.com (mx0b-00230701.pphosted.com [148.163.158.9])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.225.136
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795568655;
+	b=Bq7Zr/+kJNDN13YDnMQ5zAtvzceBOMAWo8bNV5Fmj1sQ+9N2Px5/aq+SUBwQZN1+C3P5
+	 3T4sge9lVz59qLpWqgQq1AucCcWGlsO24bh5hmUXpYgChf1yh+m5MbciJMTT0dFG84x5T
+	 kE54lGHgLeXQ744iW6Jl2BPOmRA0t21T1+TytDP/3Gn999gIXYahMYLpB+6ESgEzZY/Be
+	 1oL95Ugymx732InZ+MzUUhim8uSeyarNkTwyG9iISojX10e6tnIVTAnfKsaIUNlFNLIAL
+	 3i3fVSaFc6x7FYvMdHMbQVqm/ghTFPUD0V4dyDizd1Dh5CGzLRbQek/T/zUrir7tCow==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795568655;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Content-Language:To:Cc:From:
+	 Subject:Content-Type:Content-Transfer-Encoding;
+	bh=ZaAfTAhod0KsCHwch0RTwIyMPUo4/UoaPQV4KvJ97KM=;
+	b=dJYaa7nQLrRKFSKBVy2vkK0Uo8u1CKK9wgkFq74RpLrTbUjAtJDwi8BytsB/nMRigoMX
+	 BIaNnmJQCNPu/iS3Ioh4xSoP7Nv3c6BQzmxRd/JRdeKNuLaB+8BHjrFuhFrOL3l3s0u6O
+	 E4+6FT7s7KJ4gmDLhP3geA+l5oDvCyI7jWLJPL9sZpsHX+I01hk+A5x4ax3Xj9U93mEvX
+	 1Edv2BCFT4yo/u3E5bt4SLM5A0D3Bya2Vt3Ta3O1qCd9Lz77qcgovUuGmPNzhTXR5mHhK
+	 h7luHvQxZDM/vmJDVAPACqJUDyBy2DoIPpiE+XqRCjFLKDM2wMP6BH4hw98uBApFUVQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=VVuN9JVs;
+	arc=none smtp.remote-ip=74.125.225.136
+Received: from mail-wm2-f8.google.com (mail-wm2-f8.google.com [74.125.225.136])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8FB45606A31E;
-	Wed, 25 Nov 2026 01:03:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8FB45606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=synopsys.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=synopsys.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6F8E2606A31E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 01:04:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6F8E2606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=synopsys.com header.i=@synopsys.com header.a=rsa-sha256 header.s=pfptdkimsnps header.b=Ziits5TB;
-	dkim=pass (2048-bit key) header.d=synopsys.com header.i=@synopsys.com header.a=rsa-sha256 header.s=mail header.b=UVkxI03x;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=synopsys.com header.i=@synopsys.com header.a=rsa-sha256 header.s=selector1 header.b=swiMfqZJ
-Received: from pps.filterd (m0098572.ppops.net [127.0.0.1])
-	by mx0b-00230701.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AOMYF3F379542;
-	Tue, 24 Nov 2026 17:03:33 -0800
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=synopsys.com; h=
-	cc:content-id:content-transfer-encoding:content-type:date:from
-	:in-reply-to:message-id:mime-version:references:subject:to; s=
-	pfptdkimsnps; bh=ll/5dIh4f9eVCpzncG2dcnMYzhgw941nt9dwGzCsaWM=; b=
-	Ziits5TBjMCUUX7F7uvUyAuGUE0LO+KGMLuVNx4gUMd1N80vLsAvHh4a+pWirXLL
-	lp9zLqWq8g3naJDHqLO8fm/Bup+hPVSXO7pIYbecwTQ/dURRdIJ1QWMq396Pmb0A
-	42jVXTDRpK1vBNuCPg4JRz5EM8adbfInYGTNHu3MV3GWm8VASAAWymVwp9dhriNe
-	KcR2SFnR+GbCodL6Daak27SYHvR3YkJigZ7/tXwjJPLWctl3NiX0pbV92UI/ZGRq
-	guo86chsOxDYizco2j2+fhnvdkUZY51v9sN3++JRCcHxqjXmIMmTbAX1vnKAZKry
-	Gi8yhPXefuUJ5fxsdFSrPQ==
-Received: from smtprelay-out1.synopsys.com (smtprelay-out1.synopsys.com [149.117.87.133])
-	by mx0b-00230701.pphosted.com (PPS) with ESMTPS id 4j5jrgh0ek-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Tue, 24 Nov 2026 17:03:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=synopsys.com; s=mail;
-	t=1795568611; bh=ll/5dIh4f9eVCpzncG2dcnMYzhgw941nt9dwGzCsaWM=;
-	h=From:To:CC:Subject:Date:References:In-Reply-To:From;
-	b=UVkxI03xPkXh+hhmk6lGj8s6rI2ZG9BGfzvB7tL+FHihmQkPjC2vIwP9r24a+j9pL
-	 8KDwXkUDJqZIOvi8MQ5KwEijeZqg99bmoLQnscPfuZ+5eIm7/2Xxzcn5eMG+uHLf4e
-	 1G3RnVftEc2LZPzZAwuIQUQuzZuvihXAh4nVkWAqNjQqFj3kvB9DHk8ZyyT7fPj9Dr
-	 mI4ulWEYmFD8WDH9NcHMsOQ0L6l3hNGCHhadrPIWxRL/MzLwyeN6DT2q1YT6Fl6hKI
-	 cGRmc3YqJY2XeIN/4vVMApRBkboGS1NNoeBypWmvA50nS7iCBFwKDJhz/jaDZjP3hp
-	 2Ghhl5tp86LPg==
-Received: from mailhost.synopsys.com (us03-mailhost2.synopsys.com [10.4.17.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits)
-	 client-signature RSA-PSS (2048 bits))
-	(Client CN "mailhost.synopsys.com", Issuer "SNPSica2" (verified OK))
-	by smtprelay-out1.synopsys.com (Postfix) with ESMTPS id 0A816401DC;
-	Wed, 25 Nov 2026 01:03:31 +0000 (UTC)
-Received: from o365relay-in.synopsys.com (us03-o365relay1.synopsys.com [10.4.161.137])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256
-	 client-signature RSA-PSS (2048 bits) client-digest SHA256)
-	(Client CN "o365relay-in.synopsys.com", Issuer "Sectigo Public Server Authentication CA OV R36" (not verified))
-	by mailhost.synopsys.com (Postfix) with ESMTPS id 21A92A0070;
-	Wed, 25 Nov 2026 01:03:30 +0000 (UTC)
-Authentication-Results: o365relay-in.synopsys.com; dmarc=pass (p=reject dis=none) header.from=synopsys.com
-Authentication-Results: o365relay-in.synopsys.com; spf=pass smtp.mailfrom=synopsys.com
-Authentication-Results: o365relay-in.synopsys.com;
-	dkim=pass (1024-bit key; unprotected) header.d=synopsys.com header.i=@synopsys.com header.a=rsa-sha256 header.s=selector1 header.b=swiMfqZJ;
-	dkim-atps=neutral
-Received: from SJ0PR08CU001.outbound.protection.outlook.com (mail-sj0pr08cu00101.outbound.protection.outlook.com [40.93.1.73])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-384) server-signature RSA-PSS (2048 bits) server-digest SHA256
-	 client-signature RSA-PSS (2048 bits) client-digest SHA256)
-	(Client CN "mail.protection.outlook.com", Issuer "DigiCert SHA2 Secure Server CA" (not verified))
-	by o365relay-in.synopsys.com (Postfix) with ESMTPS id D3C6E404D1;
-	Wed, 25 Nov 2026 01:03:28 +0000 (UTC)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ofqsUX0+6a9ZeZoi42mvUqWWeV1ot1F5013c60M5jSc51kXNTTbkZ7rNf9kJTnYWklHme0h16wgqyMmgsB4j4xigv8HvKHPCWD/Q1tQoy2aytIqPaEcYK8qrYzfeEVJo/Dywy8m9RiHbHDBj7UkgPayqwj7u6GHNtVbaDHWw94iENcdg+iXrB0JkBr7s5Diz4P32zA2mZTLQkaXEwpOJ9US9tf8PNhwjCVurU4NiX/fY7SzAUYLO0VAbBPItBuTi59HdRYYn+CnMc1lYZ6iiE4KSDTXbgxz6bguOGaChX7RLLk7FGVKiuM4NuZMLdaD75mT0Ff7XCCpE3Yp/mbsdmQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ll/5dIh4f9eVCpzncG2dcnMYzhgw941nt9dwGzCsaWM=;
- b=K+1b16gGEv/mAU/OvNOBBkOnBU+7Yc47W1Rjj7y1P2lX71g7azlfRbscgmpwAnqDLimxlibChJm5B0I7OLsjkyfMHb+hR63h0GvX50JqXU0wLG5yDew4BHVCzEpO4EJjP74v33/dhu5rcp7J1d9ghwpR+QP6GkSRS0lIPtI2zlMD6j0EzxDJLDpD/J3zHlVz5eLXkcy2b391d2xjS4z9RdxH8wnpN0xtNx1O99JtF1YMPCeOVQpKbZt6T4iTOEhAerC6KNAruAlNjGDsCXG8XjzpNsNFkm+ejdwKrN17nrYJQWais9ldrE9iISvI22yNXT99+0YS11fYtXzwZXX8Eg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=synopsys.com; dmarc=pass action=none header.from=synopsys.com;
- dkim=pass header.d=synopsys.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=synopsys.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ll/5dIh4f9eVCpzncG2dcnMYzhgw941nt9dwGzCsaWM=;
- b=swiMfqZJdpVer6AbGe4gX8jniXRNdCysOgf5CEeFC3ZkroV8foWL5fgeILAI+vGy2gAEhCQE52ckrAv3xEXtWPAqODZHVaGD9II87DKsHro5zr8HhmvTmqlSXQcNqpXVxw2GOnhO8Sz1x5PLNiCVMb/00GvjfV2icqgC0aWwOJU=
-Received: from DS7PR12MB9525.namprd12.prod.outlook.com (2603:10b6:8:251::12)
- by LY0PR12MB461782.namprd12.prod.outlook.com (2603:10b6:404:233::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Wed, 25 Nov
- 2026 01:03:08 +0000
-Received: from DS7PR12MB9525.namprd12.prod.outlook.com
- ([fe80::4125:6ab7:5608:96c4]) by DS7PR12MB9525.namprd12.prod.outlook.com
- ([fe80::4125:6ab7:5608:96c4%5]) with mapi id 15.21.0639.012; Wed, 25 Nov 2026
- 01:03:08 +0000
-X-SNPS-Relay: synopsys.com
-From: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
-To: Xu Yang <xu.yang_2@oss.nxp.com>
-CC: Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
-        "gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>,
-        "Frank.Li@nxp.com" <Frank.Li@nxp.com>,
-        "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
-        "kernel@pengutronix.de" <kernel@pengutronix.de>,
-        "festevam@gmail.com" <festevam@gmail.com>,
-        "linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>,
-        "imx@lists.linux.dev" <imx@lists.linux.dev>,
-        "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-        "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-        "jun.li@nxp.com" <jun.li@nxp.com>
-Subject: Re: [PATCH 1/2] usb: dwc3: wait for the port to leave RxDetect before
- xHCI reset
-Thread-Topic: [PATCH 1/2] usb: dwc3: wait for the port to leave RxDetect
- before xHCI reset
-Thread-Index: AQHdbeAoSmz8E+uCP0GwS2tYVXNXS7c+FbOA
-Date: Wed, 25 Nov 2026 01:03:08 +0000
-Message-ID: <awYspGsimvWjR4JY@vbox>
-References: <20261106111943.2868733-1-xu.yang_2@oss.nxp.com>
- <20261106111943.2868733-2-xu.yang_2@oss.nxp.com>
-In-Reply-To: <20261106111943.2868733-2-xu.yang_2@oss.nxp.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach:
-X-MS-TNEF-Correlator:
-authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=synopsys.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: DS7PR12MB9525:EE_|LY0PR12MB461782:EE_
-x-ms-office365-filtering-correlation-id: 8f793844-1347-4b6e-f34f-08df4a8fde57
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam:
- BCL:0;ARA:13230040|1800799024|376014|366016|7416014|23010399003|38070700021|10067099003|261026140227099003|261009223027099003|261028144727099003|11063799006|56012099006|4143699003|261021121427099003|261021123027099003|261022105027099003|261026121527099003|261022075727099003|261102123227099003|22082099003|18002099003;
-x-microsoft-antispam-message-info:
- I9KJi57lsexX9MoNQ/+akVHxTHPxxq3SrPXKxy1jYrgz65DH50Zaq1W54i3bheL+atd5BaFnHgtK0rNiPUez7X4/nGVtWm7b55orFZSo+IiBmWPXLraBbkRyz4TYzZffjBgmgPOrxjGAVD6Xsq7M/xtiZ8CSHqyTka+t3ptNY6GT0js1p3KachyLuQUmxfLo1cn8/GVsapuW3XemxJM1Rpt7Bi1HAgwME1tatUGEbS6Tp/SIAII3j7xBWYLPTNK9xn5bZ73YfKFcJvaD5msM6/VovSQWubZAg2cyi/S95A/dEZ5e8TRKDTnNHNADFGpagLdAFFNjdwoyt25udsk8sxQ8X1y453Nn3zPb01UE3eqIzNfuzZoo1Vj9LKAAOHc2IBKNZY0UbAwG+z1bA8ktxOQKTbgDsNyovsZnt14qIYRBObeiOUPxY+REQE2iecNNXdY/90kH2fC4ev6OHJN5nOgEAbwXdiPKrUp25gDaGnHhxE1ZkXNjtCzah+MvfctahhuAvksW9JMsjBtRHWzey8cVlll2SUkV0upY12UjZLQUHkUIYvaAn1VzHctY2rR7sp9LHJg5GcUvq8syKD8Z0ZocGKjUQYINaTxl4Ob5HuQAZ2/O//gOu9paeE8o0ZqgbE5Wsla1vrWuUmBfmZ1rRyvdnCoT+c0269AL3kY6uOYVuoBvqD2vfMdYjPCvlIjghoqjPRTHchmrw9Kr8k/shajboYBiQgqOosFq/b17Wjw=
-x-forefront-antispam-report:
- CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR12MB9525.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(7416014)(23010399003)(38070700021)(10067099003)(261026140227099003)(261009223027099003)(261028144727099003)(11063799006)(56012099006)(4143699003)(261021121427099003)(261021123027099003)(261022105027099003)(261026121527099003)(261022075727099003)(261102123227099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0:
- =?utf-8?B?UGFldzZReXpkeXFNYW5vdTNzeWJnOWxBejN6SDkrVHlXNXZ6R1UyaFJaSmhZ?=
- =?utf-8?B?V2tWdnk3em9rUnBUZDA2bmVMSDIwa3h1ZlgzbjU3TjBjZDVuR0dSdi9BbnBw?=
- =?utf-8?B?UlJKRUJ0N0JJWXRtbHZ6YU1SdUhKRVI2dzZJMGJZbzRja1R3cXZHbWVka2hu?=
- =?utf-8?B?bHlMYStlZnV6S1VwNTlwL0tsWjl1UzEwSDQxUVp1UzlLTGtQQXl5WGRRcGsz?=
- =?utf-8?B?YVdYSFNBZFBESTBiK28rcXUzSkNaY3lzSWFOdkt3V0o5dDBjUklnUndnVk5T?=
- =?utf-8?B?YUd2VnFkUGpVYUk5RDY0VlhHWDJZNkxRa2JHMnJiU0s5SFNya2tyb3Yyb1NP?=
- =?utf-8?B?cENhUlcxL3ZyNmpDNFJXSkRMZFJ2RUxRL0E3MERFWC9FRVhlZkw3ZmJLaFl0?=
- =?utf-8?B?d2R5Q05GcXlVc21Lank1cGEwQ0YvT1hjaUFiTjhwS0UyQkJOV0tWaDg1ekR1?=
- =?utf-8?B?VmVsbzVzZ3lvQWZtc2hPTW5CZU5ETEplQlFJQTYwYm5ZNzZtbU9mcEZWWlhh?=
- =?utf-8?B?U2k1WXlxcnJ2Zjk3U3ZoYVptd251MzArQlF5ajNQQmh1MXJwMTNoUXpaL3dC?=
- =?utf-8?B?bkdpZ2lidmpiaEFic2tRTnVhQ3FFSzc4QUsxOHQxMXdrbVZLNE9rcUdJUEZl?=
- =?utf-8?B?aDkvNkwvSDE5ZkdPeGZNRzNpZUJQU3haNisyUzdpdnhoeHhoczluVFF1Ung0?=
- =?utf-8?B?ZEo0V0krZ3JUQ3ZlNUkrVC9KQXpwdEt2S3VlSDlnOG5iREd1TnljcStxMkZU?=
- =?utf-8?B?Tk9JT0JDaStOMzRLZzkxb3Yya1J1Sks5TExvRzJTOHNDQzB2RnBaZjVUWmZ4?=
- =?utf-8?B?QjM1Tnl4cmlXdEFTbWQxSzRoV1plNHhjRHFqTUYydTZ0SjBUMDI4aERtVEhF?=
- =?utf-8?B?dFVkZ2RQY2lwVmN2d1J0bWN3ZjVtTUJhZnVuKzRBUHF4NG54ckZrVk5BNXZC?=
- =?utf-8?B?clBDU2V6V1pzeXFIdnpKU0k2Ky95UjZ6U1RQM2lnUFFTd2p3elNXK1JFT0dI?=
- =?utf-8?B?K21mUVlUTTNUa1JISjF1dzg3WWh0RG8wcm1sSForTWp0RUlJdXJkdTBKL1hs?=
- =?utf-8?B?UUtZZ3FLT1AzUG9iMitEOWsyNVFzZ3d2TFFTd3JGS3krc0V0eWhQSk5pNkxN?=
- =?utf-8?B?T2MyVGJnbTRXT2VtT3crcjBpK005bmdLOUh1YTBJTnUyWUNsbDlUM0NYdHdZ?=
- =?utf-8?B?QXVCK1ZHc2tGbWdrT2c3b1JKSnk0TUptYVkvSkM0R3U5eXpscGhzZVFlaEZr?=
- =?utf-8?B?bDA4cHFFTjBUdGEzR2lDSFArdDVkaDFscTJ3T1Q0NG0wbWtmV282bHJ4ZGJw?=
- =?utf-8?B?eUovcDNBYnhvN3pKNzRZZGhDOFBtL2RzdXEzUnZGRUxxeGJrNlhseFgvSnJZ?=
- =?utf-8?B?dG1pUGN4N2ZRQkUveG51VkYyQVVsdUh2cXp3Wk1zeUxvbWlkSk4rME14L3hR?=
- =?utf-8?B?cTR4RTNlMXgxUjNBT1E5QjNkM1FMaE5NdlVubHQ2T3N4aUJndlVZcmxiWmU0?=
- =?utf-8?B?aGx5ZzZDUWNnK1V5RmRkdlpvUE5HTDFlMitvbVZPQmNoSFFwYXRLdFVuVWo0?=
- =?utf-8?B?dmJMOFFkanVMS25ZNHNhRE1TWXgvdDZWeTFxci9BZmZpcnVVSU9SQm1NYWh5?=
- =?utf-8?B?YkNYcFA5b1VKcWxkY21Mb3lOeEYvK3lqcldUL0Roc0UxN2VQeUZRdC9OK1V2?=
- =?utf-8?B?bGVwTGRSdUU0OVVxZG9CM0lKSzlVMnpzQVF0cVVnU3lEN0lqcHhFNjlWY3BX?=
- =?utf-8?B?M1JMUnBvZXFJbk83VXVIemlGWSt6Yi9tQjFxL0Q1bldGZ214c3JCUkhkb3Fv?=
- =?utf-8?B?YjRCUjFSZmhWaGZSMzVhejc2SElaZEMvRUgrUnh2ckpndUtFaStRR1p4L1VP?=
- =?utf-8?B?TG0rdS9oTFIxd0VYRktFY3lCQjlrK0JmUWsxWWYzOTh0NkRaLzJFUjFBSnJL?=
- =?utf-8?B?TWpoaGRXamhoMW5ZSEdDMkhSUEVMMmw4NFhiQVlnUC9rdEVsYWxkM1YvbFBK?=
- =?utf-8?B?TTQ1ZU1NTjcxaG9YYllERVp0eTM1YndTSWhKWjlJaWgvZVR4Ni9PdXBPUHB2?=
- =?utf-8?B?WWpqNnFicWdiTW4xRlVoS01jcERmdkVua3crcHhsYzZva1dXZ2JIdU9vbmht?=
- =?utf-8?B?N3VNenc5L015clc2YmRGV2NWM2hEQ0ZkOWllVXJWQjZJQnR4MVRHSVg5S3dK?=
- =?utf-8?B?RCtFTkdnVVdLMUs1MTgxeUhaQVM5cUgwQzJSc2hBMTBGL0VuS0N2ZnBycWJk?=
- =?utf-8?B?MWtUYzIzMXpydWpVS256VkVBUVVUamhqbkp5ekVGTHhvTFJkZlJPQU9HOEtQ?=
- =?utf-8?B?cXpaZGFaZ0QzL2FYRUh0ZnZLcVVKcHJMWkRsOFRNWHN4bk9iSm5Cdz09?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <C8F2E58C3FA2204DA83670693D556857@namprd12.prod.outlook.com>
-Content-Transfer-Encoding: base64
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=VVuN9JVs
+Received: by mail-wm2-f8.google.com with SMTP id 5b1f17b1804b1-4bb68c48655so23828035e9.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 17:04:15 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795568654; x=1796173454; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:subject:from:cc:to
+         :content-language:user-agent:mime-version:date:message-id:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=ZaAfTAhod0KsCHwch0RTwIyMPUo4/UoaPQV4KvJ97KM=;
+        b=VVuN9JVsfC85jbfbgh5FQbJMoORFUBLvPXZy52fabavLczRQtLJw7zIAruEPKTX29Y
+         pvclQbMXZnjZMLIiES8MqyabV7OaRCgYdzVa+X60it+78IXMjYvYrNSRS405923kOl/l
+         AVJvslapfpU0Bw79nG7f/lurgspkafe/fa4e9WaOdhWPp9FAjaTCCg3FcqRF3efFH0us
+         XjPtigNRSXnsed2T4GWiy40M2buMRh54e+W8ehKBFERYthq6mWBJbyR6izWp1loMIaal
+         W9Ovso/aMVOLcgRWG1P07A3zmNEY/FNhBsYiOdUX+YAiS54lonURh2bMihX0P8cAssEC
+         1Nrw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795568654; x=1796173454;
+        h=content-transfer-encoding:content-type:subject:from:cc:to
+         :content-language:user-agent:mime-version:date:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ZaAfTAhod0KsCHwch0RTwIyMPUo4/UoaPQV4KvJ97KM=;
+        b=vAEDCtXBVmnN8Q2El2ePHHXMUF04W6ohW83okTChk4xiXm+hZr0qkwGX0FX6mZZN1H
+         PmJ/zdCQObdHSh4hFXaIkH7lWzn0XFOk55lOusjr0r41AW0DtwEEkpkmX+mqj1pD+A7W
+         H4J1schTq7D9D2wm4utxRdnLdCiN2arRbEsQq9jmfgjA15zzDbxS2tPJ+E+GhG4F5GJG
+         RNKkVbeFV6FFH7cZdVwgCwiL9O2AuMAsMYJHJboS5ClxbOvClULJdJKMiI/IH7iZtYdA
+         ywJAEICDjVlqOSOSWLNogubKiJc9+GKR9g83iN+yxQCN/MrsbT9zCKccxwWgbhXYjb1U
+         MPGw==
+X-Forwarded-Encrypted: i=1; AL+hErE1ZGIHIDyDBcdvwTBucYK+6nvd32eSlC8tgPgoCvCJzVCGDm3smghnrfX5W0uqn15ji/ZjTlU8FOa+sD4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/+RMr4Brev73VHKGHixA6+Y1WufD5wkMNRXfTuRK54Gz3ohyc6
+	6wZ8wdQ5OlnAQBNdn2w/gCLVWap3vonYUWKg8erNpDg+aeSDjSPhn1pC
+X-Gm-Gg: AZFdTZesuyCs48DG5pdoo7kZuT49Ic4CNAZRPmpnTMLA+iYHYz2He+QQt0q+zTsvQmD
+	7r4hannhsMkUXGXSdv9Axjbiz5S4BQ33Q3um6lnjBI1RwT/5cjTNZpKJO8cnpkDPSeyrHqLr8pB
+	Yv8yyTGhhNoWEwoa5k8aCBY+A1g2gxHo/K8Fb411Sdbmi1LKUmnP/r/ttAAK7doyRCZd7vm+azO
+	d/Q/Q41tYv179uYV9bfzhs7U16g5Gj5xxa2FXmD/7F2mnFUm/XeUypujwsFfeG2f0Q741N3NkgU
+	72WdFODPlgWT+9xWqZGtGfnJxUyOsq1FiT3MdCEQSgK7eaL+3FUILgIpp/41mRYMLjQrxH+iV73
+	qemy8+t4ueZyHQKFkY4wTRIADTMhPeWWROQ+O+Z/VuY6ySXegvifw/4Rq0SJVPyvsFvEMCMqMbd
+	680QSW5g8HdIcEm47HJ45Juufjf7R9rndnOHXclV1khO1CnZ+iz2HyVTYWU9g/f944eNpQ04jLd
+	8hzTVJ0MxolF8TQHbv4Tk+hERwH8JOIG5xy6eRYFjfNYeDr6DX+IBgfWMEljryGk+TQzxMaee9q
+	VVWImF5dqZQrgE4/e39ejzT6x4smvIN+inhU
+X-Received: by 2002:a5d:6f08:0:b0:4b7:7b8d:6b20 with SMTP id ffacd0b85a97d-4b77b8d6b73mr5384147f8f.46.1795568653703;
+        Tue, 24 Nov 2026 17:04:13 -0800 (PST)
+Received: from [192.168.1.11] ([31.94.68.154])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab69bf630esm31652282f8f.16.2026.11.24.17.04.11
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 24 Nov 2026 17:04:12 -0800 (PST)
+Message-ID: <6c7b9cdf-9562-4954-9f66-444745e430bb@gmail.com>
+Date: Wed, 25 Nov 2026 01:04:10 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -230,100 +90,226 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Exchange-RoutingPolicyChecked:
-	WLHtbv7yHyLDqhKk5GQWKwSRrci8cIvI78WAYPibzn83dSxD75OvTmA4oaizGNNLIJw/MOPolxql/2O7K+dZfI/4dqrUMeFwL3L0skmYlZy3cs2OU67MbGde42nYvxU3aJUX8YEVcEbASoaXjRR3lPKKenruWdS8k6JiY4nWqleMvW68bIiQA70gU34cDeuMomDRDw3LpniEXk13RJ2xAXzQEpIfN3dzzc1+vo3Z/0h6uibjOskjso9SFurKHXwhBrZICQ6EgumYh32RSSmjBR6zDiIvIA0YtIFW9+SHyQiQBFVm4ngydhikhh+L66qpVHK7rwvVw9cCD2ARoRPLQQ==
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0:
-	47u8scYi6Udt0lq7boOS0SeeiXXWGlQTZiF0K0Oa77QFOuBS45ZZCKhWqAc8HjDGi8Rt/K0FgYd1+GgBP0tne9UlxgQL2wzyVDHRwR4qvsWMyg7DEcXsT6u2gZF9WWrNiGXdPLHeFTySd86t5QTPmALsBcK1w6Kp6EFffwwr+OeiRKqjKYxQujheXeYtZ2+6DdCR14Ua1A3csXhzOh2O9CTOYYYEN8US4o7kA8ka4MTevPQStj7OAXYgOchuz2RYgv7l9BT6UTMzxj6bSTSxu+uVUxRJGgmyanvjToTCRmCYW+SiZyIBg4TnRmTEeYmpUf3mCr2BO/b78sl2L8YvE6Nm4e4J2h49TK/6UJ6LwMp0U3/PFpxSw1tQvOPsfRr+Zpjy1veByB0u+5krWZwYLSrh9OZRfn820CWT/yyfY7FgYB49ybIjNoKtLB0ckyEnvRLhetF6d+6zB8I49iGVZRw2G2Hy2JM66fUuFIc4HE6KK1Gi3R/UPGLbdTyNCrNNHBe7AuakvG1M2AYBhrxU4oYJI8prZGKykpx+2R2hQDSkVpeThJNLPIyWlnr4oXHXMaWyzbx+tgJykhtDYAXhTxE/yQhX0OVtr/AeX5vHKFI/hg4V8VTgIRI41h8UkT4uBh9yD8WF4ZD0F0I4B5NwvA==
-X-OriginatorOrg: synopsys.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: DS7PR12MB9525.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8f793844-1347-4b6e-f34f-08df4a8fde57
-X-MS-Exchange-CrossTenant-originalarrivaltime: 25 Nov 2026 01:03:08.0829
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: c33c9f88-1eb7-4099-9700-16013fd9e8aa
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: nrrNA+wTeAXqD5DJnzEBg4w15tMasUzQ0UgPqQHcG/f2AnAo4C/RJyi95bSzIhh3rxN0anroybfmb/MPYQeM9A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LY0PR12MB461782
-X-Proofpoint-ORIG-GUID: WDKqAIq_DB1ssPGPXxzzokYcv4VBJdHJ
-X-Authority-Analysis: v=2.4 cv=NcxzRGD4 c=1 sm=1 tr=0 ts=6b0633e4 cx=c_pps
- a=t4gDRyhI9k+KZ5gXRQysFQ==:117 a=t4gDRyhI9k+KZ5gXRQysFQ==:17
- a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19 a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19
- a=hEdfcAjkDTFuX0a5:21 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
- a=qPHU084jO2kA:10 a=VkNPw1HP01LnGYTKEx00:22 a=tU_645BZ7FZt8VqRJtHG:22
- a=jSPayVjLy6xbsuKauFBc:22 a=8AirrxEcAAAA:8 a=FY0tnBsIBtAkQn0Ax6EA:9
- a=QEXdDO2ut3YA:10 a=ST-jHhOKWsTCqRlWije3:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI1MDAwMyBTYWx0ZWRfX+BgfWnWW/anT
- bbJBiEWwE0m6cwt8EgaMbXyEGbI0h+0oxhqUJNOHozy0+29zFKbCz9Ld0K3aDHrXPfjQcUYH/z4
- g9cf/ZTse59JVyWXCoD9up4Hl8Y0W1A4csTLfKo+HifZ7lzjJqJS5Vxk9h+2YO/acPwyIK3DyJp
- xcXL6KI4UUvupnhm6S5cDUars4NotxA2732sjxKELnba0xzQNN0XJHhuOQ2icVLvrj/XdvPqn6v
- MhLRA7zO0LQYaXh0kQ4MvvR4viStLeD4hHH7qHUlVjMx4B3Vg95k0tUk0D7VU84pov1h8eQ/h9L
- HuHLuilaa3C6zF8nEk8QEGXo3rSdb4NjfcRT3Jrl//N9FsjBAqc9OMMWM0jKNF2oW5LzQqZ639W
- dt1kS40zD0DrQZBZq0MVQbGsJEVM+HF8UIiDKRTipePDTzfXocycpZiB3gS0K2J5J+8GDE+RijQ
- tbg47KkIbW7VootNN2g==
-X-Proofpoint-GUID: WDKqAIq_DB1ssPGPXxzzokYcv4VBJdHJ
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI1MDAwMyBTYWx0ZWRfXyG42cx7uCODN
- tsl3CyyjNddxrfkOMsPSAvv8b6FGivMpvAv33K4kuChrnzxM2XmEtaynQkK5yEYnd/Biz36bb8G
- JwzFJcpiply+4bXJCbSepbRsG8OD3BY=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-24_06,2026-11-23_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_active_cloned_notspam
- policy=outbound_active_cloned score=0 spamscore=0 clxscore=1011 adultscore=0
- priorityscore=1501 bulkscore=0 malwarescore=0 lowpriorityscore=0
- impostorscore=0 phishscore=0 suspectscore=0 classifier=typeunknown
- authscore=0 authtc= authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.22.0-2611040001 definitions=main-2611250003
+User-Agent: Mozilla Thunderbird
+Content-Language: en-US
+To: amd-gfx@lists.freedesktop.org
+Cc: Alex Deucher <alexander.deucher@amd.com>,
+ =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>,
+ Rodrigo Siqueira <siqueira@igalia.com>,
+ Mario Limonciello <mario.limonciello@amd.com>,
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ Richard Lane <richardlanedev@gmail.com>
+From: Richard Lane <richardlanedev@gmail.com>
+Subject: [PATCH v3 2/3] drm/amd/display: unlock secondary tile on Apple 4K/5K
+ iMac panels
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-T24gRnJpLCBOb3YgMDYsIDIwMjYsIFh1IFlhbmcgd3JvdGU6DQo+IEZyb206IFh1IFlhbmcgPHh1
-LnlhbmdfMkBueHAuY29tPg0KPiANCj4gV2hlbiB0aGUgaG9zdCBjb250cm9sbGVyIGxvc2VzIHBv
-d2VyIGR1cmluZyBzeXN0ZW0gc3VzcGVuZCwgdGhlIHBvcnQNCj4gc3RhdGUgaXMgbm90IHJldGFp
-bmVkLiBBZnRlciBwb3dlciBpcyByZXN0b3JlZCwgdGhlIHBvcnQgc3RhcnRzIGluIHRoZQ0KPiBE
-aXNjb25uZWN0ZWQgKFJ4RGV0ZWN0KSBzdGF0ZSBpbnN0ZWFkIG9mIGl0cyBwcmV2aW91cyBFbmFi
-bGVkIChVMykNCj4gc3RhdGUuDQo+IA0KPiBBZnRlciB0aGUgY29udHJvbGxlciBpcyBzd2l0Y2hl
-ZCBiYWNrIHRvIGhvc3QgbW9kZSwgdGVzdGluZyBvbiBhbiBpLk1YOC85DQo+IFNvQyBzaG93cyB0
-aGF0IGl0IHRha2VzIGFib3V0IDIgbXMgZm9yIHRoZSBwb3J0IHRvIGxlYXZlIFJ4RGV0ZWN0IGFu
-ZA0KPiBlbnRlciBQb2xsaW5nLiBJZiB4SENJIGlzIHJlc2V0IHdoaWxlIHRoZSBwb3J0IGlzIHN0
-aWxsIGluIFJ4RGV0ZWN0LCB0aGUNCj4gcG9ydCBkb2VzIG5vdCBpc3N1ZSBhIFdhcm0gUmVzZXQu
-DQo+IA0KPiBUaGlzIHByZXZlbnRzIHRoZSBsaW5rIGZyb20gcmVjb3ZlcmluZyBiZWNhdXNlIHRo
-ZSBVU0IzIGRldmljZSBtYXkNCj4gc3RpbGwgYmUgaW4gVTMuIE9uY2UgdGhlIHBvcnQgZW50ZXJz
-IFBvbGxpbmcsIGl0IHNlbmRzIExGUFMuUG9sbGluZywgYnV0DQo+IHRoZSBkZXZpY2UgZG9lcyBu
-b3QgcmVzcG9uZCBhcyBleHBlY3RlZC4gQWZ0ZXIgdGhyZWUgUG9sbGluZyBhdHRlbXB0cywNCj4g
-ZWFjaCB0YWtpbmcgYWJvdXQgMzYwIG1zICh0UG9sbGluZ0xGUFNUaW1lb3V0KSwgdGhlIGNvbnRy
-b2xsZXIgcmVwb3J0cw0KPiB0aGUgZGV2aWNlIGFzIGRpc2Nvbm5lY3RlZC4NCj4gDQo+IElmIHhI
-Q0kgaXMgcmVzZXQgYWZ0ZXIgdGhlIHBvcnQgaGFzIGVudGVyZWQgUG9sbGluZywgdGhlIHBvcnQg
-aXNzdWVzIGENCj4gV2FybSBSZXNldCBhbmQgdGhlIGxpbmsgcmVjb3ZlcnMgcXVpY2tseSBhZnRl
-ciB0aGUgZGV2aWNlIHJlc3BvbmRzLg0KPiANCj4gQWRkIGEgMiBtcyBkZWxheSB0aHJvdWdoIHRo
-ZSB4SENJIHJlc3VtZSBxdWlyayBiZWZvcmUgcmVzZXR0aW5nIHhIQ0kuDQo+IFRoaXMgYWxsb3dz
-IHRoZSBwb3J0IHRvIGxlYXZlIFJ4RGV0ZWN0IHNvIHRoYXQgYSBXYXJtIFJlc2V0IGNhbiBiZQ0K
-PiBpc3N1ZWQsIGF2b2lkaW5nIGFuIHVubmVjZXNzYXJ5IGRldmljZSBkaXNjb25uZWN0IGR1cmlu
-ZyBzeXN0ZW0NCj4gcmVzdW1lLg0KPiANCj4gU2lnbmVkLW9mZi1ieTogWHUgWWFuZyA8eHUueWFu
-Z18yQG54cC5jb20+DQo+IC0tLQ0KPiAgZHJpdmVycy91c2IvZHdjMy9ob3N0LmMgfCAyMSArKysr
-KysrKysrKysrKysrKysrKysNCj4gIDEgZmlsZSBjaGFuZ2VkLCAyMSBpbnNlcnRpb25zKCspDQo+
-IA0KPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy91c2IvZHdjMy9ob3N0LmMgYi9kcml2ZXJzL3VzYi9k
-d2MzL2hvc3QuYw0KPiBpbmRleCBjNTY3NDE2MWIyYjAuLjQ2NWMxNzBkZjEyYyAxMDA2NDQNCj4g
-LS0tIGEvZHJpdmVycy91c2IvZHdjMy9ob3N0LmMNCj4gKysrIGIvZHJpdmVycy91c2IvZHdjMy9o
-b3N0LmMNCj4gQEAgLTc4LDggKzc4LDI5IEBAIHN0YXRpYyB2b2lkIGR3YzNfeGhjaV9wbGF0X3N0
-YXJ0KHN0cnVjdCB1c2JfaGNkICpoY2QpDQo+ICAJZHdjM19lbmFibGVfc3VzcGh5KGR3YywgdHJ1
-ZSk7DQo+ICB9DQo+ICANCj4gK3N0YXRpYyBpbnQgZHdjM194aGNpX3Jlc3VtZV9xdWlyayhzdHJ1
-Y3QgdXNiX2hjZCAqaGNkKQ0KPiArew0KPiArCXN0cnVjdCBwbGF0Zm9ybV9kZXZpY2UgKnBkZXY7
-DQo+ICsJc3RydWN0IGR3YzMgKmR3YzsNCj4gKw0KPiArCXBkZXYgPSB0b19wbGF0Zm9ybV9kZXZp
-Y2UoaGNkLT5zZWxmLmNvbnRyb2xsZXIpOw0KPiArCWR3YyA9IGRldl9nZXRfZHJ2ZGF0YShwZGV2
-LT5kZXYucGFyZW50KTsNCj4gKw0KPiArCWlmIChkd2MtPm5lZWRzX2Z1bGxfcmVpbml0KSB7DQoN
-ClRoZSBjb3JlIGlzIGFsc28gcmUtaW5pdGlhbGl6ZWQgb24gc3lzdGVtIHJlc3VtZSB3aGVuIHdh
-a2V1cCBpcyBkaXNhYmxlZA0KKHNlZSBkd2MzX3Jlc3VtZV9jb21tb24oKSkuIFNob3VsZG4ndCB0
-aGlzIGJlIGxpa2UgYmVsb3c6DQoNCglpZiAoIWRldmljZV9tYXlfd2FrZXVwKGR3Yy0+ZGV2KSB8
-fCBkd2MtPm5lZWRzX2Z1bGxfcmVpbml0KQ0KDQo+ICsJCS8qDQo+ICsJCSAqIFRoZSBwb3J0IG5l
-ZWRzIHNvbWUgdGltZSB0byBsZWF2ZSBSeERldGVjdCBhZnRlciBob3N0IG1vZGUNCj4gKwkJICog
-aXMgcmVzdG9yZWQuIERlbGF5IHRoZSB4SENJIHJlc2V0IHVudGlsIHRoZSBwb3J0IGNhbiBlbnRl
-cg0KPiArCQkgKiBQb2xsaW5nLCBhbGxvd2luZyBhIFdhcm0gUmVzZXQgdG8gcmVjb3ZlciB0aGUg
-VVNCMyBsaW5rLg0KPiArCQkgKi8NCj4gKwkJdXNsZWVwX3JhbmdlKDIwMDAsIDI1MDApOw0KDQpD
-YW4gd2UgYWRkIGEgY29tbWVudCB0aGF0IHRoaXMgdmFsdWUgaXMgdGVzdGVkIHdpdGggaS5NWDgv
-OSByYXRoZXIgdGhhbg0KYSBjb21tb24gdmFsdWUgZm9yIGFsbCBwbGF0Zm9ybXM/DQoNClRoYW5r
-cywNClRoaW5oDQoNCj4gKwl9DQo+ICsNCj4gKwlyZXR1cm4gMDsNCj4gK30NCj4gKw0KPiAgc3Rh
-dGljIGNvbnN0IHN0cnVjdCB4aGNpX3BsYXRfcHJpdiBkd2MzX3hoY2lfcGxhdF9xdWlyayA9IHsN
-Cj4gIAkucGxhdF9zdGFydCA9IGR3YzNfeGhjaV9wbGF0X3N0YXJ0LA0KPiArCS5yZXN1bWVfcXVp
-cmsgPSBkd2MzX3hoY2lfcmVzdW1lX3F1aXJrLA0KPiAgfTsNCj4gIA0KPiAgc3RhdGljIHZvaWQg
-ZHdjM19ob3N0X2ZpbGxfeGhjaV9pcnFfcmVzKHN0cnVjdCBkd2MzICpkd2MsDQo+IC0tIA0KPiAy
-LjM0LjENCj4g
+Apple 21.5" 4K (iMac18,2, iMac19,2) and 27" 5K (iMac15,1, iMac17,1,
+iMac18,3, Polaris-based iMac19,1) Retina iMacs expose their internal
+panel as a 2x1 tiled display over an eDP root link and a secondary DP
+link. At boot, the panel TCON operates in single-pipe mode and holds the
+secondary DP link's HPD line low until unlocked via DPCD registers.
+
+Enable native tiled detection and link training for DCE < 12 Apple 4K/5K
+Retina iMac panels:
+- Latch the root eDP link via DPCD 0x4F1 prior to reading its EDID in
+  dm_helpers_read_local_edid() on Apple hardware (DCE < 12) so the
+  TCON exposes its full DisplayID tile properties even when Apple and
+  OpenCore Legacy Patcher (OCLP) EFI folders are absent.
+- Point the secondary DP dc_link to the root eDP dc_link
+  (apple_tcon_peer) during EDID quirk matching on DCE < 12 iMac15,1
+  (AE01/02), iMac17,1 (AE05/06), iMac18,3 (AE11/12), iMac18,2/19,2
+  (AE19/1A), and Polaris-based iMac19,1 (AE25/26), checking
+  connector_signal since panel IDs can flip across the two links after
+  S3 wake. DCE >= 12 support for Vega-based iMac19,1, iMacPro1,1, and
+  iMac20,x is documented as TODO.
+- Avoid falling back to DVI and latch the secondary tile via DPCD 0x4F1
+  on the root eDP link when probing the secondary link, allowing the
+  secondary link to read its EDID and populate DRM's DisplayID tile
+  properties (has_tile, tile_group, and tile_is_single_monitor).
+- Write the 3-byte Boot Camp source table (0x04, 0x1d, 0x03) to DPCD
+  0x310 in dpcd_set_source_specific_data() to unlock the secondary tile.
+- Prevent the secondary tile from entering DP_SET_POWER D3, which causes
+  the TCON to drop HPD and stop responding to AUX transactions.
+- Unlatch both tiles (0x4F1) and clear DP_SOURCE_TABLE_REVISION (0x310)
+  and DP_EDP_CONFIGURATION_SET (0x10A) in amdgpu_dm_apple_tcon_unlatch()
+  during dm_suspend() so the TCON returns to single-pipe mode for the
+  EFI boot screen across reboots.
+
+Signed-off-by: Richard Lane <richardlanedev@gmail.com>
+---
+ .../gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c | 19 +++++++++++
+ .../amd/display/amdgpu_dm/amdgpu_dm_helpers.c | 34 +++++++++++++++++++
+ drivers/gpu/drm/amd/display/dc/dc.h           |  1 +
+ .../drm/amd/display/dc/link/link_detection.c  |  7 +++-
+ .../dc/link/protocols/link_dp_capability.c    |  4 +++
+ .../display/dc/link/protocols/link_dp_phy.c   |  3 ++
+ 6 files changed, 67 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c b/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c
+index 3d2201285888..6275a585593c 100644
+--- a/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c
++++ b/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c
+@@ -1610,6 +1610,23 @@ STATIC_IFN_KUNIT void dm_destroy_cached_state(struct amdgpu_device *adev)
+ }
+ EXPORT_IF_KUNIT(dm_destroy_cached_state);
+ 
++static void amdgpu_dm_apple_imac_unlatch(struct dc *dc)
++{
++	const u8 zeros[3] = { 0 };
++
++	for (int i = 0; i < dc->link_count; i++) {
++		struct dc_link *link = dc->links[i];
++
++		if (link->apple_imac_peer) {
++			core_link_write_dpcd(link, DP_SOURCE_TABLE_REVISION, zeros, 3);
++			core_link_write_dpcd(link, DP_EDP_CONFIGURATION_SET, zeros, 1);
++			core_link_write_dpcd(link, 0x4F1, zeros, 1);
++			core_link_write_dpcd(link->apple_imac_peer, 0x4F1, zeros, 1);
++			break;
++		}
++	}
++}
++
+ static int dm_suspend(struct amdgpu_ip_block *ip_block)
+ {
+ 	struct amdgpu_device *adev = ip_block->adev;
+@@ -1677,6 +1694,8 @@ static int dm_suspend(struct amdgpu_ip_block *ip_block)
+ 
+ 	amdgpu_dm_hpd_rx_irq_work_suspend(dm);
+ 
++	amdgpu_dm_apple_imac_unlatch(dm->dc);
++
+ 	dc_set_power_state(dm->dc, DC_ACPI_CM_POWER_STATE_D3);
+ 
+ 	if (dm->dc->caps.ips_support && adev->in_s0ix)
+diff --git a/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm_helpers.c b/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm_helpers.c
+index 6192c0f6086d..e30450415462 100644
+--- a/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm_helpers.c
++++ b/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm_helpers.c
+@@ -29,6 +29,7 @@
+ #include <linux/string.h>
+ #include <linux/acpi.h>
+ #include <linux/i2c.h>
++#include <linux/dmi.h>
+ 
+ #include <drm/drm_atomic.h>
+ #include <drm/drm_probe_helper.h>
+@@ -173,6 +174,30 @@ STATIC_IFN_KUNIT void apply_edid_quirks(struct dc_link *link, struct edid *edid,
+ 		drm_dbg_driver(dev, "Force FreeSync min to 60 Hz on panel id %X\n", panel_id);
+ 		edid_caps->panel_patch.force_freesync_min_hz = 60;
+ 		break;
++	/*
++	 * Workaround for Apple 21.5" 4K and 27" 5K iMacs which expose a 2x1
++	 * tiled internal panel over an eDP root link and a secondary DP link.
++	 * Point the secondary link to the root link to latch/unlatch the TCON
++	 * via DPCD, checking connector_signal as panel IDs can flip after wake.
++	 * IDs (Root/Tile): iMac15,1 (AE01/02), iMac17,1 (AE05/06),
++	 * iMac18,3 (AE11/12), iMac18,2/19,2 (AE19/1A), iMac19,1 (AE25/26);
++	 * TODO (DCE >= 12): iMac19,1/19,2 Vega, iMacPro1,1 (AE1D/1E), iMac20,x (AE31/32, AE35/36).
++	 */
++	case drm_edid_encode_panel_id('A', 'P', 'P', 0xAE01):
++	case drm_edid_encode_panel_id('A', 'P', 'P', 0xAE02):
++	case drm_edid_encode_panel_id('A', 'P', 'P', 0xAE05):
++	case drm_edid_encode_panel_id('A', 'P', 'P', 0xAE06):
++	case drm_edid_encode_panel_id('A', 'P', 'P', 0xAE11):
++	case drm_edid_encode_panel_id('A', 'P', 'P', 0xAE12):
++	case drm_edid_encode_panel_id('A', 'P', 'P', 0xAE19):
++	case drm_edid_encode_panel_id('A', 'P', 'P', 0xAE1A):
++	case drm_edid_encode_panel_id('A', 'P', 'P', 0xAE25):
++	case drm_edid_encode_panel_id('A', 'P', 'P', 0xAE26):
++		if (link->connector_signal == SIGNAL_TYPE_EDP &&
++		    link->ctx->dce_version < DCE_VERSION_12_0 &&
++		    (link->link_index ^ 1) < link->dc->link_count)
++			link->dc->links[link->link_index ^ 1]->apple_imac_peer = link;
++		break;
+ 	default:
+ 		return;
+ 	}
+@@ -1299,6 +1324,15 @@ enum dc_edid_status dm_helpers_read_local_edid(
+ 	if (link->dc->hwss.prepare_ddc)
+ 		link->dc->hwss.prepare_ddc(link);
+ 
++	if (link->connector_signal == SIGNAL_TYPE_EDP &&
++	    link->ctx->dce_version < DCE_VERSION_12_0 &&
++	    dmi_match(DMI_SYS_VENDOR, "Apple Inc.")) {
++		const char *product = dmi_get_system_info(DMI_PRODUCT_NAME);
++
++		if (product && str_has_prefix(product, "iMac"))
++			dm_helpers_dp_write_dpcd(ctx, link, 0x4F1, &(const uint8_t){1}, 1);
++	}
++
+ 	dm_helpers_wait_for_edid_ready(link, ddc);
+ 
+ 	/* some dongles read edid incorrectly the first time,
+diff --git a/drivers/gpu/drm/amd/display/dc/dc.h b/drivers/gpu/drm/amd/display/dc/dc.h
+index 8471dcfe24fd..bd3857267331 100644
+--- a/drivers/gpu/drm/amd/display/dc/dc.h
++++ b/drivers/gpu/drm/amd/display/dc/dc.h
+@@ -2018,6 +2018,7 @@ struct dc_scratch_space {
+ 	bool skip_implict_edp_power_control;
+ 	bool forced_psr_active;
+ 	enum backlight_control_type backlight_control_type;
++	struct dc_link *apple_imac_peer;
+ };
+ 
+ struct dc {
+diff --git a/drivers/gpu/drm/amd/display/dc/link/link_detection.c b/drivers/gpu/drm/amd/display/dc/link/link_detection.c
+index 5b257f003f13..02c6e5874c16 100644
+--- a/drivers/gpu/drm/amd/display/dc/link/link_detection.c
++++ b/drivers/gpu/drm/amd/display/dc/link/link_detection.c
+@@ -218,7 +218,7 @@ static enum signal_type link_detect_sink_signal_type(struct dc_link *link,
+ 			 * we assume signal is DVI; it could be corrected
+ 			 * to HDMI after dongle detection
+ 			 */
+-			if (!dm_helpers_is_dp_sink_present(link))
++			if (!link->apple_imac_peer && !dm_helpers_is_dp_sink_present(link))
+ 				result = SIGNAL_TYPE_DVI_SINGLE_LINK;
+ 		}
+ 		break;
+@@ -1651,6 +1651,11 @@ bool link_detect_connection_type(struct dc_link *link, enum dc_connection_type *
+ 		}
+ 	}
+ 
++	if (*type == dc_connection_none && link->apple_imac_peer) {
++		core_link_write_dpcd(link->apple_imac_peer, 0x4F1, &(const uint8_t){1}, 1);
++		*type = dc_connection_single;
++	}
++
+ 	return true;
+ }
+ 
+diff --git a/drivers/gpu/drm/amd/display/dc/link/protocols/link_dp_capability.c b/drivers/gpu/drm/amd/display/dc/link/protocols/link_dp_capability.c
+index c487c5b87dfd..74954702c5a9 100644
+--- a/drivers/gpu/drm/amd/display/dc/link/protocols/link_dp_capability.c
++++ b/drivers/gpu/drm/amd/display/dc/link/protocols/link_dp_capability.c
+@@ -1496,6 +1496,10 @@ void dpcd_set_source_specific_data(struct dc_link *link)
+ 				link->dc->vendor_signature.data.raw,
+ 				sizeof(link->dc->vendor_signature.data.raw));
+ 	}
++
++	if (link->apple_imac_peer)
++		core_link_write_dpcd(link, DP_SOURCE_TABLE_REVISION,
++				     (const uint8_t[]){0x04, 0x1d, 0x03}, 3);
+ }
+ 
+ void dpcd_write_cable_id_to_dprx(struct dc_link *link)
+diff --git a/drivers/gpu/drm/amd/display/dc/link/protocols/link_dp_phy.c b/drivers/gpu/drm/amd/display/dc/link/protocols/link_dp_phy.c
+index 49521ac4b0e8..f051fe6c060c 100644
+--- a/drivers/gpu/drm/amd/display/dc/link/protocols/link_dp_phy.c
++++ b/drivers/gpu/drm/amd/display/dc/link/protocols/link_dp_phy.c
+@@ -50,6 +50,9 @@ void dpcd_write_rx_power_ctrl(struct dc_link *link, bool on)
+ 	if (link->sync_lt_in_progress)
+ 		return;
+ 
++	if (!on && link->apple_imac_peer)
++		return;
++
+ 	core_link_write_dpcd(link, DP_SET_POWER, &state,
+ 						 sizeof(state));
+ 
+-- 
+2.55.0
