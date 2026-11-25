@@ -1,41 +1,41 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.209.128.4
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=8.221.36.245
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795605732;
-	b=kjo4gpQipYBWWhBFEgFkEzSl9E/5O870UBK86wc7xVNbm7D/G/lCH03NUlb/AyvnXwdw
-	 yD2YGVqivCfdLB5r6tZ+AAHSmg1WuJsO4I8K/7+OiFpern2ibaFNOXJsqu4NOQE9RpMEi
-	 58c7j2/hMOZvm/mcm4YVuTWFJaka7oN6WVUViVKjfmCEH879wlh4j06iTMhB2RmMjJAd2
-	 42Q0m/m5QKa5ab0RFE2iFSDsHWZPE8AkWJVLS1XNcozckYiG9iQCOdLn1BQHDbWlyqNL+
-	 7u4IVtxdxhhzZxg1J3LBXSNqnEoGdgChsgVYhEOn8ELpuvU0I9aedQYrVtclIBii8SA==
+	t=1795605733;
+	b=B3+wBlk2GoNWmYDiS8/bTp88rcjSg5pG2hgFOeQo8LdqpyM9nXXED/tTylZQA+JbearV
+	 pfupaVTCt0pVGvCMNAKy1bzUUysPwkvq8pp+TPAhdeAVy2x37Uc2TwtFg5HpeIpOmXIAo
+	 rh127mpoKkwH1jY47XMHdEgtW/T4txUr7wVZFW3xw+T6T4rRU7y+gDYOhufxrquSiqE1t
+	 XT3/JDDHqcTEnU2blUirt/TSe2wPQ+dikF35v4CDp9oA/S43+0PiUbEAxN7tw1LHuL2km
+	 clMA2jJWb8Y+UKI/w0m2oHfu+QFNAOTlyxSdp1h4I6GHe/1dmOx9GKESWlH4XnY74pg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795605732;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795605733;
 	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-Id:X-Mailer:
 	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:
 	 X-HM-Tid:X-HM-MType:X-HM-Spam-Status:DKIM-Signature;
-	bh=NzIEo2nMxPomS/m/P2X/pcq4kYu9vARaaXNfLD3yHBA=;
-	b=vuZ40mtld/8mqnFgi8NGxV3IBQNwY7DXYNNBiCDT14DpbEdqwsbZgtvZ93XvNuADQSD6
-	 9eE5UB/g3+1ZYuwd72cltjAJNcH7Y3ogqNqI6KGK8yX7ob9P0y9INwFX/e7eK5KqaqxOe
-	 +XZkFOucGIWrj0ZlkK9JpcW84KHuF5PJ2jrEgR6A3jbbHBcRnkT3COXof0Z+MCCn5G4d+
-	 hnQwVsl6eOoq8BNhcbF6kZ49dUSorVMZlKJmzUsXJkJxSD8e1MK3kcaYP5nq3f+qG2FoP
-	 RDOIEuMkicFE5kIt+ajCIkQX7bFYIwuivmb0NIgmJw5h/rMuf7MovUuc1JuWFAgdRFA==
+	bh=Z53XmwzIfWNDI57WVKpOPzyROVqB2sBaHiSyG5zofnk=;
+	b=JFqxFiwne6SNchFDzGcuVacFBQXA0moJ53FihvpEGNxq411PLEb0baDcMlAMd532TV9j
+	 isOnXXBUBVE/nBj2dwwrfmto/7n8L33v4dxxZ90Zf145OvoLH+EJ+noaFAh6hkD+mhaoQ
+	 nJxVGsmosghxP/oB/zmvd2BrU1PT5IVumy7VxuzBkwPWofJY6coDB1k0Y0xLPYIoW9AU3
+	 b59sUvMCVnmqBnOQ/niZwb79KOCFJn194DLjV8pQeYXAv/dfol7ri/agTElERDHGriJDT
+	 oNGP938lghaPO9UU5mvochcBTlfCxV0nBGy3gh7DEVWv2t9UslioeDjBQ6HHTFSmfUQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=rock-chips.com;
 	spf=pass smtp.mailfrom=rock-chips.com;
-	dkim=pass header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b=cSkBvRNx;
-	arc=none smtp.remote-ip=103.209.128.4
-Received: from mail-m1284.netease.com (mail-m1284.netease.com [103.209.128.4])
+	dkim=pass header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b=R4ec0tIw;
+	arc=none smtp.remote-ip=8.221.36.245
+Received: from mail-m822136245.xmail.ntesmail.com (mail-m822136245.xmail.ntesmail.com [8.221.36.245])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3E0B4606A684;
-	Wed, 25 Nov 2026 11:22:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3E0B4606A684
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CB923606A695;
+	Wed, 25 Nov 2026 11:22:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CB923606A695
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=rock-chips.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rock-chips.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b=cSkBvRNx
+	dkim=pass (1024-bit key) header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b=R4ec0tIw
 Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 55f81603c;
-	Wed, 25 Nov 2026 19:22:02 +0800 (GMT+08:00)
+	by smtp.qiye.163.com (Hmail) with ESMTP id 55f816034;
+	Wed, 25 Nov 2026 19:22:00 +0800 (GMT+08:00)
 From: Damon Ding <damon.ding@rock-chips.com>
 To: Andrzej Hajda <andrzej.hajda@intel.com>,
 	Neil Armstrong <neil.armstrong@linaro.org>,
@@ -67,9 +67,9 @@ Cc: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
 	linux-samsung-soc@vger.kernel.org,
 	linux-rockchip@lists.infradead.org,
 	Damon Ding <damon.ding@rock-chips.com>
-Subject: [PATCH v7 06/20] drm/bridge: analogix_dp: Return bitmask from analogix_dp_get_irq_type()
-Date: Wed, 25 Nov 2026 19:21:27 +0800
-Message-Id: <20261125112141.1434903-7-damon.ding@rock-chips.com>
+Subject: [PATCH v7 05/20] drm/bridge: analogix_dp: Take a runtime PM reference in bridge detect
+Date: Wed, 25 Nov 2026 19:21:26 +0800
+Message-Id: <20261125112141.1434903-6-damon.ding@rock-chips.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20261125112141.1434903-1-damon.ding@rock-chips.com>
 References: <20261125112141.1434903-1-damon.ding@rock-chips.com>
@@ -83,146 +83,57 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0aa21270f41203a8kunm17c2305077587f
+X-HM-Tid: 0aa21270ef0a03a8kunm17c23050775874
 X-HM-MType: 1
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlDGUhLVk1CSEsdSUlNSUIZQ1YVFA
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkZTkhOVkNITE5ISEtNSxkfHlYVFA
 	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSE
 	pKQk1VSktLVUpCWQY+
 DKIM-Signature: a=rsa-sha256;
-	b=cSkBvRNxTjU2LtTU4cSrU57zElx36LQeFmoAynuUHHCrB+b4o8+klZjqb2cXrFbc6F0mxJIILr/i15cEEeTVaswIdlYuC9yK0MQwm1qGkzzQydV34k8EVu+LBLnWbynFKdlGaq1CXM1XmZ9i8WdOmhjHilrdQvgWd6b4NjcTAs4=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=NzIEo2nMxPomS/m/P2X/pcq4kYu9vARaaXNfLD3yHBA=;
+	b=R4ec0tIwlRkqHxRkqfOX5au00NmjTlwsoP2PRcpm7JNc3ZKGSuog77dhoHoJJq1Vbtt0ldyOzwgca1eicGhEXJMdIoE8ur04j77AXIUx26XflG7vx5cjtmfQh1g0xJ/WJOaGaIqzxhg1ELXuLzC5Ey6beo+HdsOoSFWyK61uVWU=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=Z53XmwzIfWNDI57WVKpOPzyROVqB2sBaHiSyG5zofnk=;
 	h=date:mime-version:subject:message-id:from;
 
-Analogix DP controllers support two sets of interrupts for hotplug
-detection: HOTPLUG_CHG, and the pair PLUG / HPD_LOST.  The current
-driver logic relies on PLUG/HPD_LOST only, and
-analogix_dp_get_irq_type() returns on the first matched interrupt
-flag, so the hardirq handler unconditionally mutes all HPD
-interrupts, including HOTPLUG_CHG and INT_HPD.
+The analogix_dp_bridge_detect() calls analogix_dp_detect_hpd(), which
+reads the controller registers and may write them for the force HPD
+fallback. The connector is polled and can be queried by userspace at
+any time, so this runs while the device is runtime suspended when the
+display is disabled.
 
-To prepare fine-grained interrupt handling, convert the return type
-from enum dp_irq_type to a u32 bitmask, accumulate all pending
-interrupt flags instead of returning early, add detection for
-DP_IRQ_TYPE_IRQ_HPD, and use zero instead of the DP_IRQ_TYPE_UNKNOWN
-sentinel to indicate no pending interrupts.
+Take a runtime PM reference around the HPD check, and report the
+connector status as unknown when the device cannot be resumed.
 
-Tested-by: Heiko Stuebner <heiko@sntech.de>
-Tested-by: Marek Szyprowski <m.szyprowski@samsung.com>
+Fixes: 2b77a2918c5d ("drm: bridge: analogix/dp: move hpd detect to connector detect function")
+CC: Marek Szyprowski <m.szyprowski@samsung.com>
 Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
 
 ---
 
-Changes in v4:
-- Add Tested-by tag.
-
-Changes in v5:
-- Simplify the commit msg.
-
-Changes in v6:
-- Add Tested-by tag.
+Changes in v7:
+- Add this patch to take a runtime PM reference in
+  analogix_dp_bridge_detect(), as the register accesses behind it may
+  run while the device is runtime suspended.
 ---
- .../gpu/drm/bridge/analogix/analogix_dp_core.c |  8 ++++----
- .../gpu/drm/bridge/analogix/analogix_dp_core.h |  4 ++--
- .../gpu/drm/bridge/analogix/analogix_dp_reg.c  | 18 ++++++++++--------
- 3 files changed, 16 insertions(+), 14 deletions(-)
+ drivers/gpu/drm/bridge/analogix/analogix_dp_core.c | 5 +++++
+ 1 file changed, 5 insertions(+)
 
 diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-index b9f4e5757fc5..3ab1cf6b51d1 100644
+index 46d4dd9d7cd7..b9f4e5757fc5 100644
 --- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
 +++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-@@ -704,10 +704,10 @@ static irqreturn_t analogix_dp_hardirq(int irq, void *arg)
- {
- 	struct analogix_dp_device *dp = arg;
- 	irqreturn_t ret = IRQ_NONE;
--	enum dp_irq_type irq_type;
-+	u32 irq_type;
+@@ -908,9 +908,14 @@ analogix_dp_bridge_detect(struct drm_bridge *bridge, struct drm_connector *conne
+ 	if (dp->force_connected_mode)
+ 		return connector_status_connected;
  
- 	irq_type = analogix_dp_get_irq_type(dp);
--	if (irq_type != DP_IRQ_TYPE_UNKNOWN) {
-+	if (irq_type) {
- 		analogix_dp_mute_hpd_interrupt(dp);
- 		ret = IRQ_WAKE_THREAD;
- 	}
-@@ -718,7 +718,7 @@ static irqreturn_t analogix_dp_hardirq(int irq, void *arg)
- static irqreturn_t analogix_dp_irq_thread(int irq, void *arg)
- {
- 	struct analogix_dp_device *dp = arg;
--	enum dp_irq_type irq_type;
-+	u32 irq_type;
- 
- 	irq_type = analogix_dp_get_irq_type(dp);
- 	if (irq_type & DP_IRQ_TYPE_HP_CABLE_IN ||
-@@ -728,7 +728,7 @@ static irqreturn_t analogix_dp_irq_thread(int irq, void *arg)
- 			drm_helper_hpd_irq_event(dp->drm_dev);
- 	}
- 
--	if (irq_type != DP_IRQ_TYPE_UNKNOWN) {
-+	if (irq_type) {
- 		analogix_dp_clear_hotplug_interrupts(dp);
- 		analogix_dp_unmute_hpd_interrupt(dp);
- 	}
-diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.h b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.h
-index 64aaba67e669..dc189f0b7a19 100644
---- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.h
-+++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.h
-@@ -120,7 +120,7 @@ enum dp_irq_type {
- 	DP_IRQ_TYPE_HP_CABLE_IN  = BIT(0),
- 	DP_IRQ_TYPE_HP_CABLE_OUT = BIT(1),
- 	DP_IRQ_TYPE_HP_CHANGE    = BIT(2),
--	DP_IRQ_TYPE_UNKNOWN      = BIT(3),
-+	DP_IRQ_TYPE_IRQ_HPD      = BIT(3),
- };
- 
- struct video_info {
-@@ -196,7 +196,7 @@ void analogix_dp_set_analog_power_down(struct analogix_dp_device *dp,
- int analogix_dp_init_analog_func(struct analogix_dp_device *dp);
- void analogix_dp_init_hpd(struct analogix_dp_device *dp);
- void analogix_dp_force_hpd(struct analogix_dp_device *dp);
--enum dp_irq_type analogix_dp_get_irq_type(struct analogix_dp_device *dp);
-+u32 analogix_dp_get_irq_type(struct analogix_dp_device *dp);
- void analogix_dp_clear_hotplug_interrupts(struct analogix_dp_device *dp);
- void analogix_dp_reset_aux(struct analogix_dp_device *dp);
- void analogix_dp_init_aux(struct analogix_dp_device *dp);
-diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.c b/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.c
-index c1344a3f013a..49c1961e4326 100644
---- a/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.c
-+++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.c
-@@ -412,8 +412,9 @@ void analogix_dp_force_hpd(struct analogix_dp_device *dp)
- 	writel(reg, dp->reg_base + ANALOGIX_DP_SYS_CTL_3);
- }
- 
--enum dp_irq_type analogix_dp_get_irq_type(struct analogix_dp_device *dp)
-+u32 analogix_dp_get_irq_type(struct analogix_dp_device *dp)
- {
-+	u32 irq_type = 0;
- 	u32 reg;
- 
- 	if (dp->hpd_gpiod) {
-@@ -425,17 +426,18 @@ enum dp_irq_type analogix_dp_get_irq_type(struct analogix_dp_device *dp)
- 	} else {
- 		/* Parse hotplug interrupt status register */
- 		reg = readl(dp->reg_base + ANALOGIX_DP_COMMON_INT_STA_4);
--
- 		if (reg & PLUG)
--			return DP_IRQ_TYPE_HP_CABLE_IN;
--
-+			irq_type |= DP_IRQ_TYPE_HP_CABLE_IN;
- 		if (reg & HPD_LOST)
--			return DP_IRQ_TYPE_HP_CABLE_OUT;
--
-+			irq_type |= DP_IRQ_TYPE_HP_CABLE_OUT;
- 		if (reg & HOTPLUG_CHG)
--			return DP_IRQ_TYPE_HP_CHANGE;
-+			irq_type |= DP_IRQ_TYPE_HP_CHANGE;
++	if (pm_runtime_resume_and_get(dp->dev) < 0)
++		return connector_status_unknown;
 +
-+		reg = readl(dp->reg_base + ANALOGIX_DP_INT_STA);
-+		if (reg & INT_HPD)
-+			irq_type |= DP_IRQ_TYPE_IRQ_HPD;
+ 	if (!analogix_dp_detect_hpd(dp))
+ 		status = connector_status_connected;
  
--		return DP_IRQ_TYPE_UNKNOWN;
-+		return irq_type;
- 	}
++	pm_runtime_put_autosuspend(dp->dev);
++
+ 	return status;
  }
  
 -- 
