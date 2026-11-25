@@ -1,137 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.144
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.180
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795578374;
-	b=G71qyYiOnFckhAja52NeCB6mG90HtXhpR6FM/9oFrreKGOpohMIAPY3u+QdNvKF5F/6W
-	 FphXTtOlXznTs/1buvXuzuD0oVmhDiqixwHIziDdj88fN68CfJBHLKOeryPPtjh1lopMZ
-	 /+moMBwYoLC5ZAFr0EAGTwRsN0IXBO7INVSeUZzuJATvRDo52vOqT1EJxmqMgY71iOo5S
-	 hpMUHdaAE35b0DNugydzMSbWIxADjewrpJediNQiGpIBfpStVDOVmVxYVj70lXJ+w9jCd
-	 IdGRKTq3DJysqQwtbsvCm6x0CfJAU+pxASFZ2zf07F45c+mvwCMfa1m+3/bd3HsWW3w==
+	t=1795578378;
+	b=j5swDgwru0vQooVEaTA+W+Bdu4Pxq+UnwNdIL0xCBG66QLzkL9r9IxcaTavjIU7Dj2nH
+	 p7zX8EOh5zYKv5qXPzottYJ8ZQmw4yyhlCYZtM0mtEfTcvJxF3LKI1utCmmuD0Kw7Ecaf
+	 xbu3kq8uP+l8KSC3mMqKB57A4i5x0jpLTk9vV9yxJriwl0L0R0m2k9U8oqfZKg58epgjz
+	 tu+InZ7rgLmtn3TmrGxRZAvu1UdhToa1cvhGpMQ3UJVjer3PbSos5ar8l9G4aGSvfTIuX
+	 waSgP7vx99Cz+OYneRYF4Wln3hYQmnjzWFIC5Dpiy6EylCS5E+OGHZiXj7tPRTNyS1w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795578374;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
-	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
-	 References:Reply-To:MIME-Version:Content-Transfer-Encoding;
-	bh=C7sWl1wG48MQ07r4zoW2vh68HNiuHxVXcgb2L1fNbYE=;
-	b=SYHEXl4G0NgxMTYMJhR6IlB5bNBTbmqW0gtm21zVzqz/iv1dOh+rpLp+17bRcUwjKMQ/
-	 vV++igWrM09Hv5Ed/r2m1qzL9hPwe3FOiT7tpMvYxmFJh+0M4wLLrUF8agF/PAbJAtVKL
-	 0FKpMASkoQ57f5ho50UXRGmuOZJXZH12eMbwiOlL+o6n+K46rVcQQEYnzCGeIQQvqmlgT
-	 NCVqCmCPZqf2x6iZ18l18zzfmJ9uKRNbqIVqJa0672M2f5Dtja8q1acmScJu3aeA9kY0r
-	 TWxIHttv6NkiAD8BXJgVTIJrLNQTHzzzf8Ovq5L0iaO95NSM975m88EvFe0l1hCWP0w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795578378;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=bQJJxCrofGpC23ygbnJv9Goz9D/r5cCIAV9NozCmzg8=;
+	b=LMqo0ASbHGTX361iHn6GaI4mtP4xMFORpKsL7xY/ve/9EE6wMVwa7CVjGYJz9ZkB77oV
+	 tx4tAKhi0AfNlPG4f4sQvzjFM7limZz3mhbVNxl+nZi9v+MGD0YJXBTYkOBWeh4D+DoOH
+	 QYHilWAA3Io6DIjUNEembh9bVI2b8TtqvNV2GwwmtB4L5pivJ4sHEETAB+De7f5PgvpCp
+	 xwB3XRcI1nGoPa403wGh1Cq1WpkIA9fvSCVd8e07wGlT/81OZk2LS6ZfXh+Es/TKQIeMf
+	 wR4RHxFabYgNxCfOHeTp8OIa/kZ89lj4fRCbOp3WZMPk4Klkgs9UFRVmhTwo0cc1lbw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ownmail.net;
-	spf=pass smtp.mailfrom=ownmail.net;
-	dkim=pass header.d=ownmail.net header.i=@ownmail.net header.a=rsa-sha256 header.s=fm3 header.b="uVJtjK/k";
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=DlNzxpVr;
-	arc=none smtp.remote-ip=103.168.172.144
-Received: from fout-a1-smtp.messagingengine.com (fout-a1-smtp.messagingengine.com [103.168.172.144])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gfBaCMbm;
+	arc=none smtp.remote-ip=74.125.82.180
+Received: from mail-dy1-f180.google.com (mail-dy1-f180.google.com [74.125.82.180])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4FFC0606A321
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 03:46:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4FFC0606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ownmail.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ownmail.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C9D9C606A331
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 03:46:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C9D9C606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=ownmail.net header.i=@ownmail.net header.a=rsa-sha256 header.s=fm3 header.b=uVJtjK/k;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=DlNzxpVr
-Received: from phl-compute-11.internal (phl-compute-11.internal [10.202.2.51])
-	by mailfout.phl.internal (Postfix) with ESMTP id 69E12EC08AD
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 22:46:13 -0500 (EST)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-11.internal (MEProxy); Tue, 24 Nov 2026 22:46:13 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ownmail.net; h=
-	cc:cc:content-transfer-encoding:content-type:date:date:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:reply-to:subject:subject:to:to; s=fm3; t=1795578373;
-	 x=1795664773; bh=C7sWl1wG48MQ07r4zoW2vh68HNiuHxVXcgb2L1fNbYE=; b=
-	uVJtjK/kqBeLCHeTuAHRJuLlf3RPlcath2fFONrOMLHy+oKwGL1wpxT3pS2agxig
-	0J+LVxx3Gbm7TXxFLoKND6VP5K/bjuUB8aU2CbSmWaWmqD7dq8Ra+qHdd69d7yhH
-	WrQdVd7GTdbbOmj3DKvaowfj+2/CYrCswVxxc6VT5ZNf73AQjd7ugBDmlVW+3rKZ
-	wk7f/uT3ClLF7ZbC8fMVAflfI3ASxPieHksWGlt1qEeGvee4UyuWW7NHvICSiSDs
-	iT1Tk0yD4XELKo2AWBFzE/zZ7jnDGgLd8YHEM3eWycSGBXQMWUCvbeqTE0+Ba/ar
-	fR27hTwhoD8KywuFByw03g==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
-	:x-me-sender:x-sasl-enc; s=fm3; t=1795578373; x=1795664773; bh=C
-	7sWl1wG48MQ07r4zoW2vh68HNiuHxVXcgb2L1fNbYE=; b=DlNzxpVrSoePkYu9v
-	NF8GJpmu9FXSNB01Xmzx1wvX0kQgU0j3eZF+eztbtQABZNd2wmFyQrVaFVgtNfz2
-	v7bkIuWRjANsIsASGAAqP/WUuHmxIcWa05q8PnsiQxRkv1THlOSkGT6zw+qoQpKH
-	ef2WOxyAm8MvZMPdl4jGJJGcyDMWkOjADw/GDrcLcoYQfjQItIK3n1lUxxMShIfJ
-	/GT7VsbQbZuNs4mcJP+l7aLK8HouyTW/E8DIx2ehg3dhhh8+rRizrgBdumi0E4kd
-	W66/ElL77DmIimEpr+Fg03gujFcLEzaOafsI3mmsQQFDR2tWtAeLhO0hVFa1oUSL
-	kHt/g==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=ownmail.net a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795578373; d=ownmail.net;
-	mf=PG5laWxiQG93bm1haWwubmV0Pg==;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm3:rsa-sha256:DhK2uPYPKtYWfCMG90ts7Q1vAjipMk3a01h35IhGRoNw6B9
-	BFl7QMzXPiK7ZroziSmixzeROoQ/+0sOVCOrdWb33HerRpvQ6j7Q/86a8XgD33PG
-	CCtCMERg8LCcTb/ieDKveVlx6RJr93Bb18gOzZl24tsRAiyAjEe1e9HSJ3h7BmKS
-	ROMQh5SdioPKSt8sRWixJPRu93OAh0rXGxN17z32QoxKLqJE1bevNWuogoElyTSI
-	hy/LqdHsiUGQcBKAVDP8keynyDsnK7rteXu01+HN+0VhufULPowxbQkk13g9UDNZ
-	qaTE/UDEwWsti8eRcRw0BqRZvcvnIXi3e/6HFhQ==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=12;
-	hn=cc,content-transfer-encoding,date,feedback-id,from,
-	in-reply-to,message-id,mime-version,references,reply-to,subject,
-	to;
-Message-Instance: m=1; h=sha256:KKPLl7NOjgl4PUEDrs6CD/OeuuCjs3Y6C8+VT2udHV4=:Xd1WqezOWR4RGPff0oXZeRAR/TSzcmc9gClT/ovY9uY=;
-X-ME-Sender: <xms:BFoGa3PKtOwxUwkZpViaqRwLM60pvm2UTcI_JQ1z0-14fVuLcq8NPg>
-    <xme:BFoGa47ixKdcBLDhCGczbRSygGRbY7bGID5BdiwAtbWJVPCJMHnI6j3Gnv3kcIupU
-    RssUQLPMMAwsi7DPxbeNe6a7I8vZcvyImfC2QhSGvOJVXo7hcY>
-X-ME-Received: <xmr:BFoGa7VcNwOKoKDCpg6IWBH_2M_tw5767rDkPAQypRXCyrYinMLGTdg5Chvih2ajqY6kIBchkPEE2rNxeuGu_vekhZCZM58>
-X-ME-Proxy-Cause: dmFkZTEynqFP7J5CyP864zJ/XBXUDXSwXypje4KQHx8Td74dpnR0VUtokV1VIo6Vx6RvWY
-    OwcUpg/bo5jA9DF1nhHbEWSmkeBRQExzYYNm6zYQ4OlhmT8++hv04QLhCP77UTRa+ts0Zn
-    emG1u4CBc9EwIQZMHpuGtkFzNaPM0COhHCVGi+vUdiGKTo3oTFKBSdfX5nxIKQZvHQpAoR
-    JpPaJpl8D3VaaEmf1HZfBeZUeFh1WggTkTCrotD4I8diURcXOaSBUF/YM1mWjxdOr0yho5
-    GSRzb/bSajGZoPtTNw69mn1JgOv5z8FPk55EPMBJOvn4tHIN4QhGRcsvm9DrK4aqK7NvD2
-    Auh3n7/rDjlV67SzcxugKanVYG5RjCb+2NOn7i5iXuy1FXFNhK6aoTMbjaXLP86pYz8Ryi
-    /xaDjmigZlJ9MzIuCR1/cpAYWU8RM0/OSl8D30BwPV295xbiau2P46CfJBhXPmmAmbwfAA
-    rMYnwG0NgcznoAzShUK/LdM32r9rzQJvvXIyjKY9pSIX3gv40Ug5iE5k0g+Fqaspj1Stnt
-    Q9On8TYylyL1Vwi7PINVpAOrfn5rfcbPZMFI9FpdLNXs+rdEi8K7Q6RAmcTrnkSDl3Ud9C
-    7gTClZteLBjWpe1mA2wn5DDy0iuc9YeQ9wLFR38CzkpMdV5riazKCBcxy66Q
-X-ME-Proxy: <xmx:BVoGay1Pb62Umx6kGOGGYs5ti2Gs4wBbDevP3TetIprCpZNgrv0qsw>
-    <xmx:BVoGa6MYYvfGpcjV5mkkETu-8Z7WFPT_UmOF76FH0StQi9gMWAEIng>
-    <xmx:BVoGa93G_APMlc8X2Es31MMyo9WNoNXWyJxQ1I1bnc39BTUkzwXrsw>
-    <xmx:BVoGa52CU_oHN-uQUXv_6U9Kw8RijGEzNEj7wU2ccjFQ_3qEPWatOg>
-    <xmx:BVoGa2bN0PF56IAc24GwBM3OzhUNEMeljhz6gvsZ7nSZKLA4AQlU7WUT>
-Feedback-ID: i9d664b8f:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
- 24 Nov 2026 22:46:08 -0500 (EST)
-From: NeilBrown <neilb@ownmail.net>
-To: Alexander Viro <viro@zeniv.linux.org.uk>,
-	Christian Brauner <brauner@kernel.org>
-Cc: David Howells <dhowells@redhat.com>,
-	Marc Dionne <marc.dionne@auristor.com>,
-	Jan Harkes <jaharkes@cs.cmu.edu>,
-	coda@cs.cmu.edu,
-	Jan Kara <jack@suse.cz>,
-	Richard Weinberger <richard@nod.at>,
-	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	Jeff Layton <jlayton@kernel.org>,
-	Amir Goldstein <amir73il@gmail.com>,
-	linux-kernel@vger.kernel.org,
-	codalist@coda.cs.cmu.edu,
-	linux-fsdevel@vger.kernel.org,
-	linux-um@lists.infradead.org,
-	linux-afs@lists.infradead.org
-Subject: [PATCH v3 02/11] hostfs: don't d_drop() before d_splice_alias() in hostfs_mkdir()
-Date: Wed, 25 Nov 2026 14:16:40 +1100
-Message-ID: <20261125034543.4084039-3-neilb@ownmail.net>
-X-Mailer: git-send-email 2.50.0.107.gf914562f5916.dirty
-In-Reply-To: <20261125034543.4084039-1-neilb@ownmail.net>
-References: <20261125034543.4084039-1-neilb@ownmail.net>
-Reply-To: NeilBrown <neil@brown.name>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gfBaCMbm
+Received: by mail-dy1-f180.google.com with SMTP id 5a478bee46e88-3282db206d3so4704890eec.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 19:46:17 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795578377; x=1796183177; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=bQJJxCrofGpC23ygbnJv9Goz9D/r5cCIAV9NozCmzg8=;
+        b=gfBaCMbm/fp+9m40d4cUAG6gCVE+9Z9SUZjyO8wQi+XcTxBe5wkmO14W6dzexi4ZFs
+         QV/zE80fsDhIXyknU+Lu7BEwNilJByhMtnXsSwrud5+UOPw9FV+bVC64BNUHN+diR1uz
+         bj2o/F3stORePkwDn1gOsLNsPOdcss4BUcWQHnGr0TKUIS0MM1S0X/ARpiluD2Ulo9Sc
+         pRjcLF69YCkFg4UvxrUS8neyxgUnbedNMwyZTHfnthBv5Os/ckOdSD8iib33IXiqebld
+         HUuyHkC6V9Pi2uXQ0CKJt5N3hipm2xElyk68UJrwPsbkAAgZ2hf1Z4mlHhax2lNoRpQC
+         Jg2Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795578377; x=1796183177;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=bQJJxCrofGpC23ygbnJv9Goz9D/r5cCIAV9NozCmzg8=;
+        b=n47AtCy4OlSha4bodtCvTQ7ac1V90VNTrnt05bFPMoXbR70VAaQC8nQ4SweAe+iVgX
+         c/L4EWlpuj7R15sBzMuJvzvhYzyAtfh/+jcqGIlhYWZLK7urEIkUc1kC3SToPNOtdAac
+         eoy77gFcxVg/mQf4FxX142HR/p1fVn+KcvH7Qy3LqGCo38OxiB5TF3tIOUBf9EAIqx3o
+         1ATaSZk+zn/QGjZ5LnC0PCa4/UdCJrpcEbv+/i91Mp3CndMeKdY3ljPuoQbois8hMd8X
+         6Ka3ImXF9KjtJcGCR+C2xWpShEXr7OGRI6O9bzAdbo+vUVstV6e3aB+BvBLORZk4F44J
+         X5oA==
+X-Forwarded-Encrypted: i=1; AL+hErGuY6LW+9X45EF8CFJK0bbJtbMRpZrHMIOTQ63SBjj/sua+9S/wNGkDwNfWThMeO1VxUws6i3BMgGlZR3U=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9FzNAB4rzbcZjSdK1KYiF7CIz/vcd+3URWo8H43IefjqsyPGv0
+	ljiSUu2i8q1YjfvZU6jpLUMBuCLSkwOhAryWNxWTICF9y3CjtwiG9jsq
+X-Gm-Gg: AZFdTZcPnIw0Wz1hVQfq1Px8QWD8l2pfBMD4hGBV52zWnvq90CFMw895gyoYzwxF0F5
+	rqV0zC5+p1AnRRhMT9xrEF8jnjwA5cOk8dd4dgzcV2lxP0jG0xH5QM2whaeLWr/hrC0jhxR+AfR
+	zNeV8YD7/WgjmKvVoUYwD3O2NAE7heEW5NjnBUV/shdHLAm7yNZBestNc1YNRK4Bh9Au8z81gAi
+	bOj49eOPMC+MTgxNBTBZHDA+1qr6J//XdGWoXey2JJk5mUK1aDoBxcVHReF5FVt2DhkEagTnMXz
+	W4WR9xdIajl7TzzbpX679y5K9SHUisyPycbozXpoT+Ml6BNtRiEx/stlYFmOBR3LuZ1qqCnMPUk
+	uudFWS2nHf8rLuA6OThU3MLzzl77snkycNzKnDeV4dPohSjbNNLJc7w8tfFUjDT59TCl/DP12cW
+	GIcBKvZBsIbkamUQ/3isOvDkjcPN0uHd4DLnQYJDD1HoEU+vaA4AcuS09DDj0BthageoUPWctCt
+	mdhL+UcH6PwH0UDqtzeomMi+LVGLsHDs2VVfXGqwynfkgFbHUCaruX1nXYf1MingyOXXzFI2uDC
+	SjAOszzcApI43hguksdE/Hn5eHZP8QqhUzQ7FGt6sEPJ07TndQwLAp55Ort+gMxDxWx5KRZCiSA
+	eX7e3x/NpZce21FmwvoycbXv7
+X-Received: by 2002:a05:693c:41d4:20b0:386:cedf:5e51 with SMTP id 5a478bee46e88-386cedf61efmr1230294eec.26.1795578376678;
+        Tue, 24 Nov 2026 19:46:16 -0800 (PST)
+Received: from [192.168.10.126] (ip70-187-214-22.oc.oc.cox.net. [70.187.214.22])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38566cd46c5sm59900962eec.11.2026.11.24.19.46.15
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 24 Nov 2026 19:46:16 -0800 (PST)
+Message-ID: <b14f881d-78e2-420f-8395-6f10028fe597@gmail.com>
+Date: Tue, 24 Nov 2026 19:45:54 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -141,32 +93,104 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v4 07/10] net: au1000: restore RX buffer addresses
+ when restarting the MAC
+To: netdev-bot+sashiko@kernel.org
+Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ hkallweit1@gmail.com, linux@armlinux.org.uk, shaojijie@huawei.com,
+ horms@kernel.org, runyu.xiao@seu.edu.cn, mmyangfl@gmail.com, hvr@gnu.org,
+ danny.kukawka@bisect.de, mugunthanvnm@ti.com,
+ sebastian.hesselbarth@gmail.com, linux-kernel@vger.kernel.org,
+ manuel.lauss@gmail.com
+References: <20261121004809.1690280-8-f.fainelli@gmail.com>
+ <179557011055.3135.6140198422373932770@kernel.org>
+Content-Language: en-US
+From: Florian Fainelli <f.fainelli@gmail.com>
+In-Reply-To: <179557011055.3135.6140198422373932770@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 
-From: NeilBrown <neil@brown.name>
 
-hostfs_mkdir() uses d_drop() and d_splice_alias() to ensure it has the
-right dentry after a mkdir.
-d_drop() is no longer needed here and will cause problem for future
-changes to directory locking.  So remove the d_drop().
 
-Signed-off-by: NeilBrown <neil@brown.name>
----
- fs/hostfs/hostfs_kern.c | 1 -
- 1 file changed, 1 deletion(-)
+On 11/24/2026 5:28 PM, netdev-bot+sashiko@kernel.org wrote:
+> Thank you for your contribution! Sashiko AI review found more severe
+> issue(s) in other patches of this series. This mail is only an FYI, in case
+> you want to address the nit picks below when you respin.
+> 
+> Low priority / nit picks for your consideration:
+> 
+> - [Low] In `au1000_init()`
+>    (drivers/net/ethernet/amd/au1000_eth.c:727-728), the patch writes the…
+> 
+> --
+> 
+> net: au1000: restore RX buffer addresses when restarting the MAC
+> 
+> The commit changes au1000_init() to reload each RX descriptor's buffer
+> address from rx_db_inuse[] before setting RX_DMA_ENABLE. Before this,
+> it only OR-ed in the enable bit on whatever address the DMA engine had
+> left behind. That could make a receive after close/reopen start partway
+> into its buffer.
+> 
+>> diff --git a/drivers/net/ethernet/amd/au1000_eth.c b/drivers/net/ethernet/amd/au1000_eth.c
+>> index ea2766343d518..ec28ed33bf698 100644
+>> --- a/drivers/net/ethernet/amd/au1000_eth.c
+>> +++ b/drivers/net/ethernet/amd/au1000_eth.c
+>> @@ -724,7 +724,8 @@ static int au1000_init(struct net_device *dev)
+>>   
+>>   
+>>   	for (i = 0; i < NUM_RX_DMA; i++)
+>> -		aup->rx_dma_ring[i]->buff_stat |= RX_DMA_ENABLE;
+>> +		writel(lower_32_bits(aup->rx_db_inuse[i]->dma_addr) |
+>> +		       RX_DMA_ENABLE, &aup->rx_dma_ring[i]->buff_stat);
+> 
+> [Severity: Low]
+> This isn't a bug, but should this be a plain store, like the other
+> accesses to buff_stat?
+> 
+> The commit message says this matches the receive completion path.
+> That path does a plain C assignment, not a writel():
+> 
+> drivers/net/ethernet/amd/au1000_eth.c:au1000_rx() {
+>      ...
+> 	prxd->buff_stat = lower_32_bits(pDB->dma_addr) | RX_DMA_ENABLE;
+>      ...
+> }
+> 
+> au1000_probe() initializes the same field the same way:
+> 
+> 	aup->rx_dma_ring[i]->buff_stat = lower_32_bits(pDB->dma_addr);
+> 
+> au1000_reset_mac_unlocked() and the reads in au1000_init() and
+> au1000_rx() also use plain loads and stores.
+> 
+> In au1000_eth.h, rx_dma_ring is declared without __iomem:
+> 
+> 	struct rx_dma *rx_dma_ring[NUM_RX_DMA];
+> 
+> Passing &aup->rx_dma_ring[i]->buff_stat to writel() therefore gives a
+> sparse different-address-space warning. It also means this one
+> register is now accessed in two different styles.
+> 
+> The driver already passes non-__iomem pointers to writel() for
+> aup->mac and aup->enable. What this patch adds is the mixed accessor
+> style on buff_stat.
+> 
+> There's no runtime difference. MIPS_AU1X00_ENET depends on
+> MIPS_ALCHEMY, which only supports little-endian, so writel() and the
+> plain store write the same bits.
+> 
+> Would a plain store match the surrounding code better, like this:
+> 
+> 	aup->rx_dma_ring[i]->buff_stat =
+> 		lower_32_bits(aup->rx_db_inuse[i]->dma_addr) | RX_DMA_ENABLE;
+> 
+> The other option is to mark rx_dma_ring and tx_dma_ring as __iomem
+> and convert every access to readl()/writel().
 
-diff --git a/fs/hostfs/hostfs_kern.c b/fs/hostfs/hostfs_kern.c
-index 613146e76dec..7cf25c29cb78 100644
---- a/fs/hostfs/hostfs_kern.c
-+++ b/fs/hostfs/hostfs_kern.c
-@@ -700,7 +700,6 @@ static struct dentry *hostfs_mkdir(const struct mnt_idmap *idmap, struct inode *
- 		dentry = ERR_PTR(err);
- 	} else {
- 		inode = hostfs_iget(dentry->d_sb, file);
--		d_drop(dentry);
- 		dentry = d_splice_alias(inode, dentry);
- 	}
- 	__putname(file);
+These are good suggestions as non bug fixes but for now, this will do.
 -- 
-2.50.0.107.gf914562f5916.dirty
+Florian
 
