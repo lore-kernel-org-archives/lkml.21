@@ -1,84 +1,86 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.48
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795601333;
-	b=NqmLQg1sMALpCKyUDKUVidGlNOIOJeL1/p9Fboo6FEbPffekkCjiAFi+YE222R5ag2qU
-	 sBVLB/wyuzpo8C4wdiAUasyibm1n+rywDOx3FupPsggvaWVLTg7Uv4gKr3igFp34otHL/
-	 ci9JMgbyiDJ3aJHuFZnWA6ZWQmJG8zjw0kXy/JiNAXn7K0/C6f3vlCEmBbG0w0dFR1Kug
-	 EQjQrxMUgenMkox4SsCkhKz8SnnRDT7DbOdSEVUFQRXnqYTuHvOuei5JL+SabHsxG/Ldk
-	 1p+BFVG3rw2pP5k6s6BZBXuGGP/3CQcCZ5Vz6XA/Bvh1selMPRnxHXVdwzt0XVqyOPw==
+	t=1795601334;
+	b=X6JHcXdJf/IAMRu7kdLk0Yo3vdLD9tBetbNNzj8cZhunJaIXAMiXCPqD7lMvkUC/uXrC
+	 aamt+eYBdg4jju8WRMhSMurP2xJ1qsu4TBjHVUci8ri8qa49FbAinu3ge7bzGNJ6wIiPZ
+	 w7HvzELzyhXbrHd/Iuks/eAoDXtk4d1eWNwu8AyMAYSljs7V18sOWs0bHPyYcJEDE6wgy
+	 /NMMKRmn9XYKvcFvptueBxaE02q+dN1P//chvKeg9COkKVe5GMuzaIBQ14WY76LvBIlAR
+	 YqvQm6XRwHzGTrqtU7ny7fZqCADJAoE/BFRQWBLP2/umr6GVKuLpvxLc0r2KQ4fxK6Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795601333;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795601334;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:Content-Type:
-	 X-Developer-Signature:X-Developer-Key:Content-Transfer-Encoding;
-	bh=8RFJnfFUofOUJVeOBHJ0G0LL1AXcDfGe/iXizP4/kQ4=;
-	b=agCeMZAFI/gKXyhBPYGyloLBH7sYviEvkQxlkXGSH8S/GG6dZAH1C0TYo5XbUwmXs+cV
-	 hmWFLQA5JEZ1FcpUHERXriMsD+zmisljIlsHr+yBUE0ddJQqXA+oTGlLOjZA4O0JnaTPS
-	 2r+33TbxXV5f2Xz8fJjsE1z5cR6vZjtnfSn+hOeNvkGvnHmAMgjioKPmaMPBSrO6j0x42
-	 U0IQBWw9cV6QHgTVprE5hyTPxQ6ZRw1x4blwZDuvDqkBjs72vaZWFqvrIYWEcVeYTKRfe
-	 b7nCP9fLjECd5PQiDZLFDCljA5BJuk7JOhT9aKME/wL3C6PaqsMNAphzIVKUHHFMA2g==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Type:X-Developer-Signature:X-Developer-Key:
+	 Content-Transfer-Encoding;
+	bh=pd4p9Qxa5In9+g0/BQUXMOqoumqz2LbPkIrCjX+8XUM=;
+	b=q5stXApX8SKLPdxWpp/t0CNj/odeoO14WXm3FrIcVr2SE0OdG0t749f/4c7ARdYVA/mB
+	 Q9UpnztaW0vrjiDw0nFsvod8++lcZv7EGiCB+Mni7z6KIhN3P+fatdmRkNzAxzZJ16ACL
+	 VDZUCEQU777WDwAcqa95C6MVAe/NusFMB3i9dHL1XHAaEs8ZJajTH9CzhuaInDUPiqYsK
+	 HXSJhKVFhJCiB4gNoBZVmKZ3wBJHrnNudp3sCjxGo7t5v01zELD78STK6d0DxE0mnwsUJ
+	 Ej3VWxzVxYAhHoXWD7L2xi2kKm1qbTMZFo4MugjCq+xRUolRwiJGWwy32QQikGAaBlw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=baylibre.com;
 	spf=pass smtp.mailfrom=baylibre.com;
-	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=a9GKwi79;
-	arc=none smtp.remote-ip=209.85.128.48
-Received: from mail-wm1-f48.google.com (mail-wm1-f48.google.com [209.85.128.48])
+	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=gnXcrLC4;
+	arc=none smtp.remote-ip=209.85.221.42
+Received: from mail-wr1-f42.google.com (mail-wr1-f42.google.com [209.85.221.42])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A60CF606A31E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:08:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A60CF606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 36703606A323
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:08:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 36703606A323
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=baylibre.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=baylibre.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=a9GKwi79
-Received: by mail-wm1-f48.google.com with SMTP id 5b1f17b1804b1-4bba5e17728so4450555e9.2
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 02:08:52 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=gnXcrLC4
+Received: by mail-wr1-f42.google.com with SMTP id ffacd0b85a97d-4a42b34e930so4821897f8f.2
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 02:08:54 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1795601331; x=1796206131; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=8RFJnfFUofOUJVeOBHJ0G0LL1AXcDfGe/iXizP4/kQ4=;
-        b=a9GKwi79120n4yBBhURyzuvJMs8n2HoUre26B8bje8feS3Qtx/9GZaH1rP15mA6Yxx
-         VdYOWxE65FHI1XpmaSuir5ZWL7uN7PIzJ3s8OBRvWY4sCMDxYOitz9YDEwjGQm/nVl0X
-         adPc1n5OvSSJhYxFlKIluSnZh54edfOCvZVNkJn8pKFMMRVmc0FI9whI/bPK4f/VSt2D
-         RjIgB3oob6aTWHOyHzgU19+0OOlODIPYJUbxjDPXAHPjWREZjdMfKeXHfrh1ATdjO5bx
-         dYHYy6vEJ9BYFkLW+g+UpCZnDJFLHV4jNYgJQbLWkjJfKYuKhXeHRUTqp+cSicY/WugN
-         2gnQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795601331; x=1796206131;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+        d=baylibre.com; s=google; t=1795601332; x=1796206132; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=8RFJnfFUofOUJVeOBHJ0G0LL1AXcDfGe/iXizP4/kQ4=;
-        b=hTiPf1rhqXnRl1FnlGWhzreKssJ6mzdQnw3XdomqYO8L4ZxN6MltgyeNX0GH7APBPl
-         TT0/S7AyA3lJSs1azYBGHrGpHUiCOtArDVP82wyt37EegozaSCjAd0VLhQJ0ALr9QsLP
-         vASx0xFtEZocbNnJGDUpe9RV75HNtBxGECG7zwMrJcI0w/CNT5d5nf54FOKHT5jivp+X
-         V54kMzQVP3kDK+fRCmgWRmxMz1Zck6+8VJbz3/FcIOXvYYXFsb3vC8s/VzChsNDaqNaQ
-         b+NrixmfFTg7P2bxxHy90d0d6X6Sfp3QWI4NcazdVpgUrYq3Oihetv+Sey9rveKe2Al5
-         lllQ==
-X-Forwarded-Encrypted: i=1; AL+hErFuEAp1XA+7sEYEyVFWChm8z/hCM/gY9D0p7a2Bo7AqG1Fe5GZmVX1Wt7VcJHXkHD+Wsce2VfY8xcmZq/Q=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+0Z3RofZEhlmCzNDm28IMQcOGcvZZ+q//vvYJrJcDYyX9cGdXF
-	EW8mb0159qar1T8Mzkzu6wp4oSiLxiyQAXSkGHHsnkXXmmm6urtupquaQQ0LwwM3Byg=
-X-Gm-Gg: AZFdTZeEEiNcJE1PVl9zx0PzvL3Gw4PqU/LgjUgFXDGriIq6cJKZ+zxRBcDNDxyLqtq
-	dy0nJ322Lda7neG7HZKOFOCFSeUSdF4MK7ndZ1Wh7Jc1wBM7vkB1rlsxTubwzNNe9nHy50D5RFH
-	BDdam0xtb9VDvi8nZKvgLN9t0I2T8v/0f9i33lcumnAzM2y5LPM16791d7ghC0Zuz7v/jGAqISj
-	pcazFuW8QzskpQmLYrgNtP5OoqQ56/JmKeK/Nd4JHLXefMVvWcxk1z2IGcGv0DbDM8hrXAKZnuj
-	9hrnkFD36u94p84g8CIciIJpzw9Lq5HgmH6o3GD/Kcr5FCpwIKNd7L1Zc6i/ydF4xlv6fqfXu+m
-	zTXt8eTvNGPxL6PhMJ92CdqUwEfDJmVD9gGpwm3NaKC5S+UT+ltDSjXOZA4uV6k40bxw7J/nvpv
-	/wmYUgAyZ9FvWZkFzOqfTJ2xswcCdp4Bmy2/zXQJJId+9ptywxn0gIVjSpK6EnLBbSxJdUk1OWu
-	4bMRo/7zOK2wYjigiYtbNYZZtG+UadOi4W/l0G75GVvPFMHA+hurva2cJQIrxsvx+W4dpBNB1u5
-	+gYDj8SGjNEXvXwmQGRDL1OhbWJT4Z4DTOh3B7Ud3vCat/f1hpzEW1KvuQJutktZ3BWPcPnxqds
-	cFDmNLoDTd9ySm7wA
-X-Received: by 2002:a05:600c:848d:b0:4bb:52d8:73ef with SMTP id 5b1f17b1804b1-4bb88940f1bmr346869865e9.34.1795601331043;
-        Wed, 25 Nov 2026 02:08:51 -0800 (PST)
+        bh=pd4p9Qxa5In9+g0/BQUXMOqoumqz2LbPkIrCjX+8XUM=;
+        b=gnXcrLC4UV8y66NqdecdJRF/U3V8p6Wl0VxduYa1e2L2SFGYK2MQge7sf8kS3GwtMJ
+         NWsB7iqA6pZ6BusMcetcOHELyLMVf7gEVu0lg7e2SJ7NpiicSG0QmpIa0Gw+N9iheFuC
+         ieKwC+IlTydp9yU8+oaCW8+6Wc5anueeo3W9iprvK1uswp5+ZwAuYVrKpZCaaAO+NXet
+         z6KMWlLbllQNTNHFUFKUsUrgkMKY+DlKPMGHGkWdm8w3/YfLhB0dWdEAsaoCowmAeoq2
+         o7IhogI9+TTnlL8mA7zaj18w3VFD7xDqBUA97jwOvu9ljoECWSgdLillCwgOSWSLznxA
+         Kptg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795601332; x=1796206132;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=pd4p9Qxa5In9+g0/BQUXMOqoumqz2LbPkIrCjX+8XUM=;
+        b=RBy+P84+I2K8sVq1uamQlPwW95dOg+k8HQGMH2fgzukxZZw1Wa7uiVunJr+AqhDTiE
+         NwHO4rO2cYmmRIuB55SqA72lsLQZ288CRQxRq17d2vQUOyZiTXI8DGqmtCnlYv0YdmrU
+         so5FmQ+TI/9M5sbB3oJ/XFgqm5HOfQErNc4e0oZBCByiyYmwjTQ9ODzsqINCn/xfbZFQ
+         TBnDsXPFi/g2f5lpG2hh/GM8fVXKF8YLMjcu3ApmBAgdjC6f7M07LqqmyIjrVvLsfSVw
+         +qKwgyZPZ+rUgJ6TWf1bI32NxzCAb9GOKV0c/F0UACfJWrmSo25Ir7dRyceltaSshEvQ
+         v3Dw==
+X-Forwarded-Encrypted: i=1; AL+hErELQT6ERzHxgKNnkT+gbsdhIG9LiaVrKk9jxfAxKxAkAhe2eIILVl8CJUBo2cZTVQALJ/6NtVx+a5XVG5o=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+areJgagyvNbl1SDW0gMjI26V3y+PRa+ze9IHKgfkwEoFCZZjl
+	O9jhI2ev60NZUxLR0xiOjbomoRo+9BuJauql9zBd5fjk1XU5AyJBLxJV4k5V5QXUjv4=
+X-Gm-Gg: AZFdTZdyFcmcUnPexnjwhM3eJTUNK7PkolWj0VJwSQNIbX3gSHIlTbGQ81HpRjzWsIi
+	zsps4ECiYDvpml5at0J9MVJ55ohg2BmkM71lpYzmEgPO72LSyZ7s3NymxYrTHbVMTMnqVu7mOig
+	qdhcGZSWrkfvKCIvakEktgy+YL53VBCc1QXgsNu1IPTqaZk3D0hxar1zZH+UOcLFmUsSQxEZB/G
+	gNMCfVqiNp1Ujd9sRSqZW3I7eDqeeYnmO7V3u8/MOXGptGSaeomruP81d9FzbPNDkMM4TfaH9lg
+	p7OdPaEREcVCm+9bHI9KYih3MR2EytqAyjVvKwxdg1opMSqqUvCLA4VkT1heee5GrREza8AgcA3
+	4b9O/GawnEZeNIQZrZJgDWSaDKL6oj3UslmMoyx0PTd4qXVHisMZUa2uV5nJvvBybZZIOBwFL3c
+	zwgk5jn2UZz+2/nO35+xlmf5W5oPGiruZaejTiOLfmawDP46g4oK78zsxsQHReks/uHBQvNt8gv
+	OGSntN4d5YYqHgh7CM7lWrBx4k7xRaDx3oWXnrXpBv5Sz8nVkTcbEUSoEMLkbllSSvKtpXluqjo
+	FS6e6XAw1NNKQeCLr/K1uKtZIygS5VwCjS/Ex81dT0KPFPti2hdEUeVcHNpHdzgglaChGQIPBdY
+	azZREJQhLLZQL6ZYH
+X-Received: by 2002:a05:6000:298d:10b0:492:9630:6a7f with SMTP id ffacd0b85a97d-4abb5db7829mr23954805f8f.55.1795601332561;
+        Wed, 25 Nov 2026 02:08:52 -0800 (PST)
 Received: from localhost (p200300f65f19a9043ef7230869dfba63.dip0.t-ipconnect.de. [2003:f6:5f19:a904:3ef7:2308:69df:ba63])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4bb853ca452sm494486865e9.15.2026.11.25.02.08.50
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-4b8e564e39asm4042375f8f.57.2026.11.25.02.08.51
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 02:08:50 -0800 (PST)
+        Wed, 25 Nov 2026 02:08:52 -0800 (PST)
 From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Jiri Slaby <jirislaby@kernel.org>
@@ -89,10 +91,12 @@ Cc: Hugo Villeneuve <hvilleneuve@dimonoff.com>,
 	Luca Fresi <luca.fresi@bithiatec.com>,
 	linux-kernel@vger.kernel.org,
 	linux-serial@vger.kernel.org
-Subject: [PATCH v1 0/2] serial: sc16is7xx: Two simplifications
-Date: Wed, 25 Nov 2026 11:08:37 +0100
-Message-ID: <cover.1795601260.git.u.kleine-koenig@baylibre.com>
+Subject: [PATCH v1 1/2] serial: sc16is7xx: Drop usage of <linux/mod_devicetable.h>
+Date: Wed, 25 Nov 2026 11:08:38 +0100
+Message-ID:  <000a0bfa98500f315a49fd4780e9b4e193f12840.1795601260.git.u.kleine-koenig@baylibre.com>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <cover.1795601260.git.u.kleine-koenig@baylibre.com>
+References: <cover.1795601260.git.u.kleine-koenig@baylibre.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,31 +107,52 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
-X-Developer-Signature: v=1; a=openpgp-sha256; l=612; i=u.kleine-koenig@baylibre.com; h=from:subject:message-id; bh=x3FshVaiZ2bQ7REteKeXQd9o/itPhX2UHimwWozOqB8=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBrBrOligdbxiii+PmMAhR41FggMFupvbQayJJ2R x/U6JBCXlCJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCawazpQAKCRCPgPtYfRL+ TthnB/9+0VgDmPwTgmZVpux2mE3nVwoeNUfUOMKTvDQQ0td1GgcDVU7NJl+n1P2aCdUZ7+RiLoc jGbNcL4GSfHr2h7lR46vhzZcY1EPE+JlKlw1WYES0mmBd/+mrNS2CBlpHvtRxRvaPwyDuuMMWpu yyadOR4LpWbcxDTFrVhcdFVQarNkpGqTcKCAzusTUr11mLzTusCS8NcIx9/jRDwG+qGI2H6xFxK l/N9P9I3M0EiNJ8ZL5pKWNGhdWBCChIIlPMhA4/2n3xwViycS3pm8Y6ZfB15OSQaDxj++LU+6AM kYMvRyvB1VGEHacCfQnIc54M+rX23zZhlGkqu/brkvWNu0iP
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1581; i=u.kleine-koenig@baylibre.com; h=from:subject:message-id; bh=rRCGx+2Zzp5KY20/ogaPkQ2ONt60PW1toE9sxiV9SRg=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBrBrOo0C/aWXDpbR3nOqyoR/XeK6RdbNl+m5ieC hRpom1ZEe2JATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCawazqAAKCRCPgPtYfRL+ ThWgCACX2nncM3OEtJ3WHAKSpeO6gklZpEAZONEEv3Y63bqfZPc8JAy3UJYQY/qIKWWhZX8zs// 8bL8Ts0v/wCdbA6zb+6cRtO298PlrqAhoV8dZqt3Y+K+MgOpdvatYQQLRzuAXmsJsEsBMuZrEql X+kH8qejifGsnIVkm0hEN+q3K9IOyV1U4VPVYdZwz1Y1XSKk573KElD7zhaoqerTFAHjYhTRW9B WbV2VYcjcc8EuV3jkb63rgY65teKFnxyMaEePJRa9S1vVbR2u9B/9ajp9RDVDqUPQsJi8JKlbLj Ufn5Sewx2YCOLmeC6MG0OLVNe+J9YM+Aa13X0oWQCCt/6NvY
 X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
 Content-Transfer-Encoding: 8bit
 
-Hello,
+drivers/tty/serial/sc16is7xx.h only used of_device_id from the various
+structures provided transitively by <linux/mod_devicetable.h>.
 
-the objective of the first patch is to prepare for the removal of
-<linux/mod_devicetable.h>. The 2nd patch is just a patch opportunity I
-noticed while working on the first patch.
+The consumers of drivers/tty/serial/sc16is7xx.h (i.e.
+drivers/tty/serial/sc16is7xx{,_i2c,_spi}.c) only use of_device_id,
+i2c_device_id and spi_device_id. The latter two are already provided by
+<linux/i2c.h> and <linux/spi/spi.h> respectively. So it's enough to
+replace the broad #include by <linux/device-id/of.h> in the header.
 
-The patches can be applied independantly if needed.
+This reduces the amount of transitively included headers (and thus
+useless build dependencies) a lot. (Supporting statistics on top of
+next-20261124 for an x86_64 allmodconfig build:
 
-Best regards
-Uwe
+	before:
+	$ wc -l drivers/tty/serial/sc16is7xx.i drivers/tty/serial/.sc16is7xx.o.cmd
+	  71313 drivers/tty/serial/sc16is7xx.i
+	   1387 drivers/tty/serial/.sc16is7xx.o.cmd
 
-Uwe Kleine-König (2):
-  serial: sc16is7xx: Drop usage of <linux/mod_devicetable.h>
-  serial: sc16is7xx: Drop unneeded __maybe_unused
+	after:
+	$ wc -l drivers/tty/serial/sc16is7xx.i drivers/tty/serial/.sc16is7xx.o.cmd
+	  70392 drivers/tty/serial/sc16is7xx.i
+	   1330 drivers/tty/serial/.sc16is7xx.o.cmd
+)
 
- drivers/tty/serial/sc16is7xx.c | 2 +-
+Signed-off-by: Uwe Kleine-König <u.kleine-koenig@baylibre.com>
+---
  drivers/tty/serial/sc16is7xx.h | 2 +-
- 2 files changed, 2 insertions(+), 2 deletions(-)
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-
-base-commit: 3dd8c790a7b7027abdd568e36db5e82ffaea7c77
+diff --git a/drivers/tty/serial/sc16is7xx.h b/drivers/tty/serial/sc16is7xx.h
+index 9c584d6d3593..fb3b23ae2aff 100644
+--- a/drivers/tty/serial/sc16is7xx.h
++++ b/drivers/tty/serial/sc16is7xx.h
+@@ -4,7 +4,7 @@
+ #ifndef _SC16IS7XX_H_
+ #define _SC16IS7XX_H_
+ 
+-#include <linux/mod_devicetable.h>
++#include <linux/device-id/of.h>
+ #include <linux/regmap.h>
+ #include <linux/types.h>
+ 
 -- 
 2.47.3
 
