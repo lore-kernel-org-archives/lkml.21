@@ -1,54 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.7
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.19
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795643377;
-	b=llvalZosM6N2Y+AN51h2GGos3s5I+JMkMYlBjH2f8ygcPyu194yTa5kBf2tm/dvOBxPF
-	 jWNUKflFRyCee+WkDgzHSkGBabMfo0F7Z4Z0sqwc//4CsuEf8+i2vkeXT97axwVRHPKfV
-	 OPcsjQAwqHYXOl61QXxyM97Git+sE5hKO8NL3P7I+o934zcLf3SFJIsMiP7qIqpXDZo4W
-	 IP5P8BP5GBePPGMBvNl/Gb0gR4uzQLS1P/BRxdDa0mCDF/nw1pYwJe4yXwnIOZDrPv1xW
-	 lNqLkN5DiTHsLZ6kFZeAfb3Y8SPWZv/Y8HpfMJ5uvg1hraxRFI7geIh7U3dHjGuGulQ==
+	t=1795643436;
+	b=hDHzm9qxrbbMl2HcGcCmE1BF9TItZjEF9Xq6B1AeB9Hx8evUubF6uK7kvAZ6XV2zHRo6
+	 a3bytSbY7m6jkQS83VFHYebm7fUvS1FzQQTIP4Oz8m4ABs6DtLOQ8vrAGvgkNZw+OSaBK
+	 pomU7lXWMXx0gOmf28/WWIlkCFHeRJOlS1gopauHGF66WgAT7sEg7jMzQStmsw4A5SUio
+	 8UwSPJho0ssikjOBObn2KI5eXILQd9RGua1j6c4PvbEsSdsllKYFvkOwWpTNK5GFIJr6q
+	 VWLrUwoloq4ozB2Q0oRVIGHIu7DqgygXIQtfO3a2QTYR6TrSr8NR4E0LeKAKMCVRRlQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795643377;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795643436;
 	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=kKJKbMnJNOGoE6D91lLl+V2hqik3/+jrS4TaB+PdqrY=;
-	b=lRUFyv9OkbgFMmQ2qF6ellWepk2NfGfkqkf5tsAB1bdpAjYYsUcfOFQdpJHpirq1bP89
-	 OAWQmCroiLHFdhuJLC25dcrzEpfLEZtcqgpskcqQuXr7ADKrscCt4HQGUgtACx6D99rl6
-	 c/WmX88PWFlctb3IJD37ZAMWHxSy2Xi58ru5hN5hHm8Z8dziDYM0+pvtAkkSrB5Pl1Q4M
-	 GqpCFQZ2BQ5YfmfU5ss4pfQD5s8kYWHsXB57F406Ttl9F0un2gWhRIW6s2vn6XvTrPofS
-	 oAaNUnfcNI7Kjh5i7isnqzEryO3PjEpKbDAgmJomWBx72sNoTQLUnhrI6OKywZAxtEA==
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:CC:Subject:In-Reply-To:
+	 References:Message-ID:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=V+3TiGy3sSxyhaiGHLZNJdGYKiQc1BwWZ3abIKtTVCI=;
+	b=4Pb+SL0ZmxpdTR2t7jOaPDuL3k0/AzKEmlwPVRBymCIp848KuUZe07dclEMm1Z5HlRFL
+	 KhF5C28812vStcRAuN55ln2EEdHwxaLpRVHr+DM1UCwW6zTMYpP07BlP+mIGu6LJz2vPA
+	 c8UBEvK8B9/DQHIorH5SAwemhuhQUg7U298Dn1CVQDvXsOHZTaNkKEpmNBSDXT9cPbXAG
+	 VTmEcskaqbe2Yg0K7CjmrvRVkjETHEEt/2KOFqtzXDAi2KVAcUV9fBSuJ74jiSRkKmQAN
+	 Rxw06oCvo8bG/Fibo81i2QkX5iD+dqUiorP/Ob0XN/cplo7mW8Va0ZHqismktZj1EQw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linux.dev;
 	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=g4ilV5O3;
-	arc=none smtp.remote-ip=95.215.58.7
-Received: from mta1.migadu.com (out-7.mta1.migadu.com [95.215.58.7])
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=mhC7wQyz;
+	arc=none smtp.remote-ip=91.218.175.19
+Received: from mta0.migadu.com (out-19.mta0.migadu.com [91.218.175.19])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 07F3D606A321
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 21:49:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 07F3D606A321
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 40C94606A323
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 21:50:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 40C94606A323
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=g4ilV5O3
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=mhC7wQyz
 X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=23ukelReVlQPxc727XgPBvL052sL8fB47EA5Oas4FGk=;
+DKIM-Signature: a=rsa-sha256; bh=d9tmaEDaam3zf5/opnl/lrNgub3N6fRlqVdGEjaEfQI=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795643375; v=1; x=1796248175;
- b=g4ilV5O3yYC6yhOJGtP90BvpNeDZQqHMwkolMBewnNYzg30dUDCcynwOM/kniC0MeppIG7iM
- S9hfp0ktxWi61dLPhnb4UFjObzp89imJxrRUEwaKJBUxP2SqkmSyXCOgQDmcQV3MEWrCKQ7HY5i
- 395jK0IkAEgoiiNv3X7Z5bXE=
+ t=1795643434; v=1; x=1796248234;
+ b=mhC7wQyzyom0rbpREeoED+gM/ek34ln0QIlDHcpd/3nG0vuLDuYXXHt/dex3m8ykeSnwRDK8
+ 23gr5VAH4hTbFL357i0IqbEVMyd86upgt6z6IEIOFoOVr7cs5uE7AMZNqTFsyZsChHOlkWgksxk
+ TWMyf5iUJbo6gXAxidCmGJeg=
 X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 61dfde814fe69c93;
-	Wed, 25 Nov 2026 21:49:34 +0000
-X-Mizu-Trace-ID: 61dfde814fe69c93
+Received: by smtp.migadu.com with ESMTPS id 66bb3235c50c3afa;
+	Wed, 25 Nov 2026 21:50:31 +0000
+X-Mizu-Trace-ID: 66bb3235c50c3afa
 X-Migadu-Flow: FLOW_OUT
-Message-ID: <1b0242ef-49ad-4d7d-820e-d1e6569eacf8@linux.dev>
-Date: Wed, 25 Nov 2026 21:49:34 +0000
+Date: Wed, 25 Nov 2026 22:50:30 +0100
+From: Luka Gejak <luka.gejak@linux.dev>
+To: niko3x@proton.me,
+ Ahmet Zeren via B4 Relay <devnull+niko3x.proton.me@kernel.org>,
+ Ping-Ke Shih <pkshih@realtek.com>
+CC: linux-wireless@vger.kernel.org, Bitterblue Smith <rtl8821cerfe2@gmail.com>,
+ linux-kernel@vger.kernel.org, Ahmet Zeren <niko3x@proton.me>
+Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_RFT_rtw-next_1/2=5D_wifi=3A_rtw88=3A_use?=
+ =?US-ASCII?Q?_the_rate=2C_bandwidth_and_GI_of_injected_frames?=
+In-Reply-To: <20261124-b4-rtw88-inject-v1-1-f7457e496924@proton.me>
+References: <20261124-b4-rtw88-inject-v1-0-f7457e496924@proton.me> <20261124-b4-rtw88-inject-v1-1-f7457e496924@proton.me>
+Message-ID: <8E47D781-B1FF-4B2F-B0EA-AABA130E2778@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,111 +68,33 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] mm/cma: reject long-term pins of HugeTLB folios
- overlapping crashkernel CMA
-To: Sang-Heon Jeon <ekffu200098@gmail.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- David Hildenbrand <david@kernel.org>
-Cc: "Liam R. Howlett" <liam@infradead.org>, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org, Michal Hocko <mhocko@suse.com>,
- Mike Rapoport <rppt@kernel.org>, Vlastimil Babka <vbabka@kernel.org>,
- Qi Zheng <zhengqi.arch@bytedance.com>, Muchun Song <muchun.song@linux.dev>,
- Oscar Salvador <osalvador@suse.de>, Frank van der Linden <fvdl@google.com>,
- Kiryl Shutsemau <kas@kernel.org>, Baoquan He <baoquan.he@linux.dev>,
- Pasha Tatashin <pasha.tatashin@soleen.com>,
- Pratyush Yadav <pratyush@kernel.org>, Jiri Bohac <jbohac@suse.cz>,
- kexec@lists.infradead.org
-References: <20261125155108.24098-1-ekffu200098@gmail.com>
-Content-Language: en-US
-From: Usama Arif <usama.arif@linux.dev>
-In-Reply-To: <20261125155108.24098-1-ekffu200098@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain;
+ charset=utf-8
+Content-Transfer-Encoding: 8bit
 
+Hi Ahmet,
 
+Thanks for picking this up. One comment below.
 
-On 25/11/2026 07:51, Sang-Heon Jeon wrote:
-> crashkernel=size,cma uses existing hugetlb_cma memory, so
-> crashk_cma_ranges[] may contain HugeTLB folios. HugeTLB folios allocated
-> from hugetlb_cma can be long-term pinned without being migrated.
-> 
-> After a crash, the crash kernel uses the memory in crashk_cma_ranges[],
-> but a device can still write to a long-term pinned folio.
-> 
-> So reject long-term pins of HugeTLB folios overlapping
-> crashk_cma_ranges[].
-> 
+On November 24, 2026 11:32:30 AM GMT+03:00, Ahmet Zeren
+<niko3x@proton.me> wrote:
 
-Is spending the workload to protect the dump the right way round for this
-option?  kdump.rst describes it as
+[ ... ]
+> +     if (rate->flags & IEEE80211_TX_RC_80_MHZ_WIDTH)
+> +             pkt_info->bw = RTW_CHANNEL_WIDTH_80;
+> +     else if (rate->flags & IEEE80211_TX_RC_40_MHZ_WIDTH)
+> +             pkt_info->bw = RTW_CHANNEL_WIDTH_40;
+> +     else
+> +             pkt_info->bw = RTW_CHANNEL_WIDTH_20;
 
-	This reservation method is intended for systems that can't afford to
-	sacrifice enough memory for standard crashkernel reservation and where
-	less reliable and possibly incomplete kdump is preferable to no kdump at
-	all.
+Do we also need DATA_SC when the requested width is narrower than the
+channel? The RTL8822B vendor driver sets it alongside DATA_BW for HT and
+VHT data. Here we leave it at zero and program the primary subchannels
+through REG_DATA_SC. I am unsure which one the MAC uses with USE_RATE set.
 
-so the dump is the part the admin has already agreed to give up.
+Could we check that a 40 MHz frame on an 80 MHz channel goes out on the
+half containing the primary channel, with the primary channel in each
+half in turn?
 
-> Signed-off-by: Sang-Heon Jeon <ekffu200098@gmail.com>
-> ---
-> The above scenario is only possible with the two patches below applied.
-> Currently only linux-next, which is targeting v7.5, has both of them.
-> 
->   "mm/hugetlb: allow crashkernel to reuse hugetlb CMA memory" (kexec-next)
->   "mm: gup: allow long-term pins of CMA-allocated HugeTLB folios" (mm-unstable)
-> ---
->  mm/cma.c | 25 ++++++++++++++++++++++++-
->  1 file changed, 24 insertions(+), 1 deletion(-)
-> 
-> diff --git a/mm/cma.c b/mm/cma.c
-> index 0c97aadcfea4..cb4a92e2b9f5 100644
-> --- a/mm/cma.c
-> +++ b/mm/cma.c
-> @@ -32,6 +32,8 @@
->  #include <linux/hugetlb.h>
->  #include <trace/events/cma.h>
->  #include <linux/page-isolation.h>
-> +#include <linux/crash_reserve.h>
-> +#include <linux/range.h>
->  
->  #include "internal.h"
->  #include "cma.h"
-> @@ -42,12 +44,33 @@ unsigned int cma_area_count;
->  
->  bool cma_folio_is_longterm_pinnable(struct folio *folio)
->  {
-> +	struct range r;
-> +	int i;
-> +
->  	/*
->  	 * Explicitly allocated CMA folios own their CMA memory and can be
->  	 * pinned even in ZONE_MOVABLE, as CMA memory cannot be offlined.
->  	 * For now, only HugeTLB tracks these allocations with a folio flag.
->  	 */
-> -	return folio_test_hugetlb(folio) && folio_test_hugetlb_cma(folio);
-> +	if (!folio_test_hugetlb(folio) || !folio_test_hugetlb_cma(folio))
-> +		return false;
-> +
-> +	/*
-> +	 * The crash kernel uses the memory in crashk_cma_ranges[], but a
-> +	 * device can still write to a long-term pinned folio after a crash.
-> +	 */
-> +	if (!crashk_cma_cnt)
-> +		return true;
-> +
-> +	r.start = PFN_PHYS(folio_pfn(folio));
-> +	r.end = r.start + folio_size(folio) - 1;
-> +
-> +	for (i = 0; i < crashk_cma_cnt; i++) {
-> +		if (range_overlaps(&crashk_cma_ranges[i], &r))
-> +			return false;
-> +	}
-> +
-> +	return true;
->  }
->  
->  phys_addr_t cma_get_base(const struct cma *cma)
-> 
-> base-commit: a036649714c3446abfdc36d0ae483046432b16c5
-
+Best regards,
+Luka Gejak
