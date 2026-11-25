@@ -1,49 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795615380;
-	b=OOyH0OVWHanz/Acz0nlV0/Ut89y1Wz7Qu5UA983Bv6aEKmJzL9rQ9TkaVS6NUhJWhChA
-	 rlu+BF8An2cvJ6CsDkXjlCX0PmG93N+IFildPzLFMjKfqJds0QJdLalgxCqH/JG2csX5c
-	 b+usHYJsk+cTSkSb8qSU2SwDnt5XE8Z1/S2ChcxJCvu4WhMTwABWSm4FuG6HE6iOxeh+d
-	 /qdDxh5v/e9hwEIcPHG41TcRQ87NnLv3ubzYFwiP23j5c7ZRb2i+/Mh8fF+DCx/GU8WbV
-	 YQ3PD2YqtZYOjfyMOsxAgKlagH/Zi9jFJu6JJdGdQoDOY02pjBjtDcVqN7enc5ZT58g==
+	t=1795615386;
+	b=IKAlqy0yRY3mkdDwt2UBrX1fDjX+/kmzStivXyZJ2rCGt1CJkaLUQsGdjlOlmYtE5g1B
+	 7/0QI0pw4lKRiL2oEHcK5XIf+mQncm8y4sSWkeg8qrLMiF4c4uhibG9FaM0vvCyAe/7qy
+	 OJHf3o5O4VcwWe6VwEMXEc0js8djR4/IbIfdFYrPvSndHN+cOGgsIGyyFApWUt4lR/r7I
+	 xObMFC902RVtxyY7f0yfp7BhWu3z4MTRkTi2JATAt0iaX0z7K+TMqmdE0F/AwwLlnavgY
+	 Fn4d3fAYTUDURZk+6EYCoVdNc/nn4WZChQcEkqZKf9YOFRUMWpjTEpFikJmqXg5LS7Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795615380;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=cPVmlqwgTJ0+O2N7IsQoI4o+3+8lWMqd0l4ipgO2ro4=;
-	b=3vlIZKM2F5lNuFcc+GiDLaxdXK2f0OLCNWq/7BM3zmJOGAmICCo4qALQ68z+PVppJb3S
-	 wUScgzTOKbfkIdhqF2QcB1J2Zpa+yoVv0imYiYJ5DYKmffAQxPtqiZQoRs0bFZJZLtoAe
-	 9ODpl998Ge+V9QChEPOJAyaeIb5wUOCvWPk8Yd3SF0yxTruJeRvGttw4fXmh9Ug2nzYgJ
-	 e7OSZpJnPSnLddi7A3oIO3Vu+3yzLt9EzGFNMpIHNgqSWMguR12JUJ40AMVhSn+HzzxRe
-	 B+67Ttqy7/azhTB7BZa7lYa9/eWnAEFzrE99sdH6p+Zk86svy8x7X5tMSt8KHnQUf5Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795615386;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
+	 X-Cookie;
+	bh=o0xCrp+ykgn22IEvePS7hj5uQUsEuSvg3Gk5u3CyDtM=;
+	b=XL1jVTHke/qQa0HZnFTa4AEWBhjNLHhVEqcvov2uEZ4Nb8l9Gw7sDIIx402JLrdJ1Tnu
+	 QUDsPKv7hizThxnufqvCPEUhhyo7Ok/whScoAtBw5M5z4oT9cop/0i4/5wyiAauEnWZom
+	 BllKYaV9ezNqjt8ZuM6GzCo+tP6Kgx+uCIqwU9fErK9SWJcTKy+DHUI0UWazRoNStUC3u
+	 nqE7v0m6r4TdSUeTzRSVTmdrq1flrdq9l4+BQcfkapYFUJGOJmInDX4R6wJr6nx6wVnFF
+	 RdiZsqyx0Oez4jp/cszOD3lUEkZiPKYl66H3MqeOLZVEcwdrl5OabpSbE1roJOe0HhQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=O8JRYTGn;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id E42A4606A31E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:02:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E42A4606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cuPGoii+;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F1FDD606A32A;
+	Wed, 25 Nov 2026 14:03:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=O8JRYTGn
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 68AC42F;
-	Wed, 25 Nov 2026 06:02:56 -0800 (PST)
-Received: from [10.0.135.195] (M0PRX50XMG.cambridge.arm.com [10.0.135.195])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D0C6E3F86F;
-	Wed, 25 Nov 2026 06:02:57 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795615379; bh=WeHxNZ3LfJfngdKcIainGtVtPJGUuJsc1UXxkRlYBss=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=O8JRYTGnVTn/oO+6nGTmR5sMNtvJkSd2qivR77LZi7ITXReD0NSspVM0vn58xyUXV
-	 NbdkJXWMO60UDqhjPBBvw+YnZoPe/17FT1Ari5LvEnK2IUT6Rsy+y8BvAtvvJqIh0Z
-	 uiB2BUEPX0Cyb8ezvsVzxGpdEoWUTlmHN/zu6gSc=
-Message-ID: <c92755e8-dc10-437d-b3fc-2b91be243263@arm.com>
-Date: Wed, 25 Nov 2026 14:02:56 +0000
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cuPGoii+
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46B531F000C4;
+	Wed, 25 Nov 2026 14:03:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795615385;
+	bh=o0xCrp+ykgn22IEvePS7hj5uQUsEuSvg3Gk5u3CyDtM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=cuPGoii+b0q2m4MngsSIgYWxrJwQNwFYhvMnjxHMf1S6zd/qFlJuNIP0BGNV04B37
+	 BcHt8C8TclPXbGg+e7wNwQQsG4EJ1CRGrq0DyetU0CQExm4m1DG1DnFziOvlSkSQV3
+	 sRdBre2LHEKWJ9FFH7ELVH+MMrjNmR024jqx7OO0bYyWBIYr2luwT1rIdTgWJSkiEi
+	 D0wRIcX4sebhVkFJFhWn52hrBkPVZDovLWEPM5jkOI+O8zhNPCaMx5mn7c/pFpSWmw
+	 Ulha/o+6/ygNAlU3FN22131lSWVNLml49oeozggTHl39eS7mDP0jj1j6rvgSdQwt2e
+	 JTqIJkbKFCnxA==
+Date: Wed, 25 Nov 2026 14:03:01 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Richard Fitzgerald <rf@opensource.cirrus.com>
+Cc: linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org,
+	patches@opensource.cirrus.com
+Subject: Re: [PATCH RESEND 4/4] ASoC: cs35l56: Add test that probe() doesn't
+ write SDW mux registers
+Message-ID: <51679d08-a78f-4572-a280-daa3a032b5e8@sirena.org.uk>
+References: <20261125110853.741337-1-rf@opensource.cirrus.com>
+ <20261125110853.741337-5-rf@opensource.cirrus.com>
+ <61660f09-9402-479e-92fe-6b1b2bc48158@opensource.cirrus.com>
+ <44ae0233-b475-42f0-a1e8-2c3299a4df50@sirena.org.uk>
+ <2e698fb5-6041-4ffb-99d6-d95644749f41@opensource.cirrus.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,60 +62,45 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 12/14] irqchip/gic-v5: Retain the ITT when device
- invalidation times out
-To: Fuad Tabba <fuad.tabba@linux.dev>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
- Radu Rendec <radu@rendec.net>, Timothy Hayes <timothy.hayes@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Jonathan Cameron <jic23@kernel.org>,
- "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20261118-host_gicv5_fixes-v3-0-13c1859e8aa3@arm.com>
- <20261118-host_gicv5_fixes-v3-12-13c1859e8aa3@arm.com>
- <av7PQ4iniwWC9goF@red-moon>
- <CA+EHjTwYexVk5tgHNorQVHwxLThT3nFzjYz50oYp=xhrd1LXDg@mail.gmail.com>
-Content-Language: en-GB
-From: Sascha Bischoff <sascha.bischoff@arm.com>
-In-Reply-To: <CA+EHjTwYexVk5tgHNorQVHwxLThT3nFzjYz50oYp=xhrd1LXDg@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="n9uYdnkB3n7cnem4"
+Content-Disposition: inline
+In-Reply-To: <2e698fb5-6041-4ffb-99d6-d95644749f41@opensource.cirrus.com>
+X-Cookie: -- Owen Meredith
 
-On 19/11/2026 12:07, Fuad Tabba wrote:
-> On Thu, 19 Nov 2026 10:28:19 +0000, Lorenzo Pieralisi
-> <lpieralisi@kernel.org> wrote:
-> [...]
->>> diff --git a/drivers/irqchip/irq-gic-v5-its.c b/drivers/irqchip/irq-gic-v5-its.c
-> [...]
->>> @@ -570,7 +570,9 @@ static int gicv5_its_device_unregister(struct gicv5_its_chip_data *its,
->>>           its_write_table_entry(its, dte, 0);
->>>
->>>           ret = gicv5_its_device_cache_inv(its, its_dev);
->>> -        gicv5_its_free_itt(its_dev);
->>> +        /* Only release the ITT once the ITS has discarded its references. */
->>> +        if (!ret)
->>> +                gicv5_its_free_itt(its_dev);
->>
->>          if (ret)
->>                  return ret;
->>
->>          gicv5_its_free_itt(its_dev);
->>
->>          return 0;
-> 
-> In this error path and the one in gicv5_its_device_register(),
-> kmemleak will report the retained ITT once the caller frees its_dev.
-> Could you mark the ITT allocations with kmemleak_not_leak() on both
-> paths, l2ptrs included for a two-level ITT?
 
-I've added these, thanks.
+--n9uYdnkB3n7cnem4
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-> 
-> With that added:
-> Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
-> 
-> Cheers,
-> /fuad
+On Wed, Nov 25, 2026 at 01:26:36PM +0000, Richard Fitzgerald wrote:
+> On 25/11/2026 12:39 pm, Mark Brown wrote:
 
+> > Send something incremental, this was already applied even before your
+> > resend.
+
+> I don't see them in your for-7.4/for-7.5/for-next branches.
+> Are you thinking of the previous series that did something similar
+> for the ASP registers?
+
+It should be in CI, though it's possible if you have two similar enough
+inapplicable serieses one of them got dropped on the floor.  There is a
+lag between me applying things and them actually appearing where I test
+them.
+
+--n9uYdnkB3n7cnem4
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmsG6pUACgkQJNaLcl1U
+h9CWNAf/a5z8E8P4PpuW3zAjcWxzspdfJedIKMBmWa3k15zpL/9tg73KO/nE4FeC
+hFNcTGWupPIUWL0uN+8AQlD76d8GYtF7wLL3lUZ1uA4wXyaUv14k9MtY6q1vXB3m
+oNLD/JMZm/5MRX6ScgisnPbZzGCSAvsSMI6BTfUjRuQM0TcSca4woqFs2i/A3MzI
+GdQr6jaS8Y+TSiQpD2qA73uF8+A4CiFHc+o/HF02nki9Di4KW2gO0ZKaHSwaeVJu
+HIRXHHkVZHzKazQ9xN/NkMa+jlGpC0fFZEWmxQGaEoZThylgs3gyqCO9y6y4An7M
+KaIeoC6n+P7fMYHwXTLvzM3T2pk3Ug==
+=x8hv
+-----END PGP SIGNATURE-----
+
+--n9uYdnkB3n7cnem4--
