@@ -1,80 +1,128 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=101.204.27.37
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.148
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795586527;
-	b=5tQeIqB04thPUhtMfMKGUDivZlqLKgSubTJ1xAZm1/bXhnOwNPf2L2ucd18sqb7o26wr
-	 wZLLNioMmIAAUg3KZQfUlls7MM/ripFUM57pOJDQkZ/k3afvOdAtKUTupFRFOjjAf6Up3
-	 Kqjta1n0Y33IbIzxg3N6t9LDQJC8o2uColR4DrE+ne9PUAipSwkuoZ1w6sdh4aC0or+AJ
-	 h0CVEcTdSJUwbnUA7OpqXsNiD7FkxqXQvTDKhMK7KUpSPG7rGptAT0vCCJPXZu0bt5PPZ
-	 e4CQdFeVKu9rSefatrmMizjS4SOLyCvN1thM5Ak1IHE/gfHo0Q/PztO3neEYdNXVyUg==
+	t=1795586675;
+	b=BrWGNQqfTG0Zyvr6zkcHQPHPjIKKqaRx7hMQ89KU2kmXsfggWf2Nz22kRq4QszHPzW7P
+	 8JI3M8hDJniZxKlYAHeA+6K5smb9yoU0eyIrIAr0cKcYilQkGZNJ+2M1NDzAnwWeMnu5Z
+	 EAZz/c6/baqP0CC333dQ+2c5t4w7SBqDIH+2XeTAr1SMm/7XQl8KSHkVQZ5Ct83WmxXKF
+	 mLmB8Wd3udei/td4x73lvtZj5qUacISnGjeQeeQ//xGFupJhYVgma3QNRe4KEytl5NNfH
+	 Q7cKbSZax4JRW8hrJX3R8NxfpfcnZOWPmPpDCNgYJA9vh1YO22Fo4XHGoTDGqRcn8YA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795586527;
-	h=DMARC-Filter:Received:Received:Received:Received:Received:From:To:CC:
-	 Subject:Thread-Topic:Thread-Index:Date:Message-ID:References:
-	 In-Reply-To:Accept-Language:Content-Language:X-MS-Has-Attach:
-	 X-MS-TNEF-Correlator:x-originating-ip:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=Hii0aBtwDU5EzWigN3Rbycst6/HZem0Wav4RGMQ0Sc0=;
-	b=SBbfPmjcVT9wnHyfooj0NJmQyeSoMTu6nNlj2kGgwH4wYqya74LSr2P9nQCKwwJaLzeF
-	 8E/vXj9+0gaaAHj9aMavi1QJWRXxUi/CzHzh+oDL+EeqrdJpyRlYu+pwmGQ8nrpdNNp5p
-	 LRl0So8qPNfDNkV+ypx9XVL9FU9beRdpLTXY3oq+PvC80uYSi+cZA1BRY7m53GJNGGDUA
-	 iamMzkVnOhRCIsK82fEOOfYXBRRuytKTHAoYXB4+6z8vhpu0uuCF+tc57dpO4Ls/r/cnT
-	 o8mNTTWMs2fa0ePOIK1mf8tyehXAUyHLluSJH0WiaS0VzaAlbGnNmgkcskW+hMg9v5w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795586675;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
+	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:Content-Transfer-Encoding:
+	 In-Reply-To;
+	bh=7Epil4PtGZfPz4YyI8mpzVy50A9b9V+tgSilC5wwwPc=;
+	b=laG+9dD6rOBaAOhpeYdTLQRyzqcN8QQ4W9OtU8ixYXiN4vuT+DUu7TNWGVgJXZDV+FJN
+	 OP4GW3I6GbtOi9sdUlUZrpCz/65E5s/ktMgTvo/5/slmsbawD2JQVzAxId0lYFtnrLfYu
+	 wC8pGzLV5mm0c5HcgS6ATCYVcRsrZuh56IScQLjmmOxamf13BEsHoKaF/y+cc8C+TE1hv
+	 3MFw8i9xCHjFdU3pFaJp0Ov5JzTCXIXkw4hCxBOBMcoNHOA7t/UcG2RqHeLTDkD3tvL+H
+	 s40TtP89T/5+aVqnRNQ/WsLmtqZRB3Fouhunf0DmzUVB57FJgL8iPGKd+QP0Lk345Ig==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=hygon.cn;
-	spf=pass smtp.mailfrom=hygon.cn;
-	arc=none smtp.remote-ip=101.204.27.37
-Received: from spam01.hygon.cn (unknown [101.204.27.37])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 56724606A31E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 06:01:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 56724606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=hygon.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=hygon.cn
-Received: from maildlp1.hygon.cn (unknown [127.0.0.1])
-	by spam01.hygon.cn (Postfix) with ESMTP id 4jZ8Fp26wSzg1cV;
-	Wed, 25 Nov 2026 14:01:50 +0800 (CST)
-Received: from maildlp1.hygon.cn (unknown [172.23.18.60])
-	by spam01.hygon.cn (Postfix) with ESMTP id 4jZ8Fm5lJVzg1cV;
-	Wed, 25 Nov 2026 14:01:48 +0800 (CST)
-Received: from cncheex05.Hygon.cn (unknown [172.23.18.115])
-	by maildlp1.hygon.cn (Postfix) with ESMTPS id 50B26DC0E;
-	Wed, 25 Nov 2026 14:01:42 +0800 (CST)
-Received: from cncheex04.Hygon.cn (172.23.18.114) by cncheex05.Hygon.cn
- (172.23.18.115) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Wed, 25 Nov
- 2026 14:01:48 +0800
-Received: from cncheex04.Hygon.cn ([fe80::1b6f:6c58:58a4:430d]) by
- cncheex04.Hygon.cn ([fe80::1b6f:6c58:58a4:430d%10]) with mapi id
- 15.02.1544.036; Wed, 25 Nov 2026 14:01:48 +0800
-From: Jianyong Wu <wujianyong@hygon.cn>
-To: Chen Yu <yu.c.chen@intel.com>
-CC: "mingo@redhat.com" <mingo@redhat.com>, "peterz@infradead.org"
-	<peterz@infradead.org>, "juri.lelli@redhat.com" <juri.lelli@redhat.com>,
-	"vincent.guittot@linaro.org" <vincent.guittot@linaro.org>,
-	"tim.c.chen@linux.intel.com" <tim.c.chen@linux.intel.com>,
-	"dietmar.eggemann@arm.com" <dietmar.eggemann@arm.com>, "rostedt@goodmis.org"
-	<rostedt@goodmis.org>, "bsegall@google.com" <bsegall@google.com>,
-	"mgorman@suse.de" <mgorman@suse.de>, "vschneid@redhat.com"
-	<vschneid@redhat.com>, "kprateek.nayak@amd.com" <kprateek.nayak@amd.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"jianyong.wu@outlook.com" <jianyong.wu@outlook.com>, Yibin Liu
-	<liuyibin@hygon.cn>, Yuan Zhong <zhongyuan@hygon.cn>, "chen.yu@linux.dev"
-	<chen.yu@linux.dev>
-Subject: RE: [PATCH v2] sched/cache: Enable LLC aggregation above the first
- NUMA level
-Thread-Topic: [PATCH v2] sched/cache: Enable LLC aggregation above the first
- NUMA level
-Thread-Index: AQHdcnNThxnu07L7qkqP0oGmwnBzFrc0v7yAgAlx2fA=
-Date: Wed, 25 Nov 2026 06:01:48 +0000
-Message-ID: <497d83de86d54fc3a390862f23cd6a57@hygon.cn>
-References: <20261112065445.592968-1-wujianyong@hygon.cn>
- <av7XHYkg+XLO+Xm4@chenyu-dev>
-In-Reply-To: <av7XHYkg+XLO+Xm4@chenyu-dev>
-Accept-Language: zh-CN, en-US
-Content-Language: en-US
-X-MS-Has-Attach:
-X-MS-TNEF-Correlator:
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	dmarc=pass header.from=ragnatech.se;
+	spf=pass smtp.mailfrom=ragnatech.se;
+	dkim=pass header.d=ragnatech.se header.i=@ragnatech.se header.a=rsa-sha256 header.s=fm2 header.b=pAsySB0t;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=JiWIx2VG;
+	arc=none smtp.remote-ip=202.12.124.148
+Received: from fout-b5-smtp.messagingengine.com (fout-b5-smtp.messagingengine.com [202.12.124.148])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 166B6606A321
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 06:04:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 166B6606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ragnatech.se
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ragnatech.se
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key, unprotected) header.d=ragnatech.se header.i=@ragnatech.se header.a=rsa-sha256 header.s=fm2 header.b=pAsySB0t;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=JiWIx2VG
+Received: from phl-compute-02.internal (phl-compute-02.internal [10.202.2.42])
+	by mailfout.stl.internal (Postfix) with ESMTP id 63FAE1D0063A
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 01:04:34 -0500 (EST)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-02.internal (MEProxy); Wed, 25 Nov 2026 01:04:34 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ragnatech.se; h=
+	cc:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1795586673;
+	 x=1795673073; bh=7Epil4PtGZfPz4YyI8mpzVy50A9b9V+tgSilC5wwwPc=; b=
+	pAsySB0tpM9qAYqkBdTKiGTG5K5FPkntlkCmYB5YAvB8FAWaUkuUoHlkraoZEiW4
+	Aej7i0bElhBbLgeutkC7Ww8c0F5SzHiE+jh753QxazdoqtMLa+qPSSm7suHgQbW9
+	vBehedOlTDUK6Amtjf4lXmOI1uxsBh+9ki1OV8PtIs5QQlJ4fAfOgnKOqB3QOjp2
+	Rxoc6nrlVvmHJ5ze5Ek79Olauij+4F/ANRwESJOXLowZ4Mpuh6wJLCiamdMFdJv6
+	ifsaZoHjIR3Cgb89AXl4wb6oZ+McfyJwtVnnWpK/bkFvgLouhcSHwuEhX4cOJ8tz
+	S62/kFmN2EUNYZeTkcdbQg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795586673; x=
+	1795673073; bh=7Epil4PtGZfPz4YyI8mpzVy50A9b9V+tgSilC5wwwPc=; b=J
+	iWIx2VGAIAluj3NNhn71fnJrX8214XLtmV0izi5w1M9soCnM3GlWvqWEGTQ/WEPS
+	agT00CG9Py/cGagYEopeSroTtg5EKe3vMptGq3Za34ASXtdh78qyk1AiDciGpyTe
+	GsGJAulV63U/vatwjw2MeacKtXkM3gBtdixwiw36KuTDpGKVz4FRKULANeKhlCiw
+	cLATpoDFK0t3ZDAnmmM3SqGvyrbC7dQfgUd8Xa7QhQ/LgB6K9ttpVC0PbP1zDsg6
+	a/KXiHOLuoWomQikbr0oT8IMqaJ2/TrSafm3y/TdLw8kjy4WoHYJIYs521XndIl6
+	qOUAwhEPpBf+SuDUyqHag==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=ragnatech.se a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795586673; d=ragnatech.se;
+	mf=PG5pa2xhcy5zb2Rlcmx1bmRAcmFnbmF0ZWNoLnNlPg==;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm2:rsa-sha256:MhrOEWsbtQj4CCBmmypPBkoGgerRdqmVe5GHrEWO8lzaDbP
+	Up3ykZobzVGYdi+RVfiZSDWT80IPnCexKbCFpSYufUGFHy63Tx+mcdQkF9KtONXX
+	IgL9S/sQfHYi7VXwNi7jD4QM7ucgvJeRzB3ZR/a8NcTH2aFHUiWPMOoNhMZPBALh
+	zAXrjhxQDAFcAvPgvAgRknJXbOrJSMAhLGUMkhF00Jz8kB1EZVzkhFMHo26ZRw7k
+	Q0flvGfg2wgF0lt9d32mgI5JIwWONrMzBG36+fxRztiykQVm1xGlMjIYdxBnQr+U
+	3NaXoPhuLN6Vo6tWPkP0Ou4+x144KyIkxMLC+eA==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=13;
+	hn=cc,content-disposition,content-transfer-encoding,
+	content-type,date,feedback-id,from,in-reply-to,message-id,
+	mime-version,references,subject,to;
+Message-Instance: m=1; h=sha256:y5PHGR4qiwNyE/UjmfbhM1rqkhy9QZJ0Q87ERQMI+gQ=:oX+79zdqtahGJCAA1wRCQbzUqooIPwfe5lkZzxhoaIs=;
+X-ME-Sender: <xms:cHoGa0Gf-Q9kbrJom9WdNChY2r6BbWDuKrzjdBBgrZI6Blu-RvxG5Q>
+    <xme:cHoGa9zq6lGfPr2zsvkYgKLkqsGxCSQFTy8u0ea5bk3vgSCWCXsST8OPhOy6POx4u
+    fcercS2JvvCsiX8qeCybIdUh8IN9_RlRnsphlwrD-vUuwAcuF18hoKc>
+X-ME-Received: <xmr:cHoGa-2j3gO5Aepz2LAmKaZoLCYH7xZq38g0ptDC0CuGs0FxCndACBV0HPofwZuXB9nHUYiBEACEnoMbcagUg8eKjv8VTs4>
+X-ME-Proxy-Cause: dmFkZTEjh66Usaj5wCBteC9/n4m04jt0OikNODyhj1mehMTaaXXPWYm5BLZA7iGopWBR2r
+    J5pvMD5mm4CxopDCZANuUbNvm5CeL8Cc6JLNHw1RQ0vbTQQV7t01z5rK0lyq372hvuTaFO
+    pLsHWHVmkjop8PpWoUrl0Ox81vWGF+itC7WntgdlDt8bLEXRQLGJzVicpzBao8dy2NEv6u
+    vEYGFIEJmncGMYi9KgdZmQM7rGakjLMqciIZlpJgtUrYguZZV9W7aajMEdnTMgzH3BXP0R
+    ThKlif/jrP1jIudQcB00ZoR/0F695gmgIOyXTjfm4YVbLa/jNIjdD1CDAXjneGY5Vt+8Ui
+    W6OJLG5Tnm4xV/iI5fdZTn1B1aGf5HNy1unNX98k8intATyi0ArJalgsXMAeyRQSiCnpUc
+    RFeFDy1hbps9YRNZW9BrtpMCNNd5VpCtbcqXoUfcuaTePjBzHot+RoX96CDdJBqN/WNsls
+    UI66e3GnwB2I6dXIjkfiBQ4rwmTTm0dg0n1S2Bjx8uFjs8icl5NpkOmOvUtMJUH0eAeE1C
+    R4E/YRDmb0l2ejUj0tiGwlTUwwYQetFKqRAes69e66CMOQSNy7Fu4CDr/w8HoMPNhQE3jJ
+    9MyhurgTVpapRbQWd1DXJ0ni1QnNMsVa9I3vl9Qx8GbYTDhQN20dTuHPNBRw
+X-ME-Proxy: <xmx:cHoGa9qgWslgZFVmaYlGPdxdWm_E1XNcKqgnIfYp0KtJh6hjxv0yOQ>
+    <xmx:cHoGa7WRuPB4GTlKBLHRFVHLAmVKPy1aBRwlcCMcn-GvWgKjs4wPLw>
+    <xmx:cHoGa2qpz8ooNNkaSewkI1KVJEQGqeDTOojfts4uZx94niUqpjogpA>
+    <xmx:cHoGayA2dmL23rNtK3hSQ2hM8oRxHTOK1OluZeXWxnHxBsH2ziYLRg>
+    <xmx:cXoGayOjIobTuNxChOtlEY00vY_hmLtoZ0iJ1tA9SsCJae4qmYbvbv70>
+Feedback-ID: i80c9496c:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
+ 25 Nov 2026 01:04:32 -0500 (EST)
+Date: Wed, 25 Nov 2026 07:04:29 +0100
+From: Niklas =?utf-8?Q?S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>
+To: Yaohan Li <shunsheng1218@gmail.com>
+Cc: "Rafael J . Wysocki" <rafael@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	linux-renesas-soc@vger.kernel.org, linux-pm@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 1/3] thermal: rcar_gen3: check for sensors before
+ reading the fuses
+Message-ID: <20261125060429.GK3898744@ragnatech.se>
+References: <20261124095110.131258-1-shunsheng1218@gmail.com>
+ <20261125030327.953450-1-shunsheng1218@gmail.com>
+ <20261125030327.953450-2-shunsheng1218@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,279 +132,79 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20261125030327.953450-2-shunsheng1218@gmail.com>
 
-Hi Chenyu,
+Hi Yaohan,
 
-> -----Original Message-----
-> From: Chen Yu <yu.c.chen@intel.com>
-> Sent: Thursday, November 19, 2026 7:02 PM
-> To: Jianyong Wu <wujianyong@hygon.cn>
-> Cc: mingo@redhat.com; peterz@infradead.org; juri.lelli@redhat.com;
-> vincent.guittot@linaro.org; tim.c.chen@linux.intel.com;
-> dietmar.eggemann@arm.com; rostedt@goodmis.org; bsegall@google.com;
-> mgorman@suse.de; vschneid@redhat.com; kprateek.nayak@amd.com;
-> linux-kernel@vger.kernel.org; jianyong.wu@outlook.com; Yibin Liu
-> <liuyibin@hygon.cn>; Yuan Zhong <zhongyuan@hygon.cn>;
-> chen.yu@linux.dev
-> Subject: Re: [PATCH v2] sched/cache: Enable LLC aggregation above the fir=
-st
-> NUMA level
->=20
-> Hello Jianyong,
->=20
-> On Thu, Nov 12, 2026 at 02:54:45PM +0800, Jianyong Wu wrote:
-> > sched_balance_find_src_group() only considers group_llc_balance when
-> > sds.prefer_sibling is set:
-> >
-> > 	if (sds.prefer_sibling && local->group_type =3D=3D group_has_spare &&
-> > 	    (busiest->group_type =3D=3D group_llc_balance ||
-> > 	     sibling_imbalance(env, &sds, busiest, local) > 1))
-> > 		goto force_balance;
-> >
-> > sds.prefer_sibling mirrors SD_PREFER_SIBLING of the busiest group's
-> > child sched domain, and sd_init() clears that flag on every SD_NUMA
-> > domain. So on any domain whose child is itself a NUMA domain, i.e. on
-> > systems with more than one NUMA level such as multiple nodes per
-> > socket, groups tagged with group_llc_balance by llc_balance() can
-> > never take the force_balance path.
-> >
-> > Such a group falls into the !group_overloaded branch below and in the
-> > common case ends up in out_balanced, so a task that was placed
-> beyond
-> > the first NUMA level is never pulled into its preferred LLC.
-> >
-> > Only require sds.prefer_sibling for the sibling_imbalance() case,
-> > which is what it was originally introduced for.
-> >
-> > Split the condition into two explicit tests and gate the llc_balance
-> > one on sched_cache_enabled(), so that the non cache aware case never
-> > reads the group type, and the test disappears at compile time when
-> > CONFIG_SCHED_CACHE is off.
-> >
-> > Reported-by: Yibin Liu <liuyibin@hygon.cn>
-> > Suggested-by: Tim Chen <tim.c.chen@linux.intel.com>
-> > Signed-off-by: Jianyong Wu <wujianyong@hygon.cn>
-> > ---
-> > v1 -> v2:
-> > - Split the condition into two tests and gate the llc_balance one on
-> >   sched_cache_enabled() via busiest_llc_balance() (Tim Chen).
-> > - Add schbench/hackbench results with NUMA balancing enabled and
-> >   disabled (Chen Yu).
-> > - Reword the subject and drop the Fixes tag: this enables aggregation
-> >   above the first NUMA level rather than fixing a bug (Chen Yu).
-> >
-> > v1:
-> https://lore.kernel.org/all/20261104141313.185433-1-wujianyong@hygon.c
-> n/
-> >
->=20
-> [ ... ]
->=20
-> >  kernel/sched/fair.c | 35 +++++++++++++++++++++++++++--------
-> >  1 file changed, 27 insertions(+), 8 deletions(-)
-> >
-> > diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
-> > index cfc982205b98..01b9f7885574 100644
-> > --- a/kernel/sched/fair.c
-> > +++ b/kernel/sched/fair.c
-> > @@ -12192,6 +12192,16 @@ static bool update_llc_busiest(struct lb_env
-> *env,
-> >  	 */
-> >  	return sgs->nr_pref_dst_llc > busiest->nr_pref_dst_llc;
-> >  }
-> > +
-> > +/*
-> > + * The busiest group has tasks that prefer the destination LLC and
-> > + * cache aware scheduling is enabled.
-> > + */
-> > +static inline bool busiest_llc_balance(struct sg_lb_stats *busiest)
-> > +{
-> > +	return sched_cache_enabled() &&
-> > +	       busiest->group_type =3D=3D group_llc_balance;
-> > +}
-> >  #else
-> >  static inline void record_sg_llc_stats(struct lb_env *env, struct
-> sg_lb_stats *sgs,
-> >  				       struct sched_group *group)
-> > @@ -12210,6 +12220,11 @@ static bool update_llc_busiest(struct lb_env
-> *env,
-> >  {
-> >  	return false;
-> >  }
-> > +
-> > +static inline bool busiest_llc_balance(struct sg_lb_stats *busiest)
-> > +{
-> > +	return false;
-> > +}
-> >  #endif
-> >
-> >  /**
-> > @@ -13303,14 +13318,18 @@ static struct sched_group
-> *sched_balance_find_src_group(struct lb_env *env)
-> >  			goto out_balanced;
-> >  	}
-> >
-> > -	/*
-> > -	 * Try to move all excess tasks to a sibling domain of the busiest
-> > -	 * group's child domain.
-> > -	 */
-> > -	if (sds.prefer_sibling && local->group_type =3D=3D group_has_spare &&
-> > -	    (busiest->group_type =3D=3D group_llc_balance ||
-> > -	    sibling_imbalance(env, &sds, busiest, local) > 1))
-> > -		goto force_balance;
-> > +	if (local->group_type =3D=3D group_has_spare) {
-> > +		if (busiest_llc_balance(busiest))
-> > +			goto force_balance;
-> > +
-> > +		/*
-> > +		 * Try to move all excess tasks to a sibling domain of the
-> > +		 * busiest group's child domain.
-> > +		 */
-> > +		if (sds.prefer_sibling &&
-> > +		    sibling_imbalance(env, &sds, busiest, local) > 1)
-> > +			goto force_balance;
-> > +	}
-> >
-> >  	if (busiest->group_type !=3D group_overloaded) {
-> >  		if (!env->idle) {
-> >
->=20
-> Got one question below. After cache-aware scheduling is enabled at NUMA
-> level 2,
-> should we adjust src_cpu in llc_balance()?
->=20
-> Suppose there are 4 NUMA nodes, N1, N2, N3, and N4. Under each NUMA
-> node, there are
-> sub-NUMA nodes, say N1.1, N1.2, and N2.1, N2.2, and so on.
->=20
-> Before this patch, cache-aware scheduling is allowed to aggregate tasks
-> between N1.1
-> and N1.2, but not between N1 and Nx. With this patch applied, it becomes
-> legal to
-> aggregate tasks between N1 and Nx.
->=20
-> Consider N1 as the dst_group. Then we try to find the Nx group as the
-> busiest src_group.
-> Say we choose N2 as the busiest one. Then in llc_balance(), we evaluate
-> the utilization
-> between the LLC containing env->dst_cpu and the LLC containing
-> cpumask_first(sched_group_span(N2)).
-> The latter always returns the first CPU in N2.1, which might be wrong,
-> because the busiest could
-> be N2.2 as well.
->=20
-> So, we might want to use the busiest CPU in the busiest N2 rather than th=
-e
-> first CPU in the
-> busiest N2, how about something like below:
->=20
-This is an existing issue, I think, even before this patch.
+On 2026-11-25 11:03:25 +0800, Yaohan Li wrote:
+> rcar_gen3_thermal_read_fuses() dereferences tscs[0], but the check that
+> rejects a device without sensor resources comes after the thermal zones
+> have been registered.  Move the check up, so that a device exposing no
+> memory resource is rejected before the fuse reader touches tscs[0].
 
-Suppose we have a system with multiple NUMA nodes, each node with multiple =
-LLCs.
-When balancing between NUMA nodes, we need to decide whether a NUMA node ca=
-n be
-tagged with group_llc_balance using llc_balance(). Then the issue you descr=
-ibed
-above occurs.
+This commit message makes little sens, how about:
 
-I think your code fixes an inconsistency here. Once a sched group with mult=
-iple
-LLCs is passed to llc_balance(), we use the first LLC inside the group to d=
-o the
-check, while in sched_balance_find_src_rq() we pick the rq whose tasks most=
- prefer
-the dst LLC. But they may not be the same LLC. That is to say, we decide wh=
-ether a
-group should be tagged with group_llc_balance using one LLC, and then we pi=
-ck a
-task from another LLC to migrate.
+When checking if a device have the thermal calibration fuses set in 
+rcar_gen3_thermal_read_fuses() the first TSC is used to read the THSCP 
+register. This read is done even if no TSCs are initialized and if so 
+will lead to a null pointer dereference.
 
-With your approach, if we choose the rq with the most preferred tasks to do=
- the
-llc_balance() check, it is consistent with how we pick the src rq afterward=
-s.
+Fix this my checking that we have at least on TSC initialized directly 
+after probing each TSC. Before adding thermal calibration fuses support 
+this was geared against that each loop was over priv->num_tscs but that 
+assumption is not true for rcar_gen3_thermal_read_fuses().
 
-So I think we need this fix but it is independent of my patch here.
+Fixes: c3131bd5586d ("thermal: rcar_gen3_thermal: Read calibration from hardware
 
-Thanks
-Jianyong
-
-
-> diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
-> index 79f6b3a4fd7f..f2f15b20e3c7 100644
-> --- a/kernel/sched/fair.c
-> +++ b/kernel/sched/fair.c
-> @@ -12149,7 +12149,7 @@ static void record_sg_llc_stats(struct lb_env
-> *env,
->   * to run on LLC in idle dst_cpu.
->   */
->  static inline bool llc_balance(struct lb_env *env, struct sg_lb_stats *s=
-gs,
-> -			       struct sched_group *group)
-> +			       int src_cpu)
->  {
->  	if (!sched_cache_enabled())
->  		return false;
-> @@ -12183,8 +12183,7 @@ static inline bool llc_balance(struct lb_env
-> *env, struct sg_lb_stats *sgs,
->  		return false;
->=20
->  	if (sgs->nr_pref_dst_llc &&
-> -	    can_migrate_llc(cpumask_first(sched_group_span(group)),
-> -			    env->dst_cpu, 0, true) =3D=3D mig_llc)
-> +	    can_migrate_llc(src_cpu, env->dst_cpu, 0, true) =3D=3D mig_llc)
->  		return true;
->=20
->  	return false;
-> @@ -12235,6 +12234,8 @@ static inline void update_sg_lb_stats(struct
-> lb_env *env,
->  {
->  	int i, nr_running, local_group, sd_flags =3D env->sd->flags;
->  	bool balancing_at_rd =3D !env->sd->parent;
-> +	unsigned int max_pref_nr =3D 0;
-> +	int max_pref_cpu =3D -1;
->=20
->  	memset(sgs, 0, sizeof(*sgs));
->=20
-> @@ -12258,13 +12259,20 @@ static inline void update_sg_lb_stats(struct
-> lb_env *env,
->  #ifdef CONFIG_SCHED_CACHE
->  		if (sched_cache_enabled()) {
->  			struct sched_domain *sd_tmp;
-> +			unsigned int nr_pref;
->  			int dst_llc;
->=20
->  			dst_llc =3D llc_id(env->dst_cpu);
->  			if (llc_id(i) !=3D dst_llc) {
->  				sd_tmp =3D rcu_dereference_all(rq->sd);
-> -				if (sd_tmp && (unsigned int)dst_llc < sd_tmp->llc_max)
-> -					sgs->nr_pref_dst_llc +=3D sd_tmp->llc_counts[dst_llc];
-> +				if (sd_tmp && (unsigned int)dst_llc < sd_tmp->llc_max) {
-> +					nr_pref =3D sd_tmp->llc_counts[dst_llc];
-> +					sgs->nr_pref_dst_llc +=3D nr_pref;
-> +					if (nr_pref > max_pref_nr) {
-> +						max_pref_nr =3D nr_pref;
-> +						max_pref_cpu =3D i;
-> +					}
-> +				}
->  			}
->  		}
->  #endif
-> @@ -12335,7 +12343,7 @@ static inline void update_sg_lb_stats(struct
-> lb_env *env,
->  			sgs->group_smt_balance =3D 1;
->=20
->  		/* Check for tasks in this group can be moved to their preferred
-> LLC */
-> -		if (llc_balance(env, sgs, group))
-> +		if (llc_balance(env, sgs, max_pref_cpu))
->  			sgs->group_llc_balance =3D 1;
+> 
+> Signed-off-by: Yaohan Li <shunsheng1218@gmail.com>
+> 
+> ---
+> Prepared against v7.4-rc1-1969-g666539eecdf4.
+> 
+> Compile tested only: arm64, aarch64-linux-gnu-gcc 11.4,
+> CONFIG_ARCH_RENESAS and CONFIG_RCAR_GEN3_THERMAL.
+> 
+> AI assistance: prepared with Claude (Anthropic) as a coding assistant; the
+> author reviewed the reasoning and takes responsibility for the content.
+> ---
+>  drivers/thermal/renesas/rcar_gen3_thermal.c | 9 ++++-----
+>  1 file changed, 4 insertions(+), 5 deletions(-)
+> 
+> diff --git a/drivers/thermal/renesas/rcar_gen3_thermal.c b/drivers/thermal/renesas/rcar_gen3_thermal.c
+> index 9c64cbc2ee67..a96f02d4a8ad 100644
+> --- a/drivers/thermal/renesas/rcar_gen3_thermal.c
+> +++ b/drivers/thermal/renesas/rcar_gen3_thermal.c
+> @@ -557,6 +557,10 @@ static int rcar_gen3_thermal_probe(struct platform_device *pdev)
 >  	}
->=20
-> --
-> 2.43.0
->=20
->=20
+>  
+>  	priv->num_tscs = i;
+> +	if (!priv->num_tscs) {
+> +		ret = -ENODEV;
+> +		goto error_unregister;
+> +	}
+>  
+>  	if (!rcar_gen3_thermal_read_fuses(priv))
+>  		dev_info(dev, "No calibration values fused, fallback to driver values\n");
+> @@ -588,11 +592,6 @@ static int rcar_gen3_thermal_probe(struct platform_device *pdev)
+>  		dev_info(dev, "Sensor %u: Loaded\n", i);
+>  	}
+>  
+> -	if (!priv->num_tscs) {
+> -		ret = -ENODEV;
+> -		goto error_unregister;
+> -	}
+> -
+>  	return 0;
+>  
+>  error_unregister:
+> -- 
+> 2.34.1
+> 
 
-
+-- 
+Kind Regards,
+Niklas Söderlund
