@@ -1,56 +1,41 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=159.69.201.130
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795594368;
-	b=PNUUYu+y5sjtoB3XTSTaTDKq+Fsmt4cwQkop19snmYJHS0wZ7O91xtRmdZvIMlDYvhIN
-	 o63NhFUvlInPSlwIVHfjk1v5TQp88uYH7pulV11NV1eI1DzzgBnNRWPSnX/hlU9upCHt+
-	 o3rAMG61l1wYlz1/kxuhQeIdobZpHu96Jx9pk0Ux3W44Ttp9e2PJ0upwftd0iSIyDiLyG
-	 MQLUOc2tmcqdsv7uZVM4wpxw38l5LrGyIho3/UEkRZ1O8+4zRPh2SKqYppkfCkO0kp8O2
-	 EEqfjcYh1rQaN+ZfNJmEieqcjedVrGZLJpRnfOqpTl7Uc5ak/iRaxM7Su19fEwmPsyQ==
+	t=1795594454;
+	b=eLf5TAlKEFJFaZJTjxj8c0YTRzmS2CBdDaCZ8Yfr2Fe64iNCBV49PNW9E58IhvZBYFha
+	 5rFvPbFodOpu73u1iMUvw3aRnhBUX60z+Z2csr2W5aXpVH++/eRiTWM2E+nx7mnsl4P2n
+	 miQhc2CIAacLRAu2fTXycO8GXrM7Jqo7h6vy150CWRE2NYU+UbSS8JGYUaZz7+ZF1i2kz
+	 z193mSG7c1d3eZ2Ax+KOOGdK7cFaOFYhHzmrxq+A0f99OPmhFg587UTv8jlPN8Uz9Kx03
+	 PQVRSm17IENYwWtbfWMp+yrfZuetL8IsMTtnsgU361LjPADXqJoFbYFKoOQoY1vxTDA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795594368;
-	h=Received:DKIM-Signature:Message-ID:From:Subject:Reply-To:To:Cc:
-	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date;
-	bh=vRtTUvGo0zxmvDxi7Ox+UCHuNCQ7tGvmHkJu+NApSOI=;
-	b=G+1Uq2BuHizt59ltc5pYcjKMTa6bpvlpnqiD4p1jwC1gDCdkCFSCmUJJ1Tt5pTcFfzLC
-	 fNiiYrie0pzprJze7ZGFrtdDRdD02SaIv93aNYT8nCKOJI/0OOrrvJ9NkY1lKuzzPuILx
-	 7FEJe9Jc+NXAm2flB3feePk4Tuy1pT9rqwI9zvbiTPSQ+VSYR2J2fSMCjsByAD+wzs2As
-	 4ipz/W+dfKpvv7h3DXMTCLkZQ0WnEAjct1i+ARvnviutAbp+OskhBSa6GwVI+0X0kiWE5
-	 N+NIPce1mahka062oZD9VM+OSoE7opb/8m7AHK5ipSEWkhd5l993Su8b5lHxRhXeI9g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795594454;
+	h=DMARC-Filter:Received:Mime-Version:Content-Transfer-Encoding:
+	 Content-Type:Date:Message-Id:Cc:From:To:Subject:X-Mailer:References:
+	 In-Reply-To;
+	bh=EcqOpoZatxmW1uxCThM7KQ+CZVKjaTQRsigUe2wLhAY=;
+	b=F5wLru7PtuXNkeEX5hoPZpvxaGRSKBJ9eQc2nXHdtg0VduH+kng18LnaSpQ6ImDwPErB
+	 XN6GALre7/Gy0gPhe1zVotNpZ16Pyy5jsQ9BAMxt0vw+OsTQluWyoTKntpr27Da5EVEgl
+	 s/A/B/rlT85ZcpxUMmq7OsSteVsSNPlCstdVisHgyzvWHpYE4u4Ip7rqLj0MY5OWbSRxY
+	 rDIfyOgF3oXz57bt2OnGMfQYHp+FRKAjTTZf36X8CJq8LsGPCpnvRcZ2H91F9i+HC8s/A
+	 /iZZ/2310mR5aeDi8JkmQoT45XPmcx2dpVshSEjJ8yttKo6Xb9haU6JY+fjjtLpdh1g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=j6twI3Rn;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=fail header.from=kernel.org;
+	spf=pass smtp.mailfrom=walle.cc;
+	arc=none smtp.remote-ip=159.69.201.130
+Received: from 0001.3ffe.de (0001.3ffe.de [159.69.201.130])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 16C53606A321;
-	Wed, 25 Nov 2026 08:12:47 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=j6twI3Rn
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 59A9F1F000C6;
-	Wed, 25 Nov 2026 08:12:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795594367;
-	bh=vRtTUvGo0zxmvDxi7Ox+UCHuNCQ7tGvmHkJu+NApSOI=;
-	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
-	b=j6twI3RnMLGE8TAS22mMadN9WhV5A0CqzUBvkQCAdIb/kvq6yQvmO7CVk9JvfiZ7S
-	 a+g6qIatSzQLnLeworwI3hpqIrSBKTKX27i9dPkPnvZAnSgFdqJeAxbxpg1VzngX9d
-	 +6FKoJmKr3jztfjo9K5N+eRlKERyhkvUn/dXiWE3HthHN6ILW8YMXKoRXhCFQNPz86
-	 GpVNz8E7NfNeO780IGi9XpyOCsRYwSslnhJzzS1qHOv8cZUyMt1rb88r3aWemAVEPx
-	 eXtQUuR9bcO/qd738ubBqhxyGm2Dumdp/MgEwn1xro50raUKaU2fEthXPBRphrXtRd
-	 97Win8n+40XSg==
-Message-ID: <sashiko-outbox-232874@kernel.org>
-From: sashiko-bot@kernel.org
-Subject: Re: [PATCH] cpufreq: schedutil: Run irq_work in hardirq context on
- PREEMPT_RT
-Reply-To: sashiko-reviews@lists.linux.dev
-To: "Zhongqiu Han" <zhongqiu.han@oss.qualcomm.com>
-Cc: linux-rt-devel@lists.linux.dev, linux-kernel@vger.kernel.org
-In-Reply-To: <20261125080613.1138573-1-zhongqiu.han@oss.qualcomm.com>
-References: <20261125080613.1138573-1-zhongqiu.han@oss.qualcomm.com>
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-Date: Wed, 25 Nov 2026 08:12:46 +0000
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D7DF5606A321;
+	Wed, 25 Nov 2026 08:14:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D7DF5606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=kernel.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=walle.cc
+Received: from localhost (unknown [IPv6:2a02:810b:4320:1000:4685:ff:fe12:5967])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail.3ffe.de (Postfix) with ESMTPSA id 5910D111;
+	Wed, 25 Nov 2026 09:14:05 +0100 (CET)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,60 +44,55 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 25 Nov 2026 09:14:05 +0100
+Message-Id: <DN453WE8YY5K.3STDH1FZM2FFO@kernel.org>
+Cc: <linux-gpio@vger.kernel.org>, "Linus Walleij" <linusw@kernel.org>, "Andy
+ Shevchenko" <andriy.shevchenko@linux.intel.com>, "Rob Herring"
+ <robh@kernel.org>, "Krzysztof Kozlowski" <krzk@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, "Krzysztof Kozlowski"
+ <krzysztof.kozlowski@oss.qualcomm.com>, "Conor Dooley"
+ <conor+dt@kernel.org>, "Mika Westerberg" <westeri@kernel.org>,
+ <devicetree@vger.kernel.org>, "Long Zhao" <zl020895@163.com>,
+ <linux-kernel@vger.kernel.org>
+From: "Michael Walle" <mwalle@kernel.org>
+To: "Bartosz Golaszewski" <brgl@kernel.org>, <longzhao@ambarella.com>
+Subject: Re: [PATCH v15 02/14] gpio: regmap: add
+ GPIO_REGMAP_QUIRK_SET_AFTER_DIR
+X-Mailer: aerc 0.20.0
+References: <20261118-cv75-gpio-v15-0-e3c563673fe1@ambarella.com>
+ <20261118-cv75-gpio-v15-2-e3c563673fe1@ambarella.com>
+ <rjxlen54cxvhlbiq6uh5ytts6kyoz3v4hczh7bhjoxfsode2se@hesqdhe2vczl>
+In-Reply-To: <rjxlen54cxvhlbiq6uh5ytts6kyoz3v4hczh7bhjoxfsode2se@hesqdhe2vczl>
 
-Thank you for your contribution! Sashiko AI review found no new issues
-in this patch, but noticed 1 related pre-existing issue it does not
-introduce:
-- [High] sched/deadline: unallocated bandwidth subtraction in
-  dl_task_needs_bw_move() [1]
---
+On Tue Nov 24, 2026 at 2:14 PM CET, Bartosz Golaszewski wrote:
+> On Wed, Nov 18, 2026 at 03:42:19PM +0800, Long Zhao via B4 Relay wrote:
+>> From: Long Zhao <longzhao@ambarella.com>
+>>=20
+>> Some controllers ignore output writes while a line is still an
+>> input. Add a behaviour flag so the output value is written after
+>> the direction change. This is a legacy quirk. New hardware must not
+>> use it.
+>>=20
+>> Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+>> Reviewed-by: Michael Walle <mwalle@kernel.org>
+>> Reviewed-by: Linus Walleij <linusw@kernel.org>
+>> Signed-off-by: Long Zhao <longzhao@ambarella.com>
+>> ---
+>
+> Hi! Sashiko's comment on the return value of gpio_regmap_set() is valid.
+> You never know what the underlying regmap actually is, it may not be an
+> mmio regmap.
 
-commit 6dbfa989b510ecc8b3f76fbbc75d3d06fb5180f2
-Author: Zhongqiu Han <zhongqiu.han@oss.qualcomm.com>
+Agreed, but it should be a separate patch because it was missing
+since day one. Not something this patch introduced. I tried to find
+out why I did it that way, but couldn't find anyting. Probably
+because back then gpiolib did it the same, not sure.
 
-cpufreq: schedutil: Run irq_work in hardirq context on PREEMPT_RT
+Btw. is it on purpose that sashiko is only answering the patch
+author and the list? FWIW I'm usually not subscribed to the lists
+and thus I didn't get the feedback.
 
-This commit initializes sg_policy->irq_work with IRQ_WORK_INIT_HARD() so
-that sugov_irq_work() runs in hardirq context on PREEMPT_RT instead of
-being delayed behind runnable RT tasks.
-
-> diff --git a/kernel/sched/cpufreq_schedutil.c b/kernel/sched/cpufreq_sche=
-dutil.c
-> index 14405a6149911..b2e9ac7e35172 100644
-> --- a/kernel/sched/cpufreq_schedutil.c
-> +++ b/kernel/sched/cpufreq_schedutil.c
-> @@ -726,7 +726,7 @@ static int sugov_kthread_create(struct sugov_policy *=
-sg_policy)
->  	else
->  		kthread_bind_mask(thread, policy->related_cpus);
-> =20
-> -	init_irq_work(&sg_policy->irq_work, sugov_irq_work);
-> +	sg_policy->irq_work =3D IRQ_WORK_INIT_HARD(sugov_irq_work);
->  	mutex_init(&sg_policy->work_lock);
-> =20
->  	wake_up_process(thread);
-
-[Severity: High]
-This problem wasn't introduced by this patch, but can binding the sugov
-thread across exclusive cpuset partitions (root domains) here underflow
-the source root domain's deadline bandwidth [1]?
-
-sched_setattr_nocheck() configures the sugov thread with SCHED_DEADLINE
-and SCHED_FLAG_SUGOV, which sets a non-zero p->dl.dl_bw while skipping
-root domain bandwidth allocation because dl_entity_is_special(&p->dl) is
-true.  If policy->related_cpus lies in a different root domain from the
-kthread's initial CPU mask, set_cpus_allowed_ptr() or kthread_bind_mask()
-calls set_cpus_allowed_dl(), which subtracts p->dl.dl_bw from the source
-root domain whenever dl_task_needs_bw_move() returns true.
-
-Unlike dl_add_task_root_domain() and dl_task_check_affinity(),
-dl_task_needs_bw_move() does not exclude dl_entity_is_special(&p->dl)
-tasks, so __dl_sub() subtracts bandwidth that was never added, triggering
-a warning in __dl_sub() and corrupting SCHED_DEADLINE admission control
-on the source root domain.
-
-[1] https://sashiko.dev/#/bug/linux-a604bbac-776b-419e-820b-f5a41a07ff1c
-
---=20
-Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/20261125080613.1138=
-573-1-zhongqiu.han@oss.qualcomm.com?part=3D1
+-michael
