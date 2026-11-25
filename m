@@ -1,101 +1,109 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.170
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795605995;
-	b=J30WRQ8mKrL5pbYA6ZNA7HtyV4WpwUQeYQ0iCSvM0oTaFcZiY69+Tonz3uw9KebJXCDg
-	 lnafr5mCQXoJYFhBHI9D2Gq/FEu6nQ0NTegllnC7P+UAt60KYGyPi8BnaTHUAgE6Ouc+D
-	 b3I83Qo3Tf8WQJHPsZ4TzM/4473LcvTyBbSwvKboCfF2/3bjRPWqRqqUn0oMuCnRTLhM1
-	 gk0DVPu+mlxYkynCzGaUmjO5WKhoiawT+tIm/sGcqR5AErcUouWjV7FXVgocd01xdzpKT
-	 ffz2MFckGAZ4ys4VE90ufQgThBVJBnJElLy4sPCYjwM3Lg2+eNAVyJSwpYD1xkW28NQ==
+	t=1795605996;
+	b=IZl3dxctCIHIEIYkNHK8FAaTc2qtutySxTdvsWoKhIMPHF23EKG0n6U8oIulFjbmGxjX
+	 m+xHqU1VgGOv6rBCHXMsfZrJ3IJwBiajY8gDUsqK2M/gYAOx0tPvQZpMhmXi0oEd4hf3i
+	 TtGY1q3h2pufDJe8ccpOCzGyurcDfeqoM66EA+t/M6lcdHbHBpv0d79nK4nE4CHphLFCY
+	 5bYxJKjSAmEHH0VIEXiFJuie6wVO87AL9CK4ZKJt4iEyEmwVnV7O8nhy03G6S5aY2HHw0
+	 Em0/sEWyC2Tqco1wdzn52Q0GrQAGRCoXwkFCebRq492hcm1ij1MBE5+x9dRWXWh4uFg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795605995;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795605996;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=BDad+1Q3j6dYRY0ykgld/Vjl2b9srpFqahkLGtGJZw0=;
-	b=NlmPv1Fai6+OLhwqshpTSfRpWGJouBmq/mu3IlmiuWFpaI+YrnarDSzMUPpn5iMn6zXr
-	 qp2DRpWRa7X04hA0fqBUzcwCwdN4C1k8lBhi63MGikPhbTwtecEf5mgVFCwZabIzfCVlf
-	 Ac8j1gSLreMBaRo3f3fNO7bZXGHRowmB7woX9xll3z8R3jou3pulDJLRyMbc7NOAEd/W+
-	 +1Qgr4GzkNVMLUzv2MS6Zp1IXeY1CBkiJE6CLX/qlHmtp76I8uvmdH2Sx4/PpDkMx5MyQ
-	 /qJ0nCh0lVmR12SN38D0Jwv/O8ppu+K0ft0PQXBYOiTx0jDqCbUZzbpO6k6TFFVhMKA==
+	bh=v0FXQy5JXr1wYq6VfY5iDrFuAvChplEIolQ2bpb+3GU=;
+	b=yZ7Oc/uogJ+DecVC/JAsYlulcXhDSeOMu88p0lay1RQMNaq3lzSw1daArjXCJohQVFdO
+	 AC6BRXi5wtxMAjBpVoxFDbcxCvhlTQuL2OebJrQsInbOjiIghmKaATZ2WeY1sSoWThs0I
+	 eMfRd0DqXHtVqsi4cTK9VUBZcyees3JWe13Z1Bzji7peQ7NZJCktU58deUxYN4bPvHy0W
+	 8lfaXLRf/jST4Tf4re1IK1vJbtIFFCtQJU619wbOZzmB9JzeOUH4eRARDhDQlZh5nWnpw
+	 mXP3qDI7r1/8LMulpStgJhBBArBD2FBhcWUgNE3/pk9y4tVvNayYargxiTTyaE5VEDw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GKTJIcj7;
-	arc=none smtp.remote-ip=74.125.82.170
-Received: from mail-dy1-f170.google.com (mail-dy1-f170.google.com [74.125.82.170])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=QuwcP9VL;
+	arc=none smtp.remote-ip=209.85.218.49
+Received: from mail-ej1-f49.google.com (mail-ej1-f49.google.com [209.85.218.49])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D15DB60A2607
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:26:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D15DB60A2607
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3B4DE60A262A
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:26:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3B4DE60A262A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GKTJIcj7
-Received: by mail-dy1-f170.google.com with SMTP id 5a478bee46e88-385c497bf94so2470891eec.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 03:26:34 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=QuwcP9VL
+Received: by mail-ej1-f49.google.com with SMTP id a640c23a62f3a-c40e30c26a4so1260559166b.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 03:26:36 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795605994; x=1796210794; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795605995; x=1796210795; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=BDad+1Q3j6dYRY0ykgld/Vjl2b9srpFqahkLGtGJZw0=;
-        b=GKTJIcj73MSRc19WpgkJbHmsS4u+4Tpwr7Uylx2HDb9gBLQ3yYKKDWfDoUz+qjBh17
-         l+f1UW181QgUoSuZPVNP+wCWw4Tyx96GhUAl443Ha1d87gqeV9osLo+EkhfFnQopmzIN
-         moffBKvOT2BONJD27Zg0v8t9eti06H/7n12UYIf2u+uWHI0qHROIOukxS72eTSAxE3ML
-         UbHJSo8737BMbGyiI8ciSkn035J2Xr3W5L/3+unJGNC1nzeWLqWtBI5yy8BBthR+36rl
-         34dRXp2VABuVWP0rYjgMhTOwRuEuia4ylhWF2zsK+SVwyxNGq4UCujKdyKJM7iQOwA0u
-         xVmA==
+        bh=v0FXQy5JXr1wYq6VfY5iDrFuAvChplEIolQ2bpb+3GU=;
+        b=QuwcP9VLjjET9UqnaCB4VTQ2KnNQAGTJSJ3bQCTHzKaIYapakl4ZQWGsaACsILb641
+         W7KtxrisONpVDq4EpSVbWTvDXy86CqnaQFgdLrlYoSRKHlIEdQMtMDh3jijgGpFJF1yh
+         EVxBpkbnO97KVy0aa67HyS/In4fpz0Sutuq4O1PuslmAC7w+uAGLD12pCFNFvtKF1c1A
+         fKiicqVlZygJkGR80dlBjz1dOvPKQ1ObQ+qR2AxlVaY6MY5TvgX2iFg7mLF7XMYnoGrL
+         tp2c0sQwBLFx7gQ6YUmGiPGoArhrmeIw6QsLxL3k4jTsuJKME1vvwF17PuVO+18EfydB
+         JsZg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795605994; x=1796210794;
+        d=1e100.net; s=20260707; t=1795605995; x=1796210795;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=BDad+1Q3j6dYRY0ykgld/Vjl2b9srpFqahkLGtGJZw0=;
-        b=R639TCtIJBFt8W350xAoo8o7tR+FlqM1Wismd+QFFWnPC2TbJ5WQpm/HXs4/l5d1uJ
-         LelvAu4aYnI1erIJCZjFqzLSQcrrD8wF2MIcluCp8/rktxLF1H256E7nsjCGNH3Pez1S
-         OrQExa543NbwSxk49qoTEdTRaqxv7MfdEyt7H/sLfD1O4kzUiacDNdOjtFYqiQzgJbTT
-         4UULJW8n9G30ENxi6X2J58xbwo67Q3Eigpik5ukW6Av9C6lCJ3r49xohEUveXTUVTQPm
-         DMg6LvU9MBZR023f7LtmWd611JRou7Xcoh9HBVF/9R6U/2M7wwlnyvGoCVaUxwLw6CQg
-         0FNw==
-X-Forwarded-Encrypted: i=1; AL+hErEpb0FaUx0AfgZVy2wxjWwcqVms8NZAat7l5iOXkSA80cx4qm5pp1ho57pblqi59c7yet2aX1IzsUratP4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+nqcYnKqRA1JbjJNzK78qrXKNXQTY75zegn7SaPsFKgseJTrvC
-	0XLCF4Qxsun2aF2ORXh+v3wpun4KPg90xozR5Lmg9thtkmzaM5ZnKH/M
-X-Gm-Gg: AZFdTZclfLM85+oDmZR2resrlYfIb3FKCBQpt1ofUMQswS4S0pTZlkH1JUihOZ2ul4o
-	znHedEnTnKFXXGcvJ8192Kr1YXhgiasdvODPYs81UBnMyhGD1EiXb0A8xIj0pnOB0tMPn9JohA/
-	FmQvyvC8VqlPswH/9hzY+QWxTnNCv027EFSNrtWSPrHfPLzw5s5jSsw1HgCph6uZCnRAnYBPgf/
-	KQQ4eqQxLmxF6SWl0HXLlIw8psyEvjfO2so0BhjwigJrC+9kSRPtcWNtDDK2BN21JiSsTl4SbKe
-	M33K9iClfj5ujr9K11UdjQ5y/oW79aKWWYevW38MbmgVUEHPzsnZwQDBG91XTJ3mnE0PIRT/dJa
-	PNcSqs8SmGfSLf+iDprAA6E8Cc7kiWBZXkS44i4bDzD0d3a0EV6XoIvlvNAClZnm1k36PCz+wy8
-	YQH/YKn7MKfkaKRtuqjuOyd3JSdHX0uQRW8aAyjL5gifT/cHroTM8WI9xCRpRU3o0INNlCeRmhk
-	mcuSpCmoulbTdiffTMQc5VgPWjdGnN2AGEDND2KDeLjPRJqN+GzsbSpmNBU5iAIfqy7hVoJZd7R
-	v7JoyAEd+aeBe2ADMV5dZ3k6c3dEa+HpcA==
-X-Received: by 2002:a05:7301:700a:b0:384:988d:6ec2 with SMTP id 5a478bee46e88-3856f6524acmr19373422eec.33.1795605993905;
-        Wed, 25 Nov 2026 03:26:33 -0800 (PST)
-Received: from pve-server.rlab ([49.205.216.49])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386c7c62a91sm11778380eec.17.2026.11.25.03.26.29
+        bh=v0FXQy5JXr1wYq6VfY5iDrFuAvChplEIolQ2bpb+3GU=;
+        b=klCl0og0FisM6VuirokDhWEc0QrkipMhqaYIJqQbdICO6FF7of414Dj0ocWiSsFWSi
+         CLrbUH2XmTkObWHZhks4UzQryBdbx98PZ9ooYSHllaG10XWfiZhTVA1VGYVvaUSleKlS
+         nXQjJyOXM0OcPhyA0uS7Y3tWpgQkpRsysis6q84vIEWQ9pQuLBDPAHT//QoSCEaQMJBz
+         4wgSalG8h5jr0VbeJyaGr4vnZDsADgXO1rkBCC/em0N4sE5t1xTfuLhsf+mpvdVXM7/J
+         B/0I8CDfxEddX+1WXl31YC6n8p/5wgHAWDSQsORTz8y8EUN1abZ6Q5dNiH8drSknuqhC
+         3Q/g==
+X-Forwarded-Encrypted: i=1; AL+hErGrfXbSB7os5fgitKAn+Z4s+9lX1OyfeuIphgLuQXwotaxwOKArT4WrEJCAxscdwhbmhpIyF9/PJLEoqQk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8VQtWDFfJ8aa5H9U4cTek3gbawwFW2qdS93ZACH6UtzzJ+klqp
+	WK6UwPedzButeFzybOESwShfNdkJf4ciKEfT/tEevXlUXL4jWtlW9ztZ
+X-Gm-Gg: AZFdTZfPhT6gmEIm8MVDUa6wo4dHhmh6GsShoT70sOAOitPcKuHLtzFsXOIG/BeAgx2
+	LDDWi6dGSJp1La1pQfeAsNjis+E6N8hkQGA6Qii2jAjVFNivWvf/t3KJqMX61QDCey0x9fl3eq6
+	LGWET9IzGkKXX3uEl/MA/T1xUBSwS6EBAegi9G4UI155D85kvrfrmJSrfTSWCUjmzv8RLOulU0P
+	3qCqNCAZ3YMtbOLN5X2SlQKwBRuh57oWSDlsZaRFy2Mpwt6+GmZcAezclO4fg6ipvYYKbXAFL2w
+	rGclAp+2EWOAMhwinh811m7rRBOmAV5Pie3xy+RM0swLg23TL+A7lcI2qtWPH2g2Lk1GhE3no6B
+	2bg/rQprDxkQdE3pSbZ8xxc/IhZAtdLt9REicAXiBW1sSEIYjOWeTBY1fKNjPvN2POkdywCfLxX
+	HtqC5flEFTK9XzPX3TxWC8Nk8NQmK2u8qqNQ9xvV6nZtFf9yV3MblHgqEHJKZ/+AVEaH7DUrUuv
+	IvW3qPBYA6EdnSjex94tULyeqvPZk/yo7ZU07w1axr9CJuQVDtcsVViQ3Ex7Ug0V6gF5kpS4Sj4
+	lrrFj2R96GItBOR0e+hNd0xTgBuuWxEebxMeypcxIJvMZxHbhd2lCAwN8X3ul4H/64WoCxBMq+/
+	5Z0mXkQFXiRIO3IjgGQLdVqAIBnwI2GQ=
+X-Received: by 2002:a17:907:1c8f:b0:c50:9412:93f0 with SMTP id a640c23a62f3a-c51317e3208mr1522656666b.8.1795605994515;
+        Wed, 25 Nov 2026 03:26:34 -0800 (PST)
+Received: from xeon ([188.163.112.54])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6bb1b93a8efsm1202907a12.7.2026.11.25.03.26.33
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
         Wed, 25 Nov 2026 03:26:33 -0800 (PST)
-From: "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>
-To: linuxppc-dev@lists.ozlabs.org
-Cc: Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Venkat Rao Bagalkote <venkat88@linux.ibm.com>,
+From: Svyatoslav Ryhel <clamor95@gmail.com>
+To: Thierry Reding <thierry.reding@kernel.org>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Sowjanya Komatineni <skomatineni@nvidia.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Svyatoslav Ryhel <clamor95@gmail.com>,
+	Mikko Perttunen <mperttunen@nvidia.com>,
+	Hans Verkuil <hverkuil+cisco@kernel.org>
+Cc: linux-media@vger.kernel.org,
+	linux-tegra@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	chleroy@kernel.org,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Shrikanth Hegde <sshegde@linux.ibm.com>,
-	Mukesh Kumar Chaurasiya <mkchauras@gmail.com>,
-	"Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
-	stable@vger.kernel.org
-Subject: [PATCHv4 4/4] powerpc/kvm-hv-pmu: Free hostwide stats buffers if perf_pmu_register() fails
-Date: Wed, 25 Nov 2026 16:56:06 +0530
-Message-Id: <158060809f1d4d3708693a6cf33d40365c3af2e8.1795603946.git.ritesh.list@gmail.com>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <cover.1795603946.git.ritesh.list@gmail.com>
-References: <cover.1795603946.git.ritesh.list@gmail.com>
+	linux-staging@lists.linux.dev
+Subject: [PATCH v2 4/7] dt-bindings: display: tegra: Document Tegra114 CSI
+Date: Wed, 25 Nov 2026 13:26:10 +0200
+Message-ID: <20261125112613.237333-5-clamor95@gmail.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261125112613.237333-1-clamor95@gmail.com>
+References: <20261125112613.237333-1-clamor95@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -107,36 +115,81 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-kvmppc_register_pmu() calls kvmppc_init_hostwide(), which allocates
-gsm_l0_stats and gsb_l0_stats. It then registers the pmu. If
-perf_pmu_register() fails we return without freeing them.
+Add a separate compatible string for the Tegra114 CSI, as it has a
+different programming model, uses three additional clocks, and does not
+contain MIPI calibration logic.
 
-Call kvmppc_cleanup_hostwide() on that error path.
-
-Fixes: f0c9c49c5067 ("powerpc/kvm-hv-pmu: Implement GSB message-ops for hostwide counters")
-Cc: stable@vger.kernel.org
-Reviewed-by: Mukesh Kumar Chaurasiya (IBM) <mkchauras@gmail.com>
-Signed-off-by: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
+Signed-off-by: Svyatoslav Ryhel <clamor95@gmail.com>
 ---
- arch/powerpc/perf/kvm-hv-pmu.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+ .../display/tegra/nvidia,tegra20-csi.yaml     | 37 ++++++++++++++++---
+ 1 file changed, 32 insertions(+), 5 deletions(-)
 
-diff --git a/arch/powerpc/perf/kvm-hv-pmu.c b/arch/powerpc/perf/kvm-hv-pmu.c
-index a58634f656e9..ec05b4855736 100644
---- a/arch/powerpc/perf/kvm-hv-pmu.c
-+++ b/arch/powerpc/perf/kvm-hv-pmu.c
-@@ -402,8 +402,10 @@ static int __init kvmppc_register_pmu(void)
+diff --git a/Documentation/devicetree/bindings/display/tegra/nvidia,tegra20-csi.yaml b/Documentation/devicetree/bindings/display/tegra/nvidia,tegra20-csi.yaml
+index a1aea9590769f..6296f3ab1d0ce 100644
+--- a/Documentation/devicetree/bindings/display/tegra/nvidia,tegra20-csi.yaml
++++ b/Documentation/devicetree/bindings/display/tegra/nvidia,tegra20-csi.yaml
+@@ -14,6 +14,7 @@ properties:
+     enum:
+       - nvidia,tegra20-csi
+       - nvidia,tegra30-csi
++      - nvidia,tegra114-csi
  
- 		/* Register the pmu */
- 		rc = perf_pmu_register(&kvmppc_pmu, kvmppc_pmu.name, -1);
--		if (rc)
-+		if (rc) {
-+			kvmppc_cleanup_hostwide();
- 			goto out;
-+		}
+   reg:
+     maxItems: 1
+@@ -24,12 +25,12 @@ properties:
+       - description: module clock
+       - description: PAD A clock
+       - description: PAD B clock
++      - description: A/B lanes clock
++      - description: C/D lanes clock
++      - description: E lane clock
  
- 		pr_info("Registered kvm-hv pmu");
- 	}
+   clock-names:
+-    items:
+-      - const: csi
+-      - const: csia-pad
+-      - const: csib-pad
++    minItems: 3
+ 
+   avdd-dsi-csi-supply:
+     description: DSI/CSI power supply. Must supply 1.2 V.
+@@ -121,9 +122,35 @@ allOf:
+       properties:
+         clocks:
+           minItems: 3
++          maxItems: 3
+ 
+         clock-names:
+-          minItems: 3
++          items:
++            - const: csi
++            - const: csia-pad
++            - const: csib-pad
++
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - nvidia,tegra114-csi
++    then:
++      properties:
++        "#nvidia,mipi-calibrate-cells": false
++
++        clocks:
++          minItems: 6
++
++        clock-names:
++          items:
++            - const: csi
++            - const: csia-pad
++            - const: csib-pad
++            - const: cilab
++            - const: cilcd
++            - const: cile
+ 
+ additionalProperties: false
+ 
 -- 
-2.39.5
+2.53.0
 
