@@ -1,80 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.41
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795638303;
-	b=mCd43igmz/yOrymJ1TdLOK0FU5VUZdaVJJ6CT/55eunZHjavBU3mvTfPjOMaLyQ+JVe/
-	 U2xwJuTPCDULqTGXNe6E9OOiVD5kmZxqIH6TtAufdRZoXcxNHNK45GNqdP9BKPmr7f4jA
-	 PGImP0ep6sHQThtX6idSRHYRZiFx4j291R9IQA7ml6OFntSJTTGC1YCUZPZlGWO0RhuU6
-	 5fIkZJWA2UkLE/+wG8EFEqnGqMdprmUqMH94g7DFyZzYHVP5IqtUrwatU3M5iiZy5h/ql
-	 cKvS+DuMp0hUVXQrSH2phyNelQDYPlrJWzzv96z81CZCFi/70hSuyUEsCmNeEucLJXw==
+	t=1795638304;
+	b=GJwftS+yIbs9JHPeQVTERRnAasWrGTDlBFgb5xQa7Y7x3BW0S0gAJ4nA5cWkD/8yED8j
+	 WTBrB1hyTUDzWbhxyt8r3il+0DT4IY54o+ekfFGn2DqzBzhdLgi3m/u0t7c36oCUGDwEP
+	 douCzT8Edn8KICQLQvmzT0WbWILptX2M31p4YenWGVaOcRMYr85eW+ijIgKBwHXi6pyrN
+	 YymWDzSLQtqFBYui8YOIxOxWKA8BhOiYxAG7hmxW22LTiSHIPoVvsS/xtSysCGAbRZFQF
+	 RvTd0Qg3LPSRxu6dpFc4Bxi+JfAEuBlE4Q04iTibUEVWyQpcEhsh/2ARA3Gt4CT6+Iw==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795638303;
-	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
-	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
-	 X-Endpoint-Received:X-Original-From:Reply-To;
-	bh=uzyPE1HCfOBsBncC2Pj7IbT3ZTq7U5PwcmywOMIyjKo=;
-	b=NT9u15jLVqmnENZ10DN72y8lgYlWkzLcNKYqSVT8hfgz2iGwrLinpY9kek3BywdGzyw7
-	 Wd8mOhf8jadAmA/+qOHlPWES1ptyCjn7IqtCCLKEcMWQ64RDDtMG/V6s+og9GFatwv7R0
-	 p+a/guUECqPgIMSV6C0xp3ggx0CcBHF7kk4q25Wr3bSMoavXS+1xr8yA0W9RNGvYDPfr4
-	 AeyDwyqC23L8CIqSaWRUhvkKryvVRlYgxGtOTFv17bRw5WfsKNFKJkMlU6TjDQPaj6Ab2
-	 BVAzip5mugIDDpIp18fs/7qp9JaK3tkVaXOilG8LTZ5LD7Tga9ZHX9eNBcTHWNVEDFg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795638304;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=WX1/mD88zGp/ZEzi3ka3HzLWQtdQebUwdPjAokn9YIU=;
+	b=41A/C8jn8/aH/teghnqtno0KiRkYFaHQE9XMoO/aw+4w9dq/jhN5n++5zPlayNURWJCt
+	 idfX/SPy8686B/JIPUDRhVA+gh2LRd4s7OAW98FhhSV/8MXoMzi2Lvdyf8EjaIG7cnKnO
+	 sE3UN1i1mv/Bg4cX7rPf1n767sCxZIFGmEGVr2KxN4JLqiqnmoiU2/kpz46wl3OAo/+A4
+	 55EwPSW9xtLh7/brieq0npcCduHY0l/1CK+Gosvul8C5PApi1UoVQqsE5Y637MZQzmhtg
+	 vyhiUiXf/DZOTxzxdN1FsUH4NBKP1kVBl0cneSyKPC09SIHDtnY5p9o0DGTytOXloyQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YEebNBFm;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A0A59606A32E;
-	Wed, 25 Nov 2026 20:25:03 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YEebNBFm
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795638302;
-	b=YeHZF13zSIuNHNv9trEHDLA1h/kmCcohCqnI3xa6RH/UZwi/+YeLaa855Jypo/HpKxps
-	 /ZwC6xe+HEYWd+BkIYiAW6c+wyVhLq1qh1xthIIASPN0UbCAAt7WJ1Bve9TNvLSLsM9Lq
-	 OBGUB8rK+du5S8D84FOYi2DF2diDVtzA/8g9XyKSn46N/LtmtGEplIx28j3rIDr/D65IT
-	 UE/oJ/GZfnazVAHGWPhJn8sVBqVYy+TwdMfyYlU93/5WiIY0mKc1f4QVON0B0XTsXvOFj
-	 vfYQNPe4vFYF5CMhigqpk17lQPZ/sylQhUnd51hwixPVMjpUv22FS4WxY2c3Q2tRxLQ==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795638302;
-	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
-	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=uzyPE1HCfOBsBncC2Pj7IbT3ZTq7U5PwcmywOMIyjKo=;
-	b=AB8QK1ya2SX21fJ6qisF0vTDX3ClGarxwmn5zlD8UKiLDjw2g2OWXjeCKncfqPm6IaqX
-	 pr3wT/zCXG86TneoeedgeEXzilAj2+WxdCzf5Ck2lGb3YwhuOA89PoLjHTjLhrpb29YPO
-	 4bynLPhUwR8bBvK2visq5Bcuw7im86y8lUeeqYpDftWdzs+FBKHuzckqnUSkz7xpDt6Uq
-	 BREe7A3hd+MEzfzw742Arj8tJ+v63FCgmU0PD4PlEvTSE0d+RZkwiSeGHlf0kLE9sjnyz
-	 3j3/ntXP6zLGmYrgw0joxYLxJMiBQfpFcx054ew70rw0yVSunA1ynncxYiwb30RNV/w==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qxpVsnDh;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.41
+Received: from mail-wm1-f41.google.com (mail-wm1-f41.google.com [209.85.128.41])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id BD29A1F000C0;
-	Wed, 25 Nov 2026 20:24:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795638302;
-	bh=uzyPE1HCfOBsBncC2Pj7IbT3ZTq7U5PwcmywOMIyjKo=;
-	h=From:Subject:Date:To:Cc:Reply-To;
-	b=YEebNBFmCthOXB0mMz5ASlfGNqUMswemD0RtEbZx+3sMnXn16joQxnrTodNqTMtqT
-	 GIv2/BtLUGU1K52rj+PpxZMy0qQcaafBvyejut+nK4Gugc2wBsLcV6dnLCytWA2EPB
-	 l5/iF1/OxtCvQ7kINc72aZXtb8Yx6VbKsYOnYRlPNlOK9EsDU921eWcmaJx83PWcrh
-	 n/OtrTN9nRdDayuNnhfZjTkdDT15vDeJkGEb5xYXOQrmWng/IWvLY8kQMiBdfBX0Xb
-	 ZgMqdeHOM7cpeNeZQYGeW92uAaymehKUWGZ4FTeUhsOsYzCGZw2R2i43wyPC+1gmYS
-	 TSrkzaB9z5Iwg==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 1C3634D021;
-	Wed, 25 Nov 2026 20:24:55 +0000 (UTC)
-From: Joseph Telaak via B4 Relay <devnull+joseph.telaak.dev@kernel.org>
-Subject: [PATCH v6 0/6] clk: Add the Siflower SF19A2890 clock manager and
- peripheral clock and reset managers
-Date: Wed, 25 Nov 2026 15:24:47 -0500
-Message-Id: <20261125-sf19a2890-sysm-v6-0-181875c10682@telaak.dev>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8724F606A336
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 20:25:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8724F606A336
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qxpVsnDh
+Received: by mail-wm1-f41.google.com with SMTP id 5b1f17b1804b1-4a2000d5fb1so36461405e9.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 12:25:04 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795638303; cv=none;
+        d=google.com; s=arc-20260327;
+        b=oJvvZKKeyI86BuLKiKYWX/EyUJsXPZn4D7BzC+c/B+JhcmvLXZDBbxjShiXDYf1Cz5
+         eI/sbGYaDTJyQtqF8BSFP4nx51Yres9m6ZctOwBBuOHVjAwSkM9KFy8mpeY0VXqdXVX8
+         3X5wNOWiYGoV2FX1ZT+oOZpEeQdSkB6Tbi+mz/j1u1+labpYIGUD7fLHEZi6Q2XaHVXH
+         5FIkXZ18MTNYUqJJcxE1x+Q6iRzRsLLjsLLq7jW7OEi7QPa4PTdq2k+zPwJ2TufvPjzv
+         RV6u6hnGBnXh1isrpEuQjgTq0bMb/zlkBCSCnfftEnHkn+YbpK5k8cB3ZIbxIBapEPUD
+         SRHg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=WX1/mD88zGp/ZEzi3ka3HzLWQtdQebUwdPjAokn9YIU=;
+        fh=AI4HpCKXSyirIY/Y+XEgA4Lu9Zr6zvyL7bErSW7Vhkg=;
+        b=RBHZv/spjIAUNEoYXZdVnjcheKlk5Wm/FhANV09qsKcHL3giaQCWQZEbwDzTgXcC17
+         w9nuub6vBzVI6X0Wp2WjsU9Qo/kMRfg7XZZZvXBLOKCqb8IRJo5I5bdQshjyiHNFSlWd
+         51s2W4yTdKw0TY2fBYSWKw7MCmgEw3DDakuUUJS8J9JFNS0oNk2hCmLTqHLmIEo+NeZA
+         lHqIK8KRKQMmgiRR9GS1dtVh2FX9xra6XxE3fmv+ekGCwo4wecmyCfWd0sAgBA/6m1TQ
+         fiqEQSfV3KFgC0FKVZQQZc5ltFjHMRWJYmHNr9Ybm8hH9Tzmaa/JqKPx2ozdewk1+MN/
+         GD7w==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795638303; x=1796243103; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=WX1/mD88zGp/ZEzi3ka3HzLWQtdQebUwdPjAokn9YIU=;
+        b=qxpVsnDhKpASGf9nC11h7i3rrzbhgE1Ei3PO9P37aCNXYSI78K7dE3d/HkpdwHszrk
+         LY2ewZzhpWyuiXGJ9Y/kVXRgwoqcZjc+AjjGTm6sKWOe26uegothRZycWdOMEmeKaehQ
+         rcee0VmCBD9LHFqBMRGKRgu5+yxn/QVPc8+S1f0ZhA8k/QuPVe7lO4kH9kZ7PLYaSPsZ
+         UOhEiycW2Hi29WbdqTe9JB7fMqfgVwt5DLrziudwFU1jlESg26yCSYwEh1zt9b/mn3Al
+         7ZA2LJwSY/mdKqaAvIEdHaHjwDhtcY5fLQiXuVbUxvNBi+V1wIvq+poIXwdOZVw4io/Q
+         3/tQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795638303; x=1796243103;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=WX1/mD88zGp/ZEzi3ka3HzLWQtdQebUwdPjAokn9YIU=;
+        b=23qFxT1IRdIU7yL2hvvrIMTtIb8FdgUvFov5RjTBIQr6e4Hq1sQoQT/OnQ8NNHs1Zr
+         b/m2RR1Oxzn8/UxS6rmL2adnaZyZAHepeBI7dkZONeFcveijEGheB+Zz+f5XT14BeEID
+         YyTALjXDHQB9ISVgh1Gx1pSOeLqNsnZ6lr+K/gAaelAmFpRBYXxJFV8HvSkxH0b/zjHt
+         BEZZfVnALxM8cw70nK5aU8Z9FbNGi+c7AlnJehRJI7PWSbk1AvfkmLOCJj/kOvVHJsIe
+         eQb1Z83uBkBNdoCX1vVYCO0Wt550U+GzwUi066BL9TsdvRyZ3Znaes7ri126DWy6rid5
+         fSwQ==
+X-Forwarded-Encrypted: i=1; AL+hErGNcSmGqxlIZqdL3XsNPDWCns8+fAno8445gIx4ocGK4MdwYpnapywi8Qq5YwITenAUp8oHKcsgvdjO5Qg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9HPF00v7ss0mYR9o3SWE+6fa+lbnatIo/plxFtHUUKqfaQvrla
+	991Kqs0jEehB0YTa+QY+8/vDrGIFy8ek24VtHIBxdTNsscQgGM8xGnKFJoeiRn1apvJXOk5FEkW
+	1SrWUnhSz6W8dchS6kmkHZTx4tufdHmQ=
+X-Gm-Gg: AZFdTZcsu/Htm5xV+nij5loXA3DWvMrKqVO74VYK2fFcAiRruByrI0lYKPAkrIIUckv
+	8AU6/RoTMUSsMg+aIVatr1pMv4pSkv7GwLmzsIf0k0NI1BT2Inr5rMrEflV2NzJeo2ogaB0RLp+
+	qE7IuDLA5PsDWLVXEIt0tNQGD9HgY7O6+XWdQy3WwtxrgZFV9xqxE34faR69GAtcq5sMgW0hCYX
+	izahJr+PWugg63Qh4qaTITSuMK7NOR3qKV1VV2jKjzVO84As5BFizvgvJrQf8ahTa1j8TKDkmHq
+	gEUHmnOnGjiZPeG2nBPntvJO9IA+Dp1+tWAo041dje8a7hYIxvu6rDcD4Ba1bfEEGlZuwqQp1+U
+	lsCBfO6RrsHjTjbM31kZuaDcOvY/zaAl0UEZkjZGO6O7b2NH5oFK1IzAuX9Be8L8rzjUcTz8YX1
+	f+MoJh0lbZwsl7yvjrCw==
+X-Received: by 2002:a05:600c:4ec9:b0:4bb:6a5a:782d with SMTP id
+ 5b1f17b1804b1-4bb88925fcdmr394635895e9.17.1795638302754; Wed, 25 Nov 2026
+ 12:25:02 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,211 +105,74 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIABBEB2sC/2XQ3U4DIRAF4FdpuBbDDOyy65Xv0fSCn8GitlXYE
- ptm3122alzl8pD5zpC5skwpUmYPmytLVGKOp2MN/d2Gub05PhGPvmaGAnsAgTwHGA0Oo+D5kg/
- cOAjWWQTvO1bRW6IQP26F291Xzmf7TG5aWr4nEr2f66bpd2wf83RKl9s3CiyvPxvV/40FuOBGB
- eOE9mFA+TjRqzEv954KW7oKrjxA47F6j8FZjZJUgMbLte8bL6u3QlunBynNoBuvVh6bixW1eBs
- InBo7Qmp8t/ay8V31yhqljPAWtP/j53n+BBuL8izUAQAA
-X-Change-ID: 20261102-sf19a2890-sysm-ac1fbcb21dd5
-To: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
- Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>
-Cc: Paul Burton <paulburton@kernel.org>, 
- Jiaxun Yang <jiaxun.yang@flygoat.com>, Chuanhong Guo <gch981213@gmail.com>, 
- Yao Zi <me@ziyao.cc>, 
- =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
- linux-mips@vger.kernel.org, linux-clk@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Joseph Telaak <joseph@telaak.dev>, 
- Conor Dooley <conor.dooley@microchip.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795638293; l=9065;
- i=joseph@telaak.dev; s=20261104; h=from:subject:message-id;
- bh=VpA0kqClLc5YSFfPt0R5xdNwLxlg3Gwqt0JMJXbAyHM=;
- b=VkEYzl/5IfyYO4mEl5T2PD/zwUmrlzO2WBbkP4G7HitLhGPpaLVubsKawgscjtgh+uHgHmE2h
- XelsjlOjFE9BLJbxnTxqnQIz+xirCRvRd/9PQxKrBBzO9qQyJrO0Zql
-X-Developer-Key: i=joseph@telaak.dev; a=ed25519;
- pk=oQI+UfddlZ0wK2ac4WKOGNjUl1ZEN8j9ZVFSqEDoNP0=
-X-Endpoint-Received: by B4 Relay for joseph@telaak.dev/20261104 with
- auth_id=1404
-X-Original-From: Joseph Telaak <joseph@telaak.dev>
-Reply-To: joseph@telaak.dev
+References: <20261113221248.3535369-11-wusamuel@google.com> <20261113221248.3535369-13-wusamuel@google.com>
+In-Reply-To: <20261113221248.3535369-13-wusamuel@google.com>
+From: Andrii Nakryiko <andrii.nakryiko@gmail.com>
+Date: Wed, 25 Nov 2026 12:24:51 -0800
+X-Gm-Features: Aa3M54paGFwRi6x8xvkBaed95VaPlmoDIEKWnad49yMfBgn6GjtOde1UijdiQkw
+Message-ID: <CAEf4Bzb6LQmHHkvB8WBezU6YRtggycRvvA3L03mQHDr3WQM6mA@mail.gmail.com>
+Subject: Re: [PATCH bpf-next v3 2/9] module: Add module_kallsyms_find_name()
+To: Samuel Wu <wusamuel@google.com>
+Cc: Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
+	Randy Dunlap <rdunlap@infradead.org>, Luis Chamberlain <mcgrof@kernel.org>, 
+	Petr Pavlu <petr.pavlu@suse.com>, Daniel Gomez <da.gomez@kernel.org>, 
+	Sami Tolvanen <samitolvanen@google.com>, Aaron Tomlin <atomlin@atomlin.com>, 
+	Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, 
+	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
+	Andrii Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>, 
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>, Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>, 
+	Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>, 
+	Emil Tsalapatis <emil@etsalapatis.com>, Ihor Solodrai <ihor.solodrai@linux.dev>, 
+	Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, 
+	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
+	Andrew Morton <akpm@linux-foundation.org>, Petr Mladek <pmladek@suse.com>, 
+	David Laight <david.laight.linux@gmail.com>, kernel-team@android.com, 
+	linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
+	linux-doc@vger.kernel.org, linux-modules@vger.kernel.org, bpf@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, llvm@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-The Siflower SF19A2890, a MIPS SoC for home routers, has a clock manager
-with its PLLs and the muxes and dividers that feed the CPU, the buses
-and the peripherals, and for each peripheral block a small clock and
-reset manager with its gates, its resets and a bus output enable. This
-series adds bindings and drivers for both. The peripheral managers'
-resets have a reset driver of their own, which binds to an auxiliary
-device that their clock driver creates.
+On Fri, Nov 13, 2026 at 2:14=E2=80=AFPM Samuel Wu <wusamuel@google.com> wro=
+te:
+>
+> KALLSYMS_QUERY_BY_NAME, added later in this series, needs to find a
+> symbol name or prefix across module symbols in one pass.
+> module_get_kallsym() walks the module list from the head and runs an
+> export bsearch() for every symbol index.
+>
+> Add module_kallsyms_find_name(), and put the shared query struct in
+> linux/kallsyms.h, so we have a more efficient linear walk.
+>
+> Signed-off-by: Samuel Wu <wusamuel@google.com>
+> ---
+>  include/linux/kallsyms.h |  7 +++++
+>  include/linux/module.h   | 13 +++++++++
+>  kernel/module/kallsyms.c | 57 ++++++++++++++++++++++++++++++++++++++++
+>  3 files changed, 77 insertions(+)
+>
+> diff --git a/include/linux/kallsyms.h b/include/linux/kallsyms.h
+> index d5dd54c53ace..d31f2f436159 100644
+> --- a/include/linux/kallsyms.h
+> +++ b/include/linux/kallsyms.h
+> @@ -24,6 +24,13 @@
+>  struct cred;
+>  struct module;
+>
+> +/* Exact or prefix name query, optionally in one module. */
+> +struct kallsyms_name_query {
+> +       const char *name;
+> +       size_t cmp_len;         /* bytes to compare; includes NUL if exac=
+t */
+> +       const char *modname;    /* NULL matches any module */
 
-The drivers are based on Chuanhong Guo's, from his SF19A2890 branch [1].
-The peripheral managers' binding is rewritten: Chuanhong's described
-every block with one compatible and its bit layout in properties
-(siflower,valid-gates, siflower,reset-masks and so on); here each block
-has its own compatible and the layouts are tables in the drivers. Clock
-N of a block is its input clock N, gated.
+will "vmlinux" match just vmlinux? or how can one express "I only need
+symbols from vmlinux image" with this?
 
-Following Conor's review of Chuanhong's SF21 clock binding, the header
-has no count at its end.
+> +};
+> +
+>  static inline int is_kernel_text(unsigned long addr)
+>  {
+>         if (__is_kernel_text(addr))
 
-The GIC timer runs from the CPU clock and probes before the platform
-bus, so the clock manager registers that clock and its PLLs from
-CLK_OF_DECLARE_DRIVER and the other clocks from a platform driver.
-
-Patch 1 adds MACH_SIFLOWER_MIPS, which the drivers depend on. It is
-the Kconfig part of patch 2 of the MIPS series [2], whose next version
-will carry the same patch, with the kmalloc.h override in a patch of its
-own, so that whichever of the clk and MIPS trees takes it first can put
-it on an immutable branch for the other. Thomas, would you ack it for
-that?
-
-Tested on a GL.iNet GL-SFT1200: the rates in clk_summary match the
-vendor firmware's (CMN PLL 1.5 GHz, buses 300, 300 and 375 MHz, PBUS
-100 MHz, UART 125 MHz, GMAC reference 125 MHz, USB PHY reference
-50 MHz), and the CPU clock reads 800 MHz, the rate the GIC timer was
-checked at against a reference clock with the MIPS series; the console,
-DDR and buses survive the unused clock sweep; the UART, SPI NAND, I2C,
-GPIO, GMAC, USB and watchdog drivers probe with these clocks and resets;
-and the I2C controller works again after an unbind and bind, which
-cycles its reset. v4 was booted again on the same board: the GIC timer
-runs from the early CPU clock (0.02 s off the host over 292 s), the
-other clocks come from the platform driver at the same rates, with no
-orphans or deferred devices, and the same drivers probe.
-v5 was booted on the same board too: each of the twelve peripheral
-clock and reset managers binds and gets a reset device of its own, which
-the new reset driver serves, at the same rates and with no orphans or
-deferred devices, and an I2C unbind and bind asserts and releases its
-reset bit.
-
-[1] https://github.com/981213/linux/commits/siflower-7.1
-[2] https://patch.msgid.link/20261111-sf19a2890-mips-v2-0-36730fa4f5a6@telaak.dev
-
----
-Changes in v6:
-- Patch 1: move the kmalloc.h override to the MIPS series, as a patch of
-  its own, and say in the help what the kernel leaves out (Brian).
-- Patch 3: put each clock registered at probe in the provider data
-  before registering it, so that its orphans find it as it registers
-  (Brian, Sashiko).
-- Patches 3, 5 and 6: add blank lines before returns (Brian).
-- Patch 5: prefix the gate names with gate_, so that names like gpio and
-  wdt cannot collide with another provider's clocks (Brian).
-- Patch 5: order the declarations in probe longest first, put each gate
-  in the provider data before registering it, and suppress the bind
-  attributes, as patch 3 does (Brian).
-- Patches 5 and 6: allocate with devm_kzalloc_flex(), devm_kzalloc_objs()
-  and devm_kzalloc_obj() (Philipp).
-- Patch 6: move the comment on the reset masks that cover several bits
-  to the masks field (Philipp).
-- Patch 6: depend on OF, since the driver only matches by its parent's
-  OF node (Sashiko, kernel test robot).
-- Link to v5: https://patch.msgid.link/20261123-sf19a2890-sysm-v5-0-4ba44a0db17d@telaak.dev
-
-Changes in v5:
-- Patches 2 to 5 were patches 1 to 4 in v4.
-- Patch 1 (new): add MACH_SIFLOWER_MIPS, patch 2 of the MIPS series
-  without its MAINTAINERS line, for an immutable branch between the clk
-  and MIPS trees (Brian, Sashiko).
-- Patches 3 and 5: make myself the author, with Chuanhong's
-  Co-developed-by and Signed-off-by and a Link to his commit, in place of
-  the lists of my changes (Brian).
-- Patch 3: hand out each clock registered at probe as soon as it is
-  registered, and leave the orphans to the clock framework (Brian,
-  Sashiko).
-- Patch 5: describe the driver at a higher level in the commit message
-  (Brian).
-- Patch 5: move the resets to a reset driver, patch 6, which binds to an
-  auxiliary device that the clock driver creates; drop Philipp's
-  Reviewed-by, since the reset code moved (Brian).
-- Link to v4: https://patch.msgid.link/20261122-sf19a2890-sysm-v4-0-bbfe1c495e2e@telaak.dev
-
-Changes in v4:
-- Patch 2: register only the CPU clock and the PLLs it may run from
-  early, from CLK_OF_DECLARE_DRIVER, and the other clocks from a
-  platform driver (Brian).
-- Patch 2: compute the PLL rate with div_u64() on the parent rate,
-  without first dividing it by refdiv (Brian).
-- Patch 2: map the mux values with a table and clk_mux_val_to_index()
-  and clk_mux_index_to_val(); a value outside the table now leaves the
-  clock an orphan instead of reading as the 40 MHz oscillator (Brian).
-- Patch 2: change only the source field when setting a mux parent,
-  keeping MUXDIV_USE_NCO (Brian).
-- Patch 2: drop CLK_SET_RATE_PARENT from the CPU clock, which had no
-  effect: the PLLs cannot change rate (Brian).
-- Patch 2: join lines that fit and add blank lines (Brian).
-- Link to v3: https://patch.msgid.link/20261116-sf19a2890-sysm-v3-0-b07bc7833a87@telaak.dev
-
-Changes in v3:
-- Patches 1 and 2: name the NPU clock CLK_MUXDIV_NPU_PE, without the _CLK
-  suffix that no other clock has (Brian).
-- Patch 3: add Conor's Ack.
-- Patch 4: take the spinlock with guard(spinlock_irqsave) (Philipp).
-- Patch 4: explain each multi-bit reset group in the commit message, not
-  just the GMAC's (Philipp).
-- Patch 4: add Philipp's Reviewed-by.
-- Link to v2: https://patch.msgid.link/20261111-sf19a2890-sysm-v2-0-d2fcb723e4f1@telaak.dev
-
-Changes in v2:
-- Write my notes on Chuanhong's patches as lists, with Co-developed-by.
-- Use GPL-2.0-only, not the deprecated GPL-2.0 identifier, in the clock
-  header's SPDX line.
-- Add a MAINTAINERS entry for the drivers, their bindings and the
-  headers, with an F: line per driver, since drivers/clk/siflower/ will
-  also hold the SF21 drivers.
-- Include <linux/device-id/of.h> instead of <linux/mod_devicetable.h>
-  (Uwe).
-- Word the error messages the same way, and use the current SPDX
-  identifiers in the new files.
-- Explain in the commit message why some resets cover more than one bit
-  (Philipp, Chuanhong).
-- Patch 1: add Conor's Ack.
-- Patch 2: with the PLL's fractional modulator on, scale the fraction by
-  the reference rate, not by the integer VCO rate; and reject a rate of 0
-  in the mux dividers instead of dividing by it.
-- Patch 3: add include/dt-bindings/clock/siflower,sf19a2890-periph-crm.h,
-  naming the clocks and resets of each manager, instead of listing the
-  resets in the description; patch 4 indexes its tables by it (Conor).
-- Patch 4: no comma after the match table's sentinel (Uwe).
-- Link to v1: https://patch.msgid.link/20261104-sf19a2890-sysm-v1-0-a4fac07df823@telaak.dev
-
----
-Chuanhong Guo (1):
-      MIPS: Add support for Siflower MIPS SoCs
-
-Joseph Telaak (5):
-      dt-bindings: clock: Add Siflower SF19A2890 clock manager
-      clk: siflower: Add SF19A2890 clock manager driver
-      dt-bindings: clock: Add Siflower SF19A2890 peripheral clock/reset managers
-      clk: siflower: Add SF19A2890 peripheral clock driver
-      reset: Add Siflower SF19A2890 peripheral reset driver
-
- .../bindings/clock/siflower,sf19a2890-clk.yaml     |  57 +++
- .../clock/siflower,sf19a2890-periph-crm.yaml       | 166 +++++++
- MAINTAINERS                                        |  12 +
- arch/mips/Kconfig                                  |  33 ++
- drivers/clk/Kconfig                                |   1 +
- drivers/clk/Makefile                               |   1 +
- drivers/clk/siflower/Kconfig                       |  23 +
- drivers/clk/siflower/Makefile                      |   3 +
- drivers/clk/siflower/clk-sf19a2890-periphcrm.c     | 306 +++++++++++++
- drivers/clk/siflower/clk-sf19a2890.c               | 501 +++++++++++++++++++++
- drivers/reset/Kconfig                              |  12 +
- drivers/reset/Makefile                             |   1 +
- drivers/reset/reset-sf19a2890-periphcrm.c          | 195 ++++++++
- include/dt-bindings/clock/siflower,sf19a2890-clk.h |  27 ++
- .../clock/siflower,sf19a2890-periph-crm.h          |  87 ++++
- 15 files changed, 1425 insertions(+)
----
-base-commit: fc1f8f0ceb3b949b58c2f7819976644f5cf84249
-change-id: 20261102-sf19a2890-sysm-ac1fbcb21dd5
-
-Best regards,
---  
-Joseph Telaak <joseph@telaak.dev>
-
-
+[...]
