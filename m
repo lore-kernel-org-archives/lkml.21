@@ -1,101 +1,123 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.49
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=205.220.180.131
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795619208;
-	b=u+7QpQgnnj0qDfKVWaYFIw0vN10IB27FtIt5oUj04gc8EAMYm/vFsTqdbWKGFzxFpGky
-	 zIjJ/+0kqGd2Nobavc/2rzDhfSp7bW/ePzQfSNHVLLLAwyVY3LlmYHpJXzBBrGO8N+vvC
-	 aZJFi7UMFcvKEGa5kSXJdngH5SlK96LFd/KQu7oFgNRplPe1TGDldo/u53WOlJKyLceai
-	 GZS32Lic0hkWYIxRqJMR/8ozGc/angCuXMP6ga6DcHAYgYDoDyh8vZ6uq9HdXpHYjjxnT
-	 YaF0vRXhEdQC2Fv2N7ynhyaiWXsqRLyMYYfjp2HKyTBWaIR4HMu/OZEcRjbF0lpDiug==
+	t=1795619254;
+	b=xRV/XMZaMFUorBfRP9Ywa+XTqLXIWWAdcj52OncRAE/pMQ7zR56k9Tnl/pZpbpveRDIA
+	 7VReoX/fc+vE+4DEQSkoZXAO8ROKs6diZdPS2GS7ih2tcAROPQoK9xZ59E/9U8UnSPwKc
+	 ePkGVVQp5k3SsJlWHfQf9lu5AigNqQ8T/f3aKG9xHobOJylKXegbBR9aCNqACCpLu+z5G
+	 O7HGoRjVOarXJj5tScLnEClc074K03a6H1TYagQxS4ZYDhCmV55WKkuCu32TQTLG10o7h
+	 IF9LNUN9HxOnrZORy0obCoFzaSJPA0OtrvToW0kgTAbImNY/mCokXH7nE7mLhEcrwog==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795619208;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=wQhYGWbmYRpOsQh048VImHZFZtKvuW+wybi1/wHnwY8=;
-	b=efj9StFwFT48zLjlAOCuUPyNXz/M3XEhNIK6gN87+FoVU3+sNgFviVHfYZeJ6HfObvDj
-	 Uebfqk+Le/wpnd8ZMbBPndnZXhhU+Arq8S7iNmh/rNHSDbLLAOhUW9rJVSBuoZaoh+txu
-	 R87hltLZtCVHzrlTitOVeldIKQBsiYqwiyS6LwiI6gbdQbAhIwAY1qwDRmfEq7B8fPgOf
-	 dK1ZCYo53pVJds3WgLyCizInfDEqiF8ExGUbTEjvSiXVUpstnIJyXOTjSwSaEftLRud+T
-	 QBiiLkdYxOMZNOHskICbyTjC7nS5eLV4U5aWl03P8RatpCLBQexESIJFG0DHfN80HNA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795619254;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:MIME-Version:
+	 References:In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:
+	 Cc:Content-Type:Content-Transfer-Encoding:X-Authority-Analysis:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:X-Proofpoint-GUID:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=db+Ha9wyQwvqpCYlhHffmTpkau51LqeWzqMbVXiyKQ4=;
+	b=JtmpF6w0kFWESCgarOf9jbg1b10mZ0nUXoaDOO9PZQ1J7hjKmU5pf78fYjgtoYKICyFs
+	 CY2lgrD4TGjSj1pITKSaw+zwqkuQUsBaRAlTB7OOTw2eSE5Rmbw8XGvmlGLX3Ouv+/f5m
+	 k/tV10eWMmb+OJ3PLXu6+CnJ+NoFfczaVBbURKgWc2U7d21WUSR6fzMlPQvKc8qTzLN0R
+	 OVYgJ3yF7zIYVNlPmDMDEutR3DAJfvr8/Kl/hR4ChNjqjcfkBSz673HS4S2PZLT7FgvXh
+	 nxEAiSuGU/Z8topED8I9U0rfM441m56nr9mFVOKCaUjzDeIiC4Q4wSDxnG67W+gFLmg==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=brainfault.org;
-	spf=none smtp.mailfrom=brainfault.org;
-	dkim=pass header.d=brainfault.org header.i=@brainfault.org header.a=rsa-sha256 header.s=google header.b=pemRuMXy;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.49
-Received: from mail-wm1-f49.google.com (mail-wm1-f49.google.com [209.85.128.49])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=g1iGMU5+;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=f2gFOVpc;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D8B38606A323
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:06:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D8B38606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=brainfault.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 32838606A32C
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:07:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 32838606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=brainfault.org header.i=@brainfault.org header.a=rsa-sha256 header.s=google header.b=pemRuMXy
-Received: by mail-wm1-f49.google.com with SMTP id 5b1f17b1804b1-4bb64ef5a00so47211705e9.3
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 07:06:47 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795619206; cv=none;
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=g1iGMU5+;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=f2gFOVpc
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6APEM6AL2729762
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:07:33 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	db+Ha9wyQwvqpCYlhHffmTpkau51LqeWzqMbVXiyKQ4=; b=g1iGMU5+iI+taWPx
+	yLKnXluxP0uaMQZ6O5vPH2iEJkzvOVHnbjFOxlUKSgN9I0PnTwKk9RPx0tz5phAE
+	cWXakaxrTlDBuo7Ig0ayxg17cVaHRUvakyzifrARLhcIgTZpCsEH6XS8Zm9/J4wZ
+	RXv0fAKx89tE2ZoK/4K+jz6tuSEyQjzpKoEat/afA6amSKDrjYvpqTeB9cRZsJbX
+	pRXFEREHLj3Q0aKAwidv2GoSEMoP/vmxEhm0axosUN/os6TTs9KZmu04624uM7Nr
+	ASb1nzQhhyAYBm/r0M49GHRkHxqW+wg42e+m20IdMGvKqw2YgnMNycX1SM6phLCC
+	sLz5Lg==
+Received: from mail-pg1-f200.google.com (mail-pg1-f200.google.com [209.85.215.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j5vukses5-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:07:32 +0000 (GMT)
+Received: by mail-pg1-f200.google.com with SMTP id 41be03b00d2f7-cde9044a96aso2778542a12.3
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 07:07:32 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795619252; cv=none;
         d=google.com; s=arc-20260327;
-        b=q6yEQWcyAjqCuRBcb2RxD9uoZ8c5talwmE8Y/ZUOwXr14qv/rhVPY7EYGA5sWQCWHn
-         uhzZRnSpcFmi17EoURLBdaFVxwLBoFdBWG9PA78F8ys0YYNmi9FAE7p6qsEDzMsT5Vl9
-         1vNwxPo/0LkUX82iJsnsb+JTmP+S7UvIPDUTbiUPSwjrfQvWGdxgqnBmbi3Me331qPHY
-         Rz2bzJQS/gjS0wx9ajc1t3vcsqgg3UtUFUo9cm8SEDU+zuMRb2F3p65nxam4tbqrkc0o
-         /jZ/UMYeNt0jm+CoY9sqtnCKONfciGMnULC63aMQYSbpI8AOS2JUQJYI3LKHvY/SX+x0
-         K8vg==
+        b=m7o8jgJJzWFEIElNHY8BTMUvANGKxXL66xO28H5qak0+tbQYwFINYlvJmbr0DGe3df
+         MU/u1UE6VStFV4RpT1HN0bK9Rf55/rMLc+1ICtKF592LNET4KtNHsOmVAHYtlDPR4cqd
+         Vt49dYo++DDZPWRwbHZESECp4pg3IlCbrogrt/egWD3PsrSqERLkvm78l7g4w3ubiAyY
+         tOJGzQ+rc66fzHn+kdkoW9obDr6ZCX8iiegfeleHdEvG7K5uWtlK2CeD+KpG4+FmNBI8
+         ryCfyyx9CzhWrNnJdl5psPKkwzT4D5j8Oju6Tl6KW40w6zmutrxmPCPgeAzfIz+97UF1
+         D/3g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=wQhYGWbmYRpOsQh048VImHZFZtKvuW+wybi1/wHnwY8=;
-        fh=OLfXTmrcT8vrfwNGHa4ZQrQyaRfT8vzSAkUr5WNwtxo=;
-        b=hp0SbhSYSdMf0n8wX6LXiOwFqjizbqPL82ezIbhqQJMUBsRaZbJJswsToL8wKu1EY7
-         8hJRVA8WBWblljnP3o7fTcwcHdhJDUXI7lLbMuIW69NjOLfBEJYvY7vYI3R2niOIuyPg
-         VIPvwYMhlaPK9lAti+UZbanApnxQmm/Bif5slHx1HkgRrQWax25A+jJG09HvTcp73QhG
-         W3/txBZQ/qRr53N+cZn//W+LWOY9rfxhD8Rlhl1//D6wU0BoKwOAjtYfeKnDyeNItQJx
-         bKQjDvjwgul4FP7qdiYd0WuszmW/wysmTFGSLcJZ1NNyICMzW9liqCYIUtsLPbv6Aa01
-         dDZw==;
+        bh=db+Ha9wyQwvqpCYlhHffmTpkau51LqeWzqMbVXiyKQ4=;
+        fh=UKkSEfPDJswuvAtAtgieixZttE4Pf3kdQtbWiMyVI4o=;
+        b=WNKKjE7ODes1pVAzqJv/iCGl95pd5wLEymO/Ct8Lr1/zNXiYO0mLmWdvwBtBBsSYP2
+         d86+rVaP1SVgVoebJvkuDnD6TNAYFjwlip8JyJ/oG1diVwSWe8acT0WKHopt6OJk5OSi
+         j3/c8eTlD2aeGaLLd7nJHHM4sB3hogbNQXNxxkvt/PKNxH7vZwX0vQoGRPdEmaPma4SR
+         TLJYsaa+gMQ8apbvO0fyx77meXLVhdsph7x6BxmzQboFD4bTKRCKA6x7/DUqtGZYszOe
+         bZKwZdPHOKfUPz+LeCodevCfGeLnn2OTxHFniPBkZYknvoqmYttB2aQKi2i3OuOq0153
+         YDgw==;
         darn=vger.kernel.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault.org; s=google; t=1795619206; x=1796224006; darn=vger.kernel.org;
+        d=oss.qualcomm.com; s=google; t=1795619252; x=1796224052; darn=vger.kernel.org;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=wQhYGWbmYRpOsQh048VImHZFZtKvuW+wybi1/wHnwY8=;
-        b=pemRuMXyr4I+c1uAftwjHSHymoYH7Onl2IbwGetE3XAtmQX8HIt3kHduM3rqqvWGiD
-         Yjl8YW0mB+xKtyLsZKIY7eOvw7Yl3jukaCT8DQGlnCi9GLJTA3QQJDxinJjDAjZP4Moc
-         UZ1YaNLJ7/cuVMJbNeHhLmmdME4JYLSWFxZ/IpUKSqna2UDG//Vh4PgosVBNdOELJIPO
-         rPsmtKcRuGP8+z1MGP7eQp7LBCL7EWumiDgyz8ssXhTj2sA9U+1doNI+08N+6qnz6jxG
-         P86ATgyMpc20XFtOnmiOQVQaBQoqeaVY0j0erX/fJAT8YsM1FWNTT1nrorwU+gghnTfJ
-         jzWQ==
+        bh=db+Ha9wyQwvqpCYlhHffmTpkau51LqeWzqMbVXiyKQ4=;
+        b=f2gFOVpcbCOJ9yOFdfJGpHBsYXJZMz2NDVhtSnnMTPrHds3LU7u/YvvkyRZGa0LSVv
+         R7DdyC143HQvXgIkiLVGwnCNorseDG1DJtAYA5KzBqjmvGKYJicR67M6Go00IETewbuK
+         pAsEsAv6UCJ8L05g6eovbM+/d63ZUw+/UFYqIG2qovwneMZIyRG5/DSQcHnM7GLKekLM
+         SgxDoQ4qiKuXhseZDoB+hOLxVQlzZTRgCVNh3C+G32RRHBR/kUbkEdQUaNcpPG10KkHH
+         l/XBa3wj4z1eqvoDU/7sfgyVCn9S9MjcqtE8n+GbX1f5zvz+MuuKFMwk+xgh8J6mt9wX
+         B8vQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795619206; x=1796224006;
+        d=1e100.net; s=20260707; t=1795619252; x=1796224052;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=wQhYGWbmYRpOsQh048VImHZFZtKvuW+wybi1/wHnwY8=;
-        b=a6T4GC2JDMpqbRiKMeUPpROt+XYXTP5Sn8k3LW1wPS04vxSOg4oTksy/tTjbdmrDqz
-         +uuCwGe0cn5/jcP8eJtS4kNaBli29XjoVWGlBBLDcfiFN6H4ax8tAMU5tp7dBtByj2JU
-         ARwHV52JInvDaS0sulXOxdBcS5KX96+lfoJebvDzxus6UFvozBaTHz5hufSngarY6px4
-         zb1qwNnkXPmMU5ToK13GO5oP/L7Ms6GMcUWIbRWayAbY4oIvXczbOhmgWYsICq2T9JKl
-         RyZtogIqrB8JuRMruvQEVEzILz+NCOnUjcor6Mc/oFzmgDlKPbVBFMl82AkjwWzp+Krn
-         pgsw==
-X-Forwarded-Encrypted: i=1; AL+hErFAqGUNsaqIDYRkxUlMxuxUEn6mqGu8OxnxQdfohqVI7x9HMpUfCskHLMAb+8m4t89F5E9RZ0wHfDmoYWY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+Uf9o3EPeihx+5npWPPozhj+iJBglhob7oJ6UPwzTJhqOqC9Qg
-	Xo+gRj9Wak7to68N9NxbgQTZDaB0qAMbQUt0xl/3SM6WVnG0aWdxtE149W2fph0dalzqTp9QP6x
-	5niBLAmcpiCcoPg6kDnz8+pDNLA22aIdfRiK+fYwfNw==
-X-Gm-Gg: AZFdTZdX8wo6QpIn+iYihBInfZ0sWZQI5EPOhUFueZVQzDtYxfSwGeyPzGUCimjmc6d
-	oxig7p20A6c2kjbl1fulBmfEgsOfbN9LWkGclKeHRDS2yM5DOrFN7K5SIoqAyaZRjW2BkfZ2I70
-	XS9rSr0cbr4UvgA1PIvhYOtBgaF1S89hBaL2Z+7NIwkGv6j8l7zxVbWObrAuR3Zkv7jprGav4wc
-	ASgHlTekwsaB/IwWC1NJ2fTFXxpGsIEh0c4NiuTT0oRdxt8A5y9RBVcJnXygHXFZTK9hOTkPwnC
-	mrb3xVUpb0O8YDJZSfKO+1eTb9GepDyyHvHeAB1FgPs+GzWIw2TsYf2x1ZJXJts1FgpTkJeIkY2
-	qb/iPs66mMF6QmdUcoSBdK+VyweSnYujekXkWui6TpkPGFv2iSYfhwlXnWwnCPQtL3+WMKYIGYz
-	hizZ+vxszsqtMlvkpfC1+y6XR3zOrkWBST5sUJmZoCK0eLULQMhYbo
-X-Received: by 2002:a05:600c:828e:b0:4a1:cd83:b23e with SMTP id
- 5b1f17b1804b1-4bb88786ddemr337232595e9.0.1795619205644; Wed, 25 Nov 2026
- 07:06:45 -0800 (PST)
+        bh=db+Ha9wyQwvqpCYlhHffmTpkau51LqeWzqMbVXiyKQ4=;
+        b=TqmRcSXasbiXPkt1da9bkuELMKCFm6gjzJQdUhDrw0YG5+I+Dqi/PCl3ZnjOmqiAqK
+         64ppX1qQnQt6nMGJ+Ujz7a6aN5bYoWyjYvxoBKTZr+YTzivc3Pl5EPsdU2oTbj93Qc7R
+         N6LV9u7QV+hSewN8ne1bToMWHkYCblDuHPa7NW/VLs5iIzrFYZoJVIEomKsajXCiT1e5
+         DLTpxueqNFOBlDAcDnNSmYIOpCTK52UE5BJIlXGx1PSJpxJ0FhTCz5HcXiD8jxmwUxBN
+         GMsmFUffNXnfZuT0xXFHT/Oud5jr7dm726M+mQkLqXZeWc+bZhYJ3fiPiTBx9P4yPUI0
+         T7rA==
+X-Forwarded-Encrypted: i=1; AL+hErH5R+LLlL/It92UADwFDrNmVSw9BFWVo8SrRdM7vDXP1jum2hLipxWtxLr7jlRxrvwCQFg8xbccmz2Ry9I=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/f3IIUZs+GwewCHcBOlun1Zcv/LRFj+q6G+bZcFaqYEl+1rC5Q
+	LaYJUgmcJMzLGpKEQJLrZfuPWc8g+Gjs77FOpBzZPLsW9LRkTn0mipACzh/c62ay914TIvHAMHv
+	hP7QfBoGNmVOFXENJ7kR7YhIM5XlUO9YE46MF7Ejlq9rcAkCZeGaZSD3/K07717RqMqs7Eatkb6
+	7sZk61ZNOMt2HEGrNSFnqfJNDzS08juoq8I1c61C66yw==
+X-Gm-Gg: AZFdTZdc+ax4i9rzGXPpPbax4lhMwagtJJjFTZXJuWCNSEVyuqNemN97JosXUWATJbl
+	z5EwWE3YbqbCa5/VzcpugNW93iWXXFifMlHAAaTTrH+c15VnN1oaWwnv8XTlGmZ6xsgij7RflPh
+	v+Kx4V5OV7CGzEBq0Z834WiJ+AzmLqpC5pDTetUdAkuTCrR0ybm2BBsZc5NQ==
+X-Received: by 2002:a17:90b:4983:b0:3b0:97b8:d6b7 with SMTP id 98e67ed59e1d1-3b41c931d29mr17812829a91.42.1795619251750;
+        Wed, 25 Nov 2026 07:07:31 -0800 (PST)
+X-Received: by 2002:a17:90b:4983:b0:3b0:97b8:d6b7 with SMTP id
+ 98e67ed59e1d1-3b41c931d29mr17812748a91.42.1795619251127; Wed, 25 Nov 2026
+ 07:07:31 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,82 +127,256 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20260914055936.3672758-1-wang.yechao255@zte.com.cn> <20260914055936.3672758-2-wang.yechao255@zte.com.cn>
-In-Reply-To: <20260914055936.3672758-2-wang.yechao255@zte.com.cn>
-From: Anup Patel <anup@brainfault.org>
-Date: Wed, 25 Nov 2026 20:36:34 +0530
-X-Gm-Features: Aa3M54rWb_qwV0lybeTg4v6ZPTlnIV7_ygoXoP0dqWuArNVCCcEttr1PQxaya24
-Message-ID: <CAAhSdy2-HGNfbBCJeXPS0wyTaSt+C9rHw08K6dn5DcJCLWy+rw@mail.gmail.com>
-Subject: Re: [PATCH v5 1/2] RISC-V: KVM: add tracepoint for guest page faults
-To: Wang Yechao <wang.yechao255@zte.com.cn>
-Cc: kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Atish Patra <atish.patra@linux.dev>, Alexandre Ghiti <alex@ghiti.fr>
+References: <20261117173738.1073856-1-Frank.Li@oss.nxp.com> <20261117173738.1073856-2-Frank.Li@oss.nxp.com>
+In-Reply-To: <20261117173738.1073856-2-Frank.Li@oss.nxp.com>
+From: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
+Date: Wed, 25 Nov 2026 16:07:19 +0100
+X-Gm-Features: Aa3M54qdNdgAc_JRldH76LdEJD_mei5kpsUzvFW9k6ee3hswc_FKGO5qrF_F3iw
+Message-ID: <CAPx+jO9RwkpSKwq6vq00uoXK-mcovJ2LMH7b_ByRnxOUj8nH8w@mail.gmail.com>
+Subject: Re: [PATCH v3 2/2] PM: runtime: fix stub pm_runtime_get_if_in_use()
+ for !CONFIG_PM
+To: Frank.Li@oss.nxp.com
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
+        Matthias Brugger <matthias.bgg@gmail.com>,
+        AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+        Heiko Stuebner <heiko@sntech.de>, Ulf Hansson <ulfh@kernel.org>,
+        Rodrigo Vivi <rodrigo.vivi@intel.com>,
+        Matthew Auld <matthew.auld@intel.com>,
+        Hans de Goede <hansg@kernel.org>,
+        Patrik Jakobsson <patrik.r.jakobsson@gmail.com>,
+        Peter Ujfalusi <peter.ujfalusi@linux.intel.com>,
+        Mark Brown <broonie@kernel.org>,
+        Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>,
+        Ranjani Sridharan <ranjani.sridharan@linux.intel.com>,
+        Yong Wu <yong.wu@mediatek.com>, Will Deacon <will@kernel.org>,
+        Tomasz Figa <tfiga@chromium.org>, Marek Vasut <marex@denx.de>,
+        Michael Tretter <m.tretter@pengutronix.de>,
+        Sakari Ailus <sakari.ailus@linux.intel.com>,
+        Hans Verkuil <hverkuil@kernel.org>,
+        "open list:POWER MANAGEMENT CORE" <linux-pm@vger.kernel.org>,
+        open list <linux-kernel@vger.kernel.org>,
+        "moderated list:ARM/Mediatek SoC support:Keyword:mediatek" <linux-arm-kernel@lists.infradead.org>,
+        "moderated list:ARM/Mediatek SoC support:Keyword:mediatek" <linux-mediatek@lists.infradead.org>,
+        "open list:ARM/Rockchip SoC support:Keyword:b[Rr]ock[Cc]hipb" <linux-rockchip@lists.infradead.org>,
+        imx@lists.linux.dev, Frank Li <Frank.Li@nxp.com>,
+        Jani Nikula <jani.nikula@linux.intel.com>,
+        Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
+        Tvrtko Ursulin <tursulin@ursulin.net>,
+        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Hellstrom <thomas.hellstrom@linux.intel.com>,
+        Simona Vetter <simona@ffwll.ch>, David Airlie <airlied@gmail.com>,
+        Matthew Brost <matthew.brost@intel.com>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        Alessio Belle <alessio.belle@imgtec.com>,
+        Luigi Santivetti <luigi.santivetti@imgtec.com>,
+        Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>,
+        Takashi Iwai <tiwai@suse.com>,
+        Bard Liao <yung-chuan.liao@linux.intel.com>,
+        Kai Vehmanen <kai.vehmanen@linux.intel.com>,
+        Robin Murphy <robin.murphy@arm.com>,
+        Mauro Carvalho Chehab <mchehab@kernel.org>,
+        Dafna Hirschfeld <dafna@fastmail.com>,
+        Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+        Daniel Baluta <daniel.baluta@nxp.com>,
+        Vijendar Mukunda <Vijendar.Mukunda@amd.com>,
+        dri-devel@lists.freedesktop.org, imagination@lists.freedesktop.org,
+        intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org,
+        iommu@lists.linux.dev, linux-media@vger.kernel.org,
+        linux-sound@vger.kernel.org, sound-open-firmware@alsa-project.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+X-Authority-Analysis: v=2.4 cv=KfVHIgYD c=1 sm=1 tr=0 ts=6b06f9b4 cx=c_pps
+ a=oF/VQ+ItUULfLr/lQ2/icg==:117 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
+ a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
+ a=rJkE3RaqiGZ5pbrm-msn:22 a=8AirrxEcAAAA:8 a=VwQbUJbxAAAA:8 a=QyXUC8HyAAAA:8
+ a=GFqr32JmAAAA:8 a=pGLkceISAAAA:8 a=r_1tXGB3AAAA:8 a=iox4zFpeAAAA:8
+ a=7CQSdrXTAAAA:8 a=mpaa-ttXAAAA:8 a=QX4gbG5DAAAA:8 a=ZLGELXoPAAAA:8
+ a=P1BnusSwAAAA:8 a=zd2uoN0lAAAA:8 a=e5mUnYsNAAAA:8 a=JfrnYn6hAAAA:8
+ a=foHCeV_ZAAAA:8 a=Idd5WaZmN1QeKTrTtQEA:9 a=QEXdDO2ut3YA:10
+ a=3WC7DwWrALyhR5TkjVHa:22 a=ST-jHhOKWsTCqRlWije3:22 a=f02Ha7HRcztGgdyUxOxW:22
+ a=t8nPyN_e6usw4ciXM-Pk:22 a=WzC6qhA0u3u7Ye7llzcV:22 a=a-qgeE7W1pNrGK8U0ZQC:22
+ a=AbAUZ8qAyYyZVLSsDulk:22 a=CFiPc5v16LZhaT-MVE1c:22 a=D0XLA9XvdZm18NrgonBM:22
+ a=Vxmtnl_E_bksehYqCbjh:22 a=1CNFftbPRP8L7MoqJWF3:22 a=h8a9FgHX5U4dIE3jaWyr:22
+X-Proofpoint-ORIG-GUID: vB74Ab71QnaFZbTUbsetqXyGzJ_-PGQJ
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI1MDA2MCBTYWx0ZWRfX9t5kgdVTP5oC
+ ZjljhpyGN967NEPSxoXnPTgEaDQKYnA5br2UCr2IZfkNsCyc73dDZ8Ka7xhKqXAgPsfItNHyrRz
+ GaS2cdq64K2wc2fMOHT6nC6E12QXCYs=
+X-Proofpoint-GUID: vB74Ab71QnaFZbTUbsetqXyGzJ_-PGQJ
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI1MDA2MCBTYWx0ZWRfX46XlstMo4abS
+ s47lAGXgrRlkbPOA58Tc46Vu+3dYuObm0KADPMt6zh8VS9EboeGMf8kKxs9g4yS7lgNmz19ZaIB
+ AlSywyQt9eOP7kr5tL1oPml56qExAuStMmFNKTm7o62HpVo0R0XEGDfIPfsQ9P5g6q7cTyOkHZv
+ fwpcpBeXfVG1xyHTqIUZbnlhOF47/es1suEqGldxJRf66AcT4tub6tBlNJiOid6Jp6XT1q3Xu3N
+ XLpwOEoVU7fPp0QtuJvQtd6V0BSBTOrpLLskhyoM4844t/6ZJUnE+kFQqYENA/oTGLTZ61B1BTW
+ +YG0QNK1gMqaNAX1gKZlhoT/o4x3gHAUKpdc6PipCYBynZHuf8qOoeAXXfcWjI7/3ZleE5YkTPP
+ 8HSpSASE5TdJPiG4Vw5CTb7GEuJMxEMy0VtK/sHP33LF7Ei0fsio3WI2tWakvHeLyrgJRNHi/Dv
+ eV9rUP4ykgnxJ8Ygp0g==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-25_04,2026-11-23_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ adultscore=0 suspectscore=0 priorityscore=1501 clxscore=1015 bulkscore=0
+ impostorscore=0 lowpriorityscore=0 malwarescore=0 phishscore=0 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611250060
 
-On Mon, Sep 14, 2026 at 11:37=E2=80=AFAM Wang Yechao <wang.yechao255@zte.co=
-m.cn> wrote:
+On Tue, Nov 17, 2026 at 6:38=E2=80=AFPM <Frank.Li@oss.nxp.com> wrote:
 >
-> Add the kvm_page_fault event tracepoint to count the number of KVM
-> guest page faults.
+> From: Frank Li <Frank.Li@nxp.com>
 >
-> Signed-off-by: Wang Yechao <wang.yechao255@zte.com.cn>
+> The stub for pm_runtime_get_if_in_use() under !CONFIG_PM currently
+> returns -EINVAL.  The real implementation returns:
+>   1  - device is active and its usage counter is non-zero (bumped)
+>   0  - device is not in use or not active (counter not bumped)
+>  -EINVAL - runtime PM disabled for this device
+>
+> When CONFIG_PM is not set every device is permanently "active" and
+> always considered "in use", so the stub must return 1, mirroring
+> __pm_runtime_resume() which already returns 1 in the same build.
+>
+> Returning -EINVAL breaks callers that test the return value with
+> comparisons other than "!=3D 0 / =3D=3D 0":
+>
+> drivers/gpu/drm/i915/intel_runtime_pm.c:
+>   if (intel_runtime_pm_get_if_in_use(rpm))
+>   which wraps to: ret =3D pm_runtime_get_if_in_use(); return ret > 0;
+>   With -EINVAL the wrapper returns false, causing an incorrect error
+>   path in the GT fence revocation code.
+>
+> drivers/gpu/drm/xe/xe_pm.c:
+>   if (pm_runtime_get_if_in_use(xe->drm.dev) > 0)
+>   With -EINVAL the condition is false; xe_pm_runtime_get_if_in_use()
+>   returns false, so callers believe the device is not usable.
+>
+> drivers/gpu/drm/gma500/power.c:
+>   return pm_runtime_get_if_in_use(dev) =3D=3D 1;
+>   -EINVAL !=3D 1, so the helper always returns false when !CONFIG_PM.
+>
+> drivers/gpu/drm/imagination/pvr_power.c:
+>   if (pm_runtime_get_if_in_use(...) <=3D 0)
+>   -EINVAL <=3D 0 is true, so the driver always takes the "requeue" error
+>   path instead of proceeding with the active device.
+>
+> sound/soc/sof/debug.c:
+>   if (pm_runtime_get_if_in_use(sdev->dev) =3D=3D 1)
+>   -EINVAL !=3D 1, so d3_prevented is never set, corrupting exception
+>   debug accounting.
+>
+> drivers/iommu/mtk_iommu.c:
+>   if (pm_runtime_get_if_in_use(dom->plat_dev->dev) <=3D 0)
+>   -EINVAL <=3D 0 skips the TLB flush, leaving stale IOMMU mappings.
+>
+> drivers/iommu/rockchip-iommu.c:
+>   Three call sites use WARN_ON_ONCE(err < 0) or similar patterns.
+>   -EINVAL < 0 triggers a spurious WARNING on every call.
+>
+> drivers/media/i2c/isl7998x.c:
+>   if (pm_runtime_get_if_in_use(dev) <=3D 0)  (two call sites)
+>   -EINVAL <=3D 0 causes the driver to always skip register programming
+>   when !CONFIG_PM.
+>
+> drivers/media/platform/rockchip/rkisp1/rkisp1-debug.c:
+>   if (pm_runtime_get_if_in_use(dev) <=3D 0)  (two call sites)
+>   -EINVAL <=3D 0 prevents any debug statistics from being collected.
+>
+> Fixes: a436b6a19f57 ("PM / runtime: Add new helper for conditional usage =
+count incrementation")
+> Fixes: 3b85b7bcccf4 ("drm/xe: Fix display runtime_pm handling")
+> Fixes: 672c473576ca ("drm/gma500: Rewrite power management code")
+> Fixes: b30289e7fa92 ("ASoC: SOF: Fix runtime pm usage counter balance aft=
+er fw exception")
+> Fixes: c0b57581b73b ("iommu/mediatek: Add power-domain operation")
+> Fixes: 51ef2be546e2 ("media: i2c: isl7998x: Add driver for Intersil ISL79=
+98x")
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
 > ---
->  arch/riscv/kvm/trace.h     | 22 ++++++++++++++++++++++
->  arch/riscv/kvm/vcpu_exit.c |  2 ++
->  2 files changed, 24 insertions(+)
+> Change in v3
+> - drop tag: cbb819c363c5 ("media: rkisp1: debug: Collect input status by =
+sampling ISP_FLAGS_SHD")
+> selected PM at arch config
+> - drop tag: 0f181d3cf7d9 ("iommu/rockchip: Add runtime PM support")
+> selected PM at arch config
+> - drop tag: 9d58aa46291d ("drm/i915: Fix the GT fence revocation runtime =
+PM logic")
+> guard by CONFIG_PM
+> - drop tag 727538a4bbff ("drm/imagination: Implement power management")
+> depend on PM
+> `
+> Change in v2
+> - new patches.
 >
-> diff --git a/arch/riscv/kvm/trace.h b/arch/riscv/kvm/trace.h
-> index 23a5fd1b686e..07fcf5b6059b 100644
-> --- a/arch/riscv/kvm/trace.h
-> +++ b/arch/riscv/kvm/trace.h
-> @@ -133,6 +133,28 @@ TRACE_EVENT(kvm_vcpu_irq,
->                   __entry->vcpu_id, __entry->irq, __entry->level)
->  );
+> Cc: "Rafael J. Wysocki" <rafael@kernel.org>
+> Cc: linux-pm@vger.kernel.org
+> Cc: Jani Nikula <jani.nikula@linux.intel.com>
+> Cc: Joonas Lahtinen <joonas.lahtinen@linux.intel.com>
+> Cc: Rodrigo Vivi <rodrigo.vivi@intel.com>
+> Cc: Tvrtko Ursulin <tursulin@ursulin.net>
+> Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
+> Cc: Maxime Ripard <mripard@kernel.org>
+> Cc: "Thomas Hellstrom" <thomas.hellstrom@linux.intel.com>
+> Cc: Simona Vetter <simona@ffwll.ch>
+> Cc: David Airlie <airlied@gmail.com>
+> Cc: Matthew Brost <matthew.brost@intel.com>
+> Cc: Thomas Zimmermann <tzimmermann@suse.de>
+> Cc: Patrik Jakobsson <patrik.r.jakobsson@gmail.com>
+> Cc: Alessio Belle <alessio.belle@imgtec.com>
+> Cc: Luigi Santivetti <luigi.santivetti@imgtec.com>
+> Cc: Liam Girdwood <lgirdwood@gmail.com>
+> Cc: Mark Brown <broonie@kernel.org>
+> Cc: Jaroslav Kysela <perex@perex.cz>
+> Cc: Takashi Iwai <tiwai@suse.com>
+> Cc: Bard Liao <yung-chuan.liao@linux.intel.com>
+> Cc: Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>
+> Cc: Peter Ujfalusi <peter.ujfalusi@linux.intel.com>
+> Cc: Kai Vehmanen <kai.vehmanen@linux.intel.com>
+> Cc: Robin Murphy <robin.murphy@arm.com>
+> Cc: Yong Wu <yong.wu@mediatek.com>
+> Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> Cc: Matthias Brugger <matthias.bgg@gmail.com>
+> Cc: Heiko Stuebner <heiko@sntech.de>
+> Cc: Mauro Carvalho Chehab <mchehab@kernel.org>
+> Cc: Dafna Hirschfeld <dafna@fastmail.com>
+> Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+> Cc: Michael Tretter <m.tretter@pengutronix.de>
+> Cc: Daniel Baluta <daniel.baluta@nxp.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Vijendar Mukunda <Vijendar.Mukunda@amd.com>
+> Cc: dri-devel@lists.freedesktop.org
+> Cc: imagination@lists.freedesktop.org
+> Cc: intel-gfx@lists.freedesktop.org
+> Cc: intel-xe@lists.freedesktop.org
+> Cc: iommu@lists.linux.dev
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-mediatek@lists.infradead.org
+> Cc: linux-media@vger.kernel.org
+> Cc: linux-rockchip@lists.infradead.org
+> Cc: linux-sound@vger.kernel.org
+> Cc: sound-open-firmware@alsa-project.org
+> Cc: imx@lists.linux.dev
+> ---
+>  include/linux/pm_runtime.h | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 >
-> +TRACE_EVENT(kvm_page_fault,
-> +       TP_PROTO(struct kvm_vcpu *vcpu, u64 fault_address, u64 error_code=
-),
-> +       TP_ARGS(vcpu, fault_address, error_code),
-> +
-> +       TP_STRUCT__entry(
-> +               __field(unsigned int,   vcpu_id)
-> +               __field(u64,            fault_address)
-> +               __field(u64,            error_code)
-> +       ),
-> +
-> +       TP_fast_assign(
-> +               __entry->vcpu_id        =3D vcpu->vcpu_id;
-> +               __entry->fault_address  =3D fault_address;
-> +               __entry->error_code     =3D error_code;
-> +       ),
-> +
-> +       TP_printk("vcpu %u address 0x%016llx error_code 0x%llx",
-> +               __entry->vcpu_id,
-> +               __entry->fault_address,
-> +               __entry->error_code)
-> +);
-> +
->  #endif /* _TRACE_KVM_H */
->
->  #undef TRACE_INCLUDE_PATH
-> diff --git a/arch/riscv/kvm/vcpu_exit.c b/arch/riscv/kvm/vcpu_exit.c
-> index 88e0c369b354..de0262d0fd95 100644
-> --- a/arch/riscv/kvm/vcpu_exit.c
-> +++ b/arch/riscv/kvm/vcpu_exit.c
-> @@ -29,6 +29,8 @@ static int gstage_page_fault(struct kvm_vcpu *vcpu, str=
-uct kvm_run *run,
->         memslot =3D gfn_to_memslot(vcpu->kvm, gfn);
->         hva =3D gfn_to_hva_memslot_prot(memslot, gfn, &writable);
->
-> +       trace_kvm_page_fault(vcpu, fault_addr, trap->scause);
-> +
+> diff --git a/include/linux/pm_runtime.h b/include/linux/pm_runtime.h
+> index de9e7518ecef2..1d983fe55a16a 100644
+> --- a/include/linux/pm_runtime.h
+> +++ b/include/linux/pm_runtime.h
+> @@ -276,7 +276,7 @@ static inline int pm_schedule_suspend(struct device *=
+dev, unsigned int delay)
+>  }
+>  static inline int pm_runtime_get_if_in_use(struct device *dev)
+>  {
+> -       return -EINVAL;
+> +       return 1;
 
-The trace_kvm_vcpu_exit() in kvm_riscv_vcpu_exit() already covers
-all traps so I don't think we need separate trace point for G-stage
-page faults.
+This should be return 0, as we did not bump the usage count.
 
-Regards,
-Anup
+>  }
+>  static inline int pm_runtime_get_if_active(struct device *dev)
+>  {
+> --
+> 2.43.0
+>
+
+Kind regards
+Uffe
