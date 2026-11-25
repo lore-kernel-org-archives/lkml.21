@@ -1,73 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.70
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795585821;
-	b=G/PzQu6R6ddG7TGOH9ebb6LFDvfyiafwssd6LsiO3ScKwzOSd3wzHFqXm+Wi7lm6nfiP
-	 3AAUzUIe9s3c1OMn64komL/n5DeFoFNW0hR2tX5Ce0hrbGR7VoC2KvKo+C125gQL2zFZl
-	 H4HvAcwBvZ93pTQmnkwK/JuSG00PNLsF4UuL7Kon6/HOGiYHLRbw6HLenWXOnFRqfKLik
-	 +iiSnVJMJr4rNVxmj85tKY30/B/00Jd5As+BqgTZyvhgVaAgmIaijXc1aRVbPXBdiXJkO
-	 mwXWOHoMrHlkSDsfHmCrBWESamW6Wzg181sdsn3H53GNjAvFKCMfLX8ulkIV6rBFSHQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795585821;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.52
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795585828;
+	b=Ci4o3IHkW8N4FuWHD6v+CnzRT0KiMHeSjh7kuRZyG/67bMZ107aMgbDVBgtf034NfZY1
+	 7jlCv5+1O22J1QGM/a4Yz0ZTli+BqFJLog+FlvffIejPjTqKa6RToGhcNPmxsLlL2tGrR
+	 Wo9khykaE6s0oU9AWLVr1QfJsurmY6e9hZ0NKAKz6Df8f2uGoXAklI1r91nX/KUPJ3W14
+	 BSG9ot8koTRWoaLv6vpboUAjxDjaD5F72VBoeCIkLSq5t63w3lziAI6Xrgw92ovNIQvj9
+	 SgsVqX95AW2hrn8CcQwU6gfhD6qip5xSFu33SFGCeznuQAjvxkjRES2v1zPUICdXkKQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795585828;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
-	 X-B4-Tracking:X-Change-Id:X-Mailer:Message-ID:Subject:From:To:Cc:
-	 Content-Type;
-	bh=7TuopKGkuXxe9F8oaxjlU1CyosEDfE9sI6BY0c1BuLY=;
-	b=J1O5HONbJ3d2DZJGHBezZO9IGV5K5iqFFUfCz5WdgbH5VJfEFBt3OG+g1NYIac9ZwRyD
-	 9mepUE8hgWSBoe8oSL1ikNQOTxSCtrpCkMKFDEIxuhKmhu6v9F+QxkfmXnoFxliLNR+Rp
-	 k2wEiQeDf6IruHmfYil2JIfIaXQarAqvvF2FfyHSwuploMZs0O5AQAx+xLeSh727/5FFO
-	 zoH5PoYWp3Sj5JthIb38XR7lNjpyMAPj3qeepD9fGxuOa/1t4tdwCPUB+pBAOSXZ/gwR6
-	 acNPBO02KEtrtt8q94luxZbzS+Pd+7ttYjn5tGi2gKPFDwD4uRKE9Z2mU6t498cigfw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--rathodpriyank.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=cuW89rUp;
-	arc=none smtp.remote-ip=209.85.216.70
-Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com [209.85.216.70])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=h0QzRh8muxydOHGjX2h5cehhw+NrrMdYMgJiE84UVD4=;
+	b=JCMi/x66Hhi8M4I/9feKRtB8+UVu/TCQK7aWfuVJv4GjoqvbTADbhwPaZrxFDuSe074r
+	 Qmov97hNL5805t9YExi89+MDIOzZCvANoB47HA2fjVDV4zH3OoAZfInsVa+nhsZnSXf+U
+	 SAdo2UemFz2KzCHBHQxAHzW3meagvCXsacDkP9Xt+AVM6GLIMguNj8uYl6vgkPpMF00NS
+	 cPatiGDwzvmtAoHFjnEXyrbCye5VTjyx8BTogrXyLnVkwB/Vi7aQKnIgDbIPKIggkRC66
+	 hQsXbCrQ1cKBYL+kL0G8mIxNhix/1mQnSbnzZ46zJikseUVrFtECIioTllMUagGSVXQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=none header.from=brainfault.org;
+	spf=none smtp.mailfrom=brainfault.org;
+	dkim=pass header.d=brainfault.org header.i=@brainfault.org header.a=rsa-sha256 header.s=google header.b="qvI/3qli";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.52
+Received: from mail-wr1-f52.google.com (mail-wr1-f52.google.com [209.85.221.52])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BC864606A327
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 05:50:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BC864606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--rathodpriyank.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B3140606A33A
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 05:50:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B3140606A33A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=brainfault.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=cuW89rUp
-Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-3b40b011aa4so6484247a91.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 21:50:20 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=brainfault.org header.i=@brainfault.org header.a=rsa-sha256 header.s=google header.b=qvI/3qli
+Received: by mail-wr1-f52.google.com with SMTP id ffacd0b85a97d-4ac109a8a12so3089597f8f.3
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 21:50:27 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795585826; cv=none;
+        d=google.com; s=arc-20260327;
+        b=pusUBALQ7OCVrd2N/+wEJyfQIdydD9GwfPPFn+UCPE5xWfUwm4Yzm5pYL2uke5e0Dv
+         HuvYDWZa/69b4LSOs9wUcNF9+co7GwAk4NtLxJjC4azqjfV6Khgjyc9BDnA8YYeC3ttB
+         Cgccg1hdDeBzRH6Yrp3vXh1+1VJfolvtromcdh361xAiEG8Wp6tI9LR8rjMQHPHirPQ1
+         M/nk12FnWOMCDJahfk/al4Sn79w7LQcozqc18kNSzL/SwM4Y1LiruzC6SiyqzVzE9Fwa
+         v6o0NEkqOIVoCww3CpoFvVqA7nCOZRHH38/dIXNCYYdDM5s2xZP6IsmiKKvRLrhpHb5U
+         8R/g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=h0QzRh8muxydOHGjX2h5cehhw+NrrMdYMgJiE84UVD4=;
+        fh=Pz6JzDFQ0TABXj152dshqXsxqd8k9NQ7naOcmBnoyys=;
+        b=lo6mlMw4tOkInKgbgboXQetfMQjaU2ubZYE/9QJ4t7edSFXGhvZjRevl4zfiF+GqQj
+         qqByFCMZFf5yE9qOINWJRi48uanJARZbZnuOWkJNVGZHSq03qSEXUCGS26CFwqJjA2q9
+         2g0aVvucJnp/gPRIl3XZKfoyFqUxxNPaE2slENW8kD/Cku1OwlSXmrOnqAPdinMGjrbw
+         URXE9b19xCKsVyklm0q1Mfl8wWtoQ2v8mGuM9jTY21nYLvlGbHcjKYuyH4X36WjAS2BE
+         3lYWDElvGOtkSSaen6Dhju02Or4cAGwf7L7SjnbH8E0tGStxMASX/fq3yzr1zVKwIDIY
+         OA0A==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795585820; x=1796190620; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=7TuopKGkuXxe9F8oaxjlU1CyosEDfE9sI6BY0c1BuLY=;
-        b=cuW89rUp/FqYJRm/IMeV89comPbS6z6Qk0gl3XG9nNwuD/NuWN/D4n1iVC5cJkXl+n
-         PTLFpe1GTLmXaBv7OTnL8YYmE0MrhG25p6Iub04WRKi6CuqX9LSxy7JnDkIizZkavVig
-         s5Y+WBceuSzfHfSY/GlstoStuG7TqGVUIW50fRV5iQU3hQJ60tHgN4nzE124qDYt8uCI
-         Uw5ljvmoQf4uWRPfeE7fXUjININwaxlOk9PU6iRpXEPAxdN22YZ3o0B9T9r/3Y66riC0
-         jz+1if7RB2Ozg8XlLOzM4/mMvblq8A4In47rffGrg8o3pTmePdKVJh5lLeuSIiCSho5p
-         M+DQ==
+        d=brainfault.org; s=google; t=1795585826; x=1796190626; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=h0QzRh8muxydOHGjX2h5cehhw+NrrMdYMgJiE84UVD4=;
+        b=qvI/3qlibVawrt3J6HO0mHmcB38ldsVi0ERoyN8hcddPDVGOUsBBPxFi7GtPAzOkTi
+         jHIBO5XgIkS8+qSRnSfu4AF8lGN6QtSJjMhDbZ1KsvQD2iwRkNMtBWiQc/J0pUim1FpV
+         v/oQaDD3ahh2NxhAAqI7UiKrzbGwz2GqH4Ml18/vQ35P9wrkEVq9Md9WtFNuJNk/1Yrd
+         4BdqavPaMAcr8qq2fp96HXbd7ynPJJo9ZiI80vXFwb0NA+s0ibHDEgTDMtVdK+zqXVB+
+         QwMZLULdd2+Nl/KZnrZD8+VkGgRF6o2Q5Lriml25R3ZYM4MT3oy9qrhNATOjs0DoaDt8
+         0K3Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795585820; x=1796190620;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date
+        d=1e100.net; s=20260707; t=1795585826; x=1796190626;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=7TuopKGkuXxe9F8oaxjlU1CyosEDfE9sI6BY0c1BuLY=;
-        b=isHjo2Ogobju3KLzfS+T2NO5yH697G3ALwNPGoHPh5QyOK2Irv5vKiyv4oRDMYryQ0
-         XipCgxRHq/2KYFOjBW1PdyZxFh/C1/rEyTDkGcURPQCxQ0SvZYpxiRWHnc8ECOKjBLCw
-         aoR+S4QuNlcXoVScO13odggB9spWWFhu/ora2nX28Dyv1fmaAtnY3S9VMEHlM81mHqWh
-         BKA97UDVjWnJl/bfEpRAq1GbW2Epa42s+U4FNEaQD5Y+mnndNE5v8LglRg/Q0gcgctiq
-         P+2ZTJrKl9gf1gxONFfuLC+EaU+Ws+jhjTzWvWL5px5iCiwm+L7z5pCQGct/cdCTbICH
-         xnPQ==
-X-Forwarded-Encrypted: i=1; AL+hErGnhc3TYG3bpRQLD24iurEXbpHMu4ogBFmlZ/v50hVX8Z9e95Yr5pYZ3U/aLLYBMKGDojGrrXOVfF8Us/Q=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8Lx9ApExMzv3Ib6OGzieOz0e8SDjD2moKuR/ibU10Cme64cZi9
-	HtsbrgkoHRHBPC9CJGERa53JVk6/T65VTD2IBhTpM5XNU6xpFo4X8mVUqOk6o3rOW0bTm9AInsj
-	ML/yoILZNMVoIVMUf/5LY+w8Cc0+iaBdLFg==
-X-Received: from plhi8.prod.google.com ([2002:a17:903:2ec8:b0:2f0:4052:30d0])
- (user=rathodpriyank job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:90b:2fcd:b0:3b3:fa20:f83b with SMTP id 98e67ed59e1d1-3b41c954553mr17029147a91.40.1795585819921;
- Tue, 24 Nov 2026 21:50:19 -0800 (PST)
-Date: Wed, 25 Nov 2026 05:50:18 +0000
+        bh=h0QzRh8muxydOHGjX2h5cehhw+NrrMdYMgJiE84UVD4=;
+        b=ZZsAHmluGb+9OIovo8NHqtSO2EWH0ygw7ErBPDn3ZUVZFQSExH5X/bJzA+Je4b8TyK
+         OKru5AT/qPE5Fs8rT1sSMqfFod9Horrk2DtlHR1SH5mPmlspKR+BlAVAa0NNazmIsBsO
+         YFNSXRVSgCf/eJ9/bu2cK1Hp/AvI1wm+iTwIQl2wHFOvEGW5V3Ti69GtJWUFTbPwnmaW
+         cNxailQMEMrJQunSVujrZcCEngper1GRIw1O5fVl1q7hqCOeZ5AcL5ktYF+V/+yDVDo1
+         aE8cQ1xH1pA4UzgATYR1VognZuyk+zaEexJuY5cIw9BrSr+Yp8sDpK471zEshp500gCQ
+         rTxQ==
+X-Forwarded-Encrypted: i=1; AL+hErHKTmNYHrOeG6uk+Hb9gdjU3O5CXWidAd4ODO3Hr4ka4dHybSolwcNdTha59Z7VtRjoottxHOPKm5w0pto=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/TnMQOcDuKpJVwDDvDLwBkQRUxWSVY81+Zega0voR0qSUj7xJ+
+	D2kpFl9TA3XV+AoQdRV1m59fm9lbXFER9L1KNjfmdmOWKYVw9ZYcOgQU/McNcPFxamZEpZGVdaY
+	R1RAbxTrLxAquZpljPcJUyjT4GOcBCWPxbqhzg/GpbNRkJJjs8bvm
+X-Gm-Gg: AZFdTZdtfObwTryZJFPTBqIA9eBNhTkbD08UE52CTjiWkyR+FJuxAR6IrOlpyRqpiw8
+	6588vqcunBf07oIzdIwoQWwwA0Mao2YzAAEq5qdke2CwSDfn27Q2evNnGDtw2n1whyUZI0emOzA
+	QBIBq/m/22XWJm20HpzNgzN1HlPRUxwsdKHdHl6xX0Ghl4lqt0PKlrNl4VckEl12RKcDSplq53o
+	nGwI0i7YqNL1mnYEn3ymXoHL9F2eV7c4NvdalOOZI/GyZKbKW5Srhuj4YsoDnph0FYMgIMCY3qI
+	iM7EKSqa/klj9A/n1ASgz76fgqK5pQhSJaiuXbn8p8BlkWUbtrLNY04hyqoRyXwYadt+T6odbZ0
+	IRFH640iYT8IG1CrS4NvJjvoaCUDpRFzPlxGWcEdWSuMTkPzBEvczmkdEJR30CucFdXHFyhK109
+	vRF8LXuguZesn64cdpHkIbDfQfCSKhgeXit06uAr5Nlz1TAMMTtF2w3rc=
+X-Received: by 2002:adf:e00f:0:20b0:48e:932:aefa with SMTP id
+ ffacd0b85a97d-4abb27268e7mr22701177f8f.26.1795585826178; Tue, 24 Nov 2026
+ 21:50:26 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -76,54 +104,64 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIABp3BmsC/4WNTQ7CIBCFr9LM2jGADY2uvIfpAmGkE20xgyGah
- ruLvYB5q+/l/ayQSZgynLoVhApnTksDs+vAT26JhBwag1HGaqUN3viNjgRnl++YColwILTXIfT
- a+kMYPLTuU6gFt93L2Hji/Ery2W6K/rn/FotGhf3RqTA4alLnmFJ80N6nGcZa6xdxuHrzuwAAA A==
-X-Change-Id: 20261012-fix-aer-mask-override-6b7d416c3d7c
-X-Mailer: b4 0.14.3
-Message-ID: <20261125-fix-aer-mask-override-v2-0-fb5931dc9462@google.com>
-Subject: [PATCH v2 0/2] PCI/AER: Fix and document aer_inject's aer_mask_override
-From: Priyank Rathod <rathodpriyank@google.com>
-To: Bjorn Helgaas <bhelgaas@google.com>
-Cc: Lukas Wunner <lukas@wunner.de>, 
-	Kuppuswamy Sathyanarayanan <sathyanarayanan.kuppuswamy@linux.intel.com>, 
-	"=?utf-8?q?Ilpo_J=C3=A4rvinen?=" <ilpo.jarvinen@linux.intel.com>, Dave Jiang <dave.jiang@intel.com>, 
-	Prarit Bhargava <prarit@redhat.com>, Huang Ying <ying.huang@linux.alibaba.com>, 
-	Terry Bowman <terry.bowman@amd.com>, Jonathan Corbet <corbet@lwn.net>, linux-doc@vger.kernel.org, 
-	linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Priyank Rathod <rathodpriyank@google.com>, Daniel Pereira <danielmaraboo@gmail.com>, 
-	Jonathan Cameron <jic23@kernel.org>
-Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+References: <20260921111402.120911-1-suunj1331@gmail.com> <20260921111402.120911-6-suunj1331@gmail.com>
+In-Reply-To: <20260921111402.120911-6-suunj1331@gmail.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Wed, 25 Nov 2026 11:20:14 +0530
+X-Gm-Features: Aa3M54oFEe_Kg5fzllo_hPF_KMY1sHlitMVjRaBnJClbHNybVQLzGtgAKkyplS4
+Message-ID: <CAAhSdy3-0fHHE2tpRRimhOTUWrN01Ju8Mdt4=R1UUp1atwsifA@mail.gmail.com>
+Subject: Re: [PATCH v1 5/5] KVM: riscv: Age G-stage PTEs locklessly
+To: SeungJu Cheon <suunj1331@gmail.com>
+Cc: Atish Patra <atish.patra@linux.dev>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Paolo Bonzini <pbonzini@redhat.com>, 
+	Andrew Jones <ajones@ventanamicro.com>, Jinyu Tang <tjytimi@163.com>, 
+	Wang Yechao <wang.yechao255@zte.com.cn>, kvm-riscv@lists.infradead.org, 
+	kvm@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-aer_inject's aer_mask_override=1 module parameter is supposed to allow
-injecting errors that the device masks in PCI_ERR_COR_MASK or
-PCI_ERR_UNCOR_MASK, but the hardware masks are corrupted with "&= !"
-and restored before the AER interrupt handler reads them.  Fix
-aer_mask_override by emulating it in config space accesses instead of
-writing the hardware Mask registers, and document it in the AER HOWTO.
+On Mon, Sep 21, 2026 at 4:44=E2=80=AFPM SeungJu Cheon <suunj1331@gmail.com>=
+ wrote:
+>
+> Aging G-stage PTEs currently runs with mmu_lock held for write, taken
+> by the common MMU notifier code. When MGLRU or kswapd ages a large
+> range, every vCPU taking a G-stage fault blocks on the lock, and the
+> dirty-logging read-side fast path blocks behind aging as well.
+>
+> The preceding patches prepare G-stage page-table walks for lockless
+> aging by using consistent PTE snapshots, preserving concurrent
+> Accessed-bit updates, and deferring page-table frees with RCU.
+>
+> Select KVM_MMU_LOCKLESS_AGING so the common code no longer takes
+> mmu_lock for aging, and protect the G-stage walk with an RCU read-side
+> critical section.
+>
+> Read the root inside the RCU read-side critical section and check the
+> resulting snapshot instead of checking kvm->arch.pgd separately before
+> initializing the G-stage context. This ensures that the root used by
+> the walk remains protected until the walk completes.
+>
+> On QEMU TCG with 4 vCPUs, running dirty_log_perf_test -v 3 -b 256M -i 3
+> with MGLRU aging of the VM's cgroup forced every 100ms (86 passes):
+>
+>                               before      after
+>   mmu_lock write wait, total  44.4 s      0.15 s
+>   mmu_lock write contentions  1,002,092   30,092
+>   mmu_lock read contentions   351,937     0
+>   guest dirty-memory time     18.6 s      16.7 s
+>
+> Before, 93% of write-lock waiters were kvm_mmu_notifier_clear_young().
+> With no aging, no meaningful difference was observed between the two
+> kernels.
+>
+> Signed-off-by: SeungJu Cheon <suunj1331@gmail.com>
 
-Changes in v2:
-- Shorten Patch 1/2 commit description and add a blank line after
-  aer_inj_read() in aer_inj_read_config() (Bjorn Helgaas)
-- Use Internal Errors instead of Poisoned TLP Egress Blocked in the
-  Patch 2/2 documentation example (Daniel Pereira)
-- Link to v1: https://lore.kernel.org/r/20261012-fix-aer-mask-override-v1-0-49a0d7aeaea0@google.com
+LGTM.
 
-Signed-off-by: Priyank Rathod <rathodpriyank@google.com>
----
-Priyank Rathod (2):
-      PCI/AER: Make aer_mask_override effective for injected errors
-      Documentation: PCI: Document aer_inject's aer_mask_override parameter
+Reviewed-by: Anup Patel <anup@brainfault.org>
 
- Documentation/PCI/pcieaer-howto.rst | 23 ++++++++++++
- drivers/pci/pcie/aer_inject.c       | 74 +++++++++++++++++++++++++------------
- 2 files changed, 74 insertions(+), 23 deletions(-)
----
-base-commit: cee9395acd8043be0644b25c34bfa86623f2b935
-change-id: 20261012-fix-aer-mask-override-6b7d416c3d7c
-
-Best regards,
--- 
-Priyank Rathod <rathodpriyank@google.com>
-
+Regards,
+Anup
