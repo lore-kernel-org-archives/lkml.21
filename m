@@ -1,101 +1,92 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.47
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795622996;
-	b=Vlhjr3UHT00Ml3X55nJ8ak2K8msUYW74ySTyGHUaqN2gknaIrla4rlSV7BKVsMxhfW7M
-	 dSl2b8a1KanzKeuoAcdx+L2/6gvKX2A3kFSVOreUjmS9Kxru+oe8vZxiX6l3Yyrsc5yFf
-	 EYVL5GfqHuTJsCHisvW41A4L6GWRFe4AVwwajycgEjDE61DIr9i40X8WgGdLJUX4ioa0V
-	 B0BfILGUWq5H7iLTivy6lNwl/06w+ccZVqjbnk+yWHeXx1DzWM+wy9FpVi90+bYm8omEy
-	 cH88JL3AH+X3kOSb7r6t9HkpWV5gS3PDzb1JTFdqVWUj+wWsSPGoyzoZxXVQPSyIsVw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795622996;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.224.54
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795623018;
+	b=2tDkEtny7QLtFaXncuIRdxIZg6rgmeYSyLxguNlw9mKAkjLjdb5NpV+pWaFGckClh1ug
+	 OQBbyRMqo0PKjABRCRxpqtX+hnTJN1Pi7u4ssmW13hyY54XoI93n/IxZvmd6v51thX/jv
+	 /b/ZvoU60UacoqnYm5FeoWJqVyzxGEPkDHTi9BFHJgiBIUu2L1LaQIWJrTr27Vu5LG2vm
+	 1OZ3JJ8NVh8vnbZ9wGtivQn66gt9ZzaUhYhcsQHXzDaBvRVCy0/YCeIkdLfkBbnvkiy0f
+	 9mq532zuyBOrJO07iZVu2sjlrGQSQOU0xpQyOVE/LCzBqz6DwtC+xOnYwkG+ozvg+Pw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795623018;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=SH3WD86btuINr/uxcoF6S242mnrN0umh75GOIi7csNw=;
-	b=a3ifBvLHd+DdJB8Gedujobq6APF52uEg/Zlton56u4Nn40G9jhM2bRwu/MpZoMcfWMI5
-	 T7ZoI1Sat+jU33qs2tT1pVOZgYnXEoellSZqjkou2sSqcOOEzOfBd8z8s2Stiwe/hXhhj
-	 vkwXgtQCv+LBodTXQOaO6PBQ5oUqprIMm3q8wq0Gf/+CkuFXUTviCtB8yVrmBIFNhFpp8
-	 daqe/MuRnRSwmFxZTM9bjp/ZPVnv1BvpuNpHF78nQoMzinLvPJX3RLR3EPcZvK7sttjPA
-	 i8paxS+odXBfnzye+NQq4pWYxgMrShz3SMsAiUBa6brB1iAN+xg6xssR9poaoFouKDg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=ieOkfxCi;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.47
-Received: from mail-ej1-f47.google.com (mail-ej1-f47.google.com [209.85.218.47])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=x5yHdiGlrkU/Nuu/+FJFLSXIV1EPwrfgxxUc0g5c+fk=;
+	b=3tJ+JpVsrn5pd7+jhSksaAYhX+U+rS77N6+9HiSGTww4ZfbOlb8cYjU5FEwivyivWkWn
+	 l4pmLiAo2xh3Z1rLQYpaC9KuVHmxgDeZnXqnhhkyM2ZztgS12agqdfjIFK8YUutsusSxR
+	 18/FcUAxzKGlrdFUlJgYzZtnYyoMlSuFfPgckADNNRTuFhIGQoqUL9jZ5+DkvDjLiALbb
+	 Vq8fywLSy8t252+Ie1Dkn5vePl/lxK8MiU9EIleW3j5FB4i7uj8OgQFf4RnrU/4IcGZWm
+	 BQjQ/4tVOaL6EZDFh8/R/XBqpoU186Dgt0vkYn2n4YNo+HsE34vZDgqbSWj7AHlWPNA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=o4s3woIP;
+	arc=none smtp.remote-ip=74.125.224.54
+Received: from mail-yx1-f54.google.com (mail-yx1-f54.google.com [74.125.224.54])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 74A37606A323
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 16:09:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 74A37606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7E890606A323
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 16:10:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7E890606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=ieOkfxCi
-Received: by mail-ej1-f47.google.com with SMTP id a640c23a62f3a-c51bf011392so20775166b.3
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:09:56 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795622995; cv=none;
-        d=google.com; s=arc-20260327;
-        b=nhX7v85uZ2TVoGkhgm1+Gx8I19f5V+t5CuYrSMrNufBAbf6Y9F9/pPqWoZDGniyCxR
-         lFqCDWDKqNCB5UW0eM82+uo5vBkYIHulHAzYibBGM24nEdj9XNeB1zQHtDoNQ+3e6sOH
-         E6xfQTjMqs+To130UF61CPGOZz7GcLiVpRXvbZJ/fImzToRA8fZs5KN0VLJ6dPbyxyJB
-         5uh4yVZdKuI1wYNoF2SV2HWlryjRBemxx8eeXSoIb+qhopcgc/UGfTrjac84OBfXwSdT
-         ZJCtPpWl315JKpAFymd1A2NQ4jrLHaQJxl/JTn8op0sXFrYHmqqvSSZvS1Y3vN1UJJtq
-         GevQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=SH3WD86btuINr/uxcoF6S242mnrN0umh75GOIi7csNw=;
-        fh=Nk+2orRytdP4JiDeyYnBvRYXy7cRBukCLBj/3mGzW2Y=;
-        b=OeGgznlkUHPny/LEgQK0EBK23l5SMi5EbH8Vj8Y+WYTdD2BEb6RZkgrdkvbSuuFcjM
-         KmQOBbH+HeOn3UY+bZI4riFd0Alq17g/GA2ahOXEBhFPL89bpJ9T+CRTFJvtr4bEp8OG
-         GabnCGPaySLNOElxZbpjUPDn6hdWIdyPrAksN0UWJUaX8tDrw63H5kQrQYnC+/s75QIB
-         FUcqsa3ynB+fx7J4bleGniz78hAuJkbtFgWVf78kkmqrrdeJCEEfSDyEddhPWBzDtQs4
-         +7jc7fc9gErXukrX4zOQazsBKcTzkt0kXUgTPRWJ6lvwnG+CzvSOnOydH+FGqEkRKntc
-         NqPA==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=o4s3woIP
+Received: by mail-yx1-f54.google.com with SMTP id 956f58d0204a3-67df3b1ca06so6716565d50.2
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:10:18 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795622995; x=1796227795; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=SH3WD86btuINr/uxcoF6S242mnrN0umh75GOIi7csNw=;
-        b=ieOkfxCi/6EaarioN16swJ8tcJZCzvtt5+TPfCZC1cz9sCxhicnOBkKpoUz0LY1CIx
-         Yik83OPJnQh95gCPmXYFGOwAF5SmqsH+fM7XvvBP9cyJb4FCAi2Psa9S7pJ8BFAAf65j
-         nJpX+iG12uzZfxGOzI1JviYLUkaz3nUnpKmBLNHr6hr7wupOVo6yGHcfDaGWxrCSvLyT
-         Mncbu4OmxoEgz+Dfcejhh6Ar4OsNy1pTEy+ltaiFghtfGwWGoHx76DAqqGzN20yZsNcs
-         ncGVLbvYcRk/Wug+YpQUE14TJDs6QB/HnTlHrYQ6K1DknDCqn3YvEHMYXcuKwsy8WgRn
-         SyZg==
+        d=gmail.com; s=20260707; t=1795623017; x=1796227817; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=x5yHdiGlrkU/Nuu/+FJFLSXIV1EPwrfgxxUc0g5c+fk=;
+        b=o4s3woIPIOuKQcTwwjUjRAxAm/KEkHXcpll84LVxQb9xyBondXgN6L85wLH8XTjQCZ
+         dqzAumOjdgq7uPwhGpZqCRpy7qEULCHGsIn6tK83Fj7gjXTUOQ+q0oWlZujw+k3CGs5u
+         VKTqYt5dNQOb6BHHSB3XDhZOhh+3fN2k7H+rZkhX5MCfszMA8n/HGoDIUW3fcwuJ7ZQb
+         AVA1JSHny1y2YJN/lmE/Sg5i0YrMwa19EIYqJ7HPwbLTzP2EagluFt81mq+jupnfQVXO
+         nNebUvlaYg1bfNQ+ufxW0NVQqbaku5mnH0INCfwbr83beOMS8ehLDhJuI7/EEgv2jU5r
+         ok1Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795622995; x=1796227795;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=SH3WD86btuINr/uxcoF6S242mnrN0umh75GOIi7csNw=;
-        b=xnX80MJfWVbC31NNhNv5pqg49xO5Oc51yCyXwL0TnVD0oRkRwwRycNDSMOmhNH9DJ5
-         rlJm8Jq/6vK5CBzCsqvKUg5msjTXDon4Z+h3NTb08a4p922HOdWWnjbZjGd6UsUSULwR
-         ueAdnWXvC7fSh1J159kV8wUBl2//3P9FM5ubOEIYfJrS1opCkA9ST1HOh/yManL0Oo66
-         V58gFubrAMLvxWWVzRNxzDROo+l47/LjA7XUGVzb6QQvZd01oZRIvJG8ZhUtp3tlyqro
-         g79IvyJ/94Swki1MG0IIMOJw3y3ykAeWH0YyqPIBfbyzOmDdL8g5LvATs0aNXxB24yGB
-         gaTw==
-X-Forwarded-Encrypted: i=1; AL+hErFrM9WH7thvjFTjGm2mkKEydJs+j1r36j8ZE+S06cKb361eif+8PJA8bTU5lqgyZ/9dFiQa1PxxpmqXK3s=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+ZiIw0A1NPLk9slPSSvO0JRz/e23mf9nNfC3ovho6fPoZpT9hX
-	RJ4+YL9nscZcBJvjqIC2g4XS/iig6lbots8lJT17E9Y/FIHsz48Z7EZMoFncYaduLnQSVC0NRbZ
-	ecVrxkQ7CjX/V+ajcymjsk6j01J40DsV/dvNWma9r
-X-Gm-Gg: AZFdTZcIgLDHoLfndghFP+R4w1dPW/EGhWPoCVgdv5ybLyuQZd7TL4mp9rwggExMkS4
-	MEWKzeydWhWOYa+PhPJAZf7wOLkXLbs9kIW2KCCLUXCk1AvfxgHCQq0apPv3Cb1Ib6pGX/Xf9gt
-	rbFmFOnKfzkpZSndXf+38xm80p7u1ZJT0W/yFku/2QNpDOgiez3cJ3lSTsCrRerzvMt0/has0B4
-	CDAOlY80H0PYsJ3dnZcJeKOBfBpmZ9xZgTWgWI6jx67pcGvJELbLxgCIt3vnl29+5NyuX2ILOZk
-	gnTdnGr0hVyYfLd9d+j60QmQtJLgd7UjuoVBx0xCHNiIJM82NfElwOoioHeUFBajzMsr6AyicIx
-	we90vVJZOxLH0doU2vKKIFBjlvDqASrTpQ0X7nVoQDMoHMaO96HMYyw6Ug3RiLyluaCtmD+U5GH
-	3Ju0dQDnH9JG7xSXPluZSwYaMYreuWQ4F4JHTIJ+d+xa4Nl1my+9Q=
-X-Received: by 2002:a17:907:608c:b0:c2e:6a4f:a88b with SMTP id
- a640c23a62f3a-c513a1f5c8cmr1559863766b.0.1795622994038; Wed, 25 Nov 2026
- 08:09:54 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795623017; x=1796227817;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=x5yHdiGlrkU/Nuu/+FJFLSXIV1EPwrfgxxUc0g5c+fk=;
+        b=EU0zUj5Bkg1xTJItGZ0TfCRC6mnniFcgtKCk5dT6iKFyDLNydClsL+xJ3NM7FRhmV8
+         m+KfWR78kLUk4QkgAO75IMZVHIcpM3Q3DMadj8zcCvpk0reMJq/anidMtF2dYMGR8bNn
+         k5Vmwe8aW/8Z60f2kz7CyNSSQPep8A4gfjZhzKPsY6nLf7RBBzIrgV5gVu8Pq2FZiy/M
+         qUYuVBrnVJzicJUmwVNf977tBAxu8ZuLXfV+z6ZEeBYhwkKl2/9g2FrjT6GuODCBOm//
+         D5imiqbbNXSq1J9TqRFAZ3iN7YjNrhvzTUaSSPYKYx/up3G8zUVReqT4tNMP5AdMTBlc
+         XvJQ==
+X-Forwarded-Encrypted: i=1; AL+hErEtoxv/zffjz0vys0HyOQGFrWdG1K4RFCs5ruFe7Yv8Qa9QB/704+pUZQ3uWfWNIq9LxG8gwlR3SGjSjOM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/7Wq0oSUAOf4nsKr7f4EVInhVpRyAkOvUir+3bVGY9HWITOn2Y
+	e1390d8hiaKLUsl4aWXFFrG+dDdcNNRj/Z5QUpHQvHK/qr2Pl8DgkopzT4h0Ao4=
+X-Gm-Gg: AZFdTZeDc4eAQk5Fc1rRmiNQknSD34moJ0UwR/5ok7q+92FHYNzk3B4fa3XezE9pO6p
+	0QAV1i3y01JJoEoM/yRuNWfnKGpAvmcyGVP3F6dFA3H3c9Thps5+01Lgx5L80DWSKay2j/JUala
+	lZyElUrtMkc6ae4KA0nIeHmPqhTYuQLz5WmRq/IvSw6XcrGNHZLCMFQYbgJCgxcnekd64qz3x63
+	ugBwppvG3iiQdK6JI76LkUfCop+QztcXthlmkFIz6SjVy76zg6LcBjgX05O77CbTi/2T37heWu5
+	EGxHT9WDdzhCWimdK6nhuo305aWM4s2ALvsYyF1fcfgOjVxwCvAeeDhzrT1TrH0thnd2OEFvt/n
+	DxQt7dZd/YXCK7qR+IcRSpWKf1Vjlft6pv6s4tRyDDxnXvmaaQy9D4Pl25C24e2xqIpGFEgqHuL
+	PX2S6BgPSVsn0b5iDE1+N5jPYQClAyxN9UFffluN1+P2nfduV4uf3DpIq/xv8DfxLa5vEFOBcPP
+	io0P2GH3a/IeizoLTnWf8u7Pl2lUiFo5L3GuM17+tVU9Di5yrQYalh2yemsx2eEIpcr0FbLmRWn
+	YWwgIia15F+pZA==
+X-Received: by 2002:a05:690e:1916:b0:67d:bbf9:11f1 with SMTP id 956f58d0204a3-67df440ed3bmr7211709d50.47.1795623017463;
+        Wed, 25 Nov 2026 08:10:17 -0800 (PST)
+Received: from 3511.attlocal.net ([2600:1702:7a3e:17b0::c])
+        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-67df3354415sm8960040d50.11.2026.11.25.08.10.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 08:10:17 -0800 (PST)
+From: Arav Verma <svav2021@gmail.com>
+To: hansg@kernel.org,
+	ilpo.jarvinen@linux.intel.com
+Cc: platform-driver-x86@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Arav Verma <svav2021@gmail.com>
+Subject: [PATCH 1/2] MAINTAINERS: Add list and ABI file to Intel WMI SBL entry
+Date: Wed, 25 Nov 2026 10:10:15 -0600
+Message-ID: <20261125161016.781273-1-svav2021@gmail.com>
+X-Mailer: git-send-email 2.47.3
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,159 +96,33 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261122184453.2668189-1-jthoughton@google.com>
- <20261122184453.2668189-7-jthoughton@google.com> <CF94E7D7-87D2-4523-9343-512EE00094FA@linux.dev>
- <CADrL8HW8+eFt5f1VBQ0zt-ioiU3X150W4ROaKf2Nzw4j9+0i_Q@mail.gmail.com> <09A53080-61DE-472D-9A37-38B524C76FF9@linux.dev>
-In-Reply-To: <09A53080-61DE-472D-9A37-38B524C76FF9@linux.dev>
-From: James Houghton <jthoughton@google.com>
-Date: Wed, 25 Nov 2026 11:09:16 -0500
-X-Gm-Features: Aa3M54o_hFax3FlT4U3L1WrxJk7av4zfqy7DgK21ApX3Y58oo7HyZderBGv4ryc
-Message-ID: <CADrL8HV2m6DO=r-mezNONV_w0BtrN1_7Wph+mHUsAsYBf5FR2g@mail.gmail.com>
-Subject: Re: [PATCH v3 06/19] hugetlb: Optimize bootmem folios that were not pre-HVOed
-To: Muchun Song <muchun.song@linux.dev>
-Cc: Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Oscar Salvador <osalvador@suse.de>, Andrew Morton <akpm@linux-foundation.org>, 
-	Kefeng Wang <wangkefeng.wang@huawei.com>, Nikos Nikoleris <nikos.nikoleris@arm.com>, 
-	Linu Cherian <linu.cherian@arm.com>, Mark Rutland <mark.rutland@arm.com>, 
-	David Hildenbrand <david@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>, 
-	Nanyong Sun <sunnanyong@huawei.com>, Yu Zhao <yuzhao@google.com>, 
-	Frank van der Linden <fvdl@google.com>, David Rientjes <rientjes@google.com>, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-On Wed, Nov 25, 2026 at 4:37=E2=80=AFAM Muchun Song <muchun.song@linux.dev>=
- wrote:
->
->
->
-> > On Nov 25, 2026, at 00:58, James Houghton <jthoughton@google.com> wrote=
-:
-> >
-> > On Sun, Nov 22, 2026 at 10:11=E2=80=AFPM Muchun Song <muchun.song@linux=
-.dev> wrote:
-> >>
-> >>
-> >>
-> >>> On Nov 23, 2026, at 02:44, James Houghton <jthoughton@google.com> wro=
-te:
-> >>>
-> >>> Boot-time gigantic folios are expected to be pre-HVOed through the
-> >>> section-based vmemmap optimization, so the bulk optimization pass for
-> >>> bootmem folios was dropped.
-> >>>
-> >>> However, arch_support_vmemmap_remap() may not yet
-> >>> return true when bootmem folios are allocated (e.g. on arm64, where
-> >>> support depends on a system-wide CPU capability), while it does retur=
-n
-> >>> true by the time the bootmem folios are gathered. Such architectures
-> >>> disable the section-based vmemmap optimization in their vmemmap
-> >>> population path (see section_vmemmap_optimization_disable()), so the
-> >>> folios are not pre-HVOed and would never be optimized.
-> >>
-> >> Yeah, when I removed support for this part of the code, I figured you
-> >> might add a new patch in the future to add support back. It is fine.
-> >>
-> >>>
-> >>> Optimize such folios when gathering bootmem folios. Their tail struct
-> >>> pages have all been initialized by memmap_init_compound_page(),
-> >>> as they were not pre-HVOed. Pre-HVOed folios are skipped by
-> >>> vmemmap_should_optimize_folio().
-> >>>
-> >>> Signed-off-by: James Houghton <jthoughton@google.com>
-> >>> ---
-> >>> mm/hugetlb.c | 11 +++++++++++
-> >>> 1 file changed, 11 insertions(+)
-> >>>
-> >>> diff --git a/mm/hugetlb.c b/mm/hugetlb.c
-> >>> index 72839e98f998..8756c0206922 100644
-> >>> --- a/mm/hugetlb.c
-> >>> +++ b/mm/hugetlb.c
-> >>> @@ -3325,6 +3325,17 @@ static void __init prep_and_add_bootmem_folios=
-(struct hstate *h,
-> >>>      unsigned long flags;
-> >>>      struct folio *folio, *tmp_f;
-> >>>
-> >>> +     /*
-> >>> +      * Bootmem folios are normally pre-HVOed through the section-ba=
-sed
-> >>> +      * vmemmap optimization. However, an architecture that can only
-> >>> +      * determine whether it supports HVO after bootmem allocation d=
-isables
-> >>> +      * the section-based optimization (see
-> >>> +      * section_vmemmap_optimization_disable()), in which case the f=
-olios
-> >>> +      * were not pre-HVOed and must be optimized now. Pre-HVOed foli=
-os are
-> >>> +      * skipped.
-> >>> +      */
-> >>
-> >> I'd like to condense these comments to something like:
-> >>
-> >> /*
-> >> * Some architectures do not support section-based vmemmap optimization=
-,
-> >> * so their bootmem folios should be optimized here with folio-based
-> >> * optimization.
-> >> */
-> >
-> > Applied in v4, thanks!
-> >
-> > Also just so you don't miss it, would appreciate your thoughts on my
-> > reply to Sashiko's comments on this patch[1]. Let me know if you would
-> > like me to do something different.
->
-> I think the diff below might be a bit simpler. You might think that when
-> HVO is turned off, it could still cause some unnecessary TLB flushes. You
-> don't need to worry about that, because I've added a global guard to make
-> sure it doesn't happen. Take a look here [1].
->
-> [1] https://lore.kernel.org/all/20261124110530.3004071-3-songmuchun@byted=
-ance.com/
->
-> diff --git a/mm/hugetlb.c b/mm/hugetlb.c
-> index b2c14f4f99b7..69a7d4ca8b1b 100644
-> --- a/mm/hugetlb.c
-> +++ b/mm/hugetlb.c
-> @@ -3345,6 +3345,7 @@ static void __init gather_bootmem_prealloc_node(uns=
-igned long nid)
->         LIST_HEAD(folio_list);
->         struct huge_bootmem_page *m, *tm;
->         struct hstate *h =3D NULL, *prev_h =3D NULL;
-> +       unsigned long vmemmap_unoptimized =3D 0;
->
->         list_for_each_entry_safe(m, tm, &huge_boot_pages[nid], list) {
->                 struct page *page =3D virt_to_page(m);
-> @@ -3368,6 +3369,8 @@ static void __init gather_bootmem_prealloc_node(uns=
-igned long nid)
->
->                 if (vmemmap_optimizable_order(pfn_to_section_compound_ord=
-er(pfn)))
->                         folio_set_hugetlb_vmemmap_optimized(folio);
-> +               else
-> +                       vmemmap_unoptimized++;
->                 section_set_compound_order_range(pfn, nr_pages, 0);
->
->                 list_add(&folio->lru, &folio_list);
-> @@ -3387,6 +3390,8 @@ static void __init gather_bootmem_prealloc_node(uns=
-igned long nid)
->                 cond_resched();
->         }
->
-> +       if (vmemmap_unoptimized)
-> +               hugetlb_vmemmap_optimize_folios(h, &folio_list);
+The entry for the Intel WMI SBL firmware update driver has no mailing
+list, so get_maintainer.pl does not route patches to
+platform-driver-x86. It also does not cover the sysfs ABI documentation
+for the driver.
 
-This hunk needs to also be added to the `h !=3D prev_h` piece inside of
-the loop, otherwise we could miss optimizing folios for some hstates.
+Signed-off-by: Arav Verma <svav2021@gmail.com>
+---
+ MAINTAINERS | 2 ++
+ 1 file changed, 2 insertions(+)
 
-I prefer the early return that I've re-applied. It's a lot more
-straightforward for me. Let me know if you really want me to switch it
-with your suggestion.
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 742c4e6b291ff..18c0428913b2d 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -13887,8 +13887,10 @@ T:	git git://linuxtv.org/media.git
+ F:	drivers/media/pci/intel/ivsc/
+ 
+ INTEL WMI SLIM BOOTLOADER (SBL) FIRMWARE UPDATE DRIVER
++L:	platform-driver-x86@vger.kernel.org
+ S:	Orphan
+ W:	https://slimbootloader.github.io/security/firmware-update.html
++F:	Documentation/ABI/testing/sysfs-platform-intel-wmi-sbl-fw-update
+ F:	drivers/platform/x86/intel/wmi/sbl-fw-update.c
+ 
+ INTEL WMI THUNDERBOLT FORCE POWER DRIVER
+-- 
+2.47.3
 
-Thanks for all the feedback, Muchun! I really appreciate it.
-
->         prep_and_add_bootmem_folios(h, &folio_list);
->  }
->
->
->
