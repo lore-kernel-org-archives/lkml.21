@@ -1,57 +1,128 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=13.77.154.182
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.154
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795565466;
-	b=K6INtqXbg/WTNHrgEl9jLzJl9RLu6sRWIuYOKe09R0ArHNzLxbFKNym1wl2aqSfGZKbp
-	 LDLH0gcxJN9lIlvx4vRj6Sg2YbGVosXPP6iVfKjgIdo96c4G8zJSG1pxaiFu+qDT0ZmzE
-	 6LqCBB9GspYwxdeSS9jzU9NXO+8BTeqA4vTNJnOO2NnKWrOwISgdB4yiEdppVht3EXENE
-	 mc6oIQAtd5GZDoKujFuH/ILtkaGr2Glnv3vX0wEs9WrT5DEBmFq5s0jk6sdeXks3V8OeY
-	 FfMiyMvTS94KIHBAh9mv6jMAUZZbL4R3dFGG/Vj2p34XB77HnS4v/4t7IWdqduda/yA==
+	b=kupUZGtbdQZ9pON2ePBfu3Ihx4yjKzQl83kuWz3YRbk6eAN9CSZ9yL0KIj2PXE8JA2Kp
+	 zKnrQjmyUYwmNlzeOu1TwVVwla3nx/+IjEV4RpxzJJApDKb0rczK6SeFYaUdRXBC6aiJ7
+	 wUVAlNFNQW06qrHcy/l4oOQ3dypuwZUC0lycgQdqoK9eMjYwZO2vYggGCcLlen8BXOToX
+	 jTeFXjrqcBkQTiEDL5pdDqQ0QMk/Rdp/wuDRim8EnpLZXMRotkQZiDP9lOn02hSRw+9Y/
+	 W82cTMnhJuD5Rf+cxPJKtKow0crxZyOdmL1dSSWBt2PNWWCn6KbM2kSQUU00tdSbA/g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795565466;
-	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-Spam-Status:X-Spam-Checker-Version;
-	bh=fEXiIbGziMDZaIaDHSXNfhVUEKOMbotG4nCsPF9NimI=;
-	b=tzD/aLSuIcQeV6DTIt4DZOTAgnpsP/cZXJQVMYdLg5g/Xb6eU9Yqsf8lzC4O60p+CONi
-	 nX6feynmynY+jqXJ0gPAARgFfohAiuEtgCZg84EYgMx3erDja8M3IMEeFUTz2YA32WYKm
-	 yns9zH7qDmnRRV7ovS3Jq9LHebIzS7YWz1Cwfqa5g+8V+XHbqyMN6FAiWR9LaZ3J3ME+o
-	 MHutSeW3QY7gk6WO1r7l/50h9n0rOlev0EcVkILjEd8lnQM5McM/05Hsb0U4csPoksDQp
-	 66yYt/qt2IpqDt0RoryiTOe2ORv/wozr+zkAZ9Cp6tVwQEm+JCGjSlaM6E1JA0GT15A==
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
+	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
+	 References:Reply-To:MIME-Version:Content-Transfer-Encoding;
+	bh=axu4NhpAbAHSQzsFIZa7XWjTqg7HIr5RJucx1ETsiAM=;
+	b=4vvof+fuFlbtUFkuUIgoP0rFUSi5e005LTXfh6RuZPGdAndQkXreOjtnIEhb1qIO+P5J
+	 aMVg9r2MlT32VzmfQ8NJNInbzJDngcCe9toBktacxRKAi21gi7V73W2lJZZSWwDtJuCB2
+	 xE/tlqMgUb1LuoNrfddMPRX6LlNgq77G62sL7G4eobs+mlEwtgghvKGpIN2NLYfEW0joQ
+	 EktF7EwA4Rt1ViDX/4JEcvoRJlSY7TRoVIVM18ouFIJwHwjU9SAVpknF38Bprk8EqzXuS
+	 okrgzgkmqm/YkL4wttQ0JURyfHAGyKQ/A/r62PegW+Dt4Rn5rxTQ7GnyWR266rROqYg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.microsoft.com;
-	spf=pass smtp.mailfrom=linux.microsoft.com;
-	dkim=pass header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=RTVXn7Zk;
-	arc=none smtp.remote-ip=13.77.154.182
-Received: from linux.microsoft.com (linux.microsoft.com [13.77.154.182])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 5E48C606A321;
-	Wed, 25 Nov 2026 00:11:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5E48C606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.microsoft.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.microsoft.com
+	dmarc=pass header.from=ownmail.net;
+	spf=pass smtp.mailfrom=ownmail.net;
+	dkim=pass header.d=ownmail.net header.i=@ownmail.net header.a=rsa-sha256 header.s=fm3 header.b=P9pdkJFz;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=o5pNZyEq;
+	arc=none smtp.remote-ip=103.168.172.154
+Received: from fhigh-a3-smtp.messagingengine.com (fhigh-a3-smtp.messagingengine.com [103.168.172.154])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7197F606A327
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 00:11:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7197F606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ownmail.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ownmail.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=RTVXn7Zk
-Received: from mrdev.corp.microsoft.com (192-184-212-33.fiber.dynamic.sonic.net [192.184.212.33])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 15CA420B7166;
-	Tue, 24 Nov 2026 16:11:01 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 15CA420B7166
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1795565461;
-	bh=fEXiIbGziMDZaIaDHSXNfhVUEKOMbotG4nCsPF9NimI=;
-	h=From:To:Cc:Subject:Date:From;
-	b=RTVXn7ZkqOZbQ3H630xkuJPXTO3FOH6Q9O8oxu3lWvwzSCXFninFtyB9BUSyPQNXY
-	 QU588Pv5ZJFQhud9u9SftPeWP8bsOEal6XEglPyOI9Xy/gYfRfX2WmeBybRoZEX6c6
-	 EYMwI3RwunvIL2JhMxn6wMTVFFHmxkqQy4TEd38U=
-From: Mukesh R <mrathor@linux.microsoft.com>
-To: linux-hyperv@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: haiyangz@microsoft.com,
-	wei.liu@kernel.org,
-	decui@microsoft.com,
-	mhkelley58@gmail.com
-Subject: [PATCH v1] mshv: Do pre-commit before mapping a guest VM GPA
-Date: Tue, 24 Nov 2026 16:10:54 -0800
-Message-ID: <20261125001054.1057035-1-mrathor@linux.microsoft.com>
-X-Mailer: git-send-email 2.51.2.vfs.0.1
+	dkim=pass (2048-bit key, unprotected) header.d=ownmail.net header.i=@ownmail.net header.a=rsa-sha256 header.s=fm3 header.b=P9pdkJFz;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=o5pNZyEq
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id 9C71E1400340
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 19:11:05 -0500 (EST)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-04.internal (MEProxy); Tue, 24 Nov 2026 19:11:05 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ownmail.net; h=
+	cc:cc:content-transfer-encoding:content-type:date:date:from:from
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:reply-to:subject:subject:to:to; s=fm3; t=1795565465;
+	 x=1795651865; bh=axu4NhpAbAHSQzsFIZa7XWjTqg7HIr5RJucx1ETsiAM=; b=
+	P9pdkJFzDyxjwKBLuS+x7sJLAq/CwDZtRsgFxV8NEOJR+9PXiCfFRniriopQaWxL
+	PQoJ2kCgAoREmD4XwITiFj5auPnGJYep1h01hqIKkzrz4USlDsnSO/4L/uAL8/Ed
+	mHLWOEBwcK737oQJpeZrgaSaNiCNls3OhTQbxOnRExhg9mm1YxVpGCxImLrqixvO
+	kOh8dHLwuErHnu2B/Uv9aWCwNb6HSsXicNjPh14BZ66w5UyQBjYOu0Ii34GAq3Cj
+	fHShv/SXm3bGWYmNpZq1tcRpS478dnWGw7PQnoTGG2cWZVFieUcqneqYC5VZnARM
+	7xHEMiSMW08QtWOfdlgD1A==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:date:date:feedback-id:feedback-id:from:from
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
+	:x-me-sender:x-sasl-enc; s=fm3; t=1795565465; x=1795651865; bh=a
+	xu4NhpAbAHSQzsFIZa7XWjTqg7HIr5RJucx1ETsiAM=; b=o5pNZyEqwU+uRMWPE
+	riKBBhIiLrBMTTT47LYvKR8LdYMFj4R/luLyGjlmfKy+Tb4nDztQ2J4ZnI+HOL6Z
+	7bQwZqHne7uBAmX93KJ7rWUax5W0niBfGBzSZic9+sTGbJnR6UtTosdbMbRVNFPe
+	WRRYL9NI6/O8OF+75jpidEv/qQ4a6G1U7WX5gZpiIhKbYhVedbbuf16QwiTqztmB
+	69KQhrElS15XH3CMc4ikVXSccAH8TKUHPBhUE9Rsnd6A+NO1PuZQkb7TUwNe2Enp
+	u7rs9oec0mzlm7eXyZ2H/1q1fnbxZCUzoCiVAWoMB8msANUtMEjiRWhiW6hFKp/+
+	YGL/A==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=ownmail.net a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795565465; d=ownmail.net;
+	mf=PG5laWxiQG93bm1haWwubmV0Pg==;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm3:rsa-sha256:APhhfQMqpCQSZL3LYmNRuzxTX5oPIEmE9RTaizolc4jUKGj
+	LvJG8nhyNUv7zYzWi4XT+quGZ/UflbLCZgJFPxSm7vak+Uf3TP5IDhrsjX2L8fFK
+	GJGlik8M2/JtxfZxHmnyy06i/LoWP2RAbJhpxTciExchJ3oSm0vf40R0TGay8IpG
+	9JYbFyS8Ygx2LRh/qT6abFGxO3WA5vLmCGDSwzPs1n1dxN8s+xLlKBrgF7niBk2I
+	a3k+xJYu01jGACrpJEfxVpoJkCuwcqKZmdyDDHM4A82ni6sSkkdRs28N2/1XOzR2
+	S1/ZC94QNMzvkwA5jQdnY+CfMOHECeNLmn6N6Rw==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=12;
+	hn=cc,content-transfer-encoding,date,feedback-id,from,
+	in-reply-to,message-id,mime-version,references,reply-to,subject,
+	to;
+Message-Instance: m=1; h=sha256:j2FAahr4rocOh7VK0kCYQAOezvqQqbIinf+5Ji7erE0=:qA+h1JAr6sTCmgF5ZTWE9gcliziF2aqrqd46R/tV3sg=;
+X-ME-Sender: <xms:mScGaxUHX-sH_CDvUMnE0uuUNqnHUN7UnTAtqkJDgJyXvjs9_kw8rg>
+    <xme:mScGa0LC4oeeWUV-SwFRKv19OIhODznD5-G-pfQx4vFcJy26Ey_uZbeTCpUI5I6Sm
+    GtxlWmY14ljEkV_8Wi82jjZR_DCyF-6uuZ_5wIPfcvT1vh0sg>
+X-ME-Received: <xmr:mScGaxDXCW5pgRPmykWjbzxk1RzW0wsTzbWQhHMsqUSdI4biuPVv7xEUCCGP49FRgVcDDAIel5JxMtY-FoCoNjrqiSHS88k>
+X-ME-Proxy-Cause: dmFkZTFtvvtjo3TiqnwievywHT6UMcqs4LNW0jtUBl4WBqV/m7gd8GJpLHqrSgN8SWLSUZ
+    VJzM9Mehgr8GzWto4KXYhuPfb2KYnCUl5uLncNNiprl4L2/H+RTJ/fuYTB9lhxGbbLKMYD
+    M/6CxXIb3E/XyzdymtH1FBzd5e8L2Po01VMPRPLL5C3Io0AwFZ8dbU3XydszypkkZokBqR
+    /jGhZrNqXiUxGkRCo3/x2DTJGeMaThLWGacM5+cfNvEWgcAm40zlBt5kA6JjfFB6gF3nMg
+    YcWsKjzsifnV88vQpUOFazoiPMwVgCfmSGKauqcf58vaHaqH0uQcfMVcybu2xlmAKlOrmZ
+    Rx68hgvTPXE1rOSA6nYH0YShOfamEToqpvzMceQXnfJtkD2nyWvTO8OiJW0zia26YiRElQ
+    zBbRSx3rU4ZfwlSQlT2IvzrDVmhnqtu1r8oGhJ5UIZFPLczbuNjDxNZSddp+jqSSojaVWx
+    7lwh8BkZADySo8GKZ3nRT3AhhjmA9dDVFiadfRvFtQ8/4fBoBYum0IJCoMVJVulXRpi/IK
+    d4HMBDvTLehZRlO2cmWVXzibgk4Q7i8YXY5DX6xk2+n//I/NaK/rOzvguhfOWSjpFrpbX9
+    yu7J+58d3N7h/i7GisOvbPQp6iX0tJdpzNUkPcizPBXPMT7kfwhIFMn84UqQ
+X-ME-Proxy: <xmx:mScGa0enteFpDzongZS65ov-JzrF-l5UzRBd682-8BrFpwQcZcWJuw>
+    <xmx:mScGaw0zlpc3Lh9MLlvLM-cGPFUyK6nJ7bLKK2pG1q1fH3_bA3YbHg>
+    <xmx:mScGa7ggb-SuCVVJ7RW2t_Q1V5pv7z0Vo0MnwNHCC69lmTNd9-Oe5A>
+    <xmx:mScGa5k6XZ0hrOtzglTh2SeMkRoO3bySry8Uf4l3FD4_nmNH-DYtEA>
+    <xmx:mScGayE1lDZk6AZGJ5cesnQ3Mz6YkYO5kdTT4tZC9x3J136s6OLNRPV_>
+Feedback-ID: i9d664b8f:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
+ 24 Nov 2026 19:11:02 -0500 (EST)
+From: NeilBrown <neilb@ownmail.net>
+To: Alexander Viro <viro@zeniv.linux.org.uk>,
+	Christian Brauner <brauner@kernel.org>,
+	Jan Kara <jack@suse.cz>,
+	Amir Goldstein <amir73il@gmail.com>
+Cc: linux-fsdevel@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Ian Kent <raven@themaw.net>,
+	Jake Edge <jake@lwn.net>
+Subject: [PATCH v7 3/5] fsnotify: don't hold i_lock while walking d_children in  fsnotify_set_children_dentry_flags()
+Date: Wed, 25 Nov 2026 11:03:40 +1100
+Message-ID: <20261125000836.3984402-4-neilb@ownmail.net>
+X-Mailer: git-send-email 2.50.0.107.gf914562f5916.dirty
+In-Reply-To: <20261125000836.3984402-1-neilb@ownmail.net>
+References: <20261125000836.3984402-1-neilb@ownmail.net>
+Reply-To: NeilBrown <neil@brown.name>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,184 +134,78 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Pre commit reduces TLB flush overheads in the hypervisor. On systems
-with large number of CPUs, there is signficant advantage to doing
-this. Pre-commit allows the hypervisor to build all data structs needed
-in anticipation of the map gpa hypercall, thus reducing or eliminating
-deposit page returns from the map gpa hypercall, and as a result reducing
-TLB flushes. In some performance benchmarks, it made the maps of large
-ranges almost 30% faster.
+From: NeilBrown <neil@brown.name>
 
-Please note, the memory requirement is same whether the follow up map
-gpa calls use large page flag or not. The flags field in the  input
-parameter in the pre-commit hypercall does not have any large 
-page options/bits.
+Rather than hold i_lock across a d_children walk, dget() a reference to
+the dentry and drop the i_lock before the walk.  This is easily done
+with d_find_alias().
 
-Signed-off-by: Mukesh R <mrathor@linux.microsoft.com>
+This requires that we dput() which can sleep.  Now that no locks are
+held across calls to fsnotify_set_children_dentry_flags(), this is safe.
+
+Reviewed-by: Jan Kara <jack@suse.cz>
+Signed-off-by: NeilBrown <neil@brown.name>
 ---
+ fs/notify/fsnotify.c | 40 ++++++++++++++++++++--------------------
+ 1 file changed, 20 insertions(+), 20 deletions(-)
 
-Changes in v1:
- o Don't call pre-commit from hv_do_map_gpa_hcall(), that results in
-   multiple calls: first during entire NO_ACCESS map of the ram range,
-   then again when the range is actually mapped. Move calls up closer 
-   to where the regions are created.
-
-
- drivers/hv/mshv_regions.c      |  6 +++++
- drivers/hv/mshv_root.h         |  1 +
- drivers/hv/mshv_root_hv_call.c | 48 ++++++++++++++++++++++++++++++++++
- drivers/hv/mshv_root_main.c    |  5 ++++
- include/asm-generic/mshyperv.h |  3 +++
- include/hyperv/hvgdk_mini.h    |  1 +
- include/hyperv/hvhdk.h         |  7 +++++
- 7 files changed, 71 insertions(+)
-
-diff --git a/drivers/hv/mshv_regions.c b/drivers/hv/mshv_regions.c
-index dddaade31b5d..fc091405b041 100644
---- a/drivers/hv/mshv_regions.c
-+++ b/drivers/hv/mshv_regions.c
-@@ -266,6 +266,12 @@ static int mshv_region_remap_pages(struct mshv_mem_region *region,
- int mshv_region_map(struct mshv_mem_region *region)
+diff --git a/fs/notify/fsnotify.c b/fs/notify/fsnotify.c
+index 8657bb94dfa8..58566e6b9679 100644
+--- a/fs/notify/fsnotify.c
++++ b/fs/notify/fsnotify.c
+@@ -71,32 +71,32 @@ void fsnotify_sb_free(struct super_block *sb)
+  */
+ void fsnotify_set_children_dentry_flags(struct inode *inode)
  {
- 	u32 map_flags = region->hv_map_flags;
-+	int ret;
-+
-+	ret = hv_pre_commit_gpa(region->partition->pt_id,
-+				region->start_gfn, region->nr_pages);
-+	if (ret)
-+		return ret;
+-	struct dentry *alias;
++	struct dentry *alias, *child;
  
- 	return mshv_region_remap_pages(region, map_flags,
- 				       0, region->nr_pages);
-diff --git a/drivers/hv/mshv_root.h b/drivers/hv/mshv_root.h
-index 1f086dcb7aa1..bfc11f57d1d8 100644
---- a/drivers/hv/mshv_root.h
-+++ b/drivers/hv/mshv_root.h
-@@ -282,6 +282,7 @@ int hv_call_initialize_partition(u64 partition_id);
- int hv_call_finalize_partition(u64 partition_id);
- int hv_call_delete_partition(u64 partition_id);
- int hv_call_map_mmio_pages(u64 partition_id, u64 gfn, u64 mmio_spa, u64 numpgs);
-+int hv_pre_commit_gpa(u64 pt_id, u64 gfn, u64 num_pages);
- int hv_call_map_gpa_pages(u64 partition_id, u64 gpa_target, u64 page_count,
- 			  u32 flags, struct page **pages);
- int hv_call_unmap_gpa_pages(u64 partition_id, u64 gpa_target, u64 page_count,
-diff --git a/drivers/hv/mshv_root_hv_call.c b/drivers/hv/mshv_root_hv_call.c
-index 6261686c3638..a7168eea34d2 100644
---- a/drivers/hv/mshv_root_hv_call.c
-+++ b/drivers/hv/mshv_root_hv_call.c
-@@ -181,6 +181,54 @@ int hv_call_delete_partition(u64 partition_id)
- 	return hv_result_to_errno(status);
+ 	if (!S_ISDIR(inode->i_mode))
+ 		return;
+ 
+-	spin_lock(&inode->i_lock);
+-	/* run all of the dentries associated with this inode.  Since this is a
+-	 * directory, there damn well better only be one item on this list */
+-	for_each_alias(alias, inode) {
+-		struct dentry *child;
+-
+-		/* run all of the children of the original inode and fix their
+-		 * d_flags to indicate parental interest (their parent is the
+-		 * original inode) */
+-		spin_lock(&alias->d_lock);
+-		hlist_for_each_entry(child, &alias->d_children, d_sib) {
+-			if (!child->d_inode)
+-				continue;
++	/* Find the dentry for inode - there can only be one */
++	alias = d_find_alias(inode);
++	if (!alias)
++		return;
+ 
+-			spin_lock_nested(&child->d_lock, DENTRY_D_LOCK_NESTED);
+-			child->d_flags |= DCACHE_FSNOTIFY_PARENT_WATCHED;
+-			spin_unlock(&child->d_lock);
+-		}
+-		spin_unlock(&alias->d_lock);
++	/*
++	 * run through all of the children of the original inode and fix
++	 * their d_flags to indicate parental interest (their parent is
++	 * the original inode)
++	 */
++	spin_lock(&alias->d_lock);
++	hlist_for_each_entry(child, &alias->d_children, d_sib) {
++		if (!child->d_inode)
++			continue;
++
++		spin_lock_nested(&child->d_lock, DENTRY_D_LOCK_NESTED);
++		child->d_flags |= DCACHE_FSNOTIFY_PARENT_WATCHED;
++		spin_unlock(&child->d_lock);
+ 	}
+-	spin_unlock(&inode->i_lock);
++	spin_unlock(&alias->d_lock);
++	dput(alias);
  }
  
-+/*
-+ * Pre commit to reduce TLB flush overheads in the hypervisor. On systems with
-+ * large CPUs, there is signficant advantage to doing this. Pre-commit allows
-+ * the hypervisor to build all data structs needed in anticipation of the map
-+ * gpa hypercall, thus reducing or eliminating deposit page returns from the
-+ * map gpa hypercall, and as a result reducing TLB flushes.
-+ */
-+int hv_pre_commit_gpa(u64 pt_id, u64 gfn, u64 num_pages)
-+{
-+	ulong irq_flags;
-+	struct hv_input_precommit_gpa_pages *input_page;
-+	int rc = 0;
-+	u64 status, done = 0;
-+
-+	while (done < num_pages) {
-+		u16 rep_count = min(num_pages - done, HV_REP_COUNT_MAX);
-+
-+		local_irq_save(irq_flags);
-+		input_page = *this_cpu_ptr(hyperv_pcpu_input_arg);
-+		memset(input_page, 0, sizeof(*input_page));
-+
-+		input_page->partition_id = pt_id;
-+		input_page->target_gpa_base = gfn;
-+
-+		status = hv_do_rep_hypercall(HVCALL_PRECOMMIT_GPA_PAGES,
-+					     rep_count, 0, input_page, NULL);
-+		local_irq_restore(irq_flags);
-+
-+		done += hv_repcomp(status);
-+		gfn += hv_repcomp(status);
-+
-+		if (hv_result_needs_memory(status)) {
-+			rc = hv_deposit_memory(pt_id, status);
-+			if (rc)
-+				break;
-+
-+		} else if (!hv_result_success(status)) {
-+			pr_err("%s: failed to pre commit for gfn %#llx done %llu/%llu, status=%#llx (%s)\n",
-+			       __func__, gfn, done, num_pages, status,
-+			       hv_result_to_string(hv_result(status)));
-+			rc = hv_result_to_errno(status);
-+			break;
-+		}
-+	}
-+
-+	return rc;
-+}
-+
- /* Ask the hypervisor to map guest ram pages or the guest mmio space */
- static int hv_do_map_gpa_hcall(u64 partition_id, u64 gfn, u64 page_struct_count,
- 			       u32 flags, struct page **pages, u64 mmio_spa)
-diff --git a/drivers/hv/mshv_root_main.c b/drivers/hv/mshv_root_main.c
-index cc2cfce2aefd..befa2b4e3e34 100644
---- a/drivers/hv/mshv_root_main.c
-+++ b/drivers/hv/mshv_root_main.c
-@@ -1394,6 +1394,11 @@ mshv_map_user_memory(struct mshv_partition *partition,
- 		 * the hypervisor track dirty pages, enabling pre-copy live
- 		 * migration.
- 		 */
-+		ret = hv_pre_commit_gpa(region->partition->pt_id,
-+					region->start_gfn, region->nr_pages);
-+		if (ret)
-+			break;
-+
- 		ret = hv_call_map_gpa_pages(partition->pt_id,
- 					    region->start_gfn,
- 					    region->nr_pages,
-diff --git a/include/asm-generic/mshyperv.h b/include/asm-generic/mshyperv.h
-index 4c9f3353074a..a3d497d99b0b 100644
---- a/include/asm-generic/mshyperv.h
-+++ b/include/asm-generic/mshyperv.h
-@@ -28,6 +28,9 @@
- 
- #define VTPM_BASE_ADDRESS 0xfed40000
- 
-+#define HV_REP_COUNT_MAX        \
-+	(HV_HYPERCALL_REP_COMP_MASK >> HV_HYPERCALL_REP_COMP_OFFSET)
-+
- enum hv_partition_type {
- 	HV_PARTITION_TYPE_GUEST,
- 	HV_PARTITION_TYPE_ROOT,
-diff --git a/include/hyperv/hvgdk_mini.h b/include/hyperv/hvgdk_mini.h
-index 966945f0504f..16c41ee5079a 100644
---- a/include/hyperv/hvgdk_mini.h
-+++ b/include/hyperv/hvgdk_mini.h
-@@ -489,6 +489,7 @@ union hv_vp_assist_msr_contents {	 /* HV_REGISTER_VP_ASSIST_PAGE */
- #define HVCALL_FLUSH_GUEST_PHYSICAL_ADDRESS_LIST	0x00b0
- #define HVCALL_CREATE_DEVICE_DOMAIN			0x00b1
- #define HVCALL_ATTACH_DEVICE_DOMAIN			0x00b2
-+#define HVCALL_PRECOMMIT_GPA_PAGES			0x00be
- #define HVCALL_SIGNAL_EVENT_DIRECT			0x00c0
- #define HVCALL_POST_MESSAGE_DIRECT			0x00c1
- #define HVCALL_DISPATCH_VP				0x00c2
-diff --git a/include/hyperv/hvhdk.h b/include/hyperv/hvhdk.h
-index 0c89c62c9706..3944e51d0a2d 100644
---- a/include/hyperv/hvhdk.h
-+++ b/include/hyperv/hvhdk.h
-@@ -953,4 +953,11 @@ struct hv_input_modify_sparse_spa_page_host_access {
- #define HV_MODIFY_SPA_PAGE_HOST_ACCESS_LARGE_PAGE      0x4
- #define HV_MODIFY_SPA_PAGE_HOST_ACCESS_HUGE_PAGE       0x8
- 
-+struct hv_input_precommit_gpa_pages {	/* HV_INPUT_PRECOMMIT_GPA_PAGES */
-+	u64 partition_id;
-+	u32 flags;
-+	u32 reserved;
-+	u64 target_gpa_base;
-+} __packed;
-+
- #endif /* _HV_HVHDK_H */
+ /*
 -- 
-2.51.2.vfs.0.1
+2.50.0.107.gf914562f5916.dirty
 
