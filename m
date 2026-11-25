@@ -1,53 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795624536;
-	b=kuR9XXMmAuvq4Fyl/wgCkrM+evG080ircLLaZUQCo83Bk4+CeehMFme0RtkRxzBbJrG/
-	 ayTkUr95DcHOHSnufzcZE9tjmqvOfdROQxafzosEWpzx95fq8hcqtkEtOWRSX8r6pNLWv
-	 Nr01VvXcMOURudq2SbGOeDUfmKStn2m3bcUgNPglE/RXN6lJHa4hwaekxJsISgxQqyFwN
-	 6N+oKs2162sKP/akyrgJcM11mfMKnMVlgyt0RvG9QKnJGmye2QE5PFYdxO8/yfDQW8afn
-	 f/wYSFfgMjs6LMGTuwUz3hLpyGApVBNVZCnAhsaLp/4QV8NW08HsZgwbEOzw3cn6KBg==
+	t=1795624560;
+	b=L+YkryX3gqtYqzilO9L6ckw6/LQ5rmD/PlUi6QkjZjpOT3rzbb3LqZ1JSqXWvap0hPp2
+	 LNKU/AuLJU8Ktsm2fCA1IagP/zBHT/FJXxLIBrWMbtNlfAvMs4kZvukXoRCggR9SVPQEE
+	 urzl/WqtTgQqFl4afKGFDevldwT7cISWrZ3aD2647k++iXjdqKC4M3NAhh7+pz+5uYphk
+	 JiVNGGbHtuHfTwOYYgvDDvcXYZIEYi7np8URSd51I78RqomkXRgJvsB0Dk/s+pcMeFS5o
+	 gaaFqDHl3QG4gRHyIXeGVNoUNBb9jW/HjZcBgd22uogLc1yhvmLc9R3E1jIrSysvjug==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795624536;
-	h=Received:DKIM-Signature:Date:Message-ID:From:To:Cc:Subject:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=/YKfZM6yT5AZ153zVZKdwhkCJPeZ7HtGqlNJPbIPqQg=;
-	b=rKA+aMDzFiQKlDZ0ve6lj1lLesLxUTI2bCa378dYbjo16P4+sHPKrpKtqD9kAAY+y/zq
-	 UOI0Yax/X9SHiMASjJjsIexXFBcrkozOyhnBsLuVOU0HqFacd0JAtI9r6+RktplgUb3CW
-	 KNlZJXRL2qSCv3fgkMWIjVqjVew1pvm8byFOebgensJjg70BT+UG+ObFwmgg6LTa39Pw8
-	 u9rkxT52vGAqxwPQAFz//BrO6N/zXkguTTALcAkNjuOlqt4a3Bzz/0B5mlfnilUjUI3hY
-	 zuGtSL+kLEpvTR7a5N2x/1AqHZP5ODH6mbHb5LCr2hDFAspXps5DA9FxBrWAgS4bWxw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795624560;
+	h=DMARC-Filter:Date:DKIM-Signature:DKIM-Signature:From:To:Cc:Subject:
+	 Message-ID:MIME-Version:Content-Type:Content-Disposition;
+	bh=nxG8pMpQfTJcq4rgrqMxU8YvEnM+Ob8KabL5rnjsSSQ=;
+	b=3NW12kM4CV/pAd3Lv+ktrSmOpsKVbTzN7qFHLiA40rnN8JcZB3V4lXMoeuN66rCFHPI0
+	 mopCTxPak9KbG0eVVF0OJd5XkmoljgSzTe0rTC7SpWM9wsW8qAH5IGKfB/UmRG63ZJtAj
+	 Wg838Hs/VcFGgJ0mazdnr50IsvdyOpAYIbxdUCw5X3V1Po3QwBSFTUNpyKgHmnERsNRzG
+	 K3Xi1n/mE4CRBnpkQJww3EdSkQN5aJHxPHAEMiSatA0VfhQDHx8MSZ0+eN/nqfQn0VRMi
+	 sUwjhieHrcT3MLJNM7kj9ahECETeCICDWdBOI+1pkvxJlbEQ38xcTR4rCieZG+0VuVQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YFHivguQ;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=linutronix.de;
+	spf=pass smtp.mailfrom=linutronix.de;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=qwHRdalB;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=T1lEUDVf;
+	arc=none smtp.remote-ip=193.142.43.55
+Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 027EB606A33B;
-	Wed, 25 Nov 2026 16:35:35 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8DCCD606A33D
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 16:35:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8DCCD606A33D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YFHivguQ
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 924A61F000D2;
-	Wed, 25 Nov 2026 16:35:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795624535;
-	bh=/YKfZM6yT5AZ153zVZKdwhkCJPeZ7HtGqlNJPbIPqQg=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=YFHivguQLEZIjapphR280eTXn39iPRY9e5/0zRzPyVK7ZTpeliiugQQNuur5Ogscr
-	 O7SAzLe76I7JpKBOpR1tXOtte/TIQ9k6rXTf4WO81DW09V918VIZibn/5ev9mhBH2U
-	 53H7e40Yrc7f6tlyTRqknMB7S8NuJWtzRDQ/+XJV7uMMNDlOXFJCH0lLigYBDa1taG
-	 Mt20EmTMJgyAhrHvNNXfFNsZpKQU388Cqy1pVRbeHhwZv/HeLUT5Vr5BzAWVvuYwAq
-	 lp5I7zVTUDJHwXIVOaXxkMue/UZihhaNt11+9h5/mu5BgleStawueXt14tmlLjhJqK
-	 FnUOJI33BKtuA==
-Date: Wed, 25 Nov 2026 06:35:34 -1000
-Message-ID: <456251eff6ba27382294d6478969b856@kernel.org>
-From: Tejun Heo <tj@kernel.org>
-To: Kuba Piecuch <jpiecuch@google.com>
-Cc: David Vernet <void@manifault.com>, Andrea Righi <arighi@nvidia.com>, Changwoo Min <changwoo@igalia.com>, fangqiurong <fangqiurong@kylinos.cn>, sched-ext@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCHSET v2 sched_ext/for-7.4-fixes] sched_ext: Fix ops_state and ops.dequeue() locking in dispatch
-In-Reply-To: <20261125112553.1539758-1-jpiecuch@google.com>
-References: <20261125112553.1539758-1-jpiecuch@google.com>
+	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=qwHRdalB;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=T1lEUDVf
+Date: Wed, 25 Nov 2026 17:35:54 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1795624555;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type;
+	bh=nxG8pMpQfTJcq4rgrqMxU8YvEnM+Ob8KabL5rnjsSSQ=;
+	b=qwHRdalBswBHAevJUbiCzXjS6M8iOU3b7M/IWVR0Y66c4PVc87pF0p5OusQOC15g3FUSWt
+	+4ERaol+1VYjK+graXIt2voUAY9ZKxgrVQ7dsq7nthmJUntIPtBs4cAHFvhlm0e9XU8OIt
+	NvR0kDp5KCSkbawjORYJ77U215+ANdoyKFmVDQFoiJdNBH4AJZEdA/Nhe2QJFgU6seCAGG
+	W8e76lxHdB4ImhJFJ2jmSaSVCIbpNHCD+Ef4j8Ue5LLtuquLogAw7b5zclAgX75SLjLRKm
+	lW3yW2dpr5CYC6dzu/pkpj+OFtxVYaelxvTKGn3A90h0lndybYDokuWEWNeJcg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1795624555;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type;
+	bh=nxG8pMpQfTJcq4rgrqMxU8YvEnM+Ob8KabL5rnjsSSQ=;
+	b=T1lEUDVfYiYoI7S0rnHO0JkRe5DOpOjLueQMga7synBRYQLLQ+E8wV/fqhfLUF8O4kMIYW
+	zl41PpTNb/2mBFCw==
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+To: linux-rt-devel@lists.linux.dev, linux-kernel@vger.kernel.org
+Cc: Michael Schanne <mschanne@kns.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Chris Packham <chris.packham@alliedtelesis.co.nz>,
+	Todd Leitzel <tleitzel@kns.com>
+Subject: [PATCH v4] Revert "uio: use threaded interrupts"
+Message-ID: <20261125163554.aO63UBKf@linutronix.de>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,19 +71,101 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 
-> Kuba Piecuch (4):
->   sched_ext: Factor out release_dispatching_and_lock_task_rq()
->   sched_ext: Fix ops_state and ops.dequeue() locking races in dispatch
->   sched_ext: Remove scx_wait_dispatching()
->   selftests/sched_ext: Test that ops.dequeue() runs with the task's rq
->     locked
+From: Michael Schanne <mschanne@kns.com>
 
-Applied 1-4 to sched_ext/for-7.4-fixes.
+This reverts commit f8a27dfa4b82d442af1c0645a5acc70cc97c67f6.
 
-Thanks.
+The patch claims to fix the issue with nested interrupts by using
+request_threaded_irq(). Should an IRQ be nested, then __setup_irq() will
+overwrite the primary handler, and the submitted uio_interrupt_handler()
+will not be called (only the threaded handler).
+On non-nested interrupts, both handlers are installed and work
+properly. In forced threaded environments, such as PREEMPT_RT, it
+results in two threads, adding additional overhead.
 
---
-tejun
+Therefore revert the change.
+
+Fixes: f8a27dfa4b82d ("uio: use threaded interrupts")
+Signed-off-by: Michael Schanne <mschanne@kns.com>
+Acked-by: Chris Packham <chris.packham@alliedtelesis.co.nz>
+Reviewed-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+---
+v4: https://lore.kernel.org/TY0PR01MB5723E978A7EE94644B15621FD2782@TY0PR01MB5723.apcprd01.prod.exchangelabs.com
+  - Reposted Michael's patch with small fixes:
+    - Use Tabs and not Spaces. I think this broke applying it.
+    - Remove the comment for uio_interrupt_thread() and rename
+      uio_interrupt_handler() -> uio_interrupt()
+
+v3: https://lore.kernel.org/TY0PR01MB57238A4ACC7B9B3214A00A6CD2772@TY0PR01MB5723.apcprd01.prod.exchangelabs.com
+  - Revise commit message
+
+v2: Instead of an ifdef, revert the cited commit
+v1: https://lore.kernel.org/all/TY0PR0101MB48676D503A7F6C5CAC112B3BD2A52@TY0PR0101MB4867.apcprd01.prod.exchangelabs.com/
+
+Initial patch/ thread: https://lore.kernel.org/TY0PR0101MB48672132B8525B7B39565EE4D2A52@TY0PR0101MB4867.apcprd01.prod.exchangelabs.com
+
+ drivers/uio/uio.c | 24 +++++-------------------
+ 1 file changed, 5 insertions(+), 19 deletions(-)
+
+diff --git a/drivers/uio/uio.c b/drivers/uio/uio.c
+index f8fa205226601..14880fa9623c4 100644
+--- a/drivers/uio/uio.c
++++ b/drivers/uio/uio.c
+@@ -438,36 +438,22 @@ void uio_event_notify(struct uio_info *info)
+ EXPORT_SYMBOL_GPL(uio_event_notify);
+ 
+ /**
+- * uio_interrupt_handler - hardware interrupt handler
++ * uio_interrupt - hardware interrupt handler
+  * @irq: IRQ number, can be UIO_IRQ_CYCLIC for cyclic timer
+  * @dev_id: Pointer to the devices uio_device structure
+  */
+-static irqreturn_t uio_interrupt_handler(int irq, void *dev_id)
++static irqreturn_t uio_interrupt(int irq, void *dev_id)
+ {
+ 	struct uio_device *idev = (struct uio_device *)dev_id;
+ 	irqreturn_t ret;
+ 
+ 	ret = idev->info->handler(irq, idev->info);
+ 	if (ret == IRQ_HANDLED)
+-		ret = IRQ_WAKE_THREAD;
++		uio_event_notify(idev->info);
+ 
+ 	return ret;
+ }
+ 
+-/**
+- * uio_interrupt_thread - irq thread handler
+- * @irq: IRQ number
+- * @dev_id: Pointer to the devices uio_device structure
+- */
+-static irqreturn_t uio_interrupt_thread(int irq, void *dev_id)
+-{
+-	struct uio_device *idev = (struct uio_device *)dev_id;
+-
+-	uio_event_notify(idev->info);
+-
+-	return IRQ_HANDLED;
+-}
+-
+ struct uio_listener {
+ 	struct uio_device *dev;
+ 	s32 event_count;
+@@ -1044,8 +1030,8 @@ int __uio_register_device(struct module *owner,
+ 		 * FDs at the time of unregister and therefore may not be
+ 		 * freed until they are released.
+ 		 */
+-		ret = request_threaded_irq(info->irq, uio_interrupt_handler, uio_interrupt_thread,
+-					   info->irq_flags, info->name, idev);
++		ret = request_irq(info->irq, uio_interrupt,
++				  info->irq_flags, info->name, idev);
+ 		if (ret) {
+ 			info->uio_dev = NULL;
+ 			goto err_request_irq;
+-- 
+2.55.0
+
