@@ -1,80 +1,79 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795623173;
-	b=ThCCT8qT0ZYlQW4Rbk+p0xnSbP5VLGerdoztPv7lVDoi3Nl9SdyLGsLAXPTw9yhRPX1Y
-	 /U8hNcad58o3da1zOw8SAehONKA8YNi83EBx910LTcb4esKmVkXtz3pyvcwKZO63kzzfx
-	 daaoIfqpIsXu6msbDZvtRssT+pKPBvx/wi9g1j0N7NzT2/aRmV6xmJ/8cLZWxworYIXYA
-	 5hSywFbPZzY60WENZzc894iQ8yIfsYb/pMvveHw3Kw5zsvZ5UYVxKmMTp2PGYv4wYhHWo
-	 wFfYhB3hWwMYkaCvZLATlxbU1tSkgEYY5evSU0QNT7fl2rE9coz5SNkAKMetyIdr+Ig==
+	t=1795623181;
+	b=riKuCHRd9mkWyGd8BQmJYx6d6aoIkCznHMb5daJgtAdQ3pYQsnbMRbUMooCD74EUaZj3
+	 4A9MRJD1BXU9KzAxtQcV6wRNGKKMxc2SMa56cPo00LDwsAAlBAGMQ65lYAlA30gcywJUW
+	 OxdFXfIwDwZbv3H390TMzPYiPAOPlcLjWPucTCJ+hXaEyL3WjYAH5H3BGUxCAztrKoYe1
+	 iikwgOEr+kRRMkLZ7hKdlndsHqwqCK2QzG63JO8xqFwPlhx2ggA2OS2IMyXc8IslV7kfg
+	 M299PBgPnYw2d2bF5c6pLvuHCLo/qV+eSwn22EelhPx4R61ZU077pczEx066syqlpUQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795623173;
-	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
-	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
-	 X-Endpoint-Received:X-Original-From:Reply-To;
-	bh=NTZ0SNzTZ2JEuh2ZAJOzH2cPlW0Ebx8D2XBL6InHqUg=;
-	b=NFsosuQ756SuEFy5d/wCXWo7OOZbEZvadC0pgP1Lwi2L1bfwgNkFB3bsC69RYD8tTE+A
-	 CzoPMBoImhOsgreDvZW1PQ1aTwE3roJFv/Y8CNS7/W1F22NX7FMHni2QHNYBYqHD90AN/
-	 bfwsePCFBIFxxP3up0J89GX3AqANMdtkvra5JXU+50QhJo5V5ziik3MafwlL+DzzSGqv8
-	 M2tx4m+djNz5nBD6P2aoXaHcyySl15+rkSr9Yh1Eybvv7qL7KzfPg6hIEMKsFtndQPJGm
-	 py2y3elRlURA7oxEcHoeu8WPGKSsekJiNLlNA/CTJogpZB0H1+dxyaEiWhhjD91EomA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795623181;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=3A3E6sXLIyQnIHDEX6Cx1wJAY2QjzvuJ/e8FaTKLYEg=;
+	b=GPO580VJIGeHNCYqWZ1WjMfYpb6Tn1XV8fe91XDcjmYp9pXsLG9cdG27hKoSu4TiCwBU
+	 qP5unhiM6XzJ3Qg6pacit7ggaub1Z/YUdwWeaA4cPQe4FoDnmLaPvK9rkbQ/vo+XSSXtb
+	 VGu267pCv2u7XHaGHobrfWv5oCTZyPh92u/ZOf4m6QwjP10b041lUGMCmoo394ji/QYHX
+	 njIJz6lapG1ErU05MTQZhR+P9H4L+8QCLx03qPhSc3ez0bkKqxXWzFuQTRIrms30a/09G
+	 xp8MtGweg1YGYvGFDZ3LCJqmwiebR3qx8QIiL7tPQi/ejjyO9Dozfszry1CG7NFOuPg==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=E10qOj4r;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cod0zp7p;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A0478606A31E;
-	Wed, 25 Nov 2026 16:12:53 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C74D7606A31E;
+	Wed, 25 Nov 2026 16:13:01 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=E10qOj4r
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cod0zp7p
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795623173;
-	b=A7LFSZNqU607keSYnix5BUGrdhPIOlJlglRCCU/+BAjfgrEAyxrySl7KOct2+EjGTCDM
-	 eQO2CRL6XEC8lZYOSxJlvbLwpFwd9iEbJ1FHDmavYKy8iGjcIUL9DXA5bZlekHwdT8A2b
-	 N+w5PcWckuVipSNSyPv7Shkv2eDszkFW50WkNyemIHZ7ai5wgFZbGCrFagxjorJvcpETD
-	 m2nHFZc4Pi/D8xcGOLoEomD3tkjYYpX3D5fsvoPjfnkr0p3OEvwFzH9ORHBy0MKuyJCth
-	 PE/GQ7LL4MlFRCvdVrY9/XaapRaJn8t21cIxXHfBLxPfss0Rlkj0v2PsX+r118yo9gg==
+	t=1795623181;
+	b=AwXAzTJe4jDnV7dByyOdWkZUc5A7qrXmofz2f49r6c/bs1eQu/9OfUUIcCqufHyWvFTb
+	 cbNA4pbxLkQJ5IXEMfjzilELVqHH61ixWfKlhhjLC1bhV8Uhp/0I8HuYG5c8sRNUadWdD
+	 hQJ0rX9jS0rIAKtmDsYn+yueWsQeXPAxQ3eQ9vBQLTc81TGMhutZe/Mh0dQqU1S3smN2q
+	 CKgL8dwbfzwirfPfoK7Fe1h4sQ0CoaQo+63/K8AXpu8IL7ZR/zoTBXebzMY7jNlYYydpg
+	 AfMe4dsQrWxXfeu+QIzUztpgaDyX7m+IegVzGeHy33fUNUz0UGimqgEFP9G5sqVJc0A==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795623173;
-	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
-	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=NTZ0SNzTZ2JEuh2ZAJOzH2cPlW0Ebx8D2XBL6InHqUg=;
-	b=CEwepKG88NORh0SRdGdZCHrKf2pwcUZydmTqAfqLxoF658MxMQ+bw30CS+/c7XBgFzRf
-	 +fp6c8xEaAZszZMMhP1NQKlTLe4ljdvMPOA3uLFXxWuKE5VNrtpdva5JVPffYkLpYuRbs
-	 +aRejEzxRbvsIFcw4I7vPNxJYqI1Whtdxd7liSYXv5GOAvpA4uQdHImYoE4b076Hd1LSa
-	 bUUzMA023iI2ON3Ehiq4bYdAJ+PHyQC6CFFuEXjNdlGld22gDp1BhRbiGOIMDjKZ2aM2m
-	 k+cdvVUwlFyD439WUjJEONzRU4+lNPe7qMA0f3oyRgCSKLUxwSMK7pFmr90e4hrKxeA==
+	c=relaxed/relaxed; t=1795623181;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=3A3E6sXLIyQnIHDEX6Cx1wJAY2QjzvuJ/e8FaTKLYEg=;
+	b=tvoTPy4hf1tmWOPBCHxe/8TAikMXFdRKrvJTGI6/2Ac01uw4yCECTwCdNHuV4egPB/pj
+	 lLoo6Fp10xoC55/ZGSarXGsqNrK6sd9F80DQT/H1Jvqxs1vWtB5exEmYHx6Lk4oxd9fX7
+	 jIwaBid7yp5mrpb52R9+lgF0sgsNZA3xn4rWLjiukl1qzELeYBem37S9YSIu6H4z8PYFE
+	 9zMHbS1Op8qPkQsV1xJKWmN9UlRiuHyMu0CurExkUduKZCGDqARII2fUnM/haS+82cu95
+	 viWWfcGYwyLMY3NuD7Css5DSezpLvW58cKQ6D1vgIi6mAZNnDhWym52l13WDW9n0/mw==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 202D21F00AE3;
+	by smtp.kernel.org (Postfix) with ESMTPS id 2B64E1F01563;
 	Wed, 25 Nov 2026 16:12:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795623173;
-	bh=NTZ0SNzTZ2JEuh2ZAJOzH2cPlW0Ebx8D2XBL6InHqUg=;
-	h=From:Subject:Date:To:Cc:Reply-To;
-	b=E10qOj4rTceGGeRKmnB35azqfCjoA6yuu2dx15526qkYgxsvFiIM7lCLYr0B2EvBy
-	 00sWtmHKOnnpkvvpUYAdUDKgyo8z2paGTreQqkQV478zPYNt8DaiJ+3gxCNbF8Wd8f
-	 /o+HsVPq0QaOHy0j6HWWwONxkb+Fg11jhDvPTELpMNGxrpYaZTPcihjHTtGvLPZtcI
-	 yf6TM0EjkSJYAzRkQkp2eoUNhM/Pa4RFvBrAyCeHssIH6pW6mfwQJ9Z8butkxjc1mT
-	 pcoElJ/PAOedu1qQtow9I1r7lu6aD/Xjs+9LJa8DR21N/aE6tUu/tVoUrhcMLCAjdu
-	 3tQgt1rooj8+g==
+	s=k20260515; t=1795623181;
+	bh=3A3E6sXLIyQnIHDEX6Cx1wJAY2QjzvuJ/e8FaTKLYEg=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=cod0zp7pg6TARplVW2UT+a/RzoUhXIpDrRRScxu21m4cRA1EOkDY70RYeZk3uVdwV
+	 ty3XwEDLZV+oz9t3Bp11qeS6XAMmPsn6/gAaRAO1mdlIidkPls6QD46JoO953tQgXo
+	 UPHHldhWL2y9ToDuE2Vcq2m8cRqr6QGPA0epIh7CYnCwlfhXm5ZBEQOeDOBrOjP0YV
+	 ooPsHLxeycuf9WS74csH/OQhIwiS/wTH+7b0vZEJdM52SSYyfVMEMCk9ID79HbGtoK
+	 Gur9tqtkrubKP8o8cQxkauNCRvYrkpQjkQ0uRUOyQI3MZ4ggFs6wcn+TmAUshNywKd
+	 +kx7FY6te26Tg==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 7C7404CF59;
+	by lkml.kernel.org (Postfix) with ESMTP id A5E734CF54;
 	Wed, 25 Nov 2026 16:12:47 +0000 (UTC)
 From: Umer Uddin via B4 Relay <devnull+umer.uddin.mentallysanemainliners.org@kernel.org>
-Subject: [PATCH v3 0/2] Add USB support for Exynos7885 and enable USB and
- FG on gta3xllte
-Date: Wed, 25 Nov 2026 16:12:40 +0000
-Message-Id: <20261125-gta3xllte-usb-battery-v3-0-2ef962bf5423@mentallysanemainliners.org>
+Date: Wed, 25 Nov 2026 16:12:41 +0000
+Subject: [PATCH v3 1/2] arm64: dts: exynos: exynos7885-gta3xllte: Enable
+ USB support
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -85,11 +84,9 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQ6CMBBA0auQWTsJLdiKVzEuWhxgDEHTGQyGc
- HeKLt/i/xWEEpPAtVgh0YeFX1NGdSqgHcLUE/IjG2xpnTH2jL2GahlHJZwlYgyqlL4YLr42vnO
- NdR5y+07U8fL73u5/yxyf1Ooxg23bAfBKBbJ5AAAA
-X-Change-ID: 20261125-gta3xllte-usb-battery-a87417f69267
+Message-Id: <20261125-gta3xllte-usb-battery-v3-1-2ef962bf5423@mentallysanemainliners.org>
+References: <20261125-gta3xllte-usb-battery-v3-0-2ef962bf5423@mentallysanemainliners.org>
+In-Reply-To: <20261125-gta3xllte-usb-battery-v3-0-2ef962bf5423@mentallysanemainliners.org>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, 
  Peter Griffin <peter.griffin@linaro.org>, 
@@ -99,67 +96,80 @@ Cc: Umer Uddin <umer.uddin@mentallysanemainliners.org>,
  linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
  Henri Ommer <henri@ommer.net>, David Virag <virag.david003@gmail.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795623167; l=1837;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795623167; l=1634;
  i=umer.uddin@mentallysanemainliners.org; s=20261109;
  h=from:subject:message-id;
- bh=kpn0cpERSh/Ga6YdBXYn7twRHHIGblxKBB2fEDSemIw=;
- b=/l+UvcwX5Ng35YNKWuwYMVIZ9cqOucSSq4NLhgLWQOA0cduHh51C8ku69lcPaJN7dr83KyaJ8
- XVtRAwrER2IDy4VaccSNif3ClnII3qkeb2a2xXfQvxiKDqfgdsHAd9h
+ bh=lq3RkQ/cpzRDW2dTSf0wXDxDTq/ch8FNKpY2bDIwhtU=;
+ b=xOchDRY8climikJIu/c0kZk8l7G16xlR0c+suCGIHRnwaSkguijrc8Bw7Nod5cCWD+7VwIrDY
+ Xxl7rgE3ZIPDXoqr8+oNH+nxhLITY3gptUb6a6MKeQf2yLUpwZSYKbV
 X-Developer-Key: i=umer.uddin@mentallysanemainliners.org; a=ed25519;
  pk=Hsgrt4A72CFTe27AI1AAWlnLsiQrlb4+T+cbrfWDhUA=
 X-Endpoint-Received: by B4 Relay for
  umer.uddin@mentallysanemainliners.org/20261109 with auth_id=1466
 X-Original-From: Umer Uddin <umer.uddin@mentallysanemainliners.org>
 Reply-To: umer.uddin@mentallysanemainliners.org
+Content-Transfer-Encoding: 7bit
 
-Hi guys, this patch series enables USB and FG on gta3xllte. All is tested.
+From: Umer Uddin <umer.uddin@mentallysanemainliners.org>
 
-DT changes were tested with make dtbs_check W=1, and the dt styling check
-scripts with --mode strict flags, both of which returned no warnings.
+The Samsung Galaxy Tab A 10.1 (2019) has a USB-C port capable of USB 2.0
+speeds, used both as host and device, and is used for charging the
+tablet.
 
-Please note this patch now depends on David Virag's changes for USB[1].
-
-Best regards,
-Umer
-
-[1] https://lore.kernel.org/linux-samsung-soc/20261125145458.2594179-1-virag.david003@gmail.com/T/#t
+The port is controlled by an S2MU005 IC. Until support for it is
+added, only USB device functionality is available, so enable the USB
+controller and PHY in peripheral mode.
 
 Signed-off-by: Umer Uddin <umer.uddin@mentallysanemainliners.org>
 ---
-Changes in v2:
-- Drop patches that are being picked up updated and corrected by David
-- Link to v1: https://patch.msgid.link/20261119-gta3xllte-usb-battery-v1-0-0cf5f763522e@mentallysanemainliners.org
+ .../arm64/boot/dts/exynos/exynos7885-gta3xllte.dts | 28 ++++++++++++++++++++++
+ 1 file changed, 28 insertions(+)
 
-Changes in v3:
-- Change dependency link
-- Move define maximum-speed on board
-- Link to v2: https://lore.kernel.org/linux-samsung-soc/20261124-gta3xllte-usb-battery-v2-0-80bdcb1753bb@mentallysanemainliners.org/T/#t
+diff --git a/arch/arm64/boot/dts/exynos/exynos7885-gta3xllte.dts b/arch/arm64/boot/dts/exynos/exynos7885-gta3xllte.dts
+index 03476f8b1200..c71101ed0ba9 100644
+--- a/arch/arm64/boot/dts/exynos/exynos7885-gta3xllte.dts
++++ b/arch/arm64/boot/dts/exynos/exynos7885-gta3xllte.dts
+@@ -68,6 +68,12 @@ memory@80000000 {
+ 		      <0x0 0xc0000000 0x40000000>;
+ 	};
+ 
++	/* TODO: Remove this once PMIC is implemented */
++	reg_dummy: regulator-0 {
++		compatible = "regulator-fixed";
++		regulator-name = "dummy_reg";
++	};
++
+ 	reserved-memory {
+ 		ranges;
+ 		#address-cells = <2>;
+@@ -127,3 +133,25 @@ key_volup: key-volup-pins {
+ 		samsung,pin-drv = <EXYNOS5420_PIN_DRV_LV1>;
+ 	};
+ };
++
++&usbdrd {
++	vdd10-supply = <&reg_dummy>;
++	vdd33-supply = <&reg_dummy>;
++
++	status = "okay";
++};
++
++&usbdrd_dwc3 {
++	/*
++	 * SoC in theory supports SS but no known device (including this one)
++	 * has it wired up.
++	 */
++	maximum-speed = "high-speed";
++
++	/* Force to peripheral until we have Type-C working */
++	dr_mode = "peripheral";
++};
++
++&usbdrd_phy {
++	status = "okay";
++};
 
-To: Rob Herring <robh@kernel.org>
-To: Krzysztof Kozlowski <krzk+dt@kernel.org>
-To: Conor Dooley <conor+dt@kernel.org>
-To: Peter Griffin <peter.griffin@linaro.org>
-To: Alim Akhtar <alim.akhtar@samsung.com>
-Cc: devicetree@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-samsung-soc@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-Cc: Henri Ommer <henri@ommer.net>
-Cc: David Virag <virag.david003@gmail.com>
-
----
-Umer Uddin (2):
-      arm64: dts: exynos: exynos7885-gta3xllte: Enable USB support
-      arm64: dts: exynos: exynos7885-gta3xllte: Enable FuelGauge support
-
- .../arm64/boot/dts/exynos/exynos7885-gta3xllte.dts | 56 ++++++++++++++++++++++
- 1 file changed, 56 insertions(+)
----
-base-commit: 7ed7d0761cca220e521c66f87b48def6c5a8edf7
-change-id: 20261125-gta3xllte-usb-battery-a87417f69267
-
-Best regards,
---  
-Umer Uddin <umer.uddin@mentallysanemainliners.org>
+-- 
+2.56.1
 
 
