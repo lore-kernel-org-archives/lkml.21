@@ -1,88 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795619556;
-	b=g7c+1nb11srtE8e9jCU9Z8ctjyYymiNxXE3qkA8D8rqhGpCcNuuHXPu0mHbf2fiCzTqP
-	 LQWKRd4JDl/ZQ8U563Oq2HNYJ7pSfOmT2E7Lf9YqSReATATHBUOi+ndYtg8AC5ztamFZ4
-	 hK/Qc39quxuGCSg6MT4bI5fH6Z1zsKGCQS4okGBX7OPdwuZPM6kE15fBVuBFGtJdOOcfO
-	 h0ZXlesiMHrlMOV7rkrAwWnxukUloCPn56vprhaWJlkHBWIF+4wMrn7wXZ8xO6gjwmci0
-	 P0qPGHZoEOfmSN8n/IE+PKVZY+IDR9a6yIftdLHdAK+ovMQGtrIEqe4Jc7y7PD5irsA==
+	t=1795619658;
+	b=STn/qGGSWSj0HrILhJkt/umP5L1CArNS6blx6TQNemIw+hta4XYQpL84exNECofZhWzf
+	 2iCTvmuE4F7dGAbFids8R6Z4eN2Gp+p3MuguObCs7zkKTLDPix63IljAlRKv4EP5mg9cz
+	 bYFwbBOL4AZp5Flq2lDzKkhcDWLIBKmw6emj7NGd+jDVfpLA6Jb+bmO+SA+9x62cucWI1
+	 v9e3QjAVpxG1lBQZE4DGLd1Kx49ve36PspQqseCip01pPfV8dfBz8ohiufw6e7BmayRlC
+	 Yp7Ux5oV+vyqc8m6HjA6Z4EK5fBYpbvxcr/qQ4CssLqY7GVgXZxE7M17QbzR/A83EWQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795619556;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
-	bh=olkz0RE9qbyCNQWe7ovtGZ4zTZHV3lQiK2ePxCl1z6E=;
-	b=WIKka+v+XijJNvO8uWFZetg13oBr1GvkVoOttWy999VRAkRV3WdiKg5RqmJcGXfBd+YI
-	 fjFGhm4COk8F5cnqilK2OPSCVg5aRGcBjgvI/slGu/nenoMxLumL9QLR7IPtSBRvWZn1f
-	 Btth7w+FpzCfMP4j2TGsTlAi6FdKICIjzEFXMeN/XX1EX4jVoIB5m5Af6mVJKYjK3Vl/Z
-	 7Plham0hKvl5IRb7dGE565ZouOZKr0AF+xAZW6kxKc7YCUrieTtrRY4WfxQ77r5o3h6TG
-	 xF9KKH87N8x10cJqo1XffeNqvTRKGumSGVyiYnGZWkbMkJXuPNNElHLRFbE9fII9ezA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795619658;
+	h=DMARC-Filter:DKIM-Signature:Received:From:Subject:Date:Message-Id:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer;
+	bh=4H5rXupeXVelTv8cQfAQi5Pfe54OfJ2qxyIgFO6s3D0=;
+	b=Xx0VV7/lRRyVtuu2SK+dUqxdO6oxusMRfjImOugAdvVLuvYcTy4ZycowjqMph9Duvrss
+	 CqtpXFEMe8/eATBzd6EiiRRC3bWyrnJQXcZomkRHL+HHVnl+YWxV3hBjQicu6hYUOxdEO
+	 qnw5YD2eMvL2hhGM7zkanDiT6eQLro+UItUhfj7srou4mry2DZTQFNVRUrU1qrLririgb
+	 i2vOFT9qaD1UeRltEB1fuGGhD57M18Eh1o6ZOB5S8Ry/jlXIb5BA2Y2A0t+ev5Lvg3MlR
+	 g6yxS+W8QmFBFmgzQWT98OHoDZoWVt03Fu/BB3KHiH7ezWDI8lW0NvCBzgdadU9d8Ow==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linaro.org;
-	spf=pass smtp.mailfrom=linaro.org;
-	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=nyVZ4GGk;
-	arc=none smtp.remote-ip=209.85.128.53
-Received: from mail-wm1-f53.google.com (mail-wm1-f53.google.com [209.85.128.53])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=evHh8rcC;
+	arc=none smtp.remote-ip=148.251.105.195
+Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5A6E7606A33E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:12:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5A6E7606A33E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3C655606A331;
+	Wed, 25 Nov 2026 15:14:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3C655606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=nyVZ4GGk
-Received: by mail-wm1-f53.google.com with SMTP id 5b1f17b1804b1-4b79502c27aso58524215e9.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 07:12:36 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1795619555; x=1796224355; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=olkz0RE9qbyCNQWe7ovtGZ4zTZHV3lQiK2ePxCl1z6E=;
-        b=nyVZ4GGku6PzbdxZyOx9rpBMV4gyQsFbpSUr6U0IEIK0OFQlOQkiFTsuUe3gg2mfqG
-         aSo0SCCDxznd2e+hIun4zENnSn3+F9FbLQ0F4wbj8qQpilrdTcmqz72CsZf6P1443nWa
-         wk7i3WVL7ra37eK4Ixc82enwLzb5OQ5F0KrK6Ec/s8gr2P6lYJJGZO7jkDwI9adOfLv7
-         BydG6omRm0qTRIpcpz3FlwF/YsUky7cTfR3kTkyJMYTdpZ5UmBuF/wW0mYzfHKaMCPSr
-         nDbHmRyl0YLL6qgnDs3izi0uEShscrzJva7VX6BeKecjHLuhTojvq+wATcShgPWuBy4q
-         AEBw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795619555; x=1796224355;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=olkz0RE9qbyCNQWe7ovtGZ4zTZHV3lQiK2ePxCl1z6E=;
-        b=WIEKVsm5SPBZYsKzvntJ1I3YF+IEUiHpXg8jxzG553jD+iO7K66Eif78Jkyc6xQaf6
-         jfLRHu7od0xd9L+AA44saGsKcAOjuRIRAhhLa6UDLwIo8wfFj6ZtVXalyrz1/Ubl2OaM
-         yyjojC7EVlqjdGBYhWYQQ11zmsKV6QOP1qoPjY4ac9LjjNwnCTTxmLg63v5EsHEw7eT3
-         +gAD/UAGNATHpkctZt58D6fghbuWJL9kDVcgMO0FIICyD8rk58uDk+lZw30y0hohDu4p
-         0xc+dSMSIFZfigWfC7Rrmen+tUoJE4TyrnFVQCww0+t6uhXyadZeNEyemEqPLT/32eXb
-         drCg==
-X-Forwarded-Encrypted: i=1; AL+hErG9WxbioQHnnMzatKCRW2mkSGRHnp47hU+vIn4lim05sI683RsksCsNCZnpVE/Q/o19Mz0vDFHZOdz/tJM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8PaG/b6+QMTNSPAc2GmLPGKiT3YhxYDDkNLNCGQaNYzg53eEKm
-	pLsh4n75CAsO3/QTN56DY+XPJaWC8ZkU9R5Tp9img7u0cENJsTCiOt/lzlPRYGz1fis5DMEPwXb
-	aLMp5
-X-Gm-Gg: AZFdTZfYGkfLor6Z3nuWAf8ijVOGz467SVcv815pr458cFoHAa3lENJMZAVbO+3mvBw
-	VqxmSkN2K8XKMg8zdEk2UVGeTLyWTBi+yDoGZQrM3b1zca1CX52CzUd5CRCFgF2i8CnK/8rtC6a
-	wBwgrDmT7ayZ6o2Qnqxd1cKEDJkq94ezv6dPT6nJnX1MoWYqeRP+XvY5gN6H1dEFaosZpqfvts1
-	b4sEHPdBD/0NdVBfkITKirhLEGHLCiPDJJDqX9CCt4m0XCwMRMfMqzsZAUKilVssJWb0zPetvjW
-	nwkM/yg1bZJn8llpNx6mcYumfmC5EUBTFCPKctTKwHcx7Y9h4XlLALojQZBxv1svwS+EI8UZ1eH
-	ccrPJOzeTFS/5IXqVYJVIFpO7Vcz4EL/FzlM+mhcRYEBeDGL0+gBKQ01tn1ljB+/sU0NKivA4+z
-	uxgf8Uy+WnJmbyGTCD9xrTNJnKNXCDKu/8tdTz75VG+AImjdEIwf7sa4782nv+f2jjZJl3s0hUc
-	jciWnSIBwtnPRqB0KJUolVh8OZJ77vGUp3mmUwX+zd+6TlmxrTieihYBfiNtT4bmYwMTttHPCxl
-	UaKHPzwrQxBZgMzvHEcXCWjT2KhxCNtX
-X-Received: by 2002:a05:600c:1d86:b0:4a1:fa27:df7c with SMTP id 5b1f17b1804b1-4bb88922972mr383717985e9.34.1795619554605;
-        Wed, 25 Nov 2026 07:12:34 -0800 (PST)
-Received: from pop-os.local ([37.18.141.193])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6a67fe75sm39845282f8f.24.2026.11.25.07.12.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 07:12:34 -0800 (PST)
-From: James Clark <james.clark@linaro.org>
-Date: Wed, 25 Nov 2026 15:12:15 +0000
-Subject: [PATCH 2/2] perf kvm: Don't create an empty perf.data in live mode
+	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=evHh8rcC
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1795619655;
+	bh=RaqDyMC8lJJL26aGZDAiBmWLdnQfQtaIC5pvpzawh1I=;
+	h=From:Subject:Date:To:Cc:From;
+	b=evHh8rcCs6Hsz2zemn7qsnsihPQ6u+yTrJxFKNa1fTqvQfi/f8BCyylT3Dy2PjvVH
+	 nFmQ+afzJWPC5W2LVkXV+NLP5pPxVsbEP3OJQlLc8W+0ZYlsAY/zEH9DwI8ygHs2Vb
+	 4Xkiyq41B9WF4BPGgp/BcYaWS6MTqHTjf3rQX1lDG2xKCJHbROHGQeWs2LbgQRV8ta
+	 5bK8HQJBsoU46/JkCWkgUHZszwcCSUC4LSM5YbEdmKsX1HHELzx7wgeUkUPZHuQwIW
+	 U/QnxvDWwOp7GxCQ6bzVHmv9iaZzfmuRxzd0TA/NfaC3hHYruOLwHkNnSWFTaVzYJN
+	 DGVLo1Eb8pN6A==
+Received: from [192.168.0.15] (unknown [100.64.0.170])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: detlev)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id BC45417E0075;
+	Wed, 25 Nov 2026 16:14:13 +0100 (CET)
+From: Detlev Casanova <detlev.casanova@collabora.com>
+Subject: [PATCH v4 0/5] media: Add fdinfo support for v4l2 drivers
+Date: Wed, 25 Nov 2026 10:11:57 -0500
+Message-Id: <20261125-v4l2-add-fdinfo-v4-0-2dc73fad9932@collabora.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,80 +65,121 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261125-james-perf-kvm-live-file-v1-2-946f478ce2a1@linaro.org>
-References: <20261125-james-perf-kvm-live-file-v1-0-946f478ce2a1@linaro.org>
-In-Reply-To: <20261125-james-perf-kvm-live-file-v1-0-946f478ce2a1@linaro.org>
-To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
- Arnaldo Carvalho de Melo <acme@kernel.org>, 
- Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
- Adrian Hunter <adrian.hunter@intel.com>, 
- Ravi Bangoria <ravi.bangoria@linux.ibm.com>, 
- Mukesh Ojha <quic_mojha@quicinc.com>, 
- Mamatha Inamdar <mamatha4@linux.vnet.ibm.com>, Leo Yan <leo.yan@arm.com>
-Cc: Arnaldo Carvalho de Melo <acme@redhat.com>, 
- linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, 
- James Clark <james.clark@linaro.org>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/23NQQ7CIBQE0KsY1mLgYyl15T2MCwofxdRiQInG9
+ O4WjdFYl5PMvLmThNFjIqvZnUTMPvnQj2E5nxGz1/0OqbdjJsBAMskZzcsOqLaWOut7F6iuG+Y
+ M6lZAQ8bVKaLz16e42b5yurQHNOfClMbep3OIt+dl5qX31mGiZ04ZrUEA57o1SvK1CV2n2xD1w
+ oQjKQ8Zvo16asBoWGgUNsogk/qfIT5GzeTUEMWoKllJZZxQ+GsMw/AAGGCulUwBAAA=
+X-Change-ID: 20260610-v4l2-add-fdinfo-a790fceab329
+To: Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
+ Benjamin Gaignard <benjamin.gaignard@collabora.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, 
+ Heiko Stuebner <heiko@sntech.de>
+Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-rockchip@lists.infradead.org, kernel@collabora.com, 
+ Detlev Casanova <detlev.casanova@collabora.com>, 
+ linux-arm-kernel@lists.infradead.org, 
+ Christopher Healy <healych@amazon.com>
 X-Mailer: b4 0.15.2
 
-'perf kvm stat live' creates its session with a perf_data in write mode
-but with no path, so perf_data__open() defaults to "perf.data" and
-creates an empty file in the current directory.  This is visible when
-running the "perf kvm tests" test.
+fdinfo is useful to poll information from the driver.
+Unlike the ftrace interface, it lets userspace tools get a snapshot of
+the state of the driver at their own pace, instead of getting events for
+each driver status change.
 
-Do the same thing as 'perf top' and create the session without a
-perf_data, passing a host env instead. Live mode never writes anything
-to the file anyway.
+This works better to get information like HW usage time or clock
+frequencies, as well as memory usage.
+This patch set focuses on mem2mem drivers that are per-frame based and
+an implementation is proposed for the Verisilicon Hantro and Rockchip
+rkvdec drivers, limited to main clock frequency and HW usage time, as
+well as HW cycles counting in Hantro.
 
-Signed-off-by: James Clark <james.clark@linaro.org>
+Even though it is not used yet, per core fields are appended with 
+`-<core_id>` to support multi-core drivers.
+
+To ease support in drivers, a v4l2_metrics struct is added.
+It stores metrics information and provides helper functions to write
+the fdinfo file in a standard way.
+
+An example of usage of this from userspace is implemented in v4l2top:
+
+https://github.com/cazou/v4l2top (Check the upstream branch)
+
+checkpatch.pl warning: The 2 arguments in the show_fdinfo callback
+definition are kept unnamed to match with the rest of the struct
+definition.
+
+Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
 ---
- tools/perf/builtin-kvm.c | 10 ++++++----
- 1 file changed, 6 insertions(+), 4 deletions(-)
+Changes in v4:
+- Rebase on master branch
+- Add missing documenation fields
+- Fix missing indentation spaces
+- Link to v3: https://patch.msgid.link/20260706-v4l2-add-fdinfo-v3-0-d556568cf38e@collabora.com
 
-diff --git a/tools/perf/builtin-kvm.c b/tools/perf/builtin-kvm.c
-index 785b761fb951..c48d56b18487 100644
---- a/tools/perf/builtin-kvm.c
-+++ b/tools/perf/builtin-kvm.c
-@@ -1855,9 +1855,7 @@ static int kvm_events_live(struct perf_kvm_stat *kvm,
- 		"perf kvm stat live [<options>]",
- 		NULL
- 	};
--	struct perf_data data = {
--		.mode = PERF_DATA_MODE_WRITE,
--	};
-+	struct perf_env host_env;
- 
- 
- 	/* event handling */
-@@ -1911,6 +1909,7 @@ static int kvm_events_live(struct perf_kvm_stat *kvm,
- 		return err;
- 	}
- 
-+	perf_env__init(&host_env);
- 	kvm->evlist = kvm_live_event_list();
- 	if (kvm->evlist == NULL) {
- 		err = -1;
-@@ -1923,7 +1922,9 @@ static int kvm_events_live(struct perf_kvm_stat *kvm,
- 	/*
- 	 * perf session
- 	 */
--	kvm->session = perf_session__new(&data, &kvm->tool);
-+	kvm->session = __perf_session__new(/*data=*/NULL, &kvm->tool,
-+					   /*trace_event_repipe=*/false,
-+					   &host_env);
- 	if (IS_ERR(kvm->session)) {
- 		err = PTR_ERR(kvm->session);
- 		kvm->session = NULL;
-@@ -1944,6 +1945,7 @@ static int kvm_events_live(struct perf_kvm_stat *kvm,
- 	perf_session__delete(kvm->session);
- 	kvm->session = NULL;
- 	evlist__put(kvm->evlist);
-+	perf_env__exit(&host_env);
- 
- 	return err;
- }
+Changes in v3:
+- Rename the fdinfo key prefix from "media-" to "v4l2-", and "stats" to
+  "metrics"
+- Restructure the documentation to have mandatory and optional keys
+- Add core ID to fields
+- Add HW cycles count support
+- Add ABI documentation
+- Link to v2: https://patch.msgid.link/20260617-v4l2-add-fdinfo-v2-0-d298e98ce06a@collabora.com
 
--- 
-2.43.0
+Changes in v2:
+- Simplify key/value pairs by removing repeated <eng> suffix
+- Add media type support
+- Add v4l2_stats helpers
+- Add support in rkvdec too
+- Link to v1: https://patch.msgid.link/20260612-v4l2-add-fdinfo-v1-0-723211abc861@collabora.com
+
+To: Mauro Carvalho Chehab <mchehab@kernel.org>
+To: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+To: Philipp Zabel <p.zabel@pengutronix.de>
+To: Detlev Casanova <detlev.casanova@collabora.com>
+To: Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: kernel@collabora.com
+Cc: linux-media@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-rockchip@lists.infradead.org
+Cc: linux-arm-kernel@lists.infradead.org
+
+---
+Christopher Healy (2):
+      docs: media: add documentation for V4L2 driver usage metrics
+      media: hantro: Add per-context fdinfo usage metrics
+
+Detlev Casanova (3):
+      media: v4l2: Add callback for show_fdinfo
+      media: v4l2-core: Add v4l2-metrics interface
+      media: rkvdec: Add per-context fdinfo usage metrics
+
+ Documentation/ABI/testing/procfs-fdinfo-v4l2       | 129 +++++++++++++++++++
+ .../userspace-api/media/drivers/index.rst          |   1 +
+ .../media/drivers/v4l2-usage-metrics.rst           | 137 +++++++++++++++++++++
+ drivers/media/platform/rockchip/rkvdec/rkvdec.c    |  19 +++
+ drivers/media/platform/rockchip/rkvdec/rkvdec.h    |   1 +
+ drivers/media/platform/verisilicon/hantro.h        |   4 +
+ drivers/media/platform/verisilicon/hantro_drv.c    |  19 +++
+ drivers/media/platform/verisilicon/hantro_hw.h     |   1 +
+ .../platform/verisilicon/rockchip_vpu981_regs.h    |   1 +
+ .../media/platform/verisilicon/rockchip_vpu_hw.c   |   6 +
+ drivers/media/v4l2-core/Makefile                   |   2 +-
+ drivers/media/v4l2-core/v4l2-dev.c                 |  12 ++
+ drivers/media/v4l2-core/v4l2-fh.c                  |   3 +
+ drivers/media/v4l2-core/v4l2-metrics.c             |  78 ++++++++++++
+ include/media/v4l2-dev.h                           |   2 +
+ include/media/v4l2-fh.h                            |   3 +
+ include/media/v4l2-metrics.h                       |  47 +++++++
+ 17 files changed, 464 insertions(+), 1 deletion(-)
+---
+base-commit: 8d7fe9885c62fc9a95bf55d9db244d9672a8aadc
+change-id: 20260610-v4l2-add-fdinfo-a790fceab329
+
+Best regards,
+--  
+Detlev Casanova <detlev.casanova@collabora.com>
 
