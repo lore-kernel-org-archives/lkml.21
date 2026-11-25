@@ -1,100 +1,112 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.53
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795599152;
-	b=YfskWP/I577IVQEQyhHfCc7yCAa9Syrw2aUHYpagHP51BNrJIEecblxSY/8OQ4vY8wnJ
-	 oL/MrQI5lftUbzMTut0sdVwEYyxeBotJ8wTSPmg161GmlLPbX+BHfToP7zzF44cdyfhB9
-	 WUTCNX1iTqEbW+kaThmEiFmLOSh5nVsJQdeEqbA6L0UUnLECa8h0Mnq1aDZAApSb5LJ9W
-	 zO29isBs0Gc/LM/N5AVZzI4mSDEFL8lhgq6JkFr8IZnbH50l90y+hAr2dIMG1g3wFXFzq
-	 a6XrTR4cXqwWEjmjzMaYQg+jrPSTpcRNXwRpqeyWiYlQe1TuWjN0/X8q3c7lTdNklZg==
+	t=1795599165;
+	b=IhhFrQ3ZbBbPGnv0I4bq3gW6IOlPUVEDhxXQM+KqPS9PohAh+rly1n/rJO8AKAYSTnca
+	 DpuPDoe4DakTiL2QOhOMq2tjLwkn9e+X92cpKoE5aPPDQkljf7EvP9T5iRcEW+61LqHT+
+	 mFXDC6hjGHXq3IsNHqkDciY8YPhhomg5MLgZBrDniztWpk2/CcTHDVhozgQZTD5D5/yEE
+	 FSZaiTYPVKJSr7tq3h+GTcmbbGsxWb12hFvKvAvcI+H6KwmOg3SME9cliqjMEe7C6Deej
+	 Kiqsp+17QLMhiVNcSSkk8AsF4o09IioFe982G4uAPPY7/Hzc7cBPhkBzujdokorppsA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795599152;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795599165;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=l4RHB6K7RgAz/nQf8J1fwTRQBwHcMKQGbkgU+q0PgV8=;
-	b=f/X6lfdwwUn2AoV+rRQN6/KH7F9J8FRRV+pbjo/M5htEaU2oaqv4melqetZ0drmhVJxs
-	 pvto6hs1GFpuhLN37gXHUFR/6BWSksoT/SYjG6VztJcimW3jZDI4hzdx5YJ0hA0HUXyk6
-	 JV2U3/afYDsLCtJ82H4qtbqVfF5cYptPkNRlAUoLdneqAq9dehr6JgFcbHZe72jheRcxt
-	 do5AwPe9UvTOUXaGY724+hzsOGLogeEeSlZNXM5uEir8ta+cGWHNFqqaYOx+Yyq7mayf5
-	 GMlGL3xv3e7Wt2s8nycseNUoH676KGoUCyoTz0DHOUhEfFG+iglDQbdL/AET6ilczEA==
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=vz6xI/WxixrEpdd3ywwOb3jpy1gOGMCFJ8JE8A5AwCg=;
+	b=s2osMVTh+b7qDOmT7wM1msZsLEI15f6g/ngH1Iew5hYBVLMdzwc0+zWY4UqOhv8P9Z6z
+	 7w4qPx+2tKvUuHiiwgl67a9fTcrQBMfrdhZuQ4hkJvudwnwT0M69EzqSG8/qcNWIuySvf
+	 uzt0fmlFnyfjHO+eVilYfjR5eeXYOOEKdhZCodppUc51GwseTuokhxOmpjpC/8J2qLOf8
+	 rbiYK3PxF7Qs0mc0dlgHKlVf4PYakZrs7lSLbAPs7JuP+a/NggnJ4AO3GMUg6aPN02H5V
+	 VKjIqDjbyPFxbTOAQaVdagZa+RUyvrW4bbEsiJdG4NZTZg7Wj3fuADVnhfa8QRu3+Tg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="ucWggkp/";
-	arc=none smtp.remote-ip=209.85.128.51
-Received: from mail-wm1-f51.google.com (mail-wm1-f51.google.com [209.85.128.51])
+	dmarc=pass header.from=pereq.eu;
+	spf=pass smtp.mailfrom=cryspen.com;
+	dkim=pass header.d=pereq.eu header.i=@pereq.eu header.a=rsa-sha256 header.s=google header.b=AqWEO8Cw;
+	arc=none smtp.remote-ip=209.85.221.53
+Received: from mail-wr1-f53.google.com (mail-wr1-f53.google.com [209.85.221.53])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B59EC606A321
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 09:32:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B59EC606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 06308606A32A
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 09:32:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 06308606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=pereq.eu
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cryspen.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ucWggkp/
-Received: by mail-wm1-f51.google.com with SMTP id 5b1f17b1804b1-4a35ac4475dso40635595e9.2
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 01:32:31 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=pereq.eu header.i=@pereq.eu header.a=rsa-sha256 header.s=google header.b=AqWEO8Cw
+Received: by mail-wr1-f53.google.com with SMTP id ffacd0b85a97d-48e09aa5264so3155457f8f.2
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 01:32:43 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795599150; x=1796203950; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=l4RHB6K7RgAz/nQf8J1fwTRQBwHcMKQGbkgU+q0PgV8=;
-        b=ucWggkp/ylQeQo+d3P3B4kePoFLjOBL4EURBC03OYEs6t0KRzCt7GAV9npYPdoHzLU
-         y2QCcusM0/gl1bRT/7n6sOQOlH8ZAZvNUziP9aOJxCeCF9B6O2ZQyb9/irm9jUDgVqfd
-         KBrfejRrsKZfakTfthYUuLt3B3LVYrXRrjsXjXu/0eq13CNTZ28ATtCXjnhlXj8oGqn+
-         y+XiET0B6ez89fSEwIN6oUY3zGE6Mo8w+F66hI0KqkGCVDkgSAUXbPu4jpmIAF3pImhn
-         TMQVlLSY2STfsdpLmQEvN8nj7QxV60X4C4kNhU0wWxhADCPybT0L3FZ+KRhBwXqR8aTP
-         bhmQ==
+        d=pereq.eu; s=google; t=1795599162; x=1796203962; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=vz6xI/WxixrEpdd3ywwOb3jpy1gOGMCFJ8JE8A5AwCg=;
+        b=AqWEO8CwQkTMHtVYcIOLuHqCHa8uPTdR6xogLnmlooFf70UL6doHQoMWgb+TBbtYm8
+         +/kTYzofe6h8tAPEA/By5779kp9X1qykliRXQc75+CRg/neatW43jeGrV/QCG6b4nksZ
+         ITNPn+N4wGapg7eibENnYvHVgERO0nVHReG/IXYyV5dcbrjZkpwDs4MjpTKd2aE7VLI2
+         zMh4u6j1TwDt1abI13SFwlyWM73qP4XsPOxo+zUm0GWE8FWosugaVzTkv38puBYs6Uwu
+         YS2QSEBXOOIpfQWSaKG25ZIjvlUYLNmRLr8XawyzKXPtytjX+w0sSzLfY13c0BTd8aj9
+         2N9w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795599150; x=1796203950;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=l4RHB6K7RgAz/nQf8J1fwTRQBwHcMKQGbkgU+q0PgV8=;
-        b=MG+0PdckDdezCeFLgNwqtfTZr0w9r65ngFJErgGadHNdHrWL55PU0JjX236S/WxpUA
-         g09dSYXCfZlV6K6HZhEImQEhN9J8JCn1nM4zJe/DJ0sIysknz1ES/q9KFlQzyn3dN4ok
-         vND/fMqA0KTWkqhllqw1P2q8D4gwuR25ETlfxii6pxwlG65BeH+jo9CNG9oyM7j2VHNu
-         HdOZWI9oRdopU07j3DALlpzeWD9IG7s7eL5YlITvO2zkUZUJ+2AYnN0D5w9DmswDbkwZ
-         W6eTCs0lO3zXxfS+9/KZBdqAajShTqi/vE15SvVBmtvgkQp1cwRnpA4REl4fx7H6L7VM
-         P0Qw==
-X-Forwarded-Encrypted: i=1; AL+hErE9EZauP/cvAXRrhNDtsYq4OUFedaLdsfjh/cKP8yJtijoSD9QCAdNygsol1jf7HymCfSwbIcyUTFxd6Ec=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+4hPzsKp5s9zL/566S+hngLiwYtLIUkNb8s556wN3dt6VMk/wm
-	Ih2Mf/1S1HiOyldMbBqjT/3qpuVnuIom4T/qBtjwzkgmuDlh+pzh6iub
-X-Gm-Gg: AZFdTZeV0bo8dkLpy4In3Jc8BEmZeuL+oSneS+pk/HzapSroTUBDLJ9rL8aN9hts9KG
-	F+fMw8PwqBjNW6oUulXhb/Sv1DYumnbL0PO+vrj+PReWYRdGV7Qb4AmPZmOuY/lKwoybBcS6RaG
-	D+wmam36kIgPMcTlaXs+VA7Fx+LGN9FFRnGKkwyCgi4Ia9syPo6HWsbGQrDuHlN4R8iQYk7JJkD
-	1P45g9GmsBT+4DJ3El4S7gqs0rpwdz0i8xfKbTa/FQHxepvkRzciUgFhvzwJd0DzUqaDVsmuhuG
-	y/x+W7W0xtCyaf7ImDmlTMY0U+jL0o4cfkKH1mGWtYwkj0Cvtx6PkSqpZrZfxcOSexAGK8glXYg
-	tOCZ3c6cGU3eSC8Gc5vci0dkq4db4ey/0AVfMfAZ5SMGLBkMnX6Er6U2c2o6RC59hP7DRSCoLtr
-	03PZ2p95F1MmDyAdPRPaNLclet6D8t0Cpt/c00TmMWOwh/NF/fBaJkUCkXnP7a4/ILymdlImwoN
-	bvlRKzmcZAm9MZyKZzpFIiKNcyZG4kFJ3ZtzAujPGDLY2LTdNy3/BgdxasT25VGuvZK4KyDv4Ht
-	cCJIlvpxEkbA5m36Kldd
-X-Received: by 2002:a05:600c:4e02:b0:4bb:5d39:95fa with SMTP id 5b1f17b1804b1-4bb88811c82mr338133785e9.12.1795599149909;
-        Wed, 25 Nov 2026 01:32:29 -0800 (PST)
-Received: from fedora ([5.131.7.59])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884911e3sm608782495e9.6.2026.11.25.01.32.27
+        d=1e100.net; s=20260707; t=1795599162; x=1796203962;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=vz6xI/WxixrEpdd3ywwOb3jpy1gOGMCFJ8JE8A5AwCg=;
+        b=xYDdcGb6UprTLqeOEB0pTdYTaSLiNyc3VbFp5jyd2QIQrAEpzHwRGUZUabOjOb9WpI
+         4DxpYr4+zBLrWySbgmY+Os3p+uu057W4j/p9oZC0A/zfa5SweAXOJBFt6jfC6rB7kT9I
+         P4d2bXH8akqyNTany2MZTQyx+VSC1GAo5YJgy7sOHd/uc3giDg6dvPo1fvC+znUo2vXX
+         ah1eOM72bKqbmoSeTCs6UFWPkx0Sjsluz66Wnhb5B21qSqzetX529Amk+Uo4OTlMIhQL
+         Jp7xg+rkYF89hosLcPmYKogTbEE7boFWr1+mzJbdVdVA+eTtSWIinR0neRLdeID7LOZJ
+         5P4w==
+X-Forwarded-Encrypted: i=1; AL+hErEPTJeilwT1wJXhEZDIhwFtbZxM0URK77wlnqkdPuhPBYtatIFRJ9MN80talxsTpIBT60cft3CZMBxFw9A=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9IXtaKa85cBX2ggy0K65/mxaQ692zMXuINBClEKgdrJSSxY5Mh
+	dvrsYKumZlKOEqKqfvhXC8uJQ54Tcsg8ohoUns//spDKStMA4AI9xIxtu4C7Vxx/1oQ=
+X-Gm-Gg: AZFdTZdqpTrpkbwFiwxrKqxGSAJzmedV1IsLv6I1UsYflwVUc1HcmBzaGpMW3ibd8vC
+	OqyNlgnIYHwiLZvQmbXQklEhLTficbGUl5Jtcn7J/np8sTcW4LxUnZo7Z7DMfmdiFF6O9Wr8Ckj
+	Lqd8byQyM5cgld7zEq8hN9W7iBj7f2Okj2cBKY9RegfyOU2l2gTA7+y0va/+osqL2x/IptLdL8+
+	hCkKNT302A4RSIZuGAPTP0JPDmyCbA4l6q4cidfgCHrdKdeHQJZ81jJy1KIX5GgAf6G6KXbRaNe
+	VbRtBGPBol3PRQO6/egi8Tm8+M3k8A2P+EXkHZIeYDZ0+Ss7fmrD9o6ULKEZvPynMwBvILx5j7q
+	T2KVCPKUR/tW6O2hBuFow9v+w7fUfBJTpbcT4w/VU/uE11IsNcEgLL6ZB2dFKJVPhByVyCI2a2v
+	2KWraGddo5vMvDFC/ECO2LLLuN3J+0W7oFIabTiWQAh54tV2w07zdTU4pFREVu5TEUMtsEdiu71
+	IZELBY5X5RhsV4uJE9+wTKww1k18ruCSpG8ZZha8B0AUe8LHJvj3v2AOBDjXu+bvaozTKfRbgcn
+	FIo8rXVjhkRx9rpU8wk=
+X-Received: by 2002:a05:600c:1c28:b0:4bb:867b:f0f0 with SMTP id 5b1f17b1804b1-4bb88810708mr406437605e9.15.1795599162309;
+        Wed, 25 Nov 2026 01:32:42 -0800 (PST)
+Received: from localhost ([2c0f:3d00:6be:8900:ce5e:9212:ea4b:f30])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bba6a0d65fsm32122755e9.3.2026.11.25.01.32.41
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 01:32:29 -0800 (PST)
-From: Petr Vaganov <petrvaganoff@gmail.com>
-To: stable@vger.kernel.org,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Petr Vaganov <petrvaganoff@gmail.com>,
-	Marcel Holtmann <marcel@holtmann.org>,
-	Johan Hedberg <johan.hedberg@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
-	linux-bluetooth@vger.kernel.org,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	lvc-project@linuxtesting.org,
-	Luiz Augusto von Dentz <luiz.von.dentz@intel.com>
-Subject: [PATCH 6.1] Bluetooth: hci_core: Fix not checking skb length on hci_scodata_packet
-Date: Wed, 25 Nov 2026 16:31:00 +0700
-Message-ID: <20261125093208.224568-1-petrvaganoff@gmail.com>
-X-Mailer: git-send-email 2.55.0
+        Wed, 25 Nov 2026 01:32:41 -0800 (PST)
+Date: Wed, 25 Nov 2026 12:32:38 +0300
+From: Dan Carpenter <dan@pereq.eu>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+	Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Christoffer Dall <c.dall@virtualopensystems.com>,
+	Rusty Russell <rusty@rustcorp.com.au>,
+	Marcelo Tosatti <mtosatti@redhat.com>,
+	Sebastian Ott <sebott@redhat.com>,
+	Eric Auger <eric.auger@redhat.com>,
+	James Morse <james.morse@arm.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Sean Christopherson <seanjc@google.com>,
+	Shuah Khan <shuah@kernel.org>, Karthik Bhargavan <karthik@pereq.eu>,
+	=?iso-8859-1?Q?Cl=E9ment?= Blaudeau <clement@cryspen.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH v2 2/8] KVM: arm64: Reset SP_EL1, ELR_EL1 and SPSR_EL1
+ when resetting a vcpu
+Message-ID: <awarNqNt6Kec5G0M@stanley.mountain>
+References: <20261125-double_exception-v2-0-224689d8a764@pereq.eu>
+ <20261125-double_exception-v2-2-224689d8a764@pereq.eu>
+ <0c7c59df-69cd-40fe-830f-60c0f3cedafa@arm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,63 +116,50 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <0c7c59df-69cd-40fe-830f-60c0f3cedafa@arm.com>
 
-From: Luiz Augusto von Dentz <luiz.von.dentz@intel.com>
+On Wed, Nov 25, 2026 at 09:08:36AM +0000, Suzuki K Poulose wrote:
+> On 25/11/2026 06:56, Dan Carpenter wrote:
+> > Resetting a vcpu keeps the old values of SP_EL1, ELR_EL1 and SPSR_EL1.
+> > Commit e47c2055c68e ("KVM: arm64: Make struct kvm_regs userspace-only")
+> > changed the reset to only clear the general purpose registers, SP, PC
+> > and PSTATE, and later commits moved these three registers to the system
+> > register array without a reset value.  Commit 85d703746154 ("KVM: arm64:
+> > Fully zero the vcpu state on reset") fixed the FP registers and the
+> > 32-bit SPSRs the same commit missed, but not these three.
+> > 
+> > The impact is that the guest that boots next can read the previous
+> > kernel's stack pointer and exception return address.  KVM_GET_ONE_REG
+> > also returns the old values to userspace, and a rebooted VM doesn't
+> > start in the same state as a new one.
+> > 
+> > Zero them in kvm_reset_vcpu().
+> > 
+> > Fixes: e47c2055c68e ("KVM: arm64: Make struct kvm_regs userspace-only")
+> > Cc: stable@vger.kernel.org
+> > Signed-off-by: Dan Carpenter <dan@pereq.eu>
+> > ---
+> >   arch/arm64/kvm/reset.c | 3 +++
+> >   1 file changed, 3 insertions(+)
+> > 
+> > diff --git a/arch/arm64/kvm/reset.c b/arch/arm64/kvm/reset.c
+> > index 26081d273408..9c1b42890c96 100644
+> > --- a/arch/arm64/kvm/reset.c
+> > +++ b/arch/arm64/kvm/reset.c
+> > @@ -199,6 +199,9 @@ void kvm_reset_vcpu(struct kvm_vcpu *vcpu)
+> >   	/* Reset core registers */
+> >   	kvm_reset_vcpu_core(vcpu);
+> > +	__vcpu_assign_sys_reg(vcpu, SP_EL1, 0);
+> > +	__vcpu_assign_sys_reg(vcpu, ELR_EL1, 0);
+> > +	__vcpu_assign_sys_reg(vcpu, SPSR_EL1, 0);
+> 
+> nit: Please could we move these into kvm_reset_vcpu_core() where we
+> reset other registers ?
 
-commit 59437cbb5781227567dec226aaa88c66a09ccc5a upstream.
+Will do, thanks!
 
-This fixes not checking if skb really contains an SCO header otherwise
-the code may attempt to access some uninitilized/invalid memory past the
-valid skb->data.
-
-Signed-off-by: Luiz Augusto von Dentz <luiz.von.dentz@intel.com>
-[ Petr: add Fixes tag ]
-Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
-Signed-off-by: Petr Vaganov <petrvaganoff@gmail.com>
----
- net/bluetooth/hci_core.c | 13 +++++++++----
- 1 file changed, 9 insertions(+), 4 deletions(-)
-
-diff --git a/net/bluetooth/hci_core.c b/net/bluetooth/hci_core.c
-index 1639097a865f..443a1bb76019 100644
---- a/net/bluetooth/hci_core.c
-+++ b/net/bluetooth/hci_core.c
-@@ -3786,18 +3786,22 @@ static void hci_acldata_packet(struct hci_dev *hdev, struct sk_buff *skb)
- /* SCO data packet */
- static void hci_scodata_packet(struct hci_dev *hdev, struct sk_buff *skb)
- {
--	struct hci_sco_hdr *hdr = (void *) skb->data;
-+	struct hci_sco_hdr *hdr;
- 	struct hci_conn *conn;
- 	__u16 handle, flags;
- 
--	skb_pull(skb, HCI_SCO_HDR_SIZE);
-+	hdr = skb_pull_data(skb, sizeof(*hdr));
-+	if (!hdr) {
-+		bt_dev_err(hdev, "SCO packet too small");
-+		goto drop;
-+	}
- 
- 	handle = __le16_to_cpu(hdr->handle);
- 	flags  = hci_flags(handle);
- 	handle = hci_handle(handle);
- 
--	BT_DBG("%s len %d handle 0x%4.4x flags 0x%4.4x", hdev->name, skb->len,
--	       handle, flags);
-+	bt_dev_dbg(hdev, "len %d handle 0x%4.4x flags 0x%4.4x", skb->len,
-+		   handle, flags);
- 
- 	hdev->stat.sco_rx++;
- 
-@@ -3815,6 +3819,7 @@ static void hci_scodata_packet(struct hci_dev *hdev, struct sk_buff *skb)
- 				       handle);
- 	}
- 
-+drop:
- 	kfree_skb(skb);
- }
- 
--- 
-2.55.0
+regards,
+dan carpenter
 
