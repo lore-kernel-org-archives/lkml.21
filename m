@@ -1,94 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.44
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795595482;
-	b=PnV15EadMGIpEeaAAHX8PLsrtqrA8oSSutvtMtH5bzG50t69a3RhkU/3XrKpnZztlNFt
-	 QbTW8GKCPFS50H1X6SMUu7v0dmGmrGd5x0Kxc6kb+WgBSSENyq/oVtdWwI1Mim1wE++Hu
-	 3bAbA/Ktq9r7o2jTmk2gkXbjn2MoIHrp1R2aLOW37T7WSoJzaKPqzW5a0wVHSAmyvhWro
-	 0pYy8KJOBCfSe5le6KD8zkFyq8hPwIPKu6+qXmwgU4rYR9xpNEhZumbRR9de8xCdXKiFN
-	 Rv/9qpYjBm3Po36Qb/VUQ/6NE8exwmjT5b9jDdUTu2MJpPAoUU4NGFKIoW0swAPhfCA==
+	t=1795595495;
+	b=OZ7hcMz9PyGo3odmvez0CfigZyeUQgKlzuswZawqBb5Lgiqlaj4Oufmak4NteCudkrfE
+	 6WoJsFryZZNFrLQb5cd4Cjh860S7wwRay78M31J/pWsmdFNRrKo8RvIbXsurPsY4Oz9Rt
+	 m7CB4ndftDTVrzWHQc1dMjdugVV8T1oy40RCYzttkntelNjMtpoyhNDXGJmuwEDefUr4A
+	 tE17vzXdpkBcnc9byyJFsb4ndW4C504t+BDoweBpSwuzXuzH/1p4Ur7IxB5+fRe7soCRn
+	 arrYFGM9ha1wYPSpA6FlRxWxYxBcylkqURbBQclTPP/Erhw2ITmMYFZicHHSyHr2g1Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795595482;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795595495;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:Content-Language:From:In-Reply-To:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=E+BGXrVqMMcOjoija3bnHKJo8eMQcws0efPUmCBxKAA=;
-	b=4kk/Z5hl3CiGFu1RUt70yfii5Pkg/cFlIfBkqCTjsDRwQqpGRwxI/FqLRtwWt5aW0L5Y
-	 j+tkoTN/b7+L0rRDGgA5YOnkhgLboZ3CFC4VHzxpUFqT3j7AxDBUWLgJ3JIJ8DQeNrRYP
-	 GLMz+uKLc40w64HSgZuOjtxeZBQIkB8lmMW8NExG5pqbApfQwdgX3zn1DEZwadWNIyDuF
-	 BuauXm+j2800AJOz5kDAM5wv1P2tSoO+Vd419QdI5olN16pQ8dCLDJ36uEahEY3neIBWV
-	 2W6uC97L1E/ZpFDFOBfrRGkckM+HM+/UIA0w9RfctiqJ0hSTM4MVu/rLqr9O8N9fv1w==
+	bh=orkqkN9k0NvO+k3q6u67IvXNksIJl6E1WSlIId6lXvg=;
+	b=CE/hlRc11NPK/Bn50EH6qSSs562cNQn3bcSbTgJq3tG6tbrcC5Qiz5HiECyxup0+BtyP
+	 qvwZ53kDE/sZMobVwu8Nxi1MD00VSIWi4a6Y2AZhuAZjW5uPeRD7kfbBW1OaAw/KpjVLZ
+	 nIN9fM3m7IHlHrMXl0iECZR/tMWxebp4nWpH58X7hNBtANUVAX6mEOC6G6ihI6Epe68Em
+	 FauoP9i4nqrbfcxdC/yT5qieUs1PFIgu5QAmPb1dMiDd5GD7esQEkzihX1tow00/TaHrA
+	 aHcj1W2DRhrD8GeNiTnIHd75NAe3awBDiwJYH3hbkJMyKIly1ZbTokC3NmVm4BlOBQw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=QnQ8szL6;
-	arc=none smtp.remote-ip=74.125.82.44
-Received: from mail-dl1-f44.google.com (mail-dl1-f44.google.com [74.125.82.44])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="O/fjzGlN";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 57F72606A31E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:31:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 57F72606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 106C0606A31E;
+	Wed, 25 Nov 2026 08:31:34 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=QnQ8szL6
-Received: by mail-dl1-f44.google.com with SMTP id a92af1059eb24-1b3a05f8b5bso7224786c88.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 00:31:22 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795595481; x=1796200281; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=E+BGXrVqMMcOjoija3bnHKJo8eMQcws0efPUmCBxKAA=;
-        b=QnQ8szL6ohbVVpqxtT5eIhcVWtsHmMcOKM685nYGz98zYQquP1LF5UPe7tdRkv08v/
-         RFv1WkkZsuctp9qIldIKbQ64gdsTD7XGdRc2FRLm+pDbpUevLfEQrOwjEIFXpOGnM0SY
-         U073pb38KE8xeE10fA4FghIHBizOb6STs4fG4YsK3kow5h21EZ2ooCRKxTN8C9Zvk/9H
-         IwkBxsjstzEBSK+sggQBsDQBizXDeBiaEm46orKn99VROXc5ZlswG8rKbuY8pKlcsx/k
-         O/BFSQRb8cibj8gVy7Qz7k9dEwsnhj8zqXIfHTSg8tzU/dKbU072Df0V92jBStmgIPT1
-         Iuug==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795595481; x=1796200281;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=E+BGXrVqMMcOjoija3bnHKJo8eMQcws0efPUmCBxKAA=;
-        b=tRGlIF6OZ4VpMKdPncXncWX2wL+TJyhAq6hm6s6zi9NlFAbxkDobRhh8Ltj3CL7iqA
-         tK2MrNKPPy5onVx5AqUPia1Wt8vANRwFFbaShM/4T0ycrEqDVRm0Va/INQc75FZu+buN
-         T4FrQiQ6y8loeL3oMBv4CTPE2dUL6xQJu+h0O7VpRtRpnbtd4F6/FoEGdfIKXsrxpu57
-         DNEqy/0coPIE+TN6goy/yeScYVMGD8fZGXcqActbPCenEO8vCye5nbV3cgpv09CDnjsn
-         NdBbjCel7zthv3DbuOYl0/+loUUC9TdhBjGSgOVA6Vb2BOhmJzAPzTknUNOdN9/Axgg3
-         iTTQ==
-X-Gm-Message-State: APuU4Z/EpSyfdON1VkrSJvuekFnq5I/QIbXkUhzr4TZb/mimKNloFOd1
-	qpAT1CdZ4pCvU/Se3DD+l0veM6eNMJARZDjOWLp9QBXUNcir+OD+AUpM
-X-Gm-Gg: AZFdTZfrHiuwRThz3MS/FP96C/Akx47frr3cLshW+HFwNIHp7st8XQyDi9+ZpyfrwKo
-	pbJ7udjYaxdTX/+7tPC15RBejooeMCbfgu36SGu82ij2ar7vgw0pMvx3zL9rKa5Kpm68R7276zO
-	whL2jpSNxEXbP9kHHUcnZmHoHrONxykMg40j+iTPLfCzWVWAN608nv3vLRcPcgPb4d7Ddl0dGvf
-	6SQhKl6w9F6W+rhVa4KE76Vv9hDJlfX3n0dWAwxBbwbyubR0kRjFALApjH/wk+jtBVgTH/HEG/c
-	C/SypHCZP9EITKaLZTX06ZauRcW0WAqSLItRObChFpVqiP6W9DPZUUjSkI1TlJSpGQPTGuMyhm8
-	Tk8kVoXaboKay/uil1/56i0kBt79WEqKUe5zRFwrO9nLMLRgTPF2wwv5FL29PpSg9M5rGJ/1zxZ
-	D/p4IGtdumgAYu/GJtYtk4zHeN5OBYDTCq9IFnF3Y3WsEaQII6b0O3SIGz8VRmch4hLxOt3BkMj
-	GQBAJr+oenOd4epwzWWBY7OGOamDpchH/ENTlxCeFlpLHEwNveIi26xkbCc1NNM0l3EKqWXpqoO
-	K9fZ0YXmEdJ6yFtDNZJaRnYkn0TBZF6MyR6442FjhI2HWSxO2RM=
-X-Received: by 2002:a05:7022:f907:b0:1b2:558a:d781 with SMTP id a92af1059eb24-1b5567b5788mr15355163c88.5.1795595481380;
-        Wed, 25 Nov 2026 00:31:21 -0800 (PST)
-Received: from localhost.localdomain ([103.179.230.77])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5567ff27bsm45162585c88.6.2026.11.25.00.31.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 00:31:20 -0800 (PST)
-From: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
-To: tiwai@suse.de
-Cc: linux-kernel@vger.kernel.org,
-	linux-sound@vger.kernel.org,
-	perex@perex.cz,
-	sreekuttan2156239@gmail.com
-Subject: [PATCH v2] ALSA: core: Reject zero major number
-Date: Wed, 25 Nov 2026 08:30:53 +0000
-Message-ID: <20261125083053.3917-1-sreekuttan2156239@gmail.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <87o6bd8ijb.wl-tiwai@suse.de>
-References: <87o6bd8ijb.wl-tiwai@suse.de>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=O/fjzGlN
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C04A1F000CF;
+	Wed, 25 Nov 2026 08:31:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795595494;
+	bh=orkqkN9k0NvO+k3q6u67IvXNksIJl6E1WSlIId6lXvg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=O/fjzGlN6oVvhVvoBqjCKbVNEmy452qiZxK82fL/SIkZ+lx52h8kWBKa6zRgpOSzS
+	 tusHyXoHdckAwHtLoh+p3GjZUskzZqimw0CY7Cd0PS9pOdg4dHaeTeUHJg5Z/fuxlv
+	 nANs5ll3OY5hDUypEmejv/3hZ+RmcGuI98CQPUPeMwEOshNbk3Fm7ipYDg6blMO0lY
+	 yVYhbBp2NjznoH6ciXoid7kcU6Mzf4ehqApTNNhdIxBsbVdIXP2mNzfHc+nWKtDa8e
+	 ZKQ8jf4HkgBGptdtJzZRNNan8iX5+sSLcEivBPbqJ/MSE3pyzyZp/UrDR3S9u95799
+	 imJDBy40J+NPQ==
+Message-ID: <14111935-b991-457f-88d4-f5c06ae68df8@kernel.org>
+Date: Wed, 25 Nov 2026 09:31:31 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -98,114 +51,209 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH 2/2] iio: light: add ams OSRAM TCS3430 XYZ and ambient
+ light sensor driver
+To: robertijtsma@gmail.com, Jonathan Cameron <jic23@kernel.org>,
+ David Lechner <dlechner@baylibre.com>, =?UTF-8?Q?Nuno_S=C3=A1?=
+ <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20261124-iio-tcs3430-v1-0-0f2a38a6a4c1@gmail.com>
+ <20261124-iio-tcs3430-v1-2-0f2a38a6a4c1@gmail.com>
+Content-Language: en-US
+From: Joshua Crofts <crofts@kernel.org>
+In-Reply-To: <20261124-iio-tcs3430-v1-2-0f2a38a6a4c1@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-Reject a zero major number before calling register_chrdev(),
-as ALSA expects a fixed major number.
+On 24-Nov-26 23:46, Robert Ijtsma via B4 Relay wrote:
 
-Remove the redundant major and cards_limit variables and
-use snd_major and snd_ecards_limit directly with
-module_param_named().
+...
 
-Update device number creation and character device
-registration and unregistration to use snd_major.
+> diff --git a/drivers/iio/light/tcs3430.c b/drivers/iio/light/tcs3430.c
+> new file mode 100644
+> index 0000000..138c8ab
+> --- /dev/null
+> +++ b/drivers/iio/light/tcs3430.c
+> @@ -0,0 +1,345 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * IIO driver for ams OSRAM TCS3430 Ambient Light and CIE 1931 XYZ Sensor
+> + *
+> + * Copyright (C) 2026 Robert Ijtsma <robertijtsma@gmail.com>
+> + *
+> + * Datasheet:
+> + *   https://look.ams-osram.com/m/43d518b4cd81e3f2/original/TCS3430-DS000539.pdf
+> + */
+> +
+> +#include <linux/array_size.h>
+> +#include <linux/bitfield.h>
+> +#include <linux/bits.h>
+> +#include <linux/cleanup.h>
+> +#include <linux/device.h>
+> +#include <linux/err.h>
+> +#include <linux/i2c.h>
+> +#include <linux/math64.h>
+> +#include <linux/mod_devicetable.h>
 
-Signed-off-by: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
----
-v2:
- - Reject major=0 before calling register_chrdev().
- - Remove redundant major and cards_limit variables.
- - Use snd_major and snd_ecards_limit directly with module_param_named().
- - Update device number creation, registration and unregistration to use snd_major.
+No need for this, the device tables required will be pulled in
+via the respective bus headers.
 
- sound/core/sound.c | 36 +++++++++++++++++-------------------
- 1 file changed, 17 insertions(+), 19 deletions(-)
+> +#include <linux/module.h>
+> +#include <linux/mutex.h>
+> +#include <linux/pm.h>
+> +#include <linux/regulator/consumer.h>
+> +#include <linux/types.h>
+> +#include <linux/units.h>
+> +
+> +#include <linux/iio/iio.h>
+> +
 
-diff --git a/sound/core/sound.c b/sound/core/sound.c
-index 24f40763a20c..8ac3cee19e66 100644
---- a/sound/core/sound.c
-+++ b/sound/core/sound.c
-@@ -18,28 +18,25 @@
- #include <linux/kmod.h>
- #include <linux/mutex.h>
- 
--static int major = CONFIG_SND_MAJOR;
--int snd_major;
-+int snd_major = CONFIG_SND_MAJOR;
- EXPORT_SYMBOL(snd_major);
- 
--static int cards_limit = 1;
-+/* this one holds the actual max. card number currently available.
-+ * as default, it's identical with cards_limit option.  when more
-+ * modules are loaded manually, this limit number increases, too.
-+ */
-+int snd_ecards_limit = 1;
-+EXPORT_SYMBOL(snd_ecards_limit);
- 
- MODULE_AUTHOR("Jaroslav Kysela <perex@perex.cz>");
- MODULE_DESCRIPTION("Advanced Linux Sound Architecture driver for soundcards.");
- MODULE_LICENSE("GPL");
--module_param(major, int, 0444);
-+module_param_named(major, snd_major, int, 0444);
- MODULE_PARM_DESC(major, "Major # for sound driver.");
--module_param(cards_limit, int, 0444);
-+module_param_named(cards_limit, snd_ecards_limit, int, 0444);
- MODULE_PARM_DESC(cards_limit, "Count of auto-loadable soundcards.");
- MODULE_ALIAS_CHARDEV_MAJOR(CONFIG_SND_MAJOR);
- 
--/* this one holds the actual max. card number currently available.
-- * as default, it's identical with cards_limit option.  when more
-- * modules are loaded manually, this limit number increases, too.
-- */
--int snd_ecards_limit;
--EXPORT_SYMBOL(snd_ecards_limit);
--
- #ifdef CONFIG_SND_DEBUG
- struct dentry *sound_debugfs_root;
- EXPORT_SYMBOL_GPL(sound_debugfs_root);
-@@ -61,7 +58,7 @@ void snd_request_card(int card)
- {
- 	if (snd_card_locked(card))
- 		return;
--	if (card < 0 || card >= cards_limit)
-+	if (card < 0 || card >= snd_ecards_limit)
- 		return;
- 	request_module("snd-card-%i", card);
- }
-@@ -280,7 +277,7 @@ int snd_register_device(int type, struct snd_card *card, int dev,
- 	}
- 
- 	preg->dev = device;
--	device->devt = MKDEV(major, minor);
-+	device->devt = MKDEV(snd_major, minor);
- 	err = device_add(device);
- 	if (err < 0)
- 		goto error;
-@@ -396,18 +393,19 @@ static int __init alsa_sound_init(void)
- {
- 	int err;
- 
--	snd_major = major;
--	snd_ecards_limit = cards_limit;
-+	if (!snd_major)
-+		return -EINVAL;
- 
--	err = register_chrdev(major, "alsa", &snd_fops);
-+	err = register_chrdev(snd_major, "alsa", &snd_fops);
- 	if (err < 0) {
--		pr_err("ALSA core: unable to register native major device number %d\n", major);
-+		pr_err("ALSA core: unable to register native major device number %d\n",
-+		       snd_major);
- 		return err;
- 	}
- 
- 	err = snd_info_init();
- 	if (err < 0) {
--		unregister_chrdev(major, "alsa");
-+		unregister_chrdev(snd_major, "alsa");
- 		return err;
- 	}
- 
+..
+
+> +static int tcs3430_apply_gain(struct tcs3430_data *data, u8 gain_idx)
+> +{
+> +	u8 cfg1, cfg2;
+> +	int ret;
+> +
+> +	if (gain_idx == 4) {
+> +		cfg1 = FIELD_PREP(TCS3430_CFG1_AGAIN_MASK, 3);
+> +		cfg2 = TCS3430_CFG2_DEFAULT | TCS3430_CFG2_HGAIN;
+> +	} else {
+> +		cfg1 = FIELD_PREP(TCS3430_CFG1_AGAIN_MASK, gain_idx);
+> +		cfg2 = TCS3430_CFG2_DEFAULT;
+> +	}
+> +
+> +	ret = i2c_smbus_write_byte_data(data->client, TCS3430_REG_CFG1, cfg1);
+
+Why not use regmap for read/write operations?
+
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = i2c_smbus_write_byte_data(data->client, TCS3430_REG_CFG2, cfg2);
+> +	if (ret)
+> +		return ret;
+> +
+> +	data->gain_idx = gain_idx;
+> +	return 0;
+> +}
+> +
+> +static int tcs3430_init_hw(struct tcs3430_data *data)
+> +{
+> +	struct i2c_client *client = data->client;
+> +	int ret;
+> +
+> +	ret = i2c_smbus_write_byte_data(client, TCS3430_REG_ENABLE, 0x00);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = i2c_smbus_write_byte_data(client, TCS3430_REG_ATIME,
+> +					TCS3430_DEFAULT_ATIME_CYCLES - 1);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = tcs3430_apply_gain(data, data->gain_idx);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = i2c_smbus_write_byte_data(client, TCS3430_REG_CFG3,
+> +					TCS3430_CFG3_DEFAULT);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = i2c_smbus_write_byte_data(client, TCS3430_REG_INTENAB, 0x00);
+> +	if (ret)
+> +		return ret;
+> +
+> +	return i2c_smbus_write_byte_data(client, TCS3430_REG_ENABLE,
+> +					 TCS3430_ENABLE_PON |
+> +					 TCS3430_ENABLE_AEN);
+> +}
+> +
+> +static void tcs3430_power_off(void *priv)
+> +{
+> +	struct tcs3430_data *data = priv;
+> +
+> +	i2c_smbus_write_byte_data(data->client, TCS3430_REG_ENABLE, 0x00);
+> +}
+> +
+> +static int tcs3430_read_raw(struct iio_dev *indio_dev,
+> +			    const struct iio_chan_spec *chan,
+> +			    int *val, int *val2, long mask)
+> +{
+> +	struct tcs3430_data *data = iio_priv(indio_dev);
+> +	int ret;
+> +
+> +	switch (mask) {
+> +	case IIO_CHAN_INFO_RAW:
+> +		guard(mutex)(&data->lock);
+
+cleanup.h magic works thanks to local variables and a scope. When using
+guard() in a switch case it has to be surrounded by brackets to define
+the scope (this is what the email from lkp is warning about).
+
+> +		ret = i2c_smbus_read_word_data(data->client, chan->address);
+> +		if (ret < 0)
+> +			return ret;
+> +		*val = ret;
+> +		return IIO_VAL_INT;
+> +
+> +	case IIO_CHAN_INFO_SCALE: {
+> +		u32 itime_us = TCS3430_DEFAULT_ATIME_CYCLES * TCS3430_ATIME_STEP_US;
+> +		u64 scale_nano;
+> +		u32 rem;
+> +		int gain;
+> +
+> +		scoped_guard(mutex, &data->lock)
+> +			gain = tcs3430_gains[data->gain_idx];
+> +
+> +		scale_nano = div_u64(TCS3430_LUX_FACTOR * NSEC_PER_SEC * USEC_PER_MSEC,
+> +				     (u32)gain * itime_us);
+> +		*val = div_u64_rem(scale_nano, NSEC_PER_SEC, &rem);
+> +		*val2 = rem;
+> +		return IIO_VAL_INT_PLUS_NANO;
+> +	}
+> +
+> +	case IIO_CHAN_INFO_HARDWAREGAIN:
+> +		guard(mutex)(&data->lock);
+
+Same here.
+
+> +		*val = tcs3430_gains[data->gain_idx];
+> +		return IIO_VAL_INT;
+> +
+> +	case IIO_CHAN_INFO_INT_TIME:
+> +		*val = 0;
+> +		*val2 = TCS3430_DEFAULT_ATIME_CYCLES * TCS3430_ATIME_STEP_US;
+> +		return IIO_VAL_INT_PLUS_MICRO;
+> +
+> +	default:
+> +		return -EINVAL;
+> +	}
+> +}
+
+...
+
+> +static int tcs3430_read_avail(struct iio_dev *indio_dev,
+> +			      const struct iio_chan_spec *chan,
+> +			      const int **vals, int *type, int *length,
+> +			      long mask)
+> +{
+> +	if (mask != IIO_CHAN_INFO_HARDWAREGAIN)
+> +		return -EINVAL;
+> +
+> +	*vals = tcs3430_gains;
+> +	*type = IIO_VAL_INT;
+> +	*length = ARRAY_SIZE(tcs3430_gains);
+> +	return IIO_AVAIL_LIST;
+
+For IIO macros we usually use a switch, even if we're only checking
+for one case.
+
 -- 
-2.55.0
+Kind regards,
+Joshua Crofts
 
