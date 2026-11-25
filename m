@@ -1,112 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.47
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=79.135.106.120
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795597779;
-	b=BMmmbDQtBQE7NafJ+AIla4QikitgPNQ5rOYXWciqAGshlPzyTmNM2/8GphGHTUZK8Rhu
-	 ykZs+g/0/enERgHoHOQhr2Px33VS05hUzkpmm5vOAOBw3D4tB1FMYnpIRYRssJe3sDtqY
-	 IXHbJm1uvxo7rhk5e6+fY4ld7QhQs1IfCaZeMWELvC4VU+LekuzJOLizmUbF78BOpDlRB
-	 X/lhgyfIyIXhDOeNjqDAtS42ac8L3ga1MZqa+KemkaBbCTm+w6Gs+nD02QECl/zLlHPRs
-	 wxJfra1FbrmzxVRz+RiR4DwGDxAMwfVIAxDVBLoZUcAvCVA3tPK6t2dL+mG3w4DKvuQ==
+	b=xvFwI2PecFC4X0jZ9cEOLdRISrv3JI9YstkhiPDBaiYJWp8R0kjGnfLFOKLmyiHbGPm/
+	 rrGOsLrwFaFm0hVtMqebn/2qCMr2MBdfPDcoebGmaOzFatmdOClVLuoGiJn+B5RGL+yMz
+	 362EEMmR+cpjabp3+4J6TpTxjyTYsA31ViTE81hAYn2Q81DRoIg2SeJrpa+IWurlHTXbq
+	 xkTlReBx61aCtORHq0uyGqDjWVG+IzJxOOVE/8FOEhpgYsupzkQZmBkci/QCzbOzLepdk
+	 4uEyqX8YC7NP+7uUusQ3B/EgxwRpQTG3t3znMgC5j4DZU5mThBGFe9ihK43p/HLtIJg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795597779;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:In-Reply-To:References:X-Mailer:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=qm/FI2mE1ewe632JTFSK32XwvOS0GNyWzPRE758QoDs=;
-	b=4Vso5qVweeqdgPmFK/rXJEF88Qkv8RJe4SdSxUsYPoBuK3LK1sH33PbC4qLr818ZmHT9
-	 jwKjPmcdBDi2h23816ZItkbc8JRmhbClCe+YIbALCvgXPBQcqymkAvkX/nV2WQR2Hr5cJ
-	 5fkyQuziRxfjClxkB4InXcNvFM7NU7gDBmt/v3vLptUn6vlWFcYXxC1KEYtDWG2j6dxSQ
-	 /cxKrJV5KNxqKuvCK4POghfaM9oex62U5m8alCRx1QkT8twUFcYJd4K4ak8jS60zo6QkK
-	 fIMKo7LOIq1I4uVGZXzZqAIJJNYYsF5pklc4BvXQ3iDhkYsJYR2NKaslFbQCr2+FIiQ==
+	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
+	 Feedback-ID:X-Pm-Message-ID:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=atA20MoJCKOu8hezGD9x11s/X5t0L0tiUzUV7Xg5yA0=;
+	b=CJ9MgwhNr3vMybXNsRWYRidJIR2sj1Iew9ivsUdi+A031FRGEDTiQcF3VhZJdAxqsTBY
+	 b8/sZbpfSIlW3cxwh3BIuTdY+1Ik97VOA7H8UiD8Jn5XRiADwN2O8TE6LmU35bxLmKIvM
+	 NEzqFDg26fiaOrI27Q595wIPzmNh9AQRwinl/ktrPgZi14uHWw1iQeWyJaGYu9Hng8Uy4
+	 I1P9SHOiFmP10h516g1P1QQUX8UASbTJZ+ogKfyXRh7uytDC8omRG9GrnvJgALAwj0EsD
+	 BBZZN/KyOL9xG6FGU/9oNU9Zs6Mru7RGrklvbFovoAa195XYAW7eYEGZEb4mMm8Oj5w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=AGuiiqVQ;
-	arc=none smtp.remote-ip=209.85.128.47
-Received: from mail-wm1-f47.google.com (mail-wm1-f47.google.com [209.85.128.47])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=pm.me;
+	spf=pass smtp.mailfrom=pm.me;
+	dkim=pass header.d=pm.me header.i=@pm.me header.a=rsa-sha256 header.s=protonmail3 header.b="rQhU9a2/";
+	arc=none smtp.remote-ip=79.135.106.120
+Received: from mail-106120.protonmail.ch (mail-106120.protonmail.ch [79.135.106.120])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 40AA0606A332
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 09:09:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 40AA0606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5FCCF606A31E;
+	Wed, 25 Nov 2026 09:09:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5FCCF606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=pm.me
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pm.me
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=AGuiiqVQ
-Received: by mail-wm1-f47.google.com with SMTP id 5b1f17b1804b1-4a3517554f7so50252925e9.2
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 01:09:37 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795597776; x=1796202576; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=qm/FI2mE1ewe632JTFSK32XwvOS0GNyWzPRE758QoDs=;
-        b=AGuiiqVQqunjoBCYAQf0+aaIX9u8Idwr4BsqXiFG1Y2GXVcd2nGAwNB2bzu0OZsqvt
-         JBQWV39Rzw0Nejmv3JjqTkzRxtSB81AvLEnWqd3BIlVhavaIMQto0Hj4ItwMuVJN5t9m
-         qDDTsY+zGckYze/eL0Fh35Cvy9GGXbsePdi8hxB00PegW5V2xSwtYpgnQ+XID8ik3L5c
-         ETRwW6xnMEEQ916w2d83q83ZxbDdUag/69/1p5CzvXoFbS+9l6yLn8rKodkjDPPM+Rpi
-         9t2xYHAx0GtrAFVGzYv5GsoMxIqDShH+sPkkV4Fh0S/+l/GBUcpTn7YbFICB2vlEmz20
-         X+gg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795597776; x=1796202576;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=qm/FI2mE1ewe632JTFSK32XwvOS0GNyWzPRE758QoDs=;
-        b=l5ohRzBohiRXcikNlyWEVYFhLbuqnFOh6elBbqEswAve0/NsIsX2Eg5fg+AmKbyRmd
-         ckmwN1Rz4x8Ax4U9iAtWYxhJ8FF1QSdihGTYA2bVhE0g4QZuNMD3LZjxPpk6FR7naGjh
-         bm2QVnv/DVXkU9sIQ28dTBuVAgpFVRodCZTqTuW+pNZ3XK3yt8RrtW3cy53s9TBrcmGk
-         sALhEh4ydwduiXPqX8+pjPzqVIaZ0SdggMq4iKCjJ43NzrUpHpLS5FKYsys4D22fYFJw
-         +G/CLhr7/TQXDLhF6s0fHn6FOyddyllQToa4vBEFPAFN9kTDivfeWNJnOtCjaPkDfx6l
-         5Hew==
-X-Forwarded-Encrypted: i=1; AL+hErEiMOze+/xVGEqbKZMlWcJUSGTN+oF59uV3/NGj+8DcbFRvQrSk2lHVJxZJsMlkm6Mk0pVXXsHqTI2fFdU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8yJffEHmx0tP4NC6KcW1cZ0vBabkMOJiR3rf03ZagNx+G5BBd6
-	kor9bwaldTwc/1fm4pYd9h8+oJiQEB7+LCqnQHiOBMemcrjeCTEqXUEG
-X-Gm-Gg: AZFdTZcPc4iamiprWOi62jyjWBVCXn4GXGYGOZNF6FkblKPJqLZOdVBq4MpURyvHN7m
-	R1xU70VI6VXIfbwuZHL3K3j/FNpkFPE+OIC/DjxBNceD+Fjpu98isBSosdnZ09kQ/DYa24keRiz
-	/Mj3h1B3styijsqDbRoS/vJ2duXe8Wvnc4R8Hb7+PgVpu+O2GIoOEYnGgTsiADpt33xQIEZ4gEd
-	LKqkPVWBa46Yk2NOXjoHnhJUSXs0p2RBUpBRdsx3zSaZ1AmolQV8j6P5NNj3sbv3GQTwRaZ+pF9
-	DO8f+DknVxV7HtyI8RGABkZVFRlX1wlL7a9yxefVoUG3GRlb2zg+TxUWAaZRVdPu65cgvd0bGFz
-	2UvzodQ1EG2FcuXjufBLfmwJAde/IeIL0br89HqfVwvdvbJVmxFJzHzbUI334HbSZ3IJBci45ax
-	hU9vAvGXu/IRXc02BYzPd5juI7Lpku0jQV+Q7kr4o4B34RTCFoWYdY/Zw5dfFgZ0M83vLYymj9+
-	VHmzZZXHzrAJirWX0yEb/FWMPFbzsFP+AlB6S09P/hcK2yjdzvUmXTwL3BCgkGLxwToASYgKXjn
-	gkHGMVM6ixhOMcwv5jtRiD4L5tDZ7gp4ZJ3Wnm8eE8bC4N3lYCAGrVHZc05f2tIdGQ==
-X-Received: by 2002:a05:600c:3509:b0:4bb:76f6:d23a with SMTP id 5b1f17b1804b1-4bb88814d16mr374824975e9.21.1795597776397;
-        Wed, 25 Nov 2026 01:09:36 -0800 (PST)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853b216esm558503985e9.12.2026.11.25.01.09.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 01:09:36 -0800 (PST)
-Date: Wed, 25 Nov 2026 09:09:30 +0000
-From: David Laight <david.laight.linux@gmail.com>
-To: Jarkko Sakkinen <jarkko@kernel.org>
-Cc: keyrings@vger.kernel.org, dm-devel@lists.linux.dev,
- linux-crypto@vger.kernel.org, linux-doc@vger.kernel.org,
- linux-integrity@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-security-module@vger.kernel.org, Ahmad Fatoum
- <a.fatoum@pengutronix.de>, Alasdair Kergon <agk@redhat.com>, Andrew Morton
- <akpm@linux-foundation.org>, Benjamin Marzinski <bmarzins@redhat.com>,
- David Gstir <david@sigma-star.at>, David Howells <dhowells@redhat.com>,
- "David S. Miller" <davem@davemloft.net>, David Woodhouse
- <dwmw2@infradead.org>, Herbert Xu <herbert@gondor.apana.org.au>, Ignat
- Korchagin <ignat@linux.win>, James Bottomley
- <James.Bottomley@HansenPartnership.com>, James Morris <jmorris@namei.org>,
- James Prestwood <prestwoj@gmail.com>, Jason Gunthorpe <jgg@ziepe.ca>,
- Jonathan Corbet <corbet@lwn.net>, Lukas Wunner <lukas@wunner.de>, Mike
- Snitzer <snitzer@kernel.org>, Mikulas Patocka <mpatocka@redhat.com>, Mimi
- Zohar <zohar@linux.ibm.com>, Paul Moore <paul@paul-moore.com>, Peter Huewe
- <peterhuewe@gmx.de>, Randy Dunlap <rdunlap@infradead.org>, "Serge E.
- Hallyn" <serge@hallyn.com>, Shuah Khan <skhan@linuxfoundation.org>, Sumit
- Garg <sumit.garg@kernel.org>
-Subject: Re: [PATCH v2 1/9] KEYS: trusted: Allow ASN.1 TPM2 sealed data
- shorter than MIN_KEY_SIZE
-Message-ID: <20261125090930.698d8f1b@pumpkin>
-In-Reply-To: <20261124194043.1651679-2-jarkko@kernel.org>
-References: <20261124194043.1651679-1-jarkko@kernel.org>
-	<20261124194043.1651679-2-jarkko@kernel.org>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+	dkim=pass (2048-bit key) header.d=pm.me header.i=@pm.me header.a=rsa-sha256 header.s=protonmail3 header.b=rQhU9a2/
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pm.me;
+	s=protonmail3; t=1795597776; x=1795856976;
+	bh=atA20MoJCKOu8hezGD9x11s/X5t0L0tiUzUV7Xg5yA0=;
+	h=Date:To:From:Cc:Subject:Message-ID:Feedback-ID:From:To:Cc:Date:
+	 Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
+	b=rQhU9a2/ZrgHQcCSn7A+tDJRx7mN2T8RvxF6JMmcj9/9MflOI4cpPhTwZ6Acu8zq6
+	 zFkedFpYp5HFS0fOSoDbq5JBSOuCMygSfDtHuhcTPEwanrI7tru6tZkK7AA8LpHvg2
+	 IMy2nJU+hHe6OkUi3ID7jHfkzOthET3Q1iotYlzqHW0vaPsa2yCT4G5hr1zjudGMBR
+	 G62G5FWE1lVnZ6TcT0J28bvHCv1yfrZ5VB44eYCWFhZG2zhNYFL9lbEIJaRvEVBAoH
+	 15WB84B2Q8GAdA92PPPjQWO12pyVinAdaM+fQmcQUNdk6Gfa5I+UkNZGpZaa8gM4nm
+	 5yx4qu7AkEU7A==
+Date: Wed, 25 Nov 2026 09:09:28 +0000
+To: Daniel Scally <dan.scally@ideasonboard.com>, Sakari Ailus <sakari.ailus@linux.intel.com>
+From: Sergey Lebedev <lsa.uz@pm.me>
+Cc: Hao Yao <hao.yao@intel.com>, Hans de Goede <hansg@kernel.org>, =?utf-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, Bingbu Cao <bingbu.cao@amd.com>, Fernando Rimoli <fernandorimoli11@gmail.com>, platform-driver-x86@vger.kernel.org, linux-media@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: [PATCH v3] platform/x86: int3472: Use actual clock frequency for DSM method
+Message-ID: <20261125090921.46652-1-lsa.uz@pm.me>
+Feedback-ID: 113843758:user:proton
+X-Pm-Message-ID: 30ca2397b51263ce57e2d4ad33e31b19f083b272
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -116,50 +61,129 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-On Tue, 24 Nov 2026 21:40:35 +0200
-Jarkko Sakkinen <jarkko@kernel.org> wrote:
+From: Hao Yao <hao.yao@intel.com>
 
-> tpm2_unseal_cmd() rejects unsealed payloads shorter than MIN_KEY_SIZE (32
-> bytes) with -EFAULT even when loading an ASN.1 TPMKey (OID_TPMSealedData,
-> 2.23.133.10.1.5) blob.
-> 
-> While kernel-generated trusted keys ("new <keylen>") and legacy old_format
-> blobs are at least 32 bytes long, external TPM2 tools allow sealing any
-> non-empty payload up to 128 bytes.
-> 
-> Keep MIN_KEY_SIZE for legacy old_format blobs and accept 1..MAX_KEY_SIZE
-> bytes for ASN.1 TPMKey sealed blobs.
-> 
-> Signed-off-by: Jarkko Sakkinen <jarkko@kernel.org>
-> ---
->  security/keys/trusted-keys/trusted_tpm2.c | 4 +++-
->  1 file changed, 3 insertions(+), 1 deletion(-)
-> 
-> diff --git a/security/keys/trusted-keys/trusted_tpm2.c b/security/keys/trusted-keys/trusted_tpm2.c
-> index 30188a0ec676..d7336f25b514 100644
-> --- a/security/keys/trusted-keys/trusted_tpm2.c
-> +++ b/security/keys/trusted-keys/trusted_tpm2.c
-> @@ -559,9 +559,11 @@ static int tpm2_unseal_cmd(struct tpm_chip *chip,
->  	rc = tpm_buf_check_hmac_response(chip, buf, rc);
->  
->  	if (!rc) {
-> +		u16 min_len = payload->old_format ? MIN_KEY_SIZE : 1;
+The third argument (args[2]) to the _DSM method was hardcoded to 1,
+which selects 19.2MHz. A sensor whose SSDB asks for 24MHz therefore
+runs from 19.2MHz, and everything it derives from its clock runs at
+four fifths of the expected rate.
 
-There is no point using u16, just use unsigned int.
+Pass the frequency from the SSDB instead, with 19.2MHz as the default.
+1 selects 19.2MHz everywhere, but the value for 24MHz depends on the
+platform. Where the frequency field is one bit wide (Tiger Lake, Jasper
+Lake, Alder Lake, Raptor Lake) it is 0, and 3 would also set the clock's
+enable bit again when the clock is turned off. From Meteor Lake on the
+field is two bits wide and it is 3; 0 and 2 leave the clock unchanged
+there, as measured with an oscilloscope.
 
-The same goes for data_len.
+Fixes: e4543de8b6ff ("platform/x86: int3472: Evaluate device's _DSM method =
+to control imaging clock")
+Signed-off-by: Hao Yao <hao.yao@intel.com>
+[Sergey: pick the 24MHz value per platform]
+Signed-off-by: Sergey Lebedev <lsa.uz@pm.me>
+---
+v3, sent by me as offered in the v2 thread, with Hao as the author:
+- The 24MHz value is chosen per platform. On a Surface Pro 9 (Alder
+  Lake) Fernando Rimoli measured that 3 gives 19.2MHz and 0 gives 24MHz
+  [1]. coreboot's camera_clock_ctl.asl has a one-bit frequency field for
+  Tiger Lake, Jasper Lake and Alder Lake (which covers Raptor Lake) and
+  a two-bit one for Meteor Lake, Panther Lake and Nova Lake.
+- The Fixes: tag and the note on 0 and 2 that Ilpo asked for.
+- v2's Reviewed-by and Acked-by tags dropped, since the code changed.
 
-David
+Tested on a Surface Pro 11 (Lunar Lake), with the module built from
+Ubuntu's 7.0 source, where this file is the same as in media-committers
+next. The VD55G0, whose SSDB asks for 24MHz, streams at 59.14 fps as
+its controls give, against 47.29 fps without the patch. The two 19.2MHz
+sensors are unchanged. The Alder Lake branch has not run as posted.
 
-> +
->  		data_len = be16_to_cpup(
->  			(__be16 *)&buf->data[TPM_HEADER_SIZE + 4]);
-> -		if (data_len < MIN_KEY_SIZE ||  data_len > MAX_KEY_SIZE)
-> +		if (data_len < min_len || data_len > MAX_KEY_SIZE)
->  			return -EFAULT;
->  
->  		if (tpm_buf_length(buf) < TPM_HEADER_SIZE + 6 + data_len)
+v2: https://lore.kernel.org/all/20251208035122.2147678-1-hao.yao@intel.com/
+[1] https://lore.kernel.org/all/20261026111012.33347-1-fernandorimoli11@gma=
+il.com/
+
+Tool use, per Documentation/process/generated-content.rst (Assisted-by
+tags in commits were dropped in 7.4-rc1):
+
+* My contributions to this series were prepared with Claude Code
+  (claude-opus-5-5); work by others in it is their own.
+* This replaces any Assisted-by tags in earlier versions.
+
+ .../x86/intel/int3472/clk_and_regulator.c     | 39 ++++++++++++++++++-
+ 1 file changed, 38 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/platform/x86/intel/int3472/clk_and_regulator.c b/drive=
+rs/platform/x86/intel/int3472/clk_and_regulator.c
+index 9e052b164a1..47dc23c5184 100644
+--- a/drivers/platform/x86/intel/int3472/clk_and_regulator.c
++++ b/drivers/platform/x86/intel/int3472/clk_and_regulator.c
+@@ -10,6 +10,9 @@
+ #include <linux/regulator/driver.h>
+ #include <linux/slab.h>
+=20
++#include <asm/cpu_device_id.h>
++#include <asm/intel-family.h>
++
+ /*
+  * 82c0d13a-78c5-4244-9bb1-eb8b539a8d11
+  * This _DSM GUID allows controlling the sensor clk when it is not control=
+led
+@@ -19,6 +22,40 @@ static const guid_t img_clk_guid =3D
+ =09GUID_INIT(0x82c0d13a, 0x78c5, 0x4244,
+ =09=09  0x9b, 0xb1, 0xeb, 0x8b, 0x53, 0x9a, 0x8d, 0x11);
+=20
++/*
++ * The third argument to the _DSM method selects the clock frequency. 1 is
++ * 19.2MHz everywhere. 24MHz is 0 where the frequency field is one bit wid=
+e
++ * (Tiger Lake, Jasper Lake, Alder Lake, Raptor Lake) and 3 where it is tw=
+o
++ * bits wide (Meteor Lake and later).
++ */
++#define INT3472_DSM_CLK_FREQ_19M2=091
++#define INT3472_DSM_CLK_FREQ_24M=093
++#define INT3472_DSM_CLK_FREQ_24M_1BIT=090
++
++static const struct x86_cpu_id int3472_dsm_clk_freq_1bit_ids[] =3D {
++=09X86_MATCH_VFM(INTEL_TIGERLAKE_L, NULL),
++=09X86_MATCH_VFM(INTEL_TIGERLAKE, NULL),
++=09X86_MATCH_VFM(INTEL_ATOM_TREMONT_L, NULL),
++=09X86_MATCH_VFM(INTEL_ALDERLAKE, NULL),
++=09X86_MATCH_VFM(INTEL_ALDERLAKE_L, NULL),
++=09X86_MATCH_VFM(INTEL_ATOM_GRACEMONT, NULL),
++=09X86_MATCH_VFM(INTEL_RAPTORLAKE, NULL),
++=09X86_MATCH_VFM(INTEL_RAPTORLAKE_P, NULL),
++=09X86_MATCH_VFM(INTEL_RAPTORLAKE_S, NULL),
++=09{}
++};
++
++static u32 skl_int3472_dsm_clk_freq(struct int3472_clock *clk)
++{
++=09if (clk->frequency !=3D 24000000)
++=09=09return INT3472_DSM_CLK_FREQ_19M2;
++
++=09if (x86_match_cpu(int3472_dsm_clk_freq_1bit_ids))
++=09=09return INT3472_DSM_CLK_FREQ_24M_1BIT;
++
++=09return INT3472_DSM_CLK_FREQ_24M;
++}
++
+ static void skl_int3472_enable_clk(struct int3472_clock *clk, int enable)
+ {
+ =09struct int3472_discrete_device *int3472 =3D to_int3472_device(clk);
+@@ -35,7 +72,7 @@ static void skl_int3472_enable_clk(struct int3472_clock *=
+clk, int enable)
+ =09args[1].integer.type =3D ACPI_TYPE_INTEGER;
+ =09args[1].integer.value =3D enable;
+ =09args[2].integer.type =3D ACPI_TYPE_INTEGER;
+-=09args[2].integer.value =3D 1;
++=09args[2].integer.value =3D skl_int3472_dsm_clk_freq(clk);
+=20
+ =09argv4.type =3D ACPI_TYPE_PACKAGE;
+ =09argv4.package.count =3D 3;
+--=20
+2.54.0
+
 
