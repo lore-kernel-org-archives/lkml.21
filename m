@@ -1,68 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=119.15.109.137
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795640635;
-	b=vaiX2UX9sEWE9SLLloNeXX6e2lbnjF6d9JYdITa6ECH6Xlm5iIzwUTjRLL2kYPq5jhCk
-	 3FJ29cgbceoUg/8U+vnu2JMAnm8pyFRovhv1ohBt/cQy8g6Rq1/R57wfjOjDpZk2O4znK
-	 BnW2DWFp+tz9qgNzb6lFVaagyA1XLT4ct5UzcbfUdhNUqi/2O/TGEwXM2lwpUv3olzEKj
-	 QwaBzkO+RteRgIUGtSdz59ZqrQYYlLf8hLacDguA+Oo2mXYc1QTfl4U7aXhWbUmhnJmU2
-	 pERFQ93rNo6J/QrWrxVgV8JMITNIfeJKlmRWGdpgdPIdO1/Sgtxy0DM2WSOd2YIZ4DQ==
+	t=1795640741;
+	b=VcQPeIuhJC00Ya/bEYyQnCiD33xxAEq/JpzkttqpLlNnDuwNmx6JbkWg8Cn7gE0UNpQ3
+	 5h7anNNcxq5o9mYJ/Qg4BIk2Y7Ru40pkLIXRcgg1uFfxWVFXVN3yD7XjhAK8M6nvvAVLG
+	 dPeff5jcgR/iS48XVDgl9UM9f+o3FOfiQLR7UaD/he3FAkuPWPJDLthY3XdC7pfGjtKzS
+	 vtpUUn7BaiyWlb3pysWY3T44/RvhHmHyo00RwhOKa0rzo8BAziBftLWBEsO6PDdBOYFtt
+	 WYwnRB/EDGGlXXcN+qlf9mACKRlF0bzwG9ktFbguToX/NrtWQopOCE8sUARKFb05L2w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795640635;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:X-Mailer:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=wmijZHZGefJSPTVTzLoeenYyV4LW+jL6u1GaUmT8KdY=;
-	b=yrFyR8Mq5zGeWMotJR+mx306PHmUjdyHM38kEE3YFfqhiRjxGyyYpEAziZIkSHgeEY7p
-	 FCu0tWyZcQHrlk9M7pVpvHi2bgg0iKTRPWeFoaBBHkgcfL29ITM5etm1GY02Po1ce9Nds
-	 JR6wv2hnQdfOlez2P7v5O923GXdb2DmgUpl2rSVeoJPQ1jvFDaka5IWVB4WOHXR7HK06r
-	 dE4jADbMBFTvBhLVryJLq9pVd3oc15Eo+R2xHsLqpc2TQRL9DezmI2eZYz47DJWrt+hyu
-	 HVY7DIcGqtXYp0HfCI0hszPLl7z9luHKlKUQZW9L+YOkoq3/CVVGd+0dRPpyWQmYveA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795640741;
+	h=DMARC-Filter:Received:DKIM-Signature:X-GPT-Reason:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=+7MuY/6UP2Bsh775A7XrC/mnlab/U/JJYl8O0EaI6UA=;
+	b=5LCLoXq1EMQ+zymDEA2+pfTiHoXcNnWDvQDQ+tSdhUquZX3q+nTKn+oi9OfVIzB9DNLj
+	 Ag1pE09latIGJHk9fgh/djynOoby8EhwECpW/QqnzbVp4aI3GenKGdbqXirooetE7Ix1Z
+	 nvT/zrMtXW1oXcsYaLU9wNqPVOxZR+tmMPLs5U8YWud0xh8xsczIYz6Wq3a1a6+GXK+MX
+	 mwYAWv4piwUmWwyfg22GIQ9kvhwjnEWwGF+lu1nDD7vlzdMAI02+Cf22q6f8pzclwDyKY
+	 YWQNdaUu4zElU0EPUHI/jqwfe4vgzabrSl7z/TYqII82dZMSMFQe8U/AzzICdsj9gwQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KBczL63M;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=d-silva.org;
+	spf=pass smtp.mailfrom=d-silva.org;
+	dkim=pass header.d=d-silva.org header.i=@d-silva.org header.a=rsa-sha256 header.s=2025a header.b=j02+UmPS;
+	arc=none smtp.remote-ip=119.15.109.137
+Received: from www.nmnhosting.com (watt.d-silva.org [119.15.109.137])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 413C6606A327;
-	Wed, 25 Nov 2026 21:03:55 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A0303606A321;
+	Wed, 25 Nov 2026 21:05:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A0303606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=d-silva.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=d-silva.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KBczL63M
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E5981F0089F;
-	Wed, 25 Nov 2026 21:03:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795640634;
-	bh=wmijZHZGefJSPTVTzLoeenYyV4LW+jL6u1GaUmT8KdY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=KBczL63MDO8NaKui23qLsq+m8RKqfIEqrsYUmvcAFGNs3EDpmvkL/ohTqnKyHovEb
-	 NiDodRl7+jqq0P96zGEMZAVy9U7QJdYQ0otP9W3KsxLTMtozbJYwGjghlcXsJCB6fL
-	 2u2Aa5nGchqyw5yWxyKcMEyjQV9NZScpGxJ/jrTDE2S6dQZUUirbVvUf+EgSrDMtTZ
-	 W4wC2s73bu3QV50GNb8hCBW322GJRVVH+loa/37hbX52mfVrFClgHTIpVzyOy35wDm
-	 SzZVy2bHO8zeL9rNQdVNJOsDHHbeeP7QX0Jfd9oDYyB2mvWpFAE1PV4WPgbq3bp3tz
-	 QSaHsQfxJJRyw==
-Date: Wed, 25 Nov 2026 22:03:47 +0100
-From: Alejandro Colomar <alx@kernel.org>
-To: linux-hardening@vger.kernel.org
-Cc: Alejandro Colomar <alx@kernel.org>, 
-	Krzysztof Kozlowski <krzk@kernel.org>, "Maciej W. Rozycki" <macro@orcam.me.uk>, 
-	Geert Uytterhoeven <geert@linux-m68k.org>, Andreas Schwab <schwab@linux-m68k.org>, 
-	Andy Shevchenko <andy@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, 
-	Daniel Scally <djrscally@gmail.com>, Danilo Krummrich <dakr@kernel.org>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Hans Verkuil <hverkuil-cisco@xs4all.nl>, 
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>, Joe Perches <joe@perches.com>, Johan Hovold <johan@kernel.org>, 
-	Kees Cook <kees@kernel.org>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
-	Len Brown <lenb@kernel.org>, Linus Torvalds <torvalds@linux-foundation.org>, 
-	Linus Walleij <linusw@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
-	"Rafael J. Wysocki" <rafael@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Sakari Ailus <sakari.ailus@linux.intel.com>, Saravana Kannan <saravanak@kernel.org>, 
-	Steven Rostedt <rostedt@goodmis.org>, Tom Zanussi <zanussi@kernel.org>, linux-acpi@vger.kernel.org, 
-	driver-core@lists.linux.dev, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, alx+linux-hardening@kernel.org, 
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Subject: [PATCH v7 3/4] string: Document corner-case misbehavior in
- str_has_prefix() for empty prefix
-Message-ID: <c4131a109098b449c67e2f9dc9a82385f6f25cda.1795639368.git.alx@kernel.org>
-X-Mailer: git-send-email 2.55.0
-References: <cover.1795639368.git.alx@kernel.org>
+	dkim=pass (2048-bit key) header.d=d-silva.org header.i=@d-silva.org header.a=rsa-sha256 header.s=2025a header.b=j02+UmPS
+Received: from Hawking.lan (hawking.lan [10.0.1.4])
+	by www.nmnhosting.com (Postfix) with ESMTP id 4203E4C89A;
+	Thu, 26 Nov 2026 08:05:32 +1100 (AEDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=d-silva.org; s=2025a;
+	t=1795640732;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=+7MuY/6UP2Bsh775A7XrC/mnlab/U/JJYl8O0EaI6UA=;
+	b=j02+UmPSaqgpY9N9yYLyP5D4k9ACgdBnURpGXfJ2NTjIMMmsDjOSOhn0nvp7N3scF20geo
+	d6biDUYWKWaSA3oOOpJSOlXppJYfguRIR7qwORiOKcWeR2n6b7T+eRd3zaIyYAxKnRVYry
+	xNR/6z4/a3p9QSRPJG0Edt1KdF9wE4T6llSiBl9bMxPqApBFpHUxFk1jzar5HwoQM5GwQz
+	uPBUeNP2epTo/YTunxSNwey2bgA3flRNN9bl8chnLuBsvOq5AgtEHS0AX16FuMaj9K6xuo
+	YNTHQHtHo8NjR1Xc/q6YXV4/tfMYI+saS7f0SHKefS+iE6gT+WYZLz1kEevYQA==
+X-GPT-Reason: legitimate; this is a technical software patch submission
+	(Linux kernel style) matching the sender's personal domain
+	(alastair@d-silva.org) and the recipient's personal domain
+	(alastair@d-silva.org); the content is highly specific to hardware
+	driver development (Allwinner A733 TRNG support) rather than marketing
+	or a scam; there are no URLs, sense of urgency, or requests for sensitive
+	information; and the message-ID is consistent with the sender's
+	domain.
+From: Alastair D'Silva <alastair@d-silva.org>
+To: Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S . Miller" <davem@davemloft.net>,
+	Olivia Mackall <olivia@selenic.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>
+Cc: linux-crypto@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Alastair D'Silva <alastair@d-silva.org>
+Subject: [PATCH 0/4] hwrng: sun55i-ce: Add Allwinner A733 CE v5 TRNG support
+Date: Thu, 26 Nov 2026 08:05:28 +1100
+Message-ID: <20261125210532.695823-1-alastair@d-silva.org>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,92 +83,37 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="xjztcgxaxyz6bkqq"
-Content-Disposition: inline
-In-Reply-To: <cover.1795639368.git.alx@kernel.org>
+Content-Transfer-Encoding: 8bit
 
+This series adds True Random Number Generator (TRNG) support for the
+Allwinner Crypto Engine v5 on A523 and A733 SoCs, and enables it on the
+Xunlong OrangePi 4 Pro.
 
---xjztcgxaxyz6bkqq
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-From: Alejandro Colomar <alx@kernel.org>
-To: linux-hardening@vger.kernel.org
-Cc: Alejandro Colomar <alx@kernel.org>, 
-	Krzysztof Kozlowski <krzk@kernel.org>, "Maciej W. Rozycki" <macro@orcam.me.uk>, 
-	Geert Uytterhoeven <geert@linux-m68k.org>, Andreas Schwab <schwab@linux-m68k.org>, 
-	Andy Shevchenko <andy@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, 
-	Daniel Scally <djrscally@gmail.com>, Danilo Krummrich <dakr@kernel.org>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Hans Verkuil <hverkuil-cisco@xs4all.nl>, 
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>, Joe Perches <joe@perches.com>, Johan Hovold <johan@kernel.org>, 
-	Kees Cook <kees@kernel.org>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
-	Len Brown <lenb@kernel.org>, Linus Torvalds <torvalds@linux-foundation.org>, 
-	Linus Walleij <linusw@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
-	"Rafael J. Wysocki" <rafael@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Sakari Ailus <sakari.ailus@linux.intel.com>, Saravana Kannan <saravanak@kernel.org>, 
-	Steven Rostedt <rostedt@goodmis.org>, Tom Zanussi <zanussi@kernel.org>, linux-acpi@vger.kernel.org, 
-	driver-core@lists.linux.dev, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, alx+linux-hardening@kernel.org, 
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Subject: [PATCH v7 3/4] string: Document corner-case misbehavior in
- str_has_prefix() for empty prefix
-Message-ID: <c4131a109098b449c67e2f9dc9a82385f6f25cda.1795639368.git.alx@kernel.org>
-References: <cover.1795639368.git.alx@kernel.org>
-MIME-Version: 1.0
-In-Reply-To: <cover.1795639368.git.alx@kernel.org>
+Dependencies:
+Patches 3 and 4 depend on the OrangePi 4 Pro bringup series:
+  [PATCH 0/3] arm64: dts: allwinner: Add Xunlong OrangePi 4 Pro support
+  Message-ID: <20261125124407.4098345-1-alastair@d-silva.org>
 
-For an empty prefix, this function returns a value that can't be
-distinguished from a non-matching prefix.  This is wrong, since an empty
-prefix is present in every string, and has resulted in bugs in code that
-called this function without knowing this issue.  Let's document it.
+Tested on Xunlong OrangePi 4 Pro (/dev/hwrng).
 
-Closes: https://lore.kernel.org/linux-hardening/20261104-fwnode-for-each-pr=
-op-v1-1-6e28fe1c72c4@oss.qualcomm.com/
-Reported-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Signed-off-by: Alejandro Colomar <alx@kernel.org>
----
- include/linux/string.h | 4 ++++
- 1 file changed, 4 insertions(+)
+Alastair D'Silva (4):
+  dt-bindings: crypto: Add Allwinner A523/A733 Crypto Engine
+  hwrng: sun55i-ce - Add Allwinner CE v5 TRNG driver
+  arm64: dts: allwinner: sun60i-a733: Add Crypto Engine node
+  arm64: dts: allwinner: sun60i-a733-orangepi-4-pro: Enable Crypto
+    Engine
 
-diff --git a/include/linux/string.h b/include/linux/string.h
-index a6a1953c52e3..574eaa8ff527 100644
---- a/include/linux/string.h
-+++ b/include/linux/string.h
-@@ -586,6 +586,10 @@ static inline char *strprefix(const char *s, const cha=
-r *prefix)
-  * This is similar to strprefix(), but returns an offset instead of
-  * a pointer.
-  *
-+ * Unlike for strprefix(), if the prefix is an empty string, the
-+ * behavior is undefined.  If you need to support arbitrary prefixes,
-+ * use strprefix().
-+ *
-  * Returns:
-  * * strlen(@prefix) if @str starts with @prefix
-  * * 0 if @str does not start with @prefix
---=20
-2.55.0
+ .../crypto/allwinner,sun55i-a523-crypto.yaml  |  68 ++++
+ MAINTAINERS                                   |   7 +
+ .../allwinner/sun60i-a733-orangepi-4-pro.dts  |   4 +
+ .../arm64/boot/dts/allwinner/sun60i-a733.dtsi |  12 +
+ drivers/char/hw_random/Kconfig                |  13 +
+ drivers/char/hw_random/Makefile               |   1 +
+ drivers/char/hw_random/sun55i-ce-trng.c       | 377 ++++++++++++++++++
+ 7 files changed, 482 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/crypto/allwinner,sun55i-a523-crypto.yaml
+ create mode 100644 drivers/char/hw_random/sun55i-ce-trng.c
 
+-- 
+2.53.0
 
---xjztcgxaxyz6bkqq
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEES7Jt9u9GbmlWADAi64mZXMKQwqkFAmsHTTIACgkQ64mZXMKQ
-wqklvA/6Ap9Ri7kcdvzfNtwbJVUthxoZSckckvrmyHLwILeHI64l3VfEmuDoue/Q
-S8fqB237fLSApWwgRp9uzmaAvJH6r3enGiTQUMvWdO/J94kgkyglx+sZrHmlrKwy
-jInu2V97Ow+1HPatmLpzKUDMRS/vdwBh7YE7ZiLwyi7lfNz7Y42oXiMMc7szchjh
-vY5MFwwqmO4dJ/+oANML4j6DQzQhMXdd12f1FS7+pPO3lKfpJLAa+Q0xQ+BVl/v1
-cs49xeiEfgdd54RAr/SsBDuPl4O6xnskBwjFwCfyr+NLY/0t63+rN0dqKe/J//0D
-me99DUnrT45wHT8sMJY8RF34hRyy0rxSlELHSbNW8iaCmgHzhpF/NNSG1eGFrhaY
-ofJYtsqM7Y45WPfrwOSiIDD4M72VfJwPz+MrVEp4LK7ytbCPB6HvQzjsId1LuEB1
-NaObbwuzDJh32KKqccsppG0SsPJzaiIeGXW2gTO5gcavLyrTh+FbzNrRb0bwugFJ
-42qK8abQ31L+U2f3+r8Ngd+V+jJH5CFqkiGLmI1ahLWlOrzFamMSD8PX/x3URQIL
-SwGStE8t1Vqu8KCZ8KBXx2K30OOuWtdEL9sEgitNeTin21FytMTI7jq03xqboS++
-J1JrDJTsGM/Fk4P287kbl8vGH61m/wbiI6VJp0g/CnKqtiArocY=
-=yTzW
------END PGP SIGNATURE-----
-
---xjztcgxaxyz6bkqq--
