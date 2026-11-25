@@ -1,55 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.180
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795611535;
-	b=k9xPT+7ycdOoBJrkjAOTLe1eM4levm39GJubKHEUtpUO0nSk8U1VfaeAc8M5teVPrIaC
-	 KqvnCF+OmgEr/dD3puS7KLso3cgyRvhREWva6MI6Kbjrp8JJLRORyID03FmU+5Mr7iucK
-	 sM8a9bkvy9pOpr5A5k78j52SUZFaLy1B7NeKkzjQn19MeyM3PDDA0JvztGZDnRBbQr2rL
-	 5QZqCrDd4sXtwauR2EWo4zL9kxeSbqYVcLvxNOI3KuYx/mOztoyPk1TI+QAF4SY561rGw
-	 pW7MU+gLYu+vH8KqpgFQ0pAFyChd+QF4ODZbnyoQuiEPOW9hDDT/XYhgrxRs2tB/5Lg==
+	t=1795611537;
+	b=EtJa6iqTpW2fa7N2pF5koGOx1csUp4Oy90M4/p1TM23kc5alu3mXJ0XM4nzjPMaFkrBg
+	 8iGi9P3o7ywK7mKVEXGHWGNe1fBC9eJ+UDFbA4ZMsEuFr/Im88nfdZhM2auR/Au2ZI+A2
+	 KXjFFbVlpDlGSSEMV8YLR5XPNiEXeYvQaoRShnoNNdMYb78wIkoLlvSDJEeOEfQXhsZyu
+	 BHqY1nlQdfvzPNr3fVLfaxjETBl2938wofcDUU9wTArBEHJDlmf/X04b/GliEm5zdY7Z/
+	 CxWEfJyjRkTE3t1XflYu+N/r9+6NAEjIQORruP/qg2+1Rc9F30JST4cMoAYIhIS1fCg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795611535;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=FVmqX9e299gcsPkpyqf7SPDVELCZlYZjwwVu+fBIzo4=;
-	b=gDVI/dmtb5F5xCARi1zU697FGJu+8UkZ8gWiVoxbUh8Ao+VKFIazLll1zQDFTRi0iJFJ
-	 mkg9c2ZX/stY+he9cxibCbqCLulUXfdBjuh+gbDL4gX/d9nJeA0xWYGyUz8Cag2n+IWoU
-	 oPOctNHrg/D0TeeC0WLIeSqXLic27/JiXWEeN9V0j1aluaj7Np+0FFjs6bTLZy+xwHRjT
-	 1FHi4q+//0pxd0NfNLP37VefyaTTzRmIzbvbGnFoSYagVxlPxmPk6UuNMX7+stnmCcS3J
-	 eVhMXFqR4bi/FrSM3UhEcwsOkxNcKgPB+p8vfWcWTXfdEkYSr5aPDIhENn+5z9hZBuA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795611537;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=u6oxRIu4SdFQBMsaAB9eGVbDqvQ/rHbglgjh0h20EkM=;
+	b=1CLfty54rpXyUMhcHy8qYqDiqkSXXiaeB4kujNHZzJg8oqS6QZTVgZYpXKVPV7L6YmO/
+	 85Br+bv5lDqaiJQRo19uNQYCCpIs17hi1Q/sQo/p7y5ZEYAigvs0aBtGFlGlnQWwwtlh0
+	 kO6twqtdSsVOAMPaWwpotkVcBwa2zOIxuWBkPTcKqL6BFtKkRA4jNxC2oToWstJ0VPu4g
+	 +L7NMk3fk54K1qVmKjLhEj53y6bPs/4t9tcmrNeVpmSmtOnHTtUPPD/nOvwHyOxOPpXFw
+	 dpm/ac8vUcWRboDp2aMxav9McvH/wVEDK2RdRtur+J5BOaG7aFRwA7LXUMXgp4bNM6w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=D4d5mx3T;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linaro.org;
+	spf=pass smtp.mailfrom=linaro.org;
+	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b="p/DI/Nj4";
+	arc=none smtp.remote-ip=209.85.208.180
+Received: from mail-lj1-f180.google.com (mail-lj1-f180.google.com [209.85.208.180])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E4635606A326
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 12:58:54 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 814C1606A339
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 12:58:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 814C1606A339
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=D4d5mx3T
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8BDE51F000D8
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 12:58:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795611534;
-	bh=FVmqX9e299gcsPkpyqf7SPDVELCZlYZjwwVu+fBIzo4=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=D4d5mx3Tod8gHVIHaCo2VKjmvMMjuKNYlytVfchc90cIGL51/MA481qFT9XFBXSja
-	 yqLlJSM1PK7PX3/xSqxhsh9eZ8hydZT8RFBFfwJV381baIOEsC78pfvj+5a4mXD7ak
-	 MVPnWQrq+/5m4dCBtswuMukH4CiaxhB+aQhmxxWP6Mt6tPxWSKjn0UpwyQ2JZ0Dfih
-	 QguR1pgW9eSjGcYQo493vbGqAtP3yV+AmuntKw1aUVF6xGZDKELugoX7SgvIe0Qngz
-	 SMhB/lsxiHh8chnzFa59/YVUy4ieydeyJvXXg/49pjhoduqL3HNLLFjvhdIOG2hojs
-	 7OZ6odFPjKygg==
-Received: by mail-lj1-f180.google.com with SMTP id 38308e7fff4ca-3adfcafaabbso51405471fa.3
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 04:58:54 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErHgMXghnACjpFMZ2HiklDIMtSR6ceMo5104TUNOQJFQai31yb6voiUKisKEQcuz9A2s9i23t4gLKak3620=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8bumDomJUx91Xw/+6IXxfkyep4ODmxvkn3UlrBgcCpA2K1noya
-	WqZn4RC2n8p07RZC4mtvyayZB1guV3F9JoT3sFdCKbXoK/hIldDggVNgiwLO0z9akhrvyXMe5Rq
-	WMhoJ4ES4XUQZiiL9tudPfeWi4fcGqag=
-X-Received: by 2002:a05:6512:1102:b0:5c1:57c0:50a with SMTP id
- 2adb3069b0e04-5c1bc6803a3mr5385444e87.6.1795611532957; Wed, 25 Nov 2026
- 04:58:52 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=p/DI/Nj4
+Received: by mail-lj1-f180.google.com with SMTP id 38308e7fff4ca-3ab1e5a01a1so4518581fa.2
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 04:58:56 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1795611535; x=1796216335; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=u6oxRIu4SdFQBMsaAB9eGVbDqvQ/rHbglgjh0h20EkM=;
+        b=p/DI/Nj41CvRYVlg9y550Y0THmM1nyk8wmWmigoBB+no6LIx/8W+/VK5+p+oIzIxAV
+         eFHUc07Hrx+FpwgNuFpWhO4Ju0QZT7jUf5PVOoTG54+Buo8ByjNf9BCMoAt19CwDkCSt
+         Y3fcyPH9dmUmWj5j8c7JyZD8BwuSv9ul+tt8PyFloswbKfmoHFQCUfUlLFNtBtCo4/Re
+         rup0AXGG8sR6XOufLrnxiZ/vWv+Y8nMO72jcepwtKCfnraOwNDFg7mzf9ORl5OtVlNk9
+         cOpKycv0rYpHdwHEhOIepEKfsDDkWPUwiiklPFa5VKVzFglw3f4bzE/08DR3MkmZ5916
+         FOuA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795611535; x=1796216335;
+        h=content-transfer-encoding:content-type:in-reply-to:from:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=u6oxRIu4SdFQBMsaAB9eGVbDqvQ/rHbglgjh0h20EkM=;
+        b=Sfa7gVwl6Q4q0xqIMbJDUlz2YScr++qDu/2x0YYTzi1NnzmQdQ5XuLERewM6hwHSKz
+         Aa+h4bfcQzK4JodKZaejgAPwMe6vBOfhe8oAMj5QYryCB2nfP24eEzQe2CWU0caPjdaZ
+         vYK8yxjV88RiW11i3J7eCehc5bKV+goW5GGtIrc1dd/2S8mQ5Ayp+C97+STrShx0MYuq
+         hHLVBzl4/h9otCCppWJvAJ4qYOVgyYi6usdWxcB6WXvEGOgl1CfIkMVOb6Xo5dR1cSao
+         7GPwtUIh760N2MSjFoxYf7vfdwilKeEeRZ5Do67BmaxccpAeDkMN+f4JyYRp1o3LMAuN
+         knrg==
+X-Forwarded-Encrypted: i=1; AL+hErHbqWYrL0gjknML4gzP8tFgoWQumk8mtXCbSO7XAqztYcdrqDN4bGtcDD26rc4E2HxdHHgYgQcFY3Sq+oQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+pD7CbndyTnpWvph7E+VMXJrty4EROMXzvjPZoPRQNUFmtchSJ
+	UFqWBTQO/p7BXuSV297IXz7cfWEkkICaZLembR02mi2/hekPsJN8BpaXALyBjFF2ZqFrqkciXXe
+	7EATlADM=
+X-Gm-Gg: AZFdTZdIHVHbJIFTBaYmtQkoJmCxEDQ9jBRHHWBv1QizcQaliRkfHRkBilYmRWYxhqw
+	/1uxcFeNWbtBZWxaF9nlESAcH9QVC8vS2VDkg30bUiwUExncKI031a3V0YryuuqSa3TOArzdWMZ
+	9RRXmLZQpFT0/67jpl7dy3IeNDsIq9kdW6RnsBleH+caa8y8gVFO6Iz5gVanbKgD7AM9WX2T2Lr
+	oBYI7B9twoVpgHbsiKmpgsOu2PeDAWc4MtAsmUgTiMk81cpj+aA7uYg5FpQxeXDa+FsNCuZYCbr
+	W4qHVR70Yu3t2ImbXvYNibbj5ayFfBrFQdHwkw7RfIAYieLi9LhGH0mZu167bnxwgsoRtwdnZSa
+	R1lcm+lAzRGotAeJ2RbTqLuz+E7/IOjT8p5bgmYMjvGoIFeSRoSkHX2xc2py0KGb2fW/2m1ryX5
+	9Gbgk7UsPayFsoiW2AYqNAQ/jZx5BRWxQ5pTcs/G11G/ASvZ54C+zt42677466hTbyjobhR0acc
+	IazuXXUwXelUNv0vmL0X8Fie9rgNGGpl/8CCxmxzgafxUahtoKLMlSj2l20BvlpXA5B+ZxrlK1G
+	8QArYhwnOOMzm/+v5JxR2YOP5b35vadtVlJCBr1WLaqw8MV+AqZAvIx8ark7ytkVRtxqJVz2Xuk
+	giZOyceY=
+X-Received: by 2002:a05:6512:4382:b0:5c1:57ce:d4b4 with SMTP id 2adb3069b0e04-5c1bc75212cmr4845380e87.2.1795611534560;
+        Wed, 25 Nov 2026 04:58:54 -0800 (PST)
+Received: from [192.168.1.101] (91-159-24-186.elisa-laajakaista.fi. [91.159.24.186])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5c1bcff87c8sm4512834e87.19.2026.11.25.04.58.54
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 25 Nov 2026 04:58:54 -0800 (PST)
+Message-ID: <2bac2b46-a124-4f41-8a19-7dfe1c936caf@linaro.org>
+Date: Wed, 25 Nov 2026 14:58:53 +0200
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,258 +92,80 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261123-pm-runtime-summary-v3-0-81a966953a81@kernel.org>
- <20261123-pm-runtime-summary-v3-1-81a966953a81@kernel.org> <CAJZ5v0hpnoGw89WHyofLr3SxnrJNs99LnhndeOv245y_LgGWXQ@mail.gmail.com>
-In-Reply-To: <CAJZ5v0hpnoGw89WHyofLr3SxnrJNs99LnhndeOv245y_LgGWXQ@mail.gmail.com>
-From: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
-Date: Wed, 25 Nov 2026 13:58:39 +0100
-X-Gmail-Original-Message-ID: <CAJZ5v0jGBt522c90xDKq_tkAea9kxG3juwcoTemLYr=JHwyhOA@mail.gmail.com>
-X-Gm-Features: Aa3M54qkzgYCu-C4blamcbtptpXU2e-PXH3AIkBR0zn0Zm0nHYMZath8Y3s6Kck
-Message-ID: <CAJZ5v0jGBt522c90xDKq_tkAea9kxG3juwcoTemLYr=JHwyhOA@mail.gmail.com>
-Subject: Re: [PATCH v3 1/2] PM: runtime: add additional suspend/resume metrics
-To: Joshua Crofts <crofts@kernel.org>
-Cc: Pavel Machek <pavel@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Danilo Krummrich <dakr@kernel.org>, Johan Hovold <johan@kernel.org>, Samuel Wu <wusamuel@google.com>, 
-	linux-pm@vger.kernel.org, driver-core@lists.linux.dev, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/7] media: v4l2-event: Allow drivers to provide the
+ event timestamp
+To: "Gjorgji Rosikopulos (Consultant)"
+ <gjorgji.rosikopulos@oss.qualcomm.com>,
+ Loic Poulain <loic.poulain@oss.qualcomm.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-msm@vger.kernel.org
+References: <20261125-camss-hw-ts-v2-0-24c955e43d75@oss.qualcomm.com>
+ <20261125-camss-hw-ts-v2-1-24c955e43d75@oss.qualcomm.com>
+ <3dd61a59-2376-414d-a136-287e2c26a3d6@oss.qualcomm.com>
+From: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
+In-Reply-To: <3dd61a59-2376-414d-a136-287e2c26a3d6@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-On Wed, Nov 25, 2026 at 1:54=E2=80=AFPM Rafael J. Wysocki (Intel)
-<rafael@kernel.org> wrote:
->
-> On Mon, Nov 23, 2026 at 10:07=E2=80=AFAM Joshua Crofts <crofts@kernel.org=
-> wrote:
-> >
-> > The current implementation only logs the total accumulated time a devic=
-e
-> > spends in suspended or active states.
-> >
-> > Add tracking for:
-> > - resume_count : number of successful transitions to active
-> > - suspend_count: number of successful transitions to suspended
-> > - last_suspended_time: duration of the most recent sleep cycle (ns)
-> > - min_suspended_time / max_suspended_time: shortest and longest sleep
-> >   cycle durations to help detect power thrashing (ns)
->
-> I would mention that they would be only reachable through a debugfs inter=
-face.
->
-> > Signed-off-by: Joshua Crofts <crofts@kernel.org>
-> > ---
-> >  drivers/base/power/runtime.c | 93 ++++++++++++++++++++++++++++++++++++=
-+++++---
-> >  include/linux/pm.h           | 16 +++++++-
-> >  2 files changed, 103 insertions(+), 6 deletions(-)
-> >
-> > diff --git a/drivers/base/power/runtime.c b/drivers/base/power/runtime.=
-c
-> > index 4e9c23059a40..17aee68366cf 100644
-> > --- a/drivers/base/power/runtime.c
-> > +++ b/drivers/base/power/runtime.c
-> > @@ -5,6 +5,8 @@
-> >   * Copyright (c) 2009 Rafael J. Wysocki <rjw@sisk.pl>, Novell Inc.
-> >   * Copyright (C) 2010 Alan Stern <stern@rowland.harvard.edu>
-> >   */
-> > +#include <linux/pm.h>
-> > +#include <linux/timekeeping.h>
-> >  #include <linux/sched/mm.h>
-> >  #include <linux/ktime.h>
-> >  #include <linux/hrtimer.h>
-> > @@ -103,11 +105,70 @@ static void update_pm_runtime_accounting(struct d=
-evice *dev)
-> >                 dev->power.active_time +=3D delta;
-> >  }
-> >
-> > +#ifdef CONFIG_DEBUG_FS
-> > +static void rpm_account_suspend(struct device *dev)
-> > +{
-> > +       dev->power.suspend_time =3D dev->power.accounting_timestamp;
-> > +       dev->power.suspend_count++;
-> > +}
-> > +
-> > +static void rpm_account_sleep_end(struct device *dev)
-> > +{
-> > +       u64 duration;
-> > +
-> > +       if (!dev->power.suspend_time)
-> > +               return;
-> > +
-> > +       if (dev->power.accounting_timestamp <=3D dev->power.suspend_tim=
-e)
-> > +               return;
-> > +
-> > +       duration =3D dev->power.accounting_timestamp - dev->power.suspe=
-nd_time;
-> > +       dev->power.last_suspended_time =3D duration;
-> > +
-> > +       /* Update min/max extrema at the exact same moment as last_susp=
-ended_time */
-> > +       if (!dev->power.min_suspended_time || duration < dev->power.min=
-_suspended_time)
-> > +               dev->power.min_suspended_time =3D duration;
-> > +
-> > +       if (duration > dev->power.max_suspended_time)
-> > +               dev->power.max_suspended_time =3D duration;
-> > +}
-> > +
-> > +static void rpm_account_resume_complete(struct device *dev)
-> > +{
-> > +       dev->power.resume_count++;
-> > +       dev->power.suspend_time =3D 0;
-> > +}
-> > +#endif /* CONFIG_DEBUG_FS */
-> > +
-> >  static void __update_runtime_status(struct device *dev, enum rpm_statu=
-s status)
-> >  {
-> > +#ifdef CONFIG_DEBUG_FS
-> > +       enum rpm_status old_status =3D dev->power.runtime_status;
-> > +#endif /* CONFIG_DEBUG_FS */
-> > +
-> >         update_pm_runtime_accounting(dev);
-> >         trace_rpm_status(dev, status);
-> >         dev->power.runtime_status =3D status;
-> > +
-> > +#ifdef CONFIG_DEBUG_FS
-> > +       if (dev->power.disable_depth > 0) {
-> > +               if (status =3D=3D RPM_ACTIVE)
-> > +                       dev->power.suspend_time =3D 0;
-> > +               return;
-> > +       }
-> > +
-> > +       if ((old_status =3D=3D RPM_SUSPENDING || old_status =3D=3D RPM_=
-ACTIVE) &&
-> > +           status =3D=3D RPM_SUSPENDED)
-> > +               rpm_account_suspend(dev);
-> > +       else if (old_status =3D=3D RPM_RESUMING && status =3D=3D RPM_SU=
-SPENDED)
-> > +               dev->power.suspend_time =3D dev->power.accounting_times=
-tamp;
-> > +       else if (old_status =3D=3D RPM_SUSPENDED && status !=3D RPM_SUS=
-PENDED)
-> > +               rpm_account_sleep_end(dev);
-> > +
-> > +       if ((old_status =3D=3D RPM_RESUMING || old_status =3D=3D RPM_SU=
-SPENDED) &&
-> > +           status =3D=3D RPM_ACTIVE)
-> > +               rpm_account_resume_complete(dev);
-> > +#endif /* CONFIG_DEBUG_FS */
->
-> Please move the code under CONFIG_DEBUG_FS in this function to a
-> separate function called by it and defined as an empty stub if
-> CONFIG_DEBUG_FS is unset.
->
-> >  }
-> >
-> >  static u64 rpm_get_accounted_time(struct device *dev, bool suspended)
-> > @@ -1580,6 +1641,7 @@ EXPORT_SYMBOL_GPL(__pm_runtime_disable);
-> >  void pm_runtime_enable(struct device *dev)
-> >  {
-> >         unsigned long flags;
-> > +       u64 now;
-> >
-> >         spin_lock_irqsave(&dev->power.lock, flags);
-> >
-> > @@ -1596,12 +1658,24 @@ void pm_runtime_enable(struct device *dev)
-> >                 dump_stack();
-> >         }
-> >         dev->power.last_status =3D RPM_INVALID;
-> > -       dev->power.accounting_timestamp =3D ktime_get_mono_fast_ns();
-> > +       now =3D ktime_get_mono_fast_ns();
-> >
-> > -       if (dev->power.runtime_status =3D=3D RPM_SUSPENDED &&
-> > -           !dev->power.ignore_children &&
-> > -           atomic_read(&dev->power.child_count) > 0)
-> > -               dev_warn(dev, "Enabling runtime PM for inactive device =
-with active children\n");
-> > +       if (dev->power.runtime_status =3D=3D RPM_SUSPENDED) {
-> > +#ifdef CONFIG_DEBUG_FS
-> > +               if (dev->power.suspend_time) {
-> > +                       if (dev->power.accounting_timestamp
-> > +                           && now > dev->power.accounting_timestamp)
-> > +                               dev->power.suspend_time +=3D now - dev-=
->power.accounting_timestamp;
-> > +               } else {
-> > +                       dev->power.suspend_time =3D now;
-> > +               }
-> > +#endif /* CONFIG_DEBUG_FS */
->
-> Same here.
->
-> Plus you can use dev->power.accounting_timestamp as "now" in the new
-> function after setting it above.
->
-> > +               if (!dev->power.ignore_children &&
-> > +                   atomic_read(&dev->power.child_count) > 0)
-> > +                       dev_warn(dev, "Enabling runtime PM for inactive=
- device with active children\n");
-> > +       }
-> > +
-> > +       dev->power.accounting_timestamp =3D now;
-> >
-> >  out:
-> >         spin_unlock_irqrestore(&dev->power.lock, flags);
-> > @@ -1870,6 +1944,15 @@ void pm_runtime_init(struct device *dev)
-> >         pm_suspend_ignore_children(dev, false);
-> >         dev->power.runtime_auto =3D true;
-> >
-> > +#ifdef CONFIG_DEBUG_FS
-> > +       dev->power.resume_count =3D 0;
-> > +       dev->power.suspend_count =3D 0;
-> > +       dev->power.suspend_time =3D 0;
-> > +       dev->power.last_suspended_time =3D 0;
-> > +       dev->power.min_suspended_time =3D 0;
-> > +       dev->power.max_suspended_time =3D 0;
-> > +#endif /* CONFIG_DEBUG_FS */
->
-> And here too.
->
-> > +
-> >         dev->power.request_pending =3D false;
-> >         dev->power.request =3D RPM_REQ_NONE;
-> >         dev->power.deferred_resume =3D false;
-> > diff --git a/include/linux/pm.h b/include/linux/pm.h
-> > index ef3f1310e749..caa4ba4a65de 100644
-> > --- a/include/linux/pm.h
-> > +++ b/include/linux/pm.h
-> > @@ -747,6 +747,12 @@ struct pm_subsys_data {
-> >   *   state.
-> >   * @accounting_timestamp: Timestamp in nanoseconds of the last runtime=
- PM state
-> >   *   accounting update.
-> > + * @resume_count: Number of transitions from suspended -> active
-> > + * @suspend_count: Number of transitions from active -> suspended
-> > + * @suspend_time: Timestamp when device entered RPM_SUSPENDED
-> > + * @last_suspended_time: Residency of the last sleep period (ns)
+On 11/25/26 14:29, Gjorgji Rosikopulos (Consultant) wrote:
+> Hello,
+> 
+> On 11/25/2026 12:19 PM, Loic Poulain wrote:
+>> The timestamp reported to userspace for a V4L2 event is taken when the
+>> event is queued, which for an event signalling a hardware occurrence is
+>> only as good as the latency between the two. A CSI decoder able to latch
+>> the start-of-frame against the system counter knows that time to within a
+>> few microseconds, whereas the interrupt handler that gets to queue the
+>> event can be hundreds of microseconds late and is not consistent about
+>> it.
+>>
+>> Take the timestamp from the event when the driver filled it in, falling
+>> back to the current time when the field is cleared. Drivers have had no
+>> reason to set it so far, and every in-tree caller either uses a
+>> designated initialiser or memsets the event, so the field reads as zero
+>> everywhere today.
+>>
+>> Signed-off-by: Loic Poulain <loic.poulain@oss.qualcomm.com>
+>> ---
+>>   drivers/media/v4l2-core/v4l2-event.c | 20 ++++++++++++++++++--
+>>   include/media/v4l2-event.h           |  9 ++++++++-
+>>   2 files changed, 26 insertions(+), 3 deletions(-)
+>>
+>> diff --git a/drivers/media/v4l2-core/v4l2-event.c b/drivers/media/v4l2-core/v4l2-event.c
+>> index 9dd2aaa95a67406bda3a257325442888895ed088..a35646c3a5c89febeb072d691ffd7853d9af714a 100644
+>> --- a/drivers/media/v4l2-core/v4l2-event.c
+>> +++ b/drivers/media/v4l2-core/v4l2-event.c
+>> @@ -150,6 +150,22 @@ static void __v4l2_event_queue_fh(struct v4l2_fh *fh,
+>>   	wake_up_all(&fh->wait);
+>>   }
+>>   
+>> +/*
+>> + * Hardware able to timestamp the event itself reports that time in the event,
+>> + * which is more accurate than the moment the driver gets to queue it. Fall
+>> + * back to the current time for the drivers that leave the field cleared.
+>> + */
+>> +static u64 v4l2_event_ts(const struct v4l2_event *ev)
+>> +{
+>> +	struct timespec64 ts = {
+>> +		.tv_sec = ev->timestamp.tv_sec,
+>> +		.tv_nsec = ev->timestamp.tv_nsec,
+>> +	};
+>> +	u64 ns = timespec64_to_ns(&ts);
+>> +
+>> +	return ns ? ns : ktime_get_ns();
+>> +}
+> 
+> I think it makes sense to add an additional field for hardware-based timestamps.
+> Converting the timestamp to the monotonic time domain introduces precision loss,
+> so it's better to expose both to userspace and let userspace decide what to do with
+> them.
+> 
 
-It is better to say "suspension" instead of "sleep" in this comment
-and the two comments below to avoid confusion.
+I support this.
 
-> > + * @min_suspended_time: Shortest sleep duration
-> > + * @max_suspended_time: Longest sleep duration
-> >   * @subsys_data: Subsystem-specific power management data.
-> >   * @set_latency_tolerance: Callback for setting latency tolerance.
-> >   * @qos: Per-device PM Quality of Service (QoS) constraints.
-> > @@ -816,7 +822,15 @@ struct dev_pm_info {
-> >         u64                     active_time;
-> >         u64                     suspended_time;
-> >         u64                     accounting_timestamp;
-> > -#endif
-> > +#ifdef CONFIG_DEBUG_FS
-> > +       u64                     resume_count;
-> > +       u64                     suspend_count;
-> > +       u64                     suspend_time;
-> > +       u64                     last_suspended_time;
-> > +       u64                     min_suspended_time;
-> > +       u64                     max_suspended_time;
-> > +#endif /* CONFIG_DEBUG_FS */
-> > +#endif /* CONFIG_PM */
-> >         struct pm_subsys_data   *subsys_data;  /* Owned by the subsyste=
-m. */
-> >         void (*set_latency_tolerance)(struct device *, s32);
-> >         struct dev_pm_qos       *qos;
-> >
-> > --
-> > 2.47.3
-> >
+-- 
+Best wishes,
+Vladimir
