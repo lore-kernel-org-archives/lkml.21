@@ -1,115 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=68.232.154.123
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795601240;
-	b=cdhSkidAS6WITX0f9RGvXp93fQOIUyIi/LbadPUY8C/8ZX8T7ApYmI7lhnkWuktFO8TU
-	 cDIIRkQz9Ue8hYRMWO72XZ8jgpI8Qj/7Ast+7330BMKu5gmffWceDtYXDGfPBQvQut2pt
-	 aQg5rKp3IuUAm6oP0Lep08jzePs0VDcYtNxPeuKBICX7jCvnE+z6vDt0Q3ffIMrbkdeVr
-	 8Kx9qmS8NWN5LJ1aePuW0F2/QUYkUMCoj3VhOCRhNIIvB47vbxmceYQoXy8B1enoVvRVc
-	 zyg4sYD9QjPNGIilxhyLmmuB9GNY2BkRgd7n+Z2Mot0OHrsW4yGm/POAHdaY4SaFkWQ==
+	t=1795601297;
+	b=Puj7sMaiVXAGOhW6DKteNfD2yErPnQecg0c5jz2SXI0ChRpwH1FKtmdHAqjdctKoFGsp
+	 xsCc33ijnkt0ZuarSXZCmOVfNsLyVuMLOMJzvNIOVVHt3H2nHV5vFvQkYwpt/ApKOrJ0k
+	 8ZqH9Xl4Et4W0oUCRJ+9VaQa0Hi9tByx0NLbL8LByHY+0xQ0+o/s5SxOAx0fA82C9E9Wt
+	 9ua6L5NoycxtGblNIELzh0oAJZ/5vUxCg2hza5wOqARQIFC2cnvIUvaLpoTWV+mqbuXmD
+	 apSyrp+hjTbsrEWlka1du6rOD2sGRq/qzHH+DGbKcxz4cI4VS00oJCc+yne5dzxQa3w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795601240;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=mWx4O9IoqBZXrSxXrPMmLZ9d1NpcNUKfMxyf4VNB2/k=;
-	b=VbPjxYElTnydOkHpzdNpgtlcJSC1hA1My7CYaSH1GUZQCncbs9UWavg1JQwUMHfyZt2r
-	 vPgmtrcn2BjT0ikfnG63udbOSXOhmI7Y015kksaFnf2C6Bq1uZDFLGn7GS2kNEFy7cq58
-	 QDYtJY98nlG2C1gkp9s6nU9a0L+ghwfDh2OkpxyHD42KQA66z3wYsdbZdgyJQ8nsBPahj
-	 nri7lFzt/z6k3wK156OOPH/HVHmA9cHhKiGXxKqH5fMHkN+p7JPlKsT9TbnfKCUeu1A/y
-	 BDCjxd5mGqd055KPuUVZ19tCrIkBBc1kvvYeYzM/B5+EOahZ6rZTcaAkJGJLoARYkmg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795601297;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-Amp-Result:Received:Received:Received:Date:From:To:CC:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=huWNQd8f5dKBY/anqpOcIdlAG1pqKmrF0SOJUgi2ST4=;
+	b=FWppv1hC43lhW15hrcIp+1iEjazQ+cgI7m1FYrUQBidyN4tSELC5A3kZ/J5jPv0K+Sem
+	 vSaUP2gbaJEWKm+EMW5tF5iPbiZ4qedxTD8j6LuLO9z1L6KMsd5HEhbYopMoiA9wPlb4b
+	 nAqN7lMQTCDbe988/3y198hhlmWhBG9A8XDkFDNyMtIbR8kcRTHlul91R3+hKL2KegtUE
+	 PMFlicuqtbN9XYLjB19otcbL7JaVl23dZaVtXScyt+5VQegCyzimnK1Uxjwd0p49gATNh
+	 VtuHAHeqdCQPq5zKtO5+XQOAz7JXDjEEYSmS5kPP615zNLl0Yy4uVRcLFIaICcgjolA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=x9ro8Hlu;
-	arc=none smtp.remote-ip=209.85.216.51
-Received: from mail-pj1-f51.google.com (mail-pj1-f51.google.com [209.85.216.51])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=microchip.com;
+	spf=pass smtp.mailfrom=microchip.com;
+	dkim=pass header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b="vKwm/ysx";
+	arc=none smtp.remote-ip=68.232.154.123
+Received: from esa.microchip.iphmx.com (esa.microchip.iphmx.com [68.232.154.123])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 128CB606A323
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:07:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 128CB606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F1FB7606A31E;
+	Wed, 25 Nov 2026 10:08:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F1FB7606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=microchip.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=microchip.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=x9ro8Hlu
-Received: by mail-pj1-f51.google.com with SMTP id 98e67ed59e1d1-3b3fb193c03so2384234a91.2
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 02:07:19 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795601239; x=1796206039; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=mWx4O9IoqBZXrSxXrPMmLZ9d1NpcNUKfMxyf4VNB2/k=;
-        b=x9ro8HlujGirtS4n7Kiceqz39P8rBYt2AApwczCy7S59DTac/QhGjF+yenBMEx13/X
-         eCCu9ktzaE5ddktgrNbv1KF/0CYetKUTScAiHGiPmje59mF3+4ZbpopnrqxbXGQQOHmI
-         hGKFBEShUq7cDUrceli4dKiwHMrkkMsNMGcqKMcaLfTMc36FHn2QzNeuHz+yMKMc2zjL
-         /yJXtN8BUXeZ/pEiZ4fW4BVILlII4TwcC9QOrToMQ2vON1LNk8jAoozYn10R/FJRv7xe
-         gn6NORYmRatB9Cu1fh3VPmcluhTeADopud+xI5Vz3C5jsIhRX7rY/Nj6r67jQyzWxM01
-         h2Ng==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795601239; x=1796206039;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=mWx4O9IoqBZXrSxXrPMmLZ9d1NpcNUKfMxyf4VNB2/k=;
-        b=InQv6ZzfS5E13vJvtJkMxA/jZWeXQqGY0d9a3t6vPSJ1qZrmlWt8adbZNg1dFsuOTN
-         R0USCG22VEo3tiZArFgwOV4l1S4uO6FKTnxUyttoUF6wOWojD/1nfiL6WECDUGFFoauH
-         vdL6S/E+RkxPY8jJWPBZ32zVpUTHPEGDIIUPTH5SMODVaKqUBcV/xZvltydkeIV9Mojo
-         6334wUA008nnrXEz/Ds+4ToFxem4XGI1Jhb4tg0lW+IziZou/TwGc9FIrL9vXVR/Xo7O
-         F0gAVOveNl2pDu6H4D2hHigNB3P+1wqHk9jTIc1oY33PuOUw0gXTMODulyK/hKcv5TuP
-         R9kg==
-X-Forwarded-Encrypted: i=1; AL+hErHpsbCRBNaH+Sq5DVhuqwW82ocumOvA4Cd2u6/FqtdvCLiTMn7838zz/jJqzzE2CBsT7/zt0jjS4l9ZFl0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+p6pq2/nFdqWwIC/dwZRlVXUwdzoxI3ulU5BXBfNVg2T0JZrK6
-	hZ023VI1MvU0mOMKjtZtl1iibRc88xbM4G1xf9QtjPxReJpkjcttNSz0
-X-Gm-Gg: AZFdTZeT1z3iOyrsLYl1R1Jzb4QqTyNNgnru4+Sm28yNNFm5T76O22dtmVhkoTLFYFw
-	QFRbsHb8dxukq5MzLLA6k70NnB9LvFs/R2yRr4P3sZrGLo/4K2lKAXV97fT5vAiH88lBym3yuK1
-	0mvqFgncZ0lfA6PDIMSPgU/sYO8RZmI9szkFcNPBDzKnf9xCd2BydNfmAFegmJVqktROGSnQGnQ
-	meZpwJU+zkfca41Byt4aauJ4/HPYwoo48F+0cGjSDvmbcJ0EPI9c7gd88iJ/5Ak2d34cy2OBqq3
-	SIeKCbpVZnvaJt4C7l5+sVtW48IKyax/uhQMslwNxgnzeUojTaeHOj9lqdF4XcRKDZY1zwv1dyl
-	WHaa48+WaDIMDT8G4KNfSsfJd1+i/Nqj1bYXNWM2HYVKdxaarJWOS/UCxkpreqrvgEVG4jWWOwl
-	R90jQElEVcp8MQrL1Zxfiu/LLsnBPo7z4CK8JxjiENhC56LPBUkDSFW3Q7BcLqbZQIfzYvdSEwS
-	skJdSANnPmYXz7gJvm/HrnoA0RUjPFRiyrekRW1C34o7W8DD5o9vOtQe9Ebo6m6gz1MfI2wvqac
-	WTj/v/57OHcsPN5jV2q9rMTPXWimshp21tkzYowMNQG/
-X-Received: by 2002:a17:90b:2ecb:b0:3b0:e2a9:3466 with SMTP id 98e67ed59e1d1-3b41c98a1d1mr14557905a91.16.1795601239179;
-        Wed, 25 Nov 2026 02:07:19 -0800 (PST)
-Received: from localhost.localdomain ([240e:b8f:1df9:a600:c693:b19f:ada0:748])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad0b2c4sm26804572a91.4.2026.11.25.02.07.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 02:07:18 -0800 (PST)
-Date: Wed, 25 Nov 2026 18:07:00 +0800
-From: Vernon Yang <vernon2gm@gmail.com>
-To: kasong@tencent.com
-Cc: linux-mm@kvack.org, Andrew Morton <akpm@linux-foundation.org>, 
-	Johannes Weiner <hannes@cmpxchg.org>, Muchun Song <muchun.song@linux.dev>, 
-	Qi Zheng <qi.zheng@linux.dev>, Ying Huang <ying.huang@linux.alibaba.com>, 
-	Chris Li <chrisl@kernel.org>, Baoquan He <baoquan.he@linux.dev>, 
-	Nico Pache <nico.pache@linux.dev>, Usama Arif <usama.arif@linux.dev>, 
-	Michal Hocko <mhocko@kernel.org>, Roman Gushchin <roman.gushchin@linux.dev>, 
-	Shakeel Butt <shakeel.butt@linux.dev>, David Hildenbrand <david@kernel.org>, 
-	Lorenzo Stoakes <ljs@kernel.org>, "Liam R. Howlett" <liam@infradead.org>, 
-	Barry Song <baohua@kernel.org>, Axel Rasmussen <axelrasmussen@google.com>, 
-	Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>, Vlastimil Babka <vbabka@kernel.org>, 
-	Suren Baghdasaryan <surenb@google.com>, Nhat Pham <nphamcs@gmail.com>, 
-	Youngjun Park <youngjun.park@lge.com>, Zi Yan <ziy@nvidia.com>, Gregory Price <gourry@gourry.net>, 
-	"Matthew Wilcox (Oracle)" <willy@infradead.org>, Baolin Wang <baolin.wang@linux.alibaba.com>, 
-	Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, Lance Yang <lance.yang@linux.dev>, 
-	Hugh Dickins <hughd@google.com>, SJ Park <sj@kernel.org>, David Rientjes <rientjes@google.com>, 
-	Yu Zhao <yuzhao@google.com>, Zicheng Wang <wangzicheng@honor.com>, 
-	Tal Zussman <tz2294@columbia.edu>, Kairui Song <ryncsn@gmail.com>, 
-	Xiang Liu <liuxiang.277@bytedance.com>, Ehab Ababneh <ehab.ababneh@intel.com>, 
-	Zhao Zhenzhuo <zhaozhengzhuo@uniontech.com>, Lian Wang <lianux.mm@gmail.com>, 
-	Joanne Koong <joannelkoong@gmail.com>, Kunwu Chan <kunwu.chan@gmail.com>, Hui Zhu <hui.zhu@linux.dev>, 
-	Maxim Muzafarov <maxmuzaf@gmail.com>, linux-kernel@vger.kernel.org, cgroups@vger.kernel.org, 
-	damon@lists.linux.dev, linux-doc@vger.kernel.org, Tianyi Chen <hi@tychen.cc>, 
-	Ridong Chen <ridong.chen@linux.dev>
-Subject: Re: [PATCH v6 06/18] mm/mglru: skip the flags cmpxchg when nothing
- changes
-Message-ID: <627ebddc-87b8-468b-b0c3-0503494f357d@gmail.com>
-References: <20261124-mglru-fg-v6-0-8ffea39934a6@tencent.com>
- <20261124-mglru-fg-v6-6-8ffea39934a6@tencent.com>
+	dkim=pass (2048-bit key) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=vKwm/ysx
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1795601296; x=1827137296;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=+oxUsbUUI6wl3gb8tpPgl9CfUst6l9KNJvinAj8Kgvs=;
+  b=vKwm/ysxVXX9zi6zv35geIpf2tJo7KP57OnDegUpUr7Yz2pmaYfJXpez
+   OUkl1Xbe676k1x3KIpyeQibhir2OohMNHOqGXKah1mrX4gRIwf5VVi3yC
+   IkUphVI1GkvPaq1FJ1cFZuwzxP6i+Uy7+m8XxgUSZOW57APNbbIRY0gGX
+   WELkdIkuM/rrsduQm+tFgg53xCrbHfE/y0d5gGiBN+Lfx0uBit5UZCPFk
+   ncXRimQc1hdAa3OW3ld3rHtbCXJbAQYEPQ5LnrcOdtHs1oOVPWrhvPXl0
+   f5gsazogc23ccdAMQ9U/j8Bwdg+KHaNtagOn7wxYQnwaC2KXSlot7+Drr
+   A==;
+X-CSE-ConnectionGUID: VvsAXqvMTYyfMnYDI+mTpA==
+X-CSE-MsgGUID: 8cOewiq1R/u3NMQhgpJddA==
+X-IronPort-AV: E=Sophos;i="6.27,232,1787036400"; 
+   d="scan'208";a="234072207"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 03:08:16 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
+ chn-vm-ex1.mchp-main.com (10.10.87.30) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.2.2562.57; Wed, 25 Nov 2026 03:08:15 -0700
+Received: from DEN-DL-M70577.microsemi.net (10.10.85.11) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
+ 15.1.2507.58 via Frontend Transport; Wed, 25 Nov 2026 03:08:13 -0700
+Date: Wed, 25 Nov 2026 11:08:12 +0100
+From: Daniel Machon <daniel.machon@microchip.com>
+To: Ian Rogers <irogers@google.com>
+CC: <netdev-bot+sashiko@kernel.org>, <horatiu.vultur@microchip.com>,
+	<UNGLinuxDriver@microchip.com>, <andrew+netdev@lunn.ch>,
+	<davem@davemloft.net>, <edumazet@kernel.org>, <kuba@kernel.org>,
+	<pabeni@redhat.com>, <netdev@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <llvm@lists.linux.dev>, <elkin@google.com>
+Subject: Re: [PATCH net] net: lan966x: Free skb when PTP TX timestamp request
+ fails in xmit
+Message-ID: <20261125100812.gywdqx7zkjelinu4@DEN-DL-M70577.microsemi.net>
+References: <20261119170729.1524516-1-irogers@google.com>
+ <179545939880.3135.6341792822211409455@kernel.org>
+ <20261125004031.1005034-1-irogers@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -119,115 +84,39 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <20261124-mglru-fg-v6-6-8ffea39934a6@tencent.com>
+In-Reply-To: <20261125004031.1005034-1-irogers@google.com>
 
-On Tue, Nov 24, 2026 at 02:52:58AM +0800, Kairui Song via B4 Relay wrote:
-> From: Ridong Chen <chenridong@xiaomi.com>
->
-> folio_update_gen() and folio_set_lru_refs() always end with a
-> try_cmpxchg() on folio->flags, even when the new value equals the old
-> one. The locked instruction still takes the struct page cacheline in
-> exclusive state.
->
-> That is common in practice: a folio mapped by many processes is visited
-> once per mm during a page table walk, and after the first visit it is
-> already in the youngest generation with refs cleared and PG_workingset
-> set. isolate_folio() and the eviction paths also call
-> folio_set_lru_refs(folio, 0) on folios whose refs are already zero.
->
-> Break out of the loop when the flags would not change. The update is
-> complete at the point of that read: the flags already hold the target
-> value, and a concurrent change to them is ordered after it. When the
-> cmpxchg would have succeeded, the value written is the same, so no new
-> state becomes reachable.
->
-> What the patch drops is the retry. A retry re-reads the flags and
-> recomputes new_flags from the newer value, so it overwrites a concurrent
-> update with what this CPU wanted. For folio_update_gen(), a walker that
-> read an older max_seq can lose the cmpxchg against a promotion done by
-> another CPU, and then write its older generation back on the retry.
-> folio_set_lru_refs() can likewise clear a refs increment that raced with
-> it. Breaking out keeps the newer state.
->
-> No caller relies on the full barrier that the locked instruction
-> implied on the skipped path: the eviction and isolation callers run
-> under the LRU lock, and the others (page table walks,
-> folio_mark_accessed(), lru_gen_clear_refs()) only care about the
-> resulting flags value, which is already in place. Note that
-> lru_gen_inc_refs() already returns without any atomic when refs is at
-> LRU_REFS_MAX and the folio is in the workingset.
->
-> Tested on an i7-13700HX with turbo disabled and the performance
-> governor. N processes map the same 2GiB tmpfs file (huge=never) and
-> read every page, then one aging pass is triggered on their memcg
-> through /sys/kernel/debug/lru_gen ("+ <memcg_id> 0 <max_seq> 200 1").
-> Time per aging pass in ms, median of 5 runs of 10 passes each, averaged
-> over 2 boots of each kernel:
->
->   processes    base   patched
->           1    32.9      31.7   -3.5%
->           8   195.1     160.2  -17.9%
->          32   755.8     592.2  -21.7%
->          64  1597.2    1260.6  -21.1%
->
-> With one process, every visit changes the generation, so there is
-> nothing to skip. Before the patch, perf annotate attributes 53-58% of
-> the walk_update_folio() samples to the lock cmpxchg in the inlined
-> folio_update_gen() in this test.
->
-> Reviewed-by: Kairui Song <kasong@tencent.com>
-> Signed-off-by: Ridong Chen <chenridong@xiaomi.com>
-> [kasong: adapted and rebased for the series]
-> Reviewed-by: Kunwu Chan <kunwu.chan@gmail.com>
-> Tested-by: Andrew Morton <akpm@linux-foundation.org>
-> Signed-off-by: Kairui Song <kasong@tencent.com>
-> ---
->  include/linux/mm_inline.h | 2 ++
->  mm/vmscan.c               | 2 ++
->  2 files changed, 4 insertions(+)
->
-> diff --git a/include/linux/mm_inline.h b/include/linux/mm_inline.h
-> index 46beded51c7d..2571b3f01226 100644
-> --- a/include/linux/mm_inline.h
-> +++ b/include/linux/mm_inline.h
-> @@ -233,6 +233,8 @@ static inline void folio_set_lru_refs(struct folio *folio, unsigned int refs)
->  	do {
->  		new_flags = old_flags;
->  		lru_set_refs_flags(&new_flags, refs);
-> +		if (new_flags == old_flags)
-> +			break;
->  	} while (!try_cmpxchg(folio_flags(folio, 0), &old_flags, new_flags));
->  }
->
-> diff --git a/mm/vmscan.c b/mm/vmscan.c
-> index 202e0f874b23..15df5618a3cf 100644
-> --- a/mm/vmscan.c
-> +++ b/mm/vmscan.c
-> @@ -3274,6 +3274,8 @@ static int folio_update_gen(struct folio *folio, int new_gen, int *type,
->  		lru_set_gen_flags(&new_flags, new_gen);
->  		lru_set_refs_flags(&new_flags, 0);
->  		new_flags |= BIT(PG_workingset);
-> +		if (new_flags == old_flags)
-> +			break;
->  	} while (!try_cmpxchg(folio_flags(folio, 0), &old_flags, new_flags));
->
->  	*type = folio_flags_is_file_lru(&old_flags);
->
-> --
-> 2.56.1
->
->
->
+On Tue, Nov 24, 2026 at 04:40:31PM -0800, Ian Rogers wrote:
+> On Mon, Nov 23, 2026 at 10:43 AM <netdev-bot+sashiko@kernel.org> wrote:
+> >
+> > [Severity: Medium]
+> > Will this tx_dropped increment ever reach userspace? lan966x sets
+> > .ndo_get_stats64 = lan966x_stats_get. dev_get_stats() adds only
+> > dev->core_stats on top of what that callback returns, so legacy
+> > dev->stats is never reported.
+> 
+> Good point - dev_core_stats_tx_dropped_inc(dev) is needed so
+> dev_get_stats() reports the software drop alongside lan966x_stats_get(),
+> and it avoids an unlocked increment on dev->stats.tx_dropped as well.
 
-I have done similar tests before, simply skipping the identical old/new
-flags, and was able to get very good results.
+Yes, only HW counters are reported, and the tx_dropped will not even show, so
+converting to dev_core_stats_tx_dropped_inc() is right. There are 7 other call
+sites that also need updating - let me pick that up for my series.
 
-Makes sense to me.
+> 
+> Daniel, let me know if you'd like me to send a v2 with
+> dev_core_stats_tx_dropped_inc(dev) (and netdev_tx_t return types for
+> lan966x_port_ifh_xmit() / fdma_xmit) standalone, or if you prefer to
+> fold it into your upcoming lan966x PTP TX series.
 
-Reviewed-by: Vernon Yang <vernon2gm@gmail.com>
+Please go ahead with a v2 with dev_core_stats_tx_dropped_inc(). The netdev_tx_t
+change is hardly net material, so it also fits well within my series, please
+drop that change. I will make sure to credit you on that patch.
 
---
-Cheers,
-Vernon
+> 
+> Thanks,
+> Ian
+
+pw-bot: cr
