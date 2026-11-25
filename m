@@ -1,79 +1,93 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795622062;
-	b=3yAI64fupr/w9TvGZVPl18vgRaULdKmaoJDSFtIlftpaLttJESKwZ0QOd0agJleQck6Q
-	 izRSvSwN5kZOUoEp917QwZriK9/JZZanCkIVKGldLXPItzSfmm/DKnpS2C9FCjKjLYV+3
-	 JbCp54ORKDi+eT97PY/iJlH+1rVntvvyWDtG6v+Zv4S6drgTcqf8nT+9VBJkSF/jNpjIN
-	 07mb4EfhIFf8+rtp0G1EhDLPO6ZqvNz0fXRTgOSmR6sf3R8anvR7RISxPQBe3qleF4/to
-	 4AF6JZcWmkfZQZf6YkhAUWM+Pj8Im3GUHXOhCeaBYe6/cCxG8FZwFBaccXGgR+UFcqA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795622062;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=xMT67eHD7TWDMeWgiNELwOV+EIpusY+P5TIZAyF8yAk=;
-	b=kcebJwwiIuh5yik1VUL0BtdWxDDqby6jkWPGWyLMwJNmdBrqpVw3PU606DKriKO99WG0
-	 8Ce0ZYJjedLgv6aN2gjhIVSNVEo3Zevu0vr+z1LXptQlthg5V7zeTiEpKfVMkQDB8g3GD
-	 twmdIHtfe1lQ6bZDtgoI/6ld1VZz7UYUTiWdaZt8NO2U4Nyt9me0Sc6UD0pPrFcT6imph
-	 LsQdyZ9ndk762tA7VBHJu0cD8of/nBagiOYv2Fznqf5e1YHrzrO4aCjET4ElD3U4TRIXr
-	 Qn3Y97BQS47woAZrfDOKEw4rBHRRcl1y7f9ya2woqfgXL0MZzZeS0pmRjcCOSt+2rkg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gez81Hi5;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.20
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795622064;
+	b=D8fJHufCm+sEm8v2Ue7llntMqWIgPSztp01VKlypmSWnhPjV5AkPCVxWcZHr3W3gLbg3
+	 82PRzIUoMUagYF79gLw7NWGn/f/ztroePkz55s5ZoY+wbFmrF9wFjntnkCBCZWn1gb3gX
+	 BSCOyDZQYNS7ENwgvEPRW9M/70Xerb+NpVHUs1IK2B9XwxyNtPbyds521peIeQf2Bhtlc
+	 3/bKuu6yU8rH/nwh+uwJLCd0HW3VSXqMLaxN2zP5IFbqp/IeaTp1r2XGI/bo1hGOF9w7V
+	 PWddAhEKv3kaRZakO6w0rYxW9Nl1R1qP0WeMt9KTGznQswAhJqQeeH8HewcdcyuNyzg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795622064;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
+	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To;
+	bh=3FlJZ/CAWurtSaOLBMEz6RZ4/h9sq0M8KRdP3OxNTL4=;
+	b=2IcihRC6RWMFnJMIVd6WKPQ5G5eWryC7TgpM60o3J1UghEhKjGFjye5Rifp6jB7Ng0KX
+	 MNphWqt6EIH7ICrNKt/um4H0KP9Pbiwb13AJDgKVMGgd/PZhT3u6K6J8TGPrgdiMYIHxI
+	 B8aieAUYXB9QeSujKC3wzVYe9IV84bVfjyAvbBwdCphJNARFOEcPKlRPh8KtaTQnwaJ74
+	 YC7mSmLTsqEisRh4MOvR9LgwTQ/xQFignvmHs4UWR6VL1/jYoOT0QeTINlIPl8SITaUaN
+	 wty18e0ZpXi6Wr++rcCzjYOq888ECo9JdhqTRpHAS1klnNO7QctGpfZ59J1ULqWWcAg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=hDk78Ybo;
+	arc=none smtp.remote-ip=198.175.65.20
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.20])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 81965606A692;
-	Wed, 25 Nov 2026 15:54:22 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EFDA5606A336;
+	Wed, 25 Nov 2026 15:54:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EFDA5606A336
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gez81Hi5
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795622062;
-	b=yHAeQKFci/GiX/U6hcCHVCyWCD1Kf4qEWADORgPfqTFWpyQbTn8gThLC24c586GM8XUz
-	 7TwC2vo/Qt5kTD7aI+pxv/zNkUCEn/osCPu80foCloAcAjzUVRX94iXrou+7vQBUwRTYd
-	 UA6Ktix1aZmfDiCLLHCFT6a36xU900ZgvmkYsGkgGCCYH+ocdIxo9BQjQ3pkZQ+axtU8e
-	 i3hyEvnDCyBi8G4Sih8t3EeNvUdXvHLqrKJrVuNAbeuv3tgpVRH6lGeEP7k5Y+wFcQV3I
-	 n6JxeWuzSczeLtiWkvoRqp+xuCri659SXiOLzMCwqwQ+4EU9EQR+VLFh8eDuZOSSWZw==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795622062;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=xMT67eHD7TWDMeWgiNELwOV+EIpusY+P5TIZAyF8yAk=;
-	b=0XaXnc4s2k4r0t8zgK2BNnUluqx0QdifLeTRp6Fky+poBfhrxDABUwCPAGQRn51eAPhD
-	 KE8I+1xsC03WEzcv8Ax2i303fRgbLgOJ5/NqcZqjlgx8ASOFvjfgxQBcPf6Fid6OEQPAt
-	 CDh2NDqulzh+ysF9Uk/GeSg0rgsrbyRPMaubJqY9ylgIfE4CXSwhg06EpFTL8q+eXD4b2
-	 Kx7a+Y+Ggm7q2oT/ruGFtl96+VaybfEWxIL/N2j0qreIEdtQukttncJv5pz5jwNWVulaP
-	 SF0f/8y9FqgLph+cs7eYrmKQMCGBr2vDg6ChCdO5JmzXQwLQCdSva/3S24zhcoSX7Cw==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 561B21F000E1;
-	Wed, 25 Nov 2026 15:54:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795622062;
-	bh=xMT67eHD7TWDMeWgiNELwOV+EIpusY+P5TIZAyF8yAk=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=gez81Hi5mTfojEI9HENJRhXViVN0no7/mZ/8VZZgznFaT0o/WtPydWckatMOB4zax
-	 I3CADck5MOXnWVAkhYWDDrCH2vGLMILhsdlWnmxryxLf6vtR/GCezk/wWZsDAM6ohS
-	 XMRI7wiU09vyFheFOBmtIX+mg0xzMNrmgso9qJlakEjxPqWaeN3+AkWj1Lth39Gkmi
-	 mxUTTOgY6ScpkRlWSGMLBaiBwMfi4ml5jQbXEFlEHjE4g5q4ZjiZLMxMD6s2iwmS+d
-	 haibQBGw88Daq8QPQEraXBrti6H4kNvng1lfQTK5Q1fLVW8hsHn6QPkxCib2IDSu3o
-	 qNuKXxfqjtF1w==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id D442F4CF4C;
-	Wed, 25 Nov 2026 15:54:08 +0000 (UTC)
-From: Kyle Hendry via B4 Relay <devnull+khendry.reliablecontrols.com@kernel.org>
-Date: Wed, 25 Nov 2026 07:53:45 -0800
-Subject: [PATCH v3 3/3] ARM: dts: renesas: r9a06g032: Add #reset-cells to
- system controller node
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=hDk78Ybo
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795622064; x=1827158064;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=hjSr7SgRgTbE6i2Ru3XkpgPQfpXJyuH/UfVwCd63LqI=;
+  b=hDk78YboAlJrTCqen6UVAlItKVyKJAhOQCxbDDokc5w+6o3lJZAix+fG
+   x7ubLVvpOiZ6jtcsNBCLefbsztk9t2ZKCM5hzI2JUwlLDqJa8ZVgmFlid
+   OedPDu+slpWq4bYNOp2YtFU9SKZA4V/pGedAXxGR5XHvDONUbzpMyzoUd
+   1g+WTJCI3fvB7oYec8VirW2oN30uXXS/KnnekCxuHu+BW1YA30CmBQZjF
+   a+FkPmVGNKx2J173ZEYY4vSTDGRhHGxdk6j+CPVu+U736qGF/XvKBX4QQ
+   XuhaNt9syV89i3Y5RvQRah2cz95KM0VZHmO9edLMmisNxq7oPSbriTCGI
+   Q==;
+X-CSE-ConnectionGUID: y9tw+EBNQ/6wqbvE3mL0NQ==
+X-CSE-MsgGUID: QsFf+sV1TvSsMhnLbgPxmA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4562623"
+X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
+   d="scan'208";a="4562623"
+Received: from fmviesa011.fm.intel.com ([10.60.135.151])
+  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 07:33:04 -0800
+X-CSE-ConnectionGUID: ayMkt3kPQRSYl1gL5vV2Zw==
+X-CSE-MsgGUID: cogWUJDbRDWJN0vYyqCcrw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
+   d="scan'208";a="13698255"
+Received: from black.igk.intel.com ([10.91.253.5])
+  by fmviesa011.fm.intel.com with ESMTP; 25 Nov 2026 07:33:01 -0800
+Received: by black.igk.intel.com (Postfix, from userid 1001)
+	id 3476D98; Wed, 25 Nov 2026 16:33:00 +0100 (CET)
+Date: Wed, 25 Nov 2026 16:33:00 +0100
+From: Mika Westerberg <mika.westerberg@linux.intel.com>
+To: Tobias Heath <heathtobias@gmail.com>
+Cc: Andreas Noever <andreas.noever@gmail.com>,
+	Mika Westerberg <westeri@kernel.org>,
+	Yehezkel Bernat <YehezkelShB@gmail.com>,
+	Sukhdeep Singh <sukhdeeps@marvell.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	linux-usb@vger.kernel.org, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] thunderbolt: add opt-in to preserve tunnels across
+ s2idle
+Message-ID: <20261125153300.GI191152@black.igk.intel.com>
+References: <8fbb5876-e556-45a1-96b5-4a8061de9e5d@gmail.com>
+ <31d3413a-9aa0-4208-8e15-3ba85829ef79@gmail.com>
+ <20261125132228.GE191152@black.igk.intel.com>
+ <a08cb3e1-10a0-4a35-9258-cd510b91985e@gmail.com>
+ <20261125143531.GG191152@black.igk.intel.com>
+ <8e87af01-02a8-4714-827a-62c5beb6f4e4@gmail.com>
+ <20261125145207.GH191152@black.igk.intel.com>
+ <d05aa4e7-5c58-4311-a85e-6bfe9c31c62c@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,59 +97,34 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261125-rzn1-miic-resets-v3-3-f25a4b656d71@reliablecontrols.com>
-References: <20261125-rzn1-miic-resets-v3-0-f25a4b656d71@reliablecontrols.com>
-In-Reply-To: <20261125-rzn1-miic-resets-v3-0-f25a4b656d71@reliablecontrols.com>
-To: Geert Uytterhoeven <geert+renesas@glider.be>, 
- Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
- Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Magnus Damm <magnus.damm@gmail.com>, 
- Fabrizio Castro <fabrizio.castro.jz@renesas.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>
-Cc: linux-renesas-soc@vger.kernel.org, linux-clk@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Wolfram Sang <wsa+renesas@sang-engineering.com>, 
- Kyle Hendry <khendry@reliablecontrols.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795622048; l=804;
- i=khendry@reliablecontrols.com; s=20260813; h=from:subject:message-id;
- bh=WWyo4QGHfN4nIjzzAN5Okr3IhbwMhhhW3P0Osmvu8I4=;
- b=2LqyymLuiXNhAm4QhcNkj9gl2+vFRFEU6ggYjzDvTqJ+CweD2lDoMyvjCSKlrQRuopPwuFvuW
- ivgZa7PXyV+DOWSxtu2nm4LREB8+hilgc4y5+ETsszmErVUMSwMUdVF
-X-Developer-Key: i=khendry@reliablecontrols.com; a=ed25519;
- pk=gbK6oghz3qBlBiaGCsEzALLOtj5VklmsuolHQNhDV5M=
-X-Endpoint-Received: by B4 Relay for khendry@reliablecontrols.com/20260813
- with auth_id=946
-X-Original-From: Kyle Hendry <khendry@reliablecontrols.com>
-Reply-To: khendry@reliablecontrols.com
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <d05aa4e7-5c58-4311-a85e-6bfe9c31c62c@gmail.com>
 
-From: Kyle Hendry <khendry@reliablecontrols.com>
+Hi,
 
-Update the rzn1 system controller node with cells for the reset controller
+On Wed, Nov 25, 2026 at 03:16:26PM +0000, Tobias Heath wrote:
+> Mika,
+> 
+> That's clarifying, thank you — I hadn't understood the two-paths
+> distinction. The behaviour I want on lid-close is Path 2 (runtime-idle S0ix
+> / Modern Standby), not Path 1 with the TB fabric preserved. My patch is a
+> workaround that patches Path 1 to behave like Path 2, rather than using Path
+> 2.
+> 
+> On AMD Ryzen AI 9 HX 370, I'll inspect amd_pmc debugfs (I assume the AMD
+> counterpart of pmc_core) to confirm whether runtime S0ix is entered when the
+> system is idle, and whether any particular device is preventing it. If Path
+> 2 can be made to work on this hardware, the TB patch is probably not needed.
+> I'll drop it in that case and keep only the atlantic fix.
 
-Reviewed-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
-Signed-off-by: Kyle Hendry <khendry@reliablecontrols.com>
----
- arch/arm/boot/dts/renesas/r9a06g032.dtsi | 1 +
- 1 file changed, 1 insertion(+)
+Yea, it's not exactly trivial to get all the ingredients right but distros
+typically have all the drivers + firmwares shipped so that may be good
+starting point and just see what is missing (if anything).
 
-diff --git a/arch/arm/boot/dts/renesas/r9a06g032.dtsi b/arch/arm/boot/dts/renesas/r9a06g032.dtsi
-index 5455dccfbdd0..f2bf087f7ad2 100644
---- a/arch/arm/boot/dts/renesas/r9a06g032.dtsi
-+++ b/arch/arm/boot/dts/renesas/r9a06g032.dtsi
-@@ -146,6 +146,7 @@ sysctrl: system-controller@4000c000 {
- 			compatible = "renesas,r9a06g032-sysctrl";
- 			reg = <0x4000c000 0x1000>;
- 			#clock-cells = <1>;
-+			#reset-cells = <1>;
- 			#power-domain-cells = <0>;
- 
- 			clocks = <&ext_mclk>, <&ext_rtc_clk>,
+> Would you prefer I withdraw PATCH 1/2 now and respin as a single-patch
+> atlantic submission, or leave the series open while I investigate?
 
--- 
-2.53.0
-
-
+I would leave the TB patch out of it because in that shape it's not
+something I'm comfortably taking as is anyway.
