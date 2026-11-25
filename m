@@ -1,74 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.200
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=60.244.123.138
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795587392;
-	b=oQwtMvSzxISStxs3NsjUt30hGXg6dyXDJbzTbwQSw6dKL95BvIOVrmpQOOJeeHzXJXfh
-	 bXg+RWLzCX+smJSLeGO13JHHFzddVvdcLEeuCjh74pqVUXByCP2cy1LrjGH/xI21HWoD2
-	 InQ+3SuBBmLg0KYXN8nkj7r7PkG2i50BRvTP2mXujxRsWKHt01Fu5xUcEPAdNOY/LWB/L
-	 Z1MK6KxM6caplDpYStJOG7LZDAI5PjR57xxRRZsXUEs1h9GFt46reiSC2ZI9+9PGVp4VL
-	 cnV5GjCQfKOC1XHlmDEfw44GwTV1n9AIzAFTnSqnSnkhaJ3E8yn18GoaQekwJYzdI4A==
+	t=1795587388;
+	b=dbJ3KBG4xxysYNGY1kC0tRzd/AN10705i91a/Piilvtqx+MgyarTvIqVavpE1TFHnXZm
+	 PQ55l2+b6OzfEs6yD8tEdZdu9UsNNe3mkzR/nXHrHXjQKSv8Gya0D4+/PyKOdDaFdyUKo
+	 z8bldoJgv6U/U4+ySoVeVIbb99JXOKigz4rh3ieh2dtJO3TYMdHbNOtyogijSmQ5DUmqf
+	 ULpsjv9IFh3OZIec8MqYsdmSY5sxro1sjBv4T1u4eO0yI5+/ImgxgR4rd2yvhQ//V5/J0
+	 R13wxoS7AWzJ2LSyc8e40yb8H2QW3g8Qtx908LqRb9IQ6MHKDyNOnDDkiCunJcTl7tw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795587392;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Received:Date:In-Reply-To:Mime-Version:
-	 References:X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=ziD/5SVNpVvJrFTksFhEkRTwEv+vEsuDld5BMClPtX4=;
-	b=GUFYKrY8SW5JqtM8x734PnETP1Q2UeboVInyPxyzSKse4DpdMTt5hUojFAvMuKgcRWv5
-	 Uq31xwMyAVjc/DYaS5tZEmi04IQA7PcJPra26Y3i61NCS1Ca437DXyyEGwJtQLFga6+oq
-	 V2xWdXo3nk7Vs/GGYrh54D3Cg/fsQsgI7GG5OKBIVC+hxYsHkujnT4/keE0XlyXEWtjC3
-	 P+oP4Ex5g+V7zxzqqc67DX2xWJV3/+0Xc9yTFL127ntiNFtCdmJMsZNzvrRo/BWVQr5rW
-	 fcWrRaaxR2dYxmxv9dX6cqjD1s3s9VPD1tun2JujehEB7wQmNwDjd1Z+ejjjVYNZNTg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795587388;
+	h=DMARC-Filter:X-UUID:DKIM-Signature:X-CID-P-RULE:X-CID-O-INFO:
+	 X-CID-META:X-CID-BVR:X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:Received:
+	 Received:Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:
+	 Content-Type:X-MTK;
+	bh=YUv16SrYzKKD3UA4yBxILMFKnt2taw8dsCdRPnHsbeY=;
+	b=oRmNBgmw+HJ+NbKTcAp2Q4+/6t9qmgxCYMgyo8OanO6FL5tvh/ZD3pJNcpfLAdxeOxse
+	 QfIg8aoNVZOeqeV21MPRY7fohj3hh34fmMiXbfvNZpgBHV8jIdoxZF6Ea3hnIQa3s8k0y
+	 MfT1I8oGHD7vTXFkNAdd2//icqHqrDL3sKTt7zkXH7jD+mj99j7P1Hh1FjaWBvn8mG98F
+	 8JiJwrekL5Ix6k1eYzb8uJZ5WlOjBpIts4vPX3j+oVi8y4OIbR2HgmkV/o8x03FCuaKQs
+	 BG4ShX+G6OdUGNrGFNvfxsWtzoheXI6zNLRv/1KuL/uCFWX1KCoqgI5VFWzyd1x3OrA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=NEnG92tt;
-	arc=none smtp.remote-ip=74.125.82.200
-Received: from mail-dy1-f200.google.com (mail-dy1-f200.google.com [74.125.82.200])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=mediatek.com;
+	spf=pass smtp.mailfrom=mediatek.com;
+	dkim=pass header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=sGES3IRD;
+	arc=none smtp.remote-ip=60.244.123.138
+Received: from mailgw01.mediatek.com (unknown [60.244.123.138])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 737E6606A99E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 06:16:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 737E6606A99E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EA05E6070A15;
+	Wed, 25 Nov 2026 06:16:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EA05E6070A15
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mediatek.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mediatek.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=NEnG92tt
-Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-3846d5f54c1so6513715eec.1
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 22:16:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795587392; x=1796192192; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=ziD/5SVNpVvJrFTksFhEkRTwEv+vEsuDld5BMClPtX4=;
-        b=NEnG92tt6kO9bt4FCS99WQkK3qEJBec9HLuvC1SAcRCNgTrKeerNcK+hVj49d2m/JZ
-         coDBMXgoc+U6nwekXKyWRlltsBXvV/YamFeRUhbCMyrdaXfKGM1pEEkXyf9w4yJIYEaV
-         XAQwF+yZMXk2YLC4N7ws2xKxm36WuimAIp/zOrMZsH8z5Lv1m3KUor7M5HKw6qTz2c67
-         OnnQarZgAsmneZS3i51fo8rGuSR0S7KTBg0g7rIsaBMzgDA1mrs1EL0qF/LU1dT+rct9
-         BiHdpEBzERanUPkb8nCL7/SvIaRmg9z9Z7GjKZmWnRjkEE/mcMv5t6d9IMpXtFQIJn6Z
-         lWOw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795587392; x=1796192192;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=ziD/5SVNpVvJrFTksFhEkRTwEv+vEsuDld5BMClPtX4=;
-        b=b2BlC5bmBWJiZWn2Jy/yYaxWEKyVSY8QyNOKl7Js5bUn5iE/xvEmS02dbSizF0Znth
-         rM4J/zdPZUmVJPLR7rVK004oQ4iww1RmDTgOKCU9iSMe8AxdWAA1OlKais75hmMRD/qx
-         JTSsOQXsb7V4fD73mgOqHjpVP9+CoJN/Lv8FG7IBVuEqYExRDIAMkYqw2NdF10Z56IiD
-         RDQPzVnA4a6GC+Q6kgB7Gaz9yeS5sq9vn/VvMFUAivVZkIxz7vQCAsMylyEkxIQEj5+o
-         fGpVlTBhzIkrkrogJUUblhOX7hpdUwyxvRtE19X/LRPP4a7fbF9JcHMz/ltwTjKlhq+k
-         yVhw==
-X-Gm-Message-State: APuU4Z+PhlAqQAV9ciPsdOCmpjUrkQ79p/dilpz0xhzI5SHxKgrFVa+u
-	GfsSWC8q4MTI9Bx5UbyJZMf5HYJdzc+IRDQgl8WDfr9Q6if/ho+hn81ucPOQDElTYlw5yeYRFpa
-	p00Hx2A/Jz9nRVFKE+9EdA+sIZPKCFKnsUUIZ4RzX4CV8AiiqWXJKDDcrujq5bsN7CRznl/IyEY
-	KAQs4E0llNjIYWe/NPaPSUYtYshqpIqfeEzB18tUjNCNdKzzup+w==
-X-Received: from dyba2.prod.google.com ([2002:a05:693c:63c2:b0:386:9a0b:1f64])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:693c:60d7:b0:386:a01f:a31e
- with SMTP id 5a478bee46e88-386a01fa8a5mr13485947eec.29.1795587391007; Tue, 24
- Nov 2026 22:16:31 -0800 (PST)
-Date: Tue, 24 Nov 2026 22:15:10 -0800
-In-Reply-To: <20261125061523.1540234-1-irogers@google.com>
+	dkim=pass (1024-bit key, unprotected) header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=sGES3IRD
+X-UUID: bcf27350e89711f1b1788b6acf885367-20261125
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=YUv16SrYzKKD3UA4yBxILMFKnt2taw8dsCdRPnHsbeY=;
+	b=sGES3IRDyBleRMHP/1SQNRUCoPj8967R1F9UY4FfD0woq0fUXulkKYL55cHeurCg+aI6p3IXydKg1tLzhVtmfxBlJ+sM2xGp1oFIRbwTbhSna+P6u2fh+XCz84fmnIAAReUaDqbBlO2ppISslgY9rpvg4kE3dBbRfYmUR3GCtbw=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.21,REQID:2da48395-06e6-493d-bd1d-8727a87f69b9,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:b0318ac,CLOUDID:3af9f2bd-9e04-43bc-9c07-a2d8d8315d7e,B
+	ulkID:nil,BulkQuantity:0,SF:81|82|102|836|865|888|898,TC:-5,Content:0|15|5
+	0|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0
+	,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: bcf27350e89711f1b1788b6acf885367-20261125
+Received: from mtkmbs14n1.mediatek.inc [(172.21.101.75)] by mailgw01.mediatek.com
+	(envelope-from <kyrie.wu@mediatek.com>)
+	(Generic MTA with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1822242111; Wed, 25 Nov 2026 14:16:23 +0800
+Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
+ MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Wed, 25 Nov 2026 14:16:22 +0800
+Received: from gcnsap21.gcn.mediatek.inc (10.17.81.22) by
+ mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.2562.56 via Frontend Transport; Wed, 25 Nov 2026 14:16:21 +0800
+From: Kyrie Wu <kyrie.wu@mediatek.com>
+To: Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, Bin Liu <bin.liu@mediatek.com>,
+	kyrie wu <kyrie.wu@mediatek.corp-partner.google.com>, Hans Verkuil
+	<hverkuil@kernel.org>, irui wang <irui.wang@mediatek.com>, Nicolas Dufresne
+	<nicolas.dufresne@collabora.com>, <linux-media@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
+CC: Kyrie Wu <kyrie.wu@mediatek.com>
+Subject: [PATCH v20 01/15] media: mediatek: jpeg: fix jpeg cores' amounts setting
+Date: Wed, 25 Nov 2026 14:16:04 +0800
+Message-ID: <20261125061618.2544386-2-kyrie.wu@mediatek.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261125061618.2544386-1-kyrie.wu@mediatek.com>
+References: <20261125061618.2544386-1-kyrie.wu@mediatek.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,320 +88,143 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-References: <20261125061523.1540234-1-irogers@google.com>
-X-Mailer: git-send-email 2.56.1.831.g720f3f5937-goog
-Message-ID: <20261125061523.1540234-18-irogers@google.com>
-Subject: [RFC PATCH v2 17/30] riscv: unwind_user: Support Minimal DWARF CFI
- and FP user unwinding
-From: Ian Rogers <irogers@google.com>
-To: linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org, 
-	linux-arch@vger.kernel.org
-Cc: jpoimboe@kernel.org, rostedt@goodmis.org, peterz@infradead.org, 
-	mingo@redhat.com, tglx@kernel.org, bp@alien8.de, dave.hansen@linux.intel.com, 
-	x86@kernel.org, catalin.marinas@arm.com, will@kernel.org, 
-	mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, pjw@kernel.org, 
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, 
-	linux-riscv@lists.infradead.org, acme@kernel.org, namhyung@kernel.org, 
-	linux-perf-users@vger.kernel.org, mhiramat@kernel.org, ast@kernel.org, 
-	daniel@iogearbox.net, andrii@kernel.org, bpf@vger.kernel.org, 
-	nathan@kernel.org, llvm@lists.linux.dev, nsc@kernel.org, 
-	linux-kbuild@vger.kernel.org, ojeda@kernel.org, 
-	rust-for-linux@vger.kernel.org, ardb@kernel.org, linux-efi@vger.kernel.org, 
-	maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, shuah@kernel.org, 
-	linux-kselftest@vger.kernel.org, indu.bhagat@oracle.com, jremus@linux.ibm.com, 
-	wnliu@google.com, dylanbhatch@google.com, Ian Rogers <irogers@google.com>
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-MTK: N
 
-Wire up CONFIG_HAVE_UNWIND_USER_CFI and CONFIG_HAVE_UNWIND_USER_FP on
-MMU-enabled RISC-V kernels by adding arch/riscv/include/asm/unwind_user.h
-and unwind_user_sigreturn():
+Different ICs have different amounts of cores,
+use a variable to set the cores' amounts.
 
- - Define DWARF CFI register mappings for RV64 and RV32/compat user
-   tasks (sp=2, fp/s0=8, ra=1).
- - Provide unwind_user_link_register() reading regs->ra for leaf-frame
-   unwinding and ARCH_INIT_USER_FP_FRAME matching the RISC-V psABI
-   frame layout (CFA = s0, RA at s0 - ws, saved s0 at s0 - 2*ws).
- - Implement unwind_user_sigreturn() (and compat_unwind_user_sigreturn())
-   to recover pc, ra, sp, and s0 from rt_sigframe.uc.uc_mcontext.sc_regs
-   across __vdso_rt_sigreturn (whose vDSO FDE omits register rules so
-   libgcc takes its instruction-matching sigcontext fallback), supporting
-   interrupted leaf functions, -fomit-frame-pointer frames, and
-   SA_ONSTACK alternate signal stacks.
-
-Signed-off-by: Ian Rogers <irogers@google.com>
+Fixes: 934e8bccac95 ("mtk-jpegenc: support jpegenc multi-hardware")
+Fixes: 0fa49df4222f ("media: mtk-jpegdec: support jpegdec multi-hardware")
+Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
- arch/riscv/Kconfig                   |  2 +
- arch/riscv/include/asm/signal32.h    |  9 +++
- arch/riscv/include/asm/unwind_user.h | 82 ++++++++++++++++++++++++++++
- arch/riscv/kernel/compat_signal.c    | 45 +++++++++++++++
- arch/riscv/kernel/signal.c           | 57 +++++++++++++++++++
- 5 files changed, 195 insertions(+)
- create mode 100644 arch/riscv/include/asm/unwind_user.h
+ .../platform/mediatek/jpeg/mtk_jpeg_core.c    | 19 ++++++++++++++-----
+ .../platform/mediatek/jpeg/mtk_jpeg_core.h    |  2 ++
+ .../platform/mediatek/jpeg/mtk_jpeg_dec_hw.c  |  2 ++
+ .../platform/mediatek/jpeg/mtk_jpeg_enc_hw.c  |  2 ++
+ 4 files changed, 20 insertions(+), 5 deletions(-)
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index e7891a2a89da..84b61c755db3 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -202,6 +202,8 @@ config RISCV
- 	select HAVE_SAMPLE_FTRACE_DIRECT_MULTI
- 	select HAVE_STACKPROTECTOR
- 	select HAVE_SYSCALL_TRACEPOINTS
-+	select HAVE_UNWIND_USER_CFI if MMU
-+	select HAVE_UNWIND_USER_FP if MMU
- 	select HOTPLUG_PARALLEL if HOTPLUG_CPU
- 	select IRQ_DOMAIN
- 	select IRQ_FORCED_THREADING
-diff --git a/arch/riscv/include/asm/signal32.h b/arch/riscv/include/asm/signal32.h
-index 96dc56932e76..c1cbcb681aa7 100644
---- a/arch/riscv/include/asm/signal32.h
-+++ b/arch/riscv/include/asm/signal32.h
-@@ -3,9 +3,12 @@
- #ifndef __ASM_SIGNAL32_H
- #define __ASM_SIGNAL32_H
+diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
+index e01dd4d80..3caee184f 100644
+--- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
++++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
+@@ -1294,6 +1294,7 @@ static int mtk_jpeg_probe(struct platform_device *pdev)
+ 	struct mtk_jpeg_dev *jpeg;
+ 	struct device_node *child;
+ 	int num_child = 0;
++	int hw_max;
+ 	int ret;
  
-+struct unwind_user_state;
-+
- #if IS_ENABLED(CONFIG_COMPAT)
- int compat_setup_rt_frame(struct ksignal *ksig, sigset_t *set,
- 			  struct pt_regs *regs);
-+bool compat_unwind_user_sigreturn(struct unwind_user_state *state);
- #else
- static inline
- int compat_setup_rt_frame(struct ksignal *ksig, sigset_t *set,
-@@ -13,6 +16,12 @@ int compat_setup_rt_frame(struct ksignal *ksig, sigset_t *set,
- {
- 	return -1;
- }
-+
-+static inline
-+bool compat_unwind_user_sigreturn(struct unwind_user_state *state)
-+{
-+	return false;
-+}
- #endif
+ 	jpeg = devm_kzalloc_obj(&pdev->dev, *jpeg);
+@@ -1302,6 +1303,7 @@ static int mtk_jpeg_probe(struct platform_device *pdev)
  
- #endif
-diff --git a/arch/riscv/include/asm/unwind_user.h b/arch/riscv/include/asm/unwind_user.h
-new file mode 100644
-index 000000000000..d3c12a183ac9
---- /dev/null
-+++ b/arch/riscv/include/asm/unwind_user.h
-@@ -0,0 +1,82 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+#ifndef _ASM_RISCV_UNWIND_USER_H
-+#define _ASM_RISCV_UNWIND_USER_H
-+
-+#ifdef CONFIG_UNWIND_USER
-+
-+#include <linux/compat.h>
-+#include <linux/unwind_dwarf_cfi.h>
-+#include <linux/unwind_user_types.h>
-+#include <asm/ptrace.h>
-+
-+/**
-+ * unwind_user_word_size() - Return the user-space word size in bytes on RISC-V
-+ * @regs: User-mode register state.
-+ *
-+ * Return: 4 for RV32 compat user tasks, or sizeof(unsigned long) otherwise.
-+ */
-+static inline int unwind_user_word_size(struct pt_regs *regs)
-+{
-+	if (IS_ENABLED(CONFIG_COMPAT) && is_compat_task())
-+		return 4;
-+	return sizeof(unsigned long);
-+}
-+
-+/**
-+ * unwind_user_link_register() - Fetch the user link register (ra/x1) from @regs
-+ * @regs: User-mode register state.
-+ * @ra: Output link register value.
-+ *
-+ * Return: Always true on RISC-V.
-+ */
-+static inline bool unwind_user_link_register(struct pt_regs *regs,
-+					     unsigned long *ra)
-+{
-+	*ra = regs->ra;
-+	return true;
-+}
-+
-+#define unwind_user_link_register unwind_user_link_register
-+
-+/**
-+ * unwind_user_cfi_arch() - Populate RISC-V DWARF register numbers
-+ * @ws: User word size in bytes (4 for RV32, 8 for RV64).
-+ * @arch: Output DWARF CFI architecture descriptor.
-+ *
-+ * Return: true if @ws is 4 or 8, false otherwise.
-+ */
-+static inline bool unwind_user_cfi_arch(unsigned int ws,
-+					struct dwarf_cfi_arch *arch)
-+{
-+	if (ws == 8 || ws == 4) {
-+		*arch = (struct dwarf_cfi_arch){
-+			.ws	= (u8)ws,
-+			.sp_reg	= 2,	/* sp (x2) */
-+			.fp_reg	= 8,	/* s0/fp (x8) */
-+			.ra_reg	= 1,	/* ra (x1) */
-+		};
-+		return true;
-+	}
-+	return false;
-+}
-+
-+bool unwind_user_sigreturn(struct unwind_user_state *state);
-+#define unwind_user_sigreturn unwind_user_sigreturn
-+
-+#endif /* CONFIG_UNWIND_USER */
-+
-+#ifdef CONFIG_HAVE_UNWIND_USER_FP
-+
-+/*
-+ * Standard RISC-V psABI frame record stores {saved_s0, saved_ra} at
-+ * [s0 - 2 * ws, s0), with s0 pointing to the caller's stack pointer (CFA).
-+ */
-+#define ARCH_INIT_USER_FP_FRAME(ws)			\
-+	.cfa_off	=  0,				\
-+	.ra_off		= -1 * (ws),			\
-+	.fp_off		= -2 * (ws),			\
-+	.use_fp		= true,
-+
-+#endif /* CONFIG_HAVE_UNWIND_USER_FP */
-+
-+#endif /* _ASM_RISCV_UNWIND_USER_H */
-diff --git a/arch/riscv/kernel/compat_signal.c b/arch/riscv/kernel/compat_signal.c
-index cf3eb33a11e4..53b5be62e393 100644
---- a/arch/riscv/kernel/compat_signal.c
-+++ b/arch/riscv/kernel/compat_signal.c
-@@ -5,6 +5,7 @@
- #include <linux/uaccess.h>
- #include <linux/syscalls.h>
- #include <linux/linkage.h>
-+#include <linux/unwind_user.h>
+ 	mutex_init(&jpeg->lock);
+ 	spin_lock_init(&jpeg->hw_lock);
++	atomic_set(&jpeg->hw_rdy, 0);
+ 	jpeg->dev = &pdev->dev;
+ 	jpeg->variant = of_device_get_match_data(jpeg->dev);
  
- #include <asm/csr.h>
- #include <asm/signal32.h>
-@@ -243,3 +244,47 @@ int compat_setup_rt_frame(struct ksignal *ksig, sigset_t *set,
+@@ -1325,7 +1327,14 @@ static int mtk_jpeg_probe(struct platform_device *pdev)
+ 		for_each_child_of_node(pdev->dev.of_node, child)
+ 			num_child++;
  
+-		atomic_set(&jpeg->hw_rdy, num_child);
++		hw_max = jpeg->variant->cap_q_default_fourcc == V4L2_PIX_FMT_JPEG ?
++			 MTK_JPEGENC_HW_MAX : MTK_JPEGDEC_HW_MAX;
++		if (num_child > hw_max)
++			return dev_err_probe(jpeg->dev, -EINVAL,
++					     "Too many JPEG cores: %d (max %d)\n",
++					     num_child, hw_max);
++
++		jpeg->max_hw_count = num_child;
+ 		atomic_set(&jpeg->hw_index, 0);
+ 
+ 		jpeg->workqueue = alloc_ordered_workqueue(MTK_JPEG_NAME,
+@@ -1462,7 +1471,7 @@ static int mtk_jpegenc_get_hw(struct mtk_jpeg_ctx *ctx)
+ 	int i;
+ 
+ 	spin_lock_irqsave(&jpeg->hw_lock, flags);
+-	for (i = 0; i < MTK_JPEGENC_HW_MAX; i++) {
++	for (i = 0; i < jpeg->max_hw_count; i++) {
+ 		comp_jpeg = jpeg->enc_hw_dev[i];
+ 		if (comp_jpeg->hw_state == MTK_JPEG_HW_IDLE) {
+ 			hw_id = i;
+@@ -1509,7 +1518,7 @@ static int mtk_jpegdec_get_hw(struct mtk_jpeg_ctx *ctx)
+ 	int i;
+ 
+ 	spin_lock_irqsave(&jpeg->hw_lock, flags);
+-	for (i = 0; i < MTK_JPEGDEC_HW_MAX; i++) {
++	for (i = 0; i < jpeg->max_hw_count; i++) {
+ 		comp_jpeg = jpeg->dec_hw_dev[i];
+ 		if (comp_jpeg->hw_state == MTK_JPEG_HW_IDLE) {
+ 			hw_id = i;
+@@ -1592,7 +1601,7 @@ static void mtk_jpegenc_worker(struct work_struct *work)
+ 		jpeg_work);
+ 	struct mtk_jpeg_dev *jpeg = ctx->jpeg;
+ 
+-	for (i = 0; i < MTK_JPEGENC_HW_MAX; i++)
++	for (i = 0; i < jpeg->max_hw_count; i++)
+ 		comp_jpeg[i] = jpeg->enc_hw_dev[i];
+ 	i = 0;
+ 
+@@ -1688,7 +1697,7 @@ static void mtk_jpegdec_worker(struct work_struct *work)
+ 	struct mtk_jpeg_fb fb;
+ 	unsigned long flags;
+ 
+-	for (i = 0; i < MTK_JPEGDEC_HW_MAX; i++)
++	for (i = 0; i < jpeg->max_hw_count; i++)
+ 		comp_jpeg[i] = jpeg->dec_hw_dev[i];
+ 	i = 0;
+ 
+diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h
+index 02ed0ed5b..6be5cf30d 100644
+--- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h
++++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h
+@@ -212,6 +212,7 @@ struct mtk_jpegdec_comp_dev {
+  * @reg_decbase:	jpg decode register base addr
+  * @dec_hw_dev:	jpg decode hardware device
+  * @hw_index:		jpg hw index
++ * @max_hw_count:	jpeg hw-core count
+  */
+ struct mtk_jpeg_dev {
+ 	struct mutex		lock;
+@@ -234,6 +235,7 @@ struct mtk_jpeg_dev {
+ 	void __iomem *reg_decbase[MTK_JPEGDEC_HW_MAX];
+ 	struct mtk_jpegdec_comp_dev *dec_hw_dev[MTK_JPEGDEC_HW_MAX];
+ 	atomic_t hw_index;
++	u32 max_hw_count;
+ };
+ 
+ /**
+diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c
+index 74df7fbad..3c22417f4 100644
+--- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c
++++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c
+@@ -668,6 +668,8 @@ static int mtk_jpegdec_hw_probe(struct platform_device *pdev)
+ 	platform_set_drvdata(pdev, dev);
+ 	pm_runtime_enable(&pdev->dev);
+ 
++	atomic_inc(&master_dev->hw_rdy);
++
  	return 0;
  }
-+
-+#ifdef CONFIG_UNWIND_USER
-+/**
-+ * compat_unwind_user_sigreturn() - Unwind an RV32 compat vDSO rt_sigreturn frame
-+ * @state: Current user unwind state.
-+ *
-+ * Return: true if @state was at the compat vDSO __vdso_rt_sigreturn trampoline
-+ * and advanced to the interrupted 32-bit user context, false otherwise.
-+ */
-+bool compat_unwind_user_sigreturn(struct unwind_user_state *state)
-+{
-+	struct mm_struct *mm = current->mm;
-+	struct compat_rt_sigframe __user *frame;
-+	struct compat_user_regs_struct cregs;
-+	unsigned long sigret;
-+
-+	if (!mm || !mm->context.vdso || (state->sp & 3UL))
-+		return false;
-+
-+	sigret = (unsigned long)COMPAT_VDSO_SYMBOL(mm->context.vdso,
-+						   rt_sigreturn);
-+	if (state->ip != sigret &&
-+	    !(state->topmost && state->ip == sigret + 4))
-+		return false;
-+
-+	frame = (struct compat_rt_sigframe __user *)state->sp;
-+	if (copy_from_user(&cregs, &frame->uc.uc_mcontext.sc_regs,
-+			   offsetofend(struct compat_user_regs_struct, s0)))
-+		return false;
-+
-+	if ((cregs.sp & 3U) || !cregs.pc)
-+		return false;
-+
-+	state->ip = cregs.pc;
-+	state->ra = cregs.ra;
-+	state->sp = cregs.sp;
-+	state->fp = cregs.s0;
-+	state->ra_valid = true;
-+	state->sp_valid = true;
-+	state->signal = true;
-+	state->topmost = false;
-+	return true;
-+}
-+#endif
-diff --git a/arch/riscv/kernel/signal.c b/arch/riscv/kernel/signal.c
-index 59784dc117e4..c0d70220e4a4 100644
---- a/arch/riscv/kernel/signal.c
-+++ b/arch/riscv/kernel/signal.c
-@@ -13,6 +13,7 @@
- #include <linux/resume_user_mode.h>
- #include <linux/linkage.h>
- #include <linux/entry-common.h>
-+#include <linux/unwind_user.h>
  
- #include <asm/ucontext.h>
- #include <asm/vdso.h>
-@@ -587,3 +588,59 @@ bool sigaltstack_size_valid(size_t ss_size)
- 	return ss_size > get_rt_frame_size(false);
+diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c
+index cbea791e6..708f3fbc6 100644
+--- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c
++++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c
+@@ -389,6 +389,8 @@ static int mtk_jpegenc_hw_probe(struct platform_device *pdev)
+ 	platform_set_drvdata(pdev, dev);
+ 	pm_runtime_enable(&pdev->dev);
+ 
++	atomic_inc(&master_dev->hw_rdy);
++
+ 	return 0;
  }
- #endif /* CONFIG_DYNAMIC_SIGFRAME */
-+
-+#ifdef CONFIG_UNWIND_USER
-+/**
-+ * unwind_user_sigreturn() - Unwind a RISC-V rt_sigreturn user signal frame
-+ * @state: Current user unwind state.
-+ *
-+ * __vdso_rt_sigreturn carries an empty .cfi_signal_frame FDE without register
-+ * rules so user-space unwinders such as libgcc take their instruction-matching
-+ * sigcontext fallback. Recover pc, ra, sp, and s0 directly from
-+ * &rt_sigframe.uc.uc_mcontext.sc_regs so interrupted leaf functions,
-+ * -fomit-frame-pointer code, and alternate signal stacks unwind cleanly.
-+ *
-+ * Return: true if @state was at the rt_sigreturn trampoline and advanced to
-+ * the interrupted user context, false otherwise.
-+ */
-+bool unwind_user_sigreturn(struct unwind_user_state *state)
-+{
-+	struct mm_struct *mm = current->mm;
-+	struct rt_sigframe __user *frame;
-+	struct user_regs_struct sc_regs;
-+	unsigned long sigret;
-+
-+	if (!mm)
-+		return false;
-+
-+	if (IS_ENABLED(CONFIG_COMPAT) && state->ws == 4)
-+		return compat_unwind_user_sigreturn(state);
-+
-+	if (state->ws != sizeof(unsigned long) || !mm->context.vdso ||
-+	    (state->sp & (sizeof(unsigned long) - 1)))
-+		return false;
-+
-+	frame = (struct rt_sigframe __user *)state->sp;
-+	sigret = (unsigned long)VDSO_SYMBOL(mm->context.vdso, rt_sigreturn);
-+	if (state->ip != sigret &&
-+	    !(state->topmost && state->ip == sigret + 4))
-+		return false;
-+
-+	if (copy_from_user(&sc_regs, &frame->uc.uc_mcontext.sc_regs,
-+			   offsetofend(struct user_regs_struct, s0)))
-+		return false;
-+
-+	if ((sc_regs.sp & (sizeof(unsigned long) - 1)) || !sc_regs.pc)
-+		return false;
-+
-+	state->ip = sc_regs.pc;
-+	state->ra = sc_regs.ra;
-+	state->sp = sc_regs.sp;
-+	state->fp = sc_regs.s0;
-+	state->ra_valid = true;
-+	state->sp_valid = true;
-+	state->signal = true;
-+	state->topmost = false;
-+	return true;
-+}
-+#endif
+ 
 -- 
-2.56.1.831.g720f3f5937-goog
+2.51.0.windows.2
 
