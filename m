@@ -1,83 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.176
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.53
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795590367;
-	b=q4N5T47OAHglGhRUTCvuyWsDropNCNy+RO9Tm/xCHNeY2kImpIopM7sXEtuGgTyrzGVA
-	 uB3vVv9BCTgevG/BZfCvPGw69VU+ActgU89oanchweheXG1M54UmT3Ezuq09Y5Gg9XmIM
-	 SVn4V+dVjblAUY6nZEBKluIc8fCJ+bhw/dDJLWuEmCcRCJx+WjcL13HmHr+/9ZlzO08uW
-	 /G3QbUdNdhHFVf9A+Tc9jRq8jV4tHn1edNL+i1Q/9vTUGk6THhnpzs/9SrZyi9ySxROal
-	 zzRr36tOeMh4wOZwyx03lSe3Vc6iQ3zM1/RKqYURSbKY7MOXsAcUSGlfrC0Lo097opw==
+	t=1795590372;
+	b=bBHUt4Yr8PccvYfeAJgwwyjiAr1gL7higTRjPAPF2q/DO1DUtvF808lyTqNjXlVZVlEn
+	 31lVJ+/eMEnB2n3pIUAWQlx+IDFHwixH7FZjy7/u8lDm1u6ovfYKyRLOEMtrO2mvmm3Gm
+	 Di1hEMVCoSckZE5941mEIvn4rQMHw9pYsdCwQX4DZv11N6ANpB9Bpu4010zdPbw/OEz7B
+	 KvxZkCD9N2BIK41vLrD7q6Ya5qSmoPswY6CwEGq+hw/142bxSEbBHG3qsbYSsFisUBW9c
+	 qao97zCjajc0nbFTf6tS5GctfFHijCO0bLiUuhzIvoN2vDtP/wTEXvc6nytvjbll1sw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795590367;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795590372;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=2RzE/F0hiuhnUZy+R/vgP/sdimqcsNQo4juhfeJk3ys=;
-	b=rIcwsXd9sN6gILMYN9C6FAQnh9BzcOrurOsLO2ZSMGKnB1bVY8Pmz6iJ3Kh7gE8wD6zQ
-	 4OnfKvwAw8m5QSHs6vokyjxoj1KQKu0o2DdfTIvk5sZcOvudthZ7eRMF567jJiEg841C9
-	 bkm75O1Sz++2/2jIDYXWAFjLn50Uy5LkPQwzu9cInytey2m9QnbuE7R0vIf+O3FLJTi8g
-	 IwCPZ+nHTm0keFC3fSbcds82T31Ja96JyrkdI/mhur33SDpAru7DRhD4w0LkeaMgHuo2r
-	 3OXA6gARGgTuo0jq+W4x2acv++gTkrQG/tV5A2WCtkLXEapsy0FWZK6OjEApZMJsCVg==
+	bh=aJPhEyG57IouNR/chtFBozYSYgr3OK8Rm98T6dNYaMk=;
+	b=zS31VQ0u4u3OQ14cJZEOU/96ymZKX1SIlkEFfRfCmKUVZOSoDnyapvIJ7z4eeVw/zgBN
+	 +DiUJK98hI8gk3gnm3Kk/VWp0CCyO/Gqsgxqjz0NLPo7KAwt4tbDRv35gspE0XtLYr0Gr
+	 npFD4TbA94uaQ+2xSG89tL6jW+QW+H/UeWTrTIFvEWFsrGAGQWd+G+LKhOGCj4JXBtqcD
+	 TcaTrT3GjIkL4qf2IUycrx0osu3RSxaRmTokxKaADOnVvyhhgliKdMjNnDVctv5BXewKj
+	 QfuxkQRUhv8qtKvPWN9nFjWVH8Srw4cnYJ0svEC1h6WsAiWNndYcTSb0E7b7Vpb24oA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lP6HhqcL;
-	arc=none smtp.remote-ip=209.85.214.176
-Received: from mail-pl1-f176.google.com (mail-pl1-f176.google.com [209.85.214.176])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zy0kG2li;
+	arc=none smtp.remote-ip=209.85.216.53
+Received: from mail-pj1-f53.google.com (mail-pj1-f53.google.com [209.85.216.53])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4FAC6606A69D
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 07:06:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4FAC6606A69D
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 39A2A60A2611
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 07:06:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 39A2A60A2611
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lP6HhqcL
-Received: by mail-pl1-f176.google.com with SMTP id d9443c01a7336-2f020d0169eso26289415ad.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 23:06:07 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zy0kG2li
+Received: by mail-pj1-f53.google.com with SMTP id 98e67ed59e1d1-3b3a42a4bcdso2269500a91.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 23:06:12 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795590367; x=1796195167; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795590371; x=1796195171; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=2RzE/F0hiuhnUZy+R/vgP/sdimqcsNQo4juhfeJk3ys=;
-        b=lP6HhqcL6r5uJAL+ZJMg7UQBMPwa5VbXYJeKQNXjNDmf4AOMF1eoeMUbWjlfQFP1Mj
-         C9EYYwx83maEvmHMVYTd909ac/tpABOzvkeKxS9gkwCu3bmt7xNcBwtqjUIJ7Lg5DNTq
-         yNGC/Ihd/VfwgwxqY+PMvfsDh1ZvfQG+TTBnta5FTeb6o9BPtv3yuIlDByT8a3LdmP3Y
-         +DVIEHOKvFCv7KHIjTIgAIaKQQ+Z+Aodkb5DYSFrr5xgp4BTBl7iFqIfqeyKjVpfeI3c
-         M0zrs45+Cr4cwskcPcB4GKWjXDcmYwx8bYWbaxdK75qaQ/1e8+PjKZy6AHSJ5u+XLoK3
-         Sj6Q==
+        bh=aJPhEyG57IouNR/chtFBozYSYgr3OK8Rm98T6dNYaMk=;
+        b=zy0kG2li6wqOrnA6DyZGdlDJjXIYzH4nKAnN+0yv4Dou+pwaNqPyFd+B/0srum2CiV
+         mHxhRXM/XCZoUr+UavjjldIfIVvOeOTn9ucsuJPVZpMnc5X+lpHGtabQWgWbEhOCC4cN
+         nvMWNs733XJIUhwepCB/mPJ4tnOTx8i4wIUkgWNfgW2INuY7nYll++zsw2XepyT+we+K
+         ab8pJF6W9iohH7aniZcEgt5ymlQlVs/yMgVXcObqmlxNNLNgbmYOiyTANgCkYj9F83hx
+         zwEUJKy7xdoOIr5dpBsCdZ01obqYfEc7NJP4hIYyy+8vnM4g/9fn0SC8B7TpN2opJIjP
+         qmGw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795590367; x=1796195167;
+        d=1e100.net; s=20260707; t=1795590371; x=1796195171;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=2RzE/F0hiuhnUZy+R/vgP/sdimqcsNQo4juhfeJk3ys=;
-        b=mPMbrfmzhxwEHga7F2drUh/A7EHs8JzCTLJqiFZYORgcEHWTi3stZlW3hGw5wrsKrX
-         G27xO6h8VcWbUA+AoMxhACEwy+gDAmysjxfVzMLf4uC5U6n022RlgPI2cHnozsrySFE8
-         MIRzP4P9+W44ZWUQoxY47Iw1hemf7mzTZQejqCqvStJ2fZWGCqZRUK7U6ZCc1Awat6N1
-         sPjlMYtgBUpvQXWkTrn9BMToEx0gywAs711fZGTQM7pWp1Q0WPPfMDEgAxOMSYOGiNtW
-         BHkUPqTpDYhPJIBtFKCCVrma3BGD8l4YL1aFABGLvB1LPfUwp0K7eKUP4+HfXkmfhQsK
-         951g==
-X-Forwarded-Encrypted: i=1; AL+hErEv7QP9eI8NZVLt3wJmIfvDCkRLwO8ONZuNjc9OqHFjRBnfaEhRVUK0LW/GRmSfz6TloFLQfE/aI5zKnu0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+JJqQvYOv7qDAORjQC6fsu+sgwgfvT07isUeM41F0TcuFA0y6W
-	NZchpBe7eU4H2dwLW/r2deRTYBLOjrYVWELa+0EaYy3j5shwUg9NyWoW
-X-Gm-Gg: AZFdTZcQPtwCTeYgJE59tjlhHvHgOFunA5mcuSLGRZ1EUxF50A6bUvY9Nf2BXfimQYz
-	KVQdeeMRZGT/aGMCnLNeqbld+Z4liUQ3pUeKi5AEusdlvzs0uYCygJGk1ylixBLuo+k9lSawIOh
-	ryKy0NwzzwYsSZ3VHnU8cr7uX+etvWOzTiNbV884KloeE9rZ5JXdgqBmkAZ16I3tQatSVJXHW3a
-	29gaIw72VdWAJhgFNZnzjJHCNJkOEhxfJYfu0N3w9/hCmMy/2gJLJw3HRyxSmw9wVqXEFZpMpo1
-	Y+tu4nbUWJQpXgr2OaYzrofN8jIP4bLVR8ziCODnis+Wj5Vq7CXRZz37/P2+MdHBKVJ5+eO4uTz
-	tLjDcS+M4WeJVz4zWDhTe1m6XwgtW73VValR/POQy+A+1zJW5CRLVo4QN8CTUxkfljj1VKmC62i
-	8+GQ5M3SVJ5IgWrgnlkc2A1XNSObwXJ9MHu5HekwICfFboQ8zGQrV8cuHrSOYNmQiRDYVFxmjqk
-	0DJA1DwzBOjNiqSHKWBlWCmA5SfYxCIcDMA0PgT1sd24VKGRxJ8M7NlFB6l7P8D1HrGaok/CaTj
-	0SBgZRot9rZ+gxQgCZCI89G6ZLDjXoBN7YM0YtPlDg==
-X-Received: by 2002:a17:90a:dfc6:b0:3b4:e929:f46a with SMTP id 98e67ed59e1d1-3b4e929f529mr2782219a91.25.1795590366557;
-        Tue, 24 Nov 2026 23:06:06 -0800 (PST)
+        bh=aJPhEyG57IouNR/chtFBozYSYgr3OK8Rm98T6dNYaMk=;
+        b=AODDN/SeHp7/qOQ/4LMmz2eVTWuRMw24urbT5uXoPomdPyfxox3V1JEDpLbIMK5wJ8
+         MxEEH0rwq5cC3pu8zwIb7kjZhsiQectQ74ZFI0IUSrzlhRjcKerErskwPOAijCNGJ1QH
+         mtoDCLCapSi6H221keYjG848fbxUHBzosDIgj93ACptRuL+bdfU1F4eYX71ZontFIGX+
+         yEMojutZFncg7NAKq74AvFXKIcjv1dPSNHEgHYDn6RElAmKAiFwvd+8wNCOyHaCoYhml
+         nzmeBeDzDpFVKVGPXhnNKBHrARMPA9KH/1ynvzbgYgEPSJ/xDWNGGotHRnJQfBeE9qL0
+         wS7Q==
+X-Forwarded-Encrypted: i=1; AL+hErG6FuN22NVlT7RaWxqMASEEwvC9S3glTevCQ/AmLMRCIkemzMFpJLQXV++uUhQ3z96a8JdVVwUNhMXZ60o=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/sEaF3gdNJ8m76tvMD5NU15ZNdwu1RkE2k39XDOWVTcRWeg9Lm
+	69Onr/HT633pC9sTIiq53BuulO3VPbl+3g7RF7rXsG8ACyA1lSbRsOQ0
+X-Gm-Gg: AZFdTZe9CUyGbRuxuWBGHB94v66Q61KXY+pd6X3kcxfilH+i/NH0sYmJ7tg1rM+gbEq
+	uBiwN2O400j2gV2b8Qo7mRuiJDfkJNq3WJoz+G1FTmibsBxCMN15dVwuXSURPygrd7Cbnku1dqB
+	wFGRarVAF46fX3360VvL2Eq0myjFcr+UtdUmQu82AHh6OkIi8TjGX2LmOaFoqPXfV0cgJ8uYIS7
+	naIcbNeyOhzRepdAm0+D5W200vr9hJuaWyjgNkW+UXpVbsAT9UmvXKC8crWuKkwj50s2rqntrQ1
+	Me0ZZ6J+5dQ5v0UWl0Jt/mNgZ/V78jPSjbtOzzGMbMfSnuF13lGgahZvouhgXd2uOT3zDtX9p0e
+	j6uy2z5p8MBe1L2CajmnHlGs9IFef6Cu5k4Y5PZh+lCympk6hJUaPjvze7OJ30j6s9ViWZOKKbL
+	yfut8JyvTAIlUAVPpxdYAy9gRvsB1jUJe9TEJ9blDgK09BUPagt5nbUyj5bWl66Mvn79pGxw/PC
+	U1nv7XCLUQu4ewr051oVLg2uR7qy40Ceu7Ivrus5ueSR+WyhaPSLA3Kna8lz2nlBwd98cDUoSJH
+	u/Fixsi1MjmjBPC4B/IPjIRlt3h5971yWr3b1yOumCPKjV3wthsPmF8azP3GOk4=
+X-Received: by 2002:a17:90b:39a7:b0:3ac:8897:7baa with SMTP id 98e67ed59e1d1-3b41c9638b9mr14865389a91.40.1795590371429;
+        Tue, 24 Nov 2026 23:06:11 -0800 (PST)
 Received: from a-VirtualBox ([168.188.125.88])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad0a34asm25898247a91.3.2026.11.24.23.06.04
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad0a34asm25898247a91.3.2026.11.24.23.06.09
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 23:06:06 -0800 (PST)
+        Tue, 24 Nov 2026 23:06:11 -0800 (PST)
 From: Minseo Park <hiyoukou@gmail.com>
 To: clabbe@baylibre.com,
 	mchehab@kernel.org,
@@ -86,9 +86,9 @@ To: clabbe@baylibre.com,
 Cc: mjpeg-users@lists.sourceforge.net,
 	linux-kernel@vger.kernel.org,
 	Minseo Park <hiyoukou@gmail.com>
-Subject: [PATCH 2/4] media: zoran: do not update device state before the format is validated
-Date: Wed, 25 Nov 2026 16:05:46 +0900
-Message-ID: <20261125070548.28989-3-hiyoukou@gmail.com>
+Subject: [PATCH 4/4] media: zoran: add KUnit tests for capture format negotiation
+Date: Wed, 25 Nov 2026 16:05:48 +0900
+Message-ID: <20261125070548.28989-5-hiyoukou@gmail.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261125070548.28989-1-hiyoukou@gmail.com>
 References: <20261125070548.28989-1-hiyoukou@gmail.com>
@@ -103,84 +103,193 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-zoran_v4l_set_format() stores the new frame size into zr->buffer_size
-before it validates the line alignment, and zoran_s_fmt_vid_cap() stores
-the new mapping mode into zr->map_mode before it calls
-zoran_v4l_set_format() at all.  Both fields keep their new values when
-the alignment check later rejects the format with -EINVAL, while
-zr->v4l_settings, which is only committed once every check has passed,
-still describes the previously accepted format.
+Check that zoran_v4l_set_format() leaves zr->buffer_size and
+zr->v4l_settings describing the last accepted format when a format is
+rejected, and that an accepted format leaves the two consistent with
+each other.
 
-That splits the two values which have to agree on how much data a frame
-occupies:
+zr_vb2_queue_setup() sizes the capture buffers from zr->buffer_size
+while zr36057_set_memgrab() and zr_set_buf() program the chip from
+zr->v4l_settings, so a disagreement between them makes the chip DMA a
+frame that does not fit the buffers it was given.
 
- - zr_vb2_queue_setup() sizes the capture buffers from zr->buffer_size;
- - zr36057_set_memgrab() programs the video front end, and zr_set_buf()
-   programs ZR36057_VDTR, ZR36057_VDBR and the ZR36057_VSSFGR stride,
-   from zr->v4l_settings.
+The tests are included into zoran_driver.c because the function under
+test is static.
 
-The ZR36057 has no transfer length register, so those geometry registers
-alone bound the write, and nothing compares them against the allocation.
-An accepted VIDIOC_S_FMT, followed by one that fails the alignment
-check, followed by VIDIOC_REQBUFS therefore allocates buffers for the
-rejected format and then lets the chip DMA a frame of the accepted
-format into them.  With PAL square pixel timings, 768x576 BGR32 followed
-by a rejected 33x24 RGB555 leaves zr->buffer_size at 1584 bytes, so the
-queue allocates a single page and the chip writes 768 * 576 * 4 =
-1769472 bytes into it.
-
-zr_vb2_prepare() does not catch this: it compares the plane size against
-the same zr->buffer_size that was used to allocate the plane.
-
-Commit both fields only once every check has passed, which is what
-zoran_s_fmt_vid_out() already does for the JPEG path: it negotiates into
-a local struct zoran_jpg_settings, calls zoran_check_jpg_settings() and
-only then assigns zr->jpg_settings, zr->map_mode and zr->buffer_size.
-
-Fixes: 11c9c16f7cb5 ("media: zoran: fix use of buffer_size and sizeimage")
-Cc: stable@vger.kernel.org
 Signed-off-by: Minseo Park <hiyoukou@gmail.com>
 ---
- drivers/media/pci/zoran/zoran_driver.c | 7 +++----
- 1 file changed, 3 insertions(+), 4 deletions(-)
+ drivers/media/pci/zoran/Kconfig             |  14 +++
+ drivers/media/pci/zoran/zoran_driver.c      |   4 +
+ drivers/media/pci/zoran/zoran_driver_test.c | 123 ++++++++++++++++++++
+ 3 files changed, 141 insertions(+)
+ create mode 100644 drivers/media/pci/zoran/zoran_driver_test.c
 
+diff --git a/drivers/media/pci/zoran/Kconfig b/drivers/media/pci/zoran/Kconfig
+index 3fb3e27e04a8..fd3d3c2e5ff5 100644
+--- a/drivers/media/pci/zoran/Kconfig
++++ b/drivers/media/pci/zoran/Kconfig
+@@ -24,6 +24,20 @@ config VIDEO_ZORAN
+ 	  To compile this driver as a module, choose M here: the
+ 	  module will be called zr36067.
+ 
++config VIDEO_ZORAN_KUNIT_TEST
++	bool "KUnit tests for the Zoran driver" if !KUNIT_ALL_TESTS
++	depends on VIDEO_ZORAN && KUNIT
++	default KUNIT_ALL_TESTS
++	help
++	  Enable the KUnit tests for the Zoran capture format negotiation.
++	  They check that a format which fails validation leaves the buffer
++	  size and the capture geometry describing the previously accepted
++	  format.
++
++	  For more information on KUnit see Documentation/dev-tools/kunit.
++
++	  If you are unsure, say N.
++
+ config VIDEO_ZORAN_DC30
+ 	bool "Pinnacle/Miro DC30(+) support"
+ 	depends on VIDEO_ZORAN
 diff --git a/drivers/media/pci/zoran/zoran_driver.c b/drivers/media/pci/zoran/zoran_driver.c
-index a053365922c4..99fedac12b67 100644
+index ec8ed5601f50..894653a97fb0 100644
 --- a/drivers/media/pci/zoran/zoran_driver.c
 +++ b/drivers/media/pci/zoran/zoran_driver.c
-@@ -177,8 +177,6 @@ static int zoran_v4l_set_format(struct zoran *zr, int width, int height,
- 
- 	bpp = (format->depth + 7) / 8;
- 
--	zr->buffer_size = height * width * bpp;
--
- 	/* The video front end needs 4-byte alinged line sizes */
- 
- 	if ((bpp == 2 && (width & 1)) || (bpp == 3 && (width & 3))) {
-@@ -186,6 +184,7 @@ static int zoran_v4l_set_format(struct zoran *zr, int width, int height,
- 		return -EINVAL;
- 	}
- 
-+	zr->buffer_size = height * width * bpp;
- 	zr->v4l_settings.width = width;
- 	zr->v4l_settings.height = height;
- 	zr->v4l_settings.format = format;
-@@ -530,13 +529,13 @@ static int zoran_s_fmt_vid_cap(struct file *file, void *fh,
- 	if (fmt->fmt.pix.width < BUZ_MIN_WIDTH)
- 		fmt->fmt.pix.width = BUZ_MIN_WIDTH;
- 
--	zr->map_mode = ZORAN_MAP_MODE_RAW;
--
- 	res = zoran_v4l_set_format(zr, fmt->fmt.pix.width, fmt->fmt.pix.height,
- 				   &zoran_formats[i]);
- 	if (res)
- 		return res;
- 
-+	zr->map_mode = ZORAN_MAP_MODE_RAW;
+@@ -976,3 +976,7 @@ void zoran_queue_exit(struct zoran *zr)
+ {
+ 	vb2_queue_release(zr->video_dev->queue);
+ }
 +
- 	/* tell the user the results/missing stuff */
- 	fmt->fmt.pix.bytesperline = zr->v4l_settings.bytesperline;
- 	fmt->fmt.pix.sizeimage = zr->buffer_size;
++#if IS_ENABLED(CONFIG_VIDEO_ZORAN_KUNIT_TEST)
++#include "zoran_driver_test.c"
++#endif
+diff --git a/drivers/media/pci/zoran/zoran_driver_test.c b/drivers/media/pci/zoran/zoran_driver_test.c
+new file mode 100644
+index 000000000000..424b2fd065c8
+--- /dev/null
++++ b/drivers/media/pci/zoran/zoran_driver_test.c
+@@ -0,0 +1,123 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
++/*
++ * KUnit tests for the Zoran capture format negotiation.
++ *
++ * This file is included at the end of zoran_driver.c so that the tests can
++ * reach zoran_v4l_set_format(), which is static.
++ */
++
++#include <kunit/test.h>
++
++/* zoran_card.c: PAL square pixel timings, the largest supported geometry. */
++static const struct tvnorm zoran_test_pal = { 944, 768, 83, 880, 625, 576, 16 };
++
++static const struct zoran_format *zoran_test_format(u32 fourcc)
++{
++	unsigned int i;
++
++	for (i = 0; i < NUM_FORMATS; i++)
++		if (zoran_formats[i].fourcc == fourcc)
++			return &zoran_formats[i];
++
++	return NULL;
++}
++
++static struct zoran *zoran_test_alloc(struct kunit *test)
++{
++	struct zoran *zr;
++
++	zr = kunit_kzalloc(test, sizeof(*zr), GFP_KERNEL);
++	KUNIT_ASSERT_NOT_NULL(test, zr);
++
++	/*
++	 * zoran_v4l_set_format() only reads zr->timing and only reports
++	 * through pci_dbg(), so a zeroed struct pci_dev is enough.
++	 */
++	zr->pci_dev = kunit_kzalloc(test, sizeof(*zr->pci_dev), GFP_KERNEL);
++	KUNIT_ASSERT_NOT_NULL(test, zr->pci_dev);
++	zr->timing = &zoran_test_pal;
++
++	return zr;
++}
++
++/*
++ * A format that fails validation must leave the device state describing the
++ * last format that was accepted.  zr_vb2_queue_setup() sizes the capture
++ * buffers from zr->buffer_size while zr36057_set_memgrab() and zr_set_buf()
++ * program the chip from zr->v4l_settings, so the two must never disagree.
++ */
++static void zoran_set_format_rejected_keeps_state(struct kunit *test)
++{
++	const struct zoran_format *bgr32, *rgb555, *bgr24;
++	struct zoran *zr = zoran_test_alloc(test);
++
++	bgr32 = zoran_test_format(V4L2_PIX_FMT_BGR32);
++	rgb555 = zoran_test_format(V4L2_PIX_FMT_RGB555);
++	bgr24 = zoran_test_format(V4L2_PIX_FMT_BGR24);
++	KUNIT_ASSERT_NOT_NULL(test, bgr32);
++	KUNIT_ASSERT_NOT_NULL(test, rgb555);
++	KUNIT_ASSERT_NOT_NULL(test, bgr24);
++
++	/* 4 bytes per pixel, so the line alignment check cannot trigger. */
++	KUNIT_ASSERT_EQ(test, 0, zoran_v4l_set_format(zr, 768, 576, bgr32));
++	KUNIT_EXPECT_EQ(test, 768u * 576 * 4, zr->buffer_size);
++	KUNIT_EXPECT_EQ(test, 768, zr->v4l_settings.width);
++	KUNIT_EXPECT_EQ(test, 576, zr->v4l_settings.height);
++	KUNIT_EXPECT_EQ(test, 768 * 4, zr->v4l_settings.bytesperline);
++
++	/* 2 bytes per pixel and an odd width: rejected by the alignment check. */
++	KUNIT_EXPECT_EQ(test, -EINVAL, zoran_v4l_set_format(zr, 33, 24, rgb555));
++	KUNIT_EXPECT_EQ(test, 768u * 576 * 4, zr->buffer_size);
++	KUNIT_EXPECT_EQ(test, 768, zr->v4l_settings.width);
++	KUNIT_EXPECT_EQ(test, 576, zr->v4l_settings.height);
++	KUNIT_EXPECT_EQ(test, 768 * 4, zr->v4l_settings.bytesperline);
++
++	/* 3 bytes per pixel and a width that is not a multiple of four. */
++	KUNIT_EXPECT_EQ(test, -EINVAL, zoran_v4l_set_format(zr, 33, 24, bgr24));
++	KUNIT_EXPECT_EQ(test, 768u * 576 * 4, zr->buffer_size);
++	KUNIT_EXPECT_EQ(test, 768 * 4, zr->v4l_settings.bytesperline);
++}
++
++/* An accepted format must describe the same frame through both fields. */
++static void zoran_set_format_accepted_is_consistent(struct kunit *test)
++{
++	const struct zoran_format *fmt = zoran_test_format(V4L2_PIX_FMT_YUYV);
++	struct zoran *zr = zoran_test_alloc(test);
++
++	KUNIT_ASSERT_NOT_NULL(test, fmt);
++
++	KUNIT_ASSERT_EQ(test, 0, zoran_v4l_set_format(zr, 704, 576, fmt));
++	KUNIT_EXPECT_EQ(test, (unsigned int)(zr->v4l_settings.bytesperline *
++					     zr->v4l_settings.height),
++			zr->buffer_size);
++}
++
++/* Geometry outside the active area is rejected before anything is stored. */
++static void zoran_set_format_out_of_range(struct kunit *test)
++{
++	const struct zoran_format *fmt = zoran_test_format(V4L2_PIX_FMT_BGR32);
++	struct zoran *zr = zoran_test_alloc(test);
++
++	KUNIT_ASSERT_NOT_NULL(test, fmt);
++
++	KUNIT_EXPECT_EQ(test, -EINVAL, zoran_v4l_set_format(zr, 769, 576, fmt));
++	KUNIT_EXPECT_EQ(test, 0u, zr->buffer_size);
++	KUNIT_EXPECT_EQ(test, -EINVAL, zoran_v4l_set_format(zr, 768, 577, fmt));
++	KUNIT_EXPECT_EQ(test, 0u, zr->buffer_size);
++	KUNIT_EXPECT_EQ(test, -EINVAL, zoran_v4l_set_format(zr, 31, 24, fmt));
++	KUNIT_EXPECT_EQ(test, 0u, zr->buffer_size);
++}
++
++static struct kunit_case zoran_test_cases[] = {
++	KUNIT_CASE(zoran_set_format_rejected_keeps_state),
++	KUNIT_CASE(zoran_set_format_accepted_is_consistent),
++	KUNIT_CASE(zoran_set_format_out_of_range),
++	{}
++};
++
++static struct kunit_suite zoran_test_suite = {
++	.name = "zoran",
++	.test_cases = zoran_test_cases,
++};
++
++kunit_test_suite(zoran_test_suite);
 -- 
 2.43.0
 
