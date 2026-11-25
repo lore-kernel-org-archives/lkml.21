@@ -1,45 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.50
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795591303;
-	b=L0rqCSfnF4fjPiKkRZnlkYjvmPhOZzIT4O7iyU+b956rOOYtObRM35fVR9ucFAm40fUT
-	 Ho9c988uhBDj2f0u0ES9gQ3KDc4NGAjESoJpm9IiCYBcJzY2XMM2YV7OHXa/PJ6Aqy46V
-	 rserZCtQe4WDwloPl8/me1BnwFJNzTdcv09NXDI8FPXHCBECxbhdnalYEscPqm97co06D
-	 iPmWRD0FoG7QJFdMMCbJ+OxSH5Yc8p0LvxwwPq4xXalnufmSYcvdY7RI4ahZugUt48NX8
-	 6IIAsbtUsOJF1glqANnHyFbKqmFUt6ClBeYGE8y52VuinJbIRTK/rmcvjzASUM+jV3w==
+	t=1795591334;
+	b=ifSTGXbfiYibh1vSiK+0PuJ+qbMSYXnq9lkpos4qgX9AnECm0MduV24Bh8YUyfcr0GcA
+	 A6mGkmeS+o1xUE+mvMz++gTaK/HqCoIpHge1X06TAal6KgWIFNmX+0j7U9QKeboFzZyil
+	 w0r3n1hLoavEE9ojhAUVr6df5x7nVq5ObzNnE7OnYLJ4peMSZ1GCY89dPalLUKadfmmcl
+	 x7vPxyYciai3L59RcNzPU5gzKnxjWSvd87WlSp2rsINEHftvDeZ2kYfvbUtNCFNKFHWQx
+	 YdVpOBJsKYwmKA5fw1qaswByuetvsmZE64C+e0NtKQuuyE52h4fiktzYwY+2gwXHVhg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795591303;
-	h=Received:DKIM-Signature:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:References:
-	 Date:Message-Id:X-Mailer;
-	bh=y7iu/ep1a65WrbASb13lQq8sxkeDKAqMwd/fkbVhul8=;
-	b=ki0vqvb+qzcEujUpxvjqrmtM7+tvTmPgOpr1c3gwO0IncPYthm2ZjjK7JD6dV1xTusjL
-	 4p8D9EzlaMLpAwK7CldIRgQPmzcgpUsAnkvVOw+0NZQLduNsvaON3wtigRdZWls1q4ng7
-	 FhePWh89/JKlg0Bx5DnJnhK2WrS5wNFqQ11AJeNvL1vKMFj3uyBURkt6rC8XunISmYlv8
-	 idVu0CbkbcUd19DYsqOAArt7Yx9w9Il5vN7HlQWaa6PWOmCimyzzHHCJMXBdYw0wsYySJ
-	 JICuBF+DcM0vI1O3O+GfJfPrk4pBAx0A3mh89pOiAoiSrcICFKfTMDzQYoHaiUjZ9Yw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795591334;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:Content-Type:
+	 X-Developer-Signature:X-Developer-Key:Content-Transfer-Encoding;
+	bh=1mqak/oTHzzf33mZlhyESkRVPDIMxG41q7JJp3wZRXc=;
+	b=V7D3Rg6jzr3jWEjThysrDoYjimirZNEqGYmgUd+nMHO7WVF6RAdiQpQPVOtvvB9M84QI
+	 cnib4PylkJuMdxiLbVui+KN/dHmiPreJpkiKpe/r75Ey0PDgDcflGnO12Q5EksxZmVGFk
+	 m2wDLANANR/dbqpQ6Q1/WS8KThk0SfSG8hHUXqVC9sxS4vLy/0X85CaH+RoL0ef5blgEO
+	 cTjV6CiVjt1XeKylI9atkf/B3igeaXkWnBVm7DEyjC4hz/XHtyb9SsqN9+tmsAnsCqm2e
+	 2oO1+LdlZXMYCcM9kZ+ZmgUmW7kpIW3HBZLaQfRgA6fPrxu/4edIdu8W2LbegRgxcMg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IzQSEVcc;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=baylibre.com;
+	spf=pass smtp.mailfrom=baylibre.com;
+	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=APGRYVVI;
+	arc=none smtp.remote-ip=209.85.128.50
+Received: from mail-wm1-f50.google.com (mail-wm1-f50.google.com [209.85.128.50])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4C795606A326;
-	Wed, 25 Nov 2026 07:21:43 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E550C606A329
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 07:22:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E550C606A329
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=baylibre.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=baylibre.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IzQSEVcc
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 008541F00AE3;
-	Wed, 25 Nov 2026 07:21:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795591302;
-	bh=y7iu/ep1a65WrbASb13lQq8sxkeDKAqMwd/fkbVhul8=;
-	h=Subject:From:To:Cc:In-Reply-To:References:Date;
-	b=IzQSEVccBTFtOV5CVdMu6avznbK1ZNELFKlz7DtIEp+wcnTEb2K7tJHe8Gc2vHx8z
-	 k81yz59N58s17BAOkeZ7KAF0m3Cn6XnI1sDSYX5hrG7MTqNzUOcuwQCFKOGlFl6YU6
-	 Sij9E7Pq5berwcQp6wz+JDBM3zq6rMsUSolOQlQDdsP/4Bb8+TRx4OARNPuZcA81NI
-	 80uNEGN8/K7ljiT9An6fRTvPvawLEiSP3PGqvSJEGJgVPIusF+YJTiinwQBD10tzH5
-	 j6QOHbikVuUZeeT9iwGFgISRFL215mjAvEOI1GKBZaaW8cLaJekdMuSJROvsEq0Jk5
-	 oCHO1+DAzNXsw==
+	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=APGRYVVI
+Received: by mail-wm1-f50.google.com with SMTP id 5b1f17b1804b1-4bb64c99d2fso51293595e9.3
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 23:22:12 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1795591331; x=1796196131; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=1mqak/oTHzzf33mZlhyESkRVPDIMxG41q7JJp3wZRXc=;
+        b=APGRYVVIm1Ke5XKCEvoemamE7OVMlp1jxFmv+I634jpq4E0mDh/I94JcmX2VnyHJ/7
+         /Q+AquHUYDya3NbI57GAAvqSopUHf9zP8ACSRQyVeOb1wV+A+AbQRrwJa/XniOTRhFg6
+         zxOFFnKsZkqMbaRk9R0KM0dwwzju+B1ikWgMCbY7kAoh/zk2Y/jEEf+wwohmh1pwoJ3Y
+         yYWTxCg/SEAjOc7pyiLJMimkGBdHGaK8EJP9z80AJ1MZr96ujQlYQLrfZLkQckAeVQgB
+         gszx40G6B0W8MnZ6otBlYsHIVWzuiOEJecDKRIVHqVZTyBhDtT8rr0JJEMBg7Xi6PPkT
+         DAKw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795591331; x=1796196131;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=1mqak/oTHzzf33mZlhyESkRVPDIMxG41q7JJp3wZRXc=;
+        b=NoPacSWCcoFNvEd9gfcn/xd4uZmBMdfAun4vfQylYJL+ZXRmQik/9ckJgiRqkUZHyl
+         VNgJJgVfizVzaXc1VVrTBmbLMIfT5iM4gesMcbhbi+R2Y//m9ElbIevUT3a3SXDB0Fns
+         2B4yXgKsQrnH0H/Aozpaxj+6JJ+hRYB8ICr2yWfrBgmJOX1gfKZV4AVHzhei2D33HC5c
+         ahgm83fUyCQJqRyAamlEM7eFJvQpmtFvrCQ9Wa0zpW2h5fjhEjD8mUF2FHsBcM4M0Mw4
+         TCQepmUsqZcZHqEZIXxeTSWFukbkDQdA8yXkYLdwpRHBK2ohyns+PNa4p9vgpHdNcuPN
+         PJNg==
+X-Forwarded-Encrypted: i=1; AL+hErFVouRgQiS8pY/rgUJeajmq5/CCqVv0Zq86mIMJhVuLopc+GIbTdTfUETUxQp8AepUnTBHFd/yqv+psTEk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/SVx6Pa5HrZAYB4lCNaa/VsWj6RMAJUyj6i+rN4BL6fn9ZxBOi
+	+inOj183dBk67hexWzFrX8X+gXHD9W2j/ggdJc9IXjg8b4nROylcSaSoHjNUormswTk=
+X-Gm-Gg: AZFdTZfCpVvGdkBPXAicESJaAwlUXccppeWK+SfmRJAbDcKLZkdfOQazYmdPn0ExLab
+	KQco4YVh7tAdeaC4z9OmhFUBkuNaWmjNJG0MCWZX/vyx1YPB7zeDDZl7fxAmZE34txcmDivV4Qr
+	mbtyYeAMW+n6DCuUjqJ3juUNroJDdM4g+9tdBBFwLFRDH1xtwuVl7H+IUxasO8k9ucNLwkIR1t3
+	ogpbmO/3Wk2HEPjtKRl1qafUaKOVmEHKoE/BnXewSsJkRZgcbrU8JJ2RJSFx7dypYU7oL0oa/c4
+	suN02TV9ElivNiguTS0iRAPOy22GSMPjYOb2ilbF5cbEGDvUu65rZZDQdcgSsjjQAueO9bFYQnO
+	bL3mo0283KG2EEOxAcQcPnA6YVF8hKzqDYSVehdILgw8W+9pF4Ld0ARuc+cUtgzLLkZaQ+dK7QX
+	AHDEC2BSPfoYyf4nH9HhMSs7kL8I8Wr6SiBiO9i06NlGVTHOC/kdPxYS/vtfXyb8JmzSTGIeMaj
+	NOrSurXSwd0GS4Xx3TOcQBMJtRIqSN+OVSTPsdyDDB6robhRN+j+CoIzmuFRP+1YswkLDkuw79r
+	pUdYpM5RgeAXpnWOsRxeJVaRP62qqYRGSAfsB+t/ALevYEozO2+JpV8=
+X-Received: by 2002:a05:600c:3b1a:b0:4bb:875b:3d91 with SMTP id 5b1f17b1804b1-4bb88820bfamr357770365e9.30.1795591331274;
+        Tue, 24 Nov 2026 23:22:11 -0800 (PST)
+Received: from localhost ([2a02:8071:6e30:8500:1d24:d58d:2b65:c291])
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4bb884b8429sm780146835e9.14.2026.11.24.23.22.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 23:22:10 -0800 (PST)
+From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: Jiri Kosina <jikos@kernel.org>,
+	Benjamin Tissoires <bentiss@kernel.org>,
+	Guenter Roeck <linux@roeck-us.net>
+Cc: linux-input@vger.kernel.org,
+	Danilo Krummrich <dakr@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Takashi Sakamoto <o-takashi@sakamocchi.jp>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Aleksa Savic <savicaleksa83@gmail.com>,
+	linux-kernel@vger.kernel.org,
+	Ping Cheng <ping.cheng@wacom.com>,
+	Jason Gerecke <jason.gerecke@wacom.com>,
+	linux-hwmon@vger.kernel.org,
+	Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>,
+	"Christian A. Ehrhardt" <lk@c--e.de>
+Subject: [PATCH v1 0/9] HID: Make driver_data in hid_device_id a union
+Date: Wed, 25 Nov 2026 08:21:32 +0100
+Message-ID: <cover.1795589119.git.u.kleine-koenig@baylibre.com>
+X-Mailer: git-send-email 2.47.3
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -49,43 +107,89 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH v2 2/9] arm64: dts: marvell: Add AP806/CP110 syscon
- compatibles
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Lee Jones <lee@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Andrew Lunn <andrew@lunn.ch>, 
- Gregory Clement <gregory.clement@bootlin.com>, 
- Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, 
- mfd@lists.linux.dev, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- Krzysztof Kozlowski <krzk@kernel.org>
-In-Reply-To: <20261124-dtbs-marvell-v2-2-663009a769da@kernel.org>
-References: <20261124-dtbs-marvell-v2-0-663009a769da@kernel.org>
- <20261124-dtbs-marvell-v2-2-663009a769da@kernel.org>
-Date: Wed, 25 Nov 2026 08:21:39 +0100
-Message-Id: <179559129960.9063.13932232293411846925.b4-reply@b4>
-X-Mailer: b4 0.17-dev
+Content-Type: text/plain; charset=UTF-8
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3641; i=u.kleine-koenig@baylibre.com; h=from:subject:message-id; bh=WKAFjahqsz1WADW4GQZA2AqcKEs67qPodb0ziWRr2bc=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBrBox8D3OsqGVp8d9eNjV0Xl3jDEO2G2/iqVEi5 ZFnCUOaW1iJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCawaMfAAKCRCPgPtYfRL+ ThbLCACxJyH7addcG5QUOzghaAV3UIuswR+tsPVOGz6kUyM+BDF2vXNYHYrOKjIk49Yjd3jnIPm +bVDgcXYYG1/XQnI6911gqpKD0ku/4iEz8G1bgMFiNJY2RaUfcBga4hA4z7SZtoo3tB95V+WB0z qp2+PeD+FsIx9C3VmOh3kTonHyFMJxarbh7N/v4RhbeeGVVuXa0XgMunhqB3BFmag5t1mFdZm/9 +3wO74TfeCeL+rRKj+x+LDAtrtHrc3FYXVo8I67CGAIaQlTXo9U74eG5f8//8dboyg/wx260KNF t2VCkGPI2ac/ZCBjcZu9wrDCYDLtceoPubxfoUWbYQv1yOsd
+X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
+Content-Transfer-Encoding: 8bit
 
-On 2026-11-24 14:46 -0600, Rob Herring (Arm) wrote:
-> Add specific compatibles for the AP806 and CP110 system-controller
-> syscon blocks that host pinctrl, GPIO, clock and thermal child nodes.
-> 
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
-> ---
-> v2:
->  - Update compatibles to avoid old legacy ones
-> ---
->  arch/arm64/boot/dts/marvell/armada-ap80x.dtsi | 6 ++++--
->  arch/arm64/boot/dts/marvell/armada-cp11x.dtsi | 6 ++++--
->  2 files changed, 8 insertions(+), 4 deletions(-)
+Hello,
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+the 5th patch of this series replaces .driver_data of struct
+hid_device_id by an anonymous union. Drivers that store pointers in
+.driver_data can benefit from that by less casting and still more
+implicit type safety as something like:
 
-Best regards,
-Krzysztof
+	struct sometype *driver_data = id->driver_data_ptr;
 
+is catched by the compiler to lack a `const`.
+
+The (IMHO tiny) downside is that with that union initialisations must be
+done using designated (i.e. named) initializers. The first four patches
+implement that for the few drivers that don't do that yet, which IMHO
+could stand as improvements on its own. Patches #6 and later convert
+drivers that store pointers in .driver_data to the new .driver_data_ptr.
+All patches intend to have no effect on the build result, so this is
+only about easier source code and tighter compiler checks.
+
+My original motivation to work on this is that the result also works on
+machines with CHERI support that have sizeof(unsigned long) <
+sizeof(void *). It's still a long way to get these running mainline
+Linux but the nice thing about this series is that it works towards such
+a future and improves the code for non-CHERI architectures, too.
+
+Some of the existing initializers use an unusual coding style. In the
+first patch I converted that to a more common indentation while updating
+to designated initializers, in the quirks patch I mostly kept the
+existing style. If you have a strong opinion there or think the
+opportunity should be taken to convert all such arrays, I can do that.
+This conversion is also the main reason that this series doesn't have a
+diffstat with nearly an equal number of insertions and deletions.
+
+The dependencies are as follows:
+
+ - patch #5 (HID: core: Make driver_data in hid_device_id a union)
+   depends on patches #1 - #4
+ - patches #6 and later (...: Benefit from pointer typed driver_data in
+   hid_device_id) depend on patch #5.
+
+I would expect that all but maybe the last patch go in via the HID tree.
+I can resend patch #9 to hwmon when its dependencies landed in the
+mainline.
+
+I build tested this series on top of next-20261123 using allmodconfig on
+arc, sh, alpha, arm64, x86_64, s390, riscv, mips, powerpc, loongarch,
+sparc, m68k and parisc and there were no build regressions.
+
+Best regards
+Uwe
+
+Uwe Kleine-König (9):
+  HID: asus: Use designated initializer for hid_device_id
+  HID: i2c-hid: Use designated initializer for hid_device_id
+  HID: input: Use designated initializer for hid_device_id
+  HID: quirks: Use designated initializer for hid_device_id
+  HID: core: Make driver_data in hid_device_id a union
+  HID: steelseries: Benefit from pointer typed driver_data in
+    hid_device_id
+  HID: tmff: Benefit from pointer typed driver_data in hid_device_id
+  HID: wacom: Benefit from pointer typed driver_data in hid_device_id
+  hwmon: (asus_rog_ryujin) Benefit from pointer typed driver_data in
+    hid_device_id
+
+ drivers/hid/hid-asus.c                   | 199 ++++++-----
+ drivers/hid/hid-input.c                  | 114 ++++---
+ drivers/hid/hid-quirks.c                 | 400 +++++++++++------------
+ drivers/hid/hid-steelseries-arctis.c     |  39 ++-
+ drivers/hid/hid-tmff.c                   |  22 +-
+ drivers/hid/i2c-hid/i2c-hid-dmi-quirks.c |   2 +-
+ drivers/hid/wacom_sys.c                  |   8 +-
+ drivers/hid/wacom_wac.c                  |  10 +-
+ drivers/hwmon/asus_rog_ryujin.c          |  14 +-
+ include/linux/device-id/hid.h            |   5 +-
+ 10 files changed, 438 insertions(+), 375 deletions(-)
+
+
+base-commit: 3191063649dbf7c0d0b768e1f3655e4c5fc6edb5
 -- 
-Krzysztof Kozlowski <krzk@kernel.org>
+2.47.3
+
