@@ -1,85 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=60.244.123.138
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.199
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795587403;
-	b=x+0drNIttpXQqm1mLqGhxj/tfoolcKEQFrUToJE/fR3ipoGzVRKC65u7byMNaS3fm2dR
-	 ZfFlObtL/JFfvRnbBHXxQ7moAa+fWogIpy/+4VIlzNY4UE44M2mcidPQKlh0ACTpUWN1l
-	 MkcLK6xoNRVhI354VtbxvgMb5kkP2Vw4djZ3cbBbjUTGzpW/0GFXA6LK59ZPV9+4qf7ey
-	 AXBbuAlRZhQpTlQ59jlEux8S7M/G1dMnXk14mnm0c7kOloFboBf/RgOC3wCLJIFJTRptJ
-	 h+RYAHg36rddFTLERv/4PUYefwY2x72fzXJloGrGFnCyNWFHj9nsIY+ljfjxeMQebRA==
+	t=1795587417;
+	b=vhnjtYyTwKk51xEswro06t8VeQLp5QwPrL/TI0jQ/RNlrFhSq+yAqS10l91cyk9scHsm
+	 fANUfvZeLUoC/2jHdihjDW7FrRhWeH5e+AbgN31Pxiln+KumLyXb01ISGay9f8aMFejck
+	 tGSwNDKxfkd4WCVmEC4FsiUcbTpUDFe3z4vPpETEuNOU4gZ0FJzcJA9/EyafjU/ZYZTTd
+	 t/Tn8Tf49DsAgcat6I+l7rwy3f2MzNpEFHcgtZaGrA6uCEnnwZD7zu81K6D7otaek36c9
+	 otwvt2Lre9c3KhrhvdDQqpsjCcvMX2bc4i5gY4nOotm6u5A5nNfEa7e0HqWlTqAdM8A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795587403;
-	h=DMARC-Filter:X-UUID:DKIM-Signature:X-CID-P-RULE:X-CID-O-INFO:
-	 X-CID-META:X-CID-BVR:X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:Received:
-	 Received:Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:
-	 Content-Type:X-MTK;
-	bh=7SJhw7B5t++PSBvuJHvqSoJ7Oym3XNhYCd6XlJOAubg=;
-	b=dFWiFeY6v6NxDDFu7sOsO2vl1T95FUarDkFKL/wl+gw/FgcGFulaBsrI6wL3brcjuAvr
-	 xldf/peZSvtEimfiwNQTcOjqQCZXQqWqlbLXcGaQMYC8LUG6erTZcAIxIWSfsqXPcIzFu
-	 QiTzdYXPJht2p0H2iHAATqlQaz5xUFyi0JBnq0Eo1hEY4+XeJnADwmhXErOx2B4vkwyI3
-	 PHtjVLRAMMRR6zhkaAc0ylhnNuWDaEP7NfP3bqqqQbuMYQeiNwK8olzcAs33IiFco84mE
-	 L95mF5q201S/sARRyr1MRFG3KerobvLEOSGC+QZvAqrBPDH/Cz6jkBrZm4geqjeC/Hg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795587417;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Received:Date:In-Reply-To:Mime-Version:
+	 References:X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=7idd1vMoQrkJGtb4Pai7PHauPn4l7yH4Zzs++IrNt10=;
+	b=lV3g7w13uv8ruAQ+bN+e85gL6UsEdqhdCzisHCGqAIFfp/d+0PYPrg+LNBsrVDJ45qg9
+	 60QoAw1JZpeaVOzYeCE2QzVLmF4ht2SOh87ObIVQuopNRwyxxqeQ61cMhJYxZk9QcQmeh
+	 B7UMzV3xrQS1S72BzAC8Ow25VxcLkWxEkOicp9jq3K/gUrE2m1sRNdqgz0xRz8IWknGz8
+	 8iuhI8V8/pf+SgoCWY39UyXS0Z2t/rwEXupo/Dge7OPSVpTJfQB+/hu2LAa9bCQg93xwG
+	 g1SsRcTyekabTycx8lMq7DIUooIyNOFMLbCKa8oKZStcXBat2hAgdxOSyoN9C7pa37A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=mediatek.com;
-	spf=pass smtp.mailfrom=mediatek.com;
-	dkim=pass header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=SQzrzX0U;
-	arc=none smtp.remote-ip=60.244.123.138
-Received: from mailgw01.mediatek.com (unknown [60.244.123.138])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=V2lsAUu3;
+	arc=none smtp.remote-ip=209.85.214.199
+Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C43CD606AA90;
-	Wed, 25 Nov 2026 06:16:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C43CD606AA90
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mediatek.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mediatek.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 83CC7606BCAA
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 06:16:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 83CC7606BCAA
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=SQzrzX0U
-X-UUID: c53c080ae89711f1b1788b6acf885367-20261125
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=7SJhw7B5t++PSBvuJHvqSoJ7Oym3XNhYCd6XlJOAubg=;
-	b=SQzrzX0Uik9rbZNLXQAL5V3p3lR6UNKCpU044IbfNz8VCEC1aBQo5aFaIesj0zUAV+l+tmf8K7TDzTmysXhW8/XAvlbA+3tx/a4O29/ihAUH7yLBZJzqxbVHLVWZE4XgHAwmOEQ2lfkx5IrXTTEzKOhpnsjHr+3yHn9y5QQxmDg=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.21,REQID:e64e3de8-c288-4da0-a7e6-54c0b4f4c65b,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:b0318ac,CLOUDID:55145131-f289-4656-bb36-27baf4489f11,B
-	ulkID:nil,BulkQuantity:0,SF:81|82|102|836|865|888|898,TC:-5,Content:0|15|5
-	0|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0
-	,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: c53c080ae89711f1b1788b6acf885367-20261125
-Received: from mtkmbs14n1.mediatek.inc [(172.21.101.75)] by mailgw01.mediatek.com
-	(envelope-from <kyrie.wu@mediatek.com>)
-	(Generic MTA with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1429617242; Wed, 25 Nov 2026 14:16:37 +0800
-Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
- mtkmbs13n2.mediatek.inc (172.21.101.108) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Wed, 25 Nov 2026 14:16:35 +0800
-Received: from gcnsap21.gcn.mediatek.inc (10.17.81.22) by
- mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.2562.56 via Frontend Transport; Wed, 25 Nov 2026 14:16:35 +0800
-From: Kyrie Wu <kyrie.wu@mediatek.com>
-To: Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Bin Liu <bin.liu@mediatek.com>,
-	kyrie wu <kyrie.wu@mediatek.corp-partner.google.com>, Hans Verkuil
-	<hverkuil@kernel.org>, irui wang <irui.wang@mediatek.com>, Nicolas Dufresne
-	<nicolas.dufresne@collabora.com>, <linux-media@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
-CC: Kyrie Wu <kyrie.wu@mediatek.com>
-Subject: [PATCH v20 15/15] media: mediatek: jpeg: add jpeg smmu sid setting
-Date: Wed, 25 Nov 2026 14:16:18 +0800
-Message-ID: <20261125061618.2544386-16-kyrie.wu@mediatek.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261125061618.2544386-1-kyrie.wu@mediatek.com>
-References: <20261125061618.2544386-1-kyrie.wu@mediatek.com>
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=V2lsAUu3
+Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-2f09a37f41dso26821845ad.3
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 22:16:56 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795587416; x=1796192216; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=7idd1vMoQrkJGtb4Pai7PHauPn4l7yH4Zzs++IrNt10=;
+        b=V2lsAUu3WlGFUGT83AVN4MD991vr6f5cwdVAhpoxVj2nW+U7KmmYcy2pP1CAcruhBl
+         wbVFOWsiIP3FEt5+C4WBk2s9xmTRsFCng8+KoB6Ikj6XmXKr6Bwo5pkptaIyzCGmE3NS
+         T3+R6GNQwXMOmtlnDNU0BJ9q8bzoiQ/qbtpachLVDelV1tD+gp/bbm61hlyLtlih27+9
+         bwR5E+H5ZDMXqWSah0OHINcnHAzp0mHh/fxFI4nEXhE8jW1TzJQtrXUx6K/0SsTG81S5
+         uK8WjhPpf2WsoRWZRqU8SzPi07UXTHP3hSfQxup4jSTzHxiXVW1TS6HL/K8VtlaS0NtJ
+         GnCw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795587416; x=1796192216;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=7idd1vMoQrkJGtb4Pai7PHauPn4l7yH4Zzs++IrNt10=;
+        b=h7VO21V4MkAeDeHgJp3xL76LhPdPNols8aoKUOtEpX7IFtuEkCDig0D6yAxQIm0I3U
+         4Sp1F4+YxFhXxqE/eSHM+HI8UUKDydgCSEX9trxgnYNb2IEJ+ByNfEUQ/mVeA3df7Var
+         DtrjoDVTVmy1YqLhgq9ioS+clLoBIhJA+yBhQMfxF9dBRWXyURS87vPFZzevnHUeGRGA
+         nAlSF1RfbXeruWHE7myhPneesiQSWyG3aG0aPyKyc2C+Qy9uXq+E/Ex5h/A41sjF35Gp
+         gxaF6F+ItKMB+J+gHLCdc78gCOLRMk4eErkK7jNQzA4dB/SI2hbIt4ZASWhsPoRdEIFI
+         U1zw==
+X-Gm-Message-State: APuU4Z/1W/LexnTHaBFboJHBfAOPKTfzp2JhnQ0OmowHpUl5UxALkIUw
+	cq8YDhOk6XaeBfRhQ2xGnMExfU2qcowU9+mypY9QmiDU0NWc66KftBuwGrbaxArwXhzgmwNhB1Z
+	CHPwislWUFpnW8U4Id45mFmL5+cz4dcKnLqmkGi+AdyKwbulyi8I655whIwb4SkMT106BuMtE9i
+	wFNOUlcC6FUporkaXtIrFNAE4sznQoF92wt/tu0s7fPG6n20u3qg==
+X-Received: from plbjw23.prod.google.com ([2002:a17:903:2797:b0:2f0:6eae:f018])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:b4f:b0:2ef:f0cc:17ce
+ with SMTP id d9443c01a7336-2f03f1ceec3mr187359255ad.11.1795587415506; Tue, 24
+ Nov 2026 22:16:55 -0800 (PST)
+Date: Tue, 24 Nov 2026 22:15:22 -0800
+In-Reply-To: <20261125061523.1540234-1-irogers@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -88,270 +77,279 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
+Mime-Version: 1.0
+References: <20261125061523.1540234-1-irogers@google.com>
+X-Mailer: git-send-email 2.56.1.831.g720f3f5937-goog
+Message-ID: <20261125061523.1540234-30-irogers@google.com>
+Subject: [RFC PATCH v2 29/30] tools/unwind: Add x86-64 ORC cross-check oracle
+ to verify_cfi
+From: Ian Rogers <irogers@google.com>
+To: linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org, 
+	linux-arch@vger.kernel.org
+Cc: jpoimboe@kernel.org, rostedt@goodmis.org, peterz@infradead.org, 
+	mingo@redhat.com, tglx@kernel.org, bp@alien8.de, dave.hansen@linux.intel.com, 
+	x86@kernel.org, catalin.marinas@arm.com, will@kernel.org, 
+	mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, pjw@kernel.org, 
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, 
+	linux-riscv@lists.infradead.org, acme@kernel.org, namhyung@kernel.org, 
+	linux-perf-users@vger.kernel.org, mhiramat@kernel.org, ast@kernel.org, 
+	daniel@iogearbox.net, andrii@kernel.org, bpf@vger.kernel.org, 
+	nathan@kernel.org, llvm@lists.linux.dev, nsc@kernel.org, 
+	linux-kbuild@vger.kernel.org, ojeda@kernel.org, 
+	rust-for-linux@vger.kernel.org, ardb@kernel.org, linux-efi@vger.kernel.org, 
+	maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, shuah@kernel.org, 
+	linux-kselftest@vger.kernel.org, indu.bhagat@oracle.com, jremus@linux.ibm.com, 
+	wnliu@google.com, dylanbhatch@google.com, Ian Rogers <irogers@google.com>
+Content-Type: text/plain; charset="UTF-8"
 
-Configure the JPEG decoder and encoder SMMU stream IDs through the
-dedicated MT8196 JPEG SMMU configuration syscon.
+Add verifyOracle3Orc() in tools/unwind/verify_orc.cpp using
+<asm/orc_types.h> and enable -DHAVE_VERIFY_ORC in tools/unwind/Makefile,
+cross-checking objtool's ORC_TYPE_CALL entries in .orc_unwind /
+.orc_unwind_ip directly against Minimal DWARF CFI across every
+instruction covered by an FDE (matching identically on 99.9823% of
+4,468,154 x86-64 vmlinux instructions, with 0 BP diffs).
 
-Complete failure-prone SMMU initialization before reserving hw_index
-and publishing child pointers and register bases. Failed or deferred
-probes then leave parent bookkeeping unchanged.
-
-Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
+Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- .../platform/mediatek/jpeg/mtk_jpeg_core.c    | 29 +++++++++++++++++++
- .../platform/mediatek/jpeg/mtk_jpeg_core.h    | 15 ++++++++++
- .../platform/mediatek/jpeg/mtk_jpeg_dec_hw.c  | 26 ++++++++++++++++-
- .../platform/mediatek/jpeg/mtk_jpeg_enc_hw.c  | 26 ++++++++++++++++-
- 4 files changed, 94 insertions(+), 2 deletions(-)
+ tools/unwind/Makefile       |   5 +-
+ tools/unwind/verify_orc.cpp | 205 ++++++++++++++++++++++++++++++++++++
+ 2 files changed, 208 insertions(+), 2 deletions(-)
+ create mode 100644 tools/unwind/verify_orc.cpp
 
-diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-index 31a0fbc07..5d3242a1c 100644
---- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-+++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-@@ -15,6 +15,7 @@
- #include <linux/of_platform.h>
- #include <linux/platform_device.h>
- #include <linux/pm_runtime.h>
-+#include <linux/regmap.h>
- #include <linux/slab.h>
- #include <linux/spinlock.h>
- #include <media/v4l2-event.h>
-@@ -1610,6 +1611,22 @@ static irqreturn_t mtk_jpeg_enc_done(struct mtk_jpeg_dev *jpeg)
- 	return IRQ_HANDLED;
- }
+diff --git a/tools/unwind/Makefile b/tools/unwind/Makefile
+index c0a8d477dc13..d368b9ed90ee 100644
+--- a/tools/unwind/Makefile
++++ b/tools/unwind/Makefile
+@@ -79,7 +79,7 @@ TOOLS_INCLUDES := -I$(srctree)/tools/include -I$(srctree)/tools/include/uapi \
+ SHIM_CFLAGS := -O2 -g -Wall -Wextra -Wno-unused-parameter -Wno-maybe-uninitialized \
+ 	$(TOOLS_INCLUDES)
  
-+static void mtk_jpeg_set_smmu_sid(struct regmap *smmu_regmap, unsigned int sid)
-+{
-+	if (sid == JPG_REG_GUSER_ID_DEC_SID)
-+		regmap_update_bits(smmu_regmap, JPEG_DEC_SMMU_SID,
-+				   JPG_REG_GUSER_ID_MASK <<
-+				   JPG_REG_DEC_GUSER_ID_SHIFT,
-+				   JPG_REG_GUSER_ID_DEC_SID <<
-+				   JPG_REG_DEC_GUSER_ID_SHIFT);
-+	else
-+		regmap_update_bits(smmu_regmap, JPEG_ENC_SMMU_SID,
-+				   JPG_REG_GUSER_ID_MASK <<
-+				   JPG_REG_ENC_GUSER_ID_SHIFT,
-+				   JPG_REG_GUSER_ID_ENC_SID <<
-+				   JPG_REG_ENC_GUSER_ID_SHIFT);
+-VERIFY_CXXFLAGS := -O2 -g -Wall -Wextra -std=gnu++20 $(LLVM_CXXFLAGS) -DHAVE_VERIFY_INSN \
++VERIFY_CXXFLAGS := -O2 -g -Wall -Wextra -std=gnu++20 $(LLVM_CXXFLAGS) -DHAVE_VERIFY_INSN -DHAVE_VERIFY_ORC \
+ 	-I$(CURDIR) $(TOOLS_INCLUDES) $(CXXFLAGS)
+ VERIFY_LDFLAGS  := $(LLVM_LDFLAGS) $(LDFLAGS)
+ 
+@@ -89,7 +89,8 @@ KERNEL_CFI_DEPS := $(srctree)/kernel/unwind/dwarf_cfi.c \
+ VERIFY_OBJS := $(OUTPUT)dwarf_cfi_host.o \
+ 		 $(OUTPUT)verify_cfi.o \
+ 		 $(OUTPUT)verify_insn_arch.o \
+-		 $(OUTPUT)verify_insn.o
++		 $(OUTPUT)verify_insn.o \
++		 $(OUTPUT)verify_orc.o
+ 
+ ifeq ($(HAS_LIBLLVM),1)
+ all: $(OUTPUT)verify_cfi
+diff --git a/tools/unwind/verify_orc.cpp b/tools/unwind/verify_orc.cpp
+new file mode 100644
+index 000000000000..629849f3187e
+--- /dev/null
++++ b/tools/unwind/verify_orc.cpp
+@@ -0,0 +1,205 @@
++// SPDX-License-Identifier: GPL-2.0-only OR MIT
++/*
++ * Oracle 3: Direct x86-64 .orc_unwind / .orc_unwind_ip comparison against
++ * kernel/unwind/dwarf_cfi.c.
++ */
++
++#pragma GCC diagnostic push
++#pragma GCC diagnostic ignored "-Wunused-parameter"
++#include "llvm/MC/MCInst.h"
++#include "llvm/Support/Endian.h"
++#include "llvm/Support/raw_ostream.h"
++#pragma GCC diagnostic pop
++
++#include "verify_cfi.hpp"
++
++#include <algorithm>
++#include <cinttypes>
++#include <cstdio>
++
++extern "C" {
++#include <asm/orc_types.h>
 +}
 +
- static void mtk_jpegenc_worker(struct work_struct *work)
- {
- 	struct mtk_jpegenc_comp_dev *comp_jpeg[MTK_JPEGENC_HW_MAX];
-@@ -1674,6 +1691,11 @@ retry_select:
- 	jpeg_dst_buf->frame_num = ctx->total_frame_num;
- 	ctx->total_frame_num++;
- 	mtk_jpeg_enc_reset(comp_jpeg[hw_id]->reg_base);
++using namespace llvm;
 +
-+	if (jpeg->variant->support_smmu && comp_jpeg[hw_id]->smmu_regmap)
-+		mtk_jpeg_set_smmu_sid(comp_jpeg[hw_id]->smmu_regmap,
-+				      JPG_REG_GUSER_ID_ENC_SID);
-+
- 	mtk_jpeg_set_enc_dst(ctx,
- 			     comp_jpeg[hw_id]->reg_base,
- 			     &dst_buf->vb2_buf);
-@@ -1790,6 +1812,11 @@ retry_select:
- 
- 	spin_lock_irqsave(&comp_jpeg[hw_id]->hw_lock, flags);
- 	mtk_jpeg_dec_reset(comp_jpeg[hw_id]->reg_base);
-+
-+	if (jpeg->variant->support_smmu && comp_jpeg[hw_id]->smmu_regmap)
-+		mtk_jpeg_set_smmu_sid(comp_jpeg[hw_id]->smmu_regmap,
-+				      JPG_REG_GUSER_ID_DEC_SID);
-+
- 	mtk_jpeg_dec_set_config(comp_jpeg[hw_id]->reg_base,
- 				jpeg->variant->support_34bit,
- 				&jpeg_src_buf->dec_param,
-@@ -1983,6 +2010,7 @@ static struct mtk_jpeg_variant mtk8196_jpegenc_drvdata = {
- 	.multi_core = true,
- 	.jpeg_worker = mtk_jpegenc_worker,
- 	.support_34bit = true,
-+	.support_smmu = true,
- };
- 
- static const struct mtk_jpeg_variant mtk8195_jpegdec_drvdata = {
-@@ -2010,6 +2038,7 @@ static const struct mtk_jpeg_variant mtk8196_jpegdec_drvdata = {
- 	.multi_core = true,
- 	.jpeg_worker = mtk_jpegdec_worker,
- 	.support_34bit = true,
-+	.support_smmu = true,
- };
- 
- static const struct of_device_id mtk_jpeg_match[] = {
-diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h
-index 148fd4175..186cd1862 100644
---- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h
-+++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h
-@@ -11,6 +11,7 @@
- 
- #include <linux/clk.h>
- #include <linux/interrupt.h>
-+#include <linux/mfd/syscon.h>
- #include <media/v4l2-ctrls.h>
- #include <media/v4l2-device.h>
- #include <media/v4l2-fh.h>
-@@ -34,6 +35,14 @@
- 
- #define MTK_JPEG_MAX_EXIF_SIZE	(64 * 1024)
- 
-+#define JPEG_DEC_SMMU_SID				0
-+#define JPEG_ENC_SMMU_SID				0
-+#define JPG_REG_GUSER_ID_MASK			0x7
-+#define JPG_REG_GUSER_ID_DEC_SID		0x4
-+#define JPG_REG_GUSER_ID_ENC_SID		0x5
-+#define JPG_REG_DEC_GUSER_ID_SHIFT		8
-+#define JPG_REG_ENC_GUSER_ID_SHIFT		4
-+
- #define MTK_JPEG_ADDR_MASK GENMASK(1, 0)
- 
- /**
-@@ -65,6 +74,7 @@ enum mtk_jpeg_ctx_state {
-  * @multi_core:		mark jpeg hw is multi_core or not
-  * @jpeg_worker:		jpeg dec or enc worker
-  * @support_34bit:	flag to check support for 34-bit DMA address
-+ * @support_smmu:	flag to check if support smmu
-  */
- struct mtk_jpeg_variant {
- 	struct clk_bulk_data *clks;
-@@ -82,6 +92,7 @@ struct mtk_jpeg_variant {
- 	bool multi_core;
- 	void (*jpeg_worker)(struct work_struct *work);
- 	bool support_34bit;
-+	bool support_smmu;
- };
- 
- struct mtk_jpeg_src_buf {
-@@ -150,6 +161,7 @@ struct mtk_jpegdec_clk {
-  * @hw_param:		jpeg encode hw parameters
-  * @hw_state:		record hw state
-  * @hw_lock:		spinlock protecting the hw device resource
-+ * @smmu_regmap:	SMMU registers mapping
-  */
- struct mtk_jpegenc_comp_dev {
- 	struct device *dev;
-@@ -163,6 +175,7 @@ struct mtk_jpegenc_comp_dev {
- 	enum mtk_jpeg_hw_state hw_state;
- 	/* spinlock protecting the hw device resource */
- 	spinlock_t hw_lock;
-+	struct regmap *smmu_regmap;
- };
- 
- /**
-@@ -177,6 +190,7 @@ struct mtk_jpegenc_comp_dev {
-  * @hw_param:			jpeg decode hw parameters
-  * @hw_state:			record hw state
-  * @hw_lock:			spinlock protecting hw
-+ * @smmu_regmap:		SMMU registers mapping
-  */
- struct mtk_jpegdec_comp_dev {
- 	struct device *dev;
-@@ -190,6 +204,7 @@ struct mtk_jpegdec_comp_dev {
- 	enum mtk_jpeg_hw_state hw_state;
- 	/* spinlock protecting the hw device resource */
- 	spinlock_t hw_lock;
-+	struct regmap *smmu_regmap;
- };
- 
- /**
-diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c
-index 6b636ec63..508ed4ff5 100644
---- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c
-+++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c
-@@ -613,6 +613,25 @@ static int mtk_jpegdec_hw_init_irq(struct mtk_jpegdec_comp_dev *dev)
- 	return 0;
- }
- 
-+static int mtk_jpegdec_smmu_init(struct mtk_jpegdec_comp_dev *dev)
++/**
++ * verifyOracle3Orc() - Cross-check x86-64 .orc_unwind against Minimal DWARF CFI
++ * @AS: Target architecture specification (x86_64).
++ * @eh_hdr_vma: Virtual address of .eh_frame_hdr.
++ * @eh_hdr_bytes: Raw contents of .eh_frame_hdr.
++ * @orc_bytes: Raw contents of .orc_unwind (6-byte &struct orc_entry records).
++ * @orc_ip_bytes: Raw contents of .orc_unwind_ip (PC-relative s32 offsets).
++ * @orc_ip_vma: Virtual address of .orc_unwind_ip.
++ * @exec_secs: Executable ELF sections.
++ * @func_syms: Deduplicated STT_FUNC symbol list.
++ * @Disasm: x86-64 LLVM MCDisassembler.
++ * @STI: Target subtarget info for instruction printing.
++ * @InstPrinter: Disassembly formatter for mismatch diagnostics.
++ * @opts: CLI verification options.
++ * @st: Aggregated verification counters and diagnostic samples.
++ *
++ * Evaluates every instruction inside STT_FUNC symbols whose active ORC record
++ * has type %ORC_TYPE_CALL and a defined SP base register, mapping `<asm/
++ * orc_types.h>` `ORC_REG_*` encodings directly to `DWARF_CFI_BASE_*` and
++ * `DWARF_CFI_RULE_*` fields.
++ */
++void verifyOracle3Orc(const ArchSpec &AS, uint64_t eh_hdr_vma,
++		      StringRef eh_hdr_bytes, StringRef orc_bytes,
++		      StringRef orc_ip_bytes, uint64_t orc_ip_vma,
++		      const std::vector<ExecSec> &exec_secs,
++		      const std::vector<FuncSym> &func_syms,
++		      const MCDisassembler &Disasm, const MCSubtargetInfo &STI,
++		      MCInstPrinter &InstPrinter, const VerifyOptions &opts,
++		      VerifyStats &st)
 +{
-+	struct mtk_jpeg_dev *master_dev = dev->master_dev;
++	st.has_orc = true;
++	constexpr size_t kOrcEntSz = 6;
++	size_t n_orc = orc_bytes.size() / kOrcEntSz;
++	size_t n_ip = orc_ip_bytes.size() / 4;
++	size_t n = std::min(n_orc, n_ip);
++	const uint8_t *orc_raw =
++		reinterpret_cast<const uint8_t *>(orc_bytes.data());
++	const uint8_t *ip_raw =
++		reinterpret_cast<const uint8_t *>(orc_ip_bytes.data());
 +
-+	if (!master_dev->variant->support_smmu)
-+		return 0;
-+
-+	dev->smmu_regmap =
-+		syscon_regmap_lookup_by_phandle(dev->plat_dev->dev.of_node,
-+						"mediatek,smmu-config");
-+	if (IS_ERR(dev->smmu_regmap)) {
-+		return dev_err_probe(dev->dev, PTR_ERR(dev->smmu_regmap),
-+				     "mmap smmu_base failed(%pe)\n",
-+				     dev->smmu_regmap);
++	std::vector<std::pair<uint64_t, size_t>> sorted_orc;
++	sorted_orc.reserve(n);
++	for (size_t i = 0; i < n; i++) {
++		int32_t rel = (int32_t)support::endian::read32le(ip_raw + i * 4);
++		uint64_t epc = orc_ip_vma + i * 4 + (uint64_t)(int64_t)rel;
++		sorted_orc.push_back({epc, i});
 +	}
++	std::stable_sort(sorted_orc.begin(), sorted_orc.end(),
++			 [](const auto &a, const auto &b) {
++				 return a.first < b.first;
++			 });
 +
-+	return 0;
-+}
++	auto lookupOrcIdx = [&](uint64_t pc, size_t &idx_out) -> bool {
++		auto it = std::upper_bound(
++			sorted_orc.begin(), sorted_orc.end(), pc,
++			[](uint64_t val, const std::pair<uint64_t, size_t> &e) {
++				return val < e.first;
++			});
++		if (it == sorted_orc.begin())
++			return false;
++		--it;
++		idx_out = it->second;
++		return true;
++	};
 +
- static int mtk_jpegdec_hw_probe(struct platform_device *pdev)
- {
- 	struct mtk_jpegdec_clk *jpegdec_clk;
-@@ -660,10 +679,15 @@ static int mtk_jpegdec_hw_probe(struct platform_device *pdev)
- 		return dev_err_probe(&pdev->dev, ret,
- 				     "Failed to register JPEGDEC irq handler.\n");
- 
-+	dev->master_dev = master_dev;
++	for (const FuncSym &fn : func_syms) {
++		if (!fn.size)
++			continue;
++		ArrayRef<uint8_t> code =
++			findExecBytes(exec_secs, fn.addr, fn.size);
++		if (code.empty())
++			continue;
 +
-+	ret = mtk_jpegdec_smmu_init(dev);
-+	if (ret)
-+		return ret;
++		uint64_t off = 0;
++		while (off < code.size()) {
++			uint64_t pc = fn.addr + off;
++			MCInst MI;
++			uint64_t InsnSize = 0;
++			auto DStat = Disasm.getInstruction(
++				MI, InsnSize, code.slice(off), pc, nulls());
++			if (DStat != MCDisassembler::Success || InsnSize == 0) {
++				off++;
++				continue;
++			}
++			off += InsnSize;
 +
- 	i = atomic_add_return(1, &master_dev->hw_index) - 1;
- 	master_dev->dec_hw_dev[i] = dev;
- 	master_dev->reg_decbase[i] = dev->reg_base;
--	dev->master_dev = master_dev;
- 
- 	platform_set_drvdata(pdev, dev);
- 	pm_runtime_enable(&pdev->dev);
-diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c
-index c2de272d7..8830480a4 100644
---- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c
-+++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c
-@@ -338,6 +338,25 @@ static int mtk_jpegenc_hw_init_irq(struct mtk_jpegenc_comp_dev *dev)
- 	return 0;
- }
- 
-+static int mtk_jpegenc_smmu_init(struct mtk_jpegenc_comp_dev *dev)
-+{
-+	struct mtk_jpeg_dev *master_dev = dev->master_dev;
++			size_t oidx = 0;
++			if (!lookupOrcIdx(pc, oidx))
++				continue;
++			const uint8_t *ep = orc_raw + oidx * kOrcEntSz;
++			int16_t sp_offset =
++				(int16_t)support::endian::read16le(ep + 0);
++			int16_t bp_offset =
++				(int16_t)support::endian::read16le(ep + 2);
++			uint16_t flags = support::endian::read16le(ep + 4);
 +
-+	if (!master_dev->variant->support_smmu)
-+		return 0;
++			unsigned o_sp_reg = flags & 0xf;
++			unsigned o_bp_reg = (flags >> 4) & 0xf;
++			unsigned o_type = (flags >> 8) & 0x7;
++			if (o_type != ORC_TYPE_CALL ||
++			    o_sp_reg == ORC_REG_UNDEFINED)
++				continue;
 +
-+	dev->smmu_regmap =
-+		syscon_regmap_lookup_by_phandle(dev->plat_dev->dev.of_node,
-+						"mediatek,smmu-config");
-+	if (IS_ERR(dev->smmu_regmap)) {
-+		return dev_err_probe(dev->dev, PTR_ERR(dev->smmu_regmap),
-+				     "mmap smmu_base failed(%pe)\n",
-+				     dev->smmu_regmap);
++			st.orc_call_insns++;
++			dwarf_cfi_row row{};
++			if (dwarf_cfi_unwind_user_eh_frame_hdr(
++				    (unsigned long)eh_hdr_vma,
++				    eh_hdr_bytes.size(), (unsigned long)pc,
++				    &AS.karch, &row) != 0) {
++				st.orc_no_fde++;
++				continue;
++			}
++
++			bool cfa_ok = false;
++			if (o_sp_reg == ORC_REG_SP) {
++				cfa_ok = (row.cfa_base == DWARF_CFI_BASE_SP &&
++					  row.cfa_off == sp_offset);
++			} else if (o_sp_reg == ORC_REG_BP) {
++				cfa_ok = (row.cfa_base == DWARF_CFI_BASE_FP &&
++					  row.cfa_off == sp_offset);
++			} else if (o_sp_reg == ORC_REG_BP_INDIRECT) {
++				cfa_ok = (row.cfa_base ==
++						  DWARF_CFI_BASE_FP_INDIRECT &&
++					  row.cfa_off == sp_offset);
++			} else if (o_sp_reg == ORC_REG_SP_INDIRECT) {
++				cfa_ok = (row.cfa_base ==
++						  DWARF_CFI_BASE_SP_INDIRECT &&
++					  row.cfa_off == sp_offset);
++			} else if (row.cfa_base == DWARF_CFI_BASE_REG) {
++				int exp_dreg = (o_sp_reg == ORC_REG_AX) ? 0 :
++					       (o_sp_reg == ORC_REG_DX) ? 1 :
++					       (o_sp_reg == ORC_REG_DI) ? 5 :
++					       (o_sp_reg == ORC_REG_R10) ? 10 :
++					       (o_sp_reg == ORC_REG_R13) ? 13 :
++					       -1;
++				cfa_ok = (row.cfa_reg == exp_dreg &&
++					  row.cfa_off == sp_offset);
++			}
++
++			bool bp_ok = false;
++			if (o_bp_reg == ORC_REG_UNDEFINED) {
++				bp_ok = (row.fp_rule == DWARF_CFI_RULE_SAME);
++			} else if (o_bp_reg == ORC_REG_PREV_SP) {
++				bp_ok = (row.fp_rule == DWARF_CFI_RULE_OFFSET &&
++					 row.fp_off == bp_offset);
++			} else if (o_bp_reg == ORC_REG_BP) {
++				bp_ok = (row.fp_rule ==
++						 DWARF_CFI_RULE_FP_OFFSET &&
++					 row.fp_off == bp_offset);
++			}
++
++			if (cfa_ok && bp_ok) {
++				st.orc_matched++;
++			} else {
++				if (!cfa_ok)
++					st.orc_cfa_mismatch++;
++				if (!bp_ok)
++					st.orc_bp_mismatch++;
++				if (st.sample_orc_diffs.size() <
++				    opts.max_samples * 3) {
++					std::string dis_str;
++					raw_string_ostream rso(dis_str);
++					InstPrinter.printInst(&MI, pc, "", STI,
++							      rso);
++					char b[256];
++					snprintf(b, sizeof(b),
++						 "%s+0x%" PRIx64 " (0x%" PRIx64
++						 ")%s | ORC(sp=%u:%+d bp=%u:%+d)"
++						 " vs CFI(cfa=%u:%+d fp=%u:%+d)",
++						 fn.name.c_str(), pc - fn.addr,
++						 pc, rso.str().c_str(), o_sp_reg,
++						 sp_offset, o_bp_reg, bp_offset,
++						 row.cfa_base, row.cfa_off,
++						 row.fp_rule, row.fp_off);
++					st.sample_orc_diffs.push_back(b);
++				}
++			}
++		}
 +	}
-+
-+	return 0;
 +}
-+
- static int mtk_jpegenc_hw_probe(struct platform_device *pdev)
- {
- 	struct mtk_jpegenc_clk *jpegenc_clk;
-@@ -383,10 +402,15 @@ static int mtk_jpegenc_hw_probe(struct platform_device *pdev)
- 	if (ret)
- 		return ret;
- 
-+	dev->master_dev = master_dev;
-+
-+	ret = mtk_jpegenc_smmu_init(dev);
-+	if (ret)
-+		return ret;
-+
- 	i = atomic_add_return(1, &master_dev->hw_index) - 1;
- 	master_dev->enc_hw_dev[i] = dev;
- 	master_dev->reg_encbase[i] = dev->reg_base;
--	dev->master_dev = master_dev;
- 
- 	platform_set_drvdata(pdev, dev);
- 	pm_runtime_enable(&pdev->dev);
 -- 
-2.51.0.windows.2
+2.56.1.831.g720f3f5937-goog
 
