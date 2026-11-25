@@ -1,101 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.42
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.52
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795585811;
-	b=2TBcHIWwKEqWjLjW2pbrvZhII525fXdbsTEVMYSpr9XVhT7/HQpZTAwFzPzeMJrSsS9t
-	 JIVYiwqki3AG37bwKrFPWzaPn9IXSnfdEtX5FLj/N1U8BH3SVNkRHTUCl+58PmSYHlSl8
-	 YiCRATkqPTSw6fVNylucvLygGojatWa7f16OqOMKEe/lLJRE3zwS3zG5JWR/Xj8BNr3jZ
-	 TzBWxTBeSaq7PVfPG5J9jtZT9l5x1Cq0reMOAiGXx6yWaFmwqzcFiQssTjCtzTzl6McEk
-	 RYD8RcBJxgyVwP79eBdJztqavKyGFlSQvy2kmd56bnjlDxitQxz8C10RAMXoGbBp3kA==
+	t=1795585817;
+	b=2UPTwRLyLsqj5lDQZy+ZVRK2BWzjMjIutNZ++pFpkN7mq2kiOLSHETkebMAKK5AN/rxf
+	 1jT0nn0Yv1szORRroBnOtgpvBDmho5C5FQDiZImozvDpZ2+sq2XQ1NrX1fE8sPzAt959P
+	 3fqB08DybZOkP/QL+RFk7vq1m6CXbg+NF6cIJMpKxrR1f5nvvcpcTLVaLBDCGJ5SoG7Sk
+	 ehA2qiIrIysrCDIXK9LVsfGeO8iO5slN6gMUpg+T6CG3jNRxKnpQ8o9O0uSCxOOWTzJ9Z
+	 WZoPiJ/FpGD153o1MMlzVO0o1lnHEjdUNdYyYfbGnVasbBrLs0aaxyNIdyFfPaqGpaw==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795585811;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795585817;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
 	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
 	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=BpPvj0nWvmhIzxo1GF3DFVFg+7nJdo/Em/Vn4/tSVqA=;
-	b=tw3SU1Hasi5Vbq8Gc0nKX84yLAWK4ucqMpmWOYlZRnLRZhiUFZbVkjcGTtMrOzR/MWqx
-	 rSXk1OsOy5mUjgX3jdMWPfeXHoYLV6ZsQl1EqGFSBOG9qYHD5/vMV14pC3B7bDaEqbYSF
-	 5kTBbQJhtOGI6Rjxp5+aJZXo4C6jDLY9PPj4RuL3sI6bTmtjEgZIrXWi6T0fv3tzVx1Rb
-	 hu17l4W7vkwfDJqnQ8V6JyhRTaG5dP1ek6bLNNN3pbj7Nn3/C77ApFQgrOAlvV6QOBCnp
-	 Y7oU8/RlrrIMS/Hhkv9fC8NdQ/RV1lD/ExXvErKPbmk9Uo1OWPCCqZYNyLHMmksk52Q==
+	bh=kT3tic/d91/ykIxW0D8n99nUbZymWMEwweL5i2/3Bio=;
+	b=qTDFbPO/EEwXwDBoWGBhC2Rp0mwOgty6Jb5JK32ehBswT4+LRSpgkq1/G/DPYxRGqPzm
+	 euVcT6yv0IC6Ten6PfDlL2z4Gz9sVUZyJbVThzv+w/ZZZHj2y/Mv2k2kPPqqHxw51SuRB
+	 wqUmJ7qu0+WnlL4MzaWJZ3XntAHTmHvsuKaawCj8lYRlza0fTE3VBRFvWPe8bVXodSw7/
+	 ST15pIGPlrlqagMw7wpPnjpcA97KhiHwHC/XXSsRyOq/rB3NZ0WEIvT2aXzgIVAu2q68/
+	 NBjw/qiBuEEbGo/I6HSH8LznP19qfJgXs2TuONZ45ToBmYQrbn3wB3xMFS3Y9UQsXgg==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=none header.from=brainfault.org;
 	spf=none smtp.mailfrom=brainfault.org;
-	dkim=pass header.d=brainfault.org header.i=@brainfault.org header.a=rsa-sha256 header.s=google header.b=bnPlrbv1;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.42
-Received: from mail-wm1-f42.google.com (mail-wm1-f42.google.com [209.85.128.42])
+	dkim=pass header.d=brainfault.org header.i=@brainfault.org header.a=rsa-sha256 header.s=google header.b=K+2UvfK1;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.52
+Received: from mail-wr1-f52.google.com (mail-wr1-f52.google.com [209.85.221.52])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2A911606A321
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 05:50:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2A911606A321
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1848D606A31E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 05:50:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1848D606A31E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
 Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=brainfault.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=brainfault.org header.i=@brainfault.org header.a=rsa-sha256 header.s=google header.b=bnPlrbv1
-Received: by mail-wm1-f42.google.com with SMTP id 5b1f17b1804b1-4bb61185057so34314415e9.1
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 21:50:09 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795585808; cv=none;
+	dkim=pass (2048-bit key) header.d=brainfault.org header.i=@brainfault.org header.a=rsa-sha256 header.s=google header.b=K+2UvfK1
+Received: by mail-wr1-f52.google.com with SMTP id ffacd0b85a97d-498f5fa5103so3131014f8f.2
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 21:50:16 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795585815; cv=none;
         d=google.com; s=arc-20260327;
-        b=FQvt5MW8v2hoQ+Zwp9WikSQrUtr433mC7OnhBpUhOVC6TJXWrbpZPmn/aQTdzWQcOb
-         ZczbNRqDgZ3DyBFMjEU98X5dfEPfoE9SgqsuvwbHErAsdyeTWx90gch2xRySVUpwHrQa
-         Q37SEKHT5VDadQkimg6DtOeLSfj63VzgUtFIZEDiyg5krpYXgaGPQLRO3xQVl+8/kjLP
-         CIT1w6imUnn+Azmord64HRtVDqA5+SP2VJfaEpDkpoS8Uq/j9ZebMEm8/2u61gCSa5YC
-         olyBG2VxLbl96nW6bsVrx2J7m1XGC6cvKgV885id5fQ1hzplg2kD7Ck1Zljj3XjhXHqk
-         Wfuw==
+        b=W9P3wJk4kbzurD7JVUvbwC7633dmKwuf9xDTioGoYASip8jyPtmSuF5gKT1YZ0kAq5
+         uhVnPCk3mOrHqBbD9jw4oi9fl9VfkZNAz662VDC/cWXSaXBkCbj1n8TozsVpJSL4Fd53
+         4uHu3U0Cei7oTkB1KQZKuUKgbIUO3NG7OGCww5t8bL3mBOgjCHClYgnLDC7garCVHb10
+         yseDFyKAUYAV4/E70Fmv20LOsprapSVdyZLlJ1gDIn/bN86PAE6jJy2xDH7/7CotFMHv
+         kRMoQLvTI3TbkzoPCvnT3B4dJbkHZe2dqNodBeOKtGv9CBHI7xyBJYceG9jS9cnD3Ict
+         Tshg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=BpPvj0nWvmhIzxo1GF3DFVFg+7nJdo/Em/Vn4/tSVqA=;
-        fh=pbJ5W4vFVIgzwFCqx1TBWKkc6nhWIwbd6Gsl1jH83os=;
-        b=XI5A0Kn8P38B6m1Z9oOQxABNwYcL20cpfRjQaa72IbRJuxwDjncSDljHTFK03vIa+y
-         RehY0k5j5m8HThfb+6BSrtYZtWv/eUV4GWPBStHhI1c7t6oMCBM9dIuHWhW7TQGN+Tgo
-         GkSpjfogKNSqg3JhufVim2YdtMfILPokQehYBCHq+u74OK5FFslxjXD5+rrieJjJoo4M
-         7po2hyovKqigkmF8a6E0f1vrAepthOKG1Ji/XE7JOG012BTSfgn7Zt6LaOqREzBh81Il
-         ZhMC569FuCt6TsTMSF8/z3dI9RSIJHMpU5hpksDQIPXEpizngwQ9fhntr75mdyIkjwCc
-         X6Jw==;
+        bh=kT3tic/d91/ykIxW0D8n99nUbZymWMEwweL5i2/3Bio=;
+        fh=OGqYyJyWEbznVlG1w1xkdhOOWCIo2ZfmDWnmkYfpoZ4=;
+        b=V4Vnf6vVeQH3x03cNmpJY9zHFFMWEjPcBjCcEKCE8iODjHVGCIP9tgiBZ/L7rfsJEf
+         UlyvWtjFxuOQ2M8ocXwuTBWSNzdUVYZ081graF95l0zZ/QwKxI+Ci8e/FYl0h4zP/eP/
+         76v91E2V69acCd9AEGNkCFGZ81g6qOzeN6V5OEXAe8AucDocWaHJ2dda5QNhkVdy3e8W
+         HKuZ4TmhLDy62BVpc1Tz1O4MnTAdb9wrIGRFVKZsK2juQuB7yKTYqPSGmJnJQZTq1VGR
+         v2PNM4k6Nvg3B+t8tWorW5YVU2pbe4Epf5lgeA9GN1OmdKHUE0aqVNFJJuqZPZYS4Tor
+         gwrw==;
         darn=vger.kernel.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault.org; s=google; t=1795585808; x=1796190608; darn=vger.kernel.org;
+        d=brainfault.org; s=google; t=1795585815; x=1796190615; darn=vger.kernel.org;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=BpPvj0nWvmhIzxo1GF3DFVFg+7nJdo/Em/Vn4/tSVqA=;
-        b=bnPlrbv1Tv2qN6z8HRl2pjw0ILggVDP3fGye9E4RcaEqVAyd6WJ2hZuKVSJox+Ib6j
-         bKAdNeAmqlzWvrtedLIBnqiFdzbGX9EfvOs+7gv0/isLfXRdFyGkZedi/twgEMXA0e18
-         TGZEnt8CdPla6Blyz8WrbwVVywXMTn6Re8PBoVzAFOjgC+Cgc+dyoktfsLvl6c+pXPAX
-         WehEviufV1a9aUiTNzGhG5EYHC8m74yQQoj8VfDVAATuUiI4xf0GVJMNReINdqOy8hha
-         AxOWsSHncbnt7Uzzb88b7uDyLkyYvD4z7RbB7+2iqhxU6nLWEo2hZd9TK2uddYvxk2X5
-         QOCQ==
+        bh=kT3tic/d91/ykIxW0D8n99nUbZymWMEwweL5i2/3Bio=;
+        b=K+2UvfK1cwBf5HmQdBywYL5uXo1ci7tIKtFEzkLOJ08wVBn4ZypvJX9+bdyaWIeB2y
+         bO06EcyZ1zOeV4zqpL5LJUNDPh7Rx1xdmMijDMwW/8QbZtxz/HD/2isNx2f6PlW9ytfR
+         BKW1xIwbuWGI8d9GTmbD35rVf9p4jObioXtvmG4y2cSL03NdvmLuTEg4fGAaBuP1IbLV
+         7GRLlTTSJ94aUx6JU02YWFpAgrU42AhrTSckIVlVYKZU0Vq4f1tfzcu8Ptdz+lIGuNjw
+         +V4os65oqMMltzRs+fAEqyAYRkF6GnJoy+ydz2O9hTOoAvCF4ex6OVmFxmM+ylTLbrIE
+         euvA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795585808; x=1796190608;
+        d=1e100.net; s=20260707; t=1795585815; x=1796190615;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=BpPvj0nWvmhIzxo1GF3DFVFg+7nJdo/Em/Vn4/tSVqA=;
-        b=ooBbEr+mv1sNz1QXzzqAWWylxp7kyFyxnNxdyqPN2OtOZdhP9x37GE9eB2m8AZB0CB
-         DG3hOLqOZZOfGQCZ2lPQxwdjiAxC9wc74R+DZd2E60Wl54seIa68MwoHZp7ege0DQRkX
-         8r5LCbemtwhOsWFAeZLvP8DDmMJ5VimCkXyLMg8GrbGUQZN0LZgPxwGOJbfqHGLJ/vWl
-         3RzO9wK+/MGaLiGZm/ZvQT0eG/6jklSKKiVLENQNiuT5vyOVXj6CT6FP7qaMujVDN78i
-         /kdyb0kbFvL547kUqAJZZjTEBORMF2wCWyXbII/Ffs6L4BtIebRmf99OA6Qzb97FGCij
-         BnCw==
-X-Forwarded-Encrypted: i=1; AL+hErHmxBqHF4HUfGNzMVhz04qHnW9sHOY1jkuNXxjprLxj1oUm9MoEd00+Ifto1SEN1Ti4e+pQ0BHe7DBHl+0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+K2k1TWht9TjJr3mlX9GERCZEXLkr1oOVRVctBtokBe/h4mK8E
-	BtzROu4uFRwHezlgcMi8WqNAxxuzAnJoAsGb44DUrMK/g/7axnYbVLFTfDv9S8I2gpJcfOhraHw
-	njRH5IDL+9BKYBRNhG6BBMZrmiSpjLWcNBk9Xt9FpOg==
-X-Gm-Gg: AZFdTZegMhaFPzQq6WlsyzrajkfYBsnVmOpRzHzoifA5P9nyy1qPKlb7YcB5Cu9KHCc
-	HnnSWBSOgGXlD9nNGa2rvjVrNJqqRpx5+9sq1Mog+1uG0S/BGGNSsbidTff/3VWSdhW+8vfRygE
-	BdtQKb3y//3xlgSyiyPLDP0MSaH8gBlJj4tZwXsrathhBehjJ3oEvRZ2aZpmy2+A0ZpIclLHyBr
-	R6BJx9OK9bqzViZ7MNgEIGBVArfpsC13cTUTM8bfWzHKUJAWo1nCxYiohbdtzcrHdL3qw/ShusA
-	balaeXdXrYrnMAw2aKURNfHUWrm8AWRld//q+DIEqAdf4sPqaHb32eeJkna1Aa3lKZQCihaPSpH
-	r8Z4UW+m5f/P7LEvsRY4oCfCEdYm0Y9KgHQ78XQ7gi65H+tZ6XwwaGzL38WR227CjCcHNG1vT8O
-	mVpCET4pNo24gNOZdl6JWzBelt4lMagNVgf4RdG2tqP05wK23EvhVAVpQ=
-X-Received: by 2002:a05:600c:1d29:b0:4a9:2a92:231f with SMTP id
- 5b1f17b1804b1-4bb88804d4dmr362487905e9.7.1795585808512; Tue, 24 Nov 2026
- 21:50:08 -0800 (PST)
+        bh=kT3tic/d91/ykIxW0D8n99nUbZymWMEwweL5i2/3Bio=;
+        b=dheHr/NiHkWtAFO9glFagB3GUGQ9CdRRlOh9wGTOTDdFhX7qrqGpGFtGkJfwbYJuR+
+         dS4popjpSYjt2IzC9Y7Ga3mrZkAJxEb/EOwA99jZ0G8Zer0+ruCx84QemngWksWuGIvj
+         atqzdCzlahTYvgTWuemWGKQ9Bd/qDt7yhKcQPufOzf/Sl+66phGRl2GSuUmY4Kfjna7U
+         U/cB7nCyMKG7iz7WqQQc41tcmF/Q7ljHAv73S8zZsFFuQb4yw7ZSOakEgmAQEiBQzM7R
+         FJCx7co0Z/bjuXUa/5rUxNJJO07Q32En+GMGjfVQKH226GZk7K5Ln9uSGNcwB0cDTtWN
+         NpAA==
+X-Forwarded-Encrypted: i=1; AL+hErGOV+TIEvtQWXblNzWwofQcz/K8xXtT+YnT06UTDz3EgIoD+RaQZHrigtH9FzFg1Bh1b4a0/MjtbzNd/MI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/rTlfis9qgcrpyC7Jo0ldfmon0K+83HhB4vFAjIsy6c8ZrV9gf
+	VMPp5BfeGAp/JPF/0MALsKRvjMD0ozJE9N0useHxn/wrwb6uEIwWxUJzpXs70+T/+caRi3I1RFD
+	vs3Mc3aCqv1NDzcefHoilVi5PYErqS5Svym07wO8iJg==
+X-Gm-Gg: AZFdTZeunZsOVmWg6W7/tnSOAjKNob48nAIFVFPaCDvKvdkkXDEzEhkQCV+HyGyrDDe
+	RznL6oh6gLxNwIx72idq8Lb55VFBsrl8TkeT3HfbezXWl2vUgKDCSxfPSrBYzzxFm2FgmxtTPKU
+	20xB3XvuIO1kjelaA4cre5QOQqOsSXYy9bM19W5wq17ubf72G0V3KxeqI5SqyUVl7EbgZUZ//mH
+	L1odTMZFfxSqzW1J7uBurbKZ8sEHx5Fh7kIhC94pUKnnB+GhoODU2vYqMGKx20UqhV1M3U91cNA
+	pSqYlVj12tWeszPyVCKDv8xS5sDlK2/5DBr2AaDCOnB6UGCuhDD+whKie8emzy7uyhDvkCMqcFr
+	kp3kM2oAA3X+kAj5KV85O1InvjdN0LN/4Ghkmd38CULAKKbHwwIdETD7MKA8Pnih8YUHdg0WDUG
+	R2MoF4WjM50DBDO8BN8DcMAP+erChKwoVrOmB7vJULA06nzkWI7UG4dlM=
+X-Received: by 2002:a05:6000:4008:b0:4b6:8c1:bc3d with SMTP id
+ ffacd0b85a97d-4b608c1bc69mr9271540f8f.57.1795585815308; Tue, 24 Nov 2026
+ 21:50:15 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,13 +105,14 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20260921111402.120911-1-suunj1331@gmail.com> <20260921111402.120911-4-suunj1331@gmail.com>
-In-Reply-To: <20260921111402.120911-4-suunj1331@gmail.com>
+References: <20260921111402.120911-1-suunj1331@gmail.com> <20260921111402.120911-5-suunj1331@gmail.com>
+In-Reply-To: <20260921111402.120911-5-suunj1331@gmail.com>
 From: Anup Patel <anup@brainfault.org>
-Date: Wed, 25 Nov 2026 11:19:56 +0530
-X-Gm-Features: Aa3M54olVHavWeAlguF4P6c6438TRdv0cvM9VsXLh3lRZmC_JVPz05hHC99ALdY
-Message-ID: <CAAhSdy0Ev2MKxS6J1OrD+mHKMw-izwi5ywHLJZT4fN0K-U-CHw@mail.gmail.com>
-Subject: Re: [PATCH v1 3/5] KVM: riscv: Write-protect G-stage PTEs atomically
+Date: Wed, 25 Nov 2026 11:20:02 +0530
+X-Gm-Features: Aa3M54p30lsdKRUsZb_oZ9Ir_KFeKDghmbl1hKMXGWdC2yvUELIJH6ADrwgQ5jc
+Message-ID: <CAAhSdy1XYx+Piha+gkpMNgFprSwQ=P4gT9SwWgwQfLzhP1thbw@mail.gmail.com>
+Subject: Re: [PATCH v1 4/5] KVM: riscv: Free G-stage page tables after an RCU
+ grace period
 To: SeungJu Cheon <suunj1331@gmail.com>
 Cc: Atish Patra <atish.patra@linux.dev>, Paul Walmsley <pjw@kernel.org>, 
 	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
@@ -126,18 +127,160 @@ Content-Transfer-Encoding: quoted-printable
 On Mon, Sep 21, 2026 at 4:44=E2=80=AFPM SeungJu Cheon <suunj1331@gmail.com>=
  wrote:
 >
-> GSTAGE_OP_WP clears the W bit with a read-modify-write of the entire
-> PTE. Lockless aging can concurrently clear the Accessed bit, allowing
-> write-protection to overwrite the update with a stale PTE value.
+> G-stage page tables are currently freed immediately after being
+> unlinked under mmu_lock. This is safe while all walkers hold mmu_lock,
+> as a table cannot be freed while a walker is using it. A subsequent
+> change will allow aging walks without mmu_lock, where a walker may
+> obtain a child table pointer just before a concurrent unmap unlinks
+> and frees the table.
 >
-> Clear W atomically with test_and_clear_bit() so that concurrent
-> Accessed-bit updates are preserved. Its return value also preserves
-> the existing behavior of requesting a TLB flush only when W was
-> actually cleared.
+> Defer freeing unlinked page-table pages with call_rcu(). The parent
+> entry is cleared before the child table is retired, so new walkers
+> cannot acquire it while existing RCU-protected walkers can safely
+> finish using it.
+>
+> Apply the same lifetime rule to the root PGD. Unpublish the root with
+> WRITE_ONCE() and defer its free with call_rcu(). Keep pgd_levels
+> unchanged so a walker that observed the old root continues to use
+> matching page-table metadata.
+>
+> Wait for pending G-stage page-table callbacks with rcu_barrier() when
+> the RISC-V KVM module exits so that they complete before the module is
+> unloaded.
 >
 > Signed-off-by: SeungJu Cheon <suunj1331@gmail.com>
+> ---
+>  arch/riscv/include/asm/kvm_gstage.h |  2 +-
+>  arch/riscv/kvm/gstage.c             | 16 +++++++++++++++-
+>  arch/riscv/kvm/main.c               |  3 +++
+>  arch/riscv/kvm/mmu.c                | 16 +++++++++++++---
+>  4 files changed, 32 insertions(+), 5 deletions(-)
+>
+> diff --git a/arch/riscv/include/asm/kvm_gstage.h b/arch/riscv/include/asm=
+/kvm_gstage.h
+> index a03db1a10095..caeed6de6dbe 100644
+> --- a/arch/riscv/include/asm/kvm_gstage.h
+> +++ b/arch/riscv/include/asm/kvm_gstage.h
+> @@ -111,7 +111,7 @@ static inline void kvm_riscv_gstage_init(struct kvm_g=
+stage *gstage, struct kvm *
+>         gstage->kvm =3D kvm;
+>         gstage->flags =3D 0;
+>         gstage->vmid =3D READ_ONCE(kvm->arch.vmid.vmid);
+> -       gstage->pgd =3D kvm->arch.pgd;
+> +       gstage->pgd =3D READ_ONCE(kvm->arch.pgd);
+>         gstage->pgd_levels =3D kvm->arch.pgd_levels;
+>  }
+>
+> diff --git a/arch/riscv/kvm/gstage.c b/arch/riscv/kvm/gstage.c
+> index f7e4756ce15b..fc39d188b20a 100644
+> --- a/arch/riscv/kvm/gstage.c
+> +++ b/arch/riscv/kvm/gstage.c
+> @@ -22,6 +22,20 @@ unsigned long kvm_riscv_gstage_max_pgd_levels __ro_aft=
+er_init =3D 2;
+>  #define gstage_pte_leaf(__pte) \
+>         (pte_val(__pte) & (_PAGE_READ | _PAGE_WRITE | _PAGE_EXEC))
+>
+> +static void gstage_free_page_table_rcu(struct rcu_head *head)
+> +{
+> +       put_page(container_of(head, struct page, rcu_head));
+> +}
+> +
+> +/*
+> + * Defer freeing an unlinked page table until lockless walkers
+> + * that may have observed it have exited.
+> + */
+> +static void gstage_free_page_table(pte_t *table)
+> +{
+> +       call_rcu(&virt_to_page(table)->rcu_head, gstage_free_page_table_r=
+cu);
+> +}
+> +
+>  static inline unsigned long gstage_pte_index(struct kvm_gstage *gstage,
+>                                              gpa_t addr, u32 level)
+>  {
+> @@ -406,7 +420,7 @@ bool kvm_riscv_gstage_op_pte(struct kvm_gstage *gstag=
+e, gpa_t addr,
+>                         flush |=3D kvm_riscv_gstage_op_pte(gstage, addr +=
+ i * next_page_size,
+>                                                          &next_ptep[i], n=
+ext_ptep_level, op);
+>                 if (op =3D=3D GSTAGE_OP_CLEAR)
+> -                       put_page(virt_to_page(next_ptep));
+> +                       gstage_free_page_table(next_ptep);
+>         } else {
+>                 if (op =3D=3D GSTAGE_OP_CLEAR) {
+>                         set_pte(ptep, __pte(0));
+> diff --git a/arch/riscv/kvm/main.c b/arch/riscv/kvm/main.c
+> index 89568ccce01d..5fcf425f7150 100644
+> --- a/arch/riscv/kvm/main.c
+> +++ b/arch/riscv/kvm/main.c
+> @@ -262,6 +262,9 @@ static void __exit riscv_kvm_exit(void)
+>  {
+>         kvm_exit();
+>
+> +       /* Wait for pending G-stage page-table RCU callbacks. */
+> +       rcu_barrier();
+> +
 
-LGTM.
+Just like TDP MMU in KVM x86, this should be part of
+kvm_arch_destroy_vm() instead of doing at module exit time.
+
+I will update at the time of merging.
+
+>         /* Unregister CPU PM notifier */
+>         if (IS_ENABLED(CONFIG_CPU_PM))
+>                 cpu_pm_unregister_notifier(&kvm_riscv_cpu_pm_nb);
+> diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
+> index 342f606399e5..8aed69abf814 100644
+> --- a/arch/riscv/kvm/mmu.c
+> +++ b/arch/riscv/kvm/mmu.c
+> @@ -761,6 +761,13 @@ int kvm_riscv_mmu_alloc_pgd(struct kvm *kvm)
+>         return 0;
+>  }
+>
+> +static void kvm_riscv_mmu_free_pgd_rcu(struct rcu_head *head)
+> +{
+> +       struct page *page =3D container_of(head, struct page, rcu_head);
+> +
+> +       __free_pages(page, get_order(kvm_riscv_gstage_pgd_size));
+> +}
+> +
+>  void kvm_riscv_mmu_free_pgd(struct kvm *kvm)
+>  {
+>         struct kvm_gstage gstage;
+> @@ -773,9 +780,12 @@ void kvm_riscv_mmu_free_pgd(struct kvm *kvm)
+>                 flush =3D kvm_riscv_gstage_unmap_range(&gstage, 0UL,
+>                         kvm_riscv_gstage_gpa_size(kvm->arch.pgd_levels), =
+false);
+>                 pgd =3D READ_ONCE(kvm->arch.pgd);
+> -               kvm->arch.pgd =3D NULL;
+> +               /*
+> +                * Keep pgd_levels unchanged for lockless walkers that al=
+ready
+> +                * observed the old root.
+> +                */
+> +               WRITE_ONCE(kvm->arch.pgd, NULL);
+>                 kvm->arch.pgd_phys =3D 0;
+> -               kvm->arch.pgd_levels =3D 0;
+>         }
+>         write_unlock(&kvm->mmu_lock);
+>
+> @@ -783,7 +793,7 @@ void kvm_riscv_mmu_free_pgd(struct kvm *kvm)
+>                 kvm_flush_remote_tlbs(kvm);
+>
+>         if (pgd)
+> -               free_pages((unsigned long)pgd, get_order(kvm_riscv_gstage=
+_pgd_size));
+> +               call_rcu(&virt_to_page(pgd)->rcu_head, kvm_riscv_mmu_free=
+_pgd_rcu);
+>
+>         kvm_mmu_free_memory_cache(&kvm->arch.pgd_split_page_cache);
+>  }
+> --
+> 2.52.0
+>
+
+Otherwise, LGTM.
 
 Reviewed-by: Anup Patel <anup@brainfault.org>
 
