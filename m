@@ -1,49 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.54.195.159
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795621206;
-	b=xaTWS+6d3P9vPQkJSTIxAIw1wRgigdut93e1OGQLE9tE+31+9QD+znc8qydQ2ILbVGoh
-	 WIyZyPuDzj/wQdo5N8u4sDnGBIeEyofGncmO3h6VW2pekFEjwaXbkR+ggg8QmROnXVzbV
-	 WF9uxrJrVRZBaIEejYBNO6ZQC67NxNEITIqeic1YJbI6jqi/4TOpP1WFlEhdf9tWVBk4r
-	 lKswfeAiXGcdurqwAQsXoBNba4ogN928wE8xdI3T90Xtxs77kVS3USS4k4E2d3/QVjk7d
-	 C6wK8jOWilC3u1dJkUmp4y1izn+4sLnT5lHLhqd+neH9E13iu/Llq8Z9/3mBiLYREBg==
+	t=1795621216;
+	b=aaDcneixmj3REw0E7+iOgjGPsht5t9Iol0NZW31S/ZvhAQNNbPZwGzQ1hylEFMAjW/yR
+	 wU7qPM2UMLUzKSOUiSabboxMLucUcwUHvNYRjPSxjQKXndi94rwguAV2kC4qRjcxXk2US
+	 hCp1XMgfBfpFE6qU1GS3I+OjjIXsOcnjjqrYKIVGFqTvrYr+i5S+GQOTLi9GDEHh3x2fC
+	 ldfU8OR9UYDzkT03WkzOhY06ImJa8+N6G/jKQ1XmiA5E78EhVt1DuY+KZ+8BR7qe2tPW0
+	 tf1iMUP4e8dS3F/EDmzOqquPH2rMk17a61nIs7A8cXWBmOsIST2qGfxPrJ/OBOpXrCQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795621206;
-	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
-	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
-	 In-Reply-To:To:Cc;
-	bh=JilttFuISU4lz75pSyDaY9HWz5jlv4i6yj7CHFO7pLY=;
-	b=Pv4cl9RNRi/pvjzwN4MCfPBHf7GiW6tdjyBCK1pXJ1evBYGq63P/dtINRC2uc5+coFmb
-	 NkLnseTsujBLmojz8fEFZXP+9DX1EQsUZSnvj2Y59MBgJjv5AM0kepOJhigviCuzsYyMt
-	 BQYqMQHIXYmPrQ35ymoKDupEP9C4tmLl8xTkjPufw+WFqZaUiJfV4PrMKe1v7Cfz76bPP
-	 KMkyjC2IAdjEgWwgM+vEu9nEyqKHTVzlrsf3MMz22x5LYJmXAmtyrQrbhdV2qX4hgR4sl
-	 qSUvPK0QdwgYNcwnYZwTHnrwBC+Yt9KwhNXddj07a8DJ0Tr1BFoXUPuRhGSF1Gjn2vg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795621216;
+	h=DMARC-Filter:Received:Received:From:To:CC:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
+	 X-ClientProxiedBy;
+	bh=17njXQ7Tet8iwZqoG19brC1XCP2klxjEKEJ+60r15+c=;
+	b=5NeB4jWrbr66OSdaQZn+QzqyWd+pWFudAgO+GovWWGcFUrnHfZzS0CBXjnyQ0Dmm5nc4
+	 +S/NRPId6XgQoaHcIalSksXW/lybG5yCuqpP30qSwd84jyfQ6s+jLbD/SSs7GiMAFxZhP
+	 0J+2kY8opLNrTj9iV9Y1hVkCgzaULjGo7ZMSmwVB0pBNUxb9SQyr7qQ2KCgKOXro5DLz8
+	 UkpoK1TsvrvO5Qc192Ome0eveq/4zs8/pNfHLdXQRPHkFbZMyAmLf4+viAr4YDslZn8v3
+	 QQi88Q+Yx0qPJWQ9yO0Zn7KLVs/k8NT32I384PogutD3UO3XKkVvg6BllCA+aPy2N+g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nl8F94FS;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=none header.from=fintech.ru;
+	spf=pass smtp.mailfrom=fintech.ru;
+	arc=none smtp.remote-ip=195.54.195.159
+Received: from exchange.fintech.ru (exchange.fintech.ru [195.54.195.159])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D8048606A33B;
-	Wed, 25 Nov 2026 15:40:06 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nl8F94FS
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7F3BD1F00A3D;
-	Wed, 25 Nov 2026 15:40:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795621206;
-	bh=JilttFuISU4lz75pSyDaY9HWz5jlv4i6yj7CHFO7pLY=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=nl8F94FShIwGcAewqeQ0HDOOsVTX/meREn5SrtdEBK/T+xF0q2s3xbgNq04LLk8Rc
-	 fqnUiELjYu9Q0iUNqOJoDD78jnUllGxFz2O1nXrAAGJPGjPMJPtf+k/10bpfsvNSII
-	 QKbpUz4AAxvE8qNskCTEjscG3plOy8Qmg9lfFo0Ykp0quvJ7oANmnYeo6VZuX5weBG
-	 rJE9z3qXmxxpWwX281G05doEs4p7v4py1kyvLfz7f3l1zJalsMUnYW7PAAAaMbCMPa
-	 FH8g+BN1lpkfVgLd7c3ZBCOYOnTEHx91T0RHSQADFpp6fOIGmMNF8cqI5bRm/blYqs
-	 m+9M7k4phSdWg==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 7751B3808209;
-	Wed, 25 Nov 2026 15:40:06 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 40C00606A6A6
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:40:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 40C00606A6A6
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=fintech.ru
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fintech.ru
+Received: from Ex16-01.fintech.ru (10.0.10.18) by exchange.fintech.ru
+ (195.54.195.159) with Microsoft SMTP Server (TLS) id 14.3.498.0; Wed, 25 Nov
+ 2026 18:40:14 +0300
+Received: from localhost (10.0.253.153) by Ex16-01.fintech.ru (10.0.10.18)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2242.4; Wed, 25 Nov
+ 2026 18:40:14 +0300
+From: Nikita Zhandarovich <n.zhandarovich@fintech.ru>
+To: Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong
+	<neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>
+CC: Nikita Zhandarovich <n.zhandarovich@fintech.ru>, Laurent Pinchart
+	<Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>,
+	"Jernej Skrabec" <jernej.skrabec@gmail.com>, Luca Ceresoli
+	<luca.ceresoli@bootlin.com>, Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>, Damon Ding <damon.ding@rock-chips.com>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, Sandy Huang
+	<hjc@rock-chips.com>, =?UTF-8?q?Heiko=20St=C3=BCbner?= <heiko@sntech.de>,
+	Andy Yan <andyshrk@163.com>, Alexandre Marquet <tb@a-marquet.fr>, "Marek
+ Szyprowski" <m.szyprowski@samsung.com>, <linux-rockchip@lists.infradead.org>,
+	<linux-arm-kernel@lists.infradead.org>, <dri-devel@lists.freedesktop.org>,
+	<linux-kernel@vger.kernel.org>, <lvc-project@linuxtesting.org>
+Subject: [PATCH v2 2/3] drm/rockchip: analogix_dp: Disable pclk if setting eDP mode fails
+Date: Wed, 25 Nov 2026 18:39:46 +0300
+Message-ID: <20261125153958.1349811-3-n.zhandarovich@fintech.ru>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261125153958.1349811-1-n.zhandarovich@fintech.ru>
+References: <20261125153958.1349811-1-n.zhandarovich@fintech.ru>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -54,45 +69,52 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net] qed: Fix missing bar_id comparison in
- qed_hw_bar_size()
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: 
- <179562120528.634550.8981460796989687102.git-patchwork-notify@kernel.org>
-Date: Wed, 25 Nov 2026 15:40:05 +0000
-References: <20261119170412.1511344-1-irogers@google.com>
-In-Reply-To: <20261119170412.1511344-1-irogers@google.com>
-To: Ian Rogers <irogers@google.com>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, llvm@lists.linux.dev, elkin@google.com
+Content-Type: text/plain
+X-ClientProxiedBy: Ex16-02.fintech.ru (10.0.10.19) To Ex16-01.fintech.ru
+ (10.0.10.18)
 
-Hello:
+The eDP-mode register write via rockchip_grf_field_write() call can
+fail after pclk has been enabled. To prevent this, disable pclk before
+returning that error so the platform power_on callback, in turn,
+releases the clock reference it acquired on failure.
 
-This patch was applied to netdev/net-next.git (main)
-by Paolo Abeni <pabeni@redhat.com>:
+Fixes: 729f8eefdcad ("drm/rockchip: analogix_dp: Add support for RK3588")
+Signed-off-by: Nikita Zhandarovich <n.zhandarovich@fintech.ru>
+---
+v1 -> v2: Use goto label to avoid repeating calls to
+clk_disable_unprepare() per Damon Ding's <damon.ding@rock-chips.com>
+suggestion. 
 
-On Thu, 19 Nov 2026 09:04:12 -0800 you wrote:
-> When PGLUE_B_REG_PF_BAR{0,1}_SIZE reads back as 0 on older management
-> firmware with multi-hwfn devices, qed_hw_bar_size() logs that it assumes
-> 256 KiB for GRC (BAR_ID_0) and 512 KiB for DB (BAR_ID_1), but evaluates:
-> 
->   return BAR_ID_0 ? 256 * 1024 : 512 * 1024;
-> 
-> Because BAR_ID_0 is enum constant 0, the ternary condition is always
-> false and qed_hw_bar_size() unconditionally returns 512 KiB even for
-> BAR_ID_0, doubling the computed GRC BAR offset for the second hardware
-> function.
-> 
-> [...]
+ drivers/gpu/drm/rockchip/analogix_dp-rockchip.c | 11 ++++++++---
+ 1 file changed, 8 insertions(+), 3 deletions(-)
 
-Here is the summary with links:
-  - [net] qed: Fix missing bar_id comparison in qed_hw_bar_size()
-    https://git.kernel.org/netdev/net-next/c/8301cdd07d43
-
-You are awesome, thank you!
+diff --git a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
+index 3a80600eece1..8b24918cea64 100644
+--- a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
++++ b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
+@@ -140,14 +140,19 @@ static int rockchip_dp_poweron(struct analogix_dp_plat_data *plat_data)
+ 	ret = rockchip_dp_pre_init(dp);
+ 	if (ret < 0) {
+ 		DRM_DEV_ERROR(dp->dev, "failed to dp pre init %d\n", ret);
+-		clk_disable_unprepare(dp->pclk);
+-		return ret;
++		goto err_disable_pclk;
+ 	}
+ 
+ 	ret = rockchip_grf_field_write(dp->grf, &dp->data->edp_mode, 1);
+-	if (ret != 0)
++	if (ret != 0) {
+ 		DRM_DEV_ERROR(dp->dev, "failed to set edp mode %d\n", ret);
++		goto err_disable_pclk;
++	}
+ 
++	return 0;
++
++err_disable_pclk:
++	clk_disable_unprepare(dp->pclk);
+ 	return ret;
+ }
+ 
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+2.43.0
 
