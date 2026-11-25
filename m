@@ -1,53 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.95.11.211
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.217.97
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795585050;
-	b=T/ufclJZP3LDPqg8HhGW94Z6eBlAAPUZid1rRBBLFE46Mh4/jyMu2yr7XtLcAZP3Hi/Q
-	 tLohufUTLB1NI8sn9QQnFN58F5DcUGkbg6akJ6YpZpM140n0jfBntnD5W/GHnVgNwEBdL
-	 QSpuAa9kuasMJoIjfcyt8cLQo6BgYaL8b57zHXjEavW7c9pff/EOR+MqOdmkl4JK3thlz
-	 WnkeZeuNGRYjajDQ74yWHvtrtmEGHgnb+Ehgndn3XBRulPF7t63R9B2q6N9L1bdMLOgs1
-	 utlr0TtNf0mtLrwJEczfD+toNl4FFTUDBMGr4blFnVuEwOJ9WrIfheNRS+fcPtxv8RA==
+	t=1795585121;
+	b=s2ISFKyZd8M8FOFQvMPtAPmejDJNDo6Aj4uM+sKn1W8bqrHN8scU+tBzSTq7EHfX9bF4
+	 0OLK728ejg7GfjRRyx37oQiqsuCEPlh5ST8wfoe265G29PMy4FT70u+gTZoN2pEy39L4p
+	 rug0JxpD1sgNR78LAmiid0woQYl40cvH6qhjVarR0k9Ovp7JgMq6yfRM/9OzmUWu457xa
+	 stRxrChgtNDKgxUKDIYtxkZHsmNLMXEgmOVS3Q05i8FY6BPkCoxlPmJmUvGXQIgUPBj8Y
+	 Di0aLue9qsiWBEt65RJ4tpNpJTjFVN1q8YcuEGtyfpoUW+l2MgM2fKwy2qBx1tRxGUA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795585050;
-	h=DMARC-Filter:Received:Date:From:To:Cc:Subject:Message-ID:References:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To:User-Agent;
-	bh=KExUYFfCttDOz9ZPR8Zh/4+eptBdQsoGj4ZqNQ9Fesc=;
-	b=mHcodu9ATcojvbnu6AAmls0g86uZ3hzNkpZ8Vsd4r419V1H1fh19Av/BuIEhCKIDFOsx
-	 i8g/G1bNXmA+Aojl4SUWDxQk382oMw8YbBufeb0sgScxpTRE+BhNjQReknbdMMuoGyZ9m
-	 ZIdt2PAZ0du3WadkgZzL/xTStwbGyJLRAXC6/iGgJF/1vj0WFwlgcqDOPUdF2KTBuUzyw
-	 fedxQ/+/R+3lc5uz2jrihOtrji+syQWB5KJDJpPOilDP9h6NK7YErrEyQe1fcMPzX/AdG
-	 IO4RN8D0AGPoLTDFqOAs1n3aiBIO0zb9QTPG10eTs6IHQJYDZPA7XMAgGCs3xBR/O+g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795585121;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 X-Relaying-Domain:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=fcNis2XnhX8zZlzTY3CceXUccN8sacTSpQICWbCSpaU=;
+	b=gZd7fQivIM3ymeZty7SPZzwXF4PAOYjf1umPTUV5WC9Xbr0efv5nl1154kaWIKlSJ8Xl
+	 0CwhXjIK1Ni2tckrlhngmzAml1WRs6q0/ex+aRE8M/fbYTaVhFpjkCjmKkZU6pkf5X0q8
+	 Q/FD2zKuTEvF0eDMg/6nm0zvdXbKBVg0AGRh/9FmG/K6bPwju9J3SOLd7FJg6H5rBK6OM
+	 Q4223bliJ4Nsm5KoUEPxPgt9qNyxueWQnzLcnT+XFX88cUEI22hEwPSJWXsrDaGXb5eEC
+	 o0Cryp0YrX0532SvG3A7GRyKfaQsJPRmeAqaNEer4sncs7fbqzBXqD3yotu6mIhxFOA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lst.de;
-	spf=pass smtp.mailfrom=lst.de;
-	arc=none smtp.remote-ip=213.95.11.211
-Received: from verein.lst.de (verein.lst.de [213.95.11.211])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=andrii.net;
+	spf=pass smtp.mailfrom=andrii.net;
+	dkim=pass header.d=andrii.net header.i=@andrii.net header.a=rsa-sha256 header.s=gmail-2025 header.b=mfbtyNd8;
+	arc=none smtp.remote-ip=209.85.217.97
+Received: from mail-vs1-f97.google.com (mail-vs1-f97.google.com [209.85.217.97])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8E4DA606A31E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 05:37:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8E4DA606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lst.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lst.de
-Received: by verein.lst.de (Postfix, from userid 2407)
-	id 5C82068AFE; Wed, 25 Nov 2026 06:37:24 +0100 (CET)
-Date: Wed, 25 Nov 2026 06:37:24 +0100
-From: Christoph Hellwig <hch@lst.de>
-To: Matthew Brost <matthew.brost@intel.com>
-Cc: Christoph Hellwig <hch@lst.de>, intel-xe@lists.freedesktop.org,
-	dri-devel@lists.freedesktop.org, linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org, Hugh Dickins <hughd@google.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Christian Koenig <christian.koenig@amd.com>,
-	Huang Rui <ray.huang@amd.com>,
-	Matthew Auld <matthew.auld@intel.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>
-Subject: Re: [PATCH 1/2] mm/shmem: add shmem_backup_folio() helper
-Message-ID: <20261125053724.GC20407@lst.de>
-References: <20260721174723.1039395-1-matthew.brost@intel.com> <20260722094350.GA1057@lst.de> <amEj8GO4sz1Be5pa@gsse-cloud1.jf.intel.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B9296606A31E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 05:38:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B9296606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=andrii.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=andrii.net
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=andrii.net header.i=@andrii.net header.a=rsa-sha256 header.s=gmail-2025 header.b=mfbtyNd8
+Received: by mail-vs1-f97.google.com with SMTP id ada2fe7eead31-7d88baba78dso1366758137.1
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 21:38:40 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=andrii.net; s=gmail-2025; t=1795585119; x=1796189919; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=fcNis2XnhX8zZlzTY3CceXUccN8sacTSpQICWbCSpaU=;
+        b=mfbtyNd82mrUR9u9R4zqv5bGvQvCw92QzcT2UF7nIcislwzllBPCCqPFwvCWw6ny4Z
+         WlaoXUz5cxA7ei/w2z4xUgXj4oIxypTgHewdaV2MQ35SNwsvIGQz8NFxNZSSGVBZKlOb
+         LHUJh8CwuGHEfTm7eZPsf7SNy4aIGZ6nOW4PbvBJNX+EKqQpA29m0uPKGIFu54nMknwI
+         v646MzxWCrrqRJf78CllShfspxZA8LlrmPtZVhNLiVPNTk2qnZ/Ztl6g5ha5PZqGBxRH
+         psvZvz+Uf30WhTRZIzxrERMGeo3JXoYqdas17IY1gVwJaPlmQS2cH5BlqnhohyhU/Xco
+         jbVg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795585119; x=1796189919;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=fcNis2XnhX8zZlzTY3CceXUccN8sacTSpQICWbCSpaU=;
+        b=Z8q1ReKnza0Uhx8/P+YVqjYrMI52rVjjRBrljyCxq42nHQB5i+/R4fKLAjEyE4YG+j
+         77LLwxx70w6xru0jmuR0ERdb2hMn/qqDCIEz9rm8N/PLRdfU7oycJoKXDT9EqBYwHeTs
+         RAX122VyIpWsqPmc7AotDbBg1epLbyKNv3XcORg8ZU/Oa8vn2HtZnnlLe+9r/MEPrqmR
+         icrsDium493iUWnEQXFX+vD20s7BzWzSwgulIW3OLIM1EBmbZ/LW/RYmRQPee2x42Dvk
+         /03W21Ak+n91dFrs2WYBbAAlVLqFOVPo0EVN7jFwCPTrdLZtPSFa5Q5P2iGJfCLwMo/X
+         xgsw==
+X-Forwarded-Encrypted: i=1; AL+hErHozAWiFGmdqBtuDSUvG6Res8OdDzjzrEQ68e4FIVX1vw09NLpeYqsoHoUZdb3RBUNPPeHPpQKjvPmr+mA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z92oZ8cI1VWp6ohyfZR+4+HAq5tTTerdwNA5ikDkNdrf9SHsXJY
+	9ZM2xxmzrzbrklv8fD3crwgCLEWYxRzD3QY8+62WEFxyQKWgN9dfosk4GjWAx5Y4NiwnoOccS01
+	qi0lcXnEeTHNNUfNum0Ihu/Y3/kkW0O58n04Ddw6XLl5KPEchDLnu
+X-Gm-Gg: AZFdTZd/PIk21PZjf37nFt1+lgjWLvTmH/FJjZIlCngFlu1F/KXOzxHEN7SPKIwVXKq
+	v/dBmac3mbH6EU1HbMrj7jt3ZGixr+eXU+h5eCkJA4LzTqoo6iI699S42ux96QuON0Npm8m99b0
+	GAV9DISBi0qCfCheBNvs0R6q5U+q7uAet5/GEmprKWgtx9zbrZ+69QqrIdndq9D7Jws/pj4ueeX
+	8ARbQd1dMsUzeMqicrzA4S8pnuoc0s+BQDFy4Le6fmfiIgjMqvAH2lRzoVJozZx4q0JuC4Hs3/z
+	ft9EXqW5VGycDr1NrCfNB6Q6XKRnZmcYJkwCWGb9RC7kTPy/mirZSf9slgYPq+fkNUcJwrZ6Xif
+	wFdto2OLPlX9DnLcjzpXEKuFmGk8=
+X-Received: by 2002:a05:6102:4485:b0:7a6:cd7e:72db with SMTP id ada2fe7eead31-7d73962b3c7mr8485110137.26.1795585119506;
+        Tue, 24 Nov 2026 21:38:39 -0800 (PST)
+Received: from andrii.ai (mac.hestia.andrii.net. [2602:f337:ed:4865:7374:6961:204d:6163])
+        by smtp-relay.gmail.com with ESMTPS id a1e0cc1a2514c-99e6e0fe353sm1684066241.6.2026.11.24.21.38.38
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Tue, 24 Nov 2026 21:38:39 -0800 (PST)
+X-Relaying-Domain: andrii.net
+From: Andrii Tereshchenko <opensource@andrii.net>
+To: Steffen Klassert <steffen.klassert@secunet.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S. Miller" <davem@davemloft.net>
+Cc: Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Willem de Bruijn <willemb@google.com>,
+	netdev@vger.kernel.org,
+	ipsec@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	syzkaller@googlegroups.com
+Subject: [PATCH ipsec] xfrm: policy: avoid an undefined shift when testing the auth algorithm
+Date: Tue, 24 Nov 2026 21:38:35 -0800
+Message-ID: <928a3d63-eb17-4192-8952-a9a74a89c5f9@mid.andrii.net>
+X-Mailer: git-send-email 2.56.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,189 +102,74 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <amEj8GO4sz1Be5pa@gsse-cloud1.jf.intel.com>
-User-Agent: Mutt/1.5.17 (2007-11-01)
+Content-Transfer-Encoding: 8bit
 
-Just trying to bring this up again as we're having a discussion on
-the other shmem abuse in i915, so this reminded me of this discussion
-where AFAICS we still haven't made in progress.
+xfrm_state_ok() tests the template's 32-bit aalgos mask with
+1 << x->props.aalgo, but digest_null's ID, SADB_X_AALG_NULL, is 251.
+A digest_null SA checked against a template that does not allow all
+algorithms then triggers a UBSAN shift-out-of-bounds report, which
+gets in the way of running with CONFIG_UBSAN_SHIFT.
 
-On Wed, Jul 22, 2026 at 01:11:28PM -0700, Matthew Brost wrote:
-> On Wed, Jul 22, 2026 at 11:43:50AM +0200, Christoph Hellwig wrote:
-> > On Tue, Jul 21, 2026 at 10:47:22AM -0700, Matthew Brost wrote:
-> > > Add a new generic helper, shmem_backup_folio(), that copies the pages
-> > > of an arbitrary source folio into a range of a shmem-backed file,
-> > > optionally issuing writeback for each destination folio. It is
-> > > extracted from drivers/gpu/drm/ttm's existing shmem-backup loop so
-> > > that other subsystems (starting with TTM in a follow-up patch) can
-> > > share the same implementation.
-> > 
-> > Hmm, what is the difference to just doing a ITER_BVEC write with a bvec
-> > containing the folio for this the pure write to shmem part of this?
-> 
-> Thanks for the pointer here. I'm somewhat ignorant of filesystem-related
-> details.
-> 
-> There is slightly less GFP control since kernel reserves can't be dipped
-> into for the forward process, but perhaps that doesn't matter. There are
-> also slightly different locking chains (more on that below).
-> 
-> > 
-> > You'd probably want a kernel_write_iter helper wrapping
-> > __kernel_write_iter for the writecount, but otherwise this sounds
-> > like a normal write.
-> > 
-> 
-> I tried writing a `kernel_write_iter()` wrapper around
-> __kernel_write_iter() that performs file_start_write()/file_end_write(),
-> as suggested by the comment above __kernel_write_iter(), but lockdep
-> [1] isn't happy. 
-> 
-> We have a hard requirement in DRM to shrink under dma-resv locks which
-> creates the circle:
-> 
-> pipe->mutex -> mmap_lock -> dma_resv -> sb_writers -> pipe->mutex
-> 
-> If I simply export __kernel_write_iter(), bypassing
-> file_start_write()/file_end_write() and therefore bypassing sb_writers,
-> this seems to work.
-> 
-> I think this is safe for shmem files, but it's difficult to say with
-> 100% certainty given my lack of filesystem knowledge, or whether
-> exposing a dangerous low-level bypass function for files would be
-> acceptable.
-> 
-> > We'd want something for the writeback part, preferably a purely
-> > range based API to be generic.
-> 
-> I found filemap_fdatawrite_range for this part.
-> 
-> Matt
-> 
-> [1] Lockdep splat:
-> 
-> [  105.374023] ======================================================
-> [  105.375386] WARNING: possible circular locking dependency detected
-> [  105.375396] 7.2.0-rc4-xe-01637-g40a493568fe3 #1290 Not tainted
-> [  105.375406] ------------------------------------------------------
-> [  105.375416] cat/3121 is trying to acquire lock:
-> [  105.375425] ffff888105677460 (&pipe->mutex){+.+.}-{3:3}, at: iter_file_splice_write+0xb9/0x550
-> [  105.375444]
->                but task is already holding lock:
-> [  105.375453] ffff888112889420 (sb_writers#5){.+.+}-{0:0}, at: __do_splice+0xc4/0x180
-> [  105.375468]
->                which lock already depends on the new lock.
-> 
-> [  105.375480]
->                the existing dependency chain (in reverse order) is:
-> [  105.375492]
->                -> #3 (sb_writers#5){.+.+}-{0:0}:
-> [  105.375503]        kernel_write_iter+0xaa/0x270
-> [  105.375513]        ttm_backup_backup_folio+0x95/0x130 [ttm]
-> [  105.375529]        ttm_pool_backup+0x376/0x560 [ttm]
-> [  105.375541]        ttm_tt_backup+0x32/0x60 [ttm]
-> [  105.375552]        ttm_bo_shrink+0x76/0x140 [ttm]
-> [  105.375564]        xe_bo_shrink+0x19e/0x290 [xe]
-> [  105.375642]        __xe_shrinker_walk+0xfb/0x310 [xe]
-> [  105.375803]        xe_shrinker_walk+0x36/0xc0 [xe]
-> [  105.375885]        xe_shrinker_scan+0x110/0x1e0 [xe]
-> [  105.376067]        do_shrink_slab+0x151/0x6c0
-> [  105.376076]        shrink_slab+0x140/0x8b0
-> [  105.376083]        drop_slab+0x3e/0x90
-> [  105.376092]        drop_caches_sysctl_handler+0x74/0xc0
-> [  105.376102]        proc_sys_call_handler+0x16c/0x230
-> [  105.376112]        vfs_write+0x3ae/0x560
-> [  105.376119]        ksys_write+0x66/0xe0
-> [  105.376127]        do_syscall_64+0xca/0x540
-> [  105.376136]        entry_SYSCALL_64_after_hwframe+0x76/0x7e
-> [  105.376146]
->                -> #2 (reservation_ww_class_mutex){+.+.}-{3:3}:
-> [  105.376159]        __ww_mutex_lock.constprop.0+0xca/0x1960
-> [  105.376170]        ww_mutex_lock_interruptible+0x26/0x90
-> [  105.376180]        xe_gem_object_mmap+0x1d/0x120 [xe]
-> [  105.376241]        drm_gem_mmap_obj+0x6c/0x190 [drm]
-> [  105.376417]        drm_gem_mmap+0x44/0xb0 [drm]
-> [  105.376446]        __mmap_region+0x8d0/0x10b0
-> [  105.376453]        mmap_region+0x157/0x180
-> [  105.376459]        do_mmap+0x4fb/0x660
-> [  105.376467]        vm_mmap_pgoff+0xae/0x190
-> [  105.376473]        ksys_mmap_pgoff+0x15e/0x200
-> [  105.376480]        do_syscall_64+0xca/0x540
-> [  105.376486]        entry_SYSCALL_64_after_hwframe+0x76/0x7e
-> [  105.376494]
->                -> #1 (&mm->mmap_lock){++++}-{3:3}:
-> [  105.376503]        __might_fault+0x4a/0x70
-> [  105.376509]        _copy_from_iter+0x4a/0x740
-> [  105.376517]        copy_page_from_iter+0x7a/0x100
-> [  105.376524]        anon_pipe_write+0x30f/0x7e0
-> [  105.376531]        vfs_write+0x43c/0x560
-> [  105.376537]        ksys_write+0xbc/0xe0
-> [  105.376543]        do_syscall_64+0xca/0x540
-> [  105.376549]        entry_SYSCALL_64_after_hwframe+0x76/0x7e
-> [  105.376556]
->                -> #0 (&pipe->mutex){+.+.}-{3:3}:
-> [  105.376565]        __lock_acquire+0x13c1/0x2400
-> [  105.376573]        lock_acquire+0xcb/0x310
-> [  105.376822]        __mutex_lock+0x9d/0x10f0
-> [  105.377067]        iter_file_splice_write+0xb9/0x550
-> [  105.377311]        do_splice+0x360/0x9f0
-> [  105.377551]        __do_splice+0xc4/0x180
-> [  105.377786]        __x64_sys_splice+0x89/0x110
-> [  105.378022]        do_syscall_64+0xca/0x540
-> [  105.378255]        entry_SYSCALL_64_after_hwframe+0x76/0x7e
-> [  105.378500]
->                other info that might help us debug this:
-> 
-> [  105.379182] Chain exists of:
->                  &pipe->mutex --> reservation_ww_class_mutex --> sb_writers#5
-> 
-> [  105.379856]  Possible unsafe locking scenario:
-> 
-> [  105.380297]        CPU0                    CPU1
-> [  105.380517]        ----                    ----
-> [  105.380736]   rlock(sb_writers#5);
-> [  105.380954]                                lock(reservation_ww_class_mutex);
-> [  105.381174]                                lock(sb_writers#5);
-> [  105.381393]   lock(&pipe->mutex);
-> [  105.381609]
->                 *** DEADLOCK ***
-> 
-> [  105.382240] 1 lock held by cat/3121:
-> [  105.382452]  #0: ffff888112889420 (sb_writers#5){.+.+}-{0:0}, at: __do_splice+0xc4/0x180
-> [  105.382675]
->                stack backtrace:
-> [  105.383108] CPU: 10 UID: 0 PID: 3121 Comm: cat Not tainted 7.2.0-rc4-xe-01637-g40a493568fe3 #1290 PREEMPT(full)
-> [  105.383110] Hardware name: Intel Corporation Raptor Lake Client Platform/RPL-S ADP-S DDR5 UDIMM CRB, BIOS RPLSFWI1.R00.5045.A00.2401260733 01/26/2024
-> [  105.383111] Call Trace:
-> [  105.383111]  <TASK>
-> [  105.383112]  dump_stack_lvl+0x82/0xd0
-> [  105.383115]  print_circular_bug+0x2d2/0x400
-> [  105.383116]  check_noncircular+0x12d/0x150
-> [  105.383117]  ? kernel_text_address+0x5b/0xc0
-> [  105.383121]  __lock_acquire+0x13c1/0x2400
-> [  105.383123]  lock_acquire+0xcb/0x310
-> [  105.383124]  ? iter_file_splice_write+0xb9/0x550
-> [  105.383126]  __mutex_lock+0x9d/0x10f0
-> [  105.383128]  ? iter_file_splice_write+0xb9/0x550
-> [  105.383128]  ? _raw_spin_unlock_irqrestore+0x41/0x70
-> [  105.383130]  ? iter_file_splice_write+0xb9/0x550
-> [  105.383131]  ? __kmalloc_noprof+0x3e0/0x5b0
-> [  105.383133]  ? iter_file_splice_write+0xa3/0x550
-> [  105.383134]  ? iter_file_splice_write+0xb9/0x550
-> [  105.383135]  iter_file_splice_write+0xb9/0x550
-> [  105.383138]  do_splice+0x360/0x9f0
-> [  105.383139]  __do_splice+0xc4/0x180
-> [  105.383141]  __x64_sys_splice+0x89/0x110
-> [  105.383142]  do_syscall_64+0xca/0x540
-> [  105.383144]  entry_SYSCALL_64_after_hwframe+0x76/0x7e
-> [  105.383145] RIP: 0033:0x5601751088ae
-> [  105.383146] Code: 55 48 89 e5 53 49 89 f0 8b 3f 31 db 48 ba 01 00 00 00 00 00 00 00 4d 85 c0 74 3e b8 13 01 00 00 31 f6 45 31 d2 45 31 c9 0f 05 <48> 3d 01 f0 ff ff 0f 9d c1 48 85 c0 40 0f 98 c6 40 84 f1 75 05 49
-> [  105.383147] RSP: 002b:00007ffdccdc35f8 EFLAGS: 00000246 ORIG_RAX: 0000000000000113
-> [  105.383148] RAX: ffffffffffffffda RBX: 0000000000000000 RCX: 00005601751088ae
-> [  105.383149] RDX: 0000000000000001 RSI: 0000000000000000 RDI: 0000000000000009
-> [  105.383150] RBP: 00007ffdccdc3600 R08: 000000000000013e R09: 0000000000000000
-> [  105.383150] R10: 0000000000000000 R11: 0000000000000246 R12: 000000000000000a
-> [  105.383151] R13: 00007ffdccdd36c0 R14: 00000000001a02ef R15: 00007ffdccdd36d0
----end quoted text---
+Fix this by treating an ID that does not fit in the mask as not set,
+as aalg_tmpl_set() in af_key.c does.
+
+Made with an AI coding assistant, reviewed by the submitter.
+
+Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
+Signed-off-by: Andrii Tereshchenko <opensource@andrii.net>
+---
+Found with syzkaller (our own run, not syzbot).
+Validated: reproduced on ipsec master with CONFIG_UBSAN_SHIFT, without
+kernel changes or fault injection:
+
+  UBSAN: shift-out-of-bounds in net/xfrm/xfrm_policy.c:3399:39
+  shift exponent 251 is too large for 32-bit type 'int'
+
+Tested: with the patch the reproducer runs without a report and the
+packet is still refused (XfrmInTmplMismatch); with a template that
+allows all algorithms it is still delivered.
+
+No functional change is intended beyond the UBSAN report, and this is
+not a security fix.
+
+History, from the pre-git tree [1]:
+- 6c55c29fabc2 ("[IPSEC]: Add transform engine and AH
+  implementation.", 2002) wrote the test, against a single algos mask;
+  4a618fbe0113 ("[NET]: IPSEC updates.", 2002) split it into aalgos.
+- 3bab27b68626 ("[IPSEC]: Clean up key manager algorithm handling.",
+  2003) added digest_null and SADB_X_AALG_NULL = 251, a KAME value
+  (Jun-ichiro itojun Hagino, tech-net, 2000-07-16 [2]).
+- af_key.c guarded its copy of the test in f398035f2dec ("[IPSEC]:
+  Avoid undefined shift operation when testing algorithm ID", 2007).
+
+Until now the result for ID 251 depended on the CPU: x86 and arm64
+mask the shift count and test bit 27; 32-bit ARM, PowerPC and s390
+give 0, which this patch makes the rule everywhere. ealgos is not
+tested here, so SERPENT (252) and TWOFISH (253) don't hit this.
+
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/tglx/history.git
+[2] https://mail-index.netbsd.org/tech-net/2000/07/16/0000.html
+
+ net/xfrm/xfrm_policy.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/net/xfrm/xfrm_policy.c b/net/xfrm/xfrm_policy.c
+index d2e938d4db9aa..b980d915a24a6 100644
+--- a/net/xfrm/xfrm_policy.c
++++ b/net/xfrm/xfrm_policy.c
+@@ -3396,7 +3396,9 @@ xfrm_state_ok(const struct xfrm_tmpl *tmpl, const struct xfrm_state *x,
+ 		(x->id.spi == tmpl->id.spi || !tmpl->id.spi) &&
+ 		(x->props.reqid == tmpl->reqid || !tmpl->reqid) &&
+ 		x->props.mode == tmpl->mode &&
+-		(tmpl->allalgs || (tmpl->aalgos & (1<<x->props.aalgo)) ||
++		(tmpl->allalgs ||
++		 (x->props.aalgo < BITS_PER_TYPE(tmpl->aalgos) &&
++		  (tmpl->aalgos & (1U << x->props.aalgo))) ||
+ 		 !(xfrm_id_proto_match(tmpl->id.proto, IPSEC_PROTO_ANY))) &&
+ 		!(x->props.mode != XFRM_MODE_TRANSPORT &&
+ 		  xfrm_state_addr_cmp(tmpl, x, family)) &&
+
+base-commit: b88c75488ecc768acadb14e980bbfa087b1dbf38
+-- 
+2.53.0
+
