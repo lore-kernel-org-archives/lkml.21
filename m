@@ -1,109 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.243.244.52
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795592493;
-	b=O5/RdMe1wDSO71CIYwI1ALTtc52vupNqy5Vy8eD/3Za1q9fMvIdvJQOKi3lpkx6aZJGY
-	 EgKgkrc70QPkHtYGlwb5LcPAk2lWes5irJ936sQXhA7E1oR/WrMEWQbnEhTsuYeZkojTR
-	 OtpYFC4sMUW6v3TdQ59pX70819NGeyuR42k3nxcP1O1dhwcyHCoATwSYNeQAUw6COE0A1
-	 X/T2FUPHaqHRpmQzYHBTnmo5CeQIGvG2pOTrlTPbA0A/8gD6cyTaIYWHCzNzi2oTFrSdw
-	 DHjB1DAN9p5SBMuPGR5PYSvspx2HF4Cfz+kweb4Vzu5PMiNs5PrUXfGSFFF1wbN6zKA==
+	t=1795592505;
+	b=ViyRDwGFCVQoe3gt9mn8JqhYbB76M2CcbJO3NBXn9qBQ41fR8jCqwCCkO371oUsXsorh
+	 xXAivGIpGHGCuvLwlj2wWfO+tJJ6DDIxvlv2aBo6TSYMfLUNskg51LPJ+HV37l8mftfS2
+	 j++QTyBwJHkxasWuUMaaomubLH5GIRMNpeXQWZIUEFN7myMibJNbJSgKHMMhNOMSF2N5E
+	 sf4+R8aVojuwj0Y1n9OYpYJaf7MZZzpVYkFWEBAowlhUJlnfYP6HHjTxN8wmV3ZQ3uxps
+	 ndP9hhLhypSStUl9+T6TzBT2xLrRtwDGPJl8BtLfLS0Lf5NedIaquXnu0x9I5y0MU4Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795592493;
-	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
-	 DKIM-Signature:Received:Received:Date:Message-ID:From:To:Cc:Subject:
-	 In-Reply-To:References:User-Agent:MIME-Version:Content-Type:
-	 X-Spamd-Result:X-Rspamd-Server:X-Rspamd-Action:X-Spam-Flag:
-	 X-Spam-Score:X-Spam-Level:X-Rspamd-Queue-Id;
-	bh=+lUcpFlGuUz+DdVv4pqT76KVLhw/q/JWGXJGWIwC35Y=;
-	b=RFvErFB0MAjNfA4A2YdnOugRtOUb9fzUJiOkMwBqJW63mtos4glzhuwNu/hiCMlu3Zk4
-	 IIWM31oKwxretTQDsoz31MU2M+vfAM7FGarMJFKlP+X1ZXm1qxeppyOiOLJhWGnDsAU09
-	 zXlPrERKGhmrF56IPHbaKFM5xqtGZ906Fk+8OxyNQonM2kM5raw1isk6wBdFEEK5+1K08
-	 osdQT3h4aSkz52wOXBjTExW9xiVlL5ylJFnSvbnnDfaoro6wyDISnifylZszjmCoMT/mh
-	 jU+YdTBmRDlaYhEmgCtsQbnxtTp0Hwh9y2SzAb6Eb8rDK7ceZHnGV/YCsbZe3xT9QYw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795592505;
+	h=DMARC-Filter:DKIM-Signature:X-QQ-mid:X-QQ-Originating-IP:Received:
+	 X-QQ-SSF:X-QQ-GoodBg:X-BIZMAIL-ID:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-QQ-SENDSIZE:Feedback-ID:X-QQ-XMAILINFO:
+	 X-QQ-XMRINFO:X-QQ-RECHKSPAM;
+	bh=v7Af5kyLjyd57eXzMOWlzKezBBqvzAGbw4YXHx+soII=;
+	b=o14BFy7JOfhRWQjpeMCy0Sk40OHVV62LcXCR8yVOolhGJ0gk4AIN8e7MKlW3juCOiK7t
+	 cFs2ODlorDj1UJZS7wfkarwNmp24i8gsTV3i4o+dHNTo7sc6DUJV7flV7FgRV3Cqf15a8
+	 JeU6q/8PrTsTQGagOG4WEYxMAjZ7MY9IbcbyMczvTvE57v6gBtIo1dI7xJTBmgYePL6VC
+	 qTBiHJN4X1K8WYlcjfQnwg8yJ1IeYoGozjf3efRkGQWATTssgYvrKruU9RWQuOL/KRIko
+	 39TXAlB7P3gBs6VWKkffkxLFbn7k19VeJBIP7gqPuABXiZtzK/kSNLT0W2M0SsEWUTA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.de;
-	spf=pass smtp.mailfrom=suse.de;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=tVAOOtUc;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=klKuX37F;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=vebySQ6V;
-	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=znYfsPIn;
-	arc=none smtp.remote-ip=195.135.223.131
-Received: from smtp-out2.suse.de (smtp-out2.suse.de [195.135.223.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=mail.sustech.edu.cn;
+	spf=pass smtp.mailfrom=mail.sustech.edu.cn;
+	dkim=pass header.d=mail.sustech.edu.cn header.i=@mail.sustech.edu.cn header.a=rsa-sha256 header.s=oemc2211 header.b=sy49Ax0U;
+	arc=none smtp.remote-ip=54.243.244.52
+Received: from smtpbguseast3.qq.com (smtpbguseast3.qq.com [54.243.244.52])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AA2EF606A31E;
-	Wed, 25 Nov 2026 07:41:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AA2EF606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=suse.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 19796606A31E;
+	Wed, 25 Nov 2026 07:41:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 19796606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=mail.sustech.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mail.sustech.edu.cn
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=tVAOOtUc;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=klKuX37F;
-	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=vebySQ6V;
-	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=znYfsPIn
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 9C1D81F399;
-	Wed, 25 Nov 2026 07:41:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1795592490; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=+lUcpFlGuUz+DdVv4pqT76KVLhw/q/JWGXJGWIwC35Y=;
-	b=tVAOOtUcaHlOrFTRKQ7TNz513WHyumArwhOuqNa/SQsmOakix7kBEoHjFcZJmA6KmOUICt
-	3fDJdaBK2FL1Ggc2d5cdN7A5QaUD6r2WWfmg/qBy2aSp9R48ut/Q3hRJjLPByDEn1Wox0B
-	dEwJ744qVuqZXUXoaC98cW0Pv7EYQVo=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1795592490;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=+lUcpFlGuUz+DdVv4pqT76KVLhw/q/JWGXJGWIwC35Y=;
-	b=klKuX37FqFvW/jlylDcxn5AD7ayMTCzMNEh2v7OABOm9KSZfB26BjAkEE8vZIL4WmLGvs1
-	fXoc0PHEmsP2JOCA==
-Authentication-Results: smtp-out2.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=vebySQ6V;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=znYfsPIn
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1795592489; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=+lUcpFlGuUz+DdVv4pqT76KVLhw/q/JWGXJGWIwC35Y=;
-	b=vebySQ6VTibJIqEUTUDubeIn/rjd9/B9gM82ffxavKlFy4HREwHL1nyUXmu80F6Xxg+WgC
-	FUaAf0ziEWrHc+hlgCgcQJGjeDad+2oA1vcmce1FjjRpLGFNCzS4TB/1P7ds2je/K/SIbf
-	A9pxodrvdzYKuL6Ejh7QhI06I8TxHSw=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1795592489;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=+lUcpFlGuUz+DdVv4pqT76KVLhw/q/JWGXJGWIwC35Y=;
-	b=znYfsPInSyD8QmoQR5m7hL2WvM3v4fioMU8BpYtolJS2K3Pvk4tmE2+0igIYyOv7tUCkDE
-	lxBWucUfS/Uw6xAg==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 4EF8E1339F;
-	Wed, 25 Nov 2026 07:41:29 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id LhPyBymRBmsjOQAAD6G6ig
-	(envelope-from <tiwai@suse.de>); Wed, 25 Nov 2026 07:41:29 +0000
-Date: Wed, 25 Nov 2026 08:41:28 +0100
-Message-ID: <87o6bd8ijb.wl-tiwai@suse.de>
-From: Takashi Iwai <tiwai@suse.de>
-To: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
-Cc: perex@perex.cz,
-	tiwai@suse.de,
+	dkim=pass (1024-bit key) header.d=mail.sustech.edu.cn header.i=@mail.sustech.edu.cn header.a=rsa-sha256 header.s=oemc2211 header.b=sy49Ax0U
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mail.sustech.edu.cn;
+	s=oemc2211; t=1795592465;
+	bh=v7Af5kyLjyd57eXzMOWlzKezBBqvzAGbw4YXHx+soII=;
+	h=From:To:Subject:Date:Message-ID:MIME-Version;
+	b=sy49Ax0UuCdKhGRdbbqNy0O3b0pEYlXTiKH6zF5lOrRLWyU0NVMlAfyuMmJd0pGDM
+	 S3pvcgBjLsmnbYqpxk3M+zu+lewkZMWoRuHxxR/RosdEm4QMVLF6Q/zCeexMg0mlcr
+	 Jry5433fVbvwNXUmtqkqGhIsR6fPzYbA2eVhIL4c=
+X-QQ-mid: zesmtpgz3t1795592456t30fdd3f6
+X-QQ-Originating-IP: RZcLAf6M8hNp/UOKkyyuqcOf1oo2B6Y9ue1s/CdfF8s=
+Received: from sakura-NbF-XX.sustech.edu.cn ( [116.7.234.242])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Wed, 25 Nov 2026 15:40:54 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 8071275655235200260
+From: Fuwei Xie <12313607@mail.sustech.edu.cn>
+To: erenozen@protonmail.com
+Cc: ilpo.jarvinen@linux.intel.com,
+	hansg@kernel.org,
+	platform-driver-x86@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	linux-sound@vger.kernel.org
-Subject: Re: [PATCH] ALSA: Fix dynamic major number assignment
-In-Reply-To: <20261125073009.3091-1-sreekuttan2156239@gmail.com>
-References: <20261125073009.3091-1-sreekuttan2156239@gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) Emacs/30.2 Mule/6.0
+	yhshzh0@gmail.com
+Subject: Re: [RFC PATCH v3 0/5] platform/x86: huawei-wmi: expose native firmware power profiles
+Date: Wed, 25 Nov 2026 15:40:44 +0800
+Message-ID: <CCE496207C6C15CE+20261125074048.50842-1-12313607@mail.sustech.edu.cn>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <hCsVvRfdJna6QMofi0p51idPd_JLLislzGzqFjePf9_91ayfS92LIselCT-narFk2u5zTRqLQsKFnz4bgRrNmjY5EKgq9UYj0n_CfmaCJjs=@protonmail.com>
+References: <4F34E5193B4633F6+20261124172651.37716-1-12313607@mail.sustech.edu.cn> <hCsVvRfdJna6QMofi0p51idPd_JLLislzGzqFjePf9_91ayfS92LIselCT-narFk2u5zTRqLQsKFnz4bgRrNmjY5EKgq9UYj0n_CfmaCJjs=@protonmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -112,66 +70,41 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-Spamd-Result: default: False [-12.51 / 50.00];
-	SUSE_INTERNAL_BYPASS(-9.00)[];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	MID_CONTAINS_FROM(1.00)[];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	ARC_NA(0.00)[];
-	TO_DN_SOME(0.00)[];
-	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	MIME_TRACE(0.00)[0:+];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	FREEMAIL_TO(0.00)[gmail.com];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	RCPT_COUNT_FIVE(0.00)[5];
-	RCVD_TLS_ALL(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,suse.de:dkim];
-	RCVD_COUNT_TWO(0.00)[2];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DKIM_TRACE(0.00)[suse.de:+]
-X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
-X-Rspamd-Action: no action
-X-Spam-Flag: NO
-X-Spam-Score: -12.51
-X-Spam-Level: 
-X-Rspamd-Queue-Id: 9C1D81F399
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 8bit
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpgz:mail.sustech.edu.cn:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: NqgmE/hXVl+ugpZXbuS6VYozec/P+R6gW8vbeOAudaWTmI63YjsHnA6x
+	zNAhFdfKC7Nz2QdPp9i3LeECn9vbcm1393M3XlQ4a0C3faIuUni6K0mbi/i/Jra+i9FSwLG
+	EpTjiFnt+Z4eMBsmZqtySghtrtBE2KBQJwyAZCftOTUmAx/sx8wgZlMz3/jbVl5yAzy/3uz
+	FTVGCOw8i5P+TG5VNl0Pw+im2dWErSYOmrG5XSy+NJvkrl3qWcmsf25zU2oCIzUG8xAHdO3
+	JJWFoU3THly8oJKb+WETufkM9igAnh9m63W69ILtLilZwkYlrp4tRuha3odAnprzH2Bcp8F
+	BBXqjOacl+eAsUwIyD0SVNLF66U8P2s6SmmO0lSYCbwKVpeUp4tJBoxi5C36/80nUQ/cE51
+	1CmCPHVSc4BuBzrn2/blOMKirKG4/T7U3zHAg8RNuDvsr4rnUc+ypWpRhUAQnEm9PVbrnkK
+	CuxvFsIhO9D8lL2lqYPdL343Tl/IQwmzBx//BELF/bl2mSTyZjX/pLLds0QboOVWXoj4rEX
+	MLQ0HZ7e4UK2tfKAyz2sHjxRS+1/iRi2l8Ar9SB/LWbUKpP1cgXLq+yuon7T1bS0lXCb4QL
+	jLqxTvOiVLsInJTkBZvtgryQs9ULxvkQx0PNcQw8Sc0CuhzUisQbKNboufhSvruo61NgsfY
+	dLoc4Rpz1jAbgwcb/ynWxrSAGfzmuo8IuN2dQit1oqJUjm4V8bRzGlR5gbu0Hy4dLeuUGza
+	Ya9q45Y1RChm4uCo2+vWlpWilp+xisCB5CJqJWAUhJbRo6c/SMuATNfCrHEclwNWFlItOB9
+	n1fliVSRJYHvkXrOPb2OQ1rRAylvkEYfgTXqZeExsleESG3pmXXwDNMhkfo/6UzI/brETza
+	6bRobzH58WzrHOq/x/zfbelQp046soWsqRpjffA8h//60SSyiLbL4LqX4alhBByWbeizMOX
+	ver5PD7OfYSlQcvDXorWwjXy6uRrO1/5mzSZlVMMzcBzKcX5DcyYl02dIJLGd3Cu09Y1wKN
+	5ZDxJ5zpn/FcEt3Tbv2zr4wIKdPJ+jf7f0PirXKAdRxkcnxNtE6eF63yba1kiUJz5Umupq4
+	rV8uSYVpTkgL7juydGj0iBr30RDpwxI3t+Q8FiNE8QU/RfqToOWHAA=
+X-QQ-XMRINFO: OWPUhxQsoeAVwkVaQIEGSKwwgKCxK/fD5g==
+X-QQ-RECHKSPAM: 0
 
-On Wed, 25 Nov 2026 08:30:09 +0100,
-Sreeraj S Kurup wrote:
-> 
-> When major is set to 0, register_chrdev() allocates
-> a major number and returns it.
-> 
-> Store the allocated major number and update snd_major
-> after successful registration.
-> 
-> This ensures ALSA uses the correct major number for
-> device registration and unregistration.
-> 
-> Signed-off-by: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
+Hi Eren,
 
-We never thought of the dynamic major assignment there.
-So major=0 should be treated simply as an error before passing to
-register_chrdev().
+Resending in plain text since the lists rejected my previous reply.
 
-Moreover, the current code was written before module_param_named() is
-used widely, and that's why it has unnecessary assignments.
-That is, we can drop major and cards_limit variables, and directly use
-snd_major and snd_ecards_limit with initialization and
-module_param_named().
+Thanks for trying this out and for catching the silent fallback to
+\SBTT. I'd appreciate a copy of the diff you tested.
 
+Ilpo, taking Eren's charge-mode fix first works for me. Once it lands,
+I'll rebase my series on top and use Eren's diff to cross-check the
+charge-mode changes.
 
-thanks,
-
-Takashi
+Thanks,
+Fuwei
