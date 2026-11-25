@@ -1,86 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.21
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795615825;
-	b=C2Ea53OqY+Y8wVOi1uLkHtAZclO7Wyp2k7lggIduxrt1fiPqx+eXcW3K5pAlOfW4qf1G
-	 9C/e4u/A9wRzL7zf+TCODDZQ49ewquCkvTFiEDEK1ruQr3U2qGkQCdFOI9Dlh3FWFjLdI
-	 xHT/S7ExX0enOyylkkqSYPQovJZgVYf2vJA+kiEjafiXg3Dnwz/3YxB96N0RWwOCF9PQi
-	 bJoTs5jW1pWi6Y22ydusJguEOsEN8aYYP/VFM5WCbHPUvp7R95kdoOkI1IwQCy/++0fpO
-	 LAocRRoEwfKiX2P8qLim4KaLVrVK5EzkrNbfh9DZkCJRoYXO0MYBWjY62aA1FnIiPNg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795615825;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To:
-	 Organization;
-	bh=u9SSYNv5gh6TzeVPoMYWvvKxu3judphYtRhULaZWPAg=;
-	b=w7uTlVO+BFMwsnYe6uaC224xPwhS8g5X1QkcGk8AWW6LQ3vYqubjD20YyhfaPh/oTjJR
-	 TmiKmfSBtj52wJoT7R9UoNnX59+UFvoK4byrb6d56uioV367bMuhS4VPctei+blyfRXLv
-	 YC6fA3v5FO2puNYRg2aDLw9eZzebzve88r4RAu8Z1LiV4RzHbte2N2TbcjcQ3MVLL0hZx
-	 Xu0/QUdex9a/fczBUgqLxfkwCTyyLMAImKeDVgHKQG/9NVxgOCrb1h0E712klsy0QM+Ot
-	 XMGnFa/xvDQNcswd8FuOo71MiLjR9rZ6uM2tkXExRZsWPeUr/9c/oKDpWOvVFAflhvg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=VX2YPsyn;
-	arc=none smtp.remote-ip=198.175.65.21
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.21])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795615846;
+	b=ydtcBqL6o2fmWc51Hg+lSehFEjB3QVkuZPTP4IkKBZMzbB8PXQUF07LA1K4fTZugos4M
+	 T5x7sxcpnKpfT8wk33EHJnQ96sHPvD0/X+DYgDe4KOHOTVQoICfXWy39HaLfywNlWali9
+	 H4hwsK1idw6a4lRzC5+3J4luFjoZov/74LKILLcAydrqm0p0C9JwAlvMFdSINT2m4xynx
+	 oLZfwVkFoOCUiU0nKzun0d+/TpkI+cXRKAC01bVk6OTy94fddKWxFEl2lx/k3MGzBEfRz
+	 eq4OLgksLUkx/V4//u3KtBMq49a+qeOd8cWpw9PWOfBYvBqHKrRzV8v89Te+fRbDfNw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795615846;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=73kaX3/gJU+TE1/qYxJBWp5+fn83LX1wOwAPpJeJd5c=;
+	b=dIEUpuY3MrpWOA4P/zjqCwDmSOdhAbLPyV7ttH6iuRCKCb5xDZeOzoOH6Vt4jXOjsKUd
+	 slXMlDBxRghI4kvIKF60AGhN+pCcGNur9wwSRVXE+4UmK3cEmC7bKvv6mtwKQ5sSVP4no
+	 nwfNjnOIy5RpUu2a1tjghjFgQ9i3LqboOPZSDteCLcPUHGHjIXsLcAl+wEP9vJJVillTO
+	 fEg6supgx32CUCi59MFa2DEaTg7VXVqpV8M/glbO0Z9PavPeZHrR4RSNJO4hER9vAcxbJ
+	 08Acq2kV65aZCGZi82vcAdCVmnUVoif4tFTQVZZExOXc+JEsb58MDqq320tZfJjoXfA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HNcCgFPz;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 22199606A31E;
-	Wed, 25 Nov 2026 14:10:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 22199606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6BAC4606A321;
+	Wed, 25 Nov 2026 14:10:46 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=VX2YPsyn
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795615825; x=1827151825;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=GGGb/fI9GrCDO76JXsZ5ObRdwXbMZk36J1eFJvVKu9Q=;
-  b=VX2YPsyn/5XcS44DAmvUEJR3ah2BS1eTbqjONWarxo5a5iwZmehasowi
-   OHB1QJuIcwxZJS+rm74WKlk5zGnjj2c+oXRJuxfzfwrJnEEulxmGhzU1m
-   76JcDifiFtf/uzH/A4csVNiKse3lnxlzVJ/D/Sl1wlUUIPxqFttDVD9Gy
-   NvRYmH3wXZqfnOzxINzdkIxzRo51mnz3idmnWClvpH6zMgp39eq4akU/M
-   K4Jo6fqZuzW0bQwKq7Ye/g5eLSnOKBI4xo/EmKkJ9w/nwiuKkJor71t0H
-   pghaXiGnlGZ+gk89Hwtoqzxy0WSSbEr3Vh3KbWj1ylHy5XSNN41uEUAi3
-   g==;
-X-CSE-ConnectionGUID: MfoZQMMlSMuLCLYBLYLoFg==
-X-CSE-MsgGUID: 8TKlZV5kRRmty7teCQwL0Q==
-X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4575832"
-X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
-   d="scan'208";a="4575832"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 06:01:55 -0800
-X-CSE-ConnectionGUID: ehpr+mSNS1G0q/hSzA4X+g==
-X-CSE-MsgGUID: CgRsuseOSqyK+N3YNhZ+0w==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
-   d="scan'208";a="12199585"
-Received: from conormcd-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.244.73])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 06:01:51 -0800
-Date: Wed, 25 Nov 2026 16:01:49 +0200
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: GaryWang <is0124@gmail.com>
-Cc: Mika Westerberg <mika.westerberg@linux.intel.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Linus Walleij <linusw@kernel.org>,
-	Thomas Richard <thomas.richard@bootlin.com>,
-	Daniele Cleri <danielecleri@aaeon.eu>,
-	JunYingLai <junyinglai@aaeon.com.tw>,
-	Louis Chen <louischen@aaeon.com.tw>,
-	BillyChou <BillyChou@aaeon.com.tw>, linux-gpio@vger.kernel.org,
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH v2 0/5] upboard pinctrl support for device id INTC1055 &
- INTC1057 & INTC105E
-Message-ID: <awbqTVUWZg3c8kfc@ashevche-desk.local>
-References: <20261125-upboard-pinctrl-add-intc1057-intc105e-support-v2-0-c8079f8f569f@gmail.com>
- <awXJd59jTHM2bIlD@ashevche-desk.local>
- <awXKVXS0kIGnA0lD@ashevche-desk.local>
- <CANYHO6q7Cx1ah7cJMfyeu83v80VAFcx-2TQNNWM6kNSv0zB7pg@mail.gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HNcCgFPz
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795615845;
+	b=ovabdTNEScIkk9nO0e7c9WT0G7tF885IaInM1eOk2XIHQBxBxUNM6cyiqR8FAXXxFWAa
+	 JQzRInL3XlwRXPY+BnjQEib4OdShtm4h5blnwhkhRE7NDwZnP/ggKCiuW/LhNtT49Nxqb
+	 bQMYu3lHqUlYX3CRWrHAE95ZAnmkc6O/95m1XQr76agwOZEsXM42/Mb+bi7/XHnM+XLLh
+	 ySyWyvLv/5Qd2FUoE3gPVt9GCLwFF97JbSTYNqhV4N1AYCia/DtDqMz2CCH1Gf0mEaD9c
+	 /KtUu9sutxssngn8dp5z+y5YMhoUaZ8cm6HhoJznObpAsyCOIkbExQQ4qHQnwcdRpJA==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795615845;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=73kaX3/gJU+TE1/qYxJBWp5+fn83LX1wOwAPpJeJd5c=;
+	b=ibuYuNDKI8QYBtRvSlIyGhT3Gg+E8/c9QadaaPoVfx0w5XuX4f5QnWjQdnR8e8Z/LsSN
+	 Pk0lYfCIh91tyY8INSCaA8XmMdb+z0b/F7tPqCPFa0wy7UW635cunxLawPrSUGELHGfnY
+	 NeTpH2+1sgwehVjF3vZeUdzAQa1n1jrW1hJlhNaVpiXZ5lg5jc+9406tkX+fl04lRaMBI
+	 8iUrEp+mOwaz8ygAGOm+WsLwVIC1AeRXP9f0OUluM/6KrjHn4Yw89meyvFE+qHVmtSN2W
+	 r+/2wJRfaAEPMmbaQSoAM078+ANOrQNft+wPpt8pQhIQkC9avvXM1ZRYk57AoixKmhw==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id 9DB1F1F000D3;
+	Wed, 25 Nov 2026 14:10:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795615845;
+	bh=73kaX3/gJU+TE1/qYxJBWp5+fn83LX1wOwAPpJeJd5c=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=HNcCgFPzY/Nx1ao5oUePXnanKkk1CrtqbNpHoJEUNJyNXDZYvPpvdP97XOOj3O178
+	 2HUK/4G927S4M7XM+kW8Zms/fwt8MU5qThU6LJB6i+5F22g8RcSgdHzRcbAsuoDZXg
+	 V7mq6GEiNN3pWet1EyBIMErV4vp4CGqpLa7IJAHfUBBR9lDePccnsYjKieQfpGz5GG
+	 KmPkBwsCfSKQI/6SxpLKTFYsKRf+iaiPjcCG8IATZytO2CiU9wZCEvevX1ccHd4yls
+	 PA+vH8CPTUdLv4Lnfzll/4Y+A2u0Y969oV0NsTfb/wCd7ccLpWq32hOhswMZd0Gz67
+	 GV76MtHmElYEw==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 273A64CEF6;
+	Wed, 25 Nov 2026 14:10:39 +0000 (UTC)
+From: Bobek Brzeczyszczykiewicz via B4 Relay <devnull+admin.roadbobek.com@kernel.org>
+Date: Wed, 25 Nov 2026 14:11:18 +0000
+Subject: [PATCH v3 3/3] phy: sun4i-usb: Fix phy2->clk2 reference imbalance
+ in sun4i_usb_phy_init()
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -90,35 +83,70 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CANYHO6q7Cx1ah7cJMfyeu83v80VAFcx-2TQNNWM6kNSv0zB7pg@mail.gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261125-usb-sunxi-reset-fix-v3-3-855c43694f78@roadbobek.com>
+References: <20261125-usb-sunxi-reset-fix-v3-0-855c43694f78@roadbobek.com>
+In-Reply-To: <20261125-usb-sunxi-reset-fix-v3-0-855c43694f78@roadbobek.com>
+To: Bin Liu <b-liu@ti.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, Felipe Balbi <balbi@ti.com>, 
+ Hans de Goede <hansg@kernel.org>, Vinod Koul <vkoul@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Manivannan Sadhasivam <mani@kernel.org>, Maxime Ripard <mripard@kernel.org>, 
+ Kishon Vijay Abraham I <kishon@kernel.org>, 
+ Andre Przywara <andre.przywara@arm.com>
+Cc: linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ linux-phy@lists.infradead.org, 
+ Bobek Brzeczyszczykiewicz <admin@roadbobek.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795615875; l=1149;
+ i=admin@roadbobek.com; s=20261117; h=from:subject:message-id;
+ bh=2/RvSPv9KdaGKCqwuU1CPvhUhe3Y2XomCyvU8DfERlY=;
+ b=ocSYCrrc2L52i1L2hwM5KG3OM5fNqH5g0u+XCJpMlDYYjs1MWgFkLcSL+tZk2dIREQyt3b38K
+ R0KCT0jsMv6D9UODCAba35OcD7RBvf2T3rSRlUr1Iyo9SyN+TmIbMh9
+X-Developer-Key: i=admin@roadbobek.com; a=ed25519;
+ pk=TcWSTwITMylwCZLYbw80sv2LQx1zButqiT90TFVvhas=
+X-Endpoint-Received: by B4 Relay for admin@roadbobek.com/20261117 with
+ auth_id=1548
+X-Original-From: Bobek Brzeczyszczykiewicz <admin@roadbobek.com>
+Reply-To: admin@roadbobek.com
+Content-Transfer-Encoding: 7bit
 
-On Wed, Nov 25, 2026 at 09:58:53PM +0800, GaryWang wrote:
-> On Wed, Nov 25, 2026 at 1:34 AM Andy Shevchenko
-> <andriy.shevchenko@linux.intel.com> wrote:
-> > On Tue, Nov 24, 2026 at 07:29:32PM +0200, Andy Shevchenko wrote:
+From: Bobek Brzeczyszczykiewicz <admin@roadbobek.com>
 
-...
+In sun4i_usb_phy_init(), the needs_phy2_siddq path enables phy2->clk2
+to access the REG_HCI_PHY_CTL PMU register for PHY2, but then disables
+phy->clk2 instead of phy2->clk2.
 
-> > Also you ignored my comment about how this series is supposed to be applied.
-> > Intel pin control drivers are maintained by me. The rest by Linus. People
-> > won't go through the code to understand if there any compile-time and/or
-> > run-rime dependencies between parts.
-> >
-> There are no compile-time dependencies for each file.
-> All pin groups/functions data will forward to set default when pinctrl
-> upboard probe.
-> It shows an error when run time dependencies are not mapping to right
-> groups/functions.
+This leaks a prepare/enable reference on phy2->clk2 while prematurely
+disabling phy->clk2, causing a clock disable/unprepare underflow when
+sun4i_usb_phy_exit() later runs.
 
-Okay, make sure you put a summary of this into the cover letter of v3.
+Disable and unprepare phy2->clk2 instead of phy->clk2.
+
+Fixes: b45c6d80325b ("phy: sun4i-usb: Introduce port2 SIDDQ quirk")
+Signed-off-by: Bobek Brzeczyszczykiewicz <admin@roadbobek.com>
+---
+ drivers/phy/allwinner/phy-sun4i-usb.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/phy/allwinner/phy-sun4i-usb.c b/drivers/phy/allwinner/phy-sun4i-usb.c
+index a62558124d2d..6e35eb77c879 100644
+--- a/drivers/phy/allwinner/phy-sun4i-usb.c
++++ b/drivers/phy/allwinner/phy-sun4i-usb.c
+@@ -318,7 +318,7 @@ static int sun4i_usb_phy_init(struct phy *_phy)
+ 			writel(val, phy2->pmu + REG_HCI_PHY_CTL);
+ 		}
+ 
+-		clk_disable_unprepare(phy->clk2);
++		clk_disable_unprepare(phy2->clk2);
+ 	}
+ 
+ 	if (phy->pmu && data->cfg->hci_phy_ctl_clear) {
 
 -- 
-With Best Regards,
-Andy Shevchenko
+2.53.0
 
 
