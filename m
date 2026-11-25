@@ -1,84 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.44
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.177
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795575823;
-	b=iwGb5Sxj67jhHFgNZteuBWqB8Xy+VN4GPck+/l6OYELpI5fxFLREBH0c8z75LJRSLfc3
-	 cuauOp9nDU42HarUGoRKGqZtGNtDqimFp4JU/rGF5AsQ1LiSFWKIFv1fZbumR15+f1yK0
-	 CzbIMsZ33WN0bvZ2exPTeRikC1E6KRnGwimZ8UvcjmZCwVc2RuvjPbCs8ebL/rjtt9TQn
-	 f6O3tZN5iJzV+3ZAvyo0aNlmNJKEsGlLJcaaSLT6dnQxAx6FEmOQngbrhod/isURwVW2F
-	 AnQqxkLdYrqc08/L0EYK8wUYvzQrvKE+mFd8Gzx2sL2f1XMZ5ixS8vNip73WtiOBvMg==
+	t=1795575827;
+	b=sdAov+ZdiWaAlMTRgIbRwTJWmQUhuEyeX8QaZfD81vDO+M+CubDrhONo6/5TiSKPT7lr
+	 iQaRaY2oYROIpXd+hnssYJMAfQ6Vftww0FMv1e2VPAUmvuLYk3ZWPlPU5syMXkbBQWwyI
+	 XffM/MNwXxxSovk5R5Qm/kIYhdiCHn4RYPE+/I5uduf+ROPeeflhxOSP0rlNBt7usuH/F
+	 DdhocLsSBMfll9emGiWhifejrbddHfRfqsob7DJ7bfgVuePXc7LcYuutzRW582Ml3sA6h
+	 JXWRLaj0EH2AvrSbg0jG7YJEEpOJfS+JW66dSROPb+7sqgooqxQgXdvLEBmSwC7GBGw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795575823;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795575827;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=aObshDLUDkI5DYfLUeDOOwlZtaV71Oz7yE0ISv0Zs5o=;
-	b=kzkBgYUr2b4tT6ksZPrUW7HqTPBHScFviZJiI1mexWQg/yrwbUZXI82S/jKJEqv9H+dP
-	 RVohq1+pYqLT7REOqc/CNd5ZV6SALoKMjFYdkL4WDRL2sQFP6WSZz0OnCOCmb6j1q/jI6
-	 6qmrgUCJeqejTNjca+UJczDHj0+jGpdAJWPogidklaN+wUqmcBhAelewJGWF8ePmKABVJ
-	 naeWeByUBk1pkLmtnRzXgdGL+e8DGBbQEHx6VXD3l3yizf5/mfgrZReJppKx0KqWj2YGP
-	 joZ5b4OVG5m7QjI/LksfW1lZIni5tXeU3lYRyI1POAPPKYoeQqsHKezXZecjqQfYZHw==
+	bh=Zu3Yeo2OLQkh3UXmT7WR67CwGlfanLBhnGcJEX5N8h4=;
+	b=b/OuJNYKWYmQdDjS7VxU0mt1Ud9CefNRcdfpEHqH0Zx7NsXX8gAAwUbhuYywQ2i0rqff
+	 Fx4zTDhjYrLzLAAiXqydVjK35FRj0ZSsluXSJxrcF3XdeW5kdRCvfFQMZr3erL+GRcQgF
+	 8LsKOGpBV1FAAKqP16K9NrYPdb101i2s46bO/PoJwXvQGxgM657ah87NxUYuFZB9DGO2W
+	 Cmq3UQWv9XnDFuRsepbp2dAABa5lWi20YrHk1IGYvDwDrLYIzvzxThISf4/AOTKi1+is+
+	 kQlW8qXTYnnV0Of/mPBmKWlF2a/7JmdHDloYutG9e9LNFJfnC8qhdu4poeKxdaUM7VQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=LDZ6Q0wf;
-	arc=none smtp.remote-ip=74.125.82.44
-Received: from mail-dl1-f44.google.com (mail-dl1-f44.google.com [74.125.82.44])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=FEsg4als;
+	arc=none smtp.remote-ip=74.125.82.177
+Received: from mail-dy1-f177.google.com (mail-dy1-f177.google.com [74.125.82.177])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8D87D606A339
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 03:03:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8D87D606A339
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 70DDC606A331
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 03:03:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 70DDC606A331
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=LDZ6Q0wf
-Received: by mail-dl1-f44.google.com with SMTP id a92af1059eb24-1ae58d17cd9so5546852c88.1
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 19:03:43 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=FEsg4als
+Received: by mail-dy1-f177.google.com with SMTP id 5a478bee46e88-33bf40b0c8bso11299786eec.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 19:03:47 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795575823; x=1796180623; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795575827; x=1796180627; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=aObshDLUDkI5DYfLUeDOOwlZtaV71Oz7yE0ISv0Zs5o=;
-        b=LDZ6Q0wfQlvvGbJjWLDPZnYrk492UiL1Dh3GsI9JvPsxEIOLue4hUCgxw31lKe4icI
-         2V2yGnT2NqXS28IhxhzYIAKgOiEFqFIDaM6hdh/sWwosMmxYrRUTvzx3dJuMvVCgetbL
-         QbOuwtprPJFaKgmo/Zxjzb30HYWhaRgTUPq3i8QACs72ki3DmkCnBkkzw9UQOVHWWSH6
-         qlyrXon4M74/xoKWHq2DjSEhwqaKxO40o/erAtrdX8vOIyQYWoUe6CdEXKau+0GjJFx+
-         2+3RUTHZ0UGytVOc2wC659oqLXi1V37QR8EvAnOIgYaxhXC9QA+EPvYD4Z2llrgSaYyf
-         01Og==
+        bh=Zu3Yeo2OLQkh3UXmT7WR67CwGlfanLBhnGcJEX5N8h4=;
+        b=FEsg4alsigq8zQuBxvor29owXsrk3UL7lHGkrGfoP98bwya2+CG5WDD4PTJS6DfeYs
+         AqVxAxYInZvn4JuW0oweFyU1yRT7Q7CRV1uvZ4zKGakKwMjr0DGdlp03GWAGByQdRSD0
+         CmnjkjdUXabNkhx3cL6Y9/JW3zIlrOOg4vaTbVHK2z9VcPZZeb9zJgUD7sKikTU6vdTm
+         EwsuiLXCJ0Hj+FJiXiTDqu+54kfWtiM+w+oLHdKQzurA2+uKdInIXnq0ypS9lHdEJVRU
+         NCFWb+2x7/a8i0A3wTI5sZuWE3qKo5Nc+77wnkVzmgENdSCknAXdIu1s9/oq09RY0Odp
+         8dbA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795575823; x=1796180623;
+        d=1e100.net; s=20260707; t=1795575827; x=1796180627;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=aObshDLUDkI5DYfLUeDOOwlZtaV71Oz7yE0ISv0Zs5o=;
-        b=oaSWBhnR9otveFfuofsGp/lhCmaAmRABPR58aq9NkFt/xK+h+ih0Bkie0R8GT78Eyb
-         J19prhwg46ZiBvHEhZkbzMUUGVn1fZn7PhL6uXiWpr/N4XWrPCr56uQaLO2PmWOR8hqM
-         txjom2xFAkFtbT4YAxp9tJWcV0dmBGepgrd3C+jot2zOD62TfYJQV8P6ndzLHWKF2FZW
-         rJCP86/km5FTAAYLKuoN+UnTbYhGkrIVceQhgRFwkDp8YDq9yH/yqQ8If4p6uopYv5Ji
-         iqqB5L9Nw6XWKNqor0SWKfuOsX5jYBsXANX8MukvUM0NMRRaB+wUluEwWSYkrppzVMaA
-         Y97A==
-X-Forwarded-Encrypted: i=1; AL+hErGbuaLtZdj1GNZOzJTy07iVZnDY4P9EaBknsNWmB8PLQQKHtWeOeI0JDcx8DP57iefo1zi2lLipnxZ7nT8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/G+7qHzyBhEjMZ0cX5nKyypry7iCgDr1aeTmQxIdu+QbhzCQsb
-	VSPgufyj5cT5qt/pXtUWfqwVVmENtvSPSFjS2xcGr8VQSIGRXaWBmpaT
-X-Gm-Gg: AZFdTZfJm8VBlltgNfs7EqbvTvkFWWvMeBAbwLuT7hrDqDnjzdFazB0MRSxMTrJQ6sZ
-	Ixm7mh8sGN9rBUeBl7gjOdZvuFIV9JszEdayO04Psi7OPp5jZLrbYRMNC7Agxekp2DgkzWyCGsw
-	nq3mkueu5OZL1cyVNYUwZaFj8fKmOjvT+sk8uRmbXQ4qa2BkDt7tUAyB537zIH+nA9CSG61+hQB
-	NEUgTeTalkyoqOpzgu8jhd1PeEVfg0kg0prE1ly/kCEOedBGSdZN8lGFZfwKmS/goNCLL0y+63m
-	4CL5QWozv5suH1rhBsO1qrmJDqttWAJpBztFBLNInyadjdc0anCiTk+vdguYNignNvBiG1kB+Si
-	VXTJvZxvXk3KPGZVDk8EkkVGefZ9kX6Pp6TNPoxPR72DYHDjUUl5X55ehcCuaP5igx4DPmvT6BF
-	vIpM1mlRDMU4joKAkRj6rnckApz9OSZCcXoSwmxVuzE8cO/F7QnbV9UyNoUo98DWHLMHeMc8X/S
-	C6BfffyzwgkbaQLU6cZsxjV3XZT/edavC5jU+N7Dp4qOV9rbS2jvzQvPpELTDFqMl8tSg8JFudv
-	wmdJF41amxYpWCAggWz/B10s+yjbLLTkA6JnQi8SNsS3wJ33dGcs2Q3yW2fjfvsIW2JbNK9VCqe
-	VEg0ZMvLSdCArJoBgMgSh3L2uYjT/9NHezi2bPftxb5MorOs=
-X-Received: by 2002:a05:7300:ec8e:b0:386:a97c:f80d with SMTP id 5a478bee46e88-386ce3a8f03mr1204501eec.27.1795575822378;
-        Tue, 24 Nov 2026 19:03:42 -0800 (PST)
+        bh=Zu3Yeo2OLQkh3UXmT7WR67CwGlfanLBhnGcJEX5N8h4=;
+        b=QKNsSn5i3Pbrsem/Aw6uf0+NzcWPQj+R4p43rdl5962WTc3VnrByf+HK2FrwoIqUYm
+         BIb/UXbBi8Wuwv1ZgnNx3rpOnzfik8LR96UO0c6UuHBknWBtBA8qbd7bALw21RYWvQtS
+         huFOdONxZ7tNN1k/rNlW0MjXS2uEkO1dEwi5SBdDOJJ4un5ato+tzBLDh5L14RmbWOaK
+         g/ydJLB5Mjt1sQ1r1DpcW2qxiI54WuGW8sXumrwBnhKnqSdVK4wbqamfwIx/L0nJpTpJ
+         fYKEzQVAIWeXJkOss4ZQH9twwPgyKn1OHO4y5C3+Taj9qmLqBfe/KKpjfppFwANKwI21
+         ydlg==
+X-Forwarded-Encrypted: i=1; AL+hErG8BFndmyszp4nQVmY9fHpo+Y/lLAVjrPf/QrwZcA8sWohRYQKz/EOla0cAwDOTXqEs05eiT+PaeWIJwlU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z94Km3mpKYE3DyPjY+dait98Uz8rMNkuHegQnGr4gOseRan+axs
+	eOPutNAbYfk1IFRNYPPV1X36Law9bzsunqaQCVJ4JnHA75NDceIyc4ys
+X-Gm-Gg: AZFdTZcOOWjfUDsPk6yUQCZZZy1iNmyImm+DbDTeZ0wpmQnfBsY/7ThgOi1ERZ5+hnt
+	H+o5OvaF00uxnZJTp5WcIYKBqOe2IP4fD/BqOb/coOIpCfAOH7uh22r1fynnDYoxfGKdoz7w7N9
+	tGyntNJ6LlqZORdS13UgS1c0iz5Hv3/ZVMBezA6tYm8Fb+wZEO6D5ud2DgnMWOSoXtmHUsmeKcu
+	WZZWXQKvb+B+me+YaQ8mkncC1ere81ExsBAoGGOoq495UvsHX8wcju0xZPWG2uPnr3pEJ17KBLh
+	DnlVPkadvlLR4m3dohVLVNwvQV2jWJJaiFHiU5Ltc57Zy/S9XWk5ae8TtgzGz/L+33xLwiwML+Q
+	MFJgu/tb5MSCz5u/kxnmbcHgarsMiewgh5Sx0FefoqfX3y1FF8WXVYqgVK/GHBOAxvF6yfx7N39
+	MIhypWGCDpiU99gCG5kQblFpwIR+vB/GF52QhYJxXu9agJj/pfU2dvSgKAIzSoiR7xzLXrWql8X
+	2l448sA3Gj/xJDqH3iYZhyZ2AQA4vst1rTK15BB4pQxPda/7vOXalbxEYnNSUaIbyqrecu1nDTZ
+	I9D7qQamr4ec5buNKonMSPu7y2Wknyj5qCuORocCFO9lrmccX9eZ90ucHdRB+tP1aPiu1WrRu3g
+	c9VIPXqPRjgjmV+StSxphMP6C7VksZNKFtuwy3mN2Aj2QeSLV
+X-Received: by 2002:a05:693c:41d1:10b0:386:9d4b:9403 with SMTP id 5a478bee46e88-3869d4b9723mr12768057eec.19.1795575826354;
+        Tue, 24 Nov 2026 19:03:46 -0800 (PST)
 Received: from lwq-server.tail118c18.ts.net ([74.176.208.23])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38566fdce48sm52243475eec.14.2026.11.24.19.03.38
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38566fdce48sm52243475eec.14.2026.11.24.19.03.42
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 19:03:41 -0800 (PST)
+        Tue, 24 Nov 2026 19:03:45 -0800 (PST)
 From: Yaohan Li <shunsheng1218@gmail.com>
 To: =?UTF-8?q?Niklas=20S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>,
 	"Rafael J . Wysocki" <rafael@kernel.org>,
@@ -89,9 +89,9 @@ Cc: Zhang Rui <rui.zhang@intel.com>,
 	linux-renesas-soc@vger.kernel.org,
 	linux-pm@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v4 2/3] thermal: rcar_gen3: release the interrupt handlers from ->remove()
-Date: Wed, 25 Nov 2026 11:03:26 +0800
-Message-Id: <20261125030327.953450-3-shunsheng1218@gmail.com>
+Subject: [PATCH v4 3/3] thermal: rcar_gen3: do not enable the interrupts before the zones exist
+Date: Wed, 25 Nov 2026 11:03:27 +0800
+Message-Id: <20261125030327.953450-4-shunsheng1218@gmail.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20261125030327.953450-1-shunsheng1218@gmail.com>
 References: <20261124095110.131258-1-shunsheng1218@gmail.com>
@@ -107,23 +107,23 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The interrupt handlers are requested before the thermal zones, and
-devres releases the managed resources in the reverse order, so the
-handlers outlive the zones they report to.  The handler walks every
-sensor and calls thermal_zone_device_update() through tsc->zone, which
-is not cleared when the zone is unregistered.  Masking the interrupt
-sources neither waits for a threaded handler that is already running
-nor removes the action.
+rcar_gen3_thermal_probe() requests the interrupt handlers before the
+sensors are initialised.  Once num_tscs is set, the handler can access
+the sensor registers while sensor initialisation and thermal zone
+registration are still in progress.
 
-Release the handlers from ->remove(), which runs before the runtime PM
-reference is dropped and before devres unregisters the zones.
-free_irq() also waits for a running handler, and after it returns the
-handler cannot be invoked again.
+The handler checks whether tsc->zone is NULL, but this does not prevent
+it from accessing the sensor registers during initialisation.  Masking
+the device interrupt sources alone does not prevent delivery of an
+interrupt that is already pending.
 
-Record the interrupt numbers as they are requested, so that a partial
-request is undone as well: if the second handler cannot be registered,
-the first one is released and the driver falls back to polling, as
-before.
+Request the interrupts with IRQF_NO_AUTOEN, so that the handlers cannot
+run until the driver enables them, and initialise every sensor before
+the request.  Enable the interrupts and their sources only after all
+the thermal zones are registered.
+
+rcar_gen3_thermal_resume() re-initialises the sensors and the sources;
+the enable state of the interrupt itself is left to probe.
 
 Signed-off-by: Yaohan Li <shunsheng1218@gmail.com>
 
@@ -136,86 +136,126 @@ CONFIG_ARCH_RENESAS and CONFIG_RCAR_GEN3_THERMAL.
 AI assistance: prepared with Claude (Anthropic) as a coding assistant; the
 author reviewed the reasoning and takes responsibility for the content.
 ---
- drivers/thermal/renesas/rcar_gen3_thermal.c | 38 ++++++++++++++++++---
- 1 file changed, 33 insertions(+), 5 deletions(-)
+ drivers/thermal/renesas/rcar_gen3_thermal.c | 53 ++++++++++++++-------
+ 1 file changed, 37 insertions(+), 16 deletions(-)
 
 diff --git a/drivers/thermal/renesas/rcar_gen3_thermal.c b/drivers/thermal/renesas/rcar_gen3_thermal.c
-index a96f02d4a8ad..37348f4413b6 100644
+index 37348f4413b6..e6682c5759aa 100644
 --- a/drivers/thermal/renesas/rcar_gen3_thermal.c
 +++ b/drivers/thermal/renesas/rcar_gen3_thermal.c
-@@ -107,6 +107,8 @@ struct rcar_gen3_thermal_priv {
- 	struct rcar_gen3_thermal_tsc *tscs[TSC_MAX_NUM];
- 	struct thermal_zone_device_ops ops;
- 	unsigned int num_tscs;
-+	int irqs[2];
-+	unsigned int num_irqs;
- 	int ptat[3];
- 	int tj_t;
- 	const struct rcar_thermal_info *info;
-@@ -466,9 +468,25 @@ static const struct of_device_id rcar_gen3_thermal_dt_ids[] = {
- };
- MODULE_DEVICE_TABLE(of, rcar_gen3_thermal_dt_ids);
+@@ -326,8 +326,7 @@ static bool rcar_gen3_thermal_read_fuses(struct rcar_gen3_thermal_priv *priv)
+ 	return true;
+ }
  
-+static void rcar_gen3_thermal_free_irqs(struct device *dev,
-+					struct rcar_gen3_thermal_priv *priv)
-+{
-+	while (priv->num_irqs)
-+		devm_free_irq(dev, priv->irqs[--priv->num_irqs], priv);
-+}
-+
- static void rcar_gen3_thermal_remove(struct platform_device *pdev)
+-static void rcar_gen3_thermal_init(struct rcar_gen3_thermal_priv *priv,
+-				   struct rcar_gen3_thermal_tsc *tsc)
++static void rcar_gen3_thermal_init(struct rcar_gen3_thermal_tsc *tsc)
  {
-+	struct rcar_gen3_thermal_priv *priv = platform_get_drvdata(pdev);
- 	struct device *dev = &pdev->dev;
+ 	u32 reg_val;
+ 
+@@ -337,11 +336,9 @@ static void rcar_gen3_thermal_init(struct rcar_gen3_thermal_priv *priv,
+ 
+ 	usleep_range(1000, 2000);
+ 
++	rcar_gen3_thermal_write(tsc, REG_GEN3_IRQEN, 0);
+ 	rcar_gen3_thermal_write(tsc, REG_GEN3_IRQCTL, 0);
+ 	rcar_gen3_thermal_write(tsc, REG_GEN3_IRQMSK, 0);
+-	if (priv->ops.set_trips)
+-		rcar_gen3_thermal_write(tsc, REG_GEN3_IRQEN,
+-					IRQ_TEMPD1 | IRQ_TEMP2);
+ 
+ 	reg_val = rcar_gen3_thermal_read(tsc, REG_GEN3_THCTR);
+ 	reg_val |= THCTR_THSST;
+@@ -350,6 +347,15 @@ static void rcar_gen3_thermal_init(struct rcar_gen3_thermal_priv *priv,
+ 	usleep_range(1000, 2000);
+ }
+ 
++static void rcar_gen3_thermal_enable_sources(struct rcar_gen3_thermal_priv *priv)
++{
 +	unsigned int i;
 +
-+	for (i = 0; i < priv->num_tscs; i++) {
-+		rcar_gen3_thermal_write(priv->tscs[i], REG_GEN3_IRQEN, 0);
-+		rcar_gen3_thermal_write(priv->tscs[i], REG_GEN3_IRQMSK, 0);
-+	}
++	for (i = 0; i < priv->num_tscs; i++)
++		rcar_gen3_thermal_write(priv->tscs[i], REG_GEN3_IRQEN,
++					IRQ_TEMPD1 | IRQ_TEMP2);
++}
 +
-+	rcar_gen3_thermal_free_irqs(dev, priv);
- 
- 	pm_runtime_put(dev);
- 	pm_runtime_disable(dev);
-@@ -491,22 +509,32 @@ static int rcar_gen3_thermal_request_irqs(struct rcar_gen3_thermal_priv *priv,
- 
- 	for (i = 0; i < 2; i++) {
- 		irq = platform_get_irq_optional(pdev, i);
--		if (irq < 0)
--			return irq;
-+		if (irq < 0) {
-+			ret = irq;
-+			goto release;
-+		}
- 
- 		irqname = devm_kasprintf(dev, GFP_KERNEL, "%s:ch%d",
- 					 dev_name(dev), i);
--		if (!irqname)
--			return -ENOMEM;
-+		if (!irqname) {
-+			ret = -ENOMEM;
-+			goto release;
-+		}
+ static const struct rcar_gen3_thermal_fuse_info rcar_gen3_thermal_fuse_info_gen3 = {
+ 	.ptat = { REG_GEN3_PTAT1, REG_GEN3_PTAT2, REG_GEN3_PTAT3 },
+ 	.thcode = { REG_GEN3_THCODE1, REG_GEN3_THCODE2, REG_GEN3_THCODE3 },
+@@ -523,7 +529,8 @@ static int rcar_gen3_thermal_request_irqs(struct rcar_gen3_thermal_priv *priv,
  
  		ret = devm_request_threaded_irq(dev, irq, NULL,
  						rcar_gen3_thermal_irq,
- 						IRQF_ONESHOT, irqname, priv);
+-						IRQF_ONESHOT, irqname, priv);
++						IRQF_ONESHOT | IRQF_NO_AUTOEN,
++						irqname, priv);
  		if (ret)
--			return ret;
-+			goto release;
+ 			goto release;
+ 
+@@ -555,9 +562,6 @@ static int rcar_gen3_thermal_probe(struct platform_device *pdev)
+ 	priv->info = of_device_get_match_data(dev);
+ 	platform_set_drvdata(pdev, priv);
+ 
+-	if (rcar_gen3_thermal_request_irqs(priv, pdev))
+-		priv->ops.set_trips = NULL;
+-
+ 	pm_runtime_enable(dev);
+ 	pm_runtime_get_sync(dev);
+ 
+@@ -596,10 +600,20 @@ static int rcar_gen3_thermal_probe(struct platform_device *pdev)
+ 	rcar_gen3_thermal_shared_coefs(priv);
+ 
+ 	for (i = 0; i < priv->num_tscs; i++) {
+-		struct rcar_gen3_thermal_tsc *tsc = priv->tscs[i];
++		rcar_gen3_thermal_init(priv->tscs[i]);
++		rcar_gen3_thermal_tsc_coefs(priv, priv->tscs[i]);
++	}
+ 
+-		rcar_gen3_thermal_init(priv, tsc);
+-		rcar_gen3_thermal_tsc_coefs(priv, tsc);
++	/*
++	 * The handler walks the sensor array, so every sensor has to be
++	 * initialised before the request.  IRQF_NO_AUTOEN keeps the
++	 * handlers from running until the zones exist.
++	 */
++	if (rcar_gen3_thermal_request_irqs(priv, pdev))
++		priv->ops.set_trips = NULL;
 +
-+		priv->irqs[priv->num_irqs++] = irq;
++	for (i = 0; i < priv->num_tscs; i++) {
++		struct rcar_gen3_thermal_tsc *tsc = priv->tscs[i];
+ 
+ 		zone = devm_thermal_of_zone_register(dev, i, tsc, &priv->ops);
+ 		if (IS_ERR(zone)) {
+@@ -620,6 +634,13 @@ static int rcar_gen3_thermal_probe(struct platform_device *pdev)
+ 		dev_info(dev, "Sensor %u: Loaded\n", i);
  	}
  
- 	return 0;
++	if (priv->ops.set_trips) {
++		for (i = 0; i < priv->num_irqs; i++)
++			enable_irq(priv->irqs[i]);
 +
-+release:
-+	rcar_gen3_thermal_free_irqs(dev, priv);
-+	return ret;
- }
++		rcar_gen3_thermal_enable_sources(priv);
++	}
++
+ 	return 0;
  
- static int rcar_gen3_thermal_probe(struct platform_device *pdev)
+ error_unregister:
+@@ -633,11 +654,11 @@ static int rcar_gen3_thermal_resume(struct device *dev)
+ 	struct rcar_gen3_thermal_priv *priv = dev_get_drvdata(dev);
+ 	unsigned int i;
+ 
+-	for (i = 0; i < priv->num_tscs; i++) {
+-		struct rcar_gen3_thermal_tsc *tsc = priv->tscs[i];
++	for (i = 0; i < priv->num_tscs; i++)
++		rcar_gen3_thermal_init(priv->tscs[i]);
+ 
+-		rcar_gen3_thermal_init(priv, tsc);
+-	}
++	if (priv->ops.set_trips)
++		rcar_gen3_thermal_enable_sources(priv);
+ 
+ 	return 0;
+ }
 -- 
 2.34.1
 
