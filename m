@@ -1,49 +1,106 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795625252;
-	b=IPVEUfcUTfOVFgZaomGZ96eq2lpYdv9Cjpj/oXKPMqtboLrpTnLUeI8TPogX24ZQ+0DX
-	 yavOYqMYFg09v6Ny1T+KgVFbcnI7KxIiCdKYwSYS1HPYTNKuhHES8xOumk0sBvhqlY7D6
-	 8K0o3Kyr1FrUuBivwzi+TIyRd7sYERhWksckicefV2OWSSWtVitu5Pe+YQNrKLYK7pT4N
-	 WIDInqCx26SVIlCen6gPMWJvt61T4Gobed1abGs2kp/KGp13HlVYcNH2UZVEz65V8bP2F
-	 H1dEewKLygF0xEqqvNLDwhTMYi4wwf4qxHEM7SDmWoh+sCY9MGpsjq18+sos0ckJB1g==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795625252;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=u74A0Q4um7qV8/WDW/DpSpOB1wN/qS5tUTp8OCX2aSQ=;
-	b=Jk7SK6aKJ0VapmRxGW+o3+xZCEt+ay1Us68K+Ks7fCvzLCmXNdBrFMm78T66i/N/jLWx
-	 4ZLOrD/NYjYlbMAtLOqIXVuhwCmEBy3IOkZqlWYCL3dlFtldOu67ZiFmBo1fSU4Anpd6g
-	 MaR1OXlt8ChJvDIBfGfpF7wU2wpS9n8SL6mz4dAYOwhevVwsKuzx58/zGfPMNkNN3Hnd5
-	 DHl6dOXGAsr/EVVkxSIOOze+RbeL6LsO5duBkPnNtEaP8O+emaRfPZZxLjBQgzVUSU1fR
-	 TA8/CV2vLDJXvC2/luJLLm6JBvybfNdPUcUQeHJVSEFzhAn40cAhf/44RB+9BEfqHxQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=PPcHEM+F;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 93603606A327;
-	Wed, 25 Nov 2026 16:47:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 93603606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.96.74
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795625268;
+	b=tez4pPgxImjntz3iA/Jn9cWsglC/TBJjwaNxPbiBnRgqKRqVNTbeC5scCk+pH1Qu9uMV
+	 8Qbx+g6E0kUlauqs/Cm56E3CfmpzLS5DoEML65wEQPajuODVDC1arR4+sW3ld9ANNR16P
+	 YkDmNNwVSB9M4U/47LVHRV/J79IhoNySiu3CKBXEZtl5Du4TlbSTjhP3m6y4tORz7VDzc
+	 ZD8sp3Ml+BjdJ0gjvn2Q+3Qb9JvQk0VHph01MdrkgY4SVs99K0HOknwfOzEerIzZQ+PVa
+	 h76jxj+R7rYa2GvoCqHRRpTNZcHNhdmJLbsRErxPYBBeZjKW0pxWAzOSGXQ/eALPGxw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795625268;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:To:Cc:Subject:
+	 From:X-Mailer:References:In-Reply-To:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=x/nYfbYndi1SHlwuJj3Ga5w+rAPhbUQ+mb8VoIVvPiI=;
+	b=TPjYQ7NsZer5ApZSec+v7CLju2ViuICibEBPstAC6yITiZAQB4PnB7PJ8Kts9zyMHqVX
+	 fTNmGkC1n71k60GZHgqar1Msd7CU3ruMqkGJjC07XrT4cyzwb1t/M+2/+PXKpcpYuYelo
+	 vlRU9KPIApuOxtt3sciCZdmW0s1HFWiAwX/vMn4Xn8cWE8yRAszdq8cob0OMGMe/PuB2E
+	 sYVrXVKyYRw7ISpJMu/iMbRD2+p7sUjD+c8xKJuHmKWBOVSYAh11WXtDolAIZJRyLQ9t/
+	 cnklSuz3lIiGKcBCEXUOhRgChhRQik/FLKgDbVhjdHtCLKmA15/dDOagOcDb3jWmwDw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=garyguo.net;
+	spf=pass smtp.mailfrom=garyguo.net;
+	dkim=pass header.d=garyguo.net header.i=@garyguo.net header.a=rsa-sha256 header.s=selector1 header.b="JC//ZJDq";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.96.74
+Received: from LO0P265CU003.outbound.protection.outlook.com (mail-uksouthazon11022074.outbound.protection.outlook.com [52.101.96.74])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3941F606A321;
+	Wed, 25 Nov 2026 16:47:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3941F606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=garyguo.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=garyguo.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=PPcHEM+F
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 928232F;
-	Wed, 25 Nov 2026 08:47:27 -0800 (PST)
-Received: from [10.57.32.107] (unknown [10.57.32.107])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 62CE23F632;
-	Wed, 25 Nov 2026 08:47:25 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795625250; bh=2eqARM5zetumptsIOUsll4fMIks93bDujuzqoyMavgw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=PPcHEM+FJASRgoa04KgHq2/l2CDs0QOxGySNx7u9SCuF1kp6pNFlZ7lgZOs3j47MH
-	 HCfcsVevE2w3sAPyXltY1uD8GnIBSWH7PIWuEZ6+ocCHneO4YCVHSjB2/+VqU0XaCO
-	 lgLzNt+x7UEcGbcd3uHJEx012FNtAa4MPhF1n5Mc=
-Message-ID: <483ee877-3953-46b1-b4a2-e3b084ee3b64@arm.com>
-Date: Wed, 25 Nov 2026 16:47:22 +0000
+	dkim=pass (1024-bit key, unprotected) header.d=garyguo.net header.i=@garyguo.net header.a=rsa-sha256 header.s=selector1 header.b=JC//ZJDq
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=CAluPzXRA3VvcJK4IRK0Hgc1PHws3RLne/2j8mPyXkqiklmDRWqoG8UqR8zTOvWi2dyazim/lpEtK+GACEuP9Rbxl+bmnBkkbt/Oz+oemGzfjBca1GBQQNMJsBr3L5hszjwQrXLha8wAmJ/2SwtFbgyF2EMu7PjMU/YvVk8+ZjotcPcQr/JIkzuwOEWza0I/kEGqenHbKWdfG7wxBhTLbmtlS2xksOsDkru9DGQVZte/V74MHESbkCMFAGBkiLtZOycSzPRyM0HHUANXDLeMk2lqWLknrrH8DUPdNsIZVyScSY8+2U9HEvvMSdfO+p/36+OJXTLbWbYv3DtKI3Bitw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=x/nYfbYndi1SHlwuJj3Ga5w+rAPhbUQ+mb8VoIVvPiI=;
+ b=iY64Hv+PSq+HNy8suGwuDHkgNJQ0jZVmjnkrJfEPd1/1jhtwoodYfQqWJ6ea8LmXapsStef+e9HsWrW/g/P7IzVrpnuFu5qjFBIf1Xp/Q+7EjF3Q+znEO6aL/eLCP62nhbMIN1C4PH+PVwOcvACMOxPC012Z1zO43+yOkf5zb29gWtcmGr+S36dX16CWs3cHLcZMg6qaCMsLJTLrmmLLyyy9zDn6BSsYksO4Xe0qyQzBSQmj/AzfTp9yK7OXNsPdqFf61X6fwhID5jxyDIddmerZZrHYbXjY/ygjNIDoi3CSRYk432L4bzo/uwGmQy6b/6XBNvCAuWb5nx/YBEH5rA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=garyguo.net; dmarc=pass action=none header.from=garyguo.net;
+ dkim=pass header.d=garyguo.net; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=garyguo.net;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=x/nYfbYndi1SHlwuJj3Ga5w+rAPhbUQ+mb8VoIVvPiI=;
+ b=JC//ZJDqOIX7SWR60skOKt3VWOTNXvqMDADhdX4vkphqjRKKlDbgsIIY6walFtNdt06qmceulG7xlLMyUq/I3iC2gbiWHNWgMvua/KaMI9YGrBuiVEkXZzEl5HeTo3Vpm6Jn9ePA2QJB//j+KFPDPmOLitP3rfebWFz1E4Hebdg=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=garyguo.net;
+Received: from CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM (2603:10a6:400:1cb::9)
+ by LODP265MB042256.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:4d6::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.6; Wed, 25 Nov
+ 2026 16:47:45 +0000
+Received: from CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
+ ([fe80::55f6:f98b:7fad:c6e3]) by CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
+ ([fe80::55f6:f98b:7fad:c6e3%2]) with mapi id 15.21.0662.004; Wed, 25 Nov 2026
+ 16:47:45 +0000
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 25 Nov 2026 16:47:44 +0000
+Message-Id: <DN4G16NA0JJF.QCQBZ2S4U1GZ@garyguo.net>
+To: "Philipp Stanner" <phasta@kernel.org>, "Matthew Brost"
+ <matthew.brost@intel.com>, "Danilo Krummrich" <dakr@kernel.org>,
+ =?utf-8?q?Christian_K=C3=B6nig?= <ckoenig.leichtzumerken@gmail.com>, "Alice
+ Ryhl" <aliceryhl@google.com>, "David Airlie" <airlied@gmail.com>, "Simona
+ Vetter" <simona@ffwll.ch>, "Miguel Ojeda" <ojeda@kernel.org>, "Boqun Feng"
+ <boqun@kernel.org>, "Gary Guo" <gary@garyguo.net>,
+ =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, "Benno Lossin"
+ <lossin@kernel.org>, "Andreas Hindborg" <a.hindborg@kernel.org>, "Trevor
+ Gross" <tmgross@umich.edu>, "Daniel Almeida"
+ <daniel.almeida@collabora.com>, "Tamir Duberstein" <tamird@kernel.org>,
+ "Alexandre Courbot" <acourbot@nvidia.com>, =?utf-8?q?Onur_=C3=96zkan?=
+ <work@onurozkan.dev>, "Sumit Semwal" <sumit.semwal@linaro.org>, "Tvrtko
+ Ursulin" <tvrtko.ursulin@igalia.com>, "Paul E . McKenney"
+ <paulmck@kernel.org>
+Cc: <linux-kernel@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
+ <rust-for-linux@vger.kernel.org>, <linux-media@vger.kernel.org>
+Subject: Re: [PATCH v2 01/10] rust: rcu: Add get_state_synchronize_rcu()
+From: "Gary Guo" <gary@garyguo.net>
+X-Mailer: aerc 0.22.0
+References: <20261124122951.878199-2-phasta@kernel.org>
+ <20261124122951.878199-3-phasta@kernel.org>
+In-Reply-To: <20261124122951.878199-3-phasta@kernel.org>
+X-ClientProxiedBy: LO4P265CA0018.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:2ad::11) To CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:400:1cb::9)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,178 +110,122 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 07/11] KVM: arm64: CCA: Add Realm RTT mapping and
- invalidation helpers
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
- <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
- Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
- <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
- Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Kohei Enju <enju.kohei@fujitsu.com>
-References: <20261123104233.95710-1-steven.price@arm.com>
- <20261123104233.95710-8-steven.price@arm.com>
- <bc90af1d-068e-4e79-8d5f-f8205beb0a69@arm.com>
- <70c50c45-c8b9-4096-84b2-ba4b6ecb63ed@arm.com>
-From: Steven Price <steven.price@arm.com>
-Content-Language: en-GB
-In-Reply-To: <70c50c45-c8b9-4096-84b2-ba4b6ecb63ed@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CWLP265MB6051:EE_|LODP265MB042256:EE_
+X-MS-Office365-Filtering-Correlation-Id: eb090fcd-0ccc-4164-16ae-08df4b13d47d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|1800799024|366016|23010399003|376014|7416014|10070799003|6133799003|4143699003|261009223027099003|22082099003|18002099003|921020|56012099006|10067099003|261102123227099003|261026140227099003|261021121427099003|261026121527099003|261022105027099003|261028144727099003;
+X-Microsoft-Antispam-Message-Info:
+	rZb2EANGXA1HPI0vnyvzQ/Ytv+5bEtE3XmVP3qtlbkmsVcVpw3EGGei0O/4s+EIj/UW8/z3RvjExmjEBn1DlRmO8Vtbq8x3BjhyrCWw1e5Vjz6irWrZbbzOssdkgxBlbuUJ0cQ7PUQipwsklXPwOAK9PWBIgCiHzwxz0ex+BSM1Bv3Ln/1dghG87kK4RlPlLwRuh2Kz+gSl4FVE07HVxcyZUPbg0ucQeWm9hG4/iRDGhlZtcBeygsx0Mk70SPbHUjPZ1vYeK5HmVo4IRK++5OY+AwluWVP9m02RQHnDx+M3oOzSIKDi3Sb7odJgYOI3USBN6hf7jyx2Wd6ORg+hDcUubPygtRtKZkHEB0GZuQ1vy14DcyWfEOn7DVjDl92tu4GVG7emoBS2HQiaMNdGpTYL6SqR94eThetx+sG1F6FrJO2Q4A064PZvfCMYFEmWJdJb1E3r4GblemYxPIC36JMkVHkfUWNk+98DluyyVZXH2oeOAaGelg7AjbRM+pgkA13D8K2AN5v9v4KX7/OfOP8/O+QDZIPtjo8mEKDNKzacYdtwauSry0H4hKNrOYUg3vzRd2ypOw4hIGcKBz9d2lLw8+3StnzaM8Lztho/TE8T2KxqaihZm6yXNE43TyeCNpBYcFUh+eTPACAkN88jTnPLybcdJPY3Erisk4qrW9xLFhFlc/e3OPXesD4FhfhNICnU+hf0rrhYf6Wo1hSn2rg==
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(23010399003)(376014)(7416014)(10070799003)(6133799003)(4143699003)(261009223027099003)(22082099003)(18002099003)(921020)(56012099006)(10067099003)(261102123227099003)(261026140227099003)(261021121427099003)(261026121527099003)(261022105027099003)(261028144727099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?TmVsUnlwYzROb0hLUUw3SjRmTWdzSFMwSWxTb1FCMzRCaXJaL2VodGtsaG9R?=
+ =?utf-8?B?YVBQNjg4cnU4cVFwUzdGeTY5S3RDS0FIeUFRUmUzQUpXWmhXUktUbXVLQkRl?=
+ =?utf-8?B?emc4VlRsZ2NhSXRPMlQ1YW5RZVJ2RnowelYxZWhmLzZEelBSeWlvQkpyTFN0?=
+ =?utf-8?B?cTRVVkVZQ2lrTXRNZ243cTAyYjdqbmgyMU9tQWZ3dzZoZE9OUDJLQ1kwRWhW?=
+ =?utf-8?B?MVlWYisvVEc3cUlONXlQQU9laTZhLzR1Y0Y5ZEpTUEhidURHaVAyZUJPbGp1?=
+ =?utf-8?B?dlF0ODZCcWl2aVo3Y29uZW9QYTlmYWRzY091NEpERmhVNFpDcHlTMHQ2N3g3?=
+ =?utf-8?B?TUt2YTNySEl1c2N4U255RmtIZjQweWp1OFl4Z1FmSVhIOFFLZU5lNnU4RURw?=
+ =?utf-8?B?YzF2NGN1L3FJVVVtRHN5TU5lZkpiMlhXV0dVOWRsT3ZyMnYrSmtUZllGMVRK?=
+ =?utf-8?B?TmRQRjgvNThVYThPSlFoZmN5V3lsWTFBeUtGOHpTY1BaYnJ1MzU0Ym12K0tH?=
+ =?utf-8?B?UEpWK05nQWVITkZ0RXFrczN2d2hlRmRjVVNzazRtMVBzRzhZdmR3ZlordXo3?=
+ =?utf-8?B?dW5iT2FnOFFIbmMvYWVBRTNJRkVjR011RXVkQUFwMTdoWmlhYTdRWGk0ZTBS?=
+ =?utf-8?B?azd5bXRqU0JXcHNnM2h4bHh3QWliVi80YjFHM3MvMzlha3hyeEJzMFpWVGtL?=
+ =?utf-8?B?YU9FU05Ca3pWSmdwK0J2dmo3bDlNNGQ0T3Z5S09IdWxNSk1qQlF6a3hVYWVy?=
+ =?utf-8?B?Mk51TnBidHNvTUMveC9RREJQd2hYc0w3S2U2RG9UUWpKL1QxeXJHSUpSMWwv?=
+ =?utf-8?B?Qm41ZHFqc2FqcHQ5dXFia1JCTTkrZmZlZkJkZERweEFKMWJ4KzRIbUxSUGhr?=
+ =?utf-8?B?eUlzeWpOdXhWQ3Jna1kwSWtBVFY5VGhiRkRGUW5pcnRuRGU3VEdRa1FsYnQ3?=
+ =?utf-8?B?Mi9lSGxJSHBqK1ZQRVhLYVkwMkt5S2pWdDYzcWtqSVNFanRpeGx4MDROeWNL?=
+ =?utf-8?B?RFBPVkFQcWc1c0xPZ3lzQ0crUkVVeTEwQktFQTN3Rm5kT3hzakpJUzhLSVJr?=
+ =?utf-8?B?RFhlUFdrMjlmTS9DTHYzWFc0dU5DeHR3QnVOUWdBZ29RRHZiaER4ZUZVOVVv?=
+ =?utf-8?B?d2ZZaUErNEZuQUtrNVlnT015MGVidEk5RUdlWWhPam13cWpSdjRnaVlCYmc2?=
+ =?utf-8?B?N25Pc1pLMFJZb0xSTTErWWFMaXUxY2NLZHJ6RWFuY2xQOGY0T0dMVFJMNUVK?=
+ =?utf-8?B?ZWtRcUZEYXhLVnJjcVVhd2N5RHQrUUdrT3pxN1NTZ2xoRTdoeldubnBnaVNF?=
+ =?utf-8?B?QzFJVUhzcXJqSXNGWS9xR1VLMS96bGhJbTQrNitlUmUzK0gzWXBnMVlTc2Vu?=
+ =?utf-8?B?eE1saUl5WW1uUWZUYldObWN6cWJ3RHdlRmU2aU9lS0dXWnNEYUpPSEU0TVVk?=
+ =?utf-8?B?dmpiOVJreHVWUlh3aGxLNE82TFc4b016N2w1RHJ5SnU0Y0pISzB0MlNOUlpl?=
+ =?utf-8?B?QkhLQWJCSHVVN1orVzhFaDUyM0QyZ1ZKVVh6ekorcGJ5eUdCaE1TQjFqdEhv?=
+ =?utf-8?B?WStpek1mK2dvMVdRUmdzQm9oUG5mTUVPR2UwLzNTWE5JQ2NTbnNPT1AwN1hi?=
+ =?utf-8?B?eThvSGNyQU4xT3hwaVppbW9mbSt2UzgyQU1DUVY0Rlh1K25JOHpHcnA1SXpj?=
+ =?utf-8?B?WTlvWmtTMlpnQW0xNlIzTFQ1dElmN2ZhdjIzYUV1czlNWmkxbEFjRW9EWDM4?=
+ =?utf-8?B?bkFIWUw0NVdXZHp3UjBpNkdvdjZ1RUg5VHMyVVFCSk1acFZBei9MYXduRXpM?=
+ =?utf-8?B?cTdtamZpS2UxV2pZTFU0U3daYm9FMkVPWUZkOFo2QjNweHRRTTFmRnN6Z3lI?=
+ =?utf-8?B?eCtKMzdheXI4ZDE3dEY2ZzBCWkg5ZTAvWjhsRTExYks5ajV1bThBK2V0SUMv?=
+ =?utf-8?B?akJtSTI5enhoTStnQS90WEZETDN0R1RXanZQL2U0Rnk0bnJTbkpNN1Ftdm82?=
+ =?utf-8?B?aWxFSC9HWnJGSUdGM0FodXRGMUdTUjlIVFBMR2RvWW1jdkpsUm5lL2sxdDFj?=
+ =?utf-8?B?ZHFJNi85ZkdoMEs0RnlBaEkyMTlMSzZNZkdqeTFLYnEyZlpIQ1Q5RDBtb1RZ?=
+ =?utf-8?B?czlLWncxbHlqT0xZd2xUdlBZQjI2cXZnUXRsODV3bmUwMCtKUHNXWVJWZHlh?=
+ =?utf-8?B?S3lEM1JBODhHdGFxUUU4dnZqWVUrTVg4KzBMWXVpcFdZZSttUi9icWZaQWhY?=
+ =?utf-8?B?ZTVEWUFacHJxNFZVYXVNS2NqdEpjajRzQjdxWWw4UDQ3cVJTaXZ5Q3Z5UDBs?=
+ =?utf-8?B?NUxiYnZ4QXVYVi9wK3JEcmdlUUtnL2dnSWd0MWhjNWh0TDRUSDE5Zz09?=
+X-OriginatorOrg: garyguo.net
+X-MS-Exchange-CrossTenant-Network-Message-Id: eb090fcd-0ccc-4164-16ae-08df4b13d47d
+X-MS-Exchange-CrossTenant-AuthSource: CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 16:47:45.2545
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: bbc898ad-b10f-4e10-8552-d9377b823d45
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: m4wLDgs/CDZmWz0IwmUl+tOK2F9CKlupGYxxSrw3l6rQafAMGsOY87b+6vCvTGbGvpeNHnllhymX40uaJHChbg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LODP265MB042256
 
-On 25/11/2026 09:51, Suzuki K Poulose wrote:
-> 
-> 
-> On 24/11/2026 00:20, Suzuki K Poulose wrote:
->> On 23/11/2026 10:42, Steven Price wrote:
->>> Add the RMI RTT creation and unmap helpers needed by CCA Realm stage-2
->>> memory operations. REC exit handling and guest requested RIPAS changes
->>> follow in the vCPU series.
->>>
->>> Signed-off-by: Steven Price <steven.price@arm.com>
->>>
->>> ---
->>> Changes since v3:
->>> - Use the VTCR-derived Realm start level for RTT operations.
->>>
->>> Changes since v2:
->>> - Use a local MMU cache during notifier invalidation, handle
->>>    failed RTT splits, and validate RMI levels and cache state.
->>>
->>> Changes since v1:
->>> - Rework RTT creation and folding around missing or existing RTTs.
->>>    Use a shared RMI block-size helper and handle alignment, partial
->>>    progress and errors in range operations.
->>> ---
->>>   arch/arm64/include/asm/kvm_rmi.h |   8 +
->>>   arch/arm64/kvm/rmi.c             | 421 +++++++++++++++++++++++++++++++
->>>   drivers/firmware/arm_rmm/rmi.c   |  10 -
->>>   include/linux/arm-rmi-cmds.h     |   8 +
->>>   4 files changed, 437 insertions(+), 10 deletions(-)
->>>
->>> diff --git a/arch/arm64/include/asm/kvm_rmi.h b/arch/arm64/include/
->>> asm/kvm_rmi.h
->>
->> ...
->>
->>> +
->>> +static void realm_unmap_shared_range(struct kvm *kvm,
->>> +                     unsigned long start,
->>> +                     unsigned long end,
->>> +                     bool may_block,
->>> +                     struct kvm_mmu_memory_cache *mc)
->>> +{
->>> +    struct realm *realm = &kvm->arch.realm;
->>> +    unsigned long rd = realm->rd_phys;
->>> +    unsigned long next_addr, addr;
->>> +    unsigned long shared_bit = BIT(realm->ia_bits - 1);
->>> +
->>> +    if (start >= end)
->>> +        return;
->>> +
->>> +    /*
->>> +     * Callers may pass either an IPA range or its shared alias. Add
->>> the
->>> +     * shared bit only for the former. Use addition so an exclusive
->>> end at
->>> +     * shared_bit advances to the end of the IPA space.
->>> +     */
->>> +    if (start < shared_bit) {
->>> +        start += shared_bit;
->>> +        end += shared_bit;
->>> +    }
->>> +
->>> +    for (addr = start; addr < end; addr = next_addr) {
->>> +        long ret;
->>> +
->>> +        ret = rmi_rtt_unprot_unmap(rd, addr, end, RMI_ADDR_TYPE_NONE,
->>
->> ...
->>
->>> +        }
->>> +
->>> +        if (may_block)
->>> +            cond_resched_rwlock_write(&kvm->mmu_lock);
->>> +    }
->>> +
->>> +    realm_fold_rtt_level(realm, realm->start_level + 1,
->>> +                 start, end);
->>
->> See below.
->>
->>> +}
->>> +
->>> +static void realm_unmap_private_range(struct kvm *kvm,
->>> +                      unsigned long start,
->>> +                      unsigned long end,
->>> +                      bool may_block,
->>> +                      struct kvm_mmu_memory_cache *mc)
->>> +{
->>> +    struct realm *realm = &kvm->arch.realm;
->>> +    unsigned long rd = realm->rd_phys;
->>> +    unsigned long next_addr, addr;
->>> +    long ret;
->>> +
->>> +    for (addr = start; addr < end; addr = next_addr) {
->>> +        unsigned long out_range;
->>> +        unsigned long flags = RMI_ADDR_TYPE_SINGLE;
->>> +        /* TODO: Optimise using RMI_ADDR_TYPE_LIST */
->>> +
->>> +        ret = rmi_rtt_data_unmap(rd, addr, end, flags, 0,
->>
->> ...
->>
->>> +        }
->>> +
->>> +        if (may_block)
->>> +            cond_resched_rwlock_write(&kvm->mmu_lock);
->>> +    }
->>> +
->>> +    realm_fold_rtt_level(realm, realm->start_level + 1,
->>> +                 start, end);
->>
->>
->> If "may_block", we don't take that into account while folding the RTTs ?
->> On a bigger range, we might spend too much time, starving the other
->> threads.
->>
->> Also, there is no point in folding the RTTs if the Realm is dying. So, I
->> would rather skip this if the Realm is not ACTIVE.
-> 
-> Having a think about it, I don't think the folding of RTTs in the unmap
-> case is a good idea. We could leave them as they are, because:
-> 
-> 1) As mentioned above, we are holding the write_lock() and doing this
-> within the lock is bad for contention
-> 2) We do not check if there was any mapping at all that was actually
-> invalidated. i.e., the tables were already folded and for a big range
-> we go over it unnecessarily.
-> 3) For fixing up permission faults on shared range, we end up unmapping
-> the range and then trying to map it. Folding here means, we could end
-> up in the dance of reclaiming the RTT and then creating it back for
-> each L3. (This is a rare case though).
-> 
-> Overall, I don't see the benefit of folding outweighing the impact of
-> it. So, could we please drop this ?
+On Tue Nov 24, 2026 at 12:29 PM GMT, Philipp Stanner wrote:
+> Some users don't want to perform a full call to synchronize_rcu() if it
+> is avoidable.
+>
+> Add abstractions for get_state_synchronize_rcu() to obtain a grace
+> period identifier.
+>
+> Signed-off-by: Philipp Stanner <phasta@kernel.org>
+> ---
+>  rust/kernel/sync/rcu.rs | 10 ++++++++++
+>  1 file changed, 10 insertions(+)
+>
+> diff --git a/rust/kernel/sync/rcu.rs b/rust/kernel/sync/rcu.rs
+> index 0daa1ac87d81..7afc78b34759 100644
+> --- a/rust/kernel/sync/rcu.rs
+> +++ b/rust/kernel/sync/rcu.rs
+> @@ -86,3 +86,13 @@ pub fn synchronize_rcu() {
+>      // SAFETY: `synchronize_rcu()` is always safe to be called from proc=
+ess context.
+>      unsafe { bindings::synchronize_rcu() };
+>  }
+> +
+> +/// Obtain a cookie identifying a grace period.
+> +///
+> +/// Returns an identifier that can be used by other functions to check w=
+hether
+> +/// a specific grace period has passed already.
+> +#[inline]
+> +pub fn get_state_synchronize_rcu() -> usize {
+> +    // SAFETY: `get_state_synchronize_rcu()` is always safe to be called=
+.
+> +    unsafe { bindings::get_state_synchronize_rcu() }
+> +}
 
-Agreed. I don't think we have a good view (yet) on when folding makes
-sense. I think it ended up in here mostly so that we could exercise
-those paths in the RMM. But that's a terrible reason to keep it ;)
+Please create a new type for this since people are not supposed to poke int=
+o
+this. It also saves you from having to make cond_synchronize_rcu unsafe.
 
-Eventually I think we'll need to figure out how to cause folding in
-those (probably fairly rare) situations where it will help. But for now
-I'll just drop this.
+pub struct RcuState(usize);
 
-Thanks,
-Steve
+impl RcuState {
+    /// Snapshot current RCU state.
+    fn get() -> Self { ... }
 
+    /// Check if RCU grace period has been completed since the `RcuState::g=
+et`.
+    fn poll() -> bool { ... }
+
+    /// Ensure that a RCU grace period has been completed since `RcuState::=
+get`.
+    fn synchronize_rcu() { ... }
+}
+
+Best,
+Gary
