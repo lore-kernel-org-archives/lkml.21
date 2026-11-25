@@ -1,95 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.171
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795630103;
-	b=c1ezaWgoL15bdHiju7atpuEyzrfhWAVbtoi1RcOE5iBnAu/Qejjmz2bqBw+8f3pFd4cj
-	 L0jxoyToEHYlYpUn5p/Y3wDydXG21LDi6XV8h7vaQEeQ0zRs56IBttpu1wg7foBy7khvo
-	 59Y9a9hB27OJ+2vktSneEVyXTnLiJcmjDj17hy5ug9TLZ4/j+qxBFng5GanM6ND9Yr+2N
-	 aDNsdTARBpyv/L7xnXsP9tnBGBOSbPIxsITHaw0DWinIIZyeuJRo6FscippO5yjeD6Dwj
-	 cu00sILLvglbPvPZEsT9RnzbPakLDgFh0CfYgZ4poD4AXmptntd6+e1GRZA44rrNzqw==
+	t=1795630116;
+	b=LnxiOJEsFT8auF3pZYeDp6ChjXfk8FV5rp8p70yFR8L4blYM72Jtt4Mg1BeUYa4xCBeN
+	 OXQ54MYpjPzLYkeq0J9wfDFC8ZQ3am11quPQBtQZeeLBZwzn8Ri7Sn5bJdWsI+6ijMsFC
+	 N4qUq/QYwHHYhqPJFcCa1epj2HiH50jhAdeavad1J8WJ+SNpITihkprDiLZigA1Ta0atm
+	 SfuxeXdORSbQfcu8rhAgyqDxfAEoeVrqbp8Z67YsGOQbXpF1ZHA8bCZ9Gg0HgiUAptu72
+	 pO1YIuAxiuLvaK7BwsjnfGZZ7B2fyR53f8eYu6Np/credSZUNLxvP1oyc6Vpg4qMz6w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795630103;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=dHM8QuM6MY/pSqOPOop7gPxP9CND5feIuBhfsBIhnlk=;
-	b=udE0a9z49jydsoq1VsBHIkk033qf3E6gphbWyxZeAFg37uZ5GEluS5ydn19WKk0AlQ6y
-	 W6srclI3UBdKPDvM3e9w4zOF0y2xXNtbnGsvzUeKk3eeU0aX+rRuRyfEJbWxwfYkUzM9v
-	 oOCy66W8D2J+it2IbN8wSvulbt70+B4vz/sAui52Oh6LQoa3hlB+J/cWTJdNypmGhsEjx
-	 WMkXYTFIYENXfxU+AXlTbBVB4Sy6+07Aq0tbIc7Bp5R/a5QHpfB/ard0zvEMxnpSCX43X
-	 WoGc2CljGZZNBYqMjjDfwFtYYy62XEWdOqS2d55Qa/1bwSnc30sb+2rmvix8tWGI71g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795630116;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=eNx5ZwxwQF3pCAIZSJDgbBLvyG1xG91t2PRrZIJMuvY=;
+	b=y/BjyX/yL1AMcxqwukb92Or8J0v0FPoz5rRGi3BFoKfFsZyZj8PhWnEqBgDf7/xG1evj
+	 dawIYp23krNJ1GspWs2FGmsLE8D3amq/jg0EB5Y3OIZvpoVdkz7O9QA0F7YTE3l5nRyRn
+	 T1mttmD1IjR+h9aw+dznE4y5lLE3UAAYjGdY3EdLXHNN3ndQEe9VwTqeeCLefLdkAYt1S
+	 y+iotNDSAOAoxUolA+jpCXR8dlQlMD+e9m9lzY/00QygrrAOxpb7HGlabiaf2/v4Uy6GE
+	 WOjM+Zhlj+MkDcjuegeXGiygYMrISb0EUAzzYJYn/vFJSleIU6ztJlIyGxr6xibyCQw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cs.unc.edu;
-	spf=pass smtp.mailfrom=cs.unc.edu;
-	dkim=pass header.d=cs.unc.edu header.i=@cs.unc.edu header.a=rsa-sha256 header.s=google header.b=Pw1yTcSe;
-	arc=none smtp.remote-ip=209.85.128.171
-Received: from mail-yw1-f171.google.com (mail-yw1-f171.google.com [209.85.128.171])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hz1BodnZ;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5C5B9606A327
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:08:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5C5B9606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=cs.unc.edu
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cs.unc.edu
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7F2DD606A321
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:08:36 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=cs.unc.edu header.i=@cs.unc.edu header.a=rsa-sha256 header.s=google header.b=Pw1yTcSe
-Received: by mail-yw1-f171.google.com with SMTP id 00721157ae682-8b4dbdc9592so18727567b3.3
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:08:22 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=cs.unc.edu; s=google; t=1795630101; x=1796234901; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=dHM8QuM6MY/pSqOPOop7gPxP9CND5feIuBhfsBIhnlk=;
-        b=Pw1yTcSew1tJWPymC+EtTRZkEr+5tKy29+ynnVbyUao6v1cTb3h2c86QP8jy2LO7iB
-         v3EGy9XAL8lNHqht6WJpIjOhlALmCvzgkursP11zUP4ceia2Bf5Px8hg00FFcASj07FI
-         co0UQR4YEGuawnGC/1HPrkLdeTp/NImxuNm2SK7ZieoqZyw+TCeGN6u8+dBG7Gfyvfts
-         FxNKHYh7zU5qp2y3JDdtDm85fOcJb3tYbJVAXetO70nLmk/mDWj60TXlkRC3Vw9uZONM
-         C8gKtG6H7Qm9+1xB8dKpGvgZcu2SXU7jH9RaP4y7R8bPA8NbPUse1zMMOH1hi+BnjN3P
-         ubww==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795630101; x=1796234901;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=dHM8QuM6MY/pSqOPOop7gPxP9CND5feIuBhfsBIhnlk=;
-        b=Se2UaXY1f3FFil2uJOHzklzDgVdn9LuWGrEodQtuv1Ug/gk5BUgN5YNQOFxxvkivRg
-         sh0D73Pc4gWBVRpLQhA4VVXj9bQWfnBZ24Mdd3ou1o3lIapHPU932bynx5n3fYJUL0AM
-         op8KJo40bmbc203QTjJZwLSkWqeH9zo7BquFATcdpGS1H9p08EfF9ffpmHlAivqK+/uo
-         8GVKjiAQ7NPnXPYvR3/KAqLKVWhpmb6VOt8BAKV21J6L8qgYhc5AH5XnMWd8oRSkgF49
-         HdYWoqAcVA+Y2ldOOFHJ3oo3FSY8iteDldQPgu+/kcLGsLQ/olXcrC/J2qZ0F0z8i5mc
-         Fpqg==
-X-Forwarded-Encrypted: i=1; AL+hErHSbpaqEPZpWesBhd97HjOKeK3XuV5BYgCo6LUX+uNRYh+ZIAXRec1E8UpjFyYgzCjpdx9ZOkc77GIjHZk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8aF41B40bAZTlJis6CtSDwzCiTe9JAn9qf02pwLyKir+jFs4Al
-	FYLNMHfNWmwqs5wGp6wykfLvPQ7/xOPYiqrkvU8wu6//rWLprDrdra4gz9jp4alACQ==
-X-Gm-Gg: AZFdTZe6ZjP63sFRBY9pUAeX9fYXSSkp782oYheP19Ks282wqsT5yj5znL7V/5SYN82
-	B+c08DloOvzjueaRzCEhFB0dOH/v2uDumbb7/o0cbA67frSAKxCO++LTZCTUrWBI3a4ul0ExtXX
-	FXAL+mNug1Cqs4lq3ajA91JZ9SSMHImA5DGbYxBekt3xlLJxi0B6UhwydgSI3AfwHsEGi/M7+DB
-	zzhp90EkVJU9qPovc2GcMHkXb/4EhmsZFbPmaUFnjgSr9AoNtFcO3+E93BmGjXc4USn6MVy2V0j
-	9FUwMPg+PfaxEDDN5rfnUc1rGm9PPDlwBFeCmLJyT3G2XpzluFw1UOg1jdMy3SFbw9jnerj0NFj
-	VBiXTMiSfja/dmY8dxVupCuXFwdDXPkNUxqxk9Bm8dKURQUdH6nBw28+sbkl8QjJY5EB8kc6Dzj
-	RqNJiZ/YOfpRbqZjcU9GThCOVhyTN9WxtSb4R/Os8E2pAO179W710lpZ4tXzBuPRB7InkOFp4P4
-	9L8oVvoIVpaSVywjjPSFyrj/8GYxVVPn9S9C8frpbcb63GiH4+4vLbOxrCpA1b7/djNugGl21Es
-	wJIlIBWP7sKLp9DUqb8j83dbCj4OSAqtyZsvvh/Xd136jqPwj0MxdWojOytcOrjnYl2Wsavxig=
-	=
-X-Received: by 2002:a05:690e:1247:b0:67d:ebad:8ca2 with SMTP id 956f58d0204a3-67df4410cabmr7287298d50.53.1795630101276;
-        Wed, 25 Nov 2026 10:08:21 -0800 (PST)
-Received: from cobra01.cs.unc.edu (cobra01.cs.unc.edu. [152.2.130.143])
-        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-67df337bfd7sm9193210d50.15.2026.11.25.10.08.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 10:08:20 -0800 (PST)
-From: Hengyu Liang <hengyul@cs.unc.edu>
-To: Jens Axboe <axboe@kernel.dk>
-Cc: Jori Koolstra <jkoolstra@xs4all.nl>,
-	Christian Brauner <brauner@kernel.org>,
-	Aleksa Sarai <cyphar@cyphar.com>,
-	io-uring@vger.kernel.org,
-	linux-fsdevel@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] io_uring/openclose: allow an empty path with O_EMPTYPATH
-Date: Wed, 25 Nov 2026 13:08:17 -0500
-Message-ID: <20261125180817.3682397-1-hengyul@cs.unc.edu>
-X-Mailer: git-send-email 2.53.0
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hz1BodnZ
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE9061F00A01
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:08:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795630116;
+	bh=eNx5ZwxwQF3pCAIZSJDgbBLvyG1xG91t2PRrZIJMuvY=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=hz1BodnZcBZT/KUwNGE15a/sxBOr1vuiHCkTfm7U6wkJkAQdx0ore508uH+2Dx2cx
+	 YU6ThbEHy3L5YaWUAx1ZkYdNoqGrUskSAJKSsLpYfKR/ewNgQuQelvtdeWq+anG+tf
+	 hux2kmccH24GanEaohs+3C8bKyd85w2TaippKDpmJLPYoe8o6vCBtighNFHySpYc/2
+	 9rxxShcP+EpmowKq2i0l6jHMgeuarQlzPXHXtN3tDoj/ReAseB5Tyi8llFQ2q4Lb5o
+	 Cn1apVqM9Ied3S1tfgh0b9UyremBYtzFylKEiEko+rBtW1FCZsepAENxuWxwQ95/ww
+	 hH6qxEtD8gFSw==
+Received: by mail-lf1-f44.google.com with SMTP id 2adb3069b0e04-5c14f3dab66so5827223e87.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:08:35 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErFx0iLaoVl5veKUc0LciKn3A6EwtHPPz9OVux4Mhpp05zmCTqlUbTTm7Jwqovo5JWV9YfdRZ+pE9yI4x+k=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8NRbh9FnVwbZttUByidn5rm3sJn+Ytn08FIj0RLfwP++iYUiW/
+	HrFVKYIcQFTjzqtvesYdpndeMMUI+UBcOCYbRdaiJ04StaOmZQQEYUlD8VOyn5whKE+0uDWaJJq
+	Ru5rrjhUuvz6aGB4s+Pnw51vHwdLrC34=
+X-Received: by 2002:a05:6512:85c6:10b0:5c3:182f:bac5 with SMTP id
+ 2adb3069b0e04-5c3182fbd1fmr1537008e87.0.1795630114620; Wed, 25 Nov 2026
+ 10:08:34 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,100 +59,85 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20261111114225.3977243-1-ruanjinjie@huawei.com> <20261111114225.3977243-2-ruanjinjie@huawei.com>
+In-Reply-To: <20261111114225.3977243-2-ruanjinjie@huawei.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Wed, 25 Nov 2026 19:08:22 +0100
+X-Gmail-Original-Message-ID: <CAD++jL=mQ8h=6zGUBcc3F9mrafft7V0_tx=jTuv6U7y0ivqNqw@mail.gmail.com>
+X-Gm-Features: Aa3M54q6226d-LNf-pEP1kf8MunikGkNJM-jG6MXhZoLCqA1MQYdS9z2y0_SJt8
+Message-ID: <CAD++jL=mQ8h=6zGUBcc3F9mrafft7V0_tx=jTuv6U7y0ivqNqw@mail.gmail.com>
+Subject: Re: [PATCH v21 01/15] arm64: ptrace: Fix spurious pseudo-single-step
+ for PTRACE_SYSEMU_SINGLESTEP
+To: Jinjie Ruan <ruanjinjie@huawei.com>
+Cc: catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, 
+	oleg@redhat.com, shuah@kernel.org, kees@kernel.org, luto@amacapital.net, 
+	wad@chromium.org, peterz@infradead.org, ada.coupriediaz@arm.com, 
+	kevin.brodsky@arm.com, anshuman.khandual@arm.com, thuth@redhat.com, 
+	james.morse@arm.com, yeoreum.yun@arm.com, vladimir.murzin@arm.com, 
+	broonie@kernel.org, ryan.roberts@arm.com, liqiang01@kylinos.cn, 
+	mathieu.desnoyers@efficios.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Commit 31cf44efa6df ("vfs: add O_EMPTYPATH to openat(2)/openat2(2)")
-made build_open_flags() accept O_EMPTYPATH and turn it into
-LOOKUP_EMPTY, so that openat(fd, "", O_EMPTYPATH) reopens the file
-behind fd.
+On Wed, Nov 11, 2026 at 12:43=E2=80=AFPM Jinjie Ruan <ruanjinjie@huawei.com=
+> wrote:
 
-However, io_uring also uses build_open_flags(), but __io_openat_prep()
-still copies the name with delayed_getname(), which rejects an empty
-name with -ENOENT. As of now, IORING_OP_OPENAT and IORING_OP_OPENAT2
-accept O_EMPTYPATH, but fail on the empty path this flag is meant for.
+> PTRACE_SYSEMU_SINGLESTEP sets both _TIF_SYSCALL_EMU and _TIF_SINGLESTEP.
+> Since commit ac2081cdc4d99 ("arm64: ptrace: Consistently use
+> pseudo-singlestep exceptions"), syscall_trace_exit() injects a
+> pseudo-single-step SIGTRAP (si_code SI_USER) whenever _TIF_SINGLESTEP is
+> set, including for an emulated system call.
+>
+> That pseudo-step was added for PTRACE_SINGLESTEP: the system call runs,
+> and the tracer must get a stop at the return address to inspect the
+> result. An emulated system call does not run, and its syscall-enter-stop
+> already reports the SVC, as the x86 implementation and generic entry
+> (report_single_step()) both say. The extra stop is wrong:
+>
+> 1) Stepping armed before the SVC (the normal case). The SVC exception
+>    leaves the step pending (SPSR_EL1.SS is 0, Arm ARM D2.11.5.1), so the
+>    hardware step is taken at the return address anyway, and the tracer
+>    now stops there twice without the tracee executing anything:
+>
+>         syscall-enter-stop  pc=3DL
+>         pseudo-step         pc=3DL    si_code=3DSI_USER  <- added by that=
+ commit
+>         hardware step       pc=3DL    si_code=3DTRAP_TRACE
+>         hardware step       pc=3DL+4
+>
+> 2) Stepping armed after the SVC, e.g. a tracer resuming a
+>    PTRACE_EVENT_SECCOMP stop with PTRACE_SYSEMU_SINGLESTEP. The first
+>    stop is the pseudo-step at L, so the instruction at L is not
+>    executed before the step is reported. Before that commit, and on
+>    x86, the first stop follows the instruction at L.
+>
+> Skip the pseudo-step when _TIF_SYSCALL_EMU is set, as generic entry
+> does. The behaviour of PTRACE_SYSEMU_SINGLESTEP goes back to what it was
+> before that commit. PTRACE_SINGLESTEP is unaffected and still gets the
+> pseudo-step, so both problems fixed by that commit stay fixed.
+>
+> Only tracers using PTRACE_SYSEMU_SINGLESTEP see the difference. Measured
+> in QEMU, L is the instruction after the SVC:
+>
+>   case          before that commit   v7.4-rc1      this patch
+>   normal        L, L+4               L, L, L+4     L, L+4
+>   after seccomp L+4                  L             L+4
+>
+> Fixes: ac2081cdc4d99 ("arm64: ptrace: Consistently use pseudo-singlestep =
+exceptions")
+> Cc: Mark Rutland <mark.rutland@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Oleg Nesterov <oleg@redhat.com>
+> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
 
-The issue can be reproduced with this program:
+This patch looks like something that should be sent separately and
+even considered
+for stable.
 
-    #define _GNU_SOURCE
-    #include <fcntl.h>
-    #include <liburing.h>
-    #include <stdio.h>
+Can you please send this patch separately to the arm64 maintainers as
+a fix?
 
-    #ifndef O_EMPTYPATH
-    #define O_EMPTYPATH (1 << 26)
-    #endif
-
-    int main(void)
-    {
-            struct io_uring ring;
-            struct io_uring_sqe *sqe;
-            struct io_uring_cqe *cqe;
-            int fd = open("/etc/passwd", O_PATH);
-
-            printf("openat: %d\n", openat(fd, "", O_RDONLY | O_EMPTYPATH));
-
-            io_uring_queue_init(1, &ring, 0);
-            sqe = io_uring_get_sqe(&ring);
-            io_uring_prep_openat(sqe, fd, "", O_RDONLY | O_EMPTYPATH, 0);
-            io_uring_submit_and_wait(&ring, 1);
-            io_uring_peek_cqe(&ring, &cqe);
-            printf("IORING_OP_OPENAT: %d\n", cqe->res);
-            return 0;
-    }
-
-Before that commit (v7.1), both calls fail: it prints "openat: -1" and
-"IORING_OP_OPENAT: -2". After that commit (v7.2), the result is:
-
-    openat: 4
-    IORING_OP_OPENAT: -2
-
-This patch will copy the name with delayed_getname_uflags() and
-AT_EMPTY_PATH when O_EMPTYPATH is set, as io_uring's statx already does
-for AT_EMPTY_PATH.
-
-Fixes: 31cf44efa6df ("vfs: add O_EMPTYPATH to openat(2)/openat2(2)")
-Signed-off-by: Hengyu Liang <hengyul@cs.unc.edu>
----
-I found this while comparing the behavior of different kernel versions.
-I used an LLM to analyze the problem and to draft the patch and this
-message, and I analyzed the result myself.
-
-Tested on io_uring-7.4 (0659e44ce739) with KASAN and lockdep. A test
-that runs 24 cases through IORING_OP_OPENAT/OPENAT2 and through
-openat(2)/openat2(2) now gets the same result from both (32 of 42
-results differed before). The cases include O_PATH and regular fds,
-AT_FDCWD, forced async opens, RESOLVE_CACHED, a direct descriptor slot,
-a bad pointer and an unprivileged reopen of a 0600 file (EACCES). The
-liburing open tests and the openat2 selftests pass on both kernels.
-
- io_uring/openclose.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
-
-diff --git a/io_uring/openclose.c b/io_uring/openclose.c
-index 24cf3ce2e2bc..29fe31f16a2b 100644
---- a/io_uring/openclose.c
-+++ b/io_uring/openclose.c
-@@ -54,6 +54,7 @@ static int __io_openat_prep(struct io_kiocb *req, const struct io_uring_sqe *sqe
- {
- 	struct io_open *open = io_kiocb_to_cmd(req, struct io_open);
- 	const char __user *fname;
-+	int uflags = 0;
- 	int ret;
- 
- 	if (unlikely(sqe->buf_index))
-@@ -67,7 +68,9 @@ static int __io_openat_prep(struct io_kiocb *req, const struct io_uring_sqe *sqe
- 
- 	open->dfd = READ_ONCE(sqe->fd);
- 	fname = u64_to_user_ptr(READ_ONCE(sqe->addr));
--	ret = delayed_getname(&open->filename, fname);
-+	if (open->how.flags & O_EMPTYPATH)
-+		uflags = AT_EMPTY_PATH;
-+	ret = delayed_getname_uflags(&open->filename, fname, uflags);
- 	if (unlikely(ret))
- 		return ret;
- 	req->flags |= REQ_F_NEED_CLEANUP;
-
-base-commit: 0659e44ce739ecd856164c75a5325b7959a2921d
--- 
-2.53.0
-
+Yours,
+Linus Walleij
