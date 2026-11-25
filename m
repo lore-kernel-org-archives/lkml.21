@@ -1,72 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.199
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.72
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795640478;
-	b=sJbsnAer68UssH7zzhaKwcTWlCo04UcD6Q7sWh/08my1hzIlCi9IwWqDnvcKXBxUO/XI
-	 w8cqfO2F28SmeVs+n1FXKaQ/fvgpY92d02F9jmq6MLGNcQmHB+MHTsZuZ4geUmLWxxH1F
-	 J9Z1OF83eh+Z07egTITWasLSPDXLCg6MGRJoihospGTWtYKNpP1Xt1xQe2JGjb727VPys
-	 KIHXivPtu/jcOtFpBNS6mwdLrAw4gPqxzyphRaWD9l3mP+uTtpuahpB2t8qUPDvuH8bqJ
-	 kOoY496aFdP6yJaDvpglGFAXU6o2+DlyAhZQDUsNhXwUBFW1c0QHtF3M0/Bf5IFI6JQ==
+	t=1795640516;
+	b=dA4SS6ekL0UoBXqLmUtDYtBOCkU1j87oQqEKMCM+fUMtRxgX2KdlObBpPlVmbiWRAu6h
+	 O2RddaNpHA1BIejHuInsGEdPUw334EWpzZA/bFT7HhhnYUQYx4qLEjU0yN8NJFIfDoP3v
+	 aaPz5PMikgRG9DgfTGuFjGpf/xXhWyKwzhAZkgHEVm0wnMUlizpXyRpBxszJ2IB40nEqx
+	 sS10wbd4UqrClJhyhBFMhjvfpmTqMWRvqjM4BQZIC73g7l6T4PePxhOS3HZuUNKTs0SLE
+	 M+oQgCTo5jmhOipGx/Dm1XTgWDuw/RYFXjUjC3nHdNFivVpPs9BJR0pnKrQFyw8+ejg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795640478;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795640516;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
-	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=LnswTU2/YWk3r53uyQA8ripkBB7cIY1V54pcLpAT4Q0=;
-	b=p8HjBs/ZyvMpqDdJ+TZye+aiwDBmNEghxF0AbQCPZoPhy1ABaqp/7JyvcgApVpz7vIFu
-	 epjjj5d8YkrkCKpYXyaKUXV0fpRlbqFVUC+cin4KUkybSHGz7t/Po+4JyxUBxUZ3rB6IA
-	 UnwKqI1GElLlPZg49RfGbMTPDUiYth0UU6kZFiclhIGlqlbqJe1XrMYo5ajbITkvEBDlC
-	 qnqKD/t3hCV2TiQ0D8/gHu/GnDYC26QthSrRaLbsDXBqbRgnEbeQXxoNdgGTGaa0XxILS
-	 6OdlKwIeSCCGvn3TD2hEfVR9znQtDt4DpULM6KfA39TxjlrSA4bREB8qz4AYq6ZqXMw==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
+	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
+	 Content-Type;
+	bh=0XXWYJBR6k87H5cikH0sP2tdrFWPZl3Z6YSh/gr4s90=;
+	b=rl6gzY6Ab8ZdDQEaQVWRsHgiiHZRuBzAOGLhxIGvu2yhd1ygLg6ddXUSPPMbKw+9gq6B
+	 3lhJbGIvuCTzUa54CTv0vCmd471GETrXKUc6i6pdk298IrMxl36XWkwVk6CYXr4GfqjSt
+	 xSbsdvusfKqZcYA0ncV0eW/kn9CnI2T5gOW42AfPUuZQYKHyLPq9b8Gq0/7OnlTvrw1Y3
+	 o3D5a3NB6Wp8yclvhNN4gMJDC/+c6vRo2s3XK5gtUpTsFMjI7rMJwy9ooL0QCSa83SnEa
+	 q4Y7WRjBMurtMW0wKsQgTmz24znH09NngXb7FifN3HKZ7VPzgzZpuEM5GY9y/HU6xpw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--elkin.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b="felOtV/b";
-	arc=none smtp.remote-ip=74.125.82.199
-Received: from mail-dy1-f199.google.com (mail-dy1-f199.google.com [74.125.82.199])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=ZjgrQBFO;
+	arc=none smtp.remote-ip=74.125.82.72
+Received: from mail-dl1-f72.google.com (mail-dl1-f72.google.com [74.125.82.72])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AFDB6606A327
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 21:01:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AFDB6606A327
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5B854606A321
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 21:01:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5B854606A321
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--elkin.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=felOtV/b
-Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-3869865a304so339100eec.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 13:01:17 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=ZjgrQBFO
+Received: by mail-dl1-f72.google.com with SMTP id a92af1059eb24-1b55f4f3bb8so3567480c88.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 13:01:55 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795640477; x=1796245277; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=LnswTU2/YWk3r53uyQA8ripkBB7cIY1V54pcLpAT4Q0=;
-        b=felOtV/b3pbMZH5MzHu4ojI73i81tNEsMTtGcov8A7zdeN+muYBMAgeFIL6P4VO1zE
-         L5hwDCatCHGPDJiatNQWiZfpYOuDR9OMbToDw8mQzyLSn7vUEtLW/xrSriH73mXbEqJT
-         RhAKVbBKvpBnLI4kiG5dTV45JyOmqk36HA0hyGH87JxdUGwa8TYkfuK1a5TeXhp58Rks
-         R8IjkiEdfCWp+7yRNbq7r3k1xpMemCYn5aI4636LsLMgl6lQJyFBwEGYLxgcKCWriq1j
-         kiQn92WdMbB3QCdZDdl1YgFK/mvGiICw6jNQU9TdwJDC/PLoxwuYViIrGrSi99fKrxfP
-         BdBw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795640477; x=1796245277;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=google.com; s=20260707; t=1795640514; x=1796245314; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=LnswTU2/YWk3r53uyQA8ripkBB7cIY1V54pcLpAT4Q0=;
-        b=Egx8RHntcRAsX4UH3wpIUT1sdPcIUYPdV8uv2d5SqedUzsUXSjCTjQOZxTsJHI3bu3
-         SIkuwf6NHPu4IwmyzVrVgKZU9t5HCKRvwaH3v/CensD0UtuINI4f4m7703xQfZcBW92Z
-         zrlpVy1Qyh6UhgSZecNYvVx/l5zkae6GnIw9qu/6QdmIzuYPSBzWONW+CYdetZ5+9K0V
-         cqsTu6exTWD35BpeOI9j2Zs42ZUP7dK8aOzUw6mPqVGx6HeTpy8ARKFxhEjkf0zuf2Rr
-         HH4c0Wb1rKHcVXwKYVttyFDGAYWEeFXzTofmkG/BKpj3CjDARuOCCTlxI+MsnbeiFsks
-         DGTg==
-X-Forwarded-Encrypted: i=1; AL+hErEMaR/gW3MND/tjENkSSUULWmM+mkbYhi+LS+hDA4QYnTsuXql6HVOACfft0zN/jDqJsutGRBwcbmRhqA8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8aqJfG4ApAU2+GGa2J0kyPdW9Svop1erjfntcNjyqzhMuuECb6
-	Fvq0UKYTCaOugzKBCzozxyOqRYHGgWLOiUKSsXtSUsMidvgi3sboZv6KnwMXYUVwvc25xPOGR4+
-	K4g==
-X-Received: from dycue8.prod.google.com ([2002:a05:7300:88:b0:343:520f:7a80])
- (user=elkin job=prod-delivery.src-stubby-dispatcher) by 2002:a05:693c:880b:20b0:386:b025:1e1e
- with SMTP id 5a478bee46e88-386b02522d2mr10999574eec.16.1795640475439; Wed, 25
- Nov 2026 13:01:15 -0800 (PST)
-Date: Wed, 25 Nov 2026 21:00:35 +0000
+        bh=0XXWYJBR6k87H5cikH0sP2tdrFWPZl3Z6YSh/gr4s90=;
+        b=ZjgrQBFOqFqPbNIdl6RnJl/EBSHkorvsi6ww+mywK3uzDxNVRR6TQhRFQoQOBB6amF
+         cS4Ip2KKMLFtdjAGv2erqlXspedo4FRUuLZiIwGOKrLXdh2WVvQ6BZEyDe+hu4RVZHs7
+         8tB99CPjMIKJfdq0kZjb5eJeAckogRm010oQE3sbeBNWp8+UJKTnhbvZUUThHlNDEs7z
+         JMtJuGB/YAil7KFsyYox73vy9nNqef2ubSPPVT/Sz9shTpo0Ohp+GmAa9HnCz3dJwpwX
+         ssjOvm8n16sz8esNujKWrED3aXiNoYq2Bju2Yf8bnSXfARpYeK7hcE0POt8h/lE3Rrj0
+         AmYg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795640514; x=1796245314;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=0XXWYJBR6k87H5cikH0sP2tdrFWPZl3Z6YSh/gr4s90=;
+        b=0BK9ItKqDPudLrPt9fwfVTGLjeRTHEoFEbjJSJ8WJqjoB7kooxTnxRM0fnDlR9mnuO
+         OURwg/j6UO6OzDRbzl6lCfG7jJcOqWBYyUIw5D1Nj2cy52loliApaozXA7qOfqNsozc9
+         aJ3kywjQ4zR2F2f/gYD2GqjewKssEByvEkw4Cv5ZmxATEKicTftTbeIpxflXYlreZh9p
+         R5z6ECVERvqsDEaaxtfzc8HfZmQPnb1eYErdKJwGd6LIAOG29weK4b+jzIVSQI+Csjcz
+         p0250j+K2y4DMm5nnh3HT8nfkd1FnSHBCT6t5Cw5XNbegPP8vNMkZh2sKbEe2EudB4gy
+         /9oA==
+X-Forwarded-Encrypted: i=1; AL+hErE3Cj7MMrJML9/HQKqX2mBwXqhNgJLamnU2/3Nhqhdmj8+BtJfkc4A5cAhK/5bfM2AJGBROeYTOqYdl+bs=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/n4A3MYez6Fws02jVctidjI8/0tMGTg/JBGflm9BpFpjYaIOMJ
+	g1xn5jDjseSVlEKX87gqIILO9/Mf9QM2Py9XaZc2Cq7rbp0tSmQRbr0KAZ9bU4eXuK46mI7Lrjg
+	IlQ==
+X-Received: from dlbuu1.prod.google.com ([2002:a05:7022:7e81:b0:1b2:6c20:7e86])
+ (user=elkin job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:45a7:b0:1b5:4eec:14e5
+ with SMTP id a92af1059eb24-1b55687f18fmr26708145c88.6.1795640514079; Wed, 25
+ Nov 2026 13:01:54 -0800 (PST)
+Date: Wed, 25 Nov 2026 21:00:36 +0000
+In-Reply-To: <20261125210038.1277960-1-elkin@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -76,33 +79,86 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 Mime-Version: 1.0
+References: <20261125210038.1277960-1-elkin@google.com>
 X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
-Message-ID: <20261125210038.1277960-1-elkin@google.com>
-Subject: [PATCH wireless 0/3] wifi: mwifiex: fix UAF and ext scan TLV bounds checks
+Message-ID: <20261125210038.1277960-2-elkin@google.com>
+Subject: [PATCH wireless 1/3] wifi: mwifiex: fix UAF after skb_realloc_headroom()
+ in bridged RX
 From: Elkin Cruz <elkin@google.com>
 To: Brian Norris <briannorris@chromium.org>
 Cc: Francesco Dolcini <francesco@dolcini.it>, linux-wireless@vger.kernel.org, 
 	Johannes Berg <johannes@sipsolutions.net>, linux-kernel@vger.kernel.org, 
-	llvm@lists.linux.dev, irogers@google.com, Elkin Cruz <elkin@google.com>
+	llvm@lists.linux.dev, irogers@google.com, Elkin Cruz <elkin@google.com>, 
+	stable@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 
-I am trying out new Clang static analysis checks for kernel bug
-classes, and they flagged this code as possibly buggy. The findings
-were triaged/fixed and commit descriptions were drafted with help of AI,
-then checked against linux-next (not runtime-tested on hardware).
+In mwifiex_uap_queue_bridged_pkt(), uap_rx_pd and rx_pkt_hdr point into
+the initial skb->data buffer. When skb_headroom(skb) is smaller than
+MWIFIEX_MIN_DATA_HEADER_LEN, skb_realloc_headroom() allocates a new skb,
+kfree_skb() frees the original skb, and skb is updated to new_skb,
+leaving uap_rx_pd and rx_pkt_hdr dangling. Subsequent reads of
+rx_pkt_hdr->eth803_hdr.h_source, uap_rx_pd->rx_rate, uap_rx_pd->ht_info,
+and rx_pkt_hdr->eth803_hdr.h_dest dereference the freed skb (and in the
+RFC1042/SNAP conversion branch, rx_pkt_hdr->eth803_hdr.h_source was also
+partially overwritten in-place when constructing the Ethernet II header).
 
-Thanks,
-Elkin
+Save rx_rate and ht_info from uap_rx_pd after the packet length check
+and re-derive p_ethhdr from the live skb->data after any headroom
+reallocation, since skb_pull() already positioned skb->data at the
+Ethernet header in both header-conversion branches.
 
-Elkin Cruz (3):
-  wifi: mwifiex: fix UAF after skb_realloc_headroom() in bridged RX
-  wifi: mwifiex: check TLV header size in ext scan report
-  wifi: mwifiex: validate ext scan event envelope and TLV lengths
+Fixes: f7b598532f3d ("mwifiex: update statistics for bridged packets on AP interface")
+Fixes: 442f6f9b49c8 ("mwifiex: maintain station statistic in uap mode")
+Cc: stable@vger.kernel.org
+Signed-off-by: Elkin Cruz <elkin@google.com>
+---
+ drivers/net/wireless/marvell/mwifiex/uap_txrx.c | 13 +++++++++----
+ 1 file changed, 9 insertions(+), 4 deletions(-)
 
- drivers/net/wireless/marvell/mwifiex/scan.c   | 30 ++++++++++++-------
- .../net/wireless/marvell/mwifiex/uap_txrx.c   | 13 +++++---
- 2 files changed, 29 insertions(+), 14 deletions(-)
-
+diff --git a/drivers/net/wireless/marvell/mwifiex/uap_txrx.c b/drivers/net/wireless/marvell/mwifiex/uap_txrx.c
+index 318bd4ed8399..d2512b985014 100644
+--- a/drivers/net/wireless/marvell/mwifiex/uap_txrx.c
++++ b/drivers/net/wireless/marvell/mwifiex/uap_txrx.c
+@@ -89,6 +89,7 @@ static void mwifiex_uap_queue_bridged_pkt(struct mwifiex_private *priv,
+ 	int hdr_chop;
+ 	struct ethhdr *p_ethhdr;
+ 	struct mwifiex_sta_node *src_node;
++	u8 rx_rate, ht_info;
+ 	int index;
+ 
+ 	uap_rx_pd = (struct uap_rxpd *)(skb->data);
+@@ -113,6 +114,9 @@ static void mwifiex_uap_queue_bridged_pkt(struct mwifiex_private *priv,
+ 		return;
+ 	}
+ 
++	rx_rate = uap_rx_pd->rx_rate;
++	ht_info = uap_rx_pd->ht_info;
++
+ 	if ((!memcmp(&rx_pkt_hdr->rfc1042_hdr, bridge_tunnel_header,
+ 		     sizeof(bridge_tunnel_header))) ||
+ 	    (!memcmp(&rx_pkt_hdr->rfc1042_hdr, rfc1042_header,
+@@ -183,16 +187,17 @@ static void mwifiex_uap_queue_bridged_pkt(struct mwifiex_private *priv,
+ 	tx_info->bss_type = priv->bss_type;
+ 	tx_info->flags |= MWIFIEX_BUF_FLAG_BRIDGED_PKT;
+ 
+-	src_node = mwifiex_get_sta_entry(priv, rx_pkt_hdr->eth803_hdr.h_source);
++	p_ethhdr = (void *)skb->data;
++	src_node = mwifiex_get_sta_entry(priv, p_ethhdr->h_source);
+ 	if (src_node) {
+ 		src_node->stats.last_rx = jiffies;
+ 		src_node->stats.rx_bytes += skb->len;
+ 		src_node->stats.rx_packets++;
+-		src_node->stats.last_tx_rate = uap_rx_pd->rx_rate;
+-		src_node->stats.last_tx_htinfo = uap_rx_pd->ht_info;
++		src_node->stats.last_tx_rate = rx_rate;
++		src_node->stats.last_tx_htinfo = ht_info;
+ 	}
+ 
+-	if (is_unicast_ether_addr(rx_pkt_hdr->eth803_hdr.h_dest)) {
++	if (is_unicast_ether_addr(p_ethhdr->h_dest)) {
+ 		/* Update bridge packet statistics as the
+ 		 * packet is not going to kernel/upper layer.
+ 		 */
 -- 
 2.56.1.839.g22a8290db9-goog
 
