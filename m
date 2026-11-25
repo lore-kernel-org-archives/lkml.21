@@ -1,64 +1,111 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.143
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795625958;
-	b=qEbjaqjoxkCXEA+bIYWzqZN/orSlDJkr0J9+vHJid1flr1jlZMrn64utCsLP8stOY3/X
-	 bog6UfaRp0a811W1rGZMWyEtralR2McKpwyguNLJRkRSlOdmlOGBrnh63/Ymn6p6dpmo+
-	 uKUOqZBr3+mfNh39/xKGBx7iSjJjB10O/XIO5MoRfYNjadfuGTUVcEP5GsBy87I/0NO2Z
-	 xIdrolU8CJrjcjp2DeUviygMZrWabVyZxvFmskd9VoJnKQtfEUNYsq4LAx1W7irEpVE/U
-	 VhebAJR/zZw7yMdDeULgDt9QKxRM3VncSTMtiAijJAY0RRrbJGYAdlahrRsEo/3hNWQ==
+	t=1795626063;
+	b=qeqCEg9OaNQxn376wwuwiqUayw90eQwABSU1l1riXVbBkOXxW0mCZDZ7cuEHF4eg1WEA
+	 j1JqMiqzBMPS+Xn6FjOSElfYB/HvtZ0xOeqr55fucnQVxD8CQk/5BjZKzYSxZH0UM+yfG
+	 MnPvj4uuYoJmfGin9h7NgZ9Dm+0Iw9hM8HaEeWLJj3OMkzrVusCuJ29jCREHvuSd/aSg8
+	 SETG2cgJrGz/GAQpe5EgiFodFemH2FTtDo92t8oGPQUPXxGYOwO2aiLXMgsSOHjjlhzXn
+	 x64cDbr4rSP1M+/4obMzLUffNBmJM3LZxz9Yb6hwJKur/GnXPJOTB6SluPQNpOcumVg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795625958;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=SQQncmT/Wl6HjAYO86rxtIdewDLZRTGF1ImjCznbro0=;
-	b=0xVQon0eI1IuujIlpdmKlpkNukQIAotrt4i+8WeUbIF22ts+/s2AaM5z+/zlCR1tYWfz
-	 a91wi4rSC+uI4xxSOOoz+iCbrxHi6qstjAWIUUHfGZxWWxAspS7S4Q92mthytsE/uQ95j
-	 rRdAbP3eFLjrKlx/xnpEUPSfcFbPdJQ29uyNax6cPIITZMUEtazhebXE7kUeI+F3OWKzZ
-	 GTbylidCAff57tFclrAPpVk5dcin+5sifMl8bMiovn978wTEkDyx5+ocnxykNgAOwOZ22
-	 VivAihGehTdj7YbZR+NJX+08p+2uw23+PPYCYJW5MtTcOs9fy6PQT62Q4DxLVQM691Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795626063;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
+	 MIME-Version:X-ThreadId:Date:From:To:Cc:Message-Id:In-Reply-To:
+	 References:Subject:Content-Type:Content-Transfer-Encoding;
+	bh=wJ4LhvZqqY8UbBhqAwzRVVah7EqIXTb6AUHHg5yGZp8=;
+	b=FdT5oErpeTXs2SlkcJaQidthbVCFuRVcS50a6isg2Pm3UvnyE1fczrsqazNXTbkwzbcZ
+	 81ef/kXmGUrHWRLqFpztE0TSs29syOQKr3CD4Y+/EzVpSgiqHF5YeqnG3+7jV96rcA5lK
+	 Du3RlRA+x+GTmAAi4SHfVp+gVIN7pUX6bvJW/2NIVAVIUh01hkyLyBrMxsPK8CxSdshue
+	 nbmg79vkSLl1/rO4KNc/rz5UBe+guQa3BaUg71vg0YgqBiRBl9CYW0EUd+8z0KEqTCAsF
+	 EuzvXOrdwLmcloIjo2YydlO2Eib0Gp7ODWzjoJLPrqceHw7YqPkKtfigsrhLBpT/OGg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fVme2v5e;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=glider.be;
+	spf=pass smtp.mailfrom=glider.be;
+	dkim=pass header.d=glider.be header.i=@glider.be header.a=rsa-sha256 header.s=fm1 header.b=ico5ogXv;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=P3yh2Ytn;
+	arc=none smtp.remote-ip=103.168.172.143
+Received: from flow-a8-smtp.messagingengine.com (flow-a8-smtp.messagingengine.com [103.168.172.143])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AAC21606A31E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 16:59:18 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0F030606A327
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 17:01:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0F030606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=glider.be
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=glider.be
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fVme2v5e
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ED8781F000CF;
-	Wed, 25 Nov 2026 16:59:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795625958;
-	bh=SQQncmT/Wl6HjAYO86rxtIdewDLZRTGF1ImjCznbro0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=fVme2v5eVWqiLG0XGEngRTj1/NVlH0UMgFocxlSeVjVX2ycDVpQAifztQ15Vq10Z5
-	 U8xROKTCan77H2WbJFVeTgociB03xuPMESscTC9KZ3zvET4zsNw/cPWxuz3bkjeYZ4
-	 NItB50dhzTZLjf9Asc+cxUQbsBcZpFCU9qrKIFLXR7hqdpCar5sF1M9kZXpLL4XKtr
-	 C0hWaq5rt13hbQy+zdChaHdxiiJ2Q7luPsJ/3b3S1soL62j8ZiTznhixvNZEedvygh
-	 mIe7FgvX+xQAVN5eGLOQ7s4CxuCzIvZfYCnE9WXt8V638MeR1b/LAaDFP19o4QSL0E
-	 nk2IMpW1gGFcA==
-Date: Wed, 25 Nov 2026 22:21:38 +0530
-From: Naveen N Rao <naveen@kernel.org>
-To: Nikolay Borisov <nik.borisov@suse.com>
-Cc: Pedro Falcato <pfalcato@suse.de>, Dave Hansen <dave.hansen@intel.com>, 
-	x86@kernel.org, mhocko@suse.com, linux-mm@kvack.org, 
-	linux-kernel@vger.kernel.org, Kees Cook <kees@kernel.org>, Ingo Molnar <mingo@kernel.org>, 
-	Vishal Annapurve <vannapurve@google.com>, Kirill Shutemov <kas@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Michael Ellerman <mpe@ellerman.id.au>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Dave Hansen <dave.hansen@linux.intel.com>, 
-	"Liam R. Howlett" <liam@infradead.org>, Andrew Morton <akpm@linux-foundation.org>, 
-	Lorenzo Stoakes <ljs@kernel.org>, Vlastimil Babka <vbabka@kernel.org>, 
-	David Hildenbrand <david@kernel.org>
-Subject: Re: [RESEND PATCH] x86/devmem: Drop /dev/mem access for confidential
- guests
-Message-ID: <awcMnXKDWjTvxumG@blrnaveerao1>
-References: <20261124160025.738362-2-nik.borisov@suse.com>
- <0dc6759e-ada2-461c-85de-809c170abd6a@intel.com>
- <awXBtrPSHfs51Y2f@pedro-suse.tail5790ac.ts.net>
- <8500860b-d2ff-45c1-8604-28a2b3d66382@suse.com>
+	dkim=pass (2048-bit key, unprotected) header.d=glider.be header.i=@glider.be header.a=rsa-sha256 header.s=fm1 header.b=ico5ogXv;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=P3yh2Ytn
+Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
+	by mailflow.phl.internal (Postfix) with ESMTP id 1F7E31380F7F
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 12:01:01 -0500 (EST)
+Received: from ams-imap-13 ([10.64.2.33])
+  by ams-compute-02.internal (MEProxy); Wed, 25 Nov 2026 12:01:01 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=glider.be; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1795626058;
+	 x=1795629658; bh=wJ4LhvZqqY8UbBhqAwzRVVah7EqIXTb6AUHHg5yGZp8=; b=
+	ico5ogXvJVauaAsGnqKHzXbfGMNtq6TPW4Wti+o4V7+0obpJsXj9BNBESqXx6Z8z
+	4VOX+5lKyE7hr+eOKxLzMtQRKsdsjavf7Vf5rmxn/o2Tv+6w1EicDxsT4kKiQB87
+	whB5S7pvXaWJzi/vJa6PKt8hHSK15EvvachbjuPBM1EyrbRd033sJTjUOPNhAWWz
+	KM3zbX/ZkL0v7bdP7NSTH2gxvEYxygX/aEDRubewBXixycViT3KFqg9Y2huASq6v
+	bgjbw8MGI+s/y3YN8DqcLcLy1k4fM91frQVakFpUsWW0P4omJsFuU6ZIln0ZU/RQ
+	rGC4XWQQZiYh9/XOWYlC5Q==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795626058; x=
+	1795629658; bh=wJ4LhvZqqY8UbBhqAwzRVVah7EqIXTb6AUHHg5yGZp8=; b=P
+	3yh2YtnOAkF7IS1AwpziEumLimkIldcBcvb3YMBnQ9Sbri1CHOKR1V6HvcLo3WYQ
+	/V7wddAkbB1YWGiqKbGbuP8ZDUZqRCN+s4a/fjgO7VN0jooLx6JnUD5Z+3Ric095
+	Bsh2AoYAmb47VgRPw17V1V7KoSs5Z68Lo1c2jYB/Q1DaA27GUJ4S6FjTuIAo+Grp
+	MIix49ZYmoGDfFKLB24vSuHfPANED/semOp66Bu/YO5FnlLaQGSWphHryxfDc/vF
+	SUDO8BkySYsLgv/RkVVT2C4+4tqS327a9kdMAVIF2GW5sgF8uq6Wi1KScbV6S+25
+	iwGPlWJzMI6jGtOJb1BYA==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=glider.be a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795626058; d=glider.be;
+	mf=PGdlZXJ0K3JlbmVzYXNAZ2xpZGVyLmJlPg==;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm1:rsa-sha256:o4gQO+sFDstEsSk1F53P/KdbYfQTf8z4mbsoNugMAOUit0C
+	npcznObxpemJW0L1pGtOuCwjSIHkDASfckn0XCNgklWK6vBKijESO/dfk9h/FPpU
+	KekvjL25z/6D1WJh9978Wvv+bEDc65y+Yho1Hl4PL0OCP15avnKjYufGaKSIswCz
+	b4neuoLVl7t08o+y4t9ypIsjTO6ePFDrrnxaEj/6O8RBEKFdoOLEl+O9PlNuj7zD
+	c52ObJP4pNZ22Unnv/KWTKsu3RcoqRqs1jMa/9ySByVUSi8bqUanTazCI3+8xjJg
+	Wyiw9rUa/fpGObFK3wZiV9xrBBnb7uqUazMIerg==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=12;
+	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
+	from,in-reply-to,message-id,mime-version,references,subject,to;
+Message-Instance: m=1; h=sha256:xJ58VRc5LlEDH5o7tOgsmtxJEwdWZ9FiyVDfOSBSYVA=:6lVmZurQ0Ave5XoxY9O8lzq5TuUCBgamo3QkP0Zn5kw=;
+X-ME-Sender: <xms:SBQHa2qF-Luh88RyPZys_vqHhNjaYcBkUSijCivR9dzpJPSUxmYvQA>
+    <xme:SBQHa_fd9BWet9QNygudqbeV_xEQV31YCDj-silgs568HYrtWaE2SJqC3wGvcL406
+    MvUjmL1y6VNE_97br7IqsZVM02ka9ds33Jtoie5mtIFfslHB7nKL8hW>
+X-ME-Proxy-Cause: dmFkZTGwfXy/CoCxb29kAq0yniJj7+9ODcxgUwp3/l4Ac1hX1tkQtDdqP6qaTHcK9NhjBw
+    n6Rp3v3rPS1K0Dfv+W2b5Kp0Y3lM2fFAB4lG/YthsktuuHkpRiHI70Twq+rHEQNSltg9kM
+    4/xbVODOE54wtPVounOA6t+IBqZqchlauYq0yjMdbzuX80Tir/sD9ksSrvTDwCyDOZi20X
+    V1v5WdiN+V3QNGx/r5tspRXsIespy4zcQt/zRp1M1JANhWVm9bCm5A9vx7adVqqODxI51x
+    OxX7xt3hCVi+kme1xEODTEmxGswo5VhMrLP8KGgZrIHu2Yx3ycN/t+QkSi5fqExwZ2uBtY
+    GGMyjGVJ/qlSn/dAf709OYgiB2FDB4GN6N7/1mVoPMePMTWABmH7YCLobA+/Fksl/VLc9e
+    R8YzZRU+1BbVHCWUdd2NPVAtWJUH9g9nFOhiQThcxO9O7fLAnjDTObgD+Lg6Ob7lgQZQ7z
+    WpCfx2Toc84d3O5eNBNPN3H6wFTz52eTeUzQzGdpu7cpVOgd1vyHYvF71VxZe88nRwmSU2
+    CsU9YmBIIFYNtYpxMX8sbEi2+CIXMZQb25W4csGcm1uUDYgvn6BmCMpkmfDMk98Nv+acMM
+    BzoaJfPBUH2rqfBqNz0wJSrniYCUI/y3VFvBYc6NLmZuYBM7PWTJlsBUIABA
+X-ME-Proxy: <xmx:SRQHazdalclFcJRp26Dpng0asjX7ywYqqksDwMEDvgoGK8XaT6p-HA>
+    <xmx:SRQHa84Uytfo1uk_jlVahARZC8hUuPav4fTNFfZWBu1HQDl2fG7WkA>
+    <xmx:SRQHa2VKZ4p6VtZsqiLWQYMfwLYc8_aCVMRVP7s3BS-XIfba66k6ug>
+    <xmx:SRQHa77a2snD77CZiz-keXF00LdvzfzBwMUYnLCyKva0-ASkMvy99A>
+    <xmx:ShQHa1fFBS7bYApGueQ8S_ND2IdfsTCCFinjkirQacPYeAfLEzCVVS4i>
+Feedback-ID: ia0f84a9e:Fastmail
+Received: by mailuser.ams.internal (Postfix, from userid 501)
+	id 718A9F800A1; Wed, 25 Nov 2026 12:00:56 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -68,31 +115,35 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <8500860b-d2ff-45c1-8604-28a2b3d66382@suse.com>
+X-ThreadId: AvA74aORy9iR
+Date: Wed, 25 Nov 2026 18:00:36 +0100
+From: "Geert Uytterhoeven" <geert+renesas@glider.be>
+To: "Artem Novak" <artem122novak@gmail.com>
+Cc: linusw@kernel.org, linux-renesas-soc@vger.kernel.org,
+ linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org
+Message-Id: <835b2097-33fb-4361-978c-e591384e5a07@app.fastmail.com>
+In-Reply-To: <20261122174427.276446-1-artem122novak@gmail.com>
+References: <20261122174427.276446-1-artem122novak@gmail.com>
+Subject: Re: [PATCH] pinctrl: renesas: fix typo in RZ/A1 driver description
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 
-On Tue, Nov 24, 2026 at 07:57:05PM +0200, Nikolay Borisov wrote:
-> On 24.11.26 г. 19:10 ч., Pedro Falcato wrote:
-> > On Tue, Nov 24, 2026 at 08:36:45AM -0800, Dave Hansen wrote:
-> > > On 11/24/26 08:00, Nikolay Borisov wrote:
-> 
-> > 2) open-codes random CC checks in mm, which is kind-of regrettable
-> > 
-> > OTOH, it's unclear to me why that CC check is needed. If configs select
-> > STRICT_DEVMEM and IO_STRICT_DEVMEM, shouldn't it Just Do The Right thing?
-> > in iomem_is_exclusive, etc. If not, could the CC awareness sit there
-> > instead?
-> 
-> Well, you are right that if we retain just the select
-> STRICT_DEVMEM/IO_STRICT_DEVMEM it might fix the immediate issue. I don't
-> know why eventually Dan decided to also add this check, I guess it's an
-> instance of "fail fast".
+On Sun, Nov 22, 2026, at 18:44, Artem Novak wrote:
+> Correct the spelling of "Renesas" in the RZ/A1 pin
+> controller driver's module description.
+>
+> Signed-off-by: Artem Novak <artem122novak@gmail.com>
 
-Actually no? On x86, devmem_is_allowed() allows access to the first 1 MB 
-area, so STRICT_DEVMEM alone isn't sufficient.
+Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+i.e. will queue in renesas-pinctrl for v7.5.
 
+Gr{oetje,eeting}s,
 
-- Naveen
+                                                Geert
 
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                                            -- Linus Torvalds
