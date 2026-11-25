@@ -1,75 +1,211 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.200
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795582848;
-	b=tXOEtBTdDbAGaB9SVdcV/qhNs+2njig3+mb+LZ0m2touKwoBh5pQ4mt5zBEFMFaIrY06
-	 HBLrLsa/4Uo5B32e5MV8HDusgFlhxXZLHLR6z36crLYDQFNxKLcpidSFAQu4NzVvt4xoY
-	 XhWe8M3nhI/cVS0BrF72ILQmo2WJrNzlEJHfP877XTdHSoCiWwM81uVEyxERB9/18+0qr
-	 EuD3uWfEcV+5uxU9Qrig2yR4l5uSvJlgcEmYGfTgJPG+3D0cciBoQKfLP78chjDKpChCx
-	 faTRxZ02lRQlQeRzuRhewKY6PDgrnD4He79yif3LmvnmSfkrCZq+XRyRxZDaAKbPx4g==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795582848;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
-	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
-	 Content-Type;
-	bh=o2n9zXpemfaapcRpR3NS7kpIdbxR/8EYIps0VmkExD4=;
-	b=MpV9XNVhw9KaRNGs/F9OFuJW1ON7T8NHLdkteZtYWU6Clalq0czMnYQFM222lDvvP7P+
-	 dsJXiWSO9V6iTslBAUfNXG4gN1QuDA3iW4buXff/HPw8Y5forC2+YuCyp5PX+W1bKoZrx
-	 wnl9h6oQQ9l90fh5iQd6H/GREBidp8c1CSfp6ieeSPoVwFyweESVMvlhDa3qHfFCt1ahJ
-	 L0uJ3ONK+PhErYF0XwLut0mwybwLuYnjeK7ecs3gnyJwXn0ta6pKSKg5zcqLUP8kmi6OJ
-	 0+h8WqBcwkvlOENnfQbPW05Ly/yk0oCXLods49M6wedUxpseDmXbRSNnbqZcYO4BLaA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Kj8rGICG;
-	arc=none smtp.remote-ip=74.125.82.200
-Received: from mail-dy1-f200.google.com (mail-dy1-f200.google.com [74.125.82.200])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=198.175.65.21
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795582854;
+	b=UAxC9Y0cyFYZ8yj2fgB3gfx4VIkrgZAjlzKtX6AkeeRwHlhfQQpTG0vVWDcHtnsOwzHJ
+	 N/3AeSxvwC6wlriYJy3DkUW8SNTvr5TLTYMJABsYD4gYfD/iJhlAkIg64Y7SoLowLjBNz
+	 scqubgy/Kl22mCoIlgJFSbxSSvyznpykJt56Mdf+naFwrvHBvZH5WbimF7t+wV6gBrA1w
+	 ugkrYdv35Aj/qGRfMxyr97UAtZxgihkk151ONpemqaQ0AhuvAkeobQ/b4EGGyADLB/buc
+	 4vQjINweNUqZhp1OZNgoVt+GbkSSJUDyisgofbytb97CrhJgE+CjKR3zP9EE9P/u7Kg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795582854;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Received:
+	 Received:DKIM-Signature:Received:Received:From:To:CC:Subject:
+	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
+	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
+	 x-ms-publictraffictype:x-ms-traffictypediagnostic:
+	 x-ms-office365-filtering-correlation-id:x-ms-exchange-senderadcheck:
+	 x-ms-exchange-antispam-relay:x-microsoft-antispam:
+	 x-microsoft-antispam-message-info:x-forefront-antispam-report:
+	 x-ms-exchange-antispam-messagedata-chunkcount:
+	 x-ms-exchange-antispam-messagedata-0:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version:
+	 X-Exchange-RoutingPolicyChecked:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-AuthSource:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-originalarrivaltime:
+	 X-MS-Exchange-CrossTenant-fromentityheader:
+	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
+	 X-MS-Exchange-CrossTenant-userprincipalname:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-OriginatorOrg;
+	bh=5wbfchoufeWyihHUDQRVLtQR/LIyENcPPDnizytSj8g=;
+	b=LWNlt8Bxbn7kPY33P/BGsnNnbcy8631RgOE5GS5f31lVHjEHEGcM2kJr61JovO0JxFIm
+	 ctvwxO+DRM5Njp40QfoMHZf1W7ORafNF9PO1KQqGBJnAObXtj03u6U7VR3MdXrxev3FIy
+	 Eeq3fbmBdpk8u7ITApW7XCFqloyb9unzB4+hGIP0gK4af8GTMB7e/aV3923lflx5MPv87
+	 L4BOQN1bQEs+my67zbju1YmQTeHMZin+MQHDOCwKhi7Emnyh1luQJNxUTkdOEJ2DbyOVW
+	 DJWAvzPh6bogy4XJ0Q/q0sbIevV+RfdaJsgAOaGyRGaG0VCo/wq6zCBtlZj/UZfu9zw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=I0hbSRGQ;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=YNt9lVXe;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=198.175.65.21
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.21])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DAEEE606A332
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 05:00:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DAEEE606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BC92F606A31E;
+	Wed, 25 Nov 2026 05:00:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BC92F606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Kj8rGICG
-Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-38355b03cb8so5206469eec.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 21:00:46 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795582846; x=1796187646; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=o2n9zXpemfaapcRpR3NS7kpIdbxR/8EYIps0VmkExD4=;
-        b=Kj8rGICGMCYtUqY6VO/vZhHB9PHGm3p/3FG/kFNXN6v4uziuJ0ZyXiStvM7kVBlsuR
-         WGoQb4r5HG5JddBUeSxSHSeN06g0TOH8+fTT+Am76O/G7HKz+quILgtLvc3ufXmeSRxq
-         kW/T6BzFDRyWd1a60PL1q4CgeTDRbxHVaRZuZ6VIR91bKQbxH/Ohklw7xcQDNrkNrqGK
-         BbMhBcQ0kvsSwE394jAfO4FVEetDNh7EQngF999B+dS0g95VKb3v8/MczYOqp3gD8Rcz
-         sby2X00YDf1Kuf7Vi/K0x8YeKNqS9MTYF/2Wp4xL5gdLDUUvHkXj8Za242rm0HwgIk6S
-         w0IA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795582846; x=1796187646;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=o2n9zXpemfaapcRpR3NS7kpIdbxR/8EYIps0VmkExD4=;
-        b=DPTIiAXts0W8SakfGA7m59Nrok4RAHlN1xaUJiqeYztrM7baI0SOAHNTzuslijn5X4
-         befHXBBeVjtw6W1g6CO0dCaSNr1XViAHcxsuF3Wi0BTymRSUTG1Jcmo8V38054cGwoAD
-         JZuJfiNCS6dwhAiac+Vq0DatD9LCgse7YAdTmc47velS/zpyfP6HJSd3E1XM9LvHnNNU
-         +sIuttbFUW2ylZ/5LF/CElTuK0IVJ0HHURh41KRGB4nSdj5i1iEQ1F+QwvLE5nbS4G1e
-         XDGbzaXJTs1Fe1XEv7CdS9scWvYwJbbxW+vlTqWKXB83leD0JnD1HrJytwBS1rwyzJZW
-         pERQ==
-X-Forwarded-Encrypted: i=1; AL+hErGEl+MBkF7lC/uph95FLpeXJquWnY1QthScMrdreB2uMo703A5zNIk4hONLklTioxV0dpMM1WLgIV6Ka5A=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+IAnwKlO9w6adyIUQ3Sg+xuy2IpwEzKD9OOYREq+e8rrZhGoOz
-	yKsejQoPh0EIhByKV/0VBle8WrVGBKMk7HFmrlbIoZ4grDOOyEs5T8zgrb8WV2eeQZgnPdBqNq8
-	IEBhsk4LZrw==
-X-Received: from dycnm7.prod.google.com ([2002:a05:7300:d187:b0:383:6d6a:6b7a])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7301:1505:b0:384:df31:6a07
- with SMTP id 5a478bee46e88-386a87efea0mr9725433eec.30.1795582845289; Tue, 24
- Nov 2026 21:00:45 -0800 (PST)
-Date: Tue, 24 Nov 2026 21:00:40 -0800
-In-Reply-To: <80d983c5713537f5743b69e9b35ced1177e4732e.1795582691.git.irogers@google.com>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=I0hbSRGQ;
+	dkim=pass (1024-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=YNt9lVXe
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795582853; x=1827118853;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=5wbfchoufeWyihHUDQRVLtQR/LIyENcPPDnizytSj8g=;
+  b=I0hbSRGQZ66C6nQqThho8+0qB5B2QXnJIq6ZORVzgHE0NvR5m91BhSif
+   YZAHXd3NgzAirmE11PlnkMa12DLSr5duaNGanMZvTH3gPVcFXCaZGT+a2
+   HyY3pshB4btLk62JKZOaGOqBqsnbx7iO3pUtxDRwoxlJBA6MIRqEG1rDe
+   lLtHdN0Rv5XqoF3nQ79zVdsGRrWXrVq5Hsyx+nPcl3WmmZZerQfQJMQKA
+   QWxvhPXjKDgSTQHPt7k+GXcmcWH1wOe/N1onRGXRTVbLEJ2kDJElsIsoq
+   eu8zk3McmnnrnH085tU/WFbvsA3zO9JualA/6PGCULN0RmFaXjSDAeDsO
+   A==;
+X-CSE-ConnectionGUID: z3TqI+8UT2eKzuUl24YFzQ==
+X-CSE-MsgGUID: I/rELBD/SkWo3YyPBUR0YQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11976"; a="4527051"
+X-IronPort-AV: E=Sophos;i="6.27,232,1787036400"; 
+   d="scan'208";a="4527051"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 21:00:51 -0800
+X-CSE-ConnectionGUID: iKHqlcDSTFWRtZwPl8k+QQ==
+X-CSE-MsgGUID: 1niezAY+SvKhCxYuW2SYBQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,232,1787036400"; 
+   d="scan'208";a="12201726"
+Received: from fmsmsx903.amr.corp.intel.com ([10.18.126.92])
+  by fmviesa009.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 21:00:49 -0800
+Received: from FMSMSX901.amr.corp.intel.com (10.18.126.90) by
+ fmsmsx903.amr.corp.intel.com (10.18.126.92) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.57; Tue, 24 Nov 2026 21:00:48 -0800
+Received: from fmsedg902.ED.cps.intel.com (10.1.192.144) by
+ FMSMSX901.amr.corp.intel.com (10.18.126.90) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.57 via Frontend Transport; Tue, 24 Nov 2026 21:00:48 -0800
+Received: from CH5PR02CU005.outbound.protection.outlook.com (40.107.200.11) by
+ edgegateway.intel.com (192.55.55.82) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.57; Tue, 24 Nov 2026 21:00:48 -0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=QzSDeIMsJ8khtWYAL79exT1as/z2tJjz2geXpXGW5mow0bP00bAmN7ZFlCtXXmcw1EkHxL5cPEXDI7jENcnUgn6KD9Ve0RP+EiOAI0oajrt9jEayOSlGXvmm1/59JP30lP8kJXlDBL0EMoBAvgdGbvrM5SOWVoqlN7GVLQ/eHN+/7smPCFEhefrdgdpjzlZFBaQz4rPGQM9uVKS6e+0CIHLqXeUNhptuLSiTF24qxVIQYEEKvyAzkZC6/X/Kcb9pHocVXMyjdGmIoEPTCUP226IqwCz2HmNUNk3LmT9oyBjxgvxElJec254brtpNAz+zMBZD9pWV2EKYz640ibs9OQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=5wbfchoufeWyihHUDQRVLtQR/LIyENcPPDnizytSj8g=;
+ b=vvl6hoxMIoSTvCnUPyMy81VsGQ+bn8UxQi4EAd2VlFiRWxCB/4vM3B9eLLJO5CphjdMj2z1nvKC+od9k+UEVuVMLRFR4StSKwpLvAATcJAn5oI8C8LorlQdZB+IPcuzQcvklsYQNkJKmwm7+53o6YudENpniDSayhdeBb2S4J7DNs9pKCUfxJ8Rs/a3yLbCIDHhUyM6vfRZhWsMvgQt5RoUlSMStC88xW5ztXGTqAFSk4ha6GOYPVnyMUFUyXsJUZCcEZMqH3eHluaEbbze7Gl6uiuIDv6scodPhOdx2z2Wp8j6TPqEPRdGuom7mikSBBMHt9D1EC3Bopq9+x62YaA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=intel.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=5wbfchoufeWyihHUDQRVLtQR/LIyENcPPDnizytSj8g=;
+ b=YNt9lVXe5XfuHKzdB+I1w24LxVU3QZwaHmV8EOu8g2yOPo+qV0Q8xf00+1c1jme9KeyyCP6fy4A0shizcsSLE4tmzx+5Pgioyy+rCeaNDoBcdRun/ua4O3I0RVKDD+acT1TOrymNDhmKy2nS5Ygp5BZtjzhs10c2ZodpWXMjJic=
+Received: from IA3PR11MB9325.namprd11.prod.outlook.com (2603:10b6:208:571::13)
+ by FT1PR11MB780136.namprd11.prod.outlook.com (2603:10b6:170:2d::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Wed, 25 Nov
+ 2026 05:00:41 +0000
+Received: from IA3PR11MB9325.namprd11.prod.outlook.com
+ ([fe80::51e4:9ff6:bdf6:869e]) by IA3PR11MB9325.namprd11.prod.outlook.com
+ ([fe80::51e4:9ff6:bdf6:869e%6]) with mapi id 15.21.0662.001; Wed, 25 Nov 2026
+ 05:00:41 +0000
+From: "Kandpal, Suraj" <suraj.kandpal@intel.com>
+To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>, John Harrison <John.Harrison@igalia.com>,
+	Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>, Rodrigo
+ Siqueira <siqueira@igalia.com>, Alex Deucher <alexander.deucher@amd.com>,
+	=?utf-8?B?Q2hyaXN0aWFuIEvDtm5pZw==?= <christian.koenig@amd.com>, Liviu Dudau
+	<liviu.dudau@arm.com>, "Laurent Pinchart"
+	<laurent.pinchart+renesas@ideasonboard.com>, Tomi Valkeinen
+	<tomi.valkeinen+renesas@ideasonboard.com>, Kieran Bingham
+	<kieran.bingham+renesas@ideasonboard.com>, Geert Uytterhoeven
+	<geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, "Dave
+ Stevenson" <dave.stevenson@raspberrypi.com>, =?utf-8?B?TWHDrXJhIENhbmFs?=
+	<mcanal@igalia.com>, Raspberry Pi Kernel Maintenance
+	<kernel-list@raspberrypi.com>, Louis Chauvet <louis.chauvet@bootlin.com>,
+	Mihail Atanassov <mihail.atanassov@arm.com>, Eric Anholt <eric@anholt.net>,
+	Rob Clark <robin.clark@oss.qualcomm.com>, Brian Starkey
+	<brian.starkey@arm.com>
+CC: "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"amd-gfx@lists.freedesktop.org" <amd-gfx@lists.freedesktop.org>,
+	"linux-renesas-soc@vger.kernel.org" <linux-renesas-soc@vger.kernel.org>,
+	Chaoyi Chen <chaoyi.chen@rock-chips.com>, John Harrison
+	<John.Harrison@Igalia.com>
+Subject: RE: [PATCH v8 00/10] drm: writeback: clean up writeback connector
+ initialization
+Thread-Topic: [PATCH v8 00/10] drm: writeback: clean up writeback connector
+ initialization
+Thread-Index: AQHdcXWpnwUyUaV+ek2lY8tlViTtKrc+Tw8AgAABioA=
+Date: Wed, 25 Nov 2026 05:00:40 +0000
+Message-ID: <IA3PR11MB9325E12D779BB5DA335C6B33E3432@IA3PR11MB9325.namprd11.prod.outlook.com>
+References: <20261111-wb-drop-encoder-v8-0-62948ed87d13@oss.qualcomm.com>
+ <179558244222.1572056.13569389105654454020.b4-ty@b4>
+In-Reply-To: <179558244222.1572056.13569389105654454020.b4-ty@b4>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: IA3PR11MB9325:EE_|FT1PR11MB780136:EE_
+x-ms-office365-filtering-correlation-id: 64464ea2-3202-4110-f54b-08df4ab10db6
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|23010399003|6133799003|18002099003|22082099003|260925022911599003|260925021911599003|260925021311599003|261009221727099003|261009221227099003|261009223027099003|261009223327099003|261009220027099003|261021121427099003|921020|261102123227099003|261022105027099003|261026140227099003|261026121527099003|261022115727099003|38070700021|261022075727099003|261028144727099003|56012099006|4143699003|10067099003|11063799006;
+x-microsoft-antispam-message-info: IWycOAe/f6fjvSGL2NNFik9i9SGELatiGGYtXYHM2dFPKF5Fy57od6t4OubWt/lntRRPmu/FVHt2tAyNJyV9suCeCDac+szA8kGgREnMf/pPACTKoI51vqf82ZnUm0DkfwGIui0Gki8x+h/OAJ5Wr0YQKTKI0axlyUm1SUVMt0AHiG2hF0a8ZRPfY4ds01kO/ra0VNPVXymaLNxhegQlD1v4IwzXm5u4k87ebqo3sdhNYgJcKGYUso8W2ylmzH3/KpxgnX0N2fRK8gCmkQx+XajTs9RAt5d/jkoZRBAHwKH9ThCvSWe9rcs2jYcKpjPK8K4xACS70k7+Y2HXWWeeCgbaMwwwk7qWliU32ACmcn6rp5c+kSGHPnhflPuu5r1HRUgZZBRjE6CCFID5mOiq5IeTn1QxnunWYUr3u5CtXNuz5wa4I0tCI0Pq4rRbOJBs5HalLeVEkkMN+ajYMZClmNcBRlf5wOFzz9bAWBv24BZunY2oqqCT3sRKO/zzyaag/NRrFmndYuW6O8oG0k1nHaF5z4fs/DojwWgkQ8P2+wUfns7Jj8zh9cCN50C0JUDPf8E92Cn24Sszh/aorD499RMu2+p0vM0CZYq4uMdkXOJCwCtMOnIDKvOkLGJv4J/lIhTueiF1R74uifsi/kQM5OmevYi7mIi1JZBvly8+9VFUO+wb6MUtOaqN0DpDPuhY
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA3PR11MB9325.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(23010399003)(6133799003)(18002099003)(22082099003)(260925022911599003)(260925021911599003)(260925021311599003)(261009221727099003)(261009221227099003)(261009223027099003)(261009223327099003)(261009220027099003)(261021121427099003)(921020)(261102123227099003)(261022105027099003)(261026140227099003)(261026121527099003)(261022115727099003)(38070700021)(261022075727099003)(261028144727099003)(56012099006)(4143699003)(10067099003)(11063799006);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?Q0hGTzhQa1pGMEdHeWNnVldlWXpYRVUrYlBhazNsWW9rU29UUTE1UDRZeTN0?=
+ =?utf-8?B?Zm1oeDAwb0ZQM0dtYiszSisvMFo1dVA1VDFRYWVVZHZ6N1JEUzl2ZytlTmlm?=
+ =?utf-8?B?VjhBTThzL1dCeXdPc1BxdXBnR0ZpNDl4bDlkYndGdWprVDR0a3VyVnJKNXND?=
+ =?utf-8?B?QTAzenRGYUMrZk8zVTlPOGxwYmZpdnh6ZXdNTlNlanpTYkNkdWJYTWU5ei8w?=
+ =?utf-8?B?cWo1Z014MHByV0pLbm1hOVhWbkxPakJRcFFWTm9xL1hxcVkrbXVQaElKK2pJ?=
+ =?utf-8?B?a0JhczV1a2lTYXAwWXdCUC9TK2p6N3ZJZVpKNnI2SkFtSFRUR1FQaE9iaVcv?=
+ =?utf-8?B?UkJuYkZ2czZKdjFidnovSks5d3oyUkQ0UDZLOUM0SEk3VjYwdjhKcXcvNFRH?=
+ =?utf-8?B?VE15MFg3ZGt0S3N0eXA1UEMxQXpNdWIwbURXNTZXc2FUV0RBSEFBMHZCc2dB?=
+ =?utf-8?B?VGNBZlRzU1Vwb3VKdkREditlNUJncVhmaWhRMS9QRnkzcDUvNzkvTVRLby9R?=
+ =?utf-8?B?T1l0bHRkTncrNXh4RkFheklMM3NnWCtnUTA1aDNyVm5CZTJ6TWVDQzVhWE9D?=
+ =?utf-8?B?OFVzYy8yY2ZWUzBKK1ZrNjdacnNWRHNwTmkwWmFuTUZ5WkxaSURoenEwR3dM?=
+ =?utf-8?B?OTZiZ2JxUEoxaUZneWVWMDlpcmdxN0hxOGVOdU9WUnpGQ2wxL0kwUjRvY1B6?=
+ =?utf-8?B?a3RZaWdWcU8xOFAxcXBpN0xMU3RiRWJ4d0cvNUt1NGRjZ3RXQjE5d0FaNHpw?=
+ =?utf-8?B?ZlpjcVZoOXJuV1E4NnFtTWNJQmp2azQzK2Z6eG4zVnlETC9HRXBPVzZON2Zl?=
+ =?utf-8?B?OTZXNVpkeDNwRHdMVFJ2LzN6T0tZTS9PV3AvT1oyRi9URzZyNnJCZHNoay9E?=
+ =?utf-8?B?ME9HOFl2TXpIMHY1eDQ2UDdWUXY5MnE4bEI0TDlSTGQxRkR3aWV3L0VVS3I4?=
+ =?utf-8?B?RnAzNjVHZGhOQ05ybUYyaVBUMzFaOVlHYVVMZHFuT3RheFN3ejFCYkRtc3pF?=
+ =?utf-8?B?bHRlRGtLR0tkME5UQTV2Rnc1RFRrRStYWGpjSUlrOGtrd2s2bzZHWVZhUzl1?=
+ =?utf-8?B?d0JXSm9CMVlJbi9OWUZkOHB6d3llbS9yblFvTmN4RzlIK211bXlvV2ZOcEww?=
+ =?utf-8?B?U1Y5bThoRmxud0FCbkovdVFad2s3d2lrZWlMWXg5RUdpZmJoZkNQQW1pazhD?=
+ =?utf-8?B?aVRCaTV1NHpOLy8vcE1ibUJpMWJId2tidVBjTnAvZHlTY3hlVXBLd3JKYnNC?=
+ =?utf-8?B?dEhWZTVQeWh1YkV1MVcyVDNGOUhueXNoc1o2eTREM1gwekR0NTZPMmFkakJR?=
+ =?utf-8?B?L3krc0t6QS9uSlpwanJwWFZKRVNQbS90aFFLQ1NkVGdXVlVPRmZQZFYwanZC?=
+ =?utf-8?B?WTFvNGF0eWM1Wkx2ZTRhODZDVG9IRE82MXJCQUlWQnRBTE85YThvcVUwV1da?=
+ =?utf-8?B?cHowREhqYmdZWFM1OXQwb3dLUGNUQnozTmtzUi8rQXFjdi84YndIS0U1SWFa?=
+ =?utf-8?B?QkZsWU1yWmIvY3hXOGowV1RFa3EwbTV3RnpiaWpxT2gzWHlBQStrZXorenpa?=
+ =?utf-8?B?aFhzd1YvREhPcUlUNVVGWXRQUlNvRzMwTGVmcjR3aHA5VlVJMlhxV3V3WUVC?=
+ =?utf-8?B?c0wvbmdSTVk2T2ZKY1VGV0x6UEZwUEp5djZ2bk5Sc01QTVVBU3ZDQmd5M2lY?=
+ =?utf-8?B?ZUNJSUFkNkVzZnVSSEVVTUVOWk5kVXVEOE9kMmNZOThtTk1SSDN5L2pUVitn?=
+ =?utf-8?B?dDVnWGI5dnhEOEFEbjV1SEJLQUJtSExPSHpYYVVlWWZSVWhEZW9OTlFWYmRj?=
+ =?utf-8?B?UmsyN2hzRUh3T09qL0ZuNkhuazgwSVk3d1lkUlJ3enN5MExQODBaUFhKMi93?=
+ =?utf-8?B?YTJBMTV3SWh5SGRnN0M1WWFEZ1NoZ3lPUjBNN3gvQjZ0Z3NCb1YrR2JycFB5?=
+ =?utf-8?B?bmN2OXRDZXF2amxOdDRRcmF2V0UyNEVvb0FPK0NvOG9HTW1wV0FyLytJQ29x?=
+ =?utf-8?B?REhCMGFvNUpVSzZ4U1N2RWRmb2RhUDh3TzJLQjB5WGFLbHIzRmJDeWVVWmdp?=
+ =?utf-8?B?K3NmaVNsYkpUQ3pKVi9NajZWRjFKREpnK1B3NDhMUUZrdE40V1g0cnkzODJl?=
+ =?utf-8?B?dTBsSGhSSjBQZ041WEw1NjhJa0YxRm1yaFhSVjd4aGJpcUlzRXdkUCtwb2Y3?=
+ =?utf-8?B?NE9wdU9Cb2t2SFNzZU02c1g5cklOZGx1ZmtXZFFUbzRET29TNWcvY2tkZTk5?=
+ =?utf-8?B?RXlMWnNyZWFjQlJnNFByUDBFTjZxNWNQb2NTdGRWbHpqenNlTjA1VEEreW5J?=
+ =?utf-8?B?bHdFb29ZdHZSTEg2N25lY0VVa2ozVGFMaFlpUzZMbFdlR3cwNnQxUT09?=
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,760 +214,93 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-References: <80d983c5713537f5743b69e9b35ced1177e4732e.1795582691.git.irogers@google.com>
-X-Mailer: git-send-email 2.56.1.831.g720f3f5937-goog
-Message-ID: <c41f98313862f6545863598dcde871cfb80aba59.1795582691.git.irogers@google.com>
-Subject: [PATCH v2 2/2] perf test: Add filtered event enabled time tests to event-times
-From: Ian Rogers <irogers@google.com>
-To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@kernel.org>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
-	Adrian Hunter <adrian.hunter@intel.com>, James Clark <james.clark@linaro.org>, 
-	Andi Kleen <ak@linux.intel.com>, Dapeng Mi <dapeng1.mi@linux.intel.com>, 
-	Kan Liang <kan.liang@linux.intel.com>, Thomas Falcon <thomas.falcon@intel.com>, 
-	Stephane Eranian <eranian@google.com>, Ian Rogers <irogers@google.com>, 
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+X-Exchange-RoutingPolicyChecked: JVrIYEnbDGYsaHbhXAIvfYEhnIus0BJDAta/Vvjv7Qm1tZJ1RI69ot2hZAnNCSlmkFC1FJrLaqivalqpp84VGF2BXiyfwAJ1gQ5KlCS4sK3VSMRiGTZweoy+GJ+i3QXCqQlnzmZ8g2nitC12n80O2D+nGK4OHu2AV+mu4wcP33T3WqafGXTmQcKzDrllCQxLy0LCzZ61xvNsq4wBNydxH1fnV6aHbancTAsKsdHXonf0xZkzvx03XlJ2Eg25ZCrMqD+mXNcoznj6lvZsAyNf1M3T4YTnUyFbpx43eNRaGBWX/phKA7iE8VaEOh6NpGUGLuwDdolD/jSG3mzOjKAC7g==
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: IA3PR11MB9325.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 64464ea2-3202-4110-f54b-08df4ab10db6
+X-MS-Exchange-CrossTenant-originalarrivaltime: 25 Nov 2026 05:00:40.9203
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: E5iobmcjYYXjz9ml4auVMaIdL7tiy8wQIjUf4+KuBAd4PdksPkXgcjQyblfUgLWGR1knHC3Ah5Nd0hcxOcJsPg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: FT1PR11MB780136
+X-OriginatorOrg: intel.com
 
-Extend the "Event times" test suite (tools/perf/tests/event-times.c)
-with subtests verifying that filtered-out events stay in
-PERF_EVENT_STATE_ON and do not accrue bogus total_time_enabled:
-
-- Task and CPU filtered event times: open a cpu-clock event targeting
-  both the current thread and one CPU, verifying zero enabled/running
-  time when enabled on a non-matching CPU (including the mmap userpage),
-  matching enabled and running times on the target CPU, zero time
-  accrued after migrating away, and matching times across fork()
-  inheritance.
-- Hybrid PMU filtered event times: on systems with multiple core PMUs,
-  verify per-task core PMU events accrue zero enabled time while running
-  on CPUs belonging to another core PMU.
-- Multiplexed and group filtered event times: verify flexible events and
-  groups in PERF_EVENT_STATE_INACTIVE (including siblings promoted to
-  group leader on leader close) transition back to PERF_EVENT_STATE_ON
-  on context switch and accrue zero enabled time after migrating to a
-  filtered-out CPU.
-
-Reuse struct affinity from tools/perf/util/affinity.{c,h}, hardening
-affinity__setup() to retry on EINVAL for large kernel cpumasks, adding
-affinity__has_cpu(), and returning an error status from affinity__set().
-
-Signed-off-by: Ian Rogers <irogers@google.com>
----
- tools/perf/tests/event-times.c | 485 ++++++++++++++++++++++++++++++++-
- tools/perf/util/affinity.c     | 100 ++++---
- tools/perf/util/affinity.h     |   5 +-
- 3 files changed, 555 insertions(+), 35 deletions(-)
-
-diff --git a/tools/perf/tests/event-times.c b/tools/perf/tests/event-times.c
-index 56dd37ca760e..4c265f791852 100644
---- a/tools/perf/tests/event-times.c
-+++ b/tools/perf/tests/event-times.c
-@@ -1,18 +1,30 @@
- // SPDX-License-Identifier: GPL-2.0
-+#include <linux/bitmap.h>
- #include <linux/compiler.h>
-+#include <linux/perf_event.h>
- #include <linux/string.h>
- #include <errno.h>
- #include <inttypes.h>
- #include <string.h>
-+#include <sys/ioctl.h>
-+#include <sys/mman.h>
- #include <sys/wait.h>
-+#include <time.h>
-+#include <unistd.h>
-+#include <internal/lib.h>
- #include <perf/cpumap.h>
-+#include "cloexec.h"
- #include "tests.h"
- #include "evlist.h"
- #include "evsel.h"
- #include "debug.h"
- #include "parse-events.h"
-+#include "pmu.h"
-+#include "pmus.h"
- #include "thread_map.h"
- #include "target.h"
-+#include "util/affinity.h"
-+#include "../perf-sys.h"
- 
- static int attach__enable_on_exec(struct evlist *evlist)
- {
-@@ -239,4 +251,475 @@ static int test__event_times(struct test_suite *test __maybe_unused, int subtest
- 	return ret;
- }
- 
--DEFINE_SUITE("Event times", event_times);
-+static int find_two_allowed_cpus(const struct affinity *aff, int *cpu0, int *cpu1)
-+{
-+	unsigned long c0, c1;
-+
-+	c0 = find_first_bit(aff->orig_cpus, aff->cpu_set_bits);
-+	if (c0 >= aff->cpu_set_bits)
-+		return -1;
-+
-+	c1 = find_next_bit(aff->orig_cpus, aff->cpu_set_bits, c0 + 1);
-+	if (c1 >= aff->cpu_set_bits)
-+		return -1;
-+
-+	*cpu0 = (int)c0;
-+	*cpu1 = (int)c1;
-+	return 0;
-+}
-+
-+static int first_allowed_pmu_cpu(const struct affinity *aff,
-+				 const struct perf_pmu *pmu)
-+{
-+	struct perf_cpu cpu;
-+	unsigned int idx;
-+
-+	if (!pmu || !pmu->cpus || perf_cpu_map__is_empty(pmu->cpus)) {
-+		unsigned long c = find_first_bit(aff->orig_cpus, aff->cpu_set_bits);
-+
-+		return c < aff->cpu_set_bits ? (int)c : -1;
-+	}
-+
-+	perf_cpu_map__for_each_cpu(cpu, idx, pmu->cpus) {
-+		if (affinity__has_cpu(aff, cpu.cpu))
-+			return cpu.cpu;
-+	}
-+	return -1;
-+}
-+
-+static uint64_t mono_ns(void)
-+{
-+	struct timespec ts;
-+
-+	clock_gettime(CLOCK_MONOTONIC, &ts);
-+	return (uint64_t)ts.tv_sec * 1000000000ULL + (uint64_t)ts.tv_nsec;
-+}
-+
-+static void burn_user_ms(unsigned int ms)
-+{
-+	uint64_t end = mono_ns() + (uint64_t)ms * 1000000ULL;
-+
-+	while (mono_ns() < end) {
-+		for (int i = 0; i < 10000; i++)
-+			asm volatile("" : "+r"(i) :: "memory");
-+	}
-+}
-+
-+struct read_times {
-+	uint64_t val;
-+	uint64_t ena;
-+	uint64_t run;
-+};
-+
-+static int read_times(int fd, struct read_times *rt)
-+{
-+	return read(fd, rt, sizeof(*rt)) == (ssize_t)sizeof(*rt) ? 0 : -1;
-+}
-+
-+static int open_core_pmu_event(const struct perf_pmu *pmu, pid_t pid, int cpu,
-+			       int group_fd, bool disabled)
-+{
-+	struct perf_event_attr attr = {
-+		.size = sizeof(attr),
-+		.read_format = PERF_FORMAT_TOTAL_TIME_ENABLED |
-+			       PERF_FORMAT_TOTAL_TIME_RUNNING,
-+		.disabled = disabled ? 1 : 0,
-+		.exclude_kernel = 1,
-+		.exclude_hv = 1,
-+	};
-+	unsigned long flags = perf_event_open_cloexec_flag();
-+	int fd;
-+
-+	if (!pmu) {
-+		attr.type = PERF_TYPE_HARDWARE;
-+		attr.config = PERF_COUNT_HW_CPU_CYCLES;
-+		return sys_perf_event_open(&attr, pid, cpu, group_fd, flags);
-+	}
-+
-+	if (perf_pmus__supports_extended_type()) {
-+		attr.type = PERF_TYPE_HARDWARE;
-+		attr.config = ((__u64)pmu->type << PERF_PMU_TYPE_SHIFT) |
-+			      PERF_COUNT_HW_CPU_CYCLES;
-+		fd = sys_perf_event_open(&attr, pid, cpu, group_fd, flags);
-+		if (fd >= 0)
-+			return fd;
-+	}
-+
-+	attr.type = pmu->type;
-+	attr.config = 0x3c;
-+	fd = sys_perf_event_open(&attr, pid, cpu, group_fd, flags);
-+	if (fd >= 0)
-+		return fd;
-+
-+	attr.config = 0;
-+	return sys_perf_event_open(&attr, pid, cpu, group_fd, flags);
-+}
-+
-+/*
-+ * Verify that an event opened on both a task and a specific CPU remains in
-+ * PERF_EVENT_STATE_ON (accruing neither enabled nor running time) when enabled
-+ * or scheduled on other CPUs, including across fork() inheritance.
-+ */
-+static int test__event_times_task_and_cpu(struct test_suite *test __maybe_unused,
-+					  int subtest __maybe_unused)
-+{
-+	struct perf_event_attr attr = {
-+		.type = PERF_TYPE_SOFTWARE,
-+		.size = sizeof(attr),
-+		.config = PERF_COUNT_SW_CPU_CLOCK,
-+		.read_format = PERF_FORMAT_TOTAL_TIME_ENABLED |
-+			       PERF_FORMAT_TOTAL_TIME_RUNNING,
-+		.disabled = 1,
-+		.inherit = 1,
-+		.exclude_kernel = 1,
-+		.exclude_hv = 1,
-+	};
-+	struct perf_event_mmap_page *up = MAP_FAILED;
-+	struct read_times rt0, rt_before, rt_after, rt_child;
-+	struct affinity aff = {};
-+	int cpu0, cpu1, fd = -1, status = 0;
-+	int ret = TEST_FAIL;
-+	pid_t pid;
-+
-+	if (affinity__setup(&aff) < 0)
-+		return TEST_SKIP;
-+
-+	if (find_two_allowed_cpus(&aff, &cpu0, &cpu1) < 0 ||
-+	    affinity__set(&aff, cpu1) < 0) {
-+		ret = TEST_SKIP;
-+		goto out;
-+	}
-+
-+	fd = sys_perf_event_open(&attr, 0, cpu0, -1, perf_event_open_cloexec_flag());
-+	if (fd < 0) {
-+		ret = (errno == EACCES || errno == EPERM) ? TEST_SKIP : TEST_FAIL;
-+		goto out;
-+	}
-+
-+	up = mmap(NULL, page_size, PROT_READ, MAP_SHARED, fd, 0);
-+
-+	/* Enable while running on non-matching cpu1: must stay in ON state. */
-+	if (ioctl(fd, PERF_EVENT_IOC_ENABLE, 0) < 0)
-+		goto out;
-+
-+	burn_user_ms(25);
-+	if (read_times(fd, &rt0) < 0)
-+		goto out;
-+	if (rt0.ena != 0 || rt0.run != 0) {
-+		pr_debug("FAILED: filtered CPU %d: ena=%" PRIu64 " run=%" PRIu64 "\n",
-+			 cpu1, rt0.ena, rt0.run);
-+		goto out;
-+	}
-+	if (up != MAP_FAILED && (up->time_enabled != 0 || up->time_running != 0)) {
-+		pr_debug("FAILED: userpage accrued time while ON: ena=%llu run=%llu\n",
-+			 (unsigned long long)up->time_enabled,
-+			 (unsigned long long)up->time_running);
-+		goto out;
-+	}
-+
-+	/* Run on matching cpu0: enabled and running time must match. */
-+	if (affinity__set(&aff, cpu0) < 0)
-+		goto out;
-+	burn_user_ms(25);
-+	if (read_times(fd, &rt0) < 0 || rt0.run == 0 || rt0.ena != rt0.run) {
-+		pr_debug("FAILED: mismatch on matching CPU %d: ena=%" PRIu64 " run=%" PRIu64 "\n",
-+			 cpu0, rt0.ena, rt0.run);
-+		goto out;
-+	}
-+
-+	/* Migrate back to cpu1: neither enabled nor running time may advance. */
-+	if (affinity__set(&aff, cpu1) < 0 || read_times(fd, &rt_before) < 0)
-+		goto out;
-+	burn_user_ms(25);
-+	if (read_times(fd, &rt_after) < 0)
-+		goto out;
-+	if (rt_after.ena != rt_before.ena || rt_after.run != rt_before.run ||
-+	    rt_after.ena != rt_after.run) {
-+		pr_debug("FAILED: CPU %d: %" PRIu64 "/%" PRIu64 " -> %" PRIu64 "/%" PRIu64 "\n",
-+			 cpu1, rt_before.ena, rt_before.run, rt_after.ena, rt_after.run);
-+		goto out;
-+	}
-+
-+	/* Verify inherited child event also stays in ON state on cpu1. */
-+	pid = fork();
-+	if (pid < 0)
-+		goto out;
-+	if (pid == 0) {
-+		if (affinity__set(&aff, cpu0) < 0)
-+			_exit(1);
-+		burn_user_ms(20);
-+		if (affinity__set(&aff, cpu1) < 0)
-+			_exit(1);
-+		burn_user_ms(20);
-+		_exit(0);
-+	}
-+	if (waitpid(pid, &status, 0) != pid || !WIFEXITED(status) || WEXITSTATUS(status) != 0)
-+		goto out;
-+
-+	if (read_times(fd, &rt_child) < 0 ||
-+	    rt_child.run <= rt_after.run || rt_child.ena != rt_child.run) {
-+		pr_debug("FAILED: inherited task+CPU mismatch: ena=%" PRIu64 " run=%" PRIu64 "\n",
-+			 rt_child.ena, rt_child.run);
-+		goto out;
-+	}
-+
-+	ret = TEST_OK;
-+out:
-+	if (up != MAP_FAILED)
-+		munmap(up, page_size);
-+	if (fd >= 0)
-+		close(fd);
-+	affinity__cleanup(&aff);
-+	return ret;
-+}
-+
-+/*
-+ * On hybrid / heterogeneous systems (>1 core PMU), verify per-task events on
-+ * one core PMU do not accrue enabled time while the task executes on CPUs
-+ * belonging to a different core PMU.
-+ */
-+static int test__event_times_hybrid(struct test_suite *test __maybe_unused,
-+				    int subtest __maybe_unused)
-+{
-+	const struct perf_pmu *pmu = NULL, *pmu0 = NULL, *pmu1 = NULL;
-+	struct read_times rt0, rt1, rt0_before, rt0_after;
-+	struct affinity aff = {};
-+	int cpu0 = -1, cpu1 = -1, fd0 = -1, fd1 = -1;
-+	int ret = TEST_FAIL;
-+
-+	if (perf_pmus__num_core_pmus() <= 1)
-+		return TEST_SKIP;
-+
-+	if (affinity__setup(&aff) < 0)
-+		return TEST_SKIP;
-+
-+	while ((pmu = perf_pmus__scan_core((struct perf_pmu *)pmu)) != NULL) {
-+		int c = first_allowed_pmu_cpu(&aff, pmu);
-+		struct perf_cpu pc, pc0;
-+
-+		if (c < 0)
-+			continue;
-+		if (!pmu0) {
-+			pmu0 = pmu;
-+			cpu0 = c;
-+			continue;
-+		}
-+		pc.cpu = c;
-+		pc0.cpu = cpu0;
-+		if (!perf_cpu_map__has(pmu0->cpus, pc) &&
-+		    !perf_cpu_map__has(pmu->cpus, pc0)) {
-+			pmu1 = pmu;
-+			cpu1 = c;
-+			break;
-+		}
-+	}
-+
-+	if (!pmu0 || !pmu1 || affinity__set(&aff, cpu0) < 0) {
-+		ret = TEST_SKIP;
-+		goto out;
-+	}
-+
-+	fd0 = open_core_pmu_event(pmu0, 0, -1, -1, true);
-+	fd1 = open_core_pmu_event(pmu1, 0, -1, -1, true);
-+	if (fd0 < 0 || fd1 < 0) {
-+		ret = TEST_SKIP;
-+		goto out;
-+	}
-+
-+	if (ioctl(fd0, PERF_EVENT_IOC_ENABLE, 0) < 0 ||
-+	    ioctl(fd1, PERF_EVENT_IOC_ENABLE, 0) < 0)
-+		goto out;
-+
-+	burn_user_ms(30);
-+	if (read_times(fd0, &rt0) < 0 || read_times(fd1, &rt1) < 0)
-+		goto out;
-+
-+	if (rt0.ena == 0 || rt1.ena != 0 || rt1.run != 0) {
-+		pr_debug("FAILED: on %s CPU %d: %s ena=%" PRIu64 " run=%" PRIu64
-+			 ", %s ena=%" PRIu64 " run=%" PRIu64 "\n",
-+			 pmu0->name, cpu0, pmu0->name, rt0.ena, rt0.run,
-+			 pmu1->name, rt1.ena, rt1.run);
-+		goto out;
-+	}
-+
-+	if (affinity__set(&aff, cpu1) < 0 || read_times(fd0, &rt0_before) < 0)
-+		goto out;
-+
-+	burn_user_ms(30);
-+	if (read_times(fd0, &rt0_after) < 0 || read_times(fd1, &rt1) < 0)
-+		goto out;
-+
-+	if (rt0_after.ena != rt0_before.ena || rt0_after.run != rt0_before.run ||
-+	    rt1.ena == 0) {
-+		pr_debug("FAILED: on %s CPU %d: %s ena %" PRIu64 "->%" PRIu64
-+			 ", %s ena=%" PRIu64 "\n",
-+			 pmu1->name, cpu1, pmu0->name, rt0_before.ena, rt0_after.ena,
-+			 pmu1->name, rt1.ena);
-+		goto out;
-+	}
-+
-+	ret = TEST_OK;
-+out:
-+	if (fd0 >= 0)
-+		close(fd0);
-+	if (fd1 >= 0)
-+		close(fd1);
-+	affinity__cleanup(&aff);
-+	return ret;
-+}
-+
-+/*
-+ * Verify that flexible events and groups in PERF_EVENT_STATE_INACTIVE (on
-+ * epc->flexible_inactive), including promoted group siblings after leader
-+ * close, transition back to PERF_EVENT_STATE_ON on sched_out and do not accrue
-+ * enabled time after migrating to a filtered-out CPU.
-+ */
-+static int test__event_times_mux_migration(struct test_suite *test __maybe_unused,
-+					   int subtest __maybe_unused)
-+{
-+	enum { NR_FLEX = 12, NR_CHECK = 14 };
-+	const struct perf_pmu *pmu0 = perf_pmus__scan_core(NULL);
-+	struct read_times before[NR_CHECK], after[NR_CHECK];
-+	struct affinity aff = {};
-+	int flex_fds[NR_FLEX];
-+	int leader_fd = -1, sib_fd = -1, dis_sib_fd = -1;
-+	int cpu0 = -1, cpu1 = -1, ev_cpu = -1;
-+	unsigned long c;
-+	int ret = TEST_FAIL;
-+
-+	for (int i = 0; i < NR_FLEX; i++)
-+		flex_fds[i] = -1;
-+
-+	if (!pmu0 || affinity__setup(&aff) < 0)
-+		return TEST_SKIP;
-+
-+	cpu0 = first_allowed_pmu_cpu(&aff, pmu0);
-+	if (cpu0 < 0) {
-+		ret = TEST_SKIP;
-+		goto out;
-+	}
-+
-+	if (perf_pmus__num_core_pmus() > 1 && pmu0->cpus &&
-+	    !perf_cpu_map__is_empty(pmu0->cpus)) {
-+		for_each_set_bit(c, aff.orig_cpus, aff.cpu_set_bits) {
-+			struct perf_cpu pc = { .cpu = (int)c };
-+
-+			if (!perf_cpu_map__has(pmu0->cpus, pc)) {
-+				cpu1 = (int)c;
-+				break;
-+			}
-+		}
-+		ev_cpu = -1;
-+	} else {
-+		for_each_set_bit(c, aff.orig_cpus, aff.cpu_set_bits) {
-+			if ((int)c != cpu0) {
-+				cpu1 = (int)c;
-+				break;
-+			}
-+		}
-+		ev_cpu = cpu0;
-+	}
-+
-+	if (cpu1 < 0 || affinity__set(&aff, cpu0) < 0) {
-+		ret = TEST_SKIP;
-+		goto out;
-+	}
-+
-+	for (int i = 0; i < NR_FLEX; i++) {
-+		flex_fds[i] = open_core_pmu_event(pmu0, 0, ev_cpu, -1, false);
-+		if (flex_fds[i] < 0) {
-+			ret = TEST_SKIP;
-+			goto out;
-+		}
-+	}
-+
-+	leader_fd = open_core_pmu_event(pmu0, 0, ev_cpu, -1, false);
-+	if (leader_fd < 0) {
-+		ret = TEST_SKIP;
-+		goto out;
-+	}
-+	sib_fd = open_core_pmu_event(pmu0, 0, ev_cpu, leader_fd, false);
-+	dis_sib_fd = open_core_pmu_event(pmu0, 0, ev_cpu, leader_fd, true);
-+	if (sib_fd < 0 || dis_sib_fd < 0) {
-+		ret = TEST_SKIP;
-+		goto out;
-+	}
-+
-+	if (ioctl(dis_sib_fd, PERF_EVENT_IOC_ENABLE, 0) < 0)
-+		goto out;
-+
-+	burn_user_ms(50);
-+
-+	/* Detach leader while group may be INACTIVE to exercise sibling promotion. */
-+	close(leader_fd);
-+	leader_fd = -1;
-+	burn_user_ms(10);
-+
-+	if (affinity__set(&aff, cpu1) < 0)
-+		goto out;
-+
-+	for (int i = 0; i < NR_FLEX; i++) {
-+		if (read_times(flex_fds[i], &before[i]) < 0)
-+			goto out;
-+	}
-+	if (read_times(sib_fd, &before[NR_FLEX]) < 0 ||
-+	    read_times(dis_sib_fd, &before[NR_FLEX + 1]) < 0)
-+		goto out;
-+
-+	burn_user_ms(30);
-+
-+	for (int i = 0; i < NR_FLEX; i++) {
-+		if (read_times(flex_fds[i], &after[i]) < 0)
-+			goto out;
-+	}
-+	if (read_times(sib_fd, &after[NR_FLEX]) < 0 ||
-+	    read_times(dis_sib_fd, &after[NR_FLEX + 1]) < 0)
-+		goto out;
-+
-+	for (int i = 0; i < NR_CHECK; i++) {
-+		if (before[i].ena == 0) {
-+			pr_debug("FAILED: event %d accrued 0 enabled time on matching CPU %d\n",
-+				 i, cpu0);
-+			goto out;
-+		}
-+		if (after[i].ena != before[i].ena || after[i].run != before[i].run) {
-+			pr_debug("FAILED: event %d filtered CPU %d: %" PRIu64 " -> %" PRIu64 "\n",
-+				 i, cpu1, before[i].ena, after[i].ena);
-+			goto out;
-+		}
-+	}
-+
-+	ret = TEST_OK;
-+out:
-+	for (int i = 0; i < NR_FLEX; i++) {
-+		if (flex_fds[i] >= 0)
-+			close(flex_fds[i]);
-+	}
-+	if (leader_fd >= 0)
-+		close(leader_fd);
-+	if (sib_fd >= 0)
-+		close(sib_fd);
-+	if (dis_sib_fd >= 0)
-+		close(dis_sib_fd);
-+	affinity__cleanup(&aff);
-+	return ret;
-+}
-+
-+static struct test_case tests__event_times[] = {
-+	TEST_CASE("Basic event times", event_times),
-+	TEST_CASE_REASON("Task and CPU filtered event times",
-+			 event_times_task_and_cpu,
-+			 "permissions or <2 allowed CPUs"),
-+	TEST_CASE_REASON("Hybrid PMU filtered event times",
-+			 event_times_hybrid,
-+			 "not hybrid or permissions"),
-+	TEST_CASE_REASON("Multiplexed and group filtered event times",
-+			 event_times_mux_migration,
-+			 "no hardware PMU or <2 allowed CPUs"),
-+	{	.name = NULL, }
-+};
-+
-+struct test_suite suite__event_times = {
-+	.desc = "Event times",
-+	.test_cases = tests__event_times,
-+};
-diff --git a/tools/perf/util/affinity.c b/tools/perf/util/affinity.c
-index 6c64b5f69a4e..e610eb959347 100644
---- a/tools/perf/util/affinity.c
-+++ b/tools/perf/util/affinity.c
-@@ -1,6 +1,7 @@
- // SPDX-License-Identifier: GPL-2.0
- /* Manage affinity to optimize IPIs inside the kernel perf API. */
- #define _GNU_SOURCE 1
-+#include <errno.h>
- #include <sched.h>
- #include <stdlib.h>
- #include <linux/bitmap.h>
-@@ -10,73 +11,98 @@
- #include "cpumap.h"
- #include "affinity.h"
- 
--static int get_cpu_set_size(void)
-+static size_t get_cpu_set_bits(void)
- {
--	int sz = cpu__max_cpu().cpu + 8 - 1;
-+	int max_cpu = cpu__max_cpu().cpu;
-+	size_t bits = max_cpu > 0 ? (size_t)max_cpu : 0;
-+
- 	/*
- 	 * sched_getaffinity doesn't like masks smaller than the kernel.
--	 * Hopefully that's big enough.
-+	 * Start at >= 4096 bits, aligned to BITS_PER_LONG so bitmap_zalloc()
-+	 * matches the exact byte size passed to sched_{get,set}affinity().
- 	 */
--	if (sz < 4096)
--		sz = 4096;
--	return sz / 8;
-+	if (bits < 4096)
-+		bits = 4096;
-+	return BITS_TO_LONGS(bits) * BITS_PER_LONG;
- }
- 
- int affinity__setup(struct affinity *a)
- {
--	int cpu_set_size = get_cpu_set_size();
-+	size_t bits = get_cpu_set_bits();
- 
--	a->orig_cpus = bitmap_zalloc(cpu_set_size * 8);
--	if (!a->orig_cpus)
--		return -1;
--	sched_getaffinity(0, cpu_set_size, (cpu_set_t *)a->orig_cpus);
--	a->sched_cpus = bitmap_zalloc(cpu_set_size * 8);
-+	*a = (struct affinity){};
-+	for (;;) {
-+		unsigned long *orig = bitmap_zalloc(bits);
-+
-+		if (!orig)
-+			return -1;
-+		if (sched_getaffinity(0, bits / 8, (cpu_set_t *)orig) == 0) {
-+			a->orig_cpus = orig;
-+			break;
-+		}
-+		zfree(&orig);
-+		if (errno != EINVAL || bits >= (1U << 20))
-+			return -1;
-+		bits <<= 1;
-+	}
-+
-+	a->sched_cpus = bitmap_zalloc(bits);
- 	if (!a->sched_cpus) {
- 		zfree(&a->orig_cpus);
- 		return -1;
- 	}
--	bitmap_zero((unsigned long *)a->sched_cpus, cpu_set_size);
--	a->changed = false;
-+	a->cpu_set_bits = bits;
- 	return 0;
- }
- 
-+bool affinity__has_cpu(const struct affinity *a, int cpu)
-+{
-+	return a && a->orig_cpus && cpu >= 0 &&
-+	       (size_t)cpu < a->cpu_set_bits && test_bit(cpu, a->orig_cpus);
-+}
-+
- /*
-  * perf_event_open does an IPI internally to the target CPU.
-  * It is more efficient to change perf's affinity to the target
-  * CPU and then set up all events on that CPU, so we amortize
-  * CPU communication.
-  */
--void affinity__set(struct affinity *a, int cpu)
-+int affinity__set(struct affinity *a, int cpu)
- {
--	int cpu_set_size = get_cpu_set_size();
-+	int err;
- 
- 	/*
- 	 * Return:
--	 * - if cpu is -1
-+	 * - if cpu is < 0 (e.g. -1)
- 	 * - restrict out of bound access to sched_cpus
- 	 */
--	if (cpu == -1 || ((cpu >= (cpu_set_size * 8))))
--		return;
-+	if (!a || !a->sched_cpus || cpu < 0 || (size_t)cpu >= a->cpu_set_bits)
-+		return -1;
- 
--	a->changed = true;
- 	__set_bit(cpu, a->sched_cpus);
- 	/*
--	 * We ignore errors because affinity is just an optimization.
--	 * This could happen for example with isolated CPUs or cpusets.
--	 * In this case the IPIs inside the kernel's perf API still work.
-+	 * Callers such as evlist ignore errors because affinity is just an
-+	 * optimization (for example with isolated CPUs or cpusets, where IPIs
-+	 * inside the kernel's perf API still work), while tests may check the
-+	 * return value.
- 	 */
--	sched_setaffinity(0, cpu_set_size, (cpu_set_t *)a->sched_cpus);
-+	err = sched_setaffinity(0, a->cpu_set_bits / 8, (cpu_set_t *)a->sched_cpus);
- 	__clear_bit(cpu, a->sched_cpus);
-+	if (err)
-+		return -1;
-+
-+	a->changed = true;
-+	return 0;
- }
- 
- static void __affinity__cleanup(struct affinity *a)
- {
--	int cpu_set_size = get_cpu_set_size();
--
--	if (a->changed)
--		sched_setaffinity(0, cpu_set_size, (cpu_set_t *)a->orig_cpus);
-+	if (a->changed && a->orig_cpus)
-+		sched_setaffinity(0, a->cpu_set_bits / 8, (cpu_set_t *)a->orig_cpus);
- 	zfree(&a->sched_cpus);
- 	zfree(&a->orig_cpus);
-+	a->cpu_set_bits = 0;
-+	a->changed = false;
- }
- 
- void affinity__cleanup(struct affinity *a)
-@@ -87,17 +113,25 @@ void affinity__cleanup(struct affinity *a)
- 
- void cpu_map__set_affinity(const struct perf_cpu_map *cpumap)
- {
--	int cpu_set_size = get_cpu_set_size();
--	unsigned long *cpuset = bitmap_zalloc(cpu_set_size * 8);
-+	size_t bits = get_cpu_set_bits();
-+	unsigned long *cpuset;
- 	struct perf_cpu cpu;
- 	unsigned int idx;
- 
-+	perf_cpu_map__for_each_cpu_skip_any(cpu, idx, cpumap) {
-+		if (cpu.cpu >= 0 && (size_t)cpu.cpu >= bits)
-+			bits = BITS_TO_LONGS((size_t)cpu.cpu + 1) * BITS_PER_LONG;
-+	}
-+
-+	cpuset = bitmap_zalloc(bits);
- 	if (!cpuset)
- 		return;
- 
--	perf_cpu_map__for_each_cpu_skip_any(cpu, idx, cpumap)
--		__set_bit(cpu.cpu, cpuset);
-+	perf_cpu_map__for_each_cpu_skip_any(cpu, idx, cpumap) {
-+		if (cpu.cpu >= 0)
-+			__set_bit(cpu.cpu, cpuset);
-+	}
- 
--	sched_setaffinity(0, cpu_set_size, (cpu_set_t *)cpuset);
-+	sched_setaffinity(0, bits / 8, (cpu_set_t *)cpuset);
- 	zfree(&cpuset);
- }
-diff --git a/tools/perf/util/affinity.h b/tools/perf/util/affinity.h
-index 7341194b2298..d21028e2465f 100644
---- a/tools/perf/util/affinity.h
-+++ b/tools/perf/util/affinity.h
-@@ -3,16 +3,19 @@
- #define PERF_AFFINITY_H 1
- 
- #include <stdbool.h>
-+#include <stddef.h>
- 
- struct perf_cpu_map;
- struct affinity {
- 	unsigned long *orig_cpus;
- 	unsigned long *sched_cpus;
-+	size_t cpu_set_bits;
- 	bool changed;
- };
- 
- void affinity__cleanup(struct affinity *a);
--void affinity__set(struct affinity *a, int cpu);
-+bool affinity__has_cpu(const struct affinity *a, int cpu);
-+int affinity__set(struct affinity *a, int cpu);
- int affinity__setup(struct affinity *a);
- void cpu_map__set_affinity(const struct perf_cpu_map *cpumap);
- 
--- 
-2.56.1.831.g720f3f5937-goog
-
+DQoNCj4gLS0tLS1PcmlnaW5hbCBNZXNzYWdlLS0tLS0NCj4gRnJvbTogRG1pdHJ5IEJhcnlzaGtv
+diA8ZG1pdHJ5LmJhcnlzaGtvdkBvc3MucXVhbGNvbW0uY29tPg0KPiBTZW50OiAyNSBOb3ZlbWJl
+ciAyMDI2IDEwOjI0DQo+IFRvOiBNYWFydGVuIExhbmtob3JzdCA8bWFhcnRlbi5sYW5raG9yc3RA
+bGludXguaW50ZWwuY29tPjsgTWF4aW1lIFJpcGFyZA0KPiA8bXJpcGFyZEBrZXJuZWwub3JnPjsg
+VGhvbWFzIFppbW1lcm1hbm4gPHR6aW1tZXJtYW5uQHN1c2UuZGU+OyBEYXZpZA0KPiBBaXJsaWUg
+PGFpcmxpZWRAZ21haWwuY29tPjsgU2ltb25hIFZldHRlciA8c2ltb25hQGZmd2xsLmNoPjsgSm9o
+biBIYXJyaXNvbg0KPiA8Sm9obi5IYXJyaXNvbkBpZ2FsaWEuY29tPjsgSGFycnkgV2VudGxhbmQg
+PGhhcnJ5LndlbnRsYW5kQGFtZC5jb20+OyBMZW8NCj4gTGkgPHN1bnBlbmcubGlAYW1kLmNvbT47
+IFJvZHJpZ28gU2lxdWVpcmEgPHNpcXVlaXJhQGlnYWxpYS5jb20+OyBBbGV4DQo+IERldWNoZXIg
+PGFsZXhhbmRlci5kZXVjaGVyQGFtZC5jb20+OyBDaHJpc3RpYW4gS8O2bmlnDQo+IDxjaHJpc3Rp
+YW4ua29lbmlnQGFtZC5jb20+OyBMaXZpdSBEdWRhdSA8bGl2aXUuZHVkYXVAYXJtLmNvbT47IExh
+dXJlbnQNCj4gUGluY2hhcnQgPGxhdXJlbnQucGluY2hhcnQrcmVuZXNhc0BpZGVhc29uYm9hcmQu
+Y29tPjsgVG9taSBWYWxrZWluZW4NCj4gPHRvbWkudmFsa2VpbmVuK3JlbmVzYXNAaWRlYXNvbmJv
+YXJkLmNvbT47IEtpZXJhbiBCaW5naGFtDQo+IDxraWVyYW4uYmluZ2hhbStyZW5lc2FzQGlkZWFz
+b25ib2FyZC5jb20+OyBHZWVydCBVeXR0ZXJob2V2ZW4NCj4gPGdlZXJ0K3JlbmVzYXNAZ2xpZGVy
+LmJlPjsgTWFnbnVzIERhbW0gPG1hZ251cy5kYW1tQGdtYWlsLmNvbT47IERhdmUNCj4gU3RldmVu
+c29uIDxkYXZlLnN0ZXZlbnNvbkByYXNwYmVycnlwaS5jb20+OyBNYcOtcmEgQ2FuYWwNCj4gPG1j
+YW5hbEBpZ2FsaWEuY29tPjsgUmFzcGJlcnJ5IFBpIEtlcm5lbCBNYWludGVuYW5jZSA8a2VybmVs
+LQ0KPiBsaXN0QHJhc3BiZXJyeXBpLmNvbT47IExvdWlzIENoYXV2ZXQgPGxvdWlzLmNoYXV2ZXRA
+Ym9vdGxpbi5jb20+OyBNaWhhaWwNCj4gQXRhbmFzc292IDxtaWhhaWwuYXRhbmFzc292QGFybS5j
+b20+OyBFcmljIEFuaG9sdCA8ZXJpY0BhbmhvbHQubmV0PjsgUm9iDQo+IENsYXJrIDxyb2Jpbi5j
+bGFya0Bvc3MucXVhbGNvbW0uY29tPjsgQnJpYW4gU3RhcmtleQ0KPiA8YnJpYW4uc3RhcmtleUBh
+cm0uY29tPjsgRG1pdHJ5IEJhcnlzaGtvdg0KPiA8ZG1pdHJ5LmJhcnlzaGtvdkBvc3MucXVhbGNv
+bW0uY29tPg0KPiBDYzogZHJpLWRldmVsQGxpc3RzLmZyZWVkZXNrdG9wLm9yZzsgbGludXgta2Vy
+bmVsQHZnZXIua2VybmVsLm9yZzsgYW1kLQ0KPiBnZnhAbGlzdHMuZnJlZWRlc2t0b3Aub3JnOyBs
+aW51eC1yZW5lc2FzLXNvY0B2Z2VyLmtlcm5lbC5vcmc7IEthbmRwYWwsIFN1cmFqDQo+IDxzdXJh
+ai5rYW5kcGFsQGludGVsLmNvbT47IENoYW95aSBDaGVuIDxjaGFveWkuY2hlbkByb2NrLWNoaXBz
+LmNvbT47IEpvaG4NCj4gSGFycmlzb24gPEpvaG4uSGFycmlzb25ASWdhbGlhLmNvbT4NCj4gU3Vi
+amVjdDogUmU6IFtQQVRDSCB2OCAwMC8xMF0gZHJtOiB3cml0ZWJhY2s6IGNsZWFuIHVwIHdyaXRl
+YmFjayBjb25uZWN0b3INCj4gaW5pdGlhbGl6YXRpb24NCj4gDQo+IE9uIFdlZCwgMTEgTm92IDIw
+MjYgMDI6NDI6MjkgKzAyMDAsIERtaXRyeSBCYXJ5c2hrb3Ygd3JvdGU6DQo+ID4gRHJpdmVycyB1
+c2luZyBkcm1fd3JpdGViYWNrX2Nvbm5lY3Rvcl9pbml0KCkgLyBfd2l0aF9lbmNvZGVyKCkgZG9u
+J3QNCj4gPiBwZXJmb3JtIGNsZWFudXAgaW4gYSBtYW5uZXIgc2ltaWxhciB0byBkcm1tX3dyaXRl
+YmFja19jb25uZWN0b3JfaW5pdCgpDQo+ID4gKHNlZSBkcm1fd3JpdGViYWNrX2Nvbm5lY3Rvcl9j
+bGVhbnVwKCkpLiBFbm91Z2ggb2YgdGhlIGRyaXZlcnMgZG9uJ3QNCj4gPiB1c2UgdGhlIGVuY29k
+ZXIgZW1iZWRkZWQgaW50byB0aGUgZHJtX3dyaXRlYmFjayBjb25uZWN0b3IuICBJbg0KPiA+IHBy
+ZXBhcmF0aW9uIHRvIGZ1cnRoZXIgcmV3b3JrIG9mIHRoZSBXQiBjb25uZWN0b3JzIChhcyBwbGFu
+bmVkIHRvDQo+ID4gZW5hYmxlIFdCIGZvciBpOTE1IC8geGUgZHJpdmVycywgd2hpY2ggd291bGQg
+bW92ZQ0KPiA+IGRybV93cml0ZWJhY2tfY29ubmVjdG9yIHRvIGJlIGEgZmllbGQgaW5zaWRlIGRy
+bV9jb25uZWN0b3IgaW5zdGVhZCBvZg0KPiA+IHN1YmNsYXNzaW5nIGl0KSByZW1vdmUgdGhlIGRy
+bV9lbmNvZGVyIHdyYXBwZWQgaW4gc3RydWN0DQo+ID4gZHJtX3dyaXRlYmFja19jb25uZWN0b3Iu
+IFJlbmFtZSB0aGUNCj4gPiBkcm1fd3JpdGViYWNrX2Nvbm5lY3Rvcl9pbml0X3dpdGhfZW5jb2Rl
+cigpIHRvDQo+ID4gZHJtX3dyaXRlYmFja19jb25uZWN0b3JfaW5pdCgpDQo+ID4gYW5kIGNvcHkg
+ZHJtbV93cml0ZWJhY2tfY29ubmVjdG9yX2luaXQoKSBpbnRlcmZhY2UuIFRoZW4sIHdpdGggdGhl
+DQo+ID4gZW5jb2RlciBiZWluZyBnb25lLCBoYW5kbGUgcHJvcGVyIGNsZWFudXAgb2Ygd3JpdGVi
+YWNrIGRhdGEgaW4NCj4gPiBkcm1fY29ubmVjdG9yX2NsZWFudXAoKS4NCj4gPg0KPiA+IFsuLi5d
+DQo+IA0KPiBBcHBsaWVkIHRvIGRybS1taXNjLW5leHQsIHRoYW5rcyENCg0KV2l0aCB0aGlzIHNl
+cmllcyBub3cgbWVyZ2VkIGNhbiB3ZSBhbHNvIGdvIGFoZWFkIGFuZCBnZXQgdGhpcyBzZXJpZXMg
+DQpodHRwczovL3BhdGNod29yay5mcmVlZGVza3RvcC5vcmcvc2VyaWVzLzE1Mjc2MS9tZXJnZWQg
+aW4gZHJtLW1pc2MtbmV4dA0KRG1pdHJ5LCBKb2huID8NCg0KUmVnYXJkcywNClN1cmFqIEthbmRw
+YWwNCg0KPiANCj4gWzAxLzEwXSBkcm0vYW1kL2Rpc3BsYXk6IGVtYmVkIHRoZSB3cml0ZWJhY2sg
+ZW5jb2RlciBpbg0KPiBhbWRncHVfZG1fd2JfY29ubmVjdG9yDQo+ICAgICAgICAgY29tbWl0OiAy
+ODNhM2NmYmIyOWNmM2QwYWYxYWQwMzAxMmZjZDA0OWRlY2U2ZTY0DQo+IFswMi8xMF0gZHJtL2tv
+bWVkYTogZW1iZWQgdGhlIHdyaXRlYmFjayBlbmNvZGVyIGluIGtvbWVkYV93Yl9jb25uZWN0b3IN
+Cj4gICAgICAgICBjb21taXQ6IDlkNWNkYjQ2ZWVkOTRkZGVlMzczMmZiYjVmOGMwMDhjNzk4YWJh
+NTENCj4gWzAzLzEwXSBkcm0vbWFsaTogZW1iZWQgdGhlIHdyaXRlYmFjayBlbmNvZGVyIGluIG1h
+bGlkcF9kcm0NCj4gICAgICAgICBjb21taXQ6IGYwN2U1ZThlYWM4NmJjN2RiMmZmZGQyZTc0OGUy
+NTZlZTJiNDE5YTENCj4gWzA0LzEwXSBkcm06IHJlbmVzYXM6IHJjYXItZHU6IGVtYmVkIHRoZSB3
+cml0ZWJhY2sgZW5jb2RlciBpbiByY2FyX2R1X2NydGMNCj4gICAgICAgICBjb21taXQ6IDEyYzg4
+YWYxMTdjNzdhMTYwNGJiMDIzOTdjYjJiNjIyYzQ3ZGE5ZTYNCj4gWzA1LzEwXSBkcm06IHdyaXRl
+YmFjazogZHJvcCBleGNlc3MgY29ubmVjdG9yIGluaXRpYWxpemF0aW9uIGZ1bmN0aW9ucw0KPiAg
+ICAgICAgIGNvbW1pdDogN2JjYjM3NjAzZGYwOTVlNTZlODdkNjE0NDIwMTE3OWZlOTExZTRkZA0K
+PiBbMDYvMTBdIGRybTogd3JpdGViYWNrOiByZW5hbWUNCj4gZHJtX3dyaXRlYmFja19jb25uZWN0
+b3JfaW5pdF93aXRoX2VuY29kZXIoKQ0KPiAgICAgICAgIGNvbW1pdDogODFmNjFiNGUwNDY3ZGRh
+YjM2OTViZTU4YTk0ZmMzMjJjOGJkNTU5YQ0KPiBbMDcvMTBdIGRybTogd3JpdGViYWNrOiBkb24n
+dCBkZXN0cm95IHRoZSBzaGFyZWQgd3JpdGViYWNrIHByb3BlcnRpZXMNCj4gICAgICAgICBjb21t
+aXQ6IDdhNWM4ODQ4NjA2YTljMWM5YTU3ZGFiNDMzMmM5NDQ1YzdmMWQ2MGYNCj4gWzA4LzEwXSBk
+cm06IHdyaXRlYmFjazogY2xlYW4gdXAgd3JpdGViYWNrIGpvYnMgb3V0c2lkZSB0aGUgam9iX2xv
+Y2sNCj4gICAgICAgICBjb21taXQ6IGRhMTJjZmQ4NDAwYjdiMmZkMDBiZTIyY2RlYmFmMmVmYTYy
+OTljNjgNCj4gWzA5LzEwXSBkcm06IHdyaXRlYmFjazogY2xlYW4gdXAgd3JpdGViYWNrIGNvbm5l
+Y3RvcnMgaW4NCj4gZHJtX2Nvbm5lY3Rvcl9jbGVhbnVwKCkNCj4gICAgICAgICBjb21taXQ6IDJi
+ZWQ1OTE5ZTAwNTY4N2QxNjNkMWI2ZDI3M2RiNDUwNDQ5YjhiZGYNCj4gWzEwLzEwXSBkcm06IHdy
+aXRlYmFjazogZHJvcCB0aGUgZHJtbSB3cml0ZWJhY2sgY2xlYW51cCBhY3Rpb24NCj4gICAgICAg
+ICBjb21taXQ6IDYxNmE2NTFhNWJlNDY1NWQyY2NlZWQwNjEyZjcwZjA3NmViMjRjYzkNCj4gDQo+
+IEJlc3QgcmVnYXJkcywNCj4gLS0NCj4gV2l0aCBiZXN0IHdpc2hlcw0KPiBEbWl0cnkNCj4gDQoN
+Cg==
