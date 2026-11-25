@@ -1,54 +1,114 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.90
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795572426;
-	b=Zmvmfbdfw+Z6okFh2+y4hN09YlWMhy5xdCp7p7AEC7DMjYngOIWxSuh6iwdcnuep9kUt
-	 s1xRPGyrBnmwsk7cQKECwGf+Asifq/tPOwLcjWJg95eaXbYSC+cxMBtcFLlzZ3pGtgJ5I
-	 CTOsSkVOimV1jj0N5Z/3uavZVrGanHqCtyz/b4Lzziapir6r2ZAXEx0U17RUBzcDwO6Qw
-	 fj8t+RwuM4N1paTzh9UA5An6ldg5txyvPvQxzd4xBmIjZnBWkQPQoMQ+q8qzZVoywQ1lj
-	 riPzg9esolhgJWXFK0Zb10Smm/alyP3Ofm5YojUv0VBQn4OVVW7PdPTY4fhlgn0e43g==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795572426;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=vAqWv8bsyi5TpmBulDBXfTj2PEkk5Y5ETscVn3jW4/w=;
-	b=hllWQP9Csp4vVbeZGfAK7S+ZKKSjJob7vLCewGLFes+5ECrv/ISsV1rcxdBBM8hqJl0E
-	 +xw6Fc1xEuRfrDwZtBcvFqJR4glK5AA4NH8m94YijxDtEc+A0EKAQ0kMZLfZXUlT3F12H
-	 SDjYhFK5bKa0X6ekvYqo+OCUxAVUyLZFCEuieICWTHm13306AtUuiPZ18sAo4kzqZrGgS
-	 E+QrGde0WO01Wv+idSDeRmxBZNyllcWsd9LRQkaWS2Rf+4Ll8gloyr6Gd0ddUI6pFX+jx
-	 Rvms1KrYEyghKoQUcjKDQKy7bcEHC+f1efePP3wbPqbwq0C3VwO54iF48rLp3DrJcfA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Q0YOuSN9;
-	arc=none smtp.remote-ip=91.218.175.90
-Received: from mta0.migadu.com (out-90.mta0.migadu.com [91.218.175.90])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.194.32
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795572544;
+	b=nHnRIvVxkTWdlBmYo1wTgILyJXMzzmwpIq8B5WcsfG0LuXndpRs+RzPKe+IgFrQzhJ7l
+	 uenEEXiDDen7QUm7Ivtx95V8Wgp07+ZSguho8gBM/pCtdoGUH2BrYQnZNRm7UYGMf8Ykm
+	 u1+dZgoI3vnW2YS/USRfvmHHrrlw60eMDsiot+4ReXhVABmlnPJ5d+u9EmYv/FKi5sdQE
+	 fnB8/q+pNnXKx++H6PoJCGgpet6xC3n3HibzZfHOFf4CipPF08LmnnOpked5A2FwwzaHU
+	 LB8B7YGVVXRFkNT5TNntMolIYDdTSYP67yGKolg6SuvQxrhg6deijzEh1jyN2dHqS7w==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795572544;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 Received:Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding:Content-Type:
+	 X-NV-OnPremToCloud:X-EOPAttributedMessage:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=ILJ73oP/q5gJIQ0+W3AJXe5gmPk7RtpCRadIP3q+2rs=;
+	b=f/hrZjke0pcUdnltbX4DlOZEC1UrLdB/PDAXDnJjkqjpriaqIUxPOng4qi4oIjlYTWjP
+	 orB+FPL6kjjdTBYMsCKIgOR8woObZ9Nq8tGbeQRvBPqPS0G42ckC9oiVeGsJ4pColzf4Q
+	 VUcW3w0ZfFCI9eyEgZqSc25QD+ROV8tQRxPsZbWgYJEs+K/KBQimQLyxK1UEQ+2lpvEjj
+	 yCQy8qzoUYVfdixjbmFSU5DcPPcMxmY/QXIrrP1Nfku0U3aRqYPmsS1eFvHbKo3hsNfHv
+	 GruxNXaETFOqSIb70SCep0G8Bs7JknESTt/M3gOINwXoFXf3yialH5DUGxWYs/KZ9Cw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=g0wZppBp;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.194.32
+Received: from SN4PR0501CU005.outbound.protection.outlook.com (mail-southcentralusazon11011032.outbound.protection.outlook.com [40.93.194.32])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 30047606A321
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 02:07:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 30047606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E77E9606A321;
+	Wed, 25 Nov 2026 02:09:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E77E9606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Q0YOuSN9
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=Uu+MF4k/XPRdgtrg1+8GpdGclTwHLQi1ao8WZ2m/lkI=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795572422; v=1; x=1796177222;
- b=Q0YOuSN9Gm459VIL5wjmhH/aBSsjEMpBtILBoVwJLT9I0/ENkT1dhkGtnpp/59R04Kjf1EDW
- vSFMAfHoraQitZ7mgKDV+jMV0qWWxNSlINgtDen/fZA5i2+QfcW05RZoHd+n5Mex3uuNgn7U8Dl
- yhylTNZ217p6AoUNgshke+1Q=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 2f11d5d7012f9701;
-	Wed, 25 Nov 2026 02:07:01 +0000
-X-Mizu-Trace-ID: 2f11d5d7012f9701
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <44034fa7-91ab-4777-ba72-0037a6932b56@linux.dev>
-Date: Tue, 24 Nov 2026 18:06:55 -0800
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=g0wZppBp
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=jvEsQaXmJyeE+QQFiGby9Sq3anf7xahcLbq9X8Ozmv3zrUMggJtaMEhp2WQfvvVDZpGplDEI7zFYWQpx8OqL6RAunYdY814ACD73Pfo/dRl0f3NFi1OSiRlwhzbdsXX1RzfOdVmUoJLOfwQN7/ZKJ24FqfOdkryoKsX5hO5UZKTDJgzKfxoWP6HorzMsr5y+C3ZL2ew3qM4Q3jeJusPVJTEFiDFu3Wlbl+2kzS68pSBYhBq9yo3JVbfh78pFqboR3R7hTArkhcs248kRt4VOpSeW2MubX2A5AbuwMC2PIZrDUzdxyHBrJHM4CSKDXbt7SV2taPIgSH2JAzc9FzHtXw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ILJ73oP/q5gJIQ0+W3AJXe5gmPk7RtpCRadIP3q+2rs=;
+ b=R+GaEvXiP7f9mRU9zHcLEquiW0g58AVR5UcSYBo21i8PTh5e1uWCpZI2c6WA/PSMWEh95J/WDefnIAMhAis0pyHe77Ugfdb6D7qKxIsBX0Z4yCClVTajQfBdGyNUmmfsgd4dVS9pJeuKY6gjDywYuGFvNmZ/U3ReUwgoqVxoqHrv+6sQv/SuoKVpJXCo/6LYTtFdKpOEoe1CBVBCcAPkNzPbCdVY8B4HEyIYjU8qGCrrqT1jyYGOHL05zQwBDG46JSDkrtDjdI48WZzEXf4jI1w15SxDGJ3DKiHz0yrGI6W10tcmLePg7uFiWYXiizQ1/gZVAXyZ8YLS4kTk1ijkWg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.232) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ILJ73oP/q5gJIQ0+W3AJXe5gmPk7RtpCRadIP3q+2rs=;
+ b=g0wZppBpq6fKFztkPQOl8WfLJwIW8v2srU9KtWkxTmteEjM6O2crdKjF/1/5iTMYeRySLEhCtV9b4tdhsR67lKaczZGpbnuEiaKV8/qLx/FuDye/QNadrKVbrhI39Q3+wgjZmrpzodGvz54xizvdCLoWzQhqWhVMy8L7nGNftwA1LI7yVPX74lu9iQjdP105+/LoGAn+VHSErUCB6gnivr7j8nPtkq4GQ5HBZu7LKjCLspurFVAM2qpLMFUe53+oD0PjeY0HIjtF7wQaF9i57lGJ96z2hKMkWDms2yG7IFHDAZs+xKpYFFxOGPKLoSRyAIP2ugNnXzQKKGPFevqXzw==
+Received: from BN9PR03CA0898.namprd03.prod.outlook.com (2603:10b6:408:13c::33)
+ by SN7PR12MB6911.namprd12.prod.outlook.com (2603:10b6:806:261::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Wed, 25 Nov
+ 2026 02:08:59 +0000
+Received: from BN3PEPF0000B36F.namprd21.prod.outlook.com
+ (2603:10b6:408:13c:cafe::54) by BN9PR03CA0898.outlook.office365.com
+ (2603:10b6:408:13c::33) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.6 via Frontend Transport; Wed, 25
+ Nov 2026 02:08:58 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 216.228.118.232) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.232) by
+ BN3PEPF0000B36F.mail.protection.outlook.com (10.167.243.166) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.662.0 via Frontend Transport; Wed, 25 Nov 2026 02:08:58 +0000
+Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
+ (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Tue, 24 Nov
+ 2026 18:08:43 -0800
+Received: from drhqmail201.nvidia.com (10.126.190.180) by
+ drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.57; Tue, 24 Nov 2026 18:08:43 -0800
+Received: from mtl-vdi-603.wap.labs.mlnx (10.127.8.12) by mail.nvidia.com
+ (10.126.190.180) with Microsoft SMTP Server id 15.2.2562.57 via Frontend
+ Transport; Tue, 24 Nov 2026 18:08:39 -0800
+From: Jianbo Liu <jianbol@nvidia.com>
+To: <netdev@vger.kernel.org>, <ipsec@lists.linux.dev>
+CC: Steffen Klassert <steffen.klassert@secunet.com>, Herbert Xu
+	<herbert@gondor.apana.org.au>, "David S. Miller" <davem@davemloft.net>, "Eric
+ Dumazet" <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+	<pabeni@redhat.com>, Simon Horman <horms@kernel.org>, Leon Romanovsky
+	<leon@kernel.org>, Raed Salem <raeds@nvidia.com>, Saeed Mahameed
+	<saeedm@nvidia.com>, Cen Zhang <zzzccc427@gmail.com>,
+	<linux-kernel@vger.kernel.org>, Jianbo Liu <jianbol@nvidia.com>, "Carolina
+ Jubran" <cjubran@nvidia.com>
+Subject: [PATCH ipsec] xfrm: Serialize offload stats updates with x->lock
+Date: Wed, 25 Nov 2026 04:08:35 +0200
+Message-ID: <20261125020835.1132797-1-jianbol@nvidia.com>
+X-Mailer: git-send-email 2.39.3
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,873 +118,337 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH bpf-next v3 0/4] bpf: Check recursion per task for
- preemptible programs
-To: mikeba@sentinelone.com, Alexei Starovoitov <ast@kernel.org>,
- Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>
-Cc: Martin KaFai Lau <martin.lau@linux.dev>,
- Eduard Zingerman <eddyz87@gmail.com>,
- Kumar Kartikeya Dwivedi <memxor@gmail.com>, Song Liu <song@kernel.org>,
- Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>,
- John Fastabend <john.fastabend@gmail.com>,
- Emil Tsalapatis <emil@etsalapatis.com>,
- Ihor Solodrai <ihor.solodrai@linux.dev>, Steven Rostedt
- <rostedt@goodmis.org>, Masami Hiramatsu <mhiramat@kernel.org>,
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
- linux-trace-kernel@vger.kernel.org, linux-kernel@vger.kernel.org,
- bpf@vger.kernel.org, Martin Kelly <martin.kelly@crowdstrike.com>,
- Andrey Grodzovsky <andrey.grodzovsky@crowdstrike.com>,
- tyler.wilson@crowdstrike.com
-References: <20261117-bpf-preempt-v2-r2-v3-0-586376ec3672@sentinelone.com>
-Content-Language: en-US
-From: "JP Kobryn (CrowdStrike)" <jp.kobryn@linux.dev>
-In-Reply-To: <20261117-bpf-preempt-v2-r2-v3-0-586376ec3672@sentinelone.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN3PEPF0000B36F:EE_|SN7PR12MB6911:EE_
+X-MS-Office365-Filtering-Correlation-Id: 79272f6f-ce41-48df-8150-08df4a99113d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|36860700016|1800799024|23010399003|82310400026|7416014|376014|261022115727099003|261022113327099003|261026135527099003|261026121527099003|261022075727099003|261021123027099003|261021135927099003|10067099003|261022105027099003|261021121427099003|261021130227099003|261026130827099003|261102123227099003|261021133027099003|261102130727099003|261026140227099003|261028144727099003|261009223027099003|6133799003|18002099003|11063799006|56012099006;
+X-Microsoft-Antispam-Message-Info:
+	VjborZEuFLgVdj3fMD8IxdyFaIukL84A2wyW3d5Y6Vs2UnGlWg5mwNZtVpaAz0CfFjUIDrWagV6uOAS9wQr66l1q9+qXGG+C7pmnNl+xo8hV2KL5crsR47pOV9aqDdmfqa/uz651vwPQkFni90f+VgE2r+DnSy9FgPQn26KRexwK/BpG50+mNE048/QlalojtmMjp7m2IqK4sRQNqlw/or5l3OMypcIhUFx/CmhTp4rs5eVdPlaWeAidITDeOab+A14U0Nc3unM2j838f9/+/lmISyI8+ML5/uyd6EpUccfMjoYAzeyjYS7x44bi7Gj3LaivN7ILvOiU5udQozuIuInIql1+A+XdlPhILxD6OnVZ733py9AuPtmm2PXfCgmLSTKh3a6gO6mQ46HqcweQLUMdxnx3Um7jHUhLurGgY9dNXy3n7UWziutt4eOdwHXNnCekeFl+OkrZ9AjsO0Mg2N29Ednw8E8OfRlTRgyg8ymfgedpi9YE4FqCChVRAD3P5jgwN43XcyyX9ExcCklw63yyhixVGOnV0LNN5bgUvuWFui/4JWazUbz/stdyD3W7htZpWE46qXhJHX9tkSnu9TOhk7kKO0ObOZeDTDa0CebOoGQFms/gN13352qrbre0tldAHE4swySSgMTDxSnC6qhuTZVem0j9yb1ZEBhrGK3S1OUZ1uea4mUY5dX95e3HBLY0XVgxORuDt1QFOH+fEg==
+X-Forefront-Antispam-Report:
+	CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(1800799024)(23010399003)(82310400026)(7416014)(376014)(261022115727099003)(261022113327099003)(261026135527099003)(261026121527099003)(261022075727099003)(261021123027099003)(261021135927099003)(10067099003)(261022105027099003)(261021121427099003)(261021130227099003)(261026130827099003)(261102123227099003)(261021133027099003)(261102130727099003)(261026140227099003)(261028144727099003)(261009223027099003)(6133799003)(18002099003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	p/mIk9oBdkw2xjaGA1dUGIysDVSQ991QU72zz5AtDtPHmZPoq0T4oDMkNnT5ZD60ladniH8RzI4Ahbdz866LjqgHeTd9UEdY7VdnVul89ETJlTIICjx0akSMkk7NTgaLdhPu+XwubRnZfCO91xasmMsg65lFsoBlAZrAWim/K2CkbjMCKUFYmmHu/qRvpytMAh8n1Hw+ljho+ZfQNF59lGwMbTG2WkH7NxlahLpfaK3f6krwKJAwGAjmcwcT6b/A82fAihRf9L+JndZq5hf6YyV8Wwb2a6/U9LNEhBgnwH+cdrrJXBz9CFAiiKTf7G/GsdON7FEi/UIsVW6y7WspyK1O9w9h5qCndxzc8/rA0gope2Vcyh//vouncGdrs3Cc8qVlY0Kv+j8W6cCr2yMbOox0449M9lLDb8KN9xCOFS2hhQmTM4eJP6VQHF4DPV+h
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 02:08:58.7558
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 79272f6f-ce41-48df-8150-08df4a99113d
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	BN3PEPF0000B36F.namprd21.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB6911
 
-On 11/17/26 3:29 AM, Mike Bazov via B4 Relay wrote:
-> fentry, fexit, raw_tp and syscall tracepoint programs can be preempted
-> while they run, but their recursion check is a per-CPU counter:
-> 
->   task A enters prog on CPU 0       prog->active = 1
->   task A is preempted inside prog
->   task B enters prog on CPU 0       dropped, counted as recursion miss
-> 
-> Nothing recursed, but B's event is lost. Since 7.0, x86 and arm64 have
-> only lazy and full preemption, so this happens on stock kernels. Our
-> fentry/fexit probe on inet_sendmsg() and inet_recvmsg() loses 9,254 of
-> 8 million runs under HTTP load on a 4-CPU VM. With the series it loses
-> none.
-> 
-> The series checks recursion per task instead: a program is recursing
-> only if the current task is already inside it.
-> 
-> v2 did that for every program, which breaks a program that uses a
-> per-CPU map as scratch space: the second task overwrites its buffer,
-> and nothing counts that. So in v3 the verifier marks the programs that
-> keep per-CPU state, and those keep the per-CPU counter and behave
-> exactly as today:
-> 
->   - per-CPU maps, bpf_this_cpu_ptr(), bpf_per_cpu_ptr()
->   - tail calls: the target has no recursion check of its own
->   - timed may_goto: its budget is per CPU
->   - a private stack
-> 
-> Trade-offs:
-> 
-> - Marked programs are not fixed. A program with a per-CPU map or a
->   tail call loses runs to preemption as it does today.
-> - The verifier can't see everything. A program that keeps per-CPU
->   slots of its own, like array[bpf_get_smp_processor_id()], is not
->   marked. Today the counter keeps its runs apart. With the series two
->   runs can write one slot, and nothing counts that.
-> - raw_tp is about 2% slower in bench, see the table below. fentry and
->   fexit are within noise.
-> - Tracing, raw_tp and tracepoint programs lose the private stack
->   (patch 1). It is already unsafe for them: two raw_tp programs that
->   tail-call one handler let two tasks share its stack today. A program
->   with two 2000-byte frames no longer loads.
-I see how removing private stacks would avoid the corner case issues 
-mentioned. In the common case though, programs with a combined stack 
-size above the limit will start being rejected after this change (as
-you noted). But for programs that still load, they'll lose the safety
-of the  overflow/underflow checks private stacks include.
+xfrm_dev_state_update_stats() calls into the driver, which adds to
+x->curlft and x->stats what the device counted since the last call.
+Callers use different locks, so two of them can refresh the same
+state at once and count the same packets twice, and a dump can copy
+the counters while another caller updates them.
 
-I explored an idea for making private stacks concurrency-safe regardless
-of entry path or recursion model. The concept is changing from per-prog
-per-cpu private stacks to a per-prog per-cpu pool of private stacks. The
-pool consists of a fixed number of slots. A free slot is acquired at
-invocation time and released on exit. This allows concurrent tasks on
-the same CPU to each get their own private stack. So it would fix the
-existing corruption and eliminate the need for marking private stacks.
-Private stacks could then be used with the new per-task per-prog
-recursion guard. The pool size is limited so exhaustions are counted.
+Serialize all device stats refreshes with x->lock and assert it in
+xfrm_dev_state_update_stats(). Build the SA message of a netlink
+dump, get or notification under the same lock.
 
-The patch below is a proof of concept scoped only to x86_64 trampolines.
-It was validated with the bpftrace prog that precedes the patch, along
-with jited assembly dump to inspect the new private frame API calls.
-Overhead measured was roughly 60ns, but this was just a first take and I
-believe it can be optimized especially in the JIT area. If it makes
-sense, this could be integrated into the series or sent as a follow-up.
+The SA dump and xfrm_state_update_stats() walk the states under
+xfrm_state_lock, where x->lock cannot be taken: the lock order is
+x->lock, then xfrm_state_lock. Add xfrm_state_walk_batch(), which
+takes references on at most 32 states per xfrm_state_lock hold, and
+handle each state under x->lock after the list lock is dropped.
+States rejected by the dump filter count against the 32, so a filter
+that matches few states cannot keep the list lock held over the whole
+list. xfrm_state_walk() cannot give this bound: it calls back only
+for states that pass the filter. Walk markers and states being
+deleted do not count, so a call always covers 32 states or reaches
+the end of the list.
 
-kfunc:vmlinux:__x64_sys_getpgid
-/comm == "bpf-test-main" || comm == "bpf-test-waker"/
-{
-    @entered = count();
-    @entered_tid[tid] = count();
+Keep the refresh right before each state is copied, so every part of
+a multi-part dump still has current counters. When a state does not
+fit into the skb, put the walk marker back in front of it and drop
+the references, so no state stays referenced between two dump calls.
+If the state was unlinked meanwhile, skip it and go on.
 
-    if (comm == "bpf-test-main") {
-        @main_active[cpu] = 1;
-    } else if (@main_active[cpu])
-        @overlap_entries = count();
-    }
+copy_to_user_state() cannot take x->lock itself: build_expire() calls
+it with the lock held. Move the refresh out of it and let each caller
+refresh under x->lock. PF_KEY never refreshed and does not change.
 
-    $i = 0;
-    $last = nsecs;
-    // bounded work to increase preemption window
-    while ($i < 10000) {
-        $last = nsecs;
-        $i++;
-    }
-
-    if (comm == "bpf-test-main") {
-        @main_active[cpu] = 0;
-    }
-
-    @last_ts[tid] = $last;
-    @completed_tid[tid] = count();
-}
-
--- 8< --
-From: "JP Kobryn (CrowdStrike)" <jp.kobryn@linux.dev>
-Date: Fri, 20 Nov 2026 21:23:55 -0800
-Subject: [PATCH bpf-next] bpf, x86: concurrency-safe private stacks
-
-Private stacks currently exist on a per-prog per-cpu basis. Since the
-proposed recursion guard allows different progs to run concurrently
-(in the scheduler sense) on the same CPU, corruption would occur on
-the private stacks.
-
-This patch is an idea for concurrency-safe private stacks. Achieve
-this safety by changing to a new paradigm. Instead of a per-prog
-per-cpu basis, use a new per-prog per-cpu pool of stacks. Programs
-acquire an available "slot" on invocation. The slot serves as an index
-into the pool of private stacks. This gives the program the ability
-to use separate private stacks per-invocation up to a fixed limit.
-When available slots are exhausted, a counter is incremented and the
-program is skipped. Note this is not the same counter as the existing
-recursion_misses.
-
-Signed-off-by: JP Kobryn (CrowdStrike) <jp.kobryn@linux.dev>
+Fixes: c9fa320b00cf ("xfrm: copy_to_user_state fetch offloaded SA packets/bytes statistics")
+Fixes: f9f221c98fd8 ("xfrm: get global statistics from the offloaded device")
+Signed-off-by: Jianbo Liu <jianbol@nvidia.com>
+Reviewed-by: Carolina Jubran <cjubran@nvidia.com>
 ---
- arch/x86/net/bpf_jit_comp.c  | 136 +++++++------------
- include/linux/bpf.h          |  37 +++++-
- include/linux/bpf_verifier.h |   4 +
- kernel/bpf/Makefile          |   2 +-
- kernel/bpf/core.c            |   1 +
- kernel/bpf/fixups.c          |   1 +
- kernel/bpf/priv_stack.c      | 247 +++++++++++++++++++++++++++++++++++
- kernel/bpf/trampoline.c      |   4 +
- kernel/bpf/verifier.c        |  15 +++
- 9 files changed, 352 insertions(+), 95 deletions(-)
- create mode 100644 kernel/bpf/priv_stack.c
+Cen Zhang's "[PATCH ipsec v2 1/2] xfrm: protect offload statistics
+updates from device teardown" [1] adds x->lock around the same two
+calls in xfrm_state_netlink() and xfrm_notify_sa(), so only one of
+the two patches can be applied. This patch takes the lock in the SA
+dump and in xfrm_state_update_stats() as well.
 
-diff --git a/arch/x86/net/bpf_jit_comp.c b/arch/x86/net/bpf_jit_comp.c
-index 458ddcf87c48..f63150a69e9f 100644
---- a/arch/x86/net/bpf_jit_comp.c
-+++ b/arch/x86/net/bpf_jit_comp.c
-@@ -2039,22 +2039,39 @@ static void emit_shiftx(u8 **pprog, u32 dst_reg, u8 src_reg, bool is64, u8 op)
- 	*pprog = prog;
- }
- 
--static void emit_priv_frame_ptr(u8 **pprog, void __percpu *priv_frame_ptr)
-+static int emit_priv_frame_ptr(u8 **pprog, struct bpf_prog *bpf_prog, u8 *ip)
- {
--	u8 *prog = *pprog;
--
--	/* movabs r9, priv_frame_ptr */
--	emit_mov_imm64(&prog, X86_REG_R9, (__force long) priv_frame_ptr >> 32,
--		       (u32) (__force long) priv_frame_ptr);
-+#ifdef CONFIG_BPF_SYSCALL
-+	u8 *prog = *pprog, *start = prog;
-+	u64 prog_addr = (u64)bpf_prog;
- 
--#ifdef CONFIG_SMP
--	/* add <r9>, gs:[<off>] */
--	EMIT2(0x65, 0x4c);
--	EMIT3(0x03, 0x0c, 0x25);
--	EMIT((u32)(unsigned long)&this_cpu_off, 4);
--#endif
-+	/* Save the return value and arguments 1-5 */
-+	EMIT1(0x50);		/* push rax */
-+	EMIT1(0x57);		/* push rdi */
-+	EMIT1(0x56);		/* push rsi */
-+	EMIT1(0x52);		/* push rdx */
-+	EMIT1(0x51);		/* push rcx */
-+	EMIT2(0x41, 0x50);	/* push r8 */
- 
-+	/*
-+	 * Pass this function's prog pointer to bpf_priv_stack_frame() in
-+	 * order to obtain the private frame pointer. Store it in R9.
-+	 */
-+	emit_mov_imm64(&prog, BPF_REG_1, prog_addr >> 32, prog_addr);
-+	if (emit_rsb_call(&prog, bpf_priv_stack_frame, ip + (prog - start)))
-+		return -EINVAL;
-+	emit_mov_reg(&prog, true, X86_REG_R9, BPF_REG_0);
-+
-+	/* Restore the registers */
-+	EMIT2(0x41, 0x58);	/* pop r8 */
-+	EMIT1(0x59);		/* pop rcx */
-+	EMIT1(0x5a);		/* pop rdx */
-+	EMIT1(0x5e);		/* pop rsi */
-+	EMIT1(0x5f);		/* pop rdi */
-+	EMIT1(0x58);		/* pop rax */
- 	*pprog = prog;
-+#endif
-+	return 0;
- }
- 
- #define INSN_SZ_DIFF (((addrs[i] - addrs[i - 1]) - (prog - temp)))
-@@ -2076,10 +2093,6 @@ static int jmp_distance(const int *addrs, int i, int off, int moved)
- #define LOAD_TAIL_CALL_CNT_PTR(stack)				\
- 	__LOAD_TCC_PTR(BPF_TAIL_CALL_CNT_PTR_STACK_OFF(stack))
- 
--/* Memory size/value to protect private stack overflow/underflow */
--#define PRIV_STACK_GUARD_SZ    8
--#define PRIV_STACK_GUARD_VAL   0xEB9F12345678eb9fULL
--
- static int emit_spectre_bhb_barrier(u8 **pprog, u8 *ip,
- 				    struct bpf_prog *bpf_prog)
- {
-@@ -2391,10 +2404,9 @@ static int do_jit(struct bpf_verifier_env *env, struct bpf_prog *bpf_prog, int *
- 	int insn_cnt = bpf_prog->len;
- 	bool seen_exit = false;
- 	u8 temp[BPF_MAX_INSN_SIZE + BPF_INSN_SAFETY];
--	void __percpu *priv_frame_ptr = NULL;
-+	bool use_priv_stack = bpf_prog->aux->priv_stack_offset;
- 	u16 out_stack_arg_cnt, outgoing_rsp;
- 	u64 arena_vm_start = 0, user_vm_start = 0;
--	void __percpu *priv_stack_ptr;
- 	int i, excnt = 0;
- 	int ilen, moved, proglen = 0;
- 	u8 *ip, *prog = temp;
-@@ -2410,11 +2422,8 @@ static int do_jit(struct bpf_verifier_env *env, struct bpf_prog *bpf_prog, int *
- 
- 	stack_depth = bpf_prog->aux->stack_depth;
- 	out_stack_arg_cnt = bpf_out_stack_arg_cnt(env, bpf_prog);
--	priv_stack_ptr = bpf_prog->aux->priv_stack_ptr;
--	if (priv_stack_ptr) {
--		priv_frame_ptr = priv_stack_ptr + PRIV_STACK_GUARD_SZ + round_up(stack_depth, 8);
-+	if (use_priv_stack)
- 		stack_depth = 0;
--	}
- 
- 	/*
- 	 * Follow x86-64 calling convention for both BPF-to-BPF and
-@@ -2525,15 +2534,18 @@ static int do_jit(struct bpf_verifier_env *env, struct bpf_prog *bpf_prog, int *
- 	 */
- 	if (bpf_prog->aux->exception_boundary)
- 		bpf_prog->aux->stack_arg_sp_adjust = outgoing_rsp +
--						     (priv_frame_ptr || arena_sp_save ? 8 : 0);
-+						     (use_priv_stack || arena_sp_save ? 8 : 0);
- 	emit_sub_rsp(&prog, outgoing_rsp);
- 
- 	if (arena_vm_start)
- 		emit_mov_imm64(&prog, X86_REG_R12,
- 			       arena_vm_start >> 32, (u32) arena_vm_start);
- 
--	if (priv_frame_ptr)
--		emit_priv_frame_ptr(&prog, priv_frame_ptr);
-+	if (use_priv_stack) {
-+		err = emit_priv_frame_ptr(&prog, bpf_prog, image + (prog - temp));
-+		if (err)
-+			return err;
-+	}
- 
- 	ilen = prog - temp;
- 	if (rw_image)
-@@ -2559,7 +2571,7 @@ static int do_jit(struct bpf_verifier_env *env, struct bpf_prog *bpf_prog, int *
- 		u32 jmp_op = BPF_OP(insn->code);
- 		s32 cmp_imm;
- 
--		if (priv_frame_ptr) {
-+		if (use_priv_stack) {
- 			if (src_reg == BPF_REG_FP)
- 				src_reg = X86_REG_R9;
- 
-@@ -3384,14 +3396,14 @@ static int do_jit(struct bpf_verifier_env *env, struct bpf_prog *bpf_prog, int *
- 					ip += prog - start;
- 				}
- 			}
--			if (priv_frame_ptr) {
-+			if (use_priv_stack) {
- 				push_r9(&prog);
- 				ip += 2;
- 			}
- 			ip += x86_call_depth_emit_accounting(&prog, func, ip);
- 			if (emit_call(&prog, func, ip))
- 				return -EINVAL;
--			if (priv_frame_ptr)
-+			if (use_priv_stack)
- 				pop_r9(&prog);
- 			if (arena_sp_args)
- 				emit_sub_rsp(&prog, 8);
-@@ -3416,19 +3428,19 @@ static int do_jit(struct bpf_verifier_env *env, struct bpf_prog *bpf_prog, int *
- 			 * of a subprog there is no need to pass
- 			 * tail_call_cnt_ptr in rax.
- 			 */
--			if (priv_frame_ptr) {
-+			if (use_priv_stack) {
- 				push_r9(&prog);
- 				ip += 2;
- 			}
- 			if (emit_indirect_call(&prog, insn->dst_reg, ip))
- 				return -EINVAL;
--			if (priv_frame_ptr)
-+			if (use_priv_stack)
- 				pop_r9(&prog);
- 			break;
- 
- 			/* unwind_goto. The verifier expanded may_goto. */
- 		case BPF_JMP | BPF_JCOND:
--			if (!priv_frame_ptr) {
-+			if (!use_priv_stack) {
- 				err = add_unwind_exentry(bpf_prog, image, rw_image, &excnt,
- 							 addrs[i - 1], addrs[i + insn->off]);
- 				if (err)
-@@ -4737,35 +4749,6 @@ int arch_prepare_bpf_dispatcher(void *image, void *buf, s64 *funcs, int num_func
- 	return emit_bpf_dispatcher(&prog, 0, num_funcs - 1, funcs, image, buf);
- }
- 
--static void priv_stack_init_guard(void __percpu *priv_stack_ptr, int alloc_size)
--{
--	int cpu, underflow_idx = (alloc_size - PRIV_STACK_GUARD_SZ) >> 3;
--	u64 *stack_ptr;
--
--	for_each_possible_cpu(cpu) {
--		stack_ptr = per_cpu_ptr(priv_stack_ptr, cpu);
--		stack_ptr[0] = PRIV_STACK_GUARD_VAL;
--		stack_ptr[underflow_idx] = PRIV_STACK_GUARD_VAL;
--	}
--}
--
--static void priv_stack_check_guard(void __percpu *priv_stack_ptr, int alloc_size,
--				   struct bpf_prog *prog)
--{
--	int cpu, underflow_idx = (alloc_size - PRIV_STACK_GUARD_SZ) >> 3;
--	u64 *stack_ptr;
--
--	for_each_possible_cpu(cpu) {
--		stack_ptr = per_cpu_ptr(priv_stack_ptr, cpu);
--		if (stack_ptr[0] != PRIV_STACK_GUARD_VAL ||
--		    stack_ptr[underflow_idx] != PRIV_STACK_GUARD_VAL) {
--			pr_err("BPF private stack overflow/underflow detected for prog %sx\n",
--			       bpf_jit_get_prog_name(prog));
--			break;
--		}
--	}
--}
--
- struct x64_jit_data {
- 	struct bpf_binary_header *rw_header;
- 	struct bpf_binary_header *header;
-@@ -4782,9 +4765,7 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struct bpf_pr
- {
- 	struct bpf_binary_header *rw_header = NULL;
- 	struct bpf_binary_header *header = NULL;
--	void __percpu *priv_stack_ptr = NULL;
- 	struct x64_jit_data *jit_data;
--	int priv_stack_alloc_sz;
- 	int proglen, oldproglen = 0;
- 	struct jit_context ctx = {};
- 	bool extra_pass = false;
-@@ -4805,21 +4786,6 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struct bpf_pr
- 			return prog;
- 		prog->aux->jit_data = jit_data;
- 	}
--	priv_stack_ptr = prog->aux->priv_stack_ptr;
--	if (!priv_stack_ptr && prog->aux->jits_use_priv_stack) {
--		/* Allocate actual private stack size with verifier-calculated
--		 * stack size plus two memory guards to protect overflow and
--		 * underflow.
--		 */
--		priv_stack_alloc_sz = round_up(prog->aux->stack_depth, 8) +
--				      2 * PRIV_STACK_GUARD_SZ;
--		priv_stack_ptr = __alloc_percpu_gfp(priv_stack_alloc_sz, 8, GFP_KERNEL);
--		if (!priv_stack_ptr)
--			goto out_priv_stack;
--
--		priv_stack_init_guard(priv_stack_ptr, priv_stack_alloc_sz);
--		prog->aux->priv_stack_ptr = priv_stack_ptr;
--	}
- 	addrs = jit_data->addrs;
- 	if (addrs) {
- 		ctx = jit_data->ctx;
-@@ -4979,11 +4945,6 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_verifier_env *env, struct bpf_pr
- 			bpf_prog_fill_jited_linfo(prog, addrs + 1);
- out_addrs:
- 		kvfree(addrs);
--		if (!image && priv_stack_ptr) {
--			free_percpu(priv_stack_ptr);
--			prog->aux->priv_stack_ptr = NULL;
--		}
--out_priv_stack:
- 		kfree(jit_data);
- 		prog->aux->jit_data = NULL;
- 	}
-@@ -5071,8 +5032,6 @@ void bpf_jit_free(struct bpf_prog *prog)
- 	if (prog->jited) {
- 		struct x64_jit_data *jit_data = prog->aux->jit_data;
- 		struct bpf_binary_header *hdr;
--		void __percpu *priv_stack_ptr;
--		int priv_stack_alloc_sz;
- 
- 		/*
- 		 * If we fail the final pass of JIT (from jit_subprogs),
-@@ -5088,13 +5047,6 @@ void bpf_jit_free(struct bpf_prog *prog)
- 		prog->bpf_func = (void *)prog->bpf_func - cfi_get_offset();
- 		hdr = bpf_jit_binary_pack_hdr(prog);
- 		bpf_jit_binary_pack_free(hdr, NULL);
--		priv_stack_ptr = prog->aux->priv_stack_ptr;
--		if (priv_stack_ptr) {
--			priv_stack_alloc_sz = round_up(prog->aux->stack_depth, 8) +
--					      2 * PRIV_STACK_GUARD_SZ;
--			priv_stack_check_guard(priv_stack_ptr, priv_stack_alloc_sz, prog);
--			free_percpu(prog->aux->priv_stack_ptr);
--		}
- 		WARN_ON_ONCE(!bpf_prog_kallsyms_verify_off(prog));
- 	}
- 
-@@ -5112,7 +5064,7 @@ bool bpf_jit_supports_exceptions(void)
- 
- bool bpf_jit_supports_private_stack(void)
- {
--	return false;
-+	return IS_ENABLED(CONFIG_BPF_SYSCALL);
- }
- 
- bool bpf_jit_supports_arena_stack(void)
-diff --git a/include/linux/bpf.h b/include/linux/bpf.h
-index b7fe3629e073..04d99d96e46a 100644
---- a/include/linux/bpf.h
-+++ b/include/linux/bpf.h
-@@ -44,6 +44,7 @@ struct bpf_verifier_log;
- struct perf_event;
- struct bpf_prog;
- struct bpf_prog_aux;
-+struct bpf_priv_stack_pool;
- struct bpf_map;
- struct bpf_arena;
- struct sock;
-@@ -1914,6 +1915,9 @@ struct bpf_prog_aux {
- 	struct btf *attach_btf;
- 	struct bpf_ctx_arg_aux *ctx_arg_info;
- 	void __percpu *priv_stack_ptr;
-+	/* main_prog_aux owns the pool. subprogs must use main_prog_aux->priv_stack_pool. */
-+	struct bpf_priv_stack_pool *priv_stack_pool;
-+	u32 priv_stack_offset;
- 	struct mutex dst_mutex; /* protects dst_* pointers below, *after* prog becomes visible */
- 	struct bpf_prog *dst_prog;
- 	struct bpf_trampoline *dst_trampoline;
-@@ -2778,11 +2782,37 @@ int bpf_prog_array_copy(struct bpf_prog_array *old_array,
- 			struct bpf_prog_array **new_array);
- struct bpf_prog *bpf_prog_dummy(void);
- 
-+struct bpf_priv_stack_reservation {
-+	void *slot_base;
-+	struct bpf_priv_stack_pool *pool;
-+	unsigned long *busy;
-+	unsigned int slot;
-+};
-+
- struct bpf_run_ctx {
- 	struct bpf_run_ctx *outer_run_ctx; /* non-null when nested */
- 	struct bpf_prog *prog;
-+	struct bpf_priv_stack_reservation priv_stack;
+[1] https://lore.kernel.org/netdev/pm-xfrm-core-objects-candidate-0050-v4-3c6b8c5369a802e9be0e-1@gmail.com/
+
+ include/net/xfrm.h    | 12 ++++++
+ net/xfrm/xfrm_state.c | 87 +++++++++++++++++++++++++++++++++++++++----
+ net/xfrm/xfrm_user.c  | 45 ++++++++++++++++++++--
+ 3 files changed, 133 insertions(+), 11 deletions(-)
+
+diff --git a/include/net/xfrm.h b/include/net/xfrm.h
+index 445223a8dc6f..22e82be62556 100644
+--- a/include/net/xfrm.h
++++ b/include/net/xfrm.h
+@@ -130,6 +130,13 @@ struct xfrm_state_walk {
+ 	struct xfrm_address_filter *filter;
  };
  
-+#ifdef CONFIG_BPF_SYSCALL
-+void bpf_priv_stack_free(struct bpf_prog_aux *aux);
-+void *bpf_priv_stack_frame(struct bpf_prog *prog);
-+bool bpf_priv_stack_acquire(struct bpf_prog *prog,
-+			struct bpf_priv_stack_reservation *res);
-+void bpf_priv_stack_release(struct bpf_priv_stack_reservation *res);
-+#else
-+static inline bool bpf_priv_stack_acquire(struct bpf_prog *prog,
-+			struct bpf_priv_stack_reservation *res)
-+{
-+	return true;
-+}
++#define XFRM_STATE_WALK_BATCH_SIZE	32
 +
-+static inline void bpf_priv_stack_release(struct bpf_priv_stack_reservation *res)
-+{
-+}
-+#endif
++struct xfrm_state_walk_batch {
++	struct xfrm_state	*states[XFRM_STATE_WALK_BATCH_SIZE];
++	unsigned int		count;
++};
 +
- struct bpf_cg_run_ctx {
- 	struct bpf_run_ctx run_ctx;
- 	const struct bpf_prog_array_item *prog_item;
-@@ -2808,8 +2838,11 @@ static inline struct bpf_run_ctx *bpf_set_run_ctx(struct bpf_run_ctx *new_ctx, s
+ enum {
+ 	XFRM_DEV_OFFLOAD_IN = 1,
+ 	XFRM_DEV_OFFLOAD_OUT,
+@@ -1718,6 +1725,9 @@ void xfrm_state_walk_init(struct xfrm_state_walk *walk, u8 proto,
+ 			  struct xfrm_address_filter *filter);
+ int xfrm_state_walk(struct net *net, struct xfrm_state_walk *walk,
+ 		    int (*func)(struct xfrm_state *, int, void*), void *);
++bool xfrm_state_walk_batch(struct net *net, struct xfrm_state_walk *walk,
++			   struct xfrm_state_walk_batch *batch);
++bool xfrm_state_walk_rewind(struct xfrm_state_walk *walk, struct xfrm_state *x);
+ void xfrm_state_walk_done(struct xfrm_state_walk *walk, struct net *net);
+ struct xfrm_state *xfrm_state_alloc(struct net *net);
+ void xfrm_state_free(struct xfrm_state *x);
+@@ -1742,6 +1752,8 @@ static inline void xfrm_dev_state_update_stats(struct xfrm_state *x)
+ 	struct xfrm_dev_offload *xdo = &x->xso;
+ 	struct net_device *dev = READ_ONCE(xdo->dev);
  
- #ifdef CONFIG_BPF_SYSCALL
- 	old_ctx = READ_ONCE(current->bpf_ctx);
--	new_ctx->prog = prog;
--	new_ctx->outer_run_ctx = old_ctx;
-+	if (new_ctx) {
-+		new_ctx->prog = prog;
-+		new_ctx->outer_run_ctx = old_ctx;
-+		new_ctx->priv_stack = (struct bpf_priv_stack_reservation){};
-+	}
- 	barrier();
- 	WRITE_ONCE(current->bpf_ctx, new_ctx);
- #endif
-diff --git a/include/linux/bpf_verifier.h b/include/linux/bpf_verifier.h
-index f45c18b3cfa2..178f5dfeeaa5 100644
---- a/include/linux/bpf_verifier.h
-+++ b/include/linux/bpf_verifier.h
-@@ -1113,6 +1113,7 @@ struct bpf_subprog_info {
- 	u32 exit_idx;
- 	u32 callx_edge; /* 1 + the first of its env->callx_edges, 0 if none */
- 	struct bpf_iarray *jt; /* jump table shared by all gotox of this subprogram */
-+	u32 priv_stack_offset; /* frame end within an invocation slot */
- 	u16 stack_depth; /* max. stack depth used by this function */
- 	u16 stack_extra;
- 	u16 arena_stack_depth; /* size of the frame in the stack in arena */
-@@ -1812,6 +1813,9 @@ static inline enum bpf_prog_type resolve_prog_type(const struct bpf_prog *prog)
- 		prog->aux->saved_dst_prog_type : prog->type;
++	lockdep_assert_held(&x->lock);
++
+ 	if (dev && dev->xfrmdev_ops &&
+ 	    dev->xfrmdev_ops->xdo_dev_state_update_stats)
+ 		dev->xfrmdev_ops->xdo_dev_state_update_stats(x);
+diff --git a/net/xfrm/xfrm_state.c b/net/xfrm/xfrm_state.c
+index f4a4ddaeb9b3..041d8aa86256 100644
+--- a/net/xfrm/xfrm_state.c
++++ b/net/xfrm/xfrm_state.c
+@@ -2390,15 +2390,28 @@ EXPORT_SYMBOL(xfrm_state_check_expire);
+ 
+ void xfrm_state_update_stats(struct net *net)
+ {
++	struct xfrm_state_walk_batch batch;
++	struct xfrm_state_walk walk;
+ 	struct xfrm_state *x;
+-	int i;
++	unsigned int i;
++	bool done;
+ 
+-	spin_lock_bh(&net->xfrm.xfrm_state_lock);
+-	for (i = 0; i <= net->xfrm.state_hmask; i++) {
+-		hlist_for_each_entry(x, xfrm_state_deref_prot(net->xfrm.state_bydst, net) + i, bydst)
+-			xfrm_dev_state_update_stats(x);
+-	}
+-	spin_unlock_bh(&net->xfrm.xfrm_state_lock);
++	xfrm_state_walk_init(&walk, 0, NULL);
++	do {
++		done = xfrm_state_walk_batch(net, &walk, &batch);
++		for (i = 0; i < batch.count; i++) {
++			x = batch.states[i];
++			if (READ_ONCE(x->xso.dev)) {
++				spin_lock_bh(&x->lock);
++				if (x->km.state != XFRM_STATE_DEAD)
++					xfrm_dev_state_update_stats(x);
++				spin_unlock_bh(&x->lock);
++			}
++			xfrm_state_put(x);
++		}
++		cond_resched();
++	} while (!done);
++	xfrm_state_walk_done(&walk, net);
  }
  
-+int bpf_priv_stack_alloc(struct bpf_prog_aux *aux, struct bpf_subprog_info *subprog_info,
-+	u32 subprog_cnt);
-+
- static inline bool bpf_prog_check_recur(const struct bpf_prog *prog)
- {
- 	switch (resolve_prog_type(prog)) {
-diff --git a/kernel/bpf/Makefile b/kernel/bpf/Makefile
-index d26c62326e58..388362849e65 100644
---- a/kernel/bpf/Makefile
-+++ b/kernel/bpf/Makefile
-@@ -11,7 +11,7 @@ obj-$(CONFIG_BPF_SYSCALL) += bpf_iter.o map_iter.o task_iter.o prog_iter.o link_
- obj-$(CONFIG_BPF_SYSCALL) += hashtab.o arraymap.o percpu_freelist.o bpf_lru_list.o lpm_trie.o map_in_map.o bloom_filter.o
- obj-$(CONFIG_BPF_SYSCALL) += local_storage.o queue_stack_maps.o ringbuf.o bpf_insn_array.o
- obj-$(CONFIG_BPF_SYSCALL) += bpf_local_storage.o bpf_task_storage.o
--obj-$(CONFIG_BPF_SYSCALL) += fixups.o cfg.o states.o check_btf.o flow.o join.o
-+obj-$(CONFIG_BPF_SYSCALL) += fixups.o cfg.o states.o check_btf.o flow.o join.o priv_stack.o
- obj-${CONFIG_BPF_LSM}	  += bpf_inode_storage.o
- obj-$(CONFIG_BPF_SYSCALL) += disasm.o mprog.o
- obj-$(CONFIG_BPF_JIT) += trampoline.o
-diff --git a/kernel/bpf/core.c b/kernel/bpf/core.c
-index 2f0c9e246876..f072a923b284 100644
---- a/kernel/bpf/core.c
-+++ b/kernel/bpf/core.c
-@@ -290,6 +290,7 @@ void __bpf_prog_free(struct bpf_prog *fp)
- 	if (fp->aux) {
- #ifdef CONFIG_BPF_SYSCALL
- 		bpf_prog_stream_free(fp);
-+		bpf_priv_stack_free(fp->aux);
- #endif
- 		mutex_destroy(&fp->aux->used_maps_mutex);
- 		mutex_destroy(&fp->aux->dst_mutex);
-diff --git a/kernel/bpf/fixups.c b/kernel/bpf/fixups.c
-index 4d9b67981520..4f9a53b1ae1a 100644
---- a/kernel/bpf/fixups.c
-+++ b/kernel/bpf/fixups.c
-@@ -1765,6 +1765,7 @@ static int jit_subprogs(struct bpf_verifier_env *env)
+ struct xfrm_state *
+@@ -2822,6 +2835,66 @@ int xfrm_state_walk(struct net *net, struct xfrm_state_walk *walk,
+ }
+ EXPORT_SYMBOL(xfrm_state_walk);
  
- 		func[i]->aux->name[0] = 'F';
- 		func[i]->aux->stack_depth = env->subprog_info[i].stack_depth;
-+		func[i]->aux->priv_stack_offset = env->subprog_info[i].priv_stack_offset;
- 		if (env->subprog_info[i].priv_stack_mode == PRIV_STACK_ADAPTIVE)
- 			func[i]->aux->jits_use_priv_stack = true;
- 
-diff --git a/kernel/bpf/priv_stack.c b/kernel/bpf/priv_stack.c
-new file mode 100644
-index 000000000000..05a1ba9bce13
---- /dev/null
-+++ b/kernel/bpf/priv_stack.c
-@@ -0,0 +1,247 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (c) 2026 CrowdStrike
-+ *
-+ * BPF concurrency-safe private stacks
-+ * Guard handling adapted from arch/x86/net/bpf_jit_comp.c
-+ */
-+#include <linux/atomic.h>
-+#include <linux/bitops.h>
-+#include <linux/bpf.h>
-+#include <linux/bpf_verifier.h>
-+#include <linux/cpu.h>
-+#include <linux/overflow.h>
-+#include <linux/percpu.h>
-+#include <linux/sched.h>
-+#include <linux/slab.h>
-+#include <linux/topology.h>
-+#include <linux/vmalloc.h>
-+
-+#define BPF_PRIV_STACK_GUARD_VAL	0xEB9F12345678eb9fULL
-+#define BPF_PRIV_STACK_GUARD_SZ	8
-+#define BPF_PRIV_STACK_NR_SLOTS	4
-+/* limit private stack slots to single word */
-+static_assert(BPF_PRIV_STACK_NR_SLOTS > 0 && BPF_PRIV_STACK_NR_SLOTS <= BITS_PER_LONG);
-+
-+struct bpf_priv_stack_cpu {
-+	unsigned long busy;
-+	void *slots;
-+};
-+
-+struct bpf_priv_stack_frame {
-+	u32 start;
-+	u32 end;
-+};
-+
-+struct bpf_priv_stack_pool {
-+	struct bpf_priv_stack_cpu __percpu *priv_stack_cpu;
-+	atomic64_t exhaustions;
-+	u32 slot_size;
-+	u32 nr_frames;
-+	struct bpf_priv_stack_frame frames[];
-+};
-+
-+static void priv_stack_pool_free(struct bpf_priv_stack_pool *pool)
++bool xfrm_state_walk_batch(struct net *net, struct xfrm_state_walk *walk,
++			   struct xfrm_state_walk_batch *batch)
 +{
-+	if (pool->priv_stack_cpu) {
-+		int cpu;
++	struct xfrm_state_walk *x;
++	struct xfrm_state *state;
++	unsigned int visited = 0;
++	bool done = true;
 +
-+		for_each_possible_cpu(cpu)
-+			kvfree(per_cpu_ptr(pool->priv_stack_cpu, cpu)->slots);
-+		free_percpu(pool->priv_stack_cpu);
-+	}
-+
-+	kfree(pool);
-+}
-+
-+static void __priv_stack_guards(struct bpf_priv_stack_pool *pool, bool init)
-+{
-+	int cpu;
-+
-+	for_each_possible_cpu(cpu) {
-+		struct bpf_priv_stack_cpu *priv_stack_cpu;
-+
-+		priv_stack_cpu = per_cpu_ptr(pool->priv_stack_cpu, cpu);
-+		for (size_t slot = 0; slot < BPF_PRIV_STACK_NR_SLOTS; slot++) {
-+			void *slot_base = priv_stack_cpu->slots + (pool->slot_size * slot);
-+
-+			for (int i = 0; i < pool->nr_frames; i++) {
-+				struct bpf_priv_stack_frame *frame;
-+				u64 *low, *high;
-+
-+				frame = &pool->frames[i];
-+				if (!frame->end)
-+					continue;
-+
-+				low = slot_base + frame->start;
-+				high = slot_base + frame->end;
-+
-+				if (init) {
-+					*low = BPF_PRIV_STACK_GUARD_VAL;
-+					*high = BPF_PRIV_STACK_GUARD_VAL;
-+				} else if (*low != BPF_PRIV_STACK_GUARD_VAL ||
-+					   *high != BPF_PRIV_STACK_GUARD_VAL) {
-+					pr_err("BPF private stack guard corrupted: cpu %d slot %zu func %d\n",
-+						cpu, slot, i);
-+				}
-+			}
-+		}
-+	}
-+}
-+
-+static void priv_stack_guards_init(struct bpf_priv_stack_pool *pool)
-+{
-+	__priv_stack_guards(pool, true);
-+}
-+
-+static void priv_stack_guards_check(struct bpf_priv_stack_pool *pool)
-+{
-+	__priv_stack_guards(pool, false);
-+}
-+
-+int bpf_priv_stack_alloc(struct bpf_prog_aux *aux, struct bpf_subprog_info *subprog_info,
-+	u32 subprog_cnt)
-+{
-+	struct bpf_priv_stack_pool *pool;
-+	struct bpf_priv_stack_cpu *priv_stack_cpu;
-+	gfp_t gfp = bpf_memcg_flags(GFP_KERNEL);
-+	u32 size = 0;
-+	size_t bytes;
-+	int i, cpu, ret;
-+
-+	/* TODO - arm64 jit private stack pool */
-+	if (!IS_ENABLED(CONFIG_X86_64) || !aux->jits_use_priv_stack)
-+		return 0;
-+
-+	pool = kzalloc_flex(*pool, frames, subprog_cnt, gfp);
-+	if (!pool)
-+		return -ENOMEM;
-+
-+	for (i = 0; i < subprog_cnt; i++) {
-+		struct bpf_subprog_info *sub;
-+		u32 frame_size, end;
-+
-+		sub = &subprog_info[i];
-+		if (sub->priv_stack_mode != PRIV_STACK_ADAPTIVE)
-+			continue;
-+
-+		frame_size = round_up((u32)sub->stack_depth, 8) + (BPF_PRIV_STACK_GUARD_SZ * 2);
-+		if (check_add_overflow(size, frame_size, &end)) {
-+			ret = -E2BIG;
-+			goto out_free;
-+		}
-+
-+		pool->frames[i].start = size;
-+		pool->frames[i].end = end - BPF_PRIV_STACK_GUARD_SZ;
-+		sub->priv_stack_offset = pool->frames[i].end;
-+		size = end;
-+	}
-+
-+	if (!size) {
-+		kfree(pool);
-+		return 0;
-+	}
-+
-+	pool->nr_frames = subprog_cnt;
-+	pool->slot_size = size;
-+	bytes = (size_t)size * BPF_PRIV_STACK_NR_SLOTS;
-+
-+	pool->priv_stack_cpu = __alloc_percpu_gfp(sizeof(*priv_stack_cpu), __alignof__(*priv_stack_cpu), gfp);
-+	if (!pool->priv_stack_cpu) {
-+		ret = -ENOMEM;
-+		goto out_free;
-+	}
-+
-+	/* Keep large backing arrays out of the size-limited percpu allocator. */
-+	for_each_possible_cpu(cpu) {
-+		priv_stack_cpu = per_cpu_ptr(pool->priv_stack_cpu, cpu);
-+		priv_stack_cpu->slots = kvzalloc_node(bytes, gfp, cpu_to_node(cpu));
-+		if (!priv_stack_cpu->slots) {
-+			ret = -ENOMEM;
-+			goto out_free;
-+		}
-+	}
-+
-+	priv_stack_guards_init(pool);
-+	aux->priv_stack_pool = pool;
-+	aux->priv_stack_offset = subprog_info[0].priv_stack_offset;
-+
-+	return 0;
-+
-+out_free:
-+	priv_stack_pool_free(pool);
-+	return ret;
-+}
-+
-+void bpf_priv_stack_free(struct bpf_prog_aux *aux)
-+{
-+	struct bpf_priv_stack_pool *pool = aux->priv_stack_pool;
-+
-+	if (!pool)
-+		return;
-+
-+	priv_stack_guards_check(pool);
-+	priv_stack_pool_free(pool);
-+	aux->priv_stack_pool = NULL;
-+}
-+
-+bool notrace bpf_priv_stack_acquire(struct bpf_prog *prog,
-+				  struct bpf_priv_stack_reservation *res)
-+{
-+	struct bpf_priv_stack_cpu *priv_stack_cpu;
-+	struct bpf_priv_stack_pool *pool;
-+	unsigned long available;
-+	unsigned int slot;
-+
-+	pool = prog->aux->main_prog_aux->priv_stack_pool;
-+	if (!pool)
++	batch->count = 0;
++	if (walk->seq != 0 && list_empty(&walk->all))
 +		return true;
 +
-+	priv_stack_cpu = this_cpu_ptr(pool->priv_stack_cpu);
-+	for (;;) {
-+		available = ~READ_ONCE(priv_stack_cpu->busy) & GENMASK(BPF_PRIV_STACK_NR_SLOTS - 1, 0);
-+		if (!available) {
-+			atomic64_inc(&pool->exhaustions);
-+			return false;
++	spin_lock_bh(&net->xfrm.xfrm_state_lock);
++	if (list_empty(&walk->all))
++		x = list_first_entry(&net->xfrm.state_all,
++				     struct xfrm_state_walk, all);
++	else
++		x = list_first_entry(&walk->all, struct xfrm_state_walk, all);
++	list_for_each_entry_from(x, &net->xfrm.state_all, all) {
++		/* Callers recheck state under x->lock before processing. */
++		if (data_race(READ_ONCE(x->state)) == XFRM_STATE_DEAD)
++			continue;
++		if (visited++ == ARRAY_SIZE(batch->states)) {
++			list_move_tail(&walk->all, &x->all);
++			done = false;
++			goto out;
 +		}
-+		slot = __ffs(available);
-+		if (!test_and_set_bit_lock(slot, &priv_stack_cpu->busy))
-+			break;
++		state = container_of(x, struct xfrm_state, km);
++		if (!xfrm_id_proto_match(state->id.proto, walk->proto))
++			continue;
++		if (!__xfrm_state_filter_match(state, walk->filter))
++			continue;
++		xfrm_state_hold(state);
++		batch->states[batch->count++] = state;
 +	}
-+
-+	res->slot_base = priv_stack_cpu->slots + (size_t)slot * pool->slot_size;
-+	res->busy = &priv_stack_cpu->busy;
-+	res->slot = slot;
-+	/* Publish the pool associated with the new reservation. */
-+	barrier();
-+	WRITE_ONCE(res->pool, pool);
-+
-+	return true;
++	list_del_init(&walk->all);
++out:
++	walk->seq = 1;
++	spin_unlock_bh(&net->xfrm.xfrm_state_lock);
++	return done;
 +}
++EXPORT_SYMBOL(xfrm_state_walk_batch);
 +
-+void notrace bpf_priv_stack_release(struct bpf_priv_stack_reservation *res)
++bool xfrm_state_walk_rewind(struct xfrm_state_walk *walk, struct xfrm_state *x)
 +{
-+	if (!res->pool)
-+		return;
++	struct net *net = xs_net(x);
++	bool linked;
 +
-+	clear_bit_unlock(res->slot, res->busy);
-+	res->pool = NULL;
-+	res->slot_base = NULL;
++	lockdep_assert_held(&x->lock);
++
++	spin_lock(&net->xfrm.xfrm_state_lock);
++	linked = !hlist_unhashed(&x->bydst);
++	if (linked)
++		list_move_tail(&walk->all, &x->km.all);
++	spin_unlock(&net->xfrm.xfrm_state_lock);
++
++	return linked;
 +}
++EXPORT_SYMBOL(xfrm_state_walk_rewind);
 +
-+/*
-+ * Find the invocation's reserved slot and return the prog's
-+ * private frame pointer.
-+ */
-+void *notrace bpf_priv_stack_frame(struct bpf_prog *prog)
-+{
-+	struct bpf_priv_stack_pool *pool = prog->aux->main_prog_aux->priv_stack_pool;
-+	struct bpf_run_ctx *ctx;
-+
-+	/* Nested run contexts may sit above owning reservation. */
-+	for (ctx = READ_ONCE(current->bpf_ctx); READ_ONCE(ctx->priv_stack.pool) != pool;
-+	     ctx = ctx->outer_run_ctx)
-+		;
-+
-+	return ctx->priv_stack.slot_base + prog->aux->priv_stack_offset;
-+}
-diff --git a/kernel/bpf/trampoline.c b/kernel/bpf/trampoline.c
-index 44a73766aa98..c8e3f8ca3416 100644
---- a/kernel/bpf/trampoline.c
-+++ b/kernel/bpf/trampoline.c
-@@ -1355,6 +1355,9 @@ static u64 notrace __bpf_prog_enter_recur(struct bpf_prog *prog, struct bpf_tram
- 		}
- 	}
- 
-+	if (!bpf_priv_stack_acquire(prog, &run_ctx->run_ctx.priv_stack))
-+		return 0;
-+
- 	return bpf_prog_start_time();
+ void xfrm_state_walk_init(struct xfrm_state_walk *walk, u8 proto,
+ 			  struct xfrm_address_filter *filter)
+ {
+diff --git a/net/xfrm/xfrm_user.c b/net/xfrm/xfrm_user.c
+index 217f65faa2bd..94f73349d22d 100644
+--- a/net/xfrm/xfrm_user.c
++++ b/net/xfrm/xfrm_user.c
+@@ -1181,8 +1181,6 @@ static void copy_to_user_state(struct xfrm_state *x, struct xfrm_usersa_info *p)
+ 	memcpy(&p->id, &x->id, sizeof(p->id));
+ 	memcpy(&p->sel, &x->sel, sizeof(p->sel));
+ 	memcpy(&p->lft, &x->lft, sizeof(p->lft));
+-	if (x->xso.dev)
+-		xfrm_dev_state_update_stats(x);
+ 	memcpy(&p->curlft, &x->curlft, sizeof(p->curlft));
+ 	put_unaligned(x->stats.replay_window, &p->stats.replay_window);
+ 	put_unaligned(x->stats.replay, &p->stats.replay);
+@@ -1566,11 +1564,34 @@ static int xfrm_dump_sa_done(struct netlink_callback *cb)
+ 	return 0;
  }
  
-@@ -1393,6 +1396,7 @@ static void notrace __bpf_prog_exit_recur(struct bpf_prog *prog, u64 start,
- 	bpf_reset_run_ctx(run_ctx->saved_run_ctx);
- 
- 	update_prog_stats(prog, start);
-+	bpf_priv_stack_release(&run_ctx->run_ctx.priv_stack);
- 	rcu_read_unlock_migrate();
- }
- 
-diff --git a/kernel/bpf/verifier.c b/kernel/bpf/verifier.c
-index 39f1c6eb1131..3ec159520f33 100644
---- a/kernel/bpf/verifier.c
-+++ b/kernel/bpf/verifier.c
-@@ -5331,6 +5331,16 @@ static enum priv_stack_mode bpf_enable_priv_stack(struct bpf_prog *prog)
- 	if (!bpf_jit_supports_private_stack())
- 		return NO_PRIV_STACK;
- 
-+	/* TODO - arm64  and other types */
-+	if (IS_ENABLED(CONFIG_X86_64)) {
-+		if (prog->sleepable || prog->type != BPF_PROG_TYPE_TRACING)
-+			return NO_PRIV_STACK;
-+		if (prog->expected_attach_type == BPF_TRACE_FENTRY ||
-+		    prog->expected_attach_type == BPF_TRACE_FEXIT)
-+			return PRIV_STACK_ADAPTIVE;
-+		return NO_PRIV_STACK;
-+	}
++static int refresh_and_dump_state(struct xfrm_state_walk *walk,
++				  struct xfrm_state *x,
++				  struct xfrm_dump_info *info)
++{
++	int err = 0;
 +
- 	/* bpf_prog_check_recur() checks all prog types that use bpf trampoline
- 	 * while kprobe/tp/perf_event/raw_tp don't use trampoline hence checked
- 	 * explicitly.
-@@ -25260,6 +25270,11 @@ int bpf_check(struct bpf_prog **prog, union bpf_attr *attr, bpfptr_t uattr,
- 								     : false;
++	spin_lock_bh(&x->lock);
++	if (x->km.state != XFRM_STATE_DEAD) {
++		xfrm_dev_state_update_stats(x);
++		err = dump_one_state(x, 0, info);
++		if (err && !xfrm_state_walk_rewind(walk, x))
++			err = 0;
++	}
++	spin_unlock_bh(&x->lock);
++
++	return err;
++}
++
+ static int xfrm_dump_sa(struct sk_buff *skb, struct netlink_callback *cb)
+ {
+ 	struct net *net = sock_net(skb->sk);
+ 	struct xfrm_state_walk *walk = (struct xfrm_state_walk *) &cb->args[1];
++	struct xfrm_state_walk_batch batch;
+ 	struct xfrm_dump_info info;
++	struct xfrm_state *x;
++	unsigned int i;
++	int err = 0;
++	bool done;
+ 
+ 	BUILD_BUG_ON(sizeof(struct xfrm_state_walk) >
+ 		     sizeof(cb->args) - sizeof(cb->args[0]));
+@@ -1584,7 +1605,6 @@ static int xfrm_dump_sa(struct sk_buff *skb, struct netlink_callback *cb)
+ 		struct nlattr *attrs[XFRMA_MAX+1];
+ 		struct xfrm_address_filter *filter = NULL;
+ 		u8 proto = 0;
+-		int err;
+ 
+ 		err = nlmsg_parse_deprecated(cb->nlh, 0, attrs, XFRMA_MAX,
+ 					     xfrma_policy, cb->extack);
+@@ -1614,7 +1634,16 @@ static int xfrm_dump_sa(struct sk_buff *skb, struct netlink_callback *cb)
+ 		cb->args[0] = 1;
  	}
  
-+	if (ret == 0 && !bpf_prog_is_offloaded(env->prog->aux) &&
-+			env->prog->jit_requested) {
-+		ret = bpf_priv_stack_alloc(env->prog->aux, env->subprog_info, env->subprog_cnt);
-+	}
-+
- 	if (ret == 0)
- 		ret = bpf_fixup_call_args(env);
+-	(void) xfrm_state_walk(net, walk, dump_one_state, &info);
++	do {
++		done = xfrm_state_walk_batch(net, walk, &batch);
++		for (i = 0; i < batch.count; i++) {
++			x = batch.states[i];
++			if (!err)
++				err = refresh_and_dump_state(walk, x, &info);
++			xfrm_state_put(x);
++		}
++		cond_resched();
++	} while (!done && !err);
  
+ 	return skb->len;
+ }
+@@ -1635,7 +1664,10 @@ static struct sk_buff *xfrm_state_netlink(struct sk_buff *in_skb,
+ 	info.nlmsg_seq = seq;
+ 	info.nlmsg_flags = 0;
+ 
++	spin_lock_bh(&x->lock);
++	xfrm_dev_state_update_stats(x);
+ 	err = dump_one_state(x, 0, &info);
++	spin_unlock_bh(&x->lock);
+ 	if (err) {
+ 		kfree_skb(skb);
+ 		return ERR_PTR(err);
+@@ -3973,6 +4005,8 @@ static int build_expire(struct sk_buff *skb, struct xfrm_state *x, const struct
+ 	struct nlmsghdr *nlh;
+ 	int err;
+ 
++	xfrm_dev_state_update_stats(x);
++
+ 	nlh = nlmsg_put(skb, c->portid, 0, XFRM_MSG_EXPIRE, sizeof(*ue), 0);
+ 	if (nlh == NULL)
+ 		return -EMSGSIZE;
+@@ -4170,7 +4204,10 @@ static int xfrm_notify_sa(struct xfrm_state *x, const struct km_event *c)
+ 
+ 		p = nla_data(attr);
+ 	}
++	spin_lock_bh(&x->lock);
++	xfrm_dev_state_update_stats(x);
+ 	err = copy_to_user_state_extra(x, p, skb);
++	spin_unlock_bh(&x->lock);
+ 	if (err)
+ 		goto out_free_skb;
+ 
+
+base-commit: b88c75488ecc768acadb14e980bbfa087b1dbf38
 -- 
-2.56.1
+2.39.3
+
