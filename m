@@ -1,87 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.180
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.158
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795617119;
-	b=C68myeOBnZemgax3Loy+qB7hwDi/fJfHUjoqE5D4e2vqrTyUDFvlGPC/mit3cu6SUaF6
-	 b1rw1u5wo6t3phPw0kQFH6Jfv2T1hcwQaIHVKT4YiXXozQZu74b7CBKWdePXFLuZ/AOsB
-	 zlHAYlVx2+FTUcL5G7ak7YszCTzTw50RSeSMYRgq5832O6z3iCFdq6vYJV8MjJ1xEydEF
-	 xXoseeaiadKBa/jRdavnqFlsc1XY7CrSQ8iVJcoYykYINKhFLHgvOnLzbQKz9FBKuVeGc
-	 OQAfM1dnCJ0IJqgR1up3uqp8klwmjxydgJoZttpr3GLcE09slGRh8J0UrzItok+sGQw==
+	t=1795617120;
+	b=1CrenK9yd+SP+pHIxsAiB0JV8vtf8lROG046wY+C8IqZxOXgaGFF6I5KeTCnCbYdC3JR
+	 hTetSdxHkotlIiPuQVNS8U1gsfXRqUczelLfSyLBTmPFvQ9EG5/VjzCdCquuDn+ZZBrhS
+	 LciTjxPE+Q5Q9PEN4w8936jVmuCxWdWzBHPj1139Eu9FDqLskjyJ+pAAtY/6/X+dPvknF
+	 hyKYYho2yNKG7EJLgNxXx9BABFvDvKZ58KY7Aa31rrgv9IdQrnSHenDrN8K6x2g4R3YuG
+	 y2+OUm4kXY8BGVXw1kttxJD6hIX9qac5uK1rf54RgdNSStJhfoYEODnqDI99V9soZvg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795617119;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=zKfRowNSGjVA87CJ4mW494zsgUl/v5ojHBz8f5BNf/0=;
-	b=k+9MY8RZZSmdTLy7WLevmn0W7zkyzWvmJPPIw9EwCaMI1DF1U0ynqisBn+dTLUR7OKo5
-	 nEyl88TKvAHJTJtqQjf1sp13Z5faOBvSuMAqcK7ekXuP3/vpFGGgacx5zSQNX4lvKDGW8
-	 RWUKpMU3YrYjFzeCIg73K2qF0/cWPVEKSDR/jnqeZIBQPUgeCMer8Ob5pNDxAdh7u5yA/
-	 5wyTpcV1GGO5FCkRYK4IGWXB0TQA/UGFSOXDdRM608YTdBwQIn8bamZEcm+6H0oKtsew9
-	 6EWfR6xywDx9d8O3XEon2nPf0ohwXWQSsnMc7YUTp6snZzJRo9Tc1HJByfrdEVWhPLQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795617120;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=W9vKBkuf9EfCK/eG7T7fyygPvv7SG3tP86gxBxZ2fjY=;
+	b=wGWe2GjERlPksXhAsaxzPvKpqAjc0Qu9NrcSeXZEtmOySD/caJNjHGiCkz8Zct94HBdv
+	 L1ykbxbl0rtbmR3+XOWRMPyheYMH0F79uUrsVbW6uDuaxC16xfyYFnZzWQbRLuqoFIv4G
+	 AjqX0QJkuRNUwVkn+M0v78EPmaqy1XkH461T8llE0BwQlu1zAvTxudjnKhcH2mE4kEhnD
+	 +prB4nWOYrXk4vUBONnT9GubpgJ8+0ANDQiPR4yp3cnj4bsBh/N8b5USvSIvXpJzz7sdH
+	 lrcNiVUdKtRFEPXCNpUVrPzRFS1patOpzZdCiglswd8HslZAQf661l9O08GBphddieQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linaro.org;
-	spf=pass smtp.mailfrom=linaro.org;
-	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=AdI7v2p2;
-	arc=none smtp.remote-ip=209.85.208.180
-Received: from mail-lj1-f180.google.com (mail-lj1-f180.google.com [209.85.208.180])
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=JeoanDhG;
+	arc=none smtp.remote-ip=95.215.58.158
+Received: from mta1.migadu.com (out-158.mta1.migadu.com [95.215.58.158])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9631B606A321
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:31:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9631B606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 045C6606A33B
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:31:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 045C6606A33B
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=AdI7v2p2
-Received: by mail-lj1-f180.google.com with SMTP id 38308e7fff4ca-3adfb0c9e3cso4821841fa.3
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 06:31:58 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1795617117; x=1796221917; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from:references
-         :cc:to:subject:user-agent:mime-version:date:message-id:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=zKfRowNSGjVA87CJ4mW494zsgUl/v5ojHBz8f5BNf/0=;
-        b=AdI7v2p2DEnGcimvFHEZ5FVOQzGh9kkiGvTi8IyruIj4NZ9mtrDkotiCBgY8hdHcFJ
-         J5vpTFTxElIV3Bfd2gJcR1dSzv9XNkGP/Y0is5nM+gHP5MukTCaUJCZEQ8hSJseL55RE
-         9pbRCy1oNY2TNyYScIOM1eRVC1Hri+fvfQDSLHPgqTwElpBzAVbJA8jxApn2x2T8VfsP
-         IGHTrD/GtpvO070Qkv/SUBdfTuZ0JEoOhcQ3FIPntQb1Op/aFvCZBb4v2QSDSv+JGXbj
-         R/+TsbRhLAZNI5ttbtA0lnVW62/WUQaEZ8x3ikZL6ByIq294H0YzOwl+eW6ZmxOTGZbq
-         aPXQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795617117; x=1796221917;
-        h=content-transfer-encoding:content-type:in-reply-to:from:references
-         :cc:to:subject:user-agent:mime-version:date:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=zKfRowNSGjVA87CJ4mW494zsgUl/v5ojHBz8f5BNf/0=;
-        b=fkm7Yolk+HC4xmuWO29/IB2FnljoBfsr/6stGfmT1TuBlRuWbgS96RoHysyg+gec+B
-         Y5ahWIjQ9GoR3eEtQBcQ7Xl7d4cVhBJBHBD6PKHScNulUd23CvOtAvpPbNJvO/A4vu9f
-         7I7zPKGdw83Cx7Dw0weUlSxXN+YQgFw0vUvNU+iWV9j4xqf8WLR2t0SYAJG4DF6oypRV
-         gxuFGmO/SkXRf1mO97llyo4uV8QqgnAWHNFvTcSW1SufrqNZrrPKxp/oqNqsC3Apx4qY
-         DqoY/cSVThvS356KzhBhFrkX8lBglI1mGwN42ej/5fyvYLX1UnjPV6v+66zEqfxfkVbS
-         pKIw==
-X-Forwarded-Encrypted: i=1; AL+hErGOQyO6HCI2YhuujwxU239PN/BwJ759Yf1hRTxFoSGcILNULkxVYrQq7qxfN3Tn/UnXiFLrKUX5WXDtEtc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9eULljfGIvdrglL9013GH9KCYdxsw8iAgLF6I/XWEEgqJ4DqhC
-	QVIaCf5SxVN3s084L3tobeHWBojkxDalpnm3pElmrTmvaYc932tUf5PdaS8GeAmiNCk=
-X-Gm-Gg: AZFdTZfCgYGOChQM3xTMkOAWtOBntzu4Vyjrdp0KClmExbZaZMtwPH4DnXxG/fqd72c
-	nu7oOoYkE0MnvwzvL/Qqh+JOVtRcLKWwgZL5Y7yGnWI5l6S87v5gVGWK2eHEavrjUgRa7RYA947
-	8zM1z5cg7vwSyd+6Hia4UUuThGMZ1Z5XXed+npmfwcpHa4TO8nKrnREC6hl+hCLE4vAMM+eBw6Y
-	SyBZGFCbNbDf6XcR2kkxI2t/MG/Qp0TeuIy/cf1RmUyXWqcNDCk1DL/vQQFcY5Yck/LhoEScLn0
-	Q0llf/P+RgPoQhWclmv8TnSIEse8Dr0Kr6hn4Ga/CXuNTBW5TL7CJe0IiHta5CiKdI1Xb619scS
-	2dP6bnwj0XXaV9DgkihRDVrbtYV2ZSAU/pZog5a9ejFJ7rZprIC/IpPI3WXtU0CfVzW0UoXDyYT
-	y92JXG0PvHLsYdILV6+xoiIYAGAEw3DbgNzqAJCFSSgKq/7Ag7L9YCIqaTAqPWglGyYWBAKs47P
-	EDPp7I/mv9pAEjXA+xcFJL5mla2xTeeycky2s+RD7E2lVE0P833C2nVtYuHfzf2hGbZ3OaEp7HR
-	bfO8rqCCjEo11YkfOcAli8barUNHdJLm+CvFCHgw2gWgpijZvn8pUP0Q7TpTKvT33jkpey/abMX
-	+UOOzICc=
-X-Received: by 2002:a2e:a28e:0:b0:3ac:dec0:158e with SMTP id 38308e7fff4ca-3ae7f9f3418mr40722721fa.2.1795617116747;
-        Wed, 25 Nov 2026 06:31:56 -0800 (PST)
-Received: from [192.168.1.101] (91-159-24-186.elisa-laajakaista.fi. [91.159.24.186])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3ae8053568esm50069981fa.25.2026.11.25.06.31.55
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 25 Nov 2026 06:31:56 -0800 (PST)
-Message-ID: <bac87368-6a84-4c75-ad25-b2fdea432b72@linaro.org>
-Date: Wed, 25 Nov 2026 16:31:55 +0200
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=JeoanDhG
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=XKKXO3M5xHnltq0mNRZ0f54bFSZ0rb5xvZeNSjm/bpw=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795617118; v=1; x=1796221918;
+ b=JeoanDhG0AgIB1oayKn+DEIIEXrxwQ5rgZPExT6gURaCwGlloVXxrJrsqBX03tpxgvZX3AFi
+ huK/JuV4xRxcPQB1KObikR+pJxKJAUPMeKTjb+hHRGTUvwEZTfF1xbya9R/LAApP0RUA1PiwArk
+ uDpqgfa2PzIRZcFSVXZ6+JaM=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id aab6a3ba64b69de4;
+	Wed, 25 Nov 2026 14:31:57 +0000
+X-Mizu-Trace-ID: aab6a3ba64b69de4
+X-Migadu-Flow: FLOW_OUT
+From: Leon Hwang <leon.hwang@linux.dev>
+To: bpf@vger.kernel.org
+Cc: Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Emil Tsalapatis <emil@etsalapatis.com>,
+	Ihor Solodrai <ihor.solodrai@linux.dev>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	KP Singh <kpsingh@kernel.org>,
+	Matt Bobrowski <matt@bobrowski.net>,
+	Shuah Khan <shuah@kernel.org>,
+	Leon Hwang <leon.hwang@linux.dev>,
+	linux-kernel@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	netdev@vger.kernel.org
+Subject: [PATCH bpf-next v4 0/6] bpf: Add log support for tracing link_create
+Date: Wed, 25 Nov 2026 22:31:32 +0800
+Message-ID: <20261125143138.47174-1-leon.hwang@linux.dev>
+X-Mailer: git-send-email 2.55.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -91,368 +84,89 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/3] dt-bindings: media: qcom,glymur-camss: Add Glymur
- CAMSS
-To: Nihal Kumar Gupta <nihal.gupta@oss.qualcomm.com>,
- Bryan O'Donoghue <bod@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
- Loic Poulain <loic.poulain@oss.qualcomm.com>, Vinod Koul <vkoul@kernel.org>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Manivannan Sadhasivam <mani@kernel.org>,
- Mauro Carvalho Chehab <mchehab@kernel.org>
-Cc: linux-arm-msm@vger.kernel.org, linux-media@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-phy@lists.infradead.org, Suresh Vankadara <svankada@qti.qualcomm.com>,
- Vikram Sharma <vikram.sharma@oss.qualcomm.com>,
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-References: <20260925-glymur_camss-v4-0-d7c2983d6d7b@oss.qualcomm.com>
- <20260925-glymur_camss-v4-2-d7c2983d6d7b@oss.qualcomm.com>
-From: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
-In-Reply-To: <20260925-glymur_camss-v4-2-d7c2983d6d7b@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-On 9/25/26 08:48, Nihal Kumar Gupta wrote:
-> Glymur uses only the new PHY API via standalone phy@ child nodes,
-> so per-CSIPHY clocks, interrupts and supplies are absent here.
-> 
-> X1E80100 has four CSIPHY instances while Glymur has three
-> (CSIPHY0, CSIPHY1, CSIPHY4).
-> 
-> Co-developed-by: Vikram Sharma <vikram.sharma@oss.qualcomm.com>
-> Signed-off-by: Vikram Sharma <vikram.sharma@oss.qualcomm.com>
-> Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-> Signed-off-by: Nihal Kumar Gupta <nihal.gupta@oss.qualcomm.com>
-> ---
->   .../bindings/media/qcom,glymur-camss.yaml          | 300 +++++++++++++++++++++
->   1 file changed, 300 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/media/qcom,glymur-camss.yaml b/Documentation/devicetree/bindings/media/qcom,glymur-camss.yaml
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..a0b77edc212319fad69113f3d55ca24f184d4b23
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/media/qcom,glymur-camss.yaml
-> @@ -0,0 +1,300 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/media/qcom,glymur-camss.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Qualcomm Glymur Camera Subsystem (CAMSS)
-> +
-> +maintainers:
-> +  - Nihal Kumar Gupta <nihal.gupta@oss.qualcomm.com>
-> +
-> +description:
-> +  The CAMSS IP is a CSI decoder and ISP present on Qualcomm platforms.
-> +
-> +properties:
-> +  compatible:
-> +    const: qcom,glymur-camss
-> +
-> +  reg:
-> +    maxItems: 13
-> +
-> +  reg-names:
-> +    items:
-> +      - const: csid_wrapper
-> +      - const: csid0
-> +      - const: csid1
-> +      - const: csid2
-> +      - const: csid_lite0
-> +      - const: csid_lite1
-> +      - const: csitpg0
-> +      - const: csitpg1
-> +      - const: csitpg2
+I'm planning to add syscall common attrs support for LINK_CREATE cmd.
 
-I believe CAMSS on SM8350 and before has TPG as a CSID IP function, but
-since then TPGs are seperate I/O blocks. It might be more appropriate
-to give "tpgX" names (like it's done for sa8775p and qcs8300), and I do
-understand that "csitpgX" were selected just to get a compatibility with
-the reused X1E TPG names, which might be not a good enough reason...
+This is the second series for the plan, that adds syscall common attrs
+support for LINK_CREATE of tracing prog and cgroup prog.
 
-> +      - const: vfe0
-> +      - const: vfe1
-> +      - const: vfe_lite0
-> +      - const: vfe_lite1
-> +
-> +  clocks:
-> +    maxItems: 20
-> +
-> +  clock-names:
-> +    items:
-> +      - const: camnoc_nrt_axi
-> +      - const: camnoc_rt_axi
-> +      - const: core_ahb
-> +      - const: cpas_ahb
-> +      - const: cpas_fast_ahb
-> +      - const: cpas_vfe0
-> +      - const: cpas_vfe1
-> +      - const: cpas_vfe_lite
-> +      - const: csid
-> +      - const: csid_csiphy_rx
-> +      - const: gcc_axi_hf
-> +      - const: gcc_axi_sf
-> +      - const: vfe0
-> +      - const: vfe0_fast_ahb
-> +      - const: vfe1
-> +      - const: vfe1_fast_ahb
-> +      - const: vfe_lite
-> +      - const: vfe_lite_ahb
-> +      - const: vfe_lite_cphy_rx
-> +      - const: vfe_lite_csid
-> +
-> +  interrupts:
-> +    maxItems: 9
-> +
-> +  interrupt-names:
-> +    items:
-> +      - const: csid0
-> +      - const: csid1
-> +      - const: csid2
-> +      - const: csid_lite0
-> +      - const: csid_lite1
-> +      - const: vfe0
-> +      - const: vfe1
-> +      - const: vfe_lite0
-> +      - const: vfe_lite1
-> +
-> +  interconnects:
-> +    maxItems: 4
-> +
-> +  interconnect-names:
-> +    items:
-> +      - const: ahb
-> +      - const: hf_mnoc
-> +      - const: sf_mnoc
-> +      - const: sf_icp_mnoc
-> +
-> +  iommus:
-> +    items:
-> +      - description: S1 HLOS IFE and IFE_LITE non-protected
-> +
-> +  power-domains:
-> +    items:
-> +      - description: IFE0 GDSC - Image Front End, Global Distributed Switch Controller.
-> +      - description: IFE1 GDSC - Image Front End, Global Distributed Switch Controller.
-> +      - description: Titan Top GDSC - Titan ISP Block, Global Distributed Switch Controller.
-> +
-> +  power-domain-names:
-> +    items:
-> +      - const: ife0
-> +      - const: ife1
-> +      - const: top
-> +
-> +  ports:
-> +    $ref: /schemas/graph.yaml#/properties/ports
-> +
-> +    description:
-> +      CSI input ports.
-> +
-> +    patternProperties:
-> +      "^port@[0-3]$":
+BTW, address Andrii's review [1] in patch 5:
+1. Change if (!OPTS_ZEROED(opts, iter_info_len)) to if
+   (!OPTS_ZEROED(opts, log_opts)).
+2. Add comment to iter_info and iter_info_len that they are
+   deprecated, and use iter.info and iter.len instead.
 
-Reading the commit message, I develop a feeling that it might make sense
-to change the regexp to [014] or something like that.
+Links:
+[1] https://lore.kernel.org/bpf/CAEf4BzbW4zwL-9j8e2B6KNXVNwsfWyMSAo_RsGCqv-nu_yGhTg@mail.gmail.com/
 
-> +        $ref: /schemas/graph.yaml#/$defs/port-base
-> +        unevaluatedProperties: false
-> +
-> +        description:
-> +          Input port for receiving CSI data.
-> +
-> +        properties:
-> +          endpoint:
-> +            $ref: video-interfaces.yaml#
-> +            unevaluatedProperties: false
-> +
-> +            properties:
-> +              data-lanes:
-> +                minItems: 1
-> +                maxItems: 4
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - reg-names
-> +  - clocks
-> +  - clock-names
-> +  - interrupts
-> +  - interrupt-names
-> +  - interconnects
-> +  - interconnect-names
-> +  - iommus
-> +  - power-domains
-> +  - power-domain-names
-> +  - ports
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/clock/qcom,glymur-gcc.h>
-> +    #include <dt-bindings/clock/qcom,glymur-camcc.h>
-> +    #include <dt-bindings/interconnect/qcom,glymur-rpmh.h>
-> +    #include <dt-bindings/interconnect/qcom,icc.h>
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +    #include <dt-bindings/power/qcom-rpmpd.h>
-> +
-> +    soc {
-> +        #address-cells = <2>;
-> +        #size-cells = <2>;
-> +
-> +        camss: isp@acb6000 {
-> +            compatible = "qcom,glymur-camss";
-> +
-> +            reg = <0x0 0x0acb6000 0x0 0x1000>,
-> +                  <0x0 0x0acb7000 0x0 0x2000>,
-> +                  <0x0 0x0acb9000 0x0 0x2000>,
-> +                  <0x0 0x0acbb000 0x0 0x2000>,
-> +                  <0x0 0x0acc6000 0x0 0x1000>,
-> +                  <0x0 0x0acca000 0x0 0x1000>,
-> +                  <0x0 0x0acf6000 0x0 0x1000>,
-> +                  <0x0 0x0acf7000 0x0 0x1000>,
-> +                  <0x0 0x0acf8000 0x0 0x1000>,
-> +                  <0x0 0x0ac62000 0x0 0xf000>,
-> +                  <0x0 0x0ac71000 0x0 0xf000>,
-> +                  <0x0 0x0acc7000 0x0 0x2000>,
-> +                  <0x0 0x0accb000 0x0 0x2000>;
-> +            reg-names = "csid_wrapper",
-> +                        "csid0",
-> +                        "csid1",
-> +                        "csid2",
-> +                        "csid_lite0",
-> +                        "csid_lite1",
-> +                        "csitpg0",
-> +                        "csitpg1",
-> +                        "csitpg2",
-> +                        "vfe0",
-> +                        "vfe1",
-> +                        "vfe_lite0",
-> +                        "vfe_lite1";
-> +
-> +            clocks = <&camcc CAM_CC_CAMNOC_AXI_NRT_CLK>,
-> +                     <&camcc CAM_CC_CAMNOC_AXI_RT_CLK>,
-> +                     <&camcc CAM_CC_CORE_AHB_CLK>,
-> +                     <&camcc CAM_CC_CPAS_AHB_CLK>,
-> +                     <&camcc CAM_CC_CPAS_FAST_AHB_CLK>,
-> +                     <&camcc CAM_CC_CPAS_IFE_0_CLK>,
-> +                     <&camcc CAM_CC_CPAS_IFE_1_CLK>,
-> +                     <&camcc CAM_CC_CPAS_IFE_LITE_CLK>,
-> +                     <&camcc CAM_CC_CSID_CLK>,
-> +                     <&camcc CAM_CC_CSID_CSIPHY_RX_CLK>,
-> +                     <&gcc GCC_CAMERA_HF_AXI_CLK>,
-> +                     <&gcc GCC_CAMERA_SF_AXI_CLK>,
-> +                     <&camcc CAM_CC_IFE_0_CLK>,
-> +                     <&camcc CAM_CC_IFE_0_FAST_AHB_CLK>,
-> +                     <&camcc CAM_CC_IFE_1_CLK>,
-> +                     <&camcc CAM_CC_IFE_1_FAST_AHB_CLK>,
-> +                     <&camcc CAM_CC_IFE_LITE_CLK>,
-> +                     <&camcc CAM_CC_IFE_LITE_AHB_CLK>,
-> +                     <&camcc CAM_CC_IFE_LITE_CPHY_RX_CLK>,
-> +                     <&camcc CAM_CC_IFE_LITE_CSID_CLK>;
-> +            clock-names = "camnoc_nrt_axi",
-> +                          "camnoc_rt_axi",
-> +                          "core_ahb",
-> +                          "cpas_ahb",
-> +                          "cpas_fast_ahb",
-> +                          "cpas_vfe0",
-> +                          "cpas_vfe1",
-> +                          "cpas_vfe_lite",
-> +                          "csid",
-> +                          "csid_csiphy_rx",
-> +                          "gcc_axi_hf",
-> +                          "gcc_axi_sf",
-> +                          "vfe0",
-> +                          "vfe0_fast_ahb",
-> +                          "vfe1",
-> +                          "vfe1_fast_ahb",
-> +                          "vfe_lite",
-> +                          "vfe_lite_ahb",
-> +                          "vfe_lite_cphy_rx",
-> +                          "vfe_lite_csid";
-> +
-> +            interrupts = <GIC_SPI 601 IRQ_TYPE_EDGE_RISING>,
-> +                         <GIC_SPI 603 IRQ_TYPE_EDGE_RISING>,
-> +                         <GIC_SPI 431 IRQ_TYPE_EDGE_RISING>,
-> +                         <GIC_SPI 457 IRQ_TYPE_EDGE_RISING>,
-> +                         <GIC_SPI 436 IRQ_TYPE_EDGE_RISING>,
-> +                         <GIC_SPI 270 IRQ_TYPE_EDGE_RISING>,
-> +                         <GIC_SPI 271 IRQ_TYPE_EDGE_RISING>,
-> +                         <GIC_SPI 458 IRQ_TYPE_EDGE_RISING>,
-> +                         <GIC_SPI 860 IRQ_TYPE_EDGE_RISING>;
-> +            interrupt-names = "csid0",
-> +                              "csid1",
-> +                              "csid2",
-> +                              "csid_lite0",
-> +                              "csid_lite1",
-> +                              "vfe0",
-> +                              "vfe1",
-> +                              "vfe_lite0",
-> +                              "vfe_lite1";
-> +
-> +            interconnects = <&hsc_noc MASTER_APPSS_PROC QCOM_ICC_TAG_ACTIVE_ONLY
-> +                             &config_noc SLAVE_CAMERA_CFG QCOM_ICC_TAG_ACTIVE_ONLY>,
-> +                            <&mmss_noc MASTER_CAMNOC_HF QCOM_ICC_TAG_ALWAYS
-> +                             &mc_virt SLAVE_EBI1 QCOM_ICC_TAG_ALWAYS>,
-> +                            <&mmss_noc MASTER_CAMNOC_SF QCOM_ICC_TAG_ALWAYS
-> +                             &mc_virt SLAVE_EBI1 QCOM_ICC_TAG_ALWAYS>,
-> +                            <&mmss_noc MASTER_CAMNOC_ICP QCOM_ICC_TAG_ALWAYS
-> +                             &mc_virt SLAVE_EBI1 QCOM_ICC_TAG_ALWAYS>;
-> +            interconnect-names = "ahb",
-> +                                 "hf_mnoc",
-> +                                 "sf_mnoc",
-> +                                 "sf_icp_mnoc";
-> +
-> +            iommus = <&apps_smmu 0x800 0x20>;
-> +
-> +            power-domains = <&camcc CAM_CC_IFE_0_GDSC>,
-> +                            <&camcc CAM_CC_IFE_1_GDSC>,
-> +                            <&camcc CAM_CC_TITAN_TOP_GDSC>;
-> +            power-domain-names = "ife0",
-> +                                 "ife1",
-> +                                 "top";
-> +
-> +            ports {
-> +                #address-cells = <1>;
-> +                #size-cells = <0>;
-> +
-> +                port@0 {
-> +                    reg = <0>;
-> +                    camss_csiphy0_ep: endpoint {
-> +                        data-lanes = <1 2 3 4>;
-> +                        remote-endpoint = <&csiphy0_out>;
-> +                    };
-> +                };
-> +
-> +                port@1 {
-> +                    reg = <1>;
-> +                    camss_csiphy1_ep: endpoint {
-> +                        data-lanes = <1 2 3 4>;
-> +                        remote-endpoint = <&csiphy1_out>;
-> +                    };
-> +                };
-> +
-> +                port@3 {
-> +                    reg = <3>;
-> +                    camss_csiphy4_ep: endpoint {
+Changes:
+v3 -> v4:
+* Collect Acked-by tag from Jiri, thanks.
+* Change 'tgt_fd' to 'target_fd' in patch 1. (Sashiko)
+* Trim tests to 4 tests for tracing, tracing_multi, iter and cgroup links.
+  (Alexei)
+* v3: https://lore.kernel.org/bpf/20261123152743.19629-1-leon.hwang@linux.dev/
 
-Here is a mismatch between port number and link name, please
-double check, if it is intended.
+v2 -> v3:
+* Add log support for bpf_check_attach_btf_id_multi().
+* Add more selftests to cover more logs for link creation failures.
+* Update some log messages in patch 1. (Alexei)
+* Add log for dst attach type check in bpf_check_attach_target(). (Alexei)
+* Update some log messages in patch 2. (Alexei)
+* Pass 'log' to btf_attach_func_proto() and btf_distill_func_proto() in
+  bpf_check_attach_btf_id_multi(). (Alexei)
+* Add a log msg in check_dup_ids() when dup ids. (Alexei)
+* Add a log msg in bpf_tracing_multi_attach() when it returns
+  -EOPNOTSUPP. (Alexei)
+* Swap function names between iter_info and iter_info_len selftests.
+  (Sashiko)
+* v2: https://lore.kernel.org/bpf/20261114150610.84507-1-leon.hwang@linux.dev/
 
-> +                        data-lanes = <1 2 3 4>;
-> +                        remote-endpoint = <&csiphy4_out>;
-> +                    };
-> +                };
-> +            };
-> +        };
-> +    };
-> 
+v1 -> v2:
+* Add log_opts support for bpf_program__attach_iter() API in libbpf.
+* Add test to verify the log for freplace max_ctx_offset case.
+* Update a subtest to verify the log_opts in bpf_program__attach_iter()
+  API.
+* Add log for freplace max_ctx_offset case. (bot+bpf-ci)
+* Drop unnecessary bpf_verifier.h include. (bot+bpf-ci)
+* Change log to "Invalid tracing attach_type.\n" when the link
+  attach_type is not prog->expected_attach_type. (bot+bpf-ci)
+* Change BPF_XDP to BPF_TRACE_FEXIT in tracing link_create test.
+  (bot+bpf-ci)
+* Drop dead iter.len check in libbpf. (bot+bpf-ci, Sashiko)
+* Add OPTS_ZEROED(opts, iter) check. (bot+bpf-ci, Sashiko)
+* Swap log positions of iter_info and iter_info_len. (Sashiko)
+* Update bpf_program__attach_iter() to use iter.info and iter.len.
+  (Sashiko)
+* v1: https://lore.kernel.org/bpf/20261109140816.5196-1-leon.hwang@linux.dev/
+
+Leon Hwang (6):
+  bpf: Add log support for tracing link_create
+  bpf: Add log support for tracing_multi link_create
+  bpf: Add log support for iter link_create
+  bpf: Add log support for cgroup prog link_create
+  libbpf: Add log_opts support for BPF_TRACE_ITER
+  selftests/bpf: Test tracing and cgroup link creation logs
+
+ include/linux/bpf-cgroup.h                    |  6 +-
+ include/linux/bpf.h                           |  9 +-
+ include/linux/bpf_verifier.h                  |  3 +-
+ include/linux/trace_events.h                  |  7 +-
+ kernel/bpf/bpf_iter.c                         | 27 ++++--
+ kernel/bpf/cgroup.c                           | 76 ++++++++++++-----
+ kernel/bpf/syscall.c                          | 30 +++++--
+ kernel/bpf/trampoline.c                       |  5 +-
+ kernel/bpf/verifier.c                         | 51 ++++++++---
+ kernel/trace/bpf_trace.c                      | 27 ++++--
+ tools/lib/bpf/bpf.c                           | 23 +++--
+ tools/lib/bpf/bpf.h                           |  8 ++
+ tools/lib/bpf/libbpf.c                        |  5 +-
+ tools/lib/bpf/libbpf.h                        |  3 +-
+ .../selftests/bpf/prog_tests/link_log.c       | 85 +++++++++++++++++++
+ 15 files changed, 290 insertions(+), 75 deletions(-)
+ create mode 100644 tools/testing/selftests/bpf/prog_tests/link_log.c
 
 -- 
-Best wishes,
-Vladimir
+2.55.0
+
