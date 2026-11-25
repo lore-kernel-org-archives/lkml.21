@@ -1,100 +1,111 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.44
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795593114;
-	b=KMBFrLOGpov/Jha2+mrJNteAjavoz2DECVdq6QXCyiQekMs/Btx0HSQyriPNwOPn/OLo
-	 /owLExeB1v3YbQivcTQskqHtFM57vIOip1JzVC+jVrYA8ZMQ8nmh1baMOyERwm6l6DbFD
-	 /S2nI0FXxGFH/qzS7Cx//Fxw4z3GyibvyUTBR59lFoctkJcwKQCMxtj8OavX8W3hDJNVx
-	 drodU+FNK5zywsu1sxejtygWObQElgN/eC60Df1t7GGd65CzY1by92SPc1mLcA1Mvar29
-	 a0QS34Rppv5LDTenRll8EPayGAqerrGgycQyn1tdifwByCxZs59pre+U+Fto0jK7y5w==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795593114;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=Jvc6T0hsHWXffEvQKNFhCmtcAcfBWvvbJSXZbmwAzQQ=;
-	b=NFTcD0NluNnAX6PUnbajfLcZiPPz0TVyXo8dIkazMZdtSZOxNPWbWUgKH1R5Qx0Wr3Q0
-	 kV5/xRqEJupIUJX19ZelZZeRQTnL1jca+tWl/F+P3p7kbdI45X+tZ+SHfv5V4PbhIvGkZ
-	 vJsOcRAVSTxNSEhkA4UbUtAmbBByrcd1XDiVVOVXpfqKaEm6Tpsz1r/wS/pyZXB1WhLyq
-	 J24y7NHZmE1qk3iOX3D5WwMBVcbt+iMJhJ7W2KaaazYKP9ZkX+eOCHiLbUyDTYVFEzAEj
-	 GBF7xCtneV3HRCNPHMDoCSZRDRBjZvnUv5esGxc44D9oQBY9JJl3jeigmCyKPYofOkg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linaro.org;
-	spf=pass smtp.mailfrom=linaro.org;
-	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=jvPW46IX;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.44
-Received: from mail-ed1-f44.google.com (mail-ed1-f44.google.com [209.85.208.44])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.156
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795593127;
+	b=sqgsB8Vam7Qo42wvxV2IKLncPbJu7hr7ISOK4FqWwe8ZJJkCoD5ZRfJF+7PFOIpZGbgd
+	 D5gk+icFIim4Ofifdszza0oU1iaZjBz1g0+uJF3I7QmgEsDqWG92ZlF4/tTYy+gJRU47P
+	 Mp56ok+X0rQoYhwfqct5MB09lmhKJAcwNq4JhQajUzx1B39rn4GU8cBBXU7Ip1LH9ZXss
+	 y4QrcHliZhfazqy8uYP4LjdOz3qOwa/4QaNFwmy9cNuGG6GEJuqgsaiQ40J5eOlSqZ5EX
+	 tXtaQSLQ6n2RSSasJSJMMkpEb9VkK+lTZ18EkNTx/ppgiUIzLSj8i6qLul7NCDOOt2A==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795593127;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
+	 MIME-Version:X-ThreadId:Date:From:To:Cc:Message-Id:In-Reply-To:
+	 References:Subject:Content-Type:Content-Transfer-Encoding;
+	bh=019GwQ/x81qxKZSVVtOD2YBAp3ZMp6lcDwLA7mJ+Cik=;
+	b=gOHZjR1Y+fkApn5bllBLQkxGeimAUXcEZw0uDQb8EHii5IWdSFtBZFwuMVIy32C/XxfT
+	 I4M6g6uUPwOxy8NaD0wdeD5Kkybp7IOx0RmxViQY5LMSfzrj7GxGvV+mvbtIea+ROrfDA
+	 VQ5bUVy/DP0e3ogHOs/c+59wqjWPkNfQlYW0iJDbmdr/vmDeuLW9C0ugKKHu0H8e+UHcF
+	 0Rnih1fjRKTyfZ9ACpQIaH3+ZoW0K90UTAXtLYSSIKP+mmg6kgWBvGY/ogi08J12p5Cs1
+	 U7sS94SsFq1FgVlj9CJd6UkWlvX/TdnJPZBgjK28Fe7Z1JbLOGNX4lUaQMG5mvOUylQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=arndb.de;
+	spf=pass smtp.mailfrom=arndb.de;
+	dkim=pass header.d=arndb.de header.i=@arndb.de header.a=rsa-sha256 header.s=fm3 header.b=YgRac9er;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=O07t6f9G;
+	arc=none smtp.remote-ip=103.168.172.156
+Received: from fhigh-a5-smtp.messagingengine.com (fhigh-a5-smtp.messagingengine.com [103.168.172.156])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C9E4C606A323
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 07:51:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C9E4C606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D2D11606A326
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 07:52:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D2D11606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arndb.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arndb.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=jvPW46IX
-Received: by mail-ed1-f44.google.com with SMTP id 4fb4d7f45d1cf-6b8a2518f7cso6362075a12.2
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 23:51:53 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795593112; cv=none;
-        d=google.com; s=arc-20260327;
-        b=AD9nPZGVAESzF9CKrc3yd/6rwQDKKnA4TXPQBy9v8i7HCte6W0TxSZx5f92Mzv0fFU
-         g+XvaaA4y2rzBG1XV9087CQTJJ4q6fT01KDgyFRFhJbkIuRpSINjY+oClD+f7NGlTkMt
-         XXSAcgbcmNNS+7JoH/v4bstIedt/X+c38i9rGzcnmi4ymnmUxHbhMDsU73iU96pF1hh3
-         +FdlDmei3rEzfS9AXjo22r8RR0nnmRzAlsWgadj6bbHO2N5S7i0ygtqFGXZAFF/HtV7/
-         USzD77mVreKxkS4POYPGWqa4+OCZoNKNAUtKIvDuVTl3FceNDIUGJ/74uH48RTpCf9Rm
-         r5+A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=Jvc6T0hsHWXffEvQKNFhCmtcAcfBWvvbJSXZbmwAzQQ=;
-        fh=XsYTi0bzfwAaS0kVvWqnF6ci4YR2b2EimTSr5h4eSJ4=;
-        b=jqXAcookL6oe8bDkvLaYfzU8rtX8LlG6ELEBjQz8GbQY3Qc93Xii05bl1734qbqBON
-         v7OUGNXqWh9+/AAoAjA02d9ivDvu/Az0hdXY9IrT1mnBIKBFCCZtAoWoB+Swz4gd8dEC
-         +onDxDAbw/nFrpUIG0eHd4WNsJPk5axYwWIOSZvQhSO3ykDUsWnbg8/kvf+N5lxQ1ny/
-         8QL1xw22YJNWdR2wbYSz1UZuA3uuH8LM8kaX3DLVxu1GM3gxuGTX281Efzm+btwk+Jqc
-         x4MLLB/xGTuDd2gGmhqNIyFHxWhDmfuIqJXStujz8alWXVxHV3Hb87H1aQSyIwqhgPoC
-         ftoA==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1795593112; x=1796197912; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=Jvc6T0hsHWXffEvQKNFhCmtcAcfBWvvbJSXZbmwAzQQ=;
-        b=jvPW46IX5TxDfI7JaifihWxwTJLYErkO3sPQAmCltLPjLJAnZpIv00NI7/qrDOWTh9
-         ojG6Cmm0bzb9FmcHX9grhUCZPIIocpvtsUQ9bc8WyqTl4ZdzjkmOLHrbp5J2CLT6PBkz
-         ToX2FZhbNnVS0JWwMvk1z4SlIcsRwa/mgH5iR6LkhQbOcX2gFEMNQN/8RI/yMWDFr3Uo
-         pzvUSuwNUUACuTQmeydQXiGFNbsWWoy4WabRpGQYwTvFq+o7mBTsWn97CgIPoR88b15b
-         k0+uu0hTtmtMYug12Iz/b+p3a3osxVz9CyMzggkpVB95xINI9PSY2ewL+yveLSnBDDU9
-         YmKQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795593112; x=1796197912;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Jvc6T0hsHWXffEvQKNFhCmtcAcfBWvvbJSXZbmwAzQQ=;
-        b=fsdThh14MFdwIqyVU/P9Am9Y6EprHU6oHiKDfxm/hwU6VQ5Uk3q67F5TN0NorGpMUU
-         c3nngRo9yh5Ds9H7ZnKVTGJmXGRSuhLg0u28ANurWNpca12rZlxyc9mpUuboU9RKbDfa
-         1Mc3XT/LpX7iouHUgnUAzjuI7vqb8MO1EGwQQJOmjPCgy4EQ5c1NuinX2sX8RItqt5hB
-         yxBKt9NmSQ/LivX6CIPE2ncnr66P71k3H2W0YmwBX5qFZ8XKqkEYzDel8kO7uciQpkph
-         lim/vxHbTcwzFK2x3j2OYM21SCSs0PEpRTASBncMDuIDWmzOC1IWPwwRujamwIqNq9eP
-         WRtg==
-X-Forwarded-Encrypted: i=1; AL+hErEhe3ff6FD+d0lodxy1ikQomfY1lIuc3rkpOrpOa+OL0s36Wx7VMseJZcyOgwQjH/Ewh+IEFyQ7uXXxSE4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9i6HCm3c8sZwTvxi44P8xRsn9ijUcNNM6lLmnHR+8K/syiXjUt
-	br0gE6FgoF991sQkXzg/iYPgWG0yn9Ct0vpV+nLUmhWN+Y6sDYW6Kc/dSKW23FDbc46mpGoUrhh
-	uIdBNrGmcctStQCrizcUiU+dcnJZmzqECFQYapDwn4A==
-X-Gm-Gg: AZFdTZcH/QZwPrZD2YmGHOh8nzGteHfx7Ju14WQ1HnQHgB1zqjy8S+IXPjGOWhtN+0S
-	oryCX653ZHudjBBVeC0FeZq3WjN1V2wqpqW4M6VSDlAH7QWOY8sl/qlmCu6iWyfVqMFDpTxKSPq
-	otz8z9lUZAYBej4Bfij8rKreWc5YTPJoH2ph+jVKy7U+WsAipZ8CBfpnlxOGVa3ZZT7Nz1T1j/s
-	k4DtRDuL+dI23QNwQS42F/TPwfqs7tOa9BB80dDKqiXHpNSgITSRLp9G4yRg3NDnqj9pHR1f/qo
-	jbm+g2qWb84EHgutvtb5pjxR50FSmmw2hcPJNd7m5CGPIegS2oidV4YISGjdBcuJCUtB94vouIU
-	jVol0EsQjYlGIu/G8zP/Go95EC2aUg34lbDkuVMdbRe7wgHShTLFTQ4fFdBC8inL0IH+E
-X-Received: by 2002:a05:6402:c88e:20b0:6b8:854:da16 with SMTP id
- 4fb4d7f45d1cf-6bae6cc26f1mr3051170a12.18.1795593112101; Tue, 24 Nov 2026
- 23:51:52 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=arndb.de header.i=@arndb.de header.a=rsa-sha256 header.s=fm3 header.b=YgRac9er;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=O07t6f9G
+Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id ED6FD1400307
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 02:52:05 -0500 (EST)
+Received: from ams-imap-03 ([10.64.2.23])
+  by ams-compute-02.internal (MEProxy); Wed, 25 Nov 2026 02:52:06 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1795593122;
+	 x=1795679522; bh=019GwQ/x81qxKZSVVtOD2YBAp3ZMp6lcDwLA7mJ+Cik=; b=
+	YgRac9erSiU61TQkYI1ioth44/P9sRSYS/JW/avtEZH6YizQVW6zqmb6qgIoKqWS
+	FUUwRKJbq0dQjI89eEmi2pSqwB1ev0dPtd/7ipWWkV4Hv+GgXcBD3ySkEY67BJzM
+	PjQFocAes++UO3gJxE5Roe8e5iGiFRuWCVnByrCCzoNTM+bS5mwt99bNGbKYT1Bl
+	WU8WLAqcWCQx2nuo8Fr4tIBf3B5BUDyKXzvrRMr77gW7Ny/mLbK3cXMOEmTaW+Qx
+	fRlfI2NrD0Y++hRymdi6fCrHL9/32syp9/AHXRj42gpSOnid5iDwRKXUynVd1JiW
+	mNgp6movnOu0e5DarJtrlQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795593122; x=
+	1795679522; bh=019GwQ/x81qxKZSVVtOD2YBAp3ZMp6lcDwLA7mJ+Cik=; b=O
+	07t6f9GUgtUCqNna1FBptHE2tdnqLC72ZE/7S59RNyRJtM0FQRUZwPPBjlOvSSyZ
+	eqqICSgD2eJ13lJYQgbdL0AmeAN5CqFiUPjwWEDPDeUQKtJjVfBCD6NzPyRF6Y9E
+	JxUHxxwlqfdq5kGuyrQHN2VpVB0YCJR0/Wh2J6m5DAZd6kJJ5tc9uLLKHoNE8jmb
+	bY2ndqTIo5U6YakL6aCDtK9ef6sp+8gL8nzo10ywa+B/xgSmUyifziVM4PPRNHnN
+	ictv367qm1k9TrVYxjbWDHTQ16+hlL24ntoc0znlmZGu/WHzcJ5NbZA6ocpTihB/
+	vF28GV5YJP5dULrO5q/QQ==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=arndb.de a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795593122; d=arndb.de;
+	mf=PGFybmRAYXJuZGIuZGU+;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm3:rsa-sha256:R3glRqiwLQQfxEucCaHvm2YKeygkNzv29QImVDBkFJd09mt
+	uoUwIqGfeGKZOore5NLI8g8phTI6cVFee4AXKsbAOBQdDg4kot7OUsiuLVoJNOlR
+	1elNRQbBqfv6bSBgkuUDNS1rlChsxzopXeBS9oYk09y58TpS+Wffzin3pvJaEgJT
+	x5b/aX7BND4yMPeio7Qn+rwgdq+lGy98858SMtjjoEJsqLTaoMnA1SQhEt7YteEz
+	ap8hLuIIVMzDb2gtm9ORTcB9KGqg4wsOVSmsf3J/N/GzjDdZwhzvKpSCspp8GH/q
+	L91jEI9L4fgWFTDwo0WmL5czLsHm0tKc+RvvXSg==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=12;
+	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
+	from,in-reply-to,message-id,mime-version,references,subject,to;
+Message-Instance: m=1; h=sha256:aSFAEiZCTpRiW+Wu1woG8Vz1ZQwpvzDxc2eGNqTlgrY=:vpzV28ZJxRuQUL4xVOIgcB5rr6QBx9o4DSwGH3trdVo=;
+X-ME-Sender: <xms:n5MGa_its0_6WpEfVmkP8nUkELi5X7lOCVEVLb-9RvGIjtXW_BvPWA>
+    <xme:n5MGa222_Kl_p6ZWq5DFXxZ1olzbryv-uHQyHqqEiQzJYBC1Z6Ybgkwr6LtF5a9sD
+    0SEDnF38i8cV26a2Czauhu3Zn_M3j_TI97drGA9qgOTAOHC18AagMAC>
+X-ME-Proxy-Cause: dmFkZTEZGMjBJZt1uWfkWP6nvt4pWCnopsg+g8jDAdQavJeS2L2MwltpTlwNaEd8djtHKn
+    EPizddLB0fSbdLPaJXfL7ISnFQ1pA7d3q5xXjlkKF7Llg1RwP63kPcq0bI3SJaaGtsYfUM
+    gGjOAMhxF1D//iqBwYraoqBzGajUVgZp3yCUIaTksE5UyL9pMmgUcyHL3LqjZ21dra+EFI
+    TAy0zbgO0K7vfZ8Hct71arlCzW4J/YEmPJ6Dnl95xYkw0QhXDSpkudPc5Y9VXyic7+9pAN
+    ximDmVNWXRqAzamP6dwkNrFM7nu1F9pqX22e3CFb5mk+WWWg3//eiPy7g2RkhevTNwQUia
+    85KxHy17Q9kE3c0+N0DVqR64pqIBOD3atDXgk9TbJ+i01Nap+C/J1N006rWkFj9IE3Lju1
+    fTSX8tEu7+kpTO5vuH98xqQ0egpd7CvdzszNDX3e9OVABgEBb7IxZEzDVYIxm6LlbrmDBQ
+    GeEOjj4/Bm70q9bfMm56k88nZv5Q350CNnIE3eOHbHrL+7ShQVVzwMg7HXBs1fv1INguEw
+    tqsrDwly4idlE5qP1w/PsAaePb3xdDGuqqurHaelJ0sfjyCcXsDbzmVpH9tfQPezIrkCo2
+    W4Axz5JTf8+nRZ9HOEPtPANb9047WcwGN1oHwpchW1Bo17ShzqHqWvqPvtTQ
+X-ME-Proxy: <xmx:oJMGa53x4IFkgjCIN5aU2Y9IKKjuCVKzWVl__moxFdRA-MkUCCzcZw>
+    <xmx:oJMGa6ELf73cxEYdK1hIxGRzKxy3lACevEvI6mchurc13tFj1dXP7w>
+    <xmx:oJMGawgoNVKqvEJOmvssjpIObYUWCcCRRw2PhFMjcVxahJ4kK2DJvw>
+    <xmx:oJMGa1A5sXqUNQxIW1-zqq-kZZ6W5jCV_rFV7bRMqTw3_ev1j5D64Q>
+    <xmx:opMGa-Klzxrw27CydToupd8Jqjm7Xmi2dpSG3veRuZmk557St_3kgZ2o>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.ams.internal (Postfix, from userid 501)
+	id 4314F32A009C; Wed, 25 Nov 2026 02:51:59 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,108 +115,50 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <CY5P221MB09262B7D6A68954CC1B3199FBD442@CY5P221MB0926.NAMP221.PROD.OUTLOOK.COM>
- <awWOCejxtjP12xFX@gpd4> <ce38fb8b-94d7-48ba-93bb-3b72cfcb3e61@amd.com>
-In-Reply-To: <ce38fb8b-94d7-48ba-93bb-3b72cfcb3e61@amd.com>
-From: Vincent Guittot <vincent.guittot@linaro.org>
-Date: Wed, 25 Nov 2026 08:51:39 +0100
-X-Gm-Features: Aa3M54rR6ZVPUahJy75241j29uSb7ZkPGUY3AC_gpwVLxdzpj7tWpPJ6cpSau0Y
-Message-ID: <CAKfTPtCudy4NV8sU+JWE=dcJpbKd+LVNZPZztU_0nD1a04Ca9g@mail.gmail.com>
-Subject: Re: [REGRESSION] sched/fair: SIS_UTIL limit in select_idle_capacity()
- leaves busy tasks on little CPUs while big CPUs are idle
-To: K Prateek Nayak <kprateek.nayak@amd.com>
-Cc: Andrea Righi <arighi@nvidia.com>, James Buck <jbuck2005.linux@outlook.com>, 
-	Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Juri Lelli <juri.lelli@redhat.com>, Dietmar Eggemann <dietmar.eggemann@arm.com>, 
-	Valentin Schneider <vschneid@redhat.com>, Usama Arif <usama.arif@linux.dev>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
-	"regressions@lists.linux.dev" <regressions@lists.linux.dev>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-ThreadId: AdoFu5rB1Sng
+Date: Wed, 25 Nov 2026 08:51:38 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Brad Hawthorne" <brad@sim.vu>, "Russell King" <linux@armlinux.org.uk>,
+ linux-arm-kernel@lists.infradead.org
+Cc: "Kees Cook" <kees@kernel.org>,
+ "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+ linux-hardening@vger.kernel.org, linux-kernel@vger.kernel.org
+Message-Id: <92686f21-9c49-4cdd-ba39-25c163fa3183@app.fastmail.com>
+In-Reply-To: <20261125025650.1159785-1-brad@sim.vu>
+References: <20261125025650.1159785-1-brad@sim.vu>
+Subject: Re: [PATCH] ARM: xip: end _etext before the read-only data
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 
-On Wed, 25 Nov 2026 at 03:53, K Prateek Nayak <kprateek.nayak@amd.com> wrot=
-e:
+On Wed, Nov 25, 2026, at 03:56, Brad Hawthorne wrote:
+> The XIP linker script sets _etext after the read-only data, while
+> vmlinux.lds.S sets it at the end of the text. Hardened usercopy
+> refuses any copy to user space from _stext to _etext, so with
+> XIP_KERNEL=y and HARDENED_USERCOPY=y, copying a const string from
+> .rodata to user space ends in BUG(). The first readdir() of /dev is
+> enough:
 >
-> Hello Andrea,
+>   usercopy: Kernel memory exposure attempt detected from kernel text 
+> (offset 2955300, size 1)!
+>    __check_object_size from filldir+0xd6/0xfc
+>    filldir from dir_emit_dots+0x34/0x80
 >
-> On 11/24/2026 6:45 PM, Andrea Righi wrote:
-> > Hi James,
-> >
-> > On Tue, Nov 24, 2026 at 11:56:52AM +0000, James Buck wrote:
-> >> Hi,
-> >>
-> >> Since commit 61ea17a63719 ("sched/fair: Add SIS_UTIL support to select=
-_idle_capacity()"), first in v7.2, CPU-bound multi-threaded work on my big.=
-LITTLE arm64 board runs 12-19% slower than on v7.1 and earlier, because wak=
-ing threads are placed on idle little CPUs while idle big CPUs are never lo=
-oked at.
-> >>
-> >> Turning SIS_UTIL off at runtime restores the old speed. select_idle_ca=
-pacity() and update_idle_cpu_scan() are unchanged in v7.4-rc4, so I expect =
-mainline to behave the same.
-> >
-> > A related regression from the same commit was reported by Usama here:
-> > https://lore.kernel.org/r/20261113153157.2495664-1-usama.arif@linux.dev=
-/
-> >
-> > On Grace, a zero SIS_UTIL budget skips the search despite suitable CPUs
-> > being idle. Your case shows that a nonzero budget can stop the scan
-> > before reaching an idle big CPU.
-> >
-> > We've discussed a minimum scan budget and accounting for idle CPU
-> > availability, though a small minimum alone may not fix your case.
+> Commit 14c4a533e099 ("ARM: 8583/1: mm: fix location of _etext") moved
+> _etext in vmlinux.lds.S for the same reason; the XIP script was
+> missed. Set _etext at the end of the text there too.
 >
-> This had problems in the past when Chenyu was iterating on SIS_UTIL
-> where the search opportunity at higher utilization is actually very
-> low and cutting off search for !idle core was beneficial for SMT
-> systems.
+> Tested under QEMU (mps2-an385) and on an RP2350 board, both XIP: the
+> BUG is gone and directories list normally.
 >
-> Now, for systems without SMT, it has its benefits too but a system
-> without SMT should be equivalent to a SMT one where test_idle_core()
-> returns true always if an idle CPU is present.
+> This patch was written with an AI coding assistant (Claude Opus 5.5,
+> Anthropic): it found the cause of the usercopy report, wrote the fix
+> and this changelog, and ran the QEMU and board tests; I reviewed the
+> reasoning and the test results.
 >
-> So I'm wondering if {set,test}_idle_cores() can be extended !SMT
-> to act like a gating indicator to say if an idle core exists or
-> not much like how !get_rd_overloaded(this_rq->rd) serves as a
-> gate for newidle balance - it can be flipped to true when a CPU
-> goes idle or if load balancer sees an idle CPU. Thoughts?
+> Fixes: dfd45b6103c9 ("ARM: uaccess: Enable hardened usercopy")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Brad Hawthorne <brad@sim.vu>
 
-I tested idle_cores tracking for !SMT and EAS months ago [1]
-[1] https://lore.kernel.org/all/20251202181242.1536213-6-vincent.guittot@li=
-naro.org/
+Looks good to me,
 
->
-> > Given both reports, reverting the commit seems the safest thing to do
-> > for now. That would restore the previous asym search behavior and we ca=
-n
-> > revisit a better consistent strategy to cover both sym and asym CPU
-> > selection later.
-> >
-> > Prateek, Vincent, what do you think?
->
-> IMO it still makes sense for SMT systems since capacity on systems
-> with SMT only makes sense if the entire core is idle and then it is
-> just a best effort thing right?
->
-> set_idle_cores(), would flip the flag as soon as an idle core is
-> available and after that SIS_UTIL is bypassed. I don't think the
-> SIS_UTIL cut-off for non-SMT ASYM_CAPACITY systems makes that much
-> sense given misfit penalty is much higher.
-
-In fact that depends on the number of CPUs in your LLC.
-The current SIS_UTIL is unfair for small system because you skip the
-loop with "low" utilization:
-- with 12 cores per LLC, you skip the loop if the avg utilization per
-cpu is above 839 whereas it also means that you have the compute
-capacity of more than 2 CPUs that is not used and util_est can worse
-the situation
-- but with 64 cores LLC, you still tries 5 CPUs for the same avg
-utilization per CPU
-- and with 12864 cores LLC, it's 10 CPUs
-
-
->
-> --
-> Thanks and Regards,
-> Prateek
->
+Reviewed-by: Arnd Bergmann <arnd@arndb.de>
