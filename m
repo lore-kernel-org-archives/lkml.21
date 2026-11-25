@@ -1,69 +1,45 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795596919;
-	b=4tG1QtILieDZ+oepdhiC0ON/I9pYu3KlLO5BxjQEzuxLrPwoVgjNagHTI4d5KVLNjEeu
-	 Bcd5hGJBFRk2JruE4YMNe063iLaEWYMM0jDD0hWqCNV56rA6aKBLQc/w0nEPtSLAjo/LQ
-	 0bXJ7NovmrlLPhBoxztIquQFKm7bIZkExaOgFj5qIdSv66Ceq/mhfCiSSIIKJFzkooez3
-	 ta9we9trGeUVEVZHOCg609QTMvIn5uRReyUlkm09y2YPD0ukQPMIoP0vxBTnGXYehZkcc
-	 tj4SAvHEbZbWoeFnYcUywW69pVvet+5N4w9zdKeEtX3tbX2ZS/a2KSsy/VHND5WO1jw==
+	t=1795596951;
+	b=gABgtewMIJMmb45SjW5iMmCcauXGRUUSUnkkhO7FKYW8QOqrRj+Fp3oy0Vel150nDZpo
+	 yHnLOYfpkzDOfPhrA89xMgqu9xlPbxFFLj44ltpGPOKBH1t6UI1eCwMLOdRni1EzVbqPJ
+	 HuOsWQSTbfUSUCyKlBa+PfTDa1TkfJz12kN+F0Q9DTYqj26Y+4nd+OYKCY1S31iU2XnwV
+	 TZSk+il3Xf9zEc7ljwE3KTV7aWVkie+UOrT1gOxqNxiosC3A2pTqwWRkFXW3CF4uKHD8f
+	 qoXfCso+qdUseYFw0OoaGwil2W5aZYYFL8ciEL5Qh0FQgNndcNCKjdF4cFc2cVK4OIQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795596919;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
-	 Subject:In-Reply-To:References:User-Agent:Date:Message-ID:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Last-TLS-Session-Version;
-	bh=ltkcJXou2Sk6MxEHxOTGoZvucs99rnFqVFhzyx4fQeU=;
-	b=48H0XHF5rbFZFOwu0rAC8ZtP+Yg4w8cSKFND5TEyZXgzCMdXlPq0AivmnKDtPH7TFCXc
-	 tLaa35M1wEJOL2SIis+5OlehXQjmioy06knG9QfATnyPznTi/pFGVlxy6BKwDK6UP5D9e
-	 wlES4J3nn/P8MQoijAL+afHjKsbRVXZJS8RaSTY5Fo3CMXEduv/tGtJjKP0FUiqyxDm/1
-	 KApX4KWo91++Oit45I2Do59Puz+uSCgfNOBxFndQKgPHJfDuED6igP/r1wjUxgAKhtPNR
-	 6p0ka27knYiAv+DnVBfkG9b2sAB4t/ujjNEYlEHmJiVVKdTh6mFHORHRat5pHKU/fkA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795596951;
+	h=Received:DKIM-Signature:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:References:
+	 Date:Message-Id:X-Mailer;
+	bh=vgsYe7KPFry5vGAlJY0NmB0rWIeyx9jEZizFH8iUmvE=;
+	b=aHoyQ9fi2NW0kyXgI6wlFQ1LublTMNFTbs8EAaOchXMNwLsz5yXBi/SFvbg9TNpWThcc
+	 Mv6rcFbEww2YVk6Ni/0kDatrlSriTj/4h+ZCLSJ+0Nel1IygJ3ymRBWCtqwxuN5q4YavR
+	 y9GY9Djj4uiazA0QU5USrondloL3HcrS6CR5BpFr+YOEtT3Np3SAB0LcAI6itOo4Gm3KI
+	 bEV7GNx4kp1dUHnHWiiwXHigAnqMBeSo50GZWQg2pfkImTNBWJpqfIt+flUYYE0g6uLxG
+	 uZbsMhafC20jae5UAVL+zCMt6Dk5dTEKIKXkGRYU3oGBrb4LqEBPG5qFpohMTnrQWng==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b="WhUJ/GcR";
-	arc=none smtp.remote-ip=185.171.202.116
-Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Mnu8MBVo;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5C2DB606A31E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:55:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5C2DB606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9D369606A31E;
+	Wed, 25 Nov 2026 08:55:51 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=WhUJ/GcR
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 6A3EAC2F4C8
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:55:24 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 99E0260480;
-	Wed, 25 Nov 2026 08:55:16 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id BBB3A11E68022;
-	Wed, 25 Nov 2026 09:55:14 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795596916; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=ltkcJXou2Sk6MxEHxOTGoZvucs99rnFqVFhzyx4fQeU=;
-	b=WhUJ/GcRVLR49m8UGrh3NO45/FZkFiqSZwvkLmHB4/Fzu50+lSCW6OShejxSp8aV7b++J/
-	EJGJUSuXkZRbt6S3zGiOhMs5mY6bt9xqN/XFAygmdtI54dL1rtO8JSl/7ewmjKLX/kH9T2
-	2UlDTVOLYPrDXDWYF6d6IzP25zEL52x7V5VDMcwcIfrFMOco6FaxA8LmoB3QcGcSPooqHA
-	y+HjEuE6kEyUjUy3ql+keeLqXw1t2RLWR1XP/3kFPkV6WGF3+jO/84EWjkyrKblX8XDiFx
-	s154sJ9IAK+0Crg4TLc50d4ZT+Pp8iL5xgW1RViC9kAqq0yugvmK7GkGmR1QGA==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Ping Li <leeonion.muyu@gmail.com>
-Cc: richard@nod.at,  vigneshr@ti.com,  linux-mtd@lists.infradead.org,
-  linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 3/3] mtd: rawnand: r852: bounce non-linear-map buffers
-In-Reply-To: <20261123070440.3060882-4-leeonion.muyu@gmail.com> (Ping Li's
-	message of "Mon, 23 Nov 2026 15:04:40 +0800")
-References: <20261123055020.1995251-1-ping.li@horizon.auto>
-	<20261123070440.3060882-1-leeonion.muyu@gmail.com>
-	<20261123070440.3060882-4-leeonion.muyu@gmail.com>
-User-Agent: mu4e 1.12.12; emacs 30.2
-Date: Wed, 25 Nov 2026 09:55:13 +0100
-Message-ID: <875wxl1ea6.fsf@bootlin.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Mnu8MBVo
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 19D211F000C6;
+	Wed, 25 Nov 2026 08:55:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795596950;
+	bh=vgsYe7KPFry5vGAlJY0NmB0rWIeyx9jEZizFH8iUmvE=;
+	h=Subject:From:To:Cc:In-Reply-To:References:Date;
+	b=Mnu8MBVoxumYqteWsAstS9zqXGLgKPyadSkd8o1fkNxDWdBwZwF4hwXzQro0llQzP
+	 Z7dBpQFx7C/kUmA1dy9G9uypc3QNuE9Ykf50FNAG0EqzE/V965Ma1KyBdo1U4tAPSz
+	 WKG2rt2aXNX/1l7sVRHEolrpOheHimrlcMMEvdmDkEKcIB2H3u+gOyL6aCSBkOmeWE
+	 HzUyuNsk/XByWquPy2g8QzLoQaAH5WUX534bYO0/EjwKMwP5WgByBTddNPPO1ZPHTt
+	 zqOUH+caFdZV0rOTu38IBn3+IjhL1yBpu+NAqbLQQLFDtOdJoUr6izCommDJ0/Pf47
+	 L7YOyALKmKq8g==
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -73,47 +49,214 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH 13/24] media: mali-c720: Add Mali-C720 ISP driver
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Anthony McGivern <anthony.mcgivern@arm.com>
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ Vincenzo Frascino <vincenzo.frascino@arm.com>, 
+ Nayden Kanchev <nayden.kanchev@arm.com>, 
+ Konstantin Babin <konstantin.babin@arm.com>, 
+ Linus Walleij <linusw@kernel.org>, jacopo.mondi@ideasonboard.com, 
+ kieran.bingham@ideasonboard.com, laurent.pinchart@ideasonboard.com, 
+ dan.scally@ideasonboard.com, Sakari Ailus <sakari.ailus@linux.intel.com>, 
+ Rob Herring <robh@kernel.org>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Hans Verkuil <hverkuil@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>
+In-Reply-To: <20261124-b4-initial-upstream-candidate-v1-13-0cb9bde1bd30@arm.com>
+References: <20261124-b4-initial-upstream-candidate-v1-0-0cb9bde1bd30@arm.com>
+ <20261124-b4-initial-upstream-candidate-v1-13-0cb9bde1bd30@arm.com>
+Date: Wed, 25 Nov 2026 09:55:47 +0100
+Message-Id: <179559694752.14607.4218343265884065337.b4-reply@b4>
+X-Mailer: b4 0.17-dev
 
-On 23/11/2026 at 15:04:40 +08, Ping Li <leeonion.muyu@gmail.com> wrote:
+On 2026-11-24 17:07 +0000, Anthony McGivern wrote:
+> +
+> +static int mali_c720_probe(struct platform_device *pdev)
+> +{
+> +	const struct mali_c720_discovery_target top = {
+> +		.module_id = MALI_C720_DISC_MODULE_ID_PIPELINE_GLOBAL_CONTROL,
+> +		.pipeline_id = MALI_C720_DISC_PIPE_GLOBAL,
+> +	};
+> +	struct device *dev = &pdev->dev;
+> +	struct mali_c720 *mali_c720;
+> +	struct resource *res;
+> +	unsigned int irq;
+> +	int ret;
+> +
+> +	mali_c720 = kvzalloc_obj(*mali_c720, GFP_KERNEL);
 
-> r852_do_dma() only bounces buffers that are not R852_DMA_LEN
-> aligned.  An aligned vmalloc'd buffer passes this check and gets
-> fed to dma_map_single(), which is only valid for linear-map
-> addresses.  Such buffers are not hypothetical: mtdblock's write
-> cache is vmalloc'ed, and UBIFS passes vmalloc'ed LPT buffers.
->
-> Extend the bounce condition with a virt_addr_valid() check so
-> that non-linear-map buffers go through the existing internal
-> bounce buffer instead.
->
-> Fixes: 67e054e919248 ("mtd: nand: Add driver for Ricoh xD/SmartMedia read=
-er")
-> Signed-off-by: Ping Li <leeonion.muyu@gmail.com>
-> ---
->  drivers/mtd/nand/raw/r852.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
->
-> diff --git a/drivers/mtd/nand/raw/r852.c b/drivers/mtd/nand/raw/r852.c
-> index 92c47d351c27..4dbfc053fb21 100644
-> --- a/drivers/mtd/nand/raw/r852.c
-> +++ b/drivers/mtd/nand/raw/r852.c
-> @@ -188,8 +188,8 @@ static void r852_do_dma(struct r852_device *dev, uint=
-8_t *buf, int do_read)
->  	  from device, for writes first fill the buffer  from memory*/
->  	dev->dma_state =3D do_read ? DMA_INTERNAL : DMA_MEMORY;
->=20=20
-> -	/* if incoming buffer is not page aligned, we should do bounce */
-> -	if ((unsigned long)buf & (R852_DMA_LEN-1))
-> +	/* if incoming buffer is not usable for DMA, we should do bounce */
-> +	if (!virt_addr_valid(buf) || (unsigned long)buf & (R852_DMA_LEN
-> - 1))
+Why absolutely nothing here is resource managed?
 
-Why do we need a local bounce if the core can do it with NAND_USES_DMA?
+> +	if (!mali_c720)
+> +		return -ENOMEM;
+> +
+> +	mali_c720->dev = get_device(dev);
+> +	platform_set_drvdata(pdev, mali_c720);
+> +
+> +	mutex_init(&mali_c720->device_lock);
+> +
+> +	mali_c720->base = devm_platform_get_and_ioremap_resource(pdev, 0,
+> +								 &res);
+> +	ret = PTR_ERR_OR_ZERO(mali_c720->base);
+> +	if (ret) {
+> +		dev_err_probe(dev, ret, "failed to map IO memory\n");
+> +		goto err_free;
+> +	}
+> +
+> +	mali_c720->mmio_size = resource_size(res);
+> +
+> +	if (resource_size(res) < MALI_C720_ID_SIZE) {
+> +		ret = dev_err_probe(dev, -EINVAL,
+> +				    "IO memory resource %pR is too small (minimum %#x bytes)\n",
+> +				    res, MALI_C720_ID_SIZE);
+> +		goto err_free;
+> +	}
+> +
+> +	mali_c720->clk = devm_clk_get(dev, "vclk");
+> +	ret = PTR_ERR_OR_ZERO(mali_c720->clk);
+> +	if (ret) {
+> +		dev_err_probe(dev, ret, "failed to acquire clock\n");
+> +		goto err_free;
+> +	}
+> +
+> +	mali_c720->reset = devm_reset_control_get_optional_shared(dev, "reset");
+> +	ret = PTR_ERR_OR_ZERO(mali_c720->reset);
+> +	if (ret) {
+> +		dev_err_probe(dev, ret, "failed to acquire reset\n");
+> +		goto err_free;
+> +	}
+> +
+> +	ret = of_reserved_mem_device_init(dev);
+> +	if (ret && ret != -ENODEV) {
+> +		dev_err_probe(dev, ret, "failed to initialize reserved memory\n");
+> +		goto err_free;
+> +	}
+> +
+> +	ret = vb2_dma_contig_set_max_seg_size(dev, UINT_MAX);
+> +	if (ret)
+> +		goto err_release_mem;
+> +
+> +	ret = dma_set_mask_and_coherent(dev, DMA_BIT_MASK(48));
+> +	if (ret) {
+> +		dev_err_probe(dev, ret, "failed to set DMA mask\n");
+> +		goto err_release_mem;
+> +	}
+> +
+> +	ret = mali_c720_power_on(mali_c720);
+> +	if (ret) {
+> +		dev_err(dev, "failed to power on: %d\n", ret);
+> +		goto err_release_mem;
+> +	}
+> +
+> +	mali_c720->registers.id = mali_c720_get_id_regs();
+> +	ret = mali_c720_identify_hw(mali_c720);
+> +	if (ret)
+> +		goto err_power_off;
+> +
+> +	ret = mali_c720_get_registers(mali_c720->hw_version->id, &mali_c720->registers);
+> +	if (ret) {
+> +		dev_err_probe(dev, ret, "unsupported register layout\n");
+> +		goto err_power_off;
+> +	}
+> +
+> +	if (resource_size(res) < mali_c720->registers.context_size) {
+> +		ret = dev_err_probe(dev, -EINVAL,
+> +				    "IO memory resource %pR is too small (minimum %#x bytes)\n",
+> +				    res, mali_c720->registers.context_size);
+> +		goto err_power_off;
+> +	}
+> +
+> +	ret = mali_c720_discovery_init(mali_c720, resource_size(res));
+> +	if (ret) {
+> +		dev_err(dev, "failed to parse capability discovery data\n");
+> +		goto err_power_off;
+> +	}
+> +
+> +	ret = mali_c720_discovery_get_module_base(mali_c720, &top, &mali_c720->top_base);
+> +	if (ret) {
+> +		dev_err(dev, "failed to get top base address from discovery data\n");
+> +		goto err_power_off;
+> +	}
+> +
+> +	ret = mali_c720_init_contexts(mali_c720);
+> +	if (ret)
+> +		goto err_power_off;
+> +
+> +	ret = mali_c720_init_ctx_mgr(mali_c720);
+> +	if (ret)
+> +		goto err_power_off;
+> +
+> +	pm_runtime_set_autosuspend_delay(&pdev->dev, 2000);
+> +	pm_runtime_use_autosuspend(&pdev->dev);
+> +	pm_runtime_set_active(&pdev->dev);
+> +	pm_runtime_enable(&pdev->dev);
+> +
+> +	ret = platform_get_irq_byname(pdev, "isp");
+> +	if (ret < 0) {
+> +		dev_err(dev, "Failed to get interrupt\n");
 
-Also please add Cc: stable to these three patches.
+Please use modern Linux drivers as an example for your code. All this
+should be dev_err_probe or dropped, because core takes care of.
 
-Thanks,
-Miqu=C3=A8l
+
+> +		goto err_pm_runtime_disable;
+> +	}
+> +	irq = (unsigned int)ret;
+> +
+> +	spin_lock_init(&mali_c720->irq_lock);
+> +	INIT_KFIFO(mali_c720->irq_fifo);
+> +	ret = devm_request_threaded_irq(&pdev->dev, irq,
+> +					mali_c720_isr_top, mali_c720_isr,
+> +					0,
+> +					dev_driver_string(&pdev->dev),
+> +					&pdev->dev);
+> +	if (ret) {
+> +		dev_err(dev, "Failed to request threaded IRQ\n");
+> +		goto err_pm_runtime_disable;
+> +	}
+> +	mali_c720->irq = irq;
+> +
+> +	mali_c720->media_dev.dev = dev;
+> +	mali_c720->media_dev.ops = &mali_c720_media_device_ops;
+> +	ret = mali_c720_media_frameworks_init(mali_c720);
+> +	if (ret)
+> +		goto err_free_irq;
+> +
+> +	pm_runtime_idle(&pdev->dev);
+> +
+> +	dev_info(&pdev->dev, "Media frameworks and entities registered successfully\n");
+
+Drop, drivers should  be silent on success.
+
+> +
+> +	return 0;
+> +
+> +err_free_irq:
+> +	devm_free_irq(dev, mali_c720->irq, dev);
+> +err_pm_runtime_disable:
+> +	pm_runtime_disable(&pdev->dev);
+> +	pm_runtime_set_suspended(&pdev->dev);
+> +err_power_off:
+> +	mali_c720_power_off(mali_c720);
+> +err_release_mem:
+> +	of_reserved_mem_device_release(dev);
+> +err_free:
+> +	platform_set_drvdata(pdev, NULL);
+> +	if (mali_c720->v4l2_dev.release)
+> +		v4l2_device_put(&mali_c720->v4l2_dev);
+> +	else
+> +		mali_c720_free(mali_c720);
+> +
+> +	return ret;
+> +}
+> +
+
+Best regards,
+Krzysztof
+
+-- 
+Krzysztof Kozlowski <krzk@kernel.org>
