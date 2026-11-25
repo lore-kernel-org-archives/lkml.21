@@ -1,100 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.46.56
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795592935;
-	b=M49s1rgfz3MBLLoHMKvHh8Sz30b+ktvJt7hdXS119rvk1Mrf7Yudfb0QOLGiYJsDIHS+
-	 BSkFOTuVPkhMCyVxXdza7BplcHYEyOB0JzDe28MzmMhMLBThe9K15Ngy7Mp8DPscvX3mv
-	 9gs7heO3jI1wAh/+ZbrJx1PhXYEUwuizIBzoS9WFZu7pTtrRW+PHMWsh3/yiMfG7RGjXG
-	 Tgxq9rFJprArCW1HTpmv6G/hdAcVFoNAHmcKvlr5T5ye0P97752+7EhDqbbukhVqvJ1iI
-	 fv8e2OBZ06x8VT1VSTSvoWQhfCWdLbf39UyvkiwRJ1k2REHsiHct1bDmmUNZWNWBjvQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795592935;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:To:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-AtpMessageProperties:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=b6TWe2klrU/oct26Q/Ycvy7uhcwarsY3CCBTS4JOFC8=;
-	b=2TG6UXFkkVPE7+quCizMaMhr4p/NBcq1FSjWCIa2N9b/pLf3VdaU2iTVqBh2GVuBSgcr
-	 vqwzE5Smeot8ZP3x6Q1yW+vZaQnYmy0b2vsbfbZlpIwdQrvSErn870N6VEADfLVCgr15Z
-	 4Z5lAKAvAvlA8D59qX/jfPKayPjCWow/JvrUqpEP+5aT3Ft8kPKz6Edf7aGEEA6P0dqnj
-	 NtkGGEM2WE8HRdA4Qz8xyTMhXaY68XfKl+OlOUXNzOT8H0lqPV8zq8yB27g3hEYx40UQi
-	 6Og90OhEVL42SpqGD3aj/R9Xk8Lgg7Ysl3tFvRBW57JJsMGXBsVYyMhKNS53VRNotWg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=altera.com;
-	spf=pass smtp.mailfrom=altera.com;
-	dkim=pass header.d=altera.com header.i=@altera.com header.a=rsa-sha256 header.s=selector2 header.b=ufmYLL8P;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.46.56
-Received: from CO1PR03CU002.outbound.protection.outlook.com (mail-westus2azon11010056.outbound.protection.outlook.com [52.101.46.56])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=124.126.103.232
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795592945;
+	b=hCQMNDg+b2VjGvVGoqeHNt4JMkGp1yYRheZV4neLjC8jLWdM3kMJoXn2LrL63maxPe4V
+	 ONpIP/yKnPs5vFC+ap7Kt3u8WkHTTn6RWQx8ztShOHfRkQ17w7xxONjg8nZV72kawod/0
+	 07/kfHb0q4H9MYlEeY9fxAPlRzdKqoyDqP5wklgZAR7Lua7TyKI1EXNU2yAUdlPPGzHpu
+	 RmyNO9N4IKEAxhl4qCeigg73MDm8B5QXUIjS+YJnQnOiIEHhzxI9K/RAz6+kq/hC3NdCZ
+	 pjlys3QMJ0/vUxynPc21CCYsn35a1Hm0iEhg+/3dm1NzlAxnsZvKspMImvI8noVEYIQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795592945;
+	h=DMARC-Filter:X-UUID:X-CID-P-RULE:X-CID-O-INFO:X-CID-META:X-CID-BVR:
+	 X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:X-User:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=NHziLxnIYyaGgH9iRMQeAbyOtg13/DENqLY2yDhYbX8=;
+	b=kxeVZmq5YIpjYiyJnt3G5n4A2FaOEU3bFMMqnCoSyCafbmJjZf7VI1BSJ5xc2HXP400P
+	 K1ODkIz/3JyaVs1aaf6qbUU78WOmyDihVrBhNQzoPTtUSe6+FY1LBsfvcKmdomzV7L3GX
+	 4EhXr6StMFHjppGBuNLV40l2bgAdfdEPPe3exfcv86Tf0rNiD0xQOVT6jjE0DGRYwl+bM
+	 vXYtAmLyYrLp/LBUmgvHNwESIRjUxiq8XGvcXblHZfmnhZCw4Lyq5FyRkOjb8QE+P5oGT
+	 awitj0T1UYsUjLr7qBw41PEUZmLSFmDp0LLL3gNr+rdUDq81EqvaZ3CxCJ+q6NBwdvQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=none header.from=kylinos.cn;
+	spf=pass smtp.mailfrom=kylinos.cn;
+	arc=none smtp.remote-ip=124.126.103.232
+Received: from mailgw.kylinos.cn (mailgw.kylinos.cn [124.126.103.232])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 09A4B606A31E;
-	Wed, 25 Nov 2026 07:48:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 09A4B606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=altera.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=altera.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=altera.com header.i=@altera.com header.a=rsa-sha256 header.s=selector2 header.b=ufmYLL8P
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=L0n5X0/ikCfL146HwM9qRP/RDHa7vbUjv+a/ix8F7e3V7vWIw+EGnmvPn76ciAqgjRg26HuPxnE/i+66lVbdMXajRGr+csKPuhEy0McCl/zOYiC9B21Nthd24N9q9g0GzCvc3pui77iyKGCEpQ0Bsx1q90yKCHgsJKOix8w7tvbzmuY9AVhzEOXkkRi1SxpzT6bVtqcdfOI03yfjI8kdKUtQMyzUGUX5Bg71zFeokmutuLzFZrbJKiEKVRW/YZ3syxo5+q6Jro/aaU2CFWYwqR6iDYb0TlA6eO8h5+jWMsGT74SASjeyZXCCr53exoWiVt8y/BM8N6eoqbDX8vPOUA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=b6TWe2klrU/oct26Q/Ycvy7uhcwarsY3CCBTS4JOFC8=;
- b=CeTZ3Zg8Zk5AvE7u9U4X6xhtgH6gAFXEJS+pFQj8xZhnkkx7jjJb9m/Vxh7+v9gTad8dKvazTdYrnlcS27QkGdmaO76DlpHzA4KzA06AXkdkD1Ml1421unlomv2fu4OjPXvV2imScyF8bq2OXIbzb3wQ8Lhrk2/RA42wGlf0nyhurgA/LVYZiLa07EdC+dpUDyTgkT2Sy8xWs6MX1a82oCEyfTsLMwAZ3vxMfpmO6FAu1y6cNXFghv+NlU6KbK414nfAv0m7vbsUdlcUO6h9hDd1Wc/VAIjT4SzZPq3S7XeP/+bV1zwgWRZNdjV+JhplAa7Ctzj80Y4D5V/zd0yeNg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=altera.com; dmarc=pass action=none header.from=altera.com;
- dkim=pass header.d=altera.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=altera.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=b6TWe2klrU/oct26Q/Ycvy7uhcwarsY3CCBTS4JOFC8=;
- b=ufmYLL8PkD9ErAajSB8nIiYBq33cTirzo7Jw1pf2BqdqSy+708TzGq+kHHJVTuxwOiW0nJ6CQrGX2u3zhvxSBZkOKfiLY8K2ssZtQPBnk7UuL/Ugil31uIYEeZ0HcXL59bXhsxqToMAl3czQJmhfvBp8OmkEghCM9IEOGofE705lyFA75brHlzA4YSD4ZICj059R79jMOcJiTL4lrVqAGhgeGS9k8dD0C7h28ROLxfXwMe3ZfqCfI+c0UZO+y+4aOIIWCAdqpf5Ar1+tehND9KY2SDri10QBtTrlsv9xAsXqCUc2JzxZGXoEJhGNL1LcC67sizv+BTC5hBmx6fqA3w==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=altera.com;
-Received: from SJ0PR03MB5950.namprd03.prod.outlook.com (2603:10b6:a03:2d3::20)
- by CO1PR03MB5827.namprd03.prod.outlook.com (2603:10b6:303:9a::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.6; Wed, 25 Nov
- 2026 07:48:52 +0000
-Received: from SJ0PR03MB5950.namprd03.prod.outlook.com
- ([fe80::53a0:bf93:6b6b:de01]) by SJ0PR03MB5950.namprd03.prod.outlook.com
- ([fe80::53a0:bf93:6b6b:de01%3]) with mapi id 15.21.0662.004; Wed, 25 Nov 2026
- 07:48:52 +0000
-Message-ID: <60757981-b7fd-4c61-862a-d224047a33d1@altera.com>
-Date: Wed, 25 Nov 2026 15:48:45 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 3/3] mmc: sdhci-cadence6: tune SD6HC DDR50/DDR52 read
- path
-To: "Kathpalia, Tanmay" <tanmay.kathpalia@altera.com>,
- Adrian Hunter <adrian.hunter@intel.com>, linux-mmc@vger.kernel.org,
- linux-kernel@vger.kernel.org, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, devicetree@vger.kernel.org,
- Ulf Hansson <ulfh@kernel.org>
-References: <20261119-sd_cadence_ddr50_v3-v4-0-95a94a0aaaf3@altera.com>
- <20261119-sd_cadence_ddr50_v3-v4-3-95a94a0aaaf3@altera.com>
- <0163d3d3-432b-478b-90bc-22d6c3f03656@altera.com>
-Content-Language: en-US
-From: "NG, TZE YEE" <tze.yee.ng@altera.com>
-In-Reply-To: <0163d3d3-432b-478b-90bc-22d6c3f03656@altera.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SI2PR04CA0015.apcprd04.prod.outlook.com
- (2603:1096:4:197::21) To SJ0PR03MB5950.namprd03.prod.outlook.com
- (2603:10b6:a03:2d3::20)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D543A606A32D;
+	Wed, 25 Nov 2026 07:49:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D543A606A32D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kylinos.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kylinos.cn
+X-UUID: abb7b9c6e8a411f19a56ed5b684f684d-20261125
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.19,REQID:b541b372-0249-414a-b05f-4931f132ded4,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:7db8b62,CLOUDID:90e84ad07b0fbd8a599329838e687d2c,BulkI
+	D:nil,BulkQuantity:0,SF:80|81|82|83|102|865|898,TC:nil,Content:0|15|52|99,
+	EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OS
+	A:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: abb7b9c6e8a411f19a56ed5b684f684d-20261125
+X-User: fuqingshuang@kylinos.cn
+Received: from [10.42.20.11] [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <fuqingshuang@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_128_GCM_SHA256 128/128)
+	with ESMTP id 410151515; Wed, 25 Nov 2026 15:48:57 +0800
+Message-ID: <fac38220-6a40-49e1-bd37-732519e74a88@kylinos.cn>
+Date: Wed, 25 Nov 2026 15:48:55 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,146 +62,74 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ0PR03MB5950:EE_|CO1PR03MB5827:EE_
-X-MS-Office365-Filtering-Correlation-Id: 004a6235-bd24-4c6d-d5f0-08df4ac88c95
-X-MS-Exchange-AtpMessageProperties: SA
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|366016|376014|23010399003|1800799024|921020|10067099003|56012099006|11063799006|261022105027099003|261022075727099003|261028144727099003|261026140227099003|261026121527099003|261021123027099003|261021121427099003|261102123227099003|4143699003|22082099003|55112099003|18002099003|3023799007;
-X-Microsoft-Antispam-Message-Info:
-	AXnbwHJbePciVO56qLjSS7mPKM+CBn4lZPf2LQ3NO8mx3bbWDVXBxnPw2VRVfW54LlTJvaZrHFtn2n3rKc72YC97idCytYKyIhvv8dglp6UHHX4U3KRke2Mhv2Tk1M/Ws9nBU6pUPJzEJ120jQBBJ9D7SPbfTA9oK83hces2BgwTfaVPTg1PSL9ec7HVjEVozvYEUQAnYEyXogcDgoNJBeob7wBu8To/Zn57TU4MX3XL665bPsw+2yI+ZSpWAhZtSOS7dlmhl3Bjmg7RoHsLVDl9kKSoBn+yKU5NYY2UoBpsZaNSwDF16Ae/QEyxP2v3yaaq84X7+EhV9C5uU1195b35t76t2EAwpEIvyVGlo3rcRE/KhwQZ5eBhQ6yRE+10glfDx6qIdfGzH6ZoZ+Mw1WglIcuiBaVNet+M9RKY2KyzZuWe+0YucMhzVJNGq0g4JgqLJ9dv6jF2IvZ5rYjlQ1/Qw4XOsWFqqHf3t4HGGYrXaRbpcRhBvr2L1b+rjy9EcOfDF0Se/qprXCoC5PlMTeR69O8RYqRWe+cy9H6dHobDeG7R7NjUJChBWtlPptHvzC98ckQvJBBUEv8VMrJ+baaUR2zE8dwbIWevH14nRm5EQvQvFG4BcAqHNh4nsk2zWor20zAYmnwBAUL0jR2gDZenkBN2LLOTscOb4kXchune+g5o3CD93b/6g3Vuc3HPW5W33rzRPcGmZRhQC0kjiA==
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ0PR03MB5950.namprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(23010399003)(1800799024)(921020)(10067099003)(56012099006)(11063799006)(261022105027099003)(261022075727099003)(261028144727099003)(261026140227099003)(261026121527099003)(261021123027099003)(261021121427099003)(261102123227099003)(4143699003)(22082099003)(55112099003)(18002099003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?UGMyTCtBZ1kxUi9RK3BVMXR5bzY1RzlkZXVZdkdFSTFmS2VVajVNY2NHWDF1?=
- =?utf-8?B?QWF3VVRMbXlTQVVLOVJTMWdrRngvUnFta0JDUzJiMVl5alNmRzdWZzZwTExi?=
- =?utf-8?B?Y1lvajBMT2kzWVdTNVp3MHFEQWZtaVNrSWZ5c0k3WXdmeGZBTlJjdnR0TG1x?=
- =?utf-8?B?Z2NhR1o1SlJ6TG85R29ZbWNOOU13K0FHbWQ0dDdCTG5VSm9WbUhwSGdybkZ0?=
- =?utf-8?B?NjdaNzRhWGlhb2dxRjd1Vlpzc1pGSUdTUW10YlZqUFJuKy9TU29mc3YvdVRz?=
- =?utf-8?B?WWVSLy9TLzd2dVlUVWZmZDdnNjEzOGthdnVuL1NLdTNVQlJEaDZsZEtRelkx?=
- =?utf-8?B?UC9VYlpPUGs5aUU4UElMRmM2QzFENlZrcjZpNHROMVZaRVF0ekF5VjdJS0ll?=
- =?utf-8?B?SzRWc21DdjJDZXJsQXBYODhxZDdkZmNYaWpqbjNDYzFacjAvL0tKeUNuODlH?=
- =?utf-8?B?RHo4cGM0aVBvcnVac1FVT054cTNZUStHNjFjKy9GT0lYeDFiWG1QakpIT1lu?=
- =?utf-8?B?L0owZW5Eb1dITmtvTUJNakJlVEwwajZBaDJ6MU84K3I0NDFENlY4eFM5cFBF?=
- =?utf-8?B?SXJWR254dG1nVnZGLy94MStEbkdZVnM1QVRydFFKa2FCVGlFREthYWw2N3Y1?=
- =?utf-8?B?TEF3dUR2ZVplZU5UbXdJVUJIaUxUM3VvVWZUVTVtUGYvYmRCK1JlcFNWUWFK?=
- =?utf-8?B?bjZOWmE0RW5idExiYUcrdks4OCtGYkI3MzJaWU1uUVJXQW1ROUcvRTA4SzRn?=
- =?utf-8?B?WkpnVDVPNmRSRERmVnVPOHF3WVF3V29MRVo5K0xGVTZ3WUJKTWF0NUNTT0p6?=
- =?utf-8?B?Z001emVsMytmWHNuMjErWWw2VE1yOUs5cWN6VCtYT0Y2ck5EZm9Ob3JlWGFI?=
- =?utf-8?B?WVJqWW1zWTI0RTF0NnJWMElqWUFNTktVVkZuT1YyakFwTXZrUmdvZjRDRDFq?=
- =?utf-8?B?eitCNFp0Y1AyUFc4UFNIaU1JU2xub3NTMkdXR0h0SmNiOXhrVHdnNXdPMzVD?=
- =?utf-8?B?Z0dZY051bTBCUS8wcnkxMkhTM0V1MnNlOGptQjd6TFoyMXZWSFpkTittQUxO?=
- =?utf-8?B?QXUvWUtaMXF0cnpvelpsZEhTZ3RQMzh6Tzc3VHJ1N01vckdHcGxXUFp3RzVR?=
- =?utf-8?B?b2Y2WDh3RGc5ZUVDZmorcUN3dG5XdGtRNmVwOEZHQTY3TU1RdEdTcm83dzNC?=
- =?utf-8?B?Q09NMkgvLys5MVhOZ1hLaHc2S1lHMzMzL0xaZ0hna0ZhN093TUIvazkwR01G?=
- =?utf-8?B?MVlZOWRva1ZqTmJKTmptUmtMUnpOaVNpZitsKy9QbGxKVWZDR1FFRWhham96?=
- =?utf-8?B?NDVIbGtFUjYwRXJIbEJvdENOd1JscGxGb2VDRlNtVHhFbjgwOWNaaEJHS21Y?=
- =?utf-8?B?YUp5SVNHTHdVYzdEQlZKcFhkUGVKMUlUa0hxRk10eXUyZThyQ0tDc3ovTmNQ?=
- =?utf-8?B?QnZYdHkwRXJ1TlhFa0pqblZhMDJDaHZ1c05lQUFVTXdLbUZ2ZjN0c0VuWkZK?=
- =?utf-8?B?cmVlVllTTkdyVFB6bzFnS212MEpOZm9seVVmQVhDYzd1MEo1K3FJbWFIWmFx?=
- =?utf-8?B?Q04rcis1eVZCY29mQi9jQ3hsa1FrWCtkdm8zWUdBYTVUYW9jWkdBM3JncGdu?=
- =?utf-8?B?OGF4L1NneGxhT0NGTG5RaStndWRRTlJTY1hzVUIxMXdyWVBrNXUrRk9oMFdn?=
- =?utf-8?B?S2hYU1pBWEI5WmROSk03K2VwWHE2R1phRTR4NGRXSlNRRGJEdVJOSU9RQXFD?=
- =?utf-8?B?dHFZaDNLTDlHaHFIampiWThsamFVNmxPT3JiLzZuOHNkZEkwaG5jTWxuSVI2?=
- =?utf-8?B?a3hJMG0zNGRZalh5RXNiT01MN3R4ZHZZTEJqZUVSZ3VzaGluMXZFTVdEMmhM?=
- =?utf-8?B?SUdmOFRUT0I3Y3ZSa3NaMkhuaWdIVG5CR2dXSnlDQjNsd3k3REtIT3prNnFl?=
- =?utf-8?B?T0ZzMUpOY2RDWVllOEFiUjc5dXU1SFUwcHpvL1BvOFkvYkxVc0pRWW11SHg1?=
- =?utf-8?B?WnhiRHdYOVgyQWV1SFhyN0lEUUFmaTlZRTNFY3V1TUdzbUhFUzNrUy9Qbndt?=
- =?utf-8?B?VzUwSmg5anltdnB6KzBsVGFQUUE5OVdkZFl3dVFsR3FocDhCMTlwb09md1Vh?=
- =?utf-8?B?WEpJTkgvM0lwMWVJRFRXMVozazZEcjJZdHM4Y3dIZDR5N1hPYTJIU05uelZH?=
- =?utf-8?B?bVF5RXN2S2pmMEtnOC83R2tMa0lLMkNCL3drMEVWbGZibVVKbTRlT251Sytu?=
- =?utf-8?B?dDE3OHkwbkZrMWJRNTRDSUY4a05JNmhYSWR1dld1NnFVeU5mNWxtN3F6UE9w?=
- =?utf-8?B?LzlneXZlbFN6M1hNYXBiVmgxa3pMdnJKVjlIVVgzWnBvWTNhOFhWdz09?=
-X-OriginatorOrg: altera.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 004a6235-bd24-4c6d-d5f0-08df4ac88c95
-X-MS-Exchange-CrossTenant-AuthSource: SJ0PR03MB5950.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 07:48:52.3714
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: fbd72e03-d4a5-4110-adce-614d51f2077a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: LwEWMCJA2t83xNiZcwnqnmMyAtqcR5DwXZP9mE7QjF9yB6SkYSCWEziV2aKBTiaKEaJWX7qTK9uFnJagn2H0Lw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO1PR03MB5827
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] selftests/proc: skip fd-003-kthread if run as non-root
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: Andy Whitcroft <apw@canonical.com>, Joe Perches <joe@perches.com>,
+ Shuah Khan <shuah@kernel.org>, Alexey Dobriyan <adobriyan@gmail.com>,
+ linux-fsdevel@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20261120062933.3169112-1-fuqingshuang@kylinos.cn>
+ <20261124223355.15a364523377daf5cf2734cb@linux-foundation.org>
+Content-Language: en-US
+From: Qingshuang Fu <fuqingshuang@kylinos.cn>
+In-Reply-To: <20261124223355.15a364523377daf5cf2734cb@linux-foundation.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 
-
-
-On 23/11/2026 3:06 am, Kathpalia, Tanmay wrote:
+在 2026/11/25 14:33, Andrew Morton 写道:
+> Fair enough.
 > 
-> On 19-11-2026 15:15, tze.yee.ng@altera.com wrote:
->> From: Tze Yee Ng <tze.yee.ng@altera.com>
->>
->> DDR50 and DDR52 have no CMD19 tuning, so the SD6HC extended-read path
->> relies on static PHY settings. Two things are needed to make it work.
->>
->> First, PHONY_DQS_TIMING (phy_ctrl_reg[9:4]) was left at 0 in every mode.
->> In extended-read mode the RE# (rebar) pulse is held high for half an
->> SDCLK period, so its width in clk_phy (sdmclk) cycles is the SDCLK/sdmclk
->> divider / 2, and the field must hold that width minus 1 (0 otherwise).
->> Leaving it at 0 in extended-read DDR duplicates one DDR edge and corrupts
->> reads. Derive the width from the clock divider so it tracks the
->> integration rather than a hard-coded value: e.g. 1 at divide-by-4,
->> confirmed on DDR50 hardware where 1 captures both beats and 0 corrupts
->> reads. The field only takes effect when the fabricated phony DQS is
->> selected, so the computed value is written in every extended-read mode
->> and clamped to the 6-bit field. This timing model follows the Cadence
->> SD6HC PHY documentation.
->>
->> Second, the remaining read-path knobs need board/SoC characterisation, so
->> read them from device tree at PHY probe and apply them in the
->> extended-read DDR modes (DDR50 and DDR52):
->>
->>    - cdns,ddr-read-dqs-delay: read-DQS delay as a count of DLL delay
->>      elements (each cdns,delay-element-ps wide), written to the 8-bit PHY
->>      field (0-255);
->>    - cdns,ddr-no-lpbk-dqs: fall back from the recommended loopback DQS to
->>      the fabricated phony DQS.
->>
->> Signed-off-by: Tze Yee Ng <tze.yee.ng@altera.com>
->> ---
->> Changes in v4:
->> - Merged v3 2/4 (PHONY_DQS_TIMING) and v3 4/4 (read DDR tuning from
->>    device tree)
->> - Derive the PHONY_DQS_TIMING rebar pulse width from the
->>    SDCLK/sdmclk divider (t_sdclk / (2 * t_sdmclk) - 1, clamped to the 
->> 6-bit
->>    field) instead of the hard-coded 2 clk_phy cycles, and apply it in 
->> every
->>    extended-read mode instead of only DDR50/DDR52.
->> - Dropped the cdns,ddr-phony-dqs-timing override.
+>> --- a/tools/testing/selftests/proc/fd-003-kthread.c
+>> +++ b/tools/testing/selftests/proc/fd-003-kthread.c
+>> @@ -36,6 +36,7 @@
+>>    *
+>>    * Return /proc/$PID/fd descriptor if process is kernel thread.
+>>    * Return -1 if a process is userspace process.
+>> + * Return -EACCES if run as non-root.
+>>    */
+>>   static int kernel_thread_fd(unsigned int pid)
+>>   {
+>> @@ -88,6 +89,8 @@ static int kernel_thread_fd(unsigned int pid)
+>>   	fd = -1;
+>>   	if (flags & PF_KHTREAD) {
+>>   		fd = openat(dir_fd, "fd", O_RDONLY|O_DIRECTORY);
+>> +		if (fd == -1 && errno == EACCES)
+>> +			fd = -EACCES;
+>>   	}
+>>   	close(dir_fd);
+>>   	return fd;
+>> @@ -168,6 +171,8 @@ int main(void)
+>>   		pid++;
+>>   	}
+>>   	/* EACCES if run as non-root. */
+>> +	if (fd == -EACCES)
+>> +		return 4;
+>>   	if (pid >= 1024)
+>>   		return 1;
 > 
-> In v1 you mentioned that the modular SoM needs ddr-phony-dqs-timing
-> at 0. With the override gone the driver writes 1 there at 50 MHz.
-> Does DDR still work on the SoM with v4?
+> Why "4"?
+
+4 is KSFT_SKIP.  The convention in selftests/proc is a bare "return 4"
+on skip paths -- 9 tests do it, e.g.:
+
+	proc-loadavg-001.c:32
+	proc-net-dev-lseek.c:35
+	proc-self-syscall.c:40
+	proc-self-wchan.c:30
+	setns-dcache.c:56
+	setns-sysvipc.c:55
+
+Notably proc-pid-vm.c includes kselftest.h and still returns a bare
+4 at the end of main().  So the bare 4 just follows the directory's
+existing style.
+
 > 
-> 
+> (and why didn't they call it EACCESS.  Also s/creat/create/)
 
-Hi Tanmay,
+Ha.  Renaming it now would break 50 years of userspace, but I agree
+the historical spelling is unfortunate.
 
-Yes, DDR50 still works on the modular SoM in v4. Dropping the
-cdns,ddr-phony-dqs-timing override leaves phony_dqs_timing at the
-derived 1 on the SoM (same as the other Agilex5 variants). At the
-soldered-board read delay (96) that does hang the SoM on the first read,
-but the SoM's phony read eye sits at a much lower read_dqs_delay, so it
-only needs a smaller cdns,ddr-read-dqs-delay. Sweeping it on the SoM
-(phony, phony_dqs_timing=1):
+-- 
+Qingshuang Fu
 
-     read_dqs_delay   result
-     0                pass
-     12               pass
-     24               pass
-     36               pass, 2 data-CRC (marginal)
-     48               data-CRC errors
-     96               hang (first read)
-
-So now the modular DTS uses cdns,ddr-read-dqs-delay = <24>. In v1 I 
-centred the SoM by shifting the phony strobe (phony_dqs_timing=0) at 
-delay 96 (follows other Agilex5 variants); v4 reaches a valid capture 
-point on the SoM with the read_dqs_delay knob alone, so the extra 
-phony_dqs_timing override was no longer needed.
-
-Thanks,
-Tze Yee
