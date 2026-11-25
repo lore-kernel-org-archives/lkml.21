@@ -1,87 +1,76 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795596048;
-	b=ALMpVDrkIntPiyOrvjSFAZmoKwpHtcon37MjKYz821jx7EizbxZx59+cx+lvJjIP0cuE
-	 QxH8x+eRZeylSs+IY56RCMB+h/4g7COuxiOdWWEwE2X0ndjX4RoMxvJ33sypCNKMMtRGZ
-	 FT9ZTdI4vFeDQ9eqIMhupbnM6ln96/ZSnB8fQu9dTbJSPSPrfQiWq8rfiFWsE028avPln
-	 b9tH8INzzlXBTcI6/9o5zMO5kRDrUEEoRHffvrxzmUHXYCu5ExCprR7ej9inBQlGCS8WY
-	 xZXz7tj3w2oe1EkFaV3GujdRfFfaK1xmWigFnStg2LUHk7fkjdq35g7/Hees7R/u1rA==
+	t=1795596049;
+	b=liQT3PrUyt1FZh4RO3XbOyvzDuizEUKyXQvhNSIprYH0s6c1TjXCkJlZH7JmR+9n0z4c
+	 8we6+ZpoIM3xj1eyW4cYBUmSti/TKWJdk1WJk80SdDLphQANt3ZDYfbHo1ZxA2zcmPhaQ
+	 f0gc3jEshDXxlG/17Rv2p9R7WiG5A1baRmp4tX9If/oN/oETIviGfqarDiYG8bR4VzFnP
+	 NQUol5EC1SkMSM6+psqCUNKrEuqUnjRRt0TdFmZSvL40wgfRyTqb62a0/WUDIDm+j51V1
+	 2W7rDCrbIElVeru+g0qsJBqvKCeKMmKYvBHdxnBfSfo8v8jPsOnanPEIX7061UQM4xQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795596048;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
-	 References:MIME-Version:Content-Transfer-Encoding:
-	 X-Proofpoint-Reinject:X-QCInternal:X-QCInternal:
-	 X-Proofpoint-Spam-Details-Enc:X-Authority-Analysis:X-Proofpoint-GUID:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=W9uI+pYagqxnr3+b7yh7nPNxPSsJiD9bSx1dx+aDwnw=;
-	b=crFKf8zMWkkli7VgAmai7LHCjiv75pS8o6Zom4LcsbgKH/qxfI6jy1o3zG4i7uw0iz07
-	 /DQ+JvXnxzh2Fu0RN0eoSu4Xh7uZRmHUpkSR/I7czZacrnPN83d9C+TZhf6jHdrK6fDdA
-	 SSR+by0Zu8VAPgyn5LSRSQh+TkWPXkfiTCZbASJ1r9mEjYjGjzPI0fOmVvRH9VyP7TAyH
-	 K84FUzjCwfp77YPcJJOXkGMkB0is+K1KDE1Mh1DbdV4i/r1X1l+v2Z1y2O8/ZfWUFt4Qx
-	 /bGnISMU/Z7hhH/c0rm94nQx8+vYHMexn8zkdULUu6t+1mCe2kZloJhp7wfOR4+Yt8Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795596049;
+	h=DMARC-Filter:Date:DKIM-Signature:DKIM-Signature:From:Sender:Reply-to:
+	 To:Subject:Cc:In-Reply-To:References:MIME-Version:Message-ID:Robot-ID:
+	 Robot-Unsubscribe:Precedence:Content-Type:Content-Transfer-Encoding;
+	bh=YtXJlTEvqx5XQygLSJShQwaJUGuYe5/AAwZGVwwLhgg=;
+	b=uBEk9NIbWHG+AnqaJN+AL4QhxJZu4EOKzfWyvDc3yGHfBXIFJJeVw7PqGlbV8l77cdzd
+	 V2rceOMM46wGjvzLyCbAYwqFRsyOvIhZqfz7+BiKhwir8oGtCVkHTBfWHhNA7eBsBYVCg
+	 8CTouuj7CAs3gGjcOo1jAO+SOdYg19ZtrtwjQHEuurO7a2vCgDsXkTr8WfqocrQjNmv7D
+	 yLplxizYCcbe7PGe+GVL8p90V+KnNyoE5KanOolmwbIH6A64ADWTAfr0Ts03NhJnxWIjy
+	 WaXYdDg16379Ot1bR6OFC4xKUeXKft2GGRUy60FNopPPnRS3wcWUWIqPspWt+1bu2Kw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b="kEqh/LxA";
-	arc=none smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+	dmarc=pass header.from=linutronix.de;
+	spf=pass smtp.mailfrom=linutronix.de;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=lCFmVWc8;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=agE9eBKN;
+	arc=none smtp.remote-ip=193.142.43.55
+Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9F470606A692;
-	Wed, 25 Nov 2026 08:40:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9F470606A692
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1F055606A335;
+	Wed, 25 Nov 2026 08:40:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1F055606A335
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=kEqh/LxA
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AP68Xgp299990;
-	Wed, 25 Nov 2026 08:40:00 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=W9uI+pYagqx
-	nr3+b7yh7nPNxPSsJiD9bSx1dx+aDwnw=; b=kEqh/LxAuMFBH87X4BBTv1VdNUq
-	UK6DpiyCr/DSuj+XowNFqdIDD2FROnmWHZEMuQW5eqsC3hbI4DL2Trk6N+3hPkfe
-	XXBih1je5f5ffdIteHLP0LGYDUaJvNVlBeS6jcmauBmm+kMEDTWvdmxcbi7E2CO/
-	xAkFhT5vJ6lWbrapOaTJnXcMaUx2opOriU0t9TVY8vkmb3RnTgPtgddh9QfuQYWs
-	r8ph86y7KblY7In2TA/ueYI00suCPpKxbiZsIQioY+UGxeG+ekL+XFSKETKFqKsf
-	qceK87o7l7gVsbwzpLWSyK81dQ7I0YERtr2Uti0CZelsbeC8WJhuEHCTfig==
-Received: from apblrppmta01.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com [103.229.18.19])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j5n6rspn5-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Wed, 25 Nov 2026 08:39:59 +0000 (GMT)
-Received: from pps.filterd (apblrppmta01.qualcomm.com [127.0.0.1])
-	by APBLRPPMTA01.qualcomm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AP8duVW075764;
-	Wed, 25 Nov 2026 08:39:56 GMT
-Received: from hu-devc-blr-u24-a.qualcomm.com (hu-vikrsi-blr.qualcomm.com [10.190.111.249])
-	by APBLRPPMTA01.qualcomm.com (PPS) with ESMTPS id 6AP8duHO075754
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Wed, 25 Nov 2026 08:39:56 +0000 (GMT)
-Received: by hu-devc-blr-u24-a.qualcomm.com (Postfix, from userid 4853235)
-	id DADAD248F8; Wed, 25 Nov 2026 14:09:55 +0530 (+0530)
-From: Vikram Singh <vikram.singh3@oss.qualcomm.com>
-To: peterz@infradead.org, mingo@redhat.com, acme@kernel.org,
-        namhyung@kernel.org, mark.rutland@arm.com,
-        alexander.shishkin@linux.intel.com, jolsa@kernel.org,
-        irogers@google.com, adrian.hunter@intel.com, paul.walmsley@sifive.com,
-        palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
-        atishp@rivosinc.com, anup.patel@oss.qualcomm.com, will@kernel.org,
-        robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-        beeman@rivosinc.com
-Cc: Vikram Singh <vikram.singh3@oss.qualcomm.com>,
-        linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
-        Conor Dooley <conor@kernel.org>, devicetree@vger.kernel.org,
-        Rajnesh Kanwal <rajnesh.kanwal49@gmail.com>
-Subject: [PATCH v6 6/7] riscv: pmu: Integrate CTR Ext support in riscv_pmu_dev driver
-Date: Wed, 25 Nov 2026 14:09:41 +0530
-Message-ID: <20261125083942.3695072-7-vikram.singh3@oss.qualcomm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261125083942.3695072-1-vikram.singh3@oss.qualcomm.com>
-References: <20261125083942.3695072-1-vikram.singh3@oss.qualcomm.com>
+	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=lCFmVWc8;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=agE9eBKN
+Date: Wed, 25 Nov 2026 08:40:45 -0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1795596047;
+	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
+	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
+	 content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=YtXJlTEvqx5XQygLSJShQwaJUGuYe5/AAwZGVwwLhgg=;
+	b=lCFmVWc8HCVSz8mgIPp1Q9ayJIawn29mJXQ5jJK30yfy/MTYtoXefDkN8YTcURhNHAYX1B
+	FETlZJHrNh+Nae6sfDzq+gG7/Fy9HeJNDkknVvfuAz6ylNqTLOuzoUcXR8CygLMf7wD4KW
+	CNmfhHBJvoEctH1OnBGm0PRnO3CPIIUTvwvKqSfEaE5KOQgjyWSc8XMohP6PwysPsicWRp
+	Q4DdJwiqrFK8j2CBswN0r5hV2UDXZRwnZ0NWoKHBWMY2OHz3NjSJQ6WsYzUxan7thTB2vk
+	rq41JraxRQ02avJv6VvwZtK4zhhgHIOcE4TvSMxBwEFbzwslP0qQpC1WdVAR1w==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1795596047;
+	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
+	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
+	 content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=YtXJlTEvqx5XQygLSJShQwaJUGuYe5/AAwZGVwwLhgg=;
+	b=agE9eBKNR4vNaO0UENkjb37un1bJo7PAyR0xyAi7SRV2ZqH+c+cK5iC+Qa62jBlT8M14Nc
+	USjsNbDviQ1yqxDQ==
+From: "tip-bot2 for Puranjay Mohan" <tip-bot2@linutronix.de>
+Sender: tip-bot2@linutronix.de
+Reply-to: linux-kernel@vger.kernel.org
+To: linux-tip-commits@vger.kernel.org
+Subject: [tip: objtool/core] objtool/klp: Add test for changed functions
+ without an ftrace call site
+Cc: Puranjay Mohan <puranjay@kernel.org>,
+ Joe Lawrence <joe.lawrence@redhat.com>, Song Liu <song@kernel.org>,
+ Josh Poimboeuf <jpoimboe@kernel.org>, x86@kernel.org,
+ linux-kernel@vger.kernel.org
+In-Reply-To: <20261022171637.3298443-4-puranjay@kernel.org>
+References: <20261022171637.3298443-4-puranjay@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -91,243 +80,201 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-QCInternal: smtphost
-X-QCInternal: smtphost
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI1MDAzNCBTYWx0ZWRfX+sEjdbl7F7bj
- fJMif/JCk2Hfj2+U+t4cDxZQOOJp5RYiUf07VwK54DuMkxteViAij3JPIFYd9b3i6bFSQRyNoZQ
- DnXMliHDokxeucrlGK0GUgWILZ6smw+yS7KO5Qgh9FuK5J2Lmd9CKb7JpfITBLWSVQQRnvWfTSp
- ZKQD/bMuEE16HxgtJ8PnfKgzMLhyCejTVu0XsxQa5/1xZDkvczT66FB33MRaa39xnXXGRo+Ms97
- WEkRX5G3h2inTQz11UuCoZyFpc1oh1EKTJ//neSrh23eTjIy9XzfgDLjIdwkGUr29j3Ql7KcbVv
- hA7TlXo/Z0sbLdXFu/5+wv7oI4L5W67hJeI+0WFQJi/SdTJj0WPqlRVMyt//Usn6HSYaAz+8b8A
- Wo+qIkI2TrP0MpRL6HOn7ToAoZWf3Y72qF+20Dfn/Irdt4/Hgy2qXgqU15tyBwIbSwfjdJZz8rL
- FZO6uijDcOpuzy5dXLw==
-X-Authority-Analysis: v=2.4 cv=Voa2kO2n c=1 sm=1 tr=0 ts=6b069edf cx=c_pps
- a=Ou0eQOY4+eZoSc0qltEV5Q==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
- a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
- a=eoimf2acIAo5FJnRuUoq:22 a=pGLkceISAAAA:8 a=EUspDBNiAAAA:8
- a=QGXi7JOrDNZMjxcTnqQA:9
-X-Proofpoint-GUID: CAuXblXjaFG9gpnoC6emD3IShSjl8sMK
-X-Proofpoint-ORIG-GUID: CAuXblXjaFG9gpnoC6emD3IShSjl8sMK
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI1MDAzNCBTYWx0ZWRfX6/RwDFm5P4+2
- L3zaK3idoZQITL36H4nzn4RS2xiXRNj7urHknCt/7X3dyKD4lSk5jvuxa4uoGsc1OtadZ6VVop3
- AGjbaxHeZ4dQKeGBRty+aDT0db3ON8o=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-25_02,2026-11-23_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 malwarescore=0 clxscore=1015 bulkscore=0 lowpriorityscore=0
- adultscore=0 spamscore=0 priorityscore=1501 suspectscore=0 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611250034
+Message-ID: <179559604542.92412.17801959190123887698.tip-bot2@tip-bot2>
+Robot-ID: <tip-bot2@linutronix.de>
+Robot-Unsubscribe:
+ Contact <mailto:tglx@kernel.org> to get blacklisted from these emails
+Precedence: bulk
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
 
-This integrates recently added CTR ext support in riscv_pmu_dev driver
-to enable branch stack sampling using PMU events.
+The following commit has been merged into the objtool/core branch of tip:
 
-This mainly adds CTR enable/disable callbacks in rvpmu_ctr_stop()
-and rvpmu_ctr_start() function to start/stop branch recording along
-with the event.
+Commit-ID:     94877d50b89cf6a579e406581db7805ec6b8ad58
+Gitweb:        https://git.kernel.org/tip/94877d50b89cf6a579e406581db7805ec6b=
+8ad58
+Author:        Puranjay Mohan <puranjay@kernel.org>
+AuthorDate:    Thu, 22 Oct 2026 10:16:36 -07:00
+Committer:     Josh Poimboeuf <jpoimboe@kernel.org>
+CommitterDate: Sat, 21 Nov 2026 23:38:32 -08:00
 
-PMU overflow handler rvpmu_ovf_handler() is also updated to sample
-CTR entries in case of the overflow for the particular event programmed
-to records branches. The recorded entries are fed to core perf for
-further processing.
+objtool/klp: Add test for changed functions without an ftrace call site
 
-Co-developed-by: Rajnesh Kanwal <rajnesh.kanwal49@gmail.com>
-Signed-off-by: Rajnesh Kanwal <rajnesh.kanwal49@gmail.com>
-Signed-off-by: Vikram Singh <vikram.singh3@oss.qualcomm.com>
+Test that klp diff rejects a changed function without an ftrace call
+site, both a notrace one and an inline one emitted out of line, and
+reports each of them.  Also test that a fully inlined function and an
+ordinary function can still be patched.
+
+Signed-off-by: Puranjay Mohan <puranjay@kernel.org>
+Acked-by: Joe Lawrence <joe.lawrence@redhat.com>
+Acked-by: Song Liu <song@kernel.org>
+Link: https://patch.msgid.link/20261022171637.3298443-4-puranjay@kernel.org
+Signed-off-by: Josh Poimboeuf <jpoimboe@kernel.org>
 ---
- drivers/perf/riscv_pmu.c     |  2 +-
- drivers/perf/riscv_pmu_sbi.c | 72 ++++++++++++++++++++++++++++++++++--
- 2 files changed, 70 insertions(+), 4 deletions(-)
+ tools/objtool/tests/x86/fixtures/notrace_target.c | 71 +++++++++++++-
+ tools/objtool/tests/x86/test-notrace-target.sh    | 74 ++++++++++++++-
+ 2 files changed, 145 insertions(+)
+ create mode 100644 tools/objtool/tests/x86/fixtures/notrace_target.c
+ create mode 100755 tools/objtool/tests/x86/test-notrace-target.sh
 
-diff --git a/drivers/perf/riscv_pmu.c b/drivers/perf/riscv_pmu.c
-index d4826eb73b16..fa9ae4e659d2 100644
---- a/drivers/perf/riscv_pmu.c
-+++ b/drivers/perf/riscv_pmu.c
-@@ -327,7 +327,7 @@ static int riscv_pmu_event_init(struct perf_event *event)
- 	uint64_t cmask;
- 
- 	/* driver does not support branch stack sampling */
--	if (has_branch_stack(event))
-+	if (has_branch_stack(event) && !riscv_pmu_ctr_supported(rvpmu))
- 		return -EOPNOTSUPP;
- 
- 	hwc->flags = 0;
-diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
-index b14b3acf7567..637b9d97e20a 100644
---- a/drivers/perf/riscv_pmu_sbi.c
-+++ b/drivers/perf/riscv_pmu_sbi.c
-@@ -678,6 +678,9 @@ static int pmu_sbi_event_map(struct perf_event *event, u64 *econfig)
- 	 */
- 	flush_work(&check_std_events_work);
- 
-+	if (needs_branch_stack(event) && !riscv_pmu_ctr_valid(event))
-+		return -EOPNOTSUPP;
+diff --git a/tools/objtool/tests/x86/fixtures/notrace_target.c b/tools/objtoo=
+l/tests/x86/fixtures/notrace_target.c
+new file mode 100644
+index 0000000..64da58c
+--- /dev/null
++++ b/tools/objtool/tests/x86/fixtures/notrace_target.c
+@@ -0,0 +1,71 @@
++// SPDX-License-Identifier: GPL-2.0
++/* PATCH_<name> changes <name> in the patched build. */
++#define notrace __attribute__((__no_instrument_function__))
 +
- 	return riscv_pmu_get_event_info(type, config, econfig);
- }
- 
-@@ -827,10 +830,14 @@ static void pmu_sbi_reset_scounteren(void *arg)
- 
- static void pmu_sbi_ctr_add(struct perf_event *event, int flags)
- {
-+	if (needs_branch_stack(event))
-+		riscv_pmu_ctr_add(event);
- }
- 
- static void pmu_sbi_ctr_del(struct perf_event *event, int flags)
- {
-+	if (needs_branch_stack(event))
-+		riscv_pmu_ctr_del(event);
- }
- 
- static void pmu_sbi_ctr_start(struct perf_event *event, u64 ival)
-@@ -847,6 +854,10 @@ static void pmu_sbi_ctr_start(struct perf_event *event, u64 ival)
- 	ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_START, hwc->idx,
- 			1, flag, ival);
- #endif
++static const char __modinfo[]
++	__attribute__((section(".modinfo"), used, aligned(1))) =3D "\0name=3Dvmlinu=
+x";
 +
-+	if (needs_branch_stack(event))
-+		riscv_pmu_ctr_enable(event);
++#ifndef PATCHED
++#undef PATCH_OUTLINED
++#undef PATCH_NOTRACE
++#undef PATCH_INLINED
++#undef PATCH_TRACED
++#endif
 +
- 	if (ret.error && (ret.error != SBI_ERR_ALREADY_STARTED))
- 		pr_err("Starting counter idx %d failed with error %d\n",
- 			hwc->idx, sbi_err_map_linux_errno(ret.error));
-@@ -864,6 +875,9 @@ static void pmu_sbi_ctr_stop(struct perf_event *event, unsigned long flag)
- 	struct cpu_hw_events *cpu_hw_evt = this_cpu_ptr(pmu->hw_events);
- 	struct riscv_pmu_snapshot_data *sdata = cpu_hw_evt->snapshot_addr;
- 
-+	if (needs_branch_stack(event) && flag != RISCV_PMU_STOP_FLAG_RESET)
-+		riscv_pmu_ctr_disable(event);
++#ifdef PATCH_OUTLINED
++#define OUTLINED_K 2
++#else
++#define OUTLINED_K 1
++#endif
 +
- 	if ((hwc->flags & PERF_EVENT_FLAG_USER_ACCESS) &&
- 	    (hwc->flags & PERF_EVENT_FLAG_USER_READ_CNT))
- 		pmu_sbi_reset_scounteren((void *)event);
-@@ -896,7 +910,7 @@ static void pmu_sbi_ctr_stop(struct perf_event *event, unsigned long flag)
- static void pmu_sbi_sched_task(struct perf_event_pmu_context *pmu_ctx, struct task_struct *task,
- 			       bool sched_in)
- {
--	/* Call CTR specific Sched hook. */
-+	riscv_pmu_ctr_sched_task(pmu_ctx, task, sched_in);
- }
- 
- static int pmu_sbi_find_num_ctrs(void)
-@@ -1179,6 +1193,12 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, void *dev)
- 		hw_evt->state |= PERF_HES_UPTODATE;
- 		perf_sample_data_init(&data, 0, hw_evt->last_period);
- 		if (riscv_pmu_event_set_period(event)) {
-+			if (needs_branch_stack(event)) {
-+				riscv_pmu_ctr_consume(cpu_hw_evt, event);
-+				perf_sample_save_brstack(&data, event,
-+							 &cpu_hw_evt->branches->branch_stack, NULL);
-+			}
++#ifdef PATCH_NOTRACE
++#define NOTRACE_K 2
++#else
++#define NOTRACE_K 1
++#endif
 +
- 			/*
- 			 * Unlike other ISAs, RISC-V don't have to disable interrupts
- 			 * to avoid throttling here. As per the specification, the
-@@ -1222,6 +1242,8 @@ static int pmu_sbi_starting_cpu(unsigned int cpu, struct hlist_node *node)
- 		enable_percpu_irq(riscv_pmu_irq, IRQ_TYPE_NONE);
- 	}
- 
-+	riscv_pmu_ctr_starting_cpu();
++#ifdef PATCH_INLINED
++#define INLINED_K 2
++#else
++#define INLINED_K 1
++#endif
 +
- 	if (sbi_pmu_snapshot_available())
- 		return pmu_sbi_snapshot_setup(pmu, cpu);
- 
-@@ -1237,6 +1259,8 @@ static int pmu_sbi_dying_cpu(unsigned int cpu, struct hlist_node *node)
- 	/* Disable all counters access for user mode now */
- 	csr_write(CSR_SCOUNTEREN, 0x0);
- 
-+	riscv_pmu_ctr_dying_cpu();
++#ifdef PATCH_TRACED
++#define TRACED_K 2
++#else
++#define TRACED_K 1
++#endif
 +
- 	if (sbi_pmu_snapshot_available())
- 		return pmu_sbi_snapshot_disable();
- 
-@@ -1367,7 +1391,30 @@ static void riscv_pmu_destroy(struct riscv_pmu *pmu)
- 		cpuhp_state_remove_instance(CPUHP_AP_PERF_RISCV_STARTING, &pmu->node);
- }
- 
--static void pmu_sbi_event_init(struct perf_event *event)
-+static int branch_records_alloc(struct riscv_pmu *pmu)
++int sink;
++
++/* Address taken, so emitted out of line. */
++static inline notrace int outlined(int x)
 +{
-+	struct branch_records __percpu *tmp_alloc_ptr;
-+	struct branch_records *records;
-+	struct cpu_hw_events *events;
-+	int cpu;
++	int i;
 +
-+	if (!riscv_pmu_ctr_supported(pmu))
-+		return 0;
-+
-+	tmp_alloc_ptr = alloc_percpu_gfp(struct branch_records, GFP_KERNEL);
-+	if (!tmp_alloc_ptr)
-+		return -ENOMEM;
-+
-+	for_each_possible_cpu(cpu) {
-+		events = per_cpu_ptr(pmu->hw_events, cpu);
-+		records = per_cpu_ptr(tmp_alloc_ptr, cpu);
-+		events->branches = records;
-+	}
-+
-+	return 0;
++	for (i =3D 0; i < x; i++)
++		sink +=3D i * OUTLINED_K;
++	return sink;
 +}
 +
-+static int pmu_sbi_event_init(struct perf_event *event)
- {
- 	/*
- 	 * The permissions are set at event_init so that we do not depend
-@@ -1379,6 +1426,11 @@ static void pmu_sbi_event_init(struct perf_event *event)
- 		event->hw.flags |= PERF_EVENT_FLAG_USER_ACCESS;
- 	else
- 		event->hw.flags |= PERF_EVENT_FLAG_LEGACY;
++int (*outlined_ptr)(int) =3D outlined;
 +
-+	if (branch_sample_call_stack(event))
-+		event->attach_state |= PERF_ATTACH_TASK_DATA;
++notrace int notrace_fn(int x)
++{
++	return x * 3 + NOTRACE_K;
++}
 +
-+	return 0;
- }
- 
- static void pmu_sbi_event_mapped(struct perf_event *event, struct mm_struct *mm)
-@@ -1516,9 +1568,16 @@ static int pmu_sbi_device_probe(struct platform_device *pdev)
- 		pmu->pmu.capabilities |= PERF_PMU_CAP_NO_EXCLUDE;
- 	}
- 	irq_requested = (ret == 0);
--
- 	pmu->pmu.attr_groups = riscv_pmu_attr_groups;
- 	pmu->pmu.parent = &pdev->dev;
-+	ret = riscv_pmu_ctr_init(pmu);
-+	if (ret)
-+		goto out_free;
++static inline int inlined(int x)
++{
++	return x + INLINED_K;
++}
 +
-+	ret = branch_records_alloc(pmu);
-+	if (ret)
-+		goto out_ctr_finish;
++int inlined_user(int x)
++{
++	return inlined(x) * 5;
++}
 +
- 	bitmap_copy(pmu->cmask, cmask, RISCV_MAX_COUNTERS);
- 	pmu->ctr_add = pmu_sbi_ctr_add;
- 	pmu->ctr_del = pmu_sbi_ctr_del;
-@@ -1535,6 +1594,10 @@ static int pmu_sbi_device_probe(struct platform_device *pdev)
- 	pmu->csr_index = pmu_sbi_csr_index;
- 	pmu->sched_task = pmu_sbi_sched_task;
- 
-+	ret = cpuhp_state_add_instance(CPUHP_AP_PERF_RISCV_STARTING, &pmu->node);
-+	if (ret)
-+		goto out_ctr_finish;
++int traced(int x)
++{
++	return x * 7 + TRACED_K;
++}
+diff --git a/tools/objtool/tests/x86/test-notrace-target.sh b/tools/objtool/t=
+ests/x86/test-notrace-target.sh
+new file mode 100755
+index 0000000..09414ae
+--- /dev/null
++++ b/tools/objtool/tests/x86/test-notrace-target.sh
+@@ -0,0 +1,74 @@
++#!/bin/bash
++# SPDX-License-Identifier: GPL-2.0
++#
++# A changed function without an ftrace call site can't be livepatched:
++# klp_enable_patch() fails with "failed to find location for function".
++# klp diff must reject it instead.
 +
- 	ret = riscv_pm_pmu_register(pmu);
- 	if (ret)
- 		goto out_destroy;
-@@ -1592,6 +1655,9 @@ static int pmu_sbi_device_probe(struct platform_device *pdev)
- 		riscv_pmu_irq = 0;
- 	}
- 
-+out_ctr_finish:
-+	riscv_pmu_ctr_finish(pmu);
++. "$(dirname "$0")/../lib.sh"
 +
- out_free:
- 	free_percpu(pmu->hw_events);
- 	kfree(pmu_ctr_list);
--- 
-2.43.0
-
++# mcount_entry <function>: orig.o has an __mcount_loc entry for it.
++mcount_entry()
++{
++	in_relocs "$orig_obj" | awk '/rela__mcount_loc/,/^$/' |
++		awk -v f=3D"$1" '$5 =3D=3D f || $5 =3D=3D ".text." f' | grep -q .
++}
++
++# check <expected exit status> <-DPATCH_... flags>
++check()
++{
++	local expect=3D"$1"; shift
++
++	setup
++	build_pair notrace_target.c "$@"
++
++	assert_input_symbol outlined
++	assert_input_symbol notrace_fn
++	has_input_symbol "$orig_obj" inlined &&
++		fail "inlined() was emitted out of line; the fixture tests nothing"
++	mcount_entry traced ||
++		fail "no __mcount_loc entry for traced(); the fixture tests nothing"
++	mcount_entry inlined_user ||
++		fail "no __mcount_loc entry for inlined_user(); the fixture tests nothing"
++	mcount_entry outlined &&
++		fail "outlined() has a __mcount_loc entry; it should be notrace"
++	mcount_entry notrace_fn &&
++		fail "notrace_fn() has a __mcount_loc entry; it should be notrace"
++
++	run_diff "$expect"
++}
++
++rejected()
++{
++	local n
++
++	n=3D"$(diff_log | grep -c "error: objtool: $1: no ftrace call site, can't p=
+atch")"
++	[ "$n" =3D 1 ] ||
++		fail "expected '$1' rejected once, found $n: $(diff_log | tail -2)"
++}
++
++check 255 -DPATCH_OUTLINED
++rejected outlined
++cleanup
++
++check 255 -DPATCH_NOTRACE
++rejected notrace_fn
++cleanup
++
++check 255 -DPATCH_OUTLINED -DPATCH_NOTRACE
++rejected outlined
++rejected notrace_fn
++cleanup
++
++# Fully inlined: the traceable caller gets patched.
++check 0 -DPATCH_INLINED
++assert_patched inlined_user
++assert_not_patched traced
++cleanup
++
++check 0 -DPATCH_TRACED
++assert_patched traced
++assert_not_patched inlined_user
++cleanup
++
++pass "changed function without an ftrace call site rejected"
