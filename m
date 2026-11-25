@@ -1,81 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.17
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=90.155.92.199
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795599469;
-	b=BX75Bix5U4CeEOgbRm/a6heuQ1GxVF2fhY0KL3cp/XqjnSGuRVD9Qn7hxY/Z3qXl73Su
-	 CBn5cVf/lV9xpV2SRVfKNvowb/AX8xjOXE4pUVmB/JBXCIU7bbD2J121/ggc1fRdEibMa
-	 QbmpAp5pP/sTojy9YVNIUbpVXqtpJM015FOV2OhFLL7AaVASoO647/mjr0N6JAOC3r1V9
-	 2HYP77CEEin/9YIDz8Fj9ffB063eoZ3XEsL5WqLC1iS5qgvH38rvudI+495QQPx2T21xI
-	 VBcG97PGV7EZBWTMH1NNsiUolq+1hxDtt/7Yi5oDWVlZt1sHMbfK10SwPI1fpuINC5Q==
+	t=1795599523;
+	b=TGZeCvm/OR0d6GuXMhBgs2jHCwIeawVFB0sW+YxgdoRp0uzIMW0ilMPzLsA+EhojBsFm
+	 MN75GOwavOJRTG/NuLjp55v2Od/tmTOTiBOs+7CirklQrG2OZr3fqA25mfijN6KPqruw8
+	 0FO36DMFyfl/cIobODUNui1JJ7O+Pa1DS1ly6SufGE/GIkezql8e1Lnr3DYujpp2IT9RN
+	 7efQ+lfOFhS6DMXDcMemfVKAuzUmve1DeecWXQYyK7AF+zlnRmzsSbu0iG9TulWdcFO4W
+	 ViEtv0a16QSm1RDGGNeJf+tx5NVy++boO0cDH3MpbBLey7SGHQvFyxtt5y5rG7atKXA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795599469;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
-	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795599523;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
 	 Content-Disposition:In-Reply-To;
-	bh=H/OW4CEWM4YFWjpU+/11jWkc2eIrxnh97AOZdrSoRuI=;
-	b=WWrVUYj9GTLe4BWM4pKAz90Zm/f2QTpuEIHx19Uqh4/2KDRgH7SCIkVIa/L+qRUufOt+
-	 +ndqhbnFa1mOiMqBXjbac2AeFfezkNEs40gXvaat89Gy9rGWC2nzNNq1vYLoVVZd2cNFN
-	 14IPApVUruN1hp/J5vpVX6WmTEP5AYFNwSclU9Ag2fOjev/YkF0SlGn7qmxa2qzu1EQuI
-	 pLX3RBH3N+l0nFp0nPZgwx7uI/NsUM01+isp0800MkYFRZUohZqs6kDV/pgEuenAsvTg4
-	 ytBavcRpCTloqR3AVsknN0BKWrwUVvEKQvbO/dfAE+CrFLU09AuYGGVfRT2LFKVMFlg==
+	bh=m3eVgzUZlwp75/fzUdsc3RQgqJEC+CR7cinxZk1znh0=;
+	b=Bp6pjTMSMaw5xnMhALLxVqpKvkhm0ZFIITlrh2fm95nTgdmqQp9qGpzDCoI1T4l6chXq
+	 Aw3gG7Dk4Fjtc/9615SOiKvbMaPnkYiXMXSKMH2FpCaPccj8oVcHOMlsBb5Ui1mBBGX2t
+	 xVhgP6efBk+2ZqMzCoDLPuaZYAEr+5ZJ5drjE7M8qEe4fUY3mSjYEKm7SxOvWNcrtygag
+	 eGcHYhJuFNiC+3reSijFt+w+eJ7zUbfBg690j6G3WV1zd8dPnCKTligAamj9+X317iVos
+	 h1+aNakuRmHk0LYtPiNFUWxlzlUJrqyradmbS9secM8C3y5hjO4uEmYZt8v066FV15g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=aWmUCHh8;
-	arc=none smtp.remote-ip=198.175.65.17
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.17])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=infradead.org;
+	spf=pass smtp.mailfrom=infradead.org;
+	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=M3URgmOE;
+	arc=none smtp.remote-ip=90.155.92.199
+Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B9B14606A31E;
-	Wed, 25 Nov 2026 09:37:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B9B14606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2132A606A321;
+	Wed, 25 Nov 2026 09:38:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2132A606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=infradead.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=aWmUCHh8
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795599469; x=1827135469;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=0s78Vf6PyUG/xWZ1rRAkii/3QHz1kfVqFuBSdG7BtD8=;
-  b=aWmUCHh8QJilzli7McbLQ6SW6MZts1ECyccJeuUHd+jBtMuxMCaYkkEd
-   1wLHa20mUAcKLwTiisEvag5R+qZIffHXWfrS6bv/+kOHB8Vxol5Y2kCwP
-   O6SIAYWtIGs2D8O4VPs4oQdJuqn78sljVyvsXzr+TacqvL5J66W3mFQD9
-   V4MCrEPAjUIV0kPkN+wo595b2CI4d2oOOGsc1Th1XdPUxRaG04ATk1i9j
-   FEpEmJ/dtLNNRquy0VjYM57O5hBdx0cyGERrkOHHyhAZnF+00WM1N+I9c
-   Byy+7NruRTqw+Z4tWHhVDdXs6RrNn0pXZuIxl2hxFBx2DgWmj2piichRE
-   g==;
-X-CSE-ConnectionGUID: 6arsJvI8Tdu6pHylGMek7A==
-X-CSE-MsgGUID: V3mTqCOSQua/PAiz2Y1qkQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11976"; a="4472670"
-X-IronPort-AV: E=Sophos;i="6.27,232,1787036400"; 
-   d="scan'208";a="4472670"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 01:27:33 -0800
-X-CSE-ConnectionGUID: lihd4i8TTJep8Rmx8U6nrw==
-X-CSE-MsgGUID: VsbtQc9URdyYmjdB/nSAmA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,232,1787036400"; 
-   d="scan'208";a="11796867"
-Received: from black.igk.intel.com ([10.91.253.5])
-  by orviesa007.jf.intel.com with ESMTP; 25 Nov 2026 01:27:31 -0800
-Received: by black.igk.intel.com (Postfix, from userid 1008)
-	id 5F85298; Wed, 25 Nov 2026 10:27:30 +0100 (CET)
-Date: Wed, 25 Nov 2026 10:27:30 +0100
-From: Heikki Krogerus <heikki.krogerus@linux.intel.com>
-To: Max Andreev <drunkbatya.js@gmail.com>
-Cc: Badhri Jagan Sridharan <badhri@google.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Kyle Tso <kyletso@google.com>, stable@vger.kernel.org,
-	linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org,
-	RD Babiera <rdbabiera@google.com>
-Subject: Re: [PATCH v2] usb: typec: tcpm: fix missed frs_sourcing_vbus() call
- during FRS
-Message-ID: <awaqAnBF94n5t3sC@black.igk.intel.com>
-References: <2026112206-lapped-unvalued-8696@gregkh>
- <20261122115639.2912666-1-drunkbatya.js@gmail.com>
+	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=M3URgmOE
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=m3eVgzUZlwp75/fzUdsc3RQgqJEC+CR7cinxZk1znh0=; b=M3URgmOE8LZagvHpObWdy70cEx
+	DLT4EPDt6iOu2h4YmE6++CQshmO9GsiY56zoEcPAP2QJ+ctXdv9VZwUlowaEs3EwpZJ6DNlaYzSCz
+	kc3/mPaBi4jcB6eN/QXzvw3SjWdeyRAZ7Ur7g0ut1ZZLbxxd2HXQ3kke5LaZ+Y+BCsATJMIdmYOw5
+	dE0YQTAUYFqs2nDhbgwroFifUSPaEs8Ei2HAFO8ewMquuVp/hZjCMjO8fpAV3h8Vw4GmRDw91tDXT
+	LK6g18AoY3MMS3PNCZLT7xM6q+EWLJimw19e+0iFC1WfeKstszLuTWBVa6INnTos0vL1bL6wqe40V
+	5nQ382gw==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by desiato.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xW9SX-000000057in-3U6x;
+	Wed, 25 Nov 2026 09:38:37 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id CAA92300446; Wed, 25 Nov 2026 10:38:36 +0100 (CET)
+Date: Wed, 25 Nov 2026 10:38:36 +0100
+From: Peter Zijlstra <peterz@infradead.org>
+To: Tengda Wu <wutengda@huaweicloud.com>
+Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	James Clark <james.clark@linaro.org>,
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 2/2] perf/core: Disable context fast-swap for sigtrap
+ events
+Message-ID: <20261125093836.GX2668804@noisy.programming.kicks-ass.net>
+References: <cover.1795053619.git.wutengda@huaweicloud.com>
+ <55b1a2845b0ad34a874a7653644e34af9eb068d3.1795053619.git.wutengda@huaweicloud.com>
+ <20261120173706.GC2668564@noisy.programming.kicks-ass.net>
+ <20261120174606.GM2669272@noisy.programming.kicks-ass.net>
+ <5507e48c-4e98-4e76-8d3f-4630a2655085@huaweicloud.com>
+ <c9ff579b-a7eb-481f-bb8d-489a4469c397@huaweicloud.com>
+ <20261125090809.GW2668804@noisy.programming.kicks-ass.net>
+ <4d17dd3b-df73-45c0-8113-f4ca259d549b@huaweicloud.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -87,61 +84,62 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261122115639.2912666-1-drunkbatya.js@gmail.com>
+In-Reply-To: <4d17dd3b-df73-45c0-8113-f4ca259d549b@huaweicloud.com>
 
-+RD
+On Wed, Nov 25, 2026 at 05:29:38PM +0800, Tengda Wu wrote:
+> 
+> 
+> On 2026/11/25 17:08, Peter Zijlstra wrote:
+> > On Tue, Nov 24, 2026 at 04:42:34PM +0800, Tengda Wu wrote:
+> > 
+> >> From the stack, we can see:
+> >>
+> >> perf_event_context_sched_out
+> >>         // fast path
+> >>         perf_ctx_enable(ctx, 0);
+> >>                 perf_pmu_enable
+> >>                         if (!--(*count))  // equals 0
+> >>                                 pmu->pmu_enable(pmu);
+> >>                                         __intel_pmu_enable_all.constprop
+> >>                                                 do_trace_write_msr
+> >>                                                         perf_tp_event
+> >>
+> >> In perf_tp_event():
+> >>         if (perf_tp_event_match(event, &raw, regs)) {
+> >>                 if (!perf_pmu_enabled(event->pmu)) return 0; // not satisfied, continue downward
+> >>                 perf_swevent_event
+> >>                         __perf_event_overflow
+> >>                                 task_work_add  // event->ctx->task mismatches 'current'
+> >>         }
+> >>
+> >> Because pmu_disable_count is already 0, the subsequent perf_tp_event_match()
+> >> cannot block it via perf_pmu_enabled(), so the problem can be reproduced.
+> > 
+> > Right, but at this point there isn't really a problem, all the pointers
+> > have been swapped already and state should be consistent again.
+> > 
+> > I *think* the problem is that task_work_add() is using current while it
+> > should be using ctx->task. In that case the above will enqueue on the
+> > next task, which is correct.
+> > 
+> 
+> I considered this before, but it involves the issue of whether the count
+> overflow in the sched_out stage should be attributed to the current or next
+> task, and I wasn't very confident about it, so I didn't adopt it.
 
-On Sun, Nov 22, 2026 at 11:56:38AM +0000, Max Andreev wrote:
-> Since commit 0908c5aca31e ("usb: typec: tcpm: AMS and Collision
-> Avoidance") the TCPC reports sourcing vbus while the port is still in
-> AMS_START with FR_SWAP_SEND as the upcoming state. Because of
-> _tcpm_pd_vbus_on() ignores this state, frs_sourcing_vbus() is never called
-> during FRS.
-> 
-> On Pixel 11 Pro XL after an FRS from sink to source the phone keeps
-> showing the charging indicator, and about 20 seconds later VBUS drops
-> and the attached device reboots.
-> 
-> Call frs_sourcing_vbus() from AMS_START when the upcoming state is
-> FR_SWAP_SEND.
-> 
-> Fixes: 0908c5aca31e ("usb: typec: tcpm: AMS and Collision Avoidance")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Max Andreev <drunkbatya.js@gmail.com
+All of switch_fast suffers that problem. Mostly we've ignored it since
+kernel events around a context switch are hard to attribute to any one
+particular task, so a little fuzz left or right of the switch doesn't
+matter too much, as long as its consistent.
 
-Looks okay to me, but just in case, let's wait for comments from
-Badhri, Kyle an RD.
-
-thanks,
-
-> ---
-> v2: moved the trailers above the --- line
+> > Disabling switch_fast really hurts performance; doing that should be a
+> > last resort. I think I can fix this. Let me try and see if the
+> > reproducer works for me so I can more easily poke at this.
+> > 
 > 
-> I'm not test theese changes on mainline, but tested on Pixel 11 Pro XL
-> vendor kernel 6.1 with the same _tcpm_pd_vbus_on() code, as i see
-> mainline tcpm.c is identical in this area.
-> 
->  drivers/usb/typec/tcpm/tcpm.c | 5 +++++
->  1 file changed, 5 insertions(+)
-> 
-> diff --git a/drivers/usb/typec/tcpm/tcpm.c b/drivers/usb/typec/tcpm/tcpm.c
-> index 51e5c72799f2..5caa649a92f1 100644
-> --- a/drivers/usb/typec/tcpm/tcpm.c
-> +++ b/drivers/usb/typec/tcpm/tcpm.c
-> @@ -6889,6 +6889,11 @@ static void _tcpm_pd_vbus_on(struct tcpm_port *port)
->  			port->tcpc->frs_sourcing_vbus(port->tcpc);
->  		tcpm_set_state(port, FR_SWAP_SNK_SRC_SOURCE_VBUS_APPLIED, 0);
->  		break;
-> +	case AMS_START:
-> +		if (port->upcoming_state == FR_SWAP_SEND &&
-> +		    port->tcpc->frs_sourcing_vbus)
-> +			port->tcpc->frs_sourcing_vbus(port->tcpc);
-> +		break;
->  
->  	case PORT_RESET:
->  	case PORT_RESET_WAIT_OFF:
-> -- 
-> 2.47.3
+> OK. Just a reminder that the PoC I provided needs to be run in an Intel
+> environment, so that the tracepoint can be hit when pmu_enable is executed.
 
--- 
-heikki
+Ah, I'm currently running it on an SPR Xeon; do I need to use
+non-default arguments or just run the thing in a loop and drink tea
+until it goes pop?
