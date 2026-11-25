@@ -1,76 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.13
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.12
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795649266;
-	b=zUY55A9uCNOtnM2CqlTCQZhu5e9pDpv1LFZe9FQvDuK3HjR/00qBDI6Mr/gtEfeKfa7t
-	 2RkpE3R0xmVko9kEYrmEcMkQEDZDKrmLetpHRUompGd1REV5x+JOr7LHZGAGS/qoPUSOC
-	 JneGpLooQI9uJqVy1aSeVlYqL274hr4qG42j1oDTKaNU5Q9aED//v11JjftFxzZjgr/1a
-	 ZTD0aqhNRkJ3YvdWL4kL6+8mxYOBtpz6w2EvFtNw4sqKBhgsDZVbvNdSVcK5F8PogIy7t
-	 LH/FN7AdOmDhPO4D+Ux11OaVGGTC+2AYRMiQi9SYBjm1R41QUbWI+3ts0LhyQEOQTrA==
+	t=1795649280;
+	b=bj5mFYOte3Ia9H79kty9P4ePAI3QimdxCdhJQxJPUH+W4SKFQ65HZWCvTw0dvynZ1o/q
+	 LmkjBD5VMJCPk6oYWExCV1zUvbkaRRV9TZfRAAuVwKuRgkfSUHe4OPeYKmlx4NzZbPRUs
+	 sTKS0tZLqt2e8zpFMXOQ8GeWDPJFTyvQwjKlLTorDgNMbLi1FT775o0Zp9UTkAHf9DRjX
+	 gCGueOA3/KN4wHSs/PFBvO0vrRm17SaKmu8BwEMtGmdLVFCPaGNZy15h3Vl/au9WTRH+h
+	 SX7at6aCmIstVUEoybVFs22Q/psLU5CBwlSNIKreZZY9vfInf+sEr9lB/aS1UnzrkSQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795649266;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795649280;
 	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
 	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
 	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:
 	 In-Reply-To:References:Subject:Message-Id:Date:MIME-Version:
 	 Content-Type:Content-Transfer-Encoding:X-Mailer;
-	bh=/HJbIW3FFEpjlmr0Csa/1n7NSYs1JLeGp72ySMLJNak=;
-	b=puyYQz5s7R54cXzhwknBtJiLlCxPOOWnY3Qv/wg9IxkVSdmYayeHZbnEL4gNiS9If0vx
-	 /ZHThyK1HMARJ+1h4GOv028ozDXd9gsk4+LDnkS0pQRi4XlbXI2IcUHuDXMzhbQN+l7Wb
-	 wa9ubZwo1MkeUywN4TfJzv9/mXVr9HBgX4BzClzs7HVXuhaiDDnJGTJxwg1Ki2Fw6rpS1
-	 oR9GygUKBzkKHVOXORP3VJxAsNA4oPSEDeKQngcAeKToGSWTnknu0Pl7Ht8eubTFHJEtb
-	 FxC9NdZghH7Q64t9kzSl20zEptFDBh/rdEJuUun+vB+a5JXStmY6e8mlzG1yFtWQDFQ==
+	bh=mbwZFlNuXmWqSqNwudKuWBZVAY+HKCuX4o9raOMlOpo=;
+	b=TiA6z9ZYS55iKwZtQALbdiZI+qRhB53/8inZZv8b5Zg+ncxHqFUhxCilcgqnsI5kwmx6
+	 J0oPm9Eyzywzacbf7GUzGqYrwo42xRrAJXgPT4qh0AmDbmPKPnB/ujxF+EP4/jFrMcYDD
+	 yPekKkxNlMCzgTW/g3kTKKxFUHRx/YiWxT1KD4oMsvL0b5CNF1Bv8+qPRoT9+CHtQcfih
+	 eyqo9imY0vSqGxtdrISnN1D1B12/w6bg0bJmvpgv3nv8CiD70A6td44FN2PsXmT/pK9at
+	 aqDcZkwqg58XdRS+XEtkWc1tUXUd+99mxW+ZBJYj+XB7YWlsVWWvBPACf4LE8xOfiUA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linux.intel.com;
 	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=aQFQcI4i;
-	arc=none smtp.remote-ip=192.198.163.13
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.13])
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Br5HyCFx;
+	arc=none smtp.remote-ip=198.175.65.12
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.12])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2BFF8606A336;
-	Wed, 25 Nov 2026 23:27:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2BFF8606A336
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6B507606A323;
+	Wed, 25 Nov 2026 23:28:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6B507606A323
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=aQFQcI4i
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Br5HyCFx
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795649267; x=1827185267;
+  t=1795649280; x=1827185280;
   h=from:to:cc:in-reply-to:references:subject:message-id:
    date:mime-version:content-transfer-encoding;
-  bh=yZAAVIM7FG3p9BJfJBak4PZ9n5tN1aTiiHTd1IpUTBA=;
-  b=aQFQcI4impGk7GQCtC+opVgaVQZRyIUKcUZTj736oYzbAlyoNgnda4kF
-   3e3pXcsaAYRYt9eg1QcrjRgm81aNNQ9HUzu4ghlFJE8waRL8I7HDkT7wa
-   ZeSegYdFasVmI/GZPifrzO0oZtvc1CYpYGYoXc0rH7huPaWxX3Q3gUKpv
-   3zEJxvT39xwWLHxxWcchi0Rt1gAPqDHhVEoZIR/whBXdDDzmh3sQAsvzd
-   PHENBahBgZibl8Lt8vX+uNw58pnxZOn2X1qviuO/kDJjqC6P8HqwUhh5X
-   xvSP1Ibg0KwIrTlW/dQA8Qk0j2HnYhq3u4kl5ZOhCoB9PpZWevnkTbP9r
-   w==;
-X-CSE-ConnectionGUID: eF/JnZykTzWKTG2hsLij5w==
-X-CSE-MsgGUID: bfouAa3kSrm7sJrRs96hpg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4516783"
+  bh=GbxugmK3jKnozjQWFylG2YnbFL8+nU/YU+zxPeFYEMY=;
+  b=Br5HyCFxG0hv08YUYLaoeYfw6wp5wLb0FpAgM9wDEcg7dgpxvSJqmKA3
+   2By0YBan5gnTSmmJgAouuQMwmm7zegdidfPh5vLy0uV9g0bR9NxQsueCI
+   vIKYJJAuXnmlI9/6gfEmrowJBmMwkY62p1MpisJ6XA3SK54+9jOAJQCik
+   0tFuMCTiPHqU6wm74Eb8pEVMcIpadYN5fHmT04wrGNjIIL1HW8kdfb2zU
+   kt5rnj9c3r1Dxzmsf/695VRsWowEdOV/TTryXDHa7DQN7PW0iKSdMq9Z9
+   YGaxL6bxoIk+7n62lP9n1RfSTiPU11McC3SNqS5cCkgIqTacEUpVU2o1H
+   A==;
+X-CSE-ConnectionGUID: jzM5dNnhTxCp+M8+2al+Kg==
+X-CSE-MsgGUID: gxOQ28UlQ7yALiyqpo3FJQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4451078"
 X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
-   d="scan'208";a="4516783"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 15:27:46 -0800
-X-CSE-ConnectionGUID: NEpsVNPoTnmqKCHEkxxY/g==
-X-CSE-MsgGUID: hvzSTjGeSbO0JxJmR86OBw==
+   d="scan'208";a="4451078"
+Received: from orviesa003.jf.intel.com ([10.64.159.143])
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 15:28:00 -0800
+X-CSE-ConnectionGUID: NqeG/lhrR962Si44ZRdKqA==
+X-CSE-MsgGUID: LHtWz6LiSZaIk0arSSa1kg==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
-   d="scan'208";a="12324206"
+   d="scan'208";a="11889615"
 Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.96])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 15:27:43 -0800
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 15:27:58 -0800
 From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-To: Werner Sembach <wse@tuxedocomputers.com>, 
- Hans de Goede <hansg@kernel.org>, Aaron Erhardt <aer@tuxedocomputers.com>
-Cc: platform-driver-x86@vger.kernel.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20261123-nb04-fixes-v2-1-973e569381ba@tuxedocomputers.com>
-References: <20261123-nb04-fixes-v2-1-973e569381ba@tuxedocomputers.com>
-Subject: Re: [PATCH v2] platform/x86/tuxedo: Handle LampUpdateFlags in
- LampRangeUpdateReport
-Message-Id: <179564925880.9828.3153081146517231447.b4-ty@b4>
-Date: Thu, 26 Nov 2026 01:27:38 +0200
+To: Prasanth Ksr <prasanth.ksr@dell.com>, Hans de Goede <hansg@kernel.org>, 
+ Ava Green <ava@oven.ninja>
+Cc: Dell.Client.Kernel@dell.com, platform-driver-x86@vger.kernel.org, 
+ linux-kernel@vger.kernel.org
+In-Reply-To: <20261120231607.7908-1-ava@oven.ninja>
+References: <20261120231607.7908-1-ava@oven.ninja>
+Subject: Re: [PATCH v3] platform/x86: dell-wmi-sysman: replace deprecated
+ strlcpy with strscpy
+Message-Id: <179564927344.9828.1264443485099538178.b4-ty@b4>
+Date: Thu, 26 Nov 2026 01:27:53 +0200
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,19 +85,16 @@ Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.15.2
 
-On Mon, 23 Nov 2026 15:05:10 +0100, Aaron Erhardt wrote:
+On Sat, 21 Nov 2026 10:16:07 +1100, Ava Green wrote:
 
-> According to HID Usage Tables v1.7 "Lighting And Illumination Page", the
-> LampUpdateComplete flag marks an update report as the last of a batch. A
-> device must apply all prior changes at once when it receives a report
-> with this flag set.
+> The kernel has deprecated the use of strlcpy wrappers in favor of
+> the safer strscpy variants. Replace the internal driver helper
+> function strlcpy_attr() with strscpy_attr() across all
+> dell-wmi-sysman attribute parser files.
 > 
-> The handler for LampMultiUpdateReport already honors LampUpdateFlags,
-> but the handler for LampRangeUpdateReport did not. It always set
-> LampUpdateComplete on the final chunk, so every range update flushed the
-> internal color state regardless of what the host requested. This reduced
-> efficiency and caused unwanted intermediate states for software that
-> batches updates using the flag.
+> Ensure explicit destination buffer sizes are passed using sizeof()
+> to prevent potential out-of-bounds array writes during ACPI object
+> evaluations.
 > 
 > [...]
 
@@ -111,8 +109,8 @@ commit introduced in the most recent cycle or is clearly a regression
 fix.
 
 The list of commits applied:
-[1/1] platform/x86/tuxedo: Handle LampUpdateFlags in LampRangeUpdateReport
-      commit: 918846d92173e49fb4f1f75324b51927e7456c01
+[1/1] platform/x86: dell-wmi-sysman: replace deprecated strlcpy with strscpy
+      commit: 4e8f3a0472af63b41d1e19a62d5f42e19efa4f1d
 
 --
  i.
