@@ -1,47 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795617515;
-	b=uclEExIriPtDTQC7TfK5OR3zzQ4ylRVJA9WAy0IMUz9xUw7TI4cmFlX5m7pS2YP+0Jg6
-	 KpafkniBNeU5KB4Qt46EMq/V1INDc2PovsIEAaxI8DLaDhNvz8F3cBDQZbYBoYohaNSG5
-	 50pepI5zlRHEWk/bpvXuw+9fVz1tbQHWiqEVjQUdpJ4B7UqD7wymaYn2qpBlNvXLCHJgl
-	 BvPOcCQQsiCoIAr4EyID/TS9Ph8/SQZsAgX+wgtYPsj9+Lqpefbl/NGR5aoLVlCU1X3Pq
-	 um3rjBc5/9Q/Q21OCtiL1Xvcerwu6CAWtH9D7or7TrkebHzNYtnW0PESFClm+NlZkWg==
+	t=1795617512;
+	b=Ut1NZl4TSkAFNQKZcfHLpv8fCXRpiUSePMgWiFqezzKuTBrki9kOwdXEC/KHP8BZvoCe
+	 tnMi+orAJyDtUXADHCUdjH2nRdUtOQcwFi6SzzRnYXasOP+UVI2Tt8LM8I5taAUoKoOO6
+	 pGBhsTpyI0vAux0zJ2S6ESVEAyWGk6ymF958iabNrlqeFgZ+lD7B4e48laOn+wz+c9/+5
+	 b/YkUiokOhdokrWj0/s79mnfPylGr7qGPxIQz4UqqsDe4JP7r3cy5Xw4PfMp6lf0KsS67
+	 m8Z7ZO3L/Awcqn8z/rWk8eHwwbjItDBgCzXJvSZWNyj5D7wkljXlGYwfuBqcU2hfEzg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795617515;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=0Gc9tYtRb19MW0h+QBmLaneRf2CSlYjfdbqau2neOto=;
-	b=FFLh5sYB/o8p0RKHgSRTrvupRxxmDV7iwDspdokVtVG7jRed8GvSLjV9c+4kebbSiWDU
-	 rr2kmquXxeQOOhpVpTMnC4xfAVV9AmWvu0quGpLo2ENtIRCvoSTDqYlf576Paa3xe5GSz
-	 j4K5Ezg7vZ53KuvKEWh1/qHv0On16qxJ4HKasZhF09quvJ/Ng3F1j1Z/cpx/8Fi3tp8Zz
-	 uqXomBSYKxq4XiYop97Kn3R72vNy+Fb4UMcAAiSofUa5vWzhcPCwOvPQsW9SajwRN73+k
-	 HLY4AQj3WFkLhLOaRTdyjuwpNaL34F4C/cpP19Y5dXJ8H15S21f3h8yPYBi+sSXFmYQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795617512;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=fGqs6DcowK7IKELkXO0xayWMouuFNPphuLHx5fvxESQ=;
+	b=4ClVz8S03W/BGrjNkaQj+c8egoFYoNwqgCWR9aca3UoXDa3oKFidV4bBGjfCUWVp+tDU
+	 nmL+wrNQwOAXKhKNlCyROxADFBDOMXKqWC5VLLzF69lnslOFy0SQ1D+aD1wNFWKg/uFmm
+	 SZjL65zPMm97hVnFPRymND7xuGq3w2GQ3toC0u9Qz2v3ltP9P1hVUb28ZB+K2QwogDMAb
+	 5rbyS6kWEUydvWcBYMO1/5WodBnDT4iDkUWA97VG85xJp7yxYMLkohOMzRvizMnGcWTEr
+	 aHzZpWerLbw8It9BBOenx9sNhu4INJuYDdMO8F7Ox+47F1B9e+TdWWP9HtpjSdBIxEw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ho2gnp0X;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=lunn.ch;
+	spf=pass smtp.mailfrom=lunn.ch;
+	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=VFdECZ89;
+	arc=none smtp.remote-ip=156.67.10.101
+Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5B6E6606A330;
-	Wed, 25 Nov 2026 14:38:35 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E35B7606A32C;
+	Wed, 25 Nov 2026 14:38:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E35B7606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ho2gnp0X
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98E641F000EF;
-	Wed, 25 Nov 2026 14:38:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795617514;
-	bh=0Gc9tYtRb19MW0h+QBmLaneRf2CSlYjfdbqau2neOto=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=Ho2gnp0XzfNdjWNXAJI/Axure0NT2HpjLyaJjBNjOip3PlqKh+gXsp7of7DnVaO0p
-	 GOCi8+D1NytiFBxi27DxpjC7f4cwkMslXpl8XUY45OzXh5u4s8lqNaYHeAKfZI2nOj
-	 WaM7Df1ddsZa3MAbU9KVGatNjlldVIGokNkhYsNKNkzCOwT2a1ARQEq6Ui0+FRPFsU
-	 NQmktrraq8ErCoiF0ewL5Z1S4bd+x0dm9cwLycMZnNLw5nVVA3NiLhTdwBNXfTYKgT
-	 QwukmWm3KAr0EwvuyQbk+qfNWTUR3a9SWkIMy+sDhDRknuZQtFEfUkPqAZk3Zkf4RV
-	 mXqdHam9FB1dw==
-Message-ID: <5387130c-df43-41d7-9ff8-8ee549e6e97f@kernel.org>
-Date: Wed, 25 Nov 2026 15:38:30 +0100
+	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=VFdECZ89
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=fGqs6DcowK7IKELkXO0xayWMouuFNPphuLHx5fvxESQ=; b=VFdECZ89cA0wOPVai4rKvdeZMH
+	huumJAyMPj04D0JrdIBzMDD377FHoM+MvRMPgp71oziXnP5HdhOGtgj1U9EohQ7wd1R11H2yHe4A+
+	EUnZiTQdpqeM0ZaqWu0fdjw1tQV24x3lZ8URtrUxfRAW+w4rFM0pdH7tindq8nIh8FTw=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1xWE8Y-001KyU-HX; Wed, 25 Nov 2026 15:38:18 +0100
+Date: Wed, 25 Nov 2026 15:38:18 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: netdev-bot+sashiko@kernel.org
+Cc: bage@debian.org, hkallweit1@gmail.com, davem@davemloft.net,
+	edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+	linux@armlinux.org.uk, olteanv@gmail.com, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next v2] net: mdio: handle broken-turn-around for
+ non-PHY MDIO devices
+Message-ID: <630d6b8e-917c-4213-b3b8-fa785ad33816@lunn.ch>
+References: <20261121092933.186731-1-bage@debian.org>
+ <179559958516.3135.11607042178143215952@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,133 +65,44 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Subject: Re: [PATCH v3 1/2] PM: runtime: add additional suspend/resume metrics
-To: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
-Cc: Len Brown <lenb@kernel.org>, Pavel Machek <pavel@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Danilo Krummrich <dakr@kernel.org>, Johan Hovold <johan@kernel.org>,
- Samuel Wu <wusamuel@google.com>, linux-pm@vger.kernel.org,
- driver-core@lists.linux.dev, linux-kernel@vger.kernel.org
-References: <20261123-pm-runtime-summary-v3-0-81a966953a81@kernel.org>
- <20261123-pm-runtime-summary-v3-1-81a966953a81@kernel.org>
- <CAJZ5v0hpnoGw89WHyofLr3SxnrJNs99LnhndeOv245y_LgGWXQ@mail.gmail.com>
-Content-Language: en-US
-From: Joshua Crofts <crofts@kernel.org>
-In-Reply-To: <CAJZ5v0hpnoGw89WHyofLr3SxnrJNs99LnhndeOv245y_LgGWXQ@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <179559958516.3135.11607042178143215952@kernel.org>
 
-On 25-Nov-26 13:54, Rafael J. Wysocki (Intel) wrote:
-> On Mon, Nov 23, 2026 at 10:07 AM Joshua Crofts <crofts@kernel.org> wrote:
->>
->> The current implementation only logs the total accumulated time a device
->> spends in suspended or active states.
->>
->> Add tracking for:
->> - resume_count : number of successful transitions to active
->> - suspend_count: number of successful transitions to suspended
->> - last_suspended_time: duration of the most recent sleep cycle (ns)
->> - min_suspended_time / max_suspended_time: shortest and longest sleep
->>   cycle durations to help detect power thrashing (ns)
+> [Severity: Medium]
+> With the parse removed here, what happens to PHYs registered through the
+> exported of_mdiobus_phy_device_register()?
 > 
-> I would mention that they would be only reachable through a debugfs interface.
+> drivers/net/mdio/of_mdio.c:of_mdiobus_phy_device_register() {
+> 	return fwnode_mdiobus_phy_device_register(mdio, phy,
+> 						  of_fwnode_handle(child),
+> 						  addr);
+> }
 > 
->> Signed-off-by: Joshua Crofts <crofts@kernel.org>
->> ---
->>  drivers/base/power/runtime.c | 93 +++++++++++++++++++++++++++++++++++++++++---
->>  include/linux/pm.h           | 16 +++++++-
->>  2 files changed, 103 insertions(+), 6 deletions(-)
->>
->> diff --git a/drivers/base/power/runtime.c b/drivers/base/power/runtime.c
->> index 4e9c23059a40..17aee68366cf 100644
->> --- a/drivers/base/power/runtime.c
->> +++ b/drivers/base/power/runtime.c
->> @@ -5,6 +5,8 @@
->>   * Copyright (c) 2009 Rafael J. Wysocki <rjw@sisk.pl>, Novell Inc.
->>   * Copyright (C) 2010 Alan Stern <stern@rowland.harvard.edu>
->>   */
->> +#include <linux/pm.h>
->> +#include <linux/timekeeping.h>
->>  #include <linux/sched/mm.h>
->>  #include <linux/ktime.h>
->>  #include <linux/hrtimer.h>
->> @@ -103,11 +105,70 @@ static void update_pm_runtime_accounting(struct device *dev)
->>                 dev->power.active_time += delta;
->>  }
->>
->> +#ifdef CONFIG_DEBUG_FS
->> +static void rpm_account_suspend(struct device *dev)
->> +{
->> +       dev->power.suspend_time = dev->power.accounting_timestamp;
->> +       dev->power.suspend_count++;
->> +}
->> +
->> +static void rpm_account_sleep_end(struct device *dev)
->> +{
->> +       u64 duration;
->> +
->> +       if (!dev->power.suspend_time)
->> +               return;
->> +
->> +       if (dev->power.accounting_timestamp <= dev->power.suspend_time)
->> +               return;
->> +
->> +       duration = dev->power.accounting_timestamp - dev->power.suspend_time;
->> +       dev->power.last_suspended_time = duration;
->> +
->> +       /* Update min/max extrema at the exact same moment as last_suspended_time */
->> +       if (!dev->power.min_suspended_time || duration < dev->power.min_suspended_time)
->> +               dev->power.min_suspended_time = duration;
->> +
->> +       if (duration > dev->power.max_suspended_time)
->> +               dev->power.max_suspended_time = duration;
->> +}
->> +
->> +static void rpm_account_resume_complete(struct device *dev)
->> +{
->> +       dev->power.resume_count++;
->> +       dev->power.suspend_time = 0;
->> +}
->> +#endif /* CONFIG_DEBUG_FS */
->> +
->>  static void __update_runtime_status(struct device *dev, enum rpm_status status)
->>  {
->> +#ifdef CONFIG_DEBUG_FS
->> +       enum rpm_status old_status = dev->power.runtime_status;
->> +#endif /* CONFIG_DEBUG_FS */
->> +
->>         update_pm_runtime_accounting(dev);
->>         trace_rpm_status(dev, status);
->>         dev->power.runtime_status = status;
->> +
->> +#ifdef CONFIG_DEBUG_FS
->> +       if (dev->power.disable_depth > 0) {
->> +               if (status == RPM_ACTIVE)
->> +                       dev->power.suspend_time = 0;
->> +               return;
->> +       }
->> +
->> +       if ((old_status == RPM_SUSPENDING || old_status == RPM_ACTIVE) &&
->> +           status == RPM_SUSPENDED)
->> +               rpm_account_suspend(dev);
->> +       else if (old_status == RPM_RESUMING && status == RPM_SUSPENDED)
->> +               dev->power.suspend_time = dev->power.accounting_timestamp;
->> +       else if (old_status == RPM_SUSPENDED && status != RPM_SUSPENDED)
->> +               rpm_account_sleep_end(dev);
->> +
->> +       if ((old_status == RPM_RESUMING || old_status == RPM_SUSPENDED) &&
->> +           status == RPM_ACTIVE)
->> +               rpm_account_resume_complete(dev);
->> +#endif /* CONFIG_DEBUG_FS */
+> This wrapper never goes through of_mdiobus_register_phy(), so it never
+> reaches the new parse.
 > 
-> Please move the code under CONFIG_DEBUG_FS in this function to a
-> separate function called by it and defined as an empty stub if
-> CONFIG_DEBUG_FS is unset.
+> Its in-tree caller, tja1102_p1_register() in drivers/net/phy/nxp-tja11xx.c,
+> registers the port 1 PHY from a DT child node:
+> 
+> 		ret = of_mdiobus_phy_device_register(bus, phy, child, addr);
+> 
+> and does not set phy_ignore_ta_mask itself.
 
-Ack, this patch is messy...
+It feels like we are putting in too much effort for a feature which
+has no in kernel users.
 
-Also Sashiko still isn't happy with the way I calculate these metrics.
+You solution is not 100% correct, it has some corner cases, but i'm
+happy with the basic architecture of doing it once at a higher
+level. If a new user comes along and lands in one of those corners,
+let leave it to them to fix.
 
--- 
-Kind regards,
-Joshua Crofts
+> [Severity: Medium]
+> The bit is now set before fwnode_mdiobus_register_phy()->get_phy_device()
+> checks whether anything answers at addr. Is it intended that nothing clears
+> it when registration fails?
+
+If the device comes to life later, it still has broken turn around, so
+this is not a problem.
+
+     Andrew
