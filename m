@@ -1,48 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=101.204.27.37
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795592800;
-	b=dmUcGp/A6TUPaQ2lMu3eTw18fC6ZyTtWP0fgdTuGC32VGVSM81bV5d2DuE7oeeLRB7yU
-	 sUsuIbI8TD8jKmEkF/LGUpiw+QR1w0pmqreuMNAY05DeOX6WP/wzb5hVbYhhF46KWdHTX
-	 3Xwr79PaQZUKm0t32IPHUO6P6nkYLvkV31+6ncPf8YupJtKZ8n/wGZMdXPStE8v/MjCEm
-	 AsjuZZ5YZLtCPPbnpSjX/3XZmGl/Q01VwLxLJdQjlR1XCoI8SbuE/0TTU0TdtSTcVsXl/
-	 6AdeeLJPVJ/QGELPWpfLujqR5ICjtADDCCjG8JM0n7s1KmlAfzOVJ5LdELFXRnSZ3IA==
+	t=1795592797;
+	b=ecZytww3J7RNwRgz2P129bH15w7QqQSNpLS4ot6YjhexR5k2+l7S/WYLOjuaAxhRc0tk
+	 yEl1w4gDw1Krup3X7R5XhEuTq8OM0/jvcfBsvZYMf3MaCr6paunDetWUg/xHTV+C7QyVD
+	 5nwKqs7OqSceK/4PKCwC1LkDb5QYGadOG//zlDzEIvnHfUNXTh/B3l0dxQCGUhA9RgK26
+	 U3B0q3+fRFlr3awl6Am3zRB51yo/wRSxZRVmOdhVlDnADlxbEuBayWggyzuq1AsuE/yTN
+	 CPaavHmup7Rcrrj5JF+m2rdFCUpfUdSI+tqWh2yK9AiCihzr1VvFSg8beNpyShCwmPw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795592800;
-	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=2DcaFXD0125nWcxTRBCp0tsdK90suKgYtEdqH6E3k1I=;
-	b=FuU+pDDVGFadNAO2cQX2jpWPLNaIwutlCO6+U5eAsH+R4Zu6QPt1hjVSQTQ9vxveEP29
-	 FG8oNzlS3gTFxW+UxhzWbOld9RMTuUIoOPDoFj9xDpZM9JHk8hw134ii//3IZvIsaTTqD
-	 iNNtyBSeufMilqEn+h4Xt5lh881SmeBhXv6lKZEsAuigjm6Eb/9yctFxtyPuyz5VvieMo
-	 i0RZJfZc1dhM4OSHVPpVVvglLrKX8XJWfx8/eSVX4dOhTpnhFptcOuRzTICeYHu96SryD
-	 u7v2HVcMtaxGMKdX3+mQcmnKpsna/HkS0MbWBCXyh8hNGEqd/+P9juARxZql9ApuqqQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795592797;
+	h=DMARC-Filter:Received:Received:Received:Received:From:To:CC:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
+	 X-ClientProxiedBy;
+	bh=Wx0h1nBOXx4sW1r+X0XANCpCblYPA2/J5R5tWzDhX30=;
+	b=Qj80ldQpac+FQ9zbl6goGXhRkIQhEtHk1RH+BidHM4UkSuNUhP+QRYg/YrgXsv9Ubume
+	 LA1+2rHmQDxO8b6ULSndRDnVU0DCgGNM+o66D4Vfmf9+Ojf6QNkQQDs3ITITXsxtmmAWE
+	 z4OJFCM0f9JjxRCRvkwJy1MCfpSAsX4LDjqUIqfCrBhUwcCnO4a+gagFhLPGwi/KGlGNh
+	 tPBpb7pwokdf6wPkapY6blFHOhiZ3W+UYhPPrWsuPLIADdE4M8+IgqWfcMjMIp1PMiTIW
+	 0R1bfbTSsBB308J5sopMxWChr3QocDnKdPnbSUlgNgX3Xc2WtUERQEywLOr/V8WsyvQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dxQ0I+1w;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D53FE606A68E;
-	Wed, 25 Nov 2026 07:46:40 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dxQ0I+1w
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 47CFC1F00A00;
-	Wed, 25 Nov 2026 07:46:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795592800;
-	bh=2DcaFXD0125nWcxTRBCp0tsdK90suKgYtEdqH6E3k1I=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=dxQ0I+1wyBYpeuu5wItqXDl0YeN85hd2y+M4I1d1i8LCxA65e4IbcALyqwp4oc2EK
-	 /JYN2yvex9j+1VYcnf6dBUuGkDqoIPkoD76b1k912CG3JNaQnVq/IWLEoh6wCjEcUB
-	 sT5eM2kOLTmWm4aB60ED/UIk686OCM7TaV8R3W2/K4i7nSg68G2VziXC3qtlF1mYs+
-	 09qmwdNRqW+bRKr6MyWpWKAKaMb/cWN3qLUw9YofKNhwOXIzk/o+Z1EelI40fJRzI5
-	 tGwgN70YFjZyX9CeAtXfHUyDXB+21WQYhQDyfRIP1AKQNMOK+pIdk6sl7CNQSnOt36
-	 vW5zHmrlSy2Eg==
-From: Yixun Lan <dlan@kernel.org>
-Date: Wed, 25 Nov 2026 07:46:14 +0000
-Subject: [PATCH 1/4] riscv: dts: spacemit: k3: Rename PMIC node
+	dmarc=pass header.from=hygon.cn;
+	spf=pass smtp.mailfrom=hygon.cn;
+	arc=none smtp.remote-ip=101.204.27.37
+Received: from spam01.hygon.cn (unknown [101.204.27.37])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 289D860A2601;
+	Wed, 25 Nov 2026 07:46:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 289D860A2601
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=hygon.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=hygon.cn
+Received: from maildlp2.hygon.cn (unknown [127.0.0.1])
+	by spam01.hygon.cn (Postfix) with ESMTP id 4jZBZg6F6ZzVcBC;
+	Wed, 25 Nov 2026 15:46:35 +0800 (CST)
+Received: from maildlp2.hygon.cn (unknown [172.23.18.61])
+	by spam01.hygon.cn (Postfix) with ESMTP id 4jZBZd0FQ5zVcB9;
+	Wed, 25 Nov 2026 15:46:33 +0800 (CST)
+Received: from cncheex04.Hygon.cn (unknown [172.23.18.114])
+	by maildlp2.hygon.cn (Postfix) with ESMTPS id 73750300B6F1;
+	Wed, 25 Nov 2026 15:45:20 +0800 (CST)
+Received: from hygon.hygon.cn (172.25.24.133) by cncheex04.Hygon.cn
+ (172.23.18.114) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Wed, 25 Nov
+ 2026 15:46:32 +0800
+From: Depei Yang <yangdepei@hygon.cn>
+To: <linux-crypto@vger.kernel.org>
+CC: Tom Lendacky <thomas.lendacky@amd.com>, Herbert Xu
+	<herbert@gondor.apana.org.au>, "David S. Miller" <davem@davemloft.net>, Gary
+ R Hook <gary.hook@amd.com>, <linux-kernel@vger.kernel.org>, Depei Yang
+	<yangdepei@hygon.cn>, Shan Chen <chenshan@hygon.cn>, Yongwei Xu
+	<xuyongwei@hygon.cn>, Xiaochen Shen <shenxiaochen@hygon.cn>
+Subject: [PATCH 04/11] crypto: ccp - register algorithms only for supported engines
+Date: Wed, 25 Nov 2026 15:46:02 +0800
+Message-ID: <a028ea9846832629bcf3d1ed79605cdfc8106dd1.1795588986.git.yangdepei@hygon.cn>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <cover.1795588986.git.yangdepei@hygon.cn>
+References: <cover.1795588986.git.yangdepei@hygon.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -52,60 +63,78 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261125-09-k3-dt-minor-misc-v1-1-dd887a8eb326@kernel.org>
-References: <20261125-09-k3-dt-minor-misc-v1-0-dd887a8eb326@kernel.org>
-In-Reply-To: <20261125-09-k3-dt-minor-misc-v1-0-dd887a8eb326@kernel.org>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, 
- Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
- spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
- Yixun Lan <dlan@kernel.org>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=685; i=dlan@kernel.org;
- h=from:subject:message-id; bh=MM7auyW6m3xTfeJCLq8URarLNjoz56AH4mXZ1+VDyzM=;
- b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBrBpJLSJbFQuRW46QpH4a7S6tvP6mvxRWYlljGk
- A1vqms0bfWJAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCawaSSxsUgAAAAAAEAA5t
- YW51MiwyLjUrMS4xMiwyLDJfFIAAAAAALgAoaXNzdWVyLWZwckBub3RhdGlvbnMub3BlbnBncC5
- maWZ0aGhvcnNlbWFuLm5ldEI1QkFCOEM5QzMxQjcxMTU2NzAyMjNEQzMxQUFFQTQ3NTk0REJCRU
- QACgkQMarqR1lNu+0UCw//akI7eNfI2+KZ0AJf5C01IhO0AXACxpIX4dvH54IwsIeaSQIyFbKs8
- eQ83LbCCgdP8XWmdR8fm4xEg+ujlzIx/ZFweEadtpyt/sG07wBD9oX1htEXJp4apQqTI2mE+Y1h
- mGCuqa7/hZOXHOoRXET3J3qXuIFxkAfX08u7M99Q6tFGkuhVVqj0ZvDiOpGer0IgTf1XkidfPFK
- Zcuc6gkTk2NXwdqzaK14fFNEBlVdI4LcNWLAIviv+XZFJy6cP3ZhQu5bR/xqEFTxzrebqYDsZC3
- LLAKzEq+mfznnF/TOqAx09yj0scEsasjj03LQNqO8SUPquJrn72gGEkkDG+LW23tow+2AzfT3g8
- HpkgBKM8C3BWqs5T+xaArQpbSuB6XyU1B2cIN6CYsv9lw7Bge3vsnQmXPnOfO1RX4urIlLGoJG0
- GcngL4UuXHAuL1OK1yY0cgF+xDOUrUOOMDQvDyX6vmHSmZKhtchO61grLvZFEHhE+eSRU7/KE3W
- /Hr0g5R869UwU4syAkkZ5jYzyotZICC9FuMBjcNLVZW5lq/XVEoCN0XGt/QGgzMF7KAdecQFIst
- oTaocXlyGj/u7t7wO2s/CqzJ3r4AT3qnnsMoiX636DRoIzmdj9dSqe2bGm0VWviXYLdYc7sGRK5
- oY/k1ov//91UdCja7lvgTqXoRmeLOQ=
-X-Developer-Key: i=dlan@kernel.org; a=openpgp;
- fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: cncheex05.Hygon.cn (172.23.18.115) To cncheex04.Hygon.cn
+ (172.23.18.114)
 
-Replace to a more descriptive name which follow Device Tree docs.
+ccp_register_algs() registers every algorithm family the driver knows
+about.  A device that does not implement the matching engine still gets
+the algorithms advertised, and requests for them end up on a queue that
+cannot execute them.
 
-Signed-off-by: Yixun Lan <dlan@kernel.org>
+Gate each family on the engine it is built on, using the capability
+information from probe time.  The AMD v5 variants advertise all of their
+engines and keep the current set of algorithms; the v3 CCP does not
+implement DES3 and no longer advertises des3.
+
+Reviewed-by: Shan Chen <chenshan@hygon.cn>
+Tested-by: Yongwei Xu <xuyongwei@hygon.cn>
+Signed-off-by: Depei Yang <yangdepei@hygon.cn>
 ---
- arch/riscv/boot/dts/spacemit/k3-pico-itx.dts | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/crypto/ccp/ccp-crypto-main.c | 14 ++++++++------
+ 1 file changed, 8 insertions(+), 6 deletions(-)
 
-diff --git a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
-index 8d1cd468cf8c..a4afe24130ae 100644
---- a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
-+++ b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
-@@ -100,7 +100,7 @@ &i2c8 {
- 	pinctrl-0 = <&i2c8_cfg>;
- 	status = "okay";
+diff --git a/drivers/crypto/ccp/ccp-crypto-main.c b/drivers/crypto/ccp/ccp-crypto-main.c
+index 698e39ab107f..388ecb1694e5 100644
+--- a/drivers/crypto/ccp/ccp-crypto-main.c
++++ b/drivers/crypto/ccp/ccp-crypto-main.c
+@@ -325,7 +325,7 @@ static int ccp_register_algs(void)
+ {
+ 	int ret;
  
--	p1@41 {
-+	pmic@41 {
- 		compatible = "spacemit,p1";
- 		reg = <0x41>;
- 		interrupts = <64 IRQ_TYPE_LEVEL_HIGH>;
-
+-	if (!aes_disable) {
++	if (!aes_disable && ccp_has_cap(CCP_CAPS_AES)) {
+ 		ret = ccp_register_aes_algs(&skcipher_algs);
+ 		if (ret)
+ 			return ret;
+@@ -334,28 +334,30 @@ static int ccp_register_algs(void)
+ 		if (ret)
+ 			return ret;
+ 
+-		ret = ccp_register_aes_xts_algs(&skcipher_algs);
++		ret = ccp_register_aes_aeads(&aead_algs);
+ 		if (ret)
+ 			return ret;
++	}
+ 
+-		ret = ccp_register_aes_aeads(&aead_algs);
++	if (!aes_disable && ccp_has_cap(CCP_CAPS_AES_XTS)) {
++		ret = ccp_register_aes_xts_algs(&skcipher_algs);
+ 		if (ret)
+ 			return ret;
+ 	}
+ 
+-	if (!des3_disable) {
++	if (!des3_disable && ccp_has_cap(CCP_CAPS_DES3)) {
+ 		ret = ccp_register_des3_algs(&skcipher_algs);
+ 		if (ret)
+ 			return ret;
+ 	}
+ 
+-	if (!sha_disable) {
++	if (!sha_disable && ccp_has_cap(CCP_CAPS_SHA)) {
+ 		ret = ccp_register_sha_algs(&hash_algs);
+ 		if (ret)
+ 			return ret;
+ 	}
+ 
+-	if (!rsa_disable) {
++	if (!rsa_disable && ccp_has_cap(CCP_CAPS_RSA)) {
+ 		ret = ccp_register_rsa_algs(&akcipher_algs);
+ 		if (ret)
+ 			return ret;
 -- 
-2.56.0
+2.34.1
+
 
