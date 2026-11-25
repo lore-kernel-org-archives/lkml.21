@@ -1,48 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=101.204.27.37
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795592804;
-	b=GC7UIJecPoHK1ChFn5BkEIcOLVVeHoYqHgi4/WjvsbtDuTXNPl1DHkTRmxgAw8YEwnyn
-	 NuyP4jcuue2+JKTYpA3z8+kmdCXyEiTEnqpB/7fdGHXGTuPlWn8bR8Ap8iPDjhikd2+M0
-	 jA7152K8b2hD+VK7npdYQVxMukQb768jAJU37+FJIWxNO2KWPy7TAF4UPHode7lILPY2S
-	 NM2dpigEwfvQBpD72n2mYUKj3JhqugDXka2Z42Cz24n+CVxMFzSvEgHWOmhLTiehrInMB
-	 NAu5AZJOfJpUSsljOkTCkMsmKWSPpFl2KFmkNr5PRtqywuBUmq1hmLk9/iSOJ68kXJQ==
+	t=1795592805;
+	b=XQu9AaQbdnkL4I9rKceWAJhIMG50EuKUAFzUeM7tz0h/oC52Gj8XvLUjx1OmCUhJHFgB
+	 Jl7NbM6pLAn2HTLmrXKN4KgfnigYE37jdtc6OSVie5vClEFmslaRTeIIR0hci706ZlvsC
+	 h0eveKtHFRclSgcnS1KGe+dp3RhX7kkP/9sdmoztmP8gm2HeQcmZ4yoSHs2NIJbPoHUl0
+	 SKFpwFHcbfW9i1WFfGbilKrc8zqi4UlID+dt3z2bcmS52cUW5KR3KR7ZTCH0De+HpWnTS
+	 ee5cAEvCp8QL3+UxuzhSzQv2UjMA/0hZpOhUh9LK+cIgtBFCVR2VCSgtyqY1jIQO94A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795592804;
-	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=gU/UcpSoePzAQUGjCNdjk4uCfDEDrO1+IvpBCE4O59k=;
-	b=RvgBIAC0hmzL4j5Gwea06yrpBM7OjaL4a92NZBIbjpw6xKH9DBLv+my7hErJ2t5RbEt+
-	 7BzKtTjQ1BLSdMxD1FgUQByJXjPujeb86PYa7B1/JtRHwHRgIoSz7tjwudXNrLDm8tw/g
-	 xl/SKbVFJ7n9yhB9xMUUpLAAPs7R7u4LWOoJB9JSIYZpJ6wvRK6IbdQJAu+ANu4AvO6jS
-	 hfp9JkNGBLxL6KiJO2olh00+Q0oePWG+Gu/sLl2PwxjdYkyhtv8fkaC6Z/u8saemUw1q7
-	 MPc32wDUYQP/tW9UR250PArJNlQplLsneyY7z9ukOmT0gifA7CNz3/V7U7uUgs+RY1A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795592805;
+	h=DMARC-Filter:Received:Received:Received:Received:From:To:CC:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
+	 X-ClientProxiedBy;
+	bh=KUnEXXB+kzAIiXjHIMN04bGtEdzozMgJ0VtfgRKm+KA=;
+	b=D9/TnLeLs/uI9zCzJ4KfOa+2QPIGAP7AI4tcwkcpwGv7xLvBl5h8qR+bCF5Mv9Eaktui
+	 9nmxai2kltu2zcdDrcFItq/VKrGvf4qGCtyRnn+h3tiM3P0B06CVRwplwqqqgxCvvjpUT
+	 UE1rhb03vWIFpxWQ+yL6400NDHHvGp1k+dFNriVeqDaIK2IMU2/zWwJXkarQuGvACsvPz
+	 XNQQip08KFKbJCT8pM33V9ejk4zHeqnWimXPD5oh1p3eAzuSKtbFdGr4VsWJ/VIbtGKeD
+	 xmwq30NMn9tw+i9TtJJo7fuUFkiIqRDyB17gRVRZYkj0a4P4csqPx0XEmBTsGcADZ1A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="YfV/mzuc";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ABDEB60A382C;
-	Wed, 25 Nov 2026 07:46:44 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YfV/mzuc
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B49F1F000D4;
-	Wed, 25 Nov 2026 07:46:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795592804;
-	bh=gU/UcpSoePzAQUGjCNdjk4uCfDEDrO1+IvpBCE4O59k=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=YfV/mzuc2IioktAlU4ZSkT2pk+XOB2ke0a/tufs34x0/IxQV2ypubnIs+vxEGqPM0
-	 XPOjdf3/8UU10YmpC49q5Ik8XnHXydeXQkjM2VBdI843e7vA/KDCI0AtdBg6GseH7C
-	 xGzH6r+itNASJ3/Oo0QVl5MFYCS3OPsOsJhwFCaJwvsXghqyBJo213+p9gkjCWEhrq
-	 e78l4wbV77kDMgeI5OdHX8t/5obtIIiEArRrYGO+5WWHLMdTKjsZK1XrFwWabUrLDX
-	 /JomraxVtZsJPF3nOCrdnpsGDJcIgmW/ShbMke2IykLiq7a3Z3g7Kp4nj/NjlrT0uX
-	 VgEO+vugJ/gYA==
-From: Yixun Lan <dlan@kernel.org>
-Date: Wed, 25 Nov 2026 07:46:15 +0000
-Subject: [PATCH 2/4] riscv: dts: spacemit: k3: Use Pin Macro
+	dmarc=pass header.from=hygon.cn;
+	spf=pass smtp.mailfrom=hygon.cn;
+	arc=none smtp.remote-ip=101.204.27.37
+Received: from spam01.hygon.cn (unknown [101.204.27.37])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 2E99A60A3812;
+	Wed, 25 Nov 2026 07:46:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2E99A60A3812
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=hygon.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=hygon.cn
+Received: from maildlp1.hygon.cn (unknown [127.0.0.1])
+	by spam01.hygon.cn (Postfix) with ESMTP id 4jZBZn6FJSzVcBK;
+	Wed, 25 Nov 2026 15:46:41 +0800 (CST)
+Received: from maildlp1.hygon.cn (unknown [172.23.18.60])
+	by spam01.hygon.cn (Postfix) with ESMTP id 4jZBZm29LgzVcB9;
+	Wed, 25 Nov 2026 15:46:40 +0800 (CST)
+Received: from cncheex04.Hygon.cn (unknown [172.23.18.114])
+	by maildlp1.hygon.cn (Postfix) with ESMTPS id ABE567741;
+	Wed, 25 Nov 2026 15:46:33 +0800 (CST)
+Received: from hygon.hygon.cn (172.25.24.133) by cncheex04.Hygon.cn
+ (172.23.18.114) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Wed, 25 Nov
+ 2026 15:46:39 +0800
+From: Depei Yang <yangdepei@hygon.cn>
+To: <linux-crypto@vger.kernel.org>
+CC: Tom Lendacky <thomas.lendacky@amd.com>, Herbert Xu
+	<herbert@gondor.apana.org.au>, "David S. Miller" <davem@davemloft.net>, Gary
+ R Hook <gary.hook@amd.com>, <linux-kernel@vger.kernel.org>, Depei Yang
+	<yangdepei@hygon.cn>, Shan Chen <chenshan@hygon.cn>, Yongwei Xu
+	<xuyongwei@hygon.cn>, Xiaochen Shen <shenxiaochen@hygon.cn>
+Subject: [PATCH 09/11] crypto: ccp - detect the Hygon CCP engines from the version register
+Date: Wed, 25 Nov 2026 15:46:07 +0800
+Message-ID: <57e545fa739fb63e618a1456636885ab0b20bef8.1795588986.git.yangdepei@hygon.cn>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <cover.1795588986.git.yangdepei@hygon.cn>
+References: <cover.1795588986.git.yangdepei@hygon.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -52,92 +63,99 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261125-09-k3-dt-minor-misc-v1-2-dd887a8eb326@kernel.org>
-References: <20261125-09-k3-dt-minor-misc-v1-0-dd887a8eb326@kernel.org>
-In-Reply-To: <20261125-09-k3-dt-minor-misc-v1-0-dd887a8eb326@kernel.org>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, 
- Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
- spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
- Yixun Lan <dlan@kernel.org>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1958; i=dlan@kernel.org;
- h=from:subject:message-id; bh=NLfSqq53cy2/3tiAdAfEyPG/cXEbgeJoLVQyYeX+FXU=;
- b=owEB6QIW/ZANAwAKATGq6kdZTbvtAcsmYgBrBpJO1HPGHrHOa4+sCWp0aoIjf4FJeBPh0ePeS
- VAMxmAHAMOJAq8EAAEKAJkWIQS1urjJwxtxFWcCI9wxqupHWU277QUCawaSThsUgAAAAAAEAA5t
- YW51MiwyLjUrMS4xMiwyLDJfFIAAAAAALgAoaXNzdWVyLWZwckBub3RhdGlvbnMub3BlbnBncC5
- maWZ0aGhvcnNlbWFuLm5ldEI1QkFCOEM5QzMxQjcxMTU2NzAyMjNEQzMxQUFFQTQ3NTk0REJCRU
- QACgkQMarqR1lNu+3AJA//epbR8jRNKONG8DGeBdI6pFSea1fPSpdVgU8qQ0rQ3T3/bTpoQSN1M
- 04P6PHq9m89BlO4q8G5s4tIvptF51gkYeefOR53Wn7+YQgbRlCs6OWA3TBoGTTM3OE7+ik0x70e
- BEELxY0CUSaGpB9PAglGAumASDKFVsK44CM8C8nk0lCCHkqWQrCfb964PXN8zYdGWtTujuFMZnO
- Rng9sze/d8GggKzk1IY2H98lrrM05IWBm7Inmk/dJ2sZabrmAYMZujY+OfNUUIfi06UOMWAQF8y
- eUhAjBX0NhDEdTwFcou0IRQ2BmwarAxNEsFAUwSNJh4YTa0Ml89PysA+VJaHBBGP5HbXXlZBjm+
- 6UAU1oPG6fiu9/uofUiJgWBYlBjkR7zZ7Jub6p78wtNecTsHox8ojab/QF+MyGWdtWBPlYNtenJ
- nwD/aEe4d0tOQ2e6Od17KOxPQLHTrGbqE9h/fwuLVECMLJCCUxSubTPpXDk0CrZ6XGr1eb6YqFz
- W6qCXPe5s0IoSYWIhT4wZF35aHaPGAqLYki+Fw8zz7zhW/7b0kJh13Ks/l3KJVW3RCyt4VAld/E
- oYWzojxZACFjzsQ0Scl76uZ30uD7W9xFx/a2KbCdpPhCdvkLHDyjLcrstRvY5E8deiTRSirZYrT
- SJr3fmFan0FXsHUaVeOQ1V7xYrFlYs=
-X-Developer-Key: i=dlan@kernel.org; a=openpgp;
- fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: cncheex05.Hygon.cn (172.23.18.115) To cncheex04.Hygon.cn
+ (172.23.18.114)
 
-Use Macro for the GPIO Pin definition, which match enumeration from
-pinctrl driver and make people easy to grep for debugging purpose.
+The Hygon CCP reports the engines it implements in the upper bits of the
+CCP version register, starting at bit 6: SM2, SM3, SM4, SM4-CTR, ECC,
+AES, SHA2, TRNG and SM4-GCM.
 
-Signed-off-by: Yixun Lan <dlan@kernel.org>
+Translate the presence bits into engine capabilities in
+ccp5_hygon_get_caps().  The same function stores the raw register value
+and the engine version read from the new CMD5_PSP_CCP_ENG_VERSION
+register; neither is used yet.  Only the SM engines are advertised for
+now; the other presence bits are defined but not translated until those
+engines are enabled.
+
+Reviewed-by: Shan Chen <chenshan@hygon.cn>
+Tested-by: Yongwei Xu <xuyongwei@hygon.cn>
+Signed-off-by: Depei Yang <yangdepei@hygon.cn>
 ---
- arch/riscv/boot/dts/spacemit/k3-com260.dtsi  | 2 +-
- arch/riscv/boot/dts/spacemit/k3-pico-itx.dts | 6 +++---
- 2 files changed, 4 insertions(+), 4 deletions(-)
+ drivers/crypto/ccp/ccp-dev-v5.c | 42 +++++++++++++++++++++++++++++----
+ drivers/crypto/ccp/ccp-dev.h    |  1 +
+ 2 files changed, 39 insertions(+), 4 deletions(-)
 
-diff --git a/arch/riscv/boot/dts/spacemit/k3-com260.dtsi b/arch/riscv/boot/dts/spacemit/k3-com260.dtsi
-index d8e94d538bf1..65c6f49f8591 100644
---- a/arch/riscv/boot/dts/spacemit/k3-com260.dtsi
-+++ b/arch/riscv/boot/dts/spacemit/k3-com260.dtsi
-@@ -228,7 +228,7 @@ mdio {
- 		phy1: ethernet-phy@1 {
- 			compatible = "ethernet-phy-id001c.c916";
- 			reg = <1>;
--			reset-gpios = <&gpio 1 5 GPIO_ACTIVE_LOW>;
-+			reset-gpios = <&gpio K3_GPIO(37) GPIO_ACTIVE_LOW>;
- 			reset-assert-us = <10000>;
- 			reset-deassert-us = <50000>;
- 		};
-diff --git a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
-index a4afe24130ae..a74e76ee75e4 100644
---- a/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
-+++ b/arch/riscv/boot/dts/spacemit/k3-pico-itx.dts
-@@ -48,14 +48,14 @@ rfkill-pcie-wlan {
- 		compatible = "rfkill-gpio";
- 		label = "rfkill-pcie-wlan";
- 		radio-type = "wlan";
--		shutdown-gpios = <&gpio 1 3 GPIO_ACTIVE_HIGH>;
-+		shutdown-gpios = <&gpio K3_GPIO(35) GPIO_ACTIVE_HIGH>;
- 	};
+diff --git a/drivers/crypto/ccp/ccp-dev-v5.c b/drivers/crypto/ccp/ccp-dev-v5.c
+index d2586625700b..0284be103ad1 100644
+--- a/drivers/crypto/ccp/ccp-dev-v5.c
++++ b/drivers/crypto/ccp/ccp-dev-v5.c
+@@ -1203,13 +1203,47 @@ const struct ccp_vdata ccpv5b = {
+  * Hygon CCP is a v5 derivative with the SM3/SM4 engines added.  It
+  * uses the same queue, LSB and interrupt model as the AMD v5 CCP.
+  *
+- * TODO: derive the legacy engines from the Hygon engine register once
+- * its layout is confirmed.  Until then only the engines that cannot be
+- * detected from a register are advertised.
++ * Engine presence is reported by the bits 6 and above of the CCP
++ * version register; the layout differs from the AMD one.
+  */
++#define HYGON_RI_SM2		BIT(6)
++#define HYGON_RI_SM3		BIT(7)
++#define HYGON_RI_SM4		BIT(8)
++#define HYGON_RI_SM4_CTR	BIT(9)
++#define HYGON_RI_ECC		BIT(10)
++#define HYGON_RI_AES		BIT(11)
++#define HYGON_RI_SHA2		BIT(12)
++#define HYGON_RI_TRNG		BIT(13)
++#define HYGON_RI_SM4_GCM	BIT(14)
++
+ static void ccp5_hygon_get_caps(struct ccp_device *ccp)
+ {
+-	ccp->caps.engines = CCP_CAPS_SM3 | CCP_CAPS_SM4 | CCP_CAPS_SM4_CTR;
++	/*
++	 * Only the SM engines are advertised for now.  SM2, ECC, AES,
++	 * SHA2, TRNG and SM4-GCM are not enabled for the Hygon CCP yet;
++	 * they will be added to the table once the driver supports them
++	 * on this hardware.
++	 */
++	static const struct {
++		u32 presence;
++		u32 cap;
++	} engines[] = {
++		{ HYGON_RI_SM3,		CCP_CAPS_SM3 },
++		{ HYGON_RI_SM4,		CCP_CAPS_SM4 },
++		{ HYGON_RI_SM4_CTR,	CCP_CAPS_SM4_CTR },
++	};
++	u32 version;
++	unsigned int i;
++
++	version = ioread32(ccp->io_regs + CMD5_PSP_CCP_VERSION);
++	ccp->caps.ccp_version = version;
++	ccp->caps.engine_version =
++		ioread32(ccp->io_regs + CMD5_PSP_CCP_ENG_VERSION);
++	ccp->caps.engines = 0;
++
++	for (i = 0; i < ARRAY_SIZE(engines); i++)
++		if (version & engines[i].presence)
++			ccp->caps.engines |= engines[i].cap;
+ }
  
- 	rfkill-usb-bt {
- 		compatible = "rfkill-gpio";
- 		label = "rfkill-usb-bt";
- 		radio-type = "bluetooth";
--		shutdown-gpios = <&gpio 0 30 GPIO_ACTIVE_HIGH>;
-+		shutdown-gpios = <&gpio K3_GPIO(30) GPIO_ACTIVE_HIGH>;
- 	};
- };
+ const struct ccp_vdata ccpv5a_hygon = {
+diff --git a/drivers/crypto/ccp/ccp-dev.h b/drivers/crypto/ccp/ccp-dev.h
+index f499e6868d82..c2b8068bc123 100644
+--- a/drivers/crypto/ccp/ccp-dev.h
++++ b/drivers/crypto/ccp/ccp-dev.h
+@@ -71,6 +71,7 @@
+ #define LSB_PRIVATE_MASK_LO_OFFSET	0x20
+ #define LSB_PRIVATE_MASK_HI_OFFSET	0x24
+ #define CMD5_PSP_CCP_VERSION		0x100
++#define CMD5_PSP_CCP_ENG_VERSION	0x104
  
-@@ -250,7 +250,7 @@ mdio {
- 		phy0: ethernet-phy@1 {
- 			compatible = "ethernet-phy-id001c.c916";
- 			reg = <1>;
--			reset-gpios = <&gpio 0 15 GPIO_ACTIVE_LOW>;
-+			reset-gpios = <&gpio K3_GPIO(15) GPIO_ACTIVE_LOW>;
- 			reset-assert-us = <10000>;
- 			reset-deassert-us = <50000>;
- 			realtek,aldps-enable;
-
+ #define CMD5_Q_CONTROL_BASE		0x0000
+ #define CMD5_Q_TAIL_LO_BASE		0x0004
 -- 
-2.56.0
+2.34.1
+
 
