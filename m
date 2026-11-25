@@ -1,49 +1,92 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.158.5
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795621775;
-	b=o/RmZzt4FcJxlL/6aGSQel/l5VxxjS7u82Lp+9NvC61ZuZIMtMWzsVERxIv669aLwkut
-	 l0eo/AlD68iCZO+yJarVeu9Uf3vApc4Jae2zZK1t4HGn/aN5NvMaodLXSKar5yBX/qbHa
-	 3MTcZSH7oET/LnwYUhFKsT3e5eZ/2SRr1iizd72cNpjZGtYOyZ5/u4yYAInRx9FDHn0B9
-	 FOJ0VbOQSiTd2k3Jc2QL1H6loFtGde+CwuOKxROjRrgBD6VOMqZCIn6A2B9h2VhPI1cSv
-	 U3QSfq1Qy+6cLq4rJwWV1qLqBe+1AuCMKojEk+bJbJ8udcvu4kX77308e/mv1pznZ0A==
+	t=1795621794;
+	b=POtOUZ4F1nvsyFc7iHCfjqsN4t3mu1oPRYH4/dXbKCHpX8ZCgnitAmfZGDVngeBwmNHd
+	 DdDE9DczeGNkuyQHmYd+yrRYFnkHe8rHK03t+LC642IhHmm6jdCAU8KfKQGNmOszWxxuN
+	 58dbzxuvPBGz5fYGotHxXbApaMUVpnQzwJCGjF62pf8xjsRteXnn/DvvysD428n7KV9N1
+	 fVgAbWmIC4dJQRS1Kf9iQlaKgkcyDtPwbRoogPK22MEQhdJkmJhR7xfBayyJSfFlp3Imy
+	 Pn7US5kl5sVScqCSNPJBsA/a5quM0oIiD+Mob2OsTUdwxZv6sPZ36Oce3Bgz3EdMMlg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795621775;
-	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=xwN7N2TJ/AxtSCaqTfLM9jPZ0Ogy+48kHJQgnpkXTHY=;
-	b=WVQTBV4cG//VvIZHyBM45f1TPQ8Qke9U3XDuNOR2KZNRap1axnanK+FpNwBN7rMbtBzX
-	 1Bnt8Nmlo8E3CLc9+qyODVf44P++cZi9NRKFSPnb/tH6TPSOQvUcRsgWLhUH75/pYzmRt
-	 Zy5jHQqkvPh137Zt9UhqnoVAmshWlONDFfnWR9C6VLmoUxdzVtuOYtVRd0TyT6XH07PP8
-	 F3UjaEAEsE4H25HW2jBqfpREZ+BwJNB34fT08Jl/ciuY4lSJ19X2foKbGIv59wX4mbdS8
-	 +6IsOXnWOLzRv1XDRpqPITvLVB3L4hY3vjtVBfT6fX40I5wadPBwAivYt88hz276ktA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795621794;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
+	 Received:Received:Received:Received:Date:From:To:Cc:Subject:
+	 Message-ID:Reply-To:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:X-TM-AS-GCONF:X-Proofpoint-Reinject:
+	 X-Authority-Analysis:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-GUID:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=HzcAMToS4VrRcrH4TKkO/AAbJxnB0tOnNrCWssv7Zng=;
+	b=sHYZ6oEoDcG+N0bMUJdjhF1jU+LZTlcHOxiBHoLImUjEjIjcClqnGOUI6OCCF3i+RvtR
+	 RERG7j5DO19aW/VMwgSCsh2v4HmXEMtALmWJsHe8OVy1Gvw6cFMuEH6tm/mrF7spiUXLB
+	 aG4xnULphrqfQsJADKswp9sIrPGERYDKhhDgQHAbHoh1HfSGtIWWiO3o3lzy2ing97ayq
+	 PEttty+iM24TZXLRsCa9PeYf8uTYd9XO7JKNk7MQZ1JhPxjnNl/7ogFGY/UtWBPmsy+wN
+	 ZG9cr7/yj15/LILhveV/QJuM0/41ijTiv7LBk66xPWVDurb/VEtWb8UIfQ8wOSW+aGA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LOOzE1Ia;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=linux.ibm.com;
+	spf=pass smtp.mailfrom=linux.ibm.com;
+	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=kedTehSW;
+	arc=none smtp.remote-ip=148.163.158.5
+Received: from mx0b-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com [148.163.158.5])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7B932606A332;
-	Wed, 25 Nov 2026 15:49:35 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BE11B606A31E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:49:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BE11B606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LOOzE1Ia
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 79BE81F00ACF;
-	Wed, 25 Nov 2026 15:49:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795621775;
-	bh=xwN7N2TJ/AxtSCaqTfLM9jPZ0Ogy+48kHJQgnpkXTHY=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=LOOzE1IaHjp88Xb0pe3QCQu7CIqsf9lvB2bWUHMyrquKLsE4mk3eSefypXwCchx3/
-	 EgDm9WYoe9egxS4uzllqv4tVecTYA4VGcRRpMrF6IZn9+kOnaqnGiTyRjV7ad+DIPf
-	 kiRZkpUSghvkaz+DxSJ+hB7Rae8h02h/GXcc8vmDBYeLGWK4fZygL3H/I2Bdj6bkGJ
-	 PagDwhj4P2FJg4JoA/yA2/SGYxaB/eZmY3/+F9aFz++Kq0PaHWKz/qGtQ3rUCGL2vn
-	 zoCiluotK1PIu1HVzJVPeNyK1XVICu+74JYxil/rYHKTDWqn5RR6PbqKKTDQ5drbOj
-	 C9Ap2JSXYBDKw==
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Date: Wed, 25 Nov 2026 15:48:52 +0000
-Subject: [PATCH v3 4/4] mm/huge_memory: only compare PFNs of huge entries
- on huge fault insert
+	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=kedTehSW
+Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6APEYxGe1554329;
+	Wed, 25 Nov 2026 15:49:23 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:to; s=pp1; bh=HzcAMToS4VrRcrH4TKkO/
+	AAbJxnB0tOnNrCWssv7Zng=; b=kedTehSWaS9wKOU2oN3jOd6sgFCYn8mq0Ya0v
+	jWScGwU+RV3g/KnFhqqhfFo94S2jFoL945QSD/lR9g2ULZzumTkyWd7B7AhgQjvi
+	8Zu6jEwWh1Pw2dtoGWsESxX1UmoY3aggKaJr5VpUkTotdPkuNIdIIovZmtBQ0qpW
+	GD//uGCrrUXa7bZkP25lKeNFHWcdVNCNzW+cB1GvN+UC7aQAx/ss9U5ZmNurBkwY
+	VnNvQg3pUKajN/P4pGkYNDG2CU6XoNnoxGfoyyzoyyufABK3/v+E8PxtH9oKv6jq
+	i6uC7/09dYQDNzISHD9gT7qGKfsZxMbaj+dx0V05cEnBuAcEA==
+Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j34gvcs5h-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Wed, 25 Nov 2026 15:49:23 +0000 (GMT)
+Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma12.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6APEKLBY810390;
+	Wed, 25 Nov 2026 15:49:22 GMT
+Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
+	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4j5axkvdxu-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 25 Nov 2026 15:49:22 +0000 (GMT)
+Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
+	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6APFnIJC39780796
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 25 Nov 2026 15:49:18 GMT
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 9C92120043;
+	Wed, 25 Nov 2026 15:49:18 +0000 (GMT)
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id EB81020040;
+	Wed, 25 Nov 2026 15:49:16 +0000 (GMT)
+Received: from linux.ibm.com (unknown [9.126.150.29])
+	by smtpav02.fra02v.mail.ibm.com (Postfix) with SMTP;
+	Wed, 25 Nov 2026 15:49:16 +0000 (GMT)
+Date: Wed, 25 Nov 2026 21:19:16 +0530
+From: Srikar Dronamraju <srikar@linux.ibm.com>
+To: linuxppc-dev <linuxppc-dev@lists.ozlabs.org>
+Cc: Michael Ellerman <mpe@ellerman.id.au>,
+        Madhavan Srinivasan <maddy@linux.ibm.com>, chleroy@kernel.org,
+        Nicholas Piggin <npiggin@gmail.com>,
+        Shrikanth Hegde <sshegde@linux.ibm.com>,
+        Peter Zijlstra <peterz@infradead.org>, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/7] powerpc/numa: Enable coregroup support for shared
+ LPARs
+Message-ID: <awcDfKYFXE5PnT8g@linux.ibm.com>
+Reply-To: Srikar Dronamraju <srikar@linux.ibm.com>
+References: <20261016110412.1380298-1-srikar@linux.ibm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,117 +96,55 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261125-huge-pfnmap-fault-races-v3-4-bbc44489341b@kernel.org>
-References: <20261125-huge-pfnmap-fault-races-v3-0-bbc44489341b@kernel.org>
-In-Reply-To: <20261125-huge-pfnmap-fault-races-v3-0-bbc44489341b@kernel.org>
-To: Andrew Morton <akpm@linux-foundation.org>, 
- David Hildenbrand <david@kernel.org>, 
- "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
- Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
- Michal Hocko <mhocko@suse.com>, Alex Williamson <alex@shazbot.org>, 
- Peter Xu <peterx@redhat.com>, Zi Yan <ziy@nvidia.com>, 
- Baolin Wang <baolin.wang@linux.alibaba.com>, 
- Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>, 
- Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>, 
- Lance Yang <lance.yang@linux.dev>, Usama Arif <usama.arif@linux.dev>, 
- Kiryl Shutsemau <kas@kernel.org>, Wei Liu <wei.liu@kernel.org>, 
- Roman Kisel <romank@linux.microsoft.com>, 
- Saurabh Sengar <ssengar@linux.microsoft.com>, 
- Naman Jain <namjain@linux.microsoft.com>, 
- Michael Kelley <mhklinux@outlook.com>
-Cc: ljs@kernel.org, linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
- Eliav Farber <farbere@amazon.com>, stable@vger.kernel.org, 
- "Jose A. Perez de Azpillaga" <azpijr@gmail.com>, 
- "Gregory Price (Meta)" <gourry@gourry.net>, 
- "T.J. Mercier" <tjmercier@google.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3097; i=ljs@kernel.org;
- h=from:subject:message-id; bh=JsUg5bNeXJ+T8vfVeKVvW7LaLcQrJO3bFcpJ22VjJ8o=;
- b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLLZmTPfaT6JTWB5lP5ylWZvkL14xaT58xaapXudKV8gP
- EfJy/VyRykLgxgXg6yYIsvzL+L7g0TC5nVe8HeDmcPKBDKEgYtTACayKZThf43eEc45337s6NKu
- 8KqICTCase4gU46K+67dvwI2BukI2jH8d3qlIGQX9zWlsqs5fHu0RUjLPMtZCc/23ZmvE/zhVqU
- aFwA=
-X-Developer-Key: i=ljs@kernel.org; a=openpgp;
- fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+In-Reply-To: <20261016110412.1380298-1-srikar@linux.ibm.com>
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Authority-Analysis: v=2.4 cv=CYCdd7rl c=1 sm=1 tr=0 ts=6b070383 cx=c_pps
+ a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
+ a=8nJEP1OIZ-IA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=Y2IxJ9c9Rs8Kov3niI8_:22 a=VnNF1IyMAAAA:8
+ a=cLZJDPjSj-JHP7X_EOMA:9 a=wPNLvfGTeEIA:10
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI1MDA2MiBTYWx0ZWRfX83Ufs+jM9w1y
+ ExEJWurIsREy9e+I3sicIZKB3fFgUTgqGAUu+Sbxd1820qdYYTMy/SnL7TYBdOQRcmVx9tKtk/8
+ 4umru4Y5gUMpXHXl3e6kvMeOaiZIsdc=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI1MDA2MiBTYWx0ZWRfX+OQp+YK9oJkS
+ jo23RAnuR5ZgqemIiHaif1eCaIMUqO7myFgWpOF0RljwtEJMNUHtiTcfzcCb/buzqhZ68GFWmoB
+ 7NBNO7BjuN9kB8yiHRMqXbhDHvVzYvx6BXgDp2r7OvNkVFIBJAcPvDxnlGHOabfWVnZHQU1fiW8
+ gqt1j7ehcQ5VPLSKnoqrR6ukM8/GluB39ifRvObHgBklisjF/RkgmAcaqmeWExVhV2mcZ4pVTKq
+ 43piMrQK/QhRfJO1N7WLudHjsz1IIW/0uhhjpI/f1JiWShu7vvv5mG+k7SAPV7y4vbFxE+5pU9h
+ o2CSdoUJE113HWJ7GAjNV7VVPlK3w+yReiYnqvFwRD1e9sWaCFpV6/eyX51E1gh6J/UVIxoVc5M
+ JvFKD6fAp3mfDMJK6vngO9Efy1ils/D5V6gmERM0znGjIHAd3Mj8FPWmLpeHBrkcLaJtm7KtNp9
+ gCah7TFYBijIu0+W3Nw==
+X-Proofpoint-ORIG-GUID: yHCNmU_841g_QdozevFzWgBgRmpYfOAF
+X-Proofpoint-GUID: th5fT9aRIX_xd3J2ZJi6ukSmY4y-mnm4
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-25_04,2026-11-23_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 malwarescore=0 priorityscore=1501 lowpriorityscore=0
+ clxscore=1015 spamscore=0 bulkscore=0 impostorscore=0 adultscore=0
+ suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
+ definitions=main-2611250062
 
-A driver that implements both ->fault and ->huge_fault must anticipate
-concurrent use of both.
+* Srikar Dronamraju <srikar@linux.ibm.com> [2026-10-16 16:34:05]:
 
-This can happen, for example, if a user calls prctl(PR_SET_THP_DISABLE)
-concurrent with faulting, as that only holds the mmap write lock and thus
-does not exclude faulting threads stabilised by VMA lock.
+> Coregroup topology is currently disabled for shared LPARs even when
+> coregroup information is available through the associativity hierarchy.
+> 
+> The associativity hierarchy differs between shared and dedicated LPARs.
+> For dedicated LPARs, a coregroup level is present when the hierarchy
+> extends beyond primary_domain_index + 1. For shared LPARs, the hierarchy
+> has one fewer level and coregroup information is available when it
+> extends beyond primary_domain_index.
+> 
 
-insert_pmd() and insert_pud() have issues with this as they both assume
-that, if the page table entry being populated is not empty, it must be a
-present huge entry.
+Hi Maddy,
 
-This is problematic as if it is a write fault, it compares its PFN against
-the one being inserted, warning if they differ, on the assumption that the
-entry is a huge leaf.
-
-Since the entry may be a page table, this is invalid and can result in
-spurious warnings.
-
-Equally, the entry might be non-present. Nothing can install such an entry
-in the VMAs that reach this code today, but there is no reason to rely upon
-that.
-
-Therefore only examine the PFN if the entry is both present and huge, and
-otherwise simply return VM_FAULT_NOPAGE so the fault is retried and handled
-at the appropriate level.
-
-This is what already happens for a read fault, for which the existing entry
-is not examined at all.
-
-Target the commit which introduced the first driver which both mixes fault
-orders and passes the write flag for the fix (since this commit, both
-drm_gem_shmem and panthor are prey to this issue).
-
-Reported-by: Eliav Farber <farbere@amazon.com>
-Closes: https://lore.kernel.org/all/20261112051440.16140-4-farbere@amazon.com/
-Fixes: 7bfe3b8ea6e3 ("Drivers: hv: Introduce mshv_vtl driver")
-Cc: stable@vger.kernel.org
-Reviewed-by: Jose A. Perez de Azpillaga <azpijr@gmail.com>
-Acked-by: David Hildenbrand (Arm) <david@kernel.org>
-Tested-by: Gregory Price (Meta) <gourry@gourry.net>
-Reviewed-by: Gregory Price (Meta) <gourry@gourry.net>
-Acked-by: Naman Jain <namjain@linux.microsoft.com>
-Reviewed-by: Zi Yan <ziy@nvidia.com>
-Reviewed-by: T.J. Mercier <tjmercier@google.com>
-Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
----
- mm/huge_memory.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
-
-diff --git a/mm/huge_memory.c b/mm/huge_memory.c
-index 0d589be136d2..ab267ad48020 100644
---- a/mm/huge_memory.c
-+++ b/mm/huge_memory.c
-@@ -1643,6 +1643,10 @@ static vm_fault_t insert_pmd(struct vm_area_struct *vma, unsigned long addr,
- 		const unsigned long pfn = fop.is_folio ? folio_pfn(fop.folio) :
- 					  fop.pfn;
- 
-+		/* We may have raced a fault which installed a page table. */
-+		if (!pmd_present(*pmd) || !pmd_leaf(*pmd))
-+			goto out_unlock;
-+
- 		if (write) {
- 			if (pmd_pfn(*pmd) != pfn) {
- 				WARN_ON_ONCE(!is_huge_zero_pmd(*pmd));
-@@ -1770,6 +1774,10 @@ static vm_fault_t insert_pud(struct vm_area_struct *vma, unsigned long addr,
- 		const unsigned long pfn = fop.is_folio ? folio_pfn(fop.folio) :
- 					  fop.pfn;
- 
-+		/* We may have raced a fault which installed a page table. */
-+		if (!pud_present(*pud) || !pud_leaf(*pud))
-+			goto out_unlock;
-+
- 		if (write) {
- 			if (WARN_ON_ONCE(pud_pfn(*pud) != pfn))
- 				goto out_unlock;
+Did you get a chance to look into this?
 
 -- 
-2.56.1
-
+Thanks and Regards
+Srikar Dronamraju
