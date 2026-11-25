@@ -1,58 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.193
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795597111;
-	b=nmItuHcuPappx3TzFuOwCW0vLevBgRyAk4MlcuNWQ9bbRpptzNlkdYkM1aXniw+zg8Iw
-	 lKdxUMlEpK4Utf3HnTsLCmO6gU1e+tBxplWgmrWDBDnNA/eEwp6/F+8Jb44LHxa7YGMRB
-	 k0VaUEO4wDYlRrdmB1xcCF0/PYLfw+Dfs9CNnfuRRph0tGeWhMhjef9Um9PSy0LN6W0tF
-	 YnewVa40m7W3xZbDGJKi0QHM/LHgtwe4e3X7FlWmrNHe9kHDvqcrIDK+XxO5qlpIxQlAx
-	 WlElOMJP6g41GmMgNA82OR4AZBaSaNIVc2sAhXu4zyKPnompo3Er6XASL2UszgbzVfA==
+	t=1795597114;
+	b=kW/vk+Y75Q3Of6ACeK9C2utUQdgYjLkY/Vp7RC0EjXo8Vh7ikMrOWbMb4qz4Er8zxXqj
+	 esN8vXVCj5tyZfJxfkhvaFxxyR41mEBwYWJFh3SKZyfWMYbXrTKAmvQwxNBeoHmF7MU15
+	 SJp8HFuhs4U+IZzYQbWwFE9tqUYxLUs8D2eDjPE7i1SgCOlh8r4h//gsqelmEDqKgHr9W
+	 SGg//l+edheGg+a15XoxLIchTXkVV7uUAjNi6ecTcMJVvfLhqiiDX5tlOI7vla/jSpPkg
+	 hnf7ijcumiGi5HjOmycwFwUi9REZqsSZZhcO0Tc/twhP+Orh7UU7EiTW0F+dn4AnB8g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795597111;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=vEqFFBWX6b+wkozEcpfZ8vGlVzN4LPqH2KN4v/pkMPg=;
-	b=lM4QBjo5nEvwsDlHLW8I+6J4oRO4UROaZ5AycSYiz7Arfz37iDbmWJVfc4mae8n8YQZ+
-	 +9upfC9uQ5E/LcOineys0Mxys2sArGbqxHGoPoACpBMPXhV0LBO7eCCBuNWtXT1aHC0XY
-	 mBJs7J7NGUqRiBvZksazxJ4GPaQjH2SqfZ7p3s94GtqOZ03d5cKZd/ObnJorCMsYN4uBJ
-	 r9EcfQxRr1DYG0Cr425UhO8iEBR9F35+nrm/tV5PQuI+xROH7lvnLKuRkT02sXEpMkWPI
-	 gJwVjXhsCLlUPKUsJ25EUlBmSzHs8zPJC50WBvSqzWalaG8RSOsk3kPEBSHTH/cQsOQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795597114;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=bc7nuZMJjZ66RAXa3XZY4QgSdXa+1/f74i4Vd6ipG/k=;
+	b=u9b2/T3G4wJPZIxqt5i01aBbCI+M7E942E1Mj0ZDS1scnb4WY0OQ3KpSDdLZGShLnZUV
+	 0mQ6UDomlinnFocPeH9j1TQWS4ZzXwMjm+uytCZ22fhXobZK7SvGKL138Mzt8ILAszbG5
+	 jpH9n5qHvT1rEPJOKvU1/dTYtvIM0otKD99wQlW2jfrM4NGYtCBD8WZTOuZwdrzXblZlZ
+	 KeU3OpV+4vU7koQHe6gfauGSx5hNn+KPTW9xmguFCqN7loX1xIMgiJI0np3Aj3Rv6eYkq
+	 Ao4qFCwlD3kNJl31VOInN6j5diDa0jxrcUNQyNyEFF1m5eUAc+7lRaODKXmOTf/kxnw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NLdnfown;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=QUsAl538;
+	arc=none smtp.remote-ip=95.215.58.193
+Received: from mta1.migadu.com (out-193.mta1.migadu.com [95.215.58.193])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B2E0A606A687;
-	Wed, 25 Nov 2026 08:58:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 63D6F606A331
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:58:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 63D6F606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NLdnfown
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C4DF01F000E1;
-	Wed, 25 Nov 2026 08:58:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795597111;
-	bh=vEqFFBWX6b+wkozEcpfZ8vGlVzN4LPqH2KN4v/pkMPg=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=NLdnfownvMvuk6COfSyhktBlitM+8N7bmMquMGyOb5G4X/pIgNoyGJ3k7OYncSjKL
-	 E8HWJQ0jnbr7FO9TSn8T3vDbjvNkNC36y69Unaiw49z4OUk/WWp9dVBoVh1lRVbQkg
-	 KJbIBT78Tufv8Sz3BU17r9qQEW56z7cMOk38jvXFLu4NyD3DxcbLOdPJ6p6KKSjiSo
-	 sRLrKs+ISoYAne7RBrLU3gbp8/P27TPcyyFD/IJb8V0CfZ8CrD13TDfXlnP8Scl08Y
-	 IlyoZVoEW+zTvmEkYVIHb6BBtwCuIy8X85IftED1Vdnlkbg5+k8Ad3/3KUoznJf4qI
-	 xQKDV9VHomUGw==
-Subject: Re: [PATCH net-next 5/5] net: dsa: lan9645x: add bridge support
-From: netdev-bot+sashiko@kernel.org
-To: jensemil.schulzostergaard@microchip.com
-Cc: UNGLinuxDriver@microchip.com, andrew@lunn.ch, olteanv@gmail.com,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- linux@armlinux.org.uk, linux-kernel@vger.kernel.org, netdev@vger.kernel.org
-Date: Wed, 25 Nov 2026 08:58:30 +0000
-Message-ID: <179559711039.3135.10067666642818194046@kernel.org>
-In-Reply-To: <20261124-dsa-lan9645x-add-vlan-and-bridge-offload-v1-5-b930a1dae700@microchip.com>
-References: <20261124-dsa-lan9645x-add-vlan-and-bridge-offload-v1-5-b930a1dae700@microchip.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=QUsAl538
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=23kp1HdGjIM/G8/9zl1qp3aH6HKsh3N0XvtatOV79V4=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795597111; v=1; x=1796201911;
+ b=QUsAl538dWTfDlpiXoNuSpX6tiLDrai6hCFVGrpE4QOjfibJ61qzB8XJaT1ZmKPgq5YSUdVI
+ 9hPhiQDwxHaBaxBPx8ALiyFLBgTsoCtMzELBJs3LTCxXzLOXxVYy2ASuDPZpWrYzA3lk5drnvUI
+ G5M2lTqtmNpBSZjoMLLNvCC0=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 2c9cec84fe8096d0;
+	Wed, 25 Nov 2026 08:58:31 +0000
+X-Mizu-Trace-ID: 2c9cec84fe8096d0
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <ec609ac9-c250-4e38-a0d1-9f7ff5252436@linux.dev>
+Date: Wed, 25 Nov 2026 16:58:23 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,147 +58,91 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/2] ksmbd: splice READ payloads over TCP
+To: Namjae Jeon <linkinjeon@kernel.org>
+Cc: linux-cifs@vger.kernel.org, Sergey Senozhatsky
+ <senozhatsky@chromium.org>, Tom Talpey <tom@talpey.com>,
+ ChenXiaoSong <chenxiaosong@chenxiaosong.com>, linux-kernel@vger.kernel.org
+References: <20261124132554.1185817-1-huiwen.he@linux.dev>
+ <CAKYAXd_GDhds=X8OgLCU6f6MqtF4A-7fZiQz-829SWSdUKJbdA@mail.gmail.com>
+Content-Language: en-US
+From: hehuiwen <huiwen.he@linux.dev>
+In-Reply-To: <CAKYAXd_GDhds=X8OgLCU6f6MqtF4A-7fZiQz-829SWSdUKJbdA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+Hi Namjae,
 
-Critical: 0 · High: 0 · Medium: 2 · Low: 0
+On a single TCP connection, pure per-CPU makes the RX thread and workers 
+fight for the same core.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Pure unbound fixes that, but causes other problems: parallel workers 
+still contend on srv_mutex and send small replies one by one, cross-CPU
+execution hurts locality, and under schedutil spreading the load can 
+drop workers onto lower-frequency CPUs (on the 64 KiB READ send path we
+saw ~1.97 GHz with per-CPU vs. ~0.9 GHz with unbound). For serial 1-job
+QD=1 writes, there is no overlap to benefit from either.
 
-- [Medium] lan9645x_port_bridge_join()
-  (drivers/net/dsa/microchip/lan9645x/lan9645x_main.c:544) stores…
-- [Medium] lan9645x_fdb_vid()
-  (drivers/net/dsa/microchip/lan9645x/lan9645x_main.c:692) only switches…
+For example（Throughput：MiB/s）：
 
---
+Workload           jobs/QD   PERCPU  UNBOUND   Change
+-----------------  -------  -------  -------  -------
+1ch, 64 KiB READ     16/32  2051.38  1387.34  -32.37%
+1ch,  4 KiB WRITE    16/32   215.82   182.71  -15.34%
+1ch,  1 MiB WRITE      1/1  1948.84  1109.46  -43.07%
+4ch, 64 KiB WRITE    16/32  2788.42  2497.57  -10.43%
+4ch,  1 MiB WRITE    16/32  3482.73  3291.34   -5.50%
 
-net: dsa: lan9645x: add bridge support
+So I tried sending only WRITE requests to an unbound workqueue, batching
+completed WRITE replies, and only using the unbound queue when WRITEs
+actually overlap (keeping serial WRITEs per-CPU). So far, across 
+low/high QD, small/large blocks, READ/WRITE/mixed, and multichannel, it 
+performs better than per-CPU without introducing the unbound regressions.
 
-This adds hardware bridge offload to the lan9645x DSA driver. Each
-VLAN-unaware bridge gets its own reserved VID, and at most one bridge can
-be VLAN-aware. The CPU port is no longer in the default unicast and
-multicast flood masks; .port_set_host_flood adds it instead. The patch
-also adds ageing time configuration with min/max limits.
+However, given how complex the overlap-detection logic is, I'm not
+confident enough in its reliability yet and want to see if there's a
+simpler way. Right now I'm thinking of keeping a few switchable modes in
+ksmbd and picking the one that works best in most cases as the default.
+What do you think?
 
-> diff --git a/drivers/net/dsa/microchip/lan9645x/lan9645x_main.c b/drivers/net/dsa/microchip/lan9645x/lan9645x_main.c
-> index de432772f6399..a78410efb9730 100644
-> --- a/drivers/net/dsa/microchip/lan9645x/lan9645x_main.c
-> +++ b/drivers/net/dsa/microchip/lan9645x/lan9645x_main.c
+Thanks,
+Huiwen
 
-[ ... ]
+在 2026/11/25 15:29, Namjae Jeon 写道:
+> On Tue, Nov 24, 2026 at 10:30 PM Huiwen He <huiwen.he@linux.dev> wrote:
+>>
+>> From: Huiwen He <hehuiwen@kylinos.cn>
+>>
+>> ksmbd reads file data into a private response buffer. TCP then copies
+>> the payload into an skb. If the reply must be queued, ksmbd also
+>> copies the unsent bytes into a queue buffer.
+>>
+>> This series uses MSG_SPLICE_PAGES to avoid those TCP copies for plain,
+>> standalone READs: patch 1 splices the initial TCP send from private
+>> pages and a header page fragment, and patch 2 retains references to
+>> unsent payload folios on the send queue so the send worker can splice
+>> them as well.
+>>
+>> Summary of fio sequential read results (16 jobs, QD32 per job, SMB3.1.1
+>> tmpfs; each column is relative to the preceding commit):
+>>
+>> Channels  I/O         Throughput change        Host Gcycles/GiB change
+>>                       patch 1    patch 2          patch 1    patch 2
+>>         1  4 KiB        -0.3%      -0.9%            +1.8%      -1.1%
+>>         1  64 KiB      +28.4%      +0.9%           -31.5%      -5.9%
+>>         1  256 KiB     +60.8%      +5.3%           -40.5%     -22.5%
+>>         1  1 MiB       +51.5%      +9.2%           -33.1%     -32.2%
+>>         4  4 KiB        +0.2%      +0.2%            +0.9%      +0.2%
+>>         4  64 KiB       +3.9%      +2.6%            -6.9%      +0.8%
+>>         4  256 KiB     +12.1%      -0.4%           -43.0%      -0.8%
+>>         4  1 MiB       +17.6%      +7.1%           -39.5%     -34.7%
+>>
+>> Huiwen He (2):
+>>    ksmbd: send READ payloads with MSG_SPLICE_PAGES
+>>    ksmbd: retain unsent READ pages on the TCP send queue
+> I don't see any patch using unbound workqueues in this series. Will
+> you send it to the list later ? or need to check it more?
+> 
+> Thanks.
 
-> @@ -306,6 +302,20 @@ static int lan9645x_setup(struct dsa_switch *ds)
->  	ds->mtu_enforcement_ingress = true;
->  	ds->assisted_learning_on_cpu_port = true;
->  	ds->fdb_isolation = true;
-> +	ds->max_num_bridges = ds->num_ports;
-
-[ ... ]
-
-> +static int lan9645x_port_bridge_join(struct dsa_switch *ds, int port,
-> +				     struct dsa_bridge bridge,
-> +				     bool *tx_fwd_offload,
-> +				     struct netlink_ext_ack *extack)
-> +{
-
-[ ... ]
-
-> +	p = lan9645x_to_port(lan9645x, port);
-> +
-> +	mutex_lock(&lan9645x->fwd_domain_lock);
-> +
-> +	p->bridge_num = bridge.num;
-> +	lan9645x_vlan_port_set_bridge_vid(p, !p->vlan_aware);
-
-[Severity: Medium]
-Can bridge.num be larger than num_phys_ports here?
-
-lan9645x_vlan_init() only adds the CPU port module to the reserved VIDs
-for bridge numbers 1..num_phys_ports:
-
-    for (bridge_num = 1; bridge_num <= lan9645x->num_phys_ports;
-         bridge_num++) {
-        vid = lan9645x_vlan_unaware_pvid(bridge_num);
-        lan9645x->vlans[vid].portmask = BIT(lan9645x->num_phys_ports);
-        ...
-    }
-
-Setting ds->max_num_bridges = ds->num_ports does not appear to limit the
-number the DSA core passes in. In net/dsa/dsa.c, dsa_bridge_num_get()
-first calls dsa_bridge_num_find(). That function searches every tree in
-dsa_tree_list and returns an existing number without comparing it to max.
-The "bridge_num > max" check only runs when a new number is allocated.
-
-Take a bridge that first gets a number N >= 10 from a switch in another
-DSA tree with a larger max_num_bridges (mv88e6xxx, sja1105 or vsc73xx).
-If a lan9645x port then joins the same bridge:
-
-lan9645x_port_bridge_join()
-  p->bridge_num = N
-  lan9645x_vlan_port_set_bridge_vid(p, true)
-    vlans[VLAN_N_VID - N].portmask |= BIT(port)
-    lan9645x_vlan_hw_wr()
-      cpu_dis = !(v->portmask & BIT(lan9645x->num_phys_ports));  -> 1
-
-ANA_PGID_CFG_OBEY_VLAN is set for the destination PGIDs. Would that mean
-no frame classified to this VID is ever copied to the CPU? That would
-cover broadcast, host FDB/MDB entries pointing at PGID_CPU, and host
-flooding. The host stack and software forwarding to the other tree's
-ports would then stop working for that bridge.
-
-Should the join reject bridge.num > num_phys_ports, or should the
-reserved VID be set up when it is first used?
-
-[Severity: Medium]
-Several bridges can now be offloaded at once. Does lan9645x_fdb_vid()
-still keep the FDB of a VLAN-unaware bridge separate from the FDB of the
-VLAN-aware bridge?
-
-It only maps vid == 0 to the bridge's reserved VID:
-
-drivers/net/dsa/microchip/lan9645x/lan9645x_main.c:lan9645x_fdb_vid() {
-	if (vid)
-		return vid;
-
-	return lan9645x_vlan_unaware_pvid(db->type == DSA_DB_BRIDGE ?
-					  db->bridge.num : 0);
-}
-
-Take "bridge fdb add M dev swpB master static" on a port of
-VLAN-unaware bridge B. br_fdb_add() adds M@0, and also M@vid for every
-VLAN in the port's VLAN group. That includes the default pvid 1, which
-exists even with vlan_filtering=0:
-
-    list_for_each_entry(v, &vg->vlan_list, vlist) {
-        if (!br_vlan_should_use(v))
-            continue;
-        err = __br_fdb_add(ndm, br, p, addr, nlh_flags, v,
-                           nfea_tb, notified, extack);
-
-DSA passes vid 1 through unchanged, so lan9645x_fdb_add() calls
-lan9645x_mact_learn(lan9645x, port, M, 1, ENTRYTYPE_LOCKED).
-
-B never uses that entry, because its ports classify to the reserved VID.
-Now suppose VLAN-aware bridge A uses VID 1. Would frames to M in A hit
-this locked entry pointing at swpB and be dropped by A's PGID_SRC mask?
-The locked entry would also stop M from being learned on A's real port.
-
-A later fdb_del from B would remove the same hardware entry. That could
-also delete A's own static M@VID1 entry. lan9645x_host_addr_shared()
-only handles collisions between CPU host addresses, not entries for front
-ports.
-
-Before this patch there was no .port_bridge_join, so bridge-DB FDB
-entries never reached this helper. The commit message says the reserved
-VIDs keep the FDB domains apart, but these entries would still overlap.
-
-Should non-zero VIDs from a VLAN-unaware bridge's DB also be mapped to
-its reserved VID, or skipped?
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261124-dsa-lan9645x-add-vlan-and-bridge-offload-v1-0-b930a1dae700%40microchip.com
