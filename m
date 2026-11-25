@@ -1,49 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=46.14.198.178
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795606374;
-	b=40oLmuqjQgj2/p8d/xcURsNGiakMOZB5LgIWIC4fZNrD8uxnLu4rCOMh1jFQ8SjCd0pf
-	 lNob/sMwTydMUSAU6FkWJzpuQ+ybhMVl0yMesA9RsURxatrk3NZA5ikUkNR9uygP+JJHh
-	 okZd983HvAFkzNSXUh6fNs+Jb6Ohpzx6JnSKRJw8eGd1P9E7OVAx012gYjuIFdW+IL+K9
-	 iU1KDvB8QgUO0XGwQVbhE/sYypJzaiMwOcw3iL3/Rsl1guabSQsHa8vmABtwQD7LLOlB+
-	 o0KszDbd/KpoC1Ix/YOWsl1qz5qdiEgpC/xQfbQQgU0MXjNpzNfVfYOGEHdluz2syFw==
+	t=1795606370;
+	b=I7SOKoQMjPFuXOZYHVgL8qvuTd7TkNLoSc1jmPjdhGf6zOxvPO3KAAhlHj5tA/QHoZT4
+	 IUmXv41eeGMbrfDRa5qJJ5xTZUWZELObpSvsfPCN39esk+9jgOLFnpJ3ui0/7oiuD75CI
+	 Wnu4QCrb/NK7qmc43auuvwc2jYWlg5kHwy9EbrZJXMC/SLePTG9Nw0hpUxUSTA5r+4yD3
+	 RJyqQIyjHkmSh0K+BOVfP9/E3hIN7Lg5WsdsSeV34GqfFALmVmBUPFVQlEGjIIDM9KKu6
+	 tZXUemrXJ7iM17qUuMRQEYf59QEpTM0womuogFtWwpvi3kfjXQiFXnsgKlfU71WBEsg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795606374;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=ksJzZnRlzZFG+0L0HtrVowwMj9Uu8+WpRfdThQfAKGI=;
-	b=Q65Imh1W9s6MszxiMm4yun12XMmr4tFnCbSNbSdZkhF8pAHrNdyDGPKOCXX0mNSSYjhf
-	 JeUgr23CdWk9dNHxAiH33yaBbFDzSEkGV8U/m5rdPyQJh3qqaNqpmS/o4Kjc52shQ7R/Q
-	 ApxXLNhhaTBM9y70+u0vVQSTryB3wHGEAlB8eQTbuHWsgnAq3oUjQo9+/U7mQccWoY924
-	 HIfhUPvpEOVRdAj6utTgbbgww0N8QNuIaB2ogbvb8kv0Dmqhy29mYEtr5aq7DRuddN0Lc
-	 ZGK0bibeBYaaqolPt7w861pH5OC3IisyUTtIo7P6HcWKkfGXRfd601bIEzy1nmpDsPw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795606370;
+	h=DMARC-Filter:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding:Received:DKIM-Signature;
+	bh=OX3EmVp8Gw0vgq2WFV4ZbEYiYU8lefr1ybECcGgZIJo=;
+	b=XXtIx7IgycAOZ6uI4fFke1N0A/5tQci4kcfaYwMcl5Efbj2z6OcV+f6CfS2OHlZfgR7G
+	 WbQNBUlBp0C9vqtqJzr1/fGn5CtDxYW8mmAy06oj07dXVlSRqStrK0lfEcgWTyoF1HUFr
+	 B7amqyeuU2J1xCOLXY4KYO8md4do9AvKgxjoEL2S908ct5mWLlYywhLOMjE1VXphjbyTU
+	 0B+qKZv8hvPsKjed8KkJN3pKgwQhFEioZCuxUnBougOmYLIhzMgw5lUJgoOfwO+rX9wIe
+	 fVE60BwcEsp1WyVXhjHlPv2QhcEucNHUOEXPGVZJIJ5HOkAnKAFG2ZPovlAYd9wFDrQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=szuKiBZe;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 3901D606A339;
-	Wed, 25 Nov 2026 11:32:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3901D606A339
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dmarc=pass header.from=rimpianto.com;
+	spf=pass smtp.mailfrom=rimpianto.com;
+	dkim=pass header.d=rimpianto.com header.i=@rimpianto.com header.a=rsa-sha256 header.s=s20260314391 header.b=hFiRBgg0;
+	arc=none smtp.remote-ip=46.14.198.178
+Received: from mail.rimpianto.com (mail.rimpianto.com [46.14.198.178])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4DA11606A31E;
+	Wed, 25 Nov 2026 11:32:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4DA11606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=rimpianto.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rimpianto.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=szuKiBZe
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A33E814BF;
-	Wed, 25 Nov 2026 03:32:49 -0800 (PST)
-Received: from [10.57.32.107] (unknown [10.57.32.107])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C86FA3F86F;
-	Wed, 25 Nov 2026 03:32:47 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795606372; bh=qbHqyTNnWLNOTc00I4CKxD9wPZ5SwAvyohqcO63rleg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=szuKiBZefxrXLITi7F/BtWnWCMmSSJ8eLaNdaeL9KzYCLZa6WKUoAgn86sC0E/54J
-	 CNj2pUjlBDOuClnSbnoIso25v9NAL0kFkb32fa8/Z6MK1KiVqw1oG6eXP3NTCVgH1j
-	 msYmDvDId5dj2TAsEjj4yh/XakAspLYTUQTgX1rk=
-Message-ID: <7bd5427d-9078-4b79-bce6-3bbf801ec766@arm.com>
-Date: Wed, 25 Nov 2026 11:32:46 +0000
+	dkim=pass (2048-bit key) header.d=rimpianto.com header.i=@rimpianto.com header.a=rsa-sha256 header.s=s20260314391 header.b=hFiRBgg0
+Authentication-Results: mail.rimpianto.com;
+	auth=pass (plain)
+From: Federico Musto <federico@rimpianto.com>
+To: Chris Snook <chris.snook@gmail.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	netdev@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	Federico Musto <federico@rimpianto.com>,
+	stable@vger.kernel.org
+Subject: [PATCH net] net: atl1c: cancel the common_task work in atl1c_remove()
+Date: Wed, 25 Nov 2026 12:31:41 +0100
+Message-ID: <20261125113141.99792-1-federico@rimpianto.com>
+X-Mailer: git-send-email 2.54.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,166 +58,69 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 04/11] KVM: arm64: Dispatch stage-2 destruction by VM
- flavor
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
- <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
- Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
- <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
- Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Kohei Enju <enju.kohei@fujitsu.com>
-References: <20261123104233.95710-1-steven.price@arm.com>
- <20261123104233.95710-5-steven.price@arm.com>
- <0d031484-d394-47e3-be49-7c85004dbb83@arm.com>
-From: Steven Price <steven.price@arm.com>
-Content-Language: en-GB
-In-Reply-To: <0d031484-d394-47e3-be49-7c85004dbb83@arm.com>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+Received: from localhost (Unknown [127.0.0.1])
+	by mail.rimpianto.com (Haraka) with ESMTPSA id 09BE50A7-5878-49F7-83E4-1DEC254CD03B.1
+	envelope-from <federico@rimpianto.com>
+	tls TLS_AES_256_GCM_SHA384 (authenticated bits=0);
+	Wed, 25 Nov 2026 12:31:42 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rimpianto.com;
+ h=Content-Transfer-Encoding: MIME-Version: Message-ID: Date: Subject: Cc:
+ To: From; q=dns/txt; s=s20260314391; t=1795606302;
+ bh=OX3EmVp8Gw0vgq2WFV4ZbEYiYU8lefr1ybECcGgZIJo=;
+ b=hFiRBgg0RoQTai9Pbvzc4Zml/+HSGEks0RRZy18z1AQO5M8Je1u+bm2A9m9DXlLFJui9rlRiF
+ /yyAtfOFuPRnUCxciO1gynR2jcPz7VZIYaiXaKp2jOWhqErwXd0HWZpSSDvPnQpkf6U0YCxsgwz
+ dTLahsawE2zP9wPPLF/HNBPZyTFskQpBLl9oeZOqsHfz2iOzd9pQcL0lcO/vEHHA9263CStAa4r
+ hk1MqQkoyMryIe4tD7DZCZ7NqfKKRK8hUzEgd1/Q1X75Y/vdT27jZzoVG1HkSD2UistliSwKsRL
+ hm6fuG329201u99fazsU2ezDFecas/ChYcYNZmmRy/yA==
 
-On 23/11/2026 11:23, Suzuki K Poulose wrote:
-> On 23/11/2026 10:42, Steven Price wrote:
->> Select the stage-2 destruction functions through the VM's stage-2
->> operations. This keeps the native and pKVM paths explicit and lets a
->> Realm provide its own destruction callback when Realm stage-2
->> operations are registered.
->>
->> The Realm callback will only free the root RTT pages, because RMI
->> teardown destroys the non-root RTTs separately.
->>
-> 
-> minor nit: The second paragraph may be omitted as we introduce the
-> Realm stuff in a later patch.
+atl1c_remove() frees everything the common_task work item needs - the
+register window, the netdev and with it the adapter - without ever
+cancelling the work.  A link-change interrupt can queue it right up
+until unregister_netdev() runs atl1c_close(), and even the
+cancel_work_sync() there is not the last word: it runs before
+atl1c_down() frees the IRQ, so an interrupt in between queues the work
+again.  Nothing then prevents the queued work from running after
+iounmap() and free_netdev(): atl1c_common_task() dereferences the freed
+netdev and reaches the unmapped register window through the link
+handler and atl1c_irq_enable().
 
-Ack
+Cancel the work after unregister_netdev().  By then the IRQ is freed,
+NAPI is disabled and the TX watchdog is stopped, so nothing can queue
+the work again.
 
-> 
->> Signed-off-by: Steven Price <steven.price@arm.com>
-> 
-> 
-> Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+Found by code inspection; the use-after-free has not been reproduced.
 
-Thanks!
-Steve
+Fixes: 43250ddd75a3 ("atl1c: Atheros L1C Gigabit Ethernet driver")
+Cc: stable@vger.kernel.org
+Signed-off-by: Federico Musto <federico@rimpianto.com>
+---
+Companion to the series "net: atl1c: fix the RX buffer leak on errored
+frames": patch 2/2 of that series adds one more producer of this work
+item (schedule_work() from NAPI context when an RX descriptor is out of
+sync), which is why this pre-existing fix is posted alongside it.  The
+series itself stays at two patches.
 
-> 
->>
->> ---
->> Changes since v3:
->> - Move before basic Realm infrastructure and declare the page-table
->>    type for the new callback.
->>
->> Changes since v2:
->> - New patch in v3; split stage-2 destruction dispatch out of the
->>    Realm stage-2 MMU operations patch.
->> ---
->>   arch/arm64/include/asm/kvm_host.h |  2 ++
->>   arch/arm64/kvm/mmu.c              | 30 +++++++++++++++++++++++-------
->>   2 files changed, 25 insertions(+), 7 deletions(-)
->>
->> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/
->> asm/kvm_host.h
->> index 9d6258b213d1..3ddeddfacd06 100644
->> --- a/arch/arm64/include/asm/kvm_host.h
->> +++ b/arch/arm64/include/asm/kvm_host.h
->> @@ -234,6 +234,7 @@ struct kvm_vcpu_ops {
->>     struct kvm_gfn_range;
->>   enum kvm_gfn_range_filter;
->> +struct kvm_pgtable;
->>   struct kvm_s2_fault_desc;
->>     struct kvm_vm_s2_ops {
->> @@ -242,6 +243,7 @@ struct kvm_vm_s2_ops {
->>       int (*vm_flush_remote_tlbs)(struct kvm *kvm);
->>       int (*vm_flush_remote_tlbs_range)(struct kvm *kvm, gfn_t gfn,
->>                         u64 nr_pages);
->> +    void (*vm_stage2_destroy)(struct kvm_pgtable *pgt);
->>       void (*vm_stage2_unmap_range)(struct kvm_s2_mmu *mmu,
->>                         phys_addr_t start, u64 size,
->>                         bool may_block,
->> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
->> index 8a9a80c7cfab..fab915ddeaab 100644
->> --- a/arch/arm64/kvm/mmu.c
->> +++ b/arch/arm64/kvm/mmu.c
->> @@ -1018,26 +1018,39 @@ static int kvm_init_ipa_range(struct
->> kvm_s2_mmu *mmu, unsigned long type)
->>    * cond_resched() periodically to prevent hogging the CPU for a long
->> time
->>    * and schedule something else, if required.
->>    */
->> -static void stage2_destroy_range(struct kvm_pgtable *pgt, phys_addr_t
->> addr,
->> -                   phys_addr_t end)
->> +static void stage2_destroy_range(struct kvm_pgtable *pgt,
->> +                 void (*destroy_range)(struct kvm_pgtable *pgt,
->> +                               u64 addr, u64 size))
->>   {
->> +    u64 addr = 0;
->> +    u64 end = BIT(VTCR_EL2_IPA(pgt->mmu->vtcr));
->>       u64 next;
->>         do {
->>           next = stage2_range_addr_end(addr, end);
->> -        KVM_PGT_FN(kvm_pgtable_stage2_destroy_range)(pgt, addr,
->> -                                 next - addr);
->> +        destroy_range(pgt, addr, next - addr);
->>           if (next != end)
->>               cond_resched();
->>       } while (addr = next, addr != end);
->>   }
->>   +static void kvm_vm_stage2_destroy(struct kvm_pgtable *pgt)
->> +{
->> +    stage2_destroy_range(pgt, kvm_pgtable_stage2_destroy_range);
->> +    kvm_pgtable_stage2_destroy_pgd(pgt);
->> +}
->> +
->> +static void pkvm_stage2_destroy(struct kvm_pgtable *pgt)
->> +{
->> +    stage2_destroy_range(pgt, pkvm_pgtable_stage2_destroy_range);
->> +    pkvm_pgtable_stage2_destroy_pgd(pgt);
->> +}
->> +
->>   static void kvm_stage2_destroy(struct kvm_pgtable *pgt)
->>   {
->> -    unsigned int ia_bits = VTCR_EL2_IPA(pgt->mmu->vtcr);
->> +    struct kvm *kvm = kvm_s2_mmu_to_kvm(pgt->mmu);
->>   -    stage2_destroy_range(pgt, 0, BIT(ia_bits));
->> -    KVM_PGT_FN(kvm_pgtable_stage2_destroy_pgd)(pgt);
->> +    kvm->arch.vm_s2_ops->vm_stage2_destroy(pgt);
->>   }
->>     /**
->> @@ -3146,6 +3159,7 @@ long kvm_arch_vcpu_pre_fault_memory(struct
->> kvm_vcpu *vcpu,
->>   }
->>     static const struct kvm_vm_s2_ops protected_pkvm_vm_s2_ops = {
->> +    .vm_stage2_destroy        = pkvm_stage2_destroy,
->>       .vm_flush_remote_tlbs        = pkvm_flush_remote_tlbs,
->>       .vm_flush_remote_tlbs_range    = pkvm_flush_remote_tlbs_range,
->>       .vm_age_gfn            = no_age_gfn,
->> @@ -3155,6 +3169,7 @@ static const struct kvm_vm_s2_ops
->> protected_pkvm_vm_s2_ops = {
->>   };
->>     static const struct kvm_vm_s2_ops pkvm_vm_s2_ops = {
->> +    .vm_stage2_destroy        = pkvm_stage2_destroy,
->>       .vm_flush_remote_tlbs        = pkvm_flush_remote_tlbs,
->>       .vm_flush_remote_tlbs_range    = pkvm_flush_remote_tlbs_range,
->>       .vm_age_gfn            = pkvm_age_gfn,
->> @@ -3164,6 +3179,7 @@ static const struct kvm_vm_s2_ops pkvm_vm_s2_ops
->> = {
->>   };
->>     static const struct kvm_vm_s2_ops kvm_default_vm_s2_ops = {
->> +    .vm_stage2_destroy        = kvm_vm_stage2_destroy,
->>       .vm_flush_remote_tlbs        = kvm_vm_flush_remote_tlbs,
->>       .vm_flush_remote_tlbs_range    = kvm_vm_flush_remote_tlbs_range,
->>       .vm_age_gfn            = kvm_vm_age_gfn,
-> 
+0aa76ce3324e ("atl1c: cancel task when interface closed") added the
+cancel in atl1c_close() but kept it before atl1c_down()/free_irq();
+this patch does not change that order, it closes the window in remove
+instead.
+---
+ drivers/net/ethernet/atheros/atl1c/atl1c_main.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/drivers/net/ethernet/atheros/atl1c/atl1c_main.c b/drivers/net/ethernet/atheros/atl1c/atl1c_main.c
+index eddd840..31272f0 100644
+--- a/drivers/net/ethernet/atheros/atl1c/atl1c_main.c
++++ b/drivers/net/ethernet/atheros/atl1c/atl1c_main.c
+@@ -2810,6 +2810,7 @@ static void atl1c_remove(struct pci_dev *pdev)
+ 	struct atl1c_adapter *adapter = netdev_priv(netdev);
+ 
+ 	unregister_netdev(netdev);
++	cancel_work_sync(&adapter->common_task);
+ 	/* restore permanent address */
+ 	atl1c_hw_set_mac_addr(&adapter->hw, adapter->hw.perm_mac_addr);
+ 	atl1c_phy_disable(&adapter->hw);
+-- 
+2.54.0 (Apple Git-157)
 
