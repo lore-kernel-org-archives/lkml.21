@@ -1,70 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.182.83.82
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795618059;
-	b=naRiDT8Bd7BitK5IVHgCFAWCHOwjI7/wYW9uOTWcfNs+0M3xp+6bikgjAKW7Sm+F/UN7
-	 NieDNvLTifTY27kMwE8zjK92BZ+DwlZvI5A5knGw2YQTrM9iTQ2ONcxQeZvLmgjSexxPt
-	 6lEBhq7Ft8BwuoS/as+0s1ZcKirHF/QIF4v3XsBt+DWxawnM+RD3WHDtR3342F6I9AWiy
-	 f5GFKc0AvUcbhKocIsBnPro8+px0BApRb6T258K3uasIxJNLD19pKFlqWVQiZ6MCpbMbA
-	 hazp2G/paho2+EGS4i/V/kgJZAh4eODpGTNQJQlVfB2k6BzQUUZ75X+xtlMXl1pxnWQ==
+	t=1795618192;
+	b=O38yVWPGr1FIYxMABWiELPIZQZy5BJGcxNGoP1DismrDd+gb3YTXCeo3qsdUZZ7CV+vr
+	 ckVHmKv7NTzO92Z+8id7AtljrdetFkwfmkvCQQUJB90yTFwKxGuBIrzL71f9kJHYUsCjY
+	 Ln2BoC7LUOooiDI2wkHCPeMQxFWBnHP/aN6c9elsYYHz9s2cXS5iGg0iUlBWl9E/cEo2j
+	 LxjRvUPz+aLueL8mXzUMaTU9aOrgmBzzqEPjaKG6Q0Gd23gaL9Xjtj7iSrJzXbiPSTlt9
+	 giZvHCYBfNhBr40dZSyD6ePzMquX8RRtKFsZ1QZVKFXuxNpVCpa9ev4z2X8Fzp7UCKw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795618059;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Type:Content-Disposition:Content-Transfer-Encoding;
-	bh=DY8aia7YapKCOdz5WJ2jQHRD2zmcS7bABOsyFFtx64c=;
-	b=B55CHJZ483HIRnWTf00vlk6khST6BYxhFaRKnQM2pvt2VwRcqPHhudIg3Bx4h6CmiwLV
-	 /Pk5FnaYk3Ljx8dkqLntnKB1P8Ga+k9evRItcmmAJcmOE0joBZGpKZbzr9rpa6DV6ToOA
-	 QpOZg87vf4BqiZuYh/Dk3Xxm2CkO7AcFJE0UT3mLw6ZfCfQ6sNgUXyxuJlIhlTKcsYVek
-	 lMi25PBcdlMnQ8naUiyG3q/XJIQA5yYQ8hzy/PNu/2xB07cf+62863wR+Uvedu8xDLLIt
-	 JCd8TRlo2A1mq4rif8GfpeOGCFC6LyN1zpdA0wUgwAmpbHBa5PWo0kEPjHpYmc7FcMw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795618192;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=PSYhMPPaL25zkyEFRSC0G+Y0s0EZao0UlPw7sGjAeYI=;
+	b=ibhout+S6hEvuhiR6ad2a50bZOU0r/OQvMggCgd1cr9yIgB1qMoVUzYvyFWJtAPmgG/y
+	 aOfM+LQGsX3Osk5DQMbafWifXQ+IzUDw2xit8zDmq1y0Gzqw60UBHfjX1qIv+87kMGvRy
+	 VfPbDU+6ncpwXihua1rs4gpDcxebhdqgtoF9/fpZyOgh9vuYHFxG+e4J4IP1Ee6N+er21
+	 Bi70xzV6SeGOgq/rDFU4v0WVplUQbhDLW3yfbkkPt53V6A9gpZMbaU3u1DAnxmjk+2bg2
+	 /pDr8ReBd6+LI9y1s1dOgQMxAJ9r0EeMJY7T72irVSLOQKfkN2dZjvvOsZEoVYDZCYw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b="l2OM/H/5";
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id B87F7606A321
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:47:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B87F7606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dmarc=pass header.from=zary.sk;
+	spf=pass smtp.mailfrom=zary.sk;
+	dkim=pass header.d=zary.sk header.i=@zary.sk header.a=rsa-sha256 header.s=key1 header.b=knRXjlOw;
+	arc=none smtp.remote-ip=194.182.83.82
+Received: from mail.zary.sk (mail.zary.sk [194.182.83.82])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7734C606A31E;
+	Wed, 25 Nov 2026 14:49:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7734C606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=zary.sk
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=zary.sk
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=l2OM/H/5
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1D0F42F;
-	Wed, 25 Nov 2026 06:47:35 -0800 (PST)
-Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DF1A03F632;
-	Wed, 25 Nov 2026 06:47:35 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795618058; bh=l1JhVNA+zt4be9zTzbvNbG+uFwpdbDUm3ObDUX3MzXg=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=l2OM/H/5dfYUvk5Kf64CY6foGK+MBpOmJLMtgDjS8++vXtlWTqexr1WTiNtVFVF90
-	 V/HoDVXCtSg1kxgnOdId8X/plBcaaAcOu45K3QEX8YnADJU7BFl6MG97cjx1DHKNmA
-	 L7vI7p47l0lY3sbJYwhCdNwfi6NZHHKk/2Cw58N4=
-From: Leonardo Bras <leo.bras@arm.com>
-To: Oliver Upton <oupton@kernel.org>
-Cc: Leonardo Bras <leo.bras@arm.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Fuad Tabba <fuad.tabba@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Raghavendra Rao Ananta <rananta@google.com>,
-	Tian Zheng <zhengtian10@huawei.com>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
+	dkim=pass (2048-bit key, unprotected) header.d=zary.sk header.i=@zary.sk header.a=rsa-sha256 header.s=key1 header.b=knRXjlOw
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=zary.sk; s=key1;
+	t=1795618182; bh=5opMLMUVE+CMapgYryb9t+WhoESFgiMBzdhvj2m+zPY=;
+	h=From:To:Cc:Subject:Date:From;
+	b=knRXjlOwAHp6kI6UdVjpzEd0przfGylspPZuzHDMPpLhv9pm6CZ5fLR4ddkqfwITF
+	 ZCgjAQphwQJTHLK9gZGApIdEhMOHFLUDr9N9d5TU3FZ0mr2L+CU9UguwaPbbEAJgWJ
+	 tiwrHhVYY8r3JqVzt3OtdTsHhwndk2sHIA8/xMv45vD1n3n2g65koPWT/k/U3c90XV
+	 kohL1fH/oT0cFEF/Nkq6dlqX9LM/wuacIh/w1INQygr8Rym5eS5LpgyjeeQLto9nf/
+	 Y9QpR8rZ2HV0AGSDv/kLcn4Wc9N+mo+fv0FkUjaqhTpRBw2j7JycKCsR9zpPEER256
+	 5xFgGMC5B1nbA==
+Received: from gweb1.ggedos.sk (off-7.infotel.telecom.sk [212.5.213.7])
+	by mail.zary.sk (Postfix) with ESMTPSA id 136BEBED51;
+	Wed, 25 Nov 2026 15:49:42 +0100 (CET)
+From: Ondrej Zary <linux@zary.sk>
+To: Hans de Goede <hansg@kernel.org>,
+	=?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: platform-driver-x86@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH v2 0/3] Set DBM bit on writable pages
-Date: Wed, 25 Nov 2026 14:47:27 +0000
-Message-ID: <awb0_2zqPUQYdrTZ@LeoBrasDK>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <auONmOc-nYsQwCnG@LeoBrasDK>
-References: <20261026144413.441566-1-leo.bras@arm.com> <at-lSy7H-K60LhCB@kernel.org> <auCOj9dgk42AE1WX@LeoBrasDK> <auExh5laWQbUKmUY@kernel.org> <auONmOc-nYsQwCnG@LeoBrasDK>
+Subject: [PATCH v4] Introduce Synology x86 NAS LEDs driver
+Date: Wed, 25 Nov 2026 15:47:34 +0100
+Message-ID: <20261125144936.1967956-1-linux@zary.sk>
+X-Mailer: git-send-email 2.47.3
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -74,133 +63,284 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 
-On Thu, Oct 29, 2026 at 06:20:05PM +0000, Leonardo Bras wrote:
-> On Tue, Oct 27, 2026 at 04:19:35PM -0700, Oliver Upton wrote:
-> > On Tue, Oct 27, 2026 at 11:44:15AM +0000, Leonardo Bras wrote:
-> > > > I'm pretty sure I shared this feedback before, but patches that enable
-> > > > DBM do not make sense in isolation. We need a single series that
-> > > > contains the DBM enablement as well as the corresponding HDBSS support.
-> > > >
-> > > 
-> > > Right, 
-> > > My reasoning is that we can discuss this new version, and make the needed 
-> > > changes, so Tian could pick this for his own patch series for the next 
-> > > version. I do not intend to get this merged by itself.
-> > > 
-> > > Next time I will make sure to state this in the cover letter so it's clear.
-> > 
-> > Can you just work this out off-list? Let's keep the on-list dialogue
-> > consolidated to a single series to review.
-> 
-> Sure, will try to reduce this noise in kvmarm.
-> 
-> > 
-> > > > The abstract permission flags need to have a WRITE an DIRTY state, which
-> > > > we then map to hardware based on the capabilities of the system.
-> > > > 
-> > > > !FEAT_HAFDBS:
-> > > > 
-> > > > 	DIRTY	=> S2AP[1]
-> > > > 	WRITE	=> S2AP[1]
-> > > > 
-> > > > FEAT_HAFDBS:
-> > > > 
-> > > > 	DIRTY	=> S2AP[1]
-> > > > 	WRITE	=> DBM
-> > > > 
-> > > 
-> > > I agree that it could work, and my first version was based on that.
-> > > 
-> > > But looks weird to me that we have to decide the writable bit based on 
-> > > having a feature enabled.
-> > > 
-> > > Take in account that we can only have DBM being the writable bit while 
-> > > HAFDBS is enabled (not only present), and that it is just enabled during 
-> > > dirty-tracking. 
-> > > 
-> > > It means we would need to convert the whole pagetable between DIRTY=S2AP[1] 
-> > > and DIRTY=DBM every time we enable or disable dirty-tracking.
-> > > 
-> > > My suggestion with this series is to have WRITE=DIRTY=S2AP[1] at all 
-> > > times, and have DBM to act as a "can be promoted to writable on write" bit.
-> > > This way we don't actually need to convert between encodings, and it still 
-> > > works and complies with the architecture.
-> > 
-> > There's no such "can be promoted to writable on write" in the indirect
-> > permission model.
-> 
-> Well, IIUC it's kind of the default behavior, right?
-> Direct - DBM means HW can promote that page RO->RW, with HAFDBS=on
-> S2PIE  - All pages can be promoted RO->RW, as long as HAFDBS=on
-> 
-> > This is why I'm suggesting that we align the abstract
-> > permission bits (i.e. KVM_PGTABLE_PROT_*) with the architecture's own
-> > abstracted permissions (e.g. uX, pX, RO, RW).
-> > 
-> 
-> I think the approach you suggest makes sense, and it makes it simpler to 
-> deal with permission indirection in the future. In order to do like that, 
-> while keeping a single encoding for direct permission, I suggest we have:
-> 
-> -	KVM_PGTABLE_PROT_W			= BIT(2),
-> +	KVM_PGTABLE_PROT_DIRTY			= BIT(2),
-> ...
-> +	KVM_PGTABLE_PROT_DBM			= BIT(6),
-> ...
-> 
-> +#define KVM_PGTABLE_PROT_W	(KVM_PGTABLE_PROT_DBM | 
-> +				 KVM_PGTABLE_PROT_DIRTY)
-> 
-> (Rationale is: it's writable if it's either dirty, or can be made dirty by 
-> hardware on a write)
-> 
-> And then replacing by PROT_DIRTY the uses of PROT_W which were only 
-> tracking the fact it's dirty. I tracked just a couple of those.
-> 
-> When detecting the PROT_* based in PTE encoding, we track PROT_DIRTY, and 
-> PROT_DBM individually. The same can be done in nested, as we can just 
-> ignore the PROT_DBM for shadow pagetables, given we want, IIUC, to fault 
-> and update the original pagetables.
-> 
-> That would avoid switching between encodings while toggling HACDBS, and 
-> while making use of the DBM without directly associating it with the write 
-> permission.
-> 
-> What do you think?
-> 
-> > That composes nicely with nested virt as it is unambiguous what
-> > permissions we're trying to represent in a shadow stage-2. And in the
-> > non-nested case you can just lay down writable-dirty translations for
-> > most things and use writable-clean when necessary for HDBSS.
-> > 
-> > > > Beyond making the whole HAFDBS easy to reason about, I want this for
-> > > > FEAT_S2PIE which reimagines bit 7 as a literal dirty bit that can be
-> > > > managed by software or hardware.
-> > > 
-> > > Humm, and would not that work with the above suggested approach?
-> > > I mean, bit 7 (Dirty, S2AP[1]) will both mean WRITE/DIRTY, but it will be 
-> > > able to get promoted (nonW->W, or clean->dirty) based on the indirect 
-> > > permissions.
-> > 
-> > There's a bit more though. We need to have an entry in S2PIR_EL2 that
-> > encodes write permission and select that with PIIndex. So then we wind
-> > up mapping the abstract WRITE permission bit to two fields into the
-> > descriptor rather than 1.
-> 
-> Makes sense to me now.
-> 
-> Sorry I took long to reply your message, I was reading the docs for S2PIE 
-> and thinking on a solution that would make sense for it in the future as 
-> well.
-> 
-> I hope it's enough, but if it's not, let me know of any suggestions or 
-> requisites.
-> 
+Add platform driver for Synology x86-based NAS devices to support HDD LEDs
+controlled by ICH9 GPIO pins.
 
-Friendly ping :)
+Only DS411+II is supported for now (DS411+ should be the same except CPU).
 
+Buttons and other LEDs are not supported by this driver because they're
+controlled by a PIC MCU (connected through serial port).
+
+Signed-off-by: Ondrej Zary <linux@zary.sk>
+---
+Changes in v4:
+ - added DMI match for BIOS vendor and version
+ - removed PCI device presence checking
+
+Changes in v3:
+ - descriptions changed to mention LEDs
+ - GPIO swnodes are used instead of gpiod
+ - improved PCI device presence checking
+
+Changes in v2:
+ - fixed includes (order, added missing, removed kernel.h)
+ - added missing DMI and PCI dependencies to Kconfig
+ - added PCI device presence check details to changelog
+ - used %pe for error message
+
+---
+ drivers/platform/x86/Kconfig        |  16 +++
+ drivers/platform/x86/Makefile       |   3 +
+ drivers/platform/x86/synology-x86.c | 200 ++++++++++++++++++++++++++++
+ 3 files changed, 219 insertions(+)
+ create mode 100644 drivers/platform/x86/synology-x86.c
+
+diff --git a/drivers/platform/x86/Kconfig b/drivers/platform/x86/Kconfig
+index 9ce384e0475e..64aa44c7f239 100644
+--- a/drivers/platform/x86/Kconfig
++++ b/drivers/platform/x86/Kconfig
+@@ -1059,6 +1059,22 @@ config OXP_EC
+ 
+ source "drivers/platform/x86/tuxedo/Kconfig"
+ 
++config SYNOLOGY_X86
++	tristate "Synology x86 NAS LEDs driver"
++	depends on DMI
++	depends on GPIOLIB
++	depends on LPC_ICH
++	depends on GPIO_ICH
++	depends on LEDS_CLASS
++	depends on PCI
++	select LEDS_GPIO
++	help
++	  This driver provides support for the HDD LEDs on Synology x86 NAS
++	  devices.
++
++	  To compile this driver as a module, choose M here: the module
++	  will be called synology-x86.
++
+ endif # X86_PLATFORM_DEVICES
+ 
+ config P2SB
+diff --git a/drivers/platform/x86/Makefile b/drivers/platform/x86/Makefile
+index 229057234d00..a1806eb0efc9 100644
+--- a/drivers/platform/x86/Makefile
++++ b/drivers/platform/x86/Makefile
+@@ -166,3 +166,6 @@ obj-$(CONFIG_SEL3350_PLATFORM)		+= sel3350-platform.o
+ 
+ # OneXPlayer
+ obj-$(CONFIG_OXP_EC)			+= oxpec.o
++
++# Synology
++obj-$(CONFIG_SYNOLOGY_X86)		+= synology-x86.o
+diff --git a/drivers/platform/x86/synology-x86.c b/drivers/platform/x86/synology-x86.c
+new file mode 100644
+index 000000000000..a3a42a4b2109
+--- /dev/null
++++ b/drivers/platform/x86/synology-x86.c
+@@ -0,0 +1,200 @@
++// SPDX-License-Identifier: GPL-2.0+
++/*
++ * Synology x86 NAS LEDs driver
++ *
++ * Inspired by platform/x86/meraki-mx100.c
++ *
++ * Copyright (C) 2026 Ondrej Zary <linux@zary.sk>
++ */
++
++#define pr_fmt(fmt)	KBUILD_MODNAME ": " fmt
++
++#include <linux/dmi.h>
++#include <linux/err.h>
++#include <linux/gpio/machine.h>
++#include <linux/gpio/property.h>
++#include <linux/mfd/lpc_ich.h>
++#include <linux/module.h>
++#include <linux/platform_device.h>
++#include <linux/printk.h>
++#include <linux/property.h>
++
++static const struct software_node synology_gpio_leds_node = {
++	.name = "synology-leds",
++};
++
++static const struct property_entry synology_hdd1_green_led_props[] = {
++	PROPERTY_ENTRY_STRING("label", "synology:green:hdd1"),
++	PROPERTY_ENTRY_GPIO("gpios", &lpc_ich_gpio_swnode, 16, GPIO_ACTIVE_HIGH),
++	{ }
++};
++
++static const struct software_node synology_hdd1_green_led_node = {
++	.name = "hdd1-green-led",
++	.parent = &synology_gpio_leds_node,
++	.properties = synology_hdd1_green_led_props,
++};
++
++static const struct property_entry synology_hdd1_amber_led_props[] = {
++	PROPERTY_ENTRY_STRING("label", "synology:amber:hdd1"),
++	PROPERTY_ENTRY_GPIO("gpios", &lpc_ich_gpio_swnode, 18, GPIO_ACTIVE_HIGH),
++	{ }
++};
++
++static const struct software_node synology_hdd1_amber_led_node = {
++	.name = "hdd1-amber-led",
++	.parent = &synology_gpio_leds_node,
++	.properties = synology_hdd1_amber_led_props,
++};
++
++static const struct property_entry synology_hdd2_green_led_props[] = {
++	PROPERTY_ENTRY_STRING("label", "synology:green:hdd2"),
++	PROPERTY_ENTRY_GPIO("gpios", &lpc_ich_gpio_swnode, 20, GPIO_ACTIVE_HIGH),
++	{ }
++};
++
++static const struct software_node synology_hdd2_green_led_node = {
++	.name = "hdd2-green-led",
++	.parent = &synology_gpio_leds_node,
++	.properties = synology_hdd2_green_led_props,
++};
++
++static const struct property_entry synology_hdd2_amber_led_props[] = {
++	PROPERTY_ENTRY_STRING("label", "synology:amber:hdd2"),
++	PROPERTY_ENTRY_GPIO("gpios", &lpc_ich_gpio_swnode, 32, GPIO_ACTIVE_HIGH),
++	{ }
++};
++
++static const struct software_node synology_hdd2_amber_led_node = {
++	.name = "hdd2-amber-led",
++	.parent = &synology_gpio_leds_node,
++	.properties = synology_hdd2_amber_led_props,
++};
++
++static const struct property_entry synology_hdd3_green_led_props[] = {
++	PROPERTY_ENTRY_STRING("label", "synology:green:hdd3"),
++	PROPERTY_ENTRY_GPIO("gpios", &lpc_ich_gpio_swnode, 33, GPIO_ACTIVE_HIGH),
++	{ }
++};
++
++static const struct software_node synology_hdd3_green_led_node = {
++	.name = "hdd3-green-led",
++	.parent = &synology_gpio_leds_node,
++	.properties = synology_hdd3_green_led_props,
++};
++
++static const struct property_entry synology_hdd3_amber_led_props[] = {
++	PROPERTY_ENTRY_STRING("label", "synology:amber:hdd3"),
++	PROPERTY_ENTRY_GPIO("gpios", &lpc_ich_gpio_swnode, 34, GPIO_ACTIVE_HIGH),
++	{ }
++};
++
++static const struct software_node synology_hdd3_amber_led_node = {
++	.name = "hdd3-amber-led",
++	.parent = &synology_gpio_leds_node,
++	.properties = synology_hdd3_amber_led_props,
++};
++
++static const struct property_entry synology_hdd4_green_led_props[] = {
++	PROPERTY_ENTRY_STRING("label", "synology:green:hdd4"),
++	PROPERTY_ENTRY_GPIO("gpios", &lpc_ich_gpio_swnode, 49, GPIO_ACTIVE_HIGH),
++	{ }
++};
++
++static const struct software_node synology_hdd4_green_led_node = {
++	.name = "hdd4-green-led",
++	.parent = &synology_gpio_leds_node,
++	.properties = synology_hdd4_green_led_props,
++};
++
++static const struct property_entry synology_hdd4_amber_led_props[] = {
++	PROPERTY_ENTRY_STRING("label", "synology:amber:hdd4"),
++	PROPERTY_ENTRY_GPIO("gpios", &lpc_ich_gpio_swnode, 55, GPIO_ACTIVE_HIGH),
++	{ }
++};
++
++static const struct software_node synology_hdd4_amber_led_node = {
++	.name = "hdd4-amber-led",
++	.parent = &synology_gpio_leds_node,
++	.properties = synology_hdd4_amber_led_props,
++};
++
++static const struct software_node *synology_swnodes[] = {
++	&synology_gpio_leds_node,
++	&synology_hdd1_green_led_node,
++	&synology_hdd1_amber_led_node,
++	&synology_hdd2_green_led_node,
++	&synology_hdd2_amber_led_node,
++	&synology_hdd3_green_led_node,
++	&synology_hdd3_amber_led_node,
++	&synology_hdd4_green_led_node,
++	&synology_hdd4_amber_led_node,
++	NULL
++};
++
++static const struct dmi_system_id synology_systems[] __initconst = {
++	{
++		.ident = "DS411+",	/* DS411+II is the same with faster CPU */
++		.matches = {
++			/* Synology did not put anything in DMI strings */
++			DMI_EXACT_MATCH(DMI_BOARD_NAME, "To be filled by O.E.M."),
++			/* so match BIOS version and date */
++			DMI_EXACT_MATCH(DMI_BIOS_VENDOR, "American Megatrends Inc."),
++			DMI_EXACT_MATCH(DMI_BIOS_VERSION, "080016 "),
++			DMI_EXACT_MATCH(DMI_BIOS_DATE, "05/21/2012"),
++		},
++	},
++	{}
++};
++MODULE_DEVICE_TABLE(dmi, synology_systems);
++
++static struct platform_device *synology_leds_pdev;
++
++static int __init synology_init(void)
++{
++	struct platform_device_info leds_info = {
++		.name = "leds-gpio",
++		.id = PLATFORM_DEVID_NONE,
++	};
++	const struct dmi_system_id *dmi;
++	int err;
++
++	dmi = dmi_first_match(synology_systems);
++	if (!dmi)
++		return -ENODEV;
++
++	pr_info("Detected Synology NAS %s\n", dmi->ident);
++
++	err = software_node_register_node_group(synology_swnodes);
++	if (err) {
++		pr_err("failed to register software nodes: %d\n", err);
++		return err;
++	}
++
++	leds_info.fwnode = software_node_fwnode(&synology_gpio_leds_node);
++	synology_leds_pdev = platform_device_register_full(&leds_info);
++	err = PTR_ERR_OR_ZERO(synology_leds_pdev);
++	if (err) {
++		pr_err("error registering platform device: %pe\n", synology_leds_pdev);
++		goto err_unregister;
++	}
++
++	return 0;
++
++err_unregister:
++	software_node_unregister_node_group(synology_swnodes);
++	return err;
++}
++module_init(synology_init);
++
++static void __exit synology_exit(void)
++{
++	platform_device_unregister(synology_leds_pdev);
++	software_node_unregister_node_group(synology_swnodes);
++}
++module_exit(synology_exit);
++
++MODULE_AUTHOR("Ondrej Zary <linux@zary.sk>");
++MODULE_DESCRIPTION("Synology x86 NAS Platform Driver");
++MODULE_LICENSE("GPL");
++MODULE_IMPORT_NS("LPC_ICH");
+-- 
+Ondrej Zary
 
