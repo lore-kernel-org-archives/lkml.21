@@ -1,75 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.200
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795645427;
-	b=eWcirm/hH8F3z01Xb6EmCv8JvZHs2dcXHR361flWV3pXMvmSMjU73Uj+tTnsQsbK7FGK
-	 UlASbZT4NNCJ9l+x0am6gcRGvU4gJ1pbA4jWpuSBw7DSQUAI2LNqh95o+x+a6K3xupHEw
-	 xSbIvYAFC6IJ6yTPLgvdC9yw0shFekPkf3QQbhhRjbTQmh3rrYWr6L0SXiIjtuMyZxlfD
-	 9cipfQChNyS5uIqVoWJeNXs2DmEvRvZefqRGw4FzaBYM89IhOUIQ+Z8HcM2RYGpSqsbUU
-	 0A4JJbNLfbMoEbQr35CuyjpI5d2csowkFciPpKDBaGPJYajT2bYFwMlIGe3QaYpVOlw==
+	t=1795645428;
+	b=Fh22XBNtvRDbMoQWk7pHIVPGS4nQbnI/yQtNvoNyhJIytjKooWVOIWr38mR1ZMvNcwGb
+	 J+IwKO2wtIgQZtXKFtHYHjOIw9qgnNVBWuL9zTk4J54H0+16wdKhvUE4R0r1CnsAKN3+D
+	 1wjQaGCDk9CKUtms31HwhXD4U9NFNVsUO0pTPj0qSsspIJo2GR0CGJ61Xz9IMiFC9SH4S
+	 bjg9A6BMLdP1YHYGmmRWj8QAgwA1az0tlDysxfnbDrcA3sH0WywnwENizz9nMAy7/wrZC
+	 MYA8SAjKu09tydKa+MKy7ltPlx3tg/+gVYsAPJkRMg9Q45FuXLPKLPz8Gu2X9R2rnSg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795645427;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
-	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
-	 Content-Type;
-	bh=/tS6CVqz0bwQhURF3f4/c8xLuOeYAnVMzoUdEwuEpSs=;
-	b=jOvE7nwNsnkFmW+S5CoyRM0r3/ImRQPSPSkrVwOQwStLD93okjVOEEnPtcvDvZZfY1Qe
-	 gSE4B+ZZOkNhI3gBd5lKbmF/v5h9CyBKjeLs5GUVPgivix3pv6QatznnqRcxyyIDEt/J2
-	 t5jRm9EWHOp+WACRi8RiqkGxkdssiA04hZTJTyUe9gdl3aagcBqaFfl2ymkOmz4kvmgay
-	 RYu0SoL758elmYWCNo2yjELLbQdoUMHr/hOeSccUjWpnWDdU4MVhy4/iEKWPlP89wVkZr
-	 8LlMALl2hImrtsJXpQZ8+5HdHV/ByX7wP0TUwbjbgyrpzZVXegQIQTkzxpMg8uewR0Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795645428;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
+	bh=JFDwj/pnESgT5RsqZkiNTJbiciIkfCBVY6ENbjGVw0k=;
+	b=4hDhID8v37T3fux+MY77SGuW+1woYusg4A8vkL6V8SeGKeg+XPZ5Kdm26cT7OaSiKWit
+	 sL+tYz0Xsx7kTKRssgmUKauK7ZV1+IfD63wBVqwZh9/7skGPJYwbQCdmlmH3qNlBKs4Dv
+	 5Ug2QvKuzX15Ena4wGtCXM/m0jR0ij/UnMjqUv4XXqCPC5LD0RjIFSfr5RSAnOkC9XHRW
+	 sWqXr4pow9g0bCIy1J3iEUdB4amyQpHZ0U1oFlkGPTw/VvGVMD8SLuixsTjt+AQ2R1tW9
+	 g0xdgRxha0gArZbCmelPSdhx9pvLX5OSH/50KhE6pKmsoSdJocb9Rof1g0E4al0YHaA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--elkin.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Iy8hw229;
-	arc=none smtp.remote-ip=74.125.82.200
-Received: from mail-dy1-f200.google.com (mail-dy1-f200.google.com [74.125.82.200])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FH7U29fh;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A9892606A329
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 22:23:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A9892606A329
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--elkin.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8C5D4606A334;
+	Wed, 25 Nov 2026 22:23:48 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Iy8hw229
-Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-38355b03cb8so5976102eec.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:23:46 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795645426; x=1796250226; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=/tS6CVqz0bwQhURF3f4/c8xLuOeYAnVMzoUdEwuEpSs=;
-        b=Iy8hw229ku1Pt2i8DNZ8z4ACKj9ceTTjsB/RkrJwphZxqX1Gk05MI4GZEltLYLxjDr
-         dHgNgHkvOQOv6FmjKsY24FTbbCaIAqEfDatUdDETwuOJLTgow9BnkFE90+n0SRoMrH1T
-         MWWfRENJGW5mEnhw3yvE0erz/TOPiWgD51MAZc+pWVeMObPGwjpuKPf0K4R+XFwG3W5T
-         16YTBixHONgmC6xHfI7eo4L+IlgykD1TDcqio5LPiYYKXYOu05MpzBQ2ei62Yj594TcM
-         qvx4KFuC/Qs1yVu8rcPt210X96u4cwLIZlfmX9iWZHWmUA3E8KTfYyC5Hf/4T5ROiuO3
-         KDjA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795645426; x=1796250226;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=/tS6CVqz0bwQhURF3f4/c8xLuOeYAnVMzoUdEwuEpSs=;
-        b=kcKeuSqjKgn6h0DCN6Txjyl/KuMGojk/IlLq+77Hz2vP2WR3hUhjExK903E/A+gUyc
-         m+CrvbOQUySvYtQnRvOXS7HnfY8R+olTCGDDz1W8GgjpeGfH7+RevnSFgXoS2v6AAb+g
-         1g6W9CJ6NVfSoIzaRngCL9/Xs+bsaQnzV0nuq5riKgELollHgRSH6FMPnv7pV+25dJku
-         /PAzaUIbC66dwaQFyNBmpVmslSNzBsugLgORcGY2XiI7Nd2AhWwuXVq6e+3mAQsrVCsd
-         D9bYNIQKA6Izc+RaQXKoaT3Hj1QY8nh6ziN08qxmSZujNQV2yAvi81l4HoG4QNlqtbKs
-         fEWw==
-X-Forwarded-Encrypted: i=1; AL+hErFgyHf4tGYZlTFDqNhKlqV5Zb53O9qVBh/sLhbg7w89s/bzAN4abZhkYjK/UVpkh4jAKwicoztA4bpwnNE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8N18hrBcGyIeoqH4BY3MTb8YykUmM754b9OAG4aIAAsJ7Td+5z
-	Md6ZSCZQrPYs3f1wEJnPxmdlrhiPkj1cOjUz8pXxnR+Lc0X4+5tzAsAQXPfPPSAiZYJXFQ/oKLs
-	6Ew==
-X-Received: from dyblz33.prod.google.com ([2002:a05:7301:1621:b0:34c:9660:9612])
- (user=elkin job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7300:d205:b0:36a:1f8:a56e
- with SMTP id 5a478bee46e88-3856fe564a1mr19200647eec.23.1795645425499; Wed, 25
- Nov 2026 14:23:45 -0800 (PST)
-Date: Wed, 25 Nov 2026 22:22:56 +0000
-In-Reply-To: <20261125222300.1438398-1-elkin@google.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FH7U29fh
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82D9D1F0093E;
+	Wed, 25 Nov 2026 22:23:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795645428;
+	bh=JFDwj/pnESgT5RsqZkiNTJbiciIkfCBVY6ENbjGVw0k=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=FH7U29fhqrWoUnmnlK5PZyT86FuUn/AgnUxf8pxztjah6wSOhvxZG2dg0Zeb2gQUX
+	 AEwbd0DIreFMRq/S3s5w2j+iZ0Yp5jsHMXzARDzndg4NoJCeACknCfaUG78GWkZt28
+	 Ex15ZAVAJsQBLJAnQtrpKSo+Xw+/4CjdtA+VRYVHbaIbENIH0jfp9osSre7vnNAoSE
+	 eR8vC7UZiJbdjKGgVgVAH/phC/j8//tj+f+5C+DPAF8tMM9sBCZLtCu03iTKvLSX8K
+	 jvfl4dzbs2uQmH5sy9UTnv7KGUOW9uIgkd6+BaBoyfgc5DvjgDwv+r7oVb3dgxpjj+
+	 vCRFRFrhFLpKQ==
+From: Frederic Weisbecker <frederic@kernel.org>
+To: LKML <linux-kernel@vger.kernel.org>
+Cc: Frederic Weisbecker <frederic@kernel.org>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Marco Crivellari <marco.crivellari@suse.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Phil Auld <pauld@redhat.com>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Waiman Long <longman@redhat.com>,
+	Will Deacon <will@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org,
+	Michael Kelley <mhklinux@outlook.com>
+Subject: [PATCH 19/47] perf/arm_pmu: Move CPUHP_AP_PERF_ARM_STARTING post stop_machine()
+Date: Wed, 25 Nov 2026 23:22:02 +0100
+Message-ID: <20261125222230.22508-20-frederic@kernel.org>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261125222230.22508-1-frederic@kernel.org>
+References: <20261125222230.22508-1-frederic@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,139 +67,52 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-References: <20261125222300.1438398-1-elkin@google.com>
-X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
-Message-ID: <20261125222300.1438398-2-elkin@google.com>
-Subject: [PATCH net 1/4] nfc: st95hf: bound SPI receive length in st95hf_spi_recv_response()
-From: Elkin Cruz <elkin@google.com>
-To: David Heidelberg <david@ixit.cz>, Nathan Chancellor <nathan@kernel.org>
-Cc: Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>, 
-	Justin Stitt <justinstitt@google.com>, oe-linux-nfc@lists.linux.dev, llvm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, irogers@google.com, 
-	Elkin Cruz <elkin@google.com>, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-st95hf_spi_recv_response() computes up to 1025 bytes of response length
-from the 2-byte SPI header and reads the payload directly into
-receivebuff without checking the destination buffer capacity. A
-malformed or unexpected response overflows the 2-byte stack buffer in
-st95hf_send_recv_cmd() or the 280-byte skb buffer in
-st95hf_irq_thread_handler().
+Between CPUHP_TEARDOWN_CPU and CPUHP_AP_OFFLINE, stop_machine executes
+all the teardown callbacks while temporarily stopping/pausing all CPUs
+in the system. This doesn't mix well with running RT or isolated tasks.
 
-Pass the destination buffer capacity max_len to
-st95hf_spi_recv_response() and reject lengths exceeding max_len with
--EMSGSIZE after deasserting chip-select via an empty trailing transfer.
+In order to transition smoothly from global stop_machine to finer
+grained synchronization between teardown callbacks and the other CPUs,
+a new stop machine post function has been introduced to be executed
+after the main one with IRQs still disabled while other CPUs can exit
+stop_machine().
 
-This issue was found while trying out new Clang static analysis checks for
-kernel bug classes. The finding was triaged and fixed, and this commit
-description was drafted with the help of AI, then verified by code
-inspection and compile-tested against linux-next (not reproduced and not
-runtime-tested on hardware).
+The teardown callback here just disables the IRQs for each PMUs, which
+shouldn't expose any specific race while other CPUs are running.
 
-Fixes: cab47333f0f7 ("NFC: Add STMicroelectronics ST95HF driver")
-Cc: stable@vger.kernel.org
-Signed-off-by: Elkin Cruz <elkin@google.com>
+Move it to post stop_machine() accordingly.
+
+Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
+Tested-by: Michael Kelley <mhklinux@outlook.com>
 ---
- drivers/nfc/st95hf/core.c |  6 ++++--
- drivers/nfc/st95hf/spi.c  | 31 ++++++++++++++++++++++---------
- drivers/nfc/st95hf/spi.h  |  3 ++-
- 3 files changed, 28 insertions(+), 12 deletions(-)
+ kernel/cpu.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/nfc/st95hf/core.c b/drivers/nfc/st95hf/core.c
-index dcc9e53815ca..d7ac7ede1259 100644
---- a/drivers/nfc/st95hf/core.c
-+++ b/drivers/nfc/st95hf/core.c
-@@ -283,7 +283,8 @@ static int st95hf_send_recv_cmd(struct st95hf_context *st95context,
- 		unsigned char st95hf_response_arr[2];
- 
- 		ret = st95hf_spi_recv_response(&st95context->spicontext,
--					       st95hf_response_arr);
-+					       st95hf_response_arr,
-+					       sizeof(st95hf_response_arr));
- 		if (ret < 0) {
- 			dev_err(dev, "spi error from st95hf_spi_recv_response(), err = 0x%x\n",
- 				ret);
-@@ -800,7 +801,8 @@ static irqreturn_t st95hf_irq_thread_handler(int irq, void  *st95hfcontext)
- 
- 	mutex_lock(&stcontext->rm_lock);
- 	res_len = st95hf_spi_recv_response(&stcontext->spicontext,
--					   skb_resp->data);
-+					   skb_resp->data,
-+					   MAX_RESPONSE_BUFFER_SIZE);
- 	if (res_len < 0) {
- 		dev_err(spidevice, "TISR spi response err = 0x%x\n", res_len);
- 		result = res_len;
-diff --git a/drivers/nfc/st95hf/spi.c b/drivers/nfc/st95hf/spi.c
-index ffaf2789c406..a6599d65a3bf 100644
---- a/drivers/nfc/st95hf/spi.c
-+++ b/drivers/nfc/st95hf/spi.c
-@@ -66,21 +66,22 @@ EXPORT_SYMBOL_GPL(st95hf_spi_send);
- 
- /* Function to Receive command Response */
- int st95hf_spi_recv_response(struct st95hf_spi_context *spicontext,
--			     unsigned char *receivebuff)
-+			     unsigned char *receivebuff,
-+			     size_t max_len)
+diff --git a/kernel/cpu.c b/kernel/cpu.c
+index 37cca370794a..632103c9b4d9 100644
+--- a/kernel/cpu.c
++++ b/kernel/cpu.c
+@@ -1275,7 +1275,7 @@ void clear_tasks_mm_cpumask(int cpu)
+ static int take_cpu_down(void *_param)
  {
--	int len = 0;
--	struct spi_transfer tx_takedata;
--	struct spi_message m;
--	struct spi_device *spidev = spicontext->spidev;
- 	unsigned char readdata_cmd = ST95HF_COMMAND_RECEIVE;
-+	struct spi_device *spidev = spicontext->spidev;
-+	struct spi_transfer tx_takedata;
- 	struct spi_transfer t[2] = {
--		{.tx_buf = &readdata_cmd, .len = 1,},
--		{.rx_buf = receivebuff, .len = 2, .cs_change = 1,},
-+		{ .tx_buf = &readdata_cmd, .len = 1 },
-+		{ .rx_buf = receivebuff, .len = 2, .cs_change = 1 },
- 	};
--
-+	struct spi_message m;
-+	int len = 0;
- 	int ret = 0;
+ 	struct cpuhp_cpu_state *st = this_cpu_ptr(&cpuhp_state);
+-	enum cpuhp_state target = max((int)st->target, CPUHP_AP_PERF_ARM_ACPI_STARTING);
++	enum cpuhp_state target = max((int)st->target, CPUHP_AP_PERF_ARM_STARTING);
+ 	int err, cpu = smp_processor_id();
  
--	memset(&tx_takedata, 0x0, sizeof(struct spi_transfer));
-+	if (max_len < 2)
-+		return -EINVAL;
+ 	/* Ensure this CPU doesn't handle any more interrupts. */
+@@ -1303,7 +1303,7 @@ static int take_cpu_down_post(void *_param)
+ 	enum cpuhp_state target = max((int)st->target, CPUHP_AP_OFFLINE);
+ 	int cpu = smp_processor_id();
  
- 	mutex_lock(&spicontext->spi_lock);
- 
-@@ -106,7 +107,19 @@ int st95hf_spi_recv_response(struct st95hf_spi_context *spicontext,
- 	else
- 		len += receivebuff[1];
- 
-+	if (len > max_len) {
-+		dev_err(&spidev->dev, "spi_recv_resp, invalid response len = %d\n",
-+			len);
-+		memset(&tx_takedata, 0x0, sizeof(struct spi_transfer));
-+		spi_message_init(&m);
-+		spi_message_add_tail(&tx_takedata, &m);
-+		spi_sync(spidev, &m);
-+		mutex_unlock(&spicontext->spi_lock);
-+		return -EMSGSIZE;
-+	}
-+
- 	/* Now make a transfer to read only relevant bytes */
-+	memset(&tx_takedata, 0x0, sizeof(struct spi_transfer));
- 	tx_takedata.rx_buf = &receivebuff[2];
- 	tx_takedata.len = len - 2;
- 
-diff --git a/drivers/nfc/st95hf/spi.h b/drivers/nfc/st95hf/spi.h
-index 3ab678734c17..840f55f82899 100644
---- a/drivers/nfc/st95hf/spi.h
-+++ b/drivers/nfc/st95hf/spi.h
-@@ -45,7 +45,8 @@ int st95hf_spi_send(struct st95hf_spi_context *spicontext,
- 		    enum req_type reqtype);
- 
- int st95hf_spi_recv_response(struct st95hf_spi_context *spicontext,
--			     unsigned char *receivebuff);
-+			     unsigned char *receivebuff,
-+			     size_t max_len);
- 
- int st95hf_spi_recv_echo_res(struct st95hf_spi_context *spicontext,
- 			     unsigned char *receivebuff);
+-	WARN_ON(st->state != CPUHP_AP_PERF_ARM_ACPI_STARTING);
++	WARN_ON(st->state != CPUHP_AP_PERF_ARM_STARTING);
+ 	/*
+ 	 * Invoke the former CPU_DYING callbacks. DYING must not fail!
+ 	 */
 -- 
-2.56.1.839.g22a8290db9-goog
+2.56.1
 
