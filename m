@@ -1,63 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.128.211.58
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=83.223.78.233
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795625105;
-	b=FPt5rIMgZBSfXJ3EFMWRZ0yS5pshmZ/bTp9rQKlWJN5jH5QOz+KD0lGVoDkluoT2DtXc
-	 wqV5NFlgjhoQOToA4kTjeIe1Bza/E6yAmHRUoC5BZmuuJ74Xkaro+k4zqXRLjdDFlAQTw
-	 8NDRO+vyP7T5G/+mIWY61op9AqbsdxAr3GrYfE+p34n4f2qCs1MG7Aa4XjoMtjAnVNc3N
-	 03fE6rTtu7u34pHeKUyhlqCnce7lbSKYWAC21FPQ4AmiiDN7/5Bxr8lAoO5MTIHu5Op6a
-	 MjzE4ZTSd9BbTIhjtXtge7+FH1lDSHI3wqp9EL0/Qslz2DWk5t+AI8I4jJu1Xhz+laA==
+	t=1795625136;
+	b=jJnrc5dCTLi52+xmIQaXvYzxzSaawMuybCgeNMSzJJvFeMf2rnib1IxIkRqG0L0OWTYu
+	 IpV/r7lKv0PJ/+P7WgHFkqqXBSZHjMQs7jAHsYPXduBNtTpHVIMkCzII9AP+cOg/xudwo
+	 bSLQfe2MrJtOjghaoxMH8N+zJFEuNWp8o4cKxvDkiE9mTV6wtHTkFfaNjM4AEJw4euyY1
+	 kimAasv7ezZ8vlSHuT9iTO1vA4MzD0uIUx6NOSaDb6b21zQOEbbKAUlTW0YKewQdvgpPG
+	 XQFLj5oNx8DbsTTP0/hQjNsyFQdMo9D6iIUrGucTIpM/hfAJpeaQej5fbH0Vkj7Ihmg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795625105;
-	h=DMARC-Filter:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795625136;
+	h=DMARC-Filter:Received:Received:Date:From:To:Cc:Subject:Message-ID:
 	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=DwGwTm/1M3kaz0asEIDymcyq6yUBE0aPJnm3oVj3yFc=;
-	b=W07fiBeVOgt5BExJ/wp1ATcvx3w10om16qi4qdNqO0tY4k/QfhM3oVwuGObI9GoOZHhV
-	 lHprP34wNYxn6EJL+7uUzujLuLbohmI2xuJBULl3A1DKIQ6PkQCPu1hLLuRQW/swND3Du
-	 antFWr880ODoFoofU8h6b6yvnCQZPqn1OrC1L4SzP+NxT9PrZGAPjCyp5arQURpJ3O0u2
-	 sXqxDEPyH9DHBsuUHXDZcu1W+6aoeAumvZhCiIUP/jabdHX8nC3eG94rybrcq7Jq/WFlQ
-	 OBW4gXTRpg4kR+F4pHdAxK6nzt4lej0brLqk6Odk2Zb+Y0rQMd0yhyMyroKTs0oAYWQ==
+	bh=MYisWCg5t/umOzhA3FS/AXzeUQ7QzGatCxZGPN8ChPA=;
+	b=KU3oSyvUHVoBH7uyY5sZxQOST0+IkdDbhTX/ul17iWpHsdesGKtgzX7gmHPplofLTte5
+	 CrLOY0mgxThbcBj1HpjgaI/HAllJeca9fu2dujDbM6x0PkKT2a1D8RaM9OwmAjgtoOQEe
+	 2T4WK96SHh5uqDj2gK6UMpwPs0xf9O17udsBffIiOeYN0ioBpKWQopRkHwAbPwyuo4UBK
+	 7VtP1DLZrTRvbNVKrB9bDiIe2p6QxSGxtN8QGAAUn395vLkRE/3XftcDIEoZJ/NcXrsTd
+	 FTHYI3nHBvnWVCax4Fy6DfX7aJqMypzZ3pJ5wnZA17J+eVUjkCJCAQzNYDL6y5ounxQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=librecast.net;
-	spf=pass smtp.mailfrom=librecast.net;
-	dkim=pass header.d=librecast.net header.i=@librecast.net header.a=rsa-sha256 header.s=2026110900 header.b=qT2h0MaO;
-	arc=none smtp.remote-ip=185.128.211.58
-Received: from bregans-1.gladserv.net (bregans-1.gladserv.net [185.128.211.58])
+	dmarc=none header.from=wunner.de;
+	spf=pass smtp.mailfrom=wunner.de;
+	arc=none smtp.remote-ip=83.223.78.233
+Received: from mailout2.hostsharing.net (mailout2.hostsharing.net [83.223.78.233])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D4FF2606A332;
-	Wed, 25 Nov 2026 16:45:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D4FF2606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=librecast.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=librecast.net
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=librecast.net header.i=@librecast.net header.a=rsa-sha256 header.s=2026110900 header.b=qT2h0MaO
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=librecast.net; s=2026110900; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=DwGwTm/1M3kaz0asEIDymcyq6yUBE0aPJnm3oVj3yFc=; t=1795625103; x=1796489103; 
-	b=qT2h0MaODd2DFnylt7g6dMwMV2B+3iRiidGop9FEk0FUNxS1O5+KIxt3PkHAfwfkLw9K6mS7EBx
-	z57UWONLSSS4btkcokOHlUtFF2FQvEn46rZvWxs5vNGvXdiBTmBoWEhclE9xx6tvNNG3G2dXk9g8c
-	HeDd6S5mx6hO7x/5JeZjubttk0xsdawSh4PqRuImdTCGkFc04507UxaGhvz8RVTFzIbsJaBmdbb1u
-	7THEGbKmSbl0ba1qJC5hlRNUux3EAXF+okZbTcv4QnkxZz5N6t/kuSD6Fhw9a/reU+MpwP/YZXENp
-	DH869I8nixWJAwDgwcfZaEcx2GFLmIju/67g==;
-Date: Wed, 25 Nov 2026 17:36:08 +0100
-From: Brett A C Sheffield <bacs@librecast.net>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: stable@vger.kernel.org, patches@lists.linux.dev,
-	linux-kernel@vger.kernel.org, torvalds@linux-foundation.org,
-	akpm@linux-foundation.org, linux@roeck-us.net, shuah@kernel.org,
-	patches@kernelci.org, lkft-triage@lists.linaro.org,
-	pavel@nabladev.com, jonathanh@nvidia.com, f.fainelli@gmail.com,
-	sudipm.mukherjee@gmail.com, rwarsow@gmx.de, conor@kernel.org,
-	hargar@microsoft.com, broonie@kernel.org, achill@achill.org,
-	sr@sladewatkins.com
-Subject: Re: [PATCH 6.18 000/990] 6.18.66-rc1 review
-Message-ID: <awcOeGCwL3jSzG5f@karahi.librecast.net>
-References: <20261125143822.072087159@linuxfoundation.org>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0B043606A323;
+	Wed, 25 Nov 2026 16:45:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0B043606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=wunner.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=wunner.de
+Received: from h08.hostsharing.net (h08.hostsharing.net [83.223.95.28])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature ECDSA (secp384r1) server-digest SHA384
+	 client-signature ECDSA (secp384r1) client-digest SHA384)
+	(Client CN "*.hostsharing.net", Issuer "GlobalSign GCC R6 AlphaSSL CA 2025" (verified OK))
+	by mailout2.hostsharing.net (Postfix) with ESMTPS id 8A7B610DDF;
+	Wed, 25 Nov 2026 17:45:34 +0100 (CET)
+Received: by h08.hostsharing.net (Postfix, from userid 100393)
+	id 75763600E3B0; Wed, 25 Nov 2026 17:45:34 +0100 (CET)
+Date: Wed, 25 Nov 2026 17:45:34 +0100
+From: Lukas Wunner <lukas@wunner.de>
+To: Yazen Ghannam <yazen.ghannam@amd.com>
+Cc: Tony Luck <tony.luck@intel.com>, Bjorn Helgaas <helgaas@kernel.org>,
+	Kuppuswamy Sathyanarayanan <sathyanarayanan.kuppuswamy@linux.intel.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Mahesh J Salgaonkar <mahesh@linux.ibm.com>,
+	Oliver O'Halloran <oohall@gmail.com>, Len Brown <lenb@kernel.org>,
+	linux-pci@vger.kernel.org, linux-acpi@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 0/6] PCI/DPC: Decide DPC ownership with
+ host_bridge->native_dpc
+Message-ID: <awcQrljZYEuCZWGA@wunner.de>
+References: <awVV71IbFuYAJDzh@wunner.de>
+ <20261125000838.GA1194450@bhelgaas>
+ <awbF3MrVWm98q95O@wunner.de>
+ <20261125162258.GH2156781@yaz-khff2.amd.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,32 +67,39 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261125143822.072087159@linuxfoundation.org>
+In-Reply-To: <20261125162258.GH2156781@yaz-khff2.amd.com>
 
-On 2026-11-25 15:22, Greg Kroah-Hartman wrote:
-> This is the start of the stable review cycle for the 6.18.66 release.
-> There are 990 patches in this series, all will be posted as a response
-> to this one.  If anyone has any issues with these being applied, please
-> let me know.
+On Wed, Nov 25, 2026 at 11:22:58AM -0500, Yazen Ghannam wrote:
+> On Wed, Nov 25, 2026 at 12:26:20PM +0100, Lukas Wunner wrote:
+> > Hm, I thought about this some more and realized that at least on x86,
+> > the kernel may receive PCI System Errors through pci_serr_error() in
+> > arch/86/kernel/nmi.c.
+> > 
 > 
-> Responses should be made by Fri, 27 Nov 2026 14:36:57 +0000.
-> Anything received after that time might be too late.
+> Do modern systems still do this?
+
+The reports I found are for systems sold in the early 2010s, e.g.:
+
+HP Proliant ML330 G6 (2010)
+HP Proliant DL380 G6 (2010)
+Intel Server Board S2600CP (2012)
+
+However the reports are as recent as 2024 because people continue using
+the hardware despite its age.
+
+> I don't think the reason and CPU give any explicit indicator for the
+> error-reporting device.
 > 
-> The whole patch series can be found in one patch at:
-> 	https://www.kernel.org/pub/linux/kernel/v6.x/stable-review/patch-6.18.66-rc1.gz
-> or in the git tree and branch at:
-> 	git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git linux-6.18.y
-> and the diffstat can be found below.
+> I expect there would need to be a platform-specific handler. Or do you
+> think a brute force search across all PCI devices would be okay?
 
-Similar build failure as for 6.12.120-rc1:
+The PCI topology of these systems seems to be fairly small, so a
+brute force search would seem okay.
 
-  LD [M]  drivers/gpu/drm/amd/amdgpu/amdgpu.o
-  AR      drivers/gpu/built-in.a
-  AR      drivers/built-in.a
-make[1]: *** [/usr/src/linux-stable-rc/Makefile:2051: .] Error 2
-make: *** [Makefile:248: __sub-make] Error 2
+However my point is that there are platforms which do signal System
+Errors in a way that may benefit from the statistics and ratelimiting
+knobs exposed for AER.
 
-Reverting 4d1bfec69f617f91af00b5cb9b86cae8850049ab fixes the build.
+Thanks,
 
--- 
-Brett Sheffield (he/him)
+Lukas
