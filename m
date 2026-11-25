@@ -1,68 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795609702;
-	b=KJHhsFQDEUZQn+KJSwBVPIGx8Ypg11WXmcp1iZPATATUnSuyvqYLdi3LoiivNfiX4ARq
-	 2D98cUeYds/lMumo3TY5OgBcySohxJWufk19apFaLp9RdBIXUauxiURwPsF8PFrVxcCb4
-	 jxyPNAkAwb0s3oEHu2Hm47T49mThR6rrlSri5ibl1qL8hU+8Klpaomt4e6lkvKJymJxXk
-	 gMdBC0jCFdSX81P4gCE6SvH0thS8CE1eLtTJZWRQNrvaGrsABoG57GivH9iujKwywPWU5
-	 FuP2+Sy05FIbRiYc3j0SafkpWKk6Xug12ZWoU0IoOkovKS5AhOTjaYQwGy6tuJCyCjg==
+	t=1795609720;
+	b=gQOrt0rSN+/sBwEAXcS1TsQvM9GUe2LHfRNxcVz7SDi/agi/M6/NJuAFckITXBGKOJjU
+	 oeEO56z0+ZdfX7eI1hw+YpptwYgwxpOmIuk75l4fNGSyI/gYrruRW8wuFMFMAHa41fi7l
+	 nWowLWs8ycbleU1jU4VR/hw5woQjFckzwY9IbztFrX7ahnE6xyam4RVNp+7KUNip4TljD
+	 QC6Atf1Myc+DR2anEfvoQxIUqrLL+PS16pw32jRqeNry7NcHKr3jJS3pp6HGgEZ6XFOaM
+	 cOhTUcWq+xtTnTlZPXRB1fpL+kSgOzgbz1bGEhxUQLwHo6+W3ALmUligtwZcPdyeMmQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795609702;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=hpvurHXKOGNZ9gnVI9/HzwEjSAtsSaCAYF1pwCYTtaQ=;
-	b=BpFWrWUPDWCuX3bM8nWgrBm9n03MpJsm3SyGK5e7HcjpFnZ0i4UYHPhLjpD0api7l3yN
-	 ZtCOVFYFW+5LbA9Iy/BTscbgn2lb0ZTVh0HvVmA7izl6BXFJNwRCqih7A5eVNpuoHC20w
-	 0SvmVOScwuqSfqD6V5V5pshq4xvOl+LAvTAyiUBiHYu2oglmxkS7rO+ffMl4FLPBgDFx+
-	 RVE0z5vaD4XpIrfiFYnGheh5/ZimS9h7CzE3SapM1HZ6JEW1eMCzi2Q5rHskwlmQcx7pf
-	 ijpPkLYIwBsLIcO/OvR8fiL8vwAfEMBms+xMqvfyigbDzu6fALH2fXawlnkoBPbZ2sw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795609720;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=qdmFqie+LOrd1V85imiYgzqHYT4TnBZbGY1vS7eeizQ=;
+	b=spVjZae8XrD334jL0gfKs5XnH/gvNv9b+m8tJ1sgMLeSOOyk3SCpwXaONGe7CfZtqyPJ
+	 QS4ixUNIWX0HGEhZJxMvQf4FKMxSPV3xJbqyYzzFmJ2Mgc3E07StscwG2Ck8ShpK2totQ
+	 p49xFWzvE0Q8VxJRoX8pKDVFvM9lUbESfW1F1ruLHze430oN7gZnG7lSd0PlvfwY9FSB7
+	 yR6sJ53gc2g8ukOV7tjtQvJQ/14HXz6DDWuX1Vief+em5leT05/ckyGjEiT4pso5sdb8Q
+	 ohBT3oXdNOxs8PWpacRZADsSTua5YXZe6iyMwhOiHvFM0tI82i8s812B8sQaIWqeDEg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GI8ATaNy;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=E645YLk8;
+	arc=none smtp.remote-ip=148.251.105.195
+Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3FF7C606A321;
-	Wed, 25 Nov 2026 12:28:21 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9A4E8606A327;
+	Wed, 25 Nov 2026 12:28:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9A4E8606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GI8ATaNy
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A9C2F1F000D1;
-	Wed, 25 Nov 2026 12:28:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795609701;
-	bh=hpvurHXKOGNZ9gnVI9/HzwEjSAtsSaCAYF1pwCYTtaQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=GI8ATaNyTMyEXxgfjz+oenZ1X6CmViRKww60LktsKeuQ38vALYgH+CM3Hbv/jYM35
-	 6SKWl6rpruUqfXlO0AG1stUNmKN7XrAjBIYeBI7FSve7iYj6dKkMutVcq1AJ+X2xR2
-	 19kiUTCSOs+OaCbJWc5BS7yA8mHNWfv6EtVTsS3fBWIhaG6wRSLGO9mkAekgzlNi+2
-	 hA+94fmfPzfiS6+tCDRvjGixzW51m9J71z0Srxx3OhG8sP50OmQoHRVeSkjB50vTlA
-	 3dbrKrkC173/KfGhf+zpcI2ujyaPDFOcosjmorvdgBOq0+5ZCcnSiODTggIeuPP4vi
-	 sCC2aqMMVMLVg==
-Date: Wed, 25 Nov 2026 12:28:11 +0000
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Nicolas Schier <n.schier@fritz.com>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>, 
-	Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, 
-	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
-	Geert Uytterhoeven <geert@linux-m68k.org>, Luis Chamberlain <mcgrof@kernel.org>, 
-	Petr Pavlu <petr.pavlu@suse.com>, Daniel Gomez <da.gomez@kernel.org>, 
-	Sami Tolvanen <samitolvanen@google.com>, Aaron Tomlin <atomlin@atomlin.com>, 
-	Josh Poimboeuf <jpoimboe@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
-	Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, 
-	=?utf-8?B?QmrDtnJu?= Roy Baron <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>, 
-	Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
-	Trevor Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>, 
-	Daniel Almeida <daniel.almeida@collabora.com>, Tamir Duberstein <tamird@kernel.org>, 
-	Alexandre Courbot <acourbot@nvidia.com>, Onur =?utf-8?B?w5Z6a2Fu?= <work@onurozkan.dev>, 
-	Kees Cook <kees@kernel.org>, linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	llvm@lists.linux.dev, linux-m68k@lists.linux-m68k.org, linux-modules@vger.kernel.org, 
-	rust-for-linux@vger.kernel.org
-Subject: Re: [PATCH v6 5/7] kbuild: batch module finalisation
-Message-ID: <awbUJuLahIbbL7vi@gremlin>
-References: <20261124-build-speedup-v6-0-141a4f861c67@kernel.org>
- <20261124-build-speedup-v6-5-141a4f861c67@kernel.org>
- <20261125-bald-mushroom-of-development-7b2288@l-nschier-z2>
+	dkim=pass (2048-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=E645YLk8
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1795609711;
+	bh=g00izwTwgCeq9Gr7RcuHIq/8Y3cTVgp+ooEPGe/N+eU=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=E645YLk8TrBk4rleM1W4b7lnGkPHdGZXRmX+gfcTi5aVAuZx82pBNi269KqNzpOJe
+	 7avv3Ur5sd5s2+zG54gXKqQq2E1iJQibCMT7uGEAhTw3oarRaCCCo0WdKtFokX1RyQ
+	 vk7ou1xZH4YZS0y8j9KbiH9pD1A4vs7AmZKjtvXbqPFhEdxY63k82naDw6dDioNLRo
+	 YsKPQ/daEeC/j9WN4xAEJTDkY/T37S+q1lXpng4Imkmj2l3pE52/hNeAEjkZ/+j7+V
+	 mEQ7pgr7cEDPhA0Pp7MC6/s/cQ7Esf/+fcGJ0i+lhM07VzpUFK6fT8uoEU6q0c5vT7
+	 N/E9PFiIk9zVw==
+Received: from benjamin-XPS-13-9310.home (unknown [100.64.1.43])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: benjamin.gaignard)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0227C17E0309;
+	Wed, 25 Nov 2026 13:28:30 +0100 (CET)
+From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+To: nicolas.dufresne@collabora.com,
+	p.zabel@pengutronix.de,
+	mchehab@kernel.org,
+	heiko@sntech.de,
+	hverkuil@kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	linux-media@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	kernel@collabora.com,
+	Benjamin Gaignard <benjamin.gaignard@collabora.com>
+Subject: [PATCH v9 1/4] media: v4l2-ctrls: validate AV1 reference frame index
+Date: Wed, 25 Nov 2026 13:28:22 +0100
+Message-ID: <20261125122825.236422-2-benjamin.gaignard@collabora.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261125122825.236422-1-benjamin.gaignard@collabora.com>
+References: <20261125122825.236422-1-benjamin.gaignard@collabora.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,126 +77,85 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261125-bald-mushroom-of-development-7b2288@l-nschier-z2>
+Content-Transfer-Encoding: 8bit
 
-On Wed, Nov 25, 2026 at 10:56:32AM +0100, Nicolas Schier wrote:
-> On Tue, Nov 24, 2026 at 12:20:15PM +0000, Lorenzo Stoakes (ARM) wrote:
-> > With the .mod.S change in place, module finalisation on allmodconfig builds
-> > consists of a large number of very short-lived jobs.
-> >
-> > For allmodconfig x86-64 this can be on the order of ~22,000 jobs of a few
-> > milliseconds in duration each.
-> >
-> > Each job entails processing ~22k .cmd files, so the combination of heavy
-> > overhead and small individual job results in a lot of unnecessary and
-> > repeated work even with all cores being utilised.
-> >
-> > The solution is to batch by a number of jobs. Determining which value makes
-> > sense was done empirically.
-> >
-> > On a 128-thread threadripper box doing an allmodconfig build, best of
-> > 2, *.ko, *.mod.o deleted each time:
-> >
-> >     modules per chunk    instances    wall
-> >     -----------------    ---------    ------
-> >                     1        11171    10.22s
-> >                     2         5586     6.72s
-> >                     4         2793     4.97s
-> >                     8         1397     4.26s
-> >                    16          699     4.05s
-> >                    32          350     4.05s
-> >                    64          175     4.07s
-> >                   128           88     4.05s
-> >                   256           44     4.03s
-> >                   512           22     4.18s
-> >
-> > Wall time flattens for 16-256 module batches.
-> >
-> > A slower/lower core machine will do better with fewer modules-per-batch, a
-> > faster/higher core machine will do better with more modules-per-batch.
-> >
-> > Therefore, take the midpoint which works in the most margin in either
-> > direction - 128 modules per batch.
-> >
-> > This naturally scales with module count too as the optimum gains are
-> > obtained with higher module count, so fewer batches in this case costs less
-> > overhead.
-> >
-> > Each instance holds only its own modules' variables and the top-level one
-> > reads no per-module .cmd files at all, the same rules serve both levels,
-> > and an instance is told its chunk with modfinal-first=<index>.
-> >
-> > Only the top-level instance builds .module-common.o, to the chunks it is a
-> > plain prerequisite, so no two instances ever write it.
-> >
-> > "make modules" with every *.mod.o and *.ko deleted goes from 28.9s to 15.9s
-> > with clang 22. No-op "make modules" goes from 5.6s to 4.8s, as checking the
-> > 22,000 targets is spread over the chunks too.
-> >
-> > Whole build, 128-thread Threadripper 9980X, best of N runs:
-> >
-> >                                          before   after     delta
-> >                                          -------------------------------
-> >   x86 allmodconfig, no-op make, gcc         2.3s     1.4s    -0.85s (-38%)
-> >   x86 allmodconfig, no-op make, clang       2.8s     1.8s    -0.94s (-34%)
-> >   x86 allmodconfig, clean, gcc            306.6s   294.1s     -12.6s (-4%)
-> >   x86 allmodconfig, clean, clang          290.2s   283.9s     -6.4s (-2%)
-> >
-> > Reviewed-by: Kees Cook <kees@kernel.org>
-> > Reviewed-by: Nathan Chancellor <nathan@kernel.org>
-> > Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
-> > ---
-> >  scripts/Makefile.modfinal | 30 +++++++++++++++++++++++++++++-
-> >  1 file changed, 29 insertions(+), 1 deletion(-)
-> >
-> > diff --git a/scripts/Makefile.modfinal b/scripts/Makefile.modfinal
-> > index 75e9effdf02c..4d5e6e1a0ff9 100644
-> > --- a/scripts/Makefile.modfinal
-> > +++ b/scripts/Makefile.modfinal
-> > @@ -13,9 +13,30 @@ include $(srctree)/scripts/Makefile.lib
-> >  # find all modules listed in modules.order
-> >  modules := $(call read-file, modules.order)
-> >
-> > +modfinal-chunk-size := 128
-> > +
-> > +ifdef modfinal-first
-> > +
-> > +# this instance handles the chunk of modules.order starting at $(modfinal-first)
-> > +modules := $(wordlist $(modfinal-first), $(words $(modules)), $(modules))
-> > +modules := $(wordlist 1, $(modfinal-chunk-size), $(modules))
-> > +
-> >  __modfinal: $(modules:%.o=%.ko)
-> >  	@:
-> >
-> > +else
-> > +
-> > +modfinal-chunks := $(addprefix chunk-, $(shell seq 1 $(modfinal-chunk-size) $(words $(modules))))
-> > +
-> > +PHONY += $(modfinal-chunks)
-> > +$(modfinal-chunks): .module-common.o
-> > +	$(Q)$(MAKE) -f $(srctree)/scripts/Makefile.modfinal modfinal-first=$(@:chunk-%=%)
->
-> Thanks!
->
-> Reviewed-by: Nicolas Schier <n.schier@fritz.com>
+The stateless AV1 decoders use primary_ref_frame and ref_frame_idx[] to
+to find the matching reference frames.
+V4L2_AV1_PRIMARY_REF_NONE is the value of primary_ref_frame indicating
+that there is no primary reference frame.
+Iterate over ref_frame_idx[] to check if the indexes are in [-1, 7] range
+like described in AV1 specifications.
 
-Thanks!
+Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+---
+changes in v9:
+- Split core changes and drivers changes
+- Add V4L2_AV1_REF_FRAME_INVALID
+- Rework checks in validate_av1_reference_index() to be sure that
+  all values of ref_frame_idx[] are in the correct range.
 
->
->
-> (bike-shedding) For readability, I'd favourised the use of pattern
-> matching stem:
->
-> $(modfinal-chunks): chunk-%: .module-common.o
-> 	$(Q)$(MAKE) -f $(srctree)/scripts/Makefile.modfinal modfinal-first=$*
+ drivers/media/v4l2-core/v4l2-ctrls-core.c | 30 +++++++++++++++++++++++
+ include/uapi/linux/v4l2-controls.h        |  2 ++
+ 2 files changed, 32 insertions(+)
 
-Ack, will fix that up on next respin if needed :)
+diff --git a/drivers/media/v4l2-core/v4l2-ctrls-core.c b/drivers/media/v4l2-core/v4l2-ctrls-core.c
+index 6e751a043a21..e707897e36fd 100644
+--- a/drivers/media/v4l2-core/v4l2-ctrls-core.c
++++ b/drivers/media/v4l2-core/v4l2-ctrls-core.c
+@@ -817,10 +817,40 @@ static int validate_av1_tile_info(struct v4l2_av1_tile_info *t)
+ 	return 0;
+ }
+ 
++static int validate_av1_reference_index(struct v4l2_ctrl_av1_frame *f)
++{
++	int i, idx;
++
++	/* The valid range for ref_frame_idx[] values is [-1, 7] */
++	for (i = 0; i < V4L2_AV1_REFS_PER_FRAME; i++) {
++		idx = f->ref_frame_idx[i];
++		if (idx < V4L2_AV1_REF_FRAME_INVALID)
++			return -EINVAL;
++		if (idx >= V4L2_AV1_TOTAL_REFS_PER_FRAME)
++			return -EINVAL;
++	}
++
++	if (f->primary_ref_frame > V4L2_AV1_PRIMARY_REF_NONE)
++		return -EINVAL;
++
++	if (f->primary_ref_frame == V4L2_AV1_PRIMARY_REF_NONE)
++		return 0;
++
++	/* If set primary_ref_frame index must be valid */
++	idx = f->ref_frame_idx[f->primary_ref_frame];
++	if (idx <= V4L2_AV1_REF_FRAME_INVALID)
++		return -EINVAL;
++
++	return 0;
++}
++
+ static int validate_av1_frame(struct v4l2_ctrl_av1_frame *f)
+ {
+ 	int ret = 0;
+ 
++	ret = validate_av1_reference_index(f);
++	if (ret)
++		return ret;
+ 	ret = validate_av1_tile_info(&f->tile_info);
+ 	if (ret)
+ 		return ret;
+diff --git a/include/uapi/linux/v4l2-controls.h b/include/uapi/linux/v4l2-controls.h
+index d17e41d51d2e..f21f00fd5a84 100644
+--- a/include/uapi/linux/v4l2-controls.h
++++ b/include/uapi/linux/v4l2-controls.h
+@@ -2940,6 +2940,8 @@ struct v4l2_ctrl_vp9_compressed_hdr {
+ #define V4L2_AV1_MAX_TILE_COLS		64
+ #define V4L2_AV1_MAX_TILE_ROWS		64
+ #define V4L2_AV1_MAX_TILE_COUNT		512
++#define V4L2_AV1_PRIMARY_REF_NONE	7
++#define V4L2_AV1_REF_FRAME_INVALID	-1
+ 
+ #define V4L2_AV1_SEQUENCE_FLAG_STILL_PICTURE		  0x00000001
+ #define V4L2_AV1_SEQUENCE_FLAG_USE_128X128_SUPERBLOCK	  0x00000002
+-- 
+2.53.0
 
->
-> --
-> Nicolas
-
---
-Cheers, Lorenzo
