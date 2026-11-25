@@ -1,121 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=154.81.10.29
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795605691;
-	b=wBA6kFvn/7h9uoupU9U3k+N1YOEojhf+xmTQgnpjV34voOsLbxvOugyogG+t9JTMSfw2
-	 eov40hffRZroRp43U7mC7UhCUA3tV2KTpwMJFOnxbNgbPt/b0O8ZlhBU8IWF75+WR7ytx
-	 1K4wlI0rDCJyILlmq/1zLwg4wxnA/oAPDbCFnY74lR/+v3/6G3kVfAm2c/LoulWSXd2zE
-	 YZGE1luC2uFYserBMbPLa0SPsYOojymBU3cVxV4nYqexmUpjZUkMC8y5MndC3IVHlo/pm
-	 LI9+6C1gf+y13AqNTUDYbThdPAWvTpCi2KwD88nhvvcJGMlYpwXrkVN8+iv2YaWbNEA==
+	t=1795605727;
+	b=LEKIAEHIrv2lmj37/oAUcUAzNx28ph/XWmu1UocrdHqjwQkpYYhNbvhH4C4kmKBIWl0g
+	 BgboLyK7ruu0Lxls32/TqYw4pkHnvyV8SSwXsB31k55zhYULMKxEg6o0iQkzxUUqCMiql
+	 8K763FLu41la54VtzLBbos97NEZZxLCrV21vzyheEInqS0ATcta7FAoooZMWGyFQ5abah
+	 Ids5UWYtvGO85hufKhDHsdGwHkFClq2VdI7tItzadxXCv5gDKy4q/YQZVI2IXUC7YW9bt
+	 Jj/m85kikjTGl0LZtqLXOhWM6/DZNqrp6fYa5AnWyzhwB3KxbZKqY3wAbp/0fyX+43w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795605691;
-	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
-	 DKIM-Signature:Received:Received:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
-	 X-Spam-Flag:X-Spam-Level:X-Spamd-Result:X-Spam-Score;
-	bh=ob+Vq6L4US0Tc+CXMPvwy44ZwB7QIg9X6EZnYEIjp60=;
-	b=tbCYrQzM66RfZ9w4cv7GDjsAvrOxmX692afjV0X5uKSCIKwlh/wnAaiCH77qPFnh4Btg
-	 0KbX7+F9SMgwzfJAsw+HmToULaPyWYhe0MPOl7udGvRpX5UsoaGsayuyJ5dv/YcH6oq+e
-	 OKI4xSnBu8Bh/W4JbtuuZ0q28+rGvaWQxyRY9FTLEoKJrvaj2xLdhRVhYMRS4R132NnZQ
-	 JD9pIzl1FixljXKZWNJ74+qIIpyr8TGwRAV8v5EchhyWHxL8DViTEk0ZeZPPAC7GIYwEa
-	 Iwx5smfNU5jPYjb7NOzdRCQE+RAXvbhvaeUlO7Ck218DKcCrX+LMydaIUc6wR5+1f5Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795605727;
+	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-Id:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:
+	 X-HM-Tid:X-HM-MType:X-HM-Spam-Status:DKIM-Signature;
+	bh=XNuY/Vo6Av48O204IEijKEDS+EVPpGFz9/aSQiiHflQ=;
+	b=v10GwrXd7BET7PraTudRbkfLlz3Vja4fLO/4RJjGJfXddyPWC1zfIF4jfpTqGzCDd6D5
+	 IpHC6B75HmNQ5eVrD4UOiXdIv0T5vfYVFOO82fPTvrx9Pbe0DGV8fWmcFMrVD80GqKhLQ
+	 bTSZT6KpRPD1Bjc6tz+RMHaOFSXZNqHUPKjcbPqcraOXK+9OWUFlKhyZMC8jkqYBwGb3r
+	 tmej7y1fVJSNCr1mzi/UfKjkVR/b55G6EnfNYJAjCKEWLy2W+1cxa9bGhHkhtcz1pmh9r
+	 0wqWFXKjr2/G6h++GoRxHd6JLYLSgkCtEcb167VyFHaOMOMUbCsPOIOyzDp01UeyzKw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.de;
-	spf=pass smtp.mailfrom=suse.de;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=SVKXub+d;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=1owZleYK;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=HnqKLhDZ;
-	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=vhjMSqEX;
-	arc=none smtp.remote-ip=195.135.223.131
-Received: from smtp-out2.suse.de (smtp-out2.suse.de [195.135.223.131])
+	dmarc=pass header.from=rock-chips.com;
+	spf=pass smtp.mailfrom=rock-chips.com;
+	dkim=pass header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b=dLGTcoMw;
+	arc=none smtp.remote-ip=154.81.10.29
+Received: from mail-m1029.netease.com (mail-m1029.netease.com [154.81.10.29])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E5088606A323;
-	Wed, 25 Nov 2026 11:21:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E5088606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=suse.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 55445606A31E;
+	Wed, 25 Nov 2026 11:22:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 55445606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=rock-chips.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rock-chips.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=SVKXub+d;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=1owZleYK;
-	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=HnqKLhDZ;
-	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=vhjMSqEX
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id CEF561F7E4;
-	Wed, 25 Nov 2026 11:21:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1795605689; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ob+Vq6L4US0Tc+CXMPvwy44ZwB7QIg9X6EZnYEIjp60=;
-	b=SVKXub+dVIHf6xbd0DStZYOnuIKDz33gDFQBigyuSfSuY4ciQOy0UXh5VkUjb7uEtQ/itg
-	n6ZiKcOVdbM7TCVJgL1pDHCGhxhCZdrZHTz3ibpWTR2m+MaCrUPMsujLR7rY9u+YyNk4Ok
-	tfHx2gMqiNwIa4Ke+30SV2Tw7GauaF0=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1795605689;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ob+Vq6L4US0Tc+CXMPvwy44ZwB7QIg9X6EZnYEIjp60=;
-	b=1owZleYKDD4SGDw3fU3e4wcFD2o42VU8SE/VaPiW6UjnUs9aay7PwWB5iisJC3ATwreN1n
-	q0oDmF2NpaB83fCA==
-Authentication-Results: smtp-out2.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1795605688; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ob+Vq6L4US0Tc+CXMPvwy44ZwB7QIg9X6EZnYEIjp60=;
-	b=HnqKLhDZivs/f2jjuH6c7tNSEGKa80ZFlBDZfWgC/9RFIFPl3/+vISlD6n+roytFSSwujc
-	1FI0XEfN7aqxrnGO8hiKnqIhYTUo3zu+wGURSb/dUyVdtnHOedpykl7FFW222+ppScAr66
-	MZ5wEDXser8U3QKglz6hW55tfTjqYQU=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1795605688;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ob+Vq6L4US0Tc+CXMPvwy44ZwB7QIg9X6EZnYEIjp60=;
-	b=vhjMSqEX5XU9Ms1yJL6Mh5evELI4VLISLDyWtfuLY4vo5dac2rQ2fLoDc/4TvC9vDrX2ye
-	+TN2YXflhJF+e4CQ==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id C00F6134E8;
-	Wed, 25 Nov 2026 11:21:25 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id lQdhG7XEBmtNHwAAD6G6ig
-	(envelope-from <pfalcato@suse.de>); Wed, 25 Nov 2026 11:21:25 +0000
-Date: Wed, 25 Nov 2026 11:21:23 +0000
-From: Pedro Falcato <pfalcato@suse.de>
-To: "David Hildenbrand (Arm)" <david@kernel.org>
-Cc: Christoph Hellwig <hch@infradead.org>, 
-	John Hubbard <jhubbard@nvidia.com>, Jan Kara <jack@suse.cz>, 
-	Andrew Morton <akpm@linux-foundation.org>, Zi Yan <ziy@nvidia.com>, 
-	"Matthew Wilcox (Oracle)" <willy@infradead.org>, Lorenzo Stoakes <ljs@kernel.org>, Peter Xu <peterx@redhat.com>, 
-	Johannes Weiner <hannes@cmpxchg.org>, linux-ext4@vger.kernel.org, linux-nfs@vger.kernel.org, 
-	"Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
-	Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
-	Michal Hocko <mhocko@suse.com>, Baolin Wang <baolin.wang@linux.alibaba.com>, 
-	Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, 
-	Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>, 
-	Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>, linux-mm@kvack.org, 
-	linux-kernel@vger.kernel.org, Kairui Song <kasong@tencent.com>, Qi Zheng <qi.zheng@linux.dev>, 
-	Shakeel Butt <shakeel.butt@linux.dev>, Axel Rasmussen <axelrasmussen@google.com>, 
-	Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>, Baoquan He <baoquan.he@linux.dev>, 
-	Michal Hocko <mhocko@kernel.org>, linux-fsdevel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH RFC 0/5] mm: GUP dirty + ->release_folio() fixes
-Message-ID: <awbEPaUkbQA3TviB@pedro-suse.tail5790ac.ts.net>
-References: <20261119-gup-dirty-what-v1-0-236d69f25c24@suse.de>
- <4f096d70-6f94-4148-8f47-242b8551e5f9@nvidia.com>
- <awWNyDZT2SVu2Zp9@pedro-suse.tail5790ac.ts.net>
- <55114986-0ba1-4a80-8498-bf674d64e01b@kernel.org>
- <away88BuU8ibcTA5@infradead.org>
- <d088452f-1118-4a06-bc16-1942e523e0fc@kernel.org>
+	dkim=pass (1024-bit key) header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b=dLGTcoMw
+Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [61.154.14.86])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 55f816029;
+	Wed, 25 Nov 2026 19:21:55 +0800 (GMT+08:00)
+From: Damon Ding <damon.ding@rock-chips.com>
+To: Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Jingoo Han <jingoohan1@gmail.com>,
+	Inki Dae <inki.dae@samsung.com>,
+	Seung-Woo Kim <sw0312.kim@samsung.com>,
+	Kyungmin Park <kyungmin.park@samsung.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Sandy Huang <hjc@rock-chips.com>,
+	Andy Yan <andyshrk@163.com>
+Cc: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	linux-kernel@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	Damon Ding <damon.ding@rock-chips.com>
+Subject: [PATCH v7 01/20] drm/bridge: Select VIDEOMODE_HELPERS for DRM_OF_DISPLAY_MODE_BRIDGE
+Date: Wed, 25 Nov 2026 19:21:22 +0800
+Message-Id: <20261125112141.1434903-2-damon.ding@rock-chips.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261125112141.1434903-1-damon.ding@rock-chips.com>
+References: <20261125112141.1434903-1-damon.ding@rock-chips.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -125,74 +82,45 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <d088452f-1118-4a06-bc16-1942e523e0fc@kernel.org>
-X-Spam-Flag: NO
-X-Spam-Level: 
-X-Spamd-Result: default: False [-13.30 / 50.00];
-	SUSE_INTERNAL_BYPASS(-9.00)[];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	URIBL_BLOCKED(0.00)[imap1.dmz-prg2.suse.org:helo,wikipedia.org:url];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	ARC_NA(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[37];
-	MIME_TRACE(0.00)[0:+];
-	FROM_HAS_DN(0.00)[];
-	R_RATELIMIT(0.00)[to_ip_from(RL8d8xedm6iu8o66torxsk6bwd)];
-	TO_DN_SOME(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	RCVD_TLS_ALL(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	MISSING_XM_UA(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo]
-X-Spam-Score: -13.30
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0aa21270daa203a8kunm17c23050775859
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkZShhPVkwYTE9CGR8ZGR1PSlYVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSE
+	pKQk1VSktLVUpCWQY+
+DKIM-Signature: a=rsa-sha256;
+	b=dLGTcoMw9Q9WCK8L093BjBFk4DZPOcr3kS042AbNM3M6TfWvGy1yFqER81Lyd8gYz4XkB+rHLm8qKSAneuCb6SrVzG0Q47iuOPyM+y6Nrqqvhb4siFXIrx82a20R1hsisthLXpyjidqTAKNX56hydp2Aot3eZmCpmfdcX4GppX8=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=XNuY/Vo6Av48O204IEijKEDS+EVPpGFz9/aSQiiHflQ=;
+	h=date:mime-version:subject:message-id:from;
 
-On Wed, Nov 25, 2026 at 11:19:18AM +0100, David Hildenbrand (Arm) wrote:
-> On 11/25/26 11:05, Christoph Hellwig wrote:
-> > On Wed, Nov 25, 2026 at 10:50:42AM +0100, David Hildenbrand (Arm) wrote:
-> >> When I looked into this issue, there were some problematic things.
-> >>
-> >> We have some odd drivers that use FOLL_GET|FOLL_WRITE, but I am not too
-> >> concerned about them.
-> >>
-> >> But are ways where unprivileged users can mess with  FOLL_GET|FOLL_WRITE
-> >> references to trigger this.
-> >>
-> >> I think the two that stand out are:
-> >>
-> >> 1) /proc/self/mem access using mem_rw() -> access_remote_vm()
-> >>
-> >> User can write to a writable-mapped page-cache PTE. Then we can race with
-> >> removal of folio metadta, to then set the folio dirty afterwards.
-> >>
-> >> I remember a good reason to not convert these paths in the past (we are not
-> >> performing DMA).
-> > 
-> > I don't think that is a good reason.  For file system backed VMAs we
-> > really need the pin to be able to do someting sane, DMA or not.
-> > 
-> >> 1) We fix all such cases now where unprivileged users can trigger this,
-> >>    converting to FOLL_PIN.
-> > 
-> > We need to, if not for this series then for all the other outstanding
-> > issues with GUP writes.
-> 
-> Cool, and I agree (that's why I placed it at 1).
-> 
-> But who is "we"? Because I recall that "we" wanted to do that a while ago.
-> 
-> (I won't be "we" ;) Pedro, can you take a look? I'm afraid the fuse thing might
-> be the harder nut to crack)
+The of-display-mode-bridge driver calls of_get_drm_display_mode(),
+which is provided when VIDEOMODE_HELPERS is selected.  So far the
+dependency has been satisfied by the users selecting
+VIDEOMODE_HELPERS themselves (e.g. the Exynos and i.MX DRM drivers),
+which breaks as soon as a user does not, resulting in undefined
+references to of_get_drm_display_mode() at link time.
 
-"we"[1] will take a look.
+Select VIDEOMODE_HELPERS from DRM_OF_DISPLAY_MODE_BRIDGE, so that the
+dependency is always satisfied.
 
+Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+---
+ drivers/gpu/drm/bridge/Kconfig | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/drivers/gpu/drm/bridge/Kconfig b/drivers/gpu/drm/bridge/Kconfig
+index c7da6b02d7b6..f717523014e8 100644
+--- a/drivers/gpu/drm/bridge/Kconfig
++++ b/drivers/gpu/drm/bridge/Kconfig
+@@ -266,6 +266,7 @@ config DRM_NXP_PTN3460
+ config DRM_OF_DISPLAY_MODE_BRIDGE
+ 	tristate
+ 	depends on DRM_BRIDGE && OF
++	select VIDEOMODE_HELPERS
+ 	help
+ 	  This is a DRM bridge implementation that uses of_get_drm_display_mode
+ 	  to acquire display mode.
 -- 
-Pedro
+2.34.1
 
-[1] https://en.wikipedia.org/wiki/Royal_we
