@@ -1,52 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.42
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795593502;
-	b=Prqgvp3bK6HVW65yIQAPhlj3FcEFmtmNJOGFQekbDDQToOWl0pjacsNGC667/GgVRTDp
-	 WlFOgGVssVbQse6ye/tEGm8aFX8I3jkQUYmy/vJTZ/FMnKZA3z6KZNhthcpGcXHo9IPkJ
-	 iBbSR2XWY1tLieG3NILiTGTNt/kRU914AnsNRR3Z+b0pIhalpfPBnkdq9M/ueBDRocRbN
-	 TAJALoqIQthYCs5citTOJTFUUg/OxX47l0+ee4CRK0N3j2HssJXYUzA/+w0a0QnXj3Lfx
-	 9Lhab41wHBi1b9BxjBLXn4SirYcJvl8Jpls67Pu+B5SlgXogv+6Te9WRXnpAUFANUAw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795593502;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:MIME-Version:Date:Content-Type:
-	 Content-Transfer-Encoding:From:Message-ID:TLS-Required:Subject:To:Cc:
-	 In-Reply-To:References;
-	bh=ERfJb3qF0+sgEEuK6tJL1bCyE1JjReykvfA28PGir+g=;
-	b=mmS+yOTwVZyUY46LAUkutSnUtvZyNu1t6nkctqg0AUkkyjLTuHSebUPvVXGcIOWnzpQG
-	 JUgRttkcnpnDjNQfx1DPvnYHx1OFCmQnssJ0bEB4RvYts2y+ycpzSWpGsN5oD0lwX/Cja
-	 xc1P3zZJyX9Ntw0SznOCfnNQVnQji1X/p1DOwDoTVUwp8QgqDMLqNHmPRGCE04kBZvHCc
-	 9BP2PGkT0waH+o6UIqgvdrhwpz+DXZb8Lomu9fkwjKQunSx1ueDWnnFNAFnZaM32XB9rs
-	 tymcYT3cK3Tu8VUV9hC0qVxAu2eXEulpSkufj8XFJCPW4YldQ4hceND4TZzgG4a8QwQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=v+SIytma;
-	arc=none smtp.remote-ip=95.215.58.42
-Received: from mta1.migadu.com (out-42.mta1.migadu.com [95.215.58.42])
+Authentication-Results: smtp.subspace.kernel.org; arc=fail smtp.remote-ip=209.85.208.52
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=fail;
+	t=1795593564;
+	b=0RreFEqajHFjIQ/2YRYLtnF5PPjtYrTl/SGIBTkHiO/So+N1EGK7pVL0cLXw5HfES8PP
+	 o6AwneTzCrgsEm9f4P2L/XChVbVaiFDrnXN1V99fDFSeRLxjxhfIELQnT+C5tZPZKEIOJ
+	 /IUtswyAez7jn59YPx6RHJegtv3EoP4VYS0T0Wwz7oJfkhZeRvErpwVmaiOaSQbSamip+
+	 pIrcqG2Q6U4oOKVVN+LhnXas45fXYu2vxewKyzB75W6s7oewJv5ltQYRwWLHDK9JoM1W/
+	 hUeP5nJP78UbRnK+bSdes3gxAk3PeQAZF2Qs3qBLBhk/1y88cofWBAGAaO0zz9Kg/Pw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795593564;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=lPt1APWAuM+EKrwwPM+5moxwmnQPMXvp+cSe81HAQX0=;
+	b=kxHncdFa9X4CP0GDZaEb4u7QOVimbhWrURnpkYJesh5SC6+Mv7IzwlLj7+EbUZY8nKY9
+	 SJBQIDhy1pvkjQu4uD35/gTeew65rbf0sUdg5Xl70bX1krMwFZFz1OYOkSO7t2Mu31vw2
+	 cdlFt0rRtUkUjF4W8EaWFmOgcDilV9MSS8zNp1OvPDQXuNz9WWH52gDRgjFBblgUbERWL
+	 utWJOzxlTCQ0E+wiLEwackKApq7iSGXKYewnAmBc33I4S+b6yKQutEC2RjWKMBysjD2+V
+	 gHmJtEwFisJIq0aumHs4EtwgiYQE3zgBxkosu7txKhdEseiKSOsMtdS65CYopWLrO8w==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linaro.org;
+	spf=pass smtp.mailfrom=linaro.org;
+	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=pc7WeAg3;
+	arc=fail smtp.remote-ip=209.85.208.52
+Received: from mail-ed1-f52.google.com (mail-ed1-f52.google.com [209.85.208.52])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 18451606A329
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 07:58:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 18451606A329
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 804AC606A31E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 07:59:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 804AC606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=v+SIytma
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=JJb4V3QmzElV+J3+lTvVhXCbEVNDcL1viNTlfeP0Wlc=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795593498; v=1; x=1796198298;
- b=v+SIytma8dOQHqmZB62ikezj2CXVTIhPAIXBPy77bQ2S6LMV1nCrDFsbY6MWaY+8UYEIeCPK
- BsZg37nSHICyHPmU9JS8RSfP+1PNzNtuD40bmveUrCYfrUArq2UO5YGgjNpqnWN1iXR9biOqA0M
- gKEeOmbrQA/+xTA/2oNcP0BM=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id d6c3d85e79e38a6d;
-	Wed, 25 Nov 2026 07:58:18 +0000
-X-Mizu-Trace-ID: d6c3d85e79e38a6d
-X-Migadu-Flow: FLOW_OUT
+	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=pc7WeAg3
+Received: by mail-ed1-f52.google.com with SMTP id 4fb4d7f45d1cf-6b87408c797so7396105a12.1
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 23:59:24 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795593563; cv=none;
+        d=google.com; s=arc-20260327;
+        b=AGq3TMZLYyBKDkmLaKCcYpHebJd8zbl5hKawMxi7RGWJSXPFyMZ1xzq4hNl5KM+v2B
+         PMa+u/nyIyvQ001YOGOwyxTw1s+KUdZIOuVHfng1xAvAYRf+Es7W5qiN6fsm9Zr3fTn4
+         MPCayDTiNiD5STm+YEsXv667pNbaPDNdQO56dY27z8tF8IrAyvPFDq3EqzBfP9uqihTr
+         CZmorDR353hueBsANOrY7MwPlJW/DfbIK709MFwSmf6DW38FStFts0TItLuij2EFq27O
+         Wl3hDA/EyW3A+V+XyTOuCGCR/iZNoVsB9B/b7SmnAudfczc1RFVtCnNnNnZNT3ALmrHs
+         57tQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=lPt1APWAuM+EKrwwPM+5moxwmnQPMXvp+cSe81HAQX0=;
+        fh=gpBa+Jxjifrju2N0rZ54NhgOcJTKFZZlYnoUCs7TJGI=;
+        b=MtozIEOto+DCIMMvTT9IlXz9Glrt5yjIT2/oj2ZnHuweNtvwBSt3KlU65HSG7aSHO2
+         i+egQ+iCUx3gr511fgzK2rO2ykZ/E3AjqVi4PJq7tdHdKmjFm2U6Av9Rd2aEVKFd20mr
+         GCMALwAWVFhgUAfiOQjtZDIWEZTj9AVD/pnRtnL/nCOj3nFCWQbElVt2A9J1Eytx8ubo
+         cE4L+0UGoq5B1yTKMlP95CjAIoyaBW9rRTjESuK8O+0YfR6ix97pD6+Y1z46yqLrX8RE
+         DwMlCBKgbzc4AkgNgTrxb+pPLfHr7Txdk27ccp95VnEK9dQ/qXDXHIX3TSbigmuiuyTo
+         ZbMg==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1795593563; x=1796198363; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=lPt1APWAuM+EKrwwPM+5moxwmnQPMXvp+cSe81HAQX0=;
+        b=pc7WeAg3PFpolsGeh7V8GC2dhbxFBLdAcrs7u6ZPkIeaUJf1R6Fw3I/CyF+FdKcBWk
+         2D138Ya8HiMVieQLfnW3JVJ692QehF7L8UAguWp8cjsVxzcggC/FYDrIN+CvVsyXc8iS
+         hQmcWHvqy4QoR9DFn50U7SbhAUWOLNmTtiaB1yyjAW0+X4mDK5SY1nFGpeFPIy7g//7T
+         RhxJDU5e8wPQBYjdyFVFY7yir1OEosiVnYUV0FHMaqbH4OQrEYF//B9PL2hEuaTLfYq+
+         W/vHLCDVfH0ZyMViirkpyNhNVwKkmsPVWYYLjVkOhgBjXwTW5c50jsezU2pivEuzd1hF
+         POrQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795593563; x=1796198363;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=lPt1APWAuM+EKrwwPM+5moxwmnQPMXvp+cSe81HAQX0=;
+        b=ujFhXcUYSmMc/5HO7g+PdDp3/Xa13NQJbuCO4kiJNNDSuGtTZa3wDyD1wbes6aeGFa
+         PCI8zbk4VhnIKIXH2L6HQ/qho6i3vlB/X2gk6wt82zF0dEIzBRFBnYFUTo8aEs2PYpku
+         hzZ6yJFIri6nz8woCXmx9ondrIGmQTvViJoiCHpradP44OTi521RdvCDryz40Tf5PrW9
+         plRfNN5ROr5SyzTYAgKowax4rgIh82SNcG2F4CuFJIxFhuAdmwA+YiAGZt3QGLTEgkUx
+         mXhywzB0M0Z4SQoiSsRun65S2xsqpfQE1BiT0W1bKoKus8vwioMflbbjEwUamUTk6Msa
+         2F7w==
+X-Forwarded-Encrypted: i=1; AL+hErG1tQxDWPF2Et647LumBm/Ck3sHScZFIutXQhjsNcHw5xV9ib7sIQbPJwe0avmnnz4BcU7tFNRmB08qmaY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z95H1riLSr3BDGTCF1421vtWVau6h3NbztDCVTsM8gKmX3sogBX
+	OQWTMn8QAo2zy84zVTmrRRJnh4hazf6+f6CEUbfdFlRd2WCJogmi0ClmaFmeb6LDjjGcTb6G9Q4
+	cDFaOym5GHLuW5+9zLH73odmfyB9EXIkJetTr7mq+pA==
+X-Gm-Gg: AZFdTZcWIxlrZ+M0xxi74ji3cEoNnx6tA771ec9bI36/PK0wfZsLn2EBaIJBYOOzMoS
+	DAV+rfkNmRmlA4eLOCruqVwztkQMJIGVPTx3+VdcI5i+Mx8eloycYP1S4SENAcZOTbO0Q+/XIq9
+	5Fk5gucPaTQS4I6pMC8qGDaNujvs7oOTUvlbaTIKRBz8TSLJiuLpLy/OK+90eoU928j15vforEr
+	EqPvoAMtz4BoZvR88lqBZ/BwidAGqh1bCZizcGa8JJeiUJCOoHE5c2FBTgQo7RViUG8gqEtni85
+	f9og4liZKtgOgb5zzECxSHeNz2aHKv4G/RZQmQQuRfrTSC4D6zgk7VQGoh7KqqIZkxoJVOfTTg6
+	eb9psngr7IeeVujiaGaBVhmi9n7kUUQbVwJZvOjG7LlsKVn8Ku+Yikb2udMoRelOS1Jk=
+X-Received: by 2002:aa7:d94a:0:b0:6b4:2960:d38e with SMTP id
+ 4fb4d7f45d1cf-6ba37e874dcmr9501044a12.26.1795593562901; Tue, 24 Nov 2026
+ 23:59:22 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -56,153 +103,73 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Date: Wed, 25 Nov 2026 07:58:18 +0000
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
-From: "Hui Zhu" <hui.zhu@linux.dev>
-Message-ID: <8f0abedb57eb51b09fbfca232fcc0f6eb0dedd03@linux.dev>
-TLS-Required: No
-Subject: Re: [PATCH 0/2] mm: memcg: fix memory.high allocator throttling
-To: "zhangjiao2" <zhangjiao2@cmss.chinamobile.com>
-Cc: "Johannes Weiner" <hannes@cmpxchg.org>, "Michal Hocko"
- <mhocko@kernel.org>, "Roman Gushchin" <roman.gushchin@linux.dev>,
- "Shakeel Butt" <shakeel.butt@linux.dev>, "Muchun Song"
- <muchun.song@linux.dev>, "Andrew Morton" <akpm@linux-foundation.org>,
- cgroups@vger.kernel.org, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org, "Hui Zhu" <zhuhui@kylinos.cn>, "Song Hu"
- <husong@kylinos.cn>, "Joshua Hahn" <joshua.hahnjy@gmail.com>, "Chris
- Down" <chris@chrisdown.name>
-In-Reply-To: <6e73ae4b-5400-4f6d-bf5b-2892827ea144@linux.dev>
-References: <cover.1794902513.git.zhuhui@kylinos.cn>
- <avzSkT9-jsCrMoeX@chrisdown.name>
- <6e73ae4b-5400-4f6d-bf5b-2892827ea144@linux.dev>
+References: <20261106151947.3991524-1-vincent.guittot@linaro.org> <20261123140513.849567-1-qiliang.yuan@linux.dev>
+In-Reply-To: <20261123140513.849567-1-qiliang.yuan@linux.dev>
+From: Vincent Guittot <vincent.guittot@linaro.org>
+Date: Wed, 25 Nov 2026 08:59:10 +0100
+X-Gm-Features: Aa3M54p2o-4OXRV5MRF0nedJcIovnM36DUkkwJL8BE3h8cyZzFyeML394K6ItNU
+Message-ID: <CAKfTPtAN0K0Ly1tM-2R=-9qLx=Nh5p9+GHeqRLHy-nbeAxZU0Q@mail.gmail.com>
+Subject: Re: [PATCH 00/18 v3] Improving latency of short slice tasks
+To: Qiliang Yuan <qiliang.yuan@linux.dev>
+Cc: mingo@redhat.com, peterz@infradead.org, juri.lelli@redhat.com, 
+	dietmar.eggemann@arm.com, rostedt@goodmis.org, bsegall@google.com, 
+	mgorman@suse.de, vschneid@redhat.com, kprateek.nayak@amd.com, 
+	linux-kernel@vger.kernel.org, lukasz.luba@arm.com, rafael@kernel.org, 
+	linux-pm@vger.kernel.org, tj@kernel.org, void@manifault.com, 
+	arighi@nvidia.com, changwoo@igalia.com, sched-ext@lists.linux.dev, 
+	qyousef@layalina.io, christian.loehle@arm.com, pierre.gondois@arm.com, 
+	sshegde@linux.ibm.com, kayracizmeci@gmail.com, tim.c.chen@linux.intel.com
+Content-Type: text/plain; charset="UTF-8"
 
-"Hui Zhu" <hui.zhu@linux.dev mailto:hui.zhu@linux.dev?to=3D%22Hui%20Zhu%2=
-2%20%3Chui.zhu%40linux.dev%3E >:
+Hi Qiliang,
 
-
->=20
->=202026/11/18 06:17, Chris Down:
->=20
->=20>=20
->=20> Hi Hui,
-> >=20
->=20>  Thanks for fixing these, I've verified that these fix the issues
-> >  reported.
-> >=20
->=20>  That said, Zhang Jiao sent a fix for the same two problems a few w=
-eeks
-> >  ago, and Johannes thought the overage cap there was a bit of a magic
-> >  value, which we have plenty of in mm already, and I agree we shouldn=
-'t
-> >  add more [1].
-> >=20
->=20>  Could you please coordinate so we don't have two patchsets doing t=
-he
-> >  same thing?
-> >=20
->=20>  Chris
-> >=20
->=20>  [1] https://lore.kernel.org/all/auNrakxaET8qkuAn@cmpxchg.org/
-> >=20
->=20Hi Chris, Joshua, Zhang Jiao,
->=20
->=20Chris: thanks for the pointer, and apologies for the duplicate. I mis=
-sed
-> Zhang Jiao's patch [1], and Song Hu's earlier report of the overflow, w=
-hich
-> already proposed check_mul_overflow() [2]. I've added Zhang Jiao to the
-> thread so we can settle the coordination here rather than off-list.
->=20
->=20You and Johannes are right about the cap. I've dropped
-> MEMCG_MAX_DELAY_OVERAGE and reworked 2/2 into the shape Johannes sugges=
-ted,
-> with calculate_high_delay() and the caller's penalty_jiffies both in u6=
-4 so
-> the value is narrowed only after the caller's clamp. That also removes =
-the
-> in-function min() from 1/2, which was undoing ff144e69f733 ("mm/memcg: =
-move
-> penalty delay clamping out of calculate_high_delay()"). The series shri=
-nks
-> from 19 insertions to 9.
->=20
->=20Joshua: the Fixes tag is the right one, though I can see why the diff
-> suggested otherwise. The division comes from 0e4b01df8659; my patch onl=
-y
-> touched that line to add the clamp. The bug is the reordering in
-> e26733e0d0ec, which replaced
->=20
->=20 =C2=A0 =C2=A0 penalty_jiffies =3D ((u64)overage * overage * HZ)
->  =C2=A0 =C2=A0 =C2=A0 =C2=A0 >> (MEMCG_DELAY_PRECISION_SHIFT + MEMCG_DE=
-LAY_SCALING_SHIFT);
->=20
->=20with
->=20
->=20 =C2=A0 =C2=A0 penalty_jiffies =3D max_overage * max_overage * HZ;
->  =C2=A0 =C2=A0 penalty_jiffies >>=3D MEMCG_DELAY_PRECISION_SHIFT;
->  =C2=A0 =C2=A0 penalty_jiffies >>=3D MEMCG_DELAY_SCALING_SHIFT;
->=20
->=20Before that, the shift ran on the u64 temporary and the narrowing int=
-o
-> unsigned long happened afterwards. After it, the value is narrowed
-> first, so shifting it right by 34 always yields zero. The division play=
-s
-> no part, and in v2 the diff no longer goes near it. Your other point is
-> settled by the same rework: with the clamp gone, the comment goes too.
->=20
->=20How I'd like to proceed:
->=20
->=20 =C2=A0- Zhang Jiao: would it be OK if I send the combined series? Th=
-e overflow
->  =C2=A0 =C2=A0fix stays under your name and keeps your changelog, in th=
-e shape
->  =C2=A0 =C2=A0Johannes suggested, and I'd carry the 32-bit truncation a=
-longside it in
->  =C2=A0 =C2=A0the same series. If you would rather send it yourself, or=
- split it
->  =C2=A0 =C2=A0differently, say so and I'll follow.
->=20
->=20 =C2=A0- Song Hu and I have been in touch off-list, and they are work=
-ing in this
->  =C2=A0 =C2=A0area as well, so the patches under my name will carry the=
-m as
->  =C2=A0 =C2=A0Co-developed-by.
->=20
->=20 =C2=A0- v2 will include what was missing before: a Fixes tag for eac=
-h of the two
->  =C2=A0 =C2=A0regressions (e26733e0d0ec, v5.6, for the 32-bit truncatio=
-n;
->  =C2=A0 =C2=A00e4b01df8659, v5.4, for the overflow), Cc: stable, a chan=
-gelog that says
->  =C2=A0 =C2=A0plainly that throttling was completely inert on 32-bit, a=
-nd the wrap
->  =C2=A0 =C2=A0threshold corrected to about 130x at HZ=3D1000 -- the 409=
-6x figure misses
->  =C2=A0 =C2=A0the HZ factor.
->=20
->=20Two separate patches rather than one, because they are different
-> regressions with different lifetimes, which matters for the stable
-> backports.
->=20
->=20One number that may be worth putting in the changelog: the smallest
-> exact-zero case is memory.high at one page with usage at 2049 pages, wh=
-ere
-> max_overage is exactly 2^31 and the product wraps to zero.
->=20
->=20Thanks,
-> Hui
->=20
->=20[1] https://lore.kernel.org/all/20261029073857.974-1-zhangjiao2@cmss.=
-chinamobile.com/
-> [2] https://lore.kernel.org/all/20260818012115.65838-1-husong@kylinos.c=
-n/
+On Mon, 23 Nov 2026 at 15:05, Qiliang Yuan <qiliang.yuan@linux.dev> wrote:
 >
+> Hi Vincent,
+>
+> On Fri, Nov 06, 2026 at 04:19:27PM +0100, Vincent Guittot wrote:
+> > The 99.9th percentile are a bit worse mainly because of the decay/reset of
+> > positive lag. Eternal positive lag was beneficial for cyclictest which
+> > doesn't do anything while running and slowly decrease its large positive
+> > lag.
+> [...]
+> > The test were run with the default 2.8ms slice to check for some
+> > performance regressions
+>
+> I ran the series on a fully loaded and an overloaded server-style
+> topology, to see whether the push path costs anything when every CPU is
+> busy. Guest with 32 vCPUs on an EPYC 9654 host, set up as 2 sockets x
+> 8 cores x 2 threads so that it gets SMT, MC and PKG domains, on
 
-Hi Zhang Jiao,
+Thanks for testing
 
-Gentle ping: OK if I send the combined series with the overflow fix under
-your name? If you're busy, I can carry it forward and credit you.
+> tip/sched/core bfee16fd01d4d (patch 10 needed task_tick_scx() to take
+> the new rq_flags argument to apply there). The four kernels were booted
+> in turn, 3 rounds of 3 runs of schbench -m 2 -r 20 each, median of 9:
+>
+>   workers  metric              base   +01-04   +01-15   +01-20
+>        32  wakeup p99 (us)     3116     4648     4648     4632
+>        32  request p99 (us)   34368    25568    25952    24992
+>        32  rps                 4327     4907     4898     4919
+>        64  wakeup p99 (us)     5656     7736     7640     7688
+>        64  request p99 (us)  194304   162048   161536   163584
+>        64  rps                 2507     2532     2529     2532
+>
+> The wakeup p99 increase, +49% at 32 workers and +36% at 64, comes
+> entirely with patches 1-4; adding the push patches does not move it,
+> while request p99 improves by 16-27% and throughput is the same or
+> better. So with every CPU busy I see no cost from the push mechanism
+> itself, only the lag decay effect you describe above, which here also
+> shows at p99. hackbench (4 to 32 groups) and tbench (32 to 128 clients)
+> with the whole series are within -5%..+3% of the base.
 
-Thanks,
-Hui
+Yes, clearing or decaying positive lag softens the capacity of a
+sleeping task to preempt at wakeup; that's why you see an increase in
+wakeup p99 but an improvement in request p99 and rps.
+
+The push feature doesn't impact your figures if you keep using the
+same slice for all threads.
+
+>
+> Thanks,
+> Qiliang
