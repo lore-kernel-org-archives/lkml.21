@@ -1,128 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.151
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=66.163.184.148
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795565477;
-	b=QhHwLni6FilJ1LccQcX6wUVhJpyQUYjRvOi60h/FC/bXQUBOriOxAvOoUZNHh1b4dNxk
-	 zRO2/ou8WfWyYctviEABSxoH/DwRqg6x816t1DeK5Iuocu6OXLofSsFjtgLgirIzXe/oR
-	 iYLX0jKo9HbLrIPFei8/ui5mk688rAmx58ymGQ/jP71QB5l2ZXhO0AsWxjaKmX9Go5Pva
-	 G0VgMBHgOgw0qFRy6cmayk9rkbuNYud1Mja/eLW+/K13/Cy3yXJCWcx39Kfixim+7taIF
-	 Jk8UyDfYbjN6PeHTniJzGAGqOrnVE90oMhQFR9CdsL4zcJSOIkXxk5QLjRnsUROLTZA==
+	t=1795565530;
+	b=UsE276e7K2T5/7qdOJFiZeeckGJpIWjWxRBoI6RrrzU8FaFdgIthXC8SZIOSXsIasg8q
+	 r8pJDB0xkWG0RkSdifWBnjA2+yyA7uOSMxmw6sOrSLL6uNcITVGN4wJpXL39J8UWvxW9R
+	 CzbVYsFbXUMwDR3Z3007zjtIchklm62MG5itTxNb4/1U4b5/vd1M58tTe1++DuDk8Yaf/
+	 R5/EMW9wnq24gOWSM2t4GeVpjHfbdmT+vVURaHi2k8nPbmyR3g6BCA57pXy71P6NERA6f
+	 PpPMwq2VKnlpUNSEPCO8RYcBsZY5warlkiHGjljvKxwMuM277hbh6/o7BdXQqWpd5fQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795565477;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
-	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
-	 References:Reply-To:MIME-Version:Content-Transfer-Encoding;
-	bh=KbjHZOXe3yXd2LuwCz1TJaWB6CC3H3w5sW7AffeKu8U=;
-	b=YruAZbkuddLyLWQh5mFGSgJFsx4zGdn0YFokeXQVw2nQng9EBW0Z802QVjHBzPxJnmj1
-	 ocK8TuT+ev1Rru3n82r0gGco8HvltKprDkVarXMKFkxOpQn381NdRsO0btOlGmuIVAqa4
-	 n3i456ImLKz1l9cON0c8uSFfQGxiScnboRsFOFHO+XWezAA3QacwGw1mmhE/DlMRsnInw
-	 yDdUzHRztgRDN+t6ArD7X0NFmaN/q8DhO7hGvBHgGXdJftUVZVv1MlgRIGrXsNgORc5w8
-	 FXzLIzrHC7XHjp/al084lAqidJg4phmTSAGFisuyIaplufJ4WR2EAAsMNlikiVdnINA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795565530;
+	h=DMARC-Filter:DKIM-Signature:X-SONIC-DKIM-SIGN:X-YMail-OSG:X-Sonic-MF:
+	 X-Sonic-ID:Received:Received:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:From:To:References:Content-Language:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Mailer;
+	bh=eF/KIzTFR5L7x6hlNv6UvciXd59fAB1GNCtxWjDJpLU=;
+	b=LX6HOlCRu65ebkMnfwc3zIxcjeSsUi5QT8134XGC4aP7oqVdK+u2V7Zsg4/kdHAnQAea
+	 l572R/v4AOibfjbGEifoEjsMGSJWB66+eFscqZGnQE7x9mlQa4U3vZmv3vw9sl9mpxWk+
+	 /BF9zMRJHKKoQzIkCd6Tcu6KDjO/+eScq5ekCWD0fOHlj1f1Ygk2o/RmaKf8/ezCFfCYq
+	 MWKc3xYNom1+vk6HOjR/WTy1sCIVp0sqPQIcbNiORA50ylsqkXaFJJQFQ1DjjcbS3eKq5
+	 Cice+Ch3tzAqeLdgo3DMTnVmq0+ACTkgssltyQ9Dckqve5O3KwtpNDNzPuUF1guPY8g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ownmail.net;
-	spf=pass smtp.mailfrom=ownmail.net;
-	dkim=pass header.d=ownmail.net header.i=@ownmail.net header.a=rsa-sha256 header.s=fm3 header.b=Pj0Tvhwv;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=1WsyIDMN;
-	arc=none smtp.remote-ip=103.168.172.151
-Received: from fout-a8-smtp.messagingengine.com (fout-a8-smtp.messagingengine.com [103.168.172.151])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=yahoo.com;
+	spf=pass smtp.mailfrom=yahoo.com;
+	dkim=pass header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=FVoQaNlW;
+	arc=none smtp.remote-ip=66.163.184.148
+Received: from sonic309-22.consmr.mail.ne1.yahoo.com (sonic309-22.consmr.mail.ne1.yahoo.com [66.163.184.148])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B2B86606A339
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 00:11:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B2B86606A339
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ownmail.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ownmail.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6B02A606A321
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 00:12:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6B02A606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=yahoo.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yahoo.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=ownmail.net header.i=@ownmail.net header.a=rsa-sha256 header.s=fm3 header.b=Pj0Tvhwv;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=1WsyIDMN
-Received: from phl-compute-07.internal (phl-compute-07.internal [10.202.2.47])
-	by mailfout.phl.internal (Postfix) with ESMTP id D0B53EC09EE
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 19:11:15 -0500 (EST)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-07.internal (MEProxy); Tue, 24 Nov 2026 19:11:15 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ownmail.net; h=
-	cc:cc:content-transfer-encoding:content-type:date:date:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:reply-to:subject:subject:to:to; s=fm3; t=1795565475;
-	 x=1795651875; bh=KbjHZOXe3yXd2LuwCz1TJaWB6CC3H3w5sW7AffeKu8U=; b=
-	Pj0TvhwvQZOy82u8aP3+euA7keu3aomf7R8oRuDR/zAlUuyRikas64kZLf3j8iQd
-	ewwb8EJDzbu38ZwmX35Gk8AXPY1bD4vh1dPndeaOSLS7hCwp/Oa8K58pYEHKkJNS
-	pvMhuQ34PaId68yj36tFkouN2pD0D9eQ3TULG0645PLCv9TOvDS7fYeQGAOBKGVk
-	pojcPc1NxNPmoh779uiPUN+Zs0wZXx1a176UmsQK8u4svYt9eyKSDfEvAUrzogtK
-	Xew02at6ZMJyzmSGIxlIXcD9+JHjomUuu41PmdN9w9X/3ODLwfUGvXgCU3fq9SAE
-	jmdxcArN+4NPE6V3io47lA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
-	:x-me-sender:x-sasl-enc; s=fm3; t=1795565475; x=1795651875; bh=K
-	bjHZOXe3yXd2LuwCz1TJaWB6CC3H3w5sW7AffeKu8U=; b=1WsyIDMNlk5kPZb3o
-	LYBPscth3dYHKiqDPwc9iTRpRpjokcwjCKdc6/3HuJ82Sw6MAhS0OaqEc1rHv5KZ
-	N//Q+M1/MNwVZKGTU+0Oy4LxJO8pWJkXYFswmL0vt2mjeptL4R0J/Cc2csb7m6l2
-	boyNdSCwyG+pGT4+JaycyTVzCES0jEVsmxnP/0/PIEITWIUYlw9S15otUc++c+gL
-	+qkYFVclXov3knoy2YQLt/7d1zkCOom5d/iKAA4lKl3id+RraAUx8npirPUwjF7t
-	dzfGiRc0t1f3AWgjc8WCTGG4sDDXfduKqIdZ5nDyjHGN6FktsR/TIkCfxzc77yXC
-	cnUhQ==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=ownmail.net a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795565475; d=ownmail.net;
-	mf=PG5laWxiQG93bm1haWwubmV0Pg==;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm3:rsa-sha256:NDwcb5OSjBvW97/gt+Sec4oyl1DNtb0dSRd1lM+do2kAo26
-	AK8cKa5+mt4bcBRTXKDLC9qxcVAhwQBqdQrHyUbPHJJkG+tAPVsEIwnj/20X2vnn
-	AWaWYewH0XR1rx3fYcgSHK27PWeylEidhty539baSg7XTS5ZQLXfHxZ7UOOgDLgF
-	AY8auYdA9oZkMD6mSz5vDitvpxXP6oTgBMCOJltlaS7PNV9rpdJVw4lnMBgFWoea
-	jMwv0bJktv3vN5oTB38iY0AlV1DJuBkPCuEkJ/K9urjMHYSL+kIZwEzvX2G62dAT
-	y+SXh5AYMZr1QQVuNdOqVuA5G013+TfjZSdGK3w==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=12;
-	hn=cc,content-transfer-encoding,date,feedback-id,from,
-	in-reply-to,message-id,mime-version,references,reply-to,subject,
-	to;
-Message-Instance: m=1; h=sha256:NWYMezOoetzPdSts5+4im5fr02moGmKyZS7tToDn920=:tcIhJLiDBUg7Vjy/oxda7VGLQUDMtE8Z2KCmsrQOvAs=;
-X-ME-Sender: <xms:oycGa_ddqAiF8sHk4rkcxlg5BJGfPw0Bo2MI5dKitpnr-MjhB0l5cQ>
-    <xme:oycGayHB7UzQu-ySKenS0vglpJx5nITDdVPsPGCP9kWp4TZ7THOuBHovALynEAsQz
-    _mp6Zuhj4-OfG965lCYrnYRIZoe3bzebReVbyZuw1-AbztdJw>
-X-ME-Received: <xmr:oycGa4SWtxK3A9iM6zBNZOa90qh3vfX330U4tc8PHev1rZIQ94_f3u_EhPDBp2zUDeZO8659AxEnoOMQQ4fv0md_f8SWFgU>
-X-ME-Proxy-Cause: dmFkZTEWLT7VrCmqXFQ/3MlmFKwGsnI42jGU9wsAMLqZ91wz8mggV5m1msJjVSCHxeBUqJ
-    t97+mptHMICXthawWKapABbbyhWq7+uuMmApmcH+Yba1WLWrkpVix7mPta4EAT8yMDamx0
-    5loYd6jJqeFIrGsONkYYE6J9hbaumuKI+/Omki5Aa4Aq5KfhTiLPUl0BoveVjf5cOUWX5w
-    4HMB7hKbpvsoA+vADp3tWal1VkBjpQ6AgmqI+ZRNztjqSQMs2MYuFzBsfnKESIRZVSoi1i
-    NXRaNZOSkWUP3rzL/NZtKjvVOieVFii1RhBvtxr3qqxuVDS0tX4ZmqS3Hzxkk/+20l5gEf
-    L9OyLHTHo+nOZk9IXVU/b0qIWnqDFqvY34fNs+XkAHPIEu8q/0QN6f1mjMC1ADmIGz1ZDT
-    WeL+3prBKujD6Kd/i2ZVbHJqJLHgv480889t1GP+Yq/9jEiaVMz+tgPuEEPxu9DU2BBjsu
-    PPA2A7z4rwy5VA1pNhr1MDCCONtm6KsKU02Nr0cmg7fE5Qt/D/UDCEEqjA5zimUklG1uNI
-    EiFYZWITdnyPq0bJ4mo0mUy3tVsjVFUax+BqmmeUOdZe1MqitrjMHZ96yniqMnEDmecA17
-    OX8E9zw8WkWnxPQL98wTuv5VqKPqjp8dLh2mDzpQ7n5k/irh6frmNKOsAWKA
-X-ME-Proxy: <xmx:oycGawbelaThE3hG_LZL9IG-ENrM8KW_EdxO-0RTj1xTDfh1OJqIdA>
-    <xmx:oycGa72icqyHwxkc92hJ7l5ojbjbFG7khPumm5StQdN9Njd5Fioqfg>
-    <xmx:oycGa7oUSCDQHwMUAuE4zLgdMdFyjIKpIh-Y1C0qwyt8IONCGzu5KQ>
-    <xmx:oycGayPWk2AQEzoMpwIaLKuZ7fe8D5HSoUQ7CjVbSM80OOl-H3QcTw>
-    <xmx:oycGa5x9kp40FMeTUwad3JPlSzvzfZQ8x6rNdCyHkGVsiqWQslKPmgaH>
-Feedback-ID: i9d664b8f:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
- 24 Nov 2026 19:11:13 -0500 (EST)
-From: NeilBrown <neilb@ownmail.net>
-To: Alexander Viro <viro@zeniv.linux.org.uk>,
-	Christian Brauner <brauner@kernel.org>,
-	Jan Kara <jack@suse.cz>,
-	Amir Goldstein <amir73il@gmail.com>
-Cc: linux-fsdevel@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Ian Kent <raven@themaw.net>,
-	Jake Edge <jake@lwn.net>
-Subject: [PATCH v7 5/5] Use d_for_each_positive_child() in fsnotify.
-Date: Wed, 25 Nov 2026 11:03:42 +1100
-Message-ID: <20261125000836.3984402-6-neilb@ownmail.net>
-X-Mailer: git-send-email 2.50.0.107.gf914562f5916.dirty
-In-Reply-To: <20261125000836.3984402-1-neilb@ownmail.net>
-References: <20261125000836.3984402-1-neilb@ownmail.net>
-Reply-To: NeilBrown <neil@brown.name>
+	dkim=pass (2048-bit key) header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=FVoQaNlW
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795565528; bh=eF/KIzTFR5L7x6hlNv6UvciXd59fAB1GNCtxWjDJpLU=; h=Date:Subject:From:To:References:In-Reply-To:Content-Type:From:Subject:Reply-To:Content-Type; b=FVoQaNlWyNURwU+G7YMCaI9TBRuual0UKLmmYQlW0+6PXlkYWlYZCyUjrGV7n48EHAgeCq05VS5HetGtWK4Nk5pZbkRK/oGFekwRslcMYfhXZVepNOHKG/jdwK/RyiZHNU2XeRXmhTMQeT+wvkPeNCJeARivRsQe7+2T1GF9XnKBtUO8JlMc3V/8Ydj09ijHg0Frlv7x4uI7DQXnhSxOzlcC+56vH2aBmQpH3bqEnDlJvcpVjpKxDXJx9vGON2es1gWkqlJkS/RqBtSENH5BUEFND3YpcalGqMuRf96bdNJ+U6PyoJaWGxRTx10O+mNIEbcr3V9ef0w9GFG6eRJutQ==
+X-SONIC-DKIM-SIGN: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795565528; bh=nghp3KIRqDs4QmGBm/kmfUVZBKlPPsSQAzVjioVZ8hk=; h=X-Sonic-MF:Date:Subject:From:To:From:Subject; b=FqamMo968DfD04z0ReqBGl69n5Ne0XJLg/9aoMCeOd3IC5FnEgDM8SIxjyI2dr/qGxl2ouJGZQ5lulrGGngEDNtqWqcurSMDLJPJdLxEssJ71VrXnLgPC/XarbLEs+S+DpJbLjqsAdwKWfiy+0UAKLJAE3XKiwJSaVPdoDS/Jng3mi6JwMqJOI7PRXeaT21e9cQHzLO47RiQpp/E7BNjuNYwYgarifM+xj2LRsEkuO7NRTXultUFZz8i8tQOOYJ+jA15FO9j92CIzELk+4wRCTZKcrjS/6afeGRDA2fYepnf3IsuX7KsnWYn2UDTt04bVcjpxY+dw2psjBND6U6YBQ==
+X-YMail-OSG: l_lRQ5QVM1lvi7wLC5lLZUzSXXbQaC8PeGKbBYYVoldQ8zBFlGaR.02FxKVRaMt
+ UhCKDHL1y9j0FXwhmrVCUnJLck_dNbbtAIcs.Kfx0ohu.VtIPvOPNrK4gOMy.ZbeneeEz9eYSour
+ CEF9mL9_yqVlENLGvYNKIxGsueGy6aWnW0EN8Xz_faKad7dIEQXuQ43_gaFfsuXD92TnHBbitCl6
+ xL6SemivqsvGi85j5paHJ8Qw1K1QUuzuteibtupnbrSzUudlu2KbCl77ypL9YCFYWVOEm8SzdKBg
+ Ifv5QaLp_Xb5W0cGM2IVbOkcINlna5DQ22qbitXdW1BSgZUrmMMQbr_yPgQYNPc7S038vVuLqh7g
+ 5rwqvwqbRto7ix4Ty5e5FOZlKeT2E._5rjslSOcC8pkKNZqEKsbITPMpEplOAHosVh3GFuWi8jh2
+ LTOunvn5P.1H9lR4xwu9enSB3UQXvKCvyTh4cfrGbAeT5FdJ.zrU6.hKDDF8sZ07_x6sLVZF_Bet
+ vtlsB5Et8zlhd8pZwDRFgiWivdapv_LfdDd1oS5cwrDZlMZ2v.e8.zpbrL9sa4giY3YP_goMtkVG
+ Gcv_y7vXlRzwJCUlX45XOHSOuRnhMT9V9VEeODQZEMejSfpgwzNwdiVNfutbrTtvKJA59WhDeHAd
+ x4cqE5KkaZFH_pMFC32tkzdXNLviqHQX08TsiMn7DMZZt9VgwCGWMjAAk1GRCpZbsDR2tBTk35.7
+ i1wZBfRH2jycmX53NtlMlwoZaDVZ2P0Gb8aLBlB62h71EKvzyv_OG3M_Lzdz7I9Q7DdimRckd92f
+ 1SLMDU4hoDK5SbqKwob.aOuG09LwvUiwc1QyNTiXcSkORmm0kOc6tkmeUPNo5DyWm_SJ0ocp2ald
+ .jh9NH5Th8hhwl9q5e4IP9WcoUm0QKqJU7vME4rl8.nof1hR.z0B2NwjfUvvcPJCUQayQZ_LTbh7
+ OmbuhthVhzXDWT9luq1VILta6jkJpeoFnLOR7ml2X3mi3NrtKMvndaJLVL304TkLbwAYsr2rsT74
+ v0uPna4w7xrB4hC9SEP3jGWb5sLBGZEpNyEQ5K6H.8nnouMY7JnpE_OLMcjhpzrfHkNkhLfV8SFJ
+ OMpbkCjTKuziD6iWebLFiA27OmEvhc0KZ0JJsm71q28qFIuW5fkAyEq0Z0S7FOof1Ndy5PQ4hKS_
+ dy_mzCbyleY_tjDrOASEq3S_KPCm25ebKsxl0VfCCAB6gPKEYxIntvkBscmOWUM3TLKAN7Gm_IB1
+ btYOerNi_Vs9J.eKRpwo8uSFExvjpB9FjtjjEEWINXOpKQhtmLJpAUBGLLVPr6gEjF.9dhLdvHZg
+ VUsAhUQ6p9uKEBYktMkJPiC7hL9Guf5ysOo6SnwvZ4XHoY6FDbY2MZUdAvRzW6nokU6ncBDFkF5w
+ 6qFLc6K8vNw_bQqvev.i99axe2cwzalvXTcDU0.6_VUdb7LPAxC2ZwqjQRz5xf9WPsIcGeRYVTT9
+ bgK7PuarR9Nt9gKZeWpOsOYCgDoCB2zcHE1OXQBQoeq5gSZD1qYBgp1GRHAzHuS0YBwImojuIRCu
+ IQ8rpqWYLnRm8MXH8TE.8q_TsO3_fPf5uzOIAFRo4DfaJRuNA3A7eVydART88a5XjZqfvaIJSAg4
+ 8N4wt1okD15Qu6bIB1IsGiBI7TwXRmWsU5vucA5Zgqf8F0kZ9VW2ojKVqnj9HV.g4qQhRchBq.Z9
+ o4Ni3uQOo3yVRRUArh9o9E3mNv.TfLezB8neDT4K0Frsx6WZAE8GZr.X5WfTo_aLmqyxLrUxrl5g
+ gRAXRGaKGSPvdbeyW0HUBAQr2C1.S_vuyuI2DOodbd5HWCQoysUIIyYkxPOrSLlud5JZ76IaDruO
+ 8O7tqmV0HEoC6afDpuaP2TxNYez_2legFslMSuxeP3bhsYV5Bl58wT1Y5KMKmvG_J2SCpNmIOjLB
+ IlYAyyXE5O6YuvfdS_drEsYQ_Grvehc93Rzq1zA_YDwmA_DX_iUEXKWzKB97oZ5_sD1Tqame4t5d
+ 0Ej7GluIlOHeP8sLlM2FKtQ6dPBvPA_Tn4fkGBg0wmd9N0C82R2w2O2s8t0N7SD4sL2Mae5imHSE
+ J38pYGuH1I.L3uReHkugqvcvmZuc7xnGYsq4cI3Hv0lf60f6zbhOOlOXyvpQMJN4xn.Qlnl0ji.F
+ EyeUuMY6eWTa7Rzbcp2pmLMruTGjVFZ7vjNgZYBCbSKBBH1_MTTfgJaXqnmI8BGxQXIA3Ok13Q5u
+ NJCaW7S.2bhAHYNLNO6OZjfxoIespjyTnB_zANR_k2XhedXQfJmxj4VTkEJ5GcVuBmpo3lj5JdWb
+ Vww1ZfKQkfQ05NMaCgOjsxcy30syGVJIbJ8kHTo2LkQWT1vPF3DM-
+X-Sonic-MF: <namiltd@yahoo.com>
+X-Sonic-ID: 29e365d2-b41e-4be2-b781-5466ae6afe71
+Received: from sonic.gate.mail.ne1.yahoo.com by sonic309.consmr.mail.ne1.yahoo.com with HTTP; Wed, 25 Nov 2026 00:12:08 +0000
+Received: by hermes--production-ir2-7c4859dc89-4b66q (Yahoo Inc. Hermes SMTP Server) with ESMTPA ID 10014e88bce9f7ab21d55ee9ecdc66d0;
+          Wed, 25 Nov 2026 00:12:03 +0000 (UTC)
+Message-ID: <5540b093-3ecf-4ba8-99ee-84197a037f11@yahoo.com>
+Date: Wed, 25 Nov 2026 01:12:00 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -132,43 +84,265 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: [PATCH net-next v14 13/15] net: dsa: realtek: rtl8365mb: refactor QoS
+ priority handling
+From: Mieczyslaw Nalewaj <namiltd@yahoo.com>
+To: linusw@kernel.org, andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org,
+ davem@davemloft.net, edumazet@google.com, pabeni@redhat.com,
+ linux@armlinux.org.uk, luizluca@gmail.com, maxime.chevallier@bootlin.com,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ alvin.sipraga@analog.com, gusfmora@gmail.com, kuncy7@gmail.com,
+ fabianotassotti@gmail.com, gabonpivovich@gmail.com, contact@c127.dev,
+ o.rempel@pengutronix.de
+References: <874b29a3-f47f-4bf2-a0f6-2f9fea712f4c@yahoo.com>
+Content-Language: pl
+In-Reply-To: <874b29a3-f47f-4bf2-a0f6-2f9fea712f4c@yahoo.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Mailer: WebService/1.1.27100 mail.backend.jedi.jws.acl:role.jedi.acl.token.atz.jws.hermes.yahoo
 
-From: NeilBrown <neil@brown.name>
+The shared QoS layer hands the backend internal priorities that are
+802.1Q traffic types, and the backend stores them in the chip as they
+are, together with a separate per-port PCP for untagged frames. Family D
+numbers its internal priorities differently and has no separate
+untagged-PCP register, which the next patch adds.
 
-fsnotify has been reported as source of soft-lockups when iterating a
-long ->d_children list.  Change it to use d_for_each_positive_child()
-which will call cond_resched() as needed to avoid soft-lockups.
+Move the conversion between a traffic type and the chip's priority, and
+the programming of the PCP of untagged frames, behind three new hooks in
+struct rtl8365mb_family_info, as for the VLAN, PVID and L2 helpers:
+qos_iprio_to_hw, qos_hw_to_iprio and qos_set_untag_pcp. The existing
+behaviour becomes the family C implementation: the traffic type is
+stored as it is and the untagged PCP register is written as before.
+rtl8365mb_qos_qmap_init() now iterates over the chip's priorities and
+converts each one back to its traffic type.
 
-Link https://lwn.net/Articles/1079407/
-Reviewed-by: Jan Kara <jack@suse.cz>
-Signed-off-by: NeilBrown <neil@brown.name>
+No functional change.
+
+Tested-by: Gustavo Foletto Mora <gusfmora@gmail.com>
+Signed-off-by: Mieczyslaw Nalewaj <namiltd@yahoo.com>
 ---
- fs/notify/fsnotify.c | 6 +-----
- 1 file changed, 1 insertion(+), 5 deletions(-)
+ drivers/net/dsa/realtek/rtl8365mb.h      |   4 +
+ drivers/net/dsa/realtek/rtl8365mb_main.c |   3 +
+ drivers/net/dsa/realtek/rtl8365mb_qos.c  | 102 +++++++++++++++++++----
+ drivers/net/dsa/realtek/rtl8365mb_qos.h  |   6 ++
+ 4 files changed, 98 insertions(+), 17 deletions(-)
 
-diff --git a/fs/notify/fsnotify.c b/fs/notify/fsnotify.c
-index 58566e6b9679..33c5d10f78ba 100644
---- a/fs/notify/fsnotify.c
-+++ b/fs/notify/fsnotify.c
-@@ -86,16 +86,12 @@ void fsnotify_set_children_dentry_flags(struct inode *inode)
- 	 * their d_flags to indicate parental interest (their parent is
- 	 * the original inode)
- 	 */
--	spin_lock(&alias->d_lock);
--	hlist_for_each_entry(child, &alias->d_children, d_sib) {
--		if (!child->d_inode)
--			continue;
+diff --git a/drivers/net/dsa/realtek/rtl8365mb.h b/drivers/net/dsa/realtek/rtl8365mb.h
+index 9a69e85..d34c9b6 100644
+--- a/drivers/net/dsa/realtek/rtl8365mb.h
++++ b/drivers/net/dsa/realtek/rtl8365mb.h
+@@ -38,6 +38,10 @@ struct rtl8365mb_family_info {
+ 	void (*l2_uc_to_data)(const struct rtl8365mb_l2_uc *uc, u16 *data);
+ 	void (*l2_data_to_mc)(const u16 *data, struct rtl8365mb_l2_mc *mc);
+ 	void (*l2_mc_to_data)(const struct rtl8365mb_l2_mc *mc, u16 *data);
++	int (*qos_iprio_to_hw)(u8 iprio);
++	int (*qos_hw_to_iprio)(u8 hw);
++	int (*qos_set_untag_pcp)(struct realtek_priv *priv, int port,
++				 u8 hw_prio, u8 untag_pcp);
+ };
  
-+	d_for_each_positive_child(child, alias) {
- 		spin_lock_nested(&child->d_lock, DENTRY_D_LOCK_NESTED);
- 		child->d_flags |= DCACHE_FSNOTIFY_PARENT_WATCHED;
- 		spin_unlock(&child->d_lock);
- 	}
--	spin_unlock(&alias->d_lock);
- 	dput(alias);
+ const struct rtl8365mb_family_info *
+diff --git a/drivers/net/dsa/realtek/rtl8365mb_main.c b/drivers/net/dsa/realtek/rtl8365mb_main.c
+index bf508ed..639e6b6 100644
+--- a/drivers/net/dsa/realtek/rtl8365mb_main.c
++++ b/drivers/net/dsa/realtek/rtl8365mb_main.c
+@@ -830,6 +830,9 @@ static const struct rtl8365mb_family_info rtl8365mb_family_c = {
+ 	.l2_uc_to_data = rtl8365mb_c_l2_uc_to_data,
+ 	.l2_data_to_mc = rtl8365mb_c_l2_data_to_mc,
+ 	.l2_mc_to_data = rtl8365mb_c_l2_mc_to_data,
++	.qos_iprio_to_hw = rtl8365mb_c_qos_iprio_to_hw,
++	.qos_hw_to_iprio = rtl8365mb_c_qos_hw_to_iprio,
++	.qos_set_untag_pcp = rtl8365mb_c_qos_set_untag_pcp,
+ };
+ 
+ /**
+diff --git a/drivers/net/dsa/realtek/rtl8365mb_qos.c b/drivers/net/dsa/realtek/rtl8365mb_qos.c
+index 5b9e1ab..b61ffdb 100644
+--- a/drivers/net/dsa/realtek/rtl8365mb_qos.c
++++ b/drivers/net/dsa/realtek/rtl8365mb_qos.c
+@@ -18,6 +18,7 @@
+ #include <net/ieee8021q.h>
+ 
+ #include "realtek.h"
++#include "rtl8365mb.h"
+ #include "rtl8365mb_qos.h"
+ 
+ /* The chip's eight internal priorities carry 802.1Q traffic types, one
+@@ -218,54 +219,113 @@ static int rtl8365mb_qos_check_port(struct realtek_priv *priv, int port)
+ 	return 0;
  }
  
++/* Family C stores the traffic type as the chip's priority */
++int rtl8365mb_c_qos_iprio_to_hw(u8 iprio)
++{
++	return iprio;
++}
++
++int rtl8365mb_c_qos_hw_to_iprio(u8 hw)
++{
++	return hw;
++}
++
++int rtl8365mb_c_qos_set_untag_pcp(struct realtek_priv *priv, int port,
++				  u8 hw_prio, u8 untag_pcp)
++{
++	return rtl8365mb_qos_regmap_update_field(priv,
++						 RTL8365MB_QOS_PORT_UNTAG_PCP_REG(port),
++						 rtl8365mb_qos_sel_mask(port),
++						 untag_pcp);
++}
++
++/* Convert an internal priority (an 802.1Q traffic type) to the value the
++ * chip uses. Return the value or a negative errno.
++ */
++static int rtl8365mb_qos_iprio_to_hw(struct realtek_priv *priv, u8 iprio)
++{
++	return rtl8365mb_get_family_info(priv)->qos_iprio_to_hw(iprio);
++}
++
++/* Convert a chip priority back to an internal priority (a traffic type) */
++static int rtl8365mb_qos_hw_to_iprio(struct realtek_priv *priv, u8 hw)
++{
++	return rtl8365mb_get_family_info(priv)->qos_hw_to_iprio(hw);
++}
++
+ int rtl8365mb_qos_get_port_prio(struct realtek_priv *priv, int port)
+ {
+-	return rtl8365mb_qos_regmap_read_field(priv,
+-					       RTL8365MB_QOS_PORT_PRI_REG(port),
+-					       rtl8365mb_qos_sel_mask(port));
++	int val;
++
++	val = rtl8365mb_qos_regmap_read_field(priv,
++					      RTL8365MB_QOS_PORT_PRI_REG(port),
++					      rtl8365mb_qos_sel_mask(port));
++	if (val < 0)
++		return val;
++
++	return rtl8365mb_qos_hw_to_iprio(priv, val);
+ }
+ 
+ int rtl8365mb_qos_set_port_prio(struct realtek_priv *priv, int port, u8 iprio,
+ 				u8 untag_pcp)
+ {
+-	u32 untag_reg = RTL8365MB_QOS_PORT_UNTAG_PCP_REG(port);
+ 	u32 reg = RTL8365MB_QOS_PORT_PRI_REG(port);
+ 	u32 mask = rtl8365mb_qos_sel_mask(port);
+-	int ret;
++	int hw, ret;
+ 
+ 	ret = rtl8365mb_qos_check_port(priv, port);
+ 	if (ret)
+ 		return ret;
+ 
+-	ret = rtl8365mb_qos_regmap_update_field(priv, untag_reg, mask,
+-						untag_pcp);
++	hw = rtl8365mb_qos_iprio_to_hw(priv, iprio);
++	if (hw < 0)
++		return hw;
++
++	ret = rtl8365mb_get_family_info(priv)->qos_set_untag_pcp(priv, port, hw,
++								  untag_pcp);
+ 	if (ret)
+ 		return ret;
+ 
+-	return rtl8365mb_qos_regmap_update_field(priv, reg, mask, iprio);
++	return rtl8365mb_qos_regmap_update_field(priv, reg, mask, hw);
+ }
+ 
+ int rtl8365mb_qos_set_pcp_prio(struct realtek_priv *priv, u8 pcp, u8 iprio)
+ {
+ 	u32 reg = RTL8365MB_QOS_1Q_REMAP_REG(pcp);
+ 	u32 mask = rtl8365mb_qos_sel_mask(pcp);
++	int hw;
+ 
+-	return rtl8365mb_qos_regmap_update_field(priv, reg, mask, iprio);
++	hw = rtl8365mb_qos_iprio_to_hw(priv, iprio);
++	if (hw < 0)
++		return hw;
++
++	return rtl8365mb_qos_regmap_update_field(priv, reg, mask, hw);
+ }
+ 
+ int rtl8365mb_qos_get_dscp_prio(struct realtek_priv *priv, u8 dscp)
+ {
+-	return rtl8365mb_qos_regmap_read_field(priv,
+-					       RTL8365MB_QOS_DSCP_PRI_REG(dscp),
+-					       rtl8365mb_qos_sel_mask(dscp));
++	int val;
++
++	val = rtl8365mb_qos_regmap_read_field(priv,
++					      RTL8365MB_QOS_DSCP_PRI_REG(dscp),
++					      rtl8365mb_qos_sel_mask(dscp));
++	if (val < 0)
++		return val;
++
++	return rtl8365mb_qos_hw_to_iprio(priv, val);
+ }
+ 
+ int rtl8365mb_qos_set_dscp_prio(struct realtek_priv *priv, u8 dscp, u8 iprio)
+ {
+ 	u32 reg = RTL8365MB_QOS_DSCP_PRI_REG(dscp);
+ 	u32 mask = rtl8365mb_qos_sel_mask(dscp);
++	int hw;
+ 
+-	return rtl8365mb_qos_regmap_update_field(priv, reg, mask, iprio);
++	hw = rtl8365mb_qos_iprio_to_hw(priv, iprio);
++	if (hw < 0)
++		return hw;
++
++	return rtl8365mb_qos_regmap_update_field(priv, reg, mask, hw);
+ }
+ 
+ static int rtl8365mb_qos_set_port_qmap(struct realtek_priv *priv, int port,
+@@ -306,19 +366,27 @@ int rtl8365mb_qos_qmap_init(struct realtek_priv *priv)
+ {
+ 	unsigned int nq = priv->ds.num_tx_queues;
+ 	struct dsa_port *dp;
+-	int iprio, ret;
++	int prio, ret;
+ 
+-	for (iprio = 0; iprio < RTL8365MB_NUM_INTERNAL_PRIOS; iprio++) {
+-		int tc = ieee8021q_tt_to_tc(iprio, nq);
++	/* The table is indexed by the chip's priority, not by the traffic
++	 * type.
++	 */
++	for (prio = 0; prio < RTL8365MB_NUM_INTERNAL_PRIOS; prio++) {
++		int tt = rtl8365mb_qos_hw_to_iprio(priv, prio);
++		int tc;
+ 		u8 qid;
+ 
++		if (tt < 0)
++			return tt;
++
++		tc = ieee8021q_tt_to_tc(tt, nq);
+ 		if (tc < 0)
+ 			return tc;
+ 
+ 		qid = rtl8365mb_qos_tc_to_qid(nq, tc);
+ 		ret = rtl8365mb_qos_set_qmap_qid(priv,
+ 						 RTL8365MB_QOS_QMAP_DEFAULT,
+-						 iprio, qid);
++						 prio, qid);
+ 		if (ret)
+ 			return ret;
+ 	}
+diff --git a/drivers/net/dsa/realtek/rtl8365mb_qos.h b/drivers/net/dsa/realtek/rtl8365mb_qos.h
+index 9602807..d68b2bd 100644
+--- a/drivers/net/dsa/realtek/rtl8365mb_qos.h
++++ b/drivers/net/dsa/realtek/rtl8365mb_qos.h
+@@ -30,4 +30,10 @@ int rtl8365mb_qos_set_apptrust(struct realtek_priv *priv, int port,
+ int rtl8365mb_qos_get_apptrust(struct realtek_priv *priv, int port, bool *trust,
+ 			       unsigned int n);
+ 
++/* Hooks of struct rtl8365mb_family_info, one set per chip family */
++int rtl8365mb_c_qos_iprio_to_hw(u8 iprio);
++int rtl8365mb_c_qos_hw_to_iprio(u8 hw);
++int rtl8365mb_c_qos_set_untag_pcp(struct realtek_priv *priv, int port,
++				  u8 hw_prio, u8 untag_pcp);
++
+ #endif /* _REALTEK_RTL8365MB_QOS_H */
 -- 
-2.50.0.107.gf914562f5916.dirty
+2.53.0
 
