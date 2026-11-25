@@ -1,60 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=109.224.244.17
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795594657;
-	b=VJRo65V1sPb7i1e8g6zObk+jCv6B1DwQ++jYy3M+qtkQVoBawbj1xpIBqTMQS+1Y1vpq
-	 1DtM1FsEgW1Hnn17KZ30QUyUu2VVu7XlWpvC31D16tyOLayfpkjzhGPo1EIT08gqsn9gg
-	 e5Hs2ii5yjZQJ64mxQto3EDSt+mUdhy+RQNFVXUK+PAuDAJLGQUZcPjYnrEWv5zw4Cppc
-	 c1XzgSSDeWyJfwukU72PMztbDO/bQhbjn4Ye+BO8+GTpJIqhBegNsQ49E4BpFErwQRTpG
-	 v3AOvLVjxVPrgSzd7IjPBIlqLQmZx4w6/WOed1RSIxa92+4fgHNFkH6gSn0SY8w7Uqg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795594657;
-	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
-	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=+U6fWq1g8ry70s4OdmI+TV+gBJOABwlcVv7t82zgihU=;
-	b=ulqRWjrMwRZxHRWLXRDpz7k+3LMO1dik1kIFB2X8NTy64XnjfoIAt+1/BbjAjAtz/S/S
-	 O4XVz03qijcNVr9cK/JwdL5bwJMQcLyESF89RlAxTrJ6dN6CplIdDr4nYJJ4xPPKGeyGa
-	 lEZvqBF4u5BS/seAbKiX88NfzzxkXzy7sOYcp1RrkCclGYowJVj6X9vE2cWTYf86HM/nx
-	 L8Yho8qdSqMCaTW4opw23VcG5+0R2tkHD0NDXI3c7pliauYmuOE7td4t/Zmo1Phk2k/E1
-	 L2TmF77GdFDo1XM/K8im2L0e7bLQXauoW0ji/nAUK/Wneln2XfGp4olFmCVKrUwM10w==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=protonmail.com;
-	spf=pass smtp.mailfrom=protonmail.com;
-	dkim=pass header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b="qF/pfjex";
-	arc=none smtp.remote-ip=109.224.244.17
-Received: from mail-24417.protonmail.ch (mail-24417.protonmail.ch [109.224.244.17])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.54
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795594690;
+	b=22/Fb8uAJKPiJXV6sDGav0lB+vMGrzdVBlfmt4rHZA0nRPwi6tFdpkcTJ6SvZFQ1KNB5
+	 BXgPC5ciLgXBwa2pwQ10+nUWmgvQLg8s9sufP7s71XLbUgTHWrqGVzIny1ui4sSyGZY0T
+	 M64p0q/EDqQ6R+bR9mK45mfiOxlgEQffUm9fT9wnTC4JGpKUhk6dW7VgiJbwjMJ/Pj5z1
+	 8LNxVZ1CXJWbhTjtyE59g6gWwCoQj7Y2c6KITZfBeCuQ3eO2MyeQa8r616fSvfB2qnEMM
+	 HsrpkPLenJ7lrGQC53JBgSRdoss3tMtg0sWaaxlXrHBtZIOJddCLR9YoEQN7HJ0RCwA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795594690;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=+TlxyhCe0EFo142JqOfaOYVkjOKNeFKPV+TihlUjknw=;
+	b=i5fZ4jIVcyF7f3+N/ehlMClfJL4ZKOuX1QcX/xqPbw1DBOJcboZ90anwh4v+J0osh1Qk
+	 A9u90jXzEF8C/CrYYuAntfFLySJ3M67PXdTaaCGcPR4jeNnx7sADnPZZv0CQeQlgO3oDU
+	 PIC2IpgeMFoC6BEmlRUjYX3rpmMuCKWHVehB7GVXv++zQxF5phY3QVLNQ9DEc+CUwAHJZ
+	 YTovWwjsedWMuvNK5VF97cg4BzJM5HUDle6LTZQffoME0D1iW9x/Pz8r+LqD3nehBkYXn
+	 dq9R3BhyrQoGW3dGbPqfsdFs2WK5OPNCQ/Fqxw9ItKpiytvyyu05dtyQuoEKi94a29A==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linaro.org;
+	spf=pass smtp.mailfrom=linaro.org;
+	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=R7ZaEPx5;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.54
+Received: from mail-ed1-f54.google.com (mail-ed1-f54.google.com [209.85.208.54])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 854A5606A326;
-	Wed, 25 Nov 2026 08:17:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 854A5606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=protonmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=protonmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DDC33606A31E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:18:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DDC33606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=qF/pfjex
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
-	s=protonmail3; t=1795594654; x=1795853854;
-	bh=+U6fWq1g8ry70s4OdmI+TV+gBJOABwlcVv7t82zgihU=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=qF/pfjexD4qg9LexDthVH/DshwRFeHTB8B+z7bp4HeewK4Kgkuj16FqKUcyC8cMoL
-	 xrOlZy3ZGJ0WYgeJr/oZtidyTwbuU6j3WdLDq21VF5L2F7a73QGFnf+4cP04lPS6CB
-	 /SfDhFfErN6O8XGqWQ2NaUKEG/2iKwuArzk0zfUl/ZVjvC3cfGVAs6mAMevValoP39
-	 mhAluC44hT3hfkQE5vYQTIaX4YFiZax0yiZp+g5RIPB7kLzsguNJCc/Ggn00OMpaMz
-	 roD8AFTn76CXiHeaqxq1Kc8XHLyN2cofa2kJIC0UgpDRt/t0OwTim87YU1PYpHQQBl
-	 8m8oZopo6s9jQ==
-Date: Wed, 25 Nov 2026 08:17:27 +0000
-To: Fuwei Xie <12313607@mail.sustech.edu.cn>
-From: =?utf-8?Q?Eren_=C3=96zen?= <erenozen@protonmail.com>
-Cc: =?utf-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, Hans de Goede <hansg@kernel.org>, platform-driver-x86@vger.kernel.org, linux-kernel@vger.kernel.org, Zheng Shuyang <yhshzh0@gmail.com>
-Subject: Re: [RFC PATCH v3 0/5] platform/x86: huawei-wmi: expose native firmware power profiles
-Message-ID: <Tf4l0QLSFWfEcunMVtUNowKIhzNRJjmjCYJKXUFzo-5xhOXhZpn-sUEN57KHkDgKanu1FrS-JHBYcI3K7Mjv176Tg0kMQ4QPIUoEcsYKQig=@protonmail.com>
-In-Reply-To: <4F34E5193B4633F6+20261124172651.37716-1-12313607@mail.sustech.edu.cn>
-References: <4F34E5193B4633F6+20261124172651.37716-1-12313607@mail.sustech.edu.cn>
-Feedback-ID: 19860221:user:proton
-X-Pm-Message-ID: f24bc313c7d048e8c5cfa7645fbfdf2f0f9f691d
+	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=R7ZaEPx5
+Received: by mail-ed1-f54.google.com with SMTP id 4fb4d7f45d1cf-6b8c60e0d39so7102641a12.2
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 00:18:09 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795594688; cv=none;
+        d=google.com; s=arc-20260327;
+        b=c3V/m9LUXnJhPQNhRVGcm+kTOyZ1VcPJcCmP9zyALYt7GmskxuBrlUtuf5FWX2qCI1
+         N9Y2LSh91An7GF/svq9vc4YKTRTTkGoOO8Ico5gTt6lpib4rwJ1BqpS24KfRwdk1QFmA
+         6zp8PhMcRlhOCUkj5uBfqle7xoHLr+zQIXXnZ+AadcUEu1mZdJU1lH807w1HfmmdVfhK
+         GRqPJb7jDX76Xbpo+Hq50gtXqpJ4KUKBnFYoPRL5jjlh0plLHwimT8bI5aG6X8oItoxH
+         JLQE6AGxKTY3eb7bCqXIbegYcwMs2YG0RuDwqu5Fh3S9ODYmC2lGqXqCpd5atp3krqyo
+         Lrzw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=+TlxyhCe0EFo142JqOfaOYVkjOKNeFKPV+TihlUjknw=;
+        fh=vFZn0/FGsYnZqcAApusaX8nS1VCAy3U7tv+nZpD8wI0=;
+        b=WAyIv3PKMur+w/30LPU16Q45M7zIcjB/HPmM2fOp1qlyK3Thggu9S6GzSUdppcqBrS
+         usgowblcEnf4IOqh2jpQ3pEW9w92yWI7ZjpXySKwWRvGLCSN/Ww64khbsGya5Ttwzcd2
+         lrnHua+779krA5Vcl+M7qSvyQucdWb/dG0X3bOhcUvXZbi5CavukG6e+DU49ZRmOjSD+
+         GiT5+Zn2eMmQ5/jABlTmP4W+MdFYbu0LGYoXSGQX1D7dq7OuVRDaKi2v4bwCJy0TOOAr
+         yEZNoy6R3reoUbEwFOCrthSX5frQjwY1SErU0z2qj9386ococcJLLx/1QRsO6AH46A6a
+         5ycw==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1795594688; x=1796199488; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=+TlxyhCe0EFo142JqOfaOYVkjOKNeFKPV+TihlUjknw=;
+        b=R7ZaEPx52mr6ZgEbtuQSyWvD+2bUGb9pNRXver4QpuoWSosaeMmkystGuH94UH1dXY
+         NNhc48EB4i2n6sNqZfxdOPjFr06a1ImkfceNQ1EELzmMlbp5rb3o4IHFn1Ywo7PcDpa2
+         zC4IH/5dwtzAPnJCz9viFmQJFR6VZKx7jm1JsIfFIHPTHVgqTpKut7dVp+uKld73gcR0
+         /sOGc7AmdH5yG/HFUzheDCG2e5Oq8J5zvRVbTRWa4LKDEEuoNMh4LpBVxe8aZRmTzEWl
+         bUJopYjrPSIoJBDY16kyi9Kx86E4ZGCjopg9Nb2lkcUGlPDeLKOU7ArEhRH/s94KHqPE
+         uzZg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795594688; x=1796199488;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=+TlxyhCe0EFo142JqOfaOYVkjOKNeFKPV+TihlUjknw=;
+        b=KPvFm5VmHZLUbzOZZVZK/4ChfuwNzAAznb4EsvSKIvZHhlAPtFVoOW4MVvBbCWP9Xv
+         4aOMCvj9k+TqvKZ5rbku0puNJQwYdfJsjVS8iGXAwHVQVMhBdetv9ioaBkPMZTPa/PGM
+         uCUfRk55wHsXaWeMBVsFbeVA6TGHsvdFm2bbC+3yErsQC0YQErkEPI+o0zkAlbC7kVfZ
+         8TbmIaH8RtXQcC/hU/Vl3VX3yq7vSuNFbHHSjJaGfOk4JVKmcV9TmZo/CHG6YYl3+iQs
+         faUupZGqFlWTQ8ooX1qCYOMzEJh3jURL1rCj0GUNPDi6GMGnwVlB/0CCIsctjqENZ2io
+         9pTQ==
+X-Forwarded-Encrypted: i=1; AL+hErGBAbDJoVDu7ipDP0fOn0qUo40uWkpPBOcvAcURf/zpsc+qlaT6hCdgYRIzJzZLwZ5HiimqrobtyLdNpDA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/7xSoXWMcp0dQ0KYvS7dZ9HvwbF6hwlbg5Yf3Z9xwa6djooLPA
+	wpYwf/vGah+TVgGDm69ZApWI0IB1gUQsa3LOruBdoG6hUV7r8K+Ch6thlI9hqoBWXKM9xCVZJM+
+	6yAHtCBkn0wnkxNurgkEl9E9TqPc6bx4ChdUOvmd3RA==
+X-Gm-Gg: AZFdTZfNVptcS7rihj/NCnIwOMRhL4rtIPmqrNcKTn/wENM9zvFbTw7J2ULu1g1U++U
+	Wid6K9LcwFL753lB35i2nZOxUC7JKHYHLH55Ah5/dSC7e+kgdK6u5lnyVjzI3itn8szesXvm5xv
+	wexieRSqmxkmS6xLIgM25fxDFydRqi+WGjd2c0YVfxhYxHgQbGxNXbcLeATeEFQcAb7HwenZNGB
+	UKP3GYYt9ia0zm9I7xjcM2x25HZR/rLL8Hz/8lY7gUiCD620viES0W/LRRfQROXO/2S2IhI1ASC
+	sNwW+eVzgdDfPZnhubHZdP93sPeIuKaovdeHMxWtWtNUN1bhWLw07tt8br2rfYfPkp9L59T49/t
+	TPwipYteuI5OTaTusGxRn0/XNRjUn4mZ09/z2zYTuiMoFlUFFUKSXMHdAniRL7IN9XbU=
+X-Received: by 2002:a05:6402:510:b0:6b4:201f:17d6 with SMTP id
+ 4fb4d7f45d1cf-6ba37e69ce8mr9553464a12.16.1795594688009; Wed, 25 Nov 2026
+ 00:18:08 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,249 +103,359 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+References: <20261106151947.3991524-1-vincent.guittot@linaro.org>
+ <20261106151947.3991524-2-vincent.guittot@linaro.org> <50f73e24-bf40-4fcf-a232-8747087ddbeb@arm.com>
+In-Reply-To: <50f73e24-bf40-4fcf-a232-8747087ddbeb@arm.com>
+From: Vincent Guittot <vincent.guittot@linaro.org>
+Date: Wed, 25 Nov 2026 09:17:56 +0100
+X-Gm-Features: Aa3M54pfpxEOr1H_7jVIj59aJvakodQU1grHxa6VKKndnKMJH8hAKrAlbFJTmpM
+Message-ID: <CAKfTPtDJFkSJm67CzoB=p5PCc60eVToEcy-=bxaThLXr5KGd7A@mail.gmail.com>
+Subject: Re: [PATCH 01/20 v3] sched/eevdf: Decay positive lag of sleeping entities
+To: Elif Topuz <elif.topuz@arm.com>
+Cc: mingo@redhat.com, peterz@infradead.org, juri.lelli@redhat.com, 
+	dietmar.eggemann@arm.com, rostedt@goodmis.org, bsegall@google.com, 
+	mgorman@suse.de, vschneid@redhat.com, kprateek.nayak@amd.com, 
+	linux-kernel@vger.kernel.org, lukasz.luba@arm.com, rafael@kernel.org, 
+	linux-pm@vger.kernel.org, tj@kernel.org, void@manifault.com, 
+	arighi@nvidia.com, changwoo@igalia.com, sched-ext@lists.linux.dev, 
+	qyousef@layalina.io, christian.loehle@arm.com, pierre.gondois@arm.com, 
+	sshegde@linux.ibm.com, kayracizmeci@gmail.com, tim.c.chen@linux.intel.com
+Content-Type: text/plain; charset="UTF-8"
 
-Hi Fuwei,
+Hi Elif,
 
-I retested v3 on the same HUAWEI MateBook 16 (AMD Ryzen 7 5800H, DMI
-product name "CREM-WXX9", BIOS 2.32). I applied all five patches
-unmodified on top of c339f4010dea and built the driver as a module with
-W=3D1 (no warnings) for Fedora's 7.3.4-300.fc45 kernel. To see what keeps
-the cached profile in sync, I traced huawei_wmi_profile_event(),
-huawei_wmi_profile_set() and platform_profile_notify() with kprobes,
-read the firmware mode through \GTUB and the EC byte it returns (OKTS),
-and turned on the ACPI EC query debug messages.
+On Tue, 24 Nov 2026 at 16:13, Elif Topuz <elif.topuz@arm.com> wrote:
+>
+> Hi Vincent,
+>
+> On 06/11/2026 15:19, Vincent Guittot wrote:
+> > Similarly to delayed dequeue, which enables an entity to decay its negative
+> > lag while sleeping, a task should not keep a positive lag forever.
+> >
+> > The sleep duration and the weight are used to decay the positive lag at
+> > wakeup.
+> >
+> > Apply the decay when enqueueing on prev rq for which we hold the lock to
+> > get rq_clock_task().
+> >
+> > Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
+> > ---
+> >  kernel/sched/fair.c | 124 ++++++++++++++++++++++++++++++++------------
+> >  1 file changed, 90 insertions(+), 34 deletions(-)
+> >
+> > diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
+> > index 0feec172fd37..5cd171f830d8 100644
+> > --- a/kernel/sched/fair.c
+> > +++ b/kernel/sched/fair.c
+> > @@ -897,6 +897,91 @@ bool update_entity_lag(struct cfs_rq *cfs_rq, struct sched_entity *se)
+> >       return avruntime - vlag != se->vruntime;
+> >  }
+> >
+> > +/*
+> > + * Signed add and clamp on underflow.
+> > + *
+> > + * Explicitly do a load-store to ensure the intermediate value never hits
+> > + * memory. This allows lockless observations without ever seeing the negative
+> > + * values.
+> > + */
+> > +#define add_positive(_ptr, _val) do {                           \
+> > +     typeof(_ptr) ptr = (_ptr);                              \
+> > +     __signed_scalar_typeof(*ptr) val = (_val);              \
+> > +     typeof(*ptr) res, var = READ_ONCE(*ptr);                \
+> > +                                                             \
+> > +     res = var + val;                                        \
+> > +                                                             \
+> > +     if (val < 0 && res > var)                               \
+> > +             res = 0;                                        \
+> > +                                                             \
+> > +     WRITE_ONCE(*ptr, res);                                  \
+> > +} while (0)
+> > +
+> > +/*
+> > + * Remove and clamp on negative, from a local variable.
+> > + *
+> > + * A variant of sub_positive(), which does not use explicit load-store
+> > + * and is thus optimized for local variable updates.
+> > + */
+> > +#define lsub_positive(_ptr, _val) do {                               \
+> > +     typeof(_ptr) ptr = (_ptr);                              \
+> > +     *ptr -= min_t(typeof(*ptr), *ptr, _val);                \
+> > +} while (0)
+> > +
+> > +static inline unsigned long cfs_rq_load_avg(struct cfs_rq *cfs_rq);
+> > +static unsigned long task_h_load(struct task_struct *p);
+> > +
+> > +static __always_inline
+> > +void decay_entity_lag(struct cfs_rq *cfs_rq, struct task_struct *p, int flags)
+> > +{
+> > +     struct sched_entity *se = &p->se;
+> > +     s64 delta_exec, vlag = se->vlag;
+> > +     unsigned long cfs_load;
+> > +     struct rq *rq;
+> > +
+> > +     WARN_ON_ONCE(se->on_rq);
+> > +
+> > +     /* Negative lag is managed by delayed dequeue path */
+> > +     if (vlag <= 0)
+> > +             return;
+> > +
+> > +     rq = rq_of(cfs_rq);
+> > +
+> > +     /* No fast access to prev rq task clock */
+> > +     if (flags & ENQUEUE_MIGRATED)
+> > +             return;
+> > +
+> > +     /* Compute sleep time */
+> > +     delta_exec = rq_clock_task(rq) - se->exec_start;
+> > +     if (unlikely(delta_exec <= 0))
+> > +             return;
+> > +
+> > +     /* For anything above ~4 seconds, save computation and clear the lag */
+> > +     if (unlikely(delta_exec >> 32)) {
+> > +             se->vlag = 0;
+> > +             return;
+> > +     }
+> > +
+> > +     /*
+> > +      * Use cfs' load and p's weight to estimate what would have been the
+> > +      * share for p. task's load contribution to cfs' load is replaced by
+> > +      * its weight.
+> > +      */
+> > +     cfs_load = cfs_rq_load_avg(cfs_rq);
+> > +     lsub_positive(&cfs_load, task_h_load(p));
+> > +     if (cfs_load) {
+> > +             unsigned long weight = scale_load_down(se->h_load.weight);
+> > +
+> > +             delta_exec *= weight;
+> > +             delta_exec = div64_long(delta_exec, cfs_load + weight);
+> > +     }
+> > +
+> > +     vlag -= calc_delta_fair(delta_exec, se);
+> > +
+> > +     /* vlag can't become neg while sleeping */
+> > +     se->vlag = max(0, vlag);
+> > +}
+> > +
+> >  /*
+> >   * Entity is eligible once it received less service than it ought to have,
+> >   * eg. lag >= 0.
+> > @@ -4693,38 +4778,6 @@ account_entity_dequeue(struct cfs_rq *cfs_rq, struct sched_entity *se)
+> >       cfs_rq->nr_queued--;
+> >  }
+> >
+> > -/*
+> > - * Signed add and clamp on underflow.
+> > - *
+> > - * Explicitly do a load-store to ensure the intermediate value never hits
+> > - * memory. This allows lockless observations without ever seeing the negative
+> > - * values.
+> > - */
+> > -#define add_positive(_ptr, _val) do {                           \
+> > -     typeof(_ptr) ptr = (_ptr);                              \
+> > -     __signed_scalar_typeof(*ptr) val = (_val);              \
+> > -     typeof(*ptr) res, var = READ_ONCE(*ptr);                \
+> > -                                                             \
+> > -     res = var + val;                                        \
+> > -                                                             \
+> > -     if (val < 0 && res > var)                               \
+> > -             res = 0;                                        \
+> > -                                                             \
+> > -     WRITE_ONCE(*ptr, res);                                  \
+> > -} while (0)
+> > -
+> > -/*
+> > - * Remove and clamp on negative, from a local variable.
+> > - *
+> > - * A variant of sub_positive(), which does not use explicit load-store
+> > - * and is thus optimized for local variable updates.
+> > - */
+> > -#define lsub_positive(_ptr, _val) do {                               \
+> > -     typeof(_ptr) ptr = (_ptr);                              \
+> > -     *ptr -= min_t(typeof(*ptr), *ptr, _val);                \
+> > -} while (0)
+> > -
+> > -
+> >  /*
+> >   * Because of rounding, se->util_sum might ends up being +1 more than
+> >   * cfs->util_sum. Although this is not a problem by itself, detaching
+> > @@ -8152,7 +8205,7 @@ static void
+> >  enqueue_task_fair(struct rq *rq, struct task_struct *p, int flags)
+> >  {
+> >       int rq_h_nr_queued = rq->cfs.h_nr_queued;
+> > -     int task_new = !(flags & ENQUEUE_WAKEUP);
+> > +     int task_wake = flags & ENQUEUE_WAKEUP;
+> >       struct sched_entity *se = &p->se;
+> >       struct cfs_rq *cfs_rq = &rq->cfs;
+> >       unsigned long weight;
+> > @@ -8185,6 +8238,9 @@ enqueue_task_fair(struct rq *rq, struct task_struct *p, int flags)
+> >       if (p->in_iowait)
+> >               cpufreq_update_util(rq, SCHED_CPUFREQ_IOWAIT);
+> >
+> > +     if (task_wake)
+> > +             decay_entity_lag(cfs_rq, p, flags);
+> > +
+> >       curr = (cfs_rq->curr == se);
+> >       /*
+> >        * This can actually happen with CFS_BANDWIDTH, a task can be throttled
+> > @@ -8225,7 +8281,7 @@ enqueue_task_fair(struct rq *rq, struct task_struct *p, int flags)
+> >        * into account, but that is not straightforward to implement,
+> >        * and the following generally works well enough in practice.
+> >        */
+> > -     if (!task_new)
+> > +     if (task_wake)
+> >               check_update_overutilized_status(rq);
+> >
+> >       assert_list_leaf_cfs_rq(rq);
+>
+> I have tested the patchset with cyclictest and rtapp like you mentioned in your
+> cover letter. I have used Ampere Altra with 160 cpus.
+>
+> I run these sets:
+> - cyclictest with a 3777 us period and default slice with 2xNR_CPUS rt-app tasks
+> that run continuously with default slice.
+> - cyclictest with a 3777 us period and 8ms slice with 2xNR_CPUS rt-app tasks
+> that run continuously with a 16ms slice.
+> - cyclictest with a 3777 us period and default slice with 2xNR_CPUS rt-app tasks
+> run periodically with default slice.
+> - cyclictest with a 3777 us period and 8ms slice with 2xNR_CPUS rt-app tasks run
+> periodically with a 16ms slice.
+> I have also run them 130 seconds.
+>
+> Cases with continuous rt-app:
+>
+> | Kernel   | Slice   |   Samples |   P50 |   P90 |   P99 |   P99.9 |   Max |
+> |:---------|:--------|----------:|------:|------:|------:|--------:|------:|
+> | base     | Default |     34403 |    53 |    54 |    56 |     287 |  3996 |
+> | patch    | Default |     26748 |  1979 |  5637 |  7119 |    9264 | 10895 |
 
-Most of it works:
+the p99.9 increase is somewhat expected and related to patches 1-4
+because we soften the capacity of short task to preempt current when
+they have the same slice
 
-- huawei-wmi-method and huawei-wmi-events bound their GUIDs.
-  huawei-wmi-keyblock bound nothing, as this machine has no
-  39142400-... GUID. /sys/devices/platform/huawei-wmi is still there,
-  and the charge thresholds and fn_lock_state read the same values as
-  with the stock driver. Writing fn_lock_state works, and on/off writes
-  to the micmute LED are accepted.
-- platform_profile_choices is "balanced performance", and "low-power"
-  is refused. Loading the module did not change the firmware mode,
-  both in balanced and in performance.
-- Writing either value to platform_profile, GNOME's Power Mode menu
-  (tuned-ppd), Fn+P and a \STUB call made outside the driver all switch
-  the firmware mode, and platform_profile follows (also over 10
-  switches in a row through the PowerProfiles D-Bus property that
-  GNOME's menu sets). A single Fn+P press raises one event; after 3-4
-  presses within about a second, platform_profile still matched the
-  firmware (the event count did not always match the presses).
-  0x2a0/0x2a1 are not logged as "Unknown key pressed".
-- Unplugging the charger in performance mode raises 0x2a0 on this
-  machine as well. With tuned and tuned-ppd stopped, nothing else wrote
-  platform_profile, and the profile followed the firmware to balanced.
-- On battery, writing "performance" returns 0, \STUB raises 0x2a6
-  1.5-7 ms later, and platform_profile is back to balanced. \GTUB reads
-  0 afterwards; in this machine's DSDT \STUB returns without writing
-  OKTS in that case. Fn+P on battery also raises 0x2a6 and the profile
-  stays balanced.
-- This machine's DSDT never raises 0x2a5 and I never saw it, so I have
-  no data for your second question.
+> | base     | 8/16 ms |     34406 |    53 |    54 |    56 |     269 | 11880 |
+> | patch    | 8/16 ms |     34256 |    53 |    54 |    62 |    9126 | 15429 |
 
-I found two cases where the cached profile goes stale.
+The p99.9 value is not expected. Is it something that you can
+repeatedly reproduce? Also, what was the slice of other tasks on your
+system? if they stay to default 2.8ms they can disturb your test by
+preventing cyclictest to preempt rt-app. I noticed that when rt or
+deadline threads (like sugov) woke up simultaneously it could disturb
+cyclictest preemption. I'm working on fixing this for the next version
+I will look more deeply at this case while preparing the next version
 
-1. Suspend. If I suspend (s2idle) in performance mode, \GTUB and OKTS
-   read 0 after resume, but no WMI event reaches the driver (the kprobe
-   on huawei_wmi_profile_event() saw nothing), so platform_profile keeps
-   reporting "performance". This happens both when the charger stays
-   plugged in and when I unplug it during suspend, and the profile was
-   still wrong after plugging back in. With the stock driver, \GTUB read
-   0 after each of the six resumes from performance I tried, including
-   one after a suspend of only a few seconds.
+>
+> Percentage differences:
+>                                         base |                  patch
+> slice                                default |                default
+> 99th Percentile                           56 |         7119 (-12612%)
+> 99.9th Percentile                        287 |          9264 (-3128%)
+> Maximum                                 3996 |          10895 (-173%)
+>
+>                                         base |                  patch
+> slice                               8ms/16ms |               8ms/16ms
+> 99th Percentile                           56 |              62 (-11%)
+> 99.9th Percentile                        269 |          9126 (-3293%)
+> Maximum                                11880 |           15429 (-30%)
+>
+>
+> Cases with periodic rt-app:
+>
+> | Kernel   | Slice   |   Samples |   P50 |   P90 |   P99 |   P99.9 |   Max |
+> |:---------|:--------|----------:|------:|------:|------:|--------:|------:|
+> | base     | Default |     33795 |    56 |   901 |  4366 |    6156 |  9039 |
+> | patch    | Default |     33081 |    60 |  2734 |  5055 |    6395 |  9165 |
+> | base     | 8/16 ms |     34419 |    56 |    61 |    86 |     291 |   554 |
+> | patch    | 8/16 ms |     34419 |    56 |    59 |    77 |     161 |   540 |
 
-   After resume the firmware raises no event at all. With the EC query
-   debug messages on, a plain resume runs only _Q32 and _QC6. In the
-   DSDT, _QC6 reads OKTS and, when the EC's UADP byte is 0, sends ALIB
-   the same mode parameters as _Q72/_Q71 (which run after every
-   accepted \STUB call and raise 0x2a0/0x2a1), but takes the STAPM,
-   fast and slow limits from EC fields, and raises no WMI event.
+Thise results are more aligned with my expectations
 
-   Re-reading \GTUB on resume fixes it here: with the change below,
-   platform_profile matched the firmware in all six suspend cycles that
-   started in performance (one with tuned and tuned-ppd masked, one
-   unplugging during suspend), and each trace showed the resume callback
-   followed by one platform_profile_notify(). With tuned-ppd running,
-   GNOME's menu then follows to Balanced.
+>
+> Percentage differences:
+>                                         base |                  patch
+> slice                                default |                default
+> 99th Percentile                         4366 |            5055 (-16%)
+> 99.9th Percentile                       6156 |             6395 (-4%)
+> Maximum                                 9039 |             9165 (-1%)
+>
+>                                         base |                  patch
+> slice                               8ms/16ms |               8ms/16ms
+> 99th Percentile                           86 |              77 (+10%)
+> 99.9th Percentile                        291 |             161 (+45%)
+> Maximum                                  554 |              540 (+3%)
+>
+> With the periodic rt-app the difference between base and patches are lower, and
+> using custom slices I can see the improvement. However, when using continuous
+> rt-app, especially with the default slice case, I see the worst latency. I have
+> noticed that this difference is coming from "decay_entity_lag()". If I
+> understand correctly, most of the time cyclictest's lag reduced to zero after
+> decay_entity_lag(), and it cannot preempt the rt-app tasks.
 
-   The other option is to write the mode that was active before suspend
-   back on resume, which keeps the user's selection. I tried that once
-   per case, with tuned and tuned-ppd masked: after a suspend in
-   performance, performance came back and _Q71 ran; after a suspend in
-   balanced, _Q72 ran; after unplugging during a suspend in performance,
-   \STUB refused with 0x2a6 and platform_profile reported balanced, with
-   one notification. That is a policy choice (bitland-mifs-wmi restores
-   its profile on resume, for example), so I'm suggesting the minimal
-   re-read; I can send the restore variant if you prefer it.
+yes, patches 1-4 have the benefit to reduce preemption between tasks
+using the same slice but at the cost of scheduling latency for short
+sleeping tasks.
 
-   Hibernation is disabled on this machine (lockdown), so I only tested
-   s2idle; with DEFINE_SIMPLE_DEV_PM_OPS the callback also runs on thaw
-   and restore. Zheng, did your s2idle test on FMB-P start in
-   performance mode?
+>
+> I have also run hackbench with continuous NR_CPUS rt-app tasks with default
+> slices and custom slices (hackbench with a 8ms slice and rt-app with a 16ms
+> slice). Both threads-pipe and process-pipe for g=1 and f=160 gave around 50%
+> worst execution time with default slice. When using custom slice, this
+> difference is much lower.
 
-   Something like this, on top of v3, to fold into patch 4:
+I haven't run those tests but will look into them. Have you tried
+hackbench alone and did you see some differences?
 
---- a/drivers/platform/x86/huawei-wmi.c
-+++ b/drivers/platform/x86/huawei-wmi.c
-@@ -18,6 +18,7 @@
- #include <linux/notifier.h>
- #include <linux/platform_device.h>
- #include <linux/platform_profile.h>
-+#include <linux/pm.h>
- #include <linux/power_supply.h>
- #include <linux/sysfs.h>
- #include <linux/wmi.h>
-@@ -1074,6 +1075,15 @@ static void huawei_wmi_method_remove(struct wmi_devi=
-ce *wdev)
- =09platform_set_drvdata(huawei_pdev, NULL);
- }
-=20
-+/* CREM-WXX9 clears its Turbo flag across s2idle without raising an event.=
- */
-+static int huawei_wmi_method_resume(struct device *dev)
-+{
-+=09huawei_wmi_profile_sync(dev_get_drvdata(dev));
-+=09return 0;
-+}
-+
-+static DEFINE_SIMPLE_DEV_PM_OPS(huawei_wmi_method_pm, NULL, huawei_wmi_met=
-hod_resume);
-+
- static const struct wmi_device_id huawei_wmi_method_ids[] =3D {
- =09{ HWMI_METHOD_GUID },
- =09{}
-@@ -1082,6 +1092,7 @@ MODULE_DEVICE_TABLE(wmi, huawei_wmi_method_ids);
-=20
- static struct wmi_driver huawei_wmi_method_driver =3D {
- =09.driver.name =3D "huawei-wmi-method",
-+=09.driver.pm =3D pm_sleep_ptr(&huawei_wmi_method_pm),
- =09.id_table =3D huawei_wmi_method_ids,
- =09.probe =3D huawei_wmi_method_probe,
- =09.remove =3D huawei_wmi_method_remove,
-
-2. Fast writes. After 50 quick balanced/performance write pairs (v3's
-   event handling, tuned and tuned-ppd masked), platform_profile ended
-   on the wrong value in 4 of 6 rounds, in both directions (for example
-   "performance" while \GTUB read 0). I did not see this with normal
-   GNOME or Fn+P switching, although one GNOME switch already makes
-   tuned write platform_profile twice about 40 ms apart (it first
-   writes back the value it saved before the previous profile, then
-   applies the new one).
-
-   On this machine \STUB raises one event, and the EC's _Q71/_Q72 raises
-   the same code again 17-51 ms later (the EC query debug messages show
-   one _Q71 or _Q72 per write), even when the mode does not change.
-   _WED returns \_SB.PCI0.LPC0.EC0.WMEN, one AML variable that \STUB and
-   the EC query handlers that raise WMI events (_Q71, _Q72, _Q74, ...)
-   overwrite, so the code a handler reads can belong to a different
-   switch. ACPI notifications also run on the unordered kacpi_notify
-   workqueue (the two events of one write landed on different CPUs
-   here), so two handlers can take wmi_lock in a different order than
-   they read _WED.
-
-   Re-reading the mode for 0x2a0/0x2a1 as well, as v3 already does for
-   0x2a5/0x2a6, fixed it: 0 of 6 rounds stale. It also stops the
-   duplicate notifications: v3 sends two platform_profile_notify() calls
-   per write, and with the change none are needed because the cache
-   already holds the written value. Fn+P, unplug and resume still worked
-   with both changes applied.
-
-   Two side effects: if the \GTUB read fails, the cache now stays as it
-   was (with a ratelimited warning) instead of following the event code,
-   and it assumes \GTUB is already updated when 0x2a0/0x2a1 arrives. I
-   could only test this on CREM-WXX9, so it would be good to check it on
-   FMB-P and NbF-XX.
-
-   And on top of that:
-
---- a/drivers/platform/x86/huawei-wmi.c
-+++ b/drivers/platform/x86/huawei-wmi.c
-@@ -281,7 +281,7 @@ static const struct platform_profile_ops huawei_profile=
-_ops =3D {
- =09.profile_set =3D huawei_wmi_profile_set,
- };
-=20
--/* Refresh once when the event does not carry a known mode. */
-+/* Re-read the firmware mode; notify only if the cached profile changed. *=
-/
- static bool huawei_wmi_profile_sync(struct huawei_wmi *huawei)
- {
- =09enum platform_profile_option profile;
-@@ -928,21 +928,16 @@ static struct wmi_driver huawei_wmi_keyblock_driver =
-=3D {
- static int huawei_wmi_profile_event(struct notifier_block *nb, unsigned lo=
-ng code, void *data)
- {
- =09struct huawei_wmi *huawei =3D container_of(nb, struct huawei_wmi, profi=
-le_notifier);
--=09struct device *profile_dev;
-=20
- =09switch (code) {
-+=09/*
-+=09 * Do not trust the code: on CREM-WXX9, _WED returns one AML variable
-+=09 * that \STUB and the EC query handlers overwrite, the EC raises
-+=09 * 0x2a0/0x2a1 again some time after each \STUB, and notifications
-+=09 * can be handled out of order. Re-read the mode instead.
-+=09 */
- =09case 0x2a0: /* Firmware disabled Turbo. */
- =09case 0x2a1: /* Firmware enabled Turbo. */
--=09=09scoped_guard(mutex, &huawei->wmi_lock) {
--=09=09=09if (huawei->reported_profile =3D=3D PLATFORM_PROFILE_LAST)
--=09=09=09=09return NOTIFY_DONE;
--=09=09=09huawei->reported_profile =3D code =3D=3D 0x2a0 ?
--=09=09=09=09PLATFORM_PROFILE_BALANCED : PLATFORM_PROFILE_PERFORMANCE;
--=09=09=09profile_dev =3D huawei->profile_dev;
--=09=09}
--=09=09if (profile_dev)
--=09=09=09platform_profile_notify(profile_dev);
--=09=09return NOTIFY_STOP;
- =09case 0x2a5: /* TBF2-restricted transition; re-read the firmware mode. *=
-/
- =09case 0x2a6: /* Firmware rejected the request without reporting a mode. =
-*/
- =09=09if (huawei_wmi_profile_sync(huawei))
-
-Two more things I saw, both on the tuned side:
-
-- On battery, selecting Performance leaves GNOME's menu on Performance
-  while the firmware and platform_profile stay balanced. tuned writes
-  "performance", the write returns 0, and 0x2a6 restores balanced
-  1.5-7 ms later, but tuned-ppd ignores platform_profile changes while
-  the file is open or within 100 ms after a write closes it
-  (CLOSE_MODIFY_BUFFER in tuned 2.28.0's ppd/controller.py). Failing
-  the write would not help: \STUB returns status 0 when it refuses, and
-  tuned's acpi plugin ignores the write result. I think this belongs in
-  tuned-ppd.
-- Choosing Power Saver in GNOME while in performance leaves the
-  firmware in performance: tuned's powersave profile asks for
-  "low-power|quiet", which this driver does not offer, so it leaves
-  platform_profile alone (tuned logs "Requested platform_profile
-  'low-power' unavailable").
-
-Thanks for looking into tuned-ppd. What I reported for v1 and v2 came
-from my test setup: tuned-ppd  only checks at startup whether
-/sys/firmware/acpi/platform_profile exists, and I loaded the RFC module
-after boot, so it was not watching the file. After restarting tuned-ppd
-with v3 loaded (tuned-ppd 2.28.0, sysfs_acpi_monitor=3Dtrue, Fedora's
-default), the PowerProfiles ActiveProfile that GNOME's menu shows
-followed Fn+P in both directions.
-
-Feel free to rework the two changes however you prefer. If you fold them
-into patch 4 (only that patch), you can add my=20
-Co-developed-by and Signed-off-by: Eren =C3=96zen <erenozen@protonmail.com>
-
-I'll retest the next version and send a Tested-by then; everything else
-works on CREM-WXX9 with v3 as posted. I'll send the rebased charge-mode
-diff in the other subthread.
-
-Claude helped write the test scripts, the two changes above
-and this report (please keep that noted if you fold the changes in); I
-ran all tests on the laptop and checked the results.
-
-Thanks,
-Eren
-
+>
+> Default slice:
+> MODE    IPC      G  FD |    Base(s)/CV |   Patch(s)/CV |   diff%
+> ----------------------------------------------------------------
+> process pipe     1  10 |   0.172/10.9% |   0.077/25.6% |  +55.4%
+> process pipe     1  20 |    0.409/6.7% |   0.558/18.9% |  -36.6%
+> process pipe     1  40 |   1.145/23.1% |   2.176/15.1% |  -90.1%
+> process pipe     1  80 |    5.326/7.5% |    7.248/8.6% |  -36.1%
+> process pipe     1 160 |   14.105/4.5% |   21.404/6.1% |  -51.7%
+> process socket   1  10 |  0.055/113.9% |   0.176/35.8% | -221.8%
+> process socket   1  20 |    0.467/3.5% |   0.454/21.0% |   +2.9%
+> process socket   1  40 |    1.014/5.6% |    1.062/5.4% |   -4.6%
+> process socket   1  80 |   2.584/10.8% |   2.820/16.9% |   -9.1%
+> process socket   1 160 |    6.786/7.7% |   7.525/13.1% |  -10.9%
+> threads pipe     1  10 |   0.050/10.9% |   0.148/14.5% | -198.0%
+> threads pipe     1  20 |   0.283/65.4% |   0.650/10.1% | -129.2%
+> threads pipe     1  40 |   1.285/53.5% |    2.269/7.9% |  -76.5%
+> threads pipe     1  80 |    5.702/5.7% |    7.727/8.2% |  -35.5%
+> threads pipe     1 160 |   14.412/5.7% |   22.659/8.4% |  -57.2%
+> threads socket   1  10 |   0.218/13.2% |   0.237/23.6% |   -9.1%
+> threads socket   1  20 |    0.528/3.3% |    0.533/6.3% |   -1.0%
+> threads socket   1  40 |    1.085/2.7% |   1.269/20.3% |  -17.0%
+> threads socket   1  80 |    2.549/8.0% |   3.258/22.7% |  -27.8%
+> threads socket   1 160 |    7.241/7.0% |   7.909/12.3% |   -9.2%
+>
+> Custom slice:
+> MODE    IPC      G  FD |    Base(s)/CV |   Patch(s)/CV |   diff%
+> ----------------------------------------------------------------
+> process pipe     1  10 |   0.053/54.7% |   0.040/40.9% |  +25.6%
+> process pipe     1  20 |   0.373/48.3% |   0.318/13.1% |  +14.7%
+> process pipe     1  40 |   1.130/40.4% |   1.704/23.1% |  -50.8%
+> process pipe     1  80 |   4.570/14.0% |   3.558/15.2% |  +22.2%
+> process pipe     1 160 |  11.877/10.9% |  13.374/17.3% |  -12.6%
+> process socket   1  10 |   0.068/15.1% |   0.095/34.8% |  -39.5%
+> process socket   1  20 |    0.222/8.1% |    0.278/2.1% |  -25.2%
+> process socket   1  40 |    0.716/2.7% |    0.660/4.6% |   +7.8%
+> process socket   1  80 |    3.261/9.6% |    1.768/5.7% |  +45.8%
+> process socket   1 160 |    8.099/3.9% |    6.134/9.7% |  +24.3%
+> threads pipe     1  10 |   0.048/31.6% |   0.060/29.8% |  -26.1%
+> threads pipe     1  20 |   0.264/15.0% |   0.232/17.2% |  +12.0%
+> threads pipe     1  40 |   0.838/20.9% |   1.558/25.6% |  -86.0%
+> threads pipe     1  80 |   5.794/15.9% |   3.933/23.3% |  +32.1%
+> threads pipe     1 160 |   14.666/7.7% |  12.614/16.4% |  +14.0%
+> threads socket   1  10 |   0.068/14.2% |   0.111/27.1% |  -62.7%
+> threads socket   1  20 |    0.232/8.2% |   0.334/12.1% |  -43.9%
+> threads socket   1  40 |    0.753/5.9% |   0.983/14.5% |  -30.5%
+> threads socket   1  80 |    3.655/6.3% |   2.585/21.5% |  +29.3%
+> threads socket   1 160 |    8.959/4.6% |    8.628/3.8% |   +3.7%
+>
+> I have also used g=[1, 4, 8, 16] and f=20, but didn't see much difference
+> between the base and the patchset.
+>
+> Thanks,
+> Elif
+>
