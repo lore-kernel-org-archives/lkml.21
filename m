@@ -1,61 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795617512;
-	b=Ut1NZl4TSkAFNQKZcfHLpv8fCXRpiUSePMgWiFqezzKuTBrki9kOwdXEC/KHP8BZvoCe
-	 tnMi+orAJyDtUXADHCUdjH2nRdUtOQcwFi6SzzRnYXasOP+UVI2Tt8LM8I5taAUoKoOO6
-	 pGBhsTpyI0vAux0zJ2S6ESVEAyWGk6ymF958iabNrlqeFgZ+lD7B4e48laOn+wz+c9/+5
-	 b/YkUiokOhdokrWj0/s79mnfPylGr7qGPxIQz4UqqsDe4JP7r3cy5Xw4PfMp6lf0KsS67
-	 m8Z7ZO3L/Awcqn8z/rWk8eHwwbjItDBgCzXJvSZWNyj5D7wkljXlGYwfuBqcU2hfEzg==
+	t=1795617614;
+	b=TnZiwE0GN5ezNQAR7XCv9c4iV9Z7Xw4X9HUK+SOlX37nIQVPuVoVN+KGQ72LhUo3NcV/
+	 WFTRM32ocygqZ7T0LGjiUsJsCmmh1j1dPJveSJGt1N9lrM9gt6Ztea9NxxbbJYeYCj5ua
+	 ud/7yZVMtVmez9HDmrm6MiaJWdtqIOy3wWHfYNx46T5Q+dkJhcEM7pfngxaVvApwPy1AD
+	 oxPm34D43LaqNetT3xGyq8FOyfOcRrBauPKKKmC9M8/IwVBaYZVaZtjnxoN57dZw6qu5h
+	 IdzFnOvGmfNm/4WP5mAkskWS7Jzxzi7SM+mx0di7Td6TReuOVVnTH2nbL0FHEqFws4w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795617512;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=fGqs6DcowK7IKELkXO0xayWMouuFNPphuLHx5fvxESQ=;
-	b=4ClVz8S03W/BGrjNkaQj+c8egoFYoNwqgCWR9aca3UoXDa3oKFidV4bBGjfCUWVp+tDU
-	 nmL+wrNQwOAXKhKNlCyROxADFBDOMXKqWC5VLLzF69lnslOFy0SQ1D+aD1wNFWKg/uFmm
-	 SZjL65zPMm97hVnFPRymND7xuGq3w2GQ3toC0u9Qz2v3ltP9P1hVUb28ZB+K2QwogDMAb
-	 5rbyS6kWEUydvWcBYMO1/5WodBnDT4iDkUWA97VG85xJp7yxYMLkohOMzRvizMnGcWTEr
-	 aHzZpWerLbw8It9BBOenx9sNhu4INJuYDdMO8F7Ox+47F1B9e+TdWWP9HtpjSdBIxEw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795617614;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=7XSIg7ua6momXpoo7cMrnHxsFP8Rs6WyWvGuAYSf2Xc=;
+	b=HEFk22Lx2XFFlxIe0KlGcsmQoS+1AGR9V7KqdmhLtdJ2GEe5XPrCGsdEAYawcEugXI5w
+	 WTnH1Y//Czic+7sKIUg2XIuotNa+kfqJHWJxqNPvBRAIIVp7xwRJnqRkjOW0V38WKqk5x
+	 4BPdgNQc9Ee8hAjMb/3Ic7PeXVqccf/RxdGFJrxazhJN71yKoD5QCma66FtNfUq+6EsLz
+	 XODI00Vfs/roTbvroO6N/01Nn1biPIikfcJV0QWSm7JsOEPRo+URCCWf+kpvMcLFCYEbR
+	 lZV+cQFAqlVTb0dRJC9Uu2oCLwSlr+W25CMbcq9mnE7/CQdH40eOL3MfqEdCmIQqsJA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lunn.ch;
-	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=VFdECZ89;
-	arc=none smtp.remote-ip=156.67.10.101
-Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FFFc0E0O;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E35B7606A32C;
-	Wed, 25 Nov 2026 14:38:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E35B7606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2767B606A31E;
+	Wed, 25 Nov 2026 14:40:14 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=VFdECZ89
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=fGqs6DcowK7IKELkXO0xayWMouuFNPphuLHx5fvxESQ=; b=VFdECZ89cA0wOPVai4rKvdeZMH
-	huumJAyMPj04D0JrdIBzMDD377FHoM+MvRMPgp71oziXnP5HdhOGtgj1U9EohQ7wd1R11H2yHe4A+
-	EUnZiTQdpqeM0ZaqWu0fdjw1tQV24x3lZ8URtrUxfRAW+w4rFM0pdH7tindq8nIh8FTw=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xWE8Y-001KyU-HX; Wed, 25 Nov 2026 15:38:18 +0100
-Date: Wed, 25 Nov 2026 15:38:18 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: netdev-bot+sashiko@kernel.org
-Cc: bage@debian.org, hkallweit1@gmail.com, davem@davemloft.net,
-	edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
-	linux@armlinux.org.uk, olteanv@gmail.com, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next v2] net: mdio: handle broken-turn-around for
- non-PHY MDIO devices
-Message-ID: <630d6b8e-917c-4213-b3b8-fa785ad33816@lunn.ch>
-References: <20261121092933.186731-1-bage@debian.org>
- <179559958516.3135.11607042178143215952@kernel.org>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FFFc0E0O
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6BC5A1F000C4;
+	Wed, 25 Nov 2026 14:40:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795617613;
+	bh=7XSIg7ua6momXpoo7cMrnHxsFP8Rs6WyWvGuAYSf2Xc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=FFFc0E0O+7iq9lDrh1yiGJu47ytobVDxLjBucl4vHjfuLyeI4CRgyPJ3PywNt8HnB
+	 biuiLsmAEsT/LZBFSkb/yWGhEZ0leaiBzXrPRm/63BogOSbsQ7VqwBct5pcI6kFlQy
+	 OhBkqepdLxKVH6WSArXX9R+9HC5KVzEDxpWW62xedzq7KkispmzeTlCYoKWXUxWbCM
+	 TG0n6/V40+eRqnW7qv95XGv84FhUE//tNIqpyXgYSoKrv8QvJEVFJbjaonwaoEcydz
+	 rXq0Lf0Fla0DzmFyF0tSPJ+9S+0qHdxXcRz17qTeyOD8Vr1lZL8+pd1xWQVWDzgk2S
+	 5cmX+d+Rie4ZQ==
+Message-ID: <5f9f68d5-9a7c-45fd-a4b2-5736ce20831c@kernel.org>
+Date: Wed, 25 Nov 2026 15:39:59 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,44 +51,112 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <179559958516.3135.11607042178143215952@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC 0/5] mm: GUP dirty + ->release_folio() fixes
+To: Christoph Hellwig <hch@infradead.org>
+Cc: Pedro Falcato <pfalcato@suse.de>, John Hubbard <jhubbard@nvidia.com>,
+ Jan Kara <jack@suse.cz>, Andrew Morton <akpm@linux-foundation.org>,
+ Zi Yan <ziy@nvidia.com>, "Matthew Wilcox (Oracle)" <willy@infradead.org>,
+ Lorenzo Stoakes <ljs@kernel.org>, Peter Xu <peterx@redhat.com>,
+ Johannes Weiner <hannes@cmpxchg.org>, linux-ext4@vger.kernel.org,
+ linux-nfs@vger.kernel.org, "Liam R. Howlett" <liam@infradead.org>,
+ Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>,
+ Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>,
+ Baolin Wang <baolin.wang@linux.alibaba.com>,
+ Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>,
+ Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>,
+ Lance Yang <lance.yang@linux.dev>, Usama Arif <usama.arif@linux.dev>,
+ Kiryl Shutsemau <kas@kernel.org>, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, Kairui Song <kasong@tencent.com>,
+ Qi Zheng <qi.zheng@linux.dev>, Shakeel Butt <shakeel.butt@linux.dev>,
+ Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>,
+ Wei Xu <weixugc@google.com>, Baoquan He <baoquan.he@linux.dev>,
+ Michal Hocko <mhocko@kernel.org>, linux-fsdevel@vger.kernel.org,
+ stable@vger.kernel.org
+References: <20261119-gup-dirty-what-v1-0-236d69f25c24@suse.de>
+ <4f096d70-6f94-4148-8f47-242b8551e5f9@nvidia.com>
+ <awWNyDZT2SVu2Zp9@pedro-suse.tail5790ac.ts.net>
+ <55114986-0ba1-4a80-8498-bf674d64e01b@kernel.org>
+ <away88BuU8ibcTA5@infradead.org>
+ <d088452f-1118-4a06-bc16-1942e523e0fc@kernel.org>
+ <awbv55FryMamHvVP@infradead.org>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <awbv55FryMamHvVP@infradead.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-> [Severity: Medium]
-> With the parse removed here, what happens to PHYs registered through the
-> exported of_mdiobus_phy_device_register()?
+On 11/25/26 15:25, Christoph Hellwig wrote:
+> On Wed, Nov 25, 2026 at 11:19:18AM +0100, David Hildenbrand (Arm) wrote:
+>>> I don't think that is a good reason.  For file system backed VMAs we
+>>> really need the pin to be able to do someting sane, DMA or not.
+>>>
+>>>
+>>> We need to, if not for this series then for all the other outstanding
+>>> issues with GUP writes.
+>>
+>> Cool, and I agree (that's why I placed it at 1).
+>>
+>> But who is "we"? Because I recall that "we" wanted to do that a while ago.
+>>
+>> (I won't be "we" ;) Pedro, can you take a look? I'm afraid the fuse thing might
+>> be the harder nut to crack)
 > 
-> drivers/net/mdio/of_mdio.c:of_mdiobus_phy_device_register() {
-> 	return fwnode_mdiobus_phy_device_register(mdio, phy,
-> 						  of_fwnode_handle(child),
-> 						  addr);
-> }
-> 
-> This wrapper never goes through of_mdiobus_register_phy(), so it never
-> reaches the new parse.
-> 
-> Its in-tree caller, tja1102_p1_register() in drivers/net/phy/nxp-tja11xx.c,
-> registers the port 1 PHY from a DT child node:
-> 
-> 		ret = of_mdiobus_phy_device_register(bus, phy, child, addr);
-> 
-> and does not set phy_ignore_ta_mask itself.
+> The collective of MM/FS integrity interested people (for which the
+> recipient list is a good proxy) plus the maintainers of the code
+> still writing through FOLL_GET.
 
-It feels like we are putting in too much effort for a feature which
-has no in kernel users.
+I'm afraid if we don't throw out names we'll end up in another 3 years with the
+same result ;)
 
-You solution is not 100% correct, it has some corner cases, but i'm
-happy with the basic architecture of doing it once at a higher
-level. If a new user comes along and lands in one of those corners,
-let leave it to them to fix.
+Thanks Pedro for looking into it. @Pedro feel free to ping relevant maintainers
+when you struggle with the fixes.
 
-> [Severity: Medium]
-> The bit is now set before fwnode_mdiobus_register_phy()->get_phy_device()
-> checks whether anything answers at addr. Is it intended that nothing clears
-> it when registration fails?
+-- 
+Cheers,
 
-If the device comes to life later, it still has broken turn around, so
-this is not a problem.
-
-     Andrew
+David
