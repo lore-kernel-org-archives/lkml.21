@@ -1,45 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.13
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795590333;
-	b=ipAzBs8e2LGXFsKq6m/08LVz6Po51pz+temFPLd0MXb7app08PwFv1KZdxWtQ7+KKFfy
-	 O6LbraNp/88V++2IMfpZ7neICDvqbUbugkjnr4TzHdbgPIa1wz1lE5Z8jQCNAXWe6Y3LT
-	 hetF92rFlfAhIPD8zwZ4GR5Uo6DmxmkJdGEkygIdjHLNAMkNamvrCth5m9rKzFQGJYnPM
-	 38IXUZZ5BaOaLO8xnBBRD7GOdy6g0BzNULa1k5+/b9CwBXOHshk3C9DWQABPi9bIihv1I
-	 ZQ7icV1G2K/2cAJ5SW6a8JhsEQvG0+Q1lAc2f7MiV9q8shmCToSn1EWlCEWjT1qsecA==
+	t=1795590338;
+	b=JuMrbhq2u/u4mXqin52uvT+8Ggv4Dlvd2bel1xiub8ZP4nQKwYh0YGAQDtA/09gHBC78
+	 4AzxABCr2/1HUbhkdthCuExL532ZJHgVt88m5Pr8rTHTKamvzP5ahl+GrnSXldL9tUPh6
+	 pJEyS8Az0r6Zou2H7EbwZKWzcwXzvVQ95fq9K/kll+caVPw7qc0xO3+8Awny6QfqdFOhZ
+	 XiL4I+FiYzo/3Pz2u1KlKSbE6ozOe35jbhfyxpeMCwZHyRu8MuB9V3obtAK5j7Y+UDfQv
+	 YY/RTeuL8zCd3oD87KiLRgk2YEqFvZ+wqiWMMc6chMDlq64iRQaIhysF77ShPEco+zQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795590333;
-	h=Received:DKIM-Signature:Content-Type:MIME-Version:Message-Id:
-	 In-Reply-To:References:Subject:From:To:Cc:Date;
-	bh=oY0rx5TQF/hPAT2fp/OqppYSUqnj9x266slaImcxxI8=;
-	b=e14bawmH0nw+A4ztGPiU7+LLz8sZc6ds5u4baksEndHl8/22zvvUSLUzOzWnZwCEA0Ih
-	 iRmIBrhzm9ODoI5Djl5bz/rvMX3oNPLkC3GzgLSsgQv9Wu52ulsheZbu2NJUUiI0yQTin
-	 WMX2zgpZcX7h9sRG9FX1990zkwnf0SleY3IVWBxzbEkU+zQHyNzG4bB0VCr5JC3jeYIim
-	 vajt4UQSsEGvbY4vIgtq8nQYQgmTYD9nKelLND48l+mzGqkbEMZSlVScBQMQqB28fhrU+
-	 48qJhO1W1GBY5kvoVa2g8rNGAhi9/FjlNqYRRFW/oGr5N4duuQbmdHmPH3hTmsQOmXA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795590338;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=XKpGxeZV3UAPEUKWirMhDVIlst3maSl/S53/O57z3mA=;
+	b=QlPTBUtzIfoWfa2k+wGBNHv22ZwvxlepCiWEsuVnR7doB59EUY3bh5sPhgPLl410bluf
+	 5uVbM5wGT8TsmSBQEinl/Dn9f2yIPkxXOLKIWtZIHjcmOvfHWT0/8QW9NJTEW1FifAX5O
+	 cndR1UdeMRF5F8DUDLKZulvhEuieO9NSCzpjNgiVq2eFWE1tHH/QGFGX634KgUOQN0iIl
+	 SnRd7zHAOrkQk4jRZgSzHZnR34TffeXlP0761OOZvFN8Zzfryab97da3Vvml89eXkFE3v
+	 GWgqp44jIU5pAiWubOIsowlDc8hhGn101oxSrq16K4Hk/QRH6U9vEWLEabqCjnlzRIA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=fail reason="signature verification failed" header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BkVvS+OF;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=golkQrt9;
+	arc=none smtp.remote-ip=192.198.163.13
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.13])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9B47F606A321;
-	Wed, 25 Nov 2026 07:05:33 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 96AAC606A329;
+	Wed, 25 Nov 2026 07:05:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 96AAC606A329
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BkVvS+OF
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AEE9C1F01569;
-	Wed, 25 Nov 2026 07:05:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795590333;
-	bh=oY0rx5TQF/hPAT2fp/OqppYSUqnj9x266slaImcxxI8=;
-	h=In-Reply-To:References:Subject:From:To:Cc:Date;
-	b=BkVvS+OFWxcEyUnwscVtdtKPmqsRWwvopXk56h+zXZQAoZ/h2wL+MD8SQMN86bqQR
-	 2uImi9ia77CGaDTgSxCbZrZxBaOucb8WMt1P4U1aZubqQ8luti7eE7pTGVbFC5+cwj
-	 Mu0kvKWXbaYXzoBoexes8vdN20iYhHqHoJGSEblWV/piowNn9rPxxRr6QV4KTYMewu
-	 +GK0LDN2Jm/p2oUxeA1sdIlLOXcTgVbbyfwI9+CNvY2KiccpnO/Wcg3XChnfblbsF+
-	 vLS7VXOEyQ4D9SSyVeJVqT0OqE55F/HzqqLaYQzPvdVPnltFksbCmR9k2OlZLYIL8W
-	 37RPucQuuHBlg==
-Content-Type: multipart/mixed; boundary="===============0970350896364781427=="
+	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=golkQrt9
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795590338; x=1827126338;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=wlZJDkJmESKOMSXVmkNcXwFq5iu0FNt5SqGrsOrP5KQ=;
+  b=golkQrt9QsEM9Ys5oKwRE2mYh8mCzd1vnlPoySkeWdbqqKK1WrTlutRA
+   QDPf4S+0PqGOrUaH+zEeCAyKfuMQpx5UZkqZ51Ef5G7KDHlr7+RQFEWQa
+   kvhMprjW4+i60iVsQN05GEiumFNEdnPji6awO7Jfx9jeRmqruwLg4OIFY
+   +rX//tBhTY4G+NLsfxfwMpp9OYhhPDbnQd9wJ3CCL9qC+1XtmmHZj8Bd0
+   P6jNtyhegGNxgQ4TEXYnv+3xWNfNdUQsXymEba7UAXcXo5ML6w11/eXt/
+   NAL00rd6J/7hLRsFNmdp7D0ZVghJqSPvE75xWc2yAWC/+86brCSgTk9bD
+   Q==;
+X-CSE-ConnectionGUID: hGYasBFhRVeOYkCSd8oMfw==
+X-CSE-MsgGUID: IVlQrqnqR/2HsDTxBi1tUA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11976"; a="4431283"
+X-IronPort-AV: E=Sophos;i="6.27,232,1787036400"; 
+   d="scan'208";a="4431283"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 23:05:37 -0800
+X-CSE-ConnectionGUID: 802W8KuiS7Sgw0xA88I5kg==
+X-CSE-MsgGUID: 9COkDWdES+WUEDiexgfbuw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,232,1787036400"; 
+   d="scan'208";a="12224181"
+Received: from yilunxu-optiplex-7050.sh.intel.com (HELO localhost) ([10.239.47.46])
+  by fmviesa009.fm.intel.com with ESMTP; 24 Nov 2026 23:05:31 -0800
+Date: Wed, 25 Nov 2026 14:55:37 +0800
+From: Xu Yilun <yilun.xu@linux.intel.com>
+To: "Tian, Kevin" <kevin.tian@intel.com>
+Cc: "x86@kernel.org" <x86@kernel.org>,
+	"linux-coco@lists.linux.dev" <linux-coco@lists.linux.dev>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	Kiryl Shutsemau <kas@kernel.org>,
+	"Edgecombe, Rick P" <rick.p.edgecombe@intel.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"Hansen, Dave" <dave.hansen@intel.com>,
+	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
+	"Xu, Yilun" <yilun.xu@intel.com>,
+	"Li, Xiaoyao" <xiaoyao.li@intel.com>,
+	"Mehta, Sohil" <sohil.mehta@intel.com>,
+	"Hunter, Adrian" <adrian.hunter@intel.com>,
+	"Maloor, Kishen" <kishen.maloor@intel.com>,
+	"tony.lindgren@linux.intel.com" <tony.lindgren@linux.intel.com>,
+	"Fang, Peter" <peter.fang@intel.com>,
+	"baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>,
+	"Duan, Zhenzhong" <zhenzhong.duan@intel.com>,
+	"Gao, Chao" <chao.gao@intel.com>,
+	"artem.bityutskiy@linux.intel.com" <artem.bityutskiy@linux.intel.com>,
+	"nik.borisov@suse.com" <nik.borisov@suse.com>
+Subject: Re: [PATCH v5 3/6] x86/virt/tdx: Add extra memory to TDX module for
+ the extensions
+Message-ID: <awaGafN61s1Oi4nd@yilunxu-OptiPlex-7050>
+References: <20261111-tdx-module-ext-v5-0-c74f764abc3d@linux.intel.com>
+ <20261111-tdx-module-ext-v5-3-c74f764abc3d@linux.intel.com>
+ <CO1PR11MB48354ED95F53409835B9F49B8C442@CO1PR11MB4835.namprd11.prod.outlook.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -49,96 +99,51 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Message-Id: <b05067a07bd4d9c4a038deda4d8dced4a84bfc13a0dee3e89bfe1a092a679dce@mail.kernel.org>
-In-Reply-To: <20261125061523.1540234-4-irogers@google.com>
-References: <20261125061523.1540234-4-irogers@google.com>
-Subject: Re: [RFC PATCH v2 03/30] unwind_user: Support Minimal DWARF CFI user-space unwinding
-From: bot+bpf-ci@kernel.org
-To: irogers@google.com,linux-kernel@vger.kernel.org,linux-trace-kernel@vger.kernel.org,linux-arch@vger.kernel.org
-Cc: jpoimboe@kernel.org,rostedt@goodmis.org,peterz@infradead.org,mingo@redhat.com,tglx@kernel.org,bp@alien8.de,dave.hansen@linux.intel.com,x86@kernel.org,catalin.marinas@arm.com,will@kernel.org,mark.rutland@arm.com,linux-arm-kernel@lists.infradead.org,pjw@kernel.org,palmer@dabbelt.com,aou@eecs.berkeley.edu,alex@ghiti.fr,linux-riscv@lists.infradead.org,acme@kernel.org,namhyung@kernel.org,linux-perf-users@vger.kernel.org,mhiramat@kernel.org,ast@kernel.org,daniel@iogearbox.net,andrii@kernel.org,bpf@vger.kernel.org,nathan@kernel.org,llvm@lists.linux.dev,nsc@kernel.org,linux-kbuild@vger.kernel.org,ojeda@kernel.org,rust-for-linux@vger.kernel.org,ardb@kernel.org,linux-efi@vger.kernel.org,maz@kernel.org,oupton@kernel.org,kvmarm@lists.linux.dev,shuah@kernel.org,linux-kselftest@vger.kernel.org,indu.bhagat@oracle.com,jremus@linux.ibm.com,wnliu@google.com,dylanbhatch@google.com,irogers@google.com,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yongho
- ng.song@linux.dev,mason@kernel.org,ihor.solodrai@linux.dev
-Date: Wed, 25 Nov 2026 07:05:28 +0000 (UTC)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CO1PR11MB48354ED95F53409835B9F49B8C442@CO1PR11MB4835.namprd11.prod.outlook.com>
 
---===============0970350896364781427==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
+On Tue, Nov 24, 2026 at 07:54:00AM +0000, Tian, Kevin wrote:
+> > From: Xu Yilun <yilun.xu@linux.intel.com>
+> > Sent: Wednesday, November 11, 2026 11:49 AM
+> > 
+> > TDX module extensions need memory for their execution environment to
+> > serve SEAMCALL leafs. The TDX architecture implements the extensions
+> > in such a way that they use the memory outside of SEAM range, so the
+> > kernel should add the memory upfront at initialization time.
+> 
+> The cover letter says:
+> 
+>     TDX provides a separate SEAMCALL execution *environment* - the TDX
+>     module extensions - for those operations.
+> 
+> So the TDX module extensions is an environment, to support operations
+> of various add-on features.
 
-> unwind_user: Support Minimal DWARF CFI user-space unwinding
+The TDX module extensions are the enviroment, the TDX module brings them
+up as a whole. But internally, they are composed of several independent
+services, each supports one feature.
 
-TL;DR:
-- Possible misclassification of executable private /dev/zero mappings as ELF
-  bases in user_cfi.c; likely harmless (extra user read, or CFI from
-  user-written bytes if ELF-like)
-- Commit message nit: explain why CFI unwinding is needed
+> 
+> Here "TDX module extensions need memory for *their* execution
+> environment" - 'their' seem to indicate that the extensions itself is not
+> an environment. sounds like referring to the add-on features instead.
 
-> unwind_user: Support Minimal DWARF CFI user-space unwinding
->
-> Extend the generic user-space unwinder (kernel/unwind/user.c) with
-> UNWIND_USER_TYPE_CFI (CONFIG_HAVE_UNWIND_USER_CFI), resolving ELF
-> PT_GNU_EH_FRAME headers across executable VMAs in kernel/unwind/user_cfi.c.
-> Key design details:
->  - Find the executable VMA and its base ELF mapping (vm_pgoff == 0)
->    under mmap_read_lock_killable(), then drop mmap_read_lock() before
->    issuing any faultable copy_from_user() reads.
-> [ ... ]
+How about making it simple:
 
-this isn't a bug, but could the changelog say briefly why CFI-based user
-unwinding is needed, for example what fails with frame pointers alone,
-before it lists the design details?
+  The TDX module needs memory to setup the extensions. The TDX
+  architecture ...
 
-> diff --git a/kernel/unwind/user_cfi.c b/kernel/unwind/user_cfi.c
-> new file mode 100644
-> --- /dev/null
-> +++ b/kernel/unwind/user_cfi.c
-> @@ -0,0 +1,392 @@
+> 
+> later in patch5:
+> 
+>     Note that TDH.EXT.INIT builds all configured extensions. The SEAMCALL
+>     leaf fails if any extension fails to initialize... If a nice-to-have extension
+>     appears in the future, this can be revisited.
+> 
+> This reads more like 'extension' == 'add-on feature'.
 
-[ ... ]
+The 'extension' == one service that supports one feature.
 
-> +static bool lookup_vma_elf_base_locked(struct mm_struct *mm, unsigned long ip,
-> +				       unsigned long *vma_start,
-> +				       unsigned long *vma_end,
-> +				       unsigned long *elf_base)
-> +{
-> +	struct vm_area_struct *vma = vma_lookup(mm, ip);
-
-[ ... ]
-
-> +	if (vma_is_anonymous(vma) || !vma->vm_file) {
-> +		if (vma->vm_pgoff == 0) {
-> +			/* Special mappings such as [vdso] */
-> +			*elf_base = vma->vm_start;
-> +			return true;
-> +		}
-
-A subsystem pattern flags this as potentially concerning: this branch is
-entered for vma_is_anonymous(vma) || !vma->vm_file, and vm_pgoff == 0 is
-then taken to mean a special mapping such as [vdso].
-
-For a purely anonymous VMA, vm_pgoff equals vm_start >> PAGE_SHIFT, so that
-works.  A private /dev/zero mapping is also vma_is_anonymous(), but vm_file
-is set and vm_pgoff holds the file offset passed to mmap(), usually 0.
-
-Can an executable MAP_PRIVATE /dev/zero region at offset 0 be classified as
-an ELF base here, so that *elf_base = vma->vm_start is returned and
-find_user_eh_frame_hdr() parses the first bytes of the region as an ELF
-header instead of negative-caching it?
-
-The guide's safe forms are to test vma_is_anonymous(vma) && !vma->vm_file,
-or to use vma_start_anon_pgoff() for the anonymous offset.
-
-On the other side, the misclassified region is the task's own memory and is
-only read through copy_from_user().  JIT code at vm_start would normally
-fail the ELF magic check, so parse_user_elf64_eh_hdr() or
-parse_user_elf32_eh_hdr() would return -EINVAL, the slot would stay
-negative-cached and unwind_user_next() would fall back to FP.  The visible
-effect would be one extra user read per walk, or CFI evaluated from
-user-written bytes if the region happens to start with an ELF header.
-
-
----
-AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
-See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
-
-CI run summary: https://github.com/kernel-patches/bpf/actions/runs/45561209846
---===============0970350896364781427==--
+> 
+> Could you clarify it and make it consistent in this series?
