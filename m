@@ -1,83 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.11
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=79.135.106.101
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795614584;
-	b=rmmyq9lITm4IAcgbOYT9BB+UziBDMTWGD0u59hJ68yGeGvzzJ5uaZjTQp329eWhM5l7h
-	 31Zzy+y6ZzDsa9lNMTm6rN1tOocIPMeAYx8f3Ajx6OL4RHyU7WdBHKO5FOH1+WdCtv7zo
-	 15nrM2u0Yx9AxYfHZahCiHr5/6VMiLkL/yKKs183gQ0IPyKqcRwqYL1qg0YpNsNhOuDbM
-	 oRBC91nsBDk/cnDp4Vqfh09nyPkg/pINs09/lEa5axx5AaB/Y07ZAu/92ryD9cM6HKUfe
-	 PgClm6Y5iCbQBUQigckbdCvD+hmyjtwv4+MkWC2o02AlqC/A+eFasbpmyC9sTB+qKOw==
+	t=1795614587;
+	b=10pQWa8gpsTrWiaSsbCEIsR04zcFQDVHT+PF4VN5yO1ETjNUWKZzTvnDYgXH2rBx0Jxr
+	 rERwH1KB0ZzWN6dUpICvQuC1zp7TEX+bYGinz0XHqUdoX+B143pfOtupTVokuLmdLGsJV
+	 nMw2Je0GBeOFfeQmbkUJ1Kpjw8mjcXAz9rNL3UqINTjXFZ67AKdzES2wtz1mZ55ePECrM
+	 a0/XF2Gb/NbBI4hyElHsSHXZi0JyfEOqK37DeASa4D/+xknOYYvRnWiIrgu7NNIHX4w9a
+	 Or9PTagCwiSIu2xxHsu1oDbyMvW+uYQr6n+S3ISiCoKhPvrJ6vqZBpvJgb/bIbb4BqQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795614584;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:Organization;
-	bh=yyHxxdReNfxVoXh4IqIaq80BMGasrVS/xxrq8pVvCe8=;
-	b=1zVzvIpfARDCP7/grS33qLXWXnadEq7LUHIaFr94lwLMlHRvDoK0XLjLzrakypoFPv5h
-	 KCsXmF/DhmfwS7InEvn2pWVs5Iku7hdv1vkvDGAOdYYXY5O89je7R6gn/0THyd+AyJI6Y
-	 5hxHaeTdN60Mfowb3xd/IzPMZAtVHo6uMXQMxVkDCDxbkzUosyi0YsSqW7ST/FqUZ/A6J
-	 KE7lxstHTHb3siZTxEbHbi4/iyN0y7qdDioD/QblBMlHE2nRiMdmE3gJyruP5+kbOzFdA
-	 s0nyfww+xmqbuwFC6lbjCiDYPJyDG+vuJmYNhGAG23yTTNtilp9oXn7YVvTZpBs7hQw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795614587;
+	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
+	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=BuPepjdXAchlZ0/rdmklLt9a4OqDms3VeAyOyVVTjdU=;
+	b=pwgJATKggejSZMTzAaxX9mjD/Qxyi21nSq1Fsh8+Ygx8mvNhA2vQXpiDXnhocG4oHfhT
+	 388VBrgHpQDV1Rha/GZMK0cVyxDK66mUCtz1j+ppHDK3mSYihbvu9KMMr1w74tNSuVyef
+	 C+fVm/bGWohEJQiR8qt9sczrn0x1FxAGUNw0KMLf8LN83SUt5EGxKgVZBuu0hLKoAwPKz
+	 IyCyK+1ymUa7teIRt0QwFsBjUKCazp0RkjKdVu8DzEAFz7MmA9iF9SDsmZ+3Uqkjg28R6
+	 2XHJsIhLXlSa4Vaz+d3eoK6ezxn8Ap6QkaTPhGdIuiV/2Sgm7zoGSgEVwUgW8UhCyRg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=DLzNdlhH;
-	arc=none smtp.remote-ip=198.175.65.11
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.11])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=protonmail.com;
+	spf=pass smtp.mailfrom=protonmail.com;
+	dkim=pass header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=VG4FDJAN;
+	arc=none smtp.remote-ip=79.135.106.101
+Received: from mail-106101.protonmail.ch (mail-106101.protonmail.ch [79.135.106.101])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 45FDA606A31E;
-	Wed, 25 Nov 2026 13:49:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 45FDA606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AFE74606A33E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 13:49:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AFE74606A33E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=protonmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=protonmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=DLzNdlhH
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795614585; x=1827150585;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=9VUNgHXhpfQAQ9DcK1y1cc9wnfI/kl+snFE3maIB6K8=;
-  b=DLzNdlhHetNoRXudHUnQqlSeVCmURrTlGOqmflq23py8bQfOxOM+lpa5
-   z46cjckeY8BD7RUR/tj6oHCK5NcW/giRtTzIWxog9wmaGnoHjDvR90kJ4
-   z4wsF47lyW66DcosAE7jUKA1cRmH4Stptcpwu/tzBEhkilTmPSXRymKdy
-   VRofCd0l3nYjUbxD4EGFWTfGgL76NkWo9ZaR0JoM0yMvkW+YA2/H5edDe
-   I2aR8GK1CdxEty14IwDdrmQQN3Da2PNT3Uh1eyC4MUlP9dBpj0VUNdDxU
-   0IIAmg4SSUnby+jXrAJB+nctYrnJZJqM1FCoScjJq2HgxChcau5mNf368
-   w==;
-X-CSE-ConnectionGUID: z1tjZTt4TtCSr4M6DkFUVQ==
-X-CSE-MsgGUID: 0bYDd4/dSMOlu+Iwcv8HUg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4382120"
-X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
-   d="scan'208";a="4382120"
-Received: from fmviesa012.fm.intel.com ([10.60.135.152])
-  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 05:49:44 -0800
-X-CSE-ConnectionGUID: MVU5Y1eiTISAbn9qypmeVw==
-X-CSE-MsgGUID: OS2hxzV6S9akpR3n3dC0TQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
-   d="scan'208";a="13551619"
-Received: from conormcd-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.244.73])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 05:49:40 -0800
-Date: Wed, 25 Nov 2026 15:49:38 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: raffaele.tranfaglia@gmail.com
-Cc: Mark Brown <broonie@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>, Johan Hovold <johan@kernel.org>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	Jonathan Cameron <jic23@kernel.org>, linux-iio@vger.kernel.org,
-	linux-kernel@vger.kernel.org, driver-core@lists.linux.dev,
-	linux-sound@vger.kernel.org, Neo Chang <YLCHANG2@nuvoton.com>
-Subject: Re: [PATCH v2 2/3] regmap: mask values to val_bits on write
-Message-ID: <awbncgC-qNTtr_ID@ashevche-desk.local>
-References: <20261125-regmap-kunit-val-bits-v2-0-81db3b79cd3f@gmail.com>
- <20261125-regmap-kunit-val-bits-v2-2-81db3b79cd3f@gmail.com>
- <awbk6Ah554O_Nxg5@ashevche-desk.local>
+	dkim=pass (2048-bit key, unprotected) header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=VG4FDJAN
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
+	s=protonmail3; t=1795614584; x=1795873784;
+	bh=BuPepjdXAchlZ0/rdmklLt9a4OqDms3VeAyOyVVTjdU=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=VG4FDJANG6JEbv/1Mwb2lTT0CY6hhvcXxLMEZV0//O4YGYscqkRzEVesPF03ipVGU
+	 ECWyheGAc7f32lOi9FLmumMc5d5/tm/AxV4gllixFPjGC/BtEqh896ltoIzLBsTlpq
+	 672pBW2z6Tz4EJ49qCWEUee4dU/V1BYGkOgWnYgfzS70Oy1dUz5z+Tqp27c+1NSvVK
+	 n+iKMNmpI7kBQyXcpZsW2vc7xrzCSz7Af4e6sHwLAfptzPPQnriLnH1YNBFJsgXXs2
+	 1A/fO5Pa5RUWqZ+TUndzTLEioSB//GmSIXsPU09AbUKez8lJY5iH6U5zZcCorPB5Tg
+	 Hepbut9OX0Xjg==
+Date: Wed, 25 Nov 2026 13:49:26 +0000
+To: Alexey Charkov <alchark@flipper.net>
+From: Ryan Leung <untilscour@protonmail.com>
+Cc: Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, =?utf-8?Q?Rafa=C5=82_Mi=C5=82ecki?= <rafal@milecki.pl>, Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, Russell King <linux@armlinux.org.uk>, "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Willem de Bruijn <willemb@google.com>, Simon Horman <horms@kernel.org>, Ricardo Pardini <ricardo@pardini.net>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 3/5] nvmem: rockchip-otp: Derive MAC addresses from the CPU ID
+Message-ID: <0aH4P5VH9HNiTXpCUTaTlvGaoUDQBnvv-0cSXtipSDkLOGjzGy96jDqsVtU0DJTWrocgoMcGFEgd0JUlF5mljVvCzGKVz4yUgDQ0s6HaDLg=@protonmail.com>
+In-Reply-To: <20261124-rk3576-otp-cpuid-mac-v4-3-d403b8a25113@flipper.net>
+References: <20261124-rk3576-otp-cpuid-mac-v4-0-d403b8a25113@flipper.net> <20261124-rk3576-otp-cpuid-mac-v4-3-d403b8a25113@flipper.net>
+Feedback-ID: 184418679:user:proton
+X-Pm-Message-ID: 9e804900875c1d7029fee4789a2fc3b0fde23519
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -87,38 +64,167 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <awbk6Ah554O_Nxg5@ashevche-desk.local>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-On Wed, Nov 25, 2026 at 03:38:54PM +0200, Andy Shevchenko wrote:
-> On Wed, Nov 25, 2026 at 08:09:31AM +0000, Raffaele Tranfaglia via B4 Relay wrote:
+Hi Alexey,
 
-...
+On Tuesday, November 24th, 2026 at 8:04 PM, Alexey Charkov <alchark@flipper=
+.net> wrote:
 
-> > +	/* Some users with their own register accessors don't set val_bits */
-> > +	if (config->val_bits > 0 &&
-> > +	    config->val_bits < BITS_PER_TYPE(map->format.val_mask))
-> > +		map->format.val_mask = GENMASK(config->val_bits - 1, 0);
-> > +	else
-> > +		map->format.val_mask = UINT_MAX;
-> 
-> This is simply
-> 
-> 	map->format.val_mask = UINT_MAX >> config->val_bits;
+> Rockchip bootloaders derive stable Ethernet MAC addresses from the CPU
+> ID in the OTP memory and patch them into the device tree they pass on.
+> Kernels started any other way, e.g. straight from the SPL in Falcon
+> mode, end up with random addresses which change on every boot, even
+> though the CPU ID is just as readable from Linux.
+>=20
+> Implement the derivation for cells marked as "rockchip,cpuid", handing
+> the result to consumers which ask for the cell as "mac-address", such as
+> of_get_mac_address(). Leave the CPU ID unchanged for any other reader,
+> so that the same cell keeps serving the ID itself.
+>=20
+> Follow U-Boot's rockchip_setup_macaddr() exactly, so that both yield the
+> same addresses: hash the CPU ID's lowercase hex string with SHA-256,
+> take the first six octets as a unicast, locally administered address,
+> and XOR the cell argument into the last octet, which is how U-Boot gets
+> eth1addr from ethaddr.
+>=20
+> Put the address in the first six octets and keep the cell at the size
+> of the CPU ID, as NVMEM cells have a fixed size and MAC address
+> consumers accept a longer cell.
+>=20
+> Hooking the derivation into the OTP provider rather than a separate
+> layout means it works with any fixed layout of the OTP cells, and needs
+> no per-SoC knowledge, as the cell already gives the CPU ID's location.
+>=20
+> Signed-off-by: Alexey Charkov <alchark@flipper.net>
+> ---
+>  drivers/nvmem/Kconfig        |  4 +++-
+>  drivers/nvmem/rockchip-otp.c | 48 ++++++++++++++++++++++++++++++++++++++=
+++++++
+>  2 files changed, 51 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/nvmem/Kconfig b/drivers/nvmem/Kconfig
+> index d2f5bb236663..5776d4e4b391 100644
+> --- a/drivers/nvmem/Kconfig
+> +++ b/drivers/nvmem/Kconfig
+> @@ -448,9 +448,11 @@ config NVMEM_ROCKCHIP_OTP
+>  =09tristate "Rockchip OTP controller support"
+>  =09depends on ARCH_ROCKCHIP || COMPILE_TEST
+>  =09depends on HAS_IOMEM
+> +=09select CRYPTO_LIB_SHA256
+>  =09help
+>  =09  This is a simple driver to dump specified values of Rockchip SoC
+> -=09  from OTP, such as cpu-leakage.
+> +=09  from OTP, such as cpu-leakage. It also derives stable Ethernet MAC
+> +=09  addresses from the CPU ID, as Rockchip bootloaders do.
+>=20
+>  =09  This driver can also be built as a module. If so, the module
+>  =09  will be called nvmem_rockchip_otp.
+> diff --git a/drivers/nvmem/rockchip-otp.c b/drivers/nvmem/rockchip-otp.c
+> index 7eb834516ab4..eb91e7a34051 100644
+> --- a/drivers/nvmem/rockchip-otp.c
+> +++ b/drivers/nvmem/rockchip-otp.c
+> @@ -6,9 +6,12 @@
+>   * Author: Finley Xiao <finley.xiao@rock-chips.com>
+>   */
+>=20
+> +#include <crypto/sha2.h>
+>  #include <linux/clk.h>
+>  #include <linux/delay.h>
+>  #include <linux/device.h>
+> +#include <linux/etherdevice.h>
+> +#include <linux/hex.h>
+>  #include <linux/io.h>
+>  #include <linux/iopoll.h>
+>  #include <linux/module.h>
+> @@ -67,6 +70,8 @@
+>  #define RK3588_AUTO_EN=09=09=09BIT(0)
+>  #define RK3588_RD_DONE=09=09=09BIT(1)
+>=20
+> +#define ROCKCHIP_CPUID_LEN=09=0916
+> +
+>  struct rockchip_data {
+>  =09int size;
+>  =09int read_offset;
+> @@ -319,6 +324,48 @@ static int rockchip_otp_read(void *context, unsigned=
+ int offset,
+>  =09return ret;
+>  }
+>=20
+> +/*
+> + * Derive a MAC address from the CPU ID the same way Rockchip bootloader=
+s do
+> + * (see rockchip_setup_macaddr() in U-Boot's arch/arm/mach-rockchip/boar=
+d.c),
+> + * for consumers asking for one. Everyone else gets the CPU ID unchanged=
+.
+> + *
+> + * The address takes the first six octets of the cell, which keeps the s=
+ize of
+> + * the CPU ID. Consumers only look at those, so the rest is left as it i=
+s.
+> + *
+> + * The cell argument is XORed into the last octet rather than added to t=
+he
+> + * address, matching how U-Boot derives eth1addr from ethaddr.
+> + */
+> +static int rockchip_otp_cpuid_pp(void *priv, const char *id, int index,
+> +=09=09=09=09 unsigned int offset, void *buf, size_t bytes)
+> +{
+> +=09char cpuid[ROCKCHIP_CPUID_LEN * 2];
+> +=09u8 digest[SHA256_DIGEST_SIZE];
+> +=09u8 *mac =3D buf;
+> +
+> +=09if (!id || strcmp(id, "mac-address"))
+> +=09=09return 0;
+> +
+> +=09if (bytes !=3D ROCKCHIP_CPUID_LEN || index < 0 || index > U8_MAX)
+> +=09=09return -EINVAL;
+> +
+> +=09bin2hex(cpuid, buf, ROCKCHIP_CPUID_LEN);
+> +=09sha256(cpuid, sizeof(cpuid), digest);
+> +
+> +=09memcpy(mac, digest, ETH_ALEN);
+> +=09mac[0] &=3D 0xfe;=09=09/* clear the multicast bit */
+> +=09mac[0] |=3D 0x02;=09=09/* set the locally administered bit */
+> +=09mac[5] ^=3D index;
+> +
+> +=09return 0;
+> +}
+> +
+> +static void rockchip_otp_fixup_dt_cell_info(struct nvmem_device *nvmem,
+> +=09=09=09=09=09    struct nvmem_cell_info *cell)
+> +{
+> +=09if (of_device_is_compatible(cell->np, "rockchip,cpuid"))
+> +=09=09cell->read_post_process =3D rockchip_otp_cpuid_pp;
+> +}
+> +
+>  static struct nvmem_config otp_config =3D {
+>  =09.name =3D "rockchip-otp",
+>  =09.owner =3D THIS_MODULE,
+> @@ -328,6 +375,7 @@ static struct nvmem_config otp_config =3D {
+>  =09.stride =3D 1,
+>  =09.word_size =3D sizeof(u8),
+>  =09.reg_read =3D rockchip_otp_read,
+> +=09.fixup_dt_cell_info =3D rockchip_otp_fixup_dt_cell_info,
+>  };
+>=20
+>  static const char * const px30_otp_clocks[] =3D {
+>=20
+> --
+> 2.56.0
+>=20
+>=20
 
-Answering to myself, no.
+Perhaps "rockchip,cpuid" could include a mention of "mac" somewhere?
 
-> no? In other words, do we have cases IRL when val_bits > 32?
+Tested-by: Ryan Leung <untilscour@protonmail.com> # RK3528 NanoPi R28S
 
-But this question stays for this check
+I tested on FriendlyELEC NanoPi R28S (RK3528) with index of 100 and the MAC=
+ address was exactly as expected.
 
-	    config->val_bits < BITS_PER_TYPE(map->format.val_mask)
+Looking forward to using this.
 
--- 
-With Best Regards,
-Andy Shevchenko
-
-
+Best regards,
+Ryan
