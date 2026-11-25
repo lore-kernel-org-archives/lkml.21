@@ -1,105 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.69
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795643755;
-	b=kfnD9ywj+UnGHUa5jWCiRP4u/OfoyiMYC8AuCGJKb1TTJ9xlqAXoFhSpio6ZgN+/IgAa
-	 +Cq32Jy8o77fDFpNp1H0aybSuL6pTPKTAHfIgoLJnyTFnN6nRyfrffRr/XUpC8sbqlW/D
-	 kCwIfSHbS3q0iFd6Phxc2fFdkbtiYAFWp7jYZC5zmuUL62BYKBhbz8LicU2XKk0Zsj6ld
-	 QUw8Z9YMLsw/vdmyeUIo3+ArX7jgoJBOZPEEWwL44+OfphtJac3ZcEzoPqoMwypmXRNWq
-	 ZAnMGPetP2cG0D80KwbYwjwFxURHrkxkEqh7paYsYenvlU5+qddiduZoFRIFzbMrtjw==
+	t=1795643797;
+	b=DaZnTv6jnAwXjZKRwptl5TLvEq9D5kaxLKdy8F+0eDUcEg7VuHipUD85jaE9aEKTgJ4Y
+	 gFXUucmtISQwDZd/kq54qZOIRdGT6NRxm+TcI23vH/nCdreGdOtdlI6zxejJ673M5ZeUY
+	 LrE0HR9OC70SxkMdic3GAeEs1zbsoxx21uFYJi+/YABN32Irt1SQz9WHn7gCPDbllm6nK
+	 dwGYx96nq+DVyFJRrHEyMGb7+yp2Ag5b7jbjkC0KdoiJqfYJBMmHJD6GpasX1v0XoUYmw
+	 /UTxM/WxMKHYS0cXd0egxO85xvc5MJugdPniUXTNZ402JSfYiPuMs/07sc1pQbo8ZRQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795643755;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795643797;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=wyP7vH2rGlbYhb8q27/m4UJghzd8eGwKK/Q/LPzbUrM=;
-	b=dNohIP1Mvn5hiwTLQHg0vMbDo0I6+JlBzUyeTctqzVZPvTdoQe4R2ppPPoh9SCIZS/jz
-	 bWIr5ySZDmUrQ0I91Hns/LL8c7+lWAaoBHwWmqg8Oe9Nn3ZlgsHIKlmA82aW3DJl4vrpj
-	 crEd2dGmEUgkZ/P6RZaNwCKtLeZlMEno6gaoL1rrCvPCapffd6SHxBW5ZuGrHNpSuKKue
-	 2VR70IOYCkpzeNPEVHiCfZnwtJVtyBzAZbP8yspX5rq9XxPHAHzHHnoXHyLAAUrj9gpp5
-	 jYQ56XbRQRx/r1LcZao6dAGO3t+l3PoEIoQaKOfX/34wX/O5+NOGghxmncn7rzIDVhQ==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
+	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
+	 Content-Type;
+	bh=9PE68dNtC/k/Esp67FurgmP7IWjKQi8+eTRAEPekc+o=;
+	b=XKBvKV8YrBmKmFhSV59YDXvnxyzXQmTkEVJJs+IQH3LXVtB5enAJ2UpouOyiuJmPQCZI
+	 ujEG9AVlTqbcNGLGsgN3a38S6qZ50z6IkRjwTnXMe7oSwSuGvXKCiBja3w+pF5NB1l+Dm
+	 x4CV1dSDpW7uBwg95NUNcYolk6FxDHxuH3qVBKEIETNssgd1jY13aRrApzhXfBLMM4yvE
+	 tk582Bg7mAoEk/1AhMvXtB2X6jCTG7Nw7NstQy1cDuBD3FG2b6jwMtpXVBpdugaE5IJVG
+	 B9ViSdijst+MB9BLrWZIwDPauP0IetHVfE0saEpvUUcsRGlOIXLUtC2NpIgg566CoSg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MpBzx8g9;
-	arc=none smtp.remote-ip=209.85.208.53
-Received: from mail-ed1-f53.google.com (mail-ed1-f53.google.com [209.85.208.53])
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=jtKQ9nlW;
+	arc=none smtp.remote-ip=209.85.128.69
+Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com [209.85.128.69])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 93D8B606A68D
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 21:55:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 93D8B606A68D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BF87F606A323
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 21:56:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BF87F606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MpBzx8g9
-Received: by mail-ed1-f53.google.com with SMTP id 4fb4d7f45d1cf-6baa6f27904so5646429a12.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 13:55:55 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=jtKQ9nlW
+Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-4bba856092dso7537455e9.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 13:56:36 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795643754; x=1796248554; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=wyP7vH2rGlbYhb8q27/m4UJghzd8eGwKK/Q/LPzbUrM=;
-        b=MpBzx8g93Uj8Ruy6RhF/in7IdZprugMOEFUfAZDRaIrjPOdZUZq9XsDQ2SSnsFGOz2
-         EQvQuVnTQnPQ23H0ERkowHhW0yTsOv5RR818+V2z1TFdHne1R7OzQf28D/KdNx87Se33
-         /3HJNGeIvVtLK9ctktr5ipsu2GPmb5Zzp0yHQjucklNfC1LIo97ZhjBUENwdL45IzXmp
-         Lj5ObQ8mhFPlZetzP21vaFRyIpMcxkp2Fjv4zzyvMulQkvMJ+heiSHh+oFEyTThMC6CW
-         IhnD13e/mBZO9XUUx6GG8EJehae4Cy/Jcp0x4dClozTx++VvrXyKe1n78BcbFe6bM1l7
-         Qyaw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795643754; x=1796248554;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=google.com; s=20260707; t=1795643795; x=1796248595; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=wyP7vH2rGlbYhb8q27/m4UJghzd8eGwKK/Q/LPzbUrM=;
-        b=dVVE0HKiUcQNLk/1ZaoYuWmE6TWxSTlZdeiWM5DlSNvL0G6WI2iN4KyDee6Kaj/84Q
-         kR3pGw4XtBb4MndokgGgER3blWY+hDykFMzJCHw8my600eWq0250M7hwf6ZGJu+sxHco
-         ZFAPhECWnwyNFLLYq0jIcES2zQ8z2sZvk99nN9QE+3Jd+wzwL8gJwGbdfzTiFQMpeEFv
-         2RunAPrHd7wWmdT7JywwiLRh4PUJuhHDAp3jH67MLueIqTxzKSaAJP9cwkXNa6j3pai0
-         h042GEVVZvXXi65nMX3fyvdSsRi/F6K0u416KWDS8rJKCmbwHEgmUGMQQbkXPmk+vtID
-         MJyw==
-X-Forwarded-Encrypted: i=1; AL+hErH7iWKn/TsRcPxUcRh6UFjsQHZlKcbb4CHVJG2pZJiMDMNaLunf+fMCOh1ikK02bbayZ5K4GGTqg/UHaLM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+9AWNuKIDSSJlGYb0OAkrDleGqoJ1HztCipmbGym3tomV2ydIh
-	hfBARadycZphnD/C8qKnFahIljBL6vqWdRGuoLxrH6DffbCqdm3lIOM=
-X-Gm-Gg: AZFdTZcihpD/oW5j2PowTkpRI800s2+Bs6GisbMxydp6O/CYfroMl7tqxQJ3kqA3rb6
-	4vJg5eGQNio6sSuuEM3PeU5mmx3k48+HdF/jd6CWkt1QzNySA3jo7jflyGoA3ogPgVKaApA4c5G
-	nr/I3CGRoBIEmS1fe2KX8QKoT2OJ3zk+mn5BNKxLl5Cq/euG63QyzaFLdcUIiME3wuVUxkaCV1W
-	YiZ4oJ3UC3D31fhYovQzlYnMfmxWCItqxuQkqDiR4K42anCeho6We8Fg7qL2S4d2y+qrG8yMIaq
-	ojTTeUJukCoRLwPPNHJvTXnr1EeIQk5Z3xQUbGnlTmEZpvQWgtsXazWluj0TcWNwf70ZxmKNK5j
-	pq85bwm+UtBvBq5sVAThkZlDvrTdupWI7RuDU8Ji3rcTU1/ltYAc1ZwyZXB4IjCNPlhix/EUAtv
-	nmfrNbZOtWpb8qsXkKF4QvfrC8pPXrDfH94si26D4Utn9+Hf+rJImZVesbM92H5VDXscDxbZS3x
-	lyx6unMl0W6fYbwGENhg5bvUVPu2HbAoh+eXxFLixDjf6EuCDbCZRnCZrTw4sHHmKs0/TtaGYLG
-	2ld69jMZAS50buK7fa+oFesZzU1FmWjxiVWE/tvxduyfudsYl26zVgHDa2UNrBM4SahQwTpuJZB
-	OvZJfWwtKRbclzVZQ7g0lnDbI
-X-Received: by 2002:a05:6402:22e9:b0:6b6:edfb:5885 with SMTP id 4fb4d7f45d1cf-6ba37c75eeemr11786385a12.1.1795643753754;
-        Wed, 25 Nov 2026 13:55:53 -0800 (PST)
-Received: from sohrab-omarchy.fritz.box (2a02-a44e-4ae7-1-c0e-6d5a-8ae2-915.fixed6.kpn.net. [2a02:a44e:4ae7:1:c0e:6d5a:8ae2:915])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba370e77d8sm8608871a12.14.2026.11.25.13.55.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 13:55:52 -0800 (PST)
-From: Majid Hajiheidari <majidhhdri@gmail.com>
-To: Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>
-Cc: Abel Vesa <abelvesa@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Viresh Kumar <viresh.kumar@linaro.org>,
-	=?UTF-8?q?Barnab=C3=A1s=20Cz=C3=A9m=C3=A1n?= <barnabas.czeman@mainlining.org>,
-	Roman Linev <admin@mswin.me>,
-	linux-arm-msm@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-pm@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 1/2] arm64: dts: qcom: sm6125: Add cpufreq-hw node
-Date: Wed, 25 Nov 2026 22:55:49 +0100
-Message-ID: <20261125215550.1834075-2-majidhhdri@gmail.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261125215550.1834075-1-majidhhdri@gmail.com>
-References: <20261125215550.1834075-1-majidhhdri@gmail.com>
+        bh=9PE68dNtC/k/Esp67FurgmP7IWjKQi8+eTRAEPekc+o=;
+        b=jtKQ9nlWnHH9shqOIE+ESH8shkq4cDB8ZE3cAutopwBEXBeYs1Hfo4rhnUnY043n3w
+         014kLbS56cZWdmnsWjA27xTwFkIDEyrsoc3MtiP6xUY8wf5KlzG28DxGoxLvbE86gyGY
+         kZc07DBg21KhIMk4fdVX+HP7bnvkABeJbdRl5GPSBKLfDES5YNFZ96S11Gc6HvfGteKA
+         B+efmGb1PNu0U+e1TmC5/yqkS+UJbPBZyo8PSwDI+HUIf55A8ZCISSGRSl2stIZuIHdX
+         AyFmjQZyBDbGuSpOTiFgLfHxPfzw4B6rl2Yweq39iXKtMT8/UHVv4FiJOzdpeYuJoNht
+         WNyw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795643795; x=1796248595;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=9PE68dNtC/k/Esp67FurgmP7IWjKQi8+eTRAEPekc+o=;
+        b=r45JL325rKF9erIAloEqUhzNvJr67kLWZ4CaEPF2RXQJkppgQNx8CzztuY1N4l3z7c
+         jhEIfu8sj14DatrzZCGHjTJT+e+NSjnH8YuDOGy+sd5TmAzteRMI3JV08UPzGL4k+izP
+         FS7lINJeZcjCCwk+SdDasrhA/x4ohPUEjEG1m7yxirifsGT+GBtYH6Ngm752zTvRxOUJ
+         U5c4FpzfjTmIufWtd7u0es8SGMUcLUAxBEqHjsY7FsN84WKNwNJWMrnSXgpsPdGBdJGt
+         NAXgEVPsrcIk0GOfVPIKDYEj5qJD83ztDavrUJEnFN5kXN7jbaWTV1npD0BniHJDRDFp
+         7cqQ==
+X-Forwarded-Encrypted: i=1; AL+hErHRfl/LpA8sKsyx7sadWpHDRTzTuLwztJ/LSB1scNT00JnA7vANA1ASSEQ9UZhYEDC8q6g4E7kf+F92Wck=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9fuueJ7klHr+dHUWQOJhx/SJVHBBYqYrZbSm/YOOkfiBSAnNud
+	skjkGDzysrVMNKzyAyVcPVZCZrWm8qs0arnW+LgImg3i3JERubLeMipUoT3slRorzYoYpdmtY4e
+	C71tA3/QdwDjDBlmOnQ==
+X-Received: from wrf5-n1.prod.google.com ([2002:a05:6000:43c5:10b0:4b8:33ad:b766])
+ (user=aliceryhl job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:600c:46d3:b0:4bb:5c92:ce12 with SMTP id 5b1f17b1804b1-4bb88812200mr409757855e9.17.1795643794950;
+ Wed, 25 Nov 2026 13:56:34 -0800 (PST)
+Date: Wed, 25 Nov 2026 21:56:34 +0000
+In-Reply-To: <20261125-b4-va_bits_clamp-v1-1-07e2bb33eb50@collabora.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -108,126 +78,32 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Mime-Version: 1.0
+References: <20261125-b4-va_bits_clamp-v1-1-07e2bb33eb50@collabora.com>
+X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
+Message-ID: <20261125215634.2399752-1-aliceryhl@google.com>
+Subject: Re: [PATCH] drm/tyr: clamp va_bits to available bits
+From: Alice Ryhl <aliceryhl@google.com>
+To: Deborah Brouwer <deborah.brouwer@collabora.com>
+Cc: Daniel Almeida <daniel.almeida@collabora.com>, Danilo Krummrich <dakr@kernel.org>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, dri-devel@lists.freedesktop.org, 
+	rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	sunke@kylinos.cn
+Content-Type: text/plain; charset="UTF-8"
 
-SM6125 has cpufreq-hw (OSM) blocks at 0xf521000 (silver cluster) and
-0xf523000 (gold cluster), each 0x1400 long, per the downstream
-"trinket" device tree. Describe them and hook up the CPUs so the
-frequency can scale instead of staying at the bootloader setting.
+On Wed, Nov 25, 2026 at 01:28:20PM -0700, Deborah Brouwer wrote:
+> Tyr creates a virtual memory space using the number of bits supported in
+> virtual addresses as reported by the gpu. But the page table mapping
+> operations limit the width of the input virtual addresses to unsigned
+> long. This can result in tyr creating a virtual memory space that is
+> larger than a 32-bit system can support.
+>
+> Check if the virtual address space bits supported by the gpu are larger
+> than the width of unsigned long, and if so, clamp the virtual address
+> space bits to this smaller size.
+>
+> This reproduces the clamping that already occurs in panthor_mmu_init().
 
-GCC on SM6125 has no plain GPLL0 output; GPLL0_OUT_EARLY is the PLL
-itself and is used as the alternate source.
+Reviewed-by: Alice Ryhl <aliceryhl@google.com>
 
-Tested on a Xiaomi Mi A3: policy0 300 MHz - 1.80 GHz, policy4
-300 MHz - 2.02 GHz, scaling with schedutil; a single gold core holds
-1998 MHz under 7-Zip.
-
-Signed-off-by: Majid Hajiheidari <majidhhdri@gmail.com>
----
-Changes in v2:
-- Region size 0x1400 as in the downstream device tree (Barnabás)
-
- arch/arm64/boot/dts/qcom/sm6125.dtsi | 29 ++++++++++++++++++++++++++++
- 1 file changed, 29 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/qcom/sm6125.dtsi b/arch/arm64/boot/dts/qcom/sm6125.dtsi
-index 5f558b548..cbc500d69 100644
---- a/arch/arm64/boot/dts/qcom/sm6125.dtsi
-+++ b/arch/arm64/boot/dts/qcom/sm6125.dtsi
-@@ -43,6 +43,8 @@ cpu0: cpu@0 {
- 			compatible = "qcom,kryo260";
- 			reg = <0x0 0x0>;
- 			enable-method = "psci";
-+			clocks = <&cpufreq_hw 0>;
-+			qcom,freq-domain = <&cpufreq_hw 0>;
- 			capacity-dmips-mhz = <1024>;
- 			next-level-cache = <&l2_0>;
- 			l2_0: l2-cache {
-@@ -57,6 +59,8 @@ cpu1: cpu@1 {
- 			compatible = "qcom,kryo260";
- 			reg = <0x0 0x1>;
- 			enable-method = "psci";
-+			clocks = <&cpufreq_hw 0>;
-+			qcom,freq-domain = <&cpufreq_hw 0>;
- 			capacity-dmips-mhz = <1024>;
- 			next-level-cache = <&l2_0>;
- 		};
-@@ -66,6 +70,8 @@ cpu2: cpu@2 {
- 			compatible = "qcom,kryo260";
- 			reg = <0x0 0x2>;
- 			enable-method = "psci";
-+			clocks = <&cpufreq_hw 0>;
-+			qcom,freq-domain = <&cpufreq_hw 0>;
- 			capacity-dmips-mhz = <1024>;
- 			next-level-cache = <&l2_0>;
- 		};
-@@ -75,6 +81,8 @@ cpu3: cpu@3 {
- 			compatible = "qcom,kryo260";
- 			reg = <0x0 0x3>;
- 			enable-method = "psci";
-+			clocks = <&cpufreq_hw 0>;
-+			qcom,freq-domain = <&cpufreq_hw 0>;
- 			capacity-dmips-mhz = <1024>;
- 			next-level-cache = <&l2_0>;
- 		};
-@@ -84,6 +92,8 @@ cpu4: cpu@100 {
- 			compatible = "qcom,kryo260";
- 			reg = <0x0 0x100>;
- 			enable-method = "psci";
-+			clocks = <&cpufreq_hw 1>;
-+			qcom,freq-domain = <&cpufreq_hw 1>;
- 			capacity-dmips-mhz = <1638>;
- 			next-level-cache = <&l2_1>;
- 			l2_1: l2-cache {
-@@ -98,6 +108,8 @@ cpu5: cpu@101 {
- 			compatible = "qcom,kryo260";
- 			reg = <0x0 0x101>;
- 			enable-method = "psci";
-+			clocks = <&cpufreq_hw 1>;
-+			qcom,freq-domain = <&cpufreq_hw 1>;
- 			capacity-dmips-mhz = <1638>;
- 			next-level-cache = <&l2_1>;
- 		};
-@@ -107,6 +119,8 @@ cpu6: cpu@102 {
- 			compatible = "qcom,kryo260";
- 			reg = <0x0 0x102>;
- 			enable-method = "psci";
-+			clocks = <&cpufreq_hw 1>;
-+			qcom,freq-domain = <&cpufreq_hw 1>;
- 			capacity-dmips-mhz = <1638>;
- 			next-level-cache = <&l2_1>;
- 		};
-@@ -116,6 +130,8 @@ cpu7: cpu@103 {
- 			compatible = "qcom,kryo260";
- 			reg = <0x0 0x103>;
- 			enable-method = "psci";
-+			clocks = <&cpufreq_hw 1>;
-+			qcom,freq-domain = <&cpufreq_hw 1>;
- 			capacity-dmips-mhz = <1638>;
- 			next-level-cache = <&l2_1>;
- 		};
-@@ -1633,6 +1649,19 @@ intc: interrupt-controller@f200000 {
- 			interrupt-controller;
- 			interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_HIGH>;
- 		};
-+
-+		cpufreq_hw: cpufreq@f521000 {
-+			compatible = "qcom,sm6125-cpufreq-hw", "qcom,cpufreq-hw";
-+			reg = <0x0 0x0f521000 0x0 0x1400>,
-+			      <0x0 0x0f523000 0x0 0x1400>;
-+			reg-names = "freq-domain0", "freq-domain1";
-+
-+			clocks = <&rpmcc RPM_SMD_XO_CLK_SRC>, <&gcc GPLL0_OUT_EARLY>;
-+			clock-names = "xo", "alternate";
-+
-+			#freq-domain-cells = <1>;
-+			#clock-cells = <1>;
-+		};
- 	};
- 
- 	timer {
--- 
-2.56.0
-
+Alice
