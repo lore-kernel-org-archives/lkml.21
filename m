@@ -1,69 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.240.27.38
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.240.27.123
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795595205;
-	b=C+/cpQrwM30hu0K+7K92M3tfYUSVuUkvxwMlo64OsAqJ2V40DnNL2mlaTJOXb1gj+GLP
-	 zEfBVJXi1sNDuskK+56y6+YGrr5PvGPsyPzCo63R0UeY6cIOFBgBQ8Ag7HtpL12uf4QR7
-	 gAWaxADXTNVt4k0heYrTeHLKwDAP/J4TdPtz2H39o2oj37+h/YB+l0xAxMh5nk9xBU4JC
-	 gZC0ks8TNW0S1lrTJKM0yvhEk2RtFw88BBtzB6xpGRV1/xqQBAy1r8yhetmDK3M8jUB/s
-	 d4QrfarfD3hqkK1PugmIQWozGuP7jUxcevLPatudvx0dWfNwplhSRXqmzUacNnDi5Iw==
+	t=1795595206;
+	b=KfK6XCd0m4Drq7aOXgj5RWGOCYOBuGBvEc6B3SnRiwfHLrkz92VgUsZ6iJB8XIJcY2vE
+	 KcwGzhime04nxYyaNTbQ4VsO8xvpayGh2P2XENDCMc/bvqatjt1oemyZAPAAebHpvXAYE
+	 ZQfySbJmrLZY1YLf+NORlynGKJAkC9Qh87ZglmMVbMQzXp5kwIKCuBEYsBUcqne+ZKzQl
+	 tUmhzBHP7QE50Y2QrKRGeRHEMo/q9Ei2xQ3oFlz4q6ZgMUfdIAGANtq6FMGTdRE9cx3e0
+	 XKvmW/hD2i4A07M1JTPIAYnyrXWb5L7C3SeZpaazrxsgshju2CTN3YtCyFdudJ6z7/g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795595205;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795595206;
 	h=DMARC-Filter:DKIM-Signature:DKIM-Signature:DKIM-Signature:
 	 X-Virus-Scanned:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
 	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:
 	 Feedback-ID:X-SES-Outgoing;
-	bh=haGvfq0ipn/DurQTM0Hs8PDyG7K0OpoDJ+u0pHn7VSs=;
-	b=R76Y4SraC1d+bGs+iB/tST/PbLieRGkpscmNBiKLYkH6zL+wfNDhgqfmis6wU0DiQRw1
-	 OoGu2fGx2GkLZOKqNHOoo1kzOKgX1AGfMY6djB8ogwpZPNzYObBw7tHfZLdFSxell9fnr
-	 ONemSJWn6p9hsoVKPqN+qOmb1emMPYHFUBK1SygrCwy/zEjXHVnCtX7mDnAHjK0hchzTH
-	 6dbMPOhpZxj36hYVh/Y2Jp8Wr9ISsIfJm6IUO87J67M7m3VALTcWQdUV1vAYgT9cQAoY7
-	 8zJOudDrZlxLWaYPuleJNMRmBXwyPoBSioq3QcsoLtbuKXHL+EHEicamjI6ApGLiuIw==
+	bh=9d4vNpVDGg6kavqcQC0puQ9G8j0sYpcBLi1Zn/JRkdw=;
+	b=NFE/6Nzdfz5kM9s7N9tjD5ttL2rvlkoB8VFktkbBooLaxemzXABcf7zzKbwVoauLxxFW
+	 t4qDl/JspT9qJxwWznPZ/bihobl5n1t8BI+rnhiPLUli7pbEStjBiQ4w/vkoKHI/pRGQB
+	 L1975ScJWfvCvEYcZ2j1dwGunSaNzGGwoTgTb5epqecFDbFk1DBAIfbIJIKzCqHLLVZXw
+	 IXDUOgS1PniUMCcHNl0f8cO+0zep3grqv5mUfKxVkNPmMEAFG2SejDr2C5IowU8EVvwYX
+	 HEw1vmin0/0Tlu+NEDd98nTSVLouMPTO6LIr0x5wZtTDkjd8J9SAttC1DcfVBb3+Krg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=retsim.com;
 	spf=pass smtp.mailfrom=us-west-2.amazonses.com;
-	dkim=pass header.d=retsim.com header.i=@retsim.com header.a=rsa-sha256 header.s=abaygg6onarqet2uti4t4yyiczbpngnf header.b=Ir3SoiKI;
-	dkim=pass header.d=amazonses.com header.i=@amazonses.com header.a=rsa-sha256 header.s=hsbnp7p3ensaochzwyq5wwmceodymuwv header.b=ox8kpuKC;
-	dkim=temperror header.d=retsim.com header.i=@retsim.com header.a=rsa-sha256 header.s=dkim header.b="Ne7/dFx9";
-	arc=none smtp.remote-ip=54.240.27.38
-Received: from a27-38.smtp-out.us-west-2.amazonses.com (a27-38.smtp-out.us-west-2.amazonses.com [54.240.27.38])
+	dkim=pass header.d=retsim.com header.i=@retsim.com header.a=rsa-sha256 header.s=abaygg6onarqet2uti4t4yyiczbpngnf header.b="A8/cDntF";
+	dkim=pass header.d=amazonses.com header.i=@amazonses.com header.a=rsa-sha256 header.s=hsbnp7p3ensaochzwyq5wwmceodymuwv header.b=25apzvso;
+	dkim=temperror header.d=retsim.com header.i=@retsim.com header.a=rsa-sha256 header.s=dkim header.b=psDObGCY;
+	arc=none smtp.remote-ip=54.240.27.123
+Received: from a27-123.smtp-out.us-west-2.amazonses.com (a27-123.smtp-out.us-west-2.amazonses.com [54.240.27.123])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 83BB1606A323
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CF34C606A31E
 	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:26:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 83BB1606A323
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CF34C606A31E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=retsim.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=us-west-2.amazonses.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=retsim.com header.i=@retsim.com header.a=rsa-sha256 header.s=abaygg6onarqet2uti4t4yyiczbpngnf header.b=Ir3SoiKI;
-	dkim=pass (1024-bit key, unprotected) header.d=amazonses.com header.i=@amazonses.com header.a=rsa-sha256 header.s=hsbnp7p3ensaochzwyq5wwmceodymuwv header.b=ox8kpuKC;
-	dkim=temperror header.d=retsim.com header.i=@retsim.com header.a=rsa-sha256 header.s=dkim header.b=Ne7/dFx9
+	dkim=pass (1024-bit key, unprotected) header.d=retsim.com header.i=@retsim.com header.a=rsa-sha256 header.s=abaygg6onarqet2uti4t4yyiczbpngnf header.b=A8/cDntF;
+	dkim=pass (1024-bit key, unprotected) header.d=amazonses.com header.i=@amazonses.com header.a=rsa-sha256 header.s=hsbnp7p3ensaochzwyq5wwmceodymuwv header.b=25apzvso;
+	dkim=temperror header.d=retsim.com header.i=@retsim.com header.a=rsa-sha256 header.s=dkim header.b=psDObGCY
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
 	s=abaygg6onarqet2uti4t4yyiczbpngnf; d=retsim.com; t=1795595205;
 	h=From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=HDa5c1pncVtqwAILklwmhPHA/9Encbeipusse6h8CTE=;
-	b=Ir3SoiKIeJsBzzmSc7pMNeCOXm8Qvj4Pv1wpeQ9zvus6KDsHKrTSEfxQVpxwicUb
-	OKSVX5LB431F3mYnCPBymzXlLAAiUkBotsqjmGNX+PFtj5ATPjtvxsIf2DUEOrJ/hMq
-	SA05PPaZcvr70mq2Re9bYygdkOSGzZzoLKnxuLT4=
+	bh=FnF8LYPoCkzEXbgxM2cjh9/eIUU/GSstSIv9Shki8BA=;
+	b=A8/cDntF0v/JaI35joiRo9c/9/YXsPNEzq4FBJICdqIU12WcnXf2TQSCfPh/eJyV
+	ut84aScz2pXnw+cW2YFMUgpoM9iYd7WJZR1zGPWb96vOpGjmCAfXNYFoc02GxBV9u9b
+	P5l1sZA66byCKXwZeBk9R22ETJiCkOGoqczmhDyw=
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
 	s=hsbnp7p3ensaochzwyq5wwmceodymuwv; d=amazonses.com; t=1795595205;
 	h=From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Feedback-ID;
-	bh=HDa5c1pncVtqwAILklwmhPHA/9Encbeipusse6h8CTE=;
-	b=ox8kpuKCiZ8iEGPaJKHJwQvapG8z+pnvCr/zEwfwIfpxf4D6PDiODVNqDp/PLTIz
-	hAQikL9Mdxhp/CWbWl2pzM9yZiwTXnLQEHPuuvhFGv7ThhSystLRDPcktG+9hwL31Ll
-	ltZmLmedJxdAEzP0xq2qLlwKzQJXGBpiCxu5QbE4=
+	bh=FnF8LYPoCkzEXbgxM2cjh9/eIUU/GSstSIv9Shki8BA=;
+	b=25apzvsoyPrhR1UW/gS3HaBc3Nr+PymdBQln3ThMuWXgMrAJfqw2NP6Ib6Owx9gl
+	MjHRGanE2AOb/RZrPKBe9IhiSN7OjAzPdyg2Q8117y4grjutvUpRhXDe5yYgW+yGcRT
+	y2gj2iU0kMtejQsL80QsV9PcZ0J+1Vc9Bztz5iFk=
 Authentication-Results: mailserver.retsim.com (amavis); dkim=pass
  reason="pass (just generated, assumed good)" header.d=retsim.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=retsim.com; h=
 	content-transfer-encoding:mime-version:references:in-reply-to
-	:x-mailer:message-id:date:subject:to:from; s=dkim; t=1795595198;
-	 x=1798187199; bh=HDa5c1pncVtqwAILklwmhPHA/9Encbeipusse6h8CTE=; b=
-	Ne7/dFx9o0SvAs16yXvbvyOlH0lhSx5sYlLCS+7FwlI/4FBW3hz7CoqvJ6aGrvHy
-	HYXgGK58Ya5uyH/M5b2q/bynsqMKI0T8J2BErx16KUOQU7jV5gdwfbWAy8Vlfan4
-	bF60BDU03KUE30l5RkVuMQQBt8jRAJRp5Jv62kNhuGz/INV/DO4PSFhsxNTN8KU2
-	+daNcYOYk39HsnGFcmFwm6sIDhgW+lUWvv/TGqT2M/HwyEi8WPtpZbHNLZ/srzjn
-	67vgkzehVDM1SdUQe9DKIMTtNhNKMQ8WETxDIh119/4YXKoJjX7+kUAVORknCWgd
-	xLyYhzSSoAFoX0uWivlnrg==
+	:x-mailer:message-id:date:subject:to:from; s=dkim; t=1795595199;
+	 x=1798187200; bh=FnF8LYPoCkzEXbgxM2cjh9/eIUU/GSstSIv9Shki8BA=; b=
+	psDObGCYVt7bGszkpBqyVKXmEvQO/9ldp311PDXHF5hJDgUZy1rltRWIYa/oJRww
+	DMYQqtrMf8MkJmpyTsJdepRGtpyKdO2mid913LUoK6FFOTiQbfbgFo4KAaRMmx9I
+	yUJmI0NA1dvUDPh27p0asiQJQ5QgdHJ+jLEelFPme4alka9Lp5cIApEhK8ArkUA/
+	/XTDfsU3c3Gfd3XWlWbS7MzIU3yx5754lFrcRkhcecuwBoIE1PB7Lf2FUhSV02yA
+	kHL9x64RcNaLDwOGOE49bFqv5/8Wk7NkXimqZNL8EPMsloun0iXeVEwKn8q1WuKp
+	wD2fNe8PoQsB4uqw51ACbA==
 X-Virus-Scanned: Debian amavis at 
 From: Lewis Lakerink <lewis@retsim.com>
 To: imagination@lists.freedesktop.org
@@ -71,9 +71,9 @@ Cc: Alessio Belle <alessio.belle@imgtec.com>,
 	Luigi Santivetti <luigi.santivetti@imgtec.com>, 
 	Ryan Brue <ryanbrue.dev@gmail.com>, dri-devel@lists.freedesktop.org, 
 	linux-kernel@vger.kernel.org, Lewis Lakerink <lewis@retsim.com>
-Subject: [PATCH 1/2] drm/imagination: guard fence release against device removal
+Subject: [PATCH 2/2] drm/imagination: quiesce queues before device teardown
 Date: Wed, 25 Nov 2026 08:26:45 +0000
-Message-ID: <010101a211d07983-72e5379a-adfd-4134-b23d-3e2b1422bc2e-000000@us-west-2.amazonses.com>
+Message-ID: <010101a211d07b13-42cf1386-97c8-41d3-8eca-2e56ccb33258-000000@us-west-2.amazonses.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261125082637.2839673-1-lewis@retsim.com>
 References: <20261125082637.2839673-1-lewis@retsim.com>
@@ -88,74 +88,340 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 Feedback-ID: ::1.us-west-2.jZ+gdeR9TqNTaB6Dq50UPG8S0IjuYZETsFsi7SlhF6Q=:AmazonSES
-X-SES-Outgoing: 2026.11.25-54.240.27.38
+X-SES-Outgoing: 2026.11.25-54.240.27.123
 
-pvr_queue_fence_release() queues fence->release_work onto
-pvr_dev->sched_wq to drop the context reference and free the fence.
-In drm_file_free(), drm_syncobj_release() runs before postclose; if a
-syncobj holds the last reference on a job's finished fence after
-pvr_remove() has destroyed sched_wq, releasing it dereferences the freed
-workqueue:
+pvr_remove() calls pvr_device_fini() before drm_dev_unplug() and does
+not stop active or idle queues first:
 
-  pc : __queue_work+0x240/0x550
-  x25: 0xdead000000000100
-  Call trace:
-   queue_work_on
-   pvr_queue_fence_release
-   drm_sched_fence_release_scheduled
-   drm_sched_fence_release_finished
-   drm_syncobj_release
-   drm_file_free
+  * pvr_drm_driver_postclose() has no drm_dev_enter() guard, so closing
+    a file after removal runs pvr_fw_object_destroy() ->
+    pvr_meta_vm_unmap() against kernel_vm_ctx after pvr_device_gpu_fini()
+    has freed it;
+  * drm_sched_entity_destroy() does not wait for jobs on
+    sched->pending_list or cancel work_free_job and work_tdr, leaving
+    scheduler work and the timeout timer armed across destroy_workqueue()
+    and FW/VM teardown;
+  * an IRQ-driven reset via pvr_fwccb_process() can re-arm watchdog.work
+    before free_irq() runs in pvr_device_fini().
 
-Guard pvr_queue_fence_release() with drm_dev_enter().  When unplugged,
-call dma_fence_free() directly and leak the context reference: the
-callback runs under rcu_read_lock() in dma_fence_release(), and the
-device state needed by pvr_context_release() may already be torn down.
+Reorder pvr_remove() so drm_dev_unplug() comes first and the queues are
+stopped before device state is torn down:
 
-Fixes: df1a1ed5e1bd ("drm/imagination: avoid deadlock on fence release")
-Cc: stable@vger.kernel.org # 6.14+
+  * Stop the watchdog via pvr_watchdog_fini() first so it cannot race
+    pvr_dev->lost, then call drm_dev_unplug() when
+    !READ_ONCE(pvr_dev->lost) (pvr_device_lost() may already have
+    unplugged it, and drm_dev_unplug() is not idempotent) so in-flight
+    drm_dev_enter() sections finish and no new ones can start.
+  * Add pvr_queue_device_quiesce() to detach every queue from
+    queues.{active,idle} under queues.lock while pinning its context via
+    pvr_context_get_if_referenced().  Call drm_sched_entity_fini()
+    directly (avoiding drm_sched_entity_flush()'s wait_event_killable()
+    hang on non-exiting unbind tasks), then drm_sched_fini() to cancel
+    work_run_job, work_free_job and work_tdr.  After drm_sched_fini(),
+    walk sched->pending_list and call pvr_job_release_pm_ref() on each
+    remaining job: those jobs still hold a pvr_job_get_pm_ref()
+    reference, and nothing else releases it once the scheduler is gone,
+    so without this the device's PM usage count never returns to zero
+    and every later runtime suspend is refused.  Skip drm_sched_fini()
+    in pvr_queue_destroy() when sched_rq is already NULL.
+  * Guard postclose, pvr_ioctl_destroy_context() and
+    pvr_queue_timedout_job() with drm_dev_enter(), returning
+    DRM_GPU_SCHED_STAT_ENODEV on timeout after unplug.
+  * Run flush_workqueue(pvr_dev->sched_wq) while the GPU, job_ids, FW
+    objects and kernel_vm_ctx are still live, xa_destroy() the job and
+    free-list id arrays before pvr_device_fini(), and re-run
+    pvr_watchdog_fini() after free_irq() in case an IRQ-driven reset
+    re-armed it.
+
+Runtime PM is deliberately unchanged: pm_runtime_suspend() still runs
+after drm_dev_unplug(), so pvr_power_device_suspend() returns -EIO from
+its drm_dev_enter() guard and latches runtime_error.  That latch is what
+keeps rpm_idle() from invoking pvr_power_device_idle() during devres
+teardown, after pvr_device_fini() has unmapped the fwif_sysdata memory
+that callback reads; making the suspend succeed removes the latch and
+oopses there.  The GPU is therefore left powered when it was runtime
+active at removal, a known limitation rather than a use-after-free.
+
+When postclose runs after unplug, detach pvr_file->contexts under
+ctx_list_lock, xa_destroy() the four handle xarrays and kfree(pvr_file)
+as required by drm_file_free(), deliberately leaking the underlying
+device objects; the existing WARN_ON() checks in pvr_remove(),
+pvr_fw_fini(), drm_mm_takedown() and pvr_context_device_fini() report
+those leaks.
+
+Fixes: 1f88f017e649 ("drm/imagination: Get GPU resources")
+Cc: stable@vger.kernel.org # 6.8+
 Assisted-by: LLM
 Signed-off-by: Lewis Lakerink <lewis@retsim.com>
 ---
- drivers/gpu/drm/imagination/pvr_queue.c | 14 +++++++++++++-
- 1 file changed, 13 insertions(+), 1 deletion(-)
+ drivers/gpu/drm/imagination/pvr_drv.c   | 73 +++++++++++++++++++++++--
+ drivers/gpu/drm/imagination/pvr_queue.c | 66 +++++++++++++++++++++-
+ drivers/gpu/drm/imagination/pvr_queue.h |  2 +
+ 3 files changed, 135 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/gpu/drm/imagination/pvr_queue.c b/drivers/gpu/drm/im=
-agination/pvr_queue.c
-index 34b8263..2a6bfb0 100644
---- a/drivers/gpu/drm/imagination/pvr_queue.c
-+++ b/drivers/gpu/drm/imagination/pvr_queue.c
-@@ -1,6 +1,7 @@
- // SPDX-License-Identifier: GPL-2.0-only OR MIT
- /* Copyright (c) 2023 Imagination Technologies Ltd. */
+diff --git a/drivers/gpu/drm/imagination/pvr_drv.c b/drivers/gpu/drm/imag=
+ination/pvr_drv.c
+index 2d522a8..65c0747 100644
+--- a/drivers/gpu/drm/imagination/pvr_drv.c
++++ b/drivers/gpu/drm/imagination/pvr_drv.c
+@@ -724,10 +724,18 @@ pvr_ioctl_destroy_context(struct drm_device *drm_de=
+v, void *raw_args,
+ 	struct drm_pvr_ioctl_destroy_context_args *args =3D raw_args;
+ 	struct pvr_file *pvr_file =3D file->driver_priv;
 =20
-+#include <drm/drm_drv.h>
- #include <drm/drm_managed.h>
- #include <drm/gpu_scheduler.h>
- #include <linux/overflow.h>
-@@ -122,8 +123,19 @@ static void pvr_queue_fence_release(struct dma_fence=
- *f)
- {
- 	struct pvr_queue_fence *fence =3D container_of(f, struct pvr_queue_fenc=
-e, base);
- 	struct pvr_device *pvr_dev =3D fence->queue->ctx->pvr_dev;
-+	int idx;
++	int idx, err;
++
+ 	if (args->_padding_4)
+ 		return -EINVAL;
 =20
--	queue_work(pvr_dev->sched_wq, &fence->release_work);
-+	/*
-+	 * Fences held by drm_syncobj are released in drm_file_free() before
-+	 * postclose. After unplug, sched_wq and kernel_vm_ctx may already be
-+	 * torn down; free the fence directly and leak the context reference.
-+	 */
-+	if (drm_dev_enter(from_pvr_device(pvr_dev), &idx)) {
-+		queue_work(pvr_dev->sched_wq, &fence->release_work);
-+		drm_dev_exit(idx);
-+	} else {
-+		dma_fence_free(&fence->base);
-+	}
+-	return pvr_context_destroy(pvr_file, args->handle);
++	if (!drm_dev_enter(drm_dev, &idx))
++		return -EIO;
++
++	err =3D pvr_context_destroy(pvr_file, args->handle);
++	drm_dev_exit(idx);
++
++	return err;
  }
 =20
- static const char *
+ /**
+@@ -1356,7 +1364,7 @@ pvr_drm_driver_open(struct drm_device *drm_dev, str=
+uct drm_file *file)
+ /**
+  * pvr_drm_driver_postclose() - One of the driver callbacks when a &stru=
+ct
+  * drm_file is closed.
+- * @drm_dev: [IN] DRM device (unused).
++ * @drm_dev: [IN] DRM device.
+  * @file: [IN] DRM file private data.
+  *
+  * Frees powervr-specific file private data (&struct pvr_file).
+@@ -1364,10 +1372,35 @@ pvr_drm_driver_open(struct drm_device *drm_dev, s=
+truct drm_file *file)
+  * Registered in &pvr_drm_driver.
+  */
+ static void
+-pvr_drm_driver_postclose(__always_unused struct drm_device *drm_dev,
++pvr_drm_driver_postclose(struct drm_device *drm_dev,
+ 			 struct drm_file *file)
+ {
+ 	struct pvr_file *pvr_file =3D to_pvr_file(file);
++	int idx;
++
++	/*
++	 * If the device is already unplugged, pvr_remove() may have torn down
++	 * sched_wq, kernel_vm_ctx and FW objects. Release only the per-file
++	 * container bookkeeping (detaching file_link so leaked contexts cannot
++	 * point into freed pvr_file) and deliberately leak the device objects.
++	 */
++	if (!drm_dev_enter(drm_dev, &idx)) {
++		struct pvr_device *pvr_dev =3D to_pvr_device(drm_dev);
++		struct pvr_context *ctx, *tmp;
++
++		spin_lock(&pvr_dev->ctx_list_lock);
++		list_for_each_entry_safe(ctx, tmp, &pvr_file->contexts, file_link)
++			list_del_init(&ctx->file_link);
++		spin_unlock(&pvr_dev->ctx_list_lock);
++
++		xa_destroy(&pvr_file->ctx_handles);
++		xa_destroy(&pvr_file->free_list_handles);
++		xa_destroy(&pvr_file->hwrt_handles);
++		xa_destroy(&pvr_file->vm_ctx_handles);
++		kfree(pvr_file);
++		file->driver_priv =3D NULL;
++		return;
++	}
+=20
+ 	/* Kill remaining contexts. */
+ 	pvr_destroy_contexts_for_file(pvr_file);
+@@ -1379,6 +1412,8 @@ pvr_drm_driver_postclose(__always_unused struct drm=
+_device *drm_dev,
+=20
+ 	kfree(pvr_file);
+ 	file->driver_priv =3D NULL;
++
++	drm_dev_exit(idx);
+ }
+=20
+ DEFINE_DRM_GEM_FOPS(pvr_drm_driver_fops);
+@@ -1474,15 +1509,45 @@ static void pvr_remove(struct platform_device *pl=
+at_dev)
+ 	struct drm_device *drm_dev =3D platform_get_drvdata(plat_dev);
+ 	struct pvr_device *pvr_dev =3D to_pvr_device(drm_dev);
+=20
++	/* Stop the watchdog first so it cannot race the pvr_dev->lost check. *=
+/
++	pvr_watchdog_fini(pvr_dev);
++
++	/*
++	 * Unplug first so in-flight ioctls, postclose, timeouts and fence
++	 * releases finish and no new ones (or runtime resumes) can start.
++	 * pvr_device_lost() may already have unplugged it, and drm_dev_unplug(=
+)
++	 * is not idempotent.
++	 */
++	if (!READ_ONCE(pvr_dev->lost))
++		drm_dev_unplug(drm_dev);
++
++	/* Stop all queues and their drm_sched workers/timers before teardown. =
+*/
++	pvr_queue_device_quiesce(pvr_dev);
++
++	/*
++	 * Drain pre-unplug pvr_queue_fence_release_work items while the GPU,
++	 * kernel_vm_ctx, FW objects and job_ids are still alive.
++	 */
++	flush_workqueue(pvr_dev->sched_wq);
++
+ 	WARN_ON(!xa_empty(&pvr_dev->job_ids));
+ 	WARN_ON(!xa_empty(&pvr_dev->free_list_ids));
+=20
+ 	xa_destroy(&pvr_dev->job_ids);
+ 	xa_destroy(&pvr_dev->free_list_ids);
+=20
++	/*
++	 * Leave runtime PM to the driver core.  This call happens after
++	 * drm_dev_unplug(), so pvr_power_device_suspend() returns -EIO from
++	 * its drm_dev_enter() guard and latches runtime_error.  That latch is
++	 * load-bearing: it makes rpm_idle() bail out before invoking
++	 * pvr_power_device_idle(), which reads pvr_dev->fw_dev.fwif_sysdata
++	 * memory that pvr_device_fini() has already unmapped below.
++	 */
+ 	pm_runtime_suspend(drm_dev->dev);
++
+ 	pvr_device_fini(pvr_dev);
+-	drm_dev_unplug(drm_dev);
++	/* Cancel again in case an IRQ-driven reset re-armed watchdog before fr=
+ee_irq(). */
+ 	pvr_watchdog_fini(pvr_dev);
+ 	pvr_queue_device_fini(pvr_dev);
+ 	pvr_context_device_fini(pvr_dev);
+diff --git a/drivers/gpu/drm/imagination/pvr_queue.c b/drivers/gpu/drm/im=
+agination/pvr_queue.c
+index 2a6bfb0..c8d8a22 100644
+--- a/drivers/gpu/drm/imagination/pvr_queue.c
++++ b/drivers/gpu/drm/imagination/pvr_queue.c
+@@ -881,9 +881,15 @@ pvr_queue_timedout_job(struct drm_sched_job *s_job)
+ 	struct pvr_device *pvr_dev =3D queue->ctx->pvr_dev;
+ 	struct pvr_job *job;
+ 	u32 job_count =3D 0;
++	int idx;
++
++	if (!drm_dev_enter(from_pvr_device(pvr_dev), &idx))
++		return DRM_GPU_SCHED_STAT_ENODEV;
+=20
+-	if (dma_fence_is_signaled(s_job->s_fence->parent))
++	if (dma_fence_is_signaled(s_job->s_fence->parent)) {
++		drm_dev_exit(idx);
+ 		return DRM_GPU_SCHED_STAT_NO_HANG;
++	}
+=20
+ 	dev_err(sched->dev, "Job timeout\n");
+=20
+@@ -924,6 +930,7 @@ pvr_queue_timedout_job(struct drm_sched_job *s_job)
+ 	mutex_unlock(&pvr_dev->queues.lock);
+=20
+ 	drm_sched_start(sched, 0);
++	drm_dev_exit(idx);
+=20
+ 	return DRM_GPU_SCHED_STAT_RESET;
+ }
+@@ -1469,7 +1476,8 @@ void pvr_queue_destroy(struct pvr_queue *queue, boo=
+l cleanup_queue_entity)
+ 	list_del_init(&queue->node);
+ 	mutex_unlock(&queue->ctx->pvr_dev->queues.lock);
+=20
+-	drm_sched_fini(&queue->scheduler);
++	if (queue->scheduler.sched_rq)
++		drm_sched_fini(&queue->scheduler);
+ 	if (cleanup_queue_entity)
+ 		drm_sched_entity_fini(&queue->entity);
+=20
+@@ -1512,6 +1520,60 @@ int pvr_queue_device_init(struct pvr_device *pvr_d=
+ev)
+ 	return 0;
+ }
+=20
++/**
++ * pvr_queue_device_quiesce() - Stop all remaining queues during device =
+removal.
++ * @pvr_dev: The device to quiesce.
++ *
++ * Detaches every registered queue from @pvr_dev->queues.{active,idle} s=
+o the
++ * IRQ handler cannot signal fences or re-queue free_job work, tears dow=
+n its
++ * scheduler entity without blocking in drm_sched_entity_flush(), finali=
+ses its
++ * scheduler so work_run_job, work_free_job and work_tdr are stopped, an=
+d
++ * releases runtime PM references held by remaining in-flight jobs befor=
+e
++ * device teardown. Pins each queue's context while operating on it to a=
+void
++ * racing with concurrent pvr_queue_destroy().
++ */
++void pvr_queue_device_quiesce(struct pvr_device *pvr_dev)
++{
++	struct pvr_queue *queue;
++
++	for (;;) {
++		struct pvr_context *ctx =3D NULL;
++
++		mutex_lock(&pvr_dev->queues.lock);
++		queue =3D list_first_entry_or_null(&pvr_dev->queues.active,
++						 struct pvr_queue, node);
++		if (!queue)
++			queue =3D list_first_entry_or_null(&pvr_dev->queues.idle,
++							 struct pvr_queue, node);
++		if (queue) {
++			list_del_init(&queue->node);
++			if (pvr_context_get_if_referenced(queue->ctx))
++				ctx =3D queue->ctx;
++		}
++		mutex_unlock(&pvr_dev->queues.lock);
++
++		if (!queue)
++			break;
++		if (!ctx)
++			continue;
++
++		if (!queue->entity.stopped) {
++			drm_sched_entity_fini(&queue->entity);
++			dma_fence_put(queue->last_queued_job_scheduled_fence);
++			queue->last_queued_job_scheduled_fence =3D NULL;
++		}
++		if (queue->scheduler.sched_rq) {
++			struct pvr_job *job;
++
++			drm_sched_fini(&queue->scheduler);
++			list_for_each_entry(job, &queue->scheduler.pending_list, base.list)
++				pvr_job_release_pm_ref(job);
++		}
++
++		pvr_context_put(ctx);
++	}
++}
++
+ /**
+  * pvr_queue_device_fini() - Device-level cleanup of queue related field=
+s.
+  * @pvr_dev: The device to cleanup.
+diff --git a/drivers/gpu/drm/imagination/pvr_queue.h b/drivers/gpu/drm/im=
+agination/pvr_queue.h
+index 149cc6d..fab168e 100644
+--- a/drivers/gpu/drm/imagination/pvr_queue.h
++++ b/drivers/gpu/drm/imagination/pvr_queue.h
+@@ -168,6 +168,8 @@ void pvr_queue_device_post_reset(struct pvr_device *p=
+vr_dev);
+=20
+ int pvr_queue_device_init(struct pvr_device *pvr_dev);
+=20
++void pvr_queue_device_quiesce(struct pvr_device *pvr_dev);
++
+ void pvr_queue_device_fini(struct pvr_device *pvr_dev);
+=20
+ #endif /* PVR_QUEUE_H */
 --=20
 2.43.0
 
