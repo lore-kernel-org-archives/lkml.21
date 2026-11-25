@@ -1,122 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=170.10.129.124
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795635424;
-	b=CowMCTlVm3Y8MAxDO0Bu2Ru6tOzQECaf6qH/ppyRc0uaehjLusoBR18AXs9mgehd+5gp
-	 raF1Qkc7Y55Hb36hjvMXk0wPUlaNKX/kjVS/6w3AnintX/Us8y8UpG+7h1NW6M5e0879D
-	 K0FUbLjuaXPF7vdLnlCiX6PhBmgoyqiRKeZZTJiWR40MGmv2QuUJDWexMoAjSi243+F62
-	 HGTAGnIGuh/lDf9JUFpm61ApKWB4G+kGryBAo7GqhOU44pmEB4qn8xjb5b52ta97iAKk/
-	 hD4ULtuaXVsbj0iC2wjp6REBlhwCP8vmTDv37S51YYoa0oK9cUq4784ZAORshjGwxsQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795635424;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:MIME-Version:References:In-Reply-To:From:Date:
-	 X-Gm-Features:Message-ID:Subject:To:Cc:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=GcUWDnzDkVt7oeg7/27sTQCRhtqfS3EL+mXeYyoBPT4=;
-	b=hbquxlS9Z4AHi3qoAmBxZm2I+RVXrWwciYZz71/a1P4YgbcdwASLZqf6b1e9VAoLGAsJ
-	 eKZ9qOpzIcwzIZ3dP1SIZd2q6dGr492JPc7/QH9M1/DqMcshJRXf6Qef9mYPWXJmRD7os
-	 BeZZ/WcVa1/bEA+ZsN5oswNHoPbA/oeLGmvCKo5VePMVNFzyKVDjXUoD3yonsS8cpGhjB
-	 InNHXJnYc1rw0FIV23LGKq7afdlsKJ1YftaFHPkWp+36Kh/X0gw9QtAt0xV8zlxbbcHkC
-	 uojZvkQuAViozRb9hv9z0slYZmjOcUi+p2EdjYJ2jRlYgQG1kwDzjVdMGNcSNwvddvg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b="hK1F/yFe";
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=LnnUGHhd;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.46
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795635428;
+	b=kBekoPv/lHXx11EWF2i0qI9+EUkhb1YvRkXXP3ejPeokQb/eoGg95fUE7ZHwhW5k+MvN
+	 gHIsI0vVnaKthy6Z3jvzD9L0CeBGUHJE85BnMqVVFh2+ZRnZgS4eJa510zNhyt1LvU6r6
+	 10SY3SHP2vSg7uruwHc02h6rnbr+d0XwcBJbiWy4naNEI7MytOja4OHN27m+RoMAv97/r
+	 ckB37mZISH86C0yUq2k9dC0q0ZzwwDAcK//mcRXRtZfk6y7W+NIqE+qbiSUVINNeoeda3
+	 0CZ7bLHOqk0hJS36S4GFSc8BwVE0kwUF59K2nctH9RpnIzSJXJBFsLHxpaM0veN6YyA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795635428;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key;
+	bh=Wr5AGl2n5OMdlwfzUx+Xnt2cvomNzozcQctK34Lni/M=;
+	b=rYgF9BHSmY/IVA8PCuaGd9maqcLirODQMvI48sPfjO7yw4uye2V8QwPdEgD3NhAHEIKy
+	 f0Im1bMYjcppH1LpSQIkAJrHcvHrsMzV5tkNnE/4uhamvwUJunOcZYP5/1VVGRS/9pS+9
+	 P2uxbW063Vi62kcKNZTanrFKl/AJFsdkGwH/nnIJ85EA1IwbFRijxDRQl8wYt9itJ6tV7
+	 o3KgnqHpVgAKlp+xu+2j9/iXeQw4vOMes0JNWwAwoinERbqVteIbGhNsPaWnS/v41KBlc
+	 8KJubutyPY+lH3XkBQoOkIG/hndUIMvfxwbeb8G3Dv15IzjsFfiZ+JQ3Jzddj4blong==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=flipper.net;
+	spf=pass smtp.mailfrom=flipper.net;
+	dkim=pass header.d=flipper.net header.i=@flipper.net header.a=rsa-sha256 header.s=google header.b=wepTSbla;
+	arc=none smtp.remote-ip=209.85.221.46
+Received: from mail-wr1-f46.google.com (mail-wr1-f46.google.com [209.85.221.46])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EA40E606A332
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 19:37:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EA40E606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 87FA9606A327
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 19:37:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 87FA9606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=flipper.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flipper.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=hK1F/yFe;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=LnnUGHhd
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795635423;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=GcUWDnzDkVt7oeg7/27sTQCRhtqfS3EL+mXeYyoBPT4=;
-	b=hK1F/yFekk85jP6qxPwF9yB96f1/Lj5rwj+9Mgm+giYv2GLEA5ITQSknvHFvqcRhk3hao7
-	eP3G063XTyOf1zd3rTo8f48qy/OT/qk+KQEKCuaLSAlj01NJuFeNNmM8XBEETSYBfJExYc
-	/Resb390d3kHjxzzhP4uP/uabxoJG1k=
-Received: from mail-lj1-f198.google.com (mail-lj1-f198.google.com
- [209.85.208.198]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-479-Lzs62f2NMtuVUxGl_MKgOA-1; Wed, 25 Nov 2026 19:37:01 +0000
-X-MC-Unique: Lzs62f2NMtuVUxGl_MKgOA-1
-X-Mimecast-MFC-AGG-ID: Lzs62f2NMtuVUxGl_MKgOA_1795635419
-Received: by mail-lj1-f198.google.com with SMTP id 38308e7fff4ca-3ad00533aa8so23376121fa.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:37:00 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795635419; cv=none;
-        d=google.com; s=arc-20260327;
-        b=U2mLAZcP/zgp9gVWg+CnbPvsdapB4ulxsjnNts6N3ND/SkwJhRgjH3JBPuW1EqD4sn
-         e6Eyd+1FmnN6cErEBnVjXjwhWt1ecA9fxSiFkXuD+OudF1NnwmUWYO80oma4Pr+sQ0OW
-         PPker3/MH+7IRz5BtlmQmgAZ+vvFMzPpDgd8543jdV+g3nR3d38acdg8SZIRaZR/wTkD
-         kRZroJPHxPqR6hTj/BAOAGwRvRq/LYZwvkRE7pfZCeqm1jjqIwC4w4aFM6LlrJzk2cWI
-         spJw2+7n4IoYHx+q1Rr+nAvKy8ll1P6eQEqitIGeFq7DrqQmfK6UynyFL+0vffprKJzD
-         rxKA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=GcUWDnzDkVt7oeg7/27sTQCRhtqfS3EL+mXeYyoBPT4=;
-        fh=OUL/fBZ9nPT1eCP0PHhkTvi2y+/+4oTrBUR/U6Z1Fi4=;
-        b=niaLeex+/N4XeDOS/pLLWILa08tXPR4SownpjpUM5sQ/anyQajKAGvVvoF+jS6ukXY
-         vq77Lqa/GewBc+jlxRunFAJ1wLg1riYoJT/qGMb5uPVQ+sqp321c5wzJIv4TDYhOOIFv
-         /QE2dAlhmnXSAGsiO0vaX4SflcJ15onk6xEfeE2AZdiGPuxS97yLrHWWzdGLgbGtxEOy
-         mXv0UqE/1cJ8heDUIGDXUhrvff8SZZ9A62oUrk18W4L7KQBYrtHh8TFQTzQhCkvmDKNx
-         DNKqx4cbYBqj8KPqQlrSNdefca40RJvFkDSS7zWp8p9SCkxFPBXq59oKDfJmcagJS9Lv
-         QAKQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=flipper.net header.i=@flipper.net header.a=rsa-sha256 header.s=google header.b=wepTSbla
+Received: by mail-wr1-f46.google.com with SMTP id ffacd0b85a97d-490d59c3edaso4231964f8f.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:37:08 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795635419; x=1796240219; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=GcUWDnzDkVt7oeg7/27sTQCRhtqfS3EL+mXeYyoBPT4=;
-        b=LnnUGHhd+aBmGdKaxvvfaPJRiJaBiMJiIlPZXF11TOZQ7KSIqYt4sGmuaHdkB7Slzb
-         5A/Vt/zmSE3DttMAovcQ9hz6qKgxJ4n4eH70/3aHiYEuVA/7wXbBlphR3Wem62FjPUXa
-         Vlu65fIrRtPRdneUB8KwpBlPucobugdCeoXhW9xWSQPv68ZH89nLIBx82D45acSryHFH
-         WORZaAnOqkdihEIWdQJFl6E73T1vjPc6o7x6KtN802S03A3hW/17sy6t7h9D/YjqL2vL
-         W2RmBtTCKtP9oZq8tF3lXxMmOWmN4tpnFaN1y40UWEIX6HMmG90IslMKcZyz09Cw33L3
-         JtLw==
+        d=flipper.net; s=google; t=1795635427; x=1796240227; darn=vger.kernel.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Wr5AGl2n5OMdlwfzUx+Xnt2cvomNzozcQctK34Lni/M=;
+        b=wepTSblaEeD6BDobZuiECI6NpaWpQxmNVb5+heMLAhOmNymEnEg2uGyoUgMFe7w2sY
+         VAJSkLloncRf4IhxUD5RTU6U5BaBrNWYZSC/JuILwiildpIjZmw+mITIFSyvVtDQ0J2Y
+         dsgIfJBz7RynjzLyYDr8miM+gvtBsI0ZjotL34k8GHtxgfEcctYgzu0f4Usu87pxTtE/
+         Nbp6pa6h/9iSWGkrU9tJo4POANrWz8SxeMLzW5bf91RMwMhAlvyfILK838iegdaPZUIp
+         90lfksWkxvHqOm6S1azEdSPI3XYi5L8RCwkaR9gXBycxxYl/Gz9hVol1P72/9D17DhA1
+         DF9w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795635419; x=1796240219;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
+        d=1e100.net; s=20260707; t=1795635427; x=1796240227;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=GcUWDnzDkVt7oeg7/27sTQCRhtqfS3EL+mXeYyoBPT4=;
-        b=XsFm5m/SHpHfmue5eD1A2d3+D4gAXac6snihljyq65tEnxATMRAr1ynoeNAF07fVHJ
-         Wil/Bixw5rEJJjrdfjis970mPVmeJlZ0lq7Ozd9dFDbpOe+D97S8z2rWxFfRN/v2OxBN
-         7gludSOjYQIzdIjS7gEXGeiLzLaJBLnUrug2VCGBCeKSaUWMI9z/tqWswT/Wh+RmlTbB
-         jnLpe0yenE3yb8qrATKwUrUpVWgsG70eWNR8bSOWEPEodtk3dgw7Y1wefCYYX0N89/Zs
-         fL6JPS1OSy19KdBNs9T2iUSUsSGoCHvE3fU0DUbpEjIXiCoqNws/Jji0g+AGpQ5UUSM0
-         YbqQ==
-X-Forwarded-Encrypted: i=1; AL+hErH3xVK800xqLkMCpwgQZalttDBvl/0w3uyis1ZQk5UbJwq9g/p8GXBd8nnDtqfB/Ri0WUpyMt5vczY7Cz4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8iOaij5E6lQI7/e0rJid340lPQP+7BsBig2l6E5hK1Of2uCP+x
-	Gsv7hjePoRHTrfIh/4wYUQNt89NxZhaCsD0jc4CujXBcb7RdVEG0vyBxtO5cFyNlIMl0p+ieFSY
-	mj9cbouRAcG2CywazvqBeX8p94BWMoG7klWjUnaytZQPd/k98ulAuFGxnMfVKwf0MQUv5sN5VIX
-	IWeVlqPT17gZ2IcD/daSBMIBsF9t9r6MquAFV8Zv9+g5yow0yCifpZ
-X-Gm-Gg: AZFdTZdo5qJKJvG5/s7RfJIFsIbO52GEriqOMk/hz4cxaNqjaJWjyBZs8BzLmeND17h
-	ulp/tYdHzGTzdXbG9VSmTbChsbqZob4xG/IkB85vR2QARBPClZoHjV5qBM0gqWVONsJVxPl1rJ7
-	OCm6PYTJO0R1ZvdWJMGC6teJW3ee5cJM/lLsWX9oLHQnbcivW3gA1bRTCN6pzfQkev7S9T66xjM
-	xbg264nPwV07TDBKh9lCmMwgevyfEl+RmydetiUR3zZqUmOeis+FW2GRB5c/ImkCFFA+NmzNFdu
-	CPBKmtPo
-X-Received: by 2002:a05:651c:a184:b0:3ab:1207:bd2f with SMTP id 38308e7fff4ca-3ae7f9da258mr64723481fa.11.1795635419463;
-        Wed, 25 Nov 2026 11:36:59 -0800 (PST)
-X-Received: by 2002:a05:651c:a184:b0:3ab:1207:bd2f with SMTP id
- 38308e7fff4ca-3ae7f9da258mr64723371fa.11.1795635419081; Wed, 25 Nov 2026
- 11:36:59 -0800 (PST)
+        bh=Wr5AGl2n5OMdlwfzUx+Xnt2cvomNzozcQctK34Lni/M=;
+        b=aIk5/9utDtSDmplh/ohnEl03ptotU460kMP3ETiUjuOB/BqAyOTo5NMuJoPH8lv9Kr
+         6HpJhxIonVVaV8rFsSP0Bmu+DO8rlZiOS4adrtiatpwI69t6b15+Z20EjZ/SsH9ylnrX
+         0o6Oeq4wX2MQztmMastKKBJp5YzjdBWgCla5k5p0HaLxtT3c1ElkBQpb8lsrHjG8xkeu
+         LKi9QgClmZEgC0GCs0XLdckcjbnx5aT8JFiqM2BtjgNw7pql+GTSzBorNRvbhgND6688
+         CVsCy9BvJB6Hr8GEISVeFSjynRkWmCrLuGlzc4MbgX4Gs/vjOHj3YfLOhGTu9LJEOrj2
+         4o7Q==
+X-Forwarded-Encrypted: i=1; AL+hErGKhKLBsvM4DAj3N+JMuO9+mqYehUyDYhaxK18c3zFhcd5zvNk5gQR2zs6iRvhaQoJ2xZvbQUnBtubjQfk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9yvLSDVNzkSuV8evOwwGUhfWDtO6hEzZ+BRKzAxagrPzfTV9CV
+	S62sX/kKpJikRVq4ogVIZ5nhGRkpwZpYU/ogtRBylhdLdc3/iJRdw3Vi/o60XGWrPVA=
+X-Gm-Gg: AZFdTZda0eLE8QaEkAbl4dVGXWzcXtN9s76aTaIxksR2yFPmX39sZLWN0fSN1rXP3K2
+	bK++fAhbx0W85QSF25WXGFQHuJ6vrE9Lc/jUcAo3GMJ1AxeVB3Hhvih0UKKozM9+ei4GV+tCCzs
+	TtqegbegSCPpLbsJsylqiCPYzMEW9hrH6HbmWTo+TWiwBSqyo4SxIbVJ77yvxw53lEyM5xsBPxW
+	xONfPlfnGDhtaV/TDEoGlEh0SmaMXYqsYops9dfX/0xX2YS1fg1GlWEgA6WIqxHX7+rR0sQm6rY
+	zH8a1QbgJvNxgkpWr6shW7Bh6wFpxoTJeI0aQWJi1NLve1DaFNkJllDXXpHx9FSHP6yHdSXIS4a
+	PBFocp7sMUjjwZ70aBl8vM12yKbnklOCoaPyo8Q3HApLWpUrIT1mWzso6tFcNfPuFFZh4jNLHyV
+	uwk04YgGFx5Z8El+q0gYB+nukH3eXVsw/IGOhCZyyi85EE9vpsNA4DBMMTYmLuVYRyJtqPiOotZ
+	qOQZxZG6egpjU1FHMbYIHxliKLWIj4iEFdh/1/Fbhz+q1RNn+ib0hu81OWNAcJj6r+HkNjk19bh
+	YXc98m4DEEtcU8UVyu25bpQevabTbnjLj1Q5hf4JdtXml09C3HXjhcJx/E26t09qmmDCDiVQacb
+	Y1tmArw8fhA==
+X-Received: by 2002:a05:6000:188a:b0:4a4:da59:aa60 with SMTP id ffacd0b85a97d-4abab4f5aaamr36933216f8f.3.1795635426983;
+        Wed, 25 Nov 2026 11:37:06 -0800 (PST)
+Received: from alchark-surface.localdomain (bba-86-98-194-229.alshamil.net.ae. [86.98.194.229])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6baa3882sm35614063f8f.49.2026.11.25.11.37.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 11:37:06 -0800 (PST)
+From: Alexey Charkov <alchark@flipper.net>
+Date: Wed, 25 Nov 2026 23:36:41 +0400
+Subject: [PATCH v5 4/5] arm64: dts: rockchip: Move RK3576 OTP cells into a
+ fixed layout
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -126,57 +94,172 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261119-bug-dm-thin-rcu-gp-v3-0-c80ecc475e1e@linux.dev> <20261119-bug-dm-thin-rcu-gp-v3-3-c80ecc475e1e@linux.dev>
-In-Reply-To: <20261119-bug-dm-thin-rcu-gp-v3-3-c80ecc475e1e@linux.dev>
-From: Ming Hung Tsai <mtsai@redhat.com>
-Date: Thu, 26 Nov 2026 03:36:46 +0800
-X-Gm-Features: Aa3M54ryKxKVSmorfBxjLDQtyNoAMSUrA6jEU7od1eZdQjmBhLAxQmPD6h-MRb4
-Message-ID: <CALjSBEt-KJ5a_vE9PJu=O1WyBY-Lu=L707opvOTL7411EZGrBQ@mail.gmail.com>
-Subject: Re: [PATCH v3 3/3] dm thin: free thins with kfree_rcu() instead of
- waiting in thin_dtr()
-To: dm-devel@lists.linux.dev
-Cc: Alasdair Kergon <agk@redhat.com>, Mike Snitzer <snitzer@kernel.org>, 
-	Mikulas Patocka <mpatocka@redhat.com>, Benjamin Marzinski <bmarzins@redhat.com>, linux-kernel@vger.kernel.org, 
-	Qiliang Yuan <qiliang.yuan@linux.dev>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261125-rk3576-otp-cpuid-mac-v5-4-b3125c9a5fc8@flipper.net>
+References: <20261125-rk3576-otp-cpuid-mac-v5-0-b3125c9a5fc8@flipper.net>
+In-Reply-To: <20261125-rk3576-otp-cpuid-mac-v5-0-b3125c9a5fc8@flipper.net>
+To: Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ =?utf-8?q?Rafa=C5=82_Mi=C5=82ecki?= <rafal@milecki.pl>, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, 
+ Russell King <linux@armlinux.org.uk>, Willem de Bruijn <willemb@google.com>, 
+ Simon Horman <horms@kernel.org>
+Cc: Ryan Leung <untilscour@protonmail.com>, 
+ Ricardo Pardini <ricardo@pardini.net>, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Alexey Charkov <alchark@flipper.net>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3709; i=alchark@flipper.net;
+ h=from:subject:message-id; bh=oXkReYjuRBJJEs/g0N/aMbEdzVAIdJ9dL3E3A7d18o4=;
+ b=owGbwMvMwCW2adGNfoHIK0sZT6slMWSzW5xVaDb6V/mwdXXj4g3C817vE1xzUJyLs/rkPpG0z
+ 7sSDK6v75jIwiDGxWAppsgy99sS26lGfLN2eXh8hZnDygQyRFqkgQEIWBj4chPzSo10jPRMtQ31
+ DI10jHWMGLg4BWCqJzYw/C+1sbB2ad93Sdpo57mgtQeW37eODV++MbLXuGMyc85BphUMv1n/RBY
+ viI8NXqDlb8XNWs7KvdBreTcj7x0P3yaN+movNgA=
+X-Developer-Key: i=alchark@flipper.net; a=openpgp;
+ fpr=9DF6A43D95320E9ABA4848F5B2A2D88F1059D4A5
 
-On Thu, Nov 19, 2026 at 8:24=E2=80=AFPM Qiliang Yuan <qiliang.yuan@linux.de=
-v> wrote:
->
-> thin_dtr() takes the thin off pool->active_thins once its last
-> reference is dropped and then waits for a grace period, so that
-> requeue_bios() and error_retry_list_with_code(), which walk the list
-> under rcu_read_lock(), are done with the thin before it is freed.
->
-> Removing a thin device thus waits for a full grace period in thin_dtr(),
-> although those readers only need the memory of the thin to stay around.
+The RK3576 OTP describes its cells as direct children of the OTP node,
+which is the deprecated syntax predating NVMEM layouts. It does not
+allow a compatible on a cell, which describing the CPU ID cell needs.
 
-For the record, this holds only because both bio lists of the thin are
-empty when thin_dtr() runs: the thin is suspended, inactive, or no
-longer open.
+Move the cells into a fixed layout, as already done for RK3528, RK3562
+and RK356x. Labels and node names stay the same, so the cells keep their
+names and existing references keep working.
 
-Without the grace period, the two ref-less readers (requeue_bios() and
-error_retry_list_with_code()) can still be working on the thin after
-thin_dtr() returns. They access only tc->lock, deferred_bio_list and
-retry_on_resume_list inside their RCU read-side critical section, so
-kfree_rcu() keeps everything they touch valid.
+Signed-off-by: Alexey Charkov <alchark@flipper.net>
+---
+ arch/arm64/boot/dts/rockchip/rk3576.dtsi | 105 ++++++++++++++++---------------
+ 1 file changed, 54 insertions(+), 51 deletions(-)
 
-The empty bio lists are what make this safe. With both lists empty,
-error_retry_list_with_code() ends no bio, so it never reaches the
-target or the mapped device, both of which dm core may free right
-after thin_dtr() returns. Thus, kfree_rcu() is enough.
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576.dtsi b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+index 6f5780af4192..2e83a73ddbb2 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+@@ -2298,63 +2298,66 @@ rng: rng@2a410000 {
+ 		otp: otp@2a580000 {
+ 			compatible = "rockchip,rk3576-otp";
+ 			reg = <0x0 0x2a580000 0x0 0x400>;
+-			#address-cells = <1>;
+-			#size-cells = <1>;
+ 			clocks = <&cru CLK_OTPC_NS>, <&cru PCLK_OTPC_NS>,
+ 				 <&cru CLK_OTP_PHY_G>;
+ 			clock-names = "otp", "apb_pclk", "phy";
+ 			resets = <&cru SRST_OTPC_NS>, <&cru SRST_P_OTPC_NS>;
+ 			reset-names = "otp", "apb";
+ 
+-			/* Data cells */
+-			cpu_code: cpu-code@2 {
+-				reg = <0x02 0x2>;
+-			};
+-			otp_cpu_version: cpu-version@5 {
+-				reg = <0x05 0x1>;
+-				bits = <3 3>;
+-			};
+-			otp_id: id@a {
+-				reg = <0x0a 0x10>;
+-			};
+-			cpub_leakage: cpub-leakage@1e {
+-				reg = <0x1e 0x1>;
+-			};
+-			cpul_leakage: cpul-leakage@1f {
+-				reg = <0x1f 0x1>;
+-			};
+-			npu_leakage: npu-leakage@20 {
+-				reg = <0x20 0x1>;
+-			};
+-			gpu_leakage: gpu-leakage@21 {
+-				reg = <0x21 0x1>;
+-			};
+-			log_leakage: log-leakage@22 {
+-				reg = <0x22 0x1>;
+-			};
+-			bigcore_tsadc_trim: bigcore-tsadc-trim@24 {
+-				reg = <0x24 0x2>;
+-				bits = <0 10>;
+-			};
+-			litcore_tsadc_trim: litcore-tsadc-trim@26 {
+-				reg = <0x26 0x2>;
+-				bits = <0 10>;
+-			};
+-			ddr_tsadc_trim: ddr-tsadc-trim@28 {
+-				reg = <0x28 0x2>;
+-				bits = <0 10>;
+-			};
+-			npu_tsadc_trim: npu-tsadc-trim@2a {
+-				reg = <0x2a 0x2>;
+-				bits = <0 10>;
+-			};
+-			gpu_tsadc_trim: gpu-tsadc-trim@2c {
+-				reg = <0x2c 0x2>;
+-				bits = <0 10>;
+-			};
+-			soc_tsadc_trim: soc-tsadc-trim@64 {
+-				reg = <0x64 0x2>;
+-				bits = <0 10>;
++			nvmem-layout {
++				compatible = "fixed-layout";
++				#address-cells = <1>;
++				#size-cells = <1>;
++
++				cpu_code: cpu-code@2 {
++					reg = <0x02 0x2>;
++				};
++				otp_cpu_version: cpu-version@5 {
++					reg = <0x05 0x1>;
++					bits = <3 3>;
++				};
++				otp_id: id@a {
++					reg = <0x0a 0x10>;
++				};
++				cpub_leakage: cpub-leakage@1e {
++					reg = <0x1e 0x1>;
++				};
++				cpul_leakage: cpul-leakage@1f {
++					reg = <0x1f 0x1>;
++				};
++				npu_leakage: npu-leakage@20 {
++					reg = <0x20 0x1>;
++				};
++				gpu_leakage: gpu-leakage@21 {
++					reg = <0x21 0x1>;
++				};
++				log_leakage: log-leakage@22 {
++					reg = <0x22 0x1>;
++				};
++				bigcore_tsadc_trim: bigcore-tsadc-trim@24 {
++					reg = <0x24 0x2>;
++					bits = <0 10>;
++				};
++				litcore_tsadc_trim: litcore-tsadc-trim@26 {
++					reg = <0x26 0x2>;
++					bits = <0 10>;
++				};
++				ddr_tsadc_trim: ddr-tsadc-trim@28 {
++					reg = <0x28 0x2>;
++					bits = <0 10>;
++				};
++				npu_tsadc_trim: npu-tsadc-trim@2a {
++					reg = <0x2a 0x2>;
++					bits = <0 10>;
++				};
++				gpu_tsadc_trim: gpu-tsadc-trim@2c {
++					reg = <0x2c 0x2>;
++					bits = <0 10>;
++				};
++				soc_tsadc_trim: soc-tsadc-trim@64 {
++					reg = <0x64 0x2>;
++					bits = <0 10>;
++				};
+ 			};
+ 		};
+ 
 
-
-> Free the thin with kfree_rcu() instead of waiting for the grace period.
->
-> Removing 100 thin devices of an idle pool with dmsetup remove takes per
-> device (mean of five rounds, min-max of the rounds in parentheses). The
-> queue freeze in del_gendisk() waits for a grace period of its own, which
-> the one in thin_dtr() used to overlap, so only part of it is saved:
->
->   before (ms)        after (ms)         change
->   17.2 (17.0-17.4)   13.7 (13.2-14.4)     -20%
->
-> Signed-off-by: Qiliang Yuan <qiliang.yuan@linux.dev>
+-- 
+2.56.0
 
