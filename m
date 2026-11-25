@@ -1,55 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=79.135.106.28
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795650271;
-	b=3Z96jT8qunAPcSpjKtSSEhrjupZR0PcRSTVhMDB8C7XLymnWe9B2LxH2r7wNFt+rWYLE
-	 OwuXrqOQdY5QGFCrA8PXzKSs8g/iDoNux6RTOmiiKGcnDdBTbN+2rC8ak6m665XTPnAtg
-	 /hE7kHwZzj6hXgOtA0BJQ0LBjPUYRty72loTGp49Cc/8/dO/K79uqoVuFLA4EDAzsUvrO
-	 vZZvJZxVjf96tB9V+xu4Yv8dVngYWmQ8NC3KAFLo/TjI8EsoT2eglMhlqOxdrw51gesdo
-	 Uw57XyA8gIiPCZtrSKwUPs40djLmovA3KPQsuT7d/29q1O5WOGFmimxLltszQhpFpJg==
+	t=1795650291;
+	b=NJA5PbF86Jud7+y6RXreFS+T9f+iXC0ImFtVnwSpNLyNFw/MjCWikHetVMJMXPVp0vE/
+	 nQ1xH6cdTuE6no0HwzG3n7HYofPqL9+NbYBNPegC+uNzeqDe9drcXMyYGYBn0hoj4bm70
+	 U+Sh43f0DjZJuliaOhBlzRB3olLJPXkDc81mkJeBjGtDD3rP4QplwGm9WBbsJTHmNheVP
+	 3COJLbBDnMOL+9SEtSKraHjg7qK3MClF2gddgCD3IpT6S55CVkMo7p/8c8+i5cyztVigq
+	 Mbax2ggXeBTs7zQJhw5Iao+TJ4lLoQX15+14TGRC3t+wZ1wMnP+1ztCcNvwstO1EP/Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795650271;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=f/ATAjGGuvCnHn352ejN1uMtKhQ6IIrtwCiWm+JOgec=;
-	b=WVIP53xtIgPAe5MdXR/GfgISb1bvc7qvW1w3YHI/n8tsL5C+W3CVbCEFg4kq6qZc1H5h
-	 SLnsqqee3wW9rp7+VoVdJenkhBf06sIMEm5LcfRNm6K6rXksPf580AnT4uNJuFB+bv/Rk
-	 DVwbhoVlV7q1TJc6TznyTPRnDIK7bzoBhOBe4DfzBavfErkNQIu/p9lVbBnfyPNMkVesM
-	 cdvnsTMN7t3V4hBjyg3na8qke+8TJFg31AFPxb/EZKrH1Cko3gIo+wybDXLDwWLm6WUgy
-	 +5eyi8ZrgwQJ8RQCQ5YWEAgr4pSHjtDVDW2hSgcyMrRtI5FhTSZ8GR/6AkVOc1/If2w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795650291;
+	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
+	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=bm7h/Ud9QGyWYEADODdFvttRWzwPpZHM7W52VNkqaPc=;
+	b=y1deqS60X6H3pbnGJLA10An68NRW8+BBGbMT7ShoRzflXLX/qARcCPW3Em8aazh2o+CP
+	 gSBv9id0pcFG0wPqvjoV4xkiko3SQKpg/8vhA7CMS5qEKB9XDa5rMgWTPNpQNuQTYauFI
+	 EVKvbJeS65BxQFRfhTb+p1MDEzjEDmTer0iMMmUJIISJ1TnkIyXXPtEZPwJ3g64m0tPsu
+	 jtZbmw/s0w42S1M1hUQfFZ6VTVYXDSO86uktQ6n69AaTNUyhwb5WbfB0O0lJ5U5UiZV6Y
+	 kukeIbVKsPqZIAf6q6QpNmjmTmB2FdlH4w7/YTjjqE3EDm3sSoTv86gK1dHv7PufVeg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OfkTtSt2;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=proton.me;
+	spf=pass smtp.mailfrom=proton.me;
+	dkim=pass header.d=proton.me header.i=@proton.me header.a=rsa-sha256 header.s=protonmail2 header.b=eDRMCq+P;
+	arc=none smtp.remote-ip=79.135.106.28
+Received: from mail-10628.protonmail.ch (mail-10628.protonmail.ch [79.135.106.28])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CF2A6606A323
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 23:44:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 25BF9606A31E;
+	Wed, 25 Nov 2026 23:44:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 25BF9606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=proton.me
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=proton.me
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OfkTtSt2
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C41A1F000F2
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 23:44:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795650271;
-	bh=f/ATAjGGuvCnHn352ejN1uMtKhQ6IIrtwCiWm+JOgec=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=OfkTtSt2xtBQR9UeimfOoTw6v3sL+yc1TRUwElnClmYZrlwHdJanGTW6e4tH5HmCu
-	 /ssM52sxD1/MhEerP68lHHZ2OqaasROIYX1xjwuQ6HHzNYlUZjf64/GqfLW5GZdNey
-	 8NDu78Zrgxpy1RRRhqMjMcGGez/CPEcafU2I5r4u998bsnBDVTJNGADkdyqGonNP0d
-	 8rY0clo9rfZHjK/mgu4HsuJwHdYmocLmWHimVsjmnkejjtqbC/khs90dLfWPk3USLN
-	 Vg+PjAWb+XDt2QrKNk+9tb9bIH62ElwnS3HqSHnCpzgH0FC2MhIY/+Vz90ywivXVIA
-	 3iXjXHfmqz9wQ==
-Received: by mail-qk1-f170.google.com with SMTP id af79cd13be357-94959217274so659218785a.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:44:31 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErFtm9BOKKYnZVJdR7wnEooDdXgjW2JjCJITUz2HC90Xuk9vO3fqjy3AyQUv1ZCWQsTU3qZ839ja3HIV1GM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+GNFzzJwhw6It0h2iZW3RZHCnfvHR1HrlAdl5nY2DOAPzLqr9L
-	+Fcg00cffsrx6CdXyyuGwRqIhk1X27XksBHF2D6iCunNqTttzf4UThtv6GFJuAaZRQLgTFki2V8
-	p9MY8eiFm1xaBI7Ssbb3wk+ue5Wjb3SU=
-X-Received: by 2002:a05:620a:3188:b0:93e:869c:43e2 with SMTP id
- af79cd13be357-949baa0d797mr3140085885a.50.1795650270349; Wed, 25 Nov 2026
- 15:44:30 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=proton.me header.i=@proton.me header.a=rsa-sha256 header.s=protonmail2 header.b=eDRMCq+P
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=proton.me;
+	s=protonmail2; t=1795650286; x=1795909486;
+	bh=bm7h/Ud9QGyWYEADODdFvttRWzwPpZHM7W52VNkqaPc=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=eDRMCq+PF9gu6Za3bfDEGjkC3HoBseayCX24lliuhKPTpMUYJKq66rUDcrBP1v0Bx
+	 54YKBcLO4sHosE1ow8T8ywszrCB0xqeNLLSREQ8g9O691Kx2fuPRCLINcgsLpuo9c2
+	 KtE6fjkscSNsxWeiQrdRNUU8JikoMt3p4qNQpvr2unzvazBAGuQd9fYXu3aHJU6XYy
+	 8x9tJ5XfhLgiAhioszbKS+WI+OVaH+0uVthXFuK3DAmjVyyjhrvYqylciYvlaa6dxc
+	 cS5XGr5Ww/hSZc/h10/7K5NrVx3hImeBel70UT2pJ47nIDKZrzk73E6euHpEsAtUR8
+	 wvvNptBSzCWNg==
+Date: Wed, 25 Nov 2026 23:44:39 +0000
+To: linux-bluetooth@vger.kernel.org
+From: Kyle Pepper <cochcoder@proton.me>
+Cc: luiz.dentz@gmail.com, marcel@holtmann.org, linux-kernel@vger.kernel.org
+Subject: [PATCH v14 1/2] Bluetooth: L2CAP: Restrict LE credits to connected CoCs
+Message-ID: <6aff9cb5ebb1f1512734d5ecdac876a2cc0c86bc.1795650070.git.github.filter194@slmail.me>
+In-Reply-To: <9d9d37680044266dbd1d6919b08564026afcd87d.1795528595.git.github.filter194@slmail.me>
+References: <20261113030556.75484-1-cochcoder@proton.me> <4278a9caf4dc8e949092452c141a5be465ec77e1.1794550328.git.github.filter194@slmail.me> <4278a9caf4dc8e949092452c141a5be465ec77e1.1794617024.git.github.filter194@slmail.me> <9d9d37680044266dbd1d6919b08564026afcd87d.1795528595.git.github.filter194@slmail.me>
+Feedback-ID: 97716137:user:proton
+X-Pm-Message-ID: 350a8a431add4120316f4dafa670e7a1804c5aa1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,57 +64,54 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261125113518.1207280-1-hui.zhu@linux.dev>
-In-Reply-To: <20261125113518.1207280-1-hui.zhu@linux.dev>
-From: Barry Song <baohua@kernel.org>
-Date: Thu, 26 Nov 2026 07:44:17 +0800
-X-Gmail-Original-Message-ID: <CAGsJ_4yTx+vQUQ44iLg8MNA718dY9Z1gAdnz9vvJnZWzVZx-4A@mail.gmail.com>
-X-Gm-Features: Aa3M54qXmwUVwHqi93lcxb96GVJpfnkGS49EGx9GJPqC8qElTspz68Xy-8zCgLQ
-Message-ID: <CAGsJ_4yTx+vQUQ44iLg8MNA718dY9Z1gAdnz9vvJnZWzVZx-4A@mail.gmail.com>
-Subject: Re: [PATCH v3] mm: mglru: reset the mm iteration cursor in try_to_inc_max_seq_nowalk()
-To: Hui Zhu <hui.zhu@linux.dev>
-Cc: Andrew Morton <akpm@linux-foundation.org>, Kairui Song <kasong@tencent.com>, 
-	Qi Zheng <qi.zheng@linux.dev>, Shakeel Butt <shakeel.butt@linux.dev>, 
-	Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>, 
-	Wei Xu <weixugc@google.com>, Baoquan He <baoquan.he@linux.dev>, 
-	Baolin Wang <baolin.wang@linux.alibaba.com>, Johannes Weiner <hannes@cmpxchg.org>, 
-	David Hildenbrand <david@kernel.org>, Michal Hocko <mhocko@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>, 
-	Harry Yoo <harry@kernel.org>, linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
-	Hui Zhu <zhuhui@kylinos.cn>, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
 
-On Wed, Nov 25, 2026 at 7:35=E2=80=AFPM Hui Zhu <hui.zhu@linux.dev> wrote:
->
-> From: Hui Zhu <zhuhui@kylinos.cn>
->
-> try_to_inc_max_seq_nowalk() advances mm_state->seq without walking the
-> mm_list, but unlike iterate_mm_list_nowalk() it leaves head and tail
-> alone. If it races with an ongoing page table walk, the cursor is left in
-> the middle of the fifo.
->
-> The next walker reads that as "this generation already started": it skips
-> reset_bloom_filter() and resumes after the cursor. The mm it visits are
-> the ones the aborted walk never reached, so they have no bits in the
-> filter being read and walk_pmd_range() descends into none of their PMDs.
-> Those mm miss a generation of accessed-bit harvesting, so their aging is
-> less accurate and hot folios can be under-promoted. Eviction can still
-> detect their references via rmap and lru_gen_look_around(), so this
-> weakens aging rather than guaranteeing reclaim and refault.
->
-> Reset head and tail with the seq increment, as iterate_mm_list_nowalk()
-> does. It is safe: get_next_mm() holds an mmgrab() reference and a
-> concurrent walker bails out at "walk->seq <=3D mm_state->seq" before
-> touching head again.
->
-> Only reachable from memcg_reparent_objcgs() -> max_lru_gen_memcg(); not a
-> memory safety issue, since lru_gen_del_mm() repoints head and tail under
-> mm_list->lock.
->
-> Fixes: f304652609ea ("mm: vmscan: prepare for reparenting MGLRU folios")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Hui Zhu <zhuhui@kylinos.cn>
-> Reviewed-by: Baoquan He <baoquan.he@linux.dev>
-> ---
+Do not let credit indications change fixed channels or complete pending
+connection setup. Validate the channel state and mode before accounting
+credits, checking overflow or invoking its resume callback.
 
-Reviewed-by: Barry Song <baohua@kernel.org>
+AI assistance: Codex prepared this attribution revision and assisted
+with validation and commit text. Earlier revisions disclosed LLM
+assistance for the credit-state guard.
+
+Fixes: fad5fc89594d ("Bluetooth: Add LE flow control discipline")
+Signed-off-by: Kyle Pepper <cochcoder@proton.me>
+---
+Changes in v14:
+- Replace the obsolete Assisted-by trailer with AI disclosure in each
+  commit message, following current kernel tool-generated content guidance.
+- Rebase on current bluetooth-next; both patches' code is unchanged.
+
+Previous v13 (no cover letter):
+https://lore.kernel.org/linux-bluetooth/9d9d37680044266dbd1d6919b08564026af=
+cd87d.1795528595.git.github.filter194@slmail.me/
+
+V13 CI passed all 12 other jobs, including the kernel builds and
+l2cap-tester. CheckPatch rejected the obsolete Assisted-by: LLM trailer.
+Those are v13 results; v14 remote CI has not run.
+
+ net/bluetooth/l2cap_core.c | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/net/bluetooth/l2cap_core.c b/net/bluetooth/l2cap_core.c
+index 943effc867402e232d4d4c4a93d4b7ba5d376367..8229bddca5df761dd1359b88752=
+e3d5f6d6090cf 100644
+--- a/net/bluetooth/l2cap_core.c
++++ b/net/bluetooth/l2cap_core.c
+@@ -5469,6 +5469,11 @@ static inline int l2cap_le_credits(struct l2cap_conn=
+ *conn,
+=20
+ =09l2cap_chan_lock(chan);
+=20
++=09if (chan->state !=3D BT_CONNECTED ||
++=09    (chan->mode !=3D L2CAP_MODE_LE_FLOWCTL &&
++=09     chan->mode !=3D L2CAP_MODE_EXT_FLOWCTL))
++=09=09goto unlock;
++
+ =09max_credits =3D LE_FLOWCTL_MAX_CREDITS - chan->tx_credits;
+ =09if (credits > max_credits) {
+ =09=09BT_ERR("LE credits overflow");
+
+base-commit: f57f78086ab54f3b3122fbaeba2c842ba7bb6d00
+
