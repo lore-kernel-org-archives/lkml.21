@@ -1,87 +1,86 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.9
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=119.15.109.137
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795588174;
-	b=YGQCMc6fXJHXIHtpoSCma+OtNixCZcOK+l7ZvzI9N0xhYa2+tlkkg0gtBquSCOulvQWA
-	 x1Sx7fIiyHYiZpzQhyZsoCKz1TNrsrlsxJdNdRfECBmNJFYNI/LrE95SUJ4kZX1akSm8J
-	 t2qNNHLa54plUgN0ccMjcfmkQXt9gVVGL7lsEONZnuRxBQqRX8aZptTl6qyL1FqZCZCTh
-	 IpAMz5QE0HfbqUC0A11jGGTeeTSn/fwR681w2f2iy2r3E4oA2foMXvkSUPInU8kdQnX5D
-	 q+aOkSTBZDNRNguCmqrH/WqN3RnXKY4aTZxZ78c3vqK3xnERBHG7/pl1OlcMb4I5mNg==
+	t=1795588205;
+	b=SvNu5UPMAT5uT3nzQ+4ITbevAdQ9KnKTeOWTrnRnzQ0dag0/DyoX6mnh8u2z/hbNnSu5
+	 h+CQ3QXKELaQe1cjb9VLjVSevk2AdJHRpxZGhqkbN4B++6EI1nNPPLCOTnSQiCGiYMeui
+	 z2GMCUkqbQUKnyPrPsBKCf1e11QzXYayUZgCnlxOtlEfsUFETedfGZSmA2JGdj9bTBWUq
+	 aq3kv+osLsELhGkQn8hPoBSZY64JFVLWgGTPk/UELnQV6SS6KK3rvR7imOUmbUbw5wvX9
+	 UANC8pxlpsX2l9Gva1z1/0PMkJHIxFzETKiaKO8yDhSdHTBZGTkChg6z8b30I34/aIg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795588174;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
-	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=fUGmkZ5pnD7Ji+vwezUPcu5hIMdhnLtQNfaT/AXBEjw=;
-	b=iNBVPxaAn+dkh/ty3b6WakhDl7nBNGR8kyaeUqRCh4S7g897XgwSB4hdiGJ49mkASDtT
-	 YYFjXMWDSOH2rlabqBm4XK5vb9KOgmEGiJjTCSrQxqZzXMrjZ2p/t+VnPWTaglclNzaFr
-	 GS4efodULP67Np9vo6Ls8fPTagMA8gsX98++ROS1yWrAC3EWCC2Tq33s+sNClH7hpqx5p
-	 H/cc/poPrbbwM5AXwnDXwKYEEzVzCFodwmb2yPPOf51sVcyOkgp3uPVWjxcHSCx5KB3P0
-	 JxkydI8Q7YOTbgiHCWDar6DcJY2aTFFi20xBcn2uRZh7XZp20riqQ3+WI00+aC7ednQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795588205;
+	h=DMARC-Filter:Received:DKIM-Signature:X-GPT-Reason:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=SXTRDOXzAHUSWSl+Ai9JHB2q0oBka0VriYkwNpTKYKQ=;
+	b=TylGlSGCd6U6H984BZjr7OP7fZCeWUvfrwJkeMMKCNLYk/7iAKGfa7nyGeKly4hiecZX
+	 R28oQE89W43sxOVBMJsm1VJV3U/jr7Hx69B3Oo+dahsvs9tWNggg8e1yD99pfPPU4cIER
+	 XHhbbAzxKdKLZZVQaTqNB+Zr5CLd4z5pM9w1M2kDSqLro6Hl4SGlWJic7w/0qOyi1Es/+
+	 SqOOdIkiI8XQW5AtcJFGNfOkUWpkPv8DPtf0uyxyD86B3vXEn1RbcatSUYctqCl0XNJvy
+	 BKCu/V14jS0aHTgzk4LrkTShoYXtLHFPXBUh2mgoD/kv3D88IzF2eR28zIazCAzX+gQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=QWCJMN0G;
-	arc=none smtp.remote-ip=198.175.65.9
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.9])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=d-silva.org;
+	spf=pass smtp.mailfrom=d-silva.org;
+	dkim=pass header.d=d-silva.org header.i=@d-silva.org header.a=rsa-sha256 header.s=2025a header.b=CdXKfPYY;
+	arc=none smtp.remote-ip=119.15.109.137
+Received: from www.nmnhosting.com (watt.d-silva.org [119.15.109.137])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 31E6C606A31E;
-	Wed, 25 Nov 2026 06:29:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 31E6C606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D9EDC606A32A;
+	Wed, 25 Nov 2026 06:30:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D9EDC606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=d-silva.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=d-silva.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=QWCJMN0G
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795588173; x=1827124173;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=zbfSXjIyKSD5Zk3TOvJSq6/F/aAsespPwza+20D7QQc=;
-  b=QWCJMN0GGnZNj0/toHQaOglw3+Fh46UhlhLoJncF7dpgPXkBRtFbSXO2
-   XlTlg+nEJViRgdIWuR+MELw/Bs6754WvuOA2Wju/rwutbKkwurBKrQ8kf
-   c46Yn+vHZ4API8g30cENTJRUVkpB1bSQ3tjF1Mw47OCg15H0o6oKbbQRK
-   TDRIBm8GuxWNHyEKV7YNr2ap0EH2rPZlu3ZboZ9i/FQRFTTcMWbErpraJ
-   SghGefEnykmpFUsmDTRAqvSaACtucxTAdENwtaRpGRH+zmkeK5ymiv7Lq
-   9Y572YUESA32z/+kZ2z405ipMdilNavArW+QwZvOR7FWw2cxd4mBCP3K3
-   w==;
-X-CSE-ConnectionGUID: sl+g9t7LT3SVWctPqLdB3Q==
-X-CSE-MsgGUID: B7GLqjYgRqeBO/GJZUr0/Q==
-X-IronPort-AV: E=McAfee;i="6800,10657,11976"; a="4327641"
-X-IronPort-AV: E=Sophos;i="6.27,232,1787036400"; 
-   d="scan'208";a="4327641"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 22:29:32 -0800
-X-CSE-ConnectionGUID: U2iK7523Q6OhqPtrIr3ZOw==
-X-CSE-MsgGUID: oWoe1juLSb2zHvTRnd4GDw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,232,1787036400"; 
-   d="scan'208";a="11764984"
-Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
-  by orviesa007.jf.intel.com with ESMTP; 24 Nov 2026 22:29:28 -0800
-Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1xW6VS-00000001Qyu-0xCE;
-	Wed, 25 Nov 2026 06:29:26 +0000
-Date: Wed, 25 Nov 2026 14:28:49 +0800
-From: kernel test robot <lkp@intel.com>
-To: Robert Ijtsma via B4 Relay <devnull+robertijtsma.gmail.com@kernel.org>,
-	Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+	dkim=pass (2048-bit key, unprotected) header.d=d-silva.org header.i=@d-silva.org header.a=rsa-sha256 header.s=2025a header.b=CdXKfPYY
+Received: from Hawking.lan (hawking.lan [10.0.1.4])
+	by www.nmnhosting.com (Postfix) with ESMTP id 060184C89A;
+	Wed, 25 Nov 2026 17:29:49 +1100 (AEDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=d-silva.org; s=2025a;
+	t=1795588189;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=SXTRDOXzAHUSWSl+Ai9JHB2q0oBka0VriYkwNpTKYKQ=;
+	b=CdXKfPYY7vWtoBevximD0MhqDEw04bj+8tHBAbkGUu4t6QVOiQ+gXd/fqzJin9OnfczbAa
+	MV9IDkhaDTNLsAsIz9cqrjJZu3KOMwU44vghIwhWucmg8rNH+8lyYUpRs/A0/AIKmKi7Eo
+	Icr5+kbPULm2pgPX4/rAowLWwzqiSYB/M/o/1B+bj+t/WmUarxEE2Q7ShHvaZPci/vZu6K
+	nO/bRgOHqkLCYiW3aKQBu1BVa/t8Ogw9L1COCQxkS606S2mk63X3k56Tptrn5Kuiikqjw0
+	0seIhxUTEXW4GDHjWJ2SJKCFBgEoGqGFmm2s+eSXdKt8jsv5FcNeoz8+mJxhDw==
+X-GPT-Reason: This is a legitimate technical communication. The
+	email is classified as personal/professional correspondence because
+	the sender (alastair@d-silva.org) is a known entity matching the
+	recipient's domain context, and the content is a standard Linux
+	kernel patch submission regarding Allwinner A733 hardware support.
+	The presence of specific technical diffs, links to lore.kernel.org,
+	and the absence of any marketing, urgency, or phishing tactics confirms
+	its legitimacy as a developer's contribution.
+From: Alastair D'Silva <alastair@d-silva.org>
+To: Lee Jones <lee@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof Wilczynski <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>
+Cc: mfd@lists.linux.dev,
+	devicetree@vger.kernel.org,
+	linux-pci@vger.kernel.org,
+	linux-phy@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Robert Ijtsma <robertijtsma@gmail.com>
-Subject: Re: [PATCH 2/2] iio: light: add ams OSRAM TCS3430 XYZ and ambient
- light sensor driver
-Message-ID: <20261125142230.FjfgcgpD-lkp@intel.com>
-References: <20261124-iio-tcs3430-v1-2-0f2a38a6a4c1@gmail.com>
+	Enzo Adriano <enzo.adriano.code@gmail.com>,
+	Junhui Liu <junhui.liu@pigmoral.tech>
+Subject: [PATCH 0/5] Add Allwinner A733 (sun60i) PCIe and Combo PHY support
+Date: Wed, 25 Nov 2026 17:29:43 +1100
+Message-ID: <20261125062948.1234677-1-alastair@d-silva.org>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -91,185 +90,49 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261124-iio-tcs3430-v1-2-0f2a38a6a4c1@gmail.com>
+Content-Transfer-Encoding: 8bit
 
-Hi Robert,
+Add Devicetree bindings, drivers, and SoC Devicetree nodes for the
+Allwinner A733 (sun60i) Cadence Combo PHY 1 and DesignWare PCIe Root
+Complex controller.
 
-kernel test robot noticed the following build errors:
+Tested on Orange Pi 4 Pro with a Micron NVMe SSD (1344:5410) on both
+cold boot (no bootloader PCIe init) and warm boot (after U-Boot pci
+enum):
+- PCIe Gen3 x1 (8.0 GT/s) link up via mainline dw_pcie_setup_rc()
+- 8 MSI queues and Root Port PME/AER on legacy INTx
+- Root filesystem mounted and booted from /dev/nvme0n1p1
 
-[auto build test ERROR on 4843f6873f7c4835e62f2c73ba0fd538e57a2f22]
+Patch 5 depends on:
+- "[PATCH v4 0/3] arm64: dts: allwinner: add A733/Cubie A7S support"
+  https://lore.kernel.org/all/cover.1795034153.git.enzo.adriano.code@gmail.com/
+- "[PATCH v7 0/8] clk: sunxi-ng: Add support for Allwinner A733 CCU"
+  https://lore.kernel.org/all/20261112-a733-clk-v7-0-db7c5451ffa2@pigmoral.tech/
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Robert-Ijtsma-via-B4-Relay/dt-bindings-iio-light-add-ams-OSRAM-TCS3430/20261124-234657
-base:   4843f6873f7c4835e62f2c73ba0fd538e57a2f22
-patch link:    https://lore.kernel.org/r/20261124-iio-tcs3430-v1-2-0f2a38a6a4c1%40gmail.com
-patch subject: [PATCH 2/2] iio: light: add ams OSRAM TCS3430 XYZ and ambient light sensor driver
-config: sparc64-allmodconfig (https://download.01.org/0day-ci/archive/20261125/20261125142230.FjfgcgpD-lkp@intel.com/config)
-compiler: clang version 20.1.8 (https://github.com/llvm/llvm-project 87f0227cb60147a26a1eeb4fb06e3b505e9c7261)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261125/20261125142230.FjfgcgpD-lkp@intel.com/reproduce)
+Alastair D'Silva (5):
+  dt-bindings: phy: allwinner,sun60i-a733-combophy: Add binding
+  phy: allwinner: Add Allwinner A733 Cadence Combo PHY driver
+  dt-bindings: PCI: allwinner,sun60i-a733-pcie: Add binding
+  PCI: sunxi: Add Allwinner A733 DesignWare PCIe host controller driver
+  arm64: dts: allwinner: sun60i-a733: Add PCIe and Combo PHY nodes
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/20261125142230.FjfgcgpD-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
->> drivers/iio/light/tcs3430.c:175:2: error: cannot jump from switch statement to this case label
-     175 |         default:
-         |         ^
-   drivers/iio/light/tcs3430.c:166:3: note: jump bypasses initialization of variable with __attribute__((cleanup))
-     166 |                 guard(mutex)(&data->lock);
-         |                 ^
-   include/linux/cleanup.h:416:2: note: expanded from macro 'guard'
-     416 |         CLASS(_name, __UNIQUE_ID(guard))
-         |         ^
-   include/linux/cleanup.h:299:3: note: expanded from macro 'CLASS'
-     299 |                 class_##_name##_constructor
-         |                 ^
-   <scratch space>:22:1: note: expanded from here
-      22 | class_mutex_constructor
-         | ^
-   note: (skipping 3 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
-   include/linux/compiler_types.h:16:23: note: expanded from macro '__PASTE'
-      16 | #define __PASTE(a, b) ___PASTE(a, b)
-         |                       ^
-   include/linux/compiler_types.h:15:24: note: expanded from macro '___PASTE'
-      15 | #define ___PASTE(a, b) a##b
-         |                        ^
-   <scratch space>:28:1: note: expanded from here
-      28 | __UNIQUE_ID_unlock_541
-         | ^
-   drivers/iio/light/tcs3430.c:166:3: note: jump bypasses initialization of variable with __attribute__((cleanup))
-   include/linux/cleanup.h:416:15: note: expanded from macro 'guard'
-     416 |         CLASS(_name, __UNIQUE_ID(guard))
-         |                      ^
-   include/linux/compiler.h:165:2: note: expanded from macro '__UNIQUE_ID'
-     165 |         __PASTE(__UNIQUE_ID_,                                   \
-         |         ^
-   include/linux/compiler_types.h:16:23: note: expanded from macro '__PASTE'
-      16 | #define __PASTE(a, b) ___PASTE(a, b)
-         |                       ^
-   include/linux/compiler_types.h:15:24: note: expanded from macro '___PASTE'
-      15 | #define ___PASTE(a, b) a##b
-         |                        ^
-   <scratch space>:16:1: note: expanded from here
-      16 | __UNIQUE_ID_guard_540
-         | ^
-   drivers/iio/light/tcs3430.c:142:3: note: jump bypasses initialization of variable with __attribute__((cleanup))
-     142 |                 guard(mutex)(&data->lock);
-         |                 ^
-   include/linux/cleanup.h:416:2: note: expanded from macro 'guard'
-     416 |         CLASS(_name, __UNIQUE_ID(guard))
-         |         ^
-   include/linux/cleanup.h:299:3: note: expanded from macro 'CLASS'
-     299 |                 class_##_name##_constructor
-         |                 ^
-   <scratch space>:17:1: note: expanded from here
-      17 | class_mutex_constructor
-         | ^
-   note: (skipping 3 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
-   include/linux/compiler_types.h:16:23: note: expanded from macro '__PASTE'
-      16 | #define __PASTE(a, b) ___PASTE(a, b)
-         |                       ^
-   include/linux/compiler_types.h:15:24: note: expanded from macro '___PASTE'
-      15 | #define ___PASTE(a, b) a##b
-         |                        ^
-   <scratch space>:23:1: note: expanded from here
-      23 | __UNIQUE_ID_unlock_537
-         | ^
-   drivers/iio/light/tcs3430.c:142:3: note: jump bypasses initialization of variable with __attribute__((cleanup))
-   include/linux/cleanup.h:416:15: note: expanded from macro 'guard'
-     416 |         CLASS(_name, __UNIQUE_ID(guard))
-         |                      ^
-   include/linux/compiler.h:165:2: note: expanded from macro '__UNIQUE_ID'
-     165 |         __PASTE(__UNIQUE_ID_,                                   \
-         |         ^
-   include/linux/compiler_types.h:16:23: note: expanded from macro '__PASTE'
-      16 | #define __PASTE(a, b) ___PASTE(a, b)
-         |                       ^
-   include/linux/compiler_types.h:15:24: note: expanded from macro '___PASTE'
-      15 | #define ___PASTE(a, b) a##b
-         |                        ^
-   <scratch space>:11:1: note: expanded from here
-      11 | __UNIQUE_ID_guard_536
-         | ^
-   drivers/iio/light/tcs3430.c:170:2: error: cannot jump from switch statement to this case label
-     170 |         case IIO_CHAN_INFO_INT_TIME:
-         |         ^
-   drivers/iio/light/tcs3430.c:166:3: note: jump bypasses initialization of variable with __attribute__((cleanup))
-     166 |                 guard(mutex)(&data->lock);
-         |                 ^
-   include/linux/cleanup.h:416:2: note: expanded from macro 'guard'
-     416 |         CLASS(_name, __UNIQUE_ID(guard))
-         |         ^
-   include/linux/cleanup.h:299:3: note: expanded from macro 'CLASS'
-     299 |                 class_##_name##_constructor
-         |                 ^
-   <scratch space>:22:1: note: expanded from here
-      22 | class_mutex_constructor
-         | ^
-   note: (skipping 3 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
-   include/linux/compiler_types.h:16:23: note: expanded from macro '__PASTE'
-      16 | #define __PASTE(a, b) ___PASTE(a, b)
-         |                       ^
-   include/linux/compiler_types.h:15:24: note: expanded from macro '___PASTE'
-      15 | #define ___PASTE(a, b) a##b
-         |                        ^
-
-
-vim +175 drivers/iio/light/tcs3430.c
-
-   132	
-   133	static int tcs3430_read_raw(struct iio_dev *indio_dev,
-   134				    const struct iio_chan_spec *chan,
-   135				    int *val, int *val2, long mask)
-   136	{
-   137		struct tcs3430_data *data = iio_priv(indio_dev);
-   138		int ret;
-   139	
-   140		switch (mask) {
-   141		case IIO_CHAN_INFO_RAW:
-   142			guard(mutex)(&data->lock);
-   143			ret = i2c_smbus_read_word_data(data->client, chan->address);
-   144			if (ret < 0)
-   145				return ret;
-   146			*val = ret;
-   147			return IIO_VAL_INT;
-   148	
-   149		case IIO_CHAN_INFO_SCALE: {
-   150			u32 itime_us = TCS3430_DEFAULT_ATIME_CYCLES * TCS3430_ATIME_STEP_US;
-   151			u64 scale_nano;
-   152			u32 rem;
-   153			int gain;
-   154	
-   155			scoped_guard(mutex, &data->lock)
-   156				gain = tcs3430_gains[data->gain_idx];
-   157	
-   158			scale_nano = div_u64(TCS3430_LUX_FACTOR * NSEC_PER_SEC * USEC_PER_MSEC,
-   159					     (u32)gain * itime_us);
-   160			*val = div_u64_rem(scale_nano, NSEC_PER_SEC, &rem);
-   161			*val2 = rem;
-   162			return IIO_VAL_INT_PLUS_NANO;
-   163		}
-   164	
-   165		case IIO_CHAN_INFO_HARDWAREGAIN:
-   166			guard(mutex)(&data->lock);
-   167			*val = tcs3430_gains[data->gain_idx];
-   168			return IIO_VAL_INT;
-   169	
-   170		case IIO_CHAN_INFO_INT_TIME:
-   171			*val = 0;
-   172			*val2 = TCS3430_DEFAULT_ATIME_CYCLES * TCS3430_ATIME_STEP_US;
-   173			return IIO_VAL_INT_PLUS_MICRO;
-   174	
- > 175		default:
-   176			return -EINVAL;
-   177		}
-   178	}
-   179	
+ .../devicetree/bindings/mfd/syscon.yaml       |   1 +
+ .../pci/allwinner,sun60i-a733-pcie.yaml       | 187 +++++++
+ .../phy/allwinner,sun60i-a733-combophy.yaml   |  84 +++
+ MAINTAINERS                                   |  16 +
+ .../arm64/boot/dts/allwinner/sun60i-a733.dtsi |  76 +++
+ drivers/pci/controller/dwc/Kconfig            |  15 +
+ drivers/pci/controller/dwc/Makefile           |   1 +
+ drivers/pci/controller/dwc/pcie-sunxi.c       | 505 ++++++++++++++++++
+ drivers/phy/allwinner/Kconfig                 |  13 +
+ drivers/phy/allwinner/Makefile                |   1 +
+ drivers/phy/allwinner/phy-sun60i-combophy.c   | 372 +++++++++++++
+ 11 files changed, 1271 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/pci/allwinner,sun60i-a733-pcie.yaml
+ create mode 100644 Documentation/devicetree/bindings/phy/allwinner,sun60i-a733-combophy.yaml
+ create mode 100644 drivers/pci/controller/dwc/pcie-sunxi.c
+ create mode 100644 drivers/phy/allwinner/phy-sun60i-combophy.c
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.53.0
+
