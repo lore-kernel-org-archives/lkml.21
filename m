@@ -1,87 +1,45 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.17
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795648207;
-	b=rrMA4AWWzCTPPR+zd5ImeEpztFdlKXWjIf4M8NpLHhZFqgswkYxLDDb2nSSTnr4s8fyF
-	 EV5kedkiGairaKNJXE7BfGioue3GH2CPMkMJ1JP/QdD7sLdJkjSdqLfk9icsqEvGWWdCz
-	 1OJD2aH2acu3D6OY6Mb6tv6FP9f7+tvnhy3v9xEy/hErpl7BKgMSfr5aeHq6QY2cZtZME
-	 hbtjpAUXEmuXFOYTatBdoJrvSJAWMyVUTL/pBfqnlDYb/uBmKbOVITJFuX2wovuVmjFZU
-	 8rUfU74zCAvUK7GSw15eGBdlPZkZ9elNMaiNFndelfvMUHR11mcsmz1t0GznNHeucHA==
+	t=1795648216;
+	b=QfYB3QJ7fbII7OsQketsZJNiHSIXMq9jy2J1MsRrFpv0u6Hk4o9DjhTFa/Oug1D9kmm5
+	 jcTzW7mKt2z7adOVAEEEAepCBJlLfU4yyzF7qYxr4YOEXxjoTKYoJCMLuIMm7QOFMbw5T
+	 25qgd3+TJDrHR7vmT0DPJLnl16PUZEPA6VTnY6YrECBuJ1nz9I3KszdhKp4gB/cyvHLBF
+	 I4XAmgcCSKjuAPO9QLOINY/PfZwNBZkZ15i1XpaIBVvfn2oa2Ex6AdOsdcS7g8jB3Lzwh
+	 wu2LI1vH0KapWc5Vla698atBNWfL6dKesh7YmCTD7DeKdC8KBDy/P18MZJBAt6ULlBA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795648207;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=4YzMCKbk1cYbKbWntsU/48LDpJeK2LIKRm0a3SbPemw=;
-	b=AexPwF6EnrWTfBBGEdb0QQGM6QILRO5BQVQiXndkjzxaozTzYoR7pl+GhL6ULPQ18gso
-	 T/UxQvka+4iC4eeuFL5E0Vta4uvGZlKe+wK7AKElfqmZfGPiZeLn/qjVx1b7sGbrVJY4K
-	 1SWppp7PEddq1WiThYU6PAp6UNZZkg1EIQOvIZvwFnLYGVwWwKtQjXe15KxUuCtQGG7TL
-	 KzHxpc8Hrg5KUr0Vgr8ItXwA+dWan+tkKSW+u/Xs1abGxkn1rDrk/15Kx6jUlgki7jpIi
-	 mcOORQwNOnUv0HRjgbAhhAi96Xx69r6vYeIi1CQWDhd7vxnP4UUAbFlOHhNZdbpfrPw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795648216;
+	h=Received:DKIM-Signature:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:References:
+	 Date:Message-Id:X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=m3GJxlGj0azuDPZoGR5k/X5Csq7kPX8Bj7+lpyBb/r4=;
+	b=wcT1F+hggYf92A7KqmXbaHLl8bG5NEP0jGqWIjxkoSXo2iFLSnGsO0N34s3+i3rMiB8l
+	 Oa1zw2rUYUZDDrOMCQHjv+oNHBwLSQEliZWqUUwxFgE9eJ/gzTpf2bNsIEpFfnRsVMZGb
+	 xDbvauT+OPBviEfvbvuaARte93x150YTUIEzuz6dv3gBG/fgEd3hqh/9zChA0Njfyn0Eb
+	 poqVXIZNrccHFajnHbG1OAqU7rmxT+VH1tIDOZV0rJ54HsQ+LqqwmUulfVVyHL7RDzHz3
+	 83EVtulIEvrlVPoeAJ2TbU1Jy33Wbt1QXxIS8nSBbk8GB8Hq9dOXc1QQQeznzcMAErw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Q1RGcxx9;
-	arc=none smtp.remote-ip=192.198.163.17
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.17])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LMrYJXXm;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 60CF8606A31E;
-	Wed, 25 Nov 2026 23:10:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 60CF8606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C5BFA606A333;
+	Wed, 25 Nov 2026 23:10:16 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Q1RGcxx9
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795648207; x=1827184207;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=Cz+sDZ9qDfvxJjsd0/fLKyYqYPzsuCkjZP6s/wo8egU=;
-  b=Q1RGcxx998wcahhsNtmTk0EdTAZPLmYkkK6+bmPPv5YYAfYFmv/CFvep
-   HDEM8rVDVZ32zTCzZ+pKbj9P9u2Q6MgS56cONVK2FtZY1Eg5lLwLrUlkL
-   Lp59O7nFX9bxtJwY3v88GdTLgH4z6kd0/29/NEnJP+o0DXBSaaG85cCQd
-   i3J8DRECI2XqhQJlnLUvDOGKoOzb0ADAJwOnpXi1CvEDeU9u5jc0wz3yX
-   R5nJ6oHqEU4YKyuKjVzGqhR6fj6M/KYQgXdmuKBJEuiJ05gtfng43oGGp
-   ONeOqonJePQwLN0gcIR5ctXgH2pWWnExX7ScW5OecSXPdn4hS/QmDh8LZ
-   g==;
-X-CSE-ConnectionGUID: bWGmoPLLQeuhdv8TwMudsQ==
-X-CSE-MsgGUID: f3FFJmV1RY2MHtxj+Pz/8w==
-X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4537917"
-X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
-   d="scan'208";a="4537917"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 15:10:06 -0800
-X-CSE-ConnectionGUID: MapZj/8LRNqNTkxJ5pL8KA==
-X-CSE-MsgGUID: eG68Sv4NRoysG2SIGwqU5g==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
-   d="scan'208";a="11866141"
-Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.96])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 15:10:01 -0800
-From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-To: linux-pci@vger.kernel.org,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>,
-	Rob Herring <robh@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
-	David Matlack <dmatlack@google.com>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Richard Henderson <richard.henderson@linaro.org>,
-	Matt Turner <mattst88@gmail.com>,
-	Magnus Lindholm <linmag7@gmail.com>,
-	linux-alpha@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	stable@vger.kernel.org
-Subject: [PATCH v3 02/17] alpha/PCI: Convert to pci_bus_size_and_assign_resources()
-Date: Thu, 26 Nov 2026 01:09:01 +0200
-Message-ID: <20261125230925.2441-3-ilpo.jarvinen@linux.intel.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261125230925.2441-1-ilpo.jarvinen@linux.intel.com>
-References: <20261125230925.2441-1-ilpo.jarvinen@linux.intel.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LMrYJXXm
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ABD2E1F000D0;
+	Wed, 25 Nov 2026 23:10:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795648216;
+	bh=m3GJxlGj0azuDPZoGR5k/X5Csq7kPX8Bj7+lpyBb/r4=;
+	h=Subject:From:To:Cc:In-Reply-To:References:Date;
+	b=LMrYJXXmwE9Um5fWOppFdRbWQouDqJJnYjeaVF2jm0RD7mQs92975ePjPqPMESF+M
+	 aJmFd8AdF9bqXqHy2fwqBTv776+/0W1gLJ2109/Xt1W2XG8K41FA/GGp6qgWOIeSrw
+	 ZIvWNw+ZXUOAKQ1p8SJXQn3OCUW9cgAMBr0e0xz3vseKx1R++Mo/XbspM3JeAxE8Fd
+	 VIOVetcJiZKoS3TLLi5GplVfvXe8RTQbP3JXkppLNWfSIK1yEvEmFla41CbwVU6xWs
+	 ObqtmhShd77Gh+PoDZiwKsHw6c821D/LsNHwyaQZuqNLyICxO3Msl2fQCAZeZB6QNV
+	 xxatrYD0pleiQ==
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -91,50 +49,99 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH] kconfig: warn about malformed KCONFIG_SEED values
+From: Nathan Chancellor <nathan@kernel.org>
+To: Priyanshu Singh <singhpriyanshu9838@gmail.com>
+Cc: Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
+ Julian Braha <julianbraha@gmail.com>, 
+ "Yann E . MORIN" <yann.morin.1998@free.fr>, linux-kbuild@vger.kernel.org, 
+ linux-kernel@vger.kernel.org
+In-Reply-To: <20261118071557.791279-1-singhpriyanshu9838@gmail.com>
+References: <20261118071557.791279-1-singhpriyanshu9838@gmail.com>
+Date: Wed, 25 Nov 2026 16:10:10 -0700
+Message-Id: <179564821041.3369856.2083626361406656618.b4-reply@b4>
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3895; i=nathan@kernel.org;
+ h=from:subject:message-id; bh=yUref+BatIH1CfDhNYmtWum8QHtrY7It7k/mSbU2ALY=;
+ b=owGbwMvMwCUmm602sfCA1DTG02pJDNnsWZdyn3fz1B0+3u788+SV4opAXx/N4JK0bcZO7WeKD
+ h+YFfGjo5SFQYyLQVZMkaX6sepxQ8M5ZxlvnJoEM4eVCWQIAxenAEzk/VdGhr/yirMyHQzfxKfu
+ 0t3xwjD8Q7nwgjnv7okqfX74XLF9KQvDf19Xj4Ib76wMbjunPzlY3DG9Q6MxdD5Dpv+uh/x79VS
+ FuAE=
+X-Developer-Key: i=nathan@kernel.org; a=openpgp;
+ fpr=2437CB76E544CB6AB3D9DFD399739260CB6CB716
 
-To serialize bridge window sizing and resource assignment, PCI core
-needs to hold locks across both phases. Alpha nautilus PCI code calls
-pci_bus_size_bridges() and pci_bus_assign_resources() separately
-because it needs to do special resource alignment and setup after the
-window sizes have been calculated. At least the former would seem to
-belong to some existing __weak pcibios_*() hook but the latter might
-need yet another pcibios_*() hook just for this single use.
+On 2026-11-18 07:15 +0000, Priyanshu Singh wrote:
+> randconfig parses KCONFIG_SEED with signed strtol(), causing several
+> validation and cross-architecture bugs:
+> 
+> - Artificial constraints and portability issues:
+>   32-bit seeds in [0x80000000, 0xFFFFFFFF] and values > UINT_MAX
+>   are capped to LONG_MAX (0x7FFFFFFF) on 32-bit hosts instead of
+>   matching 64-bit host behavior.
+> - Whitespace handling asymmetry: Trailing whitespace leaves
+>   *endp != '\0', discarding the seed in favor of gettimeofday()
+>   while leading whitespace is accepted.
+> - Garbage handling: Invalid strings (e.g., "xyz", "42_foo") fall back
+>   to the clock seed and exit with status 0, ignoring KCONFIG_WERROR.
+> 
+> Switch to strtoull(..., 0) and consume trailing whitespace so
+> whitespace-padded seeds are not discarded. Reject 0b/0B prefixes
+> explicitly so C11 and C23 builds behave identically.
+> 
+> Emit a warning whenever KCONFIG_SEED deviates from a canonical unsigned
+> 32-bit integer, and exit(1) if KCONFIG_WERROR is set. Otherwise, retain
+> modulo 2^32 truncation for parseable 64-bit integers and fall back to
+> the clock seed on unparseable inputs or ERANGE overflow.
+> 
+> Add regression tests in scripts/kconfig/tests/randconfig_seed/.
+> 
+> Fixes: 0d8024c6ebad ("kconfig: allow specifying the seed for randconfig")
+> Signed-off-by: Priyanshu Singh <singhpriyanshu9838@gmail.com>
+> ---
+> Notes for reviewers:
+> - 0b/0B guard: Under glibc 2.38+ with -std=gnu2x/-std=c23, strtoull()
+>   maps to __isoc23_strtoull() which accepts 0b/0B binary prefixes in
+>   base 0, whereas C11 stops at 'b'. Rejecting 0b/0B prior to strtoull()
+>   keeps behavior identical across toolchains.
+> - Backward compatibility (KCONFIG_WERROR unset): Non-canonical but
+>   parseable 64-bit integers (whitespace, signs, -1, or > UINT_MAX
+>   timestamps like `date +%s%N`) emit a warning and truncate modulo 2^32
+>   across both 32-bit and 64-bit hosts, while unparseable strings or
+>   > 64-bit ERANGE overflows fall back to gettimeofday().
+> 
+> Input                   Pre-Patch (64-bit)    Pre-Patch (32-bit)    Post-Patch (32 & 64-bit)
+> ----------------------  --------------------  --------------------  ------------------------------------
+> "42" / "0x2a"           0x2A (quiet)          0x2A (quiet)          0x2A (quiet)
+> "0x80000000"            0x80000000 (quiet)    0x7FFFFFFF (clamp)    0x80000000 (quiet)
+> " 42"                   0x2A (quiet)          0x2A (quiet)          0x2A + warn (WERROR -> exit 1)
+> "42 "                   Clock fallback        Clock fallback        0x2A + warn (WERROR -> exit 1)
+> "-1"                    0xFFFFFFFF (quiet)    0xFFFFFFFF (quiet)    0xFFFFFFFF + warn (WERROR -> exit 1)
+> "4294967296" (2^32)     0x0 (quiet)           0x7FFFFFFF (clamp)    0x0 + warn (WERROR -> exit 1)
+> "18446744073709551616"  0xFFFFFFFF (clamp)    0x7FFFFFFF (clamp)    Clock fallback + warn (WERROR -> 1)
+> "0b1010"                Clock (C11)/10 (C23)  Clock (C11)/10 (C23)  Clock fallback + warn (WERROR -> 1)
+> "xyz" / "42_foo"        Clock (ignores WERR)  Clock (ignores WERR)  Clock fallback + warn (WERROR -> 1)
+> 
+> Tested via `make testconfig` (40 passed).
 
-The nautilus code runs during init, so nothing is likely to race with
-it. Converting it is mainly about consolidating the sizing and
-assignment entrypoints of PCI core, which eventually allows removing
-pci_bus_assign_resources().
+I am pretty ambivalent about this patch. Most of what you bring up in
+the commit message is in "who cares" territory for me personally since
 
-Instead of trying to do a complex rework of the code, which is risky
-without the ability to test on the hardware, simply convert
-pci_bus_assign_resources() to pci_bus_size_and_assign_resources(). This
-adds a small bit of extra work by performing the sizing step again. The
-Irongate PCI memory window is a host bridge window and not a device
-resource, so the resource assignment algorithm does not move or release
-it, and sizing does not change it either once it has been registered.
+- 32-bit builds are going to be pretty uncommon nowadays
 
-Signed-off-by: Ilpo Järvinen <ilpo.jarvinen@linux.intel.com>
-Acked-by: Magnus Lindholm <linmag7@gmail.com>
-Cc: stable@vger.kernel.org
----
- arch/alpha/kernel/sys_nautilus.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+- Fixes is over 13 years old and it does not look like anyone has
+  noticed this in practice based on searching linux-kbuild
 
-diff --git a/arch/alpha/kernel/sys_nautilus.c b/arch/alpha/kernel/sys_nautilus.c
-index 13b79960b4b9..23a74fd4a83f 100644
---- a/arch/alpha/kernel/sys_nautilus.c
-+++ b/arch/alpha/kernel/sys_nautilus.c
-@@ -263,7 +263,7 @@ nautilus_init_pci(void)
- 	if ((IRONGATE0->dev_vendor >> 16) > 0x7006)	/* Albacore? */
- 		IRONGATE0->pci_mem = pci_mem;
- 
--	pci_bus_assign_resources(bus);
-+	pci_bus_size_and_assign_resources(bus);
- 	pci_bus_add_devices(bus);
- }
- 
+- The documentation states this is just an integer value; if people are
+  plugging in arbitrary values, that's on them
+
+- Most people are just going to be using a previously generated
+  KCONFIG_SEED; can these issues happen with the default logic?
+
+That said, Julian and Nicolas are free to disagree with me.
+
 -- 
-2.47.3
+Cheers,
+Nathan
 
