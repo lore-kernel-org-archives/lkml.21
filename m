@@ -1,114 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795595929;
-	b=qnu+z9GP3fYCsi2m1mkvrwDBMC67irx2NmvDNPrMiuKHOI0oU2GyHzs3wdnznFRljuTL
-	 hWHYcjuKYzD7NhgMEiKuYXBDEvWaaupunp7QNwzAzeg60UzgHgp10grNBgi4oDXjng5wD
-	 ERZz/Pjknty+nOTTWTiq7aSLsV2jehKxydQ01gIwWbMtEDyPCt2AuZia48rmw4gEersue
-	 sg7p4RZHS6Wm0ppL2983vsjbJqsLXCavVP5ntjkSFkrQcXNFlUTc189XaY9Ger2wlG/+i
-	 FAHVr81TWUr60sfJ3W8i5DQpHxzrGYRRCi8FQdMT7ZLMb2xFL6GkNeu6C3fmuWHeuyg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795595929;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Proofpoint-Spam-Info:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-GUID:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=gls3ERr6Kl3ADITH/EmRG5cdeVSYQKTO1P6yUuCMgCY=;
-	b=W0kVjPbwxAM7MHLI6osMyx3cqSC8lbqIuTf6IqN2SnFRl81DefNP68Vv0oCQVj4A48Ox
-	 QOpkyZX8ZK1MyaQX5x71vl+2n3zKa7RgsyCd2D/bDar26sQZTolg+E9cbtdmC1EqlWg40
-	 7p693kamdcfrBUcZx7pf04VTe91mkC7OahAMUIE8ZscNzE21duLIAnXK1pXFb6W5Ptf70
-	 w6s7jjMNe+bOPl6Nf6Z49Kiei2FA+ujeWbyPupXd5qXJ7YxyVw0jFgUiduMOvL9GNlx9v
-	 o9pGTFnUBYsttfrpVOMAkaZA8rHPVGLB3njbtzPrPoj7DAXFeuiFMGb0SeSAUpPOioA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=Gngjxp3P;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=GZKAEUFf;
-	arc=none smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795595948;
+	b=z4EZnbUKf/vfZNQPVEcMMyXZRS1YNEiZYIAP8Ovo5rh9+6h9E5IE2SNblfi/NJm+t6lZ
+	 1lbw0cUEm8gJy7M0qTt/eAtltIhDQMj5ObdKaXKbV0f4VxfJCg3UTfUxcIwStf5zBGW9e
+	 vTGQphqlZfPXmW8GnmnUrqhHdTRgDKmbG+PPhTdQWHOx39iMG+tlXS1H1W+AzipZ9ap4w
+	 lzKc4DqEjRBacnQm7sCSYMbJmxr9MHB+ZyWHWyqFHioq005T0oAc7MyO2SV/YOG50Zz58
+	 zgf1lM2tLUMhMeVW45dCoLlpqql1UW03xGycuZDsVG+9xd5APGHZAsGhuv8rkW+NrJw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795595948;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=qfA2Dw6Bb9D+l4mpSP6ybvAv3Lt3lFerk/3mZjSZ324=;
+	b=o1NAdGL+l/OPME+8OKIdfWncHAoq2IYN+BSJEEjmXT2QBkaSUx/x4sI0Y4m+evHXmtN0
+	 i++Q8lm2Lsnm89gF8zEAJjCtaIJzJeQ7vf3WdNeNMc6pxHabrqoTR4lcbaMxQ2Zsg1Koc
+	 lSoaIX2u7zmNIUmSKAV1UrlpAC4A6OxSA9qPWPgq7hULAMVM/WHCiJDklgKEsNCkSJPxQ
+	 avICRiKrCGM+2fa3iMHSPfdTqivcoXOeKyw/ehZpso0vM9FuLtXc86v8vS442R0e1DAzC
+	 CFwyVsxEv62J+guIr5fIENaeisOtbfb5KR3qGUWxh7e4zdh8Kr6FUAahfkBpT7q9seQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="M8n/ZIWC";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 84018606A31E;
+	Wed, 25 Nov 2026 08:39:08 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=M8n/ZIWC
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795595947;
+	b=qK57074u+UIxZTm5xnKbKUXrD48AM6SY64uUXy4mxozwIFJH/WDh+7493bxVOZiAcw7t
+	 ygI+ewUwEWIGbHK9ZBfDZvUtxtOG0oeth3GC0JSi68Xs0nFE0t3AmckXK30w9b6fr0yB2
+	 H6mc61YifsfnyUrs0Ku81HA+IxY1l4yGm6KOxh1I7I0DHYQ1NSybMqQRwgLBu1vI56qbe
+	 vpSI+DJELVPytjUeN41k5VnkaaGGcjQOKuJ8yK3AejN50Cz3bB1I7e/CkOwYyL88DKw5A
+	 ayzpuk57LkplAM3ib+U1LdN6d09sHI3XPLHXKt08cWWhTb63xzzJL/Dc+eGkuOcBu4w==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795595947;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=qfA2Dw6Bb9D+l4mpSP6ybvAv3Lt3lFerk/3mZjSZ324=;
+	b=nNxqPZobBKWZJgcKgU2vcEfdRsoTfCAblNxM1KTwIF8zXbe8wwbPgGxY/IqcJhalM+TU
+	 PgcCbJi6KmoNGek8v74V6h6kksY6ZlKQCRwVOddJZtRCRw5ujvoNqT0THGxuk/i7PHNed
+	 /YL72ZHFAHxsnMFQ04KqGj1QUCW3hTyM3ZZYtQtoPoAzELcLGG6L5rDUXHT3wn07EnWha
+	 abR08yzHKVj0bsKgbx4V8cYi0isjm0nTyakRAuSLvwE+XSCFvp24AG4UcRWtzdba92ddu
+	 SmdwexRQduYE55rbKn5LaKKF+LYu5yhxUGNNCgbPVGpzCL/XJjLtlxOK2imVogEwB9w==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8C0C3606A681
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:38:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8C0C3606A681
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=Gngjxp3P;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=GZKAEUFf
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AP68UvM3534198
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:38:48 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	gls3ERr6Kl3ADITH/EmRG5cdeVSYQKTO1P6yUuCMgCY=; b=Gngjxp3PJowqgNgu
-	auXqnVG8/uwmMf0U2uo8olYknrgD6XhklCgf1HS6PgYZ5LJ+/n9MGI90saEr+rY0
-	fIBmzqI1Kk+ZXNk5yiuao+DcxJtpnozHE2oSfPRr4zHJIUQ7SMYn6tMePzkhlGah
-	kUe5ObDItTf1HyWdMgg5G64/YHiekwN4Cz1l/I4v+ZjixaouTF6a8WmLaYJKaq49
-	YMA/tJwhNvi2T9TjBFOFPOX2iMRiT+wiOG08MJmWyfVHsEwQc5fSVOX2kzs6LpKr
-	Pe5wTmdXVNMxUU2cDzOBYqgy6ZDP1Hsg1Pt2wsLB2FU0gImyBTFAh8fmSfOMyJr/
-	QFQprQ==
-Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j5mqbhrrw-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:38:47 +0000 (GMT)
-Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-9493e89d4f9so793575285a.2
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 00:38:47 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795595927; x=1796200727; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=gls3ERr6Kl3ADITH/EmRG5cdeVSYQKTO1P6yUuCMgCY=;
-        b=GZKAEUFfjXOwZFZPaETFMGkQ49oQflksnCxiORt1HM3IazPiT84xCRC/z61scIRSzr
-         lM9rnSfzAmhcO7QBtayLTGhc8pghwDAfZwvvcC/UCYeJuz+Z5yGiQRWASV7YiovWyZZZ
-         c5c8tJJmhxuwX+XzIkL938zasbP/9ZFAEPXJkEN8hLllCSXGGSaVlnyZt/woIGShrvLK
-         o5OEXrZfi3TRrmIlTGG6FqyHfi1Nq+xJ9tFS1Yq7C8DDRiUezrEzjsUp590ek6Xa3YyB
-         CS6YvAXrG4joBW1gU0sYVw1HlybPV8hs31RjFzxXzWTlGF4S0D1Xw/+JPyEy0JMZws9I
-         Nm2g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795595927; x=1796200727;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=gls3ERr6Kl3ADITH/EmRG5cdeVSYQKTO1P6yUuCMgCY=;
-        b=2KY60a+HKqCFfg8doT4fVI/5utL1OFMX941nqMSS9PX19KuKswk+MUgfMJIWaf7EHZ
-         /hoAqWAhUPtMUjK1KNvIwq6K2PirJcOSN88uTm+kV1khP0EEJSR+V6DXQ56XyWaQjD1B
-         QsmKs441VqM+lsSXS4acQ77sBtBKKSFfe/GnBGMPiWDpDDbnOtFeRnQj5OvYQsEcCIxB
-         somEkizC1loBLJxLZSVgs+A7kccS9uTELuDnW8hAkAaPbGgwefYCOKjzmiQ001YuxnXk
-         WimUEKlTJ9Q/2fLe30Vr5jp263/mE1SGAtnkB66U3eMeIlMr/P/qf2wQqDg0u3xL5P4Z
-         XJrg==
-X-Forwarded-Encrypted: i=1; AL+hErHI0hd3tGaH/5kKCg+fy4ctBsgH/cj0BKK4jIvspUFVcz7jbnRGlWTpdOJOrUOUItQD/HI3BpODCdLXhqM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z892QwPtvqRKmKnfNBvi8nPjv+qr2uoXMcr61VgoCWvMIWXF/YF
-	wtJGhaaraAoXz7jkHVzwhQIVM/5Hk//LZVk1lmfDJ3cqMD8XWLQHIhfA6rKz30o1ayg64embRK4
-	pW9hS2CfGqPzamN7qxaFPPpBByAuhCq9ks7QowVrc6gi8+quwpEb5UlZEqdu/zPOTFlE=
-X-Gm-Gg: AZFdTZf8WTg+uS23V56MlI9FF5a+tuKojhDkHBdt7wDsi5L2I/ShLDCHWdNhtGBVg4s
-	XI3gFp/4g4CY1UcfFtaS4jKM0Mdh6qv47EINb9zBqAVkVYCKMmO6qdPqHynFSUgF/RRGM2+kteU
-	DIZBp5r44QGZlaof5dqBgSzo+RGLflyT59uGhns4OwMGXDv6cBzFOd9LYpkgS+HCkWpyJxxNxKN
-	aa7m0Hi0GoZKQBEzDEVi0U8lIEsNEvS/9Ff9Ke93yUZv+e/8X1qJKqHNl7FfeIUsRTHfepeJJ3J
-	FCzKgZ2rL3cW/z0BNRivK1BdfK7t/DWE+fWS/CwxbiOzocGaLvOmNGYP7DJ+otJQO0rC8y7+Nu3
-	e+Om//hq0U3B3ZjKg5BYV11m5gF2H8RXEO4/dvR+uses3zg5mkbub5vT1Zo0PCyXcoSaody1qaI
-	AZlTqfjhdDqfnTRy0oBKmCEw292YoKlFYt4ak95k9s74MGCZMGTQA7wNDMS/HrZQ2sRAQOs9img
-	q/bwciBk1icRlPWtEhgDf0D/BJ6
-X-Received: by 2002:a05:620a:29ce:b0:949:8bd1:15d with SMTP id af79cd13be357-949ba9b3e0bmr3209292685a.26.1795595926663;
-        Wed, 25 Nov 2026 00:38:46 -0800 (PST)
-X-Received: by 2002:a05:620a:29ce:b0:949:8bd1:15d with SMTP id af79cd13be357-949ba9b3e0bmr3209289985a.26.1795595926240;
-        Wed, 25 Nov 2026 00:38:46 -0800 (PST)
-Received: from QCOM-eG0v1AUPpu.na.qualcomm.com ([2a01:e0a:830:450:6c6b:1e5a:79dd:a527])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ad6403fdbbsm24626021f8f.15.2026.11.25.00.38.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 00:38:45 -0800 (PST)
-From: Loic Poulain <loic.poulain@oss.qualcomm.com>
-Date: Wed, 25 Nov 2026 09:38:41 +0100
-Subject: [PATCH v2 2/2] media: qcom: camss: vfe-340: Skip the register
- update when queuing a buffer
+	by smtp.kernel.org (Postfix) with ESMTPS id AAA231F000D2;
+	Wed, 25 Nov 2026 08:39:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795595947;
+	bh=qfA2Dw6Bb9D+l4mpSP6ybvAv3Lt3lFerk/3mZjSZ324=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=M8n/ZIWCsbtazfxz2HMu/SHEGW53wqsUKdTJNRB43AJ9GbOCXaTMEgbhpQgo8ZanP
+	 MJJwkoCK8rSTofjVaRpUSuwF03C3NRTzmGA/Y7cIA7T7wkot0gvkbsaWZ2wfQk5aWd
+	 pNje7Od/ZKWae1MiH5HWj98a9wHeHFaTtbMcoBybmOQyE3BXfdsjYcz9j/6yhnrMj6
+	 bfxqARmc8m6KtJkJ3uMa9JgCcBYErtcnDg8NcsxlflZoi4BPoZ3velJTrk7p8wpHgt
+	 l9oAA9UR1axZKpgLPGl7unYs1DCCkY56/59tvMcJ91J8T0embSOI9R9hks3xbyRCtP
+	 h9D8xh+1cM+jg==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 276DF4CD45;
+	Wed, 25 Nov 2026 08:39:00 +0000 (UTC)
+From: the-catman via B4 Relay <devnull+thecatman12.proton.me@kernel.org>
+Date: Wed, 25 Nov 2026 10:39:00 +0200
+Subject: [PATCH] platform/x86: hp-wmi: Add support for HP OMEN 16-ae0xxx
+ (8CC0)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -119,87 +84,83 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261125-master-v1-1-e1d881b3b9d6@proton.me>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQ6DIBCF4auYWZcE0EHwKsbFOI4tC7UF2zQx3
+ r2kLr+Xl/+ALClKhq46IMkn5ritBeZWAT9ovYuKUzFYbZ0xFtVCeZek2nacfe1YkBjK+Zlkjt9
+ /qB8uJ3m9S2+/Rhgpi+JtWeLeVc6wnogD2jHU2nvfhNpNGpkltOiQkH2guYHhPH9WGe7dpAAAA
+ A==
+X-Change-ID: 20261125-master-77bf836ce5ac
+To: Hans de Goede <hansg@kernel.org>, 
+ =?utf-8?q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
+Cc: platform-driver-x86@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ the-catman <thecatman12@proton.me>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795595939; l=2098;
+ i=thecatman12@proton.me; s=20261125; h=from:subject:message-id;
+ bh=M0yFpvmo2x5mUnBrp9FOVjlBIXzYzVqyJCYqNxofh8c=;
+ b=65A/lvkz+js5Gg3beosykTNyR3Ezg/8o30lRw64I7BgvJAbFbG0IRJBylL04uuRt0TOhQK1s0
+ TqV2K+kTh2tC/7Wgmsc80rd1llV/Sz51l6eHwfDEGVcOGONyhFsgy6d
+X-Developer-Key: i=thecatman12@proton.me; a=ed25519;
+ pk=JZyk9fkPTWRMiA5uAyXbspvMRf6+lV/HhmhAgXXUfNs=
+X-Endpoint-Received: by B4 Relay for thecatman12@proton.me/20261125 with
+ auth_id=1635
+X-Original-From: the-catman <thecatman12@proton.me>
+Reply-To: thecatman12@proton.me
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261125-tfe-fix-irq-v2-2-29dfa0955927@oss.qualcomm.com>
-References: <20261125-tfe-fix-irq-v2-0-29dfa0955927@oss.qualcomm.com>
-In-Reply-To: <20261125-tfe-fix-irq-v2-0-29dfa0955927@oss.qualcomm.com>
-To: Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
-        Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
-        Loic Poulain <loic.poulain@oss.qualcomm.com>,
-        Mauro Carvalho Chehab <mchehab@kernel.org>
-Cc: linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        linux-kernel@vger.kernel.org
-X-Mailer: b4 0.14.2
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI1MDAzNCBTYWx0ZWRfX9A9o2kWSoIZW
- o7OPErHLCVzBwcUy32g+IoqxyjjKb4GIbNG7N1NlM/hTyPhrrNRXG/gMt3bbHgI8ctjzIWL5ddF
- qHtKeiEm3TrpBlzkP+rh/lv9IAeQWQ0=
-X-Authority-Analysis: v=2.4 cv=Bb9NQbt2 c=1 sm=1 tr=0 ts=6b069e97 cx=c_pps
- a=HLyN3IcIa5EE8TELMZ618Q==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
- a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22 a=KKAkSRfTAAAA:8
- a=EUspDBNiAAAA:8 a=6k50daf3fveMbYCwvhsA:9 a=QEXdDO2ut3YA:10
- a=bTQJ7kPSJx9SKPbeHEYW:22 a=cvBusfyB2V15izCimMoJ:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI1MDAzNCBTYWx0ZWRfXzih6serx0Llk
- 24TgLbq89rEduTlXEdtJZXNn3SinxzkiZbtREK3KFHG2uCc+kqZCcbkqi/YBamcHeLkHCJ8SfWA
- o3+ivvg/sEhpsIDhmMX7ztzbF57Z9IjnaxL0fyMKuBs6a7mGBxemQTR+pyBn0L1xwByof4HRK5M
- 7rR5igwn1Y9j6JznL4EGUpiNe2Q4goBrMOiBO860N26ul/xu4kQGfK80xwS0Uzr8/5+w/a59K0e
- HtqMV4r87F2KYcd2JUcyHFzh2unViplK8ffeFu9PfJCdy9l66PV7+jlLiCu5cBlXxSHAUFhIzPP
- axEK1/FaaDF+omxhG32wfJ+MWkHJv6oh4esnXrTrdfjCxcGJTMOo2BXImCy3ijgyUmGDMYH/79a
- 0Kmb1WOPormPas+Ol/ZCkF3gG75x3iXk05qX1a9REMGabFc10Xw73k1SfXRs9syQ9pBqT3tKULq
- iJvzYas9XR0xFV2vNtg==
-X-Proofpoint-ORIG-GUID: hRCln8eHWbeCu8cgH0DuJeXFylNipxCL
-X-Proofpoint-GUID: hRCln8eHWbeCu8cgH0DuJeXFylNipxCL
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-25_02,2026-11-23_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 adultscore=0 clxscore=1015 priorityscore=1501 impostorscore=0
- malwarescore=0 lowpriorityscore=0 bulkscore=0 phishscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611250034
 
-The TFE bus image address register is a FIFO, not a shadow register, an
-address pushed by vfe_wm_update() is picked up by the hardware on its
-own, with no register update needed to latch it.
+From: the-catman <thecatman12@proton.me>
 
-The register update issued for every queued buffer therefore costs an
-extra RUP_DONE interrupt on top of the BUF_DONE one, for no effect.
+The HP OMEN 16-ae0xxx (board ID 8CC0) has the same WMI interface as
+other Victus S boards, but requires quirks for correctly switching
+thermal profile (similar to HP Omen 16-wf1xxx, board ID 8C78).
 
-Implement addr_update() as a no-op so that vfe_buf_addr_latch() stops
-falling back to reg_update() for this generation. The register update
-done at stream-on is unaffected, and streaming now takes a single
-interrupt per frame.
+Without an entry, the driver falls back to the generic HP thermal
+profile path, whose query fails on this board
+("hp_wmi: query 0x4c returned error 0x6"), so no platform profile is
+registered and the EC can't be switched out of its default mode from
+Linux.
 
-Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
-Signed-off-by: Loic Poulain <loic.poulain@oss.qualcomm.com>
+Add the DMI board name to the hp_wmi_feature_boards[] table and map it
+to omen_v1_board_params.
+
+Tested on an HP OMEN 16-ae0xxx (i7-14700HX, RTX 4070 Laptop GPU,
+BIOS F.14): the platform profile registers with low-power, balanced
+and performance, the profile read back from the EC matches the
+selected one, fan RPMs are readable, and switching profiles changes
+the CPU power limits programmed by the firmware (MSR PL1/PL2 of
+55/130 W in low-power and balanced, 130/130 W in performance).
+
+Signed-off-by: the-catman <thecatman12@proton.me>
 ---
- drivers/media/platform/qcom/camss/camss-vfe-340.c | 11 +++++++++++
- 1 file changed, 11 insertions(+)
+Tested on Ubuntu's 7.0.0-44 kernel with the equivalent pre-rework entry
+(victus_s_thermal_profile_boards[] -> omen_v1_thermal_params), which
+matches what omen_v1_board_params selects in for-next.
+---
+ drivers/platform/x86/hp/hp-wmi.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-diff --git a/drivers/media/platform/qcom/camss/camss-vfe-340.c b/drivers/media/platform/qcom/camss/camss-vfe-340.c
-index 2526d568686db06a233f0aabe4bc176e4c440ea5..560acec0e0297a4bbe862fc71411b792841a7623 100644
---- a/drivers/media/platform/qcom/camss/camss-vfe-340.c
-+++ b/drivers/media/platform/qcom/camss/camss-vfe-340.c
-@@ -365,7 +365,18 @@ static void vfe_reg_update_clear(struct vfe_device *vfe, enum vfe_line_id line_i
- 	vfe->reg_update &= ~BIT(__line_to_iface(line_id));
- }
- 
-+static void vfe_addr_update(struct vfe_device *vfe, enum vfe_line_id line_id)
-+{
-+	/*
-+	 * The TFE bus image address is a FIFO and not a shadow register, so an
-+	 * address pushed by vfe_wm_update() is consumed by the hardware on its
-+	 * own. Latching it with a register update would only cost an extra
-+	 * RUP_DONE interrupt per buffer.
-+	 */
-+}
-+
- const struct vfe_hw_ops vfe_ops_340 = {
-+	.addr_update = vfe_addr_update,
- 	.global_reset = vfe_global_reset,
- 	.hw_version = vfe_hw_version,
- 	.isr = vfe_isr,
+diff --git a/drivers/platform/x86/hp/hp-wmi.c b/drivers/platform/x86/hp/hp-wmi.c
+index 16cfac5..376e8a1 100644
+--- a/drivers/platform/x86/hp/hp-wmi.c
++++ b/drivers/platform/x86/hp/hp-wmi.c
+@@ -325,6 +325,10 @@ static const struct dmi_system_id hp_wmi_feature_boards[] __initconst = {
+ 		.matches = { DMI_MATCH(DMI_BOARD_NAME, "8C9C") },
+ 		.driver_data = (void *)&victus_s_board_params,
+ 	},
++	{
++		.matches = { DMI_MATCH(DMI_BOARD_NAME, "8CC0") },
++		.driver_data = (void *)&omen_v1_board_params,
++	},
+ 	{
+ 		.matches = { DMI_MATCH(DMI_BOARD_NAME, "8D26") },
+ 		.driver_data = (void *)&omen_v1_legacy_board_params,
 
+---
+base-commit: 61c0dac952b9308884936d05cce97565a5c89af4
+change-id: 20261125-master-77bf836ce5ac
+
+Best regards,
 -- 
-2.34.1
+the-catman <thecatman12@proton.me>
+
 
