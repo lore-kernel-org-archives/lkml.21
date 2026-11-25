@@ -1,87 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=139.219.17.114
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795595878;
-	b=amFbwi+7PfD8vJdAKIpDLCdAUL7MO/mLeh7SxTXs6yzsIAEAV8f2pqInSh1LwULckzCK
-	 lPXtRJ2Bs2ASVfyVNw0KM1ioff2ByPLKF+4t11mekg76splAj3sLoon//xqHxMuoKEjJb
-	 uBEaxZRjBQTSotN87xXSIfJQq9E57BVqpbzYlzMhZTcPK3jN5+mefJYEmQhWNkglUXn7Y
-	 fbpN4NeTPD8QR6YYJD7nY2/rP2KIDYDCi9Ckd7yodAtatYvJhytC+IMizFhteaqAVqapb
-	 52ayisCt/JLgPjx9Zdj8wcrNEKiK79VlAefi4Futy8I4B4R6ZK2KGwmA2LkJCFTvxMw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795595878;
-	h=DMARC-Filter:Received:Received:From:To:Cc:Subject:Date:Message-Id:
-	 X-Mailer:In-Reply-To:References:Content-Type:X-ClientProxiedBy:
-	 MIME-Version:X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=TgyK8/WwaIV8dbDDtUy6IboYpvr6MrS3dspzunLfEDE=;
-	b=Rh4/vlYP5TqfePc7hCtnS8sZMhLKgMhBffA7pnpOPoctxx4JGSbK4JeKK+oIWh+Ka3J2
-	 1SxMjdkjDKll8/VViThMSvtYyonAJw/XZJXkng6C3o3yyBw8M8LPzz4VR9rGv4KNfOpJx
-	 s0A9oR6Fuu8lorR3ffsOjU0Dz9nYvGPPepLXXfM8wUNw8Q4haSRAnJrOGlhqLVz8xMPFH
-	 TMBkagh8m8YJaXPBt2a7RVHhxfkLo3kL4Lm/FQZUBPAdu9hWWjqaLHHIii3UgHMqMrqXw
-	 fg4ATxUl/bCJxTqsyFRzPnb3HPma2eeKiO7MeKLvUPYLn02Gr3KOqx1q1uAPX2ySo/A==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=starfivetech.com;
-	spf=pass smtp.mailfrom=starfivetech.com;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=139.219.17.114
-Received: from CHN02-BJS-obe.outbound.protection.partner.outlook.cn (mail-bjschn02on2114.outbound.protection.partner.outlook.cn [139.219.17.114])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=79.135.106.31
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795595925;
+	b=2JQBbptEvw/zNJ1ZRZFwOSJQmxSX6dnhPOnxcz4pWKn9Jn5K85LJmKpT9uUsM08gh8q6
+	 g90Jz96z3gMLaFh2hqNHqR4gRDmDACmEXMIDrEt+CDAD7YRXydB+7BnDYg+Sl6/TaLi6Q
+	 kuCDzOqHKLnedQK48j9fp2zbx68L5BsgQO9Tul+OuErrJP+SztV33f8j6u7bfSAKz3RUQ
+	 6+E8bLV3p/PpH7Lmmea3Brk04DaER2mvM6blvSRHV8yrM43/8shiLDYbfqsy821QeBoyz
+	 OLpQyEmuXM/NrT7cAYj4s7RyOgHkreCyU4HkEwUScUZGEVL7kYFVeJvuoX9LLzct21A==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795595925;
+	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
+	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=4YzY4WJKyDUbWHVlGl0s8qGvd0UyDejmOQrF5G0LCls=;
+	b=zFvznhcYLLqoA7zuv4+cP64PrnMN7AZnXW5445gAVwKeFklm6LyK30WwCqL7ogF761jx
+	 8uk9ptwoztH+D7vfH3SGxmlZ5oOzIm+sQ4Ka2BGG6QW9VBkCQfv9AJUeeqEbPZOk/fLH2
+	 7qNAxhQYhnxfeTnMSgyI/GmBcIqK9AqPi0vEDg9HkewsGSbqmT99gQ1J8VIP5L0tFgXoB
+	 M4SmG2Bj5sXVeW7q+LNzbtlbsIZ+aPToOKUelHXTlOTM5cTiNGMyNNdxsengXIAq8HlY1
+	 WFwJt2vmAFVOaqTGlOSLhauUjexEIVBHsKIubvJOW1jx8x3C/Efc3IHA3I6GxyiQQZQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=protonmail.com;
+	spf=pass smtp.mailfrom=protonmail.com;
+	dkim=pass header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=HdnA5d57;
+	arc=none smtp.remote-ip=79.135.106.31
+Received: from mail-10631.protonmail.ch (mail-10631.protonmail.ch [79.135.106.31])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2BDC7606A33D;
-	Wed, 25 Nov 2026 08:37:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2BDC7606A33D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=starfivetech.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=starfivetech.com
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=hv/yNL17lbVfrBdBNCS3qGKbKjiOHr6LuLJG6tqOAlEHhLXV5IeBHfQbtjbVqouLQxKEErIKJmQXC7rn1tuBOmiEH06S+m3uNDTFma4Ob6o08WyZsIMwL1XlYULtHjQnSkHC6EDgjmI6dx8KstBhjLAKnRKGMZmVwAAAPgv6mFY2gtOLiiYjWIYUllLJxbY6bGQKuq+WGZ4i2HifbTc0zsUajnaaTCrK4fzmD6bsyIqsAkxXisdd5ylqWG+Jw8PW6ZDgWW/GbNYZXRnDkG4J2//rz2aBN7mjtOpB2rPt/UfliY4uPwxg0nOJUdn4P/rvsMq/t8lU1Dy3taUJAkFJqA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=TgyK8/WwaIV8dbDDtUy6IboYpvr6MrS3dspzunLfEDE=;
- b=d73IjYWitOK9gf5lDXTbK8tnHX4I9skO/TWzGVQQNO0bOPgcg41EoE3ylbLuVTzJYlLtqv1RXafc5YV9LSDcrTIcmWb/CpadxZ0WSqcBI08cJ1XDWKvQ8jWZPjKA3fxPkclJjGocrDlSM87SGE+P9oTO5yNDeLfaWAks2eR8/UPoLNPRKbRMAfEdpvgFqdFFuZsnVdt2ZlZdm56HZ3Yhf9D4ud4OfR5r9kHJ/FY4jHz7dsbdO/W3rIvpaoVhleh2Dvcoxa3zjEfBVumuSYgsnkTKnDuOFA0hoNiy7+/QMTBVd9n8Yy6l/SkQag6Xgj6Ixdt1G+svoLbeNtNDhzPmwA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=starfivetech.com; dmarc=pass action=none
- header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=starfivetech.com;
-Received: from ZQ0PR01MB1111.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:e::7) by ZQ0PR01MB1048.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:d::14) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.15; Wed, 25 Nov
- 2026 08:37:47 +0000
-Received: from ZQ0PR01MB1111.CHNPR01.prod.partner.outlook.cn
- ([fe80::d777:e23a:d111:5fa1]) by
- ZQ0PR01MB1111.CHNPR01.prod.partner.outlook.cn ([fe80::d777:e23a:d111:5fa1%4])
- with mapi id 15.21.0639.012; Wed, 25 Nov 2026 08:37:47 +0000
-From: Minda Chen <minda.chen@starfivetech.com>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor@kernel.org>,
-	linux-usb@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	Minda Chen <minda.chen@starfivetech.com>
-Subject: [PATCH v3 3/3] usb: dwc3: starfive: Add JHB100 USB device adapter port enable quirk
-Date: Wed, 25 Nov 2026 16:37:36 +0800
-Message-Id: <20261125083736.50606-4-minda.chen@starfivetech.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20261125083736.50606-1-minda.chen@starfivetech.com>
-References: <20261125083736.50606-1-minda.chen@starfivetech.com>
-Content-Type: text/plain
-X-ClientProxiedBy: ZQ0PR01CA0001.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:5::14) To ZQ0PR01MB1111.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:e::7)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 44EC7606A323
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:38:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 44EC7606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=protonmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=protonmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=HdnA5d57
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
+	s=protonmail3; t=1795595922; x=1795855122;
+	bh=4YzY4WJKyDUbWHVlGl0s8qGvd0UyDejmOQrF5G0LCls=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=HdnA5d576cKuFuxHoiZ4Hu7obya801qlk6sLJXM01eKQLgQOHbkFthulLKoKtONif
+	 h/HGHOfe+j1HTSjWhXkKAnJ+JP+fdDm4dQGLRV5N6GcRbUF0sod8hl6Pmj+jdAIjju
+	 74+14l1hl1dYw04tSZUfs0n6WId4JmAoGNNCtVdkMd5IIj5A8jqePN1dhmPmaw2lF7
+	 yOiyqkZHO4c0LFUH7SAVHn0txg/uwVdnV5YfKLE7z4VBNp++seW9N5tGoW3/Lxn73t
+	 Isw3hdOGJgo07yMcWZHa/fQDtf25ThJPta9wmCoSjsilHW7Pgc8suqHuG+ytKOqzic
+	 3D55QOpJDolqw==
+Date: Wed, 25 Nov 2026 08:38:37 +0000
+To: Echo Zhang <echo.zhang@mediatek.com>
+From: Roman Vivchar <rva333@protonmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, Jerome Brunet <jbrunet+clk@baylibre.com>, Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, MMDVFS Team <linux-mediatek@lists.infradead.org>, kyrie.wu@mediatek.com, ming-fan.chen@mediatek.com, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, llvm@lists.linux.dev
+Subject: Re: [PATCH 4/7] soc: mediatek: mmdvfs: add VCP backend
+Message-ID: <qeucziSyhF2pTX6WmMWtCC6hbkD8BswMX4f-7Z5uWErS2OSaeHCBs9zq4xay6j24-RAdQuYERZCgItKMSJLwmbFxY_LslGm3K3mvjdqiKRI=@protonmail.com>
+In-Reply-To: <20261125060037.649659-5-echo.zhang@mediatek.com>
+References: <20261125060037.649659-1-echo.zhang@mediatek.com> <20261125060037.649659-5-echo.zhang@mediatek.com>
+Feedback-ID: 173184497:user:proton
+X-Pm-Message-ID: 96f5a9583a374cf2313c4937580c2b1a80dc05fa
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -91,160 +64,153 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: ZQ0PR01MB1111:EE_|ZQ0PR01MB1048:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1bd3b6ec-bc1d-4a21-b78f-08df4acf61d0
-X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|376014|52116014|1800799024|23010399003|366016|38350700014|10067099003|56012099006|261022075727099003|261021123027099003|261021121427099003|261022105027099003|261009223027099003|261102130727099003|261102123227099003|261028144727099003|261026140227099003|261026121527099003|22082099003|18002099003|6133799003|3023799007;
-X-Microsoft-Antispam-Message-Info:
-	+rV+exvGAIIIl1S4XwhsfrTxzE3zrasASbR/Fu7FqE02uyGyvcQY876h69emV0KyaTXk8rWZ5HN23sOosdc3/c6VzxdPFG+7PG2J0GYFN3DX25mhqNoFgpxfLW2GT8nN3qlmuuKl3txe7yxAPhrCMmA+bCpO2KGP9atEB8a9Z2TNTx/YNE39LFbsh8jXPzfXODi3OqQPsYUkke0RnvdPbid+xcJlSo+zRgDOxGnfwn+bDNsN06ozRZkNt0TIMl4ph0J4Aimekt/CCIGWhI40oKK3XDeOdbxc7hZyTdpK37In5tPE3lersOW/IevZQp6O0X7D6AmiTGjRfxpxZZVomUm8UdPUVTGM3VzN52JCAACgUQO1svfaZcCKfzfhx+JWTKwwICV049pRC70S6gyuekAuwKNkjijw2pbputo3/Fr3yc5z8hWg0Ii5qbGvC1tARIgbMzSybyScnJLUVJk+JmE6TTHRnaIkhhJCk+nKKEpNToNbKjOmOAEYOwmrBcm6iAloiTQUdDiRMFAD3N3SdR1h9pG7ttJzFbL4VaW2B23liY0TtfiZ9HxPmh64EgrN
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ0PR01MB1111.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(1800799024)(23010399003)(366016)(38350700014)(10067099003)(56012099006)(261022075727099003)(261021123027099003)(261021121427099003)(261022105027099003)(261009223027099003)(261102130727099003)(261102123227099003)(261028144727099003)(261026140227099003)(261026121527099003)(22082099003)(18002099003)(6133799003)(3023799007);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?NELQgr5hgW1PS0lz369QdyArcf5GGkNp5dY2LXLt4x+3IpQ6+9mMvsuhPPD6?=
- =?us-ascii?Q?9gsnR4SIsW30XHaYzozT8X2sIWmCrQ9oI0l9hAymbLu7SIyvo28DLJ0o1gzu?=
- =?us-ascii?Q?tejBWXeMq3p1G2f8YUiFwxBlW0LtPBBHYaw/Yyq/Gtir/jcQos1AqiMDpAb8?=
- =?us-ascii?Q?YZFFzJOq7+9PJUX/WUwCGts1Fjqb3lHDNGlOt+RJLmKb3amJSqNRUTJB+Q9J?=
- =?us-ascii?Q?wX0hEsDOUQ6uDKO+T/4mG1YTmNN0m+/h4h9NVGEFsxuMjH/pSpuXJXWbXu7m?=
- =?us-ascii?Q?ncMHwpqTxlKbkZaBEAUVZS9wIBiYMuUF0MC00yfEP0+HtVAncyVo2KVvsJ0h?=
- =?us-ascii?Q?3YRZiKXD1BfzNR1zDGjSAb3gvjbb4rYYu23e6W4NlfQkdybMK90qWjv/6fHw?=
- =?us-ascii?Q?62EvSkSNZwXJjmkEdCefZuR8rga4Gtj0FwByrLygK2RMcOhjD1YjsnQO7b3c?=
- =?us-ascii?Q?PdWR9diILBOMRPT8qm8T6SLM40g9m7tOaMK7pZRd+edNfCh+0PmG7jCwfP3f?=
- =?us-ascii?Q?wZAyrH9qWhKsHTl8dMOcbIoFtKuNs52+ySpWBwaFNkGykYJ86G4PrP0faaQI?=
- =?us-ascii?Q?UIp0bM61KQcqqhVG0QHG3dJMp/TFNwVtQDeavPPvvei3VBEbIqwLYjJdnDgt?=
- =?us-ascii?Q?k7eo1ALb1MEbwTzkWpqB1XOGA0nAew4zNBMOd4nc0gpNNd91gpydLN6esdgw?=
- =?us-ascii?Q?ITg81+dh4XY4YWxZatB5Yu6WqpfNdK/sMYv8OolHqbJvF5JAUjqMLKOwSDYb?=
- =?us-ascii?Q?02azzuhaQ3pJEILN41Sustk6XspiNOFFg0sABkjG0c0ysLgwyB18cBUYpYVn?=
- =?us-ascii?Q?i7Aw657NA/jUuLe97POuYqNU3rjgoHWlnD4TVsKTLgAd4XwqwwtIL0SAC1uj?=
- =?us-ascii?Q?oiuzghvC/gFAJrcZsjfieWA3TDCfAQhqPVD1Ja49tmAVXzBap8uFt2/AT+3+?=
- =?us-ascii?Q?nmOmhAJjth421O4AD9Z5MGTgy2/mFrsBblYhMXtvWqZ70lJjA1mcnT1YywiR?=
- =?us-ascii?Q?ylPnb69DupCv9RbNfFhkx+1+tW7/HqnDN7Zsnz8vadB7evoJlpTMImZbNhMS?=
- =?us-ascii?Q?U/7Q9bVQf/0F4dFLzD6+Sp9HGPBRAf6RLBg6AjSt9LC+t5uUN6wRhqzO9NRO?=
- =?us-ascii?Q?G2nydluyb6eCTdqYUJPOJPPCUUoKu2vC5XWfP7McaslEkTony0taWHbaTgl/?=
- =?us-ascii?Q?lzLJUWP9hSJa5f5lJ77eSdMJOTMDzm5gXe2aRTrSXmmESUK33Uh1kxvFqwEu?=
- =?us-ascii?Q?dVsfJq3ZBtroaEqIC0f24s6fYG+4s/tu79EO7G0Bou/172k551q3HCcY0/jn?=
- =?us-ascii?Q?WfeOigakSHjqoqASurxL3KLzBFw3zS/LTA7UAeJIeB43U81sBPWDkDm0ai1f?=
- =?us-ascii?Q?7qg9Oh3H6gD3J3diRIJTOG61aXcuJZHbp8hcT8HJVU/V5H7qK+EM4Z8+lCxu?=
- =?us-ascii?Q?uP77nSKuwzFqWn2YtlDwGlIc5TV5YqDFpcMbqceTCFZ7++xQ2HKju01LVHk2?=
- =?us-ascii?Q?x0qrMtkQ2KdScC9loeeC1S188JmRuxSYGmV5b5PVkFzll8jrWP5OC3qEOzrA?=
- =?us-ascii?Q?441hkQzgOozrDSUMPaWZZ5Py2Gw/1ppHegUa1/uDf3sw9FbrK0wivjV0paTu?=
- =?us-ascii?Q?qxntP04tSJZTx2OuD/L1ap5MAsga2cbnpwZ8hWhN7qGPNU14QTPaQB1T0UdV?=
- =?us-ascii?Q?7oVxM7UV2r5mmN+NgW45AIAnitlEHMLEgjRR4GR+LMfROw4/+xuMEPVnzS/X?=
- =?us-ascii?Q?/BixondawVqT8oc5A+NhKG3y3Qi5+QM=3D?=
-X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1bd3b6ec-bc1d-4a21-b78f-08df4acf61d0
-X-MS-Exchange-CrossTenant-AuthSource: ZQ0PR01MB1111.CHNPR01.prod.partner.outlook.cn
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 08:37:47.0882
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: pygoILM+CG1U/2yY0Z1KvR2IQ7O+bPdfolvkFuWDUffXodhpqPCaoPMbUcOdyN8UbsNxjMIe0M/RZWgbPqpa1WCp6wXpT43MtbFKlmRxUMs=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ0PR01MB1048
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-On the JHB100 BMC SoC, each DWC3 device controller is connected to a
-port of the xHCI controller that is exported to the server host over
-PCIe, through a PHY adapter. Setting the adapter USB 2.0 port enable
-bit asserts the connect status in the xHCI PORTSC register, so it must
-only be set once the gadget is ready to be enumerated, otherwise the
-host fails to enumerate the device.
+On Wednesday, November 25th, 2026 at 8:01 AM, Echo Zhang <echo.zhang@mediat=
+ek.com> wrote:
 
-Map the optional "adapter" register region from the JHB100 init
-callback, and set or clear the port enable bit from the pre_run_stop
-glue callback.
+> Add the VCP transport used by MMDVFS to map AP and firmware shared
+> memory, manage feature power references and send IPI commands.
+>=20
+> Wait for VCP readiness and handle the selected MMUP or VCP READY
+> notification to initialize firmware after boot and resume. Serialize
+> IPI transactions while shared memory and acknowledgment state are in
+> use.
+>=20
+> Signed-off-by: Echo Zhang <echo.zhang@mediatek.com>
+> ---
 
-Signed-off-by: Minda Chen <minda.chen@starfivetech.com>
----
- drivers/usb/dwc3/dwc3-generic-plat.c | 48 +++++++++++++++++++++++++++-
- 1 file changed, 47 insertions(+), 1 deletion(-)
+...
 
-diff --git a/drivers/usb/dwc3/dwc3-generic-plat.c b/drivers/usb/dwc3/dwc3-generic-plat.c
-index ca69ac0eb07c..ebcd43442fc4 100644
---- a/drivers/usb/dwc3/dwc3-generic-plat.c
-+++ b/drivers/usb/dwc3/dwc3-generic-plat.c
-@@ -22,12 +22,15 @@
- #define EIC7700_HSP_AXI_LP_XM_CSYSREQ	BIT(0)
- #define EIC7700_HSP_AXI_LP_XS_CSYSREQ	BIT(16)
- 
-+#define STARFIVE_JHB100_ADAPTER_PORT_EN		BIT(20)
-+
- struct dwc3_generic {
- 	struct device		*dev;
- 	struct dwc3		dwc;
- 	struct clk_bulk_data	*clks;
- 	int			num_clocks;
- 	struct reset_control	*resets;
-+	void __iomem		*regs;
- };
- 
- struct dwc3_generic_config {
-@@ -42,6 +45,44 @@ static void dwc3_generic_reset_control_assert(void *data)
- 	reset_control_assert(data);
- }
- 
-+static void dwc3_starfive_jhb100_pre_run_stop(struct dwc3 *dwc3, bool start)
-+{
-+	struct dwc3_generic *data = to_dwc3_generic(dwc3);
-+	u32	val;
-+
-+	val = readl(data->regs);
-+
-+	if (start)
-+		val |= STARFIVE_JHB100_ADAPTER_PORT_EN;
-+	else
-+		val &= ~STARFIVE_JHB100_ADAPTER_PORT_EN;
-+
-+	writel(val, data->regs);
-+}
-+
-+static const struct dwc3_glue_ops starfive_jhb100_glue_ops = {
-+	.pre_run_stop = dwc3_starfive_jhb100_pre_run_stop,
-+};
-+
-+static int starfive_dwc3_jhb100_init(struct dwc3_generic *dwc3g)
-+{
-+	struct platform_device *pdev = to_platform_device(dwc3g->dev);
-+	struct resource *res;
-+
-+	res = platform_get_resource_byname(pdev, IORESOURCE_MEM, "adapter");
-+	if (res) {
-+		/* usb device controller with adapter */
-+		dwc3g->regs = devm_ioremap_resource(&pdev->dev, res);
-+		if (IS_ERR(dwc3g->regs))
-+			return dev_err_probe(&pdev->dev, PTR_ERR(dwc3g->regs),
-+					     "failed to get adapter regs\n");
-+
-+		dwc3g->dwc.glue_ops = &starfive_jhb100_glue_ops;
-+	}
-+
-+	return 0;
-+}
-+
- static int dwc3_eic7700_init(struct dwc3_generic *dwc3g)
- {
- 	struct device *dev = dwc3g->dev;
-@@ -231,12 +272,17 @@ static const struct dwc3_generic_config eic7700_dwc3 =  {
- 	.properties = DWC3_DEFAULT_PROPERTIES,
- };
- 
-+static const struct dwc3_generic_config starfive_jhb100_dwc3 =  {
-+	.init = starfive_dwc3_jhb100_init,
-+	.properties = DWC3_DEFAULT_PROPERTIES,
-+};
-+
- static const struct of_device_id dwc3_generic_of_match[] = {
- 	{ .compatible = "spacemit,k1-dwc3", &spacemit_k1_dwc3},
- 	{ .compatible = "spacemit,k3-dwc3", },
- 	{ .compatible = "fsl,ls1028a-dwc3", &fsl_ls1028_dwc3},
- 	{ .compatible = "eswin,eic7700-dwc3", &eic7700_dwc3},
--	{ .compatible = "starfive,jhb100-dwc3", },
-+	{ .compatible = "starfive,jhb100-dwc3", &starfive_jhb100_dwc3},
- 	{ /* sentinel */ }
- };
- MODULE_DEVICE_TABLE(of, dwc3_generic_of_match);
--- 
-2.17.1
+> diff --git a/drivers/soc/mediatek/mmdvfs/mmdvfs-core.c b/drivers/soc/medi=
+atek/mmdvfs/mmdvfs-core.c
+> index c32fa11557af..3388a5a3a145 100644
+> --- a/drivers/soc/mediatek/mmdvfs/mmdvfs-core.c
+> +++ b/drivers/soc/mediatek/mmdvfs/mmdvfs-core.c
+> @@ -7,22 +7,23 @@
+>=20
+>  #include <linux/atomic.h>
+>  #include <linux/clk-provider.h>
+> +#include <linux/delay.h>
+>  #include <linux/device.h>
+>  #include <linux/err.h>
+>  #include <linux/io.h>
+> +#include <linux/kthread.h>
+>  #include <linux/module.h>
+>  #include <linux/mutex.h>
+> -#include <linux/notifier.h>
+>  #include <linux/of.h>
+>  #include <linux/of_address.h>
+>  #include <linux/platform_device.h>
+> +#include <linux/remoteproc/mtk_vcp_public.h>
+>  #include <linux/sched/clock.h>
+>  #include <linux/slab.h>
+>  #include <linux/string.h>
+> -#include <linux/suspend.h>
+> -#include <linux/workqueue.h>
+>=20
+>  #include "mmdvfs-internal.h"
+> +#include "mmdvfs-up-priv.h"
+>=20
+>  static int mmdvfs_register_device(struct mmdvfs_device *mmdvfs);
+>  static void mmdvfs_unregister_device(struct mmdvfs_device *mmdvfs);
+> @@ -34,14 +35,13 @@ struct mmdvfs_device *mmdvfs_find_device_any(void)
+>  {
+>  =09return mmdvfs_find_device_by_version(MMDVFS_VERSION_HWCCF_DVFS_VOTER)=
+;
+>  }
+> -EXPORT_SYMBOL_GPL(mmdvfs_find_device_any);
+>=20
+>  /**
+>   * mmdvfs_get_version - Get MMDVFS voting mechanism type
+>   *
+>   * Return:
+>   *   0 - No hardware voter
+> - *   1 - HWCCF DVFS voter
+> + *   1 - HWCCF DVFS voter (VCP IPI with MMUP SRAM)
+>   */
+>  u32 mmdvfs_get_version(void)
+>  {
+> @@ -96,7 +96,8 @@ static int mmdvfs_validate_topology(struct mmdvfs_devic=
+e *mmdvfs)
+>  =09=09=09return -EINVAL;
+>  =09=09}
+>=20
+> -=09=09if (mux->freq_num =3D=3D 0 || mux->freq_num > MMDVFS_MAX_LEVELS) {
+> +=09=09if (mux->freq_num =3D=3D 0 || mux->freq_num > rc->level_num ||
+> +=09=09    mux->freq_num > MMDVFS_MAX_LEVELS) {
+>  =09=09=09mmdvfs_err(mmdvfs->dev,
+>  =09=09=09=09   "MUX %d (%s): invalid freq_num: %d\n",
+>  =09=09=09=09   i, mux->name, mux->freq_num);
+> @@ -112,10 +113,11 @@ static int mmdvfs_validate_topology(struct mmdvfs_d=
+evice *mmdvfs)
+>  =09=09=09}
+>=20
+>  =09=09=09if (j > 0 && mux->freq[j] <=3D mux->freq[j - 1]) {
+> -=09=09=09=09mmdvfs_warn(mmdvfs->dev,
+> -=09=09=09=09=09    "MUX %d (%s): freq not ascending: freq[%d]=3D%llu <=
+=3D freq[%d]=3D%llu\n",
+> -=09=09=09=09=09    i, mux->name, j, mux->freq[j],
+> -=09=09=09=09=09    j - 1, mux->freq[j - 1]);
+> +=09=09=09=09mmdvfs_err(mmdvfs->dev,
+> +=09=09=09=09=09   "MUX %d (%s): freq not ascending: freq[%d]=3D%llu <=3D=
+ freq[%d]=3D%llu\n",
+> +=09=09=09=09=09   i, mux->name, j, mux->freq[j],
+> +=09=09=09=09=09   j - 1, mux->freq[j - 1]);
+> +=09=09=09=09return -EINVAL;
 
+Why this can't be in the previous patch?
+
+...
+
+> diff --git a/drivers/soc/mediatek/mmdvfs/mmdvfs-vcp.c b/drivers/soc/media=
+tek/mmdvfs/mmdvfs-vcp.c
+> new file mode 100644
+> index 000000000000..fc6db1c89294
+> --- /dev/null
+> +++ b/drivers/soc/mediatek/mmdvfs/mmdvfs-vcp.c
+
+...
+
+> +/*
+> + * mmdvfs_get_bootmode - Get system boot mode
+> + *
+> + * Query boot mode from device tree /chosen node
+> + */
+> +static void mmdvfs_get_bootmode(void)
+> +{
+> +=09struct device_node *np_chosen;
+> +=09struct tag_bootmode {
+> +=09=09u32 size;
+> +=09=09u32 tag;
+> +=09=09u32 bootmode;
+> +=09=09u32 boottype;
+> +=09} *tag;
+> +
+> +=09if (bootmode < UNKNOWN_BOOT)
+> +=09=09return;
+> +
+> +=09np_chosen =3D of_find_node_by_path("/chosen");
+> +=09if (!np_chosen) {
+> +=09=09bootmode =3D NORMAL_BOOT;
+> +=09=09return;
+> +=09}
+> +
+> +=09tag =3D (struct tag_bootmode *)of_get_property(np_chosen, "atag,boot"=
+, NULL);
+> +=09of_node_put(np_chosen);
+> +
+> +=09if (tag)
+> +=09=09bootmode =3D tag->bootmode;
+> +=09else
+> +=09=09bootmode =3D NORMAL_BOOT;
+> +}
+
+No. Please don't add your downstream code.
+
+I'll stop here. This patch modifies too many things from the previous
+one, and the series overall needs more cleanup.
+
+Best regards,
+Roman
