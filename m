@@ -1,58 +1,104 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.167.242.64
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.227.198
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795616049;
-	b=zoq++I906EG7HNs4CAzzmqpovmCVcjZFXH43E8KXSVKkQIwA9H8wNg81g5DDLNxF7uAk
-	 s7a77UqKF9ROZDaSg9Q77MyqHdDYiHOrZAUq5P/OM7xThiDg+sYdUUb4Y7iYIuIujoa/C
-	 TQBbtNg9jMWzewHkjlVK+6IiSbSogiCef29EqIXJOvZv2fmcFGMtEIo242HGi2SWaHJiK
-	 6vEu0jxS3jvNlM02T2XzhOulTC0jxY49lcZe2rJVXNlH6BqRAaGOSQ25rUrVNEcuIODgj
-	 UI5Bssbkp+jw+r61+9kaygpMLU6YeXRDnc23sEC9NF+ky2/ykTEyrjea0mDmWpJIV5Q==
+	t=1795616068;
+	b=Bpfba/yb47VAXjTGU9S2JDElhW2bOaoAUpu3A8BdFEMWzMLaqLM7pgMe4fGYfZXKsCaU
+	 vOxw1Bu0X4TFtZl/DLrRmyyVbbqx1bvdwpekKUmtvD5Ek/xAx5vv0onfDspTHEcNf2aWF
+	 PGisJpIzpUcl2i+2CibC8sYgIY4IUtjr0MCYJy9gN3/A+qRmcvoQJHaG9RkNTciOEm/bf
+	 FGUdcIV4+8p1Xj4DnbrNZDpflCstAeH1ls//BmSGZO9SSVOn9DBp9+G6NBMk2sAKfkK+F
+	 RLZqJvArKpjwzNpwilePtVIlL9SDo7o5EC6VTLpBvyJsiTt/NM3wdeg6UgadOIdsdkA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795616049;
-	h=DMARC-Filter:Received:DKIM-Signature:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=7yA2Kv81LhtOjCCip8xR6HwdRHowEYFkvy7/rpaMnv4=;
-	b=dgXDBmhmb3eJDUIjsQ8hL9XlFAg2JBOmePBCVonNNzKUNFB9tw+7nG6aC6lZJUPrkrv8
-	 U6XOEzTwZDAvthooJWGN31fjejwVEdTQ3GRce8XMK9lgt86hxtvIunApT1oBWVtblEBpa
-	 7O+LIf0We98L1jyrwrqPU2kam4dt74fY3QK15m1WkvEkfFubS3yZOmIEbXR07T+SlezGK
-	 0sFC/1YVUMv0DJIyazMQz64QZXHuOPsC2CO6xYuBDC/G5QW3m4imx45LVmEX4WPiWbJul
-	 gG5zh9iBD10dhfbb/jMd/K0j3ahN0NQjKjXZY0UabHg24NuHTfZfcETQ7hNTX08cH5g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795616068;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=I2DpsDtmwlnqqaorb1yvKqGbKiNq2jJLn9vN0lJSvMQ=;
+	b=p9CZGBtWxnAkfJlaw5lOETGsxgD9x0K2HeFvSf4SANtvNVolQy+6JT2xe7r1ep59Rdz4
+	 +rEKqIeJiV6NQ/Dg4CPv5UIcclZ/QpCPVmWgB8smg7p1cj+pLw73vckGRrGIX+cGEXaOL
+	 7jP/w2GWwhCVw9NTMLlZVftNGv/tiNCNA+DsndYvOwbPg5rvwTFGgZ5fCngquPyub+jKP
+	 ZI+0WmSaJUNpoHnfOXtTj3YXq50g2V7iwrwKSuMZYejoMIsomV5qTBWpjCcTjig24lok3
+	 yrOuQCp+zKTG2+/6Pwr1pju7pNA+KgtI0qlLBSutqCtz5MkUXjsu05//sft9XBkRtWA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ideasonboard.com;
-	spf=pass smtp.mailfrom=ideasonboard.com;
-	dkim=pass header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=pJ0JeBxC;
-	arc=none smtp.remote-ip=213.167.242.64
-Received: from perceval.ideasonboard.com (perceval.ideasonboard.com [213.167.242.64])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RDYIHxzo;
+	arc=none smtp.remote-ip=74.125.227.198
+Received: from mail-pi2-f6.google.com (mail-pi2-f6.google.com [74.125.227.198])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 62C96606A323;
-	Wed, 25 Nov 2026 14:14:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 62C96606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ideasonboard.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ideasonboard.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F3D87606A321
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:14:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F3D87606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=pJ0JeBxC
-Received: from ideasonboard.com (93-46-82-201.ip106.fastwebnet.it [93.46.82.201])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 4EB532E0;
-	Wed, 25 Nov 2026 15:11:32 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1795615892;
-	bh=5PHtaYjhlZiDW/hanhWKN5A4dP+1izdmQPWAFN2LyqY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=pJ0JeBxCPpXLgrsoTSR722zqJpwENXnfnUZtnwZjXZEpIx+Cr2LF9/7UQQGIdkD39
-	 oAvMb7/DyfiuTYy3bhxiYBfynprmsdtXnijFcFtLQb1Oay0JMzrdROw4qI3jo7l729
-	 btKaeZX2jPYsvZjbYAoD8HLrIkPB65Apcrso2tU8=
-Date: Wed, 25 Nov 2026 15:14:02 +0100
-From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-To: David Carlier <devnexen@gmail.com>
-Cc: dan.scally@ideasonboard.com, jacopo.mondi@ideasonboard.com, 
-	nayden.kanchev@arm.com, mchehab@kernel.org, hverkuil+cisco@kernel.org, linusw@kernel.org, 
-	linux-media@vger.kernel.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH v2] media: mali-c55: Serialise the ISP enable in the
- params and stats paths
-Message-ID: <awbsm6MQfZaecjcG@zed>
-References: <20261125105621.239518-1-devnexen@gmail.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RDYIHxzo
+Received: by mail-pi2-f6.google.com with SMTP id 41be03b00d2f7-cde0148b2abso264443a12.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 06:14:27 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795616067; x=1796220867; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=I2DpsDtmwlnqqaorb1yvKqGbKiNq2jJLn9vN0lJSvMQ=;
+        b=RDYIHxzoMlHxkFOSAbCfAyeuldO+24TCDP30YQu+Dx0GyHEsW4hucRZrhHtVlXY31M
+         Y4F8piuLNlZtiMrOzErisYyBUpe/fwRTFHhbhHh00Lx+bMosSD5obxH0dIgoCWd14IAF
+         bgTVBqcngPw8hBgMk9B4bByu2Km4GvT78sKue6Hz57gihXg9ffkxfwCa3adR31WfpmtY
+         /zUoswsb0vS5Vko1C7oGXhJFIj9+I5RpaT6kBMD9C0vug/HCPmAzZp2+j3kNm6OdY4c0
+         9n6WTjCq0EKfqXXCZNLJB+sf+zkyj2VFlIewiJNbePM4JYHRJt230TT6hmkJZLyhXL7j
+         5l1w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795616067; x=1796220867;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=I2DpsDtmwlnqqaorb1yvKqGbKiNq2jJLn9vN0lJSvMQ=;
+        b=eB0XYQDgslCgWvSDKCi1cdWScm0bBvWiPD6d+aNxLorrz74m54ICeI3uWyF01OdgBZ
+         LCz3IrqBfrNhD/MfhLDKgcbFHVTgRd09Y7L82SzqT9ddWolOGucJoTz9niuqq05A0XUw
+         /LOYKAqMGUqGfgyEhLYsRgFK85Bh+nsEgIYqIDZ8vKon+Gc4zXw+MYCberLO9K5E6cJQ
+         zPBN6HOlDG+hpFmUiDTAVMn2k9xjQgrrIwhkEHz3TRVEkvGQkRAy7CJh7+N35cfD6qc2
+         jQyAiupFoVTqG6+/QsZQ+5uVuiGqwo8vjSFPzWDJiBLJV5r7Hqi8ghjvCd1hU4/oY92Z
+         kfOg==
+X-Forwarded-Encrypted: i=1; AL+hErHIU8mQz+9XJpQzSBOqcopLGq1txzn9GWPaCElpQM0x/ix2FrsUvzQda7AfpC7zNAgZKsaxxojNYTr3QrE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9kcdsOP8vdgq5UO0jkW6Ud25dQqS3AtXrzBW9fPdn/znAmavAG
+	FBk72MMwOo6Ly780lurBZUyaZ7hTo5/qfzzBohHTDQGRQtsIaC8Gts0TsXXHggUo5jnB3Q==
+X-Gm-Gg: AZFdTZdji50rnMSJPC8ObeYwiCSKxaz/jhfpwbu9ekDXdVwZ1xoRZpvBs2nIyIuOPWO
+	eaE5qZwFbDCDPgfHorYZCpy62XaClaf1todBbepOWo8JCyZgv8mg0xLdRg8iYC/viGvkyIgpO3x
+	COy1jO0bv5dOH01lCOXIipyJOWNYwCbxHETTeEZF/YC7njAmg0E4lFHejwz//8Ylcn2XAFHL2Sz
+	ZHZnDndnlGGAAfe/a+VNz6EnVAAgwn8zhNUTDhKinUOzYnZVNn6e12c+UKF/O+4chUwynAHv4e4
+	+qE7rBLHOZw/1utHx6zXhofkzJMVj+GrR5dGE/xbzC1m1aP3xnrWzBgWrs7z0KKyzOZtmyVNQEi
+	fWBtUiiaeNOmQd0L7f2tv6zUtj7r798g49WEm3YVACmm/PNU/FOLWGZqDPzDLyEHngN8wjQe+Ua
+	Bj0qizQGpSHJElSZ+nCgWM/K+gvvY/9BfZRu3ANNGiyfR03fEpamzMa6Yjnj6Kz8zWUitkkIL+h
+	B2z7KY046bR7S/p6sjobvYPPFKlE5Vrdiybl5O0ybsLPyI2mL0/gOFDzNOw5JpmKV+hPL2s2Z/G
+	dYdyd8o9UxZzkaAUhkdhI0Rt9PU=
+X-Received: by 2002:aa7:9311:0:b0:8a0:3ed7:93a7 with SMTP id d2e1a72fcca58-8c87c38b689mr16164612b3a.32.1795616067259;
+        Wed, 25 Nov 2026 06:14:27 -0800 (PST)
+Received: from nixos ([2409:8a28:ae4:7f20:3645:b698:a929:4bcd])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87392d408sm8903369b3a.44.2026.11.25.06.14.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 06:14:26 -0800 (PST)
+From: Zixin Wang <w1355457260@gmail.com>
+To: frederic@kernel.org
+Cc: Zixin Wang <w1355457260@gmail.com>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	"Ahmed S. Darwish" <darwi@linutronix.de>,
+	John Ogness <john.ogness@linutronix.de>,
+	linux-doc@vger.kernel.org,
+	linux-rt-devel@lists.linux.dev,
+	clrkwllms@kernel.org,
+	rostedt@goodmis.org,
+	corbet@lwn.net,
+	wagi@monom.org,
+	atomlin@atomlin.com,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v6] Documentation: real-time: Add runtime tuning guide
+Date: Wed, 25 Nov 2026 14:14:09 +0000
+Message-ID: <20261125141409.330411-1-w1355457260@gmail.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <awbgq0xQyJATel0_@localhost.localdomain>
+References: <20261125074658.33117-1-w1355457260@gmail.com> <awbgq0xQyJATel0_@localhost.localdomain>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,127 +108,54 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261125105621.239518-1-devnexen@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-Hi David
+Hi Frederic,
 
-On Wed, Nov 25, 2026 at 10:56:06AM +0000, David Carlier wrote:
-> Only the capture devices hold isp->capture_lock around the
-> mali_c55_pipeline_ready() check and the ISP enable or disable. When the
-> last two queues to start are on different video devices, both can see
-> a ready pipeline and both enable the ISP. The second call fails with
-> -EALREADY and its queue's start_streaming_called flag is cleared, so
-> the ISP is never disabled again and every later start fails.
->
-> Take capture_lock in the params and stats paths too, and assert that it
-> is held in mali_c55_pipeline_ready().
->
-> Fixes: d5f281f3dd29 ("media: mali-c55: Add Mali-C55 ISP driver")
-> Cc: stable@vger.kernel.org
-> Reviewed-by: Linus Walleij <linusw@kernel.org>
-> Signed-off-by: David Carlier <devnexen@gmail.com>
-> ---
-> v2:
-> - Add lockdep_assert_held() in mali_c55_pipeline_ready() (Jacopo)
+Thanks for the review.  You are correct: the CPU isolation section
+duplicated Documentation/admin-guide/cpu-isolation.rst.  I checked the
+remaining runtime tuning content for similar overlap with other
+documentation and will keep the canonical material referenced instead of
+duplicated.
 
-Thanks, if I
---- a/drivers/media/platform/arm/mali-c55/mali-c55-params.c
-+++ b/drivers/media/platform/arm/mali-c55/mali-c55-params.c
-@@ -894,7 +894,6 @@ static int mali_c55_params_start_streaming(struct vb2_queue *q,
-        struct mali_c55 *mali_c55 = params->mali_c55;
-        int ret;
+On the second point, I ran a local QEMU test with the PREEMPT_RT kernel
+(7.3.5, HZ=1000).  The guest had 8 vCPUs; the test process was pinned to
+CPU 6 with:
 
--       guard(mutex)(&mali_c55->isp.capture_lock);
+  isolcpus=domain,nohz,6-7 nohz_full=6-7 rcu_nocbs=6-7 irqaffinity=0-5
 
-        ret = pm_runtime_resume_and_get(mali_c55->dev);
-        if (ret)
+The only difference between the two runs was the presence of
+rcu_nocb_poll.  The workload repeatedly created and closed perf events and
+epoll instances, which enqueued RCU callbacks on CPU 6; I traced
+rcu_callback, rcu_invoke_callback, and rcu_nocb_wake, and measured
+enqueue-to-invocation latency (including the grace period).  I ran three
+80-iteration guest runs per mode, giving 480 callbacks per mode.
 
-Then I get the expected splat
+  without rcu_nocb_poll:
+    median 4.012 ms, p95 4.203 ms, max 7.040 ms
+  with rcu_nocb_poll:
+    median 7.003 ms, p95 9.971 ms, max 12.542 ms
 
-# cam -c2 -C
-  40.154659] ------------[ cut here ]------------
-[   40.159731] WARNING: drivers/media/platform/arm/mali-c55/mali-c55-core.c:521 at mali_c55_pipeline_ready+0xb4/0xf4, CPU#0: CameraManager/360
+The polling mode showed Poll/WakeNotPoll events and no WakeEmpty/DoWake
+events.  Thus, in this test, polling did not improve real-time response;
+it made callback invocation latency worse.
 
-Tested-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-Reviewed-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+I have updated the guide accordingly: the CPU isolation details now point
+to Documentation/admin-guide/cpu-isolation.rst instead of being
+duplicated, and the rcu_nocb_poll description no longer claims a real-time
+benefit.  It now states that the kthreads poll every jiffy and can delay
+callback and grace-period processing.
 
-I'll queue this for the v7.5 PR (which I shall send out by Friday if
-possible)
+So far only you and Sebastian have replied to this patch.  I am waiting
+for more reviewer feedback before sending v7.
 
+The kernel-parameters.txt entry still says that rcu_nocb_poll improves
+real-time response; I left that file untouched in this patch, but it may
+need a separate correction.
 
-> - Collect Linus's Reviewed-by
->  drivers/media/platform/arm/mali-c55/mali-c55-core.c   | 3 +++
->  drivers/media/platform/arm/mali-c55/mali-c55-params.c | 4 ++++
->  drivers/media/platform/arm/mali-c55/mali-c55-stats.c  | 4 ++++
->  3 files changed, 11 insertions(+)
->
-> diff --git a/drivers/media/platform/arm/mali-c55/mali-c55-core.c b/drivers/media/platform/arm/mali-c55/mali-c55-core.c
-> index 241a625f7284..bf80935c20d2 100644
-> --- a/drivers/media/platform/arm/mali-c55/mali-c55-core.c
-> +++ b/drivers/media/platform/arm/mali-c55/mali-c55-core.c
-> @@ -13,6 +13,7 @@
->  #include <linux/interrupt.h>
->  #include <linux/iopoll.h>
->  #include <linux/ioport.h>
-> +#include <linux/lockdep.h>
->  #include <linux/of.h>
->  #include <linux/of_reserved_mem.h>
->  #include <linux/platform_device.h>
-> @@ -510,6 +511,8 @@ bool mali_c55_pipeline_ready(struct mali_c55 *mali_c55)
->  	struct mali_c55_params *params = &mali_c55->params;
->  	struct mali_c55_stats *stats = &mali_c55->stats;
->
-> +	lockdep_assert_held(&mali_c55->isp.capture_lock);
-> +
->  	/* Only wait for queues connected through enabled media links. */
->  	return (!media_pad_remote_pad_first(&fr->pad) ||
->  		vb2_start_streaming_called(&fr->queue)) &&
-> diff --git a/drivers/media/platform/arm/mali-c55/mali-c55-params.c b/drivers/media/platform/arm/mali-c55/mali-c55-params.c
-> index 16e895e3488e..6515c78c1bb2 100644
-> --- a/drivers/media/platform/arm/mali-c55/mali-c55-params.c
-> +++ b/drivers/media/platform/arm/mali-c55/mali-c55-params.c
-> @@ -762,6 +762,8 @@ static int mali_c55_params_start_streaming(struct vb2_queue *q,
->  	struct mali_c55 *mali_c55 = params->mali_c55;
->  	int ret;
->
-> +	guard(mutex)(&mali_c55->isp.capture_lock);
-> +
->  	ret = pm_runtime_resume_and_get(mali_c55->dev);
->  	if (ret)
->  		goto err_return_buffers;
-> @@ -796,6 +798,8 @@ static void mali_c55_params_stop_streaming(struct vb2_queue *q)
->  	struct mali_c55 *mali_c55 = params->mali_c55;
->  	struct mali_c55_isp *isp = &mali_c55->isp;
->
-> +	guard(mutex)(&isp->capture_lock);
-> +
->  	if (mali_c55_pipeline_ready(mali_c55)) {
->  		if (v4l2_subdev_is_streaming(&isp->sd))
->  			v4l2_subdev_disable_streams(&isp->sd,
-> diff --git a/drivers/media/platform/arm/mali-c55/mali-c55-stats.c b/drivers/media/platform/arm/mali-c55/mali-c55-stats.c
-> index a9c28b090b2a..cbd2a2f77da3 100644
-> --- a/drivers/media/platform/arm/mali-c55/mali-c55-stats.c
-> +++ b/drivers/media/platform/arm/mali-c55/mali-c55-stats.c
-> @@ -146,6 +146,8 @@ static int mali_c55_stats_start_streaming(struct vb2_queue *q,
->  	struct mali_c55 *mali_c55 = stats->mali_c55;
->  	int ret;
->
-> +	guard(mutex)(&mali_c55->isp.capture_lock);
-> +
->  	ret = pm_runtime_resume_and_get(mali_c55->dev);
->  	if (ret)
->  		goto err_return_buffers;
-> @@ -180,6 +182,8 @@ static void mali_c55_stats_stop_streaming(struct vb2_queue *q)
->  	struct mali_c55 *mali_c55 = stats->mali_c55;
->  	struct mali_c55_isp *isp = &mali_c55->isp;
->
-> +	guard(mutex)(&isp->capture_lock);
-> +
->  	if (mali_c55_pipeline_ready(mali_c55)) {
->  		if (v4l2_subdev_is_streaming(&isp->sd))
->  			v4l2_subdev_disable_streams(&isp->sd,
-> --
-> 2.55.0
->
+The test logs and summary are available locally; I can share them if
+useful.
+
+Thanks,
+Zixin
