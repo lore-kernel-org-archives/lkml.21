@@ -1,71 +1,93 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.65
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795616283;
-	b=r4gsQRr2PYbxU3tM/9eXnhNxvLMpGtwqd//vSD47sZlXe7vUgEZ3g8teA531g9A79l07
-	 af29+mDalWO+0vjgm6FkOIEpO2rTeLEYOVNLGClYwx1Wscb5uQLOQQ2fi4DtrNdt3Pr7l
-	 LnPUQAH5tzdIhTyznKd58B8rS4iOT5W/S0tXXJ4XprV0VFGpZ6UhIVSPKo5tbVFKzuy8v
-	 4J1SZECo6at+IK5ygyFAL7+gImPxzteINHhFU3asBkJoDXJgQO8oD3B7gFSHe28grqU4q
-	 imeEIhAlRSX3dR6BvbNucbNABGoAnhJdVV7Q6pbwcxFFVSMnl14VlAsNNRs0AEEHCjw==
+	t=1795616315;
+	b=EjKoXyQHDOommPruG4VQhzP2bpRCk90C/UqsQoyLtBSKBsF5nzWx+3nLjWXxDvz9LCVp
+	 r7T1b1NVN4uQxzbXI33Qqan4g3MGE/SC5iMLwtB50FMeKnKAN2AIEQ8MqYVkE7QdNDHca
+	 U0GSGFCSB9W7yO8fO/uIwZDLIRMcLTFWxoiZxcHlR0SluT6zS2xBrHGBdmm7uXTTSUzY8
+	 u63ccEKQNoRb/KL7F/xBbqzhlkuRyYrKQfbWGrbJv6eWDuGNUyvK//yYN2cHUq01LGjUF
+	 ajZQTRjvH2X82i+EvOL2yh8MlJSbDE7EMEiH/pO+rXEwwPLatWkUvOW2M5LunJR0j+A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795616283;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=cz6q/stH72VoxzJvriTDyhchEoMpXYcJk6FPeliPcts=;
-	b=krxWPYPHv7FDUcPIEB3FkDfjGAMa04guddUINh0+IyqeCKWGQBo88eDhgwwmjt40ok8H
-	 hb71EoGrDQ/yWZVVGNiH1vvcGHZSoXCDmfmOADpPpF4t1zhpVUSe6LE/3bU4fAOCd/3u2
-	 V/Y5SPVI1ZaemG3EWdDj7zqPnSdCAkskgeefJ6ZCOhtqAu6H8dSsZ+elz8RUOtzJZxy61
-	 lYFHTNQUtSDiighQyT39XdFFZ4/JJwdRggdT5gPSHE+seZeuQ5+/CUfWhSnFJOs3iRoma
-	 NxgP/R6saE+l7uujtmFOBGQWVvlqqR4V5xIU82gPl8+iE8vVwlHcBwHA+LW0SxOS0Dg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795616315;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=B14YIwzQj4vDx9qqNqeB3s7xtGauzc15dvusC2lDAYc=;
+	b=ydaYC09UDsm4dzYFHLYHvyGTBMPpDuJwyyjUEfsizw12XuXuXSlZ3quzOhPtfOQD4jZx
+	 8x8//r2DbXMsUDWtVLqoM79Srg3PzXqDXY2X76T83zcRLWUghSQfyWF5HaMv640/f74Oc
+	 dt50UMQRekNxDgahGyCWi4mUyF2Cla1VrWdeKzawCXp1O+du077FUbEnDFwpnRSzlORQc
+	 FJINLIIowic0cYtE9inO8O3RSgw/qrYGTlZaxI3WVyyd6wFO/v4sxlV0aNS5w3wRlkM81
+	 npid5W/zCwdc3waYEQoF5d35T1zXbXEkEbsV4lMdd0QidMtYvOX5EBypkgxr46prGwg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=wyuan.org;
-	spf=pass smtp.mailfrom=wyuan.org;
-	dkim=pass header.d=wyuan.org header.i=@wyuan.org header.a=rsa-sha256 header.s=key1 header.b=TACvlVp5;
-	arc=none smtp.remote-ip=95.215.58.65
-Received: from mta1.migadu.com (out-65.mta1.migadu.com [95.215.58.65])
+	dmarc=pass header.from=suse.com;
+	spf=pass smtp.mailfrom=suse.com;
+	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=MAkkS5pG;
+	arc=none smtp.remote-ip=209.85.221.42
+Received: from mail-wr1-f42.google.com (mail-wr1-f42.google.com [209.85.221.42])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 659F1606A31E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:18:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 659F1606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=wyuan.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=wyuan.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4F648606A321
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:18:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4F648606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=wyuan.org header.i=@wyuan.org header.a=rsa-sha256 header.s=key1 header.b=TACvlVp5
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=CCa6MLPgSfC0gSv1/TwQ2U1xBZ9d9xJFhl1N8rsJZyk=;
- c=simple/simple; d=wyuan.org;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795616280; v=1; x=1796221080;
- b=TACvlVp5XJlw0i9zLKjIX6ViIxnQhY68D8+L3z1Qk9/0o7khe0XjfS8bdJNWYmDr35uQposF
- yYsf6F31ATQ9+3UIjLRzQoFdRiAtcq1qSzz/NXX1aEXi0pA8jLcetAz2WdvRzoBdgsXmbx322JJ
- rLod3cW9A+9PU+3UkuLXOnmoqhxQ/A+KhYiLOr+DZy6VnSIoauyZYYlVt+wxM55jEqIhQQl0kG+
- +4lnyRoaeF+0s1NiCSJLOG2svU0H706jcGj457voz4sd8Ie9Z+R29r8Wf94kAE6O2rpm2ZOVV6L
- 8e13TDpVgjeQ7WR8s6BlQ+oKuyoWNoE7zvOUEiJUFxnxg==
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 5990fbd04151478c;
-	Wed, 25 Nov 2026 14:18:00 +0000
-X-Mizu-Trace-ID: 5990fbd04151478c
-X-Migadu-Flow: FLOW_OUT
-Date: Wed, 25 Nov 2026 22:17:52 +0800
-From: Weijie Yuan <wy@wyuan.org>
-To: Dongliang Mu <dzm91@hust.edu.cn>
-Cc: Bruce Song <xiongwei.song@linux.dev>, alexs@kernel.org,
-	si.yanteng@linux.dev, corbet@lwn.net, skhan@linuxfoundation.org,
-	rdunlap@infradead.org, paulmck@kernel.org,
-	linux-doc@vger.kernel.org, rcu@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/2] docs/zh_CN: Add RCU/whatisRCU.rst Chinese
- translation
-Message-ID: <awbuEAiOpfpfov2b@wyuan.org>
-References: <20261118131636.5131-1-xiongwei.song@linux.dev>
- <20261118131636.5131-3-xiongwei.song@linux.dev>
- <09ef3d3d-0e68-49c6-a6a2-c754104ede9e@hust.edu.cn>
- <946792d2-4241-445d-820b-301a570ee2c3@linux.dev>
- <awZZVV3BlovD-xNf@wyuan.org>
- <9d2b25e4-c5a0-4ef0-8698-1a622d05223e@hust.edu.cn>
+	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=MAkkS5pG
+Received: by mail-wr1-f42.google.com with SMTP id ffacd0b85a97d-4ad6219f7d8so5146566f8f.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 06:18:34 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1795616313; x=1796221113; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=B14YIwzQj4vDx9qqNqeB3s7xtGauzc15dvusC2lDAYc=;
+        b=MAkkS5pGJ5ZcA3OBtd0RPk9BwpbXkXU75vgh0m6Km4IbLeVq41uQDaqMdg/EovcFiL
+         28xscedIPYM+3zPVs8hkZf8HXLT9RpVjP/S5eTrvmNPbr7yNkWlwy2+9YAaVHlgLFPLs
+         6gRhNjeNklgqV10M30Dh9HrB/yMqeGncM36QBjD20oUNh56Tuo5LO0HAxzeuVA5eOP4e
+         62Ce0j5M2Rc8jvGQVisLmlbghUFDjAAWa7VzoHjaCDW275ytUsJztu8pPjUBRnK3nT64
+         1F5wlQL/3k/OQgLF4fRDsfI3rsPcio4syQewr7IDGF517k+wOQUDDl4GX1o5PrYJnYJL
+         RIdA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795616313; x=1796221113;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=B14YIwzQj4vDx9qqNqeB3s7xtGauzc15dvusC2lDAYc=;
+        b=Acsearkof6b/cqPOIVfNqmRVMLLzIzlfUL/jiBNa8KT0OeRXfjsMXq2tv6t83D5nR1
+         vu/1hkN7aEP+ILUsK5j20oRid9Z/E5Xr5pbXH/ZHWeEbEp6t0c9iEz8+TLJ/9G+Lsj2d
+         k5id/Y2zlivTzCEKxukuiGV71ev9gg4f5W7bMEAm79kjQFDThoupKWvYsThqj0Yo2ZiD
+         ordId2qiNl2BuZ5rt7r4oP0pXd80lOdT/bVO+VECs2Cey5VON/xm+jbHH/gOVEiJX1N7
+         HHqzR/UX35dezRHMKqIDcM8SXl/mPt/MJrLecEvhtBdpjFDsSis/VngQAwDZVozAv6Rn
+         1khg==
+X-Forwarded-Encrypted: i=1; AL+hErG+V6cU2lcgQWO2lTtUGXlLXK9E3odzrnzfXFDsXB8Zum/ljwxE0hKuvMJh3co6q3Mazw2F4Y+8ontnIME=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+uoy5gMk5EMyTwMTlot3snc5ShHYjnkP8zRrumsU1lKsUJrkTo
+	t011eCIKQ+IK20yWQjEOssdpNwZJ577EeuMLEEHlMGBCsfMofRbV2TY6KY9ec6hi/YA=
+X-Gm-Gg: AZFdTZfytkfAkldGbX6ZeRmLWPs4dGp7id76kWx2c+iL01hFxiOfMoMI6jexSC78w2N
+	jBAvMsMHfP5q8gPgKoSXn+FncdUBMbzqbyvdkvNV1m9aptc6BiHQQDqAGdA1Z8zPKvMN1QFjbo5
+	QGRYCxd7IP7mirGxSoZb/MXchUePw43DyK12tzRZQ5isv9sScGOgvbVrXsbvSwVfkJXJfWpzwbJ
+	KM+bySL7UGCwJIr0+WWve/cdGGDQa6decUEO3XCUJjpZInkDrEU8rBwmcPxa1DOP7mq45Oz1Tvb
+	WrePSfeI8rBJRsJ0TEvVBK7ODIm8bcByUTVSEPcvZ68J06OYEiW7Rv2jA88naffg2YvZ1ByQiij
+	8Zpe6gps2C90YR04u7oPwSPZwlgnRH+RDCxPOavbwcrbnEaBNiAFBauFivkdjFYb+gVaUpN1o1G
+	EbQyiMjRxZsTiohs66kWu9yhwttmo9GTv9aMRLJQ3ds/eUo6WymMfXPGxw+uEl3ZTs68helXGOR
+	2oTiHdmr/kf/7rjfMlor7ZYbkx3nebN7b99+Vve4Tz0n1BM+WRhQSD49/v/+08bgH+betWCWj14
+	oaM0quSxhwbgKa3/rLIMVVCrqyrB
+X-Received: by 2002:a05:600c:3ba9:b0:4a2:1050:aff with SMTP id 5b1f17b1804b1-4bb8881c741mr422155945e9.6.1795616313498;
+        Wed, 25 Nov 2026 06:18:33 -0800 (PST)
+Received: from localhost ([195.94.148.180])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853a12acsm552250035e9.8.2026.11.25.06.18.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 06:18:33 -0800 (PST)
+From: Andrea della Porta <andrea.porta@suse.com>
+To: Linus Walleij <linusw@kernel.org>
+Cc: linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Andrea della Porta <andrea.porta@suse.com>,
+	kernel test robot <lkp@intel.com>
+Subject: [PATCH] pinctrl: rp1: Use ARRAY_SIZE() to compute group sizes
+Date: Wed, 25 Nov 2026 15:22:30 +0100
+Message-ID: <20261125142230.18076-1-andrea.porta@suse.com>
+X-Mailer: git-send-email 2.51.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,82 +97,69 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <9d2b25e4-c5a0-4ef0-8698-1a622d05223e@hust.edu.cn>
 
-On Wed, Nov 25, 2026 at 10:00:26PM +0800, Dongliang Mu wrote:
-> 
-> On 11/25/26 11:43 AM, Weijie Yuan wrote:
-> > On Tue, Nov 24, 2026 at 10:23:50PM +0800, Bruce Song wrote:
-> > 
-> > [...]
-> > 
-> > > > > +:翻译:
-> > > > > +
-> > > > > + 宋雄微 Xiongwei Song <xiongwei.song@linux.dev>
-> > > > > +
-> > > > > +:校译:
-> > > > > +
-> > > > > +.. _zh_cn_whatisrcu_doc:
-> > > > 
-> > > > Please double check all the references. If one reference is not referred
-> > > > from other places, please remove it in the translation.
-> > > Ok, I will do that.
-> > Let's make it a rule or instruction, shall we?
-> > 
-> > I didn't find any specific rules for label usage in doc-guide dir. (only
-> > no more top-level label on list) But I suspect there must be unused
-> > labels in English docs.
-> > 
-> > We either:
-> > 
-> > (1) make it consistent, i.e. keep adding unused labels.
-> > 
-> > or
-> > 
-> > (2) check usused labels and do not create new labels for it.
-> > 
-> > 1 may be easier for manual translating jobs that you don't need to check
-> > every label manually. You just need to add a '_zh' before each original
-> > label. But apparently this will create tons of unused labels. So, no?
-> > 
-> > 2 may costs more attention, but I guess agents could handle this
-> > nowadays with proper prompts.
-> 
-> 
-> I prefer this solution for some reasons:
-> 
-> 1. If I understand correctly, Jon asked us not to add useless labels in the
-> translations.
+Coccinelle reports:
 
-Yes, true.
+  drivers/pinctrl/pinctrl-rp1.c:343:39-40: WARNING: Use ARRAY_SIZE
+  drivers/pinctrl/pinctrl-rp1.c:444:33-34: WARNING: Use ARRAY_SIZE
 
-> 2. The labels in original English documents may be invalid, we should
-> not inherit them blindly. Only if you find some place refers to this label,
-> you can add it to our translation.
+PIN_ARRAY_SIZE() and GRP_ARRAY_SIZE() open-code the element count of a
+compound literal as sizeof(array) / sizeof(element), duplicating the
+element type from the corresponding PIN_ARRAY() and GRP_ARRAY() macros.
 
-True. So I also hope that the English documentation includes a note (if
-there's no such): do not add unnecessary labels. This way, our new
-translations will not be added in correspondence with them.
+Use ARRAY_SIZE() on the PIN_ARRAY()/GRP_ARRAY() compound literals
+instead, so the element type is no longer repeated and the array check
+in ARRAY_SIZE() applies. Wrap the compound literals in parentheses so
+they can be safely passed as macro arguments, and include
+<linux/array_size.h> explicitly.
 
-I will also try to troubleshoot unused labels in English articles when I
-have time. Sadly, Sphinx does not print out warnings for this, so I have
-to grep them.
+No functional change is expected.
 
-> > I forgot to mention this thing in Daniel's series [*], shall we mention
-> > this now, or send a RFC patch after they get merged?
-> 
-> If it is not merged, comment now.
+Fixes: e3ce7b897388 ("pinctrl: rp1: Implement RaspberryPi RP1 pinmux/pinconf support")
+Reported-by: kernel test robot <lkp@intel.com>
+Closes: https://lore.kernel.org/oe-kbuild-all/20261117140555.KfUW4BDK-lkp@intel.com/
+Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
+---
+ drivers/pinctrl/pinctrl-rp1.c | 9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
 
-Sure, will draft soon. It is expected that his series will not be merged
-quickly.
-
-Thanks.
-
-> > And also, add a rule for English docs that _do_not_ write a label which
-> > is not used? This will make our job easier.
-> > 
-> > [*] https://lore.kernel.org/linux-doc/20261119041009.63651-1-danielmaraboo@gmail.com/
+diff --git a/drivers/pinctrl/pinctrl-rp1.c b/drivers/pinctrl/pinctrl-rp1.c
+index dd0e85c2ca33..da86bbc40f41 100644
+--- a/drivers/pinctrl/pinctrl-rp1.c
++++ b/drivers/pinctrl/pinctrl-rp1.c
+@@ -8,6 +8,7 @@
+  * pinctrl-bcm2835.c, please see original file for copyright information
+  */
+ 
++#include <linux/array_size.h>
+ #include <linux/gpio/driver.h>
+ #include <linux/of_irq.h>
+ #include <linux/pinctrl/pinconf.h>
+@@ -338,9 +339,9 @@ static struct pinctrl_pin_desc rp1_gpio_pins[] = {
+ };
+ 
+ #define PIN_ARRAY(...) \
+-	(const unsigned int []) {__VA_ARGS__}
++	((const unsigned int []) {__VA_ARGS__})
+ #define PIN_ARRAY_SIZE(...) \
+-	(sizeof((unsigned int[]) {__VA_ARGS__}) / sizeof(unsigned int))
++	ARRAY_SIZE(PIN_ARRAY(__VA_ARGS__))
+ #define RP1_GROUP(name, ...) \
+ 	PINCTRL_PINGROUP(#name, PIN_ARRAY(__VA_ARGS__), \
+ 			 PIN_ARRAY_SIZE(__VA_ARGS__))
+@@ -439,9 +440,9 @@ static const struct pingroup rp1_gpio_groups[] = {
+ };
+ 
+ #define GRP_ARRAY(...) \
+-	(const char * []) {__VA_ARGS__}
++	((const char * []) {__VA_ARGS__})
+ #define GRP_ARRAY_SIZE(...) \
+-	(sizeof((char *[]) {__VA_ARGS__}) / sizeof(char *))
++	ARRAY_SIZE(GRP_ARRAY(__VA_ARGS__))
+ #define RP1_FNC(f, ...) \
+ 	[func_##f] = PINCTRL_PINFUNCTION(#f, GRP_ARRAY(__VA_ARGS__), \
+ 					 GRP_ARRAY_SIZE(__VA_ARGS__))
+-- 
+2.51.0
 
