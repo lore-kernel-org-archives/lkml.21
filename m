@@ -1,72 +1,119 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.112
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795612958;
-	b=QZ6MxOm5aTtwaMWj1LteV6Qy4pEXtMmKGeQCevN+EBcNKzOLzycjWT2XCXsHPMhTUE82
-	 buuA4qx+UEfaL0djZ9Tp5i9xSCkjxMQEvmVnvEtNyUiEgdHkPWqMEykQ6jwp8jrS7OKKs
-	 c9xtRrzOH3iZk4otwE6TRtCGPsmSvg9oXDX7oLzseXlH9HanDYr2+90ttQEnxrPcpkUjg
-	 lR3G5SQ1c/pm3yrj7YRIEyuD+NtQEPQOioxPilQRfX5I5RVzFM67K/zvVVhFhPT7EyPqb
-	 TShb93nkHRhyX9re+6VitT6rgSFk3XRmeg/6QRTMP3yrN7SGaZ7HphIL/1XyZoEqxHg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795612958;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
-	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date:
-	 MIME-Version:User-Agent:X-ZohoMailClient;
-	bh=gTZ5RCXqmBhZUpuuWBBkcgRt74bv///8083+IQ+cJcI=;
-	b=ln7waPwFz6+TTCkkMGloaaoR6HD64ezY0Zb7wXAYFy9dIS6AfSxgl2wNRTKn2M60FwRI
-	 1CAsWFyobMLo63s+KepZ7eQbYEfufFoMM7u7CUEy0sR5drsR0QOEjKr+E5TGH+CXbwaQY
-	 Z1DxyKaN5MTdN4W6UiGuFoJgCAzn+RLZN5JyZiEJ+yZ35DU+qxOg+jliFauAJHggby56b
-	 MIY+8yV5E8thEkGIOqJtZxwYo1opultE77EkQ/EFNDt50RiWDTvGFGM3NuueiggGsfG2K
-	 lGLOxpTAL8z96XO/+LEU6JbRR9EuzKNNsI0pRcj3Anm8rJPveDfSlnTiZ6eAo7B1uSQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=rong.moe;
-	spf=pass smtp.mailfrom=rong.moe;
-	dkim=pass header.d=rong.moe header.i=@rong.moe header.a=rsa-sha256 header.s=zmail2048 header.b=hMazQX8g;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.112
-Received: from sender5-pp-f112.zoho.com (sender5-pp-f112.zoho.com [165.173.182.112])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795613026;
+	b=qNfWixaPW5IoUmJbQTyNrdlS9vfNzj5dJ2sL68ywmF7898X1u4Tv/yo2/7NICHDv9E7G
+	 Y5gJ6oUDHiN5F0f2p6JqCVhEL6qNHetTHl7crDRGP4Q5GKXwBQw9HyTYy718GUkHgoDW2
+	 IGEc9g1NUFPpWZ/y4l+SpXKSZvv8ibsLHHReS5xozcqUFW8YaaqXs6tY4rEM91GaSQMYq
+	 GzXwgNSXyivQ5C2e9LXavipF7jDYG2DuEX8WFN3H/UVXNlZB94uNhLDNWrFOcst0x/JLA
+	 HNWvba8TKcLdR4HXRY9YUeqtSAOb2cgpwucpx6VMIY4f0ESNax5wxpQ2/VBHnHLw/yw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795613026;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:To:Cc:
+	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-Proofpoint-Spam-Details-Enc:
+	 X-Authority-Analysis:X-Proofpoint-GUID:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=DEXSKj0qLtLCuzwB7F4ETUvNv7J3DjigdPft60M7V4A=;
+	b=w0U34OFC9KBOiWN9PS6ZZRJMxffS3H15zDyOmHT6Afvt44HCDSPMC0rN6eZrPPOVDk76
+	 LuLPHOUXQBk/T7evIaE3zBoHc8KhfEf9s5Wgu+jr1ABeOUqRhxGNICnKq5sNBZN4tuafc
+	 WZJXE1DtWMa7xFHgADW21t3DCjB4I4yeZd0LtlmfnZVYRpK6X+93axC6xX9W7gVwz2AMw
+	 sMqTJL8zunR6kBLNuESDbwm8wAyjFcABFxLUVx6lYnfprWl61Qb0DHLfG/6gobUCP/3tY
+	 jg+aF1DiL7ey9vkte5voc7KpR6NHLajOj8Pxwlc/aoVw36VJ+znN44OxRrtTD20FXQw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=UeIjzfxP;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=AgIMKDlQ;
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 430D7606A31E;
-	Wed, 25 Nov 2026 13:22:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 430D7606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=rong.moe
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rong.moe
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7E13A606A333
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 13:23:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7E13A606A333
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=rong.moe header.i=@rong.moe header.a=rsa-sha256 header.s=zmail2048 header.b=hMazQX8g
-ARC-Seal: i=1; a=rsa-sha256; t=1795612923; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=Go6rWjUIstgwrKFEQDYKMH+ISTgcSsRWzYYqf4flPBYGBK/UM3qeVuG4mLETwzkKexflGY45Mgo45gM2FIVekQ1MCyN0hWg3FYqI5EeVMZPLct39Hqzkb4Bbw0WfI9U1ZbYvX0TvhmZNhKGP/fgQ4g95hfLeg4zwH+vNKJuzf9E=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1795612923; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=gTZ5RCXqmBhZUpuuWBBkcgRt74bv///8083+IQ+cJcI=; 
-	b=Vq9JazDnFPxFIEHS4I7Zh4hP/RwqSf27FgYYVxvDgFS3qtAA4TvpHoZj0QkRr55E6rjy6EWlLSCNpIt9Qgdb2YGUoe3jcH7ZgSoEZZ+9m/o5S5tLsvxfeXOMbnyLYJto1zzhNMvP1tqg8AhI5F69sEHnJ7/GBEKektloTKf2NWs=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=rong.moe;
-	spf=pass  smtp.mailfrom=i@rong.moe;
-	dmarc=pass header.from=<i@rong.moe>
-DKIM-Signature: a=rsa-sha256; b=hMazQX8gWtIDXcnCaWd4tIPe5ZyLA3E8v7Xgqx2kl5d8wstrUg0BRddB3aeSjAXj5L/Dcno3ODkSINYiM3Luxhh0LWZoeJsFb8LIShR+o2hCF9nww45HPFpD3YoHk5v3w1ZwlIxVN5vD13x+N06ixDYhyWo+u0DO6XO8rhPJSShHH/tms4iq2iOMKB9FGi6R1me31z8xqH86+oD8kQUES+7pMF3cWppuGEMuSFpXmEQZ7Fpg6N7yTZ8V4XXIPuR8voVSBxINscVkqfO+o92VO0/KSMbUqhzmWN0GDXs7P3+cR0cOUZy/3xDnG2PDpSgAd2irroqckeVK3FuWRVq/lg==; c=relaxed/relaxed; s=zmail2048; d=rong.moe; v=1; bh=gTZ5RCXqmBhZUpuuWBBkcgRt74bv///8083+IQ+cJcI=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 1795612920119490.9209554113056;
-	Wed, 25 Nov 2026 05:22:00 -0800 (PST)
-Message-ID: <2acea8e2f1a457be724c9475881f1d5f47ade7d2.camel@rong.moe>
-Subject: Re: [PATCH v4 4/6] platform/x86: thinkpad_acpi: Restore keyboard
- backlight level ourselves
-From: Rong Zhang <i@rong.moe>
-To: Qiling Zhu <kmatzkaczor244@gmail.com>, Mark Pearson	
- <mpearson-lenovo@squebb.ca>, "Derek J. Clark" <derekjohn.clark@gmail.com>, 
- Hans de Goede <hansg@kernel.org>, Ilpo =?ISO-8859-1?Q?J=E4rvinen?=
- <ilpo.jarvinen@linux.intel.com>,  Henrique de Moraes Holschuh	
- <hmh@hmh.eng.br>
-Cc: platform-driver-x86@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	ibm-acpi-devel@lists.sourceforge.net, Lee Jones <lee@kernel.org>, Pavel
- Machek	 <pavel@kernel.org>, Griffin Kroah-Hartman <griffin@kroah.com>, 
-	linux-leds@vger.kernel.org, vishnuocv@gmail.com, vsankar@lenovo.com, Andrea
- Rabbaglietti <rabbagliettiandrea@gmail.com>
-In-Reply-To: <20261125084644.137506-5-kmatzkaczor244@gmail.com>
-References: <20261125084644.137506-1-kmatzkaczor244@gmail.com>
-	 <20261125084644.137506-5-kmatzkaczor244@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-Date: Wed, 25 Nov 2026 21:16:31 +0800
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=UeIjzfxP;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=AgIMKDlQ
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AP9mcfN796791
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 13:23:45 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	DEXSKj0qLtLCuzwB7F4ETUvNv7J3DjigdPft60M7V4A=; b=UeIjzfxPQSU5Mrvy
+	XTX3ZedT1gudutbBoFGqtfnM22kog3U9MaelqjlOHQqrG+gdpoL0tsJp4SFvrPLi
+	oBab+Hcyz70CNYP4Jub/V7Tg9VqjRAhQruMxDYh5QqzJcwIgBe01vf+shWbapGci
+	DYRCs6QwYfOu/tilS+Z1xCjOfHnXhvbCWeiSBwo7eL6Ew11C+NQpyaeEy3zwk/Kv
+	FqCQSQuBmB4ss35oKp0DjbgxwEiCM0mbRZe70N0iaI5QIozEV92VQNMKI2e4ODoj
+	dsfAkKDsGQ0SJTddDgZ7UJLJMU08uz7MObJpdsAan5t0hWN/W+ww+rs9OzsoWQXc
+	9/uiWQ==
+Received: from mail-vk1-f197.google.com (mail-vk1-f197.google.com [209.85.221.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j5n6rtv43-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 13:23:44 +0000 (GMT)
+Received: by mail-vk1-f197.google.com with SMTP id 71dfb90a1353d-5eac2cf3905so1262729e0c.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 05:23:44 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795613024; x=1796217824; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=DEXSKj0qLtLCuzwB7F4ETUvNv7J3DjigdPft60M7V4A=;
+        b=AgIMKDlQmHih4Ig6vpNq1cdJwpFiSfzXiD9vVSoStkJau5zLFtD1DzadvTF6PVd1cx
+         5KY17/0Ans9elkFt9PAnblBXytRcu/N1cO9BBDt3mFvX6c9vFGB4LpIVB+YacnlsBga5
+         L1pwumLGr3nAnb+CNal47dpi/AWTq1Sq5KGW3AFNKVQasJ9hEPOMkMeueuhCM+T3VoZp
+         atwrflmz7xcqCiA7XePjYV8qgIiVxnM4x5IQc32ygWY5janZCMlg7V8JbMV769sZ9g8o
+         isYupyC4WnIRS3YpLjVra3gn75oesF5xKR4ouoUjPvqPVXEA8Ua9IanduFOLA681BXwQ
+         UpxQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795613024; x=1796217824;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=DEXSKj0qLtLCuzwB7F4ETUvNv7J3DjigdPft60M7V4A=;
+        b=Sgpz5g0d9nEzUtwRPZdU38O1sM1VO3m4+y8WE8WejJNGDuqlN4Gx0YA6CIAFg3Ukp0
+         QgMNkqv5Mpe8K5qazqLO7yj3tfkQLwwwBsqsJUktKKVzUWF703JRR5ITAUzo4AbLwNLu
+         1HkAzK3h1upn5oLGnEC4GdeWdvktLprdsCJbJDXUG6NU6J0QbantH5+gQWVPfMz7lcjG
+         KrNWAYjRIS75TLMz8tyhNj90IoB6RD22/gtGs/XmfPz9PkRjM3Yc9gT8gd8AZpzq6TKQ
+         sU8ZwuMtasnlsKo9cGMYKeOSgCA4Px2+h5TpUEnBDiJtbQHzRwCDbfsgrcwKS4mSj/d1
+         +oEw==
+X-Forwarded-Encrypted: i=1; AL+hErG77VHoC/b08WQbDR8BRVHo51ffooghUgR9vu245mPbPbdzlyZ4yifmeW7eojmtzqkrsYxRUnj4CE0YqXc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/TwwQO9+3ZtmsXvloEbAwRiZSqPZfGM2VlxC4NNzz5SCu2Lz04
+	t0jRH1s3UoijkGSUtkQKxejB0ncdde2QN8ZI0Dg12FKz/ZEvrxy1msZkh0+xYftZjlByd8+3Cei
+	zRDfrsxU5Rt5V/xu8Bag03tXuZw3Lpl3xLZ/kCxrVmWDKRwMkh3mv7H5FMxVktfV5mmc=
+X-Gm-Gg: AZFdTZcC9NsG4mvUgwcNuXfN1XxYaHcLKg+6r1YAwvYEGH1Rk9qd5QPDoXO6wy16shc
+	0ESff97ycBj80LiWL2q8g23/vGOXySYbgOasl0eYgfRq/2+vbdQxxS68QZxe2yBuKTYSiA+bxRw
+	c9GcHD01f+DOvSUdgp+pTKTZHsNBFCYea7qcKiDBej8WVnTSnZlboFta/ycrTR9Vmt/IML4E1mW
+	sBBZXwQgwsLj4uJ6fzqmLMrG/Watc3ZvSWX8bdqXNkGsbxlL6/NlVA303VyXglIFxiUqX+JIonK
+	6BEY/tzTobV1742Y0ajviqmPfRe3UjEUOf7+uwOvnUVz/dMcE8K6qqyQiCdcXYhMIYQzW+CQBXo
+	CKbf5HZAo8m/EFin9TAqBHeVf5QsSAzmvkiNUXXtfDlSq4aWsldYhttLcb/scmTnHfbP+DjVCG2
+	//sSpTcoL+VPMUXwEsjX/PNeuubO35U43GbIXZ1prFVHyMEE6qg5ZwA1NbKjPyMA==
+X-Received: by 2002:a05:6122:7cc:b0:5ea:a0f0:192f with SMTP id 71dfb90a1353d-5ee8aee2709mr9459966e0c.10.1795613023501;
+        Wed, 25 Nov 2026 05:23:43 -0800 (PST)
+X-Received: by 2002:a05:6122:7cc:b0:5ea:a0f0:192f with SMTP id 71dfb90a1353d-5ee8aee2709mr9459896e0c.10.1795613022653;
+        Wed, 25 Nov 2026 05:23:42 -0800 (PST)
+Received: from brgl-qcom.home (2a01cb1d00dc7e0089167b9b97a26c96.ipv6.abo.wanadoo.fr. [2a01:cb1d:dc:7e00:8916:7b9b:97a2:6c96])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853ca452sm506211355e9.15.2026.11.25.05.23.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 05:23:41 -0800 (PST)
+From: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+To: Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>,
+        =?UTF-8?q?Jan=20Sch=C3=A4r?= <jan@jschaer.ch>
+Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+        linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] gpiolib: fix inverted trace values in gpiod_get_array_value()
+Date: Wed, 25 Nov 2026 14:23:39 +0100
+Message-ID: <179561301701.43809.14124670705710652305.b4-ty@oss.qualcomm.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261120130208.89621-1-jan@jschaer.ch>
+References: <20261120130208.89621-1-jan@jschaer.ch>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -76,142 +123,53 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Evolution 3.62.1-4 
-X-ZohoMailClient: External
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI1MDA1MyBTYWx0ZWRfXzdkT3KBWkz3F
+ akFqlHQs3DYLUuPhbZxICxaSi/0XtmlzIpr4fxAHRB3/TNTbky3DLScKYMzKOtuQ96Ov3lg4hXM
+ oNr9n1PEAI1uj9NoHOIPKFv6yz4AMuB5LBWR0s3KQJNFq11SH2Cc4Zr6GmaAaXIm+0rD7yN9wJc
+ jh/5+VcZrEcP89eRvnBsgIhIgKciRVpnhEmCVhSxWxigNnQZHzL3bfTi7qZffspO3ruigSssLJd
+ YT7nn/4FsGPcL7jP6TJItxFYhl+WO8p8TOPK9T87gCsQPt2tDR81gBYkn9NPhAjPPdic59FXZTF
+ /QHTGMmqRH+XTtdgQSubu0NKZyAAAhQWzSxwtPynxycyQmgLRlPLRTODoz1CEGuv0EQeqEs6+LK
+ wTUmf1Wc63Xc7EfkmfIzIHZ7OUODC1CtrWvqNs4nYTWOxvr+6dL3uMb5CUeQVSPP3/9fHxs5KTA
+ FY1MliPiN1nT6zYt7UQ==
+X-Authority-Analysis: v=2.4 cv=Voa2kO2n c=1 sm=1 tr=0 ts=6b06e160 cx=c_pps
+ a=JIY1xp/sjQ9K5JH4t62bdg==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
+ a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22 a=VwQbUJbxAAAA:8
+ a=EUspDBNiAAAA:8 a=4nZhoAphiK6mMl3Pq-EA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+ a=tNoRWFLymzeba-QzToBc:22
+X-Proofpoint-GUID: WpCByskKz6EfQiR_G9qo4p_G5GpT0MMb
+X-Proofpoint-ORIG-GUID: WpCByskKz6EfQiR_G9qo4p_G5GpT0MMb
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI1MDA1MyBTYWx0ZWRfX3RVFNZW60D8I
+ X8I+c7acZBIhNxRsDjJJ7U5hXWFzVii+ez/zdALWLK+TdQjslcBr2rypxs5eP+A7tL2a7OR4X3s
+ PKyUj+t0DOSVK38rOXSgcnixk9CpiX4=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-25_03,2026-11-23_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 malwarescore=0 clxscore=1015 bulkscore=0 lowpriorityscore=0
+ adultscore=0 spamscore=0 priorityscore=1501 suspectscore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611250053
 
-Hi Qiling,
 
-On Wed, 2026-11-25 at 16:46 +0800, Qiling Zhu wrote:
-> kbdlight_suspend() and kbdlight_resume() leave the keyboard backlight to
-> the LED core across sleep: the LED core caches the current brightness
-> and turns the backlight off on suspend, and writes that brightness back
-> on resume.
->=20
-> On a ThinkPad X1 Carbon Gen 14 with thinkpad_acpi unloaded, the firmware
-> turned the backlight off when entering both s2idle and hibernation.
-> After waking from s2idle the EC was back at its previous level, for each
-> of the four levels tested; after waking from hibernation it was at 0.
->=20
-> Drop kbdlight_suspend() and leave turning the backlight off to the
-> firmware.  On resume, write the cached level back to the EC on all
-> models, instead of relying on the LED core: this brings the backlight
-> back where the firmware came up with it off, and changes nothing
-> where the EC already has that level.  For this to hold for every
-> mode, have kbdlight_brightness track the EC level itself, 0 to 3,
-> rather than the brightness reported to the LED core, in which the auto
-> mode (level 3) shows up as 0; translate it only when reporting a
-> brightness.
->=20
-> Only s2idle and S4 were available on the test machine; S3-capable
-> models were not tested.
->=20
-> Signed-off-by: Qiling Zhu <kmatzkaczor244@gmail.com>
-> ---
->  drivers/platform/x86/lenovo/thinkpad_acpi.c | 38 +++++++++++----------
->  1 file changed, 20 insertions(+), 18 deletions(-)
->=20
-> diff --git a/drivers/platform/x86/lenovo/thinkpad_acpi.c b/drivers/platfo=
-rm/x86/lenovo/thinkpad_acpi.c
-> index 16bf2267d..764b1efa6 100644
-> --- a/drivers/platform/x86/lenovo/thinkpad_acpi.c
-> +++ b/drivers/platform/x86/lenovo/thinkpad_acpi.c
-> @@ -5105,7 +5105,12 @@ static struct ibm_struct video_driver_data =3D {
->  /* EC level that selects the auto mode for the keyboard backlight */
->  #define TPACPI_KBD_LIGHT_AUTO_LEVEL 3
-> =20
-> -static enum led_brightness kbdlight_brightness;
-> +/*
-> + * Cached EC level, including TPACPI_KBD_LIGHT_AUTO_LEVEL.  All state
-> + * tracking compares EC levels; the auto mode is translated to a
-> + * brightness value only when reporting to the LED core.
-> + */
-> +static int kbdlight_brightness;
->  static DEFINE_MUTEX(kbdlight_mutex);
-> =20
->  static int kbdlight_set_level(int level)
-> @@ -5247,7 +5252,10 @@ static int __init kbdlight_init(struct ibm_init_st=
-ruct *iibm)
->  =09=09return -ENODEV;
->  =09}
-> =20
-> -=09kbdlight_brightness =3D kbdlight_sysfs_get(NULL);
-> +=09kbdlight_brightness =3D kbdlight_get_level();
-> +=09if (kbdlight_brightness < 0)
-> +=09=09kbdlight_brightness =3D 0;
-> +
->  =09tp_features.kbdlight =3D 1;
-> =20
->  =09rc =3D led_classdev_register(&tpacpi_pdev->dev,
-> @@ -5281,14 +5289,20 @@ static void kbdlight_notify_level(int level)
->  =09=09return;
-> =20
->  =09kbdlight_brightness =3D level;
-> -=09led_classdev_notify_brightness_hw_changed(led_cdev, level);
-> +=09led_classdev_notify_brightness_hw_changed(led_cdev, kbdlight_level_to=
-_brightness(level));
->  }
-> =20
->  static void kbdlight_notify_change(void)
->  {
-> +=09int level;
-> +
->  =09guard(mutex)(&kbdlight_mutex);
-> =20
-> -=09kbdlight_notify_level(kbdlight_sysfs_get(NULL));
-> +=09level =3D kbdlight_get_level();
-> +=09if (level < 0)
-> +=09=09return;
-> +
-> +=09kbdlight_notify_level(level);
+On Fri, 20 Nov 2026 14:02:08 +0100, Jan Schär wrote:
+> Almost all trace_gpio_value() calls report the raw value.
+> gpiod_get_array_value_complex() is the only exception; it reports
+> the logical value in traces unless the caller requests raw values.
+> This inconsistency makes GPIO traces confusing.
+> 
+> Move the trace call earlier, where the value is still raw.
+> Now, all GPIO traces consistently report raw values.
+> 
+> [...]
 
-I believe these changes doesn't affect the behavior of
-TP_HKEY_EV_KBD_LIGHT. Usually you can move the changes to the factor-out
-patch (i.e., PATCH 2) to reduce back-and-forth changes, with a brief
-explanation added to the commit message there.
+Applied, thanks!
 
-With them moved:
+[1/1] gpiolib: fix inverted trace values in gpiod_get_array_value()
+      https://git.kernel.org/brgl/c/601acadb79b62ee52edbd29ec69d8f677dc32dcd
 
-Reviewed-by: Rong Zhang <i@rong.moe>
-
-Note that you don't need to drop my R-b from PATCH 2.
-
-Thanks,
-Rong
-
->  }
-> =20
->  static int kbdlight_read(struct seq_file *m)
-> @@ -5337,31 +5351,19 @@ static int kbdlight_write(char *buf)
->  =09return 0;
->  }
-> =20
-> -static void kbdlight_suspend(void)
-> -{
-> -=09struct led_classdev *led_cdev;
-> -
-> -=09if (!tp_features.kbdlight)
-> -=09=09return;
-> -
-> -=09led_cdev =3D &tpacpi_led_kbdlight.led_classdev;
-> -=09led_update_brightness(led_cdev);
-> -=09led_classdev_suspend(led_cdev);
-> -}
-> -
->  static void kbdlight_resume(void)
->  {
->  =09if (!tp_features.kbdlight)
->  =09=09return;
-> =20
-> -=09led_classdev_resume(&tpacpi_led_kbdlight.led_classdev);
-> +=09guard(mutex)(&kbdlight_mutex);
-> +=09kbdlight_set_level(kbdlight_brightness);
->  }
-> =20
->  static struct ibm_struct kbdlight_driver_data =3D {
->  =09.name =3D "kbdlight",
->  =09.read =3D kbdlight_read,
->  =09.write =3D kbdlight_write,
-> -=09.suspend =3D kbdlight_suspend,
->  =09.resume =3D kbdlight_resume,
->  =09.exit =3D kbdlight_exit,
->  };
+Best regards,
+-- 
+Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
