@@ -1,63 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=46.14.198.178
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795608720;
-	b=oIbXqyAoaWojZdJS/OwLGPtx2n6qVlm7bQ1vX2/K2U/uABAYmr5twF/AOfqs5OxAoCgS
-	 V/KYy/6CrFD5uQpjTizMlbwbe3Yux5R1qS9gsz9i8UhjTtVaaTzSvYqxWBSF9Zng6Ky/a
-	 aDAwYDhI78jYdkKSKT2vRkj82bM7cg91u1roXlC9VubKRIeuA21qYCMWL05hpzNeSKigk
-	 zIiCL+GdY9hwYv5WoIO2tz4osYbpWlTSs9k9DLYnuPj1/tNZ+sgDanKFvBGnVn4QoWyjy
-	 TUEf8vZ7ilh0eiSQcKmnxnu/OFbmFzwGRpkYz3/c9pSCt+HdCA+QcNB+ZxKKBEtGhaw==
+	t=1795608813;
+	b=BRrnWmNox4+t5+qWdSDucBYNm+K8E41jVhPJHia0TLdhOegkzefOu6B9uBnQqYnIr+m4
+	 NuGEPhYZUom4iujAPYf2ygWReKUdCw2agnJyUdmoDONB4+ItLmXE24wYd9GHUaQ9c6RHk
+	 JzNHdn3lnoq4KRkOu05KF9TIL8AAuUpi0yVtRe8MfOtyxcN2mURqVhSoljNZn3v6BjdjQ
+	 fXnFEbrI6Lemz9u38pWaz0pzXS3rKDLV2A/nn37CFRqmKuvmMoIBXITYpH0h7B17fuYr1
+	 oRhSOstdHS1cz2p3g+sHkkRBEY/lux1aM4cSicY29KHitVVQXJ/7vvwzkMbJf1OmH7w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795608720;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=zoIAFYAcrw2In7mPsz0I79pd13SW8TJXMyFwyHpwC1k=;
-	b=4UBmW+lVZSsM7Zol7m6Ahlotz3ChODw959qPjWytFH8dsvVEfeSvKe2kitCfFHZ3uZiR
-	 PIHbt4AD7Z2unRlq5H91N11Ljk3P4xBkQcARCRTJd+48BoarRL0BLMaNyTeAu+k53Ca8b
-	 zVA/LMm3s46p2+SlN11XPY2vVx2UydZjtUw7liA4bQ9PvAe9xkw/5FREVB8SubYQstw+m
-	 zFWsKHhfQfQ3fAOvTWqaknqkQpL+NJoY/4dSzNrxSQU0YHQeJUCp+73hDvbzM+xElVi/d
-	 FblsIzDcqontQh8aSnyyTD1EkD/b25QvQqGFmpuhKBJ9mxP0rWHGgu33XfKvCekBtoQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795608813;
+	h=DMARC-Filter:From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
+	 References:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Received:DKIM-Signature;
+	bh=3oaoMw5fIc0MMZ1IvijkvhqcCiuTTyPoYGfE2YDn1Vo=;
+	b=bONpPnfVjM79oVaWHLrKAy8PIcqFjv3xurKF79ZsL64/l+ekZ94XIh662EJY70/dFcYh
+	 nQYx9/osgO9wg7xakG4MGQT70/5NFHjUQBFge3kQFNrd+II+2Olig5gKr4qoND/3IFt3O
+	 fdtNfycrhrZAurG4Qy1tywJZhV9JOMWA9l01Y3W1AN6bE+5CaRCWeiNxTZwzK3J/MOka4
+	 AVm59eNxrkm3qEZaI7cimk+pCA+4REkwXEqaxL0PwRbRF90sDXLX41SF6RP6NeRNaCq8I
+	 MXAHrzd7/rgZWZLfIetbLOq4B6VoHfUSmjwcDMQ3DoV9C9v5KCuqei2YvorUoDIFiXw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UDXyQVo9;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=rimpianto.com;
+	spf=pass smtp.mailfrom=rimpianto.com;
+	dkim=pass header.d=rimpianto.com header.i=@rimpianto.com header.a=rsa-sha256 header.s=s20260314391 header.b=dE7i2YJ5;
+	arc=none smtp.remote-ip=46.14.198.178
+Received: from mail.rimpianto.com (mail.rimpianto.com [46.14.198.178])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A99CE606A31E;
-	Wed, 25 Nov 2026 12:12:00 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C9D8E606A31E;
+	Wed, 25 Nov 2026 12:13:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C9D8E606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=rimpianto.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rimpianto.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UDXyQVo9
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE2691F000CA;
-	Wed, 25 Nov 2026 12:11:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795608720;
-	bh=zoIAFYAcrw2In7mPsz0I79pd13SW8TJXMyFwyHpwC1k=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=UDXyQVo9ECntjvpQbMJ/hC9fIhbVdR2aq4mM07ICQmsBluEJnMw5Ew6ycPsnPcXgN
-	 NSnZ4LttzwNCF1DLgS0McSQRLtvQNhEzNGSnNHLG+BgTcnVqxQJOcYZq1ZNhpjwAOr
-	 MK2gVwEXQyqOcgotezSvv4KSlBUnBdwn3K3/EtmDeyrXO4xqs+YFWmsjdhambuX9er
-	 ikcTTeaXXypizqg0q02qJ9ssWdRN8Pt2dc06DXLDy+5vpiUzHAutcK2pK5wA+5OZ29
-	 j9QCRqj4Qyp7IJZCUUd3iVqz7ichk2hcGRiOzEYJl1LikyJGa03l4rYeMuEu4CwvP3
-	 l1+KJWq8amdPQ==
-Date: Wed, 25 Nov 2026 12:11:53 +0000
-From: Simon Horman <horms@kernel.org>
-To: netdev-bot+sashiko@kernel.org
-Cc: m-malladi@ti.com, marco.crivellari@suse.com, kees+treewide@kernel.org,
-	laixiangwu@cmss.chinamobile.com, philippe.schenker@impulsing.ch,
-	haokexin@gmail.com, devnexen@gmail.com, jacob.e.keller@intel.com,
-	sdf@fomichev.me, john.fastabend@gmail.com, hawk@kernel.org,
-	daniel@iogearbox.net, ast@kernel.org, pabeni@redhat.com,
-	kuba@kernel.org, edumazet@kernel.org, davem@davemloft.net,
-	andrew+netdev@lunn.ch, bpf@vger.kernel.org,
-	linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, srk@ti.com, vigneshr@ti.com,
-	danishanwar@ti.com
-Subject: Re: [PATCH net-next 1/2] net: ti: icssg-prueth: Add multi-flow RX
- support with per-flow NAPI
-Message-ID: <20261125121153.GU31322@horms.kernel.org>
-References: <20261118184729.2302130-2-m-malladi@ti.com>
- <179537406410.3135.5804903978186343042@kernel.org>
+	dkim=pass (2048-bit key, unprotected) header.d=rimpianto.com header.i=@rimpianto.com header.a=rsa-sha256 header.s=s20260314391 header.b=dE7i2YJ5
+Authentication-Results: mail.rimpianto.com;
+	auth=pass (plain)
+From: Federico Musto <federico@rimpianto.com>
+To: netdev-bot+sinfo@kernel.org
+Cc: Federico Musto <federico@rimpianto.com>,
+	Chris Snook <chris.snook@gmail.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH net] net: atl1c: cancel the common_task work in atl1c_remove()
+Date: Wed, 25 Nov 2026 13:13:28 +0100
+Message-ID: <20261125121328.2662-1-federico@rimpianto.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <179560665678.3294.8918626244463796277@kernel.org>
+References: <20261125113141.99792-1-federico@rimpianto.com> <179560665678.3294.8918626244463796277@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,64 +62,37 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <179537406410.3135.5804903978186343042@kernel.org>
+Received: from localhost (Unknown [127.0.0.1])
+	by mail.rimpianto.com (Haraka) with ESMTPSA id 26FF1932-D966-4E05-B3EB-22FB759A1D93.1
+	envelope-from <federico@rimpianto.com>
+	tls TLS_AES_256_GCM_SHA384 (authenticated bits=0);
+	Wed, 25 Nov 2026 13:13:29 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rimpianto.com;
+ h=Content-Transfer-Encoding: Content-Type: MIME-Version: References:
+ In-Reply-To: Message-ID: Date: Subject: Cc: To: From; q=dns/txt;
+ s=s20260314391; t=1795608809;
+ bh=3oaoMw5fIc0MMZ1IvijkvhqcCiuTTyPoYGfE2YDn1Vo=;
+ b=dE7i2YJ5PHZAHSc6MpK70/WntPdOh8d7RMonT9jjEQbqoxXnOIpNoiCN8NQ6qXMxt4VtImg4d
+ m/i98D1/QMreloZu2jcsaszKa4qGVX8wD+Gdmkzy7Z5bUW6vqxJXUo8aIyv+pFc/LsbL8Chc/0Q
+ YM6k1BWw7wsyRlVZKb2BuQLoBXl5NOWsNOc5B5a19+9HGYRpDGbPL6dAIUDt4ddRRiZjyHOOw9X
+ DVEq80d3px5JoJQbmem8Dk/I357CZiEIVI6VBckja8OHqD1jaKcsTpGrlUedP9/rbeJG0qLyYpI
+ QiSAnskArfYSfCmAO945sph/9UU2Jg0JJvhMJSbm2zQw==
 
-On Sun, Nov 22, 2026 at 07:01:04PM +0000, netdev-bot+sashiko@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 19 potential
-> issue(s) to consider.
-> 
-> Critical: 2 · High: 1 · Medium: 12 · Low: 4
-> 
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
-> 
-> - [Critical] SR1 data RX path is out of bounds.
-> - [Critical] SR1 management-channel buffers get invalid DMA addresses.
-> - [High] On a running interface, a failed XSK enable/disable leaves the
->   flow half torn down, and the next ndo_stop then hangs or the driver…
-> - [Medium] Multi-flow RX does not work on AM65x SR2 ('ti,am654-icssg-
->   prueth'), which uses NAVSS UDMA rather than PKTDMA, but the driver…
-> - [Medium] SR1 management-channel teardown is incomplete compared with
->   before the patch.
-> - [Medium] Misplaced error label in SR1 emac_ndo_open().
-> - [Medium] An AF_XDP pool bound while the interface is down silently
->   stops working after ndo_open.
-> - [Medium] All flows share one desc_pool, and the XSK runtime refill
->   budget comes from the pool-wide free count, which other CPUs change…
-> - [Medium] The SR1 data-flow page pool is never destroyed.
-> - [Medium] SR1 now gets an RX coalescing hrtimer but never cancels it.
-> - [Medium] prueth_xsk_pool_disable() can return an uninitialised value.
-> - [Medium] On a running interface, XSK enable/disable now reconfigures a
->   single flow while the shared UDMA RX channel stays enabled.
-> - [Medium] Racy irq_disabled handling in prueth_destroy_rxq() and the
->   prueth_create_rxq() error path.
-> - [Medium] RX drop and error counters can lose updates now that RX runs
->   in several NAPIs at once.
-> - [Medium] A coalesce setting is not applied to RX flows added later.
-> - [Low] The ethtool channel range does not match what SR1 implements.
-> - [Low] In the SR1 mgm flow setup in emac_ndo_open(), the IRQ check is
->   wrong for the signed field.
-> - [Low] Leftover field and mixed-in cleanups.
-> - [Low] net: ti: icssg: missing skb_record_rx_queue() in RX packet paths
+The change was not tested on real hardware.  The use-after-free window
+- a link-change interrupt re-queueing common_task between the
+cancel_work_sync() in atl1c_close() and free_irq() - was found by code
+inspection and has not been reproduced.
 
-This is quite a list of issues. And I would appreciate if you could
-respond to them as requested above. For patch 1/2, the four that look most
-likely to require a respin are:
+It was build-tested on x86_64 against netdev/net with W=1 and sparse,
+with no new warnings.
 
-  - [Critical] SR1 data RX path is out of bounds.
-  - [Critical] SR1 management-channel buffers get invalid DMA addresses.
-  - [High] On a running interface, a failed XSK enable/disable leaves the
-    flow half torn down, and the next ndo_stop then hangs or the driver...
-  - [Medium] Multi-flow RX does not work on AM65x SR2 ('ti,am654-icssg-
-    prueth'), which uses NAVSS UDMA rather than PKTDMA, but the driver...
-
-Patch 2/2 likely needs attention as well, but I have not reviewed it.
-
--- 
-pw-bot: changes-requested
+For context, the hardware I have for this driver is a MikroTik
+CCR2004-1G-2XS-PCIe, whose SoC exposes emulated AR8151 v2.0 functions
+[1969:1083] rather than a discrete Atheros controller.  The related
+two-patch series posted alongside this patch was runtime-tested there
+through a DKMS port with diagnostic counters (27 link-down events,
+~4.3 GiB of traffic, the link recovered every time), but that build
+does not include this change, and the remove/unbind path was not
+exercised on the card.
