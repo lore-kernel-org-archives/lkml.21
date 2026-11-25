@@ -1,54 +1,52 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.143
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795598298;
-	b=2L7c0fWLSNtladlNHz/2/O6abuXiLtwGo8ph3OWu+0bz3+Mi2yCXU/x9TIUKZZLG304x
-	 rNsxBfLYoA9lXNBAGXNAz40gFvllYUFjD5jD0rHcOPN+RazrGpbrar8SAqFDckWMojGjk
-	 yAQbKCQ77WRUfAWPiZnTiKwdfM0jC/FldPlrLSrE5qTyifHC02vrMaTLcZ8AyuW9N0Uf4
-	 bXXVH5KZa/qYGMaj+3Wxw7ZcOa04dn5L580desKpPZAm/O61K2FK9QYcqaIyW+fpz2MWE
-	 AVYFyXUoQ7rCrgcqLwHsY5ct6nO84uUkFBP0zM+y9FO2BK+dwrgUPxeJaw9Ez7MeniA==
+	t=1795598308;
+	b=rcj+cNAAaeD2HxdLwvEkagE5aiX2fW1x1CoLYeIbBJ8Zacm+pgPmzCogCJa7K939OF8M
+	 u9iVXnoMwIviuHEW06rp/76bwuNWak62BvjOs+u5aOtTur0LxKpXr6J4iEtHHUN6/R6wI
+	 H8+7w0+uTt+4va1Qd5dgOeeTXYWT4GcipM4uNJzAgMm8Zfx1s8L6EV6gFhNK1MXppDIOv
+	 0/6x/XpiSshS72Xz8I5/1HWGtulgtoZL10f03L5KvXyFqBdFCitAj7eQ9xR7wJGz71AfL
+	 wE80NSj9aKZerGqDALrvZvR6YwcfZ/wVzjdqrvUf4UlL/qOoork6jhM2VEKCBsHB9cQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795598298;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 From:Subject:To:Cc:References:Content-Language:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=y+2r4fG+UznQIXXE3C+R4pQGdQ5wZVXkmN5K7GeDHs4=;
-	b=rCe+UFm2VhPCauiyGL6wGx3SikK+JE0g3vRmqXqQoMNChMsv3s3+ZNp96teLUr3mjSmy
-	 vstHL7CUo9jsnG8+LUzTI0foFVAe88l38OPqousYLf0T6A5/224brHvgTTWafnqgrCoJI
-	 ks1x3ocEVCe/gGdOHCS8b+P+UjxvEr8ThwVLV8jz/ieDicrfw8LwgBAfWXfl+tXYpMeJO
-	 JpI3+RpYWP7qjHlFSYZMe77lGttnE44wJZoJmE4e4vZGpja70ukkyGUPaskaRutsu/YFS
-	 eHILABEwZ6+JSUBtfOFyEYGqFqfofjA50G+B+EGLxkl2aEp1ElfvaIdJE0lylhYTUEQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795598308;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=Oqn9SmXHIslwuMH06EIys2Giysc7tULBH+k/OfvkddA=;
+	b=vBiy0zK+wrXm8d8djfSgcd8OZLh9fYo5Xd91zKNdll0NIpgZDJJ4nb2LCX/jmqggPg2n
+	 ZVPmWkdTRvGSANiF5gDO3b5MPhwd+Dd8hEJCqDTXDnhaTVd+qKYdpqIbXvYUV5z2xWPd6
+	 hN4uppe6t0Tlq+BUABLhW0vgOIlXZtFvA8Ab5iGw5g+7BbLsZNPUS83OgQX4A2psF1CJ3
+	 3N9LjolKyvBMqToFEfY5YmKLzf6qFCEanHWpNELdJV6RIfqvPqy3iBQsyKhITvcbR4iQZ
+	 gRJC1nRxb4bmCS/3CLaAh0wD7tkp1JqUz6VLkQOcHAAFSXR4SAverUNYWB8PCNIWluw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=j00Rsx2O;
-	arc=none smtp.remote-ip=95.215.58.143
-Received: from mta1.migadu.com (out-143.mta1.migadu.com [95.215.58.143])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=t1vj9qT1;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 13EE6606A33C
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 09:18:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 13EE6606A33C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5F126606A68B;
+	Wed, 25 Nov 2026 09:18:28 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=j00Rsx2O
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=BMfH48xOt2irIlEx2o6dYqxmMgmYPvLKMXb/KO3WSmE=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795598295; v=1; x=1796203095;
- b=j00Rsx2OaBeT3y4UDlDtjo4HxsX6uIoNNwmgKZhoYfKOymOtqBCmuls20kOKbTvtvYd/mq0y
- 8wTL6iMs604p1047UcBFNKpslOS4rcgFwOKGoSzMaxrMMdE3T2xgCiqxqnlawQlieshLqInAb/x
- 7Pst8LlLSDNPOg+eVA09tGFE=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by mta11.migadu.com with ESMTPS id 38a7a00aad77a690;
-	Wed, 25 Nov 2026 09:18:13 +0000
-X-Mizu-Trace-ID: 38a7a00aad77a690
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <a337f9fc-b6ef-48c4-ad98-52972b10b4c9@linux.dev>
-Date: Wed, 25 Nov 2026 09:18:12 +0000
+	dkim=pass (1024-bit key) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=t1vj9qT1
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B44E1F000C0;
+	Wed, 25 Nov 2026 09:18:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
+	s=korg; t=1795598307;
+	bh=Oqn9SmXHIslwuMH06EIys2Giysc7tULBH+k/OfvkddA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=t1vj9qT1iWN3VNHebj6sQdrQxOYD8nuL0v0MoOjoexgAqzkbTVFW83QbrZovDAweF
+	 fugqL/+RnSZIYrJsIBPF/8UDVe0JaCsZUEM7j+ZVITKsHBv/sekt86yekzV3qhH4b2
+	 FGrAdUjT4vXWtL5MYrtAyDF1XAQpMaPrLBmwDEuA=
+Date: Wed, 25 Nov 2026 10:14:25 +0100
+From: Greg KH <gregkh@linuxfoundation.org>
+To: Ren Wei <weir@nebusec.ai>
+Cc: driver-core@lists.linux.dev, linux-kernel@vger.kernel.org,
+	rafael@kernel.org, dakr@kernel.org, johan@kernel.org,
+	akpm@linux-foundation.org, kay.sievers@vrfy.org, vega@nebusec.ai,
+	caoruide123@gmail.com
+Subject: Re: [PATCH driver-core v2] kobject: terminate the uevent helper
+ environment
+Message-ID: <2026112516-germicide-viewing-3a9f@gregkh>
+References: <39d1eae0d7c8b235f5d4b68d94205b70832ab786.1795506878.git.caoruide123@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,64 +56,58 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: John Garry <john.garry@linux.dev>
-Subject: Re: [RFC PATCH] xfs: add a per-filesystem switch to force atomic CoW
-To: Dave Chinner <dgc@kernel.org>
-Cc: Wayne Gao <Wayne.Gao1@solidigm.com>, "cem@kernel.org" <cem@kernel.org>,
- "linux-xfs@vger.kernel.org" <linux-xfs@vger.kernel.org>,
- "linux-api@vger.kernel.org" <linux-api@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-References: <LV0PR10MB997684D5CA8A6AC037F6D1CD8AB9472@LV0PR10MB997684.namprd10.prod.outlook.com>
- <awSd1JEB0F4WeKt0@dread> <2a615ca6-3777-4b71-bea6-4072d4fbd950@linux.dev>
- <awXuAESDkLr1nd3n@dread>
-Content-Language: en-US
-In-Reply-To: <awXuAESDkLr1nd3n@dread>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <39d1eae0d7c8b235f5d4b68d94205b70832ab786.1795506878.git.caoruide123@gmail.com>
 
-On 11/24/26 20:05, Dave Chinner wrote:
->>> Ok, so you want it for your test/dev environment, not production?
->>>
->>> I thought we could already change the block device characteristics (i.e. support hw
->>> atomic wirite or not) at the block device level?
->> The block layer just accepts whatever atomic properties is reported by the
->> block driver and there is no method in the block layer to change these
->> limits or turn them off.
-> Isn't that a bit of an oversight? Lots of the hardware related IO
-> capabilities are configurable in the bdev queue (e.g. max io sizes,
-> max discard/unmap sizes, max queue depth, etc).
-
-Generally anything which affects atomic limits is fixed. As you 
-mentioned, there is max io sizes, which can be configured from sysfs - 
-however, for HW atomics we ignore max_sectors and just pay attention to 
-max_hw_sectors.
-
-For any normal IO, the block layer can slice and dice the IO any way it 
-wants. HW atomics are not like this, and the IO must be submitted as a 
-single bio/request. For any dynamically changing HW atomic limits, we 
-would always have the TOCTOU challenge, i.e. bdev limits can change 
-between checking atomic limits and submitting an atomic IO.
-
+On Wed, Nov 25, 2026 at 04:51:00PM +0800, Ren Wei wrote:
+> From: Ruide Cao <caoruide123@gmail.com>
 > 
-> Sure, they are initially populated by the hardware values, but the
-> user can then override them (e.g. via udev rules) and that means we
-> don't have need to add 'override the <bdev queue property>'
-> management interfaces to every filesystem that supports those
-> specific bdev hardware offloads.
+> struct kobj_uevent_env has room for UEVENT_NUM_ENVP (64) environment
+> pointers and add_uevent_var() lets all of them be used. Once the last
+> slot is filled there is no room left for a NULL terminator.
 > 
->> Then for the only block drivers which today support atomic - NVMe and SCSI -
->> similarly these we just use the atomic limits reported in the disk.
-> That seems to be inconsistent with how we manage other hardware
-> offload size limits on block devices. These are -not- filesystem
-> properties, and we should not be trying to manage them at the
-> filesystem level.
+> The usermode helper path passes env->envp straight to
+> call_usermodehelper_setup(), and kernel_execve() expects a NULL
+> terminated array. A synthetic uevent written to a sysfs uevent file can
+> supply enough variables to fill all 64 slots. With CONFIG_UEVENT_HELPER
+> enabled and a helper configured, kernel_execve() then walks past the
+> array into envp_idx and buf, and dereferences that data as string
+> pointers.
+> 
+> Lowering the limit to 63 would avoid the overrun, but it would also
+> reduce the capacity available to every uevent, including the netlink
+> path that does not need a terminator, and could make existing callers
+> with many variables start failing.
+> 
+> Add a dedicated sentinel slot instead, keep the limit at
+> UEVENT_NUM_ENVP, and keep the array NULL terminated after a variable is
+> added and after zap_modalias_env() removes one.
+> 
+> Fixes: 7eff2e7a8b65 ("Driver core: change add_uevent_var to use a struct")
+> Cc: stable@vger.kernel.org
+> Reported-by: Vega <vega@nebusec.ai>
+> Signed-off-by: Ruide Cao <caoruide123@gmail.com>
+> Signed-off-by: Ren Wei <weir@nebusec.ai>
+> ---
+> Changes in v2:
+> - Keep the capacity at 64 variables by adding a sentinel slot instead of
+>   lowering the add_uevent_var() limit, which would regress callers that
+>   emit many variables.
+> - Compare against UEVENT_NUM_ENVP explicitly.
+> - Keep envp[] NULL terminated after zap_modalias_env() removes MODALIAS.
+> 
+> v1: https://lore.kernel.org/all/cover.1795426787.git.caoruide123@gmail.com/
 
-As mentioned, HW atomic IO is special in this regard. Now for XFS we do 
-read the limits once at mount time. We could read the limits dynamically 
-instead, but it still has the TOCTOU problem, above.
+Why did you not actually reply to my previous email?
 
-Thanks,
-John
+Why did your previous patch not work?  What testing was done differently
+between the previous patch and this one to require this patch?
 
+Without an actual discussion, just throwing random patches at us does
+nothing to make us want to accept the change at all, for obvious reasons
+(i.e. what would you want to see if you were in my position here?)
 
+thanks,
+
+greg k-h
