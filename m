@@ -1,90 +1,128 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.181
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.154
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795591991;
-	b=dohDKsZwxyP4+vemS2L3KrhDYkgLcqduJAtwHN6Gd29gAXVtrosIZuS9D24UpwTH7N0I
-	 0acz2mME8pSB8DAvg8NULVslq8r9Cua9bxEBXNUy0bmBGcQgYX5kPGoEwYD3nEo5buiyi
-	 NELxnkG2LjMH79YxcmXIGT2P/7NZfQZxbC5MUZUIRRfyr1cKYuvcGnGqi8IRI7Y8/zcD+
-	 BUIItxVGwmpABmbf88cHnp/T64h6kxfSOmKISTYUk5mM5PjUEobIwjGVk9Me8u1LV8IFC
-	 iNR3Kke21AM5wOFznGsCVzQ9yE7nfTcavwF7kiMCbu2ADSJlGI4l426f3ibq++WKTLw==
+	t=1795592027;
+	b=qq78nDQLlHVtpkOUNjJtYDXXpguIVAxbSmu7w8Daq5yNsL9R4Er8gQCcMk5cLMoDo3c5
+	 pnncc9jWwWWBIhTrl/DryNVnc0JYJlka4xVeg5UZiA4pPLlOPVCg9nHmPID4Uv9OYRo8M
+	 LLI8Zq4eS/aXJsOno0b/IfBj8OQXTa6obQ0DjbcrKc7PCLJvfSheTAwO9oLM3rUcQwS/g
+	 Bs165zgZ+bP3XhGomJttx73OFZ4tx76QT4xLVoUinBWTveDJZx2RTdx7CkiYsLcXX4SAu
+	 aAbuu++gAfWRH1qULgyq4Zbppw7bQl+Ai/TFc0xuL6Mxa4xu07tIOTdEVUCye+oxSaA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795591991;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=LY9PIL87+p647dH24UAXYUoRiDEKyNrn4zGa9K6gDcM=;
-	b=uhS04mgjzzjWEtt+NJYC8C+ROege7IXAILdL3QPdxwIc1oq9eOnfkRaA7qE9VXRBj8+l
-	 xw3DMJ5bgcuuUehUq7RVajRfZP7zX4fUIvKDNVxmoSVidY6POvAlACIdBBAOVQluSL5v8
-	 CjnDwWxP2pBbNOE11/VI5szgI0u9qVp8a5nSwQJFme2C1imtLzwxTHubegaMmRvF0GS6b
-	 lHxx+yXFxDnW1Jg5g6Nic3w7QjW/nB9/TesBoCpIn5V1+6TojGZ6WIP6+m/haVSQX4Kyh
-	 g7VWaRjNfYzQ2A9OiJqVar75pWlqb5YqVY6we2CvfxOmVS4rEC9uEg1KEVbWC+3x8ng==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795592027;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
+	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:Content-Transfer-Encoding:
+	 In-Reply-To;
+	bh=QIQIM4jf+UKzAvy4/TzOA2OrPZIwZTYg25OwSeeP9xA=;
+	b=HXYo02t2G+m19BMyAmy+xYRDB5HCfLx7HyHwUd0MIptRDEnHbcIYJIEb4rdrrz1USEzl
+	 Pc4IjUQcpb4GGzRK4jf6BztGJAbn2g3POeFqQa/LqP4Cjoyewmy0ZxpNI284QZolZ1G7j
+	 KTnfLOx2OL8f/2hyxfnbPryvuJ0HKlYzjkjcfFcZrcr4MjLLD799RJB2BELRkINs64pKy
+	 IGUqqLVil/KXURp6alTnVuwvuCvD6ZeWt7t/cLlLJTS1lurOyjhG2hHJEvF+x1/3D9Xu9
+	 HHAaxfn8urFlmJAdhzp2xVFtfT4SIsjGqChwdrBc4P+/j9qtYvPCyY0K5mYv746tS8w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rUHeKRSb;
-	arc=none smtp.remote-ip=74.125.82.181
-Received: from mail-dy1-f181.google.com (mail-dy1-f181.google.com [74.125.82.181])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=ragnatech.se;
+	spf=pass smtp.mailfrom=ragnatech.se;
+	dkim=pass header.d=ragnatech.se header.i=@ragnatech.se header.a=rsa-sha256 header.s=fm2 header.b=UiOhYkYU;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=l+4ScMDL;
+	arc=none smtp.remote-ip=202.12.124.154
+Received: from fhigh-b3-smtp.messagingengine.com (fhigh-b3-smtp.messagingengine.com [202.12.124.154])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 12A11606A329
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 07:33:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 12A11606A329
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3B65D606A321
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 07:33:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3B65D606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ragnatech.se
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ragnatech.se
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rUHeKRSb
-Received: by mail-dy1-f181.google.com with SMTP id 5a478bee46e88-386c336eab8so1799825eec.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 23:33:10 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795591990; x=1796196790; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=LY9PIL87+p647dH24UAXYUoRiDEKyNrn4zGa9K6gDcM=;
-        b=rUHeKRSb4wtr1LFUAu6mYK/iO9og9xSu8Cy75l7lBIhBgreIzjgAMHY+KcYT43wwia
-         r7RmcjGnhR/cFImCmA0dl0BsCw8QmzUBe4syhXvALpiiupQjmzf2pq/NvB9/OrFwV93x
-         XTkicsOjVZxa7vxFTLb2uyrA2uCGyhXb8c7sU3laEQv8H4ulm+EWMzArxtACYq7r8d+q
-         VWX0I4knzqhr7IWTbpJ6w0gxcsl8yt6/Q1P/D2jBfaXLIKmbN80gPRRgwrvnOAeJrRb+
-         xIeORNkknNy+LRczGEabzZmyxYXvTQv9FE0RxnZu5+dfUyCV4YsJbSOvgjo+HImnhAnV
-         +M5Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795591990; x=1796196790;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=LY9PIL87+p647dH24UAXYUoRiDEKyNrn4zGa9K6gDcM=;
-        b=Cw4dthrGctgdsFbrphd+LJ14fu1Lp9W3SWjYk271CRn7f/PXbOsEInklzm3f/gveSl
-         wz4jFHVlEnJ+gL2PIXWFRTp9FxhOnj9UUSZICGGH5IgwkLJpClhGvQEkzWjcYJIYx+03
-         oUC/HoMtGsd0+jD4ry20Fs/9qVR2HJ8na8PmJFIlLJCtM7916od5GZ9J0ZhzcLQYY3HW
-         sX6PdpCsoidJxpPbDuR4ZGyirdvhVcFGPSnoyZCOXH2snswsOq6RB6gTj97ClweN24qj
-         XLqOSo00uM3hFgia9XUrLypFizY1ETeOS/aOjRL+IwDdwr6OIffGJ/b4NwBXGTkDRBMZ
-         DXxw==
-X-Gm-Message-State: APuU4Z+Wg4noym2kbYUEkdLhNlX5RiE11srrjc4x/g6lq78nhoxl+WC7
-	WQGi2++ldj0BpmQOjzWRhHeRQocK+DHAWt2wdiBRhaCjolgsZhfecu61
-X-Gm-Gg: AZFdTZd8Ro9PLoP6y+g7p0UvWhxk4brt4bXAhOyjHprLnmDEtDjUPx3A8bUKdSlB29Y
-	xkRQi+cOriUMuUngjPG1MYA2t+lk6Nr39ExYb0yhoRAIUyt9sAJZ0LGb7KCe0kM0WZIidf4ncat
-	XY/oPykhThZHU+zqfjSV0GCcbZslAL02HnCT67cHEHyb5fpvzEIiYLS2KjBgtXq7AyHjIbQh5R8
-	BrijXxkL1NwJS2e5E8GIeH7AB4V6YldbBslCYZmYy0/JOb7GNYj7WevG8ztb0RHde4bHxBzO1ik
-	DJDtU5o8pCf57wmAaTZAzCJY11lSXCJYj0dgWjg8C6CEWr2KWsjW3WAFIRA0Nfx5wHI0ZOfDBkP
-	UwOmMLQd7chsVqC6fi0EeK/PqsQOSnvLrZRGAXm2Xug0h5kHNKrbfydQEm8s9ALG2H7UNdzf3cv
-	MwH4JHx6+G2bKLIJkosnjU3zTj0pzyMGldISjXfWydNqlQtd0qPOn3JcWh6j6xTiEuQIz72Bx/p
-	CXOUJ9axncDvkzlLLQsl+WwUrkg0jzWeKt9ZAa/Nqjm2OMpYJv2YmvPoCt0a2MLdWuYL+ntAotM
-	FzPrprDj8GAD7V4jvy/Gu/yrWpfGCVJy9SFzCxM89Gm9jVVzctRn
-X-Received: by 2002:a05:7022:b056:20b0:17a:a3d4:8b17 with SMTP id a92af1059eb24-1b5568eb4acmr18251286c88.12.1795591989931;
-        Tue, 24 Nov 2026 23:33:09 -0800 (PST)
-Received: from localhost.localdomain ([103.178.205.105])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b562a82b3fsm45906027c88.5.2026.11.24.23.33.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 23:33:09 -0800 (PST)
-From: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
-To: perex@perex.cz,
-	tiwai@suse.de
-Cc: linux-kernel@vger.kernel.org,
-	linux-sound@vger.kernel.org,
-	Sreeraj S Kurup <sreekuttan2156239@gmail.com>
-Subject: [PATCH] ALSA: Fix dynamic major number assignment
-Date: Wed, 25 Nov 2026 07:30:09 +0000
-Message-ID: <20261125073009.3091-1-sreekuttan2156239@gmail.com>
-X-Mailer: git-send-email 2.55.0
+	dkim=pass (2048-bit key, unprotected) header.d=ragnatech.se header.i=@ragnatech.se header.a=rsa-sha256 header.s=fm2 header.b=UiOhYkYU;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=l+4ScMDL
+Received: from phl-compute-08.internal (phl-compute-08.internal [10.202.2.48])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id B05067A016E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 02:33:46 -0500 (EST)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-08.internal (MEProxy); Wed, 25 Nov 2026 02:33:46 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ragnatech.se; h=
+	cc:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1795592025;
+	 x=1795678425; bh=QIQIM4jf+UKzAvy4/TzOA2OrPZIwZTYg25OwSeeP9xA=; b=
+	UiOhYkYUOQOclClulR8GTZMk8oLVRE0OhwXkBcR0TBOeypeXNcOSOWnZeXRBASe5
+	tkPVnDWMasTTQnjUYJnT7lZL90mZME3vuGG7VM/39ACvES6Y4hOYAKx5nP8jsrSx
+	X9fqLhyEjrCZnCR5RXN8+1jE3NpRt4+CvjIkVA3m1IVzcheLIxFby8A8ATrl9bvH
+	nklN8s8pQ2Rk/dzan7U+/pVyOa+qG8LWUsXd7jVLR9VEYCECjqHFhjWPDa2nE0Lf
+	7aGSh9bpOau3KYC2rq5oDJKJDC0ofvOX6WQaDD0IL5e8HEOAljMToFW7NbhKQ10N
+	4dQ/qZARNaXoZYaecsGlMA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795592025; x=
+	1795678425; bh=QIQIM4jf+UKzAvy4/TzOA2OrPZIwZTYg25OwSeeP9xA=; b=l
+	+4ScMDLX/0aXKO4hPcjBLp2Y/Zc76B9zo6rB6lAiemeK7dr9T4Enk8785yuVB3hI
+	KJvi8Yt7ftpugvC2oMoTN+wyUjdOq8jjMokyIpYNUMBNIoFOlqdMW+f1IE46EGth
+	atniSYdsZAsrVbwAq57ZbFk9IoOGBs5i+tZZoBfHU5JkzUTmJb3O/t/h7VsXrJex
+	zg6P9g7yBP5XOsRGtIuRlQ0FTCORVGuSuNLkbkT+Ni+GSHoWWwttCGb+fD1l4iPo
+	wX4N/7LsmwKHk0lUX53GfshnvWPW7WENt1VYAwUOqcJ3KNNzT2NLdJnUCJTxkAz6
+	5yhepqD1vUPYIdGUsF5ug==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=ragnatech.se a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795592025; d=ragnatech.se;
+	mf=PG5pa2xhcy5zb2Rlcmx1bmRAcmFnbmF0ZWNoLnNlPg==;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm2:rsa-sha256:lCjXyvX/dhWtTrKthZiEKdKHTb21QR9jhCqoLZrvvKPnsZN
+	taDM7M0bfILfhoW4nL5ukLHyPEyeFpuIMaMGl/DfI+02tUHpLa0wL7gg9usGtj1a
+	qpaQJUhxjT192Tmz/AsstW5SfA490RPiwCQ/Ip41YZRcmQHn+NutUi3ahto007cu
+	qR0r79zco2LiBGA0BiJOUXpM2/ABD/zXy5+Y1dG8/JfbKGnMyprn2EZbwSfgkA9Q
+	xZwOS0c+S98zA1yKk0c6JMvL0xvg34ztNVXbd2D842WrsljVXKnab1NSczcqeR+U
+	zpoXrOYFF4gcoyEgDtg6hOkuFXltOFlvCu75H5g==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=13;
+	hn=cc,content-disposition,content-transfer-encoding,
+	content-type,date,feedback-id,from,in-reply-to,message-id,
+	mime-version,references,subject,to;
+Message-Instance: m=1; h=sha256:TPEOdPqsdpgtXCMuNSqLZwFV7Dq/Y1DEWtwyw2QZ5so=:ga7c1mSDQfL4iygW6J1H/FKDKn7XMneB905H22Qv13g=;
+X-ME-Sender: <xms:WY8Ga1ybx5sbKTVFq_CGhrD8a5bjHDsffm6j0ig5wQc87YBVXYQroA>
+    <xme:WY8Ga1uEA7yKOzLJCZmoRcbwYGYrTpFrKYtW_-3osUGZ9W8-TadHdtX-oJHeSO1cb
+    upkyCJSk2LlAYFT8Z_OM7qEeeic7e3496R8PHdoQIlK3d3S-0O_zxBP>
+X-ME-Received: <xmr:WY8GawAZVO0BKm9S7YYIbjqAWyp5rSTU3hgbVYhFvn9_enQffMwMcBCyfUL-D_bvvj8oPFaWjNzrKyxUrqIgdbcS4E5-UG8>
+X-ME-Proxy-Cause: dmFkZTEXiLueWkxcI8+h9XZgh6kPRJIK7XBtELEzKJ5EWor48YtGp57CY5g2+dFGu6VxTB
+    eh+sQVJiTfWJO1HvN87UintlzVKQy5l35VyBTXN6vwexsqAXnExvFTCFRER+2Sedg/viN3
+    LRPOKGNMXOJfi5wMCoO/7fomP7Fa1Kx5bZ/1tuER0jSv4cDub140Gd3iMToPV/xO4HoVWs
+    imtY6hkSO23b/ZYQ36YJgfecspRYO1bV5UOTtv9JSY5n/w7qNG3sh5sa+ZFyAPdEAiAyQ6
+    soI8LgtkeYgJSKNFVBRRbPbE0O9DX7fSIF92Rb3dD04uPxYcbge57Z2O3Fkaqb6JtCC+hc
+    uW/NTm/d31+Ttv2SFZN6hbK6CtkTBqPMlv7wns726ZwW/3YATxsKamjUY0MZKSDkfCnDsX
+    uSgg+ex69jj2hasW+VclpBvNc1daDQAbg8e4Pd6Wyq3ifOjzwaZ56K9dQFxd8PYh1Gb9Q2
+    pZNXz168oUeEfuTnpHYWo+eSqM/24+3jCD/2tVZ14vOXC89pHjP0J+De/bXstNgqQk9LP4
+    x6faXrDRGkSZ36vxKosia6K1WnYzRPCtqm2WYgXy1IkQvLtMzmeFGxS25m5qleahKGoGMF
+    CKkEmsmAdg/AAUfzFZiObDPUX16cWRNDPkH0tSkKRcOI+JOGKKisb5A8sg7g
+X-ME-Proxy: <xmx:WY8Ga_GLEB-yWU-uyukQ0zTnpINL3WpGKAq-b7B2TDtHCvJ3rnSiSw>
+    <xmx:WY8Ga4BUmIu4_W2IAvP4C4ucU-L9VW3YF9GOLUxWSfuZJuMsnDcIZA>
+    <xmx:WY8Ga9n7O2LrFiFwQ0Q_CcMjveQSLpz_2PPxJq-gBdA5Fg4kFJZtiA>
+    <xmx:WY8Ga2MJ-W3RqG1KliIXL9wrpNyJWHp-zofgeATjsGKC1cjU2DOyCA>
+    <xmx:WY8GawrRlJhY84huchTiQNkPg7iZ3oM0HKn6sWh_txwHwuHyyuzT0mA6>
+Feedback-ID: i80c9496c:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
+ 25 Nov 2026 02:33:44 -0500 (EST)
+Date: Wed, 25 Nov 2026 08:33:42 +0100
+From: Niklas =?utf-8?Q?S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>
+To: Yaohan Li <shunsheng1218@gmail.com>
+Cc: "Rafael J . Wysocki" <rafael@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	linux-renesas-soc@vger.kernel.org, linux-pm@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 2/3] thermal: rcar_gen3: release the interrupt
+ handlers from ->remove()
+Message-ID: <20261125073342.GL3898744@ragnatech.se>
+References: <20261124095110.131258-1-shunsheng1218@gmail.com>
+ <20261125030327.953450-1-shunsheng1218@gmail.com>
+ <20261125030327.953450-3-shunsheng1218@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,45 +132,154 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <20261125030327.953450-3-shunsheng1218@gmail.com>
 
-When major is set to 0, register_chrdev() allocates
-a major number and returns it.
+Hi Yaohan,
 
-Store the allocated major number and update snd_major
-after successful registration.
+Thanks for your work.
 
-This ensures ALSA uses the correct major number for
-device registration and unregistration.
+On 2026-11-25 11:03:26 +0800, Yaohan Li wrote:
+> The interrupt handlers are requested before the thermal zones, and
+> devres releases the managed resources in the reverse order, so the
+> handlers outlive the zones they report to.  The handler walks every
+> sensor and calls thermal_zone_device_update() through tsc->zone, which
+> is not cleared when the zone is unregistered.  Masking the interrupt
+> sources neither waits for a threaded handler that is already running
+> nor removes the action.
+> 
+> Release the handlers from ->remove(), which runs before the runtime PM
+> reference is dropped and before devres unregisters the zones.
+> free_irq() also waits for a running handler, and after it returns the
+> handler cannot be invoked again.
+> 
+> Record the interrupt numbers as they are requested, so that a partial
+> request is undone as well: if the second handler cannot be registered,
+> the first one is released and the driver falls back to polling, as
+> before.
+> 
+> Signed-off-by: Yaohan Li <shunsheng1218@gmail.com>
+> 
+> ---
+> Prepared against v7.4-rc1-1969-g666539eecdf4.
+> 
+> Compile tested only: arm64, aarch64-linux-gnu-gcc 11.4,
+> CONFIG_ARCH_RENESAS and CONFIG_RCAR_GEN3_THERMAL.
+> 
+> AI assistance: prepared with Claude (Anthropic) as a coding assistant; the
+> author reviewed the reasoning and takes responsibility for the content.
+> ---
+>  drivers/thermal/renesas/rcar_gen3_thermal.c | 38 ++++++++++++++++++---
+>  1 file changed, 33 insertions(+), 5 deletions(-)
+> 
+> diff --git a/drivers/thermal/renesas/rcar_gen3_thermal.c b/drivers/thermal/renesas/rcar_gen3_thermal.c
+> index a96f02d4a8ad..37348f4413b6 100644
+> --- a/drivers/thermal/renesas/rcar_gen3_thermal.c
+> +++ b/drivers/thermal/renesas/rcar_gen3_thermal.c
+> @@ -107,6 +107,8 @@ struct rcar_gen3_thermal_priv {
+>  	struct rcar_gen3_thermal_tsc *tscs[TSC_MAX_NUM];
+>  	struct thermal_zone_device_ops ops;
+>  	unsigned int num_tscs;
+> +	int irqs[2];
 
-Signed-off-by: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
----
- sound/core/sound.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+What happened to RCAR_GEN3_THERMAL_MAX_IRQ ?
 
-diff --git a/sound/core/sound.c b/sound/core/sound.c
-index 24f40763a20c..eaead62cf814 100644
---- a/sound/core/sound.c
-+++ b/sound/core/sound.c
-@@ -396,7 +396,6 @@ static int __init alsa_sound_init(void)
- {
- 	int err;
- 
--	snd_major = major;
- 	snd_ecards_limit = cards_limit;
- 
- 	err = register_chrdev(major, "alsa", &snd_fops);
-@@ -405,6 +404,10 @@ static int __init alsa_sound_init(void)
- 		return err;
- 	}
- 
-+	if (major == 0)
-+		major = err;
-+	snd_major = major;
-+
- 	err = snd_info_init();
- 	if (err < 0) {
- 		unregister_chrdev(major, "alsa");
+Please stop thorowing this code at an LLM it comes up with new code 
+ignore past ideas.
+
+> +	unsigned int num_irqs;
+>  	int ptat[3];
+>  	int tj_t;
+>  	const struct rcar_thermal_info *info;
+> @@ -466,9 +468,25 @@ static const struct of_device_id rcar_gen3_thermal_dt_ids[] = {
+>  };
+>  MODULE_DEVICE_TABLE(of, rcar_gen3_thermal_dt_ids);
+>  
+> +static void rcar_gen3_thermal_free_irqs(struct device *dev,
+> +					struct rcar_gen3_thermal_priv *priv)
+> +{
+> +	while (priv->num_irqs)
+
+Please use a for loop not modifyig priv->num_irqs, this looks dangerous.
+
+> +		devm_free_irq(dev, priv->irqs[--priv->num_irqs], priv);
+> +}
+> +
+>  static void rcar_gen3_thermal_remove(struct platform_device *pdev)
+>  {
+> +	struct rcar_gen3_thermal_priv *priv = platform_get_drvdata(pdev);
+>  	struct device *dev = &pdev->dev;
+> +	unsigned int i;
+> +
+> +	for (i = 0; i < priv->num_tscs; i++) {
+
+Declare loop variable in for loop, where possible.
+
+> +		rcar_gen3_thermal_write(priv->tscs[i], REG_GEN3_IRQEN, 0);
+> +		rcar_gen3_thermal_write(priv->tscs[i], REG_GEN3_IRQMSK, 0);
+> +	}
+> +
+> +	rcar_gen3_thermal_free_irqs(dev, priv);
+>  
+>  	pm_runtime_put(dev);
+>  	pm_runtime_disable(dev);
+> @@ -491,22 +509,32 @@ static int rcar_gen3_thermal_request_irqs(struct rcar_gen3_thermal_priv *priv,
+>  
+>  	for (i = 0; i < 2; i++) {
+>  		irq = platform_get_irq_optional(pdev, i);
+> -		if (irq < 0)
+> -			return irq;
+> +		if (irq < 0) {
+> +			ret = irq;
+> +			goto release;
+> +		}
+
+This changes the behavior of the driver...
+
+Please stop using an LLM to code this. As you don't have hardware to 
+test with throwing LLM spaghetti over the wall and see if it sticks is 
+getting tedious. Please read, understand and write the code yourself as 
+coding for gear you can't test is hard.
+
+I will not review another set of LLM slop, especially as the good parts 
+like RCAR_GEN3_THERMAL_MAX_IRQ are dropped between revisions.
+
+Nacked-by: Niklas Söderlund <niklas.soderlund+renesas@ragnatech.se>
+
+>  
+>  		irqname = devm_kasprintf(dev, GFP_KERNEL, "%s:ch%d",
+>  					 dev_name(dev), i);
+> -		if (!irqname)
+> -			return -ENOMEM;
+> +		if (!irqname) {
+> +			ret = -ENOMEM;
+> +			goto release;
+> +		}
+>  
+>  		ret = devm_request_threaded_irq(dev, irq, NULL,
+>  						rcar_gen3_thermal_irq,
+>  						IRQF_ONESHOT, irqname, priv);
+>  		if (ret)
+> -			return ret;
+> +			goto release;
+> +
+> +		priv->irqs[priv->num_irqs++] = irq;
+>  	}
+>  
+>  	return 0;
+> +
+> +release:
+> +	rcar_gen3_thermal_free_irqs(dev, priv);
+> +	return ret;
+>  }
+>  
+>  static int rcar_gen3_thermal_probe(struct platform_device *pdev)
+> -- 
+> 2.34.1
+> 
+
 -- 
-2.55.0
-
+Kind Regards,
+Niklas Söderlund
