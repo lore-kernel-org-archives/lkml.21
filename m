@@ -1,57 +1,65 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795645370;
-	b=R2y3YL30wQsSZpJ37PGQQKsYtDD85vMv4bgZVLw0p88Go/ARxoVSEDumRKLs9GPPuRcB
-	 t2HQiPA3PYVQh4WnlstG5UBAFVX/RPz1PnXjuy7c1z+b5vGLmtO6VZwgFNQuloWiAorPA
-	 A9WKBF64Jrz+1i3fL2cdX36W+HTVKvDUJdb37ud1s5qaH0LX5hM8yYcLsyYP4E8A/EnjB
-	 BK9sevXWr3MNr/hE8KfhO0AEYs9oNOZj0pKXP5TA2i4VfrdIyoUbwVQRW1ovrvuw2rc/j
-	 /alAlPSSgp3yO0vF5TO8+cJv/r9OzbApBq+FaYggoMzOecWg8ieHv6yjUl5eQvGzA7Q==
+	t=1795645375;
+	b=XsoSN4Hx/zyQcfRVIDEQuduf8Mbbm/pU3JVIgxdbwFTg0cOtus48fsTmZZ6EYQUzeGVG
+	 weyi1MZSR+H2BKm0MOayRWget5EnhQHRu1T+D5g42XO7nFaoBXVZBWujHwoyzSFW9115n
+	 +iJuw5fViWx4cFVrWApuAJ4T3S0TIpL7a/8Zk9dcN0fWey9paJ7zyDC2nHHob72mvc0MA
+	 D+BanjfjfZhnVKlctFIdoQTTpGEAGQCNOf7JIN6UFsxA7/LdiEtjta6lemuWNNqUI+F1W
+	 GECMjiwyUFTreXfVct51YvA5Mtefu+8yHy/nt7eAVAgK8zSOjSAIp9S7bUiMq/pKDlA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795645370;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795645375;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
 	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=Qc6SuA2uhHqLJoYzn3JK76lcrpwKJC4YrCHB5d2RPcY=;
-	b=ahAbPIOm1hjYj78HVBTL9fPXsM05nmtkKXcmSzXuZHMjrLNCvJhZ7svsMLwVJWLFZ9FF
-	 4Ax3g+2DhYwwH2CuYtg/YHFRZQAUBmiukqGK+kWcOUSRnG4nJSo9ywuAAYnEJ+l9/7A9h
-	 jrgDKnIOrFZBo4OyNnfKFXiJGct768dqNoU0FfRahxw5ZTtOFqXDUs+0rsSylBaEpuqK1
-	 ozO9bygFn9o5dMR6qoDEJD+0WJ3Cr06rZpHF/kNv+0wL8i0C810VPdOLpgC73bXpKA0GQ
-	 nw2AFIjbQX1pAyYShJhWK74xTUifwHAhk/de16RIfSsVzJH+rzMI/7HYH+/m1jbjizA==
+	bh=aamSgS9mN4fl3LNN9RVzzpQBmZHNs4ovTx1ZPQ9tpB8=;
+	b=K8L8Jh1jeJfmFUjacrtGFd8A7Z+2s8gmY2pfjU55yk0T3IvRsWIosw0E+mYxQEjuX4zZ
+	 Zr4WJLFAHXRgqLWKxHc4R0WKiVVycQF5dysJHYpMGDMWHsRslEe3EL3sn55WWoUidpXeV
+	 ZQipRcLI7RbyHN7Wx7abogn2BLRNgLhGycZQeOO+g2I4ZopqOFVZgKELRORNjKwCZyz34
+	 a1gDYQ1SHguPkFbYkN/A6mQMKjrMIvjGVL0+OO2lnoik5iOMbIjihnArBlrs1NSgSHECa
+	 QOg1AL5wPComeBElG6FqWG4SkBxVP78qEqPgpwCsJJvIeiWZZdZb0wQk7jPIIX4sB2Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=e7MmwqQG;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=K706cijN;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DCAF2606A31E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 22:22:50 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7C528606A31E;
+	Wed, 25 Nov 2026 22:22:55 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=e7MmwqQG
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 624AB1F000C4;
-	Wed, 25 Nov 2026 22:22:48 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=K706cijN
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5867D1F000D0;
+	Wed, 25 Nov 2026 22:22:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795645370;
-	bh=Qc6SuA2uhHqLJoYzn3JK76lcrpwKJC4YrCHB5d2RPcY=;
+	s=k20260515; t=1795645374;
+	bh=aamSgS9mN4fl3LNN9RVzzpQBmZHNs4ovTx1ZPQ9tpB8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=e7MmwqQGMRCu2lqaxouCNoyIuAfVPL5NizsToos2Lk7XVRZQnL6XD/gyhNGkYZ74C
-	 uUFedBgwtQIYzj+8RHZZk+07tSimJiYpliI5Rc9JOK5uFVSunx1LgS7zYSXbWT9fqB
-	 XXaSC9jLx0skUo3yZvJZce510qh0rAWwLYc/9qMq4iBAkygigduUEoc7zfvMJ2ipsN
-	 ZcKK9RbvPPO9S3pcbMSOefBSr7HqPErUNIA7qkxA8P9Lywa6dKwm2ZlIOPJjBDNDqf
-	 q+Hl+r9bUinzaXkHHnRpdoExfCdfinDRXaUjNVZpnM8De0KBwSBj73Dfs2mLgMY0pX
-	 E3bM/9DX44tGg==
+	b=K706cijNYCe/Yc4AIzTkXKGEAkwDYfOsOKxwbipF3DsJfyYuEBvXcyst/xMEQLsxM
+	 kdgxMLYhRuzuKHqw7MFQzMj2kW6nkuGDBmnTt5BLfzDtXRVE0omCsx2BmeH4hWw/NQ
+	 UjmsAAcJXxuWAPvTOChX265gFU3fmuCHBsDmJX2jgsc0sLoKGiqy56UXdFNnjXPL+1
+	 z5oKvNqof8cC+uCQo7XPJpPbQR0rYi8mJ2Pq2S1OvjgXKGL8jYNn6AbwqvaN1axuk4
+	 2ENr+aEjSdN8h9SCofQFCkpj50JUfiNU7JdBIlUyXtSP6gWR9L8S+8yYiMDJVUtn8F
+	 Q7oD9u3Qj7tzw==
 From: Frederic Weisbecker <frederic@kernel.org>
 To: LKML <linux-kernel@vger.kernel.org>
 Cc: Frederic Weisbecker <frederic@kernel.org>,
 	"Paul E. McKenney" <paulmck@kernel.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Christian Loehle <christian.loehle@arm.com>,
+	Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
 	Marco Crivellari <marco.crivellari@suse.com>,
 	Peter Zijlstra <peterz@infradead.org>,
 	Phil Auld <pauld@redhat.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
 	Thomas Gleixner <tglx@kernel.org>,
+	Ulf Hansson <ulfh@kernel.org>,
 	Waiman Long <longman@redhat.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-pm@vger.kernel.org,
 	Michael Kelley <mhklinux@outlook.com>
-Subject: [PATCH 04/47] rcu: Move CPUHP_AP_RCUTREE_DYING to post stop_machine()
-Date: Wed, 25 Nov 2026 23:21:47 +0100
-Message-ID: <20261125222230.22508-5-frederic@kernel.org>
+Subject: [PATCH 05/47] cpuidle: Move CPUHP_AP_CPU_PM_STARTING post stop_machine()
+Date: Wed, 25 Nov 2026 23:21:48 +0100
+Message-ID: <20261125222230.22508-6-frederic@kernel.org>
 X-Mailer: git-send-email 2.56.1
 In-Reply-To: <20261125222230.22508-1-frederic@kernel.org>
 References: <20261125222230.22508-1-frederic@kernel.org>
@@ -76,8 +84,9 @@ a new stop machine post function has been introduced to be executed
 after the main one with IRQs still disabled while other CPUs can exit
 stop_machine().
 
-Here RCU just does tracing with already proper handling of racy
-accesses.
+The teardown callback here only touches local data and also the local
+power device under its power lock. Therefore it should be safe to run
+against other CPUs.
 
 Move this teardown callback to post stop_machine() accordingly.
 
@@ -88,15 +97,15 @@ Tested-by: Michael Kelley <mhklinux@outlook.com>
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/kernel/cpu.c b/kernel/cpu.c
-index 6e6d3a3016a5..58bb74f0fcb0 100644
+index 58bb74f0fcb0..acc6a0e6446c 100644
 --- a/kernel/cpu.c
 +++ b/kernel/cpu.c
 @@ -1275,7 +1275,7 @@ void clear_tasks_mm_cpumask(int cpu)
  static int take_cpu_down(void *_param)
  {
  	struct cpuhp_cpu_state *st = this_cpu_ptr(&cpuhp_state);
--	enum cpuhp_state target = max((int)st->target, CPUHP_AP_SCHED_STARTING);
-+	enum cpuhp_state target = max((int)st->target, CPUHP_AP_RCUTREE_DYING);
+-	enum cpuhp_state target = max((int)st->target, CPUHP_AP_RCUTREE_DYING);
++	enum cpuhp_state target = max((int)st->target, CPUHP_AP_CPU_PM_STARTING);
  	int err, cpu = smp_processor_id();
  
  	/* Ensure this CPU doesn't handle any more interrupts. */
@@ -104,8 +113,8 @@ index 6e6d3a3016a5..58bb74f0fcb0 100644
  	enum cpuhp_state target = max((int)st->target, CPUHP_AP_OFFLINE);
  	int cpu = smp_processor_id();
  
--	WARN_ON(st->state != CPUHP_AP_SCHED_STARTING);
-+	WARN_ON(st->state != CPUHP_AP_RCUTREE_DYING);
+-	WARN_ON(st->state != CPUHP_AP_RCUTREE_DYING);
++	WARN_ON(st->state != CPUHP_AP_CPU_PM_STARTING);
  	/*
  	 * Invoke the former CPU_DYING callbacks. DYING must not fail!
  	 */
