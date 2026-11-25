@@ -1,110 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.49
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795624369;
-	b=Go3jNwvn7E3OJ+E70ts9+nBMrtq1OHfYzp/epmW9d1PrBKh9+vvpcinuCO4zkIbUwhMf
-	 Ke+/nZlZV2tZfsWiQEKn+6q9BGNSa7T1GHEXfpzbdqi+63+sCeMMquJfa22LFU9KdCNMI
-	 BjEqzRCVZl82yY/wP+qVl0RxZ+mAoSo9De+6wNp7wV0+d1A8W0dzp/OWdISy+C05zAqFl
-	 2fNQ5YckS+bPXbazQVcoolBVRTIi/GkRvid5VvimWvUtfWfn3LUQRHtGnuXLhWlVi6S18
-	 P/Uv6qOrt6wS6cXQylilFgc9X7MYOXZ5XneUDMlCmNzti5GUkXULnV6cYAzB4fsTdgQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795624369;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding:Content-Type;
-	bh=fjeXOElCViRQmgZvgDDdONv2Uyhg+At7B3MV4y/CS3E=;
-	b=wm4yVCo7lflpYZZqn3aY1TJkIPVnM6jRYlP9xI72PQjDujd1z8pUjfGjLV6+22GPX24f
-	 oxl95aUV3neyeHu0XkLZvVDkPC9e1JGmNTjP+0JywnQCoPVLUvefzM6VQyFwF+kTn9zOX
-	 33t4Z6+ZuDh81AnPlvjCTmlpdmcvirEgknaruyw4iZ1JoMcZxn8RaEcHwBZGClvQw1ET2
-	 m9TTK8EhxwRYlqbz3kJOF+2M/gE7lv3ofSreUuhqTBfr3oozvJQHErhBcriemT9wKeCuh
-	 gh8G+qCGOwsCagb0mIy0nAjzzCflZqsMWZs7YINtv1Y+yBGjxnzZQKwpUxF3A/k6lsg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OeYV92tR;
-	arc=none smtp.remote-ip=209.85.128.49
-Received: from mail-wm1-f49.google.com (mail-wm1-f49.google.com [209.85.128.49])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.130.70
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795624372;
+	b=z/MNtxTmC25PkTNMaI4h1v5eiJ+ILONwZk6VvOXsbNXDE2gll0MEX1dPtGAxtv1S/n66
+	 PfUqySKgNlvbvKMPvPQvjE5c85757dwzS6/9I1+c/1xg5LfC1QnTU6/dnHxd7jxYS7CG0
+	 YUZHf3TNSGcopu2qK9pGo2LxSPkkcq4l1BOTr5VYhKQWiehsGuBOGXDP+MxoXCt2HWRRY
+	 xXFCc1BrbRfSxxbajguKpbuDg7V+dmharrBenaPXecOtw6v6vNeFZcqD2eVNBcg/9eDrr
+	 /UIn7NGfsiqnjZWo27bEoVhJ84ibXVnuRNzlFxdyXw1Phj5z4lt1j8X2JMYbWwZet0g==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795624372;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-ID:References:In-Reply-To:To:CC:
+	 X-Mailer:X-Originating-IP:X-ClientProxiedBy:X-EOPAttributedMessage:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=WTT5uAKxCp1y51P4lhR+sRkq309dyXeCTveWZSftt9s=;
+	b=1m6fEgc689DCiZsMccqQY82zopdfaO7gnWh4TvUAPrgoCu9VR/awxTPZJIBe39mPj3n2
+	 +V5pM0DsE01dU1/f3kl+QkVFxf5vLPDAMdBQFS1ZrlAmAbaiEo+9KTMTSgA2vydGIVUev
+	 CkZrfEjXdicN0oL8yDnGgNncsyQ23mKEFfHAZpLH2pAZqe0Ch0NnVSTxNxdTGT4LDkuFs
+	 fjJ35niMlpFFLCZ257LsB7qxgAJmGictwRO3EdrXxxFP6wRJ/oPkn127w8ekBOyQF7Dqm
+	 ro0Lf6ttNgyOgBNPBEYetWz0cYTiPUBdbr/BSqLFx23DSNCU899i76pBQd1Xwf3YZdw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=foss.st.com;
+	spf=pass smtp.mailfrom=foss.st.com;
+	dkim=pass header.d=foss.st.com header.i=@foss.st.com header.a=rsa-sha256 header.s=selector2 header.b=MkdDwyoH;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.130.70
+Received: from MRWPR03CU001.outbound.protection.outlook.com (mail-francesouthazon11011070.outbound.protection.outlook.com [40.107.130.70])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D0A4D606A32E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 16:32:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D0A4D606A32E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C87D9606A68B;
+	Wed, 25 Nov 2026 16:32:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C87D9606A68B
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=foss.st.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=foss.st.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OeYV92tR
-Received: by mail-wm1-f49.google.com with SMTP id 5b1f17b1804b1-4bb702a7548so53689405e9.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:32:48 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795624367; x=1796229167; darn=vger.kernel.org;
-        h=content-type:content-transfer-encoding:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=fjeXOElCViRQmgZvgDDdONv2Uyhg+At7B3MV4y/CS3E=;
-        b=OeYV92tRoy3r9HM1arkFD4XQZAtUvBnArRdHX3S+tRAhPlHWD42AGwa0CbMKQhe1A8
-         hpFCCQOqCtJtMB3yL2tkM9ewgVf+3TQlOdTOcVE8tVzC/N4x8FroFZ+4s1KkyyMRvvb9
-         qO/v6gwiQ8v90pSSZhqvkv6IYdGMj5DDlM7FngblUIRRPd38C+Ed/z1fWqykg5LOt0Fa
-         vY3HRgF55bzfsCw87qYRanRQB1D1EbX5syTy7RO3nqaT0AQpETdCfqNcTUPneuz5hpf8
-         oU2uS23TLTIxbKspf8f5Yv9TS0g8f5S3dwLjkUQ1/P0pAemljB7Z3QkJDb+uUFDaiQpz
-         UQNw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795624367; x=1796229167;
-        h=content-type:content-transfer-encoding:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=fjeXOElCViRQmgZvgDDdONv2Uyhg+At7B3MV4y/CS3E=;
-        b=uTcpsLC1MlR5ltQuxNActw2oqGWF/to82BAA6y/xlvtbCNvW4oJ3NZKWGx0/gqVTir
-         EA5ppTBjcK9ZfWWaUmt1KKsUMRGcKtyLjui1thb4P4SAiHVpId3tvJL+dA4ZXJXkTjg6
-         Vi+ZuGTT/I2QP6FdkrmYbhOdjg3Lpij7NYnLq7ec7WTe4mfpT2B1RSsUydsTZwifQfkT
-         Y95iRd6jTuc/+97LjZvy3bU0M88Nscvwy4QFikPZi8P93G+bE33+uVf9FS4PAR9k72Ho
-         +n/IhtmFUHMYScW+3ng4wm9wL2wbiIg4S3TwS//Xbyfy5u314CKUr06JwEiwMK43ozBa
-         IlaA==
-X-Forwarded-Encrypted: i=1; AL+hErFizub9bUmhKmzAhPru5+4QsqzDX4XE4F8lxx5cBHPuRZrPGH4FadmCEZThmEklR5bp6iorbokBP9xDQAM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9CIls8eSd8Awa7pBSZj510RIG6HlhFxOY0eO8DKh/UsFZS81Nd
-	iuAorkhkn1rcjePbqGc6c1ICBONjDPw9UzDnLyq0kaMt9MYtO8vPVvNj
-X-Gm-Gg: AZFdTZcqrre/VBNSTT5WerDNbOMFdJp6/rzBNeqVhlQq8ia3B9CkDp1NjngVndpH/qz
-	fTt9CUF893lMtr+Wj5rWOy3vK/RhwMUWYCl2kLjMkgy98g11T82ezmeK6ASaU57fijVLZn1eGR3
-	8lQV6qSgg7tY4/JY/4IBDKHufS3xVlvPa5N0SRD4LaHmztXxsvOcHjH2+WIDqBfBlwG38rr2ZB+
-	RPVTvLxOpILYrcL+kIf5b/vAa36X+PtmSWWUjMqnxpErCrdZLM8r40pjfRiwHDhRfqP04nR1e6I
-	qBiyutiSftYhzVuDKfbBa20yYPrf5MEdDrGHbVyAD9N/Dmn5L9J9+mEKIYwRZswW8DTze/zZbFK
-	XZ21fhiCD1RrFZtPYJWsq25rLBDHwlJFg5K0TZakR5lliVvskX0jAYmZkZUZEHkik8sqg91fYGJ
-	Njc3iwY8Jlg9QjdxS0xLrTtMVqOUSJ7jGiBt+YugPHuXJxy3+JrzCvZQub7frt4OaJkMaCtJCTt
-	3FSJhrnQJS5IeRJ92bBYiOGawg6tABMN3kkGwLlJ5E6kMdol9AclfInnE5W1rNea1StKB0DC8VP
-	Cw4X6sOivhOjgzyMiDyq+nL9TJpzY43ZsAXO7+1Vhf4vvE9OmCzaOFbcct1T6Q9l1Axb8RnwUbZ
-	scCoBMIZfpCpYM+d9yZYcBmgbEQIDuqlrjzyNqqxBcgmfHfKFNKq+ebj3pxiZAEmQb5A6gkpujj
-	yp0ZBHu88TCENbJH5R2w/sErQ6l/MP0VGH59qNgySRFmKBdzqNIebV+9Xs2wDCYxuMeRTS6YQxu
-	KXGGATlJTwwn8IByYPqwsZtxyNHIf5Tz+M0CxrIYN61VONVhu/M3iWY4m4f/qcnrAcWw7sWiXfF
-	t3T47WL+
-X-Received: by 2002:a05:600c:800e:b0:4bb:7757:fe58 with SMTP id 5b1f17b1804b1-4bb8881b9d7mr381679255e9.19.1795624366963;
-        Wed, 25 Nov 2026 08:32:46 -0800 (PST)
-Received: from jernej-laptop.localnet (77-38-7-250.dynamic.telemach.net. [77.38.7.250])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853a12acsm560493135e9.8.2026.11.25.08.32.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 08:32:46 -0800 (PST)
-From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-To: Liu Ying <victor.liu@nxp.com>,
- Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>,
- Lucas Stach <l.stach@pengutronix.de>, Chen-Yu Tsai <wens@kernel.org>,
- Jernej Skrabec <jernej@kernel.org>, Samuel Holland <samuel@sholland.org>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- Chen-Yu Tsai <wenst@chromium.org>
-Cc: Chen-Yu Tsai <wenst@chromium.org>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, linux-sunxi@lists.linux.dev,
- imx@lists.linux.dev, dri-devel@lists.freedesktop.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- stable@vger.kernel.org
-Subject:
- Re: [PATCH RFT v3 3/5] drm/sun4i: layers: Fix VI buffer address for clipped
- offsets
-Date: Wed, 25 Nov 2026 17:32:45 +0100
-Message-ID: <sBipOLw6T_aZ1e-H2zFl3g@gmail.com>
-In-Reply-To: <20261124074041.115251-4-wenst@chromium.org>
-References:
- <20261124074041.115251-1-wenst@chromium.org>
- <20261124074041.115251-4-wenst@chromium.org>
+	dkim=pass (2048-bit key, unprotected) header.d=foss.st.com header.i=@foss.st.com header.a=rsa-sha256 header.s=selector2 header.b=MkdDwyoH
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=jl/NdJRHcbkZi6ttumYLx9v2ABHPzL0CGqKH9mU80dJ1rGvLUPXe4vNMPwxfX8RcCkCqw3/hQrpISNLS+J6+GC7542HFssnM8nozy1+v9asd7pt36FeMX2uVds+d0fc/OjKdZ6gj+m8vHgC8bHzDsz4T6nwNaSsBwRJN65j5hi1rUn3irUTmgx2O2chTQeX5XMmqJ4aXVANRxmZsAap4T++Jhe7oTiow0lGHo9JAoaDeiVe/zNOcXAP80flhsJ34q/1O29pqOsKXe+nR3Yrr2jGd9vNCBJqQrJwa7T1oKdx6Spl7yhKuqSscYiE7bDmgPuJAg2j3AXGD0ONuWjLNlQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=WTT5uAKxCp1y51P4lhR+sRkq309dyXeCTveWZSftt9s=;
+ b=m50csLDCD0RflExMVNyBuJ6g730M3Jra0jcVpzG7Gp+qvmvQbO+YQaArjOQ2HN1UOzrTDSsb0Kg1Za1Wq0e0FOvcTXciGiyzX/zyKkvGY9TZlfK5ALDchOsb914qaW2sYSBsYAVgzrxlAE7Jb7R+AsjSeZR7+kmIhvkqLyuyYoiEMIngE1H8mKuBJPZ16+x6sw/+8nWwKuRrNVXKNbM+f0h+6cprofFTZmThdLXmpW8y/hjr4WklhD0ZVgw6cf07bia+kbQ9b2tgeYNigKfjrgYj7DdKi38QGXrBPsm2PATi8G8kOtEP1fr0zWA7zo16pi2l8Yf6mZqocNi1dHXbmA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.60) smtp.rcpttodomain=st-md-mailman.stormreply.com
+ smtp.mailfrom=foss.st.com; dmarc=fail (p=none sp=none pct=100) action=none
+ header.from=foss.st.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=WTT5uAKxCp1y51P4lhR+sRkq309dyXeCTveWZSftt9s=;
+ b=MkdDwyoHBWVFE4IqhYnB1W4oo7m1vaVmoebywxNRlysCZGf3XUCta/N5Pa5N/vFwXGxtWtfSpWY8VDO1ASRMJBbVXHle74NaDAaCXSKAb1x+GkL+jXe0fgWcTkdlNe2eTPYpCQcTkcALLOuMxiaBPWPVDQY4vrq93nWTwfeabB/jnhxZj3svCxUkkSV9yhiHrFQgATSNCvK3PEnxrNzXtEbUgOqXEjPwT0yVTeoa2gKYtk9HT/Yx/GUtWhGyATfAmHL9NdcQXYM0gemZ7oH6Fln8bFTQ63hd2Yu2hDJjboxt02iKzfsbwCw5CfQPOp2YrQwUPV61hvazg1mWOd2Iag==
+Received: from DUZPR01CA0329.eurprd01.prod.exchangelabs.com
+ (2603:10a6:10:4ba::28) by AM7PR10MB3304.EURPRD10.PROD.OUTLOOK.COM
+ (2603:10a6:20b:10f::23) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.6; Wed, 25 Nov
+ 2026 16:32:46 +0000
+Received: from DU2PEPF00028D04.eurprd03.prod.outlook.com
+ (2603:10a6:10:4ba:cafe::51) by DUZPR01CA0329.outlook.office365.com
+ (2603:10a6:10:4ba::28) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.7 via Frontend Transport; Wed, 25
+ Nov 2026 16:32:45 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=fail (sender IP
+ is 164.130.1.60) smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.60; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.60) by
+ DU2PEPF00028D04.mail.protection.outlook.com (10.167.242.164) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.639.5 via Frontend Transport; Wed, 25 Nov 2026 16:32:44 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
+ (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Wed, 25 Nov
+ 2026 17:33:49 +0100
+Received: from localhost (10.48.86.251) by STKDAG1NODE2.st.com (10.75.128.133)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Wed, 25 Nov
+ 2026 17:32:43 +0100
+From: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+Date: Wed, 25 Nov 2026 17:32:02 +0100
+Subject: [PATCH v6 01/11] usb: dwc2: fix recovery after PM domain off
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -114,107 +104,272 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20261125-dwc2-low-power-fixes-stm32-v6-1-d5df33b93eaf@foss.st.com>
+References: <20261125-dwc2-low-power-fixes-stm32-v6-0-d5df33b93eaf@foss.st.com>
+In-Reply-To: <20261125-dwc2-low-power-fixes-stm32-v6-0-d5df33b93eaf@foss.st.com>
+To: Thinh Nguyen <Thinh.Nguyen@synopsys.com>, Greg Kroah-Hartman
+	<gregkh@linuxfoundation.org>, Douglas Anderson <dianders@chromium.org>,
+	Stefan Wahren <wahrenst@gmx.net>, Artur Petrosyan
+	<Arthur.Petrosyan@synopsys.com>, Amelie Delaunay
+	<amelie.delaunay@foss.st.com>, Fabrice Gasnier <fabrice.gasnier@foss.st.com>,
+	Jisheng Zhang <jszhang@kernel.org>, Felipe Balbi <balbi@kernel.org>
+CC: <linux-usb@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-stm32@st-md-mailman.stormreply.com>, <stable@vger.kernel.org>
+X-Mailer: b4 0.16.0
+X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU2PEPF00028D04:EE_|AM7PR10MB3304:EE_
+X-MS-Office365-Filtering-Correlation-Id: ee782e58-6b5e-458b-cb4d-08df4b11bbde
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|82310400026|7416014|376014|1800799024|36860700016|18002099003|22082099003|6133799003|261009223027099003|11063799006|56012099006|10067099003|261102123227099003|261026140227099003|261022105027099003|261022075727099003|261026121527099003|261021123027099003|261028144727099003|261021121427099003;
+X-Microsoft-Antispam-Message-Info:
+	YVzpRvT1SBosCiogJAXbBuDXoydpfC0cx0A1n6VG0Hu0se66JjpS5X0AG4oM2bMcmSExFtEw4euB0cOa0bf/RH8NyaIFpf4zNdRLeGOmpNgH1ILDe/KSrNpHyPsNk5dFdi3RJUr0UJhJyA7giHg3QKj/bEEqxi4alRjleFZpeGx9aeKCuKLoO14a902GLc4qu7Vn9/MEEH7hHFnGrN/Eo2SqdkEPiQz1iqYwoLQXHKJwnDVprCKQnBRVFETAd3vg7TV9Vkg4N+4tb3rTt30MCrWLRHSC7xGwqyIIIoKYoqNpWe6THJz00tut0rJUfugZV4Hovp5dgdi0Tbhramp6x+Oj3zns9hMVpHKOdQncR08Mccun6MV/xFKBojlDF0SRBQGMnFP8a7zLEehLwP+bDvTIHU8nmfbE8NMjcipMx7p89LT2UBixbGPZuPYN4NqeYORRKmwNHT5Iz8D3RL7byXebJZVv7RWwzBSfx3G6Q727PpkK+EqWmTaP/p60BPOuvt3/0wyaocIlwHhwlypDw+u1rDWUG44CCiv3K25OI96TH4Qb/O2Q7uf77gyU1OdNNJd/AgftDEmCpk4tpn8TRYy36RlbnXJ663NOpXjNuxejwV0IX/rKOwE1JUhlalR4WITKEeN2dhRx29O/LokfE7K+Uim1z4SSeWSQy4KBXDptR3bNkacy2fCzxTO6sO361TvCQC8/km12/7p9KJtpHg==
+X-Forefront-Antispam-Report:
+	CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(82310400026)(7416014)(376014)(1800799024)(36860700016)(18002099003)(22082099003)(6133799003)(261009223027099003)(11063799006)(56012099006)(10067099003)(261102123227099003)(261026140227099003)(261022105027099003)(261022075727099003)(261026121527099003)(261021123027099003)(261028144727099003)(261021121427099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	GHXewGAdDAAezydU8NWNffe7P+WWC3EkowY7ZbMTCo7TwMs2Qk6CUKgVsWeyojXeC85/WldINumuP/NjcbaRyNTOAH6rF2Mxsvx8bRHh6uy3x1YqnDdqrJT/vUylOdqq9+FOV8LIEnE9BD8wi9ViVs2D8sCAZF335yTugTMVLhMbfdKdlOvSFZl1cQ0LIlJrruCwmewU5UiY/iB+jLQNULJV8HygexFgeEkXdbyZ7xuALs4Ji0gRgiwl7TlWwWLXBDnGgDJCkXIdePabu5f5jC+4MubN6/9SmMNsbjEAnMTY0wcZ8gXQ9S3MaT1Y2gjoVe2PIJkIlbQMPeSdYveRdwqyjiT+McF0gpRl+YBX4Q5wNrKOBTrThI/mDzsNvTJjSrWUwldJ/BUnitWQ3tKElMkcf7vwtdLsXiri6TBB4xyMRS5cX1cqcWxXlay0j6Tw
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 16:32:44.7122
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: ee782e58-6b5e-458b-cb4d-08df4b11bbde
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	DU2PEPF00028D04.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR10MB3304
 
-Dne torek, 24. november 2026 ob 08:39:31 Srednjeevropski standardni =C4=8Da=
-s je Chen-Yu Tsai napisal(a):
-> Commit 79ac1c945ab8 ("drm/sun4i: layers: Use drm_fb_dma_get_gem_addr() to
-> get display memory") dropped the code to calculate the framebuffer's DMA
-> address in favor of drm_fb_dma_get_gem_addr().
->=20
-> This turned out to be wrong in a couple ways. The hardware is programmed
-> with clipped dimensions, so it needs the buffer address to start at the
-> clipped boundary. Moving to the helper negated the clipping. Also, when
-> clipping on the left, the buffer address needs to start at the first
-> pixel in the sub-sampling group even for the luma plane. The hardware
-> handles the interpolation internally.
->=20
-> Switch to the new drm_fb_dma_get_gem_clipped_addr(), which provides the
-> buffer address starting at the clipped boundary. Calculate the intra-group
-> offset and adjust the luma plane buffer address so that it points to the
-> start of the sub-sampling group.
->=20
-> Fixes: 79ac1c945ab8 ("drm/sun4i: layers: Use drm_fb_dma_get_gem_addr() to=
- get display memory")
-> Cc: <stable@vger.kernel.org> # v7.1+, needs drm_fb_dma_get_gem_clipped_ad=
-dr()
-> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
-> ---
-> This is an alternative to Jernej's original revert:
-> https://lore.kernel.org/all/3980ea1aeb3f7fe8b4700e36560deeba3d050664.1785=
-772659.git.jernej.skrabec@gmail.com/
-> ---
->  drivers/gpu/drm/sun4i/sun8i_ui_layer.c |  2 +-
->  drivers/gpu/drm/sun4i/sun8i_vi_layer.c | 16 +++++++++++++++-
->  2 files changed, 16 insertions(+), 2 deletions(-)
->=20
-> diff --git a/drivers/gpu/drm/sun4i/sun8i_ui_layer.c b/drivers/gpu/drm/sun=
-4i/sun8i_ui_layer.c
-> index f9c7f28f9fa2..67cce1b0e70f 100644
-> --- a/drivers/gpu/drm/sun4i/sun8i_ui_layer.c
-> +++ b/drivers/gpu/drm/sun4i/sun8i_ui_layer.c
-> @@ -130,7 +130,7 @@ static void sun8i_ui_layer_update_buffer(struct sun8i=
-_layer *layer,
->  	ch_base =3D sun8i_channel_base(layer);
-> =20
->  	/* Get the start of the displayed memory */
-> -	dma_addr =3D drm_fb_dma_get_gem_addr(fb, state, 0);
-> +	dma_addr =3D drm_fb_dma_get_gem_clipped_addr(fb, state, 0);
-> =20
->  	/* Set the line width */
->  	DRM_DEBUG_DRIVER("Layer line width: %d bytes\n", fb->pitches[0]);
-> diff --git a/drivers/gpu/drm/sun4i/sun8i_vi_layer.c b/drivers/gpu/drm/sun=
-4i/sun8i_vi_layer.c
-> index 4d3fc03f9877..b6796416d550 100644
-> --- a/drivers/gpu/drm/sun4i/sun8i_vi_layer.c
-> +++ b/drivers/gpu/drm/sun4i/sun8i_vi_layer.c
-> @@ -205,7 +205,21 @@ static void sun8i_vi_layer_update_buffer(struct sun8=
-i_layer *layer,
-> =20
->  	for (i =3D 0; i < format->num_planes; i++) {
->  		/* Get the start of the displayed memory */
-> -		dma_addr =3D drm_fb_dma_get_gem_addr(fb, state, i);
-> +		dma_addr =3D drm_fb_dma_get_gem_clipped_addr(fb, state, i);
-> +
-> +		/*
-> +		 * The mixer can handle odd offsets into sub-sampled YUV
-> +		 * planes, but needs the address of the first pixel in each
-> +		 * sub-sampled block. Adjust the luma buffer address backwards.
-> +		 */
-> +		if (i =3D=3D 0) {
-> +			u32 x_diff, y_diff;
-> +
-> +			x_diff =3D (state->src.x1 >> 16) & (format->hsub - 1);
-> +			y_diff =3D (state->src.y1 >> 16) & (format->vsub - 1);
-> +			dma_addr -=3D y_diff * fb->pitches[i];
-> +			dma_addr -=3D x_diff * format->cpp[i];
-> +		}
+When the power domain containing the DWC2 controller is disabled during
+suspend, its registers are lost. Reading registers to back them up from
+dwc2_suspend() after clock gating can hang STM32MP1x in both host and
+device mode. Host suspend enters clock gating directly; in device mode,
+this can happen if the host suspended the USB bus before system suspend.
 
+Instead of unconditional backup of gadget/host registers, check if these
+registers have already been back'ed up (e.g. gr->valid == true). This is
+the case when the controller has already been put into one of the low
+power modes. This avoid unclocked access.
 
-This could be done differently.
+When entering clock gating, add backup of the gadget/host registers. This
+will address the case when the bus has entered suspend state, prior the
+PM suspend sequence. Discard the valid flag upon exit from clock gating.
+There's no need to restore registers in clock-gating exit routines.
 
-Before for loop (done only once):
-src_x =3D (state->src.x1 >> 16) & ~(format->hsub - 1);
-src_y =3D (state->src.y1 >> 16) & ~(format->vsub - 1);
+Protect the backup/restore of the registers against interrupt that may
+arise during these phases (with a spin_lock).
 
-Inside for loop:
-gem =3D drm_fb_dma_get_gem_obj(fb, i);
-dma_addr =3D gem->dma_addr + drm_framebuffer_get_block_offset(fb, i, src_x,=
- src_y);
+Move the registers restore after the STM32 vbus/id detection glue has
+been restored, as a wrong mode may be temporarily observed, triggering
+ID status change IRQs.
 
-But it works in any case, so:
-Tested-by: Jernej Skrabec <jernej.skrabec@gmail.com>
-Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+Fixes: ba6e518d136b ("usb: dwc2: Implement recovery after PM domain off")
+Cc: stable@vger.kernel.org
+Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+---
+Changes in v6:
+- Basically keep original approach instead of reworking it as discussed
+  with Stefan.
+- Re-visit the way to restore registers: add registers backup in clock
+  gating entry routines. When controller is suspended (bus suspend) and
+  platform PM suspend is requested, the registers have already been
+  back'ed up so the problematic backup phase becomes redundant and can
+  be skipped.
+- Address sashiko remarks on stale variables in subsequent separate
+  patches to ease review.
 
-Best regards,
-Jernej
+Changes in v5:
+- Sashiko comments: stale variables in device mode, possible race caused
+  by early call to dwc2_enable_global_interrupts during dwc2_resume(),
+  drop outdated note from the commit message.
 
-> =20
->  		/* Set the line width */
->  		DRM_DEBUG_DRIVER("Layer %d. line width: %d bytes\n",
->=20
+Changes in v4:
+- Disconnect the gadget and clear stale endpoint and low-power state.
+  Sashiko comment "usb: dwc2: incomplete gadget state cleanup in
+  dwc2_hsotg_resume()"
+- Reinitialize host state and clear stale backups after register loss.
+  Sashiko comment "usb: dwc2: incomplete host mode recovery in
+  dwc2_resume() after PM domain off"
+- Revisit commit message
 
+Changes in v3:
+- Add a note in the commit message since Sashiko comment on
+  _dwc2_hcd_resume() check on HPRT0_CONNSTS bit.
+- Add need_restore flag and pass it to dwc2_hsotg_resume() to avoid
+  possible interrupt race with lx_state update as raised by Sashiko,
+  instead of updating lx_state to DWC2_L0.
 
+Changes in v2:
+- In case registers have been lost, ensure the device mode resume takes
+  place by updating the lx_state to DWC2_L0, as reported by Sashiko. Note
+  in case of error in dwc2_core_init() choice is made to leave the low
+  level HW init, as it is the expected state out of the resume routine.
+---
+ drivers/usb/dwc2/gadget.c   | 13 +++++++++++++
+ drivers/usb/dwc2/hcd.c      | 12 ++++++++++++
+ drivers/usb/dwc2/platform.c | 42 ++++++++++++++++++++++++++----------------
+ 3 files changed, 51 insertions(+), 16 deletions(-)
 
+diff --git a/drivers/usb/dwc2/gadget.c b/drivers/usb/dwc2/gadget.c
+index adc3df0ca7dd..02c93a41043a 100644
+--- a/drivers/usb/dwc2/gadget.c
++++ b/drivers/usb/dwc2/gadget.c
+@@ -5766,6 +5766,15 @@ void dwc2_gadget_enter_clock_gating(struct dwc2_hsotg *hsotg)
+ 
+ 	dev_dbg(hsotg->dev, "Entering device clock gating.\n");
+ 
++	/*
++	 * Clock gating doesn't need a register backup. Do it here anyway, in
++	 * anticipation of a platform PM suspend: once the USB bus is suspended
++	 * and the clock gated, registers can't be read safely (access may hang
++	 * on some platforms). dwc2_resume() uses this backup to restore the
++	 * registers if the PM domain was turned off.
++	 */
++	dwc2_gadget_backup_critical_registers(hsotg);
++
+ 	/* Set the Phy Clock bit as suspend is received. */
+ 	pcgctl = dwc2_readl(hsotg, PCGCTL);
+ 	pcgctl |= PCGCTL_STOPPCLK;
+@@ -5792,6 +5801,7 @@ void dwc2_gadget_enter_clock_gating(struct dwc2_hsotg *hsotg)
+  */
+ void dwc2_gadget_exit_clock_gating(struct dwc2_hsotg *hsotg, int rem_wakeup)
+ {
++	struct dwc2_gregs_backup *gr = &hsotg->gr_backup;
+ 	u32 pcgctl;
+ 	u32 dctl;
+ 
+@@ -5820,4 +5830,7 @@ void dwc2_gadget_exit_clock_gating(struct dwc2_hsotg *hsotg, int rem_wakeup)
+ 	call_gadget(hsotg, resume);
+ 	hsotg->lx_state = DWC2_L0;
+ 	hsotg->bus_suspended = false;
++
++	/* Discard previously stored registers */
++	gr->valid = false;
+ }
+diff --git a/drivers/usb/dwc2/hcd.c b/drivers/usb/dwc2/hcd.c
+index 40ab50538334..db6126cd72c8 100644
+--- a/drivers/usb/dwc2/hcd.c
++++ b/drivers/usb/dwc2/hcd.c
+@@ -5935,6 +5935,14 @@ void dwc2_host_enter_clock_gating(struct dwc2_hsotg *hsotg)
+ 	u32 pcgctl;
+ 
+ 	dev_dbg(hsotg->dev, "Entering host clock gating.\n");
++	/*
++	 * Clock gating doesn't need a register backup. Do it here anyway, in
++	 * anticipation of a platform PM suspend: once the USB bus is suspended
++	 * and the clock gated, registers can't be read safely (access may hang
++	 * on some platforms). dwc2_resume() uses this backup to restore the
++	 * registers if the PM domain was turned off.
++	 */
++	dwc2_host_backup_critical_registers(hsotg);
+ 
+ 	/* Put this port in suspend mode. */
+ 	hprt0 = dwc2_read_hprt0(hsotg);
+@@ -5967,6 +5975,7 @@ void dwc2_host_enter_clock_gating(struct dwc2_hsotg *hsotg)
+  */
+ void dwc2_host_exit_clock_gating(struct dwc2_hsotg *hsotg, int rem_wakeup)
+ {
++	struct dwc2_gregs_backup *gr = &hsotg->gr_backup;
+ 	u32 hprt0;
+ 	u32 pcgctl;
+ 
+@@ -6006,4 +6015,7 @@ void dwc2_host_exit_clock_gating(struct dwc2_hsotg *hsotg, int rem_wakeup)
+ 		mod_timer(&hsotg->wkp_timer,
+ 			  jiffies + msecs_to_jiffies(71));
+ 	}
++
++	/* Discard previously stored registers */
++	gr->valid = false;
+ }
+diff --git a/drivers/usb/dwc2/platform.c b/drivers/usb/dwc2/platform.c
+index 3df9b198d1b2..7f3436e6a153 100644
+--- a/drivers/usb/dwc2/platform.c
++++ b/drivers/usb/dwc2/platform.c
+@@ -649,6 +649,8 @@ static int dwc2_driver_probe(struct platform_device *dev)
+ static int __maybe_unused dwc2_suspend(struct device *dev)
+ {
+ 	struct dwc2_hsotg *dwc2 = dev_get_drvdata(dev);
++	struct dwc2_gregs_backup *gr;
++	unsigned long flags;
+ 	bool is_device_mode;
+ 	int ret = 0;
+ 
+@@ -692,10 +694,15 @@ static int __maybe_unused dwc2_suspend(struct device *dev)
+ 		regulator_disable(dwc2->usb33d);
+ 	}
+ 
+-	if (is_device_mode)
+-		ret = dwc2_gadget_backup_critical_registers(dwc2);
+-	else
+-		ret = dwc2_host_backup_critical_registers(dwc2);
++	spin_lock_irqsave(&dwc2->lock, flags);
++	gr = &dwc2->gr_backup;
++	if (!gr->valid) {
++		if (is_device_mode)
++			ret = dwc2_gadget_backup_critical_registers(dwc2);
++		else
++			ret = dwc2_host_backup_critical_registers(dwc2);
++	}
++	spin_unlock_irqrestore(&dwc2->lock, flags);
+ 
+ 	if (ret)
+ 		return ret;
+@@ -730,6 +737,7 @@ static int dwc2_restore_critical_registers(struct dwc2_hsotg *hsotg)
+ static int __maybe_unused dwc2_resume(struct device *dev)
+ {
+ 	struct dwc2_hsotg *dwc2 = dev_get_drvdata(dev);
++	unsigned long flags;
+ 	int ret = 0;
+ 
+ 	if (!dwc2->ll_hw_enabled)
+@@ -742,18 +750,6 @@ static int __maybe_unused dwc2_resume(struct device *dev)
+ 	}
+ 	dwc2->phy_off_for_suspend = false;
+ 
+-	/*
+-	 * During suspend it's possible that the power domain for the
+-	 * DWC2 controller is disabled and all register values get lost.
+-	 * In case the GUSBCFG register is not initialized, it's clear the
+-	 * registers must be restored.
+-	 */
+-	if (!(dwc2_readl(dwc2, GUSBCFG) & GUSBCFG_TOUTCAL_MASK)) {
+-		ret = dwc2_restore_critical_registers(dwc2);
+-		if (ret)
+-			return ret;
+-	}
+-
+ 	if (dwc2->params.activate_stm_id_vb_detection) {
+ 		unsigned long flags;
+ 		u32 ggpio, gotgctl;
+@@ -786,6 +782,20 @@ static int __maybe_unused dwc2_resume(struct device *dev)
+ 		dwc2_drd_resume(dwc2);
+ 	}
+ 
++	/*
++	 * During suspend it's possible that the power domain for the
++	 * DWC2 controller is disabled and all register values get lost.
++	 * In case the GUSBCFG register is not initialized, it's clear the
++	 * registers must be restored.
++	 */
++	if (!(dwc2_readl(dwc2, GUSBCFG) & GUSBCFG_TOUTCAL_MASK)) {
++		spin_lock_irqsave(&dwc2->lock, flags);
++		ret = dwc2_restore_critical_registers(dwc2);
++		spin_unlock_irqrestore(&dwc2->lock, flags);
++		if (ret)
++			return ret;
++	}
++
+ 	if (dwc2_is_device_mode(dwc2))
+ 		ret = dwc2_hsotg_resume(dwc2);
+ 
+
+-- 
+2.43.0
 
