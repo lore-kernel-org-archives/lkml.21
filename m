@@ -1,111 +1,50 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795621728;
-	b=zj7VwAUKWH+eepbmp37BzgTIq7hI3of2qeq/VwNcHp6hDBlTgJHrxHmmmDHI6ieL/RNj
-	 YyPmhClW7UqQkM0i8tXpQ/Bz2SGlq6z5wq8Hl6IFAXO43whGO3EUfPCn/ULYRc0o5K4jz
-	 oYd4qDEtIWr/RwbRljnXZAhlwKmlVFt1yNt/aJeKBbjGke1N9hmvj8bwLxA+wcrNYo3sT
-	 WZifJGFcxRNGg6mYZMhmDr7EIP0nB/sUekteFDij5CpBaOWnDvfPmrxO39Kul/nKG3/FI
-	 ItwYD73XKnBjdeSKegvobsriXX9kZRodkPltiFILSZgJAGrf/C5kRkmboe1PrjGDpIQ==
+	t=1795621745;
+	b=Qhf9NIhmCFUfgvKt48QSgDAlwtZ7TUfpF1S6aqUMKs+Gqa8NB/DZav2YJ5Lf7j9yyf2d
+	 Q/DUnjmtN5MY0ESguv0MGTQn0e5MWC+zVL75TjSxFGhVlDYssN2/Yqh55mi4cmBm0uGxd
+	 YyqIrKgwtPubG7lvaPwzQKAhjMNF0tEvxJ5+2uOTEAVo5eR0MNezRJDMdf4uENnyLBFr0
+	 hc9xeSCKE+anR0MtrgBJME1d7SF4Nf2qcx1ArtZHeeSLXC8CT9lXRdB8KcyCrYAEMIJGA
+	 8z4/cURac30Gibai7YfmJhxXMGt5nJJM5ubwRmY5D3w5JuDWl+xDngldC4N766Ae/rA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795621728;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Proofpoint-Spam-Info:
-	 X-Authority-Analysis:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=wxSVRwxGNjXl2Dx/xEhoHx9TtGEitCgAjQW8e9eF30M=;
-	b=1bjY6w0f2TEMcnQDKKvPfSgtLllYFNWU25F6XCYIF8tdie1bnbq1Qutq2PGY7YyOsC+/
-	 7hhsm6AKlYkEttKZxtMyO8F4xM0l1E25N+LtZut9vnD6+B+S6Aoy2yTZIM3V1eCKP6B9g
-	 KhlbKsEv+3uinSrgYmecqQ4RrEtgt1VN49cMNjh0Deww1yXtbOEIPM2nWr6R0GX0LwW5X
-	 wPuz/zzv8wlA+ErPJNKuUffDqE5Nqd+sSpDC47okSw/I/tuZsoq4hkOTOLK3WoPw/hXxX
-	 VoctBe+1j6a/f/8SwUfic0yyf068O+VW/k4ywhI8ODmSk24UrSU+Yi7LMoSAUjvFVLA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795621745;
+	h=Received:DKIM-Signature:From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
+	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=f4E9fqa7EjT34/pouEYgQMVfRSlwer9Fxd7blOSlVs0=;
+	b=g5Zu1JntfvEg7G/yzDf1aXSh+LBb7CWoDu+6OP5cRG0xDav1DZrurl/EBmWiSXjwAsA2
+	 vWJZdjW3AP5/9c94OkrXmvCkSn+2UgNx5ajIpHzK3mQYG19aNmjzviRckZTv5vncdU5x9
+	 FNY9M1jMbOHyHwGOb5Cz7yl1mARYR20JJeOl6hlOaaLCwO6P2vJDDMtsVN1F7sR2TFiFa
+	 UGpfvKs/w3um4ShceCvs1EDS6S6zipt4kjgpigzbym/w/MNbJAM9iNnBW+M+3F5tIEAyQ
+	 Ew5n10ug8eeemIMIBBp1dsHj/Aiofr3bozkZUHre17VUkJU1LP19sXKmy20eyOdnvYA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=On7xl3rC;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=g2yhE1mA;
-	arc=none smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jzEpqPcP;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0360E606A32A
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:48:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0360E606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A23C5606A321;
+	Wed, 25 Nov 2026 15:49:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=On7xl3rC;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=g2yhE1mA
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6APEMQPx441521
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:48:47 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=wxSVRwxGNjXl2Dx/xEhoHx
-	9TtGEitCgAjQW8e9eF30M=; b=On7xl3rCZxS1PJ8IlMfo5mBJyNyqprp5iTw+1V
-	FFFYEaY9KsCabhupBBUEA8V++vCArdve91Nl4ybEEfvGWRMOwUia6sxW6fptp25Q
-	AO/bfmH4HV1F1LqqEPt9z7zcukTSKKfdDzXXbI7BOpO6/dlJY8uJ6+ga4N368aEv
-	897YV6wWratNtQeuarvhRxw988KkadCnkRBd4PGItiXRElpFBt6EN71gBKCF0Pkw
-	3tDfy0sVQWvxOB2QYVqK9V3FO94Chkufmvfud1Ve/MQgwzKjU9KjnlymZ5yuiDz6
-	Byf5UmXS8onEjrVuH2OQq8TzfcpbfQDg4IOYFyvzFHBMpQTg==
-Received: from mail-yw1-f200.google.com (mail-yw1-f200.google.com [209.85.128.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j5mqbkhh6-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:48:47 +0000 (GMT)
-Received: by mail-yw1-f200.google.com with SMTP id 00721157ae682-836caf085e0so77868937b3.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 07:48:47 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795621726; x=1796226526; darn=vger.kernel.org;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=wxSVRwxGNjXl2Dx/xEhoHx9TtGEitCgAjQW8e9eF30M=;
-        b=g2yhE1mAs92exKhfCFRGEpfUPSAsE5ovIKp7iD6+F4a98x3gm1nAApFLDUuxcQLAy/
-         ZnJtJzy25g+tpoXSz2Iz4NE//APA1GjZKD3Tl/w3zWUN+YsdJQe/Bzy1OcXpDI+6mgoA
-         2V7QKqIDrHySVYhP6VgGzlO4h146zG1LpDJVpBi4sy268MUYWY6yqALd/x6O0g/95Wv4
-         r8RyJC/YsRj3vVQxjF6IgAmtXfWynz86ogqBa8oXPehAGk2wJxvp62vaMhM+lpbu2BNS
-         5In4cyCd52D/icIJaGEe6aNRZnaQMWrh3lgtQfPIRakwHI8+v302BjCciuAdxQVak7Fo
-         MkPA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795621726; x=1796226526;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=wxSVRwxGNjXl2Dx/xEhoHx9TtGEitCgAjQW8e9eF30M=;
-        b=cG5R6rLlinqNAp0xl767hWdKHXUQR0sqUy/BhnAVMcn9N3ype3p5H0UKeOVUNyrDiy
-         yrXeGJWok35WBoVBX23TdYW14aLtwKnD5qL3EnCJEi1EZAJjTyNf6nCoJ0voSBl3NhzZ
-         5idwHCLjkke71hTntAkvs/YuPsIXmc4snZMFOo37RwC9Vd1JD1tfINrBgOiL8b6alPpe
-         0lQPe+CeaNU/zGyVJFW2V4uok6pbJIO0l3Y1E/Q84g2K6FWWUaQlKez0KClrBeLZO9M2
-         RSh2ODRQt5r7zoQpHYt4RZwWboDnwKQUhoo2m+QTIUtb5IiWQH8LM8KFxwWKBqDGPAd3
-         9+Sw==
-X-Forwarded-Encrypted: i=1; AL+hErGF5flcwvXH7r0QvM4xFkJLO0nnqw5kOxIG/aTQoKsny4a7O3FtfZ/uH98Ha+icPaWJINO/XaVL5g13gQ8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9MwdqvOVUf6YC/krJewmzze5FwWFBhIm6e97rv2CIZA5P+aUjB
-	8BGYoLOODLZ+qWmHPpfeqUmZ1Qz1McsdAagNIUXk0iL9+hU/iamGAHKwWHDCPI1pXYAWhTJTSwd
-	3Q3uOZqvHVWfED2vEauJ7s6O6kgJhEYk9YD6c5HWTa+84Q5X8crjO13wZnbFsp94zd6I=
-X-Gm-Gg: AZFdTZcRLN4IKb2k1qn2cD/IKO76qk9ymBgjBmGfTF+1kUmFOz2+K+6GDqbiJ4wAeeG
-	U0G1Qjhk9RF85UsHME6LmwW1u6AXoBPnY3qWZpMowndCk/a63b6L8i3q1bXCbQMKEEyMZhcGicj
-	UNHAWoM7drwwK/LzbwK1goyahCe85Lt5cBjKtLSIKdVRX4y9bATo+mMtYyryTYxw3bxibpj9x9Y
-	Yjexpyw+qKb297vimKit92q7idhZC/PnuDNZkh8r5eECVjs1U9+0rRUCkkJpFgzgi3bL7cs9shy
-	8J30IlI5MKhzcx6iJZzTXKOHB9+9Lm9BA50u2i6TLetYtiQSHtBRIEmOz0EhiV6+5Vpp3bjrOGn
-	8ibvoupXBNsYZiqsZ1xWm/+MrP6pRZu4Ny9Jn9YRlctDuEoKLtHxRuveP3H/cW/rpn9qfFLc23q
-	tY9ZB8XuE=
-X-Received: by 2002:a05:690c:2a45:b0:8b0:d438:a024 with SMTP id 00721157ae682-8b5204b538amr66569267b3.37.1795621726237;
-        Wed, 25 Nov 2026 07:48:46 -0800 (PST)
-X-Received: by 2002:a05:690c:2a45:b0:8b0:d438:a024 with SMTP id 00721157ae682-8b5204b538amr66569157b3.37.1795621725807;
-        Wed, 25 Nov 2026 07:48:45 -0800 (PST)
-Received: from hu-bvisredd-hyd.qualcomm.com ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b5202f90casm73274637b3.28.2026.11.25.07.48.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 07:48:45 -0800 (PST)
-From: Vishnu Reddy <busanna.reddy@oss.qualcomm.com>
-Date: Wed, 25 Nov 2026 21:18:38 +0530
-Subject: [PATCH v2] media: iris: Fix VSP clock calculation for high bitrate
- streams
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jzEpqPcP
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 66D5C1F000E6;
+	Wed, 25 Nov 2026 15:48:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795621745;
+	bh=f4E9fqa7EjT34/pouEYgQMVfRSlwer9Fxd7blOSlVs0=;
+	h=From:Subject:Date:To:Cc;
+	b=jzEpqPcPKJl35HJnMb6btHGNnboqsxn2LLtp3CiO3gs8EwuRvcCpl8cNZxXbE0Bpx
+	 MZrdOn9ufSNMSQopTzSQLWdCfqg5kGmeJuCH65BtmASREu970zUL4CFkuLtrOPSiSi
+	 rkbJh8AHapnJCS9g3ZELVYyzhs9UPXBpfhS4dW22hw+8R7Lwexu6lIvPqbpejLzNiO
+	 ltTjVyTpvpCxL4ukQAHxwoEHHxPAR4DJFeBNBdVmAb3duepteGgpHXrxvo4gfruVzg
+	 c0WWUsv0I8KuAjFumZgNAeQ73OFtSF+mCp1osDEXh23UrkR3A2kiN6NP34dfpTlfYA
+	 FLw+pGFqhAl7w==
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Subject: [PATCH v3 0/4] mm: fix races between huge and non-huge faults in
+ PFN mappings
+Date: Wed, 25 Nov 2026 15:48:48 +0000
+Message-Id: <20261125-huge-pfnmap-fault-races-v3-0-bbc44489341b@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -117,138 +56,137 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261125-fix-vsp-freq-calc-v2-1-9825a64d2a88@oss.qualcomm.com>
-X-B4-Tracking: v=1; b=H4sIAFUDB2sC/22NwQ6CMAxAf4XsbAkb2WCe/A/DAUaRGXGwwqIh/
- LsD481Lk5e+vq6M0Fskdk5W5jFYsu4ZQZwSZvr6eUOwbWQmMqF4lkno7AsCjdB5nMDUDwNcN1o
- VTaFRCRbvRo9ROprX6su0NHc08x7ajd7S7Pz7eBr47v366k8/cOAgc5mLttR5KcXFEaXTEnduG
- NI4WLVt2we3dy9bywAAAA==
-X-Change-ID: 20261005-fix-vsp-freq-calc-19b967b79e62
-To: Vikash Garodia <vikash.garodia@oss.qualcomm.com>,
-        Dikshita Agarwal <dikshita.agarwal@oss.qualcomm.com>,
-        Abhinav Kumar <abhinav.kumar@linux.dev>,
-        Bryan O'Donoghue <bod@kernel.org>,
-        Mauro Carvalho Chehab <mchehab@kernel.org>,
-        Hans Verkuil <hverkuil+cisco@kernel.org>
-Cc: Bryan O'Donoghue <bryan.odonoghue@linaro.org>, linux-media@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org,
-        stable@vger.kernel.org, Vishnu Reddy <busanna.reddy@oss.qualcomm.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795621720; l=3154;
- i=busanna.reddy@oss.qualcomm.com; s=20260216; h=from:subject:message-id;
- bh=zQeiaIxtG0nlXCeoXnxDDCFVPvGkd7BtMIJ10iaZjBE=;
- b=mggLX9MZX+5QLFPAH0Zh2Xz/tyYotKGuCWyFHDTUqoS0XASXSduU19rXMolkj9ccYwO4uZOdG
- eIUlPhyjNWdCKzcVrZ4A3x2Y8y4cqwmdWzLjNMEmqoJoancrc8ZDxJ8
-X-Developer-Key: i=busanna.reddy@oss.qualcomm.com; a=ed25519;
- pk=9vmy9HahBKVAa+GBFj1yHVbz0ey/ucIs1hrlfx+qtok=
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI1MDA2MiBTYWx0ZWRfXyicztbz/6eym
- 7Wb03sQIonEICGfHpCa9YlPEFsAb0yxD1+c4ZpvVqE21r862ZL592WCzdoCNcp96DUj4Af6tlt1
- BnS8WxXozGe9dV06DdGRlemGeXJ+FwE=
-X-Authority-Analysis: v=2.4 cv=Bb9NQbt2 c=1 sm=1 tr=0 ts=6b07035f cx=c_pps
- a=NMvoxGxYzVyQPkMeJjVPKg==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22
- a=bC-a23v3AAAA:8 a=EUspDBNiAAAA:8 a=VwQbUJbxAAAA:8 a=bD6gx3CI9Ee8KLyf7M8A:9
- a=QEXdDO2ut3YA:10 a=kLokIza1BN8a-hAJ3hfR:22 a=FO4_E8m0qiDe52t0p3_H:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI1MDA2MiBTYWx0ZWRfX+e3PVF4QyWXt
- Gn9tLLKCkdJI4f8CjIPcViL6iJK+7IQFDszu65NFxf+BCy+FvJXziNqk9UQa76ih3t6uankK7fw
- Ns6ueAPBfqVxc1DxBM++XSNHYnV/6EsKoAsgMvTqns1oGck/ESZh7LziZs5cdNKptzcEebVjUXZ
- 2gBqBhcGJllFRYh+YhBqLzWzHUR9rHubuuVpVfBDTfrPIqRafebduJsL52pd6+jqRg0H6ZMCqb7
- fIRaYGeFjL1Nu80MR1EGkz3wF29R7eXox74e+cblTywS8J32M9K6PxUM8Jvq9ILJcPadPXiz0qF
- Y3MpdDXIbyPPm81eIHKHcvL63PLw0ftwZreCk/juyk7W8sSsYWZ/guey7k2TlbatIZa7CStWLM2
- hIKVzgk5TiJx9szfTqV3w/U0gbMCcB2NQ/Cb9DKvIaEwxu2Myu/oe3G3yV4eiz091++xTzlVvnv
- btrAQD0AgjUF6dZ6fsw==
-X-Proofpoint-ORIG-GUID: oW6W9zRM9xSAAI01MBYd_aDeSr93wlIx
-X-Proofpoint-GUID: oW6W9zRM9xSAAI01MBYd_aDeSr93wlIx
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-25_04,2026-11-23_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 adultscore=0 clxscore=1015 priorityscore=1501 impostorscore=0
- malwarescore=0 lowpriorityscore=0 bulkscore=0 phishscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611250062
+X-B4-Tracking: v=1; b=H4sIAAAAAAAA/4XNSw6CMBSF4a00d+w1fdA2YeQ+jAMot1BFIC0QD
+ WHvBpzowDg8ycn3L5AoBkqQswUizSGFvoOcqQMD1xRdTRgqyBlILo0QQmMz1YSD7+7FgL6Y2hF
+ j4SihVhkZaSrSzsGBwRDJh8cuny/vnabySm7cuO3RhDT28bmnZ7H9/ldmgRy1soZrkylv/OlGs
+ aP22McatswsPyH7G5LIUVrDuSWrSld+Qeu6vgDBJnW4GgEAAA==
+X-Change-ID: 20261115-huge-pfnmap-fault-races-534e626de5cc
+To: Andrew Morton <akpm@linux-foundation.org>, 
+ David Hildenbrand <david@kernel.org>, 
+ "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
+ Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
+ Michal Hocko <mhocko@suse.com>, Alex Williamson <alex@shazbot.org>, 
+ Peter Xu <peterx@redhat.com>, Zi Yan <ziy@nvidia.com>, 
+ Baolin Wang <baolin.wang@linux.alibaba.com>, 
+ Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>, 
+ Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>, 
+ Lance Yang <lance.yang@linux.dev>, Usama Arif <usama.arif@linux.dev>, 
+ Kiryl Shutsemau <kas@kernel.org>, Wei Liu <wei.liu@kernel.org>, 
+ Roman Kisel <romank@linux.microsoft.com>, 
+ Saurabh Sengar <ssengar@linux.microsoft.com>, 
+ Naman Jain <namjain@linux.microsoft.com>, 
+ Michael Kelley <mhklinux@outlook.com>
+Cc: ljs@kernel.org, linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
+ stable@vger.kernel.org, "Jose A. Perez de Azpillaga" <azpijr@gmail.com>, 
+ "T.J. Mercier" <tjmercier@google.com>, Eliav Farber <farbere@amazon.com>, 
+ "Gregory Price (Meta)" <gourry@gourry.net>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4496; i=ljs@kernel.org;
+ h=from:subject:message-id; bh=Z4LO9d2vnfeRNb+fw6qh0PkH0/UA2FTNFPb1bDNeV6Q=;
+ b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLLZmdOK5/z9oxXgpmdRH8+6Xej6Uu7/3yNyimKNtjVzH
+ lwX6iLeUcrCIMbFICumyPL8i/j+IJGweZ0X/N1g5rAygQxh4OIUgImc62H4H5a6tEHhzYy8sk9F
+ i1v28UzfdDyHucj+36zLOp/W+Ivv+sbwh3NzfHpVwGLvu3ECq4L83TdbNU87vfXNz4m8aV+OVMc
+ V8wMA
+X-Developer-Key: i=ljs@kernel.org; a=openpgp;
+ fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
 
-Frame drops were observed during high-resolution streams decoded at high
-bitrates, as well as concurrent decode sessions. Analysis showed that the
-Video Signal Processor (VSP) clock requirement was underestimated for
-these workloads, resulting in insufficient clock scaling and reduced
-processing throughput.
+A driver that implements both ->fault and ->huge_fault must anticipate
+concurrent use of both.
 
-Update the VSP frequency calculation to more accurately reflect the
-processing requirements of different codecs and bitrates, ensuring that
-the requested clock frequency is sufficient to sustain the workload and
-prevent frame drops.
+This can happen, for example, if a user calls prctl(PR_SET_THP_DISABLE)
+concurrent with faulting, as that only holds the mmap write lock and thus
+does not exclude faulting threads stabilised by VMA lock.
 
-Fixes: 82b96a8d8d6e ("media: iris: Move vpu35 specific api to common to use for vpu4")
-Cc: stable@vger.kernel.org
-Signed-off-by: Vishnu Reddy <busanna.reddy@oss.qualcomm.com>
----
-Changes in v2:
-- Used the configured bitrate for the encoder VSP clock calculation (Vikash)
-- Link to v1: https://patch.msgid.link/20261006-fix-vsp-freq-calc-v1-1-53532d893852@oss.qualcomm.com
----
- drivers/media/platform/qcom/iris/iris_vpu_common.c | 32 ++++++++++++++++++++--
- 1 file changed, 30 insertions(+), 2 deletions(-)
+A number of places in the code that implements huge PFN support fail to
+take this into account correctly, which this series aims to address.
 
-diff --git a/drivers/media/platform/qcom/iris/iris_vpu_common.c b/drivers/media/platform/qcom/iris/iris_vpu_common.c
-index 243bd845349f..376ea758c5dd 100644
---- a/drivers/media/platform/qcom/iris/iris_vpu_common.c
-+++ b/drivers/media/platform/qcom/iris/iris_vpu_common.c
-@@ -454,9 +454,24 @@ u64 iris_vpu2_calculate_frequency(struct iris_inst *inst, size_t data_size)
- 	return max(vpp_freq, vsp_freq);
- }
- 
-+static u64 iris_get_vsp_ref_bitrate(struct iris_inst *inst)
-+{
-+	switch (inst->codec) {
-+	case V4L2_PIX_FMT_VP9:
-+		return 70;
-+	case V4L2_PIX_FMT_AV1:
-+		return 100;
-+	case V4L2_PIX_FMT_H264:
-+	case V4L2_PIX_FMT_HEVC:
-+	default:
-+		return 150;
-+	}
-+}
-+
- u64 iris_vpu3x_vpu4x_calculate_frequency(struct iris_inst *inst, size_t data_size)
- {
- 	struct platform_inst_caps *caps = inst->core->iris_platform_data->inst_caps;
-+	u64 vsp_bitrate, vsp_ref_bitrate, vsp_ref_freq;
- 	struct v4l2_format *inp_f = inst->fmt_src;
- 	u32 height, width, mbs_per_second, mbpf;
- 	u64 fw_cycles, fw_vpp_cycles;
-@@ -484,8 +499,21 @@ u64 iris_vpu3x_vpu4x_calculate_frequency(struct iris_inst *inst, size_t data_siz
- 	if (inst->fw_caps[STAGE].value == STAGE_2)
- 		vpp_cycles += div_u64(vpp_cycles * 5, 100);
- 
--	vsp_cycles = fps * data_size * 8;
--	vsp_cycles = div_u64(vsp_cycles, 2);
-+	if (inst->domain == DECODER) {
-+		vsp_bitrate = fps * data_size * 8;
-+	} else {
-+		vsp_bitrate = inst->fw_caps[BITRATE].value;
-+		if (inst->operating_rate > fps)
-+			vsp_bitrate = div_u64(vsp_bitrate * inst->operating_rate, fps);
-+	}
-+
-+	vsp_ref_bitrate = iris_get_vsp_ref_bitrate(inst);
-+	vsp_ref_freq = inst->codec == V4L2_PIX_FMT_AV1 ? 533 : 480;
-+	vsp_cycles = div_u64(vsp_ref_freq * vsp_bitrate, vsp_ref_bitrate);
-+
-+	/* VSP FW SW offset */
-+	vsp_cycles = div_u64(vsp_cycles * 1000, 1055);
-+
- 	/* VSP FW overhead 1.05 */
- 	vsp_cycles = div_u64(vsp_cycles * 21, 20);
- 
+Generally the shape of the issue is that faulting the same empty page table
+entry can result in the ->fault and ->huge_fault handlers racing and the
+loser finding something they didn't expect.
+
+The fault code must tolerate this, but fails to in 3 places:
+
+1. walk_to_pmd() asserts, without the PMD lock, that the PMD entry is not
+   huge, so a VM_BUG_ON() triggers. [ vfio-pci, nvgrace-gpu ]
+
+2. insert_pfn() treats a failure to map the PTE table as an allocation
+   failure and reports OOM, causing kernel accesses to the range to
+   spuriously fail with -EFAULT. [ vfio-pci, nvgrace-gpu ]
+
+3. insert_pmd() and insert_pud() assume a populated entry is huge and
+   compare its PFN on write fault, warning when that of a page table does
+   not match. [ mshv_vtl, drm_gem_shmem, panthor ]
+
+This was originally reported and fixed by Eliav Farber in [0], this series
+reworks patches 1-3 of that one.
+
+Patch 4 of that series (x86 PAT encoding of huge PFN mappings) is dropped -
+it is unrelated to the above, no in-tree driver is affected by it, and it
+needs a different approach which is better pursued separately with the x86
+maintainers.
+
+All three issues were reproduced on x86-64 under QEMU using vfio-pci in
+no-IOMMU mode on an ivshmem BAR, with 6 threads faulting the same address
+in each PMD or PUD aligned range of the mapping while another toggles
+PR_SET_THP_DISABLE (note that vfio-pci had to be modified to pass the write
+flag to reproduce the third issue).
+
+Without this series the BUG is hit immediately, with only patches 1 and 2
+applied tens of thousands of -EFAULTs are observed within seconds, and with
+patches 1-3 (and the vfio-pci modification) both warnings fire immediately.
+
+With the series applied 30 second runs at each of PMD and PUD size complete
+with none of the above, with or without the vfio-pci modification.
+
+[0]: https://lore.kernel.org/all/20261112051440.16140-1-farbere@amazon.com/
 
 ---
-base-commit: 3dd8c790a7b7027abdd568e36db5e82ffaea7c77
-change-id: 20261005-fix-vsp-freq-calc-19b967b79e62
+v3:
+* Propagated tags, thanks everybody!
+* Fix issue with 3/4 returning -EFAULT, which resulted in a SIGBUS. Fix
+  this by returning -EBUSY so the fault is retried. As reported by the
+  kernel test robot.
+* Updated 3/4 comments and commit message to reflect this + also that
+  MADV_DONTNEED can result in a missing page table.
+* Updated 3/4 to also have insert_pages() return -EBUSY under the same
+  circumstances as insert_page() for consistency.
+* Fixed 'Reivewed-by' tag in 3/4.
 
-Best regards,
---  
-Vishnu Reddy <busanna.reddy@oss.qualcomm.com>
+v2:
+* Added 1/4 to have walk_to_pmd() return an error code. This is marked for
+  stable as it is a prerequisite of 3/4.
+* Updated 3/4 (was 2/3) to add __get_locked_pte(), which differentiates a
+  failed page table allocation from racing a huge entry, and to use it in
+  both insert_pfn() and insert_page(), as per David.
+* Updated 3/4 (was 2/3) to have walk_to_pmd() return -EFAULT if it
+  encounters a huge PUD entry, as per David.
+* Updated 3/4 (was 2/3) to be authored by me as it is substantially
+  reworked, retaining Eliav as reporter.
+* Updated 4/4 (was 3/3) to use [pmd, pud]_leaf() rather than
+  [pmd, pud]_trans_huge(), as per David.
+* Propagated tags, other than to 3/4 (was 2/3) as changed significantly.
+https://lore.kernel.org/r/20261117-huge-pfnmap-fault-races-v2-0-276007e73bcb@kernel.org
+
+v1:
+https://patch.msgid.link/20261115-huge-pfnmap-fault-races-v1-0-537605643f6f@kernel.org
+
+---
+Eliav Farber (1):
+      mm/memory: remove racy huge PMD assertion from walk_to_pmd()
+
+Lorenzo Stoakes (ARM) (3):
+      mm: update walk_to_pmd() to explicitly return an error
+      mm/memory: do not report OOM if insert_pfn() races a huge fault
+      mm/huge_memory: only compare PFNs of huge entries on huge fault insert
+
+ mm/huge_memory.c |  8 +++++++
+ mm/memory.c      | 70 ++++++++++++++++++++++++++++++++++++++++----------------
+ 2 files changed, 58 insertions(+), 20 deletions(-)
+---
+base-commit: 5b99c3309de70337f38bd6e6998ab8335c2758e4
+change-id: 20261115-huge-pfnmap-fault-races-534e626de5cc
+
+Cheers,
+-- 
+Lorenzo Stoakes (ARM) <ljs@kernel.org>
 
