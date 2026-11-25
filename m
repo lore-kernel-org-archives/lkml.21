@@ -1,54 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.218
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.54
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795607273;
-	b=DPxBEJ6kVqGwLDUnR3ZYP6aHlffI/rtgTN6EMeHDg0qHMkTAPMwqyn4KP8uUHxMYUJTl
-	 EdFkwJg7hliu1bNXkVTU5IXZChLpJUhHXT1gaKo9/cN9KxpOxasapWEb2oQNouKV6gbf+
-	 1UWrb+B/IdP810C0bJ7m301GCNkEz8U2xbNNDtYVUHD70cCK9s45Y9n6VUWYsHRZPkX8I
-	 PYzeUctUxYTMqwVS/tzoYE9fhw7dmFVN+L4IMePFWEBvBTdI8ozV6BjS3vKeaAxpCZfkp
-	 qVy1Vj1nhuCfjOemntHz5tHRqRzWrGmfert8qxDDxsfMHlz+LvW6pXVy0sWbmNRSmXw==
+	t=1795607287;
+	b=CKy6lM1r9uwiMAItPTvC7vLdtVJc+GYO5WjTo2TMBzSSLnckcNpp40KkvdE2EDTsBFGh
+	 Q/JuoNOlrW1ucHQXWJqSGPY7XaxZjEatrqRLrXZJYXQhLTXsB73g1WHCYdGvHkK/rfSlk
+	 O8ZoYhjnUxEnAerL0yod3oO6cmqoN/QJFhkHAXQwAU/pJb6ofIfvsOePsrVoZI3YyKIBp
+	 XD4fJoepFdIOpYfdX77O8UphF4UIPGpWtLtfnvl2CHrGnjW9FLlolybk9qncyslCQL8tw
+	 SIA12SYcL19bUSiv+L+mrxsDaeu5y0koNWRQlet1778lx5S5uOHWnq49gv5OBQhUZxg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795607273;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795607287;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=Uftm8l0P1lvzgPJDRipge4Ec3j5A5wJyMrLil3kjAnw=;
-	b=B2VWjLDGtb3Z83/hWu9qzozAl91xyH/i9XNL+INQHbBayGME0ABZ2iqgqhNXYZywYqZz
-	 f3W1WySCbl59tFytrM7LLJNj/rm6hxZBz1e5tZNmp00ukjNeBTw/BMXwRS+lfDJ4hp5+k
-	 0PphDmmDkhaDx2sDNMkW/c92JwQDQkK55cYZ2KtLHARaT7naQZugoNXpBQAMaLKGwA62S
-	 6hkTR78Mw5kWMY1R1kNa90spXvuFw0Ylr9k3RXfIB24HFgHUQaLBdJ4rvsJ1CjJePrmOt
-	 lnIWZ43L2v4kmMpMJUg2ASm6uPVLAYAKvxbrFAWqjOvFmKWX4RBiN3uFNrPuHCLq50w==
+	bh=vpR5O1RFGnmEKRzAE5aTOTm5Hq/TE8oYJvYgkp4gzQg=;
+	b=cxynDG0gp+12DQVH2h1KwoXTi31tbBt7BOphemg27h6c3MDZlpGtQCaBqc/53kyxh8ax
+	 7bw7WTVgYSIPILdKGOGEZFj6mUZmHu6nrVDi1ECr2XHIhW72p+rfmMpba0akK1DAxO/Lx
+	 rBUtLXVYiUEV1ybh9z94eXz99lKB4C3sICDpDkU2LNkwci7uYODr83AdtuvJsVFDkOieY
+	 95qA4RPtzUAkpFiDrsvawhMFPF+SQmxf5hDb09VjBgRD1bcvKErfzTsaG1So48XVYYVc7
+	 GANFTv2wIuxO+UcxMwpW9RwK3lSgvommlRu3VG8AxyLvMEBLrs04yeDHMq16phE3Bzw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b="P+C1/iYf";
-	arc=none smtp.remote-ip=91.218.175.218
-Received: from mta0.migadu.com (out-218.mta0.migadu.com [91.218.175.218])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="SOd/SHC2";
+	arc=none smtp.remote-ip=209.85.128.54
+Received: from mail-wm1-f54.google.com (mail-wm1-f54.google.com [209.85.128.54])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 96F8E606A31E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:47:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 96F8E606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F039A606A323
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:48:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F039A606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=P+C1/iYf
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=KTH0YYon1dsjvvAs8tsQMpP7zzlJkAMRifqXz3mgGhY=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795607270; v=1; x=1796212070;
- b=P+C1/iYfnEosQOpYi9uKy9YgO9VRcaQqk9Wv1TZpnJf/ttAtZ4XhRtQ7ZzqFU1VQ2oeNcZLH
- ks5VF2S6k4b8Qi7iudZ/mSwo2RTH+fiiYE+0Mv5S4Bn7KpK3Q74kNtR9tdQs/GMMyFigb60GOtN
- nWCM4UmbXUuw97w1Lh3O3JIQ=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id fee1e389369225e6;
-	Wed, 25 Nov 2026 11:47:50 +0000
-X-Mizu-Trace-ID: fee1e389369225e6
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <e2595c80-c223-472a-a756-d352161a3330@linux.dev>
-Date: Wed, 25 Nov 2026 19:47:35 +0800
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=SOd/SHC2
+Received: by mail-wm1-f54.google.com with SMTP id 5b1f17b1804b1-4a2d6d01ecbso30602785e9.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 03:48:06 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795607285; x=1796212085; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=vpR5O1RFGnmEKRzAE5aTOTm5Hq/TE8oYJvYgkp4gzQg=;
+        b=SOd/SHC2/qmpdeMOhbgqoGZxaq4mJVoIhZwG9XfdLjT+KxSBTT7h5bVZbvgevpsqji
+         TZtNY1pNkT2igqKTwkzfXxg75vgVeg56qVrG9vPUKsoV6KSrhHmKuKH3pnbVPgiM1W17
+         iGmjUl9dxtRJYrXnSjxlCb8HkMY4Lsu8CuPkFVra0szY32DDgtzO768/DowbyydBjc8t
+         EPqORUPqEIZMWBL+MoqkNGFMaEUy2Ymowy1kTeIdr8wDktrHDUle7Ql4IFXddMVMTAUJ
+         /WeVNccqUcl7L87CMj7OW+UDNgAHzOZIcbKBIBw37OB36vIadbFY4Xn3DXlJZ1VTqHdV
+         erzw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795607285; x=1796212085;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=vpR5O1RFGnmEKRzAE5aTOTm5Hq/TE8oYJvYgkp4gzQg=;
+        b=nvmr3NrHcMC8oHQc/Ay3QVo6SlE4X/3D9pchFmk1akblvs9KtOH1pPAHuX1nz30Y3I
+         qjY2vpCQrebgOC3ZSrPo7EZVt7ywy/HiFf2yXHFUsYbIbFk3v1hdojp8k7+h8RVYd/xB
+         2A14D+kIJwgTYQn9fep/rohoNMLa/G62w9Ui/1DcudLFveE1FGgV8c1xeanwAXHATZfw
+         VlToOLeR2TUTXDuZLjxltSN0iHwa3CGj9+JZp/pRvo1HqEIujW6YLcGe6j1ettNA/kva
+         SX9wDHS4MaC4f1wpWsOogUL39zu3VZdz7cpAJOVUx1ZoPYmCIFYS3YOP2WchTx6Z9xRZ
+         M8xg==
+X-Forwarded-Encrypted: i=1; AL+hErEsgYlD3BRORUoON00lu5DNowyrhWs1qdl4zgVQJ+pOaicouF/R1c1eLRs3ydOI1zhSSy5GGUWx3hzigu4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+9wNqV/iMndAfwGc2LLii5TuBaKodRNTF0dBZXXLCdhhJY2CeY
+	qzpXSPVlxFzI6fSbb6HcXUr0MyhCF7dB73sZEfi3cUdKdWC0dSDZChts
+X-Gm-Gg: AZFdTZcG2+3e/TX37Ah1NacbFpwOfrN7HyMxSkzSurmxYPV1o+XNAmRL6+kz1k0fsww
+	oY6NoBrN+zdRVRaoZBPXiVRoS8rgwcdC1X6eXjTCuiRIfXKolr+28SSxSkTcw7f1wY+5G7zS8HI
+	u6SwD259NEuqgbBuxs8cst5b6FYiFsEBQ/JISPWfkQ+cIUrLyTAFa4YCF8hKwK9bpUnEzURIBhx
+	C29mW1fkwEukiNdocGkTYIc/kSyoGOQlsH2MU8nE/JzetTuxZccjR3SJKLvpL7/QGxdx9BiBfXR
+	B6AiaaHEluiVv3mIh/sg3UJK+poq3zO8hJBULtKkE/QA4cPRzcH0/nZeYHaqgYcjn9UgmUDJzaz
+	59+lRJLNGE1haoe0N3mR7ycBMU2VPL3RsFJmM0Rk50IQGj/ouJGXi7D6AUnDIQw4myRWY17zC3B
+	WhYGdNERuVrv2KYwDtCq8bQH1uNRFqYu6L4wq46hn3oFDo8lEK/fqzRh7PamFSSej+6aVPIKwo5
+	MprOicLYBeJy3IcqsUM3lziznFd6OF8mhbsc2xcSHSifipep11j8C8H9mMFBKO6T+roI2tK1PhE
+	gdVL5GcCfEn52FilVskaPAQOQ0alr/9nRQs2jVPbcWKbPI/Pe3TGeZQdFMXVATHQiEOTedhYznu
+	IZ3rZUGtTc3apyCig+KY=
+X-Received: by 2002:a05:600c:5303:b0:4a2:1655:87db with SMTP id 5b1f17b1804b1-4bb88785d2fmr350066075e9.0.1795607284755;
+        Wed, 25 Nov 2026 03:48:04 -0800 (PST)
+Received: from saeedvft-ubuntu.tail2d4112.ts.net ([46.100.16.26])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884c3063sm514068355e9.15.2026.11.25.03.48.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 03:48:03 -0800 (PST)
+From: Saeed Nourian <saeednourian82@gmail.com>
+To: Heiko Stuebner <heiko@sntech.de>,
+	linux-rockchip@lists.infradead.org
+Cc: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Saeed Nourian <saeednourian82@gmail.com>
+Subject: [PATCH 0/2] arm64: dts: rockchip: Add Firefly AIO-3588Q
+Date: Wed, 25 Nov 2026 15:17:55 +0330
+Message-ID: <20261125114757.654051-1-saeednourian82@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,232 +101,67 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 09/16] mm/mglru: Avoid placing rejected folios below
- populated gen
-To: "Barry Song (Xiaomi)" <baohua@kernel.org>, akpm@linux-foundation.org,
- linux-mm@kvack.org
-Cc: axelrasmussen@google.com, baolin.wang@linux.alibaba.com,
- baoquan.he@linux.dev, hannes@cmpxchg.org, hui.zhu@linux.dev,
- kasong@tencent.com, kunwu.chan@gmail.com, liam@infradead.org,
- lianux.mm@gmail.com, linux-kernel@vger.kernel.org,
- liuxiang.277@bytedance.com, lyugaofei@xiaomi.com, mhocko@kernel.org,
- mhocko@suse.com, qi.zheng@linux.dev, rppt@kernel.org, ryncsn@gmail.com,
- shakeel.butt@linux.dev, surenb@google.com, wangzicheng@honor.com,
- weixugc@google.com, yuanchu@google.com, zhangbo56@xiaomi.com,
- zhuhui@kylinos.cn, sidchintamaneni@gmail.com
-References: <20261114200803.23129-1-baohua@kernel.org>
- <20261114200803.23129-10-baohua@kernel.org>
-From: Ridong Chen <ridong.chen@linux.dev>
-In-Reply-To: <20261114200803.23129-10-baohua@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
+Add a device tree for the Firefly AIO-3588Q, an AIO carrier board for the
+iCore-3588Q system-on-module.
 
+The module itself is already described by rk3588-firefly-icore-3588q.dtsi,
+so the new file only describes the carrier: the two RGMII Ethernet ports
+with their RTL8211F PHYs, microSD, the USB hubs and ports, the PCIe 3.0 x4
+slot, the M.2 PCIe slot, the PCA9555 GPIO expander, the HYM8563 RTC, the
+fan, the LEDs, the recovery key on SARADC channel 1 and the three Rocket
+NPU cores.
 
-On 11/15/2026 4:07 AM, Barry Song (Xiaomi) wrote:
-> We used to scan only the oldest generation in scan_folios(). In
-> evict_folios(), we checked whether
-> lru_gen_folio_seq(lruvec, folio, false) == min_seq[type]. If so, the
-> folio was marked active and moved to younger generations.
-> 
-> This was itself buggy, as folios in generation min_seq[type] - 1
+Besides the board bring-up itself, this series enables the RK3588 NPU
+on mainline. The three cores and their IOMMUs come from the SoC dtsi
+and are bound by the Rocket accel driver; all this board has to supply
+is npu-supply and sram-supply. Testing details are below.
 
-Should this be min_seq[type] + 1?
+The first patch only adds the compatible string to the existing "Firefly
+iCore-3588Q-based boards" enum.
 
-> would not be marked active by folio_set_active(), potentially causing
-> a cold/hot inversion.
-> 
-> Besides this issue, the old approach also differs from the current
-> behavior, where we can scan fewer than two generations.
-> Now that we can scan younger generations, including the youngest
-> generation, this no longer prevents rejected folios from being placed
-> in a generation below or at the populated generation. Such rejected
-> folios would then be scanned again and again, resulting in extremely
-> low `pg_steal/pg_scan` ratios. For example:
->    pgsteal_file: 2312605
->    pgscan_file:  36465693
->    reclamation efficiency: 6.34%
-> 
-> We pass `scanned_seq` to `move_folios_to_lru()` and make sure we either
-> promote the folio or place it in the youngest generation when the
-> populated generation is already the youngest one.
-> Also, folio_set_active() is no longer needed.
-> 
-> With this change, the results become:
->    pgsteal_file: 2683815
->    pgscan_file:  4224244
->    reclamation efficiency: 63.53%
-> 
-> The sys time for building the kernel also decreased from 4m30.532s to
-> 3m50.188s while swappiness==1.
-> 
-> Signed-off-by: Barry Song (Xiaomi) <baohua@kernel.org>
-> Reviewed-by: Kunwu Chan <kunwu.chan@gmail.com>
-> ---
->   include/linux/mm_inline.h | 22 +++++++++++++++++++++-
->   mm/vmscan.c               | 24 ++++++++++++------------
->   2 files changed, 33 insertions(+), 13 deletions(-)
-> 
-> diff --git a/include/linux/mm_inline.h b/include/linux/mm_inline.h
-> index ab69b9930893..f6f4bc9a704f 100644
-> --- a/include/linux/mm_inline.h
-> +++ b/include/linux/mm_inline.h
-> @@ -332,7 +332,8 @@ static inline unsigned long lru_gen_folio_seq(const struct lruvec *lruvec,
->   	return max(READ_ONCE(lrugen->max_seq) - gen + 1, READ_ONCE(lrugen->min_seq[type]));
->   }
->   
-> -static inline bool lru_gen_add_folio(struct lruvec *lruvec, struct folio *folio, bool reclaiming)
-> +static inline bool __lru_gen_add_folio(struct lruvec *lruvec, struct folio *folio,
-> +		unsigned long scanned_seq, bool reclaiming)
->   {
->   	unsigned long seq;
->   	unsigned long flags;
-> @@ -347,6 +348,8 @@ static inline bool lru_gen_add_folio(struct lruvec *lruvec, struct folio *folio,
->   		return false;
->   
->   	seq = lru_gen_folio_seq(lruvec, folio, reclaiming);
-> +	if (scanned_seq != -1UL)
-> +		seq = max(seq, min(scanned_seq + 1, lrugen->max_seq));
->   	gen = lru_gen_from_seq(seq);
->   	flags = (gen + 1UL) << LRU_GEN_PGOFF;
->   	/* see the comment on MIN_NR_GENS about PG_active */
-> @@ -362,6 +365,17 @@ static inline bool lru_gen_add_folio(struct lruvec *lruvec, struct folio *folio,
->   	return true;
->   }
->   
-> +static inline bool lru_gen_add_folio(struct lruvec *lruvec, struct folio *folio, bool reclaiming)
-> +{
-> +	return __lru_gen_add_folio(lruvec, folio, -1UL, reclaiming);
-> +}
-> +
-> +static inline bool lru_gen_add_rejected_folio(struct lruvec *lruvec, struct folio *folio,
-> +		unsigned long scanned_seq)
-> +{
-> +	return __lru_gen_add_folio(lruvec, folio, scanned_seq, false);
-> +}
-> +
->   static inline bool lru_gen_del_folio(struct lruvec *lruvec, struct folio *folio, bool reclaiming)
->   {
->   	unsigned long flags;
-> @@ -420,6 +434,12 @@ static inline bool lru_gen_add_folio(struct lruvec *lruvec, struct folio *folio,
->   	return false;
->   }
->   
-> +static inline bool lru_gen_add_rejected_folio(struct lruvec *lruvec, struct folio *folio,
-> +		unsigned long scanned_seq)
-> +{
-> +	return false;
-> +}
-> +
->   static inline bool lru_gen_del_folio(struct lruvec *lruvec, struct folio *folio, bool reclaiming)
->   {
->   	return false;
-> diff --git a/mm/vmscan.c b/mm/vmscan.c
-> index b538abf02578..0fef966b0a14 100644
-> --- a/mm/vmscan.c
-> +++ b/mm/vmscan.c
-> @@ -1865,7 +1865,8 @@ static bool too_many_isolated(struct pglist_data *pgdat, int file,
->    *
->    * Note: The caller must not hold any lruvec lock.
->    */
-> -static unsigned int move_folios_to_lru(struct list_head *list, bool do_rotate)
-> +static unsigned int move_folios_to_lru(struct list_head *list, unsigned long seq,
-> +		bool do_rotate)
->   {
->   	int nr_pages, nr_moved = 0;
->   	struct lruvec *lruvec = NULL;
-> @@ -1922,7 +1923,7 @@ static unsigned int move_folios_to_lru(struct list_head *list, bool do_rotate)
->   		    !folio_test_referenced(folio) &&
->   		    folio_ref_count(folio) == folio_expected_ref_count(folio))
->   			lruvec_add_folio_tail(lruvec, folio);
-> -		else
-> +		else if (seq == -1UL || !lru_gen_add_rejected_folio(lruvec, folio, seq))
->   			lruvec_add_folio(lruvec, folio);
->   
->   		nr_pages = folio_nr_pages(folio);
-> @@ -2041,7 +2042,7 @@ static unsigned long shrink_inactive_list(unsigned long nr_to_scan,
->   	nr_reclaimed = shrink_folio_list(&folio_list, pgdat, sc, &stat, false,
->   					 lruvec_memcg(lruvec));
->   
-> -	move_folios_to_lru(&folio_list, true);
-> +	move_folios_to_lru(&folio_list, -1UL, true);
->   
->   	mod_lruvec_state(lruvec, PGDEMOTE_KSWAPD + reclaimer_offset(sc),
->   					stat.nr_demoted);
-> @@ -2152,8 +2153,8 @@ static void shrink_active_list(unsigned long nr_to_scan,
->   	/*
->   	 * Move folios back to the lru list.
->   	 */
-> -	nr_activate = move_folios_to_lru(&l_active, false);
-> -	nr_deactivate = move_folios_to_lru(&l_inactive, false);
-> +	nr_activate = move_folios_to_lru(&l_active, -1UL, false);
-> +	nr_deactivate = move_folios_to_lru(&l_inactive, -1UL, false);
->   
->   	count_vm_events(PGDEACTIVATE, nr_deactivate);
->   	count_memcg_events(lruvec_memcg(lruvec), PGDEACTIVATE, nr_deactivate);
-> @@ -4753,7 +4754,8 @@ static bool isolate_folio(struct lruvec *lruvec, struct folio *folio, struct sca
->   
->   static int scan_folios(unsigned long nr_to_scan, struct lruvec *lruvec,
->   		       struct scan_control *sc, int type, int tier,
-> -		       struct list_head *list, int *isolatedp)
-> +		       struct list_head *list, int *isolatedp,
-> +		       unsigned long *scanned_seq)
->   {
->   	enum node_stat_item item;
->   	int zone_idx;
-> @@ -4784,6 +4786,7 @@ static int scan_folios(unsigned long nr_to_scan, struct lruvec *lruvec,
->   		seq = lrugen->max_seq;
->   
->   	seq = lruvec_populated_min_seq(lruvec, type, sc->reclaim_idx + 1, seq);
-> +	*scanned_seq = seq;
->   	gen = lru_gen_from_seq(seq);
->   	max_gen = lru_gen_from_seq(max_seq);
->   
-> @@ -4980,6 +4983,7 @@ static int evict_folios(unsigned long nr_to_scan, struct lruvec *lruvec,
->   	int tier, scanned, reclaimed;
->   	int isolated = 0, nr_isolated = 0;
->   	unsigned long total_reclaimed = 0;
-> +	unsigned long scanned_seq;
->   	bool skip_retry = false;
->   	struct mem_cgroup *memcg = lruvec_memcg(lruvec);
->   	struct pglist_data *pgdat = lruvec_pgdat(lruvec);
-> @@ -4991,7 +4995,7 @@ static int evict_folios(unsigned long nr_to_scan, struct lruvec *lruvec,
->   
->   	tier = get_tier_idx(lruvec, type);
->   	scanned = scan_folios(nr_to_scan, lruvec, sc,
-> -			      type, tier, &list, &isolated);
-> +			      type, tier, &list, &isolated, &scanned_seq);
->   	nr_isolated = isolated;
->   	if (nr_isolated)
->   		__mod_node_page_state(pgdat, NR_ISOLATED_ANON + type,
-> @@ -5017,8 +5021,6 @@ static int evict_folios(unsigned long nr_to_scan, struct lruvec *lruvec,
->   			type ? LRU_INACTIVE_FILE : LRU_INACTIVE_ANON);
->   
->   	list_for_each_entry_safe_reverse(folio, next, &list, lru) {
-> -		DEFINE_MIN_SEQ(lruvec);
-> -
->   		/* move_folios_to_lru() culls unevictable folios via folio_putback_lru() */
->   		if (!folio_evictable(folio))
->   			continue;
-> @@ -5037,11 +5039,9 @@ static int evict_folios(unsigned long nr_to_scan, struct lruvec *lruvec,
->   		 * so this effectively promotes them by at least one generation.
->   		 */
->   		folio_set_lru_refs(folio, 0);
-> -		if (lru_gen_folio_seq(lruvec, folio, false) == min_seq[type])
-> -			folio_set_active(folio);
->   	}
->   
-> -	move_folios_to_lru(&list, false);
-> +	move_folios_to_lru(&list, scanned_seq, false);
->   
->   	walk = current->reclaim_state->mm_walk;
->   	if (walk && walk->batched) {
+Tested on hardware with Linux 7.4-rc1 (for-next, e19bd795e8, plus this
+series), booted from TFTP with a RAM-only initramfs, without touching the
+existing image on the eMMC:
 
-Reviewed-by: Ridong Chen <ridong.chen@linux.dev>
-Thanks.
+  - eMMC comes up in HS400 Enhanced strobe, all existing partitions intact
+  - both GMACs bind, RTL8211F is detected on both MDIO buses, and both
+    ports link up at 1 Gbit/s and pass ICMP traffic cleanly
+  - the GL3523 hub enumerates on both its USB 2.0 and USB 3.0 side, the
+    four type-A ports are its downstream ports and a USB 2.0 device works
+    on each of them; the onboard FE1.1S hub enumerates on the EHCI port
+  - a microSD card enumerates as UHS-I SDR104; no card detect events were
+    seen, so broken-cd is set and the slot is polled
+  - both PCIe host bridges come up (both slots were empty during the test)
+  - the PMIC regulators, PCA9555 and HYM8563 (rtc0) are present on I2C
+  - NPU: all three cores probe and report "Rockchip NPU core N version:
+    1179210309", the IOMMUs attach, /dev/accel/accel0 is created, and
+    a runtime probe through it passes
+  - the devicetree has no deferred devices
+
+The hub RESET# lines are wired to the PCA9555 and are released with
+gpio-hog nodes; describing the hubs themselves is left for later.  The
+display outputs (HDMI0, DP0, VGA through DP1, eDP, DSI0), the Type-C port,
+the ES8388 audio codec, HDMI-in, the camera connectors and the 4G/5G modem
+are not described yet and are left for follow-up patches.  PCA9555 line 3
+is used both as the user LED and as an SD power enable; only the LED is
+modelled here, and the card slot is powered through line 13.
+
+AI coding assistants were used to help prepare the DTS (cross-checking the
+board's hardware description and some of the edits, mainly the USB hub
+nodes). I reviewed all of it and tested the result on the board.
+
+Saeed Nourian (2):
+  dt-bindings: arm: rockchip: Add Firefly AIO-3588Q
+  arm64: dts: rockchip: Add Firefly AIO-3588Q
+
+ .../devicetree/bindings/arm/rockchip.yaml     |   1 +
+ arch/arm64/boot/dts/rockchip/Makefile         |   1 +
+ .../dts/rockchip/rk3588-firefly-aio-3588q.dts | 434 ++++++++++++++++++
+ 3 files changed, 436 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-firefly-aio-3588q.dts
 
 -- 
-Best regards
-Ridong
+2.43.0
 
