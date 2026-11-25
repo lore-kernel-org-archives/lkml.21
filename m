@@ -1,120 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=67.231.149.25
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795613216;
-	b=qM53sHqtEcPjkUNCyLVAf17uZluFDZ4ejNJV/46ja+64GpAgZUE9RUA6q6YHVjkB4WI6
-	 P/PgSy1AjPvJzVPgdNlWhBxXDkPqCnFCl9UqfYg8AxqFIL6BDP27jLuQ8m9H+xfOMZuiM
-	 39xUAF88MSKxSzDCs1V8DOVkICeHG+QzYDt4/SH5SVhWJbm64nm+KPqBoGMO14Ldk8VuL
-	 2vMQKmGPZbfQ410dg98xo91r9pVjuSBOkwqBbR0I/E4cPLTGiR70zohk7fWWMZzyYPN4L
-	 k2LNNQXocCmF5JW9opJ8OuA91LJwJUCKVdhDOB591+JfOGFaEKV+PUk4f3Cp39sVLfg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795613216;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:DKIM-Signature:
-	 Received:Received:X-MS-Exchange-Authentication-Results:Received-SPF:
-	 Received:Received:Received:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-EOPAttributedMessage:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-Exchange-RoutingPolicyChecked:
-	 X-OriginatorOrg:X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-GUID:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Reason;
-	bh=xULlUtYUX5Vk5RFTcJyi3oJPdG0nwachhQLhOpGvz8U=;
-	b=jjg9AfKXpHRZdOXSpvPRsBfQKTAab2dJ+fz1+L6ZDeyu9BMmNwzART2tgxGVsqYDo+0v
-	 BAqUOHhVrdxHxb39igsPlbCXsMmknNYDEra1CNDqwoKcmlEHWCsJhk71NpnWHTYX+iiLY
-	 G9Xr5OXHZPwdy7g7iXrEffdEyPLuoMT2v4x3GnWbSqegVIhnP9QlWI2bwsjGhy40ZRwD5
-	 y3Uxvblg4ggM7StnQ5kDwMePoolyO1i7vmpU3CjzhGTSPI6NyqkoNsNm35SYNfo6CfYXH
-	 BFWOGfwTAZeTm4E9GS7a6cxo+arAH9HbP/2ZomX/A4r0KId5h9xWfzoHC8NzVfyV6+Q==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=opensource.cirrus.com;
-	spf=pass smtp.mailfrom=opensource.cirrus.com;
-	dkim=pass header.d=cirrus.com header.i=@cirrus.com header.a=rsa-sha256 header.s=PODMain02222019 header.b=RqUtMN4Y;
-	dkim=pass header.d=cirrus4.onmicrosoft.com header.i=@cirrus4.onmicrosoft.com header.a=rsa-sha256 header.s=selector2-cirrus4-onmicrosoft-com header.b="d/4p3YUM";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=67.231.149.25
-Received: from mx0b-001ae601.pphosted.com (mx0a-001ae601.pphosted.com [67.231.149.25])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=68.232.154.123
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795613271;
+	b=c55aJ0op7qdwsk5oYVSp87hFjuYEq7ueK5APfLPqvOfifZo36k4N/EtAm0AOHk15cZ1e
+	 Cgz41p4zvdomXd8mtHD117zI6f3qSleoTnylmPYGUCE+9QHEaSWy2TT3zh+E1Erq6bXSt
+	 366T3CMuX/PO/Kx/r6hrpb7NdEbeO4oXPW+hXnGi1a4q0+Rdg2otaOOxrcqP5lZZWiNRW
+	 DUsPzByd2/Wj5xtMUL4ZUvEPeBv20QX/WjzpdqXZsQz9w/L2YrrWS2TyPkhVBbsU+KKqN
+	 ZqHgtDXIRalySfAWrrH3d5KTNmncLBjH32DB9BLeVeFyKQMJPsUkEwTWPc1Wrn6k/xg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795613271;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-Amp-Result:Received:Received:Received:MIME-Version:
+	 Content-Transfer-Encoding:Content-Type:Date:Message-ID:To:Subject:CC:
+	 From:X-Mailer:References:In-Reply-To;
+	bh=Jn/VIUd4AaWMYZGQhKELRcKfGOwury85Du+TA9QR8rA=;
+	b=xewrArdQIL8AecvmplKEn0mGAMKLLjcOmlkTrhisvoVW1Ksi7i0qHn5/PmLN5GVdpeyq
+	 d07/OMWiqfcaHvWwC3iSnfNmTYzRXy1sKMKIwK+iKh2Ab/D4+omV2lJJAJq6KY97S7tlr
+	 Qmj5Ui+ijJ0XQx+DWtRQGzE/1GmoVtZnam/UORlSTnOiuhWoVeOZkY1gwHEH3cAQ/67pm
+	 MHTtDMQe1Sd5VjPWZ575MUQdNTGOWpKu8TH+2WAYVcz7YqqdBDfzvcenmJeSsNQH6iyLz
+	 vTq/vHU9Jmu2S/e2B6ZqamMzm4g7KjiAFffpm1F+wMU/ugK0LPB7p7K6tcwCSxS+kww==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=microchip.com;
+	spf=pass smtp.mailfrom=microchip.com;
+	dkim=pass header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=Plc5oICs;
+	arc=none smtp.remote-ip=68.232.154.123
+Received: from esa.microchip.iphmx.com (esa.microchip.iphmx.com [68.232.154.123])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C2619606A31E;
-	Wed, 25 Nov 2026 13:26:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C2619606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=opensource.cirrus.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=opensource.cirrus.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E595F606A31E;
+	Wed, 25 Nov 2026 13:27:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E595F606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=microchip.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=microchip.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=cirrus.com header.i=@cirrus.com header.a=rsa-sha256 header.s=PODMain02222019 header.b=RqUtMN4Y;
-	dkim=pass (1024-bit key, unprotected) header.d=cirrus4.onmicrosoft.com header.i=@cirrus4.onmicrosoft.com header.a=rsa-sha256 header.s=selector2-cirrus4-onmicrosoft-com header.b=d/4p3YUM
-Received: from pps.filterd (m0077473.ppops.net [127.0.0.1])
-	by mx0a-001ae601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6APDFIWx1901771;
-	Wed, 25 Nov 2026 07:26:44 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cirrus.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	PODMain02222019; bh=xULlUtYUX5Vk5RFTcJyi3oJPdG0nwachhQLhOpGvz8U=; b=
-	RqUtMN4YuEhkL16UfMdvQLRPILO39p7wpN6eBpaProm6LaTE/2S20yN6g41lJ0L9
-	YL9TMKVP5hP2RfFFlePWepujAb9Nj62hxfW1T2XI7Os+6lFTY2n4be4oYdL417vd
-	3fdYUootkrANFwbApk10IuiwKnHKL6KZyY/q3ZdVsvFITNEVqQq7e4FSI5YDrXH6
-	zog7gHLe/RjqV6eRxPI+U7Hf7o/CQhUqU1s1dyliNoyFoXp44R49CQlFEwm4UUvk
-	XxjsNukQe1aKqzRWaE1aTB6bB8b3OCAsA2MHVlURRY123mfY+KgupecRZX/PcXE9
-	hPWEjt3NA/2Rkk/XVNdx/A==
-Received: from dm1pr04cu001.outbound.protection.outlook.com (mail-centralusazon11020134.outbound.protection.outlook.com [52.101.61.134])
-	by mx0a-001ae601.pphosted.com (PPS) with ESMTPS id 4j51882k30-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Wed, 25 Nov 2026 07:26:43 -0600 (CST)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=fkY7zmP23CIheUtcq81VC/FxmbZ5pqEpu7drs4SIJVik2VDBSKPUSJMhkRu77W/qp0IYdxu7TL5jpJAXJquRh6je5mOazF4f4oqVes3wLS/ApqDullg7NEbwsJ95hdSmqPdBxmdqc3ZKtatYYDKWbNZ6bITVtB7A3cMXp8V7VPSAAL9OlIuRB05kVMJK5wzyOCuKxQ31zGbKEmuPOsk/Jhleuz8A+WAuyG/c2042tQ9xpPmcUbk7KbijxypDOLw+M0Z2ayDUObJ5WLawpJpfxJgJ+Z4N2aDQsyIktluqojGWY83wqC9L6pNkMo7cHYpRML/vlZyOivGhuGRqhgIK8A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=xULlUtYUX5Vk5RFTcJyi3oJPdG0nwachhQLhOpGvz8U=;
- b=ZiDDzmYAxQTUKmkmsZdiGRE8SXrcVrDDWHZ8wfXvAgrHQ6jGX+LJPsXJKN6rSutOlUy1LZHGoUxRbPCmcN4WZLFvH18s5y/CRwKQg6E6W3gNAv0V3TqWgQ8o83P0MteJHoq0ZZ+SxfIQT59Yec9OyQHBo3/guNaP/TFROWBWwmM6mSgaot3pi6dA9rxOEmwdWE9mQvqe6xPqnLLvN7EG6AH5nLYfsIUhnpf76UCJfJIdoMqCjlZb8pUb5qMklm8uW5vKjfhYUtH6Wo2xfCe4iPkj4Xgu2GKom1pyiI3mEwwgg0kf0HaER8iJ4dlOrXVn90wHpLxYcJtv9khW7aq+Wg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=softfail (sender ip
- is 84.19.233.75) smtp.rcpttodomain=cirrus.com
- smtp.mailfrom=opensource.cirrus.com; dmarc=fail (p=reject sp=reject pct=100)
- action=oreject header.from=opensource.cirrus.com; dkim=none (message not
- signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=cirrus4.onmicrosoft.com; s=selector2-cirrus4-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=xULlUtYUX5Vk5RFTcJyi3oJPdG0nwachhQLhOpGvz8U=;
- b=d/4p3YUMUWodX4v4mA/XCy5yWiQTwoAJIk2ZABXbomK8PNVSdh+wb3ccoYHY2qLdN0SOGtEA5zbrvigJCBlyCc0UNP2mZzlFfrn5lMEuLP9Kh9uMCPqXlxvl7V2RpwnlwYcDAeMIip4OaIeyxihqhyfgt8G++P4Mdw1f8Znb/Vs=
-Received: from PH7P220CA0029.NAMP220.PROD.OUTLOOK.COM (2603:10b6:510:326::21)
- by DS0PR19MB6527.namprd19.prod.outlook.com (2603:10b6:8:c5::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.7; Wed, 25 Nov
- 2026 13:26:39 +0000
-Received: from PH1PEPF00062F28.namprd02.prod.outlook.com
- (2603:10b6:510:326:cafe::1) by PH7P220CA0029.outlook.office365.com
- (2603:10b6:510:326::21) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.6 via Frontend Transport; Wed, 25
- Nov 2026 13:26:39 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=softfail (sender
- IP is 84.19.233.75) smtp.mailfrom=opensource.cirrus.com; dkim=none (message
- not signed) header.d=none;dmarc=fail action=oreject
- header.from=opensource.cirrus.com;
-Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
- opensource.cirrus.com discourages use of 84.19.233.75 as permitted sender)
-Received: from edirelay1.ad.cirrus.com (84.19.233.75) by
- PH1PEPF00062F28.mail.protection.outlook.com (10.167.243.57) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.3
- via Frontend Transport; Wed, 25 Nov 2026 13:26:38 +0000
-Received: from ediswmail9.ad.cirrus.com (ediswmail9.ad.cirrus.com [198.61.86.93])
-	by edirelay1.ad.cirrus.com (Postfix) with ESMTPS id E2D73406550;
-	Wed, 25 Nov 2026 13:26:36 +0000 (UTC)
-Received: from [198.90.208.12] (ediswws06.ad.cirrus.com [198.90.208.12])
-	by ediswmail9.ad.cirrus.com (Postfix) with ESMTPSA id D2B32822540;
-	Wed, 25 Nov 2026 13:26:36 +0000 (UTC)
-Message-ID: <2e698fb5-6041-4ffb-99d6-d95644749f41@opensource.cirrus.com>
-Date: Wed, 25 Nov 2026 13:26:36 +0000
+	dkim=pass (2048-bit key) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=Plc5oICs
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1795613271; x=1827149271;
+  h=mime-version:content-transfer-encoding:date:message-id:
+   to:subject:cc:from:references:in-reply-to;
+  bh=KmRzLrvRiOd8FFDhQI5mUOmMtQ7hHtwjDRmCIElWbos=;
+  b=Plc5oICsmObFXIJHXKq45qpAxhZSRQgunkYVnFcgj6FzGQIxe12AyYNZ
+   RpEX2SqB3vYuQHiOHdVuKvhYtJzze5HUVamDAOM7Hcdh1RVpClk6nuezo
+   q6wyo5j27nLKhSrsou/xMUj+MxAypumWJoguTqXChaEve4lzooC1MXFxZ
+   zp8SPKia6kMPdAXFDmrGppeMqGU5SqysGJQ7+InvLaNgdTrF745y1FpfP
+   MrX+6wXdMB5oHSwhT0wgkf4EZBIN4LAQ0tlyAhgzBAGrL1HXzjjRn6GbK
+   VizbPjTJxMSLRbZqdgeh6utVINkSiJNATkn5UQC6gzgDsiFucG4/XQysu
+   Q==;
+X-CSE-ConnectionGUID: 4qofo+olT9iWVvaqOzshEA==
+X-CSE-MsgGUID: 2d4OcOZ1QSaQOQdDZSgmGQ==
+X-IronPort-AV: E=Sophos;i="6.27,232,1787036400"; 
+   d="scan'208";a="67268000"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 06:27:50 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.87.152) by
+ chn-vm-ex4.mchp-main.com (10.10.87.33) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.2.2562.57; Wed, 25 Nov 2026 06:27:49 -0700
+Received: from localhost (10.10.85.11) by chn-vm-ex03.mchp-main.com
+ (10.10.85.151) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.58 via Frontend
+ Transport; Wed, 25 Nov 2026 06:27:49 -0700
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -124,81 +71,192 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RESEND 4/4] ASoC: cs35l56: Add test that probe() doesn't
- write SDW mux registers
-To: Mark Brown <broonie@kernel.org>
-Cc: linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org,
-        patches@opensource.cirrus.com
-References: <20261125110853.741337-1-rf@opensource.cirrus.com>
- <20261125110853.741337-5-rf@opensource.cirrus.com>
- <61660f09-9402-479e-92fe-6b1b2bc48158@opensource.cirrus.com>
- <44ae0233-b475-42f0-a1e8-2c3299a4df50@sirena.org.uk>
-Content-Language: en-GB
-From: Richard Fitzgerald <rf@opensource.cirrus.com>
-In-Reply-To: <44ae0233-b475-42f0-a1e8-2c3299a4df50@sirena.org.uk>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH1PEPF00062F28:EE_|DS0PR19MB6527:EE_
-X-MS-Office365-Filtering-Correlation-Id: 469ad52b-34c9-4a8a-2d92-08df4af7bc80
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|36860700016|376014|61400799027|23010399003|82310400026|10067099003|56012099006|11063799006|261022075727099003|261026121527099003|16102099003|22082099003|18002099003|4143699003;
-X-Microsoft-Antispam-Message-Info:
-	fr4Voqf3WcUd0tqfJ6EbEIAmQWG2wAKicbg0m1TAQvTniSYADiBj340vAahbedyHoryqlhEDUsyFiCSdI+xwKQI8ykWRM8p/8A6En/QUt/8sjrDscRXNF1QCaD9AZfCW3L6QihcoCdJb3zrXKxHKY2+xDJlwObY+gxXMoG1a0HOJcJD4eqZyZ7JYtBcjmpvkVu3QjBX4D2NCocfaU6lwhGBzaXygPs4SuKhXsrtzgEne5dHoBY0EYep+pkO3Fq8YrGRWZnZ0iBcefAhgNNE8t0us4BpB0xyPsZS7JaI2dN9iieZa2xDVU/pzSMwN1YpWGKpVfPbXfDmQIAV8cm+MapO0AmnqahIX4LIYZYWjuOLEhiuxpFcnHXPO9b9ykuVlvuRf2FmzUjwFlUvvFLTBtjYPdWfCyJSCj24R7mgkMmhUSrgGHgaJkL6naipU1gmJciMTxnvnusmDFF35UsWLhUlKgu05/gXxSfcnMyA3X/ZNVSrIyV40H8z8t0zQzwfbbdZgaAg5X1MV+lqEC5gBezi0tDIojXcexHRznPurcM1tRrNj2Albz/r03SE4bFv2W2D1j2YecUvMptNp80Evza9w0fZVQ7iWdNrSTwjwlmSKWwRCCogKQh30a3i3oMjtZ9I9v0v2lmV8Iyezej8Rmha7M4HX7RZBQawiL566z4YVvOCsgvbUVGlqPUXwSmg1KtDjgdp7JVswb0Gg8aynbw==
-X-Forefront-Antispam-Report:
-	CIP:84.19.233.75;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:edirelay1.ad.cirrus.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(376014)(61400799027)(23010399003)(82310400026)(10067099003)(56012099006)(11063799006)(261022075727099003)(261026121527099003)(16102099003)(22082099003)(18002099003)(4143699003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	c8ZxREjitMAoqSUPrc7Ka4+uCKdu9YA8Qbbim5MExJnhkGzomoKgaIAjeVZyMVouZIAny3WjcJFvUH/7c+D2dG4cgDN+xK/tLVjtIsIJdOk94R8IFLcSRlBjyacCqbN6wgd9rYcd+GFAm99UVD//3Uo3LjsO1G2EkVt86O68TPlOHhtk4I57hOvoId0lSMEZmqJgyvB0lQxigAvwxDe9yAkxUeDa6JvWh1axpfYzX6j1DJsBrcyOkrROxjijP4FLIVUJFCm9maEN3qDkhTOl5quS5cs3zVaeUScuUMKW3XX3oKpHlqvCo3RcmTFj2koJ/Yi1aDHwNW/wkwN+Q4PvCzOCMgsRdW4kPM6gyNrcSc1wtoYKhUO2SYN/TAN9eIeMK2PHeUtyvNNm51mR6O7mmOE74L7EQ1MKib32tR11Ml4Tg28kd7zk0dE4SiI9536g
-X-Exchange-RoutingPolicyChecked:
-	Qt0RpiGnfZ8t26RoxQt/UMx0AfD+ji+smppZmm19A+IvrrIn4A0PaTs41QQDqwJDmWiwebkiptj0AiX/xHFt/WBzXvk09yfHQvTgAq33oVdab4yrAO+K/Tkh7UaP0YHj0cO+/D4UwjSzcZA7MWrLG3zlUtscVeOboOVernKNlL+jGxSIdTSLdTnieDFzbpAo8OY3ddAXiUkKuyyfvCJfXlLn9bntE9b+bRecUmIy90aughyfLRgqX4plknwSONC6ee0jSjVRFOpM3bZlM1u7Deook8GGNscTZS9i8PJj7UDJdRF1NM/Ph6xCoz9JMtVlgzEreBUELSH6KZh1VNy16Q==
-X-OriginatorOrg: opensource.cirrus.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 13:26:38.6627
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 469ad52b-34c9-4a8a-2d92-08df4af7bc80
-X-MS-Exchange-CrossTenant-Id: bec09025-e5bc-40d1-a355-8e955c307de8
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=bec09025-e5bc-40d1-a355-8e955c307de8;Ip=[84.19.233.75];Helo=[edirelay1.ad.cirrus.com]
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TreatMessagesAsInternal-PH1PEPF00062F28.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR19MB6527
-X-Proofpoint-ORIG-GUID: SLJRi7zqVea85ZYh8v1d-RfrJbyqbz_z
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI1MDA1MyBTYWx0ZWRfX6JuEHOtTbpjt
- dBPnPkuZV+BjE1A2wBaGv2/9iTj0iSRDapPRQuX3H4osgmUBN5b3ZpUi4xHemGG5DkQfS29FMr0
- M8PViq0fB4cFbCSbUnLfW+he1dLz86wghDTU6NeOg80q0/3LE8HUWOEpeuPPohM70oC4IeGxJ6f
- GJW9qGd+bDfE87kYkO46ZirOvlbPBCRj9YhmVEVUM4W35oSBCDVxvl9fjZ7M/PyJwDulEyNB5id
- UCIyDKbP5ORnM/7GOLMuJLWfHdfIhrhTH2yq+RrOv5QVQfmDwxV12u2lwqkaOL3URmC5qoVq8u0
- TvDxlqjjT+395B/LpYr2GwEZoz2SZxwlDYJ063/N3e070iRRAk4KLoZXSkUe6UsDiGhZycN3/gt
- DcGltLJrg6lOL/hYDItrP4MxAzqVmOryg4GAJvcpY2Z49QUOooFJTa6mNRK574pmhimD4CJYyQq
- RY6VoEEo0XDJIvTYc0g==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI1MDA1MyBTYWx0ZWRfX9bEdU9e3CvcN
- X4WgUU8xlm6s22pKTSqaryYx22YpVw6nON+vqUrxZQYBnX/MgIzek5Rnn4GlPMTdiA7ymJg36S1
- ChnRtSN9ty7ifFombd0mnTQ/1pXfJrQ=
-X-Proofpoint-GUID: SLJRi7zqVea85ZYh8v1d-RfrJbyqbz_z
-X-Authority-Analysis: v=2.4 cv=BuEIUoX5 c=1 sm=1 tr=0 ts=6b06e213 cx=c_pps
- a=TszpKlPPvK6rXl4+XYbYdQ==:117 a=h1hSm8JtM9GN1ddwPAif2w==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s63m1ICgrNkA:10 a=RWc_ulEos4gA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=iX4cTi3TZMoOKdANLEfx:22 a=Dj2-6B8FqX4mGL0U3gbX:22
- a=Q5VH1a7_qaBjK8gzJ5QA:9 a=QEXdDO2ut3YA:10
-X-Proofpoint-Spam-Reason: safe
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="UTF-8"
+Date: Wed, 25 Nov 2026 14:27:47 +0100
+Message-ID: <DN4BS3G13BGT.1VM1EI873BRWR@microchip.com>
+To: <netdev-bot+sashiko@kernel.org>, <jensemil.schulzostergaard@microchip.com>
+Subject: Re: [PATCH net-next 5/5] net: dsa: lan9645x: add bridge support
+CC: <UNGLinuxDriver@microchip.com>, <andrew@lunn.ch>, <olteanv@gmail.com>,
+	<davem@davemloft.net>, <edumazet@kernel.org>, <kuba@kernel.org>,
+	<pabeni@redhat.com>, <linux@armlinux.org.uk>, <linux-kernel@vger.kernel.org>,
+	<netdev@vger.kernel.org>
+From: =?utf-8?q?Jens_Emil_Schulz_=C3=98stergaard?=
+	<jensemil.schulzostergaard@microchip.com>
+X-Mailer: aerc 0.21.0
+References: <20261124-dsa-lan9645x-add-vlan-and-bridge-offload-v1-5-b930a1dae700@microchip.com> <179559711039.3135.10067666642818194046@kernel.org>
+In-Reply-To: <179559711039.3135.10067666642818194046@kernel.org>
 
-On 25/11/2026 12:39 pm, Mark Brown wrote:
-> On Wed, Nov 25, 2026 at 11:24:53AM +0000, Richard Fitzgerald wrote:
->> On 25/11/2026 11:08 am, Richard Fitzgerald wrote:
->>> The driver cannot assume that it owns control of the
->>> CS35L56_SWIRE_DP3_CH?_INPUT registers so it must not do anything
->>> during probe() or component_probe() that could result in a write
->>> to these registers. Add a test case for this.
-> 
->> Sashiko found a bug in this test. Will send a V2 series.
-> 
-> Send something incremental, this was already applied even before your
-> resend.
-I don't see them in your for-7.4/for-7.5/for-next branches.
-Are you thinking of the previous series that did something similar
-for the ASP registers?
+On Wed Nov 25, 2026 at 9:58 AM CET, netdev-bot+sashiko wrote:
+> Thank you for your contribution! Sashiko AI review found 2 potential
+> issue(s) to consider.
+>
+> Critical: 0 =C2=B7 High: 0 =C2=B7 Medium: 2 =C2=B7 Low: 0
+>
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwor=
+k
+> know by including "pw-bot: cr" as a separate line at the end of your repl=
+y
+> (one such reply per series is enough).
+>
+> - [Medium] lan9645x_port_bridge_join()
+>   (drivers/net/dsa/microchip/lan9645x/lan9645x_main.c:544) stores=E2=80=
+=A6
+> - [Medium] lan9645x_fdb_vid()
+>   (drivers/net/dsa/microchip/lan9645x/lan9645x_main.c:692) only switches=
+=E2=80=A6
+>
+> --
+>
+> net: dsa: lan9645x: add bridge support
+>
+> This adds hardware bridge offload to the lan9645x DSA driver. Each
+> VLAN-unaware bridge gets its own reserved VID, and at most one bridge can
+> be VLAN-aware. The CPU port is no longer in the default unicast and
+> multicast flood masks; .port_set_host_flood adds it instead. The patch
+> also adds ageing time configuration with min/max limits.
+>
+>> diff --git a/drivers/net/dsa/microchip/lan9645x/lan9645x_main.c b/driver=
+s/net/dsa/microchip/lan9645x/lan9645x_main.c
+>> index de432772f6399..a78410efb9730 100644
+>> --- a/drivers/net/dsa/microchip/lan9645x/lan9645x_main.c
+>> +++ b/drivers/net/dsa/microchip/lan9645x/lan9645x_main.c
+>
+> [ ... ]
+>
+>> @@ -306,6 +302,20 @@ static int lan9645x_setup(struct dsa_switch *ds)
+>>  	ds->mtu_enforcement_ingress =3D true;
+>>  	ds->assisted_learning_on_cpu_port =3D true;
+>>  	ds->fdb_isolation =3D true;
+>> +	ds->max_num_bridges =3D ds->num_ports;
+>
+> [ ... ]
+>
+>> +static int lan9645x_port_bridge_join(struct dsa_switch *ds, int port,
+>> +				     struct dsa_bridge bridge,
+>> +				     bool *tx_fwd_offload,
+>> +				     struct netlink_ext_ack *extack)
+>> +{
+>
+> [ ... ]
+>
+>> +	p =3D lan9645x_to_port(lan9645x, port);
+>> +
+>> +	mutex_lock(&lan9645x->fwd_domain_lock);
+>> +
+>> +	p->bridge_num =3D bridge.num;
+>> +	lan9645x_vlan_port_set_bridge_vid(p, !p->vlan_aware);
+>
+> [Severity: Medium]
+> Can bridge.num be larger than num_phys_ports here?
+>
+> lan9645x_vlan_init() only adds the CPU port module to the reserved VIDs
+> for bridge numbers 1..num_phys_ports:
+>
+>     for (bridge_num =3D 1; bridge_num <=3D lan9645x->num_phys_ports;
+>          bridge_num++) {
+>         vid =3D lan9645x_vlan_unaware_pvid(bridge_num);
+>         lan9645x->vlans[vid].portmask =3D BIT(lan9645x->num_phys_ports);
+>         ...
+>     }
+>
+> Setting ds->max_num_bridges =3D ds->num_ports does not appear to limit th=
+e
+> number the DSA core passes in. In net/dsa/dsa.c, dsa_bridge_num_get()
+> first calls dsa_bridge_num_find(). That function searches every tree in
+> dsa_tree_list and returns an existing number without comparing it to max.
+> The "bridge_num > max" check only runs when a new number is allocated.
+>
+> Take a bridge that first gets a number N >=3D 10 from a switch in another
+> DSA tree with a larger max_num_bridges (mv88e6xxx, sja1105 or vsc73xx).
+> If a lan9645x port then joins the same bridge:
+>
+> lan9645x_port_bridge_join()
+>   p->bridge_num =3D N
+>   lan9645x_vlan_port_set_bridge_vid(p, true)
+>     vlans[VLAN_N_VID - N].portmask |=3D BIT(port)
+>     lan9645x_vlan_hw_wr()
+>       cpu_dis =3D !(v->portmask & BIT(lan9645x->num_phys_ports));  -> 1
+>
+> ANA_PGID_CFG_OBEY_VLAN is set for the destination PGIDs. Would that mean
+> no frame classified to this VID is ever copied to the CPU? That would
+> cover broadcast, host FDB/MDB entries pointing at PGID_CPU, and host
+> flooding. The host stack and software forwarding to the other tree's
+> ports would then stop working for that bridge.
+>
+> Should the join reject bridge.num > num_phys_ports, or should the
+> reserved VID be set up when it is first used?
+>
+
+Yes this looks correct. v2 rejects a bridge number above max_num_bridges in
+.port_bridge_join with -EOPNOTSUPP, so the port falls back to software brid=
+ging,
+as when DSA runs out of bridge numbers.
+
+> [Severity: Medium]
+> Several bridges can now be offloaded at once. Does lan9645x_fdb_vid()
+> still keep the FDB of a VLAN-unaware bridge separate from the FDB of the
+> VLAN-aware bridge?
+>
+> It only maps vid =3D=3D 0 to the bridge's reserved VID:
+>
+> drivers/net/dsa/microchip/lan9645x/lan9645x_main.c:lan9645x_fdb_vid() {
+> 	if (vid)
+> 		return vid;
+>
+> 	return lan9645x_vlan_unaware_pvid(db->type =3D=3D DSA_DB_BRIDGE ?
+> 					  db->bridge.num : 0);
+> }
+>
+> Take "bridge fdb add M dev swpB master static" on a port of
+> VLAN-unaware bridge B. br_fdb_add() adds M@0, and also M@vid for every
+> VLAN in the port's VLAN group. That includes the default pvid 1, which
+> exists even with vlan_filtering=3D0:
+>
+>     list_for_each_entry(v, &vg->vlan_list, vlist) {
+>         if (!br_vlan_should_use(v))
+>             continue;
+>         err =3D __br_fdb_add(ndm, br, p, addr, nlh_flags, v,
+>                            nfea_tb, notified, extack);
+>
+> DSA passes vid 1 through unchanged, so lan9645x_fdb_add() calls
+> lan9645x_mact_learn(lan9645x, port, M, 1, ENTRYTYPE_LOCKED).
+>
+> B never uses that entry, because its ports classify to the reserved VID.
+> Now suppose VLAN-aware bridge A uses VID 1. Would frames to M in A hit
+> this locked entry pointing at swpB and be dropped by A's PGID_SRC mask?
+> The locked entry would also stop M from being learned on A's real port.
+>
+> A later fdb_del from B would remove the same hardware entry. That could
+> also delete A's own static M@VID1 entry. lan9645x_host_addr_shared()
+> only handles collisions between CPU host addresses, not entries for front
+> ports.
+>
+> Before this patch there was no .port_bridge_join, so bridge-DB FDB
+> entries never reached this helper. The commit message says the reserved
+> VIDs keep the FDB domains apart, but these entries would still overlap.
+>
+> Should non-zero VIDs from a VLAN-unaware bridge's DB also be mapped to
+> its reserved VID, or skipped?
+
+The overlap exists, but it requires both a VLAN-aware and a VLAN-unaware br=
+idge
+and the same MAC to be a station in both bridges. As far as I can tell this
+matches ocelot, which also offloads one VLAN-aware bridge next to VLAN-unaw=
+are
+bridges and maps only VID 0 in the same way.
+
+Changing the mapping at add time as suggested does not fix it. MAC table en=
+tries
+are keyed by the VID the port classifies to, and that depends on vlan_filte=
+ring,
+while the bridge does not notify the FDB entries again when vlan_filtering
+changes. An entry added at VID V while a bridge is VLAN-aware stays at V af=
+ter
+the bridge turns VLAN-unaware, whatever the add path did.
+
+Mapping or skipping non-zero VIDs of a VLAN-unaware bridge would instead le=
+ave
+the entry missing after the bridge turns VLAN-aware.
