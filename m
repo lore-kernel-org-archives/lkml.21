@@ -1,49 +1,70 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795616212;
-	b=e7rH1Y/7kFCLkqqm8qCjGSDU/zP+oqEkSNDEId83QWRcCLXpErSXKTWp5Wa9ID2utu8V
-	 FBT6kYK8/Wu6Msg3IeG7jJ+TSg2Uu43kQi8Zw84DMEvaXz8pg6j3nMag+C29X1qOgwAcJ
-	 jl3rzR2IyjLC5mqWjOJGAR+TI5F8+5b79fMLwF7FVOGQM/3HPugiLonJ5FKTqphje/Hi1
-	 ef5UpFsgBV5COMIfv9S2eSKTQDdu8fjsPsZlQpL+F2/G/5T54rhC+lVi2+ItU5XYRAqGC
-	 mZFVmrR7Sju9FurvW05QiHDKVvYSSt7mpjNCB34pd2lRVzFZ9R2OKPVevYzM7D0z9pw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795616212;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=KCFAC1FOAB4tB1Vm5iJMuAjrTh3kSujq/UfRYmsRVvA=;
-	b=gV6EUQwZ/IZIo9DWjs9VUTMOV1h3MxnZ1IB8fD063tE3XRfliF+wTAfI1/t437NXeHOy
-	 v0yNUonhwg2gpMrYIqSieRYn0YlmGRsTuk3XMpFT9CO9lxNSXIbGn8/F5CYhHm9SLvEL/
-	 anrEPADDs/i7GqGM/BMlFaNeQZ9F8gw0Qq1lZNzubtVUnek5RQuMeKyUh/66NQTAN8JEv
-	 j1bFHRALqMsIZpUhMZ+cdrJsEB9MlFREIXRCCq+jO9FquV8ICcPZ8lch3fwvWSdz9IhTV
-	 6zQ12GA1G38MZvlKm88LDrQhyBbD1XKafQpLSHk9cJ/VdSDBeY3PhmUiGrVjsUs0z7Q==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=bMA90oAV;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id DC12F606A326
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:16:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DC12F606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.112
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795616202;
+	b=tFkcjobOCz9SNEA79JH0yZlLe/ugKa9sLVB4XMcMmmU17LQYXQcIiD2/2BEHTLScjdkD
+	 0YYjH/3+deD82TT4YY3XcCNIZfn0RTZsMltwSy8N+OhCv8rJWxvnWu20LOQuP0L3KGi9q
+	 0+iIMHGzk2Z4njZkFh4zU91TDkjywTVQrAib/43DcBObYiXYpyTc2bnpRmK5rb9TD6Ot2
+	 v6Wt9LW39jMbRoEa3eRWQB4alDKNC9c2seRy2qzMa+uN/BtfcWzbXkD3ZGHZqS7lWaSLN
+	 U/EFm4nO/4kqXn4uYZ2aTu3XRgtBv8GomFHF/D5BVjLkBNhR2YzxIGAWGsjq2VvSDiw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795616202;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
+	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date:
+	 MIME-Version:User-Agent:X-ZohoMailClient;
+	bh=ArhpYEDQE8ZdviwwTBn7vEa0W+QU2k77BuW8nuPQq3w=;
+	b=HxfZBkJjCpYKMowUSECkOzdd6Ygbhn8BUq7cwrLVLXa2dTYCis8fdtFY/Csa97FDALXx
+	 NGxe9pcMr4lP44ctD5IbD6RpQkLq8e9gM9GGjfFmxwUMPOa+D5wI/vWx037Zp9Rmd/68w
+	 BMLSLO/MCdzZbgTc5557KDbv98KIOptuejowYzD7MyERs1cRE5S7uShbhgFiNWjHeLwgP
+	 RxjXndlUHwAKmvEfGVIB+uoqn8A0hCwzJOu4u+oGQsJrxYEcJngb12qLQb1o/yZZ1a6Qt
+	 SLQnAMHdAIfE1vBDOfMuNtVXtlHI1CD0i3nTL2DQi9fFIXeyv1WzWKVVkCWD4hythrQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=rong.moe;
+	spf=pass smtp.mailfrom=rong.moe;
+	dkim=pass header.d=rong.moe header.i=@rong.moe header.a=rsa-sha256 header.s=zmail2048 header.b=b575YmPJ;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.112
+Received: from sender6-pp-f112.zoho.com (sender6-pp-f112.zoho.com [165.173.180.112])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0C54A606A31E;
+	Wed, 25 Nov 2026 14:16:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0C54A606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=rong.moe
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rong.moe
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=bMA90oAV
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5208B2F;
-	Wed, 25 Nov 2026 06:16:48 -0800 (PST)
-Received: from [10.0.154.42] (e121487-lin.cambridge.arm.com [10.0.154.42])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 27D553F763;
-	Wed, 25 Nov 2026 06:16:49 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795616211; bh=2SXKFVoBbxWUha93ECgLAC2EuSDLG7Zz9KOIAMkR/Vg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=bMA90oAVFQ3VCfANbPbE8mQjtEZEYekxZbeHGHszMB8aYNvDChqBychj9Mop3Xd7r
-	 5C1OLF7oy+aH34p2wrvzefyJhIzLzw8X4fmkwtgcOqNGchsJf3KmzzuE8jInQE6iqs
-	 NFf/+ydb07wVOQAB785EXpl4cwHYyYHkgYNDiNoQ=
-Message-ID: <81e6e5ad-24ab-4b47-b22b-494d61e318dc@arm.com>
-Date: Wed, 25 Nov 2026 14:16:48 +0000
+	dkim=pass (2048-bit key) header.d=rong.moe header.i=@rong.moe header.a=rsa-sha256 header.s=zmail2048 header.b=b575YmPJ
+ARC-Seal: i=1; a=rsa-sha256; t=1795616138; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=DQtsjak1355PYkKTSTgonjsIaTisM+uJ/IVo38EpCFLdvmTwsZq9k2ktr/M1mbbVXqOhunSLj6YtSmXDsRz1dwuaVdKOZ/AvuoF1NjyIblFn8SqRvpMBLmLI/Cj5ejL56SrnezsfjPBQkLdx8u6ypmjEErQd1v4xqDHq2XjTP0k=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1795616138; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=ArhpYEDQE8ZdviwwTBn7vEa0W+QU2k77BuW8nuPQq3w=; 
+	b=AA3zfSX6erEFVAyEABB8fXqa5W+gPcMjyHGEG0QmfPh6NNTLAkyHUQ1XaY004PNxmqMPbh3IBWGe7wpIDFZ42Zoz9I4u0RIHniuEjz7c4Br7AZ1ALDGZnR2jIFjCRQwN+HrKLh3q3oQts7IsgEKvcfLAHgN97A7xdt/HSf3zeYI=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=rong.moe;
+	spf=pass  smtp.mailfrom=i@rong.moe;
+	dmarc=pass header.from=<i@rong.moe>
+DKIM-Signature: a=rsa-sha256; b=b575YmPJVWOYsFd0vh6s6ZlbQNRAaQ1xYC/SiGf28IMiyxgnFNmkHzJAo4NDH82drrlUnui83WcrqHSk5fmQwodBm7Zo5eG4NBGE6GaEuFSAbMZtrpn1Fi0AZ9+U/GaWg3BuB6hPC0p1A6Scp40FTbxnx+cXUwH/zf5rusS0Zc4D8N+9dEdTSBWbbOf4f8btE0Tv+DvT6A6p14p0DIfQv44hlCDXh0zz/VtWUM59xuVygMiB9d3tAKlObtHZSVTXXjrwFq5ibjOksv62Yeoz305xDcvMWkrj6o6sak87sX1muethf/b9M9ytzhW2PdG8Y9HDSOXlIUfupcFTlHGICg==; c=relaxed/relaxed; s=zmail2048; d=rong.moe; v=1; bh=ArhpYEDQE8ZdviwwTBn7vEa0W+QU2k77BuW8nuPQq3w=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zohomail.com with SMTPS id 1795616136432245.25563832862883;
+	Wed, 25 Nov 2026 06:15:36 -0800 (PST)
+Message-ID: <8aceee902d146619d2d5b92b84942baeb27d111f.camel@rong.moe>
+Subject: Re: [PATCH v2 2/2] platform/x86: thinkpad_acpi: Default
+ charge_stop to 100 when unsupported
+From: Rong Zhang <i@rong.moe>
+To: Tom Hu <huxiaoying@kylinos.cn>, Mark Pearson
+ <mpearson-lenovo@squebb.ca>, 	linux-kernel@vger.kernel.org,
+ platform-driver-x86@vger.kernel.org
+Cc: Henrique de Moraes Holschuh <hmh@hmh.eng.br>, "Derek J . Clark"	
+ <derekjohn.clark@gmail.com>, Hans de Goede <hansg@kernel.org>, Ilpo
+ =?ISO-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+ xiaoying_hu@126.com
+In-Reply-To: <20261125125252.38003-3-huxiaoying@kylinos.cn>
+References: <6066c701-55c8-494f-9348-f9835b258b44@app.fastmail.com>
+	 <20261125125252.38003-1-huxiaoying@kylinos.cn>
+	 <20261125125252.38003-3-huxiaoying@kylinos.cn>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+Date: Wed, 25 Nov 2026 22:10:23 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,80 +74,60 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 4/5] ARM: NOMMU: pmsa-v7: Align a split region's base to
- its size
-To: Brad Hawthorne <brad@sim.vu>, linux@armlinux.org.uk,
- linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-References: <20261125025757.1159931-1-brad@sim.vu>
- <20261125025757.1159931-5-brad@sim.vu>
-Content-Language: en-GB
-From: Vladimir Murzin <vladimir.murzin@arm.com>
-In-Reply-To: <20261125025757.1159931-5-brad@sim.vu>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+User-Agent: Evolution 3.62.1-4 
+X-ZohoMailClient: External
 
-On 11/25/26 02:57, Brad Hawthorne wrote:
-> try_split_region() masks the base with size - 1, which aligns it only
-> when size is a power of two, then rounds the region size up without
-> aligning the base again. An MPU region's base must be aligned to its
-> size. For memory at 0x21400000 + 0xa00000, the kernel asks for a 16MB
-> region at 0x21400000. QEMU ignores such a region. Hardware that
-> ignores the low bits would map 0x21000000-0x219fffff and leave
-> 0x21a00000-0x21dfffff, which the kernel uses, unmapped.
-> 
-> Start from the size rounded down to a power of two, align the base to
-> it, and double it until the aligned region covers the request.
-> 
-> Tested under QEMU (mps2-an385) with that memory layout: QEMU no longer
-> reports a misaligned region, and the kernel boots to user space. Not
-> tested on PMSAv7 hardware.
-> 
-> This patch was written with an AI coding assistant (Claude Opus 5.5,
-> Anthropic): it found the bug in review, wrote the fix, the QEMU tests
-> and this changelog, and ran them; I reviewed the reasoning and the test
-> results.
-> 
-> Fixes: 5c9d9a1b3a54 ("ARM: 8712/1: NOMMU: Use more MPU regions to cover memory")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Brad Hawthorne <brad@sim.vu>
+Hi Tom,
+
+On Wed, 2026-11-25 at 20:52 +0800, Tom Hu wrote:
+> From: huxiaoying <huxiaoying@kylinos.cn>
+>=20
+> When the EC does not provide GET_STOP, stop_support stays clear and the
+> cached charge_stop is never probed, so it remains 0.  charge_start is
+> still validated against that value, which rejects every level above 0
+> even though the start threshold is supported.
+>=20
+> Default the cached charge_stop to 100 in tpacpi_battery_probe().  The
+> store path already limits charge_start to [0, 99], so the
+> `value > charge_stop` cross check can then never trigger when no stop
+> threshold is known, and stop_support does not have to be consulted in
+> that path.  A successful GET_STOP probe overwrites the default with the
+> value reported by the EC.
+>=20
+> Suggested-by: Rong Zhang <i@rong.moe>
+
+A Suggested-by: tag is usually followed by a Link: tag.
+
+> Reviewed-by: Rong Zhang <i@rong.moe>
+> Reviewed-by: Reviewed-by: Mark Pearson <mpearson-lenovo@squebb.ca>
+
+The tag is corrupted.
+
+Thanks,
+Rong
+
+> Signed-off-by: huxiaoying <huxiaoying@kylinos.cn>
 > ---
->  arch/arm/mm/pmsa-v7.c | 18 ++++++++++++------
->  1 file changed, 12 insertions(+), 6 deletions(-)
-> 
-> diff --git a/arch/arm/mm/pmsa-v7.c b/arch/arm/mm/pmsa-v7.c
-> index af0c71135a6e..bd776ea90934 100644
-> --- a/arch/arm/mm/pmsa-v7.c
-> +++ b/arch/arm/mm/pmsa-v7.c
-> @@ -146,13 +146,19 @@ static inline unsigned long irbar_read(void) {return 0;}
->  static bool __init try_split_region(phys_addr_t base, phys_addr_t size, struct region *region)
->  {
->  	unsigned long  subreg, bslots, sslots;
-> -	phys_addr_t abase = base & ~(size - 1);
-> -	phys_addr_t asize = base + size - abase;
-> -	phys_addr_t p2size = 1 << __fls(asize);
-> -	phys_addr_t bdiff, sdiff;
-> -
-> -	if (p2size != asize)
-> +	phys_addr_t p2size = 1 << __fls(size);
-> +	phys_addr_t abase, asize, bdiff, sdiff;
+>  drivers/platform/x86/lenovo/thinkpad_acpi.c | 8 ++++++++
+>  1 file changed, 8 insertions(+)
+>=20
+> diff --git a/drivers/platform/x86/lenovo/thinkpad_acpi.c b/drivers/platfo=
+rm/x86/lenovo/thinkpad_acpi.c
+> index 8fc5569131f6..0c27e0b74b48 100644
+> --- a/drivers/platform/x86/lenovo/thinkpad_acpi.c
+> +++ b/drivers/platform/x86/lenovo/thinkpad_acpi.c
+> @@ -9698,6 +9698,14 @@ static int tpacpi_battery_probe(int battery)
+>  =09memset(&battery_info.batteries[battery], 0,
+>  =09=09sizeof(battery_info.batteries[battery]));
+> =20
+> +=09/*
+> +=09 * If the EC does not provide GET_STOP, stop_support stays clear and
+> +=09 * charge_stop is never probed.  Default it to 100 (no upper limit)
+> +=09 * so that the cross check in tpacpi_battery_store() does not reject
+> +=09 * every charge_start value.
+> +=09 */
+> +=09battery_info.batteries[battery].charge_stop =3D 100;
 > +
-> +	/* The base must be aligned to the region size */
-> +	for (;;) {
-> +		abase = base & ~(p2size - 1);
-> +		asize = base + size - abase;
-> +		if (asize <= p2size)
-> +			break;
->  		p2size *= 2;
-> +		if (!p2size)
-> +			return false;	/* would need a 4GB region */
-> +	}
->  
->  	bdiff = base - abase;
->  	sdiff = p2size - asize;
-> -- 2.43.0
-> 
-
-Reviewed-by: Vladimir Murzin <vladimir.murzin@arm.com>
-
+>  =09/*
+>  =09 * 1) Get the current start threshold
+>  =09 * 2) Check for support
