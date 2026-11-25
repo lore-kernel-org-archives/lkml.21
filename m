@@ -1,83 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.170
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.171
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795581229;
-	b=sW/Q8NImrZjc0Oco0TNgsOGR/p+9AN+fQrsqpXjBjrtdSKdJEpPVtk5QLatH4WOAiYlK
-	 zJeuyRzQ+TCLJbQ0Pa3v6uztlRW5zwbNxVHREgj4gtDMvYD1UIhXEuvoHf509r7LszkZh
-	 fm6Yp62m0bj88nkyVj5Wy486QnaH02vxfEp7Bu7zPSDUFDmWSZD3QYi/9om32j64Q0BR5
-	 2JW25l+eT3tkhKvtEAV7wnJMusF/PO0inidKWlenfxWKPNL69E/QU/fBJWz6zBpYca47M
-	 xJBc1CsF2FW7arRYLTsusOJ+4ZkbdNJ6QU7WihPAH1H5T2XnB7Z9BqGpE6jUmzsj3SQ==
+	t=1795581231;
+	b=LkGzzML+GpEssE5lJzmraq03GYkyb5Y41eWKaBreQJ6Jg6x344ff1coAu8i2YixCyYzq
+	 sOy3W9x4bKqSL2Bv9oEE7zQgYdDbraONf3acTphQKi7uV/0dcbuiWsZygF5xn/8warZDV
+	 4MfQyeXnxDCjEbMJTZOz9tjlVs12GBggkEfCQaDIOy3PwV1MecyaFcZ11Ojewi0e+OcuD
+	 leOzg13Q4VF8UDefjGMxYqUdtzhlbWpNntK4xqooD7au4nxrmZT2SqEGNjw0L7QnRMI0h
+	 fjjMTEnJFyyS97cCALoz+G1Z7vrOi7pxKg2eapM1NYlak66EKGLcH15ftxywAbmVQmQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795581229;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795581231;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=ZT+4sCsr3xr8FnfN5LLRrbbwBT9PMqCRbtWGTXSuCNQ=;
-	b=oIQL7M14sh0Xy++6p4wESUFP8XFzZBYcmaDlJZaqO4Gbef7FyRP5aNRGuajM61LrTdyn
-	 DWALuAgt2hwHu3PDpn/n4tjHgdfAQG3R/jDDBQqQ1SAQwiAN9Y8kIWejp/9GeCKwQ6D6W
-	 kWIxIAY311UpOxwkyH2ZS9iLVyHb+sPG4SBMc+DJ5+6RzJNeSIncdx9M5KcJLJK2RkPec
-	 Pczhr3m9naDa0PGnZMkT8xanOY5v/6tsaVWvPzVXvzTDBioaF0HcfsmHh26hc3Hc43naF
-	 Zjb3D7xkA385C+CarUOIuceaKGo3UhcIkej3RPLFAv+6NKCR5b95xxpsNh7X8nGzo0A==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=M/xhIeAnDFNYNz810SILjQoo31ON+txA5gyXKyEN96U=;
+	b=Qyho+rK3sMKjxNSrO5alU6NJkuMdVR3xLk0sCWtWBEcf/G4nGEHA+U+nIwSPEdYpNT5Y
+	 7+4J1qS7sv00Nuw9DPWup1aeBq6EnKson5Ry9blPI5n/4JLRg2x/jRZLjOqWZbnwfqSrL
+	 ptQnWmQIwH1QzzmgQg1wZ1ME2uBYmH2yMwXyZ3CaHldkFAP3VYEQYkWXVovaS7oYgoas+
+	 Mb69SiaafsOESVmrlBgsUU/lN4N3UEZDhI5w0uEOAr2CJQ8dO+lsjgHfAmkCUEaTLPTj9
+	 BjaUKP8e5sX9PB6utIN+GQU2aTuHnD0Z6R5bRkAgINQAZ7oSPoeZVuEzw3bvhI2WOfw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZLDbJMcu;
-	arc=none smtp.remote-ip=209.85.210.170
-Received: from mail-pf1-f170.google.com (mail-pf1-f170.google.com [209.85.210.170])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=chH7IhID;
+	arc=none smtp.remote-ip=209.85.210.171
+Received: from mail-pf1-f171.google.com (mail-pf1-f171.google.com [209.85.210.171])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2133C606A321
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 04:33:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2133C606A321
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1FA0E606A331
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 04:33:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1FA0E606A331
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZLDbJMcu
-Received: by mail-pf1-f170.google.com with SMTP id d2e1a72fcca58-8b6b22be970so2052808b3a.1
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 20:33:47 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=chH7IhID
+Received: by mail-pf1-f171.google.com with SMTP id d2e1a72fcca58-8b32bc605d9so2526109b3a.2
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 20:33:50 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795581227; x=1796186027; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ZT+4sCsr3xr8FnfN5LLRrbbwBT9PMqCRbtWGTXSuCNQ=;
-        b=ZLDbJMcuI51Esp+mXXWYMFQZlBQf5eXAll80XiSCwhk0AJZ2pseBEODIYWeAcik3fI
-         /XxLGyOZ5+L7kqzAd48qaI8Dh4RIgaF+KzBWm9tci9HYoQm4X6UhdGl/OkvqzcXS2Fhc
-         ZAcL5q7cHT1YrhDJ2RJ8UveerGZVhopBbwwsyOqRhUXnKmJv4D17nE+nU3akL0/Ds1ti
-         hgwTyUnw4puxMLn7uIdbOpJd9Wijn2Fc0L43+Ta39V4VF1BYNcIK3xkvD2a+jkAImZwy
-         4USb4HC1fki5BmalkXBgn2nqd8/CHoaUdXBNa34+QesJ2DmdGVfw5zaqT+qBqKrJTCk5
-         jnVA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795581227; x=1796186027;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20260707; t=1795581230; x=1796186030; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=ZT+4sCsr3xr8FnfN5LLRrbbwBT9PMqCRbtWGTXSuCNQ=;
-        b=APQSELXv/XJ+e7p/bThCB0ywedartBLafDijGaNizDGohWAZBrKvcrd662DI6hNt7W
-         s0PeFylyJb0Jot5VabjuIOORDXmx6p0hiNPKWskK2r+VJ3GHh/V+z3vkx8UQ0469kx6b
-         u/jNN1oeJCEtpeTlbUC2WBOJqSC/o4uL8aXzXwBncoU+kYRR3U2lh1Ixx6a10c/cI0wd
-         tVkmDkQDF3s2EBX6VuqllTRzwho/8nA+rPHc0h3BZY+7r2YQzMkR18UCILR/Bc0nBt47
-         ddUppdO0L+PfNmygdd2TpqddALQy4uQZiNr7cnxrLYIgiclBtORfArmI7vma4yDzdFRf
-         Xqug==
-X-Forwarded-Encrypted: i=1; AL+hErGkkpg5GCVsy2Ubwu3zzqnrvwczqGxXLo2ciXkNNFreIJi/+ksiIUaPVI/imuX5Gq9HPFn/cXpPfVTAKc8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8SyEEUZAtrv06/Lty4H+W9RIjYuNHxUroGuibgbxsRfTeNledF
-	qk9zwTkP12ejPzEepuaUGcmaCgSr6HHLPitMazWs4VKl3/0TjddwlXQp
-X-Gm-Gg: AZFdTZfFZeMerP0Ae7HEqPTJLsXXqwVD2XC0AdvjSeKL4iRt/5Jhn58CRaUgWGlcmHA
-	dm5WUt2eTD+ACWoymahILrX6xCWyd6LQB81WgQghTGdIyxu28I7gzlIJYFSS4PwoDFzN4KRXGVM
-	QZUonQ+azWA7XqGA2GQhePFptV04Ir9ZYv+JWKaD/HPv/2w6+2ghY0D7PYo7p1y2T/ByKOv9KB4
-	de9cmVeVfonfDlrHjc3zzm5J+iULBV1HOH+ccupysqf/s31F4jLdHhL3AAotemDQTE3CwghLl1a
-	KSdhoLQmNUB0dlQhSCC08SoJaS9c2yQCGSiAjOsMZk6nl/ezzzP7ZCcYhSFSfj0ByT2WXZVPQ4/
-	KW8YMDuE9cDAPAXXRzpcdYDdLG2rGsueS6u6hHrjm3qhoB231s8dJ5/IxcsLZGtp1YQ8s2kA4Cj
-	OAw9szcAxiQp1UjReifmcSY8uH90aTj4/nDh6VuEqSbIgnl+7oXh/TwcXDk69bvKsNVWcM9EFVj
-	xtsOqWzdrxpaz1Zp2ZmZNcPQKFeLQ4+I/XD9f0rFXzYAo0aeIfsL97fSPaCOgjbaJ1GR1qsbopp
-	/ck5kIxHWgiDzZ9XoZCuptFv7CMZBccsqdUvLIuIOkhpSaHN2FTBRlqsxa1wL6t6pAFtUh777Q0
-	O3AoTDVmdR7J416a6C8AoC6FdKGEERD0idNmiyOcLCll4tVlDttlX7Doam749Gn3uxosDDg==
-X-Received: by 2002:a05:6a00:b80c:b0:899:74d0:8a72 with SMTP id d2e1a72fcca58-8c87d90393dmr15459092b3a.59.1795581227294;
-        Tue, 24 Nov 2026 20:33:47 -0800 (PST)
+        bh=M/xhIeAnDFNYNz810SILjQoo31ON+txA5gyXKyEN96U=;
+        b=chH7IhIDzACP8OdWe6XQSwvgLN46Ccc4YnceYIjl+QYGKvD2HEUIckvJNd7O/8NhV9
+         2ixcuGQV6b4TLrx4eDMzssY2gGhHRu6U22govbaCr86P3AZgDko75glJQ+jL08bOh3NF
+         vyyzhtqxuF8ssWyN/8ort/BNVniPt4A/Txlgh9jKZN4jIATw7HE7MmxtjoPj1+PF5CZX
+         +rd0h7wMPwzJBc5RaNTXwitLiOLzZYW2MnX+dbwadEIEywjmPuVEKBD8/SzQeoGnbnUJ
+         bsldSqg6udiR+dD+MECf6DgbnNYrmZb5sCUte9fU2VCy7BF6ZNO04zKs/IRokn1zhn/M
+         Kghw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795581230; x=1796186030;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=M/xhIeAnDFNYNz810SILjQoo31ON+txA5gyXKyEN96U=;
+        b=zm5dGDAbt6Wu8Gwc8fAOpbI4WSUm7xICo3rzTVxN8yeBTPM/waiB95XtahukLoQW4h
+         nh3Ts+3uilHOGFXGOW2jlN9VSZNPlxM9wshuiZtQlU7X5DmHRYz4hgGuh5HrTC4Ri+i9
+         8tfEBfTNEn/ur0DINPg6CAatGBcqRE1UEyt6nj3LZ20qEQEENMJ68feY5lOzEBE1Vvow
+         x6CMpXkleJfZQRrLxDSi6MJfTJ7gcfO14NlfUclxDjoTiRpHD3E1/vLNFC9viuLjyLmO
+         7GHQkIb6NuDH8dSPGUfg7cVgXDZCErGMb4VwSaOa+55L/yB/ZdbzyWSuDTJupWpo6D9S
+         dofQ==
+X-Forwarded-Encrypted: i=1; AL+hErEWxIJD9QdERHeLm85Us8BuEUgpKLqJfxHpt3wDrEsWTSR/Eu30H6KPbp6QlGabb9YSXscSve2gOkVLuYM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9H6brXT1+m1Ptqq9J5Ykjk22z6rJ0WSnuMjtm9FOYUnqhwSvBP
+	LigCsxP8bXuIXgw6lrjbpJ9vO74kqHms4f3xuM/EjroVZPvQ0z4w37qs
+X-Gm-Gg: AZFdTZddhzIEZBjCpmCA4RLlnaPO0SAJ0JF/5P3u91jjhWdo0HGWs5hO8gxDB6BnmyN
+	rWbxylYm5dCtR5U76GmYgKwxYcbZZLl6GGpzDjCKN+yUGvTL4K9kW5Ce7RXWx9iSsm/yr0Wjn0q
+	lCQoRPa80/DhiLfbftyqqgLxI4YODsa/W0XDBRIq0jYxXuL5s4i7FilMZq/MQONJHzJnXzqEVJJ
+	6Z7C05AoxcjTvOz1qlXjlR/QggvcgRUACzgn1oQDOGNwgYlJApFduWg5zLgQCwnf4DlBjzRuE/4
+	n2KpmxQsiGihBdewBNVA6q2KRUVHuGRecjrucUBtmKy1uKxJwtBl7igEsgQMPxbTtm42yFrjiDm
+	a2j/32F/vVvwO8rsJr213LazHMK1dsNV83Cty387QT8st13bY0wuGhjbh3fB+OlQWpLHVr5K+u9
+	yHspEh6EqFhPGCHrGzJ6QEYpwyEgxEjyXDP8qAbZ+Os7cNEgYF6K3Nfg7E8a3F2jPfkuKIHqSIt
+	7UV6yJrtgv4arVWOi1cpuOgxd0HeND4C6zeVQ9LBI1O9wVf/5HPswmHBFLQEWUJ5pOma61uv03e
+	Wfs5HdsO3FE2IGixAlZcNI5uK0iixmO6aSMwNwQmMYzYGaa0dpLDJxeRpe5LhnOX6FlpJ43t45N
+	TtOXyRbGUdxD9ydxnN5P02A1TFMaYvVYnjYSZ2yk/HIsn0SjNpKAYmomk5X1H+BsVQZiz7w==
+X-Received: by 2002:a05:6a20:7f8e:b0:3f8:c7b1:6899 with SMTP id adf61e73a8af0-4014bc49db2mr17569291637.42.1795581230367;
+        Tue, 24 Nov 2026 20:33:50 -0800 (PST)
 Received: from yupeng-XPS-15-9520.. (c-73-169-192-12.hsd1.wa.comcast.net. [73.169.192.12])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87343f726sm8528812b3a.36.2026.11.24.20.33.46
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87343f726sm8528812b3a.36.2026.11.24.20.33.49
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 20:33:46 -0800 (PST)
+        Tue, 24 Nov 2026 20:33:50 -0800 (PST)
 From: Peng Yu <yupeng0921@gmail.com>
 To: Alasdair Kergon <agk@redhat.com>,
 	Mike Snitzer <snitzer@kernel.org>,
@@ -88,10 +89,12 @@ Cc: Joe Thornber <ejt@redhat.com>,
 	linux-doc@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Peng Yu <yupeng0921@gmail.com>
-Subject: [PATCH 0/2] dm thin: complete writes only after the metadata commit
-Date: Tue, 24 Nov 2026 20:33:23 -0800
-Message-ID: <20261125043325.138351-1-yupeng0921@gmail.com>
+Subject: [PATCH 1/2] dm thin metadata: report uncommitted state and refuse commits after a failure
+Date: Tue, 24 Nov 2026 20:33:24 -0800
+Message-ID: <20261125043325.138351-2-yupeng0921@gmail.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261125043325.138351-1-yupeng0921@gmail.com>
+References: <20261125043325.138351-1-yupeng0921@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,65 +106,216 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-This series adds a new option to the dm thin pool: wait_for_commit. When
-wait_for_commit is enabled, a write or a discard will return after the
-metadata is committed. By default, wait_for_commit is disabled, and the
-thin pool behaves exactly as before.
+Add two flags for a thin pool:
+* commit_failed: Set to true if a commit failed. It is a fact that may
+  be caused by IO errors.
+* refuse_commit_after_failure: Set to true if we enable the
+  wait_for_commit option. It is selected by a user.
 
-Why we need wait_for_commit:
+If both of them are true, the user should repair the pool.
 
-Assume there is a server A, and the underlying device of its thin pool
-is an NVMe-oF device. Server A creates a thin device and exports the
-thin device to a remote host via NVMe-oF too. When server A fails, a
-control plane will rebuild the pool and thin device on a standby
-server B, and server B will export the thin device to the same remote
-host. When the remote host issues a FLUSH, server A fails, so the
-metadata are not committed to the pool. The thin pool fails over to
-server B, and then the NVMe-oF multipath resends the FLUSH to B.
-B receives the command and finds nothing to flush. In this case, some
-uncommitted data are lost, but the remote host can't get any error.
+Add a new field:
+* changed: A new field of struct dm_thin_lookup_result, set by each
+  lookup that finds a mapping. False means the thin device's metadata
+  in memory was the same as on disk at the time of the lookup; true
+  means they may not be the same.
 
-As the dm thin pool doc says: "the thin-provisioning target behaves like
-a physical disk that has a volatile write cache". If the underlying disk
-of a thin pool is a remote disk and we want to fail over the thin pool
-from server A to server B, the "volatile write cache" is only on
-server A, and server B doesn't know about it, so we will get a
-consistency issue. The wait_for_commit option could fix this issue with
-a performance penalty.
+Add some helper functions:
+* dm_thin_uncommitted: Return true if the thin device might have
+  metadata changes that are not on disk yet. When we get a commit
+  failure, td->changed might be cleared, but the metadata changes are
+  not on disk due to the commit failure. So when commit_failed is true,
+  the function will always return true.
+* dm_pool_metadata_set_refuse_commit_after_failure: Set the
+  refuse_commit_after_failure flag.
 
-Below is a performance test on my laptop. We got the results in a VM on
-loop devices.
+Signed-off-by: Peng Yu <yupeng0921@gmail.com>
+Assisted-by: Claude:claude-opus-5-5 [Claude Code]
+Assisted-by: Claude:claude-fable-5-1 [Claude Code]
+---
+ drivers/md/dm-thin-metadata.c | 61 +++++++++++++++++++++++++++++++----
+ drivers/md/dm-thin-metadata.h | 14 ++++++++
+ 2 files changed, 68 insertions(+), 7 deletions(-)
 
-1 MiB sequential first writes (no zero fill)
-|                      | 1 job, depth 1           | 8 jobs, depth 8          |
-|                      | MiB/s | mean ms | p99 ms | MiB/s | mean ms | p99 ms |
-| no wait_for_commit   | 1307  | 0.65    | 1.59   | 1596  | 39.7    | 276    |
-| with wait_for_commit | 131   | 7.57    | 17.7   | 776   | 78.2    | 148    |
-
-4 KiB random writes, mostly to new blocks (allocation and zero fill)
-|                      | 1 job, depth 1, 2000 writes | 8 jobs, depth 2, 10000 writes |
-|                      | s       | IOPS   | p99 ms   | s       | IOPS    | p99 ms    |
-| no wait_for_commit   | 1.16    | 1723   | 0.97     | 4.96    | 2066    | 15.3      |
-| with wait_for_commit | 10.5    | 195    | 11.6     | 15.1    | 673     | 49.5      |
-
-4 KiB random overwrites of mapped blocks, 4 jobs, depth 16
-|                      | IOPS   | mean ms | p99 ms |
-| no wait_for_commit   | 202095 | 0.31    | 1.12   |
-| with wait_for_commit | 203293 | 0.31    | 1.13   |
-
-Peng Yu (2):
-  dm thin metadata: report uncommitted state and refuse commits after a
-    failure
-  dm thin: add wait_for_commit pool feature
-
- .../device-mapper/thin-provisioning.rst       |  25 +++-
- drivers/md/dm-thin-metadata.c                 |  61 +++++++--
- drivers/md/dm-thin-metadata.h                 |  14 +++
- drivers/md/dm-thin.c                          | 116 +++++++++++++++---
- 4 files changed, 190 insertions(+), 26 deletions(-)
-
-
-base-commit: 7475ea8b58616b33c04afb976cf0fbaad9dd63fb
+diff --git a/drivers/md/dm-thin-metadata.c b/drivers/md/dm-thin-metadata.c
+index e60e1326376a..7b56c970a524 100644
+--- a/drivers/md/dm-thin-metadata.c
++++ b/drivers/md/dm-thin-metadata.c
+@@ -221,6 +221,9 @@ struct dm_pool_metadata {
+ 	 */
+ 	bool in_service:1;
+ 
++	bool commit_failed;
++	bool refuse_commit_after_failure;
++
+ 	/*
+ 	 * Reading the space map roots can fail, so we read it into these
+ 	 * buffers before the superblock is locked and updated.
+@@ -972,6 +975,8 @@ struct dm_pool_metadata *dm_pool_metadata_open(struct block_device *bdev,
+ 	INIT_LIST_HEAD(&pmd->thin_devices);
+ 	pmd->fail_io = false;
+ 	pmd->in_service = false;
++	pmd->commit_failed = false;
++	pmd->refuse_commit_after_failure = false;
+ 	pmd->bdev = bdev;
+ 	pmd->data_block_size = data_block_size;
+ 	pmd->pre_commit_fn = NULL;
+@@ -1020,10 +1025,15 @@ int dm_pool_metadata_close(struct dm_pool_metadata *pmd)
+ 
+ 	pmd_write_lock_in_core(pmd);
+ 	if (!pmd->fail_io && !dm_bm_is_read_only(pmd->bm)) {
+-		r = __commit_transaction(pmd);
+-		if (r < 0)
+-			DMWARN("%s: __commit_transaction() failed, error = %d",
+-			       __func__, r);
++		if (pmd->refuse_commit_after_failure && pmd->commit_failed) {
++			DMERR_LIMIT("%s: refusing to commit after a failed commit",
++				    __func__);
++		} else {
++			r = __commit_transaction(pmd);
++			if (r < 0)
++				DMWARN("%s: __commit_transaction() failed, error = %d",
++				       __func__, r);
++		}
+ 	}
+ 	pmd_write_unlock(pmd);
+ 	__destroy_persistent_data_objects(pmd, true);
+@@ -1351,6 +1361,7 @@ static int __reserve_metadata_snap(struct dm_pool_metadata *pmd)
+ 	 */
+ 	r = __commit_transaction(pmd);
+ 	if (r < 0) {
++		pmd->commit_failed = true;
+ 		DMWARN("%s: __commit_transaction() failed, error = %d",
+ 		       __func__, r);
+ 		return r;
+@@ -1397,8 +1408,15 @@ int dm_pool_reserve_metadata_snap(struct dm_pool_metadata *pmd)
+ 	int r = -EINVAL;
+ 
+ 	pmd_write_lock(pmd);
+-	if (!pmd->fail_io)
+-		r = __reserve_metadata_snap(pmd);
++	if (!pmd->fail_io) {
++		if (pmd->refuse_commit_after_failure && pmd->commit_failed) {
++			DMERR_LIMIT("%s: refusing to commit after a failed commit",
++				    __func__);
++			r = -EIO;
++		} else {
++			r = __reserve_metadata_snap(pmd);
++		}
++	}
+ 	pmd_write_unlock(pmd);
+ 
+ 	return r;
+@@ -1516,6 +1534,7 @@ static void unpack_lookup_result(struct dm_thin_device *td, __le64 value,
+ 	unpack_block_time(block_time, &exception_block, &exception_time);
+ 	result->block = exception_block;
+ 	result->shared = __snapshotted_since(td, exception_time);
++	result->changed = td->changed || td->pmd->commit_failed;
+ }
+ 
+ static int __find_block(struct dm_thin_device *td, dm_block_t block,
+@@ -1796,6 +1815,17 @@ bool dm_thin_changed_this_transaction(struct dm_thin_device *td)
+ 	return r;
+ }
+ 
++bool dm_thin_uncommitted(struct dm_thin_device *td)
++{
++	bool r;
++
++	down_read(&td->pmd->root_lock);
++	r = td->changed || td->pmd->commit_failed;
++	up_read(&td->pmd->root_lock);
++
++	return r;
++}
++
+ bool dm_pool_changed_this_transaction(struct dm_pool_metadata *pmd)
+ {
+ 	bool r = false;
+@@ -1836,6 +1866,14 @@ int dm_pool_alloc_data_block(struct dm_pool_metadata *pmd, dm_block_t *result)
+ 	return r;
+ }
+ 
++void dm_pool_metadata_set_refuse_commit_after_failure(struct dm_pool_metadata *pmd,
++						      bool refuse_commit_after_failure)
++{
++	pmd_write_lock_in_core(pmd);
++	pmd->refuse_commit_after_failure = refuse_commit_after_failure;
++	pmd_write_unlock(pmd);
++}
++
+ int dm_pool_commit_metadata(struct dm_pool_metadata *pmd)
+ {
+ 	int r = -EINVAL;
+@@ -1848,9 +1886,18 @@ int dm_pool_commit_metadata(struct dm_pool_metadata *pmd)
+ 	if (pmd->fail_io)
+ 		goto out;
+ 
++	if (pmd->refuse_commit_after_failure && pmd->commit_failed) {
++		DMERR_LIMIT("%s: refusing to commit after a failed commit",
++			    __func__);
++		r = -EIO;
++		goto out;
++	}
++
+ 	r = __commit_transaction(pmd);
+-	if (r < 0)
++	if (r < 0) {
++		pmd->commit_failed = true;
+ 		goto out;
++	}
+ 
+ 	/*
+ 	 * Open the next transaction.
+diff --git a/drivers/md/dm-thin-metadata.h b/drivers/md/dm-thin-metadata.h
+index 2f64f48b5f19..d7b149471e0b 100644
+--- a/drivers/md/dm-thin-metadata.h
++++ b/drivers/md/dm-thin-metadata.h
+@@ -81,9 +81,16 @@ int dm_pool_delete_thin_device(struct dm_pool_metadata *pmd,
+ /*
+  * Commits _all_ metadata changes: device creation, deletion, mapping
+  * updates.
++ *
++ * Returns -EIO without committing once a commit has failed, if the pool
++ * asked to refuse commits after a failure (see
++ * dm_pool_metadata_set_refuse_commit_after_failure()).
+  */
+ int dm_pool_commit_metadata(struct dm_pool_metadata *pmd);
+ 
++void dm_pool_metadata_set_refuse_commit_after_failure(struct dm_pool_metadata *pmd,
++						      bool refuse_commit_after_failure);
++
+ /*
+  * Discards all uncommitted changes.  Rereads the superblock, rolling back
+  * to the last good transaction.  Thin devices remain open.
+@@ -112,6 +119,10 @@ int dm_pool_get_metadata_transaction_id(struct dm_pool_metadata *pmd,
+  * operations only.  A small performance hit is incurred by providing this
+  * copy of the metadata to userland due to extra copy-on-write operations
+  * on the metadata nodes.  Release this as soon as you finish with it.
++ *
++ * The reservation commits first, so it returns -EIO once a commit has
++ * failed, if the pool asked to refuse commits after a failure (see
++ * dm_pool_metadata_set_refuse_commit_after_failure()).
+  */
+ int dm_pool_reserve_metadata_snap(struct dm_pool_metadata *pmd);
+ int dm_pool_release_metadata_snap(struct dm_pool_metadata *pmd);
+@@ -136,6 +147,7 @@ dm_thin_id dm_thin_dev_id(struct dm_thin_device *td);
+ struct dm_thin_lookup_result {
+ 	dm_block_t block;
+ 	bool shared:1;
++	bool changed:1;
+ };
+ 
+ /*
+@@ -175,6 +187,8 @@ int dm_thin_remove_range(struct dm_thin_device *td,
+  */
+ bool dm_thin_changed_this_transaction(struct dm_thin_device *td);
+ 
++bool dm_thin_uncommitted(struct dm_thin_device *td);
++
+ bool dm_pool_changed_this_transaction(struct dm_pool_metadata *pmd);
+ 
+ bool dm_thin_aborted_changes(struct dm_thin_device *td);
 -- 
 2.43.0
 
