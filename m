@@ -1,54 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795619344;
-	b=3zP7vAhk7LcoFCYQcLgGSiJxBG9dWZrvEGsgRCwESBHNR/BlZSAuHvCzRwZ7WAl3Tdno
-	 gJ811AvCl1Ekc6YZ3icO7ZSN3OA9JZNWAFbYjNI7kvHelz6xmJ5fCHDfLyPp2BbqwPU3g
-	 zEpvUlN8m56di+slwVggi9AxDHPECaTfC7h1kSpb+8ND4psmYYZqh6fCTpNhMsQ6BkdtP
-	 IUBqitY9K3a6MFKwwKz16yiaEenYs4YESBbBZs4lRkxPjQgH8M068WyBUx/MwFU86Nr2w
-	 AN4QufDCAfICUQ+VZ/Av3WcIBSZuvdQ0sV4PsunG2DubwuA4EHyhIeNngDiXVmsUKTw==
+	t=1795619392;
+	b=CeBfD0CnepBwNWfnkF5mVWrFqAe5ylORGH5coNsT73hzUpE5uKlXd/GYvs/3e3azimiP
+	 p1JKNSjOB0CHQL08pg3vKMdRbPgrX7yZh0SN+pRPAkL5N05K4qIyB9Kx9BoRKX+mNcoFF
+	 okFOJGsYeL/x+aht0RuEFiYvqRMrs99lRdvdLDLCPHPfIoB5O+eu973Skejs5YLSS07Y2
+	 rs7QqA5piuHJy9BmECk/XvW07b9S7Q5hSjml8tQy9A3tlqMG7GbAEQoiq/c+fVbadlRfd
+	 9IwsoB2mzcgp+N9inO+NGdNTcSWM/FV3q1t/zDwuSeJbRHJtuI1R8owngXY9fQ84Gmw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795619344;
-	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
-	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=VxkvXx0QISvNLm0dBnZhh05AEh7aJ0O7sxMzdveYPi8=;
-	b=sXh1RM8L7b3of94910jgZA1349bs5A3Hjumb9F+VHy+dIlvHXTAKQ6LwYqg21y80Mqli
-	 AsutZMHhkzD+5wnRGPeN+sRac+nXHKMTKTRLquGhSK5/D1MKYuV6aK6jab4ULzh6FTIro
-	 Wv+9apWLBFdxRVLou9WU3jFQdSqyAq22pTqmTorQ72dpy4lBaVI6llKo9ETIra9KMiDZL
-	 fFrosKHkqVFff90ojt2mXZg1/vKb9YOEQe0IypFAixTD4J4ssKNNDJOTswPtmDD6H5aRe
-	 vBfNHBoPx03N5cKM0qGgNxNrKabV3a7l7UEMITkhWxGRY0SzHiHEOiuYHwFA4RbU3Bg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795619392;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=wU/3Wiw6HBpJUb9vOL67s+ORbpL0ttUSloHr/zoQa8U=;
+	b=4umBYjSyboLkoAlKeztyeC8AJZdXptrkpMEaJRbxqO/CRWTs53Vuyjagsh/dOY+r2ZHn
+	 m12oLTljndQyqtfumu5plaW0XkgcbmZwU7jqVOTcoR5t0nuI+YuY+kSGVrlEr2UwtdKC1
+	 EGzpcE++t3LOkZ6Lt7pyLreG646umqXNnaogA79judlUao4yKZFwmzUYwj+WXDhrKAyGB
+	 bJ6GHrD5PuMT7s50MUV1F1rEtu2sZCFKJcbPMxq+tUFp5oM0e/ZdNa0wzGLIv7gsNBJKW
+	 0zwv+8eNZqs59gs8em8CBzD8xwpSM4y6Vz8yc5eNDudDqlxN8b2xFZeTafXMDCCG1qw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=I0yyWPWx;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="hU/cJhaK";
+	arc=none smtp.remote-ip=74.125.82.42
+Received: from mail-dl1-f42.google.com (mail-dl1-f42.google.com [74.125.82.42])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 448E6606A335;
-	Wed, 25 Nov 2026 15:09:04 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2B1DF606A327
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:09:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2B1DF606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=I0yyWPWx
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EFADE1F000C0;
-	Wed, 25 Nov 2026 15:09:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795619343;
-	bh=VxkvXx0QISvNLm0dBnZhh05AEh7aJ0O7sxMzdveYPi8=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=I0yyWPWxPjM27BBLQSDI48fY0YMwGW+didwmG6X8uqGOXsTYKEhOM0L7k2S9pg6qt
-	 GDQnxeuYlM4lOO9oxBBWHQMWkqUKzo42k4lmAmHaBlcZXTxyRXFYS3pX9AVhht1xCu
-	 VqFfybpu84/RtExttjFShAIcxUbaawbFJJ4EKxihEiCV7yf7SWc25Wp11N8gJV6tDm
-	 77NdS2MkzyL+RhD75l+zlhgpv2oieWlIY37VwSkIW9U2OwpBTPBV8AR3qRK7D0646e
-	 hjp2b0PjE5vvcCJ4dt5dh+uhJtn6OF1oDOqTKAQA6+1Z/45OtcUsqp1Vde0Oh6vRBr
-	 lgvddDG1V6fhA==
-From: Mark Brown <broonie@kernel.org>
-To: Richard Fitzgerald <rf@opensource.cirrus.com>
-Cc: linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org, 
- patches@opensource.cirrus.com
-In-Reply-To: <20261120110441.2163567-1-rf@opensource.cirrus.com>
-References: <20261120110441.2163567-1-rf@opensource.cirrus.com>
-Subject: Re: [PATCH 0/4] ASoC: cs35l56: Prepare for SDCA Companion Amp
-Message-Id: <179554423078.947306.5902845909561904278.b4-ty@b4>
-Date: Tue, 24 Nov 2026 18:17:10 +0000
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=hU/cJhaK
+Received: by mail-dl1-f42.google.com with SMTP id a92af1059eb24-1b546061d58so13333940c88.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 07:09:52 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795619391; x=1796224191; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=wU/3Wiw6HBpJUb9vOL67s+ORbpL0ttUSloHr/zoQa8U=;
+        b=hU/cJhaKNz93P0GMjl+URa/kTV1SPk5EUW78kR5rcIqbWBPJnNZnSKopxe3Z6sM5mO
+         7gMi0+nQDW5f/J6fK3Vrto6r/lfCgiutnUnrBVcPYzyhwSORjvzyY1SVTRM+EGzBFw3u
+         1HtNQI48JRidDGAvnuFMQj3k9n/XBUDjXVAddK9i1Y6xj5spbkuQED810lWK21cyS64H
+         UoSpqCz+vD04AshM31wrNhQqErNNy98MGxr/fU8dhRApx9eihUH5mIyucLHjb8o3Q5PJ
+         u9gtBSysro6RUsF0f+sE6jksOtpW/KlmydrS1rIvLKpgrgS6wgPzMx+ITjCVG8/eY64E
+         XYJw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795619391; x=1796224191;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=wU/3Wiw6HBpJUb9vOL67s+ORbpL0ttUSloHr/zoQa8U=;
+        b=rJJsV1A9ezDhgJkXvMocet3gIjc1igD+FxbyqMN6z2denMtdXzekyAZ/rzpXsPHhp8
+         E2DgaX/nnCouhOTQRQr17yxBOKuCnKSGOtOVzpGhgZo9sC1vUg8p6KViaE6/QtGAPmRg
+         PjvfEPf+8SWhPNxlmc6clWv/2zQs08wlFfozohXUsd9INiYtr15YjWZs0f4M4dFXxIzI
+         q9AXFNDXpdZ3TO4Q0+gZ5D3r/o9svTbKKtmUSPolfzEJje10Wl2o0KVxhOA7wh0a+4WQ
+         k3F890boOqvhyUBK5qzKcjjqtsF2TJUdE1Fh0/mpFHgcfeywieHMQRe0+9wfm9uaikFU
+         HBNA==
+X-Forwarded-Encrypted: i=1; AL+hErGWZ/X6Z8mluWBFs5n3mim5bOIAqstqXs3fo6fVt61IGC4G+KFh3uTJyiCryC3aOU+XNQU6io0KIDrU+Hg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+1FgYaa11IO8mTGEkOs79zQgO4PtJ5OEBPHPQqD5xrgJ1DUTDP
+	y78FO+2nowTbCsgYTtM8S2NuxvxKMwKglCRacI5pWEwoU85HoKnysais
+X-Gm-Gg: AZFdTZe9ySBedWO9+BAqzbX5mwaS3Lm8+1dyU+EYIlvPhk/2V0SWNhqN/RNChBWfmar
+	eRmU6/NkxGSeGvVAfNFqtPDgqUO+TKnxjR456Mj+RbjGQWkoepqGfgK1fKP7DnqndTP6wQnsLiL
+	5TCp4EYBRCPQLECjjtg7zqLiAyVUu4wcUG+Eb9f/OsPeZQENPwjExxDumAqPVkf2XbI+JU2/Zim
+	QAnt3j9Bd9gBqzkPE49Zna5JXEot5CGJR4xruAemiuf6bkMNumLr4QvLh3PzQb37MQwqf/WFyOS
+	eRCFficmHRF3wBKyqh7ATd9IejB2BkSt97tIJQOMVoY2rc0L6M5c9WCQZilMednPiQb8Vh10DCi
+	BSVAddNAB6bG4Kf3FkXwJ70+KiwTPaJLGQLTGAKFaBcQqxhcoCZDSvsJcGc7oaTZi6GuNM0EK6U
+	fOHEYsF948K+CYPVljKGCFBTkjMdqAd+tJnlWypPx3tNXIR0bI4W5NvFsJqkyM5c+vZzqmlNUIV
+	j9OPI8XMl/BoUqyrJM3YwFetQbkblXoosUhGXrr+JaPOeYAPRG9Y6au77viYYFVqfP3QVWS7qaK
+	yD6kY7jbXPljcREUwcQJPky5jfogV/LlEbRvEw01Vi9UXnMz+BqMI6zokufR
+X-Received: by 2002:a05:7022:ea8d:b0:1a7:216d:157c with SMTP id a92af1059eb24-1b556902db6mr18127873c88.34.1795619391089;
+        Wed, 25 Nov 2026 07:09:51 -0800 (PST)
+Received: from LAPTOP-LJ15R92N.localdomain ([152.58.24.17])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5566c1142sm41950101c88.2.2026.11.25.07.09.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 07:09:50 -0800 (PST)
+From: Akshat Rawat <akshatrawat095@gmail.com>
+To: Alexandre Belloni <alexandre.belloni@bootlin.com>
+Cc: Hugo Villeneuve <hugo@hugovil.com>,
+	Hugo Villeneuve <hvilleneuve@dimonoff.com>,
+	Elena Popa <elena.popa@nxp.com>,
+	linux-rtc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org,
+	Akshat Rawat <akshatrawat095@gmail.com>
+Subject: [PATCH v2] rtc: pcf2127: fix regmap_config corruption across probes
+Date: Wed, 25 Nov 2026 15:11:08 +0000
+Message-ID: <20261125151108.423-1-akshatrawat095@gmail.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,61 +99,60 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1791; i=broonie@kernel.org;
- h=from:subject:message-id; bh=LOlW11XCaReRLoNCyki+m0iMwWty5eLynXbWKztMGuc=;
- b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLLZfvHESFU8vnV5g4jtlotbl+UYZh7+73h1J2v0Vv8LS
- UJqThx7OkpZGMS4GGTFFFnisrhf1pe8XsN3cGEbzBxWJpAhDFycAjCR0zKMDI/1rEz/3zWYJ1a+
- yuPrur+rP75rjP2kyxTwbM7Ebfwb0ssY/vBsdj54wXznXJ6XyZyhJh3/vpS5rXlxhlvr9932H0H
- pE5gA
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+Content-Transfer-Encoding: 8bit
 
-On Fri, 20 Nov 2026 11:04:37 +0000, Richard Fitzgerald wrote:
-> ASoC: cs35l56: Prepare for SDCA Companion Amp
-> 
-> This series removes some unused legacy implementation of the SoundWire DP3
-> port. This old code conflicts with the actual purpose of DP3 as the SDCA
-> Companion Amp output.
-> 
-> 0001 and 0002 are the two changes to switch the code over to being suitable
-> for Companion Amp.
-> 
-> [...]
+Both pcf2127_i2c_probe() and pcf2127_spi_probe() declare config as a
+static struct regmap_config and update it in place based on the chip
+variant.
 
-Applied to
+In pcf2127_spi_probe(), if a PCF2131 probes first, read_flag_mask and
+write_flag_mask are overwritten to 0 and never restored. Any PCF2127 or
+PCF2129 probed later reuses those zeroed masks instead of 0xa0/0x20,
+breaking SPI register access. Modifying static max_register and flag
+masks also races if multiple instances probe concurrently.
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.5
+Remove the static qualifier from config in both probe functions so each
+device gets its own initialized copy on the stack.
 
-Thanks!
+Fixes: fd28ceb4603f ("rtc: pcf2127: add variant-specific configuration structure")
+Fixes: fa78e9b606a4 ("rtc: pcf2127: fix SPI command byte for PCF2131")
+Cc: stable@vger.kernel.org
+Signed-off-by: Akshat Rawat <akshatrawat095@gmail.com>
+---
+Changes in v2:
+- Reword commit title to state the bug fixed rather than the implementation
+- Simplify to dropping static from config in pcf2127_i2c_probe() and
+  pcf2127_spi_probe(), as suggested by Hugo Villeneuve (note: checkpatch.pl
+  warns that struct regmap_config should normally be const)
 
-[1/4] ASoC: cs35l56: Remove SDW1 TX source controls and widgets
-      https://git.kernel.org/broonie/sound/c/f52668f474f1
-[2/4] ASoC: cs35l56: Rename the DP3 DAI to cs35l56-ot127
-      https://git.kernel.org/broonie/sound/c/fc7de4450478
-[3/4] ASoC: cs35l56: Eliminate trivial regmap patch
-      https://git.kernel.org/broonie/sound/c/0c690c80941f
-[4/4] ASoC: cs35l56: Add test that probe() doesn't write SDW mux registers
-      https://git.kernel.org/broonie/sound/c/406541bbf4eb
+Compile-tested (x86_64 gcc 15.2.0, W=1, CONFIG_WERROR=y) with
+I2C+SPI, I2C-only, and SPI-only configs; not tested on hardware.
 
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
+ drivers/rtc/rtc-pcf2127.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
+diff --git a/drivers/rtc/rtc-pcf2127.c b/drivers/rtc/rtc-pcf2127.c
+index 27c5fb9b2aaa..d9ac2dbb4023 100644
+--- a/drivers/rtc/rtc-pcf2127.c
++++ b/drivers/rtc/rtc-pcf2127.c
+@@ -1455,7 +1455,7 @@ MODULE_DEVICE_TABLE(i2c, pcf2127_i2c_id);
+ static int pcf2127_i2c_probe(struct i2c_client *client)
+ {
+ 	struct regmap *regmap;
+-	static struct regmap_config config = {
++	struct regmap_config config = {
+ 		.reg_bits = 8,
+ 		.val_bits = 8,
+ 	};
+@@ -1520,7 +1520,7 @@ static const struct spi_device_id pcf2127_spi_id[];
+ 
+ static int pcf2127_spi_probe(struct spi_device *spi)
+ {
+-	static struct regmap_config config = {
++	struct regmap_config config = {
+ 		.reg_bits = 8,
+ 		.val_bits = 8,
+ 		.read_flag_mask = 0xa0,
+-- 
+2.56.1.windows.1
 
