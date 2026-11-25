@@ -1,111 +1,104 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.148
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795629929;
-	b=KUXyerfWF5gS960dtsleUCd41MVCvF5j1Y3hu30sNrNEIXbhQzh0kHGux8sD1PArwKOk
-	 zCT7VxCugoOC7m+90TVtMDEbOxDjifV66dYaSm0Z0qeBtTmgf+YJFr6aVpxGd3opfzchK
-	 JQj1VxO8uzQNSxS4Md7mZhb1HGOHSg5Fwe5+5zFWMBKzbHreZaOO6EkdDjn1QA2EXzH1+
-	 UT7rpL78InoZfVsFvwmWl2P9HI5C6m5n1EngUYONYCKf58/23+a/4YKFxl2i8TKa/MLu/
-	 MT+Ak4dc5tPN2VDDD4ujfVr7qlsjzsCKOT5Zgm4STHaxeayAusbVaCLy4IYbixGBYqg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795629929;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
-	 MIME-Version:Date:From:To:Cc:Message-Id:In-Reply-To:References:
-	 Subject:Content-Type:Content-Transfer-Encoding;
-	bh=gq3lctPAnaFDAVkMBu87KEcU4DFbiZw2CZrSkFgNdv0=;
-	b=Ww/c5GQe4YyL3qp42YjjocV+rVVSU3s0gKql8sXljPS2FHpcs1pU53GVYFshJTlGVTtw
-	 x3XzwTXz+64R9hOzFCyqGtP/BmvA1AhBsiB/1jcfEynaCpxCA+7+XqdAm5p1q+qYL3ZkX
-	 EV1CguUEvVuv4FM/of3Oj1XL/cszdRZGLQZVWEKpKB0mfG5YUgyxeD/faJnQhKKuJ4QUl
-	 SAi6Kq3nIWit1qylDvEjFHp8cTp369WuZ0oV4NvjTzAxJhT7tgVuAc4ScSkJ+6cx385fE
-	 JIdieE0ev3ij4fvQ1VRkhizclwBhiBNreJ8ff6Y6Am9vO+XmQ69nHPHPjOknWLDlkRw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=fastmail.im;
-	spf=pass smtp.mailfrom=fastmail.im;
-	dkim=pass header.d=fastmail.im header.i=@fastmail.im header.a=rsa-sha256 header.s=fm3 header.b=LoEInkYK;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=HFn1e3OJ;
-	arc=none smtp.remote-ip=202.12.124.148
-Received: from fout-b5-smtp.messagingengine.com (fout-b5-smtp.messagingengine.com [202.12.124.148])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.65.34
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795629932;
+	b=t3rEpIvEunBWp3QYBXplMNj/RgGvn9xeGyRcDSXZ8wPZA5nC2i3CX6AP6FSFhO5f8n+b
+	 xxATQ4mzbHGBmRt/f/btnUxX9tgkbfIIIPbJ09p7k29rgV+R2JiL6wTUkZegES0edzWS2
+	 e+eVmcw9mI7RjSY884eFbPDJh9+Gp1kybsbgglXcjjOWpxDCdf2xD547jE31T+J8ZqS2T
+	 r2cHmRcQc/XvcYBuqoXpvbDM5rLiq3U+KiG4dgbpTNE2WZcoM+fLw5V86uz6WWxPqc5a6
+	 5j50MbY2BcJHRgKS0GzYcqN1GUJKmonmMVfPUKKghKhdI2kk7LGnD9KinazmXrYMBpA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795629932;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:Content-Type:
+	 Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-LD-Processed:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=RnCmbIvyhXLsSj66IiI2fqNNlGnfZPjVJ+2ZbH58I8w=;
+	b=xShUbOxSTcWrEKys6hcWQJnyqGYSi3xnrDGdmy0nicNBFY14wZ6WIzEptQwtOjL4UvhO
+	 YL5QgGNyuAOSUYZ6UsHCgeAcfYuXzpEEZSQHGT+xJfcfWn5aziDAu1aCnhDb1AJr/b6ur
+	 TwhXF/KynSH4pScPn0QlNTTVGxRgcA5aV1mP2eKxOMzqaPwYHsge1l/55CSh1QvOqUUz9
+	 UFA4x/5uHdWivhcz+TINkP647hRQOvO3diO106OMg3eIq0oj7mEh88uIJ7w7aD9LC6Mju
+	 m6eQuB4ziuQpR6TbA89Ew9kuOmlgMyhqjbPyM6qSGtSY0dgduiZw2Q7MOrVG+5IoBOA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.nxp.com;
+	spf=pass smtp.mailfrom=oss.nxp.com;
+	dkim=pass header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=mz4O+lJV;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.65.34
+Received: from DU2PR03CU002.outbound.protection.outlook.com (mail-northeuropeazon11011034.outbound.protection.outlook.com [52.101.65.34])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1C53C606A31E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:05:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1C53C606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=fastmail.im
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fastmail.im
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5B1B7606A338;
+	Wed, 25 Nov 2026 18:05:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5B1B7606A338
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.nxp.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.nxp.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=fastmail.im header.i=@fastmail.im header.a=rsa-sha256 header.s=fm3 header.b=LoEInkYK;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=HFn1e3OJ
-Received: from ams-compute-01.internal (ams-compute-01.internal [10.64.2.61])
-	by mailfout.stl.internal (Postfix) with ESMTP id 021E61D00606
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 13:05:26 -0500 (EST)
-Received: from ams-imap-19 ([10.64.2.39])
-  by ams-compute-01.internal (MEProxy); Wed, 25 Nov 2026 13:05:27 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fastmail.im; h=
-	cc:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1795629920;
-	 x=1795716320; bh=gq3lctPAnaFDAVkMBu87KEcU4DFbiZw2CZrSkFgNdv0=; b=
-	LoEInkYKTNn327V/ZsN+4DUhSLmhoHiZWVl+SqszlI5edoio/0SsH6yXEVPw4FKK
-	SUpda78W0L4XbEHNizhz+v7VDWBghFEQB82LlzDvuGvBq7Cm8kXSKHDBibnZOXjD
-	+GOil/fJulzrJWCZiW0KB8v9xjC0XNZhsa0ZYyuzsVETVoGz76mgwLH4r0WFa4Oq
-	SYzqgTknc/6nPBPQJD3n1pqVSNOdSokbKxKc4nHkwNbfkhmQ55NpgwUqZT2dnXqv
-	uzGWSgymCfbxWM364ijt/IVZXoAuE94S+gtc4kgIDHMszU06zpWOOhlJnaq49RWB
-	YIhsuGSCt0gBZx2Qnp3nqQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795629920; x=
-	1795716320; bh=gq3lctPAnaFDAVkMBu87KEcU4DFbiZw2CZrSkFgNdv0=; b=H
-	Fn1e3OJ5JHQBM2BjfRRMovLEl8ZlXSpPisedTf4GLuZgameMeUeT9tm8/hmt/KrR
-	wLBVtHn4t5Qmb/s2KCDKjfRNF/ybnCcb70jX0teWrSWKLE8kf6sY57ljuDTSIIPa
-	bXlOe73p64bWVJ0wlsji/31YU/06zIAwDnVfqM3L1z2OltUxHBlb+rPD9f2s/GZ2
-	pMy4p4vmZifIlzarfBa5ZJKi7z4TR6B/Nhnchhwnw9GOwceVWeY3gLDPopj93kgv
-	VY47SJ9M8evjha1YMtP0aLHTFyOhTDgYCeR2Gm1AwiHLcCJEEUnzzzW1QXdnAxCb
-	DsNyu5Muwr7zuEgbBVqjQ==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=fastmail.im a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795629920; d=fastmail.im;
-	mf=PGFsaWNlLmtlcm5lbEBmYXN0bWFpbC5pbT4=;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm3:rsa-sha256:GmeWLnIWay1zV1D+tLWlO7ntiSEi4890ZaxeXICud/VuvMN
-	Fhm58XYECbI1i1HGhuJ0CvUD+PB2SCkVeFUN9uKFP90oue1Vt2OVkdiNlI77ZyGF
-	kw469RtGiEFpc7o3DprSPzmUyyQFNde0sJpOhnlhY2AkAxxxm363o0dVRJmZGmzg
-	8fS5GlLaOKkSgyGDLkf8OUVpIoryAfzDuNQET3f02HIiDbNUbIMZl8DPc10kX5se
-	6AUVHBai12ty5Ms/VKfsUs4XbNnhCdjXgFOwNAlaOmphRWlVyr0G2Rnc896O6WlH
-	yxDuK7yF7PUgf2oOyNYLot18kmAEuH3qM5qqwdw==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=12;
-	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
-	from,in-reply-to,message-id,mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:IEyVUc2R//xhEGEphG7IDG66ZkpiFyZ3FP6KGpVAk2g=:756KKTwRcKpirNmTmOP5ZFUYVirFIXOStTDGQD4Ad5k=;
-X-ME-Sender: <xms:WyMHaxUnJutPelKlH5b3eZF6S5gA-_Iao5j5fR5pibxsohZKEEFkTg>
-    <xme:WyMHa8ZVRn-mCxy94SJ9gjC9Om_Tyrv5eB3rluFHUwZO7rc6WrL_mceVlVnD9M-HP
-    uEJKARx0MgJ6nXBkWdlDWMHSp9uAhkKyyc_9nB3Mqwv1Nzi6Dupsr5pQA>
-X-ME-Proxy-Cause: dmFkZTG3IahGvKYf+slUa5xPUppAJQM0Tl4EtXiPI1a1U2PtkCa13BIsLl81Ygt7hPYIkN
-    3TA0vAXvoh2Bbi9WaoCpACgBTj21h9U5pue9pNSCdhrbqcMqWeKmOiL4i5guQjv5jHl+ZZ
-    qtUIo773PWtDcYvmJ09Mt+fxk3FtQ02mkJg5+I4WGaqvbxtf86Wj3v/NnObeXa7wGx3/nT
-    Aas86WiLS3I0MSKSmTRw9eSPe2RtEBLL4dhRBI9u6zqJYSloql6MMLrvXJz4Snj665b6Jk
-    WC7YRRLTkQUt6Ama4pXg/GQGPZMd9MohnnK9E4IAwxKyIVhVMUUu+J7J3QC7/mxp+1r9Dk
-    WbvyKcpWltLPx1pwSSNKkldHpLduspvQQEFYsxw+6fHeas69/LB1ozhyh0fz0z4djukHZu
-    a9T8DVnhlZz47OMPY0Boa/yAj8xyysF2Jg4PYNAKwivtct0rgysXHx8ueWP3jw0qXhoHSw
-    YHqRIVYuyRvyi7Qld+Y7lpkqaiyWNXiQMQFipIp12Vy/1ydSV/yeEF9hF7UtHAXyzI9sf1
-    SUzzvncRluQA+9a/Req+zEIJWXpkqncTYiO+X5vBWiOGMX8dQNbFuQW3f+U5Y+/fseeniG
-    F0e8gufCqLgmrP5y7W3serqPQ+h5JsNbTNLfdipNwrelJj/xli0Y/gjQ9Eeg
-X-ME-Proxy: <xmx:XSMHa7Eg50aMgG0uIYuCdLB14X9Ty6_GapR8wBXseVA28kFfArcVsQ>
-    <xmx:XSMHa-2QYd6WXyuc-9PM-g8ADPc8sbWWWszymDZxEfsGnQr1VkjBWQ>
-    <xmx:XSMHa7KtJRHkmXDMLjaGNn_EwKi_VHJNRRKV15c9lXaGoYYV507Lcw>
-    <xmx:XSMHa70s27AxGdhG_yg7lbMO07XFvj2KRqz0QokoV9C9hksjIyopuA>
-    <xmx:YCMHa0x6rD5Vy7RsiqF3DhkSaB25yh4e7iLU665XAZ8BuWcLGaeX3S8w>
-Feedback-ID: i559e4809:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id 232242F8005A; Wed, 25 Nov 2026 13:05:15 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	dkim=pass (2048-bit key) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=mz4O+lJV
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=F8zNcDFYJoYXUMGWMJ/iBBGfEaGOMNYaZCk8csae6mnJ9xSW+Mg04RnyO1WSZNph4U/LTJMY4cL7TRWtaE1WQBRWEqgKkGjG2jzb6fx5a0p2Fb6cpuJxteD4wupfmJ4aYcorywdYiswymTbTzG9V7lR3n5Z5TUZE9A/J4zm0wZyYlj3SaX+Jr+ZSTofzt2HVn2cBjf+U5fK/L9HXNY0cdP3CzkVkl2X+PuhSxqjf8URAnnZswHQYuhv2pGqQP0Kx8AF9yzrvc+E14wuGCEN9uLMLB/eZw22PP2Fu5He7NxyDUmTrpzS4gPzdQ48L52zO10FVGIbpDu3NYxRY5IJoZQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=RnCmbIvyhXLsSj66IiI2fqNNlGnfZPjVJ+2ZbH58I8w=;
+ b=NRcnnsg9LXMYn2olkR/QxMhf0UmZ5Iyc44BXyzvbNRCtEyQY340HDZhzAuWgl6udGq+m5vVLdQ0ae/X0AwmLOhAO1SOX2el9y5PjjqW9AGMWc3dPvTmIrkYxgvUufewry1vMmBdsVnLcRQt4uj2OrK11AuK9hZDHOhqwhgWvAZ9W96a5Apg47spGGTC0ZR52S6X3F5vx6Gej66tv190NiZIbU7Bi5dhEL5aZRv7dmApMnZ45s+3WYaFg/Oak8crCGoie8bSCl0ALts3fDIElcc4B/asg7S2hWkPk5avb7ynF10lFB75DN3FoziB9yaiisvawZUK9GX7Ze97/4sR4fA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=RnCmbIvyhXLsSj66IiI2fqNNlGnfZPjVJ+2ZbH58I8w=;
+ b=mz4O+lJVBNixoN1EbkcFcrZ6RQfAFNOX3U9ctDk+H4awm57fv6ZmeTHTD9X7ol9daGZtLK50mlPLBeGJ1T7AB4vQAj29a9a6u6X223I/E6az7L923chXgFeyhA8nNCgU8y26pEdL3cWvefVU9lswBJEmMxmCAyuglPt2gbPsb+l2Op49IHd+E5NWrUgoeWV4ZFFCd9CwQIbLbB5arOahaUFZHaxmYBVFIFiiSIwiTN8BMM3I3co8Rgys0HZE14PRAh3F+QDyCyJBl/PIpYKpe3Ph2ZhDh5E/o1VJPmPOJFJ6ZIwRTI/MfaUc6R1/7XxG4hbojC29DraY0xRC1lEgLg==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
+ by BESPR04MB626074.eurprd04.prod.outlook.com (2603:10a6:b10:12c::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.6; Wed, 25 Nov
+ 2026 18:05:28 +0000
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b%4]) with mapi id 15.21.0662.004; Wed, 25 Nov 2026
+ 18:05:28 +0000
+From: Frank.Li@oss.nxp.com
+To: linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Stefano Radaelli <stefano.radaelli21@gmail.com>
+Cc: Frank Li <Frank.Li@nxp.com>,
+	pierluigi.p@variscite.com,
+	Stefano Radaelli <stefano.r@variscite.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Subject: Re: [PATCH v1 1/1] arm64: dts: freescale: imx95-var: Add Cortex-M7 support
+Date: Wed, 25 Nov 2026 13:05:22 -0500
+Message-ID: <179562991843.3149625.11362946576694746843.b4-ty@b4>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261123124946.13887-1-stefano.r@variscite.com>
+References: <20261123124946.13887-1-stefano.r@variscite.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: CPBP307CA0021.DNKP307.PROD.OUTLOOK.COM
+ (2603:10a6:380:2::14) To MI3PR04MB12438.eurprd04.prod.outlook.com
+ (2603:10a6:290:76::14)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -115,252 +108,90 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Date: Wed, 25 Nov 2026 20:04:52 +0200
-From: "Alice Mikityanska" <alice.kernel@fastmail.im>
-To: "Haishuang Yan" <yanhaishuang@cmss.chinamobile.com>,
- netdev@vger.kernel.org
-Cc: "David Ahern" <dsahern@kernel.org>, "Ido Schimmel" <idosch@nvidia.com>,
- "David S. Miller" <davem@davemloft.net>,
- "Eric Dumazet" <edumazet@kernel.org>, "Jakub Kicinski" <kuba@kernel.org>,
- "Paolo Abeni" <pabeni@redhat.com>, "Simon Horman" <horms@kernel.org>,
- "Shuah Khan" <shuah@kernel.org>, linux-kselftest@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Message-Id: <d95b320a-d7de-4a93-9714-192894bb5b76@app.fastmail.com>
-In-Reply-To: <20261124013124.3693-7-yanhaishuang@cmss.chinamobile.com>
-References: <20261124013124.3693-1-yanhaishuang@cmss.chinamobile.com>
- <20261124013124.3693-7-yanhaishuang@cmss.chinamobile.com>
-Subject: Re: [PATCH net-next 6/6] selftests: net: big_tcp_tunnels: Cover IP tunnels
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|BESPR04MB626074:EE_
+X-MS-Office365-Filtering-Correlation-Id: d0a847d7-0a16-41d9-9a43-08df4b1eaff0
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+ BCL:0;ARA:13230040|19092799006|366016|23010399003|1800799024|7416014|376014|10067099003|261022075727099003|261102123227099003|261021121427099003|261009223027099003|6133799003|22082099003|18002099003|56012099006|11063799006;
+X-Microsoft-Antispam-Message-Info:
+ h12jl7mJzJyZuTkcWy9+m+5vuFjzsPwRN0II+BaKIAUG9X1D/RAF4X40GWrgei6ivDVFsatjvC0ezkhog+Z65ewMuFcCYrT7XiWs2dfdaAzjJ/gGKhv9/ZqXguSobwL50XXChgxA1gU4DUUHYrDXH4qInZZY/4KVRYqvTxdYyFGl9LYcIcAcZxw+hDXpD7kklFRzVag3xlgk9PN4qmppCswerbHA2CX3jws4gefXrK68Z1gbhYucS1Muh9KhU0FxYrmoB0A4aRLW0eb/9Rw9Yd/NebP4IjQkOhIh/DQdH8wO7HFUb0ggNm4/hcnIBfxfxH6rkimkHJgwim/aNmr7sdYeuK0b3RNgai5F4OQsnlSwVTfRiOesTv9GmfX/kvPWW9VOnVfVHZaBzX1X4bQM9L24sSSSZQiS2RhhdW5Z8nmmJs4flDPxKRFzpb+hz0fBWqq/Sqam1ZNjp8MJYB6Vu5PSffSm15TL6wP9I81HigHAG839FqO7hVJAzRZ7Qa4pX451VZI4NWrFYsgNdvIM/0lo/stwyReo6EWKDIxQLnJfrC9cWflQMZtIQp7hCeYDdquanrwCt2QWtdQ8OzguVYQNRMnJGDJNY16B7JZ7XL7297YhPDc3vNHLA6ekbsGtOiEDSlyq8gidB3cRC8dJXTRQh003Hrq7kLP8Lw9PFE0=
+X-Forefront-Antispam-Report:
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(23010399003)(1800799024)(7416014)(376014)(10067099003)(261022075727099003)(261102123227099003)(261021121427099003)(261009223027099003)(6133799003)(22082099003)(18002099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+ =?utf-8?B?Qy9pc2ZVTVZja3E1cTY4Vm55WmJFekFINHZkR0VOelJBZ1MvK1VtdFpTejll?=
+ =?utf-8?B?dFlhcDMvNEltNUR4Q0tKcVltejJ1UmxZaDlSaVdUbW9NY1c0bllFUXVnbVov?=
+ =?utf-8?B?T0QwZGhEN0xGY2dNUTdsRnBDTjUwUFQ2Q2JBNlpoVWg4RnUwY3IvQXExQ0Mz?=
+ =?utf-8?B?eXJ1K1BxSXhFOVJNZVlrMi9GNWZia2VQbXhOb2kyaHdUTkhmMC9XVXBOcUVS?=
+ =?utf-8?B?Z01wZEJ6Vy8xK0RLSTZ1T21QR1JQbkw1TWpnZDhZSndHdGRzd1FTL2pDSHNW?=
+ =?utf-8?B?Q1FGb0xIYXlxWEVia3dGZFUwbEJTZStFcFAwV2hmQ0RIMDNCSmN6NllGQndm?=
+ =?utf-8?B?WjBYZGdBUkhIN1o3UFdLSU9acm1CMzNUNzFpdThMc0d3Smg5Qzkwa29walMv?=
+ =?utf-8?B?RitJV1hHT3VwaGo5c2ZNQmx0Sk1ncXFsM1g2alcyZEc5Q0xQcXo1U3FPb1Zn?=
+ =?utf-8?B?OHRTN0w2dUxSa3lNQUZtQUZXRmdxUEdkSFZNdlNzVlRYZWVWM2F3Z3cvVDhI?=
+ =?utf-8?B?REtEdEliM3ZGMW9QdGVtNmlTSkNBaVJrQ3VkMUNtWE82V1pQVVNPaXFQWU5o?=
+ =?utf-8?B?MkRRQWV2REw2d0xZNDhMU1VYTXhxTmFZSlFlbUNYcWlCNHhIRHVWSk1WTjdk?=
+ =?utf-8?B?bmoyY1dGUXdobUlTUG9zTlM2MGtXRHBZczhJTHVLZE9DOVRyeVV6N1RuVTFo?=
+ =?utf-8?B?QThRVlVXMy9pUHI1NlJYV3ZTSEYyeHBZTjBMMzRRQWFRbVBxNW5KdjN1VVd0?=
+ =?utf-8?B?WWFJc1ZkMEpUNVdhQkJ3dWd1Nm1MZEcrRlU4SENmaWlBZzlJMTExckFqNG5v?=
+ =?utf-8?B?Q1lEZ1dOSmN0ZWo5Vlo3aUhGMEVKRzcybWFnYlU1VU8wS2F5TEJyTkphMms5?=
+ =?utf-8?B?U0duTHFqQkdsalJ2a2J6b2pYY0dZei9oeHl4Ykoya3NiNkZyQkhBN3ZQaWZv?=
+ =?utf-8?B?d3R1Tld1QXVtaEl5M2VsNVhQQ3JyTnRteWl3OWhZU05USEFtdklWSlpVODZp?=
+ =?utf-8?B?ekZHOWtSVWs1OFl2UzNWbjE2NE1kYk5xTWg5ekRZaFQ5cHhCNGN0eWVKQnRk?=
+ =?utf-8?B?U1VTbDd0Q1gvcGlRUW9BMm55OVp0VDMwaXZ6SUxmVlR4cDQ3dlFCcE9pVWJa?=
+ =?utf-8?B?RENJR3ZJQXFBY2ZGWHUxeHVBbnRYZThkeStSeUY4UmlPaEZrbHlZeFRNWlp3?=
+ =?utf-8?B?T3piYUJqd2Z1QVpCVnkrUXA5MEtoUERvcHVTK3lSUUVTTy9xZkhlNi9CYnNy?=
+ =?utf-8?B?dEltZzl6SkYxakdFdGVGYjFZMnAwbUhuOXVBdS9BcGxKdGZuSlJXYko1cDlL?=
+ =?utf-8?B?dGloUlVTUlc5SGRNM1NScjhEdUNoQVpLcnBsUTdJZTMwSkhVOGlJRVNnTHYv?=
+ =?utf-8?B?czJ0TTU2QXRKbERIdE03b2QzMkh1TnI0YzAvOVlYemtpaVFWME9uVnVncWVX?=
+ =?utf-8?B?b2FwMEZ5VHl5ZjJMVmg5RXF5TDU3SVlLQ3dZKzRaVkxPRVQ4ajVLR0JsMTAz?=
+ =?utf-8?B?cVBJaGt2eDU2cFd2U3JpdUhBU3NMelQ5KzB3a1N1RTk3enFvN29GRVB2dlgy?=
+ =?utf-8?B?TEdVVG43NHphUlZYSGRIc2dOQU9rVzZYUWx2c2NwT01BcDNzdVRuUnJzQlBx?=
+ =?utf-8?B?TXFEUkZXU2JaRmRmczQwS3pLaWVaWDU2NUxDdU03bE5KckxYaUo5Q0ZsbXR1?=
+ =?utf-8?B?a25HNVpZRXk2TFgzcW9TcFAyVEpPdlZzdStNNzkyZ1ppejk0ek4rekd5YlIx?=
+ =?utf-8?B?U2RUcHBXQXB1bGVMSjQ3NnpXYmVCOG9Ed1JEVmYxQTJ2d3VYK1Q5VFJlUEcx?=
+ =?utf-8?B?YTVVb0NPSDdsYnQ0TzZMZXAxaFZRUnRYQXlzd211UE43S3l4Zkx3M3Vtak8w?=
+ =?utf-8?B?dExqdUp1RFFDc015RU1vcFdVejVFeDRSdWRBT3hxRGw5dEszU2tKaGFNTjgr?=
+ =?utf-8?B?OGYybTBrckVwa2RnZ012anF6NFpHMkUwN2YrVGJ4bzRTN0NCSVVrbXlMcFQ3?=
+ =?utf-8?B?UmxKNmZyR0x4dWJaR2tJTWJ3ditTS2QydWxXRXBNWWo5MmUzSStFSkZMQStY?=
+ =?utf-8?B?ODVxWFB1SlV0eWQ1WDVMbGc5NVJMQmVFRy9Xb3ZodXNVeUNJaUNuU2xkT3FT?=
+ =?utf-8?B?RFpzdkxlR0x4R0hUSDU1RkxpcjBpTXR2V3A5UXNLQjI0aWFjcC93Q3Q0SEYy?=
+ =?utf-8?B?T0JINEd5Zm5LK1BydHdCSGdkbHYvelN3dURMQUlJZzJmSDJYcUgwZ0pXcEVw?=
+ =?utf-8?B?eXZlTUZkQU9MMkpibTRCYmRFa2pmcGhsZkMzcnVnTHVYb0FEV0ZyM3UrYjMx?=
+ =?utf-8?B?c0tML2RVcnppS04va0xvWmlibUZieXg2cC9PYnFmNEdQNlpuMDhhejVQcVVR?=
+ =?utf-8?Q?BhhuULN7swqp+YBIldnkh+K3T1yzNpILUTyv8?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d0a847d7-0a16-41d9-9a43-08df4b1eaff0
+X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 18:05:28.3737
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: jkEOIuFYoFt+8mn/0SJQpJzgwnNARp8badRz93nP5R8FXRZ3QPIKzYBvH5q2lCq5o5oUu9lutNvZsaCdYX5CeLsHpEPNTVr9KCY8JOX5gOUucdCQjfLKQpnqD9Ycw9pr
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BESPR04MB626074
 
-On Tue, Nov 24, 2026, at 03:31, Haishuang Yan wrote:
-> Now that ipip, gre, gretap, sit, ip6tnl, ip6gre and ip6gretap allow BIG
-> TCP too, run the same checks over them as for vxlan, geneve and
-> bareudp, without encapsulation and with FOU, and with GUE too on an
-> IPv4 underlay.
->
-> sit only carries IPv6, and is only run with veth tx checksum offload
-> enabled: GRO does not build sit packets larger than 64KB, so with
-> software GSO on the sender the receiver does not see any BIG TCP
-> packet.
->
-> fou is not loaded on demand when it is built as a module, so load fou
-> and fou6 first, like pmtu.sh does.
->
-> Signed-off-by: Haishuang Yan <yanhaishuang@cmss.chinamobile.com>
-> ---
->  .../testing/selftests/net/big_tcp_tunnels.sh  | 131 +++++++++++++++++-
->  1 file changed, 128 insertions(+), 3 deletions(-)
->
-> diff --git a/tools/testing/selftests/net/big_tcp_tunnels.sh 
-> b/tools/testing/selftests/net/big_tcp_tunnels.sh
-> index 9c1482b842b..9f185eb2065 100755
-> --- a/tools/testing/selftests/net/big_tcp_tunnels.sh
-> +++ b/tools/testing/selftests/net/big_tcp_tunnels.sh
-> @@ -1,7 +1,9 @@
->  #!/usr/bin/env bash
->  # SPDX-License-Identifier: GPL-2.0
->  #
-> -# Testing for IPv4 and IPv6 BIG TCP over VXLAN, GENEVE and bareudp 
-> tunnels.
-> +# Testing for IPv4 and IPv6 BIG TCP over VXLAN, GENEVE and bareudp 
-> tunnels,
-> +# and over ipip, gre, gretap, sit, ip6tnl, ip6gre and ip6gretap 
-> tunnels,
-> +# without encapsulation and with FOU and GUE.
-> 
->  source "$(dirname "$0")/lib.sh"
-> 
-> @@ -17,6 +19,8 @@ CLIENT_IP6="2001:db8::1:2"
->  CLIENT_IP4_TUN="192.168.2.2"
->  CLIENT_IP6_TUN="2001:db8::2:2"
-> 
-> +FOU_PORT=5555
-> +
->  # Kselftest framework requirement - SKIP code is 4.
->  ksft_skip=4
-> 
-> @@ -71,15 +75,80 @@ setup_bareudp() {
->  	return 1
->  }
-> 
-> +# $1: tunnel type, $2: traffic family
-> +# Prints the IP protocol carried by FOU for this tunnel.
-> +fou_ipproto() {
-> +	case "$1" in
-> +	ipip)
-> +		echo 4
-> +		;;
-> +	sit)
-> +		echo 41
-> +		;;
-> +	ip6tnl)
-> +		if [ "$2" = 4 ]; then
-> +			echo 4
-> +		else
-> +			echo 41
-> +		fi
-> +		;;
-> +	*)
-> +		echo 47
-> +		;;
-> +	esac
-> +}
-> +
-> +# Create an IP tunnel device, with FOU or GUE encapsulation if requested.
-> +# $1: netns, $2: device, $3: tunnel type, $4: tunnel family,
-> +# $5: traffic family, $6: encapsulation (none, fou or gue),
-> +# $7: local underlay address, $8: remote one
-> +setup_ip_tunnel() {
-> +	local encap_args=()
-> +	local fou_args=()
-> +	local mode=()
-> +
-> +	if [ "$4" = 6 ]; then
-> +		fou_args=(-6)
-> +	fi
-> +	if [ "$6" = fou ]; then
-> +		ip -netns "$1" fou add port "$FOU_PORT" \
-> +			ipproto "$(fou_ipproto "$3" "$5")" "${fou_args[@]}" ||
-> +			return 1
-> +	elif [ "$6" = gue ]; then
-> +		ip -netns "$1" fou add port "$FOU_PORT" gue "${fou_args[@]}" ||
-> +			return 1
-> +	fi
-> +	if [ "$6" != none ]; then
-> +		encap_args=(encap "$6" encap-sport auto encap-dport "$FOU_PORT")
+From: Frank Li <Frank.Li@nxp.com>
 
-Suggestion: also set encap-csum to cover correct handling of the outer
-UDP checksum (IPv4 underlay), especially for the software checksum case
-(but useful for csum offload too). encap-udp6-csum (incorrectly called
-encap-csum6 in iproute2 help) should be on by default, but encap-csum
-seems to be off by default.
 
-> +	fi
-> +	if [ "$3" = ip6tnl ]; then
-> +		if [ "$5" = 4 ]; then
-> +			mode=(mode ipip6)
-> +		else
-> +			mode=(mode ip6ip6)
-> +		fi
-> +	fi
-> +
-> +	ip -netns "$1" link add "$2" type "$3" "${mode[@]}" \
-> +		local "$7" remote "$8" "${encap_args[@]}"
-> +}
-> +
-> +# $1: tunnel type, $2: tunnel family, $3: veth tx csum offload,
-> +# and for IP tunnels: $4: traffic family, $5: encapsulation
->  setup_tunnel() {
-> +	local name="${1^^}"
-> +
-> +	if [ "${5:-none}" != none ]; then
-> +		name="$name/${5^^}"
-> +	fi
->  	if [ "$2" = 4 ]; then
->  		SERVER_IP="$SERVER_IP4"
->  		CLIENT_IP="$CLIENT_IP4"
-> -		echo "Setting up ${1^^} over IPv4, veth tx csum offload $3"
-> +		echo "Setting up $name over IPv4, veth tx csum offload $3"
->  	else
->  		SERVER_IP="$SERVER_IP6"
->  		CLIENT_IP="$CLIENT_IP6"
-> -		echo "Setting up ${1^^} over IPv6, veth tx csum offload $3"
-> +		echo "Setting up $name over IPv6, veth tx csum offload $3"
->  	fi
+On Mon, 23 Nov 2026 13:49:46 +0100, Stefano Radaelli wrote:
+> Add a Cortex-M7 configuration for DART-MX95 on Sonata.
 > 
->  	case "$1" in
-> @@ -95,6 +164,10 @@ setup_tunnel() {
->  		setup_bareudp "$CLIENT_NS" tun0 "$CLIENT_IP" "$SERVER_IP" ||
->  			return 1
->  		;;
-> +	*)
-> +		setup_ip_tunnel "$CLIENT_NS" tun0 "$1" "$2" "$4" "$5" \
-> +			"$CLIENT_IP" "$SERVER_IP" || return 1
-> +		;;
->  	esac
->  	ip -netns "$CLIENT_NS" link set tun0 up
->  	ip -netns "$CLIENT_NS" addr replace "$CLIENT_IP4_TUN/24" dev tun0
-> @@ -115,6 +188,10 @@ setup_tunnel() {
->  		setup_bareudp "$SERVER_NS" tun1 "$SERVER_IP" "$CLIENT_IP" ||
->  			return 1
->  		;;
-> +	*)
-> +		setup_ip_tunnel "$SERVER_NS" tun1 "$1" "$2" "$4" "$5" \
-> +			"$SERVER_IP" "$CLIENT_IP" || return 1
-> +		;;
->  	esac
->  	ip -netns "$SERVER_NS" link set tun1 up
->  	ip -netns "$SERVER_NS" addr replace "$SERVER_IP4_TUN/24" dev tun1
-> @@ -127,9 +204,22 @@ setup_tunnel() {
->  	ip netns exec "$SERVER_NS" ethtool -K link1 tx-checksumming "$3" > /dev/null
->  }
+> Place the reserved memory, remoteproc and MU7 configuration in a common
+> include so other carrier boards using Variscite i.MX95 modules can add
+> M7 variants by reusing this configuration and providing their own
+> peripheral assignments in a board overlay.
 > 
-> +# For IP tunnels: $1: tunnel family, $2: encapsulation
->  cleanup_tunnel() {
-> +	local fou_args=()
-> +	local ns
-> +
->  	ip -netns "$CLIENT_NS" link del tun0
->  	ip -netns "$SERVER_NS" link del tun1
-> +	if [ "${2:-none}" = none ]; then
-> +		return 0
-> +	fi
-> +	if [ "$1" = 6 ]; then
-> +		fou_args=(-6)
-> +	fi
-> +	for ns in "$CLIENT_NS" "$SERVER_NS"; do
-> +		ip -netns "$ns" fou del port "$FOU_PORT" "${fou_args[@]}"
-> +	done
->  }
-> 
->  cleanup() {
-> @@ -240,6 +330,26 @@ if ! ip link help 2>&1 | grep gso_ipv4_max_size &> 
-> /dev/null; then
->  	exit "$ksft_skip"
->  fi
-> 
-> +# $1: tunnel type, $2: tunnel family, $3: traffic family, $4: encapsulation
-> +run_ip_tunnel() {
-> +	local csum_offload
-> +
-> +	for csum_offload in on off; do
-> +		# GRO does not build sit packets larger than 64KB, so with
-> +		# software GSO on the sender there is nothing big to receive.
-> +		if [ "$1" = sit ] && [ "$csum_offload" = off ]; then
-> +			continue
-> +		fi
-> +		setup_tunnel "$1" "$2" "$csum_offload" "$3" "$4" || exit "$?"
-> +		do_test "$2" "$3" "$csum_offload" || exit "$?"
-> +		cleanup_tunnel "$2" "$4"
-> +	done
-> +}
-> +
-> +# fou is not loaded on demand when built as a module
-> +modprobe -q fou
-> +modprobe -q fou6
-> +
->  WORKDIR=$(mktemp -d)
->  trap cleanup EXIT
->  setup
-> @@ -254,3 +364,18 @@ for tunnel in vxlan geneve bareudp; do
->  		done
->  	done
->  done
-> +for encap in none fou gue; do
-> +	run_ip_tunnel ipip 4 4 "$encap"
-> +	for traffic_family in 4 6; do
-> +		run_ip_tunnel gre 4 "$traffic_family" "$encap"
-> +		run_ip_tunnel gretap 4 "$traffic_family" "$encap"
-> +	done
-> +	# GUE is only supported on an IPv4 underlay
-> +	[ "$encap" = gue ] && continue
-> +	run_ip_tunnel sit 4 6 "$encap"
-> +	for traffic_family in 4 6; do
-> +		run_ip_tunnel ip6tnl 6 "$traffic_family" "$encap"
-> +		run_ip_tunnel ip6gre 6 "$traffic_family" "$encap"
-> +		run_ip_tunnel ip6gretap 6 "$traffic_family" "$encap"
-> +	done
-> +done
-> -- 
-> 2.43.0
+> [...]
+
+Applied, thanks!
+
+[1/1] arm64: dts: freescale: imx95-var: Add Cortex-M7 support
+      commit: ce3fb16c792be10ac3b5f29a6d8a6460e4f396c9
+
+Best regards,
+-- 
+Frank Li <Frank.Li@nxp.com>
