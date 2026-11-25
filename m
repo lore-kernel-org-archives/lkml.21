@@ -1,80 +1,108 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.10
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.170
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795617896;
-	b=b/f+GOFU6zzYWJ3mZfE5P4+1ZHOxeXx1tvq4x7WyYjX7x2pxLMQFEUQOSsN6SYHT6wg2
-	 TZHAeul9jMoHTDhGLa5kQ8jk3WmTCjoYqAapPuVLF8ZSeo9CJYyNfReBw7JOCrttI32Gk
-	 tYwV9hNMR4o0IHRjqdeg0wFZ+3xmzO2WRgn3ta2aWRz8ZEMFWuzaQjXzIiaVRro3avPk6
-	 yb8/akKdZrbGtwmeRIYvtCxvK/RMTn3LZ066tlPijY9PQCs542bqB9C4iKyni1QB88OuB
-	 T0WB2zeCgYR3f7Vw60atd5w0qaPXRg3eFnKOOLODscTrF/uakkKh7RK2CleQMLs1W4A==
+	t=1795617924;
+	b=4u6GqjQQU62uOcrkX3TI5c+C2zyhEKERoK7xvQW/2N2gArO/PSxKIn0XkaHSngCd88c+
+	 cuWX42vNfGhuOok5GgobxJVWOWQ9zpMlZSfhRlqtr2g4uhn6psqqE0i/EOBSluHqa+kJc
+	 gW0RLrnqXlKIbg2MD1QjM6IRAzZ7nvPM7VSybAByxc/mspWkmgDDEmUsZ5yEygbO+Icr4
+	 WGQaplJdfWVb9/wTDBii0+i2OBOzZ336jhnxTkGddOWm0WRhVe9WabOZ9rwUDmmDHcGCt
+	 XMPj8cT1LEGeUMKb/NA/CFEQ8n/GTMpCDYussap7VjSQatpJg7uI5vtsEAECV3MJDiw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795617896;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
-	 Cc:Subject:Message-ID:User-Agent;
-	bh=kAaLPPsQOaueor0xfIiuL6YBfAxmmLMrN100IbJMdeU=;
-	b=Q7CZk5Qx5xtHW+wrdxTCWZyCXYCnM6k7S2H//PHClL5YMoxDRvpm/kjDP4MrubUkbaVl
-	 mkHEjzZoXClzZdSU0FasHXe0SIYNi0nHtbij7w2x80HnpsT3ODZOT2Oov5qqMAXrsf8x+
-	 fPmCY194sZ5eaOWy1/pC9TtITUr42p7gbhrsnrFg6wSnXvRLkrToWsFLvZVp4Q7Tan2FG
-	 OBCPTKdk69QbvklkmsnrqJPg/guZmnF0vgNYjzZsbw7WyUNpHdqBzn1rSfCCAJXeY7xK3
-	 CCUfpc9wuf5TgJGrBgYdaiTP45AVIzMuigwi4Zmsuw1WC5fEeUYqSlUsDZ2hsUGbETQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795617924;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=TZZGnQrheCo8IwMaTwJvzugJ+PAdxbUJ+yLbatzIT1U=;
+	b=s3o7EFo8vQ/blU6+r1rT284MK1yR7uAEqmLSLcIbUX+tISfAduI4Mi5WM49BTRUToVfS
+	 oh+jZ9End+vqreZeE1MOQVT64ZSb7CS9qE4vP6RKUHJrOHC3WkEZx6+RuRgx5TWp+2kXc
+	 4oA2RTIkLYIrrsdO9PjRq1R+t2a0/e+mC0gGHFxJCW/iVCaDnSixFdKIFC/vwHWeD7oIJ
+	 iI9cHvRzx+BhuLJf98CaMPtvvapuWoR59ii8hOUwk5s6cJDa+Rlcb3L+5ZbXG0860H0DU
+	 TAklWHxloMBnjsUDTsbB/b2NuxUBySWlEBZKHxK9kB8scMvO16hCb25GySMbZnUGCjg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=O31WhqPT;
-	arc=none smtp.remote-ip=192.198.163.10
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.10])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mMmwuHsQ;
+	arc=none smtp.remote-ip=74.125.82.170
+Received: from mail-dy1-f170.google.com (mail-dy1-f170.google.com [74.125.82.170])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 816B4606A327
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:44:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 816B4606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 67636606A334
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:45:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 67636606A334
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=O31WhqPT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795617895; x=1827153895;
-  h=date:from:to:cc:subject:message-id;
-  bh=n0kkWzB412WhG1XMAiu+x2YVXHd00biHVZkow5vucmA=;
-  b=O31WhqPT5LQvfLWdhzTsOSTvsCxTxd92hT1oBdWXM3xKPq18Xxs0t4b4
-   Gk7jRsEAp9yBpDlQCfug0oQlK+NLoFh+cGZRKD/NfWGZEDCqInFRdivHz
-   GJuaMjvoSJPHa2hdbYr5tWcze/LkrjpZ+n5UKyDAVPhLPe1dVPIY/sVtC
-   hmyTvjlaHn0iRO8PIOaw19WYMH6j623yabGCw9sAijSsdhnnahNnwSZLl
-   7bbIqk9Ux8cV9SQzYERdfZ1x9xCPmvC83/lp+EzFqsg1ef1e9WhHvXtTT
-   FhUOlmPVjYen6CaUEkpDFtJvuFgP8XaLC1PtpAbwVaj9YRa+uoI4bzddX
-   w==;
-X-CSE-ConnectionGUID: BPKwSGCBSuupURImRniy7w==
-X-CSE-MsgGUID: 7KUdskAyQoiZj2IdDiL7Tg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4386599"
-X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
-   d="scan'208";a="4386599"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 06:44:55 -0800
-X-CSE-ConnectionGUID: kcOTT9NzRpWEMLCqJr+5DA==
-X-CSE-MsgGUID: Y+gvkGzgSgCjexWwPFdoug==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
-   d="scan'208";a="12476179"
-Received: from igk-lkp-server01.igk.intel.com (HELO 99c479ab0aeb) ([10.211.93.152])
-  by fmviesa010.fm.intel.com with ESMTP; 25 Nov 2026 06:44:52 -0800
-Received: from kbuild by 99c479ab0aeb with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1xWEEr-0000000009D-2KHb;
-	Wed, 25 Nov 2026 14:44:49 +0000
-Date: Wed, 25 Nov 2026 15:44:32 +0100
-From: kernel test robot <lkp@intel.com>
-To: Harsh Kumar Bijlani <quic_hbijlani@quicinc.com>
-Cc: oe-kbuild-all@lists.linux.dev, linux-kernel@vger.kernel.org,
- Jeff Johnson <jeff.johnson@oss.qualcomm.com>,
- Ripan Deuri <quic_rdeuri@quicinc.com>,
- Vasanthakumar Thiagarajan <vasanthakumar.thiagarajan@oss.qualcomm.com>,
- Baochen Qiang <baochen.qiang@oss.qualcomm.com>
-Subject: drivers/net/wireless/ath/ath12k/wifi7/hw.c:127:21-23:
- WARNING !A || A && B is equivalent to !A || B
-Message-ID: <20261125153656.0ye4b8d7-lkp@intel.com>
-User-Agent: s-nail v14.9.25
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mMmwuHsQ
+Received: by mail-dy1-f170.google.com with SMTP id 5a478bee46e88-38644aedba1so8886998eec.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 06:45:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795617923; x=1796222723; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=TZZGnQrheCo8IwMaTwJvzugJ+PAdxbUJ+yLbatzIT1U=;
+        b=mMmwuHsQTz9kmNflAogL29vlIOmuNtu8dbedOUK2++NCoCfHO/vByKQkLx8ikeA9go
+         fnH8zjdx9zlapJlv2iSns8wdZx1jqOIejPtOPia0Kptnj2nBI2D3wuVLZPj0pnbgQpYH
+         vZFb9H+Fo2BfMY7kPYh3bDridF5wqwVs+8wccnHIabthKG1dDR01qm4MJGt9IaDBiDOH
+         POE7EuO6lGXK5NgGPYbxjOG/fuQaGP6vpNPjBX4bFm8JkBXfWRnEtzEIlV8yQ6kfT+tH
+         N8/xtSsAZnJIhUK2AvaOKbWEbozf80IwTrF7//wr4wYPLVG2kn7p8XqVyO/0ueqdL+75
+         oeiQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795617923; x=1796222723;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=TZZGnQrheCo8IwMaTwJvzugJ+PAdxbUJ+yLbatzIT1U=;
+        b=s09DV1kzjbVhlRI2rLhN75OXrYjCN8MjGw0raApvlOMuvAFpX95HPKeg0T7jq+Ljtk
+         qWbv8DbjCIliEP8yCv0Z9wCGjgRfpPQ7iXzzABESwdgq8k0UCMYl33cScAdGB2ER31t4
+         R6JUS4OKTblUVbHc8vzyxKeiBvwZPQhjWJio9q5vHVewr/cKGWYgvMzgOfiUQsb51KgH
+         C4ulv7fqnTtJ8ZlVywR6Gnzfgp6xlEtRIIU6sUaHL5/mA0XxWim0Uq6oJqcGI5zrUrPl
+         A/mF5x7c/fhN6i6xKCapWXtCBRDbfpvjsoAygKiO4TSpoyHFvulolsNCCqd7vWu1f0t3
+         r0JA==
+X-Forwarded-Encrypted: i=1; AL+hErHW8JZnX557eJ+Xo/D8st7Tk6NnKpGFm/talLjbnS1NdvS0iCSEuYSJLpyUSHnsdiQLdh6kgLjrBBLwJEw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8IC6NtAPbAkfOR0b2OOlZWJNw2gitUMB5vESNef2La/xzvnuPy
+	mivnGPSEMHEzRRTOvW/gcWv72rmDDEjvZJemtEM9lfOv6rjzJfB3J4M6
+X-Gm-Gg: AZFdTZeBLFbJxpXEw4h/uR7pWKlYPtlwpz+QtxWewkmZVhmQUvgsSWo3oJuiNeWOhY3
+	mKzmUz2neA0RlK1pZ30bj1agsMR9KxCV1ss6/ZkA9kIb/83tsvUIRiPyKDX4kPqhjG7qn25cfsL
+	ryfRRtoIMcg6dpEdscKyYhMkdtRG+nGYHzMxbGxWCFK7kRrYrceS2ll/FvphnJ4EIBtDGiNLX3u
+	xugGHI4CGVYPuRCtDaLJX1nJPAX9lBiWu/2JfvrnKPst03DMYV8Vjw++kKRvZsFpiF+qqdb5/wR
+	Ko+T4UUuUPX7oEFNDkd+RSUk6oAT3z+i+lqIbT5yWpFMthDacgwfoWmYa4rl96wDybP93F2GCp+
+	nfvMHlt+gqvhnba6Fju+krom97xIZVpZZqpgSFkkWbbQ0LNfqjezaUsQXSUm0NtPJIoxwA9jLLv
+	X91GBbvAsmJ6VYB/JDk28bqPsHetIh+iIXbF0fQOYDN3rSEr3vCizng9MT2Z9pUXNDt/JrkFLuI
+	KDl806uGXPQ1NtAM9ZppBSxiTx2s9j8tVk1Q6QVnQnf5u6oVp8B/Dz4AWKBg+p5LqdOBVxhbZ7w
+	rKiSIvXgOWRnMJi6ybzWLiV1Ab0PNoetZC5kTlP2nTYRThUQgor2f5GaKCRIwOfNWuh20Vt+vCL
+	1FXcDPEhEBNhIvQOBi6ZhzKBn5ht05czoOr/ooT+VNIuX+GiSwvNYUwqU8CAsmwR8tKfi+HsK2Q
+	==
+X-Received: by 2002:a05:693c:88d4:20b0:386:a8de:2bfc with SMTP id 5a478bee46e88-386a8de2f67mr11085085eec.6.1795617922809;
+        Wed, 25 Nov 2026 06:45:22 -0800 (PST)
+Received: from ramen-dev-security-2.asia-south1-c.c.ramen-dev-345017.internal (90.156.200.35.bc.googleusercontent.com. [35.200.156.90])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38567daaf70sm57121181eec.28.2026.11.25.06.45.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 06:45:22 -0800 (PST)
+From: Anil Kaushik <anilkaushikwireless@gmail.com>
+To: netdev@vger.kernel.org
+Cc: davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	horms@kernel.org,
+	idosch@nvidia.com,
+	nicolas.dichtel@6wind.com,
+	jacob.e.keller@intel.com,
+	jiri@resnulli.us,
+	fw@strlen.de,
+	martineau@kernel.org,
+	v3rdant.xiang@gmail.com,
+	aliceryhl@google.com,
+	linux-kernel@vger.kernel.org,
+	nhorman@tuxdriver.com,
+	shuah@kernel.org,
+	linux-kselftest@vger.kernel.org,
+	anilkaushikwireless@gmail.com
+Subject: [PATCH net v9 0/2] genetlink: Reject joining multicast groups no family owns
+Date: Wed, 25 Nov 2026 14:45:12 +0000
+Message-Id: <20261125144514.2717012-1-anilkaushikwireless@gmail.com>
+X-Mailer: git-send-email 2.25.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,67 +111,56 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master
-head:   4dce97c6c265544342e716e62fd24bbb232590c5
-commit: ee16dcf573d5e3283fda601dd4bca6bc52251017 wifi: ath12k: Define ath12k_dp_peer structure & APIs for create & delete
-date:   1 year, 1 month ago
-config: x86_64-randconfig-2103-20261124 (https://download.01.org/0day-ci/archive/20261125/20261125153656.0ye4b8d7-lkp@intel.com/config)
-compiler: gcc-14 (Debian 14.2.0-19) 14.2.0
+genl_bind() lets any user join a multicast group ID that no family owns.
+A family registered later can get that ID, and the socket stays a member
+without a capability check. Patch 1 makes genl_bind() return -ENOENT for
+such an ID. Patch 2 adds a selftest for it.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Fixes: ee16dcf573d5 ("wifi: ath12k: Define ath12k_dp_peer structure & APIs for create & delete")
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/20261125153656.0ye4b8d7-lkp@intel.com/
+v9:
+- In the selftest, find the initial network namespace with its fixed
+  nsfs inode number, not by comparing with PID 1, which is in the same
+  namespace as the test in a container (Sashiko).
+- Unload drop_monitor at the end of the selftest, so that the next run
+  does not skip that check (Sashiko).
+- Patch 1 is unchanged. The Sashiko point on it in v8, a family
+  unregistered during the join, is the window the commit message
+  describes. The fix for it was patch 2 of v5, which was not accepted.
 
-cocci warnings: (new ones prefixed by >>)
->> drivers/net/wireless/ath/ath12k/wifi7/hw.c:127:21-23: WARNING !A || A && B is equivalent to !A || B
+v8: https://lore.kernel.org/netdev/20261123155503.2497063-1-anilkaushikwireless@gmail.com/
+- In the selftest, read the group memberships in host byte order, so it
+  also works on big-endian (Sashiko).
+- Skip the selftest outside the initial network namespace: the family
+  dump there does not list the families that are not netnsok, so it
+  could take one of their groups as free (Sashiko).
+- Close the selftest sockets, also when a check is skipped (Sashiko).
+- Skip the drop_monitor check when NET_DM gets no group ID that was
+  free, so it cannot pass without testing anything (Sashiko).
+- Rebase on net.
 
-vim +127 drivers/net/wireless/ath/ath12k/wifi7/hw.c
+v7: https://lore.kernel.org/netdev/20261116124030.1595567-1-anilkaushikwireless@gmail.com/
 
-   111	
-   112	static bool
-   113	ath12k_wifi7_is_frame_link_agnostic_wcn7850(struct ath12k_link_vif *arvif,
-   114						    struct ieee80211_mgmt *mgmt)
-   115	{
-   116		struct ieee80211_vif *vif = ath12k_ahvif_to_vif(arvif->ahvif);
-   117		struct ath12k_hw *ah = ath12k_ar_to_ah(arvif->ar);
-   118		struct ath12k_base *ab = arvif->ar->ab;
-   119		struct ath12k_dp *dp = ath12k_ab_to_dp(ab);
-   120		struct ath12k_dp_peer *peer;
-   121		__le16 fc = mgmt->frame_control;
-   122	
-   123		spin_lock_bh(&dp->dp_lock);
-   124		if (!ath12k_dp_link_peer_find_by_addr(dp, mgmt->da)) {
-   125			spin_lock_bh(&ah->dp_hw.peer_lock);
-   126			peer = ath12k_dp_peer_find_by_addr(&ah->dp_hw, mgmt->da);
- > 127			if (!peer || (peer && !peer->is_mlo)) {
-   128				spin_unlock_bh(&ah->dp_hw.peer_lock);
-   129				spin_unlock_bh(&dp->dp_lock);
-   130				return false;
-   131			}
-   132			spin_unlock_bh(&ah->dp_hw.peer_lock);
-   133		}
-   134		spin_unlock_bh(&dp->dp_lock);
-   135	
-   136		if (vif->type == NL80211_IFTYPE_STATION)
-   137			return arvif->is_up &&
-   138			       (vif->valid_links == vif->active_links) &&
-   139			       !ieee80211_is_probe_req(fc) &&
-   140			       !ieee80211_is_auth(fc) &&
-   141			       !ieee80211_is_deauth(fc) &&
-   142			       !ath12k_is_addba_resp_action_code(mgmt);
-   143	
-   144		if (vif->type == NL80211_IFTYPE_AP)
-   145			return !(ieee80211_is_probe_resp(fc) || ieee80211_is_auth(fc) ||
-   146				 ieee80211_is_assoc_resp(fc) || ieee80211_is_reassoc_resp(fc) ||
-   147				 ath12k_is_addba_resp_action_code(mgmt));
-   148	
-   149		return false;
-   150	}
-   151	
+I used an LLM to help write and review the code, the tests and the
+commit messages of this series. I checked and tested every change
+myself.
 
+Anil Kaushik (2):
+  genetlink: Reject joining multicast groups no family owns
+  selftests: net: test joining genetlink groups no family owns
+
+ include/linux/netlink.h                      |   3 +
+ include/uapi/linux/net_dropmon.h             |   2 +
+ net/netlink/af_netlink.c                     |   6 +
+ net/netlink/genetlink.c                      |   5 +-
+ tools/testing/selftests/net/Makefile         |   1 +
+ tools/testing/selftests/net/nl_genl_mcast.py | 128 +++++++++++++++++++
+ 6 files changed, 144 insertions(+), 1 deletion(-)
+ create mode 100755 tools/testing/selftests/net/nl_genl_mcast.py
+
+
+base-commit: 7b0c5f0c757cb61e28dc4128633877aaa8f6f9bd
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.25.1
+
