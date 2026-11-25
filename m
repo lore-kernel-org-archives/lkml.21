@@ -1,67 +1,55 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795611464;
-	b=POc3H3w+fi/kSkMpOULmhuqWNdWA/gBlEDCBHnt1Q/8YYON8ePkoVI4NPejnCmN/2QD9
-	 c/rvJJnIeYsv0T2Y50Z9ktuYmlkIutOqBvq9tgF1REYDM4zj0BpbsXZS6XRL1AEW1ikQ0
-	 IMmmV+2C5E+l8kLSkk3RIYjOYQEDl1YHvVV499oqk5W2d78cGxrURUuErq5U76fwUk4nf
-	 FRO1fr28NMpHVMk30Jkiro6ueJ67HokXSLzmL+KPEFWXa9ZZtAN1WPq54RWjH7M7XXTmp
-	 nQdmrbE9j5yhGc6Nw7vWVtppVt0YG1faUU859Vc3i51TzS14hQRdlxZGmscn6f0CNcA==
+	t=1795611535;
+	b=k9xPT+7ycdOoBJrkjAOTLe1eM4levm39GJubKHEUtpUO0nSk8U1VfaeAc8M5teVPrIaC
+	 KqvnCF+OmgEr/dD3puS7KLso3cgyRvhREWva6MI6Kbjrp8JJLRORyID03FmU+5Mr7iucK
+	 sM8a9bkvy9pOpr5A5k78j52SUZFaLy1B7NeKkzjQn19MeyM3PDDA0JvztGZDnRBbQr2rL
+	 5QZqCrDd4sXtwauR2EWo4zL9kxeSbqYVcLvxNOI3KuYx/mOztoyPk1TI+QAF4SY561rGw
+	 pW7MU+gLYu+vH8KqpgFQ0pAFyChd+QF4ODZbnyoQuiEPOW9hDDT/XYhgrxRs2tB/5Lg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795611464;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=M9m+DYYVTEfjlMZl8Bvn+mQHXB+lKYN0EEAjTjy3d8U=;
-	b=qhXBETjHBoX6jMtkZh0kTnBWcKGk++QhMPjl0ukb32yiBpxIwvCW0AOkIxYRSoZMsudl
-	 1udpDLbiFBzmMbdFerHL1Mtq/WpdvgOXDzIvxNhsiJ7FNTZEiJVFG4ytJkGrD52OPgDRq
-	 1qo1qPjSMfQjphSPVDJbAVz0iojYPRMB/jsO8ilpl6zt0Z6Zgbo69WFRuLv1j0CRj8UDW
-	 YTMV31W2mMjigEoFrw+VLEOmCPtvfU1sLmthwWrWnYFSBLwxL7ZA7FpHanFBrU0E1u9zg
-	 7s46fXwVQjATMtk7LdiV70RcvPFQ9XOu70rH6oFezcpGXfuPAUVHNmv5uMeX/WiA1lQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795611535;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=FVmqX9e299gcsPkpyqf7SPDVELCZlYZjwwVu+fBIzo4=;
+	b=gDVI/dmtb5F5xCARi1zU697FGJu+8UkZ8gWiVoxbUh8Ao+VKFIazLll1zQDFTRi0iJFJ
+	 mkg9c2ZX/stY+he9cxibCbqCLulUXfdBjuh+gbDL4gX/d9nJeA0xWYGyUz8Cag2n+IWoU
+	 oPOctNHrg/D0TeeC0WLIeSqXLic27/JiXWEeN9V0j1aluaj7Np+0FFjs6bTLZy+xwHRjT
+	 1FHi4q+//0pxd0NfNLP37VefyaTTzRmIzbvbGnFoSYagVxlPxmPk6UuNMX7+stnmCcS3J
+	 eVhMXFqR4bi/FrSM3UhEcwsOkxNcKgPB+p8vfWcWTXfdEkYSr5aPDIhENn+5z9hZBuA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IpzjfdZW;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=D4d5mx3T;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 204E7606A31E;
-	Wed, 25 Nov 2026 12:57:44 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E4635606A326
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 12:58:54 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IpzjfdZW
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16A021F000C4;
-	Wed, 25 Nov 2026 12:57:42 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=D4d5mx3T
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8BDE51F000D8
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 12:58:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795611463;
-	bh=M9m+DYYVTEfjlMZl8Bvn+mQHXB+lKYN0EEAjTjy3d8U=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=IpzjfdZWB3dTPfW9QE2qvesQLxvPNzr3zhxEdno4gF7Y0bjuhvat3eADhro8KWjF9
-	 l0NIob0SfhWWEl6TIig1+LRsGh2igG6VKhgw1SxGC3RWQInP5ZX19Fj5IgZ3TL7oUq
-	 boHIHuHxg0N2NMNQP5XyygxuyTgbfOK1Z0P1HkUJgpUIlxvMAyMdT2pDpzzDD+dDlj
-	 qsxFKH8dI72OSoNI/4h2YKO8A0HW1Iv9qVihJPwr3dErm7/B8yS/e9+hiLPS+x+put
-	 4OyGhNvhCs3p8H83/bacaF334ihyCZo9sAC+JBJ9hAq7GANl6mTmDUjpJUX7I03dyj
-	 KXLGoezNPpzfw==
-Date: Wed, 25 Nov 2026 14:57:39 +0200
-From: Leon Romanovsky <leon@kernel.org>
-To: Willy Tarreau <w@1wt.eu>
-Cc: Sasha Levin <sashal@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Theodore Ts'o <tytso@mit.edu>, David Hildenbrand <david@kernel.org>,
-	workflows@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] docs: submitting-patches: ask bug fixes for their
- user-visible impact
-Message-ID: <20261125125739.GA14811@unreal>
-References: <20261116200515.352387-1-sashal@kernel.org>
- <20261117092723.GA124972@unreal>
- <avxtxScVa9KvUH_K@laps>
- <20261117152721.GC162713@unreal>
- <av7s5eV7Ws9Io3cE@1wt.eu>
- <20261119125947.GK162713@unreal>
- <av7zGbqXizmXY4R-@1wt.eu>
- <20261122085022.GB14811@unreal>
+	s=k20260515; t=1795611534;
+	bh=FVmqX9e299gcsPkpyqf7SPDVELCZlYZjwwVu+fBIzo4=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=D4d5mx3Tod8gHVIHaCo2VKjmvMMjuKNYlytVfchc90cIGL51/MA481qFT9XFBXSja
+	 yqLlJSM1PK7PX3/xSqxhsh9eZ8hydZT8RFBFfwJV381baIOEsC78pfvj+5a4mXD7ak
+	 MVPnWQrq+/5m4dCBtswuMukH4CiaxhB+aQhmxxWP6Mt6tPxWSKjn0UpwyQ2JZ0Dfih
+	 QguR1pgW9eSjGcYQo493vbGqAtP3yV+AmuntKw1aUVF6xGZDKELugoX7SgvIe0Qngz
+	 SMhB/lsxiHh8chnzFa59/YVUy4ieydeyJvXXg/49pjhoduqL3HNLLFjvhdIOG2hojs
+	 7OZ6odFPjKygg==
+Received: by mail-lj1-f180.google.com with SMTP id 38308e7fff4ca-3adfcafaabbso51405471fa.3
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 04:58:54 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErHgMXghnACjpFMZ2HiklDIMtSR6ceMo5104TUNOQJFQai31yb6voiUKisKEQcuz9A2s9i23t4gLKak3620=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8bumDomJUx91Xw/+6IXxfkyep4ODmxvkn3UlrBgcCpA2K1noya
+	WqZn4RC2n8p07RZC4mtvyayZB1guV3F9JoT3sFdCKbXoK/hIldDggVNgiwLO0z9akhrvyXMe5Rq
+	WMhoJ4ES4XUQZiiL9tudPfeWi4fcGqag=
+X-Received: by 2002:a05:6512:1102:b0:5c1:57c0:50a with SMTP id
+ 2adb3069b0e04-5c1bc6803a3mr5385444e87.6.1795611532957; Wed, 25 Nov 2026
+ 04:58:52 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,88 +59,258 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20261122085022.GB14811@unreal>
+References: <20261123-pm-runtime-summary-v3-0-81a966953a81@kernel.org>
+ <20261123-pm-runtime-summary-v3-1-81a966953a81@kernel.org> <CAJZ5v0hpnoGw89WHyofLr3SxnrJNs99LnhndeOv245y_LgGWXQ@mail.gmail.com>
+In-Reply-To: <CAJZ5v0hpnoGw89WHyofLr3SxnrJNs99LnhndeOv245y_LgGWXQ@mail.gmail.com>
+From: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
+Date: Wed, 25 Nov 2026 13:58:39 +0100
+X-Gmail-Original-Message-ID: <CAJZ5v0jGBt522c90xDKq_tkAea9kxG3juwcoTemLYr=JHwyhOA@mail.gmail.com>
+X-Gm-Features: Aa3M54qkzgYCu-C4blamcbtptpXU2e-PXH3AIkBR0zn0Zm0nHYMZath8Y3s6Kck
+Message-ID: <CAJZ5v0jGBt522c90xDKq_tkAea9kxG3juwcoTemLYr=JHwyhOA@mail.gmail.com>
+Subject: Re: [PATCH v3 1/2] PM: runtime: add additional suspend/resume metrics
+To: Joshua Crofts <crofts@kernel.org>
+Cc: Pavel Machek <pavel@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Danilo Krummrich <dakr@kernel.org>, Johan Hovold <johan@kernel.org>, Samuel Wu <wusamuel@google.com>, 
+	linux-pm@vger.kernel.org, driver-core@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On Sun, Nov 22, 2026 at 10:50:22AM +0200, Leon Romanovsky wrote:
-> On Thu, Nov 19, 2026 at 02:01:13PM +0100, Willy Tarreau wrote:
-> > On Thu, Nov 19, 2026 at 02:59:47PM +0200, Leon Romanovsky wrote:
-> > > On Thu, Nov 19, 2026 at 01:34:45PM +0100, Willy Tarreau wrote:
-> > > > On Tue, Nov 17, 2026 at 05:27:21PM +0200, Leon Romanovsky wrote:
-> > > > > > > Since you're already making changes in that area, could you add a sentence
-> > > > > > > asking reporters to provide the full dmesg stack trace?
-> > > > > > 
-> > > > > > In this doc, we already ask them not to [1] :)
-> > > > > 
-> > > > > This is really bad. You assumed they would trim the logs correctly, and I,
-> > > > > as the recipient was expected to trust that they were accurate. They are not.
-> > > > > 
-> > > > > They trim everything, which makes these logs useless to me. As I said, they
-> > > > > include AI-generated reports, cases with reproductions that are impossible
-> > > > > with upstream code, and reports for completely out-of-tree code. Everything
-> > > > > like that was visible in original dump stack and it is lost now.
-> > > > > 
-> > > > > > 
-> > > > > > > Many AI-generated patches reduce it to one or two lines, which gives no
-> > > > > > > indication of whether the report is genuine or fabricated. Early in the AI
-> > > > > > > era, I saw some completely fabricated stack traces.
-> > > > > > 
-> > > > > > Is it still an issue?
-> > > > > 
-> > > > > I don't know about faked, but useless yes, especially in the cases where
-> > > > > in-kernel API is involved.
-> > > > 
-> > > > The situation completely changed over the last year. LLMs that would
-> > > > hallucinate bugs and dmesg in single-turn conversations have been
-> > > > replaced with agents/harnesses calling shell commands and able to
-> > > > capture contents without inventing them. I agree that we should ask
-> > > > them to capture such dmesg which nowadays have no reason to be faked
-> > > > anymore.
-> > > 
-> > > The meaning of "faked" has shifted. As you said, it previously referred to a
-> > > completely imaginary call stack, now it refers to a custom module that abuses
-> > > the in-kernel API. The latter is still "faked" because it cannot be done with
-> > > the current code and unlikely will be possible in the future.
-> > 
-> > Ah OK we were indeed not speaking about the same cases.
-> 
-> Over the weekend, I realized that after this wave of incorrect and deliberate
-> misuse of kernel APIs, we’ll see the next level - misuse of internal driver
-> APIs as well.
-> 
-> I’m referring to the various EXPORT_SYMBOL()s in large, complex drivers
-> such as mlx5, bnxt, and Intel’s drivers.
-> 
-> The idea that “let’s trim the dmesg stack” is going to be a disaster for
-> everyone involved.
+On Wed, Nov 25, 2026 at 1:54=E2=80=AFPM Rafael J. Wysocki (Intel)
+<rafael@kernel.org> wrote:
+>
+> On Mon, Nov 23, 2026 at 10:07=E2=80=AFAM Joshua Crofts <crofts@kernel.org=
+> wrote:
+> >
+> > The current implementation only logs the total accumulated time a devic=
+e
+> > spends in suspended or active states.
+> >
+> > Add tracking for:
+> > - resume_count : number of successful transitions to active
+> > - suspend_count: number of successful transitions to suspended
+> > - last_suspended_time: duration of the most recent sleep cycle (ns)
+> > - min_suspended_time / max_suspended_time: shortest and longest sleep
+> >   cycle durations to help detect power thrashing (ns)
+>
+> I would mention that they would be only reachable through a debugfs inter=
+face.
+>
+> > Signed-off-by: Joshua Crofts <crofts@kernel.org>
+> > ---
+> >  drivers/base/power/runtime.c | 93 ++++++++++++++++++++++++++++++++++++=
++++++---
+> >  include/linux/pm.h           | 16 +++++++-
+> >  2 files changed, 103 insertions(+), 6 deletions(-)
+> >
+> > diff --git a/drivers/base/power/runtime.c b/drivers/base/power/runtime.=
+c
+> > index 4e9c23059a40..17aee68366cf 100644
+> > --- a/drivers/base/power/runtime.c
+> > +++ b/drivers/base/power/runtime.c
+> > @@ -5,6 +5,8 @@
+> >   * Copyright (c) 2009 Rafael J. Wysocki <rjw@sisk.pl>, Novell Inc.
+> >   * Copyright (C) 2010 Alan Stern <stern@rowland.harvard.edu>
+> >   */
+> > +#include <linux/pm.h>
+> > +#include <linux/timekeeping.h>
+> >  #include <linux/sched/mm.h>
+> >  #include <linux/ktime.h>
+> >  #include <linux/hrtimer.h>
+> > @@ -103,11 +105,70 @@ static void update_pm_runtime_accounting(struct d=
+evice *dev)
+> >                 dev->power.active_time +=3D delta;
+> >  }
+> >
+> > +#ifdef CONFIG_DEBUG_FS
+> > +static void rpm_account_suspend(struct device *dev)
+> > +{
+> > +       dev->power.suspend_time =3D dev->power.accounting_timestamp;
+> > +       dev->power.suspend_count++;
+> > +}
+> > +
+> > +static void rpm_account_sleep_end(struct device *dev)
+> > +{
+> > +       u64 duration;
+> > +
+> > +       if (!dev->power.suspend_time)
+> > +               return;
+> > +
+> > +       if (dev->power.accounting_timestamp <=3D dev->power.suspend_tim=
+e)
+> > +               return;
+> > +
+> > +       duration =3D dev->power.accounting_timestamp - dev->power.suspe=
+nd_time;
+> > +       dev->power.last_suspended_time =3D duration;
+> > +
+> > +       /* Update min/max extrema at the exact same moment as last_susp=
+ended_time */
+> > +       if (!dev->power.min_suspended_time || duration < dev->power.min=
+_suspended_time)
+> > +               dev->power.min_suspended_time =3D duration;
+> > +
+> > +       if (duration > dev->power.max_suspended_time)
+> > +               dev->power.max_suspended_time =3D duration;
+> > +}
+> > +
+> > +static void rpm_account_resume_complete(struct device *dev)
+> > +{
+> > +       dev->power.resume_count++;
+> > +       dev->power.suspend_time =3D 0;
+> > +}
+> > +#endif /* CONFIG_DEBUG_FS */
+> > +
+> >  static void __update_runtime_status(struct device *dev, enum rpm_statu=
+s status)
+> >  {
+> > +#ifdef CONFIG_DEBUG_FS
+> > +       enum rpm_status old_status =3D dev->power.runtime_status;
+> > +#endif /* CONFIG_DEBUG_FS */
+> > +
+> >         update_pm_runtime_accounting(dev);
+> >         trace_rpm_status(dev, status);
+> >         dev->power.runtime_status =3D status;
+> > +
+> > +#ifdef CONFIG_DEBUG_FS
+> > +       if (dev->power.disable_depth > 0) {
+> > +               if (status =3D=3D RPM_ACTIVE)
+> > +                       dev->power.suspend_time =3D 0;
+> > +               return;
+> > +       }
+> > +
+> > +       if ((old_status =3D=3D RPM_SUSPENDING || old_status =3D=3D RPM_=
+ACTIVE) &&
+> > +           status =3D=3D RPM_SUSPENDED)
+> > +               rpm_account_suspend(dev);
+> > +       else if (old_status =3D=3D RPM_RESUMING && status =3D=3D RPM_SU=
+SPENDED)
+> > +               dev->power.suspend_time =3D dev->power.accounting_times=
+tamp;
+> > +       else if (old_status =3D=3D RPM_SUSPENDED && status !=3D RPM_SUS=
+PENDED)
+> > +               rpm_account_sleep_end(dev);
+> > +
+> > +       if ((old_status =3D=3D RPM_RESUMING || old_status =3D=3D RPM_SU=
+SPENDED) &&
+> > +           status =3D=3D RPM_ACTIVE)
+> > +               rpm_account_resume_complete(dev);
+> > +#endif /* CONFIG_DEBUG_FS */
+>
+> Please move the code under CONFIG_DEBUG_FS in this function to a
+> separate function called by it and defined as an empty stub if
+> CONFIG_DEBUG_FS is unset.
+>
+> >  }
+> >
+> >  static u64 rpm_get_accounted_time(struct device *dev, bool suspended)
+> > @@ -1580,6 +1641,7 @@ EXPORT_SYMBOL_GPL(__pm_runtime_disable);
+> >  void pm_runtime_enable(struct device *dev)
+> >  {
+> >         unsigned long flags;
+> > +       u64 now;
+> >
+> >         spin_lock_irqsave(&dev->power.lock, flags);
+> >
+> > @@ -1596,12 +1658,24 @@ void pm_runtime_enable(struct device *dev)
+> >                 dump_stack();
+> >         }
+> >         dev->power.last_status =3D RPM_INVALID;
+> > -       dev->power.accounting_timestamp =3D ktime_get_mono_fast_ns();
+> > +       now =3D ktime_get_mono_fast_ns();
+> >
+> > -       if (dev->power.runtime_status =3D=3D RPM_SUSPENDED &&
+> > -           !dev->power.ignore_children &&
+> > -           atomic_read(&dev->power.child_count) > 0)
+> > -               dev_warn(dev, "Enabling runtime PM for inactive device =
+with active children\n");
+> > +       if (dev->power.runtime_status =3D=3D RPM_SUSPENDED) {
+> > +#ifdef CONFIG_DEBUG_FS
+> > +               if (dev->power.suspend_time) {
+> > +                       if (dev->power.accounting_timestamp
+> > +                           && now > dev->power.accounting_timestamp)
+> > +                               dev->power.suspend_time +=3D now - dev-=
+>power.accounting_timestamp;
+> > +               } else {
+> > +                       dev->power.suspend_time =3D now;
+> > +               }
+> > +#endif /* CONFIG_DEBUG_FS */
+>
+> Same here.
+>
+> Plus you can use dev->power.accounting_timestamp as "now" in the new
+> function after setting it above.
+>
+> > +               if (!dev->power.ignore_children &&
+> > +                   atomic_read(&dev->power.child_count) > 0)
+> > +                       dev_warn(dev, "Enabling runtime PM for inactive=
+ device with active children\n");
+> > +       }
+> > +
+> > +       dev->power.accounting_timestamp =3D now;
+> >
+> >  out:
+> >         spin_unlock_irqrestore(&dev->power.lock, flags);
+> > @@ -1870,6 +1944,15 @@ void pm_runtime_init(struct device *dev)
+> >         pm_suspend_ignore_children(dev, false);
+> >         dev->power.runtime_auto =3D true;
+> >
+> > +#ifdef CONFIG_DEBUG_FS
+> > +       dev->power.resume_count =3D 0;
+> > +       dev->power.suspend_count =3D 0;
+> > +       dev->power.suspend_time =3D 0;
+> > +       dev->power.last_suspended_time =3D 0;
+> > +       dev->power.min_suspended_time =3D 0;
+> > +       dev->power.max_suspended_time =3D 0;
+> > +#endif /* CONFIG_DEBUG_FS */
+>
+> And here too.
+>
+> > +
+> >         dev->power.request_pending =3D false;
+> >         dev->power.request =3D RPM_REQ_NONE;
+> >         dev->power.deferred_resume =3D false;
+> > diff --git a/include/linux/pm.h b/include/linux/pm.h
+> > index ef3f1310e749..caa4ba4a65de 100644
+> > --- a/include/linux/pm.h
+> > +++ b/include/linux/pm.h
+> > @@ -747,6 +747,12 @@ struct pm_subsys_data {
+> >   *   state.
+> >   * @accounting_timestamp: Timestamp in nanoseconds of the last runtime=
+ PM state
+> >   *   accounting update.
+> > + * @resume_count: Number of transitions from suspended -> active
+> > + * @suspend_count: Number of transitions from active -> suspended
+> > + * @suspend_time: Timestamp when device entered RPM_SUSPENDED
+> > + * @last_suspended_time: Residency of the last sleep period (ns)
 
-And here comes example of this:
-https://lore.kernel.org/all/20261111105346.3220427-1-lee@jaeyeong.cc/
-with very brief, trimmed version of log:
-  BUG: KASAN: slab-use-after-free in _raw_spin_lock_irqsave
-  complete
-  rsc_event_notifier
+It is better to say "suspension" instead of "sleep" in this comment
+and the two comments below to avoid confusion.
 
-and here comes full log:
-https://lore.kernel.org/all/20261122103855.51859-1-lee@jaeyeong.cc/
-with completely faked situation in the driver:
-[   13.847526] mlx5_dct_repro: loading out-of-tree module taints kernel.
-[   13.915884] MLX5-DCT-REPRO: forcing DRAIN_DCT to fail with command interface down
-[   13.916736] MLX5-DCT-REPRO: destroy failed as required: -67
-[   13.916817] MLX5-DCT-REPRO: failed destroy retained DCT ffff88800b112c58 in dct_xa
-[   13.916862] MLX5-DCT-REPRO: mimicking DEVX create unwind kfree(ffff88800b112c00)
-[   13.916924] MLX5-DCT-REPRO: delivering DCT_DRAINED event through actual notifier
-
-mlx5_dct_repro is an out-of-tree module that has nothing in common with the
-real hardware device or the flows it handles.
-
-Thanks
-
-> 
-> Thanks
-> 
-> > 
-> > Willy
-> 
+> > + * @min_suspended_time: Shortest sleep duration
+> > + * @max_suspended_time: Longest sleep duration
+> >   * @subsys_data: Subsystem-specific power management data.
+> >   * @set_latency_tolerance: Callback for setting latency tolerance.
+> >   * @qos: Per-device PM Quality of Service (QoS) constraints.
+> > @@ -816,7 +822,15 @@ struct dev_pm_info {
+> >         u64                     active_time;
+> >         u64                     suspended_time;
+> >         u64                     accounting_timestamp;
+> > -#endif
+> > +#ifdef CONFIG_DEBUG_FS
+> > +       u64                     resume_count;
+> > +       u64                     suspend_count;
+> > +       u64                     suspend_time;
+> > +       u64                     last_suspended_time;
+> > +       u64                     min_suspended_time;
+> > +       u64                     max_suspended_time;
+> > +#endif /* CONFIG_DEBUG_FS */
+> > +#endif /* CONFIG_PM */
+> >         struct pm_subsys_data   *subsys_data;  /* Owned by the subsyste=
+m. */
+> >         void (*set_latency_tolerance)(struct device *, s32);
+> >         struct dev_pm_qos       *qos;
+> >
+> > --
+> > 2.47.3
+> >
