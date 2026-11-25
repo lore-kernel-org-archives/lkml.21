@@ -1,58 +1,59 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795572410;
-	b=BkDbEIh5uZ10xSDfvUUDKUtYsr+0fcghqXNT3TJcbLUKEyHENasbAKwQ7305c2YczLKa
-	 oQ8eacnNHWHB6+C8ic1vNYYa4uc3GC34w7iKhG58sX55aehjDVzGu/VY9j13OWULNUfbP
-	 ph2+bbe305rqKJnl4D9jw5Y7OJjBFP9A5tryTB1GAcwBr59MZWYdMQDaAco9lzSVucVt0
-	 iI8MuzcBskJGEZelTI1GKPsGViWztT2nihz3HI4qtINzipwSP0JBHFvPBlPWAIJW7fYGN
-	 JR6VXTIAc5nzJuNPxjrFXTYmlWVtI6tcp2ORFDocPfoIFiPnGAZXwaQD+HRN5f07J7A==
+	t=1795572412;
+	b=rNESibwINw3XA41XfZGtaz6KtuUWUIHfCAk+KaY949C5EZJ/B7j4hQSRCY8E7M9AIcVt
+	 Xa3xMsIo9f+SzamLkpH1dJK2OBEakLK4nb7IhY6+srXU944Lsp6voTGsrJ0VpAVmey+l9
+	 619YMsX1BcqSffXhvyFBrm5HoQqvSdlx7NXl17muMj9eFMsTR08EneXQXVwy8AwF4oWr3
+	 7Pp1vS0jFeoyjfEOJtBarQE+SWLi/s50fFUoA1/mMdL4uOMi3WQFvDEhl9iMBaPhDqSX/
+	 wKn1v+cG55MQdMF7SI5KaZbR0/KQL9rgxIBFeoZ8fsqNT0oeClCP+m15VYXvNvfm4DQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795572410;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795572412;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
 	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=FyX242seVRW/trwxedsF+FQyEwOz95dVrUFGd4NHNos=;
-	b=eWvSas7JdtUSgVPYrwsNAucLLS9GCp1bsNmDOgp5FUmkGdfFEz0qBEWurlC0KBFRoahl
-	 5qkHlpd4cuFMYuSnca9WQ0jhMErBsYQ7F4xl5eRSRJrkrQhz6YRuZGySGEeoosEPf+Exl
-	 BJ058f/5zY7rfJkvA8UTET7WpQ2Fm5HYCXiCAZHnUVE+zCaFKNdgW8WHwZJiUfXX8bo18
-	 BgVFhEPFfbucZHK56d7RsHlPYgYAPwABAkuHsoqClxY+Fj/5gHWoPFGmZZHRkz5XJjTr3
-	 PVB3VJsL4MjGWKeXDxoBoCWucnCnBnh6HsUA5Tx89FIpqPn+dFyqDXs5/WDkFxUFtbg==
+	bh=iNtN9KGTIQKbiiuxbum6DdOI9gPPlvKGxzSwL4r8vnU=;
+	b=haMtjkwCsUKV/KKe76CHkYLwTB+S9LURDiKxz14ge3k1lN/fKMLIXLfcl5FjpEhANUkv
+	 JIDmwoYaLj+m6V2NuXp0wG8TSO4uoeFC7ipyi+npGrSxRmrbRPsKGXnLVXfm/dQ3ANPCh
+	 vY8kh/ByV+WAWLHACjDED3PUpc2F2/yLNTYq6FT8zLvhZ7r7kkAQjvYsK2by69zH4XiEf
+	 J5PpImApioF4eJ/uGF8LMmc5/hfwFzWKzQ2oW4hMtgbx1xowdvgCG4x5z+GlGYSg8tf+h
+	 g+y+DUFmXkKVynwp5mrYJA4CJDMf+xjc1xjzTY25qGGFvnWvYQjIEGx202ERT6bNLqQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FQFXgaSt;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XxcX3CdI;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3D529606A692
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 02:06:50 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EA0FB606A686;
+	Wed, 25 Nov 2026 02:06:51 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FQFXgaSt
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EAF151F000D2;
-	Wed, 25 Nov 2026 02:06:48 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XxcX3CdI
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6151B1F000D2;
+	Wed, 25 Nov 2026 02:06:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795572410;
-	bh=FyX242seVRW/trwxedsF+FQyEwOz95dVrUFGd4NHNos=;
+	s=k20260515; t=1795572411;
+	bh=iNtN9KGTIQKbiiuxbum6DdOI9gPPlvKGxzSwL4r8vnU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=FQFXgaStiv3qJ5Mvejjgep0quAZ/57duxxK0EZFnFoaDQYFRLtCjXPxcQOpfKCJYN
-	 TzIwLqK3fP0VE0EQvglTXZXdVI9NRkYFjj6FOco7vET5dr7qx3Ff3AOPi6THtqeM1f
-	 rXSscgdOHtVwzuCCxi5Cg68vY5CpI6hCKd1RiaCAF4Q442Fbc9QPHCe8r66uHxcXNG
-	 nPj+vjaO6ljVDD91OWACVptJj5yVcG2tNlh+nbfxT7FSto+xkj508YUQKtMWAlKTNt
-	 Jz6TvLeLkoKx+eHzZ9uG4gY+ZGBMgo0U4hsrohtcJhWdy+NBHZsjdvlyXQy6VBwbbn
-	 6k4SLAYW95AEA==
+	b=XxcX3CdIzDMH0kSKCgUetltdjeZv4VhbNu+Q6GZvauML+Xk2mJaQSh1moCHxvZRz+
+	 CxkeOwnX00epTeZw9JnlLkH634mWjus3fATSgvxwpB5HaPwmmJQoVLf6HFRbyCYMbZ
+	 fB4BkGR2F/ziboTTh1wjLIRgY6CccNzQM3Q8eGn5zbSGLUa7eyi2W65XX/Yy7sdQSK
+	 rpDZflW/+/xcJEPwtrxzh8OJvbR8AFfg3fNSpZLUbsL/Ul/v+zPM0rsUPRAIwEoLA0
+	 CcGem9TLZDfYk4g9qTGPX47tQlohJlffNrbp6bPOR3hNKOcU9LI2lHjYsCNMKHGZms
+	 ZVZ0CUtTi4feQ==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Chuck Wolber <chuck@wolber.net>,
-	Frantisek Hrbata <fhrbata@redhat.com>,
+Cc: Chuck Wolber <chuck@wolber.net>,
 	Josh Poimboeuf <jpoimboe@kernel.org>,
+	Julian Braha <julianbraha@gmail.com>,
+	linux-kbuild@vger.kernel.org,
 	Marco Elver <elver@google.com>,
 	Masami Hiramatsu <mhiramat@kernel.org>,
-	Peter Oberparleiter <oberpar@linux.ibm.com>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nicolas Schier <nsc@kernel.org>,
 	Peter Zijlstra <peterz@infradead.org>,
 	Thomas Gleixner <tglx@kernel.org>
-Subject: [PATCH v3 16/19] gcov: fix gcov_info_add() merge semantics for IOR counters
-Date: Tue, 24 Nov 2026 21:06:00 -0500
-Message-ID: <20261125020603.3934222-17-sashal@kernel.org>
+Subject: [PATCH v3 17/19] kconfig: add CC_HAS_CONDITION_COVERAGE for MC/DC support detection
+Date: Tue, 24 Nov 2026 21:06:01 -0500
+Message-ID: <20261125020603.3934222-18-sashal@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261125020603.3934222-1-sashal@kernel.org>
 References: <20261125020603.3934222-1-sashal@kernel.org>
@@ -67,74 +68,31 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-gcov_info_add() unconditionally uses += to merge all counter types.
-This is wrong for counters that use IOR merge semantics (bitwise OR),
-such as GCOV_COUNTER_IOR and GCC 14's GCOV_COUNTER_CONDS (MC/DC
-condition coverage). These counters store bitsets that must be merged
-with |=, not accumulated with +=.
+Add a Kconfig symbol to detect compiler support for -fcondition-coverage,
+which enables MC/DC (Modified Condition/Decision Coverage) instrumentation.
+This flag is available since GCC 14.
 
-Detect IOR merge semantics by comparing the merge function pointer
-against __gcov_merge_ior, matching how GCC's own libgcov identifies
-merge semantics. This fixes the pre-existing bug for GCOV_COUNTER_IOR
-and also enables correct merging for MC/DC condition coverage data.
-
-Fixes: 5f41ea0386a5 ("gcov: add support for gcc 4.7 gcov format")
 Signed-off-by: Sasha Levin <sashal@kernel.org>
-Reviewed-by: Peter Oberparleiter <oberpar@linux.ibm.com>
 ---
- kernel/coverage/gcov/gcc_4_7.c | 25 ++++++++++++++++++++++---
- 1 file changed, 22 insertions(+), 3 deletions(-)
+ scripts/Kconfig.toolchain | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-diff --git a/kernel/coverage/gcov/gcc_4_7.c b/kernel/coverage/gcov/gcc_4_7.c
-index 8fa22ababd943..923cfb34966b2 100644
---- a/kernel/coverage/gcov/gcc_4_7.c
-+++ b/kernel/coverage/gcov/gcc_4_7.c
-@@ -18,6 +18,8 @@
- #include <linux/mm.h>
- #include "gcov.h"
+diff --git a/scripts/Kconfig.toolchain b/scripts/Kconfig.toolchain
+index 8571cd16a2edd..661db9e7a89ee 100644
+--- a/scripts/Kconfig.toolchain
++++ b/scripts/Kconfig.toolchain
+@@ -193,6 +193,11 @@ config CC_OPT_WNO_PGO_COVERAGE
+ 	# gcc: not supported
+ 	def_string "$(cc-option-str,-Wno-pgo-coverage)"
  
-+extern void __gcov_merge_ior(gcov_type *, unsigned int);
++config CC_HAS_CONDITION_COVERAGE
++	# gcc-14: https://gcc.gnu.org/git/?p=gcc.git;a=commit;h=08a52331803f66a4aaeaedd278436ca8eac57b50
++	# clang: not supported
++	def_bool $(cc-option,-fcondition-coverage)
 +
- #if (__GNUC__ >= 15)
- #define GCOV_COUNTERS			10
- #elif (__GNUC__ >= 14)
-@@ -187,6 +189,15 @@ static int counter_active(struct gcov_info *info, unsigned int type)
- 	return info->merge[type] ? 1 : 0;
- }
+ config LD_OPT_FORCE_GROUP_ALLOCATION
+ 	def_string "$(ld-option-str,--force-group-allocation)"
  
-+/*
-+ * Determine whether a counter uses IOR merge semantics (bitwise OR of
-+ * bitsets). Used for condition coverage (MC/DC) and other IOR-based counters.
-+ */
-+static bool counter_is_ior(struct gcov_info *info, unsigned int type)
-+{
-+	return info->merge[type] == __gcov_merge_ior;
-+}
-+
- /* Determine number of active counters. Based on gcc magic. */
- static unsigned int num_counter_active(struct gcov_info *info)
- {
-@@ -259,9 +270,17 @@ void gcov_info_add(struct gcov_info *dst, struct gcov_info *src)
- 			if (!counter_active(src, ct_idx))
- 				continue;
- 
--			for (val_idx = 0; val_idx < sci_ptr->num; val_idx++)
--				dci_ptr->values[val_idx] +=
--					sci_ptr->values[val_idx];
-+			if (counter_is_ior(src, ct_idx)) {
-+				for (val_idx = 0; val_idx < sci_ptr->num;
-+				     val_idx++)
-+					dci_ptr->values[val_idx] |=
-+						sci_ptr->values[val_idx];
-+			} else {
-+				for (val_idx = 0; val_idx < sci_ptr->num;
-+				     val_idx++)
-+					dci_ptr->values[val_idx] +=
-+						sci_ptr->values[val_idx];
-+			}
- 
- 			dci_ptr++;
- 			sci_ptr++;
 -- 
 2.53.0
 
