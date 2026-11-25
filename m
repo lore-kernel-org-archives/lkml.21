@@ -1,72 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795641996;
-	b=lNP6rl5zbEAd7wwRsqmNiUMXM2Bw8+Jbxe0Z308CDi56JTR4FIoIQWxSZmHMnlmQt0w3
-	 8NUc98XYqz0Sn0wzHum64nvfRsx8oYouNsDZJLFd5TL2+5e5d56xrCFUz7qEwKIfJdxAp
-	 YvJXpB2bfRXdhoMvN38t6fhxQq/IKR+O5/Aa3T8r0kWHWdNYSapD9y0IJDe493VeKkqgj
-	 kuYTFPA49jZLFA/VZ1ZXxKwlz4RPzfnbmxSMpKzTILE3r+HqKsS7J6Rj0qcq2IkSv/ow/
-	 moGNsO9Vnqc57HuWiLOimpfw2pSSX52pbYL7jIClABFtiEZXtf4fB+kmcRRS5Vp44Jg==
+	t=1795642005;
+	b=zJIUu9DvNSVvN89SgTn2NZYAB6KYw8TDW6pvdV9EUgvDBzdtu5MtGodk6zaWdOHAch6d
+	 sIaGci5yxNuzkWUnEwAsnm+StTCH9reLhg1YqynrXYDU/6S3V5M0fWEYlI17NJklb24L+
+	 UCSKvg1AQmN8xM6hOYIFDGKYOMcAtjPEcbGAg+zCX6Q3+ZXh5uBaIuVfNVuS0zSy73SUM
+	 FCq5QmA3XfjNYuNLlzbpgn2JWgkwvmUxkCRW2zspNVqqrp6/Ot8gtn6IpBKe/nonTisWb
+	 XjGi94b4ZiVgWGLVBdk9LvxeCAu9qjWMXIFUMI0l9cPJJVtgLYmwwIsvnHHhGT1prBA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795641996;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=U7s9iUOSOkmOT3uFzFWi/VaQ4Kk2CxReJCkLr/OxACc=;
-	b=aBvECbddvIWC4+BNb6OoCVO+ox7oazPq7GUofKZsDNxfqAOzXyZCbWBc9V4RXx8y23V6
-	 bgdmr6WS3gaMc4gQbKkLMK8f1kNmX+nbrGKHpJsU71WpH4Dy+NyQ4mUTrQnwHy85Ix0xs
-	 8lWRqnog8lmqa6T6m42cDlNNd0Ol0DogdI0it/bqbM+18PpZ+5rYdGndN9CvswC1dRYXG
-	 yxbpi9ca68M/6riX6/Evk4dGkCPYQW4pQCk3nIcbKxu8vyjmhIV7xCLTGJ6uwjpBTRdEX
-	 1zzXvVHCECgfFSKZcvPA9MAQbUseYxD7fMWbhZWVVbXEi7wtqTqw9UYu4l2fyoxXrXA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795642005;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=guDPdAYNJbWbC6d5sTKqRJq9OmSRPmOCdNbIU1+Gch0=;
+	b=rHGLz7rLFMzU/vC2L7YF5r46bZkLdMk5FxOmgX/SxxlrLJx1CH4/ILTD+/KdoKBltvLQ
+	 aTkYgjPaNJv4rMeZLfbqQk+SiUpZ8tOpR/iwlsai6RH3GkTryd0+1wBeDMH//MdeYKPt5
+	 h9DLqbNMJBJQlvOK9uvlY92bE8WJE8qmWO30j/fmCTdFXJhr04lppLsnSYX+9OUfU73sf
+	 Ab491IMWYATYruRSZO61V4C8VJT2K6guR7e98NOYCbeTVfAx41UFIt1ELdqzXivgEZKA7
+	 MpcbAoVZfWkk1N9hvB6FQi0SBLHQmvL2GgMlr/E7kCNMkastbjS4SMBJwsraRVZY0Iw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lunn.ch;
-	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=DUV+M1iM;
-	arc=none smtp.remote-ip=156.67.10.101
-Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=euYshZwF;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6C92D606A331;
-	Wed, 25 Nov 2026 21:26:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6C92D606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E6573606A338
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 21:26:44 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=DUV+M1iM
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=U7s9iUOSOkmOT3uFzFWi/VaQ4Kk2CxReJCkLr/OxACc=; b=DUV+M1iMoOS9UDKEBIjXzHenib
-	D6usOMeaewkhL6rhiD2Zub91D/pVdDYfHshNeie0SVXsK2ARYym4iCbXZa3qtfxUkcAm6ph8DJB83
-	hcezrILyjGrOnPmxddbrkqzilOIFCw8yBQk6mxu+VRDFmCAhGmaVynrmlvMZnX3zOs8w=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xWKVb-001RJc-NH; Wed, 25 Nov 2026 22:26:31 +0100
-Date: Wed, 25 Nov 2026 22:26:31 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Alastair D'Silva <alastair@d-silva.org>
-Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Maxime Ripard <mripard@kernel.org>
-Subject: Re: [PATCH 5/5] arm64: dts: allwinner: sun60i-a733-orangepi-4-pro:
- Enable GMAC0 Ethernet
-Message-ID: <9d53ad67-33c5-4626-b98e-98c86393ecba@lunn.ch>
-References: <20261125130613.4191841-1-alastair@d-silva.org>
- <20261125130613.4191841-6-alastair@d-silva.org>
- <292b18e4-dbad-42ba-9f1f-cfbe2af52148@lunn.ch>
- <20261125211335.719843-1-alastair@d-silva.org>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=euYshZwF
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF9511F000D4
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 21:26:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795642004;
+	bh=guDPdAYNJbWbC6d5sTKqRJq9OmSRPmOCdNbIU1+Gch0=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=euYshZwFCWO8msiqlyp3g86AQLKD+Mp+LppuO3wwvhqdQXrj413xBIAYHTY2o8Hu0
+	 Le2+VZ04LPhLXV4DPbgMH9C9c7RWlgRxgTB+OtuLW76pjkvCmL87ACVIkeSYyCP4DW
+	 83vO8q9l2IzvfvOhuj8kAD9sG+wfOnAy6GjnLxoayo5bMFscLVuFGJuwwkK3vw+G1t
+	 EMVxFoIUdJ5vafz6BbjN3fAc2j1JbbJMQQAQd9kpTUltEe2r3uAjkdxmT5+YJxn2Aj
+	 oBznpSx2Yp0aUfeke2vgkHSo9zMrZgTFNdWMmu83/NMZO8OjiLBSdh9ETIy7Gh5pQz
+	 SR02WqxNHki1A==
+Received: by mail-ej1-f49.google.com with SMTP id a640c23a62f3a-c51a02ad3acso199560666b.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 13:26:43 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErEtoxDRGqZ5P21HWVBDq0rRpnSa7pCWxRG+XOJF4g6MLL2GIkMCXiJPybSeE1AEL8qOXe0ngdGT8KKsnA0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z93+7WmEcIosmfCyTAJPRnYIYk/ZTZJlp5djcO4pwGXuccj2do8
+	wTYpypkvYytWdfTT0+qjtXMTBXGwbRLXIMHkoGddDz3PDotvrF3g353WVJ1vZghXX9qF3wyvzpa
+	6i4k9J23+ODpIo4HCe2UinCd4x5LRKjk=
+X-Received: by 2002:a17:907:6ea9:b0:c46:a5bb:5740 with SMTP id
+ a640c23a62f3a-c513a3a656cmr1716577266b.5.1795642002900; Wed, 25 Nov 2026
+ 13:26:42 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -76,31 +59,56 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261125211335.719843-1-alastair@d-silva.org>
+References: <20261117210934.7765-1-seanjc@google.com> <20261117210934.7765-2-seanjc@google.com>
+In-Reply-To: <20261117210934.7765-2-seanjc@google.com>
+From: Yosry Ahmed <yosry@kernel.org>
+Date: Wed, 25 Nov 2026 13:26:30 -0800
+X-Gmail-Original-Message-ID: <CAO9r8zNkyn4Ps7zE1nBvDOcfB8V2kqjBwuxuMhmsE3LcFbFx-g@mail.gmail.com>
+X-Gm-Features: Aa3M54p2OfvxkLPbVRwbmW5CDmhyFk3PAAFu-ddqfZd9eKEX2ohUTX9VzuOtD5E
+Message-ID: <CAO9r8zNkyn4Ps7zE1nBvDOcfB8V2kqjBwuxuMhmsE3LcFbFx-g@mail.gmail.com>
+Subject: Re: [PATCH v2 1/5] KVM: nSVM: Pre-check current (L2's) CR3 during KVM_SET_NESTED_STATE
+To: Sean Christopherson <seanjc@google.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, kvm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Stefan Teodorescu <fane@google.com>, Sashiko Bot <sashiko-bot@kernel.org>, 
+	syzbot@syzkaller.appspotmail.com, Chris Mason <mason@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-> For v2, I will switch the board DTS to phy-mode = "rgmii-id".
+On Tue, Nov 17, 2026 at 1:09=E2=80=AFPM Sean Christopherson <seanjc@google.=
+com> wrote:
+>
+> When loading nested state, explicitly check that the current CR3 is valid
+> before loading any state, as a misbehaving userspace can muck with guest
+> CPUID to make KVM think the current CR3 is invalid, and thus cause the la=
+te
+> "load" of CR3 to fail when initializing the guest's MMU.  If that happens=
+,
+> KVM will leave half-baked state in the vCPU, e.g. in L2 with L1's page
+> walker, and if nested NPT is disabled, L1's PGD as well.
+>
+> Alternatively, KVM could try and unwind vCPU state if the late CR3 "load"
+> fails, but that is subtly quite difficult as it would require snapshottin=
+g
+> and restoring the previous state.  Simply leaving nested on failure isn't
+> an option either, because that too would leave the vCPU with half-baked
+> state (in L1 with L2 state and a very stale MMU).
+>
+> Pre-checking CR3 will also allow hoisting the CR3 check out of
+> nested_svm_load_cr3() entirely.
+>
+> WARN and bug the VM if the late CR3 load fails, as loading nested state
+> never loads PDPTRs, i.e. failure is impossible, and KVM doesn't unwind on
+> failure (see above).  I.e. if the impossible happens, KVM needs to block
+> all operations on the half-baked vCPU.
+>
+> Fixes: e1779c2714c3 ("KVM: x86: nSVM: fix potential NULL derefernce on ne=
+sted migration")
+> Cc: stable@vger.kernel.org
+> Reported-by: Stefan Teodorescu <fane@google.com>
+> Reported-by: Sashiko Bot <sashiko-bot@kernel.org>
+> Closes: https://lore.kernel.org/all/sashiko-outbox-210535@kernel.org
+> Closes: https://lore.kernel.org/all/sashiko-outbox-205939@kernel.org
+> Closes: https://lore.kernel.org/all/sashiko-outbox-193903@kernel.org
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
 
-Good.
-
-> and drop
-> tx-internal-delay-ps so the YT8531 PHY provides the standard ~2 ns
-> delays,
-
-Good.
-> while keeping ERXIE = 0 and setting rx-internal-delay-ps = <2160>
-> to compensate for the RX clock phase (matching existing dwmac-sun55i
-> boards).
-
-Not good. Please fix the clock inversion. Since this is a new
-compatible, there is no need to preserve old broken behaviour.
-
-The majority of boards should not need rx|tx-internal-delay-ps. The
-RGMII standard says there needs to be 2ns. phy-mode rgmii-id means the
-MAC/PHY pair will add 2ns. That is typically all that is needed. 
-
-rx|tx-internal-delay-ps are only really needed for badly designed
-boards where the lines have not been kept equal length.
-
-	    Andrew
+Reviewed-by: Yosry Ahmed <yosry@kernel.org>
