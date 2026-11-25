@@ -1,65 +1,112 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795627620;
-	b=Q/npZB3s5WXO3gNe++zvUCiS4K5WwUfImux/WDemHuiGkJso3x4m3eqghW+wbnUh/r+I
-	 k/YXd7RpAmyuGFn7nGywB5VEHWsVxTYoBMx57JpRoRtHtq7GE7lv5rQpuC36p1M7W1fe8
-	 PycNSEDsUSUVjKnhHWNNhRSmDFM9tFl/kXchvf0rglBuhJ75Isgq9iUx/KP6jUPABotd8
-	 kTQQzs9vY1pJJwK1SYYcqjiCP2yEzY4gZqUHQk1aWR0g1Wojxo4mHMKd5Isrm//eZONyZ
-	 E+OhWxvW3IgNz6o4CkSsAgjz1KabXa4pPenNWhe4xNrvatS3D2/YFbr2pqEc/F+Ad4A==
+	t=1795627677;
+	b=UgMzrMf54neQ6yB0ZZNYC3ms46GpG5CH9Gp0ZW3XhWFCFMKdymnfokVVrUAR5mDrtxAr
+	 PDZvKf8JdeBd9Hey/1y+SjUTC+DZYPtC/Wwy7QVqCtNdLifjqZJc9/oSlJ31PUbuEcex8
+	 7m+eqy01e1Fn+KwKFRRNyx72pGfpmmCCbOe6telhrgunt/kX1d7HjjG9W5mwouBBpUbN9
+	 4H8gfGEdQr+TA4k0SGtJdpbS8cGW6D628e9vtWulEPt6BD2TOUo7U9lDfnWVOoUO/MUva
+	 YSWmF9+X/qUzYJcwgR35DUWtT2BMOTKep+H5//dSpQugCObEEz+R/mrUww9EWCAwvdw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795627620;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=KEusKZgs4I1FiIlMpmR/n6ZbwE2/VKSPmeBC68K0sDM=;
-	b=FoFb5x0jgWq1JATg63FBWehPUdqWqEYhXf/a8rQ94y/XNwdmbv8DwIPbnYLziK0P8S16
-	 oTHsovB/DOh+BBB/1FLeDN8jKQYcQ49keHWhmWfPDz6SlIcFdq/Pe27gdC4uA9BhfnBQ6
-	 Aajplc8OmyO/HrKFlmeGzZ8YE4kKLB33Rj2gciNywunSylgsA0v7o1TzJX4h6qyoL4Fsd
-	 NRLOgbXPOmioBMhEfpZNwx91uhhsm5cSHXrlX2n6BfrxN0qwMENYQmC38mEw5OPZAw7DK
-	 1/QJjYSZztsXmo00qPB3oX53GaRDuQMEgcBqeUmR/N/DXc6qaQfqSOwH8/KLY/ShlQw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795627677;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Authority-Analysis:X-Proofpoint-GUID:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=Hxe1hUMQD6Om17EZrzzZYp5JnZNWIVHMAuKszjIh1ys=;
+	b=29CE4uBmLKjyai3XI0t7W5xwuZp02dq+N/VIvgNvskkAG2FmaqsfSECGXSIRfeaPlAYB
+	 YriJyfRzGllxR6NK61V6rnIq0/To469BGZD/LZp3+uD+hHMoAArM76/nYsVlCy8NGD33r
+	 JVDaJzxAiDVuExcpudrCsxLoLhXMA9J0mY6akHH2Krum2Qz9F1U5w5hlPJ1kLYfFnhulH
+	 4eM6ml0tl8Oefw8LKzoXN0QmXtTFBHiIQlQiFwzD6BkyaeAwtJ05uRp0k1r39+S11o4Oy
+	 ojOBBVDYd0fIRTCZtaa+SU87mI6i50FGwkJgx+y8UFrLVXvXvuwY2b6zeXoWPktBCZw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="Zlb1/owS";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=nb4Awnp0;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=XoX02d1B;
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AEA76606A321;
-	Wed, 25 Nov 2026 17:27:00 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EF311606A323
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 17:27:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EF311606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Zlb1/owS
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 53EAA1F000C4;
-	Wed, 25 Nov 2026 17:26:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795627619;
-	bh=KEusKZgs4I1FiIlMpmR/n6ZbwE2/VKSPmeBC68K0sDM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Zlb1/owSKLzii+qMfzcGINpVNJRIQZZ4ZP/rHSvXt6fyAzHeAkwAfE/NHuokKkuhz
-	 ivy8GrkCw7WkneMfeWyPBgFt8ErT0MSd91wak9rtOkD2AnTkswnOuAwYHDjNmN/M2z
-	 htOv32BnO5002YVHi7Kk8itswiTaxREDc+GlI5UqTMhtBcgfZQA0s7Mhah81E9apLW
-	 CADawnd5myEn/rlh4QWN/cMscO+IWNYSxJudTivn091P9zB7hfVmumr8jmp027F4Jd
-	 4fSmGjTl8v78ypkwzPIQ+V60Ls8wb8a4ctmxKPidBifkiokpTLu35VetMtuAd1WNbc
-	 p50iO0+na2fpA==
-Date: Wed, 25 Nov 2026 14:26:56 -0300
-From: Arnaldo Carvalho de Melo <acme@kernel.org>
-To: James Clark <james.clark@linaro.org>
-Cc: Arnaldo Melo <arnaldo.melo@gmail.com>, linux-perf-users@vger.kernel.org,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>, Jiri Olsa <jolsa@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	linux-kernel@vger.kernel.org, Namhyung Kim <namhyung@kernel.org>,
-	Ian Rogers <irogers@google.com>
-Subject: Re: [PATCH] perf build: Only enable context analysis with Clang 23
- or later
-Message-ID: <awcaYIe2dmLDb6T_@phoenix2>
-References: <20261123-james-perf-late-parse-attr-v1-1-cfebcd81a962@linaro.org>
- <CAP-5=fXuQWTt1F6BvKSXqgSkEtBQPKvKg6gmAe-ngyr4VGyGig@mail.gmail.com>
- <EC27692D-9692-4976-B7EA-4C3A91173CE3@gmail.com>
- <awSu48pUIh942Zm4@google.com>
- <46a896ba-cd45-4747-837d-50ea4b4dbed9@linaro.org>
- <0E9F372C-C100-41EC-B5B3-46FEDC813E01@gmail.com>
- <ceaea0f9-6f17-4626-bd55-fbc7366905ce@linaro.org>
- <awXewmptfc1za12c@phoenix2>
- <79ec2b9d-ee11-45df-b579-2d9aca5031d0@linaro.org>
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=nb4Awnp0;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=XoX02d1B
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6APGQRVk326971
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 17:27:55 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	Hxe1hUMQD6Om17EZrzzZYp5JnZNWIVHMAuKszjIh1ys=; b=nb4Awnp0hqP/e/hi
+	3Vw3PzSH44nAdrLZHbko8m0uhZhOldbE4fozp4vbp/Sn4glQ9o2t9btxPEu1ykoq
+	XFYnMDT3R1MESVFuv1E2cm+14zmci0ZMTSXE+v0ZHWM3+MgPQa5U5q9m9uk1U7Wz
+	nmLA0iArnAfqPfySix1tcgGNpsFkzatgIIHjfeYzWx/YJxeigXqCU45sMUWRrmU4
+	w3kCYpjOpfzFlXQ8THClL51LlTiPomW8ta3knvWKCe50ZUQjKLtLdmL9D7Uxs7Tk
+	StaQrT3CZSVkcXv6dFTseicfkWcT3+Z1j8Dsh45PCEbDixSrsA0OOZ5J2yKtirWQ
+	tn6QeA==
+Received: from mail-vk1-f197.google.com (mail-vk1-f197.google.com [209.85.221.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j5mc2c23t-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 17:27:55 +0000 (GMT)
+Received: by mail-vk1-f197.google.com with SMTP id 71dfb90a1353d-5ecd4f564d3so1805242e0c.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 09:27:55 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795627675; x=1796232475; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Hxe1hUMQD6Om17EZrzzZYp5JnZNWIVHMAuKszjIh1ys=;
+        b=XoX02d1BEZUlKyBKzCoWWZfww18njx9MWnIKeaDOsEpX0fOjX3znrqghysYe3ccrSi
+         G25/P30C+hYL7PCnGXGKguV+rNogDR/bcF5tQJt2BEri+ptSSOnOFTE2PYD4U1d1j1FA
+         Ekn98msX9Pax2A2GAlnjhOKesrL00IEc8oaZ6HeiXPTnY8z//vmiu9dYwLj4nhf3p2D6
+         Nv+6an40QgDoAA8v5J7BfRS7u67swaJ5NEpae4uvVY/rHh4y8h0ZBaMjjgJuW3ENGHzT
+         HxG5485aBpRoKXUb/T53clZavf6ogDMn2Ra19FypG8adS3nyn9bhacLERlBPZAFLPvRB
+         BU5w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795627675; x=1796232475;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Hxe1hUMQD6Om17EZrzzZYp5JnZNWIVHMAuKszjIh1ys=;
+        b=hIPKTfjJBwINFzeYeeaAed4kCQ2V5PNcoJfP6IBtkd53OR1uMhU/KVWMzL9lWVnU/7
+         7PnnTsCRZcqkei3IQtdVN+bIq+XmARZitt2+Ai0c1l8egc3AUKuWN9cq1vgT1ry1TsUE
+         iJnfKqdEfE9qOObOdjbyPV5IjkzIdQf71nHxR2o0VNVVQpkr+C0L7bS3xvDYMuP/dVt1
+         bHwy/82M6nGjpQOEDZvsu2UBG9lHk9bez2euWnqmbfya4ONDRf0CRLDvM6oRoOEUPxO3
+         GEmibHZCGTPp6qo3jOM+W1grKIfcgHELAiM6rw3kQDmjSdX/nWmIpLEGxaWNiC4uOOg6
+         tFMg==
+X-Forwarded-Encrypted: i=1; AL+hErHJiDLkFzTwGakcSNhDSD4KAhv2hIpsFpAYNygvBhHus4/TvALfK/P5lttmlhJ/TLC4wHwjKqCkuEXZncQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9xrPwscJY6pXmQ3PTFaZ3WI5c3ttZFRlIGo6ubBePyAl/2IP2e
+	9GwN7hnTtPYxeGQNI3ONMsMmISXfi8O0jNk5o/bkOc/E//L4GeDFj/OS3ZaJliGPwsEuLHnpXXP
+	oyG+fYaYXYH3VEq1zUD8nh3DiDkD7vGi8L09lDszLcNjhytFtIV9Qn3E1nk666g6JbRU=
+X-Gm-Gg: AZFdTZdo0cEfJFAV2377/BD0EUY/XjR/aqZ8kOoxy8+cqzNIDHzgCZ33E2F0/uN2mB+
+	jpLH/nW5oO97EMQuDJM6v70+7uoc1j7bLfQCq8R0OgDneIsxntLROuLo7SVjuIMahnYF2CwhcRN
+	0WI+3D80mjoInfSUxsgB11GzCRIw6E0KuUULci1rdM6/wmO5k7T2XLT57bmVC6GDuXks2Rd0LPy
+	oMhXKOZN0KQ+QlRzo6EzI9jN3TrDc3vWrlH5auu2GqVpBZ2QGG4Ghzj2jr2RPjxVvEHQEWnid2Y
+	8VfmKbgCcfF5YNzdY1MikCmiR1eDjcBJAxUjd0feAghVGO8OZqgfq9QQAEyGbglnzVrisYn6CKo
+	fHOiDjWJHOJ0qPs+vgAKn1rscR762ijtGhq0lViDiYiyPsYxSSjbGkV/669OxWgymVo/LTNL4w+
+	srp/w8oHZzGL82
+X-Received: by 2002:a05:6122:1352:b0:5ec:e7e:27d6 with SMTP id 71dfb90a1353d-5ee8aeb4a3bmr10304541e0c.4.1795627674927;
+        Wed, 25 Nov 2026 09:27:54 -0800 (PST)
+X-Received: by 2002:a05:6122:1352:b0:5ec:e7e:27d6 with SMTP id 71dfb90a1353d-5ee8aeb4a3bmr10304533e0c.4.1795627674371;
+        Wed, 25 Nov 2026 09:27:54 -0800 (PST)
+Received: from [192.168.1.31] ([85.196.172.179])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513acff65bsm695470466b.4.2026.11.25.09.27.52
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 25 Nov 2026 09:27:53 -0800 (PST)
+Message-ID: <f53cfee8-3fee-443a-aad9-cf0c36e21848@oss.qualcomm.com>
+Date: Wed, 25 Nov 2026 19:27:52 +0200
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,75 +116,230 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <79ec2b9d-ee11-45df-b579-2d9aca5031d0@linaro.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 00/12] media: qcom: camss: add V4L2 subdev streams API
+ support
+To: Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
+        Mauro Carvalho Chehab <mchehab@kernel.org>,
+        linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org
+Cc: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
+        Loic Poulain <loic.poulain@oss.qualcomm.com>,
+        linux-kernel@vger.kernel.org, Hitesh Patel <hitesh@ebytelogic.com>,
+        Atanas Filipov <atanas.filipov@oss.qualcomm.com>,
+        Jigarkumar Zala <jigarkumar.zala@oss.qualcomm.com>
+References: <20261125080001.2540101-1-gjorgji.rosikopulos@oss.qualcomm.com>
+Content-Language: en-US
+From: "Gjorgji Rosikopulos (Consultant)"
+ <gjorgji.rosikopulos@oss.qualcomm.com>
+In-Reply-To: <20261125080001.2540101-1-gjorgji.rosikopulos@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Authority-Analysis: v=2.4 cv=aPJlOr9m c=1 sm=1 tr=0 ts=6b071a9b cx=c_pps
+ a=JIY1xp/sjQ9K5JH4t62bdg==:117 a=Q/e3f29T3Hw2hnAEzBPF7w==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22
+ a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=GL0DwK9HbhsTW42qer0A:9 a=QEXdDO2ut3YA:10
+ a=tNoRWFLymzeba-QzToBc:22
+X-Proofpoint-GUID: o0lvbSFn12YtoLSCnVkRiqHATmMHR6pg
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI1MDA2OSBTYWx0ZWRfX7pBiHqc7WQjD
+ dNnKPt0Q6rhDKnmiO+AY1nLKmt35c6VSqtYR3BjTUuGwTSyf+IR9Mk5PEMl/brm1neIiONGuOzB
+ fXlX63mon0t44NF1Sr5KZD4cQXwtCmL1TKkRAPhu8rMZtibiFXxi/pZGtvFQ7CeSvoOB2FFNLq0
+ jyNbAp78SLTwiIFWYJ5/LBBIr8koSVTIUaVsYkKhX6zdvaCEPKe92eHgvN+wFpNHXL7Q8P3Lo20
+ RcpBr7QJbWcLZlGsq+an+F6n3VSuYYTiAuPei4ZBt1cnUsAAfoAILlOM+wJhHQ/tqOq/uD8effI
+ HEchFeW5RfYd1gPofBIGFyu1drtqckdcuX361aw1vFuaWOtDp5KOJIU28C8836q+nSaMYds+H50
+ a/VgX+b5muIEgN4p9YnP+IrAHs3r5lKGYgiPNggWwY6VHjK3yJRCbGThT4KZHdgtbdIWB2jwBgJ
+ ngELICozk5H1aQdRaAg==
+X-Proofpoint-ORIG-GUID: o0lvbSFn12YtoLSCnVkRiqHATmMHR6pg
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI1MDA2OSBTYWx0ZWRfX1cvbxeq7eymy
+ eRcMeplY5hkUXcpLzLzK/US3QeK2vfuP1ssTjXcZwY7l42flVUePtAdISAlO0H2aC5qfW22bUp3
+ EBMh99Zo70PB5muxjeXMkIeBLfaGCzI=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-25_04,2026-11-25_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 impostorscore=0 phishscore=0 lowpriorityscore=0
+ adultscore=0 spamscore=0 clxscore=1015 malwarescore=0 bulkscore=0
+ suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
+ definitions=main-2611250069
 
-On Wed, Nov 25, 2026 at 10:18:20AM +0000, James Clark wrote:
-> On 24/11/2026 19:00, Arnaldo Carvalho de Melo wrote:
-> > > > The script:
-> > > >     3. Copies the kernel header into the tools/ tree, skipping it when only
-> > > >        the tools/ copy changed (it is ahead) or when it carries intentional
-> > > >        edits, and stopping for manual investigation when both sides have
-> > > >        content the other lacks.
+I will RESEND the series it seems my from entry in gitconfig was somehow corrupted...
 
-> > > > acme@number:~/git/perf-tools-next$
+Apologies for that.
 
-> > > > I.e. the limitation in point number three, about intentional edits, needs to be lifted.
-> > > Oh nice I hadn't noticed sync-headers.sh. What's the plan to support tools
-> > > side edits? Something like exporting the kernel change as a patch and trying
-> > > to apply it on top of the tools copy? Or I suppose you could do it the other
-> > > way around and try to apply the tools diff on top of a new clean kernel
-> > > copy.
+On 11/25/2026 9:59 AM, "Gjorgji Rosikopulos gjorgji.rosikopulos"@oss.qualcomm.com wrote:
+> From: Gjorgji Rosikopulos <gjorgji.rosikopulos@oss.qualcomm.com>
+> 
+> This series adds V4L2 subdev streams API support to the CAMSS driver.
+> 
+> Each subdevice gains streams-aware enable_streams/disable_streams pad
+> ops alongside the existing legacy (non-streams) subdev ops, guarded by
+> a new per-instance streams_enable resource flag.
+> 
+> Patch 1 is a standalone bug fix on CSID gen3, found during RB8 multi-VC
+> testing: CSID reset used to program CSID_BUF_DONE_IRQ_MASK with one
+> write per enabled VC instead of accumulating the bits into a single
+> write.
+> 
+> Patch 2 factors a pad-to-port helper out of csid_get_sof_seq(), used by
+> later patches.
+> 
+> Patches 3-9 add the CSIPHY/CSID/TPG/VFE/camss-video mechanism:
+>  - CSIPHY: passthrough routing and shared D-PHY lane enable/disable
+>    gated on stream-count transitions, dispatching between the generic
+>    PHY framework and the legacy PHY backend.
+>  - CSID: configure_stream() is reworked to take a port_mask and a
+>    per-port {vc, dt} config array shared by all six CSID backends
+>    (gen2, gen3, 340, 4-1, 4-7, 680), then the CSID subdev itself gains
+>    per-source-pad routing (a single sink stream propagated to every
+>    source pad by default, remappable for multi-VC sensors) and VC/DT
+>    discovery via get_frame_desc.
+>  - TPG: the single fmt field becomes a per-stream array, so the
+>    generator can drive several concurrent virtual channels, with one
+>    get_frame_desc entry per active route.
+>  - VFE: streams-aware pad ops. VFE lines are inherently single-consumer
+>    (vfe_link_setup() enforces one link per pad), so no refcounting is
+>    needed there.
+>  - camss-video: the video device pipeline walk now checks, via
+>    v4l2_subdev_has_op(), whether the directly-connected subdev supports
+>    enable_streams/disable_streams; if so it issues a single top-level
+>    call instead of manually walking the pipeline one subdev at a time
+>    with .s_stream(). Falls back to the existing legacy path unchanged
+>    when the remote subdev doesn't support the streams API, so no other
+>    platform is affected.
+> 
+> Patches 10-12 set streams_enable per SoC: SM8250, SA8775P, and SC7280
+> (dispatched through the legacy PHY backend on SC7280, since it has no
+> camss child node named "phy", so camss_detect_legacy_phy() puts it in
+> legacy PHY mode). Every other platform keeps using the legacy
+> non-streams subdev ops, so these are a no-op everywhere else.
+> 
+> A practical benefit of the CSID routing change (patch 6) is routing
+> flexibility for multi-VC sensors: the CSID's routing table maps sink
+> streams to source pads/streams via userspace-configurable
+> v4l2_subdev_route entries instead of a fixed pad<->VC assignment, so a
+> sensor emitting multiple virtual channels can have each VC directed to
+> a different RDI output (and thus a different VFE line/video node)
+> with a set_routing call, rather than being constrained to whatever
+> fixed mapping the driver hardcodes.
+> 
+> When a sink stream is shared by multiple source pads/streams, CSID
+> only enables the corresponding upstream CSIPHY stream on the first
+> source stream that needs it, and only disables it once the last
+> remaining source stream using it is disabled. Enabling or disabling
+> additional consumers of an already-active shared stream is a no-op
+> upstream, so no consumer can double-enable or prematurely disable a
+> stream still in use by another. This also avoids ever hitting v4l2
+> core's own -EALREADY re-enable gate.
+> 
+> Verified on RB8/SA8775P hardware, driving the CSID test-pattern
+> generator directly (no sensor), for 1, 2 and 3 concurrent virtual
+> channels through CSID to separate VFE RDI lines. Entity/video node
+> names below are resolved via `media-ctl -d /dev/media0 -e <entity>`.
+> 
+> NOTE: the V4L2 subdev streams API is disabled by default with the
+> static bool v4l2_subdev_enable_streams_api in
+> drivers/media/v4l2-core/v4l2-subdev.c. it must be set to true to
+> use the stream API and reproduce the testing below:
+> 
+> 1 VC:
+>   media-ctl -d /dev/media0 --reset
+>   media-ctl -d /dev/media0 -l '"msm_tpg0":0->"msm_csid0":0[1]'
+>   media-ctl -d /dev/media0 -R '"msm_csid0"[0/0->1/0[1]]'
+>   media-ctl -d /dev/media0 -V '"msm_tpg0":0/0[fmt:SBGGR8/1920x1080]'
+>   media-ctl -d /dev/media0 -V '"msm_csid0":0/0[fmt:SBGGR8/1920x1080]'
+>   media-ctl -d /dev/media0 -V '"msm_csid0":1/0[fmt:SBGGR8/1920x1080]'
+>   media-ctl -d /dev/media0 -l '"msm_csid0":1->"msm_vfe0_rdi0":0[1]'
+>   media-ctl -d /dev/media0 -V '"msm_vfe0_rdi0":0[fmt:SBGGR8/1920x1080]'
+>   v4l2-ctl -d <tpg-subdev> --set-ctrl=test_pattern=9
+>   v4l2-ctl -d <rdi0-video> --set-fmt-video=width=1920,height=1080,\
+>     pixelformat=BA81 --stream-mmap=5 --stream-count=20 \
+>     --stream-to=vc0.raw
+> 
+> 2 VCs (vc1 added in parallel):
+>   media-ctl -d /dev/media0 --reset
+>   media-ctl -d /dev/media0 -l '"msm_tpg0":0->"msm_csid0":0[1]'
+>   media-ctl -d /dev/media0 -R '"msm_csid0"[0/0->1/0[1],0/1->2/0[1]]'
+>   media-ctl -d /dev/media0 -V '"msm_tpg0":0/0[fmt:SBGGR8/1920x1080]'
+>   media-ctl -d /dev/media0 -V '"msm_tpg0":0/1[fmt:SBGGR8/1920x1080]'
+>   media-ctl -d /dev/media0 -V '"msm_csid0":0/0[fmt:SBGGR8/1920x1080]'
+>   media-ctl -d /dev/media0 -V '"msm_csid0":0/1[fmt:SBGGR8/1920x1080]'
+>   media-ctl -d /dev/media0 -V '"msm_csid0":1/0[fmt:SBGGR8/1920x1080]'
+>   media-ctl -d /dev/media0 -l '"msm_csid0":1->"msm_vfe0_rdi0":0[1]'
+>   media-ctl -d /dev/media0 -V '"msm_vfe0_rdi0":0[fmt:SBGGR8/1920x1080]'
+>   media-ctl -d /dev/media0 -V '"msm_csid0":2/0[fmt:SBGGR8/1920x1080]'
+>   media-ctl -d /dev/media0 -l '"msm_csid0":2->"msm_vfe0_rdi1":0[1]'
+>   media-ctl -d /dev/media0 -V '"msm_vfe0_rdi1":0[fmt:SBGGR8/1920x1080]'
+>   v4l2-ctl -d <tpg-subdev> --set-ctrl=test_pattern=9
+>   v4l2-ctl -d <rdi0-video> --set-fmt-video=width=1920,height=1080,\
+>     pixelformat=BA81 --stream-mmap=5 --stream-count=20 \
+>     --stream-to=vc0.raw &
+>   v4l2-ctl -d <rdi1-video> --set-fmt-video=width=1920,height=1080,\
+>     pixelformat=BA81 --stream-mmap=5 --stream-count=20 \
+>     --stream-to=vc1.raw &
+>   wait
+> 
+> 3 VCs: same as the 2 VC case, plus a third route
+> '0/2->3/0[1]' from "msm_csid0":3 to "msm_vfe0_rdi2", and a third,
+> concurrently-started v4l2-ctl capture on that line's video node
+> (vc2.raw).
+> 
+> All three cases captured the expected, exact frame byte count on
+> every VC with no dmesg Oops/BUG/WARNING/overflow output. Additional
+> early-stop and staggered-start variants of the 3 VC case (one VC
+> starting/stopping while the others keep streaming) were also run and
+> passed.
+> 
+> These changes apply on top of v7.4-rc1.
+> 
+> Changes since v1:
+> - Incorporate Loic comment for csid and extend configure_stream
+>   instead of adding new enable/disable stream api.
+> - Incorporate Bryan comment for moving stream_enable in per SoC
+>   resources.
+> - Add Hitesh changes for SC7280
+> - Drop the fix for csid to each vfe link. It is part of another
+>   series:
+>   Link: https://lore.kernel.org/all/20261122-camss-routing-fixes-v1-0-0deeeaca2622@kernel.org/
+> - Incorporate Bryan comment and remove csid lite check for port
+>   mapping and add route to each port. Although not functional for
+>   full VFE/IFEs, this is more likely to be fixed in the near future.
+> 
+> Depends-on:https://lore.kernel.org/all/20261107-v4l2-frame-sync-v3-0-e5bf7073a35d@kernel.org/
+> 
+> Gjorgji Rosikopulos (11):
+>   media: qcom: camss: csid_gen3: Fix multi-VC buf-done IRQ mask
+>   media: qcom: camss: Add csid pad to port helper
+>   media: qcom: camss: Add streams enable field to camss resources
+>   media: qcom: camss: Add streams API support for CSIPHY
+>   media: qcom: camss: Add per-port config to CSID configure_stream
+>   media: qcom: camss: Add streams API support in CSID subdevice
+>   media: qcom: camss: Add streams API support in tpg subdev
+>   media: qcom: camss: Add streams API support for VFE
+>   media: qcom: camss: Add streams API support in camss-video
+>   media: qcom: camss: Enable streams API on SM8250
+>   media: qcom: camss: Enable streams API on SA8775P
+> 
+> Hitesh Patel (1):
+>   media: qcom: camss: Enable streams API on SC7280
+> 
+>  .../platform/qcom/camss/camss-csid-340.c      |   5 +-
+>  .../platform/qcom/camss/camss-csid-4-1.c      |   3 +-
+>  .../platform/qcom/camss/camss-csid-4-7.c      |   3 +-
+>  .../platform/qcom/camss/camss-csid-680.c      |   7 +-
+>  .../platform/qcom/camss/camss-csid-gen2.c     |  54 +-
+>  .../platform/qcom/camss/camss-csid-gen3.c     |  51 +-
+>  .../media/platform/qcom/camss/camss-csid.c    | 521 +++++++++++++++++-
+>  .../media/platform/qcom/camss/camss-csid.h    |  22 +-
+>  .../media/platform/qcom/camss/camss-csiphy.c  | 249 ++++++++-
+>  .../media/platform/qcom/camss/camss-csiphy.h  |   1 +
+>  .../platform/qcom/camss/camss-tpg-gen1.c      |  63 ++-
+>  drivers/media/platform/qcom/camss/camss-tpg.c | 179 +++++-
+>  drivers/media/platform/qcom/camss/camss-tpg.h |   6 +-
+>  drivers/media/platform/qcom/camss/camss-vfe.c | 119 +++-
+>  .../media/platform/qcom/camss/camss-video.c   | 119 +++-
+>  drivers/media/platform/qcom/camss/camss.c     |   3 +
+>  drivers/media/platform/qcom/camss/camss.h     |   1 +
+>  17 files changed, 1273 insertions(+), 133 deletions(-)
+> 
 
-> > I think the script should diff the current state, save that, copy the
-> > new header, apply the patch to get the perf tools changes, then ask
-> > opencode (or the coding agent used most frequently by the developer) to
- 
-> Interesting, didn't think about having an agent invoked from the script.
-> Despite what people say about them being unreliable, for things like
-> resolving conflicts and digging out commit messages to add context to the
-> resolutions, I find them much more reliable than myself. And faster as well.
-
-Well, the script will produce a draft, leave it at that for the
-maintainer to decide what to change, if anything, and then do the usual
-steps, so it is just automating boring parts. Finding a new maintainer
-becomes easier, probably ;-)
- 
-> > check if what was done is sensible, then ask the developer to do a last
-> > check and amends, sign off and commit.
-
-See?
-
-> > My plan is to have this in tools/perf/scripts/ so that whoever comes
-> > after me and Namhyung, if this ends up being needed, don't have to go
-> > thru such boring processes that were not automated due to lack of time
-> > even being in my mind since forever as tech debt :-\ :-)
- 
-> This feels like its turning email into an API that you can attach any front
-> end to. I wonder if it would give websites like github any ideas to add a
-> "send as a signed linux PR" button :D
-
-Well, e-mail is what we've been using since forever, but having some
-button that would essentially do the same via a TUI, GUI, github or
-voice interface/whatnot, would end up being equivalent, we still need to
-look at what was done by contributors, make sure it was tested
-extensively in as many distros and architectures as possible, that
-reviewers had enough time to say something if they so think it is in
-order do do so, and then send it upstream.
-
-Whatever we can do to make this painless and effective, I'm interested
-in.
-
-I did lots of these things manually trying to adhere to what Ingo and
-Linus expected from me, there are plenty of examples of me doing so for
-these LLMs to have been trained on, now I just want to reap the benefits
-and have more time to do interesting things :-)
- 
-> It's a great documentation of the actual process which despite all the
-> documentation is not always that obvious how to do in practice.
-
-Yeah, that too, that is a very effective, I'd say, way to document what
-we've been doing.
-
-- Arnaldo
