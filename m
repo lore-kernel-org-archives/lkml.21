@@ -1,56 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.112
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795630202;
-	b=Kf8GWHZT2iQXpN6tehL3zfQjMGCGKPKH/kozTO/Niz4W87DeA0iVaNOpNXn/JEZmsb63
-	 wZkjD6R94Zrv/vXO7VW2XPkmGOn2rW+f2Ho3u3FX0sktobARSWfTSgM8jBsBg2baEgUcE
-	 /n/HTk7cJL45ArJR1NJxlStSSX575mS185jjLC21iGa0xKEU+Qf6vz3vW/Akzbj0oKpVR
-	 0QhELTCS4JK6dHx/3xNyBqJoye+xo7Q+RZVAFuFhec269ynWBMxTxg4nPu2a+TyOOmruC
-	 ejN+je83I589q+Q0GSKm1A79fykd9rbUw7IcmmK/4XDFJ1GysobXqQtgC8HV8fdk5qw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795630202;
-	h=DMARC-Filter:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
-	 In-Reply-To:To:Cc:X-Mailer:X-ZohoMailClient;
-	bh=SwbJI8zY+X1/DDKPIgRAXUORFw02sO9uTFGJvCcjbk0=;
-	b=wnXkYWEteOiRZYNSlN+1cytiBkRcdSrCeXvvViI1bRzKko5h9M2twa9Lonbh9SS2xtMJ
-	 ZQRV0Rf9EikM2e9wAMKLrWmxLsbFeSAmQd8QcaQzsK3zU1cRmcMxvtYd+trHpdxpE9UPv
-	 S340Z7V0nRO+opYsypA6DFU/00cH+E9wB3h+xd93x11Q6VGGTpVhrDsEdjgqV0ZVmlzSs
-	 TLOxjbuIficCFsRxZeEh9TlCdV4ZqHwzhWZsbpTWZypMIqGk3eAHZOFdsrRjQ/wj9q3Q6
-	 +5KPOdREZItTFGOM7t0XQCvmbSGj87uV+a4lwSbKmhTm67laEeYjPuYU9RV/Ccp7TPw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=rong.moe;
-	spf=pass smtp.mailfrom=rong.moe;
-	dkim=pass header.d=rong.moe header.i=@rong.moe header.a=rsa-sha256 header.s=zmail2048 header.b=pfqlsIqL;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.112
-Received: from sender5-pp-f112.zoho.com (sender5-pp-f112.zoho.com [165.173.182.112])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.224.54
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795630217;
+	b=JsJJ2sAFBG6zFPUxgwRLSp9HOsM2kt0/LkHn+BoCFRKpZdOV4gth/VI05u3Gg6yG0LJU
+	 KHSqDGWvIUdtAHJF4QC0XRefIxWmYyVCOYDz1Zs3Tw7Z/4DC/gPX0MSWIsrGC6u1t6cq6
+	 FA32kCJW3oCe+KpizV8D9NSbkEUSMtDl4FSFCG6cvYGhyGwF8GZ9zmM95h/ckDODgzd06
+	 ooN7FnJMyej/u35dx/gNq5iS3PKAudIEhg2JLpAjmPiwmNQtvA2w0oSRCCys9DbxthjIx
+	 MKv1bGOx6F7jDP11pRMZjTkdulfV8Y1m8e4Q6WMkUauSDTlRkRmqQwB9uvCZzgvJgUw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795630217;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=D3ALQHcgOfAhUAKhVbZdjihQ4c8Hm2EiPI8oXAafIGM=;
+	b=pMttqeP8JSJSmY/Oh0pzUE7ALlEvrLbl7E6fbn+m+n424hbs3TVlgqU+qhC2Sn+NGP/A
+	 n2n/36D4waozV4htaI1psfs9qCFWxbchSt0GMVm0AVODVR+5d9P2BkrgfOBfN6oLyMhhD
+	 Tpz2YtuOWLJHDj1E4OLBtjlstcdobM35J8XQwZFNXm9U70EQn7OB6OHbmUTz29oBdaX+k
+	 TSdxhGOJgzDqpxpTBaV3wL8rZCduC6img7cKclkKbQuKORuun9UcnOwPecMZvQ8qq+C/+
+	 ONVXjdFJJ6GHn/vuWYRfsLa8x4ncB7lCP9XkgnQiqAjwOeU2bFkw0K8LJJGsFpWcFHw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=cs.unc.edu;
+	spf=pass smtp.mailfrom=cs.unc.edu;
+	dkim=pass header.d=cs.unc.edu header.i=@cs.unc.edu header.a=rsa-sha256 header.s=google header.b="YdXtTz/v";
+	arc=none smtp.remote-ip=74.125.224.54
+Received: from mail-yx1-f54.google.com (mail-yx1-f54.google.com [74.125.224.54])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E4C32606A327;
-	Wed, 25 Nov 2026 18:10:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E4C32606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=rong.moe
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rong.moe
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2F7AB606A323
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:10:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2F7AB606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=cs.unc.edu
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cs.unc.edu
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=rong.moe header.i=@rong.moe header.a=rsa-sha256 header.s=zmail2048 header.b=pfqlsIqL
-ARC-Seal: i=1; a=rsa-sha256; t=1795630133; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=YHSAKrK5krRhD0HOSEkHnZivBEIiG66i98SGBBIrk74dC693C6kIjoxelEwDwXGWa37OyZl81cvSsSF7c+Z8sb1CC8lwpmY7Mj0saP6oFCxK+73oRQQTBIjL7/v4qrZwsfJ3jBAemUp7Lh2VlAlkgtqXVXYRTssyp+KmUu1oE+4=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1795630133; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=SwbJI8zY+X1/DDKPIgRAXUORFw02sO9uTFGJvCcjbk0=; 
-	b=YWIkfVknbybxbXKPMR5jwxNDnjbAG6gSSh3r63xKlxelHV1UXglWOTmXxHXhm0mvhKuGVAK6bQZBY2RGYvRxQBgrHRNV6snFTtlZDumy3Zaf3DtHqcZEFBxLulIPJl0k6H5VPAySJIUiaK0DSMjtyqDuYfHFiLR0l8jjdPBLF1s=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=rong.moe;
-	spf=pass  smtp.mailfrom=i@rong.moe;
-	dmarc=pass header.from=<i@rong.moe>
-DKIM-Signature: a=rsa-sha256; b=pfqlsIqLBv1nMCC7as7nLOwBd8kXqCZ4C3s9Yp8mNpB+k8RwuG7TTS0vRhCtgwz7sEUVzMet7GCoo454kz2rqJQ9zQtFMAzsMsGlKD33qrfosKJ+F/dGbOqDcT4+P52z/8KG4CLh2BpuRoefF5kEk0oQYuDktkUWhDBrLCDb7mP8nxmiMrumJy7GN5g4jgrIYGnb62KJSwisz5i9WpN8qqAON0Qm4U4FUykz6Juc8XHWwgdO2LM8L44gn877AR6g5jPVAF0TC/TlogTJJJiAi0L+yr5W5gB1ua5imszQe0HbBH49Xxuzrf9g9c5WwggBcSWDsSpou9mgOL1MId+X5g==; c=relaxed/relaxed; s=zmail2048; d=rong.moe; v=1; bh=SwbJI8zY+X1/DDKPIgRAXUORFw02sO9uTFGJvCcjbk0=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 1795630131787396.25831423159264;
-	Wed, 25 Nov 2026 10:08:51 -0800 (PST)
-From: Rong Zhang <i@rong.moe>
-Date: Thu, 26 Nov 2026 02:08:21 +0800
-Subject: [PATCH v3 3/8] platform/x86: lenovo-wmi-events: Modernize WMI
- event handling
+	dkim=pass (2048-bit key) header.d=cs.unc.edu header.i=@cs.unc.edu header.a=rsa-sha256 header.s=google header.b=YdXtTz/v
+Received: by mail-yx1-f54.google.com with SMTP id 956f58d0204a3-6767d92cde6so6773311d50.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:10:17 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=cs.unc.edu; s=google; t=1795630216; x=1796235016; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=D3ALQHcgOfAhUAKhVbZdjihQ4c8Hm2EiPI8oXAafIGM=;
+        b=YdXtTz/v6Nm4qzgVyt4tU1Dm9vGEsroperK4W3BGilBnyGrVMOM6MIT5XJD2rcDogB
+         AWuqcPc7rOYnD9e+HpsWAPKiW9DYo6OEiOtdmUiLKvIuxOHtWDuJHlD/vCKafPsJxQLC
+         BXllwZhuRD1IwujoB6aBtVMXSWBjO++oCGjBlQYfo24feoz8A4QtCZhzrClzWJOySJkX
+         +xT/ureqEuqX7lIeo6TLrqv1qZbU8hEhJweFrf0dfdpjPJpNItgT6YU6OW4VThEXW6+m
+         cm09thM45wrjt173UXANGAdABSORsn4HM3CBs7dMDTus+al+tGpQ23jXx/OE/f0h4gvn
+         cJag==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795630216; x=1796235016;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=D3ALQHcgOfAhUAKhVbZdjihQ4c8Hm2EiPI8oXAafIGM=;
+        b=PvvKC/C8WMl8hNeAgm/BR7eUSVrp1Gq57GJn6W/KtGfWky1A/WSlPljbefEoD8b3XP
+         Qv3v03rd4UUbOs4QV1Xt6TVYZ7Bg4IT3PaKb3cnvwvyucVWX9CvolcNpxs7wF6sVlyCx
+         tjIRCezkVe6DF936HEmsu+/Pj4D2LvlKDJFCNwGkuRpFSUbKTnhxIbmGnV8sR8ufbaLe
+         v8ZUSfNL09bvo3LonrJ6kFBCjVBc/YpyHL6ITE9HjAKDs07MN1uVsdLeQc1J/Q5VVf6d
+         g3YmVktKvmFiP3HShBQgxqhb1kUToxoxIaiEVuEzS3O/3e23w6MEv8djZZiCsCQm2DJ+
+         IkJw==
+X-Forwarded-Encrypted: i=1; AL+hErHyQpdqa2aGZ7KSnp+UCjaPKISCgUeHtzw7gp2dAKWKDA4agVilUeNHF/aQcZfBU8C97GavLuLOmJyJTjs=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/pWZDeTvZBlX//7vJUk8xaTYWGJ7alT7bdE64caMRxgcyhdlXy
+	EVKvXU0HeCw03JhAWfre5w+aRmUPJho88BMNjnmbExO7BclyfP0SojAtqmeBgORi/3TJUKG83K0
+	ZvXjplWqu
+X-Gm-Gg: AZFdTZfa1ZH91J9gY8oaBMmZeTKip5PxrHtdoP3V5j8kQA4MQGTh5lKdzRGIZPnBQFV
+	4EVSj/jskYXst7vXhu4+XfSy/COfNOHZe4hIdvw9jftoK7ETc4LRK0Yz2uc4642Og6JNl2L5EAM
+	PcAJAgE7ZqyNCxrFZFx6N6IIC4R32QfgtU6VVcQ9dtouAHYRu1h/0qhuM8RjTCxlMNPQU3M1WbC
+	Jr9gPcmI2g9ZrHoBWlKPOBJfrrpkjKT/3MMAH8xPTusCWlJc5/furJbzPFtjFpXGOESYGdUsWyd
+	ExpPG9AS4m6qPTve5i+bE2XmAMlm7R5kTDEjq5R+LM07exnU1mOSsb4xGKsDj+lbY1EmfZJ73YF
+	i+rgWEJRw0c1yFGnwXLExf+LaPZwtXwhhN189HwJK4dBVPTcauDC/lvdSSQovV7lRj5EkTpCrPR
+	7ouzymh7aKafE6Ekrnl8zLbb9FApURG8tMvoXKjyTYb7DizTj56pmfAKqdDoNsjBys+Od6cGJ3R
+	e7hiqBMdlJKe66nh9cSroThS1DOjI7KM61cZWSE/th+YtEzt4zcMdjTEb+DmcX6HHIp2rD3+Wff
+	SZxIt8e/oH5X87bcykSzCfYjZ6bWpw06sNTRG71TDymytR13EmynyA==
+X-Received: by 2002:a05:690e:400a:b0:67e:4934:63dd with SMTP id 956f58d0204a3-67e49347cb2mr1238903d50.15.1795630216103;
+        Wed, 25 Nov 2026 10:10:16 -0800 (PST)
+Received: from cobra01.cs.unc.edu (cobra01.cs.unc.edu. [152.2.130.143])
+        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-67df330bfb1sm9206152d50.6.2026.11.25.10.10.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 10:10:15 -0800 (PST)
+From: Hengyu Liang <hengyul@cs.unc.edu>
+To: Takashi Iwai <tiwai@suse.com>,
+	Jaroslav Kysela <perex@perex.cz>
+Cc: Pavel Hofman <pavel.hofman@ivitera.com>,
+	linux-sound@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: [PATCH] ALSA: pcm: oss: Refine slave hw_params after setting format
+Date: Wed, 25 Nov 2026 13:10:05 -0500
+Message-ID: <20261125181005.3683575-1-hengyul@cs.unc.edu>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,130 +98,95 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261126-ymc-82yl-v3-3-e30842671ec3@rong.moe>
-References: <20261126-ymc-82yl-v3-0-e30842671ec3@rong.moe>
-In-Reply-To: <20261126-ymc-82yl-v3-0-e30842671ec3@rong.moe>
-To: Mark Pearson <mpearson-lenovo@squebb.ca>, 
- "Derek J. Clark" <derekjohn.clark@gmail.com>, 
- Hans de Goede <hansg@kernel.org>, 
- =?utf-8?q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
- Gergo Koteles <soyer@irl.hu>, Ike Panhc <ikepanhc@gmail.com>, 
- Andrew Kallmeyer <kallmeyeras@gmail.com>
-Cc: Eduard Aliman <edialiman20@gmail.com>, 
- platform-driver-x86@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Mahir Faisal <mahirfaisalantiq33@gmail.com>, Rong Zhang <i@rong.moe>
-X-Mailer: b4 0.17-dev-ce4c1
-X-ZohoMailClient: External
+Content-Transfer-Encoding: 8bit
 
-The WMI core calls the new notify_new() callback with unmarshaled event
-data and size check, aligning with the Windows behavior that the ACPI
-object type doesn't matter but the size does.
+Commit 93d7d38fa61d ("ALSA: aloop: add DSD formats") added DSD_U8 to
+the formats of snd-aloop. Before that, its narrowest format had 16 bits.
 
-Adopt it to modernize the driver and hopefully improve robustness on
-various firmware, like previously did for lenovo-wmi-{capdata,helpers}.
+However, snd_pcm_oss_change_params_locked() sets the slave format with
+_snd_pcm_hw_param_set(), which does not refine the parameters, while
+the access, rate and channels before it are set with refining helpers.
+snd_pcm_oss_period_size() then reads a buffer size maximum that is
+still computed for the narrowest format, now DSD_U8, so the OSS period
+doubles. With the default U8 client format, the doubled period no
+longer fits in the format plugin, and snd_pcm_plugin_alloc() returns
+-ENOMEM. As of now, an OSS program that asks snd-aloop for 8 channels
+at 192 kHz gets ENOMEM from SNDCTL_DSP_SPEED and from every later
+ioctl on the same file.
 
-The blocking_notifier_call_chain() code path is also moved, so that it
-will be easier when adding new GUIDs to the driver.
+The issue can be reproduced with this program, where card 1 is
+snd-aloop:
 
-Reviewed-by: Mark Pearson <mpearson-lenovo@squebb.ca>
-Tested-by: Eduard Aliman <edialiman20@gmail.com>
-Signed-off-by: Rong Zhang <i@rong.moe>
+    #include <fcntl.h>
+    #include <stdio.h>
+    #include <sys/ioctl.h>
+    #include <sys/soundcard.h>
+
+    int main(void)
+    {
+            int fd = open("/dev/dsp1", O_WRONLY | O_NONBLOCK);
+            int ch = 8, rate = 192000, blk = 0;
+
+            ioctl(fd, SNDCTL_DSP_CHANNELS, &ch);
+            if (ioctl(fd, SNDCTL_DSP_SPEED, &rate) < 0)
+                    perror("SNDCTL_DSP_SPEED");
+            if (ioctl(fd, SNDCTL_DSP_GETBLKSIZE, &blk) < 0)
+                    perror("SNDCTL_DSP_GETBLKSIZE");
+            printf("block size %d\n", blk);
+            return 0;
+    }
+
+Before that commit, it prints "block size 65536". After that commit,
+the result is:
+
+    SNDCTL_DSP_SPEED: Cannot allocate memory
+    SNDCTL_DSP_GETBLKSIZE: Cannot allocate memory
+    block size 0
+
+This patch will set the format with snd_pcm_hw_param_set(), which
+refines the parameters, as is done for the channels just before.
+
+Fixes: 93d7d38fa61d ("ALSA: aloop: add DSD formats")
+Cc: <stable@vger.kernel.org>
+Signed-off-by: Hengyu Liang <hengyul@cs.unc.edu>
 ---
- drivers/platform/x86/lenovo/wmi-events.c | 31 ++++++++++++++++---------------
- 1 file changed, 16 insertions(+), 15 deletions(-)
+I found this while comparing the behavior of different kernel versions.
+I used an LLM to analyze the problem and to draft the patch and this
+message, and I analyzed the result myself.
 
-diff --git a/drivers/platform/x86/lenovo/wmi-events.c b/drivers/platform/x86/lenovo/wmi-events.c
-index 3a82192dc9e5..01ad5bcf0437 100644
---- a/drivers/platform/x86/lenovo/wmi-events.c
-+++ b/drivers/platform/x86/lenovo/wmi-events.c
-@@ -9,13 +9,14 @@
-  * Copyright (C) 2025 Derek J. Clark <derekjohn.clark@gmail.com>
-  */
- 
--#include <linux/acpi.h>
- #include <linux/export.h>
- #include <linux/module.h>
- #include <linux/notifier.h>
- #include <linux/types.h>
- #include <linux/wmi.h>
- 
-+#include <asm/byteorder.h>
-+
- #include "wmi-events.h"
- #include "wmi-helpers.h"
- 
-@@ -110,25 +111,23 @@ EXPORT_SYMBOL_NS_GPL(devm_lwmi_events_register_notifier, "LENOVO_WMI_EVENTS");
- /**
-  * lwmi_events_notify() - Call functions for the notifier call chain.
-  * @wdev: The parent WMI device of the driver.
-- * @obj: ACPI object passed by the registered WMI Event.
-+ * @buf: WMI buffer passed by the registered WMI Event.
-  *
-  * Validate WMI event data and notify all registered drivers of the event and
-  * its output.
-  *
-  * Return: 0 on success, or an error code.
-  */
--static void lwmi_events_notify(struct wmi_device *wdev, union acpi_object *obj)
-+static void lwmi_events_notify(struct wmi_device *wdev, const struct wmi_buffer *buf)
- {
- 	struct lwmi_events_priv *priv = dev_get_drvdata(&wdev->dev);
-+	void *notif_data = NULL;
- 	int sel_prof;
- 	int ret;
- 
- 	switch (priv->type) {
- 	case LWMI_EVENT_THERMAL_MODE:
--		if (obj->type != ACPI_TYPE_INTEGER)
--			return;
--
--		sel_prof = obj->integer.value;
-+		sel_prof = le32_to_cpup(buf->data);
- 
- 		switch (sel_prof) {
- 		case LWMI_GZ_THERMAL_MODE_QUIET:
-@@ -136,13 +135,8 @@ static void lwmi_events_notify(struct wmi_device *wdev, union acpi_object *obj)
- 		case LWMI_GZ_THERMAL_MODE_PERFORMANCE:
- 		case LWMI_GZ_THERMAL_MODE_EXTREME:
- 		case LWMI_GZ_THERMAL_MODE_CUSTOM:
--			ret = blocking_notifier_call_chain(&events_chain_head,
--							   LWMI_EVENT_THERMAL_MODE,
--							   &sel_prof);
--			if (ret == NOTIFY_BAD)
--				dev_err(&wdev->dev,
--					"Failed to send notification to call chain for WMI Events\n");
--			return;
-+			notif_data = &sel_prof;
-+			break;
- 		default:
- 			dev_err(&wdev->dev, "Got invalid thermal mode: %x",
- 				sel_prof);
-@@ -152,6 +146,13 @@ static void lwmi_events_notify(struct wmi_device *wdev, union acpi_object *obj)
- 	default:
- 		return;
+The missing refine is older than that commit, so the patch also halves
+the default fragment size on other cards that offer a format narrower
+than the one in use. On snd-dummy (U8 and S16_LE) with S16_LE, one
+channel at 48 kHz now gets 4096 bytes instead of 8192.
+
+With "ALSA: pcm: oss: Compare max buffer size in bytes" in for-next,
+the program above no longer fails, but it prints "block size 131072"
+until this patch is applied.
+
+Tested on for-linus (5a6fcabe156e) and for-next (486060b97284) with
+KASAN and lockdep. On snd-aloop, a grid of 1 to 128 channels at 8 to
+192 kHz gives the same results as before that commit, and SETFRAGMENT,
+mmap and a playback and capture pair work as before.
+
+ sound/core/oss/pcm_oss.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/sound/core/oss/pcm_oss.c b/sound/core/oss/pcm_oss.c
+index 66162caa45d4..3c2ac8966d5e 100644
+--- a/sound/core/oss/pcm_oss.c
++++ b/sound/core/oss/pcm_oss.c
+@@ -921,7 +921,8 @@ static int snd_pcm_oss_change_params_locked(struct snd_pcm_substream *substream)
+ 		goto failure;
  	}
-+
-+	ret = blocking_notifier_call_chain(&events_chain_head, priv->type, notif_data);
-+	if (ret == NOTIFY_BAD) {
-+		dev_err(&wdev->dev,
-+			"Failed to send notification to call chain for WMI event type %d\n",
-+			priv->type);
-+	}
- }
- 
- static int lwmi_events_probe(struct wmi_device *wdev, const void *context)
-@@ -185,7 +186,7 @@ static struct wmi_driver lwmi_events_driver = {
- 	.id_table = lwmi_events_id_table,
- 	.min_event_size = sizeof(u32),
- 	.probe = lwmi_events_probe,
--	.notify = lwmi_events_notify,
-+	.notify_new = lwmi_events_notify,
- 	.no_singleton = true,
- };
+  format_found:
+-	err = _snd_pcm_hw_param_set(sparams, SNDRV_PCM_HW_PARAM_FORMAT, sformat, 0);
++	err = snd_pcm_hw_param_set(substream, sparams,
++				   SNDRV_PCM_HW_PARAM_FORMAT, sformat, 0);
+ 	if (err < 0)
+ 		goto failure;
  
 
+base-commit: 5a6fcabe156e91c6ef2435a74f2d16e6dd39f7c7
 -- 
-2.55.0
+2.53.0
 
