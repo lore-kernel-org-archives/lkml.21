@@ -1,53 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.243.164.118
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.47
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795610905;
-	b=PJ2Uuu6laqJLxbskV/Nqa6KSQcznF+XrYI2BPpEpJ/15SMMH8zbt+F3gHhUv21S/FmTw
-	 /4CPbIHwPALM+zP+VJCrMOkZWnUBqXZdVGg5s3RUZC+6BecUF2b6loZ+Aw59IOIMgP/aS
-	 7ut87THFR/OGDHmfspM451JcD9ZPEhlth99noe1t2O7r/TPus7n6RXTT4SPhK9+AcoYxI
-	 50FVU216dnwdWOdvwAUoGMuUndj0P1T3Dz1qwEcBDpIMKmAAwrODKlAPGFO48y+7iLP+x
-	 6KaGG2F2QEoidIJGpozYDC3n3gm2WjyrrZTrxIv1qF6PlQ5XimnA3lfTOI+xspYI6IA==
+	t=1795610916;
+	b=IzT8Xfiyb8a4wwCk/nMAhdWTvtdebRIdAX2L0UM8b7t9Xnntb3rr1oSj2zVS/iGiufS6
+	 ZQqOXkOFY8sUMA2t2au1YdUI3UFMhwQGy2HKRyL4iJSEvxR27yr25Qgw/pFcFH5JUyRSD
+	 TQDDmtanvR4llyMfMxMF6dS7xT5K1NGdbQKDOPRHJCtzBUfPFqpgXZpADU36Y/vXB8BrG
+	 uk6K/YenzrlvCJ3FRk+HFy9SN/rrEDmUTLuqX5KqlJfp8l97+yDVvHlrSrCSdGBSJOZ+a
+	 UgfEjNd6MYgPjcXX5l2aUzpmeclcu3atkPqtUJx4dm1g5tOqGt7PfqhlVdVx5A6+BNQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795610905;
-	h=DMARC-Filter:Received:X-Originating-IP:Date:X-CM-HeaderCharset:From:
-	 To:Cc:Subject:X-Priority:X-Mailer:In-Reply-To:References:
-	 X-CM-CTRLMSGS:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	 Message-ID:X-Coremail-Locale:X-CM-TRANSID:X-CM-SenderInfo:
-	 X-Coremail-Antispam;
-	bh=AzxjHRCYssE/89GuyYUJRQOwKqpxUqi2dj3IS13YBjU=;
-	b=jH0a92LnLfre71Eces+XFxdknTGYSvoqwEQ9q9v73LD0eapJn1KieYQXndd6eF374syC
-	 4T29QyHP4Lmg0tXdzRlbHbYvAsuSc8/llhGYFHdYvY1DlzkkEQ+AeRCnArv/6Q5nep/Rk
-	 kHO8TLT12WJFRYq75kPD1DAO9L9SpKwB63GQ3ou5YCZ39P+Cw5flD3zP1RcYXD+9N2R8R
-	 7wS5Vl94+eKa2u37kLQwiwa4hlIvODEd+z1WZ/huANAwuZulhuOOE0lStidXSiSQ84nZB
-	 LsoGGpRw3Cc8WhN/anxSg7Zq9F5pTqiaUXMEugoWOIy9yFrNjYSu7qjHbS8ew3mR/3w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795610916;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:From:To:Cc:References:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=SAWXjGXaTZ1yifByDjbk7j6PeeVyExFOz8BWyY4y5x0=;
+	b=cBt7hQv5wjh8nHqrZ8N0qKyzhubJdHXJHW/mMZeXEkGhLe+asREnKZHHZbtSLvBInUsk
+	 +nMQg7y79pwfghQTq5KsltvxsXDjSgIwN7NbIJ9bikBu25wqXZsGQspL4OhBJE7kegZog
+	 4oRPFHftzOY964kgvKsqKYhPehgwcOUHnHTk+AXG+sx4+Kn9sDkaQXXtUBbWPBBvyjaLp
+	 nT8AuPh6VJPxQWsesjkGvRXwrciWZZgO2/8/sVNblo2uqp17o4QOpo5sMagGvHdc8eaEf
+	 AVZRCpYvYNE0xfBav5ejGR0Tc3CwJJ12PfFny/rTdr9KtdsbV0ndnGVuPXyus63T1CQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=hust.edu.cn;
-	spf=pass smtp.mailfrom=hust.edu.cn;
-	arc=none smtp.remote-ip=162.243.164.118
-Received: from zg8tmtyylji0my4xnjqumte4.icoremail.net (zg8tmtyylji0my4xnjqumte4.icoremail.net [162.243.164.118])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 4E792606A31E;
-	Wed, 25 Nov 2026 12:48:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4E792606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=hust.edu.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=hust.edu.cn
-Received: from xuhx$hust.edu.cn ( [10.12.190.107] ) by ajax-webmail-app2
- (Coremail) ; Wed, 25 Nov 2026 20:48:16 +0800 (GMT+08:00)
-Date: Wed, 25 Nov 2026 20:48:16 +0800 (GMT+08:00)
-X-CM-HeaderCharset: UTF-8
-From: =?UTF-8?B?5b6Q5pmX57+U?= <xuhx@hust.edu.cn>
-To: perex@perex.cz, tiwai@suse.com
-Cc: linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: [PATCH] Re: sound: timer: snd_utimer_fops lacks .owner, so an open
- user timer  fd does not pin snd-timer
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version 2025.3-cmXT6 build
- 20260810(6c94e3b5) Copyright (c) 2002-2026 www.mailtech.cn hust
-In-Reply-To: <1a84c621.2ad29.1a202429a8e.Coremail.xuhx@hust.edu.cn>
-References: <4c7f9772.192e1.1a17d5c2ed5.Coremail.xuhx@hust.edu.cn>
- <2026102727-data-sequel-ce41@gregkh>
- <1a84c621.2ad29.1a202429a8e.Coremail.xuhx@hust.edu.cn>
-X-CM-CTRLMSGS: =?B?R+PpbjiH6nJ5xwDR7hwMki1N8jM=
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset=UTF-8
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tc4LiAxI;
+	arc=none smtp.remote-ip=209.85.221.47
+Received: from mail-wr1-f47.google.com (mail-wr1-f47.google.com [209.85.221.47])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EBA67606A32A
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 12:48:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EBA67606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tc4LiAxI
+Received: by mail-wr1-f47.google.com with SMTP id ffacd0b85a97d-4a358881793so2973910f8f.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 04:48:35 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795610914; x=1796215714; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:content-language
+         :references:cc:to:from:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=SAWXjGXaTZ1yifByDjbk7j6PeeVyExFOz8BWyY4y5x0=;
+        b=tc4LiAxInFZjm0FZKU4AlIyL7VuUe+IeokgpJQK1fsNKpT2FV8j+GejfwjTBvCWagB
+         mSx2VwoB4EGPQG04Y8Vp+iiRcPXI99JGObgxyalebVsqxTAg9mNd83wAgYeLssb6nBGk
+         NnhWpX59iyE1gYfVLRYZeTfP+MwX2CPG9Hzr+lO1Cr55/pqGxjNjd2buwf8p6S7mHG57
+         a9kq5yICWU4KDQDC90VBuRCly2qnvQsEZTqvTd/WZSwwZtRed1QuzP5W9tP6fdpkEzdU
+         rluHlcVlTurEqA5ezu/HLHeRlJ6AS/skLrQY1EkXnXlNXzzXn4AlQLhNMFjPUCeStWx0
+         ujyQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795610914; x=1796215714;
+        h=content-transfer-encoding:content-type:in-reply-to:content-language
+         :references:cc:to:from:subject:user-agent:mime-version:date
+         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=SAWXjGXaTZ1yifByDjbk7j6PeeVyExFOz8BWyY4y5x0=;
+        b=ND3l6WWBU/jiYsGE0ugpxti5POnALbWJrx0+VjWISPdR6ixrJjBKRcsojR2b23OHKt
+         gpzMnF76sICcLvraDB6D+4yVsWfWHzYPoLUn8gDLtIzwhfi2U1pxD17ZAYI5Mt80/8eM
+         Xb18YeL0Z7w51UwlOTExbfTDbObKa7DJHYDZt3i/1trlyKNB6jp+fVdhCzEZhndZAr5G
+         H3eEIglN686yspXFugjjKU7Fak4VUzhhlW/turwFEUaTnMDq9fiFrzg+XNh7dq7AuxyA
+         MJMNgWOsAKA0grlB1jsdMbF4VC/pzYlAUAq6DRj2LBsGtN+uyQgSTxVg97YKhWuYUV0d
+         iKTg==
+X-Forwarded-Encrypted: i=1; AL+hErGvgvCbYIG2K8QgWR9voo2T92zrD49NDjfH+EOZUy3AUmLGop6ADKpVWcwj3+ostZD70l0JguKZRxgDav4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/hHxQ++rpBX5mvP8v7JpVC4A8ml2tVjdvgnXe3loKlnhojNJvk
+	0ayWZbWOLfmKAibNSYRR4SIBU0T1geNK7Kz2dV35Hf27daWcUHE0rsNQ
+X-Gm-Gg: AZFdTZdph+5rEsDonLUp0lJQHhgu+pm0tJkGjb/3lA+/kjt1nksv/fqAwV9xfAZQHJz
+	f50Afvh4ph2o4vMStBreb4/z//90DNmv+bkU7EPgoHdcfW8TCwLG0HUheocLr1NbYL14APpoFgs
+	/2LmrhA7TsS7f9+FTDWc4xNNWEfGmkaoaNkMa5TCBnx4P8FDx1s0VfFfFQIysxj+M+J3DKz2zLd
+	JX4g/ozKWWXA6aZV1+K4mvrOryIeoDp1DcDa0HjZl1lR1orizYWaALKlUCLJtgp9UKaqHdpWK4Y
+	GPeZDQ8viA+y0SPrOiBjBQBIZe2wGKlk8kDEBxhj/FId24kytkDr4iZVLSSDYnAiXIAZo3XlUJl
+	f0YHGmej+KMkdeZtbvE2E4pnGxW72q9uVq0o2Ctj4De647VzvBksafN8IuL2OEZRWh9FvgdG04d
+	OTGVQM9nnniehY4ouUPi6uFGIpwz/+QgaFgdfBdworoSncwcgywyIAs761Pi6B9uBtDrP/r4c2Q
+	iCNGM/eM7160Op3ynQm049v1pJMUGWQvZQN/GEG+4wRscjNZLKHM2t9cG6mRV6LOONxpN1sOq96
+	gwqzMgj2RFhtinjylGOpVVBt6Wjse4cqeSrDLkHr9bsldvQ0I7TM0eAkPVNME/3fWRT3BeKkOqN
+	tX7zJUwNLw3cW
+X-Received: by 2002:a5d:6f13:0:b0:491:3fdd:af42 with SMTP id ffacd0b85a97d-4abb5cc19b5mr30983044f8f.37.1795610914011;
+        Wed, 25 Nov 2026 04:48:34 -0800 (PST)
+Received: from [192.168.0.36] (firewall-214-232.seh.ox.ac.uk. [163.1.214.232])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ad6403fdbbsm25732393f8f.15.2026.11.25.04.48.33
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 25 Nov 2026 04:48:33 -0800 (PST)
+Message-ID: <c3e6cc57-a091-4342-bbb5-03b594c05fdf@gmail.com>
+Date: Wed, 25 Nov 2026 12:48:33 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,97 +91,111 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Message-ID: <4317d6a0.574.1a212bfe880.Coremail.xuhx@hust.edu.cn>
-X-Coremail-Locale: zh_CN
-X-CM-TRANSID:IQEQrMBGLxIQ2QZrJXcDAA--.4134W
-X-CM-SenderInfo: bgsqjkayqyjmo6kx23oohg3hdfq/1tbiAQICB2sGaXQ7IwAJsn
-X-Coremail-Antispam: 1Ur529EdanIXcx71UUUUU7IcSsGvfJ3iIAIbVAYjsxI4VWDJw
-	CS07vEb4IE77IF4wCS07vE1I0E4x80FVAKz4kxMIAIbVAFxVCaYxvI4VCIwcAKzIAtYxBI
-	daVFxhVjvjDU=
+User-Agent: Mozilla Thunderbird
+Subject: [PATCH 2/2] atlantic: skip hardware teardown when PCIe parent is
+From: Tobias Heath <heathtobias@gmail.com>
+To: Andreas Noever <andreas.noever@gmail.com>,
+ Mika Westerberg <westeri@kernel.org>, Yehezkel Bernat
+ <YehezkelShB@gmail.com>, Sukhdeep Singh <sukhdeeps@marvell.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Cc: Richard Cochran <richardcochran@gmail.com>, linux-usb@vger.kernel.org,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <8fbb5876-e556-45a1-96b5-4a8061de9e5d@gmail.com>
+ <31d3413a-9aa0-4208-8e15-3ba85829ef79@gmail.com>
+Content-Language: en-US
+In-Reply-To: <31d3413a-9aa0-4208-8e15-3ba85829ef79@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-c25kX3V0aW1lcl9mb3BzIGhhZCBubyAub3duZXIsIHNvIHRoZSBhbm9ueW1vdXMtaW5vZGUgZmQg
-Y3JlYXRlZCBieQpTTkRSVl9USU1FUl9JT0NUTF9DUkVBVEUgZGlkIG5vdCBob2xkIGEgcmVmZXJl
-bmNlIHRvIHRoZSBzbmQtdGltZXIKbW9kdWxlOiB0aGUgbW9kdWxlIGNvdWxkIGJlIHVubG9hZGVk
-IHdoaWxlIHRoZSBmZCB3YXMgb3BlbiwgYW5kIGEKbGF0ZXIgU05EUlZfVElNRVJfSU9DVExfVFJJ
-R0dFUiBvciBjbG9zZShmZCkgZXhlY3V0ZWQKc25kX3V0aW1lcl90cmlnZ2VyKCkvc25kX3V0aW1l
-cl9yZWxlYXNlKCkgZnJvbSB1bmxvYWRlZCBtb2R1bGUKdGV4dC4gICh1dGltZXItPnRpbWVyLT5t
-b2R1bGUgaXMgb25seSBjb25zdWx0ZWQgYnkgc25kX3RpbWVyX29wZW4oKSwKd2hpY2ggdGhlIGZk
-IG5ldmVyIGdvZXMgdGhyb3VnaC4pCgpBZGQgLm93bmVyID0gVEhJU19NT0RVTEUgc28gYW5vbl9p
-bm9kZV9nZXRmaWxlKCkgcGlucyB0aGUgbW9kdWxlCmZvciB0aGUgbGlmZXRpbWUgb2YgdGhlIGZk
-LCBhcyB1cHN0cmVhbSBkb2VzLgotLS0KIHNvdW5kL2NvcmUvdGltZXIuYyB8ICAxICsKIDEgZmls
-ZSBjaGFuZ2VkLCAxIGluc2VydGlvbigrKQoKZGlmZiAtLWdpdCBhL3NvdW5kL2NvcmUvdGltZXIu
-YyBiL3NvdW5kL2NvcmUvdGltZXIuYwotLS0gYS9zb3VuZC9jb3JlL3RpbWVyLmMKKysrIGIvc291
-bmQvY29yZS90aW1lci5jCkBAIC0yMTczLDYgKzIxNzMsNyBAQAogfQogCiBzdGF0aWMgY29uc3Qg
-c3RydWN0IGZpbGVfb3BlcmF0aW9ucyBzbmRfdXRpbWVyX2ZvcHMgPSB7CisJLm93bmVyCQk9CVRI
-SVNfTU9EVUxFLAogCS5sbHNlZWsJCT0Jbm9vcF9sbHNlZWssCiAJLnJlbGVhc2UJPQlzbmRfdXRp
-bWVyX3JlbGVhc2UsCiAJLnVubG9ja2VkX2lvY3RsCT0Jc25kX3V0aW1lcl9pb2N0bCwKCgo+IC0t
-LS0t5Y6f5aeL6YKu5Lu2LS0tLS0KPiDlj5Hku7bkuro6IOW+kOaZl+e/lCA8eHVoeEBodXN0LmVk
-dS5jbj4KPiDlj5HpgIHml7bpl7Q6MjAyNi0xMS0yMiAxNTo1NzoyOSAo5pif5pyf5pelKQo+IOaU
-tuS7tuS6ujogcGVyZXhAcGVyZXguY3osIHRpd2FpQHN1c2UuY29tCj4g5oqE6YCBOiBsaW51eC1z
-b3VuZEB2Z2VyLmtlcm5lbC5vcmcsIGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmcKPiDkuLvp
-opg6IHNvdW5kOiB0aW1lcjogc25kX3V0aW1lcl9mb3BzIGxhY2tzIC5vd25lciwgc28gYW4gb3Bl
-biB1c2VyIHRpbWVyICBmZCBkb2VzIG5vdCBwaW4gc25kLXRpbWVyCj4gCj4gU05EUlZfVElNRVJf
-SU9DVExfQ1JFQVRFIGNyZWF0ZXMgYSB1c2VyLWRyaXZlbiB0aW1lciBhbmQgcmV0dXJucyBhbgo+
-IGFub255bW91cyBpbm9kZSBmZCB3aG9zZSBmaWxlX29wZXJhdGlvbnMgaXMgc25kX3V0aW1lcl9m
-b3BzLiAgVGhhdAo+IHN0cnVjdHVyZSBoYXMgbm8gLm93bmVyID0gVEhJU19NT0RVTEUuICBhbm9u
-X2lub2RlX2dldGZpbGUoKSBvbmx5IGNhbGxzCj4gdHJ5X21vZHVsZV9nZXQoZm9wcy0+b3duZXIp
-IHdoZW4gb3duZXIgaXMgbm9uLU5VTEwsIHNvIHRoZSBmZCBkb2VzIG5vdAo+IGhvbGQgYSByZWZl
-cmVuY2UgdG8gdGhlIHNuZC10aW1lciBtb2R1bGUuICBUaGUgbW9kdWxlIGNhbiBiZSB1bmxvYWRl
-ZAo+IHdoaWxlIHRoZSBmZCBpcyBzdGlsbCBvcGVuOyBhIGxhdGVyIGlvY3RsKFNORFJWX1RJTUVS
-X0lPQ1RMX1RSSUdHRVIpIG9yCj4gY2xvc2UoZmQpIGNhbGxzIHNuZF91dGltZXJfdHJpZ2dlcigp
-L3NuZF91dGltZXJfcmVsZWFzZSgpIGluIHVubG9hZGVkCj4gbW9kdWxlIHRleHQuCj4gCj4gVGhl
-IG1vZHVsZSBmaWVsZCBkb2VzIG5vdCBzYXZlIHRoaXMgcGF0aDogdXRpbWVyLT50aW1lci0+bW9k
-dWxlIGlzIHNldAo+IHRvIFRISVNfTU9EVUxFIGluIHNuZF90aW1lcl9uZXcoKSwgYnV0IHRyeV9t
-b2R1bGVfZ2V0KCkgaXMgb25seSBjYWxsZWQgYnkKPiBzbmRfdGltZXJfb3BlbigpLCBhbmQgYSB1
-dGltZXIgZmQgbmV2ZXIgZ29lcyB0aHJvdWdoIHNuZF90aW1lcl9vcGVuKCkuCj4gc25kX3V0aW1l
-cl9jcmVhdGUoKSBhbHNvIGNhbGxzIHNuZF90aW1lcl9uZXcoTlVMTCwgLi4uKSwgc28gd2l0aCBj
-YXJkID09Cj4gTlVMTCBpdCBkb2VzIG5vdCBnbyB0aHJvdWdoIHNuZF9kZXZpY2VfbmV3KCk7IHNu
-ZF90aW1lcl9nbG9iYWxfcmVnaXN0ZXIoKQo+ICh0aW1lci5jOjExODgtMTE5NCkgb25seSBkb2Vz
-IHRoZSBkZXZpY2UtbGlzdCBpbnNlcnRpb24gYW5kIHRha2VzIG5vCj4gbW9kdWxlIHJlZmVyZW5j
-ZS4KPiAKPiBUaGlzIGlzIGEgc3RhdGljIHJlcG9ydDogdGhlIG1pc3NpbmcgLm93bmVyIGFuZCB0
-aGUgYW5vbl9pbm9kZSBsaWZldGltZQo+IGFyZSB1bmFtYmlndW91cywgYnV0IEkgZGlkIG5vdCBi
-dWlsZCBhIGR5bmFtaWMgcmVwcm9kdWNlciAoaXQgcmVxdWlyZXMKPiBDT05GSUdfU05EX1RJTUVS
-PW0gdG9nZXRoZXIgd2l0aCBDT05GSUdfU05EX1VUSU1FUj15KS4KPiAKPiBUaGUgZGV0YWlsZWQg
-ZGVzY3JpcHRpb246Cj4gCj4gKiBUZXN0IGVudmlyb25tZW50IC8gYWZmZWN0ZWQgdmVyc2lvbgo+
-IAo+ICAgU291cmNlIGFuYWx5c2lzIGFnYWluc3QgbWFpbmxpbmUgNy4zOyBubyBkeW5hbWljIHJl
-cHJvZHVjZXIgd2FzIHJ1bgo+ICAgZm9yIHRoaXMgY2FzZS4KPiAKPiAqIFJvb3QgY2F1c2UKPiAK
-PiAgIHNvdW5kL2NvcmUvdGltZXIuYzoyMTc1LTIxNzk6Cj4gCj4gICAgIHN0YXRpYyBjb25zdCBz
-dHJ1Y3QgZmlsZV9vcGVyYXRpb25zIHNuZF91dGltZXJfZm9wcyA9IHsKPiAgICAgICAgIC5sbHNl
-ZWsgICAgICAgID0gbm9vcF9sbHNlZWssCj4gICAgICAgICAucmVsZWFzZSAgICAgICA9IHNuZF91
-dGltZXJfcmVsZWFzZSwKPiAgICAgICAgIC51bmxvY2tlZF9pb2N0bCA9IHNuZF91dGltZXJfaW9j
-dGwsCj4gICAgIH07Cj4gCj4gICBNaXNzaW5nIC5vd25lciA9IFRISVNfTU9EVUxFLgo+IAo+ICAg
-c291bmQvY29yZS90aW1lci5jOjIyOTg6Cj4gCj4gICAgIHRpbWVyX2ZkID0gYW5vbl9pbm9kZV9n
-ZXRmZCh1dGltZXItPm5hbWUsICZzbmRfdXRpbWVyX2ZvcHMsIHV0aW1lciwKPiAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgIE9fUkRXUiB8IE9fQ0xPRVhFQyk7Cj4gCj4gICBmcy9hbm9u
-X2lub2Rlcy5jOjE0MS0xNDI6Cj4gCj4gICAgIGlmIChmb3BzLT5vd25lciAmJiAhdHJ5X21vZHVs
-ZV9nZXQoZm9wcy0+b3duZXIpKQo+ICAgICAgICAgcmV0dXJuIEVSUl9QVFIoLUVOT0VOVCk7Cj4g
-Cj4gICBvd25lciA9PSBOVUxMIC0+IG5vIG1vZHVsZSByZWZlcmVuY2UuICB1dGltZXItPnRpbWVy
-LT5tb2R1bGUgPQo+ICAgVEhJU19NT0RVTEUgKHRpbWVyLmM6MjI1MikgaXMgb25seSBjb25zdWx0
-ZWQgYnkgc25kX3RpbWVyX29wZW4oKSwKPiAgIHdoaWNoIHRoZSBmZCBkb2VzIG5vdCB1c2U7IHNu
-ZF90aW1lcl9nbG9iYWxfcmVnaXN0ZXIoKSBpcyBqdXN0Cj4gICBsaXN0X2FkZF90YWlsKCkgYW5k
-IGRvZXMgbm90IHRha2UgYSBtb2R1bGUgcmVmZXJlbmNlLgo+IAo+ICAgVXBzdHJlYW0gc25kX3V0
-aW1lcl9mb3BzIGhhcyAub3duZXIgPSBUSElTX01PRFVMRS4KPiAKPiAqIEZhaWx1cmUgbW9kZWwK
-PiAKPiAgIDEuIHVzZXIgaW9jdGwgU05EUlZfVElNRVJfSU9DVExfQ1JFQVRFIC0+IHNuZF91dGlt
-ZXJfY3JlYXRlKCkgLT4KPiAgICAgIGFub25faW5vZGVfZ2V0ZmQoKSB3aXRoIHRoZSBvd25lcmxl
-c3MgZm9wczsKPiAgIDIuIG5vIG90aGVyIHNuZC10aW1lciB1c2VyIC0+IHJtbW9kIHNuZC10aW1l
-ciBzdWNjZWVkczsKPiAgIDMuIHVzZXIgY2FsbHMgaW9jdGwoU05EUlZfVElNRVJfSU9DVExfVFJJ
-R0dFUikgb3IgY2xvc2UoZmQpOwo+ICAgNC4gc25kX3V0aW1lcl9pb2N0bCgpL3NuZF91dGltZXJf
-cmVsZWFzZSgpIGV4ZWN1dGUgZnJvbSB0aGUgdW5sb2FkZWQKPiAgICAgIG1vZHVsZSwgYW5kIGRl
-cmVmZXJlbmNlIHV0aW1lci0+dGltZXIgLyBjYWxsIHNuZF90aW1lcl9pbnRlcnJ1cHQoKS4KPiAK
-PiAgIFRoaXMgaXMgYSBtb2R1bGUtbGlmZXRpbWUgcmFjZSwgbm90IGEgZGF0YSByYWNlIG9uIGEg
-c2hhcmVkIGZpZWxkOyB0aGUKPiAgIGNvbmN1cnJlbmN5IGlzIHJtbW9kIHZzIGZkIG9wZXJhdGlv
-bi4KPiAKPiAqIFRyaWdnZXIgbW9kZWwKPiAKPiAgIC0gQ09ORklHX1NORF9USU1FUj1tIChtb2R1
-bGUpIGFuZCBDT05GSUdfU05EX1VUSU1FUj15Owo+ICAgLSBhIHVzZXIgY3JlYXRlcyBhIHV0aW1l
-ciBmZCB2aWEgL2Rldi9zbmQvdGltZXI7Cj4gICAtIHRoZSBtb2R1bGUgaXMgdW5sb2FkZWQgYmVm
-b3JlIHRoZSBmZCBpcyBjbG9zZWQ7Cj4gICAtIHRoZSBmZCBpcyB1c2VkICh0cmlnZ2VyIGlvY3Rs
-KSBvciBjbG9zZWQuCj4gCj4gICBSZXF1aXJlcyBsb2NhbCBhY2Nlc3MgdG8gL2Rldi9zbmQvdGlt
-ZXI7IG5vIGhhcmR3YXJlLgo+IAo+ICogSW1wYWN0Cj4gCj4gICAtIGV4ZWN1dGlvbiBvZiB1bmxv
-YWRlZCBtb2R1bGUgY29kZTogVUFGIGV4ZWN1dGlvbiwgY3Jhc2g7Cj4gICAtIGlmIHRoZSBtb2R1
-bGUgYWRkcmVzcyByYW5nZSBpcyByZXVzZWQsIHBvdGVudGlhbCBjb2RlIGV4ZWN1dGlvbjsKPiAg
-IC0gYXQgbWluaW11bSBhIGxvY2FsIERvUyAvIG1vZHVsZS11bmxvYWQgcmFjZS4KPiAKPiAqIFN1
-Z2dlc3RlZCBkaXJlY3Rpb24gCj4gCj4gICBBZGQgLm93bmVyID0gVEhJU19NT0RVTEUgdG8gc25k
-X3V0aW1lcl9mb3BzLiAgQWxzbyBjb25zaWRlciB3aGV0aGVyIHRoZQo+ICAgYW5vbi1pbm9kZSBw
-YXRoIHNob3VsZCBob2xkIGFuIGV4cGxpY2l0IG1vZHVsZSByZWZlcmVuY2UgZm9yIGNsYXJpdHk7
-Cj4gICAub3duZXIgaXMgdGhlIHN0YW5kYXJkIGZpeCBhbmQgbWF0Y2hlcyB1cHN0cmVhbS4KPiAg
-Cj4gCj4gICBQbGVhc2Uga2VlcCBtZSBpbiBDYzsgSSBhbSBub3Qgc3Vic2NyaWJlZCB0byB0aGUg
-bGlzdHMuCj4gCj4gUmVnYXJkcywKPiBIYW54aWFuZyBYdQo+IHh1aHhAaHVzdC5lZHUuY24K
+When the PCIe parent bridge of an atlantic NIC is removed - which
+happens routinely on laptops with Thunderbolt docks whenever the dock
+is physically disconnected while any sleep / power management cycle is
+in flight - the kernel enters a deadlock:
+
+  * pciehp_ist invokes pci_stop_and_remove_bus_device() on the atlantic
+    device; this acquires the device's lock and calls the driver's
+    .remove callback (aq_pci_remove).
+  * aq_pci_remove -> unregister_netdev -> aq_ndev_close -> aq_nic_stop
+    -> aq_vec_stop -> napi_disable -> napi_disable_locked.
+  * napi_disable_locked waits for NAPI_STATE_SCHED to clear in a
+    usleep_range loop. NAPI_STATE_SCHED is cleared by the poll
+    function (aq_vec_poll) calling napi_complete_done, but the poll
+    function reads the RX ring state over the (now disconnected) PCIe
+    bus: config reads return 0xffffffff, the poll never decides it has
+    quiesced, NAPI_STATE_SCHED never clears, and the loop spins
+    indefinitely.
+  * Every other device_resume waiting on the parent bridge blocks on
+    the mutex held by pciehp_ist; most visibly an async wiphy_resume
+    for the laptop's Wi-Fi, which DPM watchdog times out at 120 s,
+    panicking the kernel.
+
+The kernel already has the signal we need: pciehp calls
+pci_dev_set_disconnected() (which sets dev->error_state to
+pci_channel_io_perm_failure) via pci_walk_bus() before starting the
+device-removal walk. By the time aq_pci_remove() runs on a surprise-
+removed device, pci_dev_is_disconnected(pdev) is already true.
+
+aq_nic_deinit() in the same file already consults the equivalent
+c pci_device_is_present() for the firmware deinit path; aq_nic_stop()
+simply does not. This patch adds the check: when the PCIe parent is
+disconnected, skip the hardware-touch work (hw_irq_disable, aq_vec_stop
+with its napi_disable, aq_ptp_ring_stop, hw_stop) and still free the
+IRQs that need userspace-side cleanup. unregister_netdev() in the
+caller continues to free the NAPI structures on the kernel's side as
+normal.
+
+This mirrors the handling in Marvell's AQtion Windows driver
+(aqnic650.sys 3.1.10), which uses a "surprise_removed" flag set from
+NdisDevicePnPEventSurpriseRemoved to short-circuit every hardware
+code path while still completing software teardown. Static analysis of
+that driver confirmed both the pattern and the bounded wait times on
+its remaining hardware polls (1 s register poll, 2 s firmware mailbox)
+- details available on request.
+
+Before this patch, with a TB dock connected to the atlantic device,
+disconnecting the dock during any sleep or power transition caused a
+reproducible DPM-watchdog panic at T+120 s. With this patch, the
+teardown completes in milliseconds and the system continues normally.
+
+Signed-off-by: Tobias Heath <heathtobias@gmail.com>
+---
+ .../net/ethernet/aquantia/atlantic/aq_nic.c   | 21 +++++++++++++++++++
+ 1 file changed, 21 insertions(+)
+
+diff --git a/drivers/net/ethernet/aquantia/atlantic/aq_nic.c
+b/drivers/net/ethernet/aquantia/atlantic/aq_nic.c
+index 42e0fe924..0cca82974 100644
+--- a/drivers/net/ethernet/aquantia/atlantic/aq_nic.c
++++ b/drivers/net/ethernet/aquantia/atlantic/aq_nic.c
+@@ -1434,6 +1434,27 @@ int aq_nic_stop(struct aq_nic_s *self)
+ 	timer_delete_sync(&self->service_timer);
+ 	cancel_work_sync(&self->service_task);
+
++	/*
++	 * If the PCIe parent bridge was removed (e.g. a Thunderbolt dock
++	 * was physically unplugged while the kernel was mid-teardown),
++	 * the device's config space reads as all-ones. Register writes are
++	 * harmless no-ops, but napi_disable() waits for NAPI_STATE_SCHED
++	 * to clear via napi_complete_done() from the poll function, which
++	 * reads the RX ring state from dead hardware and never decides it
++	 * is done — the wait loop spins indefinitely. This matches the
++	 * Windows AQtion driver's handling of NdisDevicePnPEventSurpriseRemoved
++	 * (a "surprise_removed" flag short-circuits every hardware path
++	 * while still freeing software state).
++	 *
++	 * Skip the hardware-touching teardown; unregister_netdev() in the
++	 * caller takes care of the NAPI structures on the kernel side.
++	 */
++	if (pci_dev_is_disconnected(self->pdev)) {
++		if (!self->aq_nic_cfg.is_polling)
++			aq_pci_func_free_irqs(self);
++		return 0;
++	}
++
+ 	self->aq_hw_ops->hw_irq_disable(self->aq_hw, AQ_CFG_IRQ_MASK);
+
+ 	if (self->aq_nic_cfg.is_polling)
+-- 
+2.56.1
