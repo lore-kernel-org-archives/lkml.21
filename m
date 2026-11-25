@@ -1,75 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.197
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.253
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795606523;
-	b=oJaRNO1/8xF0jGtctKLnncqLIGmjZXqJHR62+UJuyBNz1bIwAJdjSzJJ68UdR1U1poHQ
-	 axOfvwXg+I19Uu8b5f6nisRDbdSWyHbcQ7ZBhX3vQ3uNwbJb5SYQVP8nd0tx8bvc+tWBx
-	 woNG8FlaGpyjXijEMdg4aWpNghwKBAm3kydlDhO4g6CQKnLUDTNH7hbBj4N65qkNwYdEB
-	 fNOnSugsZ6jmY5KD5im1mkbGyDHMd3MhTt88w88/EXWI5cRlGQXlRETAH5YVD+kZqqOID
-	 WYDOCSmMk0LgIECvr7Q2eacEwlm2cclqecqpZ39ensHhYJnpEfPqKyuaTjVRxucGEgQ==
+	t=1795606544;
+	b=CgtowTgPrA+V7n9LMesOQIhXQlsFJ1y2HYKDJB/NAZwez8wKSje3NXZotWb+eo2cQq54
+	 Z98UrhXqintI7pJHL/aR4jDuSfcRPgKhWbbQlXOP35RrLoLTsngiHFkCnvdWoH8vdFZLd
+	 VbCCZGfaBCuWLGBwzW0CsDAzbYxp5HEeO52f9xZlMr8Ly1bl8zvLwZ/HRu1ZAjrdLWUm0
+	 kGo+7N5Db1pg5yb7VelbUBqLa4pM4ji7WP+h6La21bS/2I3NZVRgulSQ0czK3RJyAMSDm
+	 cxWKw9RzOXWO5OkKkmxCsiZqN1q96sFR7oy+2KziFTA+a8q6svMRZbgjK/sG0zFWvEQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795606523;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
-	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
-	 Content-Type;
-	bh=F5GbJXNy2I8Y35zsER0NKITF5xwrl8SJ8GIitPAZ+TU=;
-	b=ZM077bHsU59IE3cJ0yNp7aARsX69jeNqicrS4ZSHT3c7JrAJ56SmW79OeUOj1Aaihozj
-	 L3IdFIvLLY8DkAz3tzR2wRyYxTo6EQO28boUkt3namCWODMAPc5QR4QKs5e4nmoetM0zf
-	 ILqacikacsQLSRVOzw6GcaVykp7m88BBbuQsTXrFaMTsJHxT7lPlDHTwz8hZAZWUx+DNM
-	 Apr114DcQWjzJvj6Ii3ysn7i4zqvJbWglyPwR8CT3+luPkXicOaAnnZ0Z3D8qpfJ/QUHb
-	 +b9cTwoF1kNYIBzDQNysspZGT8Gzu8iMpsaWbHoNjoZ3rZo6nSHhlu0D8cVE3T+mN7w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795606544;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=IYZQR2NWRm2aqXIEbQebL6wCc5yHIbEePswxQJEyMnU=;
+	b=0+lE50WnbNIobZNiFOuNFG/MeMowPe/G50zs4CNwMACCe1plQlFd0363MqSt0fg4I55C
+	 /MVu9cMz7UcZVyDPYahlM2fLy3AGKBdq9TuxRPYK5l1VdhJYbaIxo3azy0IWcBM3lnj4D
+	 IcXxUDcpnWU8NvZrhuHMAIrqrzt3hl8t8QN1KMTEwK1DEXqehIcjEzSYlwt0bJLKrrvy2
+	 44A6P7QOB0PUrKfQO8udyKNvXIUjDwFt1ezBMu1Kn5heKb+mubftuU/+D+CHFpBcyZJ/8
+	 4C/nNhkVWqXl147YgLR9jv60EIX4zSREgY8pIi6pp5pRDU/GVyYsbjzozJuBcGNMvSA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--powenkao.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b="Q/Zu0UzF";
-	arc=none smtp.remote-ip=74.125.82.197
-Received: from mail-dy1-f197.google.com (mail-dy1-f197.google.com [74.125.82.197])
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=LwAxmjWC;
+	arc=none smtp.remote-ip=95.215.58.253
+Received: from mta1.migadu.com (out-253.mta1.migadu.com [95.215.58.253])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1BEAA606A32D
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:35:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1BEAA606A32D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--powenkao.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 47FEC606A321
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:35:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 47FEC606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Q/Zu0UzF
-Received: by mail-dy1-f197.google.com with SMTP id 5a478bee46e88-38355b03cb8so5539309eec.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 03:35:21 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795606521; x=1796211321; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=F5GbJXNy2I8Y35zsER0NKITF5xwrl8SJ8GIitPAZ+TU=;
-        b=Q/Zu0UzFMQSzn4VYfiVOh5JIYGjjCtv2on8CoYCFN8BOJgYJbEdJUHgcdKpFEAXVG0
-         O2NJGUccsJvAK7bz3jHrkfrjZix/vWHJvWz6P/nJfV5hISuLXWuqeJECscUHKnVoQDRy
-         A/rgNBSWyPnumlEfQVIvmKu8lMK9CnCFYFKdzSTkfc7msUXgKxc7eanLi1dEJH8tA8YP
-         CkVmCd/BysRQiZIWtqOrOUtp2rb0b1jbRfLmWA/HVB1KaNANs8+NWVlyE43m/XYpteyo
-         TpoNiT6/ElCC2sfSltORXp4TKHgbtZRGF3XjOKG4Dgcbm3zgIuCyVYNfovFXXHFa2FV2
-         SrVw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795606521; x=1796211321;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=F5GbJXNy2I8Y35zsER0NKITF5xwrl8SJ8GIitPAZ+TU=;
-        b=hCHgZ7WwJ07fCGat62G46hBpASzdhhgCyGEaHGl5PVuvGxVS5WDsmMm8IXSs39x6nL
-         VvPqRMcQU76vU3fjbIEFSR8ZVrOx5FRGRqlh5AWu3JIMuMT6Il/9L1v7kKAg+0xb5FKC
-         lfxzN7+PWhto343fhlc3mtYqwY1iMKNEnm8bvx7vI2Eu4WsHnrGCaFL4WRZM1NPWuW9M
-         iD9rSpsuY4pi6TuqBmsF8N3BQatpi5bciQPdBrzAowqOUbI5vZc5rCb7/R06o9zlO2av
-         6/eoJ3k3SsE1JNxUKPdAIcALcICeYHz+aKnp6P1gzzRYuCN6aW+5XTvwGNB7Is9qp4PU
-         AuEA==
-X-Forwarded-Encrypted: i=1; AL+hErHXVlrm8zmvR5lWtULRX1ZzJdXqaxH1RqRgYx1WsYZ1+jafgw/7vjMGGAarcnqp63/B4ya3tHZOILGLPmo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8rCPpDDNNQ6t6lLkFO1YcEa9E0nL9K78FysTEAZxQhNPLXNUjp
-	mtw0lsJEvKB0oCS/WITRAfj2LezWkz8pzVPuytjOjSVRbhT2zw6kqB7MSp0HT1D+GBEOrl5EgDm
-	2wbfX1gTiBD5GLg==
-X-Received: from dyba9.prod.google.com ([2002:a05:693c:63c9:b0:386:a06c:3241])
- (user=powenkao job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:7300:601e:b0:376:6aea:ab with SMTP id 5a478bee46e88-3856c5b58e2mr18609383eec.3.1795606520710;
- Wed, 25 Nov 2026 03:35:20 -0800 (PST)
-Date: Wed, 25 Nov 2026 19:34:01 +0800
-In-Reply-To: <20261125113435.1426680-1-powenkao@google.com>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=LwAxmjWC
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=hyYSlPLEjHqHiuxc1EWVJHk/NKxvpHyxjjsLCf7xOrs=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795606541; v=1; x=1796211341;
+ b=LwAxmjWCu4z6VIUOybmhXd8R1IwJJJPysWeaGc4XNKu/zkAfAaLOFPDaQaWDusOsuf6EYUIu
+ 4f2PnxrMw1i59vJMLmKisq1uTiUuoSj9N9xKZ+8dXmKJ+zULN3ZVQ2K+Gwg7ovDvNzIUxJEyC0r
+ C9xCMVaIG3CS3hqRo40atMiY=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 236edbe9e403cc2d;
+	Wed, 25 Nov 2026 11:35:32 +0000
+X-Mizu-Trace-ID: 236edbe9e403cc2d
+X-Migadu-Flow: FLOW_OUT
+From: "Hui Zhu" <hui.zhu@linux.dev>
+To: "Andrew Morton" <akpm@linux-foundation.org>,
+	"Kairui Song" <kasong@tencent.com>,
+	"Qi Zheng" <qi.zheng@linux.dev>,
+	"Shakeel Butt" <shakeel.butt@linux.dev>,
+	"Barry Song" <baohua@kernel.org>,
+	"Axel Rasmussen" <axelrasmussen@google.com>,
+	"Yuanchu Xie" <yuanchu@google.com>,
+	"Wei Xu" <weixugc@google.com>,
+	"Baoquan He" <baoquan.he@linux.dev>,
+	"Baolin Wang" <baolin.wang@linux.alibaba.com>,
+	"Johannes Weiner" <hannes@cmpxchg.org>,
+	"David Hildenbrand" <david@kernel.org>,
+	"Michal Hocko" <mhocko@kernel.org>,
+	"Lorenzo Stoakes" <ljs@kernel.org>,
+	"Harry Yoo" <harry@kernel.org>,
+	linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org
+Cc: Hui Zhu <zhuhui@kylinos.cn>,
+	stable@vger.kernel.org
+Subject: [PATCH v3] mm: mglru: reset the mm iteration cursor in try_to_inc_max_seq_nowalk()
+Date: Wed, 25 Nov 2026 19:35:18 +0800
+Message-ID: <20261125113518.1207280-1-hui.zhu@linux.dev>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,345 +78,62 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-References: <20261125113435.1426680-1-powenkao@google.com>
-X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
-Message-ID: <20261125113435.1426680-4-powenkao@google.com>
-Subject: [PATCH v3 3/3] scsi: ufs: core: Add debugfs for PA TFS/FEC error counters
-From: Po-Wen Kao <powenkao@google.com>
-To: linux-scsi@vger.kernel.org
-Cc: Konstantin Vyshetsky <vkon@google.com>, Randall Huang <huangrandall@google.com>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, Bart Van Assche <bvanassche@acm.org>, 
-	Bean Huo <beanhuo@micron.com>, Stanley Jhu <stanleyjhu@google.com>, 
-	"James E . J . Bottomley" <James.Bottomley@HansenPartnership.com>, 
-	"Martin K . Petersen" <mkp@kernel.org>, Peter Wang <peter.wang@mediatek.com>, 
-	Can Guo <can.guo@oss.qualcomm.com>, linux-kernel@vger.kernel.org, 
-	Brian Kao <powenkao@google.com>, Li Qiang <liqiang01@kylinos.cn>, 
-	John Garry <john.garry@linux.dev>
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-From: Brian Kao <powenkao@google.com>
+From: Hui Zhu <zhuhui@kylinos.cn>
 
-MIPI UniPro v3.0 introduces the Transport Framing Structure (TFS) with
-Reed-Solomon Forward Error Correction (FEC) in the Physical Adapter
-(PA) layer, along with five PA MIB attributes (0x15C3-0x15C7) that
-count TFS frames with uncorrectable FEC errors, TFS CRC errors, TFS
-format errors, and 64-bit corrected FEC symbols. Exposing these
-counters allows observing pre-FEC symbol correction and framing errors
-for HS-G6 (1b1b) link-margin diagnostics without dropping the link.
+try_to_inc_max_seq_nowalk() advances mm_state->seq without walking the
+mm_list, but unlike iterate_mm_list_nowalk() it leaves head and tail
+alone. If it races with an ongoing page table walk, the cursor is left in
+the middle of the fifo.
 
-Define the PA_TFS_* attributes and UFS_UNIPRO_VER_{2_0,3_0} in
-include/ufs/unipro.h and expose the counters under debugfs:
+The next walker reads that as "this generation already started": it skips
+reset_bloom_filter() and resumes after the cursor. The mm it visits are
+the ones the aborted walk never reached, so they have no bits in the
+filter being read and walk_pmd_range() descends into none of their PMDs.
+Those mm miss a generation of accessed-bit harvesting, so their aging is
+less accurate and hot folios can be under-promoted. Eviction can still
+detect their references via rmap and lru_gen_look_around(), so this
+weakens aging rather than guaranteeing reclaim and refault.
 
-  /sys/kernel/debug/ufshcd/<dev>/pa_err_stats/{host,device}/
-    - fec_err_cnt
-    - crc_err_cnt
-    - format_err_cnt
-    - recovered_fec_symbols
+Reset head and tail with the seq increment, as iterate_mm_list_nowalk()
+does. It is safe: get_next_mm() holds an mmgrab() reference and a
+concurrent walker bails out at "walk->seq <= mm_state->seq" before
+touching head again.
 
-Skip creation entirely on hosts setting UFSHCD_QUIRK_BROKEN_UIC_CMD.
-Otherwise gate each subdirectory independently by UniPro version:
-host/ is created when PA_LOCALVERINFO reports UniPro >= 3.0, and
-device/ is created when PA_REMOTEVERINFO reports UniPro >= 3.0 (the
-pa_err_stats parent directory is omitted if neither is supported).
+Only reachable from memcg_reparent_objcgs() -> max_lru_gen_memcg(); not a
+memory safety issue, since lru_gen_del_mm() repoints head and tail under
+mm_list->lock.
 
-Each file reads the local (host) or peer (device) PA attribute and
-resets it to 0 when '0' is written. Because MIPI UniPro v3.0 does not
-define hardware latching between PA_TFS_RecErrorCountL and
-PA_TFS_RecErrorCountH, reads sample the high/low words with a bounded
-hi-lo-hi retry loop to avoid 32-bit rollover tearing, while writing 0
-to PA_TFS_RecErrorCountL clears the full 64-bit counter per Section
-5.6.7. Positive UIC command result codes are translated to standard
-negative errno values.
-
-Signed-off-by: Brian Kao <powenkao@google.com>
+Fixes: f304652609ea ("mm: vmscan: prepare for reparenting MGLRU folios")
+Cc: stable@vger.kernel.org
+Signed-off-by: Hui Zhu <zhuhui@kylinos.cn>
+Reviewed-by: Baoquan He <baoquan.he@linux.dev>
 ---
- drivers/ufs/core/ufs-debugfs.c | 230 ++++++++++++++++++++++++++++++++-
- include/ufs/unipro.h           |   9 +-
- 2 files changed, 237 insertions(+), 2 deletions(-)
+Changelog:
+v3:
+Reword the impact as weakened aging rather than guaranteed refault,
+noting the rmap/lru_gen_look_around() fallback (Barry Song).
+v2:
+Drop the helper and keep the fix open-coded (Baoquan He).
 
-diff --git a/drivers/ufs/core/ufs-debugfs.c b/drivers/ufs/core/ufs-debugfs.c
-index a3731dea11c7..4c8b6274434b 100644
---- a/drivers/ufs/core/ufs-debugfs.c
-+++ b/drivers/ufs/core/ufs-debugfs.c
-@@ -15,7 +15,10 @@ struct ufs_debugfs_attr {
- 	const struct file_operations	*fops;
- };
- 
--/* @file corresponds to a debugfs attribute in directory hba->debugfs_root. */
-+/*
-+ * @file corresponds to a debugfs attribute whose parent directory stores
-+ * hba in i_private.
-+ */
- static inline struct ufs_hba *hba_from_file(const struct file *file)
- {
- 	return d_inode(file->f_path.dentry->d_parent)->i_private;
-@@ -206,6 +209,229 @@ static const struct file_operations ufs_saved_err_fops = {
- 	.release	= single_release,
- };
- 
-+#define UFS_PA_ERR_REC_READ_RETRIES	3
-+
-+struct ufs_pa_err_attr {
-+	const char *name;
-+	u32 mib_attr;
-+};
-+
-+static int ufs_dme_err_to_errno(int err)
-+{
-+	if (err <= 0)
-+		return err;
-+
-+	switch (err) {
-+	case UIC_CMD_RESULT_INVALID_ATTR:
-+		return -EOPNOTSUPP;
-+	case UIC_CMD_RESULT_INVALID_ATTR_VALUE:
-+		return -EINVAL;
-+	case UIC_CMD_RESULT_READ_ONLY_ATTR:
-+		return -EPERM;
-+	case UIC_CMD_RESULT_BUSY:
-+		return -EBUSY;
-+	default:
-+		return -EIO;
-+	}
-+}
-+
-+static int ufs_pa_err_read_rec_cnt(struct ufs_hba *hba, u8 peer, u64 *val)
-+{
-+	u32 hi_before, lo, hi_after;
-+	int err, retry;
-+
-+	/*
-+	 * MIPI UniPro v3.0 Section 5.6.7 defines PA_TFS_RecErrorCountH and
-+	 * PA_TFS_RecErrorCountL as separate 32-bit MIB attributes without
-+	 * latching the upper word on a low-word read. Sample hi-lo-hi to
-+	 * avoid 32-bit rollover tearing.
-+	 */
-+	for (retry = 0; retry < UFS_PA_ERR_REC_READ_RETRIES; retry++) {
-+		err = ufshcd_dme_get_attr(hba,
-+					  UIC_ARG_MIB(PA_TFS_RECERRORCOUNTH),
-+					  &hi_before, peer);
-+		if (err)
-+			return ufs_dme_err_to_errno(err);
-+
-+		err = ufshcd_dme_get_attr(hba,
-+					  UIC_ARG_MIB(PA_TFS_RECERRORCOUNTL),
-+					  &lo, peer);
-+		if (err)
-+			return ufs_dme_err_to_errno(err);
-+
-+		err = ufshcd_dme_get_attr(hba,
-+					  UIC_ARG_MIB(PA_TFS_RECERRORCOUNTH),
-+					  &hi_after, peer);
-+		if (err)
-+			return ufs_dme_err_to_errno(err);
-+
-+		if (hi_before == hi_after) {
-+			*val = ((u64)hi_after << 32) | lo;
-+			return 0;
-+		}
-+	}
-+
-+	return -EAGAIN;
-+}
-+
-+static int ufs_pa_err_cnt_show(struct seq_file *s, void *data)
-+{
-+	const struct ufs_pa_err_attr *attr = s->private;
-+	struct ufs_hba *hba = hba_from_file(s->file);
-+	u8 peer = debugfs_get_aux_num(s->file);
-+	int err;
-+
-+	if (!hba->ufs_device_wlun)
-+		return -ENODEV;
-+
-+	err = ufs_debugfs_get_user_access(hba);
-+	if (err)
-+		return err;
-+
-+	if (hba->ufshcd_state != UFSHCD_STATE_OPERATIONAL) {
-+		err = -EBUSY;
-+		goto out;
-+	}
-+
-+	if (attr->mib_attr == PA_TFS_RECERRORCOUNTL) {
-+		u64 val;
-+
-+		err = ufs_pa_err_read_rec_cnt(hba, peer, &val);
-+		if (!err)
-+			seq_printf(s, "%llu\n", val);
-+	} else {
-+		u32 val;
-+
-+		err = ufshcd_dme_get_attr(hba, UIC_ARG_MIB(attr->mib_attr),
-+					  &val, peer);
-+		err = ufs_dme_err_to_errno(err);
-+		if (!err)
-+			seq_printf(s, "%u\n", val);
-+	}
-+
-+out:
-+	ufs_debugfs_put_user_access(hba);
-+	return err;
-+}
-+
-+static ssize_t ufs_pa_err_cnt_write(struct file *file, const char __user *buf,
-+				    size_t count, loff_t *ppos)
-+{
-+	const struct ufs_pa_err_attr *attr = file->f_inode->i_private;
-+	struct ufs_hba *hba = hba_from_file(file);
-+	u8 peer = debugfs_get_aux_num(file);
-+	unsigned int val;
-+	int err;
-+
-+	if (!hba->ufs_device_wlun)
-+		return -ENODEV;
-+
-+	err = kstrtouint_from_user(buf, count, 0, &val);
-+	if (err)
-+		return err;
-+
-+	if (val != 0)
-+		return -EINVAL;
-+
-+	err = ufs_debugfs_get_user_access(hba);
-+	if (err)
-+		return err;
-+
-+	if (hba->ufshcd_state != UFSHCD_STATE_OPERATIONAL) {
-+		err = -EBUSY;
-+		goto out;
-+	}
-+
-+	/*
-+	 * Writing 0 resets the selected counter. For recovered_fec_symbols
-+	 * (PA_TFS_RECERRORCOUNTL), setting the low word clears the entire
-+	 * 64-bit PA_TFS_RecErrorCount counter per MIPI UniPro v3.0
-+	 * Section 5.6.7.
-+	 */
-+	err = ufshcd_dme_set_attr(hba, UIC_ARG_MIB(attr->mib_attr),
-+				  ATTR_SET_NOR, 0, peer);
-+	err = ufs_dme_err_to_errno(err);
-+
-+out:
-+	ufs_debugfs_put_user_access(hba);
-+	return err ? err : count;
-+}
-+
-+static int ufs_pa_err_cnt_open(struct inode *inode, struct file *file)
-+{
-+	return single_open(file, ufs_pa_err_cnt_show, inode->i_private);
-+}
-+
-+static const struct file_operations ufs_pa_err_cnt_fops = {
-+	.owner		= THIS_MODULE,
-+	.open		= ufs_pa_err_cnt_open,
-+	.read		= seq_read,
-+	.write		= ufs_pa_err_cnt_write,
-+	.llseek		= seq_lseek,
-+	.release	= single_release,
-+};
-+
-+static const struct ufs_pa_err_attr ufs_pa_err_attrs[] = {
-+	{ "fec_err_cnt", PA_TFS_FECERRORCOUNT },
-+	{ "crc_err_cnt", PA_TFS_CRCERRORCOUNT },
-+	{ "format_err_cnt", PA_TFS_FORMATERRORCOUNT },
-+	{ "recovered_fec_symbols", PA_TFS_RECERRORCOUNTL },
-+	{ }
-+};
-+
-+static enum ufs_unipro_ver ufs_get_unipro_ver(struct ufs_hba *hba, u8 peer)
-+{
-+	u32 attr = peer == DME_PEER ? PA_REMOTEVERINFO : PA_LOCALVERINFO;
-+	u32 val;
-+
-+	/* PA_REMOTEVERINFO is a local MIB attribute cached at link startup. */
-+	if (ufshcd_dme_get(hba, UIC_ARG_MIB(attr), &val))
-+		return UFS_UNIPRO_VER_RESERVED;
-+
-+	return val & UFS_UNIPRO_VER_MASK;
-+}
-+
-+static void ufs_debugfs_pa_err_create_dir(struct ufs_hba *hba,
-+					  struct dentry *parent,
-+					  const char *name, u8 peer)
-+{
-+	const struct ufs_pa_err_attr *pa_attr;
-+	struct dentry *sub_dir;
-+
-+	sub_dir = debugfs_create_dir(name, parent);
-+	if (IS_ERR_OR_NULL(sub_dir))
-+		return;
-+
-+	d_inode(sub_dir)->i_private = hba;
-+	for (pa_attr = ufs_pa_err_attrs; pa_attr->name; pa_attr++)
-+		debugfs_create_file_aux_num(pa_attr->name, 0600, sub_dir,
-+					    (void *)pa_attr, peer,
-+					    &ufs_pa_err_cnt_fops);
-+}
-+
-+static void ufs_debugfs_pa_err_init(struct ufs_hba *hba)
-+{
-+	bool host_sup, dev_sup;
-+	struct dentry *pa_dir;
-+
-+	if (hba->quirks & UFSHCD_QUIRK_BROKEN_UIC_CMD)
-+		return;
-+
-+	host_sup = ufs_get_unipro_ver(hba, DME_LOCAL) >= UFS_UNIPRO_VER_3_0;
-+	dev_sup = ufs_get_unipro_ver(hba, DME_PEER) >= UFS_UNIPRO_VER_3_0;
-+	if (!host_sup && !dev_sup)
-+		return;
-+
-+	pa_dir = debugfs_create_dir("pa_err_stats", hba->debugfs_root);
-+	if (IS_ERR_OR_NULL(pa_dir))
-+		return;
-+
-+	if (host_sup)
-+		ufs_debugfs_pa_err_create_dir(hba, pa_dir, "host", DME_LOCAL);
-+	if (dev_sup)
-+		ufs_debugfs_pa_err_create_dir(hba, pa_dir, "device", DME_PEER);
-+}
-+
- static const struct ufs_debugfs_attr ufs_attrs[] = {
- 	{ "stats", 0400, &ufs_debugfs_stats_fops },
- 	{ "saved_err", 0600, &ufs_saved_err_fops },
-@@ -497,6 +723,8 @@ void ufs_debugfs_hba_init(struct ufs_hba *hba)
- 	debugfs_create_u32("exception_event_rate_limit_ms", 0600, hba->debugfs_root,
- 			   &hba->debugfs_ee_rate_limit_ms);
- 
-+	ufs_debugfs_pa_err_init(hba);
-+
- 	if (!(hba->caps & UFSHCD_CAP_TX_EQUALIZATION))
- 		return;
- 
-diff --git a/include/ufs/unipro.h b/include/ufs/unipro.h
-index 9c168703b104..27f15ac7c0ef 100644
---- a/include/ufs/unipro.h
-+++ b/include/ufs/unipro.h
-@@ -200,6 +200,11 @@
- #define PA_PACPFRAMECOUNT	0x15C0
- #define PA_PACPERRORCOUNT	0x15C1
- #define PA_PHYTESTCONTROL	0x15C2
-+#define PA_TFS_FECERRORCOUNT	0x15C3
-+#define PA_TFS_CRCERRORCOUNT	0x15C4
-+#define PA_TFS_FORMATERRORCOUNT	0x15C5
-+#define PA_TFS_RECERRORCOUNTL	0x15C6
-+#define PA_TFS_RECERRORCOUNTH	0x15C7
- #define PA_TXHSG4SYNCLENGTH	0x15D0
- #define PA_PEERRXHSG4ADAPTINITIAL		0x15D3
- #define PA_TXHSADAPTTYPE	0x15D4
-@@ -391,7 +396,9 @@ enum ufs_unipro_ver {
- 	UFS_UNIPRO_VER_1_6  = 3, /* UniPro version 1.6 */
- 	UFS_UNIPRO_VER_1_61 = 4, /* UniPro version 1.61 */
- 	UFS_UNIPRO_VER_1_8  = 5, /* UniPro version 1.8 */
--	UFS_UNIPRO_VER_MAX  = 6, /* UniPro unsupported version */
-+	UFS_UNIPRO_VER_2_0  = 6, /* UniPro version 2.0 */
-+	UFS_UNIPRO_VER_3_0  = 7, /* UniPro version 3.0 */
-+	UFS_UNIPRO_VER_MAX  = 8, /* UniPro unsupported version */
- 	/* UniPro version field mask in PA_LOCALVERINFO */
- 	UFS_UNIPRO_VER_MASK = 0xF,
- };
+ mm/vmscan.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/mm/vmscan.c b/mm/vmscan.c
+index 6a1af9b92349..3601e58f2a69 100644
+--- a/mm/vmscan.c
++++ b/mm/vmscan.c
+@@ -4694,6 +4694,8 @@ static void try_to_inc_max_seq_nowalk(struct mem_cgroup *memcg,
+ 		spin_lock(&mm_list->lock);
+ 		VM_WARN_ON_ONCE(mm_state->seq + 1 < max_seq);
+ 		if (max_seq > mm_state->seq) {
++			mm_state->head = NULL;
++			mm_state->tail = NULL;
+ 			WRITE_ONCE(mm_state->seq, mm_state->seq + 1);
+ 			success = true;
+ 		}
 -- 
-2.56.1.839.g22a8290db9-goog
+2.53.0
 
