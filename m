@@ -1,71 +1,71 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.20
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795650570;
-	b=WMP2TphafuYV9NNbjL5wqvb52vSZSAzfRRTB6akkAseP4tRTqTyuAwo2dinRdVQfwK3D
-	 b7+U5ZU+JCnGaURlEnewYy/CCOwwLnD9JEcwcf8Xm57UyLScF2oAtkIhVK11UIph+supK
-	 2Wcb8zubRpxOQ+dgaNJOUcuVdNLtKtLWQvmNNCi9sC1uuXHqY4yUBajhwRNEdIsihIzbA
-	 7BJJ754iwpFTKXlCTuUc3gyy28u1qPJUy0kMO3ShbRAH5kWDIEYfE5epUNr/OrWv/vHz1
-	 x6/3PE1gesvSiZ8h3x90PgtOi1x0gctprCr3nvpKWpMuje1OsDTkt+Br/qWAbUKlSlQ==
+	t=1795650571;
+	b=L7XTVTk1xteXlPU3ZWVOnuzoxifFpYZczAmunOQw5PqJuot7hPmtAVNHn4yv7g64QHLi
+	 qnHVu1thGZeEJq4pr7vCl2IYM5FJ+Mux76wEt6yqBBl8gLnv4ghDnxrl9pwOUkkpKn7/Y
+	 wqFry2a7s1yJdBW4MGCtdE4kh/u0F9XBV3UvokitABfbqtF63YYYFIUu4KedVQLx/KcFH
+	 8lFwL2qrt0zfgJQrhSZchAPOuvZ8aShsVGyBuGIWlqTiIhIeEuVCW3yRe+cOtBCd00yFb
+	 IuvtkzoKVmX78RzEs+1cZdnohOyg9HOlZC/yfQ7CrqY6yWgr9fOACIcL/fv+2EOUPTw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795650570;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795650571;
 	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
 	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
 	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:Date:Subject:
 	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
 	 References:In-Reply-To:To:Cc:X-Mailer:X-Developer-Signature:
 	 X-Developer-Key;
-	bh=gfPcNX4bbTKVnXvCTMztOnEr2/tp7JmTvodvT0fKx0g=;
-	b=y0uqF78ezwZE+u6ZtEPKLcvD3kZCaQJxk22gkhXp9l5fAPYcSQLtahxBXilwXyzw7nfh
-	 Vhzk4mDdd+0E3Sq3uYwYsVqdImcK1NGKhaDIIgYcAkz+kGSNMg2/KjuzyWBj/ErhIfzh9
-	 q4p2ExBS4oLTQeAJ+St30Cl/vYK5imO8CdmrGknX4nq2L1+1oTnZc1tbKLjO7ynOzRRb0
-	 Fl39o0rb+uLjF7WQBGPRA77JVDNR8UpW95cauwszsNABXLWvovxZFKXgAr2Hcyxqi83+y
-	 wfsqA8oqqZJdxnRbbaZjvxeca7ZnPs/H1Lkqahw7uLXYlGSNBL/DZLJOVrGd/6jkr2w==
+	bh=e92ZLgyv43DW4+iLoQJON+BXd9n0G30K931pNk1s2Bs=;
+	b=yTMwWO33Odjq4RMOHPbNG6p55MnbYrNJQd1CsPFd2CSNMVa153GAHhThnaDJKwoWAAWz
+	 QU1lZClHWG4ABTkAXUSBE1lTzZ057eALWcjbG8I9ECg1bLx+BUlsawX43vSigvELp8B92
+	 ULf5jk5cIe4EfH9RhE4NZgLDv4DEcgLl+LAgu/AJXcslfrPcNKMJhKQGaTThD8A55+JNl
+	 jg/6/zeV4KgHFsWMf81w8coQuxGE/ghT7bckNDM+2FHXBl0LYeNg1P5IFxx/iisi4fMsh
+	 mRY/Hd89XorfUes2rAxiZpSMarjRKJk9v+sdY5h4cxdGDUrA1WsGr7v8GzjOx6LPVcg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=intel.com;
 	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=chjAtC8P;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=j0lq6Qj3;
 	arc=none smtp.remote-ip=198.175.65.20
 Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.20])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 43ED4606A331;
-	Wed, 25 Nov 2026 23:49:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 43ED4606A331
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5D8DA606A69B;
+	Wed, 25 Nov 2026 23:49:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5D8DA606A69B
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=chjAtC8P
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=j0lq6Qj3
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795650570; x=1827186570;
+  t=1795650571; x=1827186571;
   h=from:date:subject:mime-version:content-transfer-encoding:
    message-id:references:in-reply-to:to:cc;
-  bh=u9B0sxZHefYVQgS0QTVDcDKp8P+kuKNGjuiMaWOmfzQ=;
-  b=chjAtC8PpB+L9sWd7SZJrr/qPEISihr23GZQ/i0U2FEVGecAytH8aEuZ
-   HOWheAc58pzpk1EuAkWoVIh87EtRMMjkTio/oDRKLu7pKZ/M3Mxcadb6F
-   t3uiR/wZN9vRsZ9RwcOp8eyUyeOLUnrg8d4MOhrKNRz/8flMczUlIFGnP
-   yMt5TfxCoc3f8hVJLmqceVWq89JJhw8SgcPa7EV7Hfug6ch4SilBlst32
-   ddec2AWwWITkx22WIwO4uZYt+Q17pn+A4ooLt2RtezB4KgbLNiKDXfpVF
-   eTTo0DKB6piIm53ieS5BMAL11g+Iwedx58V3qQzPenpsCMPnP3H9xJTzL
+  bh=He47DOxr2tBFIxi3qnNjnJEH4ZgERRHYlx8I0sGLPbM=;
+  b=j0lq6Qj3zF1oaWOJor9WPSmOP8wzLaptJtOZkk7OStzuwleX6nZbDkGu
+   cTiNWdoYyhQhfQeVpMqXsG1kaN37AETPm571WqRTne8waoofJ4rSfFf2R
+   o/YhJk5eXgbtaiMhOsr3oT0RDEzoCR82DS/cchrZOszCxDtAhTk66EK6q
+   Od9n5zAMhqRdc8Z62CEoPwvLL4MceSOBl/MNYn51iCdnk2uPZC/BYc+P4
+   fWAe8x3UVnUp6WOPOpH0Y0DjTI+GkqjL8MqPJTyh8g8ob/3QPdHPKK3cT
+   m8u0QVr+CLFXKFFNtO3ZOHvvVQmeigQhYNRhI+hwwyhAM7FuphpWTFfd0
    g==;
-X-CSE-ConnectionGUID: 6veroFftRc6QeklUVtBMbA==
-X-CSE-MsgGUID: gKa1rmBaRkipsOC+Qx4NhQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4597280"
+X-CSE-ConnectionGUID: Ldi2tFPxR2+RweDA1MDbHw==
+X-CSE-MsgGUID: 4uagLiunSZmIbRg310Vm3g==
+X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4597300"
 X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
-   d="scan'208";a="4597280"
+   d="scan'208";a="4597300"
 Received: from orviesa004.jf.intel.com ([10.64.159.144])
   by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 15:49:28 -0800
-X-CSE-ConnectionGUID: AHBmS1oAR8ur12Mgxq9d8w==
-X-CSE-MsgGUID: 0qj+fRvySHCKVqSxMiIqaA==
+X-CSE-ConnectionGUID: clh5kSY6QtGaB7AgMenHEA==
+X-CSE-MsgGUID: nnkWNz9yRdSmqBeG9YIsRA==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
-   d="scan'208";a="11873831"
+   d="scan'208";a="11873847"
 Received: from vcostago-desk.jf.intel.com (HELO [10.241.240.61]) ([10.241.240.61])
   by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 15:49:28 -0800
 From: Vinicius Costa Gomes <vinicius.gomes@intel.com>
-Date: Wed, 25 Nov 2026 15:49:01 -0800
-Subject: [PATCH v2 3/8] dmaengine: idxd: fix duplicate memory frees on
- initialization error path
+Date: Wed, 25 Nov 2026 15:49:06 -0800
+Subject: [PATCH v2 8/8] dmaengine: idxd: Don't flush the descriptors on
+ terminate_all()
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,102 +77,205 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261125-wt-idxd-fixes-v2-3-25a4691dfb9e@intel.com>
+Message-Id: <20261125-wt-idxd-fixes-v2-8-25a4691dfb9e@intel.com>
 References: <20261125-wt-idxd-fixes-v2-0-25a4691dfb9e@intel.com>
 In-Reply-To: <20261125-wt-idxd-fixes-v2-0-25a4691dfb9e@intel.com>
 To: Dave Jiang <dave.jiang@intel.com>, Vinod Koul <vkoul@kernel.org>, 
  Frank Li <Frank.Li@kernel.org>, Fenghua Yu <fenghuay@nvidia.com>, 
  Shuai Xue <xueshuai@linux.alibaba.com>
 Cc: dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Vinicius Costa Gomes <vinicius.gomes@intel.com>, 
- Steve Wahl <steve.wahl@hpe.com>, stable@vger.kernel.org, 
- Bogdan Codres <bogdan.codres@windriver.com>, 
- Jingyi Li <jinli@purestorage.com>
+ Vinicius Costa Gomes <vinicius.gomes@intel.com>
 X-Mailer: b4 0.17-dev-1b309
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795650562; l=3036;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795650562; l=6632;
  i=vinicius.gomes@intel.com; s=20230921; h=from:subject:message-id;
- bh=NzSRWzJZSCmKtxBoVqjiPB0MqoXOr18RfiTudfP54ko=;
- b=tnFhh69M9WEYzBkJVhBpffsJ4vXCXKDgC1toTTVs2k7HXANo4XloT939IB73MutvQ6EGHC6LO
- hgm15mL1BzyCjp1qp/bi5AtL+ShhfvDe8owlaPEqTKayJe3GIIQRaMB
+ bh=He47DOxr2tBFIxi3qnNjnJEH4ZgERRHYlx8I0sGLPbM=;
+ b=8iGCgBl+wuneUoBZv4eUr1QBd0b1ag1XPs2Gpvy/1YGVbmvQW+PSVKDno7EzBGeWiEe8snBjF
+ /OCTvJgWSwCAYHwgi5Zrs7+Q5Xs5aiBBQPnL6nCTA2NNGOPBJh4zw7K
 X-Developer-Key: i=vinicius.gomes@intel.com; a=ed25519;
  pk=aJkrtgqgT6TZ8iIHSG8/rTPsmlYnjMrUjCsMYvCzntk=
 
-From: Steve Wahl <steve.wahl@hpe.com>
+idxd_dma_terminate_all() has two problems:
 
-Error paths within idxd_pci_probe_alloc() and related functions end up
-attempting to free memory already freed from idxd_conf_device_release()
-via put_device().
+- It unmaps and frees the pending descriptors while the device may
+  still process them. The device can then write to unmapped buffers,
+  or to the completion record of a reused descriptor.
 
-This was encountered running in a kexec'd kdump kernel with reduced
-resources, causing the "Device is HALTED!" branch in
-idxd_device_init_reset() to be taken.
+- It takes wq->wq_lock, a mutex, but terminate_all() can be called from
+  atomic context and must not sleep.
 
-[   18.628791] idxd 0000:00:01.0: Device is HALTED!
-[   18.631447] idxd 0000:00:01.0: Intel(R) IDXD DMA Engine init failed
-[   18.631450] ------------[ cut here ]------------
-[   18.631451] ida_free called for id=0 which is not allocated.
-[   18.631462] WARNING: CPU: 0 PID: 11 at lib/idr.c:525 ida_free+0xd3/0x130
-[   18.631474] CPU: 0 UID: 0 PID: 11 Comm: kworker/0:1 Not tainted 6.12.0-1-rt-amd64 #1
-[   18.631477] Hardware name: Dell Inc. PowerEdge XR8720t/0J91KV, BIOS 1.1.3 02/03/2026
-[   18.631478] Workqueue: events work_for_cpu_fn
-[   18.631480] RIP: 0010:ida_free+0xd3/0x130
-[   18.631492] Call Trace:
-[   18.631494]  <TASK>
-[   18.631495]  idxd_pci_probe+0x1b0/0x1860 [idxd]
-[   18.631506]  local_pci_probe+0x43/0xa0
-[   18.631508]  work_for_cpu_fn+0x13/0x20
-[   18.631510]  process_one_work+0x179/0x390
-[   18.631512]  worker_thread+0x237/0x340
-[   18.631517]  kthread+0xc6/0x100
-[   18.631520]  ret_from_fork+0x2d/0x50
-[   18.631524]  ret_from_fork_asm+0x1a/0x30
-[   18.631526]  </TASK>
+terminate_all() only has to keep the callbacks of the terminated
+transfers from running. Mark the channel terminated, and skip the
+callbacks while it is marked. synchronize() does the rest:
 
-In idxd_free() and idxd_alloc(), do not attempt to free allocations that
-will already have been freed.
+ idxd_dma_synchronize()
+ |-idxd_wq_drain()
+ |   The device has completed every descriptor.
+ |-synchronize_irq()
+ |   The IRQ thread has put back what it found still running.
+ |-idxd_flush_pending_descs()
+ |-synchronize_irq()
+ |   The IRQ thread is done with what it took before the flush.
+ \-Clear the mark.
 
-Fixes: 90022b3a6981 ("dmaengine: idxd: fix memory leak in error handling path of idxd_pci_probe")
-Fixes: 46a5cca76c76 ("dmaengine: idxd: fix memory leak in error handling path of idxd_alloc")
-Cc: stable@vger.kernel.org
-Reported-by: Bogdan Codres <bogdan.codres@windriver.com>
-Link: https://lore.kernel.org/all/akLBL7b2h73pK0AC@ilogsc-qemu.local/
-Signed-off-by: Steve Wahl <steve.wahl@hpe.com>
-Tested-by: Jingyi Li <jinli@purestorage.com>
-Reviewed-by: Dave Jiang <dave.jiang@intel.com>
+The flush holds a wq_active reference, not wq->wq_lock:
+dma_release_channel() calls synchronize() with dma_list_mutex held, and
+idxd_dmaengine_drv_remove() takes dma_list_mutex under wq->wq_lock. The
+remove path waits for the wq_active references before it frees the
+descriptors.
+
+Calling dma_async_issue_pending() between terminate_all() and
+synchronize() is undefined in the dmaengine API. idxd starts descriptors
+at tx_submit(), so this also relies on clients not submitting in that
+window: then the descriptors completed while the channel is marked were
+all submitted before the terminate.
+
+Some users, like ntb_transport, terminate and release the channel
+without calling synchronize(). The mark is still cleared, as
+dma_release_channel() calls synchronize() itself.
+
+Fixes: 2a93f5747d0e ("dmaengine: idxd: Flush all pending descriptors")
 Signed-off-by: Vinicius Costa Gomes <vinicius.gomes@intel.com>
 ---
- drivers/dma/idxd/init.c | 10 ++++++----
- 1 file changed, 6 insertions(+), 4 deletions(-)
+ drivers/dma/idxd/device.c |  9 ++++-----
+ drivers/dma/idxd/dma.c    | 47 ++++++++++++++++++++++++++++++++++++++---------
+ drivers/dma/idxd/idxd.h   |  3 +++
+ 3 files changed, 45 insertions(+), 14 deletions(-)
 
-diff --git a/drivers/dma/idxd/init.c b/drivers/dma/idxd/init.c
-index 9aab57a4b13e..9cfb165a1569 100644
---- a/drivers/dma/idxd/init.c
-+++ b/drivers/dma/idxd/init.c
-@@ -572,9 +572,6 @@ static void idxd_free(struct idxd_device *idxd)
- 		return;
- 
- 	put_device(idxd_confdev(idxd));
--	bitmap_free(idxd->opcap_bmap);
--	ida_free(&idxd_ida, idxd->id);
--	kfree(idxd);
+diff --git a/drivers/dma/idxd/device.c b/drivers/dma/idxd/device.c
+index 21a0c32325ea..91cad6b0f955 100644
+--- a/drivers/dma/idxd/device.c
++++ b/drivers/dma/idxd/device.c
+@@ -1269,7 +1269,7 @@ int idxd_device_load_config(struct idxd_device *idxd)
+ 	return 0;
  }
  
- static struct idxd_device *idxd_alloc(struct pci_dev *pdev, struct idxd_driver_data *data)
-@@ -614,8 +611,13 @@ static struct idxd_device *idxd_alloc(struct pci_dev *pdev, struct idxd_driver_d
- 	return idxd;
+-static void idxd_flush_pending_descs(struct idxd_irq_entry *ie)
++void idxd_flush_pending_descs(struct idxd_irq_entry *ie)
+ {
+ 	struct idxd_desc *desc, *itr;
+ 	struct llist_node *head;
+@@ -1293,10 +1293,9 @@ static void idxd_flush_pending_descs(struct idxd_irq_entry *ie)
+ 		list_del(&desc->list);
+ 		ctype = desc->completion->status ? IDXD_COMPLETE_NORMAL : IDXD_COMPLETE_ABORT;
+ 		/*
+-		 * wq is being disabled. Any remaining descriptors are
+-		 * likely to be stuck and can be dropped. callback could
+-		 * point to code that is no longer accessible, for example
+-		 * if dmatest module has been unloaded.
++		 * No callbacks: the transfers were terminated, or the WQ
++		 * is being disabled or reset and they may point to
++		 * unloaded code.
+ 		 */
+ 		tx = &desc->txd;
+ 		tx->callback = NULL;
+diff --git a/drivers/dma/idxd/dma.c b/drivers/dma/idxd/dma.c
+index 9937b671f637..f8ce06274ef4 100644
+--- a/drivers/dma/idxd/dma.c
++++ b/drivers/dma/idxd/dma.c
+@@ -7,17 +7,20 @@
+ #include <linux/device.h>
+ #include <linux/io-64-nonatomic-lo-hi.h>
+ #include <linux/dmaengine.h>
++#include <linux/interrupt.h>
+ #include <uapi/linux/idxd.h>
+ #include "../dmaengine.h"
+ #include "registers.h"
+ #include "idxd.h"
  
- err_name:
+-static inline struct idxd_wq *to_idxd_wq(struct dma_chan *c)
++static inline struct idxd_dma_chan *to_idxd_dma_chan(struct dma_chan *c)
+ {
+-	struct idxd_dma_chan *idxd_chan;
++	return container_of(c, struct idxd_dma_chan, chan);
++}
+ 
+-	idxd_chan = container_of(c, struct idxd_dma_chan, chan);
+-	return idxd_chan->wq;
++static inline struct idxd_wq *to_idxd_wq(struct dma_chan *c)
++{
++	return to_idxd_dma_chan(c)->wq;
+ }
+ 
+ void idxd_dma_complete_txd(struct idxd_desc *desc,
+@@ -47,7 +50,8 @@ void idxd_dma_complete_txd(struct idxd_desc *desc,
+ 	if (complete && tx->cookie) {
+ 		dma_cookie_complete(tx);
+ 		dma_descriptor_unmap(tx);
+-		dmaengine_desc_get_callback_invoke(tx, &res);
++		if (!READ_ONCE(to_idxd_dma_chan(tx->chan)->terminated))
++			dmaengine_desc_get_callback_invoke(tx, &res);
+ 		tx->callback = NULL;
+ 		tx->callback_result = NULL;
+ 	}
+@@ -196,18 +200,43 @@ static void idxd_dma_release(struct dma_device *device)
+ 
+ static int idxd_dma_terminate_all(struct dma_chan *c)
+ {
+-	struct idxd_wq *wq = to_idxd_wq(c);
+-
+-	idxd_wq_flush_descs(wq);
++	/* The device still runs them, synchronize() waits for it */
++	WRITE_ONCE(to_idxd_dma_chan(c)->terminated, true);
+ 
+ 	return 0;
+ }
+ 
+ static void idxd_dma_synchronize(struct dma_chan *c)
+ {
+-	struct idxd_wq *wq = to_idxd_wq(c);
++	struct idxd_dma_chan *idxd_chan = to_idxd_dma_chan(c);
++	struct idxd_wq *wq = idxd_chan->wq;
+ 
+ 	idxd_wq_drain(wq);
++	if (!READ_ONCE(idxd_chan->terminated))
++		return;
++
 +	/*
-+	 * once device_initialize(conf_dev) is called,
-+	 * put_device(conf_dev) will end up calling
-+	 * idxd_conf_device_release() which will free the rest.
++	 * Not wq_lock: dma_release_channel() calls this under dma_list_mutex,
++	 * which the WQ removal takes under wq_lock. The removal waits for
++	 * wq_active instead.
 +	 */
- 	put_device(conf_dev);
--	bitmap_free(idxd->opcap_bmap);
-+	return NULL;
- err_opcap:
- 	ida_free(&idxd_ida, idxd->id);
- err_ida:
++	if (!percpu_ref_tryget_live(&wq->wq_active)) {
++		wait_for_completion(&wq->wq_resurrect);
++		/* The WQ is quiesced, disabling it flushes them */
++		if (!percpu_ref_tryget_live(&wq->wq_active))
++			return;
++	}
++
++	/*
++	 * The IRQ thread can still put back the descriptors it saw running
++	 * before the drain, or complete the ones it took: wait for it on both
++	 * sides of the flush.
++	 */
++	synchronize_irq(wq->ie.vector);
++	idxd_flush_pending_descs(&wq->ie);
++	synchronize_irq(wq->ie.vector);
++	WRITE_ONCE(idxd_chan->terminated, false);
++	percpu_ref_put(&wq->wq_active);
+ }
+ 
+ int idxd_register_dma_device(struct idxd_device *idxd)
+diff --git a/drivers/dma/idxd/idxd.h b/drivers/dma/idxd/idxd.h
+index f4aed90560e0..3d0747be193a 100644
+--- a/drivers/dma/idxd/idxd.h
++++ b/drivers/dma/idxd/idxd.h
+@@ -185,6 +185,8 @@ enum idxd_op_type {
+ struct idxd_dma_chan {
+ 	struct dma_chan chan;
+ 	struct idxd_wq *wq;
++	/* Set by terminate_all(), until synchronize() */
++	bool terminated;
+ };
+ 
+ struct idxd_wq {
+@@ -803,6 +805,7 @@ void idxd_wq_quiesce(struct idxd_wq *wq);
+ int idxd_wq_init_percpu_ref(struct idxd_wq *wq);
+ void idxd_wq_free_irq(struct idxd_wq *wq);
+ int idxd_wq_request_irq(struct idxd_wq *wq);
++void idxd_flush_pending_descs(struct idxd_irq_entry *ie);
+ void idxd_wq_flush_descs(struct idxd_wq *wq);
+ void idxd_wq_release_int_handle(struct idxd_wq *wq);
+ 
 
 -- 
 2.56.1
