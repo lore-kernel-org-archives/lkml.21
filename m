@@ -1,79 +1,78 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795602861;
-	b=av1KU5fYzq0qhfzgqsJOH409opk/YtaEg8kRZWpnFcrmUz7IYuWEEc8RxRKZZCjUYR7N
-	 kmwGkJviGo+9kAFOu4P4J3HUTjhQ7AQjLKQzKBcIJ8po36NZmQ0m4hEw6eNB5erJm8eJV
-	 UffRjUKoIqyggWWPO0IGaYZsKt1ukI4o7yYGA6nqduXFLf4ZW0lIcso2zWGLgMrJHxL8T
-	 oZ+GnNOSE6ECiG3iC24J7ZrLqWM9XmYsxEz9wuZ5mThkI0OvTKA8kh1AhgdgP2CY2zWki
-	 HnjnV01mm/tY72rrDVOuzFyyPKSrQ4DBGQfMAzCYRRT1R+Agt7GBcHVeA7yIwn7LugQ==
+	t=1795602876;
+	b=AxHx+xN2VgJlvgVoDe6dFAhcL4tw1ZjxNWlP9Y4fvMO88xTv3estgpCXY3CuZFuvz473
+	 0eOe7WZf/H071+AZ+3kn+/ECorxE8IhDP8d9InNZSH8zwG7SnyduufiSfI+GQaOoang73
+	 agmmPKpIRgeRNabZ1hKWT0FVHSuMq3sTVhRqwQxcqbrS5g7ZzHSgqy7dsxA8TGLSQbK2Q
+	 MrmqyWdcnWnW6A1/Kj40muaTQXpmuwXACHSrh7lzkz6uWRB6lbsmaiApZPDBN2cXIedbi
+	 IVzNEe4l96Fj9oLf3PxmfVi9Y14uNx6Zvqq+SfMzZfrAaOJEQUiBJKeRAysnM7MXVLw==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795602861;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795602876;
 	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
 	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=dbB8vlDFQn5XnWg+n7KR96SKHqcyEBWit0sDLa1+rqk=;
-	b=l0/JpdRII1lmmMwfAuesGmWFijgiQIkRvRJx0M4eIYj8hVh4jgXrVUccczAts9oQbFwA
-	 lQ54R+h4kJ80X48aeoahmeRMgnGlprbpxrd1fGWwM+GoY3kuAJ7RitZ1EpOTV+DhOdvWF
-	 gHB+kt6Ppst21riTv3zaXLst8X4AZfPi0PM4DE3yF8ftOTVSQiP8oxUKSNnQnGRncgj62
-	 mKU2xCs7AZe43JYogFrhJEvoQxtIeymHLcKsIc4yiadBy5ckba1VVXMt9Fgvfhq3mLN2w
-	 lnMV6OvI8b0dZTZ+FpO092Cm30hc4pkjOCF75YhJUCoe1dA8Cv44iGLearhQyr45jMA==
+	bh=kxyZ6UZFcbYGCnLOm2Vxd4l9fBPKFCro49fi48VVP/w=;
+	b=ri/WFM+kGjWTWGm+ZQ60CqRCh/5N1j1rcNYZq1YVeB1eA+qdoxZCIDg6ioffdf3EMWQH
+	 OAuVhUhEaTUKpjibuajOfkZZvbT9qUum8DKVC/feztxc1kI1p87wVZg9fWRq+Z1ptESkq
+	 tPRou5TYQRWfN+8rlUA1Brsmt6ToeGpAN+FUt3YgRrABXtHhjp/rOUTTkuczDf9Zqe7BR
+	 mu04FyCV5NgGD3Ahlc3sY6vbXDYMv0IlrIrMvyQ7PUr8HAApzcCKh16QgsbaWaXnrNJOl
+	 GAu8b/k7Hga9qpl2lMq8KXYxCXJ4HEgUZYBNpxJmzeO74Qbg9iRnBN4OmP9/aMO7JAA==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EZT+BLMa;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UjMn0wc6;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5DA71606A68F;
-	Wed, 25 Nov 2026 10:34:21 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 897DB606A338;
+	Wed, 25 Nov 2026 10:34:36 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EZT+BLMa
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UjMn0wc6
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795602861;
-	b=Gk0AvEjTDm2Bz7H0qt0F5sr1DvIIXS5SI3GmdMDrBFkw23tUMY7GMhiCExZXAdySV61J
-	 1CbH/9WQdRcP2YtH4ppmmhDfwfFqIb/xD2Jj5vlevSvWSSU9dI01K4BfyyyAvBsDE8bhq
-	 W39qxExJwVABEW5+6nhk1ibXVTqt1jRx+DT6cHYiVwBuqbaCMEVJumPKkXOosLZSeoYn/
-	 B/aiZaulynuCRBZDVyX3dieRSrFNWGR+gWQ4eS+EVPZ900cPwBb+4W5OuuDJLpPug4ssh
-	 ySmZ6FM4OzCymGRNvtdrRPJ78mCDBkUDf62ova/07JK/KRT7Mn6j7Zv9mMzrl81dyxg==
+	t=1795602876;
+	b=CjmfHoQmbvBNAHzp+TJtYvr/Eqp1+1NSgKI2Unzgz9lOFdae4Cbxnf+AAfoYYMKhjdcb
+	 jcnPgi94eMM5kP3DPOm5joCFpZFRxUTtalNd1hEVVT6bun1lVQjz+/wbFxdtNB29ww0TP
+	 YpfHTyoABFGDBkV3vJiiZoA8ylJlx5UFbnGOxtWblv3qlfJa44Ig31qwelDsrQ13ZupJK
+	 Lr0X5OeTRcZeLMzsfxOE5Ju7+PVL5OmSfe4lIgiUw43oXL6srONZxAG9r2gKxUMKhwJE2
+	 uabA4dY4YKwBoeHhj/uv+rUfysX/25dgHYk8dpwZ/ABGR53EvNPuN0TpJoMNoZkv4nw==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795602861;
+	c=relaxed/relaxed; t=1795602876;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=dbB8vlDFQn5XnWg+n7KR96SKHqcyEBWit0sDLa1+rqk=;
-	b=R85zXin+y91JqY9GBvRMVgGwta9poHNU17cWGneytxlA5G0sUSfagLp9c1FA9dbHAkyg
-	 ovqT4gvVbWTgLqL2buNKl2xBePkb9O/i4w2p74J0Ld56fhGrWYvLrsBSgTSdIGxZvXI0K
-	 BKVU50yfXA0B/I5LisxUNng5TS17IyTrv8E28SkFHGY0TFpzUMVcMPop+EYg+T2uwXwln
-	 CK1lqCZGH+hhaJ4c0VEiTc2GAV6vbEX3Nw24kJsmo/koSaSxau9a9HgnF8q9EMTkFgVnZ
-	 TGQ4PUkyReMxRR8bGzIRlPUGRKr3lYDWHGvlyIRTBWpBM5VTmPo8lSI/8QpBuxKtkjA==
+	bh=kxyZ6UZFcbYGCnLOm2Vxd4l9fBPKFCro49fi48VVP/w=;
+	b=R5dU0I/jJLxpVydQs48slWZtxhxW9qKr3VzijCswZq/VeCMzovX9aacFcQLc3LXTklXi
+	 GL0BqRyBLXlpARXtLP6sgQcKN22Bf840AuN0/Glh+l4GXkaQnrOt6KopLi6fr49MUuYf/
+	 aL8JrexOTSPrk88a3/IYgWOMdZaeGb6PUWbplepRflm+MlaM16ZRbzuHRzoXnTbXLJC2e
+	 Nj2ReWKaUs4BSfNxUItQ/P66sqz6jdaw84D1L9NsQhD9JD54I98+WA6qwxfYFHBMcmieo
+	 dajc4xDlfnfbzv3GpRqISAtnfnqDUJos6T5p63ly3rU23uGBAs32ynefVm/jv1IacoQ==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 2B0711F0089F;
-	Wed, 25 Nov 2026 10:34:10 +0000 (UTC)
+	by smtp.kernel.org (Postfix) with ESMTPS id 36CE91F01573;
+	Wed, 25 Nov 2026 10:34:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795602861;
-	bh=dbB8vlDFQn5XnWg+n7KR96SKHqcyEBWit0sDLa1+rqk=;
+	s=k20260515; t=1795602876;
+	bh=kxyZ6UZFcbYGCnLOm2Vxd4l9fBPKFCro49fi48VVP/w=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=EZT+BLMaW77A0AMPUEZ8WvMWpwHXm0hjA8h8VLRxDrpmRyh7gSjLiKEnBx51yiSF1
-	 ITiVxfPxnb6JFohMkzbl1AjISSdltIRQfQsRu+AuCuGVJ/VkbFzjvRolYEeBnPI73t
-	 49z57t6uKMByy+P19kTk8DL/llrpD/Jyu+NO6CEUEmeLCKdZwQR2k+oc3KCTXceRjM
-	 XUQ8mLDC5LxoVpumOdnVFdn2EmBw4ryOplsBV0GCy43q8N5aukykvSyeV8zf+6DoNv
-	 PmBe1kxJeGNe3Xje7tczPfAq5y+hwndMH4M0yrJn8PBqrMBAJKPzFR4tWvjxYdQtyk
-	 hN25ec8CjTbZA==
+	b=UjMn0wc60wdQdVykxbuWYNFejVFySuwcudDh/QHbkBNDc8I9eYhFNqSP7hTVY4vIH
+	 EcG4NfysW4QPscROxa8fLCpyy6DUV9HgX+04AXSeAydi0g2lmUemqcU9ok2Ealc6Ps
+	 UzJz1/nKOBLk5HXtLE0lQD/PESxYxNDhhjN5HZNh2ngAxKWW/23vH50h/BJQsEnmi5
+	 YH6roAIMfT+Y8lvwxCW4t4+vuEVmrohXynSVC4Ixh3pWJAWjVgUs0NsZhEYgOykkpj
+	 oKGYa/olRwe8yHyz6k0cIcA4JyLmLxAcDJhtfsJmNNB+zwYXv0yJyWufy730mE4hPu
+	 w1Ln0nFp8Hi+g==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id A9E284CE4C;
-	Wed, 25 Nov 2026 10:34:09 +0000 (UTC)
+	by lkml.kernel.org (Postfix) with ESMTP id 2CC5E4CE5C;
+	Wed, 25 Nov 2026 10:34:10 +0000 (UTC)
 From: Fil Dunsky via B4 Relay <devnull+filipp.dunsky.gmail.com@kernel.org>
-Date: Wed, 25 Nov 2026 13:34:09 +0300
-Subject: [PATCH v4 1/6] dt-bindings: soc: Add Cortina Systems CS7542 global
- controls
+Date: Wed, 25 Nov 2026 13:34:13 +0300
+Subject: [PATCH v4 5/6] pinctrl: Add Cortina Systems CS7542 pin multiplexer
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,7 +83,7 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261125-cs7542-syscon-v4-1-3337bb0d3b48@gmail.com>
+Message-Id: <20261125-cs7542-syscon-v4-5-3337bb0d3b48@gmail.com>
 References: <20261125-cs7542-syscon-v4-0-3337bb0d3b48@gmail.com>
 In-Reply-To: <20261125-cs7542-syscon-v4-0-3337bb0d3b48@gmail.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -96,11 +95,11 @@ Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, 
  linux-gpio@vger.kernel.org
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795602848; l=4010;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795602848; l=8324;
  i=filipp.dunsky@gmail.com; s=20260930; h=from:subject:message-id;
- bh=oMbBnadNt9Zr1iGu4MirHsHTm5dEUH08qquCfQb14rE=;
- b=DoBnnbRDu80WwSff4+ab4qgPwFmqoclnUkU7h7nAjaH/T7eLngif5afGfFuW7cKjZvdP71WG1
- kJH3cw9f+H/AHyGmmv4hbhHTlnbtrWanMxWMmOnV7GW9q0LjbyXWVgF
+ bh=UNpZwyEFgKF3jz0tUixduHTlnN10XC0JDB4foaScjk8=;
+ b=2ua7A9iMSGPLiDqW29WEAogNDplQZyv63fK/AbKIkurE47WkUkh3bA2Dk4rwXHk/P9AGg/P32
+ RYPivIpeVR/BvzkuYADHb7HA8OyUyirTCz27T0wcSHbZSQFnHj44yYv
 X-Developer-Key: i=filipp.dunsky@gmail.com; a=ed25519;
  pk=JAYP8e2rJ54DHOmhNtXud8rl1igAaAXoOHxtJmVXI1g=
 X-Endpoint-Received: by B4 Relay for filipp.dunsky@gmail.com/20260930 with
@@ -111,122 +110,263 @@ Content-Transfer-Encoding: 7bit
 
 From: Fil Dunsky <filipp.dunsky@gmail.com>
 
-Describe the shared syscon, its strap-selected clocks, three PCIe
-gates and level resets. Reserve the former group reset ID and assign
-individual IDs to the seven network reset signals.
+Use the global syscon regmap for the five GPIO mux registers. Each
+bit selects GPIO when set and a peripheral signal when clear. Support
+GPIO on all 160 lines and the six UART pins exercised by the OpenWrt
+port. Do not guess mux settings for the other peripherals.
+
+Use masked regmap updates so independent pins and users of the shared
+block retain their settings. No register changes are made merely by
+probing; only a selected state or a GPIO request changes a pin.
+Register and initialize the controller before enabling its own hogs.
+
+AI assistance: Codex prepared this change from the existing OpenWrt port
+and GPL vendor sources.
 
 Signed-off-by: Fil Dunsky <filipp.dunsky@gmail.com>
 ---
- .../soc/cortina/cortina,cs7542-syscon.yaml         | 55 ++++++++++++++++++++++
- include/dt-bindings/clock/cortina,cs7542-clock.h   | 13 +++++
- include/dt-bindings/reset/cortina,cs7542-reset.h   | 19 ++++++++
- 3 files changed, 87 insertions(+)
+ drivers/pinctrl/Kconfig          |  13 +++
+ drivers/pinctrl/Makefile         |   1 +
+ drivers/pinctrl/pinctrl-cs7542.c | 195 +++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 209 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/soc/cortina/cortina,cs7542-syscon.yaml b/Documentation/devicetree/bindings/soc/cortina/cortina,cs7542-syscon.yaml
+diff --git a/drivers/pinctrl/Kconfig b/drivers/pinctrl/Kconfig
+index dc7138302..89f247cb2 100644
+--- a/drivers/pinctrl/Kconfig
++++ b/drivers/pinctrl/Kconfig
+@@ -188,6 +188,19 @@ config PINCTRL_BM1880
+ 	help
+ 	  Pinctrl driver for Bitmain BM1880 SoC.
+ 
++config PINCTRL_CS7542
++	tristate "Cortina Systems CS7542 pin multiplexer"
++	depends on OF && HAS_IOMEM
++	select MFD_SYSCON
++	select PINMUX
++	select GENERIC_PINCONF
++	help
++	  Select GPIO mode or the supported peripheral signals in the CS7542
++	  global control block. This driver shares the syscon register map
++	  with the clock provider and leaves unrelated pins unchanged.
++	  Electrical pin configuration and other peripheral routes are not
++	  implemented.
++
+ config PINCTRL_CY8C95X0
+ 	tristate "Cypress CY8C95X0 I2C pinctrl and GPIO driver"
+ 	depends on I2C
+diff --git a/drivers/pinctrl/Makefile b/drivers/pinctrl/Makefile
+index ce0825f4f..59541be4d 100644
+--- a/drivers/pinctrl/Makefile
++++ b/drivers/pinctrl/Makefile
+@@ -23,6 +23,7 @@ obj-$(CONFIG_PINCTRL_AW9523)	+= pinctrl-aw9523.o
+ obj-$(CONFIG_PINCTRL_AXP209)	+= pinctrl-axp209.o
+ obj-$(CONFIG_PINCTRL_BM1880)	+= pinctrl-bm1880.o
+ obj-$(CONFIG_PINCTRL_CY8C95X0)	+= pinctrl-cy8c95x0.o
++obj-$(CONFIG_PINCTRL_CS7542)	+= pinctrl-cs7542.o
+ obj-$(CONFIG_PINCTRL_DA850_PUPD) += pinctrl-da850-pupd.o
+ obj-$(CONFIG_PINCTRL_DA9062)	+= pinctrl-da9062.o
+ obj-$(CONFIG_PINCTRL_DIGICOLOR)	+= pinctrl-digicolor.o
+diff --git a/drivers/pinctrl/pinctrl-cs7542.c b/drivers/pinctrl/pinctrl-cs7542.c
 new file mode 100644
-index 000000000..561bb7b63
+index 000000000..748682675
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/soc/cortina/cortina,cs7542-syscon.yaml
-@@ -0,0 +1,55 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/soc/cortina/cortina,cs7542-syscon.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
++++ b/drivers/pinctrl/pinctrl-cs7542.c
+@@ -0,0 +1,195 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/* Cortina Systems CS7542 GPIO/peripheral pin multiplexer */
 +
-+title: Cortina Systems CS7542 global control block
++#include <linux/bits.h>
++#include <linux/err.h>
++#include <linux/mfd/syscon.h>
++#include <linux/module.h>
++#include <linux/of.h>
++#include <linux/platform_device.h>
++#include <linux/regmap.h>
++#include <linux/slab.h>
 +
-+maintainers:
-+  - Fil Dunsky <filipp.dunsky@gmail.com>
++#include <linux/pinctrl/pinconf-generic.h>
++#include <linux/pinctrl/pinctrl.h>
++#include <linux/pinctrl/pinmux.h>
 +
-+description:
-+  The global control block contains the boot strap status, GPIO/peripheral
-+  mux registers, reset controls and the secondary CPU release register.
-+  It provides the APB, CPU and AXI clock rates selected by the boot straps,
-+  and the three PCIe clock gates and controller reset lines. Individual
-+  reset lines control NI, FE, TM, scheduler, QM, NI XRAM and the entire DMA
-+  block (LSO and SSP). The network engine consumer must acquire all seven
-+  lines exclusively; it cannot run concurrently with a separate SSP DMA
-+  user. SDRAM is excluded. Reset identifier 3 is reserved.
-+  Clock specifiers are defined in dt-bindings/clock/cortina,cs7542-clock.h;
-+  reset specifiers are defined in dt-bindings/reset/cortina,cs7542-reset.h.
-+  The pin controller uses the same register map through its parent syscon.
++#include "pinctrl-utils.h"
 +
-+properties:
-+  compatible:
-+    items:
-+      - const: cortina,cs7542-syscon
-+      - const: syscon
-+      - const: simple-mfd
++#define CS7542_GPIO_MUX		0x1c
++#define CS7542_NUM_PINS		160
++#define CS7542_UART_FIRST	72
++#define CS7542_UART_LAST	77
 +
-+  reg:
-+    maxItems: 1
++enum cs7542_function {
++	CS7542_FUNCTION_GPIO,
++	CS7542_FUNCTION_UART,
++};
 +
-+  "#clock-cells":
-+    const: 1
++struct cs7542_pinctrl {
++	struct regmap *map;
++	struct pinctrl_desc desc;
++	struct pinctrl_pin_desc pins[CS7542_NUM_PINS];
++	const char *groups[CS7542_NUM_PINS];
++};
 +
-+  "#reset-cells":
-+    const: 1
++static const char * const cs7542_functions[] = { "gpio", "uart" };
++static const char * const cs7542_uart_groups[] = {
++	"gpio72", "gpio73", "gpio74", "gpio75", "gpio76", "gpio77",
++};
 +
-+required:
-+  - compatible
-+  - reg
-+  - "#clock-cells"
++static int cs7542_get_groups_count(struct pinctrl_dev *pctldev)
++{
++	return CS7542_NUM_PINS;
++}
 +
-+additionalProperties: false
++static const char *cs7542_get_group_name(struct pinctrl_dev *pctldev,
++					 unsigned int group)
++{
++	struct cs7542_pinctrl *pctl = pinctrl_dev_get_drvdata(pctldev);
 +
-+examples:
-+  - |
-+    syscon@f0000000 {
-+        compatible = "cortina,cs7542-syscon", "syscon", "simple-mfd";
-+        reg = <0xf0000000 0x100>;
-+        #clock-cells = <1>;
-+        #reset-cells = <1>;
-+    };
-diff --git a/include/dt-bindings/clock/cortina,cs7542-clock.h b/include/dt-bindings/clock/cortina,cs7542-clock.h
-new file mode 100644
-index 000000000..c68c6ba20
---- /dev/null
-+++ b/include/dt-bindings/clock/cortina,cs7542-clock.h
-@@ -0,0 +1,13 @@
-+/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
-+#ifndef _DT_BINDINGS_CLOCK_CORTINA_CS7542_H
-+#define _DT_BINDINGS_CLOCK_CORTINA_CS7542_H
++	return pctl->groups[group];
++}
 +
-+#define CS7542_CLK_APB	0
-+#define CS7542_CLK_CPU	1
-+#define CS7542_CLK_AXI	2
++static int cs7542_get_group_pins(struct pinctrl_dev *pctldev,
++				 unsigned int group, const unsigned int **pins,
++				 unsigned int *num_pins)
++{
++	struct cs7542_pinctrl *pctl = pinctrl_dev_get_drvdata(pctldev);
 +
-+#define CS7542_CLK_PCIE0	3
-+#define CS7542_CLK_PCIE1	4
-+#define CS7542_CLK_PCIE2	5
++	*pins = &pctl->pins[group].number;
++	*num_pins = 1;
++	return 0;
++}
 +
-+#endif
-diff --git a/include/dt-bindings/reset/cortina,cs7542-reset.h b/include/dt-bindings/reset/cortina,cs7542-reset.h
-new file mode 100644
-index 000000000..4998ca11d
---- /dev/null
-+++ b/include/dt-bindings/reset/cortina,cs7542-reset.h
-@@ -0,0 +1,19 @@
-+/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
-+#ifndef _DT_BINDINGS_RESET_CORTINA_CS7542_H
-+#define _DT_BINDINGS_RESET_CORTINA_CS7542_H
++static const struct pinctrl_ops cs7542_pinctrl_ops = {
++	.get_groups_count = cs7542_get_groups_count,
++	.get_group_name = cs7542_get_group_name,
++	.get_group_pins = cs7542_get_group_pins,
++	.dt_node_to_map = pinconf_generic_dt_node_to_map_pin,
++	.dt_free_map = pinctrl_utils_free_map,
++};
 +
-+#define CS7542_RESET_PCIE0	0
-+#define CS7542_RESET_PCIE1	1
-+#define CS7542_RESET_PCIE2	2
++static int cs7542_get_functions_count(struct pinctrl_dev *pctldev)
++{
++	return ARRAY_SIZE(cs7542_functions);
++}
 +
-+/* Reserved legacy composite ID; never reinterpret it as an individual line. */
-+#define CS7542_RESET_NE		3
-+#define CS7542_RESET_NI		4
-+#define CS7542_RESET_FE		5
-+#define CS7542_RESET_TM		6
-+#define CS7542_RESET_SCH		7
-+#define CS7542_RESET_QM		8
-+#define CS7542_RESET_DMA		9
-+#define CS7542_RESET_NI_XRAM	10
++static const char *cs7542_get_function_name(struct pinctrl_dev *pctldev,
++					    unsigned int function)
++{
++	return cs7542_functions[function];
++}
 +
-+#endif
++static int cs7542_get_function_groups(struct pinctrl_dev *pctldev,
++				      unsigned int function,
++				      const char * const **groups,
++				      unsigned int *num_groups)
++{
++	struct cs7542_pinctrl *pctl = pinctrl_dev_get_drvdata(pctldev);
++
++	if (function == CS7542_FUNCTION_GPIO) {
++		*groups = pctl->groups;
++		*num_groups = CS7542_NUM_PINS;
++	} else {
++		*groups = cs7542_uart_groups;
++		*num_groups = ARRAY_SIZE(cs7542_uart_groups);
++	}
++	return 0;
++}
++
++static int cs7542_set_mux(struct pinctrl_dev *pctldev, unsigned int function,
++			  unsigned int group)
++{
++	struct cs7542_pinctrl *pctl = pinctrl_dev_get_drvdata(pctldev);
++	unsigned int mask;
++
++	if (group >= CS7542_NUM_PINS || function >= ARRAY_SIZE(cs7542_functions))
++		return -EINVAL;
++	if (function == CS7542_FUNCTION_UART &&
++	    (group < CS7542_UART_FIRST || group > CS7542_UART_LAST))
++		return -EINVAL;
++
++	mask = BIT(group % 32);
++	return regmap_update_bits(pctl->map, CS7542_GPIO_MUX + (group / 32) * 4,
++				  mask, function == CS7542_FUNCTION_GPIO ? mask : 0);
++}
++
++static int cs7542_gpio_request_enable(struct pinctrl_dev *pctldev,
++				      struct pinctrl_gpio_range *range,
++				      unsigned int pin)
++{
++	return cs7542_set_mux(pctldev, CS7542_FUNCTION_GPIO, pin);
++}
++
++static bool cs7542_function_is_gpio(struct pinctrl_dev *pctldev,
++				    unsigned int selector)
++{
++	return selector == CS7542_FUNCTION_GPIO;
++}
++
++static const struct pinmux_ops cs7542_pinmux_ops = {
++	.get_functions_count = cs7542_get_functions_count,
++	.get_function_name = cs7542_get_function_name,
++	.get_function_groups = cs7542_get_function_groups,
++	.function_is_gpio = cs7542_function_is_gpio,
++	.set_mux = cs7542_set_mux,
++	.gpio_request_enable = cs7542_gpio_request_enable,
++	.strict = true,
++};
++
++static int cs7542_pinctrl_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	struct cs7542_pinctrl *pctl;
++	struct pinctrl_dev *pctldev;
++	unsigned int i;
++	int ret;
++
++	pctl = devm_kzalloc(dev, sizeof(*pctl), GFP_KERNEL);
++	if (!pctl)
++		return -ENOMEM;
++
++	pctl->map = syscon_node_to_regmap(dev->of_node->parent);
++	if (IS_ERR(pctl->map))
++		return dev_err_probe(dev, PTR_ERR(pctl->map), "cannot get global regmap\n");
++
++	for (i = 0; i < CS7542_NUM_PINS; i++) {
++		pctl->groups[i] = devm_kasprintf(dev, GFP_KERNEL, "gpio%u", i);
++		if (!pctl->groups[i])
++			return -ENOMEM;
++		pctl->pins[i].number = i;
++		pctl->pins[i].name = pctl->groups[i];
++	}
++
++	pctl->desc.name = dev_name(dev);
++	pctl->desc.owner = THIS_MODULE;
++	pctl->desc.pins = pctl->pins;
++	pctl->desc.npins = CS7542_NUM_PINS;
++	pctl->desc.pctlops = &cs7542_pinctrl_ops;
++	pctl->desc.pmxops = &cs7542_pinmux_ops;
++
++	ret = devm_pinctrl_register_and_init(dev, &pctl->desc, pctl, &pctldev);
++	if (ret)
++		return dev_err_probe(dev, ret, "cannot register pin controller\n");
++
++	return pinctrl_enable(pctldev);
++}
++
++static const struct of_device_id cs7542_pinctrl_match[] = {
++	{ .compatible = "cortina,cs7542-pinctrl" },
++	{ }
++};
++MODULE_DEVICE_TABLE(of, cs7542_pinctrl_match);
++
++static struct platform_driver cs7542_pinctrl_driver = {
++	.probe = cs7542_pinctrl_probe,
++	.driver = {
++		.name = "cs7542-pinctrl",
++		.of_match_table = cs7542_pinctrl_match,
++	},
++};
++module_platform_driver(cs7542_pinctrl_driver);
++
++MODULE_DESCRIPTION("Cortina Systems CS7542 pin multiplexer");
++MODULE_LICENSE("GPL");
 
 -- 
 2.53.0
