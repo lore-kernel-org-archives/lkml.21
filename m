@@ -1,56 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.112
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795630276;
-	b=2LJkMN3eiWUe4onmGoKrovWckAss89bL/Fpf5kiP5IwHrX9dIVCa1utbyVllnjUxnoCF
-	 qiLoA0MlG1uZXJRAPQsb0BZ9ShH4hz9Gm/sN3BgW0RMwMnJEjp3TqDsnd707vFWj0Wjpd
-	 5NHvM7b9Ywxq1SK9zY6FcnBlp2yJdKsQi243UUYkNK/Y3xY8iUg/FkubkYabBwKToZNFi
-	 6ViRLoaT6Tu5zkO8shBFmmqIgnhOwv0PKYABSKUx5+vErR4ArkRBtNfMk18zkRrPVbqxY
-	 P0duEjdFaB37RKHAp9wuAyNMxMOmgj38twg+2Kqk7uHYMIV0u6nfyBH6rKWwXSffmAA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795630276;
-	h=DMARC-Filter:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
-	 In-Reply-To:To:Cc:X-Mailer:X-ZohoMailClient;
-	bh=6KOMSeMBCnjs5mhrPq+LnQxT/aixBEKr23EpHe5/yHk=;
-	b=PL0SVYY1uZO+gXvyVpVs77cy0Q3K/UxnXI5w2V9XDEuRpiR6Tx/nq+WRlSeKmnVvr5Sy
-	 HRKkxViDb94jFIrsVhaNIjzXT4VwsTiC+AQ3hAuFD34cSlKrYjrP4dFLTpIs7K2Yd63k0
-	 bL97QkRhIYNoyxkcPn7NjINSE3EHHfjTFeL/BfFWeu+ISvHPGOWuh3QvQUUzCacl+ktKM
-	 qlv8qpN0nlAYa+gsbmB3HddNkDVm/g6orb0wyGSxfwWrCtkOz/yn3Znr6gJxdvlcVw5NS
-	 0zmVP80osnKkpjFuj8z0KB2EVqstZ2uz8h9VNbPjKG+BdvCtYNkrk2Xm2u2vNsp7g7w==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=rong.moe;
-	spf=pass smtp.mailfrom=rong.moe;
-	dkim=pass header.d=rong.moe header.i=@rong.moe header.a=rsa-sha256 header.s=zmail2048 header.b=lPzQ+qrx;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.112
-Received: from sender6-pp-f112.zoho.com (sender6-pp-f112.zoho.com [165.173.180.112])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.174
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795630283;
+	b=kMTaqP2zRqfcHx1++ciINUFCufbb85gVLfnMdZiFwcdqfwS9VB3tsY1mvs4n1pzOhTTa
+	 HKFJwv1EU9SSyWgV1uLa7FLuBChuX9Pb5J1Wu5rarO4t3yvp9LRlhpci08zKVb3lE12ZO
+	 dvxE0H7fmqbHG45FYyjRtVYgDE/ZyD87F4i/AaaxopJE0xdPalwt0Z012FB0znHOQmGIX
+	 D2076r/MXFBu8VN7m4FM+ujYpPix4kzROeba6K5wih3XAdm4QPB3fowsUNfnKh/0RNOFi
+	 3ey/RMPoTM/k+BplZA8N5bd8DgabWFnAX0oO70QzEJuf7OCP7oHN9mUB9fskh73s9CA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795630283;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=clm7bwFO88Id836QUNrg2tu/p/zHm8L/3QNnlwp6L6o=;
+	b=GaKPfwc3Ay1vPTXiwnQtR+Q4otIt3c6EMnprUH+JX2rY3SEx4DOTe0MUQLo2eu+feVv/
+	 xYknB51rXLB1KOSM1LXbbLrkBmD9tVZHheKdaHtYuXmaMRHZA49kJRGNlAjnk3t4SJGlG
+	 Gd+9eY0pEvTrMgHhDAc3PLfI0WUiVERSbU1CE6NeLonY3FF9g8faTtSHsFSldrE0SoBmP
+	 dk6aXDq+mkHANr0LWGLBInz8HWAT1WLGRssMNRFB9jHDwk+CCrREgtW90dVh9qHJDiSkN
+	 nE5hoRgst8D/Rg4qe6u7rSOh8C4fqieaZ2nXEdVFlw+M6zMlFlg2Yj7mPmC+aWFc+cg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=n4hOoaxc;
+	arc=none smtp.remote-ip=74.125.82.174
+Received: from mail-dy1-f174.google.com (mail-dy1-f174.google.com [74.125.82.174])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B3B52606A69E;
-	Wed, 25 Nov 2026 18:11:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B3B52606A69E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=rong.moe
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rong.moe
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E3271606A691
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:11:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E3271606A691
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=rong.moe header.i=@rong.moe header.a=rsa-sha256 header.s=zmail2048 header.b=lPzQ+qrx
-ARC-Seal: i=1; a=rsa-sha256; t=1795630149; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=J5Vkn7hWEOf/ZnmoJZ6v25mxyxRkqr7VjKRNt8JKHz9ArifquNVm4lRIMtggF7hMJne9JOqAFseV3i3gGsDZeK4Cg6kSoFEoa3npaydQoBNigxW96Sdx1/oX1uf98cal2iqrB22vAgkAjn0MRcs1bXbMr6xbku9UvWkAV0QK+cY=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1795630149; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=6KOMSeMBCnjs5mhrPq+LnQxT/aixBEKr23EpHe5/yHk=; 
-	b=YYNTJeNn+lZiIPS46p0DByGXnaiUFb/b22J8xSE17Z+A/9wiMglltXh+3dZDCUiUyJ80z82BsPyXDVuU1MMbxJUXvawztANcqDFEAN3t00X2Q1eNCGqcXM8HKf+ELqP/Pfn2IVAK0wxYYeQnCzPZOoxJZRnbNLxJLIrkbcjWE5Y=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=rong.moe;
-	spf=pass  smtp.mailfrom=i@rong.moe;
-	dmarc=pass header.from=<i@rong.moe>
-DKIM-Signature: a=rsa-sha256; b=lPzQ+qrxwcsrvlvMEpQte36vIBy2TZdTMnbgPaOYzAvxpE7MmgLdWEo2QeV9k1lhy0wGjl/tuQF1mTn2QzpikTaqhB02g7gFEd8K67EEsQR/FQ1OVjHri3Oznjvr0BmiDieyysmS328NYQuDIKlynK70VcFDv1Ll13GaDUNJcmWUOnOHaUDc2il+saXlUWE4Clhad63QmpDIbR5HDxd2sWIRKVe1xMQLUfgkOTTnHHw/kagEYuiWAWJm//MjNEdopKvduaxcjNKmke9vt8Bd61Q1+Yn+6ZNCKxZzOu2ZYv2najGVRMw5ry4z5A3Ks9UYE4ZBiVl0Jng6FqxiTJHzkQ==; c=relaxed/relaxed; s=zmail2048; d=rong.moe; v=1; bh=6KOMSeMBCnjs5mhrPq+LnQxT/aixBEKr23EpHe5/yHk=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 1795630146459286.87903086355686;
-	Wed, 25 Nov 2026 10:09:06 -0800 (PST)
-From: Rong Zhang <i@rong.moe>
-Date: Thu, 26 Nov 2026 02:08:26 +0800
-Subject: [PATCH v3 8/8] platform/x86: ideapad-laptop: Enable ymc_ec_trigger
- for Lenovo Yoga 7 14ARP8
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=n4hOoaxc
+Received: by mail-dy1-f174.google.com with SMTP id 5a478bee46e88-38699cf08dfso7306306eec.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:11:21 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795630281; x=1796235081; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=clm7bwFO88Id836QUNrg2tu/p/zHm8L/3QNnlwp6L6o=;
+        b=n4hOoaxcxW1l1mGaEW5zL+ZF0JLabEWqwn/4f4IArB1SEQwE4rhel+b0mID7pfFGIg
+         p+eD4O21MA8JE+HcVAWjFCbEh6lyUIfF53nW/fVVS606Hu4H5Sts3JS1yNOVs9kcDuzM
+         JzMeaOOb9O0VlegsDQT91P/VmmXPzc02n9Sv4U2vhZXB6Nd72fkV4/ShmqaDxklNoCKO
+         CElXIbHPJz8Bqu+bQ309uJv83wV5AZBk9gLIv52/JErHhuIsFXlI3WaDNrSlbRUCYZ9X
+         nusfI92IHoKmHEAGFb7c94YMgPYahj7qyYtA3dlSEZyThpEI/zp1r0TD7O/tdQHo4693
+         sx+A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795630281; x=1796235081;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=clm7bwFO88Id836QUNrg2tu/p/zHm8L/3QNnlwp6L6o=;
+        b=0toKYgEAGRzZ8zYGIy2/Um0Z71SZLBwc8AAww3m1bJuTNqp+egMHPnBKYwOFGWdOK3
+         ROsnt72F+u+8is4JuJ6NnaKOCi5HTPEEXHYIh1xCqe1oQgcthWvdESGWXefVHXuYLkPQ
+         qg29o69PqZf01JRvTvRvX3qkbwBnJ2zk3/dcZBOzZyEQUy2ui8PXkO0CXiQwT9x9LJhg
+         1wFYBoAZz611sBIPGBsWogr+0KMYCFr0WCoUx4O2sXEYjala7Kwu7ANX08n7CKvkJsmY
+         kIMQyzK6TBm1J0Xk/fk38mTrVoOZ8eZiUtcCzjzcYDAfsN64Y2Z0IZ0JRB4ICC+4mcQF
+         zp1Q==
+X-Forwarded-Encrypted: i=1; AL+hErEj+Ul1hLJOv3I1wSXvr4s8tuh6K0NDxk+nWlQ8A7AajDRmizTQg+nWNaNl0j5EQ1AeZTya8ryzOQBu7QM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+FLPXOQF6K50BydUNH0kDHa1eGLxyLEak2HMZJAFuQGWtLc+H+
+	LWIj8ZdYIw5LiqmWP6J1GG0bfNM3UPvud5NTbO7/kRlPgAZ/QNCYKzgs
+X-Gm-Gg: AZFdTZfYL7IOC3nSzzVReBSypxp99Is0KiebfpdWigOYOrITfk42/nNWWCtaDZq31Zz
+	MCI1H1doCw7mZSurviyAgg0BU2dyAJHetEsijAYIlk22DZA2h/nS52m4XL7Cl5/tPxwfXXeOo4c
+	zUy1gUOyp7aZ/Qc0IaEtKri5Zxs0HzaYkLFX35pj60G87++yfJewc59gCMLr98xLI6Nj8FEwkg/
+	9y3cJ+nd6fnfKxOfOYIxGgHsq9bHw1CHXe0RKIhBrLtkhfDxE0utaaS3szZ8HbFHc0GDXsci8E2
+	eTFo+fpPV+4tmxaGgZi4EIgrIBsTBzrngufXzhOCOV8lpkcKnsD1yo14V3ENIrgnBdprQsZYYXr
+	HOWKHcNjJCDhaOllR7ZwX/IjBNiLxxLImZo2WJtX9g8zhtgpLIlGFZ+ycuESzRh1BhwFtwKg0VT
+	ND4AnebuQA5XmYRSfSaQ1k0ExulAvnZJb4Z3hqINRuf/fQMK8sJNGiUPMpJb2KAB/2adOlRvyuQ
+	m7ZZefcavrkPavJBNVxkL1eRJlMi0EDsoK2M/9lXxNDuxV0YA3HPOg5aIutoEtN1b9mke5gKam+
+	qIsf4tWJR9eyPRKp8oi6e41qrj+UF/RlITvRvg==
+X-Received: by 2002:a05:7301:714:b0:36a:7b3c:4e0a with SMTP id 5a478bee46e88-3856fd5e4a4mr19351158eec.24.1795630280795;
+        Wed, 25 Nov 2026 10:11:20 -0800 (PST)
+Received: from DESKTOP-NM9EKIA ([2001:e60:8549:f8b6:d936:b4fc:15f9:5ee6])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385666e7fc3sm49229984eec.8.2026.11.25.10.11.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 10:11:20 -0800 (PST)
+From: Joonhoe Kim <26rote@gmail.com>
+To: Thinh.Nguyen@synopsys.com,
+	gregkh@linuxfoundation.org
+Cc: aiyengar1990@gmail.com,
+	mathias.nyman@intel.com,
+	xu.yang_2@oss.nxp.com,
+	linux-usb@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: [PATCH v3] usb: dwc3: tell xHCI that it lost its state when the core is powered off
+Date: Thu, 26 Nov 2026 03:11:16 +0900
+Message-ID: <20261125181116.121-1-26rote@gmail.com>
+X-Mailer: git-send-email 2.55.0.windows.5
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,59 +99,168 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261126-ymc-82yl-v3-8-e30842671ec3@rong.moe>
-References: <20261126-ymc-82yl-v3-0-e30842671ec3@rong.moe>
-In-Reply-To: <20261126-ymc-82yl-v3-0-e30842671ec3@rong.moe>
-To: Mark Pearson <mpearson-lenovo@squebb.ca>, 
- "Derek J. Clark" <derekjohn.clark@gmail.com>, 
- Hans de Goede <hansg@kernel.org>, 
- =?utf-8?q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
- Gergo Koteles <soyer@irl.hu>, Ike Panhc <ikepanhc@gmail.com>, 
- Andrew Kallmeyer <kallmeyeras@gmail.com>
-Cc: Eduard Aliman <edialiman20@gmail.com>, 
- platform-driver-x86@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Mahir Faisal <mahirfaisalantiq33@gmail.com>, Rong Zhang <i@rong.moe>
-X-Mailer: b4 0.17-dev-ce4c1
-X-ZohoMailClient: External
+Content-Transfer-Encoding: 8bit
 
-The Lenovo Yoga 7 14ARP8's EC must be triggered by software on YMC
-events, or else the enable states of touchpad, keyboard, and keyboard
-backlight become out of sync.
+dwc3_suspend_common() powers the core off for system suspend
+(dwc3_core_exit()) in OTG mode (DWC3_GCTL_PRTCAP_OTG), and in host mode
+when the controller may not wake the system or needs a full re-init. The
+xHCI registers and the state saved with the Controller Save State
+command are gone then, but nothing tells xhci-plat: xhci_resume() takes
+the "state intact" path, writes the saved registers back and asks the
+controller to restore its state (CRS).
 
-Add a DMI quirk table entry for the said device.
+xhci-plat has a flag for exactly this, power_lost (commit 668cc6bc1178
+("usb: host: xhci-plat: allow upper layers to signal power loss"), used
+by cdns3), but dwc3 never sets it.
 
-Reported-by: Eduard Aliman <edialiman20@gmail.com>
-Closes: https://msgid.link/CAA4HgYKab7_GMCNdHF9+E=9ECVBHRs_axefeCOnZbUNUoyVSoQ@mail.gmail.com
-Signed-off-by: Rong Zhang <i@rong.moe>
+On a Lenovo Y700 Gen 5 (TB323FU, SM8850; DWC3 + eUSB2 PHY) with a USB
+2.0 hub, a USB 3 flash drive and a Billboard device attached, and USB
+wakeup disabled, s2idle then broke the host controller on resume: either
+the controller wrote to an address that was not mapped
+
+  arm-smmu 15000000.iommu: Unhandled context fault: fsr=0x402,
+    iova=0xd85e7c300, fsynr=0x3d0011, cbfrsynra=0x40, cb=13
+  xhci-hcd xhci-hcd.2.auto: WARNING: Host System Error
+  usb 1-1: hub failed to enable device, error -108
+
+or its command ring would not stop
+
+  xhci-hcd xhci-hcd.2.auto: Abort failed to stop command ring: -110
+  xhci-hcd xhci-hcd.2.auto: xHCI host controller not responding, assume dead
+  xhci-hcd xhci-hcd.2.auto: HC died; cleaning up
+  usb 1-1: PM: **** DPM device timeout ****
+  Kernel panic - not syncing: usb 1-1: unrecoverable failure
+
+With wakeup enabled (the core stays powered) the same setup survived
+every cycle.
+
+Record that the core was powered off and pass this to xhci-plat as
+power_lost from a resume_quirk, so that xhci_resume() resets the
+controller and the devices are re-enumerated. Unlike a static
+XHCI_RESET_ON_RESUME this only applies to the resumes that follow a
+power-off; resumes with the core kept powered (host mode with wakeup
+enabled) and runtime resume keep the restore path. Clear the flag once
+xhci-plat has read it, so that a later system suspend that fails before
+the dwc3 core is suspended does not reset the controller.
+
+Fixes: c4a5153e87fd ("usb: dwc3: core: Power-off core/PHYs on system_suspend in host mode")
+Fixes: f09cc79b4b33 ("usb: dwc3: add dual role support using OTG block")
+Cc: stable@vger.kernel.org # 6.15.x
+Tested-by: Arun Iyengar <aiyengar1990@gmail.com>
+Acked-by: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
+Signed-off-by: Joonhoe Kim <26rote@gmail.com>
 ---
-Changes in v3:
-- New patch to address Eduard Aliman's report
-- Drop Eduard Aliman's Tested-by: as a prerequisite patch has changed
----
- drivers/platform/x86/lenovo/ideapad-laptop.c | 7 +++++++
- 1 file changed, 7 insertions(+)
+v3:
+- Add Cc: stable (Thinh), for 6.15 and later: xhci-plat got power_lost
+  in 6.15 (commit 668cc6bc1178)
+- Add Tested-by from Arun and Acked-by from Thinh
+- No code changes; still based on next-20261111, applies to usb-next
 
-diff --git a/drivers/platform/x86/lenovo/ideapad-laptop.c b/drivers/platform/x86/lenovo/ideapad-laptop.c
-index ec060bcb5c88..dfd3eda05a4b 100644
---- a/drivers/platform/x86/lenovo/ideapad-laptop.c
-+++ b/drivers/platform/x86/lenovo/ideapad-laptop.c
-@@ -1880,6 +1880,13 @@ static const struct dmi_system_id ymc_ec_trigger_quirk_dmi_table[] = {
- 			DMI_MATCH(DMI_PRODUCT_NAME, "82YL"),
- 		},
- 	},
-+	{
-+		/* Lenovo Yoga 7 14ARP8 */
-+		.matches = {
-+			DMI_MATCH(DMI_SYS_VENDOR, "LENOVO"),
-+			DMI_MATCH(DMI_PRODUCT_NAME, "82YM"),
-+		},
-+	},
- 	{ }
+v2:
+- Also set the flag when the core is powered off in OTG mode with the
+  host role active (Sashiko [1])
+- Clear the flag once xhci-plat has read it (Sashiko [1]), instead of in
+  the host branch that keeps the core powered
+- Drop the comment above the resume quirk
+- Add a Fixes tag for the OTG branch
+- Rebased on next-20261111
+
+Testing, 30 s RTC s2idle with wakeup disabled on the setup above:
+without this change 1/1 cycles lost the controller; with this version
+3/3 cycles reset the controller and re-enumerated all devices.
+OTG mode (DWC3_GCTL_PRTCAP_OTG) is not tested; this board switches
+roles through usb-role-switch and never uses it.
+
+host.c now includes xhci.h for hcd_to_xhci_priv().
+
+v1: https://lore.kernel.org/all/20260929130252.869-1-26rote@gmail.com/
+RESEND: https://lore.kernel.org/all/20261112114053.412-1-26rote@gmail.com/
+v2: https://lore.kernel.org/all/20261112141512.1840-1-26rote@gmail.com/
+[1] https://lore.kernel.org/all/sashiko-outbox-211064@kernel.org/
+
+ drivers/usb/dwc3/core.c |  3 +++
+ drivers/usb/dwc3/core.h |  3 +++
+ drivers/usb/dwc3/host.c | 15 ++++++++++++---
+ 3 files changed, 18 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/usb/dwc3/core.c b/drivers/usb/dwc3/core.c
+index 372737f47..1ddd860e1 100644
+--- a/drivers/usb/dwc3/core.c
++++ b/drivers/usb/dwc3/core.c
+@@ -2572,6 +2572,7 @@ static int dwc3_suspend_common(struct dwc3 *dwc, pm_message_t msg)
+ 		if (!PMSG_IS_AUTO(msg) &&
+ 		    (!device_may_wakeup(dwc->dev) || dwc->needs_full_reinit)) {
+ 			dwc3_core_exit(dwc);
++			dwc->xhci_power_lost = 1;
+ 			break;
+ 		}
+ 
+@@ -2608,6 +2609,8 @@ static int dwc3_suspend_common(struct dwc3 *dwc, pm_message_t msg)
+ 
+ 		dwc3_otg_exit(dwc);
+ 		dwc3_core_exit(dwc);
++		if (dwc->current_otg_role == DWC3_OTG_ROLE_HOST)
++			dwc->xhci_power_lost = 1;
+ 		break;
+ 	default:
+ 		/* do nothing */
+diff --git a/drivers/usb/dwc3/core.h b/drivers/usb/dwc3/core.h
+index 267c922ca..4bc94bb07 100644
+--- a/drivers/usb/dwc3/core.h
++++ b/drivers/usb/dwc3/core.h
+@@ -1185,6 +1185,8 @@ struct dwc3_glue_ops {
+  * @suspended: set to track suspend event due to U3/L2.
+  * @susphy_state: state of DWC3_GUSB2PHYCFG_SUSPHY + DWC3_GUSB3PIPECTL_SUSPHY
+  *		  before PM suspend.
++ * @xhci_power_lost: the core was powered off for system suspend; xHCI
++ *		     must not try to restore its state on resume
+  * @imod_interval: set the interrupt moderation interval in 250ns
+  *			increments or 0 to disable.
+  * @max_cfg_eps: current max number of IN eps used across all USB configs.
+@@ -1440,6 +1442,7 @@ struct dwc3 {
+ 	unsigned		wakeup_configured:1;
+ 	unsigned		suspended:1;
+ 	unsigned		susphy_state:1;
++	unsigned		xhci_power_lost:1;
+ 
+ 	u16			imod_interval;
+ 
+diff --git a/drivers/usb/dwc3/host.c b/drivers/usb/dwc3/host.c
+index c5674161b..0cb6e64d1 100644
+--- a/drivers/usb/dwc3/host.c
++++ b/drivers/usb/dwc3/host.c
+@@ -14,9 +14,7 @@
+ #include <linux/usb/hcd.h>
+ #include <linux/bitfield.h>
+ 
+-#include "../host/xhci-port.h"
+-#include "../host/xhci-ext-caps.h"
+-#include "../host/xhci-caps.h"
++#include "../host/xhci.h"
+ #include "../host/xhci-plat.h"
+ #include "core.h"
+ 
+@@ -78,7 +76,18 @@ static void dwc3_xhci_plat_start(struct usb_hcd *hcd)
+ 	dwc3_enable_susphy(dwc, true);
+ }
+ 
++static int dwc3_xhci_resume_quirk(struct usb_hcd *hcd)
++{
++	struct dwc3 *dwc = dev_get_drvdata(hcd->self.controller->parent);
++
++	hcd_to_xhci_priv(hcd)->power_lost = dwc->xhci_power_lost;
++	dwc->xhci_power_lost = 0;
++
++	return 0;
++}
++
+ static const struct xhci_plat_priv dwc3_xhci_plat_quirk = {
++	.resume_quirk = dwc3_xhci_resume_quirk,
+ 	.plat_start = dwc3_xhci_plat_start,
  };
  
 
+base-commit: aaa2f954c21b205a0bcd0961e5b2be4e82e58455
 -- 
-2.55.0
+2.53.0
 
