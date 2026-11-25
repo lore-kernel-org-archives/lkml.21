@@ -1,55 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=159.69.126.157
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795602420;
-	b=Lj/nvoBGOYOsGWsIinXc5DKtIgwypSI/RDRMnRgGttlCxakPMGP4EyHD4hQhWEs4xsmG
-	 naFfM+vcLkqbUm0I859ncEzyWYjMjtXU655OTPrh2Pg71zl7n6fBOsAZHQHZ8SZo11BPa
-	 lJRCGOUQZcnatGTrsu6pzWLKvuKf76eiKVCX/7j3ipSKOfmYjVACJJjU4HajvT6tJRmXa
-	 +BZtwPrD2YR7goxt//JkZf93I+CPNEnqie1bpTcAl+zrPAUSa8+E9A1a8WY9cAWCDFOpJ
-	 F30UYXth9KXHufQCd7BwZ3Vh5BKcYqxNwZtnOsp7Cjtanet5PiNj08tw4oojISmBaIw==
+	t=1795602434;
+	b=v3ZhrFlgRt2icb/HDLIIDAi/aOW20BElWPGjonw329/i++flVwsy8UaJjqE+Wy4oPWQg
+	 LPLZBCemJuKkxFfbmp6jUOP7SgTsfacRiAg+0XTs6vXFQxJm4NoX/xwYJPuYL31T69MXV
+	 CyldloIud7fC4KsM/wS6PLMrrldJZdGXeERhrT5dG5NKW3GoUxtg2BeszdoU0ae7yQ4or
+	 lj9VZ/JsfHyo1jqqFh1Vlq+GrAePrhZ5XfOFr/0FnQdNdrimwnZ8O/xaq8N+l+dDmA0Ja
+	 2aaSLIufBT2vOsX7VGTZ8jHapGVUv7YBaVg0Fl9l7kYyPlG65dtKz+UWautIm1915gg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795602420;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type;
-	bh=usb6Z06Hk8KYQV8odRZafo7lcqGHFhPDFCx6kFOexg8=;
-	b=1PLVp3asjmGnH9kYNEyHaqId98w159syf8ELiPZ04JO8DNCRop2x5ZGhAWfdbdZrbrpo
-	 9AaeCj1VRkw+MofiQgcN7rVDRfwpXveWryex9FywVK9jhikb3QsqO13uDS6hmfiTXwup3
-	 fP+xuAuu1MkhMJQTN7xCVRuqTmOjZw503F73GgozVXb8edDEDfN3vwYjd0xsTTcqELNSL
-	 z+XT80IdfnSCv0P44+IINQlX5cS0AngtfqYFOpKB7Pzm0fAshEcFPegml0yvSrUfabbFL
-	 YDW5wHIu3wpz292soA7aiMlNLduEWmRGou1E+BqZjxcTAGD/0hQb6P8zF/Xa7CzvTBg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795602434;
+	h=DMARC-Filter:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=UdjPSrmIIN+yK0pjcfXNzdP1bLb3/Iq2/gmCvGpuUSM=;
+	b=5kwz0aDBkE6HYRsMGpulNKeI9hnRYuDEtzmn1Rj2PwKNiDngsvuILFqr7mHYTv4ZbSuY
+	 afRKjMZHnqoNuDZdBj01BsooLH7I4wXts3nBZT4O5iuAPlcGZlBpZaeladS6VgT2XPI9P
+	 6YsKwZHSVVFU0WzSUFIOe66ESvNAst74dJY3Qijs90mznuNaDxgX3r1PjACDGz6mRTzYx
+	 k6aTSJVv8K9ANTjdBeikle4iOUb/11GIed4wU1+A40F6wrbQloHVCNoM3ilqHITJ+SieW
+	 X+nt+AVMX72Hp7f6/5slp03wiCCwNMUrQ/+w8OwZEHOShP+q5FCWxfQwnEqbkkh6WWQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=O4uHgzXP;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=weissschuh.net;
+	spf=pass smtp.mailfrom=weissschuh.net;
+	dkim=pass header.d=weissschuh.net header.i=@weissschuh.net header.a=rsa-sha256 header.s=mail header.b=O0jDoNL7;
+	arc=none smtp.remote-ip=159.69.126.157
+Received: from todd.t-8ch.de (todd.t-8ch.de [159.69.126.157])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8FB86606A321
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:27:00 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 498A5606A32E;
+	Wed, 25 Nov 2026 10:27:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 498A5606A32E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=weissschuh.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=weissschuh.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=O4uHgzXP
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 03B901F000EB
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:27:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795602420;
-	bh=usb6Z06Hk8KYQV8odRZafo7lcqGHFhPDFCx6kFOexg8=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=O4uHgzXPpddrs5gBqi8u9B2aC0SyE1KCf5EIAftXmQf0Yz2Bd+cgo1AM8A56/XQ9b
-	 QsOVezx8SE9qn+lvrJWJL1PlTp4gI/ODzeAfNUdCBjt4Yzly+8YEdh5lAto1BeiBtW
-	 /7CFZIny7BW8SPGrIJQECs6/L+Gmln25txeh1jerNuB2R5ZuT5WsODPt16jq9ZSXN1
-	 TAdyxky7rcl0q80azCDqg0LQDzoEB1/CSIuA4WL/UAjvZTNT3qWM2GLj5N0aZvZz1R
-	 L8ZFxRiK9+1MKiLQyRnSM6v7F5pPkCH2LHiOaGB1sMe/Gxk8SHMRpzsNCp05SnHtNB
-	 EfR1nLIQmF2Pg==
-Received: by mail-lf1-f47.google.com with SMTP id 2adb3069b0e04-5c1a947b4adso4587677e87.2
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 02:26:59 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErGLRFlnerRs6u8GRIw91wt6Yaf+n076nluWWVxnDh68cFEIdDJHAsdlmEo0LQrb7FCKHf+qzL2YamkCFrQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z98FkTbcOhTdnqdmfNvxl2Ip21kjlsO/wdCBzBuI4xUQRVQagKO
-	WL04yh4d5fZEzVSxRDZbLEtFdkj5tOUYBRdi2J8sNHsnMCg7W3VaG+GVxZ/Yg8ETWJYwljfL+6C
-	yAdrpmknx0gboIecSpyx0/75eIIX+9LA=
-X-Received: by 2002:a05:6512:104d:b0:5c1:5a83:2fd7 with SMTP id
- 2adb3069b0e04-5c1bc907072mr5199313e87.66.1795602418769; Wed, 25 Nov 2026
- 02:26:58 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=weissschuh.net header.i=@weissschuh.net header.a=rsa-sha256 header.s=mail header.b=O0jDoNL7
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=weissschuh.net;
+	s=mail; t=1795602430;
+	bh=9UPOXoCV2CfcVJuo2UQgfeUtoe1J/CgkmQtANG3RcC8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=O0jDoNL7/5eA2Nl4OgQYadtK1gO6tMJYxBTHeMev1YWHAF5NieOiuKvV3dngmD5w3
+	 Q8HrDGOAJvMvpSpVv+9tq2J9/W3wLTvqi+jspzqeFwi/R5j5LMl7copWKYfr18jNro
+	 iGSq5N3daWa9fHkB7QNC7nCqqC0HJtI3lnpxlI08=
+Date: Wed, 25 Nov 2026 11:27:10 +0100
+From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <linux@weissschuh.net>
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
+	Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, 
+	Nicolas Schier <nsc@kernel.org>, x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
+	Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>, 
+	Justin Stitt <justinstitt@google.com>, Julian Braha <julianbraha@gmail.com>, 
+	linux-kernel@vger.kernel.org, llvm@lists.linux.dev, linux-kbuild@vger.kernel.org, 
+	stable@vger.kernel.org, Linus Torvalds <torvalds@linux-foundation.org>
+Subject: Re: [PATCH v3 1/2] kbuild: Introduce CONFIG_CROSS_COMPILING
+Message-ID: <25eaa926-c244-40a5-b7b9-e5182e601446@t-8ch.de>
+References: <20261124-x86-no-march-native-on-non-x86_64-v3-0-268354149c5f@kernel.org>
+ <20261124-x86-no-march-native-on-non-x86_64-v3-1-268354149c5f@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,54 +62,48 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261015142552.4128028-1-ryan.roberts@arm.com>
-In-Reply-To: <20261015142552.4128028-1-ryan.roberts@arm.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Wed, 25 Nov 2026 11:26:46 +0100
-X-Gmail-Original-Message-ID: <CAD++jLm6VvPYB5UQS8Zm73pYifr7Oi=xX3S4Wt5c3WE7uMv+fQ@mail.gmail.com>
-X-Gm-Features: Aa3M54rtYXT0tNMww-_rAs-DbnpD3x58pzG3L6crqferpf2a4MJ3rhFXSlspZ40
-Message-ID: <CAD++jLm6VvPYB5UQS8Zm73pYifr7Oi=xX3S4Wt5c3WE7uMv+fQ@mail.gmail.com>
-Subject: Re: [RFC PATCH v2 00/15] Arm Core Local Accelerator Driver
-To: Ryan Roberts <ryan.roberts@arm.com>, Arnd Bergmann <arnd@arndb.de>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oupton@kernel.org>, Alex Williamson <alex@shazbot.org>, Jason Gunthorpe <jgg@nvidia.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Jean-Philippe Brucker <jpb@kernel.org>, Oded Gabbay <ogabbay@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, kvm@vger.kernel.org, devicetree@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261124-x86-no-march-native-on-non-x86_64-v3-1-268354149c5f@kernel.org>
 
-Hi Ryan, Jean-Philippe,
+On 2026-11-24 23:43:12-0700, Nathan Chancellor wrote:
+> There are times where decisions may want to be made within Kconfig when
+> cross compiling. Introduce a small script to call '$(HOSTCC) -v' and
+> '$(CC) -v' and compare the first part of the target triples to see if
+> they match.
+> 
+> This check is cheap but approximate, as Kconfig does not have all the
+> information available such as endianness and bit width for the target to
+> pass along to compiler. For example, a user building for x86 with a
+> compiler that can build both with '-m32' / '-m64' may have
+> CONFIG_CROSS_COMPILING set depending on the default value of the
+> toolchain and what's being targeted. Should this become problematic in
+> the future, the logic can be expanded to cover these corner cases but
+> for now, keep the implementation simple and cover the majority of cases.
+> Leave some informational prints to make it easy to debug future reports
+> with
 
-regarding this patch set I looked into historical precursors and
-ongoing developments that could benefit from the same infrastructure.
+The expansion to bit width and endianess will be a lot of busy-work.
+See the CC_CAN_LINK infrastructure.
 
-1. Apple AMX: there is no ongoing effort for this accelerator but it
-exists in all Apple silicon. This accelerator appears to be synchronous
-using extended instructions and is just "some different SVE" and would
-be handled the same way as these.
+We already have host-architecture detection in kbuild through
+scripts/subarch.include. So CC_HAS_MARCH_NATIVE could depend on
+$(ARCH) = $(SUBARCH), after exporting SUBARCH. Or maybe give the
+variable a better name, like HOSTARCH.
 
-2. The PowerPC Cell SPU (Playstation 3)
+This would avoid the introduction of a new, not-really-correct flag
+and also the whack-a-mole that Boris complained about.
 
-This is more interesting: the Cell has accelerator cores that execute
-entire litte programs (shaders?) on behalf of the CPU. These are
-however not poilled like the CLA, but signal completion using a
-mailbox interrupt. The accelerators are
+>   $ make ... run-command KBUILD_RUN_COMMAND='$(srctree)/scripts/check-cross-compiling.sh "$(HOSTCC)" "$(CC) $(CLANG_FLAGS)"'
+> 
+> Cc: stable@vger.kernel.org # dependency of future change
+> Suggested-by: Linus Torvalds <torvalds@linux-foundation.org>
+> Link: https://lore.kernel.org/CAHk-=wgmkoWHWwaQ6nsGoCiBp0hrpJuiwmoVbQ=Efun8JyUNKw@mail.gmail.com/
+> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+> ---
+>  MAINTAINERS                      |  1 +
+>  scripts/Kconfig.toolchain        |  3 +++
+>  scripts/check-cross-compiling.sh | 26 ++++++++++++++++++++++++++
+>  3 files changed, 30 insertions(+)
 
-What is interesting with the SPU is that it communicates by creating
-a custom filesystem (spufs) mounted at /spu, so this is apparently
-another design venue to consider.
-
-I think Arnd Bergmann has worked extensively on the SPU so he will
-likely be able to provide input on lessons learned, do's and dont's
-when it comes to this and other accelerators.
-
-My superficial appraisal is that the CLA is probably executing smaller
-jobs, snippets of work rather than entire little programs/shaders like
-the SPU does, so it is conceptually different, but may provide
-additional ideas anyway. Arnd?
-
-Yours,
-Linus Walleij
+(...)
