@@ -1,57 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795631230;
-	b=iHEIxDu+xA31sDShq0MBhHwgxAblu3N1Zq00s+4afVypLoauRFbRNG2hpNhKfSy6IQCm
-	 Ut1o1d/uPx8/pHIy7jrdImGV7vaukowzqRflm99IPYtFz9ViKU+ju8l2LImwgVjSywMmS
-	 4RciVKZAborzins5pFxKn+irskOle4XIqrprOwIEL6jS9z9OW+nBDVY/HWmYyFlpyduBH
-	 hPFCJ6Fa2QgnKs4b5+b3Jerwg0ayETjxQmow+zn5v14ycEIsi5hqv8qalGWNQB9KBWulX
-	 PlH7k8+NlF106temCa0pZfd5Euq6usd28XoZlrKeMclOxzy7uRIXWPK8k3CIkx+Rj+w==
+	t=1795631243;
+	b=jAm2A3w2u3kD8ONriXRebS55qzWxBvMFows1amx9rv1NvuG+aWvot9EYyxdNNz0gqkMx
+	 cabtbQaIejv9e25SokgFa7PwYu5YIiag4XlzbKQqfAIyha/a6oFkEJHdQVL6ETCGOwqFx
+	 DBhuKdH4nAfakvNQzOJsaUcPL36s7a99N6P312YvrVzS2I8JIBqQAzJC/ggXIFAqUNcad
+	 vzXkU4Ma/PSVyCoYIvlqqekz5wBoJbwZ29POCZnmo4KyLl2Dmdj2wuYPTYPp4BtaXyjx6
+	 G3hYLW38nILgOM0QuKaDqOukXo6ihdzUdSP6W0zp5uxWGOvi9HYs+k0CgyQQhOYStTA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795631230;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=PNampHbyZurVq7cZQ3GYn0BQ21Y1ghiTk/1ymemcw+0=;
-	b=YOjMBLOCL8GO4a0E6Kzn+80oR92BuIo1lAquTidTPAV1YWwwNxzzAeYWhEwFd5oqrWmQ
-	 HubvC+er60ViX0aXhZZrthFoPQzNwdIwKistiQ0ZfXKR0gzGVGs42IGGN3tn5J3lCOie7
-	 4/S6OPjAe4xrd5r/hOq3StvhUNj24WXWeT8BBG+sI9mrm8lle074ZUWJE1JCm2OfNQ330
-	 ONiaRw6OG5JAj6GcoRngdSlv5Gb3UiDE90jlh9reZeKZP3SKvk8bcvbv1E+HeKTSG/wXL
-	 kzJeU1mOZxN3bxhZJTWHsmb6P0cqHkqSdJ/2EiKl65sPj2urM0JiMOwF07NJEPWiDAw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795631243;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:X-Scanned-By;
+	bh=AdJ2OcPY7PZL5nLS/dMp3rb5ggUheY55JCQ/vRYqFRQ=;
+	b=D/ApTM9LINwnXmWsrSt9R7VcIH8q2gHos0yZ+NOIXw6txPSOJh5vlKsf+JS7xZ/zx6YU
+	 +gEHSD4jl6d6nTs7KtU4m2AlJxE86jfxScZGn07GxLQHhN6KLIg8VtEBArmw4HYp608YW
+	 mjWZqr3mrnb3UhEWf4HQvBoiW6e7U5qQncANatD2Uhe3akGyKeeRtTiOY0Fl+L+fl5zo4
+	 ZSOR/pNSvrW1LOthjXInsSIKe3tEsXsu2F5tIwmITTUufZEaQCuZ4cO9ymuCvM5HNGex/
+	 HWhSBgbh88g6y+oGCrM6PR6b/YxXfZuI4IBvzhw7hCbU9equdamvc1/BmwIVNoMSKaQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hnj1efAU;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b="PF/8Ev/G";
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 97B38606A688;
-	Wed, 25 Nov 2026 18:27:10 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B752D606A330
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:27:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B752D606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hnj1efAU
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 31C171F000C4;
-	Wed, 25 Nov 2026 18:27:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795631230;
-	bh=PNampHbyZurVq7cZQ3GYn0BQ21Y1ghiTk/1ymemcw+0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=hnj1efAUuo7wihnV51ofbmi/DjqPGWZhVhr793ZgIF68drgk68rNzSPXyZBEAz8I6
-	 ruRtmX/SRsz6EINjQ0g+1zRNqkarIBFOPy6z+rZdwd9okpBi57Fe1Ry6gqoBV8wG0S
-	 CEWq+vjm/69ZN28Z/VUNqSLR4Z2u0uvmrW8omEe9rxplWIl9lF3PHyDSRLPnaaLhVe
-	 CEUwFSxsQt01ngb3RMKGQoAtsSxs5pfVIjCoOducdLLG6ox/21Uy+uBh3BP4jELAOk
-	 YOufOrQpt5nSYsAjh/njjdHg8GNE6LbDuy4BiD6OhlSQ7XL8AagHd2+aA/pUUId5xU
-	 EOVXDLcWT6y3g==
-From: Yosry Ahmed <yosry@kernel.org>
-To: Sean Christopherson <seanjc@google.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>,
-	Jim Mattson <jmattson@google.com>,
-	kvm@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Yosry Ahmed <yosry@kernel.org>
-Subject: [PATCH 3/3] KVM: selftests: Set EFER.SVME via KVM_SET_SREGS in svm_pmu_host_guest_test
-Date: Wed, 25 Nov 2026 18:27:03 +0000
-Message-ID: <20261125182703.1694998-4-yosry@kernel.org>
-X-Mailer: git-send-email 2.56.1.911.g883d8bcb20-goog
-In-Reply-To: <20261125182703.1694998-1-yosry@kernel.org>
-References: <20261125182703.1694998-1-yosry@kernel.org>
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=PF/8Ev/G
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795631241;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=AdJ2OcPY7PZL5nLS/dMp3rb5ggUheY55JCQ/vRYqFRQ=;
+	b=PF/8Ev/Gi/CC6/cY8lTggCiXqbQs3UI5TsMqP+LoZ5bMGMwmHSOiArNJqzx0f/GijMJczP
+	x4lrUJ6VaqGl4CdRNQsciP7N9wISicAfdzzXoBtVBiEuGm3pGYbpAqO08YDfDrxOPWYkVr
+	T9TSvP8x59ownUqFWm3FxD/S3MCcDtQ=
+Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-321-SVBYfSOMM1O8gH4B10pXrA-1; Wed,
+ 25 Nov 2026 18:27:19 +0000
+X-MC-Unique: SVBYfSOMM1O8gH4B10pXrA-1
+X-Mimecast-MFC-AGG-ID: SVBYfSOMM1O8gH4B10pXrA_1795631237
+Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 790AF18002A1;
+	Wed, 25 Nov 2026 18:27:17 +0000 (UTC)
+Received: from onestero-thinkpadp1gen7.tpbc.csb (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
+	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with SMTP id E25AE195608C;
+	Wed, 25 Nov 2026 18:27:14 +0000 (UTC)
+Received: by onestero-thinkpadp1gen7.tpbc.csb (nbSMTP-1.00) for uid 13628
+	oleg@redhat.com; Wed, 25 Nov 2026 19:27:17 +0100 (CET)
+Date: Wed, 25 Nov 2026 19:27:13 +0100
+From: Oleg Nesterov <oleg@redhat.com>
+To: Avi Weiss <thnkslprpt@gmail.com>
+Cc: mhiramat@kernel.org, peterz@infradead.org, andrii@kernel.org,
+	mingo@redhat.com, acme@kernel.org, namhyung@kernel.org,
+	linux-trace-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] uprobes: avoid postponing return-probe SRCU lease
+ expiration
+Message-ID: <awcogTgVYXBEDD-2@redhat.com>
+References: <20261124091252.567037-1-thnkslprpt@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -61,97 +81,51 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261124091252.567037-1-thnkslprpt@gmail.com>
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
 
-Extend svm_pmu_host_guest_test to set EFER.SVME from userspace via
-KVM_SET_SREGS and verify that Host-Only counters resume counting. Switch
-the existing filter syncs to GUEST_SYNC2() so the guest can select
-between updating the PMU event filter and setting EFER.SVME.
+On 11/24, Avi Weiss wrote:
+>
+> --- a/kernel/events/uprobes.c
+> +++ b/kernel/events/uprobes.c
+> @@ -2052,6 +2052,13 @@ static void ri_timer(struct timer_list *timer)
+>  	 */
+>  	raw_write_seqcount_begin(&utask->ri_seqcount);
+>  
+> +	/*
+> +	 * expire_timers() calls detach_timer() before invoking us.
+> +	 * Order its pending-state store before loading return_instances.
+> +	 * A publisher that saw the timer pending must be visible here.
+> +	 */
+> +	smp_mb();
+> +
+>  	for_each_ret_instance_rcu(ri, utask->return_instances)
+>  		hprobe_expire(&ri->hprobe, false);
+>  
+> @@ -2304,7 +2311,16 @@ static void prepare_uretprobe(struct uprobe *uprobe, struct pt_regs *regs,
+>  	ri->next = utask->return_instances;
+>  	rcu_assign_pointer(utask->return_instances, ri);
+>  
+> -	mod_timer(&utask->ri_timer, jiffies + RI_TIMER_PERIOD);
+> +	/*
+> +	 * Order the return-instance store before timer_pending() loads
+> +	 * the pending state. Either the callback sees this instance or
+> +	 * we rearm the timer.
+> +	 */
+> +	smp_mb();
+> +	if (!timer_pending(&utask->ri_timer)) {
+> +		utask->ri_timer.expires = jiffies + RI_TIMER_PERIOD;
+> +		add_timer(&utask->ri_timer);
+> +	}
 
-Setting EFER.SVME via KVM_SET_SREGS exercises the __set_sregs_common()
--> svm_set_efer() -> svm_pmu_handle_nested_transition() path from
-userspace (and specifically from KVM_SET_SREGS, where kvm->srcu is not
-held).
+Reviewed-by: Oleg Nesterov <oleg@redhat.com>
 
-Signed-off-by: Yosry Ahmed <yosry@kernel.org>
----
- .../kvm/x86/svm_pmu_host_guest_test.c         | 31 ++++++++++++++++---
- 1 file changed, 27 insertions(+), 4 deletions(-)
 
-diff --git a/tools/testing/selftests/kvm/x86/svm_pmu_host_guest_test.c b/tools/testing/selftests/kvm/x86/svm_pmu_host_guest_test.c
-index c5b5cd788d93f..3f743dbaf851f 100644
---- a/tools/testing/selftests/kvm/x86/svm_pmu_host_guest_test.c
-+++ b/tools/testing/selftests/kvm/x86/svm_pmu_host_guest_test.c
-@@ -37,6 +37,11 @@
- 
- #define LOOP_INSNS	1000
- 
-+enum sync_cmd {
-+	SYNC_SET_FILTER,
-+	SYNC_SET_SVME,
-+};
-+
- static __always_inline void run_instruction_loop(void)
- {
- 	unsigned int i;
-@@ -128,12 +133,12 @@ static void l1_guest_code(struct svm_test_data *svm)
- 	assert_pmc_counts(deltas, BIT(PMC_NONE) | BIT(PMC_H) | BIT(PMC_HG));
- 
- 	/* Step 5: Set KVM_PMU_EVENT_DENY - all counters stop */
--	GUEST_SYNC(KVM_PMU_EVENT_DENY);
-+	GUEST_SYNC2(SYNC_SET_FILTER, KVM_PMU_EVENT_DENY);
- 	run_and_measure(deltas);
- 	assert_pmc_counts(deltas, 0);
- 
- 	/* Step 6: Set KVM_PMU_EVENT_ALLOW - back to all except Guest-only */
--	GUEST_SYNC(KVM_PMU_EVENT_ALLOW);
-+	GUEST_SYNC2(SYNC_SET_FILTER, KVM_PMU_EVENT_ALLOW);
- 	run_and_measure(deltas);
- 	assert_pmc_counts(deltas, BIT(PMC_NONE) | BIT(PMC_H) | BIT(PMC_HG));
- 
-@@ -153,6 +158,11 @@ static void l1_guest_code(struct svm_test_data *svm)
- 	run_and_measure(deltas);
- 	assert_pmc_counts(deltas, BIT(PMC_NONE));
- 
-+	/* Step 10: Set SVME via KVM_SET_SREGS - Host-Only counters resume */
-+	GUEST_SYNC1(SYNC_SET_SVME);
-+	run_and_measure(deltas);
-+	assert_pmc_counts(deltas, BIT(PMC_NONE) | BIT(PMC_H) | BIT(PMC_HG));
-+
- 	GUEST_DONE();
- }
- 
-@@ -174,6 +184,7 @@ static struct kvm_pmu_event_filter *alloc_event_filter(u64 event)
- int main(int argc, char *argv[])
- {
- 	struct kvm_pmu_event_filter *filter;
-+	struct kvm_sregs sregs;
- 	struct kvm_vcpu *vcpu;
- 	struct kvm_vm *vm;
- 	struct ucall uc;
-@@ -201,8 +212,20 @@ int main(int argc, char *argv[])
- 		case UCALL_DONE:
- 			goto done;
- 		case UCALL_SYNC:
--			filter->action = uc.args[1];
--			vm_ioctl(vm, KVM_SET_PMU_EVENT_FILTER, filter);
-+			switch (uc.args[0]) {
-+			case SYNC_SET_FILTER:
-+				filter->action = uc.args[1];
-+				vm_ioctl(vm, KVM_SET_PMU_EVENT_FILTER, filter);
-+				break;
-+			case SYNC_SET_SVME:
-+				vcpu_sregs_get(vcpu, &sregs);
-+				sregs.efer |= EFER_SVME;
-+				vcpu_sregs_set(vcpu, &sregs);
-+				break;
-+			default:
-+				TEST_FAIL("Unknown sync cmd %lu", uc.args[0]);
-+				goto done;
-+			}
- 			break;
- 		default:
- 			TEST_FAIL("Unknown ucall %lu", uc.cmd);
--- 
-2.56.1.839.g22a8290db9-goog
+But... If you ever send V3 for any reason, please also add the
+"pairs with ..." comments back. At the start of the new (and imo good)
+comments which explain why is this barrier needed.
+
+Oleg.
 
