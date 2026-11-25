@@ -1,99 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.48
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795598752;
-	b=xoPNLbkKRITHYbyDuhQVhSelkJbsLvSTp5zeKCKSmxVI/3zTATRvBpkiAvyFGRLQXyNj
-	 uCxwE0qzgNMzCLcuHRVVev77pHWRsp5/PWOwL5Vu57gSQ3Mrilw6rwUCjxcLYnthWWEId
-	 SL/uRjWNv6Acm8iBu6FKFGuBzAR/MhqDCTc9viTve+AFSM19Ju1VLUtqNSxC/NDE0G7ZO
-	 r/wXUFazrc/8/IKeympnch5NxVrgSsteSzKNKTvfO6LukJl0w0VpwFRsSiC0fmY0fFfCm
-	 jVYVgg6bsLIjBApypuuO4Op3+COFGQy8HREQ6ofp1dFnLv6B7xA96fiAenh5vJft5lg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795598752;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:MIME-Version:References:
-	 In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=gYbHdRSYox47S6NtsdAA4eKslCoipRNcHNth5Q08SEs=;
-	b=XFhKVKHsLxhyFsCmOkPvGmEzJS3ovfi6dEm5XflRm8G93seh1/jtgwQlUJb/yWO7x4Aw
-	 iyRX1EnuPAaF20SW6GKgQeGtkMQFLv8I6OACg0HTl7ZN6BrK+8xMEq8b3mmS/BUDjQMwf
-	 PX8GotqmSD2biJrOSp8ILVpeweDjvH0ezySeUN/Iv6c+HJWvP2LMotGxeFW1rfMv3omIX
-	 zQDuR4gAHOWOynNpnX5Wd5/leUO/QjpJMt5HAs+dnqtiNekiKPdADOQl5keW+ZCqEotIs
-	 7imhpljLEaeiCAdonqn2R32rgw+3PvoRp3PnDhsKNOolVQND6zl39DW+UABFSQzbHVQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b="L2X+/PXy";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.48
-Received: from mail-ed1-f48.google.com (mail-ed1-f48.google.com [209.85.208.48])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795598836;
+	b=JJSuh2A97chGxykjlF52sgUcxiYNO8YojRDOmh0i2NZXhWPy6IE6qoqC9GHCdmDvohWt
+	 XQR8nXJiozCWmF8VXJaZkfT2yltuTQhWAuRxR4CVx5QjfRa3UgS39zR5Jg40SkU91370F
+	 G/VBv3N8Mr2Bd9joGden3DtBk6dSEk4RPn2Mm0m6oNzsJpHu990jzaWi4GKvQWyqVmASr
+	 AkuLJW0PoZUCtFr2uyS5Nn84xkAFo8kDOOO5KMYA/aDDvvJfkidn+XDEzh00pV1RlfNl8
+	 daZFR9kxA311QK46FDDsUxmwiznQSuFRrNle2KpICOGtQyA0hoMD4zFB5ju/umtVLyw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795598836;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=x4sbsn2ixDTBDtUwxa1hBX1Qz+G2nxms7ydHl051tRo=;
+	b=OnUoNQydc6JIoVtDphKv407p4i0nssMOMX1rJVGA7VBe3Mai/+gAXOoKPKJxw7jYrxd1
+	 gC96c9CzvY8I1vUJJL6Sq60UMjUoSLKqRJQxvQl0GBcCNbyGeVY4lqCO1Ytip1URC0wF8
+	 xUMz0aAwoHBVfGre0D4zlYlBEi1OI+GgIYTuq85uudHTYDahVDpsIp6OEhnbzGP8vvBXm
+	 2RBhgbhq7cs7GyY2gNf5oaevc+VuVGkK7KOkyBINKtXe/0lkVErxlbAwafzqxmLZdiuLr
+	 M1ScPyEmnDN2raiudDDAR3l1gbysWF3XNulmQbchVLJiO0ePHSaOBrD1GeesdCQMpYw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=U8Yz4UDn;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 79245606A698
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 09:25:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 79245606A698
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0C415606A32E;
+	Wed, 25 Nov 2026 09:27:15 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=L2X+/PXy
-Received: by mail-ed1-f48.google.com with SMTP id 4fb4d7f45d1cf-6ba4ce91e21so44520a12.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 01:25:52 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795598751; cv=none;
-        d=google.com; s=arc-20260327;
-        b=cwwZtt5ZnHKeCCqUp0wRRmpyT0bOGnna58d5dwJXgish3DiJkOelLYAv4f3Y3Rc6ck
-         MNCA0kFCePJ6qfgDuupLtl7F6Zz+9Zn3RYYZZ5Ukfxzd0YU0/Dv5rLgzA66hURiesxbm
-         UPj8rVwC6GRxbmAH0j+vLPgm7dCRpk7y0Lh9ecav5ikBXLnSkWr1VF/kHg47JnB31By+
-         cCxd+ZHVL2/bbjBXUJG4qv7TQtb8QFVYD7oIiey2/syQUR64pxw41lu6LoiFeodIBVlJ
-         Q/bSXY59FEYvF8arI+Apq0bXBhs1j21QJUWJC8BC26ugh5x6RZAMI+c9aNOElavOYqFO
-         I1lw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=gYbHdRSYox47S6NtsdAA4eKslCoipRNcHNth5Q08SEs=;
-        fh=GBve/o8MbtHGx1s7AlWt1Cefhz8i0h1Th8xV0Y1ZWNY=;
-        b=DAQM8k6lpqnl98N6kCHt5H1Df98ssJcyHNqd7gy2Y/Wm4nGMIrCVF55obu8u3yPWdG
-         y37q6JmFL6uMRtq0hO8sxpEC5KOMdpwTTuVd9+NcOTEzhSv3IfNrT/CysBQ9XQgZEDOJ
-         sxtsBv7TyRqhUPXwEgMQIE7/BrU1XwvdDo/JGu8BDtcpbNrbyWujo2xA4GlIprEW7Hkd
-         pI65WOco1xjIDVzNH7tt764ryodd6cHaGSErulWRMV8KIJsbYzs2eFPBOO6FGgEW12Zb
-         63cADfO7WhRxcuwdIJ/ShLEyH5gluxbW6MuTktMO65KjaO0kNlWsjGPJ72SbqS0fwNUs
-         0mdQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795598751; x=1796203551; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=gYbHdRSYox47S6NtsdAA4eKslCoipRNcHNth5Q08SEs=;
-        b=L2X+/PXypC3/tKXZUwXmdoCkWUOksEtrAn7Z3N8G2KMb3Ph4Ej03Qnbh/RpnJowzZI
-         UYxG888gnvRL4/mSZCmfxtJLRTZl4d5JrQNOIN6bpZADNGJv8NQhqybPCL8MPLClwrCV
-         ve7lkK00QOGbrRT606HMVqpBhuNt0kFf2MP2QgAG2c50Y5KUshiM2eZLyuRJiDitXRT5
-         KeNcVKLzIky3PzXwptdgA/G0K4uuO1SmTlhRTQHC3M/lP+qYGKe/V3BwlmPO9msXfSBy
-         e+rFPrVucCdabm3a6pXDVOLW/82RvV84kOwdzS3uu7GgCH2MsooFQc5ro83izfGSSEMM
-         IeVg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795598751; x=1796203551;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=gYbHdRSYox47S6NtsdAA4eKslCoipRNcHNth5Q08SEs=;
-        b=iXVckBeInbqTAxFHheR+EOrNOt0QimbgxvyuBCVq3lmJ60x+JlNWHAN5plQ1DtNcsP
-         YszE7XXGEK9+tLtabQihhp2RfqVB4TwojdEEpAvkUdEKCSS5BWppLYbuBsPixHd1bNdK
-         C2bsrNSZfeFwYQVkA7VaW97etstJC0if7lHhRX9gYFdF2PoHrFM4yFnscJK4nDWtFdQ5
-         pMhu/r47iNXDC9zzzwZb5GHQkbrM11bgcrnjMLvfTaZ9bK3vLx57YDTX6cBqC1QJ0oVw
-         +pBjnJOH5XScr34lxrmZli0qxRfU4pa4RRmCld4zr2wGJfWLz4tsVFfR+x6vHVM7L3rS
-         G0Ag==
-X-Gm-Message-State: APuU4Z8r6Qy43fS4pLtF/9qDZWSgjxLop6UdwV+l0HL9dAH/kNzdQwri
-	TMrMmJ30FAOVxSUKucOwkejeylpXjrONRlNzsv0sYa8GZJfU+5ADe5GghtVt19pruBWDUK3Sryp
-	MYKq7UF4UM5RnZyjr0QGlTexP8xjKSlSCh5R/KtXJYuXRAW70ugmoCRezOUQ=
-X-Gm-Gg: AZFdTZe3QpRyH7d/KIUB6L70T0WJJu5+GMpik6sCg8bFJ4T5bA5k3BFA+GU4dn+C6xC
-	DKYk2k/mV/ljR+GrZ1xDSgSdNoiQEBXjViNL3zlYW+2/v2GVJxMjsg1555tAznf8TqkICqjr8ml
-	hSySHJBwiknh4ZfR+GJEbGDsqvWln0oXaXeLWw1CHSgCehuh6oUT7cVN2L2jAtsibzpQ6sDYrWq
-	/NefknB/ZhEZpXR8iQExGu1KpsjmHmD4CV24WCSdJsp1SifufwrUA0NeYMuDqWMuKhOf0hhGYcZ
-	/8OKR47W01W2Dt4dh/LOXrj0ZGDRH1PyRlMmpERBLdg1j6wqQ9QPA3kZAp7Y68qTzZpZaX2gsX/
-	peiTuj3qFEhRX17g+S/7CApWNhdt6XbjLtaY=
-X-Received: by 2002:a05:6402:4019:b0:6b8:a64c:7bae with SMTP id
- 4fb4d7f45d1cf-6ba65b60300mr446859a12.6.1795598750461; Wed, 25 Nov 2026
- 01:25:50 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=U8Yz4UDn
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C87451F000C0;
+	Wed, 25 Nov 2026 09:27:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795598835;
+	bh=x4sbsn2ixDTBDtUwxa1hBX1Qz+G2nxms7ydHl051tRo=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=U8Yz4UDnsTUxU2NTt180uQ56FBgsICpzdchsQS4dHXdghrMSe7JPYmFYljDHsabvS
+	 scI4PVOyTx4hrtfoIXcUXgkf4zgGD2gXwFY+9IsWbkkgqUguZPTpMy8h/F/7N+vFEQ
+	 k7zYVs+7kLtlqbcNczk8mTu3dcbp6zPNvc2sJZAVO14/i4IlZfRNJSv+R8isKAqX50
+	 zpk2mRTT4LPKhi5ThoECw/0XhbHe/lsNhQHfFPfUTJxRDOmiazBFM/lYAlOgr1bzY+
+	 yi8AniGqv3ZcKcq23F1DIJy0FvELf3zL0naomyFczybZdHYt64Dj0JNhXGuQUOcs17
+	 5ECUZzRehtFWw==
+Subject:
+ Re: [PATCH net 1/5] net: dsa: mt7530: disable regulators on switch teardown
+From: netdev-bot+sashiko@kernel.org
+To: wanghr2026@mail.zgclab.edu.cn
+Cc: chester.a.unal@arinc9.com, daniel@makrotopia.org, andrew@lunn.ch,
+ olteanv@gmail.com, davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ pabeni@redhat.com, matthias.bgg@gmail.com,
+ angelogioacchino.delregno@collabora.com, netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Date: Wed, 25 Nov 2026 09:27:14 +0000
+Message-ID: <179559883437.3135.6979042989700533423@kernel.org>
+In-Reply-To: <179550875789.4156.10993765506582806373@mail.zgclab.edu.cn>
+References: <179550875789.4156.10993765506582806373@mail.zgclab.edu.cn>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,66 +66,149 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261113142910.3477757-1-smostafa@google.com>
-In-Reply-To: <20261113142910.3477757-1-smostafa@google.com>
-From: Mostafa Saleh <smostafa@google.com>
-Date: Wed, 25 Nov 2026 11:25:36 +0200
-X-Gm-Features: Aa3M54oG49LqtysQ--8oVUvcgvyBCI2St88VzEbaL5EUBbdo06thbDvEmUWjhIM
-Message-ID: <CAFgf54oB6tmmKTsD6aYvs0JSPb=heb_yXDJLxCRM-mMTPVz4NQ@mail.gmail.com>
-Subject: Re: [PATCH v3 0/2] dmaengine: qcom: bam_dma: Fixes for unbind
-To: linux-kernel@vger.kernel.org, dmaengine@vger.kernel.org, vkoul@kernel.org
-Cc: linux-arm-msm@vger.kernel.org, Frank.Li@kernel.org, 
-	bartosz.golaszewski@oss.qualcomm.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 
-Hi Vinod,
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
+Critical: 0 · High: 0 · Medium: 1 · Low: 1
 
-On Fri, Nov 13, 2026 at 4:29=E2=80=AFPM Mostafa Saleh <smostafa@google.com>=
- wrote:
->
-> On Lenovo Mini-x Gen 10 (X1P42100 based) I am using VFIO-platform [1]
-> to assign the QCE/BAM to VMs.
->
-> During unbind:
-> echo 1dc4000.dma-controller > /sys/bus/platform/drivers/bam-dma-engine/un=
-bind
-> echo 1dfa000.crypto > /sys/bus/platform/drivers/qcrypto/unbind
->
-> I see a system reset quite often, looking more into this,
-> that seems to be related to runtime PM, with those fixes I don't
-> see that anymore.
->
-> [1] https://lore.kernel.org/all/20261024161902.2093581-1-smostafa@google.=
-com/
->
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Gentle ping on this series. Is anything else needed for it to land?
-Frank and Bartosz have already reviewed it.
+- [Medium] mt753x_teardown() now switches off the MT7530 core and IO
+  supplies, but setup registered several interfaces with devm on…
+- [Low] The commit message understates and partly mischaracterizes what
+  the patch changes.
 
-Thanks,
-Mostafa
+--
 
-> Changes in v3:
-> v2: https://lore.kernel.org/all/20261023101536.3965344-1-smostafa@google.=
-com/
-> - Rebase on 7.4-rc1
-> - Collect Bartosz Rb
+net: dsa: mt7530: disable regulators on switch teardown
+
+This patch moves the MT7530 core and io regulator disable from
+mt7530_remove() into mt753x_teardown(), after the stats polling work is
+cancelled. The aim is to balance the enable in mt7530_setup() for switches
+that are torn down without the driver reaching remove().
+
+> Move the regulator disable from mt7530_remove() to mt753x_teardown(),
+> after the stats polling work is cancelled so that no poll can run against
+> an unpowered switch. This is a plain code movement, with the error
+> reporting kept for now and cleaned up in a later patch.
 >
-> Changes in v2:
-> v1: https://lore.kernel.org/all/20261020180804.140766-1-smostafa@google.c=
-om/
-> - Collect Frank Rb
-> - Drop call to pm_runtime_dont_use_autosuspend()
->
-> Mostafa Saleh (2):
->   dmaengine: qcom: bam_dma: Take a PM ref at remove()
->   dmaengine: qcom: bam_dma: Do not touch remote BAM in remove()
->
->  drivers/dma/qcom/bam_dma.c | 17 ++++++++++++-----
->  1 file changed, 12 insertions(+), 5 deletions(-)
->
-> --
-> 2.56.0.611.g1030f0b940-goog
->
+> A switch in a multi-switch tree whose sibling fails to set up is torn
+> down without its driver reaching remove(), so its regulators were left
+> enabled until now.
+
+[Severity: Low]
+Is "a plain code movement" accurate? The patch seems to change more than
+the message says.
+
+On the remove path, the old mt7530_remove() disabled the supplies before
+mt7530_remove_common()->dsa_unregister_switch(). The whole DSA teardown
+therefore ran against an unpowered switch. With this patch, power is cut
+last, from mt753x_teardown().
+
+The leak can also happen with a single switch, not only in multi-switch
+trees. dsa_switch_setup() calls ops->teardown on its error path when tag
+protocol setup or user MII bus setup fails:
+
+net/dsa/dsa.c:dsa_switch_setup() {
+    ...
+teardown:
+	if (ds->ops->teardown)
+		ds->ops->teardown(ds);
+    ...
+}
+
+dsa_tree_setup() also tears down the switches when dsa_tree_setup_ports(),
+dsa_tree_setup_conduit() or dsa_tree_setup_lags() fails.
+
+In each of these cases probe fails and remove() never runs. The leaked
+enable then triggers WARN_ON(regulator->enable_count) in _regulator_put()
+when devres releases the regulator.
+
+There is one more case. In a multi-switch tree that never finished setting
+up, the old mt7530_remove() disabled regulators that had never been
+enabled. That hit the regulator core's "unbalanced disables" warning, and
+this patch fixes it as a side effect.
+
+Could the commit message mention these cases and the change in ordering on
+the remove path?
+
+> diff --git a/drivers/net/dsa/mt7530.c b/drivers/net/dsa/mt7530.c
+> index d5a199293f78a..c2f12ae2c6d7b 100644
+> --- a/drivers/net/dsa/mt7530.c
+> +++ b/drivers/net/dsa/mt7530.c
+> @@ -3237,9 +3237,22 @@ static void
+>  mt753x_teardown(struct dsa_switch *ds)
+>  {
+>  	struct mt7530_priv *priv = ds->priv;
+> +	int ret;
+>  
+>  	if (priv->bus)
+>  		cancel_delayed_work_sync(&priv->stats_work);
+> +
+> +	if (priv->id == ID_MT7530) {
+> +		ret = regulator_disable(priv->core_pwr);
+> +		if (ret < 0)
+> +			dev_err(priv->dev,
+> +				"Failed to disable core power: %d\n", ret);
+> +
+> +		ret = regulator_disable(priv->io_pwr);
+> +		if (ret < 0)
+> +			dev_err(priv->dev, "Failed to disable io pwr: %d\n",
+> +				ret);
+> +	}
+>  }
+
+[Severity: Medium]
+After this, the switch has no power but is still bound. What happens to the
+interfaces that setup registered with devm on priv->dev?
+
+mt7530_setup_irq():
+	ret = devm_regmap_add_irq_chip_fwnode(dev, dev_fwnode(dev),
+					      priv->regmap, irq,
+					      IRQF_ONESHOT,
+					      0, &mt7530_regmap_irq_chip,
+					      &irq_data);
+
+mt7530_setup_mdio():
+	ret = devm_of_mdiobus_register(dev, bus, mnp);
+
+mt7530_setup_gpio():
+	return devm_gpiochip_add_data(dev, gc, priv);
+
+Neither mt753x_teardown() nor the DSA core undoes these, so they stay live
+until the driver unbinds.
+
+Take the case this commit targets: an MT7530 in a multi-switch tree whose
+sibling fails setup. It goes through
+
+dsa_tree_setup_switches()->dsa_tree_teardown_switches()->mt753x_teardown()
+
+and stays bound with power off.
+
+GPIO consumers such as gpio-leds on the switch LED pins would keep calling
+mt7530_gpio_set() and mt7530_gpio_get(). regmap reports success, but the
+writes are lost and the reads return garbage.
+
+The parent IRQ also stays requested. If the line asserts while the switch
+has no power, regmap_irq_thread() would run against dead hardware. Every
+nested source is masked, so it returns IRQ_NONE. That repeats until
+spurious interrupt detection disables the line.
+
+Before this patch the rails stayed on in this case. On the normal remove()
+path the patch actually makes the unpowered window shorter.
+
+The root cause is older: devm registrations in ->setup outlive ->teardown.
+The later patch "disable regulators on mt753x_setup() failure" has the same
+pattern. It powers off after a mt7530_setup_mdio() or create_sgmii()
+failure, while the devm IRQ chip and MDIO bus are still registered.
+
+Should teardown also unregister these interfaces? Or should the regulators
+stay enabled until remove()?
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/179550875789.4156.361477684651496992%40mail.zgclab.edu.cn
