@@ -1,75 +1,74 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795596045;
-	b=krIzDQFk+BneAQc8Kux4H+71hKzYNtqBt2L1A0vxJM/jmsR9g+UjKz4BqF9USNwHpT/a
-	 oRsMqrsT2PgBV0Q4Qe1B6dgnLePY1O88AsBd2LaA/E14SHSI3aVhbs3dJyN3k/Fn91Q/Q
-	 mPBHe99CEdnb7eCo8gNmYcOuzYIQw+jnFZ7/+alSRUAGQf7VpE1MjiwlFzOxE2vWfEOKC
-	 Sq6iCdpAUWvA2zCDWBQSAJDzysgFl6uqiDks9evUzBzLlwD/w2ZnyNB2El+dgHfcT+4bY
-	 xAeNiSSHR0Tgu3ZuawL2R0kzIVgRQPJljF7Q3SuQGHzYcK7sGoMPQUeolP1xuWNT1Hw==
+	t=1795596046;
+	b=BEjzOzf5GPyzxS62lI4Dyc4Md4Z/xf8MmeBY8vOQMP89BU87JEvUmt/4E7jmCwcB/3tw
+	 NJaoJFjFC4p+13fCvUpAqJJ83bDmcl1Yv7yIEIJk5u7lyvhd7uqPveVqJBep+RHysZiea
+	 Ztg36lDRnEb3QKalRkdXz+GBcQ053BmwKDzFsHHdcbGw8vCfDYOgc9sGYcJ7mN78/h/vk
+	 od4n2JXbFgRTy+loi5jFm4opDwZQyaItxOp193GvogTfB+cqv0vZDXXI6qDz5dFYi5XnU
+	 CRyaGdoAmHBncQEf8JhlIu8wAotaFDsBxcq42/1Y5gVUr47mo5Ti44Ww5KjGMdz4DLg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795596045;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795596046;
 	h=DMARC-Filter:Date:DKIM-Signature:DKIM-Signature:From:Sender:Reply-to:
 	 To:Subject:Cc:In-Reply-To:References:MIME-Version:Message-ID:Robot-ID:
 	 Robot-Unsubscribe:Precedence:Content-Type:Content-Transfer-Encoding;
-	bh=MUuoUxxXDC36p8Yj2BuCEVzKWpd/SCortrG82wA3RUI=;
-	b=5pjNSivyvgOXS6Vs6I0XPActzWh/sIppHE7Yddd0pFKssCq7gAmbiaVHLywHEEPPJzbC
-	 OMiheOhSXc00Jse+jJkzLWvSVybJQgXdNenEEWACdGlfpo1RpxGVKI0pqEhsjrJ2M2FT4
-	 7Qg9LfqZ2l0CCLJVMlLGQS/3px1p3rVAmu5RBccsIb2YIl3IheyEPgbTa2Ao1uOG47KAG
-	 gqu+7/okOjry8APCT+W5Rrl5rwlM73wb2RK0iq69RXFX/blPYp/+nkxyTJ5LxIMyKAlfp
-	 hu8Lff5CvU/D0eGANBqQfSq/N3lBVXKEGjDBF+FI2lii8nStMZX/XQ0VU07chDImrhw==
+	bh=apcGwBa7vNOB1JZdkm4822dAO6dUKeUdTW9gSKLI5gc=;
+	b=dD0qouRLDJ3fBlwDypylx8FP8MSvlhwE5P5qhUggrrE7uz+7dKZ/KZ6Rn+r1wUImRyy7
+	 9PpZBvjlVyokLSUft/a8XhQDZNqY76+aDkD1o+hgilKcud8kOSOKE3QQXFrGySNpPTCJh
+	 7m0mvmKCipnqhxG89uQmrX9mqO4YEeB10rk+rAuear8PEAVudGQPHCvwnDD13U8xfonv6
+	 BhvbBc4NUcwv/ojxrNYe61pAedXnSP+bjvmSkVi4Vev5+GuUQaQ1y9wEtzbaumYsXqf0W
+	 5DLtcPFpw/jh7+0I4V3SXt404SGlMbU0Th4Rh1B/ynKxQZe9/czWArdh63f7d9NE1AA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linutronix.de;
 	spf=pass smtp.mailfrom=linutronix.de;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=KDi9qGpX;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=8ylpiDbC;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=Qn8Lvs3u;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=SxdrBj1m;
 	arc=none smtp.remote-ip=193.142.43.55
 Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A317B606A33C;
-	Wed, 25 Nov 2026 08:40:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A317B606A33C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 78E3F606A688;
+	Wed, 25 Nov 2026 08:40:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 78E3F606A688
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=KDi9qGpX;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=8ylpiDbC
-Date: Wed, 25 Nov 2026 08:40:40 -0000
+	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=Qn8Lvs3u;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=SxdrBj1m
+Date: Wed, 25 Nov 2026 08:40:42 -0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1795596042;
+	s=2020; t=1795596044;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=MUuoUxxXDC36p8Yj2BuCEVzKWpd/SCortrG82wA3RUI=;
-	b=KDi9qGpXchxAvZQbw7bhXuJwnXEKeOX1SOOj294nQFm/U3jiLezaZsVy7Cx7p4N3N9+zTG
-	bE3grOt+YWBS4yZqx5ikgvQduSQIbPPtD5hN/uuXjucbLqEkVOSkEYdnzzleAssFdkyQdB
-	bnlWFu7Che0/pJA9JR3fd6eyIeXJvJco31W6ylrTPwQ8MbXWiQ9Kyj6WQ7se8fSBTzN/jj
-	3NuyVgb2sM6fqd2WD5SI4vZ/DMxGQCw/C01B7hsUfF/6B2vXENAWXU4xHN7SzHLYLZ90TI
-	NIjjXELLDEgiJVj6dHVwbc7c8Xvxyzt/sMkqzkFmrZTmwzsMMlM4ML4IK4X1ZQ==
+	bh=apcGwBa7vNOB1JZdkm4822dAO6dUKeUdTW9gSKLI5gc=;
+	b=Qn8Lvs3uJuqSJQjUz9YFdgJHoGEx/9ll+f+eU4ZZULYb01JSDF4gYOV6vgX+POJzCi5pgM
+	VSpHXf8CvbF7k2HsiSdtcZhnApAFviNBanweViwGDAmCdk4e6zlPU6fTeaS9xFMDvacwrI
+	PfHKTxepm8hR7HzwfLXeyajzcUzv7x98W+MAzWybayA35OJgWI1qZQIudmQtdl2pwjhoxO
+	1TqfmnDmw0KalBNs3OKa/z1+YHRiRYwQZceuJmh9ZDWf8RDzDMKxN+ClLNhBHsoJCf5gn1
+	LgRKQqsdHKtSCoe3zZEVOJWvCcUPVl546OR8AsCauHEAwM3BH89C4nqxe7twSQ==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1795596042;
+	s=2020e; t=1795596044;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=MUuoUxxXDC36p8Yj2BuCEVzKWpd/SCortrG82wA3RUI=;
-	b=8ylpiDbCsN0fGJkcjQoPsORvm/4JPMLtybUUCzigwQUzecg/OE9YQ9gnpk4hBxx+Fy5Hc5
-	qWOhvLCz5aVhUFBQ==
-From: "tip-bot2 for Alexander Moch" <tip-bot2@linutronix.de>
+	bh=apcGwBa7vNOB1JZdkm4822dAO6dUKeUdTW9gSKLI5gc=;
+	b=SxdrBj1mBsIiUeYrqO1hMPpEzLA0cIXxFdRjnNoxLXCI8H77FuWF1QF1s8pJlKMxRG4vtQ
+	0yB6HE+EXNjrh8Bg==
+From: "tip-bot2 for Hungyu Lin" <tip-bot2@linutronix.de>
 Sender: tip-bot2@linutronix.de
 Reply-to: linux-kernel@vger.kernel.org
 To: linux-tip-commits@vger.kernel.org
-Subject:
- [tip: objtool/core] objtool: Fix signal handler stack size calculation
-Cc: Alexander Moch <mail@alexmoch.com>, Lucas De Marchi <ldemarchi@nvidia.com>,
- Josh Poimboeuf <jpoimboe@kernel.org>, x86@kernel.org,
- linux-kernel@vger.kernel.org
-In-Reply-To: <20260920143815.32426-1-mail@alexmoch.com>
-References: <20260920143815.32426-1-mail@alexmoch.com>
+Subject: [tip: objtool/core] klp-build: Use kzalloc_objs() for object and
+ function arrays
+Cc: Hungyu Lin <dennylin0707@gmail.com>, Josh Poimboeuf <jpoimboe@kernel.org>,
+ x86@kernel.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20261020072712.12633-1-dennylin0707@gmail.com>
+References: <20261020072712.12633-1-dennylin0707@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -79,7 +78,7 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Message-ID: <179559604053.92412.8629435299160467850.tip-bot2@tip-bot2>
+Message-ID: <179559604210.92412.2297958434620654008.tip-bot2@tip-bot2>
 Robot-ID: <tip-bot2@linutronix.de>
 Robot-Unsubscribe:
  Contact <mailto:tglx@kernel.org> to get blacklisted from these emails
@@ -89,88 +88,49 @@ Content-Transfer-Encoding: quoted-printable
 
 The following commit has been merged into the objtool/core branch of tip:
 
-Commit-ID:     244c6190fc44547c5bd8e5a9d927aa354bbf8737
-Gitweb:        https://git.kernel.org/tip/244c6190fc44547c5bd8e5a9d927aa354bb=
-f8737
-Author:        Alexander Moch <mail@alexmoch.com>
-AuthorDate:    Sun, 20 Sep 2026 16:38:15 +02:00
+Commit-ID:     0397eb93362723345eb3a0ffbda0e19e654c0440
+Gitweb:        https://git.kernel.org/tip/0397eb93362723345eb3a0ffbda0e19e654=
+c0440
+Author:        Hungyu Lin <dennylin0707@gmail.com>
+AuthorDate:    Tue, 20 Oct 2026 07:27:12=20
 Committer:     Josh Poimboeuf <jpoimboe@kernel.org>
 CommitterDate: Sat, 21 Nov 2026 23:38:32 -08:00
 
-objtool: Fix signal handler stack size calculation
+klp-build: Use kzalloc_objs() for object and function arrays
 
-init_signal_handler() allocates its alternate signal stack with SIGSTKSZ.
-Built against musl on x86-64 that is a compile-time 8192, whatever the CPU
-it ends up running on turns out to need.
+Allocate the object and function arrays with kzalloc_objs() so their
+element sizes are derived from the destination types and multiplication
+overflow is handled by the allocation helper.
 
-The C library refuses a stack below its own minimum, and that minimum
-follows the kernel: musl's sigaltstack() rejects anything smaller than
-sysconf(_SC_MINSIGSTKSZ), which it derives from AT_MINSIGSTKSZ, and the
-kernel grows that figure with the xsave area.  On a machine with AMX it is
-11952, so the 8192 objtool asks for is refused and objtool exits before
-doing any work:
+Keep the extra zeroed entry used to terminate each array. The default
+allocation flags remain GFP_KERNEL.
 
-  error: objtool [signal.c:118]: init_signal_handler: sigaltstack failed: Out=
- of memory
-
-Ask the kernel instead of assuming.  It publishes the size a signal frame
-needs as AT_MINSIGSTKSZ, and the handler still has to run in what is left
-above that, so add SIGSTKSZ on top, which is what
-tools/testing/selftests/x86/sigaltstack.c already does.  Where the auxv
-entry is absent, before v5.14, getauxval() returns 0 and the result is
-SIGSTKSZ, as today.
-
-Fixes: 799647ddb4c0 ("objtool: Add more robust signal error handling, detect =
-and warn about stack overflows")
-Signed-off-by: Alexander Moch <mail@alexmoch.com>
-Reviewed-by: Lucas De Marchi <ldemarchi@nvidia.com>
-Link: https://patch.msgid.link/20260920143815.32426-1-mail@alexmoch.com
+Signed-off-by: Hungyu Lin <dennylin0707@gmail.com>
+Link: https://patch.msgid.link/20261020072712.12633-1-dennylin0707@gmail.com
 Signed-off-by: Josh Poimboeuf <jpoimboe@kernel.org>
 ---
- tools/objtool/signal.c | 12 ++++++++++--
- 1 file changed, 10 insertions(+), 2 deletions(-)
+ scripts/livepatch/init.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/tools/objtool/signal.c b/tools/objtool/signal.c
-index af5c65c..bd7b7d6 100644
---- a/tools/objtool/signal.c
-+++ b/tools/objtool/signal.c
-@@ -9,11 +9,16 @@
- #include <signal.h>
- #include <unistd.h>
- #include <sys/resource.h>
-+#include <sys/auxv.h>
- #include <string.h>
-=20
- #include <objtool/objtool.h>
- #include <objtool/warn.h>
-=20
-+#ifndef AT_MINSIGSTKSZ
-+#define AT_MINSIGSTKSZ	51
-+#endif
-+
- static unsigned long stack_limit;
-=20
- static bool is_stack_overflow(void *fault_addr)
-@@ -101,17 +106,20 @@ int init_signal_handler(void)
- {
- 	int signals[] =3D {SIGSEGV, SIGBUS, SIGILL, SIGABRT};
- 	struct sigaction sa;
-+	size_t stack_size;
- 	stack_t ss;
-=20
- 	if (read_stack_limit())
- 		return -1;
-=20
--	ss.ss_sp =3D malloc(SIGSTKSZ);
-+	stack_size =3D getauxval(AT_MINSIGSTKSZ) + SIGSTKSZ;
-+
-+	ss.ss_sp =3D malloc(stack_size);
- 	if (!ss.ss_sp) {
- 		ERROR_GLIBC("malloc");
- 		return -1;
+diff --git a/scripts/livepatch/init.c b/scripts/livepatch/init.c
+index 16aff8f..df041fe 100644
+--- a/scripts/livepatch/init.c
++++ b/scripts/livepatch/init.c
+@@ -34,7 +34,7 @@ static int __init livepatch_mod_init(void)
+ 		goto err;
  	}
--	ss.ss_size =3D SIGSTKSZ;
-+	ss.ss_size =3D stack_size;
- 	ss.ss_flags =3D 0;
 =20
- 	if (sigaltstack(&ss, NULL) =3D=3D -1) {
+-	objs =3D kzalloc(sizeof(struct klp_object) * (nr_objs + 1),  GFP_KERNEL);
++	objs =3D kzalloc_objs(*objs, nr_objs + 1);
+ 	if (!objs) {
+ 		ret =3D -ENOMEM;
+ 		goto err_free_patch;
+@@ -47,7 +47,7 @@ static int __init livepatch_mod_init(void)
+ 		struct klp_func *funcs =3D objs[i].funcs;
+ 		struct klp_object *obj =3D objs + i;
+=20
+-		funcs =3D kzalloc(sizeof(struct klp_func) * (nr_funcs + 1), GFP_KERNEL);
++		funcs =3D kzalloc_objs(*funcs, nr_funcs + 1);
+ 		if (!funcs) {
+ 			ret =3D -ENOMEM;
+ 			for (int j =3D 0; j < i; j++)
