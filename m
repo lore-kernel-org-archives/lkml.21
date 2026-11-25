@@ -1,96 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.179
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795604364;
-	b=X9onJ8aXZJmiAkeTbEVUX6hGgSZF4f/xSbbAqzfapkwfOz0E9nFIIsSqdCALFvnurHPn
-	 pSWFnB9tJlcNrx9cf+uk6o/qYiQhvSn4PjGD5xj3L3Az9hP4l1UVWs0wFw++AhrxeU+oJ
-	 bDTZcsX7ZBppz6qF+O2Bizg/sF7Upa6iNb8AHiqlym2oQHXUtyWUq/traASKCTYlZUHE5
-	 wctjG1LtjicU+m0cQyOQZkDTcbOWqo7QR5TXwj/jUFF/wYAOupE52onLm4e0lxUe8NZpB
-	 kRXWOoe2S1xL0I/Oq2wVUSkh9/lOlzRycSJ4WBEwhGqeebAZai+oOlEEblP/G4GWD3Q==
+	t=1795604365;
+	b=0W5vhalfw6IFuCjGF3wPEt/vlmEUnMMTeYAKLkwBPHeisZldVfuDU/8Itf4dPCyKsGJy
+	 dOep6u0H7wFgBJQYHe7fWS6CkSbK34+UoJiYFkJXsYH88J0GQsXmmGxu7kys2wFSy7t7d
+	 Sf9E4OeX5ZZ8uZaK8zxT1rkzyYaA3aA35zJsqrFTf1QmUjRoQ2hJ8EanydSvNQZXVihlI
+	 GPXwSCrJuN/XeocGK+4n5x3uQyalMtOLD6zBSH+1YPn43vxpp2RPp8ShCFBQ2p3sV8KTU
+	 pFvE0xqDJfX/oQTyZrXlkpMtHzymwvFY+xp4P5ha2VCOv4xXyx7A5rPpkClWDM7/nGg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795604364;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=j1FGvTIUIAFBOZYmL6OiO8sZFEbEFDfPmxmvVzyQ4O4=;
-	b=L2PxbWkP1yWFeOAHR/Xaf+EJKQHH5vhynTUZNiCWZCm0ob249BCx1oqBQAIx7UE0Eg0M
-	 /SaZJY7F/lo7GdsJYo5mhlYYCx7uW3RUd0U0YUaITz1RmJZXJf0kC7gnjdgFQegjGImxR
-	 r11dJ0JxXJvdB2M54YlDz1XDo/3PnSVjwZoamYdMgZu6W43aQUYFv9lpmxvPUmcQ5XXZR
-	 sn9ujFMehT9dQcq0J9X2k818Z+Gc9n9O4UKne36ycrDequPu1uUn307tSZNKzNQrVvsLe
-	 4+xIyP4LFLMDGqzRveed9Hva+7xrKNbqAp7tdNPOvYF58dUjBNNh2uz2GfVfYXJkFmg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795604365;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:References:From:Content-Language:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=fKA8BFLGdwVjzSEcP9TB5OaODNCZi8nQaBdamkoL5gM=;
+	b=BoM9wsQgq4mICMCYf0pDrdYFzZNi5x2/4XxUzQkFrNDBIR79rh6Qy8B4wOi4+aWbWbDT
+	 KWsvJwyZyvRQfBA98hMIU8AkeY/xz3+SKOE1HMN7u9bUhg/LRTaGEFIFK5WlQvRALeS1p
+	 LobXAaUjYsAzxcR7x0hRa941Sy3nQBV4QVvWIK1JVf82TjaoypXaXcF2Yx45jz5jlK4Xa
+	 j0Nb+kmkCrsCYE2evYJNB9v0BTAQPQeWkHTXb8DXXrtAznsVzAmBvmBY9IbFYvYxTKrsc
+	 1amOnyGZUmJ+6M/K4QUahPBBe6U/y4UjtBXsbJA5MsPytnbT8kqljd3f+BvwwtDAklg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=l5paWmhl;
-	arc=none smtp.remote-ip=74.125.82.179
-Received: from mail-dy1-f179.google.com (mail-dy1-f179.google.com [74.125.82.179])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fZqT4Y+W;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 447DF606A31E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:59:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 447DF606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 835CD606A32C;
+	Wed, 25 Nov 2026 10:59:25 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=l5paWmhl
-Received: by mail-dy1-f179.google.com with SMTP id 5a478bee46e88-38190551625so11174954eec.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 02:59:24 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795604363; x=1796209163; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=j1FGvTIUIAFBOZYmL6OiO8sZFEbEFDfPmxmvVzyQ4O4=;
-        b=l5paWmhlvul/tw/kTqteh745vQEXeh7d1Fd4bYOnqC2zUQkt7xFh/cAzBJy71FYJMk
-         zUBPHGWUxP6NoIuUKIr1EE1hQJ6jDcvrQfln8HtHCDdOsigZrbAD07VS3axTCZmj4Z7g
-         fp+fQY7/EgOWTDHInPtZyDoKd6+rNX6UPgKlDRYvY1d8o+Nja9d4YHG2QFGSfeVhbwph
-         0+KN2ug/N3EpiORql/S6jKTNxviWcL800jv3MexSaMmsDRszh6XEuGG64ZSrFywFlFS1
-         L5vIQfxcqQso3upERHrL9L0mFLhl9usZTO78V1MLASVFKWijxFUlMEaoorZ6WVcnLNuB
-         gYCA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795604363; x=1796209163;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=j1FGvTIUIAFBOZYmL6OiO8sZFEbEFDfPmxmvVzyQ4O4=;
-        b=yieBQsq0uMQl+2mTHkhF5FYXR+XQLnN20CgjLT//LbPe79LieJ7UrMj4aRl9X6Wru2
-         Ll/HeoNODbz9bX0kzgY/ht2jL1vtGoH/IHqCXfCK/NZUurTiCJnW1RI0YVv67ridhT7G
-         t3EvrsMbTAdSok5D8xCDQNVAbCVByWQ5bovkq8daQRct4VVmLIQrTRZBL64xhGZP5XSM
-         c9wDvhS+iLi2ynNFVYHMv+oyNB5codFCF0D17WD9s15n+uhDtgCyZJCKeXycyptZ+EBe
-         7vwLS4S+LIyiXJKKKhYdtfQt5Bpn92ZAO0CaOpUm6t/2eR++yX38XAKnOe2S7dHz5O1g
-         x1oQ==
-X-Forwarded-Encrypted: i=1; AL+hErEYRQNy7YUDErP55AuYOUoJVAYzx7BbASzUJr5yiTyz0kF3PPHgkmxbr5XZgOmpUbLPymfNVw33jZDtqts=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+/6QVO9jJ+IR/dQTTaLFCbcD4rqI9XZzuOTMiE1mGt5WzjKMmy
-	M61D7YghyA9DyVJK2TMCM+RRyFbHJ02VA884w7taW6b7QuTNB8LJqkXt
-X-Gm-Gg: AZFdTZesu45PYWXFAqvGwC5oevUi356WSmhDtLBWm839uJCXOE5htBeisJB4XGffrkZ
-	q62SmGMHoTefR/CgdmtArGAVqVG6a3KWl0hyv2R04Q5LSqloSPeD/nZDJpl1hikPKu19kQSfMVj
-	NVNGar6XV4XffTEFsnQ47eMaaUy0fFuMoLIP8OYtoiN/uJAdgp4DVcxkgybsq+mpJYgcWlRLVZ4
-	0Lns9ur+kGZp30KSI8JTeCDKvDtSZ4e46Tl27SBQ6cn6brP/oIafPa4wdyDkNDQ913Ib9j3ikBg
-	4ORbN5AVwoatBOEzsWqyyb6KuA1LSyAQg8Pkjt9DAOH0vm8S/JwfVStmFxCYtu6aP65pTINojEF
-	+xzQMNy8J4jDKyMisuoCNP6pNQMBfqwHsojDNyiH16w8BUPLZgAVW/Za99zkvIPDHQQZRZqaDHY
-	lMMPFvrKOqjwlmY97N5KcJ/MwaoClubXErBfZE6/Ec+dTWT/f5hz/S/Fy7NA4jhO6ed4Vn3oSBI
-	q27UTKABPsHFkZOku27wCwiHDh/s5Z1eEyNeSc+Ai1RMkBtNiEpcpZemKK4Pn6fgJ/vfcnc+zgj
-	OnqrYyi6r0Ql3hSWCYt2NmzsVjJCdYBhLTS5pp+ZO19VlTMN3Fruev+ObnaGzmQneIMijZ9pvnM
-	SAaT5EKpk7DmluRTPKx/hgS6Q4vA=
-X-Received: by 2002:a05:693c:39cc:b0:386:48c1:6c5e with SMTP id 5a478bee46e88-38648c1719dmr15667422eec.37.1795604363311;
-        Wed, 25 Nov 2026 02:59:23 -0800 (PST)
-Received: from localhost.localdomain ([2409:40f0:12f:243a:5b38:482:e2fe:5dab])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385d2b93dd9sm60114815eec.24.2026.11.25.02.59.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 02:59:22 -0800 (PST)
-From: Torra Sowmya <sowmyatorra@gmail.com>
-To: matthew.brost@intel.com,
-	thomas.hellstrom@linux.intel.com,
-	rodrigo.vivi@intel.com
-Cc: airlied@gmail.com,
-	simona@ffwll.ch,
-	intel-xe@lists.freedesktop.org,
-	dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] drm/xe: Remove unused userptr rebind tracepoints
-Date: Wed, 25 Nov 2026 16:28:54 +0530
-Message-ID: <20261125105854.48591-1-sowmyatorra@gmail.com>
-X-Mailer: git-send-email 2.47.3
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fZqT4Y+W
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7236E1F000C0;
+	Wed, 25 Nov 2026 10:59:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795604364;
+	bh=fKA8BFLGdwVjzSEcP9TB5OaODNCZi8nQaBdamkoL5gM=;
+	h=Date:Subject:To:References:From:In-Reply-To;
+	b=fZqT4Y+W6Ev/Ih99QzPAtBImX2Ne4q0CdhL4POHSaBLNGEK6nF8HOZSLpbO1X8K01
+	 Q5xzdAZBUSPSzIMJX8VdQ980dCRtBrevcY5VKUrz/xkrfoVbr816XApV+G337DHIqJ
+	 EvGlnPrKAqU6aSvI7WeeNboVmSdonsCWOYZG+KKU2G8DcvPWhvIgNgQuqTtxUza/OD
+	 9Et22BIbcucuv3pH2nZWchAVCzmOvMv/BFxD6HpKJOn7/4E4LJcaTYdeFe01UdkyJN
+	 dQPhZprYXBjrKN3BWRhNlaQzbnj/XABqLpSluS5uvaPPUyyi+kY/xjy8WIeKvOnkbS
+	 /X+ASzcAC7rIA==
+Message-ID: <180e1abc-9463-4973-9cf0-a6e8c86e17fa@kernel.org>
+Date: Wed, 25 Nov 2026 11:59:17 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,46 +51,163 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 4/7] soc: mediatek: mmdvfs: add VCP backend
+To: Echo Zhang <echo.zhang@mediatek.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>,
+ Jerome Brunet <jbrunet+clk@baylibre.com>,
+ Nathan Chancellor <nathan@kernel.org>,
+ Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling
+ <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
+ MMDVFS Team <linux-mediatek@lists.infradead.org>, kyrie.wu@mediatek.com,
+ ming-fan.chen@mediatek.com, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-clk@vger.kernel.org, llvm@lists.linux.dev
+References: <20261125060037.649659-1-echo.zhang@mediatek.com>
+ <20261125060037.649659-5-echo.zhang@mediatek.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20261125060037.649659-5-echo.zhang@mediatek.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-The xe_vma_userptr_rebind_worker and xe_vma_userptr_rebind_exec
-events were introduced without callers. Their definitions were
-later moved to xe_trace_bo.h, but remain unused.
+On 25/11/2026 07:00, Echo Zhang wrote:
+> Add the VCP transport used by MMDVFS to map AP and firmware shared
+> memory, manage feature power references and send IPI commands.
+> 
+> Wait for VCP readiness and handle the selected MMUP or VCP READY
+> notification to initialize firmware after boot and resume. Serialize
+> IPI transactions while shared memory and acknowledgment state are in
+> use.
+> 
+> Signed-off-by: Echo Zhang <echo.zhang@mediatek.com>
+> ---
+>  drivers/soc/mediatek/mmdvfs/Makefile          |    2 +
+>  drivers/soc/mediatek/mmdvfs/mmdvfs-clk.c      |   39 +-
+>  drivers/soc/mediatek/mmdvfs/mmdvfs-core.c     |  272 +++--
+>  drivers/soc/mediatek/mmdvfs/mmdvfs-internal.h |  160 ++-
+>  drivers/soc/mediatek/mmdvfs/mmdvfs-up-priv.h  |   57 +
+>  drivers/soc/mediatek/mmdvfs/mmdvfs-up.c       |  275 +++++
+>  .../soc/mediatek/mmdvfs/mmdvfs-vcp-memory.h   |  104 ++
+>  drivers/soc/mediatek/mmdvfs/mmdvfs-vcp.c      | 1075 +++++++++++++++++
+>  include/soc/mediatek/mmdvfs.h                 |   66 +-
+>  9 files changed, 1846 insertions(+), 204 deletions(-)
+>  create mode 100644 drivers/soc/mediatek/mmdvfs/mmdvfs-up-priv.h
+>  create mode 100644 drivers/soc/mediatek/mmdvfs/mmdvfs-up.c
+>  create mode 100644 drivers/soc/mediatek/mmdvfs/mmdvfs-vcp-memory.h
+>  create mode 100644 drivers/soc/mediatek/mmdvfs/mmdvfs-vcp.c
+> 
+> diff --git a/drivers/soc/mediatek/mmdvfs/Makefile b/drivers/soc/mediatek/mmdvfs/Makefile
+> index 33a280827006..16ecee30bff6 100644
+> --- a/drivers/soc/mediatek/mmdvfs/Makefile
+> +++ b/drivers/soc/mediatek/mmdvfs/Makefile
+> @@ -4,3 +4,5 @@ obj-$(CONFIG_MTK_MMDVFS) += mtk-mmdvfs.o
+>  
+>  mtk-mmdvfs-y += mmdvfs-core.o
+>  mtk-mmdvfs-y += mmdvfs-clk.o
+> +mtk-mmdvfs-y += mmdvfs-up.o
+> +mtk-mmdvfs-y += mmdvfs-vcp.o
+> diff --git a/drivers/soc/mediatek/mmdvfs/mmdvfs-clk.c b/drivers/soc/mediatek/mmdvfs/mmdvfs-clk.c
+> index 114f3148cf46..b9025427782d 100644
+> --- a/drivers/soc/mediatek/mmdvfs/mmdvfs-clk.c
+> +++ b/drivers/soc/mediatek/mmdvfs/mmdvfs-clk.c
+> @@ -15,7 +15,6 @@
+>  #include <linux/of.h>
+>  #include <linux/of_platform.h>
+>  #include <linux/platform_device.h>
+> -#include <linux/pm_runtime.h>
 
-Remove both definitions while retaining the shared xe_vma event
-class and the other events that use it.
+Srsly, you just added this. So you add buggy code just to fix it...
 
-With the tested x86-64 configuration, size reports a reduction of
-936 bytes in xe_trace_bo.o, from 24146 to 23210 bytes: 344 bytes
-in text and 592 bytes in data.
 
-Fixes: dd08ebf6c352 ("drm/xe: Introduce a new DRM driver for Intel GPUs")
-Signed-off-by: Torra Sowmya <sowmyatorra@gmail.com>
----
- drivers/gpu/drm/xe/xe_trace_bo.h | 10 ----------
- 1 file changed, 10 deletions(-)
+>  #include <linux/property.h>
+>  #include <linux/slab.h>
+>  #include <linux/string.h>
+> @@ -27,9 +26,18 @@
+>  
+>  static const char *mmdvfs_get_clkdev_name(const char *name, char *buf, size_t size)
+>  {
+> +	int ret;
+> +
+>  	if (strlen(name) < MMDVFS_CLKDEV_CON_ID_MAX)
+>  		return name;
+>  
+> +	if (str_has_prefix(name, "mmdvfs-vcp-")) {
+> +		ret = snprintf(buf, size, "mmdvfs-v-%s",
+> +			       name + strlen("mmdvfs-vcp-"));
+> +		if (ret > 0 && ret < (int)size)
+> +			return buf;
+> +	}
+> +
+>  	return NULL;
+>  }
+>  
+> @@ -66,7 +74,7 @@ static int mmdvfs_set_rate(struct clk_hw *hw, unsigned long rate,
+>  
+>  	data = mmdvfs->data;
+>  
+> -	if (!data->init_done)
+> +	if (!READ_ONCE(data->init_done))
+>  		return -EPROBE_DEFER;
+>  
+>  	if (!mmdvfs_is_valid_user_id(user->id) ||
+> @@ -76,12 +84,6 @@ static int mmdvfs_set_rate(struct clk_hw *hw, unsigned long rate,
+>  		return -EINVAL;
+>  	}
+>  
+> -	if (rate == 0) {
+> -		mmdvfs_dbg(mmdvfs->dev, "Zero rate request for user %s\n",
+> -			   user->name);
+> -		return 0;
+> -	}
 
-diff --git a/drivers/gpu/drm/xe/xe_trace_bo.h b/drivers/gpu/drm/xe/xe_trace_bo.h
-index 36fc7eb65882..8be08d527ea5 100644
---- a/drivers/gpu/drm/xe/xe_trace_bo.h
-+++ b/drivers/gpu/drm/xe/xe_trace_bo.h
-@@ -150,16 +150,6 @@ DEFINE_EVENT(xe_vma, xe_vma_unbind,
- 	     TP_ARGS(vma)
- );
- 
--DEFINE_EVENT(xe_vma, xe_vma_userptr_rebind_worker,
--	     TP_PROTO(struct xe_vma *vma),
--	     TP_ARGS(vma)
--);
--
--DEFINE_EVENT(xe_vma, xe_vma_userptr_rebind_exec,
--	     TP_PROTO(struct xe_vma *vma),
--	     TP_ARGS(vma)
--);
--
- DEFINE_EVENT(xe_vma, xe_vma_rebind_worker,
- 	     TP_PROTO(struct xe_vma *vma),
- 	     TP_ARGS(vma)
--- 
-2.47.3
+NAK, this is just random coding, without any architectural oversight.
 
+Best regards,
+Krzysztof
