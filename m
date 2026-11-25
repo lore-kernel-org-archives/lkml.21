@@ -1,93 +1,70 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.41
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795639291;
-	b=K7nbEnNeEgT4QgFEEVcwjkFiFQEfxDCIco+lHq9z2csQ3cy8B6N26tgI5y6xqnEXCqBM
-	 9Jis5U/cBHLVz2bQPb4PyKYg9SfE8AtHlNa9eppzuNOMMoV+E9WXGI/H0bBg48C4UHigk
-	 OG9U0O7UIbRPUEdbPNUVFa4qAizO4Y75oTegRWHCXvBNTJAyV++xz8jnJLe52hGiJyyI1
-	 9ITqX2Arciu3fS6BFmI8M2o0aK6qZQRzKH0lHda5iN3pJJnfe4yIlcFGiDvgOEUs4+6RL
-	 fzpdA/yXMjbyFRbmAuaL6K5KXgH0gu7I3dZUVU0yR79KHqs3xBaCNYlU0kRe4s1RafA==
+	t=1795639500;
+	b=4kPaW1slA8eHAvmra6+0/MIZLSyJLhKYXeHLQ0yVUrmxE2dYbS12NgCYYzf0mtuvRnZB
+	 p7q8sXROPodrRqUlgNoYpFeE4qz7d57XWlv2x7ipdsrsQ7sNdXuNI4cR8Nt9nQs1TC2Xi
+	 NlO0ZfDWNcDp0m/juMuzWyRVAxETJgxJ5ORL3U+Eyj4O4764ARiU+cemEFmPevSn/H5ih
+	 C8o1vMJ34HN8ZRAzjh49/bzJ009dIOG7bbkbiS97PnqSVK1D0ZI4scVauZ0AeYWpX78XK
+	 +RDAGMQ4FoEaso2BgAWYK51KPxqkGC/oNvngrfUvdiSYLocqiBHSHenUNdeGjVokS8A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795639291;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Message-ID:In-Reply-To:References:Subject:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-Correlation-ID;
-	bh=0qait1yJ7uGinSq49biTTHsKyvdiVlra14ZPQjDoo1Q=;
-	b=T+nYzj9BsNItgBuvPW1AmnOG+pdRDWl452tXIQfI5XMOi8V1KU+kBuvSybWVMFMsDJz1
-	 OAUoK3DgUTYQ8+kMRQt2YF0DQSwBZ+86lIsFfaXt8dJYan1bVWOJDB/NN6Z6DmLD19Gcy
-	 fJgHPTmx4NP0Gct1rJNG7j1WCTYSGc4pi06yQ8Pvr0ipdU2xfgRR3Nujg7zyT/I4Ivuky
-	 JfhcgibNhpBfUZMbJeCJY17uxn5C0zbEvzGPUN0ueZ60TVAB+G4nPAxqHZFsRvo7KtHDH
-	 MSak3JgX2RDTHdGIoMSod4rQ8z+uSG1y06sFY4o5fqhgONl1kIsFdGIY+knRESaxa2g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795639500;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=Vue2jOZ1khdcISxHu/EhJAQ6nZxM803LHVIcey8TaJw=;
+	b=qJmkwKCP8JQiOwfuIH9xLFiyWhPgXw8ojp2Esc2zrHo0r00gCi4mK9wL2fvP2UHjEE/J
+	 qh02aR2oOJ/Y6VJkLvslPeZJYJtStFFj/k5EeBtoTGqBeHj2ls9sVFxoaev1AIsiChw/b
+	 5/Vp53bo5rsztpgBt2e9HGfVzAcfaYrW5jAJGVqNomF69Vh/RO88r7X9HnfZHryHphCGo
+	 659Lzl/5qLN2jUt1U46DTR5SEfQAWulDx7CbcpA5SOH88nBjn9/NOy+BeG4TvXrfN2mrl
+	 Vm/K6uNahgMfvVxcoqMLJVEXU7jYYWV2pcycgiz+CmwodwP3wdd4p3bOzNLHxFVRUdA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=n4bBv+FR;
-	arc=none smtp.remote-ip=209.85.221.41
-Received: from mail-wr1-f41.google.com (mail-wr1-f41.google.com [209.85.221.41])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gYrZDzw1;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 03115606A321
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 20:41:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 03115606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ADF79606A31E;
+	Wed, 25 Nov 2026 20:45:00 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=n4bBv+FR
-Received: by mail-wr1-f41.google.com with SMTP id ffacd0b85a97d-4ac08f4a0b2so4429240f8f.3
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 12:41:30 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795639289; x=1796244089; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:subject
-         :references:in-reply-to:message-id:cc:to:from:date:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=0qait1yJ7uGinSq49biTTHsKyvdiVlra14ZPQjDoo1Q=;
-        b=n4bBv+FRXGp5cs0436t8zo5f6ZycQrX48DNOL3PinnQDIFumq0rLhLcMB0PFN1Zt4d
-         K0Glm9BKKL/WbgcWB9FjTsUdUEPxQYNLA1IT9gnu3kbcx2MC1q64N5yaqSlEqsS60X16
-         cFb+A3j2+SjvUzxkwUPUISz8o33uNqBlH+X7bcJyP9yYXCHTSXmhi9KGaonzNrwR5j9D
-         DJHtYENrlC2EmCfV+Q+EDYIux3mJA2UviimS0wtaDyPd/Ij4geNRQgNZfJ/C6XGgwE5k
-         Cj+twuc5W9us2dvtI9HZaYxguY43X1x6p0jGLPksaxVLgZTXZemBTNbefO53B87+hzlG
-         KVaw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795639289; x=1796244089;
-        h=content-transfer-encoding:content-type:mime-version:subject
-         :references:in-reply-to:message-id:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=0qait1yJ7uGinSq49biTTHsKyvdiVlra14ZPQjDoo1Q=;
-        b=gUNSp3TE/CBIZ3/fCecsXRO0R9OqAEzbf8aJn5My+BU5aUBz606cY/eUX2HLZlJ1iq
-         1DrITAgv8avp4S1nI8VF53HfRpwUGtwrx/MVkgGUsrAqpwBHcdejMe1aBL6AUPxDuqTf
-         xGvaDT1zvEZFg68VSRjYyxsWgk4pcU+qoiiyPOxbWmWit8TDynz0wtHbf/7wwQgGPXjO
-         ezP7mkkFCbGq+YBw8dZytmnTy+7v3K3JF7pwyIZdKktiwZ0B+EMlWPSC4OiydX737d7E
-         iCWSK+E7WNviqQLRWAMdKIo/H4u8FuB/j4M3WPv1cQYnKBSjlxd5CYwfEm9CXglTYuxW
-         uEtw==
-X-Forwarded-Encrypted: i=1; AL+hErFsF0zo0etjhbyuFc+yzVj5bgtOCHN60vtw7O2XCo6gpL3LzJCFf9yUO/fNpyYgvzk+Sa/HVgdjW+JVhsc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8i5sVsvz+FoVhBAJ8Q/KoyTmIs6IXwtEj6C0pC+l8M4QflcYCx
-	r15rR9drt0ezBwpGyOAMyP9YxJGp8CW0OMhWc97A2XfqpnfFeymC6p/0RM7Oti8h
-X-Gm-Gg: AZFdTZcqQ/wJhs0YoyYjOBROCY/Ry+6c9gZXSxB0jtAMojOIZnGPMU5gSlOjINwmYGJ
-	2uNsiil0ghHU/TpW1MOLFlGEgEWSV974HFzfHwQ8y7uAi2E3eaBQU6womq/U2sjA06IaYXNc3Yl
-	UwVbTYrZwvuW8rn7irgtPBpq4VSLnaF4Q4RjLzL0k8StmtBSLuYVBBhuJiY+U8lf3VvdbMvPbMe
-	wmg9Wrv9e3KBHAGGuGPw7iNhOuv2EWNVFt+Th+4U0RkY5slB1eXK3IheW6MyjTWQXK4qo45dAzc
-	Wa3iXX/Y8Im9MsAZBdgRbOw097ojrM7kAKtjKDs8E3yXncTbtOgk/nO8jBq/kKvHJBunsjOGWCp
-	sQDrn+5JU96DHwAmbPKQ6dcMoLMLKJA2PbeQhFWfK0L8E7K+MUtjFG2oECBKgccVl588iCPmd54
-	LXakIkv5SYmzfLN93xSoozuI4lzXFil0Vij9HORLWGZq8o7zIFHrs0nm8ajpFCbTCIjNa2eJn5a
-	wFY6Mk0KSiTcvxdLeeC9rTYXqRUodAkHvkXdESDb+Mf5ef2d02lvj0MOgVAS9wM9iKeQDjvyUoZ
-	iYcZjoxEvkPKnjAUB1ZcU60KGgg=
-X-Received: by 2002:a05:600c:4e16:b0:4bb:69b2:d3df with SMTP id 5b1f17b1804b1-4bb88813024mr395587675e9.25.1795639289194;
-        Wed, 25 Nov 2026 12:41:29 -0800 (PST)
-Received: from [127.0.0.1] ([45.150.175.77])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6c340df4sm41801178f8f.55.2026.11.25.12.41.28
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 25 Nov 2026 12:41:28 -0800 (PST)
-Date: Wed, 25 Nov 2026 21:41:25 +0100
-From: Marcus Lell <marcus.lell@gmail.com>
-To: Przemek Klosowski <przemek.klosowski@gmail.com>
-Cc: linux-btrfs@vger.kernel.org, linux-kernel@vger.kernel.org
-Message-ID: <e7a053b8-0f19-4a75-baf0-7973dec17c26@gmail.com>
-In-Reply-To: <CAC=1GgHNn17ygWL0tF26LGm+=5M4KrKoeMpq9YE794EothX++w@mail.gmail.com>
-References: <b8b122c5-87c7-4363-b3cc-c91d24ff4d2d@gmail.com> <CAC=1GgHNn17ygWL0tF26LGm+=5M4KrKoeMpq9YE794EothX++w@mail.gmail.com>
-Subject: Re: btrfs corruption across different storage configurations. Both
- with free addressable free storage
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gYrZDzw1
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1378C1F000C4;
+	Wed, 25 Nov 2026 20:44:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795639500;
+	bh=Vue2jOZ1khdcISxHu/EhJAQ6nZxM803LHVIcey8TaJw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=gYrZDzw1Svtl+8sgjl/5MB/bZPKRYGIMwLvJqrXPnugEnMpS6IXVW7+dzSyrvpQPO
+	 v/Z9C1MP5cUpVKkUyskgLguAbOQgjv59VTajMNrZhuzG/Xl3i0S+dom7fbXp9IUCoc
+	 D6Ndq0/F/WFVZ4JfQKt1DATQuimFZvqDRZrwUJ/f9VMUUu8Ll09nYuVEny+arLXqiX
+	 2CrXIKHXfciXgbIKRkrw6gFoRz2Cv86tnyjKNRBlPypARNcrxW9uq5bNRM/pTuH2YG
+	 MQcihpy0KgjOClaEfOCn0tSuNcfqWHLLBpw0FxpfGwGT9+U2scEgnh1De+70ab+wFP
+	 vUdm1DhIgCEjg==
+Date: Wed, 25 Nov 2026 13:44:53 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: "Nysal Jan K.A." <nysal@linux.ibm.com>
+Cc: linuxppc-dev@lists.ozlabs.org,
+	Jeevitha Palanisamy <jeevitha@linux.ibm.com>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	"Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
+	Shrikanth Hegde <sshegde@linux.ibm.com>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	"David Hildenbrand (Arm)" <david@kernel.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Usama Arif <usama.arif@linux.dev>,
+	Kevin Brodsky <kevin.brodsky@arm.com>,
+	"Kiryl Shutsemau (Meta)" <kas@kernel.org>,
+	linux-kernel@vger.kernel.org, llvm@lists.linux.dev
+Subject: Re: [PATCH 1/3] powerpc: Add support for 128-bit cmpxchg
+Message-ID: <20261125204453.GC3625068@ax162>
+References: <20261125174035.1412724-1-nysal@linux.ibm.com>
+ <20261125174035.1412724-2-nysal@linux.ibm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -97,102 +74,37 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Correlation-ID: <e7a053b8-0f19-4a75-baf0-7973dec17c26@gmail.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261125174035.1412724-2-nysal@linux.ibm.com>
 
-Hi, Przemek,
-23 Nov 2026 21:45:10 Przemek Klosowski <przemek.klosowski@gmail.com>:
+On Wed, Nov 25, 2026 at 11:10:22PM +0530, Nysal Jan K.A. wrote:
+> diff --git a/arch/powerpc/Kconfig b/arch/powerpc/Kconfig
+> index c3b6cd655606..79cda056dfc4 100644
+> --- a/arch/powerpc/Kconfig
+> +++ b/arch/powerpc/Kconfig
+> @@ -15,6 +15,9 @@ config CC_HAS_PCREL
+>  	# do pcrel yet.
+>  	def_bool PPC64 && CC_IS_GCC && $(cc-option, -mcpu=power10 -mpcrel)
+>  
+> +config CC_HAS_PTI_MODE_VAR_ATTR
+> +	def_bool $(success,echo 'void foo(void) { unsigned __int128 u128 __attribute__((__mode__(PTI))); }' | $(CC) -x c - -c -o /dev/null)
 
-> hi,
-> I am not a btrfs developer but I track the dev list.=C2=A0 I had a corrup=
-ted fs in the past, and it really was due to hardware problem on my system-=
---memory errors due to controller parameters drifting over time. I ran memt=
-est86+, saw the errors, then ran the BIOS memory test, also finding errors,=
- which caused BIOS to recompute the settings. Since then I ran memtest occa=
-sionally, see no errors, and have no problem with the FS.=C2=A0
+Please use '$(CC) $(CLANG_FLAGS)' so that this works if clang adds
+support for this, which will depend on the target information in
+CLANG_FLAGS.
 
-Thank for your reply.
-I will check that, and report back. But since I'm using 6.18.x, I see no pr=
-oblems at all. I think the bug? was introduced in 7.1.x, so it is worth to =
-find out. Maybe others are seeing something similar. The least thing, I'd l=
-ike to see, Linux to become unstable.
+Also, consider following the recently added guidance to
+scripts/Kconfig.toolchain and add some information about when this check
+can go away:
 
-> I don't know if this is relevant to you, but please run memtest (best the=
- bootable version, but if you can't at least boot in mimimal linux and run =
-memtester on as much memory as you can from the shell prompt).
-> Hope this is helpful
-> p
->
+  https://git.kernel.org/kbuild/c/c285fe817a92f9c747931134f468d2aefeae6bce
 
-> On Mon, Nov 23, 2026 at 4:48=E2=80=AFAM Marcus Lell <marcus.lell@gmail.co=
-m> wrote:
->> [please CC me, as I'm off list]
->>
->> I know it's a late report, but I thought, you may know about this one...
->>
->> I experienced severe Btrfs corruption twice, on Linux 7.1.10 and 7.1.12,=
- using substantially different storage configurations.
->>
->> Incident 1 =E2=80=94 Linux 7.1.10
->>
->> I was running Btrfs on LUKS/dm-crypt over md RAID5, using four SATA devi=
-ces with 64 KiB chunks. The incident occurred during or after a RAID5 resha=
-pe and enlargement of the encrypted device. After enlarging the crypt layer=
-, I tried mounting the filesystem, but "mount.btrfs" failed.
->>
->> Subsequent diagnostics revealed metadata errors at offsets beyond Btrfs'=
-s reported size:
->>
->> "total_bytes =3D 20001389936640"
->>
->> - Wanted bytenr "20015028908032", found "8567551700635656859"; checksum =
-wanted "0x836ea028", found "0x8db80d65".
->> - Wanted bytenr "20024023199744", found "12778909791338521120"; checksum=
- wanted "0xfd168e20", found "0x95744024".
->>
->> These offsets were approximately 13.65 GB and 22.64 GB beyond the report=
-ed filesystem size, but within the underlying device's addressable capacity=
-.
->>
->> I did not touch the underlying filesystem during the enlargement. Just a=
-t the end. I was surprised, that an untouched filesystem could go so messed=
- up. I thought, it could be an mdadm grow failure.
->>
->> I made extensive attempts to diagnose and recover the filesystem. I trie=
-d superblock recovery, "btrfs check --repair", "btrfs restore", "btrfs-find=
--root", mounting with recovery options, and "dmsetup"-based approaches. I a=
-lso used a device-mapper snapshot to rule out concurrent changes during che=
-cking. Despite these efforts, I could not restore a usable filesystem. "btr=
-fs restore" recovered some files but reported checksum errors.
->>
->> Incident 2 =E2=80=94 Linux 7.1.12
->>
->> I was running Btrfs on an approximately 1 TB root logical volume on LVM,=
- on a single 2 TB NVMe device, without md RAID. The root filesystem became =
-unusable. I recall seeing what appeared to be the same kind of "bytenr" fai=
-lure, although I no longer have the logs to confirm the exact error. I had =
-not observed unusually large writes before the failure.
->>
->> I lost the logs of the first attempt, that I saved on the root partition=
-. I was like to be afraid to cope with the responses of you. (I'm shy)
->>
->> Because the second incident occurred on a substantially different storag=
-e configuration, I find it less likely that the problem was specific to the=
- RAID reshape or crypt-layer resizing in the first incident.
->>
->> I want you to help make the btrfs filesystem more error prone. But I can=
- only point into the direction. I cannot prove that such a write occurred o=
-r that both incidents shared the same root cause, but I believe the recurre=
-nce and the first incident's specific offsets warrant investigation.
->>
->> I don't know, how to help further, but I don't dare to trust Linux 7.1.x=
- and successors, with 7.0.x I believe, this is the last stable one. I need =
-to upgrade sooner or later, so please find the root cause of this behavior.=
-..
->>
->> Marcus Lell
+It would probably be something like
 
+  # gcc: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=106895 - first fixed in 17.0.0, backported in 16.2.0, 15.4.0, and 14.5.0
+  # clang: not supported - <bug link like Nick requested>
 
---=20
-Return to the point of no return._
+-- 
+Cheers,
+Nathan
