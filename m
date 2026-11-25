@@ -1,83 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.54
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795604906;
-	b=QDSCFT/aycfZntNNLJI9xYdpGEV9/2Jva7CzVEji/N1aaQWbdD2wCDtjYfI3bQBNHBCE
-	 KxSSR8v6zUqBL+e1P8lyTIwQOZvfErnbPeWQIR9no66DUfqGjbnSzmQtH4xf3DoWnpUcx
-	 D5GaxK99BhIXyfrhUbawfrg/cfPnaB4t5fHun0+zshKSrUdMMNMOW42fMOoTGP3OeS3Xt
-	 LjEk700NvON4XOC4LezaX12ZG8iDzOvPrwMVDcvw/lRiIqBzTwNJ7Oko/69C0tr90CFVK
-	 UuBGJv9RrJVRMQAeOX9SNUt+EHS/4Cg9NbU7Z5FKuIQ+KS2+g4DSQnQ4WDHtcYD3UWQ==
+	t=1795604912;
+	b=qbt4NTwuJN9JwOlnYkSGXljEDqmvKBQUQ/m19l9p1ZBk0ZG5rWTubq0xX0vMHwBK/F8A
+	 72zK0f1WevE7BqygM4O6D+8W3bUgo0nXweoP8xuG8Id18helYts4InQLZDp5Tydv3f85a
+	 udVXYtzVcGegO9Wghc5SsyzzlSZRyTD1dAXwZPlzpnIeRLZOj0LkcSdKSTLrhhVLLgxl+
+	 dfhWDs/s50bR99l1rZkTNBSWmUng5aUZnU0Tg0e0+58kkeIpcpDQMAj2nCkNMllRPagtc
+	 V8W4un2gF0pJj5RvMfeUtIT+GeW9hqXwjVgEk6rCvf4ZXQtRjdBodzBOp+T98GKXrEw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795604906;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795604912;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=FPC7WvKQPOHddTcCwt5ZfmTpugqnrOt4y+DtQtGxVhA=;
-	b=CzTNf4yNmGp3hJMkR8UvDDWi2r0UezpAOFWpPhW5KGv+o9b5Q3wYPVLHuUNk773xseff
-	 1LLORVELVEguiSxc32phXFXgOg2+fi7Gl3yPctZNI9SZ9Oix0fGwj1Enpq9nVd9EsD5kY
-	 nToufE8CIZAZZIQMSiYboS3o4bbf5O+UE0UxdlI2qz8iNOOaigZ9g8yzhIo34qSv8mYOE
-	 qHDtjrsUNg30vb85MZM9ZSlnf9knGQZG4iWRsmWOHImbh/5oCCT+zCHYzhg1fBEJ6CYb3
-	 5hUbN9NuiAsmsmWbZPz/YC9ALiUMZO1/qsDQAV1t97X0svvD/xEBTmnPL9w3yTCDHWQ==
+	bh=LbKQrYeSQQjIG8o4PeFfuBxBDq4T+YpBKC3L5X8LsTY=;
+	b=gZNdJ6V2W6YsedxgVLhNR5e9XmXwLWEJsjGj09CCBu9nb/ZbNUD5CGdPm9pe+C5L5S6x
+	 aTsKdQHq/Qy5dXPZKwcKarWx9WBlmY1Gv0i+EgWKr1C3rF7GJD3xrqS7ne2ovRBPLecOq
+	 wEvWdNf31jmsBQ0ZaMEiQPHlqAITjeLvioS5wn6f2Y+dj1WKXzIYoRgj2o1WmQq5CmFsY
+	 y0ItSjpcdM99IAIbpzwBTP6ZaDW3ZnUT+6yuw/yu4vODeIGspnMM7cMcYvpfaGjHZobNb
+	 036oTEvuSIu8Iim+IAA2ubJJt1BFu1TVS8vJ2z81v8GLgnm98oiLgAMrDcgVjezKZ5Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Ev60ytHr;
-	arc=none smtp.remote-ip=209.85.218.54
-Received: from mail-ej1-f54.google.com (mail-ej1-f54.google.com [209.85.218.54])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jDl04GM0;
+	arc=none smtp.remote-ip=209.85.218.43
+Received: from mail-ej1-f43.google.com (mail-ej1-f43.google.com [209.85.218.43])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CF957606A692
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:08:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CF957606A692
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BC08E606A33B
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:08:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BC08E606A33B
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Ev60ytHr
-Received: by mail-ej1-f54.google.com with SMTP id a640c23a62f3a-c4203bbb1e9so932403766b.3
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 03:08:25 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jDl04GM0
+Received: by mail-ej1-f43.google.com with SMTP id a640c23a62f3a-c50a4a2132cso824242366b.3
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 03:08:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795604904; x=1796209704; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795604910; x=1796209710; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=FPC7WvKQPOHddTcCwt5ZfmTpugqnrOt4y+DtQtGxVhA=;
-        b=Ev60ytHrSQHBeKtyq7piY+87HV9Q/sxLiGTZ4oeWGaolpSyEaW6VlnhSpdTzUIwDQb
-         ls+ObkI2VjYUuIecEQDlc/xVy6VwW8JODj3Kgxd3HgYN2P4sTiktqjPLgWuXa4tbKb74
-         LumBod3hO3BHfEdEVC6IUqpTWtBa6+7rPObDTH6wg2KGrJz9vK0Rb2Cp6DjJZRWtJrXo
-         kCh7JB40eZsAZj4QhwPeBbi20BJCV5991KT93D9PpNUQSpEkG+hgehgX9aHmIpDZGdqD
-         r/EswOL3D1tYb3v6VnwdntKheFyeO88MHO2rVo0YZXlANKrvVCgXLYj3JJAU/OZq5iOZ
-         qWfQ==
+        bh=LbKQrYeSQQjIG8o4PeFfuBxBDq4T+YpBKC3L5X8LsTY=;
+        b=jDl04GM04SUvczo1Inokqv8zZl1+LPyhzAvzrssrJVHMKh5h4HAtetz5THXEN9r5Jl
+         23djp7SiAZKlGJ4msE9uSBT7Vy4yf3Vl2P/5w9iaVr5b/O0p58q1DTB7zFue0Rcd435W
+         zDgdn0wg91yg+0r1tZhw/UJEE4wHT9QYY5VJApULT++uryUXC40omFv6GxVSWvh83g4P
+         C89jpRezO0P3Edi3WQInmgAfTZGCXX4Xd6GXJ5BpAegvevJsaPas5TySxpkasLb/5JuG
+         RQ/1usTNG7/my5XvbZZ7ALJ1sr/Gw8ew/4LwvE6kBHjJT9M8P8JYrshgkoQywQ4hTa/e
+         is1A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795604904; x=1796209704;
+        d=1e100.net; s=20260707; t=1795604910; x=1796209710;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=FPC7WvKQPOHddTcCwt5ZfmTpugqnrOt4y+DtQtGxVhA=;
-        b=aa94W1BzIdgsGwgcnByXGjbkMP5MVGdCpSmmOCWqmoF6M69ZqudN2LBAQZl1nyn4oA
-         iERfl8YNUm2ZEswm0tdwJIMlbeIzzUYZmUYLcJ7urGVnd5eCMD1ijT0qXHlqeASvGIqM
-         zC91h6Z03BIhiokAf+NtIvAq8ZMgEMOPwc0deFVoPC60YF04ZtiYDB2E6qixf6ywP6Ly
-         bYQlrpnLDPXtPxFu5RGxUR0x65AvBlJED6jrc9wpK4mgZJstknh9v4lLWqC5QY88Hyu+
-         iCZ1OoHTM0w8BwepcRXBDM/6JMoK+MGfJuTpxqYneayfR3nnWddaeZpq38bid78Bzmcy
-         t+lQ==
-X-Gm-Message-State: APuU4Z8bqs5Wibolemyku0ceinbepl4AalyxEsuR9H8o61DQEPXWqsWo
-	u+U4bKSEPLQJt4GVEn+QGRhYpi15hudnF5bc0gq4x5pstxEMPYgGDy0F
-X-Gm-Gg: AZFdTZdltMVDSwEb9Bx1glpVP/Yggw5ubNmwFUfTf4XOxvcOd/nJj/B2Fyd2anf8Ba3
-	xkzfig03OZPIKnW26hOnw4usTOf/SaAxOfOKiC9xFl+ExoK+ukKvb6omjUMxCYVol/7FSoyLk8a
-	uc2pwj7xQG6R9nX02Obve7ChiNTrZeGNjD3096D5bQE65pGXlqzA6QWkJGEQB5qdm7jHcKb5z2b
-	AHL638chpK2b39oq4WQ3wWwYx1ETLJh7d9bvEbQuCXQkCAySB/MjhliUtZafGEmN2v8L4CT+Tc6
-	mXQwW3RIAVZFE1rqNauUOTa0edVWk9G4g/AZ3I/q/23flipvrQEEQtd3Wvl+ozMNBTWExAT8IRC
-	8l/zIgRpp583zgm7cQuTiqI+3YT9Cwr3/Nex7k97LiuW8VZt0uZuT3wxwhppXcQKsVTIDHmftUu
-	VMGml2sQksPt3GNi1DvjihZH+TlHo5zl9nonQKAISQ7ik7JQAxi8pr2aUs7D4FjzRTK6fJnuitS
-	GUnzR9mWIGgCKcIOZHLOCq7SXG2ahIoYCHAcYoWBB4oXiW94scS+vS5HQ/8MAgTj23b98j8MBEH
-	8jqOIMZCtjC2NuBlv7LK/iEINwrGTCokB9M1bhm9tmXsUh3bDv+Gc/OUBeza0KcYIq30LxjySbu
-	rnbgz7z8+lw==
-X-Received: by 2002:a17:906:5006:b0:c50:5e10:71ae with SMTP id a640c23a62f3a-c513a5e2124mr1216666866b.17.1795604904078;
-        Wed, 25 Nov 2026 03:08:24 -0800 (PST)
+        bh=LbKQrYeSQQjIG8o4PeFfuBxBDq4T+YpBKC3L5X8LsTY=;
+        b=qQAA07pCgssw+sR6Kv6uyxfPQJGvho1hgxR3WnLZVIPzTHIsgZG/vGOMFAvjVyoFqv
+         h7IHtOYHa6Ar9sOgePfk0bWP1gBd12dxQXy9gv4A4kh1QIB4zhGDOeL171JTDB34c+ct
+         uYFm+RPoEiLDmlzTb0ai13WYnSozvuBsjwhCigEEY9M/b9popBZGr5JQ3wPkjAmkzr8+
+         wLg2PnAbrADQ17GBQ/v3AqBreKIogNU1p5ypTUxdThv3GkhosMKyJR7OLDCUR+9DbNep
+         XfimT5RZUNGVqv8MrfQn0L7zWxnvOVyZUWLKhQdnYnqtMRHZBkBKYZQxc78FtOlS18U8
+         X/+w==
+X-Gm-Message-State: APuU4Z/WZPPZ++tYCNlwF0IAE5L7PNeMx0o6DIYZEdPAyks1R6MhYYVz
+	xO2Lstm7sDOpSlxCcnZrmXMnZE8rMdd8KVD+oaxGpQVWXUE7FUWwNXdy1BiAMA==
+X-Gm-Gg: AZFdTZczryG6/t5EWe6vKo8L6DjpTusyTvMNk5osBzNknnSBXJEqz2/Ccf2IxWx6IVQ
+	YWPMQG2TZWMOiYTj8ITDep1yqvxGg3wQDlGL85tPGgvi1cOgCjmAhN4TKZarWnSmqGMdSoBp/jj
+	tM0RDkR5ZHksvYBMbwkqRW2NGHIM7VcYO1q8XHWv6oSAbE27d/jwN4FB+CTg133XMNSOtyIx9eg
+	1aneIIl0Yw3xBHl7YwNbdob7fhWSEElcZBtTd86JOs2/NiclICReueZedCXthuBOFG49XXZCnPS
+	+qZ9ArhoGM3M3CItnOPlPqmdAM6qa6Vcr4TFLtCzIV5+ZL9OVsbxc0s8Pv3SV/tQfFLRLEqumnD
+	bc/4UyCqOnHhPq6Av6MtkhjOIPlvhvdGHF0M9kp0PhmWrc7ns5AwgJ8lRgppQIAVPpdAfX02StT
+	/OvwEflYqc3XPLDDZALX3I9ZavdwCw4t8hSky6Y8lbPhZlcj2S6EHMESP5sXb3NnxNqS5Nl8ERm
+	Ipf4IArmUoFSfSBN0FN8rHdfgcpKhcdyHf+8sjZnQWMxG1bx8z0/ssdY8IbELGlJI27uWseog5u
+	L/T6sXcBhXu2TPAQMflKHNPeMNBoEXseccDfwedXn7ByFm/FMy6P62RGx3GeWCGIbghwNPV4SYb
+	/TmiflHlL1w==
+X-Received: by 2002:a17:906:5593:b0:c40:91fb:b76 with SMTP id a640c23a62f3a-c513ab48008mr1115543266b.33.1795604910057;
+        Wed, 25 Nov 2026 03:08:30 -0800 (PST)
 Received: from xeon ([188.163.112.54])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513acfeda1sm654562066b.6.2026.11.25.03.08.22
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513acfeda1sm654562066b.6.2026.11.25.03.08.28
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 03:08:23 -0800 (PST)
+        Wed, 25 Nov 2026 03:08:29 -0800 (PST)
 From: Svyatoslav Ryhel <clamor95@gmail.com>
 To: Mauro Carvalho Chehab <mchehab@kernel.org>,
 	Thierry Reding <thierry.reding@kernel.org>,
@@ -92,9 +92,9 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-media@vger.kernel.org,
 	linux-tegra@vger.kernel.org,
 	linux-staging@lists.linux.dev
-Subject: [PATCH v1 03/13] media: tegra-video: vi: Expose all sub-devices in the pipeline
-Date: Wed, 25 Nov 2026 13:07:40 +0200
-Message-ID: <20261125110750.223628-4-clamor95@gmail.com>
+Subject: [PATCH v1 07/13] media: tegra-video: vi: Report stepwise frame sizes instead of querying subdev
+Date: Wed, 25 Nov 2026 13:07:44 +0200
+Message-ID: <20261125110750.223628-8-clamor95@gmail.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261125110750.223628-1-clamor95@gmail.com>
 References: <20261125110750.223628-1-clamor95@gmail.com>
@@ -109,70 +109,54 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Add support for exposing /dev/v4l-subdev* nodes for the CSI and VIP bridge
-sub-devices to userspace by setting V4L2_SUBDEV_FL_HAS_DEVNODE flag. Call
-v4l2_device_register_subdev_nodes() in the async complete notifier
-callback to expose all devices in the pipeline, including auxiliary ones.
+Update tegra_channel_enum_framesizes() to return frame sizes supported by
+VI instead of forwarding enum_frame_size to the remote source subdevice.
+This also requires switching to V4L2_FRMSIZE_TYPE_STEPWISE with a step of
+2, since Tegra VI requires sizes to be divisible by 2.
 
 Signed-off-by: Svyatoslav Ryhel <clamor95@gmail.com>
 ---
- drivers/media/platform/nvidia/tegra-video/csi.c | 1 +
- drivers/media/platform/nvidia/tegra-video/vi.c  | 4 +++-
- drivers/media/platform/nvidia/tegra-video/vip.c | 1 +
- 3 files changed, 5 insertions(+), 1 deletion(-)
+ .../media/platform/nvidia/tegra-video/vi.c    | 23 ++++---------------
+ 1 file changed, 4 insertions(+), 19 deletions(-)
 
-diff --git a/drivers/media/platform/nvidia/tegra-video/csi.c b/drivers/media/platform/nvidia/tegra-video/csi.c
-index 44bd53dbbf7fd..add526de536f9 100644
---- a/drivers/media/platform/nvidia/tegra-video/csi.c
-+++ b/drivers/media/platform/nvidia/tegra-video/csi.c
-@@ -680,6 +680,7 @@ static int tegra_csi_channel_init(struct tegra_csi_channel *chan)
- 	v4l2_set_subdevdata(subdev, chan);
- 	subdev->fwnode = of_fwnode_handle(chan->of_node);
- 	subdev->entity.function = MEDIA_ENT_F_VID_IF_BRIDGE;
-+	subdev->flags |= V4L2_SUBDEV_FL_HAS_DEVNODE;
- 
- 	/* initialize media entity pads */
- 	ret = media_entity_pads_init(&subdev->entity, chan->numpads,
 diff --git a/drivers/media/platform/nvidia/tegra-video/vi.c b/drivers/media/platform/nvidia/tegra-video/vi.c
-index 71921931457be..4753ca89666ae 100644
+index b523750725254..ed3e1e91baf12 100644
 --- a/drivers/media/platform/nvidia/tegra-video/vi.c
 +++ b/drivers/media/platform/nvidia/tegra-video/vi.c
-@@ -1548,12 +1548,14 @@ static int tegra_vi_graph_notify_complete(struct v4l2_async_notifier *notifier)
- 	struct tegra_vi_graph_entity *entity;
- 	struct v4l2_async_connection *asd;
- 	struct v4l2_subdev *subdev;
-+	struct tegra_video_device *vid;
- 	struct tegra_vi_channel *chan;
- 	struct tegra_vi *vi;
- 	int ret;
+@@ -311,29 +311,14 @@ static int tegra_channel_querycap(struct file *file, void *fh,
+ static int tegra_channel_enum_framesizes(struct file *file, void *fh,
+ 					 struct v4l2_frmsizeenum *sizes)
+ {
+-	int ret;
+ 	struct tegra_vi_channel *chan = video_drvdata(file);
+-	struct v4l2_subdev *subdev;
+-	const struct tegra_video_format *fmtinfo;
+-	struct v4l2_subdev_frame_size_enum fse = {
+-		.index = sizes->index,
+-		.which = V4L2_SUBDEV_FORMAT_ACTIVE,
+-	};
++	struct tegra_vi *vi = chan->vi;
  
- 	chan = container_of(notifier, struct tegra_vi_channel, notifier);
- 	vi = chan->vi;
-+	vid = dev_get_drvdata(vi->client.host);
+-	fmtinfo = tegra_get_format_by_fourcc(chan->vi, sizes->pixel_format);
+-	if (!fmtinfo)
++	if (sizes->index != 0)
+ 		return -EINVAL;
  
- 	dev_dbg(vi->dev, "notify complete, all subdevs registered\n");
+-	fse.code = fmtinfo->code;
+-
+-	subdev = tegra_channel_get_remote_source_subdev(chan);
+-	ret = v4l2_subdev_call(subdev, pad, enum_frame_size, NULL, &fse);
+-	if (ret)
+-		return ret;
+-
+-	sizes->type = V4L2_FRMSIZE_TYPE_DISCRETE;
+-	sizes->discrete.width = fse.max_width;
+-	sizes->discrete.height = fse.max_height;
++	sizes->type = V4L2_FRMSIZE_TYPE_STEPWISE;
++	vi->ops->vi_fmt_align(NULL, &sizes->stepwise, 0);
  
-@@ -1610,7 +1612,7 @@ static int tegra_vi_graph_notify_complete(struct v4l2_async_notifier *notifier)
- 	subdev = tegra_channel_get_remote_source_subdev(chan);
- 	v4l2_set_subdev_hostdata(subdev, chan);
- 
--	return 0;
-+	return v4l2_device_register_subdev_nodes(&vid->v4l2_dev);
- 
- unregister_video:
- 	vb2_video_unregister_device(&chan->video);
-diff --git a/drivers/media/platform/nvidia/tegra-video/vip.c b/drivers/media/platform/nvidia/tegra-video/vip.c
-index b73ba0eab5573..040776775aacc 100644
---- a/drivers/media/platform/nvidia/tegra-video/vip.c
-+++ b/drivers/media/platform/nvidia/tegra-video/vip.c
-@@ -165,6 +165,7 @@ static int tegra_vip_channel_init(struct tegra_vip *vip)
- 	v4l2_set_subdevdata(subdev, &vip->chan);
- 	subdev->fwnode = of_fwnode_handle(vip->chan.of_node);
- 	subdev->entity.function = MEDIA_ENT_F_VID_IF_BRIDGE;
-+	subdev->flags |= V4L2_SUBDEV_FL_HAS_DEVNODE;
- 
- 	err = media_entity_pads_init(&subdev->entity, TEGRA_VIP_PADS_NUM, vip->chan.pads);
- 	if (err)
+ 	return 0;
+ }
 -- 
 2.53.0
 
