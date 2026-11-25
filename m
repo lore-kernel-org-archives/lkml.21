@@ -1,112 +1,112 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.48
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795598349;
-	b=mUpS+AxytvVO0cocHM6dznkf1vHysTOq60bmQAQVWPx0LObis059nTAl9OidmjiaCC8C
-	 5ghQkZStw6MQG0nHyWs0YCW4UcekpGX+bdcEVUB3OIHUPSjW6uqTMNzpwZNxxwndNQYRc
-	 1xwQgnPAT+FgBwPsG0NQAq1W1vohJ3BISCVg4zMtHFdkCCBJjsKORqY4vYoFf0FkpDbyn
-	 QLPcKEkjjnKd1zn5LGgKh7Fse1nDutj2BK6mRe7j8MEO/ydEEbOFVvpo6+t+ZRkIu2dm0
-	 zv4WCZrzWaTBlW6Vj6NxaLUiD3P36s5xJYDHUXiPpSYv7cWK5PMTfDYnuMwpjK/EvKA==
+	t=1795598367;
+	b=tIJ1nykYjdNY6fxoShe4bqLohWDn8IJAWiHzVAqN+CvQ4hZInxl5eHW2A2pzuK+6KVyg
+	 ReILgyNHeOVp6lJJ1f/kOK/TBhXAEZkYya69MZvQmU1gCGckmfeAsnY6CFULQgo8+0nz3
+	 0HEb2coYtD5wbgwudQhcaDzx7EftfNMz4IAK41ev5ncyWtLoaAQJghpLSB7aiGu76RQ4J
+	 ZvncZY/ZpsMBt3xEOAkfc3IcjaXbkLGhIElwq7KBC0ILwWhztpk201uYBczU/XN7R7991
+	 o4YS+niX0f/8lby4o9nKO8pErd8EWImba7u6r9YEqf5P6FsAX0fNTVaCcnZyTQLjg3g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795598349;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Proofpoint-Spam-Info:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-GUID:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=OtvrSzwIyco6jpsIwimAIqe06gN3VxO2fsWAhXUFqpA=;
-	b=IF0iywXzdUz7nLZBhC+VXVqKdW7YpWOgdFjgsHfLc1U45oJ+Cdiqv8bp8qvippJlek8m
-	 FbD5Jl1j7rIrxbo3mahCGORX9AurOfrSHW4kJP/HrDeKzcXA8Idynxdt6KrlADMvgE23A
-	 gmJSneoI23NtjJqgwopsa8MfcZuY7m2J97uwl6nMdnCCbNXBDLKXJ0+tBJ69INaSXjEip
-	 rOufggOEYndQQSLz8RferrAT7P53klfsXr/azLV+Tz4uC+ZfNX7TsErz6znSpwJ8YdhOW
-	 jhbB3lp9bqdDic/duB1hQB39eBswbYTKtfzXxHNNI1Don4wPagzzUuTKx42XLnUvsfQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795598367;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:In-Reply-To:References:X-Mailer:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=HM/80FJuhfrnMxC/IfbUvOR9owLp0+IkW3x6Etq4fS4=;
+	b=1bmowoJrsnPXXiTaRzhHfJSPErxFoQVvAH1lxllUARG8556Y8BjzHtk+HGm2VQX4Kjq2
+	 qs0lVNFrFtURg+vZMVGW8J/onw6WziXe1fi6qdiFbFNzjiit2L212vCHJEeXnagpP0thL
+	 +zCP779TKgDFfpHQR2PjW0100Nt1y+9u5knqF2LA9V99kUAMdUK4e4Uqc4bP470/aJyMD
+	 u+K8P+7yiDzc2//Kb+WqIvsfxSYCz6bXVRAi04r9hjMJ0DzPYPLnBMhhSjv5h7MY8/lyA
+	 FBCMK7HIlcjt2fa+K2YRWE96Mtt4slBRTHc1CVGFAH8/k49eXiL0rTSfRElwIk7DwHA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=IHuBQB1R;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b="HNvN//OY";
-	arc=none smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zmg4qrAM;
+	arc=none smtp.remote-ip=209.85.128.48
+Received: from mail-wm1-f48.google.com (mail-wm1-f48.google.com [209.85.128.48])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5A3B1606A691
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 09:19:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5A3B1606A691
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 17941606A68C
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 09:19:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 17941606A68C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=IHuBQB1R;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=HNvN//OY
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AP68SCj3534084
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 09:19:08 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	OtvrSzwIyco6jpsIwimAIqe06gN3VxO2fsWAhXUFqpA=; b=IHuBQB1RdFZ6CQJu
-	kq0J6lrvWNI/y0wLQ3p/3IOlbbqaQAIlP9Y0S8vifyRvlgV6slC8MzHagTLZ+Fm4
-	7iK/RGXzqoZlcf/5NVZtDmmMvnVed4ZawZE0dHNAMw+Tb2CySw2gxdObEYGN1ce8
-	jFPpe9EbHvo9eznKLEYofC4Bu6ArrbUXd/6o0fqIMic89IcJddBfB02u+x56j3vW
-	YPeau7NdQa8nnXZYOeznqAKtiaKvtXMT/WFBccGbdUHLz6b3oKchHXiFhTQvMZd1
-	e+KXL9Um3GQTA8OWr0988fhW4yWuwfc9b6HqCU0vHx3svWHSTq/hd/IVCEs8mnMd
-	2u8uuA==
-Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j5mqbhymh-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 09:19:08 +0000 (GMT)
-Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-947a607ec40so542631785a.3
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 01:19:08 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zmg4qrAM
+Received: by mail-wm1-f48.google.com with SMTP id 5b1f17b1804b1-4a5177d78c7so54207285e9.2
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 01:19:24 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795598347; x=1796203147; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=OtvrSzwIyco6jpsIwimAIqe06gN3VxO2fsWAhXUFqpA=;
-        b=HNvN//OYoN45FODC8GeksfufmhGobcOad/5dHjDGvO+xqYVMLa7RxUs3BmJf9miSHr
-         NRNLl8RfuiwZW1biQzgJ7RDRKB+PFk/1qUb4jPtZps7bKL+bQuqbawc40Ywr/1yVTuA9
-         MQM/8bWwyZCa8W3ryMRfMf7OKeu3Mmf/tK5Z07KFRC1IShpRAfNOmm9NMPIjhpVwbNyk
-         MlRo5c5HFlRKw8ghX78lwRsFdDX+Tx+MLRl479D63NFuc56WktO2KJTHOLeYjga01SoC
-         5Cl2lWpHgw4+6E/cjHrWaB2s9vVRM5u1XWWya+NKhYkQB2PZHPYMpdwdI+iVuDX/xA6n
-         SL7Q==
+        d=gmail.com; s=20260707; t=1795598363; x=1796203163; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=HM/80FJuhfrnMxC/IfbUvOR9owLp0+IkW3x6Etq4fS4=;
+        b=zmg4qrAMEyL+6l/4oysXmbs6l1nqhC0voMmFglVAX4rEfGv9PDMaZF9yiMvP8KOc/m
+         9IHUI6UU5taUhdpu8AXhe1ivoR3R1si3RvjmEmtzBHlSdJUZfc5WTrI8RI4LJRHRBd4U
+         XnWI6h9PeS1F+bBNm0A6uQKTqMX/poXGwI0tZ2CEWUpt6B9j8yf2a/SCOUyBw95K8lE8
+         BDCno7072yeJloNnuvBcPhoz+eV7xLeZRQ5JjgPA/p0WH1gjsHNz3d0Aet3OWEyymye3
+         YO+8AyxbGx99Z03rk5RzGLFeUuwSRQ8MpxhOUTKQIIPqqx5QTbF5/pwR1H0z+WXROOiR
+         qr6A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795598347; x=1796203147;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=OtvrSzwIyco6jpsIwimAIqe06gN3VxO2fsWAhXUFqpA=;
-        b=ukLi8n4jyxb7h68Ia5MT6jeg/LAJ39hV5u0ZtuTM9k8XWxIfA9jEINjEVPkqbL3+c3
-         3ApMD/SBTH1/FSylSemVYMS3d4ixj2EbvWiOi1IoPXFiy3XlPWTbBjrHc0Gh9qkdMUwW
-         XlIb7yuSHYrNVMEgYy8BsQYfhGZJL+IrsOg/r3ELh/UIn9ewmUYA4l9F4g3DXsIgES+5
-         qepmIbaa9+ET0B/XTYRz5Ni+41bKHyFXoJ9hQKHrv0VMLHL4TcEb47NMlszBp9WN/uO9
-         5nxlvdLWnz+FUgPIiljlTfjOWwBb+frUNgrh3RXqHNnbkLWz9OD0RRq40PerBbejYbE1
-         VPSA==
-X-Forwarded-Encrypted: i=1; AL+hErErar3WVJWA80Brs4sLdRnU5EkF9LR3I0oBG8Nh+Bev31RiCBklQCIfWRl/tWuuz2a6mNfmdffVXtz3xSQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9QFkDdHFXpSIobs0A/utXD2bv1NFQFm/VN2SuM50mrL5eHLF56
-	JWimPpWpsDUwwtTxhzTGyjFK5UX0vlD+UqWetZ/dHvyqVpKbO3cm+gevF/pF/f6O7VWUAwz7KkP
-	bniQobLk4wVE9d2Cr4zCMEd82AfvwPXor94AkeG2PSYb1OsI1qsrwtF1qKDrBmell/nQ=
-X-Gm-Gg: AZFdTZeWeP1eIu7WoFfWBN/7+GM26ycioEG7VOlYu4fy8ZXXBytKw7ZHnBCzyOiECYN
-	JvgXVyJ943gPf1tRkN6sbEePoN/7vd7FDAWUyMrHDNKgDDF9lOrpMh060PNnBdWxc7aO09kC+SS
-	Ufu7tE8c/n5U62V0MrherionnPXhlgKjGk9kjBQhQP1GBojw+ABak1L4GIzVWx614LyvLV6ztZ0
-	d0rWu4WEZzlxdq5KLvOcNKHn038nRhGE/R21jywdACu4qVZThJsDobUFDCXrqDB/c2nwQN1SurP
-	yy/6Kn7xclK32vnjuNe67X7BZIvgMIde9N2CPQ6Ii9q2v5RxH+1mnYor4UYSzfDQnbgTjtGuUl7
-	yHUSwRlRrJMaG6S0CVHobW85MNNh98hU+/g9uM6D//yKC6v8lbskZgOW3+9EGnr0o1OOmaaMoJd
-	zYZNBoQmQMnWmGSw==
-X-Received: by 2002:a05:620a:46a8:b0:93f:34c9:9252 with SMTP id af79cd13be357-949bab31d07mr3021657285a.55.1795598347258;
-        Wed, 25 Nov 2026 01:19:07 -0800 (PST)
-X-Received: by 2002:a05:620a:46a8:b0:93f:34c9:9252 with SMTP id af79cd13be357-949bab31d07mr3021653985a.55.1795598346734;
-        Wed, 25 Nov 2026 01:19:06 -0800 (PST)
-Received: from [192.168.25.64] ([94.155.124.210])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb905f1489sm308121615e9.0.2026.11.25.01.19.05
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 25 Nov 2026 01:19:06 -0800 (PST)
-Message-ID: <3ebaf10a-47bc-488c-a794-48a95029cb2c@oss.qualcomm.com>
-Date: Wed, 25 Nov 2026 11:19:04 +0200
+        d=1e100.net; s=20260707; t=1795598363; x=1796203163;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=HM/80FJuhfrnMxC/IfbUvOR9owLp0+IkW3x6Etq4fS4=;
+        b=eYunPSqQ1PmrY1qAtaotE+KU7Vh2GPy8waHWkFaUI09qrP5hoBM0z84NW6Y2DFAIkX
+         9Z95GziRMX8/ooG0op11aDyJ1lT0Z/D5DnGD2OjsoK7q94Eg2FZVAQZb2vXQ19rCVJmy
+         9TgJqw2RA3V17jYL/ZXXqT46Mq6XMpAO1tS8bwdP+wtgd4oFn+HozNmu8CGF10Nu3Asr
+         pz+jbyS5QUl703mr1t+hrCHHbNfkCiqNtfaT2HjlrA5pnidUK0BZWqRKRvSHM4ZrVp5W
+         Qo8pvj6Og9ZM9qQ2OK+wHY5tP3YQBLcW9uwhvz0JWQmFd7+sMUcUA2TZFAgMfbOJkVKF
+         AsAA==
+X-Forwarded-Encrypted: i=1; AL+hErHImF62DsWSc0+Ia9sFt36WBGOw9+0JtPxARPHBBVRyj8cQJUQGXo527WQ/t31vT5F9pARh7YiuyY3LibA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z92MOVmbYUG5O8u0FIKzcx7BHE+SIP4rokSvZS3wK2lZq1xnVtg
+	PmVwxqNsxHBtj+mxT7qgMTKS4AkzatIAphyXPJPmiWmAdw5fQG0TpnwF
+X-Gm-Gg: AZFdTZf4XWwN7v2IvAEkic6y4V1QBjWpGT9aY4hnBuavy/bfy0hHKBq/Zo3NKfyB4bR
+	h6Kz0M84OTtujp6SXw+5suRyOODXFvIgUjb7mHcagVMJV+rXFhZoDW2AJ2nvmz4X04fv5aWutcR
+	lFHgELV4utmiXeUGN9czH8lPfVfwsfNqzUCgyEKP9DBy9eu9pJwlaw/ZRTJhYdGX9+6YXBUBv8Q
+	UR9PWEJ/P+391UYDq4lfP2BLUnH0/MGv6GYUTDYD2Vldwn4px3zadYqfZ6509XsYPrFoJ2byi+A
+	vbaJbz4eY7hHmSpUR5ybBksm2bzmbqOrGj4bHxK9b+NOoUvIFeZwQrix2jL7rjmX8EkoO21yva9
+	1xjkNG5H/JWBjGVZIyCiFYFsIuTdojbIxFPihJYN+gSxPt3Rp0ucqnbpe8laFdczbxOVQQxPp2Q
+	Tu5IRhU/0LDdVnZWDb0dwM8moM8RblExTYnV1lBh2RL5aUGEaamaBobKgWVal/t/NTJLBgdZD26
+	WrR4blfwMTcq4pVMfSlfrdJX3akNQNWrrtcfJ4lqlh2jFuUWtq8X6DYhowW852BunD2MhmcbXaX
+	Cib2aO4ITLJsyCYhrMQErY1AbJM8/VTPf4rdSvdYXenm7hErJxvlCjxr2ep2rnDOTg==
+X-Received: by 2002:a05:600d:8449:b0:4bb:8e95:8ce1 with SMTP id 5b1f17b1804b1-4bb8e958ce4mr235915585e9.23.1795598363338;
+        Wed, 25 Nov 2026 01:19:23 -0800 (PST)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884b39b6sm461330575e9.12.2026.11.25.01.19.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 01:19:23 -0800 (PST)
+Date: Wed, 25 Nov 2026 09:19:21 +0000
+From: David Laight <david.laight.linux@gmail.com>
+To: Jarkko Sakkinen <jarkko@kernel.org>
+Cc: keyrings@vger.kernel.org, dm-devel@lists.linux.dev,
+ linux-crypto@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-integrity@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-security-module@vger.kernel.org, Ahmad Fatoum
+ <a.fatoum@pengutronix.de>, Alasdair Kergon <agk@redhat.com>, Andrew Morton
+ <akpm@linux-foundation.org>, Benjamin Marzinski <bmarzins@redhat.com>,
+ David Gstir <david@sigma-star.at>, David Howells <dhowells@redhat.com>,
+ "David S. Miller" <davem@davemloft.net>, David Woodhouse
+ <dwmw2@infradead.org>, Herbert Xu <herbert@gondor.apana.org.au>, Ignat
+ Korchagin <ignat@linux.win>, James Bottomley
+ <James.Bottomley@HansenPartnership.com>, James Morris <jmorris@namei.org>,
+ James Prestwood <prestwoj@gmail.com>, Jason Gunthorpe <jgg@ziepe.ca>,
+ Jonathan Corbet <corbet@lwn.net>, Lukas Wunner <lukas@wunner.de>, Mike
+ Snitzer <snitzer@kernel.org>, Mikulas Patocka <mpatocka@redhat.com>, Mimi
+ Zohar <zohar@linux.ibm.com>, Paul Moore <paul@paul-moore.com>, Peter Huewe
+ <peterhuewe@gmx.de>, Randy Dunlap <rdunlap@infradead.org>, "Serge E.
+ Hallyn" <serge@hallyn.com>, Shuah Khan <skhan@linuxfoundation.org>, Sumit
+ Garg <sumit.garg@kernel.org>
+Subject: Re: [PATCH v2 2/9] lib/asn1_encoder: Add
+ asn1_encode_integer_bytes()
+Message-ID: <20261125091921.4bf40279@pumpkin>
+In-Reply-To: <20261124194043.1651679-3-jarkko@kernel.org>
+References: <20261124194043.1651679-1-jarkko@kernel.org>
+	<20261124194043.1651679-3-jarkko@kernel.org>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -116,131 +116,114 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/6] media: qcom: camss: Report the hardware SOF timestamp
-To: Loic Poulain <loic.poulain@oss.qualcomm.com>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
-        Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
-        Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
-        linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org
-References: <20261123-camss-hw-ts-v1-0-7b62dda6d7a9@oss.qualcomm.com>
- <0c0b3af6-4fea-422a-a7dc-76e36a3f5db4@oss.qualcomm.com>
- <CAFEp6-0XqOVFjQU0-P8oiDGG6amW5Akj7TVBf=P_S7Hz80EYaw@mail.gmail.com>
-Content-Language: en-US
-From: "Gjorgji Rosikopulos (Consultant)"
- <gjorgji.rosikopulos@oss.qualcomm.com>
-In-Reply-To: <CAFEp6-0XqOVFjQU0-P8oiDGG6amW5Akj7TVBf=P_S7Hz80EYaw@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI1MDAzNiBTYWx0ZWRfX4QK+eZ+3hafN
- RHUG4/Ph094R+kmJpKI5LrSzrIbeGZ0MTGTKpZfR34NSEW/FYCWBafJ0VuZ0sZcMM4Zs6KsflXy
- UTuA495IAQMtw6AdRCex045x0LJU4JQ=
-X-Authority-Analysis: v=2.4 cv=Bb9NQbt2 c=1 sm=1 tr=0 ts=6b06a80c cx=c_pps
- a=HLyN3IcIa5EE8TELMZ618Q==:117 a=eGCDHFSXubCXFTSSGhjuOA==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22
- a=EUspDBNiAAAA:8 a=7rKP2P-ej08A6i2KGrkA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=bTQJ7kPSJx9SKPbeHEYW:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI1MDAzNiBTYWx0ZWRfXwSG+HUXaXLF0
- /Z4qpGniSxlycqAT8O98HC98wlx6kEDUtIx5K3f2P95t4TcgzA6oqnSkuv9zXCmOTwns05a4sIZ
- F2Vzj7aKmgGCSPyVMNHSjpzh3gNm7G/+m46pgwBi8az3PbGKWhEjKPcXL6+YCwgzoaw6VX66VwB
- uN4TrydI3jkY4OxsSt+0DIaOvNo87OwWXaY+VQjerSglvrd2aRdxXyRNruWfphrAVmL7DBDn4ad
- FGzCTzwVEvMSEFGbox9uym3mzFI6Qe46GJhwN94gXUaO1t5IXNNmtsh4Jca2ueqiHHERKqsOShx
- GlDfZ+hCuUCP3R+ImckZXtp5uTCGBxatNdJV8+kODduCIvHG7soJBSbvzidup3RM6vWxkHcW5KX
- bNZ0OOtUflZAWDfaG/nKC/cxvGcGjVQhY1sEAfJU0vW8pV66SZ1LUNyIOlvEjbBesmnda3yw4uA
- 5JIiG0R2L0+vGtAScwg==
-X-Proofpoint-ORIG-GUID: M0YSb2-hC6NvBA94rI1VwKnt875kkPGc
-X-Proofpoint-GUID: M0YSb2-hC6NvBA94rI1VwKnt875kkPGc
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-25_02,2026-11-23_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 adultscore=0 clxscore=1015 priorityscore=1501 impostorscore=0
- malwarescore=0 lowpriorityscore=0 bulkscore=0 phishscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611250036
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-Hi Loic,
+On Tue, 24 Nov 2026 21:40:36 +0200
+Jarkko Sakkinen <jarkko@kernel.org> wrote:
 
-On 11/25/2026 11:12 AM, Loic Poulain wrote:
-> On Wed, Nov 25, 2026 at 10:01 AM Gjorgji Rosikopulos (Consultant)
-> <gjorgji.rosikopulos@oss.qualcomm.com> wrote:
->>
->> Hi Loic,
->>
->> On 11/23/2026 7:16 PM, Loic Poulain wrote:
->>> The CAMSS CSID latches the ARM architected counter on every start of
->>> frame. This series exposes that time to userspace, both through the
->>> V4L2_EVENT_FRAME_SYNC event and as the buffer timestamp.
->>>
->>> Until now both were taken when the interrupt was handled, or worse, when
->>> the frame had finished being written out to memory, which is about a
->>> frame period late. The hardware value is free of interrupt latency and
->>> is directly comparable with CLOCK_MONOTONIC, so it can be correlated
->>> with other timestamped data such as IMU samples.
->>
->>
->> Directly comparable with CLOCK_MONOTONIC, does this means
->> that csid timestamp is in monotonic time domain?
->> In camss video the flag V4L2_BUF_FLAG_TIMESTAMP_MONOTONIC so either we need
->> to provide timestamp in that domain or convert in the driver.
-> 
-> Both the CSI timestamp counter and the kernel timekeeping code are
-> driven by the architectural timer, so they share the same timer
-> source. So, if we know the difference between the current
-> architectural timer tick value (snap.cycles) and the captured SOF
-> timer tick value, we can derive the SOF timestamp by applying the same
-> delta to the current CLOCK_MONOTONIC time value.
+> Add a helper encoding a positive integer from a byte array in big-endian
+> format.
 
-Thanks for the explanation, that was my understanding as well, but 
-it seems that the delta shall be added in this patchset.
+Interesting...
+You allow for integer values longer than 127 bytes but don't allow for the
+much more common likelyhood of the encoding being 'implicit'.
+
+David
 
 > 
->>
->> ~Gjorgji
->>
->>>
->>> Patch 1 lets a driver fill in the timestamp of a V4L2 event instead of
->>> having the core take it. Patch 2 passes the SOF time down to the common
->>> CSID event helper and adds the counter to CLOCK_MONOTONIC conversion.
->>> Patches 3 to 5 read the registers on csid-340 and csid-gen2. Patch 6
->>> uses the same time to stamp the captured buffers.
->>>
->>> Patches 4 and 5 are picked from the timestamp support Bryan shared
->>> earlier, with patch 5 adapted to use the conversion helper added in
->>> patch 2 rather than its own.
->>>
->>> Tested on QCM2290 (Arduino UNO Q) with an IMX219 sensor.
->>>
->>> Signed-off-by: Loic Poulain <loic.poulain@oss.qualcomm.com>
->>> ---
->>> Bryan O'Donoghue (2):
->>>       media: camss: Define timestamp registers for csid-gen2
->>>       media: camss: csid-gen2: Report the hardware SOF timestamp
->>>
->>> Loic Poulain (4):
->>>       media: v4l2-event: Allow drivers to provide the event timestamp
->>>       media: qcom: camss: csid: Pass the SOF time to csid_sof_event()
->>>       media: qcom: camss: csid-340: Report the hardware SOF timestamp
->>>       media: qcom: camss: Timestamp buffers at start of frame
->>>
->>>  drivers/media/platform/qcom/camss/camss-csid-340.c | 37 ++++++++--
->>>  drivers/media/platform/qcom/camss/camss-csid-680.c |  2 +-
->>>  .../media/platform/qcom/camss/camss-csid-gen2.c    | 32 ++++++++-
->>>  .../media/platform/qcom/camss/camss-csid-gen3.c    |  2 +-
->>>  drivers/media/platform/qcom/camss/camss-csid.c     | 81 +++++++++++++++++++++-
->>>  drivers/media/platform/qcom/camss/camss-csid.h     | 25 ++++++-
->>>  drivers/media/platform/qcom/camss/camss-vfe-17x.c  |  7 +-
->>>  drivers/media/platform/qcom/camss/camss-vfe.c      |  8 ++-
->>>  drivers/media/platform/qcom/camss/camss-vfe.h      |  1 +
->>>  drivers/media/v4l2-core/v4l2-event.c               | 20 +++++-
->>>  include/media/v4l2-event.h                         |  9 ++-
->>>  11 files changed, 205 insertions(+), 19 deletions(-)
->>> ---
->>> base-commit: 2ad58ca589da80990b7afbcff018777851577f89
->>> change-id: 20261123-camss-hw-ts-e0297adb69d9
->>>
->>> Best regards,
->>
+> Signed-off-by: Jarkko Sakkinen <jarkko@kernel.org>
+> ---
+>  include/linux/asn1_encoder.h |  3 ++
+>  lib/asn1_encoder.c           | 56 ++++++++++++++++++++++++++++++++++++
+>  2 files changed, 59 insertions(+)
+> 
+> diff --git a/include/linux/asn1_encoder.h b/include/linux/asn1_encoder.h
+> index d17484dffb74..e206bd425854 100644
+> --- a/include/linux/asn1_encoder.h
+> +++ b/include/linux/asn1_encoder.h
+> @@ -12,6 +12,9 @@ unsigned char *
+>  asn1_encode_integer(unsigned char *data, const unsigned char *end_data,
+>  		    s64 integer);
+>  unsigned char *
+> +asn1_encode_integer_bytes(unsigned char *data, const unsigned char *end_data,
+> +			  const unsigned char *integer, u32 integer_len);
+> +unsigned char *
+>  asn1_encode_oid(unsigned char *data, const unsigned char *end_data,
+>  		u32 oid[], int oid_len);
+>  unsigned char *
+> diff --git a/lib/asn1_encoder.c b/lib/asn1_encoder.c
+> index 92f35aae13b1..8fea70dc0846 100644
+> --- a/lib/asn1_encoder.c
+> +++ b/lib/asn1_encoder.c
+> @@ -10,6 +10,8 @@
+>  #include <linux/string.h>
+>  #include <linux/module.h>
+>  
+> +static int asn1_encode_length(unsigned char **data, int *data_len, int len);
+> +
+>  /**
+>   * asn1_encode_integer() - encode positive integer to ASN.1
+>   * @data:	pointer to the pointer to the data
+> @@ -85,6 +87,60 @@ asn1_encode_integer(unsigned char *data, const unsigned char *end_data,
+>  }
+>  EXPORT_SYMBOL_GPL(asn1_encode_integer);
+>  
+> +/**
+> + * asn1_encode_integer_bytes() - encode positive integer bytes to ASN.1
+> + * @data:		pointer to the pointer to the data
+> + * @end_data:		end of data pointer, points one beyond last usable byte in @data
+> + * @bytes:		integer bytes
+> + * @bytes_len:		amount of bytes
+> + *
+> + * Encode a positive integer from a byte array in big-endian format. Strip
+> + * leading zeros.
+> + */
+> +unsigned char *
+> +asn1_encode_integer_bytes(unsigned char *data, const unsigned char *end_data,
+> +			  const unsigned char *bytes, u32 bytes_len)
+> +{
+> +	int data_len = end_data - data;
+> +	bool add_pad;
+> +	int ret;
+> +
+> +	if (IS_ERR(data))
+> +		return data;
+> +
+> +	if (!bytes || !bytes_len)
+> +		return ERR_PTR(-EINVAL);
+> +
+> +	/* Strip leading zeros: */
+> +	while (bytes_len > 1 && bytes[0] == 0) {
+> +		bytes++;
+> +		bytes_len--;
+> +	}
+> +
+> +	add_pad = bytes[0] & 0x80;
+> +
+> +	if (data_len < 2)
+> +		return ERR_PTR(-EINVAL);
+> +
+> +	*(data++) = _tag(UNIV, PRIM, INT);
+> +	data_len--;
+> +
+> +	ret = asn1_encode_length(&data, &data_len, bytes_len + add_pad);
+> +	if (ret)
+> +		return ERR_PTR(ret);
+> +
+> +	if (data_len < bytes_len + add_pad)
+> +		return ERR_PTR(-EINVAL);
+> +
+> +	if (add_pad)
+> +		*(data++) = 0;
+> +
+> +	memcpy(data, bytes, bytes_len);
+> +	data += bytes_len;
+> +	return data;
+> +}
+> +EXPORT_SYMBOL_GPL(asn1_encode_integer_bytes);
+> +
+>  /* calculate the base 128 digit values setting the top bit of the first octet */
+>  static int asn1_encode_oid_digit(unsigned char **_data, int *data_len, u32 oid)
+>  {
 
