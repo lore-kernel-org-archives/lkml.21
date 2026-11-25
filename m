@@ -1,60 +1,62 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795597892;
-	b=EzpWFQCL0nCaipCp9Mijl8DiA2JYPb/XdtYCk8SD5MyuZSOa/jvg5ijG9oF5CnCTFUb6
-	 4QbidMHAJ2ZBorNwcq+1t4MqvEzBQTe1Pv0ta933ZEfjVcq2i2WZl1EvakA9sS3uw1qV8
-	 fWYXl8pIV2QVeWjh3TsMPjQxavaEOB97oDsY9pOeNSSZaZvPQvTuPGFABWdIx5IjhmSzk
-	 JJ5dUcHT0UvSkLoNIZHzK8q9jAV1nKxXoBVUxUxvfIMO2w9cQcBO7ymEaWSSR6o+FP0HJ
-	 J0OU7sGLDxis4HUxVB0cjSv5MsWh2vvMICAxnnDcNRNZ4nPCd5waFUR/OBAMh05vmcg==
+	t=1795597893;
+	b=X8KoDEknT+6lZA2KGN4P6qIp3dwBgGBytP7mdjknIUjENL6BIvoYcjP4VqlMuQnMyQHV
+	 TSfWI48HMzZP2QDTt16EHV+e0ePK04xH7J0b/bGK7Dbcg4Mktzp0BMVROUY2cij50gmVf
+	 jQH8Yx7BT16uz5ExRsapW+ddrgEeL44CEolXNdHZ8EyeCyeAQfzeCIVmu48qoxcCNxxZi
+	 QTcdrGicLJTFf4e07lNnU2MtRh0LSmDshNjHa3ROZ9sDzuMnNtUSAOgvlp8yjbVB+GBZS
+	 EI6sFYEETD/rB86E39+gN0CFO/0RB/CSWA3iqpLubudm1UX62fUP32bz4Mk7wlbKQWw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795597892;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795597893;
 	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=DjqouD12oMJVEHvsBqSI7VELKEbVOGoM88zpp+O836I=;
-	b=GZtSDiQqdjrdBuL80aeASRk2mxuv35+c92nHx8dBrBgKFL/yl4LV6coLs/C1xrmYjAWE
-	 X+yESnmYilj/RAhavqKqoYbw883orlIdTBbpG6V0xCbmpNHJzyK2pp2cecFBzaPu3iXgw
-	 UzLuFqyDjZScj0gkybKzRKkLTyRPaMPfsuRIPUy/erOm6K40qEZpsoC56+xhuUafM1hJC
-	 2+PN1T6fmSRSxycfqLCzSZkBwVrYksCpghJ9w8bkP0v9Lx9ZtIq2l2t9s6AhTtDYz2x1J
-	 VjYW/M0+2EDyOuGVcjAxe96hnZfCJgcebzIDXf8/5ttZ/wvkMoL900ywcAM3uyPZoSw==
+	 References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To;
+	bh=/4Fc/qYpZBM1SqcroLRed+1NsBQqR3SYLdF5r+q5zq8=;
+	b=l9QSvpMep6uogppOzQ/dLlGgS4UTjurcVC3+ThGtor9FnuQRa+im2TF54KOZ5L/FocTv
+	 Txqi9mdBBTRfydMDVHmloaqCzeHlR30wOalB7X64t5QVEwIkgXIeY9uQjTjIMmNwkbO7b
+	 vCsxd1Lfhq3TmJxD1F0ERFoz4QyMpGxryKIs3yhLXcHUb5TxFw86YRgPbx8nTA9c17Pkp
+	 5TrT7BJryclT/vd61HWzccOqsSNDDT+zNj8pbRMFCfPjVlvblECTzfxBa8ze2XDMaQZvF
+	 buUD7LlNvpezoaiPQnHaeEaAvv4ILIeZ+cleSCIw2M4Fmy+glm5dmTzSVUXJGxhdclg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ega6AftY;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DETyO4fo;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 5DA3E606A31E;
-	Wed, 25 Nov 2026 09:11:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CD0DB606A334
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 09:11:33 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ega6AftY
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 49E151F000CF;
-	Wed, 25 Nov 2026 09:11:30 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DETyO4fo
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 27AA01F000C0;
+	Wed, 25 Nov 2026 09:11:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795597892;
-	bh=DjqouD12oMJVEHvsBqSI7VELKEbVOGoM88zpp+O836I=;
+	s=k20260515; t=1795597893;
+	bh=/4Fc/qYpZBM1SqcroLRed+1NsBQqR3SYLdF5r+q5zq8=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ega6AftY6Ib101Fy+mzrANvpORWtYbqTuEe0+TKqaitz1Q/GXJjvo4JZeMj0/68BK
-	 5VsJR/aiKYajXQOhK/efIAmfKRPs8Q26IhWv24BfaSMGquFHaPygaERw71GXD5FY4L
-	 4B7r94cIcd7hDLVtONMMHetZE2IOHFkqA2ceLZ674MsT4i9mIT6JVTugiGT8kFysbj
-	 RO8oz0OdOmKEyd7VES2gG0V6ahCheWmgG5vf+1hSl+scebmPUEynINQOfxra2brUJ8
-	 beVFh5CvWA4tIM+u08TnA5dRQeuY1WT60orFA3Kz8Z/jxT0oBwyzwi41l7k5xY6hqb
-	 CJJ1BGAWEa1Bw==
-Date: Wed, 25 Nov 2026 10:11:28 +0100
-From: Bartosz Golaszewski <brgl@kernel.org>
-To: Michael Walle <mwalle@kernel.org>
-Cc: longzhao@ambarella.com, linux-gpio@vger.kernel.org, 
-	Linus Walleij <linusw@kernel.org>, Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, 
-	Conor Dooley <conor+dt@kernel.org>, Mika Westerberg <westeri@kernel.org>, devicetree@vger.kernel.org, 
-	Long Zhao <zl020895@163.com>, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v15 02/14] gpio: regmap: add
- GPIO_REGMAP_QUIRK_SET_AFTER_DIR
-Message-ID: <jmreaj23o77g7fsewjiuud3dydl2jxqexjfhemxjcsatd52gyh@mrrpkak6e2jm>
-References: <20261118-cv75-gpio-v15-0-e3c563673fe1@ambarella.com>
- <20261118-cv75-gpio-v15-2-e3c563673fe1@ambarella.com>
- <rjxlen54cxvhlbiq6uh5ytts6kyoz3v4hczh7bhjoxfsode2se@hesqdhe2vczl>
- <DN453WE8YY5K.3STDH1FZM2FFO@kernel.org>
+	b=DETyO4fo1hCypme8HL7zGtsfAXiIb/CM8iOzA7fI6pGw6OjqPcRuBKRssYOSdBtVx
+	 /8rtcv7wLt7CpsQwvoBQX1utw/qfx98ZUmODXhO9DdWH56CSrkTCPMCHtQ5Z1gRYMn
+	 RDbwjw0BWtpHuf57PigWuSL4KP4sTzZ//d3NTMSeKGO+CcGVqkHR79OlL2nuPKZh9Q
+	 j8WEZlcYH5Wy598u7SBqL35aFA4foGjIGPCYvUSpb44IP9bvgTAoC3992epbeRICyP
+	 CizFaDrviuL5wxmkUMZ0pX4usVWH7z6A3/QivoDVYRWSfF4HbdOaQh7DOED3mXuYOv
+	 ikK1rmqt8OTpw==
+Date: Wed, 25 Nov 2026 11:11:26 +0200
+From: Mike Rapoport <rppt@kernel.org>
+To: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>
+Cc: "luto@kernel.org" <luto@kernel.org>, "x86@kernel.org" <x86@kernel.org>,
+	"dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
+	"peterz@infradead.org" <peterz@infradead.org>,
+	"bp@alien8.de" <bp@alien8.de>,
+	"mingo@redhat.com" <mingo@redhat.com>,
+	"tglx@kernel.org" <tglx@kernel.org>,
+	"hpa@zytor.com" <hpa@zytor.com>,
+	"thomas.lendacky@amd.com" <thomas.lendacky@amd.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 4/9] x86/mm/pat: don't BUG() on inconsistent page count
+Message-ID: <awamPtNjztFml17Z@kernel.org>
+References: <20261112-fixes-x86-v1-0-791adb8d6670@kernel.org>
+ <20261112-fixes-x86-v1-4-791adb8d6670@kernel.org>
+ <4edee4db91a92b3231644688afbc950bb880ff8c.camel@intel.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,41 +66,53 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <DN453WE8YY5K.3STDH1FZM2FFO@kernel.org>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <4edee4db91a92b3231644688afbc950bb880ff8c.camel@intel.com>
 
-On Wed, Nov 25, 2026 at 09:14:05AM +0100, Michael Walle wrote:
-> On Tue Nov 24, 2026 at 2:14 PM CET, Bartosz Golaszewski wrote:
-> > On Wed, Nov 18, 2026 at 03:42:19PM +0800, Long Zhao via B4 Relay wrote:
-> >> From: Long Zhao <longzhao@ambarella.com>
-> >> 
-> >> Some controllers ignore output writes while a line is still an
-> >> input. Add a behaviour flag so the output value is written after
-> >> the direction change. This is a legacy quirk. New hardware must not
-> >> use it.
-> >> 
-> >> Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-> >> Reviewed-by: Michael Walle <mwalle@kernel.org>
-> >> Reviewed-by: Linus Walleij <linusw@kernel.org>
-> >> Signed-off-by: Long Zhao <longzhao@ambarella.com>
-> >> ---
-> >
-> > Hi! Sashiko's comment on the return value of gpio_regmap_set() is valid.
-> > You never know what the underlying regmap actually is, it may not be an
-> > mmio regmap.
+On Tue, Nov 24, 2026 at 10:57:39PM +0000, Edgecombe, Rick P wrote:
+> On Thu, 2026-11-12 at 18:31 +0200, Mike Rapoport (Microsoft) wrote:
+> > If a step of __change_page_attr_set_clr() covers more pages than remain
+> > in the range, or no pages at all, that's a bug in CPA, but it does not
+> > justify crashing the kernel.
 > 
-> Agreed, but it should be a separate patch because it was missing
-> since day one. Not something this patch introduced. I tried to find
-> out why I did it that way, but couldn't find anyting. Probably
-> because back then gpiolib did it the same, not sure.
+> Agreed, but does it also justify special handling to try to return an error to
+> the caller about the bug in CPA? Why not just change the BUG_ON() to WARN?
+
+If we only replace BUG_ON() with WARN_ON(), either rempages wraps around
+and we keep changing pages past the end, or we loop forever.
+
+In any case we must break the loop and returning -EINVAL seems the most
+appropriate action there.
+ 
+> > Warn and fail the request instead.
+> > 
+> > Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> > ---
+> >  arch/x86/mm/pat/set_memory.c | 5 ++++-
+> >  1 file changed, 4 insertions(+), 1 deletion(-)
+> > 
+> > diff --git a/arch/x86/mm/pat/set_memory.c b/arch/x86/mm/pat/set_memory.c
+> > index aa7052d247e60..a1bea16a3c3bb 100644
+> > --- a/arch/x86/mm/pat/set_memory.c
+> > +++ b/arch/x86/mm/pat/set_memory.c
+> > @@ -2101,7 +2101,10 @@ static int __change_page_attr_set_clr(struct cpa_data *cpa, int primary)
+> >  		 * CPA operation. Either a large page has been
+> >  		 * preserved or a single page update happened.
+> >  		 */
+> > -		BUG_ON(cpa->numpages > rempages || !cpa->numpages);
+> > +		if (WARN_ON_ONCE(cpa->numpages > rempages || !cpa->numpages)) {
+> > +			ret = -EINVAL;
+> > +			goto out;
+> > +		}
+> >  		rempages -= cpa->numpages;
+> >  		cpa->curpage += cpa->numpages;
+> >  	}
+> > 
+> > --
 > 
-> Btw. is it on purpose that sashiko is only answering the patch
-> author and the list? FWIW I'm usually not subscribed to the lists
-> and thus I didn't get the feedback.
->
 
-Ah, yes it noted a bug in my sashiko maintainer bug list. Nevermind my
-comment then. I thought this was introduced by this series.
-
-Bart
+-- 
+Sincerely yours,
+Mike.
