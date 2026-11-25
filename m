@@ -1,58 +1,70 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.216
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.204.34.129
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795594693;
-	b=35FQmQA2ySmb8KSfPPwlyMU3+QdGV8aTe+djUAS/EvFxNzBAR0neSz8EjC1lnVm0jyWi
-	 5wXW7jmKSew2myjiQZZANh6AwvFZhjd4+9O1SnFg8GgYp0pbsDk8iPp2DWUoyRgeWJXS3
-	 wqUMrtzCjEOmHsTWdDps6EhXC1FVg91UFCIozN93W6Ub3M0RKdVQ5eKKKrzCjDq2EY3a2
-	 2qdKWuZihYbe1y4ARdp667Z5IsoIw4Jhgw2AAx4BFnKjw/jcuiRQzG5vuvN70hXSLpFNn
-	 ZYAqtUlEB2vyEm2UiDFJI47VsVKGJtJm2kjhZXG9hrOzWWS6JLNZM4tKSEuSpq+iE6w==
+	t=1795594794;
+	b=DsG6NG8k9sX8o+36Omw+Qk64rr1CC0Tb5lLtyFh1BkZbaMOUYNcvJppapBZbqaklitby
+	 ezEaD3yJ4c3hkiMARYIIZ2s5XAvlrgw85/JrSuWv5/4v1isTsoodyoKUVtKVutQwF6AAX
+	 U3wNiiXJoAmGbwAD0nxpAiCA1bhXHWqUUbQwWi1gCA97xgwmFWWZPbz7r8jkDZQg9N1tf
+	 jTJWCHyDsFZsVOMrhwB5J73XtFM3kY4OQ1BAHaKVS9LekEYWfJ2TZ2rHq2rVPhXjDw8sw
+	 vxs97nscYmsgQfmuKSg+ziSe3W7XD7n0OyrtRCcahsavc5dPG6PckmAPSQWtoxOVRFQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795594693;
-	h=DMARC-Filter:dkim-signature:Received:Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:CC:References:From:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding:X-Originating-IP:
-	 X-ClientProxiedBy;
-	bh=MbyGB8U9YRrniG9snzlWgjemL8IXXkOYk25rFewhrkE=;
-	b=zcGDSqfdkexhsYqIX0HuTFYOWsFhwpn7kALZWHzjq4nocJTntyK9qAOj2WkwJarGcO9u
-	 L7MhDOrlhJKYEZ8P+IZ6ADWJ/scSSLI5Vp8IPg/N7oNMN1TRDrOQu4nvfGToqaQv+Zpp/
-	 CNAUmH7Kj1E3NtFs5xQaJB5T56OilqX0b77z6H12W/e6WK88fNjsHfvS2MPGzRMRY6A/T
-	 EoGiBAq1OhLZkxXprgJ/Y2ILjXlGT2DjFnAtISPqyYuNYR3S3xBwmeSmZehefBHaFkvW8
-	 UqunvrKQa7Occerx3vDasNBkwMlkCAeXMRvahwLLgb53ULhxYue4FLYKCn5Dh6JclbQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795594794;
+	h=DMARC-Filter:DKIM-Signature:X-QQ-mid:X-QQ-Originating-IP:Received:
+	 X-QQ-SSF:X-QQ-GoodBg:X-BIZMAIL-ID:EX-QQ-RecipientCnt:From:To:Cc:
+	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-QQ-SENDSIZE:Feedback-ID:X-QQ-XMAILINFO:
+	 X-QQ-XMRINFO:X-QQ-RECHKSPAM;
+	bh=xu5nzEsZd0l35GVhHFCh0SlG77LpEEgxmOzFQfr3Xr4=;
+	b=ink/Y4RKMlz7uWsFtvn62TX4tueUErxPRthCItsYePhXdJDSbp27+TjwGpfAfpzgHEMi
+	 g76UzxKq3bbVQCYWTXwGzHDjwQHIk9Yryb2kVJ0dY41xDgF1ACLM/9TWIONd9oc54gqWu
+	 FXFOYCHRpDOmKyXU9BYd4xySz04jPyIxlT7NiRaWsqX4wIyOh9EajbGsKVLeCQR4W4Bf1
+	 +TvokyG/0t53cMn06J8vvoNajU9Jwi/h4GouPF7vCIm9ZFdsGNXNeHtOXUWQc6dzf1cMB
+	 WPUeyX3pWsJqXkgJSqK6LHl7e2fkO7S/BEUTrvqFSWU3EyJROZK01qy9fiMdEV2ah6Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=huawei.com;
-	spf=pass smtp.mailfrom=huawei.com;
-	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=Ycn2FL+t;
-	arc=none smtp.remote-ip=113.46.200.216
-Received: from canpmsgout01.his.huawei.com (canpmsgout01.his.huawei.com [113.46.200.216])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=uniontech.com;
+	spf=pass smtp.mailfrom=uniontech.com;
+	dkim=pass header.d=uniontech.com header.i=@uniontech.com header.a=rsa-sha256 header.s=onoh2408 header.b=UDXCoVVT;
+	arc=none smtp.remote-ip=54.204.34.129
+Received: from smtpbguseast1.qq.com (smtpbguseast1.qq.com [54.204.34.129])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3AEEA606A327;
-	Wed, 25 Nov 2026 08:18:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3AEEA606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8959A606A31E;
+	Wed, 25 Nov 2026 08:19:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8959A606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=uniontech.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=uniontech.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=Ycn2FL+t
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=MbyGB8U9YRrniG9snzlWgjemL8IXXkOYk25rFewhrkE=;
-	b=Ycn2FL+tIkW1u9EHTKdSwJpvHnV15x8giz6KN/9y5ezCzneFIfeGfOxKe4NyUIApTEOQh4Dla
-	LDNrQ2Y+DenE39xInHvztvM4CrczFu3AC2fGRJ0QkdpSEvvHRHQzV4rNgKxvGBpKQNhuzM2DgTF
-	oYFztxIbNZ16gF5xCo2eLRc=
-Received: from mail.maildlp.com (unknown [172.19.162.197])
-	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4jZCG62Fvmz1T4fK;
-	Wed, 25 Nov 2026 16:17:18 +0800 (CST)
-Received: from kwepemk300018.china.huawei.com (unknown [7.202.194.246])
-	by mail.maildlp.com (Postfix) with ESMTPS id F249F40579;
-	Wed, 25 Nov 2026 16:18:07 +0800 (CST)
-Received: from [10.34.206.67] (10.34.206.67) by kwepemk300018.china.huawei.com
- (7.202.194.246) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 25 Nov
- 2026 16:18:07 +0800
-Message-ID: <bbc7ff8b-ef89-45e1-9f6c-3596c5e5c921@huawei.com>
-Date: Wed, 25 Nov 2026 16:18:06 +0800
+	dkim=pass (1024-bit key, unprotected) header.d=uniontech.com header.i=@uniontech.com header.a=rsa-sha256 header.s=onoh2408 header.b=UDXCoVVT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
+	s=onoh2408; t=1795594758;
+	bh=xu5nzEsZd0l35GVhHFCh0SlG77LpEEgxmOzFQfr3Xr4=;
+	h=From:To:Subject:Date:Message-ID:MIME-Version;
+	b=UDXCoVVTDgdKi8dBF1232bxuyGzzv3SqbF/heeBPfMQQ0dcbSjB7YGgD4Tysny147
+	 01zhOwXX/QdiVl+ANhmlLmP9hEDjSu9aDObXu+GFpWIW1XuVAKsKl3QRXYhM/tI0oa
+	 DNZPjM22hxtdL0DMBjAh1S4fDIxFll2ks77vbC60=
+X-QQ-mid: zesmtpsz6t1795594751t2eb92d61
+X-QQ-Originating-IP: qqS8CVJIZvW3wddgupBQu1lX3rm7FFgkSfJu9wwGnEM=
+Received: from localhost.localdomain ( [61.183.83.60])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Wed, 25 Nov 2026 16:18:40 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 1
+X-BIZMAIL-ID: 8163225211566540910
+EX-QQ-RecipientCnt: 8
+From: Wentao Guan <guanwentao@uniontech.com>
+To: raoxu@uniontech.com
+Cc: gregkh@linuxfoundation.org,
+	linux-kernel@vger.kernel.org,
+	linux-usb@vger.kernel.org,
+	pawell@cadence.com,
+	peter.chen@kernel.org,
+	stable@vger.kernel.org,
+	Wentao Guan <guanwentao@uniontech.com>
+Subject: Re: [PATCH] usb: cdnsp: fix NULL pointer dereference during system resume
+Date: Wed, 25 Nov 2026 16:18:31 +0800
+Message-ID: <961901B5BBBE3741+20261125081830.304847-2-guanwentao@uniontech.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <7B818A718E70C344+20261125080021.3907332-1-raoxu@uniontech.com>
+References: <7B818A718E70C344+20261125080021.3907332-1-raoxu@uniontech.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,118 +74,67 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH -next -v2 6/8] lockdown: bound the status string with
- scnprintf
-To: Cai Xinchen <caixinchen1@huawei.com>,
-	<nicolas.bouchinet@oss.cyber.gouv.fr>, <xiujianfeng@huawei.com>,
-	<paul@paul-moore.com>, <jmorris@namei.org>, <serge@hallyn.com>,
-	<shuah@kernel.org>, <kalevi@kolttonen.fi>
-CC: <linux-security-module@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-kselftest@vger.kernel.org>, <bpf@vger.kernel.org>,
-	<lujialin4@huawei.com>
-References: <20261110132818.2231593-1-caixinchen1@huawei.com>
- <20261110132818.2231593-7-caixinchen1@huawei.com>
-From: Xiu Jianfeng <xiujianfeng@huawei.com>
-In-Reply-To: <20261110132818.2231593-7-caixinchen1@huawei.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
- kwepemk300018.china.huawei.com (7.202.194.246)
+Content-Transfer-Encoding: 8bit
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpsz:uniontech.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: Ntq8+Af3r9XFXzCz68jJstO4wYtttlyMQ3FYw7g+ltVo3fOrna9XeAW2
+	7lbjWDLY50gIaEcGq30GgyxvKFMOn742oTK3BgROYdvxMgVV9nBkXoaDyjwhVwAKMFwMuNQ
+	Kkt6+SPGXpcL1RRLxuV1swcNaVfydpwFTR7gAMwmmp+9MByZai04L6mzy7c6RsXaw0vo3Y2
+	XdDjKjEpBMiDa3upfk+DwOj68hjwRqrAkWDRprThiIieLgChl+GqSdKpqMhsSPwTEl5cLob
+	asshj/DJ8fTOz54aXkC5xtjeeqdaWMOF2pgTRSASy5ovwCNmv3ZcOrOoCTCJjIOQ7PjfEYC
+	ifKndVTYsKVnMahA2e/aT7tgXB394nX2XhPSMUvU19T2yhWayRhT1Py7ASKOvRgc3pKXkq1
+	V3CIEF4bVk8/fpHky423nimi66nXBHjxj7tK4R6k9i9CaTdn+H3FkJ/8NRgMSAqDu4LaZyq
+	Iwp4NI6dER8SvyaM8BtJaCeCE6rl2GIeDZMgznEK1pB6+qkdHAaQe9hT+MbZyvb+7Hey+QR
+	7FLvBMl6GxGOgPH2bnPWdDwktnTCEL8uSIWe4yYgzmqZ45PDSHIERH4tB5akhLcfFoBfRtS
+	RS8I0ClQCF1TPR5TXmywQYzy0AGiEjPz/iihXFfAss5Dt7hRJWG2hLjussPURvRAb/pcv0Y
+	WW2VeBGQHrG/8f8yZAQO4yz+KDQQig4Bod42jR83cOndWGsSlhc9wbG7gf6Qphg0bokcU4B
+	L/dGqvLefmSu+Oz+m8R/9+FMmAMWuapetnqdZUI9gqQD/uBvq5ydgOcHz9DRU1bXeyGRN2n
+	HHiNdtYLwXPI+V8RbyAHG8BpvhjZvX3qxhWMyBUL1QY+WX8umIMt8yWF0b7IWHSUGNaJn3L
+	Kwp/yf0BL5aMHH/AnyKRfriSDO1hApqenAvWdl2+RwmTri8m1BdVK/pFsBGUC2hp9BeywT/
+	pni+yqrzGzK+Z0cBu3um+7JBfd8X39iCge598U+nDfiHol0IQPVYT6C8Jq0qs3QodbE2shr
+	x2YNMcNzKNFARed6L+qP7QVznRny3Z6x8U7HtYoQA9WSWCkPA2TGEyS68v7IlICBXLHPwKX
+	TfKykIo/BDw
+X-QQ-XMRINFO: M/715EihBoGS47X28/vv4NpnfpeBLnr4Qg==
+X-QQ-RECHKSPAM: 0
 
-On 11/10/2026 9:28 PM, Cai Xinchen wrote:
-> Use scnprintf() instead of sprintf() when composing the lockdown status
-> string in lockdown_read().  The current set of levels fits well within the
-> 80 byte buffer, but sprintf() provides no protection if more or longer
-> labels are added later.  scnprintf() makes the buffer bounds explicit.
+> cdnsp_gadget_suspend() now always disconnects the gadget and stops
+> the controller, even when the link is already in U3. cdnsp_stop()
+> disables the slot and clears active_port, but leaves the cached
+> link_state unchanged.
 > 
-> Store the level label strings in named arrays and point the matching
-> lockdown_reasons[] entries at them.  Their sizes are compile-time
-> constants, so a BUILD_BUG_ON() can verify that the status buffer is large
-> enough for all level labels, their trailing spaces, and the brackets
-> around the active one.
+> If the controller retains its context across system suspend,
+> cdnsp_gadget_resume() may call __cdnsp_gadget_wakeup() based on
+> the stale U3 state. This dereferences active_port, which is NULL.
+> Port-status event handling cannot restore active_port at this
+> point because resume holds pdev->lock.
 > 
-> Signed-off-by: Cai Xinchen <caixinchen1@huawei.com>
+> Remove the obsolete wakeup call from the resume path. The previous
+> connection has already been torn down during suspend, and
+> cdnsp_run() puts the enabled ports into RXDETECT. Let normal
+> port-status event handling establish the new connection.
+> 
+> Fixes: eae6460f6173 ("usb: cdnsp: fix wakeup from S3 after controller context loss")
+> Signed-off-by: Xu Rao <raoxu@uniontech.com>
+> Cc: stable@vger.kernel.org
 > ---
->   security/lockdown/lockdown.c | 28 +++++++++++++++++++++++-----
->   1 file changed, 23 insertions(+), 5 deletions(-)
+>  drivers/usb/cdns3/cdnsp-gadget.c | 3 ---
+>  1 file changed, 3 deletions(-)
 > 
-> diff --git a/security/lockdown/lockdown.c b/security/lockdown/lockdown.c
-> index 84efd533fe5a..26cac7628a48 100644
-> --- a/security/lockdown/lockdown.c
-> +++ b/security/lockdown/lockdown.c
-> @@ -14,13 +14,17 @@
->   #include <linux/lsm_hooks.h>
->   #include <uapi/linux/lsm.h>
->   
-> +static const char lockdown_label_none[] = "none";
-> +static const char lockdown_label_integrity[] = "integrity";
-> +static const char lockdown_label_confidentiality[] = "confidentiality";
-> +
->   /*
->    * These are descriptions of the reasons that can be passed to the
->    * security_locked_down() LSM hook, used for the denial message and the
->    * securityfs status file.
->    */
->   static const char *const lockdown_reasons[LOCKDOWN_CONFIDENTIALITY_MAX + 1] = {
-> -	[LOCKDOWN_NONE] = "none",
-> +	[LOCKDOWN_NONE] = lockdown_label_none,
->   	[LOCKDOWN_MODULE_SIGNATURE] = "unsigned module loading",
->   	[LOCKDOWN_DEV_MEM] = "/dev/mem,kmem,port",
->   	[LOCKDOWN_EFI_TEST] = "/dev/efi_test access",
-> @@ -41,7 +45,7 @@ static const char *const lockdown_reasons[LOCKDOWN_CONFIDENTIALITY_MAX + 1] = {
->   	[LOCKDOWN_DBG_WRITE_KERNEL] = "use of kgdb/kdb to write kernel RAM",
->   	[LOCKDOWN_RTAS_ERROR_INJECTION] = "RTAS error injection",
->   	[LOCKDOWN_XEN_USER_ACTIONS] = "Xen guest user action",
-> -	[LOCKDOWN_INTEGRITY_MAX] = "integrity",
-> +	[LOCKDOWN_INTEGRITY_MAX] = lockdown_label_integrity,
->   	[LOCKDOWN_KCORE] = "/proc/kcore access",
->   	[LOCKDOWN_KPROBES] = "use of kprobes",
->   	[LOCKDOWN_BPF_READ_KERNEL] = "use of bpf to read kernel RAM",
-> @@ -50,7 +54,7 @@ static const char *const lockdown_reasons[LOCKDOWN_CONFIDENTIALITY_MAX + 1] = {
->   	[LOCKDOWN_TRACEFS] = "use of tracefs",
->   	[LOCKDOWN_XMON_RW] = "xmon read and write access",
->   	[LOCKDOWN_XFRM_SECRET] = "xfrm SA secret",
-> -	[LOCKDOWN_CONFIDENTIALITY_MAX] = "confidentiality",
-> +	[LOCKDOWN_CONFIDENTIALITY_MAX] = lockdown_label_confidentiality,
->   };
->   
->   static enum lockdown_reason kernel_locked_down;
-> @@ -137,6 +141,16 @@ static ssize_t lockdown_read(struct file *filp, char __user *buf, size_t count,
->   	char temp[80] = "";
->   	int i, offset = 0;
->   
-> +	/*
-> +	 * Size the buffer for the worst case: the active level is
+> diff --git a/drivers/usb/cdns3/cdnsp-gadget.c b/drivers/usb/cdns3/cdnsp-gadget.c
+> index 2830b595d632..350e45f511f5 100644
+> --- a/drivers/usb/cdns3/cdnsp-gadget.c
+> +++ b/drivers/usb/cdns3/cdnsp-gadget.c
+> @@ -2160,9 +2160,6 @@ static int cdnsp_gadget_resume(struct cdns *cdns, bool lost_power)
+> 
+>  	ret = cdnsp_run(pdev, max_speed);
+> 
+> -	if (!context_lost && pdev->link_state == XDEV_U3)
+> -		__cdnsp_gadget_wakeup(pdev);
+> -
+>  unlock:
+>  	spin_unlock_irqrestore(&pdev->lock, flags);
 
-The comment is incorrect, the total length is the same whichever level 
-is active.
+Reviewed-by: Wentao Guan <guanwentao@uniontech.com>
 
-> +	 * confidentiality, with brackets and trailing spaces, plus the
-> +	 * terminating NUL.  The label sizeof() values include their own
-> +	 * NULs, so only three more bytes are needed.
-> +	 */
-> +	BUILD_BUG_ON(sizeof(temp) < sizeof(lockdown_label_none) +
-> +				    sizeof(lockdown_label_integrity) +
-> +				    sizeof(lockdown_label_confidentiality) + 3);
-> +
->   	for (i = 0; i < ARRAY_SIZE(lockdown_levels); i++) {
->   		enum lockdown_reason level = lockdown_levels[i];
->   
-> @@ -144,9 +158,13 @@ static ssize_t lockdown_read(struct file *filp, char __user *buf, size_t count,
->   			const char *label = lockdown_reasons[level];
->   
->   			if (kernel_locked_down == level)
-> -				offset += sprintf(temp+offset, "[%s] ", label);
-> +				offset += scnprintf(temp + offset,
-> +						    sizeof(temp) - offset,
-> +						    "[%s] ", label);
->   			else
-> -				offset += sprintf(temp+offset, "%s ", label);
-> +				offset += scnprintf(temp + offset,
-> +						    sizeof(temp) - offset,
-> +						    "%s ", label);
->   		}
->   	}
->   
-
+BRs
+Wentao Guan
