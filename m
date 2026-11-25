@@ -1,80 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795616366;
-	b=bg6OJNTVIj6j+kYe25ZdGq6te4SBHaGUaVH4c2g0YYTHozGTHFsx+uY42ybuTMGdT5Vt
-	 kQClezzux2FJvp3pSYgvFkBDYxe3OULA1aWmdgwDoCNAZRRRcPmeBYW80FmhXvuT/P+by
-	 +aueuMZaxN10rJqI5B5QtWCnDL95jluVthp2WdsRceaHObfLnjTNyfkqNhTRrnzHaZuAM
-	 +b550o1wk80AW6PBWprEbYC/KtXK5scPB9ZL0kmIBL6D3iCsoLZQRgaFeXUksdvTSfyM6
-	 UxD96yAtutRVJG8rag4R/EIAsZ6ZJ8SuwWwFqQh9M6oXy5hRjNLR8Wg9nMnUWjNVcTg==
+	t=1795616401;
+	b=UrJhj6K/5fqr9IG2rOZFVM4JYC6+lPGN2AJ3JTOfep03w91m58UNkLePV8168sMiE8ab
+	 t90UF3vVH/+q0GUTJf6JGeofD9Je6G3AaLNnegtW+syKgHUgFPsc3HPINhlMUnNF1HlxS
+	 ebWWs3y7WlfsPiyqju0GmSVx+hqI37RgEVIYC+mYBFDSvBhWvMBxkfLrHhpIWM2/kOrXl
+	 9tBVddSi1c0mP1uqyHR/Pfh96HG9+f0WcTjcaJFhCo8xCj6Mu9gJ3uvbum0gitAYNMd0S
+	 9FjRRcQDuE1/8naEaiJ6ZSOOWy+xkRs9Q8ZzijiO49zJ7pUfyPNRqIAcMYzqaUOauxw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795616366;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=Uw51BNnNSMZkfcts9aiEFizxk6Nl2DC+AS1z+RPufIo=;
-	b=xuySv8o0kS3fJbEO1v7IT5ax9Itajx4N6+KXqTuj0e735eTlipAGyrw39x3uSYwb+EjU
-	 nZNrdZCwLRBp6X1Js//n59zuaYsD5tc5aR0ag9IVeVw4uYtRSKvc4vj5ObvRxv7seIFYQ
-	 nv6CZ6JqbcB1X0Lnv2EjBhS1d4JTK8tBuowAA+AjxLtQS/+D4ElAM7bkNo5b9otyeO+xX
-	 kTXI2sYeB9s4Tyn1B36uoAdJW/cAWd9ow/YLu+3l6oljQmRGix8qcm+dMoB7eZH/Aonk+
-	 8gOXDiXzcTJsYobh0n+SVcgGFJ9/jvCw2Rc15hwBPuoV+i4YSTfxisWKYc028Ix2ROA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795616401;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=OXw3aEY7EdNjDs9Hr7OeVs9fvmVPov8tyqpiU1M9Iew=;
+	b=ROftVopI5AzSAL1Y0d6XEXaPlmq852bg3fbAssLoD0fU4W4MfHf1I//IQZQrYWbog3e1
+	 Kv96q7RtpMKpSVT34rTZkthq21SMe6RptS1FWeQio3uEDTWuRjp5FcVoD5mov4+abGNVI
+	 M/RxISe8fDrb4iZnwAEtarZWeSd7rnzKjfZn75fabr1u2jLrL+sp+Cz+6A7Qt6BmAjF2c
+	 wtU3M3Ffa7ZNLTrInHF9KSSjyuMjiLhOKZaBZKCE45juClxLeIxBBLMjcJT8O2dIw/hpi
+	 p+BGrhF2GLzIQLOqDK2bx7QMq4axy8L5Jsmff0nqmJiU36QWZgr6WD+eY78+/zCo6bg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=CWOkp8F7;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id C1662606A31E;
-	Wed, 25 Nov 2026 14:19:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C1662606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Eg2zd9Gl;
+	arc=none smtp.remote-ip=209.85.218.45
+Received: from mail-ej1-f45.google.com (mail-ej1-f45.google.com [209.85.218.45])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2A6AE606A32C
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:20:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2A6AE606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=CWOkp8F7
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 46AD32F;
-	Wed, 25 Nov 2026 06:19:22 -0800 (PST)
-Received: from e143914.arm.com (e143914.arm.com [10.2.213.21])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0D1D03F763;
-	Wed, 25 Nov 2026 06:19:20 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795616365; bh=zOuTUXAl5Me8B3Bviry0NGcs0zsjWzErFF7qo9A3aGc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=CWOkp8F7fQmWiAUNbgy+iHiUf8mWp+DIO06axxeCI11H+sQ6pnGd+zxvlgwqzB9hj
-	 1dmzmWI6vwm1F1TraqVf1cvJPFRIjM7bW54/QNRJWGi2SEwtorVa+EspH4/ZJdZY7V
-	 58m2h8ivwmNm/x1k+jTPsSn1HB7ERn1w+30/1qdw=
-Date: Wed, 25 Nov 2026 14:19:15 +0000
-From: Joey Gouly <joey.gouly@arm.com>
-To: Steffen Eiden <seiden@linux.ibm.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-	Fuad Tabba <fuad.tabba@linux.dev>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Andreas Grapentin <gra@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Janosch Frank <frankja@linux.ibm.com>,
-	Claudio Imbrenda <imbrenda@linux.ibm.com>,
-	David Hildenbrand <david@kernel.org>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Friedrich Welter <fritz@linux.ibm.com>,
-	Gautam Gala <ggala@linux.ibm.com>,
-	Hariharan Mari <hari55@linux.ibm.com>,
-	Hendrik Brueckner <brueckner@linux.ibm.com>,
-	Nico Boehr <nrb@linux.ibm.com>,
-	Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-	Arnd Bergmann <arnd@arndb.de>, Paolo Bonzini <pbonzini@redhat.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
-	linux-s390@vger.kernel.org
-Subject: Re: [PATCH v3 03/23] arm64: sysreg: Convert OSLSR to automatic
- register generation
-Message-ID: <awbuY0mETtZ_mQh3@e143914.arm.com>
-References: <20261106-sysreg-v3-0-75e95980fb10@linux.ibm.com>
- <20261106-sysreg-v3-3-75e95980fb10@linux.ibm.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Eg2zd9Gl
+Received: by mail-ej1-f45.google.com with SMTP id a640c23a62f3a-c516a192844so539316066b.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 06:20:00 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795616399; x=1796221199; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=OXw3aEY7EdNjDs9Hr7OeVs9fvmVPov8tyqpiU1M9Iew=;
+        b=Eg2zd9GlqLRBwDzyg/AOkaSPlGMQ+z8bkz6FeiX45oCMLFDuiEKc+1iCjq3aiw5kix
+         sHM8aKNfvS1jKrcIomXL6e/ofWmvjHNXO6tcUkvGNyls+jBX5nhgrxdY5DN351ZudV8o
+         EZ1qUgYf1qbYvAJ8PxRD8+DcsMipVnEvZWm+1UKa4X+YqN5KmIerIU1/oGfkm/BIUtOq
+         FvlcZXt9RF3+4sKN7o5W8kpNd6a89gQoN5R1ggHcSH8iMMrndVREE2FJdI2AJGJ/+SIm
+         EJEUn9irDIaln/kxrVmKIvt+BKskA0yPeLjogLUJ/aypZK+cwdxu5pH5ZCWhJldwRu5s
+         W1yA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795616399; x=1796221199;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=OXw3aEY7EdNjDs9Hr7OeVs9fvmVPov8tyqpiU1M9Iew=;
+        b=Id4Js85UuAJ+Q+A9Hds/RMYkwff5ySqNvgIveI6YQkFegsdKgHgL+X8+sQ2SalsPZq
+         +nLf7nqZqW7ipQO0Dh54jxucm5jrmjHLOwkKjB723UPlnjBCE8m7fg91OQkVDC6OU2BX
+         Wd9wpI1dSSj5jvTRGbFKrFtz3VQoQxflljZukuMKQum37CW05DxRJTcwv4msRgYSUVf2
+         oUbSc/HC240HtlARF9/PDSiMFwXdG3PrMDgFqEJMsc0ECotQPDNwunIUBc3xJ5K3Zhro
+         OYJcLs4a7++pkSQwufYI0yEPp4mE2rS9CretihKApVRrj+XUfZvTJcttaSRYJD9cRnyg
+         ouUg==
+X-Gm-Message-State: APuU4Z/Bs9Ipbrhvqjx+o6BLirc6GlTh34yiPmp150wE6O7tmarLJ/32
+	U8DU0vQq2+HGKrmbITlJH9q/U0p/FbiKwxEhyTHw3J9tQQZIqf2nWUh1
+X-Gm-Gg: AZFdTZfEhxyOIlHnJvt8aGC1tcEZu/Ge6kYfLs7q/ELgFh2zP5kpYJgXW4n6qfCezk2
+	6VK8jURHztV3a5Jb3gYhmT3mk4LfEQ+vEVCXmyEcbW/2dRHk1DvMeNp8YGXxG3Yij115xFdOyBn
+	CkB8VvUtt529m9NatbScLZ4TrM2aoRPAB9RNFH9kmBE9kKffmiQ8JbShU6mW2Y0RCQljRftG/Dq
+	7XY/p8qUun5Pvi/5scaX/TLSMkpzkA68L5ix80Wk1F6cfvxjh1tQloMbAOjfMi/fQW4G+DrAWFl
+	8D/Lh3JjbNwYHc0bQkLxxosV0kfttqOO+pd0BXiVlxdHcIKreqchETeuuM1oahdkck9BrRej3Ce
+	1HP3dzHvx97vf/7NaruBTgUWxsQcHTbRUFEjTEEBkCLP//ObHVWPjkOepOqHLYYojwYnhkwAN9p
+	sMji+27Fg/DBhmwosF/XpHxE6C0rkj3bCIgWxWUTM9R77GXwIWZIPNWI6eGZrm90qTNTHLqT3ic
+	miCNnURC/w0hRrtb+B7WndMUFeECQqy8LrYW11eRnES+gqm4mDheKERgxbgDbr597fWd7G9p4L2
+	wLBStTbfFZ9J1NGUTrJTuzXDqnFvqei3riE=
+X-Received: by 2002:a17:907:da0c:b0:c50:5545:b66f with SMTP id a640c23a62f3a-c513a803353mr1371674066b.23.1795616399382;
+        Wed, 25 Nov 2026 06:19:59 -0800 (PST)
+Received: from CachyOS ([176.88.126.125])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c51a161e387sm123379666b.47.2026.11.25.06.19.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 06:19:59 -0800 (PST)
+From: =?UTF-8?q?Asaf=20Nuri=20Bertizlio=C4=9Flu?= <asafbertizlioglu@gmail.com>
+To: jgross@suse.com
+Cc: linux-kernel@vger.kernel.org,
+	linux-hwmon@vger.kernel.org,
+	x86@kernel.org,
+	tglx@kernel.org,
+	mingo@redhat.com,
+	bp@alien8.de,
+	dave.hansen@linux.intel.com,
+	hpa@zytor.com,
+	linux@roeck-us.net
+Subject: Re: [PATCH] drivers/hwmon: Remove wrong comment
+Date: Wed, 25 Nov 2026 17:19:10 +0300
+Message-ID: <20261125141912.120978-1-asafbertizlioglu@gmail.com>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261125121643.25427-1-jgross@suse.com>
+References: <20261125121643.25427-1-jgross@suse.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,100 +104,17 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261106-sysreg-v3-3-75e95980fb10@linux.ibm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-Hi,
-
-On Fri, Nov 06, 2026 at 05:07:36PM +0100, Steffen Eiden wrote:
-> Convert OSLSR to automatic register generation as per DDI0601. As
-> OSLSR_OLSM is a composite field using bit 0 and bit 3 the combined
-> values are still defined manually. While at it rename
-> OSLSR_EL1_OSLM_IMPLEMENTED to OSLSR_EL1_OSLM_IMP to be consistent with
-> the rest of the system register values.
+On Wed, Nov 25, 2026 at 01:16:43PM +0100, Juergen Gross wrote:
+> In drivers/hwmon/coretemp.c drop mentioning rdmsr/wrmsr in a comment,
+> as it was incorrect in this regard.
 > 
-> No functional changes.
-> 
-> Co-developed-by: Andreas Grapentin <gra@linux.ibm.com>
-> Signed-off-by: Andreas Grapentin <gra@linux.ibm.com>
-> Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
+> Suggested-by: Asaf Nuri Bertizlioglu <asafbertizlioglu@gmail.com>
+> Signed-off-by: Juergen Gross <jgross@suse.com>
 
-Need to do the Sashiko suggestion, it does fail to build.
-
-Reviewed-by: Joey Gouly <joey.gouly@arm.com>
+Reviewed-by: Asaf Nuri Bertizlioğlu <asafbertizlioglu@gmail.com>
 
 Thanks,
-Joey
-
-> ---
->  arch/arm64/include/asm/sysreg.h | 12 +++++++-----
->  arch/arm64/kvm/sys_regs.c       |  2 +-
->  arch/arm64/tools/sysreg         | 14 ++++++++++++++
->  3 files changed, 22 insertions(+), 6 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
-> index e3b60ee03023..2ec9ba9cd896 100644
-> --- a/arch/arm64/include/asm/sysreg.h
-> +++ b/arch/arm64/include/asm/sysreg.h
-> @@ -186,11 +186,13 @@
->  #define SYS_DBGWCRn_EL1(n)		sys_reg(2, 0, 0, n, 7)
->  #define SYS_MDRAR_EL1			sys_reg(2, 0, 1, 0, 0)
->  
-> -#define SYS_OSLSR_EL1			sys_reg(2, 0, 1, 1, 4)
-> -#define OSLSR_EL1_OSLM_MASK		(BIT(3) | BIT(0))
-> -#define OSLSR_EL1_OSLM_NI		0
-> -#define OSLSR_EL1_OSLM_IMPLEMENTED	BIT(3)
-> -#define OSLSR_EL1_OSLK			BIT(1)
-> +#define OSLSR_EL1_OSLM_MASK (OSLSR_EL1_OSLM0_MASK | OSLSR_EL1_OSLM1_MASK)
-> +#define OSLSR_EL1_OSLM_NI						\
-> +	((OSLSR_EL1_OSLM1_NI << OSLSR_EL1_OSLM1_SHIFT) |		\
-> +	(OSLSR_EL1_OSLM0_VAL_0 << OSLSR_EL1_OSLM0_SHIFT))
-> +#define OSLSR_EL1_OSLM_IMP						\
-> +	((OSLSR_EL1_OSLM1_IMP << OSLSR_EL1_OSLM1_SHIFT) |		\
-> +	(OSLSR_EL1_OSLM0_VAL_0 << OSLSR_EL1_OSLM0_SHIFT))
->  
->  #define SYS_OSDLR_EL1			sys_reg(2, 0, 1, 3, 4)
->  #define SYS_DBGPRCR_EL1			sys_reg(2, 0, 1, 4, 4)
-> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-> index 2b28b929f9f3..8c91de6a4097 100644
-> --- a/arch/arm64/kvm/sys_regs.c
-> +++ b/arch/arm64/kvm/sys_regs.c
-> @@ -3309,7 +3309,7 @@ static const struct sys_reg_desc sys_reg_descs[] = {
->  	{ SYS_DESC(SYS_MDRAR_EL1), trap_raz_wi },
->  	{ SYS_DESC(SYS_OSLAR_EL1), trap_oslar_el1 },
->  	{ SYS_DESC(SYS_OSLSR_EL1), trap_oslsr_el1, reset_val, OSLSR_EL1,
-> -		OSLSR_EL1_OSLM_IMPLEMENTED, .set_user = set_oslsr_el1, },
-> +		OSLSR_EL1_OSLM_IMP, .set_user = set_oslsr_el1, },
->  	{ SYS_DESC(SYS_OSDLR_EL1), trap_raz_wi },
->  	{ SYS_DESC(SYS_DBGPRCR_EL1), trap_raz_wi },
->  	{ SYS_DESC(SYS_DBGCLAIMSET_EL1), trap_raz_wi },
-> diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-> index 997c62ab72e6..5d38f115bac1 100644
-> --- a/arch/arm64/tools/sysreg
-> +++ b/arch/arm64/tools/sysreg
-> @@ -122,6 +122,20 @@ Res0	63:1
->  Field	0	OSLK
->  EndSysreg
->  
-> +Sysreg	OSLSR_EL1	2	0	1	1	4
-> +Res0	63:4
-> +UnsignedEnum	3	OSLM1
-> +	 0b0	NI
-> +	 0b1	IMP
-> +EndEnum
-> +UnsignedEnum	2	nTT
-> +EndEnum
-> +Field	1	OSLK
-> +UnsignedEnum	0	OSLM0
-> +	 0b0	VAL_0
-> +EndEnum
-> +EndSysreg
-> +
->  Sysreg	SPMACCESSR_EL1	2	0	9	13	3
->  UnsignedEnum	63:62	P31
->  	0b00	TRAP_RW
-> 
-> -- 
-> 2.56.0
-> 
+Asaf
