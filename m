@@ -1,79 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795571798;
-	b=n/yMZ+MspVu7SGVlTvycD/IuXPB0mfDcN7pEn07lC46LYb2MeT4yOaoDRcmdXWZsGSL5
-	 qn44Tr2kRVE7NCHMoNLazqZtgPJXsWAXYU7iArrTE3Jcv7JG9blHW6aEgDVgSaSCiNX6U
-	 X8fE41zNxMke3Cj2l3ans6+fy8f4WVCKKZAfLgL/ACRuIBanyh3wI06RqMzPKucZn0WMo
-	 jKKUT3ZdbORHEcK53I7pAtVYbjcIRxGpHuYPXRPG6oVVodxapNDfHkarRls5yfmEY3Nrs
-	 stwCiWmfb4WgZqbkVhSXxLfoMmfEHng81oYBQGin8+fh7i/WnYqG0zSLvqZj11CGhBw==
+	t=1795571902;
+	b=bkw39voNLrUmvepHGzfTJ6bc3dE19povt83ONThwFdaekDbhD83d1gttLWey35bdQm5+
+	 L37s8bXELosukATrRUtaQMg0WCmkxshhOs9E9dEwlo3vLLq2uwhFJU/0W6/DxpdGkcRxM
+	 BNYRXVRANxz3C/oPe+rMob7ihHG5zBc9T8YEOOs8hIN+RtQOOERKD4bjbhan9HAlMd6uX
+	 5FlV5ldvT5GmrJGoqgWqCj+LJ9XYm5jYsdbVgCXLDd5DQvII/n+7VeA/0AP0G3ekumHFo
+	 kQR3s31ffFS25JRDywijRqddYW6xMusIofz/f/VTWpxSWeyX0OvfbpKBuC1dYGUvq9A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795571798;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:Received:From:To:Cc:Subject:Date:
-	 Message-ID:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Scanned-By;
-	bh=hm2wuQFLmV9LQkNdJSRDFRXDMHH9iqFd/UmD1zt28t8=;
-	b=4PbwGalwlp0gxu/Q/m15m2spvgUbZ89BHLfmeGYXQ5JgoJR39g1OiuKS7Vt7LEyW+OLh
-	 rm81lO9hQmroGynif56wytHEG975/ca6ZtfDqoJ91UnraHbZ5ToGIJMe8pjkuUpyax4av
-	 YN58RNrPzXwC1/g5dpXeI47d70k30jZrhnGkuCalgSQ9s9YsvxCau79gr1c51Os4If1go
-	 1Y4qvCif8TRtbYT5f7x1W9IAM11L3j8/H2XoZvix/rcqjiVX+vxZD2wa5Sl5O8NKvZ2On
-	 E2qMXQRVhEAUn/SQNzA6bIEXkAyVPkgXi1uufCmmsHELM+WZ9fkwouzun1D8QCnNHtQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795571902;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=XPhXLxSuMMyVJA5N0xG7wGmRNvKZ8T/Ax0Rby1jRvMs=;
+	b=KQLHR1nuForKdiFUkioR990+2KnnTIlvKVpk+xq38KioXoH7cSx7llspGPTwDR32tHjn
+	 2SdOjHEyF1eX9+aCsa5KDewA7g1+4qihRhv1FkCUt4YqVdl3uQnLSpBaEtur7H3Q9bTIq
+	 T8ERNHtkHvW7i/I4Gxeh/8fF3LB/b5NEuWjRYPd+EyOmcoKato8biXySW94aU4ceXu95p
+	 IGsjr8i9k4qrg7imYQHo7+c+bgTCKEWHd1iTe62/0dumNiRUBNEZYEs4Y1QfIh9qc3dqF
+	 oTVjG0oEBpdkWUsjnUjoCMd48imZ9wIsWm18awI1zlubIs80D+x4ZUtgbbZ5mGEM6hA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=QEgfzzl3;
-	arc=none smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=Mjbu5DqC;
+	arc=none smtp.remote-ip=148.251.105.195
+Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A10F5606A31E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 01:56:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A10F5606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CCAE0606A321
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 01:58:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CCAE0606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=QEgfzzl3
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795571796;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=hm2wuQFLmV9LQkNdJSRDFRXDMHH9iqFd/UmD1zt28t8=;
-	b=QEgfzzl3GUt3sjwlKXm+W6J2xej0m5IXXpWdAgol7qY32njuzvgkGB8k2M7IsgaAfntZ4/
-	6WXJoFYoa/DTmYN/3GN+AYGmd/uqNoaTyjZc5JBUhGvs2kONc2L6ZGNKmQisuHnj45DS+W
-	EYhEI8uMATomF2RVzjkp73JtjrcP3ZE=
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-563-jE-MGSAOPwOTFB2-Evq3dg-1; Wed,
- 25 Nov 2026 01:56:30 +0000
-X-MC-Unique: jE-MGSAOPwOTFB2-Evq3dg-1
-X-Mimecast-MFC-AGG-ID: jE-MGSAOPwOTFB2-Evq3dg_1795571789
-Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=Mjbu5DqC
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1795571899;
+	bh=RCwXdv4tItxKQe6YiWspccVkhW7JD4JZcpfpSEyn4tc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Mjbu5DqCZbhkGyqBolZeWH8RzEGyzS6Gv37b+Roq6+qV3mqjtjIQ7KM2nxVRNCxQj
+	 AloSyowdAROpG8C99PjqVwwE9YxKZADD6vuSvi9ixy0vcpIovKc9I9Oo44IK703rk5
+	 PGBb8OQXO3/tLulRqXxZAcoo+g/7R+pg7gTkQZdqn1o1nPjff/01696W3CRKOzUD5U
+	 eZqJilK/AiQDKdtbMwVW1gsK0DqvLzn5dEMtLXqU+ct99XGCGlaUjbBDn0ZTca0C/n
+	 NqehYBHGWCpGfiYmpmr6vFSF89pr77q88uI9v4n9cXbCe5eoAPssSHaeCa5pW5UIXw
+	 9UcIjsUCwoZJg==
+Received: from [100.64.0.241] (unknown [100.64.0.241])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 7B587180049D;
-	Wed, 25 Nov 2026 01:56:28 +0000 (UTC)
-Received: from jhladky-thinkpadp1gen7.tpbc.csb (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
-	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 11DBA30001A2;
-	Wed, 25 Nov 2026 01:56:25 +0000 (UTC)
-From: Jirka Hladky <jhladky@redhat.com>
-To: will@kernel.org
-Cc: catalin.marinas@arm.com,
-	kristina.martsenko@arm.com,
-	luyang@redhat.com,
-	dockseed@proton.me,
-	jmario@redhat.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] arm64: clear_user: keep alignment padding out of the zeroing loop
-Date: Wed, 25 Nov 2026 02:56:18 +0100
-Message-ID: <20261125015618.1331650-1-jhladky@redhat.com>
-In-Reply-To: <20261124233043.1289050-1-jhladky@redhat.com>
-References: <20261124233043.1289050-1-jhladky@redhat.com>
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 4363F17E00C4;
+	Wed, 25 Nov 2026 02:58:19 +0100 (CET)
+Message-ID: <3c203ba7-6a0b-45bf-ac88-9928ad0b4a11@collabora.com>
+Date: Wed, 25 Nov 2026 03:58:18 +0200
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,46 +61,106 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 07/15] drm/rockchip: vop2: Reset AXI and DCLK to
+ improve robustness
+To: Tim Surber <me@timsurber.de>, Heiko Stuebner <heiko@sntech.de>
+Cc: Sandy Huang <hjc@rock-chips.com>, Andy Yan <andyshrk@163.com>,
+ Andy Yan <andy.yan@rock-chips.com>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ Daniel Stone <daniel@fooishbar.org>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+ Igor Paunovic <royalnet026@gmail.com>, kernel@collabora.com,
+ dri-devel@lists.freedesktop.org, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20261105-dw-hdmi-qp-yuv-v6-0-1bb63ef5766e@collabora.com>
+ <20261105-dw-hdmi-qp-yuv-v6-7-1bb63ef5766e@collabora.com>
+ <20261121023139.3515640-1-me@timsurber.de>
+Content-Language: en-US
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+In-Reply-To: <20261121023139.3515640-1-me@timsurber.de>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-Hi Will,
+Hi Tim,
 
-Some additional measurements supporting the patch, to quantify the
-impact beyond the /dev/zero benchmark. Since the fixed loop is the
-generic zero-fill-to-userspace primitive (clear_user() /
-iov_iter_zero()), the impact scales with the number of zero-filled
-bytes in any workload. Same A/B pair as the commit message (Ampere
-Altra, Neoverse N1, two kernels built from one tree, differing only
-in the label move):
+On 11/21/26 4:31 AM, Tim Surber wrote:
+> Hi Cristian,
+> 
+> On Thu, 05 Nov 2026 03:00:41 +0200, Cristian Ciocaltea wrote:
+>> @@ -953,6 +974,8 @@ static int vop2_enable(struct vop2 *vop2)
+>>
+>>  static void vop2_disable(struct vop2 *vop2)
+>>  {
+>> +	vop2_reset_assert_deassert(vop2, vop2->axi_rst);
+>> +
+>>  	rockchip_drm_dma_detach_device(vop2->drm, vop2->dev);
+> 
+> with this patch my RK3588 board (FriendlyElec
+> CM3588) hangs hard sometimes when the last CRTC is switched off. Without the series
+> or with the AXI reset in vop2_disable() removed it does not happen.
+> 
+> Here is a minimal reproducer, run as root, with a display on HDMI and fbcon on it:
+> 
+>   python3 - <<'EOF' &
+>   import fcntl, os, struct
+>   fd = os.open("/dev/dri/by-path/platform-display-subsystem-card", os.O_RDWR)
+>   try:
+>       fcntl.ioctl(fd, 0x641F)        # DRM_IOCTL_DROP_MASTER: leave KMS to fbcon
+>   except OSError:
+>       pass
+>   while True:
+>       b = bytearray(struct.pack("6IQ", 2160, 3840, 32, 0, 0, 0, 0))
+>       fcntl.ioctl(fd, 0xC02064B2, b)                         # DRM_IOCTL_MODE_CREATE_DUMB
+>       handle = struct.unpack("6IQ", b)[4]
+>       fcntl.ioctl(fd, 0xC00464B4, struct.pack("I", handle))  # DRM_IOCTL_MODE_DESTROY_DUMB
+>   EOF
+>   while :; do
+>   	echo 4 > /sys/class/graphics/fb0/blank; sleep 0.3
+>   	echo 0 > /sys/class/graphics/fb0/blank; sleep 0.7
+>   done
+> 
+> This hangs the board within a few blank cycles. In
+> practice I hit it when a KMS application exits: it frees its buffers
+> while fbcon takes the display back with a full modeset.
 
-O_DIRECT read of a sparse NTFS3 file (2 GiB, fully sparse; ntfs3
-zero-fills such reads directly into the user buffer via
-iov_iter_zero(), no page cache involved):
+Thanks for reporting this - with your reproducer I could also trigger the hang
+on my Rock5B board, after ~15 cycles.
 
-  kernel instructions per MiB:    791.1k -> 528.8k
-  throughput:                     11.9 GB/s -> 25.6 GB/s (+116%)
+> This issue can be fixed for me by moving vop2_reset_assert_deassert(vop2, vop2->axi_rst) from vop2_disable to vop2_enable.
+> 
+> --8<--
+> diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+> --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+> +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+> @@ -913,6 +913,9 @@ static int vop2_enable(struct vop2 *vop2)
+>  	if (ret)
+>  		goto err_put_pm;
+> 
+> +	/* Reset while idle; doing it in vop2_disable() can hang the SoC */
+> +	vop2_reset_assert_deassert(vop2, vop2->axi_rst);
+> +
+>  	ret = rockchip_drm_dma_attach_device(vop2->drm, vop2->dev);
+>  	if (ret) {
+>  		drm_err(vop2->drm, "failed to attach dma mapping: %d\n", ret);
+> @@ -973,8 +976,6 @@ static int vop2_enable(struct vop2 *vop2)
+> 
+>  static void vop2_disable(struct vop2 *vop2)
+>  {
+> -	vop2_reset_assert_deassert(vop2, vop2->axi_rst);
+> -
+>  	rockchip_drm_dma_detach_device(vop2->drm, vop2->dev);
+> 
+>  	regcache_drop_region(vop2->map, 0, vop2_regmap_config.max_register);
+> -->8--
+> 
+> Does that work for the cases the reset was added for (the RGB <-> YUV420
+> switch glitches and the DSI panel on the EVB1)? I can't test those here.
 
-The instruction delta is again exactly the two removed NOPs (262.3k
-per MiB at 8 bytes per iteration). The gain is larger than for
-/dev/zero (+92%) because ntfs3 zero-fills the whole 1 MiB read in a
-single clear_user() call, while read_zero() clears in 4 KiB chunks.
+I briefly tested the RGB <-> YUV420 mode switches and didn't notice any obvious
+regressions. For the EVB1 we need Sebastian's help, as I don't have that board.
 
-/proc/kcore read (1 GiB): 1064.4k -> 990.7k kernel instructions per
-MiB (-6.9%), throughput unchanged, as the remaining ~72% of kcore
-bytes are real memory copies. The arithmetic implies about 28% of
-/proc/kcore read bytes are zero-filled holes.
+Would you like to send a proper patch in the meantime? 
 
-For completeness, tmpfs hole reads do not benefit: mm/shmem.c
-deliberately copies the zero page instead of calling clear_user()
-("Copy to user tends to be so well optimized, but clear_user() not
-so much, that it is noticeably faster to copy the zero page instead
-of clearing"), which reads like an existing workaround for exactly
-the cost this patch removes.
-
-By code inspection, the same zero-fill path serves sparse reads on
-Ceph, SMB and netfs, so those are the likely real-world
-beneficiaries.
-
-Jirka
-
+Regards,
+Cristian
