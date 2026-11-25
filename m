@@ -1,92 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.41
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795614208;
-	b=nnf+NX6bz+j1JBkIBfFbtoKVhqRP5fe6s08EGYOaBYtSYofk2YrPLZebfj9nBOaRCQ0Y
-	 XH30KVYDiRj+MbZS1+rcyj90UZbrSNIrGA3+kGyTjBMN9gdcJTLKkJYAcFdToKVzs24/y
-	 xOU3twz+KfVtrjAbMK3bKRN5cX747iz7Sz2yJa+IXttm4cGAdzhJbUf1NnhHN5TXDByK6
-	 ikwmrP0vo8W5RhqUeeJaaFX/xXDHvgdsPaluKplmmt4JXrFoXCghvvvQU5EUZjcclMULl
-	 lDau+ft6l/hDwcu0Yh/AOIuhmRQ18hy9LJh3ACkCRApmYkoSKTm1kVuuvsmaIvxq1Ow==
+	t=1795614221;
+	b=mVrYM/gz5t6ISv9DFqvskfbNx3vhe1MKLa49pQ3wixexU2NyMuF3oBEOeiPjLgkm5iLk
+	 Dk2CfyCPbeQJuY4R3H38NAqfFG9NkvdQhrtPvUnR1jaufL8ziqLoLx3CeUyQlbnaQgf05
+	 /sjQx7xyD31bn2QxL9NXrFv3eVVPAI/VSERJOI/tgnSyjNnouPbl2RIx/BeNwajVK/zQ3
+	 wYDM0R6GT85VRiEgFDnDGe69/KEkPseT8SjOOIlra4bFb/9bFOdLCTtjmMpm/hzZOlsRA
+	 ZORgzppmDoqAvmK/1lnIp5FofSsvJJu41mchsquX/4kM/kiEJQ/4ODC6ou0YPauV22w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795614208;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=lyPzL9qDgC5NPyyWRyU2xpYxCkn2FwWXZOnIDyXNGvw=;
-	b=JKIdxQxqjcnu6M+HjqMyGenyVO1L6QZwQBSBkK3/vLQzXngGIQgESRJz9CDssPQibr6T
-	 MDLwcEFkWvIdMlZkVYhPrqDuHD9Yd8qGLr3Bb9YJOzTUiZbIQ3V/npip/hlpSQ0fHvSbi
-	 yk6JExHXmfJfZqsWm1EqQvqplIscwoZiYz43XOiYCb+R0pJUWkvyPPSmYy98rDn37DdvW
-	 w8lPomu6UKiItUdrDTStFOucnO2fET5g7KyidaTUZUpmmFUGSWZsCgxHc7wq4i1McKU3t
-	 rMYaqNCOyaWfMl7CUhN5XO5b8qohbD1c+6uX5x0bxLTHydcYwiGtg9iTK96pM3kIxkA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795614221;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=ZkneC5LQ+6dBKeyQZYnqczFByIf9fYmbADKKT3AxPBo=;
+	b=PLcEMaJdqsPt04OsuSV3Errz5olI362pOQ/EeMWwJSYcgOpRDvQMsrsVNsLiUB6vdJEJ
+	 ElVJijEoAlED5qPExDMhND3XpM1+nHrxUsUxFAiviLYJtuH1LMGipodSY5A19E/Lqsxqe
+	 Jf3aRYPdL0oodgmIpe2A4xVYzo+oyfJ5jfabNR+qUf+RDNzWzds6VGPQmmNEMrEZ4ezxZ
+	 nt9k21eOsC/HxdXcQHde/tTlIMfyHVcLwUUQb0ht4Ar5/90zUgjofMxPicGlRoM6GVjK6
+	 HVtB0X/NOst8XKyzpXFcKXYk7jImqZus7nvVgoNF+jCWlym2GLJXAKCG1N2aYsAHpTA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="S/ivv2sZ";
-	arc=none smtp.remote-ip=74.125.82.41
-Received: from mail-dl1-f41.google.com (mail-dl1-f41.google.com [74.125.82.41])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=A1CAmMQG;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 31200606A326
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 13:43:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 31200606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6418D606A31E;
+	Wed, 25 Nov 2026 13:43:41 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=S/ivv2sZ
-Received: by mail-dl1-f41.google.com with SMTP id a92af1059eb24-1a3c08d6928so8457372c88.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 05:43:28 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795614207; x=1796219007; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=lyPzL9qDgC5NPyyWRyU2xpYxCkn2FwWXZOnIDyXNGvw=;
-        b=S/ivv2sZrFfQAn2czE8r/0ql5zt1R0HFKjY7C1HFMkpX2fSxKA32NOSiKQyRCaqQGD
-         GpgUqDytS/+Me5QztSNhy3TsSPhSLheEAKynuT7iFIeJs1qDRmpplUgp/PPySvn0G3h2
-         4hjfRd1L8xFQ0KwdvO3RTcXWWV3EhJdEK6+KxmYDZ8ZbjNVsQaz7Cxjeu5SvqEmxVZkt
-         ly7gBxHHpfW0GqGvYOdnSkOr2SFzm1pkiYBkof3w15AVQpxJA7gYtLufLzblG34X2hDY
-         lHpoBQ2L79mCPq/GZ03INg0FndsQ1Xl8EcoZhNh93VSOQ9JJzmwq2e+GAMYYlCHUnK09
-         8ltg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795614207; x=1796219007;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=lyPzL9qDgC5NPyyWRyU2xpYxCkn2FwWXZOnIDyXNGvw=;
-        b=xzqAv/7pt9cDGKC4yXZFxKpZgQDaQC8CyTvo44gjl1rp9OSYvdgY5GkfaIgTtB1p6E
-         dYBIfeDYprJh1JWAj0C+X3CQfN+3ZJC7XgFpBjU54a9Jf4g51kqVlH5d1tbQ9C2uCjBT
-         I/49JXbFmMciKc4uMaV1giAQX5/FzDNlRV+/RcE5VjWQMevpWXsmOExJBK1q1Z0uC/YY
-         LHxXrA1pTEHyX9Gyss9z5QXcdFVEB7/RYkVHVi5Nxl4L/Cibxe9PYVjTN5G0TFjULzDn
-         cCXEmgzlGkRKMkMLMUKn/Wtyjmdd2/Hr8nLgkJTDZegNn1PtcavhlD/S4LgbOWdC+tLM
-         YsXg==
-X-Forwarded-Encrypted: i=1; AL+hErGJnGIxiGp5nGFzkk8I/p7JCG7jYMtTqAVo/f81CyckYKFXZaX/VqUoK5mBba+10VCo+Q4h5KFy+eyrI3g=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9JRx7asEd56g8u7wXiGZd5EvFBSiN6Kc830VBGAofbKFtxkPSp
-	+BmRn4J9wT/AKa6eSYGHvUWlHu7Ru7BfsSsq1vKMzPaWpLKCKIEBUJpX
-X-Gm-Gg: AZFdTZc6fEwHR2xEdOwIJMo8lXZZ48nkPzV/WPGGZRFYhAK8Pf3QK60xArQ7J2l4jvD
-	ENLpDtrHqZNAwq39irwwoHjmvAFOeBDvzWEhnH15aA7/MV+YX5ErZVVmMR9q+WHmpuhUw5zsPio
-	qIOHzyFsKSWRPjIyi6aNLnucK2IprMc927DQkKuaqBz1IFVvyr5Zh7cH4koRg/mfG2gCKhcD1A7
-	ENDsfhc7+1qK2aWg8WoQlD4rIJ5gkbgagyUc9qLKt1neepreAZ07ZLhcBkmD0sZ+ioj5BAINrvl
-	BpgsFcQJnDN4SG5H20+Frx9B2kxf0hMFVOyQaX4ddUH098e8jEZ5g9J6Wr278oiNjyT80jY7bHb
-	ZhdVQkadliCmrsmkzOto5e0E72LtCnKNtmkQsU7nExDQxCvCVaVCNTNmBI1wEGtWoRV6wHzqs/s
-	mgT4C1kI8LH17VIp2jHcrSl6dbPPeEEIix92p71eZ1YfzIdt68pwHsA+SYtTNaXYs7y8uWestE0
-	7NforrAAqgRaaw5dA6hLY000CQlfhhPFdnUXD98F1uSDXEwy62yFnnBnSQEsz0n6g0Tnp8DGPAg
-	X/CQrdNfJkESX863oKRNwQ0bF4X6hvE3mpusbODHHvAg6hY=
-X-Received: by 2002:a05:7300:1c95:b0:385:8851:fa4a with SMTP id 5a478bee46e88-385885211c2mr18419448eec.6.1795614207200;
-        Wed, 25 Nov 2026 05:43:27 -0800 (PST)
-Received: from SGN-LDSENG.tasernet.com ([2405:4800:5cc3:11a:1ac0:4dff:fe8b:4a69])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38567daaf70sm56773511eec.28.2026.11.25.05.43.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 05:43:26 -0800 (PST)
-From: Cong Nguyen <congnt264@gmail.com>
-To: Andi Shyti <andi.shyti@kernel.org>
-Cc: Stephan Gerhold <stephan.gerhold@kernkonzept.com>,
-	linux-arm-msm@vger.kernel.org,
-	linux-i2c@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] i2c: qup: release the DMA channels if getting the interconnect path fails
-Date: Wed, 25 Nov 2026 20:43:20 +0700
-Message-Id: <20261125134320.2701213-1-congnt264@gmail.com>
-X-Mailer: git-send-email 2.25.1
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=A1CAmMQG
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 852EC1F000C4;
+	Wed, 25 Nov 2026 13:43:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795614220;
+	bh=ZkneC5LQ+6dBKeyQZYnqczFByIf9fYmbADKKT3AxPBo=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=A1CAmMQGn06htVNrv9uK8g49thsvEyl+UNBOI8al4+iamso8CaWyJNjAQlw7pfmyo
+	 2CI6C0cXb32Rsy5Lw1hdQGnPVPuXUetAr33hLpMqILdoOF1LCdtxhvyFhh7+oypC5z
+	 KArsc5KLwuSkA/5dRdXzS9iyC5P/KrdVPm34LxNQ/PaXfcv8FWRq8LGFvjMzkIvxop
+	 2Qbd2jRRwsatbu88CyGRIhb/qeAsFtNEAYc3GXwhCmmn8bCT+PbCAfji6p4M/YCXXQ
+	 yElBp1vME52YVi9akcbpzMFJ9v5Ix7eZlXAZa4xJx/j3r4pFYI7zQjpPDLsonWqBYr
+	 h8sY1aCmLsnAA==
+Message-ID: <380e029a-2d9a-43ee-9048-c4b490c11f41@kernel.org>
+Date: Wed, 25 Nov 2026 14:43:29 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -96,42 +51,88 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/3] mm: fix soft-dirty false positives in mprotect() of
+ large folios
+To: Shivank Garg <shivankg@amd.com>, Andrew Morton
+ <akpm@linux-foundation.org>, Lorenzo Stoakes <ljs@kernel.org>,
+ "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>,
+ Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
+ Michal Hocko <mhocko@suse.com>, Dev Jain <dev.jain@arm.com>,
+ Zi Yan <ziy@nvidia.com>, Baolin Wang <baolin.wang@linux.alibaba.com>,
+ Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>,
+ Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>,
+ Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>,
+ Peter Xu <peterx@redhat.com>, Shuah Khan <shuah@kernel.org>,
+ =?UTF-8?B?TWljaGHFgiBNaXJvc8WCYXc=?= <emmir@google.com>,
+ Andrei Vagin <avagin@gmail.com>, Paul Gofman <pgofman@codeweavers.com>,
+ Bharata B Rao <bharata@amd.com>, Daniel Wade <danjwade95@gmail.com>,
+ Yin Tirui <yintirui@gmail.com>, Muhammad Usama Anjum <usama.anjum@arm.com>
+Cc: linux-mm@kvack.org, linux-kselftest@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20261125-b4-mm-soft-dirty-fixes-v1-0-538e3cdb618c@amd.com>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <20261125-b4-mm-soft-dirty-fixes-v1-0-538e3cdb618c@amd.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-On QUP v2 controllers, qup_i2c_probe() requests the tx and rx DMA
-channels with qup_i2c_req_dma(), then gets the interconnect path. If
-devm_of_icc_get() fails, for example with -EPROBE_DEFER, probe returns
-directly. The channels are not devm managed, so they are never
-released and stay held after probe has failed.
+On 11/25/26 14:32, Shivank Garg wrote:
+> mprotect() handles the PTEs of a large folio as one batch, and marks the
+> whole batch dirty with pte_mkdirty() if any of its PTEs is dirty.  On
+> x86, powerpc, riscv and s390, pte_mkdirty() also sets the soft-dirty
+> bit, so after clear_refs, mprotect() marks unwritten pages soft-dirty.
+> With 64K mTHP on x86-64, all 240 unwritten pages of a 1MiB region are
+> reported soft-dirty; with my fix, none are.
 
-Every other failure after the channels are requested goes to fail_dma,
-which releases them. Do the same here.
+Why do we care? Just over-indicate soft-dirty. It's valid, and the whole feature
+is full of holes and buggy as hell.
 
-Fixes: d4f35233a634 ("i2c: qup: Vote for interconnect bandwidth to DRAM")
-Signed-off-by: Cong Nguyen <congnt264@gmail.com>
----
- drivers/i2c/busses/i2c-qup.c | 8 +++++---
- 1 file changed, 5 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/i2c/busses/i2c-qup.c b/drivers/i2c/busses/i2c-qup.c
-index 731bce9f9a92..53e74de5244b 100644
---- a/drivers/i2c/busses/i2c-qup.c
-+++ b/drivers/i2c/busses/i2c-qup.c
-@@ -1784,9 +1784,11 @@ static int qup_i2c_probe(struct platform_device *pdev)
- 		qup->is_dma = true;
- 
- 		qup->icc_path = devm_of_icc_get(&pdev->dev, NULL);
--		if (IS_ERR(qup->icc_path))
--			return dev_err_probe(&pdev->dev, PTR_ERR(qup->icc_path),
--					     "failed to get interconnect path\n");
-+		if (IS_ERR(qup->icc_path)) {
-+			ret = dev_err_probe(&pdev->dev, PTR_ERR(qup->icc_path),
-+					    "failed to get interconnect path\n");
-+			goto fail_dma;
-+		}
- 	}
- 
- nodma:
 -- 
-2.25.1
+Cheers,
 
+David
