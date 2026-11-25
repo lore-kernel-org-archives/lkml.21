@@ -1,80 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.14
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.97.179.56
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795629473;
-	b=MrWj03/nFSVPa+Oi7PP2bwDM52y04rZVc0HKhQZIVnd7FBiSLDlaxk/JZd6aPu++6ocC
-	 /rAHJhC4GE9nHq2GHlzqXLBdaojhwl9oPSoJrMmxLEXHUtpkLHFweDdtj478JTKKQSS3F
-	 cgXHkRdstrNkYpg8G9WwNHoHRTqh/ko4iImvuP6/2pbFVRxf6v5fqVG28T9GXZpwUJFcc
-	 oQOli5iJ/uAlhTNMMsnidCsi6Bz+uiEoekDzL6tRllnGS1ERiuia5M66goLJAIybz9mdN
-	 qkQNTQ3AXpARlt+DnGGDE15tcLDp8ik/ztVYWsmC434A4oSPetyIwwBkRj3eKeDh4pw==
+	t=1795629482;
+	b=5Yn5xHwAY72ghAKsVV/GUxz248XaOdv0fKmV9wSEHEOZnEMUs1EDBJHK1tIIM1r2M50I
+	 yIaaDh7r4un2eQadbYBJH64837t1nwYTLRrp4SbkFuC+AZARyNagRasEuYOKDo/dO+R5R
+	 wHSm3PF8ZrB6dVNUa/mvvYav9H42GL2YaiCRN7KAzQtivR9kIc2usQ6bmtIBKthJ0GjZU
+	 nv+SBMp9Vl8ZYI7q6JkOAth23ajcOinwzAZbYuHXpdcvJTCH83O98puvm9OWR7D7aWXga
+	 V67uGDWsCcYWXoBuGr5MErgFwjm82BFgcaZXW7dEmHtwCAN36xBAADg1K5XWWJgve8g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795629473;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:Organization;
-	bh=J5veT5Urp7LS4mPes9RJNYLBYsRtx0DgXSJ6z3ISQTw=;
-	b=lyVPpMABv9HxNU6bfZbcctDADp6UOOO8S5Mjwk3sIGrtfcXaEzY9OuYDEOt3hHQdRNar
-	 IrbhNqa9/17UjJhQ7ZaszCq5IPvjK/0wK9YfsldKBbiw3rL1xmpr1LxyVUlO58TkV89jm
-	 Jdc4562cVa1HWUlq//3TQLMOQP5MsbV7WqH66jOck+PkEFO7E7SkXlAmykKYFpI9v7aD7
-	 BQmEO6loYi1GjV/O7yMWVz1iaJ9YbdsVkC1RlO65NE35RsLO6HRlQEzy/gmxDJiA3cX0L
-	 q8c+PrtBtVjXrVHmtDVSSvyGxPp2KYq0pA6P2zIgH7uA2xX2yp65FQisGRsdSsT1j7g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795629482;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=ZQjAckgBtWiMVAx5oIF4Y1KalU+IA7K2De70LN9w+Ms=;
+	b=SzBUFkEXsBm8n3XvlpQBxsjsZuQctGlcy+o+9+wxOqFAPCw04G6zPhN/duxlBgl7q70Q
+	 RUqmxHAUMQ8YH/A7vEgjW2Pq8tXUBuh3L8SzLfmaUSerB9hMELmkF8wrB/PFgOTMMVm1s
+	 S4XgVwBUooiLvRQb3YI7JcNSTicQzJqOntg1iU00p0pORX3x6E60GNm3Ds1i9Kyht6mGq
+	 xQruvj84ahouhEVS6G8QBZgmTFlIn6FwDwKw4GdWk7HRgtM7bUbdD1VlOqbgLYnVpnO4S
+	 XzF7rnWK44GpV7DW6bEOJwYRl1EYPYVI2sBvDukLO3Pgxim1CxgkjvguHIfbD5ztmpA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=WlX0oxJL;
-	arc=none smtp.remote-ip=198.175.65.14
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.14])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=Igalia.com;
+	spf=pass smtp.mailfrom=Igalia.com;
+	dkim=pass header.d=igalia.com header.i=@igalia.com header.a=rsa-sha256 header.s=20170329 header.b=LqpxnAUj;
+	arc=none smtp.remote-ip=213.97.179.56
+Received: from fanzine2.igalia.com (fanzine2.igalia.com [213.97.179.56])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 64EB7606A327;
-	Wed, 25 Nov 2026 17:57:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 64EB7606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4073C606A31E;
+	Wed, 25 Nov 2026 17:58:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4073C606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=Igalia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=Igalia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=WlX0oxJL
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795629473; x=1827165473;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=6C7sh1ZYPfUztVvl/yxEe++JQm8hzCvJb8GdlZXhPXk=;
-  b=WlX0oxJLQ3ejtzEXvHMRrPg8BUzP78zgEczhQwrsLHxw+F1AkXphHrp5
-   KXByf070XrNMfMu33Bb8m8ea994CKjgYgo+OI3SPdx8RytAGTh2mLQ2EP
-   Cid/7h8fa7+XMTtevs5TwwKtpaJaLnVgKXZqozPvwCNIua9UR4KToKss+
-   G/V4siP6BVMSgHvAJsheRGK4mYMFmaSmyzUsn3Sy28s58bnOXZPdKsv9l
-   MFur/AwXGn/irxRjJIR9S/0RIvnI4UszBvMQNbnN8+hPXqX9ziry2q3SK
-   AQtAcRVerqkngVydDXbRfPn2zgINqGZWGRS4SCT6GTtxKNObT9Cwzk/mS
-   g==;
-X-CSE-ConnectionGUID: Ry3fooHsSIitvsycNukVEg==
-X-CSE-MsgGUID: BWA+vYlXRj2NJX7SfnvOqg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4422535"
-X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
-   d="scan'208";a="4422535"
-Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 09:26:53 -0800
-X-CSE-ConnectionGUID: 5J3yiETdQyaGWFSROQsHiA==
-X-CSE-MsgGUID: qRZVRo18QaasqFzpxFIm/Q==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
-   d="scan'208";a="12131608"
-Received: from conormcd-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.244.73])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 09:26:50 -0800
-Date: Wed, 25 Nov 2026 19:26:48 +0200
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Joshua Crofts <crofts@kernel.org>
-Cc: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	linux-kernel@vger.kernel.org, linux-iio@vger.kernel.org,
-	Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Rupesh Majhi <zoone.rupert@gmail.com>
-Subject: Re: [PATCH v2 1/1] iio: core: Split debugfs routines
-Message-ID: <awcaWIBZbS4Iq4uj@ashevche-desk.local>
-References: <20261125140251.384361-1-andriy.shevchenko@linux.intel.com>
- <6d517c95-82e1-4713-bc1f-9922a975e26d@kernel.org>
+	dkim=pass (2048-bit key) header.d=igalia.com header.i=@igalia.com header.a=rsa-sha256 header.s=20170329 header.b=LqpxnAUj
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
+	s=20170329; h=Content-Transfer-Encoding:Content-Type:From:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:From:Reply-To;
+	bh=ZQjAckgBtWiMVAx5oIF4Y1KalU+IA7K2De70LN9w+Ms=; t=1795629480; x=2110989480; 
+	b=LqpxnAUjyIh+q9SBZSVZzeS62lDiLp1oemGJ9MTY+5FPpwjYiDLU1+HdSxm13N35fIxSvQX4OFR
+	Y3mNm0r0L6a4gRg4RLfRos7E1YV3SziGR2DTzMHRxWyxKKIM3nAy6+vdUuLkS84jDBCOWSaNqoyo6
+	F4nWBWcNVajynAX3GXy/bRreCNIuxWfunygNadpUanrEzv4PvjCJqD+temIKuaDCjb1DNOYvJUgG8
+	OC/sTY32rAwtQHv1j36o+RI6FKbzC5Kwn/nvCkKgAEhtUgVmoiA0TRj8pOByTA9HRl1jwCzCmpPQz
+	JjJs1nMl57cZEV8e6fXvZ8lL7qV4+tm5r3Rg==;
+Received: from c-73-157-168-91.hsd1.or.comcast.net ([73.157.168.91] helo=[192.168.1.133])
+	by fanzine2.igalia.com with esmtpsa 
+	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128) (Exim)
+	id 1xWHFY-000000044Q6-0IvN;
+	Wed, 25 Nov 2026 18:57:44 +0100
+Message-ID: <951f3f8f-0f2c-4a83-b4c5-d1ab83b853df@Igalia.com>
+Date: Wed, 25 Nov 2026 09:57:32 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,35 +58,132 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <6d517c95-82e1-4713-bc1f-9922a975e26d@kernel.org>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 00/10] drm: writeback: clean up writeback connector
+ initialization
+To: "Kandpal, Suraj" <suraj.kandpal@intel.com>,
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>,
+ Rodrigo Siqueira <siqueira@igalia.com>,
+ Alex Deucher <alexander.deucher@amd.com>,
+ =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>,
+ Liviu Dudau <liviu.dudau@arm.com>,
+ Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>,
+ Tomi Valkeinen <tomi.valkeinen+renesas@ideasonboard.com>,
+ Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>,
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Magnus Damm <magnus.damm@gmail.com>,
+ Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
+ Louis Chauvet <louis.chauvet@bootlin.com>,
+ Mihail Atanassov <mihail.atanassov@arm.com>, Eric Anholt <eric@anholt.net>,
+ Rob Clark <robin.clark@oss.qualcomm.com>,
+ Brian Starkey <brian.starkey@arm.com>
+Cc: "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "amd-gfx@lists.freedesktop.org" <amd-gfx@lists.freedesktop.org>,
+ "linux-renesas-soc@vger.kernel.org" <linux-renesas-soc@vger.kernel.org>,
+ Chaoyi Chen <chaoyi.chen@rock-chips.com>
+References: <20261111-wb-drop-encoder-v8-0-62948ed87d13@oss.qualcomm.com>
+ <179558244222.1572056.13569389105654454020.b4-ty@b4>
+ <IA3PR11MB9325E12D779BB5DA335C6B33E3432@IA3PR11MB9325.namprd11.prod.outlook.com>
+Content-Language: en-GB
+From: John Harrison <John.Harrison@Igalia.com>
+In-Reply-To: <IA3PR11MB9325E12D779BB5DA335C6B33E3432@IA3PR11MB9325.namprd11.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 
-On Wed, Nov 25, 2026 at 03:22:59PM +0100, Joshua Crofts wrote:
-> On 25-Nov-26 14:59, Andy Shevchenko wrote:
+On 11/24/26 21:00, Kandpal, Suraj wrote:
+>> -----Original Message-----
+>> From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+>> Sent: 25 November 2026 10:24
+>> To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>; Maxime Ripard
+>> <mripard@kernel.org>; Thomas Zimmermann <tzimmermann@suse.de>; David
+>> Airlie <airlied@gmail.com>; Simona Vetter <simona@ffwll.ch>; John Harrison
+>> <John.Harrison@igalia.com>; Harry Wentland <harry.wentland@amd.com>; Leo
+>> Li <sunpeng.li@amd.com>; Rodrigo Siqueira <siqueira@igalia.com>; Alex
+>> Deucher <alexander.deucher@amd.com>; Christian König
+>> <christian.koenig@amd.com>; Liviu Dudau <liviu.dudau@arm.com>; Laurent
+>> Pinchart <laurent.pinchart+renesas@ideasonboard.com>; Tomi Valkeinen
+>> <tomi.valkeinen+renesas@ideasonboard.com>; Kieran Bingham
+>> <kieran.bingham+renesas@ideasonboard.com>; Geert Uytterhoeven
+>> <geert+renesas@glider.be>; Magnus Damm <magnus.damm@gmail.com>; Dave
+>> Stevenson <dave.stevenson@raspberrypi.com>; Maíra Canal
+>> <mcanal@igalia.com>; Raspberry Pi Kernel Maintenance <kernel-
+>> list@raspberrypi.com>; Louis Chauvet <louis.chauvet@bootlin.com>; Mihail
+>> Atanassov <mihail.atanassov@arm.com>; Eric Anholt <eric@anholt.net>; Rob
+>> Clark <robin.clark@oss.qualcomm.com>; Brian Starkey
+>> <brian.starkey@arm.com>; Dmitry Baryshkov
+>> <dmitry.baryshkov@oss.qualcomm.com>
+>> Cc: dri-devel@lists.freedesktop.org; linux-kernel@vger.kernel.org; amd-
+>> gfx@lists.freedesktop.org; linux-renesas-soc@vger.kernel.org; Kandpal, Suraj
+>> <suraj.kandpal@intel.com>; Chaoyi Chen <chaoyi.chen@rock-chips.com>; John
+>> Harrison <John.Harrison@Igalia.com>
+>> Subject: Re: [PATCH v8 00/10] drm: writeback: clean up writeback connector
+>> initialization
+>>
+>> On Wed, 11 Nov 2026 02:42:29 +0200, Dmitry Baryshkov wrote:
+>>> Drivers using drm_writeback_connector_init() / _with_encoder() don't
+>>> perform cleanup in a manner similar to drmm_writeback_connector_init()
+>>> (see drm_writeback_connector_cleanup()). Enough of the drivers don't
+>>> use the encoder embedded into the drm_writeback connector.  In
+>>> preparation to further rework of the WB connectors (as planned to
+>>> enable WB for i915 / xe drivers, which would move
+>>> drm_writeback_connector to be a field inside drm_connector instead of
+>>> subclassing it) remove the drm_encoder wrapped in struct
+>>> drm_writeback_connector. Rename the
+>>> drm_writeback_connector_init_with_encoder() to
+>>> drm_writeback_connector_init()
+>>> and copy drmm_writeback_connector_init() interface. Then, with the
+>>> encoder being gone, handle proper cleanup of writeback data in
+>>> drm_connector_cleanup().
+>>>
+>>> [...]
+>> Applied to drm-misc-next, thanks!
+> With this series now merged can we also go ahead and get this series
+> https://patchwork.freedesktop.org/series/152761/ merged in drm-misc-next
+> Dmitry, John ?
+>
+> Regards,
+> Suraj Kandpal
+Sounds good to me. Does it need to be rebased first? If nothing else, 
+just resend without the 'do not review' patch? I guess it's only two 
+weeks since the last rev so maybe it's still all good?
 
-...
+John.
 
-> > +static void iio_device_register_debugfs(struct iio_dev *indio_dev) {}
-> > +static void iio_device_unregister_debugfs(struct iio_dev *indio_dev) {}
-> I checked Sashiko and it points out that building with debugfs disabled
-> causes compiler warnings:
-
-Right, you were a bit late after my reply to myself :-),
-but thanks for double check!
-
-I think this warrants a v3.
-
-> After adding inline,
-> 
-> Reviewed-by: Joshua Crofts <crofts@kernel.org>
-
-Sure, thanks!
-
--- 
-With Best Regards,
-Andy Shevchenko
-
+>
+>> [01/10] drm/amd/display: embed the writeback encoder in
+>> amdgpu_dm_wb_connector
+>>          commit: 283a3cfbb29cf3d0af1ad03012fcd049dece6e64
+>> [02/10] drm/komeda: embed the writeback encoder in komeda_wb_connector
+>>          commit: 9d5cdb46eed94ddee3732fbb5f8c008c798aba51
+>> [03/10] drm/mali: embed the writeback encoder in malidp_drm
+>>          commit: f07e5e8eac86bc7db2ffdd2e748e256ee2b419a1
+>> [04/10] drm: renesas: rcar-du: embed the writeback encoder in rcar_du_crtc
+>>          commit: 12c88af117c77a1604bb02397cb2b622c47da9e6
+>> [05/10] drm: writeback: drop excess connector initialization functions
+>>          commit: 7bcb37603df095e56e87d6144201179fe911e4dd
+>> [06/10] drm: writeback: rename
+>> drm_writeback_connector_init_with_encoder()
+>>          commit: 81f61b4e0467ddab3695be58a94fc322c8bd559a
+>> [07/10] drm: writeback: don't destroy the shared writeback properties
+>>          commit: 7a5c8848606a9c1c9a57dab4332c9445c7f1d60f
+>> [08/10] drm: writeback: clean up writeback jobs outside the job_lock
+>>          commit: da12cfd8400b7b2fd00be22cdebaf2efa6299c68
+>> [09/10] drm: writeback: clean up writeback connectors in
+>> drm_connector_cleanup()
+>>          commit: 2bed5919e005687d163d1b6d273db450449b8bdf
+>> [10/10] drm: writeback: drop the drmm writeback cleanup action
+>>          commit: 616a651a5be4655d2cceed0612f70f076eb24cc9
+>>
+>> Best regards,
+>> --
+>> With best wishes
+>> Dmitry
+>>
 
