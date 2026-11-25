@@ -1,60 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=79.135.106.102
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=84.42.129.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795628290;
-	b=gSG+SV2ZDMPtPp1RJYHjT9w54wb04HxcYqqORdetFqlK5mt+n8BvI/5wVyBezsMuOgWy
-	 xbuOe7LGMDOzhnlmDza0hBmy5n1//yi5zx3KFkWJNIhf2B7Spf1VnThwS56knp9nqAWQQ
-	 QA1qg/SiqEqQyxHRSNCnpzqnHiS/UcjpnvZmqBR9f2n4zBlfR2qD4KaNKGHVMLCx8BiYj
-	 xNUHmCb9l+OxQL65Fp4koKvt+DoDeZ3sy1L0N4q4TC4ki2TECoPFHgE2yRPqF+ACvIeuM
-	 fNpa3QxumpaMVN9O40L2sFzVC1pqyRHyF5/molEKzqvb04GnfXcoxHdVZ+OmwOlPm5g==
+	t=1795628308;
+	b=Z7RJ/vSWB5S6UgA6J5IYS8cjWoxVSybv7+HoSQ8toO14xpq2JzhrYXHgOgsFuQR/j4Kr
+	 M1Zo49pB977MH+hrobj6JYGESoLDLGv4xOfldy2A806wTaWvXaZFU8EhmbUfvDtdTSgDQ
+	 x6VakQCP0DN9JGRfQlO2wAPnRpCCTKpzcVuN/eWPPPwXCBBFPajsxxqCjkUv+mugYam10
+	 Kww21hJahtfuyWmhz7MDfwNVwRbfe3qm9LaXGnH3QWBLtxyXT5zJPx92hTcBqbO/4CrsL
+	 IvF0hpzJJFMYY0fVdTb/SIm0NCfe49tqgS78hsWWkr5PKnOccOfbHzV6okIZs8dHnRg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795628290;
-	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
-	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=gAcavlN73Ya35kPG8jV5KeGYcjZOWAaF1oYlQD8iN5w=;
-	b=W/iYmPitJZJbXW821mrRIfysttzesz4kMjwgpAKBslozDJWFn0o0UfeS6QH4pttpWtgE
-	 85r8kmNJPlxPlmFTsTly9Yw5hj7wBQLt4WT5qxyeB7E0UtgKI5FeNUQq/obKT29WCi2fL
-	 Oo5gUI/fHV5lDJj7yNZ3M90QCGEXZPNlb6H63YXaok8PjFSbCKaPALXlncMGjsUv/6mjQ
-	 0435xbCcAxfFKspunsStEACFALFtvXUnjDuQQqsBub+G4tXkn040v0jDsac8EKVQjEccZ
-	 O6ZfSu3zXPadDAnqZgCC+bnw/5JoIrqPnMuBKwdBAss1KfFbGi9isDk2EbKw4Y55Pgw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795628308;
+	h=DMARC-Filter:Received:DKIM-Signature:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:Autocrypt:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=Jc2fT23SPWqHr6nIykatx49BNkv061JXFi2XlfZIV5I=;
+	b=FX6GjCTNhtSKsm5opLn8WdEz9/Vnx6JAKgJPm+6sLey8yYAx+b9mykcdEoEHW+6j3L6w
+	 mfD6u8gOV506CWtxg6gIUwz4Vb4IevPT/CDjp9tK9kgcnsQ06mSP1m1KjmzOgTtv7mezk
+	 5I/HvkGBV5S3DAndzEOK8vkatlQNopZXdr7g+hXhNZ2VFpH40T1MueypVA+fRx8aU3R6o
+	 JYwRefi0jsjVag/ILptEXhXv0TM4lXF/2bJyLGFIVXPhciZRYiXdoxXiMTmHROsgdP3xv
+	 SXfxiZJhukjau2713ihVm9L5Svk3QolSeaU1Ghe9BMOe57uyjk/3IGWa5mlju4n9lvw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=proton.me;
-	spf=pass smtp.mailfrom=proton.me;
-	dkim=pass header.d=proton.me header.i=@proton.me header.a=rsa-sha256 header.s=protonmail2 header.b="f8RE/aLu";
-	arc=none smtp.remote-ip=79.135.106.102
-Received: from mail-106102.protonmail.ch (mail-106102.protonmail.ch [79.135.106.102])
+	dmarc=pass header.from=ixit.cz;
+	spf=pass smtp.mailfrom=ixit.cz;
+	dkim=pass header.d=ixit.cz header.i=@ixit.cz header.a=rsa-sha256 header.s=dkim header.b=vz6eljYw;
+	arc=none smtp.remote-ip=84.42.129.46
+Received: from ixit.cz (ixit.cz [84.42.129.46])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AF194606A331;
-	Wed, 25 Nov 2026 17:38:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AF194606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=proton.me
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=proton.me
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 94355606A326;
+	Wed, 25 Nov 2026 17:38:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 94355606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=ixit.cz
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ixit.cz
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=proton.me header.i=@proton.me header.a=rsa-sha256 header.s=protonmail2 header.b=f8RE/aLu
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=proton.me;
-	s=protonmail2; t=1795628280; x=1795887480;
-	bh=gAcavlN73Ya35kPG8jV5KeGYcjZOWAaF1oYlQD8iN5w=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=f8RE/aLuMO7y6xfH6FYf9K2lVlTw6JA66iLH5dzXM/MikPcfj6UyoOONQqQMBDQxi
-	 9n8NX6KASD3e7fEEMowcp/Bb64dxxubWm09DjJvoNFOGcbBSRzte+f9RMiBwVbLRmW
-	 SV54BACFWgl0RNBUM+aNJB32SAK/M9LR125Q/BQbHhl86qhOzLoqYplZlgisCoPddd
-	 +3MMhOhRpDNwXbJPzMvKXDieMLyMC8HMZjsX5h9r0wCpGdtEypGLorKsXAzyZmNcPN
-	 ql947HEFM7GP2TMT8VSq1xo76AQFtN+zrTSEBFX8E0yfixHdTR3KzEusKbJujXcnOP
-	 xd8BlnvoSUuSg==
-Date: Wed, 25 Nov 2026 17:37:54 +0000
-To: Christoph Hellwig <hch@lst.de>
-From: Ernest Borowski <ernest.borowski.git@proton.me>
-Cc: ernest.borowski.git@proton.me, Namjae Jeon <linkinjeon@kernel.org>, Hyunchul Lee <hyc.lee@gmail.com>, Baolin Liu <liubaolin12138@163.com>, Christian Brauner <brauner@kernel.org>, "Darrick J. Wong" <djwong@kernel.org>, ntfs@lists.linux.dev, linux-fsdevel@vger.kernel.org, linux-xfs@vger.kernel.org, linux-kernel@vger.kernel.org, Zhan Xusheng <zhanxusheng1024@gmail.com>, stable@vger.kernel.org
-Subject: Re: [PATCH v2 02/11] iomap: add a helper to mark a range of a folio dirty
-Message-ID: <179562827127.336908.5205349169070022087.b4-reply@b4>
-In-Reply-To: <20261125055016.GB20604@lst.de>
-References: <20261124-b4-ntfs-delalloc-fixes-v2-0-f394c800ec03@proton.me> <20261124-b4-ntfs-delalloc-fixes-v2-2-f394c800ec03@proton.me> <20261125055016.GB20604@lst.de>
-Feedback-ID: 236360163:user:proton
-X-Pm-Message-ID: 4839e5da1363b7916307013b17874d66462b3b46
+	dkim=pass (1024-bit key, unprotected) header.d=ixit.cz header.i=@ixit.cz header.a=rsa-sha256 header.s=dkim header.b=vz6eljYw
+Received: from [IPV6:2a02:830a:f787:8f00:f33c:cbcd:417b:d2b9] (unknown [IPv6:2a02:830a:f787:8f00:f33c:cbcd:417b:d2b9])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by ixit.cz (Postfix) with ESMTPSA id E82FF53402F6;
+	Wed, 25 Nov 2026 18:38:24 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ixit.cz; s=dkim;
+	t=1795628305;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=Jc2fT23SPWqHr6nIykatx49BNkv061JXFi2XlfZIV5I=;
+	b=vz6eljYwfoF4hl31mO8OMR8yWufis/ML2BxifwgqeIAYVH97dvFmsuVdJWgA0gZT5Y58V3
+	inXPK4a7sjHC9/YYssW/e+uzH2qny9d4EmVU6g2TIVKNtN+DJFFfTLnqzZZPZjgtV3IwEC
+	kfW6lEuobSwehOtIO53WT7TIjU1d//E=
+Message-ID: <72548a95-f009-465f-ac04-b1b09ea4d1ae@ixit.cz>
+Date: Wed, 25 Nov 2026 18:38:24 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,56 +60,118 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 02/10] dt-bindings: display: panel: samsung,s6e3ha8:
+ Add AMB630QY01 panel
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Dzmitry Sankouski <dsankouski@gmail.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Jessica Zhang <jesszhan0024@gmail.com>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>, Abel Vesa <abelvesa@kernel.org>,
+ Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+ Petr Vorel <petr.vorel@gmail.com>, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-msm@vger.kernel.org, phone-devel@vger.kernel.org
+References: <20261108-crosshatch-panel-v3-0-87dd4ec4f7cc@ixit.cz>
+ <20261108-crosshatch-panel-v3-2-87dd4ec4f7cc@ixit.cz>
+ <20261109-tacky-busy-kelpie-cbd5be@quoll>
+Content-Language: en-US, cs-CZ
+From: David Heidelberg <david@ixit.cz>
+Autocrypt: addr=david@ixit.cz; keydata=
+ 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
+In-Reply-To: <20261109-tacky-busy-kelpie-cbd5be@quoll>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-On Wed, Nov 25, 2026 at 06:50:16AM +0100, Christoph Hellwig wrote:
-> If we end up with this, iomap_dirty_folio should be rewritten
-> to call this instead of duplicating the logic.
+On 09/11/2026 13:30, Krzysztof Kozlowski wrote:
+> On Sun, Nov 08, 2026 at 12:32:23PM +0000, David Heidelberg wrote:
+>> The Google Pixel 3 XL (crosshatch) uses a Samsung AMB630QY01 6.3"
+>> 1440x2960 flexible AMOLED panel.
+>>
+>> Signed-off-by: David Heidelberg <david@ixit.cz>
+>> ---
+>>   .../bindings/display/panel/samsung,s6e3ha8.yaml    | 41 ++++++++++++++++++----
+>>   1 file changed, 34 insertions(+), 7 deletions(-)
+>>
+>> diff --git a/Documentation/devicetree/bindings/display/panel/samsung,s6e3ha8.yaml b/Documentation/devicetree/bindings/display/panel/samsung,s6e3ha8.yaml
+>> index ca250b1b91712..dcf347fe5ca83 100644
+>> --- a/Documentation/devicetree/bindings/display/panel/samsung,s6e3ha8.yaml
+>> +++ b/Documentation/devicetree/bindings/display/panel/samsung,s6e3ha8.yaml
+>> @@ -7,48 +7,75 @@ $schema: http://devicetree.org/meta-schemas/core.yaml#
+>>   title: Samsung s6e3ha8 AMOLED DSI panel
+>>   
+>>   description: |
+>>     The s6e3ha8 is a display driver IC used in 1440x2960 AMOLED panels from
+>>     Samsung Mobile Displays (SMD).
+>>   
+>>     Known panels:
+>>       - AMB577PX01, 5.77", Samsung Galaxy S9 (samsung,s6e3ha8-amb577px01)
+>> +    - AMB630QY01, 6.3", Google Pixel 3 XL (samsung,s6e3ha8-amb630qy01)
+>>   
+>>   maintainers:
+>>     - Dzmitry Sankouski <dsankouski@gmail.com>
+>>   
+>> +required:
+>> +  - compatible
+>> +  - reset-gpios
+>> +  - vdd3-supply
+>> +  - vci-supply
+> 
+> I see no reason why order of this schema should be re-invented. See
+> every other binding or example-schema.
 
-Done for v3. Both now share a static helper, and iomap_dirty_folio()
-keeps passing the mapping it is given rather than folio->mapping, as
-->dirty_folio can be called without the folio lock.
+Sorry about it, I guess I messed up fixuping moving the pieces.
 
-> But I'm a little sceptical the use of this can be correct.  I'll try
-> to look into it, but it might take some time to understand the ntfs
-> code.
+Fixed in next rev.
+David
 
-To save you some of that time: the user is ntfs_dirty_cluster_tail() in
-patch 10.
-
-ntfs reserves delalloc space in clusters, which can be larger than a
-block and larger or smaller than a folio, and it has no unwritten
-extents. If the copy of a buffered write into a hole stops early (an
-unmapped source page, a fatal signal), the rest of the cluster it
-stopped in is never written. Writeback then allocates the whole cluster
-and writes only the copied blocks, so a read of the rest after
-drop_caches returns stale disk data.
-
-Before the unused delalloc clusters are punched out, ntfs walks the rest
-of that cluster under the invalidate lock:
-
-- in an uptodate folio in the page cache, it locks the folio and uses
-  this helper to dirty only the blocks in that range. Those blocks
-  already hold the right contents: zeroes, or data a write through mmap
-  added since;
-- otherwise (no folio, or not uptodate), if the cluster is still
-  delalloc, it zeroes the range with iomap_zero_range().
-
-It cannot zero an uptodate folio without overwriting such mmap data,
-and it cannot use folio_mark_dirty(), because that dirties the whole
-folio. When clusters are smaller than the folio (1k and 2k clusters, or
-a large folio), the other blocks can be holes or delalloc clusters the
-write never reached: the punch would then keep those clusters reserved,
-and writeback would allocate clusters that hold only zeroes.
-
-The alternative needs no iomap change: when writeback allocates a
-cluster, zero on the disk the part the write does not cover, before the
-cluster goes into the runlist. A later series of mine already does this
-for clusters allocated by a write fault. Doing it in writeback costs
-extra zeroing I/O for every partly written cluster, but it also closes
-the race where writeback allocates the cluster before
-ntfs_dirty_cluster_tail() runs, which patch 10 leaves to that later
-series. If you think that is the better way, I can rework patch 10 like
-that and drop this patch.
+> 
+> Best regards,
+> Krzysztof
 
