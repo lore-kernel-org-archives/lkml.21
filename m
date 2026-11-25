@@ -1,89 +1,66 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.180
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.139
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795571350;
-	b=GBlDvRXU8ClkiWya3lhqY2OLhUyckF0hS/lUV3APPOrO+iAxN5+iAxBtrOZeg0MqUlQZ
-	 +qN46eKSQCBL4FqlYM8PrRZlE6VkOmce1aipaRSUntK/JHcsRlmx+pCvna6yMk04FztCf
-	 wH1NZlHH5ouW/8OqYexF98/5wY/9fNB7UZtX7+8IZI8jeLggvh5FF9nfOBoJamWL1OaVP
-	 SiZNxXCe4pYpl34xy3b1HOebBz5A7/0apjQvdk89MojRTkiPJqlhLVEE5EFri9YT0xjHQ
-	 zB5xWQJ+GjUxKFISXBi+o83xW7IE/sZ2zsy3uAO2wfGhHkr17d7WfXhyGOAqs8WuL3Q==
+	t=1795571416;
+	b=rVupLicuBtWkY8HbEf0lTS3C3PTSpxzFLe+Z9ANf+3qxFlC1U+rDay/tAJ2a/m/LD7gV
+	 KouAK2pHkQyNvoiFr7jXq5K74Pi3zx6uOH/C68+wPYuNybEaoqtJJY+jfjYSvigqxnZsh
+	 MyTEa/rmdagrBBb4yb1cL35PMO5VjRSBcRVBH264+LFinrYZm4siP8ddEgI83ogTo8ECB
+	 gYAIMudnl5HH7U+OZe8iHs+KQYNieDS51JhhBF86CXzlDInq8g/1eQgGNFN62pYLmnLQk
+	 T8brlGow74HZsMQ/4s+QJ5Ne5sBV+/z9TxyrUH3sMOn5tFUcGnfilcaH7BWwEK5U3xg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795571350;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=ObqOZxAlfLiw3L36aCRuRKfWllcmuJhnADCFOCSYZA8=;
-	b=ZPWPk/TSNpI73ovv6MMa2MyGudv44PGAmZmVqMkyi+XuLwk8PAVZyAmm4rvvVgZGj8n6
-	 5587J9xLeRBmZoXl3dxTAv8NrQhyJzvpJmcoFsJNOy6zsmvu8bLcIAA1/ki8ouv7QyCRj
-	 5frNaD48izcUoZqODWgppQuFo0xYy0H9Beo1tTflxcSsQoyNNs2Wa4iHYLwcu0hpUunRj
-	 OTd+Bf1ZM/nGonbenFdbZdnGtsTsC1jX3q4eA9ViNmXdEN3sQ1MQqP4F6MN/ie0QAg+lD
-	 YHO+GxCOj9U4MrvE/9DAK53U/VPULHl/SwLZ8ubE72vwQ8Au5OBSRMEUa72N3nrrCPQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795571416;
+	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
+	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
+	 To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=Q4OiNOvsFYj3S101/WhQpAZTxu5C23jYLW3KNm88V08=;
+	b=Iaokrb7LkT9pMHI593HQgNBL1nCaf7Xo4TRa3qMkAij4iVXsezFMZ4sgs392LaRt7fhV
+	 W6cjjdYt6bnsJZAJ5mX5q6v2TYf4MNUA7eNoO4IOJnXU0WvULIhUmSanZE0TjigY1Etk4
+	 AyV9oj7b9YQfuH3GO0TqIeyX20EHGmgb+gbctZrgkhZdVcEajPanVx+ZHSo/8pBuID1zJ
+	 qNzVB7PqxnZGoUGXZ3/kqrRISndj2qDD8BUepsdinv/UqUN5CnJaIq9V55DS9/2Qlyfgl
+	 80MD4ATLTWOg6ksNeLdPGNyAJz3JLpvin98DXEoWGkZ0mw/2aOuTq5J9uMFWE5Dmg+A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=0x0f.com;
-	spf=pass smtp.mailfrom=0x0f.com;
-	dkim=pass header.d=0x0f.com header.i=@0x0f.com header.a=rsa-sha256 header.s=google header.b=SMVbkYML;
-	arc=none smtp.remote-ip=209.85.210.180
-Received: from mail-pf1-f180.google.com (mail-pf1-f180.google.com [209.85.210.180])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 674D5606A327
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 01:49:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 674D5606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=0x0f.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=0x0f.com
+	dmarc=pass header.from=cmss.chinamobile.com;
+	spf=pass smtp.mailfrom=cmss.chinamobile.com;
+	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=vyhCfpB5;
+	arc=none smtp.remote-ip=111.22.67.139
+Received: from cmccmta6.chinamobile.com (cmccmta6.chinamobile.com [111.22.67.139])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 53327606A327;
+	Wed, 25 Nov 2026 01:50:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 53327606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=0x0f.com header.i=@0x0f.com header.a=rsa-sha256 header.s=google header.b=SMVbkYML
-Received: by mail-pf1-f180.google.com with SMTP id d2e1a72fcca58-8b2382bf051so2883651b3a.3
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 17:49:09 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=vyhCfpB5
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=0x0f.com; s=google; t=1795571348; x=1796176148; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ObqOZxAlfLiw3L36aCRuRKfWllcmuJhnADCFOCSYZA8=;
-        b=SMVbkYMLeOLU1SzrH79cFv6MefUcob6mOzOLRwvPjjS0lJ6XIk3OuWXfaWONPBukda
-         U69RVMqAmM2fSJokAIYkuvFn6SUIRWzcHboED1ezL9NKfuH8R4l/W5nEq+PLatwv5cTZ
-         DFIvnn6ZlQcdSEqCfk9hZmEDz9LaD02ujfWi8=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795571348; x=1796176148;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=ObqOZxAlfLiw3L36aCRuRKfWllcmuJhnADCFOCSYZA8=;
-        b=U9xq81Vwx90GwcDS4fH5Ke02YzVKH8cObGT21Pe+Zv+qcA9JCHW9CmY6gBxBg6nxQu
-         Qv83EocB9KWH/FYP/8nl9aaZ2ekqI6+GVuA3NjzMGselmRLyAomplu9Y3cUTcJ9rHgj/
-         r37S39rL1RnC3m075qaE9F+P5NKadlYVUmXQ164xocTamXzHTFNU6I7e/choRXf2O8ih
-         dL1EqN2y3QR+woJ8Vweqab8w6lFvkDyhqdGxBt8riuDYiqWX1IGJVXl5nrUbN495ksrj
-         wgJEBybiMnldY8cgBA1vtogbzITl8OK1aEMNdrpFDPms81TdBKl5pTHIBvLt+XE6VOuj
-         iazw==
-X-Gm-Message-State: APuU4Z8+z589x0xrlLTsOP1erSMhyXDwEyZvZ4y/rxKxXDxMYDlCRFUe
-	JdCtwhhoDVmVjG6XrJV+zLZS7x7c1ZvergosjzGathURYj6e4G7PVARpbhjHmk3L1rFtdH/GVtN
-	6Yi42
-X-Gm-Gg: AZFdTZeKkKs7rpNtKJINLK2I+xo8F7WnH8QHnpDBHtVzFzRP9/co/O76kVe/hEmwM1E
-	3HkOMPk+aqe4TWNmZK0CxLLs75I7VrdcShMQPuxAFVvvfNUbWi8sNNzCaUKT/ju2oIeP+NhUTM/
-	oJcVARlAbmZBquI9/p0OpGPNGcD1dm+3erHIGbBFVOwXhapZ7uGbJox0C3GavRj7L0PjsBeWT0p
-	JSEUYifROmVsyNVBgyKuz2A9giBDfWoMBdipnjArQXutKrK0Ko13JvWFj2uMVWSeRsUS/rQ+4Pq
-	Kl+7IVxNTqCNwEb0t9uqLk1EExG08+BzvQlDncYEmEdWpMV66T9ZPh6BHehedDmGt1hiE7j94Os
-	4PkEP7DeWN5C7/klEeYcz3tWKuC/iGkVibbOzx1QZ7Q1Oy9riFcGE6BZhqI8LFhyc8IT2f2n/uW
-	q0LLywE+Vudl1bjmEI4517IH0GjO9mx1QYDYgqq3Dzs5fkSgOvKkApI99IB18OUrDkLGIQxNFOI
-	4oZacG3UNkZ+JERxKrPMw/xn5ywjR6u8GtfMwzkaYUj4jOB1D6XDj6ZjRGE1u7hqQLBfGFph4Sc
-	Hux7k/H6kzhxIToA4sehNVFIjrzjq5VKDR6+X7Pw+G//PuTQ4Mp0l/UcMlpT/i+F/KT+fQs=
-X-Received: by 2002:a05:6a00:2d06:b0:8a8:5b84:4c04 with SMTP id d2e1a72fcca58-8c87c95bd39mr14220491b3a.38.1795571348479;
-        Tue, 24 Nov 2026 17:49:08 -0800 (PST)
-Received: from shiro (p1721212-ipxg00e01sizuokaden.shizuoka.ocn.ne.jp. [153.166.141.212])
-        by smtp.googlemail.com with ESMTPSA id d2e1a72fcca58-8c87343f571sm7739226b3a.34.2026.11.24.17.49.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 17:49:07 -0800 (PST)
-From: Daniel Palmer <daniel@0x0f.com>
-To: geert@linux-m68k.org,
-	gerg@linux-m68k.org,
-	linux-m68k@lists.linux-m68k.org
-Cc: linux-kernel@vger.kernel.org,
-	arnd@arndb.de,
-	Daniel Palmer <daniel@0x0f.com>
-Subject: [PATCH v2] m68k: Define the m68k-specific syscalls with SYSCALL_DEFINE
-Date: Wed, 25 Nov 2026 10:47:37 +0900
-Message-ID: <20261125014737.2421722-1-daniel@0x0f.com>
-X-Mailer: git-send-email 2.55.0
+	d=cmss.chinamobile.com; s=default; l=0;
+	h=from:subject:message-id:to:cc:mime-version;
+	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
+	b=vyhCfpB5/Snc9fl1F+tjtfEiHZ1W2uqp/Wmvc/Qb+ka9yQXLKTak+rFEU6GBgoFoVORUX777bIPm8
+	 iRFezbUU6VlNH3VZOikPYPkorPNLlLlpB8vzKe9N7mD3zpefMTY9Si6dxN0sfmmxM03TZnRuCPc8u7
+	 mw9rVyTdd+4iEDYI=
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
+	by rmmx-syy-dmz-app01-12001 (RichMail) with SMTP id 2ee16b063ecf1e9-2801b;
+	Wed, 25 Nov 2026 09:50:07 +0800 (CST)
+X-RM-TRANSID:2ee16b063ecf1e9-2801b
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from DESKTOP-3K8GUTQ (unknown[223.108.79.98])
+	by rmsmtp-syy-appsvr07-12007 (RichMail) with SMTP id 2ee76b063ecdbb1-33fd2;
+	Wed, 25 Nov 2026 09:50:07 +0800 (CST)
+X-RM-TRANSID:2ee76b063ecdbb1-33fd2
+From: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
+To: vkoul@kernel.org
+Cc: yung-chuan.liao@intel.com,
+	pierre-louis.bossart@linux.dev,
+	linux-sound@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
+Subject: [PATCH v3] soundwire: mipi_disco: Put fwnode on property array read errors
+Date: Wed, 25 Nov 2026 09:50:05 +0800
+Message-ID: <20261125015005.1528-1-laixiangwu@cmss.chinamobile.com>
+X-Mailer: git-send-email 2.50.1.windows.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -95,195 +72,120 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-On m68k a syscall handler's stack arguments are the user's registers
-saved in pt_regs, and RESTORE_ALL reloads them on the way out. The C
-ABI lets a function reuse its incoming argument slots, so anything the
-handler writes there ends up in user space. SYSCALL_DEFINEn() stops
-the compiler doing that with asmlinkage_protect(), but sys_mmap2() and
-the other m68k-specific syscalls are plain asmlinkage functions.
+sdw_master_read_prop() and sdw_slave_read_dpn() take a fwnode
+reference with device_get_named_child_node() and already release it
+on the -ENOMEM and success paths.  However, the error paths added
+for the property array reads jump straight out without dropping the
+reference, leaking it on every failed read.  The lane-list support
+in sdw_slave_read_dpn() is even missing the put on its -ENOMEM path,
+unlike the other array allocations in the same function.
 
-With GCC 16 and a kernel built with -O2, sys_mmap2() becomes a tail
-call to ksys_mmap_pgoff(), which builds its call to vm_mmap_pgoff() by
-shifting its arguments up one slot in place. User space gets d2-d5
-back holding addr/len/prot/flags.
+Release the reference on those error paths as well, matching the
+existing -ENOMEM handling in the same functions.
 
-This issue was noticed in nolibc programs that are using mmap() and
-I initially thought nolibc's m68k support was to blame.
-
-Define sys_mmap2(), sys_cacheflush(), sys_atomic_cmpxchg_32() and
-sys_set_thread_area() with SYSCALL_DEFINEn() so their arguments are
-protected, and make their prototypes in asm/syscalls.h return long to
-match. sys_atomic_cmpxchg_32() gets an additional small logic change
-to fix how it gets pt_regs as the hack it currently uses is no longer
-valid since its code is wrapped in an outer function by
-__SYSCALL_DEFINEx().
-
-For consistency sys_getpagesize(), sys_get_thread_area() and
-sys_atomic_barrier() get SYSCALL_DEFINE0() even though they don't
-technically need it. The generated code doesn't change.
-
-Fixes: a90f590a1bee ("mm: add ksys_mmap_pgoff() helper; remove in-kernel calls to sys_mmap_pgoff()")
-Reviewed-by: Arnd Bergmann <arnd@arndb.de>
-Signed-off-by: Daniel Palmer <daniel@0x0f.com>
+Fixes: a489afc105ed ("soundwire: mipi-disco: add error handling for property array read")
+Fixes: 71b405b18444 ("soundwire: mipi-disco: add support for DP0/DPn 'lane-list' property")
+Signed-off-by: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
+Reviewed-by: Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>
 ---
+Changes in v3:
 
-v2:
-- Added a fix to sys_atomic_cmpxchg_32() highlighted by sashiko.
-- Converted the argumentless ones too as suggested by Arnd, I considered making
-  this a second commit but that felt like adding two extra emails for something
-  that looks fine squashed into this patch. I assumed Arnd's reviewed-by would
-  carry over so kept it. Shout at me if thats not ok :).
-- Follow up work: It looks like the same lump of code for sys_getpagesize() is
-  in multiple arches, I might send some patches to deduplicate that later.
+- Rebase on the current code as requested by Vinod: adapt the
+  lane-list hunk context to devm_kzalloc_objs(), following the
+  treewide conversion to the devm_kmalloc_obj() family (4dd10fbbeb9c).
+  No functional change.
 
-v1:
-I think this is right, I've tested it on real 030, 040 and 060 machines.
+Link: https://lore.kernel.org/all/20261112060943.1916-1-laixiangwu@cmss.chinamobile.com
+ drivers/soundwire/mipi_disco.c | 28 +++++++++++++++++++++-------
+ 1 file changed, 21 insertions(+), 7 deletions(-)
 
-I found this issue making DRM/KMS programs with nolibc. Since I wrote the m68k
-support for nolibc I suspected I had missed some ABI thing and messed it up and
-I put a local workaround in there. Then the issue started showing up a normal libc.
-
-I fixed the sys_mmap2() place by stepping through the kernel in QEMU and working
-out who was messing up the registers. My fix worked but I wasn't sure why
-there was an issue to start with so I asked my clanker and it disassembled the
-kernel and explained the tail-call thing in the commit message.
-
- arch/m68k/include/asm/syscalls.h | 16 +++++++-------
- arch/m68k/kernel/sys_m68k.c      | 38 ++++++++++++++------------------
- 2 files changed, 24 insertions(+), 30 deletions(-)
-
-diff --git a/arch/m68k/include/asm/syscalls.h b/arch/m68k/include/asm/syscalls.h
-index fb3639acd07b..38a0f985fc76 100644
---- a/arch/m68k/include/asm/syscalls.h
-+++ b/arch/m68k/include/asm/syscalls.h
-@@ -5,14 +5,14 @@
- #include <linux/compiler_types.h>
- #include <linux/linkage.h>
+diff --git a/drivers/soundwire/mipi_disco.c b/drivers/soundwire/mipi_disco.c
+index 8110a5399..256aa496d 100644
+--- a/drivers/soundwire/mipi_disco.c
++++ b/drivers/soundwire/mipi_disco.c
+@@ -95,8 +95,10 @@ int sdw_master_read_prop(struct sdw_bus *bus)
+ 		ret = fwnode_property_read_u32_array(link,
+ 				"mipi-sdw-clock-frequencies-supported",
+ 				prop->clk_freq, prop->num_clk_freq);
+-		if (ret < 0)
++		if (ret < 0) {
++			fwnode_handle_put(link);
+ 			return ret;
++		}
+ 	}
  
--asmlinkage int sys_cacheflush(unsigned long addr, int scope, int cache,
--			      unsigned long len);
--asmlinkage int sys_atomic_cmpxchg_32(unsigned long newval, int oldval, int d3,
--				     int d4, int d5, unsigned long __user *mem);
--asmlinkage int sys_getpagesize(void);
--asmlinkage unsigned long sys_get_thread_area(void);
--asmlinkage int sys_set_thread_area(unsigned long tp);
--asmlinkage int sys_atomic_barrier(void);
-+asmlinkage long sys_cacheflush(unsigned long addr, int scope, int cache,
-+			       unsigned long len);
-+asmlinkage long sys_atomic_cmpxchg_32(unsigned long newval, int oldval, int d3,
-+				      int d4, int d5, unsigned long __user *mem);
-+asmlinkage long sys_getpagesize(void);
-+asmlinkage long sys_get_thread_area(void);
-+asmlinkage long sys_set_thread_area(unsigned long tp);
-+asmlinkage long sys_atomic_barrier(void);
- 
- #include <asm-generic/syscalls.h>
- 
-diff --git a/arch/m68k/kernel/sys_m68k.c b/arch/m68k/kernel/sys_m68k.c
-index 1af5e6082467..4cc5aaf74886 100644
---- a/arch/m68k/kernel/sys_m68k.c
-+++ b/arch/m68k/kernel/sys_m68k.c
-@@ -37,9 +37,9 @@
- 
- #include "../mm/fault.h"
- 
--asmlinkage long sys_mmap2(unsigned long addr, unsigned long len,
--	unsigned long prot, unsigned long flags,
--	unsigned long fd, unsigned long pgoff)
-+SYSCALL_DEFINE6(mmap2, unsigned long, addr, unsigned long, len,
-+		unsigned long, prot, unsigned long, flags,
-+		unsigned long, fd, unsigned long, pgoff)
- {
  	/*
- 	 * This is wrong for sun3 - there PAGE_SIZE is 8Kb,
-@@ -374,8 +374,8 @@ cache_flush_060 (unsigned long addr, int scope, int cache, unsigned long len)
- }
+@@ -130,8 +132,10 @@ int sdw_master_read_prop(struct sdw_bus *bus)
+ 					       scales_prop,
+ 					       prop->clk_gears,
+ 					       prop->num_clk_gears);
+-		if (ret < 0)
++		if (ret < 0) {
++			fwnode_handle_put(link);
+ 			return ret;
++		}
+ 	}
  
- /* sys_cacheflush -- flush (part of) the processor cache.  */
--asmlinkage int
--sys_cacheflush (unsigned long addr, int scope, int cache, unsigned long len)
-+SYSCALL_DEFINE4(cacheflush, unsigned long, addr, int, scope, int, cache,
-+		unsigned long, len)
- {
- 	int ret = -EINVAL;
+ 	fwnode_property_read_u32(link, "mipi-sdw-default-frame-rate",
+@@ -257,8 +261,10 @@ static int sdw_slave_read_dpn(struct sdw_slave *slave,
+ 			ret = fwnode_property_read_u32_array(node,
+ 					"mipi-sdw-port-wordlength-configs",
+ 					dpn[i].words, dpn[i].num_words);
+-			if (ret < 0)
++			if (ret < 0) {
++				fwnode_handle_put(node);
+ 				return ret;
++			}
+ 		}
  
-@@ -459,9 +459,8 @@ sys_cacheflush (unsigned long addr, int scope, int cache, unsigned long len)
+ 		fwnode_property_read_u32(node, "mipi-sdw-data-port-type",
+@@ -299,8 +305,10 @@ static int sdw_slave_read_dpn(struct sdw_slave *slave,
+ 			ret = fwnode_property_read_u32_array(node,
+ 					"mipi-sdw-channel-number-list",
+ 					dpn[i].channels, dpn[i].num_channels);
+-			if (ret < 0)
++			if (ret < 0) {
++				fwnode_handle_put(node);
+ 				return ret;
++			}
+ 		}
  
- /* This syscall gets its arguments in A0 (mem), D2 (oldval) and
-    D1 (newval).  */
--asmlinkage int
--sys_atomic_cmpxchg_32(unsigned long newval, int oldval, int d3, int d4, int d5,
--		      unsigned long __user * mem)
-+SYSCALL_DEFINE6(atomic_cmpxchg_32, unsigned long, newval, int, oldval,
-+		int, d3, int, d4, int, d5, unsigned long __user *, mem)
- {
- 	/* This was borrowed from ARM's implementation.  */
- 	for (;;) {
-@@ -515,12 +514,8 @@ sys_atomic_cmpxchg_32(unsigned long newval, int oldval, int d3, int d4, int d5,
- 		   Make the kernel do the necessary page stuff, then re-iterate.
- 		   Simulate a write access fault to do that.  */
- 		{
--			/* The first argument of the function corresponds to
--			   D1, which is the first field of struct pt_regs.  */
--			struct pt_regs *fp = (struct pt_regs *)&newval;
--
- 			/* '3' is an RMW flag.  */
--			if (do_page_fault(fp, (unsigned long)mem, 3))
-+			if (do_page_fault(current_pt_regs(), (unsigned long)mem, 3))
- 				/* If the do_page_fault() failed, we don't
- 				   have anything meaningful to return.
- 				   There should be a SIGSEGV pending for
-@@ -533,8 +528,8 @@ sys_atomic_cmpxchg_32(unsigned long newval, int oldval, int d3, int d4, int d5,
- #else
+ 		nval = fwnode_property_count_u32(node, "mipi-sdw-channel-combination-list");
+@@ -318,8 +326,10 @@ static int sdw_slave_read_dpn(struct sdw_slave *slave,
+ 					"mipi-sdw-channel-combination-list",
+ 					dpn[i].ch_combinations,
+ 					dpn[i].num_ch_combinations);
+-			if (ret < 0)
++			if (ret < 0) {
++				fwnode_handle_put(node);
+ 				return ret;
++			}
+ 		}
  
- /* sys_cacheflush -- flush (part of) the processor cache.  */
--asmlinkage int
--sys_cacheflush (unsigned long addr, int scope, int cache, unsigned long len)
-+SYSCALL_DEFINE4(cacheflush, unsigned long, addr, int, scope, int, cache,
-+		unsigned long, len)
- {
- 	flush_cache_all();
- 	return 0;
-@@ -542,9 +537,8 @@ sys_cacheflush (unsigned long addr, int scope, int cache, unsigned long len)
+ 		fwnode_property_read_u32(node,
+@@ -340,14 +350,18 @@ static int sdw_slave_read_dpn(struct sdw_slave *slave,
+ 			dpn[i].lane_list = devm_kzalloc_objs(&slave->dev,
+ 							     *dpn[i].lane_list,
+ 							     dpn[i].num_lanes);
+-			if (!dpn[i].lane_list)
++			if (!dpn[i].lane_list) {
++				fwnode_handle_put(node);
+ 				return -ENOMEM;
++			}
  
- /* This syscall gets its arguments in A0 (mem), D2 (oldval) and
-    D1 (newval).  */
--asmlinkage int
--sys_atomic_cmpxchg_32(unsigned long newval, int oldval, int d3, int d4, int d5,
--		      unsigned long __user * mem)
-+SYSCALL_DEFINE6(atomic_cmpxchg_32, unsigned long, newval, int, oldval,
-+		int, d3, int, d4, int, d5, unsigned long __user *, mem)
- {
- 	struct mm_struct *mm = current->mm;
- 	unsigned long mem_value;
-@@ -561,23 +555,23 @@ sys_atomic_cmpxchg_32(unsigned long newval, int oldval, int d3, int d4, int d5,
+ 			ret = fwnode_property_read_u32_array(node,
+ 						       "mipi-sdw-lane-list",
+ 						       dpn[i].lane_list, dpn[i].num_lanes);
+-			if (ret < 0)
++			if (ret < 0) {
++				fwnode_handle_put(node);
+ 				return ret;
++			}
+ 		}
  
- #endif /* CONFIG_MMU */
- 
--asmlinkage int sys_getpagesize(void)
-+SYSCALL_DEFINE0(getpagesize)
- {
- 	return PAGE_SIZE;
- }
- 
--asmlinkage unsigned long sys_get_thread_area(void)
-+SYSCALL_DEFINE0(get_thread_area)
- {
- 	return current_thread_info()->tp_value;
- }
- 
--asmlinkage int sys_set_thread_area(unsigned long tp)
-+SYSCALL_DEFINE1(set_thread_area, unsigned long, tp)
- {
- 	current_thread_info()->tp_value = tp;
- 	return 0;
- }
- 
--asmlinkage int sys_atomic_barrier(void)
-+SYSCALL_DEFINE0(atomic_barrier)
- {
- 	/* no code needed for uniprocs */
- 	return 0;
+ 		fwnode_handle_put(node);
 -- 
-2.55.0
+2.50.1.windows.1
+
+
 
