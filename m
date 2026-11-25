@@ -1,49 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.127.230.112
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795612731;
-	b=BVOTfyp9ThcMhkHwNUX4k6FWKTA5ukZu0mrcpTcQWgZtY4gSHeK2l0MV+nab6pXB4A82
-	 0bKYONvwkdrBFuo6GB+NETQaudGhqmCDEZjKa62cQOk2lSzh9Gyq4EUKLIsZib/lZ/Id3
-	 oeniqfwV/gR7GzzEaisuMOAqmiOFYm/6voTNtVkjnQ/t+pehvKgb9cGAmWY3XdxC8gLtz
-	 xKphK+Lf6myzDYZzy9cZV+4+IuWR0MrUh8xBfrUl+valk0nCJxxx1New29C/VS3RSqbZo
-	 D0fknzyCroYp4+nRrDoJy9zr5pTzVKR5Vx0dcyHofsQ/jhyLShPv3c/LSSsXScjxmGA==
+	t=1795612742;
+	b=DH1+OPZsm44x9PK8ljIFLPPpB/8+4AOfn9iVTPqXngkuCGSZFTEVVXsUrS+Dzt3UvczF
+	 bWRjPROCAMwBK8Z08qbrZ59DUuK9v1qrk+zFGKvEgrAjD7Ch3R5SbcRX2Va2c6UqYaOks
+	 MXVhsk6Ye04iA6lNzY1LXAntFvI3PuHALiH2QwhiFfSsfJGQwX/zf2Z2M68eq89jiNURO
+	 JBG6CirlzFvUWd0FFNGaN3a4Yt62Uk4DU0o4JGOSCymFc+I2VUasEyMReA2x+CwWSGqSy
+	 Q6t4nVA1rSa0WSrRjy2T/ElSah2j4a2VFzdXEWLC6ggn1hzDL0ZV4LfVP/WI6O8/CPg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795612731;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=2ma/EbgjJlNK07nvQvlAz6GaFYdt19XTiZ5E0MqXzFI=;
-	b=xJDCbSC2Z2uVl448l77KokQp6A7gViH2sFuz1XYMbccm1vz7l+ZHTwdqBC/mmFObzn/2
-	 jACY0WBnaudZGYzwEvEr8OGLBGY9fZXW40lg/IuXD5EzMtvsz4SUZC8B53au5FeCNnzSX
-	 ckp01vLjgAjUuSg42/z7yWIlXv1skJMaOz5sQjgV7ptXGbI13J8JcIr4CZEDVeciintwf
-	 n/JtT4WZiRYXmOZlyP5grbXhZR/Ntxs/PSPW4M2glAqKxeOnDLHH9a96Anuve3uk6N/TH
-	 LtXCBJ8R3E8pLXp7K24O31ymsmFdr6GUVA3QpolptAIg8InpmTjIurkyBtyvUBHryuw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795612742;
+	h=DMARC-Filter:DKIM-Signature:Date:Mime-Version:
+	 Content-Transfer-Encoding:X-Original-From:To:Cc:From:X-Mailer:
+	 Content-Type:Subject:Message-Id:X-Lms-Return-Path;
+	bh=sTebTr/mmMnUDFvs2dZ6oTftfFU6qOhvuToUBdTNGdY=;
+	b=4IT9DP6ZCmbbReb3FtPidZhHsOlYs8C2aVLpzywopN9tLho6U0OBe3j2+zGawRNmh9O4
+	 ccVouTsTezm4ghlCex5bCAGhmAPg2wBVHkyGmPqgbFGmoRiFKhNW6phrzFoQb37oe9z6q
+	 5vdS6zZ90xI551UUt2KD5J43m71bPxeb+qXw87KLK3rlC148s8HWUw1nq0tuqf51X0pXw
+	 9L2XeuFhvISu/y6cRWta6sgvVDOIph9KO5tD3UGYrxWZaoMg00UweJq8hqP7JgScmjYL4
+	 A2C7KsrqKSeBPI+q04FoZyCce0xIfxi2pHQzZkB9O/e8EgMWb9MNksgzjPyFUx4UDtg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=bZZL0vp4;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 30797606A321
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 13:18:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 30797606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dmarc=pass header.from=bytedance.com;
+	spf=pass smtp.mailfrom=bytedance.com;
+	dkim=pass header.d=bytedance.com header.i=@bytedance.com header.a=rsa-sha256 header.s=2212171451 header.b=pm61aRt0;
+	arc=none smtp.remote-ip=209.127.230.112
+Received: from va-1-112.ptr.blmpb.com (va-1-112.ptr.blmpb.com [209.127.230.112])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 810FA606A323
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 13:19:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 810FA606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=bytedance.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bytedance.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=bZZL0vp4
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A05822F;
-	Wed, 25 Nov 2026 05:18:47 -0800 (PST)
-Received: from [10.0.154.42] (e121487-lin.cambridge.arm.com [10.0.154.42])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 79C423F86F;
-	Wed, 25 Nov 2026 05:18:49 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795612730; bh=JM58YbwXlaYErfQ/3tivOhPKKAEYmR9p/1aB6hZTuxI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=bZZL0vp4uIu/5CwAs9E1jpk07Qz4Z/LsHgDgAIrp5wdetENcRJMCdVLFDk16tryLC
-	 p9al0WFpXujZv+eGAzMywAUUE9ZaPzqy1P/cgX3E1GYWUxSOTf9JNq9vAxRr/bnI/X
-	 +Q9bGNEaQas1YOj8x0cM8M10w1rAt1hNvIOqEElE=
-Message-ID: <3d441264-bf6d-4d42-9172-14da8781e54a@arm.com>
-Date: Wed, 25 Nov 2026 13:18:47 +0000
+	dkim=pass (2048-bit key, unprotected) header.d=bytedance.com header.i=@bytedance.com header.a=rsa-sha256 header.s=2212171451 header.b=pm61aRt0
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=2212171451; d=bytedance.com; t=1795612735; h=from:subject:
+ mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
+ mime-version:in-reply-to:message-id;
+ bh=sTebTr/mmMnUDFvs2dZ6oTftfFU6qOhvuToUBdTNGdY=;
+ b=pm61aRt0qiI7tDeXc1rE2ZlHm57DzSvsuJhh+osv2zNGrVLHqnLLMi3V522eNoc6K3Xwi5
+ A370t584LBnsXmQxeST/J+eHJOiJ12flPHG8pkmXkdx05qugzd8NlTZgix7alCiXZGKT0A
+ pt7NXp2r1zZvI0N7UKDTK5vlJ929GpmlKfpOjnDXAdz6XSnUBDyREa3PjU2AkirTsQpM2m
+ Fjr2C8nKzS+gIIcbKZDnJ98TbpntUzUWARKv7X/AFo+V8FRii9UssPpzQtsK546Rj5fPow
+ IQUJE/wHIsow0OPw5lfWXu8+PrFHhYdaeGc6/QPPiaiceHL7awguzWuSamMz2Q==
+Date: Wed, 25 Nov 2026 21:18:37 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -52,54 +52,112 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/5] ARM: NOMMU: pmsa-v7: Fix off-by-one in
- mpu_setup_region()
-To: Brad Hawthorne <brad@sim.vu>, linux@armlinux.org.uk,
- linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-References: <20261125025757.1159931-1-brad@sim.vu>
- <20261125025757.1159931-4-brad@sim.vu>
-Content-Language: en-GB
-From: Vladimir Murzin <vladimir.murzin@arm.com>
-In-Reply-To: <20261125025757.1159931-4-brad@sim.vu>
-Content-Type: text/plain; charset=UTF-8
+Mime-Version: 1.0
 Content-Transfer-Encoding: 7bit
+X-Original-From: Chuyi Zhou <zhouchuyi@bytedance.com>
+To: <tj@kernel.org>, <jiangshanlai@gmail.com>, <leitao@debian.org>
+Cc: <linux-kernel@vger.kernel.org>, "Chuyi Zhou" <zhouchuyi@bytedance.com>
+From: "Chuyi Zhou" <zhouchuyi@bytedance.com>
+X-Mailer: git-send-email 2.20.1
+Content-Type: text/plain; charset=UTF-8
+Subject: [PATCH] workqueue: Use a single latency array in test_workqueue
+Message-Id: <20261125131837.1602218-1-zhouchuyi@bytedance.com>
+X-Lms-Return-Path: <lba+26b06e03d+8d0535+vger.kernel.org+zhouchuyi@bytedance.com>
 
-On 11/25/26 02:57, Brad Hawthorne wrote:
-> mpu_setup_region() rejects "number > mpu_max_regions", which lets
-> number == mpu_max_regions through. Regions are numbered from 0, so
-> that number names a region the MPU does not have. Reject it too.
-> 
-> Now that allocate_region() respects its limit, no caller passes that
-> number. Tested under QEMU (mps2-an385): no change in behaviour.
-> 
-> This patch was written with an AI coding assistant (Claude Opus 5.5,
-> Anthropic): it found the bug in review, wrote the fix, the QEMU tests
-> and this changelog, and ran them; I reviewed the reasoning and the test
-> results.
-> 
-> Fixes: 5ad7dcbe40ae ("ARM: mpu: add MPU probe and initialisation functions in C")
-> Signed-off-by: Brad Hawthorne <brad@sim.vu>
-> ---
->  arch/arm/mm/pmsa-v7.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm/mm/pmsa-v7.c b/arch/arm/mm/pmsa-v7.c
-> index f2ad0f3ff480..af0c71135a6e 100644
-> --- a/arch/arm/mm/pmsa-v7.c
-> +++ b/arch/arm/mm/pmsa-v7.c
-> @@ -371,7 +371,7 @@ static int __init mpu_setup_region(unsigned int number, phys_addr_t start,
->  	u32 size_data;
->  
->  	/* We kept a region free for probing resolution of MPU regions*/
-> -	if (number > mpu_max_regions
-> +	if (number >= mpu_max_regions
->  	    || number >= MPU_MAX_REGIONS)
->  		return -ENOENT;
->  
-> -- 2.43.0
+run_bench() allocates space for all latency samples in all_latencies
+and again in per-thread arrays. After stopping the throughput timer, it
+copies the per-thread samples into all_latencies and sorts the array
+to compute percentiles.
 
-Reviewed-by: Vladimir Murzin <vladimir.murzin@arm.com>
+Give each kthread a disjoint range of all_latencies. The threads write
+their samples directly into the array that run_bench() sorts after
+they have stopped. Use size_mul() for the total sample count so that
+the allocation covers all ranges even on 32-bit systems.
 
+With 256 threads and 50,000 samples per thread, this removes 256
+allocations per affinity scope, halves the requested sample storage
+from 195.31 MiB to 97.66 MiB and avoids copying 102,400,000 bytes.
+
+Signed-off-by: Chuyi Zhou <zhouchuyi@bytedance.com>
+---
+ lib/test_workqueue.c | 30 ++++--------------------------
+ 1 file changed, 4 insertions(+), 26 deletions(-)
+
+diff --git a/lib/test_workqueue.c b/lib/test_workqueue.c
+index 2bdfcbbcabb4..015d304c938a 100644
+--- a/lib/test_workqueue.c
++++ b/lib/test_workqueue.c
+@@ -142,7 +142,7 @@ static int __init run_bench(int n_threads, const char *scope, const char *label)
+ 	struct thread_ctx *ctxs;
+ 	u64 *all_latencies;
+ 	ktime_t start, end;
+-	int cpu, i, j, ret;
++	int cpu, i, ret;
+ 	s64 elapsed_us;
+ 
+ 	ret = set_affn_scope(scope);
+@@ -159,7 +159,7 @@ static int __init run_bench(int n_threads, const char *scope, const char *label)
+ 		return -ENOMEM;
+ 	}
+ 
+-	total_items = (unsigned long)n_threads * wq_items;
++	total_items = size_mul(n_threads, wq_items);
+ 	all_latencies = kvmalloc_array(total_items, sizeof(u64), GFP_KERNEL);
+ 	if (!all_latencies) {
+ 		kfree(tasks);
+@@ -167,20 +167,6 @@ static int __init run_bench(int n_threads, const char *scope, const char *label)
+ 		return -ENOMEM;
+ 	}
+ 
+-	/* Allocate per-thread latency arrays */
+-	for (i = 0; i < n_threads; i++) {
+-		ctxs[i].latencies = kvmalloc_array(wq_items, sizeof(u64),
+-						   GFP_KERNEL);
+-		if (!ctxs[i].latencies) {
+-			while (--i >= 0)
+-				kvfree(ctxs[i].latencies);
+-			kvfree(all_latencies);
+-			kfree(tasks);
+-			kfree(ctxs);
+-			return -ENOMEM;
+-		}
+-	}
+-
+ 	atomic_set(&threads_done, n_threads);
+ 	reinit_completion(&all_done_comp);
+ 	reinit_completion(&start_comp);
+@@ -193,6 +179,8 @@ static int __init run_bench(int n_threads, const char *scope, const char *label)
+ 
+ 		ctxs[i].cpu = cpu;
+ 		ctxs[i].items = wq_items;
++		/* Each thread fills its own slice for the final in-place sort. */
++		ctxs[i].latencies = &all_latencies[(size_t)i * wq_items];
+ 		init_completion(&ctxs[i].work_done);
+ 
+ 		tasks[i] = kthread_create(bench_kthread_fn, &ctxs[i],
+@@ -230,14 +218,6 @@ static int __init run_bench(int n_threads, const char *scope, const char *label)
+ 	end = ktime_get();
+ 	elapsed_us = ktime_us_delta(end, start);
+ 
+-	/* Merge all per-thread latencies and sort for percentile calculation */
+-	j = 0;
+-	for (i = 0; i < n_threads; i++) {
+-		memcpy(&all_latencies[j], ctxs[i].latencies,
+-		       wq_items * sizeof(u64));
+-		j += wq_items;
+-	}
+-
+ 	sort(all_latencies, total_items, sizeof(u64), cmp_u64, NULL);
+ 
+ 	pr_info("test_workqueue:   %-16s %llu items/sec\tp50=%llu\tp90=%llu\tp95=%llu ns\n",
+@@ -249,8 +229,6 @@ static int __init run_bench(int n_threads, const char *scope, const char *label)
+ 
+ 	ret = 0;
+ out_free:
+-	for (i = 0; i < n_threads; i++)
+-		kvfree(ctxs[i].latencies);
+ 	kvfree(all_latencies);
+ 	kfree(tasks);
+ 	kfree(ctxs);
+-- 
+2.20.1
