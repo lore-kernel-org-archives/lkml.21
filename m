@@ -1,78 +1,45 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=90.155.92.199
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795599523;
-	b=TGZeCvm/OR0d6GuXMhBgs2jHCwIeawVFB0sW+YxgdoRp0uzIMW0ilMPzLsA+EhojBsFm
-	 MN75GOwavOJRTG/NuLjp55v2Od/tmTOTiBOs+7CirklQrG2OZr3fqA25mfijN6KPqruw8
-	 0FO36DMFyfl/cIobODUNui1JJ7O+Pa1DS1ly6SufGE/GIkezql8e1Lnr3DYujpp2IT9RN
-	 7efQ+lfOFhS6DMXDcMemfVKAuzUmve1DeecWXQYyK7AF+zlnRmzsSbu0iG9TulWdcFO4W
-	 ViEtv0a16QSm1RDGGNeJf+tx5NVy++boO0cDH3MpbBLey7SGHQvFyxtt5y5rG7atKXA==
+	t=1795599559;
+	b=NnqE1kV4aTzwm0YjYJHWr5oeLCpYtD7x/8Oy5mWvvMgXNQug+Z+pdG3MKDzQYsqrGqPc
+	 NDe6gyJLixNwt5whw38zL17eIh48gtbEUKPWre116BruJQtOUWh0RCkW0KCWh9KktHgQK
+	 E2Pk0wlNs3Uyjb1/uGR62ic+kqc3XHE4ANA6uIo2bfZP2j1T+o3cT2mR5H7KWPg7jryHP
+	 4zWQ2YuwBixEulBMBdDdd/SVA+d5YPALEQ0Onk73sxu+asta8c9GwY6bUK6lDSZGQk8uM
+	 WJjSxbbrrN4TCz8NXq96rhpi8roR+o/BGN/5RvtNqDqy9rdUenpH/KyBxaUbbxLQgUQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795599523;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=m3eVgzUZlwp75/fzUdsc3RQgqJEC+CR7cinxZk1znh0=;
-	b=Bp6pjTMSMaw5xnMhALLxVqpKvkhm0ZFIITlrh2fm95nTgdmqQp9qGpzDCoI1T4l6chXq
-	 Aw3gG7Dk4Fjtc/9615SOiKvbMaPnkYiXMXSKMH2FpCaPccj8oVcHOMlsBb5Ui1mBBGX2t
-	 xVhgP6efBk+2ZqMzCoDLPuaZYAEr+5ZJ5drjE7M8qEe4fUY3mSjYEKm7SxOvWNcrtygag
-	 eGcHYhJuFNiC+3reSijFt+w+eJ7zUbfBg690j6G3WV1zd8dPnCKTligAamj9+X317iVos
-	 h1+aNakuRmHk0LYtPiNFUWxlzlUJrqyradmbS9secM8C3y5hjO4uEmYZt8v066FV15g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795599559;
+	h=Received:DKIM-Signature:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:References:
+	 Date:Message-Id:X-Mailer;
+	bh=OQFkytMxe9WQx1OI+p45Evfg+nBuhBH5a9ePOSdvAXE=;
+	b=dOPLHRXDTWChtf8MtMMpdoNqB5Zy1mFkHH8t8kdiZ8nx+06y/CFjdFVutyHJCPqCqICU
+	 LVL8QEhgG30by9tl0r1obkcf2MhNbZbe4Srwo93rYkTumAfUUESjyfta288BRjkibdjq3
+	 +iL4aVgT2SIoscAZhYZRGL4vD0TgE/UkYGOwLT6fvn1SDQQ8rrsgrjxATfVe8A73C2hVO
+	 KAneRqqQhkKatbkiO+CPP2TCxKXIptDeMoiKcpdnBhYlgHHrKmrFaDqLHyl37hQ78Gz/F
+	 MQQ7Pun2gJbJUoqlESZH3N69mWD6hlcshrRgYF9A3faXDKLeJpoJWjokFDxPqXlX8nQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=infradead.org;
-	spf=pass smtp.mailfrom=infradead.org;
-	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=M3URgmOE;
-	arc=none smtp.remote-ip=90.155.92.199
-Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fALh60s6;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2132A606A321;
-	Wed, 25 Nov 2026 09:38:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2132A606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=infradead.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4A69B606A31E;
+	Wed, 25 Nov 2026 09:39:18 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=M3URgmOE
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=m3eVgzUZlwp75/fzUdsc3RQgqJEC+CR7cinxZk1znh0=; b=M3URgmOE8LZagvHpObWdy70cEx
-	DLT4EPDt6iOu2h4YmE6++CQshmO9GsiY56zoEcPAP2QJ+ctXdv9VZwUlowaEs3EwpZJ6DNlaYzSCz
-	kc3/mPaBi4jcB6eN/QXzvw3SjWdeyRAZ7Ur7g0ut1ZZLbxxd2HXQ3kke5LaZ+Y+BCsATJMIdmYOw5
-	dE0YQTAUYFqs2nDhbgwroFifUSPaEs8Ei2HAFO8ewMquuVp/hZjCMjO8fpAV3h8Vw4GmRDw91tDXT
-	LK6g18AoY3MMS3PNCZLT7xM6q+EWLJimw19e+0iFC1WfeKstszLuTWBVa6INnTos0vL1bL6wqe40V
-	5nQ382gw==;
-Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
-	by desiato.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xW9SX-000000057in-3U6x;
-	Wed, 25 Nov 2026 09:38:37 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id CAA92300446; Wed, 25 Nov 2026 10:38:36 +0100 (CET)
-Date: Wed, 25 Nov 2026 10:38:36 +0100
-From: Peter Zijlstra <peterz@infradead.org>
-To: Tengda Wu <wutengda@huaweicloud.com>
-Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	James Clark <james.clark@linaro.org>,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 2/2] perf/core: Disable context fast-swap for sigtrap
- events
-Message-ID: <20261125093836.GX2668804@noisy.programming.kicks-ass.net>
-References: <cover.1795053619.git.wutengda@huaweicloud.com>
- <55b1a2845b0ad34a874a7653644e34af9eb068d3.1795053619.git.wutengda@huaweicloud.com>
- <20261120173706.GC2668564@noisy.programming.kicks-ass.net>
- <20261120174606.GM2669272@noisy.programming.kicks-ass.net>
- <5507e48c-4e98-4e76-8d3f-4630a2655085@huaweicloud.com>
- <c9ff579b-a7eb-481f-bb8d-489a4469c397@huaweicloud.com>
- <20261125090809.GW2668804@noisy.programming.kicks-ass.net>
- <4d17dd3b-df73-45c0-8113-f4ca259d549b@huaweicloud.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fALh60s6
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D68FF1F000CF;
+	Wed, 25 Nov 2026 09:39:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795599558;
+	bh=OQFkytMxe9WQx1OI+p45Evfg+nBuhBH5a9ePOSdvAXE=;
+	h=Subject:From:To:Cc:In-Reply-To:References:Date;
+	b=fALh60s6DnSj7LVmmSRzARuLwXAu/kI6ZErhU/uUlOKB9DrRxHe8RM36SJTysC4PA
+	 FZK880n6hGiQ7gBEf4Jm6Y1hVOJ4dKwogg6h5BqkjXXv9EAKgf54E02uWuHmOjtmBu
+	 PXIp7u5oxD/dZ7nFgp6EIHtX7nIDrCMq72i7TiFjJK+q2EN97y6Mdk5rNcPV5GDIdY
+	 NDFhfkvT7u7HEmlhr22S4q4VXsR0wNV81h5PDOCeeBXvnR3+3AhY9V+mk9tB5Hj1n9
+	 X62mprilj7uFPpAR05qSG6yNYAaF+7YD5PxS1eZCqCIi7utP7n3o6b791f6aqbLMV3
+	 or55zmWbWyh8Q==
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,64 +49,46 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <4d17dd3b-df73-45c0-8113-f4ca259d549b@huaweicloud.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH 1/4] dt-bindings: vendor-prefixes: Add Shenzhen Kickpi
+ Digital Technology
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Rajan Yadav <rajanyadav0307@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+ Andre Przywara <andre.przywara@arm.com>, 
+ Paul Kocialkowski <paulk@sys-base.io>, 
+ Krzysztof Kozlowski <krzk@kernel.org>
+In-Reply-To: <20261120-k5c-dt-v1-v1-1-d9681df67bc0@gmail.com>
+References: <20261120-k5c-dt-v1-v1-0-d9681df67bc0@gmail.com>
+ <20261120-k5c-dt-v1-v1-1-d9681df67bc0@gmail.com>
+Date: Wed, 25 Nov 2026 10:39:15 +0100
+Message-Id: <179559955560.14607.15069373113329195417.b4-reply@b4>
+X-Mailer: b4 0.17-dev
 
-On Wed, Nov 25, 2026 at 05:29:38PM +0800, Tengda Wu wrote:
+On 2026-11-20 01:22 -0600, Rajan Yadav wrote:
+> Shenzhen Kickpi Digital Technology Co., Ltd. makes single board
+> computers under the KickPi name, such as the KickPi K5C with an
+> Allwinner A133 SoC. Add a vendor prefix for them.
 > 
+> The company name is the one KickPi uses on its documentation site
+> (doc.kickpi.com) and as the registered owner of the KICKPI trademark
+> (US registration 7747802); their e-mail and web domain is kickpi.com.
 > 
-> On 2026/11/25 17:08, Peter Zijlstra wrote:
-> > On Tue, Nov 24, 2026 at 04:42:34PM +0800, Tengda Wu wrote:
-> > 
-> >> From the stack, we can see:
-> >>
-> >> perf_event_context_sched_out
-> >>         // fast path
-> >>         perf_ctx_enable(ctx, 0);
-> >>                 perf_pmu_enable
-> >>                         if (!--(*count))  // equals 0
-> >>                                 pmu->pmu_enable(pmu);
-> >>                                         __intel_pmu_enable_all.constprop
-> >>                                                 do_trace_write_msr
-> >>                                                         perf_tp_event
-> >>
-> >> In perf_tp_event():
-> >>         if (perf_tp_event_match(event, &raw, regs)) {
-> >>                 if (!perf_pmu_enabled(event->pmu)) return 0; // not satisfied, continue downward
-> >>                 perf_swevent_event
-> >>                         __perf_event_overflow
-> >>                                 task_work_add  // event->ctx->task mismatches 'current'
-> >>         }
-> >>
-> >> Because pmu_disable_count is already 0, the subsequent perf_tp_event_match()
-> >> cannot block it via perf_pmu_enabled(), so the problem can be reproduced.
-> > 
-> > Right, but at this point there isn't really a problem, all the pointers
-> > have been swapped already and state should be consistent again.
-> > 
-> > I *think* the problem is that task_work_add() is using current while it
-> > should be using ctx->task. In that case the above will enqueue on the
-> > next task, which is correct.
-> > 
-> 
-> I considered this before, but it involves the issue of whether the count
-> overflow in the sched_out stage should be attributed to the current or next
-> task, and I wasn't very confident about it, so I didn't adopt it.
+> Claude Code (Anthropic) drafted this change and its message; I
+> reviewed it and checked it with dt_binding_check.
 
-All of switch_fast suffers that problem. Mostly we've ignored it since
-kernel events around a context switch are hard to attribute to any one
-particular task, so a little fuzz left or right of the switch doesn't
-matter too much, as long as its consistent.
+Drop, this goes to changelog.
 
-> > Disabling switch_fast really hurts performance; doing that should be a
-> > last resort. I think I can fix this. Let me try and see if the
-> > reproducer works for me so I can more easily poke at this.
-> > 
-> 
-> OK. Just a reminder that the PoC I provided needs to be run in an Intel
-> environment, so that the tracepoint can be hit when pmu_enable is executed.
+Your patches fail to apply, thus not tested by automation. Dropping.
 
-Ah, I'm currently running it on an SPR Xeon; do I need to use
-non-default arguments or just run the thing in a loop and drink tea
-until it goes pop?
+Best regards,
+Krzysztof
+
+-- 
+Krzysztof Kozlowski <krzk@kernel.org>
