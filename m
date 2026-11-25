@@ -1,103 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.43
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795634096;
-	b=b0RQwqy/WDkmr1VCnp7vmVobjje1lnTUdIGqPkfTfuKchDuWaC1THfsYLRp5UgG2dxAN
-	 5a0GIJzpe60XwEG8OaOrcx8LvQMEsXUWXqU/ikEFpKbjsc2yeC/0thz4CxDfVp4qdhuaQ
-	 JJCUITlPlOobvGdPhN055Ln9Ynav4C5M/kfAg4X8sUFfnn13NkygqXqwF6TraLyXT2Oiv
-	 X3z6lSmPWghb0NBmbRzUvuxx1Y5FuzqpqPqlIjUBdaHrDNJ7rlwJhrntY1bRAP+MJpyXO
-	 9Ji4SR4KOfuiZT9rtry/ZWr7OdQs5VMx7rOaBIhWL0e6bfapkZ2YEbE7bLP/csPXumA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795634096;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.172
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795634102;
+	b=W7N3XA8gtqGSlTGo3A0XMhVgTylX2vAkRZRyiefQuJfSUcNnZRYuSbX+uohCFCYeh01j
+	 lk+lU3ernhlm4TLMeyfoRn3B2TQUUz4FL0JSNq+4D5x8G7RXJLM1GDusbMMBMBcKQ/2Q2
+	 eb5CTMqeNXTX9Lz8ANgkPdhaz/ettVY5zTfizoWSlnr21l/KC5Sfd2K61cgswLrfdvLms
+	 sqqx1aCBBNUaDuS59OQywkCxpWDHCBSXJvMQcgnLMl8/DImrClzEQWcruPjHExNPVEdSa
+	 R9Fc8fxV7E4/NiHWr+CNM4sdJv5sk4lm5YX0pS/Gm4T1d5rZHhNcSIx9c0myXLe9hJQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795634102;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 In-Reply-To:References:MIME-Version:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Content-Type;
-	bh=4Zwr6dBwoEAPGqRmkM3SYrI36353cOO24+3gk4v1MbE=;
-	b=IfTuZgzlD4esth5owVkkYC4ZOjg+U9+yG6L3ln6y4pwGF1VGw3BCHvw/iFGGE5BYydQ9
-	 OpdtXL8HdQtN2XrocBb9bdNY8h6lVseudpEh8OBbF8Vx6J1b98H9bedFFQBkj03u+dU2Y
-	 p34PeJn+GHhfOUpbIUMyt+cOe0MqRODxeQtKWbQyHZTX2GtFsUM7xiW1/d8+uAYcegyCX
-	 NgR017qXRqSG9d6LXlMnErTwLUWalYHC2jTbACWTCJXC83KqzrOEInfqyIJJub4KH9iwd
-	 3+gItLXvGBbJQ0i3hA2YXwL9PE0+gPKkNiicMWMqhLHwAywgLhm1xnQtySfnaFfcXJA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=V2dPPlwZ;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.43
-Received: from mail-ej1-f43.google.com (mail-ej1-f43.google.com [209.85.218.43])
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=RQ0qOYB/39Na/Yq4hwyOeXHfqpAHtgIw+NnAsae8SXo=;
+	b=E8HPEihS40gkIFUrMmjnqwGobahJZFBGWRCghsd3gPfx9W8LYPItMVz//cFHmikW0JoE
+	 3nMRAGqAoGnV/2KrPHBalqcz3A53S+hIXLTWNtcHeH7aArqMjR+5hKIJBuY686NVADKaQ
+	 9413xIU8UGWNc4qbHdWqKX0STVb6xbJWUaQHXfmUsm8MXQtykGZzuaW6MimTvDjgjAijB
+	 hmp4i9BrelwbuTmh2SGX/P6mBLImXwvyoSUKD+uwYPIOa/bwBweiBfhyr39yt1Zg+kU95
+	 6smySW21cKMzb7f2qDcDRP7fkYLL91B85TwT3SvA8xREFK8sFBrqnN0cHVHKVM1MCig==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=blockcast.net;
+	spf=pass smtp.mailfrom=blockcast.net;
+	dkim=pass header.d=blockcast.net header.i=@blockcast.net header.a=rsa-sha256 header.s=google header.b=DfL9MmBx;
+	arc=none smtp.remote-ip=209.85.215.172
+Received: from mail-pg1-f172.google.com (mail-pg1-f172.google.com [209.85.215.172])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ABF62606A33E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 19:14:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ABF62606A33E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7C27D606A6A5
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 19:15:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7C27D606A6A5
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=blockcast.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=blockcast.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=V2dPPlwZ
-Received: by mail-ej1-f43.google.com with SMTP id a640c23a62f3a-c511c0e2826so709886966b.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:14:55 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795634094; cv=none;
-        d=google.com; s=arc-20260327;
-        b=GxAeqeu7JBXpG7kioyEGTyZ6kdmBu4GcH2PADVn/N2IoIb25HShW72mzfr88eBdGwd
-         7F7eh0Y7Pfa8lBAy7nrp3a0WdC5BrwBhwZZGgb2SWE2MmlA3sxhUustE+JeEm5smvAQq
-         AmCyjaqta2CjpbLWCyVZSDI+sb4+0EEa6qglF/FebvMAhY1jZ0PG48Jo8k9oebgX+ptA
-         czMtMluluyJBweMNt8ynScTh7VIa6B/zy7RTO8jBRY2R/63FFcJVKUaUQJ2FDJuDpkUm
-         NyHzJGGWMiRT+fW1g+otMRI7c1jl7Su8YB//t0aEDdjEEgTEJ5Qd/pHCmEQH02dw71a/
-         Xl0w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=to:subject:message-id:date:from:mime-version:references:in-reply-to
-         :dkim-signature;
-        bh=4Zwr6dBwoEAPGqRmkM3SYrI36353cOO24+3gk4v1MbE=;
-        fh=G7BaVbVnEhtIogcSPcaDYzh/aVRFByoYe/f850VPOHs=;
-        b=Kc3wpbAGlitC0BMzhTSFC2gxlB7sG8y19NH39dr5y9OTtNyDBjNvBzBARa8yIRJ+HU
-         BOoSfe5cp097v8lmOGf/alDWsKjoQhkPOJNpN66ad61ySXHvmQj5M0Aey/q0sQFSqptD
-         rBZvCpe0dt3TcH6Tq5iO7ylEVPY4kcTU/yAty4OtTgQSgiMXghO7vep771Qk6mn36jhe
-         hCIbLrgu47ALtjb4ZldW2I2iwQRR42n2wW8YN2dcsUlkT5SfpYUuOWoFizp/uVsvOlaK
-         5Ii0qKyVngHXPNhRxLeF1fOTusdK/5KLHOkU0DuwLddp53TfXwMmtL7eA+r32QMPcENu
-         lJLw==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=blockcast.net header.i=@blockcast.net header.a=rsa-sha256 header.s=google header.b=DfL9MmBx
+Received: by mail-pg1-f172.google.com with SMTP id 41be03b00d2f7-cdadf7e248aso2529806a12.3
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:15:01 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795634094; x=1796238894; darn=vger.kernel.org;
-        h=content-type:to:subject:message-id:date:from:mime-version
-         :references:in-reply-to:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=4Zwr6dBwoEAPGqRmkM3SYrI36353cOO24+3gk4v1MbE=;
-        b=V2dPPlwZIw8RSSYGBiPS9riHjLKCbIKmhGH746G9Vw+WKNGoF1pK34jlxV6OxHliUD
-         +4x8KQFOyHBv93Eslcb6ZQriJzQCg8lh+cuxhnJBCYxOkDEVeu6mFhuZ8Irk8YxD7JUI
-         P0nrT+QohI1JLu+JiKfjBL99fAacsNfpvOFSzRO2EuUFWuP/NxYQnBYkkbBxIr2fZEKs
-         KChRl/Mn72Pp2hAbFTBPHSRIemdxOYB5HdFyXI6WcRruvX4i2bkXwNbHo9fn6WKdOno0
-         LUxobXi06oVo37gsBPfVfk8QKYDCnnLoBAUUHoKmqMFM/0Ywp/PVJ9W/q50ehnOTkPa/
-         1Z6w==
+        d=blockcast.net; s=google; t=1795634101; x=1796238901; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=RQ0qOYB/39Na/Yq4hwyOeXHfqpAHtgIw+NnAsae8SXo=;
+        b=DfL9MmBxHLNIrneAJzkABBCadW5CUPH10Suv9KIUmuiMYUg/Tj0PJ2cJ9lWOFluUa3
+         7LHMbLAU4eDtrxzz5vbMCpBZXANW/VsrJjg58laKT+wtfGcAzpfz0zsWXFp7sQpoo9NV
+         vgKla2lZCtSeabMIDIILOgQFK/hebgkx2JdL9uPbpLhPeNXdzx4Vph+DxnkR+54jmLZb
+         BHBaepE6QH+z1L3qAWpTZLIHQHLLBSoNkf4Q12yi4kcjTadL2T7N3GNgZV6hIoBAcenc
+         Vn66n1oaz3HczDeE9ImE8IC8HHOQ82j1TqIjOmO1qW1r5BJHcaX+b0yTiLpF9TnlHtNR
+         VB+g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795634094; x=1796238894;
-        h=content-type:to:subject:message-id:date:from:mime-version
-         :references:in-reply-to:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=4Zwr6dBwoEAPGqRmkM3SYrI36353cOO24+3gk4v1MbE=;
-        b=OOgmzyKO3yOT0zV9/Ftq02OU1caSWXv/DoFqo/gzLhwYru9f9Tid4H+PtQ0Kh3MYuQ
-         nzCX5BlYeK4lnljnghPhbB75mI7emKIvkUKcCo4V4YGdPVJ1wr5Ia9ehiu/I6LYY7/xp
-         DXDNoa4xZNaointIadpd/BdABE0soWZFtJHF6gfhSj47UCUNhPhqFtfN5rU2U88ixRQT
-         DIHD7fZ5r1zM2+gqA0Zw/Y22gquUF8aM9tPM6F3E+gTFOlS0pvoaTRY15jltR7hd4ClI
-         nL51oZ27VgAbp36SbaOvPe7Vz+mW8hpiTVaLF+UslwSdNLuItUs7UlfHGP0iez4dKODl
-         rB7A==
-X-Forwarded-Encrypted: i=1; AL+hErG74XRndmD6FrrX61U4tJIb+M0jgvXe7678y/xmOTSX6NGFrqBOuRHryuHbd+2vF2bXpI5o/s/Cl2DkUb8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8N8PKpe048ePtXfeQL/Un559jz/23nDiBIErnJN6ZBedpLlcn7
-	pmSJzQrDOkbogBP6ZkRmZtit04+xf2asjIAqBdXSPhytl/vqDkfH8NlD6nRvle9xLYrtUAOdWEh
-	UGMP5Tw4xmbHebEZuwkr24x1u+OapnLs=
-X-Gm-Gg: AZFdTZdeKMGKZvArqyVfkBpx7qenjEP1Xu/fhNJXrgAm8GnElLUw6EUj72zSdodpe9d
-	p9/elZxhtn9OY1PY+vbL3+f06I4RYIn05SGOWQthR//LUIKGWOvAVOaBKCz+TCFbUvBBx7dGUZG
-	c7sjTy01RJWgPuJBNVtMymvORimj/nFlx3MxiUJXg9A6sBJNIQ5Vu9zq+d3lFobeuS7rfx2GhrA
-	AKtudeVrMhtPz7qdZ8dO0oxf9UQpM4uUP1pHugfLRQlblDCSJuEsHPTtEYU4hBaoh342/gjjCAP
-	YN0duoTLPsLOUdyCrGwwyAmn+ZxtezMJIxps43bLOpAA65cQTiYrkYpNGYJy05WnDxLBbfHkEWq
-	JlMLCe45E7flWnR61tVvETusUbw4QoSHYdSRPQw==
-X-Received: by 2002:a17:907:9693:b0:c4c:ddd1:d006 with SMTP id
- a640c23a62f3a-c513ab47f40mr1465563266b.38.1795634093898; Wed, 25 Nov 2026
- 11:14:53 -0800 (PST)
-Received: from 1087654160852 named unknown by gmailapi.google.com with
- HTTPREST; Wed, 25 Nov 2026 11:14:53 -0800
-In-Reply-To: <20261126-ymc-82yl-v3-0-e30842671ec3@rong.moe>
-References: <20261126-ymc-82yl-v3-0-e30842671ec3@rong.moe>
+        d=1e100.net; s=20260707; t=1795634101; x=1796238901;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=RQ0qOYB/39Na/Yq4hwyOeXHfqpAHtgIw+NnAsae8SXo=;
+        b=QrLlbFxptWJSJIPjrd5aqG8mOJGLMTh4Kp27HJAttmGDp+0A4/DJZnzV0Pn5pRPjKv
+         /tSrQorogcaYkq4yNpxnaxrfJR18ZICWWr5la6uzXysX3TCLLjejq1DLdNp2B7okBctG
+         D0KR1cQmWtqdSaogDapyk2PAZPCh8S7ZSwVdbw5K67nVpJOWZIIAt7maC05IFtJGOjHF
+         XnT6pdNCWj+53/DpcQByP8D/j6Sh0/2xicQK55D3scMF96EDDpFvLJOfSstnMhzEdU3k
+         81SDgAkqyJPxuI82JTRVjp80JSt4Z3+l4VYyyLokb9EwS2ebVbqQmOr9hUAWo7weHVQ5
+         WJKQ==
+X-Forwarded-Encrypted: i=1; AL+hErGH51ccSlhOR4d2pk8gQmKHvrOQPu7dLADOA04dnbOe0SuCLhVH9EV6HlLbmgupeCYCmlh2p5JECdQIOYQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9bsA8++LK6doKazMDNRLMqQNnANl5Kf2cofAuRZrH+ETAamEDV
+	1mEgRxTQ+zYaaRFuC7PtW5yd5jcFmvovQfp1LZPvdTR6/+jEOMgPde40mhVlh4LIiqU=
+X-Gm-Gg: AZFdTZeJv/NpDSTrIxoD+ZUgIfZT/y39oEWMjVizT4kI9R9yU363MknkPEURuKVyMUK
+	LTasoh/lQFEmzX72xBCOvLbxahD8jW3VD5wbylBg0SDVeJ0gqfrX6jwFkVjP0rUuUo76rcwSiKI
+	JahImKIMqq7bxjaH3dVAomtd1gSIqMd3uDmEcda0VLEY+Apqq3gIBQOyNtfDIFwWZ/L+6xYVydS
+	nPxsmIJDrgJUEcmRq/BFT0QEjqrStPIbwdKN3rD1xyRbnB/6lpkj7+Y9aRQFJ2PAnJKdsd+FVi+
+	Ooh4j922Mq7VhQtcqa+M+0eDUs6jIyJTk2smMxxdrHNR+CazZ4AUXXTseF18aCV0FzNhFZ3CfhQ
+	D3WTieD0EgGerX1fYlM6mBzbU+lxQcXa1wchYZY1h+Zy21F6gEkV+d+gXpqjyMwvUUwyqPBXcNQ
+	sermXztEEcnJfPsK7Wcax5IbQQUMAdsueSUiBLW8zm56w6ugHRPdXTisu/65tusKFnnKvzdyuc5
+	LJBewcpdzhM2Tud86MziLaKx8mecMNhd9SOVfqSU3fymnItI2a1PEXGVoUbQYLeRAXpz07AIK2U
+	EmOoaWNwqx4eNKTTajcNRBSUTH7wwCaOmtrib2vRG1V0exE5+2PcwG4mBWxGwbKW6I2vWRjsZdm
+	Lo3Y17ojQQzpAZsruVFgmyl07ixWx5KYDwgYsQ98DU3rNOr+/ky0=
+X-Received: by 2002:a17:902:ec8b:b0:2e8:6ae2:75db with SMTP id d9443c01a7336-2f03f18a9c9mr172756885ad.41.1795634100805;
+        Wed, 25 Nov 2026 11:15:00 -0800 (PST)
+Received: from devbox.ts.blockcast.net ([69.25.95.32])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f105b66sm92413855ad.51.2026.11.25.11.14.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 11:15:00 -0800 (PST)
+From: Omar Ramadan <omar@blockcast.net>
+To: Taehee Yoo <ap420073@gmail.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Shuah Khan <shuah@kernel.org>
+Cc: Simon Horman <horms@kernel.org>,
+	netdev@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net-next v2 06/12] amt: size the encapsulation headroom by the outer IP version
+Date: Wed, 25 Nov 2026 19:14:44 +0000
+Message-ID: <20261125191450.2497936-7-omar@blockcast.net>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261125191450.2497936-1-omar@blockcast.net>
+References: <20261125191450.2497936-1-omar@blockcast.net>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -107,33 +106,111 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-From: Eduard Aliman <edialiman20@gmail.com>
-Date: Wed, 25 Nov 2026 11:14:53 -0800
-X-Gm-Features: Aa3M54qj30q9oeFFdGB4n11RJStBUerkgEvp5gMN6LeWlAY5SA1VjQECSLu4Xro
-Message-ID: <CAA4HgYJpBHnAVav3SS0b+WZhAG0ryrJ2icNcV+uSbMof5_O6TA@mail.gmail.com>
-Subject: Re: [PATCH v3 0/8] platform/x86: ideapad-laptop: Trigger the EC on
- YMC events following Windows behavior
-To: Rong Zhang <i@rong.moe>, Mark Pearson <mpearson-lenovo@squebb.ca>, 
-	"Derek J. Clark" <derekjohn.clark@gmail.com>, Hans de Goede <hansg@kernel.org>, 
-	=?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
-	Gergo Koteles <soyer@irl.hu>, Ike Panhc <ikepanhc@gmail.com>, 
-	Andrew Kallmeyer <kallmeyeras@gmail.com>, Eduard Aliman <edialiman20@gmail.com>, 
-	platform-driver-x86@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Mahir Faisal <mahirfaisalantiq33@gmail.com>, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 
-Hi Rong,
+The amt device reserves AMT_RELAY_HLEN or AMT_GW_HLEN of headroom and
+subtracts the same amount from the stream device's MTU. Both assume a
+20-byte IPv4 outer header. An IPv6 outer header is 40 bytes, so on an
+IPv6 device an inner packet in the last 20 bytes below the MTU would
+not fit the stream device once encapsulated, and ip6_fragment() drops
+it: nothing sets ignore_df on the tunnel skb.
 
-I tested this v3 series (patches 1-8/8) on top of Linux 7.3.4 (Fedora 45)
-on my Lenovo Yoga 7 14ARP8 (82YM) without setting ymc_ec_trigger=1
-manually (relying on the DMI quirk added in patch 8/8).
+Add AMT_RELAY_HLEN6 and AMT_GW_HLEN6, pick between the IPv4 and IPv6
+sizes in amt_hlen(), and use amt_hlen() wherever the device sizes its
+headroom and MTU: at newlink and on NETDEV_CHANGEMTU of the stream
+device.
 
-Folding into tablet mode now automatically turns off the keyboard
-backlight, and unfolding restores it as expected.
+amt_v6() is still false for every device, so there is no functional
+change.
 
-Tested-by: Eduard Aliman <edialiman20@gmail.com>
+Assisted-by: LLM
+Signed-off-by: Omar Ramadan <omar@blockcast.net>
+---
+ drivers/net/amt.c | 26 +++++++++++++++-----------
+ include/net/amt.h |  7 +++++++
+ 2 files changed, 22 insertions(+), 11 deletions(-)
 
-Thanks again for adding the quirk for the 14ARP8!
+diff --git a/drivers/net/amt.c b/drivers/net/amt.c
+index 823367e82..cb2ce552b 100644
+--- a/drivers/net/amt.c
++++ b/drivers/net/amt.c
+@@ -104,6 +104,14 @@ static unsigned int amt_ip_hlen(const struct amt_dev *amt)
+ 	return amt_v6(amt) ? sizeof(struct ipv6hdr) : sizeof(struct iphdr);
+ }
+ 
++/* Headroom the device reserves for its outer encapsulation. */
++static unsigned int amt_hlen(const struct amt_dev *amt)
++{
++	if (amt->mode == AMT_MODE_RELAY)
++		return amt_v6(amt) ? AMT_RELAY_HLEN6 : AMT_RELAY_HLEN;
++	return amt_v6(amt) ? AMT_GW_HLEN6 : AMT_GW_HLEN;
++}
++
+ /* Snapshot the outer source address of a received AMT message. */
+ static void amt_outer_saddr(const struct amt_dev *amt,
+ 			    const struct sk_buff *skb, union amt_addr *addr)
+@@ -3903,10 +3911,10 @@ static int amt_newlink(struct net_device *dev,
+ 		amt->qrv = READ_ONCE(amt->net->ipv4.sysctl_igmp_qrv);
+ 		amt->qri = 10;
+ 		dev->needed_headroom = amt->stream_dev->needed_headroom +
+-				       AMT_RELAY_HLEN;
+-		dev->mtu = amt->stream_dev->mtu - AMT_RELAY_HLEN;
++				       amt_hlen(amt);
++		dev->mtu = amt->stream_dev->mtu - amt_hlen(amt);
+ 		dev->max_mtu = dev->mtu;
+-		dev->min_mtu = ETH_MIN_MTU + AMT_RELAY_HLEN;
++		dev->min_mtu = ETH_MIN_MTU + amt_hlen(amt);
+ 	} else {
+ 		if (!data[IFLA_AMT_DISCOVERY_IP]) {
+ 			NL_SET_ERR_MSG_ATTR(extack, tb[IFLA_AMT_DISCOVERY_IP],
+@@ -3929,10 +3937,10 @@ static int amt_newlink(struct net_device *dev,
+ 		}
+ 
+ 		dev->needed_headroom = amt->stream_dev->needed_headroom +
+-				       AMT_GW_HLEN;
+-		dev->mtu = amt->stream_dev->mtu - AMT_GW_HLEN;
++				       amt_hlen(amt);
++		dev->mtu = amt->stream_dev->mtu - amt_hlen(amt);
+ 		dev->max_mtu = dev->mtu;
+-		dev->min_mtu = ETH_MIN_MTU + AMT_GW_HLEN;
++		dev->min_mtu = ETH_MIN_MTU + amt_hlen(amt);
+ 	}
+ 	amt->qi = AMT_INIT_QUERY_INTERVAL;
+ 
+@@ -4053,11 +4061,7 @@ static int amt_device_event(struct notifier_block *unused,
+ 			amt_dellink(amt->dev, &list);
+ 			break;
+ 		case NETDEV_CHANGEMTU:
+-			if (amt->mode == AMT_MODE_RELAY)
+-				new_mtu = dev->mtu - AMT_RELAY_HLEN;
+-			else
+-				new_mtu = dev->mtu - AMT_GW_HLEN;
+-
++			new_mtu = dev->mtu - amt_hlen(amt);
+ 			dev_set_mtu(amt->dev, new_mtu);
+ 			break;
+ 		}
+diff --git a/include/net/amt.h b/include/net/amt.h
+index 245947113..eabe6fa7a 100644
+--- a/include/net/amt.h
++++ b/include/net/amt.h
+@@ -434,9 +434,16 @@ struct amt_dev {
+ #define AMT_GW_HLEN (sizeof(struct iphdr) + \
+ 		     sizeof(struct udphdr) + \
+ 		     sizeof(struct amt_gw_headers))
++/* IPv6-outer gateway headroom: the outer header is a struct ipv6hdr. */
++#define AMT_GW_HLEN6 (sizeof(struct ipv6hdr) + \
++		      sizeof(struct udphdr) + \
++		      sizeof(struct amt_gw_headers))
+ #define AMT_RELAY_HLEN (sizeof(struct iphdr) + \
+ 		     sizeof(struct udphdr) + \
+ 		     sizeof(struct amt_relay_headers))
++#define AMT_RELAY_HLEN6 (sizeof(struct ipv6hdr) + \
++			 sizeof(struct udphdr) + \
++			 sizeof(struct amt_relay_headers))
+ 
+ static inline bool netif_is_amt(const struct net_device *dev)
+ {
+-- 
+2.47.3
 
-Best regards,
-Eduard Aliman
