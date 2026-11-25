@@ -1,60 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.70.43.23
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795608653;
-	b=1hQJNoNEF6g29O58j4CA7deN+t4TetY19sJFf2ksNV/iHWO+iPGo5Labph1ObC7/Ljge
-	 QFxpEJjnOgHLPXafs5Crqx8ZbrEh/LwMgQPicUp6ihRPV1t6s0fTm8nvaU1V7FuWJAb+K
-	 ibM5jyu/m2E/SHLFYZ2K3UEy3oJXht+cpcJ+EbCb/rcPf584PORUenrEQ+dhdnmg1SFUm
-	 fRQBQaL4ojakJDm7zOOvfoID15scGVR9w1Q5lbXW4tHvl3eFTLvqdNj6Cc3eINXGjSYQb
-	 hDiYc0gcsREEkvE6d1YO0DyFrZ+YA4RqN4vykD3TBR4wTRzEqjf7Ld7sUEu8ALfXsqA==
+	t=1795608720;
+	b=oIbXqyAoaWojZdJS/OwLGPtx2n6qVlm7bQ1vX2/K2U/uABAYmr5twF/AOfqs5OxAoCgS
+	 V/KYy/6CrFD5uQpjTizMlbwbe3Yux5R1qS9gsz9i8UhjTtVaaTzSvYqxWBSF9Zng6Ky/a
+	 aDAwYDhI78jYdkKSKT2vRkj82bM7cg91u1roXlC9VubKRIeuA21qYCMWL05hpzNeSKigk
+	 zIiCL+GdY9hwYv5WoIO2tz4osYbpWlTSs9k9DLYnuPj1/tNZ+sgDanKFvBGnVn4QoWyjy
+	 TUEf8vZ7ilh0eiSQcKmnxnu/OFbmFzwGRpkYz3/c9pSCt+HdCA+QcNB+ZxKKBEtGhaw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795608653;
-	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
-	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=LWb7x9EBTg0j/7GQyDH3uQu9AojkX1BlUOWBWzqCl+c=;
-	b=rwkevLNVhu1KkGbyFLUKy+mXxhSPD8H7OGwgl3rKd7TWPO1YD17dBOS7XUW/y9g67PU5
-	 n8s96e+3F2OdVvAcKEi2gHH+Ment/1ePKyOy+/P78y9SAGQ4kepOjveMffx89Zj3OadX9
-	 JpflMDeoomixKelilCIhUy2KO6Cy6/N+CCX8+OoHzvKgzdfrGg9V3s0iXtI8waGO96Bhh
-	 2T5qbz3yqrzzwIz1It3oLKlvl3S2uuseW2LJAh7YFZ6gO9nOFe+cup5HQxYfn7ZGnt0nF
-	 hzxyF7TGuw+SQUWxYq7ML1z4HZHnhLmi40r+7Uu1FfC4uuMQor4Nycf6qixMfoWeRGA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795608720;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To;
+	bh=zoIAFYAcrw2In7mPsz0I79pd13SW8TJXMyFwyHpwC1k=;
+	b=4UBmW+lVZSsM7Zol7m6Ahlotz3ChODw959qPjWytFH8dsvVEfeSvKe2kitCfFHZ3uZiR
+	 PIHbt4AD7Z2unRlq5H91N11Ljk3P4xBkQcARCRTJd+48BoarRL0BLMaNyTeAu+k53Ca8b
+	 zVA/LMm3s46p2+SlN11XPY2vVx2UydZjtUw7liA4bQ9PvAe9xkw/5FREVB8SubYQstw+m
+	 zFWsKHhfQfQ3fAOvTWqaknqkQpL+NJoY/4dSzNrxSQU0YHQeJUCp+73hDvbzM+xElVi/d
+	 FblsIzDcqontQh8aSnyyTD1EkD/b25QvQqGFmpuhKBJ9mxP0rWHGgu33XfKvCekBtoQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=raidlab.org;
-	spf=pass smtp.mailfrom=raidlab.org;
-	dkim=pass header.d=raidlab.org header.i=@raidlab.org header.a=rsa-sha256 header.s=protonmail header.b=Hlrgd6M5;
-	arc=none smtp.remote-ip=185.70.43.23
-Received: from mail-4323.protonmail.ch (mail-4323.protonmail.ch [185.70.43.23])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UDXyQVo9;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EAEE9606A33A;
-	Wed, 25 Nov 2026 12:10:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EAEE9606A33A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=raidlab.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=raidlab.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A99CE606A31E;
+	Wed, 25 Nov 2026 12:12:00 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=raidlab.org header.i=@raidlab.org header.a=rsa-sha256 header.s=protonmail header.b=Hlrgd6M5
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=raidlab.org;
-	s=protonmail; t=1795608649; x=1795867849;
-	bh=LWb7x9EBTg0j/7GQyDH3uQu9AojkX1BlUOWBWzqCl+c=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=Hlrgd6M5fWgdq2wZfvL0HISkaCESdVBnmvtv/mMV8DnAxDuE+UAARFiohhVdGAUF6
-	 XkdXpy5zSw368pCo0QvUi4ePaiT41Oiz/pxDAcKxGkdp8Ct7emHoTZayOWqGI7VgNv
-	 d1nRkj9XDARvsZPIuHmmHp+4tPS/ddYRoXp/0yka8auDGMC03ALA927mPKor79a/CE
-	 fqEuqylENwpN8Cur76GP+2hX2zvu5TfzqoAbVAVuNgrA4e0QMADgBtJGyrYXSNE4D1
-	 0/aJiG01fI7o3pJD7Nk3dqYSFMYhjhx0qBLQXLCHdCFrLxY1zjKht+3miE5jcE9qLi
-	 mM6qbObQ+/Ccw==
-Date: Wed, 25 Nov 2026 12:10:46 +0000
-To: Johannes Thumshirn <johannes.thumshirn@wdc.com>
-From: Miroslav Cimerman <mc@raidlab.org>
-Cc: linux-btrfs@vger.kernel.org, David Sterba <dsterba@suse.com>, Chris Mason <mason@kernel.org>, Josef Bacik <josef@toxicpanda.com>, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] btrfs: fix NULL end_io call when submitting a repair read fails
-Message-ID: <pUOGik2ZGgsXZ6_xplgbkkSeKXQm1wwrx5BFw-xBu_N5bfp2uUF7CrWvIhwGmE0YP4Kh-ZxuUeTW8ank4aGU7RbokslJyXRy6O9gbl9-C3k=@raidlab.org>
-In-Reply-To: <596650a4-62c3-4668-855c-3b503912e74a@wdc.com>
-References: <20261123175633.2058431-1-mc@raidlab.org> <596650a4-62c3-4668-855c-3b503912e74a@wdc.com>
-Feedback-ID: 232820807:user:proton
-X-Pm-Message-ID: 5ec5a27ffd1e5eab557cba280be14e70cf8989b7
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UDXyQVo9
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE2691F000CA;
+	Wed, 25 Nov 2026 12:11:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795608720;
+	bh=zoIAFYAcrw2In7mPsz0I79pd13SW8TJXMyFwyHpwC1k=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=UDXyQVo9ECntjvpQbMJ/hC9fIhbVdR2aq4mM07ICQmsBluEJnMw5Ew6ycPsnPcXgN
+	 NSnZ4LttzwNCF1DLgS0McSQRLtvQNhEzNGSnNHLG+BgTcnVqxQJOcYZq1ZNhpjwAOr
+	 MK2gVwEXQyqOcgotezSvv4KSlBUnBdwn3K3/EtmDeyrXO4xqs+YFWmsjdhambuX9er
+	 ikcTTeaXXypizqg0q02qJ9ssWdRN8Pt2dc06DXLDy+5vpiUzHAutcK2pK5wA+5OZ29
+	 j9QCRqj4Qyp7IJZCUUd3iVqz7ichk2hcGRiOzEYJl1LikyJGa03l4rYeMuEu4CwvP3
+	 l1+KJWq8amdPQ==
+Date: Wed, 25 Nov 2026 12:11:53 +0000
+From: Simon Horman <horms@kernel.org>
+To: netdev-bot+sashiko@kernel.org
+Cc: m-malladi@ti.com, marco.crivellari@suse.com, kees+treewide@kernel.org,
+	laixiangwu@cmss.chinamobile.com, philippe.schenker@impulsing.ch,
+	haokexin@gmail.com, devnexen@gmail.com, jacob.e.keller@intel.com,
+	sdf@fomichev.me, john.fastabend@gmail.com, hawk@kernel.org,
+	daniel@iogearbox.net, ast@kernel.org, pabeni@redhat.com,
+	kuba@kernel.org, edumazet@kernel.org, davem@davemloft.net,
+	andrew+netdev@lunn.ch, bpf@vger.kernel.org,
+	linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, srk@ti.com, vigneshr@ti.com,
+	danishanwar@ti.com
+Subject: Re: [PATCH net-next 1/2] net: ti: icssg-prueth: Add multi-flow RX
+ support with per-flow NAPI
+Message-ID: <20261125121153.GU31322@horms.kernel.org>
+References: <20261118184729.2302130-2-m-malladi@ti.com>
+ <179537406410.3135.5804903978186343042@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,19 +68,63 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <179537406410.3135.5804903978186343042@kernel.org>
 
-Johannes Thumshirn <johannes.thumshirn@wdc.com> wrote:
-> Maybe I'm missing something (sorry wall of text in the commit message
-> and 7am here), but isn't it enough to set a dummy endio (like Qu also
-> suggested) and then bio_io_error() out?
+On Sun, Nov 22, 2026 at 07:01:04PM +0000, netdev-bot+sashiko@kernel.org wrote:
+> Thank you for your contribution! Sashiko AI review found 19 potential
+> issue(s) to consider.
+> 
+> Critical: 2 · High: 1 · Medium: 12 · Low: 4
+> 
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwork
+> know by including "pw-bot: cr" as a separate line at the end of your reply
+> (one such reply per series is enough).
+> 
+> - [Critical] SR1 data RX path is out of bounds.
+> - [Critical] SR1 management-channel buffers get invalid DMA addresses.
+> - [High] On a running interface, a failed XSK enable/disable leaves the
+>   flow half torn down, and the next ndo_stop then hangs or the driver…
+> - [Medium] Multi-flow RX does not work on AM65x SR2 ('ti,am654-icssg-
+>   prueth'), which uses NAVSS UDMA rather than PKTDMA, but the driver…
+> - [Medium] SR1 management-channel teardown is incomplete compared with
+>   before the patch.
+> - [Medium] Misplaced error label in SR1 emac_ndo_open().
+> - [Medium] An AF_XDP pool bound while the interface is down silently
+>   stops working after ndo_open.
+> - [Medium] All flows share one desc_pool, and the XSK runtime refill
+>   budget comes from the pool-wide free count, which other CPUs change…
+> - [Medium] The SR1 data-flow page pool is never destroyed.
+> - [Medium] SR1 now gets an RX coalescing hrtimer but never cancels it.
+> - [Medium] prueth_xsk_pool_disable() can return an uninitialised value.
+> - [Medium] On a running interface, XSK enable/disable now reconfigures a
+>   single flow while the shared UDMA RX channel stays enabled.
+> - [Medium] Racy irq_disabled handling in prueth_destroy_rxq() and the
+>   prueth_create_rxq() error path.
+> - [Medium] RX drop and error counters can lose updates now that RX runs
+>   in several NAPIs at once.
+> - [Medium] A coalesce setting is not applied to RX flows added later.
+> - [Low] The ethtool channel range does not match what SR1 implements.
+> - [Low] In the SR1 mgm flow setup in emac_ndo_open(), the IRQ check is
+>   wrong for the signed field.
+> - [Low] Leftover field and mixed-in cleanups.
+> - [Low] net: ti: icssg: missing skb_record_rx_queue() in RX packet paths
 
-btrfs_end_repair_bio() has to run for the failed repair bio. It
-decrements repair_count of the original read. Without that, the original
-read never completes and hangs. It also tries the next mirror. Without
-that, the read is not repaired from the other copies.
+This is quite a list of issues. And I would appreciate if you could
+respond to them as requested above. For patch 1/2, the four that look most
+likely to require a respin are:
 
-I tried a dummy end_io with bio_io_error(): the read hung in 3 of 3
-runs, and no repair read went to another mirror after the failure.
+  - [Critical] SR1 data RX path is out of bounds.
+  - [Critical] SR1 management-channel buffers get invalid DMA addresses.
+  - [High] On a running interface, a failed XSK enable/disable leaves the
+    flow half torn down, and the next ndo_stop then hangs or the driver...
+  - [Medium] Multi-flow RX does not work on AM65x SR2 ('ti,am654-icssg-
+    prueth'), which uses NAVSS UDMA rather than PKTDMA, but the driver...
 
-Miroslav
+Patch 2/2 likely needs attention as well, but I have not reviewed it.
+
+-- 
+pw-bot: changes-requested
