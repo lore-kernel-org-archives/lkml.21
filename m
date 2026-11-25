@@ -1,95 +1,104 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.43
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795596416;
-	b=C1OtXE2zOGIvU51evsp1NthIF3YfI4PXpmtxWZMZVC87E0ircVyOMwOQs0g0nit0+cKE
-	 okPZ+dEfYPwQIAgMznV4wURnyovxq+9N9HyLCZmWyMaJ7nIHP8nez+g4I0g6YDty0JyqN
-	 Fu/24SxYkoGfZaKmqkmfzIDPSgsZ+0mIPMvhiVE/V0HWMcr/+7ar9L0qLUX28iizWO9mx
-	 pbgsIV/9wsOXC6qA89P9MkPIbe5DZJhwW8JNWkmDA9X6nhaoOHzg2BV5JT+MCELdafQAB
-	 GN6xIifJezqh67qmpvj6B02gOogZO3Jv0vGm+iHYJQ1ZPjV60g3NzwTwx8sp0WXAYvw==
+	t=1795596437;
+	b=Cy17yrVhvZ5Gn1L6Wqm166PDmGBkJ0c+PYWKvR0aJcTB/b8u71iiQ7EuG9+kcaXCsfUq
+	 fvHnBRoYd6ESuBgLpDT+Zxo/d/C7ll5ysbnhOM1qzyf4mf+cTS9cx/YC2zuNZ2//309iV
+	 +lY6oZe9mjsbuKjtaH9E3E0o4rOREb4o70AuQBXg05hl0gTtRCk0omZEeYedLswzIaAse
+	 tJX/8KtlU5tIDSChX2AhO/huJ7WDRsqIRxiTRBH6XXc6bMgUeUl3f/1Uctedrmfz134/D
+	 CHQd3aTGFXoq53Shv1Gz0CLCWDrcV4KPw4JABU63eyNFO34sU3MxDY4PNMjB8Ui3Ssw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795596416;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795596437;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=gKIID75y2cmNlMXRd1MhTd86fNY6fAdmhSMsDM5aV/Q=;
-	b=XUfN/bhmdFLjvDDTan8C2l5gnjc49b2yHzj6dpT4MldPwfD+qzZ/p9QJJr1dUNZtGPIr
-	 UVTcmbt7xIGmqQCFQN9Qp3fYKmUCCLy1QRPqcy3kDIBFQx7vwG6gPrAPCPADtXqsBFzb7
-	 cnQT34DhUJywsBXb/6+hfkY63lvfhnH/B8H1L97YK941AJMWrBm0Skc8KzS/94Pz0iD9Y
-	 bCjaFuQ6dCug/W9Rba1/24fipWwy6BlJeF0SYU7rR8a7AJEhigJAMRXliwD/oKEo646CS
-	 ebmNzE5dkw2Sj9hzxHi7k7mDuqCbiqkpusA2nxV3im0gabnZxf7V9N8o63/cQ8vVFeA==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=9JczosLg+2tleGLZ5rgCSANI1AUwxWfmCJsgr8HB+Wc=;
+	b=eVuapo49bYdNlpCXPyvC88GA72ojRHLJ9nsLmmp49Y4BHZ7Y+qwx93X+khXWT+dkrAFT
+	 wvvERP3KgPp35eOT8NPjjG3YyyXTugxBT9W27uPz1NjecTtQ92uIecak9CCqeawRqWr41
+	 GwLg6e3rWgAgTE8jOUItoEEs+I42cAkzSs34xAtkcpbhESNO5VCpsmVr6PeeUSuR5eqwq
+	 D9ZhygxJxvds+kwMB1HxmzOMpGWg6XonXR5+mdX2+Hr4tdfP1+tWOmQU6sNVsMSz6i1jv
+	 QQfEY3lvJU+pPot++azwR2yP5FJ33B3blQorAOIAaEk0gVAquoLLqumeiD8C+4PvgqA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fVJgIzVQ;
-	arc=none smtp.remote-ip=209.85.216.43
-Received: from mail-pj1-f43.google.com (mail-pj1-f43.google.com [209.85.216.43])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=K0NlGyfj;
+	arc=none smtp.remote-ip=209.85.128.46
+Received: from mail-wm1-f46.google.com (mail-wm1-f46.google.com [209.85.128.46])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5F588606A326
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:46:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5F588606A326
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 35014606A31E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:47:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 35014606A31E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fVJgIzVQ
-Received: by mail-pj1-f43.google.com with SMTP id 98e67ed59e1d1-3b4ab53a966so491367a91.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 00:46:56 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=K0NlGyfj
+Received: by mail-wm1-f46.google.com with SMTP id 5b1f17b1804b1-4b467581b98so52862875e9.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 00:47:16 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795596416; x=1796201216; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=gKIID75y2cmNlMXRd1MhTd86fNY6fAdmhSMsDM5aV/Q=;
-        b=fVJgIzVQUDo0SHmzV1oXinNoS3IEbtSaCl5C0hhFa6u4okslMXZuRPP1/sE1WiEaSt
-         uGkBZpyVkBMM8TG3tNupmqxvXUF8tBlvl7FmAAd4t7c4tLlgget2lEK+3MnDSNWXpjIM
-         LQiK+VY0JOprNjTxLMQ8HSLhKOACJPdkQOyvYu6tjxedmQgDeIB4szcK+Ks6OFgZILhd
-         tGCllSv8DXP/lEEhUKk6YeHJvvHdIP/y6wYbt5WlwmtGUev3ODHIqUkrFT4fdlSxOCxe
-         SOL0annlCqBUipJwv5paTKlpRq6+K65Z/PV6rXXu4pyBP5LDKlKHOk7YacECCkayebCZ
-         XYxQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795596416; x=1796201216;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20260707; t=1795596435; x=1796201235; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=gKIID75y2cmNlMXRd1MhTd86fNY6fAdmhSMsDM5aV/Q=;
-        b=ygU2sF9XzC55wxNihE5Ty96vitFQPtkNXN7CgWwlm90oN4ofi87E3zpZqJJbzKJX2Z
-         W2iZTdzkX1vEfBhKiFLYp/41vvis++TSPNiAgEBYivopMXIqggjnUK8quYvWtn+FDSXr
-         MQuqtNoa1njWPoNkIGyGFwDBpsKwtTNQjACbJ/DsjuMeSS66nH8IbKBiFLRYwsq/bog1
-         ktfdjVli6ogNDPmPxzFX1dAfE0axqRHzDHPgEQF9C52AuZZ9zqBvoQgcfsbxoJuGdEM3
-         SUtjygcTi2Vay1rDkHJFEhm3E5rqKY+O08apr3J6aFCW/yyMFwsd3mXnJSpTVuVkM6hj
-         c5wA==
-X-Forwarded-Encrypted: i=1; AL+hErHDMIhk4MEM4ClaDUNn5eV7oFtIsSBxKpH8KnbRznWF6Ft94KWklZkMmOAhkVE7lFp+kyY4pPOaSDhbK20=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9cX032gNtptYlBzl/Tvk2BEDjR5bBwHeLm5pGIYeOMKo/3c730
-	EHMBKmSdnc5cNx4yTLyjqhX/Q4GoNHLLc5tF8Ugqj0lXt2HVS7MPkT3d
-X-Gm-Gg: AZFdTZcj9ie7tTq8Ij5jAB118XG5xaU8Chv54WCSQs0CNRMOSR/1VqFu1g0T8yVDhy7
-	q15Qzd+htGOwSipbkQCAXWmNzw/7Zo6ZPYPbuS7fSxFpDMwUb3IeO4cFmWaKP+UvIgDEdWld3ka
-	qRv/e7keiEeOVS0D6ivCPDtI7hdpQGSqGx/6gEmR7jWJYEiQAsX+pIgcPSr6SB69K5kGM/1NHDU
-	8qzbp7chaVYUVTvlR68CDgV4r8pgBoDbpczgl0bDhPQtjR7DuTcSMoCjJmJVexCB0bUz4W7naK7
-	oAihl+Cd4vTbHI0E4rSgpxJ46fnjlV2yxiFiAbDbpdD0zIo8JWsS36iAiUkYpiZTCZ8sEAUsRqJ
-	8lNR33GpDK3raRnXBgjODBWNRAm9S5n7hhemlV71pzA16/gIQZBDUY6QIeqTMM83fEVcFAmUIK+
-	kFK3Z3ACT/GnH+ZetCYMBNGrQqWg3UwtBrh4lC2+zYROWn5j48ll0y+xLzT4QqTNa63/QIDuM49
-	0dltY5u3YRES2pnFueE7pXshb0DQ4L0JAtrhnJY+oLlqDN7J/dSWNri8oqJM2HCBoaadxNttlHs
-	uAMQNd+CkbWlEnLVWOQxIPZK6WbyWC+DcRkPyQX7Z0qnhxHfPkBx5+4=
-X-Received: by 2002:a17:90b:442d:b0:3b0:d0be:f02c with SMTP id 98e67ed59e1d1-3b41c98a095mr26665706a91.6.1795596415710;
-        Wed, 25 Nov 2026 00:46:55 -0800 (PST)
-Received: from mi-ThinkCentre-M760t.mioffice.cn ([43.224.245.234])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405d97356sm28973549a91.13.2026.11.25.00.46.53
+        bh=9JczosLg+2tleGLZ5rgCSANI1AUwxWfmCJsgr8HB+Wc=;
+        b=K0NlGyfjGbdsgVftf6yhorm4vLUo1t9RKlAFZqCeGpWY95ifrSNlBMEvJt8g36o3zA
+         mOSI+K5NZHGiZWPJI82G3yXKlGWnXFHUZsZO8KkXkOKPzsVAHH2KvvX/RKs+THnjzXIf
+         xLj3aDZ88CsVZsaay+0xHYa64btplUhlmmnnjpcV8K4JfHlhCVgWlCbMIwLF7PDQB0N4
+         FwGxsELcIVT0GAKexwXwroYw6u4NItk9jqDiAuKZvpFdMbsAezHIapq7KDvSJp4FCQYp
+         mbkjkTtyVn41YtrPpToJR65tZUNW0Nfp18yN9rqjMq1NVZ5pjCg0ndrsaBmB4oH3hpAn
+         AHFg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795596435; x=1796201235;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=9JczosLg+2tleGLZ5rgCSANI1AUwxWfmCJsgr8HB+Wc=;
+        b=iJPQnADw3oEqKrxCPav6324OnkrOzBi5cQ9AyZeeNlVzPEnWaviD+IsiehZvtt/PcH
+         ma3tADP6K8g5OfbA9g82yVHbgbg5/rogiyRilnkGYSKIIHOOpwyHq0s20RbIgiEjzlL/
+         gGzMLFB5h8Nb3CoRf34U7KWRFv6u4iecKOid9xuG2d/RObLaVLQnGmUMAZ2DzKFih9bv
+         qfPFf1e4rr3S0BaErxvT0kAqQQrYXwDro2YZsW7asRFh9YIWAHVvmZ2Z8S/guPHbJq0/
+         HHVYo7nMr/JSP9/jHO6ENwna8aMUomo+6WL8GA2iRjktLDsoI9d5fIkTjVp8d/3KjrPp
+         jMtA==
+X-Forwarded-Encrypted: i=1; AL+hErF2MqRhGN3lnZQmD5xKZGwwJG/PtVqyqdDvKzvthe/mwdrzG/jGCd7qVhDtGN5DgTPJyD0se/Zntlt9rkk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+e52qA9nAtrKj4g8e/BCtg0aUPRIP3lqlPUDMs5Nl5LqCUIbbc
+	94oLom/7uZNEZ1j/aAAf/PgH1SLCFPCAH9iw8TH2nuMR8wwNJ9Twaz4=
+X-Gm-Gg: AZFdTZcPV5idrE0eXByc/PU7DlHDgAG2n54cl5kXXBLa2sI3KYYrQyYP5xCcX1T2bTH
+	X8sEX43gk591+urR1HSulgeB8A7uxA9H0MLeOcmc5v1N7l15U1U7QY0h+yezq+on4tHyuDXSJjt
+	6/0QWvoW2CriHd48o0Hw/Ka1I+xqqEaF+7kOmbpJlbMq3P9v5KKh2+dK1R7ZSlzeZp5RwDmhPmS
+	6oywhqZ0QWnVpvBkSNmaOalurlJ1v3gBaCsb+qp9h+kg99qL433DmEmSxoe3n5h6an/Bv8A1HP7
+	pwQQ+KKfpSVS0bqeQ3pW55Ed3qYcBC0e/x4G844pPZE/cHGK91Gb4IFKPjk2dwavw3BgJmEo+qR
+	Te8KFLwmyN5wVGTkQ1outAyzWBPJ5/YqgKyffcUG7ENopAADMKFbOdieGxn68KAlZIR8TkPVF6p
+	/O+JVTnvAEiYKvOVeBV39iRMKeyXEFQZDA3vJeXS4e+7N6UUtXQlBrMr/vGBRczTAfcpJkT4QUu
+	IGyhYDNkauI2Rjt9bgsR4l/FruABlYxOU77wSsMeSYQU3FqsdKh1Z6q+YdV2+rWXAvbp5LioMiv
+	gCj8u+RkvFri01FHpG2aa9BAZag0ih4ymqmc0UIU7rjGrp40zSNZgXRA3dFqPZiLg2io
+X-Received: by 2002:a05:600c:6092:b0:4a1:d537:1c8d with SMTP id 5b1f17b1804b1-4bb8892bb67mr320913895e9.19.1795596434483;
+        Wed, 25 Nov 2026 00:47:14 -0800 (PST)
+Received: from book4-arch.fritz.box ([77.39.161.58])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8d4f9aa8sm465183985e9.4.2026.11.25.00.47.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 00:46:55 -0800 (PST)
-From: Wenwu Hou <hwenwur@gmail.com>
-To: rostedt@goodmis.org
-Cc: mhiramat@kernel.org,
-	mathieu.desnoyers@efficios.com,
-	frederic@kernel.org,
-	linux-trace-kernel@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	Wenwu Hou <hwenwur@gmail.com>
-Subject: [PATCH v2] tracing/hwlat: Bind the sampler kthread instead of setting its affinity
-Date: Wed, 25 Nov 2026 16:46:00 +0800
-Message-ID: <20261125084600.2306377-1-hwenwur@gmail.com>
-X-Mailer: git-send-email 2.43.0
+        Wed, 25 Nov 2026 00:47:14 -0800 (PST)
+From: Nicola Nicodemo <nicola084@gmail.com>
+To: opensource@grische.xyz,
+	Amit Kucheria <amitk@kernel.org>,
+	Thara Gopinath <thara.gopinath@gmail.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@kernel.org>
+Cc: Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>,
+	Zhang Rui <rui.zhang@intel.com>,
+	Lukasz Luba <lukasz.luba@arm.com>,
+	Dmitry Baryshkov <lumag@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-pm@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/2] thermal/drivers/qcom/tsens: Drop __init from the ->init callbacks
+Date: Wed, 25 Nov 2026 09:46:11 +0100
+Message-ID: <20261125084611.11437-1-nicola084@gmail.com>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261104145740.2623473-1-opensource@grische.xyz>
+References: <20261104145740.2623473-1-opensource@grische.xyz>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,116 +110,22 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-start_single_kthread() sets the affinity of the kthread it just created
-before waking it up, but kthread_affine_node() overrides that mask on the
-first wake-up. See commit 60ba9c38b931 ("kthread: Comment on the purpose
-and placement of kthread_affine_node() call").
+On this boot path, 7.3 with CONFIG_QCOM_TSENS=m and qcom_tsens in the
+initramfs, Samsung Galaxy Book4 Edge 14" (X1E80100, NP940XMA):
 
-In round-robin mode, move_to_next_cpu() compares save_cpumask against
-current->cpus_ptr, sees the replaced mask, and switches the tracer to
-MODE_NONE on its very first iteration:
+Without the series, the probe is deferred and the retry from
+deferred_probe_work_func jumps into the module's freed .init.text,
+on every boot:
 
-  hwlat_detector: cpumask changed while in round-robin mode,
-  switching to mode none
+  Unable to handle kernel execute from non-executable memory at virtual address ffffc2f2779b4150
+  pc : 0xffffc2f2779b4150
+  lr : tsens_probe+0x170/0x670 [qcom_tsens]
+  Workqueue: events_unbound deferred_probe_work_func
 
-So the tracer no longer migrates across tracing_cpumask. More importantly,
-tracing_cpumask is not honoured at all, and with isolcpus=/nohz_full= the
-thread cannot run on the isolated CPUs it is meant to sample.
+With the series applied (same kernel config, same initramfs), it boots;
+all four controllers probe and every thermal zone reads normally. The
+compatible is qcom,x1e80100-tsens / qcom,tsens-v2, so this exercises
+init_common() via ops_generic_v2, i.e. patch 1; patch 2's callbacks are
+not used on this SoC.
 
-Use kthread_bind_mask() to preserve the initial affinity, including
-isolated CPUs. Clear PF_NO_SETAFFINITY once the single sampler thread
-starts to allow userspace affinity changes and cgroup migration.
-
-The mask is now computed and validated before kthread_create(), which also
-avoids creating a thread when tracing_cpumask has no online CPU in common:
-cpumask_first() returned nr_cpu_ids there and cpumask_set_cpu() then wrote
-past the end of the mask.
-
-Tested on a 4-vCPU KVM guest, bit 0 of the mask is CPU 0:
-
-  mode        mask    before                    after
-  none        0b0101  Cpus_allowed_list: 0-3    0,2
-  round-robin 0b1111  mode -> none, no migrate  migrates 1 2 3 0
-  round-robin 0b0101  mask 0-3, no migrate      migrates 0 2
-  per-cpu     0b0110  2 threads, cpus 1,2      2 threads, cpus 1,2
-
-Fixes: d1a89197589c4 ("kthread: Default affine kthread to its preferred NUMA node")
-Cc: stable@vger.kernel.org
-Signed-off-by: Wenwu Hou <hwenwur@gmail.com>
----
-Changes in v2:
-- Clear PF_NO_SETAFFINITY under current->pi_lock when the single sampler
-  thread starts, preserving userspace affinity changes and cgroup migration.
-  Keep PF_NO_SETAFFINITY set for per-CPU threads.
-- Update the commit message
-
-v1: https://lore.kernel.org/linux-trace-kernel/20261111020755.1422284-1-hwenwur@gmail.com/
-
- kernel/trace/trace_hwlat.c | 33 +++++++++++++++++++++++++--------
- 1 file changed, 25 insertions(+), 8 deletions(-)
-
-diff --git a/kernel/trace/trace_hwlat.c b/kernel/trace/trace_hwlat.c
-index 3fe274b84f1c2..52478ad8030d0 100644
---- a/kernel/trace/trace_hwlat.c
-+++ b/kernel/trace/trace_hwlat.c
-@@ -353,8 +353,21 @@ static void move_to_next_cpu(void)
-  */
- static int kthread_fn(void *data)
- {
-+	unsigned long flags;
- 	u64 interval;
- 
-+	/*
-+	 * kthread_bind_mask() sets PF_NO_SETAFFINITY to keep the initial
-+	 * affinity from being overridden by kthread_affine_node(). Clear it
-+	 * now to allow userspace affinity changes and cgroup migration, but
-+	 * keep per-CPU threads bound to their CPUs.
-+	 */
-+	if (hwlat_data.thread_mode != MODE_PER_CPU) {
-+		raw_spin_lock_irqsave(&current->pi_lock, flags);
-+		current->flags &= ~PF_NO_SETAFFINITY;
-+		raw_spin_unlock_irqrestore(&current->pi_lock, flags);
-+	}
-+
- 	while (!kthread_should_stop()) {
- 
- 		if (hwlat_data.thread_mode == MODE_ROUND_ROBIN)
-@@ -423,15 +436,12 @@ static int start_single_kthread(struct trace_array *tr)
- 	if (kdata->kthread)
- 		goto out_put_cpus;
- 
--	kthread = kthread_create(kthread_fn, NULL, "hwlatd");
--	if (IS_ERR(kthread)) {
--		pr_err(BANNER "could not start sampling thread\n");
--		cpus_read_unlock();
--		return -ENOMEM;
--	}
--
- 	/* Just pick the first CPU on first iteration */
- 	cpumask_and(current_mask, cpu_online_mask, tr->tracing_cpumask);
-+	if (cpumask_empty(current_mask)) {
-+		cpus_read_unlock();
-+		return -EINVAL;
-+	}
- 
- 	if (hwlat_data.thread_mode == MODE_ROUND_ROBIN) {
- 		next_cpu = cpumask_first(current_mask);
-@@ -440,7 +450,14 @@ static int start_single_kthread(struct trace_array *tr)
- 
- 	}
- 
--	set_cpus_allowed_ptr(kthread, current_mask);
-+	kthread = kthread_create(kthread_fn, NULL, "hwlatd");
-+	if (IS_ERR(kthread)) {
-+		pr_err(BANNER "could not start sampling thread\n");
-+		cpus_read_unlock();
-+		return -ENOMEM;
-+	}
-+
-+	kthread_bind_mask(kthread, current_mask);
- 
- 	kdata->kthread = kthread;
- 	wake_up_process(kthread);
--- 
-2.43.0
-
+Tested-by: Nicola Nicodemo <nicola084@gmail.com> # X1E80100, CONFIG_QCOM_TSENS=m
