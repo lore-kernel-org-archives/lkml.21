@@ -1,88 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.231.201
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795649021;
-	b=nuaPm9CRhib5J8XmgZstci8up6u4iZn6wDVEKLdiFY6Oq/15rjojgBd735ylJBOtTIBG
-	 KdphQgrKoaCeBkiY84WPRAmE6YcyHwFWNZ9q2PU8FlEXzAGgW0zi92kRa1GgMydx+09G8
-	 l/Hs5bnpNGO1+AZwOCua2ATXHuZ1t+LltHw7hBDJ69rloVp7Yjk+tO3v9S22MbSzD1b6a
-	 vfpM1LX3cFZFR4M59BphYLH04b18SDaR41rbVUC1ZycLQe11nBrwnDJlTu8pFyd71Tfc7
-	 sRDBqx1TXt7om1PDaC80vGSm3lPHIntKcLT4h4pUMm2gpzIbQsPh0yGzghOm76V9X/w==
+	t=1795649025;
+	b=Mwz2zk0l2wDsI7mm/8OXFWbtUusjpJlMjyVPwtMYuBM64nf5cLnbmsLVq6nFPEdLju62
+	 JO2rSO1nqNL2Yd9wZ1fVXC7PTFOamYezptKCKJv35pJcfAAI4TBVd/m7I4vjuE2cjJ2YO
+	 WLsdcwyRCJyqAFU7J4cbLUMk1itpa1zdLbgN2Q0ds9jRqkre0sRa+807VwoEM9I7nWJOH
+	 HHOiaeNW+liv75c/l8fidtn/xwhz/O9lFOQtA/hle7MVFOjVpDUnXpPblSj6zq9L5HHXq
+	 pSuLWGHRu8h+f3vRJXOBFS/O3NwJHtf/pFzYlkmz6Ys52eVlu0OHhMlssaWV0hilqrQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795649021;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key;
-	bh=RwepV34j5nNPfrfrTOoxO68UcVdQ4nwsTdHGe5ShZEI=;
-	b=oqsnq8E0kR5aBNhNGIQ0Iy59W7YIY7nPcP9JXK9Mm8FLqxOfoqg0YSt6F9ca8Kcrbw0F
-	 HxbL/Ck8fjuVk3MnYmi9/wdCRSYvZeJ+t4lNb4/cel56AcZ8E4mnOyTlRA7OA2phFufjP
-	 hKJFJo/Hw6dNOeZPq1dEgSZu9ZQUtEtCE3UsQViMgre0kJnoXN5G30GSrqYKkOebDeXTx
-	 4wZPW5hfMaa/pPTw/BbWgMGvwk+XWT9NLH5dyofBOvh3wrVka7DBzn781elzmfFbu7W1p
-	 Vdub19j18MnL2XLsFQpDfmAEmV4zGKTLEoluORqdv9JKTi0vad8HYpMJfS7T80v195A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795649025;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=HylcXLYdrbMpv/2aFN44v2Wt/953Ia1OkzX0FGD1774=;
+	b=XRc29Oqcx65uUoOB+6bLss208UqKd3zr8rHmvPDm1Yu32aOK1PLSxyKmUvYmY29IwS4A
+	 S/UicS4ISm/JGdV/qCvPGD7Qcj9hEE2CGyjGhhFNW6EpklfcFRrpG+KlOCwDvWmFXOTn1
+	 urZE1VJV9VZvmfASRsHpFpGpICdoGfoHUO9SHaNmNtHKfWlfNwBtygz6dHKqeuKoRMapV
+	 02rgnBVHsHBpO1WvSCGONlDU2n8sRZLqp08shrA0Qbcr/KW0ygnsCFnLYkFi5hgsntugo
+	 wnjxjUH8FS9iDfI8xpKK912iEPEjiJtQe2wEhzKpLCbIGj5EO+vXvSFNw92qGank+5A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=k4TtAVd0;
-	arc=none smtp.remote-ip=74.125.231.201
-Received: from mail-oi2-f9.google.com (mail-oi2-f9.google.com [74.125.231.201])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m5dZl2dq;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AFE92606A31E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 23:23:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AFE92606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A0396606A31E;
+	Wed, 25 Nov 2026 23:23:45 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=k4TtAVd0
-Received: by mail-oi2-f9.google.com with SMTP id 5614622812f47-57cc80785e0so1403906b6e.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:23:40 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795649020; x=1796253820; darn=vger.kernel.org;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=RwepV34j5nNPfrfrTOoxO68UcVdQ4nwsTdHGe5ShZEI=;
-        b=k4TtAVd0Q5yeT53kuCv2tVlWnh7TyZgeD7vMYoZbEGHgEFe5HK2S7Hl9ez0W15w8ep
-         eCOF/X4FRwK3lEeGPWNf6OE1jFA9Z6tpfG71FHX+++Ckk5ihwMtGuf4z3h4LzDxRgUdB
-         Mh5RbVda0NnYuq188GEAtRtOREIEcUBZ9Z/jvLFE7ame7Lno4ARV2MjM69lUj69NM5Br
-         oxsNe3eYjdFmGEF5uupC+JtWg11BOfqYLk2zqHhobq34DvNUyoyD8oK+/IZjF+ycHGXu
-         qDDo4A+xa2JiEqKsMPambU8FHltgC557iziezI0LIsaviEqu7TG1JuxigEx5GSx2HkVH
-         qriw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795649020; x=1796253820;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=RwepV34j5nNPfrfrTOoxO68UcVdQ4nwsTdHGe5ShZEI=;
-        b=hT7kJHtnSHPbVBpgVx1tRGUuKBw1y09EsilUMVSe5FKk4jwbB6Zh5zVCOg8OKoPktJ
-         8W2Af1ZE15TKy0UNkpw99dNdc7gNqV2Qfdh+AHYvSU7Mgw2j4wmd32pYGWavioB1hDji
-         iqMDQEKMjnnnrJ1Iz4W5aV3yGhJgIjPGTiRBqnlghEjWevdkJDeReuyPe+fqCEGKu5nP
-         3JO+CBSfLrWt22YDVEFEo9slOlZPrrLlsf/u/1zIP34k4/Ecnr47PSqggar35iVjKPWO
-         0zOYjv0n3ZsacbossdoD2w5Hwx5mA8VEpxoLs807No1YCTYuF49iwVL+dXGLAxz6x8mI
-         gBsg==
-X-Forwarded-Encrypted: i=1; AL+hErFdNGR3E2faGSD34P5z/RixXjqFgNBScVbuGoM6TCL25lymZjJ9K/Bl7IUicAiOW7jpOsj8yFreLtJ1gcM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+0+NbzqIV/h7LLtVUH8vBzb4jXL9TSnZHlfKOinHeYM219vJ9u
-	PIOuGmFGoG4au/GVEfx7o+Cbixu1xpWLCxrP4XVKSTd3JN1qVuYlnxo2
-X-Gm-Gg: AZFdTZcJoLoBc+kD5whcZe6uuhSMAWWcbq53TsELM+ZZuaHoYzMaZia1808bk5OUGwW
-	P3QOEQcrSGVyEhK2GgKFCXKHN7E+IVhVBBUISMGFn4gI7h8QIFBxpqDIZnipXVq0FCgtj7uKyQa
-	Ggn3FKlOALJpSr9aOV1q7YEKvbKSNSLMThnVN3ZF4IVtEbMlEdTjoCB7PvI92YJ8fgpWWsyuTu0
-	X5o7190948vqw0H9Pcmh8VM6RO6BycpvzjvZY9c8/nd7AfzNHa81wBbQhwWmqcdnRo8KBGbiLFD
-	rToVM9wKSiY+ApKJNLANQxeObuJcYXzCYLgIK/ZAVuXAhWsbfeiJVR8Xz4zaoyIOMKua7H86Y8z
-	wR2WLfRGf24mzh2/XnFbLtjtP6PXebVcG+yZ96Dn5882cnKuMCW+lab2APOv9+Ljiws7X+6m8D9
-	VZ8n/fKSgc+UrT8hD+Tyso06X0yOsovwkDbreqP97cqY3J0Cm+CQFCK3q86zcS8eqQpbe0WMJOS
-	/PvAF0v/aV3hydJXYiw4Hn8nng3+OZBsHA9NarIq376l2K03peJXQGGHt99tv5CS6jKRR9zQIgW
-	Wqze2KLL2aDGMrOx5uXkoPDUqk68pTYP8ic=
-X-Received: by 2002:a05:6808:c2bd:b0:571:a186:d6a8 with SMTP id 5614622812f47-57a0a20acc0mr18248900b6e.17.1795649019601;
-        Wed, 25 Nov 2026 15:23:39 -0800 (PST)
-Received: from [192.168.0.98] ([50.26.120.197])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-57a35c5ac5dsm15369084b6e.15.2026.11.25.15.23.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 15:23:38 -0800 (PST)
-From: Ryan Brue <ryanbrue.dev@gmail.com>
-Date: Wed, 25 Nov 2026 17:23:22 -0600
-Subject: [PATCH RESEND] power: supply: core: give each supply's epc_sem its
- own lockdep class
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m5dZl2dq
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 822AE1F000C0;
+	Wed, 25 Nov 2026 23:23:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795649025;
+	bh=HylcXLYdrbMpv/2aFN44v2Wt/953Ia1OkzX0FGD1774=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=m5dZl2dqSzBRpFzDU0Pkcuu9rg485DnDUrCc5UIpY/bEhRpd3eKfa+XVoiBc1ml+5
+	 Z5MW1/6ElSqYiDzartJCR/5TqY37JUePR3actN4gEZ7azMjA3PrCTwuvZkSl9AHJkC
+	 uU82Got94V60Rbu2suuBrcBVwzkLudhL6XBo35oUUlIOelRVeZgyXOhgRUSZnGuKIO
+	 5xKdxFYaAiYWgcSDNnWZ132foUfrGcMtI/i78nRFgB3MZmj0zKh2ILa31a9DpIU3U/
+	 BUoC5ZHxyqFwG5zXXuWb59JMXRbrR1ip6dIgwiu0GD41cLjFLPZm6hmrrtFH/gXKyT
+	 P3URUmudfvSpg==
+Date: Wed, 25 Nov 2026 23:23:43 +0000
+From: Yosry Ahmed <yosry@kernel.org>
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: Sean Christopherson <seanjc@google.com>, 
+	Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, 
+	Thomas Gleixner <tglx@linutronix.de>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, linux-perf-users@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, Like Xu <likexu@tencent.com>, Jim Mattson <jmattson@google.com>, 
+	Mingwei Zhang <mizhang@google.com>
+Subject: Re: [PATCH] perf/x86: Don't enforce minimum period for KVM
+ guest-only events
+Message-ID: <awdnFkLVRkAglrXv@google.com>
+References: <20231107183605.409588-1-seanjc@google.com>
+ <20231117103236.GI3818@noisy.programming.kicks-ass.net>
+ <ZWaU3HZURCjms5DM@google.com>
+ <20231129112019.GG30650@noisy.programming.kicks-ass.net>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,126 +64,68 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261125-power-supply-epc-lockdep-key-v1-1-c8a41b8a4470@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAA/33NvQ6CMBRA4Vdp7sw1vRAwMDnI6qCjYajlAg0/b
- VpFCeHdTXB3Psn5VgjsDQcoxAqeZxOMnaAQFAnQnZpaRlNDISCWcUYkE3T2zR7Dy7lhQXYaB6v
- 7mh32vGCsGpkqylOtNUQCnOfGfPb9Ha7lrbycoYoEdCY8rV92daa9/gCS/4GZkDDJH7VUcXJUm
- T61ozLDQdsRqm3bvkglgnzQAAAA
-X-Change-ID: 20261103-power-supply-epc-lockdep-key-2af05a195ccc
-To: Sebastian Reichel <sre@kernel.org>, 
- Sebastian Reichel <sebastian.reichel@collabora.com>, 
- Hang Nan <2122295973@qq.com>
-Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Ryan Brue <ryanbrue.dev@gmail.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795649016; l=4188;
- i=ryanbrue.dev@gmail.com; s=20260906; h=from:subject:message-id;
- bh=aHS9VlhwbSd4ISaj/nw4cXUIJavrqEgLKdMBe+KGpqo=;
- b=FPlfiH8acOc2+ZC4ConFbGPH/aAReeCpfEAjvRtDpj6DPYrQcOW0W3sBWd1/pZUKK69/r6NZ9
- hVTL0a/0vM/AgTCmKrhODIS5imfYu5uImchQTzMtfiT6hPvC/hzWNYw
-X-Developer-Key: i=ryanbrue.dev@gmail.com; a=ed25519;
- pk=KsUvVaP//v/2q+ZBuacc7cLbsyEYn+AD71Sn28oZWKo=
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20231129112019.GG30650@noisy.programming.kicks-ass.net>
 
-Since commit 9f7f7a859451 ("power_supply: serialize property access with
-unregister"), power_supply_get_property() takes the target supply's
-epc_sem for read. Every supply's epc_sem is initialised at the same site,
-so they all share one lockdep class.
+On Wed, Nov 29, 2023 at 12:20:19PM +0100, Peter Zijlstra wrote:
+> On Tue, Nov 28, 2023 at 05:33:16PM -0800, Sean Christopherson wrote:
+> 
+> > If programming a "period" of 1 puts the host at risk in some way, then I agree
+> > that this is unsafe and we need a different solution. 
+> 
+> IIRC if you put in -1 on a Nehalem, you end up with an NMI-storm which
+> wasn't trivial to recover from if at all (it's too long ago and I don't
+> have ancient hardware like that anymore :/)
+> 
+> > But if the worst case
+> > scenario is non-determinstic or odd behavior from the guest's perspective, then
+> > that's the guest's problem (with the caveat that the guest might not have accurate
+> > Family/Model/Stepping data to make informed decisions).
+> 
+> Things like bdm_limit_period() will cause odd behaviour IIRC, it does
+> daft things like generate extra PEBS records on overflow and gives
+> otherwise daft results for PDIR.
+> 
+> glc_limit_period() lacks a useful comment :/
 
-A driver that reads another supply while holding a lock that its
-get_property() callback also takes is then reported as a circular
-dependency, even though the two semaphores belong to different supplies.
-sc27xx_fgu_get_property() does this with data->lock and the charger, and
-a fuel gauge driver in preparation did the same with its charger:
+Sorry for thread necromancy, but it seems like the discussion stopped
+here and I'd like to get this fixed as I am observing the same failures
+that Sean did.
 
-  WARNING: possible circular locking dependency detected
-  kworker/2:1/60 is trying to acquire lock:
-   (mutex_#2){+.+.}-{4:4}, at: mt6397_battery_get_property+0x50/0x23c
-  but task is already holding lock:
-   (&psy->epc_sem){.+.+}-{4:4}, at: power_supply_get_property+0x34/0x80
+Basically, if KVM needs to program period=1 (guest counter is -1), perf
+overwrites it to 2. After 1 event, the guest counter should overflow,
+but the hardware counter doesn't, so there is no PMI. On the other hand,
+KVM relies on the hardware PMIs to signal overflows while perf events
+are counting.
 
-Lockdep then turns itself off for the rest of the boot.
+The overflow is then lost: when KVM pauses the event (e.g. to account
+for an emulated instruction), it folds the perf count into its software
+counter and restarts the event with a new period, so the late hardware
+overflow never comes, and KVM only checks for wraps on its own emulated
+counts.
 
-Register a lockdep key for each supply, so that only a supply's own epc_sem
-is ordered against its own locks.
+Sean's fix makes the problem go away on all CPU platforms, and Peter's
+makes it go away on Skylake+ on Intel (with updated microcode) and all
+AMD platforms. So I am mostly happy with both. It's worth noting that
+the blast radius is smaller with Sean's fix as it only affects guest
+events.
 
-Fixes: 9f7f7a859451 ("power_supply: serialize property access with unregister")
-Signed-off-by: Ryan Brue <ryanbrue.dev@gmail.com>
----
-Since v7.4-rc1 power_supply_get_property() takes the target supply's
-epc_sem, and every supply's epc_sem shares one lockdep class. A driver
-that reads another supply under a lock its own get_property() takes is
-then reported as a circular dependency, and lockdep switches itself off.
+A middle ground would be skipping the left < 2 clamp on exclude_host
+events, but not the x86_pmu_limit_period() callback, which makes the
+problem go away on slightly more CPUs than Peter's patch (I think
+Sandy/Ivy Bridge, and Skylake on older microcode versions). This keeps
+the *_limit_period() subtleties in place.
 
-Tested on an MT8173 tablet (Amazon Fire HD 10, 2017) with PROVE_LOCKING:
-the report came at boot with a fuel gauge that reads its charger under
-its own mutex, and doesn't come with this patch (debug_locks stays 1).
+All three versions seem to make the problem go away on AMD Turin.
 
-This is a resend of the 11-10 patch, now also to Sebastian's Collabora
-address, which I left off the first time. The code is unchanged, and it
-still applies to v7.4-rc4 and to the power-supply for-next branch.
+WDYT?
 
-This patch was developed with the help of an LLM coding assistant.
----
-Changes in RESEND:
-- Added Sebastian's Collabora address; no code change.
-- Link to v1: https://lore.kernel.org/r/20261110-power-supply-epc-lockdep-key-v1-1-39bd0a237a6c@gmail.com
----
- drivers/power/supply/power_supply_core.c | 3 +++
- include/linux/power_supply.h             | 3 +++
- 2 files changed, 6 insertions(+)
+An alternative to all of this is a "fix" on the KVM side where KVM is
+always responsible for signaling all PMC overflows, instead of signaling
+some of them from the PMI code path. KVM would keep track of the guest
+counter value as of the last pause or write, and on PMI it would just
+pause the event, manually check for the counter wrapping, and deliver
+the PMI to the guest.
 
-diff --git a/drivers/power/supply/power_supply_core.c b/drivers/power/supply/power_supply_core.c
-index de15314ef954..76bbe8772143 100644
---- a/drivers/power/supply/power_supply_core.c
-+++ b/drivers/power/supply/power_supply_core.c
-@@ -1662,6 +1662,7 @@ static void power_supply_dev_release(struct device *dev)
- 	struct power_supply *psy = to_power_supply(dev);
- 
- 	dev_dbg(dev, "%s\n", __func__);
-+	lockdep_unregister_key(&psy->epc_key);
- 	kfree(psy);
- }
- 
-@@ -1765,6 +1766,7 @@ __power_supply_register(struct device *parent,
- 	if (!psy)
- 		return ERR_PTR(-ENOMEM);
- 
-+	lockdep_register_key(&psy->epc_key);
- 	dev = &psy->dev;
- 
- 	device_initialize(dev);
-@@ -1810,6 +1812,7 @@ __power_supply_register(struct device *parent,
- 
- 	spin_lock_init(&psy->changed_lock);
- 	init_rwsem(&psy->epc_sem);
-+	lockdep_set_class(&psy->epc_sem, &psy->epc_key);
- 	init_rwsem(&psy->extensions_sem);
- 	INIT_LIST_HEAD(&psy->extensions);
- 
-diff --git a/include/linux/power_supply.h b/include/linux/power_supply.h
-index cce61137aef4..3cfe2520862e 100644
---- a/include/linux/power_supply.h
-+++ b/include/linux/power_supply.h
-@@ -371,8 +371,11 @@ struct power_supply {
- 	 * the callback is still using it.
- 	 * Must not be shared with extensions_sem: callbacks may read their own
- 	 * properties, which takes that one for read.
-+	 * Each supply has its own lockdep class: a driver may read another
-+	 * supply's properties while holding a lock its own callbacks take.
- 	 */
- 	struct rw_semaphore epc_sem;
-+	struct lock_class_key epc_key;
- 	struct rw_semaphore extensions_sem; /* protects "extensions" */
- 	struct list_head extensions;
- #ifdef CONFIG_THERMAL
-
----
-base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
-change-id: 20261103-power-supply-epc-lockdep-key-2af05a195ccc
-
-Best regards,
--- 
-Ryan Brue <ryanbrue.dev@gmail.com>
-
+This would obviously be a more complex change.
