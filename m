@@ -1,50 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.2
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=124.126.103.232
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795577150;
-	b=Jm0y+9bfB0d0+cIO+0Un2nb8QpbGLO/vvONjo99al1cIN3UWVmzhODUi4BVKqtPvy8ok
-	 d2kOKRN4DvLYcJPb89sDZShHeaSdCsGysOVf8DNoK+jYCi+AB1nfNpIXSXMXU6B3fydx9
-	 eiSAqyXQpTdHQV2dp+XqQa0ApgFH1f3TiJT9pjgQWlCTHvPbrDUSRez/ah/bR0D6gc+7g
-	 DpjloEjDtK0gsuYfDibTpAu25ZLy2mqu0s6Z50mW7bvFnskWNx6epYx4GyGoki2s8b8/P
-	 oE+RgJTDb8Ktes4s721lPcGJkWzuR9iiGPLBwdOwxUExGZpiOaCI1a4QaM81fOfqINw==
+	t=1795577186;
+	b=c1XOxCPZdc6CqYA6wT9f1RhJlD5xphmJ77N6SRU193g4FzT2mNJ4jVZhQZ7PBElSPb0Z
+	 lL8wNIupNSG39yOZAsrCFCdnTV4nrebitCs8RRpqqFpPOmri+HIL6Gr6UmI94OIR8Hgk1
+	 RyrGhisE29rEp91Igksj05OzC9mO7bel0Al1QA5rLccGKMjtwQ5pR7LFC6a3BjPbmVtfY
+	 X/o8oTl9DXrXteQ4aVvNKcmwjqnzQYFTeyJ/dn6agfcHX6UjbPBp7QniA9qPMsrbZjszT
+	 hP5+nVGFSObXO3Did9JISUuk7RWyfchlVJJ7CP7Pc7qy7yMnJbGvGmCNgzGk5SWOzdw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795577150;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-CM-TRANSID:
-	 X-Coremail-Antispam:X-Originating-IP:X-CM-SenderInfo;
-	bh=tC8xcrm3ejU9CdNZ6nVE0qye16pWf3mz7U1WG3ag+Sw=;
-	b=V88DmsRXhJXLktRLDp63ZvVEFYzWWQfNZiTnB+9EsqGD/wvQNoTvx3iKpinz1FKUctUu
-	 f0nIAdjWGUg1gPl4iEWhGwfBTM1v69qkcxvwyJPQ/E7pzMjtd26uJAy3WUK76Oz9B3BfK
-	 JoE9WMsdcs/X0ZapvsK4LNCVRav0dwZADHP+7eGMrP/KenjZtbeXPcex0HIo10GhBD4zx
-	 H9OmtysZLcpaRUmQzgQH+/3QpgqIaoh4mklgZ3AeIIMteETg1vaerm93fMDYLuzwnncW2
-	 Y5HPy8U+mfN0wlxhQ04jfO60cIynH3V80Aax2HvQYqCxngi4QatCxs3U8yqGnx5BfrQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795577186;
+	h=DMARC-Filter:X-UUID:X-CTIC-Tags:X-CID-P-RULE:X-CID-O-INFO:X-CID-INFO:
+	 X-CID-META:X-CID-BVR:X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:X-User:
+	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
+	 References:MIME-Version:Content-Transfer-Encoding;
+	bh=XCGjfp5dgoiI6yIH13ma0+Hno0mR7CNbFKfLr5y4Y5U=;
+	b=R7nQPfy4uL/gVROICHJhbNYGX+EWzCCn5MxP8CVSxco2bRTItKK1zPM4tPJoBL73N2nZ
+	 YDjk9hOMMxw0RiFfTGlUGuzedgAVHQ+kZLU184jX5NaoGwDLJVChCmii7ODGT9hG9qbj1
+	 aByJNx2vL21k3UDKHOgcwEt7+7fLPJ3OcagEjdLB6EeXx8Qcr7irFjGmU9HRfoo6F1Woz
+	 wl6oiINT4n5mSPjuyhrQIRokTIee/g4X4Z4LZ1KKSBYA4NdRHErcYNUJ+bEPYJaWZqi8o
+	 6MzocNQBIteG3HyT+hGo02knIpAlQTMlab2EAcgrF/GEDjboq7czu7I1ry++Lc5Y8lQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=163.com;
-	spf=pass smtp.mailfrom=163.com;
-	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=EgOIVQK0;
-	arc=none smtp.remote-ip=117.135.210.2
-Received: from m16.mail.163.com (m16.mail.163.com [117.135.210.2])
+	dmarc=none header.from=kylinos.cn;
+	spf=pass smtp.mailfrom=kylinos.cn;
+	arc=none smtp.remote-ip=124.126.103.232
+Received: from mailgw.kylinos.cn (mailgw.kylinos.cn [124.126.103.232])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BA9C7606A327;
-	Wed, 25 Nov 2026 03:25:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BA9C7606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=EgOIVQK0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Message-ID:Date:MIME-Version:Subject:To:From:
-	Content-Type; bh=tC8xcrm3ejU9CdNZ6nVE0qye16pWf3mz7U1WG3ag+Sw=;
-	b=EgOIVQK0kNJ5jP4udtd3YF5sKBHfXysrDkywMAStCn66xtE/s/XcYNXKgZp7CD
-	3ca1bJG669qGtYCBHoVRRPlIdr1sdD6H47yBroVP4NuEdznCSnUYK9napvUgb7I2
-	0gIUh0cjqLPkbfqzLCivvBopunbw1WVLD7Wr27KDo50DI=
-Received: from [IPV6:2409:8900:1a90:8163:30cc:9d3c:47b5:d01f] (unknown [])
-	by gzga-smtp-mtada-g0-2 (Coremail) with SMTP id _____wDXXywVVQZr+f9OKA--.44825S2;
-	Wed, 25 Nov 2026 11:25:10 +0800 (CST)
-Message-ID: <4c9826bf-a0c1-4d6b-9b6b-a2e2bc88a8ce@163.com>
-Date: Wed, 25 Nov 2026 11:25:09 +0800
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3BBFA606A31E;
+	Wed, 25 Nov 2026 03:26:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3BBFA606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kylinos.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kylinos.cn
+X-UUID: f45bf95ae87f11f19a56ed5b684f684d-20261125
+X-CTIC-Tags:
+	HR_CC_COUNT, HR_CC_DOMAIN_COUNT, HR_CC_NAME, HR_CC_NO_NAME, HR_CTE_8B
+	HR_CTT_MISS, HR_DATE_H, HR_DATE_WKD, HR_DATE_ZONE, HR_FROM_NAME
+	HR_SJ_DIGIT_LEN, HR_SJ_LANG, HR_SJ_LEN, HR_SJ_LETTER, HR_SJ_NOR_SYM
+	HR_SJ_PHRASE, HR_SJ_PHRASE_LEN, HR_SJ_WS, HR_TO_COUNT, HR_TO_DOMAIN_COUNT
+	HR_TO_NAME, SA_EXISTED, SN_EXISTED, SPF_NOPASS, DKIM_NOPASS
+	DMARC_NOPASS, CIE_BAD, CIE_GOOD, CIE_GOOD_SPF, GTI_FG_BS
+	GTI_RG_INFO, GTI_C_BU, AMN_GOOD, ABX_MISS_RDNS
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.19,REQID:29fe9cba-aa1a-4729-a214-0851c6e1aa28,IP:10,
+	URL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:10
+X-CID-INFO: VERSION:1.3.19,REQID:29fe9cba-aa1a-4729-a214-0851c6e1aa28,IP:10,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:10
+X-CID-META: VersionHash:7db8b62,CLOUDID:a612ab6a869d8df162672369fd20a6c7,BulkI
+	D:2611251126129DDO4PJL,BulkQuantity:0,SF:17|19|38|66|78|81|82|102|127|153|
+	850|865|898|915,TC:nil,Content:0|15|50|99,EDM:-3,IP:-2,URL:0,File:nil,RT:n
+	il,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0
+	,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,1,J
+X-CID-FACTOR: TF_CID_SPAM_FAS,TF_CID_SPAM_FSD,TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: f45bf95ae87f11f19a56ed5b684f684d-20261125
+X-User: maguicai@kylinos.cn
+Received: from localhost.localdomain [(36.106.123.207)] by mailgw.kylinos.cn
+	(envelope-from <maguicai@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 1171750551; Wed, 25 Nov 2026 11:26:08 +0800
+From: Guicai Ma <maguicai@kylinos.cn>
+To: David Howells <dhowells@redhat.com>,
+	Jarkko Sakkinen <jarkko@kernel.org>
+Cc: Paul Moore <paul@paul-moore.com>,
+	James Morris <jmorris@namei.org>,
+	"Serge E . Hallyn" <serge@hallyn.com>,
+	keyrings@vger.kernel.org,
+	linux-security-module@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Guicai Ma <maguicai@kylinos.cn>
+Subject: [PATCH v3] KEYS: Protect key instantiation and rejection against type removal
+Date: Tue, 24 Nov 2026 22:26:05 -0500
+Message-ID: <20261125032605.1327954-1-maguicai@kylinos.cn>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261124091243.1019217-1-maguicai@kylinos.cn>
+References: <20261124091243.1019217-1-maguicai@kylinos.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -54,153 +87,285 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9] ntfs: trim the sizes after a short write
-To: Ernest Borowski <ernest.borowski.git@proton.me>
-Cc: Zhan Xusheng <zhanxusheng1024@gmail.com>, linkinjeon@kernel.org,
- hyc.lee@gmail.com, ntfs@lists.linux.dev, linux-kernel@vger.kernel.org,
- zhanxusheng@xiaomi.com, stable@vger.kernel.org
-References: <20261124025932.2360848-1-zhanxusheng1024@gmail.com>
- <1b7886b3-0529-46b8-bed8-56d31d7305f5@163.com>
- <179552385440.2421003.16146153406926819876.b4-reply@b4>
-Content-Language: en-US
-From: liubaolin <liubaolin12138@163.com>
-In-Reply-To: <179552385440.2421003.16146153406926819876.b4-reply@b4>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:_____wDXXywVVQZr+f9OKA--.44825S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWxKw1xJr1kKrWDur1kCFWxZwb_yoW7XrWrpF
-	9I9F9IkFs2yr4xGrn7Ka1UXa1F9rZ8JrW3JFyUWa1UZr9xCwn2vF17KFWY9FW0y392q3y5
-	JF4vv3ykAryDZrJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UhFxUUUUUU=
-X-CM-SenderInfo: xolxutxrol0iasrtmqqrwthudrp/xtbC6ha2gWsGVRY3HwAA3N
 
+key_instantiate_and_link() and key_reject_and_link() access key->type
+and link keys without synchronizing against unregister_key_type(). If
+the type is removed while a key is under construction, GC retypes it to
+key_type_dead (where ->instantiate is NULL) or links a dead key before
+pass 3 rewrites key->type.
 
+key->sem cannot be used here because it inverts lock order against
+encrypted_instantiate() and references a freed lockdep class after a
+modular type unloads, while callers may already hold key_types_sem and
+->preparse() or ->instantiate() may sleep. Guard both paths with
+key_type_srcu and a KEY_FLAG_DEAD check, and wait for in-flight calls
+with synchronize_srcu(&key_type_srcu) at the end of GC pass 1.
 
-在 2026/11/24 20:37, Ernest Borowski 写道:
-> Hi Baolin, Xusheng,
-> 
-> On Tue, Nov 24, 2026 at 05:10:32PM +0800, liubaolin wrote:
->> Could an async direct write still miss this cleanup if it fails after
->> submitting some BIOs?
-> 
-> Yes.  I tested a 6 MiB O_DIRECT write at offset 0 into a file with
-> 6 MiB reserved by FALLOC_FL_KEEP_SIZE (volume free space filled with
-> 0xee, source buffer unmapped after 4 MiB).  Through io_submit(), the
-> write fails with -EFAULT, the file stays at 6 MiB, and the last 2 MiB
-> read back as 0xee, even after a remount.  The same write through
-> pwritev() returns -EFAULT to ntfs_file_write_iter(), where the rollback
-> that predates v9 resets the size to 0.
-> 
->> Would using IOMAP_DIO_FORCE_WAIT for writes that advance
->> initialized_size let us handle this through the existing rollback?
-> 
-> Yes.  With the forced wait, the async write reaches the rollback and
-> behaves like the sync one.  ext4 also waits for extending direct writes
-> and fails non-blocking ones (IOCB_NOWAIT, e.g. from io_uring) with
-> -EAGAIN before changing anything, so the caller retries them in
-> blocking mode.  ntfs needs the same -EAGAIN return so that the forced
-> wait does not block an io_uring submitter.  Resident attributes need it
-> too, since the write makes them non-resident first.  On top of v9:
-> 
-> diff --git a/fs/ntfs/file.c b/fs/ntfs/file.c
-> index f3bdc54595..86297a1633 100644
-> --- a/fs/ntfs/file.c
-> +++ b/fs/ntfs/file.c
-> @@ -762,12 +762,13 @@ static const struct iomap_dio_ops ntfs_write_dio_ops = {
->   	.end_io			= ntfs_file_write_dio_end_io,
->   };
->   
-> -static ssize_t ntfs_dio_write_iter(struct kiocb *iocb, struct iov_iter *from)
-> +static ssize_t ntfs_dio_write_iter(struct kiocb *iocb, struct iov_iter *from,
-> +				   unsigned int dio_flags)
->   {
->   	ssize_t ret;
->   
->   	ret = iomap_dio_rw(iocb, from, ntfs_dio_iomap_next,
-> -			&ntfs_write_dio_ops, 0, NULL, 0);
-> +			&ntfs_write_dio_ops, dio_flags, NULL, 0);
->   	if (ret == -ENOTBLK)
->   		ret = 0;
->   	else if (ret < 0)
-> @@ -955,6 +956,21 @@ ssize_t ntfs_file_write_iter(struct kiocb *iocb, struct iov_iter *from)
->   	if (ret <= 0)
->   		goto out_lock;
->   
-> +	/*
-> +	 * A direct write that moves the initialized size waits for its I/O
-> +	 * (see ntfs_dio_write_iter() below), which a non-blocking one must
-> +	 * not do, and a resident attribute is written through the page cache
-> +	 * or made non-resident first.  Have the caller retry such a write
-> +	 * blocking before anything is changed, as ext4 does for extending
-> +	 * direct writes.
-> +	 */
-> +	if (iocb->ki_flags & IOCB_NOWAIT && iocb->ki_flags & IOCB_DIRECT &&
-> +	    (!NInoNonResident(ni) ||
-> +	     iocb->ki_pos + ret > ni->initialized_size)) {
-> +		ret = -EAGAIN;
-> +		goto out_lock;
-> +	}
-> +
->   	err = ntfs_file_modified(iocb);
->   	if (err) {
->   		ret = err;
-> @@ -1001,8 +1017,17 @@ ssize_t ntfs_file_write_iter(struct kiocb *iocb, struct iov_iter *from)
->   		goto out;
->   	}
->   
-> +	/*
-> +	 * The sizes were moved to end before the I/O, and only the rollback
-> +	 * at out: takes them back if the write fails.  An asynchronous write
-> +	 * returns -EIOCBQUEUED once it has submitted bios and reports a later
-> +	 * failure, such as a fault on its source or an I/O error, only on
-> +	 * completion, which would skip the rollback.  Wait for such a write
-> +	 * to complete.
-> +	 */
->   	if (NInoNonResident(ni) && iocb->ki_flags & IOCB_DIRECT)
-> -		ret = ntfs_dio_write_iter(iocb, from);
-> +		ret = ntfs_dio_write_iter(iocb, from, end > old_init_size ?
-> +					  IOMAP_DIO_FORCE_WAIT : 0);
->   	else
->   		ret = iomap_file_buffered_write(iocb, from, ntfs_write_iomap_next,
->   				&ntfs_iomap_folio_ops, NULL);
-> 
-> Results on ntfs-next f674e4b6c315 with 512 B, 4 KiB, 16 KiB and 64 KiB
-> clusters, on Ubuntu 26.04 and Arch Linux.  The async and sync cases
-> write three files per cluster size; the RWF_NOWAIT case is a fully
-> mapped 4 MiB pwritev2() into a zero-size file, either reserved or new
-> and empty ("-": not run):
-> 
->                                          ntfs-next  + v9      + v9 + diff
->    async write, old data readable        24 of 24   24 of 24  0 of 24
->    sync write, old data readable         0 of 24    0 of 24   0 of 24
->    RWF_NOWAIT, reserved file, -EAGAIN    -          0 of 8    8 of 8
->    RWF_NOWAIT, new empty file, -EAGAIN   -          0 of 8    8 of 8
->    killed_write_mmap                     FAIL       pass      pass
->    short_write_size                      FAIL       pass      pass
->    keep_size_short_write                 FAIL       pass      pass
->    killed_short_write                    pass       pass      pass
-> 
->    ntfs-next:              https://github.com/xerrni/linux-ntfs/actions/runs/45384651132
->    ntfs-next + v9:         https://github.com/xerrni/linux-ntfs/actions/runs/45387762427
->    ntfs-next + v9 + diff:  https://github.com/xerrni/linux-ntfs/actions/runs/45387767567
-> 
-> The test is tests/aio_dio_partial.sh (with tests/aio_dio_partial.c) and
-> the diff is patches/v9-dio-force-wait.diff in
-> https://github.com/xerrni/linux-ntfs.
-> 
-> The bug predates v9, but the fix is small and only extends this
-> patch's rollback to async writes, so I think it belongs in this patch
-> rather than in a follow-up.  Xusheng, could you fold it into v10?  My
-> Co-developed-by and Signed-off-by on v9 cover it too.
-> 
-> Thanks,
-> Ernest
+Fixes: 0c061b5707ab ("KEYS: Correctly destroy key payloads when their keytype is removed")
+Cc: stable@vger.kernel.org
+Signed-off-by: Guicai Ma <maguicai@kylinos.cn>
+---
+v3:
+- Shorten the commit message and focus on why SRCU is used.
+- Change Fixes tag to 0c061b5707ab.
+- No code changes.
 
-Hi Ernest,
-   Thanks for reproducing this and for the fix and thorough testing.
-   I agree that folding this into v10 makes sense.
+v2:
+- Switch from key->sem to key_type_srcu and check KEY_FLAG_DEAD in
+  key_instantiate_and_link() and key_reject_and_link().
 
-Thanks,
-Baolin
+ security/keys/gc.c       |  13 +++++
+ security/keys/internal.h |   2 +
+ security/keys/key.c      | 108 +++++++++++++++++++++++++++++----------
+ 3 files changed, 95 insertions(+), 28 deletions(-)
+
+diff --git a/security/keys/gc.c b/security/keys/gc.c
+index eda445f815d4..61cb2b9a7aaf 100644
+--- a/security/keys/gc.c
++++ b/security/keys/gc.c
+@@ -35,6 +35,8 @@ static unsigned long key_gc_flags;
+ #define KEY_GC_REAP_KEYTYPE	1	/* A keytype is being unregistered */
+ #define KEY_GC_REAPING_KEYTYPE	2	/* Cleared when keytype reaped */
+ 
++DEFINE_SRCU(key_type_srcu);
++
+ 
+ /*
+  * Any key whose type gets unregistered will be re-typed to this if it can't be
+@@ -286,6 +288,17 @@ static void key_garbage_collector(struct work_struct *work)
+ 		key_schedule_gc(new_timer);
+ 	}
+ 
++	if (unlikely((gc_state & KEY_GC_REAPING_DEAD_1) &&
++		     (gc_state & KEY_GC_FOUND_DEAD_KEY))) {
++		/* Wait for any in-flight key_instantiate_and_link() or
++		 * key_reject_and_link() calls that did not observe
++		 * KEY_FLAG_DEAD before pass 2 unlinks dead keys from keyrings
++		 * and pass 3 retypes them to key_type_dead.
++		 */
++		kdebug("gc dead type sync");
++		synchronize_srcu(&key_type_srcu);
++	}
++
+ 	if (unlikely(gc_state & KEY_GC_REAPING_DEAD_2) ||
+ 	    !list_empty(&graveyard)) {
+ 		/* Make sure that all pending keyring payload destructions are
+diff --git a/security/keys/internal.h b/security/keys/internal.h
+index b7b622bc36a1..73d71de274c2 100644
+--- a/security/keys/internal.h
++++ b/security/keys/internal.h
+@@ -19,6 +19,7 @@
+ #include <linux/compat.h>
+ #include <linux/mm.h>
+ #include <linux/vmalloc.h>
++#include <linux/srcu.h>
+ 
+ struct iovec;
+ 
+@@ -86,6 +87,7 @@ extern struct kmem_cache *key_jar;
+ extern struct rb_root key_serial_tree;
+ extern spinlock_t key_serial_lock;
+ extern struct mutex key_construction_mutex;
++extern struct srcu_struct key_type_srcu;
+ extern wait_queue_head_t request_key_conswq;
+ 
+ extern void key_set_index_key(struct keyring_index_key *index_key);
+diff --git a/security/keys/key.c b/security/keys/key.c
+index 3f1f0fc13710..d923ddf457e9 100644
+--- a/security/keys/key.c
++++ b/security/keys/key.c
+@@ -422,9 +422,10 @@ static void mark_key_instantiated(struct key *key, int reject_error)
+ 
+ /*
+  * Instantiate a key and link it into the target keyring atomically.  Must be
+- * called with the target keyring's semaphore writelocked.  The target key's
+- * semaphore need not be locked as instantiation is serialised by
+- * key_construction_mutex.
++ * called with the target keyring's semaphore writelocked.  The caller must
++ * hold key_type_srcu (after checking !KEY_FLAG_DEAD) or key_types_sem for
++ * reading via key_type_lookup(), so the type cannot be retyped to
++ * key_type_dead or its module unloaded while its methods run.
+  */
+ static int __key_instantiate_and_link(struct key *key,
+ 				      struct key_preparsed_payload *prep,
+@@ -496,7 +497,9 @@ static int __key_instantiate_and_link(struct key *key,
+  *
+  * If successful, 0 is returned, the authorisation token is revoked and anyone
+  * waiting for the key is woken up.  If the key was already instantiated,
+- * -EBUSY will be returned.
++ * -EBUSY will be returned.  If the key's type has been removed, -EKEYREVOKED
++ * will be returned.  If the key type does not provide an instantiate method,
++ * -EOPNOTSUPP will be returned.
+  */
+ int key_instantiate_and_link(struct key *key,
+ 			     const void *data,
+@@ -506,7 +509,28 @@ int key_instantiate_and_link(struct key *key,
+ {
+ 	struct key_preparsed_payload prep;
+ 	struct assoc_array_edit *edit = NULL;
+-	int ret;
++	int ret, srcu_idx;
++
++	/*
++	 * A reference on the key does not pin the module that provides its
++	 * type.  Hold key_type_srcu across every use of key->type
++	 * (def_datalen, preparse, restrict_link->check, instantiate and
++	 * free_preparse) and across linking into @keyring.  Pass 1 of
++	 * key_garbage_collector() sets KEY_FLAG_DEAD and waits for
++	 * synchronize_srcu(&key_type_srcu) before pass 2 unlinks dead keys
++	 * and pass 3 retypes them to key_type_dead.
++	 */
++	srcu_idx = srcu_read_lock(&key_type_srcu);
++
++	if (test_bit(KEY_FLAG_DEAD, &key->flags)) {
++		ret = -EKEYREVOKED;
++		goto out;
++	}
++
++	if (!key->type->instantiate) {
++		ret = -EOPNOTSUPP;
++		goto out;
++	}
+ 
+ 	memset(&prep, 0, sizeof(prep));
+ 	prep.orig_description = key->description;
+@@ -517,17 +541,17 @@ int key_instantiate_and_link(struct key *key,
+ 	if (key->type->preparse) {
+ 		ret = key->type->preparse(&prep);
+ 		if (ret < 0)
+-			goto error;
++			goto out_free_preparse;
+ 	}
+ 
+ 	if (keyring) {
+ 		ret = __key_link_lock(keyring, &key->index_key);
+ 		if (ret < 0)
+-			goto error;
++			goto out_free_preparse;
+ 
+ 		ret = __key_link_begin(keyring, &key->index_key, &edit);
+ 		if (ret < 0)
+-			goto error_link_end;
++			goto out_link_end;
+ 
+ 		if (keyring->restrict_link && keyring->restrict_link->check) {
+ 			struct key_restriction *keyres = keyring->restrict_link;
+@@ -535,19 +559,22 @@ int key_instantiate_and_link(struct key *key,
+ 			ret = keyres->check(keyring, key->type, &prep.payload,
+ 					    keyres->key);
+ 			if (ret < 0)
+-				goto error_link_end;
++				goto out_link_end;
+ 		}
+ 	}
+ 
+ 	ret = __key_instantiate_and_link(key, &prep, keyring, authkey, &edit);
+ 
+-error_link_end:
++out_link_end:
+ 	if (keyring)
+ 		__key_link_end(keyring, &key->index_key, edit);
+ 
+-error:
++out_free_preparse:
+ 	if (key->type->preparse)
+ 		key->type->free_preparse(&prep);
++
++out:
++	srcu_read_unlock(&key_type_srcu, srcu_idx);
+ 	return ret;
+ }
+ 
+@@ -581,7 +608,8 @@ int key_reject_and_link(struct key *key,
+ 			struct key *authkey)
+ {
+ 	struct assoc_array_edit *edit = NULL;
+-	int ret, awaken, link_ret = 0;
++	int ret, awaken, link_ret = 0, srcu_idx;
++	bool dead;
+ 
+ 	key_check(key);
+ 	key_check(keyring);
+@@ -589,22 +617,42 @@ int key_reject_and_link(struct key *key,
+ 	awaken = 0;
+ 	ret = -EBUSY;
+ 
++	/*
++	 * Hold key_type_srcu across linking into @keyring and
++	 * key_set_expiry() (which reads key->type->flags).  If the key is
++	 * already marked dead, skip linking and expiry but still complete
++	 * negative instantiation so waiters are woken and @authkey is
++	 * invalidated.
++	 */
++	srcu_idx = srcu_read_lock(&key_type_srcu);
++	dead = test_bit(KEY_FLAG_DEAD, &key->flags);
++
+ 	if (keyring) {
+-		link_ret = __key_link_lock(keyring, &key->index_key);
+-		if (link_ret == 0) {
+-			/*
+-			 * Check the restriction under the keyring semaphore.
+-			 * keyring_restrict() installs it while holding the
+-			 * semaphore, so testing it beforehand races with a
+-			 * concurrent restriction install.
+-			 */
+-			if (keyring->restrict_link) {
+-				__key_link_end(keyring, &key->index_key, edit);
+-				return -EPERM;
++		if (dead) {
++			link_ret = -EKEYREVOKED;
++		} else {
++			link_ret = __key_link_lock(keyring, &key->index_key);
++			if (link_ret == 0) {
++				/*
++				 * Check the restriction under the keyring
++				 * semaphore. keyring_restrict() installs it
++				 * while holding the semaphore, so testing it
++				 * beforehand races with a concurrent
++				 * restriction install.
++				 */
++				if (keyring->restrict_link) {
++					__key_link_end(keyring, &key->index_key,
++						       edit);
++					ret = -EPERM;
++					goto out;
++				}
++				link_ret = __key_link_begin(keyring,
++							    &key->index_key,
++							    &edit);
++				if (link_ret < 0)
++					__key_link_end(keyring, &key->index_key,
++						       edit);
+ 			}
+-			link_ret = __key_link_begin(keyring, &key->index_key, &edit);
+-			if (link_ret < 0)
+-				__key_link_end(keyring, &key->index_key, edit);
+ 		}
+ 	}
+ 
+@@ -616,7 +664,8 @@ int key_reject_and_link(struct key *key,
+ 		atomic_inc(&key->user->nikeys);
+ 		mark_key_instantiated(key, -error);
+ 		notify_key(key, NOTIFY_KEY_INSTANTIATED, -error);
+-		key_set_expiry(key, ktime_get_real_seconds() + timeout);
++		if (!dead)
++			key_set_expiry(key, ktime_get_real_seconds() + timeout);
+ 
+ 		if (test_and_clear_bit(KEY_FLAG_USER_CONSTRUCT, &key->flags))
+ 			awaken = 1;
+@@ -641,7 +690,10 @@ int key_reject_and_link(struct key *key,
+ 	if (awaken)
+ 		wake_up_bit(&key->flags, KEY_FLAG_USER_CONSTRUCT);
+ 
+-	return ret == 0 ? link_ret : ret;
++	ret = ret == 0 ? link_ret : ret;
++out:
++	srcu_read_unlock(&key_type_srcu, srcu_idx);
++	return ret;
+ }
+ EXPORT_SYMBOL(key_reject_and_link);
+ 
+-- 
+2.47.3
 
