@@ -1,47 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.48
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795604164;
-	b=t3QDuzGQCI8z/SVx6a788IwN/KoxUl/BZcdgcvm06Cquy1HoYyhPSlH0P2gsXn+hEcba
-	 oaBGEI0u7YkKxCX0l+Fs/ITfaklnSJHBaNMn6Ps57N0zGqOBwTJq5FLpeh3wRI6WdV4Rr
-	 FLCjPiUS5KqwFcBaSV5yVnSYLWLFu3+LaXdxSNS79xrY4qiGowgd3dm0VyKZ/KQPd3mLe
-	 xqyZo52fvmUNCPKmzUdPEnbFsMEk636kpIuESJNgnrdmh0DmOqIfyrqdYJfLfWSfav583
-	 2irx/17CiR+oT1QuJ2dzuo0oBJ6wRc0nQs821SuzUrclPRxEtjYMUg+0ymnJAHjSwgQ==
+	t=1795604186;
+	b=M6rZkowOQrkJ3UdGeU8dJ/XMZODKCfQZ3rtLPWZN9FhXV16K+B98uuDxNy5tC6z2jGcF
+	 NO81zUttv4zFxeNIgk+g/2t8fVrAVk4iTgDZ/CCFf+i3RGIG61FI4tyEOYw5XoetmtcbE
+	 dD+TAFW5fDeHGKGLrF6TqhmDsq/3VcKunMEWGYry83gQCYKx8JHBZUQtmBYBDv8n+5S/i
+	 wdWVO64pKcq2sNQOjZgjXC88hsbRWXZZbHGRrf/SibQt9jRnzV6WAcSXyGVySwu3BDAPh
+	 2Q46/4T80RFkRJ6UVDYcwxowmjfQWyqYGIDyVuFAoqoqa3Evd9/9rZwXdE0SnG0gYJg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795604164;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:References:From:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=uk1PPG/FDoyL9b6Au2Lqg1OrW2czFnedhEgtVD2BHEI=;
-	b=LX/a25xLUbZMx+9rfFn3zR+dJUSdmE1T7S3iMl9NipcOL3K8BgThzyriZ2UR61r4O5pK
-	 nTmvPLNGOZpcsKZIr7DNLUAknAXbTrbu+IWO9wG0Ix3zWCA1GJfLIlfYT1QGxyy/dMByb
-	 YsbhYQIkgn0ufUEWrC61CGR9wEYnIwILGYXd+nAlVDM4SXRMKnFL4eUyRQOn+mW2G4dcP
-	 0K2Jolep18pBXiyLVX2m97HxRhznZZSSag7kUSaGm1AsKbpOnTqw7z6BIIH1JIoyAg9TM
-	 gWtSQGdX6+lBATsOspMyL/AT08/x6Tz0qyVALhbDgz1DWf7vtuLxYYdPrCw3X1RE57A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795604186;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=FJOKwoI4nZDDgERDFtfVbeF2wwjtESDm04yE6n76iXo=;
+	b=NP3Yv6BzkyGCPfm+6nLv869cqNpeyDEYu86q0euQOq+AndjsqJvNIM8zAJ9Rhhxq27Sx
+	 3ZvhE5r7fekz+3tZ0fckTj32hqQUA3ASqUEK2an1o3RiV0JUphL/VKSEgNq9THbYa+iQz
+	 4vx6xZhXJBASd4VCNnmTAKPEOyG9ESkn+FnshW5iKvr/6zueXZAfyXVc13SJZwoHrRm03
+	 FgV6LD2yqeXtMecGd5CxPCOEmqCkJsRhvAj9/YC4gKQH9NbK4XKQvW5Sd4fZmwdJEe1Io
+	 hU5Tq+HwkebeuTe36HKmuWDYt+I9CMJ446F4UXDu3xTnNp8wd8iUZaETJwDE7ZAARsw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="NvG4H/6J";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uG5AoejD;
+	arc=none smtp.remote-ip=209.85.221.48
+Received: from mail-wr1-f48.google.com (mail-wr1-f48.google.com [209.85.221.48])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B11C3606A31E;
-	Wed, 25 Nov 2026 10:56:04 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6E61F606A323
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:56:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6E61F606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NvG4H/6J
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E6E641F000C0;
-	Wed, 25 Nov 2026 10:55:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795604163;
-	bh=uk1PPG/FDoyL9b6Au2Lqg1OrW2czFnedhEgtVD2BHEI=;
-	h=Date:Subject:To:References:From:In-Reply-To;
-	b=NvG4H/6JtQ6E4Uf23rGZN/aBgjo0J2DaZo9i6kFoa+t0wwBhH22VAWT2zRepaP9wC
-	 B298LAti6/W9d7tRSQF6CAb1kDVdmLQXddgtYOPVauQQpOPO+VE25N+PbmLNLKSNsE
-	 IKT4IRXYvIpdKismji8P6Y/EN3YOnx1bGdN1QSlY9JXprhp/n/xHPmPjdMKQ8pQRCW
-	 3XjaonLF0KMjAuy5OFbHOSoJ5lUjSvIYemWrWvNJUoJhGuqJuLPe2GRm2zoet0h8IL
-	 oXmJyjusLT9mDuNImoB6VNlvCX5+gNYdxzP75HiM6FGu5YS2U3Qm8d2qmhQamns1t5
-	 8+zTuzDW7tWlA==
-Message-ID: <77569628-a251-4086-a148-7673453854e8@kernel.org>
-Date: Wed, 25 Nov 2026 11:55:55 +0100
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uG5AoejD
+Received: by mail-wr1-f48.google.com with SMTP id ffacd0b85a97d-490d59c3f0aso2564882f8f.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 02:56:26 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795604185; x=1796208985; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=FJOKwoI4nZDDgERDFtfVbeF2wwjtESDm04yE6n76iXo=;
+        b=uG5AoejDVEKJJavEqPbereLnAU8Ll13LSLVcUCL8eUYTpcVslYfWhSmEKwt3SBWjpb
+         VUej4R5ove27BFmFWqgQEZgW/kNzN+bjCGHdXUE6tlC3w1o/eV4p90WX8hWQ7/io+dGL
+         jGL5Hxye9Fr95U//0dvbKmKG3R3BhilpHedV9TYyzzK/SLE5Jzw1GJ48+/fvs5P+NO7D
+         ygpvvQqTVAqqYwj06Vm97w0l+mh9kFaniPhDAltvmCyfpSaxzMMCeeRBgu8KDy5YBCBB
+         lz35EdmvGAKf+duNIkwMxGLr3fa9S3bdVs0MDReCCjIPJ5iM7R3Ww5vdAOX+H6Y6YMst
+         1dgA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795604185; x=1796208985;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=FJOKwoI4nZDDgERDFtfVbeF2wwjtESDm04yE6n76iXo=;
+        b=Rq4Cm/p821hbNQTk+t1QMTXpcGWevmtGh06qZEoZvlPvLcS0ZKHFq2j1Q7YF5J0O3G
+         vPGAA/7RI8h6jPZLq2S0EuuTDG9iYJDoVZL7pDVrvQfhxzf4Ca0zmnFV4n7KuWYVKHxU
+         KZ1InODcJPvU6YA85TNTAykS9MV9AwaQnkE1g53T3W/Zg3mTvggV1XzGj3Ln6QzzRs4+
+         dNnoCTMe4Ps8Tjw1MTiwUkhMViPF9w4cim9mhc4wBGVL6e0vh0XqjMq4PV07AwhfMnZU
+         t3YQL7prNX857VABQy/T9J5l+SkaQS67JthcZy/BOOV4kzp6A/ghExZ0uR/UgD/woMUC
+         /2wQ==
+X-Forwarded-Encrypted: i=1; AL+hErFIe7829YREzhbyVCChJ4MOk4oRxn3WK02Sg/tT2XS4NwxyvMK92OinY5Kgu8W+ZQyO21T9bFGYi8ms+O8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z91j2mEMgiIPbcdFqwoTgvzhkOwBEMMNYvlSsSEfKPYBjNzah2E
+	mlxa68IXu2pZOuUZZYqRy599q8BMtwumMF9B7jtTJ64MkMRtCy1elRF9
+X-Gm-Gg: AZFdTZcW4nzRmmIpRWAgUwSZ85VXM/eKzGYIy5aizgijG6ikFQeXTFVw2R5YX+9lHOp
+	r3T3U7ABnrpyZA+d4jj25+6IRxHz3pQT1RLghqhJEUsdOo0peXu3QQHojcWR9Ym5P4sM46/0qFJ
+	oaWIpYJa5L+UngCw21TnaowmYku46XEMY/oXwsCJq7YEMYy4wY3SwozufFSd/3PhlRLFQQy5skA
+	odL5umNR+SfPZFMAbuo/2iG4s9n1ekazzYGqjPRG3YGuamYdWudgnM9cenfWIcGmzO6uC6Bf1Fq
+	ePxVgfmgxVTLzb77jsRHTpsLRavFTfk5VUuwXdZFsBzOMOXlfWmAGw8+WAvLRXhX3NsdTAZBxEs
+	xA71bYUGEM8Uoi3JGivFVbV+/eFiXtuD0P77k2p0usvrShq4Cjk743SIaPKQpKYPbzYV9aGRg8I
+	eB4hxkPjwg1MSf4UvhcOADGMukv6++TA9AdIaWdmZA14E9fcHbzvUBEGo+L3mgfLXayKEOHmlgN
+	WiZfUa+PVRB0lwI/nAT1Lbjjr9hHDHIUWzieZ9jqBzOTx+09nzYSZ0eUUyeyegGh9/W0beBhlel
+	qESZqD5hlhUk+VVrOuOA2F6MzlE189AsFh2GG25gutrANbwkxTddyPCiG+0LvOPd+ZgFsjb8lTQ
+	gYC26+zNkEzTY/A==
+X-Received: by 2002:a5d:6f13:0:b0:491:3fdd:af42 with SMTP id ffacd0b85a97d-4abb5cc19b5mr30289182f8f.37.1795604184433;
+        Wed, 25 Nov 2026 02:56:24 -0800 (PST)
+Received: from dohko.chello.ie (188-141-5-72.dynamic.upc.ie. [188.141.5.72])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6c61f558sm33988993f8f.58.2026.11.25.02.56.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 02:56:24 -0800 (PST)
+From: David Carlier <devnexen@gmail.com>
+To: dan.scally@ideasonboard.com,
+	jacopo.mondi@ideasonboard.com,
+	nayden.kanchev@arm.com
+Cc: mchehab@kernel.org,
+	hverkuil+cisco@kernel.org,
+	linusw@kernel.org,
+	linux-media@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	David Carlier <devnexen@gmail.com>,
+	stable@vger.kernel.org
+Subject: [PATCH v2] media: mali-c55: Serialise the ISP enable in the params and stats paths
+Date: Wed, 25 Nov 2026 10:56:06 +0000
+Message-ID: <20261125105621.239518-1-devnexen@gmail.com>
+X-Mailer: git-send-email 2.55.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,174 +102,96 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/7] dt-bindings: clock: mediatek: add MT8196 MMDVFS clock
- IDs
-To: Echo Zhang <echo.zhang@mediatek.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>,
- Jerome Brunet <jbrunet+clk@baylibre.com>,
- Nathan Chancellor <nathan@kernel.org>,
- Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling
- <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
- MMDVFS Team <linux-mediatek@lists.infradead.org>, kyrie.wu@mediatek.com,
- ming-fan.chen@mediatek.com, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-clk@vger.kernel.org, llvm@lists.linux.dev
-References: <20261125060037.649659-1-echo.zhang@mediatek.com>
- <20261125060037.649659-2-echo.zhang@mediatek.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20261125060037.649659-2-echo.zhang@mediatek.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-On 25/11/2026 07:00, Echo Zhang wrote:
-> Add clock IDs for the MT8196 MMDVFS clock provider.
-> 
-> These IDs describe the clocks exposed by the MMDVFS block and are used by
-> device tree consumers to request multimedia performance levels through the
-> standard clock framework.
-> 
-> Signed-off-by: Echo Zhang <echo.zhang@mediatek.com>
-> ---
->  .../clock/mediatek,mt8196-mmdvfs.h            | 74 +++++++++++++++++++
+Only the capture devices hold isp->capture_lock around the
+mali_c55_pipeline_ready() check and the ISP enable or disable. When the
+last two queues to start are on different video devices, both can see
+a ready pipeline and both enable the ISP. The second call fails with
+-EALREADY and its queue's start_streaming_called flag is cleared, so
+the ISP is never disabled again and every later start fails.
 
-This is not a separate commit.
+Take capture_lock in the params and stats paths too, and assert that it
+is held in mali_c55_pipeline_ready().
 
+Fixes: d5f281f3dd29 ("media: mali-c55: Add Mali-C55 ISP driver")
+Cc: stable@vger.kernel.org
+Reviewed-by: Linus Walleij <linusw@kernel.org>
+Signed-off-by: David Carlier <devnexen@gmail.com>
+---
+v2:
+- Add lockdep_assert_held() in mali_c55_pipeline_ready() (Jacopo)
+- Collect Linus's Reviewed-by
+ drivers/media/platform/arm/mali-c55/mali-c55-core.c   | 3 +++
+ drivers/media/platform/arm/mali-c55/mali-c55-params.c | 4 ++++
+ drivers/media/platform/arm/mali-c55/mali-c55-stats.c  | 4 ++++
+ 3 files changed, 11 insertions(+)
 
->  1 file changed, 74 insertions(+)
->  create mode 100644 include/dt-bindings/clock/mediatek,mt8196-mmdvfs.h
-> 
-> diff --git a/include/dt-bindings/clock/mediatek,mt8196-mmdvfs.h b/include/dt-bindings/clock/mediatek,mt8196-mmdvfs.h
-> new file mode 100644
-> index 000000000000..428d8a35abdb
-> --- /dev/null
-> +++ b/include/dt-bindings/clock/mediatek,mt8196-mmdvfs.h
-> @@ -0,0 +1,74 @@
-> +/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
-> +/*
-> + * Copyright (c) 2024 MediaTek Inc.
-> + * Author: MediaTek MMDVFS Team
-> + */
-> +
-> +#ifndef _DT_BINDINGS_MMDVFS_CLK_MT8196_H
-> +#define _DT_BINDINGS_MMDVFS_CLK_MT8196_H
-> +
-> +/*
-> + * MMDVFS Clock IDs for MT8196
-> + *
-> + * These IDs are used by multimedia clients in device tree to reference
-> + * MMDVFS virtual clocks for DVFS voting.
-> + *
-> + * MT8196 uses HWCCF (Hardware Clock Control Fabric) architecture.
-> + *
-> + * Usage in device tree:
-> + *   clocks = <&mmdvfs MMDVFS_USER_VDEC>;
-> + *   clock-names = "mmdvfs";
-> + */
-> +
-> +/* Core user clocks used by multimedia hardware drivers */
-> +#define MMDVFS_USER_DISP	0	/* user-disp */
-> +#define MMDVFS_USER_MDP		1	/* user-mdp */
-> +#define MMDVFS_USER_MML		2	/* user-mml */
-> +#define MMDVFS_USER_SMI		3	/* user-smi */
-> +#define MMDVFS_USER_JPEGDEC	4	/* user-jpegdec */
-> +#define MMDVFS_USER_JPEGENC	5	/* user-jpegenc */
-> +#define MMDVFS_USER_VENC	6	/* user-venc */
-> +#define MMDVFS_USER_VFMT	7	/* user-vfmt */
-> +#define MMDVFS_USER_IMG		8	/* user-img */
-> +#define MMDVFS_USER_CAM		9	/* user-cam */
-> +#define MMDVFS_USER_VCORE	10	/* user-vcore */
-> +#define MMDVFS_USER_VMM		11	/* user-vmm */
-> +#define MMDVFS_USER_VDISP	12	/* user-vdisp */
-> +#define MMDVFS_USER_VDEC	13	/* user-vdec */
-> +#define DUMMY_USER_DIS		14	/* dummy-dis */
-> +#define DUMMY_USER_MDP		15	/* dummy-mdp */
-> +#define DUMMY_USER_MML		16	/* dummy-mml */
-> +#define DUMMY_USER_SMI		17	/* dummy-smi */
-> +#define DUMMY_USER_VEN		18	/* dummy-ven */
-> +#define DUMMY_USER_VDE		19	/* dummy-vde */
-> +#define DUMMY_USER_IMG		20	/* dummy-img */
-> +#define DUMMY_USER_CAM		21	/* dummy-cam */
-> +#define MMDVFS_USER_CAM_SMI	22	/* user-cam-smi */
-> +#define MMDVFS_USER_VCP_SMI	23	/* user-vcp-smi */
-> +
-> +/* AP voter clocks (24-33) - System level control */
-> +#define MMDVFS_AP_CAM		24
-> +#define MMDVFS_AP_CAMTM		25
-> +#define MMDVFS_AP_VDE		26
-> +#define MMDVFS_AP_IMG		27
-> +#define MMDVFS_AP_IPE		28
-> +#define MMDVFS_AP_DIS		29
-> +#define MMDVFS_AP_MML		30
-> +#define MMDVFS_AP_SMI		31
-> +#define MMDVFS_AP_VEN		32
-> +#define MMDVFS_AP_MDP		33
-> +
-> +/* VCP voter clocks (34-43) - VCP firmware control */
-> +#define MMDVFS_VCP_CAM		34
-> +#define MMDVFS_VCP_CAMTM	35
-> +#define MMDVFS_VCP_VDE		36
-> +#define MMDVFS_VCP_IMG		37
-> +#define MMDVFS_VCP_IPE		38
-> +#define MMDVFS_VCP_DIS		39
-> +#define MMDVFS_VCP_MML		40
-> +#define MMDVFS_VCP_SMI		41
-> +#define MMDVFS_VCP_VEN		42
-> +#define MMDVFS_VCP_MDP		43
-> +
-> +#define MMDVFS_USER_NUM		44
+diff --git a/drivers/media/platform/arm/mali-c55/mali-c55-core.c b/drivers/media/platform/arm/mali-c55/mali-c55-core.c
+index 241a625f7284..bf80935c20d2 100644
+--- a/drivers/media/platform/arm/mali-c55/mali-c55-core.c
++++ b/drivers/media/platform/arm/mali-c55/mali-c55-core.c
+@@ -13,6 +13,7 @@
+ #include <linux/interrupt.h>
+ #include <linux/iopoll.h>
+ #include <linux/ioport.h>
++#include <linux/lockdep.h>
+ #include <linux/of.h>
+ #include <linux/of_reserved_mem.h>
+ #include <linux/platform_device.h>
+@@ -510,6 +511,8 @@ bool mali_c55_pipeline_ready(struct mali_c55 *mali_c55)
+ 	struct mali_c55_params *params = &mali_c55->params;
+ 	struct mali_c55_stats *stats = &mali_c55->stats;
+ 
++	lockdep_assert_held(&mali_c55->isp.capture_lock);
++
+ 	/* Only wait for queues connected through enabled media links. */
+ 	return (!media_pad_remote_pad_first(&fr->pad) ||
+ 		vb2_start_streaming_called(&fr->queue)) &&
+diff --git a/drivers/media/platform/arm/mali-c55/mali-c55-params.c b/drivers/media/platform/arm/mali-c55/mali-c55-params.c
+index 16e895e3488e..6515c78c1bb2 100644
+--- a/drivers/media/platform/arm/mali-c55/mali-c55-params.c
++++ b/drivers/media/platform/arm/mali-c55/mali-c55-params.c
+@@ -762,6 +762,8 @@ static int mali_c55_params_start_streaming(struct vb2_queue *q,
+ 	struct mali_c55 *mali_c55 = params->mali_c55;
+ 	int ret;
+ 
++	guard(mutex)(&mali_c55->isp.capture_lock);
++
+ 	ret = pm_runtime_resume_and_get(mali_c55->dev);
+ 	if (ret)
+ 		goto err_return_buffers;
+@@ -796,6 +798,8 @@ static void mali_c55_params_stop_streaming(struct vb2_queue *q)
+ 	struct mali_c55 *mali_c55 = params->mali_c55;
+ 	struct mali_c55_isp *isp = &mali_c55->isp;
+ 
++	guard(mutex)(&isp->capture_lock);
++
+ 	if (mali_c55_pipeline_ready(mali_c55)) {
+ 		if (v4l2_subdev_is_streaming(&isp->sd))
+ 			v4l2_subdev_disable_streams(&isp->sd,
+diff --git a/drivers/media/platform/arm/mali-c55/mali-c55-stats.c b/drivers/media/platform/arm/mali-c55/mali-c55-stats.c
+index a9c28b090b2a..cbd2a2f77da3 100644
+--- a/drivers/media/platform/arm/mali-c55/mali-c55-stats.c
++++ b/drivers/media/platform/arm/mali-c55/mali-c55-stats.c
+@@ -146,6 +146,8 @@ static int mali_c55_stats_start_streaming(struct vb2_queue *q,
+ 	struct mali_c55 *mali_c55 = stats->mali_c55;
+ 	int ret;
+ 
++	guard(mutex)(&mali_c55->isp.capture_lock);
++
+ 	ret = pm_runtime_resume_and_get(mali_c55->dev);
+ 	if (ret)
+ 		goto err_return_buffers;
+@@ -180,6 +182,8 @@ static void mali_c55_stats_stop_streaming(struct vb2_queue *q)
+ 	struct mali_c55 *mali_c55 = stats->mali_c55;
+ 	struct mali_c55_isp *isp = &mali_c55->isp;
+ 
++	guard(mutex)(&isp->capture_lock);
++
+ 	if (mali_c55_pipeline_ready(mali_c55)) {
+ 		if (v4l2_subdev_is_streaming(&isp->sd))
+ 			v4l2_subdev_disable_streams(&isp->sd,
+-- 
+2.55.0
 
-Not a binding, drop.
-
-Are you sending us some downstream old driver? Which upstream code was
-used as a base/example for this work?
-
-Best regards,
-Krzysztof
