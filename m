@@ -1,13 +1,13 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.61
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.53.50
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795570502;
-	b=pnq4kMyCk7AS6s1hpR0dAt2TBPJQnO9i40SUyh6b185UyMBWnx7qN8lsFY93V+gDoyC0
-	 1+VRn1b1C9+CK8QCiFag4fB9VsCVU0PbBcAuoq0MhU4JcRMxuejx8F8z4FRsrcqQsIOKp
-	 C09w2bzD0cPsVw2KiOM6sY9j/K8ZUpSEtTTBlFfxdkTgOIweLshlDRG/6B9dU9XoR35iQ
-	 qy7BZUDUaaEGgUioWLcm1fAQuGyb0j2SSicGGgWdqtMRLx+JMOwj8SzCZB0kV1aZQ2Zj8
-	 4NbPBLTgJFjEEcqe1XR9mwOxeXRUvdUgUaBsyZP4ygFoTCi1GsJGpRzHq3ieGj8td1Q==
+	t=1795570496;
+	b=BKdqH5NN+AdedbLZIG540RGKJoH5H8DFsN3WtuEDiduXiByjxUzZGH3AIC0rxVL9U1Kq
+	 uIwM9xNBAckU8jV2EIHDaQxcNHPehOmUjbv7k2dhiUGEdPoP6BC7yqPmtSEsuBGk+GiWv
+	 zRQHRziYmnLjcUU+pCluPRiN3JmXsYn++rPT0SUUW0clcDlGCysA+DpjgTpMERRFGJBP1
+	 fZEGIbiPicSeCq6xBw81eswAVk+iKMN+E3mOkAqnWiJi6wcshKIt2Zlt1oDVHWSsr2VCd
+	 ncNGSIESWQVeWgNpOaacbxvEzpio8KZOA/DCMoMev8G5V1rnhRa6LrlkDtuRgzzRC3Q==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795570502;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795570496;
 	h=DMARC-Filter:DKIM-Signature:Received:Received:
 	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
 	 Received:Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:
@@ -26,35 +26,35 @@ ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
 	 X-MS-Exchange-CrossTenant-FromEntityHeader:
 	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=XvLuXvliLRMeIs1SPB+JYLyNdyWnfhRVqk8q4r5H50w=;
-	b=CBiiBY/atPg7CxjaBEHkn6+Wx7eADLOxMS2xbfHKewOrtbygtVoJDhN2doho95khZVM8
-	 zXxC4fwKyE5HEEC3P2EJDi4Z9lDw1+7aRQLy7kwjji/AaORgpxUjRxJ7IP4Xm/plhAetN
-	 g7TRgxeDOhfW5LpsqBPv8B8sokLIoaN8QQLJMSROBqkSNSb1L5jO85XB/9fSLB5Q1crTV
-	 /ikBcq4KFV1pRBIOf0ADiWU4cwzHBN8b6wRPYXWYHj0MXWB6ZF4OJAIslctPHfWPxB8Xw
-	 QBsFxi+JkS+VlkVdFu4Z0IM5u8IEUoeVNiiF2E51HncWJfZc5Q64GxmlYGH2fm64B4w==
+	bh=/X99SVcWokGbYbSQ79POR+9UUhCOfQ1oULvVM2QRI1s=;
+	b=MCF/GI7Ms2+QUJGh9gh8pV+p78ik2GEaVzCs8TJJdsJGwAvT/4qBmYkSf/w+sCYK8vEv
+	 VWjzG999RYtF7pXBjDBdLwf5hjoHE8kCF/5TPZyZRRLYbou+ZkOTX2bK++hp5wh9K0VJh
+	 kHJzLFloMda5PdYycfd20L5Sy0o6QgNHi3kCZfYJ53Einv9yxC8P98y0CiFi848xeU76P
+	 XbNHlWgyPfawINeZfR+yHbT7FMQW7Q3XCB3Am+ge1GdZ+G+XZBwCgvK2Qam539E+/zkSz
+	 s+QyVwTGuqUx5ENkBXH1qJXTaeJjF8Tn8ahKQfbKzc8FbEMfGg83Vled4vrYiT+t4iQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=nvidia.com;
 	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=PGSR2PTj;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.61
-Received: from PH7PR06CU001.outbound.protection.outlook.com (mail-westus3azon11010061.outbound.protection.outlook.com [52.101.201.61])
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=b75xDQ+N;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.53.50
+Received: from BL0PR03CU003.outbound.protection.outlook.com (mail-eastusazon11012050.outbound.protection.outlook.com [52.101.53.50])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3228460A2604;
-	Wed, 25 Nov 2026 01:35:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3228460A2604
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3693E606A32D;
+	Wed, 25 Nov 2026 01:34:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3693E606A32D
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=PGSR2PTj
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=b75xDQ+N
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=MVRFWp6ABlem/sDAk9bZrHihTI5+5z9krceBGD/r2EDeiqGD2/XjUx/PrVcSiU9p34M5UZjtWz1sVw++fCzkO5+uVs0+AQs0qeZJzogIkDJW3/i/pcOMIdlyCgyItvalRMcGCnc85NXExZZ80uXRFvyMA3FzXoLgJ0GWncaJLdEVk3XdbI7VYe/G9YT5pXxg0ULPnm74qBYFpX/LNAC/uxm2e20SQXxintNHc/TXCJWAyRTVZ5WS9nkmN2vV/AbEVY4mPq84ILb+zwfKSCeLYeWjrtXIzASqQe9cBGGQ5eYRRpEx89XSobApHCy6d+W7Oqi+AdRP2JZp5CVoNkXeFQ==
+ b=IifXn2lGLqAWZBOANNTHSwBGXP+jqKrke0ZBYMB64yKRZ9SxScUNodHgpBhWi23lKMhfFNKIQbC/56e5wD50MiKEOSCGLoXfWTzmPH7M6++C1g17SqiM4B4SNVRF+wTtWpISFu0cZS6dqVyRKEBMa0SIClbMHp6EnK37pzRZQYjIUXRD8KUg57++QUuxaMF+ba4s167UTdcJsKNvT6bbP5HG0+xJcx9GrKaWoTAQ3Mey5+9NETLKAzYiuQGssPkDXbKLnFqbgQLcL0/XiYsxYs//SAPmmSye+0s1NrM+PelLuDToJToATEpEaKo+K4PeC1flD81sUTUUQzzgcThrvQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=XvLuXvliLRMeIs1SPB+JYLyNdyWnfhRVqk8q4r5H50w=;
- b=bzWiokRKJAWi/r0X81/T00FkPs4tjZs5PQGQupMyBSCgaRgdiekT61rjaR6ZYHPvglc6ZvDPLx6/iQJn9+1QY0Wq44Qex0ad0dSUa+4sxCAJSLkqCB3pB9VPGgcMyQAHI5HrJ4ChpnPtZa6AghcB+v5FegPNINUOtFKJ5kO0SZ7TQD5fsCH/y1/PFp2XDL8Ju/NT/rnSfsiAB1ChtTWRiqcDBYZrXvEdasUXZh9rgTUzcMzw3wEGIfCZVY18qvL107sBnPmRfuB16bQkdZMmj0AdqHKeo+5Zz7H/lZgkKkohTJudqxN1kRjWnXOwO5kY0SHCQ5iB17Jf++PSmevQog==
+ bh=/X99SVcWokGbYbSQ79POR+9UUhCOfQ1oULvVM2QRI1s=;
+ b=CIWkYo9mLXIdS61Wyj5avcCtIFLzp7quRvfwhAy66vF59/OVcPbIbp2/TRQxt7SDBsLdAngLlLOv+77RAEZq5Xh//I114eFQ99HjCRLOwZ3LkFraBBE7DYqbY0tV7wx0mAw35xAvCORs6/8/l/I+TodQy6WdF7kW0tRPCIiJN93FnASoOqosTAAKdZgnnkXzEsUWKCd7blu3QAwOilEi+rnhoQ7HgiRAZWw4qaJZ+zweTh6gfPKBBXC3Qtd+UxWcvjTICEOljFDD9yMbP+NkxooF6VmLFZCexKmBvvQWF38FqsngoxYT3SPst3A8yb1902p+jpkI7AJTkP8fDB+FyA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  216.228.117.161) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=nvidia.com;
  dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
@@ -62,18 +62,18 @@ ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=XvLuXvliLRMeIs1SPB+JYLyNdyWnfhRVqk8q4r5H50w=;
- b=PGSR2PTj+CH5V8cgLiyQd36k3hSuJyeWcRrZL3URZB63tmjMCFuc6SDK0iiNhZGEWeUuT4an/eu5SeeXlbP1TgRIXzhLXUHa8X5wQKhUbmdMAiQEymIH16KxdOOy/tlBGMEDH8aw4RwFrUYrROWlZ6Q1Mc7NtpCVEXBQDi3ZRzLDLQ+OwnbCoF2ejarIogldTQb5KDYfNomFpQ+2uXZj8S7u3lc9kseaRs+83stLr0MThR8jI8N64oasvTFcVhD6BYuAxIMyEVSbVN5pvlMp5hE/XDL38kexG4Ob8gT4fAIC4R20vD+iOWKLdDl5kd/DmujNaEaraTlZuHljMMOj1g==
-Received: from BL1PR13CA0196.namprd13.prod.outlook.com (2603:10b6:208:2be::21)
- by PH7PR12MB7140.namprd12.prod.outlook.com (2603:10b6:510:200::18) with
+ bh=/X99SVcWokGbYbSQ79POR+9UUhCOfQ1oULvVM2QRI1s=;
+ b=b75xDQ+NDJ3soMwo7f1sDRWgrgQIYH3XuvIldWONNGtc/iVqSz5dxjwgoT4uxyCecqH3NOaz+Lom+wrS1HHtCgMETX/H2Q3Jf2du3blW7zSAgpz404qfDG+xmAAIdWtwfSAqfBZwXxbcaC/BGuw9SaD1FKHeAxVyBnku6n1I/3ntWWYU9rdL3o3UInHow/BvCUXDlqAXX6kbE8AFarr0VO/B3D9F/0/C1CoWaAXdbT/zSXlANG7rx0fedYTF1mZJkI2+1h8+cBWVaHGiRDMqNREEUBblPu8qC8wsyREpJX/4eDQ4wna6F/3DCtQ7Gm9L4AxCEWv4D8BP2xsj2lzbDw==
+Received: from CH2PR08CA0021.namprd08.prod.outlook.com (2603:10b6:610:5a::31)
+ by BL3PR12MB6402.namprd12.prod.outlook.com (2603:10b6:208:3b2::17) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Wed, 25 Nov
- 2026 01:34:51 +0000
-Received: from BL2PEPF000352D2.namprd02.prod.outlook.com
- (2603:10b6:208:2be:cafe::6a) by BL1PR13CA0196.outlook.office365.com
- (2603:10b6:208:2be::21) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.496.5 via Frontend Transport; Wed, 25
- Nov 2026 01:34:51 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.6; Wed, 25 Nov
+ 2026 01:34:46 +0000
+Received: from BL2PEPF000352D9.namprd02.prod.outlook.com
+ (2603:10b6:610:5a:cafe::b) by CH2PR08CA0021.outlook.office365.com
+ (2603:10b6:610:5a::31) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.8 via Frontend Transport; Wed, 25
+ Nov 2026 01:34:46 +0000
 X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
  is 216.228.117.161) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=nvidia.com;
@@ -81,20 +81,20 @@ Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
  216.228.117.161 as permitted sender) receiver=protection.outlook.com;
  client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
 Received: from mail.nvidia.com (216.228.117.161) by
- BL2PEPF000352D2.mail.protection.outlook.com (10.167.254.9) with Microsoft
+ BL2PEPF000352D9.mail.protection.outlook.com (10.167.254.10) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.662.3 via Frontend Transport; Wed, 25 Nov 2026 01:34:51 +0000
-Received: from rnnvmail205.nvidia.com (10.129.68.10) by mail.nvidia.com
+ 15.21.662.3 via Frontend Transport; Wed, 25 Nov 2026 01:34:46 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
  (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Tue, 24 Nov
- 2026 17:34:32 -0800
-Received: from rnnvmail203.nvidia.com (10.129.68.9) by rnnvmail205.nvidia.com
- (10.129.68.10) with Microsoft SMTP Server (version=TLS1_2,
+ 2026 17:34:28 -0800
+Received: from rnnvmail203.nvidia.com (10.129.68.9) by rnnvmail201.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Tue, 24 Nov
- 2026 17:34:32 -0800
+ 2026 17:34:28 -0800
 Received: from mtl-vdi-603.wap.labs.mlnx (10.127.8.12) by mail.nvidia.com
  (10.129.68.9) with Microsoft SMTP Server id 15.2.2562.57 via Frontend
- Transport; Tue, 24 Nov 2026 17:34:28 -0800
+ Transport; Tue, 24 Nov 2026 17:34:24 -0800
 From: Jianbo Liu <jianbol@nvidia.com>
 To: <netdev@vger.kernel.org>, <ipsec@lists.linux.dev>
 CC: Steffen Klassert <steffen.klassert@secunet.com>, Herbert Xu
@@ -103,9 +103,9 @@ CC: Steffen Klassert <steffen.klassert@secunet.com>, Herbert Xu
 	<pabeni@redhat.com>, Simon Horman <horms@kernel.org>, Florian Westphal
 	<fw@strlen.de>, <linux-kernel@vger.kernel.org>, Jianbo Liu
 	<jianbol@nvidia.com>, Carolina Jubran <cjubran@nvidia.com>
-Subject: [PATCH ipsec 3/4] xfrm: Wait for an RCU grace period before freeing device state
-Date: Wed, 25 Nov 2026 03:34:11 +0200
-Message-ID: <20261125013412.1123866-4-jianbol@nvidia.com>
+Subject: [PATCH ipsec 2/4] xfrm: Serialize device state teardown
+Date: Wed, 25 Nov 2026 03:34:10 +0200
+Message-ID: <20261125013412.1123866-3-jianbol@nvidia.com>
 X-Mailer: git-send-email 2.39.3
 In-Reply-To: <20261125013412.1123866-1-jianbol@nvidia.com>
 References: <20261125013412.1123866-1-jianbol@nvidia.com>
@@ -123,78 +123,201 @@ Content-Type: text/plain
 X-NV-OnPremToCloud: ExternallySecured
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL2PEPF000352D2:EE_|PH7PR12MB7140:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7da6a997-1169-447f-0fe3-08df4a944cea
+X-MS-TrafficTypeDiagnostic: BL2PEPF000352D9:EE_|BL3PR12MB6402:EE_
+X-MS-Office365-Filtering-Correlation-Id: 516999bf-edf1-4332-4a22-08df4a9449c3
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|82310400026|1800799024|36860700016|376014|7416014|22082099003|18002099003|56012099006|261026121527099003|11063799006|261028144727099003|261021121427099003|261026140227099003|261022105027099003|261021123027099003|261009223027099003|10067099003|261102123227099003;
+	BCL:0;ARA:13230040|36860700016|1800799024|23010399003|82310400026|7416014|376014|10067099003|56012099006|5023799004|11063799006|261028144727099003|261026121527099003|261026140227099003|261102130727099003|261102123227099003|261021123027099003|261021121427099003|261021135927099003|261022105027099003|261022075727099003|261009223027099003|18002099003|22082099003|6133799003|13003099007|3023799007;
 X-Microsoft-Antispam-Message-Info:
-	asMm/wblHMuTDuuqCKGzPcx8d656DSuI4Lv3rWPotmhASOS/CkSgS2AhHcDi0JgSASAA9loC+2KgfQMx5X4x7EK8aW6Bsy1jkhs5sMlsOqlwrR0bzxzXVPullE+IMYQ02IB5D5DmkRVhoVcQptNJBhWAWunuYDDcplh0BDC9GqKxRdOp/Kc53aotkZJLsWDTwQ3TyzyeV/iA9R9wquWytwFSCshRK1Jtm/wJbVzBwIckZK2Pf2lK3NGOMr9tdXkvs+cFCZVA8p40L/1zF2JvCsJlHX8836hEvYHyAd3UEpDvx/wG2JmtG1i43o1Ynj9Yw8MDcsOjchz/sJ5m57OvvbDkA5pEM2eoqpWWBJbdwxeMcL89gm8aAUZKqRBTfA0JL6h5ys59dygMFthAYKG07E1kaofiXYMRVe35bzZGVuQvn/Rg4UiI3TIx3er2Fq+EhCPx8mEl+juDiUFy1HOjr6rjnYr4WspC4m13HFx0PzR6dKmjOWH2YwIpscv2DtmvannXcJa8qz+cc7m93UD6S4UBP+t+m5XfIZJf9f1hebs7QD3rzdL/VnHTQswsn93LKTF0BxDv7HaV5e3uGHOAeHeTfjBcy6WVu6jVq2ZmeK4wBfrPq7NRheB3ANx2kYko6FNABztN5Tfy/iCqcgr722YdwzPrLFn5MeA23vpIBjWMUtRTcMghxWbQ4AijDg1DZimW27MsRQd8z47X3+rLNw==
+	VO6y+boUEms9YsX8Ohrp+wVwPgbTBB8TJTFuFDaqIQNe0Jjhk1/8DE2+q07m+Y7m1VV8R6IX80mYAchoK1rl4//lduYvAUn6caGHCARq46MHrQhdQCNzRG7PVwUG1E7d4uvC7TOaiAiGXTyloUrqSFqdBqoPx3bLyeAQJEWy2lofKXKLgbU0WYYdIvjV57C8UJMf/DO4AIjHhGSObUIhcxEOKdDAoVNnkEtK9Vt0nrW4iLMx7ecpnf/RcWB1z2MBvQ1tcY/cqRXZyO8f31r2P9M+3vDYKxEjCdZjrB+A1JWInhpW+Ven1InPdjYXrO9CkwJvZmtlvwZeDHVxEdZICv8ypNY62LaF3Hw5eRPTkbwabNukz6ubB1nG4DWqkgAs7mCUKOcRSOSY9On8ca6TKG/pwV4xJ1waj6PboHD3+gOmbMwcZzYMn5N2dKWMaMusGsH12SCAtwlH8zvApSksPbVUWO+i23HWxBkk/ZQQFYq/op+J8IgIEzSlR+FdHWZ84zGjKNtEK4bIU8f1YfGmr0lAJWMfmUPM8D/zzmq5kemIidylfUKBxTSo9Yf0FuCiSkWeMmUdHVzCqg7+0s0sIe/w5ilzB/3Vdp11aTzByWgiK+zUX4D5VqKxzF+ZLBQ6ZtA+PKaU297fmGz64cqoz6vK958L6EAKNT/KjbaA6d0c8P9wHNiwHlQmUxcLjQn6isORAgeCoATgmSDBrZSJrQ==
 X-Forefront-Antispam-Report:
-	CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(23010399003)(82310400026)(1800799024)(36860700016)(376014)(7416014)(22082099003)(18002099003)(56012099006)(261026121527099003)(11063799006)(261028144727099003)(261021121427099003)(261026140227099003)(261022105027099003)(261021123027099003)(261009223027099003)(10067099003)(261102123227099003);DIR:OUT;SFP:1101;
+	CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(1800799024)(23010399003)(82310400026)(7416014)(376014)(10067099003)(56012099006)(5023799004)(11063799006)(261028144727099003)(261026121527099003)(261026140227099003)(261102130727099003)(261102123227099003)(261021123027099003)(261021121427099003)(261021135927099003)(261022105027099003)(261022075727099003)(261009223027099003)(18002099003)(22082099003)(6133799003)(13003099007)(3023799007);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
 X-MS-Exchange-AntiSpam-MessageData-0:
-	G/xosg3PdbrSlxUx2c16nuaeph1jrujJjbUfdIUDkz/AHQARNyZZoS/fQQe2j2Jtz69S3FifMvh/N1GpzSC9achfCHLbQI4LqAvV/kno0gpzGpUiInrs+cuWU7L+buT0dC4ekvPBo+VeA0O2585PyCLu1fqUDc0L028GOWsS0/+n3JJ4DTvbnFTf8nCfzz10kLsDlKDvrV14xSl8GtvAikkqopsh1TGbuCVhdlCtnO080YtdPXPjmt+y1libk6hNKSh28GvkDYi2wvZtn21otbnXdqM5XtibiBzMUURKurHnnQTNxrhv4fxByaGqEoGGVTYm1g40d+waX9hMyt4AUdYkaTtF9l6NdEprMdPU6FVpKFDGTyfeXMkwQ58Hg/CnfU8j2tTT/+HypS2n4o9cOYrCgIfJ7ZeW7dJqIQDeS/FcTOpYnMOHqeiw+1Zp5zt/
+	32Hx3bRfYCvWF6ckhTAQD6Kt/wb9HKBW+6YrRtkCy/u8Hz44nl8slabGU91aRMfjcUj7KODWdKF5iyTcHvUhPqmY/RP7HYVQR6gSwKRpeJi3aysBVBXhrRlintfuoWTX0uuQr272vpH1Dm+LJplQzcYNr9NnPQ4OACR55zxyNgnJ2Dnljbz9z6C2tqc+y6NsjyZh0JSu19Y/Y6ZVRa+XU+Rp5i56tUAdMSeLK1XuZMCH7i5ILx0bUxeFI1D7vNsMvFEZbJvIMDCaPbcqDxcXWdJUPxrUJ4wU6ioeLX/l6FTsJs0+pS5/YQeXxETr3vDrx43Tf6ZBXNlRlKD+NHC+Na+0uKefGhfvBE0rPZiaEGsIAoSGU/izPM9d/2pBNtjr1oWyi6Rf70SQ5QmC2Mvf9xzSh1AK70XNbll59OznXmlqPQkPnOII5S/0jQQcSQU+
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 01:34:51.4134
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 01:34:46.1285
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7da6a997-1169-447f-0fe3-08df4a944cea
+X-MS-Exchange-CrossTenant-Network-Message-Id: 516999bf-edf1-4332-4a22-08df4a9449c3
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
 X-MS-Exchange-CrossTenant-AuthSource:
-	BL2PEPF000352D2.namprd02.prod.outlook.com
+	BL2PEPF000352D9.namprd02.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB7140
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL3PR12MB6402
 
-xfrm_dev_state_flush() can call xdo_dev_state_free() immediately after
-xdo_dev_state_delete(), without waiting for pre-existing RCU readers
-of the driver's SA state to complete.
+Commit 89fefad9f971 ("xfrm: serialize state GC with device state
+flush") stopped the state GC and xfrm_dev_state_flush() from freeing
+the same device state at once, but a third caller is not covered.
 
-The normal state GC path waits for an RCU grace period before
-destroying the state, but the device flush path does not.
+xfrm_state_find() frees a packet offload acquire state when km_query()
+fails. It runs under RCU and can't take the mutex.
+xfrm_dev_state_delete() first puts the state on xfrm_state_dev_gc_list
+with xso->dev still set, so a device flush can find it there and call
+xfrm_dev_state_free() too. Both callers see xso->dev set and both
+unlink the state, so the second hlist_del() hits a poisoned node.
 
-Remove the immediate xfrm_dev_state_free() following
-xfrm_state_delete(). The delete path queues the state on
-xfrm_state_dev_gc_list. The subsequent collection pass picks it up if
-a reference is left. If the flush dropped the last one, the state GC
-frees it after its own grace period and xfrm_flush_gc() waits for it.
+Claim the device in xfrm_dev_state_free() by clearing xso->dev under
+x->lock and xfrm_state_dev_gc_lock, so only one caller unlinks the
+state, invokes xdo_dev_state_free() and drops the netdevice reference.
+x->lock also keeps xso->dev stable for the stats updates that hold it.
 
-Wait for one RCU grace period after collecting the states and before
-freeing them. This establishes the required
-xdo_dev_state_delete() -> synchronize_rcu() -> xdo_dev_state_free()
-ordering while using a single grace period for the whole flush.
+In the flush, take a state reference before removing a state from the
+device GC list, so it stays alive while the flush owns it. Skip a
+state with no reference left, the state GC frees it.
+
+Keep xso->type unchanged after detaching the device, so lockless
+readers of xso->type do not see a packet offload state as a software
+state. Reject offloaded states with no device in
+xfrm_dev_offload_ok(): a packet offload state would otherwise pass
+the !dev check there, and xfrm_output() would send the packet with no
+ESP or use the NULL device in xfrm_dev_direct_output().
+
+Found by the AI review of the commit above (see Link) and reproduced
+on ConnectX-7 with a packet offload policy that has no SA, an acquire
+listener that never reads, UDP senders hitting the policy and the
+device taken down in a loop:
+
+[  167.689163] Oops: general protection fault, probably for non-canonical address 0xdead000000000122: 0000 [#1] SMP
+[  167.690938] CPU: 11 UID: 0 PID: 2093 Comm: python3 Not tainted 7.4.0-rc1+ #10 PREEMPTLAZY
+[  167.694337] RIP: 0010:xfrm_dev_state_free+0x41/0xe0
+[  167.699068] RAX: dead000000000122 RBX: ff1100014f543800 RCX: ff11000103bbf800
+[  167.700247] RDX: dead000000000100 RSI: 0000000000000001 RDI: ffffffff82da8c68
+[  167.716897] Call Trace:
+[  167.717405]  <TASK>
+[  167.717863]  xfrm_state_find+0x19b0/0x1ab0
+[  167.718629]  xfrm_resolve_and_create_bundle+0x17d/0x11e0
+[  167.722070]  xfrm_lookup_with_ifid+0x1e7/0xb50
+[  167.722872]  xfrm_lookup_route+0x1d/0xa0
+[  167.723593]  udp_sendmsg+0x8da/0xc90
+[  167.724273]  __sock_sendmsg+0x38/0x70
+[  167.724988]  __sys_sendto+0x119/0x180
+[  167.727954]  __x64_sys_sendto+0x20/0x30
+[  167.728666]  do_syscall_64+0x72/0x3b0
+[  167.729357]  entry_SYSCALL_64_after_hwframe+0x4b/0x53
+[  167.741064]  </TASK>
+[  167.752388] Kernel panic - not syncing: Fatal exception in interrupt
+
+With this series the same test ran 400 cycles with no crash, and 150
+cycles on a kernel with KASAN and lockdep.
 
 Fixes: 07b87f9eea0c ("xfrm: Fix unregister netdevice hang on hardware offload.")
+Link: https://lore.kernel.org/netdev/20260908224854.1591115-1-kuba@kernel.org/
 Signed-off-by: Jianbo Liu <jianbol@nvidia.com>
 Reviewed-by: Carolina Jubran <cjubran@nvidia.com>
 ---
- net/xfrm/xfrm_state.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+ net/xfrm/xfrm_device.c |  4 ++--
+ net/xfrm/xfrm_state.c  | 51 ++++++++++++++++++++++++++++--------------
+ 2 files changed, 36 insertions(+), 19 deletions(-)
 
+diff --git a/net/xfrm/xfrm_device.c b/net/xfrm/xfrm_device.c
+index f153bf695b9d..3bbb970cd337 100644
+--- a/net/xfrm/xfrm_device.c
++++ b/net/xfrm/xfrm_device.c
+@@ -422,11 +422,11 @@ bool xfrm_dev_offload_ok(struct sk_buff *skb, struct xfrm_state *x)
+ 	int mtu;
+ 	struct dst_entry *dst = skb_dst(skb);
+ 	struct xfrm_dst *xdst = (struct xfrm_dst *)dst;
+-	struct net_device *dev = x->xso.dev;
++	struct net_device *dev = READ_ONCE(x->xso.dev);
+ 	bool check_tunnel_size;
+ 
+ 	if (!x->type_offload ||
+-	    (x->xso.type == XFRM_DEV_OFFLOAD_UNSPECIFIED && x->encap))
++	    (x->xso.type == XFRM_DEV_OFFLOAD_UNSPECIFIED ? !!x->encap : !dev))
+ 		return false;
+ 
+ 	if ((!dev || dev == xfrm_dst_path(dst)->dev) &&
 diff --git a/net/xfrm/xfrm_state.c b/net/xfrm/xfrm_state.c
-index 8465ae064742..9883fb3545f8 100644
+index 3eb012ed8657..8465ae064742 100644
 --- a/net/xfrm/xfrm_state.c
 +++ b/net/xfrm/xfrm_state.c
-@@ -1000,7 +1000,6 @@ int xfrm_dev_state_flush(struct net *net, struct net_device *dev, bool task_vali
- 				spin_unlock_bh(&net->xfrm.xfrm_state_lock);
+@@ -790,20 +790,28 @@ EXPORT_SYMBOL_GPL(xfrm_dev_state_delete);
+ void xfrm_dev_state_free(struct xfrm_state *x)
+ {
+ 	struct xfrm_dev_offload *xso = &x->xso;
+-	struct net_device *dev = READ_ONCE(xso->dev);
++	struct net_device *dev;
  
- 				err = xfrm_state_delete(x);
--				xfrm_dev_state_free(x);
+-	if (dev && dev->xfrmdev_ops) {
+-		spin_lock_bh(&xfrm_state_dev_gc_lock);
+-		if (!hlist_unhashed(&x->dev_gclist))
+-			hlist_del(&x->dev_gclist);
+-		spin_unlock_bh(&xfrm_state_dev_gc_lock);
++	if (!READ_ONCE(xso->dev))
++		return;
  
- 				xfrm_audit_state_delete(x, err ? 0 : 1,
- 							task_valid);
-@@ -1038,6 +1037,9 @@ int xfrm_dev_state_flush(struct net *net, struct net_device *dev, bool task_vali
+-		if (dev->xfrmdev_ops->xdo_dev_state_free)
+-			dev->xfrmdev_ops->xdo_dev_state_free(dev, x);
+-		WRITE_ONCE(xso->dev, NULL);
+-		xso->type = XFRM_DEV_OFFLOAD_UNSPECIFIED;
+-		netdev_put(dev, &xso->dev_tracker);
++	spin_lock_bh(&x->lock);
++	spin_lock(&xfrm_state_dev_gc_lock);
++	dev = xso->dev;
++	if (!dev || !dev->xfrmdev_ops) {
++		spin_unlock(&xfrm_state_dev_gc_lock);
++		spin_unlock_bh(&x->lock);
++		return;
+ 	}
++	if (!hlist_unhashed(&x->dev_gclist))
++		hlist_del(&x->dev_gclist);
++	WRITE_ONCE(xso->dev, NULL);
++	spin_unlock(&xfrm_state_dev_gc_lock);
++	spin_unlock_bh(&x->lock);
++
++	if (dev->xfrmdev_ops->xdo_dev_state_free)
++		dev->xfrmdev_ops->xdo_dev_state_free(dev, x);
++	netdev_put(dev, &xso->dev_tracker);
+ }
+ #endif
+ 
+@@ -974,6 +982,7 @@ int xfrm_dev_state_flush(struct net *net, struct net_device *dev, bool task_vali
+ 	struct hlist_node *tmp;
+ 	struct xfrm_dev_offload *xso;
+ 	int i, err = 0, cnt = 0;
++	HLIST_HEAD(flush_list);
+ 
+ 	spin_lock_bh(&net->xfrm.xfrm_state_lock);
+ 	err = xfrm_dev_state_flush_secctx_check(net, dev, task_valid);
+@@ -1012,21 +1021,29 @@ int xfrm_dev_state_flush(struct net *net, struct net_device *dev, bool task_vali
+ 
+ 	mutex_lock(&xfrm_state_gc_mutex);
+ 	spin_lock_bh(&xfrm_state_dev_gc_lock);
+-restart_gc:
+ 	hlist_for_each_entry_safe(x, tmp, &xfrm_state_dev_gc_list, dev_gclist) {
+ 		xso = &x->xso;
+ 
+ 		if (xso->dev == dev) {
+-			spin_unlock_bh(&xfrm_state_dev_gc_lock);
+-			xfrm_dev_state_free(x);
+-			spin_lock_bh(&xfrm_state_dev_gc_lock);
+-			goto restart_gc;
++			if (!refcount_inc_not_zero(&x->refcnt))
++				continue;
++			hlist_del_init(&x->dev_gclist);
++			/* xfrm_dev_state_free() may consume dev_gclist. The
++			 * reference prevents state GC from using gclist until
++			 * this flush removes it and drops the reference.
++			 */
++			hlist_add_head(&x->gclist, &flush_list);
+ 		}
+-
+ 	}
  	spin_unlock_bh(&xfrm_state_dev_gc_lock);
  	mutex_unlock(&xfrm_state_gc_mutex);
  
-+	if (!hlist_empty(&flush_list))
-+		synchronize_rcu();
++	hlist_for_each_entry_safe(x, tmp, &flush_list, gclist) {
++		hlist_del_init(&x->gclist);
++		xfrm_dev_state_free(x);
++		xfrm_state_put(x);
++	}
 +
- 	hlist_for_each_entry_safe(x, tmp, &flush_list, gclist) {
- 		hlist_del_init(&x->gclist);
- 		xfrm_dev_state_free(x);
+ 	xfrm_flush_gc();
+ 
+ 	return err;
 -- 
 2.39.3
 
