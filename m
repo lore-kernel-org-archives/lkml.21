@@ -1,140 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=192.198.163.13
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.49
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795637248;
-	b=oDyzrOoP9hwIddeon9UgoR2ULnRqWaTh51EzsvtGTxEP5Msmht3TQJzUNwoTdah9oQyh
-	 DDgvwYWmeldpXi+lu702LKctwL3FCSAMGl1GVUkmZgVb6JKjiA8sKRvV+e3hqer5Cjq1b
-	 yKSjIYzukunuaAGDsTleJ2vqzQsuwK9o1p9p9edHApQ2ORk018PFiRJemo+rGLvfsRgyU
-	 AAwnpGfVMR4AyJRFOjYKEyNcvqOxBR5Gu4auAvcZaFKIBEZZz1GUbrYWGyKx1bYbhCLA9
-	 uUG2BtFOyz4M9dt7ijwLfAUcZaZ3ZRreoa40cEFpOlr9+dbd84lmvLyWMZOMXBx/miA==
+	t=1795637305;
+	b=rfiR/HU20saD3CQCsVzGUCecsmiOoQlFk2yAzX5Hab0h9ln12QPXD0nQd+zceuMCtboB
+	 NvVVgpKjakl1xosKtZl0YuZJfVtltxS1PJ1Pwb1R/XLl8nsCYRXpDoa7zLMkg404MuZrs
+	 X0Bz2jfKFr1NowkQS/Mrdgiscxfztg/bobdVmL6btAstQtl7Pirnq7erRLTNe/8wBXI7Y
+	 IJFozs0jwvdymd8zUtJT7eo8XHKnhRNiEX4H9bYJefgJT6KwN6rY8fkADUJNESgyAN6As
+	 i2qwGb9C52JrUtT3JwUZuBlhgQrmRrxECeetVYFwfY3Hdlz4AYh7gYaYwAwc/JNhDSg==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795637248;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Received:
-	 Received:DKIM-Signature:Received:Received:Message-ID:Date:User-Agent:
-	 Subject:To:CC:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-Exchange-RoutingPolicyChecked:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-OriginatorOrg;
-	bh=lmZh6bjWd3lqfup2mKxwKnG/48JPp9UsfMug2bvKYxE=;
-	b=fkHmvhO5RuruLuJHRNFMMddB1msphHoNTvZ81zYBXKZ+hV+l+37/TmNLCFOj08ZWhMl+
-	 i0dmktXxpchjbQ/uXBTojmtXi0iFBL3ccUTt0bSw6cN3juboPu0lIrw1jyZuDLHQUPB+g
-	 j1jPK9nYyHQoMPDS91BldtNv28DEOqnzM8tDPQ1w0geT1s8kQ68bABh078dPKv2L2AdL4
-	 z8EtcO4wO9yUduY959osfeDDryP69dTEHJsVY5vSQnBp/36FWUCybJdny0zmoS88s9z6N
-	 iShUAk2b+ijvSP0gVFFansJ0w+vtihL/x6m8JJgV3jY8xOj0xAZi/OSIWY8iaRcIBFA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795637305;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=g2sz6a7NAkW2VwlSH0qJO9zVczZnv9QOUY1IGuEHJjs=;
+	b=XMvwwi0Es7ryLL+ZSIl0hTgt2LnkheiIFyO2kyi60jOatS5la5CkMNA/wOrsMOmG6Fsy
+	 pO/kD+M1OzEuD+imUdF9BQsmozzbpaz70z4rXeGJqHJ/rKE4inxDSB8dFoIc8nwDvzhAh
+	 VQTbwR2bbLpCDVfXZsPNwa/aBWXzHFrwj9g1I/27mV4hP9XtxWPmzSgLokRFlf0dJp1wp
+	 V3Hs2sSKqOpoVaCcv0F0MjHbUfuETOYfhWAOKNJYxGpkHTq0xG2eE8wbxX6VNeXpGpugn
+	 9rRSa4t4wJ3HX8+X8hsvUq0nQEYzFOU9FWhi06LCrmfurKKo1OWqu2AgpCKHrmhBj6Q==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Us7ZDdXU;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=ahpQHjzW;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=192.198.163.13
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.13])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=chromium.org;
+	spf=pass smtp.mailfrom=chromium.org;
+	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=SzdBUQhC;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.49
+Received: from mail-yx1-f49.google.com (mail-yx1-f49.google.com [74.125.224.49])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5C878606A31E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 20:07:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5C878606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DC395606A323
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 20:08:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DC395606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chromium.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chromium.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Us7ZDdXU;
-	dkim=pass (1024-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=ahpQHjzW
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795637248; x=1827173248;
-  h=message-id:date:subject:to:cc:references:from:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=gYp55ijsdzQmvVAffIJ/VmYwlJ5wl1D+mo/swxg+kFw=;
-  b=Us7ZDdXUBjhc0R5cPZE47UStmEnvPVIujPdi+Z2ftt2RQ3dPuohNEkaD
-   lvFidcrpjzua9Ofq0FApSzP0/DjG/LdOzMr3GLZLSQbXKOOwfi8V3+sP0
-   nCzmtPAvZ1ubDIC4JsJWz+zpm+fKt9HFh8DHpn/FDo2B2FcOZ/ZoyCYYa
-   +d2qXDhNZcag2INhKyeD1kPODiuDbNdYRqaqqkpCiRn0BugDnKHRu1C/H
-   4dNm3r1XYYyWV5d91uoW+4JDIEpxC63w9uSVWz4cyX806nT84+IB/2eec
-   IPcZTvNbR4DYqpPqFvZkmZ14OWPVCvCJ1As8WpGbRKFbj6IsZeG5Cu4k6
-   g==;
-X-CSE-ConnectionGUID: 3TnkpdjZQlm15JBK1JzPPw==
-X-CSE-MsgGUID: unrFl4FtRMS76VM/p5Ps7Q==
-X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4499322"
-X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
-   d="scan'208";a="4499322"
-Received: from fmviesa013.fm.intel.com ([10.60.135.153])
-  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 11:01:48 -0800
-X-CSE-ConnectionGUID: I0kznHVrTv+LcZxyUroiBg==
-X-CSE-MsgGUID: 5evVJ1MQRPWZznrwrX9e6Q==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
-   d="scan'208";a="13980861"
-Received: from orsmsx901.amr.corp.intel.com ([10.22.229.23])
-  by fmviesa013.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 11:01:48 -0800
-Received: from ORSMSX902.amr.corp.intel.com (10.22.229.24) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57; Wed, 25 Nov 2026 11:01:47 -0800
-Received: from ORSEDG901.ED.cps.intel.com (10.7.248.11) by
- ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57 via Frontend Transport; Wed, 25 Nov 2026 11:01:47 -0800
-Received: from SA9PR02CU001.outbound.protection.outlook.com (40.93.196.16) by
- edgegateway.intel.com (134.134.137.111) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57; Wed, 25 Nov 2026 11:01:47 -0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=HQPAXi+AD+GkRq9ziKjlg709fbLUnhO9Zv7ZG/LJwhZzb1nVkaC5KZMpO9kbvdlUnelZpewbDX9SCkQUHFwxR3wLCnimnHEcZ3xwITbzyJEBYihxt+cVI40VnSVvzi4qafJwJ2jrNANWG7H3TVFL4rzA2wXBiDzCvErn3QrdPCvNNF/Sn0QqFNlXsC5rBCu6/5QnsoOW7x7YkuHgCmZIHKdZ1cnN1MSBBB6BG1Cr7zM2yl0ozjNMDO2INmJGnnjGTdi0jrFUM2o/Ypw14qlX/K1QUmLTkovxUbvVjuAdq5hbxLqxpNassbxY6HCVzX5VANmKTnqVKBoQUZ8WYgSkWA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=lmZh6bjWd3lqfup2mKxwKnG/48JPp9UsfMug2bvKYxE=;
- b=egPqPB9QufSrav4hmCoF7syoDGHvz4K1fmsHQrHfkwPbBbnxjOEWHwY3PIOAL1fumyJhaSFCYpvuVoTpPWo0xHLC+kYi4fgB6nBGNx232IUT0o6wly61Z8VzOWzNeXSB/1RAtv5eGb+gnj4TGTU/AO64e/lQZku1t1/8lB/qXi8mVwIoBCbtnY51oFDclDfcItJa+DagyP1TuXs50NMwVaGVsX2oQPFz0QofX8Fapj6EZqZ3nxtlR1W2CWvbgbPMMRzod1JPb7d5RNhbvbWYiJgnbvmqJcGATXBor1lJ753f9YMTJZik6O+952YQO6qom9T1ZgDTtxLHNcOw/2ZAcg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=intel.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=lmZh6bjWd3lqfup2mKxwKnG/48JPp9UsfMug2bvKYxE=;
- b=ahpQHjzWUKyBQs7WjQ1B/Au2MZtn8y5AHfFNsA1/CwfxBITus9uuLxbxFPF9A5gnoMRRHXA0XA3afZ5Nut2pFUbZI0jQ47vTzDsk38d+HwN18U4gd5vVTYHVA49ARs4xSLefIK2OjdS5S1F4j8i1CIJfxT+ThlLeAJscartVPkQ=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from SJ2PR11MB8370.namprd11.prod.outlook.com (2603:10b6:a03:540::20)
- by MN6PR11MB8196.namprd11.prod.outlook.com (2603:10b6:208:47b::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.6; Wed, 25 Nov
- 2026 19:01:44 +0000
-Received: from SJ2PR11MB8370.namprd11.prod.outlook.com
- ([fe80::b6cf:ce77:3cdf:7cc]) by SJ2PR11MB8370.namprd11.prod.outlook.com
- ([fe80::b6cf:ce77:3cdf:7cc%7]) with mapi id 15.21.0662.004; Wed, 25 Nov 2026
- 19:01:44 +0000
-Message-ID: <959725fa-d3bd-49cd-ae17-ca0650d4cf09@intel.com>
-Date: Wed, 25 Nov 2026 11:01:42 -0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v10 04/12] x86/resctrl: Detect Sub-NUMA Cluster mode
- before enumerating resources
-To: Chen Yu <yu.c.chen@intel.com>, <tony.luck@intel.com>
-CC: <tglx@kernel.org>, <bp@alien8.de>, <mingo@redhat.com>,
-	<dave.hansen@linux.intel.com>, <hpa@zytor.com>, <fenghuay@nvidia.com>,
-	<babu.moger@amd.com>, <hongyu.ning@intel.com>, <chen.yu@linux.dev>,
-	<x86@kernel.org>, <linux-kernel@vger.kernel.org>
-References: <cover.1793864720.git.yu.c.chen@intel.com>
- <d9c9ff67609cbca8dc840c680425d90191c4a1dd.1793864720.git.yu.c.chen@intel.com>
-Content-Language: en-US
-From: Reinette Chatre <reinette.chatre@intel.com>
-In-Reply-To: <d9c9ff67609cbca8dc840c680425d90191c4a1dd.1793864720.git.yu.c.chen@intel.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: MW4PR04CA0343.namprd04.prod.outlook.com
- (2603:10b6:303:8a::18) To SJ2PR11MB8370.namprd11.prod.outlook.com
- (2603:10b6:a03:540::20)
+	dkim=pass (1024-bit key) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=SzdBUQhC
+Received: by mail-yx1-f49.google.com with SMTP id 956f58d0204a3-677d35fd1d2so6425798d50.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 12:08:24 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795637304; cv=none;
+        d=google.com; s=arc-20260327;
+        b=StKafGWEQzgjI9jS/r/H8Zwr7WZ/qheSHc1Bp2k78EKveBRcUMU2mNf7MumAUtSNq8
+         nG215G6JA12lHRGAvUelxT/cYmhT+EVK/AEj1491zKikcihWV68hzI1qR/UoVB2ikbuU
+         WoZY6Wj+fVu3VT5GD8aHMuwja3t4BA1MZI59HgJRTEc4XcFLFi57leHDKbWe3bjsJ4Qt
+         WJjjELgMA7ZKY0CCailoksbHcleueURVqdGPIIDdJzF3Q5H+YJ185cXyTD5Gy/gx3AcA
+         v38oFAj2rtzsVeyKSP8W5Xd/45ObcI5BDg2AeVQSFJ+58/L1iLNxnGJhonSKc0y8w1rv
+         zicw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=g2sz6a7NAkW2VwlSH0qJO9zVczZnv9QOUY1IGuEHJjs=;
+        fh=EPAjUeNlpVTzacdYzVLK9wvxEv3+W+aEvtsjvOYywPs=;
+        b=R53LsnPag6+OZipaKq8tVGDNkUpeVbMbeYDNH4DzYJLzU12nZwHm72MPbxw71XaGq3
+         Oqj1gn3xO9Ix0tnA5ngYvGkYDHqjbHz8OI1yx40gfKLyOv1h8Z90dPXsGqLXveyFpuhG
+         hqLQ89x3AzV0vpDUAF3GT+OMDyhH7n+a5UBsMzK363Kb4QpTQw2uXjWFZmhIuPoN3iRz
+         LMJ6/zBWj4Xw9NDQR9yfzr72BRTFKDGnDXjiKgfZgGaCAEhH1PCAGQ0xHhVPCV4u1cv1
+         ye1YkZGKxUk5oM5Awue1ZvmXL87OheQ7oiKbhIT9dY1O6SnatZFtA4EFssbI5PJ+yp10
+         wQwg==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1795637304; x=1796242104; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=g2sz6a7NAkW2VwlSH0qJO9zVczZnv9QOUY1IGuEHJjs=;
+        b=SzdBUQhCJqf2b1xmvJdwUTWJRZqYk8KZJTkab1RKCRDByJ/NCF6dGEABYYhrJyGV0u
+         RMhn7tlV7TQ0o34p1ttPmZotWI9864QWO4eP7vDQVFFJleUA7H52mGQqkyeswywPh4Q+
+         1d/rizLBhCX5iHzBOJxpBmKS9LxW4eNRG1gd0=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795637304; x=1796242104;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=g2sz6a7NAkW2VwlSH0qJO9zVczZnv9QOUY1IGuEHJjs=;
+        b=JbAXPkk7HujtqzCD9xjDeGRnWxw/KsTX5SFth6GEvrjWv7xyo9FW7TruXSwI3EvJP0
+         s24E4+89NB3cFsvJVRB3kY7Us4ZDkg9FSMnw7Jkm2Qq0Ajr9jDRYPbsm/+sEw+xXGaOa
+         926vilQLDWkrvcCu4JZyZH82M7IDGTadGSHxpPZCzC3Mj2zSEWntH3dIJicq32qOHwbO
+         FAm3f6ZliOyXG6tTIkvXnjvQM0ZeEd1/PikFReev2yF+e0bi0DlYUjzimr14A3YqjPTa
+         ydE265U6hIR2Nne0uLRkndYxkLZvy3aV0wP3M+fAME14sQqMjAHrWTdl3UnP3StZWgoV
+         XEUQ==
+X-Forwarded-Encrypted: i=1; AL+hErFnri9c18sMEkbuu5OfXkjctPDCZzeuAyWn1Lm3dlNYfwWFwODVrSsgDNoFAruPyjqp38GCp5Vk/QNgP+0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/awIp/E8LBX27dQTnfOPz4WQBt2tCW7mrjjJ26YEeEfxUJyQwc
+	RWbub/Fu2H0t2sSwXHWyF2yrT8Wv3XLT/XNh3niFnZn0Mfk4T4RCmFlCCJh/KjNtMdbpELKSYoP
+	3Rpqv+AigsZPIeqW3wXwENiH6gwgAB3DaCVrpwrng
+X-Gm-Gg: AZFdTZe4ynctEZNYHfabiuvVZcbvwVlHVSxyz3uiwvcDlzHjZ62UhsQ7k5kd48G0o5+
+	cYVo/OVKRkgHn7jvR0YP679WPvfPAnGlv/7Q+wh8HCpgXwcZlRv+mJ1kg2va18NMWiEmgngOKHK
+	j4ailJpWLmsQrYskJQEAbM/YQkEmpHSVjIkI93IFLV6bG0cWLXDzvTs9/RmBkxEBViH91uLUS6K
+	RiTmEq8N2yFh2igxhZp1UUfTz9eSkvjIcuBPN3XOyDNkTYtlsLBpCEXHN2riErtnts2FPeLWKnu
+	51hbkTzZAXbEzRgpd4sbtZCGwsYjxN2KxiePqsWGBLp8lCsowZNv3RL4EDRgTt/q7h6uQp3H19i
+	wQltXFd46qFBqUmxLPR0mBi4/0rRipc4Wy/sEB4nR6OORPPRljSRzl69d4S/6rNqmis/x
+X-Received: by 2002:a05:690e:128f:b0:67d:c8a9:c607 with SMTP id
+ 956f58d0204a3-67df447fee9mr7204157d50.58.1795637303877; Wed, 25 Nov 2026
+ 12:08:23 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -144,91 +101,196 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ2PR11MB8370:EE_|MN6PR11MB8196:EE_
-X-MS-Office365-Filtering-Correlation-Id: f664dbae-10a4-40f3-57f5-08df4b268c0a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|23010399003|1800799024|10067099003|56012099006|4143699003|11063799006|261028144727099003|261022105027099003|261022075727099003|261021121427099003|261026140227099003|261102123227099003|22082099003|18002099003|6133799003;
-X-Microsoft-Antispam-Message-Info: f7jnm6CJE/1HynLpHSn4UQMby+Y8Tv6tchtIPofbzFoRTTXGxDIWnw075fweu1QAm1T0/23rDlBMtetYgGPp7CFHYdwVoaiOhfTkjPS6iDYky2ukEBX/z6+SGkHiPr+9EzyXjlaEta2X025dY8vRA/OGq7Dl5liAsaOoJJND1YKe1t2URN2NoVflPOIOXVwAI4LwvBzmHSfOiAAWJwE1aputuv+skxsZI+xg/DOq5nScvSNGSVIocVNKJ1RhxiIZb9fSrwz28dQAM31zDVAsxs7JDeealvaZh26csDrL0STHub5eO1ypCKD+nVlKlYtZqL7RkPjLLtQBRlK+iWmD1O3vUWUVwB5/Au9wij/i6QZN5izQbLQF/YLytrRl9ysoYLc8+xbsSMYJ9EHVfUgUC4N2x/TJOnlsF0Vk4lAhp6HZu3cNBUYbX7SAooasdBol/Rues0lDpMrg4hjPhb2wmxiWTwR1p7ZfGy9AjN2I/T3PoHLVzCVDxWyGZMKSk1f2+IcbBGiMuX3Imv2rdmKBpq3YUFQAxwhfBSpbUX/KhbrfwB2coPBE0gLkiinuDSSY3xPOdxwSsV0YKvHHuEeDg+/jZhwzCiKiAd69nntbZe3hoMBBcXXeM7ZzTcIYbGzLxPketYj/1bw/wQsLCKtloZQbBw7KA1kKyMoth28hIXQ=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR11MB8370.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(23010399003)(1800799024)(10067099003)(56012099006)(4143699003)(11063799006)(261028144727099003)(261022105027099003)(261022075727099003)(261021121427099003)(261026140227099003)(261102123227099003)(22082099003)(18002099003)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?QWhqYkkxcXdOZlB2eHM3NUV1cnM0dG5ac0ZOZCt5OFVJTXI1QncxQVZFMWhX?=
- =?utf-8?B?allYY25YQXlaNnV6L280M0tqSks5eElBcm8vQkJxcytsc2FPbnI5UElXV3Fp?=
- =?utf-8?B?WS83QVNmVk5zTGJiOUJTUytMN3EvaEV6cW5lQVAyNW5XZ0dsVXVZK3ZadVpm?=
- =?utf-8?B?UmRTQ01Yc20zMU01WGFENU5SQU5LSVB1N1lSQ25rOVlzdnd2aVBMY1c1ajhL?=
- =?utf-8?B?T053QXBaNVNEUHRjUGdEclQ4U29qTTVtTm84b09hWGVqYUJTMlBXWGZORnRH?=
- =?utf-8?B?Q0YrS0hTVXdVcUJWQlUxSDFvcmN2ZUpKcCtOSTVSMlV3RTh3UjVYYVFCcUpj?=
- =?utf-8?B?YVR5dFRJdjh1N1k4SzljaHcxd3VhK0k5UEJRYllVYnF0RTJsZm5RenkyOWta?=
- =?utf-8?B?eE0wMUJ5OWF0MC85MVFwRGhBUVFkUGdmc09DRm01UmVBUVBBRnZMeEV2bHFh?=
- =?utf-8?B?bk0xYTNsc3lNSTVJRnFabkV5TGF2V2dSdHdxV00ySzZPRGU2MzNDcmhObjJx?=
- =?utf-8?B?THZ6Vy9VRXhSaXg3THExMkM2a3pyUFpLOHR1eGF4QzlkY2lSZzZsNXNwOEJ0?=
- =?utf-8?B?NWpWZE9HcGRidDV3bWV6Nm9ZRmhyaW81QjdBSXlWOE1xa1hkWjY0bFd4Mkti?=
- =?utf-8?B?cmt2VU55Z2tPTHNxbUwyeldXM3JWVnNSbnVuVkF5ZVY1VDZBY2dkeEMyQVBF?=
- =?utf-8?B?S1hYb2JkbFhvNmswbU5WbUFFYjd2bEJSRUh6eGRRaU04N05xbFVMb3Z1RDl0?=
- =?utf-8?B?dVFaQmxPeFkyTVExZEtGVHFHc0xkZ3R1emlwcFFxREd0S0c5NUYxWC8vNmtP?=
- =?utf-8?B?TUJ2M1dXUXBTT3BHRm5ybktnSEdpYVZkYWw4TlBQQ2hCRUREeWVIRmpnTEU0?=
- =?utf-8?B?NnhtbE5OYlY3UEFGQ3NKWEh2elZTZjBMZlVlNG5hQ1FGN3pLS2wxNTZkaS9O?=
- =?utf-8?B?QWRrdzlhdTRxK2QrN2lkcmZmZHE1dlFycEk5ZXh6RXhobUlvUVFETkZHUWNG?=
- =?utf-8?B?d29aZVl1QkpXclNpVEt5LzhLMXZDTFdPR3oxakE5bk5nZ2V4ZlN4SmxmVVM0?=
- =?utf-8?B?aHgyKzlVSEQyQk5GaFBMVkFwZEwwa3hFRVVFMi8xQXc2Z2xibGtLcW9kODFk?=
- =?utf-8?B?aWdDN3BraUVkRHBLeXFhK1ZhOGNpOTFUMUtPN20xQnVnU0p6QnRXb2h5aDF1?=
- =?utf-8?B?OXJRM0VFMFR4TkxDQk9hQk44L2dYcld5MWI4Ni9zT2VwYnRpZjZmb3hWdDdX?=
- =?utf-8?B?UFk3N0FveG1RemE1YldGS2xXbmhtdkh2a1VQSlZYSEE4MW9DWUQ5M2xwcGRV?=
- =?utf-8?B?R3ltSHhuNmNLcHNzd1JvNWF6ZzZvRGNyWHhielRtR2JkQk5PUmF0OVpxZTI0?=
- =?utf-8?B?aXRmbVg1dFVEOTlNZzA2SDQ5ZlpsQld5UEJ4R2psWTJVc3NDSkJtUVo4Zm1F?=
- =?utf-8?B?dmFhb3NzVzgySGYwNEI1SWRyTTg1ZlY3TE9aOXhtRzJSUmt4VnFEdWkwVWg0?=
- =?utf-8?B?Nkl4L0tFNHNIT2FKb1VRYUlUeFIvYVdQamg5Y2NSM09jWFUvUEV3OGU5aTN1?=
- =?utf-8?B?UmFuS3h6VUNza1BhbjZPZzlpZVNRa0tMMFlEQkhLK3EwT3ZOVGRWOUZ6OFdL?=
- =?utf-8?B?VW9UbzVVc3BZdCtPdTBsZTg1V3lFOSthOWVtK3BTSHVVVGNZVEx2M3p1elJS?=
- =?utf-8?B?ZSttaEgzUjViQ2Jyd1hYRHRoRFA2S2FOWldzdWJmZ1VSYy9OTCtkWjFaWk9J?=
- =?utf-8?B?aHZlUjFtb3FKbDBGdG5hU1piY1JWUkJmWXdjUEdnR1RXYVFSTk1OYjV0RDgx?=
- =?utf-8?B?VW1aRE96dzJOdHcxWk01WWt4WG5odlBnN3BvQ0F5b1FKOHFzMlhwR3pWNEdY?=
- =?utf-8?B?ZzFZdUw5V1lSUHNrcTFmcFJCVld5L082RUx4bFRLbjBqWmJFdVE0N0xhWlJI?=
- =?utf-8?B?ZXBKSWFCQUxGQmU0TnFqVTc4bEI4MTZyZWZUYUJOMGFPY3JuWWswT1BHa2Vz?=
- =?utf-8?B?b1lZaElNekpOaTlzR1FJUDFUMUtvWEhNdTVkeWFaWlczT0FoVkg0eE5HVmg2?=
- =?utf-8?B?bXF0dW1DL1BsMWQ4T0xHTVlYdk5WNDVkVGNxT3hDMWZROXpFY3hPKy9rbVZo?=
- =?utf-8?B?MU8xSVo0NHlQRUVZUXhzeEZVWDNCZkNha2tCbThaaGIwaHYyMUNhUGtnb1pS?=
- =?utf-8?B?MGsyMWlsWDRKd3puYTI0aVc0dHZOZFhueWoyb2pNYzFERjNPRm8rRStiZXhT?=
- =?utf-8?B?Wkg2ZGFpd0tnS1VrSXNsaFVES25JZ24rMml6Q08vNjdKVklBS2pqd2hhTWZ2?=
- =?utf-8?B?dktZV1BDZWdXVXBnQUpwalNUc2RHTGNsd095dXZWaWZlUk14eXlkdWVmOWdw?=
- =?utf-8?Q?stke8o/OQYraLgaE=3D?=
-X-Exchange-RoutingPolicyChecked: OLECos3VbsxOuvFnzui4p3X0mt3OQzwxIWVcYIHqLW7IKurN5WSIsvOV1u8s/qMHl3/oGLAgc+rv8E45zqcgo+2fsCz/3eZ2It+J9XPV9Hw3dhmgOx8R9Q0U/aITqfSWwcEYMu1G7IFk/hVwZ1XKUBQZutXfcLPIldoFr34qx6iHysZ47b/WA5Ou6guz3PJTJwZHzqLUxL0IzDCn3+C7SVZ7NUOgsa3xC005VTI1WgXJw0s15hgxH80RnNXGADQn2YRwohzMYdxFWe2V2slcgqY+oTvUqcfYozlXF7a9ubIEfq6vn5p08OVGZmHTIHCXOf/P0B8rzs2OGA6dnx9XWg==
-X-MS-Exchange-CrossTenant-Network-Message-Id: f664dbae-10a4-40f3-57f5-08df4b268c0a
-X-MS-Exchange-CrossTenant-AuthSource: SJ2PR11MB8370.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 19:01:44.1601
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: eg17XvsBu0Q/q5Ud35Zttrmn1aQRqCWA85l8HsaKg80Z+LBNtfEV1R/bFqplLsTYtQLUGm2eMsV2EfL7lpX56to7oHdtXDd/Y2+8W9ZDe8Y=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN6PR11MB8196
-X-OriginatorOrg: intel.com
+References: <20261024-send-upstream-v7-0-abad13174b43@chromium.org>
+In-Reply-To: <20261024-send-upstream-v7-0-abad13174b43@chromium.org>
+From: Jingyuan Liang <jingyliang@chromium.org>
+Date: Wed, 25 Nov 2026 12:08:12 -0800
+X-Gm-Features: Aa3M54oC0J4hEvF8nL8DG0lKyvPdcHpLfWm3L9Zu9MgNC1XuuWU_i9PXhdfqRu4
+Message-ID: <CAEe3GZEWAApD0ZvQX4J5Uo8aajEtpVzg6JsGLqB8GKNv6ug06Q@mail.gmail.com>
+Subject: Re: [PATCH v7 00/11] Add spi-hid transport driver
+To: Jiri Kosina <jikos@kernel.org>, Benjamin Tissoires <bentiss@kernel.org>, 
+	Jonathan Corbet <corbet@lwn.net>, Mark Brown <broonie@kernel.org>, 
+	Steven Rostedt <rostedt@goodmis.org>, Masami Hiramatsu <mhiramat@kernel.org>, 
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+Cc: linux-input@vger.kernel.org, linux-doc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-spi@vger.kernel.org, 
+	linux-trace-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+	hbarnor@chromium.org, tfiga@chromium.org, fqwqf@fqwqf.xyz, daleyo@gmail.com, 
+	Jarrett Schultz <jaschultz@microsoft.com>, Dmitry Antipov <dmanti@microsoft.com>, 
+	Angela Czubak <acz@semihalf.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Hi Chenyu,
+Hi Jiri, Benjamin,
 
-On 11/5/26 2:08 AM, Chen Yu wrote:
-> The Sub-NUMA Cluster (SNC) configuration is currently detected only while
-> setting up L3 monitoring, so it is unknown to code that runs earlier during
-> resctrl initialization. Upcoming Enhanced RDT (ERDT) support needs to know
-> whether SNC is enabled while parsing its ACPI table, before the monitoring
-> resources are set up.
-> 
-> Detect SNC once at the start of resource enumeration so that its configuration
-> is available to all of resctrl initialization. SNC is now also detected on
-> systems without L3 monitoring, which is harmless because only monitoring
-> depends on the SNC configuration.
-> 
-> Suggested-by: Tony Luck <tony.luck@intel.com>
-> Suggested-by: Reinette Chatre <reinette.chatre@intel.com>
-> Signed-off-by: Chen Yu <yu.c.chen@intel.com>
-> Tested-by: Hongyu Ning <hongyu.ning@linux.intel.com>
+Gentle ping on this series. The DT binding has been reviewed by Rob and
+Conor, and I've replied to the outstanding bot review comments.
+
+Please let me know if you have any further feedback, or if there's
+anything I can do to help move this forward.
+
+Thanks,
+Jingyuan
+
+On Fri, Oct 23, 2026 at 5:51=E2=80=AFPM Jingyuan Liang <jingyliang@chromium=
+.org> wrote:
+>
+> This series picks up the spi-hid driver work originally started by
+> Microsoft. The patch breakdown has been modified and the implementation
+> has been refactored to address upstream feedback and testing issues. We
+> are submitting this as a new series while keeping the original sign-off
+> chain to reflect the history.
+>
+> Same as the original series, there is a change to HID documentation, some
+> HID core changes to support a SPI device, the SPI HID transport driver,
+> and HID over SPI Device Tree binding. We have added the HID over SPI ACPI
+> support, power management, panel follower, and quirks for Ilitek touch
+> controllers.
+>
+> Original authors: Jarrett Schultz <jaschultz@microsoft.com>,
+>                   Dmitry Antipov <dmanti@microsoft.com>
+> Link: https://lore.kernel.org/r/86b63b7b-afda-d7f4-7bfa-175085d5a8ef@gmai=
+l.com
+>
+> Signed-off-by: Jingyuan Liang <jingyliang@chromium.org>
 > ---
-
-Thank you.
-
-Reviewed-by: Reinette Chatre <reinette.chatre@intel.com>
-
-Reinette
-
+> Changes in v7:
+> - Drop the error counter sysfs attributes.
+> - Print error codes in power up/down failure messages.
+> - Reject an empty report descriptor.
+> - Check the minimum input report body size instead of max_input_length.
+> - Clear reset_attempts only after the report descriptor check succeeds.
+> - Drop pending work flags when the error handler resets the device.
+> - Don't schedule a reset when GET_FEATURE fails with -ENODEV.
+> - dt-bindings: drop the address/opcode properties and the "hid-over-spi"
+>   fallback; the compatible determines them.
+> - dt-bindings: fix authorship to match the Signed-off-by chain.
+> - dt-bindings: update maintainer email addresses.
+> - dt-bindings: drop Rob's Reviewed-by because the binding changed.
+> - of: use per-compatible match data; match only
+>   "microsoft,g6-touch-digitizer".
+> - pm: disable reset_work across suspend.
+> - pm: check deassert_reset(); schedule recovery on reset timeout.
+> - pm: skip hid_driver_reset_resume() when the device is not ready.
+> - pm: log power_down() failure instead of rolling back suspend.
+> - pm: use dev_err() instead of dev_WARN_ONCE() for a failed device
+>   descriptor request.
+> - panel follower: start with reset_work disabled.
+> - Drop Dale's Tested-by from the OF, PM and panel follower patches
+>   because they changed since v4.
+> - Link to v6: https://lore.kernel.org/r/20261019-send-upstream-v6-0-cb9ba=
+4b3d6fa@chromium.org
+>
+> Changes in v6:
+> - Take output_lock while reallocating buffers in ll_start()
+> - Don't drop input reports while a refreshed device probes
+> - OF: drop mod_devicetable.h, use named initializers, fix alignment
+> - Move the dt-bindings patch before the OF driver patch
+> - Drop Tested-by from the documentation and DT binding patches
+> - Link to v5: https://lore.kernel.org/r/20261009-send-upstream-v5-0-384af=
+01da3ee@chromium.org
+>
+> Changes in v5:
+> - Fix request/response races; match GET_FEATURE responses by report ID
+> - Reset the device on response timeout; wait uninterruptibly
+> - Validate device descriptor and report lengths; fix buffer sizing
+> - Honor rtype in raw_request(); fix GET_REPORT off-by-one
+> - Use hid_safe_input_report(); forward input reports only while open
+> - Disable IRQ around hid_device teardown; fix a sparse warning
+> - Use disable_work_sync() for reset_work in remove()
+> - Cap trace copies at 64 bytes; cacheline-align read approval buffers
+> - ACPI: select RESET_CONTROLLER, use device_reset_optional()
+> - OF & DT: read opcodes as u8, use dev_err_probe(), require reg
+> - PM: cancel reset_work on suspend, wait for reset before
+>   reset_resume(), fix IRQ imbalance on resume failure
+> - Panel follower: fix regulator/IRQ imbalance; depend on DRM || !DRM
+> - Link to v4: https://lore.kernel.org/r/20260609-send-upstream-v4-0-b843d=
+5e6ced3@chromium.org
+>
+> Changes in v4:
+> - Extended io_lock scope to protect the shid->hid pointer lifecycle
+>   against races with the IRQ handler
+> - Cacheline-aligned DMA buffers, enforced 4-byte alignment
+> - Added error rollback for failed suspend/resume transitions
+> - Moved IRQ request to probe with IRQF_NO_AUTOEN (disabled by default)
+> - DT Bindings & OF Driver:
+>   - Required a device-specific compatible string in the schema.
+>   - Added description to explain why opcodes and addresses properties
+>     need to be defined in the schema
+>   - Added `spi-peripheral-props.yaml` reference and switched to
+>     `unevaluatedProperties: false`.
+>   - Added fallback to default timing parameters in OF driver if match
+>     data is missing.
+> - Link to v3: https://lore.kernel.org/r/20260402-send-upstream-v3-0-6091c=
+458d357@chromium.org
+>
+> Changes in v3:
+> - Add io_lock init
+> - Relocate tracepoints to drivers/hid/spi-hid/ and fix tracepoint macros
+> - Add tracepoints for sync, error handling, reset, and report processing
+> - Clean up internal includes and fix Makefile CFLAGS
+> - Add more details in v2 changelog
+> - Link to v2: https://lore.kernel.org/r/20260324-send-upstream-v2-0-521ce=
+8afff86@chromium.org
+>
+> Changes in v2:
+> - Clean up DT bindings: fix formatting and remove timing and flags proper=
+ties
+> - Update DT binding example: use a device-specific compatible and drop
+>   reset_assert
+> - Simplify ACPI/OF match tables by removing ACPI_PTR/of_match_ptr
+> - Refactor OF driver to use match data for timing parameters instead
+>   of DT properties
+> - Switch to fsleep() for delays in ACPI and OF drivers
+> - Drop patch 12 as it is vendor specific
+> - Add a lock to fix input/output concurrency race
+> - Link to v1: https://lore.kernel.org/r/20260303-send-upstream-v1-0-1515b=
+a218f3d@chromium.org
+>
+> ---
+> Angela Czubak (2):
+>       HID: spi-hid: add transport driver skeleton for HID over SPI bus
+>       HID: spi-hid: add ACPI support for HID over SPI
+>
+> Dmitry Antipov (1):
+>       dt-bindings: input: Document hid-over-spi DT schema
+>
+> Jarrett Schultz (3):
+>       Documentation: Correction in HID output_report callback description=
+.
+>       HID: Add BUS_SPI support and define HID_SPI_DEVICE macro
+>       HID: spi-hid: add device tree support for HID over SPI
+>
+> Jingyuan Liang (5):
+>       HID: spi-hid: add spi-hid driver HID layer
+>       HID: spi-hid: add HID SPI protocol implementation
+>       HID: spi-hid: add spi_hid traces
+>       HID: spi-hid: add power management implementation
+>       HID: spi-hid: add panel follower support
+>
+>  .../devicetree/bindings/input/hid-over-spi.yaml    |   75 +
+>  Documentation/hid/hid-transport.rst                |    4 +-
+>  drivers/hid/Kconfig                                |    2 +
+>  drivers/hid/Makefile                               |    2 +
+>  drivers/hid/hid-core.c                             |    3 +
+>  drivers/hid/spi-hid/Kconfig                        |   50 +
+>  drivers/hid/spi-hid/Makefile                       |   12 +
+>  drivers/hid/spi-hid/spi-hid-acpi.c                 |  261 +++
+>  drivers/hid/spi-hid/spi-hid-core.c                 | 1698 ++++++++++++++=
+++++++
+>  drivers/hid/spi-hid/spi-hid-core.h                 |  112 ++
+>  drivers/hid/spi-hid/spi-hid-of.c                   |  211 +++
+>  drivers/hid/spi-hid/spi-hid-trace.h                |  184 +++
+>  drivers/hid/spi-hid/spi-hid.h                      |   45 +
+>  include/linux/hid.h                                |    2 +
+>  14 files changed, 2659 insertions(+), 2 deletions(-)
+> ---
+> base-commit: ee9c669f9bf5fd2c24206746ded9382fe810df89
+> change-id: 20260212-send-upstream-75f6fd9ed92e
+>
+> Best regards,
+> --
+> Jingyuan Liang <jingyliang@chromium.org>
+>
