@@ -1,77 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=139.138.36.223
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.169
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795567193;
-	b=RI8Dr/Umu0v8ulHrB7Evng0h5jKppAS5Hq5pBoMNkMqkXqYR55/4bXldQEnTgoKItmNO
-	 uhbn/NTJmGJQF5cv//kLaOQFDk/wO0PPYZiCIhjSUvhUwZ4WAYjk86wjlwoOPC6lYspPW
-	 VZuPGM2b/V3lEsCqKtUgKHGepCKcUTBxWzFuKwalD80vzC4Ly6YRpTzFKk8de5v5kHoUK
-	 ujdyIXc/4cT7u2IUxYVtYHlVPCH63HprTx1lJFXFdcgEziUlIORbsFyhCBBbPI/89j9Wq
-	 2W7VTwbyozk6s7tgaEdmsqntRHKRQAWbSn2TEBCy+k6SGVu175SKvewSK7Ythp75oJg==
+	t=1795567195;
+	b=GQPKZC6wexRhmgwU4phCAjbymamivikYEJYkxDThlWvwh4PZGShcIyOIPhyWYoH3lrlK
+	 Xj/sc49GL9dg3APWkleoNJbo8UnGevKdCuLqig0sUexQhYkhdqrFx+SB+tmpY8lu1A0mo
+	 2L3bSTq6O6/9dgBH/jK7M7elthEVZnnf5VML9No4uxSZfF/p4BDbeYT1BzYWKBgHeZUhZ
+	 B7YL5wND6cIKag2Yo0KmzcARcsgM8r/kJuEuHSnR1WWpSbMFcBKE5sfE4ZOCj/buJwp3z
+	 mCZYRp8csI88KhjM7wS/e+R/synmXdvyoej6pXTT9cKwsDrQ9xA64JErklL4kQR76Nw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795567193;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:Received:Received:Received:From:
-	 Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer;
-	bh=FIByHlTPNo6yonGSdO2RYDduoUN+XoU6L/TvYdP6w/E=;
-	b=gyHjqrgE823LI5RwT1asGifR7ibp5fhPS3Mszsn6wLAEAPMK0O6Shu8VDMwet74QdV0U
-	 XhCgubD9RnYIOD8gtpWFnbRgbrzOJbI6Db9fQSSOYCJbQyCFv71OAwoeCyQ98zvHazjXn
-	 CqPZ5/UFvMHprZdN0gF8iWf+SKKqK+KrXFBvJE++K2IUF/ue+riOT/wlAR0TNNawo5K03
-	 XcfdSV8fVgPx6ew9rHnLDQoxstX83GAuKzLaxUQcE6GGv0ZvsQzmK1V39KOpPR1l7HDwH
-	 I9Hz4FL5TYBZLxNt+ze7GeSYm0vZEZibn8n254urvkRF8MdlYH/ys8F0b8S3mS+4/qg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795567195;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Message-Id:
+	 Subject:From:To:Cc:X-Mailer:References:In-Reply-To;
+	bh=YKxHcqUXjQp/1J5J8B8/Kkrmh8UptW8ucEK7buHNuos=;
+	b=34q1pTIPnjl3Gpmgx9bdwNrmEdYwUpwlCabWskkCssLh1Cxw8SfPIF8561jnZ5J7Qp30
+	 77hW6JEV9LU7S+f1F2NZ1wVHWsMhXTjf7DbfbooJ3xopys9VNKbx87lIAlJOeBZdxH9gM
+	 IF5WXMkVDe2Sbch81482XZkSe48iyNp6CwE5WdDRQg/urX954sLWnmY44pdeDnB3Khcfh
+	 1OYAH+X6w0yNPDJ2A/O0Sgd5cupAosNNPPnsy5KV9GFvRM5aQYyhqs7iBAxm0jp8A2fu7
+	 dDco6Q0sRWMEG+JgWUPMQaZIKtZWwL+htV1nPe7eRYAI4CF3neStFudIWo+VbhHbstw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=fujitsu.com;
-	spf=pass smtp.mailfrom=fujitsu.com;
-	dkim=pass header.d=fujitsu.com header.i=@fujitsu.com header.a=rsa-sha256 header.s=fj2 header.b=WyFfwkEM;
-	arc=none smtp.remote-ip=139.138.36.223
-Received: from esa9.hc1455-7.c3s2.iphmx.com (esa9.hc1455-7.c3s2.iphmx.com [139.138.36.223])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=iU0dIwTv;
+	arc=none smtp.remote-ip=209.85.214.169
+Received: from mail-pl1-f169.google.com (mail-pl1-f169.google.com [209.85.214.169])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 193D1606A31E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 00:39:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 193D1606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=fujitsu.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fujitsu.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 93821606A331
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 00:39:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 93821606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=fujitsu.com header.i=@fujitsu.com header.a=rsa-sha256 header.s=fj2 header.b=WyFfwkEM
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
-  t=1795567192; x=1827103192;
-  h=from:date:subject:mime-version:content-transfer-encoding:
-   message-id:to:cc;
-  bh=9zVoKV2VBSnVaNWOGCXlH1YLrznYJ/CwSJb8o0cmF1o=;
-  b=WyFfwkEMEx9Pj+LlfdWbFVMz6Dyx+ni6F5hBiuUe52QUHzFftLTNeMjk
-   jKFNe0YrM20SMEABKECz63goAUGVH1HtAdDjAoVSaGZvO7mEQCkUuGRCd
-   MS5xl/vE5rb1qKGYXOhfuW/I8jsC+W2WWaRZPxouSlve/YMJNg+vPkqGO
-   WHNoLZzsOfT5tK1W3LmuVbLUPt2bXUKlXKRE/rxL6Lv4458gACGf9x7Dm
-   9BR6a6xga5Cpb5Qy7zttDpqFFH3ByIZZBPYPCU2vjOAUhd4dbFYrY/664
-   z0gE0en+jErvFRI4+9Q8Cdf/Vsgld39tutGHkyCJxnfoMHxG0YTURoWNY
-   g==;
-X-CSE-ConnectionGUID: YHhOD2s2S0KPyvxr4b/1qw==
-X-CSE-MsgGUID: YegCySV3Qwqso9z5HrFnqA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11976"; a="250507207"
-X-IronPort-AV: E=Sophos;i="6.27,231,1786978800"; 
-   d="scan'208";a="250507207"
-Received: from gmgwnl01.global.fujitsu.com ([52.143.17.124])
-  by esa9.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 09:39:50 +0900
-Received: from az2nlsmgm4.fujitsu.com (unknown [10.150.26.204])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by gmgwnl01.global.fujitsu.com (Postfix) with ESMTPS id 7361F42A316
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 00:39:50 +0000 (UTC)
-Received: from az2uksmom2.o.css.fujitsu.com (unknown [10.151.22.203])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by az2nlsmgm4.fujitsu.com (Postfix) with ESMTPS id 268B71004141
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 00:39:50 +0000 (UTC)
-Received: from [127.0.1.1] (unknown [10.124.178.20])
-	by az2uksmom2.o.css.fujitsu.com (Postfix) with ESMTP id EB5B51400271;
-	Wed, 25 Nov 2026 00:39:46 +0000 (UTC)
-From: Kohei Enju <enju.kohei@fujitsu.com>
-Date: Wed, 25 Nov 2026 09:39:31 +0900
-Subject: [PATCH] dma: swiotlb: Use system_percpu_wq for dynamic pool
- freeing
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=iU0dIwTv
+Received: by mail-pl1-f169.google.com with SMTP id d9443c01a7336-2f066274caeso21643935ad.2
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 16:39:54 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795567194; x=1796171994; darn=vger.kernel.org;
+        h=in-reply-to:references:cc:to:from:subject:message-id:date
+         :content-type:content-transfer-encoding:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=YKxHcqUXjQp/1J5J8B8/Kkrmh8UptW8ucEK7buHNuos=;
+        b=iU0dIwTvZSJ3oZDT4s2CYWT8eyLf6vImduktWp4JC7yaK0FWQ2FlJA+deyc742kbWF
+         QVwexeYViuIyKn++vmTxSfx/1MkWT+BOkKb3tF+tY959jNCyiwk8qs55tnTEDfhJ0M2T
+         mvnq7CHLh2b3871yyE6nyAJzzjpQccc6OxjVrFjxtVafR4t2HxJzOoXkgYgYzH0J7Unq
+         lggF1KAHJ2om0xtla7kj5dkZHHx6ItR9cpmK9okF7uEZxkN/GaJ4MOCIFXX0rIQtRv/H
+         NeyLLGLYEUpwQs+E+lM1o8DK94HnoIZUoNjbfz6QB/NYepP1Pt/oTy6DP3ErzH5Cpi0B
+         qK5Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795567194; x=1796171994;
+        h=in-reply-to:references:cc:to:from:subject:message-id:date
+         :content-type:content-transfer-encoding:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=YKxHcqUXjQp/1J5J8B8/Kkrmh8UptW8ucEK7buHNuos=;
+        b=H3iO9ypJW9r7UFkTO1FtFSRU8uIWeInr2foKwiJ/oEEFOSmETdBN8HLZfCuGylsKEC
+         eIwT2lIXo/zQRE2xFrueX6jsFPpcbEmT9KNhLMY2zcCZ+LJZjDGj2K5fWeN9gsPRvs9U
+         AvHLNCqOL52dob9qjptj6WKnhBIaHUgwAuDMYkkublrosrUtbmEVIgl4AszNAGdVanVp
+         payngOov1FNVsAXT7LtB6bNM/lsqQxcgNTqNtW/rROo1N2LgpU1sVsg7j9s2i1WezMuM
+         ajWJMCR5TxKvKZsz2Nbvx7NRl6tlBH5/0yHCBbMA5fG3I2TUje2NzCwfH3KONSew02AB
+         rBmA==
+X-Forwarded-Encrypted: i=1; AL+hErFCLPIwgALx5R5mOUarpJAJwjBycMb/GVynZyN6E/aJHwub8MFpQi9wYH1c1ZDuvJU7Xa1QWQdjxOS4VhQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+AQJY8cK+2j5Vr2FdNXUrdQVV4VL3tLgVNBOisTCAxBsvM//G8
+	xijrgqCkSu8GwkxOUh5eKxIScseJmTrx1SfP0TJ+9yUiXLnDLA0t9TY5OAp1jMOBJQ==
+X-Gm-Gg: AZFdTZcnfZo9F+fgv/fp1nRJAwKqNd1MIK2uEICZrh50Zs2oybll24YXqGFWmigsEm9
+	EO+t1vm3v6ceynxdDgzZ22p1jGmJDZk3+DNtsItuReTGXluDtlFnkv6enJQ9paUvC59vNptbxZO
+	AJ8JiMYAKL1dccAd/IYpnw3NcrAbfvSb7LZCvo2YuViWDrVFrWG20BVwyY/nI0CqPUX1U1bn6RF
+	XrTA4WmChwKtkKpY+4aIFqTZate+Bf4bUgeUdX13eKRXlywZF2uNCgICilznJpibB+zMaImkEni
+	ORR8EcoLNrjoTFuQ3VEeduFFdX8g+dOP1ya6l5SpA5f/PRGldup//0CivylX6DBo94w+MmFKvQW
+	IkTv+wmjU/DDWgysuvRD3jmeEnXNL1vCBRTBYWQ8Wxt5fT/TxWvROt/XTe1ODv5ivMr6my9IvlP
+	+ZNQPQ47ZYKPdeTLEXlnkkGyjJOK7pb7VtEMOolVclRGUioymFGjHFuGL0xmwXCEHjy3p1DtrWD
+	A5+GDmxdYbWfVndWbIq0pjY70TjAU00GrVHWnEZwq0MweUOW0+esmTtYZvp+ISKkMaFl/EzeZrl
+	iJLltLzemeeXyZhopQ+3yOAAB0pW1gCfiClIkV1/8H8ww3Nx5g0wK/LGw2cfkJkJ
+X-Received: by 2002:a17:902:eccf:b0:2f0:25ea:8fa8 with SMTP id d9443c01a7336-2f03f176abamr169618335ad.19.1795567193320;
+        Tue, 24 Nov 2026 16:39:53 -0800 (PST)
+Received: from localhost (33.79.127.34.bc.googleusercontent.com. [34.127.79.33])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03ee848c1sm75603595ad.10.2026.11.24.16.39.52
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 24 Nov 2026 16:39:52 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -80,55 +87,75 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261125-swiotlb-replace-system_wq-v1-1-83807c6afb75@fujitsu.com>
-X-B4-Tracking: v=1; b=H4sIAEMuBmsC/yXM0QqCQBCF4VeRuW4gBZPtVSJi3E42YWo7Wyriu
- 7flufsuzr+QISiMjtlCAR817buEfJeRv0vXgPWaTMW+OORpbKP2sa05YGjFg222iOdlfLE4V4p
- UVekglP5DwE2nf/t03mzv+gEff0Fa1y9Z/TeefQAAAA==
-X-Change-ID: 20261111-swiotlb-replace-system_wq-a995aa7759ea
-To: Marek Szyprowski <m.szyprowski@samsung.com>, 
- Robin Murphy <robin.murphy@arm.com>, 
- "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>, 
- Petr Tesarik <ptesarik@suse.com>
-Cc: iommu@lists.linux.dev, linux-kernel@vger.kernel.org, 
- Kohei Enju <enju.kohei@fujitsu.com>
-X-Mailer: b4 0.16.0
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Tue, 24 Nov 2026 16:39:52 -0800
+Message-Id: <DN3VG4JCILOO.YN40XHHSWRPH@google.com>
+Subject: Re: [PATCH v4 03/19] kho, memfd_luo: Reference struct kho_vmalloc
+ via serialized pointer
+From: "David Matlack" <dmatlack@google.com>
+To: "Pratyush Yadav" <pratyush@kernel.org>, "Tarun Sahu"
+ <tarunsahu@google.com>
+Cc: "Pasha Tatashin" <pasha.tatashin@soleen.com>, "Mike Rapoport"
+ <rppt@kernel.org>, <robin.murphy@arm.com>, <maz@kernel.org>,
+ <will@kernel.org>, "David Matlack" <dmatlack@google.com>, "Alexander Graf"
+ <graf@amazon.com>, <seanjc@google.com>, <jgg@nvidia.com>,
+ <loganodell@google.com>, <arnd@arndb.de>, <dwmw2@infradead.org>,
+ <baolu.lu@linux.intel.com>, "Bjorn Helgaas" <bhelgaas@google.com>,
+ <oupton@kernel.org>, <alex@shazbot.org>, <gle.com@google.com>,
+ <pbonzini@redhat.com>, "Andrew Morton" <akpm@linux-foundation.org>,
+ <kevin.tian@intel.com>, <joro@8bytes.org>, <kvmarm@lists.linux.dev>,
+ <linux-pci@vger.kernel.org>, <kexec@lists.infradead.org>,
+ <kvm@vger.kernel.org>, <iommu@lists.linux.dev>,
+ <linux-arm-kernel@lists.infradead.org>, <skhawaja@google.com>,
+ <sagis@google.com>, <linux-arch@vger.kernel.org>, <linux-mm@kvack.org>,
+ <linux-kernel@vger.kernel.org>
+X-Mailer: aerc 0.21.0
+References: <20261110050202.529473-1-tarunsahu@google.com>
+ <20261110050202.529473-4-tarunsahu@google.com>
+ <2vxz4idb1i2w.fsf@kernel.org>
+In-Reply-To: <2vxz4idb1i2w.fsf@kernel.org>
 
-system_wq is deprecated, and queueing dynamic SWIOTLB pool teardown work
-on it causes the following warning:
+On Fri Nov 20, 2026 at 10:19 AM PST, Pratyush Yadav wrote:
+[...]
 
-  workqueue: work func swiotlb_dyn_free_work enqueued on deprecated workqueue. Use system_{percpu|dfl}_wq instead.
+>> +static size_t memfd_luo_ser_size(void)
+>> +{
+>> +	return sizeof(struct memfd_luo_ser) + sizeof(struct kho_vmalloc);
+>> +}
+>> +
+>> +static struct memfd_luo_ser *memfd_luo_ser_init(void *mem)
+>> +{
+>> +	struct kho_vmalloc *kho_vmalloc =3D mem + sizeof(struct memfd_luo_ser)=
+;
+>> +	struct memfd_luo_ser *ser =3D mem;
+>> +
+>> +	KHOSER_STORE_PTR(ser->folios, kho_vmalloc);
+>> +	return ser;
+>> +}
+>> +
+>
+> Hmm, I am not a huge fan of this. This makes doing such allocations
+> quite annoying, and I reckon we will be seeing a fair bit of them in
+> many places.
+>
+> The key observation here is that most file handlers need to allocate a
+> bunch of preserved memory, but they usually can free it all at once. So
+> we can get away with a very simple allocator that hands out memory
+> linearly.
+>
+> I have sketched out some code for this, take a look at the patch below.
+> Note that it is only compile tested.
+>
+> Perhaps give it a try and see if it does the job better.
 
-Use system_percpu_wq instead, which preserves the per-CPU workqueue
-behavior of system_wq.
+I agree the manual packing in memfd_luo_ser_init() isn't great, but I'm
+not sure we need an arena. This seems like something KHO slab support
+will solve properly, and since kho_alloc_preserve() already takes a
+size, KHO slab can be dropped in underneath it later without changing
+any callers.
 
-Fixes: e13d4d9a4915 ("dma: swiotlb: free dynamic pools from process context")
-Signed-off-by: Kohei Enju <enju.kohei@fujitsu.com>
----
- kernel/dma/swiotlb.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/kernel/dma/swiotlb.c b/kernel/dma/swiotlb.c
-index 786954bc5e6a..4060d9ad5b24 100644
---- a/kernel/dma/swiotlb.c
-+++ b/kernel/dma/swiotlb.c
-@@ -926,7 +926,7 @@ static void swiotlb_dyn_free_work(struct work_struct *work)
- static void swiotlb_schedule_dyn_free(struct io_tlb_pool *pool)
- {
- 	INIT_RCU_WORK(&pool->dyn_free, swiotlb_dyn_free_work);
--	queue_rcu_work(system_wq, &pool->dyn_free);
-+	queue_rcu_work(system_percpu_wq, &pool->dyn_free);
- }
- 
- /**
-
----
-base-commit: 8d7fe9885c62fc9a95bf55d9db244d9672a8aadc
-change-id: 20261111-swiotlb-replace-system_wq-a995aa7759ea
-
-Best regards,
---  
-Kohei Enju <enju.kohei@fujitsu.com>
-
+Until then, maybe we should just allocate struct kho_vmalloc separately
+with kho_alloc_preserve() and accept wasting a folio per object. For
+memfd that's one extra page per preserved file.
