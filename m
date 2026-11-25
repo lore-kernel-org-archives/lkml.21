@@ -1,112 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795597271;
-	b=2e5a5+sJo/eBIrR0F6VQbIavDnDd4wHxAh+FaVK+kwaSyQdkSRA0dEjEsyxQ/cfT5Sdq
-	 MbPHnrdw5BSaUxU/hJAgwkW5OYAJHfeT9+QaL8zSBacUmO/2rWWEfzdQOY1ORgutVGQhg
-	 fcOqUFfTzEAcl0Wnt7nZ/Mz8FlDEkB8IZjE+UyIOZWVAlSzj0AnlfYM9Zfs1TqBD8agiJ
-	 RFeVvdn6BjUr8gNvDZRsSsmHRLCKIkjZ/kMtxydUIb5f6NfYSBxYOfggzi7cvo2h9t42P
-	 SN9MR9Ywot32JUg+dG5stFCo9o2i2LSCYsuX4goySZjmY3GizQzGA3eD7JeWUVW4/UA==
+	t=1795597304;
+	b=0GpUIgNhOw3xb5TfBBozUQut/t+U3oDbHm1X8ENJ5S/Pc5fKMxwikAtOoe2M9opLkF7w
+	 iey74EbhEIEfpf5PQn2TpdjfMzkjmVVRleLKWdP8YAMhJgglo5AbzH/42T0x1aO4kkuDb
+	 B0q2E/UbR/XjiMZynnIHeM+94ZtJQtmTzRYp3v7MR/+3WdTa7Ho4BB2x3G7y4YLmYrqlY
+	 Bqpe+bThS2XtdBb+3frLFwuBhFihocOZjoZ+eIlvxKl4twv+64fgJR4QuOVC6jWmsVGXI
+	 PPZ5nFeYorpmVcVN05a2ljtEVHGJJ133/R8R40LbXiNtFBDCeWkZV7JEq/wZd7JQTsQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795597271;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=qEYCHONLfjiDlaQnUG/xCKXVK/LoPfBJywqJSXoNvis=;
-	b=KHl4hcBJHic0o1vGT3c9+1M6O1+YVFGKoFfI+JOYnyU0mFbJSYpvRoYL+m6IlnfAYaN+
-	 coirI057eUPe8+xQFYnvQi91PIK6oYIqM5ZKtRFujjyZHg5XELiNwTX21F7U9OmyN2xOj
-	 uhTAlWwqxj985v3/5k7LHelHGts85jy3Zk2lBR8K3qxgyMp2VoFRfm+efyCJYcJFUDA1p
-	 JpAXG97RJYRXMKtIu22MN6rUVAfZpU9EyDRw2dpAs2K42g62773HdV052USYaDDoQzVxz
-	 qwMjUFOXA2wLQmerIm5uLwU+RSfMyJzFo+KkIziTVndFAys5G4PQ2eOd7pswyUToKLg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795597304;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=vEv5PK1YgztGxhv9CM6ODI0CCL2xh4mHLk5IohQ0LIA=;
+	b=GW6hR43H06pjSQTBHlE8v6nSozTPOQttE4CH3h89HwuxDah0Q/ZH7F5GDc57JEMBNxl4
+	 p24xrcBdHzR38YnjHK7oLA4QO9I4STswDdHQ2ZoUkhy2Pd3j6g1wolHRU+rcVVeXM8fRo
+	 j70tercyfjavHFNgzjXR2Qcn9DdgBFzvzBkFt1hkDtzMJaTRgc2CmEaBCzbB8sOM4nr+F
+	 QBBTQz3L9QaasEuufoo0YpLcUJfOEKbL1z7V2IXmzUiksdUF4g47TxcpaG4XXWrm7VGen
+	 o2zmQ+xKZ74Xk383IiavRTFYqjnaa2tlazsVzr5/dxq2PA6Obo4SmrK/IuA8b0RcfYA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=fTeakWP5;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=hSi3IEmQ;
-	arc=none smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AD+H7ysN;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B5524606A323
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 09:01:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B5524606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7209B606A32A;
+	Wed, 25 Nov 2026 09:01:44 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=fTeakWP5;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=hSi3IEmQ
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AP68TrA2629342
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 09:01:10 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	qEYCHONLfjiDlaQnUG/xCKXVK/LoPfBJywqJSXoNvis=; b=fTeakWP5KilBgsyo
-	J9Kjs8DqJVco9O+MIsxMaEU2KcXohMAyrGpV50tRJMCKr6j/vbCQxZ2YFJwElEY+
-	0nrJ6NdlIDsFzgsAdePFxVI0KJ0aqErCicJ9uIfN/gFZJ2xfjHEEis5VQm8Dw8Nh
-	0wERmjZEHi5E0fBah9M4OpUenQx5ZB3QThdh+E+NdlkK4Jc88+vGF3JoacJpnMHM
-	RD4ojEsd7G/FYo1I+4JtUZ2TDYaJ1tpRPr7j9u/2oqi9wrifCkFLco7b/o0ycPlf
-	niWAuqs2qPGqDeaM08XlXuUpAL9+dbkb6S3z8r4O0OdMkvmxzVIkVoCTy4h34M65
-	AlLNAA==
-Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j5eydb8tg-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 09:01:09 +0000 (GMT)
-Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-94960bd17b5so900713685a.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 01:01:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795597269; x=1796202069; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=qEYCHONLfjiDlaQnUG/xCKXVK/LoPfBJywqJSXoNvis=;
-        b=hSi3IEmQtTXfq9mCLyDxmW5j4v4M3cVH0GR6VXGpjAMpN57M2bXyB1VJs4s/KSoTUp
-         SOZIR7UtEdFXSp1Zyrqi0pJYzzPqD0Dtz8SDxZRw7tE8dL341Hu3bKCJJXhlE0ACaf0+
-         J+WkRos3pSK6rgWZDAiCw8Nju3NWn5EZ7SDGi6zVr6PsratPS1WK/Rw2Om1+dKNioWP1
-         dELc7aA+x8vcjUO7Jd+HfnSgpflEBIXO9Quz+NrY05UcO/ItEUiLNbfVS4DOwxBoT1zN
-         PF8mqE4STdypdmIrbyeRA5b7gIFyHQMV3hG6frviBnwYPglGjhz+T8CP8GGnE3mLC1gV
-         111Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795597269; x=1796202069;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=qEYCHONLfjiDlaQnUG/xCKXVK/LoPfBJywqJSXoNvis=;
-        b=R2oPt98xgpcyjUgmHtOtGYqzbfwxDeMcojFD3kKhvAL/qEAdpgZF+Yeia1ZEkoCETz
-         ULTA3MGELQTqlGtb5GgoDPs56Vgn9sRKtvgVq5EZXx24zxjP2k2Sg03fbHNez0+tMqnu
-         sBZrA84XHngjaSxvYn3HDdtysrywauIx3XM48R0OK+mgMK/RmgeccH3KSbgTRqE8z6/F
-         5C5KAR8MWR7WVZn0GmwUC+yEd28gHdDFtKaOFO2AvWD1z6dDfWW4D5cP2hqxKHahRK9K
-         FBERIpcRH7aRYYds4qttJA1r1zSjgcn4HzF7kyadbSWThYq/Ck11NTCMyBX9f7wBfFOs
-         UcjQ==
-X-Forwarded-Encrypted: i=1; AL+hErHuamG5VeBjg0I4RywimXeZYaEk2fCrjuQgirTuL/8Y963dCYPFk1O4OzDQ9G85LAj81xHVeKvG+Hngk78=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8/jbE0paD9ybcEu+PCK6pyz9fcTBqA5LY7B6orcfiNK9MRf0sW
-	wAFiMQzUf1LuQzNzHpJZyMP/vMb4BXOxtzh5xv5+HyRc6q4t+HsxN4yBdwzQlGq/tS51kM9wE+w
-	7J7hL0uoTrWF/0Aw8lUezjgpjd5K18CxodWaXOk1nkyqMW1HjqRbuPzzQ+uk+RmwNni4=
-X-Gm-Gg: AZFdTZcdwu7YSvNkwzpSdiiuS5rQfGqS7lzATRpH3AokDDNIydpLTtI4e9191Fhrwii
-	cWONHaKL0prbnaLP6N/LUanJWyYfwHYPjBJNN48cbJkIlXLvPh2VqCHbsXM7pTM7qdMMCkn3eUC
-	nKTxBFAh4ojAlBtRibsJ8ExdnHORVXpdZWbG864hjL75gZQ4A9BLbBi4x8qrEPClweEO2fwWjr0
-	f00G+as9+konrCmzdOcvfJMAEmlp46TatHo/IshVtC8M5shOKihXHcHYDit9Wa44w++XpNZpk4Q
-	2gSCx6NOocLnEqTiQZ5O3GDEOBfNga5cRfdlDhq34K+kRgu9py1gZCsDraFOOuBCTUvf/PFrhBH
-	hSyjPD/Hxd5bWtwqg45YZeODKHkK2gAhQ1yvsdMRsRhMC1JCyhQ0kLDmIV6iCmpHl8a5KQTiEBc
-	lGCBzlmTDpvFRxhA==
-X-Received: by 2002:a05:620a:4491:b0:939:a0f3:6aef with SMTP id af79cd13be357-949ba95e8e4mr3024914485a.23.1795597268762;
-        Wed, 25 Nov 2026 01:01:08 -0800 (PST)
-X-Received: by 2002:a05:620a:4491:b0:939:a0f3:6aef with SMTP id af79cd13be357-949ba95e8e4mr3024908485a.23.1795597268240;
-        Wed, 25 Nov 2026 01:01:08 -0800 (PST)
-Received: from [192.168.25.64] ([94.155.124.210])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884911e3sm606266235e9.6.2026.11.25.01.01.06
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 25 Nov 2026 01:01:07 -0800 (PST)
-Message-ID: <0c0b3af6-4fea-422a-a7dc-76e36a3f5db4@oss.qualcomm.com>
-Date: Wed, 25 Nov 2026 11:01:06 +0200
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AD+H7ysN
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C8961F000C0;
+	Wed, 25 Nov 2026 09:01:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795597304;
+	bh=vEv5PK1YgztGxhv9CM6ODI0CCL2xh4mHLk5IohQ0LIA=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=AD+H7ysNiD4jMXv2MA2R8NTCoPAMNE6NY51I+PxOGsbcdYRpOy0GxIeY58QpRKsdo
+	 9c3TFx/8Uan5wiXyFslu5vlPiobv5QWxbJeO/hHPBuMvIANlCbnv4yNVnBfjxEbx1j
+	 yqeazJgZjz3vMt8P0sL89QdBr2m5QXsLxgQ3srvla6NzHmDnzOwNkNhkj5f2jDI6UG
+	 cUfVX8vtVkA0Jj10k4DdGA6ppktCxEQTNubCjPik5h9UOMKCJ1V6K+TBA6dgcbua84
+	 gTdHNBhAZqcuTSrpr8GcluWhWs8UK7+pIpRIPIhd7m8Ru4fiyGVMEN+qAgeP3LdFT9
+	 mm975lr7XbdWg==
+Subject:
+ Re: [PATCH net v3] net: ibm: emac: attach and start the fixed-link PHY
+From: netdev-bot+sashiko@kernel.org
+To: xiaolinkui@126.com
+Cc: andrew+netdev@lunn.ch, netdev@vger.kernel.org, andrew@lunn.ch,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ rosenp@gmail.com, chunkeey@gmail.com, jacob.e.keller@intel.com,
+ kees+treewide@kernel.org, daniel.machon@microchip.com, hkallweit1@gmail.com,
+ linux-kernel@vger.kernel.org, xiaolinkui@kylinos.cn
+Date: Wed, 25 Nov 2026 09:01:42 +0000
+Message-ID: <179559730279.3135.7318334257799287238@kernel.org>
+In-Reply-To: <20261124083941.2480237-1-xiaolinkui@126.com>
+References: <20261124083941.2480237-1-xiaolinkui@126.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -116,110 +65,225 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/6] media: qcom: camss: Report the hardware SOF timestamp
-To: Loic Poulain <loic.poulain@oss.qualcomm.com>,
-        Mauro Carvalho Chehab <mchehab@kernel.org>,
-        Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
-        Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
-Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org
-References: <20261123-camss-hw-ts-v1-0-7b62dda6d7a9@oss.qualcomm.com>
-Content-Language: en-US
-From: "Gjorgji Rosikopulos (Consultant)"
- <gjorgji.rosikopulos@oss.qualcomm.com>
-In-Reply-To: <20261123-camss-hw-ts-v1-0-7b62dda6d7a9@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI1MDAzNSBTYWx0ZWRfXxwoxsUWyqFH5
- hi5j8+VD03pk7vNtFVDzslQe1iSWrcrleeqpLQSkPWVB6QvEFEWfSZFdZ60RTvCT0Zugblf6Lew
- tN6/5ukb73n58idYzgaZedfnO/Qb+VY=
-X-Proofpoint-ORIG-GUID: jbpCeAECSlSel_szIptQ9kdAOLbNTmvx
-X-Proofpoint-GUID: jbpCeAECSlSel_szIptQ9kdAOLbNTmvx
-X-Authority-Analysis: v=2.4 cv=GIGdgeNK c=1 sm=1 tr=0 ts=6b06a3d5 cx=c_pps
- a=qKBjSQ1v91RyAK45QCPf5w==:117 a=eGCDHFSXubCXFTSSGhjuOA==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22
- a=EUspDBNiAAAA:8 a=mMDk5lcDQkvegnXiA_gA:9 a=QEXdDO2ut3YA:10
- a=NFOGd7dJGGMPyQGDc5-O:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI1MDAzNSBTYWx0ZWRfX9HZhJ8fNLMnR
- qPwjGLkueN6hLIsT1FyEzHy11k9e6tzvjKsyKTBOWMJ/GMi0p4H29qmouNkQo25n4yGHidVR/dd
- ro/eFCzwMKp98w1+pneKvCy+5OcBWa1Jle0LeLotRrLEuUztYqhPjN9DIixcJ4kAPaIJn9UGYjq
- mI40/gvlS46Tyqz0LlixtgSHn8C8M1AsvZWfkVi/WaBqJ7ghF/Bfa2qqjFkDefWWAt1h0tiemTk
- RmieFuD8uWvQOFWz2AEe4uIfSLs294+CbPF5Tg3nnKgLo9BBz/F6auh0Bju8ZLAWzx+alLRFgYU
- 3SWBl1nK3WQ7kjrYIMOPU2/sQLve0EuEosHSKRzWyqf7+v8ZpK28F8vYUGqmKFPKxhlFxWxYmEl
- +wyoi+FgDKQHn6KxRUmgHTidcF7rSOOHQKduhwSbA0hBagpTDS82n40JpmHI7hxXBgFwoQko6Db
- Go3e0LUmVxfs4aWnqVg==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-25_02,2026-11-23_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 adultscore=0 lowpriorityscore=0 suspectscore=0 clxscore=1015
- spamscore=0 priorityscore=1501 bulkscore=0 malwarescore=0 impostorscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611250035
 
-Hi Loic,
+Thank you for your contribution! Sashiko AI review found 3 potential
+issue(s) to consider.
 
-On 11/23/2026 7:16 PM, Loic Poulain wrote:
-> The CAMSS CSID latches the ARM architected counter on every start of
-> frame. This series exposes that time to userspace, both through the
-> V4L2_EVENT_FRAME_SYNC event and as the buffer timestamp.
-> 
-> Until now both were taken when the interrupt was handled, or worse, when
-> the frame had finished being written out to memory, which is about a
-> frame period late. The hardware value is free of interrupt latency and
-> is directly comparable with CLOCK_MONOTONIC, so it can be correlated
-> with other timestamped data such as IMU samples.
+Critical: 0 · High: 1 (1) · Medium: 1 · Low: 1
 
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Directly comparable with CLOCK_MONOTONIC, does this means
-that csid timestamp is in monotonic time domain? 
-In camss video the flag V4L2_BUF_FLAG_TIMESTAMP_MONOTONIC so either we need
-to provide timestamp in that domain or convert in the driver.
+- [High] Unbind can leave a freed net_device queued on the global
+  linkwatch list.
+- [Medium] After the patch, the fixed-link speed, duplex and pause reach
+  dev->phy only through phylib's asynchronous state machine.
+- [Low] The commit message presents the new phy_disconnect() in
+  emac_remove() as fixing the fixed-link attach, and notes in passing…
 
-~Gjorgji
+Pre-existing issues:
+- [High] This problem wasn't introduced by this patch, but it affects
+  every PHY-less configuration this patch touches, fixed-link included,…
 
-> 
-> Patch 1 lets a driver fill in the timestamp of a V4L2 event instead of
-> having the core take it. Patch 2 passes the SOF time down to the common
-> CSID event helper and adds the counter to CLOCK_MONOTONIC conversion.
-> Patches 3 to 5 read the registers on csid-340 and csid-gen2. Patch 6
-> uses the same time to stamp the captured buffers.
-> 
-> Patches 4 and 5 are picked from the timestamp support Bryan shared
-> earlier, with patch 5 adapted to use the conversion helper added in
-> patch 2 rather than its own.
-> 
-> Tested on QCM2290 (Arduino UNO Q) with an IMX219 sensor.
-> 
-> Signed-off-by: Loic Poulain <loic.poulain@oss.qualcomm.com>
-> ---
-> Bryan O'Donoghue (2):
->       media: camss: Define timestamp registers for csid-gen2
->       media: camss: csid-gen2: Report the hardware SOF timestamp
-> 
-> Loic Poulain (4):
->       media: v4l2-event: Allow drivers to provide the event timestamp
->       media: qcom: camss: csid: Pass the SOF time to csid_sof_event()
->       media: qcom: camss: csid-340: Report the hardware SOF timestamp
->       media: qcom: camss: Timestamp buffers at start of frame
-> 
->  drivers/media/platform/qcom/camss/camss-csid-340.c | 37 ++++++++--
->  drivers/media/platform/qcom/camss/camss-csid-680.c |  2 +-
->  .../media/platform/qcom/camss/camss-csid-gen2.c    | 32 ++++++++-
->  .../media/platform/qcom/camss/camss-csid-gen3.c    |  2 +-
->  drivers/media/platform/qcom/camss/camss-csid.c     | 81 +++++++++++++++++++++-
->  drivers/media/platform/qcom/camss/camss-csid.h     | 25 ++++++-
->  drivers/media/platform/qcom/camss/camss-vfe-17x.c  |  7 +-
->  drivers/media/platform/qcom/camss/camss-vfe.c      |  8 ++-
->  drivers/media/platform/qcom/camss/camss-vfe.h      |  1 +
->  drivers/media/v4l2-core/v4l2-event.c               | 20 +++++-
->  include/media/v4l2-event.h                         |  9 ++-
->  11 files changed, 205 insertions(+), 19 deletions(-)
-> ---
-> base-commit: 2ad58ca589da80990b7afbcff018777851577f89
-> change-id: 20261123-camss-hw-ts-e0297adb69d9
-> 
-> Best regards,
+--
 
+net: ibm: emac: attach and start the fixed-link PHY
+
+This patch attaches the fixed-link PHY in emac_init_phy() with
+of_phy_connect() and starts it with phy_start(). phylib then fills in
+dev->phy through emac_adjust_link(). It also adds phy_disconnect() and
+of_phy_deregister_fixed_link() to the emac_probe() error path and to
+emac_remove().
+
+> Attaching also means detaching. Without phy_disconnect(), unbind leaves
+> phydev->attached_dev pointing at a freed netdev, and the next probe fails
+> with -EBUSY from phy_attach_direct(). The disconnect also stops the
+> phy-handle path, which calls phy_start() but never phy_stop(). The fixed
+> PHY is deregistered on the same paths.
+
+[Severity: Low]
+This isn't a bug, but could the commit message say that baab9de385a8
+("net: ibm: emac: use netdev's phydev directly") is the commit that
+removed this from emac_remove():
+
+	if (dev->phy_dev)
+		phy_disconnect(dev->phy_dev);
+
+Since then, the phy-handle path has connected with of_phy_connect() and
+started the PHY in emac_mdio_init_phy(), but it never detaches. So the
+stale phydev->attached_dev problem described here has existed on that
+path since baab9de385a8.
+
+Saying that the emac_remove() hunk restores teardown removed by that
+commit would make the backport scope clearer.
+
+> diff --git a/drivers/net/ethernet/ibm/emac/core.c b/drivers/net/ethernet/ibm/emac/core.c
+> index 1b95b4d5deff5..ddf33c0293348 100644
+> --- a/drivers/net/ethernet/ibm/emac/core.c
+> +++ b/drivers/net/ethernet/ibm/emac/core.c
+> @@ -2673,11 +2673,14 @@ static int emac_init_phy(struct emac_instance *dev)
+>  				return res;
+>  
+>  			res = of_phy_register_fixed_link(np);
+> -			ndev->phydev = of_phy_find_device(np);
+> -			if (res || !ndev->phydev)
+> -				return res ? res : -EINVAL;
+> -			emac_adjust_link(dev->ndev);
+> -			put_device(&ndev->phydev->mdio.dev);
+> +			if (res)
+> +				return res;
+> +
+> +			if (!of_phy_connect(ndev, np, &emac_adjust_link, 0,
+> +					    dev->phy_mode))
+> +				return -EINVAL;
+> +
+> +			phy_start(ndev->phydev);
+
+[Severity: Medium]
+The old code called emac_adjust_link() synchronously in probe.
+phy_start() only queues phydev->state_queue, so dev->phy gets filled in
+later from a kworker.
+
+emac_adjust_link() only copies the values into dev->phy:
+
+	dev->phy.autoneg = phy->autoneg;
+	dev->phy.speed = phy->speed;
+	dev->phy.duplex = phy->duplex;
+	dev->phy.pause = phy->pause;
+	dev->phy.asym_pause = phy->asym_pause;
+
+It never calls emac_configure() and never schedules a reset. When
+dev->phy.address == -1, emac_open() forces carrier on, does not schedule
+link_work, and calls emac_configure() only once.
+
+Suppose emac_open() runs before the first state machine pass. Would MR1
+then be programmed from the probe defaults (SPEED_100, DUPLEX_FULL,
+pause = 1) and stay that way after emac_adjust_link() reports the
+fixed-link values? A fixed link does not change state again, so
+adjust_link would not be called again either.
+
+The writer and the readers also share no lock. emac_adjust_link() runs
+under phydev->lock. emac_configure() runs under dev->link_lock from
+emac_open() and reset_work. A concurrent run could program a mix of old
+and new speed and duplex.
+
+Taking link_lock inside the callback is not simple, because the ethtool
+paths take link_lock before they call into phylib.
+
+Could the PHY state be read synchronously under link_lock before
+emac_configure()? Alternatively, emac_adjust_link() could trigger a
+reconfiguration (for example via reset_work) when the device is open.
+
+>  		}
+>  		return 0;
+
+[Severity: High]
+This is a pre-existing issue and was not introduced by this patch. It
+dates back to commit 9e3cb29497561c, but it affects every PHY-less
+configuration this branch handles, fixed-link included.
+
+The PHY-less branch returns before emac_init_phy() sets these:
+
+	dev->phy.mdio_read = emac_mdio_read;
+	dev->phy.mdio_write = emac_mdio_write;
+	...
+	dev->phy.gpcs_address = dev->gpcs_address;
+
+emac_instance lives in zeroed netdev_priv, so mdio_read is NULL and
+gpcs_address is 0. With phy-mode sgmii, tbi or rtbi, emac_configure()
+does this on every open and reset:
+
+	if (emac_phy_gpcs(dev->phy.mode)) {
+		if (dev->phy.gpcs_address != 0xffffffff)
+			emac_mii_reset_gpcs(&dev->phy);
+		else
+			emac_mii_reset_phy(&dev->phy);
+	}
+
+Can emac_mii_reset_gpcs()->gpcs_phy_read() then call through the NULL
+phy->mdio_read? The else branch would also reach the NULL mdio_read,
+through phy_read().
+
+EMAC0 in arch/powerpc/boot/dts/arches.dts looks like it matches this
+case (phy-mode = "sgmii", phy-map = <0xffffffff>, no phy-address). So
+would any fixed-link node with an SGMII, TBI or RTBI phy-mode.
+
+The 1000 Mbit/s path is now reached for fixed links. On that path MR1
+would also get IPPA(0) instead of the DT gpcs-address.
+
+>  	}
+
+[ ... ]
+
+> @@ -3223,6 +3230,11 @@ static void emac_remove(struct platform_device *ofdev)
+>  
+>  	cancel_work_sync(&dev->reset_work);
+>  
+> +	if (dev->ndev->phydev)
+> +		phy_disconnect(dev->ndev->phydev);
+
+[Severity: High]
+Can this leave a freed net_device queued on the global linkwatch list?
+
+emac_init_phy() now calls phy_start() at probe time. The fixed link
+comes up on the first state machine pass, and phy_link_change() calls
+netif_carrier_on(). Probe called netif_carrier_off() earlier, but that
+does not stop it.
+
+The phy-handle path already does the same through emac_mdio_init_phy().
+If the interface is never opened, carrier is still on at unbind. The
+call chain at unbind is then:
+
+emac_remove()
+  unregister_netdev()          /* reg_state = NETREG_UNREGISTERED */
+  phy_disconnect()
+    phy_stop()
+      _phy_state_machine()     /* PHY_HALTED, phydev->link == 1 */
+        phy_link_down()
+          phy_link_change(false)
+            netif_carrier_off()
+              linkwatch_fire_event()
+                linkwatch_add_event()   /* netdev_hold(), list_add */
+devres -> free_netdev()
+
+netif_carrier_off() only returns early for NETREG_UNINITIALIZED:
+
+net/sched/sch_generic.c:netif_carrier_off() {
+	if (!test_and_set_bit(__LINK_STATE_NOCARRIER, &dev->state)) {
+		if (dev->reg_state == NETREG_UNINITIALIZED)
+			return;
+		atomic_inc(&dev->carrier_down_count);
+		linkwatch_fire_event(dev);
+	}
+}
+
+linkwatch_add_event() does not check reg_state either.
+
+ndev comes from devm_alloc_etherdev(), so free_netdev() runs right after
+emac_remove() returns. free_netdev() does not take dev->link_watch_list
+off lweventlist.
+
+The device is not running, so the linkwatch work is not urgent and runs
+up to HZ later. __linkwatch_run_queue() would then walk the freed device
+and call __dev_put() on the freed pcpu_refcnt.
+
+The err_detach_tah path in emac_probe() has the same ordering. It is hit
+if register_netdev() fails after reg_state has become
+NETREG_UNREGISTERED, for example when netdev_register_kobject() fails.
+
+Would it work to move phy_start() and phy_stop() into emac_open() and
+emac_close()? The PHY would then already be halted when
+unregister_netdev() runs. Another option is to stop the PHY before
+unregister_netdev().
+
+> +	if (of_phy_is_fixed_link(ofdev->dev.of_node))
+> +		of_phy_deregister_fixed_link(ofdev->dev.of_node);
+> +
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261124083941.2480237-1-xiaolinkui%40126.com
