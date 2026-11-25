@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795607924;
-	b=0QxuTpRODFudxahzbViSJ70Ro7AMmZv2hg/Ivh+CiBntUG3qhxdaLEUb9zqnZaQKpVKu
-	 Rv12aAth4ARqFH8zb52+gApIV+7iXFyK0AZCjvDM3uZrCfEPplE0dL9g44/hI77lr5xE5
-	 pIlyL7CJGG3Wuuk1SahXcD5x6ZV/cJObJPDtrdzbKW3+4Xe/daJ2M2FEqIf6l5vIhnnke
-	 XllYkksmxhiuZJBRW+a+CNardmWEWZOdiwylx4iuA45TumHPLsO2LJBTy2KXobhEx3WZF
-	 VjZSSzUcun/KDBD3V1vC5E0DhJ5dbiBMeLdP0K5ztAwkMaCANFgA7XiX08eR+KSKwfw==
+	t=1795607960;
+	b=wkuOmCaPKxQ7dIJox1Mm4EcXl9GgW21fqjWn2K36st8HtPYBWmZOZawzLdAIPNSuU+B5
+	 EYz0dB9/d61PeeKBwIof+fjtEcyywN1CjJFXIGyIODHHF4pwDiyCO/+MmlwzZA15KHe0V
+	 Nq57Ujod9bDeBGA1AKhAYCAQD3X0kRuUHAKaQy64V1GMzvDyKqK4nKGvAS0KphnxD+kxF
+	 dxRu9gsDeJzOLXaLeuCVsQ+ewaW3HQIxViPD6v13zjnzfCcrY0R3A/UpHH32Eu4l30Kru
+	 RwRer220bRzgiCWgrTHvHHon1Vs5HM9N1ui0IgrK+BO/KOFv82tk82fdjCopUc87R5A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795607924;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795607960;
 	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
+	 Subject:To:References:From:Content-Language:Autocrypt:In-Reply-To:
 	 Content-Type:Content-Transfer-Encoding;
-	bh=lNCRH7cZNuQ7wfq9CQGChM58dHTmDD/qVZ/gcuDQhzg=;
-	b=CB5JRkra8LzeJZArx2vcQdZf39Vu0f2X8iDwoPn6FRZa+ZcyPtIM9B0eUsHFbdrMgZeq
-	 n8Hl3RKa3gsn/FlsH8g7MCt+NgnAdkFaZE1vFjBgJuOHGm/dHiPr0GGPa/fx4Zgxi9+HN
-	 lrXq840tzwAicBWGpSAt66m5El2d4fuOy/5szgeTi2O2oet4/R4sOL1ZgVDmW0HLjqzTp
-	 lrVCYE6L2HGgZxTe1UyflsK+kH3giXo80ORqP+gyh5iTOntd1EbiTMtAZaFAfc0XZgR9h
-	 mwmP/329QSJ6G+DOWcqJIK0pJy0z+7XFW3vHynMmB10gaDBUo8dKGybckaFQSl6CqQA==
+	bh=rsojXvZUV/8CWWLGDvdxZoety8wB2FPnWCvQ+ubHDsg=;
+	b=WESnumDhMXvrg7rAHaygME5yUAxooTqS7YZBZrDzKv8xjO6JmdArFEyqiXtXQmssVD9B
+	 zpaEvXvgbE88twSBCixAyEfEB+8iksccBJT6yTyGdGf6Zam5bG1AOyngVdWCsBmlkqsxr
+	 J/MYR0ZDYqsaZBgL8HWuyZKpoU9ydR7GhAJOYXW9MaS8UtZ0imLvdYy9jMjOUd/QuXH9l
+	 zjZBQ+NZCaa9gFny2XM2WNG1D4+aDfJS73HA+XDCFN+bqv6SOKKL/tD1lzV/mLTohRj0u
+	 DUX/JvarQOa+TI8XjFqJJ3P4fTlVT6j31gMcw6SJv+W5cFhT08hzxnwO1P5vYmoB5ig==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="BqwI/Uvh";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dL7fPahC;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 22DFF606A31E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:58:43 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CCBC6606A330;
+	Wed, 25 Nov 2026 11:59:20 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BqwI/Uvh
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C42B01F000C4;
-	Wed, 25 Nov 2026 11:58:41 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dL7fPahC
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 379B81F000F4;
+	Wed, 25 Nov 2026 11:59:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795607923;
-	bh=lNCRH7cZNuQ7wfq9CQGChM58dHTmDD/qVZ/gcuDQhzg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=BqwI/Uvh1M7WGfv3uxJ5RiUJbBD+YJxiGEH51l57/J8cvR0nYFX9EuOxH01Db/gl3
-	 azhDLeQNLq+gSCz9bBclgE/Stxwgc1OnGda8kGmqV5EMXVKkUmFfV2CvT+Rm62XK1D
-	 XenG4wQO2RrCgW/wCbiDbBeO4Rc7Ip56EoT3c3O+llR7TUr6/zNgbWYvfeIzDxnx4p
-	 +ubU4YtMsxmEZnWNmlaSQ/wG+hvcmY4BCfujSx+SR/f4sy4MzVXgjv7yDcjComKw4v
-	 IQ/v+4QySHWIFRBr0ULn+3P4SkF0Kkj2loMeQgoVqubeybQ7GXz5stRzotyVe4uM66
-	 RFWviZn0m/VFg==
-Message-ID: <4ffa6613-119b-4eae-abbf-26134bd60177@kernel.org>
-Date: Wed, 25 Nov 2026 12:58:38 +0100
+	s=k20260515; t=1795607960;
+	bh=rsojXvZUV/8CWWLGDvdxZoety8wB2FPnWCvQ+ubHDsg=;
+	h=Date:Subject:To:References:From:In-Reply-To;
+	b=dL7fPahCLzn8G1sTEduUAI6i//aBNNBx7AwuTOAasT7iM4V97HCsfh5uBWHRoyBYH
+	 oSSDQYix7BDViCl49Har43idoVTO1J+nA+Isbf4nKf9g0TVhDPeHjUBxSabBVAwaoG
+	 ifShjjz1RNUA/0cQ5nbsncVKAIJ9AcoOl6oBO9O+HRWNFGWl6lBh+74maJ4cIfPf9A
+	 hCBt14ubzttO5tLDfXENrKHKI9UdS0NsLBikZbnEwNThG/FIAQlZnmeLyxOQeLpgZP
+	 eGkZPD5/nsrtPR/dfbTtJhJkoDGbuihSdvlhfMTYC0wNd3v3amBT2aLXZ1vm1fs6LH
+	 neQNvjnsdKW1A==
+Message-ID: <57cbd30b-4c6d-4298-bdaa-481773279bae@kernel.org>
+Date: Wed, 25 Nov 2026 12:59:08 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -52,14 +52,21 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] mm/hugetlb: stop hashing address_space pointers for fault
- mutexes
-To: Zhengchuan Liang <zcliangcn@gmail.com>,
- Muchun Song <muchun.song@linux.dev>
-Cc: Oscar Salvador <osalvador@suse.de>,
- Andrew Morton <akpm@linux-foundation.org>, Davidlohr Bueso
- <davidlohr@hp.com>, linux-mm@kvack.org, linux-kernel@vger.kernel.org
-References: <9a97a64f7e7aabc668499c426a2417a77d13a2f4.1795587203.git.zcliangcn@gmail.com>
+Subject: Re: [PATCH v4 1/3] fs/proc/task_mmu: read the PMD once in
+ smaps_pmd_entry()
+To: Usama Arif <usama.arif@linux.dev>,
+ Andrew Morton <akpm@linux-foundation.org>, apopple@nvidia.com,
+ byungchul@sk.com, gourry@gourry.net, jannh@google.com,
+ joshua.hahnjy@gmail.com, liam@infradead.org, linux-fsdevel@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-mm@kvack.org, ljs@kernel.org,
+ matthew.brost@intel.com, mhocko@suse.com, pfalcato@suse.de, rppt@kernel.org,
+ surenb@google.com, vbabka@kernel.org, ying.huang@linux.alibaba.com,
+ ziy@nvidia.com, kas@kernel.org, hannes@cmpxchg.org, riel@surriel.com,
+ shakeel.butt@linux.dev, kernel-team@meta.com, baolin.wang@linux.alibaba.com,
+ Nico Pache <nico.pache@linux.dev>, ryan.roberts@arm.com, dev.jain@arm.com,
+ baohua@kernel.org, lance.yang@linux.dev
+References: <20261125115014.4014507-1-usama.arif@linux.dev>
+ <20261125115014.4014507-2-usama.arif@linux.dev>
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -106,33 +113,24 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <9a97a64f7e7aabc668499c426a2417a77d13a2f4.1795587203.git.zcliangcn@gmail.com>
+In-Reply-To: <20261125115014.4014507-2-usama.arif@linux.dev>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 
-On 11/25/26 07:15, Zhengchuan Liang wrote:
-> hugetlb_fault_mutex_hash() uses the address_space pointer and page index
-> to select an entry in a global mutex table. An unprivileged user can
-> create a no-reserve HugeTLB memfd with an empty huge page pool, build
-> contention on one index, and time SIGBUS faults at chosen indices.
-> Pointer-dependent mutex collisions expose equations that recover the
-> exact address_space address.
-
-I'm not sure we care about this problem. I'll let other speak up.
-
-Attacking hugetlb users is stupid. This doesn't matter in practice.
-
-[I had stupid AI fix that allocated fault mutexes for each inode that I
-discarded immediately]
-
+On 11/25/26 12:49, Usama Arif wrote:
+> smaps_pmd_entry() dereferences the pmd pointer six times. Read it once
+> into a local with pmdp_get(), the way smaps_pte_entry() already does
+> with ptep_get(), so that every test sees the same value.
 > 
-> Give each hugetlbfs inode a dedicated random hash seed instead, and hash
-> the page index with that value. Operations on the same mapping continue
-> to select the same mutex, while separate mappings retain independent
-> bucket distributions without encoding an address. The seed is not
-> relied upon as a secret and is not reused by another hash table.
+> No functional change intended.
+> 
+> Suggested-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
+> Signed-off-by: Usama Arif <usama.arif@linux.dev>
+> Reviewed-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+> Reviewed-by: Zi Yan <ziy@nvidia.com>
+> ---
 
-Can't we still end up with the same problem, just slightly different, afterwards?
+Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
 
 -- 
 Cheers,
