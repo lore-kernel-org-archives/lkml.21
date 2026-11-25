@@ -1,72 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.151
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795573786;
-	b=LJe3e8guQXryTXoyY3UPJPt3ExrYA5Ju7E+1HiUPLPXFPGFUIt1UaIZDsvUMzLrLms4M
-	 PQVCxGo7+g7r3LmtVbuzbHttBmd+cE3UBefhRvAfDR/PiGWOCeev8J9bHmAcjDJ/2fsv0
-	 7eHuPlCvn4Ffh45SP1TEaQhXjEEM2cnp+A8eAOG5tk9HVPwNfCXd3N9o0RHmet2oqTvDT
-	 FQy1Ha0EpabgOGrCUIfwKnctlO1AdQCib4pezpGMCcYE2NwaHXeGsA5cNEHjooFUmuJOY
-	 tUt0M0WOjouC1pBOH6QUbKU5+G+5JJQez1PZ972XoiONFkc373cUR2ZSD/xorzMAvtw==
+	t=1795573809;
+	b=ZyNqFXuRjctL1suDwuKWw5DbCOn/+OFvVW86NNujve3EPKlPQa1UfnTt1HMkgfa6peQu
+	 s72EggqIzmpxpMpF5bkQ+ZGs4qHqrYIQqN/JIvVnphgiN7mMWxyANXOAOC71z7DGvUzKl
+	 R8lnVUEIrio5q+FEcLb80vJqcuoYXiq0304r7ESkCrnVb7FUxoWOvnxcKVzAVwwScCww3
+	 NrOFWloqf3cI+VLL5HUZcN+nvVyyT2eAk5OX22SLQ5G+6jbVi3vY1YbXMiK7r+bml8nA1
+	 ganq3hu2E+XWLeblTLKMgVYfyQlRJypgFUR/gu6YbnOrEA+Ha9ev+Miu+IUzPkQZ9Uw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795573786;
-	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
-	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
-	 To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=q52TT/lMyy1HJphmWNWNVNuFZcOXXg42bzRuSWJyWs4=;
-	b=PHFQwi1eW8ez8pESmf2tlsT7cD57K/oStOWM0E8lcTMqZyShdNYNpXnDLyy4xKPqsuJp
-	 +0ZFkMcRZJvYfUurqaPHX0cLd1vajco+T64egmBWdG7c2sp2qaT5vAj2rj16eUX8CpTiL
-	 Dd1sW+FZiGRDQZJSsllaRQpI5z8uVhSfTx42ZzeUuh5RKAFWqIE34yygJWeJA3o+X6vYv
-	 lAStxbbN3ahD7JMs1ceBJukJSP1mOkOLskB6oQb6izBbbGt29u/a9czfTNw5J3HIrmIeo
-	 fgehHoQp22Qq27+/V7H6hkPqAZcPTmCIeE0Ab0WRmoLisS1vkpEqOp10UoIqS7e/KJw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795573809;
+	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
+	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
+	 In-Reply-To:To:Cc;
+	bh=Vn0U0xhFRW/j1G2qXML8Xe4bQkucsgVdQ5KP6qLm0zo=;
+	b=4BHL6w6vcax7jaFfAVfrzueo3AlEVtGk0xdbPjfJHgBf2R9u2BV+8AMke5J5MwqgbK92
+	 vOjrgq8jFQ/QJJ+BAzXVoeX/8Oxaa4Fa4cdqpVvvYJGSrgyDU0nFPACv0S0KG/deiIarX
+	 vdorWr4emtIK3fk1P2O1mICrQF+2K3OcJYR/E9Oy5YU0TvgS80qk2MnbOLgx0OVjMlSeZ
+	 wRM3KvhlOBlkgfqnOyG2Wup7C1i6MWQqoZnFGt5Vt1rIHKQ8iceVshtC4BSy2OsbIcnsn
+	 m4EBejsQK9hMwm+RD9te2FQQO0HQEPyL0qmfqngHBk5ctsd73WDbWr+AzrpWBbixvWA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cmss.chinamobile.com;
-	spf=pass smtp.mailfrom=cmss.chinamobile.com;
-	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b="ls1Gg/2i";
-	arc=none smtp.remote-ip=111.22.67.151
-Received: from cmccmta8.chinamobile.com (cmccmta8.chinamobile.com [111.22.67.151])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 11E09606A33C;
-	Wed, 25 Nov 2026 02:29:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 11E09606A33C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PzF+32zG;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F406D606A31E;
+	Wed, 25 Nov 2026 02:30:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=ls1Gg/2i
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=cmss.chinamobile.com; s=default; l=0;
-	h=from:subject:message-id:to:cc:mime-version;
-	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
-	b=ls1Gg/2imTYH8u1lS49pqBVCC1xqiOD2XIQIZGPwaXkheNAK7dGNUg6aM0ZHNTPtmpzPitotMcIMR
-	 4wnK+M+4TF+tBAKJ08WR1HZqjDIs3EdNwEdvSDU0AP/rL9jaWvDMkzC+5szYpDFberNOKtQKxfbQwH
-	 2GZSXoR63LL9hu9M=
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
-	by rmmx-syy-dmz-app06-12006 (RichMail) with SMTP id 2ee66b064817dfa-1939e;
-	Wed, 25 Nov 2026 10:29:43 +0800 (CST)
-X-RM-TRANSID:2ee66b064817dfa-1939e
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from DESKTOP-3K8GUTQ (unknown[223.108.79.98])
-	by rmsmtp-syy-appsvr07-12007 (RichMail) with SMTP id 2ee76b064816f58-353d8;
-	Wed, 25 Nov 2026 10:29:43 +0800 (CST)
-X-RM-TRANSID:2ee76b064816f58-353d8
-From: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
-To: netdev-bot+sashiko@kernel.org
-Cc: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>,
-	chester.a.unal@arinc9.com,
-	daniel@makrotopia.org,
-	andrew@lunn.ch,
-	olteanv@gmail.com,
-	sean.wang@mediatek.com,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	kuba@kernel.org
-Subject: Re: [PATCH v4] net: dsa: mt7530: enable the regulators in probe() and unwind on error
-Date: Wed, 25 Nov 2026 10:29:41 +0800
-Message-ID: <20261125034000.1936-2-laixiangwu@cmss.chinamobile.com>
-X-Mailer: git-send-email 2.50.1.windows.1
-In-Reply-To: <20261125030000.377-2-laixiangwu@cmss.chinamobile.com>
-References: <20261125030000.377-2-laixiangwu@cmss.chinamobile.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PzF+32zG
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC47F1F000C6;
+	Wed, 25 Nov 2026 02:30:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795573808;
+	bh=Vn0U0xhFRW/j1G2qXML8Xe4bQkucsgVdQ5KP6qLm0zo=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=PzF+32zGXCiUOjUoA4M+55gYzEcZ2y4JRjZtZmYBpku3vI2bSsGDkS2eFJ5r1F7tI
+	 AckqdwtfZpuLri7t/zuNgZczdEh6lI9m5YQxaa3R5jP1Ne2kSbgsv+3NPiu9Xd5iyf
+	 g0P2bg7WTj8XSxJ6v9fTvjaXlQkPaMe008uy2I6Z5wmK6vofsqqyQTuVdk7DcLF9Nq
+	 w47wfn0JvomPiIM5ncZNJXQtJKFrlEp3kf3bi8BihJQKOx7SyiOWfM0qx1iiF1qQoH
+	 DGJgjfuH8//1rMWR4MRUh8dBR6awhkwXvnTAMY3by6EyCm3Tj+bhXfTZb31LwQZquc
+	 rhDxWLLaeSHUQ==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B44273808209;
+	Wed, 25 Nov 2026 02:30:08 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -76,17 +53,43 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net-next v2] netconsole: harden the enablement through
+ configfs.
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: 
+ <179557380727.173698.14068827370668526971.git-patchwork-notify@kernel.org>
+Date: Wed, 25 Nov 2026 02:30:07 +0000
+References: <20261120-netcons_double_cleanup-v2-1-dccfb71e0ddb@debian.org>
+In-Reply-To: <20261120-netcons_double_cleanup-v2-1-dccfb71e0ddb@debian.org>
+To: Breno Leitao <leitao@debian.org>
+Cc: gustavold@gmail.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org, kernel-team@meta.com
 
-Small correction to my previous reply: the v5 link in it points at a
-Message-ID that was never sent.  The correct archive link for v5 is:
+Hello:
 
-  [PATCH v5] net: dsa: mt7530: enable the regulators in probe() and unwind on error
-  https://lore.kernel.org/all/20261125022231.1936-1-laixiangwu@cmss.chinamobile.com/
+This patch was applied to netdev/net-next.git (main)
+by Willem de Bruijn <willemb@google.com>:
 
-Everything else in that reply stands as written.
+On Fri, 20 Nov 2026 10:58:10 -0800 you wrote:
+> There is a possible race when enabling/disabling the target through
+> configfs with netdev events that can call a null pointer dereference.
+> 
+> My robot was able to come up with a reproducer by adding a bunch of
+> msleeps() around.
+> 
+> The race is basically this one:
+> 
+> [...]
 
-Xiangwu Lai
+Here is the summary with links:
+  - [net-next,v2] netconsole: harden the enablement through configfs.
+    https://git.kernel.org/netdev/net-next/c/06d7ef874666
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
 
