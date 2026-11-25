@@ -1,45 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=216.40.44.12
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795621008;
-	b=OAMlKeorIh4wmQ8dhf+E7G4g+7NuAHT8kIhdKVNZJaDZVUC4AG3+ClaDcAAx/y2hRBR9
-	 CklIMeCKLXBnYHBkVYNnuRbHOO6WEsaiTtpmHSb+FvpXa0Gk1DXKY+t36lqGTDZfXJvtK
-	 SFahGmzF5BHsH5OPs3P7yohsZUrYJ3IGFw4sJMvzP7qPg3Wkj4vKcXXEl2+dBss9gY2bq
-	 q4wJLeRze0LRNYw2KdYX4t/LGnDRTB1UwEA8UEr6yhCHpViVboUU9Qw+thc4V3PvQqw2I
-	 rmxgV0dST+9mYmT8QZ92ngb931gKk9+fNvId8Lc1xrmcFqxMdjE6zLN6GwcBjFlCleA==
+	t=1795621010;
+	b=LjZsmBOPmNQXSoPdwelAu8k0z7jzOa9e+FdwjJAG/2iWmstO8OzPtR/i395bBsYRw8LM
+	 nycjuwKtGW11ut1oe3D6jf6mrL451qSjaLBbBr4eHh1fHDuRl5JND9uul+qwblOHtkt4s
+	 DKFHd4/QPXgR3oXtCG4FP4mWI5nr2beCely5ZkJOd82gGdUtdFmLdPvt7fhLMSdqWiIx/
+	 +pidkqYBSWby9Nls45nShBvDXbfzB4lKyLB/+/pI9GubwzWfW+lVQgNw2h4NrdXog/7FW
+	 kIdoZCoQjF4/xT/9N8UP4egAtOzj6KWtVSQZIAA3OGfGQvRYUpKGsz3O8C9MeaeqzTA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795621008;
-	h=Received:DKIM-Signature:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:References:
-	 Date:Message-Id:X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=E4gahwPKY0YwK67Ml2QTBETBsr9zPWMHQsnmRG4ecuk=;
-	b=VHeflg3wmz4Xr+Jw/kXufGN6wqAcgxXnIvVlwp3DDCvgpvPF1L0StX0rbngIGF3n85hD
-	 u/MNEmE2pdLMP5UIkIK+byQiLXTLJ/k8ztK212hnTupfQzjP4VfeZy9EsEcNAVTKcdQuz
-	 mP4QoLdHLfmtW5cLsaNUKEUrsXjXSZsg7/QbPm7H8PPy2BOajdadkvlpRZoPfq94JgoxH
-	 6HSgR7s0e1XshhWR7DKhAN70h6RKK0z/uFrM5aRsb7uZNSlOdDPn8WlK3RkjFaPjH3Ztt
-	 PcBYUYmZp1ko2J1zwRkvcmNQEmpo8kc8xdecRMbDSVn5Tz4nrqbQ9SkzvfHqZNPbutw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795621010;
+	h=DMARC-Filter:Received:Received:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-Stat-Signature:X-Spam-Status:
+	 X-Rspamd-Server:X-Rspamd-Queue-Id:X-Session-Marker:X-Session-ID:
+	 DKIM-Signature:X-HE-Tag:X-HE-Meta;
+	bh=NwvHgGTXJz0wJa/djlhMj0y+yVLq4gmsEHRyjatrEP0=;
+	b=4wnVoADyOhvQQJk4uWrFcIFm4VvNcgRJJy3nIBzuVZrB1p0QTcKjtD/EfIWIFo6tgzrv
+	 LKXtscKHrZnSkDBIgPfm/xzYSH/tPa68SjIicJB7dIbrC7W+vMYNPLfFhbFi4dUCTQ0JT
+	 MOXur6TZg1KSQFJLogVjsSjKEm8AqOs+DjnV/Q1HkxV+rtSBU2wg6sMVJj2akZgplfA2v
+	 OS669LBArnIZZ8L/JbPz3z5BRR3NcSZnZW7TtWuUh7G2L+hNct/Hzxy8YDBcKbh89pjXq
+	 0nepO/csh1496YqR1wxgDbEpkZ0VHr/Vml0OjvQTy81QzJLm6pjT+FJil8N3KakhOVg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iJsa1Ph6;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=goodmis.org;
+	spf=pass smtp.mailfrom=goodmis.org;
+	dkim=pass header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=XsGzjmjo;
+	arc=none smtp.remote-ip=216.40.44.12
+Received: from relay.hostedemail.com (smtprelay0012.hostedemail.com [216.40.44.12])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C28C9606A695;
-	Wed, 25 Nov 2026 15:36:48 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CDF0C60A263E;
+	Wed, 25 Nov 2026 15:36:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CDF0C60A263E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=goodmis.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=goodmis.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iJsa1Ph6
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA7A81F000D2;
-	Wed, 25 Nov 2026 15:36:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795621008;
-	bh=E4gahwPKY0YwK67Ml2QTBETBsr9zPWMHQsnmRG4ecuk=;
-	h=Subject:From:To:Cc:In-Reply-To:References:Date;
-	b=iJsa1Ph6Lye8Kxltg2vx087a/5J4RHKTfD6GWrcsAiXCLSCCDyc2Osclsbv2u4Gz6
-	 gzPl5LIExg0ABFVCuLmjfPIfGu/cr18Twx8HJZ7aOBGG1O5uU05AHowHJMa8XL3hiB
-	 Ljdyo+kuWwYcSweCv5J3YItc6gzVJjrrbdUheGDDn3zHz4USa6B3VRvmfAt+PtEQVa
-	 LW3kjRPdh8Rem0j8tHFdBtAvDn7aEMW3SR76E61r/KB6s7IvIM6f1xkFiXiILA8DnA
-	 v6imJSFC2MKJ0ydJqgl+xvVlFcBxiRBQB1NruNfOTFYzezfdr032SFjR+aQBxCSfdz
-	 SCwEhzzppq+dA==
+	dkim=pass (1024-bit key) header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=XsGzjmjo
+Received: from omf15.hostedemail.com (lb01a-stub [10.200.18.249])
+	by unirelay03.hostedemail.com (Postfix) with ESMTP id C1B84A0F80;
+	Wed, 25 Nov 2026 15:36:47 +0000 (UTC)
+Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf15.hostedemail.com (Postfix) with ESMTPA id 3AABF18;
+	Wed, 25 Nov 2026 15:36:45 +0000 (UTC)
+Date: Wed, 25 Nov 2026 10:36:43 -0500
+From: Steven Rostedt <rostedt@goodmis.org>
+To: Kuyo Chang <kuyo.chang@mediatek.com>
+Cc: Masami Hiramatsu <mhiramat@kernel.org>, "Mathieu Desnoyers"
+ <mathieu.desnoyers@efficios.com>, Matthias Brugger
+ <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+ <angelogioacchino.delregno@collabora.com>, Martin Kaiser
+ <martin@kaiser.cx>, Vinod Koul <vkoul@kernel.org>,
+ <stable@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <linux-trace-kernel@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>,
+ <linux-mediatek@lists.infradead.org>
+Subject: Re: [PATCH 1/1] tracing: Fix UBSAN shift-out-of-bounds in
+ test_event_printk()
+Message-ID: <20261125103644.5bad3010@gandalf.local.home>
+In-Reply-To: <20261125080431.1612026-1-kuyo.chang@mediatek.com>
+References: <20261125080431.1612026-1-kuyo.chang@mediatek.com>
+X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -49,117 +67,67 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH v4 8/8] clk: clocking-wizard: Use separate
- notifier_block for each clock
-From: Brian Masney <masneyb@kernel.org>
-To: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>
-Cc: linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, git@amd.com, 
- shubhrajyoti.datta@gmail.com, Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Michal Simek <michal.simek@amd.com>, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- Brian Masney <masneyb@kernel.org>
-In-Reply-To: <20261124035613.1968260-9-shubhrajyoti.datta@amd.com>
-References: <20261124035613.1968260-1-shubhrajyoti.datta@amd.com>
- <20261124035613.1968260-9-shubhrajyoti.datta@amd.com>
-Date: Wed, 25 Nov 2026 10:36:33 -0500
-Message-Id: <179562099317.458327.8068874764407758762.b4-review@b4>
-X-Mailer: b4 0.17-dev-8145e
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2787; i=masneyb@kernel.org;
- s=20250903; h=from:subject:message-id;
- bh=eaOLuiMerQksPgxnTMm1NlWOcHllakrAf02cjhklA2A=;
- b=owGbwMvMwCW2/dJd9di6A+2Mp9WSGLLZGVoPy995/E0xrb3yToHo+oqub9WRSq65vhmLz0o3W
- iYmaqp0lLIwiHExyIopsizJNSqISF1le++OJgvMHFYmkCEMXJwCMBGFmYwMfdHXd960OcD/NPO4
- 9pVHGkVxjO5GB2dwFm2o0Iy3i1vqzchwR4bl/3SRZ2nTHaIk+ZfoXtZ7/iZ1ybtZVd+FJII2sdx
- hBQA=
-X-Developer-Key: i=masneyb@kernel.org; a=openpgp;
- fpr=A46D32705865AA3DDEDC2904B7D2DD275D7EC087
+X-Stat-Signature: m4pnd9zcch9bbufyr11t9hmbuaht3zhm
+X-Rspamd-Server: rspamout05
+X-Rspamd-Queue-Id: 3AABF18
+X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
+X-Session-ID: U2FsdGVkX1//DpdCkurl9IwChUg4S7PUZPcI6x6HW/A=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=goodmis.org; h=date:from:to:cc:subject:message-id:in-reply-to:references:mime-version:content-type:content-transfer-encoding; s=dkim1; bh=NwvHgGTXJz0wJa/djlhMj0y+yVLq4gmsEHRyjatrEP0=; b=XsGzjmjoMxoMNthM05a1soAIZVCxY2jFkSDWG+o3ya/P4N4bpCdnf6e2xkUKZKZoZPGTrkCKdDnzhzUkISwLnTSLMn1/0i1w9U+N0Zw7B0F1FAuJzvH/6sK4ChPR1233R9OiOV64cVIQM9yryrVUgPFATAn2J/cl24oHrxraCyU=
+X-HE-Tag: 1795621005-232792
+X-HE-Meta: U2FsdGVkX1+P7p3L822E/fIOJ09gdK0kUBB9BPSUyBuoVEeMsP2HEPTRIFkFOXDsyPzvuPHbPiQwZK8znmtz7AGHbj3uW1X8+1fg9qJ9H2DWcWGwN59oE9XrGTkxTkP35JrqzA2kx/7vnEcsSFF6uXXY4ojMxFUcETDUaXPsko9NmeF44Jv3mKDb+I4j+/Ditay3S7jnX4+GMX30/Pn9caNemdPW0s3p9IpyBrSgZULdpWGgHx0FobNv3zu0mYVJiE9k5xgG00DjJ3znejhdmh8TKyuF6C8ln7z34Tx5UW2VNoqTGoK7ilrhJF1ACMCn27j64DaE1ZZFVCOZm0MnluJaRxjiklQe
 
-Hi Shubhrajyoti,
-
-> A struct notifier_block has a single 'next' pointer, so registering the
-> same instance to two different notification chains corrupts the linked
-> lists. Use a dedicated nb_axi for the s_axi_aclk notifier chain.
+On Wed, 25 Nov 2026 16:03:56 +0800
+Kuyo Chang <kuyo.chang@mediatek.com> wrote:
+>  kernel/trace/trace_events.c | 8 ++++----
+>  1 file changed, 4 insertions(+), 4 deletions(-)
 > 
-> Signed-off-by: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>
-
-Same as previous patch. Needs a Fixes and Cc stable.
-
-> ---
-> (no changes since v3)
-> 
-> Changes in v3:
-> - New patch: split the shared notifier_block into per-clock callbacks
->   to avoid corrupting the notifier chains
-> 
->  drivers/clk/xilinx/clk-xlnx-clock-wizard.c | 42 +++++++++++++++++-----
->  1 file changed, 33 insertions(+), 9 deletions(-)
->
-> diff --git a/drivers/clk/xilinx/clk-xlnx-clock-wizard.c b/drivers/clk/xilinx/clk-xlnx-clock-wizard.c
-> index 046efa5c77c9..f71e464e0fca 100644
-> --- a/drivers/clk/xilinx/clk-xlnx-clock-wizard.c
-> +++ b/drivers/clk/xilinx/clk-xlnx-clock-wizard.c
-> @@ -133,7 +133,8 @@ enum clk_wzrd_int_clks {
->  /**
->   * struct clk_wzrd - Clock wizard private data structure
->   *
-> - * @nb:			Notifier block
-> + * @nb:			Notifier block for clk_in1
-> + * @nb_axi:		Notifier block for s_axi_aclk
->   * @base:		Memory base
->   * @clk_in1:		Handle to input clock 'clk_in1'
->   * @axi_clk:		Handle to input clock 's_axi_aclk'
-> @@ -144,6 +145,7 @@ enum clk_wzrd_int_clks {
->   */
->  struct clk_wzrd {
->  	struct notifier_block nb;
-> +	struct notifier_block nb_axi;
->  	void __iomem *base;
->  	struct clk *clk_in1;
->  	struct clk *axi_clk;
-> @@ -191,6 +193,7 @@ struct versal_clk_data {
->  };
+> diff --git a/kernel/trace/trace_events.c b/kernel/trace/trace_events.c
+> index 7f89160aeff3..5933fc92f786 100644
+> --- a/kernel/trace/trace_events.c
+> +++ b/kernel/trace/trace_events.c
+> @@ -526,7 +526,7 @@ static void test_event_printk(struct trace_event_call *call)
+>  				case 'a': case 'd': case 'D':
+>  				case 'g': case 't': case 'C':
+>  				case 'O': case 'f':
+> -					if (WARN_ONCE(arg == 63,
+> +					if (WARN_ONCE(arg >= 63,
+>  						      "Too many args for event: %s",
+>  						      trace_event_name(call)))
+>  						return;
+> @@ -556,7 +556,7 @@ static void test_event_printk(struct trace_event_call *call)
+>  					if ((fmt[i + j] == 's')) {
+>  						if (star)
+>  							arg++;
+> -						if (WARN_ONCE(arg == 63,
+> +						if (WARN_ONCE(arg >= 63,
+>  							      "Too many args for event: %s",
+>  							      trace_event_name(call)))
+>  							return;
+> @@ -610,7 +610,7 @@ static void test_event_printk(struct trace_event_call *call)
 >  
->  #define to_clk_wzrd(_nb) container_of(_nb, struct clk_wzrd, nb)
-> +#define to_clk_wzrd_axi(_nb) container_of(_nb, struct clk_wzrd, nb_axi)
+>  			test_double_dereference(fmt + start_arg, e - start_arg, call);
 >  
->  /* maximum frequencies for input/output clocks per speed grade */
->  static const unsigned long clk_wzrd_max_freq[] = {
-> @@ -1160,6 +1163,30 @@ static struct clk_hw *clk_wzrd_register_divider(struct device *dev,
+> -			if (dereference_flags & (1ULL << arg)) {
+> +			if (arg < 64 && (dereference_flags & (1ULL << arg))) {
+
+The above should never happen. If anything, arg >= 64 should exit this
+function immediately.
+
+-- Steve
+
+
+>  				handle_dereference_arg(fmt + start_arg, string_flags,
+>  						       e - start_arg,
+>  						       &dereference_flags, arg, call);
+> @@ -625,7 +625,7 @@ static void test_event_printk(struct trace_event_call *call)
 >  
->  static int clk_wzrd_clk_notifier(struct notifier_block *nb, unsigned long event,
->  				 void *data)
-> +{
-> +	unsigned long max;
-> +	struct clk_notifier_data *ndata = data;
-> +	struct clk_wzrd *clk_wzrd = to_clk_wzrd_axi(nb);
-> +
-> +	if (clk_wzrd->suspended)
-> +		return NOTIFY_OK;
-> +
-> +	max = WZRD_ACLK_MAX_FREQ;
-> +
-> +	switch (event) {
-> +	case PRE_RATE_CHANGE:
-> +		if (ndata->new_rate > max)
-> +			return NOTIFY_BAD;
-> +		return NOTIFY_OK;
-> +	case POST_RATE_CHANGE:
-> +	case ABORT_RATE_CHANGE:
-> +	default:
-> +		return NOTIFY_DONE;
-> +	}
-> +}
-> +
-> +static int clk_wzrd_clk_notifier_in1(struct notifier_block *nb, unsigned long event,
+>  	test_double_dereference(fmt + start_arg, i - start_arg, call);
+>  
+> -	if (dereference_flags & (1ULL << arg)) {
+> +	if (arg < 64 && (dereference_flags & (1ULL << arg))) {
+>  		handle_dereference_arg(fmt + start_arg, string_flags,
+>  				       i - start_arg,
+>  				       &dereference_flags, arg, call);
 
-After this change, clk_wzrd_clk_notifier() and
-clk_wzrd_clk_notifier_in1() can be combined with a common helper.
-
-Brian
-
--- 
-Brian Masney <masneyb@kernel.org>
