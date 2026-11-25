@@ -1,56 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=84.42.129.46
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795628308;
-	b=Z7RJ/vSWB5S6UgA6J5IYS8cjWoxVSybv7+HoSQ8toO14xpq2JzhrYXHgOgsFuQR/j4Kr
-	 M1Zo49pB977MH+hrobj6JYGESoLDLGv4xOfldy2A806wTaWvXaZFU8EhmbUfvDtdTSgDQ
-	 x6VakQCP0DN9JGRfQlO2wAPnRpCCTKpzcVuN/eWPPPwXCBBFPajsxxqCjkUv+mugYam10
-	 Kww21hJahtfuyWmhz7MDfwNVwRbfe3qm9LaXGnH3QWBLtxyXT5zJPx92hTcBqbO/4CrsL
-	 IvF0hpzJJFMYY0fVdTb/SIm0NCfe49tqgS78hsWWkr5PKnOccOfbHzV6okIZs8dHnRg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795628308;
-	h=DMARC-Filter:Received:DKIM-Signature:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:Autocrypt:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=Jc2fT23SPWqHr6nIykatx49BNkv061JXFi2XlfZIV5I=;
-	b=FX6GjCTNhtSKsm5opLn8WdEz9/Vnx6JAKgJPm+6sLey8yYAx+b9mykcdEoEHW+6j3L6w
-	 mfD6u8gOV506CWtxg6gIUwz4Vb4IevPT/CDjp9tK9kgcnsQ06mSP1m1KjmzOgTtv7mezk
-	 5I/HvkGBV5S3DAndzEOK8vkatlQNopZXdr7g+hXhNZ2VFpH40T1MueypVA+fRx8aU3R6o
-	 JYwRefi0jsjVag/ILptEXhXv0TM4lXF/2bJyLGFIVXPhciZRYiXdoxXiMTmHROsgdP3xv
-	 SXfxiZJhukjau2713ihVm9L5Svk3QolSeaU1Ghe9BMOe57uyjk/3IGWa5mlju4n9lvw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ixit.cz;
-	spf=pass smtp.mailfrom=ixit.cz;
-	dkim=pass header.d=ixit.cz header.i=@ixit.cz header.a=rsa-sha256 header.s=dkim header.b=vz6eljYw;
-	arc=none smtp.remote-ip=84.42.129.46
-Received: from ixit.cz (ixit.cz [84.42.129.46])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.45
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795628375;
+	b=NIppAhyGI7UPo+jRioTATWm2Z955RxyPT7lrPMybsGopgGfVSULu9x7L8MeR5NOjdiqz
+	 P/3oj6zmKPuTAVtrCQW1zOxhtuVwd1AgiumfJBNHtdE3nSs2/tOQeJ2VFcpu3zm9kbsGc
+	 +s5wn9qoBw2jatF9d5thXs2hGqlThI89/v2JWChtTTrgtoIu3dISi/jyD95Uqx1uHdtxO
+	 mpOBR0a4AWlkm9M1b+0Tkcrx7GT10WxHkv+q7ZOBgEtWBDEScep7TzNqSEM4ojdCPMXOq
+	 rL3Mdd1YX9OK11FLhvaH+EVprEc0hiKGS3pYhmu2t3N/znDQ3Cm3sQ2ZsW6y8PX6g7w==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795628375;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=EOXTnO5Bxuk6rnfTBGwAa59VOdHMQdutSkTfsVAhh8E=;
+	b=eBurDAcdeFSt18aoKnD8xQjoY93SvtmdBxVkrR/qfJ4Q09LnjIW20gn0P1LpkZSpVpYo
+	 vNyyn/ooW+g9NjxPxaM/BRaYH0/M6S3zfQwGxR1MRuFAtW6NcE6MGq+hk6ZMeGQGEay48
+	 Zgny5P3ePOZU71Z0B32J11OQ1FT319WgzSEs2ACLrAnLg6bcA5t2Z8ehht862pFAGl/b3
+	 UTY6ZKu3PERn/erJMiqXnnDv8eY2DWPyc03gRcKz6bT8TzvtM5HprwtRSDYvk0a5X7Tol
+	 XS/4MFf8OYNEpMT0U8gCOKkf/eAFdsMh8fehGvsUfOSlMflZZuyq1r5513IysT9waBg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=txZbvkhN;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.45
+Received: from mail-ed1-f45.google.com (mail-ed1-f45.google.com [209.85.208.45])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 94355606A326;
-	Wed, 25 Nov 2026 17:38:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 94355606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=ixit.cz
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ixit.cz
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DA7B7606A323
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 17:39:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DA7B7606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=ixit.cz header.i=@ixit.cz header.a=rsa-sha256 header.s=dkim header.b=vz6eljYw
-Received: from [IPV6:2a02:830a:f787:8f00:f33c:cbcd:417b:d2b9] (unknown [IPv6:2a02:830a:f787:8f00:f33c:cbcd:417b:d2b9])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by ixit.cz (Postfix) with ESMTPSA id E82FF53402F6;
-	Wed, 25 Nov 2026 18:38:24 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ixit.cz; s=dkim;
-	t=1795628305;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=Jc2fT23SPWqHr6nIykatx49BNkv061JXFi2XlfZIV5I=;
-	b=vz6eljYwfoF4hl31mO8OMR8yWufis/ML2BxifwgqeIAYVH97dvFmsuVdJWgA0gZT5Y58V3
-	inXPK4a7sjHC9/YYssW/e+uzH2qny9d4EmVU6g2TIVKNtN+DJFFfTLnqzZZPZjgtV3IwEC
-	kfW6lEuobSwehOtIO53WT7TIjU1d//E=
-Message-ID: <72548a95-f009-465f-ac04-b1b09ea4d1ae@ixit.cz>
-Date: Wed, 25 Nov 2026 18:38:24 +0100
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=txZbvkhN
+Received: by mail-ed1-f45.google.com with SMTP id 4fb4d7f45d1cf-6b8815693e2so6999169a12.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 09:39:34 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795628373; cv=none;
+        d=google.com; s=arc-20260327;
+        b=d2vezJX39LUhSusRCzVRs+dy2cjSAetooN4a/j1ZL4VuCKKW7NO8cAozF1lIX2y7Ok
+         7arCTYbl6vlypzf8YhenlSAr/ZAaIiezL9K24+Wyg3NvrSW7bXq2J1LHxJg2bwuJAE4b
+         lgIIA5Wr2sTbNLqX6l0KevyXHrI9APodxXFkuVJDZn0g0g5vI5Gu558f7kGCCi/vYzOk
+         fxiaZ2EE4L9u0I0LewuRFmdEBF8Atej3RObLZNk6BpC9rRn2GUEYHnq5m40hio7R4+bo
+         PhxKFBQa7PtBEZttFa33EUszJsuDl/ZmyDfBaEW53ttGFuu2ogi101MzjsFIVn3ZyW1T
+         FPGw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=EOXTnO5Bxuk6rnfTBGwAa59VOdHMQdutSkTfsVAhh8E=;
+        fh=hIUeA/qkVL0jkfLTje7VQlEPFjiNhIWkSDDOrmzcmnI=;
+        b=ClzKyAQPiaPrXRilw35LHGtIxRde73RUnZBDYsNkM1881gYrLcJ9wDvynsyG27WN5x
+         dlq9B8MglYSCg6gs7a7Mq/sh/kfe9GlEAE1fVAr6TGObW1IAgQJ/WFuHbyYRlkzLcz+u
+         hJPXIOwWCdG7lCY8e39gb4Hsqa1cEGX9VU7q6Vvg7PrpfCTyAx5nV5pTgmNje6y5Pm63
+         wAmIYCqA5GURQ86HaD+jEDDmcpJWAQdE11fzfljzFm/J/EK8Q4y9cOChcuvXwyECYsDm
+         InrXJJhdM80kdcoRyT7eMmek5Q+67Va3MjPX2UH25GNXovqls/Gwemy6qQ8MWs+Hk4GX
+         /Zvg==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795628373; x=1796233173; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=EOXTnO5Bxuk6rnfTBGwAa59VOdHMQdutSkTfsVAhh8E=;
+        b=txZbvkhN3j2tiIdhSd2v4u+ugf0j142saCBfHlWXU7WJHkjuKzOm/tSLulPI47OuZr
+         k+yiScOKxj27Vq8FkmtuwfktQInjof81S31Sg0WVq6+uWhdLHbkybzSa+e0bI21mDDG0
+         jQ2XEd3YBH+maTftST1mjTzpg02sWmo4mzYcXGfnoem+hL6tdAXgnOk/jYdbKGfpcZn+
+         UuuerISCFc7ioJhtwWIsq7HI1BgpihgFUZsguwVU+llbKxjl/G+XuQDlOEpVlw3R6dg1
+         zcX+sonGlBwz35gXlQzLdOUYwNph87cW20+qiG1VKbUWAitRayprTj4brawGC0lrKBpv
+         lmAg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795628373; x=1796233173;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=EOXTnO5Bxuk6rnfTBGwAa59VOdHMQdutSkTfsVAhh8E=;
+        b=SSHLqcB8KGY5wCsc/RlmyZz6I8QLoWl4B58IV1Ac2sK4NpjmIiT13d5/yntR9gX/Ip
+         rLK65naptDtvbW6iqpAsSzsDy9GepRts1gc+E2PMUm38c+2Zg9y/OrIftxaplG2Rojb9
+         p1W/p/tyN4c3m0JEGBLpx/ESoMg1ecgeJu1oEKjKJx/GLsJev+l8Qx0c39TUtmg1Po0M
+         U60sWN0GyBINA/z8JtqRvasl3jf6rH1tQOJ1Y6OE/PoWSbmLrwSJSj7+vhPkOLzMhn7i
+         bBk2ZjTe1q90taxty8gSm86vzSGDDqAagaeoIayJU/UXHVmIZdRXAS3YVJpCfKCxaWyT
+         8lsQ==
+X-Forwarded-Encrypted: i=1; AL+hErGcBbRD4/uK/GRSalyHbf0wjNeqM9fEawUQ63T1Esk4l7OtinsZ3B7MPbQk74ZtLslqCu0gV1YnNsfbaHo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/ZNbo5/euXn+jSRPT4ouhKZjr098OALuMXpM0BekSE4RoQioHW
+	EG0KFKCmtxC3mVBESBIK6WqJU9Zc97Qf62oWWW0/lM2YRtzsy1mVHhwHYV3C772anod62H358Dj
+	h9YxwR1z05DpVc/q0VLO7SuyhE5UYka4=
+X-Gm-Gg: AZFdTZfZyzBAKJ3k/Z8zPRNtcl5OCGt5reBDuaVnng/wL16EFmPdhxTWbCGCH3Hp/ai
+	fvXRgFdn6qdXVEp580fnvrsYtT8VTaSl/xNATgEVdAWLfcn9uU/XVmI/JmNQffTY5S4chmOd1kc
+	TeM4JwA6KbGhyuiaey0SyB1U9ZufWHhrjSOL351Yqhc/F5keh9vMp+feLzGjzN4z9LltgMXNnFR
+	HihwWZC9rNsbsfaBL1JOIaZPN5kJr38AbFOizB+194S0jEt626nsLMhYNzx2zsmMWrloGRXQQTn
+	74pHh/RqUYUE0aPnjcio52koCYlXakSqs5jd7ictgMhFuoChVkMSnCCMdM3YmhpmcebVDOiU550
+	J5teaoNHrlI1/TXrdZWeDhha/kXh3Fxuyr3ClXcvqYOROpJ85kd7edY/w2laZwadEUbq6JxQH+B
+	Bfg7bs35RB7OCy01E=
+X-Received: by 2002:a05:6402:15d4:b0:6b7:709f:85f with SMTP id
+ 4fb4d7f45d1cf-6ba37ec031amr10700652a12.36.1795628372883; Wed, 25 Nov 2026
+ 09:39:32 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,118 +105,192 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 02/10] dt-bindings: display: panel: samsung,s6e3ha8:
- Add AMB630QY01 panel
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Dzmitry Sankouski <dsankouski@gmail.com>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Jessica Zhang <jesszhan0024@gmail.com>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>, Abel Vesa <abelvesa@kernel.org>,
- Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
- Petr Vorel <petr.vorel@gmail.com>, dri-devel@lists.freedesktop.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-msm@vger.kernel.org, phone-devel@vger.kernel.org
-References: <20261108-crosshatch-panel-v3-0-87dd4ec4f7cc@ixit.cz>
- <20261108-crosshatch-panel-v3-2-87dd4ec4f7cc@ixit.cz>
- <20261109-tacky-busy-kelpie-cbd5be@quoll>
-Content-Language: en-US, cs-CZ
-From: David Heidelberg <david@ixit.cz>
-Autocrypt: addr=david@ixit.cz; keydata=
- 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
-In-Reply-To: <20261109-tacky-busy-kelpie-cbd5be@quoll>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20261123221410.3328780-1-neilb@ownmail.net> <179550252639.1728055.4014817916838632741@noble.neil.brown.name>
+ <CAOQ4uxgF6=QoD9RoAOPmxtvkq1jWf+gG1AsJzR=Kt3ROMA=X0g@mail.gmail.com>
+ <aau5z6kck6a2efcjvzrt6gno6ljs4eioncgizeh7vfbc6ipkr3@hjxzdk5pvgmt>
+ <CAOQ4uxjXP4Zegb2Vgsv-yBeFmhvc8FT2bDKDcaM_t0=oJ5KpXQ@mail.gmail.com> <sc6xnwguimy23dexr3eosbe64xmmewn5ml5gso4m5xozw6fqlt@2hji64vi7eaw>
+In-Reply-To: <sc6xnwguimy23dexr3eosbe64xmmewn5ml5gso4m5xozw6fqlt@2hji64vi7eaw>
+From: Amir Goldstein <amir73il@gmail.com>
+Date: Wed, 25 Nov 2026 18:39:20 +0100
+X-Gm-Features: Aa3M54p0yQAs_ZPRugioiFUuwGcSeWEd2MMo5NujtG6aZBdyocbVJc3EK7LYRCs
+Message-ID: <CAOQ4uxisP8YTUaexsXw4-Fxg0vand236cg5eDKirLm=kuDwSQQ@mail.gmail.com>
+Subject: Re: [PATCH v6 0/5] Fix easy bits of the negative dentry problem
+To: Jan Kara <jack@suse.cz>
+Cc: NeilBrown <neil@brown.name>, Alexander Viro <viro@zeniv.linux.org.uk>, 
+	Christian Brauner <brauner@kernel.org>, linux-fsdevel@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, Ian Kent <raven@themaw.net>, Jake Edge <jake@lwn.net>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On 09/11/2026 13:30, Krzysztof Kozlowski wrote:
-> On Sun, Nov 08, 2026 at 12:32:23PM +0000, David Heidelberg wrote:
->> The Google Pixel 3 XL (crosshatch) uses a Samsung AMB630QY01 6.3"
->> 1440x2960 flexible AMOLED panel.
->>
->> Signed-off-by: David Heidelberg <david@ixit.cz>
->> ---
->>   .../bindings/display/panel/samsung,s6e3ha8.yaml    | 41 ++++++++++++++++++----
->>   1 file changed, 34 insertions(+), 7 deletions(-)
->>
->> diff --git a/Documentation/devicetree/bindings/display/panel/samsung,s6e3ha8.yaml b/Documentation/devicetree/bindings/display/panel/samsung,s6e3ha8.yaml
->> index ca250b1b91712..dcf347fe5ca83 100644
->> --- a/Documentation/devicetree/bindings/display/panel/samsung,s6e3ha8.yaml
->> +++ b/Documentation/devicetree/bindings/display/panel/samsung,s6e3ha8.yaml
->> @@ -7,48 +7,75 @@ $schema: http://devicetree.org/meta-schemas/core.yaml#
->>   title: Samsung s6e3ha8 AMOLED DSI panel
->>   
->>   description: |
->>     The s6e3ha8 is a display driver IC used in 1440x2960 AMOLED panels from
->>     Samsung Mobile Displays (SMD).
->>   
->>     Known panels:
->>       - AMB577PX01, 5.77", Samsung Galaxy S9 (samsung,s6e3ha8-amb577px01)
->> +    - AMB630QY01, 6.3", Google Pixel 3 XL (samsung,s6e3ha8-amb630qy01)
->>   
->>   maintainers:
->>     - Dzmitry Sankouski <dsankouski@gmail.com>
->>   
->> +required:
->> +  - compatible
->> +  - reset-gpios
->> +  - vdd3-supply
->> +  - vci-supply
-> 
-> I see no reason why order of this schema should be re-invented. See
-> every other binding or example-schema.
+On Wed, Nov 25, 2026 at 12:34=E2=80=AFPM Jan Kara <jack@suse.cz> wrote:
+>
+> On Wed 25-11-26 08:46:45, Amir Goldstein wrote:
+> > On Tue, Nov 24, 2026 at 5:26=E2=80=AFPM Jan Kara <jack@suse.cz> wrote:
+> > >
+> > > On Tue 24-11-26 14:08:07, Amir Goldstein wrote:
+> > > > On Tue, Nov 24, 2026 at 7:42=E2=80=AFAM NeilBrown <neilb@ownmail.ne=
+t> wrote:
+> > > > >
+> > > > > On Tue, 24 Nov 2026, NeilBrown wrote:
+> > > > > > This v6:
+> > > > > >  - fixes the autofs changes in 1/5
+> > > > >
+> > > > > Sashiko says this is racy.  I think it is but the original code w=
+as just
+> > > > > as racy.  Maybe the race isn't relevant.  I haven't properly unde=
+rstood
+> > > > > it yet.
+> > > > >
+> > > > > >  - updates d_duplicate() in 1/5
+> > > > >
+> > > > > The fix was seriously broken.  Sorry.
+> > > > >
+> > > > > >  - uses a new version of 2/5 from Amir
+> > > > >
+> > > > > Sashiko has something to say about this
+> > > > >
+> > > > >     Can clearing FSNOTIFY_CONN_FLAG_UPDATE_CHILDREN and dropping =
+conn->lock
+> > > > >     before fsnotify_set_children_dentry_flags() finishes allow a =
+concurrent
+> > > > >     watch-adding syscall to return to userspace before the childr=
+en's
+> > > > >     DCACHE_FSNOTIFY_PARENT_WATCHED flags have been set?
+> > > > >
+> > > > > Thoughts?
+> > > >
+> > > > Sashiko is right, but this race is not new.
+> > > > The same window exists upstream: if another thread's recalc observe=
+s
+> > > > the 0->watching transition and does the walk, fanotify_mark() can r=
+eturn
+> > > > to userspace before all children have DCACHE_FSNOTIFY_PARENT_WATCHE=
+D set.
+> > > >
+> > > > What changes with this series is that the walk is sleepable, so the
+> > > > window is longer, and in some workloads it could go from rare to
+> > > > plausible. OTOH, skipping negative dentries may shorten the walk.
+> > > >
+> > > > The more important question is whether a child can be left without
+> > > > PARENT_WATCHED permanently. Upstream it can: the transition can be
+> > > > observed by a recalc from the mark destroy path, which never walks.
+> > > > With FSNOTIFY_CONN_FLAG_UPDATE_CHILDREN that cannot happen.
+> > > > Every transition sets the flag, and every caller that can add a wat=
+ch
+> > > > consumes it,
+> > > > so a walk that started after the transition always runs and fixes t=
+he flags.
+> > > > What remains is the transient window above.
+> > >
+> > > I agree this is preexisting issue. Let's not block this series with i=
+t.
+> >
+> > preexisting, but sleepable children walks could make an
+> > improbable race actually observable, because the scans are not
+> > serialized and could take longer (I don't know how the scheduler
+> > treats a dying process which has its marks removed).
+> > Just wanted to make sure that the point is clear.
+>
+> Yes, the window can be larger now but it still shouldn't be a practical
+> problem unless there are several watchers placing marks on insanely large
+> dir in parallel. So I think we can live with the race for a while longer =
+:)
+>
+> > > > I think a proper fix for the transient window needs a sequence coun=
+ter
+> > > > of scans in the connector. Each caller would wait until a scan that
+> > > > started after its transition has completed, no matter which thread =
+ran it.
+> > > >
+> > > > I think we can live with this v6 patch for your series and deal wit=
+h
+> > > > the remaining race later if we want to, but I am not sure and would
+> > > > like to hear what Jan thinks.
+> > > >
+> > > > If you want, I can implement the sequence counter for v7.
+> > >
+> > > No sure what exactly you have in mind but a sequence counter per inod=
+e
+> > > looks like an overkill for this. A global one can get contended and
+> > > a bit hairy to manage but let's see...
+> >
+> > I had a patch with another conn flag _CHILDREN_WATCHED
+> > set at the end of the walk, which covers the Sashiko race, but
+> > leaves some other corner cases (see below).
+>
+> Yes, I was also concerned about those races when thinking about that
+> yesterday. Let's discuss below.
+>
+> > Are you concerned over the size of the mark connector?
+> > I think that connectors should be rare and scarce.
+>
+> Yes, I was concerned about the size of the connector. On a second thought
+> I tend to agree it wouldn't be a huge deal if we need it.
+>
+> > With workloads that frequently add/remove watch,
+> > Sleepable children walks could cause a situation where
+> > scan that started a few add/remove cycles ago complete out
+> > or order with the most recent walk.
+>
+> Well, let's discuss the behavior of the walks and the flags. I imagine we
+> could have two bits like _UPDATE_CHILDREN and _UPDATE_CHIDREN_RUNNING.
+> When children flags need update we set _UPDATE_CHILDREN. When we see
+> _UPDATE_CHILDREN set, we call fsnotify_conn_set_children_dentry_flags().
+> That function checks _UPDATE_CHIDREN_RUNNING. If already set, it waits fo=
+r
+> it to get cleared and returns. If not set, it sets _UPDATE_CHIDREN_RUNNIN=
+G,
+> does the walk and clears both _UPDATE_CHILDREN and _UPDATE_CHIDREN_RUNNIN=
+G.
+>
 
-Sorry about it, I guess I messed up fixuping moving the pieces.
+Yeh, I think that mostly works, with a minor variation.
 
-Fixed in next rev.
-David
+If the RUNNING flag is already set, the function waits for it to get
+cleared and then checks the UPDATE flag again.
+If the UPDATE flag is set, it clears the UPDATE flag, sets RUNNING
+and starts the walk. At the end of the walk it clears only RUNNING,
+so every time UPDATE is set, a walk starts after it.
 
-> 
-> Best regards,
-> Krzysztof
+Anyway, serializing the walks per inode is a positive outcome
+and better for our mental model.
 
+> > Only the completion of the most recent walk can guarantee
+> > that all the children dentries are watched.
+>
+> So I don't think that's an issue. Look, if someone places a mark which
+> watches children of an inode, we either end up updating the children flag=
+s
+> or we wait for _UPDATE_CHIDREN_RUNNING to clear. So any mark update from
+> userspace blocks, until the children walk is done and then they all retur=
+n.
+> We hold the group lock during the wait so the mark that makes the parent
+> watch children is guaranteed to stay attached to the inode and subsequent
+> mask updates on the inode all result in the conclusion that children are
+> watched (so fsnotify_parent() doesn't clear the children flags while we a=
+re
+> still walking).
+>
+> One catch in the above argument are oneshot marks for inotify & dnotify.
+> Inotify is actually fine since it grabs group lock when removing mark aft=
+er
+> the event was sent (so the above argument holds). Dnotify doesn't grab gr=
+oup
+> lock when removing oneshot mark and so breaks the argument. I think we
+> should just make dnotify grab that lock to make our life simpler.
+>
+> Thoughts? Counter examples?
+>
+
+My thought is that this makes my head explode..
+I rather have a simpler mental model if possible, which is less
+dependent on all the callers and other locks.
+
+I think there are some corner cases, where a false
+"parent is watching" state is caused by combination of
+FAN_OPEN on one fanotify group (not watching children) and IN_CREATE
+on another inotify group (watching children but not with events possible on
+children) but I can't reason about the exact consequences.
+
+Thanks,
+Amir.
