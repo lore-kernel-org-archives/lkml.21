@@ -1,128 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.154
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=124.126.103.232
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795592027;
-	b=qq78nDQLlHVtpkOUNjJtYDXXpguIVAxbSmu7w8Daq5yNsL9R4Er8gQCcMk5cLMoDo3c5
-	 pnncc9jWwWWBIhTrl/DryNVnc0JYJlka4xVeg5UZiA4pPLlOPVCg9nHmPID4Uv9OYRo8M
-	 LLI8Zq4eS/aXJsOno0b/IfBj8OQXTa6obQ0DjbcrKc7PCLJvfSheTAwO9oLM3rUcQwS/g
-	 Bs165zgZ+bP3XhGomJttx73OFZ4tx76QT4xLVoUinBWTveDJZx2RTdx7CkiYsLcXX4SAu
-	 aAbuu++gAfWRH1qULgyq4Zbppw7bQl+Ai/TFc0xuL6Mxa4xu07tIOTdEVUCye+oxSaA==
+	t=1795592160;
+	b=voAnQ1req9Jwz4dlriM0yLTc+RM6P4CGB46k8K2FQw3+FQwQrt4ko1NXtxBWuee/0oEz
+	 +tj5Pjo2mfFJJZvSiDOjOJr+RFoZjLd3y5POO5Pa1Wq6/rZrDdYThSGXdTbPEUfEyuxNZ
+	 7O0eyIERhrmpcGQUztQEWxu6ABfmrEjTTJm1l0HOL0FWd+TOYjSf6ddnanRY0SmlxJG3S
+	 WqfmXkc8TUo/YmHEJ5wQT0b0dNd41lDHrqOBBTShDBQrYqxT6kssihZJylOd1mAHYoX7p
+	 usrO8Km+dwdWoxTSxeiaZwINar4c5T0eJDH5PabiltVvQ8Tjq9JlGVU7wqlN9TA/2Rg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795592027;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
-	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:Content-Transfer-Encoding:
-	 In-Reply-To;
-	bh=QIQIM4jf+UKzAvy4/TzOA2OrPZIwZTYg25OwSeeP9xA=;
-	b=HXYo02t2G+m19BMyAmy+xYRDB5HCfLx7HyHwUd0MIptRDEnHbcIYJIEb4rdrrz1USEzl
-	 Pc4IjUQcpb4GGzRK4jf6BztGJAbn2g3POeFqQa/LqP4Cjoyewmy0ZxpNI284QZolZ1G7j
-	 KTnfLOx2OL8f/2hyxfnbPryvuJ0HKlYzjkjcfFcZrcr4MjLLD799RJB2BELRkINs64pKy
-	 IGUqqLVil/KXURp6alTnVuwvuCvD6ZeWt7t/cLlLJTS1lurOyjhG2hHJEvF+x1/3D9Xu9
-	 HHAaxfn8urFlmJAdhzp2xVFtfT4SIsjGqChwdrBc4P+/j9qtYvPCyY0K5mYv746tS8w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795592160;
+	h=DMARC-Filter:X-UUID:X-CID-P-RULE:X-CID-O-INFO:X-CID-META:X-CID-BVR:
+	 X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:X-User:Received:From:To:Cc:
+	 Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=ooQCjiNuSKUklkX004peqIPqDzycSwnydYDuvYVCuAI=;
+	b=I1FZQ1ehjbLxGlkEztKW1qMaKbaAFMYVdD/VeAjrw0wyEAE77QykcIiM+M2IJIT+9V/F
+	 eNr1D7HiUVMw1QJ4vpqqrrwGIXy4omqepHfDZZ3UsBme2mIIufrbulFTBlRFq7HbM9FaF
+	 znzXpiKIri2Xtmkotcnxg1AkkAxcSzZRrFhcQNoEc5xBmDkvkKQ3Fg4h4ihbCYf+zvOV2
+	 ZQ8Whs13kNPC5CiRNr1kKTauRLj2Xv/4D7aeHPmuMarr0lNvXc8m7ohuQbvlP96nHOZgC
+	 cCrKeNxMz4xFqzoILp7hwZWqinTpRsFgteN/tzF1YRbRzfbne1Fw93jrywG38GLCxSw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ragnatech.se;
-	spf=pass smtp.mailfrom=ragnatech.se;
-	dkim=pass header.d=ragnatech.se header.i=@ragnatech.se header.a=rsa-sha256 header.s=fm2 header.b=UiOhYkYU;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=l+4ScMDL;
-	arc=none smtp.remote-ip=202.12.124.154
-Received: from fhigh-b3-smtp.messagingengine.com (fhigh-b3-smtp.messagingengine.com [202.12.124.154])
+	dmarc=none header.from=kylinos.cn;
+	spf=pass smtp.mailfrom=kylinos.cn;
+	arc=none smtp.remote-ip=124.126.103.232
+Received: from mailgw.kylinos.cn (mailgw.kylinos.cn [124.126.103.232])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3B65D606A321
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 07:33:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3B65D606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ragnatech.se
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ragnatech.se
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=ragnatech.se header.i=@ragnatech.se header.a=rsa-sha256 header.s=fm2 header.b=UiOhYkYU;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=l+4ScMDL
-Received: from phl-compute-08.internal (phl-compute-08.internal [10.202.2.48])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id B05067A016E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 02:33:46 -0500 (EST)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-08.internal (MEProxy); Wed, 25 Nov 2026 02:33:46 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ragnatech.se; h=
-	cc:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1795592025;
-	 x=1795678425; bh=QIQIM4jf+UKzAvy4/TzOA2OrPZIwZTYg25OwSeeP9xA=; b=
-	UiOhYkYUOQOclClulR8GTZMk8oLVRE0OhwXkBcR0TBOeypeXNcOSOWnZeXRBASe5
-	tkPVnDWMasTTQnjUYJnT7lZL90mZME3vuGG7VM/39ACvES6Y4hOYAKx5nP8jsrSx
-	X9fqLhyEjrCZnCR5RXN8+1jE3NpRt4+CvjIkVA3m1IVzcheLIxFby8A8ATrl9bvH
-	nklN8s8pQ2Rk/dzan7U+/pVyOa+qG8LWUsXd7jVLR9VEYCECjqHFhjWPDa2nE0Lf
-	7aGSh9bpOau3KYC2rq5oDJKJDC0ofvOX6WQaDD0IL5e8HEOAljMToFW7NbhKQ10N
-	4dQ/qZARNaXoZYaecsGlMA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795592025; x=
-	1795678425; bh=QIQIM4jf+UKzAvy4/TzOA2OrPZIwZTYg25OwSeeP9xA=; b=l
-	+4ScMDLX/0aXKO4hPcjBLp2Y/Zc76B9zo6rB6lAiemeK7dr9T4Enk8785yuVB3hI
-	KJvi8Yt7ftpugvC2oMoTN+wyUjdOq8jjMokyIpYNUMBNIoFOlqdMW+f1IE46EGth
-	atniSYdsZAsrVbwAq57ZbFk9IoOGBs5i+tZZoBfHU5JkzUTmJb3O/t/h7VsXrJex
-	zg6P9g7yBP5XOsRGtIuRlQ0FTCORVGuSuNLkbkT+Ni+GSHoWWwttCGb+fD1l4iPo
-	wX4N/7LsmwKHk0lUX53GfshnvWPW7WENt1VYAwUOqcJ3KNNzT2NLdJnUCJTxkAz6
-	5yhepqD1vUPYIdGUsF5ug==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=ragnatech.se a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795592025; d=ragnatech.se;
-	mf=PG5pa2xhcy5zb2Rlcmx1bmRAcmFnbmF0ZWNoLnNlPg==;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm2:rsa-sha256:lCjXyvX/dhWtTrKthZiEKdKHTb21QR9jhCqoLZrvvKPnsZN
-	taDM7M0bfILfhoW4nL5ukLHyPEyeFpuIMaMGl/DfI+02tUHpLa0wL7gg9usGtj1a
-	qpaQJUhxjT192Tmz/AsstW5SfA490RPiwCQ/Ip41YZRcmQHn+NutUi3ahto007cu
-	qR0r79zco2LiBGA0BiJOUXpM2/ABD/zXy5+Y1dG8/JfbKGnMyprn2EZbwSfgkA9Q
-	xZwOS0c+S98zA1yKk0c6JMvL0xvg34ztNVXbd2D842WrsljVXKnab1NSczcqeR+U
-	zpoXrOYFF4gcoyEgDtg6hOkuFXltOFlvCu75H5g==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=13;
-	hn=cc,content-disposition,content-transfer-encoding,
-	content-type,date,feedback-id,from,in-reply-to,message-id,
-	mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:TPEOdPqsdpgtXCMuNSqLZwFV7Dq/Y1DEWtwyw2QZ5so=:ga7c1mSDQfL4iygW6J1H/FKDKn7XMneB905H22Qv13g=;
-X-ME-Sender: <xms:WY8Ga1ybx5sbKTVFq_CGhrD8a5bjHDsffm6j0ig5wQc87YBVXYQroA>
-    <xme:WY8Ga1uEA7yKOzLJCZmoRcbwYGYrTpFrKYtW_-3osUGZ9W8-TadHdtX-oJHeSO1cb
-    upkyCJSk2LlAYFT8Z_OM7qEeeic7e3496R8PHdoQIlK3d3S-0O_zxBP>
-X-ME-Received: <xmr:WY8GawAZVO0BKm9S7YYIbjqAWyp5rSTU3hgbVYhFvn9_enQffMwMcBCyfUL-D_bvvj8oPFaWjNzrKyxUrqIgdbcS4E5-UG8>
-X-ME-Proxy-Cause: dmFkZTEXiLueWkxcI8+h9XZgh6kPRJIK7XBtELEzKJ5EWor48YtGp57CY5g2+dFGu6VxTB
-    eh+sQVJiTfWJO1HvN87UintlzVKQy5l35VyBTXN6vwexsqAXnExvFTCFRER+2Sedg/viN3
-    LRPOKGNMXOJfi5wMCoO/7fomP7Fa1Kx5bZ/1tuER0jSv4cDub140Gd3iMToPV/xO4HoVWs
-    imtY6hkSO23b/ZYQ36YJgfecspRYO1bV5UOTtv9JSY5n/w7qNG3sh5sa+ZFyAPdEAiAyQ6
-    soI8LgtkeYgJSKNFVBRRbPbE0O9DX7fSIF92Rb3dD04uPxYcbge57Z2O3Fkaqb6JtCC+hc
-    uW/NTm/d31+Ttv2SFZN6hbK6CtkTBqPMlv7wns726ZwW/3YATxsKamjUY0MZKSDkfCnDsX
-    uSgg+ex69jj2hasW+VclpBvNc1daDQAbg8e4Pd6Wyq3ifOjzwaZ56K9dQFxd8PYh1Gb9Q2
-    pZNXz168oUeEfuTnpHYWo+eSqM/24+3jCD/2tVZ14vOXC89pHjP0J+De/bXstNgqQk9LP4
-    x6faXrDRGkSZ36vxKosia6K1WnYzRPCtqm2WYgXy1IkQvLtMzmeFGxS25m5qleahKGoGMF
-    CKkEmsmAdg/AAUfzFZiObDPUX16cWRNDPkH0tSkKRcOI+JOGKKisb5A8sg7g
-X-ME-Proxy: <xmx:WY8Ga_GLEB-yWU-uyukQ0zTnpINL3WpGKAq-b7B2TDtHCvJ3rnSiSw>
-    <xmx:WY8Ga4BUmIu4_W2IAvP4C4ucU-L9VW3YF9GOLUxWSfuZJuMsnDcIZA>
-    <xmx:WY8Ga9n7O2LrFiFwQ0Q_CcMjveQSLpz_2PPxJq-gBdA5Fg4kFJZtiA>
-    <xmx:WY8Ga2MJ-W3RqG1KliIXL9wrpNyJWHp-zofgeATjsGKC1cjU2DOyCA>
-    <xmx:WY8GawrRlJhY84huchTiQNkPg7iZ3oM0HKn6sWh_txwHwuHyyuzT0mA6>
-Feedback-ID: i80c9496c:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
- 25 Nov 2026 02:33:44 -0500 (EST)
-Date: Wed, 25 Nov 2026 08:33:42 +0100
-From: Niklas =?utf-8?Q?S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>
-To: Yaohan Li <shunsheng1218@gmail.com>
-Cc: "Rafael J . Wysocki" <rafael@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	linux-renesas-soc@vger.kernel.org, linux-pm@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 2/3] thermal: rcar_gen3: release the interrupt
- handlers from ->remove()
-Message-ID: <20261125073342.GL3898744@ragnatech.se>
-References: <20261124095110.131258-1-shunsheng1218@gmail.com>
- <20261125030327.953450-1-shunsheng1218@gmail.com>
- <20261125030327.953450-3-shunsheng1218@gmail.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 94C36606A31E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 07:35:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 94C36606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kylinos.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kylinos.cn
+X-UUID: d7939ff8e8a211f19a56ed5b684f684d-20261125
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.19,REQID:97de29f5-0f75-4950-943c-6fd21584329a,IP:0,U
+	RL:0,TC:0,Content:0,EDM:-25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
+	N:release,TS:-25
+X-CID-META: VersionHash:7db8b62,CLOUDID:966943b5b3afe7dfd8fa6fdc5fab1466,BulkI
+	D:nil,BulkQuantity:0,SF:81|82|102|850|865|898,TC:nil,Content:0|15|50|99,ED
+	M:2,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0
+	,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: d7939ff8e8a211f19a56ed5b684f684d-20261125
+X-User: zenghongling@kylinos.cn
+Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <zenghongling@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 2111283902; Wed, 25 Nov 2026 15:35:52 +0800
+From: Hongling Zeng <zenghongling@kylinos.cn>
+To: linkinjeon@kernel.org,
+	hyc.lee@gmail.com,
+	liubaolin12138@163.com
+Cc: ntfs@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	zhongling0719@126.com,
+	Hongling Zeng <zenghongling@kylinos.cn>
+Subject: [PATCH 1/6] ntfs: mark the record dirtied by a resident write at iomap begin
+Date: Wed, 25 Nov 2026 15:35:42 +0800
+Message-Id: <20261125073547.154150-2-zenghongling@kylinos.cn>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20261125073547.154150-1-zenghongling@kylinos.cn>
+References: <20261125073547.154150-1-zenghongling@kylinos.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -132,154 +73,52 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20261125030327.953450-3-shunsheng1218@gmail.com>
 
-Hi Yaohan,
+A buffered write to a resident attribute is copied straight into the
+mft record found by the search in ntfs_write_iomap_begin_resident().
+With an attribute list that record can be an extent record, while
+ntfs_write_iomap_end_resident() only marks the base inode dirty, so
+the record holding the copied data is never written out and the write
+is lost on a clean unmount.
 
-Thanks for your work.
+Mark the record the lookup found at begin time, while the search
+context still points at it.  This is safe against a concurrent
+writeback of the record: extent records are only written out from the
+write_inode path of the base inode, which takes the same mrec_lock
+the write path holds until iomap_end.
 
-On 2026-11-25 11:03:26 +0800, Yaohan Li wrote:
-> The interrupt handlers are requested before the thermal zones, and
-> devres releases the managed resources in the reverse order, so the
-> handlers outlive the zones they report to.  The handler walks every
-> sensor and calls thermal_zone_device_update() through tsc->zone, which
-> is not cleared when the zone is unregistered.  Masking the interrupt
-> sources neither waits for a threaded handler that is already running
-> nor removes the action.
-> 
-> Release the handlers from ->remove(), which runs before the runtime PM
-> reference is dropped and before devres unregisters the zones.
-> free_irq() also waits for a running handler, and after it returns the
-> handler cannot be invoked again.
-> 
-> Record the interrupt numbers as they are requested, so that a partial
-> request is undone as well: if the second handler cannot be registered,
-> the first one is released and the driver falls back to polling, as
-> before.
-> 
-> Signed-off-by: Yaohan Li <shunsheng1218@gmail.com>
-> 
-> ---
-> Prepared against v7.4-rc1-1969-g666539eecdf4.
-> 
-> Compile tested only: arm64, aarch64-linux-gnu-gcc 11.4,
-> CONFIG_ARCH_RENESAS and CONFIG_RCAR_GEN3_THERMAL.
-> 
-> AI assistance: prepared with Claude (Anthropic) as a coding assistant; the
-> author reviewed the reasoning and takes responsibility for the content.
-> ---
->  drivers/thermal/renesas/rcar_gen3_thermal.c | 38 ++++++++++++++++++---
->  1 file changed, 33 insertions(+), 5 deletions(-)
-> 
-> diff --git a/drivers/thermal/renesas/rcar_gen3_thermal.c b/drivers/thermal/renesas/rcar_gen3_thermal.c
-> index a96f02d4a8ad..37348f4413b6 100644
-> --- a/drivers/thermal/renesas/rcar_gen3_thermal.c
-> +++ b/drivers/thermal/renesas/rcar_gen3_thermal.c
-> @@ -107,6 +107,8 @@ struct rcar_gen3_thermal_priv {
->  	struct rcar_gen3_thermal_tsc *tscs[TSC_MAX_NUM];
->  	struct thermal_zone_device_ops ops;
->  	unsigned int num_tscs;
-> +	int irqs[2];
+Keep marking the base record in iomap_end.  The base record also
+holds the standard information, which the write's timestamp update
+modifies and which is likewise only written out when the record is
+marked dirty.
 
-What happened to RCAR_GEN3_THERMAL_MAX_IRQ ?
+Fixes: b041ca562526 ("ntfs: update iomap and address space operations")
+Signed-off-by: Hongling Zeng <zenghongling@kylinos.cn>
+---
+ fs/ntfs/iomap.c | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
-Please stop thorowing this code at an LLM it comes up with new code 
-ignore past ideas.
-
-> +	unsigned int num_irqs;
->  	int ptat[3];
->  	int tj_t;
->  	const struct rcar_thermal_info *info;
-> @@ -466,9 +468,25 @@ static const struct of_device_id rcar_gen3_thermal_dt_ids[] = {
->  };
->  MODULE_DEVICE_TABLE(of, rcar_gen3_thermal_dt_ids);
->  
-> +static void rcar_gen3_thermal_free_irqs(struct device *dev,
-> +					struct rcar_gen3_thermal_priv *priv)
-> +{
-> +	while (priv->num_irqs)
-
-Please use a for loop not modifyig priv->num_irqs, this looks dangerous.
-
-> +		devm_free_irq(dev, priv->irqs[--priv->num_irqs], priv);
-> +}
-> +
->  static void rcar_gen3_thermal_remove(struct platform_device *pdev)
->  {
-> +	struct rcar_gen3_thermal_priv *priv = platform_get_drvdata(pdev);
->  	struct device *dev = &pdev->dev;
-> +	unsigned int i;
-> +
-> +	for (i = 0; i < priv->num_tscs; i++) {
-
-Declare loop variable in for loop, where possible.
-
-> +		rcar_gen3_thermal_write(priv->tscs[i], REG_GEN3_IRQEN, 0);
-> +		rcar_gen3_thermal_write(priv->tscs[i], REG_GEN3_IRQMSK, 0);
-> +	}
-> +
-> +	rcar_gen3_thermal_free_irqs(dev, priv);
->  
->  	pm_runtime_put(dev);
->  	pm_runtime_disable(dev);
-> @@ -491,22 +509,32 @@ static int rcar_gen3_thermal_request_irqs(struct rcar_gen3_thermal_priv *priv,
->  
->  	for (i = 0; i < 2; i++) {
->  		irq = platform_get_irq_optional(pdev, i);
-> -		if (irq < 0)
-> -			return irq;
-> +		if (irq < 0) {
-> +			ret = irq;
-> +			goto release;
-> +		}
-
-This changes the behavior of the driver...
-
-Please stop using an LLM to code this. As you don't have hardware to 
-test with throwing LLM spaghetti over the wall and see if it sticks is 
-getting tedious. Please read, understand and write the code yourself as 
-coding for gear you can't test is hard.
-
-I will not review another set of LLM slop, especially as the good parts 
-like RCAR_GEN3_THERMAL_MAX_IRQ are dropped between revisions.
-
-Nacked-by: Niklas Söderlund <niklas.soderlund+renesas@ragnatech.se>
-
->  
->  		irqname = devm_kasprintf(dev, GFP_KERNEL, "%s:ch%d",
->  					 dev_name(dev), i);
-> -		if (!irqname)
-> -			return -ENOMEM;
-> +		if (!irqname) {
-> +			ret = -ENOMEM;
-> +			goto release;
-> +		}
->  
->  		ret = devm_request_threaded_irq(dev, irq, NULL,
->  						rcar_gen3_thermal_irq,
->  						IRQF_ONESHOT, irqname, priv);
->  		if (ret)
-> -			return ret;
-> +			goto release;
-> +
-> +		priv->irqs[priv->num_irqs++] = irq;
->  	}
->  
->  	return 0;
-> +
-> +release:
-> +	rcar_gen3_thermal_free_irqs(dev, priv);
-> +	return ret;
->  }
->  
->  static int rcar_gen3_thermal_probe(struct platform_device *pdev)
-> -- 
-> 2.34.1
-> 
-
+diff --git a/fs/ntfs/iomap.c b/fs/ntfs/iomap.c
+index ce916707f69b..8933f432aa68 100644
+--- a/fs/ntfs/iomap.c
++++ b/fs/ntfs/iomap.c
+@@ -682,6 +682,15 @@ static int ntfs_write_iomap_begin_resident(struct inode *inode, loff_t offset,
+ 		goto out;
+ 	}
+ 
++	/*
++	 * The record holding a resident attribute can be an extent record.
++	 * Mark the record the lookup found dirty here, while the search
++	 * context still points at it.  The writeout of the record cannot
++	 * overtake the inline copy: it is serialized by the mrec_lock held
++	 * until iomap_end.
++	 */
++	mark_mft_record_dirty(ctx->ntfs_ino);
++
+ 	a = ctx->attr;
+ 	/* The total length of the attribute value. */
+ 	attr_len = le32_to_cpu(a->data.resident.value_length);
 -- 
-Kind Regards,
-Niklas Söderlund
+2.25.1
+
