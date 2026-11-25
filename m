@@ -1,105 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.175
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=66.163.186.148
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795564899;
-	b=Sk32FI+1UT/94cyR+zx9c50Rsz/vQXC3pcZUtqSzULpRz0P9Ve0AG5z4HGAR7dWAUL64
-	 GKDqe0QC0sVLXY0SaFVFd9MgXGJi6HC/qxX+aLJui4BdlpEGD2DwXKlirp/N3iF2OcX+s
-	 raTmQyPqkCnEbQwlhf937vG3pMaD44XH79j81BuFlpYWJhfui97+GGYyjPCtRsUjrfC4u
-	 phKkfGPO3QGDUgqNgeiVSRPvsko+7F7z4DS4SWHoYv9Uke66VsFxGeurNhP/R7n7OpnAP
-	 jbUOBdlLm9UQ3q8fVgpK1hd8jN5khbTNtc5il025jQaEtR9nsD8CeGgp9A4v33klySQ==
+	t=1795564918;
+	b=lRyhtFIR5Dlvlsx8AGkT4psFXqq0knRk/STYNM9x509ZkwcEtPvNgvnEqAD6nTrsfbKH
+	 ucYpHBJN5BY45Yk+aZh1Tnim7iBaOuEhv5BAEg0LIr3g5yliRcTIrhpLcT/3/XOIf/IMi
+	 fcIJQYPCxZdpUmM4Ovx9n1+PZNqOy5W3vfhCi3A/EuGOa5jZYeO1SYT/5fjJDGkFcOHIg
+	 Xbm8I4DwEjeopLYUMvBjhuKpcl4o1AVdPFjj6l4xNn0nM8ZHRXK2wYLwMqEbFXBpERzJF
+	 +cWORMCZ26ZKix2mN9LVxBdlZvMmJbRNKDOE3JwueBaIr0qkgx1cZEyipDvSKLrq6EQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795564899;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=8DK3yldnIUojdVzCr2+XwiNL7LP7CGhb9/YkbV+PBQY=;
-	b=qGgRKjYkS0IILWiWQc73YeiyHeJIqsSEXmJaoQqPB8y154Foc1evPvY2Bm+EWAIXNfZY
-	 9Hemb4jxYgeaikFiXUvKp26XPTGwFbd3yk5tGWePaTrpcRhmPCNu5OyagoC9LB3RY0zqI
-	 SNaZ4/6V3bifOSieEML9WDzYsYbKr71XJD4CVW/q+6TJS9Z/E/WhjIrpIU7WK4JG/50co
-	 KkS2kRAgi7uXruzPPltXsl2sqnAnBm1q45T/VJ2cRCJF3R/j0XxNHP0nPFoetjChmkuo2
-	 eAxXHlI01p7CYv0a9Myl/YBnMcUd+ltdrkQPp1nF71EIGoYF9BanAfGLDvqQxkpjQjA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795564918;
+	h=DMARC-Filter:DKIM-Signature:X-SONIC-DKIM-SIGN:X-YMail-OSG:X-Sonic-MF:
+	 X-Sonic-ID:Received:Received:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:From:To:References:Content-Language:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Mailer;
+	bh=bn/mC1HOVXSFtgzkREaBpg5iOOizmI53HlgnLEi9ubY=;
+	b=K4CojFCdNfJ2sd0JKR1+/o/c7c6AMVJpWkNLuxd1qKfqHOBzGW6q0LLOWG1yFcxKu8gy
+	 CTyyYNf0L4Be5hJxn9B5m84HXprEsiogCmvJWeVfU1Ei55BeDEaDQ6mC9HnqNY9ev5NYJ
+	 snItTtPEDh9cq+wLsA+BdyJsr0MwwplV/aMiPcFovz6A69u3Ca0AUuStkGooZESrpvtKG
+	 GEn06TnyfsN5MEI0dZdfSI0EDmIw1d5pHMUm/Wa1Zzl3NzQURB27EvKnRqdgbqhyZ6CA6
+	 2rouE+JXycrK0ce635QbKAncbr/oBQSdYtKgLf0R8zY+RRM/gGPZF8kWThp+8elp+qA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=chromium.org;
-	spf=pass smtp.mailfrom=chromium.org;
-	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=jZqCF521;
-	arc=none smtp.remote-ip=74.125.82.175
-Received: from mail-dy1-f175.google.com (mail-dy1-f175.google.com [74.125.82.175])
+	dmarc=pass header.from=yahoo.com;
+	spf=pass smtp.mailfrom=yahoo.com;
+	dkim=pass header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=piKdtcdD;
+	arc=none smtp.remote-ip=66.163.186.148
+Received: from sonic302-22.consmr.mail.ne1.yahoo.com (sonic302-22.consmr.mail.ne1.yahoo.com [66.163.186.148])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BD35B606A334
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 00:01:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BD35B606A334
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chromium.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chromium.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 82BAE606A321
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 00:01:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 82BAE606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=yahoo.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yahoo.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=jZqCF521
-Received: by mail-dy1-f175.google.com with SMTP id 5a478bee46e88-386c4d2e2ccso2021155eec.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 16:01:38 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1795564898; x=1796169698; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=8DK3yldnIUojdVzCr2+XwiNL7LP7CGhb9/YkbV+PBQY=;
-        b=jZqCF521yDr09fUmzi6RgygaLzmw94KaaOKAsaY89oBxs5KQC7DkwM/NuNnQC9xAQP
-         EBFLieZm4OZnZCHp6SACkT2ki+diJp/jYfgr4rMm5srpcb6TGFVh44XYpWVz894XA+zV
-         NslcaQ6iro3zpioeo7TmXCxnby9VDCBgIBWO4=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795564898; x=1796169698;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=8DK3yldnIUojdVzCr2+XwiNL7LP7CGhb9/YkbV+PBQY=;
-        b=I8KsTJ3llNBbt3ljHMXfdAZv844KfkzUN7Qw7Y5yUHRlegxSGgga6wC53ZQrgYH+RS
-         nV3wzjEJkR3xIBuIVclKn7pTDofN6r+AJpUIFbenuM7CuSPQCzYO3eEDShnxv1+9WRf0
-         9T/nXVfeq0abouQ4ffqZvwwpPFoN1Nw1r3aqGQJbcleuH36A7+dUJ3u5JwBq6wCeyyJx
-         yeDzDCpNxUbvRQnc1x1MfDrhBGXDnEdqbMUJYdREaQV8Wp8U13E+D5zzlHiDOi2gTET4
-         bOiEc/TMWzo+wQ696S/LHlBJezYw5OK0fojIvAkn4IIVbhwDEOxyW92veEW5dEelR2oH
-         /hoA==
-X-Forwarded-Encrypted: i=1; AL+hErF64asgdCuk3w+QFgCEiye+k/IIST0I+a9UUmNZL5EczsM03Pzc6FrR3N/WYguoybM/kpF5hUoOtUkVnao=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9cRNtBIkYlh1E114Ul8qWzbNO2l43GwE4e5CqzFczot+wy5SRX
-	LZBxTF9MenG7egVOxBf/5W9tH0SDDGEKU3m+yeF/if75FmRwT1GyNaqb/rZPHLWKVw==
-X-Gm-Gg: AZFdTZfsczj+AqovGec78FkGnsVA99aFrCgTdsRIesZ+JLS+ACHE12D6DoHiM58rgvw
-	FZS3L8ffjyZ7oIjmohv7uIdC5aLTmki/2UPwD1kZOy4otEO/2SQgW8bPrBoBgDgzTnEfWmORBb2
-	oYCojdeOXE+n/hVZTsTFmNUIY5xipSW3vOrjh3wBM8QI8RreIZkOAccelDtHKunoVqzGfmaZiCL
-	ETqOIYna6hyidwR3nymCwVnm6DlYfsFvJYCo3orgjpLgGwUzrE96lMYiJoVNjFWoVb9V89pYXxb
-	ZcCftQyfaey2GTiKsztg15HpdJHMeMNDUiBum1CSJnhmyq3CbAggiKTt+SZhBfGaiyg5RKlx5gX
-	qy/LvHxLmXLpX/H6V2SGpzdg8Ojb/JQ3O2X91V8nRYB+obsWpeX6R6C8o/DtN+wLEfLzTWm0UG5
-	nOAfSLIiDfrnMzZ4sr2CYekFFm48iTWI+gATLKzfRuVnfc/QcLO4zXG8OjmHuPg10WQuEA5F0DL
-	4vwMrO7jJvtGtreNdNLvNqZg/ff5TegOiuZqe92wvq+bHx3miVapVWw57JFCNo+SfqecN2nUDip
-	VktkuhdyhseAL5spz0SWC1WUFmMaVm6f/uo3K52fF0dhaPS1O+M+a/f3cZVZbajsrK16
-X-Received: by 2002:a05:7300:601e:b0:386:1e2e:ce0a with SMTP id 5a478bee46e88-3861e2ed1bcmr15600970eec.27.1795564896357;
-        Tue, 24 Nov 2026 16:01:36 -0800 (PST)
-Received: from localhost ([2a00:79e0:2e7c:8:ea9b:d8a3:ba44:2d0a])
-        by smtp.gmail.com with UTF8SMTPSA id 5a478bee46e88-385665f21aesm59652400eec.4.2026.11.24.16.01.34
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 24 Nov 2026 16:01:35 -0800 (PST)
-Date: Tue, 24 Nov 2026 16:01:33 -0800
-From: Brian Norris <briannorris@chromium.org>
-To: Peter Griffin <peter.griffin@linaro.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	Thomas Gleixner <tglx@kernel.org>, Ulf Hansson <ulfh@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>, devicetree@vger.kernel.org,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
-	linux-samsung-soc@vger.kernel.org, linux-pm@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Radu Rendec <radu@rendec.net>,
-	linux-arm-kernel@lists.infradead.org,
-	Mariano Marciello <mmarciello@google.com>,
-	Douglas Anderson <dianders@chromium.org>, linux-clk@vger.kernel.org,
-	Jakub =?utf-8?B?R8WCb3dhY2tp?= <jglow@google.com>
-Subject: Re: [PATCH 3/9] soc: google: Add CPM over MailBox Array driver
-Message-ID: <awYlXdfJcciCy1Cn@google.com>
-References: <20261026214359.3122870-1-briannorris@chromium.org>
- <20261026144346.3.I7bc547c83b7bf677a62670099f481a91ac737073@changeid>
- <CADrjBPqnRrFeYT9J6NGxy+Xzy1PTZEz+BMs1_u2md7Ra6xPPDQ@mail.gmail.com>
- <awXf86suGgKeazZx@google.com>
- <CADrjBPqG_TLwgOTzQ-o5pM7k1DzkeVxNkV2xDHsU4OBAyYOofQ@mail.gmail.com>
+	dkim=pass (2048-bit key) header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=piKdtcdD
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795564916; bh=bn/mC1HOVXSFtgzkREaBpg5iOOizmI53HlgnLEi9ubY=; h=Date:Subject:From:To:References:In-Reply-To:Content-Type:From:Subject:Reply-To:Content-Type; b=piKdtcdD3A/PfBJX4vklui4ThbyEkUkij3OUrzpqXkqtW3GScMDMviB1wUMkSO/criT+EfsTQPRn4o8ZNYwJwyz4FF6G6JOPK6FPuHQR1SggVluEkgmsBua1EaEHO/0QL2VKSsudD94izDQ4NIAH937nG0F1ZbwHFREE3U8UwVI7GDv4qz8rwv1UtguKHHH7X0FahxlUQu5lvpSnBoWPCXNrA3Q7E593wocsT63y7/TenNzLEQkgS494dEbAEJuTCuYhR4u28DNBhuLV/tLPA1vATsZo9nsVg0y6Qq1Y8WIgNqjMJAiWo3AkydqLSeajpSmIcNEA+g0UOLa3GMPRCg==
+X-SONIC-DKIM-SIGN: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795564916; bh=nImLabkDdszIE+Th4BYVflkeCA6ZuJVgkqAmAitpQVl=; h=X-Sonic-MF:Date:Subject:From:To:From:Subject; b=dvCOJQjzdE3AcwHl1T3k8IK8VStTpJLl4Ql5WPLPvx/pH2RCfxFiSP2J6ZLpma0mcUNpcANWFOjyWXE46fKpUblbWYLbDbJ0jI0ls3Kgg6MAHlVV0zBXDbcVYZ4sgXVKCoBgm4yrg1KGOIyGB06gHuB1huiA4dcCREiae+BL1wbSv2NRAomS58lX8jZe8/kZG4lmUe2TqeZiT9t3/fM0E4sZHOrVspEhZ918tz/EJvpkRpDsBzAbVsTIET2lsXIqSlGzIDODjoiT1dpNJuthAO7mrn/9XlGDH6QMh3uHcYVKkl2uCwQuEy3KgymqufEBFtikXkX2lKChAZSRnU3tLw==
+X-YMail-OSG: 3ZAaYIgVM1mvd1IEDLvyMW4GjwiHovSRrOHw0As0pQmCVdTF_adKcBs4.Pklos9
+ Jf3Wx1c7UKTkGSEyopOncPXdw56FPtQg5itfR0tHR7Krt0GmdOq7GA8J8cQNcdRx9NrQ2BD_2Y2.
+ K4fsTFWL.VMTK3jbsI2nj789CHlYVcJgBDb8HI5CqvfO4A8Vs1MHdyaMAxpYKmU3OToF6JAjg.De
+ 6F28bdFK3yu4OpqMpmRzV39HSH8RPNL.F7.mmVZ5DsuQZR4dnrR3z6uPPeNWYuGrDBy8Q.VxJOii
+ Pz2ZJ.RuTwmbIK_qJQ7i_6ARedfgh83t2qTxvb5.E1SsUWVBp2Glr0Scwin0lKnb2eUw1swmb9GY
+ MxaAZ42u0veSj5uVxcqUG_KElWQ5Jezg4p0E.cDRSSyEguPVOJFlbtgymE9boCF4Unqw6KqkmD6N
+ zNFPSqRAI5OiDfIUjfuZzT6AKI7ys_be.8RbX9LHRBQ3LuQsSd0odKY0AQ3YXKqU.0xGzM3UL_PB
+ PIsY7F_fKBF2ANrwBBZkKyeCD8mjX4r33OsT_gspKT.L4JrMKGAg2.1luEXovQqeGTFrSYBjYAAT
+ 7UvAK.797CV0SqkVTlKXhLD.RVYKi42iJHoBi34AeAlfwsxp29aBN1jmMJKJqn1KTfx9MHrJlvn9
+ jADScBYhdTQC2coqNILbiGxwa1m_q0s8ZUxAimk24UIkEGTgf0uWLMnWxqh2qIDleDrnpZgTFXup
+ 4z4p3lSIr0Kkx59Oe7bzvFR0Bvq576aHC6ERGEIR33pL9t8zQP9TDC20t8gYZp1FiAAAycPUblfV
+ eKNXTNrdlBDapr5RbqxAtvmM1z_i4uhazodcQH785UH3651LLmilx7f4qmkPbra2Ci9EJMN3CvhY
+ 56DfaQPxyMvNr1.nRWw3.ZTyZKGWfMwaszrDhYwD0wv5BaUHtSgWBOHoTSElZ.e5FoK1yKcXKPI_
+ bIFVzL4cSV1Rd2E3NJBzgm088yM_4JhDDbZ9mkzu5hXfjepspEBjXvgsuyc8n5SWIqULsTW2j2oj
+ We3Wf2rniImLaQvCRRk1LIkr24d6QCqQLIdnLjH8Ovf3f15qLvGFIHtDSxyc2KbfGtnpAL1ImL7c
+ Sst6eZFyFNVhF5f3If1v1.irL9qeXEJFJTn9dvBGWIiGhQ3NwGFI90VPhKdE0BxDu_YpkISNRqg_
+ OpdAXDDZby8yLtHtTPvDs4j6g3uRSM3EBwd9xFnGnps83DtY_PNxPDW7QPw1vh5TRe_UPlcf6Ntd
+ VFp0Wi746rRsEdUoQBB9saoln7t1ZDiDjVAHg3nrLrfeGp2b56wdvku3eCpHMsHjg0_UsTkwtSxb
+ y5XJKdBX_aJtc1FBRSHGj_ehklnCjKwBbCo0_9IRUaFKF7UvVCO8X1hZSZol2wF9TfdGQeuQy9c3
+ yef8Hz4_TAAjnikoRxdGNasBLwSybEGBA71oejQWkO29ZPrWpMQ03V3ilzkJk0IR8qDzNGZlVcUD
+ YRulCw3RtRSfDsMLVTC45WHjiBJMH7WPcBkVRlbX4EDIR0MzGK0R9PGg6iEwmiNaaYOkTvFEJT0Y
+ LMh23SvSghgTD3Jb5teX9VOEip_RShcuT2rFmE6sg8U5dCr2ZzyBk1hOWxGfh04YczCtV2Da9CHW
+ uP3Vc2RdWprpLKXR6Fx3XXZFxjfAvtZog6GYtXuX_XDvs21UFO1UVhigl0glsWobX66mIoW9RAua
+ 3.3GGIIsGD7TC6GpILWp0CyzF1e5LROaPTfN5oK0Otdm9vNOSGmEEKI6TLni2RmZ.MFQ0aVo4gCK
+ cIGOIk36MwcCANtnKUXLT5x.C7.CLBa4SlrY.qj6fzM2pSJTWwIPlx_miyzVQacGYzxUaUSYgLyF
+ VHa.OQz4WR6PtFUvTnNRZmKyyVB.EHBhqS.7VgGm3_FyNqf2BPpheUcW5z6C9II9lvXS1tn.Mu9j
+ O47bAb9yxYJwZdGT1p2Rb5nzuK1coVBgzQ2X.DiqPo.d4BYo2Dx7o1Q90JvXh_uPSQ6OqqyxDl3u
+ bJsIxMyD_Ca6vfpH5.5jJPsIeKhkZbKw8ZKStiEPNeHZeYbLjFM39qhRkO.kUAcpU6QQm4dBKCr7
+ CW7FIvjGnbHpV7F8_ByIc722DAU6lCg3GMAzNgk_FqE6GjfTwJ.PSgtJqpxZ5vHVCvEBBbinj3a4
+ BgLaNhPKlUMm6uSsrgjaA5Qk.UZGQe_m58Nd1Euoo_I0o31lZ5RSLoYZ7hXKIA3K6bSCLF..BRHP
+ qMYS.tHBxdgzHske7m9WKwtf9lTsCclKSKv4YMk9QWk5B8mVabzdQAYm4hgOjm8MFmbhV1soE010
+ 51cCPZhak20UMmRp9Uwb1qDs5zWnW0e2W6AopTzcvlw--
+X-Sonic-MF: <namiltd@yahoo.com>
+X-Sonic-ID: 2ede1c8c-b930-43aa-917f-40fb361a30a6
+Received: from sonic.gate.mail.ne1.yahoo.com by sonic302.consmr.mail.ne1.yahoo.com with HTTP; Wed, 25 Nov 2026 00:01:56 +0000
+Received: by hermes--production-ir2-7c4859dc89-zw6f7 (Yahoo Inc. Hermes SMTP Server) with ESMTPA ID d6de7bd3dd9ceb01e9a8f5a05ba81c32;
+          Wed, 25 Nov 2026 00:01:51 +0000 (UTC)
+Message-ID: <b2f42e59-b629-47dc-a61a-d87580516fdc@yahoo.com>
+Date: Wed, 25 Nov 2026 01:01:48 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -109,39 +84,234 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CADrjBPqG_TLwgOTzQ-o5pM7k1DzkeVxNkV2xDHsU4OBAyYOofQ@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: [PATCH net-next v14 02/15] net: dsa: realtek: rtl8365mb: add chip
+ family infrastructure
+From: Mieczyslaw Nalewaj <namiltd@yahoo.com>
+To: linusw@kernel.org, andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org,
+ davem@davemloft.net, edumazet@google.com, pabeni@redhat.com,
+ linux@armlinux.org.uk, luizluca@gmail.com, maxime.chevallier@bootlin.com,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ alvin.sipraga@analog.com, gusfmora@gmail.com, kuncy7@gmail.com,
+ fabianotassotti@gmail.com, gabonpivovich@gmail.com, contact@c127.dev,
+ o.rempel@pengutronix.de
+References: <874b29a3-f47f-4bf2-a0f6-2f9fea712f4c@yahoo.com>
+Content-Language: pl
+In-Reply-To: <874b29a3-f47f-4bf2-a0f6-2f9fea712f4c@yahoo.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Mailer: WebService/1.1.27100 mail.backend.jedi.jws.acl:role.jedi.acl.token.atz.jws.hermes.yahoo
 
-On Tue, Nov 24, 2026 at 10:31:11PM +0000, Peter Griffin wrote:
-> On Tue, 24 Nov 2026 at 19:05, Brian Norris <briannorris@chromium.org> wrote:
-> > On Tue, Nov 24, 2026 at 12:28:24PM +0000, Peter Griffin wrote:
-> > > Should we also have "depends on OF"?
-> >
-> > Why, precisely? It's not actually a compilation dependency (I tested),
-> > although it's needed at runtime. It doesn't seem like this is
-> > consistently done simply for runtime dependencies, and instead work has
-> > generally been done to ensure everything builds fine and fails closed
-> > without CONFIG_OF.
-> >
-> > Anyway, it's a bit academic, since ARCH_GOOGLE (ARM64) selects OF.
-> 
-> I was thinking more if COMPILE_TEST=y && CONFIG_OF=n &&
-> CONFIG_WERROR=y is set. I'm not sure if 0-day performs such a build. I
-> guess since no 0-day failure has been reported in this thread, perhaps
-> it isn't required.
+Add enum rtl8365mb_family and struct rtl8365mb_family_info, which holds
+the data shared by all chips of one family: the family id and the init
+jam table. struct rtl8365mb_chip_info now points to it through a
+family_info member, and all existing chips use the RTL8365MB_FAMILY_C
+instance. rtl8365mb_get_family_info() and rtl8365mb_is_d() are declared
+in a new rtl8365mb.h so that the VLAN code can use them too.
 
-Yeah, I can't tease out any warnings/errors. I had to resort to arm(32)
-to get such a config, and I can't even fail with W=1 (I end up hitting
-arch/arm/kernel/signal.c -Werror=unused-but-set-variable
-warnings->errors first, but...):
+The available ports of a chip are already described by port_mask in
+struct rtl8365mb_chip_info, so the family info does not carry a port
+count.
 
-  $ grep -e '\<CONFIG_COMPILE_TEST\>' -e '\<CONFIG_OF\>' -e '\<CONFIG_WERROR\>' .config
-  CONFIG_COMPILE_TEST=y
-  CONFIG_WERROR=y
-  # CONFIG_OF is not set
+RTL8365MB_FAMILY_D is defined here but no chip uses it yet; it is
+needed by the following patches, which add family D handling for chips
+whose register layout differs from the existing ones.
 
-  $ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- W=1 ./drivers/soc/google/google-cpm-mba.o
-  [success]
+No functional change.
 
-Brian
+Tested-by: Gustavo Foletto Mora <gusfmora@gmail.com>
+Tested-by: Stanislaw Pal <kuncy7@gmail.com>
+Tested-by: Oleg Gavrilov <gabonpivovich@gmail.com>
+Signed-off-by: Mieczyslaw Nalewaj <namiltd@yahoo.com>
+Reviewed-by: Linus Walleij <linusw@kernel.org>
+---
+ drivers/net/dsa/realtek/rtl8365mb.h      | 28 ++++++++++++++
+ drivers/net/dsa/realtek/rtl8365mb_main.c | 47 ++++++++++++++----------
+ 2 files changed, 56 insertions(+), 19 deletions(-)
+ create mode 100644 drivers/net/dsa/realtek/rtl8365mb.h
+
+diff --git a/drivers/net/dsa/realtek/rtl8365mb.h b/drivers/net/dsa/realtek/rtl8365mb.h
+new file mode 100644
+index 0000000..7b0c710
+--- /dev/null
++++ b/drivers/net/dsa/realtek/rtl8365mb.h
+@@ -0,0 +1,28 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef _RTL8365MB_H
++#define _RTL8365MB_H
++
++#include "realtek.h"
++
++enum rtl8365mb_family {
++	RTL8365MB_FAMILY_C,
++	RTL8365MB_FAMILY_D,
++};
++
++struct rtl8365mb_jam_tbl_entry;
++
++struct rtl8365mb_family_info {
++	enum rtl8365mb_family family;
++	const struct rtl8365mb_jam_tbl_entry *jam_table;
++	size_t jam_size;
++};
++
++const struct rtl8365mb_family_info *
++rtl8365mb_get_family_info(struct realtek_priv *priv);
++
++static inline bool rtl8365mb_is_d(struct realtek_priv *priv)
++{
++	return rtl8365mb_get_family_info(priv)->family == RTL8365MB_FAMILY_D;
++}
++
++#endif /* _RTL8365MB_H */
+diff --git a/drivers/net/dsa/realtek/rtl8365mb_main.c b/drivers/net/dsa/realtek/rtl8365mb_main.c
+index 6c11c36..e101d15 100644
+--- a/drivers/net/dsa/realtek/rtl8365mb_main.c
++++ b/drivers/net/dsa/realtek/rtl8365mb_main.c
+@@ -112,6 +112,7 @@
+ #include "rtl8365mb_qos.h"
+ #include "rtl8365mb_l2.h"
+ #include "rtl8365mb_vlan.h"
++#include "rtl8365mb.h"
+ 
+ /* Family-specific data and limits */
+ #define RTL8365MB_PHYADDRMAX		7
+@@ -704,15 +705,20 @@ struct rtl8365mb_extint {
+ 	unsigned int supported_interfaces;
+ };
+ 
++static const struct rtl8365mb_family_info rtl8365mb_family_c = {
++	.family = RTL8365MB_FAMILY_C,
++	.jam_table = rtl8365mb_init_jam_8365mb_vc,
++	.jam_size = ARRAY_SIZE(rtl8365mb_init_jam_8365mb_vc),
++};
++
+ /**
+  * struct rtl8365mb_chip_info - static chip-specific info
+  * @name: human-readable chip name
+  * @chip_id: chip identifier
+  * @chip_ver: chip silicon revision
+  * @port_mask: ports the chip has
++ * @family_info: data shared by all chips of the same family
+  * @extints: available external interfaces
+- * @jam_table: chip-specific initialization jam table
+- * @jam_size: size of the chip's jam table
+  * @num_tx_queues: number of egress queues exposed by the chip
+  *
+  * These data are specific to a given chip in the family of switches supported
+@@ -724,9 +730,8 @@ struct rtl8365mb_chip_info {
+ 	u32 chip_id;
+ 	u32 chip_ver;
+ 	u32 port_mask;
++	const struct rtl8365mb_family_info *family_info;
+ 	const struct rtl8365mb_extint extints[RTL8365MB_MAX_NUM_EXTINTS];
+-	const struct rtl8365mb_jam_tbl_entry *jam_table;
+-	size_t jam_size;
+ 	unsigned int num_tx_queues;
+ };
+ 
+@@ -746,33 +751,32 @@ static const struct rtl8365mb_chip_info rtl8365mb_chip_infos[] = {
+ 		.name = "RTL8365MB-VC",
+ 		.chip_id = 0x6367,
+ 		.chip_ver = 0x0040,
++		.family_info = &rtl8365mb_family_c,
+ 		.port_mask = PORT_MASK(GENMASK(3, 0) | BIT(6)),
+ 		.extints = {
+ 			{ 6, 1, PHY_INTF(MII) | PHY_INTF(TMII) |
+ 				PHY_INTF(RMII) | PHY_INTF(RGMII) },
+ 		},
+-		.jam_table = rtl8365mb_init_jam_8365mb_vc,
+-		.jam_size = ARRAY_SIZE(rtl8365mb_init_jam_8365mb_vc),
+ 		.num_tx_queues = 8,
+ 	},
+ 	{
+ 		.name = "RTL8367S",
+ 		.chip_id = 0x6367,
+ 		.chip_ver = 0x00A0,
++		.family_info = &rtl8365mb_family_c,
+ 		.port_mask = PORT_MASK(GENMASK(4, 0) | BIT(6) | BIT(7)),
+ 		.extints = {
+ 			{ 6, 1, PHY_INTF(SGMII) | PHY_INTF(HSGMII) },
+ 			{ 7, 2, PHY_INTF(MII) | PHY_INTF(TMII) |
+ 				PHY_INTF(RMII) | PHY_INTF(RGMII) },
+ 		},
+-		.jam_table = rtl8365mb_init_jam_8365mb_vc,
+-		.jam_size = ARRAY_SIZE(rtl8365mb_init_jam_8365mb_vc),
+ 		.num_tx_queues = 8,
+ 	},
+ 	{
+ 		.name = "RTL8367SB",
+ 		.chip_id = 0x6367,
+ 		.chip_ver = 0x0010,
++		.family_info = &rtl8365mb_family_c,
+ 		.port_mask = PORT_MASK(GENMASK(4, 0) | BIT(6) | BIT(7)),
+ 		.extints = {
+ 			{ 6, 1, PHY_INTF(MII) | PHY_INTF(TMII) |
+@@ -781,14 +785,13 @@ static const struct rtl8365mb_chip_info rtl8365mb_chip_infos[] = {
+ 			{ 7, 2, PHY_INTF(MII) | PHY_INTF(TMII) |
+ 				PHY_INTF(RMII) | PHY_INTF(RGMII) },
+ 		},
+-		.jam_table = rtl8365mb_init_jam_8365mb_vc,
+-		.jam_size = ARRAY_SIZE(rtl8365mb_init_jam_8365mb_vc),
+ 		.num_tx_queues = 8,
+ 	},
+ 	{
+ 		.name = "RTL8367RB-VB",
+ 		.chip_id = 0x6367,
+ 		.chip_ver = 0x0020,
++		.family_info = &rtl8365mb_family_c,
+ 		.port_mask = PORT_MASK(GENMASK(4, 0) | BIT(6) | BIT(7)),
+ 		.extints = {
+ 			{ 6, 1, PHY_INTF(MII) | PHY_INTF(TMII) |
+@@ -796,8 +799,6 @@ static const struct rtl8365mb_chip_info rtl8365mb_chip_infos[] = {
+ 			{ 7, 2, PHY_INTF(MII) | PHY_INTF(TMII) |
+ 				PHY_INTF(RMII) | PHY_INTF(RGMII) },
+ 		},
+-		.jam_table = rtl8365mb_init_jam_8365mb_vc,
+-		.jam_size = ARRAY_SIZE(rtl8365mb_init_jam_8365mb_vc),
+ 		.num_tx_queues = 8,
+ 	},
+ };
+@@ -897,6 +898,14 @@ struct rtl8365mb {
+ 
+ #define pcs_to_rtl8365mb(_pcs) container_of((_pcs), struct rtl8365mb, pcs)
+ 
++const struct rtl8365mb_family_info *
++rtl8365mb_get_family_info(struct realtek_priv *priv)
++{
++	struct rtl8365mb *mb = priv->chip_data;
++
++	return mb->chip_info->family_info;
++}
++
+ static int rtl8365mb_phy_poll_busy(struct realtek_priv *priv)
+ {
+ 	u32 val;
+@@ -3059,17 +3068,17 @@ static int rtl8365mb_change_tag_protocol(struct dsa_switch *ds,
+ static int rtl8365mb_switch_init(struct realtek_priv *priv)
+ {
+ 	struct rtl8365mb *mb = priv->chip_data;
+-	const struct rtl8365mb_chip_info *ci;
++	const struct rtl8365mb_family_info *fi;
+ 	int ret;
+ 	int i;
+ 
+-	ci = mb->chip_info;
++	fi = mb->chip_info->family_info;
+ 
+-	/* Do any chip-specific init jam before getting to the common stuff */
+-	if (ci->jam_table) {
+-		for (i = 0; i < ci->jam_size; i++) {
+-			ret = regmap_write(priv->map, ci->jam_table[i].reg,
+-					   ci->jam_table[i].val);
++	/* Do any family-specific init jam before getting to the common stuff */
++	if (fi->jam_table) {
++		for (i = 0; i < fi->jam_size; i++) {
++			ret = regmap_write(priv->map, fi->jam_table[i].reg,
++					   fi->jam_table[i].val);
+ 			if (ret)
+ 				return ret;
+ 		}
+-- 
+2.53.0
+
