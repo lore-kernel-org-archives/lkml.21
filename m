@@ -1,97 +1,104 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.182
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795616973;
-	b=kGN2sS3WWSR5dQsKg8bddseAiASMFvR1p0MzCm+nFs2TpTU+8Z1lqKjFDNgKhV2T8VWA
-	 7zC7DC3Ww39T6ltun/EYAYTOL/biAPp23jbLXucm6zSacJOiKIPSeTCZbXqbPoqFgOFc5
-	 1Rm+MdXCNGbwShOlw/tQIEKwG7KZjN4fmrrVzTT0UOdo/caX4sNr/VA4dFlKaLQE6yc1E
-	 KTFhx3O34Awvjo/qt0sPOzjH1IVE1GYPF2cigPUMY6koI3cnjWzFa1357wMU5uESZnHu7
-	 DNUwsa2aLYYtC+F1FqZlUkt9n+7laoDlDyiTuCf+dsFmMVfd3tWfanTIzk/THGeQK3w==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795616973;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=dEHXRV7HnjpoU5kgdWl9W00WxAauTcUpdR8PSPPyM+k=;
-	b=cExgN/D4G6A//+SfaKclEjl83E760AQDg5HBWhQDEFpG8R4tDL4qKfm+9icj7I3yIXi6
-	 KGbfEjVUYlcfQWe18P8CiCGkpwZMCssZtx2rNbnH7B7wa3+kXkzAz1s4wW44pfUyqkuER
-	 PmL6hA8N/avQ9U43HOzejMctocrs18amISq8xLsyCfgCiSqdqvpmMxWstqer48IPigA9+
-	 u1RxGb92T/acF2E+s/M5fU9y2kLW92gon2rhgOQ4cmBwKL6pOBLesrXx4+T1jbi17Awbt
-	 FTTu7UsMyb7d+I6SaysPwwpT0/Y/7RBnYLPNoT4r9oW6qHB8zXN7llbXUnqdHYh/mYw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=rowland.harvard.edu;
-	spf=fail smtp.mailfrom=g.harvard.edu;
-	dkim=pass header.d=rowland.harvard.edu header.i=@rowland.harvard.edu header.a=rsa-sha256 header.s=google header.b="I/CRJsy3";
-	arc=none smtp.remote-ip=209.85.160.182
-Received: from mail-qt1-f182.google.com (mail-qt1-f182.google.com [209.85.160.182])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.96.125
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795616990;
+	b=jPmDcgRnmmjDRG6CahzcfO62HlpzTc+41ZAwVolL3vcLggJZx15ZckvmSz9OsO74Wxhz
+	 OU602OWcyiQvElWQIS8tk0KvHUXir/QWn7FqnVNvq4evo/VK4HNexHbDYvbr6gZnFWX8f
+	 RsTqhrBzIi6HOG6jqIeL6+GVLc0TBYe+B/FO+DP0tnCjWZvPPtQt5dicYjjdNfhPt9m5j
+	 qEnd9OzLNRb/+Pmo4Qq2Uc0vuRqXz+FWfPAcSJGpwWtjU03ZB9SBAoxqsq93NcXaSu9e6
+	 khmXWXm4ARAgEC6GK5lyZK5VOH1noiC8CphL4iACQASCPAcwukEwaJxVxfKJT6RxDmQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795616990;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:From:To:Cc:
+	 Subject:X-Mailer:References:In-Reply-To:X-ClientProxiedBy:
+	 MIME-Version:X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=IGjT/cwtW+jcioypGmI3iitsYRAgBuWyAs5qjqeCMCY=;
+	b=wLEgPJ/8+yEiTHdHVhbY7Yv9dM/fn+pBLr9kCYvL+cYkxx7FkwxEFDvV0sul//6kwWdy
+	 /Y8nwcpCGNDYGCC7SsOo9yT3JjjHaNE5hkIrz5V/JbD+JMBK13ypnuVMO8YTSgbg14bph
+	 ynzH2JuAhxiTuHaiW7EHxH9BcjQv2NutRzXkMy4uvQuLbfJ3EKmuxQUyH7A1t88yckAG2
+	 w3XTxqwa46og5GUGUEv/hr8IpB7kXiYbOxTjgNLyjR1hMIjLYoMgceIS1tyvqMH7nWEmp
+	 NeDa4gJSMg+KdGtaWBinYW5UtQ6o5rx4JKeAXe3OWRN5pwqJc0rCTL5EJnu9lDGjyqA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=garyguo.net;
+	spf=pass smtp.mailfrom=garyguo.net;
+	dkim=pass header.d=garyguo.net header.i=@garyguo.net header.a=rsa-sha256 header.s=selector1 header.b=Yhnw3VlQ;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.96.125
+Received: from LO0P265CU003.outbound.protection.outlook.com (mail-uksouthazon11022125.outbound.protection.outlook.com [52.101.96.125])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6A057606A326
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:29:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6A057606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=rowland.harvard.edu
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=g.harvard.edu
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E96FA606A31E;
+	Wed, 25 Nov 2026 14:29:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E96FA606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=garyguo.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=garyguo.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=rowland.harvard.edu header.i=@rowland.harvard.edu header.a=rsa-sha256 header.s=google header.b=I/CRJsy3
-Received: by mail-qt1-f182.google.com with SMTP id d75a77b69052e-55d2d380f6aso63866041cf.2
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 06:29:33 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rowland.harvard.edu; s=google; t=1795616972; x=1796221772; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=dEHXRV7HnjpoU5kgdWl9W00WxAauTcUpdR8PSPPyM+k=;
-        b=I/CRJsy3JkFBB673pO40I8toSCzCOZZynydAyaYcvjp35MHkvgnmTcJd2l9wyBhBNy
-         C/Lf/4dVPIUHFxyVtKBUsqBGMHrWgaq5TS1TesIGZQRu7bA9FKPHjVWvh0ikBmhI9p9w
-         Difkmhn8r5VeeLmlrO8fVTzmJzscIdD3XsiZ9CFtXLKzRUlEO5esYgZmfy2PxkETkkde
-         NR5L55W2qqVTAajNsM9bBy88Z7dsQGgHpb/VxH18luo81vD7S5Uw+Fp9P//La+QWAnTN
-         7zIXIX30gS/mvO9zaRdURiQz7Wj02q6h0SwAlVye4xOjgkQc0tlthUXKAoOEcLU0vHgT
-         oxZg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795616972; x=1796221772;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=dEHXRV7HnjpoU5kgdWl9W00WxAauTcUpdR8PSPPyM+k=;
-        b=cbBNYTfhGXIymW1DzwaDUUP/9xN5Y45X1Wa0x1IfW3THIq1nWbdwvgLCD9caN/nHVW
-         Zy6uc+GPV4mMKwfYJx+0WOK40AKa8Riz6eBNnN141hJEmBxvvNrURVHDyAKI4iSUTft6
-         H41SLpOJxqyVPNnSqsyIHsi/ATOCaCbXLLiDbW1WuPty+GSKCbMiZ4wYLgCTBQfCLP43
-         O+6FtScBPhPzjbCcbKiPKF8cGlQm3p69zg8FQBBVrnC1Wxt9yHUdx5u1AWk5jFjVuUrA
-         jl9vnaN3QbnYNRfpjsuUu5Ag2dGcdXRJbRorGUkdCNDGX4UsNCH+ZIArtfDqLvsdll+U
-         8G9g==
-X-Forwarded-Encrypted: i=1; AL+hErFqAb5CjJ8cDdwleoa7yAIqqPEpz/0JWfiVYNQyT0mo4lZTPdpTcl08PPfOlkowyhR+ggLFVA9crrB3vIM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/B/m4B/rKyIWFRdTP1gI2cIeBA9WYK/9Fu8AktfAj8epfSPpYT
-	Dphyn7pRTwXLe5hGCP81sGD5t6AfvEH+vvI1/dnRPLOW4PFBCm7mEv43OTBW6GGJfA==
-X-Gm-Gg: AZFdTZeLKkgPTZG/cnCvlDNiiPCaYQpbPufxXLbdgVDzQtvQDgxrehHM/lXLPm+wnjS
-	kdrc3NcLNwzqsaHkg0XhmkNaWECfzFYw+oFdr6ciEXdh6Zwf4xAagrr+23NsOjnOOcqndRJ2qyI
-	mAxQoAdTn5+sWwVect7uQZ/NAszbXC3xn682fSZE2O/+m2RjOuT4pQCt7kgSa0zfPF1Ek5BozY2
-	w2RUqKzjToutKDf70f+xm6BoF3c/bBAR6HrnPwhxLRLM7NqPcEBrjJ0H8xbcxUl8CuqM0sxX2IV
-	WFgUQ9PR4M/tTpZbUYRt523KmDadwiaBeU+c1BXFdSaPlcozVvqjBAvqyb1ILgJUM2rpc6lf6yd
-	NB5gdOuSlbmY/fUt6s3W5+jEuFkouQ/0jXtuMnQsSMExGn1G5pUzE0Z3E/2+NQ9JS/XjhyTaNbV
-	SZHd65HXpolt80g5V5Tc/1LNBCZ2IHz0ApMqSzRLkeTYH1Cna16tg0VH39Ws9oPI1MMKDdnfyZr
-	YAIjHKR4OnKWbe/c+qPj356zbHTE3jFjqIGKwj8vABaW9BcHtH50xaqrNInw+MFnnw8E/PTOqv2
-	qU/VUqpaaq1tj27FaQdRxuoXgJbfQg==
-X-Received: by 2002:a05:622a:2512:b0:55b:f867:6f4e with SMTP id d75a77b69052e-55d768a4856mr348057771cf.5.1795616972270;
-        Wed, 25 Nov 2026 06:29:32 -0800 (PST)
-Received: from rowland.harvard.edu ([2601:19b:d00:161a::9a34])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-55d7882e2c6sm159050181cf.12.2026.11.25.06.29.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 06:29:31 -0800 (PST)
-Date: Wed, 25 Nov 2026 09:29:28 -0500
-From: Alan Stern <stern@rowland.harvard.edu>
-To: Michal Pecio <michal.pecio@gmail.com>
-Cc: Kuangyi Chiang <ki.chiang65@gmail.com>, mathias.nyman@intel.com,
-	gregkh@linuxfoundation.org, linux-usb@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH RESEND] xhci: Handle missing USB2 resume events on Etron
- hosts
-Message-ID: <c5649772-9fb3-4644-a08b-bb165f0173ef@rowland.harvard.edu>
-References: <20261123072320.5967-1-ki.chiang65@gmail.com>
- <20261123122343.6d3f8866.michal.pecio@gmail.com>
- <CAHN5xi2dFo2NFbMb8t_5uugX56Fq2=Jj3G2_5xA0-b_NTjQsSg@mail.gmail.com>
- <20261125120545.76f07ed8.michal.pecio@gmail.com>
+	dkim=pass (1024-bit key, unprotected) header.d=garyguo.net header.i=@garyguo.net header.a=rsa-sha256 header.s=selector1 header.b=Yhnw3VlQ
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=oMTzhWApwIk53YkmRcAKQhsw2z3jJ5fdu3hx3kF/hilpl+AAmsrUshe7zNv/gpkDKteJGfV791Rgix66NsMEs4wCiKFnuICOgIcHpkVLJEV5i4xEEpiJKg4yFckmxO29yCpVIE9jH8uTlNYXckSmvXNM+24KMmPuqdeEJKIx368Ox/NKW2NWgTgo08C0PXNZXPW9n1tPmAtmOQIemFXQ5jkGM4waTs0oaDIPWMgJRP2Spblm5yGaM3MJbu1Ftnl9UPPdSLQr9pDmPTWbllIMxdEb09fVTNm1/T05f4WUIEChT6y+1ySIbcfn0V3PJjcqe9aelyU0DyYdLt7U65cBew==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=IGjT/cwtW+jcioypGmI3iitsYRAgBuWyAs5qjqeCMCY=;
+ b=ZkMIfFq3WXgKlAathRVbVhTu2rkbZyhFEWX/fDvHZCVE99ZLbDOI7hlLnj/KD1Rau7thhVIeGnZwQW0J9FakK4Y11Z2AyAyH0i8iT2YooQvyKh26r4OloR8iRBuUiuvLSIsR6G2mt1O9+mS7nuFP8IcTFIK411SZQzq3FTfFoj3sPrDKpZaaZbwvMRSjTto3OiPTs8FmkXWUohnHTqAdZrNE1FHsrz/MYfPL5jYHwJmM1dBUesQbf2gdQMdcupl2nQCv6q/6sJ71gB2Jx1xdV0i05jKZBcN3E6GS1hMIqQVtCQfb1B5z2elAY8PfF4+lalu5z9aE5+AoOYtrL5j03Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=garyguo.net; dmarc=pass action=none header.from=garyguo.net;
+ dkim=pass header.d=garyguo.net; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=garyguo.net;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=IGjT/cwtW+jcioypGmI3iitsYRAgBuWyAs5qjqeCMCY=;
+ b=Yhnw3VlQAmOQO+piip1NGdH80FcxYTJx//KjqV9h0RCPCmATJouaZ3McdYoZlWuk53JjBZLuxpLGUTBNo7E0Cz8cskfITklLpEVEFluxUbW/S0qsfi4Xz56aeZhxYAVhJ9WYCaa3NKkXNlG/VUQEn2chS95qHjIvhh/wjTY0Ceo=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=garyguo.net;
+Received: from CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM (2603:10a6:400:1cb::9)
+ by LODP265MB582863.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:4e1::24) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.6; Wed, 25 Nov
+ 2026 14:29:46 +0000
+Received: from CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
+ ([fe80::55f6:f98b:7fad:c6e3]) by CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
+ ([fe80::55f6:f98b:7fad:c6e3%2]) with mapi id 15.21.0662.004; Wed, 25 Nov 2026
+ 14:29:46 +0000
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 25 Nov 2026 14:29:44 +0000
+Message-Id: <DN4D3IY7U8N1.1UBX5MIXLMOB1@garyguo.net>
+From: "Gary Guo" <gary@garyguo.net>
+To: "Andreas Hindborg" <a.hindborg@kernel.org>, "Boqun Feng"
+ <boqun@kernel.org>, "FUJITA Tomonori" <fujita.tomonori@gmail.com>,
+ "Frederic Weisbecker" <frederic@kernel.org>, "Lyude Paul"
+ <lyude@redhat.com>, "Thomas Gleixner" <tglx@kernel.org>, "Anna-Maria
+ Behnsen" <anna-maria@linutronix.de>, "John Stultz" <jstultz@google.com>,
+ "Stephen Boyd" <sboyd@kernel.org>, "Miguel Ojeda" <ojeda@kernel.org>, "Gary
+ Guo" <gary@garyguo.net>, =?utf-8?q?Bj=C3=B6rn_Roy_Baron?=
+ <bjorn3_gh@protonmail.com>, "Benno Lossin" <lossin@kernel.org>, "Alice
+ Ryhl" <aliceryhl@google.com>, "Trevor Gross" <tmgross@umich.edu>, "Danilo
+ Krummrich" <dakr@kernel.org>, "Daniel Almeida"
+ <daniel.almeida@collabora.com>, "Tamir Duberstein" <tamird@kernel.org>,
+ "Alexandre Courbot" <acourbot@nvidia.com>, =?utf-8?q?Onur_=C3=96zkan?=
+ <work@onurozkan.dev>
+Cc: <rust-for-linux@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v4] rust: hrtimer: add active() method to query timer
+ state
+X-Mailer: aerc 0.22.0
+References: <20261125-hrtimer-active-v4-1-415a37b74d67@kernel.org>
+In-Reply-To: <20261125-hrtimer-active-v4-1-415a37b74d67@kernel.org>
+X-ClientProxiedBy: PA7P264CA0172.FRAP264.PROD.OUTLOOK.COM
+ (2603:10a6:102:36f::8) To CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:400:1cb::9)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,36 +108,131 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261125120545.76f07ed8.michal.pecio@gmail.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CWLP265MB6051:EE_|LODP265MB582863:EE_
+X-MS-Office365-Filtering-Correlation-Id: 50f08d4b-02aa-462f-626e-08df4b008db1
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|366016|10070799003|376014|7416014|23010399003|1800799024|921020|261021121427099003|10067099003|5023799004|56012099006|261022075727099003|261026121527099003|261026140227099003|261022105027099003|261028144727099003|261102123227099003|261009223027099003|22082099003|18002099003|6133799003;
+X-Microsoft-Antispam-Message-Info:
+	Akolfz8fe/Dwy6nd8fagyBJeSdOn8ycA9gHEPFpGlhVjvcW/QJXEShB8oLwwh8y0IUevy4VkuQoUNacHLRrYFcHxAemB80IhZzS6friCplwPL5eOitgOLwRc6zDHSCurZF3fBtdMEsrresAlowyjTb62wFY+z046BU5PfiZjRlCIyzsjihNXnOOeIOOQ8FLLON+IpZ8xiE6jNeeYJTPL+M7VPwFA1Uo5xFWctJkl4TCxCe7VBHcLwmRJc7jRgnoPePgqa7vyrFOvt0UZSdRMk5zKEoiIn7w7EX5GwM/HtA1az6ww+QuPuOssZUdRzbwNlCqnCbz6PPP/fZaRDOX9mB+UZr8Mz0RaqrOp3QCk6FRL87fTVKZkLPlU9BfsuZwhdY0IhjjgSlmXUQt5guDO7rzJA/y1TmmhAmsEYrGih7k1p+e0trjxigMxg/a13K8N2lqGM4IWK1Z4w7yn09ZxJuKyBJgM0aWkUfdNG7gmZY7EJhDsiQ8Cc7jye9irsgdoDXduo3kyiJugE7ezaOVSCOLu8o/WSQkxJLClNggLlRyrZkQ1EfE2gVbdUOLFUBgZZuMLTh72eKAqEh9gVcGmujWoKQa7HORLxeRfFxSCrkfg+HgMOgMMemRqXRM086SIRtJdUeYiIGYjoWzUYyG07fv85qoT/T6V/QRHpaLyvNM=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(10070799003)(376014)(7416014)(23010399003)(1800799024)(921020)(261021121427099003)(10067099003)(5023799004)(56012099006)(261022075727099003)(261026121527099003)(261026140227099003)(261022105027099003)(261028144727099003)(261102123227099003)(261009223027099003)(22082099003)(18002099003)(6133799003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?aXVnWkVKazRTVEpZMjcrN3hEMytUZ2NxUTZpdTRGYVNVRXJuWWh5ZFY2Z0xU?=
+ =?utf-8?B?QnZMMldwMEhIRnVtdWRjV3hCR1dGUDk2SVptQ0xnV000ZTI5SkdCNDU5SFhH?=
+ =?utf-8?B?K3JqcnFwUXJPdWVqTUNSNEluSXpteFdObkpjNVpGbWZTOFJuZmwxSC9HbzNs?=
+ =?utf-8?B?R3BPa1NRNlErMDdHbjYzaHQ0Q2tyM0ZaM0t4N2NhZGRwRXZkTzUyaFdlc25p?=
+ =?utf-8?B?VGVjR1VzVWhCRVBFczFLTlRmMjQrYXMzTEJyaW9CaytYNW5vLzFhN2s5emFL?=
+ =?utf-8?B?Y21NMzg2NTRTTVdvakNMVVN0b24xZVRBclhLaHhmYTFjOXE5dVpXY0J3Rlcz?=
+ =?utf-8?B?Vlp4VHI4TFg3ZVZTeURnTzRFci9PbngrVmdVbDhVK3dSTXc2SVBvbWMrY0JH?=
+ =?utf-8?B?MnFxSkVwVTNBcW8wdjRHaFVSOUdOQUE2NS8raVJQa1NGdEhrSjZ2dzdxajJE?=
+ =?utf-8?B?Tm9lNENNUUhnY0VsMFZ4V01OWXN0TTcyMWlOWlhHcjc0RjZGWGtSNHVRQ05x?=
+ =?utf-8?B?cFRKWWR4N29DSkpMa0hlOXpjQW41ajRVd2c1eTBuOEVSa25NbU05NjdhSUpY?=
+ =?utf-8?B?ZUc3Y0lEMEl6dTQ1TnVld3h5QU43WmkzZjFqSEJZdXUzOThVbzJ3bTh4ZTNX?=
+ =?utf-8?B?RWsrejRKWnpKc3k2UU1NS0hFZ0lHWVM0SVJnN2x6Y2FIWHhPcTJmbTI3N2w5?=
+ =?utf-8?B?Z01Qa3hVK2hPczFqSGc1NXlhRFB5VmEyZGlLRVZ5Z01iQ0kwSUgxdUYxWWpM?=
+ =?utf-8?B?T3lUWWJqc3prRGFwTjd3VzlLbDBhMXpMNW81djBMbWtab2hsM3J5bHZtQlJL?=
+ =?utf-8?B?QzM3d1VsRlJJK3RybVN2VXhTM3Y2NERyK3R2NXFRcGpPMk1UZGllQWZMalla?=
+ =?utf-8?B?aGZBZTVMTkp3Z3VjNG1NclFQTUNtanFvbytYRW5rd0RRVDlZZVdiUWdvWnVL?=
+ =?utf-8?B?Y21ra3p1NldxMVdRaXpqL0Q5RjZ1aDRNckdjWDduK0szUCs5bmdzWGNRK1ZX?=
+ =?utf-8?B?VFVZTmJmd3VEd0dXT0ora0ZpMzkzcnl4Z1BveUJxbzhGaktwUTN4L3FRc1hy?=
+ =?utf-8?B?a2FaN1VsVG91dTlZeDVvYXZqTGJuMStaVEFyMFFIMkVFWG9Ld1dxMWxkVUIy?=
+ =?utf-8?B?bFhETkRMVGpqaEQ0VnJUUW45Z2NWaDRuOHM1M0UvaUNmdWVrbnVxNWlzRzdU?=
+ =?utf-8?B?V1gzdFMySFFDQjhVZXZmLzJsUmtPSEc3M1ZWdlhLa04xZmRuTWlSclhiYWt1?=
+ =?utf-8?B?UTZHNFAxMElrZnFoZHhEcjVreFRSTzd5c1pubnNNT3V5NTEvNHgxYlJwaDVK?=
+ =?utf-8?B?dzk3Wktic1p3ZzU0OFBwVHBIMzNiQnBaWFl5N05OU3ZpNWxUMld0K25PK25W?=
+ =?utf-8?B?L1dwZ1p4NnZJOSszdE16MnVXdmJ1Qnh4Y0NpR2taZDlybjNaU3FxNXZtNjlr?=
+ =?utf-8?B?WlFleEtjSnc2Mi8xQ0NzcXdRcy9sOE1rTitkbDM2d1NFNG95NHYycWpXNFFu?=
+ =?utf-8?B?NjN1NmhwR1Nsd05TM1F1L3lhdGJaSHhteFZVeUVTRk9UN0FCK1Zwekdxa3pQ?=
+ =?utf-8?B?bDlyZjRIMnBwT0tYYS80WnB0VzQ0YjhZYW1SaVlCQVhpZ3VVaWh2ZXNyM29v?=
+ =?utf-8?B?b2sycXoxQnkyZ0dxc1ZKTHdpWnpFT1I1bCs4TVlGNTdZSlhCZzJZd1JkTFhj?=
+ =?utf-8?B?SkROZjlIaU4xbXp3MHJtUHRRVE1DNW1GaXorbkk0anVQdzlPazBtRUdkMjlS?=
+ =?utf-8?B?VE00ZnYyT3B0akpTN2wxenVBczExYklhRUtwaENkdDJQandLYlZxWnV0WGE0?=
+ =?utf-8?B?OVR0S0Irc2g0Z0hIOUhCamhNM3hxTEIxMUhZYWJhclJlcnVqM1lMTDhiWUtI?=
+ =?utf-8?B?VmM2bWkxeWh3LzI0TjF6N1hKeWU3Rll6R0lCaXpCVW04bGlaeldWWDRLNVhN?=
+ =?utf-8?B?Q1lmcXhYVk56emFtUjlpc0tSSW9hbGlEUWVaYnYrSDlXeE1jV2VZOWVOVEI4?=
+ =?utf-8?B?WkhxZnlLUFRVVG9xUkkxdm5kOHVMZzcyaE05bklHdXFSc2lEd00zWkhYd3dZ?=
+ =?utf-8?B?T09CVFQ4OWNVbVFFMWhIUlBoWlhzalVYVW4wVEw1YnV3dFNZYzF0Q1lHeEVO?=
+ =?utf-8?B?QldIZ0JseUZLU0FKTXZqSWRNc0dHUkNZblEvOGdJejBDMTlHUERpTXZpekh1?=
+ =?utf-8?B?WS82d3h3Rm12Zm9OMWorR244bnRZNDc4OXloYnByRFNPNjc4RW5DdVJsSUwv?=
+ =?utf-8?B?UTB1US9HU3p3TE9nQUp1QjNJOTdleTZpZmQ5NVV2enhKL3FsdFBOcjluQy9u?=
+ =?utf-8?B?MWR5cDBSRjQyWmtyVHVCbHh0WDlIcUlKbS9RYkRNQU1GMHUwaDRFQT09?=
+X-OriginatorOrg: garyguo.net
+X-MS-Exchange-CrossTenant-Network-Message-Id: 50f08d4b-02aa-462f-626e-08df4b008db1
+X-MS-Exchange-CrossTenant-AuthSource: CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 14:29:46.1024
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: bbc898ad-b10f-4e10-8552-d9377b823d45
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: PXCrpJmJRfvyTkyaUegLw5GL/Q5RdIEaIRxNT5Fnm4biGXwAS366JCbN9G4/ChaixujUQc3j7hGD9qn2+L+c9A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LODP265MB582863
 
-On Wed, Nov 25, 2026 at 12:05:45PM +0100, Michal Pecio wrote:
-> On Wed, 25 Nov 2026 09:33:38 +0800, Kuangyi Chiang wrote:
-> > I tested again on an EJ188 with three USB2 hubs connected, without the
-> > proposed fix but with extra local debug messages to detect ports that
-> > are in the resume state without a Port Status Change Event.
-> > 
-> > When I connected the first mouse to hub 3, I saw the same behavior as
-> > in your test: the USB core checked all root hub ports, and all three
-> > hubs completed resume (evt 000e).
-> > 
-> > However, when I connected a second mouse to hub 2, the root hub was
-> > already active. Port 1 also entered the resume state without an event,
-> > but only port 2 was reported in the status bitmap (evt 0004).
-> 
-> OK, so I'm not sure how you reproduced this problem on the two-port
-> chip, and commit message was wrong - the root hub must be awake.
-> 
-> But now, if I disable root hub autosuspend (echo on > power/control),
-> connect two devices which use autosuspend and remote wake one device,
-> the RH wakes both ports and only generates one Port Status Change. It
-> seems nobody expects the other port to be affected so it stays stuck
-> in the Resume state (SW is responsible for transition to U0).
-> 
-> I don't see similar behavior in other xHCI root hubs, nor in a few
-> external hubs. Anyone knows if this violates the USB2 spec?
+On Wed Nov 25, 2026 at 12:34 PM GMT, Andreas Hindborg wrote:
+> Add an `active()` method to HrTimer that returns true if the timer is in
+> the started or running states. This wraps the kernel's hrtimer_active()
+> function.
+>=20
+> Unlike a direct read of `node.expires`, this does not race with a
+> concurrent start operation. hrtimer_active() reads the timer state inside=
+ a
+> seqcount retry loop and re-reads `timer->base` with READ_ONCE(), and the
+> core documents that it must not return a false negative. No exclusive
+> access to the timer is therefore required, and the SAFETY comment reflect=
+s
+> that.
+>=20
+> The returned value is still only a snapshot: a concurrent event can
+> change the state right after the call. Callers that need a stable answer
+> have to serialize against such events themselves, exactly as C callers of
+> hrtimer_active() do. This is documented on the method.
+>=20
+> Also add documentation clarifying the definition of an active timer.
+>=20
+> Introduce the term `active` as a set of timer states composed of `started=
+`
+> and `running`.
+>=20
+> Reviewed-by: FUJITA Tomonori <fujita.tomonori@gmail.com>
+> Signed-off-by: Andreas Hindborg <a.hindborg@kernel.org>
 
-Yes, it does.
+Reviewed-by: Gary Guo <gary@garyguo.net>
 
-Alan Stern
+> ---
+> Changes in v4:
+> - Reword the snapshot note to not name specific events (Tomonori).
+> - Link to v3: https://msgid.link/20261105-hrtimer-active-v3-1-52636808ccd=
+a@kernel.org
+>=20
+> Changes in v3:
+> - Rebase on v7.4-rc1.
+> - Improve documentation.
+> - Move the note about not requiring exclusive access above the example.
+> - Name the user of the API below the cut.
+> - Link to v2: https://msgid.link/20260605-hrtimer-active-v2-1-77d755c81fd=
+7@kernel.org
+>=20
+> Changes in v2:
+> - Mark `active()` `#[inline]` (Gary).
+> - Use the `[`true`]` intra-doc link in the rustdoc (Miguel).
+> - Document that `active()` does not require exclusive access to the timer=
+,
+>   and reflect this in the SAFETY comment (Gary).
+> - Add a doctest example that initializes a timer and asserts it is not
+>   active (Miguel).
+> - Link to v1: https://msgid.link/20260215-hrtimer-active-v1-1-a754d10492c=
+2@kernel.org
+> ---
+> The bandwidth throttling timer in the Rust null block driver will call th=
+is
+> function. It is used to arm the timer on request submission if it is not
+> already armed.
+> ---
+>  rust/kernel/time/hrtimer.rs | 64 +++++++++++++++++++++++++++++++++++++++=
+++++++
+>  1 file changed, 64 insertions(+)
+
