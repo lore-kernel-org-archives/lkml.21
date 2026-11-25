@@ -1,45 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.180
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795590360;
-	b=3tryk9ifD5KaXESDtftyOAT1Uz3HMZJz+hT8q6We1HDB+25THd2pq76DU7BJ5i6PA2Ce
-	 DFRp0qS5mrjnF7ksmUQgLFuImFZ7OhwwWE9EQpx5jGRITIvZ0das6dHKnHrIIigW4QJ7G
-	 zPPxW3Ku90NjUsZjvPCFqviOkpOu/oxRY2Y1um6K8+xTpgaXiKA0YGMGZmwPUsqlpVQEu
-	 SyKUcRuPp/xi5yQ3uoxKKevcT0kuXYgQlrsEZmKLtnrQv4hha6HIr9yboagNTYG6RYu1B
-	 XMG9HORRoD4bT3Y/UokQ0rtp04+Psa1t9lrdge7eQCBGIi/t2D5XAzMuO3LzMRy2klQ==
+	t=1795590366;
+	b=dntVA0SDftYk3NrJM2FnMz59W973cBg3X2hZJVAKJ8vPxSzh5BkfgXM36RI1HOb2ehPx
+	 I7ZOhqbPuQ8yY8vFoKJ7+3y16XMT7olzkSaOj/BWL/IxS8/eKhXBBUDjn2aBycEYet1YW
+	 qx16qJItWL8VVQUotWKgL3VAtBoWOynvUfO07W8pi3AJzIGZXRlM+8uJ+7/CELZletxNh
+	 CYAQitH/z/79QolF5fTfwnQddbZft33nAZf47aSMTXlya/qvNsC9ytHNUk4x2eacucjfD
+	 OvStNb3jYtkfongw2eB3s7XRV/nV3FYJyx0fRe2Sc4rXeUN5ZFeXVsZDPrRub0+O5yQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795590360;
-	h=Received:DKIM-Signature:Content-Type:MIME-Version:Message-Id:
-	 In-Reply-To:References:Subject:From:To:Cc:Date;
-	bh=34IkE98ay9uD1UXazw384CiIG9xjTfNiMAYl39k2cwg=;
-	b=47melN6RQLcJt8vSBZNeZ/I4X/BN0QW0xSPgdqq/T2FVRl+NdDqYp06e4oaVcbMn0wR7
-	 cdSMc++3Vw4UBtgYIE1WkGEb6N16m5i8IuA55TLX2kuLKDhFmW5eivJ8uXwfRjX9uYG/w
-	 6FbS8hUv31fERXGs0V0qZx3MAsKVR9Oj9R8BygtXjTcbYEPr5IXarH+lbsrQA6h6H8jtL
-	 /MMYQ0I4P28og3fu7j8ZT/i1CQCtdZ/5ktI/YwWw9GWulxhFj1tNXkb4I4K08jd+sf7EM
-	 lVBh67RU3RiYBDqPzGNIvSlTsc7y4AL5vhD3LLmu2/FhL0zETtql7PoyDHQ8i/rMXOg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795590366;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=A6UmGJ21affGPFr7f9oqagJMj/3pD+7PVBT7Ip9WBo8=;
+	b=mFJmtrX0UBY8QMEJUdR6DXabMd2YGsgIo5dpg+l+6eCnF46+Xuk6Bi5s5W/PL18zG+9q
+	 ikKhVsfSlgVp+O/R8qc8ivbR9bEeEuOWI6zv91n9IzGsmOPydBCyuy0Kx69uALfY6slr3
+	 CDNSnYi5cFwcQNzU00z8zntCDwn+tugBEmsYbTM7VIUO2WkKQznwmadsPekhY44mgfT7i
+	 GKWurA1DQvYW1eL4oYSZinRBUYMxCtmkAjF7TM7PtrQIgi421u2Qtwqkw5+4AajowuJD0
+	 bw7ihBKR4JjuSAK8t/Sn2U2q3zdveiqTCoFYHnOaYlO+XHTPXY/5IYk3/ecOuE85FWQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=fail reason="signature verification failed" header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QUrfkKKY;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Jn6QGWhf;
+	arc=none smtp.remote-ip=209.85.215.180
+Received: from mail-pg1-f180.google.com (mail-pg1-f180.google.com [209.85.215.180])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8FB35606A32C;
-	Wed, 25 Nov 2026 07:06:00 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BEF98606A68D
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 07:06:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BEF98606A68D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QUrfkKKY
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A2E471F000D3;
-	Wed, 25 Nov 2026 07:05:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795590360;
-	bh=34IkE98ay9uD1UXazw384CiIG9xjTfNiMAYl39k2cwg=;
-	h=In-Reply-To:References:Subject:From:To:Cc:Date;
-	b=QUrfkKKYin6SUsE7qd6BRGlRB/HIkWrriuppajmIOrJ5ONqdmuMIi147C0OIl/z6a
-	 f+bSohz+cw93b2FNOPy3NGqs2d2W744/EdQsn8CC948QxweQC0nyd9YHAtwPVwV8Fu
-	 k1zwxaR7wrRWl4jCMnblFe8s5L2Hqoxn7v4m+ILt4Ea2ugY45gzaEXR0yRtQNWfpTB
-	 5Gtms3+FPkLlZTX4uslLiJxexFZC67YyZf6QmWuYpYlZImCI9sNHvhcY8HOB5c07b8
-	 CqLgEHUdVT8UukRsTvQUN2iHGkoObnyv24GZLqTi0IVBXjuRG9BohgaJbbLuGMlZPi
-	 4F3hWV+ngD9Dg==
-Content-Type: multipart/mixed; boundary="===============8760472991523024919=="
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Jn6QGWhf
+Received: by mail-pg1-f180.google.com with SMTP id 41be03b00d2f7-cdb75699c7cso2093877a12.2
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 23:06:04 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795590364; x=1796195164; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=A6UmGJ21affGPFr7f9oqagJMj/3pD+7PVBT7Ip9WBo8=;
+        b=Jn6QGWhfzKXXEZXbyEgKV/jSiwvHvSRHHKtNZ1I3MNQsGTK/DR9/C2GEZzS8KwLyXm
+         esb1B7mNPSXNchYB0aO7OTV1XV8kuaVLHLLutXrRlyFozAwTfpQyOUeO+zoXlnBD1HSi
+         GFvGyUwLP/hhFYevjOmRojk4X7Q7I7KrPf2DCgRG5BNGSRbjF2gAnrcfyEuUzJJWoklq
+         +Lzj5orOI3vIX/m0L5R8fqERWb4KxiMATz+unXOo6W3mJrhQNYIbvYRUKnCOAoZCsyau
+         oqjwzL+rSbENVKiYxIYfS73elznhvyyb/pd0uSfErSwjt83fjOOSPW3j5GFV8Hwvm/KR
+         QsPQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795590364; x=1796195164;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=A6UmGJ21affGPFr7f9oqagJMj/3pD+7PVBT7Ip9WBo8=;
+        b=rU4sAGrbrZBc/d9+6swDKF1+SUbX6x5uG2KYMYCICXKBYA94dxvvgZrnUxPuQTUJ9a
+         u8IKR3vWbMVECSAx3vuCfIyNqAVY/VXlxn9ZVGzBuYJpOsxNt92F/px5P5zGWYjDf0yd
+         Q1xrEQ3YTy/249od6ftH0BccrD1T/a88nMzOSUJ68TGYh5v0j9o4Foe5vPRETIfsq13b
+         sdFRNaszJ2qn/yqpX6yWodylxCaKP5ZOjGIMxRaK87icGRkfQUnisacbcHHuHifujQt3
+         nXp/lCEMJpFyVFXJQ3fIQgmSGblsuxd2ud+G+UcsolEui1X5BrByIv2+X/bZ0gFR9cTC
+         6tLw==
+X-Forwarded-Encrypted: i=1; AL+hErFH9xgnED8CPO/eW9+Bf+YmeILf99JKVL0ZmClAy0hOAyAlsQ5HiGkFverRAdwPnkR3HjosWJtxV8Ln6vs=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9mzt+yyVUu6iAivQca4Q2iN8Bk2Nhoa4n7or7P7wD+7DeAYXWi
+	NqKgGC2jrSK3bpR6Mc4K3BlMmWYc80BCMvYyP2+C4oNBvTYoEIKN/TLYtM8DFWyR
+X-Gm-Gg: AZFdTZc2bf2l8AFsttb1mWDITfaym9c5bm4kmRDuzBYzg9MUVd7qqp/4W6ItbL1XWBZ
+	sTikVxFmf2bmJBh+qIoMJCJo0g94eTquvqs0zRGhD+j/AKTbDOW5a5Q26hxltD2Q0dlicyJcik2
+	hzs166bmLIMydgg5osfahKqF50yO9EU+UsgbiH1eTyZDj5iDZu6aC63koRuKYwt94cbDSSaHbnX
+	erCa63Z/1inWGj0yuGsm2v6E+iBLhjDn1oEva8eFyziagI04x2jRpNxe3DPCfw27Xtt2NncaFyg
+	zdSoWhQAq546+gAOB1FRvcSRbx2PflcamH/Oj6Ml+o2aNJ8+HV5Awk8U9hY2soNny4OcVTF5wig
+	Vmqbj/39cnKH2PzI4cEjlwRJ5MJeJx//LKkVKhFcM2V/ajzkrwXgG4jYLvuqTnKQriVKfMMXxCv
+	gS1j38vi03nW7lSwS9FwSQSYmpRTsyoLxrrYVaAssMbE9BdMAeDiPts2fQSHaizJXurwMWwPTN4
+	Yi0JlmI7oowPVAYLo2YJ1wGzCpjguSxta8R+kAnbbk8neKEE0K73GkYXXrrJs6/ok0GCrZKKsWL
+	5hrbooVIIEej+NMwm7A5GSSesx0UosyNaqMGRSyorhAgdLH6ju8ItVvgRJom/BM=
+X-Received: by 2002:a17:90b:3e48:b0:3ac:a521:95e with SMTP id 98e67ed59e1d1-3b41c94ce48mr16257933a91.47.1795590364121;
+        Tue, 24 Nov 2026 23:06:04 -0800 (PST)
+Received: from a-VirtualBox ([168.188.125.88])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad0a34asm25898247a91.3.2026.11.24.23.06.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 23:06:03 -0800 (PST)
+From: Minseo Park <hiyoukou@gmail.com>
+To: clabbe@baylibre.com,
+	mchehab@kernel.org,
+	hverkuil@kernel.org,
+	linux-media@vger.kernel.org
+Cc: mjpeg-users@lists.sourceforge.net,
+	linux-kernel@vger.kernel.org,
+	Minseo Park <hiyoukou@gmail.com>
+Subject: [PATCH 1/4] media: zoran: remove always-false buffer size check
+Date: Wed, 25 Nov 2026 16:05:45 +0900
+Message-ID: <20261125070548.28989-2-hiyoukou@gmail.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261125070548.28989-1-hiyoukou@gmail.com>
+References: <20261125070548.28989-1-hiyoukou@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -49,151 +101,50 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Message-Id: <da45f3c72c6c359d7a2d029b5a0fd9c2cd0d28b849cfde0bc57669d12a7e34d1@mail.kernel.org>
-In-Reply-To: <20261125061523.1540234-12-irogers@google.com>
-References: <20261125061523.1540234-12-irogers@google.com>
-Subject: Re: [RFC PATCH v2 11/30] x86: Add DWARF CFI annotations to entry, ftrace, frame, and rethook
-From: bot+bpf-ci@kernel.org
-To: irogers@google.com,linux-kernel@vger.kernel.org,linux-trace-kernel@vger.kernel.org,linux-arch@vger.kernel.org
-Cc: jpoimboe@kernel.org,rostedt@goodmis.org,peterz@infradead.org,mingo@redhat.com,tglx@kernel.org,bp@alien8.de,dave.hansen@linux.intel.com,x86@kernel.org,catalin.marinas@arm.com,will@kernel.org,mark.rutland@arm.com,linux-arm-kernel@lists.infradead.org,pjw@kernel.org,palmer@dabbelt.com,aou@eecs.berkeley.edu,alex@ghiti.fr,linux-riscv@lists.infradead.org,acme@kernel.org,namhyung@kernel.org,linux-perf-users@vger.kernel.org,mhiramat@kernel.org,ast@kernel.org,daniel@iogearbox.net,andrii@kernel.org,bpf@vger.kernel.org,nathan@kernel.org,llvm@lists.linux.dev,nsc@kernel.org,linux-kbuild@vger.kernel.org,ojeda@kernel.org,rust-for-linux@vger.kernel.org,ardb@kernel.org,linux-efi@vger.kernel.org,maz@kernel.org,oupton@kernel.org,kvmarm@lists.linux.dev,shuah@kernel.org,linux-kselftest@vger.kernel.org,indu.bhagat@oracle.com,jremus@linux.ibm.com,wnliu@google.com,dylanbhatch@google.com,irogers@google.com,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yongho
- ng.song@linux.dev,mason@kernel.org,ihor.solodrai@linux.dev
-Date: Wed, 25 Nov 2026 07:05:55 +0000 (UTC)
+Content-Transfer-Encoding: 8bit
 
---===============8760472991523024919==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
+zoran_v4l_set_format() assigns zr->buffer_size and then immediately
+compares the very same expression against it:
 
-> x86: Add DWARF CFI annotations to entry, ftrace, frame, and rethook
+	zr->buffer_size = height * width * bpp;
 
-TL;DR:
-- Commit message omits that ENCODE_FRAME_POINTER and FRAME_BEGIN/END are newly
-  enabled for DWARF CFI
-- Nits: duplicated frame.h condition block
-- Nits: rethook copies kprobes SAVE_REGS_STRING, duplicating the pt_regs
-  layout
+	/* Check against available buffer size */
+	if (height * width * bpp > zr->buffer_size) {
 
->     x86: Add DWARF CFI annotations to entry, ftrace, frame, and rethook
->
->     Prepare x86-64 hand-written and inline assembly paths for runtime
->     Minimal DWARF CFI kernel unwinding when CONFIG_UNWINDER_DWARF_CFI is
->     enabled:
->      - Emit .eh_frame alongside .debug_frame in asm/dwarf2.h and preserve
->        FRAME_BEGIN/FRAME_END frame setup for non-leaf assembly helpers in
->        asm/frame.h.
->      - Annotate THUNK (arch/x86/entry/calling.h), ftrace_caller /
->        ftrace_regs_caller / return_to_handler (arch/x86/kernel/ftrace_64.S),
->        and arch_rethook_trampoline() (arch/x86/kernel/rethook.c) with .cfi_*
->        directives.
->
->     Signed-off-by: Ian Rogers <irogers@google.com>
+The condition can never be true, so the check and its error path are
+dead code.
 
-This isn't a bug, but the commit message says FRAME_BEGIN/FRAME_END are
-"preserved".  Without CONFIG_FRAME_POINTER they used to expand to nothing,
-so with CONFIG_UNWINDER_DWARF_CFI they are newly enabled.
+The comparison used to be made against fh->buffers.buffer_size, the size
+of the buffers that had already been allocated for the file handle,
+which made it a real bounds check.  The assignment on the line above
+turned the right hand side into the value that had just been computed,
+so nothing is verified any more.
 
-The same hunk also enables ENCODE_FRAME_POINTER and encode_frame_pointer()
-for CONFIG_UNWINDER_DWARF_CFI, so entry_64.S, SAVE_REGS_STRING
-(kprobes/rethook), ftrace_regs_caller and copy_thread() now load an encoded
-pt_regs pointer into %rbp in builds without frame pointers.  The message
-doesn't mention this.
+Remove the dead check.  No functional change.
 
-Could the changelog say that ENCODE_FRAME_POINTER/encode_frame_pointer()
-are also enabled, and explain that the DWARF unwinder relies on %rbp frames
-and encoded pt_regs pointers for asm that has no .eh_frame?
-
-> diff --git a/arch/x86/include/asm/frame.h b/arch/x86/include/asm/frame.h
-> index 0ab65073c1cc..62939fbb6668 100644
-> --- a/arch/x86/include/asm/frame.h
-> +++ b/arch/x86/include/asm/frame.h
-
-[ ... ]
-
-> @@ -22,6 +22,30 @@
->  	pop %_ASM_BP
->  .endm
->
-> +#else /* !__ASSEMBLER__ */
-> +
-> +#define FRAME_BEGIN				\
-> +	"push %" _ASM_BP "\n"			\
-> +	_ASM_MOV "%" _ASM_SP ", %" _ASM_BP "\n"
-> +
-> +#define FRAME_END "pop %" _ASM_BP "\n"
-> +
-> +#endif /* __ASSEMBLER__ */
-> +
-> +#define FRAME_OFFSET __ASM_SEL(4, 8)
-> +
-> +#else /* !CONFIG_FRAME_POINTER && !CONFIG_UNWINDER_DWARF_CFI */
-> +
-> +#define FRAME_BEGIN
-> +#define FRAME_END
-> +#define FRAME_OFFSET 0
-> +
-> +#endif /* CONFIG_FRAME_POINTER || CONFIG_UNWINDER_DWARF_CFI */
-> +
-> +#if defined(CONFIG_FRAME_POINTER) || defined(CONFIG_UNWINDER_DWARF_CFI)
-> +
-> +#ifdef __ASSEMBLER__
-> +
->  #ifdef CONFIG_X86_64
-
-This isn't a bug, but both blocks here use the identical condition
-"defined(CONFIG_FRAME_POINTER) || defined(CONFIG_UNWINDER_DWARF_CFI)".
-Could the original single block be kept, with only its
-"#ifdef CONFIG_FRAME_POINTER" line changed, so the diff stays small?
-
-> diff --git a/arch/x86/kernel/rethook.c b/arch/x86/kernel/rethook.c
-> index 85e2f2d16a90..2bff76758024 100644
-> --- a/arch/x86/kernel/rethook.c
-> +++ b/arch/x86/kernel/rethook.c
-> @@ -15,6 +15,87 @@ __visible void arch_rethook_trampoline_callback(struct pt_regs *regs);
->  #define ANNOTATE_NOENDBR
->  #endif
->
-> +#if defined(CONFIG_X86_64) && defined(CONFIG_UNWINDER_DWARF_CFI)
-> +#define RETHOOK_CFI_STARTPROC		"	.cfi_startproc\n"
-> +#define RETHOOK_CFI_ENDPROC		"	.cfi_endproc\n"
-> +#define RETHOOK_CFI_ADJUST(off)		"	.cfi_adjust_cfa_offset " #off "\n"
-> +#define RETHOOK_SAVE_REGS_STRING	\
-> +	"	subq $24, %rsp\n"	\
-> +	RETHOOK_CFI_ADJUST(24)		\
-> +	"	pushq %rdi\n"		\
-> +	RETHOOK_CFI_ADJUST(8)		\
-
-[ ... ]
-
-> +	"	pushq %rbp\n"		\
-> +	RETHOOK_CFI_ADJUST(8)		\
-> +	"	.cfi_offset rbp, -144\n"\
-
-[ ... ]
-
-> +#define RETHOOK_RESTORE_REGS_STRING	\
-> +	"	popq %r15\n"		\
-> +	RETHOOK_CFI_ADJUST(-8)		\
-
-[ ... ]
-
-This isn't a bug, but RETHOOK_SAVE_REGS_STRING and
-RETHOOK_RESTORE_REGS_STRING are an instruction-for-instruction copy of
-SAVE_REGS_STRING and RESTORE_REGS_STRING in arch/x86/kernel/kprobes/common.h
-with a CFI line added after each push and pop.  The pt_regs save order is now
-defined in two places, and the hard-coded ".cfi_offset rbp, -144" depends on
-that layout.
-
-optprobe_template_func() in kprobes/opt.c also uses the shared macros and
-has no .cfi_startproc, so they can't be annotated unconditionally.
-
-Could kprobes/common.h's SAVE_REGS_STRING/RESTORE_REGS_STRING instead take an
-optional per-push annotation hook that is empty by default, so the register
-list stays in one place?
-
-
+Signed-off-by: Minseo Park <hiyoukou@gmail.com>
 ---
-AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
-See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
+ drivers/media/pci/zoran/zoran_driver.c | 7 -------
+ 1 file changed, 7 deletions(-)
 
-CI run summary: https://github.com/kernel-patches/bpf/actions/runs/45561209846
---===============8760472991523024919==--
+diff --git a/drivers/media/pci/zoran/zoran_driver.c b/drivers/media/pci/zoran/zoran_driver.c
+index 5b4d5dd06edb..a053365922c4 100644
+--- a/drivers/media/pci/zoran/zoran_driver.c
++++ b/drivers/media/pci/zoran/zoran_driver.c
+@@ -179,13 +179,6 @@ static int zoran_v4l_set_format(struct zoran *zr, int width, int height,
+ 
+ 	zr->buffer_size = height * width * bpp;
+ 
+-	/* Check against available buffer size */
+-	if (height * width * bpp > zr->buffer_size) {
+-		pci_dbg(zr->pci_dev, "%s - video buffer size (%d kB) is too small\n",
+-			__func__, zr->buffer_size >> 10);
+-		return -EINVAL;
+-	}
+-
+ 	/* The video front end needs 4-byte alinged line sizes */
+ 
+ 	if ((bpp == 2 && (width & 1)) || (bpp == 3 && (width & 3))) {
+-- 
+2.43.0
+
