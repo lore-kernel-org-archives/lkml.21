@@ -1,75 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795591898;
-	b=qLHw2sECvKr35/9kZ6VAKGhelUuBfUQXBuEsM9hZTefs7dVVcUKcfAbKqKoE49i7xtsE
-	 et3+zhvqNSqH/4MLdu4LGegqFqmuyhhZv9aD6HT6e+ouQ+w6AJIMubINq1oWkYVCTFB3x
-	 uHPDiMQrttQRbxYwQwaw8SqAoL0NE4+tJ6elkDklrO2YZGLZoj9wK60bAv7l+VuYJ3KtU
-	 fP04m7eGDKxW2IE/Etyh8VbVBZQ3GviZohb17xaF8EOREEY47Cj2JZIiw60EabFzh9dbY
-	 FnmuIC9jgPyQvlY3omizvNbTGbTjAapViw1bcFTgpsCKay6DSevw8VpSdXKLlCnt9Mw==
+	t=1795591905;
+	b=BpF3yNjVqimgZKnKXXLtEBZJjKUe54iT3N7lDasQfN6buowBqChFiexY7WhVEqXZqXXK
+	 kvIz6BcHv1Yj6dln6KTZgwkTdUdFFZmQV2GYZI87qekvPrxXjf9ahAIRKLS+gp1PrLBEO
+	 K8lU9CPyoe/dEdoXk6zm3QqNATpj0euI1O7ERHPZEaiOPbVhAeUiwTgH8e3KV5l/03QmA
+	 uFrI2pNuTST0ZkmDcf5PL/tPJ2rMPKwDnDI/9DaJVEPG5LkKu7/gIG70ht87Z/n2mVrgm
+	 EadL+TEz6BzCd9J52O9/EhmQNZpPFdqIFCFgcRk6xkyCK5BIOVrZz2RGDB/4qN1B2xA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795591898;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=VBOZGBr55Ujwl78qDcJLp8xc/aTsL0m4eKXQ3BODtCU=;
-	b=I9JHJ2vWPTWn4mUBJvEP+bSvySo3HEyt9O7Q7ObZTcf9RVb9kMjtq/pL06XpNsFtv/gN
-	 BnZO+WfXKH8TW3djp+57kYJlbQQZ9FnQXriwGqxD5WDdV5emaStot3CNloVoow4NjSJ1A
-	 P8YIuQ9sGfIXOWRcryrCEIlq16bdBq+420SkUhUqrvqlvarZbd+9dNehhJbOOlhKx5O/l
-	 sGphrBUcZYbI9qQAQBBC8OtFYwNgTEbMg9IgpCpicXqVBIn3WOZnvYj+GBQT0tG7am7Q3
-	 hMdqU0z6fkd/gYF2Q1sXMqQ4sxmBRXCilXsR6GGykYtKR0d7xbxa/r0J905b2eIb11A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795591905;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 X-Last-TLS-Session-Version;
+	bh=xhPmW75hRN8afltKNaginLxSJfgmnI9GqSM1TYaN1jg=;
+	b=oGIaxp6s5D7WlelmHfNVxb2ZM+dKiEwTaMxvI9D/roXN2OnfQIMa+JaLRcyyTxubylaZ
+	 KfrC6P/5f6m6xGXV8HZ+Qzs+kOuyx1Ohpj32vBC3U+zPYqo+lp0FVNKq/tEPEd9NiUFz6
+	 YxQOUAY2CEPTUfmAoDN46rRG7VwFfrN/3wK+SORTY2UBjSsIZ6rDJbPCrjmC5mIRxGdkB
+	 IqiAx3jFhAe6Ry/I73v4LsvI3DTfE2QagdUAfjT7oco26TSvkLUPiHdoX18upgv3hxYuQ
+	 yvLcdHR2J5FeYAFpgKJWOCDyLhxPSUsdET8+4mok9PLwur6JORfnMgqBIwD38Oyjj7Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PG0ErR3g;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=XUMkSBkj;
+	arc=none smtp.remote-ip=185.246.85.4
+Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4FBA6606A321;
-	Wed, 25 Nov 2026 07:31:38 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1377D606A32C;
+	Wed, 25 Nov 2026 07:31:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1377D606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PG0ErR3g
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0EAE1F000C4;
-	Wed, 25 Nov 2026 07:31:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795591897;
-	bh=VBOZGBr55Ujwl78qDcJLp8xc/aTsL0m4eKXQ3BODtCU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=PG0ErR3gAmTnmjd1zmcQ4dqGICFZ9/gVAxZhRY5ICPtEvjZXvnumFGUXPCvUnUM57
-	 V7Ox3LPxJ/wqw5+ZP0v6lvBYkkzSOopSVTpyivztvutTZr1ReiNz//aM/+bvxfJqB8
-	 mCAVVGL2FBMZCmX+yS3Yfq1JyPrEWPWbduh4CLW6sYREGtigXHCHuMa5qMt76KzEME
-	 DOFFZL3mbaq4B/CGkkPNf+IZfang3VZrolXR/dyvBcclg9E35/1L8AxSwBir024KU6
-	 Cc3hc8mq2GNXx4e5L5QgfSIj1SSjtM9Wsu9qmLciKh2Pu3oSLW/1FW6g98iY+Pw+5U
-	 Y7gJQasbU6ElA==
-Date: Wed, 25 Nov 2026 08:31:34 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Michal Wilczynski <m.wilczynski@samsung.com>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Emil Renner Berthing <kernel@esmil.dk>, Hal Feng <hal.feng@starfivetech.com>, 
-	Heiko Stuebner <heiko@sntech.de>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Dominique Belhachemi <db@domibel.de>, 
-	Andy Yan <andyshrk@163.com>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Yakir Yang <kuankuan.y@gmail.com>, 
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, Conor Dooley <conor@kernel.org>, 
-	William Qiu <william.qiu@starfivetech.com>, Xingyu Wu <xingyu.wu@starfivetech.com>, 
-	Sandy Huang <hjc@rock-chips.com>, Manivannan Sadhasivam <mani@kernel.org>, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, Marek Szyprowski <m.szyprowski@samsung.com>, 
-	Maud Spierings <maud_spierings@murena.io>, Graham Markall <hello@big-grey.co.uk>, 
-	Icenowy Zheng <zhengxingda@iscas.ac.cn>, Chaoyi Chen <chaoyi.chen@rock-chips.com>, 
-	Joshua Peisach <jpeisach@ubuntu.com>, Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
-	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: [PATCH v8 04/18] dt-bindings: display: starfive: Add
- starfive,jh7110-hdmi-subsystem
-Message-ID: <20261125-tasteful-brown-galago-a6725e@quoll>
-References: <20261124-jh7110-clean-send-v8-0-de92635dd857@samsung.com>
- <CGME20261124155406eucas1p23a523deb496c21cbf3da3724812a8101@eucas1p2.samsung.com>
- <20261124-jh7110-clean-send-v8-4-de92635dd857@samsung.com>
+	dkim=pass (2048-bit key, unprotected) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=XUMkSBkj
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 0D2B54E41758;
+	Wed, 25 Nov 2026 07:31:42 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id D388560480;
+	Wed, 25 Nov 2026 07:31:41 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 36DBF11E69C2E;
+	Wed, 25 Nov 2026 08:31:31 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795591900; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=xhPmW75hRN8afltKNaginLxSJfgmnI9GqSM1TYaN1jg=;
+	b=XUMkSBkjmtDGNy2KCNuD+1fE7wF1/zRXlc6Je+oT+Iq6rsqCMPB9swiqRni5sTlp0jlcO1
+	ThQspvPhjxNWHf0//C1HyHT6OT5zNwPLfmMqKGs6w9h46hyDpYeW5VhBUv5ZxZMrkDTUvx
+	osZuCxX5BirGuOMPckaAlQayxj+9UEBez8Y9SthfIj/AcStnJmuQdPtJBNegeSlXmPb91+
+	JwmN+kU96q0WKncXG1C0a7MtS9EB6B/OVPqAWdWo1OgwVKBI+1+BwMHR3ZuoYwZexzoNz4
+	dxJOZmxyRqTft+xJdVa5XhdQWZ+ypGyW7YNsSdcbGWbxapLzbXtSeROgysWpbg==
+Message-ID: <532be622-69e4-4a03-9467-e9c96cd61855@bootlin.com>
+Date: Wed, 25 Nov 2026 08:31:30 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -79,38 +62,52 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261124-jh7110-clean-send-v8-4-de92635dd857@samsung.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net] selftests: drv-net: pause: detect the link partner
+ from the remote side
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Matthieu Baerts <matttbe@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+ davem@davemloft.net, Eric Dumazet <edumazet@kernel.org>,
+ Willem de Bruijn <willemb@google.com>, Paolo Abeni <pabeni@redhat.com>,
+ Simon Horman <horms@kernel.org>, Russell King <linux@armlinux.org.uk>,
+ Shuah Khan <skhan@linuxfoundation.org>,
+ Bobby Eshleman <bobbyeshleman@meta.com>, Stanislav Fomichev
+ <sdf@fomichev.me>, Breno Leitao <leitao@debian.org>,
+ thomas.petazzoni@bootlin.com, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
+References: <20261123201406.479904-1-maxime.chevallier@bootlin.com>
+ <4148e81b-ec5b-4374-b74f-4f5cba175c7b@kernel.org>
+ <fb92bc0b-ab3f-49ac-b4a5-5368c87b3a7e@bootlin.com>
+ <bd804c6d-0294-40b9-a6eb-2b1ab2ad357e@kernel.org>
+ <39d50105-c550-4925-bf63-6f0fcbb897c3@bootlin.com>
+ <ea5f29db-dd1f-4476-9766-1453e92234a5@lunn.ch>
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Content-Language: en-US
+In-Reply-To: <ea5f29db-dd1f-4476-9766-1453e92234a5@lunn.ch>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 
-On Tue, Nov 24, 2026 at 04:52:40PM +0100, Michal Wilczynski wrote:
-> Add the dt-binding for the StarFive JH7110 HDMI subsystem.
+
+
+On 11/24/26 18:29, Andrew Lunn wrote:
+>> Looks like it's rather the HW or driver that doesn't support this :(
+>>
+>> But that's OK, I think we should ask the least possible features from the
+>> remotes, the rest of the selftest should already handle the missing capabilities
+>> just fine,
 > 
-> The JH7110 HDMI IP is a monolithic block containing both the digital
-> controller and analog PHY in a single register space. This binding
-> defines the parent device, which holds the shared register map, and its
-> two children: the PHY and the controller.
+> Supporting nway_reset is trivial, at least for drivers using
+> phylink/phylib. So we should encourage it.
 > 
-> The two have separate resources. The PHY takes the 24 MHz reference
-> clock and provides both the pixel clock, which the VOUT clock generator
-> routes on to the display controller, and the phy the controller uses.
-> The controller takes its clocks from the VOUT clock generator. What
-> they share is the register space, which the parent maps.
-> 
-> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-> Acked-by: Conor Dooley <conor.dooley@microchip.com>
-> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
-> ---
->  .../starfive/starfive,jh7110-hdmi-subsystem.yaml   | 95 ++++++++++++++++++++++
->  1 file changed, 95 insertions(+)
-> 
+> So i would say if the device we are trying to test does not support
+> it, the test should fail. If the link peer does not have it, then i
+> would be more forgiving, we don't want a developer to be forced to
+> hack on somebody else driver in order to get their own driver to pass.
 
-DT bot reports here a lot of failures. I don't see immediate problem,
-but something feels odd.
+Indeed yes. In this particular case, it's the link-partner that doesn't
+have it :(
 
-E.g. https://gitlab.com/robherring/linux-dt-review/-/jobs/18332570769/artifacts/raw/build-15017782.log
-(see rest on DT patchwork)
+Thanks
 
-Best regards,
-Krzysztof
-
+Maxime
