@@ -1,65 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.35
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795570002;
-	b=Crg/cxkGJ/j8KVbEv4kw62R9V6U3cl7uKAU6pRDIwHXY4F9WSS2Ij4uv27IxFYz5Lei1
-	 1nxo2QG8XCr772IKYIDYBkjNQkqqnYlbqAfCnV1x9OW9F4ePzCMfiCJ+FcmtIR1AtLKmu
-	 yLMu7vCbmi076fURFgi8tcGhQIr5HgDjwEd3NeAyfXsp47CL1czuWKAVVRrilM6qOnBFc
-	 Fpem88fF0YxRCjoM85GR09NzsQUxb5jtb6QOeQzm8eeyKBAxif75ffLW1q3kVhGPOweuX
-	 CP4htQo0ITACZbSmPC62hwEfzeBXhif/8+mLggqhEGhQcECaAFKiOeTPPlLNun1GTOQ==
+	t=1795570112;
+	b=q5Na8hfE0/zjoWaP0/k24U9/Tg4NTK9xHaMg/xfv28J7foBqVC7EoG+9hMENWqxay+YI
+	 dDSzvy/eCU+0m6xk5L7Wmwc9speaRv8IPq4QAq/VLp8urXM6wLg6uVsa7oQzyZNwSNWYv
+	 qHpohYKbMs1oZN7q9Xg/KVm5/Mkb+0Dock2lPhvJxLC/DF4rvZLzhJu5JCbxOlgRXOPvT
+	 9XFuPikQPGZTXwY0zxTN6QPXv9gBFEn3k3UnU63rUEpHmF5czX85WGI+IDxODzk8DG2S4
+	 m+0os+Gp1yknXgDFhKe+op3B4+mmOokFzW+K4oFW87T+ieZKxh7dMWs2erb+aOrFOtg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795570002;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=GYnMm6oY2CoBK3VQDfahz7r3axfDYTK/q7aun/2ckiM=;
-	b=4oloQqk2iotdJryxi2fsGjvDDnGW7S/kn+cLsjggEWOK0ZXj2vYqxHgsPEGX9bHlqyCK
-	 qVmVaewvupimkvXAoLczO26+G5TaVJy2dy3Vw+TP/a90fJb2sa+uEWcaiEj+d1l30aTvX
-	 hWyZStyGMuHHNiXq5R3BpPs3vOkEzjrXQkCdYU9MNd7nJ4w8mkXIYUjJDkRERen64/cRH
-	 XYSV7L7o5op46onkZU/H/1R/tkkW7D1nbwvaxwJV4RZS6N8Ml9ANN/xWK3p4aMpSES9U1
-	 HXaY9xkgclwEJLQjZxspeiXTY7qTvsG7FoQJly9OKn7Kdt5Jk6SvIPcbAT6KQmV+JPg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795570112;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=YvHf32I3CxsjZN9KDS8kUqYRtxaIn+dFhytpRDYuc4A=;
+	b=vbo86Ij8cyEvW6ugxq+gqIg7H2fzNxNNB7v5YEsemqeoCJSx6jKNvBKjM4JUOIuVSobb
+	 lUEKvg0BOe5lUxz1aTiCVzUpAcb7xUVcXgznLotUimEShR8iH2HoBf1FsNl+lDhIlPlqK
+	 YQh/o0cJwKRD/SagaMr7Jhl+IvX4AKWMRvZUiIjIISkUmQaSkLQzdPxAbX/6gomomZEoc
+	 lxCnlY6k/OpcBzoKW/DQ2+F5vBW4YvQu/iGI+bFbDdipqnY/GDJDiSUiIQduerb1l/8dG
+	 f9qruv8QBJCW0OmQW3Ed0+BJfwLql7XntB8rq2THFmcuOUB/+PaxZIRAOOEAltMrZjA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Ch4jCDMM;
-	arc=none smtp.remote-ip=91.218.175.35
-Received: from mta0.migadu.com (out-35.mta0.migadu.com [91.218.175.35])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iKZI7uve;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 36908606A31E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 01:26:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 36908606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8E6C3606A31E;
+	Wed, 25 Nov 2026 01:28:32 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Ch4jCDMM
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=xAfnthVrgNB8tpYjNLuTpMrchkhx5LSnJ0Zyzi4R/fc=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795569999; v=1; x=1796174799;
- b=Ch4jCDMMhT5G5wa2/hi6TzX8vIDzKiE/hQlgCuPRhO0dkr1805Zy3nLvvh3DLe4Tg5JnmvTH
- WS6N/H/utZKgKaBDoNmmpufjYgYUeKyXs0zfqZ+7jVmR+d4ypKCcZm3VYokTwzDWD+fDlTTQOwR
- Zb6fanCO0HPWlrOGt6UGAyFc=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by mta10.migadu.com with ESMTPS id 7beb4e14288bbdcb;
-	Wed, 25 Nov 2026 01:26:39 +0000
-X-Mizu-Trace-ID: 7beb4e14288bbdcb
-X-Migadu-Flow: FLOW_OUT
-Date: Wed, 25 Nov 2026 09:26:32 +0800
-From: Hangbin Liu <hangbin.liu@linux.dev>
-To: JiangJieHua <jiangjiehua1@huawei.com>
-Cc: netdev@vger.kernel.org, Jay Vosburgh <j.vosburgh@gmail.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Hangbin Liu <liuhangbin@kylinos.cn>,
-	Changzhong Zhang <zhangchangzhong@huawei.com>,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net] bonding: clear stale usable_slaves in broadcast mode
-Message-ID: <20261125012632.GB19338@Liu-laptop>
-References: <20261124130102.18807-1-jiangjiehua1@huawei.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iKZI7uve
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0BBC81F000C6;
+	Wed, 25 Nov 2026 01:28:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795570112;
+	bh=YvHf32I3CxsjZN9KDS8kUqYRtxaIn+dFhytpRDYuc4A=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=iKZI7uveY4lg1vxjNYhLQ49O7l2U5wZWAKHgGnO3R4mw1eJGGCoK7TYaVnJI53u4s
+	 CnDZ1hj2vZCpK0ZSYG/BS1UPXR0zEmR5YZQskn+VQJmwroIgzJbD85HdpBjmAiq5r3
+	 SQOMVznDBkjhLq2NECs9yd0iqYIvNhAnKWX7ERuTKB2qVh0+GcbfFcePoiqnycJ1fp
+	 y1sMbzWOxO7iIjiyB4sIhsxj32CM7JEh70IzUZ3JVK3wHs3AJkQquw24/FOnUwgTIp
+	 5A4/d3hzg5+Pgf28tvYEeIqj5ICUxK22iapbs3x9TUsyuzn5yfIrQ9fojJ2ZI+anJ2
+	 PtuJ+THQn1jlQ==
+Subject: Re: [PATCH net v4 07/10] net: au1000: restore RX buffer addresses
+ when restarting the MAC
+From: netdev-bot+sashiko@kernel.org
+To: f.fainelli@gmail.com
+Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, hkallweit1@gmail.com,
+ linux@armlinux.org.uk, shaojijie@huawei.com, horms@kernel.org,
+ runyu.xiao@seu.edu.cn, mmyangfl@gmail.com, hvr@gnu.org,
+ danny.kukawka@bisect.de, mugunthanvnm@ti.com, sebastian.hesselbarth@gmail.com,
+ linux-kernel@vger.kernel.org, manuel.lauss@gmail.com
+Date: Wed, 25 Nov 2026 01:28:30 +0000
+Message-ID: <179557011055.3135.6140198422373932770@kernel.org>
+In-Reply-To: <20261121004809.1690280-8-f.fainelli@gmail.com>
+References: <20261121004809.1690280-8-f.fainelli@gmail.com>
+X-sashiko-severity: Low
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,79 +66,85 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261124130102.18807-1-jiangjiehua1@huawei.com>
 
-Hi Jiehua,
-On Tue, Nov 24, 2026 at 09:01:02PM +0800, JiangJieHua wrote:
-> In broadcast mode, bond_set_slave_arr() frees the usable_slaves argument
-> and returns early, but does not clear bond->usable_slaves.
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-Since the issue was introduced in bond_set_slave_arr(). Should we set
-the bond->usable_slaves to NULL here before return?
+Low priority / nit picks for your consideration:
 
-Thanks
-Hangbin
-> 
-> A mode change requires the bond to be down with no slaves.  When the
-> last slave is removed in balance-xor, balance-tlb or balance-alb,
-> bond_update_slave_arr() publishes an empty usable array, and later mode
-> changes do not clear it.  If the bond is switched to broadcast, the
-> stale pointer remains: bond_miimon_inspect() sees count == 0 and
-> ignores updelay for slaves enslaved while the stale array remains, and
-> bond_uninit() leaks the array.
-> 
-> Clear bond->usable_slaves when the mode is changed to broadcast.  The
-> bond is down and has no slaves at that point, so the array can be freed
-> and set to NULL before the bond is brought up again.  Broadcast never
-> publishes usable_slaves, so it stays NULL.
-> 
-> The issue was discovered by an AI code review agent and confirmed by
-> manual code inspection.  It was reproduced on mainline with virtme-ng;
-> no kernel modifications or error injection were needed.  With a dummy
-> slave and miimon=1:
-> 
->   ip link add bond0 type bond mode balance-xor miimon 1 updelay 1000
->   ip link add dummy0 type dummy
->   ip link set bond0 up
->   ip link set dummy0 master bond0
->   ip link set dummy0 nomaster
->   ip link set bond0 down
->   ip link set bond0 type bond mode broadcast
->   ip link set bond0 up
->   ip link set dummy0 master bond0
-> 
-> After the final enslavement, dummy0 comes up within 50 ms despite
-> updelay=1000 (20 of 20 runs on the unpatched kernel).  With the fix,
-> none of 300 runs skipped updelay.  The bonding mode-2 recovery-updelay
-> selftest passes on the same kernel.
-> 
-> Fixes: 45fc134bcfad ("bonding: do not set usable_slaves for broadcast mode")
-> Signed-off-by: JiangJieHua <jiangjiehua1@huawei.com>
-> ---
->  drivers/net/bonding/bond_options.c | 8 ++++++++
->  1 file changed, 8 insertions(+)
-> 
-> diff --git a/drivers/net/bonding/bond_options.c b/drivers/net/bonding/bond_options.c
-> index 9efadeff6a22..f65916444fa1 100644
-> --- a/drivers/net/bonding/bond_options.c
-> +++ b/drivers/net/bonding/bond_options.c
-> @@ -936,6 +936,14 @@ static int bond_option_mode_set(struct bonding *bond,
->  	WRITE_ONCE(bond->params.arp_validate, BOND_ARP_VALIDATE_NONE);
->  	WRITE_ONCE(bond->params.mode, newval->value);
+- [Low] In `au1000_init()`
+  (drivers/net/ethernet/amd/au1000_eth.c:727-728), the patch writes the…
+
+--
+
+net: au1000: restore RX buffer addresses when restarting the MAC
+
+The commit changes au1000_init() to reload each RX descriptor's buffer
+address from rx_db_inuse[] before setting RX_DMA_ENABLE. Before this,
+it only OR-ed in the enable bit on whatever address the DMA engine had
+left behind. That could make a receive after close/reopen start partway
+into its buffer.
+
+> diff --git a/drivers/net/ethernet/amd/au1000_eth.c b/drivers/net/ethernet/amd/au1000_eth.c
+> index ea2766343d518..ec28ed33bf698 100644
+> --- a/drivers/net/ethernet/amd/au1000_eth.c
+> +++ b/drivers/net/ethernet/amd/au1000_eth.c
+> @@ -724,7 +724,8 @@ static int au1000_init(struct net_device *dev)
 >  
-> +	if (newval->value == BOND_MODE_BROADCAST) {
-> +		struct bond_up_slave *usable;
-> +
-> +		usable = rtnl_dereference(bond->usable_slaves);
-> +		RCU_INIT_POINTER(bond->usable_slaves, NULL);
-> +		kfree_rcu(usable, rcu);
-> +	}
-> +
->  	/* When changing mode, the bond device is down, we may reduce
->  	 * the bond_bcast_neigh_enabled in bond_close() if broadcast_neighbor
->  	 * enabled in 8023ad mode. Therefore, only clear broadcast_neighbor
-> -- 
-> 2.33.8
-> 
+>  
+>  	for (i = 0; i < NUM_RX_DMA; i++)
+> -		aup->rx_dma_ring[i]->buff_stat |= RX_DMA_ENABLE;
+> +		writel(lower_32_bits(aup->rx_db_inuse[i]->dma_addr) |
+> +		       RX_DMA_ENABLE, &aup->rx_dma_ring[i]->buff_stat);
+
+[Severity: Low]
+This isn't a bug, but should this be a plain store, like the other
+accesses to buff_stat?
+
+The commit message says this matches the receive completion path.
+That path does a plain C assignment, not a writel():
+
+drivers/net/ethernet/amd/au1000_eth.c:au1000_rx() {
+    ...
+	prxd->buff_stat = lower_32_bits(pDB->dma_addr) | RX_DMA_ENABLE;
+    ...
+}
+
+au1000_probe() initializes the same field the same way:
+
+	aup->rx_dma_ring[i]->buff_stat = lower_32_bits(pDB->dma_addr);
+
+au1000_reset_mac_unlocked() and the reads in au1000_init() and
+au1000_rx() also use plain loads and stores.
+
+In au1000_eth.h, rx_dma_ring is declared without __iomem:
+
+	struct rx_dma *rx_dma_ring[NUM_RX_DMA];
+
+Passing &aup->rx_dma_ring[i]->buff_stat to writel() therefore gives a
+sparse different-address-space warning. It also means this one
+register is now accessed in two different styles.
+
+The driver already passes non-__iomem pointers to writel() for
+aup->mac and aup->enable. What this patch adds is the mixed accessor
+style on buff_stat.
+
+There's no runtime difference. MIPS_AU1X00_ENET depends on
+MIPS_ALCHEMY, which only supports little-endian, so writel() and the
+plain store write the same bits.
+
+Would a plain store match the surrounding code better, like this:
+
+	aup->rx_dma_ring[i]->buff_stat =
+		lower_32_bits(aup->rx_db_inuse[i]->dma_addr) | RX_DMA_ENABLE;
+
+The other option is to mark rx_dma_ring and tx_dma_ring as __iomem
+and convert every access to readl()/writel().
+
+>  
+>  	wmb(); /* drain writebuffer */
+>
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261121004809.1690280-1-f.fainelli%40gmail.com
