@@ -1,70 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.173
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795626824;
-	b=1zzlhji6Nni8wF+wn8ykGFW1ZRzY4u+VIjk5tzM9MRVP5wfnqrD3WNXSaJJ4RVdWL4mB
-	 0i0tXZQCpMsTdxEUOLFkGAPXSJKybkrTt88Ic8N9K/FnkXX8GpzB2Z8h5s0fNk/nPSNDN
-	 wbGvmkj1lxuQ7QsBIYO/vPzxFUJVd71fRorgCNnsovJ6SbQogz5iGNdFL0dcN4Q+E3BY1
-	 AxVwz1NHClTLdYt6duyE5gpBvpWAWMsv5UhG2XNISiqI+TjBbAgWn3JyP5H6Jf1472y5R
-	 LT6+5j/lx7Yse4fdZwwDlnn4zXdLcIl30HdKYgQLlPPf6YOuy54+fqAmohEvm5FEHMg==
+	t=1795626849;
+	b=qqOZQqmLvDXmojghZklAb0HRqEphQVzNffiTTztEFL7O7KMUcbSxFQnitBV/RIkzUBF5
+	 CcSBFZOpjMua86IfHhQ0QvgFtn44CRht++WTlTiu2la+UxLjxr66TKJl2X2rtLg3TZ2CN
+	 UnbSyzbjf/22itb9VCwUqRfB0KrUaJPgH3bmkEve+IBiSDSTr2Z/S6qVpmsC2Q6z0lVGb
+	 XdV+AndrjzGuGzKATEvA9EqP0dh5dLa9UiZ2/IEqvPk5H+Ll0fViq3Yhiq072VtEl1XRz
+	 pGku9t5896xywDX+N2K2RdDK19Xpa0OWU4ls7GEBxwkGkJknudHB97ENuPmTr9ok/kA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795626824;
-	h=DMARC-Filter:Date:DKIM-Signature:DKIM-Signature:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=iv+px21u03acEcz/Te2xTvJ8wZ/dIalo57maBeWzen4=;
-	b=a3P7/W4Ur/4qT0OJkJF8JXtlFtg/5pjC2dYy0nA3MDYMJL+TUe3la7DEwQvPoStcMtQv
-	 N+jhlEnhG6r+Z2NNM8YyhrrgAbuWScPWzHqGCzmnLpL4K2nZ1fhAgoUim1Cp5ZnjGv0X5
-	 OmC0Mt4ssUUS72e2JPp86Zn6G6Oslqz9nnbR+7ipgm0rlYKQS/EeZ0svMzeaOyjTmoJDV
-	 25excfR2PayxqptUhlJHrD9teUbXpVQj7hREAYOellahBE16rtmpdgCsGApTVzQdRBITZ
-	 hL0bmVu3BFR4/BpKlL2B5cdHaVWfyydRXPZuX86Kfp4YBMZ+JEV1Dt0H+vJ0iKq28aQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795626849;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=vi7Ga8AzaOEpzqmIG0jTgw8eJ4TgVhlTduBxELRLKlk=;
+	b=SBy2cgfCWFVu79eF/FfFe+xs2m2OGDqv/UqrYr60MI4+ug4hTodH/yrflhU9T43IpJVt
+	 Hp8c95wR1KEfY3yA1cXBNsVJIYng7uhhJdiSK8qFJbhZCnPHT9TnqYVfjHnP9bZJ22MTg
+	 sMTWz6onKnFXt/HKIgQSZjonMuLli9Hc2V1FnpApq0O/HZCwp13M6dTU/QdLUpPf9oM61
+	 tMiriaSN1c5RW/GkpQro323rVBtcPsVmi/03J6qAyI9YiN0inFWkMFztu9ng9sWaAXfKG
+	 mwUhv38RC0FK+dVttqpq9XZIxPWJWsCJxwEzsWaEvUDuMnQWO67hpA97IRTtklnhBrw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linutronix.de;
-	spf=pass smtp.mailfrom=linutronix.de;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=JeG4GVwh;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b="/tXzigM2";
-	arc=none smtp.remote-ip=193.142.43.55
-Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=oTkpIRp6;
+	arc=none smtp.remote-ip=209.85.215.173
+Received: from mail-pg1-f173.google.com (mail-pg1-f173.google.com [209.85.215.173])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 91641606A321;
-	Wed, 25 Nov 2026 17:13:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 91641606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2184A606A326
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 17:14:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2184A606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=JeG4GVwh;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=/tXzigM2
-Date: Wed, 25 Nov 2026 18:13:40 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1795626821;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=iv+px21u03acEcz/Te2xTvJ8wZ/dIalo57maBeWzen4=;
-	b=JeG4GVwh6hQPbU/WOqM54k0bb0Gs2JHILuryozuHJ4f/TgN4Sv1dL6D2JeUJYhWdZEpBED
-	utyyFvciF6exfzHVRSeAfm7eJF/owOT1mUz1tntsM1TsLkaqVLzYnAJ82ieJeQfGo8C6wK
-	qP5K7RJjYIWmpfjfV5HhIULdLLVQc+j2qlYuDhHzG8McWUVENv+oTTXypwg/3+owRnPaBF
-	epOR2vluDUeeKlf+dKmXuqaHQWdey7BgM9AbUj+vrOzpZJRZkpQk5SP6sD//4jaM835qNh
-	QVLx6f9kusviOHJyJmqIdGjjgxwVSI2a7WGkedWAUbI9sSRQUw17yQY4TDnhFA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1795626821;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=iv+px21u03acEcz/Te2xTvJ8wZ/dIalo57maBeWzen4=;
-	b=/tXzigM2fQGDch4K8anWVS1JgUpnvQjhFWwDLmOId17QOhxAwsIYvDbfwmka4+EcN+xkcB
-	CKLe34eqmgdhy5BA==
-From: "Ahmed S. Darwish" <darwi@linutronix.de>
-To: Zixin Wang <w1355457260@gmail.com>
-Cc: linux-doc@vger.kernel.org, linux-rt-devel@lists.linux.dev,
-	bigeasy@linutronix.de, frederic@kernel.org,
-	john.ogness@linutronix.de, clrkwllms@kernel.org,
-	rostedt@goodmis.org, corbet@lwn.net, wagi@monom.org,
-	atomlin@atomlin.com, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v6] Documentation: real-time: Add runtime tuning guide
-Message-ID: <awcXRDKtZJqNrhby@lx-t490>
-References: <20261125074658.33117-1-w1355457260@gmail.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=oTkpIRp6
+Received: by mail-pg1-f173.google.com with SMTP id 41be03b00d2f7-cdb1199bfd8so2825689a12.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 09:14:08 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795626848; x=1796231648; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=vi7Ga8AzaOEpzqmIG0jTgw8eJ4TgVhlTduBxELRLKlk=;
+        b=oTkpIRp6ca4AvCwdWImpn3mA0hDMjNB5LJqCpg/VPu2Dn2kn/JgZ5wqO7f4l04C7Ob
+         qYahaX8BB8CkoORfW3RbeoYWwBu2K8dlwk2ma8ltBhRH7OBqA9BU2yoYQqPQG6w8MnSY
+         d+wPwfU3o+TYJ3sCzwA8sAxzzUlg74UnTAwZt5SSr1MOBJaGt025TFdPgWLIELwQEnG4
+         WJ36OttRxq2E0KsE1Cd2qOp7VzlGfEGt8CODbpYY8IH0j+lb4X+xTqtoyj85pBTIUl5o
+         4TftDPObNSly8PNPmxDlv90cZ26khwRe+rVP6qBXtZMiX6RjQCLjQDYpbctv5WW4aaWc
+         khxA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795626848; x=1796231648;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=vi7Ga8AzaOEpzqmIG0jTgw8eJ4TgVhlTduBxELRLKlk=;
+        b=CXjdBEokrGxnoGjT9Jcpg6juAJBrPdUqwiah7h/KALDmmOdR4XGyJBrFcdbC4PUWvv
+         JHA5fy6XJseNOx8qzaj2Ixj8GLNKlKQG29ZhijJgXU1KXSIIsTbRiIla3dWXN6j+4m0o
+         5Gzyxwrrrbga1MtwIkXtbikLs79/xHllmkvm8OHSt2gjOPargUmnIRFieU2il1IETmrV
+         MJZS6sV3DMf4wNftZrmv5bxCVhe9YBMCDVpGYI7NBHOkQWXrNZC5huRj3dgag1aChPKc
+         vwAUHaOZBoScJvAb9sFyizf8o4mJNSz2oQJY6XuQiA8NTl/pga7eD6mA0g0fpdpsIIW5
+         Dbzg==
+X-Forwarded-Encrypted: i=1; AL+hErGVweWvTZroV01q/zN/UoRISCejJXZ+OC0jbiUOycO/kEXfX2SRy976W5nSgpFK7PHhCRg1E7ecOWOHFp0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/82yvzksmCF8bGRrn5Z2Pitoi65o379Q8AKNLm8GF07cwXhPZG
+	NRuaZFRJCb3R607x9LRl6iSLhNx1Ho6cWUlRZgt3H9pYC0SJ3EqvK8NO
+X-Gm-Gg: AZFdTZd0PYuMHgvhEWmF0Cbv8pOTwmGLN5jP7UZNZliJTZH4Pq2NEKNGjOaMorpSd9n
+	0R7Gtm8ONOis77K0clSfPb/StUDoLJ3xVrIV2UQPrzUQyNUgiehjIE3z9jWUa8QtNdVkVoYmgzR
+	YpXqYaFNWPHpe9qBS5g/jWK4S7mhyn+hiqg7rq4pBRCZ6doXREnzzruTAiQOvnuyvTPwJ4s8CfG
+	w2is9LOd16sNnCLrxiTxglDGOPIKGmS7raQY5LwMVjTGEL6EqsXlSfsJ2DOWludeYzwHkFscI6X
+	UUeiEk5mxx3oYpIh8HlenuMKU830Yy9NsvtM1tvA5mzMtVKXR0bmINPHzi1zMEWTr3Jl8Xja/xo
+	2xLXqsA+VKUU8qGp9BQ+uUXKtNVmrIFdsdA30dZB9nKHMAj8lo2EFjgsLrcw/M/QMHYJjq6Dw28
+	Y6QfpFQcLBbLzoxlcV2bXS43Gd14rpmvlVBe82KNNixc9Shvf0X/8GEICpWCFhyaHTmlMLM88LM
+	oYnWaG/ZlASANHpn9EveSqGkqMWnuMkw4M8m/hwr1kgavyDqMtvskIAzi20DJv0no1uB8yZRCm1
+	a4V7J0p2FViLONFq3Peks43CDA==
+X-Received: by 2002:a17:90b:2cce:b0:3b0:aaed:48d0 with SMTP id 98e67ed59e1d1-3b41c94ff49mr18412826a91.37.1795626848400;
+        Wed, 25 Nov 2026 09:14:08 -0800 (PST)
+Received: from localhost.localdomain ([2404:c140:2100:6::1b:9648])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad92c07sm28925368a91.13.2026.11.25.09.14.04
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Wed, 25 Nov 2026 09:14:08 -0800 (PST)
+From: Ding Feng <dingf3ng@gmail.com>
+To: Christian Brauner <brauner@kernel.org>
+Cc: Alexander Viro <viro@zeniv.linux.org.uk>,
+	Jan Kara <jack@suse.cz>,
+	Ian Kent <raven@themaw.net>,
+	Jeff Layton <jlayton@kernel.org>,
+	Kyuwon Cho <kyuwoncho18@gmail.com>,
+	linux-fsdevel@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] statmount: retry an overflowed seq buffer before any other check
+Date: Thu, 26 Nov 2026 01:13:48 +0800
+Message-ID: <20261125-statmount-retry-v2-1-dingf3ng@gmail.com>
+X-Mailer: git-send-email 2.55.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -74,16 +99,94 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261125074658.33117-1-w1355457260@gmail.com>
+Content-Transfer-Encoding: 8bit
 
-On Wed, 25 Nov 2026, Zixin Wang wrote:
->
-> v5 -> v6:
->   - Split runtime tuning out of kernel-configuration.rst into
->     runtime-tuning.rst, following Ahmed's review.
->   - Keep the CONFIG_* section anchors so kconfig-checker links stay
->     valid, and link to the new guide from the related options.
+statmount_string() checks whether the seq_file overflowed only after
+two earlier returns, and both can hide the overflow.
 
-Thanks!
+The size check runs first. After an overflow, seq->count equals
+seq->size, so every buffer of up to sizeof(struct statmount) +
+seq->size bytes gets -EOVERFLOW, and the retry with a larger seq buffer
+never runs. The result can still fit in such a buffer.
+statmount_mnt_root() and statmount_sb_source() write escaped strings
+and unescape them in place, so the escaped form can overflow the
+3 * PATH_MAX seq buffer while the final string is much shorter. A bind
+mount whose root is a 3765-byte path of spaces needs a 4.3 KiB buffer,
+but STATMOUNT_MNT_ROOT fails with -EOVERFLOW for every buffer up to
+12800 bytes and succeeds from 12801.
+
+The early return for a string that emits nothing runs before both. The
+NUL written after a string that ends one byte before the end of the seq
+buffer leaves seq->count == seq->size. The next string then emits
+nothing, and the early return drops it with no error and no retry. With
+a tmpfs mounted on a 12278-byte path, statmount() for
+STATMOUNT_FS_TYPE | STATMOUNT_MNT_ROOT | STATMOUNT_MNT_POINT |
+STATMOUNT_SB_SOURCE returns 0 without STATMOUNT_SB_SOURCE.
+
+Check for the overflow before both, so the string is regenerated in a
+larger seq buffer.
+
+Fixes: 68385d77c05b ("statmount: simplify string option retrieval")
+Fixes: 75ead69a7173 ("fs: don't let statmount return empty strings")
+Reported-by: Kyuwon Cho <kyuwoncho18@gmail.com>
+Closes: https://lore.kernel.org/all/179552693473.1490262.10477620788152048784@gmail.com/
+Suggested-by: Kyuwon Cho <kyuwoncho18@gmail.com>
+Assisted-by: Claude:claude-opus-5-5 Frama-C
+Signed-off-by: Ding Feng <dingf3ng@gmail.com>
+---
+
+Notes:
+    v2: move the check above the "seq->count == start" return as well,
+    which also fixes the dropped string Kyuwon found.
+    
+    v1: https://lore.kernel.org/all/20261120033644.99834-1-dingf3ng@gmail.com/
+    
+    Tested on v7.4-rc3 (65e4fd942), arm64 tinyconfig in QEMU:
+    
+      case                                          v7.4-rc3   v1         v2
+      STATMOUNT_MNT_ROOT, 3765-byte root of spaces,
+        bufsize 8192 or 12800                       EOVERFLOW  ok         ok
+        bufsize 4096                                EOVERFLOW  EOVERFLOW  EOVERFLOW
+      tmpfs on a 12278-byte path, SB_SOURCE         missing    missing    tmpfs
+      tmpfs on a 12276, 12277, 12279 or 12280-byte
+        path, SB_SOURCE                             tmpfs      tmpfs      tmpfs
+    
+    A plain bind mount gives the same results on all three (1024 ok, 512
+    EOVERFLOW).
+    
+    A string that legitimately emits nothing after a full seq buffer now
+    costs one retry, and a buffer too small for a string longer than the
+    seq buffer costs one or more retries before -EOVERFLOW.
+
+ fs/namespace.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/fs/namespace.c b/fs/namespace.c
+index aecd05ac0..3c41fd42c 100644
+--- a/fs/namespace.c
++++ b/fs/namespace.c
+@@ -5807,6 +5807,10 @@ static int statmount_string(struct kstatmount *s, u64 flag)
+ 		return -EINVAL;
+ 	}
+ 
++	/* signal a retry */
++	if (unlikely(seq_has_overflowed(seq)))
++		return -EAGAIN;
++
+ 	/*
+ 	 * If nothing was emitted, return to avoid setting the flag
+ 	 * and terminating the buffer.
+@@ -5818,10 +5822,6 @@ static int statmount_string(struct kstatmount *s, u64 flag)
+ 	if (kbufsize >= s->bufsize)
+ 		return -EOVERFLOW;
+ 
+-	/* signal a retry */
+-	if (unlikely(seq_has_overflowed(seq)))
+-		return -EAGAIN;
+-
+ 	if (ret)
+ 		return ret;
+ 
+-- 
+2.47.3
+
