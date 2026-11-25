@@ -1,72 +1,53 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.198
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.95.11.211
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795585037;
-	b=Ojezwnf9X20HctZ8wmpjAxn/LGsdEvaWybxAwb3KeAZ4udS2pun6XKhQllPlGsOCzjAP
-	 AhfwvUX+fWDDgXxA0cIYosQCeeiGFREcKGC2XPP7Nhh2704l+GMBcXf26LglN7dn2QAeM
-	 GlftNUQQAtoogzVwL7N4ZrgmnbHrlxqlTTzEcVb04lFN63dgjTZAuGqf21Rzp9tsSrb7U
-	 DusV3wvqKdJaSLib5e9R3blnNNNV+/7DKwmwFuYUPU4fYqE5Lx/o19CqCsqwu3DYGbnfU
-	 x8eH1P6FWwlHAKjBfv5Dsn3pyuUJYZQzWLCe6qnT97ztG7oyXwaFW4od8yzer2S6lXg==
+	t=1795585050;
+	b=T/ufclJZP3LDPqg8HhGW94Z6eBlAAPUZid1rRBBLFE46Mh4/jyMu2yr7XtLcAZP3Hi/Q
+	 tLohufUTLB1NI8sn9QQnFN58F5DcUGkbg6akJ6YpZpM140n0jfBntnD5W/GHnVgNwEBdL
+	 QSpuAa9kuasMJoIjfcyt8cLQo6BgYaL8b57zHXjEavW7c9pff/EOR+MqOdmkl4JK3thlz
+	 WnkeZeuNGRYjajDQ74yWHvtrtmEGHgnb+Ehgndn3XBRulPF7t63R9B2q6N9L1bdMLOgs1
+	 utlr0TtNf0mtLrwJEczfD+toNl4FFTUDBMGr4blFnVuEwOJ9WrIfheNRS+fcPtxv8RA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795585037;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
-	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=o3rc6H2PJBP0VEIUZixLOQruDmTF4QhjMKpNZAOYmo0=;
-	b=0FcDZOaG+m1Bao48nHBq9P4BVfZ2Nz0Bej58sxsOlRf/IFqJrLVbuIoj807jmWrfW9mP
-	 bFi6VjlWy09dOpvltkT3tCsbIvNe/oizCB8+q5sNqCKt3XEppVMsjHAt8/A5NPJKIC9TP
-	 yvq81qNteQEXalpVX6Ga01RRSE7JkmGvrWdfRnQvWzWuHT6wn7n+Nr5qu8eesJjaWmBmP
-	 lhhQWEkBFY8UMJqHDzYOkt+Ccb9+QYO1IxGtpg+G+y6Nf0shIX0LFiOmSHE7HPOv+1oEn
-	 iWvTRKtIC1MRRI1NBhYdF6OQBYx5yBjAADdHOpN+4jDenJSPWYNyiOPF5qv4r1pxO7Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795585050;
+	h=DMARC-Filter:Received:Date:From:To:Cc:Subject:Message-ID:References:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To:User-Agent;
+	bh=KExUYFfCttDOz9ZPR8Zh/4+eptBdQsoGj4ZqNQ9Fesc=;
+	b=mHcodu9ATcojvbnu6AAmls0g86uZ3hzNkpZ8Vsd4r419V1H1fh19Av/BuIEhCKIDFOsx
+	 i8g/G1bNXmA+Aojl4SUWDxQk382oMw8YbBufeb0sgScxpTRE+BhNjQReknbdMMuoGyZ9m
+	 ZIdt2PAZ0du3WadkgZzL/xTStwbGyJLRAXC6/iGgJF/1vj0WFwlgcqDOPUdF2KTBuUzyw
+	 fedxQ/+/R+3lc5uz2jrihOtrji+syQWB5KJDJpPOilDP9h6NK7YErrEyQe1fcMPzX/AdG
+	 IO4RN8D0AGPoLTDFqOAs1n3aiBIO0zb9QTPG10eTs6IHQJYDZPA7XMAgGCs3xBR/O+g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--akorn.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=FNoDj3W6;
-	arc=none smtp.remote-ip=209.85.214.198
-Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com [209.85.214.198])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=lst.de;
+	spf=pass smtp.mailfrom=lst.de;
+	arc=none smtp.remote-ip=213.95.11.211
+Received: from verein.lst.de (verein.lst.de [213.95.11.211])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 59802606A31E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 05:37:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 59802606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--akorn.bounces.google.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=FNoDj3W6
-Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-2f04053e460so44125065ad.2
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 21:37:16 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795585036; x=1796189836; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=o3rc6H2PJBP0VEIUZixLOQruDmTF4QhjMKpNZAOYmo0=;
-        b=FNoDj3W6jHuyyqt8pGsKEdYQuCJvnojzxuQDtySz0KjKhNdMzMjs34zC/skEIqk6AC
-         59m9p6OHnWL6Bs1ulXHMUOmDxrSc/NciZYi20oqp3+lSrVkmnX37+mVsQvsaa6Tv240Y
-         996EWNmzEn9cne7K51l22ZvIHYbd8bjO+636lGIWmugQye9TaI5t0AUUQ/jjrbgTJeRC
-         40a0QQtf3rVkmS5rOgj/1tbtNTCvU6LivlClOO5ODCPDy3eAthr5bA5DuBZF2vaz7d/z
-         YdYDiPVf/PGUrgHebaplf+yhb3elhiP+9fB37evg1HRMc4JBOnKBXDMEUY8EEPDx7QbY
-         561w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795585036; x=1796189836;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=o3rc6H2PJBP0VEIUZixLOQruDmTF4QhjMKpNZAOYmo0=;
-        b=tfa2lNwykqr0xf/0IVswjZ/OzT9mvMoIm3jd7jCuX3toZr38byvAs5bEaoSA2NQFHG
-         5yTwZjkOTus5swjUQy5E3eopCB5GKE0QG/h0JcohSXJvB2ABvoi1QdO5DgSwcGn8IrAB
-         UAIbhoF+Cmy5NOKQytLItVZrlKLOg9wqABsIYpJstYjvpZTOxEbd0PRUi81Zf1M9Sh4L
-         hApj9SQEgSu/TbJ3tnRklwiuSgL/JA5hzLhcvPk3S/QAVXs2DblNULy9xYcFMSZIf1K5
-         ZpRbTZR81LfsbyzonF2JNysVIe7d8v92vxKoacRMZu9tXZcYaG28mO+qMzaeJk44Op6q
-         u7zg==
-X-Forwarded-Encrypted: i=1; AL+hErHD/GYQtXQlsDhX0LGkGUmUpa0VEHS73RpYekPc8hbqKD+HTKXvKXbF8i2to8il6wxgUo6aR0VgzErVl80=@vger.kernel.org
-X-Gm-Message-State: APuU4Z80823Q6br/cOzd3ANHfrU3wcqHvSyUSTljr3CsuaKrufc6jN1p
-	634dBvFGWbU9Njn4f3i5pRyEVO3UExArndVe8xmiOj+xatlCDWF1tuktDvsqoJBZjRdXwKjYskZ
-	aMg==
-X-Received: from plig8.prod.google.com ([2002:a17:903:4588:b0:2f0:2206:68e8])
- (user=akorn job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:298d:b0:2e9:740c:36c
- with SMTP id d9443c01a7336-2f03f1ba67amr162001195ad.41.1795585035378; Tue, 24
- Nov 2026 21:37:15 -0800 (PST)
-Date: Wed, 25 Nov 2026 05:37:10 +0000
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8E4DA606A31E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 05:37:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8E4DA606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lst.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lst.de
+Received: by verein.lst.de (Postfix, from userid 2407)
+	id 5C82068AFE; Wed, 25 Nov 2026 06:37:24 +0100 (CET)
+Date: Wed, 25 Nov 2026 06:37:24 +0100
+From: Christoph Hellwig <hch@lst.de>
+To: Matthew Brost <matthew.brost@intel.com>
+Cc: Christoph Hellwig <hch@lst.de>, intel-xe@lists.freedesktop.org,
+	dri-devel@lists.freedesktop.org, linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org, Hugh Dickins <hughd@google.com>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Christian Koenig <christian.koenig@amd.com>,
+	Huang Rui <ray.huang@amd.com>,
+	Matthew Auld <matthew.auld@intel.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>
+Subject: Re: [PATCH 1/2] mm/shmem: add shmem_backup_folio() helper
+Message-ID: <20261125053724.GC20407@lst.de>
+References: <20260721174723.1039395-1-matthew.brost@intel.com> <20260722094350.GA1057@lst.de> <amEj8GO4sz1Be5pa@gsse-cloud1.jf.intel.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,143 +56,190 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.56.1.831.g720f3f5937-goog
-Message-ID: <20261125053711.3098007-1-akorn@google.com>
-Subject: [PATCH] hwmon: (pmbus) Fall back to CLEAR_FAULTS when STATUS_CML is read-only
-From: Arthur Korn <akorn@google.com>
-To: Guenter Roeck <linux@roeck-us.net>
-Cc: linux-hwmon@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Arthur Korn <akorn@google.com>
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <amEj8GO4sz1Be5pa@gsse-cloud1.jf.intel.com>
+User-Agent: Mutt/1.5.17 (2007-11-01)
 
-Some PMBus 1.2 devices (such as ADI ADM1273 and ADM1281) report
-PMBUS_REVISION = 0x22 and implement STATUS_CML (0x7e) as read-only:
-they ACK SMBus byte writes to PMBUS_STATUS_CML without clearing latched
-fault bits, and only clear STATUS_CML via CLEAR_FAULTS (0x03).
+Just trying to bring this up again as we're having a discussion on
+the other shmem abuse in i915, so this reminded me of this discussion
+where AFAICS we still haven't made in progress.
 
-During pmbus_init_common(), probing an unsupported register such as
-PMBUS_WRITE_PROTECT (0x10) latches PB_CML_FAULT_INVALID_COMMAND in
-STATUS_CML. When pmbus_clear_cml_fault() writes to PMBUS_STATUS_CML and
-sees ret == 0, PB_CML_FAULT_INVALID_COMMAND remains latched, causing
-subsequent pmbus_check_status_cml() calls during attribute discovery to
-fail with -EIO.
-
-Verify on non-write-protected devices that PB_CML_FAULT_INVALID_COMMAND
-and PB_CML_FAULT_INVALID_DATA actually cleared when a CML fault is
-expected or cleared unconditionally. If either bit remains set after the
-write, disable STATUS_CML write-1-to-clear for the device and fall back
-to pmbus_clear_fault_page(). Skipping the readback on supported register
-probes (rv >= 0) avoids extra SMBus traffic in the common path.
-
-Tested on BMC hardware across 130 hwmon devices including 4x ADI
-ADM1273-1A (adm1275), Renesas RAA228234 (isl68137), Infineon XDPE1A2G5B
-(tda38740), ADI ADM1266, and factory write-protected converters,
-verifying clean ADM1273-1A probe/re-bind fallback to CLEAR_FAULTS and
-preservation of companion STATUS_CML fault bits on W1C-capable VRs.
-
-Fixes: d9d30e1cb9ca ("hwmon: (pmbus) Clear only CML command and data faults during probe")
-Signed-off-by: Arthur Korn <akorn@google.com>
----
- drivers/hwmon/pmbus/pmbus_core.c | 40 ++++++++++++++++++++++----------
- 1 file changed, 28 insertions(+), 12 deletions(-)
-
-diff --git a/drivers/hwmon/pmbus/pmbus_core.c b/drivers/hwmon/pmbus/pmbus_core.c
-index 2772860..82dfa82 100644
---- a/drivers/hwmon/pmbus/pmbus_core.c
-+++ b/drivers/hwmon/pmbus/pmbus_core.c
-@@ -727,15 +727,31 @@ void pmbus_clear_faults(struct i2c_client *client)
- }
- EXPORT_SYMBOL_NS_GPL(pmbus_clear_faults, "PMBUS");
- 
--static void pmbus_clear_cml_fault(struct i2c_client *client, int page)
-+#define PB_CML_FAULT_CLEAR_MASK	(PB_CML_FAULT_INVALID_COMMAND | \
-+				 PB_CML_FAULT_INVALID_DATA)
-+
-+static void pmbus_clear_cml_fault(struct i2c_client *client, int page,
-+				  bool verify)
- {
- 	struct pmbus_data *data = i2c_get_clientdata(client);
-+	int ret;
-+
-+	if (data->has_status_cml) {
-+		ret = _pmbus_write_byte_data(client, page, PMBUS_STATUS_CML,
-+					     PB_CML_FAULT_CLEAR_MASK);
-+		if (ret >= 0 && verify &&
-+		    !(data->flags & PMBUS_WRITE_PROTECTED)) {
-+			ret = _pmbus_read_byte_data(client, page,
-+						    PMBUS_STATUS_CML);
-+			if (ret >= 0 && (ret & PB_CML_FAULT_CLEAR_MASK))
-+				ret = -EIO;
-+		}
-+		if (ret >= 0)
-+			return;
-+		data->has_status_cml = false;
-+	}
- 
--	if (!data->has_status_cml ||
--	    _pmbus_write_byte_data(client, page, PMBUS_STATUS_CML,
--				   PB_CML_FAULT_INVALID_COMMAND |
--				   PB_CML_FAULT_INVALID_DATA) < 0)
--		pmbus_clear_fault_page(client, page);
-+	pmbus_clear_fault_page(client, page);
- }
- 
- void pmbus_clear_cml_faults(struct i2c_client *client)
-@@ -744,7 +760,7 @@ void pmbus_clear_cml_faults(struct i2c_client *client)
- 	int i;
- 
- 	for (i = 0; i < data->info->pages; i++)
--		pmbus_clear_cml_fault(client, i);
-+		pmbus_clear_cml_fault(client, i, true);
- }
- EXPORT_SYMBOL_NS_GPL(pmbus_clear_cml_faults, "PMBUS");
- 
-@@ -776,7 +792,7 @@ static bool pmbus_check_register(struct i2c_client *client,
- 	if (rv < 0 && (data->flags & PMBUS_READ_STATUS_AFTER_FAILED_CHECK))
- 		data->read_status(client, -1);
- 	if (reg < PMBUS_VIRT_BASE)
--		pmbus_clear_cml_fault(client, -1);
-+		pmbus_clear_cml_fault(client, -1, rv < 0);
- 	return rv >= 0;
- }
- 
-@@ -793,7 +809,7 @@ static bool pmbus_check_status_register(struct i2c_client *client, int page)
- 			status = -EIO;
- 	}
- 
--	pmbus_clear_cml_fault(client, -1);
-+	pmbus_clear_cml_fault(client, -1, status < 0);
- 	return status >= 0;
- }
- 
-@@ -821,7 +837,7 @@ static bool __maybe_unused pmbus_check_block_register(struct i2c_client *client,
- 		rv = pmbus_check_status_cml(client);
- 	if (rv < 0 && (data->flags & PMBUS_READ_STATUS_AFTER_FAILED_CHECK))
- 		data->read_status(client, -1);
--	pmbus_clear_cml_fault(client, -1);
-+	pmbus_clear_cml_fault(client, -1, rv < 0);
- 	return rv >= 0;
- }
- 
-@@ -3094,7 +3110,7 @@ static int pmbus_init_common(struct i2c_client *client, struct pmbus_data *data,
- 	if (data->info->pages)
- 		pmbus_clear_cml_faults(client);
- 	else
--		pmbus_clear_cml_fault(client, -1);
-+		pmbus_clear_cml_fault(client, -1, true);
- 
- 	if (info->identify) {
- 		ret = (*info->identify)(client, info);
-@@ -3742,7 +3758,7 @@ static int pmbus_write_smbalert_mask(struct i2c_client *client, u8 page, u8 reg,
- 	 * Clear fault systematically in case writing PMBUS_SMBALERT_MASK
- 	 * is not supported by the chip.
- 	 */
--	pmbus_clear_cml_fault(client, page);
-+	pmbus_clear_cml_fault(client, page, true);
- 
- 	return ret;
- }
--- 
-2.56.1.750.gf70dc682cf-goog
-
+On Wed, Jul 22, 2026 at 01:11:28PM -0700, Matthew Brost wrote:
+> On Wed, Jul 22, 2026 at 11:43:50AM +0200, Christoph Hellwig wrote:
+> > On Tue, Jul 21, 2026 at 10:47:22AM -0700, Matthew Brost wrote:
+> > > Add a new generic helper, shmem_backup_folio(), that copies the pages
+> > > of an arbitrary source folio into a range of a shmem-backed file,
+> > > optionally issuing writeback for each destination folio. It is
+> > > extracted from drivers/gpu/drm/ttm's existing shmem-backup loop so
+> > > that other subsystems (starting with TTM in a follow-up patch) can
+> > > share the same implementation.
+> > 
+> > Hmm, what is the difference to just doing a ITER_BVEC write with a bvec
+> > containing the folio for this the pure write to shmem part of this?
+> 
+> Thanks for the pointer here. I'm somewhat ignorant of filesystem-related
+> details.
+> 
+> There is slightly less GFP control since kernel reserves can't be dipped
+> into for the forward process, but perhaps that doesn't matter. There are
+> also slightly different locking chains (more on that below).
+> 
+> > 
+> > You'd probably want a kernel_write_iter helper wrapping
+> > __kernel_write_iter for the writecount, but otherwise this sounds
+> > like a normal write.
+> > 
+> 
+> I tried writing a `kernel_write_iter()` wrapper around
+> __kernel_write_iter() that performs file_start_write()/file_end_write(),
+> as suggested by the comment above __kernel_write_iter(), but lockdep
+> [1] isn't happy. 
+> 
+> We have a hard requirement in DRM to shrink under dma-resv locks which
+> creates the circle:
+> 
+> pipe->mutex -> mmap_lock -> dma_resv -> sb_writers -> pipe->mutex
+> 
+> If I simply export __kernel_write_iter(), bypassing
+> file_start_write()/file_end_write() and therefore bypassing sb_writers,
+> this seems to work.
+> 
+> I think this is safe for shmem files, but it's difficult to say with
+> 100% certainty given my lack of filesystem knowledge, or whether
+> exposing a dangerous low-level bypass function for files would be
+> acceptable.
+> 
+> > We'd want something for the writeback part, preferably a purely
+> > range based API to be generic.
+> 
+> I found filemap_fdatawrite_range for this part.
+> 
+> Matt
+> 
+> [1] Lockdep splat:
+> 
+> [  105.374023] ======================================================
+> [  105.375386] WARNING: possible circular locking dependency detected
+> [  105.375396] 7.2.0-rc4-xe-01637-g40a493568fe3 #1290 Not tainted
+> [  105.375406] ------------------------------------------------------
+> [  105.375416] cat/3121 is trying to acquire lock:
+> [  105.375425] ffff888105677460 (&pipe->mutex){+.+.}-{3:3}, at: iter_file_splice_write+0xb9/0x550
+> [  105.375444]
+>                but task is already holding lock:
+> [  105.375453] ffff888112889420 (sb_writers#5){.+.+}-{0:0}, at: __do_splice+0xc4/0x180
+> [  105.375468]
+>                which lock already depends on the new lock.
+> 
+> [  105.375480]
+>                the existing dependency chain (in reverse order) is:
+> [  105.375492]
+>                -> #3 (sb_writers#5){.+.+}-{0:0}:
+> [  105.375503]        kernel_write_iter+0xaa/0x270
+> [  105.375513]        ttm_backup_backup_folio+0x95/0x130 [ttm]
+> [  105.375529]        ttm_pool_backup+0x376/0x560 [ttm]
+> [  105.375541]        ttm_tt_backup+0x32/0x60 [ttm]
+> [  105.375552]        ttm_bo_shrink+0x76/0x140 [ttm]
+> [  105.375564]        xe_bo_shrink+0x19e/0x290 [xe]
+> [  105.375642]        __xe_shrinker_walk+0xfb/0x310 [xe]
+> [  105.375803]        xe_shrinker_walk+0x36/0xc0 [xe]
+> [  105.375885]        xe_shrinker_scan+0x110/0x1e0 [xe]
+> [  105.376067]        do_shrink_slab+0x151/0x6c0
+> [  105.376076]        shrink_slab+0x140/0x8b0
+> [  105.376083]        drop_slab+0x3e/0x90
+> [  105.376092]        drop_caches_sysctl_handler+0x74/0xc0
+> [  105.376102]        proc_sys_call_handler+0x16c/0x230
+> [  105.376112]        vfs_write+0x3ae/0x560
+> [  105.376119]        ksys_write+0x66/0xe0
+> [  105.376127]        do_syscall_64+0xca/0x540
+> [  105.376136]        entry_SYSCALL_64_after_hwframe+0x76/0x7e
+> [  105.376146]
+>                -> #2 (reservation_ww_class_mutex){+.+.}-{3:3}:
+> [  105.376159]        __ww_mutex_lock.constprop.0+0xca/0x1960
+> [  105.376170]        ww_mutex_lock_interruptible+0x26/0x90
+> [  105.376180]        xe_gem_object_mmap+0x1d/0x120 [xe]
+> [  105.376241]        drm_gem_mmap_obj+0x6c/0x190 [drm]
+> [  105.376417]        drm_gem_mmap+0x44/0xb0 [drm]
+> [  105.376446]        __mmap_region+0x8d0/0x10b0
+> [  105.376453]        mmap_region+0x157/0x180
+> [  105.376459]        do_mmap+0x4fb/0x660
+> [  105.376467]        vm_mmap_pgoff+0xae/0x190
+> [  105.376473]        ksys_mmap_pgoff+0x15e/0x200
+> [  105.376480]        do_syscall_64+0xca/0x540
+> [  105.376486]        entry_SYSCALL_64_after_hwframe+0x76/0x7e
+> [  105.376494]
+>                -> #1 (&mm->mmap_lock){++++}-{3:3}:
+> [  105.376503]        __might_fault+0x4a/0x70
+> [  105.376509]        _copy_from_iter+0x4a/0x740
+> [  105.376517]        copy_page_from_iter+0x7a/0x100
+> [  105.376524]        anon_pipe_write+0x30f/0x7e0
+> [  105.376531]        vfs_write+0x43c/0x560
+> [  105.376537]        ksys_write+0xbc/0xe0
+> [  105.376543]        do_syscall_64+0xca/0x540
+> [  105.376549]        entry_SYSCALL_64_after_hwframe+0x76/0x7e
+> [  105.376556]
+>                -> #0 (&pipe->mutex){+.+.}-{3:3}:
+> [  105.376565]        __lock_acquire+0x13c1/0x2400
+> [  105.376573]        lock_acquire+0xcb/0x310
+> [  105.376822]        __mutex_lock+0x9d/0x10f0
+> [  105.377067]        iter_file_splice_write+0xb9/0x550
+> [  105.377311]        do_splice+0x360/0x9f0
+> [  105.377551]        __do_splice+0xc4/0x180
+> [  105.377786]        __x64_sys_splice+0x89/0x110
+> [  105.378022]        do_syscall_64+0xca/0x540
+> [  105.378255]        entry_SYSCALL_64_after_hwframe+0x76/0x7e
+> [  105.378500]
+>                other info that might help us debug this:
+> 
+> [  105.379182] Chain exists of:
+>                  &pipe->mutex --> reservation_ww_class_mutex --> sb_writers#5
+> 
+> [  105.379856]  Possible unsafe locking scenario:
+> 
+> [  105.380297]        CPU0                    CPU1
+> [  105.380517]        ----                    ----
+> [  105.380736]   rlock(sb_writers#5);
+> [  105.380954]                                lock(reservation_ww_class_mutex);
+> [  105.381174]                                lock(sb_writers#5);
+> [  105.381393]   lock(&pipe->mutex);
+> [  105.381609]
+>                 *** DEADLOCK ***
+> 
+> [  105.382240] 1 lock held by cat/3121:
+> [  105.382452]  #0: ffff888112889420 (sb_writers#5){.+.+}-{0:0}, at: __do_splice+0xc4/0x180
+> [  105.382675]
+>                stack backtrace:
+> [  105.383108] CPU: 10 UID: 0 PID: 3121 Comm: cat Not tainted 7.2.0-rc4-xe-01637-g40a493568fe3 #1290 PREEMPT(full)
+> [  105.383110] Hardware name: Intel Corporation Raptor Lake Client Platform/RPL-S ADP-S DDR5 UDIMM CRB, BIOS RPLSFWI1.R00.5045.A00.2401260733 01/26/2024
+> [  105.383111] Call Trace:
+> [  105.383111]  <TASK>
+> [  105.383112]  dump_stack_lvl+0x82/0xd0
+> [  105.383115]  print_circular_bug+0x2d2/0x400
+> [  105.383116]  check_noncircular+0x12d/0x150
+> [  105.383117]  ? kernel_text_address+0x5b/0xc0
+> [  105.383121]  __lock_acquire+0x13c1/0x2400
+> [  105.383123]  lock_acquire+0xcb/0x310
+> [  105.383124]  ? iter_file_splice_write+0xb9/0x550
+> [  105.383126]  __mutex_lock+0x9d/0x10f0
+> [  105.383128]  ? iter_file_splice_write+0xb9/0x550
+> [  105.383128]  ? _raw_spin_unlock_irqrestore+0x41/0x70
+> [  105.383130]  ? iter_file_splice_write+0xb9/0x550
+> [  105.383131]  ? __kmalloc_noprof+0x3e0/0x5b0
+> [  105.383133]  ? iter_file_splice_write+0xa3/0x550
+> [  105.383134]  ? iter_file_splice_write+0xb9/0x550
+> [  105.383135]  iter_file_splice_write+0xb9/0x550
+> [  105.383138]  do_splice+0x360/0x9f0
+> [  105.383139]  __do_splice+0xc4/0x180
+> [  105.383141]  __x64_sys_splice+0x89/0x110
+> [  105.383142]  do_syscall_64+0xca/0x540
+> [  105.383144]  entry_SYSCALL_64_after_hwframe+0x76/0x7e
+> [  105.383145] RIP: 0033:0x5601751088ae
+> [  105.383146] Code: 55 48 89 e5 53 49 89 f0 8b 3f 31 db 48 ba 01 00 00 00 00 00 00 00 4d 85 c0 74 3e b8 13 01 00 00 31 f6 45 31 d2 45 31 c9 0f 05 <48> 3d 01 f0 ff ff 0f 9d c1 48 85 c0 40 0f 98 c6 40 84 f1 75 05 49
+> [  105.383147] RSP: 002b:00007ffdccdc35f8 EFLAGS: 00000246 ORIG_RAX: 0000000000000113
+> [  105.383148] RAX: ffffffffffffffda RBX: 0000000000000000 RCX: 00005601751088ae
+> [  105.383149] RDX: 0000000000000001 RSI: 0000000000000000 RDI: 0000000000000009
+> [  105.383150] RBP: 00007ffdccdc3600 R08: 000000000000013e R09: 0000000000000000
+> [  105.383150] R10: 0000000000000000 R11: 0000000000000246 R12: 000000000000000a
+> [  105.383151] R13: 00007ffdccdd36c0 R14: 00000000001a02ef R15: 00007ffdccdd36d0
+---end quoted text---
