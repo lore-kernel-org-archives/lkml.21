@@ -1,63 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.182.83.82
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.38.64.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795594324;
-	b=w/MDUlK0kbU3UGyvZKazJySbWXkSm7zJPcvAhuqnWwrFY3A2jRv5/citDqjzAaV0CSeO
-	 CWHnoFkcRcbjAyLLCnFeE35ZdZ8qcmuQNgxeUtXoIRINVYiL28Aw0r3r6zYfvwMpGvIn5
-	 zEJQdZ88obDTUQRTWfLIsdUycz7t8lXrAA6mnZ/0O6EgV0DMfPCXdgBy5QaFUlRfY5Mar
-	 aLEuvtVnkmNno53IJkKKfsVoP7X9AUR8nigFYsZb4ziKhnPkXB/51Zd4JDuA4PT7M4UpZ
-	 dptlyu6nC3kAH7v0sckANuom8Xsntpv4fx1hbn6c3eYAX3rF4qTnYP2o1s+3rwLGA5g==
+	t=1795594358;
+	b=BBlcVh4+F1B5m8gWNBp34f6DPHjh4pLAQ/0M2N3bg3hljIYuTzfgufb5nEI1q0nyLenW
+	 IR+3x3kr7gLPFUuBPyLPbAkmQQ+P8w/NcjiLWfANhThJ5PWiWspSLdkZNxehLhdkeN6HQ
+	 YByThmzCcWZLivFVijzeY9kMKM5D9VtaVsV2IVfSIjcmuPEBy8mu80maWpq14ByiKFjMZ
+	 kBr+GHFfpr49wuS5pz8AFx84UselbHOPbEKGa0vedWLtAbw1QVUR5ouIgYOvrIF0Dbhzo
+	 UQ5e2PhHh10lTyaCkmvvr74v3bcH73uGeoguuk8/z9WCt+hoJaTsP5ORPcx/55iEJgQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795594324;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Subject:Date:User-Agent:
-	 Cc:References:In-Reply-To:X-KMail-QuotePrefix:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Content-Disposition:
-	 Message-Id;
-	bh=a9qCTY1NIGw5UGhEXJKljT597rhRErhlO3rB4TkUTFA=;
-	b=seOXwGz8om6Z9jbFgtfWMEahvHDahf7Hkm61bYejFp7UHa4K9YHbcWVVEoOHGcGVe4wQ
-	 FPZnsp65PDI8aLiK1EtAC7o3FbLNp7EBncsrx75yKxgPs34xlMz4tTKsOHwNcOvalHw+E
-	 RQozxIARDaA8FdXlQazEdJDttbIdhhFFrQeU2BUh4UBctaMKsqHYMnGroJoDT7JWRy1DZ
-	 SnBbmXQ+mvmmQ5tC9WOZNnymaJYZqH78aEfMYYJPLxBjhrDXWBJzbBVj90bGrFcHtghcQ
-	 6ZViYciiZWbzRHyaaH+f7v458ucdqBXhNHKNeLyAoFzXu88Isf3YAb+4gD1EvuJc5IA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795594358;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
+	 X-CM-SenderInfo;
+	bh=MIK5lgowHa9HZQL7wgJvDpM5vWQ0IauK2t5++KMPc2I=;
+	b=Cs0jv77+ilNdHd6ZPshrRTPBEdviZ8QMOT7a+AIOIkjMxdil0znaCp5dUpdCYq4CVEvT
+	 q3YjMYXWo347uXX4UFIpFfqwNjtOknZajaPe6+y8hWwjQ3gNaLALHqn/WXbCBdEitFT6D
+	 nZBJ6kZ/E2bf/MtHyfx/ypu+nWJGDwTi/C2gY+gSaBuRIS1hphniu06ZXpT6+TGjTujjw
+	 zGUE4DFx8iWvrZ7hjrHe5icvR270ZJmS79QUOJaxwMdpy1AMJGGdeq6XirrTgsoIi5o+0
+	 CTVS7OfALxwXVo+k3ApLzt0y9CiDn2MxePJ6zEobeDD1NmpgovVjRKLovIiebep4L2A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=zary.sk;
-	spf=pass smtp.mailfrom=zary.sk;
-	dkim=pass header.d=zary.sk header.i=@zary.sk header.a=rsa-sha256 header.s=key1 header.b=hatQUuGD;
-	arc=none smtp.remote-ip=194.182.83.82
-Received: from mail.zary.sk (mail.zary.sk [194.182.83.82])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1AEA6606A332;
-	Wed, 25 Nov 2026 08:12:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1AEA6606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=zary.sk
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=zary.sk
+	dmarc=pass header.from=mail.ustc.edu.cn;
+	spf=pass smtp.mailfrom=mail.ustc.edu.cn;
+	dkim=pass header.d=mail.ustc.edu.cn header.i=@mail.ustc.edu.cn header.a=rsa-sha256 header.s=dkim header.b=V6O2nI7C;
+	arc=none smtp.remote-ip=202.38.64.46
+Received: from ustc.edu.cn (smtp.ustc.edu.cn [202.38.64.46])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 97C16606A326;
+	Wed, 25 Nov 2026 08:12:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 97C16606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mail.ustc.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mail.ustc.edu.cn
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=zary.sk header.i=@zary.sk header.a=rsa-sha256 header.s=key1 header.b=hatQUuGD
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=zary.sk; s=key1;
-	t=1795594320; bh=RMmrCVOEy+6SVAfkNAe3euV4rQK+MMDlmmzYe/4R6bY=;
-	h=From:To:Subject:Date:Cc:References:In-Reply-To:From;
-	b=hatQUuGDmaB7PdUK8DSbUacNuSTI+OXqFAzq5AKO8bGRXJ2eetVAMu7Jo2OVAzbIn
-	 SzqKdtzUlWTM+5gWZiF7dpTfFMr/2oAxwc7pG3vMWdvYVZHj32UGh7CGiifLtEL13t
-	 QPFWH7JvoZOANcmqxicqMoQKYAJPXJ09EQ3BUL5z8mhkOypcC+lh13A7rCrVcBczb5
-	 tG+ZQ3JtFr33lnN+6L9ovRmVH1W6Q+iYnCB6c6eI6QF/wGp4Vu8E4aC9IiW47YSprL
-	 LmN12ExRkhw7a+W34cjm4iJcu78pZIN3Pm/M4e50kKJAA84+G30mThQNt78UJ63oUj
-	 nV9E5yx2d6otA==
-Received: from [192.168.1.3] (mail.gsystem.sk [37.58.14.130])
-	by mail.zary.sk (Postfix) with ESMTPSA id 29F2CBED51;
-	Wed, 25 Nov 2026 09:12:00 +0100 (CET)
-From: Ondrej Zary <linux@zary.sk>
-To: linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3] Introduce Synology x86 NAS LEDs driver
-Date: Wed, 25 Nov 2026 09:11:51 +0100
-User-Agent: KMail/1.9.10
-Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Hans de Goede <hansg@kernel.org>,
- Ilpo =?iso-8859-1?q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
- platform-driver-x86@vger.kernel.org
-References: <20261124125616.1168560-1-linux@zary.sk> <202611241954.47791.linux@zary.sk> <awXv4b3cjVlOc0NT@ashevche-desk.local>
-In-Reply-To: <awXv4b3cjVlOc0NT@ashevche-desk.local>
-X-KMail-QuotePrefix: > 
+	dkim=pass (1024-bit key) header.d=mail.ustc.edu.cn header.i=@mail.ustc.edu.cn header.a=rsa-sha256 header.s=dkim header.b=V6O2nI7C
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=mail.ustc.edu.cn; s=dkim; h=Received:From:To:Cc:Subject:Date:
+	Message-ID:In-Reply-To:References:MIME-Version:
+	Content-Transfer-Encoding; bh=MIK5lgowHa9HZQL7wgJvDpM5vWQ0IauK2t
+	5++KMPc2I=; b=V6O2nI7CFvd4QxIZpsYrTuWoA16elDl7Yh41Z3eU6HH7VHuN9z
+	HhIsgKRc5IZ5PKwNLgmYRPGajAIsGboJswH/4adQOhuxze/jwODwXA5u1ESxfKvE
+	ki+DqWSeRPPbmA01GLNvSiaDaNXe6JC4MR+eouCqDP+R0nTSf6JcuOWGw=
+Received: from xuqianhui.ustc.edu.cn (unknown [114.214.177.196])
+	by mailimap2024 (Coremail) with SMTP id 3pYKCgAXo0djmAZrB3r2AA--.2433S3;
+	Wed, 25 Nov 2026 16:12:27 +0800 (CST)
+From: Qianhui Xu <xiaqinghuan@mail.ustc.edu.cn>
+To: Thinh.Nguyen@synopsys.com
+Cc: gregkh@linuxfoundation.org,
+	linux-usb@vger.kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v15 1/3] dt-bindings: usb: snps,dwc3: describe two connectors on one HS data bus
+Date: Wed, 25 Nov 2026 16:12:17 +0800
+Message-ID: <20261125081219.3661014-2-xiaqinghuan@mail.ustc.edu.cn>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261125081219.3661014-1-xiaqinghuan@mail.ustc.edu.cn>
+References: <20261125081219.3661014-1-xiaqinghuan@mail.ustc.edu.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,134 +66,195 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: Text/Plain;
-  charset="iso-8859-1"
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-Message-Id: <202611250911.51673.linux@zary.sk>
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:3pYKCgAXo0djmAZrB3r2AA--.2433S3
+X-Coremail-Antispam: 1UD129KBjvJXoWxtFyrXF4xCw4rXr1rXFW7XFb_yoWxGFy8pF
+	ZxtFs7tF4qgryfA3srAF18Cwn3KF4kJrnrJrnrGr1UZa13Wr1rXa13K3sYqFyUCF92va4a
+	ka4qg3W7Xw17CFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUBSb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26ryj6rWUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI
+	8067AKxVWUGwA2048vs2IY020Ec7CjxVAFwI0_JFI_Gr1l8cAvFVAK0II2c7xJM28CjxkF
+	64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVWDJVCq3wA2z4x0Y4vE2Ix0cI8IcV
+	CY1x0267AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv
+	6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c
+	02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE
+	4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82
+	IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC2
+	0s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMI
+	IF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF
+	0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87
+	Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjxUgm9-UUUUU
+X-CM-SenderInfo: 50ld1x5qjk3t3q6ptxnoox23vfohv3gofq/
 
-On Tuesday 24 November 2026, Andy Shevchenko wrote:
-> On Tue, Nov 24, 2026 at 07:54:47PM +0100, Ondrej Zary wrote:
-> > On Tuesday 24 November 2026 18:03:00 Andy Shevchenko wrote:
-> > > On Tue, Nov 24, 2026 at 01:45:46PM +0100, Ondrej Zary wrote:
-> 
-> ...
-> 
-> > > > +struct synology_pci_dev {
-> > > > +	unsigned int bus;
-> > > > +	unsigned int devfn;
-> > > > +	struct pci_device_id id;
-> > > > +};
-> > > > +
-> > > > +/* onboard PCI devices found in DS411+ to confirm the machine type (after DMI match) */
-> > > > +static const struct synology_pci_dev ds411plus_pci_devices[] __initconst = {
-> > > > +	/* 00:00.0 Host bridge: Intel Corporation Atom Processor D4xx/D5xx/N4xx/N5xx DMI Bridge */
-> > > > +	{ 0, PCI_DEVFN(0, 0), { PCI_DEVICE_SUB(PCI_VENDOR_ID_INTEL, 0xa000,
-> > > > +					       PCI_VENDOR_ID_INTEL, 0xa000) } },
-> > > > +	/* 00:1f.0 ISA bridge: Intel Corporation 82801IR (ICH9R) LPC Interface Controller */
-> > > > +	{ 0, PCI_DEVFN(0x1f, 0), { PCI_DEVICE_SUB(PCI_VENDOR_ID_INTEL, 0x2916,
-> > > > +						  PCI_VENDOR_ID_INTEL, 0x2916) } },
-> > > 
-> > > > +	/* 02:00.0 Mass storage controller: Silicon Image, Inc. SiI 3531 Serial ATA Controller */
-> > > > +	{ 2, PCI_DEVFN(0x00, 0), { PCI_DEVICE_SUB(PCI_VENDOR_ID_CMD, 0x3531,
-> > > > +						  PCI_VENDOR_ID_CMD, 0x3531) } },
-> > > > +	/* 03:00.0 Ethernet controller: Intel Corporation 82574L Gigabit Network Connection */
-> > > > +	{ 3, PCI_DEVFN(0x00, 0), { PCI_DEVICE_SUB(PCI_VENDOR_ID_INTEL, 0x10d3,
-> > > > +						  PCI_VENDOR_ID_INTEL, 0x0000) } },
-> > > > +	{}
-> > > 
-> > > > +};
-> > > 
-> > > > +/* check if all PCI devices in the list are present at specified locations */
-> > > > +static bool __init synology_pci_devices_present(const struct synology_pci_dev *list)
-> > > > +{
-> > > > +	const struct synology_pci_dev *d;
-> > > > +
-> > > > +	for (d = list; d->id.vendor; d++) {
-> > > > +		struct pci_dev *pdev = pci_get_domain_bus_and_slot(0, d->bus, d->devfn);
-> > > > +
-> > > > +		if (!pdev)
-> > > > +			return false;
-> > > 
-> > > > +		bool matched = d->id.vendor == pdev->vendor &&
-> > > > +			       d->id.device == pdev->device &&
-> > > > +			       d->id.subvendor == pdev->subsystem_vendor &&
-> > > > +			       d->id.subdevice == pdev->subsystem_device;
-> > > 
-> > > Don't mix variable definitions with the code (it's exceptionally possible
-> > > for a couple of cases, none of which is this one). Can't it use
-> > > pci_match_id() approach with driver_data? (If we ever need this check.)
-> > 
-> > I don't see how can pci_match_id() be used here. I can merge pci bus and
-> > devfun into driver_data to fit into pci_device_id table but there's no
-> > pci_dev which could be matched against that table (and walking all PCI
-> > devices does not seem to be an improvement).
-> 
-> _After_ DMI match the walk over all PCI devices is not a big deal. The code
-> will be nicer. But maybe there is a better choice? Like checking CPUID? Or
-> maybe something interesting is present in the ACPI tables?
-> 
+Some designs route two USB Type-C receptacles through one High Speed
+D+/D- pair with a GPIO multiplexer, so only one connector drives the
+controller at a time and the device tree has to say which role-switch
+input and which mux state belongs to each of them.
 
-I don't know much about ACPI but can't find any Synology traces.
+A mux'ed data stream on one bus is an endpoint of that port in the OF
+graph, not a port of its own, so the two connectors become endpoint@0
+and endpoint@1 of the High Speed port, next to the Super Speed port@1.
+Each endpoint carries "usb-role-switch" and the "mux-state" that
+reaches it, and the multiplexer is referenced with "mux-controls", so
+an existing "gpio-mux" controller is used as is instead of a private
+property.
 
-# acpidump -s
-Firmware Warning (ACPI): Incorrect checksum in table [GSCI] - 0x83, should be 0x34 (20250404/utcksum-100)
-ACPI: GSCI 0x0000000000000000 002024 (v01 052112 GMCHSCI  20120521 MSFT 00000097)
-ACPI: MCFG 0x0000000000000000 00003C (v01 052112 OEMMCFG  20120521 MSFT 00000097)
-ACPI: APIC 0x0000000000000000 00006C (v01 052112 APIC1409 20120521 MSFT 00000097)
-Firmware Warning (ACPI): Incorrect checksum in table [OEMB] - 0x6F, should be 0x03 (20250404/utcksum-100)
-ACPI: OEMB 0x0000000000000000 000082 (v01 052112 OEMB1409 20120521 MSFT 00000097)
-ACPI: DSDT 0x0000000000000000 006B21 (v01 1AAAA  1AAAA005 00000005 INTL 20051117)
-ACPI: FACP 0x0000000000000000 000084 (v01 052112 FACP1409 20120521 MSFT 00000097)
-ACPI: HPET 0x0000000000000000 000038 (v01 052112 OEMHPET  20120521 MSFT 00000097)
-ACPI: FACS 0x0000000000000000 000040
+The High Speed port definition stays optional: a single-connector
+controller keeps describing one plain "endpoint", the two endpoints
+are required only when "mux-controls" is present, and the two states
+must be opposite so that the two connectors cannot both claim the same
+data path.
 
+Signed-off-by: Qianhui Xu <xiaqinghuan@mail.ustc.edu.cn>
 
-ACPI devices look very generic:
-AWY0001:00
-INT0800:00
-INTC0102:00
-ITE8704:00
-LNXCPU:00
-LNXCPU:01
-LNXCPU:02
-LNXCPU:03
-LNXPWRBN:00
-LNXSYBUS:00
-LNXSYBUS:01
-LNXSYSTM:00
-PNP0000:00
-PNP0100:00
-PNP0103:00
-PNP0200:00
-PNP0303:00
-PNP0401:00
-PNP0501:00
-PNP0501:01
-PNP0700:00
-PNP0800:00
-PNP0A08:00
-PNP0B00:00
-PNP0C01:00
-PNP0C01:01
-PNP0C02:00
-PNP0C02:01
-PNP0C02:02
-PNP0C02:03
-PNP0C02:04
-PNP0C04:00
-PNP0C0C:00
-PNP0C0E:00
-PNP0C0F:00
-PNP0C0F:01
-PNP0C0F:02
-PNP0C0F:03
-PNP0C0F:04
-PNP0C0F:05
-PNP0C0F:06
-PNP0C0F:07
-PNP0C31:00
-PNP0F03:00
+Changes since v13:
+ - [sashiko, 2026-11-23, Low] "missing maxItems: 1 on mux-controls".
+   Accepted: the shared data bus is driven by one two-state multiplexer, so
+   "mux-controls" now says "maxItems: 1" instead of leaving the number of
+   mux controllers open.
 
+ - [sashiko, same report, Low] "missing endpoint schema under port@0":
+   a plain "port@0/endpoint" could carry undocumented properties and
+   "endpoint@2"/"endpoint@3" were not rejected, because the graph port base
+   intentionally leaves "unevaluatedProperties" open.  Described where it
+   matters, inside the "mux-controls" branch: a mux'ed bus has exactly two
+   data streams, so that branch now rejects a plain "endpoint" and any
+   "endpoint@2"+.  Single-connector controllers keep the generic graph port
+   binding untouched.
+
+ - [sashiko, same report, Low] "contradictory oneOf and redundant mux
+   rules".  Accepted; this one was a real logic error.  The "oneOf" that
+   requires opposite "mux-state" values evaluated both alternatives as true
+   when "mux-state" was absent, so a two-endpoint tree without
+   "mux-controls" failed validation.  The "oneOf" now sits in the
+   "mux-controls" branch, where both properties are required anyway, and the
+   redundant "dependentRequired" and "mux-controls: false" are gone.
+---
+ .../bindings/usb/snps,dwc3-common.yaml        | 100 +++++++++++++++++-
+ 1 file changed, 99 insertions(+), 1 deletion(-)
+
+diff --git a/Documentation/devicetree/bindings/usb/snps,dwc3-common.yaml b/Documentation/devicetree/bindings/usb/snps,dwc3-common.yaml
+index 6c0b8b653824..dcfa8c3a81c5 100644
+--- a/Documentation/devicetree/bindings/usb/snps,dwc3-common.yaml
++++ b/Documentation/devicetree/bindings/usb/snps,dwc3-common.yaml
+@@ -26,8 +26,78 @@ allOf:
+       $ref: usb.yaml#
+     else:
+       $ref: usb-xhci.yaml#
++  - if:
++      required: [mux-controls]
++    then:
++      # A multiplexed High Speed bus only makes sense when the controller is
++      # dual-role and both connectors can switch their role independently.
++      required: [ports, usb-role-switch]
++      properties:
++        dr_mode:
++          const: otg
++        ports:
++          required: [port@0]
++          properties:
++            port@0:
++              required: ['#address-cells', '#size-cells',
++                         endpoint@0, endpoint@1]
++              # A mux'ed High Speed bus has exactly two connectors, as the
++              # two endpoints of this port; a plain "endpoint" or any further
++              # endpoint would be a third data stream and is not described.
++              properties:
++                endpoint: false
++              patternProperties:
++                '^endpoint@[01]$':
++                  required: [usb-role-switch, mux-state]
++                '^endpoint@([2-9]|[1-9a-f][0-9a-f]+)$': false
++              # The two connectors must claim opposite mux states.  Kept inside
++              # this branch: JSON Schema evaluates "properties" of an absent
++              # property as true, so the same "oneOf" outside the branch would
++              # see both alternatives match when "mux-state" is not used at all.
++              oneOf:
++                - properties:
++                    endpoint@0:
++                      properties:
++                        mux-state:
++                          const: 0
++                    endpoint@1:
++                      properties:
++                        mux-state:
++                          const: 1
++                - properties:
++                    endpoint@0:
++                      properties:
++                        mux-state:
++                          const: 1
++                    endpoint@1:
++                      properties:
++                        mux-state:
++                          const: 0
++    else:
++      # Without a mux the High Speed port keeps the generic graph port
++      # binding, so single-connector controllers are described as before and
++      # the per-connector properties have no meaning.
++      properties:
++        ports:
++          properties:
++            port@0:
++              patternProperties:
++                '^endpoint@[01]$':
++                  properties:
++                    usb-role-switch: false
++                    mux-state: false
+ 
+ properties:
++  mux-controls:
++    $ref: /schemas/types.yaml#/definitions/phandle-array
++    maxItems: 1
++    description:
++      Phandle to the multiplexer that selects which of the two connectors
++      drives the controller's shared High Speed data bus, e.g. a
++      "gpio-mux" controller.  Each connector is described by the endpoint@0
++      or endpoint@1 of "port@0", and the endpoint of that connector carries
++      its own role-switch input and the "mux-state" it is reached in.
++
+   extcon:
+     maxItems: 1
+     deprecated: true
+@@ -411,9 +481,37 @@ properties:
+ 
+     properties:
+       port@0:
+-        $ref: /schemas/graph.yaml#/properties/port
++        # The High Speed port carries the controller's HS data stream.  Two
++        # receptacles sharing one HS D+/D- pair are two mux'ed data streams of
++        # that one stream, so they are two endpoints of this port and not two
++        # ports.  A single-connector controller describes the plain "endpoint"
++        # of the graph binding and is unaffected.
++        $ref: /schemas/graph.yaml#/$defs/port-base
++        unevaluatedProperties: false
+         description: High Speed (HS) data bus.
+ 
++        patternProperties:
++          '^endpoint@[01]$':
++            $ref: /schemas/graph.yaml#/$defs/endpoint-base
++            unevaluatedProperties: false
++
++            properties:
++              usb-role-switch:
++                type: boolean
++                description:
++                  This connector has its own USB role switch, registered
++                  against this endpoint.
++
++              mux-state:
++                $ref: /schemas/types.yaml#/definitions/uint32
++                enum: [0, 1]
++                description:
++                  State of the High Speed data bus multiplexer which connects
++                  this connector to the controller.  The two connectors of one
++                  controller must use different states.
++
++            required: [reg]
++
+       port@1:
+         $ref: /schemas/graph.yaml#/properties/port
+         description: Super Speed (SS) data bus.
 -- 
-Ondrej Zary
+2.53.0
+
