@@ -1,89 +1,137 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.180
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.153
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795578378;
-	b=j5swDgwru0vQooVEaTA+W+Bdu4Pxq+UnwNdIL0xCBG66QLzkL9r9IxcaTavjIU7Dj2nH
-	 p7zX8EOh5zYKv5qXPzottYJ8ZQmw4yyhlCYZtM0mtEfTcvJxF3LKI1utCmmuD0Kw7Ecaf
-	 xbu3kq8uP+l8KSC3mMqKB57A4i5x0jpLTk9vV9yxJriwl0L0R0m2k9U8oqfZKg58epgjz
-	 tu+InZ7rgLmtn3TmrGxRZAvu1UdhToa1cvhGpMQ3UJVjer3PbSos5ar8l9G4aGSvfTIuX
-	 waSgP7vx99Cz+OYneRYF4Wln3hYQmnjzWFIC5Dpiy6EylCS5E+OGHZiXj7tPRTNyS1w==
+	t=1795578383;
+	b=Ze728ZDzDJOFPfvVWlo/oRR3Gfp4QrYUHmT10irqRbOmu6s2/ci3E39mj9LvlURRm+8s
+	 PjEgugL79Dz5yXc6HiqgNJba9NEEL5MOtaPa979KO7wpWbo0eGbEJTmp3a9Ri6ay8ZNmf
+	 +IUgQnsux4hhU8UmujKWoTGM+XKPQt9OIoTEdLau9DywoB2PhLzI3OijyCOi9J5TsQUbv
+	 0CDRrHRRGI8BTEFLInZPpZqOT8bpUk0WCDg/dlshBiwbMM673Rcbi6Bb9Q4KPtnPZ7Jwo
+	 R/BcTs6AYI91ILOY0j2C3N/aZR+DpdyMH2bbbEzp7e3URIKf7QgQTRfJbP2HVFwtpxA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795578378;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=bQJJxCrofGpC23ygbnJv9Goz9D/r5cCIAV9NozCmzg8=;
-	b=LMqo0ASbHGTX361iHn6GaI4mtP4xMFORpKsL7xY/ve/9EE6wMVwa7CVjGYJz9ZkB77oV
-	 tx4tAKhi0AfNlPG4f4sQvzjFM7limZz3mhbVNxl+nZi9v+MGD0YJXBTYkOBWeh4D+DoOH
-	 QYHilWAA3Io6DIjUNEembh9bVI2b8TtqvNV2GwwmtB4L5pivJ4sHEETAB+De7f5PgvpCp
-	 xwB3XRcI1nGoPa403wGh1Cq1WpkIA9fvSCVd8e07wGlT/81OZk2LS6ZfXh+Es/TKQIeMf
-	 wR4RHxFabYgNxCfOHeTp8OIa/kZ89lj4fRCbOp3WZMPk4Klkgs9UFRVmhTwo0cc1lbw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795578383;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
+	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
+	 References:Reply-To:MIME-Version:Content-Transfer-Encoding;
+	bh=ON28AAe9H8PaSRxrPfcOUI1NHdsDwnr339Ed+VJebnM=;
+	b=lbXr+6ichYVLtMK7oHVD07QJmgEuGMf/K4pYml5+LZny/yj6HrHuTNStmZt96cXTin5J
+	 G/TRCGmGXKUIOa2VSuKp7jgi2/kdY0QzEHXUZnvGifNppOxYdiGARS+uhyO+s+uTpC6nH
+	 zJaV2W69bG5yJMGP5tFG+78O0IZF4SIgJZopILRykOXVH/gAH+u5SzYSKXTddaD8pp/Wx
+	 eO5vmRCnqf+Q9R7dQA2kAEHmf7NDEcdwyqaxO+S4rBuIW/7htYQSFHCiTG5zWT8/TnPZ6
+	 SeQm8/45NpSKFThM8gcAqOZORdItykW4ZTbjJ2SXU356cBfPqWi3v5hMX1WmF4Zrs3w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gfBaCMbm;
-	arc=none smtp.remote-ip=74.125.82.180
-Received: from mail-dy1-f180.google.com (mail-dy1-f180.google.com [74.125.82.180])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=ownmail.net;
+	spf=pass smtp.mailfrom=ownmail.net;
+	dkim=pass header.d=ownmail.net header.i=@ownmail.net header.a=rsa-sha256 header.s=fm3 header.b=hwxd9BmG;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b="QGXD/in/";
+	arc=none smtp.remote-ip=103.168.172.153
+Received: from fhigh-a2-smtp.messagingengine.com (fhigh-a2-smtp.messagingengine.com [103.168.172.153])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C9D9C606A331
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 03:46:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C9D9C606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3DCBC606A330
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 03:46:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3DCBC606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ownmail.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ownmail.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gfBaCMbm
-Received: by mail-dy1-f180.google.com with SMTP id 5a478bee46e88-3282db206d3so4704890eec.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 19:46:17 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795578377; x=1796183177; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=bQJJxCrofGpC23ygbnJv9Goz9D/r5cCIAV9NozCmzg8=;
-        b=gfBaCMbm/fp+9m40d4cUAG6gCVE+9Z9SUZjyO8wQi+XcTxBe5wkmO14W6dzexi4ZFs
-         QV/zE80fsDhIXyknU+Lu7BEwNilJByhMtnXsSwrud5+UOPw9FV+bVC64BNUHN+diR1uz
-         bj2o/F3stORePkwDn1gOsLNsPOdcss4BUcWQHnGr0TKUIS0MM1S0X/ARpiluD2Ulo9Sc
-         pRjcLF69YCkFg4UvxrUS8neyxgUnbedNMwyZTHfnthBv5Os/ckOdSD8iib33IXiqebld
-         HUuyHkC6V9Pi2uXQ0CKJt5N3hipm2xElyk68UJrwPsbkAAgZ2hf1Z4mlHhax2lNoRpQC
-         Jg2Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795578377; x=1796183177;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=bQJJxCrofGpC23ygbnJv9Goz9D/r5cCIAV9NozCmzg8=;
-        b=n47AtCy4OlSha4bodtCvTQ7ac1V90VNTrnt05bFPMoXbR70VAaQC8nQ4SweAe+iVgX
-         c/L4EWlpuj7R15sBzMuJvzvhYzyAtfh/+jcqGIlhYWZLK7urEIkUc1kC3SToPNOtdAac
-         eoy77gFcxVg/mQf4FxX142HR/p1fVn+KcvH7Qy3LqGCo38OxiB5TF3tIOUBf9EAIqx3o
-         1ATaSZk+zn/QGjZ5LnC0PCa4/UdCJrpcEbv+/i91Mp3CndMeKdY3ljPuoQbois8hMd8X
-         6Ka3ImXF9KjtJcGCR+C2xWpShEXr7OGRI6O9bzAdbo+vUVstV6e3aB+BvBLORZk4F44J
-         X5oA==
-X-Forwarded-Encrypted: i=1; AL+hErGuY6LW+9X45EF8CFJK0bbJtbMRpZrHMIOTQ63SBjj/sua+9S/wNGkDwNfWThMeO1VxUws6i3BMgGlZR3U=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9FzNAB4rzbcZjSdK1KYiF7CIz/vcd+3URWo8H43IefjqsyPGv0
-	ljiSUu2i8q1YjfvZU6jpLUMBuCLSkwOhAryWNxWTICF9y3CjtwiG9jsq
-X-Gm-Gg: AZFdTZcPnIw0Wz1hVQfq1Px8QWD8l2pfBMD4hGBV52zWnvq90CFMw895gyoYzwxF0F5
-	rqV0zC5+p1AnRRhMT9xrEF8jnjwA5cOk8dd4dgzcV2lxP0jG0xH5QM2whaeLWr/hrC0jhxR+AfR
-	zNeV8YD7/WgjmKvVoUYwD3O2NAE7heEW5NjnBUV/shdHLAm7yNZBestNc1YNRK4Bh9Au8z81gAi
-	bOj49eOPMC+MTgxNBTBZHDA+1qr6J//XdGWoXey2JJk5mUK1aDoBxcVHReF5FVt2DhkEagTnMXz
-	W4WR9xdIajl7TzzbpX679y5K9SHUisyPycbozXpoT+Ml6BNtRiEx/stlYFmOBR3LuZ1qqCnMPUk
-	uudFWS2nHf8rLuA6OThU3MLzzl77snkycNzKnDeV4dPohSjbNNLJc7w8tfFUjDT59TCl/DP12cW
-	GIcBKvZBsIbkamUQ/3isOvDkjcPN0uHd4DLnQYJDD1HoEU+vaA4AcuS09DDj0BthageoUPWctCt
-	mdhL+UcH6PwH0UDqtzeomMi+LVGLsHDs2VVfXGqwynfkgFbHUCaruX1nXYf1MingyOXXzFI2uDC
-	SjAOszzcApI43hguksdE/Hn5eHZP8QqhUzQ7FGt6sEPJ07TndQwLAp55Ort+gMxDxWx5KRZCiSA
-	eX7e3x/NpZce21FmwvoycbXv7
-X-Received: by 2002:a05:693c:41d4:20b0:386:cedf:5e51 with SMTP id 5a478bee46e88-386cedf61efmr1230294eec.26.1795578376678;
-        Tue, 24 Nov 2026 19:46:16 -0800 (PST)
-Received: from [192.168.10.126] (ip70-187-214-22.oc.oc.cox.net. [70.187.214.22])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38566cd46c5sm59900962eec.11.2026.11.24.19.46.15
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 24 Nov 2026 19:46:16 -0800 (PST)
-Message-ID: <b14f881d-78e2-420f-8395-6f10028fe597@gmail.com>
-Date: Tue, 24 Nov 2026 19:45:54 -0800
+	dkim=pass (2048-bit key, unprotected) header.d=ownmail.net header.i=@ownmail.net header.a=rsa-sha256 header.s=fm3 header.b=hwxd9BmG;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=QGXD/in/
+Received: from phl-compute-06.internal (phl-compute-06.internal [10.202.2.46])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id 6ACC9140018B
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 22:46:21 -0500 (EST)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-06.internal (MEProxy); Tue, 24 Nov 2026 22:46:21 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ownmail.net; h=
+	cc:cc:content-transfer-encoding:content-type:date:date:from:from
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:reply-to:subject:subject:to:to; s=fm3; t=1795578381;
+	 x=1795664781; bh=ON28AAe9H8PaSRxrPfcOUI1NHdsDwnr339Ed+VJebnM=; b=
+	hwxd9BmG/7q+wfRpCFdyf9l9arB06R/OXrSEHNyyijWCfmylWdqqmlOL+7AolKtD
+	hvnJjHhmag1zbkjjTUhFLLZ+dYwiqo0RRsAo0OY9Ee1hGE9MDHKLbb9HgSIRa2Xx
+	gX4fyffBqMIMcTcVfoOOLluAL72vWfAX28kQ48r4hnB/GTNJBEQZlwK+WtRYrYz3
+	PIM+Ruc02ouVqhqiCwHEGDm3seSsABXmYY+IwriWVg85WqJFUakVq54MnZMhe0to
+	H31/tx5lKihJcStRhpQmQbWG4xItjBVsAAZ1OWrAi5LACU9oIQtlOLqkIUB5GlVY
+	K4o1BDOWBh8Zd2fayh16Og==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:date:date:feedback-id:feedback-id:from:from
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
+	:x-me-sender:x-sasl-enc; s=fm3; t=1795578381; x=1795664781; bh=O
+	N28AAe9H8PaSRxrPfcOUI1NHdsDwnr339Ed+VJebnM=; b=QGXD/in/q7sjjY6bv
+	RA+hk5CfLb12Cd7lHSK7Qkqzds5tIJkkhw27Q6podxdtiVKDtIVkktuo6Q8RaC4L
+	BIqhfjeBVuoEShSejQsifqxsqO6Fb/pjpil31nnPIcXKDKMVFPHzVDakQkkxSb3+
+	f9058rQn7SSd+fcdN2kAfaQCnxPtUDRhbH+0Yc0VuVJ2IIGBH8OTopJqZ7EMDcdH
+	S8VPzLoAORh0EUaTir/5Ifadu/kMdNgfgbs2dB4tlV8WhAHBb8exblNsKVvfT0M1
+	DhJZcUU5KI7wSBlFT9BeFhsM7+JdJtt8U7fhJj3kVzrhXAZz6g205oNi6rXsCBoL
+	lpXmQ==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=ownmail.net a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795578381; d=ownmail.net;
+	mf=PG5laWxiQG93bm1haWwubmV0Pg==;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm3:rsa-sha256:LGDICn+b5Tj4JHiwZm4Qs8TX4UTwQbZVcm7a10CKWq0RoHz
+	UZiZj+y12zzj0Rb+EIlOuQZDr3NXCMs5IiGGkkFdS9/YglA5qBpWhW2SMcD/S6jz
+	/7QBIVCrZWABnUIUvsx1PcuCzI1LzZRhCWotyMOx/ez41xkS/hCVRmno7xpjAjdC
+	Mw+TH7wF4YKPz1bJXeF5Z60k7k7oOReFHsDplPRgHMDmIHA64cdj4BYrnivgGjDY
+	oPlHi9fHLibiSqdPGV7swrDZfPpPtXxMy0aWZjzlP3PG+ZyBI+IIJpyIJVY+tpXX
+	UVVTOvFGyNx5kQHi6+TAMC0vEHuKCX67Krpk10w==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=12;
+	hn=cc,content-transfer-encoding,date,feedback-id,from,
+	in-reply-to,message-id,mime-version,references,reply-to,subject,
+	to;
+Message-Instance: m=1; h=sha256:eguHeZTnAMAD0UBnEhXypByfDg6uTNAh6GEvAdMk53A=:XMRrqEBn5PnoqCUWKBChnhuV1h4oUYsKwei+sLthGYU=;
+X-ME-Sender: <xms:DVoGa2jyC_ubQyimHpiGQuxNB8br7SY6o95P6vvVeQ-zZ51PEVCsKg>
+    <xme:DVoGa98Do1xHAaTzZHZgqMK2x-pqmg2Z9BbTXK1fi_VaXkUolihXX3FeLWwxmVdM8
+    62sDZ-7xBpR6Pm0t0o7qs7_g7398EqiEp8_82dmoIdXY6FDrBI>
+X-ME-Received: <xmr:DVoGazJSZoyiVaGY0ixAGJeG3Rsuo2nJSszb01mkg-t5SiaTGmNNxR6tUSsitECMeb9hE68b7QCrS3EsmgzcDmWSsox19sk>
+X-ME-Proxy-Cause: dmFkZTEynqFP7J5CyP864zJ/XBXUDXSwXypje4KQHx8Td74dpnR0VUtokV1VIo6Vx6RvWY
+    OwcUpg/bo5jA9DF1nhHbEWSmkeBRQExzYYNm6zYQ4OlhmT8++hv04QLhCP77UTRa+ts0Zn
+    emG1u4CBc9EwIQZMHpuGtkFzNaPM0COhHCVGi+vUdiGKTo3oTFKBSdfX5nxIKQZvHQpAoR
+    JpPaJpl8D3VaaEmf1HZfBeZUeFh1WggTkTCrotD4I8diURcXOaSBUF/YM1mWjxdOr0yho5
+    GSRzb/bSajGZoPtTNw69mn1JgOv5z8FPk55EPMBJOvn4tHIN4QhGRcsvm9DrK4aqK7NvOd
+    Q4rZy33l8YShvFNJHuyhKLejrNcIU+o/kT3IWwqy7xl+p8veOkh6bKbR3TO8bqkig7EcPX
+    8P6tcwDnsSCoKj+SAmd5wj28S7XugR70HfDVYW04sbvGLzMLk/fof0zJKmFfuEAICtP7BB
+    V0Eb/1lgl0d7/LdXPeAMNpZDnDRrm97wc33ro/jubLnCPLs2k239d1NVTWfY3SHi+zSeQt
+    6DmSvTk7yGcMcK3g+57aPqEYODavRb3HmDgKmYQbDT/Bd8Hx9/VOo3DFfTwhFUFeauVqaZ
+    cqE2DGCkXQVQQMejXMVL2saPNjl14KtN//vJZvIIxTG7zeMF4rKMrQGVzldg
+X-ME-Proxy: <xmx:DVoGa2YjOPw8teucHE9HrUYFTJKE6xcZw75oXeAhyDcTJSSBR_wPrg>
+    <xmx:DVoGa-iqGwSOYDjnMXTe3yvtAQsoSvCenNVbkzd_GC46ND24BIPcrA>
+    <xmx:DVoGaz4MBtYexQYDyxXozaIwTuCtKcQQ0_kf2PJt9U0zwMEqGcb9SA>
+    <xmx:DVoGa-oyB9BllMdPvIM-n3ZgPk26VXbmbRTPtjqsMxdZ5MCtQSlHCQ>
+    <xmx:DVoGazcWRAIUcxaVq-3TVvVVTYFjng9EQ-vATTeadmoVjG-YOQ8peWx7>
+Feedback-ID: i9d664b8f:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
+ 24 Nov 2026 22:46:16 -0500 (EST)
+From: NeilBrown <neilb@ownmail.net>
+To: Alexander Viro <viro@zeniv.linux.org.uk>,
+	Christian Brauner <brauner@kernel.org>
+Cc: David Howells <dhowells@redhat.com>,
+	Marc Dionne <marc.dionne@auristor.com>,
+	Jan Harkes <jaharkes@cs.cmu.edu>,
+	coda@cs.cmu.edu,
+	Jan Kara <jack@suse.cz>,
+	Richard Weinberger <richard@nod.at>,
+	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	Jeff Layton <jlayton@kernel.org>,
+	Amir Goldstein <amir73il@gmail.com>,
+	linux-kernel@vger.kernel.org,
+	codalist@coda.cs.cmu.edu,
+	linux-fsdevel@vger.kernel.org,
+	linux-um@lists.infradead.org,
+	linux-afs@lists.infradead.org
+Subject: [PATCH v3 03/11] afs: don't unhash/rehash dentries during unlink/rename
+Date: Wed, 25 Nov 2026 14:16:41 +1100
+Message-ID: <20261125034543.4084039-4-neilb@ownmail.net>
+X-Mailer: git-send-email 2.50.0.107.gf914562f5916.dirty
+In-Reply-To: <20261125034543.4084039-1-neilb@ownmail.net>
+References: <20261125034543.4084039-1-neilb@ownmail.net>
+Reply-To: NeilBrown <neil@brown.name>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,104 +141,270 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v4 07/10] net: au1000: restore RX buffer addresses
- when restarting the MAC
-To: netdev-bot+sashiko@kernel.org
-Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- hkallweit1@gmail.com, linux@armlinux.org.uk, shaojijie@huawei.com,
- horms@kernel.org, runyu.xiao@seu.edu.cn, mmyangfl@gmail.com, hvr@gnu.org,
- danny.kukawka@bisect.de, mugunthanvnm@ti.com,
- sebastian.hesselbarth@gmail.com, linux-kernel@vger.kernel.org,
- manuel.lauss@gmail.com
-References: <20261121004809.1690280-8-f.fainelli@gmail.com>
- <179557011055.3135.6140198422373932770@kernel.org>
-Content-Language: en-US
-From: Florian Fainelli <f.fainelli@gmail.com>
-In-Reply-To: <179557011055.3135.6140198422373932770@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 
+From: NeilBrown <neil@brown.name>
 
+afs needs to block lookup of dentries during unlink and rename.
+There are two reasons:
+1/ If the target is to be removed, not silly-renamed, the subsequent
+   opens cannot be allowed as the file won't exist on the server,
+   but they shouldn't fail until the unlink/rename completes.
+2/ If the rename source is being moved between directories a lookup,
+   particularly d_revalidate, might change ->d_time asynchronously
+   with rename changing ->d_time with possible incorrect results.
 
-On 11/24/2026 5:28 PM, netdev-bot+sashiko@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found more severe
-> issue(s) in other patches of this series. This mail is only an FYI, in case
-> you want to address the nit picks below when you respin.
-> 
-> Low priority / nit picks for your consideration:
-> 
-> - [Low] In `au1000_init()`
->    (drivers/net/ethernet/amd/au1000_eth.c:727-728), the patch writes the…
-> 
-> --
-> 
-> net: au1000: restore RX buffer addresses when restarting the MAC
-> 
-> The commit changes au1000_init() to reload each RX descriptor's buffer
-> address from rx_db_inuse[] before setting RX_DMA_ENABLE. Before this,
-> it only OR-ed in the enable bit on whatever address the DMA engine had
-> left behind. That could make a receive after close/reopen start partway
-> into its buffer.
-> 
->> diff --git a/drivers/net/ethernet/amd/au1000_eth.c b/drivers/net/ethernet/amd/au1000_eth.c
->> index ea2766343d518..ec28ed33bf698 100644
->> --- a/drivers/net/ethernet/amd/au1000_eth.c
->> +++ b/drivers/net/ethernet/amd/au1000_eth.c
->> @@ -724,7 +724,8 @@ static int au1000_init(struct net_device *dev)
->>   
->>   
->>   	for (i = 0; i < NUM_RX_DMA; i++)
->> -		aup->rx_dma_ring[i]->buff_stat |= RX_DMA_ENABLE;
->> +		writel(lower_32_bits(aup->rx_db_inuse[i]->dma_addr) |
->> +		       RX_DMA_ENABLE, &aup->rx_dma_ring[i]->buff_stat);
-> 
-> [Severity: Low]
-> This isn't a bug, but should this be a plain store, like the other
-> accesses to buff_stat?
-> 
-> The commit message says this matches the receive completion path.
-> That path does a plain C assignment, not a writel():
-> 
-> drivers/net/ethernet/amd/au1000_eth.c:au1000_rx() {
->      ...
-> 	prxd->buff_stat = lower_32_bits(pDB->dma_addr) | RX_DMA_ENABLE;
->      ...
-> }
-> 
-> au1000_probe() initializes the same field the same way:
-> 
-> 	aup->rx_dma_ring[i]->buff_stat = lower_32_bits(pDB->dma_addr);
-> 
-> au1000_reset_mac_unlocked() and the reads in au1000_init() and
-> au1000_rx() also use plain loads and stores.
-> 
-> In au1000_eth.h, rx_dma_ring is declared without __iomem:
-> 
-> 	struct rx_dma *rx_dma_ring[NUM_RX_DMA];
-> 
-> Passing &aup->rx_dma_ring[i]->buff_stat to writel() therefore gives a
-> sparse different-address-space warning. It also means this one
-> register is now accessed in two different styles.
-> 
-> The driver already passes non-__iomem pointers to writel() for
-> aup->mac and aup->enable. What this patch adds is the mixed accessor
-> style on buff_stat.
-> 
-> There's no runtime difference. MIPS_AU1X00_ENET depends on
-> MIPS_ALCHEMY, which only supports little-endian, so writel() and the
-> plain store write the same bits.
-> 
-> Would a plain store match the surrounding code better, like this:
-> 
-> 	aup->rx_dma_ring[i]->buff_stat =
-> 		lower_32_bits(aup->rx_db_inuse[i]->dma_addr) | RX_DMA_ENABLE;
-> 
-> The other option is to mark rx_dma_ring and tx_dma_ring as __iomem
-> and convert every access to readl()/writel().
+afs currently unhashes the dentry to force a lookup which will wait on the
+directory lock, and rehashes afterwards.  This is incompatible with
+proposed changed to directory locking which will require a dentry to
+remain hashed throughout rename/unlink/etc operations.
 
-These are good suggestions as non bug fixes but for now, this will do.
+This patch copies a mechanism developed for NFS but uses the new
+DCACHE_PRIVATE flag rather then ->d_fsdata.  DCACHE_PRIVATE is given
+the private name DCACHE_BLOCKED within afs.
+
+The flag is set when lookups and revalidates must be blocked.
+d_revalidate checks for this flag and waits for it to become be cleared.
+
+->d_lock is used to ensure d_revalidate never updates the time stamp in
+->d_fsdata while DCACHE_BLOCKED is set.
+
+For a ref-walk, ->d_lock provides all needed sequencing.  It is taken in
+__d_lookup() to increment the refcount and is held by afs when checking
+the refcount and setting DCACHE_BLOCKED.  d_revalidate() is called after
+__d_lookup() so it will see DCACHE_BLOCKED if needed without any extra
+barrier.
+
+For RCU-walk, d_revalidate() is called before refcount is incremented,
+so as well as setting DCACHE_BLOCKED we must
+write_seqcount_invalidate(&dentry->d_seq).
+If d_revalidate is called before that write_seqcount_invalidate(),
+then the RCU-walk will be retried as ref-walk.  If it is called
+after, then DCACHE_BLOCKED will be seen providing we use smp_load_acquire().
+
+The unlocking in afs_rename_edit_dir() is not needed.  It was previously
+needed because it would not be safe to d_rehash() after calling
+d_move().  But now that we don't use d_rehash() that is not a concern.
+afs_rename_put() is always called and is sufficient for all rename
+unlocking.
+
+Signed-off-by: NeilBrown <neil@brown.name>
+---
+ fs/afs/dir.c      | 101 +++++++++++++++++++++++++++++++++-------------
+ fs/afs/internal.h |   5 +--
+ 2 files changed, 74 insertions(+), 32 deletions(-)
+
+diff --git a/fs/afs/dir.c b/fs/afs/dir.c
+index 75f8f70cfeff..fbe2a3eb56b0 100644
+--- a/fs/afs/dir.c
++++ b/fs/afs/dir.c
+@@ -49,6 +49,16 @@ static int afs_rename(const struct mnt_idmap *idmap, struct inode *old_dir,
+ static int afs_dir_writepages(struct address_space *mapping,
+ 			      struct writeback_control *wbc);
+ 
++/*
++ * This is set to stop d_revalidate looking at, and possibly changing,
++ * ->d_fsdata (a timestamp) on a dentry which is being moved between
++ * directories, and to block lookup and possible open() for a dentry
++ * that is being removed without silly-rename.
++ * When set to block open()s, we also invalidate ->d_seq.
++ * When set only to protect ->d_fsdata, we don't need to invalidate ->d_seq.
++ */
++#define DCACHE_BLOCKED DCACHE_PRIVATE
++
+ const struct file_operations afs_dir_file_operations = {
+ 	.open		= afs_dir_open,
+ 	.release	= afs_release,
+@@ -1031,6 +1041,12 @@ static int afs_d_revalidate_rcu(struct afs_vnode *dvnode, struct dentry *dentry)
+ 	if (!afs_check_validity(dvnode))
+ 		return -ECHILD;
+ 
++	/* Is a rename/unlink is pending? We must load d_flags *after*
++	 * ->d_seq was sampled in path_init() or similar so use "acquire".
++	 */
++	if (smp_load_acquire(&dentry->d_flags) & DCACHE_BLOCKED)
++		return -ECHILD;
++
+ 	/* We only need to invalidate a dentry if the server's copy changed
+ 	 * behind our back.  If we made the change, it's no problem.  Note that
+ 	 * on a 32-bit system, we only have 32 bits in the dentry to store the
+@@ -1079,6 +1095,10 @@ static int afs_d_revalidate(struct inode *parent_dir, const struct qstr *name,
+ 	if (IS_ERR(key))
+ 		key = NULL;
+ 
++	/* Wait for rename/unlink to complete */
++wait_for_rename:
++	wait_var_event(&dentry->d_flags, !(dentry->d_flags & DCACHE_BLOCKED));
++
+ 	/* validate the parent directory */
+ 	ret = afs_validate(dir, key);
+ 	if (ret == -ERESTARTSYS) {
+@@ -1158,7 +1178,13 @@ static int afs_d_revalidate(struct inode *parent_dir, const struct qstr *name,
+ 	}
+ 
+ out_valid:
++	spin_lock(&dentry->d_lock);
++	if (dentry->d_flags & DCACHE_BLOCKED) {
++		spin_unlock(&dentry->d_lock);
++		goto wait_for_rename;
++	}
+ 	dentry->d_fsdata = (void *)(unsigned long)dir_version;
++	spin_unlock(&dentry->d_lock);
+ out_valid_noupdate:
+ 	key_put(key);
+ 	_leave(" = 1 [valid]");
+@@ -1533,8 +1559,10 @@ static void afs_unlink_edit_dir(struct afs_operation *op)
+ static void afs_unlink_put(struct afs_operation *op)
+ {
+ 	_enter("op=%08x", op->debug_id);
+-	if (op->unlink.need_rehash && afs_op_error(op) < 0 && afs_op_error(op) != -ENOENT)
+-		d_rehash(op->dentry);
++	spin_lock(&op->dentry->d_lock);
++	store_release_wake_up(&op->dentry->d_flags,
++			      op->dentry->d_flags &~ DCACHE_BLOCKED);
++	spin_unlock(&op->dentry->d_lock);
+ }
+ 
+ static const struct afs_operation_ops afs_unlink_operation = {
+@@ -1588,11 +1616,13 @@ static int afs_unlink(struct inode *dir, struct dentry *dentry)
+ 		afs_op_set_error(op, afs_sillyrename(dvnode, vnode, dentry, op->key));
+ 		goto error;
+ 	}
+-	if (!d_unhashed(dentry)) {
+-		/* Prevent a race with RCU lookup. */
+-		__d_drop(dentry);
+-		op->unlink.need_rehash = true;
+-	}
++	dentry->d_flags |= DCACHE_BLOCKED;
++	/*
++	 * As RCU-walk calls d_revalidate() before incrementing d_count
++	 * it may have already run.  We need to invalidate d_seq so
++	 * legitimize_path() will trigger a retry.
++	 */
++	write_seqcount_invalidate(&dentry->d_seq);
+ 	spin_unlock(&dentry->d_lock);
+ 
+ 	op->file[1].vnode = vnode;
+@@ -1899,11 +1929,6 @@ static void afs_rename_edit_dir(struct afs_operation *op)
+ 
+ 	_enter("op=%08x", op->debug_id);
+ 
+-	if (op->rename.rehash) {
+-		d_rehash(op->rename.rehash);
+-		op->rename.rehash = NULL;
+-	}
+-
+ 	fscache_begin_write_operation(&orig_cres, afs_vnode_cache(orig_dvnode));
+ 	if (new_dvnode != orig_dvnode)
+ 		fscache_begin_write_operation(&new_cres, afs_vnode_cache(new_dvnode));
+@@ -2023,11 +2048,18 @@ static void afs_rename_exchange_edit_dir(struct afs_operation *op)
+ static void afs_rename_put(struct afs_operation *op)
+ {
+ 	_enter("op=%08x", op->debug_id);
+-	if (op->rename.rehash)
+-		d_rehash(op->rename.rehash);
++	if (op->rename.unblock) {
++		spin_lock(&op->rename.unblock->d_lock);
++		store_release_wake_up(&op->rename.unblock->d_flags,
++				      op->rename.unblock->d_flags &~ DCACHE_BLOCKED);
++		spin_unlock(&op->rename.unblock->d_lock);
++		op->rename.unblock = NULL;
++	}
++	spin_lock(&op->dentry->d_lock);
++	store_release_wake_up(&op->dentry->d_flags,
++			      op->dentry->d_flags &~ DCACHE_BLOCKED);
++	spin_unlock(&op->dentry->d_lock);
+ 	dput(op->rename.tmp);
+-	if (afs_op_error(op))
+-		d_rehash(op->dentry);
+ }
+ 
+ static const struct afs_operation_ops afs_rename_operation = {
+@@ -2135,7 +2167,11 @@ static int afs_rename(const struct mnt_idmap *idmap, struct inode *old_dir,
+ 		op->ops		= &afs_rename_noreplace_operation;
+ 	} else if (flags & RENAME_EXCHANGE) {
+ 		op->ops		= &afs_rename_exchange_operation;
+-		d_drop(new_dentry);
++		/* Block revalidate on new_dentry until rename completes */
++		spin_lock(&new_dentry->d_lock);
++		new_dentry->d_flags |= DCACHE_BLOCKED;
++		op->rename.unblock = new_dentry;
++		spin_unlock(&new_dentry->d_lock);
+ 	} else {
+ 		/* If we might displace the target, we might need to do silly
+ 		 * rename.
+@@ -2148,15 +2184,10 @@ static int afs_rename(const struct mnt_idmap *idmap, struct inode *old_dir,
+ 		 * and becomes the new target.
+ 		 */
+ 		if (d_is_positive(new_dentry) && !d_is_dir(new_dentry)) {
+-			/* To prevent any new references to the target during
+-			 * the rename, we unhash the dentry in advance.
+-			 */
+-			if (!d_unhashed(new_dentry)) {
+-				d_drop(new_dentry);
+-				op->rename.rehash = new_dentry;
+-			}
+ 
++			spin_lock(&new_dentry->d_lock);
+ 			if (d_count(new_dentry) > 2) {
++				spin_unlock(&new_dentry->d_lock);
+ 				/* copy the target dentry's name */
+ 				op->rename.tmp = d_alloc(new_dentry->d_parent,
+ 							 &new_dentry->d_name);
+@@ -2174,8 +2205,21 @@ static int afs_rename(const struct mnt_idmap *idmap, struct inode *old_dir,
+ 				}
+ 
+ 				op->dentry_2 = op->rename.tmp;
+-				op->rename.rehash = NULL;
+ 				op->rename.new_negative = true;
++			} else {
++				/*
++				 * To prevent any new references to the
++				 * target during the rename, we set
++				 * DCACHE_BLOCKED which afs_d_revalidate
++				 * will wait for.  d_lock ensures
++				 * d_count() and DCACHE_BLOCKED are
++				 * consistent, and d_seq ensure RCU-walk
++				 * is retried.
++				 */
++				new_dentry->d_flags |= DCACHE_BLOCKED;
++				write_seqcount_invalidate(&new_dentry->d_seq);
++				op->rename.unblock = new_dentry;
++				spin_unlock(&new_dentry->d_lock);
+ 			}
+ 		}
+ 	}
+@@ -2186,10 +2230,11 @@ static int afs_rename(const struct mnt_idmap *idmap, struct inode *old_dir,
+ 	 * d_revalidate may see old_dentry between the op having taken place
+ 	 * and the version being updated.
+ 	 *
+-	 * So drop the old_dentry for now to make other threads go through
+-	 * lookup instead - which we hold a lock against.
++	 * So block revalidate on the old_dentry until the rename completes.
+ 	 */
+-	d_drop(old_dentry);
++	spin_lock(&old_dentry->d_lock);
++	old_dentry->d_flags |= DCACHE_BLOCKED;
++	spin_unlock(&old_dentry->d_lock);
+ 
+ 	ret = afs_do_sync_operation(op);
+ 	if (ret == -ENOTSUPP)
+diff --git a/fs/afs/internal.h b/fs/afs/internal.h
+index 7cea5ba0d20d..578fe7d35ab4 100644
+--- a/fs/afs/internal.h
++++ b/fs/afs/internal.h
+@@ -901,10 +901,7 @@ struct afs_operation {
+ 			struct afs_symlink *symlink;
+ 		} create;
+ 		struct {
+-			bool	need_rehash;
+-		} unlink;
+-		struct {
+-			struct dentry	*rehash;
++			struct dentry	*unblock;
+ 			struct dentry	*tmp;
+ 			unsigned int	rename_flags;
+ 			bool		new_negative;
 -- 
-Florian
+2.50.0.107.gf914562f5916.dirty
 
