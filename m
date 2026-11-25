@@ -1,96 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.47
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.182
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795598733;
-	b=VkrVccYX1yn7mJbIiuPY1pdZsnL3dbRtNYSLcbCg4hBTtIs4Xl7tDnDCgvu92V67HAhC
-	 QmNB/ehuN4CuQedW99ZwLtPSloEBc3LqIwH7Cg6k64X3Scnk2zDPhFrYwG+Wxsv5XOlro
-	 IJaxS8ZqZZuAw5uim7XljDgLtOQ2oMVY5iX4p5AOxN3Y4AT2MyQDAgxB6Nj8d3eHJl86o
-	 ekLW2UUkkEEWhvPpXFjLMj97uJMGq45DesEb7mhTtBJ0furTIRfEsNeYtOVVg9HSbd+cu
-	 Hm2AlW5jGWq9kU6kqTaIvmFA1buMafwT9YDat1pEM9VaTgaZmqdYXjmj33jsDMSb4Yg==
+	t=1795598745;
+	b=MfzUfNpOQoHini18bA0fpz91wnIo+X/xHMTGKRggKK5qb1VHmOA5eYosw6p2h5qydEuZ
+	 kOw7dieX5O0ofgk6brxI4pdU8UTQI4X/ZrLTTUJ1DdF6oZEFcqJDN6Tcrf3KLWN1UqAbk
+	 xOY2Ga9GueaLlGhd+8RJReNopF1m9CjvWRQIOU56sGp4kSEWxJOhd0iG/Ft/VI9Kfoyy9
+	 cEJRtno4KAxTHmAMuGXa+MIpLJfx0igQ7X7fm+FMveuIRFlbkLikRDTr0GGR6DQC7CbCp
+	 lBuZHWYTOTZYLzfZCRsF5rQ5tf9EiEirWcATl+PV9XvBBLqqAPb16HwlMmU9WlkmfSw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795598733;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795598745;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=kFVOFcFtL3Kl1lidL7Hzux9EmFfy+WWbY0BBgURBK0s=;
-	b=ufM7+ZEULCQ7U9qX2Laxf5kM0tCoaAz5OTAsWKU/UzT7Esn5551wtSnooKNgt6HIDOZd
-	 Fl7hWHi87nmXkV1/W7Wl3DWozpzPys4c5020wK7XCtIXv4qrvVR1kWAdqVtf/1lBEUwos
-	 Gbwgg9nnOOr0jlRAZhOCdLGbEND+dEmRCE+y9mIThubBZjT079d5ru2FYOt2kg6yi8TxG
-	 BMOaRUNVZbjiAUPhG73wwi9ftdChGcHidUx0TOWcZ91KHSQDWBQRHWr974bhtWE9VWS/C
-	 oU2TJMzcHCWCA1N/yP47kU+u69yBCZeurGAptKG3F8NFNaQR9j22uvWK16v80P3yXzg==
+	bh=GnB+aZxKe6ZtO8gfhG6inB6mdXvFtFPkZxKmjJASbvg=;
+	b=PK/FwKEWEkdOfUVcRtshSTxHztH2EJnjLtGkGls6mTd1f2dCOz0T4EWMtY35W0Uh3IRe
+	 YgjaKdt1iAz+GVBgZFu1RLfXYcR68MXdvVijdDWtXsVYjBjuMVqlwFZdJwDTX3+eNno+o
+	 F3LSrrHvh1ycLLYniwTMLKI2M4nZ+OrCL9TE0DSoT57H3XvDq03XOPgqM8/1avINdnMCz
+	 GE2lmPMPsK3bWGc74ra8Igx+GSsOYTvCxEjK8HgKuo1biQXcdxx2gTrukVz9ZdzN2ikwx
+	 CY4re8aJbgZOXM7pur8v9DI66Cx/zV5erFUMEGZZXWrQ7rfBentN7BK6MQmsjsBa0yA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=SQ03HIPc;
-	arc=none smtp.remote-ip=209.85.216.47
-Received: from mail-pj1-f47.google.com (mail-pj1-f47.google.com [209.85.216.47])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uOmzaNSL;
+	arc=none smtp.remote-ip=209.85.214.182
+Received: from mail-pl1-f182.google.com (mail-pl1-f182.google.com [209.85.214.182])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 612A0606A31E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 09:25:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 612A0606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3B4B8606A330
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 09:25:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3B4B8606A330
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=SQ03HIPc
-Received: by mail-pj1-f47.google.com with SMTP id 98e67ed59e1d1-3ada4c06b7bso2931652a91.2
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 01:25:33 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uOmzaNSL
+Received: by mail-pl1-f182.google.com with SMTP id d9443c01a7336-2f052ae3c86so29894075ad.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 01:25:43 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795598733; x=1796203533; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795598742; x=1796203542; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=kFVOFcFtL3Kl1lidL7Hzux9EmFfy+WWbY0BBgURBK0s=;
-        b=SQ03HIPc5Uqz/mf3s6ezchpcJ+u2EXHxgVH0SiJ3poNOZHngz9ZvKSvmmmxbYsLUr9
-         Y9iWFGV/dZc3aCeQrVpEa1bzDKTVRXVnPCPQe8FTcVYnzWnZ/YKOD5JiC1mD/KfvlOV+
-         6bi/K7u8aLQp4hU8/Gx+llPQfuEm1zQatoMShR9Z+BP2Zy+ZBo80BqFIEb+A9FavAUO/
-         r4/ZgsqU7GBqvOqTZY2TIA+VIYsDFCceh4asHL2NN9wtzgYflA8aEQvojBP22ga05+Gy
-         itrk1fo4J64VkQcDq0R9SGsdGddCBPELXWN8iSIscqwtJFvYUw7m9pEKx5rr4WhLJ3Wm
-         IbpA==
+        bh=GnB+aZxKe6ZtO8gfhG6inB6mdXvFtFPkZxKmjJASbvg=;
+        b=uOmzaNSLKm4UoCIsOhTI1WTck0A1Qp9NpWDRDxCMo6mn7oQJNdh71lm6mtkYhVdDO/
+         Tqx7Y+QqFxcydT0vWDmTJX4X+64sz5A021bMbb4xLTyENr68YHHBM1MxausvweDDYnKh
+         L65DxTKha36XxQBpYwDoNaiV7cKzhoUuPIYJIIm5jx/NY16J5tFJd3Gq1Q7Sz6XImN3o
+         Ed/6eCXinAZa5SnQkHQyFmbi388/ANikjHZI45z38Lvk1Ab0Q8xAG8f2l291e16+ik1J
+         NFtjMk4XbaJKDm5KZKP8Jpx7kKd/4HgXXVZgSxOyfobQw0mZGRFV0+efXmydwCGbCQRA
+         KfuA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795598733; x=1796203533;
+        d=1e100.net; s=20260707; t=1795598742; x=1796203542;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=kFVOFcFtL3Kl1lidL7Hzux9EmFfy+WWbY0BBgURBK0s=;
-        b=rRcndaZrs66OazV5tA0sKoypHF3B/mMy9N7770J2aqUDuVUaJYavKop0TI5hhR2++p
-         xGXamzMep0nHJoMK5wkL4wgAtt7k/LHxlWTkISFuMOOBzV7+/kOJ0t7jiaES+/5ExXrZ
-         eTkHU2tvQY93pfBdjVy6ZKGD4xe1sdfI4jo299VxGDPm+CLoG+xl0MkpHvToMCR3t01o
-         lMNEA6wWJJvnDSAaDFY+eNsk143pmRWsBLq55hcaYWy51x5LHpN33tjtSK3rm/yQMvVh
-         iAnYmmIVTkIU3svitYT1fZFCXCb1jBdz1r2RpTQ4XGdXNmFFWw7h++lqdbfleuusSGW4
-         q8nQ==
-X-Forwarded-Encrypted: i=1; AL+hErHd0eZZh7LCin+RycqMFnrSKcqsLermkyQNySXoM7V1Gl2hBLrvYeERVpba2tSr9JiUdGJVmt8uGZHKRvk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8349i6HmmX0VRroRMERIUxynqaQ3oqLsgTF+EnIeqiB8wW7YYu
-	DOHPuWY2+8NSi6vdQ5IphictvFTw55P9lHYnXCqqc0FFB54qeWabeLhe
-X-Gm-Gg: AZFdTZfW0ztP35F8AAdCzmxnN/LqdYw8KDYL4oVS/J9A6cY+wtClZBeXlYXmz2ncJnV
-	Y6FWyueybhpGxuPN57KSQhBilI/cjzfB7b1U9WN4aob05xywhgB15bStqBfvINONZiNApgHumLo
-	giSvCpqDxGr50MEBnLjMg2o6yB+/SNo/1zAQ2TNTBjzxG/ieU3IFs6oF1NyY4kzEAJsrM1wGZH8
-	q0PE8I1UY4BBylSHmiUYP/6/IoyFXEQY1fbTj+VD5u3L5rgO0AkYQ7yHypSbM+ON0N68W201UDd
-	PcRFoYvmvRglR5snnoq6bF8KDbecI2gUV9bZrEQXoqR3v5PEoUclKNgvGNRLMYaVbh4iuP3VsnW
-	IQciRSNxC4cwXewEqmGfVK+3YIO/LSLjb2mgAelqextRPT089zykB7EKU+su5ZqgxG6DvLTeY1g
-	ga1JzyqeqCcDq/KQIJmMKQJxY0167g+psVVk3Bv0OVCa0S7cqkvRTyQilWtUohFa3rsQo1RrMsA
-	oVfPcb0BRYCKuGvZjd/9s7vccAatvXVN/3Fb9ePW36yvPL8DKywlLC1raM3VfQnaIntK1vaXxwX
-	6DxwvMfthdwjR8tYlxFJwpUMti3Mit1YBEwCjwiJ1I7DyCIBQO85dEk=
-X-Received: by 2002:a17:90b:3d4d:b0:3b3:b704:119c with SMTP id 98e67ed59e1d1-3b41c938935mr15697647a91.37.1795598732549;
-        Wed, 25 Nov 2026 01:25:32 -0800 (PST)
+        bh=GnB+aZxKe6ZtO8gfhG6inB6mdXvFtFPkZxKmjJASbvg=;
+        b=pkV//ytmJRxbWkhelzAa50bmEBKlN3KavjPdeMu3M1LjbtvfNcgfbZ2mZortqxhp5r
+         4nthWqyeCrN13jysq7zgegdIiq3/xPRhhk3AgmWPk2zHjNiv93wrKKc8LP2SVpUtyg1w
+         51aCaq+2+QhKvSVlJ+RhktIPazHTwoZ2td+SoKs2fK+PuMr7sPWjmO+Tc36VjpKG3SJW
+         N5Bbh1VXA/hIkOI+6njlV0/G0lulrL68e6kP1Z8jgC6UGPIfW5kIjlAGwIQo0NxlhhcW
+         INb2N11MasWtCIvhaNVk02zme+dL2/4y8iAyMGJgkmcI5QUejiTUn8czywG1swuHsa/M
+         1JgA==
+X-Forwarded-Encrypted: i=1; AL+hErGymTr85EV8cgDyusSOaGR8TUhlhUXmFHeUlczz74536qqHa2aNvdx6YySwhgTlV8uJoUljNwhxpoQuqPs=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+D2Uds89+TWbRD1h6JVTFsmVs+DGUWLGFkSXYTbeqRwoxydwTr
+	/ymQCYmN3z1buczykw8ZbSdOgAQMpZFm1T59AtVo5IL5DABHLov2UMLE
+X-Gm-Gg: AZFdTZdJ7NIow+6bDXSWn+crNUOc9ET5vTEILrQ015wVcmhOQLdyhjDQ7FdU/AgbjuS
+	AvkoI/6m7SOnIlEqR6A8cLuEIE7sVE8Nn0X/KyzJpayO8gkjaALwqcx3gz9zeyEPltJWKNRJVRj
+	cbjqJ0D8oru+qqug/U7nqpJIJtnQHr06rw15Uu2XzIhHXkoblTtZPhb6Gy5eO5o702r1mhp1OmC
+	uk8imqoKMG46cuPvteQLvG7MyHdQYdsjy58sH8FHfPeF2nHtCd2PKIjd+5k43YgtL8FtTcovXcP
+	ZPa8VX1Nkt61ZW2uBoN1dD3Kt4x9OQ43+hfNvHKD3cf/l341y7mXTznywFHWpzSZGk2dNDYi6FS
+	Pz1BdAxXpBp8Pte7uXZSRKpMRpA2vSK6OToWCd/hi3B+NpJ23ESFr+3jqTGk+a/jub8znPovGrL
+	nh3OfZuZW3NB02l4WVpj27/wSu8u4aTK/dliixgwFXIKNDJPT+s/RGgD9ycvbEaSDyzWVRXEBhz
+	uosu29i5rbGv8K0+PPboVS/t3D1Iltyx2/xfPYOEKCjN3/fvHUcUy1GM1SpH8UusDRwwdyHv2d4
+	cUj6USkF7xgDTvolAJa75l8gMQb8plaiSg==
+X-Received: by 2002:a17:902:e847:b0:2ed:3db6:2eb0 with SMTP id d9443c01a7336-2f03f1d63c6mr171538965ad.48.1795598742548;
+        Wed, 25 Nov 2026 01:25:42 -0800 (PST)
 Received: from server225.. ([39.170.101.209])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad0b52dsm29160242a91.5.2026.11.25.01.25.30
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f142b8bsm80883155ad.70.2026.11.25.01.25.40
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 01:25:32 -0800 (PST)
+        Wed, 25 Nov 2026 01:25:42 -0800 (PST)
 From: Ping Li <leeonion.muyu@gmail.com>
 To: miquel.raynal@bootlin.com,
 	richard@nod.at,
 	vigneshr@ti.com
 Cc: linux-mtd@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	leeonion.muyu@gmail.com
-Subject: Re: [PATCH v2 3/3] mtd: rawnand: r852: bounce non-linear-map buffers
-Date: Wed, 25 Nov 2026 17:25:27 +0800
-Message-Id: <20261125092527.1938256-1-leeonion.muyu@gmail.com>
+	Ping Li <leeonion.muyu@gmail.com>
+Subject: [PATCH v3 0/3] mtd: rawnand: protect DMA engines from vmalloc'd buffers
+Date: Wed, 25 Nov 2026 17:25:35 +0800
+Message-Id: <20261125092538.1938516-1-leeonion.muyu@gmail.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <875wxl1ea6.fsf@bootlin.com>
-References: <875wxl1ea6.fsf@bootlin.com>
+In-Reply-To: <20261123070440.3060882-1-leeonion.muyu@gmail.com>
+References: <20261123070440.3060882-1-leeonion.muyu@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,26 +102,56 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-From: leeonion.muyu@gmail.com
+While discussing a proposal to also allocate the mtdchar read/write
+bounce buffers with kvmalloc() [1], an audit showed that raw NAND
+controllers may DMA the buffers handed by the NAND core without
+declaring NAND_USES_DMA, so nand_base never bounces non-linear-map
+buffers for them (see the use_bounce_buf logic in
+nand_do_read_ops()/nand_do_write_ops()).
 
-Hi Miquel,
+Non-linear-map buffers are not hypothetical: mtdblock's write cache
+is vmalloc'ed and UBIFS passes vmalloc'ed LPT buffers to
+mtd_write().
 
-On 25/11/2026 at 09:55:13 +01, Miquel Raynal wrote:
-> Why do we need a local bounce if the core can do it with
-> NAND_USES_DMA?
+intel and r852 have no protection at all; declaring NAND_USES_DMA
+lets nand_base bounce through chip->data_buf as the other
+DMA-capable controllers (arasan, denali, meson, mtk, nuvoton...)
+already do.  r852 keeps its existing local bounce, which is still
+needed for the hardware's 512-byte alignment requirement.
 
-You are right, declaring NAND_USES_DMA is the consistent approach
-with the other controllers in this series, and I will rework this
-patch that way.  One part of the local check needs to stay though:
-the 512-byte alignment condition.  The hardware requires
-R852_DMA_LEN alignment, which the core condition (chip->buf_align,
-default 1) does not know about, so misaligned linear buffers still
-need the pre-existing local bounce.  The virt_addr_valid() part of
-the local condition becomes redundant once the core bounces the
-non-linear-map buffers, and v3 reverts it to the original form.
+While at it, a leak in intel's ebu_dma_start() (mapping never
+unmapped on success, wrong device used on the error path) found
+during the audit is fixed as well.
 
-> Also please add Cc: stable to these three patches.
+Changes in v3 (following Miquel's review [2]):
+- r852: use the core bounce through NAND_USES_DMA instead of
+  extending the local condition; the local alignment check stays,
+  as the core condition (chip->buf_align, default 1) does not
+  cover the 512-byte hardware requirement.
+- Add Cc: stable to the three patches.
 
-Done in v3, thanks.
+Changes in v2 (following the AI review of v1):
+- Drop the fsmc patch: nothing has set host->mode since
+  a1b1e1d5bdfe ("mtd: nand: fsmc: finally remove
+  fsmc_nand_platform_data"), so the DMA paths are dead code and
+  fsmc_exec_op() always takes the PIO branch.
+- Fix the Fixes: tags.
+- Add a fix for the ebu_dma_start() unmap problems.
 
-Ping
+[1] https://lore.kernel.org/linux-mtd/20261119090055.1255028-1-ping.li@horizon.auto/
+[2] https://lore.kernel.org/all/875wxl1ea6.fsf@bootlin.com/
+
+Ping Li (3):
+  mtd: rawnand: intel: declare NAND_USES_DMA
+  mtd: rawnand: intel: unmap the DMA buffer in ebu_dma_start()
+  mtd: rawnand: r852: declare NAND_USES_DMA
+
+ drivers/mtd/nand/raw/intel-nand-controller.c |  8 +++++---
+ drivers/mtd/nand/raw/r852.c                  | 10 ++++++++++
+ 2 files changed, 15 insertions(+), 3 deletions(-)
+
+
+base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
+-- 
+2.34.1
+
