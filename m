@@ -1,60 +1,105 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.52
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795649025;
-	b=Mwz2zk0l2wDsI7mm/8OXFWbtUusjpJlMjyVPwtMYuBM64nf5cLnbmsLVq6nFPEdLju62
-	 JO2rSO1nqNL2Yd9wZ1fVXC7PTFOamYezptKCKJv35pJcfAAI4TBVd/m7I4vjuE2cjJ2YO
-	 WLsdcwyRCJyqAFU7J4cbLUMk1itpa1zdLbgN2Q0ds9jRqkre0sRa+807VwoEM9I7nWJOH
-	 HHOiaeNW+liv75c/l8fidtn/xwhz/O9lFOQtA/hle7MVFOjVpDUnXpPblSj6zq9L5HHXq
-	 pSuLWGHRu8h+f3vRJXOBFS/O3NwJHtf/pFzYlkmz6Ys52eVlu0OHhMlssaWV0hilqrQ==
+	t=1795649101;
+	b=CRpMyzbb6uanZ4Ln8hT1plJOM51F2s7Or+qo+rs5hvHJPKfdK7Tt3c7MAEMobwxlZSF+
+	 yEwPqLBv2y/k9NZq3TXAYTKpftqlEWCcOhzEtCyRvEG9GNwl3TEvY1FMjyN9h9qrPd4/6
+	 lNRnoKgwgnjT3Bp4gRn5hlILDaK+Y1e4jA4IpECRQAYy0Fgb8KqFxZ4I//kESr+BUSaOk
+	 1wmLzjS3jwswg9c48FAbGIVOf6kNpOGFEGNKClvRj4W5oHcn80ZVMTm/0xiukr/nEUYEX
+	 uEZPl1CeFtWX6fWxtpqwC8gg3m7pjCimcxBPLKwpUvlQSdXTuddScJbJziNs60djRnA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795649025;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=HylcXLYdrbMpv/2aFN44v2Wt/953Ia1OkzX0FGD1774=;
-	b=XRc29Oqcx65uUoOB+6bLss208UqKd3zr8rHmvPDm1Yu32aOK1PLSxyKmUvYmY29IwS4A
-	 S/UicS4ISm/JGdV/qCvPGD7Qcj9hEE2CGyjGhhFNW6EpklfcFRrpG+KlOCwDvWmFXOTn1
-	 urZE1VJV9VZvmfASRsHpFpGpICdoGfoHUO9SHaNmNtHKfWlfNwBtygz6dHKqeuKoRMapV
-	 02rgnBVHsHBpO1WvSCGONlDU2n8sRZLqp08shrA0Qbcr/KW0ygnsCFnLYkFi5hgsntugo
-	 wnjxjUH8FS9iDfI8xpKK912iEPEjiJtQe2wEhzKpLCbIGj5EO+vXvSFNw92qGank+5A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795649101;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=L6X4hxg9g2a4Kk54pYVDsh+6JPYXZP17k3uQAGcEC60=;
+	b=lBeSNj+wdvZdhT84PGTOlYu1xNUBtoxNfetIYNGp4w0zA64OZWul2mFrkeBlPOaj1T3t
+	 7LZgImnU6BhYC/0WtctjF0s2MK32WLiVGd3LqNfyWn+lIZxgDvCwZYbukQqzxWbtS6kHi
+	 WVFMG00N68Ea4dzcgrBnhqHx1PEKtIspe1h8XUTZiSz8bbrIxx9cMhddfrrpOKDxd96ea
+	 vBecBo2by9lR5VYioI7A//L2bobaMzmvzy2jQ5DbS9indbpt6/kJY5/xvnd98AkOK4nMD
+	 R7Ps1f7nTpY1bWWtHZzu/fmD4z2q1sOeybBUQZBJ5SPhX18xYk3oYAsZ+DCb/qzGJLw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m5dZl2dq;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nU0bcAb9;
+	arc=none smtp.remote-ip=209.85.128.52
+Received: from mail-wm1-f52.google.com (mail-wm1-f52.google.com [209.85.128.52])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A0396606A31E;
-	Wed, 25 Nov 2026 23:23:45 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 19B22606A31E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 23:25:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 19B22606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m5dZl2dq
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 822AE1F000C0;
-	Wed, 25 Nov 2026 23:23:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795649025;
-	bh=HylcXLYdrbMpv/2aFN44v2Wt/953Ia1OkzX0FGD1774=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=m5dZl2dqSzBRpFzDU0Pkcuu9rg485DnDUrCc5UIpY/bEhRpd3eKfa+XVoiBc1ml+5
-	 Z5MW1/6ElSqYiDzartJCR/5TqY37JUePR3actN4gEZ7azMjA3PrCTwuvZkSl9AHJkC
-	 uU82Got94V60Rbu2suuBrcBVwzkLudhL6XBo35oUUlIOelRVeZgyXOhgRUSZnGuKIO
-	 5xKdxFYaAiYWgcSDNnWZ132foUfrGcMtI/i78nRFgB3MZmj0zKh2ILa31a9DpIU3U/
-	 BUoC5ZHxyqFwG5zXXuWb59JMXRbrR1ip6dIgwiu0GD41cLjFLPZm6hmrrtFH/gXKyT
-	 P3URUmudfvSpg==
-Date: Wed, 25 Nov 2026 23:23:43 +0000
-From: Yosry Ahmed <yosry@kernel.org>
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: Sean Christopherson <seanjc@google.com>, 
-	Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, 
-	Thomas Gleixner <tglx@linutronix.de>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, linux-perf-users@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Like Xu <likexu@tencent.com>, Jim Mattson <jmattson@google.com>, 
-	Mingwei Zhang <mizhang@google.com>
-Subject: Re: [PATCH] perf/x86: Don't enforce minimum period for KVM
- guest-only events
-Message-ID: <awdnFkLVRkAglrXv@google.com>
-References: <20231107183605.409588-1-seanjc@google.com>
- <20231117103236.GI3818@noisy.programming.kicks-ass.net>
- <ZWaU3HZURCjms5DM@google.com>
- <20231129112019.GG30650@noisy.programming.kicks-ass.net>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nU0bcAb9
+Received: by mail-wm1-f52.google.com with SMTP id 5b1f17b1804b1-4a1fbd52ab6so43584645e9.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:25:00 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795649099; x=1796253899; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=L6X4hxg9g2a4Kk54pYVDsh+6JPYXZP17k3uQAGcEC60=;
+        b=nU0bcAb9fsTujKO4firFKvcUAuPT8aUbcufiUqVA9gF9kqLjgdWOABKvoMX+ru2K1V
+         3e8RwqIIWi61/pcvQhafPPco4CBat41WCNtkAuMYkxjEUdAjHBLNtzYUUVwpV/FUCnbh
+         BHOIJuQBZsGZ/cIv+Vbxqaj+QQ9CFScpBX1ZT0nQgCB6WGVzTQpTsXRUGX/EdG+HGgwY
+         4ODQb/aMG8QwSCAZMg8ZPqIVZvWzrJqs3CXk4O+BehrNOMqATQF2zXztMoJI93Ko1hK5
+         V8P1t1xYvRVwKWo/aFeV+XyXkJTQ0BJglH9FO4F3l6U+pq+VyGfDiqZqZ/TUbQyQ6PrV
+         ypMA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795649099; x=1796253899;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=L6X4hxg9g2a4Kk54pYVDsh+6JPYXZP17k3uQAGcEC60=;
+        b=ceqqKrozpSOMHOq0milCi2f01MS+Oer3+68/4tYrPq9Yv1+fmY/rSl9lR+C0o5/nFo
+         pkESC23NYu2KUL0V2TatpcPZgoZMK3hsqHLbXDlvtYXqDtpZpngluK+yLxUhjUrWk+EC
+         O8+LRv5VJ0KpyVz73YhkQLBekIG1Uip3FowCzngtpv4xP5GCo/0XHlydLpvODXdgpTsb
+         72MrkpqSBUJ2vq7hGAzMn69jG5LVN4mgZmTO6B++UvE4PElEs60mSQmrJU4dEOHS3Xx+
+         QYFp65DQt+Rqb4gZoNkfoO+5KIUsevjpErya5KRxzLu7p0iAyu9ODQf7C9B0STRsIRmH
+         40kQ==
+X-Forwarded-Encrypted: i=1; AL+hErFtbBmvxdHgLTifoPCsDnzp9QIHpECFKfBSesDp68eQu0cPR0EhBdxMRi0HGzztgieu2dH4KV7BXzB90oo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8C3t3mOMCFjd3m+Mu3a7efzS3Cfkzo0vpNk5FeadL/QhR8Ok+K
+	T6J+8qGyXySDU1MBU3gXVkOdMbG5XlznGVQZfSQArYMGx0w156gGNrsXrhGMFlZV
+X-Gm-Gg: AZFdTZdWv7W8JoJabYOzvL/18ClsmEcjO73LSLW/GI+L7Lnxn2Zlpvpki+8mu91Bx+J
+	+I7ucg+v6ni1PjOoLjHvkIZ4cITEbmEfO3dIO/gMnzIJ/EFgJzEUwLyGU7N3u/DNmb3mzRmYD1S
+	DHG6+FDSk4yVl9uKaPb9+BW6T7mJ+yJG4sGCawVOf641QT0nCy0a1AbHKYXozZDVH/VsStNPLnU
+	sP2xYi0MCiQ8zeRrt2CKTBlOHMuMzDLkrngaQzyke6ZFfLWfO5tuuRbFu7Eco6OsCmecf5ut4jz
+	GccoQw+3daTG2ddN6C+q3az7+ihAUQnVqLLOxzF37882/VYG9AA8+0brURSKKkIClRlcU2DgOzv
+	qjUCu1JB0n5c7Yf73UsfiD+q/37CD95RuDAmoKCLualqX7+Coxp8KA26N/wIHR45G+xxcTDeDCR
+	l51YIzXcDTboLo2angXx9yrzQGZPWk4g5RZhlK7sDTpXIXEWVypt0LPK3LcSJTX6w0jcnz3I9P5
+	4tF0BpwQZYv6nE5Dzb+dBU+zNwgg5Zp7ox+k9oGQLJqdLlv+pAnGn3tY1cKY+vw/c+6jtaW6+jg
+	dMP6eqgg7gEBqqMjIpRH0/Gc3VUTTy4R/YLVfDk99AEgcYA=
+X-Received: by 2002:a05:600c:154c:b0:4a2:729:f7ce with SMTP id 5b1f17b1804b1-4bb8881c378mr396837705e9.8.1795649099232;
+        Wed, 25 Nov 2026 15:24:59 -0800 (PST)
+Received: from localhost ([212.73.77.104])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-4b34e9c3ffesm20957965f8f.19.2026.11.25.15.24.57
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 25 Nov 2026 15:24:58 -0800 (PST)
+From: Askar Safin <safinaskar@gmail.com>
+To: jkoolstra@xs4all.nl
+Cc: amir73il@gmail.com,
+	brauner@kernel.org,
+	cyphar@cyphar.com,
+	gregkh@linuxfoundation.org,
+	jack@suse.cz,
+	jlayton@kernel.org,
+	linux-fsdevel@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	neil@brown.name,
+	neilb@ownmail.net,
+	safinaskar@gmail.com,
+	shakeel.butt@linux.dev,
+	tj@kernel.org,
+	viro@zeniv.linux.org.uk
+Subject: Re: [PATCH v8 07/12] vfs: short-circuit MAY_WRITE access for O_DIRECTORY opens
+Date: Thu, 26 Nov 2026 02:24:43 +0300
+Message-ID: <20261125232443.1897836-1-safinaskar@gmail.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <1119017860.2578021.1795602566314@kpc.webmail.kpnmail.nl>
+References: <1119017860.2578021.1795602566314@kpc.webmail.kpnmail.nl>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,68 +109,21 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20231129112019.GG30650@noisy.programming.kicks-ass.net>
+Content-Transfer-Encoding: 8bit
 
-On Wed, Nov 29, 2023 at 12:20:19PM +0100, Peter Zijlstra wrote:
-> On Tue, Nov 28, 2023 at 05:33:16PM -0800, Sean Christopherson wrote:
+Jori Koolstra <jkoolstra@xs4all.nl>:
+> > The problem is that "flags" contains an invalid value.  The correct
+> > error for that (according to open.2 man page) is EINVAL.
+> > 
 > 
-> > If programming a "period" of 1 puts the host at risk in some way, then I agree
-> > that this is unsafe and we need a different solution. 
+> This is best probably. The counter is that I wanted to change errnos as little
+> as possible. Now you get at least something that could already happen when
+> you did a normal open(O_DIRECTORY). Were this designed from the start -EINVAL
+> is obviously what is needed here.
 > 
-> IIRC if you put in -1 on a Nehalem, you end up with an NMI-storm which
-> wasn't trivial to recover from if at all (it's too long ago and I don't
-> have ancient hardware like that anymore :/)
-> 
-> > But if the worst case
-> > scenario is non-determinstic or odd behavior from the guest's perspective, then
-> > that's the guest's problem (with the caveat that the guest might not have accurate
-> > Family/Model/Stepping data to make informed decisions).
-> 
-> Things like bdm_limit_period() will cause odd behaviour IIRC, it does
-> daft things like generate extra PEBS records on overflow and gives
-> otherwise daft results for PDIR.
-> 
-> glc_limit_period() lacks a useful comment :/
+> I dunno, not sure what other people think.
 
-Sorry for thread necromancy, but it seems like the discussion stopped
-here and I'd like to get this fixed as I am observing the same failures
-that Sean did.
+Now I think it should be changed to EINVAL, too.
 
-Basically, if KVM needs to program period=1 (guest counter is -1), perf
-overwrites it to 2. After 1 event, the guest counter should overflow,
-but the hardware counter doesn't, so there is no PMI. On the other hand,
-KVM relies on the hardware PMIs to signal overflows while perf events
-are counting.
-
-The overflow is then lost: when KVM pauses the event (e.g. to account
-for an emulated instruction), it folds the perf count into its software
-counter and restarts the event with a new period, so the late hardware
-overflow never comes, and KVM only checks for wraps on its own emulated
-counts.
-
-Sean's fix makes the problem go away on all CPU platforms, and Peter's
-makes it go away on Skylake+ on Intel (with updated microcode) and all
-AMD platforms. So I am mostly happy with both. It's worth noting that
-the blast radius is smaller with Sean's fix as it only affects guest
-events.
-
-A middle ground would be skipping the left < 2 clamp on exclude_host
-events, but not the x86_pmu_limit_period() callback, which makes the
-problem go away on slightly more CPUs than Peter's patch (I think
-Sandy/Ivy Bridge, and Skylake on older microcode versions). This keeps
-the *_limit_period() subtleties in place.
-
-All three versions seem to make the problem go away on AMD Turin.
-
-WDYT?
-
-An alternative to all of this is a "fix" on the KVM side where KVM is
-always responsible for signaling all PMC overflows, instead of signaling
-some of them from the PMI code path. KVM would keep track of the guest
-counter value as of the last pause or write, and on PMI it would just
-pause the event, manually check for the counter wrapping, and deliver
-the PMI to the guest.
-
-This would obviously be a more complex change.
+-- 
+Askar Safin
