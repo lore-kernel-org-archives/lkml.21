@@ -1,97 +1,92 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.178
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795622780;
-	b=dLWZ1hUmdHSN9Aged9jKUf7OFjqbM+vap07vMpqC/5j6Pq8flYD0eB5fAELfuAFpJ2y+
-	 BGm1hjUotUZTYXhqGUsgpR6yhcg0XvMK27bNZRjJnElE+zQPmqflgepIEFHOdcTG1QSnn
-	 ABC72KiS/pcAaILkd8aJpGq+j65eh4USFXvDRxH68uKrjO3bVI8GPxiKhU4nF6gVZKg9G
-	 W9JKJFvQVXmBH5tFi3/lmt6eVZOvm5ItFyf2HrkwFsybY02hiSgw11G6sbca6mzvmyv4D
-	 IDXbtrRAciZ93pUeCUtzyLYsrL2VGGbsEuxZtZZYvGC3QXeqKh2jptNle9jhMHGhPjw==
+	t=1795622837;
+	b=G0FgkeVHRPJeSBnoRnD0fxzVLPF7gMZmdELvUQiM1AUtzSCM0ItzFD1izXfI3b+Z8r5n
+	 U3p6Ij6FsVPJfytz4CQ/OMLC0h9+U+i5tJLTd4dhfwzRjNSN9omofHraBK03SuSDj7iVO
+	 TWUmz3LwIsV2JptuTk+/BBoKsOa5o8S/HmIkLtqISX/wpwHXXXn28R/nzWOWchdMp+8Yi
+	 G0jY+WsnIBb7vrJ7szF0Bk1gq2KUpzKyxphF9KwGIa5lm5Nj7majDtAkdgq5gQI87zej+
+	 thMdSdzoqrnWD0N2+s0Mv/7U1UDv3+H/fDTH9qCzlhYOeCBh9A57Z1w7o2fJWYQYHjw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795622780;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795622837;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=2Gq9YU/maKf0gmc7d1gIF7pc7KL6Wf9dUnlwKGyXxgs=;
-	b=OiT36m4ZjJmgzO5PmWXi4dEr6PQECQmgjQkgUVBklj17/11ADpuZW0i3LTZjTCkEnLRE
-	 Vg8Hee3VBR2lan39mbq4DlCr3CCpsqaiM63lq4eWmID8UeP5nA2YvXvY5ihekBTrq4ONU
-	 0NUWWwZ6+xGr9zZr1LAbUv4m4SKKvB1zdkhYLKHXO49wbnKkb/UFm3WFVxP3/O7525859
-	 CHMmm1/5VTKfVd7Aajn0HrOErvejqUbz1K7PhcCriOvWeRC/CB4q8KT4KXRvy7lVQ1D9H
-	 cIV5IF3j74O7ojvmVUoOZyF9/CptXWw9jndeVObCucY+LLkigzkd4RnCsL3RDphJJ3g==
+	 From:To:Cc:Subject:In-Reply-To:Date:Message-ID:References:
+	 MIME-version:Content-type:Content-Transfer-Encoding;
+	bh=V+c7efN+kejpOWutWyfpTAMXZ8OZ1LgKeXSCI+Lspfg=;
+	b=5S6lcm8uhAhes6Uaf+kJvVGQBYtvNS44M8UbC2vvOGJIHWMabNG9Nu5ZqcRSyDVcMUfX
+	 kE7xT76JBkDDWevq9oEYUCPCgr4+YN6AjW3x5kCNk7UM4mI11hiH1XeSIXmQkXgXh6cvP
+	 AUxPMdvLtCfUQW2/BoA1LNJOIviQG+nD62Tjf6vjRc3FXRoWxobCGk+UJTvVS5G75QbT9
+	 RhgQcT25ESn44rPROyTbB1Y4ij9SkPh0EqMk4HUKXOD7I2oztXcCQxXooUuL8MS3eWhO1
+	 +wzMD7gmfTPRVjpNw95buqEcVbJ7wkJfSblva1XSs4KjdPOFQg0TXyjX/39Kn7i2y2Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=sIxh4Ln7;
-	arc=none smtp.remote-ip=209.85.128.51
-Received: from mail-wm1-f51.google.com (mail-wm1-f51.google.com [209.85.128.51])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=AAOzwET8;
+	arc=none smtp.remote-ip=74.125.82.178
+Received: from mail-dy1-f178.google.com (mail-dy1-f178.google.com [74.125.82.178])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 570B6606A31E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 16:06:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 570B6606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3733C606A333
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 16:07:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3733C606A333
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=sIxh4Ln7
-Received: by mail-wm1-f51.google.com with SMTP id 5b1f17b1804b1-4bba5e17cbeso8409465e9.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:06:20 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=AAOzwET8
+Received: by mail-dy1-f178.google.com with SMTP id 5a478bee46e88-386ab9ab619so7323229eec.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:07:15 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795622779; x=1796227579; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=2Gq9YU/maKf0gmc7d1gIF7pc7KL6Wf9dUnlwKGyXxgs=;
-        b=sIxh4Ln7V3s6nCU3L1xeATftD3c/Ro1RGMJZT5I/xMiBIMzUldEiA2C2IbscL3hECF
-         BDwRWdsJ/Db8Au65ovM16J5whhFZBy776Bxii5gPVCQ6v9y3otVzvG3/75X2gFIlPXhv
-         ylDQIRT/mSoULNWpQEPlCPNkklk5/228GmQwZaUhkyfl9DPgU4rZUsTnlvxWFVPmLc41
-         wOMAYMedGI2I2IN7hh2FQXZylnngaYqON3fYopQoXGdLaa55nNG9gLW6lH2Qw8VPqq2x
-         Ker3hLD3czJRi+DcjzBYOrwzdh0zMhVaNx8Fyh6r/xsgNThzZoZZPCBK275HGMGua6JD
-         zWMw==
+        d=gmail.com; s=20260707; t=1795622834; x=1796227634; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :message-id:date:in-reply-to:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=V+c7efN+kejpOWutWyfpTAMXZ8OZ1LgKeXSCI+Lspfg=;
+        b=AAOzwET8SXAhG1gannlnkZMy28aI1pzko/NNx4Jve9pBJZZHOixcq+pAmZSJfO9Krs
+         /Tc6+/Bbh91fAVann2YKm+BBZBE0b4tA620ZZIAcAsdrokJ768pGnjn2DH2Ou1Usebrk
+         7Eg38EFA54Yz/oQJc9f/fYl+Et6uUxBme5b+LSQ6acoYFw5EnzyeXhrLQ8ZWthBOsji+
+         hhZFJp220Yvidy3ZXMkZN93cMRFXxEjzWStmn2tvXnCKRWOT/iOIisP8lYYVV/6gEu/k
+         K9b00YKoh2lJuZrKOPb67lxR1fdUAH7hS7KmRn9wJEpMx4hRwDKPZXjXzVOfbpXbEF12
+         zfwQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795622779; x=1796227579;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=2Gq9YU/maKf0gmc7d1gIF7pc7KL6Wf9dUnlwKGyXxgs=;
-        b=SlH4yr+ijZj6nyCuy0TsMn/ejKOdSmkWEAhy5m2pJ3Mj6OPrgZPdifORLO6Lla0bzE
-         PHQTvjDz1l4i50myN6dMrdPQRyS5wtbIKo1X958xEJ8bSr/4lY3aVBcwdGwZoPSjIXYv
-         3yRPA3a9efuwD54YwAcPJjItB32qoHyotD0cPdP98RnR4cAIuIof0S4pngYAhgB0S8rC
-         jcv7exBxFp0Ln7ce69/fydoGvUkYBJUtvCw4aRBtzMkm/6z9Q48iWOlnsjJj7WBUFxNR
-         gpMWYj4qvzlyyq5pEvjMaI/VfNBuUcIpRcGEyVfxhSqvzEagImg5nxq+0fGcRXEVHYb7
-         MAmw==
-X-Forwarded-Encrypted: i=1; AL+hErHqpfBeCOd6zmYmGJE2D8xd9vrse8GRZ6N8SsNK7Xhh620F14KbqpR3KME8cAI2ArZhzVYKWksetE4NSjQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/vhkRqaab3IxKJZ85ToNtQp8Rxn2jPe9UYoMzVpLHumhkhiNy1
-	fkQvhsITSDF7JyrzOOVMKvxDmDLEc102Xt7+cE0x4nEqqyDruR5l55R2
-X-Gm-Gg: AZFdTZeUfYm0EMZC+5wK1C3ChjJBkiSXO13t4WNDYu9ScLGjIk1Z1xWfOInWTPjCb8T
-	neHMu8ZGaSIRS7A0Fze6pmJ/GBmMrSxOmEWx7DUUSxgtjh47JMvZxef/AI1wiRa7qeySuKvjto0
-	YQ2g5f5KflhBFt16kUftncbhzZf/s1t9y5IZnR7R6HKgNabj1lkHJcttidUZLKe4E1e3dnu4bX/
-	fKTWtUjqemptSkPe2auDdIye+DVP4sWbbhWEn/U9xRvwr7ztmPvqhp5a3YrijyTRXbyEJzoMqVz
-	kt7KYDcXQwD2i0khoXLOHTB0VcR0PAJvlmLSmJcENgHZYlA4BY2F3wu+wWno5OUKCQEbRRO75hu
-	eqfSYDL6NyKH1/GAOSdE6iRu82VDVShKKFMsea7AuY+hFeQrECzS50szRB6rc965MnbXIcfTx+P
-	s+jFo8VMtO26mkSHAGljZZ5Eu/2XniWVk7rd33wgsjuH+zgB6RIQ9DSjlsmNKy1xDoJthnsCtyN
-	1DxAuIP2azKhV2ghPLruPuqoTR/Q8E8m/denCPZfun7PxJeq3C3UXZp28kBohlr48eWtiAJ63j4
-	qJx30w5h5ibxgAx1TxNoNXsnhNI+KJ+hJao=
-X-Received: by 2002:a05:600c:4e87:b0:4bb:534b:ada4 with SMTP id 5b1f17b1804b1-4bb8881e95dmr376484565e9.33.1795622778314;
-        Wed, 25 Nov 2026 08:06:18 -0800 (PST)
-Received: from deb05.proceq.com ([213.160.61.66])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b10b5f6sm33011838f8f.34.2026.11.25.08.06.17
+        d=1e100.net; s=20260707; t=1795622834; x=1796227634;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :message-id:date:in-reply-to:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=V+c7efN+kejpOWutWyfpTAMXZ8OZ1LgKeXSCI+Lspfg=;
+        b=hB48Z62Vu/AqDMp5THZq4or9rGH6D3PB7tvcDzAuBPSp2LYP8MvlLUmEHved0eZmyg
+         5CKWKd2o2p9iw49/vbbQNSMq2t6cMAxQuc3tafzV/Gdpg4eVzNUeOwbEIgN99xnGo3xo
+         DaNfed9RmPq0D7z8sqeeiS3cwAYFaeU2dMrlbziPf4GHkz+leTrY8T6lElQ69eYbrSht
+         VeeNkGrUw1/QCyzEm+MOoavY+MN91VKWtYg5fVqFCKIStHcNzW9UsSNGcuEmr+8MbKpP
+         xmgLlhnyC7Ih9ewW9/36n+eoKy9Kkmi5qia95KMbp9oukIjt+lEP6Ux8BFD006VZUSHT
+         zNkw==
+X-Forwarded-Encrypted: i=1; AL+hErGyu4xc1JMUuMKjcVLIlTdla4S+W2rC+gZtWhUEQH63iuGdSbruikBcUaaIU1GPWJrzqfzonFhYf76w8oY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z91ArEevlJqOH7dhpZ9nWnLWjgcR5kJdzh4eqU/O7Iaz+V7cW0U
+	lwqwvWvlq368pzXhPUxL/Lk0dFAMrsddYhCkWpzclIGOTPxp/I1c7GLc
+X-Gm-Gg: AZFdTZcDhToDHIGCgBGiqczd+RxLXEBbt4502ibXMpZ7OUaXAZUjzMRzICLXPtNnEPQ
+	7fyN3z0TUQl2wEute94IVF+ofznW6HMZAwTelwrA9vr+8ovQkw3ri/kmT0kF/0h80cUs/glSLRk
+	sWgCr6mteQDtF31rM+kxiNQFk+7WePUkFRnFL3Nphndj253sPv/tEPQgibkHtnvEhG2kkMAxDiZ
+	mfH53LStjSuJJC/yyqYzx3xpfMzSLl5dNGc/BkgX/i2IZFw3cJwM/ewxpCQB6d+VSuaB8/tWxVq
+	2h95YtEH1RA8J6redzTvcYJ5hmSchtzfnLLpEIWx6sNR13z6le+N1ZB+retIYhrsmkfC23pqIE4
+	2mY0sp8wMtuPx+9tMRkFUN+S7cwoQQ07Pqxt7pgdxGbwnUOkwPFpqt2AJr5PCW3DHAsBwlNKORp
+	aCaW+5FLlnxTJAGNdF9mkxqbrO5L43XT8gfHBzRkJHQ3TpbTyoGJLBm9J/gkhnJLNzewwWNwW7n
+	Jpxv/A06GxkYCHySgC4vUuiGWcqAg1LE+pzbbcCEL+DXdSy2iO9yt/erikYRG+7D5aogppL3Fve
+	RT1NiIdN5NKKAyeGN2hmqS6h9Hw=
+X-Received: by 2002:a05:7022:f109:b0:1b3:8814:8383 with SMTP id a92af1059eb24-1b55689fca6mr14160449c88.9.1795622833867;
+        Wed, 25 Nov 2026 08:07:13 -0800 (PST)
+Received: from pve-server ([49.205.216.49])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b556840494sm43726453c88.12.2026.11.25.08.07.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 08:06:17 -0800 (PST)
-From: Mehmet Fide <mehmet.fide@gmail.com>
-To: =?UTF-8?q?Georg=20M=C3=BCller?= <georgmueller@gmx.net>
-Cc: Bitterblue Smith <rtl8821cerfe2@gmail.com>,
-	Jes Sorensen <Jes.Sorensen@gmail.com>,
-	Ping-Ke Shih <pkshih@realtek.com>,
-	linux-wireless@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	mehmet.fide@screeningeagle.com
-Subject: Re: [RFC PATCH v3 0/4] wifi: rtl8xxxu: implement AP mode for 8188EU
-Date: Wed, 25 Nov 2026 17:06:16 +0100
-Message-ID: <20261125160616.1201001-1-mehmet.fide@gmail.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <4161102f-dcdc-4780-9bf5-26961a1360c8@gmx.net>
-References: 
+        Wed, 25 Nov 2026 08:07:13 -0800 (PST)
+From: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
+To: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, linuxppc-dev@lists.ozlabs.org
+Cc: Madhavan Srinivasan <maddy@linux.ibm.com>, Venkat Rao Bagalkote <venkat88@linux.ibm.com>, linux-kernel@vger.kernel.org, Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, Shrikanth Hegde <sshegde@linux.ibm.com>, Hari Bathini <hbathini@linux.ibm.com>
+Subject: Re: [PATCHv2 1/3] powerpc/execmem: Don't leave kprobes insn pages W+X when CONFIG_MODULES=n
+In-Reply-To: <0a6fbbd8-6339-444d-bcb0-a74980fb77c8@kernel.org>
+Date: Wed, 25 Nov 2026 18:35:47 +0530
+Message-ID: <mrqxjc2c.ritesh.list@gmail.com>
+References: <cover.1794572365.git.ritesh.list@gmail.com> <f75f2cf97f44375fd2c8820e0caeab703cdb371c.1794572365.git.ritesh.list@gmail.com> <9a7963a6-0033-45ab-90d5-b1f580a4882c@kernel.org> <v75v752e.ritesh.list@gmail.com> <0a6fbbd8-6339-444d-bcb0-a74980fb77c8@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,126 +95,158 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
+MIME-version: 1.0
+Content-type: text/plain; charset=utf-8
 Content-Transfer-Encoding: 8bit
 
-Hi Georg, Bitterblue,
+"Christophe Leroy (CS GROUP)" <chleroy@kernel.org> writes:
 
-I tested v3 on rtw-next (18d0bedbb5f0, context fixes in patches 2 and 4
-only) with an Edimax EW-7811Un V2 (RTL8188EUS rev D) as AP and a
-separate sniffer. I found three problems in the AP part, plus an older
-one that explains the duplicate pings.
+> Hi Ritesh,
+>
+> Thanks for your patience,
+>
+> Le 17/11/2026 à 18:15, Ritesh Harjani a écrit :
+>> "Christophe Leroy (CS GROUP)" <chleroy@kernel.org> writes:
+>> 
+>>> Le 13/11/2026 à 13:31, Ritesh Harjani (IBM) a écrit :
+>>>> commit 2e83e2ce34ff ("arch, mm: promote DEBUG_WX to CHECK_WX"), made
+>>>> CHECK_WX default STRICT_KERNEL_RWX.
+>>>>
+>>>> Now on powerpc, when we boot with CONFIG_KPROBES=y and CONFIG_MODULES=n,
+>>>> we can see the following warning splat at boot:
+>>>>
+>>>>       powerpc/mm: Found insecure W+X mapping at address 000000002ea08992/0xc008000000000000
+>>>>       WARNING: arch/powerpc/mm/ptdump/ptdump.c:194 at note_page+0x4dc/0x4fc, CPU#0: swapper/0/1
+>>>>       NIP [c0000000000ac204] note_page+0x4dc/0x4fc
+>>>>       LR [c0000000000ac200] note_page+0x4d8/0x4fc
+>>>>       Call Trace:
+>>>>        note_page+0x4d8/0x4fc (unreliable)
+>>>>        ptdump_pte_entry+0x70/0x94
+>>>>        walk_pte_range_inner+0x15c/0x260
+>>>>        walk_pgd_range+0x6d8/0xd5c
+>>>>        walk_page_range_debug+0xa4/0xf0
+>>>>        ptdump_walk_pgd+0xec/0x304
+>>>>        ptdump_check_wx+0xd8/0x154
+>>>>        kernel_init+0x94/0x26c
+>>>>        ret_from_kernel_user_thread+0x14/0x1c
+>>>>       Checked W+X mappings: FAILED, 1 W+X pages found
+>>>>
+>>>> This happens because CHECK_WX noted a writeable + executable mapping.
+>>>>
+>>>> This happens because execmem_arch_setup(), checks for
+>>>> struct_modules_rwx_enabled(), while kprobes depenency on modules was
+>>>> earlier removed via commit:
+>>>>       7582b7be16d0 ("kprobes: remove dependency on CONFIG_MODULES")
+>>>> Since the insn slots are only written with patch_instruction(), which
+>>>> does not need this mapping to be writable. This patch fixes it by
+>>>> checking for strict_kernel_rwx_enabled() instead.
+>>>>
+>>>> Fixes: 7582b7be16d0 ("kprobes: remove dependency on CONFIG_MODULES")
+>>>> Signed-off-by: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
+>>>> ---
+>>>>    arch/powerpc/mm/mem.c | 2 +-
+>>>>    1 file changed, 1 insertion(+), 1 deletion(-)
+>>>>
+>>>> diff --git a/arch/powerpc/mm/mem.c b/arch/powerpc/mm/mem.c
+>>>> index b617b69452cd..77b63b52d8f2 100644
+>>>> --- a/arch/powerpc/mm/mem.c
+>>>> +++ b/arch/powerpc/mm/mem.c
+>>>> @@ -388,7 +388,7 @@ static void prealloc_execmem_pgtable(void) { }
+>>>>    
+>>>>    struct execmem_info __init *execmem_arch_setup(void)
+>>>>    {
+>>>> -	pgprot_t kprobes_prot = strict_module_rwx_enabled() ? PAGE_KERNEL_ROX : PAGE_KERNEL_EXEC;
+>>>> +	pgprot_t kprobes_prot = strict_kernel_rwx_enabled() ? PAGE_KERNEL_ROX : PAGE_KERNEL_EXEC;
+>>>>    	pgprot_t prot = strict_module_rwx_enabled() ? PAGE_KERNEL : PAGE_KERNEL_EXEC;
+>>>
+>>> Looking at this, I'd use PAGE_KERNEL_X instead of PAGE_KERNEL_EXEC.
+>>>
+>>> Then we could get rid of PAGE_KERNEL_EXEC completely for powerpc.
+>>>
+>> 
+>> I think it's best if we keep the definition of PAGE_KERNEL_EXEC on
+>> powerpc as PAGE_KERNEL_X, I think the core expects the arch to define
+>> this, if not, then it defaults to PAGE_KERNEL e.g. see this:
+>
+> Yes, which is consistent with what powerpc does when strict modules rwx 
+> is enabled.
+>
+> And indeed it doesn't matter, because module code does a rw allocation 
+> at the begining then convert it to ROX or X later in 
+> module_enable_text_rox(). See comment :
+>
+> /*
+>   * Since some arches are moving towards PAGE_KERNEL module allocations 
+> instead
+>   * of PAGE_KERNEL_EXEC, keep module_enable_x() independent of
+>   * CONFIG_STRICT_MODULE_RWX because they are needed regardless of 
+> whether we
+>   * are strict.
+>   */
+>
+> So really PAGE_KERNEL is what is expected nowadays.
+>
 
-1. Beacons. After hostapd starts, the 8188e sends one beacon and then
-none. Probe responses go out, so clients still find the AP by active
-scanning, but association takes about 6 s and a passive scan sees
-nothing. BCN_VALID is set and the beacon function is enabled; the
-hardware clears the beacon queue after the first beacon. In AP mode the
-vendor driver (hw_var_set_opmode()) sets BIT(3) | BIT(4) in
-REG_MBID_NUM, commented "If set 0, hw will clr bcnq when tx becon
-ok/fail". With that there is a beacon at every TBTT and association
-takes 0.5 s.
+Thanks. Yes, I looked at the git history and I agree with you.
 
-2. TBTT hold time. rtl8xxxu_start_tx_beacon() writes 0x80 to
-REG_TBTT_PROHIBIT + 1 and clears bit 0 of + 2; the vendor
-ResumeTxBeacon() writes 0xff and sets bit 0. On channel 6 with several
-neighbour APs, 7 runs of about 120 TBTTs each: 2-5 % of the beacons
-missing (one run 42 %) with the rtl8xxxu value; with the vendor value
-0 % in 5 runs and 1-3 % in 2.
+>> 
+>> include/linux/pgtable.h:
+>>    #ifndef PAGE_KERNEL_EXEC
+>>    # define PAGE_KERNEL_EXEC PAGE_KERNEL
+>>    #endif
+>> 
+>> Also mm/execmem references PAGE_KERNEL_EXEC in __execmem_init().
+>> Although it references only when execmem_arch_setup() is not defined by
+>> the arch (which is not true for powerpc).
+>> 
+>> 
+>> However, even though nothing breaks today, but later if there are other
+>> users of PAGE_KERNEL_EXEC, then PAGE_KERNEL does not have X (execute) bit
+>> enabled, so it might break in future. Plus looking at above, I believe
+>> there is no harm in keeping it - since core expects the platform to
+>> define it's own definition - due to all the other references it has.
+>> 
+>> Thoughts?
+>
+> Yes but PAGE_KERNEL not having X is on purpose, module first allocates 
+> non-X mem, sets up everything then converts to X or ROX. I don't think 
+> there will be any more users of PAGE_KERNEL_EXEC in the future. It is 
+> going in the other direction I think.
+>
+>> 
+>> However, if you still think we should remove it (?) - then I feel let's
+>> do that as a separate cleanup patch. Since this keeps the usage of EXEC
+>> same between prot and kprobes_prot variables in patch-1, which we also
+>> need to backport.
+>
+> At least we should stop using it in our own arch, it would help with 
+> readability. And really I think we shoud drop it completely. But OK to 
+> have it as a separate patch not to be back-ported.
+>
 
-3. macid in the TX descriptor, which Bitterblue pointed out:
-rtl8xxxu_fill_txdesc_v3() still does not set it; the vendor driver puts
-mac_id & 0x3f into txdw1. The same function also indexes
-priv->ra_info[macid] now, but for group addressed frames with a key,
-rtl8xxxu_tx() replaces macid with the security CAM index, which can go
-past the 16 entries of ra_info.
+Right. Agreed Christophe, thanks for sharing the pointers.
 
-This is what I use on top of v3 for 1-3:
+After looking at the history of changes in there, I see that since commit:
+  4fcc636615b1 ("powerpc/modules: Make module_alloc() Strict Module RWX aware")
+module text is allocated with PAGE_KERNEL, when STRICT_MODULE_RWX is
+enabled and only made executable later, so there is no longer a reason
+for a separate name there.
 
-diff --git a/drivers/net/wireless/realtek/rtl8xxxu/core.c b/drivers/net/wireless/realtek/rtl8xxxu/core.c
-index 49c167fd6ee4..9a297b077443 100644
---- a/drivers/net/wireless/realtek/rtl8xxxu/core.c
-+++ b/drivers/net/wireless/realtek/rtl8xxxu/core.c
-@@ -1154,6 +1154,14 @@ static void rtl8xxxu_start_tx_beacon(struct rtl8xxxu_priv *priv)
- 	val8 |= EN_BCNQ_DL >> 16;
- 	rtl8xxxu_write8(priv, REG_FWHW_TXQ_CTRL + 2, val8);
- 
-+	if (priv->rtl_chip == RTL8188E) {
-+		rtl8xxxu_write8(priv, REG_TBTT_PROHIBIT + 1, 0xff);
-+		val8 = rtl8xxxu_read8(priv, REG_TBTT_PROHIBIT + 2);
-+		val8 |= BIT(0);
-+		rtl8xxxu_write8(priv, REG_TBTT_PROHIBIT + 2, val8);
-+		return;
-+	}
-+
- 	rtl8xxxu_write8(priv, REG_TBTT_PROHIBIT + 1, 0x80);
- 	val8 = rtl8xxxu_read8(priv, REG_TBTT_PROHIBIT + 2);
- 	val8 &= 0xF0;
-@@ -5572,7 +5580,7 @@ rtl8xxxu_fill_txdesc_v3(struct ieee80211_hw *hw, struct ieee80211_hdr *hdr,
- {
- 	struct rtl8xxxu_priv *priv = hw->priv;
- 	struct device *dev = &priv->udev->dev;
--	struct rtl8xxxu_ra_info *ra = &priv->ra_info[macid];
-+	struct rtl8xxxu_ra_info *ra;
- 	u8 *qc = ieee80211_get_qos_ctl(hdr);
- 	u8 tid = qc[0] & IEEE80211_QOS_CTL_TID_MASK;
- 	u32 rate = 0;
-@@ -5580,6 +5588,10 @@ rtl8xxxu_fill_txdesc_v3(struct ieee80211_hw *hw, struct ieee80211_hdr *hdr,
- 
- 	seq_number = IEEE80211_SEQ_TO_SN(le16_to_cpu(hdr->seq_ctrl));
- 
-+	/* macid is the security CAM index for group addressed frames */
-+	ra = &priv->ra_info[macid < RTL8188E_MAX_MAC_ID_NUM ? macid : 0];
-+	tx_desc->txdw1 |= cpu_to_le32(macid & 0x3f);
-+
- 	if (ieee80211_is_data(hdr->frame_control)) {
- 		rate = ra->decision_rate;
- 		tx_desc->txdw5 = cpu_to_le32(rate);
-@@ -7002,6 +7014,13 @@ static int rtl8xxxu_add_interface(struct ieee80211_hw *hw,
- 		rtl8xxxu_write16(priv, REG_TSFTR_SYN_OFFSET, 0x7fff); /* ~32ms */
- 		rtl8xxxu_write8(priv, REG_DUAL_TSF_RST, DUAL_TSF_RESET_TSF0);
- 
-+		/* The 8188e clears the beacon queue after each beacon unless told not to */
-+		if (priv->rtl_chip == RTL8188E) {
-+			val8 = rtl8xxxu_read8(priv, REG_MBID_NUM);
-+			val8 |= BIT(3) | BIT(4);
-+			rtl8xxxu_write8(priv, REG_MBID_NUM, val8);
-+		}
-+
- 		/* enable BCN0 function */
- 		rtl8xxxu_write8(priv, REG_BEACON_CTRL,
- 				BEACON_DISABLE_TSF_UPDATE |
+So, let me add a separate patch in this series, which will drop
+PAGE_KERNEL_EXEC definition from powerpc and it's last remaining users
+will be converted to it's alias PAGE_KERNEL_X.
 
-With these, beacon loss is 0.5-3.4 % at the sniffer and association
-takes 0.5 s.
+> By the way I also see CONFIG_ARCH_HAS_EXECMEM_ROX, maybe we should 
+> investigate in using it on powerpc.
+>
 
-4. Duplicate pings. I can reproduce them with two clients, on one of
-the two and in both directions, and not with one client. The captures
-show the client sending the same MSDU again with a new sequence number
-after its retry limit, because many of its frames are not acked: 62-73 %
-of the frames sent to the 8188e carry the retry bit.
+Yes, while doing this work I came across it too. Surely, will take a
+look at it from powerpc perspective.
 
-This is not AP specific. With the 8188e as a station of an rtw88 AP,
-same dongle, place and traffic, 63 % of the frames to the 8188e are
-retries with rtl8xxxu and 0 % with Realtek's v5.3.9 driver
-(aircrack-ng/rtl8188eus with kernel API fixes only, on a non-RT kernel;
-it crashes on PREEMPT_RT). I dumped the registers of both
-drivers while associated and wrote the vendor values into rtl8xxxu one
-group at a time. The difference is REG_OFDM0_XA_AGC_CORE1:
-rtl8xxxu_start() sets the IGI to 0x1e (see c8bc37602779 ("wifi:
-rtl8xxxu: Simplify setting the initial gain")) and nothing changes it
-later, while the vendor driver had 0x40 in that test. With IGI 0x40 alone the
-retries drop to 1 %.
+> Christophe
 
-A fixed value does not solve it, though. In AP mode with the two
-clients at -44 and -52 dBm, IGI 0x40 removes the duplicates but loses
-35-65 % of the pings. The 8188e seems to need the vendor's dynamic
-initial gain (IGI from the lowest station RSSI and the false alarm
-count). Bitterblue, is there a reason rtl8xxxu has no DIG, or would a
-simple one for the 8188e be acceptable?
+Thanks for the reviews! Will soon spin up the next revision with all
+comments addressed and add this cleanup patch at the end.
 
-Georg, do you plan a v4? I can send 1-3 as patches on top of your
-series, or include them in a v4 with your patches if you prefer.
+-ritesh
 
-Best regards,
-Mehmet
