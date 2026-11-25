@@ -1,100 +1,124 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.219.47
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795650252;
-	b=JGc8AzLmAsalMla95y4bArIcbmQ8l7Js2EkiOhnMXnbVv1jU3m4YHkFZy6F5T4aYvXxc
-	 AFLOnCBNevNiFvIoNofBQ1hXxCq8GksL0j4Y+/3kPlgcbofhVGyLiPTii0cmuUo41CPL6
-	 CycYjlkNALEb7+pT7hUPnWAOiROaihnQyWiMdKh67idP1hSrx1X/DaFhW1GDb1exdMukT
-	 E5P02j+K8ycnRH77CBxfzTNCpervCsE8InFTLj39qxtdZOqsXOidHcRqhpqq4XQNzb8Nl
-	 JSbsItgaGJHcutugkrzF/4z4rNOrOTBr125PScTJe6grdWtXAG9BKrVGKriHyUQLLOw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795650252;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=3fKVuvxJiitltgDu0Bbbp5nZdcLodGhOo/Sf+vkWL2A=;
-	b=mprrxNTX8XTxOIEP3rLCmfq60vzjL/Ba/cbtOvZ4Xv/DO3Rc+IAmaOg8Qb58yuJPZSOy
-	 Zqu0mpQVKWUIFRi88bsfjIuPatHaTLqSfbtrYZR/xZ1WeUaUJiChWOulPeOCDCMPtOpPf
-	 9gIhNObv8m7/VFh5iNCQ3trdN/+dHd5FYtcqVUuDh0NahtxTE1q/Yyt+ffbhc5ziZQXcv
-	 Y0nUMwm3BUHCgQrqbJUEGPt+hnsWPJDZgfE74ZtrC66qhHJw8jNC+TCvMpaY9o/KYMx3D
-	 8afT6uSpdRnh5T47vKpwxnrTUxgAfX6F9R1xAG5A2cYW48SrebBS9/HLVAhlHVdBdJw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=bmJuD6RO;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.219.47
-Received: from mail-qv1-f47.google.com (mail-qv1-f47.google.com [209.85.219.47])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.159
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795650257;
+	b=roeIz8Izlw2GUKX4QZsA4rJvAFDzpcDHtEs02vAwb6KXmlpXV1tFwvz/QDnrLsdw0vgi
+	 dMyD1nTxYhRuGG9Y8pNTNhaVD7ngBvAczR2VhDVGpK1rBX0EI0NT5bomQzqDDy9z10pdQ
+	 RzraaYntG06+/EGV89WDGu19bNgLVj0vzITJjiNkYSxFLz3/wX8OXU84DKW4SXTB2lhGV
+	 4ll50YUQtBayuuu98wbTyK0lquP093sn3fwaDsKKkEcZUOx91cMuFSG/aFoU0SkzkaHDG
+	 yhYViey0A01lrM0he08dbUUYiRoRpz81r86nXi0jxPTM4udphiRjJEsugCzwVlRN0dw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795650257;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
+	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=gWKFhFOVNUQkCwAeCX9zPleQTK8nCcAL4DJhcvfldJ4=;
+	b=pgbBJBAfaMHnhtX+J3HlgSL4Z97zQsSRYTlGzqTS7rwOgWXQvpDB+COvCVPAyZAtr2xo
+	 m2xE502V8gKBlY//K2LpbKxig2dJeUeDQ9Iv+UrOA2OfAWkdIq4NZ+1408vktTUg4eZ3Q
+	 52DkgZ8kSLVpgD8u6Ztt8Mm1Tm1OrlWc9a85uTu5UBOuBrXqzA07HuzajVcqbrf+NBdG9
+	 /ly/iRga8SFjzr9rmF4hABp6Qc58CjeBiMPNk0HZv5ye8nxseDu3WX4vdL+WsHdcJCyv6
+	 0NpRDUV+fI+uwIBc9ytK+HD/T/5M6egzLiONbeUM+IZlF3uIo8ToWa4wtJZgArOyybA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=none header.from=jannau.net;
+	spf=pass smtp.mailfrom=jannau.net;
+	dkim=pass header.d=jannau.net header.i=@jannau.net header.a=rsa-sha256 header.s=fm2 header.b=ds6odARo;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=XSa9A3ES;
+	arc=none smtp.remote-ip=202.12.124.159
+Received: from fhigh-b8-smtp.messagingengine.com (fhigh-b8-smtp.messagingengine.com [202.12.124.159])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5FC65606A321
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 23:44:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5FC65606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 92F76606A327
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 23:44:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 92F76606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=jannau.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=jannau.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=bmJuD6RO
-Received: by mail-qv1-f47.google.com with SMTP id 6a1803df08f44-921276742e3so58953256d6.2
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:44:12 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795650251; cv=none;
-        d=google.com; s=arc-20260327;
-        b=Fw0SBQ3/+1mumaD3XP9v1O+5NNJvY/jZRS7PUhKpZ4SHszvTMjzTcX/XkIc3wQUfku
-         itSJwLCsVnEP7IJU7KN08ftxDPZQcoGWbVtT+qAEYy1l9x5ZkdabRIUuxa3366uObFK2
-         GQlKcgaT3Xsd8OQ+emEH2MtVQ9kMo4ywdeHoLtiiDTWH8tGEE4qsu0RvIZfRHhNOmvcJ
-         U6s4r2kmASBNuO5jAT0349FjWRCnyzfQ7EZCJ+LdWvBNvHE+3OH8SbjUSyp/bXzl81cL
-         OsImpJ3YOdHY4HLG+YWGPT0sga4m6uHA6YSUk2Pm1uOymc70icGTgJvELy4mFQZspDq+
-         lsFw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=3fKVuvxJiitltgDu0Bbbp5nZdcLodGhOo/Sf+vkWL2A=;
-        fh=sXYfnnNag2BYUOBiqDhFgJiCt70QejIyWOm7gJ2X3RI=;
-        b=N7Npwj63P+WSSe40AoZ4kCpVO01E+5E2XdcwkKxn2TLNkItA8I//FlND2/3UUqIZ/c
-         63a02Nz7P68/fQV6NZc0H7ZYMr34qIiYZb3DPRh4XJU/yqc4sRghTxm1AhPIQx799T39
-         MJ1uUokeX8swh7cEr7FpbDJesLKBLiL6EU9M84s7pKA9NBJcDawlP0mwnp8RkrtAbCmc
-         7+exXr88I/8et4x9BqflJUbdJvLNLNyh8av89pfO41O7fa6C5ByjpRdnWNcdvv0+unLU
-         zLYa/5/bhYcJNZ3NOqqdzscjWOnk/71Ynq32Bm2hNSQBiaOL0LOBOx9njiIxm0eAytKj
-         t3XQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795650251; x=1796255051; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=3fKVuvxJiitltgDu0Bbbp5nZdcLodGhOo/Sf+vkWL2A=;
-        b=bmJuD6ROued+2PTNWeWOaIyCpqiQnHn3HWgucB/55qQF38Yijq3MpLKSKbxwUprY/2
-         YpYe1CnFRMCA2a79ZnafGiv3RjAat38tRKLc6zQuOW6JMbPvi73VO207I69YWc+9paEV
-         WdB3/pZcfAmsgBcqUGtD4245mB50hMJVj/IzYvUxDDmkLe8DDztPSFx11Uf1rqgLOY5M
-         jBBlO3XnVhyIFbaYLH7iRGdLzSoywxx+agXjhcLL5cORna9uQ9INbA9ZCaheGJTVRcvb
-         wqZ//Ta/IqLOaqIPCYPJ0S6mRo2YyntVWCxvXSkftKD/fHVkEk3iwzoNoLYN5mewiQPV
-         HhYA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795650251; x=1796255051;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=3fKVuvxJiitltgDu0Bbbp5nZdcLodGhOo/Sf+vkWL2A=;
-        b=IVG+UN2Ru5+phIkSQgWzh/pYDFikDCJ3GVMfxf2wIjx/iT6FNimSWUOfPJQFB8t17v
-         QdJHo1oNLUCWC85/nCPtE/KM3uuKfdU9KohBKOlh5jelQM1OzilOaTcXN4b6pg10qnD8
-         0xBunAloX6fF1PKN9E8HiXKlt/vd1GSK0quo1zc1+QT+Pt2UlGtju0RHHjwktfnfl/Yt
-         kdZDEDA1XRvRHdltpT9Ijys1RoM1su0wcbCd7i7hbpIb7e4uMw+mwD5EYnpTV0lIKbPj
-         TgYaGCHuGSnNkI+RQxftVcb8UjY58Tqybk0WrQNIhgY+WDq9gE/08Yik1YiYX4fRppL2
-         0h6g==
-X-Forwarded-Encrypted: i=1; AL+hErFLp9BFY76X+rvyPHCGE9XPmqn7+L8I0hOcWs6O38P0RMqUhRgR+HKD4AJ/jM8XLS3D8uEa4z6yuk51wHM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+Cwh+8tidYBBr1PDdpo9Lnyzxc+Yevaj+AeusbEMcdiTkhQrfX
-	uoazpZ2CJLo6e4UMTBla9/yubTmQX7L3gNUoOufkQbZV0Tec3swb4FtnWaIeTdC7iJRv/wjz+5w
-	izYnBem0qC7oNlgjdYC6tD/pTj9Ug6sc=
-X-Gm-Gg: AZFdTZdW3F0G81VSe6RVW6G/YpFiKmJ5RlJXP5rv2CwKiQIotVDoRwQ69zntqfmDazz
-	htsGe4iBpuoXCqSJiOrSV0pup6EmO+9eez27Gf25x1zqeis0Pw6rYEHP4BVpUaRIzCu3HoJpAyr
-	3zpbHJTES7m0cFJ0OYPKiYSkic8VoabxTxIj/2TTKMt5hXGLz/2wdzijBaIcqz8GsPJrz9kEeri
-	gcKfAPMkxsQ7Y1ZpPiMpMH6BuB0aBNLhoD1Br7Qtxqe8QY2pmjl4OrtRpibQeL6mGHWVKhSjPZp
-	menXaKlOQd3PGLOIuKGKm2QwvEfd/FB93GCylsVnSA6ETPAbr1AsDhUgPM3gc9N74jaPhV1ibUV
-	1SUB3dIWj+YCXE1JlnVA8TSVEDDq9Qmpe2BSN
-X-Received: by 2002:a05:6214:dc7:b0:921:38d7:3aee with SMTP id
- 6a1803df08f44-92138d73c1cmr355955956d6.28.1795650251100; Wed, 25 Nov 2026
- 15:44:11 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=jannau.net header.i=@jannau.net header.a=rsa-sha256 header.s=fm2 header.b=ds6odARo;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=XSa9A3ES
+Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 211017A0566
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:44:16 -0500 (EST)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-05.internal (MEProxy); Wed, 25 Nov 2026 18:44:16 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
+	:cc:content-type:content-type:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:subject
+	:subject:to:to; s=fm2; t=1795650254; x=1795736654; bh=gWKFhFOVNU
+	QkCwAeCX9zPleQTK8nCcAL4DJhcvfldJ4=; b=ds6odARoZobKA81khzKoKoDtWR
+	KNwKNsTrzpKDEIlD9ks8d4+Gn/fR7tW0JaHDawO+jsFSRZFdjApzGnLDeWc1BggO
+	IF+vfXoF7PhYPqBLg11rTPaq6aZylVm1fDQZff3OtmAHKuMnb/0tpUs7uTox3ub1
+	8iivJ1GHye5LbEAk+lejmaxnDWooLqQXuzuwrbiL6gGoH3Cu7xrOucRNxvwFVX5C
+	xMoRvP9uMmnJCHXePHwEUoj6ciNEHx/cq1PvMBQCxaT7nYr5UVe/syrxe3MO34Ji
+	YE5KeP98cxTQrVhGHxHdT9rSEsZYecmYSNJtcxjSe1L2aFatT6U4sHdQUVlw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
+	1795650254; x=1795736654; bh=gWKFhFOVNUQkCwAeCX9zPleQTK8nCcAL4DJ
+	hcvfldJ4=; b=XSa9A3ESv1U4ZcW/XRtZQBvSwAM4rTTr9WEv6GjoTy9rUruwrO3
+	DR09VsDLtSol//O4hk/FMZs1aL0bpRUJE6+YcY2omlqaN4lV+Cw39Hv9AOI3a5eY
+	T7SdmBYoXsGgEpmV+e6Mim1OIWaPkLm/YThD1CKqCW318fzzkoBsEv0Ge60rv6do
+	RzNdTRYMpspxowjrF5Co3QkzTeNETqz07E5VP6Kor4Y5z6DPp5A5yiUETJOusQ0D
+	irlvCWgXfBOpGWr7HON+zLLFKfsZz6pMJ4CFRzhowSl4Z0YISEUq4oVaOWoEAkZM
+	bdgFTzGl0IaGZpF+2BzPbC2a+kw2ngaQCsw==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=jannau.net a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795650254; d=jannau.net;
+	mf=PGpAamFubmF1Lm5ldD4=;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm2:rsa-sha256:fWvg6YJYuqm4idpHmbVe49cAOGftJdy0UrRWSaCV6EjtqGI
+	FrXbySpN+jWC9yzTtEeRX2BH/AZAs3tZr/Om4saqZ6KGLsqz2C0xcx5c7hrMe5B7
+	e5p4fVbr9YvQo8eh0H8zOeR92Wgo1TQvfa1be9uymI3Do7MoZo0NDtG5L1r28PUG
+	rOYv7Wf+fpYRa7TsiaO1S9YP2Dy88dmG/G6PctcGTAVvcbFwD+d6Cgu2wkoVPZxR
+	aAmJZ99KN2jseqVdDvRfcsiJcfOTAk7Ph144t2vCpatAm/iHVSTMrY2kMZCXaApp
+	0Jpye3KyzXifDAxFSdAPekhs0RXFzz6UNdwoZ2g==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=12;
+	hn=cc,content-disposition,content-type,date,feedback-id,from,
+	in-reply-to,message-id,mime-version,references,subject,to;
+Message-Instance: m=1; h=sha256:9BkdY+LRpa1a4CLEazedbhqHL3hB5JfhgZTVWsRmtdM=:YQE1qOrkCrAjZVOPTlIxAkPWaxIbX2klxeQ+RmLrnhg=;
+X-ME-Sender: <xms:zXIHa-asTg-4TBpv9BSqJP4lBT17UjV3I0oVVM7OFqTcbMmXXC4JuQ>
+    <xme:zXIHa2mJXjzGCfzR5dPyE2iB-bi8YormgxMrUz8pRSZPo8MqncYBUwWi2rJXKnOnv
+    VH1ysbxytyKouXu0QdSNKJ63ApVH87cykmJ_4jYOBRXmjKn3oHyMKpE>
+X-ME-Received: <xmr:zXIHa8Vf630M-JLKPOaNjNqSuXSqz8jWYysKetfv_TlGwryq0wlMH9e66WJGCm838y821x5qgtvssexpHNXrRLRK0zsz9vKViwY>
+X-ME-Proxy-Cause: dmFkZTG1Ag0iR2dwkQsFua3Y2PlvL776Kj9hZumBUwCXUhpq84p5VwF85u2jZOoFTF2p/n
+    DWK+77HBIugwVI03ZNUFeAB8S6chqasWckA+xy3Bk8bS/Q+3d3IoEICOeBMiafT8YVPToL
+    3WQsCGhrzHU7rSOD1aSqKpUQBksP6ISXn9T1/V4dufCPqedqKRAe3OQ+pi7tWvPv9zGCAm
+    G9pdRaLEVtgHAlcsuKUx31/BbAkqSKUDNAFw29ZgGTr6nVcLI8VkeQG+wb82JcmDORC9m7
+    +6Ud31o8ZIzOIIxdHjMJ3jW23cz+P4lprNDSzCMyeOwOpcYuTR8lgw3wKK9Uf3hDb4wFim
+    iOZOa7GOLiip7o2aHyuYe01NhjPrx6Ays4or4yvA/ZAN7Pi1ldBoy9H/7Llyo9upfccgan
+    X6kHnvIIu35HWgq9hqAimtmlB5F26dlRrAhefMW4iORzgUV3TfJuN2txH0xD/cy3cVGcF8
+    76pB8R8n0gyQpeuFt13QNHISPUya1V7NsoOMo1iUPnscR6qq4FV6uETrAdyX+y45c4obDp
+    exBrHbNLJfKCHdZSA5Wq6JmefKh/R7RzK1fLlFo9uApZmrFx9MPspJu8J63mADX2oKbSat
+    Rfa5YFLybqnreTOFRaCdPsp6YclNb5UoVRWi06fCt+S30u8hxajqpCftpUtQ
+X-ME-Proxy: <xmx:zXIHawIE_dKE9j0p1gcstwAXW4lbNkxarpdQ0PBLne5ixRtLlZbPLg>
+    <xmx:zXIHa0sUqHeUDe4oc20lBGKvbZbPD8gJEV_zA01--dpabhgjF5k94Q>
+    <xmx:zXIHa92F0PQ91bBuOOBsMxcyvlvUvZtfYFq3pnGWI5AsMOiVUa4JlQ>
+    <xmx:zXIHa0MeheVkpXxG9rIGv_MUxIt4mJWIRYBQLaEVHGs5MdxHyh5YTg>
+    <xmx:znIHa3JPyLWJ0NprvdTT2xMwe_6RPSMhzuh9xBnWeW-ajWk2yyFgm3Aq>
+Feedback-ID: i47b949f6:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
+ 25 Nov 2026 18:44:12 -0500 (EST)
+Date: Thu, 26 Nov 2026 00:44:10 +0100
+From: Janne Grunau <j@jannau.net>
+To: Sasha Finkelstein <k@chaosmail.tech>
+Cc: Sven Peter <sven@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 1/5] dt-bindings: phy: atcphy: Add M3 series
+Message-ID: <20261125234410.GC372978@robin.jannau.net>
+References: <20261125-t8122-phy-v3-0-196e20b3537e@chaosmail.tech>
+ <20261125-t8122-phy-v3-1-196e20b3537e@chaosmail.tech>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,80 +128,38 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <PAXP251MB001050EFD88752318EBA75F5C8B42@PAXP251MB0010.EURP251.PROD.OUTLOOK.COM>
- <0291r4so-4p5q-61n5-59qq-761s5s45o2s9@xreary.bet>
-In-Reply-To: <0291r4so-4p5q-61n5-59qq-761s5s45o2s9@xreary.bet>
-From: Jason Gerecke <killertofu@gmail.com>
-Date: Wed, 25 Nov 2026 15:43:59 -0800
-X-Gm-Features: Aa3M54qop82j0BkkAyG8OqBuWQazFLUjeeuZGk8YRliw8mF8W_6Holy85ZPTGA8
-Message-ID: <CANRwn3S0hViGQw_X2sw-MG5FtPXqwLWABOTaE5JNUgaDOw73jA@mail.gmail.com>
-Subject: Re: [PATCH] HID: wacom: Cancel init_work when probe fails after
- scheduling it
-To: Jiri Kosina <jikos@kernel.org>
-Cc: Aamir Ahmed <elb12345@hotmail.co.uk>, Ping Cheng <ping.cheng@wacom.com>, 
-	Jason Gerecke <jason.gerecke@wacom.com>, Benjamin Tissoires <bentiss@kernel.org>, 
-	linux-input@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Myeonghun Pak <mhun512@gmail.com>, Sashiko AI <sashiko-bot@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20261125-t8122-phy-v3-1-196e20b3537e@chaosmail.tech>
 
-On Thu, Nov 19, 2026 at 12:29=E2=80=AFPM Jiri Kosina <jikos@kernel.org> wro=
-te:
->
-> On Sat, 5 Sep 2026, Aamir Ahmed wrote:
->
-> > wacom_parse_and_register() schedules wacom->init_work with a one second
-> > delay from wacom_query_tablet_data(), and only then opens the hardware
-> > for devices with WACOM_DEVICETYPE_WL_MONITOR, that is the wireless
-> > receiver's monitor interface and the ExpressKey Remote. If that
-> > hid_hw_open() fails, the error path stops the hardware and releases the
-> > driver's resources but leaves init_work pending.
-> >
-> > wacom_probe() then returns the error and the HID core releases the
-> > devres group it opened around probe(), which frees the wacom structure
-> > allocated with devm_kzalloc(). When init_work runs a second later,
-> > wacom_init_work() derives the wacom pointer from the work item, so
-> > _wacom_query_tablet_data() and wacom_led_control() read and write freed
-> > memory.
-> >
-> > This is the only work item that can be pending at that point. The
-> > others are scheduled from incoming reports, and the HID core drops
-> > reports for the whole of probe() by holding driver_input_lock, which
-> > this driver never releases early. The neighbouring BAMBOO_TOUCH error
-> > path already cancels init_work before failing for the same reason.
-> >
-> > Cancel init_work on the shared error path, after hid_hw_stop() as
-> > wacom_remove() does. The cancel is harmless where the work was never
-> > scheduled or was already cancelled.
-> >
-> > Fixes: a544c619a54b ("HID: wacom: do not attempt to switch mode while i=
-n probe")
-> > Reported-by: Sashiko AI <sashiko-bot@kernel.org>
-> > Closes: https://lore.kernel.org/linux-input/20260905102908.ADE1F1F00A3D=
-@smtp.kernel.org/
-> > Assisted-by: LLM
-> > Signed-off-by: Aamir Ahmed <elb12345@hotmail.co.uk>
->
-> Ping, Jason, your review of this one would be appreciated as well. Thanks=
-,
->
-> --
-> Jiri Kosina
-> SUSE Labs
->
+On Wed, Nov 25, 2026 at 02:11:45PM +0100, Sasha Finkelstein wrote:
+> M3 series SoCs have new phys that are different enough to need
+> a new compatible
+> 
+> Signed-off-by: Sasha Finkelstein <k@chaosmail.tech>
+> ---
+>  Documentation/devicetree/bindings/phy/apple,atcphy.yaml | 9 ++++++++-
+>  1 file changed, 8 insertions(+), 1 deletion(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/phy/apple,atcphy.yaml b/Documentation/devicetree/bindings/phy/apple,atcphy.yaml
+> index 0acac7e3ee67..4dfb3b68efcf 100644
+> --- a/Documentation/devicetree/bindings/phy/apple,atcphy.yaml
+> +++ b/Documentation/devicetree/bindings/phy/apple,atcphy.yaml
+> @@ -54,7 +54,14 @@ properties:
+>                - apple,t6020-atcphy
+>                - apple,t8112-atcphy
+>            - const: apple,t8103-atcphy
+> -      - const: apple,t8103-atcphy
+> +      - enum:
+> +          - apple,t8103-atcphy
+> +          - apple,t8122-atcphy
+> +      - items:
+> +          - enum:
+> +              - apple,t6030-atcphy
+> +              - apple,t6031-atcphy
+> +          - const: apple,t8122-atcphy
 
-Hey Jiri,
+I find this ordering confusing. I would list first both `items` lists
+and then the `enum` with the single compatibles.
 
-It looks like the line added by this patch has already been accepted
-as part of another commit at the tip of for-7.4/wacom:
-
-ba16e5ffbaa1 ("HID: wacom: Advertise SW_MUTE_DEVICE capability prior
-to registration")
-
-Jason (she/they)
----
-Now instead of four in the eights place /
-you=E2=80=99ve got three, =E2=80=98Cause you added one  /
-(That is to say, eight) to the two,     /
-But you can=E2=80=99t take seven from three,    /
-So you look at the sixty-fours....
+Janne
