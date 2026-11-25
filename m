@@ -1,75 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.69
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.72
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795618998;
-	b=lQDpV17uL0Q/zjK5+otPtbFvmTiBaBMujh5QrM4viTPWe3OR3gOFurwfbBILlEY9ADvq
-	 oU+0gn5UO6H8AS9ImvHghRxq8ax3wsWNDJFceeiWjFMpfeGLwrNsocGmLtf0HfCYf5STO
-	 qPvr6GpiZkqhx9tzTPj9yeqTuYNuPx+rU9FetzD500NDM8jAjof0cd7HVOgKQvi4aPNlb
-	 KXEjboP5MOXyvUNYfgf1J9W05qjEFcUJMkgq0n5Y7a1Lf1yb35fuurTnl8EJ5AUKP/on5
-	 vZ0NVKXfALmByW6TYIAk8GmeZcHbuCNXWRLFL6c7RTCaEdEJa/h58SXPY9AiuAeOmqw==
+	t=1795618996;
+	b=JIANnZiKpYKrYzK8xAn1AemmihovVgA/mNtanKG/OyXRoab5AgPkIV94vOFIcruOpht3
+	 Bh3A1O8vM23HA3ppiL58tVhkbZDoUkD5au27y41rP+lUJ+CUkz0Dpp9Yyy8g8tfeW8B1h
+	 ENHffqaUP66DTXyQUS5JeUnbCGq27JnQ/r5Ib48WtZ/+6KQY8jZDNS6557M6ubYDuUCXg
+	 xCe+hYXXR8cgr9GEtU9luKc7CvIn5LQraIPOIcmAUdysNMKvMXLc/bsPc/G0NfHBrc51X
+	 sUP5KLGTw+/EKh6rkduNLLW+E+m5ccjwQG5zxvmwy3grKnqE6SGaB8q6HCK/uJea15g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795618998;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795618996;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
 	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
 	 Content-Type;
-	bh=8Jz8ssl/IqO+cdkuoUF1XK1hhhFDc4ccWMMZLEDHfAk=;
-	b=BWcdsRI4UF/rDEyA2Abkl0X4Do3ZpH14bti3fJqCZFOVY8/6XYowtTVZN4Lpcyg19KE+
-	 9j1V9pR1FHiHNlTGQaJqyGkmmCVasgrQ8U80KDI350FZX0vrSV8ggvGbNvXZq5oG+WMlu
-	 G3GTtpw7G0YF8E13qZd3rqId/Ppe2Zn+hW0fTc4ZRTFHpfA6rlRr/oRYImW/zFLd4hVcw
-	 czqjr45dhgGqOKGYw83qGcTzl0IOZaCruj5OyFO/yQz6a6dgorDoRSyhavFOWV+H/huus
-	 FgnYcYL03prWO8NcHMCmlnRuBH+g1o/YIaZkXE0m4G+3b9dB/zH9xuel9hYpl+su/iQ==
+	bh=8aj9nTYzj6cuyNzNLusXOllcp3z+nABWrRwzBA+BFgQ=;
+	b=bSmjJ79LJ0jvIV4a4qp2yNOa1Qby6/dJP84rVGIG8nhkwWasWiAb9hb9ERrMj6sK4/Sr
+	 Q1DIatRpRugv3mKN/RFga+ve2uvT4Sw6Z0oFx9CUhqRX/+sG9l92s1rARmVVtiKDm91Sq
+	 FBKDuQU4oh9vU+sRULN4dX0ZkWg6ePMn1MHX8Zd9pd3E9KOsJ6hGpIdO+itVJ6scFtl33
+	 DRUTP3KZ+Zn3JqsoNWGxJ2dcXtthy2oJ/2GpJqC7WWdPLCeF3g9qVhj7MaeQClwzumV/R
+	 ngAgYzOF2s3T7zvDwLl/MqlsICk/YHmvkRn5+mE40sy1a+ksDS+tHnZM7fMn6F0Nh0g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=A78AbNie;
-	arc=none smtp.remote-ip=209.85.128.69
-Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com [209.85.128.69])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=MIP09PUu;
+	arc=none smtp.remote-ip=209.85.221.72
+Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com [209.85.221.72])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 88F70606A684
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:03:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 88F70606A684
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D1C45606A323
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:03:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D1C45606A323
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=A78AbNie
-Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-4a1fdde384cso41752345e9.3
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 07:03:18 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=MIP09PUu
+Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-49d70f45b22so3460226f8f.2
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 07:03:15 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795618997; x=1796223797; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795618994; x=1796223794; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=8Jz8ssl/IqO+cdkuoUF1XK1hhhFDc4ccWMMZLEDHfAk=;
-        b=A78AbNiebNcNklyGszsJq8iPMepM+a6YL5fAZFdxaO9hs88QZZ/buRs4hMEgXNv+Zz
-         ulEuzpfSlOsD9TFztYZ4HeQ6DOrR94+9N7Xs9SOaACCfJQ4banvsFCS3rN/KKZrxNksv
-         5w7wG6TWmacfS1GFN6P1AGF97oRGT64FjuEMJTUiJRXt1xz1xbujYKs2izTINehVGc+p
-         baKL/xKMIXxWSgSXnGZDYuin3Uxz0yBdqwnMziFh0e/84mnxNjU2Qn0KclZNeEGHyVBp
-         FrVo0PmtvLzXll5Ktnb+qnuGp//Tmcfz681NGQTB0/Ccpnj1wQcj+sGCdcNKZg08s6zJ
-         P3mg==
+        bh=8aj9nTYzj6cuyNzNLusXOllcp3z+nABWrRwzBA+BFgQ=;
+        b=MIP09PUurF3S2YFaERK70bZXWItvXb0OK8Pfro4q5FbsG1amrlshUUx9v8OwgO4rbX
+         eSwxp1NlAm1zLkNy8GG9aqDWIAePnxgGDszaIpQLFYj3O1icITGUKzi/mhKeaMU8tBE/
+         XujLy5HHIcOUveXn7Yw6zVBf2I4fRZ+XDuBZ5bORKtkShkBRra9+kAeZg1PLimF7X3jS
+         ibLYnD5ChkgXJ1KO+R90XRzXhemCmUstZL2okgFLs8x4q2pJovHKGHGTK7mgGLNaz+Qa
+         /8nmk8ZKA0YXaWx3YTEIuHer2ctFdZZXcXWrF0XMf0ssNdyvS3LVKdHaPuP3xv7+covE
+         OfGA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795618997; x=1796223797;
+        d=1e100.net; s=20260707; t=1795618994; x=1796223794;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=8Jz8ssl/IqO+cdkuoUF1XK1hhhFDc4ccWMMZLEDHfAk=;
-        b=d5J00QzZdelEcYw1hHKWKxlt9b4ETTcxlGCeKpIXKqwBVIQcZk1sVZb5/Ps7mEgLy6
-         yEzSX7n6H0akIKnYAcijauRQ04yLd2K/PJCf+zc6uW4vNxhO2WY9SaEtmoFa3eePqfD9
-         7pwpsjaWhxN9Nd40qYS2KBOWEXkC/A/UQ+ucvtA7DFXKtNbDLegquEqx///Xc4AehnUv
-         DBqYkKSNOh08kovB/3burKjuQnHzsjpr96WWObpu5mQXldytSSDD4HxcCKxSHwuJwSoE
-         fiC10ReVMGMg6rfw8ds24Bdm9KZPWj/0RQwEPLB7l96YTR6/WhGskVjcyBvN+kQPGDLc
-         5h+w==
-X-Forwarded-Encrypted: i=1; AL+hErElgM9Nx9C8bU4ZRrqcor7gfOhju2Ji+L+ifYyruVfQsMoKc39EufnGJylOPuSw064KPrURlzt36vxi6Lc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9BOhzYM21X6j61ntAGZLgFoOFJNWHYegffISisDbApzbhEHHKW
-	jjw0ZnRL286hmV9j3qpziEg04z61EKkWqK3Lre6933LBFrwHGxqRgMrnnJwWxIoZlg2wBqNDZE3
-	McovyW/z2QgEg+DSprg==
-X-Received: from wmpr23.prod.google.com ([2002:a05:600c:3217:b0:4a2:e03:1f55])
+        bh=8aj9nTYzj6cuyNzNLusXOllcp3z+nABWrRwzBA+BFgQ=;
+        b=V9D+vrPgPIHzb0Hm/oNoC8hvvP8dnfTA2XbUGBNxU++WPVv4SZ1WlNubMitrbH0rEd
+         +aQVTJC+Rds9Z4spOTGuy6FqHvtwanr36t2NQ+JsMUO5GfbUCUSzaOSZlts/7DXa76yD
+         H3pjRkOZQyuGo8oiY6RzRQGIB+xyvOsEscC6ytjfeFIrTWZI93fEAYf3rghozmkO0PRN
+         JIGTtPhwW71JFF/KbRnAQsK5H6CNYuDpTnnE36biGM5lNZNZ18YwT4azk54aq862t9aj
+         BCIDDV++KLywkKTegSBK832I8TKPcJ92xdd/0URSIAvW5xDNaVrQDT/M5BfIieTXM3T7
+         kA8w==
+X-Forwarded-Encrypted: i=1; AL+hErGpnuF5BaQZdt8izFZEgSFJgnQEayUuUkb9SuIlc3oqoSIcFSijgn4mL3j52uDncebUXsmGj0wotMQOdJE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8fpoO+iqiigH3o3ANTGAGmWFMGHAF69ZV5rnjAGUX/zuXopgx+
+	kgt0Nl2DgtWZ1l7i6gZhOrFqBPkYCerhq+JNppLADuOlh6Wb+mtKg8fNpofi1Ecy2KnSXOCxLZF
+	Izzp7BFbmSTu23oeyDA==
+X-Received: from wrzt4.prod.google.com ([2002:adf:e104:0:b0:4ac:99cf:5a0e])
  (user=aliceryhl job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:1d08:b0:4a2:392:9de2 with SMTP id 5b1f17b1804b1-4bb8882bd7bmr363816705e9.28.1795618996639;
- Wed, 25 Nov 2026 07:03:16 -0800 (PST)
-Date: Wed, 25 Nov 2026 15:03:15 +0000
-In-Reply-To: <20261124-rust-drm-gem-shmem-imported-sgt-v2-4-000f7a9ccb8d@jannau.net>
+ 2002:a05:6000:29d3:b0:4a2:6542:989a with SMTP id ffacd0b85a97d-4abb4b85a5cmr21029290f8f.52.1795618993824;
+ Wed, 25 Nov 2026 07:03:13 -0800 (PST)
+Date: Wed, 25 Nov 2026 15:03:12 +0000
+In-Reply-To: <20261124-rust-drm-gem-shmem-imported-sgt-v2-1-000f7a9ccb8d@jannau.net>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -80,10 +80,10 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 Mime-Version: 1.0
 References: <20261124-rust-drm-gem-shmem-imported-sgt-v2-0-000f7a9ccb8d@jannau.net>
- <20261124-rust-drm-gem-shmem-imported-sgt-v2-4-000f7a9ccb8d@jannau.net>
+ <20261124-rust-drm-gem-shmem-imported-sgt-v2-1-000f7a9ccb8d@jannau.net>
 X-Mailer: git-send-email 2.56.1.831.g720f3f5937-goog
-Message-ID: <20261125150315.1587936-1-aliceryhl@google.com>
-Subject: Re: [PATCH v2 4/5] rust: drm: gem: add an is_imported() accessor
+Message-ID: <20261125150312.1587642-1-aliceryhl@google.com>
+Subject: Re: [PATCH v2 1/5] rust: drm: gem: shmem: Do not use drm_gem_shmem_dumb_create()
 From: Alice Ryhl <aliceryhl@google.com>
 To: Janne Grunau <j@jannau.net>
 Cc: Alice Ryhl <aliceryhl@google.com>, Miguel Ojeda <ojeda@kernel.org>, 
@@ -97,21 +97,24 @@ Cc: Alice Ryhl <aliceryhl@google.com>, Miguel Ojeda <ojeda@kernel.org>,
 	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
 	Thomas Zimmermann <tzimmermann@suse.de>, rust-for-linux@vger.kernel.org, 
 	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	nova-gpu@lists.linux.dev
+	nova-gpu@lists.linux.dev, stable@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 
-On Tue, Nov 24, 2026 at 12:37:46PM +0100, Janne Grunau wrote:
-> From: Sami Tolvanen <samitolvanen@google.com>
+On Tue, Nov 24, 2026 at 12:37:43PM +0100, Janne Grunau wrote:
+> The existing gem::shmem using Rust GPU drivers (Ashi and Tyr) are render
+> only devices which should not set the dumb_create callback. When a
+> driver with KMS functionality is added it probably will not be able to use
+> drm_gem_shmem_dumb_create().
+> The Rust gem::shmem::Object<T> wrapper should be allocated and destroyed
+> from Rust code. DRM drivers have a `gem_create_object` callback which
+> could be used to allocate objects from Rust. The C code will "destroy"
+> objects with `kfree(object)` on error paths which is unsound if the Rust
+> object's DriverObject contains fields with a non-trivial `Drop`
+> implementation.
 > 
-> Drivers need to check whether a GEM object is PRIME-imported.
-> 
-> Add BaseObject::is_imported(), wrapping drm_gem_is_imported() through a
-> C helper shim.
-> 
-> Reviewed-by: Alice Ryhl <aliceryhl@google.com>
-> Signed-off-by: Sami Tolvanen <samitolvanen@google.com>
+> Suggested-by: Alice Ryhl <aliceryhl@google.com>
+> Fixes: 80df573af9ef ("rust: drm: gem: shmem: Add DRM shmem helper abstraction")
+> Cc: stable@vger.kernel.org
 > Signed-off-by: Janne Grunau <j@jannau.net>
 
 Reviewed-by: Alice Ryhl <aliceryhl@google.com>
-
-Alice
