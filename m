@@ -1,60 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795600712;
-	b=ZD+/oQarYN9DOPQZXcegFLSwLKvhjw4V/QA+Iu4S831wU/BatDiSYNxUWujEBjbD5sv6
-	 Ny6RUlu9N5Bb9t976PBHCBukxwGBDUAPZWdzfQIXwJFY5+o7DHBlBGOQs8rFZgwnow33K
-	 j66ZlICbB60J6nILY4TJ7NmzunXeUYt1JqW9msvMWIyNr2z3rrmZA6atdvgU1iuE2mXPW
-	 mbXjTDz8sytDLYbUD0BOkhhsO/SEOwYD2itYxvhRSUmb0Uq+TjNSHE9MM89BMqbCcLWJM
-	 lO4J4z2zAZoJBFaQS5RcO/38/kk8wxikcxehNQlAChsrOAPe0qPCN3BFGIj5spTAQ6A==
+	t=1795600754;
+	b=k/wEhwXlAga7Fx7/ebi/tXL8szRtUSk1GtNuzVms0jT6hQj1sBowXiMUvmQEXBl57LnY
+	 7KM1MwXiQZFK3ErCyN60uZxyghwE0bKoo+mK2nBUZ0p5vdP70Sq43nUQiKNtMelr5E/kc
+	 erMppKkuOvBE90FxJF1vqpQSi4og1NqBtPhnapYWUitokJdPbEyjzByj813k+ZV2Q2HY3
+	 UOy8vCIM7aOciK036nV4YmlQ+m2j/4IrYuIcuzN4381mVnrKTBAulgn9Ooobphk2O3qWM
+	 GI6lwXHNfl7ftTH7DDT/N1n1pU8iN3PclF19R6ShSmbs1BxOxkeasU8XdlLklSigL2A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795600712;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=6w74sigzWEjnq/Iez96NvmzHs9qvS5TWdCAthb5DA+s=;
-	b=c4sCySOv8O20B3eDibFBkYV86CkArib1sE767Z3kx+W8TxhTT1W2qrGOwqgydL9GBO5P
-	 869GGG370ZyY3p9yNvNbEoPuWdCOMMG3A6q1iGi3JVCqUC3kBBStUr23HtCr1TGht+xqg
-	 YAb99lxvspGrtAZp9HYQlpQoRYJuqwJVBI9XEsiWlgErFP37YG9JTrRi+syKHFnJHXu3E
-	 s4JmZmf8EtPqT6pdXqaGGFvVjAG3op8L+3h8Jw1ni7Ai+dCWz3KySallEXxnuh0nB31tD
-	 spoLuJJY3NB2P33EbSYEgrvvuE/Fd7GjVkqlWPj+ls9q+4hljrQU8Z894hZA07WxA7A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795600754;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=we8IcPRTjFClrRkaAg2Hdk6tYwKt8+t3TVvugBTXnvU=;
+	b=cxTzOcmIFaqWTmrAyP+gl0fJa+nRTOtErxq4gJF/9uu5yNDvgejT+Tu5+h8fWO1V6wsM
+	 VUvlR0U/MVRgBN87+KL2tYvRqgqp9p2c9CZfK8K8FOM77dY33jGMT/9ld3tpngWa0VAKp
+	 Tl8hXe+46vtN7ftoWemMLyqoaR8vgEUBJqqtnO/Y5XB1budtkCUB9Nl6YDK7qm3bsu8gH
+	 fzQR0gdPJzokFTHFkoxVQXa+Ip4oyNlPM4+n8YogMDT78J67bCi7vipVsSlH8CTVyJZCz
+	 PAcYfFPp98+Srgvq21r7JSuBjJfN4oitGfQ7CkYG9udKBUaCSfqQC+hOVo20KQXxoeA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bzt1AqPN;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ig4+aNYa;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D4E2C606A321;
-	Wed, 25 Nov 2026 09:58:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 45FDB606A31E;
+	Wed, 25 Nov 2026 09:59:14 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bzt1AqPN
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 941251F000CA;
-	Wed, 25 Nov 2026 09:58:31 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ig4+aNYa
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 032D81F000C0;
+	Wed, 25 Nov 2026 09:59:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795600712;
-	bh=6w74sigzWEjnq/Iez96NvmzHs9qvS5TWdCAthb5DA+s=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=bzt1AqPNyDA9/kRdAN7LdrA5/I08EcsW7Wnfl6gR5MU8PK99NGPxyT/jSOqQ1vTb8
-	 eD90tzrPAwPgXS57iQDA5hIHGGzVdanxm3dinwgiqwm3xtpR2yeH4mX+xqqy6EeU2C
-	 4VsCqhvOsVuV6VvrPAVgC7Fx/EaJUy7Yb9LdCZ77r6imN66CAyk6g1mHmLF6syQ+NT
-	 Kxctxj5TMLwqhi7islNGVDjA/2Z2YTl88XeUjLBUw31ygOIjwnwG2iwA7NQjqUYbir
-	 dev7KKR137py3Sycf0g7EDanB2b6vz7bRNGH+qoKkpnaqRkkwJEpOxs1MLxzjBIjJU
-	 5TRBRcnQjB5kA==
-Subject: Re: [PATCH net v2] l2tp: require CAP_NET_ADMIN to join the l2tp
- multicast group
-From: netdev-bot+sashiko@kernel.org
-To: shyckless@gmail.com
-Cc: pabeni@redhat.com, kuba@kernel.org, davem@davemloft.net,
- edumazet@kernel.org, netdev@vger.kernel.org, maoyixie.tju@gmail.com,
- anilkaushikwireless@gmail.com, stephen@networkplumber.org,
- linux-kernel@vger.kernel.org, horms@kernel.org
-Date: Wed, 25 Nov 2026 09:58:31 +0000
-Message-ID: <179560071114.3135.2532610269837690017@kernel.org>
-In-Reply-To: <20261124-l2tp-mcast-perm-v2-1-416741ccb334@gmail.com>
-References: <20261124-l2tp-mcast-perm-v2-1-416741ccb334@gmail.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	s=k20260515; t=1795600754;
+	bh=we8IcPRTjFClrRkaAg2Hdk6tYwKt8+t3TVvugBTXnvU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=ig4+aNYanWIpF/jiv00PFCH4zEt5ZJSnwIYs4ncviya7wJNubcLV7qYlJlBbSzFYx
+	 LO646LxIW4GOTE/wo5QrIsCvqTr4MGUTQhMskqZYi9QnrKLPaOTCaRl+hzcekezoYH
+	 fTLlZdqf08wCNsuRJrIpiUVK8NlmdpPZ//Cwtr7dXpWBpuMObsXF+glQDPBWw2H118
+	 3bNQd6GVOdxMhM9VTBZ4v8oPI+S48cVBnsvI7ElQh10wubV1JiUNOAyQf2ZdWOeP0b
+	 EYmamQ4/12yEi9CsUZSdADdk9rphc0p/ZFMs0VSGivqKuPNLoK89bYcAgP6zlgKvnJ
+	 lF9N4R9Ce8QCg==
+Message-ID: <ced23ce7-12c1-4e9b-bf0d-34e30ae74572@kernel.org>
+Date: Wed, 25 Nov 2026 10:59:06 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,123 +51,94 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v12 1/9] dt-bindings: media: qcom,glymur-iris: Add glymur
+ video codec
+To: Vishnu Reddy <busanna.reddy@oss.qualcomm.com>,
+ Vikash Garodia <vikash.garodia@oss.qualcomm.com>,
+ Dikshita Agarwal <dikshita.agarwal@oss.qualcomm.com>,
+ Abhinav Kumar <abhinav.kumar@linux.dev>, Bryan O'Donoghue <bod@kernel.org>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Stanimir Varbanov <stanimir.k.varbanov@gmail.com>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>, Abel Vesa <abelvesa@kernel.org>
+Cc: linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20261125-glymur-v12-0-5c34dfd73fc2@oss.qualcomm.com>
+ <20261125-glymur-v12-1-5c34dfd73fc2@oss.qualcomm.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20261125-glymur-v12-1-5c34dfd73fc2@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+On 25/11/2026 04:24, Vishnu Reddy wrote:
+> Add device tree binding for the Qualcomm Glymur Iris video codec. Glymur
+> is a new generation of video IP that introduces a dual-core architecture.
+> The second core brings its own power domain, clocks, and reset lines,
+> requiring additional power domains and clocks in the power sequence. The
+> current maxItems constraints for clocks, power-domains and non-pixel
+> iommus in the common venus schema were sized for platforms available at
+> the time of authoring. The glymur platform introduces a dual core
+> architecture that requires more clocks and power domains, exceeding these
+> limits. Raise maxItems for clocks, clock-names, power-domains,
+> power-domain-names and non-pixel iommus to accommodate glymur platform.
+> The glymur platform specific schema have fixed constraints for these
+> properties, so the common schema only acts as an upper bound. Since the
+> common schema now only acts as an upper bound, add explicit maxItems
+> overrides for the non-pixel iommus in the qcom,sm8550-iris and
+> qcom,sm8750-iris schemas to keep the fixed constraints as before.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 0
+This looks like explanation from LLM pasted here. Using LLM for writing
+commit msgs is a warning sign.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Plus it is pretty huge blob of text... I don't get what happened here
+since v8. Our patchqueue is 260 patches long (was 205 yesterday), so any
+reason is an excuse to drop a set.
 
-- [Medium] On its own, this patch does not stop an unprivileged local
-  user from receiving l2tp tunnel and session notifications, including…
-
---
-
-l2tp: require CAP_NET_ADMIN to join the l2tp multicast group
-
-This patch marks the l2tp generic netlink multicast group with
-GENL_MCAST_CAP_NET_ADMIN. After this, genl_bind() requires CAP_NET_ADMIN
-in the user namespace that owns the network namespace before a socket can
-join the group. Tunnel and session notifications, including L2TPv3
-cookies, then no longer reach unprivileged listeners that join after the
-family is registered.
-
-Link: https://lore.kernel.org/all/20261123155503.2497063-1-anilkaushikwireless@gmail.com/ [1]
-
-> diff --git a/net/l2tp/l2tp_netlink.c b/net/l2tp/l2tp_netlink.c
-> index a07009d4cb009..c442e953df66a 100644
-> --- a/net/l2tp/l2tp_netlink.c
-> +++ b/net/l2tp/l2tp_netlink.c
-> @@ -31,6 +31,7 @@ static struct genl_family l2tp_nl_family;
->  static const struct genl_multicast_group l2tp_multicast_group[] = {
->  	{
->  		.name = L2TP_GENL_MCGROUP,
-> +		.flags = GENL_MCAST_CAP_NET_ADMIN,
-
-[Severity: Medium]
-The commit message says the pre-registration case remains open, and gives
-this example:
-
-  "A socket that joins the ID before the l2tp family is registered, for
-  example before l2tp_netlink is loaded, keeps getting the notifications."
-
-Can an unprivileged user also control when that registration happens? If
-so, the leak is still reachable as long as this patch is applied
-without [1].
-
-The new flag is only checked in genl_bind(), and only when a registered
-family owns the requested group ID:
-
-net/netlink/genetlink.c:genl_bind() {
-    ...
-		i = group - family->mcgrp_offset;
-		if (i < 0 || i >= family->n_mcgrps)
-			continue;
-    ...
-}
-
-For an ID that no family owns, ret stays 0 and the join succeeds.
-
-netlink_setsockopt(NETLINK_ADD_MEMBERSHIP) checks only
-NL_CFG_F_NONROOT_RECV, which genetlink sets, and that val - 1 is below
-nlk->ngroups. So any free bit in the genl group bitmap can be joined
-without a capability.
-
-When l2tp_netlink registers, genl_allocate_reserve_groups() picks a free
-bit with find_first_zero_bit(), and genl_validate_assign_mc_groups()
-assigns it:
-
-	family->mcgrp_offset = first_id;
-
-On this path __netlink_clear_multicast_users() is never called. It is
-only called from genl_unregister_mc_groups(), so existing subscribers
-keep their membership.
-
-CTRL_CMD_GETFAMILY has no admin permission flag. For an unknown name,
-ctrl_getfamily() loads the module:
-
-net/netlink/genetlink.c:ctrl_getfamily() {
-    ...
-		if (res == NULL) {
-			genl_unlock();
-			up_read(&cb_lock);
-			request_module("net-pf-%d-proto-%d-family-%s",
-				       PF_NETLINK, NETLINK_GENERIC, name);
-    ...
-}
-
-l2tp_netlink declares MODULE_ALIAS_GENL_FAMILY("l2tp"), so this sequence
-looks possible:
-
-  unprivileged user:
-    NETLINK_ADD_MEMBERSHIP on every free genl group ID
-      genl_bind() returns 0 (no owner)
-    CTRL_CMD_GETFAMILY name="l2tp"
-      ctrl_getfamily()->request_module()
-        l2tp_nl_init() registers the family on a bit already joined
-
-  root:
-    creates an L2TPv3 tunnel and session with cookies
-      l2tp_session_notify()->genlmsg_multicast_netns()
-
-The message is built by l2tp_nl_session_send(), which includes
-L2TP_ATTR_COOKIE and L2TP_ATTR_PEER_COOKIE. It reaches the unprivileged
-socket, and membership is never checked again.
-
-Since the case here can be triggered on demand on any system with module
-autoloading where l2tp_netlink is not loaded yet, should the commit
-message say that an unprivileged user can trigger the load? Should [1]
-also be merged with or before this patch, and be listed as a hard
-dependency for the stable backports?
-
->  	},
->  };
->
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261124-l2tp-mcast-perm-v2-1-416741ccb334%40gmail.com
+Best regards,
+Krzysztof
