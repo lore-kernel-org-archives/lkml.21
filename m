@@ -1,108 +1,108 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.52.20
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.171
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795605382;
-	b=WMWILYVk9bRc0Uqy+aOSYDoYVKvFD2pWqkdKf4jEZWoNE1L9WgsM3BxiwO09yXQq+d8H
-	 zAXBKrNVUDrPzDN8i+s+boCIV4oqUwGkjJ1xND37KNiuDWnpq9gogeOKNkdjZbnMNOmCh
-	 X7UkAjYJDKXccKTg6+PEC/c9pEl3J/590kxV2eKq82dIV0ZmrEe/e0ucft3elI0r68o1/
-	 ncSVm+6kQjwGzHmavALWL8WzfSFs/2i6dcALJb92zo5bi4rrDzJrDajdM/fqEoa7z0oMh
-	 esl6xhAycCxwYLUxOibOABA7I3y1VN5rl5dRe3p1yrK8w4lSgNOcnQVdrPWcJ2cV2xg==
+	t=1795605504;
+	b=wzwZ3nhc2G2HToNt4IT3P+sLAojU0V9wUboWnGBGa+EepyIzph0y0DdU52B3R1ZjnICS
+	 egm9vYCl9VLSEqlwylyHCcR65J7sZXayupT77MKseUoA0F2AAlPuHZWW+DhQwSuYk8m5h
+	 aexqGi9hSGfogDKPn9wjQGrANlZzk5AagN5ObS1MyKTy0i7U4qChu/w74vhWFLJJbP7E9
+	 6ZBdHot5JCFopF1YdwFieij2LjG9abBSNjtK75fKhQiVYBA8/XQaJYA9SEqA1ASydx5aN
+	 W/f2T8vdA6kGLHwr8+dk9b7zoTm1RrWXquLoXK06x+VCxOOc4ObZ1XNbMUh9EIBHdVA==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795605382;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=BhCoM+KfPIYBrDpSdGotepsagxhVpySY4heCDSw5tj8=;
-	b=nbMIjtRC/D3/Ln0Q95UjoyzStOlm9Qy90ETM78s5JuAJ71cJeVHxGK1jiwicQq9pyDN1
-	 9j0LGrwxSAUwlN9sn+6AWKQ3RL/cqyd8tLqKemXKHDia/5N6Eu8m1ibNGoWnTF1xZO683
-	 7/gWwESKjNs3LDmf58JM7lRN7p7u3Uig9sSFQVX1NwFfVoISfhAOeLutBOHfoyYW2H/cp
-	 DJlYvrdi01CFYC1jJIBl7JZMTWNHjnPE6YgNdE8w5dYudEWAADDH0lU3wF+cjWerAXFVF
-	 o7fXXGJECsFPiPbKG1Ee7n7i63wz3QlwLfmsXJtPWmjSoX+jeu7WE73PmHHcJHFoIiQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795605504;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 In-Reply-To:References:MIME-Version:From:X-Google-Nh-Sender:Date:
+	 X-Gm-Features:Message-ID:Subject:To:Cc:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=aUuDBjF4fZ3y792JWpEiTnxw/iQ5Ii+xISV/HSd9qVI=;
+	b=hDpajrs6pdcECaYAQdmEWDaGesBJHrXs7RsJwZt8CKH68tk5E9f0Janf3ouwr0s9Bs4g
+	 OoUF9G409ON4e/AEz/zxvFLPTDc9g36NDAOUgvydNXM4lWR+TmS06h8jz95lvIqKdajgu
+	 inyUcEMOShNA70b46jyFQ103ukudzcItsRRh6N+Wl4S3p7CmiwRKkkp5Xj8oll/B7A8MB
+	 GldDQYFtX38uk1Jv71iYsFM2inrypiNstkuvfaDkV/kflp+jXjgZ/8Qaf521cL+aLnwRA
+	 Pa+CQxmc/Hpyr4j0Nqsla4URzEvzowSU5SKL8UPL0SfD6V1WAAXa3QlEgz/2VbjmTaQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=eiDXT2bW;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.52.20
-Received: from BL2PR02CU003.outbound.protection.outlook.com (mail-eastusazon11011020.outbound.protection.outlook.com [52.101.52.20])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Z5N2Trz9;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.171
+Received: from mail-lj1-f171.google.com (mail-lj1-f171.google.com [209.85.208.171])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EF6E9606A321;
-	Wed, 25 Nov 2026 11:16:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EF6E9606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C33FE606A323
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:18:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C33FE606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=eiDXT2bW
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=jDFokgviU+95oWbDGjucY6gelkh2bKJKbasPmj5Ctmv0Nz7sWwxXnpwZoRtpyRwx4mddfYbbLninvxf5OLBfF0ahlmFdPHb81k6GvGuY07UoIvyLnLFg/Y8bTDQ+842zFdRnoDoqNbeJ2yDN4loPljoghnOVi4SdhxH1PBCjffEWZqQys5xk/8LxQidQboPVt6Ygv3bMO5hTCW/N0tMrqoIopqqDXKOTi5IJIZrwtSZRRhfRLCujHdFLsch81yabZKHkQPBzwbuhPBE2EeCN52Gm4H2ulE7U9wpzxMsYRQMiekigKyDiwZTqnjGGP2opHY5tXCcANN8hV52vvP5Jog==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=BhCoM+KfPIYBrDpSdGotepsagxhVpySY4heCDSw5tj8=;
- b=WPyzMBFZudaWcZUN2iRyIpVeWVIfGTH0lCNyTqWgY2jNwOa92zfu4nVyXyrWbMWcwR+JQgN+AJ47e9Es4hKLoZcQ8zC2yZnBG3DfHJmWS7nNnC7MQn/gmcYn8mHEMIrlURCYcd4SfWjwaPaE3QV5kkzCecN+a3k4JnX/nV9EA3utGu8UTqc5KGAEfX347xpRJPVXqZ2A1rmGXA2Rl4YlhJGFaOZtyzZKAVU3WPi0r61XmTFdoAZxUTK6GHIvIMA8VTpj7atTP862D1E1IOgo423PsiBbFOCY9mevMWQk17y3PZEhnp89TRMKs2kKI9zhEsgMME6HxoM8I1HpayFXyA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=BhCoM+KfPIYBrDpSdGotepsagxhVpySY4heCDSw5tj8=;
- b=eiDXT2bWFq8OXe83FdV7kFB2ldRAEDQurjrT1suCu5Fy9zH6B+Tgafjzlwsyo4EHh60sgrH1J+Nq/lbIJm0uyTBZdcV9UdMX9O7dwM9NLyf69uczaHXw73pOjgvAS4iXlzDNHllJ++G/IRi/NlbxY1bNEjvJOi4wMVvNH/GEMvYdx/OrFGw/cMhLRkwZ8jCGV5B6+9y8mZ57bv7+SrIeOiUuXVedYc06IttgSlfgFxrdz9ZGco1TsSf/MwecSEziO8dkwpP1qOkBUGAp0TD8tDDytBlnYd6c4DpDUzWsMauvXuOyctGg+OFszjVcwvuHzaQ6+4/d2pn0wQImz3GkAQ==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from IA4PR12MB932075.namprd12.prod.outlook.com
- (2603:10b6:207:12d::15) by CH3PR12MB9097.namprd12.prod.outlook.com
- (2603:10b6:610:1a6::9) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Wed, 25 Nov
- 2026 11:16:14 +0000
-Received: from IA4PR12MB932075.namprd12.prod.outlook.com
- ([fe80::5a6f:1f74:6ccb:cf2f]) by IA4PR12MB932075.namprd12.prod.outlook.com
- ([fe80::5a6f:1f74:6ccb:cf2f%5]) with mapi id 15.21.0639.012; Wed, 25 Nov 2026
- 11:16:14 +0000
-Message-ID: <923fa815-b22d-4546-a73b-9bb865beff2e@nvidia.com>
-Date: Wed, 25 Nov 2026 13:16:06 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v7 1/9] net/mlx5e: ring the tx doorbell when an accel
- offload drops a packet
-To: Todd Freed <toddfreed@meta.com>, netdev@vger.kernel.org
-Cc: "David S. Miller" <davem@davemloft.net>,
- Andrew Lunn <andrew+netdev@lunn.ch>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=
- <bjorn@kernel.org>, Boris Pismenny <borisp@nvidia.com>,
- Cosmin Ratiu <cratiu@nvidia.com>, Daniel Zahka <daniel.zahka@gmail.com>,
- David Ahern <dsahern@kernel.org>, Dragos Tatulea <dtatulea@nvidia.com>,
- Eric Dumazet <edumazet@kernel.org>, Ido Schimmel <idosch@nvidia.com>,
- Jakub Kicinski <kuba@kernel.org>, John Fastabend <john.fastabend@gmail.com>,
- Leon Romanovsky <leon@kernel.org>, linux-kernel@vger.kernel.org,
- linux-kselftest@vger.kernel.org, linux-rdma@vger.kernel.org,
- Mark Bloch <mbloch@nvidia.com>, Paolo Abeni <pabeni@redhat.com>,
- Raed Salem <raeds@nvidia.com>, Rahul Rameshbabu <rrameshbabu@nvidia.com>,
- Sabrina Dubroca <sd@queasysnail.net>, Saeed Mahameed <saeedm@nvidia.com>,
- Shuah Khan <shuah@kernel.org>, Simon Horman <horms@kernel.org>,
- Tariq Toukan <tariqt@nvidia.com>, Wei Wang <weiwan@google.com>,
- Willem de Bruijn <willemdebruijn.kernel@gmail.com>, stable@vger.kernel.org
-References: <20261124010601.3995693-1-toddfreed@meta.com>
- <20261124010601.3995693-2-toddfreed@meta.com>
-Content-Language: en-US
-From: Tariq Toukan <tariqt@nvidia.com>
-In-Reply-To: <20261124010601.3995693-2-toddfreed@meta.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: TL0P290CA0010.ISRP290.PROD.OUTLOOK.COM
- (2603:1096:950:5::14) To IA4PR12MB932075.namprd12.prod.outlook.com
- (2603:10b6:207:12d::15)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Z5N2Trz9
+Received: by mail-lj1-f171.google.com with SMTP id 38308e7fff4ca-3acd523a802so49244371fa.2
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 03:18:23 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795605502; cv=none;
+        d=google.com; s=arc-20260327;
+        b=LzilgeQcwE8I13EEtnCUc2obvBGqHg1kW2FRXwlWswRag1+E3V84MjpMrCtGY6IYmH
+         0vVhUcLvEcyACLIpv+yF8xv5ep1TC+bUhphz60uOUhD5H4JiJ9ri0C6qVWYIX7kepKIw
+         NUqaNNFBPyFnLP6wR//VTw5VP7I60UdwBJh1zFbcH2Fc6HH9OY0vuEZtMntvvnrKSm24
+         MFb7bQoubNvsoMe7yq4p/PGMbsJZYGOajDCIVBSPokU/wNrkAZzcVF+wl/tX1RoanNbf
+         jHbhfb1lLJQLkQcqRLnOEnADGg74FmsgFoZceZu5BSkIc9k9wJ8JHt7QtxcApgd3hfJ3
+         zxRw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :mime-version:references:in-reply-to:dkim-signature;
+        bh=aUuDBjF4fZ3y792JWpEiTnxw/iQ5Ii+xISV/HSd9qVI=;
+        fh=0yYL8VCmLzMFHgMQsEu2S0G4691lY+jsmexEWAwcrdQ=;
+        b=BKzOz4L9hoN3mNTw2lxJuyitnUPX9rQSsm849ZLQHk25fOyRb8nwCeIcu4D9aLUhah
+         J8hU7O+aqtpJ/JDu/1NaxcncT1e1eHLs6wvMqxKcqMdG3NJdyNaB8xlBTBHETmtsJSZH
+         ZCiFpXDajLDbunir2kFuNdvv7QFAJznvGMMXoMgnI8s75ytBCp3q3wAah22CMYBisC85
+         5tTTOCE0RBRyIfC1rpINygl5Ld/c4AEbQinpFQ5VmsfGY66uv6M925Yo8unvabc/WomE
+         8E6+q6tLt3LD0/bzczpVNwEwjTrhTKy5orgYZUWIjEwBJoWSkqDWkka17EuZsWvQNML8
+         mxvQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795605502; x=1796210302; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:mime-version:references:in-reply-to:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=aUuDBjF4fZ3y792JWpEiTnxw/iQ5Ii+xISV/HSd9qVI=;
+        b=Z5N2Trz9OaW5p3cAAbOX9JMT5a7/xNE6KBeBB7bu1qazqaDzrYDfbu4MVXwS2jEjfj
+         YGb2r/NDBc/2OfH3LZfGHiq+SGScj1o41KOX3vCgZo7KTiIptT04Ws0+nmk5vEoz8G/m
+         XZ0l1kOi5Ww4vR2LBhfU+rfqAAIx1lNMn+suEgiR+dVZUITzuJfPMzvl6GVQUv3O/69i
+         5dQjfp6Hoo4QQA9KFVG+Vo3JVk2nWBdWLRJNSsJHVAxnVrjIUDeqRuIdCTDj+M8Sxas3
+         qupPM3cZcX0EfsrJ/wZF86TqnPgptqdOaZEhJyK1EvoF0gEfLxHaCpFgmCc3gP8AzKyI
+         ZqiQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795605502; x=1796210302;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:mime-version:references:in-reply-to:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=aUuDBjF4fZ3y792JWpEiTnxw/iQ5Ii+xISV/HSd9qVI=;
+        b=C/oitqFAw6lOtvmIJCqfczGq9JrJ7mqAvgD7zWyfa/nEg2gC7xkDE29kHMoRINYNBB
+         4kmmXeYa0VR1PaMOdaXNg7dzz6EWeQcUOAL21ib8nZBs+RsCrW4kwhhnn5rUDLqzGqQK
+         XP/jHLIe6Xe6LlI/7NaxLoopdvxbISJa4rCr78PPN5aSqoh19dh/JRpdzUFbEnl9ip6A
+         SYqEN6Q3Zd2C0ulwdundYBoEiTeZ8SSIoC0mBoVmkBCmnnHe6kdEn497lyNjeX9cAZc0
+         R1osIjOepew273RS56NBn6lrzf4ZMEQS5Q//2Eq51DFN7BHUcJizfuQ7ToqlKqwTXrXK
+         ftNg==
+X-Forwarded-Encrypted: i=1; AL+hErF5EWSWmYtMPjWJ2bQWXevAS9vxYJkKr+akn6SBgUvBf2uagnn0yxErwhbkSykWoSPpclG/KF/9j9X8khU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/4UGHZVebiXJ0BduBakZv0IzrPXez6MJNk6fJVtozjmxl0KCAN
+	vCFasdfzHMgpm5cFnlno+xlT56GGgyYavTwZtQjtmpp80674ukonN4iFP0WT49lQMHAa30hnBW6
+	kqC7gAGDk2oBKqKbd7fIYBcvVWRmKmRA=
+X-Gm-Gg: AZFdTZfK5GucwyMpVD4kHYTkhXwCS9HatbmN4zrqIvD/GJPCsy66uacWmgDmQaUbdSs
+	y9AdQrQrEl+FRfvshYAwgQDO7Et29Q2MMEOAM6U/v9xGhz62fu/hNY4o4POLTctaTFn3v8QCwAO
+	FZOfZhEs/suKwr2X0PEm7KcfGOs/cBX3ylasn7iXbOYdBsWYFzGqAbgaMw617/6vePrvDhOkPYC
+	T0FFNk4wNCSDaassdaRuHl9lzsweEU6IZhdzEv0/jrOUSI3fvtNaq4esKM/Cn5MG9nOQsQ/7Xk5
+	NqkrZBhrUccfRWqVk1Up2h/UWDHQo9SpAe0hLOeY/u9al4OUaK65RVj9W7RR1DDXcexl8hd9Jz9
+	iENwYewNR3XIi/MLAGgknySdUuAhwuKSVxoZ64LEEA/pnJJjbt3F6rKCEk+0XgyHpk9c9DprhQ1
+	rCIREnx7YXV2UmkNiNDl7H2osYBPc=
+X-Received: by 2002:a05:651c:1a0a:b0:3ae:62ba:1eb with SMTP id
+ 38308e7fff4ca-3ae7fa43128mr58552731fa.22.1795605501623; Wed, 25 Nov 2026
+ 03:18:21 -0800 (PST)
+Received: from 77377267392 named unknown by gmailapi.google.com with HTTPREST;
+ Wed, 25 Nov 2026 05:18:20 -0600
+In-Reply-To: <20261125073342.GL3898744@ragnatech.se>
+References: <20261124095110.131258-1-shunsheng1218@gmail.com>
+ <20261125030327.953450-1-shunsheng1218@gmail.com> <20261125030327.953450-3-shunsheng1218@gmail.com>
+ <20261125073342.GL3898744@ragnatech.se>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -112,97 +112,182 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA4PR12MB932075:EE_|CH3PR12MB9097:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9719d310-6acb-4e2f-430c-08df4ae5847d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|1800799024|366016|376014|7416014|261026121527099003|261022075727099003|261022105027099003|261026140227099003|261028144727099003|10067099003|11063799006|56012099006|4143699003|22082099003|18002099003|3023799007;
-X-Microsoft-Antispam-Message-Info:
-	WcYICe12L4ZoOkgHW/Eq/IBu0zYs1YTY9N1C83uGp2mNWanGZjYpLATZm1vHaNJCpJi/QFBPIVlIWYxC6fbOPgTFED7fV/8AB/cLNmAYcVBxKmkEGivNDQ1646HH/cq8aVAjnKMfoePfB6Kr1qD9QoCxA9OUM+zQ12P1f7zRQ47GKi5yvFkY1nRClj610PPWMbZG/zEljIHwUlrUu6vgzstNaoDVZPG+ucG7Q7ORkUXVIcEki4cNZk9bUq0C+OF+IkdlOAoNp+CnHG7oOBuA5mVycx37tTefsSz0FY790IDlZLFKtfo+XA8TtZ7eklhkRPWXVLydcLM9qE2yyEkLEAFnov+RCNxDB/bKMF0FvSTo1va9CVpXvR9FPk3B6pBeVVRyE7bqyCTNFnY6NQzcNm8MQ8solueJd+v+gQHQoX1t8upnAqcRT4BWinLvcmA7QvWFdWAx09bvh+kzk5waLGiEGYjurbYVvRjPWJIVQSGXqfuvfM7ZDwHRAuA5MiMAfwadjuOCzfifWpeCoOQ9mCWdESeWbWNqRG7XOp+dkMk5rAtGhbXxvzlgSp9StvIAaE5uEYXEJ6yqloTlLX+GgiR4hlN6ETSX47k42UkvixxRldvU1M6oq4Q1ikX7l3ZQyBO4CZ/FGiGf7US7yRDhcdD1g0DdsZrhhgF1NIZpK/s=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA4PR12MB932075.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(366016)(376014)(7416014)(261026121527099003)(261022075727099003)(261022105027099003)(261026140227099003)(261028144727099003)(10067099003)(11063799006)(56012099006)(4143699003)(22082099003)(18002099003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?SDRxWnlNeXZUN2o2cjlGUzhPZEZHSEQ5TDR2NVc4VFZseERNVUEwMHZMa1F5?=
- =?utf-8?B?aWZLN284bGZWeDBDR2dwSzFBRFJwTGhGem5UdGllTWRXc1dvZmxnbmIyNmVU?=
- =?utf-8?B?eXJIdmxjNFNlWHBHVmpFQkdpRWNtWHhTR3o4NlVEZUwyRTdESUs0enJVZVY1?=
- =?utf-8?B?a01iVmRQRHVzT3RPTkFoUDNmNDNTZjdKOFpycHIwSFJnbGtudjVad2plaVFx?=
- =?utf-8?B?RkpabVhJeWkzbDJ4ZnlwdHhGRlpMSTA0RmNGc1V2VkI0dkNnYnJ6RUtwUEpB?=
- =?utf-8?B?V0txM3MvcVZkUE9nd1FlOUMzNHhnK1drQmE4MW0rUW5ITkZocE1KaWY4SExn?=
- =?utf-8?B?QVFJeUhWVndKbmVOV2hUYis1NGp2a05XbUp2bWRQYzZiMUJZNm1uajhmQkZR?=
- =?utf-8?B?TUQvVG9lRkVRYUJ2R3hnQjVRVWRDem5VL1JsWm1jU3UrelRwWUJqeTVmZWlU?=
- =?utf-8?B?YkszVTlSYUVrWUo5Ny9LUVF3aDR6eS9VQnpoU1BCV2JubVlPZnQ5Q2l5YzJq?=
- =?utf-8?B?bit4TGYxYUFpM1RoQkI3Q2lodVFuZSt2c1RBU3kweGtVb01nVUI5aWpkMlhR?=
- =?utf-8?B?eXNlR2lMbDAzdkR2VzFGSzVERGE0L2xjeGZ6YzkyK20zOGpMNDNCNUNUb1dk?=
- =?utf-8?B?Q01sTlVQL3ZaZ1JWbTFqRTBJaTQxZmo1a2dQVTJ0R29EaHRBeXcxWjBUazlM?=
- =?utf-8?B?MklNZWdBWDc2U2tkaXJHS2xsaXBUOEYzV1dsbFFDZExXbHhhcVlmQWRGekZ3?=
- =?utf-8?B?eUNSdUo4NHFKUGtkTVErOWZXcVhBZmNQZngxS2VmZG5rbWYxOHZ0UFBUMlAv?=
- =?utf-8?B?c0djRU5nMFJHbzVWNElzN3FxV25UY09TSTEvSWhNQmFRRG5zaE1LMEFNZlUx?=
- =?utf-8?B?NkprS29Gb3F1WnVMbldTcXdkcmR5N0ZBUTk0b0ZKeHlMY2NBOXdLcFUzS3BU?=
- =?utf-8?B?R051TFJQMXBwcWM2cXkxWnpXa3lKSjV1MVFYV2pRQXpZbEpLek9PQ2d5ZDVM?=
- =?utf-8?B?eTdGeUN5dmp0SDVkYWNnMzlCNUV5TW9XUmFBVXg0NVJUTXV4QmxXMVo4dFJN?=
- =?utf-8?B?bFIxYis1dVV0cFFTQWtmNWcyQUp4VDlBUWJPalM1MUk3c0RMSzZsUU9HeTN4?=
- =?utf-8?B?cW96L1E5OWVIQTVGcEc5OFVKcG9yeVM1bzVrWVMzUjYzVEVZMXQ2b1ozTnhn?=
- =?utf-8?B?eDVkSDgxd1FuUkRFL1FJOHIrZnZDenc0RkdYYnA5cmRtcFdOMFRZNjNUQ2lm?=
- =?utf-8?B?UlBOWmdTY0ZOM0N2QkVDUHBkZENyRkV0dml3b1NHZFVOQW5TTHZUWGRqeVhE?=
- =?utf-8?B?aENURnB4M2F6RG5BNGIwZjVGbTMvU3pJeDk2ZFdTY2hsMlBzaWNMWEZkS05B?=
- =?utf-8?B?WERSb0xoR3hqSDZ2bDYvREhPcnNGSXZFRnJMVnpHREJXcnNpQ3gwY0NvTnA0?=
- =?utf-8?B?Wlo2OGJCRVl2WlVxTHZBTjlhUWV2NUNrUk9peUZBS2d1Qk94amIyZVJ2RFJI?=
- =?utf-8?B?b0dVcGhseXR0UnZZbmYzZXp4UUJNWnlnUnVnc1pyc0krbG5rT1g0ZjNiTVVi?=
- =?utf-8?B?Y09XMEdnVHNOaVFHd29tZUtVcFZrQ29GN0FsSHdVNlNDYXZOblQxSElCaUVG?=
- =?utf-8?B?M1pjcjRxV3lkd3hZSUtoakRFbXl0dHV6aEszTlRqcHgxbnE0V3RUM1pzTzhl?=
- =?utf-8?B?ZXpxdlRlZGxpOFUxa281SUthdktYVG1mTFBrb3MyYmpwMzE4NHNZNDBvd3Iv?=
- =?utf-8?B?TzJiMGUzMkZLZGdjREJHMTZ5Y3NJR1Yvd2hCejlTV2lMb2JZQ2hjdXFtNGE3?=
- =?utf-8?B?UXc4dTJGVkhRNFlDdDdnQ01QMXF2TXZFUnd1NlhNcUVXVlFIV0tQWmlCN0p6?=
- =?utf-8?B?UVBuOTZlYTVJOU81SVRJTHdwVGQvZkpzSFhkZlBnSjcycFVNY3ZtZW94a3o2?=
- =?utf-8?B?Y2N6djZKSFQwQ0tRY1QzZ0tqdGpXTHZDQXJSd21ORDF4OXdQN25xYlJ6d0s2?=
- =?utf-8?B?TFBCTHdONHNCWENOTkd3R25iTDNZTmV3TUg5TFQ3VkZOTldTZ0xubEI0UEZG?=
- =?utf-8?B?aVV1VTZRdmNGMVgyN1orMGtBVjVkOUp3Y2k2cytweCtPZVpXQWhEekt0M0dG?=
- =?utf-8?B?RERJL2ozaFVuVG1OMllmTjdmdGpiQkhhalhoUWxoWWRDMVI5QktUaEE5c0tV?=
- =?utf-8?B?QWEvVmYwNmdxSCsrYzJoV0RDK3dNMWF5dWlnM21qdEpuK2RkdkJMbUZmVkF3?=
- =?utf-8?B?OUdZWTRlelBDb3V3aXNiaFBmbFRKVCtGRWdod2dOQ1c2b2Z0U3VxQk9ZZ0c5?=
- =?utf-8?B?UHFDeWgrWGcxUWZNMjZBdlN1NnFIcTU3UmR1ei9kUVVmbVNqUzhPUT09?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9719d310-6acb-4e2f-430c-08df4ae5847d
-X-MS-Exchange-CrossTenant-AuthSource: IA4PR12MB932075.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 11:16:14.2777
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: SkvXwsFgAkCqTz65KIpi/vPNHBIUIh35GqfKn2f/PMI8dDfOLCHiYImvfauVA+kdS/cST7tXsep2oPbRxwQVhA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB9097
+From: zhang san <shunsheng1218@gmail.com>
+X-Google-Nh-Sender: AW_J_UpCVIodhkIqK-BapsyqbHTdE4ByeK1Vp3ycLC_CoU8RR4sD9sqDWn3naQJB3rzHn5yAy_szSuBdZ7MWZBqqOqUQeEOy98tV4eoKuXy7XCjKtkbLKCfZTO0q3Oegz6-c0UBAmgSS3nochUw4VL4KvZ7fi5i_IM--QFjBln0RxG7TgAJvgi4IdXVLhS9uN2DqYXVM9asfeyflk0NSX_so_xEsLEtv2g9U1eM9nPjW6jQn_A53RK2WVhDQ4yCygqxR
+Date: Wed, 25 Nov 2026 05:18:20 -0600
+X-Gm-Features: Aa3M54qfNGJJeA1uK2QHUImyTAAllwJfpJqcfABrJCEBi9leUt0MV6WNKDisRgQ
+Message-ID: <nh-17d10cf4-3201-426c-b9a7-95bcba2df381@google.com>
+Subject: Re: [PATCH v4 2/3] thermal: rcar_gen3: release the interrupt handlers
+ from ->remove()
+To: niklas.soderlund@ragnatech.se
+Cc: rafael@kernel.org, daniel.lezcano@kernel.org, rui.zhang@intel.com, 
+	lukasz.luba@arm.com, magnus.damm@gmail.com, linux-renesas-soc@vger.kernel.org, 
+	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
+Hi Niklas,
 
+Fair enough, and sorry for wasting your review time. Dropping
+RCAR_GEN3_THERMAL_MAX_IRQ and your earlier style feedback across revisions
+was my fault.
 
-On 24/11/2026 3:05, Todd Freed wrote:
-> When mlx5e_accel_tx_begin() drops the skb, e.g. because PSP can't
-> encapsulate it, mlx5e_xmit() returns without posting anything. The skbs
-> before it in a bulk dequeue may have been posted with xmit_more, which
-> defers the doorbell to the next one, and an MPWQE session may be open.
-> The device then doesn't see them until the next transmit on that SQ, and
-> since the queue isn't stopped, the TX watchdog doesn't fire.
-> 
-> Flush the SQ on this drop like the DMA error paths do: close the MPWQE
-> session, post a NOP and ring the doorbell.
-> 
-> mlx5e_tx_flush() doesn't check whether the NOP leaves less than
-> stop_room in the SQ. For the DMA error paths that is rare, but a run of
-> offload drops would post NOPs without stopping the queue, and could
-> overrun WQEs in flight. So check it in mlx5e_tx_flush(), like the other
-> producers do. The completion of the NOP wakes the queue again.
-> 
-> The next patch makes the PSP drop reachable from user space, with an
-> IPv6 extension header set on a PSP socket.
-> 
-> Fixes: 2ac9cfe78223 ("net/mlx5e: IPSec, Add Innova IPSec offload TX data path")
-> Reviewed-by: Dragos Tatulea <dtatulea@nvidia.com>
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Todd Freed <toddfreed@meta.com>
+I'm dropping patches 2/3 and 3/3 and won't send any further IRQ lifetime
+changes here unless I've worked through the driver properly on my own.
+I'll look at patch 1/3 separately on its own using your feedback.
 
-Reviewed-by: Tariq Toukan <tariqt@nvidia.com>
-Thanks.
+Thanks,
+Yaohan
 
+On Wed, 25 Nov 2026 08:33:42 +0100, "Niklas S=C3=B6derlund"
+<niklas.soderlund@ragnatech.se> wrote:
+> Hi Yaohan,
+>
+> Thanks for your work.
+>
+> On 2026-11-25 11:03:26 +0800, Yaohan Li wrote:
+> > The interrupt handlers are requested before the thermal zones, and
+> > devres releases the managed resources in the reverse order, so the
+> > handlers outlive the zones they report to. The handler walks every
+> > sensor and calls thermal_zone_device_update() through tsc->zone, which
+> > is not cleared when the zone is unregistered. Masking the interrupt
+> > sources neither waits for a threaded handler that is already running
+> > nor removes the action.
+> >
+> > Release the handlers from ->remove(), which runs before the runtime PM
+> > reference is dropped and before devres unregisters the zones.
+> > free_irq() also waits for a running handler, and after it returns the
+> > handler cannot be invoked again.
+> >
+> > Record the interrupt numbers as they are requested, so that a partial
+> > request is undone as well: if the second handler cannot be registered,
+> > the first one is released and the driver falls back to polling, as
+> > before.
+> >
+> > Signed-off-by: Yaohan Li <shunsheng1218@gmail.com>
+> >
+> > ---
+> > Prepared against v7.4-rc1-1969-g666539eecdf4.
+> >
+> > Compile tested only: arm64, aarch64-linux-gnu-gcc 11.4,
+> > CONFIG_ARCH_RENESAS and CONFIG_RCAR_GEN3_THERMAL.
+> >
+> > AI assistance: prepared with Claude (Anthropic) as a coding assistant; =
+the
+> > author reviewed the reasoning and takes responsibility for the content.
+> > ---
+> > drivers/thermal/renesas/rcar_gen3_thermal.c | 38 ++++++++++++++++++---
+> > 1 file changed, 33 insertions(+), 5 deletions(-)
+> >
+> > diff --git a/drivers/thermal/renesas/rcar_gen3_thermal.c b/drivers/ther=
+mal/renesas/rcar_gen3_thermal.c
+> > index a96f02d4a8ad..37348f4413b6 100644
+> > --- a/drivers/thermal/renesas/rcar_gen3_thermal.c
+> > +++ b/drivers/thermal/renesas/rcar_gen3_thermal.c
+> > @@ -107,6 +107,8 @@ struct rcar_gen3_thermal_priv {
+> > struct rcar_gen3_thermal_tsc *tscs[TSC_MAX_NUM];
+> > struct thermal_zone_device_ops ops;
+> > unsigned int num_tscs;
+> > + int irqs[2];
+>
+> What happened to RCAR_GEN3_THERMAL_MAX_IRQ ?
+>
+> Please stop thorowing this code at an LLM it comes up with new code
+> ignore past ideas.
+>
+> > + unsigned int num_irqs;
+> > int ptat[3];
+> > int tj_t;
+> > const struct rcar_thermal_info *info;
+> > @@ -466,9 +468,25 @@ static const struct of_device_id rcar_gen3_thermal=
+_dt_ids[] =3D {
+> > };
+> > MODULE_DEVICE_TABLE(of, rcar_gen3_thermal_dt_ids);
+> >
+> > +static void rcar_gen3_thermal_free_irqs(struct device *dev,
+> > + struct rcar_gen3_thermal_priv *priv)
+> > +{
+> > + while (priv->num_irqs)
+>
+> Please use a for loop not modifyig priv->num_irqs, this looks dangerous.
+>
+> > + devm_free_irq(dev, priv->irqs[--priv->num_irqs], priv);
+> > +}
+> > +
+> > static void rcar_gen3_thermal_remove(struct platform_device *pdev)
+> > {
+> > + struct rcar_gen3_thermal_priv *priv =3D platform_get_drvdata(pdev);
+> > struct device *dev =3D &pdev->dev;
+> > + unsigned int i;
+> > +
+> > + for (i =3D 0; i < priv->num_tscs; i++) {
+>
+> Declare loop variable in for loop, where possible.
+>
+> > + rcar_gen3_thermal_write(priv->tscs[i], REG_GEN3_IRQEN, 0);
+> > + rcar_gen3_thermal_write(priv->tscs[i], REG_GEN3_IRQMSK, 0);
+> > + }
+> > +
+> > + rcar_gen3_thermal_free_irqs(dev, priv);
+> >
+> > pm_runtime_put(dev);
+> > pm_runtime_disable(dev);
+> > @@ -491,22 +509,32 @@ static int rcar_gen3_thermal_request_irqs(struct =
+rcar_gen3_thermal_priv *priv,
+> >
+> > for (i =3D 0; i < 2; i++) {
+> > irq =3D platform_get_irq_optional(pdev, i);
+> > - if (irq < 0)
+> > - return irq;
+> > + if (irq < 0) {
+> > + ret =3D irq;
+> > + goto release;
+> > + }
+>
+> This changes the behavior of the driver...
+>
+> Please stop using an LLM to code this. As you don't have hardware to
+> test with throwing LLM spaghetti over the wall and see if it sticks is
+> getting tedious. Please read, understand and write the code yourself as
+> coding for gear you can't test is hard.
+>
+> I will not review another set of LLM slop, especially as the good parts
+> like RCAR_GEN3_THERMAL_MAX_IRQ are dropped between revisions.
+>
+> Nacked-by: Niklas S=C3=B6derlund <niklas.soderlund+renesas@ragnatech.se>
+>
+> >
+> > irqname =3D devm_kasprintf(dev, GFP_KERNEL, "%s:ch%d",
+> > dev_name(dev), i);
+> > - if (!irqname)
+> > - return -ENOMEM;
+> > + if (!irqname) {
+> > + ret =3D -ENOMEM;
+> > + goto release;
+> > + }
+> >
+> > ret =3D devm_request_threaded_irq(dev, irq, NULL,
+> > rcar_gen3_thermal_irq,
+> > IRQF_ONESHOT, irqname, priv);
+> > if (ret)
+> > - return ret;
+> > + goto release;
+> > +
+> > + priv->irqs[priv->num_irqs++] =3D irq;
+> > }
+> >
+> > return 0;
+> > +
+> > +release:
+> > + rcar_gen3_thermal_free_irqs(dev, priv);
+> > + return ret;
+> > }
+> >
+> > static int rcar_gen3_thermal_probe(struct platform_device *pdev)
+> > --
+> > 2.34.1
+> >
+>
+> --
+> Kind Regards,
+> Niklas S=C3=B6derlund
