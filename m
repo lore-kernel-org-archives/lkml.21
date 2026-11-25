@@ -1,81 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.62.58.211
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795572604;
-	b=eErm22cJFqQjl4RSLW4F6m5a/u6QZz8QgDnRWJMySZzueTCuoYcnAD2HskA3Oh9kIrkI
-	 RmTe5y5IeimCPVrEKR5MesAOuqFXk1+s3D7N7Z4WUE9KT7eBK5C6PoruZdP58lW+AjqXp
-	 usbZYSuhJQ7VtedWvZ/s0YCvGmPU+LdFqMv8BeU8SnGq6oVDME/jX5SANtDUW3iIdq7lp
-	 PIcCOEh6y+8i6lZi/fhLptpwlWd6lQWokMvmH5QKtBkrXSBVxZIwZVcM1DMUEI9oXcft7
-	 yAXPCIRbWPqTVcJbKk0EPCYQ+Wo6cICH9/qTeOtNZVgATFsq8BEd2w5wJhMEBFuMFcQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795572604;
-	h=DMARC-Filter:DKIM-Signature:Received:X-QQ-mid:Message-ID:
-	 X-QQ-XMAILINFO:X-QQ-XMRINFO:From:To:Cc:Subject:Date:X-OQ-MSGID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=CS2ZbRlSeu9BKCtjwn1cszFBodArDS+piHxKAZIkxcA=;
-	b=4QRsVfe8MMIvRKKohVSaV9djgmB+X2nPpEDXHQSjqMKlJqWE+GECkcevS6+CXtb/WWtk
-	 6soYuuWWvGH05XGb28VbMBpfI3LmduaCZSyU447QcRRgsO41dMM+5mSQP4+zCNUsUgMFN
-	 rbQoI/dj8JYQrVs+59C+SgJkycOQdT9PSKycREMMLPOyHWMUonubMgcdFnPJXqdF1GuCo
-	 KNpmKJQCHcXtmr6Cx2zLh3bZszdV5zvivhb4LH+s5cwKXk62Pfs0/1yWi9/ww+9XE1rKO
-	 oe65JM9ieHscqYvFKOJOoEJK+62hZgd/tQjPrWwit4G03k+S4x5AjKfdA7/y7RKzwaw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=qq.com;
-	spf=pass smtp.mailfrom=qq.com;
-	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=Cvjpucbp;
-	arc=none smtp.remote-ip=162.62.58.211
-Received: from out162-62-58-211.mail.qq.com (out162-62-58-211.mail.qq.com [162.62.58.211])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.41
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795572639;
+	b=qn+W04RN9OrOOwKF7zhba+JgfwSWbez3IdtqetB/kzTaQghyc672T4Jedz2cHg3+UDW3
+	 ivS1V1+4M1z72A0hp+iTP+7zWE1x9wa/6qRu+MlyoIHPnmW4vD3atQIGdLPScIL2iLxOy
+	 nR6t2krds3gh8eKFfifR2Cdv9G2j+dGoo3Us0moOo64LyYbF7nrVf48qIMvuyMwc08w4v
+	 yILDURGjLeXqy97HtW257fcebZt0v4kxD4l7brWPX42c8FcTvb8IYbIHx6OP/1ygUG6H+
+	 JkuVcB3rNhPQFze6un3PIOAMLxKd4Zgry7dgAje9I5LYPGlgO11UVV9yrIcXBB7kWxA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795572639;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=TvZlrkg5tr9gIRROT023AZ+ik64XGCLBZ3Fbj+l0tnE=;
+	b=GibJaM/5s30VngUZO9NlBZnYtu47Rn53Dhe0ob40Ktf5ZoUMJIVmyl8Z4b1xaid6elJE
+	 JXCkpZwLTxKfVsosVWT7UzFjKTBZaAODIHNpfY18vQTmo5qBKgJeVtXJ3o3QD0+agPRLQ
+	 C1ZfGY1Fla4YofuCHkJubkVN7mqJDUnqizrOiKUJ5Izv9cvawsHsuyTkAzdpFhWzLKL6c
+	 TKsAyzVjLN/43PmnwqaLyhzEhEA+R/w+LD5op15c6MdHTi1IRXBFsxkzZ2j9kqPAuVZiB
+	 3Rqeugh36GoHJICZZEAmSkb/a+UZUBX4aXxv+lQcndy0Wj3qlqu/SF4BC9w8lu3W8Uw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OGwBWxtn;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.41
+Received: from mail-lf1-f41.google.com (mail-lf1-f41.google.com [209.85.167.41])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B4055606A6A6;
-	Wed, 25 Nov 2026 02:10:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B4055606A6A6
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=qq.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qq.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6823C606A31E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 02:10:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6823C606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=Cvjpucbp
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1795572593; bh=CS2ZbRlSeu9BKCtjwn1cszFBodArDS+piHxKAZIkxcA=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=CvjpucbpWl5maApZqLzbEWYKOdBd5BQ9CGMEkLNbmQvUNvJO0s7JP1OCQlfW+xyVk
-	 S169AmOcjO1CmywevYCxwH/69PAqoofrPRwFfirwmavKGEVkIsVOe2otkw1kZTpPpB
-	 pwvgX+NSzjo7hrprSMBIR6YPXSruL/HorKA/GxrY=
-Received: from HF ([113.90.236.90])
-	by newxmesmtplogicsvrszb51-1.qq.com (NewEsmtp) with SMTP
-	id 26DABE38; Wed, 25 Nov 2026 10:09:45 +0800
-X-QQ-mid: xmsmtpt1795572591tp1k4154k
-Message-ID: <tencent_0E08C29B27905F3154DF71AA0F7F2BA5EF07@qq.com>
-X-QQ-XMAILINFO: OVFdYp27KdlJh37UI3SCyZWr/YjZZ+5ZauKMOXFqDVTDrI/ohYPBAuMW77tLt/
-	 wGUJ5ebIRuxK9LS2y46L8YRPtmyGWoD7M8LCAh5Uo24ovJUc2ZQPbT/wAbqpj1UIxfytCTwPeyRq
-	 KP+TXlomVCdL2a8w7SxC688bWMtv7Og138xlEXYZUDyxyrCFx26m0NoRjD5cjzpaG6LqooXapAYF
-	 j1XCAJ1LwYPb1UdhnbC9mjgLDYQxMEkZpCKpZKqT37JA78oBzOhU7GpZznjtJKqeeRCKtlLIpEIm
-	 uXzS+HB2i+goR0EN84CcS6G3vhZ+NUI1qGdsX3WZpY3QePeLVpZQaCNxL/vyZwy70j+woYpfG2F4
-	 UWxP75uy85LiRULPUS6mS86TL8ZAJ9PYKLAqq9+mvtx1QN+yJi2s6PgZKjZYUhBu+F0R6ve09ODP
-	 +svXfgs4HKU25+XnEGkdwn2M1SOLXpCssNbOBXFzxGAZojqSGfbl09ii8KM7TkeFfsl87Cut3TSx
-	 8n0Sviq6tOkTHid9NQMmCMz4EFSzhn/+eTxunaGMDOhztQfuuKH+kGRZjM4SFTqRb3yjIpjCoajn
-	 k2i1EsjOay8KTuE8nPFm8TpO5Bnj17sjqmkn3vqGYeJ+5RNudi6GlxpUB3//q7WibHOHR8dyxo+l
-	 yO+AW8VGgnTyadLo8bKSMwLLN69L68x0N1ybn8yoMBy7k6ph2nUSstBVuicDPm+t8BgB5LwagcgG
-	 ezEEcs0oF1+wnpKF6KhB4IZiaWj81dizNUB2lm2LXOARynss3n3/DoXCcdhhv3rUdlnWbiOhYN3k
-	 Ddj5X0HED+E/II7/PQr35mc//oMSNyK6eFgNTYdgnbILiRUgxXlM5WaxDweI0ShcYfvko8Ujt59p
-	 lIp8NxtYqJr8jliMfGnnl1QnWzD2I1AsJjyd+xpSRWgJU/saLFoaQPa19FxoC48GsjN+4Vqv60Ja
-	 Ig8gIxpfLaHz6zj7ddNYJWCjPXs1X3hw/bxXTzoBgvonlKRUCGbNYQjSM+En9mUlw9KMedYR8Kfb
-	 p6xkuRmebNyWyPHBfrb99W7LkjcaW+nFmE9cv56vv78Wl2XSdBF29GTz7APKIINuWttzg/CVszf3
-	 yHF2a3
-X-QQ-XMRINFO: Mp0Kj//9VHAxzExpfF+O8yhSrljjwrznVg==
-From: Hefei <3066883572@qq.com>
-To: dri-devel@lists.freedesktop.org
-Cc: linux-input@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	robh@kernel.org,
-	conor@kernel.org,
-	Hefei <3066883572@qq.com>,
-	Cursor <cursoragent@cursor.com>
-Subject: [PATCH v2 5/6] Input: add Jadard JD9365TX in-cell touchscreen driver
-Date: Wed, 25 Nov 2026 10:09:43 +0800
-X-OQ-MSGID: <20261125020944.137-6-3066883572@qq.com>
-X-Mailer: git-send-email 2.55.0.windows.5
-In-Reply-To: <20261125020944.137-1-3066883572@qq.com>
-References: <20261125020944.137-1-3066883572@qq.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OGwBWxtn
+Received: by mail-lf1-f41.google.com with SMTP id 2adb3069b0e04-5c126f80426so5108906e87.1
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 18:10:39 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795572637; cv=none;
+        d=google.com; s=arc-20260327;
+        b=MhksZB2Xe5tOxsYpxvPidqo9gbwg8n3n+p9WzkuySg+UoUGdY60waqTlW3EtS85QhS
+         hSDYpvluUKlpqOogbxUq/k+kWmegOEWtATRALX2cGyELVTDDA9swplxYoH8PVlCAtI8H
+         pFZjhA7gkegwijodxW330SRABsoGDVvSgCwv4BCeKsowJNNflQAZr01390hdExAaTZck
+         BpTL3lfrxsl9681D75c9oJlKWXFdr93UywHURi8sIAPbhcbxA5kaTUOOqx9vdZmibXQf
+         7/oZK8bCZo69nuSO9xFe7RowrfGC81XZj3uIP8izqIoDaGQjNz1jON40ZvzV4L8U8Ipj
+         qbBw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=TvZlrkg5tr9gIRROT023AZ+ik64XGCLBZ3Fbj+l0tnE=;
+        fh=0CFx+if1F0CJdf3lEXHctvrnuYL+T9an9naFeCFyzAA=;
+        b=TvkibhyMPADa7ZapNLAu4Ei8si4RArPyqM3oHivjVjg58gQA/LjhDu+TsviZUKR7pL
+         K/T5BdLbQq8lJ0dsmHjalS7XzX9c8PkrILJhWchsOgGWjKb8G17k69XJttEEvWAAq1oX
+         8dSLZTdwCu47uDkA7x5gq3GJS0+ZI0imYMX/1K+PC5xqnmYyc/rNTjgadqpRxpcL4JLV
+         l8UR8Sc1VDc9iXzv4XXS7usFU1wOUVO+chqgryf/zbf8ualATZKbA/D22EJeuR+3fgQh
+         D81s5eD1VzS39lO1z44M5UbQSCDBV9qj3dJDdLnlkLnxICfc40IBLjm2XAtl/4pJIi55
+         aywA==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795572637; x=1796177437; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=TvZlrkg5tr9gIRROT023AZ+ik64XGCLBZ3Fbj+l0tnE=;
+        b=OGwBWxtn53HAeIiJeBo+RcJAQ2Tu6sU9OX4M3HS0n9wpREpWNhtuOQxYCX1bPa6VDY
+         Vsld9zW6I2Frfiotq10+lyxznlH9/RZfRm9HPSzhBGA1EZZDmB5FZHaAM+uOfrewIKPC
+         ACT57w9CUnZJJUhwUPQjq2709cXIcBmf7kg0QKJ/8dAT3xzgou7PC/v01Mc15sTk+77Q
+         nMhKVCPtFNMqIgf/cqlyDoulmt5GlG/lyxjFdAXXr0BckikQD50zMS5hOX+uiX5Szq+8
+         G0FKu+4QujmvtBED+vLXalfC/o/XA2t/uRT+cY1XyXrDRpw0zBCA2ycEAJ7ex4Lvis+x
+         CA6g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795572637; x=1796177437;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=TvZlrkg5tr9gIRROT023AZ+ik64XGCLBZ3Fbj+l0tnE=;
+        b=ZF7gTrCxS5ZS5VTN/ajJemeztE01y7l6ImTne22MLSERHPF3GVB2HmkzOKCjdVFljn
+         +gcmhWl2jrzXNiG7wb3tyS4ihE3ZL7kNWQ4scHD5QNapwE7gVleCpc9O6wDPL8OYil9U
+         BeMbQsS49v1BFVusaKlM3oNtkeigeu3pcIhW4oqlTEYqjFR+uyBmSMncpUPee2FqLFkb
+         AKLQTyDhmho7u1exYV9NltJysbd+om/8No+U3oKE1U5tGQUa9XRUmHlbRHUb0tugsj7s
+         KvNRi52TFgOTxpPwEM4+hYyGU5HYw9wLp1gP/ZzA6czHxGzZ9wKw6RWrhS8nWcjL+r1A
+         ZusQ==
+X-Forwarded-Encrypted: i=1; AL+hErEP4t2zCNLQWr4evtDR6gCaT72QBT/8TYkQOC0Ox04MfAoXqL3qkxpnkjJKkt7eQVIF8+V7YRbe+hMS7Bc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/5JIYnypwfHFqlm0n6A81ipAx5Y/1yzQT/X3uNEtnYi1+ue5TS
+	lCS6FpV2CNb3M/CS12ssH0RZC+XftdABF19d2bC85wKCqPm7VNzeeEI+2nTkmfAI2IgRd1yOTKR
+	usocY1VxsaCz4VrNjvGiGDgKEQYsN0eY=
+X-Gm-Gg: AZFdTZcLKgOb1MTwosW4jsCb8iOd++irN9DOdFPLFW0XmnthFICtR4qApHnOvIaz62R
+	Tte/mHUIyxfgvpJ5qfwQWK2AHE7fs3t7Zn1zcyhdFFxBHSbP4sfeiFam0LJf8i585W4oZzN4MgG
+	DqFRAdMoviXehfku1PJ8d/S7NJDSlGIy9vT1gTa39bRr0LViJQ9uLTJ/INtj9s4H5tKWmijEu9O
+	k+eAoGN7zADDIpA34R34v1D2JWcuT1j/cgsYwdN0Ci8CsohZMaF35xO6eXzn08dfUJm+8o7Ae1c
+	/2chAZDZEM15rXgNpFu2M0iH9UiEw3Z6rNAE7Xh3V5G+kSf1fOJLt10we0Y0pPIK1fgrIxugDTr
+	62HzQz+sjeSbP6h38kAEyJomkRxX3nUrrb0uU
+X-Received: by 2002:a05:6512:3d29:b0:5bf:d60a:9802 with SMTP id
+ 2adb3069b0e04-5c1bc806744mr4597626e87.18.1795572637275; Tue, 24 Nov 2026
+ 18:10:37 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -85,431 +104,244 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20261120041906.5785-1-kanchanapsridhar2026@gmail.com>
+ <CAKEwX=MLrDn55wmVKKba5=PcU+qFpkEbMmN2SjGTfTBiFKX8cw@mail.gmail.com>
+ <awXr6iHBR54wBB05@google.com> <CACpmpodH3UUDLEze8=5v8LWgKnZWQVrQBhzSGJFY-PwEYmHEzQ@mail.gmail.com>
+ <awYsDfYqrS2ldOTw@google.com>
+In-Reply-To: <awYsDfYqrS2ldOTw@google.com>
+From: "Kanchana P. Sridhar" <kanchanapsridhar2026@gmail.com>
+Date: Tue, 24 Nov 2026 18:10:25 -0800
+X-Gm-Features: Aa3M54qALWhKRISY9YLBLu3ihm-qdLfUy_KIL1Y148EHluJ1sIurum0NLZUmUvA
+Message-ID: <CACpmpofsU3f=PVQF4moe6n=_qit1ZGyo4FMjyM-sVgumfyN0iw@mail.gmail.com>
+Subject: Re: [PATCH v4 0/8] Batched zswap_store() framework with compression batching
+To: Yosry Ahmed <yosry@kernel.org>
+Cc: Nhat Pham <nphamcs@gmail.com>, hannes@cmpxchg.org, chengming.zhou@linux.dev, 
+	akpm@linux-foundation.org, linux-mm@kvack.org, herbert@gondor.apana.org.au, 
+	davem@davemloft.net, linux-crypto@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, rientjes@google.com, willy@infradead.org, 
+	senozhatsky@chromium.org, 
+	"Kanchana P. Sridhar" <kanchanapsridhar2026@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Signed-off-by: Hefei <3066883572@qq.com>
-Co-authored-by: Cursor <cursoragent@cursor.com>
----
- drivers/input/touchscreen/Kconfig           |  12 +
- drivers/input/touchscreen/Makefile          |   1 +
- drivers/input/touchscreen/jadard_jd9365tx.c | 373 ++++++++++++++++++++
- 3 files changed, 386 insertions(+)
- create mode 100644 drivers/input/touchscreen/jadard_jd9365tx.c
+On Tue, Nov 24, 2026 at 4:59=E2=80=AFPM Yosry Ahmed <yosry@kernel.org> wrot=
+e:
+[...]
+>
+> I think the real gain comes from making the freeing path faster. What I
+> am saying is that we should optimize the freeing path rather than
+> batching stores to get better locality in zsmalloc pages, as this only
+> speeds up the freeing path when most data in a batch falls into the same
+> size class in zsmalloc, which isn't the case for real data (e.g.
+> Silesia).
+>
+> I am not arguing that usemem results are not valuable, I am arguing that
+> there's more to the data than just usemem latency/throughput being
+> better with the patches.
+>
+> The hacks were just a way to test the theory by eliminating zsmalloc
+> class contention. I am looking into proper optimizations for this path,
+> the goal was just to see if optimizing the class lock contention in the
+> freeing path would achieve the desired result.
+>
+[...]
+> Yes. I tried rerunning usemem on a similar setup to yours, and
+> aggregating throughput, total sys/wall time, as well as write/free times
+> over 10 runs (write comes from throughput lines, free comes from freeing
+> lines). I did this at the baseline, with patches 1-7, and with patch 8
+> on top.
+>
+> usemem30 (usemem -w -O -b 5 -s 10 -n 30 10g):
+>       kernel   sys_s (mean +- sd)   wall_s   write_s  free_s   tput (KB/s=
+)
+>       base     2355.6 +- 25.3       94.24    55.62    26.82    212,239
+>       p1-7     2366.7 +- 22.9       94.65    55.91    26.90    211,108
+>       p1-8     2197.0 +- 37.9       89.65    55.48    21.66    212,853
+>                (-6.73% vs base,
+>                 -7.17% vs p1-7)
+>
+> AFAICT the speed up happens on the freeing side, not the writing side,
+> so it's not really zswap stores getting faster. In the freeing phase
+> (66%-100% of the run), ~90-92% of cycles are spinning in zs_free(), and
+> total cycles drop from ~1.64T to ~1.30T (-21%).
 
-diff --git a/drivers/input/touchscreen/Kconfig b/drivers/input/touchscreen/Kconfig
-index e2ee722..da425c8 100644
---- a/drivers/input/touchscreen/Kconfig
-+++ b/drivers/input/touchscreen/Kconfig
-@@ -540,6 +540,18 @@ config TOUCHSCREEN_IPROC
- 	  To compile this driver as a module, choose M here: the
- 	  module will be called bcm_iproc_tsc.
- 
-+config TOUCHSCREEN_JADARD_JD9365TX
-+	tristate "Jadard JD9365TX in-cell touchscreen"
-+	depends on I2C
-+	help
-+	  Say Y here if you have a Jadard JD9365TX in-cell touchscreen.
-+	  The driver polls over I2C when no interrupt line is wired.
-+
-+	  If unsure, say N.
-+
-+	  To compile this driver as a module, choose M here: the
-+	  module will be called jadard_jd9365tx.
-+
- config TOUCHSCREEN_S6SY761
- 	tristate "Samsung S6SY761 Touchscreen driver"
- 	depends on I2C
-diff --git a/drivers/input/touchscreen/Makefile b/drivers/input/touchscreen/Makefile
-index 58094f2..5846f4d 100644
---- a/drivers/input/touchscreen/Makefile
-+++ b/drivers/input/touchscreen/Makefile
-@@ -59,6 +59,7 @@ obj-$(CONFIG_TOUCHSCREEN_IMAGIS)	+= imagis.o
- obj-$(CONFIG_TOUCHSCREEN_IMX6UL_TSC)	+= imx6ul_tsc.o
- obj-$(CONFIG_TOUCHSCREEN_INEXIO)	+= inexio.o
- obj-$(CONFIG_TOUCHSCREEN_IPROC)		+= bcm_iproc_tsc.o
-+obj-$(CONFIG_TOUCHSCREEN_JADARD_JD9365TX) += jadard_jd9365tx.o
- obj-$(CONFIG_TOUCHSCREEN_LPC32XX)	+= lpc32xx_ts.o
- obj-$(CONFIG_TOUCHSCREEN_MAX11801)	+= max11801_ts.o
- obj-$(CONFIG_TOUCHSCREEN_MXS_LRADC)     += mxs-lradc-ts.o
-diff --git a/drivers/input/touchscreen/jadard_jd9365tx.c b/drivers/input/touchscreen/jadard_jd9365tx.c
-new file mode 100644
-index 0000000..2030157
---- /dev/null
-+++ b/drivers/input/touchscreen/jadard_jd9365tx.c
-@@ -0,0 +1,373 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (C) 2026 VIEWE
-+ *
-+ * Jadard JD9365TX in-cell touchscreen (I2C @0x68, polling).
-+ * Typical DSI FPC has no interrupt line.
-+ */
-+
-+#include <linux/delay.h>
-+#include <linux/i2c.h>
-+#include <linux/input.h>
-+#include <linux/input/mt.h>
-+#include <linux/input/touchscreen.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/property.h>
-+#include <linux/regulator/consumer.h>
-+#include <linux/slab.h>
-+
-+#define JD_CHIP_ID			0x9084
-+#define JD_CHIP_ID_ALT			0x9032
-+#define JD_SOC_CHIP_ID2			0x40008076
-+#define JD_ERAM_BASE			0x20011000
-+#define JD_SECTION_READY_VAL		0xA55A
-+#define JD_MAX_DSRAM_NUM		25
-+#define JD_ESRAM_COORD_IDX		1
-+#define JD_ESRAM_SECTION_NUM		6
-+#define JD_DEFAULT_COORD_ADDR		0x20011120
-+#define JD_TOUCH_DATA_SIZE		78
-+#define JD_FINGER_DATA_SIZE		5
-+#define JD_FINGER_NUM_ADDR		0
-+#define JD_TOUCH_COORD_INFO_ADDR	3
-+#define JD_MAX_POINTS			10
-+#define JD_DEFAULT_POLL_MS		16
-+
-+struct jadard_tp {
-+	struct i2c_client *client;
-+	struct input_dev *input;
-+	struct touchscreen_properties prop;
-+	struct regulator *vdd;
-+	struct regulator *iovcc;
-+	u32 coord_addr;
-+	u16 touch_data_size;
-+	u16 max_points;
-+	u16 abs_x_max;
-+	u16 abs_y_max;
-+	unsigned int poll_interval_ms;
-+	bool ready;
-+};
-+
-+static int jd_bus_write(struct i2c_client *client, const u8 *cmd, u8 cmd_len,
-+			const u8 *data, u16 data_len)
-+{
-+	u8 buf[64];
-+	struct i2c_msg msg;
-+	int ret;
-+
-+	if (cmd_len + data_len > sizeof(buf))
-+		return -EINVAL;
-+
-+	memcpy(buf, cmd, cmd_len);
-+	if (data_len)
-+		memcpy(buf + cmd_len, data, data_len);
-+
-+	msg.addr = client->addr;
-+	msg.flags = 0;
-+	msg.len = cmd_len + data_len;
-+	msg.buf = buf;
-+
-+	ret = i2c_transfer(client->adapter, &msg, 1);
-+	return ret == 1 ? 0 : (ret < 0 ? ret : -EIO);
-+}
-+
-+static int jd_bus_read(struct i2c_client *client, const u8 *cmd, u8 cmd_len,
-+		       u8 *data, u16 data_len)
-+{
-+	struct i2c_msg msg[2];
-+	int ret;
-+
-+	msg[0].addr = client->addr;
-+	msg[0].flags = 0;
-+	msg[0].len = cmd_len;
-+	msg[0].buf = (u8 *)cmd;
-+	msg[1].addr = client->addr;
-+	msg[1].flags = I2C_M_RD;
-+	msg[1].len = data_len;
-+	msg[1].buf = data;
-+
-+	ret = i2c_transfer(client->adapter, msg, 2);
-+	return ret == 2 ? 0 : (ret < 0 ? ret : -EIO);
-+}
-+
-+static int jd_enter_backdoor(struct i2c_client *client)
-+{
-+	const u8 cmd[5] = { 0xF2, 0xAA, 0xF0, 0x0F, 0x55 };
-+	const u8 data = 0x68;
-+
-+	return jd_bus_write(client, cmd, sizeof(cmd), &data, 1);
-+}
-+
-+static int jd_read_reg(struct i2c_client *client, u32 addr, u8 *rdata, u16 rlen)
-+{
-+	u8 cmd[6];
-+
-+	cmd[0] = 0xF3;
-+	cmd[1] = (addr >> 24) & 0xFF;
-+	cmd[2] = (addr >> 16) & 0xFF;
-+	cmd[3] = (addr >> 8) & 0xFF;
-+	cmd[4] = addr & 0xFF;
-+	cmd[5] = 0x03;
-+
-+	return jd_bus_read(client, cmd, sizeof(cmd), rdata, rlen);
-+}
-+
-+static int jd_get_chip_id(struct i2c_client *client, u16 *id)
-+{
-+	u8 rbuf[2];
-+	int ret;
-+
-+	ret = jd_read_reg(client, JD_SOC_CHIP_ID2, rbuf, sizeof(rbuf));
-+	if (ret)
-+		return ret;
-+
-+	*id = (u16)((rbuf[1] << 8) | rbuf[0]);
-+	return 0;
-+}
-+
-+static bool jd_section_ready(struct i2c_client *client)
-+{
-+	u8 rbuf[2];
-+	unsigned int waited = 0;
-+
-+	do {
-+		msleep(2);
-+		if (jd_read_reg(client, JD_ERAM_BASE, rbuf, sizeof(rbuf)))
-+			return false;
-+		waited += 2;
-+		if (((rbuf[1] << 8) | rbuf[0]) == JD_SECTION_READY_VAL)
-+			return true;
-+	} while (waited < 100);
-+
-+	return false;
-+}
-+
-+static int jd_resolve_coord_addr(struct jadard_tp *ts)
-+{
-+	u32 esram_num_addr = JD_ERAM_BASE + 4 + JD_MAX_DSRAM_NUM * 8;
-+	u32 esram_sec_addr = esram_num_addr + 4;
-+	u8 buf[JD_ESRAM_SECTION_NUM * 8];
-+	u32 addr, len;
-+	int ret;
-+
-+	ret = jd_read_reg(ts->client, esram_sec_addr, buf, sizeof(buf));
-+	if (ret)
-+		return ret;
-+
-+	addr = buf[JD_ESRAM_COORD_IDX * 8 + 0] |
-+	       (buf[JD_ESRAM_COORD_IDX * 8 + 1] << 8) |
-+	       (buf[JD_ESRAM_COORD_IDX * 8 + 2] << 16) |
-+	       (buf[JD_ESRAM_COORD_IDX * 8 + 3] << 24);
-+	len = buf[JD_ESRAM_COORD_IDX * 8 + 4] |
-+	      (buf[JD_ESRAM_COORD_IDX * 8 + 5] << 8) |
-+	      (buf[JD_ESRAM_COORD_IDX * 8 + 6] << 16) |
-+	      (buf[JD_ESRAM_COORD_IDX * 8 + 7] << 24);
-+
-+	if (addr < JD_ERAM_BASE || addr >= JD_ERAM_BASE + 0x1000 ||
-+	    len == 0 || len > JD_TOUCH_DATA_SIZE)
-+		return -EINVAL;
-+
-+	ts->coord_addr = addr;
-+	ts->touch_data_size = (u16)len;
-+	return 0;
-+}
-+
-+static int jd_hw_init(struct jadard_tp *ts)
-+{
-+	u16 chip_id = 0;
-+	int ret;
-+
-+	ret = jd_enter_backdoor(ts->client);
-+	if (ret)
-+		return ret;
-+
-+	ret = jd_get_chip_id(ts->client, &chip_id);
-+	if (ret)
-+		return ret;
-+
-+	if (chip_id != JD_CHIP_ID && chip_id != JD_CHIP_ID_ALT)
-+		return -ENODEV;
-+
-+	if (jd_section_ready(ts->client) && !jd_resolve_coord_addr(ts))
-+		return 0;
-+
-+	ts->coord_addr = JD_DEFAULT_COORD_ADDR;
-+	ts->touch_data_size = JD_TOUCH_DATA_SIZE;
-+
-+	return 0;
-+}
-+
-+static void jd_report_touches(struct jadard_tp *ts, const u8 *buf)
-+{
-+	u8 finger_num = buf[JD_FINGER_NUM_ADDR];
-+	unsigned int i;
-+	bool any = false;
-+
-+	if (finger_num > ts->max_points)
-+		finger_num = ts->max_points;
-+
-+	for (i = 0; i < ts->max_points; i++) {
-+		const u8 *c = buf + JD_TOUCH_COORD_INFO_ADDR +
-+			      i * JD_FINGER_DATA_SIZE;
-+		u16 x = (c[0] << 8) | c[1];
-+		u16 y = (c[2] << 8) | c[3];
-+		u8 w = c[4];
-+		bool down = false;
-+
-+		if (i < finger_num &&
-+		    x <= ts->abs_x_max && y <= ts->abs_y_max &&
-+		    x != 0xFFFF && y != 0xFFFF)
-+			down = true;
-+
-+		input_mt_slot(ts->input, i);
-+		input_mt_report_slot_state(ts->input, MT_TOOL_FINGER, down);
-+
-+		if (down) {
-+			touchscreen_report_pos(ts->input, &ts->prop, x, y, true);
-+			input_report_abs(ts->input, ABS_MT_TOUCH_MAJOR, w);
-+			any = true;
-+		}
-+	}
-+
-+	input_mt_sync_frame(ts->input);
-+	input_report_key(ts->input, BTN_TOUCH, any);
-+	input_sync(ts->input);
-+}
-+
-+static void jd_poll(struct input_dev *input)
-+{
-+	struct jadard_tp *ts = input_get_drvdata(input);
-+	u8 buf[JD_TOUCH_DATA_SIZE];
-+	int ret;
-+
-+	if (!ts->ready) {
-+		ret = jd_hw_init(ts);
-+		if (ret)
-+			return;
-+		ts->ready = true;
-+	}
-+
-+	ret = jd_read_reg(ts->client, ts->coord_addr, buf, ts->touch_data_size);
-+	if (!ret)
-+		jd_report_touches(ts, buf);
-+}
-+
-+static void jadard_tp_disable_regulators(void *data)
-+{
-+	struct jadard_tp *ts = data;
-+
-+	regulator_disable(ts->iovcc);
-+	regulator_disable(ts->vdd);
-+}
-+
-+static int jadard_tp_probe(struct i2c_client *client)
-+{
-+	struct device *dev = &client->dev;
-+	struct jadard_tp *ts;
-+	struct input_dev *input;
-+	u32 val;
-+	int ret;
-+
-+	ts = devm_kzalloc(dev, sizeof(*ts), GFP_KERNEL);
-+	if (!ts)
-+		return -ENOMEM;
-+
-+	ts->client = client;
-+	ts->max_points = JD_MAX_POINTS;
-+	ts->abs_x_max = 719;
-+	ts->abs_y_max = 1279;
-+	ts->poll_interval_ms = JD_DEFAULT_POLL_MS;
-+	ts->touch_data_size = JD_TOUCH_DATA_SIZE;
-+
-+	ts->vdd = devm_regulator_get(dev, "vdd");
-+	if (IS_ERR(ts->vdd))
-+		return PTR_ERR(ts->vdd);
-+
-+	ts->iovcc = devm_regulator_get(dev, "iovcc");
-+	if (IS_ERR(ts->iovcc))
-+		return PTR_ERR(ts->iovcc);
-+
-+	ret = regulator_enable(ts->vdd);
-+	if (ret)
-+		return ret;
-+
-+	ret = regulator_enable(ts->iovcc);
-+	if (ret) {
-+		regulator_disable(ts->vdd);
-+		return ret;
-+	}
-+
-+	ret = devm_add_action_or_reset(dev, jadard_tp_disable_regulators, ts);
-+	if (ret)
-+		return ret;
-+
-+	if (!device_property_read_u32(dev, "poll-interval", &val) &&
-+	    val >= 8 && val <= 100)
-+		ts->poll_interval_ms = val;
-+
-+	if (!of_property_read_u32(dev->of_node, "touchscreen-size-x", &val) && val)
-+		ts->abs_x_max = val - 1;
-+
-+	if (!of_property_read_u32(dev->of_node, "touchscreen-size-y", &val) && val)
-+		ts->abs_y_max = val - 1;
-+
-+	input = devm_input_allocate_device(dev);
-+	if (!input)
-+		return -ENOMEM;
-+
-+	input->name = "Jadard JD9365TX Touchscreen";
-+	input->id.bustype = BUS_I2C;
-+	input->dev.parent = dev;
-+
-+	__set_bit(EV_ABS, input->evbit);
-+	__set_bit(EV_KEY, input->evbit);
-+	__set_bit(BTN_TOUCH, input->keybit);
-+
-+	input_set_abs_params(input, ABS_MT_POSITION_X, 0, ts->abs_x_max, 0, 0);
-+	input_set_abs_params(input, ABS_MT_POSITION_Y, 0, ts->abs_y_max, 0, 0);
-+	input_set_abs_params(input, ABS_MT_TOUCH_MAJOR, 0, 255, 0, 0);
-+
-+	touchscreen_parse_properties(input, true, &ts->prop);
-+
-+	ret = input_mt_init_slots(input, ts->max_points, INPUT_MT_DIRECT);
-+	if (ret)
-+		return ret;
-+
-+	input_set_drvdata(input, ts);
-+	ts->input = input;
-+	i2c_set_clientdata(client, ts);
-+
-+	ret = input_setup_polling(input, jd_poll);
-+	if (ret)
-+		return ret;
-+
-+	input_set_poll_interval(input, ts->poll_interval_ms);
-+
-+	return input_register_device(input);
-+}
-+
-+static const struct of_device_id jadard_tp_of_match[] = {
-+	{ .compatible = "jadard,jd9365tx" },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(of, jadard_tp_of_match);
-+
-+static const struct i2c_device_id jadard_tp_id[] = {
-+	{ "jd9365tx", 0 },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(i2c, jadard_tp_id);
-+
-+static struct i2c_driver jadard_tp_driver = {
-+	.driver = {
-+		.name = "jadard-tp-jd9365tx",
-+		.of_match_table = jadard_tp_of_match,
-+	},
-+	.probe = jadard_tp_probe,
-+	.id_table = jadard_tp_id,
-+};
-+module_i2c_driver(jadard_tp_driver);
-+
-+MODULE_AUTHOR("Hefei <3066883572@qq.com>");
-+MODULE_DESCRIPTION("Jadard JD9365TX in-cell touchscreen");
-+MODULE_LICENSE("GPL");
--- 
-2.55.0.windows.5
+Can you please clarify what "write_s" and "free_s" refer to, and how
+are they measured? If you are referring to the gettimeofday() reported
+timing done in user-space by usemem, these times measure child
+processes' fork, do_unit, join, etc. : IOW, not a reliable indicator
+of zswap_store() performance.
 
+Also, there are no calls to zs_free() from zswap_compress() and
+zswap_update_entries(), so, it is not clear why "free_s" reduces from
+patch 7 (26.90s) to patch 8 (21.66s), if what you are saying (as I
+understand it), is zs_free() results in the gains.
+
+>
+> Running perf on the baseline:
+> ---------------------------------------------------------------------
+>     # Total Lost Samples: 0
+>     #
+>     # Samples: 465K of event 'cpu/cycles/P' (time slices: 66%-100%)
+>     # Event count (approx.): 1636895619486
+>     #
+>     # Overhead  Symbol
+>     # ........  ............................................
+>     #
+>         92.29%  [k] queued_spin_lock_slowpath
+>                 |
+>                  --92.26%--queued_spin_lock_slowpath
+>                            |
+>                             --92.17%--zs_free
+>                                       zswap_entry_free
+>                                       zswap_invalidate
+>                                       __swap_cluster_free_entries
+>                                       swap_put_entries_cluster
+>                                       swap_put_entries_direct
+>                                       __zap_vma_range
+>                                       unmap_vmas
+>                                       unmap_region
+>                                       vms_complete_munmap_vmas
+>                                       do_vmi_align_munmap
+>                                       do_vmi_munmap
+>                                       __vm_munmap
+>                                       __x64_sys_munmap
+>                                       do_syscall_64
+>                                       entry_SYSCALL_64_after_hwframe
+>                                       0x430ef7
+> ---------------------------------------------------------------------
+>
+> With your patches:
+> ---------------------------------------------------------------------
+>     # Total Lost Samples: 0
+>     #
+>     # Samples: 372K of event 'cpu/cycles/P' (time slices: 66%-100%)
+>     # Event count (approx.): 1295809013413
+>     #
+>     # Overhead  Symbol
+>     # ........  ..................................................
+>     #
+>         90.75%  [k] queued_spin_lock_slowpath
+>                 |
+>                  --90.72%--queued_spin_lock_slowpath
+>                            |
+>                             --90.03%--zs_free
+>                                       zswap_entry_free
+>                                       zswap_invalidate
+>                                       __swap_cluster_free_entries
+>                                       swap_put_entries_cluster
+>                                       swap_put_entries_direct
+>                                       __zap_vma_range
+>                                       unmap_vmas
+>                                       unmap_region
+>                                       vms_complete_munmap_vmas
+>                                       do_vmi_align_munmap
+>                                       do_vmi_munmap
+>                                       __vm_munmap
+>                                       __x64_sys_munmap
+>                                       do_syscall_64
+>                                       entry_SYSCALL_64_after_hwframe
+>                                       0x430ef7
+> ---------------------------------------------------------------------
+>
+
+Is this perf run at the workload level? Can you also share the
+zswap_store() perf breakdown? I don't see any zswap_store() callees
+here..
+
+> Adding some instrumentation I figured out that ~all memory from usemem
+> ends up in the same size class, hence the better zspage locality from
+> the batching in patch 8.
+
+What does this have to do with batching? All usemem memory compresses
+to the same zsmalloc size class in the baseline too. Can you elaborate
+what you mean by "better zspage locality from the batching in patch
+8"?
+
+>
+> Here's the bpftrace data I collected, I don't see a material change when
+> probing zswap_store():
+>
+>     zswap_store() (2048kB PMD folios, 178.9k calls):
+>       metric         base           p1-8           delta
+>       p50            10.76 ms       10.85 ms       +0.87%
+>       p95            11.34 ms       11.40 ms       +0.59%
+>       p99            12.15 ms       12.05 ms       -0.82%
+>       avg            10.80 ms       10.84 ms       +0.40%
+>
+>
+> Also if I run your modified usemem with Silesia like your previous
+> versions, the improvement goes away (because data no longer all goes in
+> the same zsmalloc class):
+>
+>     usemem30 + Silesia (usemem -w --read-silesia -O -b 5 -s 10 -n 30 2560=
+m,
+>     memory.high=3D38G):
+>       kernel   sys_s (mean +- sd)   wall_s   write_s  free_s   tput (KB/s=
+)
+>       base     1779.0 +- 8.5        72.84    55.34    6.92     53,290
+>       p1-7     1775.7 +- 7.3        72.81    55.29    6.86     53,337
+>       p1-8     1771.8 +- 7.8        72.58    55.19    6.83     53,435
+>                (-0.40% vs base,
+>                 -0.22% vs p1-7)
+
+Is this with PMD mTHP? Also, we would get a better idea of concurrency
+by increasing the memory allocation duration by allocating 10g per
+process, for 30 processes under memory.high=3D150G. 2g gives much fewer
+samples to be helpful, imo.
+
+[...]
+> I am not saying there is no performance improvement, I am saying the
+> performance improvement is a side effect of locality in zsmalloc, not
+> faster stores, and that it doesn't reproduce on real data.
+
+I don't see the connection between batching and "locality in
+zspage/zsmalloc" since compressed size is a net wash between baseline
+and my patch series. Are we drawing the right conclusions?
+
+> If we want to address lock contention in zsmalloc freeing we should addre=
+ss it as
+> such, not by batching compression.
+
+Lock contention in zsmalloc seems like an independent optimization
+that is good to solve. What I don't see is a way of explaining the
+gains in this series based on zs_free() lock contention, and hence
+drawing a questionable conclusion that this series does not optimize
+zswap_store(), and further that batch compression is not attributing
+to the gains. I have provided ~10 reasons as to why the combined
+zswap_store_pages() batching and zswap_compress() batching improves
+zswap_store() performance in [2].
+
+[2]: https://lore.kernel.org/all/20261120041906.5785-2-kanchanapsridhar2026=
+@gmail.com/T/#m51d7d13809d508a9116904c01bf3c94fdf2981dc
+
+>
+> >
+> > I would appreciate comments from Nhat, Johannes and Andrew on these
+> > posted gains/analysis:
+> >
+> > [1]: https://lore.kernel.org/all/20261120041906.5785-2-kanchanapsridhar=
+2026@gmail.com/T/#m33e586ec89ed46790da284e7a2f6d99b50c9f935
+> > [2]: https://lore.kernel.org/all/20261120041906.5785-2-kanchanapsridhar=
+2026@gmail.com/T/#m51d7d13809d508a9116904c01bf3c94fdf2981dc
+> >
+> > An independent replication of the gains posted by me in this
+> > patch-series, using standard mm-unstable and vm-scalability/usemem
+> > would also be very useful.
+> >
+> > Thanks,
+> > Kanchana
+> >
+> > > Regarding the bpftrace
+> > > measurements, I couldn't reproduce them. I think one factor is that
+> > > probing both zswap_store() and zswap_compress() makes the zswap_store=
+()
+> > > numbers different based on how many zswap_compress() calls we make
+> > > (which are less with batching) due to the overhead of the probe itsel=
+f.
+> > > When I trace zswap_store() without zswap_compress(), I don't see
+> > > meaningful changes in latency.
+> > >
+> > > [1] https://lore.kernel.org/linux-mm/20261016120927.3191690-1-hongfen=
+gchen@xiaomi.com/
+> > > [2] https://lore.kernel.org/linux-mm/20261123054746.2579253-1-senozha=
+tsky@chromium.org/
