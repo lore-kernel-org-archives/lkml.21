@@ -1,76 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.199
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.28
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795588337;
-	b=vydWc8r+pzhsVlEMroJy7Q6c+2hpt0Eh/IlGASnpPrzbZr/ZjAft4ALJvnDsbqaMKOAx
-	 RB65giB5W9uxicg+5g1cq1TFn0thBvyYiUbaFC5LHbiw1OOnvol/XSztTzXk+VJRHx7pg
-	 mveAnqc84xRlhlGr7I77xySfQyh++XdAXCJeNgR3ZTc76EMKEP+j3m14KRgQS8nZiThj/
-	 qN5wbgafcaZl/P5zLSzTXQj4oo4OYu7oIQBkVaxgJ3oxqXdXxx7fsscgpk/MwHMAckS8s
-	 Xlx96Lkzk5gyIFIL7ihYSnhuB+giMEbVPSDGtniXsvWXl6+XKhkUHqbgLLa0mYV/p0w==
+	t=1795588381;
+	b=WtTFKX67OXw/ARKLmoMph9XWX88ejmh+dkva/UWjcTsgm74xB0sq+t7argvdORogai7b
+	 0TqMf5EAhD0dbbFwFH8Bv5HjLbdS54xvjQ3rJihenp9XZjp65SR0ZdxGcnh5CnBiOV+i4
+	 J9xyZq/fbMso8D8KjnBJWhg+LQVAYhSkLXgq+ZTCf+zRmZRXt40tenFEPwC20u8YL1sXw
+	 H37RTFsCiejmaQyNanD//SsoOuAykW7fVMz+bzUPezdOhYBTm2HNCL9hQfZngXzYbPGk0
+	 b4yyfzpBX0/afcRDzYTmder1pDHT9UrHOPvHMXemUk0y14vSwhjs9fEHqsuEXxCWOKQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795588337;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
-	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=KHXzp+84iLQUjnjlG0As4PHmQ5NglIl63AJkWeb4QbE=;
-	b=2pZyk7UV/OJORotyVQnOU7NZcm4cZMTTFCYn1FUjf/GjVoaVHbBee42McXF6c0LaGOtG
-	 WgXFJPNf52uG220qYpQuV2FIrsxkkKQNVxSX1AOGIpwo51+ZAN2PZdsgwyEzhZDMgDDxu
-	 XjKSb5QerHqq09VdQvU+BjnIdq8Efg1XEr94CGxd0cfrvKaATc1UOa4YOdmSZ6pSqphUh
-	 RMnnwniAaad9WjVDm6tfIMbGtYyE5bu42dwyBCHGT480ul0Q15PA/40mAM0xtVgwk+VdW
-	 7vr9Sw36Hxvyn4Yf5v2OAYaeLqnWpbzvI8QZTB/wJMb7YCB+bVm0iOwh0xJtDWLlDvw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795588381;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=gA1QZAB7HPf+dALo4WYbNOoCQsQN7g2lPKb9/BwTFdQ=;
+	b=wIJWXR3zSgLyVBi9UeHcX9VXWdWNnZUfZDB0c7R4AudQkwloDMseVm7iYpc6fyCCjjxx
+	 2vgTX+vblynix4cy3jctH6gXeTKZ8de34RQxsnrjyLiw52uCNmsoNZWupa+MTsAmmBLDp
+	 k89FzU0k3/LFsGjsNHwBKHQyR+e1W6qZuRKvcRsmR9vTENoWd1WwSJkBGl3zSGp0pfHA9
+	 tBhxgpdvkYygAE1NQxKULp464sARt5XxfaQT4shSkt/sSdiCgZgDBOzoCsSi96zRgW6bS
+	 FjpI4lHTIiQSNnC/K5eaIgM5hxSv6HXjB9+HO/YWgYawD8NM3cVrqQZgDApunhleQ9w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--rathodpriyank.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=WqNWpXUL;
-	arc=none smtp.remote-ip=209.85.214.199
-Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=pV29axjm;
+	arc=none smtp.remote-ip=95.215.58.28
+Received: from mta1.migadu.com (out-28.mta1.migadu.com [95.215.58.28])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2E39A606A334
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 06:32:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2E39A606A334
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--rathodpriyank.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6B978606A321
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 06:33:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6B978606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=WqNWpXUL
-Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-2f09a37f41dso26947185ad.3
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 22:32:17 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795588337; x=1796193137; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:from:subject
-         :message-id:references:mime-version:in-reply-to:date:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=KHXzp+84iLQUjnjlG0As4PHmQ5NglIl63AJkWeb4QbE=;
-        b=WqNWpXULC+EIH0Lll03C1uAj8+QrlYSD6zZ6l5JmPh/M1qVqVhFjKf1DAP/h0XH+KH
-         cMte7N7XbzS/N9OvTXLLoC+sGA5G2xbShvF+4cJj6tEInwRWNttMVGBqz2glvCS+dMfJ
-         d0q+4YWI79W4lv5g+HPVVgbHZzwo33ECEMwke6VxTFjmA2MukGUWh3u/jPuwibwGjKyU
-         hwX9fyZBFP1YFHmsNAJA5jd9as88utou1zUXya0zQhjhZnPciF0hhW5RWJOUMIwnuLBq
-         ppPhhUM5AMRpFaGN67H1TejRcGStauT42VkuhlENdmrQrqD19o0xkHW1r20Awb6H/Btr
-         q6Ng==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795588337; x=1796193137;
-        h=content-transfer-encoding:content-type:cc:to:from:subject
-         :message-id:references:mime-version:in-reply-to:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=KHXzp+84iLQUjnjlG0As4PHmQ5NglIl63AJkWeb4QbE=;
-        b=02L5u+1KqKyd5H9oIhZU4PuEva8sbxwmVYWxpRwry3sQDcIVOvUhh0lAd/FGSBhkXk
-         B3R7M7S2CbdvdeKtyFHREgGP2t1jYWKqQDcCgDfKVXhpEARYJPguHyibPGsc9jGOpHjm
-         W2ijm805ok4f75753RclLvMM8iU5EFIiRntF8ekn6U4E9yDFg3fRGbs26wQ5g2bWyy07
-         Lb3clKD1YYRvidvroYNuDNa85WWMwJ0cTXL/5JEpiRvmVAhQ+E3stLLY0zh0X7AV3Zgg
-         BvVvq39WdVwxuZ8pF4cMIdhP8KhHmUBIi53T9X8e1aUgz1ucn/HMHD2Ce1uJzjOjIGix
-         vOYw==
-X-Forwarded-Encrypted: i=1; AL+hErGqdftEmpik/sH0bCIvgHn8PCKplr42E1uLr4aOqn+NQ8nrcw6XO8x8kUfQ69HSnhweGKrDNUiixcZIfGs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/L/nzBgO0kvYWYorg4HcL2mjiS/NNGlFiFxIs8IiYNuFjpK8mN
-	9eSwlg2mn1CP+P1FiUuAtes8TpviMrBtNH6hsdbIjML/yNq5SylYbx60QnQwYOrAQrzLSh8Jos4
-	L/EWhYLIW3WDNSbzAF7FH2Z0eh1Zbcmuieg==
-X-Received: from plbms15.prod.google.com ([2002:a17:903:acf:b0:2e1:326b:da73])
- (user=rathodpriyank job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:903:19cb:b0:2ed:2856:6442 with SMTP id d9443c01a7336-2f03f1eaa0fmr179076345ad.28.1795588336373;
- Tue, 24 Nov 2026 22:32:16 -0800 (PST)
-Date: Wed, 25 Nov 2026 06:32:15 +0000
-In-Reply-To: <20261125002808.GA1198022@bhelgaas>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=pV29axjm
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=EXv0sHP9HvBQZ2ybMZ4eUwO2jxKtfElIN3Q1E2u8x3M=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795588378; v=1; x=1796193178;
+ b=pV29axjm6x2hepkkga5Xd1V9av8XQJhG5nEfn4wvGUaKImpHhCaG35neZCbo4oHcZmE/lYGu
+ PvlZgzdWodGlo4eK0iTfoVAGEe4I6GkKObi3/a9aHkUWf8Ebk3jXy6kPdl6CW8dQr3YXF/hymNO
+ yjncksb/qCJn5A4TXK0rFhQE=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id a407cc287828b350;
+	Wed, 25 Nov 2026 06:32:58 +0000
+X-Mizu-Trace-ID: a407cc287828b350
+X-Migadu-Flow: FLOW_OUT
+Date: Wed, 25 Nov 2026 07:32:52 +0100
+From: Richard Leitner <richard.leitner@linux.dev>
+To: Mathieu Poirier <mathieu.poirier@linaro.org>
+Cc: Peng Fan <peng.fan@oss.nxp.com>, 
+	Bjorn Andersson <andersson@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>, linux-remoteproc@vger.kernel.org, 
+	Lee Jones <lee@kernel.org>, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, weinshec@holodeck2.de, stable@vger.kernel.org
+Subject: Re: [PATCH] remoteproc: imx_rproc: revert channel freeing order in
+ imx_rproc_free_mbox
+Message-ID: <awaAMLAk8HJz9T7W@bombadil>
+References: <20261110-imx-rproc-free-mbox-v1-1-3e33ff98570d@linux.dev>
+ <avMgJNyGez2Eyr3a@nxa18884-linux-1.ap.freescale.net>
+ <awPmc_4VFkcpW0C_@bombadil>
+ <CANLsYkx=M_TXN10qAcQC0be065TYnzfOae6E8ss-9DTj9MzogA@mail.gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -79,34 +70,99 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-References: <20261012-pcie-link-endpoints-v7-0-36aba9c91f10@google.com>
- <20261110002437.2376944-1-rathodpriyank@google.com> <20261124174411.4183038-1-rathodpriyank@google.com>
- <20261125002808.GA1198022@bhelgaas>
-X-Mailer: git-send-email 2.56.1.831.g720f3f5937-goog
-Message-ID: <20261125063215.1499950-1-rathodpriyank@google.com>
-Subject: Re: [PATCH v7 0/2] PCI: Add Lane Margining at the Receiver debugfs interface
-From: Priyank Rathod <rathodpriyank@google.com>
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: Bjorn Helgaas <bhelgaas@google.com>, 
-	"=?UTF-8?q?Ilpo=20J=C3=A4rvinen?=" <ilpo.jarvinen@linux.intel.com>, Lukas Wunner <lukas@wunner.de>, 
-	Manivannan Sadhasivam <mani@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
-	Shuah Khan <shuah@kernel.org>, Randy Dunlap <rdunlap@infradead.org>, linux-pci@vger.kernel.org, 
-	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <CANLsYkx=M_TXN10qAcQC0be065TYnzfOae6E8ss-9DTj9MzogA@mail.gmail.com>
 
-Hi Bjorn,
+On Mon, Nov 23, 2026 at 08:11:04AM -0600, Mathieu Poirier wrote:
+> On Mon, 23 Nov 2026 at 01:09, Richard Leitner <richard.leitner@linux.dev> wrote:
+> >
+> > On Tue, Nov 10, 2026 at 09:46:12PM +0800, Peng Fan wrote:
+> > > On Tue, Nov 10, 2026 at 01:29:08PM +0100, Richard Leitner wrote:
+> > > >The imx_rproc driver is affected by a race condition in the shutdown
+> > > >ordering in imx_rproc_free_mbox(). A received message might cause a
+> > > >virtqueue_kick resulting in tx_ch access. When imx_rproc_free_mbox() is
+> > > >triggered between the if (!priv->tx_ch) check and the mbox_send_message()
+> > > >call in the imx_rproc_kick() function the mbox_send_message() then tries
+> > > >to dereference a NULL pointer on the tx_ch (as seen in the call trace
+> > > >below).
+> > > >
+> > > >Therefore fix this behaviour by first freeing the rx channel, so no new
+> > > >messages are received and therefore no kicking on tx_ch can happen.
+> > > >Afterwards release the tx channel.
+> > > >
+> > > >This problem was encountered on a fleet of i.MX8MP devices on about 1 in
+> > > >500 system shutdowns, resulting in Oops below. This Oops was recorded
+> > > >from a v7.3.0 kernel before the work-queue removal.
+> > > >
+> > > >    remoteproc remoteproc0: stopped remote processor imx8mp-cm7
+> > > >    Unable to handle kernel NULL pointer dereference at virtual address 0000000000000008
+> > > >    Internal error: Oops: 0000000096000004 [#1]  SMP
+> > > >    CPU: 0 UID: 0 PID: 32710 Comm: kworker/0:1 Not tainted 7.3.0-XXX #1 PREEMPT
+> > > >    Hardware name: XXX (DT)
+> > > >    Workqueue: imx8mp-cm7 imx_rproc_vq_work [imx_rproc]
+> > > >    pstate: 40000005 (nZcv daif -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+> > > >    pc : mbox_send_message+0x8c/0x178
+> > > >    lr : mbox_send_message+0x88/0x178
+> > > >    sp : ffff8000897f3b70
+> > > >    x29: ffff8000897f3b70 x28: ffff80007a07b248 x27: ffff0000d90e1a20
+> > > >    x26: ffff80007a07b328 x25: ffff0000c1d31300 x24: ffff0000d90e1a40
+> > > >    x23: 0000000000000001 x22: 0000000000000005 x21: ffff8000897f3ba4
+> > > >    x20: 000000000000000b x19: ffff0000c1b24240 x18: 0000000000000000
+> > > >    x17: ffff80006a453000 x16: ffff800081ac8000 x15: 0000000000000000
+> > > >    x14: 0000000000000040 x13: 0000000000000228 x12: ffff0000c115a3e8
+> > > >    x11: 0000000000000000 x10: 0000000000000001 x9 : ffff800080cd6570
+> > > >    x8 : ffff8000897f3ba0 x7 : 0000000000000002 x6 : 0000000000000000
+> > > >    x5 : 000000000000000c x4 : 0000000004400000 x3 : 0000000000000000
+> > > >    x2 : 0000000000000000 x1 : ffff0000cb268000 x0 : 0000000000000000
+> > > >    Call trace:
+> > > >     mbox_send_message+0x8c/0x178 (P)
+> > > >     imx_rproc_kick+0x50/0xc0 [imx_rproc]
+> > > >     rproc_virtio_notify+0x3c/0xa0
+> > > >     virtqueue_kick+0x4c/0x68
+> > > >     rpmsg_recv_done+0x224/0x658 [virtio_rpmsg_bus]
+> > > >     vring_interrupt+0xbc/0x158
+> > > >     rproc_vq_interrupt+0x40/0xb0
+> > > >     imx_rproc_notified_idr_cb+0x20/0x40 [imx_rproc]
+> > > >     idr_for_each+0x74/0x100
+> > > >     imx_rproc_vq_work+0x2c/0x40 [imx_rproc]
+> > > >     process_one_work+0x194/0x520
+> > > >     worker_thread+0x19c/0x320
+> > > >     kthread+0x134/0x148
+> > > >     ret_from_fork+0x10/0x20
+> > > >    Code: 37f80574 aa1303e0 97ffff39 f9400a60 (39402001)
+> > > >
+> > > >Fixes: 99b142cf7191 ("remoteproc: imx_rproc: Request mbox channel later")
+> > > >Cc: stable@vger.kernel.org
+> > > >Signed-off-by: Richard Leitner <richard.leitner@linux.dev>
+> > >
+> > > LGTM:
+> > >
+> > > Reviewed-by: Peng Fan <peng.fan@nxp.com>
+> > >
+> > > BTW: would you plan to fix the other issue that sashiko reported
+> > > regarding imx_rproc_xtr_mbox_init()?
+> >
+> > Thanks for the review and sorry for the late reply.
+> >
+> > Sure. Should this be a separate patch or added to a v2 of this series?
+> >
+> 
+> Please send another revision with the fix.
 
-Thanks =E2=80=94 I have rebased the series onto v7.4-rc1 and just posted it=
- as v8:
-https://lore.kernel.org/r/20261125-pcie-link-endpoints-v8-0-19d49c17c05f@go=
-ogle.com
+As Peng pointed out, the sashiko finding is handled by a series from Lee.
 
-(There are no dependencies on anything in pci/next beyond v7.4-rc1;
-drivers/pci/pcie/Kconfig just has a minor context difference in pci/next
-after the PCIE_EDR cleanup.)
+See: https://lore.kernel.org/lkml/20261123172140.3547896-6-lee@kernel.org/
 
-Thanks,
-Priyank
+Therefore I will not send a v2 of this one. Please pick this patch (v1),
+ideally as a fix for the next 7.4-rc. Thanks! :-)
+
+regards;rl
+
+> 
+> > regards;rl
+> >
+> > >
+> > > Regards
+> > > Peng
