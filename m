@@ -1,112 +1,53 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795609767;
-	b=LWO3/tpKO0RQSV+fvzrEY9sW7DsAansEjuY7DtaeBcxNIuWPbGBogYwFFxw0ayVsusFq
-	 I3HSEi7hDAJOA8sAYMnGUs7ycOmKPTaJElA9B41LgF5SKcu8XMWUrK4KN+N7KXbYbvKQp
-	 5ngG9cQlnTod09p14iIU28I6fOKqMVsas7obdYsj2mPWH3KkWOvqoGft2CvSQNovFo63E
-	 uJr+w/va36Liw5Q6zocvr+RzpEj7WE3qmXErDr94kR2+igrCPY6ZaTHHWyIQom1nLfS1C
-	 /K2EUiiZbKy5HcsD3j91bYTDlAWoE+xLdVW9I38jNcE1cXljdFj8RoiKQuxnkVvi3UQ==
+	t=1795609820;
+	b=vZwKBDlRxNSay0MkBI2fhEGQeJiWaiIXgw+ysg3ntq0ahwAgRKMT2oRTwEp7S6ybP4Zk
+	 ZdJ4ZQpQQp7Broc55S4SPntGwb5Xoe/fkExZ89HHppg41jA+X5xjydtLZMMd+c3gcw1tc
+	 S4pm53sXZnLab0lK+KAgPFngtDrnpmoJrIoX9ZRy6r9MkjLaVNkF6TnN5mu1eUbcJ5pJo
+	 scTsmU+f4Yr/0QuRGGboH8MywLwJjyazHjLMvv/OO2JOT1C8sPiWCnJIBpT9BkuHOhNps
+	 fu6OUcbXq4GS4jcoQGf3JIEaMjJx7kduN6xZDQueleRh80HU0OHByNv6vJPWDslrNAg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795609767;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Authority-Analysis:X-Proofpoint-GUID:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=T5n9P9Rk3sw0uyrSlgak95rJRdejRe3OTzZ6wjZE9yM=;
-	b=3CK71yfhaaTPocsaPrs6eWdNEdqn5wuh5fiQrXppWlnTNwwPhluLeJ2TyCVWsSIJkANT
-	 T1PN+3TVPxCaWUw8u7LgvzZcaCC9DYHjk1AXavFq9O+bt0r+fpaInq0FmYJH9jZbIld1m
-	 f4BgbAK5vVw7qWw+FAQN5MUmE8J4EmKvitaSLSTkpmUpyvhcVVn/v3rLFquD8S0NAJ5jo
-	 pKy9x4DCLg8vQfGSNR5/m7I+zavXph4vJEVbR0Gq8vqwzH5xWTZQX0atsyCdLF3iXlGUA
-	 CpusqVdkxRI5rh2/DttfQQMxgZ6lUtyY/VnX6lLzQsGL/n5RE/7R90eDkMNJ8gtOagQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795609820;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=wBlqBzFHzganMG7CKEDL3xTHXHdaV7tzUIeO4cXhCZM=;
+	b=GGz5EqFuy3kckQg2dPZht3dW8v/2Xo+IeCS8h/CzEwThq1QAWRQ3hox6Of3pjLu83o36
+	 LzcfNrnwFvzgf5rjBHBnMllQMMCe2nmBv0joCG6y3UFqMbYDDGDkAbOG18jimCXA2W24H
+	 IiH7aeQJG+MzohcbU2ejDCyfeB/VKnF4O9XAgvF7JRi1Qtb1rqTzLThb5km9sRfZn/VwC
+	 QJ3ts7OGQowko/paZ86d6qiPSMQEMwKvytcSgPi/7GKn91p1SfSPu45uGP/yjBjBawreh
+	 pkjrg8tUDVSCRlpuyep7f2fVPh2z3jPsCVsvq6rVRtompasClv7U1KePqAxjs0NHwBQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=DzYk3oav;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=BC4EGRqC;
-	arc=none smtp.remote-ip=205.220.180.131
-Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YinD38xM;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 57F48606A323
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 12:29:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 57F48606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7026F606A323;
+	Wed, 25 Nov 2026 12:30:20 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=DzYk3oav;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=BC4EGRqC
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AP9mBbL4130800
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 12:29:26 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	T5n9P9Rk3sw0uyrSlgak95rJRdejRe3OTzZ6wjZE9yM=; b=DzYk3oav/XGIb1h4
-	QiDlmQvm4HgUI5yT1Ux/rTqSMvDxeewckfrTHHcvGuXda7GElQK2GjTdqypPbVqJ
-	uApOjh6sLUAdFHptLPZJR6WNbp6OHul5FkryLr4ZKe/AsJ10o/9pmpRYzl2/m7zG
-	VXvVN3qm0gcZ6TIwh7e7lDxdoaeRxdUARIpmVxsSRKHb3T3bpDt5jYSZ0cvD2pT9
-	lxDpOLUnD3WGnsdXU4O7MdXLuZXfNOfhdFBT/n/boRtKs73SRXdbG6NF5wC4FAwq
-	IRUrVMKBsszC8XwE0VaHDSV1bFA3CgJlzeQQUes7Ciq3woaYQKd+7C89pFCpZPTS
-	e8V5MA==
-Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j5vuhrty4-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 12:29:26 +0000 (GMT)
-Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-948d83322f6so384552785a.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 04:29:26 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795609766; x=1796214566; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=T5n9P9Rk3sw0uyrSlgak95rJRdejRe3OTzZ6wjZE9yM=;
-        b=BC4EGRqCW7RbCjVtDUUCC8W8Hmn9h0sBT08xQphwiSEZfyi2VcFh01JUSdQjAcMmMr
-         8JgLHNfheGSJ7iYO6N4RjLSzxB0bQn75XHarDoduknvoVsgcqqctbHhlsR3GbFObbUDU
-         r5o7vXQ0cWxrJBCoVKGNTsbmaaljfvVM74l+qFt0T0WrpEgGddbVi1QPrmqP4C+IXN/5
-         Q9tVSegax85KFbONKBUnk5U2L64o3g2u33a8eDxq9dpqPX7YZu53ujUpozxnomFzBF0N
-         J9Bwp1R/hMfvV7xpvwuM1s0OrL/LcuNKwdwrq1hxWYQ+8wSwQCSdKyUTCcms2N1VCVlw
-         9/EA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795609766; x=1796214566;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=T5n9P9Rk3sw0uyrSlgak95rJRdejRe3OTzZ6wjZE9yM=;
-        b=hZICABLEPKFiCSbea+RpiQfOhINxEHfTuMHZhv/0wJlB9Jz+nBYABoJA7ShTc4JalM
-         OpLUeal4LouX6v54lavDumH4fUpl+qUc1s7pMDC7i9HudeIK27dAuE0IdImdzw0V/yBz
-         G3ULtXVNSJ/CiJnOvSxg0kSvrJac8AyG0qMUnb5zXJJ2NWd8iJiTRUwrvD2XileG985J
-         rRkE0gZKXCSmhEloKJkZyh5wd8UnpdiFW+TqZf0ifcA8kdzFSIp/xPKslg6rUFm02dBd
-         Xe3vl6WBn5RK7IlyXcPr/44nL9ZhlEGRUZvw9T5PxcNeEj9EyhlkzpSSQGt0og7m+khl
-         m2zw==
-X-Forwarded-Encrypted: i=1; AL+hErHd3FnZ2j2Hn6/lxT9Cd/yeHDrzcjndxaS1k5GSrVzTfcC7cR9iJLOnlqX7LezKru9HXpUvVajdAtgYCdQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/npbGDYZkXY8ckWhU/zNR46UFIKIwvWaaJCShg5tuk/JOUNfpa
-	rp7PJRezlpazJLncUpAdvWZKxOJKGOmQA3DnGUFjYOr31/33S0T5asOxN+nsRODRbatnLQ6lghX
-	qr1gC22pxV50LKJQPtn7pP30SBcRiMnTs3ndZ6LYT6OvQEa5yDk+lU/sB8JPyj5prDws=
-X-Gm-Gg: AZFdTZfuM7WPnLIVztfRsOVEx5hNPAvmbElQBwPcIkDhpR/kK3leMKQOairWzm/ZECB
-	R1aNzs1FuwTDJTTFYnqrW43WL5WDPMYDL8uNngWJ1YzOKoPR356FLcy91MfaT5Da+PYOMBJLJQJ
-	IcDFUR6hUybn+a7fgU8gsp5980q5+GKAiOx8yf1AGvLwI9mO1a1zzQ8uyAviKtL1K5intLuL51q
-	qFiCq8f27qvG7vOqvFMcJX3uxetUJRRYvcu/FXDPFp2NoGZjV548Z6+2fDw0Kkqtdrd/gx8tju6
-	WMvvlm0N9o8DAPCi8VZilTvj23L5KAGnGA+mA9pTcYpEY5c8iiG6IU9rR8LlNQLmk8NHvbJKXqN
-	sHjqs/aRFNayYnIJ2IXyeN1tgyBqYh/fZ+l6F3r6q/oWNM6ggSkYnPSzIRCjkfj47Q1ZdWnNbHG
-	sUvq8LNSejgBDGSg==
-X-Received: by 2002:a05:620a:4046:b0:949:6476:91df with SMTP id af79cd13be357-949ba9b395bmr3433141485a.27.1795609765516;
-        Wed, 25 Nov 2026 04:29:25 -0800 (PST)
-X-Received: by 2002:a05:620a:4046:b0:949:6476:91df with SMTP id af79cd13be357-949ba9b395bmr3433137785a.27.1795609765059;
-        Wed, 25 Nov 2026 04:29:25 -0800 (PST)
-Received: from [192.168.25.64] ([94.155.124.210])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b10b5f6sm31886868f8f.34.2026.11.25.04.29.23
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 25 Nov 2026 04:29:24 -0800 (PST)
-Message-ID: <3dd61a59-2376-414d-a136-287e2c26a3d6@oss.qualcomm.com>
-Date: Wed, 25 Nov 2026 14:29:22 +0200
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YinD38xM
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 107EF1F000CF;
+	Wed, 25 Nov 2026 12:30:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795609819;
+	bh=wBlqBzFHzganMG7CKEDL3xTHXHdaV7tzUIeO4cXhCZM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=YinD38xMnf1TSY0thnBj8LiLos8K5YnUlxUam4OfIltHUNUSDq7HGoV2iT1X+LLrS
+	 k1pvK4b9eq5urkifF7kzeLq2vV7QRpl5MaCZwuE2aK+N32qzc/1SnypqePcuugg+Mf
+	 pjTpiQhlMJTEBMWZafe2dAdNapi4IYIhoUglu/al6OqMdXqCe1ffZTRhvxdfIEq9ZU
+	 ScnOBp6D26MFRaHh2wVqksXA/EHPp6Hk9nR/ktYeZ8+0ZnNGPsNVqt7+IryrPSM8JP
+	 piShzWUwPgIidEIC/ySZySk6i0Wy37/PhJ1b1daUXFhJqxFQgmPPNwHyoXlKpMLEbe
+	 rSOLNA5JMpuKg==
+Date: Wed, 25 Nov 2026 14:30:15 +0200
+From: Leon Romanovsky <leon@kernel.org>
+To: Cygnus Qiu <eritque-arcus@ikuyo.dev>
+Cc: zyjzyj2000@gmail.com, jgg@ziepe.ca, linux-rdma@vger.kernel.org,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org,
+	Zhu Yanjun <yanjun.zhu@linux.dev>
+Subject: Re: [PATCH v2] RDMA/rxe: reject ODP accesses that wrap the iova space
+Message-ID: <20261125123015.GZ14811@unreal>
+References: <20261121215426.50988-1-eritque-arcus@ikuyo.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -116,153 +57,120 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/7] media: v4l2-event: Allow drivers to provide the
- event timestamp
-To: Loic Poulain <loic.poulain@oss.qualcomm.com>,
-        Mauro Carvalho Chehab <mchehab@kernel.org>,
-        Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
-        Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
-Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org
-References: <20261125-camss-hw-ts-v2-0-24c955e43d75@oss.qualcomm.com>
- <20261125-camss-hw-ts-v2-1-24c955e43d75@oss.qualcomm.com>
-Content-Language: en-US
-From: "Gjorgji Rosikopulos (Consultant)"
- <gjorgji.rosikopulos@oss.qualcomm.com>
-In-Reply-To: <20261125-camss-hw-ts-v2-1-24c955e43d75@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Authority-Analysis: v=2.4 cv=FPmOVOos c=1 sm=1 tr=0 ts=6b06d4a6 cx=c_pps
- a=HLyN3IcIa5EE8TELMZ618Q==:117 a=eGCDHFSXubCXFTSSGhjuOA==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22
- a=EUspDBNiAAAA:8 a=H5SKo5UfUjvo3ROSXWYA:9 a=QEXdDO2ut3YA:10
- a=bTQJ7kPSJx9SKPbeHEYW:22
-X-Proofpoint-GUID: QfqQMR7SpU_-AafyioiHzVv9dESd0ma3
-X-Proofpoint-ORIG-GUID: QfqQMR7SpU_-AafyioiHzVv9dESd0ma3
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI1MDA0OSBTYWx0ZWRfXy57d261vdW6F
- X2wZRPCHIr2ZHpdVb11IJaogw6WgSnAuQXwJwB0h2wLCDU5yDoSxplTyaeyj1wBXQHnrRL6Dm9M
- Am1tv64UzgVFCPmV5a7G6EAY3gvWDII=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI1MDA0OSBTYWx0ZWRfXzBCMMGwbE1fG
- YMaoLX4muaBdXX0ocr0JHZEe8niRbJj9pbeYcAn47JUnOYJSDeoZCl6q0sqVd3g+AnzimDBBhTj
- 84k/2k9J3zNH5BVkWsbmEppeiqfa3ScyW+Ie2vEUpzz4nAHTsr5pd3W3KEURt9QfPd2EBnRnfmr
- 4L3C47oSKMdmTKiLBDtASrOVrH9OS1t4uRJB29jXzzZcmA+vS5QL0F7pv6WyUdGdJljt96nAht3
- sPnhFIzKnIkiQ/Muc83RMzXcwB4N2VKChAdnuRHNs6eVhyu0tuLl/QW/MJydQjbvQcK/pHe6dRg
- 6PqReI+atgN0lcaA42uvZoGILVa8lf4h0+LWaGlxVYH/oTSEJjiz3p+Ny9kpp8T3u19HSGRfAbq
- TK2YGIfFIPlrYYoIwnvO6XpqHLtAxN3W2Q4X0IihvO2GTHQjGu+snioHCHCH3CAUXcKGzv6OS2b
- T/uS1IybWdSC9FnPk6w==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-25_03,2026-11-23_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 bulkscore=0 malwarescore=0 suspectscore=0 impostorscore=0
- priorityscore=1501 adultscore=0 phishscore=0 clxscore=1015 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611250049
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261121215426.50988-1-eritque-arcus@ikuyo.dev>
 
-Hello,
+On Sat, Nov 21, 2026 at 04:54:26PM -0500, Cygnus Qiu wrote:
+> rxe_check_pagefault() decides whether an ODP access needs a page fault
+> by walking its pages, and bounds the page index against the umem inside
+> that walk. When iova + length wraps past 2^64 the loop does not run, so
+> neither that bound nor the HMM_PFN_VALID and HMM_PFN_WRITE checks apply,
+> and no fault is taken. __rxe_odp_mr_copy() and the atomic write and
+> flush helpers then index map.pfn_list[] with (iova - ib_umem_start()) >>
+> page_shift, which the registrant controls: ib_uverbs_reg_mr() only
+> requires the MR's iova to share the page offset of the user address. The
+> entry read past pfn_list[] goes to hmm_pfn_to_page(), and that page is
+> copied to or from the peer.
+> 
+> rxe_check_pagefault() also keeps the index in an int, so an index of
+> 2^32 or more can be truncated to a value that passes the bound, while
+> the flush and atomic write helpers use the full unsigned long.
+> 
+> Reject a wrapping range in rxe_odp_map_range_and_lock(), before the
+> fault path, whose umem range check wraps the same way, and keep the
+> index in an unsigned long.
+> 
+> Found with afb-afl, an LLM-driven kernel audit/repro pipeline; the fix
+> and this changelog were also drafted with LLM assistance. Reproduced on
+> an unmodified KASAN build of mainline by an unprivileged user with a
+> self-connected rxe QP. An RDMA READ at the end of a two-page ODP MR
+> whose iova range ends at 2^64:
+> 
+>   BUG: KASAN: slab-out-of-bounds in rxe_odp_mr_copy+0x35f/0x410
+>   Read of size 8 at addr ffff8881037a2210 by task kworker/u16:0/13
+>   The buggy address is located 0 bytes to the right of
+>    allocated 16-byte region [ffff8881037a2200, ffff8881037a2210)
+>   Oops: general protection fault, maybe for address 0xffff888103d0c04a: 0000 [#1] SMP KASAN NOPTI
+>   RIP: 0010:memcpy+0xc/0x30
 
-On 11/25/2026 12:19 PM, Loic Poulain wrote:
-> The timestamp reported to userspace for a V4L2 event is taken when the
-> event is queued, which for an event signalling a hardware occurrence is
-> only as good as the latency between the two. A CSI decoder able to latch
-> the start-of-frame against the system counter knows that time to within a
-> few microseconds, whereas the interrupt handler that gets to queue the
-> event can be hundreds of microseconds late and is not consistent about
-> it.
+Always provide full dmesg stack trace in the commit message.
+
 > 
-> Take the timestamp from the event when the driver filled it in, falling
-> back to the current time when the field is cleared. Drivers have had no
-> reason to set it so far, and every in-tree caller either uses a
-> designated initialiser or memsets the event, so the field reads as zero
-> everywhere today.
+> An ATOMIC WRITE to an MR whose iova is 2^44 above the umem start:
 > 
-> Signed-off-by: Loic Poulain <loic.poulain@oss.qualcomm.com>
+>   BUG: unable to handle page fault for address: ffffed11202b3194
+>   RIP: 0010:rxe_odp_do_atomic_write+0x131/0x2f0
+> 
+> With this patch both are NAKed with no report, and an in-range READ and
+> ATOMIC WRITE return the same results as before. The wrap was not tried
+> on the flush path. The rdma-core v65.0 tests, ODP included, pass on rxe
+> with and without this patch.
+> 
+> Fixes: 2fae67ab63db ("RDMA/rxe: Add support for Send/Recv/Write/Read with ODP")
+> Cc: stable@vger.kernel.org # 6.15.x: 7797bbb0e86f: RDMA/rxe: bound the ODP page index against the umem in rxe_check_pagefault()
+> Reviewed-by: Zhu Yanjun <yanjun.zhu@linux.dev>
+> Signed-off-by: Cygnus Qiu <eritque-arcus@ikuyo.dev>
 > ---
->  drivers/media/v4l2-core/v4l2-event.c | 20 ++++++++++++++++++--
->  include/media/v4l2-event.h           |  9 ++++++++-
->  2 files changed, 26 insertions(+), 3 deletions(-)
+> Changes in v2:
+> - Use check_add_overflow() for the wrap check, as Zhu Yanjun suggested.
+>   The tests above were re-run on v2 with the same results.
+> - The author name changed since v1; the address is the same.
+> - v1: https://lore.kernel.org/r/20261120060000.302440-1-eritque-arcus@ikuyo.dev
 > 
-> diff --git a/drivers/media/v4l2-core/v4l2-event.c b/drivers/media/v4l2-core/v4l2-event.c
-> index 9dd2aaa95a67406bda3a257325442888895ed088..a35646c3a5c89febeb072d691ffd7853d9af714a 100644
-> --- a/drivers/media/v4l2-core/v4l2-event.c
-> +++ b/drivers/media/v4l2-core/v4l2-event.c
-> @@ -150,6 +150,22 @@ static void __v4l2_event_queue_fh(struct v4l2_fh *fh,
->  	wake_up_all(&fh->wait);
->  }
->  
-> +/*
-> + * Hardware able to timestamp the event itself reports that time in the event,
-> + * which is more accurate than the moment the driver gets to queue it. Fall
-> + * back to the current time for the drivers that leave the field cleared.
-> + */
-> +static u64 v4l2_event_ts(const struct v4l2_event *ev)
-> +{
-> +	struct timespec64 ts = {
-> +		.tv_sec = ev->timestamp.tv_sec,
-> +		.tv_nsec = ev->timestamp.tv_nsec,
-> +	};
-> +	u64 ns = timespec64_to_ns(&ts);
-> +
-> +	return ns ? ns : ktime_get_ns();
-> +}
-
-I think it makes sense to add an additional field for hardware-based timestamps.
-Converting the timestamp to the monotonic time domain introduces precision loss,
-so it's better to expose both to userspace and let userspace decide what to do with
-them.
-
-~Gjorgji
-
-> +
->  void v4l2_event_queue(struct video_device *vdev, const struct v4l2_event *ev)
->  {
->  	struct v4l2_fh *fh;
-> @@ -159,7 +175,7 @@ void v4l2_event_queue(struct video_device *vdev, const struct v4l2_event *ev)
->  	if (vdev == NULL)
->  		return;
->  
-> -	ts = ktime_get_ns();
-> +	ts = v4l2_event_ts(ev);
->  
->  	spin_lock_irqsave(&vdev->fh_lock, flags);
->  
-> @@ -173,7 +189,7 @@ EXPORT_SYMBOL_GPL(v4l2_event_queue);
->  void v4l2_event_queue_fh(struct v4l2_fh *fh, const struct v4l2_event *ev)
->  {
->  	unsigned long flags;
-> -	u64 ts = ktime_get_ns();
-> +	u64 ts = v4l2_event_ts(ev);
->  
->  	spin_lock_irqsave(&fh->vdev->fh_lock, flags);
->  	__v4l2_event_queue_fh(fh, ev, ts);
-> diff --git a/include/media/v4l2-event.h b/include/media/v4l2-event.h
-> index 3a0e2588361cf451b3dbfc63dfab99550d13cf6a..076f788e0469ae4666c60344e5ea73a698352134 100644
-> --- a/include/media/v4l2-event.h
-> +++ b/include/media/v4l2-event.h
-> @@ -102,6 +102,11 @@ int v4l2_event_dequeue(struct v4l2_fh *fh, struct v4l2_event *event,
->   * .. note::
->   *    The driver's only responsibility is to fill in the type and the data
->   *    fields. The other fields will be filled in by V4L2.
-> + *
-> + *    Drivers whose hardware timestamps the event more accurately than the
-> + *    moment the driver gets to handle it may also fill in the timestamp
-> + *    field, as a CLOCK_MONOTONIC time. It is left alone if non-zero, so such
-> + *    drivers must zero-initialize the whole &struct v4l2_event.
->   */
->  void v4l2_event_queue(struct video_device *vdev, const struct v4l2_event *ev);
->  
-> @@ -116,7 +121,9 @@ void v4l2_event_queue(struct video_device *vdev, const struct v4l2_event *ev);
->   *
->   * .. note::
->   *    The driver's only responsibility is to fill in the type and the data
-> - *    fields. The other fields will be filled in by V4L2.
-> + *    fields. The other fields will be filled in by V4L2. As for
-> + *    v4l2_event_queue(), a non-zero timestamp field is taken as the
-> + *    CLOCK_MONOTONIC time of the event.
->   */
->  void v4l2_event_queue_fh(struct v4l2_fh *fh, const struct v4l2_event *ev);
->  
+> Tested on mainline 4405c18c95d2 (v7.4-rc3+) in QEMU. Applies to
+> rdma.git for-rc and for-next.
 > 
+> This completes commit 7797bbb0e86f, whose bound sits in the loop that
+> a wrapping range skips; stable trees need that commit first.
+> 
+> Without KASAN, an RDMA READ or WRITE at the end of the range reads or
+> overwrites a physical page the registrant chooses. On a lab kernel with
+> CONFIG_RANDOMIZE_BASE=n this was taken from an unprivileged user to
+> uid 0; with KASLR the chain also needs an address leak. The rxe link
+> has to be created by an administrator; the trigger needs only the
+> uverbs device. A reproducer and the test logs are available on request.
+> 
+>  drivers/infiniband/sw/rxe/rxe_odp.c | 6 +++++-
+>  1 file changed, 5 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/infiniband/sw/rxe/rxe_odp.c b/drivers/infiniband/sw/rxe/rxe_odp.c
+> index 9d27244f89bc..f28b5008aae4 100644
+> --- a/drivers/infiniband/sw/rxe/rxe_odp.c
+> +++ b/drivers/infiniband/sw/rxe/rxe_odp.c
+> @@ -125,7 +125,7 @@ static inline bool rxe_check_pagefault(struct ib_umem_odp *umem_odp, u64 iova,
+>  	bool need_fault = false;
+>  	u64 access = HMM_PFN_VALID;
+>  	u64 addr;
+> -	int idx;
+> +	unsigned long idx;
+>  
+>  	if (write)
+>  		access |= HMM_PFN_WRITE;
+> @@ -167,10 +167,14 @@ static int rxe_odp_map_range_and_lock(struct rxe_mr *mr, u64 iova, int length, u
+>  	bool write = !(flags & RXE_PAGEFAULT_RDONLY);
+>  	bool need_fault;
+>  	int err;
+> +	u64 end;
+>  
+>  	if (unlikely(length < 1))
+>  		return -EINVAL;
+>  
+> +	if (check_add_overflow(iova, (u64)length, &end))
 
+The right fix is to make sure that length is right type from the
+beginning and not this mix of unsigned int, int, size_t and u64.
+
+In addition I would expect that this check will be much earlier in the
+call chain.
+
+Thanks
+
+> +		return -EFAULT;
+> +
+>  	mutex_lock(&umem_odp->umem_mutex);
+>  
+>  	need_fault = rxe_check_pagefault(umem_odp, iova, length, write);
+> -- 
+> 2.56.1
+> 
