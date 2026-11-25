@@ -1,111 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.157
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795633789;
-	b=24R4vPTNtQheNQOC+BsVRFig1g6Py0Kksq9o8MtT8z6CSgm6cNIpD7HORCOem2gQcVNd
-	 tQMZiVAmsO7HkaftX+SsOKhhUl0hpMId5foC2S/sp5gdEv5udRX/gvfVrK4j8h1A55tRK
-	 OyuqvIFtTHOTNCsaeAfAQJXhdzA4mCz1nWpEcpZbDhXDJlNbrCcN6vkIDOsavGpuqomp+
-	 TU88w17T7gFvcq461HLTimFXrXpQwqjWb8yKMWZVidRj+IABbAlK5zggWDdF4tH11BJkq
-	 mRxVQfY4DvwqsVqpShJ8QLpxIB4Ye1GKGFMVPImtdfeNHcdLyZzjXoyY4M3xf2Bih5Q==
+	t=1795633809;
+	b=XRtekJF560L/lZbXcPasVLTPOO8d6II+Nfi5/DBmUNUehGoF5usTS+U3KMcWfT4t6w2/
+	 sryioCFNroSniPatixjwvD9///UCFjiwI25Od2n3qaaoGoX5sT1uktQ8BfVz9OL5+Me3b
+	 p4TRubzaR+cWtixCbOne9Qi20RSciK4tgfknbtwEFkaGeMetzscvqH0Mm9sfapMvUvqeC
+	 n6D00XOIcY6WKOJZePjenbr0cHWk8dupkPJ2JzkGPpdCJA/MvqgNI7iDU5w4VPvudVeGR
+	 sFpIbiqQRnkPqMfuzdsMHnGaM43jcT418TVDu4S79e0AIhsqN0moXKXMYzZUuMboR4w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795633789;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
-	 MIME-Version:X-ThreadId:Date:From:To:Cc:Message-Id:In-Reply-To:
-	 References:Subject:Content-Type:Content-Transfer-Encoding;
-	bh=j66RKb5l2l5mpAtY8HXgIUDK8pcSYZliet/rKrMgG/A=;
-	b=Om6hqTzTZ4S6FE2K/NmbhSrhfLTycB2ayHD1jGWRIYX8CxMrU698bI/sEMo4sIgkOsAh
-	 D4iRmLCFzz42XYdsJABif9TXoT4+41ExI+6XP9z+rSaEBiMJpBTfs6mlqzKlUkXNWLfGT
-	 iFQJKuxsmBu3LlD2iEtJZ5VG9BlmCQ4LUh5xnKizQmokTPHCVGQf/sSnHvPBLY5NhhacM
-	 YlgFr5jlcHfTDSQ42vOjfLilNond+tlICUTmYRoNM9qTJaSCs3S/HB9rUYbyil5kqvvRv
-	 03CTUG+YnWhB1Gvpk1GtR0MZRB0fh7MVxg/dzO2QmqKky+5RmALdX8teZmoqKlLSH0g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795633809;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=jm1CHZxWqdQ+jQ2UwTEtX9/pCyL2KGtxL2e3RWhJL4w=;
+	b=ZF/BylQrNDX8ArzWDop95xybVomSkww6eWRO7VJmmlJbVr0IcsPfZBeIdoCMRWKqb8re
+	 hB/wPq9GNHeU/nRPUKQZA2C8BwDj1QFdJtra7BFUuYDMQgRrj2LrdwqX+YcdAqHoxsUB4
+	 axM/+z2qO056xYkmlBkz3Zi9cFtJaieDzF0w5qWormrqEaDNIGQ30WlZBFJPvquv162Ck
+	 WYnUlZyaj6XMusHYGH4X2bP8LIMhtImu8VBJABZTR6ri972iyMUmeKWc9n+JTXtz8sHYr
+	 IbWbOJeHjYDQb9+KxOlMzuaGdodrvwgeuCqvXNVc9xbymfGdSvvchHAlIEDd2q/iRkw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=squebb.ca;
-	spf=pass smtp.mailfrom=squebb.ca;
-	dkim=pass header.d=squebb.ca header.i=@squebb.ca header.a=rsa-sha256 header.s=fm1 header.b=CuOaT4KK;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b="I/OulOiy";
-	arc=none smtp.remote-ip=202.12.124.157
-Received: from fhigh-b6-smtp.messagingengine.com (fhigh-b6-smtp.messagingengine.com [202.12.124.157])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E021F606A31E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 19:09:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E021F606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=squebb.ca
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=squebb.ca
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=vnQigsCB;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 0D3AF606A31E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 19:10:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0D3AF606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=squebb.ca header.i=@squebb.ca header.a=rsa-sha256 header.s=fm1 header.b=CuOaT4KK;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=I/OulOiy
-Received: from stl-compute-04.internal (stl-compute-04.internal [10.204.2.64])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id 5A9917A05A1
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:09:48 -0500 (EST)
-Received: from stl-imap-02 ([10.204.2.93])
-  by stl-compute-04.internal (MEProxy); Wed, 25 Nov 2026 14:09:48 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=squebb.ca; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1795633788;
-	 x=1795720188; bh=j66RKb5l2l5mpAtY8HXgIUDK8pcSYZliet/rKrMgG/A=; b=
-	CuOaT4KKTqlIOPru7/uoGPENJDMQb5GSnTAkfzeSYI/sug4i9G1YjV22O0io7aW6
-	SOaFOxYMUFOd4qnyXA3TNb3UB0uiqBm46hy1Ka/9ALaPf4KfuMOug5X4MlVGwZre
-	+Ptswu151wTOTt4lLGOdIUHu5ac/FEXqP276TjMj6z9WVi3ixS8Vymn0W7gRzPER
-	pdWK4RUc07yjp3G4FRNhl6dm4q0lSxOB1WJGDjDlkoJ/Fd2zT0ydluzD0NN/UEr3
-	DCiLIKem8hemBIaPHEbGNdXSl2p8wGeK28cEfva1CIdFDvxSKqbaq/31kIbbGIa/
-	msl2BkE//j5+9G/ztxce8A==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795633788; x=
-	1795720188; bh=j66RKb5l2l5mpAtY8HXgIUDK8pcSYZliet/rKrMgG/A=; b=I
-	/OulOiyatYVPhKL1fmm+ClcF3feVeR5/A0Mq5Rjsbqu1buVNTZsLMw8Xq0LLgVkE
-	BjNlnQ0IqY9LEOoTF76LY2qDEJqJqe9ADvim24Sa7uHRPBbIk+fRPsnMNPdyTjD3
-	/43UvDfslveRy9J6eWNVEbLcsFN3iePqCHK1rjAELr2BuPB/+BsOATGb9uH8sFU2
-	d8odCIsBKRgWYfRIQnl1bFeqESw+x/EOJ0lNbk58Ly5PU9inTBUY5YT3ZRpWXvQu
-	mmCBDajnF890Wse8vzdl6YNwDz998FZTD5ssIqkPplDG7d9Yjk2GIS2KSXvtmKGv
-	znlFLle15b0+bbD7zhsFw==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=squebb.ca a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795633788; d=squebb.ca;
-	mf=PG1wZWFyc29uLWxlbm92b0BzcXVlYmIuY2E+;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm1:rsa-sha256:bTCmufbWTmthGTWIDPJIrVVp4XMdHC0cH7LmhMTAcUOa+qo
-	WqOXwcv17KnM2oYqHBptHRheopmGxuXjMkSSowDGTZtkJo6QBmdRkwvQwzi1Wa0L
-	OSIWLQH8dQaLCALCtLGheQqYA2+LO/a7RMOKQ1t0Myt+CXhN+Yj/v2jdiv/O4Mzd
-	Aw41CNo16/7mzzxg+HE4k+dnIfLSIDPoDjYEoru+bkHMoiyU7wvf6ZsNF4pEGVkC
-	gtULQZjxIHCKmlgeWA4FzGV24X+0SUwO+k3iCxXa+FdJZFY16Xys22keN0V9/xKM
-	U1254CIFCj4luOg/A+KsjW4l9ERhxUwVAHSCPjA==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=12;
-	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
-	from,in-reply-to,message-id,mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:yfuBIi7hVYPol6wkIi7AhdvxOOzxGOf95xvy7CATZ2U=:cDOxVkY4CKLQwsW+7YbuB/+Y4dELsoW9itMN7kM1y4s=;
-X-ME-Sender: <xms:ezIHa4FBndDCl-r6GtGB67uDLGutDP9I-b8yfPqFF_N6y5XbY4rAYA>
-    <xme:ezIHa8KdSTgDeIYjgp1mw5UEBRe_kQ9tMWyzCQn52w1AkFx-wozB9HXzlt60yOV0T
-    TjTuJILaXtPN7XBqU29oLIXfByKYNx17_6YRFC8YaQGzhfVtDyGAs1y>
-X-ME-Proxy-Cause: dmFkZTEAS9i35RwxKrEukZh+BUpLuXgL+MPQH1yJv3Iuj20lOBTFeojOWEwWkQHa+hR1db
-    XR+t/qzQPuZIophWefuEorAkc4cSX9KB8DmDon57BLE1t9ENQkCYj1EqnqERu2nMu+4zHG
-    /0x0dcH3sTbg9iwB1ylIHcJ9Q/hLDAC5XAnad6kRyw1vW/9oHrFm1mC3+5ipj2ZVVGGZcz
-    G4Ky01Z0U4THkD6Jbxv0NmJ4BtQX86bkgc8a0LdLZksWcFUtczQPFI0HVW1TAQMrMsThyu
-    b9oXHe/ODwvKIziL1zzUNF5Nb6N7HvxACQ6LeeuQ3jgZHsP0aCLWljhrMPI4TZTRGj81cg
-    miP9Z9zx12w+UZlQ6GPoBvXiTa39Bc6Kg57keC47Mab2bFy1OD2fxiBrl+PI4t9YZY4hPS
-    gvWl5bENP8jnXR+zb6T1zN4ReuxufWvTkAmq2xhZbX0aDo80qO2pXUr5MbSKm2g1l3BsVq
-    iQ6+Dkl8t5RNSlJ4KmQGxSve7WlyTl7QynVg6Cum6XasCam+YIKY48i5k8PNwunvojAV15
-    7FvWH26idSUlxig26BDH6DVvFqfcMLnbqgenERQ+A0EILFJupBsJnRV5BO89oIcY+biHTy
-    p+8EcC4kZGY/hfhhe8o1/3OhZyGXJ21zHh96Sx/3NE6ttKnW78F5NHjrX1rg
-X-ME-Proxy: <xmx:ezIHa4nyVui12v4JVG58PonCnRTDKzHYkALgCUodnucuzA6dHX16Sw>
-    <xmx:ezIHa0IkuhwKdgpF8djMM3_hVcpXkV6e9eV-o8he4H1m080H4tAltw>
-    <xmx:ezIHa4ReotrRg6Gk5T3pFCPD2MA2sY3t8A-QYNJnJtkfwZAcbe42Rw>
-    <xmx:ezIHaxuVAdtLAoaZKTpXSVaCVMATyJez2WpkhwHZnTy6VrKUWrjU_g>
-    <xmx:fDIHa23ereAQZwqItLv5vLTCeOxC61RFtVSHKWXyytc8kJi9yFvhNqet>
-Feedback-ID: ibe194615:Fastmail
-Received: by mailuser.stl.internal (Postfix, from userid 501)
-	id 59EB92C00085; Wed, 25 Nov 2026 14:09:47 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=vnQigsCB
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3C4061596;
+	Wed, 25 Nov 2026 11:10:05 -0800 (PST)
+Received: from [10.57.72.178] (unknown [10.57.72.178])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1B9A63F86F;
+	Wed, 25 Nov 2026 11:10:05 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795633808; bh=uqklgFaFEZUkcRQwwZS64tnN5hwrw14ARxdmJIlUlRg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=vnQigsCBhn9Hcvdh6/IOe2BmR4itIT0eNELS08zC5dgbzW4wu/TK7fFDRbIxJ89Cr
+	 75yBvLboY7S+72sMpTmMSx8iN9ZJLAm+D9x5cVNXFdF2ielmH2hQlp7H9W+dSnVEST
+	 61+8d9xbDcnT2uIrO6XqSN/5mQK2TtBWbrDMaKL0=
+Message-ID: <3be9a901-ee11-4aa5-b891-889d3bde2221@arm.com>
+Date: Wed, 25 Nov 2026 19:10:04 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -115,118 +53,97 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-ThreadId: ACbI3-LYI2HV
-Date: Wed, 25 Nov 2026 14:09:27 -0500
-From: "Mark Pearson" <mpearson-lenovo@squebb.ca>
-To: "Qiling Zhu" <kmatzkaczor244@gmail.com>,
- "Derek J . Clark" <derekjohn.clark@gmail.com>, "Rong Zhang" <i@rong.moe>,
- "Hans de Goede" <hansg@kernel.org>,
- =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
- "Henrique de Moraes Holschuh" <hmh@hmh.eng.br>
-Cc: 
- "platform-driver-x86@vger.kernel.org" <platform-driver-x86@vger.kernel.org>,
- linux-kernel@vger.kernel.org, ibm-acpi-devel@lists.sourceforge.net,
- "Lee Jones" <lee@kernel.org>, "Pavel Machek" <pavel@kernel.org>,
- "Griffin Kroah-Hartman" <griffin@kroah.com>, linux-leds@vger.kernel.org,
- "Vishnu Sankar" <vishnuocv@gmail.com>, "Vishnu Sankar" <vsankar@lenovo.com>,
- "Andrea Rabbaglietti" <rabbagliettiandrea@gmail.com>
-Message-Id: <fa3ebfcf-ae2d-4075-b61a-93559f0e3e6c@app.fastmail.com>
-In-Reply-To: <20261125084644.137506-3-kmatzkaczor244@gmail.com>
-References: <20261125084644.137506-1-kmatzkaczor244@gmail.com>
- <20261125084644.137506-3-kmatzkaczor244@gmail.com>
-Subject: Re: [PATCH v4 2/6] platform/x86: thinkpad_acpi: Extract kbdlight notify
- helpers
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 1/3] sched/uclamp: Fix race condition leading to
+ imbalanced uclamp_rq
+To: Vincent Guittot <vincent.guittot@linaro.org>
+Cc: Qais Yousef <qyousef@layalina.io>, Ingo Molnar <mingo@kernel.org>,
+ Peter Zijlstra <peterz@infradead.org>,
+ Dietmar Eggemann <dietmar.eggemann@arm.com>,
+ Steven Rostedt <rostedt@goodmis.org>, John Stultz <jstultz@google.com>,
+ linux-kernel@vger.kernel.org, Kayra Cizmeci <kayracizmeci@gmail.com>,
+ Wei Wang <wvw@google.com>
+References: <20261121041507.39582-1-qyousef@layalina.io>
+ <20261121041507.39582-2-qyousef@layalina.io>
+ <282a3922-91da-4145-94b6-d1a6459b6da6@arm.com>
+ <CAKfTPtAT_gPBMaw_xyjkY4TTEA6+kuPBAAyNvMvT4Uq6T42xkA@mail.gmail.com>
+ <8150e8ee-cd2c-41c0-8c5c-3f0c7a087ac2@arm.com>
+ <f607fd0e-64ff-4b1e-92b0-88cd04fd6ffb@arm.com>
+ <CAKfTPtAxbSMg2NkNP4t5Edsb2DUkpEOKntno90rPvPwkphpETQ@mail.gmail.com>
+From: Christian Loehle <christian.loehle@arm.com>
+Content-Language: en-US
+In-Reply-To: <CAKfTPtAxbSMg2NkNP4t5Edsb2DUkpEOKntno90rPvPwkphpETQ@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 
-
-On Wed, Nov 25, 2026, at 3:46 AM, Qiling Zhu wrote:
-> TP_HKEY_EV_KBD_LIGHT handling in tpacpi_driver_event() reads back the
-> brightness, compares it with the cached value and notifies the LED core
-> inline.  Extract this block into two helpers: kbdlight_notify_level()
-> takes a brightness, compares it with the cached value, updates the cache
-> and notifies the LED core; kbdlight_notify_change() reads the brightness
-> back and calls the former under kbdlight_mutex, like the original inline
-> code did.
->
-> kbdlight_notify_level() expects the caller to hold kbdlight_mutex, so
-> that the proc write path can reuse it with the brightness it has just
-> written in a subsequent change.
->
-> No functional change intended.
->
-> Signed-off-by: Qiling Zhu <kmatzkaczor244@gmail.com>
-> Reviewed-by: Rong Zhang <i@rong.moe>
-> ---
->  drivers/platform/x86/lenovo/thinkpad_acpi.c | 42 +++++++++++++--------
->  1 file changed, 26 insertions(+), 16 deletions(-)
->
-> diff --git a/drivers/platform/x86/lenovo/thinkpad_acpi.c 
-> b/drivers/platform/x86/lenovo/thinkpad_acpi.c
-> index 31d3721bb..b4b3d7dcc 100644
-> --- a/drivers/platform/x86/lenovo/thinkpad_acpi.c
-> +++ b/drivers/platform/x86/lenovo/thinkpad_acpi.c
-> @@ -5267,6 +5267,30 @@ static int kbdlight_set_level_and_update(int 
-> level)
->  	return ret;
->  }
+On 11/25/26 17:15, Vincent Guittot wrote:
+> On Wed, 25 Nov 2026 at 10:13, Christian Loehle <christian.loehle@arm.com> wrote:
+>>
+>> On 11/23/26 18:15, Christian Loehle wrote:
+>>> On 11/23/26 17:23, Vincent Guittot wrote:
+>>>> On Mon, 23 Nov 2026 at 15:38, Christian Loehle <christian.loehle@arm.com> wrote:
+>>>>>
+>>>>> On 11/21/26 04:15, Qais Yousef wrote:
+>>>>>> Static keys are not guaranteed to be enabled atomically across CPUs.  Or
+>>>>>> across callsites on the same CPUs. Which means when sched_uclamp_used is
+>>>>>> enabled, some CPUs/callsites will return true for uclamp_is_used() while
+>>>>>> others won't, leading to asymmetric uclamp_rq_{inc, dec}_id. If we
+>>>>>> decrement without increment this is safe as documented in the code. But
+>>>>>> an increment without a decrement is a problem and will leave the
+>>>>>> uclamp_rq in a corrupt state.
+>>>>>
+>>>>> So if we only need decrement to work then we can rely on
+>>>>> p's uclamp_se.active and decrement regardless of uclamp_is_used() and call it
+>>>>> a day?
+>>>>
+>>>> The static key prevents overhead for those who don't use uclamp. It's
+>>>> a default rule for features like numa, cache aware, eas, uclamp etc to
+>>>> not impact those who don't use it.
+>>>> I'm afraid that the executing  uclamp_rq_dec up to
+>>>> p->uclamp[clamp_id].active will not be free of overhead
+>>>
+>>> I get why the static branch is there, but as long as p->uclamp[clamp_id].active
+>>> never changes from 0, like when uclamp is never used, the check should be virtually
+>>> free on any half-decent branch predictor.
+>>> Also in any case the enqueue path ought to be the expensive part for uclamp.
+>>>
+>>> I can come back with some numbers though, including the original netperf that
+>>> introduced the static key.
+>>
+>> So I compared mainline, my dequeue-only fix and a version where uclamp_is_used()
+>> always returns true (i.e. no static branch optimisation at all).
+>> A MeteorLake, Xeon and Orion, all compared to mainline as a base:
 > 
-> +static void kbdlight_notify_level(int level)
-> +{
-> +	struct led_classdev *led_cdev = &tpacpi_led_kbdlight.led_classdev;
-> +
-> +	lockdep_assert_held(&kbdlight_mutex);
-> +
-> +	/*
-> +	 * Check the level actually changed, setting the level
-> +	 * through kbdlight_set_level() also triggers this event.
-> +	 */
-> +	if (level == kbdlight_brightness)
-> +		return;
-> +
-> +	kbdlight_brightness = level;
-> +	led_classdev_notify_brightness_hw_changed(led_cdev, level);
-> +}
-> +
-> +static void kbdlight_notify_change(void)
-> +{
-> +	guard(mutex)(&kbdlight_mutex);
-> +
-> +	kbdlight_notify_level(kbdlight_sysfs_get(NULL));
-> +}
-> +
->  static int kbdlight_read(struct seq_file *m)
->  {
->  	int level;
-> @@ -11593,22 +11617,8 @@ static bool tpacpi_driver_event(const unsigned 
-> int hkey_event)
->  		/* Key events are suppressed by default hotkey_user_mask */
->  		return false;
->  	case TP_HKEY_EV_KBD_LIGHT:
-> -		if (tp_features.kbdlight) {
-> -			enum led_brightness brightness;
-> -
-> -			guard(mutex)(&kbdlight_mutex);
-> -
-> -			/*
-> -			 * Check the brightness actually changed, setting the brightness
-> -			 * through kbdlight_set_level() also triggers this event.
-> -			 */
-> -			brightness = kbdlight_sysfs_get(NULL);
-> -			if (kbdlight_brightness != brightness) {
-> -				kbdlight_brightness = brightness;
-> -				led_classdev_notify_brightness_hw_changed(
-> -					&tpacpi_led_kbdlight.led_classdev, brightness);
-> -			}
-> -		}
-> +		if (tp_features.kbdlight)
-> +			kbdlight_notify_change();
->  		/* Key events are suppressed by default hotkey_user_mask */
->  		return false;
->  	case TP_HKEY_EV_DFR_CHANGE_ROW:
-> -- 
-> 2.56.1
+> I did a quick test on my favorite dragon rb5 with perf sched pipe -T ,
+> perf cpufreq gov and only WFI:
+> - on big, the diff is -0.7% (+/- 0.30%)
+> - on medium it's -1.85% (+/- 0.20%)
+> - and on little it's -6.53% (+/- 0.15%)
+> 
 
-Looks good to me
-Reviewed-by: Mark Pearson <mpearson-lenovo@squebb.ca>
-Mark
+Looks in line with my results on Orion I'd say,
+FWIW here's the diff I'm proposing on top, proper will follow once I've completed the
+full results, but if you wanna have a go already and (hopefully) convince yourself:
+
+----------->8------------
+
+diff --git a/kernel/sched/core.c b/kernel/sched/core.c
+index 3c141aaae6a7..850088eeda5f 100644
+--- a/kernel/sched/core.c
++++ b/kernel/sched/core.c
+@@ -1900,8 +1900,12 @@ static inline void uclamp_rq_dec(struct rq *rq, struct task_struct *p)
+        /*
+         * Static-key updates are not atomic across callsites. An enqueue may
+         * have accounted this task before this callsite observes the key enabled.
+-        * Let uclamp_rq_dec_id() use uc_se->active to match that accounting.
++        * Check the task's accounting state instead. Both clamps are updated
++        * under the rq lock, so either active flag is sufficient here.
+         */
++       if (!p->uclamp[UCLAMP_MIN].active)
++               return;
++
+        if (unlikely(!p->sched_class->uclamp_enabled))
+                return;
+ 
+(END)
+
