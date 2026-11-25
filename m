@@ -1,49 +1,87 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795635350;
-	b=jWihOK82Y4yLhrUTlBO/mSnofGSHCLsk7KfhhYYt/meiCttW7dfs3lL6PnDnXcZpLPm2
-	 rw+LEAjdCLX242+Ba3YuqxgF8wpQGmV03PwHSVvK32YgFev2rgZWSAoMoTXaB5XI74KoL
-	 29M01dWbnCQNHZWqoBsDK55tCC5UeBQOfx3vpws28yLSvQZiu+ImiCXWw0TNcD7C0BfQB
-	 G0cSZ2DuXf1//8rTcku4FvygCe2+veHG6+c4M3JF2QmmRh/WG1f6A2mMcwiZezxXJGnzR
-	 w7pqZ+d9/ZnkVgQNfBFkYGhHt7BZRiK1zMLYuYUkrjeEjvMOgLgByPDkd0wreagy/zw==
+	t=1795635365;
+	b=TGec0NM+np1hmUhsCQ219u1XnRWYyV5nI3N1Yxk5vp0e8UsgAF1FtGIz17VrXMH99npd
+	 6MSEH7thTKvAAoxHvJc+q29PnE+0HX6Jq7CxU+qgOo3zjU/fsfCPqouPdLuoRMWD/KWyr
+	 fTJArBE4VhciXLblJk0+Zkmhg3nYSBHFCX66W+E5q3e4YqQ5aOLfLdVHvomGjxF+qV28A
+	 /c9NmQyrQLSeQRGozEDQ6fyP9dhDfmMQNlVivCCYTO+j0THiVrfchGDqZQbsmWk8LLi87
+	 B4bIHkytfYKAfYnKDAT1046tFaf4JDugdj8Sz+rIeCiz3oxmxvGTEjkAUCk8ZfZYfjw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795635350;
-	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=7RnKuGHXbcjROOB843xfx2NqlII83H4tFfUxJAZ3o/k=;
-	b=FmaUcJVoTk3KwX663gRdA5z0NNRsmTy+fo4K+e1nSDM47ZD8ah4qz5UZAXC7rTRYnVRt
-	 n9fz0Sco81nbUvsBXvHK7VkKJYqZLH44p8VvE8klcNIWtv5TieK4s5cJMNw0aEYcy2kq/
-	 03MTaPV/vItxNS3L1nMLE2iGpo7Fs7/zB/eXQAoGrslNqH3v5BHm2fVMspg4tieAXERU3
-	 cGA2i817NoBVC/L3f/d5NqhLY370DQkv+iwpMwU78bZYDOcWDGNRBBy7X+Nnhz1AGtful
-	 VutL072SCVdUgTsTCrb0D4sDT8pUeHt0MB5DvP222ynIvuQV7A2ES3nw9/eNjpZBLyQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795635365;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:References:
+	 Date:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=Tr/iPHr+JWqZmmJR7USpXjVU7ujr6M6VCMW4PPGH0TI=;
+	b=fiIUkngOZrfdJuMbvtt327Wx6/ARLv3ipOuQhX82sIAE7ILbcehP8DPw5LYff1qrjVaQ
+	 9ewq20ES8jkUgoqiz62VbkhgrnXkvbtXWTqJmK1BuGTgftaoIsS8XL4ZENXzNNNxmZRK8
+	 /IreF8mionr5H97bMj3NVB8/sUockR+xD5IMgTnGDojx1sFGOhXqCckYqIKB2/AfXFCsj
+	 1u6DDwFeBfZPe6sRMHQ4bL8sAt9/0WaMVfZJjrk9laFdjvPgL30vbG3pY1y8RNor6TzOP
+	 icKcv5M5tvFypQNOyrBfc5TD9zvT5H6nQA9zkNUUyDWiJUluBxjxomYN/oCAwyn7g2w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="Xg/ObpAc";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="gZI6ZY/9";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 63B67606A321
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 19:35:50 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 19BCD606A323;
+	Wed, 25 Nov 2026 19:36:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Xg/ObpAc
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E0071F000CF;
-	Wed, 25 Nov 2026 19:35:47 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gZI6ZY/9
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4CDE21F000D0;
+	Wed, 25 Nov 2026 19:36:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795635350;
-	bh=7RnKuGHXbcjROOB843xfx2NqlII83H4tFfUxJAZ3o/k=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=Xg/ObpAcsvbaM3LzMQBoGpkUsNyyuXwh7u4dtOczWFJpS5vHWZ/tFGwxceZPICMWs
-	 zGztd1W7WPrqE/5gK+q7EG4yz0I3j5YLJrAhCBW19LAocOsDDDotVM6xTXpseEpnGp
-	 1i2jn4Prf7Ywp9sJ/b6yRo8+PRUFev9SudT7e2iYn2QCC2DLfbDpzot6xBqiJQVoY4
-	 IOagaOjUWL9MlE3madKKryoOTBSgnbkfUBO236YN4iH86CfDd0knUV8F3NnhIUs1RC
-	 3nEvxIZeuLzFKN+gg0YvaNzTXfeVi59kHg2fme3Ho0nUn92m2D4Aivc0EsuPyqUGmC
-	 3dLv4j5zddQCg==
-From: Andreas Hindborg <a.hindborg@kernel.org>
-Date: Wed, 25 Nov 2026 20:35:14 +0100
-Subject: [PATCH 3/3] mm/slab: document that local node allocations can use
- sheaves
+	s=k20260515; t=1795635364;
+	bh=Tr/iPHr+JWqZmmJR7USpXjVU7ujr6M6VCMW4PPGH0TI=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=gZI6ZY/9FOlg1GJgOUhV+Cj0dx2xtMFRnWmyHraUhfsTgZjRWcxSshCt64dU0RpX0
+	 EDhalz88iIHbniIOjjOm5PVk4BXti7Hsh17cmehu2NLSmIzekMYo2fX/sOR46PMxq0
+	 eR7D4qT1xOBsY0U3iF9q8niKafp3xMkG9OSaA+UD6jldHb+CKxBcomllqrvBdBZc8z
+	 352jKDlQ0teuXsvk7vnFJ7hjJsxDESnegcfbNk8d4ZfQJt3mUsINYuR9CTo8BA3XQJ
+	 sGjAD7+QrrFMawIkuyZNlsU0eakuzq0CbBYgkPM3UtF+uXuMqVThLVtGdjJkRwXF0S
+	 t5cLNGuJeKR7Q==
+From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+To: Maciej Fijalkowski <maciej.fijalkowski@intel.com>
+Cc: Magnus Karlsson <magnus.karlsson@intel.com>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski
+ <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Andrew Lunn
+ <andrew+netdev@lunn.ch>, Alexei Starovoitov <ast@kernel.org>, Daniel
+ Borkmann <daniel@iogearbox.net>, Jesper Dangaard Brouer <hawk@kernel.org>,
+ John
+ Fastabend <john.fastabend@gmail.com>, Andrii Nakryiko <andrii@kernel.org>,
+ Eduard Zingerman <eddyz87@gmail.com>, Kumar Kartikeya Dwivedi
+ <memxor@gmail.com>, Ilias Apalodimas <ilias.apalodimas@linaro.org>,
+ Alexander Duyck <alexanderduyck@fb.com>, Saeed Mahameed
+ <saeedm@nvidia.com>, Tariq Toukan <tariqt@nvidia.com>, Mark Bloch
+ <mbloch@nvidia.com>, Leon Romanovsky <leon@kernel.org>, Michael Chan
+ <michael.chan@broadcom.com>, Pavan Chebbi <pavan.chebbi@broadcom.com>,
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
+ bpf@vger.kernel.org, netdev@vger.kernel.org, Stuart Clark
+ <stuclar@meta.com>, Stanislav Fomichev <sdf@fomichev.me>, Simon Horman
+ <horms@kernel.org>, Martin KaFai Lau <martin.lau@linux.dev>, Mina Almasry
+ <almasrymina@google.com>, Song Liu <song@kernel.org>, Yonghong Song
+ <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>, Emil Tsalapatis
+ <emil@etsalapatis.com>, Ihor Solodrai <ihor.solodrai@linux.dev>, Randy
+ Dunlap <rdunlap@infradead.org>, kernel-team@meta.com, Dimitri Daskalakis
+ <dimitri.daskalakis1@gmail.com>, Bobby Eshleman <bobbyeshleman@meta.com>,
+ Mohsin Bashir <mohsin.bashr@gmail.com>, Kees Cook <kees@kernel.org>, Breno
+ Leitao <leitao@debian.org>, Maxime Chevallier
+ <maxime.chevallier@bootlin.com>, Tao Cui <cuitao@kylinos.cn>, Vadim
+ Fedorenko <vadim.fedorenko@linux.dev>, "Mike Marciniszyn (Meta)"
+ <mike.marciniszyn@gmail.com>, Kuniyuki Iwashima <kuniyu@google.com>,
+ Jiayuan
+ Chen <jiayuan.chen@linux.dev>, Martin Karsten <mkarsten@uwaterloo.ca>,
+ Nikolay Aleksandrov <razor@blackwall.org>, David Wei <dw@davidwei.uk>,
+ Pavel
+ Begunkov <asml.silence@gmail.com>, linux-rdma@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next 02/15] xdp: Keep the shared info of a buffer in
+ kernel memory
+In-Reply-To: <awb8BX2lbZ4sotpQ@boxer>
+References: <20261124112707.118678-1-bjorn@kernel.org>
+ <20261124125654.183091-2-bjorn@kernel.org> <awb8BX2lbZ4sotpQ@boxer>
+Date: Wed, 25 Nov 2026 20:36:02 +0100
+Message-ID: <87qzg8og9p.fsf@all.your.base.are.belong.to.us>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,72 +91,45 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261125-sheaf-doc-update-v1-3-4a579abaf0b8@kernel.org>
-References: <20261125-sheaf-doc-update-v1-0-4a579abaf0b8@kernel.org>
-In-Reply-To: <20261125-sheaf-doc-update-v1-0-4a579abaf0b8@kernel.org>
-To: Vlastimil Babka <vbabka@kernel.org>, Harry Yoo <harry@kernel.org>, 
- Hao Li <hao.li@linux.dev>, Christoph Lameter <cl@gentwo.org>, 
- David Rientjes <rientjes@google.com>, 
- Roman Gushchin <roman.gushchin@linux.dev>, 
- "Liam R. Howlett" <liam@infradead.org>, 
- Suren Baghdasaryan <surenb@google.com>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
- Andreas Hindborg <a.hindborg@kernel.org>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1490; i=a.hindborg@kernel.org;
- h=from:subject:message-id; bh=neHwOM1VlnyNi5ABTykKOG49HCJ+vaQthdyKZl4EJzA=;
- b=owEBbQKS/ZANAwAKAfpQKQiqxb3QAcsmYgBrBzh4lgMGh/iGY0flnmQCxHAq24mqaj7v12Gog
- O2MROnuCU+JAjMEAAEKAB0WIQRXitnI2WZ2JirAaob6UCkIqsW90AUCawc4eAAKCRD6UCkIqsW9
- 0DQxD/92stFHcb2XJRr1vITcoR/9yftHSzgXnMWB6MjhxO2uiqnrwHl2eg58uAuyuO53R33sKEV
- 9Azv6zzCeXAcaRx8RhO20/H9Or0xUCnlAcoXw7LZg5b8emN7tJQzmuPLzAfqxBYGGszxZH8+66e
- G7InZkRX8ZMzTI4AE+L6H0okocza17P2grdG2xoxsJO8TfUa2z++f6xjhMDMNgBXW+d61C4FMhD
- Ks53rSLJDLFg/QbCUegJVv6AO41EhQbx+GYwPoNMYWIQX1UTn4C5CUEHdw3nY6pfQQPX7rQbA9m
- hfbdbcA6InhMAQkjT9kJKP0LFuePtxWwkiocc9EyP2/Ee49TlZNPbsVrtPXw2xgvXeepkQZV/0X
- glCSj2rfNN7cn0kXJN9Fr1HK8FEK10b9mJuWa1PxClossfVkwmU7Uv7ZhDbei9+3bJmhyFT5G9G
- rgDgTBtciURCNRVDYHvuuP9+z74d06vD3XQG+5oDMZcxaPCX/4e/ywPfkU2XV3AvsztK8SbphD7
- 5XY/nw96zCfL7YrX4QxNI5zp8bc1pkGWyIZC0z1aJR8iSuH0XoY/LkVSNU/5grgWnc7Dc6pWMF9
- mR57psJ1EDIZN8pM5Y3+oRzHA3fIc/KUp/cBeKGiz0aYUeVopFOPm0qb0eoaTSe2XNFnHlV0zBC
- lN4tfQwmT/Zt0NQ==
-X-Developer-Key: i=a.hindborg@kernel.org; a=openpgp;
- fpr=3108C10F46872E248D1FB221376EB100563EF7A7
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-The documentation of the sheaf_capacity member of struct kmem_cache_args
-states that allocations via kmem_cache_alloc_node() with a node specified
-other than NUMA_NO_NODE bypass the sheaves.
+Maciej Fijalkowski <maciej.fijalkowski@intel.com> writes:
 
-This has not been the case since commit 4ec1a08d2031 ("slab: allow NUMA
-restricted allocations to use percpu sheaves"). alloc_from_pcs() only
-bypasses the sheaves when the requested node is not the local node. A
-request for the local node is served from the sheaves if the object found
-there is from that node.
+> On Tue, Nov 24, 2026 at 01:56:37PM +0100, Bj=C3=B6rn T=C3=B6pel wrote:
+>> Currently, the shared info of an XDP buffer, with the fragment list of
+>> a multi-buffer packet, lives at the end of the buffer's frame, in
+>> memory that the device writes. Helpers follow its fragments, drivers
+>> free them through it, and frame and skb conversion copy it, so memory
+>> that others may write while the kernel uses it must not hold it.
+>> Classic AF_XDP zero copy keeps it in the tail of a UMEM chunk, where
+>> userspace can rewrite it.
+>>=20
+>> Let an RX queue keep the shared info of its buffers in kernel memory.
+>> The queue gets one from xdp_rxq_info_reg_ext_sinfo(), and
+>> xdp_rxq_info_unreg_mem_model() frees it. A buffer with the new
+>> XDP_FLAGS_SINFO_EXT finds its shared info there.
+>>=20
+>> Whoever prepares a buffer sets the flag before adding fragments. The
+>> queue NAPI builds one buffer at a time, so one shared info per queue
+>> is enough. It is valid until the buffer is redirected, dropped or
+>> copied. Frame conversion and skb construction refuse buffers with the
+>> flag, as a frame or an skb would keep its shared info in the buffer.
+>> Nothing sets the flag until later in this series.
+>>=20
+>> xdp_data_hard_end() reserves no shared-info tailroom for such a
+>> buffer, so its data may reach the end of the frame. frame_sz then
+>> bounds every write past the data, such as tail growth and
+>> bpf_xdp_pull_data(), so the frame must not cover memory of other
+>> buffers. Drivers may then pack such buffers tighter.
+>>=20
+>> Signed-off-by: Bj=C3=B6rn T=C3=B6pel <bjorn@kernel.org>
+>> ---
+>>  include/net/xdp.h | 41 +++++++++++++++++++++++++++++++++++------
+>>  net/core/xdp.c    | 30 ++++++++++++++++++++++++++++++
+>>  2 files changed, 65 insertions(+), 6 deletions(-)
+>
+> couldn't this effort be sent separately and address classic zc as well?
 
-Update the documentation to match.
-
-Fixes: 4ec1a08d2031 ("slab: allow NUMA restricted allocations to use percpu sheaves")
-Signed-off-by: Andreas Hindborg <a.hindborg@kernel.org>
----
- include/linux/slab.h | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
-
-diff --git a/include/linux/slab.h b/include/linux/slab.h
-index 8f484e1edcd2..ae9f305db9ea 100644
---- a/include/linux/slab.h
-+++ b/include/linux/slab.h
-@@ -369,7 +369,9 @@ struct kmem_cache_args {
- 	 *
- 	 * The sheaves do not enforce NUMA placement of objects, so allocations
- 	 * via kmem_cache_alloc_node() with a node specified other than
--	 * NUMA_NO_NODE will bypass them.
-+	 * NUMA_NO_NODE or the local node will bypass them. When the local node
-+	 * is specified, an object from the sheaves is used only if it is from
-+	 * that node.
- 	 *
- 	 * Bulk allocation and free operations also try to use the cpu sheaves
- 	 * and barn, but fallback to using slab pages directly.
-
--- 
-2.54.0
-
-
+Yes, and it should. This is a security issue for AF_XDP implementations
+supporting xdp.frags. :-(
