@@ -1,99 +1,107 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.175
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795625567;
-	b=VUpaVz58/DYTQk8Bh3AAa6TW4Oa2RFCjYmc6Dcm3ZrBDnMpe9dESgvYwghbIx62b0mQN
-	 GDeISUG38NBtDrNbvK2wRk1UZ5M9+KUFm57pu9yp67BY6RFMZfl/eDG37viJ/2ASlgUQV
-	 sMKvijNJqaQXhChusEnnfecoV/1+f04ZHk9RcGW3nHnGFm/zcy4qJYeyRiSWzz7aJaSl7
-	 0LLz8sUWer7vsXUeRcsGKFYrAJ0JuW2Sb0kvS+gS03iJU5Vp2F1kmrWn+X+McGuKVBYGX
-	 fpEbtw7bKzRx7U9shhch2emwHm2oS5Ic81JCVCr29DvFA+fpPs4GuWxSXVmA8T+RO/Q==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795625567;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=RtvJC4h8ugJIk49Jy7lU/lOFV/X8Ev1N/tXAk6wGQes=;
-	b=dVq2xhbW7iDVt43tDwPSMXgcu0jurSt+x1w8OSTKWBuzfIfTIz4dhdeKLjI8z3k7skBh
-	 kDm/7T0aA96WM2SmZ+dlJG9Sz0VU41iW+z33TIJmpXxeQZvfCxtNLv6YbRbmOspBguRaj
-	 Imub8zTSQ9sprf+nKDjYXJICWAOcYBS5nEx/l2ZbnIRUFKVAK1q9hQHlmkjQVfOlUBULt
-	 +YXNz6Y/A84jBo8CGgGtGM+DDRQtmktxzkko8+slXwdPT3v09FYPV2eESyjWJ21EgNaQG
-	 0196fjb1WySE5hGBwvrtIwMelp5eqR6rRuHkxGsqHIzQordVuC6IwbDEUXasaDGa7ig==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=dSvkLuHw;
-	arc=none smtp.remote-ip=74.125.82.175
-Received: from mail-dy1-f175.google.com (mail-dy1-f175.google.com [74.125.82.175])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.95.99
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795625569;
+	b=PRAvGZFK3jRKSPhYqk1Kbi6oVmdvFXu/d1UbnYI4rdwA34Jdij8wo8PrJVDS6JhxwIHw
+	 W0aG4kIceDXrbn8roeoG8YxYD1aiv3/n+2ZOe6B12/lu45ajqo0i8eG6KRfquBG3XGU95
+	 Vosop4k9QN60DTbP2sYtd7QjuKF/D45hv6fnL+Hdcp8/IREX59PZHI+ohwP6V9DBrm5L0
+	 JqmkaXZlJqjI1MhRuwSC4fjTQviAZYMrKLwU6Wy8dIvW8vfy1GrDJLbbnYAHuQ/ptMRp4
+	 3u5L8b/6B05gIj3d27H4oOtBCXT/f77/lRXva/1fDGdjLVSRQ3Xt5o7YJ+Zkhnqki6g==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795625569;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:Cc:Subject:
+	 From:To:X-Mailer:References:In-Reply-To:X-ClientProxiedBy:
+	 MIME-Version:X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=YlKLU0VlLoONcPrBYzI3MeVizQ+VpbPatQ1gnO2yy90=;
+	b=Qr0hBb1P7R7dvd8x+RrO7YS3vW0P1tHIaxf5WIPB2odVB7nlo89jlUQTjE8vu95FwFJP
+	 OCrUZc5Kwg8PZLDC3SgJCSs+9FqDq18b8fjypK+pfBkvtOdsfCEKp79PTikgfAvyvHrhl
+	 hQU2f11QM997tSXu9nrCK0UcrkzG/DhB0I5bd4SfEoBG+2+uVwQyD/btazSsJSUkMWu+8
+	 s37E8XtTr7Wfvx43UaSy9GNaTZD6Luiz6PSyRZO9lahHyxpiov49w5X3j38MLJg+FqwxU
+	 95OjB0qTd8nQuG20B+4BgKmMfjzZE5gQMXe+niJgdKSjzM4X2KTdZrreauslsLAIarw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=garyguo.net;
+	spf=pass smtp.mailfrom=garyguo.net;
+	dkim=pass header.d=garyguo.net header.i=@garyguo.net header.a=rsa-sha256 header.s=selector1 header.b=Y3MSIUBR;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.95.99
+Received: from LO2P265CU024.outbound.protection.outlook.com (mail-uksouthazon11021099.outbound.protection.outlook.com [52.101.95.99])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8C0F6606A321
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 16:52:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8C0F6606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4CE32606A33B;
+	Wed, 25 Nov 2026 16:52:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4CE32606A33B
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=garyguo.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=garyguo.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=dSvkLuHw
-Received: by mail-dy1-f175.google.com with SMTP id 5a478bee46e88-33fb4680717so450744eec.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:52:47 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795625567; x=1796230367; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=RtvJC4h8ugJIk49Jy7lU/lOFV/X8Ev1N/tXAk6wGQes=;
-        b=dSvkLuHwQED8ScQ7uYJMil0z8gxhN6SoUGNUQjFrvGT+GkagcVYpxH7hAoqLFKbvMj
-         REsZtteX5LvVGq/hoI4GcDg+ckR7jqF3sc+ASuUFt15f4EZ/WdZe/a37Vk7+59B9tZm9
-         X34HPEdM+V+mN1HMTbipN2RqhBzS59lZmrvqUeRRsQh19H9/Dmqr9UA1FOQjHEPBNUaU
-         k7Dvj9n/ivq7IJD7/+R18GCeKnI+DrMA1kSSSi+kiUBGwGOlHqvlJfS4HZqFZ83T4/JQ
-         WeW5dffjzql3IXGQLCbYOshoLijIrTVzQmpbvhD+E80N5fKryNKSnxPLG4X+BM94wi3R
-         /i9g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795625567; x=1796230367;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=RtvJC4h8ugJIk49Jy7lU/lOFV/X8Ev1N/tXAk6wGQes=;
-        b=u/hoPcdj5Ce3/O9Q+HJLMS/Td+et8tcepJbjN2HLnC38lXZ38x+HjUczrNHEt+WPAw
-         YZ642ry2c/Eaf8fzbPY5DiPi3piZeFHLWVKWhPyPyd43wz/zFxu9sP5JKCLpID/xmzzL
-         +sHj9HZec9j6PoH3h1bCnUHL3BirSpA+J27pNpxW7Y6Jsla5S7oVkzoA54M3EwU3j9iQ
-         K/0c3uS+S0Nc71ONqUQ6SVYL9qWFc1+CSx+eQDqTiAKxWHOtoIoDeSK5MeuaS9gQqtWD
-         Wlbj3gP1ODEFISujfGSFOqZtZwBpGioHLc5iybNYe9NRtQUfAzT+lZ13FM7JrWELCxmU
-         +8tg==
-X-Forwarded-Encrypted: i=1; AL+hErHYSSIczV3KR6oDhJrD9c51z7vfegDjwkszd/wvBjE3DgQ00NXkUy3y6IO53cpD7Q8R64f8L9LKUAhNCdY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+VE7sjsHrOsjiwY+6q1U/Nphx0hkvl+ttXtDVwc0vbX6oax0xC
-	Df8Ozq2+IBaAOebK7UXtRn6CJ8G4Qrcf+Wnu11iXlx5qRggKNN4mh9pG
-X-Gm-Gg: AZFdTZcf25SJ3yUNDzFX3qnXBvYImka2y4dHa/CMcg4ylleKm1xXBXOrXaRDM1PCOVX
-	NUq0BBZ3i3L1RhOsv5L1vRFq7SA1X7iun9wC/2UY882pfmfRbmod5JfR7i1cdwnSbGD6plM3ZDn
-	6EVOFegZ3VIQiCqSXMIAaSJDQckAQKzdSy8aIjiLAzksfEnwPjjQu0EV4DYa9/MIjhjSi5mmHa/
-	JbID7dskbjGjyN++TSrPafjehfr3JNV0AQ5tgcwtZpNzaOgNw166PAqkE3kF6rVu85eWWUDlBsg
-	Pjolhd6aGlgog5MfNJ+rVX/xM1vV7lL1RcOKHPfJBW17mjUSbuEZmeBO7x3Vc+QGHmnAlo+T5ES
-	5dAWivHzkaxwWaaI23Mh4zDteWXypzgvaCIABbme4n+z9QfNP/S9hrLEypH+OpF67h2qpKeDyXP
-	jK87Do35h0cS3QA9PVX3inAoRW/+Y1MyK3Lw4BoPLFuTYogxUbttShSTln913Vet3X75jUkFCF2
-	T0FfXM9Q6TuUCA8C/naVIhMNmefnZAmfAT6fZYVTU8W+5xNi8RbAS0LmWqo+1n2iJCXi5JRMj2Q
-	E7Id7iqYkNbJgbU31fqsm5aHln6KhsiK8Lg=
-X-Received: by 2002:a05:7301:a23:b0:386:9ad5:6641 with SMTP id 5a478bee46e88-3869ad56b0emr15566931eec.32.1795625566576;
-        Wed, 25 Nov 2026 08:52:46 -0800 (PST)
-Received: from pve-server.rlab ([49.205.216.49])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385646633d0sm98545358eec.3.2026.11.25.08.52.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 08:52:46 -0800 (PST)
-From: "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>
-To: linuxppc-dev@lists.ozlabs.org
-Cc: Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Venkat Rao Bagalkote <venkat88@linux.ibm.com>,
-	linux-kernel@vger.kernel.org,
-	chleroy@kernel.org,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Shrikanth Hegde <sshegde@linux.ibm.com>,
-	"Ritesh Harjani (IBM)" <ritesh.list@gmail.com>
-Subject: [PATCHv3 1/4] powerpc/execmem: Don't leave kprobes insn pages W+X when CONFIG_MODULES=n
-Date: Wed, 25 Nov 2026 22:22:30 +0530
-Message-Id: <5f5185b80df2a3a4e85ca711b5071096f36a7892.1795625038.git.ritesh.list@gmail.com>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <cover.1795625038.git.ritesh.list@gmail.com>
-References: <cover.1795625038.git.ritesh.list@gmail.com>
+	dkim=pass (1024-bit key, unprotected) header.d=garyguo.net header.i=@garyguo.net header.a=rsa-sha256 header.s=selector1 header.b=Y3MSIUBR
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=CcJ24QpLJU7dDOeARVF0iOIZbvjJv/hEPVG0wKho4rI/OzuF04GmEeYFePYsyJNSqdkPtjjFCM2MF4JoInwTD4ot3i/7yo2h7DWRzan9AErO0iuUGnB5diRsOnIjglgHqkawev665kzcxSNU3WfzhPQ2UyPxIz1GKj1A5gxg8T26bUPFDmXP3buFK7nIeSfYmCJOmBJhd3RxBu84bsEsfaHcpqe+d5noNhJRZoLQ9vHJGhqijG3Kec/OsSGL8oiPX3kPukwF4NgRcY+VFWVegwD996/w3ofe5uX13gHevgvvijD44SLi+PDXdIWGeqw5Z2gTxQXDHc46AIlskpZarg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=YlKLU0VlLoONcPrBYzI3MeVizQ+VpbPatQ1gnO2yy90=;
+ b=isxJrwXsN9CJfaIAxhPitpOGGS46kGoQVTVosk6XY/sFAvq3kG8YCOA7xseAz/a3cxD7nAy4VyAu/TIxDwf5m6YRgpTbluwuLOWFiBg0N8brjusyWVxka8wz1/oxlc0lMYn1DpzJfvQpdVDYHNdpfW/9p/pkMSNMvG8RrC0agKVEi+PhuR6PRvEHtUKn4TGdyvCshJeGh2LTDp/D1QG9HUFacdBm1smNY4WIKg4GiEcJp30sOGZU5U1dgI0Vp/gEz6nnHXqalAmsx8OgPXKlNoHlDOIzEA5bln1GYFBY6BGJMGqMeLgAgk3wRrVRvUjJsioPzZV3RSBEY+TQzGnFoA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=garyguo.net; dmarc=pass action=none header.from=garyguo.net;
+ dkim=pass header.d=garyguo.net; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=garyguo.net;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=YlKLU0VlLoONcPrBYzI3MeVizQ+VpbPatQ1gnO2yy90=;
+ b=Y3MSIUBRmxSvb4IHnX8xyk+pGjG9/k9cYBlmlKeJi7DbIvQCS87fIfTTnUwloYmpnfUXtwARz9rcvJ9ojbQC64ptx8RgPfxtST9D/zKfpmNJJU6OGioY6dxCw5I1dyJEV6F9L6SGNEN/fAjIvr9ORaTMNxb4EkiBUTyN8ilr8aM=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=garyguo.net;
+Received: from CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM (2603:10a6:400:1cb::9)
+ by CWLP265MB6198.GBRP265.PROD.OUTLOOK.COM (2603:10a6:400:184::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.7; Wed, 25 Nov
+ 2026 16:52:39 +0000
+Received: from CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
+ ([fe80::55f6:f98b:7fad:c6e3]) by CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
+ ([fe80::55f6:f98b:7fad:c6e3%2]) with mapi id 15.21.0662.004; Wed, 25 Nov 2026
+ 16:52:39 +0000
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 25 Nov 2026 16:52:38 +0000
+Message-Id: <DN4G4XXREV0V.23XPC66L6P5L3@garyguo.net>
+Cc: <linux-kernel@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
+ <rust-for-linux@vger.kernel.org>, <linux-media@vger.kernel.org>
+Subject: Re: [PATCH v2 07/10] rust: DmaFence: Replace is_signaled() with
+ status()
+From: "Gary Guo" <gary@garyguo.net>
+To: "Philipp Stanner" <phasta@kernel.org>, "Matthew Brost"
+ <matthew.brost@intel.com>, "Danilo Krummrich" <dakr@kernel.org>,
+ =?utf-8?q?Christian_K=C3=B6nig?= <ckoenig.leichtzumerken@gmail.com>, "Alice
+ Ryhl" <aliceryhl@google.com>, "David Airlie" <airlied@gmail.com>, "Simona
+ Vetter" <simona@ffwll.ch>, "Miguel Ojeda" <ojeda@kernel.org>, "Boqun Feng"
+ <boqun@kernel.org>, "Gary Guo" <gary@garyguo.net>,
+ =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, "Benno Lossin"
+ <lossin@kernel.org>, "Andreas Hindborg" <a.hindborg@kernel.org>, "Trevor
+ Gross" <tmgross@umich.edu>, "Daniel Almeida"
+ <daniel.almeida@collabora.com>, "Tamir Duberstein" <tamird@kernel.org>,
+ "Alexandre Courbot" <acourbot@nvidia.com>, =?utf-8?q?Onur_=C3=96zkan?=
+ <work@onurozkan.dev>, "Sumit Semwal" <sumit.semwal@linaro.org>, "Tvrtko
+ Ursulin" <tvrtko.ursulin@igalia.com>, "Paul E . McKenney"
+ <paulmck@kernel.org>
+X-Mailer: aerc 0.22.0
+References: <20261124122951.878199-2-phasta@kernel.org>
+ <20261124122951.878199-9-phasta@kernel.org>
+In-Reply-To: <20261124122951.878199-9-phasta@kernel.org>
+X-ClientProxiedBy: LO4P265CA0318.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:390::17) To CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:400:1cb::9)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,58 +111,206 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CWLP265MB6051:EE_|CWLP265MB6198:EE_
+X-MS-Office365-Filtering-Correlation-Id: 90a0ec6c-c28c-45db-032e-08df4b148408
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|1800799024|7416014|376014|23010399003|10070799003|366016|4143699003|22082099003|6133799003|261009223027099003|18002099003|3023799007|921020|10067099003|56012099006|261026140227099003|261026121527099003|261022105027099003|261021123027099003|261021121427099003|261028144727099003|261102123227099003;
+X-Microsoft-Antispam-Message-Info:
+	A5Pmiw3nfGgKBjsNIOyghU3DhzcKGFB6+PVeSwvk00iLv7fl47dgYiSXlgTfIADjtUYPZgjqM8b5yR04YktbWYMJtJoOEnTUttXwNutM2Ax03fEpOzUhISzq8qdfdAh2ANsqxSKwKqvjNQ+txXzaJDscEFlT9WJVsA9BTi5p71DDF/1CHYXaIx61AsTmze1zHkHruyOxi3Znw94zWV+R6mdSCJa1GymFozHzG0LurAO+2cPpdoyZETDgQz1wTAlBWdSxykpVFe10ROO3lMxvmhOnYL/HY89GK3sfu64q5tMe+IqMKqrV9GF5hz4Eij1Vzarq95LX6L/TcsKN44Sl0S4fUEhZREGZL6lWf8qfqMNF+d17qEek2dvYh7K2ddK0pht+Vho5oDn0PduLcR4QwGXPFy8DCfyGGb7YN5jmPzzy8sNqJTt9uJmXDceP2BAFgVcnsKwdgCV1jewx/hXlnTx+qtO8vCIRs31lQDktgXMu/vb+azs3FRy0xnPCy+ou3oyDZ8eQKl/CP6ouieb8Hs7LmyZA+TjuOXPmgg14nzyUKF1HAi2vHbnKjdKEpX1aOVTJPPszFESfHpPCvHkHOjXXqgwA35Idpdj/WoL3rtwEegvFMzY6QLeLhzOJLGT+NLntgt5RKKQNhx0X1T6XmuosIn1JzQAzM3+X/donIZbzl8987gxIMVGPVsMdyepccdUSBdh73BOH38+S2sWEYQ==
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(23010399003)(10070799003)(366016)(4143699003)(22082099003)(6133799003)(261009223027099003)(18002099003)(3023799007)(921020)(10067099003)(56012099006)(261026140227099003)(261026121527099003)(261022105027099003)(261021123027099003)(261021121427099003)(261028144727099003)(261102123227099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?eXVQRjBJZlMwOXlIeis5dWhqaGp0RjNqR2J3OUFmRlpoTXRYcy8yeDJzTU51?=
+ =?utf-8?B?US8yeEtSUVY0bzZ2VjlTeG5TV2VSK2FEM0o4NEVqOFhxeTRnWUt0TjhNeXN1?=
+ =?utf-8?B?QW1qRkxJbWZPak81NlNvNFdFOVRUVXY5ZzVub0xHK0xPYVFMVk9COERHbyth?=
+ =?utf-8?B?ZTR1R0tCc3Z4Slo5dGhiUlNrWEZYdlF1K1o4ZGh3Zm1CZXVUV1NudDhGc1pq?=
+ =?utf-8?B?empnTnpjNFZHcGR3Mk9DSDM2REhMZGo0NjljOGtGN2pqM3JEZ0JaRG9NQnh5?=
+ =?utf-8?B?YW1jejUwa3FFenM1cVRQWklRS0tzZVBZTnZJZXpCTE9CT1M4NVlkUlY2R0xH?=
+ =?utf-8?B?bjFkaFRzQjduaUNYOElXS3lja1dqcXBzNVhKanJpSTUxcFNjalBTc3c2YlhE?=
+ =?utf-8?B?QXdWVVIxMkdmYnNocnVYcXMyc28rajk1MWplWEZCa3o2akZVR2tueXQrNk5w?=
+ =?utf-8?B?cmNkTVpGc0ltdlRZN1lOdEF2N3JyWG5ZTm5YcWQzWGlBYzR0Ky9qRUcvcDQr?=
+ =?utf-8?B?a1dOcndiYkhaSkl2VDdtTnZoSmczMHlHYnFpSm5WVXo4MlZHSkNXYWR5LzRG?=
+ =?utf-8?B?MWg1Q0xtUCtiVlU3SVFoNmprSUs3M21EY2QzcW1OS2lGcCtodHEzdTdkQ0xn?=
+ =?utf-8?B?cUNud0g2WGthUWl6SUZxM0k1TEh1OEM3YWhYYmljUjhPSi9OWGFrNUpLU0Q1?=
+ =?utf-8?B?bi9ZVE03NnVQRk4xcThJc0ZyQXJERUpVN00wYWRZQStLbHg3UksyS3FHTExa?=
+ =?utf-8?B?dGlEMUplK2tlVDFXU0xRVlBYalBkdFBsZk95R2pmck9WQ1JGSmZ1UDNSUHdn?=
+ =?utf-8?B?bHBTS3RMRW93TEJLc3lhWFMydmE1VEhOK3QrbmoxUklhZUdaQ21pek9IN3Vq?=
+ =?utf-8?B?SDZ3NlEwS3cvaVM3SkEzdE1Hc1Vuei85aVJZdVFOaTZYVTRya21Mbm10YTc1?=
+ =?utf-8?B?cnVCNU5vZzkrWTFhcXI4enpvZFZMN3ZCaHNtK2RySnJqZXZKOE11dWNJbnZI?=
+ =?utf-8?B?b0p5VGtaSndMaEx5MzZPbHBRUFRvQXdzaGdtekUybExjalZPVlpEZUxwU2xT?=
+ =?utf-8?B?dTQxb3RnbDBtd1I4NElPSlFhT1dYOXVnbXRsMlVMWHRvUFVWczZoMDRqWHl3?=
+ =?utf-8?B?c2xMWVh2bnIxUTkwc1RqT1JzS2s1ZXM1VTBFWlpZNVpwZGh5bFpJM0ZwQjNh?=
+ =?utf-8?B?VWd6eW90K01DOXg4aVlkK004WWpSNW5JL21sVjZLRzZJWEhicm11ek5kNW9r?=
+ =?utf-8?B?aHN5ZG5YalhqMjZBeDQrQThKWldvd2J3cUtkTk4xZURMVTh4S1B5TTRvV29p?=
+ =?utf-8?B?VmVLMFFOVmVSVUFwQ2lzK0RCcWU4ZGV5bG54T3RxcUUrR2pIYjh1ejBOdzZi?=
+ =?utf-8?B?bG1LV090QVkvdjhYL1VLTnlkWUhzajdPU1RqNFdSUjlEekFsRzJFRGlxTzJj?=
+ =?utf-8?B?N3liUnZvWnI5L3NRSVdrSHBuZzlzZWRDblFHUW5STmlVQ0VrUlhJcHNSbWVx?=
+ =?utf-8?B?Y09rMTZwbDh1QmJmZHk5MTVwZ1Z0R1pjdm40ekNKNnhWWFBZMjJwTEFFak1L?=
+ =?utf-8?B?clRrbitBc29DQzRXZzFmOGNQZVNLd1BHYXFuRThpWlllSk01K3JaMTRSYkNz?=
+ =?utf-8?B?cmNHclY1ZW5UUGp3QkhKSjlEbnhHZnZYVlhMZ3R1Qm9rTEs4eWE5Q2FoS0JW?=
+ =?utf-8?B?bnM5d0pyZ0Y3dGd5L1NKd0gzTUFZT3dVRUM1ZXdQMTg2ekRlMER6UnFDbEpa?=
+ =?utf-8?B?Rzc2ZGxxMy9wYS81UVNxQmlyWTg4M29ybFcwc3Q1QW1UdFFrZ05LRVBGdWdy?=
+ =?utf-8?B?MFplQ0dZMU9LME9JK0VnaWlackYzK01XSlF2V2w4WjlmOHJMbFhFYUU4ZE9u?=
+ =?utf-8?B?Mnk1L2hmZlpieWtUNDdXa0tOMmRab3U0Z294bkIxS2FUWlk0MHgrR1NsUERE?=
+ =?utf-8?B?MXFGeUJwK2IrM09TUktWdDR3U25mTW5KVllETEtPTXBkNE42eWxDZE1aTVdn?=
+ =?utf-8?B?WW42NW96RndjTUpLU2lnNjBBWTRkdVBFT0pqUHZBU3REWWhFdzdDc0FHdmJz?=
+ =?utf-8?B?Y1VRSEE2UUJndnRaYW1Zd2NZMVIvQkFCaE5kQkxqYUNRU0NKa1IzT3pnd1B1?=
+ =?utf-8?B?M3ByZVVTUDZtdVlaSGVXRnJGb1lNcUMrQ0pwREVjVlFtSExzTG8ySGFMNG56?=
+ =?utf-8?B?NG9NYjVYR2hrMndXczM2VWhpbGFpcC9sQmoxT0swdDlyMVU4Q2xGZC90UE5H?=
+ =?utf-8?B?eDJZQmtVVnhzcTk1b2RQNnFMRHEvbTJNNjFhMkFNRWdGZ3lOWDdZNm9Fek9R?=
+ =?utf-8?B?VmZPRk1lSXM3Vm1XQit1NkRyRlUxOG1oa3R3STlLYmJDNGxzYi9ZUT09?=
+X-OriginatorOrg: garyguo.net
+X-MS-Exchange-CrossTenant-Network-Message-Id: 90a0ec6c-c28c-45db-032e-08df4b148408
+X-MS-Exchange-CrossTenant-AuthSource: CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 16:52:39.7471
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: bbc898ad-b10f-4e10-8552-d9377b823d45
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: tl67f788nFvyHf4vTK8f45XW4govf0CGGxZqQuJ3PQdnZHiLM4nopKc8KlAqJzz+xRHXROy8gXSsgjj/BuEM+w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CWLP265MB6198
 
-commit 2e83e2ce34ff ("arch, mm: promote DEBUG_WX to CHECK_WX"), made
-CHECK_WX default STRICT_KERNEL_RWX.
+On Tue Nov 24, 2026 at 12:29 PM GMT, Philipp Stanner wrote:
+> As it turns out, our dma_fence abstractions lack an essential feature; a
+> problem which is partially inherited from the C backend:
+>
+> Despite it being a common pattern in the kernel, you actually should not
+> just check whether a fence was signaled and call it a day - it is
+> important that you also check whether a fence was signaled *with an
+> error*.
+>
+> To make things more complicated, an error can get modified at any point
+> in time before a fence gets signaled. Thus, it must be ensured that the
+> signaled state is always evaluated before the error code.
+>
+> Since the fence status is essential information that must not be
+> ignored, replace Fence::is_signaled() with Fence::status(), making it
+> impossible to ignore the error code.
+>
+> Signed-off-by: Philipp Stanner <phasta@kernel.org>
+> ---
+>  rust/kernel/dma_buf/dma_fence.rs | 77 ++++++++++++++++++--------------
+>  rust/kernel/dma_buf/mod.rs       |  3 +-
+>  2 files changed, 46 insertions(+), 34 deletions(-)
+>
+> diff --git a/rust/kernel/dma_buf/dma_fence.rs b/rust/kernel/dma_buf/dma_f=
+ence.rs
+> index 20dadbde4eb9..09bebf9c1e4e 100644
+> --- a/rust/kernel/dma_buf/dma_fence.rs
+> +++ b/rust/kernel/dma_buf/dma_fence.rs
+> @@ -510,40 +510,44 @@ unsafe impl Send for Fence {}
+>  // SAFETY: Fences are literally designed to be shared between threads.
+>  unsafe impl Sync for Fence {}
+> =20
+> +/// Fence-Status queried through [`Fence::status()`].
+> +#[derive(Debug)]
+> +pub enum FenceStatus {
+> +    /// The fence is not yet signaled.
+> +    Unsignaled,
+> +    /// The fence is signaled. Might have been signaled with an error.
+> +    Signaled(Result),
+> +}
 
-Now on powerpc, when we boot with CONFIG_KPROBES=y and CONFIG_MODULES=n,
-we can see the following warning splat at boot:
+FWIW this is basically just `core::task::Poll<Result>`. A few benefits in u=
+sing
+it compared to define our own:
 
-    powerpc/mm: Found insecure W+X mapping at address 000000002ea08992/0xc008000000000000
-    WARNING: arch/powerpc/mm/ptdump/ptdump.c:194 at note_page+0x4dc/0x4fc, CPU#0: swapper/0/1
-    NIP [c0000000000ac204] note_page+0x4dc/0x4fc
-    LR [c0000000000ac200] note_page+0x4d8/0x4fc
-    Call Trace:
-     note_page+0x4d8/0x4fc (unreliable)
-     ptdump_pte_entry+0x70/0x94
-     walk_pte_range_inner+0x15c/0x260
-     walk_pgd_range+0x6d8/0xd5c
-     walk_page_range_debug+0xa4/0xf0
-     ptdump_walk_pgd+0xec/0x304
-     ptdump_check_wx+0xd8/0x154
-     kernel_init+0x94/0x26c
-     ret_from_kernel_user_thread+0x14/0x1c
-    Checked W+X mappings: FAILED, 1 W+X pages found
+- It has `is_pending()` and `is_ready()`. So `is_signaled()` user can be si=
+mply
+  converted to `.status().is_ready()`.
 
-This happens because CHECK_WX noted a writeable + executable mapping.
+- It has `map`/`map_ok` provided already.
 
-This happens because execmem_arch_setup(), checks for
-struct_modules_rwx_enabled(), while kprobes depenency on modules was earlier
-removed via commit 7582b7be16d0 ("kprobes: remove dependency on CONFIG_MODULES")
-Since the insn slots are only written with patch_instruction(), which does not
-need this mapping to be writable. This patch fixes it by checking for
-strict_kernel_rwx_enabled() instead.
+- It supports `?` operator, so you can transform `Poll<Result>` into `Poll<=
+()>`
+  while propagating the error.
 
-Fixes: 7582b7be16d0 ("kprobes: remove dependency on CONFIG_MODULES")
-Signed-off-by: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
----
- arch/powerpc/mm/mem.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Best,
+Gary
 
-diff --git a/arch/powerpc/mm/mem.c b/arch/powerpc/mm/mem.c
-index b617b69452cd..77b63b52d8f2 100644
---- a/arch/powerpc/mm/mem.c
-+++ b/arch/powerpc/mm/mem.c
-@@ -388,7 +388,7 @@ static void prealloc_execmem_pgtable(void) { }
-
- struct execmem_info __init *execmem_arch_setup(void)
- {
--	pgprot_t kprobes_prot = strict_module_rwx_enabled() ? PAGE_KERNEL_ROX : PAGE_KERNEL_EXEC;
-+	pgprot_t kprobes_prot = strict_kernel_rwx_enabled() ? PAGE_KERNEL_ROX : PAGE_KERNEL_EXEC;
- 	pgprot_t prot = strict_module_rwx_enabled() ? PAGE_KERNEL : PAGE_KERNEL_EXEC;
- 	unsigned long fallback_start = 0, fallback_end = 0;
- 	unsigned long start, end;
---
-2.39.5
+> +
+>  impl Fence {
+> -    /// Check whether the fence was signaled at the moment of the functi=
+on call.
+> +    /// Query a fence's error code and turn it into a [`Result`].
+>      ///
+> -    /// Note that this can return `true` for a [`Fence`] whose [`DriverF=
+ence`]
+> -    /// has not yet been dropped. The reason is that the fence ops callb=
+acks can
+> -    /// cause the fence to get signaled by the C backend.
+> -    #[inline]
+> -    pub fn is_signaled(&self) -> bool {
+> -        // We should not use `dma_fence_is_signaled_locked()` here, beca=
+use
+> -        // according to the C backend's recommendations, that function i=
+s
+> -        // problematic and we should avoid calling that function with a =
+lock
+> -        // held.
+> -
+> -        // SAFETY: Inner `fence` is valid because `self` is valid.
+> -        let ret =3D unsafe { bindings::dma_fence_is_signaled(self.as_raw=
+()) };
+> -
+> -        // To be as robust as possible for the future we guarantee that =
+an API
+> -        // caller can 100% rely on the signaling being completed (i.e., =
+all
+> -        // fence callbacks ran), so we have to take the lock.
+> -        //
+> -        // The reason is that the C dma_fence backend currently does not
+> -        // carefully synchronize the `dma_fence_is_signaled()` function =
+with the
+> -        // proper spinlock. This can lead to the function returning `tru=
+e` while
+> -        // fence callbacks are still being executed. This can be mitigat=
+ed by
+> -        // guarding the entire function with the spinlock.
+> -        //
+> -        // The fundamental reason is that the C backend currently does g=
+uard
+> -        // setting of the fence's signaled-bit with the fence's spinlock=
+, but
+> -        // reading is done locklessly.
+> -        //
+> -        // See commit c8a5d5ea3ba6a.
+> -        let _ =3D self.lock();
+> +    /// # Safety
+> +    ///
+> +    /// The caller must only call this on fences that are already signal=
+ed. It
+> +    /// must be ensured that this is ordered properly against checking o=
+f the
+> +    /// signaled status (fence->signaled bit).
+> +    unsafe fn __status(&self) -> Result {
+> +        // SAFETY: Safe by the function's safety requirements.
+> +        let res =3D unsafe { (*self.as_raw()).error };
+> +
+> +        to_result(res)
+> +    }
+> +
+> +    /// Query a fence's status at the moment of the function call.
+> +    ///
+> +    /// If it is signaled, return the fence's result, i.e., determine if=
+ it was
+> +    /// signaled with an error.
+> +    pub fn status(&self) -> FenceStatus {
+> +        // SAFETY: `self` is valid.
+> +        if unsafe { bindings::dma_fence_is_signaled(self.as_raw()) } {
+> +            // SAFETY: The fence is signaled. The C backend ensures orde=
+ring.
+> +            let status =3D unsafe { self.__status() };
+> +
+> +            return FenceStatus::Signaled(status);
+> +        }
+> =20
+> -        ret
+> +        FenceStatus::Unsignaled
+>      }
 
