@@ -1,84 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.72
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795629989;
-	b=sY81MHrdJ2UvspfO7Ov87nXCyqij0Y8KPpuF8neTi4gHZlyFuW1TpWbtuzsJzrAChCgy
-	 Y8ynoztbpkTcM8gkxHG3iV/tWjGOzB0YGiwz9/E/+sqH5kP4XQo+oDPvRs4pJkrNLbk+U
-	 YEXA9pxFgas/JH/LTaQr+i8FSjuRdt61BKQ5tceOEUMDmtcQF9cm8i7dqn+KA3H8PtiwR
-	 j7mWHLXU7PL8I53R13kHqRrL0SondzAI57LH3x0xd3/luuSZA1+LT5qvEhN7nT4aG0epp
-	 bzvOXjn6CBt20hM4YaYhztShyNYb3hmZPemBWHU3fs6M2mjW6Kw5lyry+fXnCqs+yGg==
+	t=1795629990;
+	b=Fe0W+1eDkak4HNncEnpNf3n4Mql7GytmQYkvK733J8SBn4a3lKoEbl+5L1MgRFeurulV
+	 Gkx0x06s/ap/9nbPkTX4HYVfHPyue9r47kOSW0EJUKRW9uJTpoQ6mZJ8u0oh7/Jx/TWbx
+	 XOkcOYgc27+3fLD+wAwETC63uelWj2mo5Ka3sXbmbmoAgZs2bioDDDjfaXHieG8Kao6a6
+	 53PbGMcvyxboe98aSVgDAiJ3MwsP+bdVeuknFqf2/Fvy2V/XsEyRNUIDaHEu9M7RJnPZT
+	 31zSbV1iS4EVU9jJPYHxRkOS0xMakkFqtYQFSwdlsz7a3gkYv2bzGKGpgPu7Tt4jayw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795629989;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=vwVW9YYt52UiA2UrUYRcnOGpfUWCz+wNtn31rCLdqFI=;
-	b=D5okhRcwNq3o7dTpVPl4NvFxYYajxXHcg2whabO01poH/piQo+FPs1QokaNGTTJFELQE
-	 G46qgurx3AFn14E+3Y9Toc3yWt8ruafb8J1v20yugvBuWEvnPgCkmWPo00vXXYJejly6A
-	 nJWCWtI4m+L33Fzi19m/XtB6fBQcFaD2tSFVQIBnggFc77u0pT6/KAqxT+hGv082h5xoT
-	 nsZycQUrwn+G0s+Omc7Px8b0f6eSBzrDJkFXvWzavKMaCebyIsB3+VBtUVP3H0hkcH7qG
-	 bq2PHsTBwQw89/4SF7lwZSTXlGYdj4g4/SfFdd6/1My1Bq5reHJ9Sno7cj9qm8SX7Qg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795629990;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
+	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=kB0v6EVehb/RoxPUQoMs0TMRRrXGkjijuKU6iXWhWvg=;
+	b=WkryK38VhGJmWkeJyjm8TVkwp9UWy9pkZydbvpOmhJYCNGU4kcLDX0FUkuKqqXqsIsZ7
+	 iagQsmB48A8GEvP2LYyHvFWVg/Aqjr4G/x2avC5j+WpfMaVQEMiedcQOPHXtGAsV7fWoI
+	 qWFMxJdAIb6NK935nzrfKx71YZu5p3cchCl3qRlTHX5VT4NYxscQI9tvafZ4lJrb7uz3I
+	 navTs5g/dFHSG05JCQd0c4HLjQ7NJ2jvVKHAhOvybab0O1UTzI3DK1LEaIBx+nx6wXjZ/
+	 oqpubs7Ew7J4jeVgMl9g6MJi3Pil4W3bIz/rSBmWDzx9nP3eWhO1hxvfgnP0KyJY/YQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dvLsqJg7;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--zyta.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=MZQyx7Aw;
+	arc=none smtp.remote-ip=209.85.218.72
+Received: from mail-ej1-f72.google.com (mail-ej1-f72.google.com [209.85.218.72])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 9AED5606A32C;
-	Wed, 25 Nov 2026 18:06:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E5588606A321
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:06:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E5588606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--zyta.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dvLsqJg7
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 7DF011F000D8;
-	Wed, 25 Nov 2026 18:06:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795629989;
-	bh=vwVW9YYt52UiA2UrUYRcnOGpfUWCz+wNtn31rCLdqFI=;
-	h=From:To:Cc:Subject:Date;
-	b=dvLsqJg73toqPo0JCwKO5eJMco5MqUX3xpeeKN1JNRHYm5qAoXjaNrEkqBYKxxpoW
-	 TwN9wfxMVbTQWwgny92HNmGs1UN3epIx8rSqPfxUOTutiuywAix/arXzHfTHbWIb0+
-	 MEBPc1JwFvirC0CwP9OpY59WXyOf/6KjBOgm+vB05WD2Wm60nfvp240y8EJzI/o2kP
-	 +6UONVFj8voG9q/lOVvpNVh2oUNALlb+Zls3I/eZhgSP8as407R/Wgk3BOpK3gqVPB
-	 4TLPncSNJFagiTT0LLYSashWMdkV4DjBOcWJ10PT6CWs3U7eXnySX1b+AFIMguI9rS
-	 hwduqdbq/R+Rg==
-From: Jarkko Sakkinen <jarkko@kernel.org>
-To: keyrings@vger.kernel.org
-Cc: Jarkko Sakkinen <jarkko@kernel.org>,
-	dm-devel@lists.linux.dev,
-	linux-crypto@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-integrity@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-security-module@vger.kernel.org,
-	Ahmad Fatoum <a.fatoum@pengutronix.de>,
-	Alasdair Kergon <agk@redhat.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Benjamin Marzinski <bmarzins@redhat.com>,
-	David Gstir <david@sigma-star.at>,
-	David Howells <dhowells@redhat.com>,
-	David Laight <david.laight.linux@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	David Woodhouse <dwmw2@infradead.org>,
-	Eric Biggers <ebiggers@kernel.org>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Ignat Korchagin <ignat@linux.win>,
-	James Bottomley <James.Bottomley@HansenPartnership.com>,
-	James Morris <jmorris@namei.org>,
-	James Prestwood <prestwoj@gmail.com>,
-	Jason Gunthorpe <jgg@ziepe.ca>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Lukas Wunner <lukas@wunner.de>,
-	Mike Snitzer <snitzer@kernel.org>,
-	Mikulas Patocka <mpatocka@redhat.com>,
-	Mimi Zohar <zohar@linux.ibm.com>,
-	Paul Moore <paul@paul-moore.com>,
-	Peter Huewe <peterhuewe@gmx.de>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	"Serge E. Hallyn" <serge@hallyn.com>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Sumit Garg <sumit.garg@kernel.org>
-Subject: [PATCH v3 0/9] KEYS: trusted: asymmetric keys
-Date: Wed, 25 Nov 2026 20:06:06 +0200
-Message-ID: <20261125180616.1854753-1-jarkko@kernel.org>
-X-Mailer: git-send-email 2.47.3
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=MZQyx7Aw
+Received: by mail-ej1-f72.google.com with SMTP id a640c23a62f3a-c40aa03ded8so595448766b.2
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:06:28 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795629987; x=1796234787; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=kB0v6EVehb/RoxPUQoMs0TMRRrXGkjijuKU6iXWhWvg=;
+        b=MZQyx7Aw1yftmiBWabC/QSynSQ2btqBm0v8OyNkHWZv64JqKf9W902SkZgzZN1biGm
+         YzGOPVSut6q/vnrFT8H+ZQcvx78qEUmNu7hePFQap3iEJJo8w/6LInFlTltPwevJQodc
+         HgcDVRskAbFEPeJcaxyYTEG77uYbhpfkNDYJJ2HyOH5B/dkpPFLGmWU567EsQj6TFjEY
+         xjM3dHS8OQyAsXbUIcl8ml8YIoTi0Xxf0lb/94JYTho4gohdAg2xkvnkXuU5qKrB9qI6
+         y4slDRjEkg9qr11Dd573ztnb+2D9jOLNNlbZZwccRdAzkimlXxVGvVlPNaNgFa7Ud3Sc
+         zdfQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795629987; x=1796234787;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=kB0v6EVehb/RoxPUQoMs0TMRRrXGkjijuKU6iXWhWvg=;
+        b=K/cKbyXxgATiQvh/1DABKbV/aZRKMTPGhrDfb8ceVFnaCraJX1TL8VOk/EXmt8XSjr
+         ap3d67aiHsVyWhJmMdfvxaz3L1VvNYL4FacxdokuoU3lO+BfRP8Y1/r5GMk0QKkjsCJv
+         O3UJU8nzqpVlSkqy76qes1U3Ic6G2C1b4Ign1YYDrHa1pY55B/SOikZoGPMrCyCt2kmt
+         fyzwFSivIeaKYWoel00rvaaS70l31qr63qFIQTrnrJNLl4XShV2D6vokMBX2uPyBSXL7
+         AaqLR0kWmyE5IZEiNPlic9o79V3ZaY//ksGEiqgOrusDf8cCv7YSEaMhyPz96rf167bf
+         7hqA==
+X-Forwarded-Encrypted: i=1; AL+hErFFuw4XM0Ffjo7jYclPLB/3UQZw4FZybbLxCNUZBBVbt1i8LWzV2gIwWqVl0anRf+fOknxSSS0xQm3upng=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9EjEvuxnsROwe7QO6VC9zsH0Usiu8HstD6ujayn5bv4Q4pzE9J
+	NXtFd/07UzcG0Mlz2GpOGkLyQnEzBxW/tL7281L8Xn6MF3VNeVPTw1WD/1A5GOTMeJSG9WoRrw=
+	=
+X-Received: from ejc14-n2.prod.google.com ([2002:a05:6938:a00e:20b0:c50:6127:2777])
+ (user=zyta job=prod-delivery.src-stubby-dispatcher) by 2002:a17:907:2da8:b0:c51:9abe:f3b4
+ with SMTP id a640c23a62f3a-c519abef596mr491882666b.6.1795629986942; Wed, 25
+ Nov 2026 10:06:26 -0800 (PST)
+Date: Wed, 25 Nov 2026 18:06:20 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -87,130 +75,53 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
+Message-ID: <20261125180620.578175-1-zyta@google.com>
+Subject: [PATCH] irqchip/mediatek: Add OF and HAS_IOMEM dependencies for MTK_IRQ
+From: Zyta Szpak <zyta@google.com>
+To: Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+	oe-kbuild-all@lists.linux.dev, Zyta Szpak <zyta@google.com>, 
+	kernel test robot <lkp@intel.com>
+Content-Type: text/plain; charset="UTF-8"
 
-OVERVIEW
-========
+Enabling COMPILE_TEST for CONFIG_MTK_IRQ allows building irq-mtk-cirq.c
+without CONFIG_OF enabled, which causes of_match_node() to expand to
+NULL and triggers a W=1 compiler warning:
 
-Extend TPM 2.0 trusted keys to load ASN.1 TPMKey [1] asymmetric keys
-(OID_TPMLoadableKey, 2.23.133.10.1.3) and expose keyctl pkey-operations
-directly on key_type_trusted. In addition there are some TPMKey
-interoperability fixes.
+  drivers/irqchip/irq-mtk-cirq.c:292:34: warning: unused variable 'mtk_cirq_of_match' [-Wunused-const-variable]
 
-I.e. this my old series with a twist: instead of introducing a separate
-subtype for asymmetric keys, factor out pkey-operations into a separate
-CONFIG_KEYCTL_PKEY-feature, and wire asymmetric operations to
-key_type_trusted.
+Both irq-mtk-sysirq and irq-mtk-cirq are Device Tree-only MMIO drivers
+using IRQCHIP_DECLARE() and of_iomap(), so building them without OF or
+HAS_IOMEM serves no purpose and can fail on !HAS_IOMEM configurations.
 
-This work was originally derived from [3] and is direct offspring of
-[2].
+Add explicit dependencies on OF and HAS_IOMEM to CONFIG_MTK_IRQ.
 
-[1] https://www.hansenpartnership.com/draft-bottomley-tpm2-keys.html
-[2] https://lore.kernel.org/linux-integrity/20240520184727.22038-1-jarkko@kernel.org/
-[3] https://lore.kernel.org/all/20200518172704.29608-1-prestwoj@gmail.com/
+Fixes: 702ae15488ce ("irqchip/mediatek: Add Kconfig option for MediaTek SYSIRQ and CIRQ")
+Reported-by: kernel test robot <lkp@intel.com>
+Closes: https://lore.kernel.org/oe-kbuild-all/20261117144350.wOuBa9ZW-lkp@intel.com/
+Signed-off-by: Zyta Szpak <zyta@google.com>
+---
+ drivers/irqchip/Kconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-CHANGES
-=======
+diff --git a/drivers/irqchip/Kconfig b/drivers/irqchip/Kconfig
+index 90daedb7554a..9e6658289ae0 100644
+--- a/drivers/irqchip/Kconfig
++++ b/drivers/irqchip/Kconfig
+@@ -795,6 +795,7 @@ config MST_IRQ
+ 
+ config MTK_IRQ
+ 	bool "MediaTek Interrupt Controller"
++	depends on OF && HAS_IOMEM
+ 	depends on ARCH_MEDIATEK || COMPILE_TEST
+ 	default ARCH_MEDIATEK
+ 	select IRQ_DOMAIN
 
-v3:
-- KEYS: Move CONFIG_KEYCTL_PKEY factoring to the beginning of the series
-  and make it an off-by-default prompt instead of selecting it from
-  CONFIG_ASYMMETRIC_KEY_TYPE.
-- trusted: Make CONFIG_TRUSTED_KEYS_ASYMMETRIC depend on
-  CONFIG_KEYCTL_PKEY instead of selecting it.
-- trusted: Use unsigned int instead of u16 for data_len and min_len in
-  tpm2_unseal_cmd().
-- asn1: The reason for not supporting implicit tags was that it follows
-  what other functions do in asn1_encoder.c, and is that way coherent.
-
-v2:
-- lib/asn1_encoder: Remove unreachable !bytes_len branch in
-  asn1_encode_integer_bytes().
-- tpm: Bounds-check ECC coordinates, defer state updates until after
-  validation, and verify subsequent TPM2_RH_NULL primaries against
-  chip->null_key_name in tpm2_parse_create_primary().
-- trusted: Reject trailing or truncated TPM2B bytes in tpm2_key_decode() so
-  tpm2_load_cmd() and tpm2_asym_load() pass the same blob length.
-- trusted: Avoid 32-bit param_size wraparound in tpm2_asym_rsa_decrypt()
-  and tpm2_asym_parse_signature().
-
-VERSIONS
-========
-
-v2: https://lore.kernel.org/keyrings/20261124194043.1651679-1-jarkko@kernel.org/
-v1: https://lore.kernel.org/keyrings/20261124120044.1481752-1-jarkko@kernel.org/
-
-Cc: dm-devel@lists.linux.dev
-Cc: keyrings@vger.kernel.org
-Cc: linux-crypto@vger.kernel.org
-Cc: linux-doc@vger.kernel.org
-Cc: linux-integrity@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-security-module@vger.kernel.org
-Cc: Ahmad Fatoum <a.fatoum@pengutronix.de>
-Cc: Alasdair Kergon <agk@redhat.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>
-Cc: Benjamin Marzinski <bmarzins@redhat.com>
-Cc: David Gstir <david@sigma-star.at>
-Cc: David Howells <dhowells@redhat.com>
-Cc: David Laight <david.laight.linux@gmail.com>
-Cc: "David S. Miller" <davem@davemloft.net>
-Cc: David Woodhouse <dwmw2@infradead.org>
-Cc: Eric Biggers <ebiggers@kernel.org>
-Cc: Herbert Xu <herbert@gondor.apana.org.au>
-Cc: Ignat Korchagin <ignat@linux.win>
-Cc: James Bottomley <James.Bottomley@HansenPartnership.com>
-Cc: James Morris <jmorris@namei.org>
-Cc: James Prestwood <prestwoj@gmail.com>
-Cc: Jarkko Sakkinen <jarkko@kernel.org>
-Cc: Jason Gunthorpe <jgg@ziepe.ca>
-Cc: Jonathan Corbet <corbet@lwn.net>
-Cc: Lukas Wunner <lukas@wunner.de>
-Cc: Mike Snitzer <snitzer@kernel.org>
-Cc: Mikulas Patocka <mpatocka@redhat.com>
-Cc: Mimi Zohar <zohar@linux.ibm.com>
-Cc: Paul Moore <paul@paul-moore.com>
-Cc: Peter Huewe <peterhuewe@gmx.de>
-Cc: Randy Dunlap <rdunlap@infradead.org>
-Cc: "Serge E. Hallyn" <serge@hallyn.com>
-Cc: Shuah Khan <skhan@linuxfoundation.org>
-Cc: Sumit Garg <sumit.garg@kernel.org>
-
-Jarkko Sakkinen (9):
-  KEYS: Factor out opt-in KEYCTL_PKEY
-  KEYS: trusted: Allow ASN.1 TPM2 sealed data shorter than MIN_KEY_SIZE
-  lib/asn1_encoder: Add asn1_encode_integer_bytes()
-  tpm: Export tpm2_create_primary()
-  tpm: Add persistent hierarchies to tpm2_create_primary()
-  KEYS: trusted: Extend TPMKey support
-  KEYS: trusted: Reject zero-length keys in symmetric consumers
-  KEYS: trusted: Factor out TPM2 blob loading
-  KEYS: trusted: Add asymmetric key support for TPM2
-
- .../security/keys/trusted-encrypted.rst       |   25 +-
- crypto/af_alg.c                               |    2 +
- drivers/char/tpm/Kconfig                      |    2 +-
- drivers/char/tpm/tpm2-sessions.c              |  239 +--
- drivers/md/dm-crypt.c                         |    2 +-
- include/keys/trusted-type.h                   |    5 +-
- include/keys/trusted_tpm.h                    |   16 +-
- include/linux/asn1_encoder.h                  |    3 +
- include/linux/tpm.h                           |    2 +
- include/linux/tpm_command.h                   |   13 +
- lib/asn1_encoder.c                            |   56 +
- security/keys/Kconfig                         |    9 +
- security/keys/Makefile                        |    2 +-
- .../keys/encrypted-keys/masterkey_trusted.c   |    5 +
- security/keys/internal.h                      |    2 +-
- security/keys/keyctl.c                        |    2 +-
- security/keys/trusted-keys/Kconfig            |   10 +
- security/keys/trusted-keys/tpm2key.asn1       |   19 +
- security/keys/trusted-keys/trusted_core.c     |   20 +-
- security/keys/trusted-keys/trusted_tpm1.c     |   26 +
- security/keys/trusted-keys/trusted_tpm2.c     | 1341 +++++++++++++++--
- 21 files changed, 1591 insertions(+), 210 deletions(-)
-
---
-2.47.3
+base-commit: aab02e49f0b54a0837e58c67651c4abdad1a3208
+-- 
+2.56.1.839.g22a8290db9-goog
 
