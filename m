@@ -1,82 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.9
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795575019;
-	b=RQGNNk2rZHMv68uuW5m5YRHzkCcsKneP0FXqSCUB3I9RiHL+WBfwQOUVqquJ6TyMpZ7j
-	 xV17nJ3QQ19rAE/qrVk7BQ3mWd/JhID2cwPqr//hUZftVovlgOMdmh0STcG8gsVuvHT/x
-	 /LodffQVV0tLXDr/qF8ySanoFISwW4hcNv2f/cKo3/+/o/w4I77bmnAQC497jNnq5ANLc
-	 GOO7EsAzXnxHgKezdCxCmX0l1zOYVUEoS3F6/rkCsahSoPK9/XC3ckzQOHxhqlWjB7wLg
-	 8X2bW7WnRG6budCG4NYxFk8Vak3uS0MJaQLdnZqNjv8QsNggI5cEkz2PYTcpG5+fzxA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795575019;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
-	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=hjTsEiHsB3scrTtDDV5jrh4xR7hyZtuQPmXQXJ4G5oA=;
-	b=o7gf6AXiI5IH7UkVZMkv2Glhpq1xjG+rB5lF42iefZ8fjBsu5PtBBz2BeGr+Vj1ydPMJ
-	 spgzMCEtOFoHDKtTdVD0JzdF6HKdM2QG7jkEVYaqP1tiLG1LxV5XsjcIDabmZIblV/brP
-	 sG7j6PwiE2Ha9hESSTop48DAkSi3xA2tSkitEgPtbL+uvA3vlO6Hksk55o21Us96Cn771
-	 C6OYLIyEgm4WICIyWqYVLtS87oS3lXeAiYl3k5/XDWMChNQkChXXIMlMRYETlCYKdm1ju
-	 qWOWug8kGBunYw3b2orVrTOovdR8mlioBMryhqC+awzd3gFTvU6ogw6mdyjVe9sENfg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=YqFq14zg;
-	arc=none smtp.remote-ip=198.175.65.9
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.9])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.196.33
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795575203;
+	b=RgtrNbzpCiKlQqBWLh+tLhnBKhMY09sFxuOqP8P1vLleV3PywhZpUCbYvuy5k8XPWv77
+	 cvMdOKPGfogZxbe/ZbPwnYXfXCPalMEu34Dr5yhbJLmnv1duwJUTUSPDjM4jtdMyIbJUo
+	 jkNdVxTSJYBrbWSoQXbxWvrvlNlbtAf6m65ZGV595c5hzJfVfHa0ETECayiO+ywubjET1
+	 qzZuaBrj61bwwKQnNOrRAVFV1cUTxTY/2LkS4dXskiNIz/ZcB4kZ8uaRfa8DdEz7v9xls
+	 OQDyYN83D9Xx5LGs9nuZsoyd8WtXbA4gUm1s/h25KkaEXQr3hsfQxJ5GZHbVgn02A6Q==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795575203;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 Received:Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:
+	 CC:References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-EOPAttributedMessage:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=vFS7QdjO5puzwlMacPQMPoCGHdlUW85ljlY+eoSO6w4=;
+	b=q4o0U5X+u+3StoLISRBAglTZOKUMLerpW+eIxmZGoUsPJ7fgAO+xc7PZi3yF9XeoJxxe
+	 lPgOnOJonpenlCWV4cwkfAfCskunaOAbhJmF404wWeK61/QaJSul1BYHCDQeR4j0NWiUT
+	 baHl6DoSowz72OB2trFU6h2hInOTCGGBnP3xsnEnn1DL6RlRH9Ulvl8VSB0A+zM8nOnj/
+	 8+o+WpvxbaKINshOHKbTJRiJawTPpkwMqwpvdDP9LG6portGy8VpYoUq34m+WsjKsWinv
+	 Sm3oIdOoRTuwqatJOEYUD0Z9bl5FYvW8UhluihAGoY5JJZSHZj6JcvF+UlkooZ/mCcw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=amd.com;
+	spf=fail smtp.mailfrom=amd.com;
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=jsXy2fs2;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.196.33
+Received: from SA9PR02CU001.outbound.protection.outlook.com (mail-southcentralusazon11013033.outbound.protection.outlook.com [40.93.196.33])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 129FD606A69C;
-	Wed, 25 Nov 2026 02:50:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 129FD606A69C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BEEA3606A31E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 02:53:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BEEA3606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=YqFq14zg
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795575019; x=1827111019;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=FMJRwqJHxhDPXVt+DDIaX5xHOfNnwmDVihBZyK76jyw=;
-  b=YqFq14zgaQoW6sdIxFjmKVUmQswP7w+TU8pTEbz3pZhnes5nPpCXmeR3
-   pcErAriQhH/ZFTUq7iNqtGQzKLjiWgxjJNN+CYTT4RzLi12tKQigk8Xpr
-   0WeY4dLoOOPNh5Bf/apH9xSdy2umM2tBL+Lfr5CV3gxl1bPyrdOVl28Y2
-   95qVxPVMSrxfAz5vqpTtzntXZtu5CZWVJk6wgOFmBzJdp0tPunAxFB8uv
-   dszJb4UeKCo8ZYHU6/0WvSTn7IAXDo8DTFn76a1EJOrxNyOMyx4DhPJff
-   TSvhqNuyZvdS4kMB177DwZBX0GyxJuir1U7ouIr3NDc5o9tDDtLQSvaMQ
-   w==;
-X-CSE-ConnectionGUID: 37lm8xUBRpuuj/ice43MqA==
-X-CSE-MsgGUID: r3QSZk2wS86oRl4Zmhloig==
-X-IronPort-AV: E=McAfee;i="6800,10657,11976"; a="4312484"
-X-IronPort-AV: E=Sophos;i="6.27,232,1787036400"; 
-   d="scan'208";a="4312484"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 18:50:18 -0800
-X-CSE-ConnectionGUID: LGuQYm+xS0WWm+/cuAibYA==
-X-CSE-MsgGUID: BbyHB66dR1+vA+YgeLPFng==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,232,1787036400"; 
-   d="scan'208";a="11851290"
-Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
-  by orviesa001.jf.intel.com with ESMTP; 24 Nov 2026 18:50:16 -0800
-Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1xW35I-00000001Qio-3vrh;
-	Wed, 25 Nov 2026 02:50:12 +0000
-Date: Wed, 25 Nov 2026 10:49:39 +0800
-From: kernel test robot <lkp@intel.com>
-To: Casey Schaufler <casey@schaufler-ca.com>, paul@paul-moore.com,
-	linux-security-module@vger.kernel.org
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	linux-kernel@vger.kernel.org, jmorris@namei.org, serge@hallyn.com,
-	keescook@chromium.org, john.johansen@canonical.com,
-	penguin-kernel@i-love.sakura.ne.jp, stephen.smalley.work@gmail.com,
-	selinux@vger.kernel.org
-Subject: Re: [PATCH 1/1] LSM: infrastructure management of mount options
-Message-ID: <20261125104210.ICeMgnNL-lkp@intel.com>
-References: <20261124181522.30415-2-casey@schaufler-ca.com>
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=jsXy2fs2
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=yR21K15wQQWQCCPdVSrk092Uz2SKFI+dKw3OP20z3r5ByF3TZYug2ROe7qDaMAVOKxR/R76Xfz8SndVjLSjJw4ACcFfS57C2ziN0HrcJ27nTllc9CTfrJLWZqoSI7d2dMvqZvQeMnItKs6FQTjrsbEQBzRwO2DecoWuF95taWXCrEgnzfzK/u36aGjQ6JdztUZbKaawB68M6swuZvXx7WujXsFZbu6cE9m7PjXHnb5uk/m6cbNQ8tBG72bRbE65saVEz/4aaRWAOmg7kRunaEr1n/EQ2QQI+utsjbTlNQG0BPEgJVltq9GCtuyBBzcrzxZygAIkftu+8k1lVpg0H0A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=vFS7QdjO5puzwlMacPQMPoCGHdlUW85ljlY+eoSO6w4=;
+ b=ls8UqMeRHmtJUCkQaFaFcJ6b/HB4YGF/mn3WMzEgfLEq+/Zg2TD1LfKUGXjv81uy6OY4VuZ5nqO6LWvA+IKU5yx4/BG3Qy8jzvqw7Ylw3oCB5Oa1Jnbi18s9PosDSh6ydI90MB8F8DBj5/EUAwcTYtkjlNRVMR6PBWnUufp+WnKrI/JW/DhNMZuImcQ/gOo9OwbUnRUaIg38xJNUvJX6JBClTx9fPZvzaeY+C3MJxCjmcvZGomWowkAmoNQqcmOkRDFQPtDAh17YSFD4dx1rT8+TEebq/yFyMZCWs2f+4vqpNe1K/T3C9hQ3UwtJu557R9aRId9tfjz/oEYV0bQMQw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=nvidia.com smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=vFS7QdjO5puzwlMacPQMPoCGHdlUW85ljlY+eoSO6w4=;
+ b=jsXy2fs2Kz/sc0pSKt9CITLrzf0ldBKiA6QiNqXk8ipEsGHTwU91zXEz4qYDg33tQnW5rl5ipAgqA0itRXyIEAIDbfhGIOh1xYL1iDGg+vhw1m40VHN0IrWVPLV3H0jeYCwHspPSYuZGPYkmj2qVtcxe6wSVuCLy/5F6S01fi/s=
+Received: from CH2PR14CA0052.namprd14.prod.outlook.com (2603:10b6:610:56::32)
+ by PH7PR12MB8153.namprd12.prod.outlook.com (2603:10b6:510:2b0::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Wed, 25 Nov
+ 2026 02:53:16 +0000
+Received: from CH01EPF000BE949.namprd02.prod.outlook.com
+ (2603:10b6:610:56:cafe::2e) by CH2PR14CA0052.outlook.office365.com
+ (2603:10b6:610:56::32) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.5 via Frontend Transport; Wed, 25
+ Nov 2026 02:53:15 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
+Received: from satlexmb08.amd.com (165.204.84.17) by
+ CH01EPF000BE949.mail.protection.outlook.com (10.167.244.197) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.662.3 via Frontend Transport; Wed, 25 Nov 2026 02:53:15 +0000
+Received: from satlexmb10.amd.com (10.181.42.219) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Tue, 24 Nov
+ 2026 20:53:15 -0600
+Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb10.amd.com
+ (10.181.42.219) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Tue, 24 Nov
+ 2026 20:53:14 -0600
+Received: from [10.136.45.121] (10.180.168.240) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.57 via Frontend
+ Transport; Tue, 24 Nov 2026 20:53:11 -0600
+Message-ID: <ce38fb8b-94d7-48ba-93bb-3b72cfcb3e61@amd.com>
+Date: Wed, 25 Nov 2026 08:23:10 +0530
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,88 +105,104 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261124181522.30415-2-casey@schaufler-ca.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [REGRESSION] sched/fair: SIS_UTIL limit in select_idle_capacity()
+ leaves busy tasks on little CPUs while big CPUs are idle
+To: Andrea Righi <arighi@nvidia.com>, James Buck <jbuck2005.linux@outlook.com>
+CC: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>, Juri Lelli
+	<juri.lelli@redhat.com>, Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Valentin Schneider <vschneid@redhat.com>, Usama Arif <usama.arif@linux.dev>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"regressions@lists.linux.dev" <regressions@lists.linux.dev>
+References: <CY5P221MB09262B7D6A68954CC1B3199FBD442@CY5P221MB0926.NAMP221.PROD.OUTLOOK.COM>
+ <awWOCejxtjP12xFX@gpd4>
+Content-Language: en-US
+From: K Prateek Nayak <kprateek.nayak@amd.com>
+In-Reply-To: <awWOCejxtjP12xFX@gpd4>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH01EPF000BE949:EE_|PH7PR12MB8153:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3b8d1c46-dc6e-4c41-bcf4-08df4a9f4097
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|1800799024|82310400026|376014|7416014|36860700016|32650700020|23010399003|22082099003|18002099003|13003099007|261026121527099003|261026140227099003|261028144727099003|261021121427099003|261102123227099003|56012099006|261022105027099003|4143699003|10067099003|11063799006;
+X-Microsoft-Antispam-Message-Info:
+	34tXHzcC/rhONzUBdHlx9caVahM0FzCJ9Qq/Lxq24Bzgenxa2hx3xxrmv/VXXljyON2QSJCAg9PS7DnQd5KaBcY2MULnwRYJxl6bErFpmTNNSg82mEtSoUb3qMPp7I4w0aqxjhzLy65jpefCz1e6fD/9HIDxzu41K5iHix1WT/FWMbQD1IKCBh/KcQlsiYBi0J0lHDHpW6/biNEa7Sprz8uf8pTyqbZvWRVYyzxPyWjhYw5aCa5Y4+LypoZMpS2vL8ARYNmd/iLziXXu11H/eyFjZEe6q9Axz9pbq7S30ZifbJEU1rzyY2J9LkpBh7ixJLG2EAMcOkS67hcI7EqI1xTplKhp+om7CbAtFvGnxPLPDha2931kIJ/ghBdH+QVv9Z9x2Fwkc34itI/y0SvYZg77XGQFZCHqKT4MiWUz6hyDEXvxeSWdSqgGjxL8h1ADtF6dTwZSdfs24crvPQhZEdJrhr+NMwPHV4rcGUGPGcaZZNdmZQnfK9EtuoK+cMiD25vdUtSBAVYEfz9bEk2U1+8VBmAV99i40BMg3iidC5RgU/DmE6bQ0/xQYekz93aKXSVpaUpgE37JV2CopUJBlyX04hClygYaKjOmy/cw2574VW3Jj6Y0Jh4gE2U8Jbio9yhFdWeQ8c1T0/GjOatG7ntg5ZIQ3Hdxza2TzUeE7Dk=
+X-Forefront-Antispam-Report:
+	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(376014)(7416014)(36860700016)(32650700020)(23010399003)(22082099003)(18002099003)(13003099007)(261026121527099003)(261026140227099003)(261028144727099003)(261021121427099003)(261102123227099003)(56012099006)(261022105027099003)(4143699003)(10067099003)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	9wj5x8WiGVl79bsAM9yNtiGePjdic1h2vQrjCLwdzc6aELAO2DabVj42QXXBXUZrWbZ/zU7gUnnNvytWZgNGyEhUXogOBkC//7YXO/8XShXkJtv7uyCFtaglOIanGnYQU7C2waiyeO202rzpeowSdkeA98GNwoIrCDJZPDfsd+ZmFQkKlt9s3KD1wSglrBhRmRChqQo+MEw4VmAqFGa/ELPU5izuGFZbmIwQKU0zn7Bif+QfxcGNE6AphAy/P60MYh1F8YUALr2TQW0mxdMKzso2e+yrblytvGFtNeVYPEAg0MGx4CVR55LQmm6yoXplBc24PrXU+dnHUx16thYDEUQJejDcsUh43ehhbQGGLs7C6morEKatbFBMksYT9Y9sOsAtxeiBYFoBE6Oat5O7yZMMhPYTA0NiWmu9BoVQcFVGNmzNrnLcDIzchCYsqSNZ
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 02:53:15.3284
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3b8d1c46-dc6e-4c41-bcf4-08df4a9f4097
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	CH01EPF000BE949.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB8153
 
-Hi Casey,
+Hello Andrea,
 
-kernel test robot noticed the following build warnings:
+On 11/24/2026 6:45 PM, Andrea Righi wrote:
+> Hi James,
+> 
+> On Tue, Nov 24, 2026 at 11:56:52AM +0000, James Buck wrote:
+>> Hi,
+>>
+>> Since commit 61ea17a63719 ("sched/fair: Add SIS_UTIL support to select_idle_capacity()"), first in v7.2, CPU-bound multi-threaded work on my big.LITTLE arm64 board runs 12-19% slower than on v7.1 and earlier, because waking threads are placed on idle little CPUs while idle big CPUs are never looked at.
+>>
+>> Turning SIS_UTIL off at runtime restores the old speed. select_idle_capacity() and update_idle_cpu_scan() are unchanged in v7.4-rc4, so I expect mainline to behave the same.
+> 
+> A related regression from the same commit was reported by Usama here:
+> https://lore.kernel.org/r/20261113153157.2495664-1-usama.arif@linux.dev/
+> 
+> On Grace, a zero SIS_UTIL budget skips the search despite suitable CPUs
+> being idle. Your case shows that a nonzero budget can stop the scan
+> before reaching an idle big CPU.
+> 
+> We've discussed a minimum scan budget and accounting for idle CPU
+> availability, though a small minimum alone may not fix your case.
 
-[auto build test WARNING on pcmoore-selinux/next]
-[also build test WARNING on linus/master v7.4-rc4 next-20261124]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+This had problems in the past when Chenyu was iterating on SIS_UTIL
+where the search opportunity at higher utilization is actually very
+low and cutting off search for !idle core was beneficial for SMT
+systems.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Casey-Schaufler/LSM-infrastructure-management-of-mount-options/20261124-101522
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/pcmoore/selinux.git next
-patch link:    https://lore.kernel.org/r/20261124181522.30415-2-casey%40schaufler-ca.com
-patch subject: [PATCH 1/1] LSM: infrastructure management of mount options
-config: loongarch-defconfig (https://download.01.org/0day-ci/archive/20261125/20261125104210.ICeMgnNL-lkp@intel.com/config)
-compiler: clang version 24.0.0git (https://github.com/llvm/llvm-project 2012344e5da8e03ea4b8283ecd6fad6e13f09d64)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261125/20261125104210.ICeMgnNL-lkp@intel.com/reproduce)
+Now, for systems without SMT, it has its benefits too but a system
+without SMT should be equivalent to a SMT one where test_idle_core()
+returns true always if an idle CPU is present.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/20261125104210.ICeMgnNL-lkp@intel.com/
+So I'm wondering if {set,test}_idle_cores() can be extended !SMT
+to act like a gating indicator to say if an idle core exists or
+not much like how !get_rd_overloaded(this_rq->rd) serves as a
+gate for newidle balance - it can be flipped to true when a CPU
+goes idle or if load balancer sees an idle CPU. Thoughts?
+ 
+> Given both reports, reverting the commit seems the safest thing to do
+> for now. That would restore the previous asym search behavior and we can
+> revisit a better consistent strategy to cover both sym and asym CPU
+> selection later.
+> 
+> Prateek, Vincent, what do you think?
 
-All warnings (new ones prefixed by >>):
+IMO it still makes sense for SMT systems since capacity on systems
+with SMT only makes sense if the entire core is idle and then it is
+just a best effort thing right?
 
->> security/selinux/hooks.c:2887:6: warning: variable 'opts' is used uninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]
-    2887 |         if (!fc->security) {
-         |             ^~~~~~~~~~~~~
-   security/selinux/hooks.c:2903:2: note: uninitialized use occurs here
-    2903 |         opts->initialized = true;
-         |         ^~~~
-   security/selinux/hooks.c:2887:2: note: remove the 'if' if its condition is always true
-    2887 |         if (!fc->security) {
-         |         ^~~~~~~~~~~~~~~~~~
-   security/selinux/hooks.c:2878:31: note: initialize the variable 'opts' to silence this warning
-    2878 |         struct selinux_mnt_opts *opts;
-         |                                      ^
-         |                                       = NULL
-   1 warning generated.
-
-
-vim +2887 security/selinux/hooks.c
-
-  2873	
-  2874	static int selinux_fs_context_submount(struct fs_context *fc,
-  2875					   struct super_block *reference)
-  2876	{
-  2877		const struct superblock_security_struct *sbsec = selinux_superblock(reference);
-  2878		struct selinux_mnt_opts *opts;
-  2879	
-  2880		/*
-  2881		 * Ensure that fc->security remains NULL when no options are set
-  2882		 * as expected by selinux_set_mnt_opts().
-  2883		 */
-  2884		if (!(sbsec->flags & (FSCONTEXT_MNT|CONTEXT_MNT|DEFCONTEXT_MNT)))
-  2885			return 0;
-  2886	
-> 2887		if (!fc->security) {
-  2888			int rc;
-  2889	
-  2890			rc = lsm_mnt_opts_alloc(&fc->security);
-  2891			if (rc)
-  2892				return rc;
-  2893			opts = selinux_mnt_opts(fc->security);
-  2894			opts->initialized = true;
-  2895		}
-  2896	
-  2897		if (sbsec->flags & FSCONTEXT_MNT)
-  2898			opts->fscontext_sid = sbsec->sid;
-  2899		if (sbsec->flags & CONTEXT_MNT)
-  2900			opts->context_sid = sbsec->mntpoint_sid;
-  2901		if (sbsec->flags & DEFCONTEXT_MNT)
-  2902			opts->defcontext_sid = sbsec->def_sid;
-  2903		opts->initialized = true;
-  2904		return 0;
-  2905	}
-  2906	
+set_idle_cores(), would flip the flag as soon as an idle core is
+available and after that SIS_UTIL is bypassed. I don't think the
+SIS_UTIL cut-off for non-SMT ASYM_CAPACITY systems makes that much
+sense given misfit penalty is much higher.
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Thanks and Regards,
+Prateek
+
