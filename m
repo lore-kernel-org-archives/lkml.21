@@ -1,88 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.49
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795619789;
-	b=A6Igm/C3RpSDCzlCyKZU9K2KW7yGyS6qXHMzZKfxv91kjr1xyap10YkNBy43Foizu6zk
-	 EgMQnPAzByg5RcyBpZMKARMSuBVkZwx6qMcH0J5KynJA+ouvg/AhSjpy+cOZ46ct1l5Wr
-	 YzWfVEkPzJt3vLAZe5A+33CGuquLLPQgzkaiF8HIWH0XZXyaRh2ph7Fl8ClRxmzccZBAn
-	 pIZY/KZ11EyYKy2gRjMHmcroHWdmL6IBirs2/glg/+2Px+DNr/Y8+Zl9Dcn2IvQMcdmYW
-	 /YWIln8Ytza2PV2PDCxIGcJhLwamGAQho7vzWg+astSuydZ0juyfm6QvjHHCkng+kyw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795619789;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=fZhnpMGuy8q+jXTQK/RAHc/+Uuj/d7tbWlMf2HdxJHU=;
-	b=jWJ3Dpna2xKhmaNq250UVE9JEstVewVlDv+wzIsgCoBA0IbIrjz3VwTluH55LAbUHZ7y
-	 yfGkIzB++6mtxqzB3gLdp9PIraoWtj1UzWdTMUHEAHe2ZjXOE16X5xI/9H6arWcWS++PH
-	 nl7/9D3qRn8dBuGz98Q1jN6LW1NeJAk90Ay/edjjTvF+6PPKyQ8LRCVmN96IrBHcRAxOB
-	 BrzwzUueY73wZJJ9T8U/CH1XOfBmfzYhHApCG2D3Ergk5QDrNY5n8COkg+h3Qyf5cOFjR
-	 ec6ZfC1+5O6Pt9CtT9qAtktHbnsjoTKtnoDSUgXHcox+j8FIhhL427EUNIlGXigUigA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RHwphIVO;
-	arc=none smtp.remote-ip=209.85.218.49
-Received: from mail-ej1-f49.google.com (mail-ej1-f49.google.com [209.85.218.49])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.66.93
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795619821;
+	b=QK4bJGzcAsIbv3LEwxw72/hqOPmreHOPQOhQeGYC0ezycokbusYYfIWlJDFMfPYultU5
+	 c3gv1u1kuIwqkwcCIsydtE+z9GGctyU/Fdcw6ugL9nytUhaXUtD4NZ3ihj57ULt3RY49l
+	 nTKrPDQe6etuTzBGNvG1Tu8MS4tz1KFz+Cdn2I15GtAckLXqBcBFpsjmDXbL7TvUmpg/I
+	 Q5dQcKWKrOBsy3VEstG9QYASe66DTzuQFDs2kKO6La3c+5FFz+vY1J4wllRzpTWrsY09r
+	 /OqVlcKVEE30D0d8ZtzEbv4PdS7wziwk/6L+5GVJtU/dmVTzVtpYWW32QgO5ca40T2A==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795619821;
+	h=DMARC-Filter:Received:Received:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:Content-Transfer-Encoding:Content-Type:X-ClientProxiedBy:
+	 MIME-Version:X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=uZG1s0368q8UN44TW+17aousOwlOrZDCKGkefaog9iM=;
+	b=CHoLtW5cYS690k8MQx2xOZD4S3j3n7bEw+Hw5LOTrcRb/kQjcrUNi/jcqys2LxJBwsRs
+	 EQRpcORZh1EtU8l773dmJwRK7nhz8alUYLYVzb2TgZtQuWo7mgVFywuHCV2s+eg0LERaT
+	 EcDlbsm5IkrOlcQ2PI9LuYE8mVTfGeNAffnnq7wQlfeplRSlDu5RGfr/PCafHK+kKgAFu
+	 USFffpdaH3RVMIdXcFnw9l3uzpzZ5+ImkAbST6tpfIcajSAApIoAdVwxnl7Slpu771rZP
+	 dTV7kyDZG/vnow+dsM5a0A6d2kKk5Xrvq/4ml4ZVn4JduwNoeUI/jEP8jtwe/WmqF7g==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=cyber.gent;
+	spf=pass smtp.mailfrom=cyber.gent;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.66.93
+Received: from DUZPR83CU001.outbound.protection.outlook.com (mail-northeuropeazon11022093.outbound.protection.outlook.com [52.101.66.93])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 064A6606A31E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:16:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 064A6606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RHwphIVO
-Received: by mail-ej1-f49.google.com with SMTP id a640c23a62f3a-c5188e4980fso101028266b.2
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 07:16:28 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795619787; x=1796224587; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=fZhnpMGuy8q+jXTQK/RAHc/+Uuj/d7tbWlMf2HdxJHU=;
-        b=RHwphIVOhqawxkHBNyWJGoTHoIONjZw5hdSAz7G6eZpZxXYutLRqFVyHNPqp2DVpKp
-         Vzql0LSSc14wBe/3iQ8C5qavy0zPHQmEJTHMUlNB6Kq4by58yqRIFqKJAULrdtW2oObw
-         UyGWoAUb9M33dFb/sKbWkRyC/hBX7EUKe2f/RQ1QJaPMWd4NbckoW4P263kzgPAX954R
-         oc4glW1QnHwsJ7eXrhGm7qzd8FztHw6IcH2MmSXLyqALc/7tw16xDwcSBAE0bO+PwpRe
-         pwKg+j0vnSt5Ddi0B2HJrmJD1LoPUKgchSeUrXC1XA3Dd2GTOdiUOdIfjsGM7vVPddoN
-         JKkA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795619787; x=1796224587;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=fZhnpMGuy8q+jXTQK/RAHc/+Uuj/d7tbWlMf2HdxJHU=;
-        b=TUTdgQVyn98y5xUGAgNMM2pkmIGYkPThgmMvyXzDFIQAnEWBMS/8ljnSOKZUgeqE4r
-         hiKVE/TZGVyoXc3X7OXDJ103b/hj/cUQWbIKG92jbALDy0G9EJR4t0xPrEE+lCiY9CW8
-         Dm+y1ddfz3Y/kFZrebUJsOIZ2ye5kvdy3kJuXHXjCavkb1F3GIy2JukrgoYztONTcDYw
-         8+xDEzUpRSomjHfAQJ99INVlT6Ixfy5wiu0z3By7XhARCjPOfg5Zy0wN4fWaUlFyIP6R
-         FXdV0lwMC4dRip3Lr0OhZq5zvjBWr2R6C8VGWYHF3twUecOOH9UvOPbRexl7geW5GvpN
-         EaZw==
-X-Forwarded-Encrypted: i=1; AL+hErHZo6JWfJB9J+q2Ejurli11hOMXLckYTDWzoz7sRz65bdLuz0q/8AXv5ixriuFXTZll6StBi1PYcAqrZ+k=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/sax1mFqLcaupwAbrUC6pSs3nZR79IcA80Ja6XE6A6n9mGc6rd
-	9e6sEYfR+kr2ii8TbejBDw+pu+yi0emNYZCGlkxVyRgxCkP6qmm6fIoeNElJxEl6ni8=
-X-Gm-Gg: AZFdTZdHmDkjHh1x39tqkMhY8dAj9z0kUnei5LKekWtdSmzj2PQKRAHu0TEE2a6pJCO
-	MWP8BSQpK7pB2qwwJxLrqcnlbc0rSj0rOeXiZp5whxRX9YVXUYm7KQcQaAAcu6xCGTBkUGTMkdt
-	s7pySIk/Ufv71fUv0IGxSK2abcRDKl5PnbpqS0SYO2dunMqvuegY96LcfL+0/EzwWaA9pYDSIQb
-	cgGeSyCX0WlpHyjBEtoFHHgagnM/dunniiOwlGkFtZsv2S0e4ztF1NTNtXQh66/EVI3JL8NJfyV
-	B4zsD5x3R7xC6iSKUsUrrt5jnG4JyeLPx1KTwK1C6X3ASgX0IsgFNKhQ3/kFWAaBWbck9ESzZWC
-	oN6ZNQxQmfca0w1514SfQhVRBk+ZXX7hQN6G+WN924RNBs0P7oFAuo2k8Za96+t4/SKNheD5//2
-	U0kA8U7JhlgWsgjlQSv9x+Y4lsKE+Hjzl37A3SDg9njk1ro3BgAKcftA9ZgzepA9kTi8Mul3Hv+
-	vA/aJf0hUUuN6pzN7PTJbMXYU1Pqw/rlRM703IvwUyj/Wwqzv9FUCOgCLxZkUqAsFKdFrkd3grN
-	1qb75mn61/cweyEWEZ/BXR9rO9mbld/EMhm/uib36gmCIpH4VzvsAPzb4S61JjuTrg==
-X-Received: by 2002:a17:906:3811:b0:c43:eae5:ee80 with SMTP id a640c23a62f3a-c513a84f5e8mr1208263466b.17.1795619787223;
-        Wed, 25 Nov 2026 07:16:27 -0800 (PST)
-Received: from [192.168.0.61] (firewall-214-232.seh.ox.ac.uk. [163.1.214.232])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c51beef9244sm6971166b.28.2026.11.25.07.16.26
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 25 Nov 2026 07:16:26 -0800 (PST)
-Message-ID: <d05aa4e7-5c58-4311-a85e-6bfe9c31c62c@gmail.com>
-Date: Wed, 25 Nov 2026 15:16:26 +0000
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6AF18606A31E;
+	Wed, 25 Nov 2026 15:17:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6AF18606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cyber.gent
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cyber.gent
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=A7T7baHI+CfvwzDhNmaPhAuChpLAW+QQgqELJFWrIqXZobIBoNo4Cx2Zkg1AuHqv50hJ9h4t+FBwktMa7dstCVHdhJBF52SLsdryV3LyxRfQlPA/t5ZPyNSk3gZrytAbYFp/mtZk60PvQUO3mvthc9YDRNfMB/qm/x3ACQQkJQ1LXRj1DYwKkGYogwsQOURqCO1y0kx8Ih1ojK5fiVAR5QjYwu0pUdmlBdhdSPCKrk8PJcsppHXQEDqaE7uZaPtIJ61TQd54o/wOLBeFTu9PGeKFeTQGHDiUrvuFXw4fxcDcRb3fxyrCNpPqxm/BtgMDyRldXIWcOGEhHP5Ph8QveA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=uZG1s0368q8UN44TW+17aousOwlOrZDCKGkefaog9iM=;
+ b=u9JlHMRfCMk7ndCnSHsERDxGHNMkIVt4UsR3ThZIOwpEqNko+w0dLUTWowfMPW7Pp3YGWv1z1fZ8QqOtzzpbbJAuCqyrlQSt+p2MBLeXMwWPLO6NWGhRz2eCTSbSBHBZ6wc3RJOWlgGBCNI+cSSCET8YoNQwuaqg/cxc01zQ2RSFgOGJMoKU4ic8tXf3X7CgQlHztd/TMv22uc5pz/jUSzM7gZx+Ag3rFNCxrlRxQoBtCB2WL0cTQxmcSuaEvkaBcIfiujs9c5eGCm2zVerTX6Q0S8EhpbHDthesdYFjsXZMu4MmPJ9dy4D5HlCaAnmhDsT81b0WstNIxoaQxNfI4A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=cyber.gent; dmarc=pass action=none header.from=cyber.gent;
+ dkim=pass header.d=cyber.gent; arc=none
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=cyber.gent;
+Received: from AM9P193MB1508.EURP193.PROD.OUTLOOK.COM (2603:10a6:20b:2fd::8)
+ by AS8P193MB2127.EURP193.PROD.OUTLOOK.COM (2603:10a6:20b:448::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.6; Wed, 25 Nov
+ 2026 15:16:57 +0000
+Received: from AM9P193MB1508.EURP193.PROD.OUTLOOK.COM
+ ([fe80::e7cf:9c42:539d:452]) by AM9P193MB1508.EURP193.PROD.OUTLOOK.COM
+ ([fe80::e7cf:9c42:539d:452%2]) with mapi id 15.21.0639.012; Wed, 25 Nov 2026
+ 15:16:57 +0000
+From: Yvan Janssens <yvanj@cyber.gent>
+To: Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Janosch Frank <frankja@linux.ibm.com>,
+	Claudio Imbrenda <imbrenda@linux.ibm.com>
+Cc: David Hildenbrand <david@kernel.org>,
+	Eric Farman <farman@linux.ibm.com>,
+	Hendrik Brueckner <brueckner@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Sean Christopherson <seanjc@google.com>,
+	Shuah Khan <shuah@kernel.org>,
+	kvm@vger.kernel.org,
+	linux-s390@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 0/2] KVM: s390: vsie: fix instruction retry for nested guests in ESA mode
+Date: Wed, 25 Nov 2026 16:16:05 +0100
+Message-ID: <20261125151607.3039477-1-yvanj@cyber.gent>
+X-Mailer: git-send-email 2.43.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: AM6PR05CA0029.eurprd05.prod.outlook.com
+ (2603:10a6:20b:56::30) To AM9P193MB1508.EURP193.PROD.OUTLOOK.COM
+ (2603:10a6:20b:2fd::8)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,75 +99,125 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] thunderbolt: add opt-in to preserve tunnels across
- s2idle
-To: Mika Westerberg <mika.westerberg@linux.intel.com>
-Cc: Andreas Noever <andreas.noever@gmail.com>,
- Mika Westerberg <westeri@kernel.org>, Yehezkel Bernat
- <YehezkelShB@gmail.com>, Sukhdeep Singh <sukhdeeps@marvell.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Richard Cochran <richardcochran@gmail.com>, linux-usb@vger.kernel.org,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <8fbb5876-e556-45a1-96b5-4a8061de9e5d@gmail.com>
- <31d3413a-9aa0-4208-8e15-3ba85829ef79@gmail.com>
- <20261125132228.GE191152@black.igk.intel.com>
- <a08cb3e1-10a0-4a35-9258-cd510b91985e@gmail.com>
- <20261125143531.GG191152@black.igk.intel.com>
- <8e87af01-02a8-4714-827a-62c5beb6f4e4@gmail.com>
- <20261125145207.GH191152@black.igk.intel.com>
-Content-Language: en-US
-From: Tobias Heath <heathtobias@gmail.com>
-In-Reply-To: <20261125145207.GH191152@black.igk.intel.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM9P193MB1508:EE_|AS8P193MB2127:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1416fc51-93a3-4c9e-2850-08df4b072527
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|366016|7416014|376014|10070799003|1800799024|18002099003|6133799003|261009223027099003|3023799007|10067099003|56012099006|5023799004|261102123227099003|261022075727099003|261022105027099003|261028144727099003|261026140227099003|261026121527099003|261021123027099003|261021121427099003;
+X-Microsoft-Antispam-Message-Info:
+	EnMM4g3fAzxdSH3h1T9+qW8M4suOc6WPmeD1oP3Y+LB64bVpGjsNkRhzCPBh7Apnvmk3YDhn372/TTW30MPqPfgqPft14CCFG0YLNRhkbNM7uqcVP8i8bv5a/MCwfxj11LAMGh4ZBJwcmIsmn+/36mKtUyr+yoip7My7flTGM+/ir4AJu8ZziFgExi8N2ohwtqt8H/yAjiofstuR3KKnxeCNgSTC5fBrHLPBzU+HhJ0O+84qr90x054wR1y8yiVyhmOj4FNSZgS2i3npZVqpLwBnBvnrp8q2KNqA2+MninmlDUqBtMQtWxr2lN5rEJfoXhBT8LZ+oMs+FuGRvJg8dm+VPImq4xFv2LUbZVuM2kTlgM/055o4orRIgQBr1mhH+63CdzzPqnTArByJAt6LPTSApwPGFrpOrWVrxCTTJecctlF1D+t1FhEjF1SimK0UKGFtLE2CBQsXuvY+f1q6qdjUSrDRPspbnRsOUj4cGROOkQ1xe4BhDjYgsYY5zA2KVJVNLaFGQCCMxBZWNp/3HCK733JnGcQo8gX4qDOO0vno1rwdu4SPz5RwJnEXkpQ9DIftPG763EXMeIQb/TPakLPvYrPDy+UZrY1kdwHuCsJtp4kueyIkdwcqwGOuWQIL1TAiujnucr7o9NFPhhYX5FaKLnAaT36Kfc1nfFdNzac=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9P193MB1508.EURP193.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(7416014)(376014)(10070799003)(1800799024)(18002099003)(6133799003)(261009223027099003)(3023799007)(10067099003)(56012099006)(5023799004)(261102123227099003)(261022075727099003)(261022105027099003)(261028144727099003)(261026140227099003)(261026121527099003)(261021123027099003)(261021121427099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?DLwtNCoce7fA1K7CVBMUgRXJUEhBGRHV9d/AXTyWdH7TRY/rUZfHlSM/J/VQ?=
+ =?us-ascii?Q?qeqD46xsQDDccGsHkNZ+5m3AcyXIl0zAUCD9ijfWT4yl9ep55C2jnLLzKPZx?=
+ =?us-ascii?Q?TO0PvrJif1IVrSNNE3Tgl3BiMDsSIYuMKzxIZfFG5zgYWSRfZ4EJPROf1DWO?=
+ =?us-ascii?Q?EIm3x0YaKw8LWD/2kdjyCIb0HIemSHyxr3UNVJ//Ymlbk/7IRL+RaZOZOLyN?=
+ =?us-ascii?Q?dKTV07HVILXz5SuEy86Iv4It1Hq8/MaJz2dGVjX63xlHK4Yj/TalYfl9bWfP?=
+ =?us-ascii?Q?KpEW1gIM/edhyJVoVxgPyEaU1xbhlBdD3QXpbBhxYV83lksLrZC3Bi6/zwdZ?=
+ =?us-ascii?Q?SOf0xp1er354fCYXKgKBlDFEBuaQavHoReB7pxgLmPQBT8s0E8+xFSbkUOvw?=
+ =?us-ascii?Q?Ga2dhiDihQlwSyqZP55iULvO4Leu8iSr3ByT33ceEN0t6EicgnS5TXeKJjdj?=
+ =?us-ascii?Q?xXH6ro2RfZWAZPzM2ekMoa9rsCGemRZwqrPxI0KLI8PbDecyufmkzg1F6dXm?=
+ =?us-ascii?Q?BoP1ou/xV5XQDPIOTDqc9GToa1jGCnYKypuy/hoi0ELmmsuIQfPcgvojyRj3?=
+ =?us-ascii?Q?aYH4fcSHxPfoA0jJkA3DyF58Fb9nPcXw0BzLqZf3qbeKXl/Nt8XefLWfr4p/?=
+ =?us-ascii?Q?KEgWbuv9lH+z7MpPvU3c9RfwOFPPIoYXPOe3k5um4hcbuy5dO8moL79Ps/x1?=
+ =?us-ascii?Q?bWzlsqIi4hjT2zhw+W+ZFZpZEz74yT/hN6XDNRtsVI/G0NEDA9X4AL4pigOD?=
+ =?us-ascii?Q?4kuUfv8kklsHPD2eQkzOm9G92ns/66inp/oLvCQLbwcAjpiEfRn/bO7SrVG/?=
+ =?us-ascii?Q?WpoilGzTlIJkmZvpWNdbhk/MpphHvbC+e0pFzTbGby7YgdyyU8Vpo6joIY9E?=
+ =?us-ascii?Q?+vQoGSWWZ/QDh/HB5AzBZPTZys1sX+QTY64RD4lSaPlyg45uV0yrhNYNGqcO?=
+ =?us-ascii?Q?VZgqHhccucsC4ssQDwiGfbJwNTuvNBCrQo5UjjUz6m8v65If2FIlkqlVPzKU?=
+ =?us-ascii?Q?CBmw0S1fqUiMfLFaGxEALcPhPKbrBAusrcABJUZq2NiKLzbHB6zhUsCZdC9w?=
+ =?us-ascii?Q?OsGnkNXDuZqFJ73XYPWV8ZB/pPzR/1McLvzaAEPumj4XjEXyo7o3FuWleuug?=
+ =?us-ascii?Q?2eCAYMH9WTeWDByB4DXeu4vzIvfCGPjMMTc5AhKEZvKs56bL+KeVwwUB3nPF?=
+ =?us-ascii?Q?77PCmNFv3J/CYX+RcMCRiFhJw/KG3rIEK7hcc//9nWrYOxDv5lKwGSSWXiwh?=
+ =?us-ascii?Q?vmjobQu9LCmA8ltKXnwjovDByMY/tetaU1xJwwZvJ1a+mi6QJ2ZPqeqODRkA?=
+ =?us-ascii?Q?ASoRFJhO7Lrb7WGBt1HCTmyyPbwaqyqNgRrmRcOu2MSxdSZh+2+AdM7SHJdV?=
+ =?us-ascii?Q?u0hZe+Ml9qF8yDBuDd6c1p8pgdzPyj/Des4Xeo9ordrITj7PIm9Z/1B0C38A?=
+ =?us-ascii?Q?eCMrKZ5nllQ53GLUZi3KnFhc9z9B9SnvAK48rAtYcilPDKrSFIn3YK26/xZ4?=
+ =?us-ascii?Q?NqgZdBgRgr0WUqcKv6Z+fBUCT4Pcrg55OCoHbKHKmBTNic4X9FFzAhQfCUKf?=
+ =?us-ascii?Q?GIgHXRaHecaHLJ9zQ/XcvEV63v7XiDQOQu6wZ9vMf57QTt+hvWK9xj2HNm1t?=
+ =?us-ascii?Q?NjpToi5Kkk4yR7vf4w82iLEXe2USzPfhm2FN2ML1EIny8kozRqGmkKyOT8wv?=
+ =?us-ascii?Q?Hy7Ccq3/id0ihcVsIFcZlgyTTSJNxbJT626dNMu5LtGlzm9ooHuaNU5bAT4H?=
+ =?us-ascii?Q?a7cU35yL/wp9VGnGSGfK5bz1WzE3RaBwzhxKhGU7CexLUdzzD7M4?=
+X-OriginatorOrg: cyber.gent
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1416fc51-93a3-4c9e-2850-08df4b072527
+X-MS-Exchange-CrossTenant-AuthSource: AM9P193MB1508.EURP193.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 15:16:57.1739
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: d5a0a0d6-18b4-44e3-8e5e-e5dbe37f9ee2
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: M4uSkv3egf+tkH8QZIjMPE0NDpwqhtHukGGoH3WMjSSpu5xSZryrBP6l2QwxjVDq+1dplbvsLz26ELvIJBdAHg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8P193MB2127
 
-Mika,
+Since v7.1 a nested hypervisor can run its guests in ESA mode (the
+ESA/390-compatibility mode of the machine) when user space enables
+KVM_CAP_S390_VSIE_ESAMODE. One piece of vsie still treats the PSW of such a
+guest as a z/Architecture PSW: the rewind that vsie uses to have an
+instruction repeated. For a state description in ESA/390 format the
+instruction is skipped instead, and a stray value is left in the half of
+the PSW field that such a state description does not use.
 
-That's clarifying, thank you — I hadn't understood the two-paths 
-distinction. The behaviour I want on lid-close is Path 2 (runtime-idle 
-S0ix / Modern Standby), not Path 1 with the TB fabric preserved. My 
-patch is a workaround that patches Path 1 to behave like Path 2, rather 
-than using Path 2.
+What a nested guest sees: the first STORE FACILITY LIST EXTENDED after
+every entry into SIE does nothing (operand and condition code untouched),
+because vsie intercepts it to shadow the facility list. A program that
+tests facility bits gets zeros.
+
+Patch 1 is the fix, patch 2 a selftest that reproduces the problem with a
+small guest 2 that issues SIE itself (modelled on the vsie selftest that is
+queued in kvm-s390 next). The series is based on v7.4-rc4-260-g4dce97c6c265.
+
+Why it matters beyond one instruction: backward compatibility is a
+defining property of this platform, and the ESA/390-compatibility mode is
+the architecture's mechanism for running older programs on machines that
+only start in z/Architecture mode. Any hypervisor that runs as a KVM guest
+and gives its own guests that mode depends on vsie handling such state
+descriptions exactly like the machine.
+
+Testing (z14)
+- On an LPAR running v7.3.6 with patch 1 (the host owns SIE) the selftest
+  of patch 2 passes all three checks: the unused doubleword stays 0, the
+  PSW ends behind the last instruction, and the first STFLE stores the
+  designated list.
+- Without patch 1 (v7.3.6, test kernel running as a KVM guest above a level
+  that passed ESA mode state descriptions on): the unused PSW doubleword
+  comes back as 0x7ffffff8 and neither STFLE stores anything. In such a
+  nested setup above a host without the fix, checks 1 and 3 still fail
+  with patch 1 in the test kernel, because the defect acts once per level.
+- On a host whose lower level refuses ESA mode state descriptions the test
+  skips (validity 0x0001 seen by guest 2).
+- KVM selftests (12 s390 tests and 5 generic ones) and the s390x
+  kvm-unit-tests (37 pass, 4 fail, 21 skip) give the same result for every
+  test with and without the series (v7.3.6, nested setup); the 4 failures
+  (sclp-1g, sclp-3g, css, edat) are the same with the unmodified module.
+- Built with W=1 and sparse without warnings; checkpatch --strict is clean
+  apart from the MAINTAINERS note for the new file.
+- Not tested: MOVE PAGE partial execution and the addressing-exception
+  path for a guest in ESA mode. MOVE PAGE is not available in the mode
+  without the ESA/XC facilities, so the first should not occur.
+
+Assistance: the series was prepared with an AI coding assistant (see the
+Assisted-by tags); the defect was found while tracing why a facility test
+failed in a nested guest, the analysis, fix and test were written with the
+assistant and reviewed by the submitter.
+
+Yvan Janssens (2):
+  KVM: s390: vsie: Rewind the PSW of ESA mode guests in the right format
+  KVM: s390: selftests: Add a test for nested guests in ESA mode
+
+ arch/s390/kvm/s390/vsie.c                     |  23 ++-
+ tools/testing/selftests/kvm/Makefile.kvm      |   1 +
+ .../selftests/kvm/s390/vsie_esa_test.c        | 180 ++++++++++++++++++
+ 3 files changed, 202 insertions(+), 2 deletions(-)
+ create mode 100644 tools/testing/selftests/kvm/s390/vsie_esa_test.c
 
 
-On AMD Ryzen AI 9 HX 370, I'll inspect amd_pmc debugfs (I assume the AMD 
-counterpart of pmc_core) to confirm whether runtime S0ix is entered when 
-the system is idle, and whether any particular device is preventing it. 
-If Path 2 can be made to work on this hardware, the TB patch is probably 
-not needed. I'll drop it in that case and keep only the atlantic fix.
+base-commit: 4dce97c6c265544342e716e62fd24bbb232590c5
+-- 
+2.47.3
 
 
-Would you prefer I withdraw PATCH 1/2 now and respin as a single-patch 
-atlantic submission, or leave the series open while I investigate?
-
-Thanks for the pointer — it changes the framing considerably.
-
-On 25/11/2026 14:52, Mika Westerberg wrote:
-> Hi,
->
-> On Wed, Nov 25, 2026 at 02:42:58PM +0000, Tobias Heath wrote:
->> Mika,
->>
->> Because s2idle is Linux's path to Modern Standby — "look off / wake instant
->> / state preserved". From ACPI's perspective the system never leaves S0
->> during s2idle; the tb_suspend_noirq callback fires anyway because Linux's PM
->> core runs the full suspend chain on every s2idle. That's the mismatch I'm
->> trying to address: the ACPI state says "we're idle in S0", but the TB driver
->> treats the event as a real suspend and tears down the fabric.
-> Ah got it. So no it's not the same as Windows. In Linux there are two ways
-> you can get to the S0ix and you are after the second one. First is what you
-> are doing now, that's suspend-to-idle and it is pretty much the same as Sx
-> is except that the OS idles the CPUs and is in full control. All the
-> devices (not just TB) go through a full suspend/resume cycle (typically).
->
-> Then there is the MS equivalent that happens when the system is running and
-> is sufficiently idle. All the "important" devices like graphics are runtime
-> suspended (screen is blank) then the system automatically enters S0ix due
-> to the same mechanism, CPUs are idled. This is what you want I think.
->
-> For that you need to look that you have all the drivers loaded and the
-> necessary firmwares and there is at least on Intel debugfs files under
-> pmc_core that show what is needed and what states actually are entered.
