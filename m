@@ -1,56 +1,59 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795631663;
-	b=OC7XoLAwxt6ddnhMqgCar2A4Ckx3jjkn0+NGjctwrQKfBN7Xu6CJeBjdC0KKyDFVTbHD
-	 bIm0HMhMxjIRWjNiQDvluQcRwg90b25xFH7fF419Jzp3cpqbvm4L9nONFqm8xA/DYMtVN
-	 PmCTHWia/mMlXwSmubWU1BrBOrQt4MYyeYBzWQaP+KwQ8xsE7USULkqjvvk5KRpyXmI23
-	 CNvRpvQu1uSzugKCVGfzGAOg56TpFMbXfYvhYkVKX0Mw9ZHB3bJXR3PJ4HU/yiB36Yh5Y
-	 NiEY1AIQ7uJzZng2Slk0A37eSsPD+CScUQLqfuWDauvtDDmQnn72daZDr1asX0CrwBA==
+	b=scTaPUQrZORJ+8FBxNpvKRsvRCMV2CkBz/iK81wR+Z4ub9yU0zm95lAZAy1ph4dEgWIT
+	 nsOmtALQ8Pae5CnlXq8wf402PSpthg3kTjvTOnSmeGXbj1QKjHooIIVU+9TgHDTtY1KU3
+	 A/d+byw7LyWsF58KwjV6KYkaNJiiJ7x8C2USs0qcQtR8p4O9swL8i+mVZOij35XA4u5NK
+	 gVcCD97hCatJMDaXTxU9HV55mlmHJ3mQtGIy1Ozm13tWKbFrqxS+vyr8T+9Q9SamHcERB
+	 k1z1RhByUzlrxqQFoxPmIUsHdg89q2rtryrQAu+KZPf01zLOyq/FpQFcYI6RTg8BOjA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795631663;
 	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
 	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=csfdLTJs5WNIS3/yTk4X/ezL7bBBfz9RtBAOvaFYlpc=;
-	b=wSsG60iIFSld1WU6w4fmA2qbXfoV7oDvJ+nN9aoLPe0B2yOTk9AWRf7W2vc0nSWN8zqz
-	 bbYTmcHrCCDgtALR2hrqxba7wUIF/XQFAWmkw5m6LXgnfJdNWElOXuHcZ6n0RmoNK5Q3o
-	 39V8S3QxQNcphPC9ig8QI/Re4TZZaG1pUxGheBx1U+G74UXAV8iZYsnIerz/jCzt537ZB
-	 rsX8smwu4kX5pdPdS9XyexubpTABAQliEkj8ks7hjmSGirqToSybSjtmxHDh95iuUUQqB
-	 z3qha2g0IPAIO//tCcxHn9IIKcmYKI6mSno7colq5Um8UJo1rwMoeDZH7ptcTCKun7A==
+	bh=lN6AbTnehn4JFc7e6Trjk6a/kJXaBSLWT91x39OVt+o=;
+	b=kOqakygYKLkwoyDgRGAkYi1IyykoKA9bWdeXa8cj+NbTSbULIi9FZPuAjtFZALZ988aP
+	 /gmPcAZM2xoCZrSnzyyDZk3lVgtJF+7ePhWzlD/LJugby/dI7Qf/M3oAO9reh/OTCffzM
+	 1A63JnzDzXEJbj9+ZCCULyMLVkZBljahuUaPjViOqL2FYZwKtk4P/q68YhQGvTSGHdrxV
+	 xX4S4SrDe7V6JFW+bdx84N5DczmEKuP0Q+ZCaKpc7QRgmNFPxZIO5RiIaobBnTUhPZ+57
+	 hloN7Gwy8sY+tlXDqxhiQSO2KTcVi42itXIJ6VBSyPDZ9dDc4xVgS64ktBlGai4MEtA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VjP3b3Dn;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UupQtPIP;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 24871606A31E;
-	Wed, 25 Nov 2026 18:34:22 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C4E9A606A32C;
+	Wed, 25 Nov 2026 18:34:23 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VjP3b3Dn
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 628CC1F000CF;
-	Wed, 25 Nov 2026 18:34:20 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UupQtPIP
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9AF001F000D2;
+	Wed, 25 Nov 2026 18:34:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795631662;
-	bh=csfdLTJs5WNIS3/yTk4X/ezL7bBBfz9RtBAOvaFYlpc=;
+	s=k20260515; t=1795631663;
+	bh=lN6AbTnehn4JFc7e6Trjk6a/kJXaBSLWT91x39OVt+o=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=VjP3b3Dnip+9fyQMC9MhXIqQUUXrOEoFIGwUkKGZOAWeOtQX1C/3ii8eAe3SsOO7J
-	 jJRP9D9RWgcz2ICgoATDCZEVSzrqphRZiU01SWe6Sq52V3ZSNJN+no9l4UG3Nejs7o
-	 37WOR7H4Xxq8XFVKcRYI3CXeHBgi3ZUj4ntDGM4WuhG213qMMhUM00EIgzj2PzXBwq
-	 XcX7iiq+t0rf8o6btZ+bjCq2naJcT0i2ys1wo8iqRHvdr6KA3tPVZ7rqFXpMDXa3HG
-	 aTgp5iE/VkyMJJOnb0iulEYERYP+Q7Tk3UzlOtzxbG3T5rFRy3kk9vh8IuS7hvxmgI
-	 qlWaYMK3AMNew==
-Date: Wed, 25 Nov 2026 18:34:17 +0000
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: "Michael S. Tsirkin" <mst@redhat.com>
-Cc: "chenglong.ma" <longpareto@gmail.com>, 
-	Jason Wang <jasowangio@gmail.com>, Eugenio =?utf-8?B?UMOpcmV6?= <eperezma@redhat.com>, 
-	Xuan Zhuo <xuanzhuo@linux.alibaba.com>, Xie Yongji <xieyongji@bytedance.com>, 
-	virtualization@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] vduse: don't set VM_IO on the domain file mapping
-Message-ID: <awcp0JCwWQVLIuPD@gremlin>
-References: <20261125160128.796-1-longpareto@gmail.com>
- <awcNt5C6jkZQLy0M@gremlin>
- <20261125130424-mutt-send-email-mst@kernel.org>
+	b=UupQtPIP7l0f2ccBXBw6ZqF9NGaqeOTV+3R4Qvv2UcGP5x2P0JIFr0quccYJ6su4/
+	 9IITwEmD4Lz0UcD9PpfaVjM/AuNwXK/8heRpbd1/ExhPx6Z566eIawQ8GK4sKsdL5u
+	 20VKOo2rZCVTi2BW9ZgMJ/8edFSORrwXluT6U9BkA3Uxb5r8/kl5IsrJCT1180fF6O
+	 BFHyisArXZ9qX0ejR+1RwNedOjg49nbtMy/0VXtqoIy4PNRc0kLaDvjEjOG9M/Pw7g
+	 dOxVc/syxz7pn1pAzCRRuVradrWQh8GXRzU/GenDnkpcz/UZs3pcQBamNle8uD8kC4
+	 gUdMfHkzkzzxA==
+Date: Wed, 25 Nov 2026 20:34:19 +0200
+From: Leon Romanovsky <leon@kernel.org>
+To: Marek Szyprowski <m.szyprowski@samsung.com>
+Cc: Sibi Sankar <sibi.sankar@oss.qualcomm.com>, will@kernel.org,
+	robin.murphy@arm.com, honghuan@amd.com,
+	Jason Gunthorpe <jgg@ziepe.ca>, joro@8bytes.org,
+	prakash.gupta@oss.qualcomm.com, iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH] Revert "iommu/dma: simplify dma_iova_destroy() and drop
+ the free_iova helper"
+Message-ID: <20261125183419.GB774860@unreal>
+References: <CGME20261125135138eucas1p141ba6b5e09623562e2033e290fba811c@eucas1p1.samsung.com>
+ <20261125135120.1126571-1-sibi.sankar@oss.qualcomm.com>
+ <a3722347-4b88-41ad-926b-455530020c6b@samsung.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,12 +65,67 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261125130424-mutt-send-email-mst@kernel.org>
+In-Reply-To: <a3722347-4b88-41ad-926b-455530020c6b@samsung.com>
 
-On Wed, Nov 25, 2026 at 01:05:37PM -0500, Michael S. Tsirkin wrote:
-> why cc stable did stable backport the buggy patch?
+On Wed, Nov 25, 2026 at 06:21:06PM +0100, Marek Szyprowski wrote:
+> On 25.11.2026 14:51, Sibi Sankar wrote:
+> > This reverts commit 1acce29926d93f3eba427696fe3da6451504dae2.
+> >
+> > Before this commit, dma_iova_destroy() unmapped through
+> > __iommu_dma_iova_unlink(..., free_iova=true), which set
+> > iotlb_gather.queued from cookie->fq_domain, skipped iommu_iotlb_sync()
+> > and freed the IOVA with the queued gather, exactly like
+> > __iommu_dma_unmap(). After it, dma_iova_destroy() calls
+> > dma_iova_unlink() and then dma_iova_free():
+> >
+> >   - dma_iova_unlink() never marks its gather as queued and always calls
+> >     iommu_iotlb_sync() after iommu_unmap_fast().
+> >   - dma_iova_free() passes a NULL gather to iommu_dma_free_iova(), so
+> >     the IOVA goes straight back to the allocator through
+> >     free_iova_fast() and never through queue_iova().
+> >
+> > DMA-FQ domains therefore get strict invalidation on this path. That
+> > includes the block layer's blk_rq_dma_map() path, which NVMe uses for
+> > all data transfers, so iommu.strict=0 has no effect on NVMe I/O.
+> >
+> > hw/sw details: Qualcomm Glymur CRD: SMMUv3 with no RANGE_INV,
+> > 	       4K pages; NVMe SSD on PCIe Gen5 x4
+> >
+> > Fio sequential read/write numbers:
+> >   Domain                          seq write    seq read
+> >   DMA (strict)                    2694 MiB/s   2693 MiB/s
+> >   DMA-FQ (lazy), flush queue      2707 MiB/s   2803 MiB/s
+> >     bypassed (this regression)
+> >   DMA-FQ (lazy), flush queue      10.6 GiB/s   11.9 GiB/s
+> >     used by dma_iova_destroy()
+> >
+> > Fixes: 1acce29926d9 ("iommu/dma: simplify dma_iova_destroy() and drop the free_iova helper")
+> > Cc: stable@vger.kernel.org # v7.3+
+> > Signed-off-by: Sibi Sankar <sibi.sankar@oss.qualcomm.com>
+> 
+> 
+> The performance data clearly shows that the flush queue was there for
+> the reason. Together with this revert it would probably make sense to
+> apply the v1 of the reverted patch:
+> 
+> https://lore.kernel.org/all/20260701092033.422867-1-honghuan@amd.com/
+> 
+> Leon, do You see any other option?
 
-That patch itself is cc: stable so this will need to be too to propagate it.
+These numbers shows clearly that we had iotlb_gather.queued != 0
+and never performed iommu_iotlb_sync(domain, &iotlb_gather); while
+destroying mapped IOVA.
 
---
-Cheers, Lorenzo
+I agree with you, v1 is the easiest solution, however my preferred one
+is to cache gather when it is created and keep it in dma_iova_state 
+structure for whole life cycle of that struct.
+
+Thanks
+
+> 
+> Best regards
+> -- 
+> Marek Szyprowski, PhD
+> Samsung R&D Institute Poland
+> 
+> 
