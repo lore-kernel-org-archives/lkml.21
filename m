@@ -1,92 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.199
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795645142;
-	b=tJj3ccO9xkZjazudZcwPuPHvPX5dHTJBxSSVlCRXt8DF/SyU7BMuMlClyiDFpl+mDfN2
-	 nhPYuiZc+cMBRMJvbrZdzdAhzhB6Hhcpxr+i8i0QeYiNngGjUm9CxTbCQGGydxjtwqh0f
-	 Lwrgbpc7CKQbgE26DRcR00Lc14wE8OiCDxhiOTaSKW9uWRqPrwXPzb1Ctz8hfZ6fcUq09
-	 oBiEbrNypqJWLS6TeDRrSBKVL6KQp8CSOZt8/t0S/zr4TXQbb8XqMN2L9OGvwzDCPZ+iJ
-	 hKypMsFl6n9XvAlrU2i79FWM0qwZKjuyZlNuNelyujg1JaAeKQmRxQsTiEWJac2GE5g==
+	t=1795645152;
+	b=facGknAxjAqJWqDMR7yNAdrWarUtKCkKdIjt8yhTiQNDCWUceje55aEgwrU7yqwa4qz5
+	 zUK+EwUziC6vD+j8Fr+VteXQ4ZYETfYW4cywdv4nFVNKXQ5TFH/40MMqtkxiG7zLPCJBp
+	 /E2/IUY9kIL+sr6uGK2kht8nuQ0TpOA0l+IPjz303oHkPESlnFy21xwmEOik4wxYLMSUL
+	 VR1O2kP8Hw7kyqiXO49qKmRgpGgpG+PNVr/yGMwrnBDdPlOJG7T0bqUitOa+F8ngUg2GG
+	 vnZHvZNfd70laK46aaB+3OMgVOjpbTlj/VW7vRMS9fVmcoUwX6k4b1EkN3mL4XSXYAQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795645142;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795645152;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-Mailer;
-	bh=aKRTtm62UDdZcQ54J0I40J/JAeENeSlNH7NrIsStsO4=;
-	b=0400mY7ucp1HIIrJTM/jbM1LDWW+MRwKOnoczo5WB7mzxWIIXQx4ndBa5WkqqMkzFEhl
-	 kcJF+j4ICjVcdKHxvbhfsm12GJ8Fz3EDTCBSjgLXBAueGjvodb7OJTyuKLom2i2XIkSA0
-	 j2A45mc/v7reHDa8eH5Un1sHl4e+FCPMswiU9NrqQh/rbW8izNmXCLTAfhi5KiFf9i0sa
-	 4xeajyvq0IIpBW1DMU/Bug8lipaDIMqDVEPzt2I0o6Yfa1FP6JC9yJ0qZAKErNvymXoE6
-	 bsrLhRGV2uGHkn2cBP9fZ/tODZAnpuDO7wIOqIqn/spnEiUUhl5dw2PrSa3vcNEDKLw==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
+	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=HRwAz9BoxRqxj0ai++/VXeXT7drQEfcQGrxsvupjxW0=;
+	b=bwi8/0IRk5ZXogBG1YOKidnM24dh93HLU7jxyytq+G0D3a7hlrRtFS5oCD09EeNwj0hI
+	 /iscxx9tiMgis14rOmKql7LIIexecPfuGYjsCRPTGX89thNJdicYfpPzXKa5wBwsXAzlB
+	 rwcuj/R86NteUQ0kRRWFwtmSVNDcW80EfQtlrn4ymM2CWfFE2EM6fQ9PqxY3IS/B11IQ4
+	 sl0eOTHBLFov1XxhtMf+rThVZ6cPr3TGBk2qD0Wa6d5QssIbkfVhqj73KHGidrT/VSy0L
+	 gHycW3gWdHWyaX4xma5a1S3nLtMMYF2e5wx6mp/5NrAVrKoKfMOCj2qV7lj5fM6IxCQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=LU8ZmNYE;
-	arc=none smtp.remote-ip=74.125.82.172
-Received: from mail-dy1-f172.google.com (mail-dy1-f172.google.com [74.125.82.172])
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--elkin.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=j5ePXZHq;
+	arc=none smtp.remote-ip=74.125.82.199
+Received: from mail-dy1-f199.google.com (mail-dy1-f199.google.com [74.125.82.199])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9935F606A326
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 22:19:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9935F606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 66FF1606A321
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 22:19:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 66FF1606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--elkin.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=LU8ZmNYE
-Received: by mail-dy1-f172.google.com with SMTP id 5a478bee46e88-3282db206d3so1241118eec.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:19:01 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=j5ePXZHq
+Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-386177b0516so15900605eec.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:19:12 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795645141; x=1796249941; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=aKRTtm62UDdZcQ54J0I40J/JAeENeSlNH7NrIsStsO4=;
-        b=LU8ZmNYEa8Il91B0WjRYOgvdWYw4XvQqggs7fajTqPBNeaI43qn5T9VJYMg4J+ejTb
-         TwUYv3rIpHc3TFonssrAHgkL/T667IhTGvreXvL0T0ZnJEaq0LfGq5v4FxhLkGoR+1Bq
-         hTPdJ7S9EX+ly+/0KbQMcNGTWztPNsO3KZUkEz8Vx/05Hqc0GxtfqAKOQenaqVwVKKYz
-         c9+dafLvOBUlRjcTXdrE9KEYzclKS+njcpYiRREjV1cgnxjg/cY2pGBwTPtDEoRIopNP
-         uQoN5td4n8zStse7AMCATlc3dKTR8m6FDAoRse/+OwbRae7P103gkxf6sNevMteJm7oW
-         EPmA==
+        d=google.com; s=20260707; t=1795645152; x=1796249952; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=HRwAz9BoxRqxj0ai++/VXeXT7drQEfcQGrxsvupjxW0=;
+        b=j5ePXZHqAU3bIuVeZPFXuWus8/cUkOn1VKam5tbxomu5ZPUfkcoZrAmuaeiWyZ6Zbd
+         6L+RARaUcPgY48SatHcAIMXbLahr7V3Nc2WBK6lD8eMGAh97pPfRRNuNyBgeadLlw0M1
+         dAEipdXMyJ+AM+R6tWj4QA4fCM4h5g9W32jLFv4qLNaEzhWC2Qmq9XS9xbmRntnqdBeC
+         AFUbkHvLCKw/5NfMcn7HvSYIwN8nNEavQvbOo2pei3V7LLZdx2wNqYsg0pzlbBmzNkcE
+         Fn4euUtG7726sPsWVmpJyffUFQ0XJ2D/i/DzHD+ueEdNNwFGuqXBk4otTxBGbndgy2jT
+         AnfA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795645141; x=1796249941;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+        d=1e100.net; s=20260707; t=1795645152; x=1796249952;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=aKRTtm62UDdZcQ54J0I40J/JAeENeSlNH7NrIsStsO4=;
-        b=QzcDQu8/rp6x+ZEp9p5Vryop77XuX4a+hrS/lmxa+0QghxF/hLd3aahjOCBe3ED0Pk
-         sac/iiHF7LMH9eWObOuje4WCbNLsQtGvL8l8Rkc6DZB9uQFZRqvZf2s0Cx8lz5qVmOhu
-         CMAQd94xshNeL38afkJQ29AttDeSh2HIERFw4IBSbhUvgGTSrKYA0i8TH8KRovkBkTx7
-         haNXybUtqBi+NaUw3ookDIrl8kWYKH7FJMfjmDQZEEeSKOK2mktc5HD86b0fNO3KolgH
-         aPw5XwGPZp0E/T8rEnZFdVJBQLLqODP9Fj5K8zj6vzGlmvAotSeXErNih+4aCTKFO3yU
-         1WOw==
-X-Forwarded-Encrypted: i=1; AL+hErFWtxRusUcmDrv8oVDhc7h9H/uFTQPd3l1xc9Bsr0cw1L3BT7G0M/DhlBrD/Uy1SDxUUe3UDBVyzbMJBNM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8OL4csOVx2zZeTfqz1bniLwgZJNHdu/YrDB3EZCET9R0s/U1wY
-	10Qs0lXuxtlxAj8oesVDR8bmbI1RGxanYR6Zwhc4i0WRiLDILYA4G+ID
-X-Gm-Gg: AZFdTZdmsa2yuZBk1yl9lZlPPoDIh6fSa2GBqPkhA/GOVTfJMaoU6hXqv9Ue0Yv5R4w
-	xiasQ3zG+MOL4fjR+GJz1KzZejcjGxhT5wVSoJNUV4EwSSe9jHzgwuMi3q4ApEu9KsoGWSrTk4q
-	obyoZ0kJV4Uz0W01h2eWE79WmcI+KIi/+yzt7Ok3mGqGZUl+X/ccOxf9OYl13ZN3766Tj3TEHv1
-	9K6qLewOE+b4y3G8ihs53DveLTMho3/r7yk3gqSdzib7rcGTeN7Nx7DgR5UTuCHwNCo0m62cgor
-	qZplEA85wVlUihSE6gVK6Tq1f68zxqxKKRCF3Q8Bjbnd2o/hNxg3bPFtfFd3ceZLMIR5jxV0HK+
-	8I8oEAEtxqV6gDet6irLlX3Od1CUPqovOh7qtEm1731l1bpWTrNgQGrrHUm4mkiivVdnS2OAlkE
-	RBb5agSNC3E95lFzxXLVxyROcVekh0rspFjzDX5sYdT7jmbkrLW/FCM5vzrfw3d8lKTwUa8lqmV
-	2vWOlxgIseOMnBi1yI6jk9MkRg3jNl2ZavACGe6xOnuY+3rIhl0cyPgwa/UNqVnVIuYTkjNMMhy
-	NzbNXSMTbq92+DCD+EZz6gHbkA==
-X-Received: by 2002:a05:693c:8951:10b0:386:b4a1:d92a with SMTP id 5a478bee46e88-386b4a1daa3mr9731399eec.1.1795645140431;
-        Wed, 25 Nov 2026 14:19:00 -0800 (PST)
-Received: from [127.0.1.1] ([2603:c021:8021:f000:0:1865:8c38:18fc])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38567abb870sm47487514eec.25.2026.11.25.14.18.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 14:18:59 -0800 (PST)
-From: TAKANO Mitsuhiro <takano32@gmail.com>
-To: Jan Kara <jack@suse.cz>
-Cc: Theodore Ts'o <tytso@mit.edu>, linux-ext4@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] jbd2: Document the h_invalid flag of a handle
-Date: Wed, 25 Nov 2026 22:18:58 +0000
-Message-ID: <179564513831.2536897.4907315692095561152@gmail.com>
-In-Reply-To: <ylfq77loldtcc3nogxtqkwxlnqnqp5d3nvyrl3kezjtxcnpojg@ujgcfjxe7gkd>
-References: <20261125184027.2402549-1-takano32@gmail.com> <ylfq77loldtcc3nogxtqkwxlnqnqp5d3nvyrl3kezjtxcnpojg@ujgcfjxe7gkd>
+        bh=HRwAz9BoxRqxj0ai++/VXeXT7drQEfcQGrxsvupjxW0=;
+        b=ny9ufMmldJAqIJCAlN3jokTw6+QoetEc/l6RXP9u8T0/WgHpy/Fc8WuBG/E6NONTHj
+         GB90sY7psc1vM3JBC0pHHu/8+vqWPh3uJ3vLo+Hl0bFhdeQatUyLV9rLgdBi8fKOuHBV
+         k7NuDi1KvDqibOWI8j8pWvoTi8jA/E4+cUQMSRVT+bmnj9nYiDkhtLIUD+Abmy6yAB+8
+         nfRdQ839uWsVhZL5QEUhztrM+OrnnSSrUoZ6OIM7UH56nhpUPQkOTPBXzK/JSTgWUbDu
+         kZrvRi+wtvUSElHtjje02Scwz0u2GRzvB1MwBRpEUIEpexWz8liOXAtJp22Y88zICSR1
+         k9Nw==
+X-Forwarded-Encrypted: i=1; AL+hErEl0YrT8IRkUsr852R9cOUhHmE8w8umrLAeFq1f8Njs7amZQGiio2bYOKtu81ftwKHJZITzpGhBk1zyvD8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+zpsGQ0CzQqkzAeYH3UwNZRgoiLVOCSEYcKK3LzHiaAF6W6Dau
+	qWHK7z6MYrg8Q4Cge5Ir6CARdu0jy/FJUbAfKF+ko0sEOn+PgOmt8IRjb1jx8rREGzixqkPpD7u
+	VNw==
+X-Received: from dybeb10.prod.google.com ([2002:a05:7300:a2ca:b0:385:2e0b:4776])
+ (user=elkin job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7301:dd94:b0:36c:9afe:fcd8
+ with SMTP id 5a478bee46e88-3856f559cfemr18733738eec.30.1795645151282; Wed, 25
+ Nov 2026 14:19:11 -0800 (PST)
+Date: Wed, 25 Nov 2026 22:18:49 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -95,22 +75,61 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-Mailer: kpatch-send.py
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
+Message-ID: <20261125221849.1424464-1-elkin@google.com>
+Subject: [PATCH] btrfs: tree-checker: verify tree_block_info bounds in check_extent_item()
+From: Elkin Cruz <elkin@google.com>
+To: David Sterba <dsterba@suse.com>
+Cc: Chris Mason <mason@kernel.org>, linux-btrfs@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, llvm@lists.linux.dev, irogers@google.com, 
+	Elkin Cruz <elkin@google.com>, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-Hi Honza,
+check_extent_item() only verifies item_size >= sizeof(*ei) before
+reading struct btrfs_tree_block_info on non-skinny tree block extent
+items (BTRFS_EXTENT_ITEM_KEY with BTRFS_EXTENT_FLAG_TREE_BLOCK). A
+crafted filesystem image with 24 <= item_size < 42 causes
+btrfs_tree_block_level() to read past the item and potentially past the
+extent buffer's populated folios.
 
-thanks for the wording.  I am withdrawing this one rather than sending a
-v2: the same warning is already fixed in the ext4 tree by Amit Patole's
-patch, applied as commit 008aad6508e3.  My duplicate check looked for my
-own posts and for the subject I had written, so it missed his.
+Verify item_size >= sizeof(*ei) + sizeof(*info) before accessing
+btrfs_tree_block_info.
 
-If you would rather have the comment read the way you wrote it than the
-way it stands in 008aad6508e3, say so and I will send a one-line
-follow-up on top of that commit.  Otherwise please drop mine.
+Fixes: f82d1c7ca8ae ("btrfs: tree-checker: Add EXTENT_ITEM and METADATA_ITEM check")
+Cc: stable@vger.kernel.org
+Signed-off-by: Elkin Cruz <elkin@google.com>
+---
+
+I am trying out new Clang static analysis checks for kernel bug
+classes, and they flagged this code as possibly buggy. The findings
+were triaged/fixed and commit descriptions were drafted with help of AI,
+then checked against linux-next (not runtime-tested on hardware).
 
 Thanks,
-TAKANO
+Elkin
+
+ fs/btrfs/tree-checker.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+diff --git a/fs/btrfs/tree-checker.c b/fs/btrfs/tree-checker.c
+index d2bf21c7b848..a38eeef7b859 100644
+--- a/fs/btrfs/tree-checker.c
++++ b/fs/btrfs/tree-checker.c
+@@ -1665,6 +1665,13 @@ static int check_extent_item(struct extent_buffer *leaf,
+ 	if (is_tree_block && key->type != BTRFS_METADATA_ITEM_KEY) {
+ 		struct btrfs_tree_block_info *info;
+ 
++		if (unlikely(item_size < sizeof(*ei) + sizeof(*info))) {
++			extent_err(leaf, slot,
++				   "invalid item size, have %u expect [%zu, %u)",
++				   item_size, sizeof(*ei) + sizeof(*info),
++				   BTRFS_LEAF_DATA_SIZE(fs_info));
++			return -EUCLEAN;
++		}
+ 		info = (struct btrfs_tree_block_info *)ptr;
+ 		if (unlikely(btrfs_tree_block_level(leaf, info) >= BTRFS_MAX_LEVEL)) {
+ 			extent_err(leaf, slot,
+-- 
+2.56.1.839.g22a8290db9-goog
 
