@@ -1,72 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.70
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.200
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795645550;
-	b=LY7gUW1wCbkAVZpEBVUh6h+ZJn0sGDPhJ+4VltQr8vbMQWK3IH1HwWAcN+AgULV065Vx
-	 265HGbexmOrUFTk9yVPjjeCpjyv5QKSLTc4A0BrZId/KAexoxEVd7jAuuQj4kLvKFNWzS
-	 VwskIlFRgHKoa9tWcvqkFplsRapi1DW3LW4Dll4b43isBpus64dK5huUbk75zvlaCuXdn
-	 tcTk8VXokEB37tM41FXFi4aN7E9bL3y5eWk0nLf6hNV17M7o1WXVamr8X/sEeukZT2VF8
-	 wD/E7onREfDcyeXpE2VN+Qdehgg/PZwkMz2k7/yee8lfE4c1zauhkvd2rjNoxgmd3Xw==
+	t=1795645564;
+	b=oEtTc1nWLIXzpDNgtq90J2mlLbrY+w3tjNF2uIt6XH3Io8lbzKKoWLBg9aTxpIz9Q+kg
+	 gRFaTD5MbXw+NA+JJUWShv5/LnmeAiL2c6atqTEf1cHFwz5q161JjV/TW0rikAXKXb2qw
+	 kvSBUR9jFpVnIs23ot6jJrpUtjTF+ri1uIYpnGF9TtnO8pxueDld9wgzj6l97TvUjNdGO
+	 2HezwYwIe6BYDvRWBCYZu6Gk76owT69/FrdsG12ZpYydz+Pxk1c0EZl/+Emoh97DJm7M7
+	 H8eSbp5iixclrNbZ3KVQEyI3OYTXODnB9f9X4iKyjpsBddh2GlOSasY9idnQ6GYkFsg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795645550;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795645564;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
 	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=ue0clycRAKMXS44rtOTwgYfFDRrhexAInqWIAQ+09Ks=;
-	b=M9DVaDwIFTs9zvlbOkfWfYIkjTPiQVZI8g6hDl9ohOiDt1XdV+Ax28PurHEANylPqQlw
-	 Ywbqms6//VcfdViq5bN0mmDdVO+5uU3tqMAa0eu8nk9LO0WyTpJB+f7lgRd3yhc4b/llI
-	 a/MOGD05S2Ogcudpn+iAlgqGKUIZlOG8ZDt5PUnags2zt7WTp2OL+zharUuU4cHlxxUtz
-	 mRdDDuxMShgn9M2OC+rM/Hb5Z2Q8PxOGDiVwRnCXcS8GoG8EKLBhv2JHMlmkMuiK88toj
-	 8wbSZgIGYi6fWdtu9RhQbuq/QaGPuXRPEWhzmyHjAYMZTYfHCf6riZB4vngsZ0KxMmQ==
+	bh=zgtJXU8YQHzy+kU/OTfUuCnnBinrSODUP5wPqMLOjgs=;
+	b=HTfWtvsuNOm8pPHy0DpeUR2o8vK21jXn/OXWoADnwEVeqEAgcmsywG0V2eco2l4vwKK4
+	 jymmMSIxC+BO7nJl34btkR+RcAhLP8pe2IAItNCgBNcQaLpWS0RwfpTn2yIm9CL/eBkZX
+	 jOU76VgXkZ/hlp0PgIg2wbcHUYIbT24aLdrFwSLnCIV/+K9F0asIKfH7bd5ukx4toRTWz
+	 s0t7G3os4IRnA0mkt4lHOpg7LAlLPCsvhayi/X7OC4Rwm+bXHz14Xp6H+9xvO5uoamhM+
+	 YFjJdkqKv219uNm7Kr2Y4nsLisbROqLP6eSygLDWOgCo8Bw63X6muvyJo6/RHmeD3tw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--elkin.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=CHJL3Znp;
-	arc=none smtp.remote-ip=74.125.82.70
-Received: from mail-dl1-f70.google.com (mail-dl1-f70.google.com [74.125.82.70])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=WYr8UlZQ;
+	arc=none smtp.remote-ip=74.125.82.200
+Received: from mail-dy1-f200.google.com (mail-dy1-f200.google.com [74.125.82.200])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AD7AC606A330
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 22:25:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AD7AC606A330
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 41F70606A336
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 22:26:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 41F70606A336
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--elkin.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=CHJL3Znp
-Received: by mail-dl1-f70.google.com with SMTP id a92af1059eb24-1b587ffea77so705810c88.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:25:49 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=WYr8UlZQ
+Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-30bcb065bfdso6653042eec.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:26:04 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795645549; x=1796250349; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795645563; x=1796250363; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:mime-version:date:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ue0clycRAKMXS44rtOTwgYfFDRrhexAInqWIAQ+09Ks=;
-        b=CHJL3Znp/yHZn1CQn42wgHjRSGWtQc4VpnImiVX4Y2n3FR475hfbx/EMA0cHKmfFLC
-         tYtnpjlw2xmKbPB7F907b3H6nLQhobXdBsQiv8oXnzilKZbKI0P8aXQiZRtd+eCuyHJC
-         dteSGYxIv0jrd/QAgzvPh6pyyhD+xyxxlSM9pPvmnPgnEC4CiHhHDevkmSYO+UNttare
-         HTt6LW5+E66KK3bc4WcogQkHq3kLTJYkVJDQOq8eZ7VqvRTKQn+qEoUikFkmg34un+Jn
-         arL+hQa0cb/DI3fHy/8tC4oXnoJR3MgrmdyoVBYg0v6zOtUEf4hJdRgZ8+SAdo49UnQc
-         3XZg==
+        bh=zgtJXU8YQHzy+kU/OTfUuCnnBinrSODUP5wPqMLOjgs=;
+        b=WYr8UlZQqejsMUyRWfaFcmN8i6GPXdsjEbdVmmsQh0XcQbpE2IfUnuGMBAnov35+EW
+         yAGEQtWVJBG0nHdmMno1WYKwWuw7WlPtazYMS58wpc8/aHCYTOS8SlNZ0xCNhGBKmWU8
+         aE/JmvBXNQflHgDIwCrEJSFm4N3ykPSWjWch9MIxtAa1PtNnsNBUrS5b5F0X4xX5R5Lo
+         a72uSwULhvstznQ4QKHnoP8LdbU80aWdkfQjF5O+uh5bsdPvpuZU5CR8alQbrHtc7dHy
+         n/Ii5+XLTBO5qv2hZdOfTlRAfsTCvuulCQRvonZRQb4NxxFsUVGfzUzxEtFRN0FlkEaL
+         T70g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795645549; x=1796250349;
+        d=1e100.net; s=20260707; t=1795645563; x=1796250363;
         h=content-type:cc:to:from:subject:message-id:mime-version:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=ue0clycRAKMXS44rtOTwgYfFDRrhexAInqWIAQ+09Ks=;
-        b=HCTIo9U/LquJk/Z1/YrhF4MF9wXJZmtUWb5gB5TUE4avUdYzqeFB0XFqOgTnhvrWyr
-         WjObdZuVD0dKEmIu07iVcK29LjPPVkMMY6+YjUOlVpCrdKGuZK4kHZvkACoNpXtEyX9h
-         q3zsoHZjKJYETAt+suXEtVQ8NL8D5kE/FQ/UtqqmrIDo4pTka6VBxr8d+gcB0R4riyuz
-         QO3btja7bTrbkVMp7cwgXW7sSU8yJh9o+G8+IPddXRmT5Hj54QcWnZFVGduIGM+mBYzu
-         yLEisvlMyyITdmUF3EHf/xT8m6Ze1GUK7sCefEYWxMFf96l2sx1h+JW+ND4sSKVK50YM
-         9Grw==
-X-Forwarded-Encrypted: i=1; AL+hErEa3Cm3NHSNIyPByPQgpvzxIrBU8McteKpvTwWBlU0xYkw7GW6E8ssO2yZ+igTA53bHUQii0MS1GA/3TP0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8WGMRHjwWbexh0wbF0zNsveSxa3Bx6qMMPWLD8lBN2GQMHppe9
-	Nl3Xn/nXmq1fu3/G/b9gZYwJV4jKrihsro4slUWRex+2XtTeo5wcC4aooqozGGBkLIThfjRahKN
-	mpg==
-X-Received: from dlbds15.prod.google.com ([2002:a05:7022:250f:b0:1b5:3561:2fe9])
- (user=elkin job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:3b8e:b0:1b5:10cf:c402
- with SMTP id a92af1059eb24-1b5568a17d9mr20769440c88.10.1795645548479; Wed, 25
- Nov 2026 14:25:48 -0800 (PST)
-Date: Wed, 25 Nov 2026 22:25:36 +0000
+        bh=zgtJXU8YQHzy+kU/OTfUuCnnBinrSODUP5wPqMLOjgs=;
+        b=o9srHD4+C511jA5dRXd3oRCGGpG2nCWAfvoMq02XsaZOzGqhR3lo8A9Wm3fad9Y1W1
+         kxf3w5Ur6jDqIvxZCIAdNq16vmOr10t8RkUhFMt7nR8T0cGui7CW3qzGDzhEVIBk/0TT
+         3QHHHIwoXClAmQVeznfPRg76vwbKarSOtj0WT8kkZtcKo6Pf4lMSbhoZW6zamRNBrdb0
+         uOq0FzS4UafPls5uUXSEvXeKF1Rt8MOPqKvBlwg3hqESCerzaM6dYIXpH1A3PXXrClqq
+         NB8BPX7+WwEdWjpr+hnOiVPBoNNKVRzK1HnQkQmHUtCsDtR3n9FyNXANe6vhIdy44U2Z
+         aJlA==
+X-Forwarded-Encrypted: i=1; AL+hErEd2Ap6TnZ0UQlH3sATARC2uV+zQxAXp0qGOcFdP0QrMbJPdOY7gzngdnmWC26yicfhqmAiWcVSZHSLBM0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/uIAGQiNzNwWd4hSDZOJ4WvzFXRZ7/wgTf/ciPijIeaRLLXiLC
+	Eo3P5Yj0YgCEcgZkKNLPNyQLmyooO+H3568wYbLSOhEm5aBjfhKvsi1BdjzgAd7qFwNhWxwuQfi
+	NZw==
+X-Received: from dldyq17-n2.prod.google.com ([2002:a05:701b:4551:20b0:1b5:58b9:e078])
+ (user=elkin job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:3a83:b0:184:992:c9ec
+ with SMTP id a92af1059eb24-1b55693aaabmr25999920c88.38.1795645563065; Wed, 25
+ Nov 2026 14:26:03 -0800 (PST)
+Date: Wed, 25 Nov 2026 22:25:47 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,29 +77,16 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 Mime-Version: 1.0
 X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
-Message-ID: <20261125222536.1447211-1-elkin@google.com>
-Subject: [PATCH] ASoC: zl38060: use bounce-buffered spi_write_then_read in bus write
+Message-ID: <20261125222549.1447825-1-elkin@google.com>
+Subject: [PATCH 0/2] pinctrl: tegra: fix Tegra186 AON bank index and add bank
+ bounds checks
 From: Elkin Cruz <elkin@google.com>
-To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>
-Cc: linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	llvm@lists.linux.dev, irogers@google.com, Elkin Cruz <elkin@google.com>, 
-	stable@vger.kernel.org
+To: Linus Walleij <linusw@kernel.org>, Thierry Reding <thierry.reding@kernel.org>, 
+	Jonathan Hunter <jonathanh@nvidia.com>
+Cc: linux-gpio@vger.kernel.org, linux-tegra@vger.kernel.org, 
+	Aaron Kling <webgeek1234@gmail.com>, linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
+	irogers@google.com, Elkin Cruz <elkin@google.com>
 Content-Type: text/plain; charset="UTF-8"
-
-In zl38_bus_write(), the local stack buffer buf is passed directly to
-spi_write(). Passing stack memory to SPI transfers violates DMA safety
-requirements and risks memory corruption when the SPI master performs
-DMA.
-
-Switch to spi_write_then_read(), which safely bounce-buffers stack
-transfers through DMA-safe heap memory, matching the pattern already
-used in zl38_bus_read().
-
-Fixes: 52e8a94baf90 ("ASoC: Add initial ZL38060 driver")
-Cc: stable@vger.kernel.org
-Signed-off-by: Elkin Cruz <elkin@google.com>
----
 
 I am trying out new Clang static analysis checks for kernel bug
 classes, and they flagged this code as possibly buggy. The findings
@@ -109,22 +96,14 @@ then checked against linux-next (not runtime-tested on hardware).
 Thanks,
 Elkin
 
- sound/soc/codecs/zl38060.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Elkin Cruz (2):
+  pinctrl: tegra186: Fix register bank for AON drive pin groups
+  pinctrl: tegra: Add register bank bounds checks
 
-diff --git a/sound/soc/codecs/zl38060.c b/sound/soc/codecs/zl38060.c
-index 02757ae2b58b..fc67999c84e4 100644
---- a/sound/soc/codecs/zl38060.c
-+++ b/sound/soc/codecs/zl38060.c
-@@ -534,7 +534,7 @@ static int zl38_bus_write(void *context, const void *data, size_t count)
- 	memcpy(buf + len, data8 + 2, val_len);
- 	len += val_len;
- 
--	return spi_write(spi, buf, len);
-+	return spi_write_then_read(spi, buf, len, NULL, 0);
- }
- 
- static const struct regmap_bus zl38_regmap_bus = {
+ drivers/pinctrl/tegra/pinctrl-tegra.c    |   8 +-
+ drivers/pinctrl/tegra/pinctrl-tegra186.c | 102 +++++++++++------------
+ 2 files changed, 58 insertions(+), 52 deletions(-)
+
 -- 
 2.56.1.839.g22a8290db9-goog
 
