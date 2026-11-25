@@ -1,111 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.156
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.53
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795593127;
-	b=sqgsB8Vam7Qo42wvxV2IKLncPbJu7hr7ISOK4FqWwe8ZJJkCoD5ZRfJF+7PFOIpZGbgd
-	 D5gk+icFIim4Ofifdszza0oU1iaZjBz1g0+uJF3I7QmgEsDqWG92ZlF4/tTYy+gJRU47P
-	 Mp56ok+X0rQoYhwfqct5MB09lmhKJAcwNq4JhQajUzx1B39rn4GU8cBBXU7Ip1LH9ZXss
-	 y4QrcHliZhfazqy8uYP4LjdOz3qOwa/4QaNFwmy9cNuGG6GEJuqgsaiQ40J5eOlSqZ5EX
-	 tXtaQSLQ6n2RSSasJSJMMkpEb9VkK+lTZ18EkNTx/ppgiUIzLSj8i6qLul7NCDOOt2A==
+	t=1795593206;
+	b=e36+Dfq+ZSco7M8O82yBaXSDYRk3TFloyqrko9/3DrgAFkTU0V9p7iR8yrGNDtGIdb0X
+	 rPWVuerybYUTEtOoI7MFA3lYuMPPOwH0hyzO4p9VJsyVZvyuS6t7Fwlz4Z66djFfnciyL
+	 9UkFXo3YEdRsrGMlSxCoKGcQBEbFNsDulGL2i+sScwWRv1dS46XdkbRvfOgdoKU04MzzD
+	 6hSx/fJ84J6pmJUnNZEFYHGhHteO+5p6RipRQknfmZVqsEPJk/sg7nMUh3kiaTCmgAiTR
+	 9uU3cp3S6XSbGaIIVQcLtgfEMMduAy5mKey5Xb/eOHaxcreMHntSNJ+9q7KuLzGKhcw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795593127;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
-	 MIME-Version:X-ThreadId:Date:From:To:Cc:Message-Id:In-Reply-To:
-	 References:Subject:Content-Type:Content-Transfer-Encoding;
-	bh=019GwQ/x81qxKZSVVtOD2YBAp3ZMp6lcDwLA7mJ+Cik=;
-	b=gOHZjR1Y+fkApn5bllBLQkxGeimAUXcEZw0uDQb8EHii5IWdSFtBZFwuMVIy32C/XxfT
-	 I4M6g6uUPwOxy8NaD0wdeD5Kkybp7IOx0RmxViQY5LMSfzrj7GxGvV+mvbtIea+ROrfDA
-	 VQ5bUVy/DP0e3ogHOs/c+59wqjWPkNfQlYW0iJDbmdr/vmDeuLW9C0ugKKHu0H8e+UHcF
-	 0Rnih1fjRKTyfZ9ACpQIaH3+ZoW0K90UTAXtLYSSIKP+mmg6kgWBvGY/ogi08J12p5Cs1
-	 U7sS94SsFq1FgVlj9CJd6UkWlvX/TdnJPZBgjK28Fe7Z1JbLOGNX4lUaQMG5mvOUylQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795593206;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=LxZT7ZjAx5dLugEibQIK7MHwJ1X97KSE7N0NP3JiYOo=;
+	b=v3M+2iwB3Au9wjSnKhn7V/Ew6k7ULUiu402O4bk74oVJs6SCgEDmEdkjBv6Kox5mZSdX
+	 43sYDE1E6fJV995KfjKc8lv+PlGYqKYdGbI8kDcTRDRPqcAiLpahbnk0cBUIEaxjnQmvu
+	 qGAcSCttRxtvq/pucN6fPFsZxESPWfk6kmrwUCTMjGwq2VSUN9iyiaeXo8kgxCaK7UoGA
+	 HHySa7Hie10FjaHOYA+DLUFxJE5EMLm3/O2AkoxQ+H31Le4HTqJ8hR9p2NVVRnt9QOFyT
+	 9EilWycEPxbw4k5NbAsc2fHbB2+aAkY3G2TbZuEqVAPqEj8zXvoQR3md1IbybLbW+cg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arndb.de;
-	spf=pass smtp.mailfrom=arndb.de;
-	dkim=pass header.d=arndb.de header.i=@arndb.de header.a=rsa-sha256 header.s=fm3 header.b=YgRac9er;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=O07t6f9G;
-	arc=none smtp.remote-ip=103.168.172.156
-Received: from fhigh-a5-smtp.messagingengine.com (fhigh-a5-smtp.messagingengine.com [103.168.172.156])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=GdblKYot;
+	arc=none smtp.remote-ip=91.218.175.53
+Received: from mta0.migadu.com (out-53.mta0.migadu.com [91.218.175.53])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D2D11606A326
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 07:52:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D2D11606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arndb.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arndb.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 370E8606A321
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 07:53:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 370E8606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=arndb.de header.i=@arndb.de header.a=rsa-sha256 header.s=fm3 header.b=YgRac9er;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=O07t6f9G
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id ED6FD1400307
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 02:52:05 -0500 (EST)
-Received: from ams-imap-03 ([10.64.2.23])
-  by ams-compute-02.internal (MEProxy); Wed, 25 Nov 2026 02:52:06 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1795593122;
-	 x=1795679522; bh=019GwQ/x81qxKZSVVtOD2YBAp3ZMp6lcDwLA7mJ+Cik=; b=
-	YgRac9erSiU61TQkYI1ioth44/P9sRSYS/JW/avtEZH6YizQVW6zqmb6qgIoKqWS
-	FUUwRKJbq0dQjI89eEmi2pSqwB1ev0dPtd/7ipWWkV4Hv+GgXcBD3ySkEY67BJzM
-	PjQFocAes++UO3gJxE5Roe8e5iGiFRuWCVnByrCCzoNTM+bS5mwt99bNGbKYT1Bl
-	WU8WLAqcWCQx2nuo8Fr4tIBf3B5BUDyKXzvrRMr77gW7Ny/mLbK3cXMOEmTaW+Qx
-	fRlfI2NrD0Y++hRymdi6fCrHL9/32syp9/AHXRj42gpSOnid5iDwRKXUynVd1JiW
-	mNgp6movnOu0e5DarJtrlQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795593122; x=
-	1795679522; bh=019GwQ/x81qxKZSVVtOD2YBAp3ZMp6lcDwLA7mJ+Cik=; b=O
-	07t6f9GUgtUCqNna1FBptHE2tdnqLC72ZE/7S59RNyRJtM0FQRUZwPPBjlOvSSyZ
-	eqqICSgD2eJ13lJYQgbdL0AmeAN5CqFiUPjwWEDPDeUQKtJjVfBCD6NzPyRF6Y9E
-	JxUHxxwlqfdq5kGuyrQHN2VpVB0YCJR0/Wh2J6m5DAZd6kJJ5tc9uLLKHoNE8jmb
-	bY2ndqTIo5U6YakL6aCDtK9ef6sp+8gL8nzo10ywa+B/xgSmUyifziVM4PPRNHnN
-	ictv367qm1k9TrVYxjbWDHTQ16+hlL24ntoc0znlmZGu/WHzcJ5NbZA6ocpTihB/
-	vF28GV5YJP5dULrO5q/QQ==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=arndb.de a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795593122; d=arndb.de;
-	mf=PGFybmRAYXJuZGIuZGU+;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm3:rsa-sha256:R3glRqiwLQQfxEucCaHvm2YKeygkNzv29QImVDBkFJd09mt
-	uoUwIqGfeGKZOore5NLI8g8phTI6cVFee4AXKsbAOBQdDg4kot7OUsiuLVoJNOlR
-	1elNRQbBqfv6bSBgkuUDNS1rlChsxzopXeBS9oYk09y58TpS+Wffzin3pvJaEgJT
-	x5b/aX7BND4yMPeio7Qn+rwgdq+lGy98858SMtjjoEJsqLTaoMnA1SQhEt7YteEz
-	ap8hLuIIVMzDb2gtm9ORTcB9KGqg4wsOVSmsf3J/N/GzjDdZwhzvKpSCspp8GH/q
-	L91jEI9L4fgWFTDwo0WmL5czLsHm0tKc+RvvXSg==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=12;
-	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
-	from,in-reply-to,message-id,mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:aSFAEiZCTpRiW+Wu1woG8Vz1ZQwpvzDxc2eGNqTlgrY=:vpzV28ZJxRuQUL4xVOIgcB5rr6QBx9o4DSwGH3trdVo=;
-X-ME-Sender: <xms:n5MGa_its0_6WpEfVmkP8nUkELi5X7lOCVEVLb-9RvGIjtXW_BvPWA>
-    <xme:n5MGa222_Kl_p6ZWq5DFXxZ1olzbryv-uHQyHqqEiQzJYBC1Z6Ybgkwr6LtF5a9sD
-    0SEDnF38i8cV26a2Czauhu3Zn_M3j_TI97drGA9qgOTAOHC18AagMAC>
-X-ME-Proxy-Cause: dmFkZTEZGMjBJZt1uWfkWP6nvt4pWCnopsg+g8jDAdQavJeS2L2MwltpTlwNaEd8djtHKn
-    EPizddLB0fSbdLPaJXfL7ISnFQ1pA7d3q5xXjlkKF7Llg1RwP63kPcq0bI3SJaaGtsYfUM
-    gGjOAMhxF1D//iqBwYraoqBzGajUVgZp3yCUIaTksE5UyL9pMmgUcyHL3LqjZ21dra+EFI
-    TAy0zbgO0K7vfZ8Hct71arlCzW4J/YEmPJ6Dnl95xYkw0QhXDSpkudPc5Y9VXyic7+9pAN
-    ximDmVNWXRqAzamP6dwkNrFM7nu1F9pqX22e3CFb5mk+WWWg3//eiPy7g2RkhevTNwQUia
-    85KxHy17Q9kE3c0+N0DVqR64pqIBOD3atDXgk9TbJ+i01Nap+C/J1N006rWkFj9IE3Lju1
-    fTSX8tEu7+kpTO5vuH98xqQ0egpd7CvdzszNDX3e9OVABgEBb7IxZEzDVYIxm6LlbrmDBQ
-    GeEOjj4/Bm70q9bfMm56k88nZv5Q350CNnIE3eOHbHrL+7ShQVVzwMg7HXBs1fv1INguEw
-    tqsrDwly4idlE5qP1w/PsAaePb3xdDGuqqurHaelJ0sfjyCcXsDbzmVpH9tfQPezIrkCo2
-    W4Axz5JTf8+nRZ9HOEPtPANb9047WcwGN1oHwpchW1Bo17ShzqHqWvqPvtTQ
-X-ME-Proxy: <xmx:oJMGa53x4IFkgjCIN5aU2Y9IKKjuCVKzWVl__moxFdRA-MkUCCzcZw>
-    <xmx:oJMGa6ELf73cxEYdK1hIxGRzKxy3lACevEvI6mchurc13tFj1dXP7w>
-    <xmx:oJMGawgoNVKqvEJOmvssjpIObYUWCcCRRw2PhFMjcVxahJ4kK2DJvw>
-    <xmx:oJMGa1A5sXqUNQxIW1-zqq-kZZ6W5jCV_rFV7bRMqTw3_ev1j5D64Q>
-    <xmx:opMGa-Klzxrw27CydToupd8Jqjm7Xmi2dpSG3veRuZmk557St_3kgZ2o>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id 4314F32A009C; Wed, 25 Nov 2026 02:51:59 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=GdblKYot
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=MAslaRM54tE3XjgvOR0kxLBY4cJjVeHgCxJcmnBGZE8=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795593203; v=1; x=1796198003;
+ b=GdblKYot6vc+2CPrL89l1kq1SfRpLgdzHn/okgT2I+pD6oSGHSpPmqBPj9r5OZ4QUIDP4L4s
+ dXoax4R6n89k6m+Gf1gNPlUvhiMqMTE4it07jVOPKqhcuKAQePmhWZ49/f78hbgKSw3rXQmeVFC
+ dUtEUtWTk3Z7tEm/b7tcFgtw=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 34eb167e6bfe3a5d;
+	Wed, 25 Nov 2026 07:53:23 +0000
+X-Mizu-Trace-ID: 34eb167e6bfe3a5d
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <75457f63-70fb-4675-bb7f-0a22bc193446@linux.dev>
+Date: Wed, 25 Nov 2026 15:53:18 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -115,50 +58,154 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-ThreadId: AdoFu5rB1Sng
-Date: Wed, 25 Nov 2026 08:51:38 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Brad Hawthorne" <brad@sim.vu>, "Russell King" <linux@armlinux.org.uk>,
- linux-arm-kernel@lists.infradead.org
-Cc: "Kees Cook" <kees@kernel.org>,
- "Gustavo A. R. Silva" <gustavoars@kernel.org>,
- linux-hardening@vger.kernel.org, linux-kernel@vger.kernel.org
-Message-Id: <92686f21-9c49-4cdd-ba39-25c163fa3183@app.fastmail.com>
-In-Reply-To: <20261125025650.1159785-1-brad@sim.vu>
-References: <20261125025650.1159785-1-brad@sim.vu>
-Subject: Re: [PATCH] ARM: xip: end _etext before the read-only data
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 03/12] cpuset: introduce partition_update()
+To: Guopeng Zhang <guopeng.zhang@linux.dev>, Waiman Long
+ <longman@redhat.com>, Tejun Heo <tj@kernel.org>,
+ Johannes Weiner <hannes@cmpxchg.org>, =?UTF-8?Q?Michal_Koutn=C3=BD?=
+ <mkoutny@suse.com>
+Cc: Guopeng Zhang <zhangguopeng@kylinos.cn>, cgroups@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Ridong Chen <chenridong@xiaomi.com>
+References: <20261114083124.1340140-1-ridong.chen@linux.dev>
+ <20261114083124.1340140-4-ridong.chen@linux.dev>
+ <833af431-3580-4a7d-987f-30d8d60893a3@linux.dev>
+From: Ridong Chen <ridong.chen@linux.dev>
+In-Reply-To: <833af431-3580-4a7d-987f-30d8d60893a3@linux.dev>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 
-On Wed, Nov 25, 2026, at 03:56, Brad Hawthorne wrote:
-> The XIP linker script sets _etext after the read-only data, while
-> vmlinux.lds.S sets it at the end of the text. Hardened usercopy
-> refuses any copy to user space from _stext to _etext, so with
-> XIP_KERNEL=y and HARDENED_USERCOPY=y, copying a const string from
-> .rodata to user space ends in BUG(). The first readdir() of /dev is
-> enough:
->
->   usercopy: Kernel memory exposure attempt detected from kernel text 
-> (offset 2955300, size 1)!
->    __check_object_size from filldir+0xd6/0xfc
->    filldir from dir_emit_dots+0x34/0x80
->
-> Commit 14c4a533e099 ("ARM: 8583/1: mm: fix location of _etext") moved
-> _etext in vmlinux.lds.S for the same reason; the XIP script was
-> missed. Set _etext at the end of the text there too.
->
-> Tested under QEMU (mps2-an385) and on an RP2350 board, both XIP: the
-> BUG is gone and directories list normally.
->
-> This patch was written with an AI coding assistant (Claude Opus 5.5,
-> Anthropic): it found the cause of the usercopy report, wrote the fix
-> and this changelog, and ran the QEMU and board tests; I reviewed the
-> reasoning and the test results.
->
-> Fixes: dfd45b6103c9 ("ARM: uaccess: Enable hardened usercopy")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Brad Hawthorne <brad@sim.vu>
 
-Looks good to me,
 
-Reviewed-by: Arnd Bergmann <arnd@arndb.de>
+On 11/24/2026 6:06 PM, Guopeng Zhang wrote:
+> 
+> 
+> 在 2026/11/14 16:31, Ridong Chen 写道:
+>> From: Ridong Chen <chenridong@xiaomi.com>
+>>
+>> Introduce partition_update() to centralize updates to key cpuset structures
+>> during a partition update, including:
+>> 1. effective_xcpus
+>> 2. exclusive_cpus
+>>
+>> Key operations performed:
+>> 1. Adding and removing exclusive CPUs via partition_xcpus_add()/del()
+>> 2. Synchronizing the effective exclusive CPUs mask
+>> 3. Updating the exclusive CPUs mask when modification is required
+>> 4. Triggering scheduler domain rebuilds
+>>
+>> For a local partition, the CPUs to be added or deleted are restricted to
+>> those in the parent's effective_xcpus, as the parent may have shrunk.
+>> The function returns early if nothing is to be changed.
+>>
+>> The partition root state is unchanged by this function, so no partition
+>> change notification is sent.
+>>
+>> Signed-off-by: Ridong Chen <chenridong@xiaomi.com>
+>> ---
+>>   kernel/cgroup/cpuset.c | 52 ++++++++++++++++++++++++++++++++++++++++++
+>>   1 file changed, 52 insertions(+)
+>>
+>> diff --git a/kernel/cgroup/cpuset.c b/kernel/cgroup/cpuset.c
+>> index 12bdcaeb8ae5..c66864faab32 100644
+>> --- a/kernel/cgroup/cpuset.c
+>> +++ b/kernel/cgroup/cpuset.c
+>> @@ -1824,6 +1824,58 @@ static void __maybe_unused partition_disable(struct cpuset *cs, int new_prs,
+>>   	update_sibling_cpumasks(parent, cs, tmp);
+>>   }
+>>   
+>> +/**
+>> + * partition_update - Update an existing partition configuration
+>> + * @cs: The cpuset to update
+>> + * @prs: Partition root state (must be positive)
+>> + * @xcpus: New exclusive CPUs mask for the partition (NULL to keep current)
+>> + * @excpus: New effective exclusive CPUs mask
+>> + * @tmp: Temporary masks
+>> + *
+>> + * Updates partition-related fields. The tmp->addmask is the CPU mask that
+>> + * will be added to the subpartitions_cpus and removed from parent's
+>> + * effective_cpus, and the tmp->delmask vice versa.
+>> + */
+> 
+> My understanding is that tmp->addmask is added to subpartitions_cpus
+> only when the resource parent is top_cpuset. For remote partitions,
+> NULL represents that resource parent.
+> 
+> For a nested local partition, this helper updates the parent's
+> effective_cpus without changing subpartitions_cpus.
+> 
+> Is my understanding correct? Please correct me if I'm missing something.
+> 
+
+Yes, that's right, the comment is inaccurate. partition_xcpus_add/del()
+only touch subpartitions_cpus when the parent is top_cpuset, which
+covers remote partitions and local partitions directly under
+top_cpuset. For a nested local partition, only the parent's
+effective_cpus is changed.
+
+I'll update the comment in v6 as below:
+
+/**
+* partition_update - Update an existing partition configuration
+* @cs: The cpuset to update
+* @prs: Partition root state (must be positive)
+* @xcpus: New exclusive CPUs mask for the partition (NULL to keep current)
+* @excpus: New effective exclusive CPUs mask
+* @tmp: Temporary masks
+*
+* Updates partition-related fields. The CPUs in tmp->addmask are taken
+* from the effective_cpus of the parent, or of top_cpuset for a remote
+* partition, and the CPUs in tmp->delmask are given back to it. If that
+* parent is top_cpuset, subpartitions_cpus is updated accordingly.
+*/
+
+
+> 
+>> +static void __maybe_unused partition_update(struct cpuset *cs, int prs, struct cpumask *xcpus,
+>> +					    struct cpumask *excpus, struct tmpmasks *tmp)
+>> +{
+>> +	struct cpuset *parent;
+>> +
+>> +	lockdep_assert_cpuset_lock_held();
+>> +	WARN_ON_ONCE(!cpuset_v2());
+>> +	WARN_ON_ONCE(prs <= 0);
+>> +
+>> +	parent = is_remote_partition(cs) ? NULL : parent_cs(cs);
+>> +
+>> +	/*
+>> +	 * Only CPUs owned by the parent can be taken from or given back to
+>> +	 * it, the parent may have shrunk. A remote partition gets its CPUs
+>> +	 * from top_cpuset which owns all the CPUs.
+>> +	 */
+>> +	if (parent) {
+>> +		cpumask_and(tmp->addmask, tmp->addmask, parent->effective_xcpus);
+>> +		cpumask_and(tmp->delmask, tmp->delmask, parent->effective_xcpus);
+>> +	}
+>> +	if (cpumask_empty(tmp->addmask) &&
+>> +	    cpumask_empty(tmp->delmask) &&
+>> +	    cpumask_equal(cs->effective_xcpus, excpus))
+>> +		return;
+>> +
+>> +	spin_lock_irq(&callback_lock);
+>> +	partition_xcpus_add(prs, parent, tmp->addmask);
+>> +	partition_xcpus_del(prs, parent, tmp->delmask);
+>> +	/*
+>> +	 * Need to update effective_xcpus and exclusive_cpus now as
+>> +	 * update_sibling_cpumasks() called by the callers afterwards may
+>> +	 * iterate back to the same cs.
+>> +	 */
+>> +	cpumask_copy(cs->effective_xcpus, excpus);
+>> +	if (xcpus)
+>> +		cpumask_copy(cs->exclusive_cpus, xcpus);
+>> +	spin_unlock_irq(&callback_lock);
+>> +	cpuset_force_rebuild();
+>> +}
+>> +
+>>   /*
+>>    * remote_partition_enable - Enable current cpuset as a remote partition root
+>>    * @cs: the cpuset to update
+> 
+
+-- 
+Best regards
+Ridong
+
