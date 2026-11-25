@@ -1,80 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.121.94.184
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.8
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795599073;
-	b=avIUcXatZfWDtd2bPQgTOwb7bA5Sgt/f1KlBNd6hADMNyFfLSindubme5wbT9D44tWim
-	 OJfHXdyJe4oRGJhtAhGIHHO5Dvk7TpfuJLjLknYGMIhDxET+Tc9/kPNXwFWjNGfX2AaxB
-	 Z9AQ0hn8/lM722KuXEHb9zKg9iWylsdYeCkGCtE5+RP3SRStoXuaPK075/p0Q+kDBYBpv
-	 HS9lTbOihN36kfCeDsUv9jYpIlIhOOBtsA4z3+LvhKYtuoRiM/PJNLAcP8CMCV9ugFlk4
-	 jTA2oHHQzPU6++NBjEdLOIMBzqQe9EnHfEumWHMe8+gUxYA4rbn73Fnyt7BHZtetG1g==
+	t=1795599095;
+	b=0SxYBD8vmA8m2hvWgwppYlruDTp1X8cBelALUYE6qcU6z8LnELDKKdlfZfWFOldJYu6i
+	 U1KBUhWa8wAbmYbq1ByaaHYXt7TvBfiqFUoYQ2cJGDJuz94PB47Hiot0od6pcd0tCDrd1
+	 3OFfwjSFAKvhut2C5iLmE7tcAi0xFLD/zxxfEKD9t/TqEoRCPrqhDwsZCulCC93hxatPZ
+	 Q4+FV7pwng9XznT7+pNPb9P0ox4klceiewh0lmCIeIE23eqrqgVVuNfVNSENCCWav48qY
+	 nnXIQz8pq4i5BU7WMxSl1c2Y6fMOcOzzDCT697VgLibfYBvSUwv+nIcaaEgeKxk/44Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795599073;
-	h=DMARC-Filter:X-KPN-MessageId:Received:Received:DKIM-Signature:
-	 X-KPN-MID:X-CMASSUN:X-KPN-VerifiedSender:Received:Date:From:To:Cc:
-	 Message-ID:In-Reply-To:References:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:X-Priority:Importance:X-Originating-IP;
-	bh=vYW0lwNtZZp4xMT2btYq2BWBULtTKydr9Jf0sny4QFw=;
-	b=wn0wrp9Wd3HFQen4lYjWkMAXnWUzxpkfW1xd8l3rjFG1byrqVzjaSm0bwkDEzn0YdHWX
-	 o+3wdZGYRX9gas8J2tBranZ/dtAwpES4RMOWRvhDgzcadJ00UlLy/4yPtQsQrpIUdehMJ
-	 O26gbABY6TRFIiGiGn8f6+aAt3VASVJRRLZIliU3Ebx0BOaX7LEZJ1r8bN6Wch5hwUC0P
-	 b0VpeKlASUvdRe7+u2wazdFVFr/3ppCNXbmq6FXT607jz97NdQQrg1HUDSzSABVCvohqJ
-	 pUX+F76YIfW5ToVByKdfWdaaBtawDDtMcG9O86sdW8uLTwjQQb2IjomQ4shSFtJ9GCg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795599095;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=0t3yaiYq49eJNhyVmgpMO6uB/jPaQ0b3Gb0soo4gfAU=;
+	b=bg5a/slfVduvroKPnrf02N6VDllvvcHJvy0vw5BLa7eqBpaC/7KaFDoegQngzO1nakM0
+	 8bY10ej5KCrY1Dd2kQIiO7Y8mIhsbuZ36cNL6l9eTIwsZ8q4qndYL12emrbmBsqklwdEl
+	 UDFimmHDG/qydtnt9nhxm2R6kSF0rT6ivCIVzwOtYADzSmcVDAMwLKvTD2fVSYJHP0k18
+	 OvjLHjlUTI7oEwvxukRNCYE8YdizF5RAj/xUZATSyI6UFzWSN5O7fODqT7cnDj9D9wbNO
+	 qi34oGAphz1aVReAsjlfdtwKWQaziLpcl8nGvknpCW9VBniyL7BNTjm4cLNgKsMu+fQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=xs4all.nl;
-	spf=pass smtp.mailfrom=xs4all.nl;
-	dkim=pass header.d=xs4all.nl header.i=@xs4all.nl header.a=rsa-sha256 header.s=xs4all01 header.b=B9IYqj7t;
-	arc=none smtp.remote-ip=195.121.94.184
-Received: from ewsoutbound.kpnmail.nl (unknown [195.121.94.184])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=sq8YyyCq;
+	arc=none smtp.remote-ip=91.218.175.8
+Received: from mta0.migadu.com (out-8.mta0.migadu.com [91.218.175.8])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3FAD9606A32C
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 09:31:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3FAD9606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=xs4all.nl
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=xs4all.nl
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7360B606A31E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 09:31:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7360B606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=xs4all.nl header.i=@xs4all.nl header.a=rsa-sha256 header.s=xs4all01 header.b=B9IYqj7t
-X-KPN-MessageId: ef456eb1-e8b2-11f1-98a9-005056994fde
-Received: from mta.kpnmail.nl (unknown [10.31.161.190])
-	by ewsoutbound.so.kpn.org (Halon) with ESMTPS
-	id ef456eb1-e8b2-11f1-98a9-005056994fde;
-	Wed, 25 Nov 2026 10:31:04 +0100 (CET)
-Received: from mtaoutbound.kpnmail.nl (unknown [10.128.135.190])
-	by mta.kpnmail.nl (Halon) with ESMTP
-	id ef41f494-e8b2-11f1-92a9-0050569977a2;
-	Wed, 25 Nov 2026 10:31:04 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=xs4all.nl; s=xs4all01;
-	h=content-type:mime-version:subject:message-id:to:from:date;
-	bh=vYW0lwNtZZp4xMT2btYq2BWBULtTKydr9Jf0sny4QFw=;
-	b=B9IYqj7tcmscv9KSkAsiO9t2Q5Z4gC6oTu2tMa92BR7tJDPkJpiygv4d+cymrEaZWCu7XjBj3nbHH
-	 +3Re+xbFr2GjqgAVLb25aP5GPnTggSiwMmkU7+LaMDVgJL+puCNVXXE3ii/crNsCCq+C9mCYIAmCuZ
-	 DuVc5m9E8miIzRO9ffJad8VApbPGvRVpIwnRZURQAXxxgCiKvlYWFaKEvhwOZjWArQ1AVVJnmCTttQ
-	 MkM+K21YXpdhycvedKrM9qbhhSbQrkJq1qYrEfpKgnI8T4AzpAbnEp7326KTfN/CObwRgyHjYKD5TF
-	 9GEypZOLG6HPOl78PnBsYxxvS0QUitQ==
-X-KPN-MID: 33|MZfs89VgIfoUJX5X2lu9dngP4j3RU3Wytuy/Lq5JXjuWesmN2j2bIIbiN5/nPZ8
- jHrsvxnk9cVg6LP55kyafNw==
-X-CMASSUN: 33|UKWRjPuv7sOoLQoEalkZh/lhDxaoITAfJMz4dawX254Bhx/9sWugtQscX8vqyD8
- dzeSSc5ojlTE1npcaQcmQAw==
-X-KPN-VerifiedSender: Yes
-Received: from cpxoxapps-mh06 (cpxoxapps-mh06.personalcloud.so.kpn.org [10.128.135.212])
-	by mtaoutbound.kpnmail.nl (Halon) with ESMTPSA
-	id ef366f9d-e8b2-11f1-94bb-005056995d6c;
-	Wed, 25 Nov 2026 10:31:04 +0100 (CET)
-Date: Wed, 25 Nov 2026 10:31:04 +0100 (CET)
-From: Jori Koolstra <jkoolstra@xs4all.nl>
-To: Askar Safin <safinaskar@gmail.com>
-Cc: amir73il@gmail.com, brauner@kernel.org, cyphar@cyphar.com,
-	gregkh@linuxfoundation.org, jack@suse.cz, jlayton@kernel.org,
-	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org,
-	neil@brown.name, shakeel.butt@linux.dev, tj@kernel.org,
-	viro@zeniv.linux.org.uk
-Message-ID: <1709003566.2632299.1795599064030@kpc.webmail.kpnmail.nl>
-In-Reply-To: <20261125062146.940336-1-safinaskar@gmail.com>
-References: <20261024213539.1307600-8-jkoolstra@xs4all.nl>
- <20261125062146.940336-1-safinaskar@gmail.com>
-Subject: Re: [PATCH v8 07/12] vfs: short-circuit MAY_WRITE access for
- O_DIRECTORY opens
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=sq8YyyCq
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=jWng7U13BDQmuoHoZtAwtlO9p/HGoFdvP6Svn7/G2Lo=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795599092; v=1; x=1796203892;
+ b=sq8YyyCqCSynK6LYfT0t+IFE3WlevVXmrJK3E1O16fRUQXV0Jqa3OgXdJmls+i8EC2+TKlUp
+ PX3La5vZufRwNgS+lbGtqnQVre8xrqEkdqWln2ntsWEa5+iOgv7quapCKHJcyo4nLMFeNIouS+E
+ BS+Z3fniDkZ7PGNrfnphBSkg=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 16ae719c9c2b2084;
+	Wed, 25 Nov 2026 09:31:32 +0000
+X-Mizu-Trace-ID: 16ae719c9c2b2084
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <837d7783-0300-4bc1-a78b-620084af08cc@linux.dev>
+Date: Wed, 25 Nov 2026 17:31:21 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,75 +58,173 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 09/11] mm/vmalloc: undo what vmap_pages_range_batched()
+ mapped on failure
+To: Suren Baghdasaryan <surenb@google.com>,
+ Uladzislau Rezki <urezki@gmail.com>
+Cc: Dev Jain <dev.jain@arm.com>, Andrew Morton <akpm@linux-foundation.org>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+ "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
+ Shrikanth Hegde <sshegde@linux.ibm.com>,
+ Alexander Potapenko <glider@google.com>, Marco Elver <elver@google.com>,
+ Dmitry Vyukov <dvyukov@google.com>, Dennis Zhou <dennis@kernel.org>,
+ Tejun Heo <tj@kernel.org>, Christoph Lameter <cl@gentwo.org>,
+ linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+ kasan-dev@googlegroups.com, linux-mm@kvack.org
+References: <20261116071325.263682-1-hao.ge@linux.dev>
+ <20261116071325.263682-10-hao.ge@linux.dev>
+ <CAJuCfpF_=KV3ArFO5LtMjc4EGMr79tX_tX2K=YCG_JTvC51OfQ@mail.gmail.com>
+ <0e30c5c2-b9d0-40ea-b7f9-af9a8854bd58@linux.dev>
+ <CAJuCfpE7S3uTX2rqEkmYqhO6zuqTKtDH88w20m1_fMHF8L672Q@mail.gmail.com>
+Content-Language: en-US
+From: Hao Ge <hao.ge@linux.dev>
+In-Reply-To: <CAJuCfpE7S3uTX2rqEkmYqhO6zuqTKtDH88w20m1_fMHF8L672Q@mail.gmail.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Priority: 3
-Importance: Normal
+Content-Transfer-Encoding: 8bit
 
+Hi Suren
 
-> Op 25-11-2026 01:21 EST schreef Askar Safin <safinaskar@gmail.com>:
+On 2026/11/24 00:13, Suren Baghdasaryan wrote:
+> On Mon, Nov 23, 2026 at 3:32 AM Hao Ge <hao.ge@linux.dev> wrote:
+>>
+>> Hi Suren
+>>
+>>
+>> On 2026/11/22 12:13, Suren Baghdasaryan wrote:
+>>> On Sun, Nov 15, 2026 at 11:14 PM Hao Ge <hao.ge@linux.dev> wrote:
+>>>>
+>>>> vmap_pages_range_batched() maps the range batch by batch. When a
+>>>> batch fails, the batches before it are installed, and the failing
+>>>> one may have installed some of its pages. mapped_end follows the
+>>>> end of the last installed page, and the error path undoes
+>>>> [addr, mapped_end), never past the point where the walk stopped.
+>>>>
+>>>> The KMSAN metadata is set up for the whole range up front, so it is
+>>>> torn down as a whole when the mapping fails, like in
+>>>> vmap_pages_range_noflush(). The only caller, vmap(), also calls
+>>>> vunmap() on its error path; the double teardown only walks over PTEs
+>>>> that are already cleared.
+>>>
+>>> As I mentioned before I think this patch should be merged with patch 7.
+>>
+>> Ack.
+>>
+>>>
+>>>>
+>>>> Signed-off-by: Hao Ge <hao.ge@linux.dev>
+>>>> ---
+>>>>  mm/vmalloc.c | 22 ++++++++++++++++------
+>>>>  1 file changed, 16 insertions(+), 6 deletions(-)
+>>>>
+>>>> diff --git a/mm/vmalloc.c b/mm/vmalloc.c
+>>>> index 28e65073624a..aa80bc273ec0 100644
+>>>> --- a/mm/vmalloc.c
+>>>> +++ b/mm/vmalloc.c
+>>>> @@ -3748,13 +3748,14 @@ static int vmap_pages_range_batched(unsigned long addr, unsigned long end,
+>>>>         const unsigned int nr_pages = (end - addr) >> PAGE_SHIFT;
+>>>>         unsigned int prev_shift = 0, batch_idx = 0, nr_mapped;
+>>>>         unsigned long batch_start = addr, batch_end = addr;
+>>>> +       unsigned long mapped_end = addr;
+>>>>         int err;
+>>>>
+>>>>         err = kmsan_vmap_pages_range_noflush(addr, end, prot, pages,
+>>>>                                              PAGE_SHIFT, GFP_KERNEL);
+>>>>
+>>>>         if (err)
+>>>> -               goto out;
+>>>> +               return err;
+>>>>
+>>>>         for (unsigned int i = 0; i < nr_pages; ) {
+>>>>                 unsigned int shift = PAGE_SHIFT +
+>>>> @@ -3764,9 +3765,10 @@ static int vmap_pages_range_batched(unsigned long addr, unsigned long end,
+>>>>                         prev_shift = shift;
+>>>>
+>>>>                 if (shift != prev_shift) {
+>>>> -                       err = vmap_pages_range_noflush_walk(batch_start, batch_end,
+>>>> -                                       prot, pages + batch_idx, prev_shift,
+>>>> -                                       &nr_mapped);
+>>>> +                       err = vmap_pages_range_noflush_walk(batch_start,
+>>>> +                                       batch_end, prot, pages + batch_idx,
+>>>> +                                       prev_shift, &nr_mapped);
+>>>> +                       mapped_end = batch_start + (nr_mapped * PAGE_SIZE);
+>>>>                         if (err)
+>>>>                                 goto out;
+>>>>                         prev_shift = shift;
+>>>> @@ -3786,13 +3788,21 @@ static int vmap_pages_range_batched(unsigned long addr, unsigned long end,
+>>>>         }
+>>>>
+>>>>         /* Remaining */
+>>>> -       if (batch_start < end)
+>>>> +       if (batch_start < end) {
+>>>>                 err = vmap_pages_range_noflush_walk(batch_start, end, prot,
+>>>>                                 pages + batch_idx, prev_shift, &nr_mapped);
+>>>> +               mapped_end = batch_start + (nr_mapped * PAGE_SIZE);
+>>>> +       }
+>>>>
+>>>>  out:
+>>>> -       if (!err)
+>>>> +       if (err) {
+>>>> +               /* Undo the part the batches installed before they failed. */
+>>>> +               if (mapped_end > addr)
+>>>> +                       __vunmap_range_noflush(addr, mapped_end, true);
+>>>> +               kmsan_vunmap_range_noflush(addr, end, true);
+>>>
+>>> So, you are unmapping (addr, mapped_end) range but removing KMSAN
+>>> metadata for the entire (addr, end) range. Is that intended?
+>>
+>> Yes, that is intended. The metadata for the whole range is set up
+>> before the mapping starts, kmsan_vmap_pages_range_noflush() at the top
+>> of vmap_pages_range_batched() installs the shadow and origin pages for
+>> the entire [addr, end) in one go. So on failure the metadata is fully
+>> installed and has to go as a whole, while the page tables only reached
+>> mapped_end and are undone up to there.
+>>
+>> I know this looks somewhat awkward. The asymmetry comes from the metadata
+>> having to be set up before the mapping starts, I don't see a way to avoid it.
+>> Maybe add a comment explaining this?
 > 
->  
-> Jori Koolstra <jkoolstra@xs4all.nl>:
-> > Requesting write access on a directory can never succeed. Rather
-> > than performing a path-walk to determine whether the target is
-> > actually a directory (-EISDIR) or not (-ENOTDIR), or does not exist
-> > (-ENOENT), etc., we short-circuit to -ENOTDIR.
-> > 
-> > Currently O_WRONLY for directories is only blocked in may_open(),
-> > which happens after we have the inode for the target, so after any
-> > create via O_CREAT|O_DIRECTORY.
-> > 
-> > The advantage of short-circuiting is that we don't have to add even more
-> > logic to lookup_open() to differentiate -EISDIR/-ENOTDIR. Also, for
-> > filesystems that define ->atomic_open, handling this cannot even be done
-> > at the VFS level, as we can't know ahead what the result of the lookup
-> > will be.
-> > 
-> > Suggested-by: Christian Brauner (Amutable) <brauner@kernel.org>
-> > Reviewed-by: NeilBrown <neil@brown.name>
-> > Signed-off-by: Jori Koolstra <jkoolstra@xs4all.nl>
-> > ---
-> >  fs/open.c | 9 +++++++++
-> >  1 file changed, 9 insertions(+)
-> > 
-> > diff --git a/fs/open.c b/fs/open.c
-> > index e43f02ff64ac..4334f30bb7ff 100644
-> > --- a/fs/open.c
-> > +++ b/fs/open.c
-> > @@ -1343,6 +1343,15 @@ inline int build_open_flags(const struct open_how *how, struct open_flags *op)
-> >  
-> >  	op->intent = flags & O_PATH ? 0 : LOOKUP_OPEN;
-> >  
-> > +	/*
-> > +	 * Requesting write access on a directory can never succeed. Rather
-> > +	 * than performing a path-walk to determine whether the target is
-> > +	 * actually a directory (-EISDIR) or not (-ENOTDIR), we short-circuit
-> > +	 * to -ENOTDIR.
-> > +	 */
-> > +	if ((flags & O_DIRECTORY) && !(flags & __O_TMPFILE) && (acc_mode & MAY_WRITE))
-> > +		return -ENOTDIR;
-> > +
-> 
-> Please, do -EISDIR here, not -ENOTDIR. You returning error here, **because** user attempts to write to **directory**. EISDIR is natural here, ENOTDIR is not.
-> 
+> Are there any side-effects like the one we found earlier with
+> unmapping PTEs which we never installed?
 
-That's a fair point, and I have thought about this. The downside is that
-if we return -EISDIR there, that will also be returned if you open(O_DIRECTORY)
-what turns out to be a regular file. So you may then get -EISDIR for something not
-a directory.
+I haven't found any so far. If I've missed a scenario, please
+do let me know.
 
-The semantics of -ENOTDIR here that I had in my mind is something like "the thing
-you are trying to do can NOT be done _with_ a DIRectory." It made a bit more sense
-to me (but only a bit.) Really it should be -ENOTWITHDIR or something...
+I remain unsure whether kmsan_vunmap_range_noflush() needs a
+TLB flush - I already brought this up in the thread for
+patch 2.
 
-> (I'm human, not LLM.)
-> 
+> I don't think a comment is needed as it's quite obvious.
+>
 
-Glad :)
+OK.
 
-Best,
-Jori.
+Thanks again for your and Ulad'careful and patient review of this series.
+I recognise this version is a bit messy - I had a lot going on at the time,
+and I apologise for that.
 
-> -- 
-> Askar Safin
+I'll take that into account and keep improving.
+
+Thanks
+Best Regards
+Hao
+
+>>
+>> WDYT?
+>>
+>> Thanks
+>> Best Regards
+>> Hao
+>>
+>>>
+>>>> +       } else {
+>>>>                 flush_cache_vmap(addr, end);
+>>>> +       }
+>>>>         return err;
+>>>>  }
+>>>>
+>>>> --
+>>>> 2.25.1
+>>>>
