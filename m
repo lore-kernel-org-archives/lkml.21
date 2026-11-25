@@ -1,85 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=210.61.82.184
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.72
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795587398;
-	b=pcf0BH2VzSU+DtRJ5fbDL/qcilJEzgzTekIbYORMj4PqFDDKFOLwEtPbOt+XTVkdOynH
-	 PbsUhg9LbOhhlr4uupFPJe48EcJt/SDEPdG9fFiJnIHFcBssamhxIQZGkWhT0CWwgnh4U
-	 tFdJ49ggJGPet1yEnAhRYr7Arhuk+/2ERJvUS99ejX6YAotb9/SbgWBOU4btbAMmuZFh4
-	 ElUOa8k6V4GRsVJc6ONR2l+s87ujN6FUZMVN4VhBSu1eYINp2DSH+tDaiyv3T+38l2oNv
-	 VX4AohbSPmzZX8W6IMlHoJvHh9rmRxZTVboindxb66vMwWje2BZKnGspDMws0Zg3cVQ==
+	t=1795587399;
+	b=J7y/+uNAMJZCjjuc6Rof3ei2oke5ahLPPPnVsvOfGBYvmBUIarA2Jv1S6mUuuJnGPeuJ
+	 eDH4P1QVpLzNcwSx4YTM7NsVoCgcRwsY7w3kc9txWOXGXT//sotF6LRjVvr71UTdzDX0e
+	 HHyG/l9dzGuRjrBT7LgEgidwE0wwh6h50USsSqlZKLNE7JUsUK6TmH2P/jBXv+RI5Wzoz
+	 3YbdE10LhcVeUJFr5O2l2w958bVuGrLCc09GxQBmxDQY+F4Cudck0xjBkMXE3DAvR54JF
+	 usXZ9L7BfRQ9ysNgjGMvkUeZtJnIpTJshnOe6Dj/qexFOPpxvN37ofHfWtzCv7QABJQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795587398;
-	h=DMARC-Filter:X-UUID:DKIM-Signature:X-CID-P-RULE:X-CID-O-INFO:
-	 X-CID-META:X-CID-BVR:X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:Received:
-	 Received:Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:
-	 Content-Type:X-MTK;
-	bh=qT4jukooijkn9oVFANgSEWWyX/Wb2Pv/yUrB34irBsY=;
-	b=gCBY+W4mZQHwgOs99yl2QB58yHOZDLI5mC9WolYd6adpE8MEvpbLxcVQ0x3Q8Vfo9btC
-	 Vlzn01p7nXqS350r3ZSZmQ3Dm6Wgkn0Hw5P+g7mbo2a3V28zOblROFaj3rN2+Ki/NSDKy
-	 zYcT7Uctig0Psx38jopRAWM4sty9z5gHmmqv/Ox0Zfo0UsMEuoiPHK0PZdUIIuzNP78A+
-	 YJhvvlUofMU8mLuYnEA87bewSO20Tq1yGVWsIBAuL0SE9+NhTrpAm2USxjFbu4h434zaW
-	 SDQaZurG1f9D4qrgB1GGx3Ug+W9e0k6jekkBgTtsqcw0B0VPildpdlCtuKImWS9WXBA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795587399;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Received:Date:In-Reply-To:Mime-Version:
+	 References:X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=aajn/8LcP4bWu3au0+O3opUba5V5ruiLTgKiznF6dW0=;
+	b=k5KWdFC6cbraZLBGVAX2kYai5l4qc5hQWQ/TsOMI5HPJJQy342TgBr86yzrEyHsrovKZ
+	 El/U/YjH6o6gZImDppIgbyomTB3G/v0cmb3G27mAvhbdH4iB7j3d6vJunwlSmxWm0GG58
+	 TPJfWEnTIFfgaBAwJKPIZYMU+qxlhB2jh4UXr3A8AmuLBxZSmXzKGM2sFhpdm9IIrnKTc
+	 5ljPcj0Ysqq9U9Yzaz0j7IgbVqbDKCXvgJOdbtWi52kLJq6eTzB6hqNPuNruHkHJaMPDk
+	 XrXqBKyympWuX0hxvmHiHDbBxoYuyYUIYhg2wm5m55O8R40hbQk8iaTCIuIiVy1Qucw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=mediatek.com;
-	spf=pass smtp.mailfrom=mediatek.com;
-	dkim=pass header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=CHVVM57v;
-	arc=none smtp.remote-ip=210.61.82.184
-Received: from mailgw02.mediatek.com (unknown [210.61.82.184])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=M9UNIZIO;
+	arc=none smtp.remote-ip=209.85.160.72
+Received: from mail-oa1-f72.google.com (mail-oa1-f72.google.com [209.85.160.72])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3A61C6072DA3;
-	Wed, 25 Nov 2026 06:16:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3A61C6072DA3
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mediatek.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mediatek.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B84CA6072DA1
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 06:16:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B84CA6072DA1
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=CHVVM57v
-X-UUID: c111d12ee89711f18dc8c9802ae25ab1-20261125
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=qT4jukooijkn9oVFANgSEWWyX/Wb2Pv/yUrB34irBsY=;
-	b=CHVVM57vdo1uIpXg9KK5Mte37CObBGESTgeZfMjBCsw1c5ZOwBQzIJy+7rjCntXPAwMxbrYORI3vMTDOJ4auzgwmOEEhlUqkhGK8IRo0Cjf1YNkks8RHh4gJ6ghqYMmtHV39+9sOJJJePzG3l/TEFxiK4QSVrw09dPrN//h4Bpw=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.21,REQID:018ae8a4-9fdf-459d-971f-849abab44351,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:b0318ac,CLOUDID:a4bc081a-ae4c-4a2b-b1c4-72e411efd0c9,B
-	ulkID:nil,BulkQuantity:0,SF:81|82|102|836|865|888|898,TC:-5,Content:0|15|5
-	0|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0
-	,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: c111d12ee89711f18dc8c9802ae25ab1-20261125
-Received: from mtkmbs11n2.mediatek.inc [(172.21.101.187)] by mailgw02.mediatek.com
-	(envelope-from <kyrie.wu@mediatek.com>)
-	(Generic MTA with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 695043930; Wed, 25 Nov 2026 14:16:30 +0800
-Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
- MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Wed, 25 Nov 2026 14:16:29 +0800
-Received: from gcnsap21.gcn.mediatek.inc (10.17.81.22) by
- mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.2562.56 via Frontend Transport; Wed, 25 Nov 2026 14:16:28 +0800
-From: Kyrie Wu <kyrie.wu@mediatek.com>
-To: Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Bin Liu <bin.liu@mediatek.com>,
-	kyrie wu <kyrie.wu@mediatek.corp-partner.google.com>, Hans Verkuil
-	<hverkuil@kernel.org>, irui wang <irui.wang@mediatek.com>, Nicolas Dufresne
-	<nicolas.dufresne@collabora.com>, <linux-media@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
-CC: Kyrie Wu <kyrie.wu@mediatek.com>
-Subject: [PATCH v20 08/15] media: mediatek: jpeg: fix remove buffer removal timing for multi-core
-Date: Wed, 25 Nov 2026 14:16:11 +0800
-Message-ID: <20261125061618.2544386-9-kyrie.wu@mediatek.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261125061618.2544386-1-kyrie.wu@mediatek.com>
-References: <20261125061618.2544386-1-kyrie.wu@mediatek.com>
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=M9UNIZIO
+Received: by mail-oa1-f72.google.com with SMTP id 586e51a60fabf-45e83fd0663so4551865fac.1
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 22:16:38 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795587398; x=1796192198; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=aajn/8LcP4bWu3au0+O3opUba5V5ruiLTgKiznF6dW0=;
+        b=M9UNIZIOVNkYcVIH0YAGsZb358mClpK+bw1qJuHjYVv1mrGGOYVvVW2Cv06pLEFwaV
+         s2aLvr93BP3jakkbudgZ5jkxwXrRid5kWiKtBXDsFwxVIbjrXQSTIJ+07j+tNL2GX3XX
+         d7dm8rJ1hzLIApiZOKu/x85Vu4kGGDzHcix5RaWzIU+mapNLkdaqWF8Yegj05sTVvWdN
+         8Ht1r+6O/PteYTj0Lz50fXj66PlBxP27pRzSaDNF4gxdtfeQ+n1EwEFa6hxpq/8Zghs1
+         knMdKXBZgoigPtv/OYdyQjaFbJ7YkHCrun/FwDr4eoVa5qH6dPkBbkSdUAEpt1i217/O
+         2WTA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795587398; x=1796192198;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=aajn/8LcP4bWu3au0+O3opUba5V5ruiLTgKiznF6dW0=;
+        b=ReHuawmS0cqQkNEZyBze46QKLZFdbGAJ0uwYV16dIkBPg1pBOazx4gZ8nMxm1pjtT8
+         hhlguHJqe4fIadd+jFRJANSy+GkcfvtcmHouvkP9jRYuWH6CoXcdADkPcKtdisLYfT0X
+         cwdDf9AsHe6+KvZOSGeV2gqlf570iGiZfA5JqebU6oHcVRyRny9Jb8m/6RFjUKsNB9cI
+         bIV4JPuwQzJuQ3Ios54Ozw8umpAxtkbb1M0oUUyg5o2Ks9dUXazrD0IdsSM0ce0N6vax
+         SEUsFDSYI81LKzlAF9R/KoYCtrm23kn3l132Fv/yOUuK3ILGvmSwGx4dokFeJzs5BNyw
+         8QNA==
+X-Gm-Message-State: APuU4Z//jQqh9LunGfJqbHk+VSqkftgJCFRLe9bIc2FQFQwfHVGWFzrI
+	wTvTiV5Id3duTI/VI7DoDPzrdHw68o7mjO+sfJ2dg9l7XoeF7Q9RXKWW3hBL8///OCJTQp70Scj
+	p8sKE3tEJPf1NI7FtxZQd2EUvSEvPkofOmB+ch+FR8NcDsciEzIOkNzyNtkoY/dxn4npIAZrDzx
+	5/8qRDBAxoe7cOEYGkatGjDimcUW0cuqThg0GccPrzyYBtLDh33g==
+X-Received: from oakt7-n1.prod.google.com ([2002:a05:687c:41c7:10b0:494:50e2:71dd])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6870:c087:b0:4a9:58d3:b60c
+ with SMTP id 586e51a60fabf-4bc835713b6mr16383166fac.32.1795587397055; Tue, 24
+ Nov 2026 22:16:37 -0800 (PST)
+Date: Tue, 24 Nov 2026 22:15:13 -0800
+In-Reply-To: <20261125061523.1540234-1-irogers@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -88,47 +77,566 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
+Mime-Version: 1.0
+References: <20261125061523.1540234-1-irogers@google.com>
+X-Mailer: git-send-email 2.56.1.831.g720f3f5937-goog
+Message-ID: <20261125061523.1540234-21-irogers@google.com>
+Subject: [RFC PATCH v2 20/30] selftests/perf_events: Add Minimal DWARF CFI
+ deferred user unwind test
+From: Ian Rogers <irogers@google.com>
+To: linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org, 
+	linux-arch@vger.kernel.org
+Cc: jpoimboe@kernel.org, rostedt@goodmis.org, peterz@infradead.org, 
+	mingo@redhat.com, tglx@kernel.org, bp@alien8.de, dave.hansen@linux.intel.com, 
+	x86@kernel.org, catalin.marinas@arm.com, will@kernel.org, 
+	mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, pjw@kernel.org, 
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, 
+	linux-riscv@lists.infradead.org, acme@kernel.org, namhyung@kernel.org, 
+	linux-perf-users@vger.kernel.org, mhiramat@kernel.org, ast@kernel.org, 
+	daniel@iogearbox.net, andrii@kernel.org, bpf@vger.kernel.org, 
+	nathan@kernel.org, llvm@lists.linux.dev, nsc@kernel.org, 
+	linux-kbuild@vger.kernel.org, ojeda@kernel.org, 
+	rust-for-linux@vger.kernel.org, ardb@kernel.org, linux-efi@vger.kernel.org, 
+	maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, shuah@kernel.org, 
+	linux-kselftest@vger.kernel.org, indu.bhagat@oracle.com, jremus@linux.ibm.com, 
+	wnliu@google.com, dylanbhatch@google.com, Ian Rogers <irogers@google.com>
+Content-Type: text/plain; charset="UTF-8"
 
-Remove prepared source and destination buffers from the M2M ready
-queues in the multi-core decoder after destination preparation succeeds
-and before arming the timeout or starting hardware, matching the encoder
-flow. Completion can then return buffers without leaving them linked
-in a ready queue. Preparation failures keep the existing cleanup path.
+Add a multi-architecture kselftest (unwind_user_cfi) under
+tools/testing/selftests/perf_events/ exercising deferred user-space
+callchain unwinding (PERF_RECORD_CALLCHAIN_DEFERRED) compiled with
+-O2 -fomit-frame-pointer -fasynchronous-unwind-tables across:
+ 1. Standard SP-based frames with the architectural frame-pointer
+    register (%rbp / x29 / s0) explicitly clobbered
+ 2. Dynamic alloca() VLA FP-based frames (DW_CFA_def_cfa_register)
+ 3. 64-byte stack-realigned frames (DRAP on x86-64)
+ 4. Shrink-wrapped early-return functions (remember_state/restore_state)
+ 5. Anonymous RX JIT-style frame-pointer stubs lacking .eh_frame_hdr
+    (including a >16-byte AArch64 frame testing state->sp_valid across
+    FP -> CFI transitions), exercising per-frame CFI -> FP -> CFI -> FP
+    -> CFI fallback and negative VMA caching in find_user_eh_frame_hdr()
 
-Fixes: 86379bd9d399 ("media: mtk-jpeg: Fixes jpeg enc&dec worker sw flow")
-Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
+Skip gracefully via dl_iterate_phdr() if the test binary lacks
+PT_GNU_EH_FRAME (e.g. 32-bit ARM EHABI builds using .ARM.exidx).
+
+Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ .../testing/selftests/perf_events/.gitignore  |   1 +
+ tools/testing/selftests/perf_events/Makefile  |   4 +-
+ .../selftests/perf_events/unwind_user_cfi.c   | 482 ++++++++++++++++++
+ 3 files changed, 486 insertions(+), 1 deletion(-)
+ create mode 100644 tools/testing/selftests/perf_events/unwind_user_cfi.c
 
-diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-index 199d15828..7e4fd36dd 100644
---- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-+++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-@@ -1768,9 +1768,6 @@ retry_select:
- 		goto dec_end;
- 	}
+diff --git a/tools/testing/selftests/perf_events/.gitignore b/tools/testing/selftests/perf_events/.gitignore
+index 4931b3b6bbd3..4567b6563646 100644
+--- a/tools/testing/selftests/perf_events/.gitignore
++++ b/tools/testing/selftests/perf_events/.gitignore
+@@ -3,3 +3,4 @@ sigtrap_threads
+ remove_on_exec
+ watermark_signal
+ mmap
++unwind_user_cfi
+diff --git a/tools/testing/selftests/perf_events/Makefile b/tools/testing/selftests/perf_events/Makefile
+index 2e5d85770dfe..6a3a774544e8 100644
+--- a/tools/testing/selftests/perf_events/Makefile
++++ b/tools/testing/selftests/perf_events/Makefile
+@@ -2,5 +2,7 @@
+ CFLAGS += -Wl,-no-as-needed -Wall $(KHDR_INCLUDES)
+ LDFLAGS += -lpthread
  
--	v4l2_m2m_src_buf_remove(ctx->fh.m2m_ctx);
--	v4l2_m2m_dst_buf_remove(ctx->fh.m2m_ctx);
--
- 	mtk_jpeg_set_dec_src(ctx, &src_buf->vb2_buf, &bs);
- 	if (mtk_jpeg_set_dec_dst(ctx,
- 				 &jpeg_src_buf->dec_param,
-@@ -1785,6 +1782,9 @@ retry_select:
- 	jpeg_dst_buf->frame_num = ctx->total_frame_num;
- 	ctx->total_frame_num++;
- 
-+	v4l2_m2m_src_buf_remove(ctx->fh.m2m_ctx);
-+	v4l2_m2m_dst_buf_remove(ctx->fh.m2m_ctx);
+-TEST_GEN_PROGS := sigtrap_threads remove_on_exec watermark_signal mmap
++TEST_GEN_PROGS := sigtrap_threads remove_on_exec watermark_signal mmap unwind_user_cfi
+ include ../lib.mk
 +
- 	schedule_delayed_work(&comp_jpeg[hw_id]->job_timeout_work,
- 			      msecs_to_jiffies(MTK_JPEG_HW_TIMEOUT_MSEC));
- 
++$(OUTPUT)/unwind_user_cfi: CFLAGS += $(TOOLS_INCLUDES) -O2 -fomit-frame-pointer -fasynchronous-unwind-tables
+diff --git a/tools/testing/selftests/perf_events/unwind_user_cfi.c b/tools/testing/selftests/perf_events/unwind_user_cfi.c
+new file mode 100644
+index 000000000000..a36e9f4d39e2
+--- /dev/null
++++ b/tools/testing/selftests/perf_events/unwind_user_cfi.c
+@@ -0,0 +1,482 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * unwind_user_cfi.c - Multi-arch selftest for Minimal DWARF CFI user unwinding.
++ *
++ * Verifies that deferred user-space stack unwinding (PERF_RECORD_CALLCHAIN_DEFERRED)
++ * accurately walks user callchains compiled with -fomit-frame-pointer across:
++ *   1. Standard SP-based frames with the frame-pointer register (%rbp / x29 / s0)
++ *      explicitly clobbered to defeat FP unwinding
++ *   2. Dynamic alloca()/VLA FP-based frames (DW_CFA_def_cfa_register)
++ *   3. 64-byte aligned stack-realigned frames (DRAP on x86-64)
++ *   4. Multi-return shrink-wrapped epilogue functions (remember/restore_state)
++ *   5. Anonymous RX JIT-style frame-pointer stubs lacking .eh_frame_hdr,
++ *      verifying per-frame CFI -> FP -> CFI -> FP -> CFI hybrid fallback and
++ *      negative VMA caching in find_user_eh_frame_hdr()
++ */
++
++#define _GNU_SOURCE
++#include <alloca.h>
++#include <errno.h>
++#include <inttypes.h>
++#include <link.h>
++#include <linux/perf_event.h>
++#include <stdbool.h>
++#include <stdint.h>
++#include <stdio.h>
++#include <stdlib.h>
++#include <string.h>
++#include <sys/ioctl.h>
++#include <sys/mman.h>
++#include <sys/syscall.h>
++#include <time.h>
++#include <unistd.h>
++
++#include "../kselftest.h"
++#undef __always_inline
++#undef __attribute_const__
++#undef __must_check
++#undef __printf
++#include "../../../../include/linux/compiler_attributes.h"
++
++struct perf_record_deferred {
++	struct perf_event_header header;
++	uint64_t cookie;
++	uint64_t nr;
++	uint64_t ips[];
++};
++
++/*
++ * Tiny architecture-specific machine-code stubs for:
++ *   int jit_stub(int (*fn)(int), int arg);
++ *
++ * Mapped into an anonymous PROT_READ | PROT_EXEC VMA without an ELF header or
++ * PT_GNU_EH_FRAME segment. Each stub establishes a standard architectural
++ * frame-pointer record before calling fn(arg), forcing unwind_user_next() to
++ * fall back from UNWIND_USER_TYPE_CFI to UNWIND_USER_TYPE_FP on the JIT frames
++ * and resume UNWIND_USER_TYPE_CFI on the surrounding -fomit-frame-pointer C
++ * frames.
++ */
++#if defined(__x86_64__)
++#define HAVE_JIT_FP_STUB 1
++static const uint8_t jit_stub_code[] = {
++	0xf3, 0x0f, 0x1e, 0xfa,		/* endbr64 */
++	0x55,				/* push   %rbp */
++	0x48, 0x89, 0xe5,		/* mov    %rsp, %rbp */
++	0x48, 0x89, 0xf8,		/* mov    %rdi, %rax */
++	0x89, 0xf7,			/* mov    %esi, %edi */
++	0xff, 0xd0,			/* call   *%rax */
++	0x5d,				/* pop    %rbp */
++	0xc3,				/* ret */
++};
++#elif defined(__i386__)
++#define HAVE_JIT_FP_STUB 1
++static const uint8_t jit_stub_code[] = {
++	0xf3, 0x0f, 0x1e, 0xfb,		/* endbr32 */
++	0x55,				/* push   %ebp */
++	0x89, 0xe5,			/* mov    %esp, %ebp */
++	0x83, 0xec, 0x04,		/* sub    $4, %esp */
++	0xff, 0x75, 0x0c,		/* pushl  12(%ebp) */
++	0xff, 0x55, 0x08,		/* call   *8(%ebp) */
++	0x83, 0xc4, 0x08,		/* add    $8, %esp */
++	0x5d,				/* pop    %ebp */
++	0xc3,				/* ret */
++};
++#elif defined(__aarch64__)
++#define HAVE_JIT_FP_STUB 1
++/*
++ * Allocate a 32-byte frame (> 16 bytes) with {x29, x30} at [sp, #0] per
++ * AArch64 PCS so fp + 16 != caller_sp, exercising state->sp_valid tracking.
++ */
++static const uint32_t jit_stub_code[] = {
++	0xd503245fU,			/* bti    c */
++	0xa9be7bfdU,			/* stp    x29, x30, [sp, #-32]! */
++	0x910003fdU,			/* mov    x29, sp */
++	0xaa0003e9U,			/* mov    x9, x0 */
++	0x2a0103e0U,			/* mov    w0, w1 */
++	0xd63f0120U,			/* blr    x9 */
++	0xa8c27bfdU,			/* ldp    x29, x30, [sp], #32 */
++	0xd65f03c0U,			/* ret */
++};
++#elif defined(__riscv) && __riscv_xlen == 64
++#define HAVE_JIT_FP_STUB 1
++static const uint32_t jit_stub_code[] = {
++	0xff010113U,			/* addi   sp, sp, -16 */
++	0x00813023U,			/* sd     s0, 0(sp) */
++	0x00113423U,			/* sd     ra, 8(sp) */
++	0x01010413U,			/* addi   s0, sp, 16 */
++	0x00050313U,			/* mv     t1, a0 */
++	0x00058513U,			/* mv     a0, a1 */
++	0x000300e7U,			/* jalr   ra, 0(t1) */
++	0x00813083U,			/* ld     ra, 8(sp) */
++	0x00013403U,			/* ld     s0, 0(sp) */
++	0x01010113U,			/* addi   sp, sp, 16 */
++	0x00008067U,			/* ret */
++};
++#else
++#define HAVE_JIT_FP_STUB 0
++#endif
++
++static int (*g_jit_fn)(int (*fn)(int), int arg);
++
++static uintptr_t expect_ip_leaf;
++static uintptr_t expect_ip_shrink;
++static uintptr_t expect_ip_jit;
++static uintptr_t expect_ip_bridge;
++static uintptr_t expect_ip_drap;
++static uintptr_t expect_ip_vla;
++static uintptr_t expect_ip_clobber;
++static uintptr_t expect_ip_main;
++
++static __always_inline uintptr_t caller_return_ip(void)
++{
++	return (uintptr_t)__builtin_extract_return_addr(__builtin_return_address(0));
++}
++
++static long sys_perf_event_open(struct perf_event_attr *attr, pid_t pid,
++				int cpu, int group_fd, unsigned long flags)
++{
++	return syscall(__NR_perf_event_open, attr, pid, cpu, group_fd, flags);
++}
++
++noinline __noclone
++static void cfi_do_nanosleep(const struct timespec *ts)
++{
++	expect_ip_leaf = caller_return_ip();
++	asm volatile("" ::: "memory");
++	nanosleep(ts, /*rem=*/NULL);
++	asm volatile("" ::: "memory");
++}
++
++noinline __noclone
++static void cfi_leaf_sleep(void)
++{
++	struct timespec ts = { .tv_sec = 0, .tv_nsec = 1000 * 1000 };
++
++	expect_ip_shrink = caller_return_ip();
++	asm volatile("" ::: "memory");
++	cfi_do_nanosleep(&ts);
++	asm volatile("" ::: "memory");
++}
++
++/* 4. Shrink-wrapped early-return epilogue before main call */
++noinline __noclone
++static int cfi_shrink_wrap(int mode)
++{
++	expect_ip_jit = caller_return_ip();
++	if (mode < 0)
++		return -1;
++
++	{
++		char pad[32];
++
++		memset(pad, mode, sizeof(pad));
++		asm volatile("" : "+m"(pad) :: "memory");
++		cfi_leaf_sleep();
++		return pad[0];
++	}
++}
++
++/*
++ * 5. Hybrid CFI -> FP -> CFI -> FP -> CFI bridge:
++ *    cfi_pre_jit -> jit_stub #1 -> cfi_jit_bridge -> cfi_mid_jit ->
++ *    jit_stub #2 -> cfi_shrink_wrap
++ *
++ * Invoking the anonymous RX JIT stub twice with -fomit-frame-pointer C frames
++ * in between exercises both per-frame CFI<->FP transitions and negative VMA
++ * cache insertion + hit in find_user_eh_frame_hdr().
++ */
++noinline __noclone
++static int cfi_mid_jit(int x)
++{
++	size_t sz;
++	char *pad;
++	int res;
++
++	expect_ip_bridge = caller_return_ip();
++	asm volatile("" : "+r"(x));
++	sz = (size_t)((x & 0xf) + 32);
++	pad = alloca(sz);
++	memset(pad, x + 5, sz);
++	asm volatile("" : "+m"(*(char (*)[32])pad) :: "memory");
++	res = g_jit_fn ? g_jit_fn(cfi_shrink_wrap, x) : cfi_shrink_wrap(x);
++	asm volatile("" : "+m"(*(char (*)[32])pad) :: "memory");
++	return res + pad[0];
++}
++
++noinline __noclone
++static int cfi_jit_bridge(int x)
++{
++	char pad[32];
++	int res;
++
++	memset(pad, x + 7, sizeof(pad));
++	asm volatile("" : "+m"(pad) :: "memory");
++	res = cfi_mid_jit(x);
++	asm volatile("" : "+m"(pad) :: "memory");
++	return res + pad[0];
++}
++
++noinline __noclone
++static int cfi_pre_jit(int x)
++{
++	size_t sz;
++	char *pad;
++	int res;
++
++	expect_ip_drap = caller_return_ip();
++	asm volatile("" : "+r"(x));
++	sz = (size_t)((x & 0xf) + 32);
++	pad = alloca(sz);
++	memset(pad, x + 9, sz);
++	asm volatile("" : "+m"(*(char (*)[32])pad) :: "memory");
++	res = g_jit_fn ? g_jit_fn(cfi_jit_bridge, x) : cfi_jit_bridge(x);
++	asm volatile("" : "+m"(*(char (*)[32])pad) :: "memory");
++	return res + pad[0];
++}
++
++/* 3. 64-byte aligned local buffer forcing stack realignment (DRAP on x86-64) */
++noinline __noclone
++static int cfi_drap_realigned(int x)
++{
++	uint8_t __aligned(64) aligned_buf[128];
++
++	expect_ip_vla = caller_return_ip();
++	memset(aligned_buf, x + 3, sizeof(aligned_buf));
++	asm volatile("" : "+m"(aligned_buf) :: "memory");
++	return cfi_pre_jit(x) + aligned_buf[0];
++}
++
++/* 2. Dynamic VLA / alloca() forcing FP-based CFA (DW_CFA_def_cfa_register) */
++noinline __noclone
++static int cfi_vla_fp_frame(int n)
++{
++	size_t sz;
++	char *dyn;
++
++	expect_ip_clobber = caller_return_ip();
++	asm volatile("" : "+r"(n));
++	sz = (size_t)((n & 0x3f) + 32);
++	dyn = alloca(sz);
++
++	memset(dyn, n, sz);
++	asm volatile("" : "+m"(*(char (*)[32])dyn) :: "memory");
++	return cfi_drap_realigned(n + dyn[0]);
++}
++
++/* 1. SP-based frame with FP (%rbp / x29 / s0) clobbered to defeat FP unwinding */
++noinline __noclone
++static int cfi_clobber_fp(int x)
++{
++#if defined(__x86_64__)
++	register long bad_fp asm("rbp") = 0x13579bdfL + x;
++#elif defined(__aarch64__)
++	register long bad_fp asm("x29") = 0x13579bdfL + x;
++#elif defined(__riscv)
++	register long bad_fp asm("s0") = 0x13579bdfL + x;
++#else
++	long bad_fp = 0x13579bdfL + x;
++#endif
++	char pad[48];
++
++	expect_ip_main = caller_return_ip();
++	asm volatile("" : "+r"(x));
++	memset(pad, x, sizeof(pad));
++	asm volatile("" : "+r"(bad_fp), "+m"(pad) :: "memory");
++	return cfi_vla_fp_frame(x + 1) ^ (int)bad_fp ^ pad[1];
++}
++
++static int check_main_eh_frame_cb(struct dl_phdr_info *info, size_t size,
++				  void *data)
++{
++	bool *has_eh_frame = data;
++
++	(void)size;
++	if (!info->dlpi_name || info->dlpi_name[0] != '\0')
++		return 0;
++
++	for (int i = 0; i < info->dlpi_phnum; i++) {
++		if (info->dlpi_phdr[i].p_type == PT_GNU_EH_FRAME &&
++		    info->dlpi_phdr[i].p_memsz > 0) {
++			*has_eh_frame = true;
++			return 1;
++		}
++	}
++	return 1;
++}
++
++int main(void)
++{
++	struct perf_event_attr attr;
++	struct perf_event_mmap_page *mpage;
++	size_t page_sz = (size_t)sysconf(_SC_PAGESIZE);
++	size_t mmap_len = (1 + 16) * page_sz;
++	void *jit_page = MAP_FAILED;
++	uint8_t *ring;
++	uint64_t head, tail;
++	bool got_deferred = false;
++	bool saw_leaf = false, saw_shrink = false, saw_jit = false;
++	bool saw_bridge = false, saw_drap = false, saw_vla = false;
++	bool saw_clobber = false, saw_main = false;
++	bool saw_full_chain = false;
++	bool has_eh_frame = false;
++	int fd, arg = 1;
++
++	ksft_print_header();
++	ksft_set_plan(1);
++
++#if !defined(__x86_64__) && !defined(__i386__) && !defined(__aarch64__) && \
++	!defined(__arm__) && !defined(__riscv)
++	ksft_test_result_skip("Architecture lacks Minimal DWARF CFI user unwind support\n");
++	ksft_finished();
++#endif
++
++	dl_iterate_phdr(check_main_eh_frame_cb, &has_eh_frame);
++	if (!has_eh_frame) {
++		ksft_test_result_skip("Test binary lacks PT_GNU_EH_FRAME\n");
++		ksft_finished();
++	}
++
++#if HAVE_JIT_FP_STUB
++	jit_page = mmap(/*addr=*/NULL, page_sz, PROT_READ | PROT_WRITE,
++			MAP_PRIVATE | MAP_ANONYMOUS, /*fd=*/-1, /*offset=*/0);
++	if (jit_page != MAP_FAILED) {
++		memcpy(jit_page, jit_stub_code, sizeof(jit_stub_code));
++		if (mprotect(jit_page, page_sz, PROT_READ | PROT_EXEC) == 0) {
++			__builtin___clear_cache((char *)jit_page,
++						(char *)jit_page + sizeof(jit_stub_code));
++			g_jit_fn = (int (*)(int (*)(int), int))jit_page;
++		} else {
++			ksft_print_msg("W^X JIT mprotect unavailable (%s); skipping JIT stub\n",
++				       strerror(errno));
++			munmap(jit_page, page_sz);
++			jit_page = MAP_FAILED;
++		}
++	}
++#endif
++
++	memset(&attr, 0, sizeof(attr));
++	attr.type = PERF_TYPE_SOFTWARE;
++	attr.size = sizeof(attr);
++	attr.config = PERF_COUNT_SW_CONTEXT_SWITCHES;
++	attr.sample_period = 1;
++	attr.sample_type = PERF_SAMPLE_IP | PERF_SAMPLE_CALLCHAIN;
++	attr.disabled = 1;
++	attr.defer_callchain = 1;
++	attr.defer_output = 1;
++
++	fd = (int)sys_perf_event_open(&attr, /*pid=*/0, /*cpu=*/-1,
++				      /*group_fd=*/-1, /*flags=*/0);
++	if (fd < 0) {
++		if (jit_page != MAP_FAILED)
++			munmap(jit_page, page_sz);
++		if (errno == EACCES || errno == EPERM || errno == EINVAL) {
++			ksft_test_result_skip("perf_event_open(defer_callchain) unavailable: %s\n",
++					      strerror(errno));
++			ksft_finished();
++		}
++		ksft_exit_fail_msg("perf_event_open failed: %s\n", strerror(errno));
++	}
++
++	mpage = mmap(/*addr=*/NULL, mmap_len, PROT_READ | PROT_WRITE,
++		     MAP_SHARED, fd, /*offset=*/0);
++	if (mpage == MAP_FAILED) {
++		if (jit_page != MAP_FAILED)
++			munmap(jit_page, page_sz);
++		close(fd);
++		ksft_exit_fail_msg("mmap failed: %s\n", strerror(errno));
++	}
++
++	ioctl(fd, PERF_EVENT_IOC_RESET, 0);
++	ioctl(fd, PERF_EVENT_IOC_ENABLE, 0);
++
++	asm volatile("" : "+r"(arg));
++	cfi_clobber_fp(arg);
++
++	ioctl(fd, PERF_EVENT_IOC_DISABLE, 0);
++
++	ring = (uint8_t *)mpage + page_sz;
++	head = __atomic_load_n(&mpage->data_head, __ATOMIC_ACQUIRE);
++	tail = mpage->data_tail;
++
++	while (tail < head) {
++		size_t mask = 16 * page_sz - 1;
++		struct perf_event_header *hdr =
++			(struct perf_event_header *)(ring + (tail & mask));
++
++		if (hdr->type == PERF_RECORD_CALLCHAIN_DEFERRED) {
++			struct perf_record_deferred *rec = (void *)hdr;
++			bool c_leaf = false, c_shrink = false, c_bridge = false;
++			bool c_drap = false, c_vla = false, c_clobber = false;
++			bool c_main = false, c_jit_ok = false;
++			unsigned int c_jit_hits = 0;
++
++			got_deferred = true;
++			for (uint64_t i = 0; i < rec->nr; i++) {
++				uintptr_t ip = (uintptr_t)rec->ips[i];
++
++				if (ip == expect_ip_leaf)
++					c_leaf = true;
++				else if (ip == expect_ip_shrink)
++					c_shrink = true;
++				else if (ip == expect_ip_jit)
++					c_jit_hits++;
++				else if (ip == expect_ip_bridge)
++					c_bridge = true;
++				else if (ip == expect_ip_drap)
++					c_drap = true;
++				else if (ip == expect_ip_vla)
++					c_vla = true;
++				else if (ip == expect_ip_clobber)
++					c_clobber = true;
++				else if (ip == expect_ip_main)
++					c_main = true;
++			}
++
++#if HAVE_JIT_FP_STUB
++			if (g_jit_fn) {
++				uintptr_t jb = (uintptr_t)jit_page;
++
++				c_jit_ok = expect_ip_jit >= jb &&
++					   expect_ip_jit < jb + sizeof(jit_stub_code) &&
++					   c_jit_hits >= 2;
++			} else {
++				c_jit_ok = c_jit_hits >= 1;
++			}
++#else
++			c_jit_ok = c_jit_hits >= 1;
++#endif
++			saw_leaf |= c_leaf;
++			saw_shrink |= c_shrink;
++			saw_jit |= c_jit_ok;
++			saw_bridge |= c_bridge;
++			saw_drap |= c_drap;
++			saw_vla |= c_vla;
++			saw_clobber |= c_clobber;
++			saw_main |= c_main;
++
++			if (c_leaf && c_shrink && c_jit_ok && c_bridge &&
++			    c_drap && c_vla && c_clobber && c_main)
++				saw_full_chain = true;
++		}
++		tail += hdr->size;
++	}
++
++	munmap(mpage, mmap_len);
++	if (jit_page != MAP_FAILED)
++		munmap(jit_page, page_sz);
++	close(fd);
++
++	if (!got_deferred) {
++		ksft_test_result_skip("No PERF_RECORD_CALLCHAIN_DEFERRED records\n");
++		ksft_finished();
++	}
++
++	ksft_print_msg("def=%d ok=%d leaf=%d shr=%d jit=%d br=%d drap=%d vla=%d fp=%d entry=%d\n",
++		       got_deferred, saw_full_chain, saw_leaf, saw_shrink,
++		       saw_jit, saw_bridge, saw_drap, saw_vla, saw_clobber,
++		       saw_main);
++
++	ksft_test_result(saw_full_chain,
++			 "unwind_user Minimal DWARF CFI across SP, VLA, DRAP, shrink-wrap, and hybrid JIT FP frames\n");
++	ksft_finished();
++}
 -- 
-2.51.0.windows.2
+2.56.1.831.g720f3f5937-goog
 
