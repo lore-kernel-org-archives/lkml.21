@@ -1,111 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=109.224.244.121
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795596194;
-	b=o9ac8WB1CNiGcldbUti2+b7Of7AmEsM6ny28JxKQ5D19Z9N0iDYjFBDhl4heSIMcaVY7
-	 g6J1NjAolLUWWbI5+qSTyq4m8zZt6NeAsKAfrvoeq8DzfInCbxKJBXWtYc378tcsTmXmT
-	 NOW3MigwWHTXcDSKE2waP94h63M52z9idQKrxCYqhfL8RIJeYC2X9cNbXXgXsBWQ3E6tf
-	 u5dgdThSYCkbMz9zEWs7renYJWlsMnDVPexkiysXgBsYN6sHbURC5tHZb3cDKagCx2tQm
-	 4FwJ1EQ8/idl7EhsjwsY7y/dnaC/0J3rD747NqxXWDeJ/wjX1X7It2822stRLTWYz8w==
+	t=1795596196;
+	b=s3VOF1evOg7eWzIOYYmPan3t3gN+zyTlM4JqHmMRxHcVJr64U5SYZv7YBx9QlU1wdaVt
+	 JOLrypIiKBw5eulF/NxKMHM0/iORKDI0eueeOV9MFEbuurtaZd6oDh6EmcZA7uvtQIPLL
+	 5iXKB0/AxoZcHzKqFsyANxSZ1VkbCX2qXU6tjnVNHSoNDK95biadgtF7J4Ug9zfDx2++M
+	 uzGzSBJZr6NRw0hAV0aYneR4IN+5zf6eDERAtcSja9oMXW2r/B1B7fx9qsz5WzdAwhIck
+	 TE2KAWQ8hSnbDieA+4QmHRZjtKmXiZqSQICYNRBvV8hAlVR7v0zEYcYENmbqhWefAWg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795596194;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:
-	 Subject:Date:Message-Id:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Proofpoint-Spam-Details-Enc:
-	 X-Authority-Analysis:X-Proofpoint-GUID:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=mkMPx5pZu0MJCT37mBs5hDdYCQOlPFYux99EQPGEygU=;
-	b=pCUB9TEVLfsNn9TLhlinY2sQUU5LfZoP4odfgd41vfpUqH3RchU5/c6MpeyLf1xhzeTI
-	 qjXEeFz/C4xiSbiIhpgykLtBF/tpL4ei3szLEJzEUI8zSeK2oCX0zjYX1SeVma/xjpBjW
-	 Yw5/3EF31hgnnHvceoJAYbN1drd0ykKkSLK6/8JQjMOVmVwa3MawFCV5MNGoy7EoEveYe
-	 1pyX5cyFWrj9RYJeRzASQFWOS2Dfa4lYLaTNRsNY1UXhmerwhiWWPyHck4tDDsV7dBaoi
-	 zeAKrbgZPUi2Nx99emXZzDOl0t3t2pUOcLDBqvdexU1kWWuAoEwK9Yen8u9CfCfhN6A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795596196;
+	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
+	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=T0aV6xwlGfZKCz7sxzaw0UTzhGMaPZfXP9O3SvQDRzo=;
+	b=xRysCYPQEwHQid9vOW6s2jePEXi8VwboCD3SBWyTlqUePtAw6h3lDcKsPhWsR3pVAZgI
+	 DtqQCH9Su6vjX/E5FY0lpLXFB8/bvbi5eXrlz2cxpQZFO0ADXX4l2/kNl2GpaPCX8sgkJ
+	 px2G92qzSuvnI9iIoA2ZX5k6lwE3fnCNGW+aJrYedk+uXBhec/1Dcqq7daDm5Hnl8DIg8
+	 7LRifmGDPYBBlSlXpwLmEqPB/+cmxi1xuF6g4ZO6T+Xr6plgvsv+Uh4SQJhu9YhDn2SsW
+	 n146SXaJNu6zfV8RdeXgfhUFafE4rIuhsvpbPTwZ83KVHMRv07ytstxgLvhM54DrIXQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=hHn4WBpT;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b="QCXB/524";
-	arc=none smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+	dmarc=pass header.from=protonmail.com;
+	spf=pass smtp.mailfrom=protonmail.com;
+	dkim=pass header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=Bpw8OkhB;
+	arc=none smtp.remote-ip=109.224.244.121
+Received: from mail-244121.protonmail.ch (mail-244121.protonmail.ch [109.224.244.121])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 721B8606A323
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:43:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 721B8606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ED37B606A682
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:43:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ED37B606A682
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=protonmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=protonmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=hHn4WBpT;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=QCXB/524
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AP68Zq6300022
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:43:13 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=mkMPx5pZu0MJCT37mBs5hD
-	dYCQOlPFYux99EQPGEygU=; b=hHn4WBpTKIYyhJrG83QykBmEsm5R4JykuSSIOy
-	GjV+jc7cAzz34j0Ays+Ze+k2HQdNssCFnPw8Dhp7lsIedL9EDcnAthVFlYlm0wyz
-	TEo+5sZQteBlxukagmeZ2wo3K2IBR0s6xlB+Vh3ceqfCmE+3yEK5yA8dVJOffFwT
-	kimRc8hg/Ih+tBggC/KglL53Q7SDyJj+bmzkDKPIcxhFf+cv1SUqZtktuTS4xJPO
-	pqSCea6KFHqpEHKzESnrSt52Z9rUeHpQSFiBVBSynIDlseix7s7zXPRPxzozk+/8
-	gMX4gpo1U2Kug5Sc3r1doKnBOjyIw9w+GRz77jl86gHN9yHA==
-Received: from mail-dy1-f199.google.com (mail-dy1-f199.google.com [74.125.82.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j5n6rsq39-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:43:12 +0000 (GMT)
-Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-38355b03cb8so5387911eec.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 00:43:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795596191; x=1796200991; darn=vger.kernel.org;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=mkMPx5pZu0MJCT37mBs5hDdYCQOlPFYux99EQPGEygU=;
-        b=QCXB/524mIuA+e0qJQUHYvyZj7N2qfDYte8T5uvFOxjNGoOV0IjY7yegaCmW38hrnv
-         lyv+tY4dQ8Wes+X5TRiHiAKSH5WumHIzFEmNdJfn9HAn2NyXKTtTnvOgiAjAOe3cw9UG
-         eM+INvOwr4sRNbbAph2XUfZKGK1XjeLUHr6lemFKPhVm83jfUvuypJPrAOckqDTXHY9O
-         XURiOaa5TRMXSf7ck4AMK/G9uEb6otUxrpRcijpK2If79vfGFg2LuFDxfBqUXN8T51Fl
-         TzPz51j6dhQ6tAiz1ARlkDQzqWVANAaIA5ZreFfJAjqyOubvHgRo3GebxKIcJbLdmX8z
-         jTuw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795596191; x=1796200991;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=mkMPx5pZu0MJCT37mBs5hDdYCQOlPFYux99EQPGEygU=;
-        b=nG/ACpv2IGJX91hLXuaORBNWNF3T/vOvR47QkcrOJ+KhYjwDrfubHVm92fcjNylmQD
-         u0ZB9ynIwXq8zOEMq/PLOzo+2X0UiIKuPiNg9APqw2iKJolAazNkX6dQImEHcSFdULYk
-         0pHRvfmU93ltUKKmNjuEP/b+AZxg/LTq6XX/Q4qx+tY/QRcEDj7ZwjsYhqEdXM4QigFS
-         XSenkrBICKYBX4c/NH3VNXYgCG4F2wNZ9HOoCv5sPYJAgNxe+oJG+5hkD1rzlAsjPmmk
-         mpwG4YZnJ1Y+Fyny3or8oOjPC0zKnLb9dvplUMCHwpvgdWp9q8HKuMttBKdXb1jQf9Gc
-         hiDw==
-X-Forwarded-Encrypted: i=1; AL+hErGAH97oksvk38ITWGy0LZRHiyyf2Zz2R6kk1xWrRcPEWSSmPMkT7lJRsxvcmRi0p+y+pkFOkPusOXw1kzw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/iVeSPY04YYOrxCxhMxppsB+PYFV/zBI83JqlRjwtj5h7feyUj
-	I2dUXBPXFoQPISFWbU18TdP5URVSGCaZtHYC/bhOkvH8245eyPxgfHttOXNHSG7MW3S7lFLF+Qo
-	1wTKiYCE6KFRH3xfHDeuZ7iBtTKx4rhVvbBkt5wEmykjJsDQOU4sbOLPks1I5KWAT/eg=
-X-Gm-Gg: AZFdTZepp1yKQim0OIqoI8Eef6ciaKDUvLiqqiowjeHuZ1ugo9iEPxc35cqgZsSEyI0
-	6GiEOI9Jh65HnkrT/Ae18XOP4IT1vcXL0DW4202qz0bf4VrdVXD7G0Rp2kHhgtTh/dVRTPDXHTS
-	38MK4M915o5DPEqfUsr9jOXYzRX4H8b89OZmswWpeMX9GOjulfn+liTSGTyS3mvyd2xmXVhb1eE
-	lVuNcZmJGh1kwSLF7IrRH5BnE4wZREaShdXEzne5JZcAmkiLDnXLx9qH3uGLn9OaR9jg7XyWyZa
-	6H3OQmPQXKLjkVOLMsUbKL3C7xw0d7aDSe3iDkM+jDSy4jqxuqduqSvKO04/45/n2WcqJn9eEk7
-	Pk4aPSKPOjZ5VNkWklhPqLEDNzx09AfM01MFnwhKen05qvi854Zzyvu8DEhBsXrNKVOXVYCHNTE
-	qYbXeT
-X-Received: by 2002:a05:701b:21cd:b0:1b2:4871:b1f7 with SMTP id a92af1059eb24-1b5568fbfcbmr15129857c88.39.1795596191376;
-        Wed, 25 Nov 2026 00:43:11 -0800 (PST)
-X-Received: by 2002:a05:701b:21cd:b0:1b2:4871:b1f7 with SMTP id a92af1059eb24-1b5568fbfcbmr15129829c88.39.1795596190763;
-        Wed, 25 Nov 2026 00:43:10 -0800 (PST)
-Received: from hu-nihalkum-hyd.qualcomm.com ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b55684c85fsm60290694c88.14.2026.11.25.00.43.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 00:43:10 -0800 (PST)
-From: Nihal Kumar Gupta <nihal.gupta@oss.qualcomm.com>
-Subject: [PATCH v5 0/3] Add CAMSS support for Qualcomm Hawi and Maili
-Date: Wed, 25 Nov 2026 14:12:59 +0530
-Message-Id: <20261125-hawi-camss-v5-0-d48c4feb1c2e@oss.qualcomm.com>
+	dkim=pass (2048-bit key) header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=Bpw8OkhB
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
+	s=protonmail3; t=1795596193; x=1795855393;
+	bh=T0aV6xwlGfZKCz7sxzaw0UTzhGMaPZfXP9O3SvQDRzo=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=Bpw8OkhB4Y+8LuoCHZBYhKU4C1NE1FOxPh0yn3WUoBDs2bRis/6Z+vbRphad+X98B
+	 4gnbyKxr/YnFikcSBVpUArD7aGo5AC4dE2S7ufRbS/ubGcI5lE9O/8M3pXCP1w7QxH
+	 RfBSkRh+aCgrHWdw1joINZXJsDrXQggmiL3WlsoZMhD5/Wbthaes1tC4HkJ0/8aAtr
+	 EwgrQ4uGXlOrzi8ztrvOTbanw/r2nx5QdaZG6GpjhhwIZ13amyR/b9WoWTqjz2FIlT
+	 VbXmyxCCe/ZGZo8hF4C5OJFRZCVJumJiIDKyJPJWoUk9grYzyGYuWZ88Mp6kxrDLOv
+	 vEfI7mHlqPDkw==
+Date: Wed, 25 Nov 2026 08:43:07 +0000
+To: Fuwei Xie <12313607@mail.sustech.edu.cn>
+From: =?utf-8?Q?Eren_=C3=96zen?= <erenozen@protonmail.com>
+Cc: ilpo.jarvinen@linux.intel.com, hansg@kernel.org, platform-driver-x86@vger.kernel.org, linux-kernel@vger.kernel.org, yhshzh0@gmail.com
+Subject: Re: [RFC PATCH v3 0/5] platform/x86: huawei-wmi: expose native firmware power profiles
+Message-ID: <QXyyjD0WtiiXyud6K1vZI9r7jScmkJsS_FC-tqfI1IeLF359IrJjxdfRd_9tC_x6AH_y2RV4hFu6cpOWhw5HgQqfSmgS_9LXuf6Fl9VPipU=@protonmail.com>
+In-Reply-To: <CCE496207C6C15CE+20261125074048.50842-1-12313607@mail.sustech.edu.cn>
+References: <4F34E5193B4633F6+20261124172651.37716-1-12313607@mail.sustech.edu.cn> <hCsVvRfdJna6QMofi0p51idPd_JLLislzGzqFjePf9_91ayfS92LIselCT-narFk2u5zTRqLQsKFnz4bgRrNmjY5EKgq9UYj0n_CfmaCJjs=@protonmail.com> <CCE496207C6C15CE+20261125074048.50842-1-12313607@mail.sustech.edu.cn>
+Feedback-ID: 19860221:user:proton
+X-Pm-Message-ID: b2c10bd715acfd7f2da76285830889f90fc40f98
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -115,136 +64,215 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAJOfBmsC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyTHUUlJIzE
- vPSU3UzU4B8JSMDIzNDQyNT3YzE8kzd5MTc4mLdFAsDQwsT42RLsyRDJaCGgqLUtMwKsGHRsbW
- 1AGkVK7dcAAAA
-X-Change-ID: 20261125-hawi-camss-d801843c96b1
-To: Bryan O'Donoghue <bod@kernel.org>,
-        Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
-        Loic Poulain <loic.poulain@oss.qualcomm.com>,
-        Mauro Carvalho Chehab <mchehab@kernel.org>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Hangxiang Ma <hangxiang.ma@oss.qualcomm.com>,
-        Nihal Kumar Gupta <nihal.gupta@oss.qualcomm.com>,
-        Bryan O'Donoghue <bryan.odonoghue@linaro.org>
-Cc: Suresh Vankadara <svankada@qti.qualcomm.com>,
-        Vikram Sharma <vikram.sharma@oss.qualcomm.com>,
-        linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795596185; l=3216;
- i=nihal.gupta@oss.qualcomm.com; s=20260608; h=from:subject:message-id;
- bh=LCKglgHmOSMp0gqQvoaScETsQ1eifl2GUqlrW/x1Vx8=;
- b=tLcDx46uoLSaMJ8XkdOrASfldBEIHBZ+IrJhE6+MpYoXiTCp7sKc1nUbWZ/Lj2EA/DGNUHN16
- NJQHWbJMdfPD9eYZx+P0owYssq1LnmYwbSxG0w96H/s8FMugrjp1iRl
-X-Developer-Key: i=nihal.gupta@oss.qualcomm.com; a=ed25519;
- pk=DIbyFMNwqU/iMvU/0pCQp2wmRVgtHFBT3PcSu+A+Ncw=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI1MDAzNCBTYWx0ZWRfX07/z+XBUEsiJ
- RN/fwcsuKmjtdXTdEZF4AAcHP8qaybk4qMshaDWDjCv+SiAAl2O/0tqXHw+YmB9v37gAKkL+36j
- 8Ly5ndPvgJKMccmGEwqcx2po36fFHsGMP9Ska155yPuJmmDkkeQFL+j42AZ8kXy6jYK0oZgwEcC
- 0sl3usBgtc2hN442wUVgqWrM8YXjrr2k0ALsAJwl4P6zB1WSB7atW+zJkFfq/zZH/Za3b0SzDEy
- fKopX2RFQupeUNEKq58KD8HO0a2qQ/bS4Aj2VuK0nMeOcCENyzQT4+P72tKxHXmU3VMbyF8wh1a
- beLJ9nSBMkXfLm6KEqud/62cCZGgTsbpwo+CHuizp9KwSZByCqJnP881TziDNIOnj12XB38c9y4
- rxyJcmn/DD++A+MyBQwX8ZPPkLLCVF8zwS6qFuuMHJHMso1VUv4Ciwyo33GHiyMDJ+6Hkhmjehu
- 4F0xGqNfJM6fPpvl0fQ==
-X-Authority-Analysis: v=2.4 cv=Voa2kO2n c=1 sm=1 tr=0 ts=6b069fa0 cx=c_pps
- a=cFYjgdjTJScbgFmBucgdfQ==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22
- a=EUspDBNiAAAA:8 a=VwQbUJbxAAAA:8 a=e5mUnYsNAAAA:8 a=PSXh-a3-1L_3D_hhYzAA:9
- a=QEXdDO2ut3YA:10 a=scEy_gLbYbu1JhEsrz4S:22 a=Vxmtnl_E_bksehYqCbjh:22
-X-Proofpoint-GUID: CZf2CzBr39P0U_0uvM128YIQb4C-ViGb
-X-Proofpoint-ORIG-GUID: CZf2CzBr39P0U_0uvM128YIQb4C-ViGb
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI1MDAzNCBTYWx0ZWRfX9NEaMbHDEZUX
- ady85OnIyYL9TFvg/kpS/QWV9drGgWT8cVQ798FiCHyzIFICzL/J1+Yh5lcHA/7LS6Zw/LdpwC2
- PK7Inv/wTo2R2U7QS1AV+XJUXus1w7A=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-25_02,2026-11-23_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 malwarescore=0 clxscore=1015 bulkscore=0 lowpriorityscore=0
- adultscore=0 spamscore=0 priorityscore=1501 suspectscore=0 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611250034
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-Hawi and Maili are recently announced Qualcomm Snapdragon SoCs [1].
-This series adds Camera Subsystem (CAMSS) support for the Qualcomm
-Hawi and Maili SoC's.
+Hi Fuwei,
 
-[1] https://www.qualcomm.com/smartphones/products/8-series/snapdragon-8-elite-gen-6-mobile-platform
+On Wed, Nov 25, 2026 at 03:40:44PM +0800, Fuwei Xie wrote:
+> Thanks for trying this out and for catching the silent fallback to
+> \SBTT. I'd appreciate a copy of the diff you tested.
 
-This is the CAMSS/media part split from the previous combined v4 series.
-The I2C CCI and CSI-2 PHY patches were posted separately as v5 because
-they do not depend on the Kaanapali/KNP CAMSS media patches.
+Sure, it's below. Since my last mail I've also run it on the CREM-WXX9
+(BIOS 2.32): built out of tree against the Fedora 7.3.4-300 kernel and
+loaded in place of the stock module, on top of your five v3 patches:
 
-This series carries the CAMSS/media patches from the previous combined v4
-series: patch 3/6 (CAMSS binding), patch 5/6 (CSID clock scaling) and
-patch 6/6 (Hawi CAMSS support).
+- the thresholds read back correctly in charge modes 1 and 2, and as
+  0/100 in modes 0 and 4 (mode 3 not re-run),
+- the original bug case works: writing 75/80 while the EC is in
+  smart-charge mode 4 puts it back in mode 1 with 75/80,
+- writing 0/100 and the power_supply start/end attributes work,
+- reloading the module in mode 1 and in mode 4 reports the right
+  values, and the kernel log shows nothing beyond the usual probe
+  messages (no lockdep on this kernel, though).
 
-Link to combined v4:
-https://lore.kernel.org/r/20261106-hawi-maili-camss-v4-0-d528c7a797b4@oss.qualcomm.com
+It also builds in-tree on for-next 61c0dac952b9 with W=3D1 and sparse. I
+didn't re-measure the charging current this time; the EC side is the
+same as with the original patch, and I checked the \GBCM and \GBTT
+state after every step instead.
 
-Link to split I2C/PHY v5:
-https://lore.kernel.org/all/20261125-hawi-maili-camss-v5-0-1483b7f68dce@oss.qualcomm.com/
+The diff is against for-next 61c0dac952b9 with your five v3 patches
+applied. Compared with my v1 patch, only the charge-mode calls changed:
 
-This series continues the CAMSS/media portion and applies against the
-camss-next branch staging to linux-media/next.
-Base Link: https://gitlab.freedesktop.org/linux-media/users/bodonoghue/-/tree/camss-next
+- huawei_wmi_charge_mode_get() takes the huawei pointer, returns
+  negative errors from huawei_wmi_cmd(), requires at least two data
+  bytes, and reads the mode and the parameter from data[0] and data[1].
+- huawei_wmi_charge_mode_set() holds wmi_lock across the \GBCM read
+  and the \SBCM write.
+- huawei_wmi_battery_get() takes wmi_lock around its own \GBCM read.
+- the probe check calls huawei_wmi_charge_mode_get() under wmi_lock.
 
-Hawi's camera hardware topology:
-- 6x CSIPHY (CSI Physical Layer)
-- 3x TPG (Test Pattern Generator)
-- 3x CSID (CSI Decoder)
-- 2x CSID Lite
-- 3x VFE (Video Front End), 5 RDI per VFE
-- 2x VFE Lite, 4 RDI per VFE Lite
+As before, I used Claude for the rebase, the test script and to draft
+this mail; I've reviewed the diff and checked the results against the
+test log.
 
-Maili shares the same IP as Hawi. The only difference is Hawi has 6 CSIPHY
-while Maili has 5.
+Thanks,
+Eren
 
-Used following tools for the sanity check of these changes.
-- make -j32 W=1
-- checkpatch.pl
-- make DT_CHECKER_FLAGS=-m DT_SCHEMA_FILES=media/qcom,hawi-camss.yaml dt_binding_check W=1
-- make CHECK_DTBS=y W=1 dtbs
-
----
-Changes in v5:
-- Split out CAMSS/media patches 3/6, 5/6 and 6/6 from the previous combined v4 series.
-- Drop the I2C/PHY patches; they were posted separately for I2C/PHY pickup.
-- Base on Bryan's media tree where the required KNP CAMSS patches are picked.
-- Link to v4: https://lore.kernel.org/r/20261106-hawi-maili-camss-v4-0-d528c7a797b4@oss.qualcomm.com
-
-Signed-off-by: Nihal Kumar Gupta <nihal.gupta@oss.qualcomm.com>
-
----
-Hangxiang Ma (2):
-      dt-bindings: media: Add CAMSS device for Hawi and Maili
-      media: qcom: camss: Add support for Hawi
-
-Loic Poulain (1):
-      media: qcom: camss: csid: Scale the clocks with the CSI-2 link rate
-
- .../devicetree/bindings/media/qcom,hawi-camss.yaml | 317 ++++++++++++++++
- drivers/media/platform/qcom/camss/Makefile         |   2 +
- .../media/platform/qcom/camss/camss-csid-1190.c    | 417 +++++++++++++++++++++
- drivers/media/platform/qcom/camss/camss-csid.c     | 208 ++++++++--
- drivers/media/platform/qcom/camss/camss-csid.h     |   1 +
- drivers/media/platform/qcom/camss/camss-vfe-1190.c | 217 +++++++++++
- drivers/media/platform/qcom/camss/camss-vfe.c      |   1 +
- drivers/media/platform/qcom/camss/camss-vfe.h      |   1 +
- drivers/media/platform/qcom/camss/camss.c          | 228 +++++++++++
- drivers/media/platform/qcom/camss/camss.h          |   1 +
- 10 files changed, 1354 insertions(+), 39 deletions(-)
----
-base-commit: 2fe1b6509825b39a090d7ec055d094155af4e0cc
-change-id: 20261125-hawi-camss-d801843c96b1
-
-Best regards,
--- 
-Nihal Kumar Gupta <nihal.gupta@oss.qualcomm.com>
+diff --git a/drivers/platform/x86/huawei-wmi.c b/drivers/platform/x86/huawe=
+i-wmi.c
+index ff80050..f8b449d 100644
+--- a/drivers/platform/x86/huawei-wmi.c
++++ b/drivers/platform/x86/huawei-wmi.c
+@@ -38,6 +38,8 @@
+ enum {
+ =09BATTERY_THRESH_GET=09=09=3D 0x00001103, /* \GBTT */
+ =09BATTERY_THRESH_SET=09=09=3D 0x00001003, /* \SBTT */
++=09BATTERY_CHARGE_MODE_GET=09=09=3D 0x00001603, /* \GBCM */
++=09BATTERY_CHARGE_MODE_SET=09=09=3D 0x00001503, /* \SBCM */
+ =09FN_LOCK_GET=09=09=09=3D 0x00000604, /* \GFRS */
+ =09FN_LOCK_SET=09=09=09=3D 0x00000704, /* \SFRS */
+ =09MICMUTE_LED_SET=09=09=09=3D 0x00000b04, /* \SMLS */
+@@ -68,6 +70,7 @@ struct huawei_wmi {
+ =09struct wmi_device *wdev;
+ =09struct notifier_block profile_notifier;
+ =09bool battery_available;
++=09bool charge_mode_available;
+ =09bool fn_lock_available;
+=20
+ =09struct huawei_wmi_debug debug;
+@@ -413,11 +416,93 @@ static void huawei_wmi_leds_setup(struct device *dev)
+=20
+ /* Battery protection */
+=20
++/*
++ * Newer firmware also implements \GBCM and \SBCM ("battery charge mode").
++ * \GBCM returns the charge mode in byte 1, a parameter of unknown meaning
++ * in byte 2 and a pair of thresholds in bytes 3 and 4, and \SBCM takes th=
+e
++ * same four values in bytes 2 to 5 of its argument. Thresholds set throug=
+h
++ * \SBCM are also returned by \GBTT, but \SBTT does not update the ones
++ * returned by \GBCM. huawei_wmi_cmd() strips the status byte, so the mode
++ * and the parameter end up in data[0] and data[1].
++ *
++ * In charge modes 1 to 3 the EC does not charge above the end threshold
++ * returned by \GBTT, and a 0/0 pair means that charging is not limited.
++ * In charge modes 0 and 4 it charges past the end threshold. \SBTT,
++ * which turns a 0/100 request into 0/0, switches the EC to charge mode 4
++ * ("smart charge") in that case, and a later \SBTT write does not
++ * necessarily switch it back. So write the thresholds through \SBCM in
++ * charge mode 1 instead.
++ */
++#define HWMI_CHARGE_MODE_THRESHOLDS=091
++#define HWMI_CHARGE_MODE_PRESET_LAST=093
++
++static int huawei_wmi_charge_mode_get(struct huawei_wmi *huawei, u8 *mode,=
+ u8 *param)
++{
++=09u8 data[0xff];
++=09int len;
++
++=09len =3D huawei_wmi_cmd(huawei, BATTERY_CHARGE_MODE_GET, data, sizeof(da=
+ta));
++=09if (len < 0)
++=09=09return len;
++=09if (len < 2)
++=09=09return -ENODATA;
++
++=09if (mode)
++=09=09*mode =3D data[0];
++=09if (param)
++=09=09*param =3D data[1];
++
++=09return 0;
++}
++
++static int huawei_wmi_charge_mode_set(struct huawei_wmi *huawei, int start=
+, int end)
++{
++=09union hwmi_arg arg;
++=09u8 param;
++=09int err;
++
++=09guard(mutex)(&huawei->wmi_lock);
++=09err =3D huawei_wmi_charge_mode_get(huawei, NULL, &param);
++=09if (err)
++=09=09return err;
++
++=09if (start =3D=3D 0 && end =3D=3D 100)
++=09=09end =3D 0;
++
++=09arg.cmd =3D BATTERY_CHARGE_MODE_SET;
++=09arg.args[2] =3D HWMI_CHARGE_MODE_THRESHOLDS;
++=09arg.args[3] =3D param;
++=09arg.args[4] =3D start;
++=09arg.args[5] =3D end;
++
++=09return huawei_wmi_cmd(huawei, arg.cmd, NULL, 0);
++}
++
+ static int huawei_wmi_battery_get(struct huawei_wmi *huawei, int *start, i=
+nt *end)
+ {
+ =09u8 data[0xff];
+ =09int len;
+=20
++=09if (huawei->charge_mode_available) {
++=09=09u8 mode;
++=09=09int err;
++
++=09=09scoped_guard(mutex, &huawei->wmi_lock)
++=09=09=09err =3D huawei_wmi_charge_mode_get(huawei, &mode, NULL);
++=09=09if (err)
++=09=09=09return err;
++
++=09=09/* The thresholds are not used in the other charge modes. */
++=09=09if (mode < HWMI_CHARGE_MODE_THRESHOLDS ||
++=09=09    mode > HWMI_CHARGE_MODE_PRESET_LAST) {
++=09=09=09if (start)
++=09=09=09=09*start =3D 0;
++=09=09=09if (end)
++=09=09=09=09*end =3D 100;
++=09=09=09return 0;
++=09=09}
++=09}
++
+ =09scoped_guard(mutex, &huawei->wmi_lock)
+ =09=09len =3D huawei_wmi_cmd(huawei, BATTERY_THRESH_GET, data, sizeof(data=
+));
+ =09if (len < 0)
+@@ -433,6 +518,10 @@ static int huawei_wmi_battery_get(struct huawei_wmi *h=
+uawei, int *start, int *en
+ =09if (end)
+ =09=09*end =3D data[len - 1];
+=20
++=09/* A 0/0 pair means that charging is not limited. */
++=09if (huawei->charge_mode_available && end && !*end)
++=09=09*end =3D 100;
++
+ =09return 0;
+ }
+=20
+@@ -444,6 +533,9 @@ static int huawei_wmi_battery_set(struct huawei_wmi *hu=
+awei, int start, int end)
+ =09if (start < 0 || end < 0 || start > 100 || end > 100)
+ =09=09return -EINVAL;
+=20
++=09if (huawei->charge_mode_available)
++=09=09return huawei_wmi_charge_mode_set(huawei, start, end);
++
+ =09arg.cmd =3D BATTERY_THRESH_SET;
+ =09arg.args[2] =3D start;
+ =09arg.args[3] =3D end;
+@@ -607,6 +699,17 @@ static void huawei_wmi_battery_setup(struct device *de=
+v)
+ {
+ =09struct huawei_wmi *huawei =3D dev_get_drvdata(dev);
+=20
++=09/*
++=09 * Only trust the \GBCM status if the firmware actually implements the
++=09 * methods, in case the HWMI dispatcher of some model reports success
++=09 * for unknown functions.
++=09 */
++=09if (acpi_has_method(NULL, "\\GBCM") && acpi_has_method(NULL, "\\SBCM"))=
+ {
++=09=09scoped_guard(mutex, &huawei->wmi_lock)
++=09=09=09huawei->charge_mode_available =3D
++=09=09=09=09!huawei_wmi_charge_mode_get(huawei, NULL, NULL);
++=09}
++
+ =09huawei->battery_available =3D true;
+ =09if (huawei_wmi_battery_get(huawei, NULL, NULL)) {
+ =09=09huawei->battery_available =3D false;
 
