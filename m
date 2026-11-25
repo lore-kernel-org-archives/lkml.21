@@ -1,203 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=198.175.65.14
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795642947;
-	b=LR4fynwylltjkIGGthDJn0dbKVaGr8/QvEIUJwMoneQ8RlXuIZIJkDy8KBZqVMUAqHcl
-	 agALx7Is22z8UPD407siVJQbxqaaUF+PhR5afgAaxsOCD3SisKTje6GByP+HcF8Vj6UyY
-	 UAieM07gtWnwXyTKaoRw5cSTdjGlBGAYkYPj9oQU50ySUN9foFimKyq4btH9HWGkfRDxl
-	 GCXkFR8Z1J/Muy2mzLtAmP50hQzO84cbqscxUahoeaMVhqdkbVgM+MzkXjZvYxScQAidW
-	 h8ByxFc2idZ9L9W3YkM+yIRyqWToLJvXsZZeAL7oHRjo3sc4Cp6OTwY22WOcjU0DN2g==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795642947;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Received:
-	 Received:DKIM-Signature:Received:Received:From:To:CC:Subject:
-	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
-	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
-	 user-agent:x-ms-publictraffictype:x-ms-traffictypediagnostic:
-	 x-ms-office365-filtering-correlation-id:x-ld-processed:
-	 x-ms-exchange-senderadcheck:x-ms-exchange-antispam-relay:
-	 x-microsoft-antispam:x-microsoft-antispam-message-info:
-	 x-forefront-antispam-report:
-	 x-ms-exchange-antispam-messagedata-chunkcount:
-	 x-ms-exchange-antispam-messagedata-0:Content-Type:Content-ID:
-	 Content-Transfer-Encoding:MIME-Version:
-	 X-Exchange-RoutingPolicyChecked:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-AuthSource:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-originalarrivaltime:
-	 X-MS-Exchange-CrossTenant-fromentityheader:
-	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
-	 X-MS-Exchange-CrossTenant-userprincipalname:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-OriginatorOrg;
-	bh=9vcldXNaCU481XCr5rpJvXAhwenagsVYILb/yuEwSJo=;
-	b=HmJ2XVAW+Ho0BJZ1RBiP+j0LxF1BiDa5i7BTIdQawz6vEv4xl/rweCwrxDMNbyfyf1q1
-	 KuIidoVj5a0mUBwzLqOStNWzQM7Z5cNFuszr/eirskNuoo2NHK7owlWbfGuGayTech+Z1
-	 DF09fMUSd7w13CDDNB8m6E9R5yunDC8t0XO18eOYsRBgSwrkR+h/uNLXtGqZaJ+yYnAsR
-	 8XMZATA+2lJZX97tvB98Wy84t77eq01+lKxjL0U8WdFeLzWE+JTxJwvB93+9NEdeZfiLw
-	 3HkSeLtvtIW9FPpyMgP8NsfmryezG0YtNeoOlEBZgnnHe22fW9jZpTJOYFNFEzzwzzQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=MxZ1HJab;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=iY0u4PVU;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=198.175.65.14
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.14])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.131
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795642957;
+	b=0pO9KU6IUsqw06cnBNUr3dWIYXMlGYDcgii+gS28RFKBgufV+ksqHLEHNUmObyOYuDQk
+	 znjGolXbfakE3Zd7TlyqnOd+nAxPZlM/nKw1LqVe8Und5fTkHUQwQPYixEtifv8X8L1xw
+	 qHM6kimVTA7SgJZeXzRIaCkrs2KGUEdtbfl1/ygP96GBZp80PLOBRGSvnKGFTnHKSp847
+	 m0urxec49+APdEnZnTozvGOOeqlWeyWyIKODScjQ7UcCNPgNFnB6q3x0bsYdISSaLFR40
+	 ocSCbvxSmsyJj00PLB971su5iPsNWz1u+J4I9eyiI3aN+/Cski1fO1b62U9Mn2Z/fjA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795642957;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=4MKFbkxC3o9ap8WbY2v8opmAiDT98EVFbNmAsPwQeDQ=;
+	b=KdMJ1aESQdbou4rzNwBs/P9KeTvqxYcP4COJrT2RXqvD3GAXQyz5k2AmbCNQUZ9O2Py2
+	 3brqI17Cm3qj8gn2Aq2Dkl1X5+HBTjtMIF6RkSHMLRyvy/LaxMDX09ADWdr0iOPM2E+5z
+	 voJn9Bv9fIBQchEMp/rIrw1dYke8cJ6X7FhzUaf1mO1Hw5EqqghtjB82gBk4Xem8V/F2g
+	 m2vhfIsGhZYOvoJtkEZDlNyoX3ieDxb3MtPpJ0YH2nwlE6XAx4m6MvH+gvcU70Ct90f61
+	 nQd7+hoSNG8JddnxvVKhzckRX9YSHayAtfXXcNupTghVHJS7iE5NvLSfEeRiarEUUfw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=EUSlFVk1;
+	arc=none smtp.remote-ip=95.215.58.131
+Received: from mta1.migadu.com (out-131.mta1.migadu.com [95.215.58.131])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5D60C606A321;
-	Wed, 25 Nov 2026 21:42:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5D60C606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C90FD606A323
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 21:42:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C90FD606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=MxZ1HJab;
-	dkim=pass (1024-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=iY0u4PVU
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795642946; x=1827178946;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-id:content-transfer-encoding:
-   mime-version;
-  bh=9vcldXNaCU481XCr5rpJvXAhwenagsVYILb/yuEwSJo=;
-  b=MxZ1HJabJKULiAjrVvAZs2hohmmjF0xiHU/p/Ey3ZNGvrn+l2JYMje38
-   b1bjmPBG0BCLLpnLI754DiSftIbQYL9bOtbZFMF0Dh7ABBdqwepmdJ9gI
-   NyC/Ja8bq4AOLu3N3V/OcJOmO1RgkBW4uB6E7iDvhY6W6LnHq5lnzidtH
-   6GNG/ngwllRb2cmhaZ99lL4iTISJCuRiobSLng2d3VKZbgC3H846v6Nye
-   pBz4HU94T5K2syWt2xjbFI8VV2l4gJO0yG+PwQKAKekVFKMf0D4pNAIXm
-   t00zmYjM5Y3BwxWVle8/nKyDs4crActq1UzkMHxZZBJO6nuV8iqt51rVy
-   A==;
-X-CSE-ConnectionGUID: BmV3GgPKSWybH36dUWvuhA==
-X-CSE-MsgGUID: oV1dou3IRvaO6p+E7QpGsQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4446215"
-X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
-   d="scan'208";a="4446215"
-Received: from fmviesa007.fm.intel.com ([10.60.135.147])
-  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 13:42:25 -0800
-X-CSE-ConnectionGUID: 5MzJfi9+SW6lzF5ZorNCyQ==
-X-CSE-MsgGUID: lTvoRvxdRReark4H0F3aug==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
-   d="scan'208";a="12292292"
-Received: from fmsmsx901.amr.corp.intel.com ([10.18.126.90])
-  by fmviesa007.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 13:42:26 -0800
-Received: from FMSMSX901.amr.corp.intel.com (10.18.126.90) by
- fmsmsx901.amr.corp.intel.com (10.18.126.90) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57; Wed, 25 Nov 2026 13:42:25 -0800
-Received: from fmsedg901.ED.cps.intel.com (10.1.192.143) by
- FMSMSX901.amr.corp.intel.com (10.18.126.90) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57 via Frontend Transport; Wed, 25 Nov 2026 13:42:25 -0800
-Received: from SN4PR2101CU001.outbound.protection.outlook.com (40.93.195.31)
- by edgegateway.intel.com (192.55.55.81) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57; Wed, 25 Nov 2026 13:42:25 -0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=mcOHcpxNIMhusnhn34Q5H9LshUfgdCvqKzLif4b5hGhQidbmUBhVfgS89AIAo9zriK9nvMgYr89g50Zw8ZWHFyV0g8Yz6jdeKmWvNoL5rKkZKCsQqr9cKjGFmFBe2lWy6FzZXrOMoj2la7TxVG/01McXp81aKKesjamb1x9QnqHXQjt8d7g55a9Uxwj/ErF7fim2jbdwdVc0QzwwyUiMUYJTd+oi33Pe9gHpBMbWQwXZtGXfzV+Od6BEq+EvttQKhN0te7bitjOrcgWTwcVjfn9UK7AbBv/q60HraoP5elpKeAzxV8o9l7Qh+Lb9GlFBtgX2p8b38yv8gLeBVUkhEg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=9vcldXNaCU481XCr5rpJvXAhwenagsVYILb/yuEwSJo=;
- b=XTOrmzEs1DZW3goTEHSirPT4LbTD0mrFtlTSi2mSb0/Ui8l0N1xPevJz7FACRqX8nNl26pn8XvuNNQ/Ct5SQJi1731YRoICPjNZHfeM7HxQ9JFBG3EqSZCnj5E+HrH7tS+qlMYlKjmyyXa/M83d5kKbVDFtOTKhyrwRn9hWGfDGmJ5va7mCiurwl50xt45lkaEwIC9XutcDNinp6WRlPQzXwvWl4ADQ0uQ6Dcj9rWRHEdkhW0km6AYMKTf3chnZwaWRWeETdN/Tq1rqkMDDSkRQHffaza032Vy37MfBSfoRWpVgrweur3ZgDaIDKUmsgxQFFp5teF/mKrjWvdPs6KQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=intel.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=9vcldXNaCU481XCr5rpJvXAhwenagsVYILb/yuEwSJo=;
- b=iY0u4PVUQjtj20jHx0KT6S/UdxGx4oP525+ukvPnrIA89W515CYRsxFgUiYtzhUXzO78PoNAJKzIFapfGWzul74EksdgohSRKktyorFR/88TzX/f4cLIz8mznBI/xE101OVS4RCvAoXryEBjDkvFEzBrEkBRiGeL8r092udwNpY=
-Received: from IA3PR11MB634048.namprd11.prod.outlook.com
- (2603:10b6:208:549::23) by CHBPR11MB551639.namprd11.prod.outlook.com
- (2603:10b6:610:40c::18) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.6; Wed, 25 Nov
- 2026 21:42:22 +0000
-Received: from IA3PR11MB634048.namprd11.prod.outlook.com
- ([fe80::760f:f0a4:7417:6e57]) by IA3PR11MB634048.namprd11.prod.outlook.com
- ([fe80::760f:f0a4:7417:6e57%5]) with mapi id 15.21.0662.004; Wed, 25 Nov 2026
- 21:42:21 +0000
-From: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>
-To: "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
-	"kas@kernel.org" <kas@kernel.org>, "Li, Xiaoyao" <xiaoyao.li@intel.com>,
-	"sathyanarayanan.kuppuswamy@linux.intel.com"
-	<sathyanarayanan.kuppuswamy@linux.intel.com>, "thomas.lendacky@amd.com"
-	<thomas.lendacky@amd.com>, "Aktas, Erdem" <erdemaktas@google.com>,
-	"djbw@kernel.org" <djbw@kernel.org>, "moe@flashbots.net" <moe@flashbots.net>
-CC: "kvm@vger.kernel.org" <kvm@vger.kernel.org>, "linux-coco@lists.linux.dev"
-	<linux-coco@lists.linux.dev>, "Miao, Jun" <jun.miao@intel.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"stable@vger.kernel.org" <stable@vger.kernel.org>, "x86@kernel.org"
-	<x86@kernel.org>
-Subject: Re: [PATCH v4 0/2] virt: tdx-guest: Fix and speed up the wait for a
- Quote
-Thread-Topic: [PATCH v4 0/2] virt: tdx-guest: Fix and speed up the wait for a
- Quote
-Thread-Index: AQHdfOb/N/GpaIfBTEOt4Ji9kuU4Irc/UeKA
-Date: Wed, 25 Nov 2026 21:42:21 +0000
-Message-ID: <cd7bd4428398413e16ff214fc46f5d65076757d8.camel@intel.com>
-References: <20261125-tdx-guest-quote-poll-v4-0-d89f26854b88@flashbots.net>
-In-Reply-To: <20261125-tdx-guest-quote-poll-v4-0-d89f26854b88@flashbots.net>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach:
-X-MS-TNEF-Correlator:
-user-agent: Evolution 3.44.4-0ubuntu2.1 
-authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: IA3PR11MB634048:EE_|CHBPR11MB551639:EE_
-x-ms-office365-filtering-correlation-id: a7bc3ac9-599d-4370-a2e4-08df4b3cfc5e
-x-ld-processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|7416014|23010399003|1800799024|921020|38070700021|56012099006|11063799006|10067099003|261028144727099003|261021121427099003|261022105027099003|261026140227099003|261102123227099003|261009223027099003|18002099003|22082099003|6133799003;
-x-microsoft-antispam-message-info: scgpTLJ32e7SAcqMzJUwAjke3Gr/5D8J+iKfnYFanSqrVBNj7Y7Nbk1b75yf3/1aYKZEVqSXyjeJwpc9AfeTZTkKtwEiCDAFGIsDk+DBr9FxUAwYvCW+tWHib+AHGe7h0n9C7i6J8JVquNcDQkh4WlIXY0IquMt5Dtxc7taSX40Pknx5oWP1t1WsElJueT9qyEhcpjtJ98hrVyAoo07VC/qpVmuGKPoGRj/Bg8ohZgFzXOitBKXpNqC0Ruw4VFyld9/e3puRDODTn9vZlBUihmBdQ+u47i2GRx0R0EIvvP7XvIJsYbIh4T8meEDpdBR7HylSMig7ZA0sSwglJ9CjJak33mYDCOEp1kcEdivOW7Z9Cra8ZrsEhnANnLS3fqR7a2JPKaMBiGOydzAgp7mw/s76vcPTYImRuQmHYs4cT8RKQ6giw0MB4ecjyqFLeS4j5tokDlReWGw23zlm+gx4HIQOFe52+TZesauXvgG1G2b9aItPH3YQhaPQWYSgTUc/Ndu2Uji5z9ZBWe5Ga8XYbYDNUFuVARjL3NtgBO8PEmBzB+9BAHxBuf1kabA50o90eiy+zbRJuU6JNeY7xrW0RdnlIXAdxCD8mTg/oT7QABJt8RNM4SJC2kg4/zvL0DfcYjln/7sDu+Kuej+jiD0c1GVGUAgIdUGlCKZgN8EdmgvIR0/AxG8VFpQ4J0x9cotADt9XMAM6loFa+dLipEAn8MVwIq1acPz3Es+ieP7IXtp3OU5A6lFyHHqFICEFQwCL
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA3PR11MB634048.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(23010399003)(1800799024)(921020)(38070700021)(56012099006)(11063799006)(10067099003)(261028144727099003)(261021121427099003)(261022105027099003)(261026140227099003)(261102123227099003)(261009223027099003)(18002099003)(22082099003)(6133799003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?MUtmaUY0aG42YlIzakhmV0o4WG9oai91c2dKSG9adlZ5YUdTcXhvaDJMMDdw?=
- =?utf-8?B?VkJoNytOMDN3ano2Ujc5aks3UXZ4YzhDYnJRZFozL0NIT3VQMjc2eHRRRHd6?=
- =?utf-8?B?d1pRYUV4Z05IbDhFRDgwRWF1UVh1bG8zcFdxSkxoa2p2czRQL3BBUnZxN1Y1?=
- =?utf-8?B?cS9mQXhmdVBhSWUybXplUVhvTWxvQWs0MHZjbThhRnA1U3pFRkZPUU1tUHBV?=
- =?utf-8?B?dXlwS0sxaFl3anRBQndQRldYSEpFNXlSa29TamlLMzczUUViNUdXV2JmYkps?=
- =?utf-8?B?VHBoNUN1Nk5RRDhzMjJqVE91SHI1bXJzWlBTWE5rVTJYTlBnbEhuRWZMbFNL?=
- =?utf-8?B?WkdCZUJxWW1wcEhiMnQ5STdNbUsrT2NpSFcvYUx2RmhBbDFHMGQ5MmZWNzJ2?=
- =?utf-8?B?ZWdtUWRGTGIyZHMxVng2aVpZUytWeFpBTFVwVFRPMmIyRFhtekllZnIvVE5z?=
- =?utf-8?B?QVJOZzFBZUdQbkV2Z1pkWUZIamc4SUxMSlNKd3NpblpsaUxQNDFDRjVsVDZX?=
- =?utf-8?B?ZHpSbDZ1L0NIaUltSU9EWkFsQkpmMHpFbW43ZWlhQWUrajBHcFp0dmh1QVRU?=
- =?utf-8?B?Rml2Unh5U2FEM3YxVE1pTmx4Yzc0VVBOT0c5bFUxbVkzV2JFZmhnSDZ1MFdp?=
- =?utf-8?B?YzllaHZWdER3K3RhMGxnOFZTdS9mK0NEVVZpZTQ1dUtJVmVWaHFaRWNLNXdX?=
- =?utf-8?B?Z2YreU1zdmNuajFxaTFyYlJ1VWwyTDhvR3NEaFJ0b2hCbVJpY1I1SE9SY0Rv?=
- =?utf-8?B?STBMeDFJckpjclp1czBOcG5DTGZQQmM1ZVI2M0I1eVJkQlZhZy9Nc2VKQ0tY?=
- =?utf-8?B?bDlGS2F4N2xYQVkxL2xtdm0zV1pseVBXSnJxTkVIM1dmYW94OHNZQ1dRQmlR?=
- =?utf-8?B?L2xxUis0cFZubVdQaVdseEZBM0dtTWMzM0hpOGoxdU95TnpxVTFNZUhGS0U1?=
- =?utf-8?B?VlJjWmFoSmIxOXhVYzl2SXQxVDhDMzZjTUQ3dEJaT3Y2RHpSeTJoWTMzVXVu?=
- =?utf-8?B?a0w3Rms4OFdmU3kvak02VDZDSUUzRDM0eS9qVlRhM3F1NXR4aHJGZFplVE12?=
- =?utf-8?B?Q0NUZG1LOFVCcVh6b3RMOVExZVBmdWFKWWFrcXdDTzNIcGZ3MFJ4UUcrMmtV?=
- =?utf-8?B?Y1M0azlsU1hDcFBibmh3UkdtYjFnWTFRT0RkaDhNQkJwTXJGQWtiQWVxY3JI?=
- =?utf-8?B?bDBZbk05OS83NHN3UWxuQUwzdXZWNVVJSU1rNzA2ek45ZmwzWkxzc0ppN09E?=
- =?utf-8?B?SUZhL29WZ2U4UVozTitPK0p6dmZqVkw3Q2JyYTZadGN4b1YwUXhiV3FBYVYx?=
- =?utf-8?B?RE9TaU5WS0d1NHJnMVlXR1dtSThYSm9sNjZsUlB2a1VtRjB3R3U2MDFJRlY2?=
- =?utf-8?B?dHBJa2FZenluSWRDS3BSNVNscHVRS2wwTHhsZDJzaWIzU2JmNWJRbWtzdi92?=
- =?utf-8?B?Szl2QjZqQ3dUamRNa2tReUpqUEw3RTlpOERHRXFuYUNCei8valVGWnkzK2kv?=
- =?utf-8?B?TVVobi9KMDZ6c244RitQUHl0d3FNSXRpdWw4a1JiSXJELzgzdFNjTk9LNWZN?=
- =?utf-8?B?MWxSREJ3N2o2TThaZWJIUlcxQjNoRkNuYndkdmJoRENhY0k2YmR1Qk5GZWxi?=
- =?utf-8?B?Q1dMVjVWcmpZT1VDVFpiY01HZDdmUCtkTVQ0UWQ3c3lab2ZoTGtzRGpYS3Z1?=
- =?utf-8?B?bUxMQXNYYUpBd1BGSDNqYkRkcUZjYmF3bDlHdUJJSzBydm5wVStscVliVE5x?=
- =?utf-8?B?S2NLLzNYZ3VjZ1JqamdxYXVUQTZqdmEwNE5ucjhBV0pvWEpwWll0aEdodXla?=
- =?utf-8?B?V2FBbGRjbEZBczhNR2pxNGY4ZEcrYzYwTTVaaktBbVltZERxdlRZbm5rUkJB?=
- =?utf-8?B?SWcyd1phUVBRZllBNnVYeXpIWFBMcE42Rm5EYTh0SDBBSTZXcWw2ZlRIVEhS?=
- =?utf-8?B?Ty8veTZqQ3gvTENZRmZXVUl4UTdPMzlFbFFYUXJNRUZiUzdQcmw5SFBKaERw?=
- =?utf-8?B?ZUZ6NDZRWW1OZUp2V3VXb1NsS0ZYZlAwZ0dXYkFyamVQK0NUWTJRdkI3SkIw?=
- =?utf-8?B?WGo3L1c0cGRKN01zcjZSa3NMeFFmV1d2K2k3akRwVFJxV2xOenliNi9wTW9V?=
- =?utf-8?B?Rk9rK000eTh0QW92RUtpdzRnMCttY1VvbFBvd0NZSERiOW9ZdnJIOGZxMGZW?=
- =?utf-8?B?OVJtUlFBMjZqUU9vTEcvMmcyN0xxVXU1WStRamVablVTdEZydytUZmg4eVov?=
- =?utf-8?B?RkVucVdVWHJFWloyZ1RINnlIdE1ndmJ0Z2lHKzNLajdwc3hCd1I0MUg3cnhV?=
- =?utf-8?B?SGJkQUxUc0tTSGZYM0IxNTlOTWd0NVdjZEVaK2FDaEVqOU93bmVJcndwSzlo?=
- =?utf-8?Q?OkvV/DgBkoHapbfA=3D?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <FDB0AFF6A568B949BBF2983D12BF0F15@namprd11.prod.outlook.com>
-Content-Transfer-Encoding: base64
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=EUSlFVk1
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=MXfyCZanVHHCByeJQ6CMCayWNQ7e8Mkpkpks7k/5FEA=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795642953; v=1; x=1796247753;
+ b=EUSlFVk11/jFZQCE60eM5UFcEs/hiJpL9I7fHfA16wnKSXYeu4Hnr3U+p2gUt6hxjgRSiltd
+ 0MJ6ZKVXVeC72xthTTl/WEPhEg67LGzkqXA1IE2P8L2Wwhc5/hJ9W0Z73KmZiTwcPmAcAmMlM1Z
+ KNV2GZXUnYkwyi0H2mmJ1T1M=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 77a1ac44524ef322;
+	Wed, 25 Nov 2026 21:42:33 +0000
+X-Mizu-Trace-ID: 77a1ac44524ef322
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <e7bdcfa9-bbd8-4649-8318-2f6dc236db15@linux.dev>
+Date: Wed, 25 Nov 2026 21:42:33 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -207,24 +58,237 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Exchange-RoutingPolicyChecked: TzvjQYiXcyFXZfTGvN7Nf+qtsOWCqpkKfBORfEtsEoF2o7aHEuBarwFFdLiYYTrkwqOnqzgdYnfV9FQntuj6OKbNygFdp/S5vnsOiRLiAp+rvZCz2L7ORrcVXuM4R09d00+/tRa4YRraldypN0EMb33u74QhCMmgwUjH8I57mn4Q6wzBLUEneEnKdMrd4POZbCT4A3afpUwpQ/aIQ2JZkvvkMAA4qk0CMVBnj8zXzXFAV1775PvZosBl3TH8FGkXjyg79Kw4GwFW0/CNhYZQ1ol2UnK+T9izt2qZLW+8xWdJkY7F83/uxHghS4d92K5sCNKitaPdXooOK7zFzVI2GA==
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: IA3PR11MB634048.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a7bc3ac9-599d-4370-a2e4-08df4b3cfc5e
-X-MS-Exchange-CrossTenant-originalarrivaltime: 25 Nov 2026 21:42:21.3640
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: CfZ5LfX7+twmfvCoU9TuojQMMAJyjji4smB3ykLd48z3m6sY/OVWDLn004QFE1zGrVdrKE5jUBBPlY5l8iIgeGG1L0rMchKKrnoAnomgy/c=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CHBPR11MB551639
-X-OriginatorOrg: intel.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] KVM: arm64: Reduce the stage-2 page cache on 64 KiB hosts
+To: Leonardo Bras <leo.bras@arm.com>
+Cc: Lorenzo Stoakes <ljs@kernel.org>, maz@kernel.org, oupton@kernel.org,
+ fuad.tabba@linux.dev, joey.gouly@arm.com, seiden@linux.ibm.com,
+ suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com,
+ will@kernel.org, mark.rutland@arm.com, kvmarm@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ riel@surriel.com, shakeel.butt@linux.dev, kernel-team@meta.com,
+ rkeilty@meta.com, atish.patra@linux.dev, dgreid@meta.com
+References: <20261124152842.2634495-1-usama.arif@linux.dev>
+ <awcXhk885lqDRAHy@LeoBrasDK> <06a69a4f-59bb-49b8-9ed0-f4cfe0ecad37@linux.dev>
+ <awcoCklLOKeuXPhh@LeoBrasDK>
+Content-Language: en-US
+From: Usama Arif <usama.arif@linux.dev>
+In-Reply-To: <awcoCklLOKeuXPhh@LeoBrasDK>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-T24gV2VkLCAyMDI2LTExLTI1IGF0IDE0OjExICswMDAwLCBNb2UgTWFoaG91ayB2aWEgQjQgUmVs
-YXkgd3JvdGU6DQo+IEdldHRpbmcgYSBURFggUXVvdGUgdGFrZXMgYXQgbGVhc3Qgb25lIHNlY29u
-ZCwgYmVjYXVzZQ0KPiB3YWl0X2Zvcl9xdW90ZV9jb21wbGV0aW9uKCkgc2xlZXBzIGEgZnVsbCBz
-ZWNvbmQgYmVmb3JlIGVhY2ggc3RhdHVzDQo+IGNoZWNrLCB3aGlsZSBhIGxvY2FsIFF1b3RlIEdl
-bmVyYXRpb24gU2VydmljZSBhbnN3ZXJzIGluIGEgZmV3DQo+IG1pbGxpc2Vjb25kcy4gUGF0Y2gg
-MiByZWNoZWNrcyB0aGUgc3RhdHVzIGV2ZXJ5IDEwIG1zIGluc3RlYWQuDQoNCkkgdGhpbmsgc29t
-ZXRoaW5nIHdlbnQgd3JvbmcgaW4gdGhlIHNlbmQuIEFsbCBJIGdvdCB3YXMgdGhlIGNvdmVybGV0
-dGVyIGFuZCBpdA0KbG9va3MgbGlrZSBsb3JlIGRpZCB0b28uDQo=
+
+
+On 25/11/2026 10:25, Leonardo Bras wrote:
+> On Wed, Nov 25, 2026 at 05:55:29PM +0000, Usama Arif wrote:
+>>
+>>
+>> On 25/11/2026 09:14, Leonardo Bras wrote:
+>>> On Tue, Nov 24, 2026 at 07:28:42AM -0800, Usama Arif wrote:
+>>>> When a stage-2 fault may need new page tables, KVM first tops up the
+>>>> vCPU's page cache: if it holds fewer pages than the fault might need, it
+>>>> is refilled to KVM_ARCH_NR_OBJS_PER_MEMORY_CACHE, which arm64 sets to
+>>>> 40. Unused pages stay in the cache until the vCPU is destroyed.
+>>>>
+>>>> With 64 KiB pages, that is 2.5 MiB per vCPU, and most of it is never
+>>>> used. Stage-2 has at most three levels and the root is preallocated, so
+>>>> a fault needs at most two new table pages (kvm_mmu_cache_min_pages()).
+>>>> As every last-level table covers 512 MiB, an 8 GiB guest needs just 17
+>>>> table pages to map all of its memory, while its four vCPU caches get
+>>>> filled with 160.
+>>>>
+>>>> On a production host with 64 KiB pages running 101 VMs with four vCPUs
+>>>> each, the caches were still 86% full. The memory used:
+>>>>
+>>>>                         before      after
+>>>>   per-vCPU capacity     2.5 MB     512 KB
+>>>>   all 404 vCPUs         869 MB     <= 202 MB
+>>>>
+>>>> Let's lower the capacity to 8 with 64 KiB pages, In the production
+>>>> usecase above, it frees at least 667 MB. That still covers the two-page
+>>>> minimum and leaves room for several table allocations per refill. 4 KB
+>>>> and 16 KB pages keep 40.
+>>>>
+>>>> The temporary cache in kvm_phys_addr_ioremap() uses the same capacity,
+>>>> but it is topped up before every page it maps, so 8 is sufficient there
+>>>> as well. The pKVM hypervisor memcache and the eager split cache don't
+>>>> use this capacity.
+>>>>
+>>>> Signed-off-by: Usama Arif <usama.arif@linux.dev>
+>>>> ---
+>>>>  arch/arm64/include/asm/kvm_types.h | 5 +++++
+>>>>  1 file changed, 5 insertions(+)
+>>>>
+>>>> diff --git a/arch/arm64/include/asm/kvm_types.h b/arch/arm64/include/asm/kvm_types.h
+>>>> index 9a126b9e2d7c99..28568da9ea4a7b 100644
+>>>> --- a/arch/arm64/include/asm/kvm_types.h
+>>>> +++ b/arch/arm64/include/asm/kvm_types.h
+>>>> @@ -2,7 +2,12 @@
+>>>>  #ifndef _ASM_ARM64_KVM_TYPES_H
+>>>>  #define _ASM_ARM64_KVM_TYPES_H
+>>>>  
+>>>> +/* Must cover kvm_mmu_cache_min_pages(), at most 2 with 64 KiB pages. */
+>>>> +#ifdef CONFIG_ARM64_64K_PAGES
+>>>> +#define KVM_ARCH_NR_OBJS_PER_MEMORY_CACHE 8
+>>>> +#else
+>>>>  #define KVM_ARCH_NR_OBJS_PER_MEMORY_CACHE 40
+>>>> +#endif
+>>>>  
+>>>>  #endif /* _ASM_ARM64_KVM_TYPES_H */
+>>>>  
+>>>> -- 
+>>>> 2.53.1-Meta
+>>>>
+>>>
+>>> Hi Usama,
+>>>
+>>
+>> Hello Leonardo,
+>>
+>>> Have you tried to reproduce this issue in v7.4-rc1 or newer?
+>>
+>> Yes. The patch is against kvmarm/next (v7.4-rc3), which includes
+>> Lorenzo's pre-fault series, and I A/B tested it there.
+>>
+>> On unpatched v7.4-rc3 with 64 KiB pages, a VM whose 16 vCPUs each fault
+>> in one page needs a single stage-2 table page, yet the vCPU caches hold
+>> 640 pages (40 MiB). With the patch they hold 127 pages.
+>>
+>>>
+>>> IIUC Lorenzo Stoakes introduced a change that would cause the memcache to 
+>>> skip topup if the cache contains a minimum of ~4 pages, so it can possibly 
+>>> improve that issue.
+>>
+>> I don't think that part is new. __kvm_mmu_topup_memory_cache() has
+>> returned early when mc->nobjs >= min since commit 6926f95accee ("KVM:
+>> Move x86's MMU memory cache helpers to common KVM code"). Lorenzo's
+>> commit d27acc152c62 ("KVM: arm64: Size the stage-2 memcache from the
+>> fault MMU") takes min from s2fd->mmu instead of vcpu->arch.hw_mmu. For a
+>> guest abort that is the same MMU, so nothing changes here.
+>>
+>> With 64 KiB pages, min is kvm_mmu_cache_min_pages(), which is at most 2.
+>>
+>>>
+>>> Although I can see that when it's below that minimum it fills the whole 
+>>> capacity (40) of the cache.
+>>>
+>>
+>> Right, and that is the problem. Skipping the top-up avoids refilling
+>> the cache, but nothing ever drains it. A vCPU's first fault fills its
+>> cache to 40. Each last-level table covers 512 MiB, so a guest needs very
+>> few table pages, and most vCPUs never drop below min. The remaining
+>> pages stay allocated until the vCPU is destroyed, which is why the
+>> production caches were still 86% full.
+>>
+>> The patch keeps the early return and only lowers how far a refill goes.
+> 
+> Right,
+> 
+> I took a look in the cache workings, and it does not seem to receive freed 
+> pages back in. It gets filled by topup and used by map, so IIUC it is used 
+> only to avoid failing an allocation during the mapping walk.
+> 
+> Maybe it could be the case to simplify this cache to have the capacity 
+> about the same as the minimum (since it always topup before mapping) and 
+> avoid the waste altogether.
+> 
+> Maymbe having something like this should be enough?
+>  
+> #define KVM_ARCH_NR_OBJS_PER_MEMORY_CACHE (KVM_PGTABLE_LAST_LEVEL - KVM_PGTABLE_FIRST_LEVEL)
+> 
+
+That sounds good to me. I tested and it works (and releases even more memory :))
+
+I had to move #defines around to make it work, the current patch sits
+like below. If this seems acceptable, I can send it as v2 for review.
+
+
+From 9b044379f470625adb031a0ee7529e054d9ec219 Mon Sep 17 00:00:00 2001
+From: Usama Arif <usama.arif@linux.dev>
+Date: Wed, 25 Nov 2026 12:55:15 -0800
+Subject: [PATCH] KVM: arm64: Shrink the stage-2 memcache to the page-table
+ depth
+
+When a stage-2 fault may need new page tables, KVM first tops up the
+vCPU's memcache: if it holds fewer pages than the fault might need, it
+is refilled to KVM_ARCH_NR_OBJS_PER_MEMORY_CACHE, which arm64 sets to
+40. Pages never return to the cache, and unused ones stay there until
+the vCPU is destroyed.
+
+The cache only has to cover a single map: every fault that can allocate
+tables tops it up first, and a map allocates at most one table per
+level below the preallocated root (kvm_mmu_cache_min_pages()). That is
+at most three pages with 4 KiB and 16 KiB pages, and two with 64 KiB
+pages.
+
+With 64 KiB pages, the 40-page cache is 2.5 MiB per vCPU. As every
+last-level table covers 512 MiB, an 8 GiB guest needs just 17 table
+pages to map all of its memory, while its four vCPU caches get filled
+with 160. On a production host with 64 KiB pages running 101 VMs with
+four vCPUs each, the caches were still 86% full. The memory used:
+
+                        before      after
+  per-vCPU capacity     2.5 MiB     256 KiB
+  all 404 vCPUs         869 MiB     <= 101 MiB
+
+Let's size the cache to KVM_PGTABLE_LAST_LEVEL - KVM_PGTABLE_FIRST_LEVEL,
+which is 4 pages and covers the deepest walk with one page to spare. On
+the host above, it frees at least 768 MiB. Refills get more frequent,
+but no more than four pages per vCPU ever sit unused. With 4 KiB pages,
+the cache shrinks from 160 KiB to 16 KiB per vCPU.
+
+Move the two level definitions to asm/kvm_types.h, so that the generic
+top-up code in kvm_main.c can see them. kvm_pgtable.h still gets them
+through linux/kvm_types.h.
+
+The temporary cache in kvm_phys_addr_ioremap() uses the same capacity,
+but it is topped up before every page it maps. The pKVM hypervisor
+memcache and the eager split cache don't use this capacity.
+
+Suggested-by: Leonardo Bras <leo.bras@arm.com>
+Signed-off-by: Usama Arif <usama.arif@linux.dev>
+---
+ arch/arm64/include/asm/kvm_pgtable.h | 3 ---
+ arch/arm64/include/asm/kvm_types.h   | 7 ++++++-
+ 2 files changed, 6 insertions(+), 4 deletions(-)
+
+diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
+index eda440354a55ec..691e2eb63939f5 100644
+--- a/arch/arm64/include/asm/kvm_pgtable.h
++++ b/arch/arm64/include/asm/kvm_pgtable.h
+@@ -19,9 +19,6 @@
+ 
+ struct kvm_s2_mmu;
+ 
+-#define KVM_PGTABLE_FIRST_LEVEL		-1
+-#define KVM_PGTABLE_LAST_LEVEL		3
+-
+ /*
+  * The largest supported block sizes for KVM (no 52-bit PA support):
+  *  - 4K (level 1):	1GB
+diff --git a/arch/arm64/include/asm/kvm_types.h b/arch/arm64/include/asm/kvm_types.h
+index 9a126b9e2d7c99..5b61285d317e28 100644
+--- a/arch/arm64/include/asm/kvm_types.h
++++ b/arch/arm64/include/asm/kvm_types.h
+@@ -2,7 +2,12 @@
+ #ifndef _ASM_ARM64_KVM_TYPES_H
+ #define _ASM_ARM64_KVM_TYPES_H
+ 
+-#define KVM_ARCH_NR_OBJS_PER_MEMORY_CACHE 40
++#define KVM_PGTABLE_FIRST_LEVEL		-1
++#define KVM_PGTABLE_LAST_LEVEL		3
++
++/* One page per level below the root covers kvm_mmu_cache_min_pages(). */
++#define KVM_ARCH_NR_OBJS_PER_MEMORY_CACHE	\
++	(KVM_PGTABLE_LAST_LEVEL - KVM_PGTABLE_FIRST_LEVEL)
+ 
+ #endif /* _ASM_ARM64_KVM_TYPES_H */
+ 
+-- 
+2.53.1-Meta
+
+
+
+> Thanks!
+> Leo
+
