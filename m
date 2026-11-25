@@ -1,111 +1,70 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.156
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=124.126.103.232
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795592163;
-	b=d4sOI5LY2ef99ekJOeEp+qabJHIf6n3z188G8dXGuLHZdcMWxC4ELvJfzMTJT1Y2AOSo
-	 xdN06d44EIgK82KWU4cIF2G/CzBYz3NLfYz1QzHMbnXZjptOZ+aunSd2JwLaXHcz3h3Zp
-	 4XkzoQNSoTd5BQ0JU+DrC5oILXaHUTznZIwoA9dXTGgDlqQMzUVG2GB6I/LS+iMLt3hah
-	 n2XnG0C3V1zuppYiPktj5ibpUYpRIifzG8leC16ZKL4jpHRRlMkXe5I7eN9Zw8YFNCoMH
-	 sfh50O97m+azQDnQQUXiJTgObhze/U0ZpchbhGEXs7V2aabrpgeP68oR0K6iy2dLwhg==
+	t=1795592165;
+	b=fIIgBtNkX/AJSvNXYTjlBd7+RwaJigWpyFXlR1YBVMXgrv7E63FqBZEhsGj52eaw41+H
+	 TiGwCqxlZurBqfFVR43QvfD0RvnGxcT6E8Yb2Oq1m395oX+2eSngYyC7g3ScLiICRN/xY
+	 n40F3QAG1ummQYjtAAuZM2gK04W8VzBrjOf9w84K5rQHsqDcVHexfA4j0YSjS/sTkV8lY
+	 glbEd9+boy1qBLymweJujER+kdyJjuER8mypRvqbbvvbu9s3+7FaUjrC6fhLyarz88LnR
+	 PDAm7HGPDhVCp4xc1mgGS6wNyE2Dc7sf0TjOQRD5mJbQtbUprLPVEsK3G6d3EQocmzw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795592163;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
-	 MIME-Version:X-ThreadId:Date:From:To:Cc:Message-Id:In-Reply-To:
-	 References:Subject:Content-Type:Content-Transfer-Encoding;
-	bh=tPfjmyQdI1wI78ZQpZVsv6HuB0zGqQ8CU1z0eSNCe1o=;
-	b=3pEQwVsStTbvw1kvivxXwdj+rx7CFMJomrBwnBU/PI+9c3JB6hCDhqXUunBcsnKKkhuC
-	 JaUlkNa2aZ09i2MfAThKf8A42WJa3rg37bWpUvx7azIqRHeXIY5tiwseLQ5M+wDbxLWxn
-	 /zS9fen6/e27uRc+vavmPuwWEICW2LxljeanF8Ra5bdu9BAesFAYUE87URv0GcSeAtgZp
-	 d5D+OwdtsxlUQ9yvbl9ttKmEH36hbxk/9RhzKKrI3aoXuQle2cMAcbYozaTIbp2SPe+jF
-	 MZ1cEdp4nO0PjshHUuMXDx7Ent13VCmdsZmOaXRonSfuTsXkhrS0Vto4SC5/8feljcw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795592165;
+	h=DMARC-Filter:X-UUID:X-CID-P-RULE:X-CID-O-INFO:X-CID-META:X-CID-BVR:
+	 X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:X-User:Received:From:To:Cc:
+	 Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=+9dGfIVE1U0VGIqTmh0uJwdb72ZWjKlrweV5TD0dad8=;
+	b=F6EeSaFHXLUshuBrLAnf0ZeRgY3RaUMEyCdHD5r6OIA1E9h+hDFxI2uq7NbYEAXp/+xq
+	 c8HuQvYOioWZpXMahxyAPx1ZBSR/ZZkNYC5Tzw6Zk/0l3PqrYgGwn7fQC4pEC2WFVOE/P
+	 Ir/uGUItOKxycBGj02ID7fe/4KFca+VqaV5hsOqpTyHRQPVrvVSdTJfLLzK+1eMv6FwA3
+	 W9md9tz9sq/mlPUpMQdGcKvNjtaNoPlQGZHAEEYKEONlnB2FU6+KMD3Qnu8Vd1r5laHdd
+	 Cf86vgzj7h3RPR/9qKB/I0knq3IzrlJhqzaM2gooVb2UNM7iS+Rc+l6Vq9SQc8Nsuyg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arndb.de;
-	spf=pass smtp.mailfrom=arndb.de;
-	dkim=pass header.d=arndb.de header.i=@arndb.de header.a=rsa-sha256 header.s=fm3 header.b=cem+NKqN;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=5c1ggHKN;
-	arc=none smtp.remote-ip=103.168.172.156
-Received: from fhigh-a5-smtp.messagingengine.com (fhigh-a5-smtp.messagingengine.com [103.168.172.156])
+	dmarc=none header.from=kylinos.cn;
+	spf=pass smtp.mailfrom=kylinos.cn;
+	arc=none smtp.remote-ip=124.126.103.232
+Received: from mailgw.kylinos.cn (mailgw.kylinos.cn [124.126.103.232])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2F3B4606A33F
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 07:36:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2F3B4606A33F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arndb.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arndb.de
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=arndb.de header.i=@arndb.de header.a=rsa-sha256 header.s=fm3 header.b=cem+NKqN;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=5c1ggHKN
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id 23B93140020E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 02:36:02 -0500 (EST)
-Received: from ams-imap-03 ([10.64.2.23])
-  by ams-compute-02.internal (MEProxy); Wed, 25 Nov 2026 02:36:02 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1795592158;
-	 x=1795678558; bh=tPfjmyQdI1wI78ZQpZVsv6HuB0zGqQ8CU1z0eSNCe1o=; b=
-	cem+NKqNK+7HTiXuZmA36wnUlbvMxx87aOPckiLjhzI/ic2Umq6MYEEVHmfAPL27
-	LktYDQ5sLpLPden4DB8mejq6aChyJIyGFDpR5mNz6SSj10bpJoJ5jr9Qnri6Ypuo
-	s8e9EJpl5xWu24fiT2171SvXJTNRknJe8F9cUzgm2ZtXQLBpSb6R9Cktqxt5TDPp
-	AZ4pjY/jMakJ1TGocFsB3Ai2k6BcorMr17AmNfvLTQX5e0K0BEYlPI7+KsZu9q6c
-	t2esCGCW4MKeyyVINXnJfO4DpCnONPFb9xW3mZV0fmbKyGVSPV+RG72VIUNHLT0w
-	o5McUYzKq1erFiTs/Sv/sw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795592158; x=
-	1795678558; bh=tPfjmyQdI1wI78ZQpZVsv6HuB0zGqQ8CU1z0eSNCe1o=; b=5
-	c1ggHKNhKei6a3hNAXodpTDD3H1tQQt6m4Ntkl0KBoCsA2Z0YQPwQrI3O7jkig2c
-	TI2eWILD+qR0FUkiDhqelg4W7uYWArvkcaq4fFKQAhuwpQEpm4lwj9XjHj1W+6/n
-	HmuUWmsyuNu1XVpZ6nsMkzbbvJSiuR9ft1Cg4AFO1IDs8ONdiFhUDkiEzOATWiSJ
-	IFRtB8XiJmJfLnxGbdY5UtHt1K5CiHgi2C5dgiBtBYS7shAVAHdn9zrNnNiCT0Nk
-	tTNgmNuJ+FmP+g9FC66Lsz6G5RGrvVm6HzTRgKkkIgJUwrXOVbEbA12qv0WWGnNe
-	lEznBbHtg757gHs4SypcA==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=arndb.de a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795592158; d=arndb.de;
-	mf=PGFybmRAYXJuZGIuZGU+;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm3:rsa-sha256:u8IL5WWrx5+eBKR0y4d6zhXDuUvs0HnMFgUUjiYvwCT6QjB
-	wk8OFOiwtEITF5rl3H9w9hvpySbcyM+fFbD9DIFVNhQ56IOFhEkTTMNQsM4ujTNf
-	QAnFl1tKLJUJF9XWlZKsFZX20ehPPPGaW7XzuBWc6gdaCD9prmTh+F/LfO+3zAkI
-	H2n7Egpr/Q8VmJOIu+kjmFWzFPwmXai/azSxqOVu+1vZakewr12roze0AFtFSVuW
-	OIDEAbUfSNkCUFIE5lIUTauacxYkTFYNqbrsKzamO9JZJXyfPsfxnt2SMYgpDuL0
-	yD0MvVTxSq3SFga29sujxFhXNYSLvSPfIyHbLEw==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=12;
-	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
-	from,in-reply-to,message-id,mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:bW5FRmYnw2iDbGd3eaFqNwmv5yh6L3aE4etpdkNBVtk=:hrxNOVHbBregGpHYaJkR12E7QCIoh1riEQpTvoafJcg=;
-X-ME-Sender: <xms:2o8GazeeYYgqzcHbNF_rkxQUz2xUjTw4w7KdYfxAqHoKp4uKltD5Pw>
-    <xme:2o8Ga0Cb-C2mTlcMLLysGSzYCytbCAAzx7nvnAOHckQR6VpSqXyunPm5QvyX8ezKE
-    kzhD7f1ERXgFkR47o4X0QEE-pTPAMIjUVJzs20mC1I4l3O5q-LCi0Ns>
-X-ME-Proxy-Cause: dmFkZTF0yS0MDcn3oitaXGaLh/T1Znmg+Y9viFJsGCCIYBwtFyg2c0Bv0woD65rVl9QQSb
-    1qORFKt9sFj/jdf+I9Tkd2aPYPC4KDYAH90W1e+HnOPgTFUnKUoQb7njRDMZjGi5F26v5B
-    nxnVyEU+KbjqSNcshxyga9nWtk40g7NGqt0TKfaWP3udAENirjS4CIX5YQrkGFMEQ98Qq7
-    lQqj1gDL5YSeG57itLhbj4VvwS605kDR4g9zG1KoLrtcic815vwJxOONPE3kBaC+zrsLuo
-    4MHjpylZpzypBJ61EnVMxfcH0G05eAC1eXw2iwV5dpyBWCUQyRNcYxZCTjjhwurGp77HNY
-    zJ+uRFY4Vy4yCO7Y29OyfeT/tm4t7kR9yj3h0Pj7l1eiV/KZK2I2zQ0P/UF1dCaeJsi3TL
-    IvA5FSNe9BQa2FJ1fzYFkJn+iQRNk1g2DIsl4hSO7uVZbosNujyAanL/JB3d7XOEVKMhHx
-    JnX3eBZ0aLmg3tKMSPDBR03Xpmw+w5GBD7qSON4nWDNOYKS0NiE7T6JJFfM5Z21W/dKe0q
-    0haSJTwyoQ5+naV1u0J7qfKBfKjgdwpmBknK/K08ylvZznq8wN07a6q9SEGfFmKzX33pnM
-    o1mmFUGvmsbljuMVCqzqBlFoUyiSKrbTl8aX26d4QkB22ixWTHbSX4OIeOnQ
-X-ME-Proxy: <xmx:3I8Ga_AURC0D_YghEUtDgnbxvzmIONyRsmDHyq1IY18JKof8WuaK_Q>
-    <xmx:3I8Ga0mFdWzf74Zt2M2SzI5MXifHHXolm8HLTcQ76w6G24uHp8kjAQ>
-    <xmx:3I8GawwUooTJQRDV-Ta66znUVLDILwpe7Cy3dCOpAmHA5f06hSGhkA>
-    <xmx:3I8Ga-Ru_m5iP6nXTYQ8DpyMd-d9_8pIKIDKV3BLYAvEwgISrBdO4g>
-    <xmx:3o8Ga4hsgHYTAMDLV1k-zkwlMWTqJUoQR3pDvU7iXXWPcOb46v0LnToP>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id 8101A32A009C; Wed, 25 Nov 2026 02:35:54 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3DDD7606A681;
+	Wed, 25 Nov 2026 07:36:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3DDD7606A681
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kylinos.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kylinos.cn
+X-UUID: d853addee8a211f19a56ed5b684f684d-20261125
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.19,REQID:b9014b47-4238-40ea-962c-f42bfb91ac40,IP:0,U
+	RL:0,TC:0,Content:0,EDM:-25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
+	N:release,TS:-25
+X-CID-META: VersionHash:7db8b62,CLOUDID:e337752a1f28bcc68832b7da0cbca5d8,BulkI
+	D:nil,BulkQuantity:0,SF:81|82|102|850|865|898,TC:nil,Content:0|15|50|99,ED
+	M:2,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0
+	,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: d853addee8a211f19a56ed5b684f684d-20261125
+X-User: zenghongling@kylinos.cn
+Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <zenghongling@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 1425986722; Wed, 25 Nov 2026 15:35:53 +0800
+From: Hongling Zeng <zenghongling@kylinos.cn>
+To: linkinjeon@kernel.org,
+	hyc.lee@gmail.com,
+	liubaolin12138@163.com
+Cc: ntfs@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	zhongling0719@126.com,
+	Hongling Zeng <zenghongling@kylinos.cn>,
+	stable@vger.kernel.org
+Subject: [PATCH 3/6] ntfs: read initialized_size under size_lock in the iomap paths
+Date: Wed, 25 Nov 2026 15:35:44 +0800
+Message-Id: <20261125073547.154150-4-zenghongling@kylinos.cn>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20261125073547.154150-1-zenghongling@kylinos.cn>
+References: <20261125073547.154150-1-zenghongling@kylinos.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -115,34 +74,182 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-ThreadId: A9foQpwh9yuF
-Date: Wed, 25 Nov 2026 08:35:34 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Brad Hawthorne" <brad@sim.vu>, "Russell King" <linux@armlinux.org.uk>,
- linux-arm-kernel@lists.infradead.org
-Cc: "Vladimir Murzin" <vladimir.murzin@arm.com>,
- "Linus Walleij" <linusw@kernel.org>, envzhu@gmail.com,
- linux-kernel@vger.kernel.org
-Message-Id: <70f2038a-5ed5-4a38-8a62-87b292e102a2@app.fastmail.com>
-In-Reply-To: <20261125025852.1160075-3-brad@sim.vu>
-References: <20261125025852.1160075-1-brad@sim.vu>
- <20261125025852.1160075-3-brad@sim.vu>
-Subject: Re: [PATCH 2/2] ARM: v7m: clear the Cortex-M33's ACTLR.EXTEXCLALL at boot
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-On Wed, Nov 25, 2026, at 03:58, Brad Hawthorne wrote:
-> +/* Cortex-M33: clear ACTLR.EXTEXCLALL so that exclusives use the local 
-> monitor */
-> +__v7m_cm33_setup:
-> +	ldr	r0, =V7M_SCS_ACTLR
-> +	ldr	r1, [r0]
-> +	bic	r1, r1, #V7M_SCS_ACTLR_CM33_EXTEXCLALL
-> +	str	r1, [r0]
-> +	dsb
-> +	isb
-> +	b	__v7m_setup
+The iomap read paths read ni->initialized_size without size_lock.
+ntfs_read_iomap_begin_non_resident() reads it twice in the length
+adjustment condition and once more in round_up(), so a concurrent
+update in between lets the condition pass with one value while the
+length is computed from another, which can yield a length matching
+neither boundary.
 
-Doesn't this prevent using Cortex-M33 on SMP configurations?
+Read initialized_size once under size_lock in the resident clamp,
+the non-resident unwritten mapping, the length adjustment and
+ntfs_iomap_put_folio_non_resident(), so each decision is made on one
+value.
 
-     Arnd
+The buffered write and direct I/O paths read initialized_size
+unlocked too, when deciding whether the head or the tail of a newly
+allocated cluster has to be zeroed first. The mmap write fault path
+can extend initialized_size while holding neither the inode lock nor
+the MFT record lock, so snapshot the field under size_lock there as
+well.
+
+Fixes: b041ca562526 ("ntfs: update iomap and address space operations")
+Cc: stable@vger.kernel.org
+Signed-off-by: Hongling Zeng <zenghongling@kylinos.cn>
+---
+ fs/ntfs/iomap.c | 50 +++++++++++++++++++++++++++++++++++++++----------
+ 1 file changed, 40 insertions(+), 10 deletions(-)
+
+diff --git a/fs/ntfs/iomap.c b/fs/ntfs/iomap.c
+index 8933f432aa68..afc4494822e1 100644
+--- a/fs/ntfs/iomap.c
++++ b/fs/ntfs/iomap.c
+@@ -17,11 +17,14 @@ static void ntfs_iomap_put_folio_non_resident(struct inode *inode, loff_t pos,
+ {
+ 	struct ntfs_inode *ni = NTFS_I(inode);
+ 	unsigned long sector_size = 1UL << inode->i_blkbits;
++	unsigned long flags;
+ 	loff_t start_down, end_up, init;
+ 
+ 	start_down = round_down(pos, sector_size);
+ 	end_up = (pos + len - 1) | (sector_size - 1);
++	read_lock_irqsave(&ni->size_lock, flags);
+ 	init = ni->initialized_size;
++	read_unlock_irqrestore(&ni->size_lock, flags);
+ 
+ 	if (init >= start_down && init <= end_up) {
+ 		if (init < pos) {
+@@ -88,6 +91,7 @@ static int ntfs_read_iomap_begin_resident(struct inode *inode, loff_t offset, lo
+ 	loff_t i_size;
+ 	u32 attr_len;
+ 	int err = 0;
++	unsigned long irqflags;
+ 	char *kattr;
+ 
+ 	base_ni = ntfs_base_inode(ni);
+@@ -106,8 +110,10 @@ static int ntfs_read_iomap_begin_resident(struct inode *inode, loff_t offset, lo
+ 		goto out;
+ 
+ 	attr_len = le32_to_cpu(ctx->attr->data.resident.value_length);
++	read_lock_irqsave(&ni->size_lock, irqflags);
+ 	if (unlikely(attr_len > ni->initialized_size))
+ 		attr_len = ni->initialized_size;
++	read_unlock_irqrestore(&ni->size_lock, irqflags);
+ 	i_size = i_size_read(inode);
+ 
+ 	if (unlikely(attr_len > i_size)) {
+@@ -200,6 +206,7 @@ static int ntfs_read_iomap_begin_non_resident(struct inode *inode, loff_t offset
+ 	struct ntfs_volume *vol = ni->vol;
+ 	loff_t vcn_ofs;
+ 	loff_t rl_length;
++	unsigned long irqflags;
+ 
+ 	vcn = ntfs_bytes_to_cluster(vol, offset);
+ 	vcn_ofs = ntfs_bytes_to_cluster_off(vol, offset);
+@@ -231,7 +238,12 @@ static int ntfs_read_iomap_begin_non_resident(struct inode *inode, loff_t offset
+ 			iomap->type = IOMAP_HOLE;
+ 		iomap->addr = IOMAP_NULL_ADDR;
+ 	} else {
+-		if (need_unwritten && offset >= ni->initialized_size)
++		loff_t initialized_size;
++
++		read_lock_irqsave(&ni->size_lock, irqflags);
++		initialized_size = ni->initialized_size;
++		read_unlock_irqrestore(&ni->size_lock, irqflags);
++		if (need_unwritten && offset >= initialized_size)
+ 			iomap->type = IOMAP_UNWRITTEN;
+ 		else
+ 			iomap->type = IOMAP_MAPPED;
+@@ -255,11 +267,17 @@ static int ntfs_read_iomap_begin_non_resident(struct inode *inode, loff_t offset
+ 	up_write(&ni->runlist.lock);
+ 
+ 	if (!(flags & IOMAP_ZERO) &&
+-			iomap->type == IOMAP_MAPPED &&
+-			iomap->offset < ni->initialized_size &&
+-			iomap->offset + iomap->length > ni->initialized_size) {
+-		iomap->length = round_up(ni->initialized_size, 1 << inode->i_blkbits) -
+-			iomap->offset;
++			iomap->type == IOMAP_MAPPED) {
++		loff_t initialized_size;
++
++		read_lock_irqsave(&ni->size_lock, irqflags);
++		initialized_size = ni->initialized_size;
++		read_unlock_irqrestore(&ni->size_lock, irqflags);
++		if (iomap->offset < initialized_size &&
++				iomap->offset + iomap->length > initialized_size) {
++			iomap->length = round_up(initialized_size, 1 << inode->i_blkbits) -
++				iomap->offset;
++		}
+ 	}
+ 	iomap->flags |= IOMAP_F_MERGED;
+ 
+@@ -383,6 +401,7 @@ static int ntfs_write_simple_iomap_begin_non_resident(struct inode *inode, loff_
+ 	struct runlist_element *rl, *rlc;
+ 	bool is_retry = false;
+ 	int err = 0, map_err = 0;
++	unsigned long flags;
+ 	s64 vcn, lcn;
+ 	s64 max_clu_count =
+ 		ntfs_bytes_to_cluster(vol, round_up(length, vol->cluster_size));
+@@ -511,9 +530,14 @@ static int ntfs_write_simple_iomap_begin_non_resident(struct inode *inode, loff_
+ 		iomap->flags = IOMAP_F_NEW;
+ 		if (lcn <= LCN_HOLE) {
+ 			loff_t end = offset + length;
++			loff_t initialized_size;
++
++			read_lock_irqsave(&ni->size_lock, flags);
++			initialized_size = ni->initialized_size;
++			read_unlock_irqrestore(&ni->size_lock, flags);
+ 
+ 			if (vcn_ofs || ((vol->cluster_size > iomap->length) &&
+-					end < ni->initialized_size)) {
++					end < initialized_size)) {
+ 				loff_t z_start, z_end;
+ 
+ 				z_start = vcn << vol->cluster_size_bits;
+@@ -527,7 +551,7 @@ static int ntfs_write_simple_iomap_begin_non_resident(struct inode *inode, loff_
+ 			if ((!err || err == -EPERM) &&
+ 			    max_clu_count > 1 &&
+ 			    (iomap->length & vol->cluster_size_mask &&
+-			     end < ni->initialized_size)) {
++			     end < initialized_size)) {
+ 				loff_t z_start, z_end;
+ 
+ 				z_start = (vcn + max_clu_count - 1) <<
+@@ -581,6 +605,7 @@ static int ntfs_write_da_iomap_begin_non_resident(struct inode *inode,
+ 	s64 vcn, start_lcn, lcn_count;
+ 	bool balloc = false, update_mp;
+ 	int err;
++	unsigned long irqflags;
+ 	s64 max_clu_count =
+ 		ntfs_bytes_to_cluster(vol, round_up(length, vol->cluster_size));
+ 
+@@ -622,16 +647,21 @@ static int ntfs_write_da_iomap_begin_non_resident(struct inode *inode,
+ 		if (flags & IOMAP_DIRECT ||
+ 		    ntfs_iomap_flags & NTFS_IOMAP_FLAGS_MKWRITE) {
+ 			loff_t end = offset + length;
++			loff_t initialized_size;
++
++			read_lock_irqsave(&ni->size_lock, irqflags);
++			initialized_size = ni->initialized_size;
++			read_unlock_irqrestore(&ni->size_lock, irqflags);
+ 
+ 			if (vcn_ofs || ((vol->cluster_size > iomap->length) &&
+-					end < ni->initialized_size))
++					end < initialized_size))
+ 				err = ntfs_dio_zero_range(inode,
+ 							  start_lcn <<
+ 							  vol->cluster_size_bits,
+ 							  vol->cluster_size);
+ 			if (!err && lcn_count > 1 &&
+ 			    (iomap->length & vol->cluster_size_mask &&
+-			     end < ni->initialized_size))
++			     end < initialized_size))
+ 				err = ntfs_dio_zero_range(inode,
+ 							  (start_lcn + lcn_count - 1) <<
+ 							  vol->cluster_size_bits,
+-- 
+2.25.1
+
