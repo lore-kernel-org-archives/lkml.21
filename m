@@ -1,57 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=216.40.44.15
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.199
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795640472;
-	b=zlMdQb6+DethwXdGmUUn2rQyh8lX5VfuFEZ6nkp8HJQqPJv9SA8sua0ZvfnR3dXIsJ2C
-	 Fy4b4YyMhrafc1x0JZD3CNqDvr2INzGFthrHud+Ya6GtAmd32XG6lrGXq0DLJYVAvLSCJ
-	 6MqZ0V9oDbY+BsqBXzEagpkYiTCxdjvIvqz+Y61Pc8ehNb92jE1ac7XDPl8odlsRhTh/k
-	 OS6SNXvqRryQ6wgaD/+jJux2TUWI3oUTmhzdJl7GH1G7d+8W1jIOZANCFdShKXIc3IOVb
-	 ShB4Oe5aFjHtnlT6WTNy8YXO69VWfpUPGYH3lsIvjc4mOUBrRSLJQJJZwo1u09q8a/Q==
+	t=1795640478;
+	b=sJbsnAer68UssH7zzhaKwcTWlCo04UcD6Q7sWh/08my1hzIlCi9IwWqDnvcKXBxUO/XI
+	 w8cqfO2F28SmeVs+n1FXKaQ/fvgpY92d02F9jmq6MLGNcQmHB+MHTsZuZ4geUmLWxxH1F
+	 J9Z1OF83eh+Z07egTITWasLSPDXLCg6MGRJoihospGTWtYKNpP1Xt1xQe2JGjb727VPys
+	 KIHXivPtu/jcOtFpBNS6mwdLrAw4gPqxzyphRaWD9l3mP+uTtpuahpB2t8qUPDvuH8bqJ
+	 kOoY496aFdP6yJaDvpglGFAXU6o2+DlyAhZQDUsNhXwUBFW1c0QHtF3M0/Bf5IFI6JQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795640472;
-	h=DMARC-Filter:Received:Received:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:X-Rspamd-Server:X-Rspamd-Queue-Id:
-	 X-Stat-Signature:X-Spam-Status:X-Session-Marker:X-Session-ID:
-	 DKIM-Signature:X-HE-Tag:X-HE-Meta;
-	bh=gyynnWw1IwEuOIm71kj420EQ/jKqlvd+zpN7hzxu5dU=;
-	b=P53V54VcLgvqtPUT82fndAdKjjib7sMzhUgRKxV0STXyYnF48vDXZub0n3uk3cQEBikZ
-	 cu+X1KTjIicXlPRTlPtYmbSJJLlEUQTkGRnhNtffPZ5yfpEjJ+2ik3ICwjQ9sTtKenHB5
-	 nRdLjNXFvto6QX1HfD3DiUYy+CxFxL9qo/yDFNv7eFu35TcfeSemDTWm8zfFtGjToPmx/
-	 OulFOa9GPi+xvrcmDmN4I/nA0v0VTT3M60u0LwhCv6Uv/jSM54k8H5kfktpx6hx64eQCJ
-	 2cacjpNwxZ6LQe/F/5710ELRPARQ1Nhzkkk6TOjgZrn8jg1ZGGxPuGYrj+o+HVCdTBw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795640478;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
+	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=LnswTU2/YWk3r53uyQA8ripkBB7cIY1V54pcLpAT4Q0=;
+	b=p8HjBs/ZyvMpqDdJ+TZye+aiwDBmNEghxF0AbQCPZoPhy1ABaqp/7JyvcgApVpz7vIFu
+	 epjjj5d8YkrkCKpYXyaKUXV0fpRlbqFVUC+cin4KUkybSHGz7t/Po+4JyxUBxUZ3rB6IA
+	 UnwKqI1GElLlPZg49RfGbMTPDUiYth0UU6kZFiclhIGlqlbqJe1XrMYo5ajbITkvEBDlC
+	 qnqKD/t3hCV2TiQ0D8/gHu/GnDYC26QthSrRaLbsDXBqbRgnEbeQXxoNdgGTGaa0XxILS
+	 6OdlKwIeSCCGvn3TD2hEfVR9znQtDt4DpULM6KfA39TxjlrSA4bREB8qz4AYq6ZqXMw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=goodmis.org;
-	spf=pass smtp.mailfrom=goodmis.org;
-	dkim=pass header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=Ab6qbPph;
-	arc=none smtp.remote-ip=216.40.44.15
-Received: from relay.hostedemail.com (smtprelay0015.hostedemail.com [216.40.44.15])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--elkin.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b="felOtV/b";
+	arc=none smtp.remote-ip=74.125.82.199
+Received: from mail-dy1-f199.google.com (mail-dy1-f199.google.com [74.125.82.199])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5612D606A32C;
-	Wed, 25 Nov 2026 21:01:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5612D606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=goodmis.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=goodmis.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AFDB6606A327
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 21:01:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AFDB6606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--elkin.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=Ab6qbPph
-Received: from omf10.hostedemail.com (lb01a-stub [10.200.18.249])
-	by unirelay01.hostedemail.com (Postfix) with ESMTP id 7F3301C3D89;
-	Wed, 25 Nov 2026 21:01:09 +0000 (UTC)
-Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf10.hostedemail.com (Postfix) with ESMTPA id B401230;
-	Wed, 25 Nov 2026 21:01:07 +0000 (UTC)
-Date: Wed, 25 Nov 2026 16:01:06 -0500
-From: Steven Rostedt <rostedt@goodmis.org>
-To: Vincent Donnefort <vdonnefort@google.com>
-Cc: mhiramat@kernel.org, linux-trace-kernel@vger.kernel.org,
- mathieu.desnoyers@efficios.com, kernel-team@android.com,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v9 00/21] tracing/remotes: Add printk, dump_on_panic and
- boot parameters
-Message-ID: <20261125160106.01c468e2@gandalf.local.home>
-In-Reply-To: <20261124152845.2233401-1-vdonnefort@google.com>
-References: <20261124152845.2233401-1-vdonnefort@google.com>
-X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=felOtV/b
+Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-3869865a304so339100eec.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 13:01:17 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795640477; x=1796245277; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=LnswTU2/YWk3r53uyQA8ripkBB7cIY1V54pcLpAT4Q0=;
+        b=felOtV/b3pbMZH5MzHu4ojI73i81tNEsMTtGcov8A7zdeN+muYBMAgeFIL6P4VO1zE
+         L5hwDCatCHGPDJiatNQWiZfpYOuDR9OMbToDw8mQzyLSn7vUEtLW/xrSriH73mXbEqJT
+         RhAKVbBKvpBnLI4kiG5dTV45JyOmqk36HA0hyGH87JxdUGwa8TYkfuK1a5TeXhp58Rks
+         R8IjkiEdfCWp+7yRNbq7r3k1xpMemCYn5aI4636LsLMgl6lQJyFBwEGYLxgcKCWriq1j
+         kiQn92WdMbB3QCdZDdl1YgFK/mvGiICw6jNQU9TdwJDC/PLoxwuYViIrGrSi99fKrxfP
+         BdBw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795640477; x=1796245277;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=LnswTU2/YWk3r53uyQA8ripkBB7cIY1V54pcLpAT4Q0=;
+        b=Egx8RHntcRAsX4UH3wpIUT1sdPcIUYPdV8uv2d5SqedUzsUXSjCTjQOZxTsJHI3bu3
+         SIkuwf6NHPu4IwmyzVrVgKZU9t5HCKRvwaH3v/CensD0UtuINI4f4m7703xQfZcBW92Z
+         zrlpVy1Qyh6UhgSZecNYvVx/l5zkae6GnIw9qu/6QdmIzuYPSBzWONW+CYdetZ5+9K0V
+         cqsTu6exTWD35BpeOI9j2Zs42ZUP7dK8aOzUw6mPqVGx6HeTpy8ARKFxhEjkf0zuf2Rr
+         HH4c0Wb1rKHcVXwKYVttyFDGAYWEeFXzTofmkG/BKpj3CjDARuOCCTlxI+MsnbeiFsks
+         DGTg==
+X-Forwarded-Encrypted: i=1; AL+hErEMaR/gW3MND/tjENkSSUULWmM+mkbYhi+LS+hDA4QYnTsuXql6HVOACfft0zN/jDqJsutGRBwcbmRhqA8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8aqJfG4ApAU2+GGa2J0kyPdW9Svop1erjfntcNjyqzhMuuECb6
+	Fvq0UKYTCaOugzKBCzozxyOqRYHGgWLOiUKSsXtSUsMidvgi3sboZv6KnwMXYUVwvc25xPOGR4+
+	K4g==
+X-Received: from dycue8.prod.google.com ([2002:a05:7300:88:b0:343:520f:7a80])
+ (user=elkin job=prod-delivery.src-stubby-dispatcher) by 2002:a05:693c:880b:20b0:386:b025:1e1e
+ with SMTP id 5a478bee46e88-386b02522d2mr10999574eec.16.1795640475439; Wed, 25
+ Nov 2026 13:01:15 -0800 (PST)
+Date: Wed, 25 Nov 2026 21:00:35 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,54 +75,34 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Rspamd-Server: rspamout06
-X-Rspamd-Queue-Id: B401230
-X-Stat-Signature: wwpfufqqgq5f6hgq8sg8a9axfnjn7act
-X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
-X-Session-ID: U2FsdGVkX1/7cbng2B5iyqOHuLe/ruR6GbmFD0udSo0=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=goodmis.org; h=date:from:to:cc:subject:message-id:in-reply-to:references:mime-version:content-type:content-transfer-encoding; s=dkim1; bh=gyynnWw1IwEuOIm71kj420EQ/jKqlvd+zpN7hzxu5dU=; b=Ab6qbPphpdBffCvzRCypyR01b3EmdxewC1ELFo6txrt4xP8qGZGeu5h5Pa3Imbb3whpnrzn1wU7UDi2l83HJIBvRzDdLCu/myfzIqmg5QopCRKcXmRrSKLkb1gZZcWuIz6g+eXV3XbIgx0GS+0L5cZ4ELKqmmM+6pt9EQTKEhnM=
-X-HE-Tag: 1795640467-282171
-X-HE-Meta: U2FsdGVkX19u79LZ8tOspIAhCeImDDydmmEiq5pJxSjLZEarFFwnD9LpU4MbCsOaw1UQs2Q1y7ambv7JoUuuI6uzLanXUjOxhpXb+JcM975ZCcRUKOzSbOuSEGD9Wr3s/EJpQFfxzNXemm4d7vxLK6n7a74Y/gMci9qBIbKpX/2dGdoS+Eixmg9bQkGJWd0nE63nA/WKhrPHFOJStug14WQhMxu6A7SKqR8x2B+Xl9gRRdDmoq0uOfu43W0Datepjun/OkTPmKKJXKe/Ir/Z96e6gaGAAYVAFK98YBoDGFswI8dkEHWO1i1Hp0Eiq0A39KCb3e89iqSPIYK8gz59RP0kTfUyK3pu
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
+Message-ID: <20261125210038.1277960-1-elkin@google.com>
+Subject: [PATCH wireless 0/3] wifi: mwifiex: fix UAF and ext scan TLV bounds checks
+From: Elkin Cruz <elkin@google.com>
+To: Brian Norris <briannorris@chromium.org>
+Cc: Francesco Dolcini <francesco@dolcini.it>, linux-wireless@vger.kernel.org, 
+	Johannes Berg <johannes@sipsolutions.net>, linux-kernel@vger.kernel.org, 
+	llvm@lists.linux.dev, irogers@google.com, Elkin Cruz <elkin@google.com>
+Content-Type: text/plain; charset="UTF-8"
 
-On Tue, 24 Nov 2026 15:28:24 +0000
-Vincent Donnefort <vdonnefort@google.com> wrote:
+I am trying out new Clang static analysis checks for kernel bug
+classes, and they flagged this code as possibly buggy. The findings
+were triaged/fixed and commit descriptions were drafted with help of AI,
+then checked against linux-next (not runtime-tested on hardware).
 
-> Vincent Donnefort (21):
->   tracing/remotes: Gate tracefs files opening on trace remote
->     registration
->   tracing/remotes: Release tracefs,eventfs on registration failure
->   tracing/remotes: Use kstrtobool for boolean tracefs files
->   tracing/remotes: Initialise pos in trace_start()
->   tracing/remotes: Annotate remote shared fields with
->     READ_ONCE/WRITE_ONCE
->   tracing/remotes: Use a single per-remote polling work
->   tracing/simple_ring_buffer: Add support for compressed length
->   tracing/remotes: Add dmesg tracefs file
->   tracing/remotes: selftests: Add a test for the dmesg tracefs file
->   tracing/remotes: selftests: Prefix hypervisor folder
+Thanks,
+Elkin
 
+Elkin Cruz (3):
+  wifi: mwifiex: fix UAF after skb_realloc_headroom() in bridged RX
+  wifi: mwifiex: check TLV header size in ext scan report
+  wifi: mwifiex: validate ext scan event envelope and TLV lengths
 
->   ring-buffer: Use irqsave for the reader lock in
->     ring_buffer_poll_remote
->   ring-buffer: Avoid reader_lock deadlock during panic
->   ring-buffer: Use panic-friendly locking in ring_buffer_iter interface
->   ring-buffer: Add kerneldoc for ring_buffer_poll_remote
+ drivers/net/wireless/marvell/mwifiex/scan.c   | 30 ++++++++++++-------
+ .../net/wireless/marvell/mwifiex/uap_txrx.c   | 13 +++++---
+ 2 files changed, 29 insertions(+), 14 deletions(-)
 
-Do the ring-buffer specific changes need to be part of this remote patch series?
+-- 
+2.56.1.839.g22a8290db9-goog
 
-They probably should be separate.
-
--- Steve
-
-
->   tracing/remotes: Use ring_buffer_capacity() in trace_remote_has_cpu()
->   tracing/remotes: Add dump_on_panic tracefs file
->   tracing/remotes: selftests: Add a test for the dump_on_panic tracefs
->     file
->   tracing/remotes: Add poll_ms tracefs file
->   tracing/remotes: Add trace_remote cmdline options
->   Documentation: tracing/remotes: Add detailed tracefs layout
->   Documentation/kernel-parameters: Add trace_remote
