@@ -1,59 +1,68 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795609683;
-	b=WSTDjxu9HJ+m4hQZqMZx7hZ46UoNZdiOJpOKquwl2Iot9E8QN+OHjQW0begTpBhYAIpM
-	 rC1IbdRTSkAUmWnId2dZejzCZTHzGB7i3RcYvgGSlTQXaXzK+4xCQkrTeKGRGH2SLPZc1
-	 QtTRzTc+T5II0gqqZYcIq08TYtGDbVIQd/q4EJpbwfbMC6VpE9wCQLvdQUuXywWmeR/MW
-	 /nf24FmfqFCHvobtSs7rdtafc9XWJMTV1lH5Cei07sdlM67JHTFLBN1dZ7MtAb04EiflN
-	 lwzfq7G8Y+Hw0K7fVxFP5Sf0NGAWNiqTXNTMmm9s+OS1t4jKJJL06dfg5jLT547wwQA==
+	t=1795609702;
+	b=KJHhsFQDEUZQn+KJSwBVPIGx8Ypg11WXmcp1iZPATATUnSuyvqYLdi3LoiivNfiX4ARq
+	 2D98cUeYds/lMumo3TY5OgBcySohxJWufk19apFaLp9RdBIXUauxiURwPsF8PFrVxcCb4
+	 jxyPNAkAwb0s3oEHu2Hm47T49mThR6rrlSri5ibl1qL8hU+8Klpaomt4e6lkvKJymJxXk
+	 gMdBC0jCFdSX81P4gCE6SvH0thS8CE1eLtTJZWRQNrvaGrsABoG57GivH9iujKwywPWU5
+	 FuP2+Sy05FIbRiYc3j0SafkpWKk6Xug12ZWoU0IoOkovKS5AhOTjaYQwGy6tuJCyCjg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795609683;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=Go7wfYO26GC8RBYfpLB4Qb+pE6mL+tMek88kGKiloGI=;
-	b=TjkbKUPm1prEhfmTDkNwz5SS63pgZ9OWg17JnMpHDLY++dxyrcloLc0YpwQclFQIUgZ2
-	 KWZ846WtP25aVYGUI47nRFokrgS51iucRWQzFueHhLPNe/LbCqZCN1iAEmO5yIB3aW+F9
-	 c0L0sujuH4sd7BMNd3SyKR3rOjIjaCi5vVe4xCLyZiAcd1BejG3WxK/4c94T2snG8x5cj
-	 nwyvvmQCja/Y1F9chlCRmA1xd3mZPZICOP83pLf8yj8aypZBfDEWNJCbDKUOotI6GigCL
-	 2V+SFtvph/kJzEthXZVDsEJp25W8ynJJKxgHLSYGTi4I5mbpSE7euQrZ2os971d9XsA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795609702;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=hpvurHXKOGNZ9gnVI9/HzwEjSAtsSaCAYF1pwCYTtaQ=;
+	b=BpFWrWUPDWCuX3bM8nWgrBm9n03MpJsm3SyGK5e7HcjpFnZ0i4UYHPhLjpD0api7l3yN
+	 ZtCOVFYFW+5LbA9Iy/BTscbgn2lb0ZTVh0HvVmA7izl6BXFJNwRCqih7A5eVNpuoHC20w
+	 0SvmVOScwuqSfqD6V5V5pshq4xvOl+LAvTAyiUBiHYu2oglmxkS7rO+ffMl4FLPBgDFx+
+	 RVE0z5vaD4XpIrfiFYnGheh5/ZimS9h7CzE3SapM1HZ6JEW1eMCzi2Q5rHskwlmQcx7pf
+	 ijpPkLYIwBsLIcO/OvR8fiL8vwAfEMBms+xMqvfyigbDzu6fALH2fXawlnkoBPbZ2sw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LFslA5CO;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GI8ATaNy;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B275F606A321;
-	Wed, 25 Nov 2026 12:28:03 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3FF7C606A321;
+	Wed, 25 Nov 2026 12:28:21 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LFslA5CO
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E6AE31F000C0;
-	Wed, 25 Nov 2026 12:28:02 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GI8ATaNy
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A9C2F1F000D1;
+	Wed, 25 Nov 2026 12:28:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795609683;
-	bh=Go7wfYO26GC8RBYfpLB4Qb+pE6mL+tMek88kGKiloGI=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=LFslA5COGM/ReWR6JO/jvt2rvde1K8QjfVXaDF0SykdN2mjAJ5wEiXHg+isJfwM4+
-	 P8LFlMDOZ26hM/9EI+FyUNBvLyLbMZ+b2VrCggROrW5wznO7cuWBBRfp3HwOfP5Dmh
-	 l6eA5TvtzGxaKu2nMOmur+eqyDqq6wFbZVPYiRkhntTGZqf6SkyfNO6gGBVX7VwZ1w
-	 6iUgEwLkNHSeSRlN58M9p5Kavrh/Hph32AdPtkNGo8H7qZ9pJWVNphdldfXGFzgcbh
-	 xbJ05o4ox9iUXoDNSoBu3zMRR4FYOOKpcXByR7WA+8mDMnnFBHk+DrbeVHOLFU3iQT
-	 69YSFc4rFsg7Q==
-Subject: Re: [PATCH net] bonding: clear stale usable_slaves in broadcast mode
-From: netdev-bot+sashiko@kernel.org
-To: jiangjiehua1@huawei.com
-Cc: netdev@vger.kernel.org, j.vosburgh@gmail.com, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
- liuhangbin@kylinos.cn, zhangchangzhong@huawei.com,
- linux-kernel@vger.kernel.org
-Date: Wed, 25 Nov 2026 12:28:02 +0000
-Message-ID: <179560968241.3135.13874120007474157909@kernel.org>
-In-Reply-To: <20261124130102.18807-1-jiangjiehua1@huawei.com>
-References: <20261124130102.18807-1-jiangjiehua1@huawei.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	s=k20260515; t=1795609701;
+	bh=hpvurHXKOGNZ9gnVI9/HzwEjSAtsSaCAYF1pwCYTtaQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=GI8ATaNyTMyEXxgfjz+oenZ1X6CmViRKww60LktsKeuQ38vALYgH+CM3Hbv/jYM35
+	 6SKWl6rpruUqfXlO0AG1stUNmKN7XrAjBIYeBI7FSve7iYj6dKkMutVcq1AJ+X2xR2
+	 19kiUTCSOs+OaCbJWc5BS7yA8mHNWfv6EtVTsS3fBWIhaG6wRSLGO9mkAekgzlNi+2
+	 hA+94fmfPzfiS6+tCDRvjGixzW51m9J71z0Srxx3OhG8sP50OmQoHRVeSkjB50vTlA
+	 3dbrKrkC173/KfGhf+zpcI2ujyaPDFOcosjmorvdgBOq0+5ZCcnSiODTggIeuPP4vi
+	 sCC2aqMMVMLVg==
+Date: Wed, 25 Nov 2026 12:28:11 +0000
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Nicolas Schier <n.schier@fritz.com>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, 
+	Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, 
+	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
+	Geert Uytterhoeven <geert@linux-m68k.org>, Luis Chamberlain <mcgrof@kernel.org>, 
+	Petr Pavlu <petr.pavlu@suse.com>, Daniel Gomez <da.gomez@kernel.org>, 
+	Sami Tolvanen <samitolvanen@google.com>, Aaron Tomlin <atomlin@atomlin.com>, 
+	Josh Poimboeuf <jpoimboe@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
+	Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, 
+	=?utf-8?B?QmrDtnJu?= Roy Baron <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>, 
+	Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
+	Trevor Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>, 
+	Daniel Almeida <daniel.almeida@collabora.com>, Tamir Duberstein <tamird@kernel.org>, 
+	Alexandre Courbot <acourbot@nvidia.com>, Onur =?utf-8?B?w5Z6a2Fu?= <work@onurozkan.dev>, 
+	Kees Cook <kees@kernel.org>, linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	llvm@lists.linux.dev, linux-m68k@lists.linux-m68k.org, linux-modules@vger.kernel.org, 
+	rust-for-linux@vger.kernel.org
+Subject: Re: [PATCH v6 5/7] kbuild: batch module finalisation
+Message-ID: <awbUJuLahIbbL7vi@gremlin>
+References: <20261124-build-speedup-v6-0-141a4f861c67@kernel.org>
+ <20261124-build-speedup-v6-5-141a4f861c67@kernel.org>
+ <20261125-bald-mushroom-of-development-7b2288@l-nschier-z2>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,105 +72,126 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261125-bald-mushroom-of-development-7b2288@l-nschier-z2>
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+On Wed, Nov 25, 2026 at 10:56:32AM +0100, Nicolas Schier wrote:
+> On Tue, Nov 24, 2026 at 12:20:15PM +0000, Lorenzo Stoakes (ARM) wrote:
+> > With the .mod.S change in place, module finalisation on allmodconfig builds
+> > consists of a large number of very short-lived jobs.
+> >
+> > For allmodconfig x86-64 this can be on the order of ~22,000 jobs of a few
+> > milliseconds in duration each.
+> >
+> > Each job entails processing ~22k .cmd files, so the combination of heavy
+> > overhead and small individual job results in a lot of unnecessary and
+> > repeated work even with all cores being utilised.
+> >
+> > The solution is to batch by a number of jobs. Determining which value makes
+> > sense was done empirically.
+> >
+> > On a 128-thread threadripper box doing an allmodconfig build, best of
+> > 2, *.ko, *.mod.o deleted each time:
+> >
+> >     modules per chunk    instances    wall
+> >     -----------------    ---------    ------
+> >                     1        11171    10.22s
+> >                     2         5586     6.72s
+> >                     4         2793     4.97s
+> >                     8         1397     4.26s
+> >                    16          699     4.05s
+> >                    32          350     4.05s
+> >                    64          175     4.07s
+> >                   128           88     4.05s
+> >                   256           44     4.03s
+> >                   512           22     4.18s
+> >
+> > Wall time flattens for 16-256 module batches.
+> >
+> > A slower/lower core machine will do better with fewer modules-per-batch, a
+> > faster/higher core machine will do better with more modules-per-batch.
+> >
+> > Therefore, take the midpoint which works in the most margin in either
+> > direction - 128 modules per batch.
+> >
+> > This naturally scales with module count too as the optimum gains are
+> > obtained with higher module count, so fewer batches in this case costs less
+> > overhead.
+> >
+> > Each instance holds only its own modules' variables and the top-level one
+> > reads no per-module .cmd files at all, the same rules serve both levels,
+> > and an instance is told its chunk with modfinal-first=<index>.
+> >
+> > Only the top-level instance builds .module-common.o, to the chunks it is a
+> > plain prerequisite, so no two instances ever write it.
+> >
+> > "make modules" with every *.mod.o and *.ko deleted goes from 28.9s to 15.9s
+> > with clang 22. No-op "make modules" goes from 5.6s to 4.8s, as checking the
+> > 22,000 targets is spread over the chunks too.
+> >
+> > Whole build, 128-thread Threadripper 9980X, best of N runs:
+> >
+> >                                          before   after     delta
+> >                                          -------------------------------
+> >   x86 allmodconfig, no-op make, gcc         2.3s     1.4s    -0.85s (-38%)
+> >   x86 allmodconfig, no-op make, clang       2.8s     1.8s    -0.94s (-34%)
+> >   x86 allmodconfig, clean, gcc            306.6s   294.1s     -12.6s (-4%)
+> >   x86 allmodconfig, clean, clang          290.2s   283.9s     -6.4s (-2%)
+> >
+> > Reviewed-by: Kees Cook <kees@kernel.org>
+> > Reviewed-by: Nathan Chancellor <nathan@kernel.org>
+> > Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+> > ---
+> >  scripts/Makefile.modfinal | 30 +++++++++++++++++++++++++++++-
+> >  1 file changed, 29 insertions(+), 1 deletion(-)
+> >
+> > diff --git a/scripts/Makefile.modfinal b/scripts/Makefile.modfinal
+> > index 75e9effdf02c..4d5e6e1a0ff9 100644
+> > --- a/scripts/Makefile.modfinal
+> > +++ b/scripts/Makefile.modfinal
+> > @@ -13,9 +13,30 @@ include $(srctree)/scripts/Makefile.lib
+> >  # find all modules listed in modules.order
+> >  modules := $(call read-file, modules.order)
+> >
+> > +modfinal-chunk-size := 128
+> > +
+> > +ifdef modfinal-first
+> > +
+> > +# this instance handles the chunk of modules.order starting at $(modfinal-first)
+> > +modules := $(wordlist $(modfinal-first), $(words $(modules)), $(modules))
+> > +modules := $(wordlist 1, $(modfinal-chunk-size), $(modules))
+> > +
+> >  __modfinal: $(modules:%.o=%.ko)
+> >  	@:
+> >
+> > +else
+> > +
+> > +modfinal-chunks := $(addprefix chunk-, $(shell seq 1 $(modfinal-chunk-size) $(words $(modules))))
+> > +
+> > +PHONY += $(modfinal-chunks)
+> > +$(modfinal-chunks): .module-common.o
+> > +	$(Q)$(MAKE) -f $(srctree)/scripts/Makefile.modfinal modfinal-first=$(@:chunk-%=%)
+>
+> Thanks!
+>
+> Reviewed-by: Nicolas Schier <n.schier@fritz.com>
 
-Critical: 0 · High: 1 · Medium: 0 · Low: 0
+Thanks!
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+>
+>
+> (bike-shedding) For readability, I'd favourised the use of pattern
+> matching stem:
+>
+> $(modfinal-chunks): chunk-%: .module-common.o
+> 	$(Q)$(MAKE) -f $(srctree)/scripts/Makefile.modfinal modfinal-first=$*
 
-- [High] The patch only fixes one target mode.
+Ack, will fix that up on next respin if needed :)
+
+>
+> --
+> Nicolas
 
 --
-
-bonding: clear stale usable_slaves in broadcast mode
-
-When the last slave is released in an xmit-hash mode, an empty
-usable_slaves array is left published. If the bond is later switched to
-broadcast mode, that array survives and makes bond_miimon_inspect()
-ignore updelay. It also leaks from bond_uninit(). The patch frees the
-array and clears the pointer in bond_option_mode_set() when the new mode
-is broadcast.
-
-> diff --git a/drivers/net/bonding/bond_options.c b/drivers/net/bonding/bond_options.c
-> index 9efadeff6a223..f65916444fa1c 100644
-> --- a/drivers/net/bonding/bond_options.c
-> +++ b/drivers/net/bonding/bond_options.c
-> @@ -936,6 +936,14 @@ static int bond_option_mode_set(struct bonding *bond,
->  	WRITE_ONCE(bond->params.arp_validate, BOND_ARP_VALIDATE_NONE);
->  	WRITE_ONCE(bond->params.mode, newval->value);
->  
-> +	if (newval->value == BOND_MODE_BROADCAST) {
-> +		struct bond_up_slave *usable;
-> +
-> +		usable = rtnl_dereference(bond->usable_slaves);
-> +		RCU_INIT_POINTER(bond->usable_slaves, NULL);
-> +		kfree_rcu(usable, rcu);
-> +	}
-
-[Severity: High]
-Does balance-rr still skip updelay after this change?
-
-The commit message says the cause is that "later mode changes do not
-clear it". It also says "Broadcast never publishes usable_slaves, so it
-stays NULL". The same is true of BOND_MODE_ROUNDROBIN. Nothing in
-balance-rr replaces or clears usable_slaves. bond_mode_can_use_xmit_hash()
-covers only 8023AD, XOR, TLB and ALB, so these refreshes all skip
-round-robin:
-
-drivers/net/bonding/bond_main.c:bond_open() {
-    ...
-	if (bond_mode_can_use_xmit_hash(bond))
-		bond_update_slave_arr(bond, NULL);
-    ...
-}
-
-drivers/net/bonding/bond_main.c:bond_enslave() {
-    ...
-	if (bond_mode_can_use_xmit_hash(bond) ||
-	    BOND_MODE(bond) == BOND_MODE_BROADCAST)
-		bond_update_slave_arr(bond, NULL);
-    ...
-}
-
-The same check gates the refreshes in __bond_release_one() and in the
-NETDEV_UP/CHANGE/DOWN handler. The miimon and ARP commit paths refresh
-the array only for XOR.
-
-bond_miimon_inspect() handles every mode except active-backup the same
-way, so round-robin also reaches this code:
-
-	usable_slaves = rcu_dereference(bond->usable_slaves);
-
-	if (usable_slaves && usable_slaves->count == 0)
-		ignore_updelay = true;
-
-Here is the trigger. Release the last slave in balance-xor, 802.3ad,
-balance-tlb or balance-alb. __bond_release_one()->bond_update_slave_arr()
-then publishes a count-0 array. Switch to balance-rr, bring the bond up
-and enslave a slave whose link is up. bond_enslave() puts the slave in
-BOND_LINK_BACK with delay = updelay, but bond_miimon_inspect() skips the
-delay because ignore_updelay is set.
-
-The reproducer in the commit message, with "mode balance-rr" in place of
-"mode broadcast", should still bring dummy0 up at once. The array does
-not leak in balance-rr, because bond_uninit()->bond_set_slave_arr() takes
-the non-broadcast path and frees it. Only the updelay bypass remains.
-The balance-rr case looks like it dates back to f8a65ab2f3ff74.
-
-The mode option requires BOND_OPTFLAG_NOSLAVES | BOND_OPTFLAG_IFDOWN.
-bond_open() rebuilds the array for the modes that use it. Could the
-broadcast-only condition be dropped, so that usable_slaves is cleared on
-every mode change?
-
->  	/* When changing mode, the bond device is down, we may reduce
->  	 * the bond_bcast_neigh_enabled in bond_close() if broadcast_neighbor
->  	 * enabled in 8023ad mode. Therefore, only clear broadcast_neighbor
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261124130102.18807-1-jiangjiehua1%40huawei.com
+Cheers, Lorenzo
