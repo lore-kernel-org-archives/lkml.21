@@ -1,85 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.44
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795649454;
-	b=f9vGp++42a/BUeZGMfF2cryKZ0fcFkI/UglSv3Ss2TRIe8YiDkSiLqb36TKl7UOdP2jU
-	 vbGWzHwhtAJJhF9FvlwJf8dA3fozfXvGWArMlB8FunoA2TrrCrAxD99pw00v7F98zj0nZ
-	 ffM5PwoI4WPItZ815ce9w59wFvdMf2K7n9Ud7c9g95U2DnSAJS6RUEbP4Y24j9e82xvP5
-	 7jC6sNRwTOCIrJRWE85XshlpjLvZkuwWu+VCT8Tzzm7h9ovJgatKYNkV0NOhAdfvshZ6q
-	 50k+rtUW7jvYQ7AzYe7VkBGipePT5VyBT2DAASPmpPWssSB2KGC5KmQFan/7fB8sgjg==
+	t=1795649459;
+	b=kvAJw/5AqCqstyZpOq2ky2CxXDKif7SatVgsPSoakCZaI3zO+HIbvcS02oyeeW/v7IP6
+	 EYPJAW7FhaKpx/SuqmAEHm/7OCpTVnn8Y794wJJPi1Cbr9b/M961nCyFhDQv8RNiYJOpt
+	 Wnv66DO12aUdgCAq8lp/ZiOIPPybBHs3jReCG1vzaD8JkgDsv57NndAsXk0kIRjaQ2tYP
+	 w46J29NP9134x5/oUvoRvEEBHHe4+ffDNqT+g6zrDJM5radQm3EBjoAktXlMk10It7kaJ
+	 5xjjpGdjHjznQ2w9u9kYxyQgitE+NQNZjxCOF9rXoodvOBwv4thfhUQ6h7RmWdPT82w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795649454;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795649459;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=V5JhfCZN21w53Q+VXqNEMxIRzxDLInZAIKyThM70aLU=;
-	b=wFYWZg3HCm3+hgkezIGaHSbp9teAfCEy0uuc9S8jEDpeUz51gjybYgY2hnxMxvT75TxR
-	 8BIrn37IXxzegbEBrH0oZTif1uDuT1XZotcE4w9FVAYEW1Bc+Nig8KLCf36WTCNm8USAy
-	 6EFUqUKdU8/9W3VhrGmRmboIUI6XWqBmIuiB3R3dwmXAVu2dBfieotaLLg+kkfBMkHdoz
-	 GELvfrWM5s28RR0WjFvTYsOZAztRzFRUnJVxOG4zU4KpeL3WRdn4pXTaZ2ZvzTPwXi8n+
-	 BIfN40N5PDKRa13t3eIrRBSJp45d7qhW24ib/2N7XqR88tdiT2eQnC5mAxnzuN0hU9Q==
+	bh=1z+y7fmEUMtLnG3lTMWhkUey//yqaPCMXeCiS+uEMnc=;
+	b=e8h9CdUSIU6J9+dneMlhRh++5zhswOKhaKEiFft3Xtm6FSVc0IABi3olV+Gm74szO+Vc
+	 znCViePpxVRXei9ZaQVA34741B6JI48r9aMK+ufgxLlyeBljq+DGTMCn8D5zWyNzP0+YP
+	 U1tvKIZycRf9WGG5X19b1c+G2fmHiseE3/u8rAzu5jnedDrUa4VErwUYDO3TbR0xBvWtI
+	 6vPlBGo7MWYu6ZdnQSu6TMtPZDyD9ughCTSupNblxBjovux629eQjhuuf1PHzMEwuXVku
+	 3Y3+47yKGQ5NgoZzreXQzWFMHvHrzJ6j1UY2G5VndeA22S/jEsCdqsPPjxC3i6+BAbQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Gy7qfxfe;
-	arc=none smtp.remote-ip=209.85.128.42
-Received: from mail-wm1-f42.google.com (mail-wm1-f42.google.com [209.85.128.42])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=z81dQqxI;
+	arc=none smtp.remote-ip=209.85.221.44
+Received: from mail-wr1-f44.google.com (mail-wr1-f44.google.com [209.85.221.44])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 76CDA606A336
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 23:30:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 76CDA606A336
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D304A606A31E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 23:30:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D304A606A31E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Gy7qfxfe
-Received: by mail-wm1-f42.google.com with SMTP id 5b1f17b1804b1-4bb5b8ef642so56862305e9.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:30:53 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=z81dQqxI
+Received: by mail-wr1-f44.google.com with SMTP id ffacd0b85a97d-4b52fcb410dso2146974f8f.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:30:58 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795649452; x=1796254252; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795649457; x=1796254257; darn=vger.kernel.org;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=V5JhfCZN21w53Q+VXqNEMxIRzxDLInZAIKyThM70aLU=;
-        b=Gy7qfxfeNjsYBuoW5vvOu6ERUxgbGo20MBPz8ckzDteAy3zz6XWRUnZs0M5lF5tZ1U
-         TVod5Bv7bhPkTwF6lnpU5qrge0QV5RhsHAEJcUUXRpqnKBMAlZPFElrCtqsZoldfSSM9
-         wn+MdYBT+GSf90P6Pb4w09NC0TZEL6Nm3tV79RlfqtJAMZVfi/DO85OyappPsYOHBh3Y
-         kOPbO3K9lAA4MTTQQCCsUgp5dMhOph5RXqe2IV/X8TS58HlVI6wf6A0Q4Lk2yTMEU08N
-         HdEQ6SU0d5jHynz58X4Qf3qHuI7AJqTirwrhGnSUw6xJYk1XI39KRHx1GWHl+m+LfCXe
-         rhyg==
+        bh=1z+y7fmEUMtLnG3lTMWhkUey//yqaPCMXeCiS+uEMnc=;
+        b=z81dQqxIjn1HN9zU17fyIjc0R7p6ncjaSSGREiCBJDp5w3AdpEqtc11ocs8EUBCEg8
+         xsInIbXt4699r3oFKY1wvkjF/ArNeFAQMscCogMGC8+33tn37RdDuJQG4DrJz/vW2XTJ
+         kFQoXnAPPxmm3JRYcyK/+smhNTxPrsAojxIDA9I0rDhJ30ieFvQAynIqvtj9u4qI1gi6
+         FT3TXPGemo4mDKB2S/XNskbpnN9iIoxSL3srq/4/Ra7LFNwWS7N2RpS8OR+P5aoYidIN
+         PsXDBC6BreoBpR6FYeSxnxRWQY6weAjI5uH0gi5jlF6CD0nZ8g02t+1nS02chNgzkYEE
+         5knQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795649452; x=1796254252;
+        d=1e100.net; s=20260707; t=1795649457; x=1796254257;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=V5JhfCZN21w53Q+VXqNEMxIRzxDLInZAIKyThM70aLU=;
-        b=gudx1Y5zrAjFJUcOXIMOVSXZWR0z620D7HbPQtraBxZRzoB1jpG0WNCXD4F5kqQWhM
-         Tm2Du+8C9nixp/IGiSHUHPN/cW3taD/hK2TiPgRE1XAMuSEcl5zWzCNqowkEXf75dAVx
-         0I/ff+cD3rY5J4JE65n4B1p9U8QhbX3F/h3P8vL+3Vs8wTJfUBR9vb6C+B4JJEoWR768
-         jHjnm+WAuhnMhY7HpuT5BTMyKVNUxb9RMI3OB7y6ZGGO/G73eQA1POV6Sna/nJTA88rb
-         lU3H8WSmMUO4H9KJnTJe31oewO6fOrS21RPxFBIoO0KSeatc2HMNnOHjRlBk6vwab/MG
-         eeAw==
-X-Forwarded-Encrypted: i=1; AL+hErGxz7u9m+x3/q3fWZIfAKzkXR7smM3UCWccqH3pN1BYBFH/9vud7Bo1S0X0VFXBj1lbwcyb45rbfJXFl3o=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+v0mh7E/tin6Jx0ZPTC63hbzVbizz8mj927Fcf8yxB6Kl8WxLy
-	25jphaZYXxKR8CYO0pQZZdn0cVrwUu8J0uo7fqP8f1ZUZOavPzMZlxgz
-X-Gm-Gg: AZFdTZfy/4jE1CGZqCU8I8q6qHg+pSPwrTUWRFNJpl+1KxK8zFwpZpOI1BqoEYRI8vo
-	ypeFZbRaVXutQLqbqPKixEoKh5bAXu0mGqsD46z9KbZGihNe/yvYHHzeoEevLbH8ZZVVeQrOrFE
-	QaBupPfx4Er0v1bJVEYxTzoVhX99DZC+wH09lWwtBJXzYNHjzv1sSMfwFoQiWbDIZXnfjZG/0wi
-	wYRDoKJeu5ccyxqRtMxxWxf8IFNfjgQ7DqsgyBUyjwEar41qfd3Tn08RqJkzu0u3GZO+bGCY4ad
-	/Bb4XD2OczMBD2E6okl+JNGkqpLDtp2OD8esXaxnYY8wofBKJlLSJiX5zGDYEwsbO7J4QWdJszH
-	CkAY70ojXlqzbyD1LOnE9dmrR5vCmVPuhL/rXgO/CzQdnPcmidjbEv0tueGhqsuuSZlcrlkEh8Z
-	xyEuwaN9QYhPh5AkUM7KzOVFeKdVVeRRFN0ZsreYhig9ZX6or7ORx9IqaGAfYzJBX1GhnvSBnB5
-	wR6TGjZNU71ZFpoBD9Y/yZZujpOWFbMF4WjOH47GCyfppvZkF1WJRxtokBqmM23nBtsc5RSw2I4
-	kRxbE0Vu7sSLrIi7L6XQgqoyxg4p3AwDXdxdY/UZIJUUIXhVFcxXDqMG2ZBYJCVHaNtLIznBPbn
-	DqUQUDt1gMw==
-X-Received: by 2002:a05:600c:3b88:b0:4a2:191f:7cbd with SMTP id 5b1f17b1804b1-4bb888078a8mr440446035e9.11.1795649451797;
-        Wed, 25 Nov 2026 15:30:51 -0800 (PST)
+        bh=1z+y7fmEUMtLnG3lTMWhkUey//yqaPCMXeCiS+uEMnc=;
+        b=CvDI+FcGklbQFA0F9lSopYrpSWR7zlLa3wW6xQ7pOs9rh02QtR6BFdMXqRBSeZTba3
+         kGpXmc8byH/QA6q39k8oyZrX/yksbtJactZfaY1zFLKcCsEsR1z4CXhV98tSBBFiRZrI
+         /mvfEco8XH6yqmrMwDLPWE3fm18bCX33rSCmuNg/djMYD0qBO3RwTZwz2J/sY2s8i3U2
+         FjXVBTOojFskQsD13DNSdzyNjAkr4lN6lly7tGcEPAgvlIaksLsKtnhx0TIo2+S4bChN
+         zVh4Id8t8A9pGniurrvl46BEjgYx/NuahJhHxZ5org6Hmrp2oNQC7I4dHwq3R7SU5iEB
+         l22w==
+X-Forwarded-Encrypted: i=1; AL+hErEaIKKetfKQ21aVq/36GhAkDpXMfdoOzVOdTb7qw3hkQPIJSyZ+mXNldVnHT+svl2AILPVzOOBefH5ljbA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/ZSzvZgMLNn+MPnFX4SP5HGMyySnohWnHsV0yrX960haCKR4aU
+	nM21B3tpnp7qLEyHTQa/rqJ3J/o9Ubd1TxZ9i4AI6yv0kjsg2UshrwyO
+X-Gm-Gg: AZFdTZccfIOm/Sm5F6DcsotfxHJHXRPQZXqBI17Ef6xRJ3XtvN1ZUDvjI6DHmCJ/9XK
+	qRdGDXDO/qnU1sE86lIjI2ez+rBEyMLTQFQUpXoDIL9rV+cUiPFOyNgm0X9ukZ3ga5QMIDem12f
+	NgnuOIqsxJM0slDsQXeV+EUkDoiyeqw4sKMyjUhLmoApmfaCyRF0jhPMqciVXlhGquYf3+FDYQ5
+	DFSkKdu2+BMoOriZDc4+bCp6fM4Htzjcq5cN1JjT6FFOzIph9RGdX7dMfsqvacuPdtVjuE3DBQV
+	+HNW1oUgZJ3dluovRuYF4d0o7ahk0pIrhcRBLyZv1ihFM13muGAtE+tX7pNxo3DIhWQQYg79UHk
+	WZ0K8qnWjJJgqlRy7AqBwrVUBtfnzIdwsvZpqD41y8q8yTmdLC2SmOEQOB8rAcaZtxhc9/WQg2Y
+	/MhBnAGIuANqQYdE1QylIoq7mS0+aRMg9fE1kYu6BKNcuZ8wzUbiI2cOCovFXv6F5QnuS+0r1In
+	Zf68OtUOUXL+9DAwdOj0oMPXSJdir/zNQpbcA228o7YAA60WHyc4aOu9Lc7xVXq5ougyzO22DDc
+	ApkpbaH3y9aeiymAFrwcPsNAP79sFl+ey8mTrTixzHaKApLCKUz75TFsrTxmQSJ2RZ7DQISGS3P
+	XpdyUSZs0YSk=
+X-Received: by 2002:a05:600c:5901:b0:4bb:5e8a:7c9c with SMTP id 5b1f17b1804b1-4bb861467c8mr335670965e9.7.1795649457193;
+        Wed, 25 Nov 2026 15:30:57 -0800 (PST)
 Received: from localhost (bl20-90-91.dsl.telepac.pt. [2.81.90.91])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8849e598sm525188055e9.8.2026.11.25.15.30.51
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6baa3c4dsm31083635f8f.46.2026.11.25.15.30.56
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 15:30:51 -0800 (PST)
+        Wed, 25 Nov 2026 15:30:56 -0800 (PST)
 From: =?UTF-8?q?V=C3=ADtor=20Hugo=20Silva?= <vitorhg20080@gmail.com>
 To: linux-riscv@lists.infradead.org
 Cc: devicetree@vger.kernel.org,
@@ -89,9 +89,9 @@ Cc: devicetree@vger.kernel.org,
 	Conor Dooley <conor+dt@kernel.org>,
 	Thomas Gleixner <tglx@kernel.org>,
 	Radu Rendec <radu@rendec.net>
-Subject: [PATCH RFC 05/19] dt-bindings: interrupt-controller: Add Espressif ESP32-P4 interrupt matrix
-Date: Wed, 25 Nov 2026 23:30:06 +0000
-Message-ID: <20261125233020.1380594-6-vitorhg20080@gmail.com>
+Subject: [PATCH RFC 06/19] irqchip: Add Espressif ESP32-P4 interrupt matrix support
+Date: Wed, 25 Nov 2026 23:30:07 +0000
+Message-ID: <20261125233020.1380594-7-vitorhg20080@gmail.com>
 X-Mailer: git-send-email 2.56.1
 In-Reply-To: <20261125233020.1380594-1-vitorhg20080@gmail.com>
 References: <20261125233020.1380594-1-vitorhg20080@gmail.com>
@@ -107,93 +107,183 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-Describe the interrupt matrix that routes peripheral interrupt sources
-to the CLIC. Define the interrupt parent and the two-cell specifier
-for the peripheral source number and trigger type.
+Register a child IRQ domain for the ESP32-P4 interrupt matrix.
+Allocate a CLIC external interrupt input for each peripheral interrupt
+and program the route when the interrupt is activated. Support
+active-high level interrupts for source numbers 0 through 127.
 
-Tested on a Waveshare ESP32-P4-Module-DEV-KIT.
+Disconnect firmware routes before registering the IRQ domain. On
+ESP32-P4 revision 3.x, also clear the three additional routing registers.
 
-AI assisted with drafting and validating the binding.
+Tested on a Waveshare ESP32-P4-Module-DEV-KIT. Verified that peripheral
+interrupts were delivered to the CLIC through the matrix.
+
+AI assisted with driver development and validation.
 
 Signed-off-by: Vítor Hugo Silva <vitorhg20080@gmail.com>
 ---
- .../esp,esp32p4-intmtx.yaml                   | 67 +++++++++++++++++++
- 1 file changed, 67 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/interrupt-controller/esp,esp32p4-intmtx.yaml
+ drivers/irqchip/Makefile             |   1 +
+ drivers/irqchip/irq-esp32p4-intmtx.c | 139 +++++++++++++++++++++++++++
+ 2 files changed, 140 insertions(+)
+ create mode 100644 drivers/irqchip/irq-esp32p4-intmtx.c
 
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/esp,esp32p4-intmtx.yaml b/Documentation/devicetree/bindings/interrupt-controller/esp,esp32p4-intmtx.yaml
+diff --git a/drivers/irqchip/Makefile b/drivers/irqchip/Makefile
+index 408d06c20ab8..772d9558bbc8 100644
+--- a/drivers/irqchip/Makefile
++++ b/drivers/irqchip/Makefile
+@@ -103,6 +103,7 @@ obj-$(CONFIG_CSKY_MPINTC)		+= irq-csky-mpintc.o
+ obj-$(CONFIG_CSKY_APB_INTC)		+= irq-csky-apb-intc.o
+ obj-$(CONFIG_RISCV_INTC)		+= irq-riscv-intc.o
+ obj-$(CONFIG_RISCV_ESP32P4_CLIC)	+= irq-esp32p4-clic.o
++obj-$(CONFIG_RISCV_ESP32P4_CLIC)	+= irq-esp32p4-intmtx.o
+ obj-$(CONFIG_RISCV_APLIC)		+= irq-riscv-aplic-main.o irq-riscv-aplic-direct.o
+ obj-$(CONFIG_RISCV_APLIC_MSI)		+= irq-riscv-aplic-msi.o
+ obj-$(CONFIG_RISCV_IMSIC)		+= irq-riscv-imsic-state.o irq-riscv-imsic-early.o irq-riscv-imsic-platform.o
+diff --git a/drivers/irqchip/irq-esp32p4-intmtx.c b/drivers/irqchip/irq-esp32p4-intmtx.c
 new file mode 100644
-index 000000000000..20f36c4f45da
+index 000000000000..0fc1a7b78f8f
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/interrupt-controller/esp,esp32p4-intmtx.yaml
-@@ -0,0 +1,67 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/interrupt-controller/esp,esp32p4-intmtx.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
++++ b/drivers/irqchip/irq-esp32p4-intmtx.c
+@@ -0,0 +1,139 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/* Espressif ESP32-P4 interrupt matrix */
 +
-+title: Espressif ESP32-P4 High-Performance Interrupt Matrix
++#include <linux/bits.h>
++#include <linux/errno.h>
++#include <linux/init.h>
++#include <linux/io.h>
++#include <linux/irq.h>
++#include <linux/irqchip.h>
++#include <linux/irqdomain.h>
++#include <linux/of.h>
++#include <linux/of_address.h>
 +
-+maintainers:
-+  - Vítor Hugo Silva <vitorhg20080@gmail.com>
++#define CLIC_FIRST_EXT_IRQ	16
++#define CLIC_LAST_EXT_IRQ	47
++#define INTMTX_NR_MAP_REGS	128
++#define INTMTX_MAP_MASK		GENMASK(5, 0)
++#define INTMTX_MAP_DISABLED	0
++#define INTMTX_V3_FIRST_EXTRA_SOURCE	133
++#define INTMTX_V3_LAST_EXTRA_SOURCE	135
 +
-+description:
-+  The high-performance interrupt matrix routes peripheral interrupt sources
-+  to the external inputs of a high-performance core's CLIC. The matrix can
-+  independently select the destination input for each peripheral source.
-+  ESP32-P4 revision 3.x adds three interrupt routing registers.
++static const struct irq_chip esp32p4_intmtx_chip = {
++	.name		= "ESP32-P4 interrupt matrix",
++	.irq_mask	= irq_chip_mask_parent,
++	.irq_unmask	= irq_chip_unmask_parent,
++	.irq_set_type	= irq_chip_set_type_parent,
++};
 +
-+properties:
-+  compatible:
-+    enum:
-+      - esp,esp32p4-intmtx
-+      - esp,esp32p4-v3-intmtx
++static int esp32p4_intmtx_domain_alloc(struct irq_domain *domain,
++				       unsigned int virq, unsigned int nr_irqs,
++				       void *arg)
++{
++	struct irq_fwspec *fwspec = arg;
++	struct irq_fwspec parent_fwspec = {
++		.fwnode = domain->parent->fwnode,
++		.param_count = 2,
++		.param[1] = IRQ_TYPE_LEVEL_HIGH,
++	};
++	unsigned int clic_irq;
++	int ret;
 +
-+  reg:
-+    maxItems: 1
++	if (nr_irqs != 1 || !fwspec || fwspec->param_count != 2)
++		return -EINVAL;
++	if (fwspec->param[0] >= INTMTX_NR_MAP_REGS ||
++	    fwspec->param[1] != IRQ_TYPE_LEVEL_HIGH)
++		return -EINVAL;
 +
-+  interrupt-controller: true
++	/* The IRQ domain core serializes allocation across the hierarchy. */
++	for (clic_irq = CLIC_FIRST_EXT_IRQ; clic_irq <= CLIC_LAST_EXT_IRQ;
++	     clic_irq++) {
++		if (!irq_find_mapping(domain->parent, clic_irq))
++			break;
++	}
++	if (clic_irq > CLIC_LAST_EXT_IRQ)
++		return -ENOSPC;
 +
-+  '#interrupt-cells':
-+    const: 2
-+    description:
-+      The first cell is the peripheral interrupt source number in the matrix.
-+      The second cell is the trigger type as defined in
-+      dt-bindings/interrupt-controller/irq.h.
++	ret = irq_domain_set_hwirq_and_chip(domain, virq, fwspec->param[0],
++					    &esp32p4_intmtx_chip, NULL);
++	if (ret)
++		return ret;
 +
-+  '#address-cells':
-+    const: 0
++	parent_fwspec.param[0] = clic_irq;
++	return irq_domain_alloc_irqs_parent(domain, virq, nr_irqs, &parent_fwspec);
++}
 +
-+  interrupt-parent:
-+    description: Phandle to the CLIC that receives interrupts from this matrix.
++static void esp32p4_intmtx_set_route(void __iomem *base, unsigned int source,
++				     unsigned int clic_irq)
++{
++	void __iomem *reg = base + 4 * source;
++	u32 val = readl(reg);
 +
-+required:
-+  - compatible
-+  - reg
-+  - interrupt-controller
-+  - '#interrupt-cells'
-+  - interrupt-parent
++	writel((val & ~INTMTX_MAP_MASK) | clic_irq, reg);
++}
 +
-+additionalProperties: false
++static int esp32p4_intmtx_activate(struct irq_domain *domain,
++				   struct irq_data *data, bool reserve)
++{
++	esp32p4_intmtx_set_route(domain->host_data, irqd_to_hwirq(data),
++				 irqd_to_hwirq(data->parent_data));
++	return 0;
++}
 +
-+examples:
-+  - |
-+    clic: interrupt-controller@20800000 {
-+        compatible = "esp,esp32p4-clic";
-+        reg = <0x20800000 0x10000>;
-+        interrupt-controller;
-+        #interrupt-cells = <2>;
-+    };
++static void esp32p4_intmtx_deactivate(struct irq_domain *domain,
++				      struct irq_data *data)
++{
++	esp32p4_intmtx_set_route(domain->host_data, irqd_to_hwirq(data),
++				 INTMTX_MAP_DISABLED);
++}
 +
-+    interrupt-controller@500d6000 {
-+        compatible = "esp,esp32p4-intmtx";
-+        reg = <0x500d6000 0x400>;
-+        interrupt-controller;
-+        #interrupt-cells = <2>;
-+        #address-cells = <0>;
-+        interrupt-parent = <&clic>;
-+    };
++static const struct irq_domain_ops esp32p4_intmtx_domain_ops = {
++	.alloc		= esp32p4_intmtx_domain_alloc,
++	.free		= irq_domain_free_irqs_common,
++	.translate	= irq_domain_translate_twocell,
++	.activate	= esp32p4_intmtx_activate,
++	.deactivate	= esp32p4_intmtx_deactivate,
++};
++
++static int __init esp32p4_intmtx_init(struct device_node *node,
++				      struct device_node *parent)
++{
++	struct irq_domain *parent_domain, *domain;
++	void __iomem *base;
++	unsigned int source;
++
++	if (!parent)
++		return -ENODEV;
++
++	parent_domain = irq_find_host(parent);
++	if (!parent_domain)
++		return -ENODEV;
++
++	base = of_iomap(node, 0);
++	if (!base)
++		return -ENOMEM;
++
++	/* Disconnect routes left by firmware before allocating IRQs. */
++	for (source = 0; source < INTMTX_NR_MAP_REGS; source++)
++		esp32p4_intmtx_set_route(base, source, INTMTX_MAP_DISABLED);
++
++	/* Skip the status and clock registers between routing banks. */
++	if (of_device_is_compatible(node, "esp,esp32p4-v3-intmtx")) {
++		for (source = INTMTX_V3_FIRST_EXTRA_SOURCE;
++			 source <= INTMTX_V3_LAST_EXTRA_SOURCE; source++)
++			esp32p4_intmtx_set_route(base, source, INTMTX_MAP_DISABLED);
++	}
++
++	domain = irq_domain_create_hierarchy(parent_domain, 0, 0,
++					     of_fwnode_handle(node),
++					     &esp32p4_intmtx_domain_ops, base);
++	if (!domain) {
++		iounmap(base);
++		return -ENOMEM;
++	}
++
++	return 0;
++}
++
++IRQCHIP_DECLARE(esp32p4_intmtx, "esp,esp32p4-intmtx", esp32p4_intmtx_init);
++IRQCHIP_DECLARE(esp32p4_v3_intmtx, "esp,esp32p4-v3-intmtx", esp32p4_intmtx_init);
 -- 
 2.56.1
 
