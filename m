@@ -1,65 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.216.248.207
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795620447;
-	b=yXn7nq8IRaSVx1I9wNkON/L5LTgatVtCP7rkPYSqhgd8xJh5hONk9Oc1zrTWg4C2j2eX
-	 JOzwRlofKqZXr/jjW9NenHy/FUyoaCnwuuXgCS//slGUStXelR465Lbjt5f+deXGu9Vtk
-	 nS6RvdddqXhNWUp2+gz/F8uIf+Bv8oJ5lngC1uyyEJAKghG897bjaoxxbavV85F0voo7s
-	 D4Or+l2nZUASlXXZOrT0F8uFcW6N+HR85/HslCfXRt0xbUZnMUeAGhiJ/eAzt5hdPA61z
-	 wGjs6rA3Mrb51iNIRvJxA2xn6aL7r7eXbLf1BnfusKQ9lFQdRW0rGmQtDCUWuENvQVA==
+	t=1795620473;
+	b=W+Lx2MuN5uQHJLmvFRgVY9J6g0QjiIBoVAycQzemh0aZP6dvf1DHfOXRAAwz1m0LUupV
+	 LenbzJk0FSNLBJ5CZtYgvXtE5XltEwMYXQeYdd/fC+9Tga1YNwDgM0hNM2rhQ8tcYN2yc
+	 v67roxtm/Oxz16TPoVSRRFn1iauE3COrdI1knb5UCtYGvefFLajHub9GW3/o8MmbsNUgf
+	 MKQJskXeQyWC8ZJdqHML+ixC5VOkF5pVSaktJnoS9R/r2kD7AIGDkfnow5VssjY/0WQoI
+	 27WMkSG0Wu/gfZUP/Ld7/ifEjrt7ltpDgfxqSKaqbKZJpb5VAJl2Q3/TmqyZq1OjuRw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795620447;
-	h=DMARC-Filter:From:X-Lima-ML-UUID:DKIM-Signature:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=V1/gDYLW6wZb9SX8ssnkHsT0gTwK/IOErcmdXS0BwVA=;
-	b=GwfBG1N342j+vccfX6mv02gglXF3ygOHzIcRAroWUqtDIh4SilSHvmaO/HJr+qayd5Fk
-	 lF0DjJqwBfNCVs6YdDGoq4Y/q8y5hyu5pe0CAzpVYazg9lePlJQGLFJqt0XxBHkPnQlX7
-	 BGNeCrHCvSzvvAn5S2p1d+WBqUeYwRgcLeZSId0BKW4FrPEnZ155MyktUVNTeBQHjVGn/
-	 biFnnExqT2oqeUghPC/pY2iYkgZIm+kpcvOQSskhQgK6bGoYuQVQ3ssqlOSXEOb7zqbjh
-	 VfakmBvA4MFYvGSyW41PoO0Iy3AAPTgNVW/PM4vF4JY0Gub4yy3iJXtGJ7EVGIvhZaQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795620473;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=TQMJOKB5egHcGgynmGG4EwUuLrxBDUpZJMqON6XcyvA=;
+	b=IJw3WNArco4bptSiq5jLsedLU/q6LH7m+Isi0o6csT+e7jwcxdReZY1DYHK9kaQjR5cD
+	 S893zhRgEPJCsG8FTrwJ7AhjiMusS48Lve3Q+IQgdUZ/bZFGz4sgA2b+FQUfS3/sTuKes
+	 zVf4pQMUWOQ7XqVnnremNKVpDCUGbibxwQLXiCQ9MhqwLmN/XVgwYjED8vREGXB7TVmDU
+	 yXP3+FBLYvTgxHpYC/i/hcHjbWhczR4FOvm//Awo7SmGpTsgs3IA5TZN9s75y+Xg9663I
+	 qULdHmjfDtjkofw+YxDkUJbmzhkbeIl0AByKQwEGboxl2fN5KLemF9EBmTDX7hbDj6w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=deq.rocks;
-	spf=none smtp.mailfrom=deq.rocks;
-	dkim=pass header.d=deq.rocks header.i=@deq.rocks header.a=rsa-sha256 header.s=securedbylima-20251205 header.b=qSaQIqRe;
-	arc=none smtp.remote-ip=91.216.248.207
-Received: from mx5.mail-out.lima-city.de (mx5.mail-out.lima-city.de [91.216.248.207])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ijdrdMAR;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DEF55606A323;
-	Wed, 25 Nov 2026 15:27:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DEF55606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=deq.rocks
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=deq.rocks
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B82BD606A31E;
+	Wed, 25 Nov 2026 15:27:53 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=deq.rocks header.i=@deq.rocks header.a=rsa-sha256 header.s=securedbylima-20251205 header.b=qSaQIqRe
-From: Andre Eikmeyer <dev@deq.rocks>
-X-Lima-ML-UUID: 4bb23980-4068-4ef8-999b-00135b389ec6
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=deq.rocks;
-	s=securedbylima-20251205; t=1795620436;
-	bh=BG3Xpbm/VBYhCtFJkxJrMmDCsXcQiL6mfZYyEfyy9fk=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=qSaQIqRe82QksI6h+Bs9gnzX1QiemZMzGftTlWE8Q99ttGtWcYVItrQwTbhEbvEBQ
-	 xz0ItA6upjnTMhzkmfsYSswFnsMqSeHgU4kX/XFHEsE2f6LJTb1aD1L4lWDXuylrOz
-	 I+AUir4QEOQ/pkZpvvD4cQRsJyRakO17yMA34+MWM1F1mnyAPnZFzH+OBpLpZjn7Fq
-	 WnTnm0zlINT95oVU9C/rsG4quldIrIOpvBXNN0KPeQXb0W5J9/GpLDY774sK9n57kF
-	 xVC8om1f6zIji58GHBojnG/vVxB3vlttwCEEvezKU8p/9s8/2/Xo9CHA7AFvdGgAS6
-	 SPaki5XcSao2A==
-To: arend.vanspriel@broadcom.com
-Cc: linux-wireless@vger.kernel.org,
-	brcm80211@lists.linux.dev,
-	brcm80211-dev-list.pdl@broadcom.com,
-	linux-kernel@vger.kernel.org,
-	=?UTF-8?q?Bla=C5=BE=20Zupan?= <blaz@inlimbo.org>,
-	Andre Eikmeyer <dev@deq.rocks>,
-	Yossef Osman <Yossef.Osman@proton.me>,
-	Aditya Garg <aditya.garg@linux.dev>
-Subject: [PATCH wireless v3] wifi: brcmfmac: keep ARP and ND offload off on Apple BCM4355 and BCM4364
-Date: Wed, 25 Nov 2026 16:27:11 +0100
-Message-ID: <20261125152711.110005-1-dev@deq.rocks>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261118123933.74517-1-dev@deq.rocks>
-References: <20261118123933.74517-1-dev@deq.rocks>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ijdrdMAR
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 291211F000C4;
+	Wed, 25 Nov 2026 15:27:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795620473;
+	bh=TQMJOKB5egHcGgynmGG4EwUuLrxBDUpZJMqON6XcyvA=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=ijdrdMARWt/P79rA/nv7dZGn4nIuZmRVHXrvsJd/KKUvyH/YKVN81Q21S58X0OyKn
+	 +VtdgAu4eTUaN/mnx2oB5zfHvyOVBMQobpiDswecyA98lyaMR4NvwDQajZp4W69MHg
+	 wJcqwbMRVkCQyyUaL89ECAwn0lPhtMpu/VIv5qpHvvzsU/JanDNGW6BHfG+zsXfge7
+	 XHdQv5GB8N99m+2j6jWcE6tPZkhu46lBdN4FF9/Es1Cg66RdHuASowVOC6VOSyutRK
+	 jao7Qf5J7ineiK1N5YgrKcfUD9rw2ki9B01JwgCJNFG1Gq3eS6wn74jHr66eCxsAxd
+	 ZfutpYoiEGAkQ==
+Subject: Re: [PATCH net v3 1/2] net: keep the TCP fixed-ID flags on the header
+ they describe
+From: netdev-bot+sashiko@kernel.org
+To: julius@bairaktaris.de
+Cc: netdev@vger.kernel.org, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, willemb@google.com, horms@kernel.org,
+ andrew+netdev@lunn.ch, dsahern@kernel.org, idosch@nvidia.com,
+ ncardwell@google.com, kuniyu@google.com, steffen.klassert@secunet.com,
+ herbert@gondor.apana.org.au, richardbgobert@gmail.com, ecree.xilinx@gmail.com,
+ andy.moreton@amd.com, alex.austin@amd.com, linux-net-drivers@amd.com,
+ saeedm@nvidia.com, tariqt@nvidia.com, mbloch@nvidia.com, leon@kernel.org,
+ linux-rdma@vger.kernel.org, alexei.starovoitov@gmail.com, ast@kernel.org,
+ daniel@iogearbox.net, andrii@kernel.org, eddyz87@gmail.com, memxor@gmail.com,
+ martin.lau@linux.dev, song@kernel.org, yonghong.song@linux.dev,
+ jolsa@kernel.org, emil@etsalapatis.com, ihor.solodrai@linux.dev,
+ john.fastabend@gmail.com, sdf@fomichev.me, izaiahsun@gmail.com,
+ corbet@lwn.net, skhan@linuxfoundation.org, rdunlap@infradead.org,
+ shuah@kernel.org, bpf@vger.kernel.org, ipsec@lists.linux.dev,
+ linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Date: Wed, 25 Nov 2026 15:27:50 +0000
+Message-ID: <179562047069.3135.2008249679354171410@kernel.org>
+In-Reply-To: <7c74b2076dc7dee1d481d39a135e0946d5e04145.1795284858.git.julius@bairaktaris.de>
+References: <7c74b2076dc7dee1d481d39a135e0946d5e04145.1795284858.git.julius@bairaktaris.de>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,118 +76,148 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
 
-brcmfmac enables the firmware's ARP and IPv6 ND offload (ndoe) whenever
-the interface is up and not promiscuous. On the Apple firmware for the
-BCM4355 and BCM4364, ndoe makes downloads collapse.
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-On the BCM4364, IPv6 downloads topped out at 55 Mbit/s on a
-MacBookPro15,1 with the BCM4364/3 and on the MacBookPro16,1 with the
-later revision [1][2]. On the BCM4355 of the MacBookAir8,1, downloads
-fell to about 50 Mbit/s with the offload on and stayed at 300 to 400
-Mbit/s with it off, and the firmware logged errors several times a
-second [3]. The BCM4377 is not affected.
+Critical: 0 · High: 0 · Medium: 1 (1) · Low: 0
 
-macOS enables ARP and ND offload for associated sleep only and clears
-both on wake. ARP offload brings no benefit while awake, and without
-WoWL brcmfmac disconnects on suspend on these Macs, so the offloads are
-never used in sleep either. With ARP offload on, the firmware answers
-from its own host IP table, and the host does not notice when that
-table is stale. brcmfmac already turns both offloads off in promiscuous
-mode and while a soft AP runs.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Keep both off on these chips when the board type is an Apple one,
-which runs the firmware the way macOS does while awake.
+- [Medium] In xfrm_output(), the new FIXEDID->OUTER copy only runs for
+  TRANSPORT/BEET mode, but skb->encapsulation = 1 is set for every…
 
-[1] https://github.com/t2linux/kernel/issues/34
-[2] https://github.com/t2linux/T2-Debian-and-Ubuntu-Kernel/issues/227
-[3] https://github.com/t2linux/linux-t2-patches/pull/85
+Pre-existing issues:
+- [Medium] tcp6_gro_complete() (net/ipv6/tcpv6_offload.c:81-102) ignores
+  NAPI_GRO_CB(skb)->ip_fixedid.
 
-Fixes: 52f22fb21764 ("brcmfmac: add neighbor discovery offload ip address table configuration")
-Cc: stable@vger.kernel.org
-Reported-by: Blaž Zupan <blaz@inlimbo.org>
-Closes: https://github.com/t2linux/kernel/issues/34
-Closes: https://github.com/t2linux/T2-Debian-and-Ubuntu-Kernel/issues/227
-Link: https://github.com/t2linux/linux-t2-patches/pull/85
-Tested-by: Yossef Osman <Yossef.Osman@proton.me>
-Tested-by: Aditya Garg <aditya.garg@linux.dev>
-Co-developed-by: Aditya Garg <aditya.garg@linux.dev>
-Signed-off-by: Aditya Garg <aditya.garg@linux.dev>
-Acked-by: Arend van Spriel <arend.vanspriel@broadcom.com>
-Signed-off-by: Andre Eikmeyer <dev@deq.rocks>
----
-Changes in v3:
-- Say downloads instead of IPv6 downloads in the comment, the BCM4355
-  loses IPv4 throughput too (Arend)
-- Add Reported-by for the BCM4355 case and Arend's Acked-by
-- v2: https://lore.kernel.org/all/20261118123933.74517-1-dev@deq.rocks/
+--
 
-Changes in v2:
-- Restrict the quirk to Apple boards with settings->board_type
-- Add the BCM4355 of the MacBookAir8,1 (Aditya)
-- Add Fixes and Cc stable, target wireless
-- Explain why ARP offload stays off as well
-- v1: https://lore.kernel.org/all/20261104151620.70671-1-dev@deq.rocks/
+net: keep the TCP fixed-ID flags on the header they describe
 
- .../broadcom/brcm80211/brcmfmac/core.c        | 27 +++++++++++++++++++
- 1 file changed, 27 insertions(+)
+This patch goes back to SKB_GSO_TCP_FIXEDID describing the innermost IPv4
+header. It replaces SKB_GSO_TCP_FIXEDID_INNER with
+SKB_GSO_TCP_FIXEDID_OUTER for the outermost header of an encapsulated
+packet. The outer flag is cleared where tunnel and BPF paths add or remove
+a header, xfrm_output() sets it for ESP transport and BEET offload, and the
+mlx5 and sfc drivers are converted.
 
-diff --git a/drivers/net/wireless/broadcom/brcm80211/brcmfmac/core.c b/drivers/net/wireless/broadcom/brcm80211/brcmfmac/core.c
-index a3d662348711..537bcfce087e 100644
---- a/drivers/net/wireless/broadcom/brcm80211/brcmfmac/core.c
-+++ b/drivers/net/wireless/broadcom/brcm80211/brcmfmac/core.c
-@@ -13,6 +13,7 @@
- #include <net/addrconf.h>
- #include <net/ieee80211_radiotap.h>
- #include <net/ipv6.h>
-+#include <brcm_hw_ids.h>
- #include <brcmu_utils.h>
- #include <brcmu_wifi.h>
- 
-@@ -93,6 +94,22 @@ struct brcmf_if *brcmf_get_ifp(struct brcmf_pub *drvr, int ifidx)
- 	return ifp;
- }
- 
-+static bool brcmf_is_apple_nd_offload_broken(struct brcmf_pub *drvr)
-+{
-+	const char *board_type = drvr->settings->board_type;
-+
-+	if (!board_type || !strstarts(board_type, "apple,"))
-+		return false;
-+
-+	switch (drvr->bus_if->chip) {
-+	case BRCM_CC_4355_CHIP_ID:
-+	case BRCM_CC_4364_CHIP_ID:
-+		return true;
-+	default:
-+		return false;
-+	}
-+}
-+
- void brcmf_configure_arp_nd_offload(struct brcmf_if *ifp, bool enable)
- {
- 	s32 err;
-@@ -103,6 +120,16 @@ void brcmf_configure_arp_nd_offload(struct brcmf_if *ifp, bool enable)
- 		return;
- 	}
- 
-+	/* With ND offload on while awake, the Apple firmware for the BCM4355
-+	 * and BCM4364 makes downloads drop to low rates. macOS runs ARP and
-+	 * ND offload only in sleep, keep both off on these chips.
-+	 */
-+	if (enable && brcmf_is_apple_nd_offload_broken(ifp->drvr)) {
-+		brcmf_dbg(TRACE, "Skip ARP/ND offload enable on Apple BCM%x\n",
-+			  ifp->drvr->bus_if->chip);
-+		enable = false;
-+	}
-+
- 	if (enable)
- 		mode = BRCMF_ARP_OL_AGENT | BRCMF_ARP_OL_PEER_AUTO_REPLY;
- 	else
+> diff --git a/net/ipv4/tcp_offload.c b/net/ipv4/tcp_offload.c
+> index b84fcd07c7230..da0d8ba70c0cc 100644
+> --- a/net/ipv4/tcp_offload.c
+> +++ b/net/ipv4/tcp_offload.c
 
-base-commit: 35c42b20ac87165c054c582380aa0ff0de8aeb4a
+[ ... ]
+
+> @@ -473,9 +475,10 @@ INDIRECT_CALLABLE_SCOPE int tcp4_gro_complete(struct sk_buff *skb, int thoff)
+>  	th->check = ~tcp_v4_check(skb->len - thoff, iph->saddr,
+>  				  iph->daddr, 0);
+>  
+> -	BUILD_BUG_ON(SKB_GSO_TCP_FIXEDID << 1 != SKB_GSO_TCP_FIXEDID_INNER);
+> +	/* Bit 0 of ip_fixedid is the outermost header, bit 1 the inner one. */
+>  	skb_shinfo(skb)->gso_type |= SKB_GSO_TCPV4 |
+> -			(NAPI_GRO_CB(skb)->ip_fixedid * SKB_GSO_TCP_FIXEDID);
+> +		(((fixedid >> encap) & 1) * SKB_GSO_TCP_FIXEDID) |
+> +		((fixedid & encap) * SKB_GSO_TCP_FIXEDID_OUTER);
+
+[Severity: Medium]
+This is a pre-existing issue and this patch did not introduce it. Does the
+IPv6 counterpart need the same mapping?
+
+Take an IPv4 outer header over an IPv6 inner TCP flow, such as 6in4/SIT or
+VXLAN over IPv4 carrying IPv6. For the outer IPv4 header,
+gro_receive_network_flush() calls inet_gro_flush() with inner=false, which
+records:
+
+include/net/gro.h:inet_gro_flush() {
+    ...
+		NAPI_GRO_CB(p)->ip_fixedid |= 1 << inner;
+    ...
+}
+
+The flow is then merged as fixed-ID. tcp4_gro_complete() now maps that bit
+to SKB_GSO_TCP_FIXEDID_OUTER, but tcp6_gro_complete() never looks at
+ip_fixedid:
+
+net/ipv6/tcpv6_offload.c:tcp6_gro_complete() {
+    ...
+	th->check = ~tcp_v6_check(skb->len - thoff, &iph->saddr,
+				  &iph->daddr, 0);
+	skb_shinfo(skb)->gso_type |= SKB_GSO_TCPV6;
+    ...
+}
+
+So the outermost IPv4 header of such a packet never gets
+SKB_GSO_TCP_FIXEDID_OUTER. When the packet is forwarded and resegmented,
+inet_gso_segment() rewrites the fixed outer IDs as incrementing ones.
+
+Should tcp6_gro_complete() set SKB_GSO_TCP_FIXEDID_OUTER from bit 0 when
+skb->encapsulation is set?
+
+>  
+>  	tcp_gro_complete(skb);
+>  	return 0;
+> diff --git a/net/xfrm/xfrm_output.c b/net/xfrm/xfrm_output.c
+> index f1f612cd7b438..927e1535c47d7 100644
+> --- a/net/xfrm/xfrm_output.c
+> +++ b/net/xfrm/xfrm_output.c
+> @@ -805,6 +805,16 @@ int xfrm_output(struct sock *sk, struct sk_buff *skb)
+>  		xfrm_state_hold(x);
+>  
+>  		xfrm_get_inner_ipproto(skb, x);
+> +		/*
+> +		 * Transport and BEET mode keep the IPv4 header and its ID, so
+> +		 * the header that SKB_GSO_TCP_FIXEDID describes is the outer
+> +		 * one as well.
+> +		 */
+> +		if (!skb->encapsulation &&
+> +		    (x->props.mode == XFRM_MODE_TRANSPORT ||
+> +		     x->props.mode == XFRM_MODE_BEET) &&
+> +		    (skb_shinfo(skb)->gso_type & SKB_GSO_TCP_FIXEDID))
+> +			skb_shinfo(skb)->gso_type |= SKB_GSO_TCP_FIXEDID_OUTER;
+>  		skb->encapsulation = 1;
+>  
+>  		if (skb_is_gso(skb)) {
+
+[Severity: Medium]
+Can a tunnel mode SA still lose the fixed IDs of the packet's only IPv4
+header?
+
+skb->encapsulation = 1 is set for every crypto offloaded SA, but the copy
+to SKB_GSO_TCP_FIXEDID_OUTER is skipped for tunnel mode.
+
+A GSO packet that was decapsulated earlier keeps a stale non-zero
+skb->inner_protocol. inet_gro_complete() sets it for encapsulated GRO, and
+neither iptunnel_pull_offloads() nor skb_scrub_packet() resets it. After
+decap, such a packet has encapsulation=0 and SKB_GSO_TCP_FIXEDID set, and
+SKB_GSO_TCP_FIXEDID_OUTER has been cleared.
+
+If the packet is forwarded into a tunnel mode SA with offload, this check
+just below fires:
+
+			if (skb->inner_protocol && x->props.mode == XFRM_MODE_TUNNEL)
+				return xfrm_output_gso(net, sk, skb);
+
+Then xfrm_output_gso()->skb_gso_segment(skb, 0)->inet_gso_segment() runs at
+encap_level 0, sees skb->encapsulation == 1, and takes the new else branch:
+
+	} else {
+		fixedid = !!(skb_shinfo(skb)->gso_type &
+			     SKB_GSO_TCP_FIXEDID_OUTER);
+	}
+
+That reads 0 for the only IPv4 header, even though SKB_GSO_TCP_FIXEDID is
+the flag that describes it. The segments get incrementing IDs although GRO
+recorded fixed ones.
+
+The baseline code was also wrong here, because it read the stale flag of
+the removed header. Is this a remaining variant of the "forwarded into an
+ESP tunnel mode SA with crypto offload" case that the commit message says
+is fixed?
+
 -- 
-2.56.0
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/cover.1795284858.git.julius%40bairaktaris.de
