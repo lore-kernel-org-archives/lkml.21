@@ -1,55 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=216.40.44.15
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795640464;
-	b=Yp58vems9UrNvr5sUJg2uPN5IgfoQ0BRJIKOfPlba1iH+trJOUSuLS7TpQeYRdrHsa7H
-	 09XBs+kt+kgM9XIoz1BBs2TtwtUHuSm6wq2tVSMq954K42ckya4D08d1dwSgT/X9zQn6y
-	 6L06m+qTc2aznuqWZio6qPnnokoN8lbUPhEk4Vfa3YX2MyxlX2K4AwLim4c5zf1/TTxAk
-	 NjL6gdUH5O5OXMHu/dFJw0VsCnXCKGwxTCNdtswe6fZtJXHjsjZUE6ycq1Xy1qI5D9B7C
-	 Uccoq+KMQ26RFk7CBLhvHv3jlby9OIq2jOac5XWHqnIyuuCqjUpuFBkKkFDOX84i/mg==
+	t=1795640472;
+	b=zlMdQb6+DethwXdGmUUn2rQyh8lX5VfuFEZ6nkp8HJQqPJv9SA8sua0ZvfnR3dXIsJ2C
+	 Fy4b4YyMhrafc1x0JZD3CNqDvr2INzGFthrHud+Ya6GtAmd32XG6lrGXq0DLJYVAvLSCJ
+	 6MqZ0V9oDbY+BsqBXzEagpkYiTCxdjvIvqz+Y61Pc8ehNb92jE1ac7XDPl8odlsRhTh/k
+	 OS6SNXvqRryQ6wgaD/+jJux2TUWI3oUTmhzdJl7GH1G7d+8W1jIOZANCFdShKXIc3IOVb
+	 ShB4Oe5aFjHtnlT6WTNy8YXO69VWfpUPGYH3lsIvjc4mOUBrRSLJQJJZwo1u09q8a/Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795640464;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=tS2gaavtLHkaRIhoftiQwAfQBELkcBZUly25G8RQWLA=;
-	b=MSmwhSp+1TQYrHQTq3Vp+2KvbnDIw9MJlNc4uPazerITjgNIFjyWPj6bFdZ4P1+wXTpH
-	 TadZKkihX+mEtY/xCpgGE/rD61LEW1rI0lNviMe9r4VtnOn9tdYmhxfOhghm1D1RBQRHo
-	 Z68/WEHx6Moh0vbJCzLSIHyFixXFdlVTrS3pSWL9uyjAsojGA4oS9Q59JhJYNjPyYzRpF
-	 xAMtFzv9SsR1eyU+vMTy8RyIkmRqBVrzhkwRCTotvNeNScqb+lHRJCSrk5WG2fAiVCaCW
-	 0qPwNf71Mv0wmNIU8H/P8Me7sebdgPt34GoLtJFi9/oakUsw5jzl9aKQHBc7YgTeSZw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795640472;
+	h=DMARC-Filter:Received:Received:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-Rspamd-Server:X-Rspamd-Queue-Id:
+	 X-Stat-Signature:X-Spam-Status:X-Session-Marker:X-Session-ID:
+	 DKIM-Signature:X-HE-Tag:X-HE-Meta;
+	bh=gyynnWw1IwEuOIm71kj420EQ/jKqlvd+zpN7hzxu5dU=;
+	b=P53V54VcLgvqtPUT82fndAdKjjib7sMzhUgRKxV0STXyYnF48vDXZub0n3uk3cQEBikZ
+	 cu+X1KTjIicXlPRTlPtYmbSJJLlEUQTkGRnhNtffPZ5yfpEjJ+2ik3ICwjQ9sTtKenHB5
+	 nRdLjNXFvto6QX1HfD3DiUYy+CxFxL9qo/yDFNv7eFu35TcfeSemDTWm8zfFtGjToPmx/
+	 OulFOa9GPi+xvrcmDmN4I/nA0v0VTT3M60u0LwhCv6Uv/jSM54k8H5kfktpx6hx64eQCJ
+	 2cacjpNwxZ6LQe/F/5710ELRPARQ1Nhzkkk6TOjgZrn8jg1ZGGxPuGYrj+o+HVCdTBw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FGesK0V8;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=goodmis.org;
+	spf=pass smtp.mailfrom=goodmis.org;
+	dkim=pass header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=Ab6qbPph;
+	arc=none smtp.remote-ip=216.40.44.15
+Received: from relay.hostedemail.com (smtprelay0015.hostedemail.com [216.40.44.15])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 50C1D606A323
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 21:01:04 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5612D606A32C;
+	Wed, 25 Nov 2026 21:01:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5612D606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=goodmis.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=goodmis.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FGesK0V8
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2A1F1F000D4
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 21:01:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795640464;
-	bh=tS2gaavtLHkaRIhoftiQwAfQBELkcBZUly25G8RQWLA=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=FGesK0V8hAz8p/FNSSfFtqDzfHsTOzomDp2OKK5CWs4cgy4IHpLiHFf0ouNaE2yW8
-	 EKVr+QPZnUFGmd6BVHmftGq/GJLT+YG4yVR2UjyklSK1gJqyl/JBodFnCIdE1946uH
-	 RUVdWWufi74tVT2llyHKS+8foZszOgLGFqypzEdw1X4NOSj0etKnD061x0DekDTmp9
-	 TsbstYwMb5mnEWkUgz0/5Ur7yUB0PUhJGsLQB06zrT3J3fOdlumGHbeEkd+WQS15Ta
-	 AWB4ibUTtuUCOoegB3uyRvs+ffxevPp9EQW0tKnOcvp/ZegepwZHTpeMpbJWrLsj73
-	 73dP8orPHWbrA==
-Received: by mail-lj1-f175.google.com with SMTP id 38308e7fff4ca-3ae22dcfdc3so50682421fa.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 13:01:03 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErGM27/iwu+9GVoTSuHqi2dZ5Fcex13BvnbXjhgnzA6QDCjVsAEp+gzhy1U4nJ+bmCCCRuaY2oYhX+gPasQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/cFXSf+tUrLx6UXtPfX2+4yPZoxUQGX5RT+wcoeKMh67J4BXO4
-	WICw51xm1VO1rKyI68VUK8FRcf6x7um+t4++datgmVuvSUM373UZY/3a0qSNsJc+oE/hQ+hTxRj
-	d3oRktOi4vZ3NKK06UBZkr819lediYfI=
-X-Received: by 2002:a05:6512:110a:b0:5c1:5cee:634c with SMTP id
- 2adb3069b0e04-5c1bc8447d5mr6322238e87.61.1795640462553; Wed, 25 Nov 2026
- 13:01:02 -0800 (PST)
+	dkim=pass (1024-bit key, unprotected) header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=Ab6qbPph
+Received: from omf10.hostedemail.com (lb01a-stub [10.200.18.249])
+	by unirelay01.hostedemail.com (Postfix) with ESMTP id 7F3301C3D89;
+	Wed, 25 Nov 2026 21:01:09 +0000 (UTC)
+Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf10.hostedemail.com (Postfix) with ESMTPA id B401230;
+	Wed, 25 Nov 2026 21:01:07 +0000 (UTC)
+Date: Wed, 25 Nov 2026 16:01:06 -0500
+From: Steven Rostedt <rostedt@goodmis.org>
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: mhiramat@kernel.org, linux-trace-kernel@vger.kernel.org,
+ mathieu.desnoyers@efficios.com, kernel-team@android.com,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v9 00/21] tracing/remotes: Add printk, dump_on_panic and
+ boot parameters
+Message-ID: <20261125160106.01c468e2@gandalf.local.home>
+In-Reply-To: <20261124152845.2233401-1-vdonnefort@google.com>
+References: <20261124152845.2233401-1-vdonnefort@google.com>
+X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,108 +61,53 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261123142203.3860616-1-hjf3108@gmail.com> <20261123142203.3860616-3-hjf3108@gmail.com>
-In-Reply-To: <20261123142203.3860616-3-hjf3108@gmail.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Wed, 25 Nov 2026 22:00:48 +0100
-X-Gmail-Original-Message-ID: <CAD++jLmHRkL7Zmw7VrV-UFo14nwgMTLB3UVA15vn9JWsvrXQfw@mail.gmail.com>
-X-Gm-Features: Aa3M54qUkO3zSeEjRH-PO8oJtdJZnSyIyAg3hK9lVAU8zHOdRHoMwx9ZR26Yhlg
-Message-ID: <CAD++jLmHRkL7Zmw7VrV-UFo14nwgMTLB3UVA15vn9JWsvrXQfw@mail.gmail.com>
-Subject: Re: [PATCH 2/2] ARM: bcm: support more than two CPUs on BCMBCA
-To: Ho Jie Feng <hjf3108@gmail.com>
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
-	Scott Branden <sbranden@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
-	Russell King <linux@armlinux.org.uk>, William Zhang <william.zhang@broadcom.com>, 
-	Anand Gore <anand.gore@broadcom.com>, Kursad Oney <kursad.oney@broadcom.com>, 
-	=?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-Rspamd-Server: rspamout06
+X-Rspamd-Queue-Id: B401230
+X-Stat-Signature: wwpfufqqgq5f6hgq8sg8a9axfnjn7act
+X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
+X-Session-ID: U2FsdGVkX1/7cbng2B5iyqOHuLe/ruR6GbmFD0udSo0=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=goodmis.org; h=date:from:to:cc:subject:message-id:in-reply-to:references:mime-version:content-type:content-transfer-encoding; s=dkim1; bh=gyynnWw1IwEuOIm71kj420EQ/jKqlvd+zpN7hzxu5dU=; b=Ab6qbPphpdBffCvzRCypyR01b3EmdxewC1ELFo6txrt4xP8qGZGeu5h5Pa3Imbb3whpnrzn1wU7UDi2l83HJIBvRzDdLCu/myfzIqmg5QopCRKcXmRrSKLkb1gZZcWuIz6g+eXV3XbIgx0GS+0L5cZ4ELKqmmM+6pt9EQTKEhnM=
+X-HE-Tag: 1795640467-282171
+X-HE-Meta: U2FsdGVkX19u79LZ8tOspIAhCeImDDydmmEiq5pJxSjLZEarFFwnD9LpU4MbCsOaw1UQs2Q1y7ambv7JoUuuI6uzLanXUjOxhpXb+JcM975ZCcRUKOzSbOuSEGD9Wr3s/EJpQFfxzNXemm4d7vxLK6n7a74Y/gMci9qBIbKpX/2dGdoS+Eixmg9bQkGJWd0nE63nA/WKhrPHFOJStug14WQhMxu6A7SKqR8x2B+Xl9gRRdDmoq0uOfu43W0Datepjun/OkTPmKKJXKe/Ir/Z96e6gaGAAYVAFK98YBoDGFswI8dkEHWO1i1Hp0Eiq0A39KCb3e89iqSPIYK8gz59RP0kTfUyK3pu
 
-Hi Ho Jie,
+On Tue, 24 Nov 2026 15:28:24 +0000
+Vincent Donnefort <vdonnefort@google.com> wrote:
 
-thanks for your patch! It's nice to see others building on this
-idea, for a while I thought I was the only person in the world
-who care about BCMBCA upstream.
+> Vincent Donnefort (21):
+>   tracing/remotes: Gate tracefs files opening on trace remote
+>     registration
+>   tracing/remotes: Release tracefs,eventfs on registration failure
+>   tracing/remotes: Use kstrtobool for boolean tracefs files
+>   tracing/remotes: Initialise pos in trace_start()
+>   tracing/remotes: Annotate remote shared fields with
+>     READ_ONCE/WRITE_ONCE
+>   tracing/remotes: Use a single per-remote polling work
+>   tracing/simple_ring_buffer: Add support for compressed length
+>   tracing/remotes: Add dmesg tracefs file
+>   tracing/remotes: selftests: Add a test for the dmesg tracefs file
+>   tracing/remotes: selftests: Prefix hypervisor folder
 
-On Mon, Nov 23, 2026 at 3:22=E2=80=AFPM Ho Jie Feng <hjf3108@gmail.com> wro=
-te:
 
-> +++ b/arch/arm/mach-bcm/bcmbca_headsmp.S
+>   ring-buffer: Use irqsave for the reader lock in
+>     ring_buffer_poll_remote
+>   ring-buffer: Avoid reader_lock deadlock during panic
+>   ring-buffer: Use panic-friendly locking in ring_buffer_iter interface
+>   ring-buffer: Add kerneldoc for ring_buffer_poll_remote
 
-> +#include <linux/linkage.h>
-> +#include <asm/assembler.h>
-> +
-> +       .arm
-> +ENTRY(bcmbca_secondary_startup)
-> + ARM_BE8(setend        be)
+Do the ring-buffer specific changes need to be part of this remote patch series?
 
-Are you aware about any people booting these platforms
-in big endian? I don't think that works, just skip this.
+They probably should be separate.
 
-> + THUMB(        badr    r9, 1f          )
-> + THUMB(        bx      r9              )
-> + THUMB(        .thumb                  )
-> + THUMB(1:                      )
+-- Steve
 
-This code is for the CPU to switch from thumb mode to
-ARM mode if it was booting in thumb mode. Does this
-actually happen in practice? Else you can skip this too.
-It just looks overly cautious.
 
-Also the ordinary secondary_startup_arm does the same things already!
-
-> +       mrc     p15, 0, r0, c0, c0, 5
-> +       bic     r0, #0xff000000
-> +       adr_l   r6, bcmbca_cpu_release
-> +pen:   ldr     r7, [r6]
-> +       cmp     r7, r0
-> +       bne     pen
-> +
-> +       b       secondary_startup
-
-And why are you first spinning on the GPIO address
-and then spinning again in this "pen" (as a place for
-livestock, such as CPUs ;) it was added to mach-versatile
-to work around a CPU bug in early silicon.
-
-As Russell King writes in 2018:
-https://lore.kernel.org/linux-arm-kernel/20181213175952.GC26090@n2100.armli=
-nux.org.uk/
-
-> The "pen_release" thing was created for ARM Ltd development platforms
-> where there was no way to individually control secondary CPUs leaving
-> the boot loader - they all jumped to whatever physical code address
-> was supplied at the same time.  This made it necessary for _these_
-> platforms to have a "holding pen" for the CPUs while the kernel
-> initialised.
-
-The "pen" is only needed if all CPUs jump to that address at the same
-time. I don't think the BCMBCA platforms do that because you send
-one IPI to each CPU?
-
-So I would skip this assembly completely...
-I don't understand why you're doing this other
-than copy/paste?
-
-> @@ -58,17 +76,27 @@ static int bcmbca_boot_secondary(unsigned int cpu, st=
-ruct task_struct *idle)
->         /*
->          * The CFE stub reads GPIO GeneralPurpose after an interrupt and
->          * branches to it in ARM state. Clear any Thumb function pointer
-> -        * tag and complete the MMIO write before sending the wakeup IPI.
-> +        * tag and complete the MMIO write before opening the pen and
-> +        * sending the wakeup IPI.
->          */
-> -       writel(__pa_symbol(secondary_startup_arm) & ~1, mailbox);
-> +       writel(__pa_symbol(bcmbca_secondary_startup) & ~1, mailbox);
->         dsb(sy);
-> -       arch_send_wakeup_ipi_mask(cpumask_of(cpu));
-
-Have you actually tested *not* changing this code and see if
-all CPUs just come up? It should just send each CPU in order to
-secondary_startup_arm like we want?
-
-Yours,
-Linus Walleij
+>   tracing/remotes: Use ring_buffer_capacity() in trace_remote_has_cpu()
+>   tracing/remotes: Add dump_on_panic tracefs file
+>   tracing/remotes: selftests: Add a test for the dump_on_panic tracefs
+>     file
+>   tracing/remotes: Add poll_ms tracefs file
+>   tracing/remotes: Add trace_remote cmdline options
+>   Documentation: tracing/remotes: Add detailed tracefs layout
+>   Documentation/kernel-parameters: Add trace_remote
