@@ -1,96 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795635242;
-	b=ivb9lpdU1cljQXFesKtBk/IJGtXDbOlTOqqGcq21hlwKSEc/JvykM0f+/HdX05MZmCDP
-	 wYcIniG36HKaTXGEEx6vh1OBzXa6X6vf0qaJi0qNHoegWf1XT9eXIxgNsT8UjKVuZxbXM
-	 j4AcseNt+BgeyZRGiJNf4WgQvZSJjjAl9UfoCr1UudiGbdKI1ndqnPOHe1ClndxwmNm7J
-	 XoDtxNnynzB5chHmuVD6GswVhHehsn3ohDDSjeeGJqb/CqeILS2Jri6lAjiFAkNIDMnHD
-	 G/Nj1EFCEZ4evh4KffoDUc+nU3F10RMU/59qF4cvfaS/yPLE9NOVq2K56FKysc0j8cA==
+	t=1795635293;
+	b=l4ScD/vGhYAWVfxUVUAUiqzKOWUEx60VX9j9Rs6PTQUbYzjkCqE8jKia5fGoImNVvJWX
+	 CBZZsvzNHo7wlNTykzLDRgvu5rnRROnlZp0sDI5YP2Kghu0KKGejbyk4Tvtz1obXbhpQ6
+	 28UvXJyg//ZX6XhlEtQuEB2hxNv/Ux/I0UAmE/c2n2e7iL2C5n63zBBQjMipMm2T+5b9D
+	 JuCZeNAMWW4p1M5WShvD/hQ1BbmIkeM1ZeDxxaJrm+9Rf6rYJQfDmIy+uCa/5AlUgsSIl
+	 Ib8zgyLq0ty68O1KIZtVGRZ6uuhhtFCJ+pt9xAjNuMhoEBfwnO8QQznqkGhQ4RruR1Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795635242;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=NLxTkHVtfjBNbHINC3JQs2UX+5Tk80uWbQNIu6qGoTo=;
-	b=s9Dq3ILB1eEtXiouAiHfZa51RtpWS+0E68HQNq9lkvsLcO5lr7SxQF5SkY9O7Zymt1BI
-	 S+luqPSJQh34epQIqx/G9FhfoQ7s8w0smdqJHQMifSx4ybF5Di+G8hRjis10AtzpHp0Av
-	 TpTzLJum0AUl66cAFnNquASBnz+xGjD53B3OgVXK/lFurFdgFvI39hIqpkV9Pw/+cadFt
-	 1+XFw8gJ5VTgxiokmiptR4OlPe/E5RDFY1S1bTjZ7Sx1iaf6SwGCClmtmzegUVQcwO01y
-	 gy1iUa3GNiWxxuwQW5/o1kZS2RF4vrrxzIa+vuUsNqkWf5t2KU+yLYyAy4dQJLf88hg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795635293;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:References:
+	 Date:Message-ID:MIME-Version:Content-Type;
+	bh=dYZOemA/qTJTEoh2g11GwnoMyEY6Vi5ttKSGXwzq7LY=;
+	b=xZtVKMkYUPlFg0FRYM0HdKx1w8m4osRxP2CuBxvd1K/A58baDMTHHh8CkZn+ZcpsKGIK
+	 arRZb7IkwV2Dm5zCaFTw/3tzMMXN9wqyA5UJg+goSzpBADyL86zEBAevVucz01iEAgUG6
+	 fCYlo+FpAR04Z7VAdpOxuFRin4ppg0vWAkSY96H6WhCse2OC6Vny/M7c4lVhLyPJHTw4P
+	 tXnuBe+aGtquCJIjmiAePq76C7ZQwfz+UHEEWfaLGSxV5Cxae/9Vbx8g2Vg4mAeM7oi6U
+	 Rw5cY71EOnxtAoztdopTKl0SeabB0XDiydEcge4WjwIhr9iNdH5ByPPaArIwpKbuF/Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=s29XqjRc;
-	arc=none smtp.remote-ip=209.85.210.52
-Received: from mail-ot1-f52.google.com (mail-ot1-f52.google.com [209.85.210.52])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cKi3ccR2;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 83667606A321
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 19:34:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 83667606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A31B6606A31E;
+	Wed, 25 Nov 2026 19:34:53 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=s29XqjRc
-Received: by mail-ot1-f52.google.com with SMTP id 46e09a7af769-8470d7d430fso3091703a34.3
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:34:02 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795635241; x=1796240041; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=NLxTkHVtfjBNbHINC3JQs2UX+5Tk80uWbQNIu6qGoTo=;
-        b=s29XqjRc334YI5AgicyICZ/Y28HjbYuuCrk/L2v2saoZblJQuSIKXCh9TBMgxZNYFh
-         8I0FX1nYXeMKyMhtOzSryqeoyvPsL76ThZI5wqyiodpNmXg/Gwa6FAxrUHIgRGnjrwoE
-         PZfP+J/MrmnzE+JdvVrcUupvsWAx0hzv4q22+z39Lrh1SqhttyG2oOZYQXoKRYabQGaU
-         gJo1RQXiuzgwaVnmT2nFUlSXVl6TGNo4iPTX584ZN8J+tWwNCkM0rHng3mOIHMjDEMJe
-         acRF4O3uPF0+NR3I5GpuYR1XWBHh5FmF55NTjAsCwlAn32iH1/IXjUp+rd5Cfqj9s23k
-         G7MQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795635241; x=1796240041;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=NLxTkHVtfjBNbHINC3JQs2UX+5Tk80uWbQNIu6qGoTo=;
-        b=GRQamOVmSPDxcakVa0nLK9uEVj3x2BnfQgzYLsIUbgsj2BrZKCjw4Oc6T0oKs3tQwq
-         8q1FoMKVaiIm1vt3l64VjQtaj+ZiJxANTq6eybwksyyvMfCqPLKJwUahfIi32wPE32Zi
-         efwaoqoJxaN24D+w4kPQ/YWxyTu6QhBJ2f7kMVxBEeOtLoyR4N/R3F2nGcB+JPgLKsvn
-         ocer2H7qwjcGGPWS0ibczkr79PPmIFMEVtxA5B1R38WPuovf8Xt7JHMKbUFnEhFe6TSf
-         BzrGTwdDYKnl4qPPizaUNc8uePo3IKl72WsjsZK6/5+ce/bFfuvl7YOKQ2hSdyGBgTt5
-         o/bQ==
-X-Forwarded-Encrypted: i=1; AL+hErFwjOQL4QonxolP4NLG6vE/QA3egoKdmyf3lOgHu8waxDig+z66mkiVhXFgX2Aq/h8lmhnOUwBGdKldxsw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+x5LUTw9uZKp0bSQ02/Avp46Dm/nl+wtMBeFx5m3L7NtKmaRVv
-	PY6KzkYM/zQObgoMGAhbnl5xmgx3C9sM5EfOrT4+2KvTyYZjOfYNLPQ=
-X-Gm-Gg: AZFdTZedmaVuHlSqogsPgNrvc7Ephh863uceraoxKs29v94+0Kf/guqbppvskjT+1kS
-	QFRZ7fH2O7jeKbyfU9IAZAq5VK+98MpduIvvhzZjazNFdoAtxLk7OaWxFXLj4w++JWsUvJSA9rC
-	gY+jeHG2tkPOvtRdHGspdXIJxmYOEekC0sV5ULI1LTR7kvdcXv0jW5se4lxZWwIWHiDtkKs12F2
-	DSkHU2aexXj/hWMpyZq5bychdfx1Qn0vZHy163t1ePvu1cKyzBxt0RhHUiBOa1pmMNwqam7As9a
-	XPIbEqwAPoUyZy86FDmW2HuXlPcHERpdJSwe21LAbdftSiAExjsJ1XGbUyi7hUQrg4N81a42pgy
-	Pzrowqkc+hmTsdFDEMYvqWFj9jcB8eXr5ACqW3PbkyFNEV98G/FLScPBMqSmvj9yiQhD6WF7ZCW
-	Zia3UuVPvvCjrlFk4UXfXB3vEbxIT5wjAwYrheIbC67czjkYa1XIo+R/riiH8Bwqx5jGjd54Tpb
-	DRvi7lKkB3g3s3jD4tWd7nLQnxAaZqQdYR+tu2SOIxlbHmhDsgloptkzKC+gLI01aJVgvY6VIUA
-	JKCop2BIuTuWnQhdTsngoAgli4X/Buoo6CRZ4WcEBDhQxT1C+KM=
-X-Received: by 2002:a05:6830:920:b0:862:c9ab:687a with SMTP id 46e09a7af769-86314ec41bamr27057020a34.0.1795635241407;
-        Wed, 25 Nov 2026 11:34:01 -0800 (PST)
-Received: from miso ([136.62.61.36])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-863168f784fsm13769165a34.16.2026.11.25.11.34.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 11:34:00 -0800 (PST)
-Date: Wed, 25 Nov 2026 13:33:59 -0600
-From: Matthew Laux <matthew.laux@gmail.com>
-To: Hans Verkuil <hverkuil+cisco@kernel.org>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Mehdi Djait <mehdi.djait@bootlin.com>, linux-kernel@vger.kernel.org,
-	linux-media@vger.kernel.org
-Subject: Re: [PATCH v7 11/12] media: Add subdevice driver for the Mstar
- MST3367 HDMI receiver
-Message-ID: <awc4J-M8SCfLx5O2@miso>
-References: <20261121035523.26764-1-matthew.laux@gmail.com>
- <20261121035523.26764-12-matthew.laux@gmail.com>
- <7969efe4-40e0-4c1e-b36d-dbb939bb4c64@kernel.org>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cKi3ccR2
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D4A21F000C4;
+	Wed, 25 Nov 2026 19:34:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795635293;
+	bh=dYZOemA/qTJTEoh2g11GwnoMyEY6Vi5ttKSGXwzq7LY=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=cKi3ccR2YGoo7Tc8miltHOfUD8mmvx6/MHxsMi0eT3eS6LDkCqxwMCkwEW6puFpIS
+	 xppn7v12LpUDEfpfCx6LtMW9vdZUHRVOWstgH+/RFzUFuz1+a/kbo/qQyeUV2KAmAT
+	 /iq2nVXN4vLgHIpAvud5FKM2AeDGFbTD+svS6gb9346St9wi+yalpd7RtIluHBLdE6
+	 219PQmUySdaQChKecr+DPTnNnq2IiWJTUOwUrdjnUJ8GlITA2YWu+IbZoPjG7PDyM5
+	 J5Vzd4Vzayyf/MRo77TesrYiHMVus61hL0QbSvrciZHUbcQZCuYXWOG9QQ+qWkIb5V
+	 DGK/xnFnTvfGg==
+From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+To: netdev-bot+sashiko@kernel.org
+Cc: magnus.karlsson@intel.com, maciej.fijalkowski@intel.com,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ pabeni@redhat.com, andrew+netdev@lunn.ch, ast@kernel.org,
+ daniel@iogearbox.net, hawk@kernel.org, john.fastabend@gmail.com,
+ andrii@kernel.org, eddyz87@gmail.com, memxor@gmail.com,
+ ilias.apalodimas@linaro.org, alexanderduyck@fb.com, saeedm@nvidia.com,
+ tariqt@nvidia.com, mbloch@nvidia.com, leon@kernel.org,
+ michael.chan@broadcom.com, pavan.chebbi@broadcom.com, corbet@lwn.net,
+ shuah@kernel.org, bpf@vger.kernel.org, netdev@vger.kernel.org,
+ stuclar@meta.com, sdf@fomichev.me, horms@kernel.org, martin.lau@linux.dev,
+ almasrymina@google.com, song@kernel.org, yonghong.song@linux.dev,
+ jolsa@kernel.org, emil@etsalapatis.com, ihor.solodrai@linux.dev,
+ rdunlap@infradead.org, kernel-team@meta.com,
+ dimitri.daskalakis1@gmail.com, bobbyeshleman@meta.com,
+ mohsin.bashr@gmail.com, kees@kernel.org, leitao@debian.org,
+ maxime.chevallier@bootlin.com, cuitao@kylinos.cn,
+ vadim.fedorenko@linux.dev, mike.marciniszyn@gmail.com, kuniyu@google.com,
+ jiayuan.chen@linux.dev, mkarsten@uwaterloo.ca, razor@blackwall.org,
+ dw@davidwei.uk, asml.silence@gmail.com, linux-rdma@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next 01/15] xdp: Let memory providers offer XDP a
+ view of their net_iovs
+In-Reply-To: <179561567567.3135.2081478467669976102@kernel.org>
+References: <20261124125654.183091-1-bjorn@kernel.org>
+ <179561567567.3135.2081478467669976102@kernel.org>
+Date: Wed, 25 Nov 2026 20:34:49 +0100
+Message-ID: <87v75kogbq.fsf@all.your.base.are.belong.to.us>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,37 +78,75 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <7969efe4-40e0-4c1e-b36d-dbb939bb4c64@kernel.org>
+Content-Type: text/plain
 
-On Wed, Nov 25, 2026 at 02:17:21PM +0100, Hans Verkuil wrote:
-> <snip>
+netdev-bot+sashiko@kernel.org writes:
+
+> Thank you for your contribution! Sashiko AI review found more severe
+> issue(s) in other patches of this series. This mail is only an FYI, in case
+> you want to address the nit picks below when you respin.
 >
-> InfoFrame data must also be exported to debugfs. See v4l2_debugfs_if_alloc etc.
-> in v4l2-dv-timings.h.
-> 
-> It's implemented in most/all HDMI receivers, so you can take a look at how it is
-> done.
-> 
-> The exported InfoFrame data can be parsed by edid-decode.
+> Low priority / nit picks for your consideration:
+>
+> - [Low] Two comments in include/net/xdp.h now contradict each other.
+>
+> --
+>
+> xdp: Let memory providers offer XDP a view of their net_iovs
+>
+> This commit lets a net_iov area expose an XDP view: an address and size
+> for its net_iovs, plus a shift that gives the per-net_iov stride. It adds
+> xdp_netmem_address() and xdp_frag_address(). The XDP buffer helpers in
+> net/core/filter.c now use them, so they can read and write frags backed by
+> net_iovs that have a view.
+>
+>> diff --git a/include/net/xdp.h b/include/net/xdp.h
+>> index 07231adfb5f82..1629e347b71fb 100644
+>> --- a/include/net/xdp.h
+>> +++ b/include/net/xdp.h
+>> @@ -164,6 +164,40 @@ xdp_init_buff(struct xdp_buff *xdp, u32 frame_sz, struct xdp_rxq_info *rxq)
+>>  #endif
+>>  }
+>>  
+>> +/* XDP view of net_iovs: a memory provider may give XDP an address for its
+>> + * net_iovs, see &net_iov_area.xdp_vaddr. XDP code may read and write a
+>> + * net_iov only through these helpers, and only if its provider offers a
+>> + * view; such buffers must not become skb frags or xdp_frames. For the core
+>> + * and the stack every net_iov stays unreadable: netmem_address() and
+>> + * skb_frag_address() give NULL for it. A net_iov without a view gives NULL
+>> + * here too, so a reader that does not use these helpers fails closed.
+>> + */
+>
+> [Severity: Low]
+> This isn't a bug, but does this comment now contradict the older one on
+> XDP_FLAGS_FRAGS_UNREADABLE in the same header?
+>
+> include/net/xdp.h:
+> 	/* frags have unreadable mem, this can't be true for real XDP packets,
+> 	 * but drivers may use XDP helpers to construct Rx pkt state even when
+> 	 * XDP program is not attached.
+> 	 */
+> 	XDP_FLAGS_FRAGS_UNREADABLE	= BIT(2),
+>
+> The new block says XDP code may read and write net_iov frags when the
+> provider offers a view. That means XDP programs are expected to run on
+> buffers with net_iov frags.
+>
+> xdp_buff_add_frag() still sets the flag for every net_iov frag, whether or
+> not it has a view. After the later patch "xdp: Run programs on buffers
+> that must not hold kernel structures", it sets both
+> XDP_FLAGS_FRAGS_UNREADABLE and XDP_FLAGS_SINK on NET_IOV_XSK frags:
+>
+> 	if (unlikely(netmem_is_net_iov(netmem))) {
+> 		xdp_buff_set_frag_unreadable(xdp);
+> 		/* AF_XDP sink memory may only go to the socket of its queue */
+> 		if (netmem_to_net_iov(netmem)->type == NET_IOV_XSK)
+> 			xdp->flags |= XDP_FLAGS_SINK;
+> 	}
+>
+> Native XDP programs then run on those buffers, so real XDP packets carry
+> the flag. At the end of the series, the old comment is unchanged.
+>
+> Could the XDP_FLAGS_FRAGS_UNREADABLE comment be updated to match?
 
-Implemented in v8 following the pattern from tc358743.c. I did have to
-manually create the InfoFrame header and checksum because the chip
-doesn't make them available through registers, but with that done, I was
-able to use the existing hdmi_infoframe_unpack() instead of manually
-filling the fields.
-
-I added some output from edid-decode in the cover letter for v8.
-
-> > +
-> > +	return 0;
-> > +}
-> > +
-> Regards,
-> 
-> 	Hans
-
-Thank you for the review!
-
-Matthew
+Yes, I'll fix this in the next version.
