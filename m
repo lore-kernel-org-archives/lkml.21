@@ -1,47 +1,105 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=124.71.93.112
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795569918;
-	b=BE6PsMHOT/oOqJpLEst/wRYgBQ++c3wG3YD0pIoFd+DSOXRuuvcIOZZ5DXDntQ8VLCwu
-	 yQpGlzm5EtvSPwq9hjYodFU7zyT7CWdjPfW68WN5NgbPJHaf3VsnT6nXi+IabUIKoxAto
-	 iY6huMI4L/ZUhTRspLr0ZWZ/ZL1gNZNgxxkLs9lC1lM88ZPQcuOZHgQtkBij1xwETw7Sz
-	 djyfiubJ3LB1BX45qBOlIiUG7dYFFro5eyexhXwgopy2V+x9mEFPNWqUGoDw9eWXtbDro
-	 yWxEgTRWgLATjozXNhyCg2U0oo9IPV6aPe//yOIHBwPkAFUi1p0RQzQuM/x6ReMzWHg==
+	t=1795569967;
+	b=hYxIE61/MYFIn82/76XySY/rLRa9vO6ASCIj0bpu8vl6rTgJLGIF2hWV2bDDZ+2sqDXz
+	 HRuxIxH0RHD2Wrn3Vph5VA0FfuwHiZ7pQJQJ8yd13onS8e0kmeKLRbQnrNfH8A+TR4nbx
+	 v2/t1DHC744B24Ab9bVlXFb0SuKsYmIhr04blbR6/pFDl0BFzM/ohg2lmIRU5xE2vdQ8o
+	 zuHFdCdpkxs9DW9Bnc6+TNl+4s4y5iwCup07KK+LI5KYsbKdx9WTajNim9AQrUhfk/Ui5
+	 QWFSue4XfCO/ZIftTLm1Dr97HHaIOtwDlHj9mxLRAgjkx6Z8tMhQKLjC14IJ9/OHlGQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795569918;
-	h=DMARC-Filter:Received:Received:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-CM-TRANSID:
-	 X-Coremail-Antispam:X-CM-SenderInfo;
-	bh=BMhI++4hrmOQdb1jbtyFj7f8QyI0a7HFLcXSQC8NNgQ=;
-	b=cHXN/tf5zKc37s4Ns3D0WFlbu+YSCR2lr19Om4QhR7lr8tPQQLSf8uNWJcfg6p7wLnBl
-	 t0wUN61BfSRsLl4LIlLScB+js+2XAZZB+/jkjhkU3DR+qF/5/zQ1cLMsh+fTZoEqxRt5v
-	 gLAoRPIzJgiqTw164yWahDMtrOzNdEha67C1gTofqwSzX3sevGEUJzJiVF+LDeY2RLNLu
-	 KAdgZ+7oLIUSI+5iK8sPQQ0QNCnvmRbamBMOGjsA/8/StiUEwSCeB01y8e46RUwf+1lRV
-	 IYajCTxsA3ShcDTeEE87jOWtmXqcgUATvkspQz8aIph41hp3UffGOauWAzxs+Tw2Yng==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795569967;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
+	bh=Ca3B9Vvi6+90qx4u9Sp1DXWE1+uVNN4yzp9+O5Q2YIs=;
+	b=KZ1lFQYPSwqwmHmu6eOome9gHTBh/c2+YxG63zEme7RMkst1oF0v1h4iJfNn8CT0vpzQ
+	 Ya9W6abOASxH5CqhsoXGyn9ZxPUVI7OKYNiiEpfOfQGDYLCHhT5vFgd+eJ0OGaAWYqNF+
+	 OXU3KkY55qe/F8Xm3by2CnEUYlnkVYBXobixi9H2WQRHut5i5eim9CqvBqKycxnQl8PZc
+	 ZE6PqGRx8jxSi5+qZuEs9Fm7IbA7FjMYJlLAAKcKM/fyJQRDXK9aRg4P7hxLlTtWBGjk+
+	 AvfNoAXpkMeuZdZHLU5TaPOwKoK3biAuQwJRojMSuIcz+w/A6sGlEJNIX6ceh6Nx8+w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=huaweicloud.com;
-	spf=none smtp.mailfrom=huaweicloud.com;
-	arc=none smtp.remote-ip=124.71.93.112
-Received: from dggmsgout12.his.huawei.com (dggmsgout12.his.huawei.com [124.71.93.112])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BQ+GX78V;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C3C24606A31E;
-	Wed, 25 Nov 2026 01:25:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C3C24606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=huaweicloud.com
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=huaweicloud.com
-Received: from mail.maildlp.com (unknown [172.19.163.198])
-	by dggmsgout12.his.huawei.com (SkyGuard) with ESMTP id 4jZ26V2sZWz200y;
-	Wed, 25 Nov 2026 09:25:06 +0800 (CST)
-Received: from mail02.huawei.com (unknown [10.116.40.128])
-	by mail.maildlp.com (Postfix) with ESMTP id 22C8040574;
-	Wed, 25 Nov 2026 09:25:09 +0800 (CST)
-Received: from [10.174.179.19] (unknown [10.174.179.19])
-	by APP4 (Coremail) with UTF8SMTPSA id gCh0CgCn4O_rOAZrGoHDFg--.50683S3;
-	Wed, 25 Nov 2026 09:25:08 +0800 (CST)
-Message-ID: <490a7578-6171-4a48-8d7a-b8541f0e9425@huaweicloud.com>
-Date: Wed, 25 Nov 2026 09:24:59 +0800
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 620E0606A323;
+	Wed, 25 Nov 2026 01:26:07 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BQ+GX78V
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33D6B1F000C6;
+	Wed, 25 Nov 2026 01:26:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795569967;
+	bh=Ca3B9Vvi6+90qx4u9Sp1DXWE1+uVNN4yzp9+O5Q2YIs=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=BQ+GX78VKftJ6+id7UodYIJVWt0mLOwYTL+d/5FUAfPlDVbAfxmLIdg74hMbpoT9A
+	 qMASA0BppbiZBYE6BmaS441yhU2m7bViO3tuhrklReMv1XIrnAaAlDJgGNBKQYY1sN
+	 j3WxIaMwitlY3uyl8ziV6MaUD8lIEJLChB3uP6+mbI2Mtg8GRodlirFdOOYH5yVKlU
+	 1X913VYCj42FXa4OS7y0H2qP2ZFNkiOG1ZFhzSMhFTAk8hV/VIEqU2+unCXJTZBxN6
+	 wzdqDIb/f5BYWCtK6UNW5RduhBRF1ScAN3blsgfmikp7PfnMx1qSjB/LMh2Z8ppaIb
+	 BPNSW7eGhWylA==
+From: SJ Park <sj@kernel.org>
+To: Kairui Song via B4 Relay <devnull+kasong.tencent.com@kernel.org>
+Cc: SJ Park <sj@kernel.org>,
+	linux-mm@kvack.org,
+	Johannes Weiner <hannes@cmpxchg.org>,
+	Muchun Song <muchun.song@linux.dev>,
+	Qi Zheng <qi.zheng@linux.dev>,
+	Ying Huang <ying.huang@linux.alibaba.com>,
+	Chris Li <chrisl@kernel.org>,
+	Baoquan He <baoquan.he@linux.dev>,
+	Nico Pache <nico.pache@linux.dev>,
+	Usama Arif <usama.arif@linux.dev>,
+	Michal Hocko <mhocko@kernel.org>,
+	Roman Gushchin <roman.gushchin@linux.dev>,
+	Shakeel Butt <shakeel.butt@linux.dev>,
+	David Hildenbrand <david@kernel.org>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	"Liam R. Howlett" <liam@infradead.org>,
+	Barry Song <baohua@kernel.org>,
+	Axel Rasmussen <axelrasmussen@google.com>,
+	Yuanchu Xie <yuanchu@google.com>,
+	Wei Xu <weixugc@google.com>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Nhat Pham <nphamcs@gmail.com>,
+	Youngjun Park <youngjun.park@lge.com>,
+	Zi Yan <ziy@nvidia.com>,
+	Gregory Price <gourry@gourry.net>,
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Dev Jain <dev.jain@arm.com>,
+	Lance Yang <lance.yang@linux.dev>,
+	Hugh Dickins <hughd@google.com>,
+	David Rientjes <rientjes@google.com>,
+	Yu Zhao <yuzhao@google.com>,
+	Vernon Yang <vernon2gm@gmail.com>,
+	Zicheng Wang <wangzicheng@honor.com>,
+	Tal Zussman <tz2294@columbia.edu>,
+	Kairui Song <ryncsn@gmail.com>,
+	Xiang Liu <liuxiang.277@bytedance.com>,
+	Ehab Ababneh <ehab.ababneh@intel.com>,
+	Zhao Zhenzhuo <zhaozhengzhuo@uniontech.com>,
+	Lian Wang <lianux.mm@gmail.com>,
+	Joanne Koong <joannelkoong@gmail.com>,
+	Kunwu Chan <kunwu.chan@gmail.com>,
+	Hui Zhu <hui.zhu@linux.dev>,
+	Maxim Muzafarov <maxmuzaf@gmail.com>,
+	linux-kernel@vger.kernel.org,
+	cgroups@vger.kernel.org,
+	damon@lists.linux.dev,
+	linux-doc@vger.kernel.org,
+	Tianyi Chen <hi@tychen.cc>,
+	Kairui Song <kasong@tencent.com>,
+	Ridong Chen <ridong.chen@linux.dev>
+Subject: Re: [PATCH v6 01/18] mm/mglru: rename the generation offset in lru_gen_folio_seq()
+Date: Tue, 24 Nov 2026 17:25:57 -0800
+Message-ID: <20261125012558.98032-1-sj@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261124-mglru-fg-v6-1-8ffea39934a6@tencent.com>
+References: 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,120 +109,37 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [REGRESSION] ext4: silent data loss when a split at I/O
- completion gets ENOSPC
-To: Jan Kara <jack@suse.cz>
-Cc: "Jose Fernandez (Anthropic)" <jose.fernandez@linux.dev>,
- Ojaswin Mujoo <ojaswin@linux.ibm.com>, Theodore Ts'o <tytso@mit.edu>,
- Baokun Li <libaokun@linux.alibaba.com>,
- Andreas Dilger <adilger.kernel@dilger.ca>,
- "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
- guolingxing <guolingxing@tju.edu.cn>, Josef Bacik <josef@toxicpanda.com>,
- Chris Mason <mason@kernel.org>, linux-ext4@vger.kernel.org,
- linux-kernel@vger.kernel.org, regressions@lists.linux.dev
-References: <d400205a-0d3d-4ec3-a916-6c0a085841b4@linux.dev>
- <d8ac3185-44c8-41e7-9cbf-3d1baa27f272@huaweicloud.com>
- <20261117-jf-ext4-enospc-reply-zhangyi-v9-b19eeb966ad0@linux.dev>
- <10712329-a587-496d-babf-620ebfd0e60e@huaweicloud.com>
- <20261118-jf-ext4-enospc-reply-zhangyi-v13-3886a3248c32@linux.dev>
- <9be1cb3e-4417-4609-bc0d-67dcfa24aa10@huaweicloud.com>
- <osarljpnd2viffbi3lrgqccyjxjo6ktez73sizcstqjiaw3cbc@e5jnepamtbkl>
-Content-Language: en-US
-From: Zhang Yi <yi.zhang@huaweicloud.com>
-In-Reply-To: <osarljpnd2viffbi3lrgqccyjxjo6ktez73sizcstqjiaw3cbc@e5jnepamtbkl>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CM-TRANSID:gCh0CgCn4O_rOAZrGoHDFg--.50683S3
-X-Coremail-Antispam: 1UD129KBjvJXoWxXr45WFWUZF45ZrWUAFW7XFb_yoW5KF1rpF
-	Z5Ca43Kr4kKw1UJrsFqw1xX34Fkw4SgF4UGrykWr17u398urySgFs7KryY9F9Fkr4xGw1j
-	vFWj934ru3Z8ZaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvjb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k2
-	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
-	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7Cj
-	xVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I8E87Iv6xkF7I
-	0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40E
-	x7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x
-	0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AF
-	wI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4
-	xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43
-	MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I
-	0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWU
-	JVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjxUF1
-	v3UUUUU
-X-CM-SenderInfo: d1lo6xhdqjqx5xdzvxpfor3voofrz/
+Content-Transfer-Encoding: 8bit
 
-On 11/24/2026 11:53 PM, Jan Kara wrote:
-> On Tue 24-11-26 12:49:19, Zhang Yi wrote:
->> On 11/18/2026 10:06 PM, Jose Fernandez (Anthropic) wrote:
->>> On Wed, Nov 18, 2026 Zhang Yi wrote:
->>>> Could you provide a reproducer? My guess is that high concurrency causes
->>>> the blocks freed by my current process to be taken by I/O issued by
->>>> other processes
->>>
->>> That fits our runs. I'll send you the script off-list.
->>>
->>> - Jose
->>
->>
->> Thank you for the reproducer. After debugging, I confirmed the cause. On
->> each failed endio conversion, the retry commits the journal, but the
->> blocks released by the commit are soon claimed again by the
->> background fallocate loop, so after 3 retries the DIO finally returns
->> ENOSPC.
->>
->> Although Ojaswin's v2 does track the exact ranges when submitting I/Os,
->> we cannot convert the whole extent after zeroing until all in-flight I/Os
->> overlapping this extent have finished, which is too expensive to me. So I
->> think we may still need the split to succeed.
->>
->> Note that we do reserve space for exactly this case. At mount time we
->> set aside s_resv_clusters (2% of the clusters, capped at 4096 clusters),
->> and EXT4_GET_BLOCKS_METADATA_NOFAIL is allowed to use it. The problem is
->> that this reservation is not effective today. s_freeclusters_counter is
->> incremented when blocks are freed, but for journaled frees the blocks
->> only return to the buddy allocator after the freeing transaction
->> commits. Most allocation paths already run inside a transaction, so we
->> cannot force a commit from there, and even between retries the released
->> space can be taken again, as the reproducer shows. So ordinary
->> allocations can currently consume the reserved pool, and endio extent
->> splits can be fooled into thinking space is available. This hurts both
->> endio extent conversion and delalloc writeback.
->>
->> My idea is to make this a real reservation of currently allocatable
->> clusters rather than just a counter check. We can subtract
->> sbi->s_mb_free_pending from free_clusters in ext4_has_free_clusters().
->> Then a successful check no longer counts clusters that cannot be
->> allocated yet, ordinary allocations can no longer eat into the reserved
->> pool, and the endio split can fall back on the reserve without having to
->> force a commit first. Delalloc reservations benefit as well, since
->> writeback is less likely to run into ENOSPC.
->>
->> The downside is that ENOSPC may be returned earlier, e.g. by buffered
->> writes under the same heavy concurrency. I think that is acceptable
->> since the retry is best effort anyway, and ext4_should_retry_alloc()
->> still forces a commit when there are pending frees, so it can cover most
->> scenarios. Even if it does fail, it is better to fail early than to fail
->> after the data has already been written. This is also consistent with
->> the behavior of allocating blocks directly when writing in old
->> dioread_lock mode.
->>
->> With the reproducer, this takes the DIO ENOSPC rate from ~11% to 0, and
->> failed conversion attempts from ~1500-2200 per run to ~0.3 per run.
->> fallocate ENOSPC did not increase noticeably (2.0% before vs 2.2% after).
->> However, the probability of returning ENOSPC for pure append writes
->> increases by about 10%.
->>
->> Does this approach sounds OK?
+On Tue, 24 Nov 2026 02:52:53 +0800 Kairui Song via B4 Relay <devnull+kasong.tencent.com@kernel.org> wrote:
+
+> From: Ridong Chen <chenridong@xiaomi.com>
 > 
-> Yes, it sounds good to me. I was also puzzled why the reserved clusters are
-> not effective so thanks for explaining that :)
+> lru_gen_folio_seq() computes how many generations below max_seq a folio
+> should be added to, but stores it in a variable named "gen". Elsewhere in
+> MGLRU "gen" means an index into lrugen->folios[], i.e. seq % MAX_NR_GENS,
+> so reusing the name for a relative offset is confusing.
 > 
-> 								Honza
+> Rename it to "age", which matches what the value means: the newest
+> generation is age 1, and a larger age is an older generation.
+> 
+> No functional change.
 
-Thank you for confirming this idea. Let's continue moving forward in
-this direction. :)
+Looks good to me.
 
-Best Regards,
-Yi.
+> 
+> Signed-off-by: Ridong Chen <chenridong@xiaomi.com>
+> [kasong: dropped the comment table part, the series rewrites it]
+> Reviewed-by: Barry Song <baohua@kernel.org>
+> Reviewed-by: Lian Wang <lianux.mm@gmail.com>
+> Reviewed-by: Kunwu Chan <kunwu.chan@gmail.com>
+> Tested-by: Andrew Morton <akpm@linux-foundation.org>
+> Signed-off-by: Kairui Song <kasong@tencent.com>
 
+Reviewed-by: SJ Park <sj@kernel.org>
+
+
+Thanks,
+SJ
+
+[...]
