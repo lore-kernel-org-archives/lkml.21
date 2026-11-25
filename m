@@ -1,47 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.179
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795604292;
-	b=afB1vKbblKC/OSaramtZqkKl/X1XjpVdnuur+j+kaAfY3lhyhSG1oLdzCBziBkuvKGIk
-	 J4ZVwbabfNENAJZqgyt3bDtl/h2wqBBqHH3kjigzM2oe48KJHhAjWbfqKqH15GBlYGDZz
-	 /0nSD1bCppre1IsHpz8iQQstNX3Q34RkJLKz8IHuoenVqGNuGTjOXFVDYV8xK35BSuAg9
-	 bs8FXTzLEdl/H3aznPZEAQe3vIDltQPeVjuO5AfS1MhJIhA1l5IusS9gihkur8SnGqfSb
-	 KHh90TeX63+GQ4hWJq9WiiJvWY1HfwqefnGeq0YwkNFN1PsKvRpdAb3qaLCMfWo9gKw==
+	t=1795604364;
+	b=X9onJ8aXZJmiAkeTbEVUX6hGgSZF4f/xSbbAqzfapkwfOz0E9nFIIsSqdCALFvnurHPn
+	 pSWFnB9tJlcNrx9cf+uk6o/qYiQhvSn4PjGD5xj3L3Az9hP4l1UVWs0wFw++AhrxeU+oJ
+	 bDTZcsX7ZBppz6qF+O2Bizg/sF7Upa6iNb8AHiqlym2oQHXUtyWUq/traASKCTYlZUHE5
+	 wctjG1LtjicU+m0cQyOQZkDTcbOWqo7QR5TXwj/jUFF/wYAOupE52onLm4e0lxUe8NZpB
+	 kRXWOoe2S1xL0I/Oq2wVUSkh9/lOlzRycSJ4WBEwhGqeebAZai+oOlEEblP/G4GWD3Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795604292;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:References:From:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=Ezl81EdcwaGzGmgo8qc93IdYDX7vHXyDmmf20JLLsZk=;
-	b=ZKMK8maoV4XKWzq2Y2WO0VfnY9FC8VreiUeKgCHFRo7RLoeUJ7045MjuzVdEkG/pMUM/
-	 P4XynvsLE8W7Y7p4VgMm2HmX5eqJX51wznnZ6EitI/nUB5nyffQG97lYmzhNKqFApYYw+
-	 XwEO94ISJpWylDTwMH4mXSRyfJ0qZwN9DVSEXVV4syPLAxgyyg3KAFb+fPaBslWJSdi68
-	 KbKS49ThEyblDPXdz4DQfA4DCMebb3S0gyt2hWveSTCsg53JWgihxoTNoXRF70fhnULPy
-	 UClhMzu5bNlQbO/3SFY9Sr8+4wrkwyVaXS+VTOIMhVEzah0+UcfEuSPv7A4VYdsW2nQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795604364;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=j1FGvTIUIAFBOZYmL6OiO8sZFEbEFDfPmxmvVzyQ4O4=;
+	b=L2PxbWkP1yWFeOAHR/Xaf+EJKQHH5vhynTUZNiCWZCm0ob249BCx1oqBQAIx7UE0Eg0M
+	 /SaZJY7F/lo7GdsJYo5mhlYYCx7uW3RUd0U0YUaITz1RmJZXJf0kC7gnjdgFQegjGImxR
+	 r11dJ0JxXJvdB2M54YlDz1XDo/3PnSVjwZoamYdMgZu6W43aQUYFv9lpmxvPUmcQ5XXZR
+	 sn9ujFMehT9dQcq0J9X2k818Z+Gc9n9O4UKne36ycrDequPu1uUn307tSZNKzNQrVvsLe
+	 4+xIyP4LFLMDGqzRveed9Hva+7xrKNbqAp7tdNPOvYF58dUjBNNh2uz2GfVfYXJkFmg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YEHC8FEK;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=l5paWmhl;
+	arc=none smtp.remote-ip=74.125.82.179
+Received: from mail-dy1-f179.google.com (mail-dy1-f179.google.com [74.125.82.179])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 65035606A31E;
-	Wed, 25 Nov 2026 10:58:12 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 447DF606A31E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:59:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 447DF606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YEHC8FEK
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B14951F000C0;
-	Wed, 25 Nov 2026 10:58:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795604292;
-	bh=Ezl81EdcwaGzGmgo8qc93IdYDX7vHXyDmmf20JLLsZk=;
-	h=Date:Subject:To:References:From:In-Reply-To;
-	b=YEHC8FEKizvcfCDw2AHuP0lJqmhMrm1wFdck2zClUIEzHPpozUOdkUx9G9dUg0WcH
-	 BL0TZSWG1iZctoyRa0aQM4C5Ev7A3lAmX+6xXuOZ/A5e/52p08/ejOfvUt7TBoBYID
-	 OkazQJ+2w6zxa/v6b080eQNSWSLgQYOj9Ivry84mYHJvTz00Q12cWavkfwNQMcIm+J
-	 AKUQJWlGOa+sCi/px7bkkXArG3BQiuibiVL51LrHAIMogyg4IqRFBGsWCagFq1ddMZ
-	 6a+iKXgTtC9XRrYjS3ekP0CLfytm4ECKjkHxRf/4kGm3f+swBe4w63XG2Y1d8/urY8
-	 lCbOMi3tL2Ecg==
-Message-ID: <22b88487-6445-4fe1-ab96-d46b303b7f9b@kernel.org>
-Date: Wed, 25 Nov 2026 11:58:04 +0100
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=l5paWmhl
+Received: by mail-dy1-f179.google.com with SMTP id 5a478bee46e88-38190551625so11174954eec.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 02:59:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795604363; x=1796209163; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=j1FGvTIUIAFBOZYmL6OiO8sZFEbEFDfPmxmvVzyQ4O4=;
+        b=l5paWmhlvul/tw/kTqteh745vQEXeh7d1Fd4bYOnqC2zUQkt7xFh/cAzBJy71FYJMk
+         zUBPHGWUxP6NoIuUKIr1EE1hQJ6jDcvrQfln8HtHCDdOsigZrbAD07VS3axTCZmj4Z7g
+         fp+fQY7/EgOWTDHInPtZyDoKd6+rNX6UPgKlDRYvY1d8o+Nja9d4YHG2QFGSfeVhbwph
+         0+KN2ug/N3EpiORql/S6jKTNxviWcL800jv3MexSaMmsDRszh6XEuGG64ZSrFywFlFS1
+         L5vIQfxcqQso3upERHrL9L0mFLhl9usZTO78V1MLASVFKWijxFUlMEaoorZ6WVcnLNuB
+         gYCA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795604363; x=1796209163;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=j1FGvTIUIAFBOZYmL6OiO8sZFEbEFDfPmxmvVzyQ4O4=;
+        b=yieBQsq0uMQl+2mTHkhF5FYXR+XQLnN20CgjLT//LbPe79LieJ7UrMj4aRl9X6Wru2
+         Ll/HeoNODbz9bX0kzgY/ht2jL1vtGoH/IHqCXfCK/NZUurTiCJnW1RI0YVv67ridhT7G
+         t3EvrsMbTAdSok5D8xCDQNVAbCVByWQ5bovkq8daQRct4VVmLIQrTRZBL64xhGZP5XSM
+         c9wDvhS+iLi2ynNFVYHMv+oyNB5codFCF0D17WD9s15n+uhDtgCyZJCKeXycyptZ+EBe
+         7vwLS4S+LIyiXJKKKhYdtfQt5Bpn92ZAO0CaOpUm6t/2eR++yX38XAKnOe2S7dHz5O1g
+         x1oQ==
+X-Forwarded-Encrypted: i=1; AL+hErEYRQNy7YUDErP55AuYOUoJVAYzx7BbASzUJr5yiTyz0kF3PPHgkmxbr5XZgOmpUbLPymfNVw33jZDtqts=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+/6QVO9jJ+IR/dQTTaLFCbcD4rqI9XZzuOTMiE1mGt5WzjKMmy
+	M61D7YghyA9DyVJK2TMCM+RRyFbHJ02VA884w7taW6b7QuTNB8LJqkXt
+X-Gm-Gg: AZFdTZesu45PYWXFAqvGwC5oevUi356WSmhDtLBWm839uJCXOE5htBeisJB4XGffrkZ
+	q62SmGMHoTefR/CgdmtArGAVqVG6a3KWl0hyv2R04Q5LSqloSPeD/nZDJpl1hikPKu19kQSfMVj
+	NVNGar6XV4XffTEFsnQ47eMaaUy0fFuMoLIP8OYtoiN/uJAdgp4DVcxkgybsq+mpJYgcWlRLVZ4
+	0Lns9ur+kGZp30KSI8JTeCDKvDtSZ4e46Tl27SBQ6cn6brP/oIafPa4wdyDkNDQ913Ib9j3ikBg
+	4ORbN5AVwoatBOEzsWqyyb6KuA1LSyAQg8Pkjt9DAOH0vm8S/JwfVStmFxCYtu6aP65pTINojEF
+	+xzQMNy8J4jDKyMisuoCNP6pNQMBfqwHsojDNyiH16w8BUPLZgAVW/Za99zkvIPDHQQZRZqaDHY
+	lMMPFvrKOqjwlmY97N5KcJ/MwaoClubXErBfZE6/Ec+dTWT/f5hz/S/Fy7NA4jhO6ed4Vn3oSBI
+	q27UTKABPsHFkZOku27wCwiHDh/s5Z1eEyNeSc+Ai1RMkBtNiEpcpZemKK4Pn6fgJ/vfcnc+zgj
+	OnqrYyi6r0Ql3hSWCYt2NmzsVjJCdYBhLTS5pp+ZO19VlTMN3Fruev+ObnaGzmQneIMijZ9pvnM
+	SAaT5EKpk7DmluRTPKx/hgS6Q4vA=
+X-Received: by 2002:a05:693c:39cc:b0:386:48c1:6c5e with SMTP id 5a478bee46e88-38648c1719dmr15667422eec.37.1795604363311;
+        Wed, 25 Nov 2026 02:59:23 -0800 (PST)
+Received: from localhost.localdomain ([2409:40f0:12f:243a:5b38:482:e2fe:5dab])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385d2b93dd9sm60114815eec.24.2026.11.25.02.59.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 02:59:22 -0800 (PST)
+From: Torra Sowmya <sowmyatorra@gmail.com>
+To: matthew.brost@intel.com,
+	thomas.hellstrom@linux.intel.com,
+	rodrigo.vivi@intel.com
+Cc: airlied@gmail.com,
+	simona@ffwll.ch,
+	intel-xe@lists.freedesktop.org,
+	dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] drm/xe: Remove unused userptr rebind tracepoints
+Date: Wed, 25 Nov 2026 16:28:54 +0530
+Message-ID: <20261125105854.48591-1-sowmyatorra@gmail.com>
+X-Mailer: git-send-email 2.47.3
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,247 +100,46 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/7] dt-bindings: soc: mediatek: add MMDVFS binding
-To: Echo Zhang <echo.zhang@mediatek.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>,
- Jerome Brunet <jbrunet+clk@baylibre.com>,
- Nathan Chancellor <nathan@kernel.org>,
- Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling
- <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
- MMDVFS Team <linux-mediatek@lists.infradead.org>, kyrie.wu@mediatek.com,
- ming-fan.chen@mediatek.com, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-clk@vger.kernel.org, llvm@lists.linux.dev
-References: <20261125060037.649659-1-echo.zhang@mediatek.com>
- <20261125060037.649659-3-echo.zhang@mediatek.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20261125060037.649659-3-echo.zhang@mediatek.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-On 25/11/2026 07:00, Echo Zhang wrote:
-> +description:
-> +  MediaTek MMDVFS provides dynamic voltage and frequency scaling for multimedia
-> +  hardware accelerators. The controller exposes virtual clocks that multimedia
-> +  consumers use through the common clock framework. The driver aggregates
-> +  consumer rate requests and sends the resulting DVFS votes to the multimedia
-> +  hardware voter and VCP firmware.
-> +
-> +select: false
+The xe_vma_userptr_rebind_worker and xe_vma_userptr_rebind_exec
+events were introduced without callers. Their definitions were
+later moved to xe_trace_bo.h, but remain unused.
 
-What?
+Remove both definitions while retaining the shared xe_vma event
+class and the other events that use it.
 
-> +
-> +properties:
-> +  mediatek,vcp:
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +    description:
-> +      Phandle to the MediaTek VCP remote processor used for MMDVFS shared
-> +      memory, feature registration, notifier, and IPI operations.
-> +
-> +  mediatek,mmup-sram:
-> +    type: boolean
-> +    description:
-> +      Use the MMUP SRAM window for MMDVFS callback records and status data.
-> +
-> +  mediatek,mmup-enable:
-> +    type: boolean
-> +    description:
-> +      Enable the MMUP path for MMDVFS shared memory and IPI handling.
-> +
-> +  mediatek,vcp-ipi-id:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    description:
-> +      VCP IPI channel id for MMDVFS. If omitted, the driver uses the platform
-> +      default.
-> +
-> +  mediatek,mmup-ipi-id:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    description:
-> +      MMUP IPI channel id for MMDVFS. If omitted, the driver uses the platform
-> +      default.
-> +
-> +  "#clock-cells":
-> +    const: 1
-> +    description:
-> +      MMDVFS clock specifier. Consumers pass an SoC-specific MMDVFS clock
-> +      index.
-> +
-> +required:
-> +  - mediatek,vcp
-> +  - "#clock-cells"
-> +
-> +additionalProperties: true
-> diff --git a/Documentation/devicetree/bindings/soc/mediatek/mediatek,mt8196-mmdvfs.yaml b/Documentation/devicetree/bindings/soc/mediatek/mediatek,mt8196-mmdvfs.yaml
-> new file mode 100644
-> index 000000000000..13381c78dbd1
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/soc/mediatek/mediatek,mt8196-mmdvfs.yaml
-> @@ -0,0 +1,87 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/soc/mediatek/mediatek,mt8196-mmdvfs.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: MediaTek MT8196 Multimedia Dynamic Voltage and Frequency Scaling
-> +
-> +maintainers:
-> +  - MediaTek MMDVFS Team <linux-mediatek@lists.infradead.org>
-> +
-> +allOf:
-> +  - $ref: mediatek,mmdvfs.yaml#
+With the tested x86-64 configuration, size reports a reduction of
+936 bytes in xe_trace_bo.o, from 24146 to 23210 bytes: 344 bytes
+in text and 592 bytes in data.
 
-What?
+Fixes: dd08ebf6c352 ("drm/xe: Introduce a new DRM driver for Intel GPUs")
+Signed-off-by: Torra Sowmya <sowmyatorra@gmail.com>
+---
+ drivers/gpu/drm/xe/xe_trace_bo.h | 10 ----------
+ 1 file changed, 10 deletions(-)
 
-> +
-> +select:
-> +  properties:
-> +    compatible:
-> +      contains:
-> +        enum:
-> +          - mediatek,mt8196-mmdvfs
-> +  required:
-> +    - compatible
+diff --git a/drivers/gpu/drm/xe/xe_trace_bo.h b/drivers/gpu/drm/xe/xe_trace_bo.h
+index 36fc7eb65882..8be08d527ea5 100644
+--- a/drivers/gpu/drm/xe/xe_trace_bo.h
++++ b/drivers/gpu/drm/xe/xe_trace_bo.h
+@@ -150,16 +150,6 @@ DEFINE_EVENT(xe_vma, xe_vma_unbind,
+ 	     TP_ARGS(vma)
+ );
+ 
+-DEFINE_EVENT(xe_vma, xe_vma_userptr_rebind_worker,
+-	     TP_PROTO(struct xe_vma *vma),
+-	     TP_ARGS(vma)
+-);
+-
+-DEFINE_EVENT(xe_vma, xe_vma_userptr_rebind_exec,
+-	     TP_PROTO(struct xe_vma *vma),
+-	     TP_ARGS(vma)
+-);
+-
+ DEFINE_EVENT(xe_vma, xe_vma_rebind_worker,
+ 	     TP_PROTO(struct xe_vma *vma),
+ 	     TP_ARGS(vma)
+-- 
+2.47.3
 
-What?
-
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - mediatek,mt8196-mmdvfs
-> +
-> +  mediatek,hwccf:
-
-clock control is via clocks, no?
-
-
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +    description:
-> +      Phandle to the MT8196 multimedia hardware clock control fabric syscon
-> +      used for AP-side hardware votes.
-> +
-> +  mediatek,mux-opp-tables:
-> +    $ref: /schemas/types.yaml#/definitions/phandle-array
-
-NAK, you are messing with us...
-
-> +    minItems: 7
-> +    maxItems: 7
-> +    description: |
-> +      OPP tables for the seven MT8196 MMDVFS muxes, in this order:
-> +      display, MDP, SMI, VENC, VDEC, IMG, CAM. MDP and MML share
-> +      the MDP mux. Each OPP entry must have opp-hz and opp-level.
-> +
-> +required:
-> +  - compatible
-> +  - mediatek,hwccf
-> +  - mediatek,mux-opp-tables
-> +
-> +unevaluatedProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/clock/mediatek,mt8196-mmdvfs.h>
-> +
-> +    soc {
-> +        #address-cells = <2>;
-> +        #size-cells = <2>;
-> +
-> +        vcp: remoteproc@31800000 {
-> +            compatible = "mediatek,mt8196-vcp";
-> +            reg = <0 0x31800000 0 0x100000>;
-> +        };
-> +
-> +        mm_hwv: syscon@31b00000 {
-> +            compatible = "mediatek,mt8196-mm-hwv", "syscon";
-> +            reg = <0 0x31b00000 0 0x6000>;
-> +        };
-> +
-
-What are all these nodes? Drop.
-
-> +        mmdvfs_opp: opp-table {
-> +            compatible = "operating-points-v2";
-> +            opp-0 {
-> +                opp-hz = /bits/ 64 <100000000>;
-> +                opp-level = <0>;
-> +            };
-> +        };
-> +
-> +        mmdvfs: mmdvfs-mux {
-
-Node names should be generic. See also an explanation and list of
-examples (not exhaustive) in DT specification:
-https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
-If you cannot find a name matching your device, please check in kernel
-sources for similar cases or you can grow the spec (via pull request to
-DT spec repo).
-
-Honestly, not a separate device. You just added it for Linux drivers.
-
-NAK for entire binding.
-
-> +            compatible = "mediatek,mt8196-mmdvfs";
-> +            mediatek,vcp = <&vcp>;
-> +            mediatek,hwccf = <&mm_hwv>;
-> +            mediatek,mux-opp-tables = <&mmdvfs_opp>, <&mmdvfs_opp>,
-> +                                      <&mmdvfs_opp>, <&mmdvfs_opp>,
-> +                                      <&mmdvfs_opp>, <&mmdvfs_opp>,
-> +                                      <&mmdvfs_opp>;
-> +            #clock-cells = <1>;
-> +        };
-> +    };
-
-
-Best regards,
-Krzysztof
