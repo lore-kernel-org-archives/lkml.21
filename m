@@ -1,59 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795628474;
-	b=SrMGjOTuBft/4rM3MvSXPGGxmPIW9qwrzrbF+X+FEj8P6eih8KtaukIHgZfKix3LbE1W
-	 IO0SvtqUTK/J2obRim+/FB/b0kKuE98qS3cJdgOZSDQbCvA9PYzppWtt8+B5noeAYP6uk
-	 VJ19KbiKuRr6X7PKWHKAp4MpVJYq6rZfwah09iPaT5TO1XD28h+fVSleuLHoXjixp7T7u
-	 vsgu3jw9tRgCqas9xfAVKdmY5btiO5NIn7ZfMbiHj5R6AyVkErQDhFQJspTnJX17M6X19
-	 qOD1uj3hNKMKdFM9JGe9aXS7CLsOfSdScI/LTHkLJHDq6dZ2yo0VfYl3lbM+ohwkxDw==
+	t=1795628486;
+	b=5L9rKbRq6rbpqiXA8B4weZK7QrlaobKrmlnExLOL0uJVT0oNFTqxiSTNu2tvcaLe6lUX
+	 8qDuTcKwNOU5jusYFsZIhoJe8oHjlOENSwt3qXT+cI6YHn7FrxBgM9oqkMibcv0Kwy0dL
+	 Sor1NDkZ4J1tdCW3LRd8SV7DeWyWe8FPEq2L4kQmPNbUeIH2e1ewAYp+E6upfveQ59Q+X
+	 0FNPs7I71EGVDByhFhnIgEYbgUxosi/1AzcYW3oz6tQG2RT73QDI7OIu3KrzXTtjiloVQ
+	 cGrRaMpH+bncd6/CF4w73U76BePnIUWZlPqCqerpGYTcDevVmtzsMl4nhx8x1H8T62Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795628474;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=erAEA25th+KOHMa1v7FaF8fZBgd6XaRDc38NojJlE54=;
-	b=2FJtaKHTuYGV5Q8CUalf0bMj8/AhcCdXc1H5GQe60qNZj5abweRTMpA7wLAVv6weUg7m
-	 r0XoYQAYDQ8lXK7rWVyDJ8Oid+K9qoU6BZlczGaDWiZf8MFPRJkXhhvEmITR/Wj0vdl8K
-	 Fi/Rdm85cIlZIX6wJZvR3ohnaSd9OaAjo7ZiohY0lavaPJsmtJEdEL+tvmEaap0bucxHv
-	 tUHTE4OfHKeJN3X1RgnNUfIS1nEdIOw2+GPfpgjRUcRx93KQpLOLR6GlXARKq9pgDyC09
-	 jF/SvZ2005aws+HtbYntbpx81DY8EyqzrBYhHvSAJnfYQqxqPOhZGpPbeJiIm5Y5now==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795628486;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key;
+	bh=1nnKgUnH41uFpzvbt0vDxC4+ZynO+VhngeTfrBlQfrc=;
+	b=KqFOOxQSlIbqDGN720ND8XTdfJz+02dLk+JYDVowLLvRZSM3jBrKnRdI4ahbY2yfj34M
+	 Tu8qPF7kfXf9z5cNBi3jR8b73C/dSG77X+G03dfx4yTdwH7jGvtyetKBCtCpQMFqOG3+R
+	 oiu6zwdqtxU5i1u2YRkAZxfYR8NMXSqv3n9SKIyvOw4Wwj78kFrUeXTzDGSR+QDD7zf1d
+	 Ct7chuUHo1xEfX/XyBR/qAeW+Iw9aNYtLOaHVR+XkFKaIyneObnDo+6L+PMMf33t+Swj8
+	 SaC3kdhDjNSGO7+zrNFN9eKZFPYztswkbhlOxJWzMD0a0WKM2UYC3bfUXj7FWqaH5NQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cx9aUz7G;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=baylibre.com;
+	spf=pass smtp.mailfrom=baylibre.com;
+	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=HspGXvfL;
+	arc=none smtp.remote-ip=209.85.221.43
+Received: from mail-wr1-f43.google.com (mail-wr1-f43.google.com [209.85.221.43])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2A1E4606A323;
-	Wed, 25 Nov 2026 17:41:14 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 58F13606A321
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 17:41:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 58F13606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=baylibre.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=baylibre.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cx9aUz7G
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2CD6C1F000CF;
-	Wed, 25 Nov 2026 17:41:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795628473;
-	bh=erAEA25th+KOHMa1v7FaF8fZBgd6XaRDc38NojJlE54=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=cx9aUz7Gkn8V5RpWI9TdDq2zUqUtUAll1kuVlmMGILqbE/6zoEFpRZeC8Afzdjine
-	 Q7v1lsr28rQVHbclQCWtu+anvy9yS0gPSuKSmU9Za8LJHM83uiOrz0SJvrF9ne5JI/
-	 4bmVzFyCOvtNNNSKUCxmeN5QlsJKV2nOplJzjh8q6+0bSl4VHuhbdGKK84++UTJbCs
-	 E4jfDhRECorKXTSygQE+PBZzzDWGyAfdrsVLmLcx0ellyl5K9pdxzQ4W+HG4Ng93L1
-	 a9gwfFF32NFalDF3EGvrTUa664VrGFt4yYEar7iA0MLmLgkCKdYkO5fx39uU/RFq41
-	 3rDzZt4Wq+orQ==
-Date: Wed, 25 Nov 2026 17:41:08 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>
-Cc: linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, linux@analog.com,
-	Michael Hennerich <Michael.Hennerich@analog.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Arnd Bergmann <arnd@arndb.de>
-Subject: Re: [PATCH 5/6] dt-bindings: iio: adc: add AD7793 and similar ADCs
-Message-ID: <20261125-whenever-spinning-36a6dc477a00@spud>
-References: <20261125-iio-adi-legacy-platdata-v1-0-54e4c8830b57@analog.com>
- <20261125-iio-adi-legacy-platdata-v1-5-54e4c8830b57@analog.com>
+	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=HspGXvfL
+Received: by mail-wr1-f43.google.com with SMTP id ffacd0b85a97d-498f5fa5103so3624395f8f.2
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 09:41:25 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1795628483; x=1796233283; darn=vger.kernel.org;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=1nnKgUnH41uFpzvbt0vDxC4+ZynO+VhngeTfrBlQfrc=;
+        b=HspGXvfL/RB4V26+1n7YpI5jeaFcXO5DGK/3PnVRv0SJiaHRKkXM/ghaDawbe7uz11
+         ebhOzB7bowoCH6E1DnSscaFcgpcTqSthUlQjzDN2NzGLHnr7+UWxZv+VuqkPAKZExFah
+         qpfqhsL030zoRIg3Rx3ah/KJCbs95D3lLDkjdOtg49xoCr1JFLBiZ9XRNQnhisWUIzrj
+         b9dAdeLa7sd9Zn9Nkg/C4mKAz7WnkV/Us0Hylx0Y6fLgpMF2ZMjiaedNk54ZnmDvNhv+
+         EFETZ18W2FZToF2bcf51Dn2tu8Cmm2MgrmxPMx+1ngDP+1Yt8Y2Qd2AWIqpP8Z2hKuMb
+         lVqA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795628483; x=1796233283;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=1nnKgUnH41uFpzvbt0vDxC4+ZynO+VhngeTfrBlQfrc=;
+        b=Yoh8WWbjGPBvLhJJib5QC5rRVI4sUt8/+t/rVifmgWz/ScWrovM8fzgd2vqO1rSbS0
+         /SGViqumB1pEc+0QuGI+ye6mLiE8aId+/fQnVMxbgkbmSmtVvCAXq9Zz0Tj5i1wGMtbq
+         doyW2sp42p5i00lNc3eop7kPTrAetLZnaxLvFH7jfpBhfOVIARUL5FHEPx/70PWbnyKI
+         FHvQ4upxgvcNa9SYLXm3S30FhIDNBs51Z5shFSpn1oCGc35lzMu/anoWWfwMvHe2jobx
+         2JXTt6UmcOWJ3Reha66nwRbk9uZZ642f1CKZu0pj9kMpBsyUGExR5AhkQP7K6I3NxcVw
+         twuA==
+X-Forwarded-Encrypted: i=1; AL+hErGMY80vOpXZ6yLyKWsnD8f4DoOWyrNiXo13AneuMvu/WoQaeR093Y0XjkpJcrYO+9S7i/0Wwx9i4oqGq14=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9eyOVxf20QFu0sHuLae0pu/++Za+uh92QxoDh5hMYNosjvXMrF
+	j/FbzmnKw2TuDVGYKlRtBJmOO8rOCAqaNj2oaUXbKUcJAzWCeGSXKI9j7epEMd/Pz4g=
+X-Gm-Gg: AZFdTZdkO40Yx3L6rQxnn3LnoVE3OO6H0MgtdmRALrL/KhtOkwRENc2fUlnFYoY2W6c
+	l90FqfTh+6trv26k+9Cl46LR3P+kMh944V5ci75Zv0M6lfVD+lTnHS1x0M22lemEsk5I+XH1IAb
+	4XIZVjdPixQx8mn659vC4zBTteyFHU+Zm+AzbULNwWFbn6miky5nFe5isb2jV0PYEFtgncOcv5E
+	ye4zXEiLa97lUJj27kP0JLSgB+VCpOC5i7+Tt9fVCYEqxGXgBK6E5Z5aeFWUyhVD8GFpytyDnI9
+	CNV9LdoQAMxUqhtdllQBqaUzDSIYAYcZmTl08WSX5fnX7bBtYE3sWlQHjKYgyr2xmc1toQbLIMN
+	BJ819xFQuGuIiXxa/lZ7faYRfLA76iw4cQYxTpQMD2YN6n8IWTp+fo+RwiONc6Rn7TWE53qQ3ho
+	sYCCKTB3zxP77+qiynBAYgoogkP4AKwzwtT7AIDjjRSA1/QZyJcSjVYQVojWmgLgKM1E22d9wwr
+	sTIzfsw1tdtPK2HooYiHRlK/hExKRjEWpSzCw2HUK6aDEMur0C66HKmMlTo5c0OzhHufxOqvAUN
+	ImZ81GWibm294elGFnoHvS/+cN8La3GdRERMnxhD6iaDYgjrZ/A=
+X-Received: by 2002:a05:6000:26c1:b0:48e:5e20:1371 with SMTP id ffacd0b85a97d-4abacfea2c9mr39664160f8f.4.1795628483517;
+        Wed, 25 Nov 2026 09:41:23 -0800 (PST)
+Received: from [127.0.1.1] ([2a01:e0a:e50:3860::e1d1:d182])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b110ba3sm29045574f8f.35.2026.11.25.09.41.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 09:41:23 -0800 (PST)
+From: Guillaume La Roque <glaroque@baylibre.com>
+Date: Wed, 25 Nov 2026 18:41:21 +0100
+Subject: [PATCH v2] drm/imagination: drop redundant zeroing of new GEM
+ objects
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,350 +92,157 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="WPSmGh/W8R/DGKZI"
-Content-Disposition: inline
-In-Reply-To: <20261125-iio-adi-legacy-platdata-v1-5-54e4c8830b57@analog.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261125-pvr-gem-drop-zeroing-v2-1-8453a6e01e81@baylibre.com>
+X-B4-Tracking: v=1; b=H4sIAMAdB2sC/22NQQ6CMBBFr0K6dkxbUkBX3sOwgDLCGKHNFBuRc
+ HcBXbp8yf/vzSIgEwZxTmbBGCmQG1bQh0TYrhpaBGpWFlrqTClpwEeGFnto2Hl4IzsaWshya09
+ FWsjKGLFePeONXrv2Wn45POs72nFzbYuOwuh42rtRbbtfQqn/iahAgW5srk1hcmnSS11ND6oZj
+ 9b1olyW5QP60/C9zQAAAA==
+X-Change-ID: 20261105-pvr-gem-drop-zeroing-67cc98380a55
+To: Alessio Belle <alessio.belle@imgtec.com>, 
+ Luigi Santivetti <luigi.santivetti@imgtec.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
+Cc: Gyeyoung Baek <gye976@gmail.com>, imagination@lists.freedesktop.org, 
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, Guillaume La Roque <glaroque@baylibre.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795628482; l=4827;
+ i=glaroque@baylibre.com; s=20261019; h=from:subject:message-id;
+ bh=DuC/rcDE0nO1yX+mV/jpSJ2uisVnTsIi/oVFyc2tvyU=;
+ b=2OPnmGyv44yjEbLHE2Ux0WaGPr+//BLm4J7wjSfmmWOqo17l0TXEWztLeG/E5yb7e1O0OEww9
+ c3R7pVwRhBSAEXCtQaf4Jmxkp026q3CLRsmsg2A9GqP3f9pt4eRPxFH
+X-Developer-Key: i=glaroque@baylibre.com; a=ed25519;
+ pk=nMpSg4NT6M6q143E089emouMc+MXpHO9CWmnEUfjhjI=
 
---WPSmGh/W8R/DGKZI
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+pvr_gem_object_create() clears every new object through a CPU mapping
+so that userspace never sees data left by a previous owner of the
+pages [1]. Those pages are already zeroed by shmem.
 
-On Wed, Nov 25, 2026 at 10:19:21AM +0000, Nuno S=E1 wrote:
-> Add a binding for the AD7785, AD7792, AD7793, AD7794, AD7795, AD7796,
-> AD7797, AD7798 and AD7799 low power sigma-delta ADCs. The driver has
-> supported these parts for a long time, but only through platform data.
->=20
-> The ADC reference is described by which supplies are present: REFIN
-> (REFIN1 on the AD7794/AD7795), then REFIN2, and otherwise the internal
-> 1.17 V reference. In the same way, an external clock on the CLK pin is
-> used if one is given, and the internal 64 kHz clock otherwise.
->=20
-> The remaining properties describe how the analog front end is wired:
-> the input buffer (enabled by default, as it is at power-up), unipolar
-> or bipolar coding, the burnout current sources, the bias voltage
-> generator and the excitation current sources.
->=20
-> Signed-off-by: Nuno S=E1 <nuno.sa@analog.com>
-> ---
->  .../devicetree/bindings/iio/adc/adi,ad7793.yaml    | 236 +++++++++++++++=
-++++++
->  MAINTAINERS                                        |  10 +
->  2 files changed, 246 insertions(+)
->=20
-> diff --git a/Documentation/devicetree/bindings/iio/adc/adi,ad7793.yaml b/=
-Documentation/devicetree/bindings/iio/adc/adi,ad7793.yaml
-> new file mode 100644
-> index 000000000000..c4a0be06e5c0
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/iio/adc/adi,ad7793.yaml
-> @@ -0,0 +1,236 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/iio/adc/adi,ad7793.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Analog Devices AD7793 and similar sigma-delta ADCs
-> +
-> +maintainers:
-> +  - Michael Hennerich <michael.hennerich@analog.com>
-> +  - Nuno S=E1 <nuno.sa@analog.com>
-> +
-> +description:
-> +  Low power, low noise sigma-delta ADCs with an SPI interface.
-> +
-> +  https://www.analog.com/media/en/technical-documentation/data-sheets/AD=
-7785.pdf
-> +  https://www.analog.com/media/en/technical-documentation/data-sheets/AD=
-7792_7793.pdf
-> +  https://www.analog.com/media/en/technical-documentation/data-sheets/AD=
-7794_7795.pdf
-> +  https://www.analog.com/media/en/technical-documentation/data-sheets/AD=
-7796_7797.pdf
-> +  https://www.analog.com/media/en/technical-documentation/data-sheets/AD=
-7798_7799.pdf
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - adi,ad7785
-> +      - adi,ad7792
-> +      - adi,ad7793
-> +      - adi,ad7794
-> +      - adi,ad7795
-> +      - adi,ad7796
-> +      - adi,ad7797
-> +      - adi,ad7798
-> +      - adi,ad7799
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  spi-cpol: true
-> +
-> +  spi-cpha: true
-> +
-> +  interrupts:
-> +    description: Interrupt connected to the DOUT/RDY pin.
-> +    maxItems: 1
-> +
-> +  rdy-gpios:
-> +    description:
-> +      GPIO reading the DOUT/RDY line. DOUT/RDY also toggles during SPI
-> +      transfers, which usually triggers spurious interrupts. Reading thi=
-s GPIO
-> +      allows to tell those apart from real conversion done events.
-> +    maxItems: 1
-> +
-> +  avdd-supply: true
-> +
-> +  dvdd-supply: true
-> +
-> +  refin-supply:
-> +    description:
-> +      External reference applied between REFIN(+) and REFIN(-), or betwe=
-en
-> +      REFIN1(+) and REFIN1(-) on the AD7794 and AD7795. If present, it i=
-s used
-> +      as the ADC reference. If neither refin-supply nor refin2-supply are
-> +      present, the internal 1.17 V reference is used.
-> +
-> +  refin2-supply:
-> +    description:
-> +      External reference applied between REFIN2(+) and REFIN2(-). Used a=
-s the
-> +      ADC reference if refin-supply is not present.
-> +
-> +  clocks:
-> +    description:
-> +      External clock connected to the CLK pin. Either 64 kHz, or 128 kHz=
- in
-> +      which case it gets divided by 2 internally. If not present, the in=
-ternal
-> +      64 kHz clock is used.
-> +    maxItems: 1
-> +
-> +  bipolar:
-> +    description: see Documentation/devicetree/bindings/iio/adc/adc.yaml
-> +    type: boolean
+Each object is backed by a new shmem file, for which
+__shmem_file_setup() only sets the size, and its pages are allocated
+through:
 
-This is odd, why not ref the file normally?
+  drm_gem_shmem_get_pages_sgt()
+    drm_gem_shmem_get_pages_sgt_locked()
+      drm_gem_shmem_get_pages_locked()
+        drm_gem_get_pages()
+          shmem_read_folio_gfp()
+            shmem_get_folio_gfp(..., SGP_CACHE, ...)
 
-> +
-> +  adi,buffer-disable:
-> +    description:
-> +      Operate the analog inputs in unbuffered mode. Unbuffered mode allo=
-ws the
-> +      inputs to go from 30 mV below GND to 30 mV above AVDD, while buffe=
-red
-> +      mode needs 100 mV of headroom to the supply rails but tolerates so=
-urce
-> +      impedances in front of the inputs. Buffered mode is always used fo=
-r gains
-> +      higher than 2.
-> +    type: boolean
+A newly allocated folio is not uptodate, so shmem_get_folio_gfp() clears
+it with clear_highpage() before marking it uptodate; only SGP_WRITE
+skips this, leaving the folio to be filled by the write. panfrost and
+panthor already rely on this too and never clear new objects.
 
-What determines if the gain is higher than 2?
+The dma_sync_sgtable_for_device() call that follows makes those zeroes
+visible to the GPU. The second pass, write-combined on non-coherent
+devices, only adds latency.
 
-> +
-> +  adi,burnout-currents-enable:
-> +    description:
-> +      Enable the 100 nA burnout current sources in the signal path, whic=
-h allow
-> +      to detect an open circuit on the selected analog input. They can o=
-nly be
-> +      enabled when either the buffer or the in-amp is active.
+Link: https://lore.kernel.org/dd2ceacc-f59b-9c3c-e4ce-30b3bbd6939b@mailbox.org [1]
+Tested-by: Gyeyoung Baek <gye976@gmail.com>
+Reviewed-by: Gyeyoung Baek <gye976@gmail.com>
+Signed-off-by: Guillaume La Roque <glaroque@baylibre.com>
+---
+pvr_gem_object_create() clears every new object through a CPU mapping,
+on top of the zeroing shmem already does. Dropping that pass speeds up
+object creation, most visibly where it goes through a write-combined
+mapping on a non-coherent platform.
 
-The former should be somewhat enforceable with the binding, what
-determins this in-amp's setting?
+Testing: drm-misc-next (41ecf852c073) with a Debian rootfs, on a TI
+J722S EVM (BXS-4-64, arm64) and a SpacemiT K3 Pico-ITX (BXM-4-64,
+riscv64). The K3 also needs local patches that are not upstream yet:
+its GPU DT node, an RPMI power domain fix for its firmware and BVNC
+36.56.104.183. Each board ran two small test programs, once without and
+once with the patch:
 
-> +    type: boolean
-> +
-> +  adi,vbias-pin:
-> +    description:
-> +      Negative analog input (AINx(-)) to bias to AVDD / 2 with the bias =
-voltage
-> +      generator.
-> +    $ref: /schemas/types.yaml#/definitions/string
-> +    enum: [ain1, ain2, ain3]
-> +
-> +  adi,vbias-boost-enable:
-> +    description:
-> +      Increase the current of the bias voltage generator, reducing its p=
-ower-up
-> +      time.
-> +    type: boolean
-> +
-> +  adi,excitation-current-microamp:
-> +    description:
-> +      Enables the excitation current sources IEXC1 and IEXC2. Both are a=
-lways
-> +      enabled together and set to this same value. Where each one is con=
-nected
-> +      is given by adi,excitation-pins.
-> +    enum: [10, 210, 1000]
-> +
-> +  adi,excitation-pins:
-> +    description:
-> +      Output pins the excitation current sources IEXC1 and IEXC2 are rou=
-ted
-> +      to, in that order. The default routes IEXC1 to IOUT1 and IEXC2 to =
-IOUT2.
-> +      Both sources can be routed to the same pin, which then outputs twi=
-ce the
-> +      configured current. This is not allowed when
-> +      adi,excitation-current-microamp is 1000.
-> +    $ref: /schemas/types.yaml#/definitions/non-unique-string-array
-> +    minItems: 2
-> +    maxItems: 2
-> +    items:
-> +      enum: [iout1, iout2]
-> +    default: [iout1, iout2]
-> +
-> +dependencies:
-> +  adi,vbias-boost-enable: [ 'adi,vbias-pin' ]
-> +  adi,excitation-pins: [ 'adi,excitation-current-microamp' ]
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - interrupts
-> +  - avdd-supply
-> +  - dvdd-supply
-> +
-> +allOf:
-> +  - $ref: /schemas/spi/spi-peripheral-props.yaml#
-> +  - if:
-> +      properties:
-> +        adi,excitation-current-microamp:
-> +          const: 1000
-> +      required:
-> +        - adi,excitation-current-microamp
-> +    then:
-> +      properties:
-> +        adi,excitation-pins:
-> +          oneOf:
-> +            - items:
-> +                - const: iout1
-> +                - const: iout2
-> +            - items:
-> +                - const: iout2
-> +                - const: iout1
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            enum:
-> +              - adi,ad7785
-> +              - adi,ad7792
-> +              - adi,ad7793
-> +    then:
-> +      properties:
-> +        refin2-supply: false
-> +        adi,vbias-pin:
-> +          enum: [ain1, ain2]
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            enum:
-> +              - adi,ad7796
-> +              - adi,ad7797
-> +              - adi,ad7798
-> +              - adi,ad7799
-> +    then:
-> +      properties:
-> +        refin2-supply: false
-> +        adi,vbias-pin: false
-> +        adi,vbias-boost-enable: false
-> +        adi,excitation-current-microamp: false
-> +        adi,excitation-pins: false
-> +      required:
-> +        - refin-supply
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            enum:
-> +              - adi,ad7796
-> +              - adi,ad7797
-> +    then:
-> +      properties:
-> +        adi,buffer-disable: false
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            enum:
-> +              - adi,ad7798
-> +              - adi,ad7799
-> +    then:
-> +      properties:
-> +        clocks: false
-> +
-> +unevaluatedProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/interrupt-controller/irq.h>
-> +
-> +    spi {
-> +        #address-cells =3D <1>;
-> +        #size-cells =3D <0>;
-> +
-> +        adc@0 {
-> +            compatible =3D "adi,ad7793";
-> +            reg =3D <0>;
-> +            spi-max-frequency =3D <5000000>;
-> +            spi-cpol;
-> +            spi-cpha;
-> +            interrupts =3D <25 IRQ_TYPE_EDGE_FALLING>;
-> +            interrupt-parent =3D <&gpio>;
-> +            avdd-supply =3D <&avdd>;
-> +            dvdd-supply =3D <&dvdd>;
-> +            refin-supply =3D <&vref>;
-> +            adi,vbias-pin =3D "ain2";
-> +            adi,excitation-current-microamp =3D <210>;
-> +        };
-> +    };
-> +...
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 658895c3b0fa..e55236f4accb 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -1731,6 +1731,16 @@ W:	https://ez.analog.com/linux-software-drivers
->  F:	Documentation/devicetree/bindings/iio/adc/adi,ad7780.yaml
->  F:	drivers/iio/adc/ad7780.c
-> =20
-> +ANALOG DEVICES INC AD7793 DRIVER
-> +M:	Michael Hennerich <Michael.Hennerich@analog.com>
-> +M:	Nuno S=E1 <nuno.sa@analog.com>
-> +L:	linux-iio@vger.kernel.org
-> +S:	Supported
-> +W:	https://ez.analog.com/linux-software-drivers
-> +F:	Documentation/devicetree/bindings/iio/adc/adi,ad7793.yaml
-> +F:	drivers/iio/adc/ad7793.c
-> +F:	include/linux/platform_data/ad7793.h
-> +
->  ANALOG DEVICES INC AD8366 DRIVER
->  M:	Michael Hennerich <Michael.Hennerich@analog.com>
->  M:	Rodrigo Alencar <rodrigo.alencar@analog.com>
->=20
-> --=20
-> 2.56.0
->=20
+- The first one only uses the powervr DRM ioctls. It fills 250 objects
+  with a pattern through their CPU mapping, frees them, creates new
+  objects of the same size and checks they read back as zero. It also
+  times DRM_IOCTL_PVR_CREATE_BO. Result, without -> with the patch:
+    J722S: 0 -> 0 non-zero bytes, 16 MiB object in 20.6 -> 17.4 ms
+    K3:    0 -> 0 non-zero bytes, 16 MiB object in 41.6 ->  9.2 ms
 
---WPSmGh/W8R/DGKZI
-Content-Type: application/pgp-signature; name=signature.asc
+- The second one does the same check through Mesa's Vulkan driver,
+  and also reads the new memory from the GPU: the GPU copies it into a
+  buffer that the CPU then checks. 80 allocations, on the J722S only, as
+  Mesa is not built on the K3 yet. Result: 0 non-zero bytes without and
+  with the patch.
 
------BEGIN PGP SIGNATURE-----
+The test programs were written and run with the help of an LLM.
+---
+Changes in v2:
+- Commit message: show the call chain through which shmem zeroes the
+  pages and explain why this can be relied on (Gyeyoung Baek).
+- Add Tested-by and Reviewed-by from Gyeyoung Baek.
+- No code change.
+- Link to v1: https://patch.msgid.link/20261111-pvr-gem-drop-zeroing-v1-1-2dc725857053@baylibre.com
+---
+ drivers/gpu/drm/imagination/pvr_gem.c | 34 ----------------------------------
+ 1 file changed, 34 deletions(-)
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCawcdtAAKCRB4tDGHoIJi
-0i0uAP0SufCE3ii+9E6g3cLh257vwsUw0GvJyavRtpoJ22BJ3QEA7KE86xqFH43v
-q94l6ls00ot37MbFF1HdLO16+tbFXww=
-=nsiV
------END PGP SIGNATURE-----
+diff --git a/drivers/gpu/drm/imagination/pvr_gem.c b/drivers/gpu/drm/imagination/pvr_gem.c
+index d8660d6a8e01..01b8e08d12f0 100644
+--- a/drivers/gpu/drm/imagination/pvr_gem.c
++++ b/drivers/gpu/drm/imagination/pvr_gem.c
+@@ -275,34 +275,6 @@ pvr_gem_object_vunmap(struct pvr_gem_object *pvr_obj)
+ 	dma_resv_unlock(obj->resv);
+ }
+ 
+-/**
+- * pvr_gem_object_zero() - Zeroes the physical memory behind an object.
+- * @pvr_obj: Target PowerVR GEM object.
+- *
+- * Return:
+- *  * 0 on success, or
+- *  * Any error encountered while attempting to map @pvr_obj to the CPU (see
+- *    pvr_gem_object_vmap()).
+- */
+-static int
+-pvr_gem_object_zero(struct pvr_gem_object *pvr_obj)
+-{
+-	void *cpu_ptr;
+-
+-	cpu_ptr = pvr_gem_object_vmap(pvr_obj);
+-	if (IS_ERR(cpu_ptr))
+-		return PTR_ERR(cpu_ptr);
+-
+-	memset(cpu_ptr, 0, pvr_gem_object_size(pvr_obj));
+-
+-	/* Make sure the zero-ing is done before vumap-ing the object. */
+-	wmb();
+-
+-	pvr_gem_object_vunmap(pvr_obj);
+-
+-	return 0;
+-}
+-
+ /**
+  * pvr_gem_create_object() - Allocate and pre-initializes a pvr_gem_object
+  * @drm_dev: DRM device creating this object.
+@@ -378,12 +350,6 @@ pvr_gem_object_create(struct pvr_device *pvr_dev, size_t size, u64 flags)
+ 
+ 	dma_sync_sgtable_for_device(drm_dev->dev, sgt, DMA_BIDIRECTIONAL);
+ 
+-	/*
+-	 * Do this last because pvr_gem_object_zero() requires a fully
+-	 * configured instance of struct pvr_gem_object.
+-	 */
+-	pvr_gem_object_zero(pvr_obj);
+-
+ 	return pvr_obj;
+ 
+ err_shmem_object_free:
 
---WPSmGh/W8R/DGKZI--
+---
+base-commit: 41b5458595c60143d0ebaa1e032c9cda5d764dff
+change-id: 20261105-pvr-gem-drop-zeroing-67cc98380a55
+
+Best regards,
+--  
+Guillaume La Roque <glaroque@baylibre.com>
+
