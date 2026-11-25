@@ -1,144 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=198.175.65.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795608869;
-	b=XwXzqWyqzrcDr/ZQWNQXcab3zRQWgy/gxnFkGkMhlsyH8EWFJVN3QMFOudY5FVgLP4xW
-	 QErOhTSkVGCAdprXzwWVweEFHworGjfLpTNqVj6Rsu7MmE6cevAIj28se4tUAAEgQZ46v
-	 hreLKm//SDnF7nqv/BOHH2Rx7CJnczUMW6d8OTxTGXz1I7kIqS8pvYHgGgWn0D/xt3dWs
-	 xF27o8yPSrCyhsAdGfRipPjiiO8LosSRaqHB61st3K2iEFyrO1i8pBvpd3R7Vbe2VPly7
-	 SsnMhWRBU6UmsFWJjdKPNJdQkct2mbCEZqvZQNT0L4qJOgKEOqRv5PqSq4PHzPLoeRg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795608869;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Received:
-	 Received:DKIM-Signature:Received:Received:Date:From:To:CC:Subject:
-	 Message-ID:References:Content-Type:Content-Disposition:In-Reply-To:
-	 X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-Exchange-RoutingPolicyChecked:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-OriginatorOrg;
-	bh=1XS4TBX22Wq7DrXyVbXbZ/vfmb44cbmb6rjqZjGyhBs=;
-	b=nIczbfc9/QkYvjQ4l/3CQ9bM3+u/udpVOEKwWXUn77uOU0iEHPaLwFw/8lM40Nv3Qlo+
-	 COqLb9tby+moXd8gm/PKr+wJWWWAXDZgzrHReWVwE3jPrqZoam7nwlZzkVerwTSiYoZFV
-	 KZPTtb+bVEZp/p16ZTMTAmKl4I2Cb4tDC/08We/HnJLubQzDnbs/0Ek3bKkVRy7Ltie9d
-	 oR8b8Cvur/RJblABg2/6bw6uofjsR593G3QMXYLkMLFkMfyV7HcfFrH6sNol9iVpb63MH
-	 N9y99I4t05DHYJDeybkB7NyfsFoqwwdU7b9awyAzUP78RghsoGfgaZLENIYq3mSiZiw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=TbA823So;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=M316m5yT;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=198.175.65.18
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.18])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.156.1
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795608909;
+	b=06naJi/O6KN8aJVq63Q0dfBzdvDHva6v0IM07+zjZ97I7LUJ8WZYjLJv+88Ga20xERuh
+	 uJ7tCKSInZK6vG0F6n9ipmNTFS2s1TUp3l3yIaCnbLofGcpRmCHqbhnlZxmpMdJQLBtMO
+	 JCKD2XA0TkQWlREvkSwoMd6jiETLBCiC2GXbcgCbcuf8rW5UCkGLSVNZQWlGY5YTI5lzi
+	 GoH+71vktEosAFyqEVAqpBkO+cK0IAhedJJJRqm16NV0t/3UOMHSBXsSkBVRKEEV0yAzn
+	 5YJ7X3CCtPrWgVdrnmdCaeGlcDUpL0EA6mG36dBxZjxmf1DsPzHlZ9cd8WMNv5+oBYw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795608909;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
+	 Received:Received:Received:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-TM-AS-GCONF:
+	 X-Authority-Analysis:X-Proofpoint-Spam-Info:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-GUID:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=TYp2bDJ8pP9dKAkvlU2tO/OGYv5ZQ//lb3iN0JKuFWs=;
+	b=0+ObmEMfgFJh3GXAoaVxVDkVaYIvWUeReX71+XEE1KHF2Vs0AswSPCD0CZdmSBncQEm7
+	 kMCijDieiL4Z931qNlQcom/TeuJSjahSTXbvpcsmjk8B2I24oXOnyRCG9zNMtKSO2td+J
+	 imbtsyrw4zHXgli0gEY6IoVuz/7R5UPpT5SbkUqq+bPrubWskZx16XaJI199bPQnsO2wf
+	 jz+AgyaEvlX9cGSgGkrA8v5Ke8tH4leOGRJHudA+1cV8L1axomMW+cn8JpK12gpU18pnC
+	 P2CBq/3s8wz25znNsyPFaPA0VoLvSEX6oF+mAIenSs8x2kJ9jxQIq6VAQVTjgbYIO5A==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linux.ibm.com;
+	spf=pass smtp.mailfrom=linux.ibm.com;
+	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=S4a9BYyF;
+	arc=none smtp.remote-ip=148.163.156.1
+Received: from mx0a-001b2d01.pphosted.com (mx0a-001b2d01.pphosted.com [148.163.156.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E27DA606A323;
-	Wed, 25 Nov 2026 12:14:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E27DA606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AA020606A330;
+	Wed, 25 Nov 2026 12:15:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AA020606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=TbA823So;
-	dkim=pass (1024-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=M316m5yT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795608864; x=1827144864;
-  h=date:from:to:cc:subject:message-id:references:
-   in-reply-to:mime-version;
-  bh=Z3CEGbvNVc02DmiONH5jl9Bsglkp/Q+3WiK1mi/zEWM=;
-  b=TbA823SocqVk3jNZbJfAP9wx1Al3vnsPojp80jNNDm5aLdp68owCqi9w
-   dTWQT5TxowQpVy4D4q1yWwpaG1BMPgVD+qPHaOT/S7iecKx8qKiOLhfTh
-   GVbBE3OBnDJU54wIQxij4GTmikAXqc5hO8sll+cbK/PGWTLdTq3araI1/
-   E8sUhkVIOZ5+R40pmwLm8HOKTwI2if35/Y0NGvWp+1Hy80te5yGS5vns2
-   V/T8Heg9p2Zmscn7wfG65BIVPqEfBX15D2e6UUTBolSt0x1h2Uz31XyQa
-   oJQPeXQ5k6XQ+LZAQCN3NczKGp9ich7vnvZyA81A/aHdMXFTaFu/LVLug
-   g==;
-X-CSE-ConnectionGUID: q4cgh1bkSAu+GwXR9RuMgg==
-X-CSE-MsgGUID: Kb8OyJgrTJGMG9BpjQR5Bg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4502285"
-X-IronPort-AV: E=Sophos;i="6.27,232,1787036400"; 
-   d="scan'208";a="4502285"
-Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 04:12:35 -0800
-X-CSE-ConnectionGUID: WkaRLdGuTMeO6leH6Vu04A==
-X-CSE-MsgGUID: p/XTMLSURD6s2oSiI1XMgA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,232,1787036400"; 
-   d="scan'208";a="12066741"
-Received: from orsmsx902.amr.corp.intel.com ([10.22.229.24])
-  by fmviesa003.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 04:12:33 -0800
-Received: from ORSMSX902.amr.corp.intel.com (10.22.229.24) by
- ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57; Wed, 25 Nov 2026 04:12:33 -0800
-Received: from ORSEDG903.ED.cps.intel.com (10.7.248.13) by
- ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57 via Frontend Transport; Wed, 25 Nov 2026 04:12:33 -0800
-Received: from SA9PR02CU001.outbound.protection.outlook.com (40.93.196.20) by
- edgegateway.intel.com (134.134.137.113) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57; Wed, 25 Nov 2026 04:12:33 -0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=btKDS6AqxyeqY+lm0GrmRIj0gtsAvx9JH4r1lQiPzmaDfT6m6+w/bal0k3j7q28USOy2sXXKaVvV8dRPulsjeLeua2je+nWRENG9IaoD/juGoQFvcPLnxRtg4B4MzgaDkuopG13RTzyl7gAESzMExMntjyTXHkeqWJA94D2+JNjRYdFyyNGS0oF2SW8+YwpPKgpjNt+YxuDg8jcnaJ2oJ1jMPTEg34j65tSVplDYlOJZHM4KaOWKtHRieLv4F5uo/IiO0pxCt1mtYfUGm+sVmkoogZ7VsWyKdg7y6s3qn5v+541bXpDB304aHC0Ql4z7viLZ3RuMxm1ZosgoKvlPTQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=1XS4TBX22Wq7DrXyVbXbZ/vfmb44cbmb6rjqZjGyhBs=;
- b=W7b61ObUATTxqBL3xwFdWexoTrYdYv/j7vz1kcmSrL2nLwfyI7hMMxttV9WGtv/h0qxKsfb2DjJEmynlIO3Y5JxsCi2R9PKwWo0whomlmeIeVc0iqHvMu+FoyctoffY4R/U2jB7+LCJbBVCzYjTKVbq4zSg6lcqTC5NFBrlk6jNzaPMkRuOEkYQxfgpWjf6SKiaE1zHYEa9a32mVlRKJ8Iqn3rCWF3CJR3EMVx//o3b3N+d5GvIMZeYRCjyqsPIKa2gxZngH0TlAuA1rqy0l5vzQn5pnxfEE/Fm7fwy1hD/WADmwSYzxbe7Q9a8laYlFytVXnGQlLNY6y4LN1DW2eA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=intel.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=1XS4TBX22Wq7DrXyVbXbZ/vfmb44cbmb6rjqZjGyhBs=;
- b=M316m5yT54PFrZftXRAIwNhYtqc7j2IdYor+thkS1ekrS8kwRdKhV0mJSPYsbI6nhiuOOBtDsu9HCEbZ2SzMTOmCZWlXeVir4QM7d5bzmxJMHTQzEfxyZmlrI/J4N3ZgbU7yF1XWjdtS2A6+3H0BBKe1D4SHIlZ+vpZ11+04wJ0=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from IA0PR11MB8380.namprd11.prod.outlook.com (2603:10b6:208:485::21)
- by CH8PR11MB9483.namprd11.prod.outlook.com (2603:10b6:610:2b9::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.6; Wed, 25 Nov
- 2026 12:12:31 +0000
-Received: from IA0PR11MB8380.namprd11.prod.outlook.com
- ([fe80::ea8e:eec4:f8d3:f95d]) by IA0PR11MB8380.namprd11.prod.outlook.com
- ([fe80::ea8e:eec4:f8d3:f95d%5]) with mapi id 15.21.0639.012; Wed, 25 Nov 2026
- 12:12:31 +0000
-Date: Wed, 25 Nov 2026 20:12:20 +0800
-From: Chao Gao <chao.gao@intel.com>
-To: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>
-CC: "Xu, Yilun" <yilun.xu@intel.com>, "x86@kernel.org" <x86@kernel.org>,
-	"kas@kernel.org" <kas@kernel.org>, "Peng, Chao P" <chao.p.peng@intel.com>,
-	"dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"kvm@vger.kernel.org" <kvm@vger.kernel.org>, "Tian, Kevin"
-	<kevin.tian@intel.com>, "linux-coco@lists.linux.dev"
-	<linux-coco@lists.linux.dev>, "baolu.lu@linux.intel.com"
-	<baolu.lu@linux.intel.com>
-Subject: Re: [RFC PATCH 3/7] coco/tdx-host: Exchange SPDM messages through DOE
-Message-ID: <awbQpM4QlKTVQ0f8@intel.com>
-References: <20261116111037.3478844-1-chao.gao@intel.com>
- <20261116111037.3478844-4-chao.gao@intel.com>
- <4f832b3a73bfd4d9b74e5e68a08f0de5659e1b6a.camel@intel.com>
- <awV7wYVv4D_Egns8@intel.com>
- <00efbba7a1b2c6e61cc36bf709718da978eec85c.camel@intel.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <00efbba7a1b2c6e61cc36bf709718da978eec85c.camel@intel.com>
-X-ClientProxiedBy: SG2PR04CA0199.apcprd04.prod.outlook.com
- (2603:1096:4:187::13) To IA0PR11MB8380.namprd11.prod.outlook.com
- (2603:10b6:208:485::21)
+	dkim=pass (2048-bit key, unprotected) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=S4a9BYyF
+Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6APA4ftq3596886;
+	Wed, 25 Nov 2026 12:15:08 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=TYp2bD
+	J8pP9dKAkvlU2tO/OGYv5ZQ//lb3iN0JKuFWs=; b=S4a9BYyFk0/f9g9DJmWgJx
+	GIoT5nj7Z34pSON8AaMuAH3xHr+CAa2jDW2VD6lMQe5eZsnVk6tnO6bkVxAdLEHh
+	mqvblr6yHh7LIy6lip2QA6d7wdBl9+YucPRQ5RwHc/98S2ZPtCGqLW1ZUda2Evgx
+	qFQvwt04yJKdtXC9Khx6IMQT7LC2gMWLfG4YdxF3QzjV71KVU51A7U/2BHeVVjPf
+	YWVHPv5MtakSQ4w4BCJqxJepY5zJ+s7KtY+WwG0q8LiPSdTur4TPjMk5uLWFLRgt
+	pXHehPyC7BDN07DdBBpPqj6bpho4VtEPMtWL9FQlGg5PbQQuy/yR9o1oAuoTKpbw
+	==
+Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j34g3ccu6-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Wed, 25 Nov 2026 12:15:07 +0000 (GMT)
+Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma13.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AP9nWRn3650118;
+	Wed, 25 Nov 2026 12:15:07 GMT
+Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
+	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4j5kfa21jb-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 25 Nov 2026 12:15:06 +0000 (GMT)
+Received: from smtpav01.fra02v.mail.ibm.com (smtpav01.fra02v.mail.ibm.com [10.20.54.100])
+	by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6APCF33w47841660
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 25 Nov 2026 12:15:03 GMT
+Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 30C992004D;
+	Wed, 25 Nov 2026 12:15:03 +0000 (GMT)
+Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 94FF220043;
+	Wed, 25 Nov 2026 12:15:02 +0000 (GMT)
+Received: from [9.68.16.159] (unknown [9.68.16.159])
+	by smtpav01.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Wed, 25 Nov 2026 12:15:02 +0000 (GMT)
+Message-ID: <f243aa68-5b4c-4dd8-acdf-4a57a090b2a2@linux.ibm.com>
+Date: Wed, 25 Nov 2026 13:15:02 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -148,133 +85,136 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA0PR11MB8380:EE_|CH8PR11MB9483:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1e52ddca-1bfc-4864-c96d-08df4aed611e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|23010399003|1800799024|10067099003|56012099006|11063799006|4143699003|261022105027099003|261022075727099003|261026121527099003|261026140227099003|261028144727099003|261009223027099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: dOuRUCLvDoj+sHWHvrn/6cPIDUmmZEF6Zf1v15sa9lMPkiuDZ/pSOwH0CtdegKF7dmfTAxArfFKlNT/rrjaJjfvCiuyTFP1jj9jvLS8Li348hAoY64Pc4PJvSFOwnA3ofm/8SjPPYHGrJc6LFW06jgiHN44AqCv3sl2baf/6IuhJWvF7B0Zu1p5CAEZA1yv9UBGbQu2u8vrIvmB4xGb8iBXZVCIfoTowDMfQpls7sgfRXvMJ09KyaVEbaoGSDbby0S/8K3HZ4YDb680R8TAHtrCrzXmRYQ9iHOgVEX+8Lv+L2xPkdrPYnBmAyvjaVXAK7pFwH4iY5IbfB58ifVkYYeEmNd8ktHAKMcrwh+JCSvWS1vzrPYxew4PyE9MW3louElIAc4UUtfWhRogGvYeSAGnk3qRbylKJtoPzhNyB5vVQ0yPACXPKbcrLjexT4UjZFmnQBc7hmuS0D/sjbhxDh0Yl+WxFoaykw2aupTK0STki6nsSJmnvDoco2e9KFW7/mMzqFJuFNokbzo4ThvvKXwu3H+ujm4ucpiNf63tD8FYoFStSYKNRXj2ig64oej5+hvKFNTAkMceTeehtfAuMlT7J+H7b53N7EhU8HIlL9IZ1izaFo81zhudNvtV2bnbel9KjwXXBhNjd5BYj1nw9fzpzFF+1Ecu55PVCvHJSyUc=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA0PR11MB8380.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(23010399003)(1800799024)(10067099003)(56012099006)(11063799006)(4143699003)(261022105027099003)(261022075727099003)(261026121527099003)(261026140227099003)(261028144727099003)(261009223027099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?i6ObhVj4bCzrT17P/qqgmHFrfXnHf9TRFEXzN5wGsARr6Hgdx5VVKOS0Iziz?=
- =?us-ascii?Q?PGVaQ/XbUdE3ArkXb16sJy/toqYd1BDmFnPDeBNVNuYrWl0CC/yo1D4LR/p0?=
- =?us-ascii?Q?gFWpEj/l9Z0GPJKGpkxJTEbcbhSj2RQ0vQYrXEuOCjoudn0i99uon+pYbAHJ?=
- =?us-ascii?Q?MVB26N6Kb3Y27VN/i+yxdHOQtRk5oEIR/ZbCAWMbNN6yptpBBW9Zv7hhpOBG?=
- =?us-ascii?Q?adxulCIl1LD6bxl2I+3UrIPIfBPo/ePAnKmi7FvtSzA7shU35F8prSZe8zy2?=
- =?us-ascii?Q?ZnTbDKGCV+Oo8HsECiitHTlsbkEwdHSP/KcN/QyJQsgXqt0D8v+Pve5n3ecd?=
- =?us-ascii?Q?IScT1Jxmd3fKZWKtgrOVGr+qKegvO0HtD5jUwZOR8jT+3ujyHSLmI15wlZ4h?=
- =?us-ascii?Q?IXrDhBTJdq5+Uji9Ion5QKslTKCVi2oaOcCyM8tCbIGGsvSZ4xKOp/a77CQF?=
- =?us-ascii?Q?kp37KgD0jx3RF7yvyZSZ8DRuqBSaLPPNAqD7bXmr/KmAL/epzrwESrx/W2Li?=
- =?us-ascii?Q?FnEWqx8+PQilZBphoJcBH+PhV2duPyF6swP1MXuwiCBgWcYQ3v+S/wDt3LFx?=
- =?us-ascii?Q?VGwmjpdWympwBbt2+5kwlky0LBiFru6QsNeEQ6Wx3R+JBcQiM3f4P0ouzyTL?=
- =?us-ascii?Q?MN1ds7Oqa01GweyB9cc+4P1zMioQi/khAC4vfaYoH7ZvwVB3yJnn/Hh4idqj?=
- =?us-ascii?Q?Nu+wltKKOWnYUVqECGwdbSbZjuFJVZPrz8aUpo5NUQTGaNR0e5xoDLqd4wud?=
- =?us-ascii?Q?NWELm0BklMnHpgmx2eb+hHnQJsyBXxY8/kZxeqiTx/LKr8e4uGMSI7C80Dsm?=
- =?us-ascii?Q?OJ/ZBGg+6ey3T5xpnSLXuCPbYmgfelhdEjRsHXmSZHXPy+tvTnJLl08aPD2m?=
- =?us-ascii?Q?5AYAeS6Tmdzekyt5uXAFAVFG9IntoLgpU5ef1iYVv+qruS9Is1+yZNMwHs2p?=
- =?us-ascii?Q?UwLamXg61Pwf6RwCmuI0URL/h6XVm3V7/6O3W6g3X8oPj+m0AOnmGjRD52tC?=
- =?us-ascii?Q?nxO6n37qOVY4uBi7+TcTvFTj8jrZNUxeQR0TVzzX7WAbTxcUzZ0Ri0/DGuQL?=
- =?us-ascii?Q?HTDtFlf92LNhMXhCNhkaUytUE/rMRKNADwAZerUOc8QYBvfDdeexGYvC1zIq?=
- =?us-ascii?Q?J5IUXk9oAfe6SyesWDUZberau4xoG+JUSwFUK90C+rSK1nSI4GTRua2DLzTp?=
- =?us-ascii?Q?lnprF6kKYqTpWHg2dXssU7E45mFoy+p0PUmEO9rTj/OIdQmIntzxfrfFwnC7?=
- =?us-ascii?Q?UVY4+AJx0eFx6Jocck0nV/LpXSfU3gYuhRQUCsh7tN8d97MN4UJ/E5AufE6o?=
- =?us-ascii?Q?NhvuV3cJhSYhUcHY1raNPfkmrveZrfggqvMuXfeUA87PG0Ouqtuv1vPx/MNl?=
- =?us-ascii?Q?Eu0mwtUB6FhoLRBIyNZ97U0CYdFqpL6mKJ3p09uVScPGHWH9EYNWZ3lMTvSm?=
- =?us-ascii?Q?RoyChpSjhBRwEIpv3UKkFP/vi5DLNubruEP9OxUJgaq8YzvCmvLCz6PH8Y3X?=
- =?us-ascii?Q?WVy6jQyBuLABzAh/7AvFnJCaKCtSCvsQfVHIIR4SNMSW9ZE2NRii9HP1OlpD?=
- =?us-ascii?Q?+NWRCS4euDgbnFfTchtId1r7Flm+0npcScOPkBpaW1pVJ2mXQZOzFZOyQbiP?=
- =?us-ascii?Q?ngt+irtBV04UMJIMFh0hc9x3YWte9Pc6rKRaKJknPdcwwHJQKG/xP5g3pvxf?=
- =?us-ascii?Q?s7Pz0cH0CZy7G5mib3sB87iL7cYXi7q4y7zUNhGpo0xrYtBVHSij9NmamOuc?=
- =?us-ascii?Q?uPGPW8E+PA=3D=3D?=
-X-Exchange-RoutingPolicyChecked: IKujw1cnBavnTBkDaF2DKevh0Z7/AHwogqOwMcwMv7XlBuZElkn2Rc1QIz1RoWgBS1NyhXJksfix8q+57X7glOrky5ZA8x5VKIRtvwX9iXbv//EOGPW9YGy2aCNfZ0SfcsG8fNa7+OrkgSXCbsQ87pips0d+GGPdkPNqFSotg18wRrLqLrrGZqhAXJ8b4Y4e3AQ4XnxuQb5Zj61xKjL9Xzx4OtjklIQ+5mPJIVFzw4OcADD+OShOB4VZbkRA30+XF3CVM8v/17wpjEiH2gSTxqnkcPu83+VlddnYCTIp4DBf69x6ueenJTDuoIBtKeVTqCb3C7cuXAnQxFEsLOLpSg==
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1e52ddca-1bfc-4864-c96d-08df4aed611e
-X-MS-Exchange-CrossTenant-AuthSource: IA0PR11MB8380.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 12:12:31.1316
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: aWPVsyDTBGHz93cKdAUY6YrWO+SbgUvZMO0UBnrs1uMK9hC7oHaFEtRw3IdbSTCbj8XW9eXwJqYVW592/n7o/A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH8PR11MB9483
-X-OriginatorOrg: intel.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/5] s390/mm: Add ptep_ipte() helper
+To: Heiko Carstens <hca@linux.ibm.com>,
+        Claudio Imbrenda <imbrenda@linux.ibm.com>,
+        Janosch Frank <frankja@linux.ibm.com>,
+        Alexander Gordeev <agordeev@linux.ibm.com>,
+        Sven Schnelle <svens@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+        Gerald Schaefer <gerald.schaefer@linux.ibm.com>
+Cc: linux-s390@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20261124135948.1295745-1-hca@linux.ibm.com>
+ <20261124135948.1295745-4-hca@linux.ibm.com>
+Content-Language: en-US
+From: Christian Borntraeger <borntraeger@linux.ibm.com>
+In-Reply-To: <20261124135948.1295745-4-hca@linux.ibm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-TM-AS-GCONF: 00
+X-Authority-Analysis: v=2.4 cv=SoQFe/O0 c=1 sm=1 tr=0 ts=6b06d14b cx=c_pps
+ a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=uAbxVGIbfxUO_5tXvNgY:22 a=VnNF1IyMAAAA:8
+ a=c9EG_qTls1SWuyDDofsA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI1MDA0OCBTYWx0ZWRfXzwtQq3MQYGLn
+ B3iJPKszswUPj6cCn7VxpuQfPtigjuiiTBaJA9NnU2MIDNUvVtjsVKy/Vy2E8CD6hYDKid8fbZJ
+ xiy17OlZwqOuQEI+BuCxLakglHbaLrk=
+X-Proofpoint-ORIG-GUID: gKrdrGhC7IfAb-ipe0AvoLYvvZWPCe2L
+X-Proofpoint-GUID: gKrdrGhC7IfAb-ipe0AvoLYvvZWPCe2L
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI1MDA0OCBTYWx0ZWRfX0LUPepZtqDxY
+ nZtFF8qR4E9Dkc8VRQs/1mG0eTnu269AKqEQQimJ2giHgLWhGH4txNss8UGtMQ/A4njRhDFg68M
+ Jb4dBZceT5AmuJFiuc2E+C/foY4PI0Mh7wfbL/91KGfo9eb9TvM5KA3A4MW0EKZ57rcem5ULTey
+ eOjBUxpKz2JN9IM7OY0e8hEXtxauwV9vX2UWKaIUBUhcGYXv2zIspAslnjzU2RuA5UrU9IblNQI
+ 6SsFQfW2VMyVEx16VPGWyzdxa6iJqvfeaIwa6PcMdRp762D0EeSsCDdyVwt/3scLgO4ZaWyQmMM
+ CBRQB1w+QBIP8WLevzhE5Uudr2HaJgjyHoOVpnDyUvpcit+NAbXF+VJrLdCyOs74M4VtwFnbmfZ
+ LRZm6R9sQ7kqILUN0rZpUhOGohRpMi1WQre3L4CiASA4mMpQZVggWwGKtLk7uqUTCRFxG8L1St1
+ vpXepnB7csh1UTd/Wgg==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-25_03,2026-11-23_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 suspectscore=0 spamscore=0 bulkscore=0 adultscore=0
+ lowpriorityscore=0 clxscore=1015 malwarescore=0 impostorscore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611250048
 
-On Wed, Nov 25, 2026 at 06:02:02AM +0800, Edgecombe, Rick P wrote:
->On Tue, 2026-11-24 at 19:57 +0800, Chao Gao wrote:
->> I am now leaning towards moving this code into PCI/DOE, even though
->> TDX would be its only user. Stripping and rebuilding the header is DOE
->> format handling, and the PCI/DOE core already has the definitions and
->> the code for it. A TSM driver should not need a second copy, no matter
->> how many users there are. That would also remove the duplicate
->> definitions above.
->
->Can you elaborate on your proposal? What exactly moves to DOE and how does it
->interop with the other DOE callers?
 
-The header stripping and rebuilding moves to drivers/pci/doe.c, as a new
-helper (e.g., pci_doe_raw()). struct pci_doe_header and struct
-pci_doe_msg defined in this patch go away. This avoids a second definition
-of the DOE format.
 
-pci_doe_raw() is a wrapper around pci_doe(). The other callers still
-use pci_doe() and are not affected.
+Am 24.11.26 um 14:59 schrieb Heiko Carstens:
+> Add a common ptep_ipte() helper in order to avoid the
+> repeated machine_has_tlb_guest() checks.
+> 
+> Signed-off-by: Heiko Carstens <hca@linux.ibm.com>
 
-I explored the idea with AI. It generated:
+Reviewed-by: Christian Borntraeger <borntraeger@linux.ibm.com>
 
-int pci_doe_raw(struct pci_doe_mb *doe_mb, const void *request,
-		size_t request_sz, void *response, size_t response_sz)
-{
-	const __le32 *req_hdr = request;
-	__le32 *resp_hdr = response;
-	size_t hdr_sz = 2 * sizeof(__le32);
-	size_t length;
-	u32 hdr1;
-	int rc;
 
-	if (request_sz < hdr_sz || response_sz < hdr_sz)
-		return -EINVAL;
 
-	hdr1 = le32_to_cpu(req_hdr[0]);
-	length = FIELD_GET(PCI_DOE_DATA_OBJECT_HEADER_2_LENGTH,
-			   le32_to_cpu(req_hdr[1]));
-	/* A value of 0x0 indicates max data object length */
-	if (!length)
-		length = PCI_DOE_MAX_LENGTH;
-	if (length < 2 || length * sizeof(__le32) > request_sz)
-		return -EINVAL;
+> ---
+>   arch/s390/include/asm/pgtable.h | 11 +++++++++++
+>   arch/s390/kvm/gmap/dat.c        |  5 +----
+>   arch/s390/mm/pgtable.c          | 10 ++--------
+>   3 files changed, 14 insertions(+), 12 deletions(-)
+> 
+> diff --git a/arch/s390/include/asm/pgtable.h b/arch/s390/include/asm/pgtable.h
+> index 2d5c2ab06de9..378d2db6e6be 100644
+> --- a/arch/s390/include/asm/pgtable.h
+> +++ b/arch/s390/include/asm/pgtable.h
+> @@ -21,6 +21,7 @@
+>   #include <linux/atomic.h>
+>   #include <linux/mmap_lock.h>
+>   #include <asm/ctlreg.h>
+> +#include <asm/machine.h>
+>   #include <asm/bug.h>
+>   #include <asm/page.h>
+>   #include <asm/uv.h>
+> @@ -1156,6 +1157,16 @@ static __always_inline void __ptep_ipte(unsigned long address, pte_t *ptep,
+>   		: [r1] "a" (pto), [m4] "i" (local) : "memory");
+>   }
+>   
+> +static __always_inline void ptep_ipte(unsigned long address, pte_t *ptep,
+> +				      unsigned long opt, unsigned long asce,
+> +				      int local)
+> +{
+> +	if (machine_has_tlb_guest())
+> +		__ptep_ipte(address, ptep, opt, asce, local);
+> +	else
+> +		__ptep_ipte(address, ptep, 0, 0, local);
+> +}
+> +
+>   static __always_inline void __ptep_ipte_range(unsigned long address, int nr,
+>   					      pte_t *ptep, int local)
+>   {
+> diff --git a/arch/s390/kvm/gmap/dat.c b/arch/s390/kvm/gmap/dat.c
+> index 7a25e41a1423..909d665a67a9 100644
+> --- a/arch/s390/kvm/gmap/dat.c
+> +++ b/arch/s390/kvm/gmap/dat.c
+> @@ -173,10 +173,7 @@ union pgste __dat_ptep_xchg(union pte *ptep, union pgste pgste, union pte new, g
+>   	if (!old.h.i) {
+>   		unsigned long opts = IPTE_GUEST_ASCE | (pgste.nodat ? IPTE_NODAT : 0);
+>   
+> -		if (machine_has_tlb_guest())
+> -			__ptep_ipte(gfn_to_gpa(gfn), (void *)ptep, opts, asce.val, IPTE_GLOBAL);
+> -		else
+> -			__ptep_ipte(gfn_to_gpa(gfn), (void *)ptep, 0, 0, IPTE_GLOBAL);
+> +		ptep_ipte(gfn_to_gpa(gfn), (void *)ptep, opts, asce.val, IPTE_GLOBAL);
+>   	}
+>   
+>   	if (uses_skeys) {
+> diff --git a/arch/s390/mm/pgtable.c b/arch/s390/mm/pgtable.c
+> index 1aa5fe0b30d8..f6a960f39abf 100644
+> --- a/arch/s390/mm/pgtable.c
+> +++ b/arch/s390/mm/pgtable.c
+> @@ -38,18 +38,12 @@ EXPORT_SYMBOL_GPL(pgprot_writecombine);
+>   
+>   static inline void ptep_ipte_local(struct mm_struct *mm, unsigned long addr, pte_t *ptep)
+>   {
+> -	if (machine_has_tlb_guest())
+> -		__ptep_ipte(addr, ptep, IPTE_NODAT | IPTE_GUEST_ASCE, mm->context.asce, IPTE_LOCAL);
+> -	else
+> -		__ptep_ipte(addr, ptep, 0, 0, IPTE_LOCAL);
+> +	ptep_ipte(addr, ptep, IPTE_NODAT | IPTE_GUEST_ASCE, mm->context.asce, IPTE_LOCAL);
+>   }
+>   
+>   static inline void ptep_ipte_global(struct mm_struct *mm, unsigned long addr, pte_t *ptep)
+>   {
+> -	if (machine_has_tlb_guest())
+> -		__ptep_ipte(addr, ptep, IPTE_NODAT | IPTE_GUEST_ASCE, mm->context.asce, IPTE_GLOBAL);
+> -	else
+> -		__ptep_ipte(addr, ptep, 0, 0, IPTE_GLOBAL);
+> +	ptep_ipte(addr, ptep, IPTE_NODAT | IPTE_GUEST_ASCE, mm->context.asce, IPTE_GLOBAL);
+>   }
+>   
+>   static inline pte_t ptep_flush_direct(struct mm_struct *mm, unsigned long addr, pte_t *ptep)
 
-	rc = pci_doe(doe_mb, FIELD_GET(PCI_DOE_DATA_OBJECT_HEADER_1_VID, hdr1),
-		     FIELD_GET(PCI_DOE_DATA_OBJECT_HEADER_1_TYPE, hdr1),
-		     request + hdr_sz, length * sizeof(__le32) - hdr_sz,
-		     response + hdr_sz, response_sz - hdr_sz);
-	if (rc < 0)
-		return rc;
-
-	/* pci_doe() has verified that the response has the same VID and Type */
-	length = 2 + DIV_ROUND_UP(rc, sizeof(__le32));
-	resp_hdr[0] = cpu_to_le32(hdr1 & (PCI_DOE_DATA_OBJECT_HEADER_1_VID |
-					  PCI_DOE_DATA_OBJECT_HEADER_1_TYPE));
-	resp_hdr[1] = cpu_to_le32(FIELD_PREP(PCI_DOE_DATA_OBJECT_HEADER_2_LENGTH,
-					     length % PCI_DOE_MAX_LENGTH));
-
-	return rc + hdr_sz;
-}
-
-tdx_spdm_msg_exchange() becomes:
-
-static int tdx_spdm_msg_exchange(struct tdx_tsm_link *tlink)
-{
-	struct pci_dev *pdev = tlink->pci.base_tsm.pdev;
-	int ret;
-
-	ret = pci_doe_raw(tlink->pci.doe_mb,
-			  page_address(tlink->out_msg), PAGE_SIZE,
-			  page_address(tlink->in_msg), PAGE_SIZE);
-	if (ret < 0) {
-		pci_err(pdev, "spdm msg exchange fail %d\n", ret);
-		return ret;
-	}
-
-	return 0;
-}
