@@ -1,57 +1,109 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.254.200.92
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795590622;
-	b=eBEL/rwSgDe5CWnTJ4bKpmPb8minGSkDEShGVe29lemNxO+7GOSAoSg5qoKiweTyYJGI
-	 AJM0WLeq+BR5fLEBeoTKn4Q/xAv4aLY4H36n3wmoonBeLOWmLDo73moRuC+A4WjwNpu0m
-	 Svb1ciIYmnsP32IlrNx8ZP6A6neo0SUmIrY414zxkWxhRFxdTHoYylmGqDLs7om/0FNkA
-	 8hVWut+kq0HDYwZpaWuGNDwZDV2wHAQhJ2BME1JtsCAs1yX0daqvFoiJCdqTjpDHv4m8W
-	 MLNmnoUo8WKFcq5GH97bceA+ZNZIwKkY81mYV9Q3MNbp9qDbY727lpcMUSQtTkKM7cQ==
+	t=1795590772;
+	b=NZF6K4PBjLpfzWZH4H8OjW/jUQIaLgUgDFLLTEKuFNE/iJj8UBq9kHpw+8mGX0DnqbqL
+	 Vn5Ju+n5ADmDhcjb3AZt/3otRa9n5l+GnY6ujT9lPxpPr8+/zD+TnEq2Df4pYlw1RkwcM
+	 PQvSB24fpMCKbf0WB6BRnLYdg4wqP3H47Yqg35yjU1Hl9pcarwuYD36KGnrAh50nJABvM
+	 BnvwaaxTZ04FKmIogMcqdv/okqhs5n3z3wPyNZFbqp9o4Fnox+nREgsGiErVoRnjhStOP
+	 DPApYPhoIOWtDDjqxkpJRGOshjH1dSOdV5e02qvbiGQgea8EHPgC/Ps7k2omuZ0e/hw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795590622;
-	h=DMARC-Filter:X-QQ-mid:X-QQ-Originating-IP:Received:X-QQ-SSF:
-	 X-QQ-GoodBg:X-BIZMAIL-ID:EX-QQ-RecipientCnt:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To:X-QQ-SENDSIZE:Feedback-ID:
-	 X-QQ-XMAILINFO:X-QQ-XMRINFO:X-QQ-RECHKSPAM;
-	bh=57eU++s1Zc1LNJTTX7oA3GpgYaPKwVTViPoFYxLudKE=;
-	b=1dVDDoGEM5lBFibedTMqnuD3/D5BCizp8piTgpS+qMToBchVeSvmEtPeS2EIF6LNeXQJ
-	 Oi9gjO40Gbov4TKl4gvlXga6y+seethd2vOuiWz78dA9brDS04tNeS+6d++UglqGMH+Up
-	 C5oYRMG9lXzD/LQ5C53fKi06Nw3rNLYvBsb6PmN7jt+OOfRAjCSbcdgIzUlqEejlLnqSA
-	 PxPupPsIh2LGDMbssR7RQFYszlgOVK2KgRUfq2xxxP6oWt7eS5Q6f2RUplmZ5mvmUKbs6
-	 9teLGQ62KHpIJ+NKBx9iKtbXVwVZa+Dr0jtRo/N6I4jEjrHOp9H2YB6mtSdYyjY/X7Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795590772;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:
+	 Subject:Date:Message-Id:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Proofpoint-Spam-Details-Enc:X-Authority-Analysis:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=Z5C2/oBmzCiyvGxYovb18Y03UU1iBorGa9Wy+Y0wXaw=;
+	b=GMKjn8GrPf8s4Nghk6llGe40/lRfWF9/L4hu8OB8Cs73sRc+phGIv19wjgyjC9vHbHuT
+	 HPCyzI2ALlvAsLPvQY9AaM+yjgT1BhNBvFPWt57wnV9RGYCsc1ZIZR/1EoZVxjI1v/pzP
+	 RJNb90d0eclac4H10fD5Nn62kKPI8VmEB4SJgEsfKdLGbypmw5qosVZxUUkxt85GIBqzb
+	 ITiY8mCelfWSh4OVo9+EByrUtIz8gX+e64m2WBhYVSkwjDHBel0NioF6+0hi9pojfIzcV
+	 KR5bTABxlhJQZ4OmsUxkHVTvP8QMSWV6XTIJXc6DI4ZO0dS8YjGqqZNy+jBykY9JEUg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=mucse.com;
-	spf=pass smtp.mailfrom=mucse.com;
-	arc=none smtp.remote-ip=54.254.200.92
-Received: from smtpbgsg1.qq.com (smtpbgsg1.qq.com [54.254.200.92])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=lqhabfYt;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=N0UxjlMh;
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8079A606A6A9;
-	Wed, 25 Nov 2026 07:10:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8079A606A6A9
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mucse.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mucse.com
-X-QQ-mid: zesmtpsz3t1795590563t9fca723d
-X-QQ-Originating-IP: N4DRq9rhFGiwKy3DeQ3eB5ukbvLcOUjmAT0waaSE3iQ=
-Received: from localhost ( [203.174.112.180])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Wed, 25 Nov 2026 15:09:20 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 5348563464092667721
-EX-QQ-RecipientCnt: 10
-Date: Wed, 25 Nov 2026 15:09:20 +0800
-From: Yibo Dong <dong100@mucse.com>
-To: netdev-bot+sashiko@kernel.org
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
-	kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
-	linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
-	yaojun@mucse.com
-Subject: Re: [PATCH net-next v3 2/5] net: rnpgbe: Report link settings
- through ethtool
-Message-ID: <EFD2CC62756603D7+20261125070920.GA752553@nic-Precision-5820-Tower>
-References: <32E4A50B05876D23+20261124060546.411262-1-dong100@mucse.com>
- <179558856190.3135.8838947348700309121@kernel.org>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DA835606A33E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 07:12:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DA835606A33E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=lqhabfYt;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=N0UxjlMh
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AP68eVj3630275
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 07:12:50 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=Z5C2/oBmzCiyvGxYovb18Y
+	03UU1iBorGa9Wy+Y0wXaw=; b=lqhabfYtzs6gC4V6Ikhe6Fa2y1X2aISFHB1bqK
+	es7vA1hq4DamK03GxYPf42F25Ey0YaCpWHfEuhNqFPUKWGBkH32RRPQZzgImr6z6
+	4RDRi1quyszkl2Jiyy1qrusqcSQdTBE4EsrMcX1N7xN6/Q2BTTtDz0pyYedF63xi
+	R8wvqmvtPV5ldfaOfb86JgfhpCzGZxQ7NX0DpirAgRWHvYNMFPt7GsvQtI5aAgDY
+	jZ5fVN12GKZsoZlxXTMdU1k3mpYN/+P2vhDkPhR9Y6xTXPr15ky8RCjeYGVSqb3Y
+	av2cgxlDy9oUnbQDdYcwqPH+MZYBTMJFjchnHDzSmt3Cs+SQ==
+Received: from mail-pf1-f198.google.com (mail-pf1-f198.google.com [209.85.210.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j5b8041rk-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 07:12:49 +0000 (GMT)
+Received: by mail-pf1-f198.google.com with SMTP id d2e1a72fcca58-8b930598cf0so9300784b3a.1
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 23:12:49 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795590769; x=1796195569; darn=vger.kernel.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=Z5C2/oBmzCiyvGxYovb18Y03UU1iBorGa9Wy+Y0wXaw=;
+        b=N0UxjlMh6Bcz2q9hbuf7KmIpZ1Ii487fNFFzycHHdfhQRbtSYfm/+O3UnIE1VQlslo
+         8EaudKewUFeMb6oymqLE8zEKMsYKHmER9tDCi4W4xkgTw6bMZ3g74J78DbfzA36Elyv7
+         4ha+/vNsUNyXDiTqW8X3hpf6ne7W1aSG/2+e5IjhAL1/00cJY+wXHqFKzPnpr0cUE2PQ
+         As2iOMJoMA6bRI6qDWuMp86NdTI2rC60ScUMRMVo04Q/mxPHnZ3GKCgrJ6c4g8hbZeyZ
+         tK7WZOFkQcFkixu3M7OnPOuLzZcPOLQM/onadOYETth4UygqzzRApBgEKRW6yPi0EH1H
+         n5NA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795590769; x=1796195569;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=Z5C2/oBmzCiyvGxYovb18Y03UU1iBorGa9Wy+Y0wXaw=;
+        b=hc7rcBbCqqZ3h3qc+2CBWRgjk9FAuEkbHQjgu1NunaAztK7FyC6jVMCFoBRGLVKodt
+         xJGPo2Se7/OAkOzUW06UuRLk/EIwHNChnH99yxgVHOglICd0r1Fl0DqwXaMaRJ/h7fK9
+         9XtCo7wtd9yBgZ7X4sOspH3hPqf7XRAvMzempOkM1oJM19fS15IUg8JLQOvjbepwI8Bw
+         Tr2aMUNdI2IsWCFDdeuSdBW4g0IPeuToSNjoFXHQlOMU0vRLoFKi3wtmToKYPcqf+GDP
+         NXcmbPqUVxrn7MR6YoH1reAcN1n6KG6Sv5Q5SmrPlbT2Ws6TnYM9bTcK4rRCgTT6Hiff
+         NGhw==
+X-Forwarded-Encrypted: i=1; AL+hErHkNg/ovbLZOJ89TQ7TFQKczp/QTj2smFVqVGoVmR1fw6yLWcQVkX3zaGJsvh+SkpCqoGd6XXy9GY3ZykI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+neFFwmHi6yhj5EO5vJ2TbNTcwm0ZbgDKWRneo4OYln3p6cSuu
+	xIbJlE0hsQjvC9SK2TSkLmQHVhbnpesnL8GEq6Jg7r8fouMrXlvh76UP3dC+cgEccsfcSdlHY9D
+	KCakKQLAfu9fxN3G6N78FPhykx8L+u2lyg++ho1hIbOsgefUkfOQM1DgPKviamb/baWc=
+X-Gm-Gg: AZFdTZeh+CuaEYC4fFpV8nGL5jWen2wX2lpEYfESESQomC3w/7EcMQVUoFVadk5n2Qa
+	tuzYkMOzAJRBhqq+KFTbcKKQpr4F1fUeci5gL3I1s+APUvdXzHcxiDd8vCp6ynRVUDaG40/GU01
+	b7DRKEnDBXY5EiOL/l6tqqV06n55UeFmYuy5WcBz2EhOTgUn869l4XpnSsTO8obFUTCDMHymmPI
+	4HN3XJUTM7FLkVsmFJOW8aYcif4ImFovGjfDwkOj4rIg5QtJNZXafRjwZJ8uyNRyby8OIM8wth7
+	+xOF8TDXIYUdJ8bRjZad3nqkhVZDBA5JnHgTQnuocnXR5rnlwYVpmn3QMJXho4t6R7FsAa2iv6o
+	OalnE25wPmMh6V1K0n6FPSYQ0+qcjr9Ex8N6kIYauQYMAkANBDB1inE1G/1hsbWp6h5zWp6U=
+X-Received: by 2002:a05:6a21:1b81:b0:3eb:aa33:e586 with SMTP id adf61e73a8af0-4014bc550f5mr16722355637.32.1795590768581;
+        Tue, 24 Nov 2026 23:12:48 -0800 (PST)
+X-Received: by 2002:a05:6a21:1b81:b0:3eb:aa33:e586 with SMTP id adf61e73a8af0-4014bc550f5mr16722325637.32.1795590768086;
+        Tue, 24 Nov 2026 23:12:48 -0800 (PST)
+Received: from [10.213.104.249] ([202.46.23.25])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde6d0575d9sm8224496a12.25.2026.11.24.23.12.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 23:12:47 -0800 (PST)
+From: Ruchira Revdekar <ruchira.revdekar@oss.qualcomm.com>
+Subject: [PATCH v4 0/3] Add support for Talos Lyra EVK board
+Date: Wed, 25 Nov 2026 12:42:40 +0530
+Message-Id: <20261125-talos-lyra-evk-v2-v4-0-73d768714a5a@oss.qualcomm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -61,219 +113,138 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <179558856190.3135.8838947348700309121@kernel.org>
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpsz:mucse.com:qybglogicsvrgz:qybglogicsvrgz3a-1
-X-QQ-XMAILINFO: NP3iUBCWMtGbdwSNcvJpfBeeuPILOJ0v1m3HWn2bHbzHKWC+HAhdQjdr
-	KtOZT3pB7b3347rE0BQ45vggMe506kRf8trCsLYVx2/sLJvV4+J3GG3Oq8vN/AZeAqY4mIS
-	yyk0DdtUBQPuK6w4cC2be93qB/rag3v4qqXH4oTgh9Yv6tqxK3lGkeosttG+obIfEAjgAo9
-	JA7MPa6iTOgoQyezkVbYhe/EmxkcOvyldnbOnKTUHHVDNNvgvkGctWVYMmeNrJdkDWEv3vo
-	snethxOzkDqJT+5mDNegUbqMBEIaOpH5LJ8BHk1Zm1N2z67K58GY4rTD0BolEcWXYctv8oG
-	sIXecupwZqHjTX07tpyji9eVLqN3i44O9InTOK3gdPuisgBVqtlzpx/03AwYu9ETuDVQN0/
-	id3WOw7+5yVwzufIp5EEfrBkqj2e0EbQ5Oqw3GjKRsTuUO3j6ijBEha2LvgjbjShDWc5Eb0
-	kcfMWZTkNDAKQJsU5VcEjvPosoXeFMhRSJQxR59nU3RCQZ168M+CNA71k/6qEfbN3LwTH8R
-	8+CFZkyVoTi0hBd/0oO+mqSpGj86PO+OuUIfNA/IWjOMLJ7Y8tndtFEzBTroP823TLf3hQg
-	trLElpF+YRN+HHLCKsLZhwUiCZzn6zYKcinIHDD+3Tpt1trUJcggcMr+aqfD4KzA3tOniTj
-	czeTL/wUCmnBPzkVv+68PQCHsL+DdT7Oont572DGQu8wzwgijvnC3P+AzGmfIIKdYegoqLe
-	b1DXN8IiUb3dLN2gC6IMtB4A+F8Yaz9nmRfXBwd1y5AjXMmValTb9x78aGaTxyKzodvgWvd
-	/8hFg7uqMvOz5DcJmHavhexUCPgiFKN7G0qXxjbnz0sRKNIuY+SKLh6TEWPklR77+vzahKm
-	QUJCacqY/zMF/L42s2pUKsnotqYgo4IujDjOuExO5X85Il+1wQx8v0Roi9n81pJYLMStW7r
-	F7pQasvwLYKP9bmx0fEJAImtcoK1xcgtR0wRszSb5ZF3DS/EXZD9XvqaTw0Izr77Wi9PSKJ
-	cjKkXbU4gyIxT/mI8uk3VqgLhJkypiFB8H7A2IAb6hxnYMmE3B4voGfg/4DF2v7h2JaMWuy
-	mQWoeo0aWepM/YELJiBuZLVytoBgz/+cw==
-X-QQ-XMRINFO: OD9hHCdaPRBwH5bRRRw8tsiH4UAatJqXfg==
-X-QQ-RECHKSPAM: 0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAGiKBmsC/22Pzw6CMAzGX8XsbA0MmODJ9zAetlFkCkxXWDSEd
+ 3dTDx5ImiZf//y+dmaEziCxw2ZmDr0hY4cg8u2G6VYOFwRTB814wkWaJHsYZWcJupeTgP4GngN
+ yLMpSZnkjahb27g4b8/wwT+evpkldUY8RFCeUJATl5KDbWBrwOcLXgIvYbw2N1r0+R3keOT//l
+ K/4h0ig1rrKUoFKFdXREu0ek+y07ftdSCye4bM/EF97xGcBJIqyqQu5R12tgZZleQOKvRGNNAE
+ AAA==
+X-Change-ID: 20261007-talos-lyra-evk-v2-e2e588a34f6d
+To: Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Abel Vesa <abelvesa@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org,
+        Ruchira Revdekar <ruchira.revdekar@oss.qualcomm.com>,
+        Avaneesh Kumar Dwivedi <avaneesh.dwivedi@oss.qualcomm.com>,
+        Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+        Monish Chunara <quic_mchunara@quicinc.com>,
+        Rakesh Kota <rakesh.kota@oss.qualcomm.com>,
+        Sayali Lokhande <sayalil@qti.qualcomm.com>,
+        Nirmesh Kumar Singh <nirmesh.singh@oss.qualcomm.com>,
+        Akash Kumar <akakum@qti.qualcomm.com>,
+        Khalid Faisal Ansari <khalid.ansari@oss.qualcomm.com>,
+        Vishnu Santhosh <vishnu.santhosh@oss.qualcomm.com>,
+        Vishnu Saini <vishsain@qti.qualcomm.com>
+X-Mailer: b4 0.16.0
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI1MDAyOCBTYWx0ZWRfX+aZ1mYfd7GFA
+ 4NqQkoz3xQoLXyB0ZDuoBLJclGUqxEUJoBv1vbSdhRM3X5zZIlObjZexJUW7iK4erJ4L9Q2LJUF
+ vufjiDmrEBWROGwhZbTcLqtAVKz3umuBoFIAExmr+ch6AkG+ZglA9UnGrUHUC61K5THNNmdgtkf
+ DLyij5fr6fXAV/QG6Y/SK+S/IyCYGEiG99VKCbOpe/jhSoxfLShn/BM7fBV2EEOsWR1IHaNYFHh
+ MZh8Fvsb2yKNMbf++0zsC+23TY/WQx8E8NuKlG0LhMemOZROTBbwRNSiiAwbYx9XLJNRjnX86eT
+ 39hw3JvjstscZZv/oKNf9BM9dK9BrVljDE3msKJImkX2x6cwDQfHTdzUuG8Rfu3gJnSB+0LmK7J
+ 05c6tNmpLQqd/iJIuR68BE6Oi0WCcMAYHok8DZPpxbqCOWiVilZxV65xUxgWrms0lhCkRi9XWdP
+ Hqsu1yQE9Hub89rnaHw==
+X-Authority-Analysis: v=2.4 cv=K5W3jCWI c=1 sm=1 tr=0 ts=6b068a71 cx=c_pps
+ a=m5Vt/hrsBiPMCU0y4gIsQw==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22
+ a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=bC-a23v3AAAA:8 a=XRYUP8yNB-fVxFRa9e4A:9
+ a=QEXdDO2ut3YA:10 a=IoOABgeZipijB_acs4fv:22 a=FO4_E8m0qiDe52t0p3_H:22
+X-Proofpoint-ORIG-GUID: _EC0RDiMRwkLYrahnOHjR_x2LZdJqxfb
+X-Proofpoint-GUID: _EC0RDiMRwkLYrahnOHjR_x2LZdJqxfb
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI1MDAyOCBTYWx0ZWRfX5HlN5iyNR9zL
+ tQ5cHUbqIoevjj5YBlXt/jKsDj26PMoV2pk9mhTCw5v2FU8j3iJeZ63n3vdSjIrIJjx0IePf7kZ
+ B1c2vN1K/Mp9zSeJqMV8DhyipGDtir0=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-25_02,2026-11-23_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ adultscore=0 impostorscore=0 lowpriorityscore=0 malwarescore=0 clxscore=1015
+ priorityscore=1501 spamscore=0 suspectscore=0 phishscore=0 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611250028
 
-On Wed, Nov 25, 2026 at 06:36:01AM +0000, netdev-bot+sashiko@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 4 potential
-> issue(s) to consider.
-> 
-> Critical: 0 · High: 0 · Medium: 2 · Low: 2
-> 
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
-> 
-> - [Medium] rnpgbe_setup_default_link() builds the PHY_LINK_SET
->   advertisement as hw->link_config.supported & RNPGBE_DEFAULT_ADV, where…
-> - [Medium] rnpgbe_add_adapter() now calls rnpgbe_init_link_config(),
->   which sends GET_LANE_STATUS (0x0610) through mucse_mbx_get_link() and…
-> - [Low] The commit message leaves out some changes in the patch.
-> - [Low] ST_STATUS_MDIX_MASK is GENMASK(11, 10), a 2-bit field that can
->   hold 0-3.
-> 
-> > diff --git a/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_chip.c b/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_chip.c
-> > index dcc8233e024e1..3a2f62f0630da 100644
-> > --- a/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_chip.c
-> > +++ b/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_chip.c
-> > @@ -64,12 +64,42 @@ int rnpgbe_reset_hw(struct mucse_hw *hw)
-> >   * rnpgbe_setup_default_link - Configure the default link settings
-> >   * @hw: hardware information structure
-> >   *
-> > + * The default configuration relies on GET_LANE_STATUS reporting at least
-> > + * one mode in RNPGBE_DEFAULT_ADV for TP ports and RNPGBE_FW_ADV_1000_FULL
-> > + * for fibre and backplane ports. TP ports use the supported subset of the
-> > + * default mask for autonegotiation. Fibre and backplane use fixed 1 Gb/s
-> > + * full duplex.
-> > + *
-> >   * Return: 0 on success, negative errno on failure
-> >   **/
-> >  int rnpgbe_setup_default_link(struct mucse_hw *hw)
-> >  {
-> > -	return mucse_mbx_set_link(hw, RNPGBE_DEFAULT_ADV, true, 0, 0,
-> > -				  ETH_TP_MDI_AUTO);
-> > +	u32 advertising = hw->link_config.supported & RNPGBE_DEFAULT_ADV;
-> > +	bool autoneg = hw->link_config.status & MUCSE_LINK_TP;
-> > +	u8 duplex = DUPLEX_UNKNOWN;
-> > +	u32 speed = SPEED_UNKNOWN;
-> > +	int err;
-> > +
-> > +	if (!autoneg) {
-> > +		advertising &= RNPGBE_FW_ADV_1000_FULL;
-> > +		speed = SPEED_1000;
-> > +		duplex = DUPLEX_FULL;
-> > +	}
-> > +
-> > +	err = mucse_mbx_set_link(hw, advertising, autoneg,
-> > +				 autoneg ? 0 : speed, autoneg ? 0 : duplex,
-> > +				 ETH_TP_MDI_AUTO);
-> 
-> [Severity: Medium]
-> What happens if advertising is 0 at this point?
-> 
-> The kernel-doc above states the assumption, but nothing checks it. Take
-> a TP port where firmware reports none of the RNPGBE_DEFAULT_ADV modes.
-> Autoneg is requested with advertising == 0. On ACK,
-> MUCSE_LINK_AUTONEG and advertising = 0 are cached, and probe still
-> succeeds.
-> 
-> Could the link then stay down forever, with nothing logged?
-> 
-> Now take a fibre or backplane port whose supported mask lacks
-> RNPGBE_FW_ADV_1000_FULL. 1000/Full is still forced and cached. Then in
-> rnpgbe_get_link_ksettings():
-> 
-> 	if (supported & RNPGBE_FW_ADV_1000_FULL)
-> 		linkmode_set_bit(mode, cmd->link_modes.supported);
-> 	...
-> 	if (cmd->base.autoneg == AUTONEG_DISABLE) {
-> 		cmd->base.speed = hw->link_config.speed;
-> 		cmd->base.duplex = hw->link_config.duplex;
-> 	}
-> 
-> Would ethtool then show speed 1000 without listing 1000baseX or
-> 1000baseKX as a supported mode?
-> 
-> The old code always advertised the full RNPGBE_DEFAULT_ADV mask,
-> whatever firmware reported. The later patch "net: rnpgbe: Support copper
-> link configuration" rejects an empty autoneg advertisement in
-> set_link_ksettings. This default path still has no such check.
-> 
-> [ ... ]
-> 
-The firmware interface guarantees at least one usable TP mode, or
-1 Gb/s full duplex for fibre and backplane ports, as documented above
-the function.
+This series continues work originally posted by Avaneesh Kumar Dwivedi [1].
 
-An empty usable capability mask would violate this firmware contract.
-Given that guarantee, I think it is reasonable for the driver to rely
-on it without adding an explicit check here.
-> > diff --git a/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_main.c b/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_main.c
-> > index 46981ef2542ad..31871b244882d 100644
-> > --- a/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_main.c
-> > +++ b/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_main.c
-> 
-> [ ... ]
-> 
-> > @@ -258,6 +260,11 @@ static int rnpgbe_add_adapter(struct pci_dev *pdev,
-> >  		dev_err(&pdev->dev, "Hw reset failed %d\n", err);
-> >  		goto err_powerdown;
-> >  	}
-> > +	err = rnpgbe_init_link_config(hw);
-> > +	if (err) {
-> > +		dev_err(&pdev->dev, "Get link capabilities failed %d\n", err);
-> > +		goto err_powerdown;
-> > +	}
-> 
-> [Severity: Medium]
-> Will the device still probe if its firmware doesn't implement
-> GET_LANE_STATUS (0x0610), or rejects it?
-> 
-> The call chain is:
-> 
-> rnpgbe_init_link_config()
->   mucse_mbx_get_link()
->     mucse_fw_send_cmd_wait_resp()
-> 
-> This returns -ETIMEDOUT if no reply with a matching opcode arrives. It
-> returns -EIO if the reply has a non-zero error_code. Either error jumps
-> to err_powerdown, so no netdev is registered.
-> 
-> There is no fallback to the old defaults, and the commit message doesn't
-> give a minimum firmware version.
-> 
-> Does every firmware version this driver binds to support
-> GET_LANE_STATUS?
-> 
-Yes. GET_LANE_STATUS is part of the baseline firmware interface and is
-supported by all firmware versions for these devices.
+This series adds initial device tree support for the Talos Lyra EVK,
+a QCS615-based System on Module (SoM) paired with a carrier board.
 
-The previous driver sent a common default advertisement mask without
-first querying the port capabilities. Firmware handles settings that do
-not apply to the port. For example, on fibre ports it ignores the
-autonegotiation request and the 10/100 Mb/s advertisement bits, and uses
-fixed 1 Gb/s full duplex.
+The Talos Lyra SoM is a compact compute module integrating the QCS615 SoC,
+PMICs, memory, and essential connectivity. It is designed to be paired with
+multiple carrier boards to support different use cases.
 
-This patch queries GET_LANE_STATUS to obtain the actual port type and
-capabilities, select the corresponding defaults explicitly, and report
-them through ethtool. The command is supported by all firmware versions
-for these devices; its absence from the previous driver was not due to
-a firmware compatibility limitation.
-> [ ... ]
-> 
-> > diff --git a/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_mbx_fw.c b/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_mbx_fw.c
-> > index 4a18937927514..469818b83d70f 100644
-> > --- a/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_mbx_fw.c
-> > +++ b/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_mbx_fw.c
-> 
-> [ ... ]
-> 
-> > @@ -435,6 +462,8 @@ static void mucse_mbx_fw_req_handler(struct mucse_hw *hw,
-> >  
-> >  		hw->speed = le16_to_cpu(req->link_stat.st.speed);
-> >  		hw->duplex = req->link_stat.st.flags & DUPLEX_BIT;
-> > +		hw->mdix = FIELD_GET(ST_STATUS_MDIX_MASK,
-> > +				     le16_to_cpu(req->link_stat.st.status));
-> 
-> [Severity: Low]
-> ST_STATUS_MDIX_MASK is GENMASK(11, 10), so the field can hold 0 to 3.
-> The comment in rnpgbe_mbx_fw.h lists only three values:
-> 
-> /* MDI-X status uses ETH_TP_MDI_* encoding: 0 on link down, 1 MDI, 2 MDI-X. */
-> 
-> The raw value is stored here without a range check.
-> rnpgbe_get_link_ksettings() then copies it into cmd->base.eth_tp_mdix:
-> 
-> 		if (status & MUCSE_LINK_TP)
-> 			cmd->base.eth_tp_mdix = hw->mdix;
-> 
-> If firmware ever reported 3, ETH_TP_MDI_AUTO would show up in the
-> resolved MDI-X status field. That value is only meant for
-> eth_tp_mdix_ctrl.
-> 
-> Should values other than ETH_TP_MDI and ETH_TP_MDI_X be reported as
-> ETH_TP_MDI_INVALID instead?
-The direct assignment therefore follows the firmware protocol.
-0 when the link is down, 1 for MDI, and 2 for MDI-X. It does not Report
-3 as a resolved MDI-X status.
-> 
-> [ ... ]
-> 
-> -- 
-> Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/6C54E9FB2E95869E%2B20261124060436.410989-1-dong100%40mucse.com
-> 
+Talos Lyra is a distinct SoM revision of the existing Talos EVK SoM. The
+key differences are:
+  - Adds Apache (Lite-on-Module) WLAN on SoC Card.
+  - Removes SPI-attached CAN transceiver module.
+  - SDC2 on the existing Talos SoM supported SDIO-based WLAN; it is now
+    used for the SD card connector only.
+
+Note: The following are not included in this series and will be posted
+as follow-ups:
+  - WLAN node
+  - USB Type-C OTG role switching via CYPD6129 controller (OTG support,
+    VBUS supply management). USB controllers are set to peripheral/host
+    for initial bring-up only.
+
+[1] Link: https://lore.kernel.org/r/20260901-lyra_upstreaming-v1-0-e3a76dc9e21c@oss.qualcomm.com
+
+Changes in v4:
+- Fix sdhc_2 vqmmc-supply: use vreg_l2a (1.8V-2.96V) for UHS-I SD card
+  voltage switching; vreg_s4a is fixed 1.8V and cannot switch
+- Update vreg_l2a voltage range to 1.8V-2.96V to match UHS-I requirements
+- Add QSPI SPI-NOR flash node to SoM DTSI
+- Add EEPROM (atmel,24c256) with nvmem-layout on i2c5 to SoM DTSI
+- Link to v3: https://patch.msgid.link/20261027-talos-lyra-evk-v2-v3-0-658fd5a7ec99@oss.qualcomm.com
+
+Changes in v3:
+- Remove inapplicable Tested-by from dt-bindings patch
+- Fix DP HPD: use native pinctrl in mdss_dp0 instead of hpd-gpios in dp0-connector
+- Fix model string: capitalize "Lyra"
+- Squash EL2 overlay Makefile changes into board DTS patch
+- Move USB PHY supply nodes to SoM DTSI (supplies are SoM PMIC-routed)
+- Sort &node overrides alphabetically in board DTS (&tlmm before &usb_*)
+- Reword dt-bindings commit message: clarify board/SoM relationship and explain absence of SoM-specific compatible
+- Link to v2: https://patch.msgid.link/20261012-talos-lyra-evk-v2-v2-0-dcc9316ebb59@oss.qualcomm.com
+
+Changes in v2:
+  - Drop qcom,talos-lyra-evk-som compatible from the binding; group
+    qcom,talos-lyra-evk under the existing talos-evk block instead
+  - Remove unused regulators vreg_s3a (smps3), vreg_s5a (smps5) and
+    vreg_s6a (smps6) from the SoM device tree
+  - Update board compatible string to remove qcom,talos-lyra-evk-som
+  - Add "talos:" subsystem prefix to patches 2 and 3 subjects
+  - Set initial-mode to HPM for all LDOs (ldo3, ldo11, ldo13, ldo15, ldo16)
+  - Add EL2 overlay for talos-lyra-evk as a separate patch (patch 4)
+
+Changes in v1:
+  - dt-bindings for the Talos Lyra EVK board.
+  - Talos Lyra SoM DTSI with PMIC, regulators, storage (UFS/SD),
+    QUPv3 instances, ADSP/CDSP remoteprocs, and GPU definitions.
+  - Talos Lyra EVK board DTS enabling DisplayPort, GPIO expanders,
+    SPI-attached TPM (ST33), and USB on the carrier board.
+
+Signed-off-by: Ruchira Revdekar <ruchira.revdekar@oss.qualcomm.com>
+---
+Avaneesh Kumar Dwivedi (3):
+      dt-bindings: arm: qcom: Add Talos Lyra EVK board
+      arm64: dts: qcom: talos: Add Talos Lyra EVK SoM platform
+      arm64: dts: qcom: talos: Add Talos Lyra EVK board
+
+ Documentation/devicetree/bindings/arm/qcom.yaml  |   1 +
+ arch/arm64/boot/dts/qcom/Makefile                |   5 +
+ arch/arm64/boot/dts/qcom/talos-lyra-evk-som.dtsi | 311 +++++++++++++++++++++++
+ arch/arm64/boot/dts/qcom/talos-lyra-evk.dts      | 111 ++++++++
+ 4 files changed, 428 insertions(+)
+---
+base-commit: f1ac44c32cba88ad65dcecd4a279661d14e93651
+change-id: 20261007-talos-lyra-evk-v2-e2e588a34f6d
+
+Best regards,
+--  
+Ruchira Revdekar <ruchira.revdekar@oss.qualcomm.com>
+
