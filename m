@@ -1,46 +1,46 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=101.204.27.37
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795597941;
-	b=vpKyEjhN/Zxfdc+XSKlZ3E7tZaE6YwkRQnud5q8fzNo9VKLc5FmM1S0uHj6/egnEFuck
-	 m2Rhz3VZId5TJ0qszufjhvsSWTosN73ak6/xunpv7vZ/s0VV3J0Q567ooI5qJJeegpziG
-	 e856y+Dpo7QDIoxkW0VJz19OVpTcqD/ZeYETbedBoZ30mFEd6C9VeqKHnO3NKYxOveZDb
-	 DJ/I2LLNtBUOs6FJM6T8AZ7zCjYgBUFkaQq364BFDVRcWAX1ORGLAN6WbLpq9m57ttqMx
-	 /r9gjMjyv58WClGRgF/jz/O/NRcWg2ljMavsID6nJwCR2v4vI65ZWE5Kg0zn8hcBHgA==
+	t=1795597948;
+	b=tmegxIVGnm3xV3qsuE0obHFnmaDE75MPkDFvSpZ81g4jKaTwnukKO2rLjmob5W+VaaJl
+	 SiGok6YKqLR9kZsNYOyU/gltT/0jmBDoeUX3a2lOVtu0iLpqiJNxZ/3L4RXNqAB4rONT4
+	 bgB5S59Y0A3u/seY9ND0ValSnlk/XgruPgRRxhi/WItlJrpNwEptfv4q94UHGB1LnoUb+
+	 mHNBBj8M+blljrUDn1bOGD81qximJJPVJOBl02FyvQz62ykVrE6DEz+g9VLfUW/UYrZqq
+	 gzhwEiy7lqnPwybX6qxCOsYYQboiE53jFN5ZTH2ua1P3p0G4AX2aA9V1qhmtsC08uWg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795597941;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795597948;
 	h=DMARC-Filter:Received:Received:Received:Received:From:To:CC:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
 	 X-ClientProxiedBy;
-	bh=mvTE/jYYGVeN6Jqeco/QZgTO0HeF19oQmNCmoulMWNo=;
-	b=bpfSGUD/gD7p7RoIoZ7Ioza/5mVdZAagY5my/7cpkRZ4rD6NNUtmbO0gfqdS7KoEJ8hG
-	 Zs/76S0kUp0/tYF5SkLjwpIYHeNupFu9W4AvDWlpSK2nMizxG/fOvRE7T6o0SU8y4tXLp
-	 3VkN68wOYNdVuIMWMzaAIqeCYoSCy05spWuDPGG/8gQ5Cr/R45dXLsHTUbCWmHXsjNri7
-	 WL5M69navQwiNglMDkqgOuPEL5ZsGdGFkffGop2Dn8l9SvupInk4BSWBvMS2Md+mpehiy
-	 nppZwIdpX7HEMNVGL96U1sPAn4EwQMJAgyfdjL261X06JisfdJnebeXevnWd1H8KLsQ==
+	bh=V4HbwVEuwHie2pyqStq3WwzIcpZJDTmvqIBLuBqtFGA=;
+	b=dTHHl8khdm3NfiqTnh3BBGtP6Ew+Vp2br90QBmS2ix+rFyylcYr2s7JkFAHdlB6ql/oN
+	 +fg0oTdlcscbF1oTG33xfiHOSrLwSXtO92fwhixnXzOt3SZiTK1Vx7902qJFyepjpwTZj
+	 yh9esm2j9ThrIkCSaeNouGEn6kJFaWDFf9j1S45mo3U/X5o7w3Y5y9LujF6ZHD1VbCi3L
+	 uLLc/COQ/dyv6WfyQ39gW5WbsOg+/CbsI+8pvezAxsQHwxmmmwQZbyIdblivfdPihQxim
+	 kvq5KteyYrOTfhM3N+YCKH9ln9JqVSYkMgQfh0aEnkpC7LXQ1cZmwiQR+xCfae/H8tw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=hygon.cn;
 	spf=pass smtp.mailfrom=hygon.cn;
 	arc=none smtp.remote-ip=101.204.27.37
 Received: from spam01.hygon.cn (unknown [101.204.27.37])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 8885F606A323;
-	Wed, 25 Nov 2026 09:12:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8885F606A323
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id E05AB60A260C;
+	Wed, 25 Nov 2026 09:12:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E05AB60A260C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=hygon.cn
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=hygon.cn
-Received: from maildlp1.hygon.cn (unknown [127.0.0.1])
-	by spam01.hygon.cn (Postfix) with ESMTP id 4jZDTS292kzVhfS;
-	Wed, 25 Nov 2026 17:12:12 +0800 (CST)
-Received: from maildlp1.hygon.cn (unknown [172.23.18.60])
-	by spam01.hygon.cn (Postfix) with ESMTP id 4jZDTR4QkXzVhfS;
-	Wed, 25 Nov 2026 17:12:11 +0800 (CST)
+Received: from maildlp2.hygon.cn (unknown [127.0.0.1])
+	by spam01.hygon.cn (Postfix) with ESMTP id 4jZDTd29DHzVcB7;
+	Wed, 25 Nov 2026 17:12:21 +0800 (CST)
+Received: from maildlp2.hygon.cn (unknown [172.23.18.61])
+	by spam01.hygon.cn (Postfix) with ESMTP id 4jZDTZ6wxDzVcB7;
+	Wed, 25 Nov 2026 17:12:18 +0800 (CST)
 Received: from cncheex04.Hygon.cn (unknown [172.23.18.114])
-	by maildlp1.hygon.cn (Postfix) with ESMTPS id EA7BF1662;
-	Wed, 25 Nov 2026 17:12:04 +0800 (CST)
+	by maildlp2.hygon.cn (Postfix) with ESMTPS id 518F3300B6F1;
+	Wed, 25 Nov 2026 17:11:06 +0800 (CST)
 Received: from hsj-2U-Workstation.hygon.cn (172.19.24.226) by
  cncheex04.Hygon.cn (172.23.18.114) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.36; Wed, 25 Nov 2026 17:12:09 +0800
+ 15.2.1544.36; Wed, 25 Nov 2026 17:12:16 +0800
 From: Huang Shijie <huangsj@hygon.cn>
 To: <viro@zeniv.linux.org.uk>, <brauner@kernel.org>, <jack@suse.cz>,
 	<hch@infradead.org>, <agruenba@redhat.com>, <mic@digikod.net>,
@@ -53,9 +53,9 @@ CC: <gnoack@google.com>, <paul@paul-moore.com>, <jmorris@namei.org>,
 	<linux-fsdevel@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
 	<linux-block@vger.kernel.org>, <gfs2@lists.linux.dev>,
 	<linux-security-module@vger.kernel.org>, Huang Shijie <huangsj@hygon.cn>
-Subject: [PATCH v4 02/11] vfs: add sb_inode_iter_locked()
-Date: Wed, 25 Nov 2026 17:11:48 +0800
-Message-ID: <20261125091157.1822521-3-huangsj@hygon.cn>
+Subject: [PATCH v4 05/11] fs: convert generic_shutdown_super() poison loop
+Date: Wed, 25 Nov 2026 17:11:51 +0800
+Message-ID: <20261125091157.1822521-6-huangsj@hygon.cn>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261125091157.1822521-1-huangsj@hygon.cn>
 References: <20261125091157.1822521-1-huangsj@hygon.cn>
@@ -73,57 +73,52 @@ Content-Type: text/plain
 X-ClientProxiedBy: cncheex05.Hygon.cn (172.23.18.115) To cncheex04.Hygon.cn
  (172.23.18.114)
 
-Add sb_inode_iter_locked(), which keeps sb->s_inode_list_lock held
-across the whole walk and takes no reference, so each callback only gets
-an existence guarantee.  It must do its own inode state checks and must
-not block.
+Convert generic_shutdown_super() poison loop with sb_inode_iter_locked().
 
-It lives in fs/internal.h as a static inline rather than being exported,
-so that it stays a VFS internal facility and the small callbacks inline
-into their callers.  A callback returns a negative value to stop the walk
-with that error, and 0 to continue.
+No functional change.
 
 Signed-off-by: Huang Shijie <huangsj@hygon.cn>
 ---
- fs/internal.h | 25 +++++++++++++++++++++++++
- 1 file changed, 25 insertions(+)
+ fs/super.c | 19 ++++++++++---------
+ 1 file changed, 10 insertions(+), 9 deletions(-)
 
-diff --git a/fs/internal.h b/fs/internal.h
-index 967c8556c17f..0479094e1330 100644
---- a/fs/internal.h
-+++ b/fs/internal.h
-@@ -139,6 +139,31 @@ struct super_block *user_get_super(dev_t, bool excl);
- void put_super(struct super_block *sb);
- extern bool mount_capable(struct fs_context *);
+diff --git a/fs/super.c b/fs/super.c
+index 077e772fa19b..bf7fac5ebcbb 100644
+--- a/fs/super.c
++++ b/fs/super.c
+@@ -780,6 +780,15 @@ void retire_super(struct super_block *sb)
+ }
+ EXPORT_SYMBOL(retire_super);
  
-+/*
-+ * Iteration for internal VFS use only, with sb->s_inode_list_lock held
-+ * across the whole walk and no inode reference taken.  @iter_fn runs in
-+ * atomic context with only an inode existence guarantee, so it must not
-+ * block and must perform its own inode state checks.
-+ *
-+ * Return a negative value to stop the walk with that error, 0 to continue.
-+ */
-+static inline int sb_inode_iter_locked(struct super_block *sb,
-+		int (*iter_fn)(struct inode *inode, void *priv), void *priv)
++static int inode_poison_fn(struct inode *inode, void *priv)
 +{
-+	struct inode *inode;
-+	int ret = 0;
++	inode->i_op = VFS_PTR_POISON;
++	inode->i_sb = VFS_PTR_POISON;
++	inode->i_mapping = VFS_PTR_POISON;
 +
-+	spin_lock(&sb->s_inode_list_lock);
-+	list_for_each_entry(inode, &sb->s_inodes, i_sb_list) {
-+		ret = iter_fn(inode, priv);
-+		if (ret)
-+			break;
-+	}
-+	spin_unlock(&sb->s_inode_list_lock);
-+
-+	return ret;
++	return 0;
 +}
 +
- /*
-  * Prepare superblock for changing its read-only state (i.e., either remount
-  * read-write superblock read-only or vice versa). After this function returns
+ /**
+  *	generic_shutdown_super	-	common helper for ->kill_sb()
+  *	@sb: superblock to kill
+@@ -838,15 +847,7 @@ void generic_shutdown_super(struct super_block *sb)
+ 			 * we can at least make it more likely that a later
+ 			 * iput_final() or such crashes cleanly.
+ 			 */
+-			struct inode *inode;
+-
+-			spin_lock(&sb->s_inode_list_lock);
+-			list_for_each_entry(inode, &sb->s_inodes, i_sb_list) {
+-				inode->i_op = VFS_PTR_POISON;
+-				inode->i_sb = VFS_PTR_POISON;
+-				inode->i_mapping = VFS_PTR_POISON;
+-			}
+-			spin_unlock(&sb->s_inode_list_lock);
++			sb_inode_iter_locked(sb, inode_poison_fn, NULL);
+ 		}
+ 	}
+ 	/*
 -- 
 2.53.0
 
