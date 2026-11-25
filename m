@@ -1,49 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.127.230.112
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.218
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795612742;
-	b=DH1+OPZsm44x9PK8ljIFLPPpB/8+4AOfn9iVTPqXngkuCGSZFTEVVXsUrS+Dzt3UvczF
-	 bWRjPROCAMwBK8Z08qbrZ59DUuK9v1qrk+zFGKvEgrAjD7Ch3R5SbcRX2Va2c6UqYaOks
-	 MXVhsk6Ye04iA6lNzY1LXAntFvI3PuHALiH2QwhiFfSsfJGQwX/zf2Z2M68eq89jiNURO
-	 JBG6CirlzFvUWd0FFNGaN3a4Yt62Uk4DU0o4JGOSCymFc+I2VUasEyMReA2x+CwWSGqSy
-	 Q6t4nVA1rSa0WSrRjy2T/ElSah2j4a2VFzdXEWLC6ggn1hzDL0ZV4LfVP/WI6O8/CPg==
+	t=1795612761;
+	b=XWcYGyJNERRYjEZkNS0OcehSzTwC3EnOuXiCIA3H1oXXXPaLYWOL3OKRWSmPax4YD3Ti
+	 zrah78agIzmh5Hjjstx1Fg2dgWTrzmIgRqq5EGNi43tikhlSl+8l1HUeu1mnVgvU5/LKQ
+	 ieyN8K5kr8f4K7tP8fql5pjGAz2z0JpFTl8GmI0Vl0tuUY2caToLdFxJOOMzAIfpwNKwn
+	 DEhPEaGdBEZU0Ti41/9VXPUbWapTHnxQCcAsztNBFL3xdL11KaJAzglWzPQwggCJL6/L+
+	 ufSFXggBL5pqatbRyKC8C3OTmDfHiB3qQaKx3fdNu7EeZNY8Ymy/jwddgljJp+FTelw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795612742;
-	h=DMARC-Filter:DKIM-Signature:Date:Mime-Version:
-	 Content-Transfer-Encoding:X-Original-From:To:Cc:From:X-Mailer:
-	 Content-Type:Subject:Message-Id:X-Lms-Return-Path;
-	bh=sTebTr/mmMnUDFvs2dZ6oTftfFU6qOhvuToUBdTNGdY=;
-	b=4IT9DP6ZCmbbReb3FtPidZhHsOlYs8C2aVLpzywopN9tLho6U0OBe3j2+zGawRNmh9O4
-	 ccVouTsTezm4ghlCex5bCAGhmAPg2wBVHkyGmPqgbFGmoRiFKhNW6phrzFoQb37oe9z6q
-	 5vdS6zZ90xI551UUt2KD5J43m71bPxeb+qXw87KLK3rlC148s8HWUw1nq0tuqf51X0pXw
-	 9L2XeuFhvISu/y6cRWta6sgvVDOIph9KO5tD3UGYrxWZaoMg00UweJq8hqP7JgScmjYL4
-	 A2C7KsrqKSeBPI+q04FoZyCce0xIfxi2pHQzZkB9O/e8EgMWb9MNksgzjPyFUx4UDtg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795612761;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:Date:Subject:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:X-B4-Tracking:To:Cc:
+	 X-Mailer;
+	bh=OMZrACG4YzEG/R/0w5Y8GlrwQuGotNE0xJ5Hbu+8idU=;
+	b=YxVqjzXFd5OA/Wka/JrbD9MUJJg0v+GvrNtkGr6AHJEb/tJBG+bjFFZ7iMBnstfAQOeQ
+	 AiUrLhXGqxN4kX/HGWU5UnYooFAFVrT4Uxw1Dpgdyf4pd+XZXeAQhehmksAZ1+chtOT7D
+	 WyKc031LtuZqqKINeiVp9tq1H0ZpCrhBDUjxrrVTwenWK3f3HUlv3AWo/Zbrx26xvgeOi
+	 h6ThG9FEaLb4+23SpHOe7/E6rqafD2V0Kzvs3WLLaojWSNGYRqqaBpZuGY1l25H0t91Pp
+	 eYZt9wv5m347sZq+cTb/uL0zI+PVzXJL90yEnAq8kNGjnFxBPDe5NOo/D85YfPo0RDA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bytedance.com;
-	spf=pass smtp.mailfrom=bytedance.com;
-	dkim=pass header.d=bytedance.com header.i=@bytedance.com header.a=rsa-sha256 header.s=2212171451 header.b=pm61aRt0;
-	arc=none smtp.remote-ip=209.127.230.112
-Received: from va-1-112.ptr.blmpb.com (va-1-112.ptr.blmpb.com [209.127.230.112])
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=HobQnCPa;
+	arc=none smtp.remote-ip=95.215.58.218
+Received: from mta1.migadu.com (out-218.mta1.migadu.com [95.215.58.218])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 810FA606A323
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 13:19:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 810FA606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=bytedance.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bytedance.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DDEBC606A31E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 13:19:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DDEBC606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=bytedance.com header.i=@bytedance.com header.a=rsa-sha256 header.s=2212171451 header.b=pm61aRt0
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=2212171451; d=bytedance.com; t=1795612735; h=from:subject:
- mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
- mime-version:in-reply-to:message-id;
- bh=sTebTr/mmMnUDFvs2dZ6oTftfFU6qOhvuToUBdTNGdY=;
- b=pm61aRt0qiI7tDeXc1rE2ZlHm57DzSvsuJhh+osv2zNGrVLHqnLLMi3V522eNoc6K3Xwi5
- A370t584LBnsXmQxeST/J+eHJOiJ12flPHG8pkmXkdx05qugzd8NlTZgix7alCiXZGKT0A
- pt7NXp2r1zZvI0N7UKDTK5vlJ929GpmlKfpOjnDXAdz6XSnUBDyREa3PjU2AkirTsQpM2m
- Fjr2C8nKzS+gIIcbKZDnJ98TbpntUzUWARKv7X/AFo+V8FRii9UssPpzQtsK546Rj5fPow
- IQUJE/wHIsow0OPw5lfWXu8+PrFHhYdaeGc6/QPPiaiceHL7awguzWuSamMz2Q==
-Date: Wed, 25 Nov 2026 21:18:37 +0800
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=HobQnCPa
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=r6bMD448NDvDe1of8Gbg0ox46SMNpQsOACqhflsA/30=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795612759; v=1; x=1796217559;
+ b=HobQnCPaX/h4ix05V5kJI9RGD5W0QBFpQBrILKF5eLqy4Z3wZVWFmvKpmQe21wwS053gz7jl
+ cw+UrzDEw0WOhuvN44Oovgey+xNEfzyk00kkSY9lVvJ8Pn+cSEw0RxF33sWk52MTA2JxgqRX1Gy
+ WZEdzb8cOPeTSK83GB8IcNK0=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 27078477fa6da1e4;
+	Wed, 25 Nov 2026 13:19:18 +0000
+X-Mizu-Trace-ID: 27078477fa6da1e4
+X-Migadu-Flow: FLOW_OUT
+From: Qiliang Yuan <qiliang.yuan@linux.dev>
+Date: Wed, 25 Nov 2026 08:19:06 -0500
+Subject: [PATCH] sched/topology: Count LLCs per node from the sched groups
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -52,112 +58,99 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-Original-From: Chuyi Zhou <zhouchuyi@bytedance.com>
-To: <tj@kernel.org>, <jiangshanlai@gmail.com>, <leitao@debian.org>
-Cc: <linux-kernel@vger.kernel.org>, "Chuyi Zhou" <zhouchuyi@bytedance.com>
-From: "Chuyi Zhou" <zhouchuyi@bytedance.com>
-X-Mailer: git-send-email 2.20.1
-Content-Type: text/plain; charset=UTF-8
-Subject: [PATCH] workqueue: Use a single latency array in test_workqueue
-Message-Id: <20261125131837.1602218-1-zhouchuyi@bytedance.com>
-X-Lms-Return-Path: <lba+26b06e03d+8d0535+vger.kernel.org+zhouchuyi@bytedance.com>
+Message-Id: <20261125-feat-sched-nr-llcs-v1-1-05f8e23a5f8f@linux.dev>
+X-B4-Tracking: v=1; b=H4sIAEngBmsC/x3MMQqAMAxA0atIZgNt0SJeRRxCjRooVRoRQXp3i
+ +Mb/n9BOQsrjM0LmW9ROVKFbRsIO6WNUZZqcMZ5a12PK9OFGnZeMGWMMSiSpcF53zEFAzU8M6/
+ y/NNpLuUDaYZoYWQAAAA=
+To: Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>, 
+ Juri Lelli <juri.lelli@redhat.com>, 
+ Vincent Guittot <vincent.guittot@linaro.org>, 
+ Dietmar Eggemann <dietmar.eggemann@arm.com>, 
+ Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>, 
+ Mel Gorman <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>, 
+ K Prateek Nayak <kprateek.nayak@amd.com>, 
+ "Gautham R. Shenoy" <gautham.shenoy@amd.com>
+Cc: linux-kernel@vger.kernel.org, Li kunyu <likunyu@open-hieco.net>, 
+ Qiliang Yuan <qiliang.yuan@linux.dev>
+X-Mailer: b4 0.13.0
 
-run_bench() allocates space for all latency samples in all_latencies
-and again in per-thread arrays. After stopping the throughput timer, it
-copies the per-thread samples into all_latencies and sorts the array
-to compute percentiles.
+adjust_numa_imbalance() sets imb_numa_nr from the number of LLCs under
+the LLC's parent domain, so that tasks spill over to another node only
+once every LLC of the local node is in use.  It estimates that number
+by dividing the parent's span weight by the LLC's.
 
-Give each kthread a disjoint range of all_latencies. The threads write
-their samples directly into the array that run_bench() sorts after
-they have stopped. Use size_mul() for the total sample count so that
-the allocation covers all ranges even on 32-bit systems.
+The division assumes all LLCs in a node are the same size.  On a Hygon
+C86-4G 7493 each node has four CCXs of 4, 4, 3 and 3 cores, as two core
+slots per node are fused off, giving LLCs of 8, 8, 6 and 6 CPUs out of
+28.  CPUs in the larger CCXs compute 28 / 8 = 3 LLCs and the others
+28 / 6 = 4, so CPUs of the same node apply different imbalance limits
+at every NUMA level.
 
-With 256 threads and 50,000 samples per thread, this removes 256
-allocations per affinity scope, halves the requested sample storage
-from 195.31 MiB to 97.66 MiB and avoids copying 102,400,000 bytes.
+Count the parent's sched groups instead.  They are built from the child
+domains, one per LLC, before imb_numa_nr is computed, and give the same
+count as the division when all LLCs are the same size.
 
-Signed-off-by: Chuyi Zhou <zhouchuyi@bytedance.com>
+imb_numa_nr per domain on a KVM guest with that node layout (2 sockets
+x 2 nodes, SLIT 15/25/27, fused-off core slots offlined), read through
+a debugfs file added for the test; change is for the 4-core CCXs:
+
+  domain (CPUs)  before, 4-core CCX  before, 3-core CCX  after  change
+  NODE (28)                       3                   4      4    +33%
+  NUMA (56)                       3                   4      4    +33%
+  NUMA (84)                       3                   4      4    +33%
+  NUMA (112)                      6                   8      8    +33%
+
+Fixes: e496132ebedd ("sched/fair: Adjust the allowed NUMA imbalance when SD_NUMA spans multiple LLCs")
+Signed-off-by: Qiliang Yuan <qiliang.yuan@linux.dev>
 ---
- lib/test_workqueue.c | 30 ++++--------------------------
- 1 file changed, 4 insertions(+), 26 deletions(-)
+ kernel/sched/topology.c | 16 ++++++++++++++--
+ 1 file changed, 14 insertions(+), 2 deletions(-)
 
-diff --git a/lib/test_workqueue.c b/lib/test_workqueue.c
-index 2bdfcbbcabb4..015d304c938a 100644
---- a/lib/test_workqueue.c
-+++ b/lib/test_workqueue.c
-@@ -142,7 +142,7 @@ static int __init run_bench(int n_threads, const char *scope, const char *label)
- 	struct thread_ctx *ctxs;
- 	u64 *all_latencies;
- 	ktime_t start, end;
--	int cpu, i, j, ret;
-+	int cpu, i, ret;
- 	s64 elapsed_us;
+diff --git a/kernel/sched/topology.c b/kernel/sched/topology.c
+index 99878da03bce7..7efb2cde5534f 100644
+--- a/kernel/sched/topology.c
++++ b/kernel/sched/topology.c
+@@ -2893,8 +2893,9 @@ static void adjust_numa_imbalance(struct sched_domain *sd_llc)
+ {
+ 	struct sched_domain *parent;
+ 	unsigned int imb_span = 1;
++	unsigned int nr_llcs = 0;
++	struct sched_group *sg;
+ 	unsigned int imb = 0;
+-	unsigned int nr_llcs;
  
- 	ret = set_affn_scope(scope);
-@@ -159,7 +159,7 @@ static int __init run_bench(int n_threads, const char *scope, const char *label)
- 		return -ENOMEM;
- 	}
- 
--	total_items = (unsigned long)n_threads * wq_items;
-+	total_items = size_mul(n_threads, wq_items);
- 	all_latencies = kvmalloc_array(total_items, sizeof(u64), GFP_KERNEL);
- 	if (!all_latencies) {
- 		kfree(tasks);
-@@ -167,20 +167,6 @@ static int __init run_bench(int n_threads, const char *scope, const char *label)
- 		return -ENOMEM;
- 	}
- 
--	/* Allocate per-thread latency arrays */
--	for (i = 0; i < n_threads; i++) {
--		ctxs[i].latencies = kvmalloc_array(wq_items, sizeof(u64),
--						   GFP_KERNEL);
--		if (!ctxs[i].latencies) {
--			while (--i >= 0)
--				kvfree(ctxs[i].latencies);
--			kvfree(all_latencies);
--			kfree(tasks);
--			kfree(ctxs);
--			return -ENOMEM;
--		}
--	}
--
- 	atomic_set(&threads_done, n_threads);
- 	reinit_completion(&all_done_comp);
- 	reinit_completion(&start_comp);
-@@ -193,6 +179,8 @@ static int __init run_bench(int n_threads, const char *scope, const char *label)
- 
- 		ctxs[i].cpu = cpu;
- 		ctxs[i].items = wq_items;
-+		/* Each thread fills its own slice for the final in-place sort. */
-+		ctxs[i].latencies = &all_latencies[(size_t)i * wq_items];
- 		init_completion(&ctxs[i].work_done);
- 
- 		tasks[i] = kthread_create(bench_kthread_fn, &ctxs[i],
-@@ -230,14 +218,6 @@ static int __init run_bench(int n_threads, const char *scope, const char *label)
- 	end = ktime_get();
- 	elapsed_us = ktime_us_delta(end, start);
- 
--	/* Merge all per-thread latencies and sort for percentile calculation */
--	j = 0;
--	for (i = 0; i < n_threads; i++) {
--		memcpy(&all_latencies[j], ctxs[i].latencies,
--		       wq_items * sizeof(u64));
--		j += wq_items;
--	}
--
- 	sort(all_latencies, total_items, sizeof(u64), cmp_u64, NULL);
- 
- 	pr_info("test_workqueue:   %-16s %llu items/sec\tp50=%llu\tp90=%llu\tp95=%llu ns\n",
-@@ -249,8 +229,6 @@ static int __init run_bench(int n_threads, const char *scope, const char *label)
- 
- 	ret = 0;
- out_free:
--	for (i = 0; i < n_threads; i++)
--		kvfree(ctxs[i].latencies);
- 	kvfree(all_latencies);
- 	kfree(tasks);
- 	kfree(ctxs);
+ 	WARN_ON(!(sd_llc->flags & SD_SHARE_LLC));
+ 	WARN_ON(!sd_llc->parent);
+@@ -2918,8 +2919,19 @@ static void adjust_numa_imbalance(struct sched_domain *sd_llc)
+ 	 * enough logical CPUs per LLC to avoid SMT
+ 	 * factors and that there is a correlation
+ 	 * between LLCs and memory channels.
++	 *
++	 * Count the LLCs through the parent's groups, one
++	 * per LLC, rather than dividing the spans: LLCs
++	 * in a node need not be the same size (e.g. when
++	 * some cores of a CCX are fused off), and the
++	 * quotient then depends on which LLC the CPU is in.
+ 	 */
+-	nr_llcs = sd_llc->parent->span_weight / sd_llc->span_weight;
++	sg = sd_llc->parent->groups;
++	do {
++		nr_llcs++;
++		sg = sg->next;
++	} while (sg != sd_llc->parent->groups);
++
+ 	if (nr_llcs == 1)
+ 		imb = sd_llc->parent->span_weight >> 3;
+ 	else
+
+---
+base-commit: c47af85667065c6dd5b79564203c2d29948ef60e
+change-id: 20261125-feat-sched-nr-llcs-a1a82664eac0
+
+Best regards,
 -- 
-2.20.1
+Qiliang Yuan <qiliang.yuan@linux.dev>
+
