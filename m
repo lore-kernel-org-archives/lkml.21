@@ -1,47 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795617084;
-	b=LFaoFb2P12YdfVImkT7S1AMHOsd/Pg3A0ALekiqXcDObxgPj/zxkI0tegGbjTdCzLcfo
-	 3xad0tc3oJgNEsAQd/mx+NLlVOpWNdwq0/n87GYrGag2PMg2e1ucHa1tGqPKIoKxTcRsq
-	 ymappADJsOvNyssBKhOPj1O9qVixw3jMbmY5uCuNbVaRmpnPopbCqavJQV7k3C/GOZ0b8
-	 lctNPnO/pGLpIdTGEpvuwwf7VMuSqOCbYIlx5SH+a1/Gf0x9POcRsnq5cT4ukT3EF9Gqm
-	 x4mFGMFJPL8mIq+68f461PVMomTnW/QSuDaqfvZkGUOu+lVCdwaSlnCSVPeQMW67MpQ==
+	t=1795617112;
+	b=HTQ7qK1kw5W1jI2j36f7jy83uoM+B7g0IkSD+FDQUfFvbVXGt9nPB4ygvGc2Pae70F9+
+	 5S4pJbNsuPxR0boe/O6D7kU4NoLEyjnTGmYg9j+3FOVmQkQ3TpcAjMggXrnG0OcDp7JGQ
+	 wDtxVKalhPn9+JRXFM18ZAgt/646d/Xz1Xklx4vx4S+jyx8AHJueHz6FF7j4bz1Uvq1HM
+	 i6/xZ8VfYptD2NPYXRV+ZsMEKdDrdzk+b3Da8QdkuhT1+jszL7SreLp3NcqkXHTyoYMF3
+	 hDBhoyV+bf0qyEoPODgDhC2sxpYwaoJ+0Ckrhs3APiW6KxFZNW+bnIBelP4vv9jyg2w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795617084;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=punU4N0Xvh75yPULI+zGLL615WVm9MaUQPGC5AWD3Bs=;
-	b=ZLj3OLq7XZCkh+oFjEIekoFzdcD0L9d9wJIwELPQ0oi/qTL4MAy4frDEAyOV4ghxAYa1
-	 zkF8FwLleS3BVHNOA6EiIKK1sfW2ZQSCyOKU4Z4wtecWWB6IynL+bsPHscGwRitAtgZFY
-	 dZI4wsAN3v2/Dr65TCZHMDov1wA6ZD3O1fnzBI5gkVu9obiqY7J0dqses0mf+iOfqa7rQ
-	 v/tK6Mr9jP39r9qum+RjuEl8lfbAtiSoZd0p0ONGSqYZ67VLsTHtXJwutGiGdrYXCdpXx
-	 LBXCtLijIXaD5LfTzgk0s3ZZ02Ju3ESDH0dpY66y/oQBBREfMeGO4O1DCfipi25pnfQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795617112;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-Scanned-By;
+	bh=9VPn3qSbr6UuDL7PEPnTHgNf7btvQAHemjoVf9yo53s=;
+	b=Zal7YQRlZ9wnpgN03Kfh4H6UVwFTYmthOm+zkIa1RUYm4UHtM8QoxrLbTt3/sGlzDAqe
+	 Ua/s6MDCq+jRnDjCvFMFT/HRhF42H/b+Psuj/Y7+b6ULfRFKS0fg56N+i6R/b66bPaZcb
+	 lZsTYxsfnw7GHvNovb62G+1a8veZGNaFrf1nOYzXkhfib/jdT0p6YG6hq5lhEFVwoef3B
+	 Z4dYTbd6lszbuOiH6SVvpbvs3CbNSZP7atz09psa1MR4buMZ+4xGCj8GKBpmyATLNXtJl
+	 PkNE1wrt/+ocJyYFFu+L36ee7Pz4TCDIUNSEZpU3fQQTc4oSuOjWpcq6FTpUDOTb4XQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AcSorZb5;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=BIckDBID;
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4EFDA606A31E;
-	Wed, 25 Nov 2026 14:31:24 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 207EF606A327
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:31:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 207EF606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AcSorZb5
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC3991F000C4;
-	Wed, 25 Nov 2026 14:31:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795617083;
-	bh=punU4N0Xvh75yPULI+zGLL615WVm9MaUQPGC5AWD3Bs=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=AcSorZb5btrxg3c6DW/NBDfVHqtwjV+yuob8HqKFJBApVAk3YkJCki0W+XDaPYm9n
-	 lL6fhqQocRIYq0GOCB6mVS/TR+CZ0mTgoox/65bI+yKUqVRZC1+u8pNFrKrTJrdMKx
-	 6ln9cxgBpFnrbzeI1Eomj+Aqu1gZudmofacmCZmjiHUETEoRvRHym+z4cbh1Dc47Dn
-	 8fUQhtrDXCj2rKDhATTqUYDrEmzjT51IAOP0VHEdXK+UP4a3s00+YhR+RX6XpBd91O
-	 P/myLyAvhoA++P6x9W4gvEQxODrU1PnPnNd2DbcBGdr9AhE2SABkJx9jbmGedB3PHU
-	 XsnhKifvNVtow==
-Message-ID: <b0e72c22-4de7-40b2-8357-3c8716a5b7d1@kernel.org>
-Date: Wed, 25 Nov 2026 15:31:17 +0100
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=BIckDBID
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795617111;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=9VPn3qSbr6UuDL7PEPnTHgNf7btvQAHemjoVf9yo53s=;
+	b=BIckDBID/Np87DmUbt+5BIUQDtWfC6xl6RFAt173/BINKGdJr66Za23ofWhA6VKEUQ9A0R
+	aeDJPUDfSDrQrtqnb+NAlIdE1/pVUU6aitNzqMiDWVKCX5pLhrrHYMteBaiebrog4wEZ8z
+	881eiG6QsaG+qaXo6kkHuT6M6y0fGcY=
+Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-324-jywuPODkNlmXYQVCdRy39A-1; Wed,
+ 25 Nov 2026 14:31:43 +0000
+X-MC-Unique: jywuPODkNlmXYQVCdRy39A-1
+X-Mimecast-MFC-AGG-ID: jywuPODkNlmXYQVCdRy39A_1795617098
+Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id E60451955F02;
+	Wed, 25 Nov 2026 14:31:37 +0000 (UTC)
+Received: from [100.91.101.41] (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
+	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 1024D1956045;
+	Wed, 25 Nov 2026 14:31:31 +0000 (UTC)
+Message-ID: <8dc4f480-a875-4118-b5ee-2c4716ee53bc@redhat.com>
+Date: Wed, 25 Nov 2026 15:31:30 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -52,99 +72,164 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] dt-bindings: pinctrl: qcom: Add qcom,remote-owned for
- ownership update
-To: Pankaj Patil <pankaj.patil@oss.qualcomm.com>,
- Linus Walleij <linusw@kernel.org>
-Cc: Bartosz Golaszewski <brgl@kernel.org>,
- Bjorn Andersson <andersson@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Prasad Sodagudi <quic_psodagud@quicinc.com>,
- Rajendra Nayak <quic_rjendra@quicinc.com>, linux-arm-msm@vger.kernel.org,
- linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20261106-egpio_fix-v1-0-569d220a4748@oss.qualcomm.com>
- <20261106-egpio_fix-v1-1-569d220a4748@oss.qualcomm.com>
- <20261110-modest-significant-ostrich-8dd408@quoll>
- <CAD++jLkpFWWSV55LkhAa4YfckDvzB6PrHWugX0Mth=cQRYkMDg@mail.gmail.com>
- <6493f02a-5880-4245-86f4-1e1bf00da017@oss.qualcomm.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH net-next v2 0/9] dpll: do not serialize driver callbacks
+ under global dpll_lock
+To: Jiri Pirko <jiri@resnulli.us>, Vadim Fedorenko <vadim.fedorenko@linux.dev>
+Cc: Jakub Kicinski <kuba@kernel.org>,
+ Arkadiusz Kubalewski <arkadiusz.kubalewski@intel.com>,
+ netdev@vger.kernel.org, Jonathan Corbet <corbet@lwn.net>,
+ Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
+ <rdunlap@infradead.org>, Min Li <min.li@microchip.com>,
+ Tony Nguyen <anthony.l.nguyen@intel.com>,
+ Przemek Kitszel <przemyslaw.kitszel@intel.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Richard Cochran <richardcochran@gmail.com>,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ intel-wired-lan@lists.osuosl.org, Grzegorz Nitka <grzegorz.nitka@intel.com>,
+ Karol Kolacinski <karol.kolacinski@intel.com>,
+ Saeed Mahameed <saeedm@nvidia.com>, Tariq Toukan <tariqt@nvidia.com>,
+ Petr Oros <poros@redhat.com>
+References: <20261111164021.273409-1-ivecera@redhat.com>
+ <20261116181612.107a4b57@kernel.org>
+ <fe1dcdd5-ef75-4231-bf9f-03bf8536c2aa@redhat.com>
+ <20261118174424.32e9f130@kernel.org>
+ <dd1d61d7-7bef-4a02-8518-e17d2f50369f@redhat.com>
+ <20261119133851.3f25074c@kernel.org>
+ <bdfa88fe-13bb-4050-b750-962586b1d846@redhat.com>
+ <ff8b63b7-b943-444a-bd37-b6fb493b5d9f@linux.dev>
+ <awMP9Gj3Xhia0ZeI@FV6GYCPJ69>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <6493f02a-5880-4245-86f4-1e1bf00da017@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+From: Ivan Vecera <ivecera@redhat.com>
+In-Reply-To: <awMP9Gj3Xhia0ZeI@FV6GYCPJ69>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
 
-On 25/11/2026 12:23, Pankaj Patil wrote:
-> On 11/22/2026 2:16 AM, Linus Walleij wrote:
+On 11/22/26 16:54, Jiri Pirko wrote:
+> Fri, Nov 20, 2026 at 09:00:27PM +0100, vadim.fedorenko@linux.dev wrote:
+>> On 20/11/2026 07:39, Ivan Vecera wrote:
+>>> On 11/19/26 22:38, Jakub Kicinski wrote:
+>>>> Well, I'm not convinced. The relations between objects in DPLL are
+>>>> already quite hard to follow, and objects from one driver routinely
+>>>> "plug" into objects from another. The explanation of the locking
+>>>> rules in patch 9 does not look clean or clear. The driver facing
+>>>> API needs to be much more "dummy-proof".
+>>>
+>>> Fair enough. The complicated part of the rules comes exactly from
+>>> that: a pin registered by another driver, like the zl3073x pins that
+>>> ice registers with its TXC DPLL or uses as parents of its RCLK pins.
+>>> A message about such a pin runs callbacks of both drivers. I have
+>>> prototypes of the first four ways below to lock this, each with KUnit
+>>> tests, and would like your opinion before going further.
+>>>
+>>> In all of them a domain is the set of objects created with the same
+>>> module and clock_id, dpll_lock becomes an rwsem for the topology and
+>>> lifetime, and a mutex per domain serializes the callbacks.
+>>>
+>>> A) Pin's domain (this series)
+>>>
+>>>      Callbacks of a pin run under the domain of the pin, whichever
+>>>      driver registered them.
+>>>
+>>>      Pros:
+>>>      * one domain lock at a time, so no lock order
+>>>      * a request or a message about a pin is atomic
+>>>      Cons:
+>>>      * the callbacks of a foreign pin are serialized with the driver
+>>>        that created the pin, not with the other callbacks of the driver
+>>>        that registered it, so that driver has to protect the shared
+>>>        state itself, and lockdep cannot check it
+>>>      * restrictions for measured_freq_get, reference sync pairs and the
+>>>        private data of a parent pin, which patch 9 has to explain
+>>>
+>>> B) Registrant's domain, deferred notifications
+>>>
+>>>      Each callback runs under the domain of the driver that registered
+>>>      it. A message about a pin takes the domain locks one after another,
+>>>      and notifications from callbacks are queued and sent once the
+>>>      domain lock is dropped.
+>>>
+>>>      Pros:
+>>>      * callbacks registered by one driver instance are always
+>>>        serialized with each other
+>>>      * one domain lock at a time, so no lock order
+>>>      Cons:
+>>>      * a request or a message about a pin registered across domains is
+>>>        not atomic
+>>>      * the most complex core: a notification queue per domain, a lock
+>>>        per object to keep its messages in order, and pin setters split
+>>>        into validation and apply parts
+>>>
+>>> C) Registrant's domain nested under the pin's domain
+>>>
+>>>      Pros:
+>>>      * callbacks registered by one driver instance are serialized with
+>>>        each other and with the driver that created the pin
+>>>      * a request or a message about a pin is atomic
+>>>      Cons:
+>>>      * the lock order comes from the topology, so a pin of A registered
+>>>        with a DPLL of B together with a pin of B registered with a DPLL
+>>>        of A deadlocks, and lockdep sees it only with a lockdep class per
+>>>        domain
+>>>      * a stuck foreign registrant stops the domain of the pin
+>>>
+>>> D) Merged domains (your suggestion)
+>>>
+>>>      Registering a pin with a DPLL or a parent pin of another domain
+>>>      merges both domains. They are not split again.
+>>>
+>>>      Pros:
+>>>      * the rules for drivers stay as they are with the global lock
+>>>        today, and lockdep checks them; the only new one is that state
+>>>        shared between chips not connected by a pin needs a driver lock
+>>>      * a request or a message is atomic
+>>>      Cons:
+>>>      * only hardware not connected by pins runs in parallel; on the
+>>>        GNR-D system the zl3073x and all ice PFs end up in one domain
+>>>      * a callback that waits for the hardware, like the planned resync
+>>>        for up to 1 s, or for firmware still stalls all DPLL devices in
+>>>        the merged domain
+>>>
+>>> E) Global dpll_lock, slow callbacks asynchronous
+>>>
+>>>      Pros:
+>>>      * no change in the core
+>>>      Cons:
+>>>      * the resync problems from my previous mail, and a callback that
+>>>        waits for firmware still stalls all DPLL devices in the system
+>>>
+>>> I wrote before that stretching the domains would not improve
+>>> anything on that system. That holds for the ToD stall I measured,
+>>> but the zl3073x does not need to hold its channel lock across the
+>>> edge waits. Without that, the remaining waits are the planned resync
+>>> and output state callbacks, and with D they stall only the devices
+>>> wired to that chip, which depend on it anyway.
+>>>
+>>> So I lean towards D, as it gives drivers nothing new to get right.
+>>> Would that address your concern, or do you see a better way?
+>>>
+>>> It would be good to hear from the other DPLL maintainers as well.
+>>> Jiri, Vadim, Arkadiusz, what do you think?
 >>
->> We have instances of device trees which are maintained in Linux
->> being used by e.g. secure world, U-Boot...
->> So something else is using it perhaps?
+>> I totally agree with Jakub. Current implementation of DPLL subsystem is
+>> over complicated, and all these complications came just to completely
+>> model what was designed for Intel NICs, basically ice driver. But now we
+>> are again back to the discussion how to complicate things further just
+>> to fit what was implemented in the new generation of the same hardware.
 >>
->> But I don't think the device tree should decide system partitioning
->> like that. I think the boot loader should set gpio-reserved-ranges = ...
->> before passing the devicetree to Linux instead, then pass
->> other reserved ranges to other operating systems in the
->> same physical system etc.
->>
->> Yours,
->> Linus Walleij
+>> Maybe it's time to step back and think if we really need all this, or
+>> find simpler way to express/model things?
 > 
-> It's being used by a downstream driver which cannot update the pin
+> Agreed.
 
-That's an anti-argument :/
+I fully agree with you guys... I also don't like the way how the ice implemented
+pin sharing and thinking more about Vadim's "Maybe it's time to step back...".
+I have started an effort how to model this differently without any inter-driver
+DPLL object sharing.
 
-> muxing in any way and starts accessing the gpio's assuming the
-> configuration to be as expected and the property is set in the dt node
-> in overlay. More dt nodes will start using this property as the
-> upstreaming of those drivers begins.
-> 
-> TLMM is a reconfigurable block and the bootloader is common across
-> multiple soc's hence it can't be responsible for platform dependent
-> peripherals enabled in kernel device tree.
+I will send a RFC patch-set that should address hopefully all painful points.
 
-Best regards,
-Krzysztof
+Thanks,
+Ivan
+
