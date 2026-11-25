@@ -1,110 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.117.254.33
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795619325;
-	b=U8M2uBRtlXyYr9ed5cybxJuiXwC5mGhYc9zoKY/3A6oxI41ChmJHar5WQlW9mLt6x2Ty
-	 BiLHU+YZhI+A73fkUHvWIZOusTKnhtBZRgpCCAaDpgJEHKD5itNfNkfON3GGIqB/XCR82
-	 aJ6QDhtotsXvIahqvM8YWMf2jJe0846B0eLeumK0JR2fvrVpxYypmdLQjcub8uxfQuvhG
-	 ZbwsST+AXojk9ZY5ZRoynV5B1R43kWy5WRWt2xZVmk9aRpe5C509F37WuOKGpd7SIhleh
-	 40YPiQPHcmO87qzOfxHLufCqC/meUpi69cz3ySFS6hR6+Mx9B57CKQwZiBNTs5pitSg==
+	t=1795619333;
+	b=nGAg5PxvYr1iuieJjFJWpNjgatg72dNkHbaOGEeD0tQ94l+wFKeSfca2OicWiwBhNxHP
+	 w0VKiRLIURZyF3Of9ylxBh4q0QjnnlzQJ/NQxi16J0R14wWkz1tKG+mafA+JKljAy6ayu
+	 OkStnnWLS/cWZ4+T0zSxwNgkfe5Xs+bkdJj/QtzxWdntm6f+R6zXrM83lokYCyU18k4SV
+	 y+aTwAGw7m6h/h8zNyB6KRz4PUuHy5ydMznPNhm18dWZ/jn/ypiYmxGWBXfbMtlQuz1YC
+	 pdAAWonPw5/GeTrzDBaaKTVFVYNuhYaG8D0ATMhTecSfYp8Q/e8YITkLWpsG2nJfhDg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795619325;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:X-UD-Smtp-Session:Date:
-	 From:To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=j5WSHF96nKodvhrZlDzmgM50kjWquzlJzGWnJzYvtHs=;
-	b=R+vh9M2bkkG1VXNG8b1xtO3ea3a6O+FkAk9IP/hAEIBg00DtTisKAV8aLaRNMum99T2Y
-	 yNE+DNOkkoLmix4lV8elTXSDL1iYZdyC0J/XV7zvUGMpTOehHsexm8ZZMW4PARcg9B28l
-	 nNSUNpXa3viMDp/QHEdrac/afSBAasU2Zdhfx1WsHJsU6O/juHeGj4neiRmvrsDeq8uN8
-	 P//tG2+TXiu5QuP3cqOtWcuCGWZzu+mf3QBW9Vbx/UzGwbEpjyiUD92ZOoM9zCrkzZJ+Z
-	 UQTDAJ9lH4jI0wI8mh/5nYezkPn6fwRhUd0kOxwEexWE6B2CuU82R8nUmBWjSD/380Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795619333;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=OLVnqCp6M5k/c3jqzvLSa4RVUfHpaO5qFBgd0x2mVsM=;
+	b=uMOfYB2MTpAi44Sn/RHVZ4lA/V0U0695b6aWaJVgtVaHw5tJc8RQC5jxrOHYbRGTscXM
+	 OKl5y3OaTGb9fmpDm8+Jyez5C2Hr+GIqqnkjA+Beops8B9RKk/c6F6QyES+QoDS0sdqfu
+	 YQCdzW2TdG37Y23cTPEbPhCORvmL91NDT4VnYfLUaej05MS24ZjH8yK1Oaq2eu3wOGnWp
+	 v9KtzBkQCa0Un7yP1A3x7gd0ZIsQfUxbChdtjDYyqMddFcM+MDUjYZS2fIzVG1+qq4p3m
+	 beOzpKPiYZsAwIJB9rtsyMDLsA+t83hWvd2Rh1sp1hbb4NqJ3KydvoLl/kW2Tbk98Ag==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=sang-engineering.com;
-	spf=pass smtp.mailfrom=sang-engineering.com;
-	dkim=pass header.d=sang-engineering.com header.i=@sang-engineering.com header.a=rsa-sha256 header.s=k1 header.b=DwelXj2y;
-	arc=none smtp.remote-ip=194.117.254.33
-Received: from mail.zeus03.de (zeus03.de [194.117.254.33])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TXKsPirb;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A8DE8606A31E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:08:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A8DE8606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=sang-engineering.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=sang-engineering.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B3605606A31E;
+	Wed, 25 Nov 2026 15:08:53 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=sang-engineering.com header.i=@sang-engineering.com header.a=rsa-sha256 header.s=k1 header.b=DwelXj2y
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	sang-engineering.com; h=date:from:to:cc:subject:message-id
-	:references:mime-version:content-type:in-reply-to; s=k1; bh=j5WS
-	HF96nKodvhrZlDzmgM50kjWquzlJzGWnJzYvtHs=; b=DwelXj2yeMhW0OjANYw+
-	l1Seg4y1ORKWxjsmdYbitbYB/uB1b//e8z24C6e9pIqrLOoptN+gYqAPFZYwU5uR
-	YoVp5DpD9PktyL3ZY7CbCk6CxjxhYeJ6dc4xOubAHsG4YssrApDBtrdx4gd56V9Z
-	4q9AGZtEDHz3LGKjHtZ5EnHV/ipb0hzBAxExVNK+xzTTnHME6EXIJWtnBC6HNRT3
-	Wjpq+YXghOLxvjtKj/bvpdMk7+8zxhe/OfkodwQnF+tf9W9xlsOZmPc5UPeObbTY
-	QVwTDmPDUBrfbRIvkUwX23wTxUVMuYlDnUc2BavH8zwKPmoUMWR9ZLKoGJacM5EF
-	9Q==
-Received: (qmail 995227 invoked from network); 25 Nov 2026 16:08:39 +0100
-Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 25 Nov 2026 16:08:39 +0100
-X-UD-Smtp-Session: l3s3148p1@XUmlMxthFqJtKXCX
-Date: Wed, 25 Nov 2026 16:08:38 +0100
-From: wsa+renesas <wsa+renesas@sang-engineering.com>
-To: Biju Das <biju.das.jz@bp.renesas.com>
-Cc: Lee Jones <lee@kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	=?utf-8?B?TWljaGHFgiBNaXJvc8WCYXc=?= <mirq-linux@rere.qmqm.pl>,
-	Niklas =?utf-8?Q?S=C3=B6derlund?= <niklas.soderlund+renesas@ragnatech.se>,
-	Uwe =?utf-8?Q?Kleine-K=C3=B6nig_=28The_Capable_Hub=29?= <u.kleine-koenig@baylibre.com>,
-	Aaro Koskinen <aaro.koskinen@iki.fi>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Aidan MacDonald <aidanmacdonald.0x0@gmail.com>,
-	Al Cooper <alcooperx@gmail.com>, Alex Dubov <oakad@yahoo.com>,
-	Allen Pais <allen.lkml@gmail.com>,
-	Apelete Seketeli <apelete@seketeli.net>,
-	Aubin Constans <aubin.constans@microchip.com>,
-	Binbin Zhou <zhoubinbin@loongson.cn>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Cavium Inc <support@cavium.com>,
-	Christian Loehle <christian.loehle@arm.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Georgi Djakov <djakov@kernel.org>,
-	Guangshuo Li <lgs201920130244@gmail.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Hiroshi DOYU <Hiroshi.DOYU@nokia.com>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Jaehoon Chung <jh80.chung@samsung.com>,
-	Jan Glauber <jan.glauber@gmail.com>,
-	Jarkko Lavinen <jarkko.lavinen@nokia.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Josua Mayer <josua@solid-run.com>,
-	Juha Yrjola <juha.yrjola@nokia.com>,
-	Kamal Dasu <kamal.dasu@broadcom.com>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
-	Prabhakar Mahadev Lad <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Lars-Peter Clausen <lars@metafoo.de>,
-	"linux-amlogic@lists.infradead.org" <linux-amlogic@lists.infradead.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-arm-msm@vger.kernel.org" <linux-arm-msm@vger.kernel.org>,
-	"linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>,
-	"linux-mmc@vger.kernel.org" <linux-mmc@vger.kernel.org>,
-	"linux-omap@vger.kernel.org" <linux-omap@vger.kernel.org>,
-	"linux-renesas-soc@vger.kernel.org" <linux-renesas-soc@vger.kernel.org>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Paul Cercueil <paul@crapouillou.net>,
-	Phil Blundell <pb@handhelds.org>, Pierre Ossman <drzeus@drzeus.cx>,
-	Pramod Gurav <pramod.gurav@linaro.org>,
-	Ritesh Harjani <riteshh@codeaurora.org>,
-	Robert Richter <rric@kernel.org>,
-	Samuel Ortiz <sameo@openedhand.com>,
-	Shawn Lin <shawn.lin@rock-chips.com>,
-	Tony Lindgren <tony@atomide.com>, Ulf Hansson <ulfh@kernel.org>,
-	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
-Subject: Re: [PATCH 00/13] mmc: Assorted bug fixes across MMC host drivers
-Message-ID: <awb59uLiTOEfLaSm@shikoro>
-References: <20261123191703.179283-1-lee@kernel.org>
- <OS3PR01MB65968B3C9FD48C0A7515AA1986432@OS3PR01MB6596.jpnprd01.prod.outlook.com>
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TXKsPirb
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B9AD1F000C0;
+	Wed, 25 Nov 2026 15:08:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795619332;
+	bh=OLVnqCp6M5k/c3jqzvLSa4RVUfHpaO5qFBgd0x2mVsM=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=TXKsPirb0GlNJPk/07KbBe0c0wR5RjvIBtYr16UeF3xX69fnZ3udfv8vXpWuhKrGD
+	 WWE+N+m3G1M+QhwXI/dcsj/gB3q/ipAbd/cNVKerkVa8Ws5lNiGjQ6Y3UQzCOBrVA6
+	 viWcxku89Sj9SVccbB8CcO7m2LMIpvroG+BzRSDoxKvb00nkwnpfoaoWhIemXSwHes
+	 eTXQbSiUNZB6/HAtdTnHLSsesp4BiyL3BrW9r/0W5AoPjhjUw6yrcCqWoKyArWiRBT
+	 hqaJxF2R91gN39PtAF7AMnq7MEAgLYFa2rwTctnrhjIsLHz+yhwrzoGv8XJJ2/MMG6
+	 lz4Bj0F01IbYQ==
+Subject: Re: [PATCH net-next v9 1/2] net: ti: icssg-prueth: Add Frame
+ Preemption MAC Merge support
+From: netdev-bot+sashiko@kernel.org
+To: m-malladi@ti.com
+Cc: marco.crivellari@suse.com, haokexin@gmail.com, kees+treewide@kernel.org,
+ laixiangwu@cmss.chinamobile.com, arnd@arndb.de, horms@kernel.org,
+ basharath@couthit.com, parvathi@couthit.com, vladimir.oltean@nxp.com,
+ rogerq@kernel.org, danishanwar@ti.com, pabeni@redhat.com, kuba@kernel.org,
+ edumazet@kernel.org, davem@davemloft.net, andrew+netdev@lunn.ch,
+ linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, srk@ti.com, vigneshr@ti.com
+Date: Wed, 25 Nov 2026 15:08:50 +0000
+Message-ID: <179561933095.3135.5750144040401521848@kernel.org>
+In-Reply-To: <20261121144618.180542-2-m-malladi@ti.com>
+References: <20261121144618.180542-2-m-malladi@ti.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -114,14 +67,435 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <OS3PR01MB65968B3C9FD48C0A7515AA1986432@OS3PR01MB6596.jpnprd01.prod.outlook.com>
 
+Thank you for your contribution! Sashiko AI review found 11 potential
+issue(s) to consider.
 
-> > Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>
+Critical: 0 · High: 0 · Medium: 5 · Low: 6
 
-I plan to review the Renesas related changes early next week.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Thanks!
+- [Medium] After a firmware restart while the link is up
+  (prueth_emac_restart(), which runs when ports join or leave a bridge…
+- [Medium] emac_tc_setup_mqprio() always finishes by calling
+  icssg_iet_change_preemptible_tcs().
+- [Medium] icssg_config_ietfpe() decides whether to program FPE by
+  reading emac->link (`if (!READ_ONCE(emac->link)) return 0;`) while…
+- [Medium] Several things here depend on firmware state the driver never
+  resets.
+- [Medium] FPE TX is turned on by the R30 command
+  ICSSG_EMAC_PORT_PREMPT_TX_ENABLE; the driver's own comment says the…
+- [Low] emac_tc_setup_mqprio() splits a single logical update into three
+  separate fpe_lock critical sections.
+- [Low] On every link-down, icssg_qos_link_state_update() writes the
+  firmware config bytes PRE_EMPTION_ENABLE_TX=0 and…
+- [Low] emac_tc_setup_mqprio() reports user-triggerable configuration
+  errors with netdev_err() instead of NL_SET_ERR_MSG_MOD(mqprio->extack,…
+- [Low] Two changes unrelated to FPE are folded into the patch without
+  mention in the commit message.
+- [Low] The register-map comment for EXPRESS_PRE_EMPTIVE_Q_MAP in
+  icssg_switch_map.h still reads "For marking Packet as priority/express…
+- [Low] icssg_qos_link_state_update() reads iet->fpe_enabled for its
+  debug message after icssg_iet_change_preemptible_tcs() has dropped…
 
+--
+
+net: ti: icssg-prueth: Add Frame Preemption MAC Merge support
+
+This commit adds a QoS submodule to the ICSSG driver. It configures IET
+Frame Preemption in firmware, including the verify state machine and the
+express/preemptible queue mask. It also hooks mqprio offload through
+ndo_setup_tc and re-applies FPE state on link up/down from
+emac_adjust_link(). The ethtool MAC Merge ops are wired up in the
+following patch.
+
+> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.c b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+> index 9bb67e185a3ea..d8431132c34b0 100644
+> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+
+[ ... ]
+
+> @@ -392,6 +392,8 @@ static void emac_adjust_link(struct net_device *ndev)
+>  		} else {
+>  			icssg_set_port_state(emac, ICSSG_EMAC_PORT_DISABLE);
+>  		}
+> +
+> +		icssg_qos_link_state_update(ndev);
+>  	}
+
+[Severity: Medium]
+Is FPE silently lost after a firmware restart while the link is up?
+
+prueth_emac_restart() runs from icssg_change_mode() when ports join or
+leave a bridge or HSR. It stops all cores and then calls
+prueth_emac_common_start(). That runs icssg_config(), whose
+memset_io(config, 0, TAS_GATE_MASK_LIST0) clears
+EXPRESS_PRE_EMPTIVE_Q_MASK and Q_MAP. It then sets emac->link to 0 and
+calls emac_adjust_link() before prueth_emac_start() has booted the
+firmware.
+
+With phydev->link set, the new hook then runs against halted firmware:
+
+prueth_emac_common_start()
+  emac_adjust_link()
+    icssg_qos_link_state_update()
+      icssg_iet_change_preemptible_tcs()
+        icssg_config_ietfpe(ndev, true)
+          icssg_set_port_state(emac, ICSSG_EMAC_PORT_PREMPT_TX_ENABLE)
+
+The halted firmware can't acknowledge the R30 command, so the call times
+out after 10 ms. The fallback path then clears ENABLE_TX/ENABLE_VERIFY,
+sets fpe_active = false and resets the mask to all-express. The
+unconsumed PREMPT command also stays in the mailbox.
+
+Once the firmware is running, prueth_emac_restart() only re-sends
+PORT_FORWARD:
+
+	/* Enable forwarding for both PRUeth ports */
+	ret = icssg_set_port_state(emac0, ICSSG_EMAC_PORT_FORWARD);
+	ret |= icssg_set_port_state(emac1, ICSSG_EMAC_PORT_FORWARD);
+
+emac->link is already 1, so phylib reports no change and
+icssg_qos_link_state_update() is not called again.
+
+Would preemption and the preemptible queue mapping then stay off until
+the next link flap? Meanwhile fpe_enabled stays true, so get_mm() (added
+in the next patch, "Add ethtool ops for Frame Preemption MAC Merge")
+would report tx_enabled=1, tx_active=0. This doesn't appear to be fixed
+later in the series either.
+
+[ ... ]
+
+> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.h b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
+> index df93d15c5b786..f73b8f5fca956 100644
+> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.h
+> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
+> @@ -44,10 +44,11 @@
+>  #include "icssg_config.h"
+>  #include "icss_iep.h"
+>  #include "icssg_switch_map.h"
+> +#include "icssg_qos.h"
+>  
+> -#define PRUETH_MAX_MTU          (2000 - ETH_HLEN - ETH_FCS_LEN)
+> -#define PRUETH_MIN_PKT_SIZE     (VLAN_ETH_ZLEN)
+> -#define PRUETH_MAX_PKT_SIZE     (PRUETH_MAX_MTU + ETH_HLEN + ETH_FCS_LEN)
+> +#define PRUETH_MAX_MTU		(2000 - ETH_HLEN - ETH_FCS_LEN)
+> +#define PRUETH_MIN_PKT_SIZE	(VLAN_ETH_ZLEN)
+> +#define PRUETH_MAX_PKT_SIZE	(PRUETH_MAX_MTU + ETH_HLEN + ETH_FCS_LEN)
+
+[Severity: Low]
+This isn't a bug, but two changes here aren't related to FPE and aren't
+mentioned in the commit message: the whitespace-only change to these
+three defines, and the move of enum icssg_ietfpe_verify_states from
+icssg_config.h to icssg_qos.h. Could they be split out, or at least
+noted in the commit message?
+
+[ ... ]
+
+> diff --git a/drivers/net/ethernet/ti/icssg/icssg_qos.c b/drivers/net/ethernet/ti/icssg/icssg_qos.c
+> new file mode 100644
+> index 0000000000000..55ddf7669530c
+> --- /dev/null
+> +++ b/drivers/net/ethernet/ti/icssg/icssg_qos.c
+> @@ -0,0 +1,327 @@
+
+[ ... ]
+
+> +static void icssg_iet_set_preempt_mask(struct prueth_emac *emac)
+> +{
+
+[ ... ]
+
+> +		for (tc = 0; tc < num_tc; tc++) {
+> +			if (iet->preemptible_tcs & BIT(tc)) {
+> +				for (i = qopt->offset[tc]; i < qopt->offset[tc] + qopt->count[tc]; i++) {
+> +					writeb(BIT(4),
+> +					       config + EXPRESS_PRE_EMPTIVE_Q_MAP + i);
+
+[Severity: Low]
+This isn't a bug, but the register map comment for this offset in
+icssg_switch_map.h still says:
+
+/* For marking Packet as priority/express (this feature is disabled) or
+ * cut-through/S&F.
+ */
+#define EXPRESS_PRE_EMPTIVE_Q_MAP                          0x0034
+
+This function now programs the region as a preemption map. It writes the
+undocumented value BIT(4) for preemptible queues and writes 0 to all
+ICSSG_MAX_TC_QUEUES entries on every reset. That reset would also clear
+any cut-through/S&F encoding the comment says these bytes carry.
+
+Could the comment be updated, and BIT(4) given a named constant?
+
+> +					prempt_mask &= ~BIT(i);
+> +				}
+> +			}
+> +		}
+> +		writeb(prempt_mask, config + EXPRESS_PRE_EMPTIVE_Q_MASK);
+> +		return;
+> +	}
+> +
+> +reset_hw:
+> +	/* Reset to default: all queues as express */
+> +	for (i = 0; i < ICSSG_MAX_TC_QUEUES; i++)
+> +		writeb(0, config + EXPRESS_PRE_EMPTIVE_Q_MAP + i);
+> +	writeb(ICSSG_EXPRESS_Q_MASK_ALL, config + EXPRESS_PRE_EMPTIVE_Q_MASK);
+> +}
+
+[Severity: Low]
+Is this reset meant to run on every link-down, whatever the FPE state?
+
+The link-down branch of icssg_qos_link_state_update() always ends up
+here. It doesn't check fpe_enabled, fpe_active or preemptible_tcs, and it
+runs in every firmware mode (EMAC, switch, HSR/PRP).
+
+icssg_config() leaves EXPRESS_PRE_EMPTIVE_Q_MASK at 0 after each firmware
+start, and no init path programs it. So the byte reads 0 until the first
+link-down and ICSSG_EXPRESS_Q_MASK_ALL afterwards, even when FPE is never
+configured.
+
+The commit message says link events are handled "based on fpe_enabled
+and fpe_active flags". Would programming the default mask in
+icssg_config(), or gating these writes on FPE state, keep it consistent?
+
+> +
+> +static int icssg_iet_verify_wait(struct prueth_emac *emac)
+> +{
+
+[ ... ]
+
+> +	ret = readb_poll_timeout(config + PRE_EMPTION_VERIFY_STATUS,
+> +				 status,
+> +				 status == ICSSG_IETFPE_STATE_SUCCEEDED ||
+> +				 status == ICSSG_IETFPE_STATE_FAILED,
+> +				 delay_us,
+> +				 timeout_us);
+
+[Severity: Medium]
+Can the first sample here be a stale SUCCEEDED left over from an earlier
+session?
+
+The firmware writes PRE_EMPTION_VERIFY_STATUS and PRE_EMPTION_ACTIVE_TX,
+and the driver never resets them. They sit above TAS_GATE_MASK_LIST0, so
+the memset_io(config, 0, TAS_GATE_MASK_LIST0) in icssg_config() doesn't
+clear them. The link-down path in icssg_qos_link_state_update() only
+clears ENABLE_TX/ENABLE_VERIFY and the software verify_status.
+
+readb_poll_timeout() checks the condition on its first read, before any
+sleep. A leftover SUCCEEDED would satisfy the poll at once, unless the
+firmware has already overwritten VERIFY_STATUS by the time it
+acknowledges PREMPT_TX_ENABLE.
+
+icssg_config_ietfpe() would then read a possibly stale ACTIVE_TX, set
+fpe_active = true and program the preemptible queues. That would happen
+before verify has finished on the new link, possibly with a different
+partner.
+
+The same applies when FPE is re-enabled while already active. It also
+applies to the no-verify path, which reads ACTIVE_TX once after
+usleep_range(100, 200).
+
+Does the firmware guarantee these bytes are cleared before the R30
+acknowledgement, or should the driver reset them before re-arming?
+
+[ ... ]
+
+> +int icssg_config_ietfpe(struct net_device *ndev, bool enable)
+> +{
+
+[ ... ]
+
+> +	lockdep_assert_held(&iet->fpe_lock);
+> +
+> +	if (!READ_ONCE(emac->link)) {
+> +		netdev_dbg(ndev, "cannot change IET/FPE state when interface is down\n");
+> +		return 0;
+> +	}
+
+[Severity: Medium]
+Is this check actually serialized against link changes?
+
+emac_adjust_link() writes emac->link under phydev->lock from the phylib
+state machine, not under fpe_lock. It also publishes the new value and
+sends PORT_DISABLE/PORT_FORWARD before it takes fpe_lock inside
+icssg_qos_link_state_update().
+
+On link-down, something like this looks possible:
+
+tc / set_mm path                     phylib (phydev->lock held)
+mutex_lock(&iet->fpe_lock)
+READ_ONCE(emac->link) == 1
+                                     WRITE_ONCE(emac->link, 0)
+                                     icssg_set_port_state(PORT_DISABLE)
+                                     icssg_qos_link_state_update()
+                                       mutex_lock(&iet->fpe_lock) blocks
+icssg_set_port_state(PREMPT_TX_ENABLE)
+icssg_iet_verify_wait()
+
+The tc/set_mm request would fail and roll back. The PHY state machine
+would also stall for up to 3 * verify_time_ms (about 384 ms). Without
+verify, ACTIVE_TX could read 1 and set fpe_active = true, and the
+link-down branch never sends PREMPT_TX_DISABLE to undo it.
+
+On link-up, a caller that sees link == 1 could send PREMPT_TX_ENABLE and
+start verify before emac_adjust_link() has configured speed/IPG and sent
+PORT_FORWARD. That could make the request fail spuriously.
+
+The commit message says fpe_lock prevents "races between ethtool config,
+qdisc setup, and link events". Does that hold, given that the link state
+being tested is protected by a different lock?
+
+[ ... ]
+
+> +static int emac_tc_setup_mqprio(struct net_device *ndev, void *type_data)
+> +{
+
+[ ... ]
+
+> +	/* Validate parameters */
+> +	if (qopt->num_tc > ICSSG_MAX_TC_QUEUES) {
+> +		netdev_err(ndev, "Number of traffic classes (%u) exceeds hardware limit\n",
+> +			   qopt->num_tc);
+> +		return -EOPNOTSUPP;
+> +	}
+> +
+> +	if (mqprio->flags & TC_MQPRIO_F_SHAPER) {
+> +		netdev_err(ndev, "traffic shaping is not supported\n");
+> +		return -EOPNOTSUPP;
+> +	}
+> +
+> +	if (mqprio->flags & (TC_MQPRIO_F_MIN_RATE | TC_MQPRIO_F_MAX_RATE)) {
+> +		netdev_err(ndev, "per-queue rate limiting is not supported\n");
+> +		return -EOPNOTSUPP;
+> +	}
+
+[Severity: Low]
+Could these use NL_SET_ERR_MSG_MOD(mqprio->extack, ...) instead of
+netdev_err()? Users can trigger these errors, so tc only sees a bare
+-EOPNOTSUPP while the kernel log gets an error on every attempt.
+
+[ ... ]
+
+> +	ret = icssg_iet_change_preemptible_tcs(emac);
+> +	if (ret) {
+> +		mutex_lock(&iet->fpe_lock);
+> +		iet->preemptible_tcs = 0;
+> +		memset(&p_mqprio->qopt, 0, sizeof(p_mqprio->qopt));
+> +		mutex_unlock(&iet->fpe_lock);
+> +		netdev_reset_tc(ndev);
+> +	}
+> +	return ret;
+> +}
+
+[Severity: Medium]
+Should every mqprio offload change re-run the full FPE handshake?
+
+When fpe_enabled is true, icssg_iet_change_preemptible_tcs() calls
+icssg_config_ietfpe(ndev, true). That re-sends PREMPT_TX_ENABLE and, with
+mac_verify_configure set, polls verify for up to 3 * verify_time_ms (up
+to 384 ms).
+
+This happens even when preemptible_tcs == 0 and on qdisc teardown
+(num_tc == 0). In those cases only the all-express mask needs
+programming.
+
+If the handshake fails (verify rejected, timeout, or ACTIVE_TX != 1), the
+qdisc install fails here and the TC mapping is reset. A failure on the
+link-up path leaves fpe_enabled true. So after a link flap to a partner
+that doesn't support verify, would every later "tc qdisc add ... mqprio
+hw 1" fail, even with no preemptible TCs?
+
+Each successful mqprio change also re-runs the enable sequence, which
+cycles TX preemption as a side effect.
+
+[Severity: Low]
+A related question about locking here. The publish, apply and rollback
+steps each take fpe_lock separately, and the rollback only restores
+software state.
+
+Suppose a link-up runs icssg_qos_link_state_update() between the failed
+icssg_iet_change_preemptible_tcs() and this rollback, and succeeds. Then
+icssg_iet_set_preempt_mask() would program Q_MAP/Q_MASK from the qopt and
+preemptible_tcs that are about to be rejected.
+
+After the rollback the kernel has no mqprio offload and preemptible_tcs
+is 0. Would the firmware still treat those queues as preemptible until
+the next reconfiguration or link-down?
+
+[ ... ]
+
+> +void icssg_qos_link_state_update(struct net_device *ndev)
+> +{
+> +	struct prueth_emac *emac = netdev_priv(ndev);
+> +	struct prueth_qos_iet *iet = &emac->qos.iet;
+> +	int ret;
+> +
+> +	if (!READ_ONCE(emac->link)) {
+> +		void __iomem *config = emac->dram.va + ICSSG_CONFIG_OFFSET;
+> +
+> +		/* Clear FPE active state on link-down so get_mm() reports
+> +		 * accurate tx_active and verify_status while link is down.
+> +		 * Also zero the FW preemption registers to prevent divergence
+> +		 * if a concurrent enable was interrupted by link-down.
+> +		 */
+> +		mutex_lock(&iet->fpe_lock);
+> +		writeb(0, config + PRE_EMPTION_ENABLE_TX);
+> +		writeb(0, config + PRE_EMPTION_ENABLE_VERIFY);
+> +		iet->fpe_active = false;
+> +		iet->verify_status = ICSSG_IETFPE_STATE_DISABLED;
+> +		icssg_iet_set_preempt_mask(emac);
+> +		mutex_unlock(&iet->fpe_lock);
+> +		return;
+> +	}
+
+[Severity: Medium]
+Should this link-down teardown also send
+ICSSG_EMAC_PORT_PREMPT_TX_DISABLE?
+
+The R30 PREMPT_TX_ENABLE command turns FPE TX on, and the firmware is
+still running at this point. This teardown only zeroes the DRAM bytes.
+
+Two later paths also skip the disable command. First, if FPE is turned
+off while the link is down (set_mm with tx_enabled=0 in the next patch,
+or clearing preemptible_tcs via mqprio), icssg_config_ietfpe() returns 0
+from its !emac->link check without touching the hardware. Second, on the
+next link-up, icssg_iet_change_preemptible_tcs() returns early:
+
+	if (!iet->fpe_enabled && !iet->preemptible_tcs) {
+		mutex_unlock(&iet->fpe_lock);
+		return 0;
+	}
+
+Would the last preemption command the firmware saw then stay
+PREMPT_TX_ENABLE indefinitely, while the driver and get_mm() report FPE
+as disabled? The answer depends on whether the firmware acts on the last
+R30 command or on the PRE_EMPTION_ENABLE_TX byte, which can't be seen
+from the driver.
+
+The v9 changelog says the link-down clearing prevents HW/driver
+divergence, but the command-level state still seems to diverge.
+
+> +
+> +	ret = icssg_iet_change_preemptible_tcs(emac);
+> +	if (ret)
+> +		netdev_dbg(ndev, "IET FPE %s failed\n",
+> +			   str_enable_disable(iet->fpe_enabled));
+> +}
+
+[Severity: Low]
+This is minor, but fpe_enabled is read here after
+icssg_iet_change_preemptible_tcs() has dropped fpe_lock. Later in the
+series, emac_set_mm() writes it under fpe_lock from the ethtool path.
+Could KCSAN report this plain read? The message could also describe a
+different operation than the one that failed.
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261121144618.180542-1-m-malladi%40ti.com
