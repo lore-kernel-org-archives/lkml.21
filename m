@@ -1,82 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.16
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.182
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795605561;
-	b=5qcUBh8ipsQEGjNyMzk7XbX+RYIzEd2N9CNRJIav5wxZYB4MFG6vmNdsWIvjs9Wn7EDh
-	 ajRTc2jY8r6nkICnV+Ch7uv7I238f8RgAxmZqOrARK+740mR9HM/bjjHJL4uvqp0CEA5l
-	 rZaFKqlhMRBDUKLqkP5yxOgploG/X4NRFnQBYBa7iSguuAJ6S2NEvXsBmiHJFC5I1V5Gr
-	 3NnUSYFwEr2xjErrEJ8xQqfEdiiatSDduFcj0MhaL8WwfLbLT8ICM9jSDOj4BCYHOJGI2
-	 ynoVegePiRb6ck9ouQXvBKFLE2cvQywL3WUYT1btJs5ALE6TYKaC9C34sQMnmfjcJqg==
+	t=1795605580;
+	b=LjMW6riEYffLATk/gOQO17VgSU6Mm6MSawN0/Cvh1/Glskf43B/bEHLY3WKZahWNweXa
+	 sWP6NY4MELUB2YAcneOMSk3BjCZg/ISdpm/JOhEnc3P0qnDPg26w908GmEK/CzJdGAyeK
+	 Qn1WeSai4OSDBF2k49pSE7rw0meLg71UMxlJdY9t/Zm4l0bFwThJ+tiJ30TdgMZv2NBmS
+	 gvPCHoRzYy59GbtFcYXiheAt2v15anOBjRtx48X9hY7MkhWckhMaB5gYQwYE6KZ3yG+Tv
+	 n4zx6aIRH5dhudd61pZOkgtfSoRVAJ2BdPwNobbHMt+6CRkxWWlf2lqeuBNvp+Oj6vg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795605561;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To:
-	 Organization;
-	bh=zuwArTIXOeerY6ZEsKaeabgGF34VA3gXqMaQydU/3xg=;
-	b=M0mkG/qCujy8n+G2kagOg/sqGsJgat3LMMXsyGfd5wtDiKC9t+2Ywucw8VD/rUtjP8iV
-	 TfqTf3XvpUoluH0o6TFqEK+ZB0v37BjNZ35yc/nObuXBHyBhA3vmt0L2ms8TWEkNZhFVN
-	 Q1IqE6hMtTJRLX3Q1+MITZ7PfwZGeZl7wlithMZTK1erDIpivVAoI680j1opfSq9WX58Q
-	 XduWSRsNGmPHeSfNEND+uxEPhhuVC6ayD+IgpZr4jJ8gusx7XXcLaGn0KWbqFT7SXlRa8
-	 tuDk17Ge6wg3w4aaOQltRMafcGGMD9Za7W518B2JcYAAMoC0Yq2Av/zBxVhQlOBl94g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795605580;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=54Q8WEaghzr0x5dXE2Tr0PsueUBDI7m/C/zlZIA9lFU=;
+	b=Fjv3a2Axq/S+ffONbCDgSo8MNSco7NcNV31I5NYNg86ghjIRuBoblIESkaau6qYN05Pw
+	 MESqjNy2PcMiUFbSY/pQwU20KLO7tuFNJpW0VqZ6srEBOmmXcKfiqSNeKci+lwyybXBJR
+	 9xP0vGPb8lmJtTlLBPvNsOlqjZfk4Ky7WDjqwGgHK3NNvJdL0hZ573Hs4PztH/jIf2CX9
+	 qweuDYrJjYIrzcBdbiX8KIBkxInMZB0z/9QI33AxHOm2+9l/VAea5AYkQyHsPBWHwVjRL
+	 3RJcrJlst7e4fLBiloa8KEGYvuOfIGWQgFXsy8P4g3HUPRopvMDgak6DnS9Wij/sIsg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=gmYrjQY7;
-	arc=none smtp.remote-ip=198.175.65.16
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.16])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=t5oITjnn;
+	arc=none smtp.remote-ip=209.85.214.182
+Received: from mail-pl1-f182.google.com (mail-pl1-f182.google.com [209.85.214.182])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7FA6E606A31E;
-	Wed, 25 Nov 2026 11:19:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7FA6E606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AED83606A683
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:19:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AED83606A683
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=gmYrjQY7
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795605560; x=1827141560;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=V8g/GOZVVfOotdBnNwGUmBWfGRAM3Wnv7Uxvic56ZSs=;
-  b=gmYrjQY78M8Fvg1hjKD6TAAXVGwgKeIUZBm/2CCCocCgFfgudKOe5tmt
-   YLC7nJcsIzdhPIBlo7OcghnNy+/4HwLny/JESrvf/Kt4bUODpTyUWrBuZ
-   BsoDT7CV1My4pkibsXRNIT+96DYLvN+30dlwHE1JOKj8yQgg+YZFYCNbr
-   3tv31Fm4VIcUWmZ3X2VmLoqudyHqSuONns/iUlDOReC5xwXQYcUuWHtUk
-   Jz2hD+kb4SvPAcn582vkQfzECXDUsj2LF5VzoorNudNv/aMOjsiOWWIO6
-   scVljsK+CoM5qFpTOXBugnlf4N6tVLlZSHQ1VYAAIKH1e/qrbkUrHA1vb
-   w==;
-X-CSE-ConnectionGUID: YnXe5cPLSe6+0eQfRGr96w==
-X-CSE-MsgGUID: UqcxgmsmQKSRd9qtAJgskA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11976"; a="4397075"
-X-IronPort-AV: E=Sophos;i="6.27,232,1787036400"; 
-   d="scan'208";a="4397075"
-Received: from orviesa005.jf.intel.com ([10.64.159.145])
-  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 02:38:43 -0800
-X-CSE-ConnectionGUID: SVSECUOjQDGk+7f+44+6Gw==
-X-CSE-MsgGUID: qM9l6YSTTjyIcAd72af3hQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,232,1787036400"; 
-   d="scan'208";a="11730544"
-Received: from conormcd-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.244.73])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 02:38:40 -0800
-Date: Wed, 25 Nov 2026 12:38:38 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>
-Cc: linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, linux@analog.com,
-	Michael Hennerich <Michael.Hennerich@analog.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Arnd Bergmann <arnd@arndb.de>
-Subject: Re: [PATCH 3/6] iio: adc: ad7266: drop platform data support
-Message-ID: <awa6rrFP3-dCpIC6@ashevche-desk.local>
-References: <20261125-iio-adi-legacy-platdata-v1-0-54e4c8830b57@analog.com>
- <20261125-iio-adi-legacy-platdata-v1-3-54e4c8830b57@analog.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=t5oITjnn
+Received: by mail-pl1-f182.google.com with SMTP id d9443c01a7336-2f02ee04378so44575935ad.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 03:19:39 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795605579; x=1796210379; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=54Q8WEaghzr0x5dXE2Tr0PsueUBDI7m/C/zlZIA9lFU=;
+        b=t5oITjnnX9qtgECrpjY/bpguD6DiwHWoCS7H40UKV+HiK1Rib1R9JZR2c54mnL1cry
+         2u2bCTlGztukDP0+zSg+jXnw339Q+PUONlOhbKKWFHqLaS5VT56QRsg0R5VzmcNJXMvX
+         xfRxq9bYes+oC7OVmA0I5LusMBFw+S+9LP8FmnhRg66N6Yh4Ymh2aqX2xFqPc9DrzYbI
+         OQzyF0h4tS/lTOvB3wqUZtchk3cDHHt+tIruCM+/TbS6SNOXeCBFOjtLfCl4TkFvQs4/
+         J2GJ8p6c94fVtLiwIfzvZPSBzsI3kOFE7vjItmIXwVS75U9hG4P9AhESxRztQuRKRc0m
+         VtQg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795605579; x=1796210379;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=54Q8WEaghzr0x5dXE2Tr0PsueUBDI7m/C/zlZIA9lFU=;
+        b=soLDp3MFa6q92Bz20CHSWi30n2aEUsAsbcaN34A1IEY8Qell7QfiuqYpYSeKI9fMj1
+         xjZdsvRB/n7XNm+DWC0Zxoqnd/NwU8ZOBHPh+Offm+lgtPbretSSRDoZ3EXgFfQJyxso
+         h7xQDMyr1PZstwsFW4RFNe1PBxGAikkr7Ffx4Kg+SmXvA7flQBQBvkohxXQuYp2vU7gH
+         fEP2gzBTISgEsJOQ10eupuM4M1mQNtnJjR6IZzP2BzD1uiePp1wEbevUs3Se/rK9aP4B
+         hLopdCJGvXlrONtXXP6NfdkmssN3w+Qxb+AFnNhg637+4zpM57WYNcmi68ypvw0jq6l0
+         fZVw==
+X-Forwarded-Encrypted: i=1; AL+hErH5U+ITVOYZdr4tzyptg2gluu/dv772vFlnGB5VjkpmgZyIDjTqGRyUGT1WUfZzmJl0465Papqv98lSi2k=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+SNXx+oUTuA+GwY4Jx72udnt1LHksbDgR5lR9HXqJeQk3XaLTo
+	6WpsIpFxT4Mr9T7fRNhkuRZFdlCr2hZqJYFC4iXM8BIUdaDQjuiV218e
+X-Gm-Gg: AZFdTZdkFzb9wl+dU3JcV6KneWmt/Uduv4F+jKGkyJgHt0lLXVgWoi6ERmN5dZGP198
+	rjB8FImtv3Scd/0Vmze/wkIlTdT3iTQ9uKZP6vlrKZ/vcBc+lE8uOgKYg6iG0NgIhDxcfXwzM0b
+	k90lfkyAUrBGzElpHyNqNAD1ZnuGl6JLp9z/CG8qNPpe7LwJBhzbiK6toqVrlfrKXCmFeqSnXJC
+	rV+UR9xKno8/QdqUtsY1LI6W7bEirIS74ocpWWNYdwKZyKtFybu+puOnUKZiVjFuXUt9Mpc2his
+	zzqTzuuyKItYsfxf+f3XJycuHfidB9DZnjJtJlSx7bmHAw/uwV3b0Fivr3GaBSmBK0q624JuDDC
+	9pCY3RvnHD+Mn44HEInnS+VAIMN5lD/rkqyo/+d45sLPmIMJjHU+wa3g9RYWpwn79Yy5wUoFiPX
+	zcyaJZjyEOCaTcsVCK/w2eniKiijKdb+NCJ8WgyZ0yiCMHK/9GeSORIMpuHGVQ/yJwsQ47MMHbv
+	/S3RUDG3yM9h1jkToNmY+GXqp8sbZR/meQANJ5vI4QrZyFRLnCgNGdc7dfq/Ixwd8twaSuxDIzN
+	SApgFsUqWmWV5StmRVhQphD/wAq+
+X-Received: by 2002:a17:903:2a86:b0:2f0:4168:fb28 with SMTP id d9443c01a7336-2f04168fde0mr207349275ad.27.1795605578936;
+        Wed, 25 Nov 2026 03:19:38 -0800 (PST)
+Received: from server227.. ([39.170.101.209])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f070a12491sm60973245ad.8.2026.11.25.03.19.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 03:19:38 -0800 (PST)
+From: Zxyan Zhu <zxyan0222@gmail.com>
+To: maxime.chevallier@bootlin.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com
+Cc: netdev@vger.kernel.org,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	rmk+kernel@armlinux.org.uk,
+	Zxyan Zhu <zxyan0222@gmail.com>
+Subject: [PATCH net-next v5] net: stmmac: program the FSM timeout timer
+Date: Wed, 25 Nov 2026 19:19:29 +0800
+Message-Id: <20261125111929.3395740-1-zxyan0222@gmail.com>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,50 +105,236 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20261125-iio-adi-legacy-platdata-v1-3-54e4c8830b57@analog.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
 
-On Wed, Nov 25, 2026 at 10:19:19AM +0000, Nuno Sá wrote:
-> There are no in-tree users of struct ad7266_platform_data. Without it,
-> the driver already falls back to a fixed address, differential mode
-> and the 0V - VREF input range.
-> 
-> Drop the platform data header and move the range and mode enums into
-> the driver. The code for the address GPIOs, the pseudo differential and
-> single-ended modes and the 0V - 2VREF range is kept so it can be
-> enabled again should someone need it and add firmware properties for
-> it.
+stmmac enables the FSM timeout checker (TMOUTEN) but never programs the
+MAC_FSM_ACT_Timer register.  Per the databook the checker only fires once
+NTMRMD is programmed with a non-zero duration; NTMRMD == 0 disables the
+timer, so with TMOUTEN set but the timer left at reset a stuck FSM is
+never reported and the advertised timeout protection is ineffective.
 
-...
+Program MAC_FSM_ACT_Timer right after TMOUTEN is enabled, deriving the
+TMR field (CSR clocks per 1us tic) from the CSR clock rate and using a
+4s timeout.  4s is chosen because a PAUSE frame with the maximum 0xffff
+quanta stalls the transmitter for about 3.36s at 10 Mb/s, and a shorter
+timeout could wrongly report a flow-control stall as a stuck FSM.
 
-> +	/*
-> +	 * The address GPIOs, the other sample modes and the 0V - 2VREF range
-> +	 * could only be selected through platform data, which had no users.
-> +	 * Keep the support around in case someone needs it and adds firmware
-> +	 * properties for it.
-> +	 */
+The NTMRMD field holds a power-of-two microsecond timeout per the
+databook: 0x0 disables it, and 0x1..0xa encode 1us, 1.024ms (~1ms),
+16.384ms (~16ms), 65.536ms (~64ms), 262.144ms (~256ms), 1.048s (~1s),
+4.194s (~4s), 16.777s (~16s), 33.554s (~32s), 67.108s (~64s).
 
-Same comment about the comment.
+The issue was hit in testing on dwmac4 and dwxgmac, where a stuck FSM was
+not reported through the safety interrupt despite TMOUTEN being set.
 
-...
+Signed-off-by: Zxyan Zhu <zxyan0222@gmail.com>
+---
+v5:
+- Make the dwxgmac3 timer write unconditional, matching the unconditional
+  XGMAC_TMOUTEN set, so NULL-config XGMAC platforms program it too.
+- Bump the hardcoded timeout from 1s to 4s to cover a 10 Mb/s PAUSE stall
+  (up to ~3.36s).
 
-> +	if (!st->fixed_addr) {
-> +		for (i = 0; i < ARRAY_SIZE(st->gpios); ++i) {
-> +			st->gpios[i] = devm_gpiod_get(&spi->dev,
->  						      ad7266_gpio_labels[i],
->  						      GPIOD_OUT_LOW);
-> +			if (IS_ERR(st->gpios[i]))
-> +				return PTR_ERR(st->gpios[i]);
->  		}
+v4: https://lore.kernel.org/netdev/20261118025528.2703790-1-zxyan0222@gmail.com/
+v3: https://lore.kernel.org/netdev/20261116114923.1157920-1-zxyan0222@gmail.com/
+v2: https://lore.kernel.org/netdev/20261112053321.1103678-1-zxyan0222@gmail.com/
+v1: https://lore.kernel.org/netdev/20261111143322.2234321-1-zxyan0222@gmail.com/
 
-Side note: Have you considered switching to GPIO array APIs?
+ drivers/net/ethernet/stmicro/stmmac/dwmac5.c   | 17 ++++++++++++++++-
+ drivers/net/ethernet/stmicro/stmmac/dwmac5.h   |  6 +++++-
+ drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h |  3 +++
+ .../ethernet/stmicro/stmmac/dwxgmac2_core.c    | 18 +++++++++++++++++-
+ drivers/net/ethernet/stmicro/stmmac/hwif.h     |  3 ++-
+ .../net/ethernet/stmicro/stmmac/stmmac_main.c  |  8 +++++++-
+ include/linux/stmmac.h                         | 12 ++++++++++++
+ 7 files changed, 62 insertions(+), 5 deletions(-)
 
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac5.c b/drivers/net/ethernet/stmicro/stmmac/dwmac5.c
+index f1bb981cab7c..37e70b82c8b5 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac5.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac5.c
+@@ -2,6 +2,7 @@
+ // Copyright (c) 2017 Synopsys, Inc. and/or its affiliates.
+ // stmmac Support for 5.xx Ethernet QoS cores
+ 
++#include <linux/bitfield.h>
+ #include <linux/bitops.h>
+ #include <linux/iopoll.h>
+ #include "common.h"
+@@ -184,7 +185,8 @@ static void dwmac5_handle_dma_err(struct net_device *ndev,
+ }
+ 
+ int dwmac5_safety_feat_config(void __iomem *ioaddr, unsigned int asp,
+-			      struct stmmac_safety_feature_cfg *safety_feat_cfg)
++			      struct stmmac_safety_feature_cfg *safety_feat_cfg,
++			      unsigned int csr_clk_mhz)
+ {
+ 	struct stmmac_safety_feature_cfg all_safety_feats = {
+ 		.tsoee = 1,
+@@ -245,6 +247,19 @@ int dwmac5_safety_feat_config(void __iomem *ioaddr, unsigned int asp,
+ 		value |= TMOUTEN; /* FSM Timeout Feature */
+ 	writel(value, ioaddr + MAC_FSM_CONTROL);
+ 
++	/* Program the FSM active timer so the timeout checker actually fires.
++	 * TMR is the number of CSR clocks per 1us tic, i.e. csr_clk in MHz.
++	 * Use a 4s timeout.
++	 */
++	if (safety_feat_cfg->tmouten && csr_clk_mhz) {
++		value = readl(ioaddr + MAC_FSM_ACT_TIMER);
++		value &= ~(MAC_FSM_ACT_TIMER_NTMRMD | MAC_FSM_ACT_TIMER_TMR);
++		value |= FIELD_PREP(MAC_FSM_ACT_TIMER_NTMRMD,
++				    STMMAC_NTMRMD_4SEC) |
++			 FIELD_PREP(MAC_FSM_ACT_TIMER_TMR, csr_clk_mhz);
++		writel(value, ioaddr + MAC_FSM_ACT_TIMER);
++	}
++
+ 	/* 4. Enable Data Parity Protection */
+ 	value = readl(ioaddr + MTL_DPP_CONTROL);
+ 	if (safety_feat_cfg->edpp)
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac5.h b/drivers/net/ethernet/stmicro/stmmac/dwmac5.h
+index 00b151b3b688..734e7630f28d 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac5.h
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac5.h
+@@ -8,8 +8,11 @@
+ #define MAC_DPP_FSM_INT_STATUS		0x00000140
+ #define MAC_AXI_SLV_DPE_ADDR_STATUS	0x00000144
+ #define MAC_FSM_CONTROL			0x00000148
++#define MAC_FSM_ACT_TIMER		0x0000014C
+ #define PRTYEN				BIT(1)
+ #define TMOUTEN				BIT(0)
++#define MAC_FSM_ACT_TIMER_TMR		GENMASK(9, 0)
++#define MAC_FSM_ACT_TIMER_NTMRMD	GENMASK(19, 16)
+ 
+ #define MAC_PPS_CONTROL			0x00000b70
+ #define PPS_MAXIDX(x)			((((x) + 1) * 8) - 1)
+@@ -82,7 +85,8 @@
+ #define GMAC_INT_FPE_EN			BIT(17)
+ 
+ int dwmac5_safety_feat_config(void __iomem *ioaddr, unsigned int asp,
+-			      struct stmmac_safety_feature_cfg *safety_cfg);
++			      struct stmmac_safety_feature_cfg *safety_cfg,
++			      unsigned int csr_clk_mhz);
+ int dwmac5_safety_feat_irq_status(struct net_device *ndev,
+ 		void __iomem *ioaddr, unsigned int asp,
+ 		struct stmmac_safety_stats *stats);
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
+index f8ab347f7b5b..1fd501728b18 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
++++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
+@@ -169,8 +169,11 @@
+ #define XGMAC_HWFEAT_PCSEL		GENMASK(1, 0)
+ #define XGMAC_MAC_DPP_FSM_INT_STATUS	0x00000150
+ #define XGMAC_MAC_FSM_CONTROL		0x00000158
++#define XGMAC_MAC_FSM_ACT_TIMER		0x0000015C
+ #define XGMAC_PRTYEN			BIT(1)
+ #define XGMAC_TMOUTEN			BIT(0)
++#define XGMAC_MAC_FSM_ACT_TIMER_TMR		GENMASK(9, 0)
++#define XGMAC_MAC_FSM_ACT_TIMER_NTMRMD		GENMASK(19, 16)
+ #define XGMAC_MDIO_ADDR			0x00000200
+ #define XGMAC_MDIO_DATA			0x00000204
+ #define XGMAC_MDIO_C22P			0x00000220
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
+index 09194b9d8322..d5bcbd6dfadf 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
+@@ -4,6 +4,7 @@
+  * stmmac XGMAC support.
+  */
+ 
++#include <linux/bitfield.h>
+ #include <linux/bitrev.h>
+ #include <linux/crc32.h>
+ #include <linux/iopoll.h>
+@@ -837,7 +838,8 @@ static void dwxgmac3_handle_dma_err(struct net_device *ndev,
+ 
+ static int
+ dwxgmac3_safety_feat_config(void __iomem *ioaddr, unsigned int asp,
+-			    struct stmmac_safety_feature_cfg *safety_cfg)
++			    struct stmmac_safety_feature_cfg *safety_cfg,
++			    unsigned int csr_clk_mhz)
+ {
+ 	u32 value;
+ 
+@@ -873,6 +875,20 @@ dwxgmac3_safety_feat_config(void __iomem *ioaddr, unsigned int asp,
+ 	value |= XGMAC_TMOUTEN; /* FSM Timeout Feature */
+ 	writel(value, ioaddr + XGMAC_MAC_FSM_CONTROL);
+ 
++	/* Program the FSM active timer so the timeout checker actually fires.
++	 * TMR is the number of CSR clocks per 1us tic, i.e. csr_clk in MHz.
++	 * Use a 4s timeout.
++	 */
++	if (csr_clk_mhz) {
++		value = readl(ioaddr + XGMAC_MAC_FSM_ACT_TIMER);
++		value &= ~(XGMAC_MAC_FSM_ACT_TIMER_NTMRMD |
++			   XGMAC_MAC_FSM_ACT_TIMER_TMR);
++		value |= FIELD_PREP(XGMAC_MAC_FSM_ACT_TIMER_NTMRMD,
++				    STMMAC_NTMRMD_4SEC) |
++			 FIELD_PREP(XGMAC_MAC_FSM_ACT_TIMER_TMR, csr_clk_mhz);
++		writel(value, ioaddr + XGMAC_MAC_FSM_ACT_TIMER);
++	}
++
+ 	/* 5. Enable Data Path Parity Protection */
+ 	value = readl(ioaddr + XGMAC_MTL_DPP_CONTROL);
+ 	/* already enabled by default, explicit enable it again */
+diff --git a/drivers/net/ethernet/stmicro/stmmac/hwif.h b/drivers/net/ethernet/stmicro/stmmac/hwif.h
+index 047bda5cbd92..6895ae21f918 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/hwif.h
++++ b/drivers/net/ethernet/stmicro/stmmac/hwif.h
+@@ -380,7 +380,8 @@ struct stmmac_ops {
+ 			     bool srgmi_ral);
+ 	/* Safety Features */
+ 	int (*safety_feat_config)(void __iomem *ioaddr, unsigned int asp,
+-				  struct stmmac_safety_feature_cfg *safety_cfg);
++				  struct stmmac_safety_feature_cfg *safety_cfg,
++				  unsigned int csr_clk_mhz);
+ 	int (*safety_feat_irq_status)(struct net_device *ndev,
+ 			void __iomem *ioaddr, unsigned int asp,
+ 			struct stmmac_safety_stats *stats);
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index ca4c7fb11b73..4ee4952a1427 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -3707,10 +3707,16 @@ static void stmmac_mtl_configuration(struct stmmac_priv *priv)
+ 
+ static void stmmac_safety_feat_configuration(struct stmmac_priv *priv)
+ {
++	unsigned int csr_clk_mhz = 0;
++
+ 	if (priv->dma_cap.asp) {
+ 		netdev_info(priv->dev, "Enabling Safety Features\n");
++		if (priv->plat->stmmac_clk)
++			csr_clk_mhz = clk_get_rate(priv->plat->stmmac_clk) /
++				      1000000;
+ 		stmmac_safety_feat_config(priv, priv->ioaddr, priv->dma_cap.asp,
+-					  priv->plat->safety_feat_cfg);
++					  priv->plat->safety_feat_cfg,
++					  csr_clk_mhz);
+ 	} else {
+ 		netdev_info(priv->dev, "No Safety Features support found\n");
+ 	}
+diff --git a/include/linux/stmmac.h b/include/linux/stmmac.h
+index 00be2df63d22..659f5db528d3 100644
+--- a/include/linux/stmmac.h
++++ b/include/linux/stmmac.h
+@@ -170,6 +170,18 @@ struct stmmac_safety_feature_cfg {
+ 	u32 tmouten;
+ };
+ 
++/* MAC_FSM_ACT_Timer.NTMRMD timeout durations */
++#define STMMAC_NTMRMD_1US		0x1
++#define STMMAC_NTMRMD_1MS		0x2
++#define STMMAC_NTMRMD_16MS		0x3
++#define STMMAC_NTMRMD_64MS		0x4
++#define STMMAC_NTMRMD_256MS		0x5
++#define STMMAC_NTMRMD_1SEC		0x6
++#define STMMAC_NTMRMD_4SEC		0x7
++#define STMMAC_NTMRMD_16SEC		0x8
++#define STMMAC_NTMRMD_32SEC		0x9
++#define STMMAC_NTMRMD_64SEC		0xa
++
+ /* Addresses that may be customized by a platform */
+ struct dwmac4_addrs {
+ 	u32 dma_chan;
 -- 
-With Best Regards,
-Andy Shevchenko
-
+2.34.1
 
