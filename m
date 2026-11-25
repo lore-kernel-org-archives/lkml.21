@@ -1,64 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=159.226.251.21
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=132.226.202.154
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795611085;
-	b=e71ObMBJYTzBSXnlbvwzVYzYfO3GwDdMwvZL8tYfegCP+58MhnXMu+Rl5CwgvUTlp+Qc
-	 B0j6JSnzcUyFuUtP/GJm3opdP7IVESQArHfY9JoZ27PWO4vkuodMmnVN+UKz9u24k/IWP
-	 pHwyU6MCuuephLLq9rhINTofRfqhHu9xa9Q92TPRZMvbyeahxE6EA6/1yr2Ol5X5wruOr
-	 zt6c2UfPkMaHynnu7WFrp5fKOj1pRXyNX93IcKMKTkHxs1zcbMM8nHbFyhmb52KffwnF6
-	 S+w67lSLtDRapn5qAozqScfwJSNkt29F8V2RjsWbFAGZtsuDSwUuKZnq2o1dgC/JysA==
+	t=1795611091;
+	b=S92coCrZUrm2B9UXETajtdBYx91y2X6/KxC7/asl/1JNy16N0KoQ6IEWHqmcVUWc8zy7
+	 hK6OusaZt3fuc86oug3nCQ/+BQ8UXxQ2OIdN8t6jCH8eYXa2peLneSj5Syqe7TuHytDoO
+	 EP8CIIfm4/Mgpn1s3wR1hUg+Y8I44C7DZkU19pfQmqMnFQbbRmlWm+SQi32XseUx6PC7H
+	 78GSjrAc9JV7ZuNaxkc9xFTx5QQ+fvWqGEyiiCFCMEoHeXY+olZre+A/mohZlYJEJA8dA
+	 cTul2M4x/l8x8APJJkDr+GRVwOFes6RpAB+dGflIgkJh296Vn2S7+ueQXNYKhYS13AQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795611085;
-	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:Content-Transfer-Encoding:X-CM-TRANSID:
-	 X-Coremail-Antispam:X-Originating-IP:X-CM-SenderInfo;
-	bh=QYt8iWVPhccL/hESgXdi3uZSYohiuC6Q15+q3QaMUCY=;
-	b=BC+3O/aw+/BR0N3XqK078s9V3F7igHqLrKssGriz9SLSLek3vIVJD/Vv+rzL94JwF/6n
-	 hE+/RVK3lQJSgfd4GO/1LGiECLqoK4q9F7EQOjUU6U9ZLXaP/ZQNAd1ySr7Nftl6CjWNB
-	 +GusqmzpJkbnS+QGPN27fBC5J3ed2DOmOffuPq6u/op/dNurkej8AG9UvgtTkqIEuUHkd
-	 qOpY2bydPP2yb+OQ15TzfQYbmc7dQo8bDCPk+c11xwsA+fgo5Lj8ibR6Sqq8nsAytT84S
-	 kKrWXO4Sk+JRgA3oCVks0fbOVGpBTMi0jICMiUhHWDV8Q+OAf5qufD8zCIfd/Z1lC3w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795611091;
+	h=DMARC-Filter:Received:X-Originating-IP:Date:X-CM-HeaderCharset:From:
+	 To:Cc:Subject:X-Priority:X-Mailer:In-Reply-To:References:
+	 X-CM-CTRLMSGS:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	 Message-ID:X-Coremail-Locale:X-CM-TRANSID:X-CM-SenderInfo:
+	 X-Coremail-Antispam;
+	bh=X8g2e0iv5tx9nW2iYiX7QltZqTNqfnBxn3GhRq1jKXA=;
+	b=veM8nLdLZjMU+gnAhowLKhBfhOBu5J75A/On6IX/Gdz0KIEQ319qrd8t1Gg6dWPeeGPG
+	 PAdSQrNeawKh6vcc65wAiLvnTIDDptw+4DzDIEGO5PEIFWqwkrftYtq7dkcnH3k/wO43m
+	 P731ILV7y/FHTOY8+NEpZaACIhhU8R1r+xrmNDBAZdVLYGhAbW65ZMSVa9tKsKwbYt27L
+	 wrgpaoRdQ3DRNnzLGxLIPGTprYj8CWJ//Yho2x7MtvCVD3zyl6OhC90Z58f3t7Gl3J4uM
+	 18pcfYVtxr7oPJMJjbnvZry1BwInbQvCmZFNIXYTFUYUnBUCf81I+LxkZgo5we+bUdQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=mails.ucas.ac.cn;
-	spf=pass smtp.mailfrom=mails.ucas.ac.cn;
-	arc=none smtp.remote-ip=159.226.251.21
-Received: from cstnet.cn (smtp21.cstnet.cn [159.226.251.21])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C707C606A31E;
-	Wed, 25 Nov 2026 12:51:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C707C606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mails.ucas.ac.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mails.ucas.ac.cn
-Received: from k3-03 (unknown [159.226.43.8])
-	by APP-01 (Coremail) with SMTP id qwCowABXgfuY2QZrsdirAQ--.2368S2;
-	Wed, 25 Nov 2026 20:50:43 +0800 (CST)
-From: Tan Chi <tanchi25@mails.ucas.ac.cn>
-To: anup@brainfault.org
-Cc: atish.patra@linux.dev,
-	pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	tj@kernel.org,
-	hannes@cmpxchg.org,
-	mkoutny@suse.com,
-	corbet@lwn.net,
-	skhan@linuxfoundation.org,
-	rdunlap@infradead.org,
-	yosry@kernel.org,
-	kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	cgroups@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-fsdevel@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Tan Chi <tanchi25@mails.ucas.ac.cn>
-Subject: [PATCH] RISC-V: KVM: Account G-stage page table memory
-Date: Wed, 25 Nov 2026 20:50:23 +0800
-Message-ID: <20261125125024.1983082-1-tanchi25@mails.ucas.ac.cn>
-X-Mailer: git-send-email 2.53.0
+	dmarc=none header.from=hust.edu.cn;
+	spf=pass smtp.mailfrom=hust.edu.cn;
+	arc=none smtp.remote-ip=132.226.202.154
+Received: from fraori-sdnproxy-3.icoremail.net (fraori-sdnproxy-3.icoremail.net [132.226.202.154])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 8CB20606A32D;
+	Wed, 25 Nov 2026 12:51:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8CB20606A32D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=hust.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=hust.edu.cn
+Received: from xuhx$hust.edu.cn ( [10.12.190.107] ) by ajax-webmail-app2
+ (Coremail) ; Wed, 25 Nov 2026 20:51:19 +0800 (GMT+08:00)
+Date: Wed, 25 Nov 2026 20:51:19 +0800 (GMT+08:00)
+X-CM-HeaderCharset: UTF-8
+From: =?UTF-8?B?5b6Q5pmX57+U?= <xuhx@hust.edu.cn>
+To: "Takashi Iwai" <tiwai@suse.de>
+Cc: perex@perex.cz, tiwai@suse.com, linux-sound@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] Re: Re: ALSA: ctxfi: free atimer only after the timer IRQ
+ is quiesced
+X-Priority: 3
+X-Mailer: Coremail Webmail Server Version 2025.3-cmXT6 build
+ 20260810(6c94e3b5) Copyright (c) 2002-2026 www.mailtech.cn hust
+In-Reply-To: <87ik20publ.wl-tiwai@suse.de>
+References: <4c7f9772.192e1.1a17d5c2ed5.Coremail.xuhx@hust.edu.cn>
+ <2026102727-data-sequel-ce41@gregkh>
+ <57529fbf.262c8.1a1d4c65987.Coremail.xuhx@hust.edu.cn>
+ <87ik20publ.wl-tiwai@suse.de>
+X-CM-CTRLMSGS: =?B?gNTyJDiH6nJ5xwDR7hwMki1N8jM=
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset=UTF-8
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -68,151 +59,116 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:qwCowABXgfuY2QZrsdirAQ--.2368S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxCrW8JrWUCr48Zr17ur4xCrg_yoWrKw47pF
-	1DCryS9r1rtr93Cr13twn2vr17Ga95Wr45Jr9F9a45ZFsxtrySywnYq3sFvF15XFykZayf
-	ZrZIgFy5Zrs2ywUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUPj14x267AKxVW5JVWrJwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26F1j6w1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
-	6r4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
-	Cq3wAac4AC62xK8xCEY4vEwIxC4wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC
-	0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUGVWUXwAv7VC2z280aVAFwI0_Gr0_Cr
-	1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IE
-	rcIFxwACI402YVCY1x02628vn2kIc2xKxwCY1x0262kKe7AKxVW8ZVWrXwCY02Avz4vE14
-	v_Xr1l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AK
-	xVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a6rW5MIIYrx
-	kI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v2
-	6r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8Jw
-	CI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjTRWeHgUUUU
-	U
-X-CM-SenderInfo: pwdquxrlsvqzpdlo2hpxfd2hldfou0/
+Message-ID: <48749068.582.1a212c2b537.Coremail.xuhx@hust.edu.cn>
+X-Coremail-Locale: zh_CN
+X-CM-TRANSID:IQEQrMAG7xHI2QZrTngDAA--.4208W
+X-CM-SenderInfo: bgsqjkayqyjmo6kx23oohg3hdfq/1tbiAQICB2sGaXQ7IwAOsg
+X-Coremail-Antispam: 1Ur529EdanIXcx71UUUUU7IcSsGvfJ3iIAIbVAYjsxI4VWkCw
+	CS07vEb4IE77IF4wCS07vE1I0E4x80FVAKz4kxMIAIbVAFxVCaYxvI4VCIwcAKzIAtYxBI
+	daVFxhVjvjDU=
 
-RISC-V KVM currently does not account G-stage page table memory
-in NR_SECONDARY_PAGETABLE.
-
-Use kvm_account_pgtable_pages() to account for the allocation and
-freeing of the root and lower-level page tables, including those
-allocated when splitting huge page mappings.
-
-This makes G-stage page table memory usage visible through
-SecPageTables in /proc/meminfo and sec_pagetables in the cgroup
-memory.stat interface.
-
-Update the documentation accordingly.
-
-Tested on a RISC-V KVM host running under QEMU TCG with Sv57x4.
-The observed G-stage page table memory usage was:
-
-  100 empty VMs:                         1600 KiB
-  8 GiB sparsely mapped with 4 KiB pages: 16448 KiB
-  256 MiB mapped with 2 MiB pages:          36 KiB
-  After enabling dirty logging:           548 KiB
-
-The accounting in /proc/meminfo, /proc/vmstat and cgroup
-memory.stat matched the expected values and returned to zero
-after destroying the VMs.
-
-This reimplements the work originally proposed by Yosry Ahmed
-in 2022, adapted to the current G-stage MMU code.
-
-Link: https://lore.kernel.org/r/20220426053904.3684293-6-yosryahmed@google.com
-
-Signed-off-by: Tan Chi <tanchi25@mails.ucas.ac.cn>
----
- Documentation/admin-guide/cgroup-v2.rst | 4 ++--
- Documentation/filesystems/proc.rst      | 2 +-
- arch/riscv/kvm/gstage.c                 | 6 +++++-
- arch/riscv/kvm/mmu.c                    | 7 ++++++-
- 4 files changed, 14 insertions(+), 5 deletions(-)
-
-diff --git a/Documentation/admin-guide/cgroup-v2.rst b/Documentation/admin-guide/cgroup-v2.rst
-index 9e3c67b02ae2..c79d6432ecc3 100644
---- a/Documentation/admin-guide/cgroup-v2.rst
-+++ b/Documentation/admin-guide/cgroup-v2.rst
-@@ -1591,8 +1591,8 @@ The following nested keys are defined.
- 
- 	  sec_pagetables
- 		Amount of memory allocated for secondary page tables,
--		this currently includes KVM mmu allocations on x86
--		and arm64 and IOMMU page tables.
-+		this currently includes KVM mmu allocations on x86,
-+		arm64 and riscv and IOMMU page tables.
- 
- 	  percpu (npn)
- 		Amount of memory used for storing per-cpu kernel
-diff --git a/Documentation/filesystems/proc.rst b/Documentation/filesystems/proc.rst
-index fa7a468e8edf..cd1a74da287c 100644
---- a/Documentation/filesystems/proc.rst
-+++ b/Documentation/filesystems/proc.rst
-@@ -1208,7 +1208,7 @@ PageTables
-               Memory consumed by userspace page tables
- SecPageTables
-               Memory consumed by secondary page tables, this currently includes
--              KVM mmu and IOMMU allocations on x86 and arm64.
-+              KVM mmu and IOMMU allocations on x86, arm64 and riscv.
- NFS_Unstable
-               Always zero. Previously counted pages which had been written to
-               the server, but has not been committed to stable storage.
-diff --git a/arch/riscv/kvm/gstage.c b/arch/riscv/kvm/gstage.c
-index 0aace3215d3e..f8841136d852 100644
---- a/arch/riscv/kvm/gstage.c
-+++ b/arch/riscv/kvm/gstage.c
-@@ -162,6 +162,7 @@ int kvm_riscv_gstage_set_pte(struct kvm_gstage *gstage,
- 				return -ENOMEM;
- 			set_pte(ptep, pfn_pte(PFN_DOWN(__pa(next_ptep)),
- 					      __pgprot(_PAGE_TABLE)));
-+			kvm_account_pgtable_pages(next_ptep, 1);
- 		} else {
- 			if (gstage_pte_leaf(ptep))
- 				return -EEXIST;
-@@ -357,6 +358,7 @@ bool kvm_riscv_gstage_split_huge(struct kvm_gstage *gstage,
- 
- 		set_pte(ptep, pfn_pte(PFN_DOWN(__pa(next_ptep)),
- 				__pgprot(_PAGE_TABLE)));
-+		kvm_account_pgtable_pages(next_ptep, 1);
- 
- 		if (flush)
- 			gstage_tlb_flush(gstage, current_level, addr);
-@@ -399,8 +401,10 @@ bool kvm_riscv_gstage_op_pte(struct kvm_gstage *gstage, gpa_t addr,
- 		for (i = 0; i < PTRS_PER_PTE; i++)
- 			flush |= kvm_riscv_gstage_op_pte(gstage, addr + i * next_page_size,
- 							 &next_ptep[i], next_ptep_level, op);
--		if (op == GSTAGE_OP_CLEAR)
-+		if (op == GSTAGE_OP_CLEAR) {
-+			kvm_account_pgtable_pages(next_ptep, -1);
- 			put_page(virt_to_page(next_ptep));
-+		}
- 	} else {
- 		old_pte = *ptep;
- 		if (op == GSTAGE_OP_CLEAR)
-diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
-index 6861c0e2728d..c7141395b9e3 100644
---- a/arch/riscv/kvm/mmu.c
-+++ b/arch/riscv/kvm/mmu.c
-@@ -816,6 +816,8 @@ int kvm_riscv_mmu_alloc_pgd(struct kvm *kvm)
- 	if (!pgd_page)
- 		return -ENOMEM;
- 	kvm->arch.pgd = page_to_virt(pgd_page);
-+	kvm_account_pgtable_pages(kvm->arch.pgd,
-+				kvm_riscv_gstage_pgd_size >> PAGE_SHIFT);
- 	kvm->arch.pgd_phys = page_to_phys(pgd_page);
- 	kvm->arch.pgd_levels = kvm_riscv_gstage_max_pgd_levels;
- 	kvm->arch.pgd_split_page_cache.gfp_zero = __GFP_ZERO;
-@@ -843,8 +845,11 @@ void kvm_riscv_mmu_free_pgd(struct kvm *kvm)
- 	if (flush)
- 		kvm_flush_remote_tlbs(kvm);
- 
--	if (pgd)
-+	if (pgd) {
-+		kvm_account_pgtable_pages(pgd,
-+				-(kvm_riscv_gstage_pgd_size >> PAGE_SHIFT));
- 		free_pages((unsigned long)pgd, get_order(kvm_riscv_gstage_pgd_size));
-+	}
- }
- 
- void kvm_riscv_mmu_update_hgatp(struct kvm_vcpu *vcpu)
--- 
-2.53.0
-
+Y3RfdGltZXJfZnJlZSgpIGNsZWFyZWQgaHctPmlycV9jYWxsYmFjaywgc3RvcHBlZCB0aGUgaGFy
+ZHdhcmUgdGltZXIKYW5kIGtmcmVlKClkIHRoZSBjdF90aW1lciB3aGlsZSB0aGUgUENJIElSUSBo
+YW5kbGVyIGNvdWxkIHN0aWxsIGJlCnJ1bm5pbmcgb3Igc3RhcnQgbGF0ZXI6IGEgaGFuZGxlciB0
+aGF0IGxvYWRlZCBody0+aXJxX2NhbGxiYWNrCmJlZm9yZSB0aGUgTlVMTCBzdG9yZSBjYWxscyBj
+dF90aW1lcl9pbnRlcnJ1cHQoKSB3aXRoIHRoZSBmcmVlZAphdGltZXIsIGFuZCB0aGUgc2luZ2xl
+IHN5bmNocm9uaXplX2lycSgpIGluIHNuZF9jYXJkX2Rpc2Nvbm5lY3QoKQpvbmx5IGNvdmVycyBo
+YW5kbGVycyB0aGF0IHdlcmUgcnVubmluZyBhdCB0aGF0IGluc3RhbnQgLS0gZnJlZV9pcnEoKQpo
+YXBwZW5zIGxhdGVyLCBpbiBjdF9hdGNfZGVzdHJveSgpIC0+IGRlc3Ryb3lfaHdfb2JqKCkuCgpz
+eW5jaHJvbml6ZV9pcnEoaHctPmlycSkgYWZ0ZXIgY2xlYXJpbmcgdGhlIGNhbGxiYWNrIGFuZCBz
+dG9wcGluZwp0aGUgaGFyZHdhcmUsIGJlZm9yZSB0aGUga2ZyZWUoKS4gIFRoZSBody0+aXJxID09
+IC0xIGluaXRpYWxpemF0aW9uCmNvbnRyYWN0IGlzIGtlcHQgKHRoZSBzeW5jIG9ubHkgcnVucyBm
+b3IgYW4gaW5zdGFsbGVkIElSUSkuCi0tLQogc291bmQvcGNpL2N0eGZpL2N0dGltZXIuYyB8ICA4
+ICsrKysrKysrCiAxIGZpbGUgY2hhbmdlZCwgOCBpbnNlcnRpb25zKCspCgpkaWZmIC0tZ2l0IGEv
+c291bmQvcGNpL2N0eGZpL2N0dGltZXIuYyBiL3NvdW5kL3BjaS9jdHhmaS9jdHRpbWVyLmMKLS0t
+IGEvc291bmQvcGNpL2N0eGZpL2N0dGltZXIuYworKysgYi9zb3VuZC9wY2kvY3R4ZmkvY3R0aW1l
+ci5jCkBAIC00MTcsNiArNDE3LDE0IEBACiAJaHctPmlycV9jYWxsYmFjayA9IE5VTEw7CiAJaWYg
+KGF0aW1lci0+b3BzLT5mcmVlX2dsb2JhbCkKIAkJYXRpbWVyLT5vcHMtPmZyZWVfZ2xvYmFsKGF0
+aW1lcik7CisJLyogV2FpdCBmb3IgYW4gaW4tZmxpZ2h0IElSUSBoYW5kbGVyIGJlZm9yZSB0aGUg
+dGltZXIgb2JqZWN0IGdvZXMKKwkgKiBhd2F5LiAgQSBoYW5kbGVyIHRoYXQgYWxyZWFkeSBsb2Fk
+ZWQgaHctPmlycV9jYWxsYmFjayBjYW4gc3RpbGwKKwkgKiBjYWxsIGN0X3RpbWVyX2ludGVycnVw
+dCgpIHdpdGggdGhlIGZyZWVkIGF0aW1lciwgYW5kIHRoZSBzaW5nbGUKKwkgKiBzeW5jaHJvbml6
+ZV9pcnEoKSBpbiBzbmRfY2FyZF9kaXNjb25uZWN0KCkgb25seSBjb3ZlcnMgaGFuZGxlcnMKKwkg
+KiB0aGF0IHdlcmUgcnVubmluZyBhdCB0aGF0IGluc3RhbnQgLS0gZnJlZV9pcnEoKSBoYXBwZW5z
+IGxhdGVyLAorCSAqIGluIGN0X2F0Y19kZXN0cm95KCkgLT4gZGVzdHJveV9od19vYmooKS4gKi8K
+KwlpZiAoaHctPmlycSA+PSAwKQorCQlzeW5jaHJvbml6ZV9pcnEoaHctPmlycSk7CiAJa2ZyZWUo
+YXRpbWVyKTsKIH0KIAoKCgo+IC0tLS0t5Y6f5aeL6YKu5Lu2LS0tLS0KPiDlj5Hku7bkuro6ICJU
+YWthc2hpIEl3YWkiIDx0aXdhaUBzdXNlLmRlPgo+IOWPkemAgeaXtumXtDoyMDI2LTExLTE0IDAw
+OjMwOjU0ICjmmJ/mnJ/lha0pCj4g5pS25Lu25Lq6OiDlvpDmmZfnv5QgPHh1aHhAaHVzdC5lZHUu
+Y24+Cj4g5oqE6YCBOiBwZXJleEBwZXJleC5jeiwgdGl3YWlAc3VzZS5jb20sIGxpbnV4LXNvdW5k
+QHZnZXIua2VybmVsLm9yZywgbGludXgta2VybmVsQHZnZXIua2VybmVsLm9yZwo+IOS4u+mimDog
+UmU6IEFMU0E6IGN0eGZpOiBmcmVlIGF0aW1lciBvbmx5IGFmdGVyIHRoZSB0aW1lciBJUlEgaXMg
+cXVpZXNjZWQKPiAKPiBPbiBGcmksIDEzIE5vdiAyMDI2IDEyOjU4OjUxICswMTAwLAo+IOW+kOaZ
+l+e/lCB3cm90ZToKPiA+IAo+ID4gYGN0X3RpbWVyX2ZyZWUoKWAgZnJlZXMgYHN0cnVjdCBjdF90
+aW1lcmAgd2hpbGUgdGhlIGN0eGZpIHRpbWVyIElSUSBoYW5kbGVyIGNhbgo+ID4gc3RpbGwgYmUg
+ZXhlY3V0aW5nLCBvciBjYW4gc3RhcnQgYWZ0ZXIgYHNuZF9jYXJkX2Rpc2Nvbm5lY3QoKWAgaGFz
+IGFscmVhZHkgZG9uZQo+ID4gaXRzIHNpbmdsZSBgc3luY2hyb25pemVfaXJxKClgLiAgQSBoYW5k
+bGVyIHRoYXQgaGFzIHBhc3NlZCB0aGUgbm9uLWF0b21pYwo+ID4gYGh3LT5pcnFfY2FsbGJhY2tg
+IGNoZWNrIHRoZW4gY2FsbHMgYGN0X3RpbWVyX2ludGVycnVwdCgpYCB3aXRoIHRoZSBmcmVlZAo+
+ID4gYGF0aW1lcmA7IGBmcmVlX2lycSgpYCBvbmx5IHJ1bnMgbGF0ZXIsIGluc2lkZSBgY3RfYXRj
+X2Rlc3Ryb3koKWAgLT4KPiA+IGBkZXN0cm95X2h3X29iaigpYC4gIFRoaXMgaXMgYSB1c2UtYWZ0
+ZXItZnJlZSBvbiB0aGUgdGltZXIgb2JqZWN0IGFuZCBjYW4gY3Jhc2gKPiA+IG9yIHdlZGdlIHRo
+ZSBkZXZpY2UgZHVyaW5nIFBDSSByZW1vdmFsL3VuYmluZC4KPiA+IAo+ID4gVGhlIGRldGFpbGVk
+IGRlc2NyaXB0aW9uOgo+ID4gCj4gPiAqIFRlc3QgZW52aXJvbm1lbnQgLyBhZmZlY3RlZCB2ZXJz
+aW9uCj4gPiAKPiA+ICAgTGludXggNy4zLjAgc291cmNlIHRyZWUgdW5kZXIgcmV2aWV3LiAgVGhp
+cyByZXBvcnQgaXMgc291cmNlLWxldmVsIG9ubHk6IG5vCj4gPiAgIGN0eGZpIGhhcmR3YXJlIHdh
+cyBhdmFpbGFibGUgYW5kIFFFTVUgaGFzIG5vIGN0eGZpIGRldmljZSBtb2RlbCwgc28gbm8KPiA+
+ICAgZHJpdmVyLXNwZWNpZmljIHJlcHJvZHVjZXIgd2FzIHJ1bi4gIFRoZSBzb3VyY2UgcGF0aHMv
+bGluZSBudW1iZXJzIGJlbG93IGFyZQo+ID4gICBmcm9tIDcuMy4KPiA+IAo+ID4gKiBNZWNoYW5p
+c20KPiA+IAo+ID4gICBgY3RfdGltZXJfbmV3KClgIChgc291bmQvcGNpL2N0eGZpL2N0dGltZXIu
+YzozODgtNDExYCkgaW5zdGFsbHMgdGhlIG5hdGl2ZQo+ID4gICB0aW1lciBjYWxsYmFjayBieSBk
+ZWZhdWx0IHdoZW4gYCF1c2Vfc3lzdGVtX3RpbWVyICYmIGh3LT5zZXRfdGltZXJfaXJxYDoKPiA+
+IAo+ID4gICAgIGh3LT5pcnFfY2FsbGJhY2tfZGF0YSA9IGF0aW1lcjsKPiA+ICAgICBody0+aXJx
+X2NhbGxiYWNrICAgICAgPSBjdF90aW1lcl9pbnRlcnJ1cHQ7Cj4gPiAKPiA+ICAgVGhlIFBDSSBJ
+UlEgaGFuZGxlcnMgYGN0XzIwazFfaW50ZXJydXB0KClgIChgY3RodzIwazEuYzoxODc4LTE4OTFg
+KSBhbmQKPiA+ICAgYGN0XzIwazJfaW50ZXJydXB0KClgIChgY3RodzIwazIuYzoyMDQ1LTIwNTlg
+KSBkbzoKPiA+IAo+ID4gICAgIGlmIChody0+aXJxX2NhbGxiYWNrKQo+ID4gICAgICAgICBody0+
+aXJxX2NhbGxiYWNrKGh3LT5pcnFfY2FsbGJhY2tfZGF0YSwgc3RhdHVzKTsKPiA+IAo+ID4gICBg
+Y3RfdGltZXJfaW50ZXJydXB0KClgIChgY3R0aW1lci5jOjM3OS0zODZgKSB0aGVuIHJlYWRzCj4g
+PiAgIGB0aW1lci0+b3BzLT5pbnRlcnJ1cHRgIGFuZCBjYWxscyBpdCB3aXRoIGB0aW1lcmAuICBO
+ZWl0aGVyIHRoZSBjaGVjayBub3IKPiA+ICAgdGhlIHR3byBsb2FkcyBpcyBhdG9taWMuCj4gPiAK
+PiA+ICAgYGN0X3RpbWVyX2ZyZWUoKWAgKGBjdHRpbWVyLmM6NDE0LTQyMWApIGRvZXM6Cj4gPiAK
+PiA+ICAgICBzdHJ1Y3QgaHcgKmh3ID0gYXRpbWVyLT5hdGMtPmh3Owo+ID4gICAgIGh3LT5pcnFf
+Y2FsbGJhY2sgPSBOVUxMOwo+ID4gICAgIGlmIChhdGltZXItPm9wcy0+ZnJlZV9nbG9iYWwpCj4g
+PiAgICAgICAgIGF0aW1lci0+b3BzLT5mcmVlX2dsb2JhbChhdGltZXIpOwo+ID4gICAgIGtmcmVl
+KGF0aW1lcik7Cj4gPiAKPiA+ICAgYGN0X3hmaXRpbWVyX2ZyZWVfZ2xvYmFsKClgIG9ubHkgY2Fs
+bHMgYGN0X3hmaXRpbWVyX2lycV9zdG9wKClgOyB0aGF0IGhlbHBlcgo+ID4gICBzdG9wcyB0aGUg
+aGFyZHdhcmUgb25seSBpZiBgYXRpbWVyLT5ydW5uaW5nYCBpcyBzZXQgKGBjdHRpbWVyLmM6MTM3
+LTE0NWApLgo+ID4gICBJdCBkb2VzIG5vdCB3YWl0IGZvciBhbiBpbi1mbGlnaHQgSVJRIGhhbmRs
+ZXIuCj4gPiAKPiA+ICAgYGN0X2F0Y19kZXN0cm95KClgIChgY3RhdGMuYzoxMjUwLTEyODZgKSB0
+aGVuIGNhbGxzIGBjdF90aW1lcl9mcmVlKClgIGF0Cj4gPiAgIDEyNTctMTI2MCwgY2FsbHMgYGRl
+c3Ryb3lfaHdfb2JqKGF0Yy0+aHcpYCBhdCAxMjc0LTEyNzUsIGFuZCBvbmx5IGFmdGVyIHRoYXQK
+PiA+ICAgYGtmcmVlKGF0YylgIGF0IDEyODMuICBgZGVzdHJveV9od19vYmooKWAgLT4gYGh3X2Nh
+cmRfc2h1dGRvd24oKWAgLT4KPiA+ICAgYGZyZWVfaXJxKClgIGF0IGBjdGh3MjBrMS5jOjE5Njlg
+IC8gYGN0aHcyMGsyLmM6MjE0MGAuICBTbyBgYXRjYCBpdHNlbGYgaXMKPiA+ICAgbm90IHRoZSBm
+cmVlZCBvYmplY3QgaW4gdGhpcyB3aW5kb3c7IGBhdGltZXJgIGlzIGZyZWVkIGJlZm9yZSBgZnJl
+ZV9pcnEoKWAuCj4gPiAKPiA+ICogV2h5IHRoZSBleGlzdGluZyBzeW5jaHJvbml6YXRpb24gZG9l
+cyBub3QgY2xvc2UgdGhlIHdpbmRvdwo+ID4gCj4gPiAgIGN0eGZpIGRvZXMgc2V0IGBjYXJkLT5z
+eW5jX2lycWAgYXQgYGN0aHcyMGsxLmM6MTkzN2AgLyBgY3RodzIwazIuYzoyMTA0YCwKPiA+ICAg
+YW5kIGBzbmRfY2FyZF9kaXNjb25uZWN0KClgIChgc291bmQvY29yZS9pbml0LmM6NDk1LTU2MmAp
+IGNhbGxzCj4gPiAgIGBzeW5jaHJvbml6ZV9pcnEoY2FyZC0+c3luY19pcnEpYCBvbmNlIGF0IDU0
+MC01NDEuICBCdXQgdGhhdCBjYWxsIGhhcHBlbnMKPiA+ICAgYmVmb3JlIGBjdF90aW1lcl9mcmVl
+KClgLCBvbmx5IHdhaXRzIGhhbmRsZXJzIHRoYXQgYXJlIHJ1bm5pbmcgYXQgdGhhdAo+ID4gICBp
+bnN0YW50LCBhbmQgZG9lcyBub3QgZGlzYWJsZSB0aGUgSVJRIGxpbmUuICBBIG5ldyBoYW5kbGVy
+IGNhbiBlbnRlciBhZnRlcgo+ID4gICB0aGUgb25lLXRpbWUgc3luYyBhbmQgYmVmb3JlIGBmcmVl
+X2lycSgpYC4KPiA+IAo+ID4gICBUaGUgYGh3LT5pcnFfY2FsbGJhY2sgPSBOVUxMYCBzdG9yZSBk
+b2VzIG5vdCBjbG9zZSB0aGUgcmFjZSBlaXRoZXI6IGEKPiA+ICAgaGFuZGxlciB0aGF0IGxvYWRl
+ZCB0aGUgY2FsbGJhY2sgcG9pbnRlciBiZWZvcmUgdGhlIHN0b3JlIGNhbiBzdGlsbCBjYWxsIGl0
+Lgo+ID4gCj4gPiAqIFRyaWdnZXIgbW9kZWwKPiA+IAo+ID4gICBPcGVuIGEgY3R4ZmkgZGV2aWNl
+IChuYXRpdmUgdGltZXIgcGF0aCwgdGhlIGRlZmF1bHQpLCB0aGVuIHJlbW92ZS91bmJpbmQgdGhl
+Cj4gPiAgIFBDSSBkZXZpY2Ugd2hpbGUgYW4gaW50ZXJydXB0IGlzIHBlbmRpbmcgb3IgYXJyaXZl
+cyBkdXJpbmcgdGVhcmRvd24uICBUaGUKPiA+ICAgd2luZG93IGlzIGJldHdlZW4gYGN0X3RpbWVy
+X2ZyZWUoKWAgYW5kIGBmcmVlX2lycSgpYC4gIENvbnNlcXVlbmNlOiBVQUYgcmVhZAo+ID4gICBv
+ZiBgYXRpbWVyLT5vcHNgIGFuZCB0aW1lciBmaWVsZHMgaW4gSVJRIGNvbnRleHQ7IGNyYXNoLCBz
+dGFsbCwgb3IgcG90ZW50aWFsCj4gPiAgIGNvbnRyb2wtZmxvdyBjb3JydXB0aW9uLgo+ID4gCj4g
+PiAqIFN1Z2dlc3RlZCBkaXJlY3Rpb24KPiA+IAo+ID4gICBBZnRlciBjbGVhcmluZyBgaHctPmly
+cV9jYWxsYmFja2AgYW5kIGNhbGxpbmcgYGZyZWVfZ2xvYmFsKClgLCBidXQgYmVmb3JlCj4gPiAg
+IGBrZnJlZShhdGltZXIpYCwgZG86Cj4gPiAKPiA+ICAgICBpZiAoaHctPmlycSA+PSAwKQo+ID4g
+ICAgICAgICBzeW5jaHJvbml6ZV9pcnEoaHctPmlycSk7Cj4gPiAKPiA+ICAgQWx0ZXJuYXRpdmVs
+eSwgbW92ZSBgZnJlZV9pcnEoKWAgZWFybGllciBzbyBpdCBwcmVjZWRlcyB0aGUgdGltZXIgZnJl
+ZS4KPiA+ICAgS2VlcCB0aGUgZXhpc3RpbmcgYGh3LT5pcnEgPT0gLTFgIGluaXRpYWxpemF0aW9u
+IGNvbnRyYWN0Lgo+ID4gCj4gPiAKPiA+IFBsZWFzZSBrZWVwIG1lIGluIENjOyBJIGFtIG5vdCBz
+dWJzY3JpYmVkIHRvIHRoZSBsaXN0cy4KPiAKPiBDb3VsZCB5b3UgcmF0aGVyIHN1Ym1pdCBhIGZp
+eCBwYXRjaCAod2l0aCBhIHByb3BlciBwYXRjaCBkZXNjcmlwdGlvbikKPiBmb3IgZWFjaCB5b3Vy
+IHJlcG9ydGVkIGlzc3VlPyAgWW91IGNhbiBwdXQgTGluazogdGFnIHRvIHBvaW50aW5nIHRvCj4g
+dGhlIGVhcmxpZXIgcmVwb3J0cy4KPiAKPiAKPiB0aGFua3MsCj4gCj4gVGFrYXNoaQo=
