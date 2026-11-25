@@ -1,83 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.20
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=90.155.92.199
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795613128;
-	b=CrPkNJuBVIT1LCU6SrwXcUDUSjtmO0IwPImyK8TYNqxd9cOaZwzhIiMTGzk0rg6fs4Sd
-	 asTyqM03kmNPf9oqxbXC1gvt71lz2a+GpNWeOMdUap39kMUr84fTNwWvejHF99ehFc3Cn
-	 j/hOa1m7KWcX7KuFYYVd7Z+oh1tdrS8imY5kRmARzUj1MY1wmcqjMYhVCjaCsaRJOu0LR
-	 utz01tGWg8N1JV/8LH2LSKiUxWi2QY5XEH7SYkbFakVSvxJZKN15+hn7IySHqL1F3vORw
-	 TM64qGMO1Z+6NTQGOVQWQ3ek/npjqVuwqpbU8jdKnChYxjkKgH6AjeCrjiPYSiQPLrA==
+	t=1795613124;
+	b=xCh3qEs+kJy8FWmS8JClhwg8Srf8/nhMANGuJH6eD01pZ4UMAM2H/NdqTu5l98OA0K9e
+	 uLscJ+XIahBptaqxqnm4yS6NmSWysEc2fwMuycsdbOcLnEo1mZo+ZIijYtHdG7PQLxnu2
+	 eBqUf1S3i9wRlL85gwqWoWdMJIqdep13fbANg7lYRdaX4lXg1skYRcMe0z3Dnqv2nnQqu
+	 GOeckZqpd0G9xRFKjQs/1AvYobaWv8Wm9JC5JBK5PcY0Hmtgiyezn7Ige5qp4tfsrizPe
+	 sgEp5nyZPblu/rMsr8EN/V9al/sQA2K2ALNshcrKvuaO4hzLTKZKoBpmR/F5FyafFqQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795613128;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795613124;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
 	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:Organization;
-	bh=5U/mp5/J7rf6LX70zikAzH7TB74AYfK5GV/BpPX9uL0=;
-	b=BD3uW9+DgNf2Fo+DE4GdkwZAy3L0VH7vSvdGMrkNcbjabo2FzPUna5iX17B/tWSLIA01
-	 5dI7uOpNUWcdgI5zh5TxixdmfAO48+I6dOWW4dGHtx5zxk7WenUnsvbMmnbgzNXo152ys
-	 T4fQEcD1EcufrxuJ3F7JwWz8x23YnQTTETlYfsjZmrH2jVkfA1UTMP5ARSAgf9fFlnC+p
-	 ZhMjrFrz5+IGDV8RNKu/jK/dTCglf8Do8M3P9rnQXirHkc4jEIaUS5fq+pK6TijWTuq6b
-	 UNOSDBRrlG0YRUKdR6CRNS0jhRkd3jYptucgAYoX0kzj7list/PQzrrTo65W3rUMTdg==
+	 Content-Disposition:In-Reply-To;
+	bh=U2yD8YmZMJRUWKYRhLK6Rpzohgna9XQ9HdqUq83TEiQ=;
+	b=OT2KjY/oXXh+QTRGlK+FmsXL6QOTx1uhmOqqV4+ZBTwbWnIyDP5HK72O7nXYWahymIwL
+	 zDgaEWqpSWbzOqa6I/AfioznkuugFspGl43wMh5rRCVSOR8+iQdh1uVkQpFGS6WySZxHq
+	 SxZMKAqoIJ45gmgKUk9cepxcTQJ8xzGJJ7IxuCYsT9WCiOcVK1xLzS1imELEwOZJCH4XA
+	 bzIpwej9vha+g2TZCbxaUXpvp1zvrLFqMXIZRGmVZzcHrJ9e/Mad3p45vZJ/RgWXFq19L
+	 ylGO+2PqEVeiH62rUU5cf9meX9ppvYunz5DX2wpqu6sKx94Gofo+JWFmNU4dnr3lsHg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=EqPz7M0C;
-	arc=none smtp.remote-ip=198.175.65.20
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.20])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=infradead.org;
+	spf=pass smtp.mailfrom=infradead.org;
+	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=HFUc4+O7;
+	arc=none smtp.remote-ip=90.155.92.199
+Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ECB50606A338;
-	Wed, 25 Nov 2026 13:25:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ECB50606A338
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A779C606A335;
+	Wed, 25 Nov 2026 13:25:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A779C606A335
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=infradead.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=EqPz7M0C
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795613128; x=1827149128;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=Sbyp9Cexn5uiAeoq3vI339ckZZ4d+ijki69mJ+9LbDI=;
-  b=EqPz7M0ClP2StPEby/K+/qSTnVl+nWW1U0kBiw7iVJTMIHgVyWx6GEMo
-   ntj1COyX9cCtDcZFTzp1N4KkvEDj8K7Z5tZU5czkjrcLlGG1vrrlpxMKB
-   2NW6UZ6m2cjoFHPyQO7XOGV9rvih5vtP8Ohh0xdMwcN0/9Ls+zUIHYqgb
-   o4y3ETS4vEAoB4FjuXASq01t91q7KxSWnjzwKCFiIpToDY7XkJ6aRW/Zk
-   Yhy690tbeBvJPWGh1yEMAIAKa+6IG042d+FX4Q2+9LFY1UN7yJulUwbWJ
-   zl4Gsfpj453wL/Ea3UwiKBqvOS+miWjnKjZdHI/wmugpakA3rZrhmGHqO
-   g==;
-X-CSE-ConnectionGUID: xbB54m+6RCyMQtoPVWRMyA==
-X-CSE-MsgGUID: rTedcj4TSmGih96LI39Q5w==
-X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4550745"
-X-IronPort-AV: E=Sophos;i="6.27,232,1787036400"; 
-   d="scan'208";a="4550745"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 05:25:27 -0800
-X-CSE-ConnectionGUID: bhz0XBWYQGus/daFs/vtDg==
-X-CSE-MsgGUID: E+U9n7IJRQuFe+9S/9Idbw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,232,1787036400"; 
-   d="scan'208";a="11858296"
-Received: from conormcd-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.244.73])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 05:25:24 -0800
-Date: Wed, 25 Nov 2026 15:25:21 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: raffaele.tranfaglia@gmail.com
-Cc: Mark Brown <broonie@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>, Johan Hovold <johan@kernel.org>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	Jonathan Cameron <jic23@kernel.org>, linux-iio@vger.kernel.org,
-	linux-kernel@vger.kernel.org, driver-core@lists.linux.dev,
-	linux-sound@vger.kernel.org, Neo Chang <YLCHANG2@nuvoton.com>
-Subject: Re: [PATCH v2 1/3] ASoC: codecs: nau8360: set val_bits to the widest
- register size
-Message-ID: <awbhwVw52eSTTmiu@ashevche-desk.local>
-References: <20261125-regmap-kunit-val-bits-v2-0-81db3b79cd3f@gmail.com>
- <20261125-regmap-kunit-val-bits-v2-1-81db3b79cd3f@gmail.com>
+	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=HFUc4+O7
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=U2yD8YmZMJRUWKYRhLK6Rpzohgna9XQ9HdqUq83TEiQ=; b=HFUc4+O7AkwkBgYTur/jc53ngn
+	8MFZ6vBY/W9c/s7d2UaTQiMShV/WFpalO1Ormwd3dqpBCkhnFQkC1+s66NWWbEEAd/a3l5sZSBHZY
+	JtnDKP1P207MoP6Xkzxm+gWojJZS5govBXZv6CrmZzFfHwSZ68WuYtrGI+ghbYh0fluVwOenUVhlY
+	ROOoJ+qirW8Eks+DnptM1JnPnGvbsXFXa6VmbSW6U42pgNZNGc30fqnEHjdGGD1/XUPBkHD/zU3kL
+	+MM0qIr0W1n6B1LszgiwDn3Fy2mIvo5EFG0J/RDcGZIoQNV41ZKcFN1Cvwmamcp3IFVbRXBXQTYPD
+	CFPfij8A==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by desiato.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xWCzq-00000005LTp-2WYh;
+	Wed, 25 Nov 2026 13:25:14 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id D9DE9300446; Wed, 25 Nov 2026 14:25:12 +0100 (CET)
+Date: Wed, 25 Nov 2026 14:25:12 +0100
+From: Peter Zijlstra <peterz@infradead.org>
+To: Ian Rogers <irogers@google.com>
+Cc: Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	James Clark <james.clark@linaro.org>,
+	Athira Rajeev <atrajeev@linux.ibm.com>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Eduard Zingerman <eddyz87@gmail.com>, Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	Ihor Solodrai <ihor.solodrai@linux.dev>,
+	Leo Yan <leo.yan@linux.dev>, Dmitry Vyukov <dvyukov@google.com>,
+	"Steinar H . Gunderson" <sesse@google.com>,
+	Stephen Brennan <stephen.s.brennan@oracle.com>,
+	Thomas Falcon <thomas.falcon@intel.com>,
+	linux-perf-users@vger.kernel.org, bpf@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 03/19] perf/uapi: Add BUILD_ID_OFFSET sample types to
+ UAPI
+Message-ID: <20261125132512.GB2668804@noisy.programming.kicks-ass.net>
+References: <20261125005108.1020003-1-irogers@google.com>
+ <20261125005108.1020003-4-irogers@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -89,28 +90,20 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261125-regmap-kunit-val-bits-v2-1-81db3b79cd3f@gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+In-Reply-To: <20261125005108.1020003-4-irogers@google.com>
 
-On Wed, Nov 25, 2026 at 08:09:30AM +0000, Raffaele Tranfaglia via B4 Relay wrote:
+On Tue, Nov 24, 2026 at 04:50:52PM -0800, Ian Rogers wrote:
+> Introduce PERF_SAMPLE_BUILD_ID_OFFSET and
+> PERF_SAMPLE_CALLCHAIN_BUILD_ID_OFFSET in enum perf_event_sample_format.
 > 
-> The regmap is configured with val_bits = 16, but the two DSP registers
-> are 32 bits wide: nau8360_reg_write() sends four bytes for them, and the
-> DSP messages written with snd_soc_component_write() use all 32 bits.
-> 
-> This works because the driver provides its own reg_read() and
-> reg_write() and regmap passes the value through unmodified. As regmap is
-> going to mask values to val_bits, set it to 32, the size of the widest
-> register. The size of each access is still selected in the driver's
-> reg_read() and reg_write().
+> For PERF_SAMPLE_CALLCHAIN_BUILD_ID_OFFSET (and
+> PERF_RECORD_CALLCHAIN_DEFERRED when PERF_RECORD_MISC_MMAP_BUILD_ID is
+> set), encode a deduplicated table of variable-length build IDs
+> (u32 nr_build_ids, u32 nr_offsets, followed by packed { u8 size;
+> u8 data[size]; } entries padded to 8-byte alignment) and an array of
+> 64-bit offsets whose top 8 bits encode the 1-based build ID index (or
+> 0x00 for unresolved user addresses and 0xff for kernel/context entries).
+> In common cases where multiple callchain frames belong to the same
+> binary, each unique build ID is encoded only once.
 
-Hmm... While it works, it might be not the best approach. In cases like this
-elsewhere we create two regmaps (one per each val_bits size) and choose them
-based on the register offset.
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
+Why ?!? This is insane
