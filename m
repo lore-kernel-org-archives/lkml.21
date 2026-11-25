@@ -1,48 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=34.202.193.197
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795622155;
-	b=lK7zbxjgOxE0ksqsN4nyuVVicV7AeAYdVXWQlcTzlt7B7t6VqNlp6Lrz1OP13X5S+8lZ
-	 Fva5c0lyPZzAKi7RGgKdlutPlK8GgeWeuqKZo+1E8IAc3+Ci74ZfR+bVYp69PjAFdauFv
-	 eyDT0dJucPdr3eBL4bt/51VyvdxKGvkHysU5l0Oo3kmdTz45FPow3iK9UHlvTfEszeuo6
-	 cwp0f37GdTZjatec1n46TlrgxPZJGlUJOwcaGoi3F3aLUAgUsNoY2vGC0TVkmATnMCFLp
-	 ehr3IdPPJqKXCDMceXWqkS+P1P0qjAyM8hKHI7Yv3sQ8LzSrTE18chIbc5MENipK2eQ==
+	t=1795622159;
+	b=OaoZVdjpLPOc2YxIXrxnr8DymIc9iDuc+GRoxQXSullIuXeLGYHrY+NLQTZkNM3Daj7G
+	 sYGvNeQZYn1aETAXhFjA2lSGUKukFtiqcvK1g+HJxhu99pXFrNhUFph0UmLq7ajPRnCRI
+	 /fWnh772Aly1KGD/rgENmrRTp2UT69RmjZziE+Uc9e1WZ6s1NP8cRnW/nlx/bINYlWRMr
+	 b4SJYxfaqr2dD3arXhEN7jyuVFPxUysmqvhfokdej217+dhZ+r1CGwcpHYZRehMRDcovm
+	 h4wrEk0EP783lDFSHQMPnDSLT1MB2dFNsG71NHrzNgZzmlkylDsRpYF0zOI9H3b9deA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795622155;
-	h=DMARC-Filter:DKIM-Signature:Feedback-ID:X-Pm-Original-To:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795622159;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:Content-Language:
+	 References:To:Cc:From:In-Reply-To:X-Forwarded-Message-Id:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=2TWoWAsm1Apa3orL/Yt0L4YfqkBPFNcm/0g6RUQ3LYQ=;
-	b=WkFiss9yR7eHYFU5IPn7FnvH50VwCoUJlkFnZmflGWnZcgbGaFTpnZM5ojbWcJkKz6wB
-	 Zlq5PlDDLXcL+m9mS6RAuofaygazkV5yNNT2U08iygw7DnZVVPI3LY6W6gfTafITez3q8
-	 fZ7TJe93ysQEU5A1X6LCVaR668w74YJiJ+KG3474EyzGBvAx0YhJZ03hT9hKPqVp2wD/i
-	 wmsRVr/jFCHdL7ujmYhENb/UvXF/H3B+nn9mZ0uAIiq/tLH7KGBZKkxVcEjnmqIA29Dc7
-	 d+WtXg+wJoYSHH3dKDAGPBRZq5kMHPuGRWjQjAMax7hRjDYs89Ui4Eqolo7o5xNo8OA==
+	bh=ilZkP46cGSi8xAEGGltwn2YY6bly9+EZHVBMEUvniWk=;
+	b=34Lxoh3vplJplKr9MDxjO/fqlnIAKMyXwtEMWODEvUEpV0u6jz3pg09WSObpQUmCC0cF
+	 WI9r3+OxaBI+FdoZKWutFg7r8XN9NtVoIwEVY2xGrS3JUDA49OLU2kAv4Cr4TujlrLtq/
+	 0+zOTV8mcpr5R4m41VytucULkRfNx2AXfTgHlqcKEE/oOU/63CeVS0LeJohsSkz6AZ0Re
+	 lugj9jdjlbnTLM8WbmXLcjv6XN1QhsMqazdequXpJS3bv4tEGsIdf6JiDrWqcTdByIOEO
+	 ilKNQlpLSS/1Wg8RaNdgYdjrY36dxNqNkdYBwefqUZyxiPZjm/NYLXGFjRURkPBN+dQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=mentallysanemainliners.org;
-	spf=pass smtp.mailfrom=mentallysanemainliners.org;
-	dkim=pass header.d=purelymail.com header.i=@purelymail.com header.a=rsa-sha256 header.s=purelymail2 header.b=gU46oP6B;
-	arc=none smtp.remote-ip=34.202.193.197
-Received: from sendmail.purelymail.com (sendmail.purelymail.com [34.202.193.197])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uSlRORf8;
+	arc=none smtp.remote-ip=209.85.167.49
+Received: from mail-lf1-f49.google.com (mail-lf1-f49.google.com [209.85.167.49])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8AA14606A334
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:55:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8AA14606A334
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mentallysanemainliners.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mentallysanemainliners.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9C000606A323
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:55:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9C000606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=purelymail.com header.i=@purelymail.com header.a=rsa-sha256 header.s=purelymail2 header.b=gU46oP6B
-DKIM-Signature: a=rsa-sha256; b=gU46oP6B9c4ypb6Im7yWc5TxHA9zpsJAykGWLcCYUKNxyioQJFo72y4uY+uWPDrzoGz2sZ2sSqIox7MDXPhmIblfpqZHbyJcF56flo9yb4N7w2lZJd4mMnKzRWlss556gu77NU16hJ8AjeQcTH4cVEUm7Ei7jVUhWQiX38He76YCq7QNcDTbtxoYhCI5nh1xjXVzJ43fgF+6/dg2wn12ln5JKFCLwTgtBb1RvZYWEg+FzHNOLP2NPtPXkLi0Xr0c+Q4NKqTWtglz59bxbndl/VkJ9ZbLBZVFT72tk509S8omYPM5HalNXtpZ2B4eOtGvCJU4RjM2SZZ1aWYQO+BIjQ==; s=purelymail2; d=purelymail.com; v=1; bh=TnfnPC1swyrjuv/n2UWWnJpupbzh/7OS04oP4lB/JOM=; h=Feedback-ID:Received:Message-ID:Date:Subject:To:From;
-Feedback-ID: 68229:10037:null:purelymail
-X-Pm-Original-To: linux-kernel@vger.kernel.org
-Authentication-Results: purelymail.com; auth=pass
-Received: by smtp.purelymail.com (Purelymail SMTP) with ESMTPSA id -532728891;
-          (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384);
-          Wed, 25 Nov 2026 15:54:27 +0000 (UTC)
-Message-ID: <f7a64060-9e98-422a-ae2a-1eeebf8469e0@mentallysanemainliners.org>
-Date: Wed, 25 Nov 2026 15:54:15 +0000
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uSlRORf8
+Received: by mail-lf1-f49.google.com with SMTP id 2adb3069b0e04-5c15ccd7fb5so3661854e87.2
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 07:55:58 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795622157; x=1796226957; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from:cc:to
+         :references:content-language:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=ilZkP46cGSi8xAEGGltwn2YY6bly9+EZHVBMEUvniWk=;
+        b=uSlRORf8ExuxpyJIwcUhsRRH5J6QPUEbQQ99xTAREpbN0KtRfRaOaGC4PUDA7uHNBF
+         S+M/De1+cqVSH0Ow0+7Ah+VOMRDUihHp6N4e+cUYVqyN+lxbixIzLo03PTkOCxsIXrPC
+         1ODK12opotIo2lKXXoYVXvn4I+WDlh0UbEl/MOMQ1qRbQi4InMvOgCQ/1o4Q5uf5DzEU
+         XWmun47m3RmqVCgqz8eFoW0sD6qE8Q3sIsRIfUZ+ofIqOpLYywBIBxb8VoY4V8jOgD8f
+         uqqI3A7w/A/FZdJlLp2MP+z1ys3xbqcRO8lIx1r0Up0FFGE/IUdAGoJsuPG8F7HN2lGx
+         msNA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795622157; x=1796226957;
+        h=content-transfer-encoding:content-type:in-reply-to:from:cc:to
+         :references:content-language:subject:user-agent:mime-version:date
+         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=ilZkP46cGSi8xAEGGltwn2YY6bly9+EZHVBMEUvniWk=;
+        b=em0x9vrRxcc+eEtKO0ta97yvWkZt1Ut+OjQ2sVNZy2Wp9HJlDOOCuWfXiGchYsEx+W
+         dsLjFDV/yUQoDorgChsQJlYPwVEZjkoCnxe0uArUJp9OLlBAN3dOzhSYvswqJL4CzUID
+         36gZfjegMkfbxbXwG7vi7HAm/w6IKgeK6TycZeQf1qKiKJoQSIxbWYuXIPWnfK2+qwsq
+         ljkoh/IwYqO8XU+/U3Em8sReeTgLQBnqdPTUlZDDrimbrLVZPmBvhruVuc1aUpyFoHqA
+         MgabN6YYERzGCIl3Y4/HJJJY+xFRH4kd8BsTmWCedpleyoZpgrjBnj+oWlDHwM9RQNnA
+         r/xQ==
+X-Forwarded-Encrypted: i=1; AL+hErFTt6/fezc1nUuryE3TKhoXLGzBMgjQp2oFSd0iTCHj20ZFxq8fwYhSDOO1mzQgV5mNBCf7Hl7nOlgbmIc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+KERLqyG1BJc29XsBByw5BQeL9pBc8R2A0iwrHVu66/8gkciqe
+	P89o2RX9auI90wg0ZO0eHIsiqjLDGNy87lZNwfGKhbrHYBkbF3HiG3hI
+X-Gm-Gg: AZFdTZcVDze6QJD5un55yZjptNnCuKOqTq3STke3Ig4+SN9psDAZpycwHZR3RPdOSDU
+	mQGD6OewDIwHjcoMKtFTaLe7TVSgcLLpPboTGguVTOs0rzaKL+tBZ7YVWoya+Crl+NaIVtwsFuk
+	doYfDYxVC5HVrDFnoST6Pwi6axwWWuoqphU2MH7QYsWsUdg824s+HtmXpcG6FGsEAk9sauxWnfJ
+	GWgHdk7jL1QmtRryFHHrIU67bZkwTbQvGhXpUk7XVd6/pTlYZ253qlYWoSsoAbRkFG1U2Io83aF
+	J0gRfP6OYdHanv19yK5VTgDcASOZZdhVXd7eUd+4CGiF8895xeWWL8aVK/tGdztgI6SPqDCA5u6
+	+ssfuADT10H286wRY/bxWEMdQcEwmXyjNEvrxO8Mh8HyqbyA4wB/qqhR6cWIH4vMxLSInd4AgMH
+	WwiJO69DarrIYz+gB6D/z/o5CYZFWZ3oOhnGGgGLoGqwl7gWIiusC8sS2w8n+G0AqI8CLLkCvCf
+	Dl9oJo9hoI0sXqoeTjsVZiKWGYQ5bgZPSzAJBjbBPVBnbi2VMglrkfUcWMgbEw0hLHuKB77MbXp
+	zimzjbVE//v6KVhBOb/B5feE31vg7v8sUZxebJr8/zFvi0DEunGRuyH7DfQnW35Onqnh0DZN+8z
+	I4KNSDAU=
+X-Received: by 2002:a05:6512:3b08:b0:5c1:b29a:1ba3 with SMTP id 2adb3069b0e04-5c1bc7d5ce5mr7526450e87.29.1795622156730;
+        Wed, 25 Nov 2026 07:55:56 -0800 (PST)
+Received: from [192.168.0.103] ([46.8.6.187])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5c1bd0776edsm4838279e87.73.2026.11.25.07.55.55
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 25 Nov 2026 07:55:56 -0800 (PST)
+Message-ID: <6c943754-05b5-4017-9145-0d145766909a@gmail.com>
+Date: Wed, 25 Nov 2026 18:55:55 +0300
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,79 +93,211 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/2] Add USB support for Exynos7885 and enable USB and
- FG on gta3xllte
-To: Vinod Koul <vkoul@kernel.org>, Neil Armstrong
- <neil.armstrong@linaro.org>, Manivannan Sadhasivam <mani@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Marek Szyprowski <m.szyprowski@samsung.com>,
- Sylwester Nawrocki <s.nawrocki@samsung.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Peter Griffin <peter.griffin@linaro.org>,
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, linux-phy@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, Henri Ommer <henri@ommer.net>,
- David Virag <virag.david003@gmail.com>
-References: <20261124-gta3xllte-usb-battery-v2-0-80bdcb1753bb@mentallysanemainliners.org>
+Subject: [PATCH] percpu_ref: make percpu_ref_switch_lock per percpu_ref
 Content-Language: en-US
-From: Umer Uddin <umer.uddin@mentallysanemainliners.org>
-In-Reply-To: <20261124-gta3xllte-usb-battery-v2-0-80bdcb1753bb@mentallysanemainliners.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+References: <01612865-faa0-4fe5-8184-a177f104843f@gmail.com>
+To: linux-mm@kvack.org
+Cc: dennis@kernel.org, tj@kernel.org, cl@gentwo.org,
+ akpm@linux-foundation.org, zhengqi.arch@bytedance.com,
+ linux-kernel@vger.kernel.org
+From: Egor Shalashnov <shalasheg@gmail.com>
+In-Reply-To: <01612865-faa0-4fe5-8184-a177f104843f@gmail.com>
+X-Forwarded-Message-Id: <01612865-faa0-4fe5-8184-a177f104843f@gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 
-On 24/11/2026 17:14, Umer Uddin via B4 Relay wrote:
-> Hi guys, this patch series enables USB and FG on gta3xllte. All is tested.
->
-> DT changes were tested with make dtbs_check W=1, and the dt styling check
-> scripts with --mode strict flags, both of which returned no warnings.
->
-> Please note this patch now depends on David Virag's changes for USB[1].
->
-> Best regards,
-> Umer
->
-> [1] https://lore.kernel.org/linux-samsung-soc/20261123092244.1792040-1-virag.david003@gmail.com/T/#t
->
-> Signed-off-by: Umer Uddin <umer.uddin@mentallysanemainliners.org>
-> ---
-> Changes in v2:
-> - Drop patches that are being picked up updated and corrected by David
-> - Link to v1: https://patch.msgid.link/20261119-gta3xllte-usb-battery-v1-0-0cf5f763522e@mentallysanemainliners.org
->
-> To: Rob Herring <robh@kernel.org>
-> To: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> To: Conor Dooley <conor+dt@kernel.org>
-> To: Peter Griffin <peter.griffin@linaro.org>
-> To: Alim Akhtar <alim.akhtar@samsung.com>
-> Cc: devicetree@vger.kernel.org
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-samsung-soc@vger.kernel.org
-> Cc: linux-kernel@vger.kernel.org
->
-> ---
-> Umer Uddin (2):
->        arm64: dts: exynos: exynos7885-gta3xllte: Enable USB support
->        arm64: dts: exynos: exynos7885-gta3xllte: Enable FuelGauge support
->
->   .../arm64/boot/dts/exynos/exynos7885-gta3xllte.dts | 50 ++++++++++++++++++++++
->   1 file changed, 50 insertions(+)
-> ---
-> base-commit: 9b369f9debe1253032abb90a9469fe44146835d1
-> change-id: 20261119-gta3xllte-usb-battery-b95e4d89ae85
->
-> Best regards,
-> --
-> Umer Uddin <umer.uddin@mentallysanemainliners.org>
+From: Qi Zheng <zhengqi.arch@bytedance.com>
 
-Hi, dependency has changed, it has now changed to David's V3[1], since 
-this patch
+Currently, percpu_ref uses the global percpu_ref_switch_lock to
+protect the mode switching operation. When multiple percpu_ref
+perform mode switching at the same time, the lock may become a
+performance bottleneck.
 
-still will apply fine on top of his V3, I am unsure if I need to resend it.
+This patch introduces per percpu_ref percpu_ref_switch_lock to
+fixes this situation.
 
+Signed-off-by: Qi Zheng <zhengqi.arch@bytedance.com>
+Signed-off-by: Egor Shalashnov <shalasheg@gmail.com>
+---
+I would like to revive Qi Zheng's per-reference switch lock patch
+from 2022 as a standalone change.
 
-[1] 
-https://lore.kernel.org/linux-samsung-soc/20261125145458.2594179-1-virag.david003@gmail.com/T/#t
+Our workload maintains many independent percpu_ref instances and
+repeatedly performs kill, waits for references to drain, and reinitializes
+them. Multiple CPUs execute these cycles concurrently on different
+instances.
 
+All these transitions compete for the same global switch lock.
+Reinitialization also clears the per-CPU counters while holding it.
+As the number of concurrent transitions grows, this shared lock
+becomes a significant bottleneck.
+
+With a module-local adaptation of Qi's per-reference locking change,
+we observed approximately 2.8x to 6.5x lower operation completion times
+in the measured workload. This motivates using a lock per instance
+so that independent transitions can proceed concurrently.
+
+Original posting:
+https://lore.kernel.org/linux-mm/20220429133552.33768-4-zhengqi.arch@bytedance.com/
+
+Rebased onto v7.4-rc4 with an explicit spinlock_types.h include.
+
+ include/linux/percpu-refcount.h |  3 +++
+ lib/percpu-refcount.c           | 30 +++++++++++++++---------------
+ 2 files changed, 18 insertions(+), 15 deletions(-)
+
+diff --git a/include/linux/percpu-refcount.h b/include/linux/percpu-refcount.h
+index 1e3212e..4582e79 100644
+--- a/include/linux/percpu-refcount.h
++++ b/include/linux/percpu-refcount.h
+@@ -53,6 +53,7 @@
+ #include <linux/atomic.h>
+ #include <linux/percpu.h>
+ #include <linux/rcupdate.h>
++#include <linux/spinlock_types.h>
+ #include <linux/types.h>
+ #include <linux/gfp.h>
+ 
+@@ -109,6 +110,8 @@ struct percpu_ref {
+ 	 */
+ 	unsigned long		percpu_count_ptr;
+ 
++	spinlock_t percpu_ref_switch_lock;
++
+ 	/*
+ 	 * 'percpu_ref' is often embedded into user structure, and only
+ 	 * 'percpu_count_ptr' is required in fast path, move other fields
+diff --git a/lib/percpu-refcount.c b/lib/percpu-refcount.c
+index f8d9068..5d46602 100644
+--- a/lib/percpu-refcount.c
++++ b/lib/percpu-refcount.c
+@@ -36,7 +36,6 @@
+ 
+ #define PERCPU_COUNT_BIAS	(1LU << (BITS_PER_LONG - 1))
+ 
+-static DEFINE_SPINLOCK(percpu_ref_switch_lock);
+ static DECLARE_WAIT_QUEUE_HEAD(percpu_ref_switch_waitq);
+ 
+ static unsigned long __percpu *percpu_count_ptr(struct percpu_ref *ref)
+@@ -96,6 +95,7 @@ int percpu_ref_init(struct percpu_ref *ref, percpu_ref_func_t *release,
+ 		start_count++;
+ 
+ 	atomic_long_set(&data->count, start_count);
++	spin_lock_init(&ref->percpu_ref_switch_lock);
+ 
+ 	data->release = release;
+ 	data->confirm_switch = NULL;
+@@ -137,11 +137,11 @@ void percpu_ref_exit(struct percpu_ref *ref)
+ 	if (!data)
+ 		return;
+ 
+-	spin_lock_irqsave(&percpu_ref_switch_lock, flags);
++	spin_lock_irqsave(&ref->percpu_ref_switch_lock, flags);
+ 	ref->percpu_count_ptr |= atomic_long_read(&ref->data->count) <<
+ 		__PERCPU_REF_FLAG_BITS;
+ 	ref->data = NULL;
+-	spin_unlock_irqrestore(&percpu_ref_switch_lock, flags);
++	spin_unlock_irqrestore(&ref->percpu_ref_switch_lock, flags);
+ 
+ 	kfree(data);
+ }
+@@ -267,7 +267,7 @@ static void __percpu_ref_switch_mode(struct percpu_ref *ref,
+ {
+ 	struct percpu_ref_data *data = ref->data;
+ 
+-	lockdep_assert_held(&percpu_ref_switch_lock);
++	lockdep_assert_held(&ref->percpu_ref_switch_lock);
+ 
+ 	/*
+ 	 * If the previous ATOMIC switching hasn't finished yet, wait for
+@@ -275,7 +275,7 @@ static void __percpu_ref_switch_mode(struct percpu_ref *ref,
+ 	 * isn't in progress, this function can be called from any context.
+ 	 */
+ 	wait_event_lock_irq(percpu_ref_switch_waitq, !data->confirm_switch,
+-			    percpu_ref_switch_lock);
++			    ref->percpu_ref_switch_lock);
+ 
+ 	if (data->force_atomic || percpu_ref_is_dying(ref))
+ 		__percpu_ref_switch_to_atomic(ref, confirm_switch);
+@@ -308,12 +308,12 @@ void percpu_ref_switch_to_atomic(struct percpu_ref *ref,
+ {
+ 	unsigned long flags;
+ 
+-	spin_lock_irqsave(&percpu_ref_switch_lock, flags);
++	spin_lock_irqsave(&ref->percpu_ref_switch_lock, flags);
+ 
+ 	ref->data->force_atomic = true;
+ 	__percpu_ref_switch_mode(ref, confirm_switch);
+ 
+-	spin_unlock_irqrestore(&percpu_ref_switch_lock, flags);
++	spin_unlock_irqrestore(&ref->percpu_ref_switch_lock, flags);
+ }
+ EXPORT_SYMBOL_GPL(percpu_ref_switch_to_atomic);
+ 
+@@ -354,12 +354,12 @@ void percpu_ref_switch_to_percpu(struct percpu_ref *ref)
+ {
+ 	unsigned long flags;
+ 
+-	spin_lock_irqsave(&percpu_ref_switch_lock, flags);
++	spin_lock_irqsave(&ref->percpu_ref_switch_lock, flags);
+ 
+ 	ref->data->force_atomic = false;
+ 	__percpu_ref_switch_mode(ref, NULL);
+ 
+-	spin_unlock_irqrestore(&percpu_ref_switch_lock, flags);
++	spin_unlock_irqrestore(&ref->percpu_ref_switch_lock, flags);
+ }
+ EXPORT_SYMBOL_GPL(percpu_ref_switch_to_percpu);
+ 
+@@ -385,7 +385,7 @@ void percpu_ref_kill_and_confirm(struct percpu_ref *ref,
+ {
+ 	unsigned long flags;
+ 
+-	spin_lock_irqsave(&percpu_ref_switch_lock, flags);
++	spin_lock_irqsave(&ref->percpu_ref_switch_lock, flags);
+ 
+ 	WARN_ONCE(percpu_ref_is_dying(ref),
+ 		  "%s called more than once on %ps!", __func__,
+@@ -395,7 +395,7 @@ void percpu_ref_kill_and_confirm(struct percpu_ref *ref,
+ 	__percpu_ref_switch_mode(ref, confirm_kill);
+ 	percpu_ref_put(ref);
+ 
+-	spin_unlock_irqrestore(&percpu_ref_switch_lock, flags);
++	spin_unlock_irqrestore(&ref->percpu_ref_switch_lock, flags);
+ }
+ EXPORT_SYMBOL_GPL(percpu_ref_kill_and_confirm);
+ 
+@@ -416,12 +416,12 @@ bool percpu_ref_is_zero(struct percpu_ref *ref)
+ 		return false;
+ 
+ 	/* protect us from being destroyed */
+-	spin_lock_irqsave(&percpu_ref_switch_lock, flags);
++	spin_lock_irqsave(&ref->percpu_ref_switch_lock, flags);
+ 	if (ref->data)
+ 		count = atomic_long_read(&ref->data->count);
+ 	else
+ 		count = ref->percpu_count_ptr >> __PERCPU_REF_FLAG_BITS;
+-	spin_unlock_irqrestore(&percpu_ref_switch_lock, flags);
++	spin_unlock_irqrestore(&ref->percpu_ref_switch_lock, flags);
+ 
+ 	return count == 0;
+ }
+@@ -465,7 +465,7 @@ void percpu_ref_resurrect(struct percpu_ref *ref)
+ 	unsigned long __percpu *percpu_count;
+ 	unsigned long flags;
+ 
+-	spin_lock_irqsave(&percpu_ref_switch_lock, flags);
++	spin_lock_irqsave(&ref->percpu_ref_switch_lock, flags);
+ 
+ 	WARN_ON_ONCE(!percpu_ref_is_dying(ref));
+ 	WARN_ON_ONCE(__ref_is_percpu(ref, &percpu_count));
+@@ -474,6 +474,6 @@ void percpu_ref_resurrect(struct percpu_ref *ref)
+ 	percpu_ref_get(ref);
+ 	__percpu_ref_switch_mode(ref, NULL);
+ 
+-	spin_unlock_irqrestore(&percpu_ref_switch_lock, flags);
++	spin_unlock_irqrestore(&ref->percpu_ref_switch_lock, flags);
+ }
+ EXPORT_SYMBOL_GPL(percpu_ref_resurrect);
+
+base-commit: b6a9fa34ce4187cb69d3c588a4bbffc31ce5db8f
