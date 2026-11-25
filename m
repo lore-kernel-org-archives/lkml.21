@@ -1,91 +1,120 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=85.215.255.52
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795596473;
-	b=hUemyYgwnWpXVQEQm36yv3OQlTTExXpqCmNWIjwkSiWWef38U8GgA68JzGaoxCMgBFRE
-	 0nq1dc2bVhSXw9JDuItEPvkoOD/xvD7EShuxedniOooSodweYaKvgzxl383AZc+aOeMAe
-	 R1fp+cQchr+k9JHPbs6Jb6SUfwuL+D7mYzWuL85f9jN5Bd7eJLvUYSxZB9iRNnV3derGX
-	 uAQ1szg3y+HR8eS9t6v9zPuacdPCtNr9vIePJ3N7j/N07moAxJVG+fXg3+pukjr7SDeoa
-	 AAUSzaXa87XJwW8ASxTXeT7QlKvRVegWd+iwesEmamF5chHJQGjnZ8gFRFeKGqRB8Dw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795596473;
-	h=DMARC-Filter:X-RZG-CLASS-ID:DKIM-Signature:DKIM-Signature:X-RZG-AUTH:
-	 Received:Content-Type:Content-Transfer-Encoding:From:Mime-Version:
-	 Subject:Date:Message-Id:References:Cc:In-Reply-To:To:X-Mailer;
-	bh=y6BbzlK8NdBBNAbrElRiB7RKI8gHjkVAy6G5abVQ5oU=;
-	b=sm0rG7ja6q1KwE4CoZpkAyRGi/476soDg65lRNi6o91HcN0JTQE6DiT/JvmgqkzbPerR
-	 zQbtsy04cp2lZUQgaF4U5aIaMbuhSgbVMOPvSpf54MpSCcRAlFnUyZfjl4Sffm8fbNe4r
-	 y/zsnWFp/y9/3RlHwZOyn2tnQmLR6jzdN+Zvv+E3To5mP9D7vcHGtwmXn6QwZczg/qIzE
-	 dRLMHNn2sJg9GHKOF3tzXchLQq3r4cP74Ggd3sDkvEHlYT6nN1f0gmPIsOoy6LdEJX8Jy
-	 JVPk/KWLSMmCbz5yrd6AeD15O/rACVaPEISqBs8BM52oiRSJQcZjMp6rNrRKMZM91cA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=xenosoft.de;
-	spf=none smtp.mailfrom=xenosoft.de;
-	dkim=pass header.d=xenosoft.de header.i=@xenosoft.de header.a=rsa-sha256 header.s=strato-dkim-0002 header.b=EJ3ahorb;
-	dkim=pass header.d=xenosoft.de header.i=@xenosoft.de header.a=ed25519-sha256 header.s=strato-dkim-0003 header.b=pID2Alma;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=85.215.255.52
-Received: from mo4-p01-ob.smtp.rzone.de (mo4-p01-ob.smtp.rzone.de [85.215.255.52])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.130
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795596474;
+	b=3O7hxHH3sc3F6g3kx5bI9OjU4dLpsk4upeTeEbfqS0aTRTQII81Te8qKRFwDZ/hKhqQe
+	 QIA3BCp8N+CPTnFkXddym49ZQ3aa5tI8zzBOTWGL0e3sD4HHrC9TrzYPbRIruEvsYxxBc
+	 pbgBpDliFapRpSMm6Bh2Z2vwwOO+XiZCMP5EYcBjHlD1rdX4S/boq1PbQjB+hp2jVWDZu
+	 CkptBj8zE4/0OdIfd3q+thljiwQh7NmsQvelcE2K9ODNUZuwLdh/RnU+zzvVGitliow6d
+	 5oDJqjSExjQ7eNnQD85adUR4F53ITLcHfdSJlIA4BSMa43W5nh2Du2spclPFpoBz3WA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795596474;
+	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
+	 DKIM-Signature:Received:Received:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To:X-Spam-Flag:X-Spam-Level:X-Spamd-Result:X-Spam-Score;
+	bh=WLw5iSLUAmy5ESjmbTA6ThiW5AF9rDmQb0R0/WJ6aCs=;
+	b=Y0dShPuusIhpNOUnvKwFuE2p/wQhTwKADJexhb0SMhhjumWtxTmTaqpKLQeF/31+VPfl
+	 M809BhDlMZJ6Rxx8iHi9Rm8YuZiUB8aNLvm1hepp/5ctr7D06QlEEmYDPQOzAbtyFjjFK
+	 KRnCIHWLNv0oerpEJgMm2UjBHPmz9izfTT3QAPu1hKHmt+U3TE+7qKk4Nyui8QC6EcEo/
+	 Do8OrsGKR3BG5uxZdXC2mJnDhay41r5C0h1V55F5kpExlKosnstmSnkCkQ219suzQ8TXY
+	 FWcuZLURZ217Jkht/nrvMoqjMaNJekUJGdTYY6DUIP+6YBp+qyOxi+egYQG7DZF1Mfw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=none header.from=suse.cz;
+	spf=pass smtp.mailfrom=suse.cz;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=xWfccdjs;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=OO3e4siu;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b="G5/pHpGg";
+	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=uThUAfA+;
+	arc=none smtp.remote-ip=195.135.223.130
+Received: from smtp-out1.suse.de (smtp-out1.suse.de [195.135.223.130])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B99E4606A323
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:47:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B99E4606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=xenosoft.de
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=xenosoft.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A4354606A327;
+	Wed, 25 Nov 2026 08:47:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A4354606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=suse.cz
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.cz
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=xenosoft.de header.i=@xenosoft.de header.a=rsa-sha256 header.s=strato-dkim-0002 header.b=EJ3ahorb;
-	dkim=pass header.d=xenosoft.de header.i=@xenosoft.de header.a=ed25519-sha256 header.s=strato-dkim-0003 header.b=pID2Alma
-ARC-Seal: i=1; a=rsa-sha256; t=1795596425; cv=none;
-    d=strato.com; s=strato-dkim-0002;
-    b=m5ssfWSEVIoE+WyH+PakpfTqHJbKYQ2zjX+hI3dokizD7o6Rflok9EWOeYd257wMUe
-    JGVOO5UEKi/alZRaL/IH7fdwtK+ki5bovrrRmwmxH7sfp9l4HG0C171C2wLCwvgl6dWF
-    5YJPXxJR+x0XFUfVoRqr/sxB1VbNl3tAA4mXaRauHaUImL9/OdfG11Z7shbhdlj9f0NE
-    UwHjkJ/1JnYqGKpMmEjI4PNXUkEEJ95EDLkc0dbDlv2O1I6NoMXXvfEdYeG6s2AqtqST
-    KNrDhuMBJXlg+vXYqbn5LeuwwMTKvFJMJNQbxbkE7rjIIY9+CubJBNWSSh6hqNJL9pN9
-    6GIg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; t=1795596425;
-    s=strato-dkim-0002; d=strato.com;
-    h=To:In-Reply-To:Cc:References:Message-Id:Date:Subject:From:Cc:Date:
-    From:Subject:Sender;
-    bh=y6BbzlK8NdBBNAbrElRiB7RKI8gHjkVAy6G5abVQ5oU=;
-    b=TtLPaS+S178OwbAncT0XBYrpgam3UV8QVxH3xyGzXOZAtg2tYEJsAATBt+bEtFjITn
-    SYL/oi+qwEL3qdaHR1hfwBmA47nzDe0qTprR7wm7sEeFKpIgOhnDG1A2wrjvWUxdMabU
-    JyRI7fXGALlRVT7u2yZHIwD46ZnOVmuNxnMQQ8zdO6xLSk9A6y+42P1Hk3Kfoit/T2jf
-    nZpS0Zpo69KraqLFFzBTXimI35fVpuLlY1r8NGt9R6km3qQLMDTjNFVt09VrjLBBjDQn
-    lwYmZQ/s4+w0r11TfAIXuTXFmc2tP1E6k49HwZaN5sge1+S1qeV5VUiKcVMs5ZeKE06S
-    5Rcw==
-ARC-Authentication-Results: i=1; strato.com;
-    arc=none;
-    dkim=none
-X-RZG-CLASS-ID: mo01
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; t=1795596425;
-    s=strato-dkim-0002; d=xenosoft.de;
-    h=To:In-Reply-To:Cc:References:Message-Id:Date:Subject:From:Cc:Date:
-    From:Subject:Sender;
-    bh=y6BbzlK8NdBBNAbrElRiB7RKI8gHjkVAy6G5abVQ5oU=;
-    b=EJ3ahorbtxLr0BmzAmdeRCcLvK/OObl9suXMA3yDIpya1bkfELnc1KSOCjMe5o+Qqq
-    jwGKR0ldyi+X8rh/51Wv8zhFiM1QH0AewO/AykJ4t8t92wLSm3AKLh22tcDxQ1UtMlXh
-    aOHuI7xekmzlQhtpsL+5cbdTFHGbV9+OLETxbbcB+GMTGEnnqdpfmCzU/DZM1P4lv3Al
-    TJy1SSZKq9Xh3GQ0z1NHElWnZo+DqDumr7SdtyS+IOJs0fLEIs25rhLjU2Cb8/Q1jz26
-    ce6PJkS+2oNWYgHsM2kSgkXStdyOQqOfvykxbbJoms4jHy6YIMzydv0X+IEaRGygsme5
-    kGXw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; t=1795596425;
-    s=strato-dkim-0003; d=xenosoft.de;
-    h=To:In-Reply-To:Cc:References:Message-Id:Date:Subject:From:Cc:Date:
-    From:Subject:Sender;
-    bh=y6BbzlK8NdBBNAbrElRiB7RKI8gHjkVAy6G5abVQ5oU=;
-    b=pID2AlmakioHFpmXvycscfLkLq3XIOg95vLkOoFhrTS81CJCmAzpdyWw8fyn2EytGT
-    i3P+XFqkBrIpbpKgA+BA==
-X-RZG-AUTH: ":L2QefEenb+UdBJSdRCXu93KJ1bmSGnhMdmOod1DhGN0rBVhd9dFr6KxrfO5Oh7V7X5mzs3mRC3wE2YFOCcU01WtcQwPmgG2z3vC42vs="
-Received: from smtpclient.apple
-    by smtp.strato.de (RZmta 55.6.3 AUTH)
-    with ESMTPSA id e825d92AP8l4eQ5
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256 bits))
-	(Client did not present a certificate);
-    Wed, 25 Nov 2026 09:47:04 +0100 (CET)
-Content-Type: text/plain; charset=us-ascii
-Content-Transfer-Encoding: quoted-printable
-From: Christian Zigotzky <chzigotzky@xenosoft.de>
+	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=xWfccdjs;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=OO3e4siu;
+	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=G5/pHpGg;
+	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=uThUAfA+
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id BA8D221F6C;
+	Wed, 25 Nov 2026 08:47:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1795596465; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=WLw5iSLUAmy5ESjmbTA6ThiW5AF9rDmQb0R0/WJ6aCs=;
+	b=xWfccdjs+1brj5kF+U2+aXs2cxkUEyD9UIBRARlzVvl9saKhVrlGVeG2182x+XRHh74x4L
+	30ISI2+aHO20dRWdE5nYT7+NRhq0mYp8xn9klblBfquFqjIwNfnnZuxyxjGaW4tqecXeGt
+	WzDf6SwJBfcMUEHQhMU7A+wf52Seuso=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1795596465;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=WLw5iSLUAmy5ESjmbTA6ThiW5AF9rDmQb0R0/WJ6aCs=;
+	b=OO3e4siu057blVR7oduuGttVRQ6uVbk+AYp0GveOXc/5mOKgZ2gVhEscpe/X8sc4cmWVPx
+	11du91yR2QjGURAQ==
+Authentication-Results: smtp-out1.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1795596463; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=WLw5iSLUAmy5ESjmbTA6ThiW5AF9rDmQb0R0/WJ6aCs=;
+	b=G5/pHpGgJ+KX/BAPyqrfkORLpvZZ2w2sPOsdSr9Aa6d/S0BTaAsj041hgU6q8Xx7Es/HO4
+	vCWtNLkkgWw69gT3KFSZkNdF4TImelbmEdC00v6oGMOc5Mhe2eGGphFvBf5ZxMVhq2WwUS
+	/kZAgJWDINutbQZW2YZaZV5zvw8ht9A=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1795596463;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=WLw5iSLUAmy5ESjmbTA6ThiW5AF9rDmQb0R0/WJ6aCs=;
+	b=uThUAfA+mQDqsC3uBXC/kZ6qobt/aiXkG2wPdqYaV56ahkHKu4SUllbMGqyh6QdYUxnTHe
+	76GoEn2qMIcPHnCA==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 90A7F134CA;
+	Wed, 25 Nov 2026 08:47:43 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id 0yVvG6+gBmvGfQAAD6G6ig
+	(envelope-from <jack@suse.cz>); Wed, 25 Nov 2026 08:47:43 +0000
+Received: by quack.suse.cz (Postfix, from userid 1000)
+	id 2440E27BBD; Wed, 25 Nov 2026 09:47:39 +0100 (CET)
+Date: Wed, 25 Nov 2026 09:47:39 +0100
+From: Jan Kara <jack@suse.cz>
+To: Pedro Falcato <pfalcato@suse.de>
+Cc: David Hildenbrand <david@kernel.org>, 
+	Andrew Morton <akpm@linux-foundation.org>, Zi Yan <ziy@nvidia.com>, 
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>, Jan Kara <jack@suse.cz>, Lorenzo Stoakes <ljs@kernel.org>, 
+	John Hubbard <jhubbard@nvidia.com>, Peter Xu <peterx@redhat.com>, 
+	Johannes Weiner <hannes@cmpxchg.org>, linux-ext4@vger.kernel.org, linux-nfs@vger.kernel.org, 
+	"Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
+	Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
+	Michal Hocko <mhocko@suse.com>, Baolin Wang <baolin.wang@linux.alibaba.com>, 
+	Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, 
+	Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>, 
+	Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>, linux-mm@kvack.org, 
+	linux-kernel@vger.kernel.org, Kairui Song <kasong@tencent.com>, Qi Zheng <qi.zheng@linux.dev>, 
+	Shakeel Butt <shakeel.butt@linux.dev>, Axel Rasmussen <axelrasmussen@google.com>, 
+	Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>, Baoquan He <baoquan.he@linux.dev>, 
+	Michal Hocko <mhocko@kernel.org>, linux-fsdevel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH RFC 5/5] mm/filemap: refuse releasing maybe_dma_pinned
+ folios
+Message-ID: <fsmnfotflgrddrlak24cve7vkcjkellsgb3xbei5ysxvmqnul6@byvxblm4dtqm>
+References: <20261119-gup-dirty-what-v1-0-236d69f25c24@suse.de>
+ <20261119-gup-dirty-what-v1-5-236d69f25c24@suse.de>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,39 +123,86 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0 (1.0)
-Subject: Re: [PREEMPT] Kernel panic - not syncing: stack-protector: Kernel stack is corrupted
-Date: Wed, 25 Nov 2026 09:46:53 +0100
-Message-Id: <EEB13352-2FD9-4169-B709-FF7822AA591F@xenosoft.de>
-References: <D0ECD6B8-7F15-48C8-87A4-DFE5F35A42D8@xenosoft.de>
-Cc: Ritesh Harjani <ritesh.list@gmail.com>,
- Narayana Murty N <nnmlinux@linux.ibm.com>, maddy@linux.ibm.com,
- linuxppc-dev@lists.ozlabs.org, mpe@ellerman.id.au, npiggin@gmail.com,
- christophe.leroy@csgroup.eu, linux-kernel@vger.kernel.org, msuchanek@suse.de,
- harshpb@linux.ibm.com, gautam@linux.ibm.com, amachhiw@linux.ibm.com,
- venkat88@linux.ibm.com, "R.T.Dickinson" <rtd2@xtra.co.nz>,
- mad skateman <madskateman@gmail.com>,
- Damien Stewart <hypexed@yahoo.com.au>,
- Christian Zigotzky <info@xenosoft.de>
-In-Reply-To: <D0ECD6B8-7F15-48C8-87A4-DFE5F35A42D8@xenosoft.de>
-To: Shrikanth Hegde <sshegde@linux.ibm.com>
-X-Mailer: iPhone Mail (24B156)
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261119-gup-dirty-what-v1-5-236d69f25c24@suse.de>
+X-Spam-Flag: NO
+X-Spam-Level: 
+X-Spamd-Result: default: False [-12.80 / 50.00];
+	SUSE_INTERNAL_BYPASS(-9.00)[];
+	BAYES_HAM(-3.00)[100.00%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	MID_RHS_NOT_FQDN(0.50)[];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MISSING_XM_UA(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	TO_DN_SOME(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[37];
+	ARC_NA(0.00)[];
+	RCVD_COUNT_THREE(0.00)[3];
+	R_RATELIMIT(0.00)[to_ip_from(RLc5chj8mdhigtayhgqted7wkp)];
+	FROM_EQ_ENVFROM(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
+	RCVD_TLS_LAST(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:email,suse.com:email,imap1.dmz-prg2.suse.org:helo,suse.cz:email]
+X-Spam-Score: -12.80
 
-On 06 November 2026 at 07:09 am, Shrikanth Hegde wrote:
+On Thu 19-11-26 20:10:48, Pedro Falcato wrote:
+> Some callers, like folio_unmap_invalidate(), call filemap_release_folio()
+> without any care for folio refcounts. This is on purpose. As
+> folio_unmap_invalidate() states, invalidate_inode_pages2() needs stronger
+> guarantees, and "can't afford to leave folios behind because
+> shrink_folio_list() has a temp ref on them". Ok.
+> 
+> Use folio_maybe_dma_pinned() universally, in filemap_release_folio(). This
+> has a much lower false positive rate, and should be ok enough for most
+> serious cases.
+> 
+> While here, properly assert that no folio passed to release_folio is
+> mapped.
+> 
+> Cc: stable@vger.kernel.org
+> Fixes: d824ec2a1546 ("mm: do not reclaim private data from pinned page")
+> Signed-off-by: Pedro Falcato <pfalcato@suse.de>
 
-Hi Christian.
+Looks good to me. Feel free to add:
 
-We had one known issue which michal had brought up.
-Do you have tracing enabled or running a bpf/bcc program?
+Reviewed-by: Jan Kara <jack@suse.cz>
 
-- - -
+and we'll see whether there's some path which actually required private
+data on pinned page to be freed in some cornercase :)
 
-Yes, we have BPF and Tracing activated in the kernel config.
+								Honza
 
-Nemo kernel config: https://github.com/chzigotzky/kernels/blob/main/configs/=
-x1000_defconfig
-
-Edit: I have deactivated tracing
-
-Link: https://github.com/chzigotzky/kernels/releases/tag/v7.4.0-rc4-3=
-
+> ---
+>  mm/filemap.c | 3 +++
+>  1 file changed, 3 insertions(+)
+> 
+> diff --git a/mm/filemap.c b/mm/filemap.c
+> index f9e34144c53c..4fa75663b7f3 100644
+> --- a/mm/filemap.c
+> +++ b/mm/filemap.c
+> @@ -4571,8 +4571,11 @@ bool filemap_release_folio(struct folio *folio, gfp_t gfp)
+>  	struct address_space * const mapping = folio->mapping;
+>  
+>  	BUG_ON(!folio_test_locked(folio));
+> +	VM_WARN_ON_FOLIO(folio_mapped(folio), folio);
+>  	if (!folio_needs_release(folio))
+>  		return true;
+> +	if (folio_maybe_dma_pinned(folio))
+> +		return false;
+>  	if (folio_test_writeback(folio))
+>  		return false;
+>  
+> 
+> -- 
+> 2.56.1
+> 
+-- 
+Jan Kara <jack@suse.com>
+SUSE Labs, CR
