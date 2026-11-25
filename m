@@ -1,49 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.178
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795612341;
-	b=XwV04Sa4tYhirIVVIChdN4z7vNxARJ8GrETdG0CMh1cjvFGuI4u36Tu/RDuz6LYeR39s
-	 ytRsGwKGFNAlh6as3MjsV0eAP8ot7blv/CpsE2eqOuHTBj5CqPStEV81RirmgMreRvrEt
-	 VFf03vJaQQ1Si1ai0uLC0IdqI0BJMjeujGVtU8AGMgqzpUc1Pjiidmju2jyDk+G+f0Dj3
-	 kNaZumUZaBJ758kpynIbFfevYuSpIf+FqTRd047P+ma6YUIP34jdsWcnijT6TJ5p+j4aX
-	 1I7t4CFyZNN1SEQWgjauPhYtXLDfvE0mI9KAlfjk18spKrPQgfkR4YAl9B2XXGZL8vw==
+	t=1795612350;
+	b=oFd5s42hxcniS2rkOj47xEibJlzjCdqw2RMtkPd+/zMPYQwZQp6KyoQCpD8fWPIiNttu
+	 +ZbQrKDkFydltLRQftjWbddXmey0IMfTJ6xNeM8lHJa+Hx8oBla3+YwCOm3ulbrU7WSh2
+	 sxZ/rHUVYPI4ZES05rp67u98qyERE0IGKEhg/nj1DFY6QqctJ6dAtWwReQpmCDkqiFRMu
+	 C8RD4NQQTUO5PLP0+sXILYH44riLBrKCK+NUeVDOFFMV+Xo3oYvIBirbQAAvmi/2fYwF4
+	 DVGUx9ktrWSkqG/h/IV5YRVo5oCiS/2PAqfJF92/rtvsXRVOs2TfSBrQyXWi8vncSzA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795612341;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=aVLTDwFYWlqCWizPHhyCpymH+pYWjeFCqRXH0aPZ1ds=;
-	b=qg6K+YHeYHadSHGt1+LZul+fUuoJkXEdWOSWrdXwxdx6bzzSCtQ8zeT2rWTTMO1gqPgp
-	 jpn8izV2CjEyk8LCFOypFE8+bKsXfu3j7H5lI107ETpdJgd/V9vzNlSnaFMObxRakNnBu
-	 nb+hLlhcSer/Wg3KYaSj3pdaZWR9CAPzrm1biKNzyGil3a1j+3MTwJDLhAu5Bw9HDEMpa
-	 sKDS+vFANaGgRXJp3KIhanxtXb1OmqpdBO6JKf/tWBHeKwg2dR/0o2rjWKnNsIRTmIChV
-	 U2GbCxleyxvgza2o17o97BDRaJ68trBvtBjjl4QoNr900hxJyFTmtLGkRJeDOirP2yQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795612350;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:Date:Subject:In-Reply-To:References:To:Cc:Message-ID:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=UvrRlNwsml3xyPKp+kC1AP2uPPMG8CifNGrPGhS5eEI=;
+	b=u3L1JTQIVmCWri5G3+hIMPOOnj10H4y1ap8ikkJve6WDU9xQqxkZ4qPEeu4+/1B0xJBT
+	 FkccHMOxeD4DQeBkLQv/N58KDzk4A9x55Umr++d232TqQV7UENnUotf6iO/Tr7ExAqhuU
+	 OmCNBoLeRHsu5pO8Cxg2KmWfE6vSnRdw5AnKDanlyEeGW6raqkc1J9C1TISS8kVBXfEA+
+	 IshW2NSxMUXa6xr5mqybui0V+vPBhYzZW0baHAfcIUvcBZOCQwny7kOE9RKUD9M4GuR9J
+	 AG/z5O4NRFZZyGaKu66L7Ht7CvseCFbaB4s+z69Geto064XTHhiBGV6U/zJ3FhTwtzw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=KUp8PjMC;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 49018606A329
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 13:12:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 49018606A329
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nNbG6lhM;
+	arc=none smtp.remote-ip=209.85.160.178
+Received: from mail-qt1-f178.google.com (mail-qt1-f178.google.com [209.85.160.178])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C453D606A334
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 13:12:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C453D606A334
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=KUp8PjMC
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8E24C2F;
-	Wed, 25 Nov 2026 05:12:16 -0800 (PST)
-Received: from [10.0.154.42] (e121487-lin.cambridge.arm.com [10.0.154.42])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9C8183F86F;
-	Wed, 25 Nov 2026 05:12:18 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795612339; bh=mW1ACO0Drqr0fPnzZSDbL9SOfYPnPyiIuS9DX+azukI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=KUp8PjMCDPoQxQ62nO0fBsjF0DPNeoGM0+ahMPpMfct/8y0r0+q4zzUubji9QLlOm
-	 s0Bi8L9qbYi/ZMEcxVeXvWkTpd/pD2Xu5eaSs4qtfvgHF74Wuy92CIik8TtW87WSIr
-	 c3jrU5gyQImjU8wUsxwaTYBeYfUc3MGtrtdNZJhs=
-Message-ID: <2f02f0b1-73b0-48ef-995a-b844bacefac2@arm.com>
-Date: Wed, 25 Nov 2026 13:12:16 +0000
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nNbG6lhM
+Received: by mail-qt1-f178.google.com with SMTP id d75a77b69052e-5364d86f7f0so60501441cf.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 05:12:29 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795612349; x=1796217149; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:message-id:cc:to:references
+         :in-reply-to:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=UvrRlNwsml3xyPKp+kC1AP2uPPMG8CifNGrPGhS5eEI=;
+        b=nNbG6lhMNlg9s3RxRiJNbZFCcJfSZu9DNa7mYpBntzBscZz1jH+GJVdRxODmIBn/XH
+         9T3QeSZ0dBdrShV+5UTQlvRJDGWmaSFgwPG8xaK78m9+1IsZbQZh8uwdbPQRLpLbeQ4O
+         xVf9SGqpPHCiDraZ/vP2iJjFbnzcI39gmq/x2WCzCnLx8mO2lMKqvHamXx7lbVYnXZLk
+         hcuvxmVxfNp9NbLMuVJ3iDg3B8wRXBSTMgQwkQF6CqLuXOfDj+xbdovSj5yUEFllih75
+         XhL6PeZGqPIxDJiSVo3a5v8EE/vrplOfFcWFgb30mkGU9pUBVGKlZqSfFrPBsPBaAqh7
+         Z59g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795612349; x=1796217149;
+        h=content-transfer-encoding:content-type:message-id:cc:to:references
+         :in-reply-to:subject:date:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=UvrRlNwsml3xyPKp+kC1AP2uPPMG8CifNGrPGhS5eEI=;
+        b=CDOYRxgJ+NVC5KbfPRFh1O9GAE/Hq+Nj7sMvRwBrpt0dNLSdB6wXAOi5AIGocF2Zz8
+         skEheA1rEaqrYxuuU0X08cWGIcVqYpwQ4DdKMaROGHoje+z2T39YkgyoHxaxYbiF82AF
+         mRoDRn9sNiH917Sf1bpeBwRefyU7FO+KSpBFNKcP9DA/X+U54949NNY+k4U9gReQTInS
+         HS3Qjfh1Q1Hv0aaVy93j1t0ruCuK+wZ3Zlsp4d+/yiAYHnh2cPJZ9wkhWeQRa1jDmPRq
+         iHbfE6PL+oylgczBrXFkYn/9lUz4ehUoAsk9fZnF2Ps5Jv9gU9kelOf95gIocXRvjQT6
+         cmlw==
+X-Forwarded-Encrypted: i=1; AL+hErH777K0J1/EvxSP/jV4BDr9WTOZAdd/yJJLy0+QsTvYzkcCbESPFRF6JDws/BuHGHVBUWjO/6aMHI7iJno=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+EMC0SstGSapDJJeKX5i+KMhPi50upb8zLgQ/6W77IyIsiyUad
+	sSVt+H5+wuUEvIHtKk3KHKgU83b0B9t2DS1Iw0JT32m34Ka+QZ6YG3A=
+X-Gm-Gg: AZFdTZfUymddAAlUCERJIA3g+KNp64jl71JX+FPMZ1/IcxOjtR8i+z9I+xmhNGZa8AQ
+	Jt6WDo3wOl6otKYh7GG7Vq0cE1Cubl7XqZ2aYkZVCSeeC/9Hz3Xmc416YgkBqn2SGPwffBedP6X
+	i9XyE9ZJYERV4rkBRV0bLA6MyYQTJre4VYf+9eZGB3A/S9YeMc4+rHGeo8qqWeg6ervzdIJzj9/
+	PzSAGvlLASUxtziU3MQUyXMg7f21MK120bWcYNZgHS1/LTlwfUUB3AWQWcwSb6Bpsps9b2xxOy0
+	kaw4ApmdTjokehVwPkk07Psdhv4G7m5nYzFaRi2FQl7ImtcOZKHX1JxvEKIvvDeu7umGYSpPulb
+	OS+zWawp6Z3sEJxVyrj/RmQthDCcfbJ/19HGK+Yr5cHfYOXWQETbMjiSQakNYIIwdOMb3KHUpSa
+	lIG/ulGkPIUQiDdFWSEkeKgG0wdebPo5T6iTuOvcQmf0XNuZCE/Dnzz0b5fHa99BCISnWPIvKJw
+	n/xTRv55GQxQafVtC1sgbxI+h7ES4cpFuqEkcYnebNCl+5kh5EyyjiPVwRelljuRc1u/HoI9ugn
+	hlP/9cqRykRLPuFDxEiWREvjuslx9ftS2fII4PxVLi8q9gGhnbDFEC3AF3vYjY9VihTL9hcPbj2
+	U6DWAmAJhcwo66DSNkSYUUNlZ6u3wGH+CLQ65NZlDbULghr3wvJuQVLuUIO2HRhAce4DZJFc=
+X-Received: by 2002:a05:622a:34f:b0:55d:3695:c1b8 with SMTP id d75a77b69052e-55d768a24f3mr359297361cf.11.1795612348580;
+        Wed, 25 Nov 2026 05:12:28 -0800 (PST)
+Received: from [127.0.1.1] (207-237-119-98.s2383.c3-0.nyr-cbr1.nyr.ny.cable.rcncustomer.com. [207.237.119.98])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-55d7889f8b6sm155981971cf.28.2026.11.25.05.12.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 05:12:27 -0800 (PST)
+From: Eugenio Zuccarelli <eugenio.zuccarelli@gmail.com>
+Date: Wed, 25 Nov 2026 13:12:21 -0000
+Subject: [PATCH v3] Documentation: kunit: document --summary and --failed
+ options
+In-Reply-To: <179561234149.225312.4673144866194884043@gmail.com>
+References: <179558107134.36587.13120861622026385297@gmail.com>
+ <179561234149.225312.4673144866194884043@gmail.com>
+To: david@davidgow.net, brendan.higgins@linux.dev, corbet@lwn.net
+Cc: danielmaraboo@gmail.com, raemoar63@gmail.com, skhan@linuxfoundation.org,
+ rdunlap@infradead.org, linux-kselftest@vger.kernel.org,
+ kunit-dev@googlegroups.com, workflows@vger.kernel.org,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
+Message-ID: <179561234149.225312.11200387441465771003@gmail.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -52,115 +102,56 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/5] ARM: NOMMU: pmsa-v7: Do not probe the region order on
- M-class
-To: Brad Hawthorne <brad@sim.vu>, linux@armlinux.org.uk,
- linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-References: <20261125025757.1159931-1-brad@sim.vu>
- <20261125025757.1159931-2-brad@sim.vu>
-Content-Language: en-GB
-From: Vladimir Murzin <vladimir.murzin@arm.com>
-In-Reply-To: <20261125025757.1159931-2-brad@sim.vu>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
 
-On 11/25/26 02:57, Brad Hawthorne wrote:
-> __mpu_min_region_order() finds the minimum region size by writing
-> 0xFFFFFFFC to the region base register and reading it back. That
-> works on R-class, where the low bits are reserved. On M-class,
-> MPU_RBAR bits [4:0] are VALID and REGION, so the write selects region
-> 12, which an MPU with fewer than 13 regions does not have. QEMU
-> (mps2-an385, 8 regions) logs "MPU region out of range 12/8", the
-> read-back is 0, every RAM region fails, and the kernel panics:
-> 
->   Kernel panic - not syncing: MPU region initialization failure! -12
-> 
-> Region 12 is outside the permitted values on hardware too. If the write
-> lands, the read-back returns the current region number in bits [3:0]
-> (MPU_RBAR, Cortex-M3 Devices Generic User Guide), so the probe returns
-> order 2 instead of 5. Nothing checks against that, so the bug can go
-> unseen there.
-> 
-> On M-class the minimum region size is fixed at 32 bytes, so return
-> that order without probing.
-> 
-> Tested under QEMU (mps2-an385): the kernel now sets up the MPU and
-> reaches user space. Not tested on PMSAv7 hardware.
-> 
-> This patch was written with an AI coding assistant (Claude Opus 5.5,
-> Anthropic): it found the bug in review, wrote the fix, the QEMU tests
-> and this changelog, and ran them; I reviewed the reasoning and the test
-> results.
-> 
-> Fixes: 9fcb01a9f54c ("ARM: 8711/1: V7M: Add support for MPU to M-class")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Brad Hawthorne <brad@sim.vu>
-> ---
->  arch/arm/mm/pmsa-v7.c | 4 ++++
->  1 file changed, 4 insertions(+)
-> 
-> diff --git a/arch/arm/mm/pmsa-v7.c b/arch/arm/mm/pmsa-v7.c
-> index 59d916ccdf25..a20a43867210 100644
-> --- a/arch/arm/mm/pmsa-v7.c
-> +++ b/arch/arm/mm/pmsa-v7.c
-> @@ -341,6 +341,10 @@ static int __init __mpu_min_region_order(void)
->  {
->  	u32 drbar_result, irbar_result;
->  
-> +	/* On M-class, writing MPU_RBAR selects a region; the minimum is 32 bytes */
-> +	if (IS_ENABLED(CONFIG_CPU_V7M))
-> +		return 5;
-> +
->  	/* We've kept a region free for this probing */
->  	rgnr_write(PMSAv7_PROBE_REGION);
->  	isb();
-> -- 2.43.0
+Commit 062a9dd9bad7 ("kunit: tool: Only print the summary") and commit
+3c67a2c09b3c ("kunit: tool: print failed tests only") added the --summary
+and --failed options to kunit.py, but the matching entries in the
+run_wrapper documentation were never added.
 
-Well, minimum is not the same as implemented. I still prefer
-architected discovery:
+Add descriptions for both options next to the other output options, so
+the documentation lists the arguments the tool actually accepts.
 
-| Software can find the minimum size of region supported by an
-| MPU region by writing all ones to MPU_RBAR[31:5] for that
-| region, and then reading the register to find the value saved
-| to bits[31:5]. The number of trailing zeros in this bit field
-| indicates the minimum supported alignment and therefore the
-| supported region size.
+An LLM-based coding assistant helped draft these entries; I checked them
+against kunit.py and kunit_parser.py.
 
-Which can be done with something like below (untested):
+Reviewed-by: Daniel Pereira <danielmaraboo@gmail.com>
+Reviewed-by: David Gow <david@davidgow.net>
+Signed-off-by: Eugenio Zuccarelli <eugenio.zuccarelli@gmail.com>
+---
+Changes in v3:
+- Reworded both entries per David's suggestions: say what the summary
+  contains, and that --failed hides passed and skipped tests.
 
-diff --git a/arch/arm/mm/pmsa-v7.c b/arch/arm/mm/pmsa-v7.c
-index 59d916ccdf25..b746a4e6f9fa 100644
---- a/arch/arm/mm/pmsa-v7.c
-+++ b/arch/arm/mm/pmsa-v7.c
-@@ -340,20 +340,21 @@ static int __init mpu_iside_independent(void)
- static int __init __mpu_min_region_order(void)
- {
-        u32 drbar_result, irbar_result;
-+       u32 mask = IS_ENABLED(CONFIG_CPU_V7M) ? GENMASK(31, 5) : GENMASK(31, 2);
+Changes in v2:
+- Moved the tool disclosure into the changelog text; the Assisted-by
+  trailer is no longer described in Documentation/process.
 
-        /* We've kept a region free for this probing */
-        rgnr_write(PMSAv7_PROBE_REGION);
-        isb();
-        /*
--        * As per ARM ARM, write 0xFFFFFFFC to DRBAR to find the minimum
-+        * As per ARM ARM, write 'mask' to DRBAR to find the minimum
-         * region order
-        */
--       drbar_write(0xFFFFFFFC);
-+       drbar_write(mask);
-        drbar_result = irbar_result = drbar_read();
-        drbar_write(0x0);
-        /* If the MPU is non-unified, we use the larger of the two minima*/
-        if (mpu_iside_independent()) {
--               irbar_write(0xFFFFFFFC);
-+               irbar_write(mask);
-                irbar_result = irbar_read();
-                irbar_write(0x0);
-        }
+ Documentation/dev-tools/kunit/run_wrapper.rst | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
-Cheers
-Vladimir
+diff --git a/Documentation/dev-tools/kunit/run_wrapper.rst b/Documentation/dev-tools/kunit/run_wrapper.rst
+index cecc110..9e0d83d 100644
+--- a/Documentation/dev-tools/kunit/run_wrapper.rst
++++ b/Documentation/dev-tools/kunit/run_wrapper.rst
+@@ -327,6 +327,15 @@ command line arguments:
+ - ``--junit``: If set, stores the test results in JUnit XML format and prints to `stdout` or
+   saves to a file if a filename is specified.
+ 
++- ``--summary``: If set, prints only the summary of the test results,
++  including the number of tests run and how many failed, rather than the
++  result of every individual test. Does nothing if ``--raw_output`` is set.
++
++- ``--failed``: If set, prints only the tests that failed or crashed,
++  along with the summary line, once all tests have run. Passed and skipped
++  tests are not printed, which makes failures easier to spot in a large
++  run. Does nothing if ``--raw_output`` is set.
++
+ - ``--filter``: Specifies filters on test attributes, for example, ``speed!=slow``.
+   Multiple filters can be used by wrapping input in quotes and separating filters
+   by commas. Example: ``--filter "speed>slow, module=example"``.
+
+base-commit: c03c1a14507dfaf8b856c2608f9ac216021fc222
+-- 
+2.34.1
+
 
