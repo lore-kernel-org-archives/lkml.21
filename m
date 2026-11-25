@@ -1,85 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=60.244.123.138
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.69
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795587402;
-	b=Fb2VEgBhVfVklJewO84PEIqEqmGmK/PTMGP4YUPjftTMK5CjDvj4/FDEw+ZfbCeRThrM
-	 LFxje9alxfs3jgJ1W7rvH9h5a3bBXFO1o9/RD0+uNeI3j6aAVd57dzuU14TzAIDpS+nRg
-	 YdQogFwGySUiGzGTZ2korOXcxNYZ83yBFaoY5Bx40XI/90q3QgO2TRZ5hQypSaB9p5DPY
-	 7gC1CPCBSlbGNe7xgJonyFfoDd1ivYc4kw5d+mQjmg+V3RLf9P57HGitoqAaS9IXPOY6P
-	 gli57sQ8gRPBDLwyzVNbwjTwfnU9HojJ9NZT7qYPpSQ2uM/jJ3J1iHQ7NT9wYR729tg==
+	t=1795587407;
+	b=HscOaGh8KEK2k0n1S5CqLoHnCfBwlOEa4FDMLMjid017kteYu7zwK+mQdMgDRpHwYpty
+	 vqvCv4km00vSlTb/5YQE8lHFGApPbuf7r9X2I7wagjHDRZTfXSk21376dQJc7yHLPrsum
+	 YQJAOflQOyuEenZCdBlxqgkapx4motWorRNudAe6fcyvy5NGsTCJIx7BDpWCpB55OAqdK
+	 zzhdyHbDDZ+ewj1LrqbcpDgP3L+MKiTMPe8vO9MctAEWRjpUrKBT0J2a4LAEmYwMzjXv2
+	 O8jeYJtun20+GaRCAt230zI4mcvqVs6JEfhbusudPPxMw/CaflxjOGSQmBvxNjWE1Bw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795587402;
-	h=DMARC-Filter:X-UUID:DKIM-Signature:X-CID-P-RULE:X-CID-O-INFO:
-	 X-CID-META:X-CID-BVR:X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:Received:
-	 Received:Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:
-	 Content-Type:X-MTK;
-	bh=Ggz/hOB4oT6vaGvZDxMSzl9tH3MYkZDp3h2aemOtZhg=;
-	b=s0rG7Kk6LFcnsilhkG1m+FeBs9ynLPr3NoTNg2YLWNTqdXsP4wMsvZII8ZzwrII57owt
-	 1lXqC7pB8LHHl1yS89yAaVH2JMgUgIY+6DDTpkQQP9sVwOtp0aYkwKa/I/ULfTTwZ7a6R
-	 K5lxdYlkCmXMjxBypbgALxWDrFZ3+8WclRmeDhJGoeb7lqsua8kRkXx5vBBzXrrAWmtQ1
-	 oMGxe5+w5x/LRPVxtKHSLum1fE217UiZaoLxk+QyunbcZINa9XETaorC+EPOjLaGLjsHx
-	 PqE1K77v8sslT++uoyJEIQ99TvjZMsSCL41nwtlAR/zksTpdomKWx3XXtVvoDcyBwzg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795587407;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Received:Date:In-Reply-To:Mime-Version:
+	 References:X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=opbvbiqLtMKnZidmW1akDPMoAVRaFGJF5QXg9EIzgwM=;
+	b=E4qjk2fujnRAQ4d8a3Ubf91lhu1lc0mBSrYzD/05TJc97afHlhV/uTgn/8OcW/uaBSeI
+	 X8oIqW3uhqQt+itPVFEqPrp0xOO8B9pSftAe2ENdG4Vfewag4g19feZsK630X/GtdqGD0
+	 z1EtJwMQ1nKH2XuQmljSvAwt/OikqKlEpMBjAQkEjsTDK1FOj5K+7g7Nc+702QCFj/F5P
+	 noK2GLJy99AvL9lcl2YvScUcs/1v1tp5hgwSoqQcij7zbZCl3kOYbLydJkgZ74D4dVIYg
+	 wGZwG7B1cwG01FUUJ+cFHgRACQwgFGaxtipc8emJpbJlY4PHijmQISaTTYshmNpY2IQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=mediatek.com;
-	spf=pass smtp.mailfrom=mediatek.com;
-	dkim=pass header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=Isqm5US7;
-	arc=none smtp.remote-ip=60.244.123.138
-Received: from mailgw01.mediatek.com (unknown [60.244.123.138])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=LWmlWqMW;
+	arc=none smtp.remote-ip=209.85.210.69
+Received: from mail-ot1-f69.google.com (mail-ot1-f69.google.com [209.85.210.69])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 36166606D6F2;
-	Wed, 25 Nov 2026 06:16:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 36166606D6F2
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mediatek.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mediatek.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DD18E606D337
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 06:16:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DD18E606D337
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=Isqm5US7
-X-UUID: c4960b9ee89711f1b1788b6acf885367-20261125
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=Ggz/hOB4oT6vaGvZDxMSzl9tH3MYkZDp3h2aemOtZhg=;
-	b=Isqm5US7iPQ0x4LJYUHZ0KarOPwzpkM3YaEhocuCUVNwn0e8xt7CfiLK6A3KuyPGQfu0JQShQHlowCc6CF4MQ0A425fNp23k3ODWfzJ0uy3r1P/1iVsDUkjXD1yZL60MystdJo+yTzEEIGewyJiTMgXjC7L7Eh8GKL01QbQOE9c=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.21,REQID:494bc932-2548-4c5c-9a75-e333204401df,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:b0318ac,CLOUDID:eabc081a-ae4c-4a2b-b1c4-72e411efd0c9,B
-	ulkID:nil,BulkQuantity:0,SF:81|82|102|836|865|888|898,TC:-5,Content:0|15|5
-	0|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0
-	,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: c4960b9ee89711f1b1788b6acf885367-20261125
-Received: from mtkmbs11n2.mediatek.inc [(172.21.101.187)] by mailgw01.mediatek.com
-	(envelope-from <kyrie.wu@mediatek.com>)
-	(Generic MTA with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1552753997; Wed, 25 Nov 2026 14:16:36 +0800
-Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
- mtkmbs11n2.mediatek.inc (172.21.101.187) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Wed, 25 Nov 2026 14:16:35 +0800
-Received: from gcnsap21.gcn.mediatek.inc (10.17.81.22) by
- mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.2562.56 via Frontend Transport; Wed, 25 Nov 2026 14:16:34 +0800
-From: Kyrie Wu <kyrie.wu@mediatek.com>
-To: Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Bin Liu <bin.liu@mediatek.com>,
-	kyrie wu <kyrie.wu@mediatek.corp-partner.google.com>, Hans Verkuil
-	<hverkuil@kernel.org>, irui wang <irui.wang@mediatek.com>, Nicolas Dufresne
-	<nicolas.dufresne@collabora.com>, <linux-media@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
-CC: Kyrie Wu <kyrie.wu@mediatek.com>
-Subject: [PATCH v20 14/15] media: mediatek: jpeg: add jpeg compatible
-Date: Wed, 25 Nov 2026 14:16:17 +0800
-Message-ID: <20261125061618.2544386-15-kyrie.wu@mediatek.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261125061618.2544386-1-kyrie.wu@mediatek.com>
-References: <20261125061618.2544386-1-kyrie.wu@mediatek.com>
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=LWmlWqMW
+Received: by mail-ot1-f69.google.com with SMTP id 46e09a7af769-86303784a96so3269288a34.1
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 22:16:46 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795587406; x=1796192206; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=opbvbiqLtMKnZidmW1akDPMoAVRaFGJF5QXg9EIzgwM=;
+        b=LWmlWqMW+uxHY9+EczXzMUqXcrnugfr6VwrSzE8xI7UgzP8lFmyNrIeCdBYYcwnY9s
+         +ejldJJI3KEoVdKxHB+kl0NoLQz09cLdb9KE2Uz1HvLyBvAMMDPT/hmfAmSlm8F5JToh
+         dYCVG9+etwW7qMNA0tz58xWoKnA7IUGHdvkCM4jmpQ87HGk1W2Pf67yQpQ6oKX39ivN8
+         fDZhMdQ9ayVtZXLHiRlTFbAU/LId6gvSEwjUJBAlwgBWyetijA8avc7deHdOp1GoYF4J
+         pYIlNixQtVbQGyaLbbm7KDiYX8koJu276mSfrsqE49IAuso33nDyJLjmrnWKPef8nlf/
+         fnOQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795587406; x=1796192206;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=opbvbiqLtMKnZidmW1akDPMoAVRaFGJF5QXg9EIzgwM=;
+        b=zN5qKGH2NSIFSi3B9vbzQgPv3J4cqTYn1mcHCiypE5sBc/TTAoI/s1npRF0tfcOXnA
+         gixmgHt8vktSVHuOT/R5XCWBinKmjnnn2U2HZ9XPHJcQFcdIbE0x+mxQ86ak7MWci7K1
+         FcSHF/dcjIYY2s9B9ujLOgAjr/bgZ74SA52TUOqshl/NK4NI/sm8+2doNHKgKtJYx5WD
+         KqYpih7aDfzDxP0904khZTFO7L8Pga0/XvJhNNYbo4BdmSE5SCGgiPBTWvOEPX34kTrb
+         ajD4LuF7qSmmcP/hGe4khs8oyxPv3fyg2nxCEPWZmgCxf5SigLCEGtoFr2RyhCwxSFD9
+         MfmQ==
+X-Gm-Message-State: APuU4Z+H7XbDqI0C/+ks9MOjUu5oCOBseMMzNwn+wG+JaO94Zc88vflc
+	OGVs77X2pNSvruI997zqUdTz52WticyI6HwdEu/s/u+UgHUEUxyE5nwziU2Ew0Bl8C+XZbZLher
+	LLGTasMZ08jUAAyAUDqwus+2hPjmXRnvbT8lliy9iAw5yT9czvyV9Ce3GdyIOo0dCfn/gToCOrw
+	cP7HBdlp7/72aerQ4MPZ4knwXLDvv2ngawBkz6WcpPa6u/SbvI0A==
+X-Received: from oigu20-n1.prod.google.com ([2002:a05:6809:5d4:10b0:4f5:740:2bcf])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6808:319b:b0:4f5:eaac:5173
+ with SMTP id 5614622812f47-57a0b84fa3dmr15864618b6e.57.1795587405164; Tue, 24
+ Nov 2026 22:16:45 -0800 (PST)
+Date: Tue, 24 Nov 2026 22:15:17 -0800
+In-Reply-To: <20261125061523.1540234-1-irogers@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -88,111 +77,241 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
+Mime-Version: 1.0
+References: <20261125061523.1540234-1-irogers@google.com>
+X-Mailer: git-send-email 2.56.1.831.g720f3f5937-goog
+Message-ID: <20261125061523.1540234-25-irogers@google.com>
+Subject: [RFC PATCH v2 24/30] tools headers: Add linux/unwind_dwarf_cfi.h copy
+ from the kernel sources
+From: Ian Rogers <irogers@google.com>
+To: linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org, 
+	linux-arch@vger.kernel.org
+Cc: jpoimboe@kernel.org, rostedt@goodmis.org, peterz@infradead.org, 
+	mingo@redhat.com, tglx@kernel.org, bp@alien8.de, dave.hansen@linux.intel.com, 
+	x86@kernel.org, catalin.marinas@arm.com, will@kernel.org, 
+	mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, pjw@kernel.org, 
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, 
+	linux-riscv@lists.infradead.org, acme@kernel.org, namhyung@kernel.org, 
+	linux-perf-users@vger.kernel.org, mhiramat@kernel.org, ast@kernel.org, 
+	daniel@iogearbox.net, andrii@kernel.org, bpf@vger.kernel.org, 
+	nathan@kernel.org, llvm@lists.linux.dev, nsc@kernel.org, 
+	linux-kbuild@vger.kernel.org, ojeda@kernel.org, 
+	rust-for-linux@vger.kernel.org, ardb@kernel.org, linux-efi@vger.kernel.org, 
+	maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, shuah@kernel.org, 
+	linux-kselftest@vger.kernel.org, indu.bhagat@oracle.com, jremus@linux.ibm.com, 
+	wnliu@google.com, dylanbhatch@google.com, Ian Rogers <irogers@google.com>
+Content-Type: text/plain; charset="UTF-8"
 
-Add jpeg dec and enc compatible for mt8196
+Copy include/linux/unwind_dwarf_cfi.h to
+tools/include/linux/unwind_dwarf_cfi.h for host unwinding verification
+tools under tools/, and add it to tools/perf/check-headers.sh.
 
-Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
-Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- .../platform/mediatek/jpeg/mtk_jpeg_core.c    | 36 +++++++++++++++++++
- .../platform/mediatek/jpeg/mtk_jpeg_dec_hw.c  |  3 ++
- .../platform/mediatek/jpeg/mtk_jpeg_enc_hw.c  |  3 ++
- 3 files changed, 42 insertions(+)
+ tools/include/linux/unwind_dwarf_cfi.h | 181 +++++++++++++++++++++++++
+ tools/perf/check-headers.sh            |   1 +
+ 2 files changed, 182 insertions(+)
+ create mode 100644 tools/include/linux/unwind_dwarf_cfi.h
 
-diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-index 7e4fd36dd..31a0fbc07 100644
---- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-+++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-@@ -1971,6 +1971,20 @@ static struct mtk_jpeg_variant mtk8195_jpegenc_drvdata = {
- 	.jpeg_worker = mtk_jpegenc_worker,
- };
- 
-+static struct mtk_jpeg_variant mtk8196_jpegenc_drvdata = {
-+	.formats = mtk_jpeg_enc_formats,
-+	.num_formats = MTK_JPEG_ENC_NUM_FORMATS,
-+	.qops = &mtk_jpeg_enc_qops,
-+	.m2m_ops = &mtk_jpeg_multicore_enc_m2m_ops,
-+	.dev_name = "mtk-jpeg-enc",
-+	.ioctl_ops = &mtk_jpeg_enc_ioctl_ops,
-+	.out_q_default_fourcc = V4L2_PIX_FMT_YUYV,
-+	.cap_q_default_fourcc = V4L2_PIX_FMT_JPEG,
-+	.multi_core = true,
-+	.jpeg_worker = mtk_jpegenc_worker,
-+	.support_34bit = true,
+diff --git a/tools/include/linux/unwind_dwarf_cfi.h b/tools/include/linux/unwind_dwarf_cfi.h
+new file mode 100644
+index 000000000000..3530794c8543
+--- /dev/null
++++ b/tools/include/linux/unwind_dwarf_cfi.h
+@@ -0,0 +1,181 @@
++/* SPDX-License-Identifier: GPL-2.0-only OR MIT */
++#ifndef _LINUX_UNWIND_DWARF_CFI_H
++#define _LINUX_UNWIND_DWARF_CFI_H
++
++#include <linux/types.h>
++
++/*
++ * Minimal DWARF Call Frame Information (CFI) unwinder subset.
++ *
++ * Evaluates a strictly bounded, non-Turing-complete subset of .eh_frame and
++ * .eh_frame_hdr tables matching SFrame's stack-unwinding state model (plus
++ * fixed-pattern DRAP stack-realignment and signal-frame expressions):
++ *  - Advances PC monotonically through a single FDE (no backward jumps)
++ *  - Tracks CFA = (SP | FP | scratch) + cfa_off or *(FP/SP + cfa_off)
++ *  - Tracks stack save offsets for SP, FP, and RA (ignoring callee-saved GPR
++ *    spills)
++ *  - Rejects general DWARF expressions, register-to-register rules on SP/FP/RA,
++ *    and DW_EH_PE_indirect FDE/table pointer encodings (skipping CIE
++ *    personality and LSDA fields without dereferencing).
++ */
++
++/* Hard safety bounds enforced on CIE/FDE lengths, offsets, and state stack */
++#define DWARF_CFI_MAX_CIE_LEN		128U
++#define DWARF_CFI_MAX_FDE_LEN		4096U
++#define DWARF_CFI_MAX_CIE_DELTA		(64U * 1024U * 1024U)
++#define DWARF_CFI_MAX_FDE_COUNT		(4U * 1024U * 1024U)
++#define DWARF_CFI_MAX_STATE_STACK	4U
++
++/**
++ * enum dwarf_cfi_base - Base register or addressing mode for computing the CFA
++ * @DWARF_CFI_BASE_UNDEFINED: CFA rule has not been established yet.
++ * @DWARF_CFI_BASE_SP: CFA = stack pointer + cfa_off.
++ * @DWARF_CFI_BASE_FP: CFA = frame pointer + cfa_off.
++ * @DWARF_CFI_BASE_FP_INDIRECT: DRAP stack realignment: CFA = *(FP + cfa_off).
++ * @DWARF_CFI_BASE_SP_INDIRECT: Signal trampoline frame: CFA = *(SP + cfa_off).
++ * @DWARF_CFI_BASE_REG: Transient prologue/epilogue scratch register:
++ *                      CFA = reg(cfa_reg) + cfa_off.
++ */
++enum dwarf_cfi_base {
++	DWARF_CFI_BASE_UNDEFINED = 0,
++	DWARF_CFI_BASE_SP,
++	DWARF_CFI_BASE_FP,
++	DWARF_CFI_BASE_FP_INDIRECT,
++	DWARF_CFI_BASE_SP_INDIRECT,
++	DWARF_CFI_BASE_REG,
 +};
 +
- static const struct mtk_jpeg_variant mtk8195_jpegdec_drvdata = {
- 	.formats = mtk_jpeg_dec_formats,
- 	.num_formats = MTK_JPEG_DEC_NUM_FORMATS,
-@@ -1984,6 +1998,20 @@ static const struct mtk_jpeg_variant mtk8195_jpegdec_drvdata = {
- 	.jpeg_worker = mtk_jpegdec_worker,
- };
- 
-+static const struct mtk_jpeg_variant mtk8196_jpegdec_drvdata = {
-+	.formats = mtk_jpeg_dec_formats,
-+	.num_formats = MTK_JPEG_DEC_NUM_FORMATS,
-+	.qops = &mtk_jpeg_dec_qops,
-+	.m2m_ops = &mtk_jpeg_multicore_dec_m2m_ops,
-+	.dev_name = "mtk-jpeg-dec",
-+	.ioctl_ops = &mtk_jpeg_dec_ioctl_ops,
-+	.out_q_default_fourcc = V4L2_PIX_FMT_JPEG,
-+	.cap_q_default_fourcc = V4L2_PIX_FMT_YUV420M,
-+	.multi_core = true,
-+	.jpeg_worker = mtk_jpegdec_worker,
-+	.support_34bit = true,
++/**
++ * enum dwarf_cfi_rule - Recovery rule for caller's SP, FP, or return address
++ * @DWARF_CFI_RULE_SAME: Register retains its value from the current frame
++ *                       (or defaults to CFA for SP).
++ * @DWARF_CFI_RULE_OFFSET: Saved on the stack at *(CFA + off).
++ * @DWARF_CFI_RULE_FP_OFFSET: Saved relative to FP at *(FP + off) (DRAP frame).
++ * @DWARF_CFI_RULE_SP_OFFSET: Saved relative to SP at *(SP + off) (sigframe).
++ * @DWARF_CFI_RULE_UNDEFINED: Explicitly undefined (DW_CFA_undefined); marks
++ *                            the bottom of a stack (e.g. _start or clone).
++ */
++enum dwarf_cfi_rule {
++	DWARF_CFI_RULE_SAME = 0,
++	DWARF_CFI_RULE_OFFSET,
++	DWARF_CFI_RULE_FP_OFFSET,
++	DWARF_CFI_RULE_SP_OFFSET,
++	DWARF_CFI_RULE_UNDEFINED,
 +};
 +
- static const struct of_device_id mtk_jpeg_match[] = {
- 	{
- 		.compatible = "mediatek,mt8173-jpgdec",
-@@ -2013,6 +2041,14 @@ static const struct of_device_id mtk_jpeg_match[] = {
- 		.compatible = "mediatek,mt8195-jpgdec",
- 		.data = &mtk8195_jpegdec_drvdata,
- 	},
-+	{
-+		.compatible = "mediatek,mt8196-jpgenc",
-+		.data = &mtk8196_jpegenc_drvdata,
-+	},
-+	{
-+		.compatible = "mediatek,mt8196-jpgdec",
-+		.data = &mtk8196_jpegdec_drvdata,
-+	},
- 	{},
- };
- 
-diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c
-index 0ce798d35..6b636ec63 100644
---- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c
-+++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c
-@@ -45,6 +45,9 @@ static const struct of_device_id mtk_jpegdec_hw_ids[] = {
- 	{
- 		.compatible = "mediatek,mt8195-jpgdec-hw",
- 	},
-+	{
-+		.compatible = "mediatek,mt8196-jpgdec-hw",
-+	},
- 	{},
- };
- MODULE_DEVICE_TABLE(of, mtk_jpegdec_hw_ids);
-diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c
-index d6ecaeec2..c2de272d7 100644
---- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c
-+++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c
-@@ -51,6 +51,9 @@ static const struct of_device_id mtk_jpegenc_drv_ids[] = {
- 	{
- 		.compatible = "mediatek,mt8195-jpgenc-hw",
- 	},
-+	{
-+		.compatible = "mediatek,mt8196-jpgenc-hw",
-+	},
- 	{},
- };
- MODULE_DEVICE_TABLE(of, mtk_jpegenc_drv_ids);
++/**
++ * struct dwarf_cfi_arch - Architecture DWARF register numbers and word size
++ * @ws: Target address/word size in bytes (4 or 8).
++ * @sp_reg: DWARF register number for the stack pointer.
++ * @fp_reg: DWARF register number for the frame pointer.
++ * @ra_reg: Default DWARF return-address column number.
++ */
++struct dwarf_cfi_arch {
++	u8 ws;
++	u8 sp_reg;
++	u8 fp_reg;
++	u8 ra_reg;
++};
++
++/**
++ * struct dwarf_cfi_row - Evaluated Minimal DWARF unwind state at a target PC
++ * @cfa_off: Byte offset added to the CFA base register before or as the CFA.
++ * @sp_off: Byte offset used to load the saved SP when @sp_rule is an offset.
++ * @fp_off: Byte offset used to load the saved FP when @fp_rule is an offset.
++ * @ra_off: Byte offset used to load the saved RA when @ra_rule is an offset.
++ * @cfa_base: CFA computation mode (&enum dwarf_cfi_base).
++ * @cfa_reg: DWARF register number when @cfa_base is %DWARF_CFI_BASE_REG.
++ * @sp_rule: Recovery rule for the stack pointer (&enum dwarf_cfi_rule;
++ *           %DWARF_CFI_RULE_SAME indicates caller SP equals CFA).
++ * @fp_rule: Recovery rule for the frame pointer (&enum dwarf_cfi_rule).
++ * @ra_rule: Recovery rule for the return address (&enum dwarf_cfi_rule).
++ * @signal: True if the CIE carries the 'S' signal/interrupt frame augmentation,
++ *          indicating that the saved PC points directly to the interrupted
++ *          instruction rather than after a call instruction.
++ * @ra_signed: True on AArch64 when DW_CFA_AARCH64_negate_ra_state indicates
++ *             that the saved return address carries a PAC signature.
++ */
++struct dwarf_cfi_row {
++	s32 cfa_off;
++	s32 sp_off;
++	s32 fp_off;
++	s32 ra_off;
++	u8 cfa_base;
++	u8 cfa_reg;
++	u8 sp_rule;
++	u8 fp_rule;
++	u8 ra_rule;
++	bool signal;
++	bool ra_signed;
++};
++
++/**
++ * struct eh_frame_hdr_entry - Binary-search index entry for an FDE
++ * @start_off: Signed 32-bit offset from the table base (or entry field) to the
++ *             FDE's initial PC location.
++ * @fde_off: Signed 32-bit offset from the table base (or entry field) to the
++ *           start of the FDE record in .eh_frame.
++ */
++struct eh_frame_hdr_entry {
++	s32 start_off;
++	s32 fde_off;
++};
++
++#ifdef CONFIG_UNWIND_DWARF_CFI
++
++extern const u8 __start_eh_frame_hdr[];
++extern const u8 __stop_eh_frame_hdr[];
++extern const u8 __start_eh_frame[];
++extern const u8 __stop_eh_frame[];
++
++int dwarf_cfi_eval_fde_kmem(const u8 *fde, const u8 *eh_start,
++			    const u8 *eh_end, unsigned long pc,
++			    const struct dwarf_cfi_arch *arch,
++			    struct dwarf_cfi_row *out_row);
++
++int dwarf_cfi_unwind_eh_frame_hdr(const u8 *hdr, size_t hdr_size,
++				  const u8 *eh_start, const u8 *eh_end,
++				  unsigned long pc,
++				  const struct dwarf_cfi_arch *arch,
++				  struct dwarf_cfi_row *out_row);
++
++int dwarf_cfi_scan_eh_frame_kmem(const u8 *eh_start, size_t eh_size,
++				 const struct dwarf_cfi_arch *arch,
++				 unsigned long base_addr,
++				 struct eh_frame_hdr_entry *entries,
++				 unsigned int max_entries,
++				 unsigned int *out_count);
++
++int dwarf_cfi_unwind_user_eh_frame_hdr(unsigned long hdr_uaddr,
++				       size_t hdr_size, unsigned long pc,
++				       const struct dwarf_cfi_arch *arch,
++				       struct dwarf_cfi_row *out_row);
++
++#if defined(CONFIG_UNWINDER_DWARF_CFI) && defined(CONFIG_MODULES)
++/**
++ * struct mod_dwarf_cfi_index - Sorted FDE lookup table for a loadable module
++ * @num_fdes: Number of sorted FDE index entries in @entries.
++ * @eh_frame: Pointer to the module's in-memory SHF_ALLOC .eh_frame section;
++ *            also serves as the base address for @entries offsets.
++ * @eh_frame_size: Size in bytes of the module's .eh_frame section.
++ * @entries: Sorted binary-search table mapping PCs to module FDEs.
++ */
++struct mod_dwarf_cfi_index {
++	unsigned int num_fdes;
++	const u8 *eh_frame;
++	size_t eh_frame_size;
++	struct eh_frame_hdr_entry entries[] __counted_by(num_fdes);
++};
++
++struct mod_dwarf_cfi_index *dwarf_cfi_mod_alloc(const void *eh_frame,
++						size_t eh_frame_size,
++						const struct dwarf_cfi_arch *arch);
++void dwarf_cfi_mod_free_rcu(struct mod_dwarf_cfi_index *idx);
++int dwarf_cfi_mod_eval(const struct mod_dwarf_cfi_index *idx, unsigned long ip,
++		       const struct dwarf_cfi_arch *arch,
++		       struct dwarf_cfi_row *out_row);
++#endif
++
++#endif /* CONFIG_UNWIND_DWARF_CFI */
++
++#endif /* _LINUX_UNWIND_DWARF_CFI_H */
+diff --git a/tools/perf/check-headers.sh b/tools/perf/check-headers.sh
+index 3e684c851a86..1b1bd04a6690 100755
+--- a/tools/perf/check-headers.sh
++++ b/tools/perf/check-headers.sh
+@@ -30,6 +30,7 @@ declare -a FILES=(
+   "include/linux/hash.h"
+   "include/linux/kmsan-checks.h"
+   "include/linux/list-sort.h"
++  "include/linux/unwind_dwarf_cfi.h"
+   "include/uapi/linux/hw_breakpoint.h"
+   "arch/x86/include/asm/cpufeatures.h"
+   "arch/x86/include/asm/inat_types.h"
 -- 
-2.51.0.windows.2
+2.56.1.831.g720f3f5937-goog
 
