@@ -1,58 +1,39 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.47.186.116
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795621580;
-	b=IWtRtpEv87Vd6+O1HVniaLHt6QsRKyv5NLWEDqc/morcsA15nMz5jSrfWX9hLu+cBw3e
-	 Q+4sqcguh6MWZqNkb4D8enmJrRmR1T6mKvxhg96tQyqRWIq0EoDzq0UoXgkPOkoc2rM93
-	 Fm9vqJTlTLMicduqmYKhzz6YC09pkOnvsm1NPuODybfgow9g/xGCt9ftY+h0vYkx1saZX
-	 1nNceLnb1MZdeT8QdLkjWfr5jrhDeLe89zMuAK3YB7ccpnvYUwKt4vYlwQCIyNJxm/Xi3
-	 ChL1JHlbt6x2d6aj1vy8nljhsocpg0rvE51OGhbQdF7KGC/zBDCFmB6/AFEmQZUGqYA==
+	t=1795621585;
+	b=xei4teS9rpREi99MXP79jRYvD+7RSj/1eQltHLztbGH6xwOsE6Hqte9whDLxarItDjIy
+	 NBL0zf77IJz2nuxST2ZXez9GY/nqTweYyzMuoiD0YEYW/lZGuq7+UbGrGAhW9LtOAgwLT
+	 dvrFXLTy2TZkv02LC4jP9AWfiOsQJJTNKhvkrQmblVzegwhae9bxsXLxmEqz2Pzt9EOvU
+	 YUfgpFG9uBuf1TfF4+A5YzK8s74g9zdllAeYM54iBtVyscvgzoYpqAW4+qaIcYkd3PniV
+	 nV6g844svwQTEuJDUpF/0+QpnA4E2z97arIbmeaFPvDGsPVsEIevNI2po7VQ/zADuwg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795621580;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 X-Last-TLS-Session-Version;
-	bh=5M+Y4WoolzAgpLfZyN5TlkHUMbwAipYug+VFIXMqPl0=;
-	b=TUUr7Viq//RVvjF5X0eIGzMOKqDllMTL3Z1Tw2rThy7XvYHpp+qOeeZi/nbyPBgeL71W
-	 FDBbwfCyyHmIX2KW+/LpHy611lwbMUMVDbrnwopsQKNJcnJsBro38B4w/EvkgB6HlNsrE
-	 /yAiL7dMJlgSb+TZrR4pon7cjOoIogFBEU/1uN0y05I6LI56GowXZHRtB4Z0ZqGvnxJ8e
-	 whe8V6neONluIIINg0vh/Ye2AqKwI0yNWmSgg+/x/ImOeqIALxxiJhf818G8kowW2/jnB
-	 DQkEbWX68Ah0pylCpJqz2EDnNLlBtzs/YFoTThrc+xJzgvFHPSKC1Nl3MTGhij8l1Dg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795621585;
+	h=DMARC-Filter:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=drBy3hL6KwxHBhNonmFa34I0uyR+LFO1bY6d8UYU1NI=;
+	b=yLg85TE/mTPgQ0BxqvYz9pvGw46Le0gVr58KYqlG7w8liF6cZElwOwfG9YCthCwir45o
+	 3aByLDi+bxkJVUcooioYxBBdH5rd7fnTVgmQf1Efcs3jCT3fywGRpkQm0yzAMnJuZpg3f
+	 5O4QIo+wDwwL8HzEzjs6doBK9xwAQAzpfrWCDGQc+MgbS7EDVPP2rnNGcPupruYpKRxD0
+	 x88n6WW45j7R3JEStwD/DtHiJ4ZtklXFIzkM+W8B9TJ200HJRhrqglq1wJpQjy0CV35oY
+	 5LxZfCN8q/Cq4RvnCFil5mOlROoCVUhbLvwuDVhxttpsuiiAqGicA8jaFH0ryn531fQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=k2Dt9nmE;
-	arc=none smtp.remote-ip=185.246.85.4
-Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 74C1B606A336
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:46:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 74C1B606A336
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=k2Dt9nmE
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id D4D8D4E41601;
-	Wed, 25 Nov 2026 15:46:18 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 9443B60480;
-	Wed, 25 Nov 2026 15:46:18 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 8750211E6A112;
-	Wed, 25 Nov 2026 16:46:08 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795621573; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=5M+Y4WoolzAgpLfZyN5TlkHUMbwAipYug+VFIXMqPl0=;
-	b=k2Dt9nmE0buK4bYqIChKcV0tgCmwNutYBmzUfMncz5nmqXPDms7CzBAk4lHG7w+AwEWSnq
-	59kSslg/CIxRTi3pP3zP2mUDOnW952toHqPOyIYlYU46yZwRBMRGQ9ky4KtgRex+fa6Q2Q
-	/qRJijNE583eo6zqrkWtf7kbBLG48BaUO7/zVQcmIJjI+QbsQFu5o7F2dBvPDMKo0LEp23
-	aB7SlttQOA1yhF3iabe80jIZnVo/Zziy8gX6LYgkmzvpxzmbQBQV4Wr6UpJ2I3X5UcJSZi
-	juUI05Mv2gDdoPNBxPrPiuFGItbvUfI/IV6QGlq7LAIOdaQCh4NlEN9pC7xXBg==
-Message-ID: <c8551be7-738b-4a0f-9694-5e557a1dd5ec@bootlin.com>
-Date: Wed, 25 Nov 2026 16:46:07 +0100
+	dmarc=pass header.from=krgm.moe;
+	spf=pass smtp.mailfrom=krgm.moe;
+	arc=none smtp.remote-ip=103.47.186.116
+Received: from krgm.moe (krgm.moe [103.47.186.116])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 084DF606A327;
+	Wed, 25 Nov 2026 15:46:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 084DF606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=krgm.moe
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=krgm.moe
+Received: from yuno-laptop.local (unknown [103.47.186.116])
+	by krgm.moe (Postfix) with ESMTPSA id 4DB28859;
+	Wed, 25 Nov 2026 21:16:22 +0530 (IST)
+From: SignKirigami <prcups@krgm.moe>
+Date: Wed, 25 Nov 2026 23:45:47 +0800
+Subject: [PATCH v3 1/2] dt-bindings: interconnect: Add Qualcomm Netrani
+ RPMh interconnect
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,41 +43,301 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 09/12] drm/vkms: add support to non-uniform LUT for
- internal color curves
-To: Leandro Ribeiro <leandro.ribeiro@collabora.com>
-Cc: airlied@gmail.com, alex.hung@amd.com, daniel@fooishbar.org,
- hamohammed.sa@gmail.com, harry.wentland@amd.com,
- maarten.lankhorst@linux.intel.com, melissa.srw@gmail.com,
- mripard@kernel.org, pekka.paalanen@collabora.com,
- robert.mader@collabora.com, simona@ffwll.ch, tzimmermann@suse.de,
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org
-References: <20261106201813.129911-1-leandro.ribeiro@collabora.com>
- <20261106201813.129911-10-leandro.ribeiro@collabora.com>
-From: Louis Chauvet <louis.chauvet@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <20261106201813.129911-10-leandro.ribeiro@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Message-Id: <20261125-netrani-interconnect-v2-v3-1-1136e2cc6e3e@krgm.moe>
+References: <20261125-netrani-interconnect-v2-v3-0-1136e2cc6e3e@krgm.moe>
+In-Reply-To: <20261125-netrani-interconnect-v2-v3-0-1136e2cc6e3e@krgm.moe>
+To: Georgi Djakov <djakov@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, SignKirigami <prcups@krgm.moe>
+Cc: linux-arm-msm@vger.kernel.org, linux-pm@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+X-Mailer: b4 0.15.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=7668; i=prcups@krgm.moe;
+ h=from:subject:message-id; bh=rqSdbwdG7muDa+HRQnpOeBGd01qZ7LvI9VtwR7gxD3I=;
+ b=owEBCQL2/ZANAwAIAUNLJdlxtMKiAcsmYgBrBwLKZkLSGrUkIeR3lANK8sX/+JMerYEYQItEP
+ gL+gqfxOjOJAc8EAAEIADkWIQQKI/ZJLAWGn9r1JLZDSyXZcbTCogUCawcCyhsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMiwyLDIACgkQQ0sl2XG0wqLs5wv/VaG4EjKPNgkR09n5YrKcR6IbcG4fFQB
+ 1+7gj8rTiu+fy4Wqh/0EPdwncX5BJF1Q15slVjlNpX7BOG8Vrud8PpIRZdCyik37iLyJK/Gh2Uj
+ lgKPkXRo9OyVOVx6+a9t7XA/6YwukNQVUsEsNBhwbuTzeOqtJ2UEn02QU7kT5QZ2UYS9hnmYShO
+ FqDh5vW4CD1GndiQhRRGTESFaqZsO/gNE5Y44m580H1M6t8Tv2W9Kw8l0EoDDvpADBWZdFD9l49
+ ZDZN7IfuLhTc06HHT3u1Eb7tkK5qKfFHFWWMXt/nfiRz6u3kZTLVdcZpBBZdDv5VcUEtL0tyANB
+ 6PVSMXEwvFn5GBb83FzR6ByvEe+m4UQ3rlmiZNYjvz+5ujjiNOgBC4+jJictJ/4LTrta3EqxuS9
+ hZGNp7dhGKOjse9D8wQEeLrQ+A15t6fX6oz+Y2QCb9F1RrIl0P+H9aTwITKUpsaY43f5CpM3Ndb
+ vXqlhaEAo17Hk171yU0yN4qUzoZ+f2Y
+X-Developer-Key: i=prcups@krgm.moe; a=openpgp;
+ fpr=0A23F6492C05869FDAF524B6434B25D971B4C2A2
 
+Document the twelve Netrani RPMh interconnect provider compatibles and add
+the interconnect port-ID header used by future DTS consumers. The master
+and slave IDs in that header form part of the devicetree ABI.
 
+Signed-off-by: SignKirigami <prcups@krgm.moe>
+---
+ .../bindings/interconnect/qcom,netrani-rpmh.yaml   |  77 ++++++++++
+ .../dt-bindings/interconnect/qcom,netrani-rpmh.h   | 169 +++++++++++++++++++++
+ 2 files changed, 246 insertions(+)
 
-On 11/6/26 21:18, Leandro Ribeiro wrote:
-> This extends VKMS internal LUT implementation, allowing it to represent
-> non-uniform LUTs.
-> 
-> Such LUTs have the X axis. LUTs that come from userspace (gamma LUT) are
-> always uniform, so they don't have a X axis.
-> 
-> Note: vkms_color_srgb_inv_srgb() error tolerance reduced from 1/255 to
-> 119/65535 ~= 0.46/255. Before this patch, the test compared the results
-> after quantizing them to 8-bit precision, while the updated test
-> compares directly in 16-bit. The LUT precision does not change with this
-> patch.
-> 
-> Reviewed-by: Robert Mader <robert.mader@collabora.com>
-> Tested-by: Robert Mader <robert.mader@collabora.com>
-> Signed-off-by: Leandro Ribeiro <leandro.ribeiro@collabora.com>
-Reviewed-by: Louis Chauvet <louis.chauvet@bootlin.com>
+diff --git a/Documentation/devicetree/bindings/interconnect/qcom,netrani-rpmh.yaml b/Documentation/devicetree/bindings/interconnect/qcom,netrani-rpmh.yaml
+new file mode 100644
+index 000000000..8857d2a67
+--- /dev/null
++++ b/Documentation/devicetree/bindings/interconnect/qcom,netrani-rpmh.yaml
+@@ -0,0 +1,77 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/interconnect/qcom,netrani-rpmh.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Qualcomm RPMh Network-On-Chip Interconnect on Netrani
++
++maintainers:
++  - SignKirigami <prcups@krgm.moe>
++
++description: |
++  RPMh interconnect providers support system bandwidth requirements through
++  RPMh hardware accelerators known as Bus Clock Manager (BCM). The provider is
++  able to communicate with the BCM through the Resource State Coordinator (RSC)
++  associated with each execution environment. Provider nodes must point to at
++  least one RPMh device child node pertaining to their RSC and each provider
++  can map to multiple RPMh resources.
++
++  See also: include/dt-bindings/interconnect/qcom,netrani-rpmh.h
++
++properties:
++  compatible:
++    enum:
++      - qcom,netrani-aggre1-noc
++      - qcom,netrani-aggre2-noc
++      - qcom,netrani-clk-virt
++      - qcom,netrani-cnoc2
++      - qcom,netrani-cnoc3
++      - qcom,netrani-gem-noc
++      - qcom,netrani-lpass-ag-noc
++      - qcom,netrani-mc-virt
++      - qcom,netrani-mmss-noc
++      - qcom,netrani-nsp-noc
++      - qcom,netrani-pcie-anoc
++      - qcom,netrani-system-noc
++
++  reg:
++    maxItems: 1
++
++required:
++  - compatible
++
++allOf:
++  - $ref: qcom,rpmh-common.yaml#
++
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - qcom,netrani-clk-virt
++              - qcom,netrani-mc-virt
++    then:
++      properties:
++        reg: false
++    else:
++      required:
++        - reg
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    interconnect-0 {
++        compatible = "qcom,netrani-clk-virt";
++        #interconnect-cells = <1>;
++        qcom,bcm-voters = <&apps_bcm_voter>;
++    };
++
++    interconnect@16e0000 {
++        compatible = "qcom,netrani-aggre1-noc";
++        reg = <0x016e0000 0x1c080>;
++        #interconnect-cells = <1>;
++        qcom,bcm-voters = <&apps_bcm_voter>;
++    };
++...
+diff --git a/include/dt-bindings/interconnect/qcom,netrani-rpmh.h b/include/dt-bindings/interconnect/qcom,netrani-rpmh.h
+new file mode 100644
+index 000000000..d13573792
+--- /dev/null
++++ b/include/dt-bindings/interconnect/qcom,netrani-rpmh.h
+@@ -0,0 +1,169 @@
++/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
++/*
++ * Copyright (c) 2021, The Linux Foundation. All rights reserved.
++ */
++
++#ifndef __DT_BINDINGS_INTERCONNECT_QCOM_NETRANI_RPMH_H
++#define __DT_BINDINGS_INTERCONNECT_QCOM_NETRANI_RPMH_H
++
++/* AGGRE1 NOC */
++#define MASTER_QSPI_0	0
++#define MASTER_QUP_0	1
++#define MASTER_A1NOC_CFG	2
++#define MASTER_SDCC_1	3
++#define MASTER_UFS_MEM	4
++#define MASTER_USB3_0	5
++#define SLAVE_A1NOC_SNOC	6
++#define SLAVE_SERVICE_A1NOC	7
++
++/* AGGRE2 NOC */
++#define MASTER_QDSS_BAM	0
++#define MASTER_QUP_1	1
++#define MASTER_A2NOC_CFG	2
++#define MASTER_CNOC_A2NOC	3
++#define MASTER_CRYPTO	4
++#define MASTER_IPA	5
++#define MASTER_QDSS_ETR	6
++#define MASTER_QDSS_ETR_1	7
++#define MASTER_SDCC_2	8
++#define SLAVE_A2NOC_SNOC	9
++#define SLAVE_SERVICE_A2NOC	10
++
++/* CLK VIRT */
++#define MASTER_QUP_CORE_0	0
++#define MASTER_QUP_CORE_1	1
++#define SLAVE_QUP_CORE_0	2
++#define SLAVE_QUP_CORE_1	3
++
++/* CNOC2 */
++#define MASTER_CNOC3_CNOC2	0
++#define MASTER_QDSS_DAP	1
++#define SLAVE_AHB2PHY_SOUTH	2
++#define SLAVE_AHB2PHY_NORTH	3
++#define SLAVE_ANOC_THROTTLE_CFG	4
++#define SLAVE_CAMERA_CFG	5
++#define SLAVE_CLK_CTL	6
++#define SLAVE_RBCPR_CX_CFG	7
++#define SLAVE_RBCPR_MX_CFG	8
++#define SLAVE_CRYPTO_0_CFG	9
++#define SLAVE_CX_RDPM	10
++#define SLAVE_DISPLAY_CFG	11
++#define SLAVE_GFX3D_CFG	12
++#define SLAVE_IMEM_CFG	13
++#define SLAVE_IPA_CFG	14
++#define SLAVE_IPC_ROUTER_CFG	15
++#define SLAVE_LPASS	16
++#define SLAVE_CNOC_MSS	17
++#define SLAVE_MX_RDPM	18
++#define SLAVE_PCIE_0_CFG	19
++#define SLAVE_PDM	20
++#define SLAVE_PIMEM_CFG	21
++#define SLAVE_PMU_WRAPPER_CFG	22
++#define SLAVE_PRNG	23
++#define SLAVE_QSPI_0	24
++#define SLAVE_QUP_0	25
++#define SLAVE_QUP_1	26
++#define SLAVE_SDC1	27
++#define SLAVE_SDCC_2	28
++#define SLAVE_TCSR	29
++#define SLAVE_TLMM	30
++#define SLAVE_UFS_MEM_CFG	31
++#define SLAVE_USB3_0	32
++#define SLAVE_VENUS_CFG	33
++#define SLAVE_VSENSE_CTRL_CFG	34
++#define SLAVE_A1NOC_CFG	35
++#define SLAVE_A2NOC_CFG	36
++#define SLAVE_CNOC2_CNOC3	37
++#define SLAVE_CNOC_MNOC_CFG	38
++#define SLAVE_PCIE_ANOC_CFG	39
++#define SLAVE_SNOC_CFG	40
++
++/* CNOC3 */
++#define MASTER_CNOC2_CNOC3	0
++#define MASTER_GEM_NOC_CNOC	1
++#define MASTER_GEM_NOC_PCIE_SNOC	2
++#define SLAVE_AOSS	3
++#define SLAVE_APPSS	4
++#define SLAVE_CDSP_CFG	5
++#define SLAVE_QDSS_CFG	6
++#define SLAVE_TME_CFG	7
++#define SLAVE_WLAN	8
++#define SLAVE_CNOC3_CNOC2	9
++#define SLAVE_CNOC_A2NOC	10
++#define SLAVE_BOOT_IMEM	11
++#define SLAVE_IMEM	12
++#define SLAVE_PIMEM	13
++#define SLAVE_PCIE_0	14
++#define SLAVE_QDSS_STM	15
++#define SLAVE_TCU	16
++
++/* GEM NOC */
++#define MASTER_GPU_TCU	0
++#define MASTER_SYS_TCU	1
++#define MASTER_APPSS_PROC	2
++#define MASTER_GFX3D	3
++#define MASTER_MSS_PROC	4
++#define MASTER_MNOC_HF_MEM_NOC	5
++#define MASTER_MNOC_SF_MEM_NOC	6
++#define MASTER_COMPUTE_NOC	7
++#define MASTER_ANOC_PCIE_GEM_NOC	8
++#define MASTER_SNOC_GC_MEM_NOC	9
++#define MASTER_SNOC_SF_MEM_NOC	10
++#define MASTER_WLAN_Q6	11
++#define SLAVE_GEM_NOC_CNOC	12
++#define SLAVE_LLCC	13
++#define SLAVE_MEM_NOC_PCIE_SNOC	14
++
++/* LPASS AG NOC */
++#define MASTER_CNOC_LPASS_AG_NOC	0
++#define MASTER_LPASS_PROC	1
++#define SLAVE_LPASS_CORE_CFG	2
++#define SLAVE_LPASS_LPI_CFG	3
++#define SLAVE_LPASS_MPU_CFG	4
++#define SLAVE_LPASS_TOP_CFG	5
++#define SLAVE_LPASS_SNOC	6
++#define SLAVE_SERVICES_LPASS_AML_NOC	7
++#define SLAVE_SERVICE_LPASS_AG_NOC	8
++
++/* MC VIRT */
++#define MASTER_LLCC	0
++#define SLAVE_EBI1	1
++
++/* MMSS NOC */
++#define MASTER_CAMNOC_HF	0
++#define MASTER_CAMNOC_ICP	1
++#define MASTER_CAMNOC_SF	2
++#define MASTER_MDP	3
++#define MASTER_CNOC_MNOC_CFG	4
++#define MASTER_VIDEO_P0	5
++#define MASTER_VIDEO_PROC	6
++#define SLAVE_MNOC_HF_MEM_NOC	7
++#define SLAVE_MNOC_SF_MEM_NOC	8
++#define SLAVE_SERVICE_MNOC	9
++
++/* NSP NOC */
++#define MASTER_CDSP_NOC_CFG	0
++#define MASTER_CDSP_PROC	1
++#define SLAVE_CDSP_MEM_NOC	2
++#define SLAVE_SERVICE_NSP_NOC	3
++
++/* PCIE ANOC */
++#define MASTER_PCIE_ANOC_CFG	0
++#define MASTER_PCIE_0	1
++#define SLAVE_ANOC_PCIE_GEM_NOC	2
++#define SLAVE_SERVICE_PCIE_ANOC	3
++
++/* SYSTEM NOC */
++#define MASTER_GIC_AHB	0
++#define MASTER_A1NOC_SNOC	1
++#define MASTER_A2NOC_SNOC	2
++#define MASTER_LPASS_ANOC	3
++#define MASTER_SNOC_CFG	4
++#define MASTER_PIMEM	5
++#define MASTER_TME	6
++#define MASTER_GIC	7
++#define SLAVE_SNOC_GEM_NOC_GC	8
++#define SLAVE_SNOC_GEM_NOC_SF	9
++#define SLAVE_SERVICE_SNOC	10
++
++#endif
+
+-- 
+2.56.0
+
